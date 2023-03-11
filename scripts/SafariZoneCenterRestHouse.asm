@@ -1,0 +1,14 @@
+SafariZoneCenterRestHouse_Script:
+	jp EnableAutoTextBoxDrawing
+
+SafariZoneCenterRestHouse_TextPointers:
+	dw SafariZoneRestHouse1Text1
+	dw SafariZoneRestHouse1Text2
+
+SafariZoneRestHouse1Text1:
+	text_far _SafariZoneRestHouse1Text1
+	text_end
+
+SafariZoneRestHouse1Text2:
+	text_far _SafariZoneRestHouse1Text2
+	text_end
