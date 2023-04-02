@@ -1,9 +1,15 @@
 _TM35PreReceiveText::
-	text "Tch-tch-tch!"
-	line "I made a cool TM!"
+	text "Like, have you,"
+	line "like, seen all"
+	cont "the water that is"
+	cont "around here?"
 
-	para "It can cause all"
-	line "kinds of fun!"
+	para "I mean, we're on"
+	line "an island, so it"
+	cont "is, like, obvious,"
+	cont "but it gave me an"
+	cont "idea for, like,"
+	cont "a powerful TM."
 	prompt
 
 _ReceivedTM35Text::
@@ -14,14 +20,18 @@ _ReceivedTM35Text::
 	text_end
 
 _TM35ExplanationText::
-	text "Tch-tch-tch!"
-	line "That's the sound"
-	cont "of a METRONOME!"
+	text "HYDRO PUMP!"
+	line "It teaches, like,"
+	cont "the most powerful"
+	cont "WATER move, like."
 
-	para "It tweaks your"
-	line "#MON's brain"
-	cont "into using moves"
-	cont "it doesn't know!"
+	para "Someone, like,"
+	line "speculates that,"
+	cont "like, there is an"
+	cont "even stronger move"
+	cont "around, but I,"
+	cont "like, don't really"
+	cont "believe it..."
 	done
 
 _TM35NoRoomText::
@@ -31,7 +41,7 @@ _TM35NoRoomText::
 
 _Lab3Text2::
 	text "EEVEE can evolve"
-	line "into 1 of 3 kinds"
+	line "into 1 of 8 kinds"
 	cont "of #MON."
 	done
 

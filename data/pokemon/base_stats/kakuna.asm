@@ -19,6 +19,3 @@
 
 	db BANK(KakunaPicFront)
 	assert BANK(KakunaPicFront) == BANK(KakunaPicBack)
-
-
-

@@ -778,6 +778,7 @@ StatModifierDownEffect:
 	cp ATTACK_DOWN_SIDE_EFFECT10	; new
 	jr nc, .differentMapping		; new
 	sub ATTACK_DOWN_SIDE_EFFECT 	; map each stat to 0-3
+	jr .decrementStatMod			; new, bug fix!
 .differentMapping					; new
 	sub ATTACK_DOWN_SIDE_EFFECT10 	; new ; map each stat to 0-3
 	jr .decrementStatMod
@@ -1279,12 +1280,12 @@ ChargeMoveEffectText:
 	cp SOLARBEAM
 	ld hl, TookInSunlightText
 	jr z, .gotText
-	cp SKULL_BASH
-	ld hl, LoweredItsHeadText
-	jr z, .gotText
-	cp SKY_ATTACK
-	ld hl, SkyAttackGlowingText
-	jr z, .gotText
+;	cp SKULL_BASH
+;	ld hl, LoweredItsHeadText
+;	jr z, .gotText
+;	cp SKY_ATTACK
+;	ld hl, SkyAttackGlowingText
+;	jr z, .gotText
 	cp FLY
 	ld hl, FlewUpHighText
 	jr z, .gotText
@@ -1301,13 +1302,13 @@ TookInSunlightText:
 	text_far _TookInSunlightText
 	text_end
 
-LoweredItsHeadText:
-	text_far _LoweredItsHeadText
-	text_end
+;LoweredItsHeadText:
+;	text_far _LoweredItsHeadText
+;	text_end
 
-SkyAttackGlowingText:
-	text_far _SkyAttackGlowingText
-	text_end
+;SkyAttackGlowingText:
+;	text_far _SkyAttackGlowingText
+;	text_end
 
 FlewUpHighText:
 	text_far _FlewUpHighText

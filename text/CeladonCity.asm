@@ -48,13 +48,16 @@ _ReceivedTM41Text::
 
 _TM41ExplanationText::
 	text "TM41 teaches"
-	line "SOFTBOILED!"
+	line "BRAVE BIRD!"
 
-	para "Only one #MON"
-	line "can use it!"
+	para "It's an extremely"
+	line "potent FLYING"
+	cont "move!"
 
-	para "That #MON is"
-	line "CHANSEY!"
+	para "Be careful when"
+	line "using it, tho,"
+	cont "because the user"
+	cont "too takes damage!"
 	done
 
 _TM41NoRoomText::

@@ -92,6 +92,11 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const MAX_ETHER     ; $51
 	const ELIXER        ; $52
 	const MAX_ELIXER    ; $53
+	const MEGA_STONE_X  ; new
+	const MEGA_STONE_Y  ; new
+	const SUN_STONE     ; new
+	const ICE_STONE     ; new
+	const REGAL_STONE	; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs
@@ -158,54 +163,54 @@ ENDM
 
 DEF TM01 EQU const_value
 	add_tm MEGA_PUNCH   ; $C9 = TM01
-	add_tm MEGAHORN     ; $CA = TM02, was RAZOR_WIND
+	add_tm MEGAHORN     ; $CA = TM02 , was RAZOR_WIND		- ground item
 	add_tm SWORDS_DANCE ; $CB = TM03
-	add_tm INFESTATION  ; $CC = TM04, was WHIRLWIND
-	add_tm MEGA_KICK    ; $CD = TM05
+	add_tm COUNTER      ; $CC = TM04 , was WHIRLWIND		- ground item
+	add_tm DRAGON_CLAW  ; $CD = TM05 , was MEGA_KICK		- ground item
 	add_tm TOXIC        ; $CE = TM06
-	add_tm HORN_DRILL   ; $CF = TM07
+	add_tm DARK_PULSE   ; $CF = TM07 , was HORN_DRILL		- ground item
 	add_tm BODY_SLAM    ; $D0 = TM08
-	add_tm TAKE_DOWN    ; $D1 = TM09
+	add_tm METEOR_MASH  ; $D1 = TM09 , was TAKE_DOWN		- ground item
 	add_tm DOUBLE_EDGE  ; $D2 = TM10
 	add_tm BUBBLEBEAM   ; $D3 = TM11
-	add_tm WATER_GUN    ; $D4 = TM12
+	add_tm METRONOME    ; $D4 = TM12 , was WATER_GUN		- ground item
 	add_tm ICE_BEAM     ; $D5 = TM13
 	add_tm BLIZZARD     ; $D6 = TM14
 	add_tm HYPER_BEAM   ; $D7 = TM15
-	add_tm PAY_DAY      ; $D8 = TM16
-	add_tm SUBMISSION   ; $D9 = TM17
-	add_tm COUNTER      ; $DA = TM18
+	add_tm MIRROR_COAT  ; $D8 = TM16 , was PAY_DAY			- ground item
+	add_tm DRAININGKISS ; $D9 = TM17 , was SUBMISSION		- ground item
+	add_tm FLASH_CANNON ; $DA = TM18 , was COUNTER (moved)	- receive text edited x
 	add_tm SEISMIC_TOSS ; $DB = TM19
-	add_tm FEINT_ATTACK ; $DC = TM20, was RAGE
-	add_tm MEGA_DRAIN   ; $DD = TM21
-	add_tm SOLARBEAM    ; $DE = TM22
-	add_tm DRAGON_RAGE  ; $DF = TM23
+	add_tm FEINT_ATTACK ; $DC = TM20 , was RAGE				- ground item
+	add_tm GIGA_DRAIN   ; $DD = TM21 , was MEGA_DRAIN		- receive text edited x
+	add_tm STONE_EDGE   ; $DE = TM22 , was SOLARBEAM		- ground item
+	add_tm WILL_O_WISP  ; $DF = TM23 , was DRAGON_RAGE		- casino prize, updated
 	add_tm THUNDERBOLT  ; $E0 = TM24
 	add_tm THUNDER      ; $E1 = TM25
 	add_tm EARTHQUAKE   ; $E2 = TM26
 	add_tm FISSURE      ; $E3 = TM27
 	add_tm DIG          ; $E4 = TM28
 	add_tm PSYCHIC_M    ; $E5 = TM29
-	add_tm TELEPORT     ; $E6 = TM30
+	add_tm MOONBLAST    ; $E6 = TM30 , was TELEPORT			- ground item
 	add_tm MIMIC        ; $E7 = TM31
 	add_tm DOUBLE_TEAM  ; $E8 = TM32
 	add_tm REFLECT      ; $E9 = TM33
 	add_tm BIDE         ; $EA = TM34
-	add_tm METRONOME    ; $EB = TM35
+	add_tm HYDRO_PUMP   ; $EB = TM35 , was METRONOME (moved)- receive text edited x
 	add_tm SELFDESTRUCT ; $EC = TM36
-	add_tm X_SCISSOR    ; $ED = TM37, was EGG_BOMB
+	add_tm CLOSE_COMBAT ; $ED = TM37 , was EGG_BOMB			- ground item
 	add_tm FIRE_BLAST   ; $EE = TM38
-	add_tm SWIFT        ; $EF = TM39
-	add_tm SKULL_BASH   ; $F0 = TM40
-	add_tm SOFTBOILED   ; $F1 = TM41
-	add_tm DREAM_EATER  ; $F2 = TM42
-	add_tm SKY_ATTACK   ; $F3 = TM43
-	add_tm REST         ; $F4 = TM44
+	add_tm SHADOW_SNEAK ; $EF = TM39 , was SWIFT			- receive text edited x
+	add_tm OUTRAGE      ; $F0 = TM40 , was SKULL_BASH		- ground item
+	add_tm BRAVE_BIRD   ; $F1 = TM41 , was SOFTBOILED		- receive text edited x
+	add_tm REST         ; $F2 = TM42 , was DREAM_EATER		- receive text edited x
+	add_tm GUNK_SHOT    ; $F3 = TM43 , was SKY_ATTACK		- ground item
+	add_tm X_SCISSOR    ; $F4 = TM44 , was REST (moved)		- ground item
 	add_tm THUNDER_WAVE ; $F5 = TM45
 	add_tm PSYWAVE      ; $F6 = TM46
 	add_tm EXPLOSION    ; $F7 = TM47
 	add_tm ROCK_SLIDE   ; $F8 = TM48
-	add_tm TRI_ATTACK   ; $F9 = TM49
+	add_tm SHADOW_BALL  ; $F9 = TM49 , was TRI_ATTACK		- receive text edited x
 	add_tm SUBSTITUTE   ; $FA = TM50
 ASSERT NUM_TMS == const_value - TM01, "NUM_TMS ({d:NUM_TMS}) does not match the number of add_tm definitions"
 

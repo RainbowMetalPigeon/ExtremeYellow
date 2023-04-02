@@ -468,12 +468,13 @@ _IntroducePlayerText::
 
 _IntroduceRivalText::
 	text "This is my grand-"
-;	line "son. He's been"
-;	cont "your rival since"
-;	cont "you were a baby."
+;	line "kid. They have"
+;	cont "been your rival"
+;	cont "since you were"
+;	cont "babies."
 
 ;	para "...Erm, what is"
-;	line "his name again?"
+;	line "their name again?"
 	prompt
 
 _OakSpeechText3::
@@ -504,8 +505,9 @@ _YourNameIsText::
 
 _HisNameIsText::
 	text "That's right! I"
-;	line "remember now! His"
-;	cont "name is <RIVAL>!"
+;	line "remember now!"
+;	cont "Their name is"
+;	cont "<RIVAL>!"
 	prompt
 
 _WillBeTradedText::

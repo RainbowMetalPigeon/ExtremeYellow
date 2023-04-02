@@ -3,27 +3,34 @@ MonPartyData:
 	nybble ICON_GRASS     ; Bulbasaur
 	nybble ICON_GRASS     ; Ivysaur
 	nybble ICON_GRASS     ; Venusaur
+	nybble ICON_GRASS     ; MVenusaur
 	nybble ICON_MON       ; Charmander
 	nybble ICON_MON       ; Charmeleon
 	nybble ICON_MON       ; Charizard
+	nybble ICON_MON       ; MCharzardX
+	nybble ICON_MON       ; MCharzardY
 	nybble ICON_WATER     ; Squirtle
 	nybble ICON_WATER     ; Wartortle
 	nybble ICON_WATER     ; Blastoise
+	nybble ICON_WATER     ; MBlastoise
 	nybble ICON_BUG       ; Caterpie
 	nybble ICON_BUG       ; Metapod
 	nybble ICON_BUG       ; Butterfree
 	nybble ICON_BUG       ; Weedle
 	nybble ICON_BUG       ; Kakuna
 	nybble ICON_BUG       ; Beedrill
+	nybble ICON_BUG       ; MBeedrill
 	nybble ICON_BIRD      ; Pidgey
 	nybble ICON_BIRD      ; Pidgeotto
 	nybble ICON_BIRD      ; Pidgeot
+	nybble ICON_BIRD      ; MPidgeot
 	nybble ICON_QUADRUPED ; Rattata
 	nybble ICON_QUADRUPED ; Raticate
 	nybble ICON_BIRD      ; Spearow
 	nybble ICON_BIRD      ; Fearow
 	nybble ICON_SNAKE     ; Ekans
 	nybble ICON_SNAKE     ; Arbok
+	nybble ICON_PIKACHU   ; Pichu
 	nybble ICON_PIKACHU   ; Pikachu
 	nybble ICON_PIKACHU   ; Raichu
 	nybble ICON_MON       ; Sandshrew
@@ -34,6 +41,7 @@ MonPartyData:
 	nybble ICON_MON       ; NidoranM
 	nybble ICON_MON       ; Nidorino
 	nybble ICON_MON       ; Nidoking
+	nybble ICON_FAIRY     ; Cleffa
 	nybble ICON_FAIRY     ; Clefairy
 	nybble ICON_FAIRY     ; Clefable
 	nybble ICON_QUADRUPED ; Vulpix

@@ -1739,6 +1739,17 @@ LoadBattleMonFromParty:
 	ld [hli], a
 	dec b
 	jr nz, .statModLoop
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;shinpokerednote: ADDED: if this is a trainer battle, set the pkmn as being sent out and apply any burn/par stat changes
+	push af
+	ld a, [wIsInBattle]
+	cp 2 ; is it a trainer battle?
+	jr nz, .end_set_sendout
+	call SetAISentOut	;joenote - custom function
+	call ApplyBurnAndParalysisPenaltiesToEnemy
+.end_set_sendout
+	pop af
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ret
 
 ; copies from enemy party data to current enemy mon data when sending out a new enemy mon
@@ -4814,7 +4825,7 @@ CriticalHitTest:
 	call GetMonHeader
 	ld a, [wMonHBaseSpeed]
 	ld b, a
-	srl b                        ; (effective (base speed/2))
+;	srl b                        ; (effective (base speed/2))
 	ldh a, [hWhoseTurn]
 	and a
 	ld hl, wPlayerMovePower
@@ -4828,17 +4839,6 @@ CriticalHitTest:
 	ret z                        ; do nothing if zero
 	dec hl
 	ld c, [hl]                   ; read move id
-	ld a, [de]
-	bit GETTING_PUMPED, a        ; test for focus energy
-	jr nz, .focusEnergyUsed      ; bug: using focus energy causes a shift to the right instead of left,
-	                             ; resulting in 1/4 the usual crit chance
-	sla b                        ; (effective (base speed/2)*2)
-	jr nc, .noFocusEnergyUsed
-	ld b, $ff                    ; cap at 255/256
-	jr .noFocusEnergyUsed
-.focusEnergyUsed
-	srl b
-.noFocusEnergyUsed
 	ld hl, HighCriticalMoves     ; table of high critical hit moves
 .Loop
 	ld a, [hli]                  ; read move from move table
@@ -4846,17 +4846,29 @@ CriticalHitTest:
 	jr z, .HighCritical          ; if so, the move about to be used is a high critical hit ratio move
 	inc a                        ; move on to the next move, FF terminates loop
 	jr nz, .Loop                 ; check the next move in HighCriticalMoves
-	srl b                        ; /2 for regular move (effective (base speed / 2))
+	srl b                        ; /2 for regular move
 	jr .SkipHighCritical         ; continue as a normal move
 .HighCritical
 	sla b                        ; *2 for high critical hit moves
 	jr nc, .noCarry
 	ld b, $ff                    ; cap at 255/256
 .noCarry
-	sla b                        ; *4 for high critical move (effective (base speed/2)*8))
+	sla b                        ; *4 for high critical move
 	jr nc, .SkipHighCritical
 	ld b, $ff
 .SkipHighCritical
+	ld a, [de]
+	bit GETTING_PUMPED, a        ; test for focus energy
+	jr z, .noFocusEnergyUsed
+	sla b                        ; (effective (base speed)*2)
+	jr nc, .focusEnergyUsed
+	ld b, $ff                    ; cap at 255/256
+	jr .noFocusEnergyUsed
+.focusEnergyUsed
+	sla b                        ; (effective ((base speed*2)*2))
+	jr nc, .noFocusEnergyUsed
+	ld b, $ff                    ; cap at 255/256
+.noFocusEnergyUsed
 	call BattleRandom            ; generates a random value, in "a"
 	rlc a
 	rlc a
@@ -6480,7 +6492,54 @@ LoadEnemyMonData:
 	ld b, $0
 	ld hl, wEnemyMonHP
 	push hl
-	; shinpokered shenanigans <--- !!!
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;shinpokerednote: ADDED: assign calculated stat exp to all stats if this is a trainer ai battle
+
+;is this a trainer battle? Wild pkmn do not have statexp
+	ld a, [wIsInBattle]
+	cp $2 ; is it a trainer battle?
+	jr nz, .nottrainer	;not a trainer battle, so hl will continue to point to wEnemyMonHP and b=0 for CalcStats
+
+;this is a trainer battle, so point hl to the HP statExp address of the correct mon in the enemy party data
+	ld hl, wEnemyMon1HPExp	;make hl point to HP statExp of the first enemy party mon
+	ld a, [wWhichPokemon]	;get the party position
+	ld bc, wEnemyMon2 - wEnemyMon1	;get the size to advance between party positions
+	call AddNTimes	;advance the pointer to the correct party position
+	dec hl	;move the pointer back one position so it points at party data wEnemyMon<x>HPExp - 1
+	;save this position to recall it later
+	ld a, h
+	ld [wEnemyStatEXPStore], a
+	ld a, l
+	ld [wEnemyStatEXPStore + 1], a
+
+	;has this pkmn been sent out before? If so, then it already has statExp values
+	call CheckAISentOut
+	jr nz, .noloops
+
+;the pkmn is out for the first time, so give it some statExp
+	push de	;preserve de
+	push hl
+	ld a, $FF	; EY tentative, load max stats
+	ld d, a		; EY tentative, load max stats
+	ld e, a		; EY tentative, load max stats
+	pop hl
+	push hl	;save position for party data wEnemyMon<x>HPExp - 1
+	inc hl ; move hl forward one position to MSB of first stat exp
+	ld b, 5	;load loops into b to loop through the five stats
+.writeStatExp_loop
+	ld a, d	;set some statExp for MSB
+	ld [hli], a		;load MSB and point hl to the LSB position
+	ld a, e	;set some statExp for LSB
+	ld [hli], a		;load LSB and point hl to MSB of next statexp location
+	dec b
+	jr nz, .writeStatExp_loop
+
+	pop hl	;point hl back to the saved position for party data wEnemyMon<x>HPExp - 1
+	pop de	;restore the prior de
+.noloops
+	ld b, 1	;make CalcStats account for statExp and recognize that hl points to wEnemyMon<x>HPExp - 1
+.nottrainer
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	call CalcStats
 	pop hl
 	ld a, [wIsInBattle]
@@ -6508,6 +6567,26 @@ LoadEnemyMonData:
 	ld [wEnemyMonHP], a
 	ld a, [hli]
 	ld [wEnemyMonHP + 1], a
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;shinpokerednote: CHANGED: if this is a trainer battle and it's the first time the pkmn is sent out
+;		   then make sure its current hp = its max hp
+; EY: I still don't exactly get why?
+
+	ld a, [wIsInBattle]
+	cp $2 ; is it a trainer battle?
+	jr nz, .nottrainer2
+
+	;has pkmn already been sent out?
+	call CheckAISentOut
+	jr nz, .nottrainer2
+
+;set hp equal to max hp
+	ld a, [wEnemyMonMaxHP]
+	ld [wEnemyMonHP], a
+	ld a, [wEnemyMonMaxHP+1]
+	ld [wEnemyMonHP + 1], a
+.nottrainer2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ld a, [wWhichPokemon]
 	ld [wEnemyMonPartyPos], a
 	inc hl
@@ -7096,3 +7175,86 @@ PlayMoveAnimation:
 	predef MoveAnimation
 	callfar Func_78e98
 	ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;shinpokerednote: ADDED: custom functions for determining which trainerAI pkmn have already been sent out before
+;a=party position of pkmn (like wWhichPokemon). If checking, zero flag gives bit state (1 means sent out already)
+CheckAISentOut:
+	ld a, [wWhichPokemon]
+	cp $05
+	jr z, .party5
+	cp $04
+	jr z, .party4
+	cp $03
+	jr z, .party3
+	cp $02
+	jr z, .party2
+	cp $01
+	jr z, .party1
+	jr .party0
+.party5
+	ld a, [wAIWhichPokemonSentOutAlready]
+	bit 6, a
+	jr .partyret
+.party4
+	ld a, [wAIWhichPokemonSentOutAlready]
+	bit 5, a
+	jr .partyret
+.party3
+	ld a, [wAIWhichPokemonSentOutAlready]
+	bit 4, a
+	jr .partyret
+.party2
+	ld a, [wAIWhichPokemonSentOutAlready]
+	bit 3, a
+	jr .partyret
+.party1
+	ld a, [wAIWhichPokemonSentOutAlready]
+	bit 2, a
+	jr .partyret
+.party0
+	ld a, [wAIWhichPokemonSentOutAlready]
+	bit 1, a
+.partyret
+	ret
+
+SetAISentOut:
+	ld a, [wWhichPokemon]
+	cp $05
+	jr z, .party5
+	cp $04
+	jr z, .party4
+	cp $03
+	jr z, .party3
+	cp $02
+	jr z, .party2
+	cp $01
+	jr z, .party1
+	jr .party0
+.party5
+	ld a, [wAIWhichPokemonSentOutAlready]
+	set 6, a
+	jr .partyret
+.party4
+	ld a, [wAIWhichPokemonSentOutAlready]
+	set 5, a
+	jr .partyret
+.party3
+	ld a, [wAIWhichPokemonSentOutAlready]
+	set 4, a
+	jr .partyret
+.party2
+	ld a, [wAIWhichPokemonSentOutAlready]
+	set 3, a
+	jr .partyret
+.party1
+	ld a, [wAIWhichPokemonSentOutAlready]
+	set 2, a
+	jr .partyret
+.party0
+	ld a, [wAIWhichPokemonSentOutAlready]
+	set 1, a
+.partyret
+	ld [wAIWhichPokemonSentOutAlready], a
+	ret
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

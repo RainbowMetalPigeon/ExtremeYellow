@@ -108,9 +108,15 @@ _ViridianCityText_191ca::
 	cont "off in the sun."
 
 	para "I had this dream"
-	line "about a DROWZEE"
-	cont "eating my dream."
-	cont "What's this?"
+	line "about a HYPNO"
+	cont "making me fall"
+	cont "asleep... wait..."
+	cont "Did I dream that,"
+	cont "or is it how I"
+	cont "actually fell"
+	cont "asleep...?"
+
+	para "! What's this?"
 	cont "Where did this TM"
 	cont "come from?"
 
@@ -126,7 +132,9 @@ _ReceivedTM42Text::
 
 _TM42Explanation::
 	text "TM42 contains"
-	line "DREAM EATER..."
+	line "REST..."
+	cont "Resting is very"
+	cont "important for y..."
 	cont "...Snore..."
 	done
 

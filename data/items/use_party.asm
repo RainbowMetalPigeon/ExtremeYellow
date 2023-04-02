@@ -36,4 +36,9 @@ UsableItems_PartyMenu:
 	db MAX_ETHER
 	db ELIXER
 	db MAX_ELIXER
+	db MEGA_STONE_X
+	db MEGA_STONE_Y
+	db SUN_STONE
+	db ICE_STONE
+	db REGAL_STONE
 	db -1 ; end

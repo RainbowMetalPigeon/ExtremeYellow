@@ -83,6 +83,11 @@ ItemPrices::
 	bcd3 0     ; MAX_ETHER
 	bcd3 0     ; ELIXER
 	bcd3 0     ; MAX_ELIXER
+	bcd3 9800  ; MEGA_STONE_X
+	bcd3 9800  ; MEGA_STONE_Y
+	bcd3 9800  ; SUN_STONE
+	bcd3 9800  ; ICE_STONE
+	bcd3 9800  ; REGAL_STONE
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

@@ -1281,7 +1281,15 @@ wLoadedMon:: party_struct wLoadedMon
 ; bit 0: The space in VRAM that is used to store walk animation tile patterns
 ;        for the player and NPCs is in use for font tile patterns.
 ;        This means that NPC movement must be disabled.
-; The other bits are unused.
+;shinpokerednote: ADDED: use bits 1 to 6 for tracking which trainer ai pkmn have already been sent out
+;bit 1: 1st pkmn (position 0)
+;bit 2: 2nd pkmn (position 1)
+;bit 3: 3rd pkmn (position 2)
+;bit 4: 4th pkmn (position 3)
+;bit 5: 5th pkmn (position 4)
+;bit 6: 6th pkmn (position 5)
+;bit 7: unused
+wAIWhichPokemonSentOutAlready::
 wFontLoaded:: db
 
 ; walk animation counter
@@ -1865,9 +1873,10 @@ wSerialPlayerDataBlock:: ; ds $1a8
 ; that case, this would be ESCAPE_ROPE.
 wPseudoItemID:: db
 
+wEnemyStatEXPStore:: ; shinpokerednote: ADDED: store for EVs applied to the opponent's pokemon if the option is turned on
 wUnusedD153:: db
 
-	ds 2			; countercomment to do tutorial to go beyond 200
+	ds 1			; countercomment to do tutorial to go beyond 200 - it was "ds 2", but with the edit above from Vortiene is now "ds 1"
 ;wIsTrainerBattle::	; countercomment to do tutorial to go beyond 200
 ;	ds 1			; countercomment to do tutorial to go beyond 200
 ;wWasTrainerBattle::	; countercomment to do tutorial to go beyond 200

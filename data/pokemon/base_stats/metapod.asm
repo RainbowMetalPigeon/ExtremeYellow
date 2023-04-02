@@ -19,6 +19,3 @@
 
 	db BANK(MetapodPicFront)
 	assert BANK(MetapodPicFront) == BANK(MetapodPicBack)
-
-
-

@@ -3,27 +3,34 @@ PokedexEntryPointers:
 	dw BulbasaurDexEntry
 	dw IvysaurDexEntry
 	dw VenusaurDexEntry
+	dw MVenusaurDexEntry
 	dw CharmanderDexEntry
 	dw CharmeleonDexEntry
 	dw CharizardDexEntry
+	dw MCharzardXDexEntry
+	dw MCharzardYDexEntry
 	dw SquirtleDexEntry
 	dw WartortleDexEntry
 	dw BlastoiseDexEntry
+	dw MBlastoiseDexEntry
 	dw CaterpieDexEntry
 	dw MetapodDexEntry
 	dw ButterfreeDexEntry
 	dw WeedleDexEntry
 	dw KakunaDexEntry
 	dw BeedrillDexEntry
+	dw MBeedrillDexEntry
 	dw PidgeyDexEntry
 	dw PidgeottoDexEntry
 	dw PidgeotDexEntry
+	dw MPidgeotDexEntry
 	dw RattataDexEntry
 	dw RaticateDexEntry
 	dw SpearowDexEntry
 	dw FearowDexEntry
 	dw EkansDexEntry
 	dw ArbokDexEntry
+	dw PichuDexEntry
 	dw PikachuDexEntry
 	dw RaichuDexEntry
 	dw SandshrewDexEntry
@@ -34,6 +41,7 @@ PokedexEntryPointers:
 	dw NidoranMDexEntry
 	dw NidorinoDexEntry
 	dw NidokingDexEntry
+	dw CleffaDexEntry
 	dw ClefairyDexEntry
 	dw ClefableDexEntry
 	dw VulpixDexEntry
@@ -151,10 +159,10 @@ PokedexEntryPointers:
 	dw DragoniteDexEntry
 	dw MewtwoDexEntry
 	dw MewDexEntry
-	dw MissingNoDexEntry
-	dw MissingNoDexEntry
-	dw MissingNoDexEntry
 	dw ArceusDexEntry
+	dw MissingNoDexEntry
+	dw MissingNoDexEntry
+	dw MissingNoDexEntry
 	assert_table_length NUM_POKEMON_INDEXES
 
 ; string: species name
@@ -183,6 +191,13 @@ VenusaurDexEntry:
 	text_far _VenusaurDexEntry
 	text_end
 
+MVenusaurDexEntry:
+	db "SEED@"
+	db 24
+	dw 1555
+	text_far _MVenusaurDexEntry
+	text_end
+
 CharmanderDexEntry:
 	db "LIZARD@"
 	db 6
@@ -204,6 +219,20 @@ CharizardDexEntry:
 	text_far _CharizardDexEntry
 	text_end
 
+MCharzardXDexEntry:
+	db "FLAME@"
+	db 17
+	dw 1105
+	text_far _MCharzardXDexEntry
+	text_end
+
+MCharzardYDexEntry:
+	db "FLAME@"
+	db 17
+	dw 1005
+	text_far _MCharzardYDexEntry
+	text_end
+
 SquirtleDexEntry:
 	db "TINYTURTLE@"
 	db 5
@@ -223,6 +252,13 @@ BlastoiseDexEntry:
 	db 16
 	dw 857
 	text_far _BlastoiseDexEntry
+	text_end
+
+MBlastoiseDexEntry:
+	db "SHELLFISH@"
+	db 16
+	dw 1011
+	text_far _MBlastoiseDexEntry
 	text_end
 
 CaterpieDexEntry:
@@ -267,6 +303,13 @@ BeedrillDexEntry:
 	text_far _BeedrillDexEntry
 	text_end
 
+MBeedrillDexEntry:
+	db "POISON BEE@"
+	db 14
+	dw 405
+	text_far _MBeedrillDexEntry
+	text_end
+
 PidgeyDexEntry:
 	db "TINY BIRD@"
 	db 3
@@ -286,6 +329,13 @@ PidgeotDexEntry:
 	db 15
 	dw 395
 	text_far _PidgeotDexEntry
+	text_end
+
+MPidgeotDexEntry:
+	db "BIRD@"
+	db 22
+	dw 505
+	text_far _MPidgeotDexEntry
 	text_end
 
 RattataDexEntry:
@@ -328,6 +378,13 @@ ArbokDexEntry:
 	db 35
 	dw 649
 	text_far _ArbokDexEntry
+	text_end
+
+PichuDexEntry:
+	db "TINY MOUSE@"
+	db 3
+	dw 20
+	text_far _PichuDexEntry
 	text_end
 
 PikachuDexEntry:
@@ -398,6 +455,13 @@ NidokingDexEntry:
 	db 14
 	dw 621
 	text_far _NidokingDexEntry
+	text_end
+
+CleffaDexEntry:
+	db "STARSHAPE@"
+	db 3
+	dw 30
+	text_far _CleffaDexEntry
 	text_end
 
 ClefairyDexEntry:
@@ -1219,15 +1283,15 @@ MewDexEntry:
 	text_far _MewDexEntry
 	text_end
 
-MissingNoDexEntry:
-	db "???@"
-	db 31
-	dw 45
-	db "コメント　さくせいちゅう@" ; コメント作成中 (Comment to be written)
-
 ArceusDexEntry:
 	db "ALPHA@"
 	db 31
 	dw 3200
 	text_far _ArceusDexEntry
 	text_end
+
+MissingNoDexEntry:
+	db "???@"
+	db 31
+	dw 45
+	db "コメント　さくせいちゅう@" ; コメント作成中 (Comment to be written)

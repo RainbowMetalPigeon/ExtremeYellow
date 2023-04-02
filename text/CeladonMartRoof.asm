@@ -80,7 +80,7 @@ _CeladonMartRoofText_48520::
 	text_start
 
 	para "TM49 contains"
-	line "TRI ATTACK!@"
+	line "SHADOW BALL!@"
 	text_end
 
 _CeladonMartRoofText_48526::

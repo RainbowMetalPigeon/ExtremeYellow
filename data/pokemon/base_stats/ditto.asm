@@ -19,6 +19,3 @@
 
 	db BANK(DittoPicFront)
 	assert BANK(DittoPicFront) == BANK(DittoPicBack)
-
-
-

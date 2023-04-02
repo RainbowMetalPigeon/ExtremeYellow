@@ -20,7 +20,7 @@ Route12_Object:
 	object_event 12, 40, SPRITE_FISHER, STAY, LEFT, 6, OPP_FISHER, 5
 	object_event  9, 52, SPRITE_FISHER, STAY, RIGHT, 7, OPP_FISHER, 6
 	object_event  6, 87, SPRITE_FISHER, STAY, DOWN, 8, OPP_FISHER, 11
-	object_event 14, 35, SPRITE_POKE_BALL, STAY, NONE, 9, TM_PAY_DAY
+	object_event 14, 35, SPRITE_POKE_BALL, STAY, NONE, 9, TM_MIRROR_COAT
 	object_event  5, 89, SPRITE_POKE_BALL, STAY, NONE, 10, IRON
 
 	def_warps_to ROUTE_12

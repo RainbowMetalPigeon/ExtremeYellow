@@ -14,8 +14,8 @@ _ReceivedTM39Text::
 	text_end
 
 _TM39ExplanationText::
-	text "TM39 is a move"
-	line "called SWIFT."
+	text "TM39 is the move"
+	line "SHADOW SNEAK."
 
 	para "It's very accurate,"
 	line "so use it during"

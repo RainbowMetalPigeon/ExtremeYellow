@@ -1,11 +1,44 @@
 DrainHPEffect_:
-	ld hl, wDamage
-	ld a, [hl]
-	srl a ; divide damage by 2
-	ld [hli], a
-	ld a, [hl]
+	ldh a, [hWhoseTurn]		; new
+	and a					; new
+	ld a, [wPlayerMoveNum]	; new
+	jr z, .notEnemyTurn		; new
+	ld a, [wEnemyMoveNum]	; new
+.notEnemyTurn				; new
+	ld b, a					; new - b now contains the xMoveNum, i.e. what needs to be cp to DRAININGKISS to see if I need to drain more
+
+	ld hl, wDamage + 1		; copied from the .sameTypeAttackBonus in core
+	ld a, [hld]
+	ld h, [hl]
+	ld l, a    				; hl=damage, it's so sad we can't do ld hl, [wDamage]
+
+	ld a, h
+	srl a
+	ld h, a
+	ld d, a
+	ld a, l
 	rr a
-	ld [hld], a
+	ld l, a					; hl=damage/2
+	ld e, a					; de=damage/2
+
+	ld a, b					; new - re-load xMoveNum from b into a
+	cp a, DRAININGKISS		; new
+	jr nz, .normalDraining	; new
+; we want to halve de and then add it to hl and then load said value in [wDamage]
+	ld a, d
+	srl a
+	ld d, a
+	ld a, e
+	rr a
+	ld e, a					; de=damage/4 (hopefully lol)
+	add hl, de				; hl=damage*3/4
+.normalDraining				; new
+	ld a, h
+	ld [wDamage], a
+	ld a, l
+	ld [wDamage+1], a		; now the halved damage is re-loaded into [wDamage]
+	ld hl, wDamage			; and now we go back to the original code
+
 	or [hl] ; is damage 0?
 	jr nz, .getAttackerHP
 ; if damage is 0, increase to 1 so that the attacker gains at least 1 HP

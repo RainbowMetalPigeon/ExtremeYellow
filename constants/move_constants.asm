@@ -9,7 +9,7 @@
 	const POUND        ; 01
 	const KARATE_CHOP  ; 02
 ;	const DOUBLESLAP   ; 03
-	const COMET_PUNCH  ; 04
+	const COMET_PUNCH  ; 04-1
 	const MEGA_PUNCH   ; 05
 	const PAY_DAY      ; 06
 	const FIRE_PUNCH   ; 07
@@ -17,20 +17,20 @@
 	const THUNDERPUNCH ; 09
 	const SCRATCH      ; 0a
 ;	const VICEGRIP     ; 0b
-	const GUILLOTINE   ; 0c
+	const GUILLOTINE   ; 0c-2
 ;	const RAZOR_WIND   ; 0d - REMOVED
-	const SWORDS_DANCE ; 0e
+	const SWORDS_DANCE ; 0e-3
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
 ;	const WHIRLWIND    ; 12
-	const FLY          ; 13
+	const FLY          ; 13-4
 	const BIND         ; 14
 	const SLAM         ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
 	const DOUBLE_KICK  ; 18
-	const MEGA_KICK    ; 19
+;	const MEGA_KICK    ; 19
 	const JUMP_KICK    ; 1a
 	const ROLLING_KICK ; 1b
 	const SAND_ATTACK  ; 1c
@@ -45,14 +45,14 @@
 	const THRASH       ; 25
 	const DOUBLE_EDGE  ; 26
 ;	const TAIL_WHIP    ; 27
-	const POISON_STING ; 28
+	const POISON_STING ; 28-5
 	const TWINEEDLE    ; 29
 	const PIN_MISSILE  ; 2a
 	const LEER         ; 2b
 	const BITE         ; 2c
 	const GROWL        ; 2d
 ;	const ROAR         ; 2e
-	const SING         ; 2f
+	const SING         ; 2f-6
 	const SUPERSONIC   ; 30
 	const SONICBOOM    ; 31
 	const DISABLE      ; 32
@@ -104,7 +104,7 @@
 	const MEDITATE     ; 60
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62
-;	const RAGE         ; 63
+;	const RAGE         ; 63-7
 	const TELEPORT     ; 64
 	const NIGHT_SHADE  ; 65
 	const MIMIC        ; 66
@@ -116,7 +116,7 @@
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
 ;	const WITHDRAW     ; 6e
-	const DEFENSE_CURL ; 6f
+	const DEFENSE_CURL ; 6f-8
 	const BARRIER      ; 70
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72
@@ -127,7 +127,7 @@
 	const MIRROR_MOVE  ; 77
 	const SELFDESTRUCT ; 78
 ;	const EGG_BOMB     ; 79 - REMOVED
-	const LICK         ; 7a
+	const LICK         ; 7a-9
 	const SMOG         ; 7b
 	const SLUDGE       ; 7c
 	const BONE_CLUB    ; 7d
@@ -135,12 +135,12 @@
 	const WATERFALL    ; 7f
 	const CLAMP        ; 80
 	const SWIFT        ; 81
-	const SKULL_BASH   ; 82
+;	const SKULL_BASH   ; 82
 	const SPIKE_CANNON ; 83
 ;	const CONSTRICT    ; 84 - REMOVED
-	const AMNESIA      ; 85
+	const AMNESIA      ; 85-a
 ;	const KINESIS      ; 86
-	const SOFTBOILED   ; 87
+	const SOFTBOILED   ; 87-b
 	const HI_JUMP_KICK ; 88
 	const GLARE        ; 89
 	const DREAM_EATER  ; 8a
@@ -148,7 +148,7 @@
 	const BARRAGE      ; 8c
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
-	const SKY_ATTACK   ; 8f
+;	const SKY_ATTACK   ; 8f
 	const TRANSFORM    ; 90
 	const BUBBLE       ; 91
 	const DIZZY_PUNCH  ; 92
@@ -165,43 +165,44 @@
 	const ROCK_SLIDE   ; 9d
 	const HYPER_FANG   ; 9e
 ;	const SHARPEN      ; 9f
-	const CONVERSION   ; a0
+	const CONVERSION   ; a0-c
 	const TRI_ATTACK   ; a1
 	const SUPER_FANG   ; a2
 	const SLASH        ; a3
-	const SUBSTITUTE   ; a4
+	const SUBSTITUTE   ; a4-c=98
 
-	const	MEGAHORN
-	const	X_SCISSOR
-	const	INFESTATION
+	const	MEGAHORN		;99
+	const	X_SCISSOR		;9a
+	const	INFESTATION		;9b
 
-	const	FEINT_ATTACK
-	const	CRUNCH
-	const	NIGHT_SLASH
-	const	DARK_PULSE
+	const	FEINT_ATTACK	;9c
+	const	CRUNCH			;9d
+	const	NIGHT_SLASH		;9e
+	const	DARK_PULSE		;9f
 
-	const	TWISTER
-	const	DRAGONBREATH
-	const	OUTRAGE
-	const	DRAGON_CLAW
+	const	TWISTER			;a0
+	const	DRAGONBREATH	;a1
+	const	OUTRAGE			;a2
+	const	DRAGON_CLAW		;a3
 
-	const	ZAP_CANNON
-	const	SHOCK_WAVE
-	const	VOLT_TACKLE
+	const	ZAP_CANNON		;a4
+	const	SHOCK_WAVE		;a5
+	const	VOLT_TACKLE		;a6
 
-	const	CHARM
-	const	DRAININGKISS
+	const	CHARM			;a7
+	const	DRAININGKISS	;a8
 	const	PLAY_ROUGH
 	const	MOONBLAST
 
 	const	MACH_PUNCH
 	const	SUPERPOWER
 	const	CLOSE_COMBAT
-	const   DRAIN_PUNCH
+	const	DRAIN_PUNCH
 
 	const	WILL_O_WISP
 	const	FLARE_BLITZ
 	const	BLAST_BURN
+	const	HEAT_WAVE
 
 	const	ROOST
 	const	AIR_CUTTER
@@ -247,13 +248,14 @@
 	const	METAL_CLAW
 	const	METEOR_MASH
 	const	BULLET_PUNCH
+	const	FLASH_CANNON
 
 	const	WATER_PULSE
 	const	AQUA_JET
 	const	SCALD
 	const	HYDRO_CANNON
 
-	const 	ANCESTOR_PWR
+	const	ANCESTOR_PWR
 
 	const STRUGGLE     ; formerly a5
 DEF NUM_ATTACKS EQU const_value - 1

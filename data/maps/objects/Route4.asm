@@ -14,6 +14,6 @@ Route4_Object:
 	def_object_events
 	object_event  9,  8, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 1 ; person
 	object_event 63,  3, SPRITE_COOLTRAINER_F, STAY, RIGHT, 2, OPP_LASS, 4
-	object_event 57,  3, SPRITE_POKE_BALL, STAY, NONE, 3, TM_INFESTATION ; TM_INFESTATION was TM_WHIRLWIND
+	object_event 57,  3, SPRITE_POKE_BALL, STAY, NONE, 3, TM_COUNTER
 
 	def_warps_to ROUTE_4

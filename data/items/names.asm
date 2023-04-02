@@ -83,6 +83,11 @@ ItemNames::
 	li "MAX ETHER"
 	li "ELIXER"
 	li "MAX ELIXER"
+	li "MEGA STONE X"
+	li "MEGA STONE Y"
+	li "SUN STONE"
+	li "ICE STONE"
+	li "REGAL STONE"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

@@ -83,4 +83,9 @@ KeyItemFlags:
 	dbit FALSE ; MAX_ETHER
 	dbit FALSE ; ELIXER
 	dbit FALSE ; MAX_ELIXER
+	dbit FALSE ; MEGA_STONE_X	- new
+	dbit FALSE ; MEGA_STONE_Y	- new
+	dbit FALSE ; SUN_STONE		- new
+	dbit FALSE ; ICE_STONE		- new
+	dbit FALSE ; REGAL_STONE	- new
 	end_bit_array NUM_ITEMS

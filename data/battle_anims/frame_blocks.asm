@@ -48,7 +48,7 @@ FrameBlockPointers:
 	dw FrameBlock2d
 	dw FrameBlock2e
 	dw FrameBlock2f
-	dw FrameBlock30
+;	dw FrameBlock30
 	dw FrameBlock31
 	dw FrameBlock32
 	dw FrameBlock33
@@ -122,6 +122,7 @@ FrameBlockPointers:
 	dw FrameBlock77
 	dw FrameBlock78
 	dw FrameBlock79
+	dw FrameBlock2bspec
 	assert_table_length NUM_FRAMEBLOCKS
 
 FrameBlock01:
@@ -539,6 +540,14 @@ FrameBlock2b:
 	dbsprite  0,  0,  2,  6, $47, 0
 	dbsprite  1,  0,  0,  0, $47, 0
 
+FrameBlock2bspec:
+	db 2 ; #
+;	dbsprite  0,  0,  2,  6, $47, OAM_HFLIP
+	dbsprite  0,  0,  0,  0, $47, OAM_HFLIP
+	dbsprite  0,  0,  4,  4, $47, OAM_HFLIP
+;	dbsprite  1,  0,  0,  0, $47, OAM_HFLIP
+;	dbsprite  1,  0,  2,  6, $47, OAM_HFLIP
+
 FrameBlock2c:
 	db 1 ; #
 	dbsprite  0, 20,  0,  0, $4d, 0
@@ -572,12 +581,12 @@ FrameBlock2f:
 	dbsprite  0,  1,  0,  0, $0c, OAM_VFLIP
 	dbsprite  1,  1,  0,  0, $0d, OAM_VFLIP
 
-FrameBlock30:
-	db 4 ; #
-	dbsprite  0,  0,  0,  0, $44, 0
-	dbsprite  1,  0,  0,  0, $44, OAM_HFLIP
-	dbsprite  0,  1,  0,  0, $44, OAM_VFLIP
-	dbsprite  1,  1,  0,  0, $44, OAM_HFLIP | OAM_VFLIP
+;FrameBlock30:
+;	db 4 ; #
+;	dbsprite  0,  0,  0,  0, $44, 0
+;	dbsprite  1,  0,  0,  0, $44, OAM_HFLIP
+;	dbsprite  0,  1,  0,  0, $44, OAM_VFLIP
+;	dbsprite  1,  1,  0,  0, $44, OAM_HFLIP | OAM_VFLIP
 
 FrameBlock31:
 	db 1 ; #

@@ -100,6 +100,11 @@ ItemUsePtrTable:
 	dw ItemUsePPRestore  ; MAX_ETHER
 	dw ItemUsePPRestore  ; ELIXER
 	dw ItemUsePPRestore  ; MAX_ELIXER
+	dw ItemUseEvoStone   ; MEGA_STONE_X
+	dw ItemUseEvoStone   ; MEGA_STONE_Y
+	dw ItemUseEvoStone   ; SUN_STONE
+	dw ItemUseEvoStone   ; ICE_STONE
+	dw ItemUseEvoStone   ; REGAL_STONE
 
 ItemUseBall:
 

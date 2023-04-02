@@ -9,27 +9,34 @@ CryData::
 	mon_cry SFX_CRY_0F, $80, $01 ; Bulbasaur
 	mon_cry SFX_CRY_0F, $20, $80 ; Ivysaur
 	mon_cry SFX_CRY_0F, $00, $C0 ; Venusaur
+	mon_cry SFX_CRY_0F, $00, $C0 ; MVenusaur
 	mon_cry SFX_CRY_04, $60, $40 ; Charmander
 	mon_cry SFX_CRY_04, $20, $40 ; Charmeleon
 	mon_cry SFX_CRY_04, $00, $80 ; Charizard
+	mon_cry SFX_CRY_04, $00, $80 ; MCharzardX
+	mon_cry SFX_CRY_04, $00, $80 ; MCharzardY
 	mon_cry SFX_CRY_1D, $60, $40 ; Squirtle
 	mon_cry SFX_CRY_1D, $20, $40 ; Wartortle
 	mon_cry SFX_CRY_13, $00, $80 ; Blastoise
+	mon_cry SFX_CRY_13, $00, $80 ; MBlastoise
 	mon_cry SFX_CRY_16, $80, $20 ; Caterpie
 	mon_cry SFX_CRY_1C, $CC, $01 ; Metapod
 	mon_cry SFX_CRY_16, $77, $40 ; Butterfree
 	mon_cry SFX_CRY_15, $EE, $01 ; Weedle
 	mon_cry SFX_CRY_13, $FF, $01 ; Kakuna
 	mon_cry SFX_CRY_13, $60, $80 ; Beedrill
+	mon_cry SFX_CRY_13, $60, $80 ; MBeedrill
 	mon_cry SFX_CRY_0E, $DF, $04 ; Pidgey
 	mon_cry SFX_CRY_14, $28, $C0 ; Pidgeotto
 	mon_cry SFX_CRY_14, $11, $FF ; Pidgeot
+	mon_cry SFX_CRY_14, $11, $FF ; MPidgeot
 	mon_cry SFX_CRY_22, $00, $80 ; Rattata
 	mon_cry SFX_CRY_22, $20, $FF ; Raticate
 	mon_cry SFX_CRY_10, $00, $80 ; Spearow
 	mon_cry SFX_CRY_18, $40, $A0 ; Fearow
 	mon_cry SFX_CRY_17, $12, $40 ; Ekans
 	mon_cry SFX_CRY_17, $E0, $10 ; Arbok
+	mon_cry SFX_CRY_0F, $EE, $01 ; Pichu
 	mon_cry SFX_CRY_0F, $EE, $01 ; Pikachu
 	mon_cry SFX_CRY_09, $EE, $08 ; Raichu
 	mon_cry SFX_CRY_00, $20, $40 ; Sandshrew
@@ -40,6 +47,7 @@ CryData::
 	mon_cry SFX_CRY_00, $00, $80 ; NidoranM
 	mon_cry SFX_CRY_00, $2C, $C0 ; Nidorino
 	mon_cry SFX_CRY_09, $00, $80 ; Nidoking
+	mon_cry SFX_CRY_19, $CC, $01 ; Cleffa
 	mon_cry SFX_CRY_19, $CC, $01 ; Clefairy
 	mon_cry SFX_CRY_19, $AA, $20 ; Clefable
 	mon_cry SFX_CRY_24, $4F, $10 ; Vulpix
@@ -51,7 +59,7 @@ CryData::
 	mon_cry SFX_CRY_08, $DD, $01 ; Oddish
 	mon_cry SFX_CRY_08, $AA, $40 ; Gloom
 	mon_cry SFX_CRY_23, $22, $FF ; Vileplume
-	mon_cry SFX_CRY_1E, $42, $FF ; Parasect
+	mon_cry SFX_CRY_1E, $42, $FF ; Paras
 	mon_cry SFX_CRY_1E, $42, $FF ; Parasect
 	mon_cry SFX_CRY_1A, $44, $40 ; Venonat
 	mon_cry SFX_CRY_1A, $29, $80 ; Venomoth
@@ -157,8 +165,8 @@ CryData::
 	mon_cry SFX_CRY_0F, $3C, $C0 ; Dragonite
 	mon_cry SFX_CRY_1E, $99, $FF ; Mewtwo
 	mon_cry SFX_CRY_1E, $EE, $FF ; Mew
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
-	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_1C, $0D, $FF ; Arceus
+	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
+	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
+	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	assert_table_length NUM_POKEMON_INDEXES

@@ -87,10 +87,12 @@ _ReceivedTM18Text::
 	text_end
 
 _TM18ExplanationText::
-	text "TM18 is COUNTER!"
-	line "Not like the one"
-	cont "I'm leaning on,"
-	cont "mind you!"
+	text "TM18 contains"
+	line "FLASH CANNON!"
+	cont "It's a recently"
+	cont "discovered move,"
+	cont "and may help you"
+	cont "greatly!"
 	done
 
 _TM18NoRoomText::

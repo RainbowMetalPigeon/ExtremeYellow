@@ -166,6 +166,10 @@ INCLUDE "data/pokemon/base_stats.asm"
 INCLUDE "data/pokemon/cries.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
+
+
+SECTION "Evos Moves", ROMX ; new, from Vortiene's pureRGB, moved from "Battle Engine 6"
+
 INCLUDE "gfx/trade.asm"
 INCLUDE "engine/pokemon/evos_moves.asm"
 

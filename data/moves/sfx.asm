@@ -25,7 +25,7 @@ MoveSoundTable:
 	db SFX_VINE_WHIP,          $01, $80 ; VINE_WHIP
 	db SFX_BATTLE_20,          $00, $80 ; STOMP
 	db SFX_BATTLE_17,          $f0, $40 ; DOUBLE_KICK
-	db SFX_SUPER_EFFECTIVE,    $00, $80 ; MEGA_KICK
+;	db SFX_SUPER_EFFECTIVE,    $00, $80 ; MEGA_KICK
 	db SFX_BATTLE_17,          $00, $80 ; JUMP_KICK
 	db SFX_BATTLE_21,          $10, $80 ; ROLLING_KICK
 	db SFX_BATTLE_1B,          $01, $a0 ; SAND_ATTACK
@@ -130,7 +130,7 @@ MoveSoundTable:
 	db SFX_BATTLE_25,          $2f, $80 ; WATERFALL
 	db SFX_BATTLE_0F,          $1f, $ff ; CLAMP
 	db SFX_BATTLE_2B,          $1f, $60 ; SWIFT
-	db SFX_BATTLE_26,          $1e, $20 ; SKULL_BASH
+;	db SFX_BATTLE_26,          $1e, $20 ; SKULL_BASH
 	db SFX_BATTLE_26,          $1f, $18 ; SPIKE_CANNON
 ;	db SFX_BATTLE_14,          $0f, $80 ; CONSTRICT
 	db SFX_BATTLE_09,          $f8, $10 ; AMNESIA
@@ -143,7 +143,7 @@ MoveSoundTable:
 	db SFX_BATTLE_32,          $08, $e0 ; BARRAGE
 	db SFX_BATTLE_24,          $00, $80 ; LEECH_LIFE
 	db SFX_BATTLE_09,          $88, $10 ; LOVELY_KISS
-	db SFX_BATTLE_25,          $48, $ff ; SKY_ATTACK
+;	db SFX_BATTLE_25,          $48, $ff ; SKY_ATTACK
 	db SFX_FAINT_FALL,         $ff, $ff ; TRANSFORM
 	db SFX_BATTLE_24,          $ff, $10 ; BUBBLE
 	db SFX_FAINT_FALL,         $ff, $04 ; DIZZY_PUNCH
@@ -166,90 +166,92 @@ MoveSoundTable:
 	db SFX_NOT_VERY_EFFECTIVE, $01, $ff ; SLASH
 	db SFX_BATTLE_2C,          $d8, $04 ; SUBSTITUTE
 
-	db SFX_BATTLE_36,          $00, $80 ; MEGAHORN
-	db SFX_BATTLE_36,          $00, $80 ; X_SCISSOR
-	db SFX_BATTLE_14,          $0f, $80 ; INFESTATION - same as CONSTRICT to "save" CLAMP - prolly could use BIND
+;	db SFX_BATTLE_36,          $00, $80 ; MEGAHORN
+;	db SFX_BATTLE_36,          $00, $80 ; X_SCISSOR
+;	db SFX_BATTLE_14,          $0f, $80 ; INFESTATION - same as CONSTRICT to "save" CLAMP - prolly could use BIND
 
-	db SFX_BATTLE_36,          $00, $80 ; FEINT_ATTACK
-	db SFX_BATTLE_36,          $00, $80 ; CRUNCH
-	db SFX_BATTLE_36,          $00, $80 ; NIGHT_SLASH
-	db SFX_BATTLE_36,          $00, $80 ; DARK_PULSE
+;	db SFX_BATTLE_36,          $00, $80 ; FEINT_ATTACK
+;	db SFX_BATTLE_36,          $00, $80 ; CRUNCH
+;	db SFX_BATTLE_36,          $00, $80 ; NIGHT_SLASH
+;	db SFX_BATTLE_36,          $00, $80 ; DARK_PULSE
 
-	db SFX_BATTLE_36,          $00, $80 ; TWISTER
-	db SFX_BATTLE_36,          $00, $80 ; DRAGONBREATH
-	db SFX_BATTLE_36,          $00, $80 ; OUTRAGE
-	db SFX_BATTLE_36,          $00, $80 ; DRAGON_CLAW
+;	db SFX_BATTLE_36,          $00, $80 ; TWISTER
+;	db SFX_BATTLE_36,          $00, $80 ; DRAGONBREATH
+;	db SFX_BATTLE_36,          $00, $80 ; OUTRAGE
+;	db SFX_BATTLE_36,          $00, $80 ; DRAGON_CLAW
 
-	db SFX_BATTLE_36,          $00, $80 ; ZAP_CANNON
-	db SFX_BATTLE_36,          $00, $80 ; SHOCK_WAVE
-	db SFX_BATTLE_36,          $00, $80 ; VOLT_TACKLE
+;	db SFX_BATTLE_36,          $00, $80 ; ZAP_CANNON
+;	db SFX_BATTLE_36,          $00, $80 ; SHOCK_WAVE
+;	db SFX_BATTLE_36,          $00, $80 ; VOLT_TACKLE
 
-	db SFX_BATTLE_36,          $00, $80 ; CHARM
-	db SFX_BATTLE_36,          $00, $80 ; DRAININGKISS
-	db SFX_BATTLE_36,          $00, $80 ; PLAY_ROUGH
-	db SFX_BATTLE_36,          $00, $80 ; MOONBLAST
+;	db SFX_BATTLE_36,          $00, $80 ; CHARM
+;	db SFX_BATTLE_36,          $00, $80 ; DRAININGKISS
+;	db SFX_BATTLE_36,          $00, $80 ; PLAY_ROUGH
+;	db SFX_BATTLE_36,          $00, $80 ; MOONBLAST
 
-	db SFX_BATTLE_36,          $00, $80 ; MACH_PUNCH
-	db SFX_BATTLE_36,          $00, $80 ; SUPERPOWER
-	db SFX_BATTLE_36,          $00, $80 ; CLOSE_COMBAT
-	db SFX_BATTLE_36,		   $00, $80 ; DRAIN_PUNCH
+;	db SFX_BATTLE_36,          $00, $80 ; MACH_PUNCH
+;	db SFX_BATTLE_36,          $00, $80 ; SUPERPOWER
+;	db SFX_BATTLE_36,          $00, $80 ; CLOSE_COMBAT
+;	db SFX_BATTLE_36,		   $00, $80 ; DRAIN_PUNCH
 
-	db SFX_BATTLE_36,          $00, $80 ; WILL_O_WISP
-	db SFX_BATTLE_36,          $00, $80 ; FLARE_BLITZ
-	db SFX_BATTLE_36,          $00, $80 ; BLAST_BURN
+;	db SFX_BATTLE_36,          $00, $80 ; WILL_O_WISP
+;	db SFX_BATTLE_36,          $00, $80 ; FLARE_BLITZ
+;	db SFX_BATTLE_36,          $00, $80 ; BLAST_BURN
+;	db SFX_BATTLE_36,          $00, $80 ; HEAT_WAVE
 
-	db SFX_BATTLE_36,          $00, $80 ; ROOST
-	db SFX_BATTLE_36,          $00, $80 ; AIR_CUTTER
-	db SFX_BATTLE_36,          $00, $80 ; AERIAL_ACE
-	db SFX_BATTLE_36,          $00, $80 ; AIR_SLASH
-	db SFX_BATTLE_36,          $00, $80 ; BRAVE_BIRD
-	db SFX_BATTLE_36,          $00, $80 ; HURRICANE
+;	db SFX_BATTLE_36,          $00, $80 ; ROOST
+;	db SFX_BATTLE_36,          $00, $80 ; AIR_CUTTER
+;	db SFX_BATTLE_36,          $00, $80 ; AERIAL_ACE
+;	db SFX_BATTLE_36,          $00, $80 ; AIR_SLASH
+;	db SFX_BATTLE_36,          $00, $80 ; BRAVE_BIRD
+;	db SFX_BATTLE_36,          $00, $80 ; HURRICANE
 
-	db SFX_BATTLE_36,          $00, $80 ; SHADOW_BALL
-	db SFX_BATTLE_36,          $00, $80 ; SHADOW_PUNCH
-	db SFX_BATTLE_36,          $00, $80 ; SHADOW_SNEAK
-	db SFX_BATTLE_36,          $00, $80 ; SHADOW_CLAW
+;	db SFX_BATTLE_36,          $00, $80 ; SHADOW_BALL
+;	db SFX_BATTLE_36,          $00, $80 ; SHADOW_PUNCH
+;	db SFX_BATTLE_36,          $00, $80 ; SHADOW_SNEAK
+;	db SFX_BATTLE_36,          $00, $80 ; SHADOW_CLAW
 
-	db SFX_BATTLE_36,          $00, $80 ; GIGA_DRAIN
-	db SFX_BATTLE_36,          $00, $80 ; MAGICAL_LEAF
-	db SFX_BATTLE_36,          $00, $80 ; BULLET_SEED
-	db SFX_BATTLE_36,          $00, $80 ; LEAF_STORM
-	db SFX_BATTLE_36,          $00, $80 ; ENERGY_BALL
-	db SFX_BATTLE_36,          $00, $80 ; FRENZY_PLANT
+;	db SFX_BATTLE_36,          $00, $80 ; GIGA_DRAIN
+;	db SFX_BATTLE_36,          $00, $80 ; MAGICAL_LEAF
+;	db SFX_BATTLE_36,          $00, $80 ; BULLET_SEED
+;	db SFX_BATTLE_36,          $00, $80 ; LEAF_STORM
+;	db SFX_BATTLE_36,          $00, $80 ; ENERGY_BALL
+;	db SFX_BATTLE_36,          $00, $80 ; FRENZY_PLANT
 
-	db SFX_BATTLE_36,          $00, $80 ; MUD_SLAP
-	db SFX_BATTLE_36,          $00, $80 ; MUD_SHOT
+;	db SFX_BATTLE_36,          $00, $80 ; MUD_SLAP
+;	db SFX_BATTLE_36,          $00, $80 ; MUD_SHOT
 
-	db SFX_BATTLE_36,          $00, $80 ; ICICLE_SPEAR
-	db SFX_BATTLE_36,          $00, $80 ; ICICLE_CRASH
+;	db SFX_BATTLE_36,          $00, $80 ; ICICLE_SPEAR
+;	db SFX_BATTLE_36,          $00, $80 ; ICICLE_CRASH
 
-	db SFX_BATTLE_36,          $00, $80 ; EXTREMESPEED
+;	db SFX_BATTLE_36,          $00, $80 ; EXTREMESPEED
 
-	db SFX_BATTLE_36,          $00, $80 ; GUNK_SHOT
-	db SFX_BATTLE_36,          $00, $80 ; SLUDGE_WAVE
+;	db SFX_BATTLE_36,          $00, $80 ; GUNK_SHOT
+;	db SFX_BATTLE_36,          $00, $80 ; SLUDGE_WAVE
 
-	db SFX_BATTLE_36,          $00, $80 ; MIRROR_COAT
-	db SFX_BATTLE_36,          $00, $80 ; ZEN_HEADBUTT
-	db SFX_BATTLE_36,          $00, $80 ; PSYCHO_CUT
+;	db SFX_BATTLE_36,          $00, $80 ; MIRROR_COAT
+;	db SFX_BATTLE_36,          $00, $80 ; ZEN_HEADBUTT
+;	db SFX_BATTLE_36,          $00, $80 ; PSYCHO_CUT
 
-	db SFX_BATTLE_36,          $00, $80 ; ROCK_TOMB
-	db SFX_BATTLE_36,          $00, $80 ; HEAD_SMASH
-	db SFX_BATTLE_36,          $00, $80 ; STONE_EDGE
-	db SFX_BATTLE_36,          $00, $80 ; ACCELEROCK
+;	db SFX_BATTLE_36,          $00, $80 ; ROCK_TOMB
+;	db SFX_BATTLE_36,          $00, $80 ; HEAD_SMASH
+;	db SFX_BATTLE_36,          $00, $80 ; STONE_EDGE
+;	db SFX_BATTLE_36,          $00, $80 ; ACCELEROCK
 
-	db SFX_BATTLE_36,          $00, $80 ; IRON_TAIL
-	db SFX_BATTLE_36,          $00, $80 ; STEEL_WING
-	db SFX_BATTLE_36,          $00, $80 ; METAL_CLAW
-	db SFX_BATTLE_36,          $00, $80 ; METEOR_MASH
-	db SFX_BATTLE_36,          $00, $80 ; BULLET_PUNCH
+;	db SFX_BATTLE_36,          $00, $80 ; IRON_TAIL
+;	db SFX_BATTLE_36,          $00, $80 ; STEEL_WING
+;	db SFX_BATTLE_36,          $00, $80 ; METAL_CLAW
+;	db SFX_BATTLE_36,          $00, $80 ; METEOR_MASH
+;	db SFX_BATTLE_36,          $00, $80 ; BULLET_PUNCH
+;	db SFX_BATTLE_36,          $00, $80 ; FLASH_CANNON
 
-	db SFX_BATTLE_36,          $00, $80 ; WATER_PULSE
-	db SFX_BATTLE_36,          $00, $80 ; AQUA_JET
-	db SFX_BATTLE_36,          $00, $80 ; SCALD
-	db SFX_BATTLE_36,          $00, $80 ; HYDRO_CANNON
+;	db SFX_BATTLE_36,          $00, $80 ; WATER_PULSE
+;	db SFX_BATTLE_36,          $00, $80 ; AQUA_JET
+;	db SFX_BATTLE_36,          $00, $80 ; SCALD
+;	db SFX_BATTLE_36,          $00, $80 ; HYDRO_CANNON
 
-	db SFX_BATTLE_36,          $00, $80 ; ANCESTOR_PWR
+;	db SFX_BATTLE_36,          $00, $80 ; ANCESTOR_PWR
 
-	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
-	assert_table_length NUM_ATTACKS
+;	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
+;	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80
