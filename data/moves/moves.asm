@@ -64,7 +64,7 @@ Moves:
 	move SUPERSONIC,   CONFUSION_EFFECT,             0, NORMAL,        55, 20
 	move SONICBOOM,    SPECIAL_DAMAGE_EFFECT,        1, NORMAL,        90, 20
 	move DISABLE,      DISABLE_EFFECT,               0, NORMAL,        55, 20
-	move ACID,         DEFENSE_DOWN_SIDE_EFFECT,    40, POISON,       100, 30
+	move ACID,         DEFENSE_DOWN_SIDE_EFFECT3,    40, POISON,       100, 30
 	move EMBER,        BURN_SIDE_EFFECT1,           40, FIRE,         100, 25
 	move FLAMETHROWER, BURN_SIDE_EFFECT1,           95, FIRE,         100, 15
 	move MIST,         MIST_EFFECT,                  0, ICE,          100, 30
@@ -74,8 +74,8 @@ Moves:
 	move ICE_BEAM,     FREEZE_SIDE_EFFECT,          95, ICE,          100, 10 ; [TM13]
 	move BLIZZARD,     FREEZE_SIDE_EFFECT,         120, ICE,           90,  5 ; [TM14]
 	move PSYBEAM,      CONFUSION_SIDE_EFFECT1,      65, PSYCHIC_TYPE, 100, 20
-	move BUBBLEBEAM,   SPEED_DOWN_SIDE_EFFECT,      65, WATER,        100, 20 ; [TM11]
-	move AURORA_BEAM,  ATTACK_DOWN_SIDE_EFFECT,     65, ICE,          100, 20
+	move BUBBLEBEAM,   SPEED_DOWN_SIDE_EFFECT3,      65, WATER,        100, 20 ; [TM11]
+	move AURORA_BEAM,  ATTACK_DOWN_SIDE_EFFECT3,     65, ICE,          100, 20
 	move HYPER_BEAM,   HYPER_BEAM_EFFECT,          150, NORMAL,        90,  5 ; [TM15]
 	move PECK,         NO_ADDITIONAL_EFFECT,        35, FLYING,       100, 35
 	move DRILL_PECK,   NO_ADDITIONAL_EFFECT,        80, FLYING,       100, 20
@@ -97,7 +97,7 @@ Moves:
 	move STRING_SHOT,  SPEED_DOWN1_EFFECT,           0, BUG,           95, 40
 	move DRAGON_RAGE,  SPECIAL_DAMAGE_EFFECT,        1, DRAGON,       100, 10
 	move FIRE_SPIN,    TRAPPING_EFFECT,             15, FIRE,          70, 15
-	move THUNDERSHOCK, PARALYZE_SIDE_EFFECT1,       40, ELECTRIC,     100, 30
+	move THUNDERSHOCK, ATTACK_UP2_EFFECT,       40, ELECTRIC,     100, 30
 	move THUNDERBOLT,  PARALYZE_SIDE_EFFECT1,       95, ELECTRIC,     100, 15 ; [TM24]
 	move THUNDER_WAVE, PARALYZE_EFFECT,              0, ELECTRIC,     100, 20 ; [TM45]
 	move THUNDER,      PARALYZE_SIDE_EFFECT1,      120, ELECTRIC,      70, 10 ; [TM25]
@@ -107,7 +107,7 @@ Moves:
 	move DIG,          CHARGE_EFFECT,              100, GROUND,       100, 10 ; [TM28]
 	move TOXIC,        POISON_EFFECT,                0, POISON,        85, 10 ; [TM06]
 	move CONFUSION,    CONFUSION_SIDE_EFFECT1,      50, PSYCHIC_TYPE, 100, 25
-	move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT,    90, PSYCHIC_TYPE, 100, 10 ; [TM29]
+	move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT3,    90, PSYCHIC_TYPE, 100, 10 ; [TM29]
 	move HYPNOSIS,     SLEEP_EFFECT,                 0, PSYCHIC_TYPE,  60, 20
 	move MEDITATE,     ATTACK_UP1_EFFECT,            0, PSYCHIC_TYPE, 100, 40
 	move AGILITY,      SPEED_UP2_EFFECT,             0, PSYCHIC_TYPE, 100, 30
@@ -145,7 +145,7 @@ Moves:
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,       100, 20
 ;	move SKULL_BASH,   CHARGE_EFFECT,              100, NORMAL,       100, 15
 	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  20, NORMAL,       100, 15
-;	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT,      10, NORMAL,       100, 35 ; - REMOVED
+;	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT3,      10, NORMAL,       100, 35 ; - REMOVED
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC_TYPE, 100, 20
 ;	move KINESIS,      ACCURACY_DOWN1_EFFECT,        0, PSYCHIC_TYPE,  80, 15 ; - REMOVED
 	move SOFTBOILED,   HEAL_EFFECT,                  0, NORMAL,       100, 10
@@ -158,7 +158,7 @@ Moves:
 	move LOVELY_KISS,  SLEEP_EFFECT,                 0, NORMAL,        75, 10
 ;	move SKY_ATTACK,   CHARGE_EFFECT,              140, FLYING,        90,  5
 	move TRANSFORM,    TRANSFORM_EFFECT,             0, NORMAL,       100, 10
-	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT,      20, WATER,        100, 30 ; keep power 20 instead raising to 40  otherwise gets just better than WATER_GUN
+	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT3,      20, WATER,        100, 30 ; keep power 20 instead raising to 40  otherwise gets just better than WATER_GUN
 	move DIZZY_PUNCH,  CONFUSION_SIDE_EFFECT2,      70, NORMAL,       100, 10 ; 20% confusion
 	move SPORE,        SLEEP_EFFECT,                 0, GRASS,        100, 15
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, NORMAL,       100, 20 ; 70->100% accuracy
@@ -184,7 +184,7 @@ Moves:
 	move INFESTATION,  TRAPPING_EFFECT,	            20,	BUG,	       80, 20 ; done
 
 	move FEINT_ATTACK, SWIFT_EFFECT,	            60,	DARK,	      100, 20 ; [TM20] done
-	move CRUNCH,	   NO_ADDITIONAL_EFFECT,	    80,	DARK,	      100, 15
+	move CRUNCH,	   SPECIAL_DOWN_SIDE_EFFECT2,   80,	DARK,	      100, 15
 	move NIGHT_SLASH,  NO_ADDITIONAL_EFFECT,	    70,	DARK,	      100, 15 ; high crit rate ; done
 	move DARK_PULSE,   FLINCH_SIDE_EFFECT2,	        80,	DARK,	      100, 15 ; [TM07] done
 
@@ -199,8 +199,8 @@ Moves:
 
 	move CHARM,	       ATTACK_DOWN2_EFFECT,	         0,	FAIRY,	      100, 20 ; done
 	move DRAININGKISS, DRAIN_HP_EFFECT,	            50,	FAIRY,	      100, 10 ; [TM17] done!
-	move PLAY_ROUGH,   NO_ADDITIONAL_EFFECT,	    90,	FAIRY,	       90, 10 ; TODO - should have a 10% of reduce ATK, but in the code there's only 33%, need to modify it
-	move MOONBLAST,	   SPECIAL_DOWN_SIDE_EFFECT,	95,	FAIRY,	      100, 15 ; [TM30] done (it should be 30% and it's 33%, doesn't matter)
+	move PLAY_ROUGH,   ATTACK_DOWN_SIDE_EFFECT1,    90,	FAIRY,	       90, 10 ; TODO - should have a 10% of reduce ATK, but in the code there's only 33%, need to modify it
+	move MOONBLAST,	   SPECIAL_DOWN_SIDE_EFFECT3,	95,	FAIRY,	      100, 15 ; [TM30] done (it should be 30% and it's 33%, doesn't matter)
 
 	move MACH_PUNCH,   NO_ADDITIONAL_EFFECT,	    40,	FIGHTING,	  100, 30 ; prio +1 ; done
 	move SUPERPOWER,   NO_ADDITIONAL_EFFECT,	   120,	FIGHTING,	  100, 5  ; TODO - self-debuff, lower ATK and DEF
@@ -219,7 +219,7 @@ Moves:
 	move BRAVE_BIRD,   RECOIL_EFFECT,	           120,	FLYING,	      100, 15 ; [TM41] done
 	move HURRICANE,	   CONFUSION_SIDE_EFFECT3,	   110,	FLYING,	       70, 10 ; done (thanks to Vortiene)
 
-	move SHADOW_BALL,  NO_ADDITIONAL_EFFECT,	    80,	GHOST,	      100, 15 ; [TM49]
+	move SHADOW_BALL,  SPECIAL_DOWN_SIDE_EFFECT2,   80,	GHOST,	      100, 15 ; [TM49]
 	move SHADOW_PUNCH, SWIFT_EFFECT,	            60,	GHOST,	      100, 20 ; done
 	move SHADOW_SNEAK, NO_ADDITIONAL_EFFECT,	    40,	GHOST,	      100, 30 ; [TM39] prio +1 ; done
 	move SHADOW_CLAW,  NO_ADDITIONAL_EFFECT,	    70,	GHOST,	      100, 15 ; high crit rate ; done
@@ -228,11 +228,11 @@ Moves:
 	move MAGICAL_LEAF, SWIFT_EFFECT,	            60,	GRASS,        100, 20 ; done
 	move BULLET_SEED,  TWO_TO_FIVE_ATTACKS_EFFECT,  25,	GRASS,        100, 30 ; done
 	move LEAF_STORM,   NO_ADDITIONAL_EFFECT,	   130,	GRASS,         90, 5
-	move ENERGY_BALL,  SPECIAL_DOWN_SIDE_EFFECT10,  90,	GRASS,        100, 10 ; DOING!!!
+	move ENERGY_BALL,  SPECIAL_DOWN_SIDE_EFFECT1,   90,	GRASS,        100, 10 ; DOING!!!
 	move FRENZY_PLANT, HYPER_BEAM_EFFECT,	       150,	GRASS,         90, 5  ; done
 
-	move MUD_SLAP,	   ACCURACY_DOWN_SIDE_EFFECT10,	20,	GROUND,	      100, 10 ; DOING!!!
-	move MUD_SHOT,	   SPEED_DOWN_SIDE_EFFECT10,	55,	GROUND,	       95, 15 ; DOING!!!
+	move MUD_SLAP,	   ACCURACY_DOWN_SIDE_EFFECT_CERT,	20,	GROUND,   100, 10 ; DOING!!!
+	move MUD_SHOT,	   SPEED_DOWN_SIDE_EFFECT_CERT,	55,	GROUND,	       95, 15 ; DOING!!!
 
 	move ICICLE_SPEAR, TWO_TO_FIVE_ATTACKS_EFFECT,  25,	ICE,	      100, 30 ; done
 	move ICICLE_CRASH, FLINCH_SIDE_EFFECT3,	        85,	ICE,	       90, 10 ; done
@@ -246,17 +246,17 @@ Moves:
 	move ZEN_HEADBUTT, FLINCH_SIDE_EFFECT2,	        80,	PSYCHIC_TYPE,  90, 15 ; done
 	move PSYCHO_CUT,   NO_ADDITIONAL_EFFECT,	    70,	PSYCHIC_TYPE, 100, 20 ; high crit rate ; done
 
-	move ROCK_TOMB,	   NO_ADDITIONAL_EFFECT,	    60,	ROCK,	       95, 15
+	move ROCK_TOMB,	   SPEED_DOWN_SIDE_EFFECT_CERT, 60,	ROCK,	       95, 15 ; DOING!!!
 	move HEAD_SMASH,   RECOIL_EFFECT,	           150,	ROCK,	       80, 5  ; done (1/2 instead 1/3 study more the code in engine/battle/move_effects/recoil)
 	move STONE_EDGE,   NO_ADDITIONAL_EFFECT,	   100,	ROCK,	       80, 5  ; [TM22] high crit rate ; done
 	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
 
-	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT,   100,	STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
+	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,   100,	STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
 	move STEEL_WING,   NO_ADDITIONAL_EFFECT,	    70,	STEEL,	       90, 25
 	move METAL_CLAW,   NO_ADDITIONAL_EFFECT,	    50,	STEEL,	       95, 35
 	move METEOR_MASH,  NO_ADDITIONAL_EFFECT,	   100,	STEEL,	       85, 10 ; [TM09]
 	move BULLET_PUNCH, NO_ADDITIONAL_EFFECT,	    40,	STEEL,	      100, 30 ; prio +1 ; done
-	move FLASH_CANNON, NO_ADDITIONAL_EFFECT,		80, STEEL, 		  100, 10 ; [TM18]
+	move FLASH_CANNON, SPECIAL_DOWN_SIDE_EFFECT1,	80, STEEL, 		  100, 10 ; [TM18]
 
 	move WATER_PULSE,  CONFUSION_SIDE_EFFECT2,	    60,	WATER,	      100, 20 ; done
 	move AQUA_JET,     NO_ADDITIONAL_EFFECT,	    40,	WATER,	      100, 20 ; prio +1 ; done

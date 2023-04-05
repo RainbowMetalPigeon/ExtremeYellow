@@ -69,19 +69,33 @@ MoveEffectPointerTable:
 	dw PoisonEffect              ; POISON_EFFECT
 	dw ParalyzeEffect            ; PARALYZE_EFFECT
 
-	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT
-	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT
-	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT
-	dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT
+	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT1
+	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT1
+	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT1
+	dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT1
 	dw StatModifierDownEffect    ; unused effect - would this be accuracy?
 	dw StatModifierDownEffect    ; unused effect - would this be evasion?
 
-	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT10
-	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT10
-	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT10
-	dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT10
-	dw StatModifierDownEffect    ; ACCURACY_DOWN_SIDE_EFFECT10
-	dw StatModifierDownEffect    ; EVASION_DOWN_SIDE_EFFECT10
+	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT2
+	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT2
+	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT2
+	dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT2
+	dw StatModifierDownEffect    ; unused effect - would this be accuracy?
+	dw StatModifierDownEffect    ; unused effect - would this be evasion?
+
+	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT3
+	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT3
+	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT3
+	dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT3
+	dw StatModifierDownEffect    ; unused effect - would this be accuracy?
+	dw StatModifierDownEffect    ; unused effect - would this be evasion?
+
+	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT_CERT
+	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT_CERT
+	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT_CERT
+	dw StatModifierDownEffect    ; SPECIAL_DOWN_SIDE_EFFECT_CERT
+	dw StatModifierDownEffect    ; ACCURACY_DOWN_SIDE_EFFECT_CERT
+	dw StatModifierDownEffect    ; EVASION_DOWN_SIDE_EFFECT_CERT
 
 	dw Confusion10SideEffect     ; CONFUSION_SIDE_EFFECT1
 	dw Confusion20SideEffect     ; CONFUSION_SIDE_EFFECT2

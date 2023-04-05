@@ -761,26 +761,51 @@ StatModifierDownEffect:
 	call CheckTargetSubstitute ; can't hit through substitute
 	jp nz, MoveMissed
 	ld a, [de]
-	cp ATTACK_DOWN_SIDE_EFFECT
+	cp ATTACK_DOWN_SIDE_EFFECT1		; new, was ATTACK_DOWN_SIDE_EFFECT3, which was ATTACK_DOWN_SIDE_EFFECT
 	jr c, .nonSideEffect
-	cp ATTACK_DOWN_SIDE_EFFECT10	; new
-	jr nc, .differentChance			; new
+	cp ATTACK_DOWN_SIDE_EFFECT_CERT	; new
+	jr nc, .canLowerFurther			; new
+	cp ATTACK_DOWN_SIDE_EFFECT3		; new
+	jr nc, .goTo30ishChance			; new
+	cp ATTACK_DOWN_SIDE_EFFECT2		; new
+	jr nc, .goTo20Chance			; new
+; would be goTo10Chance, but no need to jump to it if we failed the jr nc above
+	call BattleRandom
+	cp 10 percent + 1 ; chance for side effects
+	jp nc, CantLowerAnymore
+	jp c, .canLowerFurther
+.goTo20Chance
+	call BattleRandom
+	cp 20 percent + 1 ; chance for side effects
+	jp nc, CantLowerAnymore
+	jp c, .canLowerFurther
+.goTo30ishChance
 	call BattleRandom
 	cp 33 percent + 1 ; chance for side effects
 	jp nc, CantLowerAnymore
-	jp c, .canLowerFurther	; new
-.differentChance  			; new
-	call BattleRandom		; new
-	cp 99 percent + 1 ; different chance for side effects  ; new
-	jp nc, CantLowerAnymore	; new
+;			jp c, .canLowerFurther	; unnecessary
+;		.differentChance  			; new
+;			call BattleRandom		; new
+;			cp 99 percent + 1 ; different chance for side effects  ; new
+;			jp nc, CantLowerAnymore	; new
 .canLowerFurther 			; new
 	ld a, [de]
-	cp ATTACK_DOWN_SIDE_EFFECT10	; new
-	jr nc, .differentMapping		; new
-	sub ATTACK_DOWN_SIDE_EFFECT 	; map each stat to 0-3
+	cp ATTACK_DOWN_SIDE_EFFECT_CERT	; new
+	jr nc, .mappingCert				; new
+	cp ATTACK_DOWN_SIDE_EFFECT3		; new
+	jr nc, .mapping30				; new
+	cp ATTACK_DOWN_SIDE_EFFECT2		; new
+	jr nc, .mapping20				; new
+	sub ATTACK_DOWN_SIDE_EFFECT1 	; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
 	jr .decrementStatMod			; new, bug fix!
-.differentMapping					; new
-	sub ATTACK_DOWN_SIDE_EFFECT10 	; new ; map each stat to 0-3
+.mappingCert						; new
+	sub ATTACK_DOWN_SIDE_EFFECT_CERT 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
+	jr .decrementStatMod
+.mapping30							; new
+	sub ATTACK_DOWN_SIDE_EFFECT3 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
+	jr .decrementStatMod
+.mapping20							; new
+	sub ATTACK_DOWN_SIDE_EFFECT2 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
 	jr .decrementStatMod
 .nonSideEffect ; non-side effects only
 	push hl
@@ -922,7 +947,7 @@ CantLowerAnymore_Pop:
 
 CantLowerAnymore:
 	ld a, [de]
-	cp ATTACK_DOWN_SIDE_EFFECT
+	cp ATTACK_DOWN_SIDE_EFFECT1
 	ret nc
 	ld hl, NothingHappenedText
 	jp PrintText
@@ -946,7 +971,7 @@ MonsStatsFellText:
 ; check if the move's effect decreases a stat by 2
 	cp BIDE_EFFECT
 	ret c
-	cp ATTACK_DOWN_SIDE_EFFECT
+	cp ATTACK_DOWN_SIDE_EFFECT1
 	ret nc
 	ld hl, GreatlyFellText
 	ret

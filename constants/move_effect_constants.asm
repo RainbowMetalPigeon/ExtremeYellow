@@ -73,19 +73,33 @@
 	const POISON_EFFECT              ; $42
 	const PARALYZE_EFFECT            ; $43
 
-	const ATTACK_DOWN_SIDE_EFFECT    ; $44 - the position of this one is important for statModifierDownEffect!!!
-	const DEFENSE_DOWN_SIDE_EFFECT   ; $45
-	const SPEED_DOWN_SIDE_EFFECT     ; $46
-	const SPECIAL_DOWN_SIDE_EFFECT   ; $47
+	const ATTACK_DOWN_SIDE_EFFECT1   ; $44 - the position of this one is important for statModifierDownEffect!!!
+	const DEFENSE_DOWN_SIDE_EFFECT1  ; $45
+	const SPEED_DOWN_SIDE_EFFECT1    ; $46
+	const SPECIAL_DOWN_SIDE_EFFECT1  ; $47
 	const_skip                       ; $48
 	const_skip                       ; $49
 
-	const ATTACK_DOWN_SIDE_EFFECT10
-	const DEFENSE_DOWN_SIDE_EFFECT10
-	const SPEED_DOWN_SIDE_EFFECT10
-	const SPECIAL_DOWN_SIDE_EFFECT10
-	const ACCURACY_DOWN_SIDE_EFFECT10
-	const EVASION_DOWN_SIDE_EFFECT10
+	const ATTACK_DOWN_SIDE_EFFECT2   ; - the position of this one is important for statModifierDownEffect!!!
+	const DEFENSE_DOWN_SIDE_EFFECT2  ;
+	const SPEED_DOWN_SIDE_EFFECT2    ;
+	const SPECIAL_DOWN_SIDE_EFFECT2  ;
+	const_skip                       ;
+	const_skip                       ;
+
+	const ATTACK_DOWN_SIDE_EFFECT3   ; - the position of this one is important for statModifierDownEffect!!!
+	const DEFENSE_DOWN_SIDE_EFFECT3  ;
+	const SPEED_DOWN_SIDE_EFFECT3    ;
+	const SPECIAL_DOWN_SIDE_EFFECT3  ;
+	const_skip                       ;
+	const_skip                       ;
+
+	const ATTACK_DOWN_SIDE_EFFECT_CERT
+	const DEFENSE_DOWN_SIDE_EFFECT_CERT
+	const SPEED_DOWN_SIDE_EFFECT_CERT
+	const SPECIAL_DOWN_SIDE_EFFECT_CERT
+	const ACCURACY_DOWN_SIDE_EFFECT_CERT
+	const EVASION_DOWN_SIDE_EFFECT_CERT
 
 	const CONFUSION_SIDE_EFFECT1     ; $4A new, was const_skip
 	const CONFUSION_SIDE_EFFECT2     ; $4B new, was const_skip

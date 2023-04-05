@@ -7,7 +7,7 @@ StatModTextStrings:
 	li "DEFENSE"
 	li "SPEED"
 	li "SPECIAL"
-	assert_list_length SPECIAL_DOWN_SIDE_EFFECT - ATTACK_DOWN_SIDE_EFFECT + 1
+	assert_list_length SPECIAL_DOWN_SIDE_EFFECT3 - ATTACK_DOWN_SIDE_EFFECT3 + 1 ; new, is this still ok?
 	li "ACCURACY"
 	li "EVADE"
 	assert_list_length NUM_STAT_MODS - 2 ; two bytes are unused
