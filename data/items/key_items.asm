@@ -87,5 +87,5 @@ KeyItemFlags:
 	dbit FALSE ; MEGA_STONE_Y	- new
 	dbit FALSE ; SUN_STONE		- new
 	dbit FALSE ; ICE_STONE		- new
-	dbit FALSE ; REGAL_STONE	- new
+	dbit FALSE ; KINGS_STONE	- new
 	end_bit_array NUM_ITEMS

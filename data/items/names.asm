@@ -87,7 +87,7 @@ ItemNames::
 	li "MEGA STONE Y"
 	li "SUN STONE"
 	li "ICE STONE"
-	li "REGAL STONE"
+	li "KING's ROCK"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

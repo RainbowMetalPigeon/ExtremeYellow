@@ -40,5 +40,5 @@ UsableItems_PartyMenu:
 	db MEGA_STONE_Y
 	db SUN_STONE
 	db ICE_STONE
-	db REGAL_STONE
+	db KINGS_ROCK
 	db -1 ; end

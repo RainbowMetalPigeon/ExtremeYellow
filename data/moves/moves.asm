@@ -184,7 +184,7 @@ Moves:
 	move INFESTATION,  TRAPPING_EFFECT,	            20,	BUG,	       80, 20 ; done
 
 	move FEINT_ATTACK, SWIFT_EFFECT,	            60,	DARK,	      100, 20 ; [TM20] done
-	move CRUNCH,	   SPECIAL_DOWN_SIDE_EFFECT2,   80,	DARK,	      100, 15
+	move CRUNCH,	   SPECIAL_DOWN_SIDE_EFFECT2,   80,	DARK,	      100, 15 ; done, to be further tested
 	move NIGHT_SLASH,  NO_ADDITIONAL_EFFECT,	    70,	DARK,	      100, 15 ; high crit rate ; done
 	move DARK_PULSE,   FLINCH_SIDE_EFFECT2,	        80,	DARK,	      100, 15 ; [TM07] done
 
@@ -199,7 +199,7 @@ Moves:
 
 	move CHARM,	       ATTACK_DOWN2_EFFECT,	         0,	FAIRY,	      100, 20 ; done
 	move DRAININGKISS, DRAIN_HP_EFFECT,	            50,	FAIRY,	      100, 10 ; [TM17] done!
-	move PLAY_ROUGH,   ATTACK_DOWN_SIDE_EFFECT1,    90,	FAIRY,	       90, 10 ; TODO - should have a 10% of reduce ATK, but in the code there's only 33%, need to modify it
+	move PLAY_ROUGH,   ATTACK_DOWN_SIDE_EFFECT1,    90,	FAIRY,	       90, 10 ; done, to be further tested
 	move MOONBLAST,	   SPECIAL_DOWN_SIDE_EFFECT3,	95,	FAIRY,	      100, 15 ; [TM30] done (it should be 30% and it's 33%, doesn't matter)
 
 	move MACH_PUNCH,   NO_ADDITIONAL_EFFECT,	    40,	FIGHTING,	  100, 30 ; prio +1 ; done
@@ -219,7 +219,7 @@ Moves:
 	move BRAVE_BIRD,   RECOIL_EFFECT,	           120,	FLYING,	      100, 15 ; [TM41] done
 	move HURRICANE,	   CONFUSION_SIDE_EFFECT3,	   110,	FLYING,	       70, 10 ; done (thanks to Vortiene)
 
-	move SHADOW_BALL,  SPECIAL_DOWN_SIDE_EFFECT2,   80,	GHOST,	      100, 15 ; [TM49]
+	move SHADOW_BALL,  SPECIAL_DOWN_SIDE_EFFECT2,   80,	GHOST,	      100, 15 ; [TM49], done, to be further tested
 	move SHADOW_PUNCH, SWIFT_EFFECT,	            60,	GHOST,	      100, 20 ; done
 	move SHADOW_SNEAK, NO_ADDITIONAL_EFFECT,	    40,	GHOST,	      100, 30 ; [TM39] prio +1 ; done
 	move SHADOW_CLAW,  NO_ADDITIONAL_EFFECT,	    70,	GHOST,	      100, 15 ; high crit rate ; done
@@ -227,12 +227,12 @@ Moves:
 	move GIGA_DRAIN,   DRAIN_HP_EFFECT,	            75,	GRASS,        100, 10 ; [TM21] done
 	move MAGICAL_LEAF, SWIFT_EFFECT,	            60,	GRASS,        100, 20 ; done
 	move BULLET_SEED,  TWO_TO_FIVE_ATTACKS_EFFECT,  25,	GRASS,        100, 30 ; done
-	move LEAF_STORM,   NO_ADDITIONAL_EFFECT,	   130,	GRASS,         90, 5
-	move ENERGY_BALL,  SPECIAL_DOWN_SIDE_EFFECT1,   90,	GRASS,        100, 10 ; DOING!!!
+	move LEAF_STORM,   NO_ADDITIONAL_EFFECT,	   130,	GRASS,         90, 5  ; TODO - self-debuff, lower SPECIAL harshly
+	move ENERGY_BALL,  SPECIAL_DOWN_SIDE_EFFECT1,   90,	GRASS,        100, 10 ; done, to be further tested
 	move FRENZY_PLANT, HYPER_BEAM_EFFECT,	       150,	GRASS,         90, 5  ; done
 
-	move MUD_SLAP,	   ACCURACY_DOWN_SIDE_EFFECT_CERT,	20,	GROUND,   100, 10 ; DOING!!!
-	move MUD_SHOT,	   SPEED_DOWN_SIDE_EFFECT_CERT,	55,	GROUND,	       95, 15 ; DOING!!!
+	move MUD_SLAP,	   ACCURACY_DOWN_SIDE_EFFECT_CERT,	20,	GROUND,   100, 10 ; done, to be further tested
+	move MUD_SHOT,	   SPEED_DOWN_SIDE_EFFECT_CERT,	55,	GROUND,	       95, 15 ; done, to be further tested
 
 	move ICICLE_SPEAR, TWO_TO_FIVE_ATTACKS_EFFECT,  25,	ICE,	      100, 30 ; done
 	move ICICLE_CRASH, FLINCH_SIDE_EFFECT3,	        85,	ICE,	       90, 10 ; done
@@ -246,15 +246,15 @@ Moves:
 	move ZEN_HEADBUTT, FLINCH_SIDE_EFFECT2,	        80,	PSYCHIC_TYPE,  90, 15 ; done
 	move PSYCHO_CUT,   NO_ADDITIONAL_EFFECT,	    70,	PSYCHIC_TYPE, 100, 20 ; high crit rate ; done
 
-	move ROCK_TOMB,	   SPEED_DOWN_SIDE_EFFECT_CERT, 60,	ROCK,	       95, 15 ; DOING!!!
+	move ROCK_TOMB,	   SPEED_DOWN_SIDE_EFFECT_CERT, 60,	ROCK,	       95, 15 ; done, to be further tested
 	move HEAD_SMASH,   RECOIL_EFFECT,	           150,	ROCK,	       80, 5  ; done (1/2 instead 1/3 study more the code in engine/battle/move_effects/recoil)
 	move STONE_EDGE,   NO_ADDITIONAL_EFFECT,	   100,	ROCK,	       80, 5  ; [TM22] high crit rate ; done
 	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
 
 	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,   100,	STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
-	move STEEL_WING,   NO_ADDITIONAL_EFFECT,	    70,	STEEL,	       90, 25
-	move METAL_CLAW,   NO_ADDITIONAL_EFFECT,	    50,	STEEL,	       95, 35
-	move METEOR_MASH,  NO_ADDITIONAL_EFFECT,	   100,	STEEL,	       85, 10 ; [TM09]
+	move STEEL_WING,   NO_ADDITIONAL_EFFECT,	    70,	STEEL,	       90, 25 ; TODO - self-buff, 10% def
+	move METAL_CLAW,   NO_ADDITIONAL_EFFECT,	    50,	STEEL,	       95, 35 ; TODO - self-buff, 10% atk
+	move METEOR_MASH,  NO_ADDITIONAL_EFFECT,	   100,	STEEL,	       85, 10 ; TODO - self-buff, 20% atk [TM09]
 	move BULLET_PUNCH, NO_ADDITIONAL_EFFECT,	    40,	STEEL,	      100, 30 ; prio +1 ; done
 	move FLASH_CANNON, SPECIAL_DOWN_SIDE_EFFECT1,	80, STEEL, 		  100, 10 ; [TM18]
 

@@ -104,7 +104,7 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone   ; MEGA_STONE_Y
 	dw ItemUseEvoStone   ; SUN_STONE
 	dw ItemUseEvoStone   ; ICE_STONE
-	dw ItemUseEvoStone   ; REGAL_STONE
+	dw ItemUseEvoStone   ; KINGS_ROCK
 
 ItemUseBall:
 
