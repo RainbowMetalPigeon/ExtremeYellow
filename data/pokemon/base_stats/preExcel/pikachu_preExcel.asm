@@ -10,7 +10,9 @@
 	INCBIN "gfx/pokemon/front/pikachu.pic", 0, 1 ; sprite dimensions
 	dw PikachuPicFront, PikachuPicBack
 
-	db THUNDERSHOCK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
+;	db THUNDERSHOCK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
+;	db MUD_SHOT, MUD_SLAP, ROCK_TOMB, MOONBLAST ; level 1 learnset
+	db BUBBLE, CRUNCH, ENERGY_BALL, MUD_SHOT ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -18,7 +20,7 @@
 	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     THUNDER_WAVE, SUBSTITUTE,   FLY,          SURF,         STRENGTH,     \
-	     FLASH         
+	     FLASH
 	; end
 
 	db BANK(PikachuPicFront)

@@ -46,13 +46,16 @@ MonPartyData:
 	nybble ICON_FAIRY     ; Clefable
 	nybble ICON_QUADRUPED ; Vulpix
 	nybble ICON_QUADRUPED ; Ninetales
+	nybble ICON_FAIRY     ; Igglybuff
 	nybble ICON_FAIRY     ; Jigglypuff
 	nybble ICON_FAIRY     ; Wigglytuff
 	nybble ICON_MON       ; Zubat
 	nybble ICON_MON       ; Golbat
+	nybble ICON_MON       ; Crobat
 	nybble ICON_GRASS     ; Oddish
 	nybble ICON_GRASS     ; Gloom
 	nybble ICON_GRASS     ; Vileplume
+	nybble ICON_GRASS     ; Bellossom
 	nybble ICON_BUG       ; Paras
 	nybble ICON_BUG       ; Parasect
 	nybble ICON_BUG       ; Venonat
@@ -65,6 +68,7 @@ MonPartyData:
 	nybble ICON_MON       ; Golduck
 	nybble ICON_MON       ; Mankey
 	nybble ICON_MON       ; Primeape
+	nybble ICON_MON       ; Annihilape
 	nybble ICON_QUADRUPED ; Growlithe
 	nybble ICON_QUADRUPED ; Arcanine
 	nybble ICON_MON       ; Poliwag

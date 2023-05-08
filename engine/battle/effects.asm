@@ -506,6 +506,10 @@ TriAttackEffect:
 	ld hl, FrozenText
 	jp PrintText
 
+PrintBurnText: ; new, testing
+	ld hl, BurnedText
+	jp PrintText
+
 BurnedText:
 	text_far _BurnedText
 	text_end
@@ -553,6 +557,27 @@ FireDefrostedText:
 	text_far _FireDefrostedText
 	text_end
 
+SelfBuff20Percent:
+	call BattleRandom
+	cp 80 percent	; chance of self-buffing ; testing with higher number, 80 instead of 20
+	ret nc			; returns and doesn't buff if rolls 20 or higher
+;	ld de, wPlayerMoveEffect
+;	ldh a, [hWhoseTurn]
+;	and a
+;	jr z, .next
+;	ld de, wEnemyMoveEffect
+;.next
+;	; following 4 lines are kinda useless as long as I have only 1 move in this function
+;	; but let's keep them for generality
+;	ld a, [de]
+;	cp ATTACK_UP_SIDE_EFF2
+;	jr z, .loadAttackUp
+;.loadAttackUp
+;	ld a, ATTACK_UP1_EFFECT
+;	ld [de], a
+	call StatModifierUpEffect ; jr or call?
+	ret ; new, testing, is this ret the solution to all the problems of the world?
+
 StatModifierUpEffect:
 	ld hl, wPlayerMonStatMods
 	ld de, wPlayerMoveEffect
@@ -563,6 +588,18 @@ StatModifierUpEffect:
 	ld de, wEnemyMoveEffect
 .statModifierUpEffect
 	ld a, [de]
+	cp ATTACK_UP_SIDE_EFF2 ; new, testing
+	jr c, .vanillaCode
+	cp ATTACK_UP_SIDE_EFF2
+	jr z, .mapNewToAtk
+;	cp ATTACK_UP_SIDE_EFF1		; later
+;	jr z, .mapNewToAtk			; later
+;	cp DEFENSE_UP_SIDE_EFF1		; later
+;	jr z, .mapNewToDef			; later
+.mapNewToAtk
+	ld a, 0
+	jr .incrementStatMod
+.vanillaCode
 	sub ATTACK_UP1_EFFECT
 	cp EVASION_UP1_EFFECT + $3 - ATTACK_UP1_EFFECT ; covers all +1 effects
 	jr c, .incrementStatMod
@@ -577,6 +614,8 @@ StatModifierUpEffect:
 	cp b ; can't raise stat past +6 ($d or 13)
 	jp c, PrintNothingHappenedText
 	ld a, [de]
+	cp ATTACK_UP_SIDE_EFF2 ; new, testing
+	jr nc, .ok
 	cp ATTACK_UP1_EFFECT + $8 ; is it a +2 effect?
 	jr c, .ok
 	inc b ; if so, increment stat mod again
@@ -673,6 +712,21 @@ UpdateStatDone:
 	ld de, wEnemyMoveNum
 	ld bc, wEnemyMonMinimized
 .playerTurn
+;;;;;;;;;; adapted from Vortiene
+	push de
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .playerTurn2
+	ld de, wEnemyMoveEffect
+.playerTurn2
+	ld a, [de]
+	pop de
+	cp ATTACK_UP_SIDE_EFF2
+	jr nc, .skipAnimation
+;	cp OTHERS (ATTACK_UP_SIDE_EFF1, DEFENSE_UP_SIDE_EFF1)
+;	jr z, .skipAnimation
+;;;;;;;;;;
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .notMinimize
@@ -688,6 +742,7 @@ UpdateStatDone:
 	pop de
 .notMinimize
 	call PlayCurrentMoveAnimation
+.skipAnimation	; adapted from Vortiene
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .applyBadgeBoostsAndStatusPenalties
@@ -728,8 +783,11 @@ MonsStatsRoseText:
 	jr z, .playerTurn
 	ld a, [wEnemyMoveEffect]
 .playerTurn
+	cp ATTACK_UP_SIDE_EFF2	; new, testing, will need to be modified to ATTACK_UP_SIDE_EFF1
+	jp nc, .rose			; new, testing
 	cp ATTACK_DOWN1_EFFECT
 	ret nc
+.rose						; new, testing
 	ld hl, RoseText
 	ret
 
@@ -1001,7 +1059,6 @@ PrintStatText:
 	jp CopyData
 
 INCLUDE "data/battle/stat_mod_names.asm"
-
 INCLUDE "data/battle/stat_modifiers.asm"
 
 BideEffect:

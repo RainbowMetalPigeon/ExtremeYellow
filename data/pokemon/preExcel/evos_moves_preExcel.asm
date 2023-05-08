@@ -647,7 +647,7 @@ MPidgeotEvosMoves:
 	db 45, BLIZZARD
 	db 47, AERIAL_ACE
 	db 50, AIR_SLASH
-	db 53, AIR_CUTTE
+	db 53, AIR_CUTTER
 	db 57, HURRICANE
 	db 0
 
@@ -2534,4 +2534,3 @@ MonGhostEvosMoves:
 	db 0
 ; Learnset
 	db 0
-

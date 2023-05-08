@@ -10,4 +10,5 @@ AlwaysHappenSideEffects:
 	db RECOIL_EFFECT
 	db TWINEEDLE_EFFECT
 ;	db RAGE_EFFECT
+	db ATTACK_UP_SIDE_EFF2 ; new, testing
 	db -1 ; end

@@ -115,4 +115,7 @@ MoveEffectPointerTable:
 	dw FreezeBurnParalyzeEffect  ; PARALYZE_SIDE_EFFECT_CERT - brand new
 	dw BurnEffect	             ; BURN_EFFECT
 	dw TriAttackEffect			 ; TRIATTACK_EFFECT
+
+	dw SelfBuff20Percent		 ; ATTACK_UP_SIDE_EFF2
+
 	assert_table_length NUM_MOVE_EFFECTS

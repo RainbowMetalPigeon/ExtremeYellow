@@ -251,10 +251,10 @@ Moves:
 	move STONE_EDGE,   NO_ADDITIONAL_EFFECT,	   100,	ROCK,	       80, 5  ; [TM22] high crit rate ; done
 	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
 
-	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,   100,	STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
+	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,   100,STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
 	move STEEL_WING,   NO_ADDITIONAL_EFFECT,	    70,	STEEL,	       90, 25 ; TODO - self-buff, 10% def
 	move METAL_CLAW,   NO_ADDITIONAL_EFFECT,	    50,	STEEL,	       95, 35 ; TODO - self-buff, 10% atk
-	move METEOR_MASH,  NO_ADDITIONAL_EFFECT,	   100,	STEEL,	       85, 10 ; TODO - self-buff, 20% atk [TM09]
+	move METEOR_MASH,  ATTACK_UP_SIDE_EFF2, 	   100,	STEEL,	       85, 10 ; TODO - self-buff, 20% atk [TM09] - DOING!?
 	move BULLET_PUNCH, NO_ADDITIONAL_EFFECT,	    40,	STEEL,	      100, 30 ; prio +1 ; done
 	move FLASH_CANNON, SPECIAL_DOWN_SIDE_EFFECT1,	80, STEEL, 		  100, 10 ; [TM18]
 

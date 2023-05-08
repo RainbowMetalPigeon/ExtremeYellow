@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  GIGA_DRAIN,   MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         SUBSTITUTE,   \
-	     CUT           
+	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  GIGA_DRAIN,   \
+	     MOONBLAST,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     REST,         SUBSTITUTE,   CUT,          FLASH,        GUNK_SHOT     
 	; end
 
 	db BANK(GloomPicFront)

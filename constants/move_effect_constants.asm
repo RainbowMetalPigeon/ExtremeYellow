@@ -14,15 +14,15 @@
 	const EXPLODE_EFFECT             ; $07 Explosion, Self Destruct
 	const DREAM_EATER_EFFECT         ; $08
 	const MIRROR_MOVE_EFFECT         ; $09
-	const ATTACK_UP1_EFFECT          ; $0A
-	const DEFENSE_UP1_EFFECT         ; $0B
-	const SPEED_UP1_EFFECT           ; $0C
-	const SPECIAL_UP1_EFFECT         ; $0D
-	const ACCURACY_UP1_EFFECT        ; $0E
-	const EVASION_UP1_EFFECT         ; $0F
-	const PAY_DAY_EFFECT             ; $10
-	const SWIFT_EFFECT               ; $11
-	const ATTACK_DOWN1_EFFECT        ; $12
+	const ATTACK_UP1_EFFECT          ; $0A = 10
+	const DEFENSE_UP1_EFFECT         ; $0B = 11
+	const SPEED_UP1_EFFECT           ; $0C = 12
+	const SPECIAL_UP1_EFFECT         ; $0D = 13
+	const ACCURACY_UP1_EFFECT        ; $0E = 14
+	const EVASION_UP1_EFFECT         ; $0F = 15
+	const PAY_DAY_EFFECT             ; $10 = 16
+	const SWIFT_EFFECT               ; $11 = 17
+	const ATTACK_DOWN1_EFFECT        ; $12 = 18
 	const DEFENSE_DOWN1_EFFECT       ; $13
 	const SPEED_DOWN1_EFFECT         ; $14
 	const SPECIAL_DOWN1_EFFECT       ; $15
@@ -119,4 +119,7 @@
 	const PARALYZE_SIDE_EFFECT_CERT  ; - brand new
 	const BURN_EFFECT				 ; - brand new
 	const TRIATTACK_EFFECT			 ; - brand new
+
+	const ATTACK_UP_SIDE_EFF2		 ; new, testing
+
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

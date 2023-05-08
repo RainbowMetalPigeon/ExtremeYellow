@@ -29,12 +29,14 @@ CryData::
 	mon_cry SFX_CRY_0E, $DF, $04 ; Pidgey
 	mon_cry SFX_CRY_14, $28, $C0 ; Pidgeotto
 	mon_cry SFX_CRY_14, $11, $FF ; Pidgeot
+	mon_cry SFX_CRY_14, $11, $FF ; MPidgeot
 	mon_cry SFX_CRY_22, $00, $80 ; Rattata
 	mon_cry SFX_CRY_22, $20, $FF ; Raticate
 	mon_cry SFX_CRY_10, $00, $80 ; Spearow
 	mon_cry SFX_CRY_18, $40, $A0 ; Fearow
 	mon_cry SFX_CRY_17, $12, $40 ; Ekans
 	mon_cry SFX_CRY_17, $E0, $10 ; Arbok
+	mon_cry SFX_CRY_0F, $EE, $01 ; Pichu
 	mon_cry SFX_CRY_0F, $EE, $01 ; Pikachu
 	mon_cry SFX_CRY_09, $EE, $08 ; Raichu
 	mon_cry SFX_CRY_00, $20, $40 ; Sandshrew
@@ -45,6 +47,7 @@ CryData::
 	mon_cry SFX_CRY_00, $00, $80 ; NidoranM
 	mon_cry SFX_CRY_00, $2C, $C0 ; Nidorino
 	mon_cry SFX_CRY_09, $00, $80 ; Nidoking
+	mon_cry SFX_CRY_19, $CC, $01 ; Cleffa
 	mon_cry SFX_CRY_19, $CC, $01 ; Clefairy
 	mon_cry SFX_CRY_19, $AA, $20 ; Clefable
 	mon_cry SFX_CRY_24, $4F, $10 ; Vulpix

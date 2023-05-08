@@ -52,13 +52,16 @@ CryData::
 	mon_cry SFX_CRY_19, $AA, $20 ; Clefable
 	mon_cry SFX_CRY_24, $4F, $10 ; Vulpix
 	mon_cry SFX_CRY_24, $88, $60 ; Ninetales
+	mon_cry SFX_CRY_0E, $FF, $35 ; Igglybuff
 	mon_cry SFX_CRY_0E, $FF, $35 ; Jigglypuff
 	mon_cry SFX_CRY_0E, $68, $60 ; Wigglytuff
 	mon_cry SFX_CRY_1D, $E0, $80 ; Zubat
 	mon_cry SFX_CRY_1D, $FA, $80 ; Golbat
+	mon_cry SFX_CRY_1D, $FA, $80 ; Crobat
 	mon_cry SFX_CRY_08, $DD, $01 ; Oddish
 	mon_cry SFX_CRY_08, $AA, $40 ; Gloom
 	mon_cry SFX_CRY_23, $22, $FF ; Vileplume
+	mon_cry SFX_CRY_23, $22, $FF ; Bellossom
 	mon_cry SFX_CRY_1E, $42, $FF ; Paras
 	mon_cry SFX_CRY_1E, $42, $FF ; Parasect
 	mon_cry SFX_CRY_1A, $44, $40 ; Venonat
@@ -71,6 +74,7 @@ CryData::
 	mon_cry SFX_CRY_21, $FF, $40 ; Golduck
 	mon_cry SFX_CRY_0A, $DD, $60 ; Mankey
 	mon_cry SFX_CRY_0A, $AF, $40 ; Primeape
+	mon_cry SFX_CRY_0A, $AF, $40 ; Annihilape
 	mon_cry SFX_CRY_1F, $20, $40 ; Growlithe
 	mon_cry SFX_CRY_15, $00, $80 ; Arcanine
 	mon_cry SFX_CRY_0E, $FF, $FF ; Poliwag

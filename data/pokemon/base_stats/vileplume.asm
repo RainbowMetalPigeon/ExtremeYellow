@@ -15,8 +15,9 @@
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     GIGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     REST,         SUBSTITUTE,   CUT           
+	     GIGA_DRAIN,   MOONBLAST,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     BIDE,         REST,         SUBSTITUTE,   CUT,          FLASH,        \
+	     GUNK_SHOT     
 	; end
 
 	db BANK(VileplumePicFront)

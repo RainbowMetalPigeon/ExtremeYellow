@@ -23,12 +23,14 @@ PokedexEntryPointers:
 	dw PidgeyDexEntry
 	dw PidgeottoDexEntry
 	dw PidgeotDexEntry
+	dw MPidgeotDexEntry
 	dw RattataDexEntry
 	dw RaticateDexEntry
 	dw SpearowDexEntry
 	dw FearowDexEntry
 	dw EkansDexEntry
 	dw ArbokDexEntry
+	dw PichuDexEntry
 	dw PikachuDexEntry
 	dw RaichuDexEntry
 	dw SandshrewDexEntry
@@ -39,6 +41,7 @@ PokedexEntryPointers:
 	dw NidoranMDexEntry
 	dw NidorinoDexEntry
 	dw NidokingDexEntry
+	dw CleffaDexEntry
 	dw ClefairyDexEntry
 	dw ClefableDexEntry
 	dw VulpixDexEntry
@@ -328,6 +331,13 @@ PidgeotDexEntry:
 	text_far _PidgeotDexEntry
 	text_end
 
+MPidgeotDexEntry:
+	db "BIRD@"
+	db 22
+	dw 505
+	text_far _MPidgeotDexEntry
+	text_end
+
 RattataDexEntry:
 	db "RAT@"
 	db 3
@@ -368,6 +378,13 @@ ArbokDexEntry:
 	db 35
 	dw 649
 	text_far _ArbokDexEntry
+	text_end
+
+PichuDexEntry:
+	db "TINY MOUSE@"
+	db 3
+	dw 20
+	text_far _PichuDexEntry
 	text_end
 
 PikachuDexEntry:
@@ -438,6 +455,13 @@ NidokingDexEntry:
 	db 14
 	dw 621
 	text_far _NidokingDexEntry
+	text_end
+
+CleffaDexEntry:
+	db "STARSHAPE@"
+	db 3
+	dw 30
+	text_far _CleffaDexEntry
 	text_end
 
 ClefairyDexEntry:

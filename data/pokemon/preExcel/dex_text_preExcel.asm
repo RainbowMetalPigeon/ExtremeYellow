@@ -227,6 +227,16 @@ _PidgeotDexEntry::
 	next "weapons"
 	dex
 
+_MPidgeotDexEntry::
+	text "With its muscular"
+	next "strength now"
+	next "greatly increased,"
+
+	page "it can fly non-"
+	next "stop for weeks"
+	next "without resting"
+	dex
+
 _RattataDexEntry::
 	text "Will chew on any-"
 	next "thing with its"
@@ -284,6 +294,16 @@ _ArbokDexEntry::
 	page "studied. Six vari-"
 	next "ations have been"
 	next "confirmed"
+	dex
+
+_PichuDexEntry::
+	text "It is unskilled at"
+	next "storing electric"
+	next "power. Any kind of"
+
+	page "shock causes it to"
+	next "discharge energy"
+	next "spontaneously"
 	dex
 
 _PikachuDexEntry::
@@ -384,6 +404,16 @@ _NidokingDexEntry::
 	page "Its horns are so"
 	next "hard, they can"
 	next "pierce a diamond"
+	dex
+
+_CleffaDexEntry::
+	text "If the impact site"
+	next "of a meteorite is"
+	next "found, this Poké-"
+
+	page "mon is certain to"
+	next "be within the im-"
+	next "mediate area"
 	dex
 
 _ClefairyDexEntry::

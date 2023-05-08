@@ -23,12 +23,14 @@ MonPartyData:
 	nybble ICON_BIRD      ; Pidgey
 	nybble ICON_BIRD      ; Pidgeotto
 	nybble ICON_BIRD      ; Pidgeot
+	nybble ICON_BIRD      ; MPidgeot
 	nybble ICON_QUADRUPED ; Rattata
 	nybble ICON_QUADRUPED ; Raticate
 	nybble ICON_BIRD      ; Spearow
 	nybble ICON_BIRD      ; Fearow
 	nybble ICON_SNAKE     ; Ekans
 	nybble ICON_SNAKE     ; Arbok
+	nybble ICON_PIKACHU   ; Pichu
 	nybble ICON_PIKACHU   ; Pikachu
 	nybble ICON_PIKACHU   ; Raichu
 	nybble ICON_MON       ; Sandshrew
@@ -39,6 +41,7 @@ MonPartyData:
 	nybble ICON_MON       ; NidoranM
 	nybble ICON_MON       ; Nidorino
 	nybble ICON_MON       ; Nidoking
+	nybble ICON_FAIRY     ; Cleffa
 	nybble ICON_FAIRY     ; Clefairy
 	nybble ICON_FAIRY     ; Clefable
 	nybble ICON_QUADRUPED ; Vulpix

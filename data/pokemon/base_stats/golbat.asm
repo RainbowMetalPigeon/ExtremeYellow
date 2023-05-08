@@ -14,8 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   GIGA_DRAIN,   MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE    
+	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   FEINT_ATTACK, GIGA_DRAIN,   \
+	     MIMIC,        DOUBLE_TEAM,  BIDE,         BRAVE_BIRD,   REST,         \
+	     SHADOW_BALL,  SUBSTITUTE,   FLY           
 	; end
 
 	db BANK(GolbatPicFront)

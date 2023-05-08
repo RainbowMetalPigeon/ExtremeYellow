@@ -11,8 +11,7 @@
 	dw PikachuPicFront, PikachuPicBack
 
 ;	db THUNDERSHOCK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-;	db MUD_SHOT, MUD_SLAP, ROCK_TOMB, MOONBLAST ; level 1 learnset
-	db BUBBLE, CRUNCH, ENERGY_BALL, MUD_SHOT ; level 1 learnset
+	db METEOR_MASH, WILL_O_WISP, CRUNCH, ZAP_CANNON ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
