@@ -115,7 +115,7 @@ ROMX $16
 	"Saffron Guards"
 ROMX $17
 	"Maps 15"
-	"Starter Dex"
+;	"Starter Dex" ; removed this because useless in yellow?
 	"Maps 16"
 	"Hidden Objects 3"
 ROMX $18

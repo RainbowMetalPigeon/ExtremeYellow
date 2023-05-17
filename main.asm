@@ -236,9 +236,10 @@ SECTION "Saffron Guards", ROMX
 INCLUDE "engine/events/saffron_guards.asm"
 
 
-SECTION "Starter Dex", ROMX
+; removed this because useless in yellow?
+;SECTION "Starter Dex", ROMX
 
-INCLUDE "engine/events/starter_dex.asm"
+;INCLUDE "engine/events/starter_dex.asm"
 
 
 SECTION "Hidden Objects 3", ROMX

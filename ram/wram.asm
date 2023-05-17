@@ -1237,7 +1237,7 @@ wGymCityName:: ds 17
 
 wGymLeaderName:: ds NAME_LENGTH
 
-wItemList:: ds 16
+;wItemList:: ds 16 ; moved it elsewhere so to increase market capacity
 
 wListPointer:: dw
 
@@ -1736,6 +1736,7 @@ wMoves:: ds NUM_MOVES
 
 wMoveNum:: db
 
+wItemList::			; suggestion from Vortiene, frees 16 bytes and allows 56 items sold in markets
 wMovesString:: ds 56
 
 wUnusedD119:: db
