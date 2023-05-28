@@ -236,7 +236,7 @@ MoveSoundTable:
 ;	db SFX_BATTLE_36,          $00, $80 ; ROCK_TOMB
 ;	db SFX_BATTLE_36,          $00, $80 ; HEAD_SMASH
 ;	db SFX_BATTLE_36,          $00, $80 ; STONE_EDGE
-;	db SFX_BATTLE_36,          $00, $80 ; ACCELEROCK
+;;	db SFX_BATTLE_36,          $00, $80 ; ACCELEROCK
 
 ;	db SFX_BATTLE_36,          $00, $80 ; IRON_TAIL
 ;	db SFX_BATTLE_36,          $00, $80 ; STEEL_WING

@@ -178,6 +178,7 @@ MoveNames::
 	li "DRAGONBREATH"
 	li "OUTRAGE"
 	li "DRAGON CLAW"
+	li "DRAGON DANCE"
 
 	li "ZAP CANNON"
 	li "SHOCK WAVE"
@@ -235,7 +236,7 @@ MoveNames::
 	li "ROCK TOMB"
 	li "HEAD SMASH"
 	li "STONE EDGE"
-	li "ACCELEROCK"
+;	li "ACCELEROCK"
 
 	li "IRON TAIL"
 	li "STEEL WING"

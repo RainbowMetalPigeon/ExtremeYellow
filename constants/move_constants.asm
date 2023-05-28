@@ -184,13 +184,14 @@
 	const	DRAGONBREATH	;a1
 	const	OUTRAGE			;a2
 	const	DRAGON_CLAW		;a3
+	const	DRAGON_DANCE	;a4
 
-	const	ZAP_CANNON		;a4
-	const	SHOCK_WAVE		;a5
-	const	VOLT_TACKLE		;a6
+	const	ZAP_CANNON		;a5
+	const	SHOCK_WAVE		;a6
+	const	VOLT_TACKLE		;a7
 
-	const	CHARM			;a7
-	const	DRAININGKISS	;a8
+	const	CHARM			;a8
+	const	DRAININGKISS	;a9
 	const	PLAY_ROUGH
 	const	MOONBLAST
 
@@ -241,7 +242,7 @@
 	const	ROCK_TOMB
 	const	HEAD_SMASH
 	const	STONE_EDGE
-	const	ACCELEROCK
+;	const	ACCELEROCK
 
 	const	IRON_TAIL
 	const	STEEL_WING

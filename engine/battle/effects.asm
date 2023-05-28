@@ -557,26 +557,41 @@ FireDefrostedText:
 	text_far _FireDefrostedText
 	text_end
 
-SelfBuff20Percent:
+SelfBuff10Percent:
 	call BattleRandom
-	cp 80 percent	; chance of self-buffing ; testing with higher number, 80 instead of 20
-	ret nc			; returns and doesn't buff if rolls 20 or higher
-;	ld de, wPlayerMoveEffect
-;	ldh a, [hWhoseTurn]
-;	and a
-;	jr z, .next
-;	ld de, wEnemyMoveEffect
-;.next
-;	; following 4 lines are kinda useless as long as I have only 1 move in this function
-;	; but let's keep them for generality
-;	ld a, [de]
-;	cp ATTACK_UP_SIDE_EFF2
-;	jr z, .loadAttackUp
-;.loadAttackUp
-;	ld a, ATTACK_UP1_EFFECT
-;	ld [de], a
+	cp 50 percent	; chance of self-buffing ; testing with higher number, 50 instead of 10
+	ret nc			; returns and doesn't buff if rolls 10 or higher
 	call StatModifierUpEffect ; jr or call?
 	ret ; new, testing, is this ret the solution to all the problems of the world?
+
+SelfBuff20Percent:
+	call BattleRandom
+	cp 90 percent	; chance of self-buffing ; testing with higher number, 90 instead of 20
+	ret nc			; returns and doesn't buff if rolls 20 or higher
+	call StatModifierUpEffect ; jr or call?
+	ret ; new, testing, is this ret the solution to all the problems of the world?
+
+; taking inspiration from Vortiene
+AttackSpeedUpEffect: ; used for Dragon Dance
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+	ld de, wEnemyMoveEffect
+.next
+	ld a, SPEED_UP1_EFFECT
+	ld [de], a
+	push de
+	call StatModifierUpEffect ; stat modifier raising function
+	pop de
+	ld a, ATTACK_UP_SIDE_EFF1 ; it's ugly I'm using the one whose name implies a 10% chance, but I can't be bothered to make another one
+	ld [de], a ; we do the side effect for the second stat because it won't run the animation
+	push de
+	call StatModifierUpEffect ; stat modifier raising function
+	pop de
+	ld a, ATTACK_SPEED_UP1_EFFECT
+	ld [de], a
+	ret
 
 StatModifierUpEffect:
 	ld hl, wPlayerMonStatMods
@@ -588,16 +603,19 @@ StatModifierUpEffect:
 	ld de, wEnemyMoveEffect
 .statModifierUpEffect
 	ld a, [de]
-	cp ATTACK_UP_SIDE_EFF2 ; new, testing
+	cp ATTACK_UP_SIDE_EFF1 		; new, testing
 	jr c, .vanillaCode
+	cp ATTACK_UP_SIDE_EFF1
+	jr z, .mapNewToAtk
 	cp ATTACK_UP_SIDE_EFF2
 	jr z, .mapNewToAtk
-;	cp ATTACK_UP_SIDE_EFF1		; later
-;	jr z, .mapNewToAtk			; later
-;	cp DEFENSE_UP_SIDE_EFF1		; later
-;	jr z, .mapNewToDef			; later
+	cp DEFENSE_UP_SIDE_EFF1
+	jr z, .mapNewToDef
 .mapNewToAtk
 	ld a, 0
+	jr .incrementStatMod
+.mapNewToDef
+	ld a, 1
 	jr .incrementStatMod
 .vanillaCode
 	sub ATTACK_UP1_EFFECT
@@ -614,7 +632,7 @@ StatModifierUpEffect:
 	cp b ; can't raise stat past +6 ($d or 13)
 	jp c, PrintNothingHappenedText
 	ld a, [de]
-	cp ATTACK_UP_SIDE_EFF2 ; new, testing
+	cp ATTACK_UP_SIDE_EFF1 ; new, testing
 	jr nc, .ok
 	cp ATTACK_UP1_EFFECT + $8 ; is it a +2 effect?
 	jr c, .ok
@@ -722,10 +740,8 @@ UpdateStatDone:
 .playerTurn2
 	ld a, [de]
 	pop de
-	cp ATTACK_UP_SIDE_EFF2
+	cp ATTACK_UP_SIDE_EFF1
 	jr nc, .skipAnimation
-;	cp OTHERS (ATTACK_UP_SIDE_EFF1, DEFENSE_UP_SIDE_EFF1)
-;	jr z, .skipAnimation
 ;;;;;;;;;;
 	ld a, [de]
 	cp MINIMIZE
@@ -783,7 +799,7 @@ MonsStatsRoseText:
 	jr z, .playerTurn
 	ld a, [wEnemyMoveEffect]
 .playerTurn
-	cp ATTACK_UP_SIDE_EFF2	; new, testing, will need to be modified to ATTACK_UP_SIDE_EFF1
+	cp ATTACK_UP_SIDE_EFF1	; new, testing
 	jp nc, .rose			; new, testing
 	cp ATTACK_DOWN1_EFFECT
 	ret nc

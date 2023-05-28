@@ -178,6 +178,7 @@ AttackAnimationPointers:
 	dw	DragonBreathAnim
 	dw	OutrageAnim
 	dw	DragonClawAnim
+	dw  DragonDanceAnim
 
 	dw	ZapCannonAnim
 	dw	ShockWaveAnim
@@ -235,7 +236,7 @@ AttackAnimationPointers:
 	dw	RockTombAnim
 	dw	HeadSmashAnim
 	dw	StoneEdgeAnim
-	dw	AccelerockAnim
+;	dw	AccelerockAnim
 
 	dw	IronTailAnim
 	dw	SteelWingAnim
@@ -1023,6 +1024,7 @@ DarkPulseAnim:
 TwisterAnim:
 DragonBreathAnim:
 OutrageAnim:
+DragonDanceAnim:
 
 ZapCannonAnim:
 ShockWaveAnim:
@@ -1068,7 +1070,7 @@ ZenHeadbuttAnim:
 RockTombAnim:
 HeadSmashAnim:
 StoneEdgeAnim:
-AccelerockAnim:
+;AccelerockAnim:
 
 IronTailAnim:
 SteelWingAnim:

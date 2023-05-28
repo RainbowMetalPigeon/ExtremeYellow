@@ -7,7 +7,7 @@ PriorityMovesList:
 	db MACH_PUNCH,		8
 	db SHADOW_SNEAK,	8
 	db BULLET_PUNCH,	8
-	db ACCELEROCK,		8
+;	db ACCELEROCK,		8
 	db AQUA_JET,		8
     db QUICK_ATTACK,	8
 	db EXTREMESPEED, 	9

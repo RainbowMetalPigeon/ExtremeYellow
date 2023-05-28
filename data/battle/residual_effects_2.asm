@@ -29,4 +29,5 @@ ResidualEffects2:
 	db SPECIAL_DOWN2_EFFECT
 	db ACCURACY_DOWN2_EFFECT
 	db EVASION_DOWN2_EFFECT
+	db ATTACK_SPEED_UP1_EFFECT ; new, testing - for DRAGON_DANCE
 	db -1 ; end

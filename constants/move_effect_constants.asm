@@ -120,6 +120,10 @@
 	const BURN_EFFECT				 ; - brand new
 	const TRIATTACK_EFFECT			 ; - brand new
 
+	const ATTACK_SPEED_UP1_EFFECT	 ; - new, testing, for DRAGON_DANCE
+
+	const ATTACK_UP_SIDE_EFF1		 ; new, testing
+	const DEFENSE_UP_SIDE_EFF1		 ; new, testing
 	const ATTACK_UP_SIDE_EFF2		 ; new, testing
 
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

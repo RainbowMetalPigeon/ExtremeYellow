@@ -192,6 +192,7 @@ Moves:
 	move DRAGONBREATH, PARALYZE_SIDE_EFFECT2,	    60,	DRAGON,	      100, 20 ; done
 	move OUTRAGE,	   THRASH_PETAL_DANCE_EFFECT,  120,	DRAGON,	      100, 10 ; [TM40] done
 	move DRAGON_CLAW,  NO_ADDITIONAL_EFFECT,	    80,	DRAGON,	      100, 15 ; [TM05] done
+	move DRAGON_DANCE, ATTACK_SPEED_UP1_EFFECT,	     0,	DRAGON,	      100, 20 ; done, may need more testing
 
 	move ZAP_CANNON,   PARALYZE_SIDE_EFFECT_CERT,  120,	ELECTRIC,	   50, 5  ; done? 100% paralysis
 	move SHOCK_WAVE,   SWIFT_EFFECT,	            60,	ELECTRIC,	  100, 20 ; done
@@ -249,11 +250,11 @@ Moves:
 	move ROCK_TOMB,	   SPEED_DOWN_SIDE_EFFECT_CERT, 60,	ROCK,	       95, 15 ; done, to be further tested
 	move HEAD_SMASH,   RECOIL_EFFECT,	           150,	ROCK,	       80, 5  ; done (1/2 instead 1/3 study more the code in engine/battle/move_effects/recoil)
 	move STONE_EDGE,   NO_ADDITIONAL_EFFECT,	   100,	ROCK,	       80, 5  ; [TM22] high crit rate ; done
-	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
+;	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
 
-	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,   100,STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
-	move STEEL_WING,   NO_ADDITIONAL_EFFECT,	    70,	STEEL,	       90, 25 ; TODO - self-buff, 10% def
-	move METAL_CLAW,   NO_ADDITIONAL_EFFECT,	    50,	STEEL,	       95, 35 ; TODO - self-buff, 10% atk
+	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,  100, STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
+	move STEEL_WING,   DEFENSE_UP_SIDE_EFF1,	    70,	STEEL,	       90, 25 ; TODO - self-buff, 10% def
+	move METAL_CLAW,   ATTACK_UP_SIDE_EFF1,	    	50,	STEEL,	       95, 35 ; TODO - self-buff, 10% atk
 	move METEOR_MASH,  ATTACK_UP_SIDE_EFF2, 	   100,	STEEL,	       85, 10 ; TODO - self-buff, 20% atk [TM09] - DOING!?
 	move BULLET_PUNCH, NO_ADDITIONAL_EFFECT,	    40,	STEEL,	      100, 30 ; prio +1 ; done
 	move FLASH_CANNON, SPECIAL_DOWN_SIDE_EFFECT1,	80, STEEL, 		  100, 10 ; [TM18]

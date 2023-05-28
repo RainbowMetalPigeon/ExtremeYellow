@@ -116,6 +116,10 @@ MoveEffectPointerTable:
 	dw BurnEffect	             ; BURN_EFFECT
 	dw TriAttackEffect			 ; TRIATTACK_EFFECT
 
+	dw AttackSpeedUpEffect 		 ; ATTACK_SPEED_UP1_EFFECT - for DRAGON_DANCE
+
+	dw SelfBuff10Percent		 ; ATTACK_UP_SIDE_EFF1
+	dw SelfBuff10Percent		 ; DEFENSE_UP_SIDE_EFF1
 	dw SelfBuff20Percent		 ; ATTACK_UP_SIDE_EFF2
 
 	assert_table_length NUM_MOVE_EFFECTS
