@@ -204,8 +204,8 @@ Moves:
 	move MOONBLAST,	   SPECIAL_DOWN_SIDE_EFFECT3,	95,	FAIRY,	      100, 15 ; [TM30] done (it should be 30% and it's 33%, doesn't matter)
 
 	move MACH_PUNCH,   NO_ADDITIONAL_EFFECT,	    40,	FIGHTING,	  100, 30 ; prio +1 ; done
-	move SUPERPOWER,   NO_ADDITIONAL_EFFECT,	   120,	FIGHTING,	  100, 5  ; TODO - self-debuff, lower ATK and DEF
-	move CLOSE_COMBAT, NO_ADDITIONAL_EFFECT,	   120,	FIGHTING,	  100, 5  ; [TM37] TODO - self-debuff, lower DEF and SPECIAL
+	move SUPERPOWER,   ATTACK_DEFENSE_SELFDOWN1,    60,	FIGHTING,	  100, 5  ; TODO - self-debuff, lower ATK and DEF - proxy ; must be back to 120
+	move CLOSE_COMBAT, DEFENSE_SPECIAL_SELFDOWN1,	60,	FIGHTING,	  100, 5  ; [TM37] TODO - self-debuff, lower DEF and SPECIAL - proxy ; must be back to 120
 	move DRAIN_PUNCH,  DRAIN_HP_EFFECT,	            75,	FIGHTING,	  100, 10 ; done
 
 	move WILL_O_WISP,  BURN_EFFECT,	     			 0,	FIRE,	       85, 15 ; [TM23] done
@@ -228,7 +228,7 @@ Moves:
 	move GIGA_DRAIN,   DRAIN_HP_EFFECT,	            75,	GRASS,        100, 10 ; [TM21] done
 	move MAGICAL_LEAF, SWIFT_EFFECT,	            60,	GRASS,        100, 20 ; done
 	move BULLET_SEED,  TWO_TO_FIVE_ATTACKS_EFFECT,  25,	GRASS,        100, 30 ; done
-	move LEAF_STORM,   NO_ADDITIONAL_EFFECT,	   130,	GRASS,         90, 5  ; TODO - self-debuff, lower SPECIAL harshly
+	move LEAF_STORM,   SPECIAL_SELFDOWN2,	   	   130, GRASS,         90, 5  ; TODO - self-debuff, lower SPECIAL harshly
 	move ENERGY_BALL,  SPECIAL_DOWN_SIDE_EFFECT1,   90,	GRASS,        100, 10 ; done, to be further tested
 	move FRENZY_PLANT, HYPER_BEAM_EFFECT,	       150,	GRASS,         90, 5  ; done
 
@@ -253,9 +253,9 @@ Moves:
 ;	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
 
 	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,  100, STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
-	move STEEL_WING,   DEFENSE_UP_SIDE_EFF1,	    70,	STEEL,	       90, 25 ; TODO - self-buff, 10% def
-	move METAL_CLAW,   ATTACK_UP_SIDE_EFF1,	    	50,	STEEL,	       95, 35 ; TODO - self-buff, 10% atk
-	move METEOR_MASH,  ATTACK_UP_SIDE_EFF2, 	   100,	STEEL,	       85, 10 ; TODO - self-buff, 20% atk [TM09] - DOING!?
+	move STEEL_WING,   DEFENSE_UP_SIDE_EFF1,	    70,	STEEL,	       90, 25 ; done, to be further tested - self-buff, 10% def
+	move METAL_CLAW,   ATTACK_UP_SIDE_EFF1,	    	50,	STEEL,	       95, 35 ; done, to be further tested - self-buff, 10% atk
+	move METEOR_MASH,  ATTACK_UP_SIDE_EFF2, 	   100,	STEEL,	       85, 10 ; done, to be further tested - self-buff, 20% atk [TM09] - DOING!?
 	move BULLET_PUNCH, NO_ADDITIONAL_EFFECT,	    40,	STEEL,	      100, 30 ; prio +1 ; done
 	move FLASH_CANNON, SPECIAL_DOWN_SIDE_EFFECT1,	80, STEEL, 		  100, 10 ; [TM18]
 

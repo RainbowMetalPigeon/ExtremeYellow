@@ -454,7 +454,7 @@ TriAttackEffect:
 ;	jr .regular_effectiveness2
 ;.asm_3f341
     call BattleRandom
-    cp 30 percent + 1   ; sum chance that one of the three effects happens (10+10+10) [it's 30+30+30 in the test phase]
+    cp 30 percent + 1   ; sum chance that one of the three effects happens (10+10+10)
     ret nc              ; if the carry flag is not set, i.e. BattleRandom - 30 is NOT <0, i.e. rndm>=30, nothing happens
     ; multi-step check: 0-9 is freeze, 10-19 is burn, 20-29 is paralysis (I may be messing up some units out of how the carry considers the = case?)
     cp 10 percent + 1   ; 10, but 30 in test phase
@@ -559,17 +559,17 @@ FireDefrostedText:
 
 SelfBuff10Percent:
 	call BattleRandom
-	cp 50 percent	; chance of self-buffing ; testing with higher number, 50 instead of 10
+	cp 10 percent	; chance of self-buffing
 	ret nc			; returns and doesn't buff if rolls 10 or higher
 	call StatModifierUpEffect ; jr or call?
-	ret ; new, testing, is this ret the solution to all the problems of the world?
+	ret
 
 SelfBuff20Percent:
 	call BattleRandom
-	cp 90 percent	; chance of self-buffing ; testing with higher number, 90 instead of 20
+	cp 20 percent	; chance of self-buffing
 	ret nc			; returns and doesn't buff if rolls 20 or higher
 	call StatModifierUpEffect ; jr or call?
-	ret ; new, testing, is this ret the solution to all the problems of the world?
+	ret
 
 ; taking inspiration from Vortiene
 AttackSpeedUpEffect: ; used for Dragon Dance
@@ -997,17 +997,29 @@ UpdateLoweredStatDone:
 	call PrintStatText
 	pop de
 	ld a, [de]
-	cp $44
+    cp ATTACK_SELFDOWN1
+    jr c, .nonSelfDebuffingMoves
+    jr .ApplyBadgeBoostsAndStatusPenalties
+.nonSelfDebuffingMoves ; vanilla code
+	cp ATTACK_DOWN_SIDE_EFFECT1 ; new, edited, it was $44, hard-coded number for the no-longer-existing ATTACK_DOWN_SIDE_EFFECT
 	jr nc, .ApplyBadgeBoostsAndStatusPenalties
 	call PlayCurrentMoveAnimation2
 .ApplyBadgeBoostsAndStatusPenalties
+    cp ATTACK_SELFDOWN1
+    jr nc, .selfDebuffingMoves
 	ldh a, [hWhoseTurn]
 	and a
-	call nz, ApplyBadgeStatBoosts ; whenever the player uses a stat-down move, badge boosts get reapplied again to every stat,
-	                              ; even to those not affected by the stat-up move (will be boosted further)
+	call nz, ApplyBadgeStatBoosts	; vanilla "nz" call
 	ld hl, MonsStatsFellText
 	call PrintText
-
+	jr .bizarreContinuation			; new
+.selfDebuffingMoves
+    ldh a, [hWhoseTurn]
+    and a
+    call z, ApplyBadgeStatBoosts	; new, edited: whenever the player uses a self-debuff move, badge boosts get reapplied again to every stat - note to myself: should I change this behavior to make it more challenging?
+	ld hl, MonsStatsSelfFellText
+	call PrintText
+.bizarreContinuation				; new
 ; These where probably added given that a stat-down move affecting speed or attack will override
 ; the stat penalties from paralysis and burn respectively.
 ; But they are always called regardless of the stat affected by the stat-down move.
@@ -1028,7 +1040,7 @@ CantLowerAnymore:
 
 MoveMissed:
 	ld a, [de]
-	cp $44
+	cp ATTACK_DOWN_SIDE_EFFECT1 ; new, edited, it was $44, hard-coded number for the no-longer-existing ATTACK_DOWN_SIDE_EFFECT
 	ret nc
 	jp ConditionalPrintButItFailed
 
@@ -1045,9 +1057,25 @@ MonsStatsFellText:
 ; check if the move's effect decreases a stat by 2
 	cp BIDE_EFFECT
 	ret c
-	cp ATTACK_DOWN_SIDE_EFFECT1
+	cp ATTACK_DOWN_SIDE_EFFECT1 ; edited, it was $44, hard-coded number for the no-longer-existing ATTACK_DOWN_SIDE_EFFECT
 	ret nc
 	ld hl, GreatlyFellText
+    ret
+
+MonsStatsSelfFellText: ; new, updated for the self-debuffing moves
+	text_far _MonsStatsSelfFellText
+	text_asm
+	ld hl, FellText
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveEffect]
+	jr z, .playerTurn
+	ld a, [wEnemyMoveEffect]
+.playerTurn
+; check if the move's effect decreases a stat by 2
+    cp ATTACK_SELFDOWN2
+    ret c
+    ld hl, GreatlyFellText
 	ret
 
 GreatlyFellText:
@@ -1073,6 +1101,175 @@ PrintStatText:
 	ld de, wStringBuffer
 	ld bc, $a
 	jp CopyData
+
+; === NEW BIG BLOCKs for SELF-DEBUFFING MOVES ===
+
+AttackDefenseSelfDownEffect: ; used for SUPERPOWER
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+	ld de, wEnemyMoveEffect
+.next
+	ld a, ATTACK_SELFDOWN1
+	ld [de], a
+	push de
+	call StatModifierSelfDownEffect ; stat modifier self-lowering function
+	pop de
+	ld a, DEFENSE_SELFDOWN1
+	ld [de], a
+	push de
+	call StatModifierSelfDownEffect ; stat modifier self-lowering function
+	pop de
+	ld a, ATTACK_DEFENSE_SELFDOWN1
+	ld [de], a
+	ret
+
+DefenseSpecialSelfDownEffect: ; used for CLOSE_COMBAT
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+	ld de, wEnemyMoveEffect
+.next
+	ld a, DEFENSE_SELFDOWN1
+	ld [de], a
+	push de
+	call StatModifierSelfDownEffect ; stat modifier self-lowering function
+	pop de
+	ld a, SPECIAL_SELFDOWN1
+	ld [de], a
+	push de
+	call StatModifierSelfDownEffect ; stat modifier self-lowering function
+	pop de
+	ld a, DEFENSE_SPECIAL_SELFDOWN1
+	ld [de], a
+	ret
+
+StatModifierSelfDownEffect:
+    ; different from usual, because we're lowering the stats of the mon that is attacking
+	ld hl, wPlayerMonStatMods
+	ld de, wPlayerMoveEffect
+	ld bc, wPlayerBattleStatus1
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .statModifierDownEffect
+	ld hl, wEnemyMonStatMods
+	ld de, wEnemyMoveEffect
+	ld bc, wEnemyBattleStatus1
+    ; --- no 25% chance of missing
+.statModifierDownEffect
+    ; --- no SUBSTITUTE check
+	ld a, [de]
+;	cp ATTACK_DOWN_SIDE_EFFECT ; TO BE EDITED
+;	jr c, .nonSideEffect
+;	ld a, [de] ; IS THIS NECESSARY?
+	sub ATTACK_SELFDOWN1 ; map each stat to 0-3
+	cp ATTACK_SELFDOWN2-ATTACK_SELFDOWN1
+	jr c, .continueWithDebuff
+	sub ATTACK_SELFDOWN2-ATTACK_SELFDOWN1
+;	jr .decrementStatMod
+;.nonSideEffect ; non-side effects only
+;	push hl
+;	push de
+;	push bc
+;	call MoveHitTest ; apply accuracy tests
+;	pop bc
+;	pop de
+;	pop hl
+;	ld a, [wMoveMissed]
+;	and a
+;	jp nz, MoveMissed
+;	ld a, [bc]
+;	bit INVULNERABLE, a ; fly/dig
+;	jp nz, MoveMissed
+;	ld a, [de]
+;	sub ATTACK_DOWN1_EFFECT
+;	cp EVASION_DOWN1_EFFECT + $3 - ATTACK_DOWN1_EFFECT ; covers all -1 effects
+;	jr c, .decrementStatMod
+;	sub ATTACK_DOWN2_EFFECT - ATTACK_DOWN1_EFFECT ; map -2 effects to corresponding -1 effect
+;.decrementStatMod
+.continueWithDebuff
+	ld c, a
+	ld b, $0
+	add hl, bc
+	ld b, [hl]
+	dec b ; dec corresponding stat mod
+	jp z, CantLowerAnymore ; if stat mod is 1 (-6), can't lower anymore
+	ld a, [de]
+	cp ATTACK_SELFDOWN2 ; new, is it a -2 effect? to be tested
+	jr c, .ok
+	dec b ; stat down 2 effects only (dec mod again)
+	jr nz, .ok
+	inc b ; increment mod to 1 (-6) if it would become 0 (-7)
+.ok
+	ld [hl], b ; save modified mod
+	ld a, c
+	cp $4
+	jp nc, UpdateLoweredStatDone ; jump for evasion/accuracy - why?
+	push hl
+	push de
+	ld hl, wBattleMonAttack + 1        ; new, swapped with below
+	ld de, wPlayerMonUnmodifiedAttack  ; new, swapped with below
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .pointToStat
+	ld hl, wEnemyMonAttack + 1         ; new, swapped with above
+	ld de, wEnemyMonUnmodifiedAttack   ; new, swapped with above
+.pointToStat
+	push bc
+	sla c
+	ld b, $0
+	add hl, bc ; hl = modified stat
+	ld a, c
+	add e
+	ld e, a
+	jr nc, .noCarry
+	inc d ; de = unmodified stat
+.noCarry
+	pop bc
+	ld a, [hld]
+	sub $1 ; can't lower stat below 1 (-6)
+	jr nz, .recalculateStat
+	ld a, [hl]
+	and a
+	jp z, CantLowerAnymore_Pop
+.recalculateStat
+; recalculate affected stat
+; paralysis and burn penalties, as well as badge boosts are ignored
+	push hl
+	push bc
+	ld hl, StatModifierRatios
+	dec b
+	sla b
+	ld c, b
+	ld b, $0
+	add hl, bc
+	pop bc
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [de]
+	ldh [hMultiplicand + 1], a
+	inc de
+	ld a, [de]
+	ldh [hMultiplicand + 2], a
+	ld a, [hli]
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld b, $4
+	call Divide
+	pop hl
+	ldh a, [hProduct + 3]
+	ld b, a
+	ldh a, [hProduct + 2]
+	or b
+	jp nz, UpdateLoweredStat
+	ldh [hMultiplicand + 1], a
+	ld a, $1
+	ldh [hMultiplicand + 2], a
+    jp UpdateLoweredStat
 
 INCLUDE "data/battle/stat_mod_names.asm"
 INCLUDE "data/battle/stat_modifiers.asm"
@@ -1416,30 +1613,8 @@ DugAHoleText:
 	text_far _DugAHoleText
 	text_end
 
-TrappingEffect:
-	ld hl, wPlayerBattleStatus1
-	ld de, wPlayerNumAttacksLeft
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .trappingEffect
-	ld hl, wEnemyBattleStatus1
-	ld de, wEnemyNumAttacksLeft
-.trappingEffect
-	bit USING_TRAPPING_MOVE, [hl]
-	ret nz
-	call ClearHyperBeam ; since this effect is called before testing whether the move will hit,
-                        ; the target won't need to recharge even if the trapping move missed
-	set USING_TRAPPING_MOVE, [hl] ; mon is now using a trapping move
-	call BattleRandom ; 3/8 chance for 2 and 3 attacks, and 1/8 chance for 4 and 5 attacks
-	and $3
-	cp $2
-	jr c, .setTrappingCounter
-	call BattleRandom
-	and $3
-.setTrappingCounter
-	inc a
-	ld [de], a
-	ret
+TrappingEffect:				; made into a jpfar to save space
+	jpfar TrappingEffect_	; made into a jpfar to save space
 
 MistEffect:
 	jpfar MistEffect_
@@ -1452,19 +1627,19 @@ RecoilEffect:
 
 Confusion10SideEffect:
 	call BattleRandom
-	cp 10 percent ; chance of confusion
+	cp 50 percent ; chance of confusion
 	ret nc
 	jr ConfusionSideEffectSuccess
 
 Confusion20SideEffect:
 	call BattleRandom
-	cp 20 percent ; chance of confusion
+	cp 50 percent ; chance of confusion
 	ret nc
 	jr ConfusionSideEffectSuccess
 
 Confusion30SideEffect:
 	call BattleRandom
-	cp 30 percent ; chance of confusion
+	cp 90 percent ; chance of confusion
 	ret nc
 	jr ConfusionSideEffectSuccess
 
@@ -1497,12 +1672,14 @@ ConfusionSideEffectSuccess:
 	inc a
 	ld [bc], a ; confusion status will last 2-5 turns
 	pop af
-	cp CONFUSION_SIDE_EFFECT3			; Vortiene's suggestion
-	jr z, .doneConfusion				; Vortiene's suggestion
-	cp CONFUSION_SIDE_EFFECT2			; Vortiene's suggestion
-	jr z, .doneConfusion				; Vortiene's suggestion
-	cp CONFUSION_SIDE_EFFECT1			; Vortiene's suggestion
-	jr z, .doneConfusion				; Vortiene's suggestion
+;	cp CONFUSION_SIDE_EFFECT3			; Vortiene's suggestion
+;	jr z, .doneConfusion				; Vortiene's suggestion
+;	cp CONFUSION_SIDE_EFFECT2			; Vortiene's suggestion
+;	jr z, .doneConfusion				; Vortiene's suggestion
+;	cp CONFUSION_SIDE_EFFECT1			; Vortiene's suggestion
+;	jr z, .doneConfusion				; Vortiene's suggestion
+	cp CONFUSION_SIDE_EFFECT1			; simplified version
+	jr nc, .doneConfusion				; skip the animation if EFFECT-CONFUSION_SIDE_EFFECT1 has no carry, i.e. the difference is >=0
 	call PlayCurrentMoveAnimation2		; Vortiene's suggestion
 .doneConfusion							; Vortiene's suggestion
 	ld hl, BecameConfusedText			; Vortiene's suggestion

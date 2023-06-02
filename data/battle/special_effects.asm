@@ -19,6 +19,16 @@ SpecialEffects:
 	db ATTACK_UP_SIDE_EFF1	; new, testing
 	db DEFENSE_UP_SIDE_EFF1	; new, testing
 	db ATTACK_UP_SIDE_EFF2	; new, testing
+	db ATTACK_SELFDOWN1		; new, proxy testing
+	db DEFENSE_SELFDOWN1		; new, proxy testing
+	db SPEED_SELFDOWN1		; new, proxy testing
+	db SPECIAL_SELFDOWN1		; new, proxy testing
+	db ATTACK_SELFDOWN2		; new, proxy testing
+	db DEFENSE_SELFDOWN2		; new, proxy testing
+	db SPEED_SELFDOWN2		; new, proxy testing
+	db SPECIAL_SELFDOWN2		; new, proxy testing
+	db ATTACK_DEFENSE_SELFDOWN1	; new, proxy testing
+	db DEFENSE_SPECIAL_SELFDOWN1	; new, proxy testing
 	; fallthrough
 SpecialEffectsCont:
 ; damaging moves whose effect is executed prior to damage calculation

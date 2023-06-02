@@ -11,7 +11,7 @@
 	dw EeveePicFront, EeveePicBack
 
 ;	db TACKLE, LEER, NO_MOVE, NO_MOVE ; level 1 learnset
-	db SPLASH, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db SUPERPOWER, LEAF_STORM, CLOSE_COMBAT, WRAP ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

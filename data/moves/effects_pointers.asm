@@ -116,10 +116,22 @@ MoveEffectPointerTable:
 	dw BurnEffect	             ; BURN_EFFECT
 	dw TriAttackEffect			 ; TRIATTACK_EFFECT
 
-	dw AttackSpeedUpEffect 		 ; ATTACK_SPEED_UP1_EFFECT - for DRAGON_DANCE
+	dw AttackSpeedUpEffect 		 ; ATTACK_SPEED_UP1_EFFECT - new for DRAGON_DANCE
 
-	dw SelfBuff10Percent		 ; ATTACK_UP_SIDE_EFF1
-	dw SelfBuff10Percent		 ; DEFENSE_UP_SIDE_EFF1
-	dw SelfBuff20Percent		 ; ATTACK_UP_SIDE_EFF2
+	dw SelfBuff10Percent		 ; ATTACK_UP_SIDE_EFF1, new
+	dw SelfBuff10Percent		 ; DEFENSE_UP_SIDE_EFF1, new
+	dw SelfBuff20Percent		 ; ATTACK_UP_SIDE_EFF2, new
+
+	dw AttackDefenseSelfDownEffect  ; ATTACK_DEFENSE_SELFDOWN1 - new for SUPERPOWER
+	dw DefenseSpecialSelfDownEffect ; DEFENSE_SPECIAL_SELFDOWN1 - new for CLOSE_COMBAT
+
+	dw StatModifierSelfDownEffect ; ATTACK_SELFDOWN1, new
+	dw StatModifierSelfDownEffect ; DEFENSE_SELFDOWN1, new
+	dw StatModifierSelfDownEffect ; SPEED_SELFDOWN1, new
+	dw StatModifierSelfDownEffect ; SPECIAL_SELFDOWN1, new
+	dw StatModifierSelfDownEffect ; ATTACK_SELFDOWN2, new
+	dw StatModifierSelfDownEffect ; DEFENSE_SELFDOWN2, new
+	dw StatModifierSelfDownEffect ; SPEED_SELFDOWN2, new
+	dw StatModifierSelfDownEffect ; SPECIAL_SELFDOWN2, new
 
 	assert_table_length NUM_MOVE_EFFECTS

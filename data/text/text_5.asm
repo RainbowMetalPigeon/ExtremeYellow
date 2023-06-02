@@ -62,6 +62,13 @@ _MonsStatsFellText::
 	text "@"
 	text_end
 
+_MonsStatsSelfFellText::
+	text "<USER>'s"
+	line "@"
+	text_ram wStringBuffer
+	text "@"
+	text_end
+
 _GreatlyFellText::
 	text "<SCROLL>greatly@"
 	text_end
