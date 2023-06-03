@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  EARTHQUAKE,   FISSURE,      \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
-	     REST,         EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   STRENGTH      
+	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  FLASH_CANNON, STONE_EDGE,   \
+	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         SELFDESTRUCT, REST,         EXPLOSION,    ROCK_SLIDE,   \
+	     SUBSTITUTE,   STRENGTH      
 	; end
 
 	db BANK(OnixPicFront)

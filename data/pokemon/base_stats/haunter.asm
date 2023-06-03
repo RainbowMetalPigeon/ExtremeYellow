@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        GIGA_DRAIN,   THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, REST,         \
-	     PSYWAVE,      EXPLOSION,    SUBSTITUTE    
+	tmhm TOXIC,        DARK_PULSE,   GIGA_DRAIN,   WILL_O_WISP,  THUNDERBOLT,  \
+	     THUNDER,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         \
+	     SELFDESTRUCT, REST,         PSYWAVE,      EXPLOSION,    SHADOW_BALL,  \
+	     SUBSTITUTE    
 	; end
 
 	db BANK(HaunterPicFront)

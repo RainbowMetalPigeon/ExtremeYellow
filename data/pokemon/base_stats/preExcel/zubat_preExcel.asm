@@ -14,8 +14,8 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        DOUBLE_EDGE,  GIGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         REST,         SUBSTITUTE    
+	tmhm TOXIC,        DOUBLE_EDGE,  FEINT_ATTACK, GIGA_DRAIN,   MIMIC,        \
+	     DOUBLE_TEAM,  BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE    
 	; end
 
 	db BANK(ZubatPicFront)

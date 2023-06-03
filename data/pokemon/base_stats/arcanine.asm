@@ -14,9 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
-	     REST,         SUBSTITUTE    
+	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   WILL_O_WISP,  \
+	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     CLOSE_COMBAT, FIRE_BLAST,   OUTRAGE,      REST,         SUBSTITUTE,   \
+	     STRENGTH      
 	; end
 
 	db BANK(ArcaninePicFront)

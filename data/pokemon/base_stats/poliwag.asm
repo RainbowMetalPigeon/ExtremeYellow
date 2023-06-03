@@ -15,8 +15,9 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
-	     BLIZZARD,     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         PSYWAVE,      SUBSTITUTE,   SURF          
+	     BLIZZARD,     DIG,          PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         HYDRO_PUMP,   REST,         PSYWAVE,      SUBSTITUTE,   \
+	     SURF          
 	; end
 
 	db BANK(PoliwagPicFront)

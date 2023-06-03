@@ -456,6 +456,16 @@ _NinetalesDexEntry::
 	next "#MON"
 	dex
 
+_IgglybuffDexEntry::
+	text "Its extremely"
+	next "flexible and"
+	next "elastic body makes"
+
+	page "it bounce continu-"
+	next "ously - anytime,"
+	next "anywhere"
+	dex
+
 _JigglypuffDexEntry::
 	text "Uses its alluring"
 	next "eyes to enrapture"
@@ -496,6 +506,16 @@ _GolbatDexEntry::
 	next "and suck blood"
 	dex
 
+_CrobatDexEntry::
+	text "As a result of its"
+	next "pursuit of faster,"
+	next "yet more silent"
+
+	page "flight, a new set"
+	next "of wings grew on"
+	next "its hind legs"
+	dex
+
 _OddishDexEntry::
 	text "It may be mistaken"
 	next "for a clump of"
@@ -524,6 +544,16 @@ _VileplumeDexEntry::
 	page "onous pollen. The"
 	next "flapping sound is"
 	next "very loud"
+	dex
+
+_BellossomDexEntry::
+	text "Bellossom gather"
+	next "at times and ap-"
+	next "pear to dance."
+
+	page "They say that the"
+	next "dance is a ritual"
+	next "to summon the sun"
 	dex
 
 _ParasDexEntry::
@@ -644,6 +674,16 @@ _PrimeapeDexEntry::
 	page "around. To view"
 	next "this moment is"
 	next "very difficult"
+	dex
+
+_AnnihilapeDexEntry::
+	text "When its anger"
+	next "rose beyond"
+	next "threshold, gained"
+
+	page "power unfettered"
+	next "by the limits of"
+	next "its physical body"
 	dex
 
 _GrowlitheDexEntry::

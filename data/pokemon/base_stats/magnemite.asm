@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        DOUBLE_EDGE,  THUNDERBOLT,  THUNDER,      MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         THUNDER_WAVE, \
-	     SUBSTITUTE,   FLASH         
+	tmhm TOXIC,        DOUBLE_EDGE,  FLASH_CANNON, THUNDERBOLT,  THUNDER,      \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
+	     THUNDER_WAVE, EXPLOSION,    SUBSTITUTE,   FLASH         
 	; end
 
 	db BANK(MagnemitePicFront)

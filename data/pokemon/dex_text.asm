@@ -736,6 +736,16 @@ _PoliwrathDexEntry::
 	next "swimmers"
 	dex
 
+_PolitoedDexEntry::
+	text "Whenever three or"
+	next "more of these get"
+	next "together, they"
+
+	page "sing in a loud"
+	next "voice that sounds"
+	next "like bellowing"
+	dex
+
 _AbraDexEntry::
 	text "Sleeps 18 hours a"
 	next "day. If it senses"
@@ -764,6 +774,16 @@ _AlakazamDexEntry::
 	page "what it learns-"
 	next "that's why this"
 	next "#MON is smart"
+	dex
+
+_MAlakazamDexEntry::
+	text "Traded away its"
+	next "muscles to unleash"
+	next "its true powers."
+
+	page "With its psychic"
+	next "powers, can fore-"
+	next "see all things"
 	dex
 
 _MachopDexEntry::
@@ -916,6 +936,26 @@ _SlowbroDexEntry::
 	next "again"
 	dex
 
+_MSlowbroDexEntry::
+	text "SHELLDER’s digest-"
+	next "ive fluids"
+	next "awakened Slowpoke,"
+
+	page "which gained great"
+	next "power - and a"
+	next "little motivation"
+	dex
+
+_SlowkingDexEntry::
+	text "Every time it"
+	next "yawns, SHELLDER"
+	next "injects more"
+
+	page "poison in it. The"
+	next "poison makes it"
+	next "more intelligent"
+	dex
+
 _MagnemiteDexEntry::
 	text "It is born with"
 	next "the ability to"
@@ -934,6 +974,16 @@ _MagnetonDexEntry::
 	page "ature by 2C de-"
 	next "grees within a"
 	next "kilometer"
+	dex
+
+_MagnezoneDexEntry::
+	text "While flying, this"
+	next "#MON seems to"
+	next "receive signals of"
+
+	page "unknown origin and"
+	next "transmit ones of"
+	next "unknown purpose"
 	dex
 
 _FarfetchdDexEntry::
@@ -1055,6 +1105,16 @@ _GengarDexEntry::
 	next "lay a curse on you"
 	dex
 
+_MGengarDexEntry::
+	text "Thanks to Mega"
+	next "Evolution, it can"
+	next "now access other"
+
+	page "dimensions. It"
+	next "tries to take the"
+	next "lives of everyone"
+	dex
+
 _OnixDexEntry::
 	text "Burrows at high"
 	next "speed in search of"
@@ -1063,6 +1123,26 @@ _OnixDexEntry::
 	page "it leaves are used"
 	next "as homes by"
 	next "DIGLETTs"
+	dex
+
+_SteelixDexEntry::
+	text "Its body has been"
+	next "compressed deep"
+	next "under the ground."
+
+	page "As a result, it is"
+	next "even harder than a"
+	next "diamond"
+	dex
+
+_MSteelixDexEntry::
+	text "It can dig many"
+	next "kms underground."
+	next "The metal and"
+
+	page "crystals in its"
+	next "body reflect light"
+	next "magnificently"
 	dex
 
 _DrowzeeDexEntry::
@@ -1165,6 +1245,16 @@ _MarowakDexEntry::
 	next "over the ages"
 	dex
 
+_TyrogueDexEntry::
+	text "To brush up on its"
+	next "fighting skills,"
+	next "it will challenge"
+
+	page "anyone. It has a"
+	next "very strong com-"
+	next "petitive spirit"
+	dex
+
 _HitmonleeDexEntry::
 	text "When kicking, the"
 	next "sole of its foot"
@@ -1185,6 +1275,16 @@ _HitmonchanDexEntry::
 	next "way as a drill"
 	dex
 
+_HitmontopDexEntry::
+	text "If you become en-"
+	next "chanted by its"
+	next "smooth, elegant,"
+
+	page "dance-like kicks,"
+	next "you may get"
+	next "drilled hard"
+	dex
+
 _LickitungDexEntry::
 	text "Its tongue spans"
 	next "almost 2 m and"
@@ -1193,6 +1293,16 @@ _LickitungDexEntry::
 	page "than its forelegs."
 	next "Its licks can"
 	next "cause paralysis"
+	dex
+
+_LickilickyDexEntry::
+	text "Its sticky saliva"
+	next "can decompose any-"
+	next "thing. It wraps"
+
+	page "its long tongue"
+	next "around things to"
+	next "coat them with it"
 	dex
 
 _KoffingDexEntry::
@@ -1235,6 +1345,26 @@ _RhydonDexEntry::
 	next "molten lava"
 	dex
 
+_RhyperiorDexEntry::
+	text "From holes in its"
+	next "palms, it fires"
+	next "out rocks and"
+
+	page "GEODUDE. Its cara-"
+	next "pace can withstand"
+	next "volcanic eruptions"
+	dex
+
+_HappinyDexEntry::
+	text "It carries a"
+	next "round, egg-shaped"
+	next "rock in its belly"
+
+	page "pouch and gives"
+	next "the rock to its"
+	next "friends"
+	dex
+
 _ChanseyDexEntry::
 	text "A gentle and kind-"
 	next "hearted #MON"
@@ -1243,6 +1373,16 @@ _ChanseyDexEntry::
 	page "nutritious eggs if"
 	next "it sees an injured"
 	next "#MON"
+	dex
+
+_BlisseyDexEntry::
+	text "Biting into one of"
+	next "the delicious eggs"
+	next "that Blissey"
+
+	page "provides will make"
+	next "everyone around"
+	next "smile with joy"
 	dex
 
 _TangelaDexEntry::

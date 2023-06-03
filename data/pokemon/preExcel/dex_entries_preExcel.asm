@@ -46,13 +46,16 @@ PokedexEntryPointers:
 	dw ClefableDexEntry
 	dw VulpixDexEntry
 	dw NinetalesDexEntry
+	dw IgglybuffDexEntry
 	dw JigglypuffDexEntry
 	dw WigglytuffDexEntry
 	dw ZubatDexEntry
 	dw GolbatDexEntry
+	dw CrobatDexEntry
 	dw OddishDexEntry
 	dw GloomDexEntry
 	dw VileplumeDexEntry
+	dw BellossomDexEntry
 	dw ParasDexEntry
 	dw ParasectDexEntry
 	dw VenonatDexEntry
@@ -65,6 +68,7 @@ PokedexEntryPointers:
 	dw GolduckDexEntry
 	dw MankeyDexEntry
 	dw PrimeapeDexEntry
+	dw AnnihilapeDexEntry
 	dw GrowlitheDexEntry
 	dw ArcanineDexEntry
 	dw PoliwagDexEntry
@@ -492,6 +496,13 @@ NinetalesDexEntry:
 	text_far _NinetalesDexEntry
 	text_end
 
+IgglybuffDexEntry:
+	db "BALLOON@"
+	db 3
+	dw 10
+	text_far _IgglybuffDexEntry
+	text_end
+
 JigglypuffDexEntry:
 	db "BALLOON@"
 	db 5
@@ -520,6 +531,13 @@ GolbatDexEntry:
 	text_far _GolbatDexEntry
 	text_end
 
+CrobatDexEntry:
+	db "BAT@"
+	db 18
+	dw 750
+	text_far _CrobatDexEntry
+	text_end
+
 OddishDexEntry:
 	db "WEED@"
 	db 5
@@ -539,6 +557,13 @@ VileplumeDexEntry:
 	db 12
 	dw 186
 	text_far _VileplumeDexEntry
+	text_end
+
+BellossomDexEntry:
+	db "FLOWER@"
+	db 4
+	dw 58
+	text_far _BellossomDexEntry
 	text_end
 
 ParasDexEntry:
@@ -623,6 +648,13 @@ PrimeapeDexEntry:
 	db 10
 	dw 322
 	text_far _PrimeapeDexEntry
+	text_end
+
+AnnihilapeDexEntry:
+	db "RAGEMONKEY@"
+	db 12
+	dw 560
+	text_far _AnnihilapeDexEntry
 	text_end
 
 GrowlitheDexEntry:

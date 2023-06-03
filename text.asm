@@ -260,9 +260,20 @@ INCLUDE "text/SaffronCity.asm"
 INCLUDE "data/text/text_9.asm"
 
 
-SECTION "Pokédex Text", ROMX
+; new: splitted the Pokédex text into two separate sections
+;SECTION "Pokédex Text", ROMX
 
-INCLUDE "data/pokemon/dex_text.asm"
+;INCLUDE "data/pokemon/dex_text.asm"
+
+
+SECTION "Pokédex Text1", ROMX
+
+INCLUDE "data/pokemon/dex_text1.asm"
+
+
+SECTION "Pokédex Text2", ROMX
+
+INCLUDE "data/pokemon/dex_text2.asm"
 
 
 SECTION "Move Names", ROMX

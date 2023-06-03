@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     COUNTER,      SEISMIC_TOSS, DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE,   \
-	     SURF,         STRENGTH      
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     SEISMIC_TOSS, DIG,          \
+	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   \
+	     REST,         SUBSTITUTE,   SURF,         STRENGTH,     FLASH         
 	; end
 
 	db BANK(PsyduckPicFront)

@@ -15,8 +15,8 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, \
-	     REST,         EXPLOSION,    SUBSTITUTE,   SURF          
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   \
+	     SELFDESTRUCT, REST,         EXPLOSION,    SUBSTITUTE,   SURF          
 	; end
 
 	db BANK(ShellderPicFront)

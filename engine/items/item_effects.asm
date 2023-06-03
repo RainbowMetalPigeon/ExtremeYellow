@@ -105,6 +105,7 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone   ; SUN_STONE
 	dw ItemUseEvoStone   ; ICE_STONE
 	dw ItemUseEvoStone   ; KINGS_ROCK
+	dw ItemUseEvoStone	 ; METAL_COAT
 
 ItemUseBall:
 

@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     COUNTER,      SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         METRONOME,    REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH      
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   THUNDERBOLT,  \
+	     THUNDER,      EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         CLOSE_COMBAT, OUTRAGE,      REST,         ROCK_SLIDE,   \
+	     SUBSTITUTE,   STRENGTH      
 	; end
 
 	db BANK(PrimeapePicFront)

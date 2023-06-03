@@ -83,11 +83,12 @@ ItemPrices::
 	bcd3 0     ; MAX_ETHER
 	bcd3 0     ; ELIXER
 	bcd3 0     ; MAX_ELIXER
-	bcd3 9800  ; MEGA_STONE_X
-	bcd3 9800  ; MEGA_STONE_Y
-	bcd3 9800  ; SUN_STONE
-	bcd3 9800  ; ICE_STONE
-	bcd3 9800  ; KINGS_ROCK
+	bcd3 0     ; MEGA_STONE_X, better 0 to de-incentivate sell
+	bcd3 0     ; MEGA_STONE_Y, better 0 to de-incentivate sell
+	bcd3 2100  ; SUN_STONE, like all other buy-able evo stones
+	bcd3 2100  ; ICE_STONE, like all other buy-able evo stones
+	bcd3 2100  ; KINGS_ROCK, like all other buy-able evo stones
+	bcd3 2100  ; METAL_COAT, like all other buy-able evo stones
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

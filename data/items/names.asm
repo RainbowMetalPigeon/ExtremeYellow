@@ -88,6 +88,7 @@ ItemNames::
 	li "SUN STONE"
 	li "ICE STONE"
 	li "KING's ROCK"
+	li "METAL COAT"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

@@ -80,9 +80,11 @@ CryData::
 	mon_cry SFX_CRY_0E, $FF, $FF ; Poliwag
 	mon_cry SFX_CRY_0E, $77, $60 ; Poliwhirl
 	mon_cry SFX_CRY_0E, $00, $FF ; Poliwrath
+	mon_cry SFX_CRY_0E, $00, $FF ; Politoed
 	mon_cry SFX_CRY_1C, $C0, $01 ; Abra
 	mon_cry SFX_CRY_1C, $A8, $C0 ; Kadabra
 	mon_cry SFX_CRY_1C, $98, $FF ; Alakazam
+	mon_cry SFX_CRY_1C, $98, $FF ; MAlakazam
 	mon_cry SFX_CRY_1F, $EE, $01 ; Machop
 	mon_cry SFX_CRY_1F, $48, $60 ; Machoke
 	mon_cry SFX_CRY_1F, $08, $C0 ; Machamp
@@ -98,8 +100,11 @@ CryData::
 	mon_cry SFX_CRY_25, $20, $C0 ; Rapidash
 	mon_cry SFX_CRY_02, $00, $80 ; Slowpoke
 	mon_cry SFX_CRY_1F, $00, $80 ; Slowbro
+	mon_cry SFX_CRY_1F, $00, $80 ; MSlowbro
+	mon_cry SFX_CRY_1F, $00, $80 ; Slowking
 	mon_cry SFX_CRY_1C, $80, $60 ; Magnemite
 	mon_cry SFX_CRY_1C, $20, $C0 ; Magneton
+	mon_cry SFX_CRY_1C, $20, $C0 ; Magnezone
 	mon_cry SFX_CRY_10, $DD, $01 ; Farfetchd
 	mon_cry SFX_CRY_0B, $BB, $01 ; Doduo
 	mon_cry SFX_CRY_0B, $99, $20 ; Dodrio
@@ -112,7 +117,10 @@ CryData::
 	mon_cry SFX_CRY_1C, $00, $80 ; Gastly
 	mon_cry SFX_CRY_1C, $30, $40 ; Haunter
 	mon_cry SFX_CRY_07, $00, $FF ; Gengar
+	mon_cry SFX_CRY_07, $00, $FF ; MGengar
 	mon_cry SFX_CRY_17, $FF, $C0 ; Onix
+	mon_cry SFX_CRY_17, $FF, $C0 ; Steelix
+	mon_cry SFX_CRY_17, $FF, $C0 ; MSteelix
 	mon_cry SFX_CRY_0D, $88, $20 ; Drowzee
 	mon_cry SFX_CRY_0D, $EE, $40 ; Hypno
 	mon_cry SFX_CRY_20, $20, $E0 ; Krabby
@@ -123,14 +131,20 @@ CryData::
 	mon_cry SFX_CRY_0D, $00, $80 ; Exeggutor
 	mon_cry SFX_CRY_19, $00, $80 ; Cubone
 	mon_cry SFX_CRY_08, $4F, $60 ; Marowak
+	mon_cry SFX_CRY_08, $4F, $60 ; Tyrogue
 	mon_cry SFX_CRY_12, $80, $C0 ; Hitmonlee
 	mon_cry SFX_CRY_0C, $EE, $C0 ; Hitmonchan
+	mon_cry SFX_CRY_0C, $EE, $C0 ; Hitmontop
 	mon_cry SFX_CRY_0C, $00, $80 ; Lickitung
+	mon_cry SFX_CRY_0C, $00, $80 ; Lickilicky
 	mon_cry SFX_CRY_12, $E6, $DD ; Koffing
 	mon_cry SFX_CRY_12, $FF, $FF ; Weezing
 	mon_cry SFX_CRY_04, $00, $80 ; Rhyhorn
 	mon_cry SFX_CRY_11, $00, $80 ; Rhydon
+	mon_cry SFX_CRY_11, $00, $80 ; Rhyperior
+	mon_cry SFX_CRY_14, $0A, $C0 ; Happiny
 	mon_cry SFX_CRY_14, $0A, $C0 ; Chansey
+	mon_cry SFX_CRY_14, $0A, $C0 ; Blissey
 	mon_cry SFX_CRY_12, $00, $80 ; Tangela
 	mon_cry SFX_CRY_03, $00, $80 ; Kangaskhan
 	mon_cry SFX_CRY_19, $99, $10 ; Horsea

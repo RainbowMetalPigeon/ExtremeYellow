@@ -15,8 +15,9 @@
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         SUBSTITUTE,   CUT,          SURF,         STRENGTH      
+	     ICE_BEAM,     BLIZZARD,     DIG,          MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   \
+	     CUT,          SURF,         STRENGTH      
 	; end
 
 	db BANK(KrabbyPicFront)

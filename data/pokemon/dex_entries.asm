@@ -74,9 +74,11 @@ PokedexEntryPointers:
 	dw PoliwagDexEntry
 	dw PoliwhirlDexEntry
 	dw PoliwrathDexEntry
+	dw PolitoedDexEntry
 	dw AbraDexEntry
 	dw KadabraDexEntry
 	dw AlakazamDexEntry
+	dw MAlakazamDexEntry
 	dw MachopDexEntry
 	dw MachokeDexEntry
 	dw MachampDexEntry
@@ -92,8 +94,11 @@ PokedexEntryPointers:
 	dw RapidashDexEntry
 	dw SlowpokeDexEntry
 	dw SlowbroDexEntry
+	dw MSlowbroDexEntry
+	dw SlowkingDexEntry
 	dw MagnemiteDexEntry
 	dw MagnetonDexEntry
+	dw MagnezoneDexEntry
 	dw FarfetchdDexEntry
 	dw DoduoDexEntry
 	dw DodrioDexEntry
@@ -106,7 +111,10 @@ PokedexEntryPointers:
 	dw GastlyDexEntry
 	dw HaunterDexEntry
 	dw GengarDexEntry
+	dw MGengarDexEntry
 	dw OnixDexEntry
+	dw SteelixDexEntry
+	dw MSteelixDexEntry
 	dw DrowzeeDexEntry
 	dw HypnoDexEntry
 	dw KrabbyDexEntry
@@ -117,14 +125,20 @@ PokedexEntryPointers:
 	dw ExeggutorDexEntry
 	dw CuboneDexEntry
 	dw MarowakDexEntry
+	dw TyrogueDexEntry
 	dw HitmonleeDexEntry
 	dw HitmonchanDexEntry
+	dw HitmontopDexEntry
 	dw LickitungDexEntry
+	dw LickilickyDexEntry
 	dw KoffingDexEntry
 	dw WeezingDexEntry
 	dw RhyhornDexEntry
 	dw RhydonDexEntry
+	dw RhyperiorDexEntry
+	dw HappinyDexEntry
 	dw ChanseyDexEntry
+	dw BlisseyDexEntry
 	dw TangelaDexEntry
 	dw KangaskhanDexEntry
 	dw HorseaDexEntry
@@ -692,6 +706,13 @@ PoliwrathDexEntry:
 	text_far _PoliwrathDexEntry
 	text_end
 
+PolitoedDexEntry:
+	db "FROG@"
+	db 11
+	dw 339
+	text_far _PolitoedDexEntry
+	text_end
+
 AbraDexEntry:
 	db "PSI@"
 	db 9
@@ -711,6 +732,13 @@ AlakazamDexEntry:
 	db 15
 	dw 481
 	text_far _AlakazamDexEntry
+	text_end
+
+MAlakazamDexEntry:
+	db "PSI@"
+	db 12
+	dw 480
+	text_far _MAlakazamDexEntry
 	text_end
 
 MachopDexEntry:
@@ -818,18 +846,39 @@ SlowbroDexEntry:
 	text_far _SlowbroDexEntry
 	text_end
 
+MSlowbroDexEntry:
+	db "HERMITCRAB@"
+	db 20
+	dw 1200
+	text_far _MSlowbroDexEntry
+	text_end
+
+SlowkingDexEntry:
+	db "ROYAL@"
+	db 20
+	dw 795
+	text_far _SlowkingDexEntry
+	text_end
+
 MagnemiteDexEntry:
 	db "MAGNET@"
 	db 3
-	dw 59
+	dw 60
 	text_far _MagnemiteDexEntry
 	text_end
 
 MagnetonDexEntry:
 	db "MAGNET@"
 	db 10
-	dw 599
+	dw 600
 	text_far _MagnetonDexEntry
+	text_end
+
+MagnezoneDexEntry:
+	db "MAGNETAREA@"
+	db 12
+	dw 1800
+	text_far _MagnezoneDexEntry
 	text_end
 
 FarfetchdDexEntry:
@@ -912,8 +961,15 @@ HaunterDexEntry:
 GengarDexEntry:
 	db "SHADOW@"
 	db 15
-	dw 404
+	dw 405
 	text_far _GengarDexEntry
+	text_end
+
+MGengarDexEntry:
+	db "SHADOW@"
+	db 14
+	dw 405
+	text_far _MGengarDexEntry
 	text_end
 
 OnixDexEntry:
@@ -921,6 +977,20 @@ OnixDexEntry:
 	db 88
 	dw 2100
 	text_far _OnixDexEntry
+	text_end
+
+SteelixDexEntry:
+	db "IRON SNAKE@"
+	db 92
+	dw 4000
+	text_far _SteelixDexEntry
+	text_end
+
+MSteelixDexEntry:
+	db "IRON SNAKE@"
+	db 105
+	dw 7400
+	text_far _MSteelixDexEntry
 	text_end
 
 DrowzeeDexEntry:
@@ -993,6 +1063,13 @@ MarowakDexEntry:
 	text_far _MarowakDexEntry
 	text_end
 
+TyrogueDexEntry:
+	db "SCUFFLE@"
+	db 7
+	dw 210
+	text_far _TyrogueDexEntry
+	text_end
+
 HitmonleeDexEntry:
 	db "KICKING@"
 	db 15
@@ -1007,11 +1084,25 @@ HitmonchanDexEntry:
 	text_far _HitmonchanDexEntry
 	text_end
 
+HitmontopDexEntry:
+	db "HANDSTAND@"
+	db 14
+	dw 480
+	text_far _HitmontopDexEntry
+	text_end
+
 LickitungDexEntry:
 	db "LICKING@"
 	db 12
 	dw 653
 	text_far _LickitungDexEntry
+	text_end
+
+LickilickyDexEntry:
+	db "LICKING@"
+	db 170
+	dw 1400
+	text_far _LickilickyDexEntry
 	text_end
 
 KoffingDexEntry:
@@ -1038,8 +1129,22 @@ RhyhornDexEntry:
 RhydonDexEntry:
 	db "DRILL@"
 	db 19
-	dw 1202
+	dw 1200
 	text_far _RhydonDexEntry
+	text_end
+
+RhyperiorDexEntry:
+	db "DRILL@"
+	db 24
+	dw 2828
+	text_far _RhyperiorDexEntry
+	text_end
+
+HappinyDexEntry:
+	db "PLAYHOUSE@"
+	db 6
+	dw 244
+	text_far _HappinyDexEntry
 	text_end
 
 ChanseyDexEntry:
@@ -1047,6 +1152,13 @@ ChanseyDexEntry:
 	db 11
 	dw 345
 	text_far _ChanseyDexEntry
+	text_end
+
+BlisseyDexEntry:
+	db "HAPPINESS@"
+	db 15
+	dw 468
+	text_far _BlisseyDexEntry
 	text_end
 
 TangelaDexEntry:

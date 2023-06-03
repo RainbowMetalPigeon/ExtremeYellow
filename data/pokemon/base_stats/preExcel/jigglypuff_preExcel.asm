@@ -14,10 +14,11 @@
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     COUNTER,      SEISMIC_TOSS, THUNDERBOLT,  \
-	     THUNDER,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      \
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     DRAININGKISS, SEISMIC_TOSS, \
+	     FEINT_ATTACK, THUNDERBOLT,  THUNDER,      DIG,          PSYCHIC_M,    \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, \
+	     FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      SHADOW_BALL,  \
 	     SUBSTITUTE,   STRENGTH,     FLASH         
 	; end
 

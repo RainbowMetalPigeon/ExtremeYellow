@@ -1627,19 +1627,19 @@ RecoilEffect:
 
 Confusion10SideEffect:
 	call BattleRandom
-	cp 50 percent ; chance of confusion
+	cp 10 percent ; chance of confusion
 	ret nc
 	jr ConfusionSideEffectSuccess
 
 Confusion20SideEffect:
 	call BattleRandom
-	cp 50 percent ; chance of confusion
+	cp 20 percent ; chance of confusion
 	ret nc
 	jr ConfusionSideEffectSuccess
 
 Confusion30SideEffect:
 	call BattleRandom
-	cp 90 percent ; chance of confusion
+	cp 30 percent ; chance of confusion
 	ret nc
 	jr ConfusionSideEffectSuccess
 

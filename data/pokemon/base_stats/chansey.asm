@@ -14,11 +14,12 @@
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   COUNTER,      SEISMIC_TOSS, \
-	     THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         METRONOME,    FIRE_BLAST,   REST,         \
-	     THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   STRENGTH,     FLASH         
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     BUBBLEBEAM,   METRONOME,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
+	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
+	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      ROCK_SLIDE,   \
+	     SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH         
 	; end
 
 	db BANK(ChanseyPicFront)

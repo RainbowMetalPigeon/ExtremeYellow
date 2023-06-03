@@ -180,7 +180,8 @@ ROMX $2C
 ROMX $2D
 	"Text 8"
 ROMX $2E
-	"Pokédex Text"
+;	"Pokédex Text"		; new, commented because splitted dex text in two
+	"Pokédex Text1"		; new, I don't see any reason why to force this specific section into this bank, but let's try to go for minimal changes
 ROMX $2f
 	"Move Names"
 	"BG Map Attributes (Debug)"

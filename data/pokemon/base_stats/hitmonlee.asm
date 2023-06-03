@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  COUNTER,      \
-	     SEISMIC_TOSS, MIMIC,        DOUBLE_TEAM,  BIDE,         METRONOME,    \
-	     REST,         SUBSTITUTE,   STRENGTH      
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     METRONOME,    SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   MIMIC,        \
+	     DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, REST,         ROCK_SLIDE,   \
+	     SUBSTITUTE,   STRENGTH      
 	; end
 
 	db BANK(HitmonleePicFront)

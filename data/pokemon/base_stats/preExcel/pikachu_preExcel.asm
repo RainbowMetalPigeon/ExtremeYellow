@@ -1,6 +1,6 @@
 	db DEX_PIKACHU ; pokedex id
 
-	db  35,  55,  40,  90,  50
+	db  135,  55,  140,  9,  50
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, ELECTRIC ; type
@@ -11,8 +11,7 @@
 	dw PikachuPicFront, PikachuPicBack
 
 ;	db THUNDERSHOCK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-;	db MUD_SHOT, MUD_SLAP, ROCK_TOMB, MOONBLAST ; level 1 learnset
-	db BUBBLE, CRUNCH, ENERGY_BALL, MUD_SHOT ; level 1 learnset
+	db SUPERPOWER, LEAF_STORM, CLOSE_COMBAT, WRAP ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

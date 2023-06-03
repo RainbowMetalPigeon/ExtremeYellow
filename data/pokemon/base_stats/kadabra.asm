@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  COUNTER,      \
-	     SEISMIC_TOSS, DIG,          PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         METRONOME,    REST,         THUNDER_WAVE, \
-	     PSYWAVE,      SUBSTITUTE,   FLASH         
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     METRONOME,    SEISMIC_TOSS, DIG,          PSYCHIC_M,    MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         THUNDER_WAVE, \
+	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH         
 	; end
 
 	db BANK(KadabraPicFront)
