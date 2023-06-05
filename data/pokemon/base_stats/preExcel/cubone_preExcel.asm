@@ -14,10 +14,11 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     COUNTER,      SEISMIC_TOSS, EARTHQUAKE,   \
-	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     FIRE_BLAST,   REST,         SUBSTITUTE,   STRENGTH      
+	tmhm MEGA_PUNCH,   SWORDS_DANCE, COUNTER,      TOXIC,        BODY_SLAM,    \
+	     DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     SEISMIC_TOSS, \
+	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,   \
+	     STRENGTH      
 	; end
 
 	db BANK(CubonePicFront)

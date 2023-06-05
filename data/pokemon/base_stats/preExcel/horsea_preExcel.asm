@@ -15,8 +15,8 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE,   \
-	     SURF          
+	     FLASH_CANNON, MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   \
+	     OUTRAGE,      REST,         SUBSTITUTE,   SURF          
 	; end
 
 	db BANK(HorseaPicFront)

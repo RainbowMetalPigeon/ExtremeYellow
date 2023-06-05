@@ -14,10 +14,11 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  THUNDERBOLT,  THUNDER,      \
-	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,   \
-	     STRENGTH      
+	tmhm MEGAHORN,     SWORDS_DANCE, COUNTER,      TOXIC,        BODY_SLAM,    \
+	     DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     STONE_EDGE,   THUNDERBOLT,  \
+	     THUNDER,      EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        \
+	     DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   REST,         ROCK_SLIDE,   \
+	     SUBSTITUTE,   STRENGTH      
 	; end
 
 	db BANK(RhyhornPicFront)

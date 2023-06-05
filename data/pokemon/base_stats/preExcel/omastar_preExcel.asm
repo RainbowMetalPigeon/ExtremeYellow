@@ -15,8 +15,9 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
-	     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         REST,         SUBSTITUTE,   SURF          
+	     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   REST,         \
+	     ROCK_SLIDE,   SUBSTITUTE,   SURF          
 	; end
 
 	db BANK(OmastarPicFront)

@@ -16,9 +16,9 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
-	     REST,         THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   SURF,         \
-	     STRENGTH,     FLASH         
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   \
+	     FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      SHADOW_BALL,  \
+	     SUBSTITUTE,   SURF,         STRENGTH,     FLASH         
 	; end
 
 	db BANK(SlowpokePicFront)

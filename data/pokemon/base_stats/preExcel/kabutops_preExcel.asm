@@ -15,9 +15,10 @@
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         SUBSTITUTE,   \
-	     CUT,          SURF          
+	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, GIGA_DRAIN,   \
+	     STONE_EDGE,   DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     BIDE,         HYDRO_PUMP,   REST,         X_SCISSOR,    ROCK_SLIDE,   \
+	     SUBSTITUTE,   CUT,          SURF          
 	; end
 
 	db BANK(KabutopsPicFront)

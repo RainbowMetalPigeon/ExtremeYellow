@@ -14,9 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   REST,         SUBSTITUTE,   \
-	     FLY           
+	tmhm DRAGON_CLAW,  TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   STONE_EDGE,   \
+	     EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,   FLY,          \
+	     STRENGTH      
 	; end
 
 	db BANK(AerodactylPicFront)

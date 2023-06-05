@@ -14,9 +14,9 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   REST,         SUBSTITUTE,   \
-	     FLY           
+	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   WILL_O_WISP,  MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   BRAVE_BIRD,   \
+	     REST,         SUBSTITUTE,   FLY           
 	; end
 
 	db BANK(MoltresPicFront)

@@ -14,10 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
-	     COUNTER,      SEISMIC_TOSS, PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         METRONOME,    FIRE_BLAST,   REST,         PSYWAVE,      \
-	     SUBSTITUTE,   STRENGTH      
+	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, FEINT_ATTACK, WILL_O_WISP,  \
+	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   \
+	     REST,         PSYWAVE,      SUBSTITUTE,   STRENGTH      
 	; end
 
 	db BANK(MagmarPicFront)

@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        HYPER_BEAM,   THUNDERBOLT,  THUNDER,      MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, REST,         \
-	     THUNDER_WAVE, EXPLOSION,    SUBSTITUTE,   FLASH         
+	tmhm TOXIC,        HYPER_BEAM,   MIRROR_COAT,  THUNDERBOLT,  THUNDER,      \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, \
+	     REST,         THUNDER_WAVE, EXPLOSION,    SUBSTITUTE,   FLASH         
 	; end
 
 	db BANK(ElectrodePicFront)

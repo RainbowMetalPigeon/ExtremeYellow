@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         SUBSTITUTE,   \
-	     SURF          
+	tmhm MEGAHORN,     SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
+	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         HYDRO_PUMP,   REST,         SUBSTITUTE,   SURF          
 	; end
 
 	db BANK(GoldeenPicFront)

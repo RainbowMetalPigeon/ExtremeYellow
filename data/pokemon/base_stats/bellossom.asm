@@ -5,7 +5,7 @@
 
 	db GRASS, GRASS ; type
 	db 45 ; catch rate
-	db 185 ; base exp
+	db 184 ; base exp
 
 	INCBIN "gfx/pokemon/front/bellossom.pic", 0, 1 ; sprite dimensions
 	dw BellossomPicFront, BellossomPicBack

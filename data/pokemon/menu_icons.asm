@@ -140,34 +140,57 @@ MonPartyData:
 	nybble ICON_FAIRY     ; Chansey
 	nybble ICON_FAIRY     ; Blissey
 	nybble ICON_GRASS     ; Tangela
+	nybble ICON_GRASS     ; Tangrowth
 	nybble ICON_MON       ; Kangaskhan
+	nybble ICON_MON       ; MKangaskan
 	nybble ICON_WATER     ; Horsea
 	nybble ICON_WATER     ; Seadra
+	nybble ICON_WATER     ; Kingdra
 	nybble ICON_WATER     ; Goldeen
 	nybble ICON_WATER     ; Seaking
 	nybble ICON_HELIX     ; Staryu
 	nybble ICON_HELIX     ; Starmie
+	nybble ICON_MON       ; MimeJr
 	nybble ICON_MON       ; MrMime
 	nybble ICON_BUG       ; Scyther
+	nybble ICON_BUG       ; Scizor
+	nybble ICON_BUG       ; MScizor
+	nybble ICON_BUG       ; Kleavor
+	nybble ICON_MON       ; Smoochum
 	nybble ICON_MON       ; Jynx
+	nybble ICON_MON       ; Elekid
 	nybble ICON_MON       ; Electabuzz
+	nybble ICON_MON       ; Electivire
+	nybble ICON_MON       ; Magby
 	nybble ICON_MON       ; Magmar
+	nybble ICON_MON       ; Magmortar
 	nybble ICON_BUG       ; Pinsir
+	nybble ICON_BUG       ; MPinsir
 	nybble ICON_QUADRUPED ; Tauros
 	nybble ICON_WATER     ; Magikarp
 	nybble ICON_SNAKE     ; Gyarados
+	nybble ICON_SNAKE     ; MGyarados
 	nybble ICON_WATER     ; Lapras
 	nybble ICON_MON       ; Ditto
 	nybble ICON_QUADRUPED ; Eevee
 	nybble ICON_QUADRUPED ; Vaporeon
 	nybble ICON_QUADRUPED ; Jolteon
 	nybble ICON_QUADRUPED ; Flareon
+	nybble ICON_QUADRUPED ; Espeon
+	nybble ICON_QUADRUPED ; Umbreon
+	nybble ICON_QUADRUPED ; Leafeon
+	nybble ICON_QUADRUPED ; Glaceon
+	nybble ICON_QUADRUPED ; Sylveon
 	nybble ICON_MON       ; Porygon
+	nybble ICON_MON       ; Porygon2
+	nybble ICON_MON       ; PorygonZ
 	nybble ICON_HELIX     ; Omanyte
 	nybble ICON_HELIX     ; Omastar
 	nybble ICON_HELIX     ; Kabuto
 	nybble ICON_HELIX     ; Kabutops
 	nybble ICON_BIRD      ; Aerodactyl
+	nybble ICON_BIRD      ; MAerodatyl
+	nybble ICON_MON       ; Munchlax
 	nybble ICON_MON       ; Snorlax
 	nybble ICON_BIRD      ; Articuno
 	nybble ICON_BIRD      ; Zapdos
@@ -176,6 +199,8 @@ MonPartyData:
 	nybble ICON_SNAKE     ; Dragonair
 	nybble ICON_SNAKE     ; Dragonite
 	nybble ICON_MON       ; Mewtwo
+	nybble ICON_MON       ; MMewtwoX
+	nybble ICON_MON       ; MMewtwoY
 	nybble ICON_MON       ; Mew
-	nybble ICON_QUADRUPED ; Arceus
+	nybble ICON_MON       ; Venustoise
 	end_nybble_array NUM_POKEMON

@@ -5,7 +5,7 @@
 
 	db POISON, FLYING ; type
 	db 47 ; catch rate
-	db 202 ; base exp
+	db 204 ; base exp
 
 	INCBIN "gfx/pokemon/front/crobat.pic", 0, 1 ; sprite dimensions
 	dw CrobatPicFront, CrobatPicBack

@@ -4,8 +4,8 @@ HighCriticalMoves:
 	db CRABHAMMER
 	db SLASH
 	db NIGHT_SLASH ; new
-	db AIR_CUTTER
-	db SHADOW_CLAW
-	db PSYCHO_CUT
-	db STONE_EDGE
+	db AIR_CUTTER ; new
+	db SHADOW_CLAW ; new
+	db PSYCHO_CUT ; new
+	db STONE_EDGE ; new
 	db -1 ; end

@@ -15,9 +15,10 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         THUNDER_WAVE, \
-	     PSYWAVE,      SUBSTITUTE,   SURF,         FLASH         
+	     HYPER_BEAM,   FLASH_CANNON, THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
+	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   \
+	     REST,         THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   SURF,         \
+	     FLASH         
 	; end
 
 	db BANK(StarmiePicFront)

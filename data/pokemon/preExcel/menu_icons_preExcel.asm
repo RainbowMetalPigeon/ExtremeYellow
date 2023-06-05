@@ -74,9 +74,11 @@ MonPartyData:
 	nybble ICON_MON       ; Poliwag
 	nybble ICON_MON       ; Poliwhirl
 	nybble ICON_MON       ; Poliwrath
+	nybble ICON_MON       ; Politoed
 	nybble ICON_MON       ; Abra
 	nybble ICON_MON       ; Kadabra
 	nybble ICON_MON       ; Alakazam
+	nybble ICON_MON       ; MAlakazam
 	nybble ICON_MON       ; Machop
 	nybble ICON_MON       ; Machoke
 	nybble ICON_MON       ; Machamp
@@ -92,8 +94,11 @@ MonPartyData:
 	nybble ICON_QUADRUPED ; Rapidash
 	nybble ICON_QUADRUPED ; Slowpoke
 	nybble ICON_MON       ; Slowbro
+	nybble ICON_HELIX     ; MSlowbro
+	nybble ICON_MON       ; Slowking
 	nybble ICON_BALL      ; Magnemite
 	nybble ICON_BALL      ; Magneton
+	nybble ICON_BALL      ; Magnezone
 	nybble ICON_BIRD      ; Farfetchd
 	nybble ICON_BIRD      ; Doduo
 	nybble ICON_BIRD      ; Dodrio
@@ -106,7 +111,10 @@ MonPartyData:
 	nybble ICON_MON       ; Gastly
 	nybble ICON_MON       ; Haunter
 	nybble ICON_MON       ; Gengar
+	nybble ICON_MON       ; MGengar
 	nybble ICON_SNAKE     ; Onix
+	nybble ICON_SNAKE     ; Steelix
+	nybble ICON_SNAKE     ; MSteelix
 	nybble ICON_MON       ; Drowzee
 	nybble ICON_MON       ; Hypno
 	nybble ICON_WATER     ; Krabby
@@ -117,43 +125,72 @@ MonPartyData:
 	nybble ICON_GRASS     ; Exeggutor
 	nybble ICON_MON       ; Cubone
 	nybble ICON_MON       ; Marowak
+	nybble ICON_MON       ; Tyrogue
 	nybble ICON_MON       ; Hitmonlee
 	nybble ICON_MON       ; Hitmonchan
+	nybble ICON_MON       ; Hitmontop
 	nybble ICON_MON       ; Lickitung
+	nybble ICON_MON       ; Lickilicky
 	nybble ICON_MON       ; Koffing
 	nybble ICON_MON       ; Weezing
 	nybble ICON_QUADRUPED ; Rhyhorn
 	nybble ICON_MON       ; Rhydon
+	nybble ICON_MON       ; Rhyperior
+	nybble ICON_FAIRY     ; Happiny
 	nybble ICON_FAIRY     ; Chansey
+	nybble ICON_FAIRY     ; Blissey
 	nybble ICON_GRASS     ; Tangela
+	nybble ICON_GRASS     ; Tangrowth
 	nybble ICON_MON       ; Kangaskhan
+	nybble ICON_MON       ; MKangaskan
 	nybble ICON_WATER     ; Horsea
 	nybble ICON_WATER     ; Seadra
+	nybble ICON_WATER     ; Kingdra
 	nybble ICON_WATER     ; Goldeen
 	nybble ICON_WATER     ; Seaking
 	nybble ICON_HELIX     ; Staryu
 	nybble ICON_HELIX     ; Starmie
+	nybble ICON_MON       ; MimeJr
 	nybble ICON_MON       ; MrMime
 	nybble ICON_BUG       ; Scyther
+	nybble ICON_BUG       ; Scizor
+	nybble ICON_BUG       ; MScizor
+	nybble ICON_BUG       ; Kleavor
+	nybble ICON_MON       ; Smoochum
 	nybble ICON_MON       ; Jynx
+	nybble ICON_MON       ; Elekid
 	nybble ICON_MON       ; Electabuzz
+	nybble ICON_MON       ; Electivire
+	nybble ICON_MON       ; Magby
 	nybble ICON_MON       ; Magmar
+	nybble ICON_MON       ; Magmortar
 	nybble ICON_BUG       ; Pinsir
+	nybble ICON_BUG       ; MPinsir
 	nybble ICON_QUADRUPED ; Tauros
 	nybble ICON_WATER     ; Magikarp
 	nybble ICON_SNAKE     ; Gyarados
+	nybble ICON_SNAKE     ; MGyarados
 	nybble ICON_WATER     ; Lapras
 	nybble ICON_MON       ; Ditto
 	nybble ICON_QUADRUPED ; Eevee
 	nybble ICON_QUADRUPED ; Vaporeon
 	nybble ICON_QUADRUPED ; Jolteon
 	nybble ICON_QUADRUPED ; Flareon
+	nybble ICON_QUADRUPED ; Espeon
+	nybble ICON_QUADRUPED ; Umbreon
+	nybble ICON_QUADRUPED ; Leafeon
+	nybble ICON_QUADRUPED ; Glaceon
+	nybble ICON_QUADRUPED ; Sylveon
 	nybble ICON_MON       ; Porygon
+	nybble ICON_MON       ; Porygon2
+	nybble ICON_MON       ; PorygonZ
 	nybble ICON_HELIX     ; Omanyte
 	nybble ICON_HELIX     ; Omastar
 	nybble ICON_HELIX     ; Kabuto
 	nybble ICON_HELIX     ; Kabutops
 	nybble ICON_BIRD      ; Aerodactyl
+	nybble ICON_BIRD      ; MAerodatyl
+	nybble ICON_MON       ; Munchlax
 	nybble ICON_MON       ; Snorlax
 	nybble ICON_BIRD      ; Articuno
 	nybble ICON_BIRD      ; Zapdos
@@ -162,6 +199,8 @@ MonPartyData:
 	nybble ICON_SNAKE     ; Dragonair
 	nybble ICON_SNAKE     ; Dragonite
 	nybble ICON_MON       ; Mewtwo
+	nybble ICON_MON       ; MMewtwoX
+	nybble ICON_MON       ; MMewtwoY
 	nybble ICON_MON       ; Mew
-	nybble ICON_QUADRUPED ; Arceus
+	nybble ICON_MON       ; Venustoise
 	end_nybble_array NUM_POKEMON

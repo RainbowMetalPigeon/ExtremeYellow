@@ -14,8 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         REST,         SUBSTITUTE    
+	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  DIG,          MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         SHADOW_BALL,  \
+	     SUBSTITUTE    
 	; end
 
 	db BANK(EeveePicFront)

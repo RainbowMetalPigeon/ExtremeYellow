@@ -15,8 +15,9 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
-	     BLIZZARD,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     REST,         SUBSTITUTE,   SURF          
+	     BLIZZARD,     GIGA_DRAIN,   STONE_EDGE,   DIG,          MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   REST,         \
+	     ROCK_SLIDE,   SUBSTITUTE,   SURF          
 	; end
 
 	db BANK(KabutoPicFront)

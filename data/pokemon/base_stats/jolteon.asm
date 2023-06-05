@@ -15,8 +15,9 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   THUNDERBOLT,  \
-	     THUNDER,      MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     REST,         THUNDER_WAVE, SUBSTITUTE,   FLASH         
+	     THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     BIDE,         REST,         THUNDER_WAVE, SHADOW_BALL,  SUBSTITUTE,   \
+	     STRENGTH,     FLASH         
 	; end
 
 	db BANK(JolteonPicFront)

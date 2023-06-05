@@ -14,11 +14,12 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   COUNTER,      SEISMIC_TOSS, \
-	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      DIG,          \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   SURF,         STRENGTH      
+	tmhm MEGA_PUNCH,   MEGAHORN,     SWORDS_DANCE, COUNTER,      TOXIC,        \
+	     BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
+	     HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   THUNDERBOLT,  THUNDER,      \
+	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
+	     BIDE,         HYDRO_PUMP,   FIRE_BLAST,   OUTRAGE,      REST,         \
+	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          SURF,         STRENGTH      
 	; end
 
 	db BANK(RhydonPicFront)

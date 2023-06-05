@@ -1,6 +1,6 @@
 	db DEX_PIKACHU ; pokedex id
 
-	db  135,  55,  140,  9,  50
+	db  35,  55,  40,  90,  50
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, ELECTRIC ; type
@@ -10,8 +10,7 @@
 	INCBIN "gfx/pokemon/front/pikachu.pic", 0, 1 ; sprite dimensions
 	dw PikachuPicFront, PikachuPicBack
 
-;	db THUNDERSHOCK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
-	db SUPERPOWER, LEAF_STORM, CLOSE_COMBAT, WRAP ; level 1 learnset
+	db THUNDERSHOCK, GROWL, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,7 +18,7 @@
 	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     THUNDER_WAVE, SUBSTITUTE,   FLY,          SURF,         STRENGTH,     \
-	     FLASH
+	     FLASH         
 	; end
 
 	db BANK(PikachuPicFront)

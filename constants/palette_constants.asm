@@ -76,4 +76,5 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_26        ; $26
 	const PAL_27        ; $27
 	const PAL_AQUAMARMON ; $28 - new
+	const PAL_PORYMON	; $29 - new
 DEF NUM_SGB_PALS EQU const_value
