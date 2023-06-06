@@ -962,6 +962,7 @@ ReflectAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
+DragonDanceAnim:		; improve if space
 FocusEnergyAnim:
 	battle_anim FOCUS_ENERGY, SE_SPIRAL_BALLS_INWARD
 	db -1 ; end
@@ -1024,7 +1025,6 @@ DarkPulseAnim:
 TwisterAnim:
 DragonBreathAnim:
 OutrageAnim:
-DragonDanceAnim:
 
 ZapCannonAnim:
 ShockWaveAnim:

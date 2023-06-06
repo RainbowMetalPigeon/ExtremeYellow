@@ -179,6 +179,7 @@ MoveSoundTable:
 ;	db SFX_BATTLE_36,          $00, $80 ; DRAGONBREATH
 ;	db SFX_BATTLE_36,          $00, $80 ; OUTRAGE
 ;	db SFX_BATTLE_36,          $00, $80 ; DRAGON_CLAW
+;	db SFX_BATTLE_36,          $00, $80 ; DRAGON_DANCE
 
 ;	db SFX_BATTLE_36,          $00, $80 ; ZAP_CANNON
 ;	db SFX_BATTLE_36,          $00, $80 ; SHOCK_WAVE

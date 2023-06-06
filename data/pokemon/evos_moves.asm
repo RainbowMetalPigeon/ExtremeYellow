@@ -5682,7 +5682,7 @@ VenustoiseEvosMoves:
 	db 53, ROCK_TOMB
 	db 55, HYDRO_PUMP
 	db 60, FRENZY_PLANT
-	db 61, 60
+	db 61, HYDRO_CANNON
 	db 0
 
 FossilKabutopsEvosMoves:
@@ -5702,4 +5702,3 @@ MonGhostEvosMoves:
 	db 0
 ; Learnset
 	db 0
-

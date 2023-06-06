@@ -13,9 +13,9 @@ SpecialTrainerMoves:
 	db 1, 4, FISSURE
 	db 0
 
-	db BROCK, 1
-	db 2, 3, BIND
-	db 2, 4, BIDE
+	db BROCK, 1			; updated
+	db 6, 3, BIND ; ROCK_SLIDE?
+	db 6, 4, BIDE
 	db 0
 
 	db MISTY, 1
