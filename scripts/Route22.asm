@@ -33,8 +33,9 @@ Route22Script_50ed6:
 Route22Script_50ee1:
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-	ld a, [wRivalStarter]
-	add 7
+;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
+;	add 7					; new, commented to lock the rival's team
+	ld a, $4				; this and the next line load the rival2 #4 - new
 	ld [wTrainerNo], a
 	ret
 

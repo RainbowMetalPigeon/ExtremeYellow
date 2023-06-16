@@ -352,9 +352,9 @@ CooltrainerMAI:
 
 CooltrainerFAI:
 	; The intended 25% chance to consider switching will not apply.
-	; Uncomment the line below to fix this.
+	; Uncomment the line below to fix this - done
 	cp 25 percent + 1
-	; ret nc
+	ret nc ; uncommented
 	ld a, 10
 	call AICheckIfHPBelowFraction
 	jp c, AIUseHyperPotion

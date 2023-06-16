@@ -183,8 +183,9 @@ SilphCo7Script3:
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-	ld a, [wRivalStarter]
-	add 4
+;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
+;	add 4					; new, commented to lock the rival's team
+	ld a, $3				; this and the next line load the rival2 #3 - new
 	ld [wTrainerNo], a
 ;	ld a, 1								; countercomment to do tutorial to go beyond 200?
 ;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?
@@ -282,51 +283,51 @@ SilphCo7TrainerHeader3:
 	db -1 ; end
 
 SilphCo7Text1:
-; lapras guy
+; porygon guy
 	text_asm
 	ld a, [wd72e]
-	bit 0, a ; got lapras?
-	jr z, .givelapras
+	bit 0, a ; got porygon?
+	jr z, .giveporygon
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	jr nz, .savedsilph
-	ld hl, .LaprasGuyText
+	ld hl, .PorygonGuyText
 	call PrintText
 	jr .done
-.givelapras
-	ld hl, .MeetLaprasGuyText
+.giveporygon
+	ld hl, .MeetPorygonGuyText
 	call PrintText
-	lb bc, LAPRAS, 15
+	lb bc, PORYGON, 35
 	call GivePokemon
 	jr nc, .done
 	ld a, [wSimulatedJoypadStatesEnd]
 	and a
 	call z, WaitForTextScrollButtonPress
 	call EnableAutoTextBoxDrawing
-	ld hl, .HeresYourLaprasText
+	ld hl, .HeresYourPorygonText
 	call PrintText
 	ld hl, wd72e
 	set 0, [hl]
 	jr .done
 .savedsilph
-	ld hl, .LaprasGuySavedText
+	ld hl, .PorygonGuySavedText
 	call PrintText
 .done
 	jp TextScriptEnd
 
-.MeetLaprasGuyText
-	text_far _MeetLaprasGuyText
+.MeetPorygonGuyText
+	text_far _MeetPorygonGuyText
 	text_end
 
-.HeresYourLaprasText
-	text_far _HeresYourLaprasText
+.HeresYourPorygonText
+	text_far _HeresYourPorygonText
 	text_end
 
-.LaprasGuyText
-	text_far _LaprasGuyText
+.PorygonGuyText
+	text_far _PorygonGuyText
 	text_end
 
-.LaprasGuySavedText
-	text_far _LaprasGuySavedText
+.PorygonGuySavedText
+	text_far _PorygonGuySavedText
 	text_end
 
 SilphCo7Text2:

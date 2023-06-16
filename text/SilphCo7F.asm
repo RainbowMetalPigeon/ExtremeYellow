@@ -1,4 +1,4 @@
-_MeetLaprasGuyText::
+_MeetPorygonGuyText::
 	text "Oh! Hi! You're"
 	line "not a ROCKET! You"
 	cont "came to save us?"
@@ -9,32 +9,65 @@ _MeetLaprasGuyText::
 	cont "for saving us."
 	prompt
 
-_HeresYourLaprasText::
-	text "It's LAPRAS. It's"
-	line "very intelligent."
+_HeresYourPorygonText::
+	text "It's PORYGON. It's"
+	line "the first human-"
+	cont "made #MON!"
 
-	para "We kept it in our"
-	line "lab, but it will"
-	cont "be much better"
-	cont "off with you!"
+	para "We created it here"
+	line "and we kept it in"
+	cont "our lab, but it"
+	cont "will be much bet-"
+	cont "ter off with you!"
 
-	para "I think you will"
-	line "be a good trainer"
-	cont "for LAPRAS!"
+	para "It's capable of"
+	line "traveling through"
+	cont "the cyberspace,"
+	cont "and some col-"
+	cont "leagues of mine"
+	cont "even speculate it-"
+	cont "'ll fly to space,"
+	cont "but I woulnd't"
+	cont "give it too much"
+	cont "credit..."
 
-	para "It's a good"
-	line "swimmer. It'll"
-	cont "give you a lift!"
+	para "Rumors said that"
+	line "in another depart-"
+	cont "ment someone was"
+	cont "even working on"
+	cont "updates of some"
+	cont "sort for this cute"
+	cont "adorable lil"
+	cont "fella..."
+
+	para "Sorry, I got lost"
+	line "in thoughts. I"
+	cont "think you'll be an"
+	cont "excellent trainer"
+	cont "for PORYGON! The"
+	cont "other person you"
+	cont "just faced... they"
+	cont "seem hell strong"
+	cont "too, but they"
+	cont "had... some sort"
+	cont "of dark aura that"
+	cont "gave me the"
+	cont "creeps. Geez,"
+	cont "would you listen"
+	cont "at me, these"
+	cont "shouldn't the"
+	cont "words of a person"
+	cont "of science!"
 	done
 
-_LaprasGuyText::
+_PorygonGuyText::
 	text "TEAM ROCKET's"
 	line "BOSS went to the"
 	cont "boardroom! Is our"
 	cont "PRESIDENT OK?"
 	done
 
-_LaprasGuySavedText::
+_PorygonGuySavedText::
 	text "Saved at last!"
 	line "Thank you!"
 	done

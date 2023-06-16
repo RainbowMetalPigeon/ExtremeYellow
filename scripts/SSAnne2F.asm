@@ -96,7 +96,7 @@ SSAnne2Script1:
 	call Delay3
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-	ld a, $1
+	ld a, $1				; this and the next line load the rival2 #1
 	ld [wTrainerNo], a
 ;	ld a, 1								; countercomment to do tutorial to go beyond 200?
 ;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?

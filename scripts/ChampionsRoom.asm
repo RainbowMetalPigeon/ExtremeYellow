@@ -69,8 +69,9 @@ GaryScript2:
 	ld [wCurOpponent], a
 
 	; select which team to use during the encounter
-	ld a, [wRivalStarter]
-	add $0 ; Wow GameFreak
+;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
+;	add $0 ; Wow GameFreak	; new, commented to lock the rival's team
+	ld a, $1				; this and the next line load the rival3 #0 - new
 	ld [wTrainerNo], a
 ;	ld a, 1							; countercomment to do tutorial to go beyond 200?
 ;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200?

@@ -4780,7 +4780,7 @@ LaprasEvosMoves:
 	db 45, DRAGON_DANCE
 	db 47, HEADBUTT
 	db 49, ZEN_HEADBUTT
-	db 53, ICE_BEAM;
+	db 53, ICE_BEAM
 	db 60, ZAP_CANNON
 	db 64, HORN_DRILL
 	db 0

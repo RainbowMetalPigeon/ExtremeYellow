@@ -147,8 +147,9 @@ PokemonTower2Text1:
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-	ld a, [wRivalStarter]
-	add $1
+;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
+;	add $1					; new, commented to lock the rival's team
+	ld a, $2				; this and the next line load the rival2 #2 - new
 	ld [wTrainerNo], a
 ;	ld a, 1									; countercomment to do tutorial to go beyond 200?
 ;	ld [wIsTrainerBattle], a				; countercomment to do tutorial to go beyond 200?

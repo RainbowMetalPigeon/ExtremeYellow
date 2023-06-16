@@ -14,6 +14,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
+	db MEWTWO, 100
+	db VENUSTOISE, 100
 	db SNORLAX, 80
 	db PERSIAN, 80
 	db JIGGLYPUFF, 15
@@ -36,13 +38,18 @@ IF DEF(_DEBUG)
 
 	call SetDebugTeam
 
+	; Mewtwo gets Psychic.
+	ld a, PSYCHIC_M
+	ld hl, wPartyMon1Moves
+	ld [hl], a
+
 	; Pikachu gets Surf.
 	ld a, SURF
-	ld hl, wPartyMon4Moves + 2
+	ld hl, wPartyMon6Moves + 2
 	ld [hl], a
 
 	; Snorlax gets four HM moves.
-	ld hl, wPartyMon1Moves
+	ld hl, wPartyMon3Moves
 	ld a, FLY
 	ld [hli], a
 	ld a, CUT
