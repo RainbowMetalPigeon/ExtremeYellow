@@ -197,21 +197,62 @@ HoFMonInfoText:
 	next "TYPE2/@"
 
 HoFLoadPlayerPics:
+;	ld de, RedPicFront
+;	ld a, BANK(RedPicFront)
+;	call UncompressSpriteFromDE
+;	ld a, $0 								; not in pokered
+;	call SwitchSRAMBankAndLatchClockData	; not in pokered
+;	ld hl, sSpriteBuffer1
+;	ld de, sSpriteBuffer0
+;	ld bc, $310
+;	call CopyData
+;	call PrepareRTCDataAndDisableSRAM 		; not in pokered
+;	ld de, vFrontPic
+;	call InterlaceMergeSpriteBuffers
+;	ld de, RedPicBack
+;	ld a, BANK(RedPicBack)
+;	call UncompressSpriteFromDE
+	ld a, [wPlayerGender] 	; load gender
+	and a      				; check if male
+	jr z, .BoyStuff1
+	cp a, 2					; check if enby
+	jr z, .EnbyStuff1
+	ld de, GreenPicFront
+	ld a, BANK(GreenPicFront)
+	jr .Routine ; skip the enby and boy stuff and go to main routine1
+.EnbyStuff1
+	ld de, YellowPicFront
+	ld a, BANK(YellowPicFront)
+	jr .Routine ; skip the boy stuff and go to main routine1
+.BoyStuff1
 	ld de, RedPicFront
 	ld a, BANK(RedPicFront)
+.Routine ; resume original routine
 	call UncompressSpriteFromDE
-	ld a, $0
-	call SwitchSRAMBankAndLatchClockData
 	ld hl, sSpriteBuffer1
 	ld de, sSpriteBuffer0
 	ld bc, $310
 	call CopyData
-	call PrepareRTCDataAndDisableSRAM
 	ld de, vFrontPic
 	call InterlaceMergeSpriteBuffers
+	ld a, [wPlayerGender]	; load gender
+	and a					; check if male
+	jr z, .BoyStuff2
+	cp a, 2					; check if enby
+	jr z, .EnbyStuff2
+	ld de, GreenPicBack
+	ld a, BANK(GreenPicBack)
+	jr .Routine2 ; skip the enby and boy stuff and go to the main routine2
+.EnbyStuff2
+	ld de, YellowPicBack
+	ld a, BANK(YellowPicBack)
+	jr .Routine2 ; skip the boy stuff and go to the main routine2
+.BoyStuff2
 	ld de, RedPicBack
 	ld a, BANK(RedPicBack)
-	call UncompressSpriteFromDE
+.Routine2 ; original routine
+	call UncompressSpriteFromDE ; end of new gender stuff
+
 	predef ScaleSpriteByTwo
 	ld de, vBackPic
 	call InterlaceMergeSpriteBuffers

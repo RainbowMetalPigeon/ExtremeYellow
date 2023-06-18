@@ -20,7 +20,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const MONEY_BOX_TEMPLATE                ; $0f
 	const MENU_TEMPLATE_10                  ; $10 unused
 	const MON_SPRITE_POPUP                  ; $11
-	const JP_AH_MENU_TEMPLATE               ; $12
+	const BOY_GIRL_NO                       ; $12 new for gender non-binary selection
 	const MONEY_BOX                         ; $13
 	const TWO_OPTION_MENU                   ; $14
 	const BUY_SELL_QUIT_MENU                ; $15

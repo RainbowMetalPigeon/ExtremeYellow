@@ -6743,11 +6743,31 @@ LoadPlayerBackPic:
 	ld de, ProfOakPicBack
 	cp BATTLE_TYPE_PIKACHU ; is it the pikachu battle at the beginning of the game?
 	jr z, .next
+;	ld de, RedPicBack
+;.next
+;	ld a, BANK(RedPicBack)
+;	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
+;	ASSERT BANK(RedPicBack) == BANK(ProfOakPicBack)
+
+	ld a, [wPlayerGender]
+	and a
+	jr z, .RedBack
+	cp a, 2			; check if enby
+	jr z, .YellowBack
+	ld de, GreenPicBack
+	jr .next
+.YellowBack
+	ld de, YellowPicBack
+	jr .next
+.RedBack
 	ld de, RedPicBack
 .next
 	ld a, BANK(RedPicBack)
 	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
+	ASSERT BANK(GreenPicBack) == BANK(OldManPicBack)
+	ASSERT BANK(YellowPicBack) == BANK(OldManPicBack)
 	ASSERT BANK(RedPicBack) == BANK(ProfOakPicBack)
+
 	call UncompressSpriteFromDE
 	predef ScaleSpriteByTwo
 	ld hl, wShadowOAM
