@@ -22,8 +22,8 @@ WildMonEncounterSlotChances:
 ;	db 215, $0A ; 25/256 =  9.8% chance of slot 5
 ;	db 228, $0C ; 13/256 =  5.1% chance of slot 6
 ;	db 241, $0E ; 13/256 =  5.1% chance of slot 7
-;	db 249, $10 ; 11/256 =  4.3% chance of slot 8
-;	db 252, $12 ;  3/256 =  1.2% chance of slot 9
+;	db 251, $10 ; 10/256 =  3.9% chance of slot 8
+;	db 252, $12 ;  1/256 =  0.4% chance of slot 9
 ;	db 253, $14 ;  1/256 =  0.4% chance of slot 10
 ;	db 254, $16 ;  1/256 =  0.4% chance of slot 11
 ;	db 255, $18 ;  1/256 =  0.4% chance of slot 12

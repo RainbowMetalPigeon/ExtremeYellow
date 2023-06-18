@@ -16,7 +16,7 @@ SpecialTrainerMoves:
 	db 6, 4, FISSURE
 	db 0
 
-	db BROCK, 1			; updated BIND BIDE
+	db BROCK, 1
 	; GEODUDE
 ;	db 1, 1, TACKLE
 ;	db 1, 2, DEFENSE_CURL
@@ -247,6 +247,72 @@ SpecialTrainerMoves:
 	db 6, 4, PSYCHIC_M
 	db 0
 
+	db GIOVANNI, 1
+	; ONIX
+;	db 1, 1, ROCK_SLIDE
+	db 1, 2, DIG
+	db 1, 3, BIND
+	db 1, 4, TWISTER
+	; RHYHORN
+;	db 2, 1, FURY_ATTACK
+	db 2, 2, ROCK_TOMB
+	db 2, 3, MUD_SLAP
+;	db 2, 4, IRON_TAIL
+	; DUGTRIO
+;	db 3, 1, DIG
+	db 3, 2, SLASH
+;	db 3, 3, SCREECH
+;	db 3, 4, SAND_ATTACK
+	; KANGASKHAN
+	db 4, 1, THUNDERBOLT
+	db 4, 2, AERIAL_ACE
+	db 4, 3, DRAIN_PUNCH
+	db 4, 4, DIZZY_PUNCH
+	; MAROWAK
+	db 5, 1, FURY_ATTACK
+	db 5, 2, WATER_GUN
+	db 5, 3, ROCK_TOMB
+	db 5, 4, BONEMERANG
+	; PERSIAN
+	db 6, 1, SHADOW_BALL
+	db 6, 2, BUBBLEBEAM
+	db 6, 3, PAY_DAY
+	db 6, 4, SLASH
+	db 0
+
+	db GIOVANNI, 2
+	; STEELIX
+	db 1, 1, IRON_TAIL
+	db 1, 2, EARTHQUAKE
+	db 1, 3, DRAGONBREATH
+;	db 1, 4, HEADBUTT
+	; NIDOKING
+;	db 2, 1, ICE_PUNCH
+	db 2, 2, EARTHQUAKE
+;	db 2, 3, THRASH
+;	db 2, 4, TOXIC
+	; RHYDON
+	db 3, 1, BODY_SLAM
+	db 3, 2, STONE_EDGE
+;	db 3, 3, EARTHQUAKE
+;	db 3, 4, IRON_TAIL
+	; NIDOQUEEN
+	db 4, 1, THUNDERBOLT
+	db 4, 2, ICE_BEAM
+	db 4, 3, LOVELY_KISS
+	db 4, 4, SUPER_FANG
+	; GOLEM
+	db 5, 1, SELFDESTRUCT
+;	db 5, 2, EARTHQUAKE
+;	db 5, 3, ROCK_TOMB
+	db 5, 4, SEISMIC_TOSS
+	; PERSIAN
+	db 6, 1, SLASH
+;	db 6, 2, PAY_DAY
+	db 6, 3, DREAM_EATER
+	db 6, 4, HYPNOSIS
+	db 0
+
 	db GIOVANNI, 3
 	; DUGTRIO
 ;	db 1, 1, EARTHQUAKE
@@ -412,6 +478,39 @@ SpecialTrainerMoves:
 	db 6, 4, STEEL_WING
 	db 0
 
+	db RIVAL1, 3
+	; PIDGEOTTO
+	db 1, 1, SAND_ATTACK ; old move
+;	db 1, 2, QUICK_ATTACK
+;	db 1, 3, TWISTER
+;	db 1, 4, WING_ATTACK
+	; NIDOKING
+;	db 2, 1, DOUBLE_KICK
+	db 2, 2, MEGA_PUNCH ; TM!
+	db 2, 3, BUBBLEBEAM ; TM!
+;	db 2, 4, MUD_SLAP
+	; CLEFABLE
+;	db 3, 1, SING
+	db 3, 2, MINIMIZE ; old move
+;	db 3, 3, MUD_SLAP
+	db 3, 4, METRONOME ; old move
+	; SANDSHREW
+;	db 4, 1, SAND_ATTACK
+;	db 4, 2, DEFENSE_CURL
+;	db 4, 3, MUD_SLAP
+;	db 4, 4, SLASH
+	; MANKEY
+	db 5, 2, METRONOME ; TM!
+;	db 5, 2, MUD_SLAP
+;	db 5, 2, SEISMIC_TOSS
+;	db 5, 2, KARATE_CHOP
+	; EEVEE
+;	db 6, 1, SAND_ATTACK
+;	db 6, 2, QUICK_ATTACK
+	db 6, 3, BIDE ; TM!
+;	db 6, 4, MUD_SLAP
+	db 0
+
 	db RIVAL3, 1
 	db 1, 3, EARTHQUAKE
 	db 2, 4, REFLECT
@@ -419,27 +518,6 @@ SpecialTrainerMoves:
 	db 4, 1, ICE_BEAM
 	db 5, 1, CONFUSE_RAY
 	db 5, 4, FIRE_SPIN
-	db 6, 3, QUICK_ATTACK
-	db 0
-
-	db RIVAL3, 2
-	db 1, 3, EARTHQUAKE
-	db 2, 4, REFLECT
-	db 3, 4, LEECH_SEED
-	db 4, 1, THUNDERBOLT
-	db 5, 1, ICE_BEAM
-	db 6, 2, REFLECT
-	db 6, 3, QUICK_ATTACK
-	db 0
-
-	db RIVAL3, 3
-	db 1, 3, EARTHQUAKE
-	db 2, 4, REFLECT
-	db 3, 4, LEECH_SEED
-	db 4, 1, CONFUSE_RAY
-	db 4, 4, FIRE_SPIN
-	db 5, 1, THUNDERBOLT
-	db 6, 1, AURORA_BEAM
 	db 6, 3, QUICK_ATTACK
 	db 0
 
