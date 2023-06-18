@@ -1395,6 +1395,16 @@ _TangelaDexEntry::
 	next "stop growing"
 	dex
 
+_TangrowthDexEntry::
+	text "Its arms are made"
+	next "of plants that"
+	next "bind themselves to"
+
+	page "things. They grow"
+	next "back right away if"
+	next "cut"
+	dex
+
 _KangaskhanDexEntry::
 	text "Raises its young"
 	next "in its belly"
@@ -1403,6 +1413,16 @@ _KangaskhanDexEntry::
 	page "from any fight to"
 	next "keep its young"
 	next "protected"
+	dex
+
+_MKangaskanDexEntry::
+	text "The child has now"
+	next "grown, but is good"
+	next "only at fighting,"
+
+	page "so its mother"
+	next "feels uneasy about"
+	next "its future"
 	dex
 
 _HorseaDexEntry::
@@ -1423,6 +1443,16 @@ _SeadraDexEntry::
 	page "tail to coral to"
 	next "stay in place"
 	next "while sleeping"
+	dex
+
+_KingdraDexEntry::
+	text "It sleeps deep on"
+	next "the ocean floor to"
+	next "build its energy."
+
+	page "It is said to"
+	next "cause tornadoes as"
+	next "it wakes"
 	dex
 
 _GoldeenDexEntry::
@@ -1465,6 +1495,16 @@ _StarmieDexEntry::
 	next "ors"
 	dex
 
+_MimeJrDexEntry::
+	text "It mimics the ex-"
+	next "pressions and mo-"
+	next "tions of those it"
+
+	page "sees to understand"
+	next "the feelings of"
+	next "others"
+	dex
+
 _MrMimeDexEntry::
 	text "Always practices"
 	next "its pantomime act."
@@ -1485,6 +1525,46 @@ _ScytherDexEntry::
 	next "that of a ninja"
 	dex
 
+_ScizorDexEntry::
+	text "Its wings are not"
+	next "used for flying."
+	next "They are flapped"
+
+	page "at high speed to"
+	next "adjust its body"
+	next "temperature"
+	dex
+
+_MScizorDexEntry::
+	text "It stores the ex-"
+	next "cess energy from"
+	next "Mega Evolution, so"
+
+	page "after a long time"
+	next "passes, its body"
+	next "starts to melt"
+	dex
+
+_KleavorDexEntry::
+	text "A violent creature"
+	next "that fells tower-"
+	next "ing trees with its"
+
+	page "crude axes and"
+	next "shields itself"
+	next "with hard stone"
+	dex
+
+_SmoochumDexEntry::
+	text "Its lips are the"
+	next "most sensitive"
+	next "parts on its body."
+
+	page "It always uses its"
+	next "lips first to ex-"
+	next "amine things"
+	dex
+
 _JynxDexEntry::
 	text "Appears to move to"
 	next "a rhythm of its"
@@ -1493,6 +1573,16 @@ _JynxDexEntry::
 	page "dancing. It"
 	next "wiggles its hips"
 	next "as it walks"
+	dex
+
+_ElekidDexEntry::
+	text "It rotates its"
+	next "arms to generate"
+	next "electricity, but"
+
+	page "it tires easily,"
+	next "so it charges up"
+	next "only a little bit"
 	dex
 
 _ElectabuzzDexEntry::
@@ -1505,6 +1595,26 @@ _ElectabuzzDexEntry::
 	next "at a power plant"
 	dex
 
+_ElectivireDexEntry::
+	text "Heedless of enemy"
+	next "attacks, it closes"
+	next "in, shoves its"
+
+	page "tails onto the"
+	next "foe, then looses"
+	next "high voltage"
+	dex
+
+_MagbyDexEntry::
+	text "It naturally spits"
+	next "an 600C flame. It"
+	next "is said when many"
+
+	page "appear, it heralds"
+	next "a volcanic erup-"
+	next "tion"
+	dex
+
 _MagmarDexEntry::
 	text "Born in an active"
 	next "volcano. Its body"
@@ -1515,6 +1625,15 @@ _MagmarDexEntry::
 	next "ball of fire"
 	dex
 
+_MagmortarDexEntry::
+	text "When launching"
+	next "2000C fireballs,"
+	next "its body takes on"
+
+	page "a whitish hue from"
+	next "the intense heat"
+	dex
+
 _PinsirDexEntry::
 	text "Grips its prey in"
 	next "its pincers and"
@@ -1523,6 +1642,16 @@ _PinsirDexEntry::
 	page "can't move if it's"
 	next "cold, so it lives"
 	next "in warm places"
+	dex
+
+_MPinsirDexEntry::
+	text "Mega Evolution"
+	next "made it constantly"
+	next "excited. Pierces"
+
+	page "enemies with its"
+	next "large horns before"
+	next "shredding them"
 	dex
 
 _TaurosDexEntry::
@@ -1553,6 +1682,16 @@ _GyaradosDexEntry::
 	page "for totally des-"
 	next "troying cities in"
 	next "ancient times"
+	dex
+
+_MGyaradosDexEntry::
+	text "After Mega Evolu-"
+	next "tion, its brain"
+	next "hosts solely de-"
+
+	page "structive in-"
+	next "stincts to burn"
+	next "everything to ash"
 	dex
 
 _LaprasDexEntry::
@@ -1591,7 +1730,7 @@ _VaporeonDexEntry::
 	next "ter molecules. It"
 
 	page "will melt away and"
-	next "become invis-ible"
+	next "become invisible"
 	next "in water"
 	dex
 
@@ -1615,14 +1754,82 @@ _FlareonDexEntry::
 	next "1600C degrees"
 	dex
 
-_PorygonDexEntry::
-	text "The only #MON"
-	next "people anticipate"
-	next "can fly into"
+_EspeonDexEntry::
+	text "It uses the fine"
+	next "hair that covers"
+	next "its body to sense"
 
-	page "space. None has"
-	next "managed the feat"
-	next "yet, however"
+	page "air currents and"
+	next "predict its en-"
+	next "emy's actions"
+	dex
+
+_UmbreonDexEntry::
+	text "When darkness"
+	next "falls, the rings"
+	next "on the body begin"
+
+	page "to glow, striking"
+	next "fear in the hearts"
+	next "of anyone nearby"
+	dex
+
+_LeafeonDexEntry::
+	text "Just like a plant,"
+	next "it uses photosyn-"
+	next "thesis. As a res-"
+
+	page "ult, it is always"
+	next "enveloped in clear"
+	next "air"
+	dex
+
+_GlaceonDexEntry::
+	text "As a protective"
+	next "technique, it can"
+	next "completely freeze"
+
+	page "its fur to make"
+	next "its hairs stand"
+	next "like needles"
+	dex
+
+_SylveonDexEntry::
+	text "It sends a sooth-"
+	next "ing aura from its"
+	next "ribbonlike feelers"
+
+	page "to calm fights"
+	dex
+
+_PorygonDexEntry::
+	text "A #MON that"
+	next "consists entirely"
+	next "of programming"
+
+	page "code. Capable of"
+	next "moving freely in"
+	next "cyberspace"
+	dex
+
+_Porygon2DexEntry::
+	text "Further research"
+	next "enhanced its abil-"
+	next "ities. Sometimes,"
+
+	page "it may exhibit mo-"
+	next "tions that were"
+	next "not programmed"
+	dex
+
+_PorygonZDexEntry::
+	text "Its programming"
+	next "was modified to"
+	next "enable travel to"
+
+	page "alien dimensions."
+	next "It did not work as"
+	next "planned.."
 	dex
 
 _OmanyteDexEntry::
@@ -1673,6 +1880,26 @@ _AerodactylDexEntry::
 	page "was resurrected"
 	next "using DNA taken"
 	next "from amber"
+	dex
+
+_MAerodatylDexEntry::
+	text "Mega Evolution"
+	next "brought back an-"
+	next "cestral stones and"
+
+	page "made it more vi-"
+	next "cious than ever"
+	next "out of sheer pain"
+	dex
+
+_MunchlaxDexEntry::
+	text "In its desperation"
+	next "to gulp down food,"
+	next "it forgets about"
+
+	page "the food it has"
+	next "hidden under its"
+	next "fur"
 	dex
 
 _SnorlaxDexEntry::
@@ -1755,6 +1982,26 @@ _MewtwoDexEntry::
 	next "ent"
 	dex
 
+_MMewtwoXDexEntry::
+	text "Psychic power aug-"
+	next "mented its mus-"
+	next "cles. Has a grip"
+
+	page "of one ton and can"
+	next "sprint 100 meters"
+	next "in 2 seconds"
+	dex
+
+_MMewtwoYDexEntry::
+	text "Its mental power"
+	next "grew phenomenally."
+	next "With a mere"
+
+	page "thought, it can"
+	next "smash a skyscraper"
+	next "to smithereens"
+	dex
+
 _MewDexEntry::
 	text "When viewed"
 	next "through a micro-"
@@ -1765,13 +2012,13 @@ _MewDexEntry::
 	next "hair can be seen"
 	dex
 
-_ArceusDexEntry::
-	text "It is said to have"
-	next "emerged from an"
-	next "egg in a place"
+_VenustoiseDexEntry::
+	text "A legendary fusion"
+	next "of ghastly origin."
+	next "It's said to wield"
 
-	page "where there was"
-	next "nothing, then"
-	next "shaped the world"
+	page "unparalleled power"
+	next "and attack with"
+	next "otherworldy fury"
 	dex
 

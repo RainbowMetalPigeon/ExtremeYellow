@@ -42,4 +42,6 @@ UsableItems_PartyMenu:
 	db ICE_STONE	; new
 	db KINGS_ROCK	; new
 	db METAL_COAT	; new
+	db UPGRADE		; new
+	db DUBIOUS_DISK	; new
 	db -1 ; end

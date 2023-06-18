@@ -434,10 +434,10 @@ SpecialTrainerMoves:
 	db 4, 3, STONE_EDGE
 	db 4, 4, GUNK_SHOT
 	; UMBREON
-	db 5, 2, REST
+	db 5, 1, REST
 ;	db 5, 2, DARK_PULSE
-	db 5, 2, DOUBLE_TEAM
-	db 5, 2, TOXIC
+	db 5, 3, DOUBLE_TEAM
+	db 5, 4, TOXIC
 	; MGENGAR
 	db 6, 1, DRAININGKISS
 	db 6, 2, NIGHT_SLASH
@@ -467,10 +467,10 @@ SpecialTrainerMoves:
 	db 4, 3, HYPER_BEAM
 ;	db 4, 4, HYDRO_PUMP
 	; DRAGONITE 2
-	db 5, 2, ROOST
+	db 5, 1, ROOST
 	db 5, 2, THUNDER_WAVE
-	db 5, 2, WRAP
-	db 5, 2, OUTRAGE
+	db 5, 3, WRAP
+	db 5, 4, OUTRAGE
 	; MCHARZARDX
 	db 6, 1, HYPER_BEAM
 ;	db 6, 2, SHADOW_CLAW
@@ -500,10 +500,10 @@ SpecialTrainerMoves:
 ;	db 4, 3, MUD_SLAP
 ;	db 4, 4, SLASH
 	; MANKEY
-	db 5, 2, METRONOME ; TM!
+	db 5, 1, METRONOME ; TM!
 ;	db 5, 2, MUD_SLAP
-;	db 5, 2, SEISMIC_TOSS
-;	db 5, 2, KARATE_CHOP
+;	db 5, 3, SEISMIC_TOSS
+;	db 5, 4, KARATE_CHOP
 	; EEVEE
 ;	db 6, 1, SAND_ATTACK
 ;	db 6, 2, QUICK_ATTACK
@@ -511,14 +511,261 @@ SpecialTrainerMoves:
 ;	db 6, 4, MUD_SLAP
 	db 0
 
-	db RIVAL3, 1
-	db 1, 3, EARTHQUAKE
-	db 2, 4, REFLECT
-	db 3, 4, LEECH_SEED
+	db RIVAL2, 1
+	; NIDOKING
+	db 1, 1, DOUBLE_KICK
+	db 1, 2, DIG
+	db 1, 3, BUBBLEBEAM
+;	db 1, 4, BODY_SLAM
+	; PIDGEOTTO
+	db 2, 1, SAND_ATTACK
+;	db 2, 2, QUICK_ATTACK
+;	db 2, 3, TWISTER
+;	db 2, 4, WING_ATTACK
+	; CLEFABLE
+	db 3, 1, SING
+;	db 3, 2, MUD_SLAP
+	db 3, 3, MINIMIZE
+	db 3, 4, METRONOME
+	; SANDSLASH
+;	db 4, 1, DEFENSE_CURL
+;	db 4, 2, MUD_SLAP
+;	db 4, 3, SLASH
+	db 4, 4, SAND_ATTACK
+	; RATICATE
+	db 5, 1, BUBBLEBEAM
+;	db 5, 2, HYPER_FANG
+	db 5, 3, FOCUS_ENERGY
+;	db 5, 4, SUPER_FANG
+	; EEVEE
+;	db 6, 1, SAND_ATTACK
+;	db 6, 2, QUICK_ATTACK
+	db 6, 3, BIDE
+	db 6, 4, BITE
+	db 0
+
+	db RIVAL2, 2
+	; PINSIR
+;	db 1, 1, SEISMIC_TOSS
+	db 1, 2, X_SCISSOR
+	db 1, 3, ROCK_SLIDE
+	db 1, 4, SWORDS_DANCE ; DIG?
+	; PORYGONZ
+	db 2, 1, AMNESIA
+	db 2, 2, TRI_ATTACK
+	db 2, 3, DARK_PULSE
+	db 2, 4, PSYCHIC_M
+	; KLEAVOR
+	db 3, 1, X_SCISSOR
+;	db 3, 2, AIR_SLASH
+	db 3, 3, STONE_EDGE
+;	db 3, 4, SWORDS_DANCE
+	; CLOYSTER
+	db 4, 1, LIGHT_SCREEN
+;	db 4, 2, CLAMP
+;	db 4, 3, AURORA_BEAM
+;	db 4, 4, MUD_SHOT
+	; NINETALES
+	db 5, 1, FIRE_SPIN
+;	db 5, 2, CONFUSE_RAY
+;	db 5, 4, WILL_O_WISP
+;	db 5, 4, HYPNOSIS
+	; UMBREON
+	db 6, 1, DARK_PULSE
+	db 6, 2, DOUBLE_TEAM
+;	db 6, 3, CONFUSE_RAY
+	db 6, 4, REST
+	db 0
+
+	db RIVAL2, 3
+	; ANNIHILAPE
+	db 1, 1, CLOSE_COMBAT ; DRAIN_PUNCH?
+	db 1, 2, SHADOW_CLAW
+	db 1, 3, STONE_EDGE
+	db 1, 4, GUNK_SHOT ; COUNTER?
+	; ALAKAZAM
+;	db 2, 1, REFLECT
+	db 2, 2, THUNDER_WAVE
+	db 2, 3, PSYCHO_CUT
+	db 2, 4, RECOVER
+	; ELECTIVIRE
+;	db 3, 1, ICE_PUNCH
+;	db 3, 2, ROCK_TOMB
+	db 3, 3, THUNDERPUNCH
+	db 3, 4, KARATE_CHOP
+	; JYNX
 	db 4, 1, ICE_BEAM
-	db 5, 1, CONFUSE_RAY
-	db 5, 4, FIRE_SPIN
-	db 6, 3, QUICK_ATTACK
+	db 4, 2, DRAININGKISS
+;	db 4, 3, LOVELY_KISS
+;	db 4, 4, DREAM_EATER
+	; MAGMORTAR
+	db 5, 1, ROCK_SLIDE
+	db 5, 2, FIRE_BLAST
+;	db 5, 3, KARATE_CHOP
+	db 5, 4, BULLET_SEED
+	; UMBREON
+	db 6, 1, TOXIC
+	db 6, 2, DOUBLE_TEAM
+	db 6, 3, REST
+;	db 6, 4, DARK_PULSE
+	db 0
+
+	db RIVAL2, 4
+	; JOLTEON
+	db 1, 1, DOUBLE_KICK
+	db 1, 2, THUNDER_WAVE
+	db 1, 3, BITE
+;	db 1, 4, ZAP_CANNON
+	; VAPOREON
+	db 2, 1, TOXIC
+	db 2, 2, REST
+;	db 2, 3, ACID_ARMOR
+	db 2, 4, SCALD
+	; FLAREON
+;	db 3, 1, IRON_TAIL
+	db 3, 2, WILL_O_WISP
+;	db 3, 3, SUPERPOWER
+;	db 3, 4, HEAT_WAVE
+	; LEAFEON
+	db 4, 1, BODY_SLAM
+	db 4, 2, LEECH_SEED
+;	db 4, 3, AERIAL_ACE
+	db 4, 4, LEAF_STORM
+	; GLACEON
+	db 5, 1, SAND_ATTACK
+	db 5, 2, REST
+	db 5, 3, BLIZZARD
+	db 5, 4, SUBSTITUTE
+	; UMBREON
+	db 6, 1, CONFUSE_RAY
+;	db 6, 2, DARK_PULSE
+	db 6, 3, REST
+	db 6, 4, DOUBLE_TEAM
+	db 0
+
+	db RIVAL3, 1
+	; MPIDGEOT
+	db 1, 1, THUNDER
+	db 1, 2, BLIZZARD
+	db 1, 3, HEAT_WAVE
+;	db 1, 4, HURRICANE
+	; MALAKAZAM
+;	db 2, 1, PSYCHIC_M
+	db 2, 2, DARK_PULSE
+	db 2, 3, MOONBLAST
+;	db 2, 4, ZAP_CANNON
+	; MSCIZOR
+	db 3, 1, METEOR_MASH
+;	db 3, 2, STEEL_WING
+	db 3, 3, LEECH_LIFE
+	db 3, 4, CLOSE_COMBAT
+	; MVENUSAUR
+	db 4, 1, DOUBLE_EDGE
+;	db 4, 2, GUNK_SHOT
+	db 4, 3, EARTHQUAKE
+;	db 4, 4, FRENZY_PLANT
+	; MCHARZARDY
+	db 5, 1, HURRICANE ; ?
+	db 5, 2, DRAGON_CLAW
+	db 5, 3, CRUNCH
+;	db 5, 4, BLAST_BURN
+	; MBLASTOISE
+	db 6, 1, ZAP_CANNON
+	db 6, 2, OUTRAGE
+	db 6, 3, BLIZZARD
+;	db 6, 4, HYDRO_CANNON
+	db 0
+
+	db ROCKET, 42
+	; EKANS
+	db 1, 1, WRAP
+;	db 1, 2, POISON_STING
+;	db 1, 3, BITE
+;	db 1, 4, GLARE
+	; KOFFING
+	db 2, 1, TACKLE
+;	db 2, 2, SMOG
+;	db 2, 3, SMOKESCREEN
+;	db 2, 4, INFESTATION
+	; MEOWTH
+	db 3, 1, SCRATCH
+;	db 3, 2, LEER
+;	db 3, 3, DEFENSE_CURL
+;	db 3, 4, BITE
+	db 0
+
+	db ROCKET, 43
+	; ARBOK
+;	db 1, 1, GLARE
+;	db 1, 2, SCREECH
+;	db 1, 3, ACID
+	db 1, 4, WRAP
+	; WEEZING
+;	db 2, 1, SMOKESCREEN
+;	db 2, 2, HEADBUTT
+;	db 2, 3, SLUDGE
+;	db 2, 4, INFESTATION
+	; MEOWTH
+;	db 3, 1, PAY_DAY
+;	db 3, 2, MUD_SLAP
+;	db 3, 3, SWIFT
+;	db 3, 4, HEADBUTT
+	db 0
+
+	db ROCKET, 44
+	; ARBOK
+	db 1, 1, GLARE
+;	db 1, 2, CRUNCH
+;	db 1, 3, SLUDGE
+;	db 1, 4, HEADBUTT
+	; LICKITUNG
+;	db 2, 1, SLAM
+	db 2, 2, LICK
+	db 2, 3, WRAP
+;	db 2, 4, ROCK_TOMB
+	; WEEZING
+	db 3, 1, SMOKESCREEN
+	db 3, 2, INFESTATION
+;	db 3, 3, SELFDESTRUCT
+;	db 3, 4, SLUDGE_WAVE
+	; WEEPINBELL
+	db 4, 1, WRAP
+;	db 4, 2, ACID
+	db 4, 3, STUN_SPORE
+;	db 4, 4, MAGICAL_LEAF
+	; MEOWTH
+;	db 5, 1, FURY_SWIPES
+	db 5, 2, PAY_DAY
+;	db 5, 3, CRUNCH
+;	db 5, 4, WATER_PULSE
+	db 0
+
+	db ROCKET, 45
+	; ARBOK
+	db 1, 1, DARK_PULSE
+	db 1, 2, EARTHQUAKE
+	db 1, 3, GIGA_DRAIN
+;	db 1, 4, SLUDGE_WAVE
+	; LICKILICKY
+	db 2, 1, ICE_BEAM
+	db 2, 2, THUNDERBOLT
+	db 2, 3, FIRE_BLAST
+;	db 2, 4, AMNESIA
+	; WEEZING
+	db 3, 1, SHADOW_BALL
+	db 3, 2, EXPLOSION
+;	db 3, 3, SLUDGE_WAVE
+;	db 3, 4, HEAT_WAVE
+	; VICTREEBEL
+	db 4, 1, TOXIC
+	db 4, 2, GROWTH
+	db 4, 3, GIGA_DRAIN
+;	db 4, 4, LEECH_LIFE
+	; MEOWTH
+	db 5, 1, PAY_DAY
+;	db 5, 2, SLASH
+;	db 5, 3, SING
+;	db 5, 4, DREAM_EATER
 	db 0
 
 	db -1 ; end

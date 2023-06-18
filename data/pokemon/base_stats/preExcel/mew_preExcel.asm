@@ -23,7 +23,8 @@
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   \
 	     SELFDESTRUCT, CLOSE_COMBAT, FIRE_BLAST,   SHADOW_SNEAK, OUTRAGE,      \
 	     BRAVE_BIRD,   REST,         GUNK_SHOT,    X_SCISSOR,    THUNDER_WAVE, \
-	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE    
+	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
+	     CUT,          FLY,          SURF,         STRENGTH,     FLASH         
 	; end
 
 	db BANK(MewPicFront)

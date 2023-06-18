@@ -89,4 +89,6 @@ KeyItemFlags:
 	dbit FALSE ; ICE_STONE		- new
 	dbit FALSE ; KINGS_STONE	- new
 	dbit FALSE ; METAL_COAT		- new
+	dbit FALSE ; UPGRADE		- new
+	dbit FALSE ; DUBIOUS_DISK	- new
 	end_bit_array NUM_ITEMS

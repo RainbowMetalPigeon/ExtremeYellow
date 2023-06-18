@@ -18,7 +18,7 @@
 	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     THUNDER_WAVE, SUBSTITUTE,   FLY,          SURF,         STRENGTH,     \
-	     FLASH
+	     FLASH         
 	; end
 
 	db BANK(PikachuPicFront)

@@ -89,6 +89,8 @@ ItemNames::
 	li "ICE STONE"
 	li "KING's ROCK"
 	li "METAL COAT"
+	li "UPGRADE"
+	li "DUBIOUS DISK"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

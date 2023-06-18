@@ -1040,6 +1040,7 @@ NidoqueenEvosMoves:
 ; Learnset
 	db 7, LEER
 	db 8, SCRATCH
+	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
 	db 15, POISON_STING
@@ -1134,6 +1135,7 @@ NidokingEvosMoves:
 ; Learnset
 	db 7, GROWL
 	db 8, SCRATCH
+	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
 	db 13, HORN_ATTACK
@@ -2013,7 +2015,6 @@ PoliwagEvosMoves:
 	db EV_LEVEL, 25, POLIWHIRL
 	db 0
 ; Learnset
-	db 5, SPLASH
 	db 6, POUND
 	db 9, DEFENSE_CURL
 	db 12, MUD_SHOT
@@ -2042,7 +2043,6 @@ PoliwhirlEvosMoves:
 	db EV_ITEM, KINGS_ROCK, 1, POLITOED
 	db 0
 ; Learnset
-	db 5, SPLASH
 	db 6, POUND
 	db 9, DEFENSE_CURL
 	db 12, MUD_SHOT
@@ -2071,7 +2071,6 @@ PoliwrathEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 5, SPLASH
 	db 6, POUND
 	db 9, DEFENSE_CURL
 	db 12, MUD_SHOT
@@ -2103,7 +2102,6 @@ PolitoedEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 5, SPLASH
 	db 6, POUND
 	db 9, DEFENSE_CURL
 	db 12, MUD_SHOT
@@ -2946,7 +2944,7 @@ MukEvosMoves:
 
 ShellderEvosMoves:
 ; Evolutions
-	db EV_ITEM, WATER_STONE, 1, CLOYSTER
+	db EV_ITEM, ICE_STONE, 1, CLOYSTER
 	db 0
 ; Learnset
 	db 4, DEFENSE_CURL
@@ -4781,6 +4779,7 @@ LaprasEvosMoves:
 	db 47, HEADBUTT
 	db 49, ZEN_HEADBUTT
 	db 53, ICE_BEAM
+	db 57, HYDRO_PUMP
 	db 60, ZAP_CANNON
 	db 64, HORN_DRILL
 	db 0
@@ -4989,6 +4988,7 @@ SylveonEvosMoves:
 
 PorygonEvosMoves:
 ; Evolutions
+	db EV_ITEM, UPGRADE, 1, PORYGON2
 	db 0
 ; Learnset
 	db 10, TELEPORT
@@ -4998,7 +4998,8 @@ PorygonEvosMoves:
 	db 25, SWIFT
 	db 28, RECOVER
 	db 31, AGILITY
-	db 34, TAKE_DOWN
+	db 33, TAKE_DOWN
+	db 35, TRI_ATTACK
 	db 37, SHOCK_WAVE
 	db 39, HEADBUTT
 	db 42, TRI_ATTACK
@@ -5013,6 +5014,7 @@ PorygonEvosMoves:
 
 Porygon2EvosMoves:
 ; Evolutions
+	db EV_ITEM, DUBIOUS_DISK, 1, PORYGONZ
 	db 0
 ; Learnset
 	db 10, TELEPORT
@@ -5022,7 +5024,8 @@ Porygon2EvosMoves:
 	db 25, SWIFT
 	db 28, RECOVER
 	db 31, AGILITY
-	db 34, TAKE_DOWN
+	db 33, TAKE_DOWN
+	db 35, TRI_ATTACK
 	db 40, SHOCK_WAVE
 	db 43, HEADBUTT
 	db 45, TRI_ATTACK
@@ -5046,7 +5049,8 @@ PorygonZEvosMoves:
 	db 25, SWIFT
 	db 28, RECOVER
 	db 31, AGILITY
-	db 34, TAKE_DOWN
+	db 33, TAKE_DOWN
+	db 35, TRI_ATTACK
 	db 40, SHOCK_WAVE
 	db 45, HEADBUTT
 	db 47, TRI_ATTACK
@@ -5119,8 +5123,6 @@ KabutoEvosMoves:
 	db EV_LEVEL, 40, KABUTOPS
 	db 0
 ; Learnset
-	db 5, HARDEN
-	db 7, SCRATCH
 	db 9, WATER_GUN
 	db 11, ABSORB
 	db 14, MUD_SLAP
@@ -5145,8 +5147,6 @@ KabutopsEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 5, HARDEN
-	db 7, SCRATCH
 	db 9, WATER_GUN
 	db 11, ABSORB
 	db 14, MUD_SLAP
@@ -5373,6 +5373,7 @@ DratiniEvosMoves:
 	db 35, FLAMETHROWER
 	db 38, WATERFALL
 	db 40, DRAGON_RAGE
+	db 42, DRAGON_DANCE
 	db 44, IRON_TAIL
 	db 48, AQUA_JET
 	db 50, HYPER_BEAM
@@ -5400,6 +5401,7 @@ DragonairEvosMoves:
 	db 38, FLAMETHROWER
 	db 41, WATERFALL
 	db 43, DRAGON_RAGE
+	db 45, DRAGON_DANCE
 	db 47, IRON_TAIL
 	db 51, AQUA_JET
 	db 53, HYPER_BEAM
@@ -5428,7 +5430,8 @@ DragoniteEvosMoves:
 	db 38, FLAMETHROWER
 	db 41, WATERFALL
 	db 43, DRAGON_RAGE
-	db 47, IRON_TAIL
+	db 45, DRAGON_DANCE
+	db 48, IRON_TAIL
 	db 51, AQUA_JET
 	db 53, HYPER_BEAM
 	db 55, HURRICANE
@@ -5545,7 +5548,7 @@ MewEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 2, TELEPORT
+	db 2, POUND
 	db 3, SCREECH
 	db 4, LIGHT_SCREEN
 	db 5, DEFENSE_CURL
@@ -5702,3 +5705,4 @@ MonGhostEvosMoves:
 	db 0
 ; Learnset
 	db 0
+
