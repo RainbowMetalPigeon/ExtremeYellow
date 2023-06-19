@@ -119,7 +119,7 @@ DebugItemsList:
 	db RARE_CANDY, 99
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
-	db FULL_HEAL, 99
+	db POKE_DOLL, 99 ; FULL_HEAL
 	db REVIVE, 99
 	db MOON_STONE, 99
 	db S_S_TICKET, 1

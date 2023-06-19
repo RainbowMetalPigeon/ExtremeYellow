@@ -47,6 +47,24 @@ _LavenderHouse1Text_1d94c::
 	line "help your quest."
 	prompt
 
+_LavenderHouse1Text_MegaStone:: ; new
+	text "MR.FUJI: <PLAYER>."
+
+	para "You have shown"
+	line "both compassion"
+	cont "and strength."
+
+	para "Those are traits"
+	line "as invaluable as"
+	cont "rare in trainers."
+
+	para "I think..."
+	line "...that you may"
+	cont "be the right one"
+	cont "to receive this."
+
+	prompt
+
 _ReceivedFluteText::
 	text "<PLAYER> received"
 	line "a @"
@@ -66,14 +84,29 @@ _FluteExplanationText::
 	line "sleeping #MON."
 	done
 
-_FluteNoRoomText::
+_MegaStoneXExplanationText::
+	text_start
+
+	para "It will be up to"
+	line "you to discover"
+	cont "how to use it at"
+	cont "its absolute best."
+
+	done
+
+_FluteOrStoneNoRoomText::
 	text "You must make"
 	line "room for this!"
 	done
 
-_MrFujiAfterFluteText::
+_MrFujiAfterFluteAndStoneText::
 	text "MR.FUJI: Has my"
 	line "FLUTE helped you?"
+
+	; new
+	para "And have you found"
+	line "a way to use that"
+	cont "mysterious stone?"
 	done
 
 _LavenderHouse1Text6::

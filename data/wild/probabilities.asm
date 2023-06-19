@@ -26,4 +26,4 @@ WildMonEncounterSlotChances:
 ;	db 252, $12 ;  1/256 =  0.4% chance of slot 9
 ;	db 253, $14 ;  1/256 =  0.4% chance of slot 10
 ;	db 254, $16 ;  1/256 =  0.4% chance of slot 11
-;	db 255, $18 ;  1/256 =  0.4% chance of slot 12
+;	db 255, $18 ;  1/256 =  0.4% chance of slot 12 - Mew

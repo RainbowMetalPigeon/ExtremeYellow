@@ -103,7 +103,7 @@
 	const EVENT_RESCUED_MR_FUJI_2
 	const_skip 16
 	const EVENT_GOT_POKE_FLUTE
-	const_skip 30
+	const EVENT_GOT_FUJI_MEGA_STONE_X ; new
 	const EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 
 ; Vermilion City events
