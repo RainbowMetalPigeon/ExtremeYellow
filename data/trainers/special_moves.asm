@@ -4,9 +4,9 @@
 ;	db 0
 
 SpecialTrainerMoves:
-	db BUG_CATCHER, 15
-	db 2, 2, TACKLE
-	db 2, 3, STRING_SHOT
+	db BUG_CATCHER, 15 ; updated
+;	db 1, 1, TACKLE
+	db 1, 2, BIND
 	db 0
 
 	db YOUNGSTER, 14

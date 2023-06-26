@@ -56,6 +56,7 @@ ChoosePlayerName:
 	jr z, .LoadYellowPicFront
 	ld de, GreenPicFront
 	ld b, BANK(GreenPicFront)
+	jr .ContinueWithRoutine
 .LoadYellowPicFront
 	ld de, YellowPicFront
 	ld b, BANK(YellowPicFront)

@@ -29,6 +29,17 @@ CalcLevelFromExperience::
 
 ; calculates the amount of experience needed for level d
 CalcExperience::
+	ld a, d
+	dec a
+	jr nz, .UseExpFormula
+; Pokémon have 0 experience at level 1
+	ld hl, hProduct
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ret
+.UseExpFormula
 	ld a, [wMonHGrowthRate]
 	add a
 	add a

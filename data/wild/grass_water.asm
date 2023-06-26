@@ -94,7 +94,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
+	dw NothingWildMons			; VERMILION_DOCK?
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons

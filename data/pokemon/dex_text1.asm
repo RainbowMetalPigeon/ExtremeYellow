@@ -937,9 +937,9 @@ _SlowbroDexEntry::
 	dex
 
 _MSlowbroDexEntry::
-	text "SHELLDER’s digest-"
+	text "SHELLDER's digest-"
 	next "ive fluids"
-	next "awakened Slowpoke,"
+	next "awakened SLOWPOKE,"
 
 	page "which gained great"
 	next "power - and a"

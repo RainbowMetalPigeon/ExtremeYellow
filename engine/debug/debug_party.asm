@@ -18,7 +18,7 @@ DebugTeam:
 	db VENUSTOISE, 100
 	db SNORLAX, 80
 	db PERSIAN, 80
-	db JIGGLYPUFF, 15
+	db MEW, 1
 	db STARTER_PIKACHU, 5
 	db -1 ; end
 
