@@ -5069,7 +5069,7 @@ ROMX bank #7:
            $6267 = BillsHouseText3
            $6271 = BillsHouse_Object
            $6297 = BillsHouse_Blocks
-  SECTION: $62a7-$6692 ($03ec bytes) ["Hidden Objects 1"]
+  SECTION: $62a7-$66a9 ($0403 bytes) ["Hidden Objects 1"]
            $62a7 = OpenOaksPC
            $62c4 = OpenOaksPC.closePC
            $62cd = GetDexRatedText
@@ -5085,58 +5085,58 @@ ROMX bank #7:
            $6315 = StrengthsAndWeaknessesText
            $631a = SafariZoneCheck
            $6329 = SafariZoneCheckSteps
-           $6341 = SafariZoneGameStillGoing
-           $6346 = SafariZoneGameOver
-           $6357 = SafariZoneGameOver.waitForMusicToPlay
-           $6382 = PrintSafariGameOverText
-           $638c = SafariGameOverText
-           $6399 = SafariGameOverText.noMoreSafariBalls
-           $63a2 = TimesUpText
-           $63a7 = GameOverText
-           $63ac = PrintCinnabarQuiz
-           $63ba = CinnabarGymQuiz
-           $63df = CinnabarGymQuiz.onFirstQuestion
-           $63fe = CinnabarGymQuizDummyIntroText
-           $6403 = CinnabarGymQuizIntroText
-           $6408 = CinnabarGymQuizShortIntroText
-           $640d = CinnabarQuizQuestions
-           $6419 = CinnabarQuizQuestionsText1
-           $641e = CinnabarQuizQuestionsText2
-           $6423 = CinnabarQuizQuestionsText3
-           $6428 = CinnabarQuizQuestionsText4
-           $642d = CinnabarQuizQuestionsText5
-           $6432 = CinnabarQuizQuestionsText6
-           $6437 = CinnabarGymQuiz_AskQuestion
-           $645d = CinnabarGymQuiz_AskQuestion.wrongAnswer
-           $648d = CinnabarGymQuizCorrectText
-           $64af = CinnabarGymQuizIncorrectText
-           $64b4 = CinnabarGymGateFlagAction
-           $64bc = UpdateCinnabarGymGateTileBlocks_
-           $64c0 = UpdateCinnabarGymGateTileBlocks_.loop
-           $64e8 = UpdateCinnabarGymGateTileBlocks_.unlocked
-           $64ea = UpdateCinnabarGymGateTileBlocks_.next
-           $64fe = CinnabarGymGateCoords
-           $6516 = CinnabarGym_ReplaceTileBlock
-           $652c = CinnabarGym_ReplaceTileBlock.addWidthYTimesLoop
-           $6530 = CinnabarGym_ReplaceTileBlock.addX
-           $6536 = PrintMagazinesText
-           $653f = MagazinesText
-           $6544 = BillsHousePC
-           $655c = BillsHousePC.displayBillsHouseMonitorText
-           $6561 = BillsHousePC.doCellSeparator
-           $65a8 = BillsHousePC.displayBillsHousePokemonList
-           $65b3 = BillsHouseMonitorText
-           $65b8 = BillsHouseInitiatedText
-           $65d6 = BillsHousePokemonList
-           $65fe = BillsHousePokemonList.billsPokemonLoop
-           $663c = BillsHousePokemonList.displayPokedex
-           $6644 = BillsHousePokemonList.cancel
-           $664f = BillsHousePokemonListText1
-           $6654 = BillsMonListText
-           $667a = BillsHousePokemonListText2
-           $667f = DisplayOakLabEmailText
-           $668e = OakLabEmailText
-    SLACK: $196d bytes
+           $6358 = SafariZoneGameStillGoing
+           $635d = SafariZoneGameOver
+           $636e = SafariZoneGameOver.waitForMusicToPlay
+           $6399 = PrintSafariGameOverText
+           $63a3 = SafariGameOverText
+           $63b0 = SafariGameOverText.noMoreSafariBalls
+           $63b9 = TimesUpText
+           $63be = GameOverText
+           $63c3 = PrintCinnabarQuiz
+           $63d1 = CinnabarGymQuiz
+           $63f6 = CinnabarGymQuiz.onFirstQuestion
+           $6415 = CinnabarGymQuizDummyIntroText
+           $641a = CinnabarGymQuizIntroText
+           $641f = CinnabarGymQuizShortIntroText
+           $6424 = CinnabarQuizQuestions
+           $6430 = CinnabarQuizQuestionsText1
+           $6435 = CinnabarQuizQuestionsText2
+           $643a = CinnabarQuizQuestionsText3
+           $643f = CinnabarQuizQuestionsText4
+           $6444 = CinnabarQuizQuestionsText5
+           $6449 = CinnabarQuizQuestionsText6
+           $644e = CinnabarGymQuiz_AskQuestion
+           $6474 = CinnabarGymQuiz_AskQuestion.wrongAnswer
+           $64a4 = CinnabarGymQuizCorrectText
+           $64c6 = CinnabarGymQuizIncorrectText
+           $64cb = CinnabarGymGateFlagAction
+           $64d3 = UpdateCinnabarGymGateTileBlocks_
+           $64d7 = UpdateCinnabarGymGateTileBlocks_.loop
+           $64ff = UpdateCinnabarGymGateTileBlocks_.unlocked
+           $6501 = UpdateCinnabarGymGateTileBlocks_.next
+           $6515 = CinnabarGymGateCoords
+           $652d = CinnabarGym_ReplaceTileBlock
+           $6543 = CinnabarGym_ReplaceTileBlock.addWidthYTimesLoop
+           $6547 = CinnabarGym_ReplaceTileBlock.addX
+           $654d = PrintMagazinesText
+           $6556 = MagazinesText
+           $655b = BillsHousePC
+           $6573 = BillsHousePC.displayBillsHouseMonitorText
+           $6578 = BillsHousePC.doCellSeparator
+           $65bf = BillsHousePC.displayBillsHousePokemonList
+           $65ca = BillsHouseMonitorText
+           $65cf = BillsHouseInitiatedText
+           $65ed = BillsHousePokemonList
+           $6615 = BillsHousePokemonList.billsPokemonLoop
+           $6653 = BillsHousePokemonList.displayPokedex
+           $665b = BillsHousePokemonList.cancel
+           $6666 = BillsHousePokemonListText1
+           $666b = BillsMonListText
+           $6691 = BillsHousePokemonListText2
+           $6696 = DisplayOakLabEmailText
+           $66a5 = OakLabEmailText
+    SLACK: $1956 bytes
 
 ROMX bank #8:
   SECTION: $4000-$42bd ($02be bytes) ["Sound Effect Headers 2"]
@@ -17588,7 +17588,7 @@ ROMX bank #45:
     SLACK: $0e5e bytes
 
 ROMX bank #46:
-  SECTION: $4000-$6686 ($2687 bytes) ["Pokédex Text1"]
+  SECTION: $4000-$6685 ($2686 bytes) ["Pokédex Text1"]
            $4000 = _BulbasaurDexEntry
            $405f = _IvysaurDexEntry
            $40bf = _VenusaurDexEntry
@@ -17684,12 +17684,12 @@ ROMX bank #46:
            $636e = _SlowpokeDexEntry
            $63d0 = _SlowbroDexEntry
            $642e = _MSlowbroDexEntry
-           $6494 = _SlowkingDexEntry
-           $64f4 = _MagnemiteDexEntry
-           $6558 = _MagnetonDexEntry
-           $65ba = _MagnezoneDexEntry
-           $6624 = _FarfetchdDexEntry
-    SLACK: $1979 bytes
+           $6493 = _SlowkingDexEntry
+           $64f3 = _MagnemiteDexEntry
+           $6557 = _MagnetonDexEntry
+           $65b9 = _MagnezoneDexEntry
+           $6623 = _FarfetchdDexEntry
+    SLACK: $197a bytes
 
 ROMX bank #47:
   SECTION: $4000-$486e ($086f bytes) ["Move Names"]
@@ -24369,7 +24369,7 @@ HRAM bank #0:
 
 USED:
     ROM0: $3fc3 bytes in 1 bank
-    ROMX: $d967e bytes in 66 banks
+    ROMX: $d9694 bytes in 66 banks
     SRAM: $6229 bytes in 4 banks
     WRAM0: $1ffc bytes in 1 bank
     HRAM: $007f bytes in 1 bank
