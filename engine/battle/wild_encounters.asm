@@ -55,7 +55,7 @@ TryDoWildEncounter:
 	ldh a, [hRandomSub]
 	ld b, a
 	ld hl, WildMonEncounterSlotChances
-.determineEncounterSlot
+.determineEncounterSlot ; wanna change this
 	ld a, [hli]
 	cp b
 	jr nc, .gotEncounterSlot
