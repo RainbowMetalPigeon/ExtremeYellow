@@ -9,7 +9,11 @@ Route16WildMons:
 	db 23, SPEAROW
 	db 24, FEAROW
 	db 25, RATICATE
+	db 24, FEAROW
 	db 26, RATICATE
+	db 26, RATICATE
+	db 26, RATICATE
+	db  1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

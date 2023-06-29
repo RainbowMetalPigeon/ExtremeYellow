@@ -9,7 +9,11 @@ Route3WildMons:
 	db 10, SANDSHREW
 	db 12, RATTATA
 	db 11, SPEAROW
+	db 12, RATTATA
 	db 12, SPEAROW
+	db 12, SPEAROW
+	db 12, SPEAROW
+	db	1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

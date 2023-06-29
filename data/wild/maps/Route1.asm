@@ -9,7 +9,11 @@ Route1WildMons:
 	db  5, PIDGEY
 	db  4, RATTATA
 	db  6, PIDGEY
+	db  4, RATTATA
 	db  7, PIDGEY
+	db  7, PIDGEY
+	db  7, PIDGEY
+	db	1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

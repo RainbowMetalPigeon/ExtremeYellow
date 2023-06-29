@@ -1,15 +1,19 @@
 Route5WildMons:
 	def_grass_wildmons 15 ; encounter rate
 	db 15, PIDGEY
-	db 14, RATTATA
+	db 15, RATTATA
 	db  7, ABRA
-	db 16, PIDGEY
-	db 16, RATTATA
-	db 17, PIDGEY
-	db 17, PIDGEOTTO
-	db  3, JIGGLYPUFF
-	db  5, JIGGLYPUFF
-	db  7, JIGGLYPUFF
+	db 18, BELLSPROUT
+	db 18, MANKEY
+	db 18, MEOWTH
+	db 19, PIDGEOTTO
+	db 17, JIGGLYPUFF
+	db 21, JIGGLYPUFF
+	db 17, JIGGLYPUFF
+	db  1, IGGLYBUFF
+	db  1, IGGLYBUFF
+	db  1, IGGLYBUFF
+	db  1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

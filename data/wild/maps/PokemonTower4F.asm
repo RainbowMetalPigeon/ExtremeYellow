@@ -9,7 +9,11 @@ PokemonTower4FWildMons:
 	db 18, GASTLY
 	db 25, GASTLY
 	db 20, HAUNTER
+	db 25, GASTLY
 	db 25, HAUNTER
+	db 25, HAUNTER
+	db 25, HAUNTER
+	db 	1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -9,7 +9,11 @@ RockTunnel1FWildMons:
 	db 21, ZUBAT
 	db 17, MACHOP
 	db 19, MACHOP
-	db 21, MACHOP
+	db 17, ONIX
+	db 17, MACHOP
+	db 22, GOLBAT
+	db 22, GOLBAT
+	db  1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -10,6 +10,10 @@ MtMoon1FWildMons:
 	db 11, ZUBAT
 	db 12, SANDSHREW
 	db 11, CLEFAIRY
+	db  1, CLEFFA
+	db  1, CLEFFA
+	db  1, CLEFFA
+	db  1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -10,6 +10,10 @@ PokemonTower3FWildMons:
 	db 25, GASTLY
 	db 20, HAUNTER
 	db 25, HAUNTER
+	db 25, HAUNTER
+	db 22, RATICATE
+	db 22, RATICATE
+	db	1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

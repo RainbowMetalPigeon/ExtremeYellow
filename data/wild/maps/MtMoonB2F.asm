@@ -10,6 +10,10 @@ MtMoonB2FWildMons:
 	db  9, CLEFAIRY
 	db 11, CLEFAIRY
 	db 13, CLEFAIRY
+	db  1, CLEFFA
+	db  1, CLEFFA
+	db  1, CLEFFA
+	db  1, MEW
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

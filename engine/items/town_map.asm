@@ -378,6 +378,9 @@ DrawPlayerOrBirdSprite:
 	jp CopyData
 
 DisplayWildLocations:
+	ld a, [wd11e]				; new
+	cp MEW						; new
+	jr z, .printMysterious		; new
 	farcall FindWildLocationsOfMon
 	call ZeroOutDuplicatesInList
 	ld hl, wShadowOAM
@@ -407,11 +410,17 @@ DisplayWildLocations:
 	and a ; were any OAM entries written?
 	jr nz, .drawPlayerSprite
 ; if no OAM entries were written, print area unknown text
+.printMysterious
 	hlcoord 1, 7
 	lb bc, 2, 15
 	call TextBoxBorder
 	hlcoord 2, 9
+	ld de, AreaMysteriousText	; new
+	ld a, [wd11e]				; new
+	cp MEW						; new
+	jr z, .notUnknownText		; new
 	ld de, AreaUnknownText
+.notUnknownText					; new
 	call PlaceString
 	jr .done
 .drawPlayerSprite
@@ -426,6 +435,9 @@ DisplayWildLocations:
 
 AreaUnknownText:
 	db " AREA UNKNOWN@"
+
+AreaMysteriousText:				; new
+	db " AREA: MYSTERY@"		; new
 
 TownMapCoordsToOAMCoords:
 ; in: lower nybble of a = x, upper nybble of a = y
