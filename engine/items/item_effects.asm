@@ -226,8 +226,18 @@ ItemUseBall:
 	cp GREAT_BALL
 	jr z, .checkForAilments
 
-; If it's an Ultra/Safari Ball and Rand1 is greater than 150, try again.
+; If it's an Ultra Ball and Rand1 is greater than 150, try again. - updated
 	ld a, 150
+	cp b
+	jr c, .loop
+
+; new - Less than or equal to 200 is good enough for an Ultra Ball.
+	ld a, [hl]
+	cp ULTRA_BALL
+	jr z, .checkForAilments
+
+; new - If it's a Safari Ball and Rand1 is greater than 125, try again.
+	ld a, 100
 	cp b
 	jr c, .loop
 
@@ -268,12 +278,15 @@ ItemUseBall:
 	ldh [hMultiplier], a
 	call Multiply
 
-; Determine BallFactor. It's 8 for Great Balls and 12 for the others.
+; Determine BallFactor. It's 8 for Great Balls, 10 for Safari Balls, and 12 for the others. - updated
 	ld a, [wcf91]
 	cp GREAT_BALL
-	ld a, 12
-	jr nz, .skip1
-	ld a, 8
+	ld a, 8			; updated
+	jr z, .skip1	; updated
+	cp SAFARI_BALL	; new
+	ld a, 10		; new
+	jr z, .skip1	; new
+	ld a, 12		; updated
 
 .skip1
 ; Note that the results of all division operations are floored.
@@ -1576,6 +1589,9 @@ ItemUseBait:
 	call PrintText
 	ld hl, wEnemyMonActualCatchRate ; catch rate
 	srl [hl] ; halve catch rate
+	jr nz, .continueVanilla	; new
+	ld [hl], 1				; new, catch rate cannot be less than 1
+.continueVanilla			; new
 	ld a, BAIT_ANIM
 	ld hl, wSafariBaitFactor ; bait factor
 	ld de, wSafariEscapeFactor ; escape factor
@@ -1589,7 +1605,12 @@ ItemUseRock:
 	add a ; double catch rate
 	jr nc, .noCarry
 	ld a, $ff
+	jr .noCarry2		; new
 .noCarry
+	add a				; new, double again the catch rate, to "mirror" the 4-2 behaviour of the baits
+	jr nc, .noCarry2	; new
+	ld a, $ff			; new
+.noCarry2				; new
 	ld [hl], a
 	ld a, ROCK_ANIM
 	ld hl, wSafariEscapeFactor ; escape factor

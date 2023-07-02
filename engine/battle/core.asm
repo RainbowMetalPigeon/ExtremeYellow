@@ -189,8 +189,8 @@ StartBattle:
 .notOutOfSafariBalls
 	callfar PrintSafariZoneBattleText
 	ld a, [wEnemyMonSpeed + 1]
-	add a
-	ld b, a ; init b (which is later compared with random value) to (enemy speed % 256) * 2
+;	add a ; updated: now the speed of the mon is not doubled, to make the safari more forgiving; comment below updated as well
+	ld b, a ; init b (which is later compared with random value) to (enemy speed % 256)
 	jp c, EnemyRan ; if (enemy speed % 256) > 127, the enemy runs
 	ld a, [wSafariBaitFactor]
 	and a ; is bait factor 0?

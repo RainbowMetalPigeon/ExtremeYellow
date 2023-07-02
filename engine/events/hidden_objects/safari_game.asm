@@ -6,6 +6,14 @@ SafariZoneCheck::
 	jr z, SafariZoneGameOver
 	jr SafariZoneGameStillGoing
 
+;SafariZoneAllRestHouses:
+;    db SAFARI_ZONE_WEST_REST_HOUSE
+;    db SAFARI_ZONE_EAST_REST_HOUSE
+;    db SAFARI_ZONE_NORTH_REST_HOUSE
+;    db SAFARI_ZONE_CENTER_REST_HOUSE
+;    db SAFARI_ZONE_SECRET_HOUSE
+;    db -1
+
 SafariZoneCheckSteps::
 IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
@@ -18,6 +26,8 @@ ENDC
 	or b
 	jr z, SafariZoneGameOver
 	;--- beginning new: step counters doesn't go down in hubs ---
+	; first version is ugly but working from me, second is suggestion from dannye, not working yet
+
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_WEST_REST_HOUSE
 	jr z, SafariZoneGameStillGoing
@@ -29,6 +39,13 @@ ENDC
 	jr z, SafariZoneGameStillGoing
 	cp SAFARI_ZONE_SECRET_HOUSE
 	jr z, SafariZoneGameStillGoing
+
+;	ld a, [wCurMap]
+;   ld hl, SafariZoneAllRestHouses
+;   ld de, 1
+;   call IsInArray
+;	jr c, SafariZoneGameStillGoing
+
 	;--- end new ---
 	dec bc
 	ld a, b
