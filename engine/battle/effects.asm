@@ -1320,196 +1320,14 @@ ThrashPetalDanceEffect:
 	add ANIM_B0
 	jp PlayBattleAnimation2
 
-SwitchAndTeleportEffect:
-	ldh a, [hWhoseTurn]
-	and a
-	jr nz, .handleEnemy
-	ld a, [wIsInBattle]
-	dec a
-	jr nz, .notWildBattle1
-	ld a, [wCurEnemyLVL]
-	ld b, a
-	ld a, [wBattleMonLevel]
-	cp b ; is the player's level greater than the enemy's level?
-	jr nc, .playerMoveWasSuccessful ; if so, teleport will always succeed
-	add b
-	ld c, a
-	inc c ; c = playerLevel + enemyLevel + 1
-.rejectionSampleLoop1
-	call BattleRandom
-	cp c ; get a random number between 0 and c
-	jr nc, .rejectionSampleLoop1
-	srl b
-	srl b  ; b = enemyLevel / 4
-	cp b ; is rand[0, playerLevel + enemyLevel] >= (enemyLevel / 4)?
-	jr nc, .playerMoveWasSuccessful ; if so, allow teleporting
-	ld c, 50
-	call DelayFrames
-	ld a, [wPlayerMoveNum]
-	cp TELEPORT
-	jp nz, PrintDidntAffectText
-	jp PrintButItFailedText_
-.playerMoveWasSuccessful
-	call ReadPlayerMonCurHPAndStatus
-	xor a
-	ld [wAnimationType], a
-	inc a
-	ld [wEscapedFromBattle], a
-	ld a, [wPlayerMoveNum]
-	jr .playAnimAndPrintText
-.notWildBattle1
-	ld c, 50
-	call DelayFrames
-	ld hl, IsUnaffectedText
-	ld a, [wPlayerMoveNum]
-	cp TELEPORT
-	jp nz, PrintText
-	jp PrintButItFailedText_
-.handleEnemy
-	ld a, [wIsInBattle]
-	dec a
-	jr nz, .notWildBattle2
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wCurEnemyLVL]
-	cp b
-	jr nc, .enemyMoveWasSuccessful
-	add b
-	ld c, a
-	inc c
-.rejectionSampleLoop2
-	call BattleRandom
-	cp c
-	jr nc, .rejectionSampleLoop2
-	srl b
-	srl b
-	cp b
-	jr nc, .enemyMoveWasSuccessful
-	ld c, 50
-	call DelayFrames
-	ld a, [wEnemyMoveNum]
-	cp TELEPORT
-	jp nz, PrintDidntAffectText
-	jp PrintButItFailedText_
-.enemyMoveWasSuccessful
-	call ReadPlayerMonCurHPAndStatus
-	xor a
-	ld [wAnimationType], a
-	inc a
-	ld [wEscapedFromBattle], a
-	ld a, [wEnemyMoveNum]
-	jr .playAnimAndPrintText
-.notWildBattle2
-	ld c, 50
-	call DelayFrames
-	ld hl, IsUnaffectedText
-	ld a, [wEnemyMoveNum]
-	cp TELEPORT
-	jp nz, PrintText
-	jp ConditionalPrintButItFailed
-.playAnimAndPrintText
-	push af
-	call PlayBattleAnimation
-	ld c, 20
-	call DelayFrames
-	pop af
-	ld hl, RanFromBattleText
-	cp TELEPORT
-	jr z, .printText
-	ld hl, RanAwayScaredText
-;	cp ROAR ; modified, removed ROAR
-;	jr z, .printText
-	ld hl, WasBlownAwayText
-.printText
-	jp PrintText
+SwitchAndTeleportEffect:			; made into a jpfar to save space
+	jpfar SwitchAndTeleportEffect_	; made into a jpfar to save space
 
-RanFromBattleText:
-	text_far _RanFromBattleText
-	text_end
+TwoToFiveAttacksEffect:				; made into a jpfar to save space
+	jpfar TwoToFiveAttacksEffect_	; made into a jpfar to save space
 
-RanAwayScaredText:
-	text_far _RanAwayScaredText
-	text_end
-
-WasBlownAwayText:
-	text_far _WasBlownAwayText
-	text_end
-
-TwoToFiveAttacksEffect:
-	ld hl, wPlayerBattleStatus1
-	ld de, wPlayerNumAttacksLeft
-	ld bc, wPlayerNumHits
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .twoToFiveAttacksEffect
-	ld hl, wEnemyBattleStatus1
-	ld de, wEnemyNumAttacksLeft
-	ld bc, wEnemyNumHits
-.twoToFiveAttacksEffect
-	bit ATTACKING_MULTIPLE_TIMES, [hl] ; is mon attacking multiple times?
-	ret nz
-	set ATTACKING_MULTIPLE_TIMES, [hl] ; mon is now attacking multiple times
-	ld hl, wPlayerMoveEffect
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .setNumberOfHits
-	ld hl, wEnemyMoveEffect
-.setNumberOfHits
-	ld a, [hl]
-	cp TWINEEDLE_EFFECT
-	jr z, .twineedle
-	cp ATTACK_TWICE_EFFECT
-	ld a, $2 ; number of hits it's always 2 for ATTACK_TWICE_EFFECT
-	jr z, .saveNumberOfHits
-; for TWO_TO_FIVE_ATTACKS_EFFECT 3/8 chance for 2 and 3 hits, and 1/8 chance for 4 and 5 hits
-	call BattleRandom
-	and $3
-	cp $2
-	jr c, .gotNumHits
-; if the number of hits was greater than 2, re-roll again for a lower chance
-	call BattleRandom
-	and $3
-.gotNumHits
-	inc a
-	inc a
-.saveNumberOfHits
-	ld [de], a
-	ld [bc], a
-	ret
-.twineedle
-	ld a, POISON_SIDE_EFFECT1
-	ld [hl], a ; set Twineedle's effect to poison effect
-	jr .saveNumberOfHits
-
-FlinchSideEffect:
-	call CheckTargetSubstitute
-	ret nz
-	ld hl, wEnemyBattleStatus1
-	ld de, wPlayerMoveEffect
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .flinchSideEffect
-	ld hl, wPlayerBattleStatus1
-	ld de, wEnemyMoveEffect
-.flinchSideEffect
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	call z, ClearHyperBeam
-	ld a, [de]
-	cp FLINCH_SIDE_EFFECT1
-	ld b, 10 percent + 1 ; chance of flinch (FLINCH_SIDE_EFFECT1)
-	jr z, .gotEffectChance
-	cp FLINCH_SIDE_EFFECT2											; new
-	ld b, 20 percent + 1 ; chance of flinch (FLINCH_SIDE_EFFECT2)	; new
-	jr z, .gotEffectChance											; new
-	ld b, 30 percent + 1 ; chance of flinch otherwise (FLINCH_SIDE_EFFECT3)
-.gotEffectChance
-	call BattleRandom
-	cp b
-	ret nc
-	set FLINCHED, [hl] ; set mon's status to flinching
-	call ClearHyperBeam
-	ret
+FlinchSideEffect:					; made into a jpfar to save space
+	jpfar FlinchSideEffect_			; made into a jpfar to save space
 
 OneHitKOEffect:
 	jpfar OneHitKOEffect_
@@ -1731,15 +1549,15 @@ ClearHyperBeam:
 	pop hl
 	ret
 
-RageEffect:
-	ld hl, wPlayerBattleStatus2
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .player
-	ld hl, wEnemyBattleStatus2
-.player
-	set USING_RAGE, [hl] ; mon is now in "rage" mode
-	ret
+;RageEffect:
+;	ld hl, wPlayerBattleStatus2
+;	ldh a, [hWhoseTurn]
+;	and a
+;	jr z, .player
+;	ld hl, wEnemyBattleStatus2
+;.player
+;	set USING_RAGE, [hl] ; mon is now in "rage" mode
+;	ret
 
 MimicEffect:
 	ld c, 50

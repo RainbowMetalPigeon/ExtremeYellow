@@ -5584,6 +5584,13 @@ AdjustDamageForMoveType:
 	ld a, [wMoveType]
 	ld b, a
 	ld hl, TypeEffects
+    ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
+    cp OPP_COOLTRAINER_M		; new, load Inverse Battle chart for COOL trainers
+    jr z, .loadInverseChart		; new, load Inverse Battle chart for COOL trainers
+    cp OPP_COOLTRAINER_F		; new, load Inverse Battle chart for COOL trainers
+    jr nz, .loop				; new, load Inverse Battle chart for COOL trainers
+.loadInverseChart				; new, load Inverse Battle chart for COOL trainers
+    ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
 .loop
 	ld a, [hli] ; a = "attacking type" of the current type pair
 	cp $ff
@@ -5658,6 +5665,13 @@ AIGetTypeEffectiveness:
 	ld a, $10
 	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
 	ld hl, TypeEffects
+    ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
+    cp OPP_COOLTRAINER_M		; new, load Inverse Battle chart for COOL trainers
+    jr z, .loadInverseChart		; new, load Inverse Battle chart for COOL trainers
+    cp OPP_COOLTRAINER_F		; new, load Inverse Battle chart for COOL trainers
+    jr nz, .loop				; new, load Inverse Battle chart for COOL trainers
+.loadInverseChart				; new, load Inverse Battle chart for COOL trainers
+    ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
 .loop
 	ld a, [hli]
 	cp $ff

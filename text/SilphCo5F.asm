@@ -78,7 +78,7 @@ _SilphCo5AfterBattleText5::
 	line "into WEEZING!"
 	done
 
-_SilphCo5Text9::
+_SilphCo5Text9_1::
 	text "It's a #MON"
 	line "REPORT!"
 
@@ -86,6 +86,32 @@ _SilphCo5Text9::
 	line "created PORYGON,"
 	cont "the first virtual"
 	cont "reality #MON."
+
+	para "...it's followed"
+	line "by many pages all"
+	cont "covered in"
+	cont "scribbles, red"
+	cont "crosses, and"
+	cont "question marks..."
+	prompt
+
+_SilphCo5Text9_2::
+	text "Ehy! There is"
+	line "something under"
+	cont "the sheets!"
+	prompt
+
+_ObtainedDubiousDiskText::
+	text "<PLAYER> found"
+	line "a @"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
+
+_DubiousDiskNoRoomText::
+	text "There is not"
+	line "enough space in"
+	cont "the bag for this."
 	done
 
 _SilphCo5Text10::

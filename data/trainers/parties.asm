@@ -215,7 +215,7 @@ PokemaniacData:
 	db 22, CHARMANDER, CUBONE, 0
 	db 25, SLOWPOKE, 0
 ; Victory Road 2F
-	db 40, CHARMELEON, LAPRAS, LICKITUNG, 0
+	db 51, PICHU, CLEFFA, SMOOCHUM, TYROGUE, HAPPINY, 0 ; updated, baby mons
 ; Rock Tunnel 1F
 	db 23, CUBONE, SLOWPOKE, 0
 
@@ -327,6 +327,8 @@ FisherData:
 	db 33, SEAKING, GOLDEEN, 0
 ; Route 12
 	db 24, MAGIKARP, MAGIKARP, 0
+; Victory Road 1F ; to be updated
+	db $FF, 50, RATICATE, 50, DODRIO, 50, GOLEM, 50, OMASTAR, 50, BUTTERFREE, 55, PIKACHU, 0 ; to be updated
 
 SwimmerData:
 ; Cerulean Gym
@@ -417,12 +419,12 @@ JugglerData:
 ; Silph Co. 5F
 	db 29, KADABRA, MR_MIME, 0
 ; Victory Road 2F
-	db 41, DROWZEE, HYPNO, KADABRA, KADABRA, 0
+	db 49, ELECTRODE, GOLEM, CLOYSTER, DITTO, ALAKAZAM, 0 ; updated, spherical mons and Alakazam
 ; Fuchsia Gym
 	db 31, DROWZEE, DROWZEE, KADABRA, DROWZEE, 0
 	db 34, DROWZEE, HYPNO, 0
 ; Victory Road 2F
-	db 48, MR_MIME, 0
+	db 49, MIME_JR, HYPNO, SLOWBRO, JYNX, MR_MIME, 0 ; updated, all psychic not used by others in Victory Road
 ; Unused
 	db 33, HYPNO, 0
 ; Fuchsia Gym
@@ -437,7 +439,7 @@ TamerData:
 	db 43, RHYHORN, 0
 	db 39, ARBOK, TAUROS, 0
 ; Victory Road 2F
-	db 44, PERSIAN, GOLDUCK, 0
+	db 48, HITMONTOP, KINGDRA, POLITOED, LICKILICKY, RHYPERIOR, 0 ; updated, all new ones
 ; Unused
 	db 42, RHYHORN, PRIMEAPE, ARBOK, TAUROS, 0
 
@@ -479,7 +481,7 @@ BlackbeltData:
 	db 43, MACHOKE, 0
 	db 38, MACHOKE, MACHOP, MACHOKE, 0
 ; Victory Road 2F
-	db 43, MACHOKE, MACHOP, MACHOKE, 0
+	db 64, MACHAMP, 0 ; updated, one single overleveled mon
 
 Rival1Data:
 	db 5, EEVEE, 0
@@ -615,12 +617,12 @@ CooltrainerMData:
 ; Viridian Gym
 	db 39, NIDORINO, NIDOKING, 0
 ; Victory Road 3F
-	db 43, EXEGGUTOR, CLOYSTER, ARCANINE, 0
-	db 43, KINGLER, TENTACRUEL, BLASTOISE, 0
+	db 49, ARCANINE, EXEGGUTOR, MAGNEZONE, TANGROWTH, STARMIE, 0 ; updated
+	db 49, CROBAT, PORYGONZ, BELLOSSOM, MAGMORTAR, ANNIHILAPE, 0 ; updated
 ; Unused
 	db 45, KINGLER, STARMIE, 0
 ; Victory Road 1F
-	db 42, IVYSAUR, WARTORTLE, CHARMELEON, CHARIZARD, 0
+	db $FF, 55, PIKACHU, 50, ESPEON, 50, SNORLAX, 50, VENUSAUR, 50, CHARIZARD, 50, BLASTOISE, 0 ; updated, pseudo-Red
 ; Unused
 	db 44, IVYSAUR, WARTORTLE, CHARMELEON, 0
 	db 49, NIDOKING, 0
@@ -633,12 +635,12 @@ CooltrainerFData:
 ; Celadon Gym
 	db 24, WEEPINBELL, GLOOM, IVYSAUR, 0
 ; Victory Road 3F
-	db 43, BELLSPROUT, WEEPINBELL, VICTREEBEL, 0
-	db 43, PARASECT, DEWGONG, CHANSEY, 0
+	db 49, ELECTIVIRE, CLOYSTER, VICTREEBEL, NINETALES, POLIWRATH, 0 ; updated
+	db 49, STEELIX, SLOWKING, BLISSEY, KLEAVOR, SCIZOR, 0 ; updated
 ; Unused
 	db 46, VILEPLUME, BUTTERFREE, 0
 ; Victory Road 1F
-	db 44, PERSIAN, NINETALES, 0
+	db $FF, 50, CLEFABLE, 50, GENGAR, 50, VICTREEBEL, 50, NINETALES, 50, KANGASKHAN, 55, BLASTOISE, 0 ; updated, pseudo-Green
 ; Unused
 	db 45, IVYSAUR, VENUSAUR, 0
 	db 45, NIDORINA, NIDOQUEEN, 0

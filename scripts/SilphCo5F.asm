@@ -182,8 +182,42 @@ SilphCo5AfterBattleText5:
 	text_far _SilphCo5AfterBattleText5
 	text_end
 
-SilphCo5Text9:
-	text_far _SilphCo5Text9
+SilphCo5Text9: ; new, updated
+	text_asm
+	ld hl, SilphCo5Text9_1
+	call PrintText
+	CheckEvent EVENT_GOT_DUBIOUS_DISK
+	jr nz, .done
+	ld hl, SilphCo5Text9_2
+	call PrintText
+	lb bc, DUBIOUS_DISK, 1
+	call GiveItem
+	jr nc, .bag_full
+	ld hl, ObtainedDubiousDiskText
+	call PrintText
+	SetEvent EVENT_GOT_DUBIOUS_DISK
+	jr .done
+.bag_full
+	ld hl, DubiousDiskNoRoomText
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SilphCo5Text9_1:
+	text_far _SilphCo5Text9_1
+	text_end
+
+SilphCo5Text9_2:
+	text_far _SilphCo5Text9_2
+	text_end
+
+ObtainedDubiousDiskText:
+	text_far _ObtainedDubiousDiskText
+	sound_get_item_1
+	text_end
+
+DubiousDiskNoRoomText:
+	text_far _DubiousDiskNoRoomText
 	text_end
 
 SilphCo5Text10:

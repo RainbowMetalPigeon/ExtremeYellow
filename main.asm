@@ -406,8 +406,12 @@ INCLUDE "engine/battle/move_effects/mist.asm"
 INCLUDE "engine/battle/move_effects/one_hit_ko.asm"
 INCLUDE "engine/battle/move_effects/pay_day.asm"
 INCLUDE "engine/battle/move_effects/paralyze.asm"
-INCLUDE "engine/battle/move_effects/burn.asm"		; new
-INCLUDE "engine/battle/move_effects/trapping.asm"	; new, moved
+INCLUDE "engine/battle/move_effects/random2.asm"			; new, testing
+INCLUDE "engine/battle/move_effects/twotofiveattacks.asm"	; new, testing
+INCLUDE "engine/battle/move_effects/teleport.asm"			; new, testing
+INCLUDE "engine/battle/move_effects/flinch.asm"				; new, testing
+INCLUDE "engine/battle/move_effects/burn.asm"				; new
+INCLUDE "engine/battle/move_effects/trapping.asm"			; new, moved
 INCLUDE "engine/items/tm_prices.asm"
 INCLUDE "engine/math/multiply_divide.asm"
 INCLUDE "engine/events/give_pokemon.asm"

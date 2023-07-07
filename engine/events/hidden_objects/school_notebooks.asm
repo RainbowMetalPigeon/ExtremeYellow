@@ -26,7 +26,11 @@ ViridianSchoolNotebook::
 	jr nz, .doneReading
 	ld hl, ViridianSchoolNotebookText4
 	call PrintText
+	call TurnPageSchoolNotebook
+	jr nz, .doneReading
 	ld hl, ViridianSchoolNotebookText5
+	call PrintText
+	ld hl, ViridianSchoolNotebookText6
 	call PrintText
 .doneReading
 	jp TextScriptEnd
@@ -43,8 +47,8 @@ TurnPageText:
 	text_far _TurnPageText
 	text_end
 
-ViridianSchoolNotebookText5:
-	text_far _ViridianSchoolNotebookText5
+ViridianSchoolNotebookText6:
+	text_far _ViridianSchoolNotebookText6
 	text_waitbutton
 	text_end
 
@@ -62,4 +66,8 @@ ViridianSchoolNotebookText3:
 
 ViridianSchoolNotebookText4:
 	text_far _ViridianSchoolNotebookText4
+	text_end
+
+ViridianSchoolNotebookText5:
+	text_far _ViridianSchoolNotebookText5
 	text_end

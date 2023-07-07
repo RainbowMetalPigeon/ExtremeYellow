@@ -16,6 +16,72 @@ SpecialTrainerMoves:
 	db 6, 4, FISSURE
 	db 0
 
+	db COOLTRAINER_M, 5 ; pseudo-Red
+	; PIKACHU
+	db 1, 1, CHARM
+	db 1, 2, QUICK_ATTACK
+	db 1, 3, THUNDERBOLT
+	db 1, 4, THUNDER
+	; ESPEON
+	db 2, 1, MUD_SLAP
+	db 2, 2, SWIFT
+	db 2, 3, REFLECT
+	db 2, 4, PSYCHIC_M
+	; SNORLAX
+	db 3, 1, AMNESIA
+	db 3, 2, CRUNCH
+	db 3, 3, REST
+	db 3, 4, BODY_SLAM
+	; VENUSAUR
+	db 4, 1, SLUDGE_WAVE
+	db 4, 2, GIGA_DRAIN
+	db 4, 3, SLEEP_POWDER
+	db 4, 4, SOLARBEAM
+	; CHARIZARD
+	db 5, 1, FLAMETHROWER
+	db 5, 2, WING_ATTACK
+	db 5, 3, SLASH
+	db 5, 4, FIRE_SPIN
+	; BLASTOISE
+	db 6, 1, FLASH_CANNON
+	db 6, 2, BLIZZARD
+	db 6, 3, SURF
+	db 6, 4, CLAMP
+	db 0
+
+	db COOLTRAINER_F, 5 ; pseudo-Green
+	; CLEFABLE
+	db 1, 1, MOONBLAST
+	db 1, 2, LIGHT_SCREEN
+	db 1, 3, REFLECT
+	db 1, 4, METRONOME
+	; GENGAR
+	db 2, 1, DARK_PULSE
+	db 2, 2, SHADOW_BALL
+	db 2, 3, SLUDGE_WAVE
+	db 2, 4, WILL_O_WISP
+	; VICTREEBEL
+	db 3, 1, RAZOR_LEAF
+	db 3, 2, GUNK_SHOT
+	db 3, 3, SWORDS_DANCE
+	db 3, 4, LEECH_LIFE
+	; NINETALES
+	db 4, 1, FIRE_BLAST
+	db 4, 2, DARK_PULSE
+	db 4, 3, HYPNOSIS
+	db 4, 4, HYPER_BEAM
+	; KANGASKHAN
+	db 5, 1, DIZZY_PUNCH
+	db 5, 2, AERIAL_ACE
+	db 5, 3, THUNDERPUNCH
+	db 5, 4, DRAIN_PUNCH
+	; BLASTOISE
+	db 6, 1, HYDRO_PUMP
+	db 6, 2, FLASH_CANNON
+	db 6, 3, ICE_BEAM
+	db 6, 4, EARTHQUAKE
+	db 0
+
 	db BROCK, 1
 	; GEODUDE
 ;	db 1, 1, TACKLE

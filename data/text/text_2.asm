@@ -526,7 +526,7 @@ _TurnPageText::
 	text "Turn the page?"
 	done
 
-_ViridianSchoolNotebookText5::
+_ViridianSchoolNotebookText6::
 	text "GIRL: Hey! Don't"
 	line "look at my notes!@"
 	text_end
@@ -590,6 +590,29 @@ _ViridianSchoolNotebookText4::
 
 	para "The ELITE FOUR of"
 	line "#MON LEAGUE!"
+	prompt
+
+_ViridianSchoolNotebookText5::
+	text "Fifth page..."
+
+	para "INVERSE BATTLES"
+	line "are a new flavor"
+	cont "of #MON"
+	cont "battles, recently"
+	cont "arrived from a"
+	cont "faraway region."
+
+	para "During an inverse"
+	line "battle, the usual"
+	cont "resistances and"
+	cont "weaknesses are"
+	cont "inverted!"
+
+	para "Only elite train-"
+	line "ers can engage in"
+	cont "this extreme test"
+	cont "of your knowledge"
+	cont "and flexibility!"
 	prompt
 
 _EnemiesOnEverySideText::

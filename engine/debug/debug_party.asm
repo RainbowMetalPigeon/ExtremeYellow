@@ -38,9 +38,15 @@ IF DEF(_DEBUG)
 
 	call SetDebugTeam
 
-	; Mewtwo gets Psychic.
-	ld a, PSYCHIC_M
+	; Mewtwo gets Psychic or test moves
+	ld a, BITE
 	ld hl, wPartyMon1Moves
+	ld [hl], a
+	ld a, TWISTER
+	ld hl, wPartyMon1Moves + 1
+	ld [hl], a
+	ld a, STOMP
+	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 
 	; Pikachu gets Surf.

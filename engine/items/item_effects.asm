@@ -106,6 +106,8 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone   ; ICE_STONE
 	dw ItemUseEvoStone   ; KINGS_ROCK
 	dw ItemUseEvoStone	 ; METAL_COAT
+	dw ItemUseEvoStone	 ; UPGRADE
+	dw ItemUseEvoStone	 ; DUBIOUS_DISK
 
 ItemUseBall:
 
@@ -236,7 +238,7 @@ ItemUseBall:
 	cp ULTRA_BALL
 	jr z, .checkForAilments
 
-; new - If it's a Safari Ball and Rand1 is greater than 125, try again.
+; new - If it's a Safari Ball and Rand1 is greater than 100, try again.
 	ld a, 100
 	cp b
 	jr c, .loop

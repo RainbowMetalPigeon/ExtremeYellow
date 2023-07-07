@@ -87,9 +87,9 @@
 	const EVENT_BEAT_POKEMONTOWER_5_TRAINER_1
 	const EVENT_BEAT_POKEMONTOWER_5_TRAINER_2
 	const EVENT_BEAT_POKEMONTOWER_5_TRAINER_3
-	const_skip
+	const EVENT_GOT_FUJI_MEGA_STONE_X ; new
 	const EVENT_IN_PURIFIED_ZONE
-	const_skip
+	const EVENT_GOT_DUBIOUS_DISK ; new
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_0
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_1
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_2
@@ -103,7 +103,7 @@
 	const EVENT_RESCUED_MR_FUJI_2
 	const_skip 16
 	const EVENT_GOT_POKE_FLUTE
-	const EVENT_GOT_FUJI_MEGA_STONE_X ; new
+	const_skip 30 ; temporarily edited wrongly for Fuji mega stone, gotta check if all still works
 	const EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 
 ; Vermilion City events

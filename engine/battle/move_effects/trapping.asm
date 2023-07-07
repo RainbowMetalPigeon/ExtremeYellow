@@ -14,11 +14,14 @@ TrappingEffect_:
                         	; the target won't need to recharge even if the trapping move missed
 	pop hl					; new, to make the migration work
 	set USING_TRAPPING_MOVE, [hl] ; mon is now using a trapping move
-	callfar BattleRandom ; 3/8 chance for 2 and 3 attacks, and 1/8 chance for 4 and 5 attacks
+	; 3/8 chance for 2 and 3 attacks, and 1/8 chance for 4 and 5 attacks
+;	callfar BattleRandom	; not good, it's not really random, because a register is not preserved over a farcall/callfar
+	call BattleRandom2		; new, seems to be doing just fine!
 	and $3
 	cp $2
 	jr c, .setTrappingCounter
-	callfar BattleRandom
+;	callfar BattleRandom	; not good, it's not really random, because a register is not preserved over a farcall/callfar
+	call BattleRandom2		; new, seems to be doing just fine!
 	and $3
 .setTrappingCounter
 	inc a
