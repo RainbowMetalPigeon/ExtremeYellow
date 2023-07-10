@@ -5,6 +5,14 @@ _IsEvolvingText::
 	line "is evolving!"
 	done
 
+_TyrogueIsEvolvingText::
+	text "What? TYROGUE"
+	line "is evolving!"
+;	xxxx "123456789012345678"
+	cont "But... something"
+	cont "is bizarre!"
+	done
+
 _FellAsleepText::
 	text "<TARGET>"
 	line "fell asleep!"

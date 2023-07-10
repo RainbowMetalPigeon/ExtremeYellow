@@ -120,6 +120,46 @@ Evolution_PartyMonLoop: ; loop over party mons
 	call GetPartyMonName
 	call CopyToStringBuffer
 	ld hl, IsEvolvingText
+
+	ld a, [wEvoOldSpecies]
+	cp TYROGUE
+	jr nz, .continueVanilla
+	ld hl, TyrogueIsEvolvingText
+
+	call TyrogueEvolutionChoice ; added routine at the end of this file
+	ld a, [wCurrentMenuItem]
+
+	; store Tyrogue's chosen evolution in wEvoNewSpecies: 00 for Chan, 01 for Lee, 02 for Top
+	ld a, HITMONCHAN
+	ld [wEvoNewSpecies], a
+	cp 0
+	jr z, .continueVanilla
+	ld a, HITMONLEE
+	ld [wEvoNewSpecies], a
+	cp 1
+	jr z, .continueVanilla
+	ld a, HITMONTOP
+	ld [wEvoNewSpecies], a
+	jr .continueVanilla
+
+;	; store Tyrogue's chosen evolution in wEvoNewSpecies: 00 for Chan, 01 for Lee, 02 for Top
+;	ld [wEvoNewSpecies], HITMONCHAN
+;	cp 1
+;	jr z, .loadLee
+;	cp 2
+;	jr z, .loadTop
+;	jr .continueVanilla2
+;.loadLee
+;	ld [wEvoNewSpecies], HITMONLEE
+;	jr .continueVanilla
+;.loadTop
+;	ld [wEvoNewSpecies], HITMONTOP
+;	jr .continueVanilla
+
+;	call ClearScreen ; clear the screen before resuming normal intro
+
+.continueVanilla
+
 	call PrintText
 	ld c, 50
 	call DelayFrames
@@ -313,6 +353,10 @@ StoppedEvolvingText:
 
 IsEvolvingText:
 	text_far _IsEvolvingText
+	text_end
+
+TyrogueIsEvolvingText:
+	text_far _TyrogueIsEvolvingText
 	text_end
 
 Evolution_ReloadTilesetTilePatterns:
@@ -630,5 +674,41 @@ GetMonLearnset:
 	and a ; have we reached the end of the evolution data?
 	jr nz, .skipEvolutionDataLoop ; if not, jump back up
 	ret
+
+; new: displays Tyrogue choices
+TyrogueEvolutionChoice::
+	ld a, 2
+	ld [wCurrentMenuItem], a
+
+	call SaveScreenTilesToBuffer1
+	ld a, TYROGUE_EVOLUTIONS
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 7
+	ld [hli], a ; top menu item Y
+	ld a, 14
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, $2
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+;	jr nz, .defaultOption ; if B was pressed, no evolution
+;; A was pressed
+;	call PlaceUnfilledArrowMenuCursor
+;	ld a, [wCurrentMenuItem]
+;	jp LoadScreenTilesFromBuffer1
+;.defaultOption
+;	ld a, 1
+;	ld [wEvoCancelled], a
+;	ld a, [wEvoOldSpecies]
+;	jp LoadScreenTilesFromBuffer1
 
 INCLUDE "data/pokemon/evos_moves.asm"

@@ -34,6 +34,7 @@ TextBoxTextAndCoordTable:
 	text_box_text BUY_SELL_QUIT_MENU_TEMPLATE,        0,  0, 10,  6, BuySellQuitText,          2,  1
 	text_box_text MONEY_BOX_TEMPLATE,                11,  0, 19,  2, MoneyText,               13,  0
 	text_box_text BOY_GIRL_NO,                       13,  6, 19, 12, BoyGirlNoText,           15,  7
+	text_box_text TYROGUE_EVOLUTIONS,				 13,  6, 19, 12, TyrogueEvolutions,		  15,  7
 	text_box_text JP_POKEDEX_MENU_TEMPLATE,          11,  8, 19, 17, JapanesePokedexMenu,     12, 10
 
 BuySellQuitText:
@@ -82,6 +83,11 @@ BoyGirlNoText:
 	db   "BOY"
 	next "GIRL"
 	next "NO@"
+
+TyrogueEvolutions:
+	db   "GLOVES"
+	next "ANNIE"
+	next "BEYBLADE@"
 
 JapanesePokedexMenu:
 	db   "データをみる"

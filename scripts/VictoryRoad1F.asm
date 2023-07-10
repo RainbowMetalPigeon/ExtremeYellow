@@ -44,6 +44,7 @@ CoordsData_5da5c:
 VictoryRoad1F_TextPointers:
 	dw VictoryRoad1Text1
 	dw VictoryRoad1Text2
+	dw VictoryRoad1Text3
 	dw PickUpItemText
 	dw PickUpItemText
 	dw BoulderText
@@ -56,6 +57,8 @@ VictoryRoad1TrainerHeader0:
 	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_0, 2, VictoryRoad1BattleText1, VictoryRoad1EndBattleText1, VictoryRoad1AfterBattleText1
 VictoryRoad1TrainerHeader1:
 	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_1, 2, VictoryRoad1BattleText2, VictoryRoad1EndBattleText2, VictoryRoad1AfterBattleText2
+VictoryRoad1TrainerHeader2:
+	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_2, 2, VictoryRoad1BattleText3, VictoryRoad1EndBattleText3, VictoryRoad1AfterBattleText3
 	db -1 ; end
 
 VictoryRoad1Text1:
@@ -67,6 +70,12 @@ VictoryRoad1Text1:
 VictoryRoad1Text2:
 	text_asm
 	ld hl, VictoryRoad1TrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VictoryRoad1Text3:
+	text_asm
+	ld hl, VictoryRoad1TrainerHeader2
 	call TalkToTrainer
 	jp TextScriptEnd
 
@@ -92,4 +101,16 @@ VictoryRoad1EndBattleText2:
 
 VictoryRoad1AfterBattleText2:
 	text_far _VictoryRoad1AfterBattleText2
+	text_end
+
+VictoryRoad1BattleText3:
+	text_far _VictoryRoad1BattleText3
+	text_end
+
+VictoryRoad1EndBattleText3:
+	text_far _VictoryRoad1EndBattleText3
+	text_end
+
+VictoryRoad1AfterBattleText3:
+	text_far _VictoryRoad1AfterBattleText3
 	text_end

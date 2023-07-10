@@ -24,7 +24,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const MONEY_BOX                         ; $13
 	const TWO_OPTION_MENU                   ; $14
 	const BUY_SELL_QUIT_MENU                ; $15
-	const_skip                              ; $16
+	const TYROGUE_EVOLUTIONS                ; $16 new for Tyrogue
 	const_skip                              ; $17
 	const_skip                              ; $18
 	const_skip                              ; $19

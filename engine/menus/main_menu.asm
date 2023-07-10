@@ -125,7 +125,8 @@ MainMenu:
 InitOptions:
 	ld a, TEXT_DELAY_FAST
 	ld [wLetterPrintingDelayFlags], a
-	ld a, TEXT_DELAY_MEDIUM
+;	ld a, TEXT_DELAY_MEDIUM	; from Zangoose/Carrot
+	ld a, %01100001			; Fast text, set battle mode, animations on - adapted from Zangoose/Carrot, bit 6 needs to be 1 for set mode, see wRAM
 	ld [wOptions], a
 	ld a, 64 ; audio?
 	ld [wPrinterSettings], a

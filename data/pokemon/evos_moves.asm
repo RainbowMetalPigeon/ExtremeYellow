@@ -3467,9 +3467,9 @@ MarowakEvosMoves:
 
 TyrogueEvosMoves:
 ; Evolutions
-	db EV_LEVEL, 98, HITMONCHAN
-	db EV_LEVEL, 99, HITMONLEE
-	db EV_LEVEL, 100, HITMONTOP
+	db EV_LEVEL, 10, MAGIKARP
+	db EV_LEVEL, 20, HITMONLEE
+	db EV_LEVEL, 30, HITMONTOP
 	db 0
 ; Learnset
 	db 10, TACKLE
@@ -5705,4 +5705,3 @@ MonGhostEvosMoves:
 	db 0
 ; Learnset
 	db 0
-

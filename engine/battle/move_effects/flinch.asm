@@ -13,7 +13,9 @@ FlinchSideEffect_:
 	cp LINK_STATE_BATTLING
 ;	call z, ClearHyperBeam		; edited
 	jr nz, .continueVanilla		; edited
+	push hl						; new, to make the migration work
 	callfar ClearHyperBeam		; edited
+	pop hl						; new, to make the migration work
 .continueVanilla				; edited
 	ld a, [de]
 	cp FLINCH_SIDE_EFFECT1

@@ -2314,6 +2314,12 @@ wPlayerGender::
 	; $02 = enby
 	ds 1
 
+;wTyrogueEvolutions::
+;	; $00 = Hitmonchan
+;	; $01 = Hitmonlee
+;	; $02 = Hitmontop
+;	ds 1
+
 ; unused
 	ds 55
 

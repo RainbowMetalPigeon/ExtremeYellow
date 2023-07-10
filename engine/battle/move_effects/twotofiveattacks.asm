@@ -43,4 +43,5 @@ TwoToFiveAttacksEffect_:
 	ld a, POISON_SIDE_EFFECT1
 	ld [hl], a ; set Twineedle's effect to poison effect
 	; they seriously didn't write ld a, 2 just because POISON_SIDE_EFFECT1 is in position 2?!
+	ld a, $2	; then I'll do it myself lol; I could otherwise jump a bit before, like jojobear did, but oh well
 	jr .saveNumberOfHits

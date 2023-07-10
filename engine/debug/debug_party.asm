@@ -17,8 +17,8 @@ DebugTeam:
 	db MEWTWO, 100
 	db VENUSTOISE, 100
 	db SNORLAX, 80
-	db PERSIAN, 80
-	db MEW, 1
+	db PERSIAN, 35
+	db TYROGUE, 10
 	db STARTER_PIKACHU, 5
 	db -1 ; end
 
@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, TWISTER
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, STOMP
+	ld a, TWINEEDLE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 
@@ -104,6 +104,10 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld [hl], a
 
+	; set fast text and set mode - new
+	ld a, %01100001
+	ld [wOptions], a
+
 	ret
 
 DebugSetPokedexEntries:
@@ -113,7 +117,7 @@ DebugSetPokedexEntries:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	ld [hl], %01111111
+	ld [hl], %00000111
 	ret
 
 DebugItemsList:
