@@ -462,8 +462,8 @@ KabutopsPicFront::    INCBIN "gfx/pokemon/front/kabutops.pic"
 KabutopsPicBack::     INCBIN "gfx/pokemon/back/kabutopsb.pic"
 AerodactylPicFront::  INCBIN "gfx/pokemon/front/aerodactyl.pic"
 AerodactylPicBack::   INCBIN "gfx/pokemon/back/aerodactylb.pic"
-MAerodatylPicFront::  INCBIN "gfx/pokemon/front/maerodatyl.pic"
-MAerodatylPicBack::   INCBIN "gfx/pokemon/back/maerodatylb.pic"
+MArodactylPicFront::  INCBIN "gfx/pokemon/front/marodactyl.pic"
+MArodactylPicBack::   INCBIN "gfx/pokemon/back/marodactylb.pic"
 
 
 SECTION "Pics 10", ROMX

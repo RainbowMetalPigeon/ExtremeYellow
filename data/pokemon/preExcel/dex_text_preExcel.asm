@@ -609,7 +609,7 @@ _DiglettDexEntry::
 _DugtrioDexEntry::
 	text "A team of triplets"
 	next "that can burrow"
-	next "over 60 MPH. Due"
+	next "over 100 KMH. Due"
 
 	page "to this, some"
 	next "people think it's"
@@ -697,13 +697,13 @@ _GrowlitheDexEntry::
 	dex
 
 _ArcanineDexEntry::
-	text "A legendary #-MON"
-	next "in China. Many"
-	next "people are charmed"
+	text "A legendary"
+	next "#MON in China."
+	next "Many people are"
 
-	page "by its grace and"
-	next "beauty while run-"
-	next "ning"
+	page "charmed by its"
+	next "grace and beauty"
+	next "while running"
 	dex
 
 _PoliwagDexEntry::
@@ -771,7 +771,7 @@ _AlakazamDexEntry::
 	next "memorize anything."
 	next "It never forgets"
 
-	page "what it learns-"
+	page "what it learns -"
 	next "that's why this"
 	next "#MON is smart"
 	dex
@@ -937,9 +937,9 @@ _SlowbroDexEntry::
 	dex
 
 _MSlowbroDexEntry::
-	text "SHELLDER’s digest-"
+	text "SHELLDER's digest-"
 	next "ive fluids"
-	next "awakened Slowpoke,"
+	next "awakened SLOWPOKE,"
 
 	page "which gained great"
 	next "power - and a"
@@ -998,8 +998,8 @@ _FarfetchdDexEntry::
 
 _DoduoDexEntry::
 	text "Its short wings"
-	next "make flying dif-"
-	next "ficult. Instead,"
+	next "make flying diffi-"
+	next "cult. Instead,"
 
 	page "this #MON runs"
 	next "at high speed on"
@@ -1012,7 +1012,7 @@ _DodrioDexEntry::
 	next "form a unique spe-"
 
 	page "cies. It runs"
-	next "close to 40 MPH in"
+	next "close to 65 KMH in"
 	next "prairies"
 	dex
 
@@ -1188,7 +1188,7 @@ _KinglerDexEntry::
 _VoltorbDexEntry::
 	text "It is said to cam-"
 	next "ouflage itself as"
-	next "a # BALL. It will"
+	next "a #BALL. It will"
 
 	page "self-destruct with"
 	next "very little stimu-"
@@ -1260,7 +1260,7 @@ _HitmonleeDexEntry::
 	next "sole of its foot"
 	next "turns as hard as a"
 
-	page "diamond on im-pact"
+	page "diamond on impact"
 	next "and destroys its"
 	next "enemy"
 	dex
@@ -1378,7 +1378,7 @@ _ChanseyDexEntry::
 _BlisseyDexEntry::
 	text "Biting into one of"
 	next "the delicious eggs"
-	next "that Blissey"
+	next "that BLISSEY"
 
 	page "provides will make"
 	next "everyone around"
@@ -1710,8 +1710,8 @@ _DittoDexEntry::
 	next "transfigures into"
 
 	page "an almost perfect"
-	next "copy of its oppo-"
-	next "nent"
+	next "copy of its oppon-"
+	next "ent"
 	dex
 
 _EeveeDexEntry::
@@ -1735,9 +1735,9 @@ _VaporeonDexEntry::
 	dex
 
 _JolteonDexEntry::
-	text "A sensitive #-MON"
-	next "that easily be-"
-	next "comes sad or"
+	text "A sensitive"
+	next "#MON that eas-"
+	next "ily becomes sad or"
 
 	page "angry. Every time"
 	next "its mood changes,"
@@ -1882,7 +1882,7 @@ _AerodactylDexEntry::
 	next "from amber"
 	dex
 
-_MAerodatylDexEntry::
+_MArodactylDexEntry::
 	text "Mega Evolution"
 	next "brought back an-"
 	next "cestral stones and"

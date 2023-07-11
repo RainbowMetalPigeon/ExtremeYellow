@@ -195,7 +195,7 @@ CryData::
 	mon_cry SFX_CRY_16, $BB, $40 ; Kabuto
 	mon_cry SFX_CRY_18, $EE, $01 ; Kabutops
 	mon_cry SFX_CRY_23, $20, $F0 ; Aerodactyl
-	mon_cry SFX_CRY_23, $20, $F0 ; MAerodatyl
+	mon_cry SFX_CRY_23, $20, $F0 ; MArodactyl
 	mon_cry SFX_CRY_05, $55, $01 ; Munchlax
 	mon_cry SFX_CRY_05, $55, $01 ; Snorlax
 	mon_cry SFX_CRY_09, $80, $40 ; Articuno

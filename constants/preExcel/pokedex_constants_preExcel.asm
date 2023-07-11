@@ -193,7 +193,7 @@
 	const DEX_KABUTO     ; 187
 	const DEX_KABUTOPS   ; 188
 	const DEX_AERODACTYL ; 189
-	const DEX_MAERODATYL ; 190
+	const DEX_MARODACTYL ; 190
 	const DEX_MUNCHLAX   ; 191
 	const DEX_SNORLAX    ; 192
 	const DEX_ARTICUNO   ; 193

@@ -196,7 +196,7 @@
 	const KABUTO             ; 187
 	const KABUTOPS           ; 188
 	const AERODACTYL         ; 189
-	const MAERODATYL         ; 190
+	const MARODACTYL         ; 190
 	const MUNCHLAX           ; 191
 	const SNORLAX            ; 192
 	const ARTICUNO           ; 193

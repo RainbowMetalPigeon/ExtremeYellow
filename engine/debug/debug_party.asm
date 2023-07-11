@@ -14,10 +14,10 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 100
-	db VENUSTOISE, 100
+	db GLOOM, 100
+	db EEVEE, 95
 	db SNORLAX, 80
-	db PERSIAN, 35
+	db MEOWTH, 30
 	db TYROGUE, 10
 	db STARTER_PIKACHU, 5
 	db -1 ; end
@@ -127,14 +127,14 @@ DebugItemsList:
 	db FULL_RESTORE, 99
 	db ESCAPE_ROPE, 99
 	db RARE_CANDY, 99
-	db SECRET_KEY, 1
-	db CARD_KEY, 1
-	db POKE_DOLL, 99 ; FULL_HEAL
-	db REVIVE, 99
+	db THUNDER_STONE, 99
+	db FIRE_STONE, 99
+	db WATER_STONE, 99 ; FULL_HEAL
+	db ICE_STONE, 99
 	db MOON_STONE, 99
-	db S_S_TICKET, 1
-	db LIFT_KEY, 1
-	db PP_UP, 99
+	db LEAF_STONE, 99
+	db KINGS_ROCK, 99
+	db SUN_STONE, 99
 	db -1 ; end
 
 DebugUnusedList:

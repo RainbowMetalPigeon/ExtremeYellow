@@ -189,7 +189,7 @@ MonsterNames::
 	db "KABUTO@@@@"
 	db "KABUTOPS@@"
 	db "AERODACTYL"
-	db "MAERODATYL"
+	db "MARODACTYL"
 	db "MUNCHLAX@@"
 	db "SNORLAX@@@"
 	db "ARTICUNO@@"

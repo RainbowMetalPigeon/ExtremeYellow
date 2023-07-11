@@ -189,7 +189,7 @@ MonPartyData:
 	nybble ICON_HELIX     ; Kabuto
 	nybble ICON_HELIX     ; Kabutops
 	nybble ICON_BIRD      ; Aerodactyl
-	nybble ICON_BIRD      ; MAerodatyl
+	nybble ICON_BIRD      ; MArodactyl
 	nybble ICON_MON       ; Munchlax
 	nybble ICON_MON       ; Snorlax
 	nybble ICON_BIRD      ; Articuno

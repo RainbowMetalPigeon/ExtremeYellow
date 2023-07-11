@@ -2314,14 +2314,12 @@ wPlayerGender::
 	; $02 = enby
 	ds 1
 
-;wTyrogueEvolutions::
-;	; $00 = Hitmonchan
-;	; $01 = Hitmonlee
-;	; $02 = Hitmontop
-;	ds 1
+wTyrogueEvolutions::
+	; stores directly the number/name of the chosen Hitmon
+	ds 1
 
 ; unused
-	ds 55
+	ds 54
 
 wObtainedHiddenItemsFlags:: flag_array 112
 

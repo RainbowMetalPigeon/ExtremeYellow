@@ -1,4 +1,4 @@
-	db DEX_MAERODATYL ; pokedex id
+	db DEX_MARODACTYL ; pokedex id
 
 	db  80, 135,  85, 150,  70
 	;   hp  atk  def  spd  spc
@@ -7,8 +7,8 @@
 	db 45 ; catch rate
 	db 237 ; base exp
 
-	INCBIN "gfx/pokemon/front/maerodatyl.pic", 0, 1 ; sprite dimensions
-	dw MAerodatylPicFront, MAerodatylPicBack
+	INCBIN "gfx/pokemon/front/marodactyl.pic", 0, 1 ; sprite dimensions
+	dw MArodactylPicFront, MArodactylPicBack
 
 	db WING_ATTACK, AGILITY, ROCK_SLIDE, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
@@ -20,5 +20,5 @@
 	     STRENGTH,     BRAVE_BIRD,   BODY_SLAM     
 	; end
 
-	db BANK(MAerodatylPicFront)
-	assert BANK(MAerodatylPicFront) == BANK(MAerodatylPicBack)
+	db BANK(MArodactylPicFront)
+	assert BANK(MArodactylPicFront) == BANK(MArodactylPicBack)

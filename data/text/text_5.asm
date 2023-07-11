@@ -7,11 +7,12 @@ _IsEvolvingText::
 
 _TyrogueIsEvolvingText::
 	text "What? TYROGUE"
-	line "is evolving!"
+	line "wants to evolve!"
 ;	xxxx "123456789012345678"
-	cont "But... something"
-	cont "is bizarre!"
-	done
+	cont "But it seems to"
+	cont "be interested in"
+	cont "something...?"
+	prompt
 
 _FellAsleepText::
 	text "<TARGET>"

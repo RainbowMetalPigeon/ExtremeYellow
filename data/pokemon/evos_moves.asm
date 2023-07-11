@@ -192,7 +192,7 @@ EvosMovesPointerTable:
 	dw KabutoEvosMoves
 	dw KabutopsEvosMoves
 	dw AerodactylEvosMoves
-	dw MAerodatylEvosMoves
+	dw MArodactylEvosMoves
 	dw MunchlaxEvosMoves
 	dw SnorlaxEvosMoves
 	dw ArticunoEvosMoves
@@ -1683,8 +1683,7 @@ VenomothEvosMoves:
 	db 25, MEGA_DRAIN
 	db 27, LEECH_LIFE
 	db 29, SLEEP_POWDER
-	db 31, GUST
-	db 33, TELEPORT
+	db 32, GUST
 	db 35, TAKE_DOWN
 	db 37, AGILITY
 	db 39, AERIAL_ACE
@@ -2572,8 +2571,7 @@ SlowpokeEvosMoves:
 	db 12, CONFUSION
 	db 14, MUD_SLAP
 	db 16, DISABLE
-	db 18, WATER_PULSE
-	db 20, TELEPORT
+	db 19, WATER_PULSE
 	db 22, HEADBUTT
 	db 24, ZEN_HEADBUTT
 	db 26, STOMP
@@ -2603,8 +2601,7 @@ SlowbroEvosMoves:
 	db 12, CONFUSION
 	db 14, MUD_SLAP
 	db 16, DISABLE
-	db 18, WATER_PULSE
-	db 20, TELEPORT
+	db 19, WATER_PULSE
 	db 22, HEADBUTT
 	db 24, ZEN_HEADBUTT
 	db 26, STOMP
@@ -2635,8 +2632,7 @@ MSlowbroEvosMoves:
 	db 17, CONFUSION
 	db 19, MUD_SLAP
 	db 21, DISABLE
-	db 23, WATER_PULSE
-	db 25, TELEPORT
+	db 24, WATER_PULSE
 	db 27, HEADBUTT
 	db 29, ZEN_HEADBUTT
 	db 31, STOMP
@@ -2671,8 +2667,7 @@ SlowkingEvosMoves:
 	db 8, DEFENSE_CURL
 	db 10, WATER_GUN
 	db 12, DISABLE
-	db 14, MUD_SLAP
-	db 16, TELEPORT
+	db 15, MUD_SLAP
 	db 18, WATER_PULSE
 	db 20, HEADBUTT
 	db 22, ZEN_HEADBUTT
@@ -2703,8 +2698,7 @@ MagnemiteEvosMoves:
 	db 8, TACKLE
 	db 11, THUNDER_WAVE
 	db 13, LIGHT_SCREEN
-	db 17, SONICBOOM
-	db 21, TELEPORT
+	db 18, SONICBOOM
 	db 23, HEADBUTT
 	db 26, SHOCK_WAVE
 	db 29, SUPERSONIC
@@ -2727,8 +2721,7 @@ MagnetonEvosMoves:
 	db 8, TACKLE
 	db 11, THUNDER_WAVE
 	db 13, LIGHT_SCREEN
-	db 17, SONICBOOM
-	db 21, TELEPORT
+	db 18, SONICBOOM
 	db 23, HEADBUTT
 	db 26, SHOCK_WAVE
 	db 29, SUPERSONIC
@@ -2750,8 +2743,7 @@ MagnezoneEvosMoves:
 	db 8, TACKLE
 	db 11, THUNDER_WAVE
 	db 13, LIGHT_SCREEN
-	db 17, SONICBOOM
-	db 21, TELEPORT
+	db 18, SONICBOOM
 	db 23, HEADBUTT
 	db 26, SHOCK_WAVE
 	db 29, SUPERSONIC
@@ -2948,7 +2940,6 @@ ShellderEvosMoves:
 	db 0
 ; Learnset
 	db 4, DEFENSE_CURL
-	db 8, TELEPORT
 	db 11, LEER
 	db 13, TACKLE
 	db 15, WATER_GUN
@@ -2973,7 +2964,6 @@ CloysterEvosMoves:
 	db 0
 ; Learnset
 	db 4, DEFENSE_CURL
-	db 8, TELEPORT
 	db 11, LEER
 	db 13, TACKLE
 	db 15, WATER_GUN
@@ -3353,9 +3343,8 @@ ExeggcuteEvosMoves:
 	db 0
 ; Learnset
 	db 5, REFLECT
-	db 7, ABSORB
-	db 9, LEECH_SEED
-	db 12, TELEPORT
+	db 8, ABSORB
+	db 12, LEECH_SEED
 	db 14, MEGA_DRAIN
 	db 17, LIGHT_SCREEN
 	db 20, TAKE_DOWN
@@ -3380,9 +3369,8 @@ ExeggutorEvosMoves:
 	db 0
 ; Learnset
 	db 5, REFLECT
-	db 7, ABSORB
-	db 9, LEECH_SEED
-	db 12, TELEPORT
+	db 8, ABSORB
+	db 12, LEECH_SEED
 	db 14, MEGA_DRAIN
 	db 17, LIGHT_SCREEN
 	db 20, TAKE_DOWN
@@ -3432,7 +3420,6 @@ CuboneEvosMoves:
 	db 45, FIRE_PUNCH
 	db 46, THUNDERPUNCH
 	db 50, DOUBLE_EDGE
-	db 53, FLAMETHROWER
 	db 56, SUBMISSION
 	db 0
 
@@ -3461,15 +3448,12 @@ MarowakEvosMoves:
 	db 48, FIRE_PUNCH
 	db 49, THUNDERPUNCH
 	db 52, DOUBLE_EDGE
-	db 55, FLAMETHROWER
 	db 59, SUBMISSION
 	db 0
 
 TyrogueEvosMoves:
 ; Evolutions
-	db EV_LEVEL, 10, MAGIKARP
-	db EV_LEVEL, 20, HITMONLEE
-	db EV_LEVEL, 30, HITMONTOP
+	db EV_LEVEL, 10, TYROGUE
 	db 0
 ; Learnset
 	db 10, TACKLE
@@ -3717,14 +3701,11 @@ RhyhornEvosMoves:
 	db 31, ROCK_TOMB
 	db 33, THRASH
 	db 35, MUD_SHOT
-	db 38, SHOCK_WAVE
 	db 40, EARTHQUAKE
 	db 42, SUPERPOWER
 	db 45, STONE_EDGE
 	db 47, MEGAHORN
-	db 50, FLAMETHROWER
-	db 54, ZAP_CANNON
-	db 60, HORN_DRILL
+	db 55, HORN_DRILL
 	db 0
 
 RhydonEvosMoves:
@@ -3746,7 +3727,6 @@ RhydonEvosMoves:
 	db 31, ROCK_TOMB
 	db 33, THRASH
 	db 35, MUD_SHOT
-	db 38, SHOCK_WAVE
 	db 40, EARTHQUAKE
 	db 42, IRON_TAIL
 	db 45, SUPERPOWER
@@ -3756,10 +3736,7 @@ RhydonEvosMoves:
 	db 52, ICE_PUNCH
 	db 55, MEGAHORN
 	db 57, SHADOW_CLAW
-	db 59, FLAMETHROWER
-	db 61, SUBMISSION
-	db 63, ZAP_CANNON
-	db 65, HORN_DRILL
+	db 60, HORN_DRILL
 	db 0
 
 RhyperiorEvosMoves:
@@ -3780,7 +3757,6 @@ RhyperiorEvosMoves:
 	db 31, ROCK_TOMB
 	db 33, THRASH
 	db 35, MUD_SHOT
-	db 38, SHOCK_WAVE
 	db 40, EARTHQUAKE
 	db 42, IRON_TAIL
 	db 45, SUPERPOWER
@@ -3790,10 +3766,7 @@ RhyperiorEvosMoves:
 	db 52, ICE_PUNCH
 	db 57, MEGAHORN
 	db 60, SHADOW_CLAW
-	db 62, FLAMETHROWER
-	db 64, SUBMISSION
-	db 66, ZAP_CANNON
-	db 69, HORN_DRILL
+	db 64, HORN_DRILL
 	db 0
 
 HappinyEvosMoves:
@@ -3984,16 +3957,11 @@ KangaskhanEvosMoves:
 	db 36, DRAIN_PUNCH
 	db 38, CRUNCH
 	db 40, DIZZY_PUNCH
-	db 42, OUTRAGE
-	db 44, SHADOW_CLAW
-	db 46, AERIAL_ACE
-	db 48, SUBMISSION
-	db 50, SING
-	db 52, WATER_PULSE
-	db 54, FLAMETHROWER
-	db 56, SHOCK_WAVE
-	db 58, SOLARBEAM
-	db 60, ZAP_CANNON
+	db 43, OUTRAGE
+	db 46, SHADOW_CLAW
+	db 49, AERIAL_ACE
+	db 52, SUBMISSION
+	db 55, SING
 	db 0
 
 MKangaskanEvosMoves:
@@ -4022,24 +3990,19 @@ MKangaskanEvosMoves:
 	db 41, DRAIN_PUNCH
 	db 43, CRUNCH
 	db 45, DIZZY_PUNCH
-	db 47, OUTRAGE
-	db 49, SHADOW_CLAW
+	db 48, OUTRAGE
 	db 50, DOUBLE_KICK
-	db 51, AERIAL_ACE
-	db 52, FURY_ATTACK
-	db 53, SUBMISSION
-	db 54, PIN_MISSILE
-	db 55, SING
-	db 56, SPIKE_CANNON
-	db 57, WATER_PULSE
-	db 58, BARRAGE
-	db 59, FLAMETHROWER
-	db 60, FURY_SWIPES
-	db 61, SHOCK_WAVE
+	db 51, SHADOW_CLAW
+	db 53, FURY_ATTACK
+	db 54, AERIAL_ACE
+	db 56, PIN_MISSILE
+	db 57, SUBMISSION
+	db 58, SPIKE_CANNON
+	db 59, BARRAGE
+	db 60, SING
+	db 61, FURY_SWIPES
 	db 62, BULLET_SEED
-	db 63, SOLARBEAM
 	db 64, ICICLE_SPEAR
-	db 65, ZAP_CANNON
 	db 66, BONEMERANG
 	db 0
 
@@ -4175,10 +4138,9 @@ StaryuEvosMoves:
 	db EV_ITEM, WATER_STONE, 1, STARMIE
 	db 0
 ; Learnset
-	db 4, WATER_GUN
-	db 8, CONFUSE_RAY
-	db 12, TELEPORT
-	db 16, MINIMIZE
+	db 7, WATER_GUN
+	db 12, CONFUSE_RAY
+	db 15, MINIMIZE
 	db 20, SWIFT
 	db 22, HARDEN
 	db 24, PSYBEAM
@@ -4200,10 +4162,9 @@ StarmieEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 4, WATER_GUN
-	db 8, CONFUSE_RAY
-	db 12, TELEPORT
-	db 16, MINIMIZE
+	db 7, WATER_GUN
+	db 12, CONFUSE_RAY
+	db 15, MINIMIZE
 	db 20, SWIFT
 	db 22, HARDEN
 	db 24, PSYBEAM
@@ -4681,8 +4642,6 @@ TaurosEvosMoves:
 	db 43, IRON_TAIL
 	db 48, THRASH
 	db 51, DOUBLE_EDGE
-	db 55, WATER_PULSE
-	db 58, ZAP_CANNON
 	db 61, HORN_DRILL
 	db 0
 
@@ -5174,8 +5133,8 @@ KabutopsEvosMoves:
 
 AerodactylEvosMoves:
 ; Evolutions
-	db EV_ITEM, MEGA_STONE_X, 1, MAERODATYL
-	db EV_ITEM, MEGA_STONE_Y, 1, MAERODATYL
+	db EV_ITEM, MEGA_STONE_X, 1, MARODACTYL
+	db EV_ITEM, MEGA_STONE_Y, 1, MARODACTYL
 	db 0
 ; Learnset
 	db 5, SUPERSONIC
@@ -5199,7 +5158,7 @@ AerodactylEvosMoves:
 	db 60, HYPER_BEAM
 	db 0
 
-MAerodatylEvosMoves:
+MArodactylEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset

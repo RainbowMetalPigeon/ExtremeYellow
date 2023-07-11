@@ -124,45 +124,43 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld a, [wEvoOldSpecies]
 	cp TYROGUE
 	jr nz, .continueVanilla
+
 	ld hl, TyrogueIsEvolvingText
+	call PrintText
+	ld c, 50
+	call DelayFrames
 
 	call TyrogueEvolutionChoice ; added routine at the end of this file
-	ld a, [wCurrentMenuItem]
-
 	; store Tyrogue's chosen evolution in wEvoNewSpecies: 00 for Chan, 01 for Lee, 02 for Top
-	ld a, HITMONCHAN
-	ld [wEvoNewSpecies], a
+	ld a, [wCurrentMenuItem]
 	cp 0
-	jr z, .continueVanilla
-	ld a, HITMONLEE
-	ld [wEvoNewSpecies], a
+	jr z, .loadChan
 	cp 1
-	jr z, .continueVanilla
+	jr z, .loadLee
 	ld a, HITMONTOP
 	ld [wEvoNewSpecies], a
-	jr .continueVanilla
+	ld [wTyrogueEvolutions], a
+	jr .continueVanilla2
 
-;	; store Tyrogue's chosen evolution in wEvoNewSpecies: 00 for Chan, 01 for Lee, 02 for Top
-;	ld [wEvoNewSpecies], HITMONCHAN
-;	cp 1
-;	jr z, .loadLee
-;	cp 2
-;	jr z, .loadTop
-;	jr .continueVanilla2
-;.loadLee
-;	ld [wEvoNewSpecies], HITMONLEE
-;	jr .continueVanilla
-;.loadTop
-;	ld [wEvoNewSpecies], HITMONTOP
-;	jr .continueVanilla
+.loadChan
+	ld a, HITMONCHAN
+	ld [wEvoNewSpecies], a
+	ld [wTyrogueEvolutions], a
+	jr .continueVanilla2
+
+.loadLee
+	ld a, HITMONLEE
+	ld [wEvoNewSpecies], a
+	ld [wTyrogueEvolutions], a
+	jr .continueVanilla2
 
 ;	call ClearScreen ; clear the screen before resuming normal intro
 
 .continueVanilla
-
 	call PrintText
 	ld c, 50
 	call DelayFrames
+.continueVanilla2
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	hlcoord 0, 0
@@ -177,8 +175,17 @@ Evolution_PartyMonLoop: ; loop over party mons
 	jp c, CancelledEvolution
 	ld hl, EvolvedText
 	call PrintText
+
 	pop hl
+
+	ld a, [wEvoOldSpecies]
+	cp TYROGUE
+	jr nz, .nonTyrogue
+	ld a, [wTyrogueEvolutions]
+	jr .continueVanilla3
+.nonTyrogue
 	ld a, [hl]
+.continueVanilla3
 	ld [wd0b5], a
 	ld [wLoadedMonSpecies], a
 	ld [wEvoNewSpecies], a
@@ -677,9 +684,6 @@ GetMonLearnset:
 
 ; new: displays Tyrogue choices
 TyrogueEvolutionChoice::
-	ld a, 2
-	ld [wCurrentMenuItem], a
-
 	call SaveScreenTilesToBuffer1
 	ld a, TYROGUE_EVOLUTIONS
 	ld [wTextBoxID], a
@@ -687,7 +691,7 @@ TyrogueEvolutionChoice::
 	ld hl, wTopMenuItemY
 	ld a, 7
 	ld [hli], a ; top menu item Y
-	ld a, 14
+	ld a, 10
 	ld [hli], a ; top menu item X
 	xor a
 	ld [hli], a ; current menu item ID
@@ -700,15 +704,16 @@ TyrogueEvolutionChoice::
 	ld [hl], a ; wLastMenuItem
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
-;	jr nz, .defaultOption ; if B was pressed, no evolution
-;; A was pressed
-;	call PlaceUnfilledArrowMenuCursor
-;	ld a, [wCurrentMenuItem]
-;	jp LoadScreenTilesFromBuffer1
-;.defaultOption
-;	ld a, 1
-;	ld [wEvoCancelled], a
+	jr nz, .noEvolution ; if B was pressed, no evolution
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.noEvolution
+	ld a, 1
+	ld [wEvoCancelled], a
 ;	ld a, [wEvoOldSpecies]
-;	jp LoadScreenTilesFromBuffer1
+	call LoadScreenTilesFromBuffer1
+	jp CancelledEvolution
 
 INCLUDE "data/pokemon/evos_moves.asm"

@@ -609,7 +609,7 @@ _DiglettDexEntry::
 _DugtrioDexEntry::
 	text "A team of triplets"
 	next "that can burrow"
-	next "over 60 MPH. Due"
+	next "over 100 KMH. Due"
 
 	page "to this, some"
 	next "people think it's"
@@ -697,13 +697,13 @@ _GrowlitheDexEntry::
 	dex
 
 _ArcanineDexEntry::
-	text "A legendary #-MON"
-	next "in China. Many"
-	next "people are charmed"
+	text "A legendary"
+	next "#MON in China."
+	next "Many people are"
 
-	page "by its grace and"
-	next "beauty while run-"
-	next "ning"
+	page "charmed by its"
+	next "grace and beauty"
+	next "while running"
 	dex
 
 _PoliwagDexEntry::
@@ -771,7 +771,7 @@ _AlakazamDexEntry::
 	next "memorize anything."
 	next "It never forgets"
 
-	page "what it learns-"
+	page "what it learns -"
 	next "that's why this"
 	next "#MON is smart"
 	dex

@@ -189,7 +189,7 @@ PokedexEntryPointers:
 	dw KabutoDexEntry
 	dw KabutopsDexEntry
 	dw AerodactylDexEntry
-	dw MAerodatylDexEntry
+	dw MArodactylDexEntry
 	dw MunchlaxDexEntry
 	dw SnorlaxDexEntry
 	dw ArticunoDexEntry
@@ -1536,11 +1536,11 @@ AerodactylDexEntry:
 	text_far _AerodactylDexEntry
 	text_end
 
-MAerodatylDexEntry:
+MArodactylDexEntry:
 	db "FOSSIL@"
 	db 21
 	dw 790
-	text_far _MAerodatylDexEntry
+	text_far _MArodactylDexEntry
 	text_end
 
 MunchlaxDexEntry:
@@ -1628,7 +1628,7 @@ MewDexEntry:
 	text_end
 
 VenustoiseDexEntry:
-	db "FUSION@"
+	db "SUPER@"
 	db 26
 	dw 1361
 	text_far _VenustoiseDexEntry
