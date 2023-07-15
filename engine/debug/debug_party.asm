@@ -14,11 +14,9 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ONIX, 100
-	db EEVEE, 95
+	db MEWTWO, 100
 	db SNORLAX, 80
-	db MEOWTH, 30
-	db TYROGUE, 10
+	db PERSIAN, 80
 	db STARTER_PIKACHU, 5
 	db -1 ; end
 
@@ -51,11 +49,11 @@ IF DEF(_DEBUG)
 
 	; Pikachu gets Surf.
 	ld a, SURF
-	ld hl, wPartyMon6Moves + 2
+	ld hl, wPartyMon4Moves + 2
 	ld [hl], a
 
 	; Snorlax gets four HM moves.
-	ld hl, wPartyMon3Moves
+	ld hl, wPartyMon2Moves
 	ld a, FLY
 	ld [hli], a
 	ld a, CUT
@@ -123,18 +121,18 @@ DebugSetPokedexEntries:
 DebugItemsList:
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
-	db METAL_COAT, 99
-	db MEGA_STONE_X, 99
-	db MEGA_STONE_Y, 99
+	db BICYCLE, 1
+	db FULL_RESTORE, 99
+	db ESCAPE_ROPE, 99
 	db RARE_CANDY, 99
-	db THUNDER_STONE, 99
-	db FIRE_STONE, 99
-	db WATER_STONE, 99 ; FULL_HEAL
-	db ICE_STONE, 99
+	db SECRET_KEY, 1
+	db CARD_KEY, 1
+	db POKE_DOLL, 99 ; FULL_HEAL
+	db REVIVE, 99
 	db MOON_STONE, 99
-	db LEAF_STONE, 99
-	db KINGS_ROCK, 99
-	db SUN_STONE, 99
+	db S_S_TICKET, 1
+	db LIFT_KEY, 1
+	db PP_UP, 99
 	db -1 ; end
 
 DebugUnusedList:

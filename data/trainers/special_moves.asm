@@ -17,66 +17,96 @@ SpecialTrainerMoves:
 	db 0
 
 	db COOLTRAINER_M, 5 ; pseudo-Red
-	; PIKACHU
-	db 1, 1, CHARM
-	db 1, 2, QUICK_ATTACK
-	db 1, 3, THUNDERBOLT
-	db 1, 4, THUNDER
-	; ESPEON
-	db 2, 1, MUD_SLAP
-	db 2, 2, SWIFT
-	db 2, 3, REFLECT
-	db 2, 4, PSYCHIC_M
-	; SNORLAX
-	db 3, 1, AMNESIA
-	db 3, 2, CRUNCH
-	db 3, 3, REST
-	db 3, 4, BODY_SLAM
+	; POLIWRATH
+	db 1, 1, CLOSE_COMBAT
+	db 1, 2, SCALD
+	db 1, 3, ICE_BEAM
+	db 1, 4, HYPNOSIS
 	; VENUSAUR
-	db 4, 1, SLUDGE_WAVE
-	db 4, 2, GIGA_DRAIN
-	db 4, 3, SLEEP_POWDER
-	db 4, 4, SOLARBEAM
+	db 2, 1, SLUDGE_WAVE
+	db 2, 2, FRENZY_PLANT
+	db 2, 3, SLEEP_POWDER
+	db 2, 4, LEECH_SEED
+	; PIKACHU
+	db 3, 1, TOXIC
+	db 3, 2, IRON_TAIL
+	db 3, 3, SURF
+	db 3, 4, VOLT_TACKLE
+	; SNORLAX
+	db 4, 1, AMNESIA
+	db 4, 2, CRUNCH
+	db 4, 3, REST
+	db 4, 4, BODY_SLAM
+	; GYARADOS
+	db 5, 1, HYDRO_PUMP
+	db 5, 2, HYPER_BEAM
+	db 5, 3, DRAGON_DANCE
+	db 5, 4, CRUNCH
+	; AERODACTYL
+	db 6, 1, FLY
+	db 6, 2, HEAD_SMASH
+	db 6, 3, DRAGON_CLAW
+	db 6, 4, HYPER_BEAM
+	db 0
+
+	db COOLTRAINER_M, 11 ; pseudo-Blue
+	; SCIZOR
+	db 1, 1, SLASH
+	db 1, 2, STEEL_WING
+	db 1, 3, X_SCISSOR
+	db 1, 4, ROOST
 	; CHARIZARD
-	db 5, 1, FLAMETHROWER
-	db 5, 2, WING_ATTACK
-	db 5, 3, SLASH
-	db 5, 4, FIRE_SPIN
-	; BLASTOISE
-	db 6, 1, FLASH_CANNON
-	db 6, 2, BLIZZARD
-	db 6, 3, SURF
-	db 6, 4, CLAMP
+	db 2, 1, BLAST_BURN
+	db 2, 2, FLY
+	db 2, 3, REFLECT
+	db 2, 4, FIRE_SPIN
+	; GOLDUCK
+	db 3, 1, HYDRO_PUMP
+	db 3, 2, CONFUSION
+	db 3, 3, DIG
+	db 3, 4, IRON_TAIL
+	; MACHAMP
+	db 4, 1, KARATE_CHOP
+	db 4, 2, HYPER_BEAM
+	db 4, 3, FOCUS_ENERGY
+	db 4, 4, EARTHQUAKE
+	; PORYGON2
+	db 5, 1, TRI_ATTACK
+	db 5, 2, CONVERSION
+	db 5, 3, ZAP_CANNON
+	db 5, 4, PSYBEAM
+	; RHYPERIOR
+	db 6, 1, EARTHQUAKE
+	db 6, 2, HEAD_SMASH
+	db 6, 3, MEGAHORN
+	db 6, 4, HORN_DRILL
 	db 0
 
 	db COOLTRAINER_F, 5 ; pseudo-Green
+	; JIGGLYPUFF
+	db 1, 1, SING
+	db 1, 2, DISABLE
+	db 1, 3, DOUBLE_EDGE
+	db 1, 4, DEFENSE_CURL
+	; ALAKAZAM
+;	db 2, 1, THUNDERPUNCH
+;	db 2, 2, ICE_PUNCH
+;	db 2, 3, FIRE_PUNCH
+	db 2, 4, PSYCHIC_M
+	; DITTO
+	; lol
 	; CLEFABLE
 	db 1, 1, MOONBLAST
 	db 1, 2, LIGHT_SCREEN
 	db 1, 3, REFLECT
 	db 1, 4, METRONOME
-	; GENGAR
-	db 2, 1, DARK_PULSE
-	db 2, 2, SHADOW_BALL
-	db 2, 3, SLUDGE_WAVE
-	db 2, 4, WILL_O_WISP
-	; VICTREEBEL
-	db 3, 1, RAZOR_LEAF
-	db 3, 2, GUNK_SHOT
-	db 3, 3, SWORDS_DANCE
-	db 3, 4, LEECH_LIFE
-	; NINETALES
-	db 4, 1, FIRE_BLAST
-	db 4, 2, DARK_PULSE
-	db 4, 3, HYPNOSIS
-	db 4, 4, HYPER_BEAM
-	; KANGASKHAN
-	db 5, 1, DIZZY_PUNCH
-	db 5, 2, AERIAL_ACE
-	db 5, 3, THUNDERPUNCH
-	db 5, 4, DRAIN_PUNCH
+	; NIDOQUEEN
+;	db 5, 1, CRUNCH
+	db 5, 2, DOUBLE_KICK
+;	db 5, 3, ROCK_TOMB
+;	db 5, 4, SLUDGE_WAVE
 	; BLASTOISE
-	db 6, 1, HYDRO_PUMP
+	db 6, 1, HYDRO_CANNON
 	db 6, 2, FLASH_CANNON
 	db 6, 3, ICE_BEAM
 	db 6, 4, EARTHQUAKE

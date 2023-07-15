@@ -8,7 +8,6 @@ _IsEvolvingText::
 _TyrogueIsEvolvingText::
 	text "What? TYROGUE"
 	line "wants to evolve!"
-;	xxxx "123456789012345678"
 	cont "But it seems to"
 	cont "be interested in"
 	cont "something...?"

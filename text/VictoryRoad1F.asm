@@ -9,8 +9,8 @@ _VictoryRoad1BattleText1::
 _VictoryRoad1EndBattleText1::
 	text "Tch!"
 	line "This is not even"
-	cont "remotely bad as"
-	cont "when that bird"
+	cont "remotely as bad"
+	cont "as when that bird"
 	cont "kidnapped me..."
 	prompt
 
@@ -18,7 +18,7 @@ _VictoryRoad1AfterBattleText1::
 	text "What? Really?!"
 	line "I am from Pallet"
 	cont "Town as well!"
-	cont "And so Prof OAK"
+	cont "And so PROF OAK"
 	cont "gave a #DEX"
 	cont "to you and one"
 	cont "more trainer..."
@@ -56,4 +56,34 @@ _VictoryRoad1AfterBattleText3::
 	cont "with you! We wish"
 	cont "you the very best"
 	cont "in your adventure!"
+	done
+
+_VictoryRoad1BattleText4::
+	text "I am excellent at"
+	line "training, myself"
+	cont "and my #MON."
+	cont "I will defeat the"
+	cont "League and become"
+	cont "CHAMPION!"
+	done
+
+_VictoryRoad1EndBattleText4::
+	text "..."
+	line "So it seems I've"
+	cont "lost again..."
+	prompt
+
+_VictoryRoad1AfterBattleText4::
+	text "Short ago, someone"
+	line "that looked so"
+	cont "eerily like me"
+	cont "stormed by and"
+	cont "defeated me."
+
+	para "They used #MON"
+	line "I had never seen"
+	cont "before... and"
+	cont "they seemed to be"
+	cont "boiling with wild"
+	cont "rage and grudge."
 	done

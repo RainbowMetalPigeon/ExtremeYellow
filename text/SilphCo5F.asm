@@ -11,6 +11,54 @@ _SilphCo5Text_1a015::
 	cont "hero! Thank you!"
 	done
 
+;	----------------------------------------
+
+_SilphCo5Text1b_GotPorygonYesUpgradeYesGiovanni::
+	text "TEST"
+	line "got porygon"
+	cont "yes upgrad"
+	cont "yes giovanni"
+	done
+
+_SilphCo5Text1b_GotPorygonYesUpgradeNoGiovanni::
+	text "TEST"
+	line "got porygon"
+	cont "yes upgrad"
+	cont "no giovanni"
+	done
+
+_SilphCo5Text1b_GotPorygonNoUpgrade::
+	text "TEST"
+	line "got porygon"
+	cont "no upgrad"
+	prompt
+
+_ObtainedUpgradeText::
+	text "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
+
+_UpgradeNoRoomText::
+	text "You must make"
+	line "room for this!"
+	done
+
+_SilphCo5Text1b_NoGotPorygonYesGiovanni::
+	text "TEST"
+	line "not got porygon"
+	cont "yes giovanni"
+	done
+
+_SilphCo5Text1b_NoGotPorygonNoGiovanni::
+	text "TEST"
+	line "not got porygon"
+	cont "no giovanni"
+	done
+
+;	----------------------------------------
+
 _SilphCo5BattleText2::
 	text "I heard a kid was"
 	line "wandering around."
@@ -118,7 +166,7 @@ _SilphCo5Text10::
 	text "It's a #MON"
 	line "REPORT!"
 
-	para "Over 160 #MON"
+	para "Over 210 #MON"
 	line "techniques have"
 	cont "been confirmed."
 	done
@@ -128,6 +176,6 @@ _SilphCo5Text11::
 	line "REPORT!"
 
 	para "4 #MON evolve"
-	line "only when traded"
+	line "also when traded"
 	cont "by link-cable."
 	done

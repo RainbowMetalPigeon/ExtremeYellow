@@ -328,7 +328,7 @@ FisherData:
 ; Route 12
 	db 24, MAGIKARP, MAGIKARP, 0
 ; Victory Road 1F ; to be updated
-	db $FF, 50, RATICATE, 50, DODRIO, 50, GOLEM, 50, OMASTAR, 50, BUTTERFREE, 55, PIKACHU, 0 ; to be updated
+	db $FF, 50, RATICATE, 50, DODRIO, 50, GOLEM, 50, OMASTAR, 50, BUTTERFREE, 55, PIKACHU, 0 ; pseudo-Yellow
 
 SwimmerData:
 ; Cerulean Gym
@@ -420,7 +420,7 @@ JugglerData:
 	db 29, KADABRA, MR_MIME, 0
 ; Victory Road 2F
 	db 49, ELECTRODE, GOLEM, CLOYSTER, DITTO, ALAKAZAM, 0 ; updated, spherical mons and Alakazam
-; Fuchsia Gym
+; Fuchsia Gym, mandatory
 	db 31, DROWZEE, DROWZEE, KADABRA, DROWZEE, 0
 	db 34, DROWZEE, HYPNO, 0
 ; Victory Road 2F
@@ -622,7 +622,7 @@ CooltrainerMData:
 ; Unused
 	db 45, KINGLER, STARMIE, 0
 ; Victory Road 1F
-	db $FF, 55, PIKACHU, 50, ESPEON, 50, SNORLAX, 50, VENUSAUR, 50, CHARIZARD, 50, BLASTOISE, 0 ; updated, pseudo-Red
+	db $FF, 50, POLIWRATH, 55, VENUSAUR, 50, PIKACHU, 50, SNORLAX, 50, GYARADOS, 50, AERODACTYL, 0 ; updated, pseudo-Red, manga
 ; Unused
 	db 44, IVYSAUR, WARTORTLE, CHARMELEON, 0
 	db 49, NIDOKING, 0
@@ -630,6 +630,8 @@ CooltrainerMData:
 ; Viridian Gym
 	db 39, SANDSLASH, DUGTRIO, 0
 	db 43, RHYHORN, 0
+; Victory Road 1F
+	db $FF, 50, SCIZOR, 55, CHARIZARD, 50, GOLDUCK, 50, MACHAMP, 50, PORYGON2, 50, RHYPERIOR, 0 ; updated, pseudo-Blue, manga
 
 CooltrainerFData:
 ; Celadon Gym
@@ -640,7 +642,7 @@ CooltrainerFData:
 ; Unused
 	db 46, VILEPLUME, BUTTERFREE, 0
 ; Victory Road 1F
-	db $FF, 50, CLEFABLE, 50, GENGAR, 50, VICTREEBEL, 50, NINETALES, 50, KANGASKHAN, 55, BLASTOISE, 0 ; updated, pseudo-Green
+	db $FF, 50, JIGGLYPUFF, 50, ALAKAZAM, 50, DITTO, 50, CLEFABLE, 50, NIDOQUEEN, 55, BLASTOISE, 0 ; updated, pseudo-Green, manga
 ; Unused
 	db 45, IVYSAUR, VENUSAUR, 0
 	db 45, NIDORINA, NIDOQUEEN, 0

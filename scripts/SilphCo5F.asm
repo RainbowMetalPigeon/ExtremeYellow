@@ -72,6 +72,7 @@ SilphCo5F_ScriptPointers:
 
 SilphCo5F_TextPointers:
 	dw SilphCo5Text1
+	dw SilphCo5Text1b
 	dw SilphCo5Text2
 	dw SilphCo5Text3
 	dw SilphCo5Text4
@@ -84,7 +85,7 @@ SilphCo5F_TextPointers:
 	dw SilphCo5Text11
 
 SilphCo5TrainerHeaders:
-	def_trainers 2
+	def_trainers 3
 SilphCo5TrainerHeader0:
 	trainer EVENT_BEAT_SILPH_CO_5F_TRAINER_0, 1, SilphCo5BattleText2, SilphCo5EndBattleText2, SilphCo5AfterBattleText2
 SilphCo5TrainerHeader1:
@@ -182,7 +183,7 @@ SilphCo5AfterBattleText5:
 	text_far _SilphCo5AfterBattleText5
 	text_end
 
-SilphCo5Text9: ; new, updated
+SilphCo5Text9: ; new
 	text_asm
 	ld hl, SilphCo5Text9_1
 	call PrintText
@@ -227,3 +228,77 @@ SilphCo5Text10:
 SilphCo5Text11:
 	text_far _SilphCo5Text11
 	text_end
+
+; ----------------------------------------------
+
+SilphCo5Text1b: ; new
+	text_asm
+	ld a, [wd72e]
+	bit 0, a ; got porygon?
+	jr z, .NotGotPorygon
+; --- got Poryong already
+	CheckEvent EVENT_GOT_UPGRADE
+	jr z, .GotPorygonNoUpgrade
+    CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
+    jr z, .GotPorygonYesUpgradeNoGiovanni
+    ld hl, SilphCo5Text1b_GotPorygonYesUpgradeYesGiovanni
+    call PrintText
+    jr .done
+.GotPorygonYesUpgradeNoGiovanni
+    ld hl, SilphCo5Text1b_GotPorygonYesUpgradeNoGiovanni
+    call PrintText
+    jr .done
+.GotPorygonNoUpgrade
+    ld hl, SilphCo5Text1b_GotPorygonNoUpgrade
+    call PrintText
+    lb bc, UPGRADE, 1
+    call GiveItem
+    jr nc, .bagFull
+    ld hl, ObtainedUpgradeText
+    call PrintText
+    SetEvent EVENT_GOT_UPGRADE
+    jr .done
+.bagFull
+	ld hl, UpgradeNoRoomText
+	call PrintText
+; --- didn't get Porygon yet
+.NotGotPorygon
+    CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
+    jr z, .NotGotPorygonNoBeatGiovanni
+    ld hl, SilphCo5Text1b_NoGotPorygonYesGiovanni
+    call PrintText
+    jr .done
+.NotGotPorygonNoBeatGiovanni
+    ld hl, SilphCo5Text1b_NoGotPorygonNoGiovanni
+    call PrintText
+.done
+	jp TextScriptEnd
+
+SilphCo5Text1b_GotPorygonYesUpgradeYesGiovanni:
+    text_far _SilphCo5Text1b_GotPorygonYesUpgradeYesGiovanni
+    text_end
+
+SilphCo5Text1b_GotPorygonYesUpgradeNoGiovanni:
+    text_far _SilphCo5Text1b_GotPorygonYesUpgradeNoGiovanni
+    text_end
+
+SilphCo5Text1b_GotPorygonNoUpgrade:
+    text_far _SilphCo5Text1b_GotPorygonNoUpgrade
+    text_end
+
+ObtainedUpgradeText:
+    text_far _ObtainedUpgradeText
+	sound_get_item_1
+    text_end
+
+UpgradeNoRoomText:
+    text_far _UpgradeNoRoomText
+    text_end
+
+SilphCo5Text1b_NoGotPorygonYesGiovanni:
+    text_far _SilphCo5Text1b_NoGotPorygonYesGiovanni
+    text_end
+
+SilphCo5Text1b_NoGotPorygonNoGiovanni:
+    text_far _SilphCo5Text1b_NoGotPorygonNoGiovanni
+    text_end

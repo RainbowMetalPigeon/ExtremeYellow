@@ -2418,7 +2418,7 @@ wd72c:: db
 ; battles anyway).
 wd72d:: db
 
-; bit 0: the player has received Lapras in the Silph Co. building
+; bit 0: the player has received Porygon in the Silph Co. building
 ; bit 1: set in various places, but doesn't appear to have an effect
 ; bit 2: the player has healed pokemon at a pokemon center at least once
 ; bit 3: the player has a received a pokemon from Prof. Oak

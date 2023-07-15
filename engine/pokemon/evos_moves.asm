@@ -713,11 +713,9 @@ TyrogueEvolutionChoice::
 .noEvolution
 	ld a, 1
 	ld [wEvoCancelled], a
-;	ld a, [wEvoOldSpecies]
 	call LoadScreenTilesFromBuffer1
 	ld hl, StoppedEvolvingText
 	call PrintText
-;	call ClearScreen
 	pop hl
 	pop hl
 	call Evolution_ReloadTilesetTilePatterns
