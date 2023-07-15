@@ -715,6 +715,12 @@ TyrogueEvolutionChoice::
 	ld [wEvoCancelled], a
 ;	ld a, [wEvoOldSpecies]
 	call LoadScreenTilesFromBuffer1
-	jp CancelledEvolution
+	ld hl, StoppedEvolvingText
+	call PrintText
+;	call ClearScreen
+	pop hl
+	pop hl
+	call Evolution_ReloadTilesetTilePatterns
+	jp Evolution_PartyMonLoop
 
 INCLUDE "data/pokemon/evos_moves.asm"
