@@ -342,6 +342,7 @@ CancelledEvolution:
 	ld hl, StoppedEvolvingText
 	call PrintText
 	call ClearScreen
+.continueDebug
 	pop hl
 	call Evolution_ReloadTilesetTilePatterns
 	jp Evolution_PartyMonLoop

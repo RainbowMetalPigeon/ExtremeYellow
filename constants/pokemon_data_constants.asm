@@ -80,8 +80,8 @@ DEF HOF_TEAM_CAPACITY EQU 50
 ; Evolution types
 	const_def 1
 	const EV_LEVEL ; 1
-	const EV_ITEM  ; 2
-	const EV_TRADE ; 3
+    const EV_TRADE ; 2 ; from suloku: changed so EV_LEVEL and EV_TRADE are 3 byte evolution entries, so EV_ITEM can be used as index for 4 byte evolution entries if more are added
+	const EV_ITEM  ; 3
 
 DEF MAX_EVOLUTIONS EQU 8
 DEF EVOLUTION_SIZE EQU 4

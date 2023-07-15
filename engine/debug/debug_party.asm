@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db GLOOM, 100
+	db ONIX, 100
 	db EEVEE, 95
 	db SNORLAX, 80
 	db MEOWTH, 30
@@ -123,9 +123,9 @@ DebugSetPokedexEntries:
 DebugItemsList:
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
-	db BICYCLE, 1
-	db FULL_RESTORE, 99
-	db ESCAPE_ROPE, 99
+	db METAL_COAT, 99
+	db MEGA_STONE_X, 99
+	db MEGA_STONE_Y, 99
 	db RARE_CANDY, 99
 	db THUNDER_STONE, 99
 	db FIRE_STONE, 99
