@@ -82,6 +82,28 @@ SpecialTrainerMoves:
 	db 6, 4, HORN_DRILL
 	db 0
 
+	db COOLTRAINER_M, 12 ; Cerulean Gym, new
+	; KRABBY
+	db 4, 1, METAL_CLAW
+	db 4, 4, CRABHAMMER
+	db 0
+
+	db COOLTRAINER_M, 14 ; Saffron Gym, new
+	; JYNX
+	db 1, 1, PSYCHIC_M
+;	db 1, 2, LOVELY_KISS
+	db 1, 3, BLIZZARD
+	db 1, 4, DRAININGKISS
+	db 0
+
+	db COOLTRAINER_M, 13 ; Celadon Gym, new
+	; EXEGGUTOR
+	db 5, 1, SLEEP_POWDER
+	db 5, 2, PSYCHIC_M
+	db 5, 3, EXPLOSION
+	db 5, 4, ENERGY_BALL
+	db 0
+
 	db COOLTRAINER_F, 5 ; pseudo-Green
 	; JIGGLYPUFF
 	db 1, 1, SING
@@ -110,6 +132,19 @@ SpecialTrainerMoves:
 	db 6, 2, FLASH_CANNON
 	db 6, 3, ICE_BEAM
 	db 6, 4, EARTHQUAKE
+	db 0
+
+	db COOLTRAINER_F, 10 ; Cerulean Gym, new
+	; PICHU
+	db 1, 1, VOLT_TACKLE
+	db 1, 2, FLY
+	db 1, 3, SURF
+	db 1, 4, PSYCHIC_M
+	; ELEKID
+;	db 2, 1, IRON_TAIL
+;	db 2, 2, THUNDERBOLT
+;	db 2, 3, KARATE_CHOP
+	db 2, 4, CLOSE_COMBAT
 	db 0
 
 	db BROCK, 1
@@ -161,11 +196,11 @@ SpecialTrainerMoves:
 ;	db 3, 2, HYPNOSIS
 	db 3, 3, LOW_KICK
 ;	db 3, 4, BUBBLEBEAM
-	; GOLDEEN
-	db 4, 1, PECK
-;	db 4, 2, HORN_ATTACK
-	db 4, 3, MEGAHORN
-	db 4, 4, WATERFALL
+	; GYARADOS
+	db 4, 1, BITE
+;	db 4, 2, TWISTER
+	db 4, 3, BUBBLEBEAM
+;	db 4, 4, LEER
 	; VAPOREON
 	db 5, 1, ACID_ARMOR
 	db 5, 2, REST ; AMNESIA?

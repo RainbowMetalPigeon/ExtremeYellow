@@ -13,7 +13,7 @@ CinnabarGymQuiz::
 	res 7, [hl]
 	ld a, [wHiddenObjectFunctionArgument]
 	push af
-	and $f
+	and $f ; = %00001111
 	ldh [hGymGateIndex], a
 	pop af
 	and $f0
@@ -87,6 +87,13 @@ CinnabarQuizQuestionsText6:
 	text_end
 
 CinnabarGymQuiz_AskQuestion:
+	ldh a, [hGymGateIndex]
+	cp 6 ; 6th and last trainer, the special one
+	jp nz, .vanillaCode
+	call OfcourseSurelyChoice ; to be tested
+	jr .wrongAnswer
+.vanillaCode
+
 	call YesNoChoice
 	ldh a, [hGymGateAnswer]
 	ld c, a
@@ -244,3 +251,14 @@ CinnabarGym_ReplaceTileBlock:
 	ld a, [wNewTileBlockID]
 	ld [hl], a
 	ret
+
+OfcourseSurelyChoice:
+	call SaveScreenTilesToBuffer1
+	ld a, $1 ; loads the value for the unused North/West choice, that was changed to say Of course/Surely
+	ld [wTwoOptionMenuID], a
+	coord hl, 8, 7
+	ld bc, $809 ; weird coordinate for the cursor
+	ld a, $14
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	jp LoadScreenTilesFromBuffer1

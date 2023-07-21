@@ -204,20 +204,21 @@ JrTrainerFData:
 	db 29, BELLSPROUT, ODDISH, TANGELA, 0
 ; Route 20
 	db 30, TENTACOOL, HORSEA, SEEL, 0
-	db 20, CUBONE, 0
+; Route 6
+	db 20, CHARMANDER, 0 ; updated, removed Cubone
 
 PokemaniacData:
 ; Route 10
 	db 30, RHYHORN, LICKITUNG, 0
-	db 20, CUBONE, SLOWPOKE, 0
+	db 20, SANDSHREW, SLOWPOKE, 0 ; updated, removed Cubone
 ; Rock Tunnel B1F
-	db 20, SLOWPOKE, SLOWPOKE, SLOWPOKE, 0
-	db 22, CHARMANDER, CUBONE, 0
+	db 21, SLOWPOKE, SLOWPOKE, SLOWPOKE, 0
+	db 20, CHARMANDER, SQUIRTLE, BULBASAUR, 0 ; updated, all starters
 	db 25, SLOWPOKE, 0
 ; Victory Road 2F
 	db 51, PICHU, CLEFFA, SMOOCHUM, TYROGUE, HAPPINY, 0 ; updated, baby mons
 ; Rock Tunnel 1F
-	db 23, CUBONE, SLOWPOKE, 0
+	db 23, SANDSLASH, SLOWPOKE, 0 ; updated, removed Cubone
 
 SuperNerdData:
 ; Mt. Moon 1F
@@ -236,7 +237,7 @@ SuperNerdData:
 	db 36, VULPIX, VULPIX, NINETALES, 0
 	db 34, PONYTA, CHARMANDER, VULPIX, GROWLITHE, 0
 	db 41, RAPIDASH, 0
-	db 37, GROWLITHE, VULPIX, 0
+;	db 37, GROWLITHE, VULPIX, 0 ; new, unused
 
 HikerData:
 ; Mt. Moon 1F
@@ -601,7 +602,7 @@ RocketData:
 	db 33, MACHOKE, 0
 ; Silph Co. 11F
 	db 25, RATTATA, RATTATA, ZUBAT, RATTATA, EKANS, 0
-	db 32, CUBONE, DROWZEE, MAROWAK, 0
+	db 32, CUBONE, DROWZEE, SANDSLASH, 0 ; updated, removed Marowak
 ; Jessie & James ; updated
 	db 14, EKANS, KOFFING, MEOWTH, 0
 	db 25, ARBOK, WEEZING, MEOWTH, 0
@@ -632,6 +633,14 @@ CooltrainerMData:
 	db 43, RHYHORN, 0
 ; Victory Road 1F
 	db $FF, 50, SCIZOR, 55, CHARIZARD, 50, GOLDUCK, 50, MACHAMP, 50, PORYGON2, 50, RHYPERIOR, 0 ; updated, pseudo-Blue, manga
+; Cerulean Gym
+	db 19, WARTORTLE, SLOWPOKE, SEEL, KRABBY, TENTACOOL, 0 ; new
+; Celadon Gym
+	db 30, IVYSAUR, PARASECT, BELLOSSOM, VICTREEBEL, EXEGGUTOR, 0 ; new
+; Saffron Gym
+	db 48, JYNX, HYPNO, STARMIE, ALAKAZAM, GENGAR, 0 ; new
+; Viridian Gym
+	db 53, MACHAMP, SANDSLASH, TAUROS, GOLEM, STEELIX, 0 ; new
 
 CooltrainerFData:
 ; Celadon Gym
@@ -647,6 +656,14 @@ CooltrainerFData:
 	db 45, IVYSAUR, VENUSAUR, 0
 	db 45, NIDORINA, NIDOQUEEN, 0
 	db 43, PERSIAN, NINETALES, RAICHU, 0
+; Pewter Gym
+	db 10, GEODUDE, GEODUDE, RHYHORN, ONIX, AERODACTYL, 0 ; new
+; Vermilion Gym
+	db 26, PICHU, ELEKID, VOLTORB, MAGNEMITE, MAGNEMITE, 0 ; new
+; Fuchsia Gym
+	db 41, VENOMOTH, WEEZING, TENTACRUEL, NIDOQUEEN, CROBAT, 0 ; new
+; Cinnabar Gym
+	db 52, ARCANINE, MAGMAR, NINETALES, RAPIDASH, CHARIZARD, 0 ; new
 
 BrunoData:
 ;	db $FF, 53, ONIX, 55, HITMONCHAN, 55, HITMONLEE, 56, ONIX, 58, MACHAMP, 0
@@ -658,7 +675,7 @@ BrockData:
 
 MistyData:
 ;	db $FF, 18, STARYU, 21, STARMIE, 0
-	db $FF, 20, STARYU, 20, PSYDUCK, 20, POLIWHIRL, 20, GOLDEEN, 20, VAPOREON, 21, STARMIE, 0 ; updated
+	db $FF, 20, STARYU, 20, PSYDUCK, 20, POLIWHIRL, 20, GYARADOS, 20, VAPOREON, 21, STARMIE, 0 ; updated
 
 LtSurgeData:
 ;	db $FF, 28, RAICHU, 0

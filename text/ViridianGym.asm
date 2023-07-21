@@ -215,6 +215,40 @@ _ViridianGymAfterBattleText8::
 	cont "our GYM LEADER!"
 	done
 
+_ViridianGymBattleText9::
+	text "This GYM is great"
+	line "because it has so"
+	cont "many powerful"
+	cont "trainers, but..."
+
+	para "The GYM LEADER,"
+	line "GIOVANNI, is"
+	cont "incredibly scary."
+	done
+
+_ViridianGymEndBattleText9::
+	text "Mh."
+	line "I guess not even"
+	cont "training in the"
+	cont "strongest GYM of"
+	cont "all and using"
+	cont "INVERSE BATTLEs"
+	cont "was enough..."
+	prompt
+
+_ViridianGymAfterBattleText9::
+	text "The rumors say"
+	line "that GIOVANNI is"
+	cont "secretly the BOSS"
+	cont "of TEAM ROCKET."
+
+	para "I'll be brutally"
+	line "honest with you:"
+	cont "I would be happy"
+	cont "if you completely"
+	cont "annihilated them."
+	done
+
 _ViridianGymGuidePreBattleText::
 	text "Yo! Champ in"
 	line "making!"

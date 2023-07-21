@@ -46,6 +46,7 @@ SaffronGym_Object:
 	object_event  3, 13, SPRITE_CHANNELER, STAY, DOWN, 6, OPP_CHANNELER, 24
 	object_event 17, 13, SPRITE_YOUNGSTER, STAY, DOWN, 7, OPP_PSYCHIC_TR, 3
 	object_event  3,  1, SPRITE_YOUNGSTER, STAY, DOWN, 8, OPP_PSYCHIC_TR, 4
-	object_event 10, 15, SPRITE_GYM_GUIDE, STAY, DOWN, 9 ; person
+	object_event  7, 11, SPRITE_COOLTRAINER_M, STAY, RIGHT, 9, OPP_COOLTRAINER_M, 14
+	object_event 10, 15, SPRITE_GYM_GUIDE, STAY, DOWN, 10 ; person
 
 	def_warps_to SAFFRON_GYM

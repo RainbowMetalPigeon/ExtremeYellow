@@ -43,20 +43,20 @@ CeruleanGymMistyPostBattle:
 	ld [wJoyIgnore], a
 
 CeruleanGymReceiveTM11:
-	ld a, $5
+	ld a, $6
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY
 	lb bc, TM_BUBBLEBEAM, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $6
+	ld a, $7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM11
 	jr .gymVictory
 .BagFull
-	ld a, $7
+	ld a, $8
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -66,7 +66,7 @@ CeruleanGymReceiveTM11:
 	set BIT_CASCADEBADGE, [hl]
 
 	; deactivate gym trainers
-	SetEvents EVENT_BEAT_CERULEAN_GYM_TRAINER_0, EVENT_BEAT_CERULEAN_GYM_TRAINER_1
+	SetEventRange EVENT_BEAT_CERULEAN_GYM_TRAINER_0, EVENT_BEAT_CERULEAN_GYM_TRAINER_2 ; new
 
 	jp CeruleanGymResetScripts
 
@@ -74,6 +74,7 @@ CeruleanGym_TextPointers:
 	dw MistyText
 	dw CeruleanGymTrainerText1
 	dw CeruleanGymTrainerText2
+	dw CeruleanGymTrainerText3
 	dw CeruleanGymGuideText
 	dw MistyCascadeBadgeInfoText
 	dw ReceivedTM11Text
@@ -82,9 +83,11 @@ CeruleanGym_TextPointers:
 CeruleanGymTrainerHeaders:
 	def_trainers 2
 CeruleanGymTrainerHeader0:
-	trainer EVENT_BEAT_CERULEAN_GYM_TRAINER_0, 3, CeruleanGymBattleText1, CeruleanGymEndBattleText1, CeruleanGymAfterBattleText1
+	trainer EVENT_BEAT_CERULEAN_GYM_TRAINER_0, 1, CeruleanGymBattleText1, CeruleanGymEndBattleText1, CeruleanGymAfterBattleText1
 CeruleanGymTrainerHeader1:
-	trainer EVENT_BEAT_CERULEAN_GYM_TRAINER_1, 3, CeruleanGymBattleText2, CeruleanGymEndBattleText2, CeruleanGymAfterBattleText2
+	trainer EVENT_BEAT_CERULEAN_GYM_TRAINER_1, 3, CeruleanGymBattleText2, CeruleanGymEndBattleText2, CeruleanGymAfterBattleText2 ; updated, shortened visual
+CeruleanGymTrainerHeader2:
+	trainer EVENT_BEAT_CERULEAN_GYM_TRAINER_2, 1, CeruleanGymBattleText3, CeruleanGymEndBattleText3, CeruleanGymAfterBattleText3
 	db -1 ; end
 
 MistyText:
@@ -181,6 +184,24 @@ CeruleanGymEndBattleText2:
 
 CeruleanGymAfterBattleText2:
 	text_far _CeruleanGymAfterBattleText2
+	text_end
+
+CeruleanGymTrainerText3:
+	text_asm
+	ld hl, CeruleanGymTrainerHeader2
+	call TalkToTrainer
+	jp TextScriptEnd
+
+CeruleanGymBattleText3:
+	text_far _CeruleanGymBattleText3
+	text_end
+
+CeruleanGymEndBattleText3:
+	text_far _CeruleanGymEndBattleText3
+	text_end
+
+CeruleanGymAfterBattleText3:
+	text_far _CeruleanGymAfterBattleText3
 	text_end
 
 CeruleanGymGuideText:

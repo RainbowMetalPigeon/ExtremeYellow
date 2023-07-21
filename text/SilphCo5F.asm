@@ -11,26 +11,33 @@ _SilphCo5Text_1a015::
 	cont "hero! Thank you!"
 	done
 
-;	----------------------------------------
-
 _SilphCo5Text1b_GotPorygonYesUpgradeYesGiovanni::
-	text "TEST"
-	line "got porygon"
-	cont "yes upgrad"
-	cont "yes giovanni"
+	text "Thank you again"
+	line "for saving us"
+	cont "from TEAM ROCKET!"
+	cont "If you're in need"
+	cont "of another"
+	cont "UPGRADE, there"
+	cont "should be one in"
+	cont "a storage room"
+	cont "downstairs."
 	done
 
 _SilphCo5Text1b_GotPorygonYesUpgradeNoGiovanni::
-	text "TEST"
-	line "got porygon"
-	cont "yes upgrad"
-	cont "no giovanni"
+	text "You could use the"
+	line "UPGRADE on"
+	cont "PORYGON to make"
+	cont "it even more"
+	cont "powerful and"
+	cont "fight off TEAM"
+	cont "ROCKET with it!"
 	done
 
 _SilphCo5Text1b_GotPorygonNoUpgrade::
-	text "TEST"
-	line "got porygon"
-	cont "no upgrad"
+	text "You have a"
+	line "PORYGON?! Then"
+	cont "this could be"
+	cont "helpful to you!"
 	prompt
 
 _ObtainedUpgradeText::
@@ -46,18 +53,25 @@ _UpgradeNoRoomText::
 	done
 
 _SilphCo5Text1b_NoGotPorygonYesGiovanni::
-	text "TEST"
-	line "not got porygon"
-	cont "yes giovanni"
+	text "Thank you so"
+	line "much!!! You saved"
+	cont "my months of"
+	cont "studies! I've"
+	cont "worked very hard"
+	cont "on an upgrade for"
+	cont "that lovely"
+	cont "cyberduck!"
 	done
 
 _SilphCo5Text1b_NoGotPorygonNoGiovanni::
-	text "TEST"
-	line "not got porygon"
-	cont "no giovanni"
+	text "Oh my goddess, oh"
+	line "my goddess, oh my"
+	cont "goddess! TEAM"
+	cont "ROCKET is taking"
+	cont "control of SILPH!"
+	cont "All my work will"
+	cont "be lost!!!"
 	done
-
-;	----------------------------------------
 
 _SilphCo5BattleText2::
 	text "I heard a kid was"

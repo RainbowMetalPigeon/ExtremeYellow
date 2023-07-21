@@ -29,6 +29,7 @@ CalcLevelFromExperience::
 
 ; calculates the amount of experience needed for level d
 CalcExperience::
+; --- beginning of new stuff to handle level 1 mons ---
 	ld a, d
 	dec a
 	jr nz, .UseExpFormula
@@ -40,6 +41,7 @@ CalcExperience::
 	ld [hl], a
 	ret
 .UseExpFormula
+; --- end of new stuff to handle level 1 mons ---
 	ld a, [wMonHGrowthRate]
 	add a
 	add a

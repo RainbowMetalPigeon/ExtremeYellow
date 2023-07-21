@@ -135,6 +135,31 @@ _VermilionGymAfterBattleText3::
 	cont "next to it!"
 	done
 
+_VermilionGymBattleText4::
+	text "I guess you got"
+	line "the drill by now:"
+
+	para "no facing"
+	line "LT.SURGE before"
+	cont "defeating me."
+	done
+
+_VermilionGymEndBattleText4::
+	text "And"
+	line "it seems that you"
+	cont "got how all this"
+	cont "INVERSE BATTLE"
+	cont "stuff works."
+
+	para "Or at least"
+	line "I hope..."
+	prompt
+
+_VermilionGymAfterBattleText4::
+	text "Go on and fight"
+	line "LT.SURGE."
+	done
+
 _VermilionGymGuidePreBattleText::
 	text "Yo! Champ in"
 	line "making!"

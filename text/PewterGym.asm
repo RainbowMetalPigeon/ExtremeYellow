@@ -128,6 +128,31 @@ _PewterGymAfterBattleText1::
 	cont "as BROCK!"
 	done
 
+_PewterGymBattleText2::
+	text "Where do you think"
+	line "you're going?"
+
+	para "Before facing"
+	line "BROCK, there's a"
+	cont "special battle"
+	cont "waiting for you!"
+	done
+
+_PewterGymEndBattleText2::
+	text "Ah!"
+
+	para "Not half bad, kid!"
+	line "How did you like"
+	cont "your very first"
+	cont "INVERSE BATTLE?"
+	prompt
+
+_PewterGymAfterBattleText2::
+	text "Congrats! It seems"
+	line "you really got"
+	cont "the gist of it!"
+	done
+
 _PewterGymGuidePreAdviceText::
 	text "Hiya! I can tell"
 	line "you have what it"

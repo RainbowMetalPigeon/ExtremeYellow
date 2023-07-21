@@ -176,20 +176,44 @@ _CinnabarGymAfterBattleText6::
 	done
 
 _CinnabarGymBattleText7::
-	text "Fire is weak"
-	line "against H2O!"
+	text "Ahah, sorry for"
+	line "the trick, but it"
+	cont "was the only way"
+	cont "to guarantee that"
+	cont "we would fight!"
+
+	para "But still! There's"
+	line "just no way in"
+	cont "the world that"
+	cont "you will win"
+	cont "against me, let"
+	cont "alone BLAINE!"
 	done
 
 _CinnabarGymEndBattleText7::
-	text "Oh!"
-	line "Snuffed out!"
+	text "How?!"
+	line "How did you"
+	cont "overcome my"
+	cont "white-hot"
+	cont "INVERSE BATTLE"
+	cont "strategies?!"
 	prompt
 
 _CinnabarGymAfterBattleText7::
-	text "Water beats fire!"
-	line "But, fire melts"
-	cont "ice #MON!"
-	done
+	text "I apologize again"
+	line "for having hacked"
+	cont "the quiz."
+
+	para "I would have"
+	line "preferred waiting"
+	cont "for you in the"
+	cont "next room, but"
+	cont "BLAINE is always"
+	cont "so busy with"
+	cont "their research"
+	cont "and their calls"
+	cont "with that PROF..."
+done
 
 _CinnabarGymGuidePreBattleText::
 	text "Yo! Champ in"

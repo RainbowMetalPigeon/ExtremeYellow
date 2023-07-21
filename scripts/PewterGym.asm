@@ -44,20 +44,20 @@ PewterGymBrockPostBattle:
 	ld [wJoyIgnore], a
 ; fallthrough
 PewterGymScriptReceiveTM34:
-	ld a, $4
+	ld a, $5
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BROCK
 	lb bc, TM_BIDE, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $5
+	ld a, $6
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM34
 	jr .gymVictory
 .BagFull
-	ld a, $6
+	ld a, $7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -76,13 +76,14 @@ PewterGymScriptReceiveTM34:
 	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 
 	; deactivate gym trainers
-	SetEvent EVENT_BEAT_PEWTER_GYM_TRAINER_0
+	SetEvents EVENT_BEAT_PEWTER_GYM_TRAINER_0, EVENT_BEAT_PEWTER_GYM_TRAINER_1
 
 	jp PewterGymResetScripts
 
 PewterGym_TextPointers:
 	dw BrockText
 	dw PewterGymTrainerText1
+	dw PewterGymTrainerText2
 	dw PewterGymGuideText
 	dw BeforeReceivedTM34Text
 	dw ReceivedTM34Text
@@ -92,6 +93,8 @@ PewterGymTrainerHeaders:
 	def_trainers 2
 PewterGymTrainerHeader0:
 	trainer EVENT_BEAT_PEWTER_GYM_TRAINER_0, 5, PewterGymBattleText1, PewterGymEndBattleText1, PewterGymAfterBattleText1
+PewterGymTrainerHeader1:
+	trainer EVENT_BEAT_PEWTER_GYM_TRAINER_1, 5, PewterGymBattleText2, PewterGymEndBattleText2, PewterGymAfterBattleText2
 	db -1 ; end
 
 BrockText:
@@ -174,6 +177,24 @@ PewterGymEndBattleText1:
 
 PewterGymAfterBattleText1:
 	text_far _PewterGymAfterBattleText1
+	text_end
+
+PewterGymTrainerText2:
+	text_asm
+	ld hl, PewterGymTrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+PewterGymBattleText2:
+	text_far _PewterGymBattleText2
+	text_end
+
+PewterGymEndBattleText2:
+	text_far _PewterGymEndBattleText2
+	text_end
+
+PewterGymAfterBattleText2:
+	text_far _PewterGymAfterBattleText2
 	text_end
 
 PewterGymGuideText:

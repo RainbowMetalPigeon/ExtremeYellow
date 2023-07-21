@@ -16,5 +16,6 @@ CeladonGym_Object:
 	object_event  6,  3, SPRITE_COOLTRAINER_F, STAY, DOWN, 6, OPP_LASS, 18
 	object_event  3,  3, SPRITE_BEAUTY, STAY, DOWN, 7, OPP_BEAUTY, 3
 	object_event  5,  3, SPRITE_COOLTRAINER_F, STAY, DOWN, 8, OPP_COOLTRAINER_F, 1
+	object_event  4,  6, SPRITE_COOLTRAINER_M, STAY, UP, 9, OPP_COOLTRAINER_M, 13
 
 	def_warps_to CELADON_GYM
