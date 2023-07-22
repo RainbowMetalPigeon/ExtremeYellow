@@ -29,7 +29,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI
 	dbw 2, BlackbeltAI ; blackbelt
 	dbw 3, GenericAI ; rival1
-	dbw 3, GenericAI
+	dbw 1, ProfOakAI ; prof oak
 	dbw 1, GenericAI ; chief
 	dbw 3, GenericAI
 	dbw 1, GiovanniAI ; giovanni
@@ -46,7 +46,7 @@ TrainerAIPointers:
 	dbw 1, SabrinaAI ; sabrina
 	dbw 3, GenericAI
 	dbw 1, Rival2AI ; rival2
-	dbw 1, Rival3AI ; rival3
+	dbw 4, Rival3AI ; rival3 ; updated
 	dbw 2, LoreleiAI ; lorelei
 	dbw 3, GenericAI
 	dbw 2, AgathaAI ; agatha

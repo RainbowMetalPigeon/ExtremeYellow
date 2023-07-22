@@ -36,19 +36,19 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; RIVAL1
 	move_choices 1, 3    ; PROF_OAK
 	move_choices 1, 2    ; CHIEF
-	move_choices 1, 2    ; SCIENTIST
+	move_choices 1, 2, 3 ; SCIENTIST ; updated
 	move_choices 1, 3    ; GIOVANNI
 	move_choices 1       ; ROCKET
 	move_choices 1, 3    ; COOLTRAINER_M
 	move_choices 1, 3    ; COOLTRAINER_F
-	move_choices 1       ; BRUNO
-	move_choices 1       ; BROCK
+	move_choices 1, 3    ; BRUNO ; updated
+	move_choices 1, 3    ; BROCK ; updated
 	move_choices 1, 3    ; MISTY
-	move_choices 1       ; LT_SURGE
+	move_choices 1, 3    ; LT_SURGE ; updated
 	move_choices 1, 3    ; ERIKA
 	move_choices 1, 3    ; KOGA
-	move_choices 1       ; BLAINE
-	move_choices 1       ; SABRINA
+	move_choices 1, 3    ; BLAINE ; updated
+	move_choices 1, 3    ; SABRINA ; updated
 	move_choices 1, 2    ; GENTLEMAN
 	move_choices 1, 3    ; RIVAL2
 	move_choices 1, 3    ; RIVAL3

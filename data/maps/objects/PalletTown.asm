@@ -4,7 +4,8 @@ PalletTown_Object:
 	def_warp_events
 ;	warp_event  5,  5, REDS_HOUSE_1F, 1
 	warp_event  5,  5, HALL_OF_FAME, 1
-	warp_event 13,  5, BLUES_HOUSE, 1
+;	warp_event 13,  5, BLUES_HOUSE, 1
+	warp_event 13,  5, CINNABAR_GYM, 1
 	warp_event 12, 11, OAKS_LAB, 2
 
 	def_bg_events

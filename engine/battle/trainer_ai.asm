@@ -146,7 +146,7 @@ AIMoveChoiceModification1:
 	jr .nextMove
 
 StatusAilmentMoveEffects:
-	db EFFECT_01 ; unused sleep effect
+	db BURN_EFFECT ; updated, from the unused EFFECT_01
 	db SLEEP_EFFECT
 	db POISON_EFFECT
 	db PARALYZE_EFFECT
@@ -340,6 +340,14 @@ BlackbeltAI:
 	ret nc
 	jp AIUseXAttack
 
+ProfOakAI: ; new
+	cp 75 percent - 1
+	ret nc
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseFullRestore
+
 GiovanniAI:
 	cp 25 percent + 1
 	ret nc
@@ -386,7 +394,7 @@ ErikaAI:
 	ld a, 10
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseSuperPotion
+	jp AIUseHyperPotion ; updated
 
 KogaAI:
 	cp 13 percent - 1
@@ -399,7 +407,7 @@ BlaineAI:
 	ld a, 10
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseSuperPotion
+	jp AIUseHyperPotion ; updated
 
 SabrinaAI:
 	cp 25 percent + 1
@@ -412,10 +420,10 @@ Rival2AI:
 	ld a, 5
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUsePotion
+	jp AIUseSuperPotion ; updated
 
 Rival3AI:
-	cp 13 percent - 1
+	cp 95 percent - 1 ; updated
 	ret nc
 	ld a, 5
 	call AICheckIfHPBelowFraction
@@ -428,12 +436,12 @@ LoreleiAI:
 	ld a, 5
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseSuperPotion
+	jp AIUseFullRestore ; updated
 
 BrunoAI:
 	cp 25 percent + 1
 	ret nc
-	jp AIUseXDefend
+	jp AIUseXAttack ; updated
 
 AgathaAI:
 	cp 8 percent
@@ -443,7 +451,7 @@ AgathaAI:
 	ld a, 4
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseSuperPotion
+	jp AIUseFullRestore ; updated
 
 LanceAI:
 	cp 50 percent + 1
@@ -451,7 +459,7 @@ LanceAI:
 	ld a, 5
 	call AICheckIfHPBelowFraction
 	ret nc
-	jp AIUseHyperPotion
+	jp AIUseFullRestore ; updated
 
 GenericAI:
 	and a ; clear carry

@@ -16,6 +16,39 @@ SpecialTrainerMoves:
 	db 6, 4, FISSURE
 	db 0
 
+	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')
+	; WEEZING
+	db 1, 1, EXPLOSION
+	db 1, 2, NO_MOVE
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
+	; ELECTRODE
+	db 2, 1, EXPLOSION
+	db 2, 2, NO_MOVE
+	db 2, 3, NO_MOVE
+	db 2, 4, NO_MOVE
+	; GOLEM
+	db 3, 1, EXPLOSION
+	db 3, 2, NO_MOVE
+	db 3, 3, NO_MOVE
+	db 3, 4, NO_MOVE
+	; CLOYSTER
+	db 4, 1, EXPLOSION
+	db 4, 2, NO_MOVE
+	db 4, 3, NO_MOVE
+	db 4, 4, NO_MOVE
+	; LICKILICKY
+	db 5, 1, EXPLOSION
+	db 5, 2, NO_MOVE
+	db 5, 3, NO_MOVE
+	db 5, 4, NO_MOVE
+	; SNORLAX
+	db 6, 1, SELFDESTRUCT
+	db 6, 2, NO_MOVE
+	db 6, 3, NO_MOVE
+	db 6, 4, NO_MOVE
+	db 0
+
 	db COOLTRAINER_M, 5 ; pseudo-Red
 	; POLIWRATH
 	db 1, 1, CLOSE_COMBAT
@@ -897,6 +930,14 @@ SpecialTrainerMoves:
 ;	db 5, 2, SLASH
 ;	db 5, 3, SING
 ;	db 5, 4, DREAM_EATER
+	db 0
+
+	db PROF_OAK, 1
+	; TAUROS
+	db 1, 1, HYPER_BEAM
+	db 1, 2, BODY_SLAM
+	db 1, 3, EARTHQUAKE
+	db 1, 4, BLIZZARD
 	db 0
 
 	db -1 ; end

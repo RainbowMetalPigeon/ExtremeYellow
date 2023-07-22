@@ -135,3 +135,31 @@ _Route21AfterBattleText9::
 	text "Oh wait! I got a"
 	line "bite! Yeah!"
 	done
+
+; ------------------------------------------------
+
+_OakBeforeBattleText::
+	text "OAK: Oh, my!"
+
+	para "How about we"
+	line "spar a bit?"
+	cont "What say you?"
+	done
+
+_OakBeforeBattleText2::
+	text "Amazing!"
+	line "Shall we begin?"
+	done
+
+_OakDefeatedText::
+	text "Hmm..."
+
+	para "I still have a"
+	line "lot to learn!"
+	prompt
+
+_OakWonText::
+	text "Back in my day,"
+	line "I was a serious"
+	cont "TRAINER!"
+	prompt

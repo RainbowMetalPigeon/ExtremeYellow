@@ -379,7 +379,10 @@ wPlayerMonNumber:: db
 ; the address of the menu cursor's current location within wTileMap
 wMenuCursorLocation:: dw
 
-	ds 2
+; if 0, normal battle; if 1, Inverse Battle
+wInverseBattle:: db ; new
+
+	ds 1 ; updated from 2
 
 ; how many times should HandleMenuInput poll the joypad state before it returns?
 wMenuJoypadPollCount:: db

@@ -13,6 +13,7 @@ Route21_ScriptPointers:
 	dw EndTrainerBattle
 
 Route21_TextPointers:
+	dw Route21TextOak
 	dw Route21Text1
 	dw Route21Text2
 	dw Route21Text3
@@ -24,7 +25,7 @@ Route21_TextPointers:
 	dw Route21Text9
 
 Route21TrainerHeaders:
-	def_trainers
+	def_trainers 2
 Route21TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_21_TRAINER_0, 0, Route21BattleText1, Route21EndBattleText1, Route21AfterBattleText1
 Route21TrainerHeader1:
@@ -206,3 +207,66 @@ Route21EndBattleText9:
 Route21AfterBattleText9:
 	text_far _Route21AfterBattleText9
 	text_end
+
+; ------------------------------------------------
+
+Route21TextOak:
+	text_asm
+	ld hl, OakBeforeBattleText
+	call PrintText
+
+	call NormalInverseChoice
+	ld a, [wCurrentMenuItem]
+	ld [wInverseBattle], a
+
+	ld hl, OakBeforeBattleText2
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_PROF_OAK
+	ld [wCurOpponent], a
+
+	ld a, 1
+	ld [wTrainerNo], a
+
+;	ld a, $1
+;	ld [wRoute21CurScript], a
+
+	ld hl, OakDefeatedText
+	ld de, OakWonText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+OakBeforeBattleText:
+	text_far _OakBeforeBattleText
+	text_end
+
+OakBeforeBattleText2:
+	text_far _OakBeforeBattleText2
+	text_end
+
+OakDefeatedText:
+	text_far _OakDefeatedText
+	text_end
+
+OakWonText:
+	text_far _OakWonText
+	text_end
+
+NormalInverseChoice:
+	call SaveScreenTilesToBuffer1
+	ld a, NORMAL_INVERSE_MENU
+	ld [wTwoOptionMenuID], a
+	coord hl, 10, 7
+	ld bc, $80b ; weird coordinates for the cursor
+	ld a, $14
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	jp LoadScreenTilesFromBuffer1

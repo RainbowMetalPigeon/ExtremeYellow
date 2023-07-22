@@ -254,7 +254,7 @@ CinnabarGym_ReplaceTileBlock:
 
 OfcourseSurelyChoice:
 	call SaveScreenTilesToBuffer1
-	ld a, $1 ; loads the value for the unused North/West choice, that was changed to say Of course/Surely
+	ld a, OFCOURSE_SURELY_MENU ; loads the value for the unused North/West choice, that was changed to say Of course/Surely
 	ld [wTwoOptionMenuID], a
 	coord hl, 8, 7
 	ld bc, $809 ; weird coordinate for the cursor
