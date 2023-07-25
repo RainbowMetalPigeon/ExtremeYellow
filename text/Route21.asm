@@ -139,27 +139,68 @@ _Route21AfterBattleText9::
 ; ------------------------------------------------
 
 _OakBeforeBattleText::
-	text "OAK: Oh, my!"
+	text "OAK: <PLAYER>!"
+	line "I didn't expect"
+	cont "to find you here!"
 
-	para "How about we"
-	line "spar a bit?"
-	cont "What say you?"
-	done
+	para "I have meant to"
+	line "thank you. The"
+	cont "marvelous paths"
+	cont "of adventure that"
+	cont "you and <RIVAL>"
+	cont "faced..."
 
-_OakBeforeBattleText2::
-	text "Amazing!"
-	line "Shall we begin?"
-	done
+	para "Admiring you two"
+	line "reignited my"
+	cont "trainer spirit"
+	cont "that has been"
+	cont "dormant for oh-so"
+	cont "many years now."
 
-_OakDefeatedText::
-	text "Hmm..."
+	para "<PLAYER>!"
+	line "Allow me to"
+	cont "challenge you to"
+	cont "#MON battle!"
 
-	para "I still have a"
-	line "lot to learn!"
+	para "I know you are"
+	line "already familiar"
+	cont "with these new"
+	cont "INVERSE BATTLEs."
+	cont "What battle mode"
+	cont "do you prefer?"
 	prompt
 
-_OakWonText::
-	text "Back in my day,"
-	line "I was a serious"
-	cont "TRAINER!"
+_OakBeforeBattleTextShort::
+	text "<PLAYER>!"
+	line "Allow me to"
+	cont "challenge you to"
+	cont "#MON battle!"
+
+	para "I know you are"
+	line "already familiar"
+	cont "with these new"
+	cont "INVERSE BATTLEs."
+	cont "What battle mode"
+	cont "do you prefer?"
+	prompt
+
+_OakBeforeBattleText2::
+	text "So be it!"
+	line "Let us begin!"
+
+	para "My and my"
+	line "friend's #MON"
+	cont "are looking"
+	cont "forward for this!"
+	done
+
+_OakPostBattleText::
+	text "Amazing!"
+
+	para "This has been the"
+	line "greatest battle"
+	cont "I've ever had!"
+
+	para "<PLAYER>!"
+	line "Thank you!"
 	prompt

@@ -469,7 +469,8 @@
 
 ; Route 21 events
 	const_next $510
-	const_skip 2
+	const_skip
+	const EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
 	const EVENT_BEAT_ROUTE_21_TRAINER_0
 	const EVENT_BEAT_ROUTE_21_TRAINER_1
 	const EVENT_BEAT_ROUTE_21_TRAINER_2

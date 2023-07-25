@@ -6,7 +6,7 @@ Route21_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 11,  6, SPRITE_OAK, STAY, ANY_DIR, 1 ; new
+	object_event 11,  6, SPRITE_OAK, WALK, ANY_DIR, 1 ; new
 	object_event  4, 24, SPRITE_FISHER, STAY, LEFT, 2, OPP_FISHER, 7
 	object_event  6, 25, SPRITE_FISHER, STAY, DOWN, 3, OPP_FISHER, 9
 	object_event 10, 31, SPRITE_SWIMMER, STAY, UP, 4, OPP_SWIMMER, 12

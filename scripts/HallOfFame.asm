@@ -97,6 +97,9 @@ HallofFameRoomScript1:
 	ld a, HS_CERULEAN_CAVE_GUY
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	ld a, HS_ROUTE_21_OAK 			; new, to show Oak in Route21 after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef ShowObject				; new
 	ld a, $2
 	ld [wHallOfFameCurScript], a
 	ret

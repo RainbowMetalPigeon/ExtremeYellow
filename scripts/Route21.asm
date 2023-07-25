@@ -213,7 +213,12 @@ Route21AfterBattleText9:
 Route21TextOak:
 	text_asm
 	ld hl, OakBeforeBattleText
+	CheckEvent EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
+	jr z, .goPrint
+	ld hl, OakBeforeBattleTextShort
+.goPrint
 	call PrintText
+	SetEvent EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
 
 	call NormalInverseChoice
 	ld a, [wCurrentMenuItem]
@@ -239,8 +244,8 @@ Route21TextOak:
 ;	ld a, $1
 ;	ld [wRoute21CurScript], a
 
-	ld hl, OakDefeatedText
-	ld de, OakWonText
+	ld hl, OakPostBattleText
+	ld de, OakPostBattleText
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
@@ -248,16 +253,16 @@ OakBeforeBattleText:
 	text_far _OakBeforeBattleText
 	text_end
 
+OakBeforeBattleTextShort:
+	text_far _OakBeforeBattleTextShort
+	text_end
+
 OakBeforeBattleText2:
 	text_far _OakBeforeBattleText2
 	text_end
 
-OakDefeatedText:
-	text_far _OakDefeatedText
-	text_end
-
-OakWonText:
-	text_far _OakWonText
+OakPostBattleText:
+	text_far _OakPostBattleText
 	text_end
 
 NormalInverseChoice:
