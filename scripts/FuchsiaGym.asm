@@ -45,20 +45,20 @@ FuchsiaGymKogaPostBattle:
 	ld [wJoyIgnore], a
 ; fallthrough
 FuchsiaGymReceiveTM06:
-	ld a, $9
+	ld a, $a
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_KOGA
 	lb bc, TM_TOXIC, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $a
+	ld a, $b
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM06
 	jr .gymVictory
 .BagFull
-	ld a, $b
+	ld a, $c
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -80,6 +80,7 @@ FuchsiaGym_TextPointers:
 	dw FuchsiaGymTrainerText4
 	dw FuchsiaGymTrainerText5
 	dw FuchsiaGymTrainerText6
+	dw FuchsiaGymTrainerText7
 	dw FuchsiaGymGuideText
 	dw KogaSoulBadgeInfoText
 	dw ReceivedTM06Text
@@ -99,6 +100,8 @@ FuchsiaGymTrainerHeader4:
 	trainer EVENT_BEAT_FUCHSIA_GYM_TRAINER_4, 2, FuchsiaGymBattleText5, FuchsiaGymEndBattleText5, FuchsiaGymAfterBattleText5
 FuchsiaGymTrainerHeader5:
 	trainer EVENT_BEAT_FUCHSIA_GYM_TRAINER_5, 2, FuchsiaGymBattleText6, FuchsiaGymEndBattleText6, FuchsiaGymAfterBattleText6
+FuchsiaGymTrainerHeader6:
+	trainer EVENT_BEAT_FUCHSIA_GYM_TRAINER_6, 2, FuchsiaGymBattleText7, FuchsiaGymEndBattleText7, FuchsiaGymAfterBattleText7
 	db -1 ; end
 
 KogaText:
@@ -270,6 +273,24 @@ FuchsiaGymEndBattleText6:
 
 FuchsiaGymAfterBattleText6:
 	text_far _FuchsiaGymAfterBattleText6
+	text_end
+
+FuchsiaGymTrainerText7:
+	text_asm
+	ld hl, FuchsiaGymTrainerHeader6
+	call TalkToTrainer
+	jp TextScriptEnd
+
+FuchsiaGymBattleText7:
+	text_far _FuchsiaGymBattleText7
+	text_end
+
+FuchsiaGymEndBattleText7:
+	text_far _FuchsiaGymEndBattleText7
+	text_end
+
+FuchsiaGymAfterBattleText7:
+	text_far _FuchsiaGymAfterBattleText7
 	text_end
 
 FuchsiaGymGuideText:

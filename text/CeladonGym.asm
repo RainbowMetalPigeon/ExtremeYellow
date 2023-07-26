@@ -218,3 +218,36 @@ _CeladonGymAfterBattleText8::
 	para "Wait 'til next"
 	line "time!"
 	done
+
+_CeladonGymBattleText9::
+	text "Plants are so"
+	line "amazing! Our very"
+	cont "own lives depend"
+	cont "on them!"
+
+	para "I will not allow"
+	line "you to prey on"
+	cont "their weaknesses!"
+	cont "You won't face"
+	cont "ERIKA so easily!"
+	done
+
+_CeladonGymEndBattleText9::
+	text "Mh!"
+	line "Well done! You"
+	cont "overcame the"
+	cont "hurdles of the"
+	cont "INVERSE BATTLE"
+	cont "and defeated my"
+	cont "GRASS #MON!"
+	prompt
+
+_CeladonGymAfterBattleText9::
+	text "I am very happy"
+	line "they accepted me"
+	cont "in this GYM."
+
+	para "People here are so"
+	line "kind, welcoming,"
+	cont "and inclusive!"
+	done

@@ -197,6 +197,34 @@ _FuchsiaGymAfterBattleText6::
 	cont "choose?"
 	done
 
+_FuchsiaGymBattleText7::
+	text "Before reaching..."
+	line "KOGA, you'll need"
+	cont "to..."
+
+	para "Yes, defeat me,"
+	line "indeed...!"
+	done
+
+_FuchsiaGymEndBattleText7::
+	text "Oh"
+	line "damn, I lost..."
+
+	para "Maybe I should"
+	line "just drop this"
+	cont "INVERSE BATTLE"
+	cont "matter..."
+	prompt
+
+_FuchsiaGymAfterBattleText7::
+	text "I am training"
+	line "hard to be able"
+	cont "to one day in-"
+	cont "herit the place"
+	cont "of my da..."
+	cont "I mean, KOGA!"
+	done
+
 _FuchsiaGymGuidePreBattleText::
 	text "Yo! Champ in"
 	line "making!"

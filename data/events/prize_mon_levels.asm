@@ -1,8 +1,8 @@
 PrizeMonLevelDictionary:
 	db ABRA,       15
-	db VULPIX,     18
-	db WIGGLYTUFF, 22
+	db LICKITUNG,  35
+	db CUBONE,      1
 
-	db SCYTHER,    30
-	db PINSIR,     30
-	db PORYGON,    26
+	db SCYTHER,    37
+	db PINSIR,     37
+	db PORYGON,    35

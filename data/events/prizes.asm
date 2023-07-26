@@ -5,14 +5,14 @@ PrizeDifferentMenuPtrs:
 
 PrizeMenuMon1Entries:
 	db ABRA
-	db VULPIX
-	db WIGGLYTUFF
+	db LICKITUNG
+	db CUBONE
 	db "@"
 
 PrizeMenuMon1Cost:
 	bcd2 230
-	bcd2 1000
-	bcd2 2680
+	bcd2 2500
+	bcd2 4444
 	db "@"
 
 PrizeMenuMon2Entries:

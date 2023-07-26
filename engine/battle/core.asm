@@ -954,6 +954,8 @@ ReplaceFaintedEnemyMon:
 	ret
 
 TrainerBattleVictory:
+	xor a						; new, reset battle mode to normal, even if it was Inverse
+	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
 	call EndLowHealthAlarm
 	ld b, MUSIC_DEFEATED_GYM_LEADER
 	ld a, [wGymLeaderNo]
@@ -1202,6 +1204,8 @@ ChooseNextMon:
 ; called when player is out of usable mons.
 ; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight)
 HandlePlayerBlackOut:
+	xor a						; new, reset battle mode to normal, even if it was Inverse
+	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
 ;	xor a						; countercomment to do tutorial to go beyond 200
 ;	ld [wIsTrainerBattle], a	; countercomment to do tutorial to go beyond 200
 	ld a, [wLinkState]
@@ -5584,6 +5588,9 @@ AdjustDamageForMoveType:
 	ld a, [wMoveType]
 	ld b, a
 	ld hl, TypeEffects
+	ld a, [wInverseBattle]		; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	cp 1						; new, load Inverse Battle chart on demand; e.g. Oak can load 1
+	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
     ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
     cp OPP_COOLTRAINER_M		; new, load Inverse Battle chart for COOL trainers
     jr z, .loadInverseChart		; new, load Inverse Battle chart for COOL trainers
@@ -5665,6 +5672,9 @@ AIGetTypeEffectiveness:
 	ld a, $10
 	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
 	ld hl, TypeEffects
+	ld a, [wInverseBattle]		; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	cp 1						; new, load Inverse Battle chart on demand; e.g. Oak can load 1
+	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
     ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
     cp OPP_COOLTRAINER_M		; new, load Inverse Battle chart for COOL trainers
     jr z, .loadInverseChart		; new, load Inverse Battle chart for COOL trainers
@@ -7200,7 +7210,7 @@ HandleExplodingAnimation:
 	ld a, [wMoveMissed]
 	and a
 	ret nz
-	ld a, 5
+	ld a, MEGA_PUNCH
 	ld [wAnimationType], a
 
 PlayMoveAnimation:

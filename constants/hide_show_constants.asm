@@ -41,6 +41,7 @@ DEF SHOW EQU $15
 	const HS_ROUTE_12_ITEM_2               ; 20
 	const HS_ROUTE_15_ITEM                 ; 21
 	const HS_ROUTE_16_SNORLAX              ; 22
+	const HS_ROUTE_21_OAK				   ; new
 	const HS_ROUTE_22_RIVAL_1              ; 23
 	const HS_ROUTE_22_RIVAL_2              ; 24
 	const HS_NUGGET_BRIDGE_GUY             ; 25

@@ -37,13 +37,13 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets Psychic or test moves
-	ld a, BITE
+	ld a, PSYCHIC_M
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TWISTER
+	ld a, ICE_BEAM
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, TWINEEDLE
+	ld a, THUNDERBOLT
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 
@@ -94,6 +94,10 @@ IF DEF(_DEBUG)
 	ld [hli], a ; hl = wUnknownDebugByte
 	ld a, STARTER_PIKACHU
 	ld [hl], a ; hl = wPlayerStarter
+
+	; Select gender: 0 male, 1 female, 2 enby
+	ld a, 2
+	ld [wPlayerGender], a
 
 	; Give max money.
 	ld hl, wPlayerMoney

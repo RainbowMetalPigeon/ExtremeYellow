@@ -43,20 +43,20 @@ SaffronGymSabrinaPostBattle:
 	ld [wJoyIgnore], a
 
 SaffronGymReceiveTM46:
-	ld a, $a
+	ld a, $b
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA
 	lb bc, TM_PSYWAVE, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $b
+	ld a, $c
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM46
 	jr .gymVictory
 .BagFull
-	ld a, $c
+	ld a, $d
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -79,6 +79,7 @@ SaffronGym_TextPointers:
 	dw SaffronGymTrainerText5
 	dw SaffronGymTrainerText6
 	dw SaffronGymTrainerText7
+	dw SaffronGymTrainerText8
 	dw SaffronGymGuideText
 	dw KogaMarshBadgeInfoText
 	dw ReceivedTM46Text
@@ -100,6 +101,8 @@ SaffronGymTrainerHeader5:
 	trainer EVENT_BEAT_SAFFRON_GYM_TRAINER_5, 3, SaffronGymBattleText6, SaffronGymEndBattleText6, SaffronGymAfterBattleText6
 SaffronGymTrainerHeader6:
 	trainer EVENT_BEAT_SAFFRON_GYM_TRAINER_6, 3, SaffronGymBattleText7, SaffronGymEndBattleText7, SaffronGymAfterBattleText7
+SaffronGymTrainerHeader7:
+	trainer EVENT_BEAT_SAFFRON_GYM_TRAINER_7, 4, SaffronGymBattleText8, SaffronGymEndBattleText8, SaffronGymAfterBattleText8
 	db -1 ; end
 
 SabrinaText:
@@ -202,6 +205,12 @@ SaffronGymTrainerText6:
 SaffronGymTrainerText7:
 	text_asm
 	ld hl, SaffronGymTrainerHeader6
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronGymTrainerText8:
+	text_asm
+	ld hl, SaffronGymTrainerHeader7
 	call TalkToTrainer
 	jp TextScriptEnd
 
@@ -308,4 +317,16 @@ SaffronGymEndBattleText7:
 
 SaffronGymAfterBattleText7:
 	text_far _SaffronGymAfterBattleText7
+	text_end
+
+SaffronGymBattleText8:
+	text_far _SaffronGymBattleText8
+	text_end
+
+SaffronGymEndBattleText8:
+	text_far _SaffronGymEndBattleText8
+	text_end
+
+SaffronGymAfterBattleText8:
+	text_far _SaffronGymAfterBattleText8
 	text_end

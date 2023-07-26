@@ -375,38 +375,37 @@ _CinnabarGymQuizShortIntroText::
 	done
 
 _CinnabarQuizQuestionsText1::
-	text "CATERPIE evolves"
-	line "into BUTTERFREE?"
+	text "Does STEEL resist"
+	line "DARK?"
 	done
 
 _CinnabarQuizQuestionsText2::
-	text "There are 9"
-	line "certified #MON"
-	cont "LEAGUE BADGEs?"
+	text "Are there 17 types"
+	line "of #MON?"
 	done
 
 _CinnabarQuizQuestionsText3::
-	text "POLIWAG evolves 3"
-	line "times?"
+	text "Are BUG attacks"
+	line "supereffective"
+	cont "against as many"
+	cont "types as FIGHTING"
+	cont "is weak to?"
 	done
 
 _CinnabarQuizQuestionsText4::
-	text "Are thunder moves"
-	line "effective against"
-	cont "ground element-"
-	cont "type #MON?"
+	text "Can SLEEP POWDER"
+	line "put to sleep"
+	cont "GRASS #MON?"
 	done
 
 _CinnabarQuizQuestionsText5::
-	text "#MON of the"
-	line "same kind and"
-	cont "level are not"
-	cont "identical?"
+	text "Can VENUSAUR"
+	line "evolve?"
 	done
 
 _CinnabarQuizQuestionsText6::
-	text "TM28 contains"
-	line "TOMBSTONER?"
+	text "Will you win the"
+	line "next battle?"
 	done
 
 _CinnabarGymQuizCorrectText::

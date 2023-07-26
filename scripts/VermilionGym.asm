@@ -62,20 +62,20 @@ VermilionGymLTSurgePostBattle:
 	ld [wJoyIgnore], a
 
 VermilionGymReceiveTM24:
-	ld a, $6
+	ld a, $7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_LT_SURGE
 	lb bc, TM_THUNDERBOLT, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $7
+	ld a, $8
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM24
 	jr .gymVictory
 .BagFull
-	ld a, $8
+	ld a, $9
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -85,7 +85,7 @@ VermilionGymReceiveTM24:
 	set BIT_THUNDERBADGE, [hl]
 
 	; deactivate gym trainers
-	SetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_2
+	SetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_3
 
 	jp VermilionGymResetScripts
 
@@ -94,6 +94,7 @@ VermilionGym_TextPointers:
 	dw VermilionGymTrainerText1
 	dw VermilionGymTrainerText2
 	dw VermilionGymTrainerText3
+	dw VermilionGymTrainerText4
 	dw VermilionGymGuideText
 	dw LTSurgeThunderBadgeInfoText
 	dw ReceivedTM24Text
@@ -107,6 +108,8 @@ VermilionGymTrainerHeader1:
 	trainer EVENT_BEAT_VERMILION_GYM_TRAINER_1, 2, VermilionGymBattleText2, VermilionGymEndBattleText2, VermilionGymAfterBattleText2
 VermilionGymTrainerHeader2:
 	trainer EVENT_BEAT_VERMILION_GYM_TRAINER_2, 3, VermilionGymBattleText3, VermilionGymEndBattleText3, VermilionGymAfterBattleText3
+VermilionGymTrainerHeader3:
+	trainer EVENT_BEAT_VERMILION_GYM_TRAINER_3, 4, VermilionGymBattleText4, VermilionGymEndBattleText4, VermilionGymAfterBattleText4
 	db -1 ; end
 
 LTSurgeText:
@@ -223,6 +226,24 @@ VermilionGymEndBattleText3:
 
 VermilionGymAfterBattleText3:
 	text_far _VermilionGymAfterBattleText3
+	text_end
+
+VermilionGymTrainerText4:
+	text_asm
+	ld hl, VermilionGymTrainerHeader3
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VermilionGymBattleText4:
+	text_far _VermilionGymBattleText4
+	text_end
+
+VermilionGymEndBattleText4:
+	text_far _VermilionGymEndBattleText4
+	text_end
+
+VermilionGymAfterBattleText4:
+	text_far _VermilionGymAfterBattleText4
 	text_end
 
 VermilionGymGuideText:

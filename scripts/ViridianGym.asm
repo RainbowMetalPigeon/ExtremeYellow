@@ -135,20 +135,20 @@ ViridianGymGiovanniPostBattle:
 	ld [wJoyIgnore], a
 ; fallthrough
 ViridianGymReceiveTM27:
-	ld a, $c
+	ld a, $d
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
 	lb bc, TM_FISSURE, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $d
+	ld a, $e
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM27
 	jr .gymVictory
 .BagFull
-	ld a, $e
+	ld a, $f
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -176,6 +176,7 @@ ViridianGym_TextPointers:
 	dw ViridianGymTrainerText6
 	dw ViridianGymTrainerText7
 	dw ViridianGymTrainerText8
+	dw ViridianGymTrainerText9
 	dw ViridianGymGuideText
 	dw PickUpItemText
 	dw GiovanniEarthBadgeInfoText
@@ -200,6 +201,8 @@ ViridianGymTrainerHeader6:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_6, 3, ViridianGymBattleText7, ViridianGymEndBattleText7, ViridianGymAfterBattleText7
 ViridianGymTrainerHeader7:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7, 4, ViridianGymBattleText8, ViridianGymEndBattleText8, ViridianGymAfterBattleText8
+ViridianGymTrainerHeader8:
+	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8, 3, ViridianGymBattleText9, ViridianGymEndBattleText9, ViridianGymAfterBattleText9
 	db -1 ; end
 
 GiovanniText:
@@ -416,6 +419,24 @@ ViridianGymEndBattleText8:
 
 ViridianGymAfterBattleText8:
 	text_far _ViridianGymAfterBattleText8
+	text_end
+
+ViridianGymTrainerText9:
+	text_asm
+	ld hl, ViridianGymTrainerHeader8
+	call TalkToTrainer
+	jp TextScriptEnd
+
+ViridianGymBattleText9:
+	text_far _ViridianGymBattleText9
+	text_end
+
+ViridianGymEndBattleText9:
+	text_far _ViridianGymEndBattleText9
+	text_end
+
+ViridianGymAfterBattleText9:
+	text_far _ViridianGymAfterBattleText9
 	text_end
 
 ViridianGymGuideText:

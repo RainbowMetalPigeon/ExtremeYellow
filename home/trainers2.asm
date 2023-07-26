@@ -23,6 +23,7 @@ GetTrainerInformation::
 	ld a, [hli]
 	ld [de], a
 	call IsFightingJessieJames
+	call IsFightingPseudoRed
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -44,6 +45,20 @@ IsFightingJessieJames::
 	jr c, .dummy
 	ld de, JessieJamesPic ; possibly meant to add another pic
 .dummy
+	ld hl, wTrainerPicPointer
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	ret
+
+IsFightingPseudoRed::
+	ld a, [wTrainerClass]
+	cp COOLTRAINER_M
+	ret nz
+	ld a, [wTrainerNo]
+	cp 5
+	ret nz
+	ld de, RedPicFront
 	ld hl, wTrainerPicPointer
 	ld a, e
 	ld [hli], a

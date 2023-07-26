@@ -35,7 +35,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw Route21HS
 	dw Route22HS
 	dw NoHS
 	dw Route24HS
@@ -309,6 +309,8 @@ Route15HS:
 	db ROUTE_15, $0B, SHOW
 Route16HS:
 	db ROUTE_16, $07, SHOW
+Route21HS:
+	db ROUTE_21, $01, HIDE ; new
 Route22HS:
 	db ROUTE_22, $01, HIDE
 	db ROUTE_22, $02, HIDE
@@ -330,7 +332,7 @@ OaksLabHS:
 	db OAKS_LAB, $06, HIDE
 ViridianGymHS:
 	db VIRIDIAN_GYM, $01, SHOW
-	db VIRIDIAN_GYM, $0B, SHOW
+	db VIRIDIAN_GYM, $0C, SHOW	; updated, +1
 Museum1FHS:
 	db MUSEUM_1F, $05, SHOW
 CeruleanMelaniesHouseHS:
@@ -469,14 +471,14 @@ SilphCo4FHS:
 	db SILPH_CO_4F, $05, SHOW
 	db SILPH_CO_4F, $06, SHOW
 	db SILPH_CO_4F, $07, SHOW
-SilphCo5FHS:
-	db SILPH_CO_5F, $02, SHOW
+SilphCo5FHS:						; updated, +1
 	db SILPH_CO_5F, $03, SHOW
 	db SILPH_CO_5F, $04, SHOW
 	db SILPH_CO_5F, $05, SHOW
 	db SILPH_CO_5F, $06, SHOW
 	db SILPH_CO_5F, $07, SHOW
 	db SILPH_CO_5F, $08, SHOW
+	db SILPH_CO_5F, $09, SHOW
 SilphCo6FHS:
 	db SILPH_CO_6F, $06, SHOW
 	db SILPH_CO_6F, $07, SHOW
@@ -551,9 +553,9 @@ CeruleanCaveB1FHS:
 	db CERULEAN_CAVE_B1F, $03, SHOW
 	db CERULEAN_CAVE_B1F, $04, SHOW
 	db CERULEAN_CAVE_B1F, $05, SHOW
-VictoryRoad1FHS:
-	db VICTORY_ROAD_1F, $03, SHOW
-	db VICTORY_ROAD_1F, $04, SHOW
+VictoryRoad1FHS:					; updated, +2
+	db VICTORY_ROAD_1F, $05, SHOW
+	db VICTORY_ROAD_1F, $06, SHOW
 ChampionsRoomHS:
 	db CHAMPIONS_ROOM, $02, HIDE
 SeafoamIslands1FHS:

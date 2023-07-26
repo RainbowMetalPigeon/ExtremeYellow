@@ -43,20 +43,20 @@ CeladonGymErikaPostBattle:
 	ld [wJoyIgnore], a
 
 CeladonGymReceiveTM21:
-	ld a, $9
+	ld a, $a
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA
 	lb bc, TM_GIGA_DRAIN, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $a
+	ld a, $b
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM21
 	jr .gymVictory
 .BagFull
-	ld a, $b
+	ld a, $c
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -66,7 +66,7 @@ CeladonGymReceiveTM21:
 	set BIT_RAINBOWBADGE, [hl]
 
 	; deactivate gym trainers
-	SetEventRange EVENT_BEAT_CELADON_GYM_TRAINER_0, EVENT_BEAT_CELADON_GYM_TRAINER_6
+	SetEventRange EVENT_BEAT_CELADON_GYM_TRAINER_0, EVENT_BEAT_CELADON_GYM_TRAINER_7
 
 	jp CeladonGymResetScripts
 
@@ -79,6 +79,7 @@ CeladonGym_TextPointers:
 	dw CeladonGymTrainerText5
 	dw CeladonGymTrainerText6
 	dw CeladonGymTrainerText7
+	dw CeladonGymTrainerText8
 	dw ErikaRainbowBadgeInfoText
 	dw ReceivedTM21Text
 	dw TM21NoRoomText
@@ -99,6 +100,8 @@ CeladonGymTrainerHeader5:
 	trainer EVENT_BEAT_CELADON_GYM_TRAINER_5, 2, CeladonGymBattleText7, CeladonGymEndBattleText7, CeladonGymAfterBattleText7
 CeladonGymTrainerHeader6:
 	trainer EVENT_BEAT_CELADON_GYM_TRAINER_6, 3, CeladonGymBattleText8, CeladonGymEndBattleText8, CeladonGymAfterBattleText8
+CeladonGymTrainerHeader7:
+	trainer EVENT_BEAT_CELADON_GYM_TRAINER_7, 2, CeladonGymBattleText9, CeladonGymEndBattleText9, CeladonGymAfterBattleText9
 	db -1 ; end
 
 ErikaText:
@@ -285,4 +288,22 @@ CeladonGymEndBattleText8:
 
 CeladonGymAfterBattleText8:
 	text_far _CeladonGymAfterBattleText8
+	text_end
+
+CeladonGymTrainerText8:
+	text_asm
+	ld hl, CeladonGymTrainerHeader7
+	call TalkToTrainer
+	jp TextScriptEnd
+
+CeladonGymBattleText9:
+	text_far _CeladonGymBattleText9
+	text_end
+
+CeladonGymEndBattleText9:
+	text_far _CeladonGymEndBattleText9
+	text_end
+
+CeladonGymAfterBattleText9:
+	text_far _CeladonGymAfterBattleText9
 	text_end

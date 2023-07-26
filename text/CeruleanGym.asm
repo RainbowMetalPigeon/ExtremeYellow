@@ -107,6 +107,35 @@ _CeruleanGymAfterBattleText2::
 	line "someone like you!"
 	done
 
+_CeruleanGymBattleText3::
+	text "Don't you think"
+	line "about challenging"
+	cont "MISTY before"
+	cont "defeating me!"
+
+	para "And that just"
+	line "won't happen!"
+	done
+
+_CeruleanGymEndBattleText3::
+	text "How"
+	line "is it possible?!"
+
+	para "I was sure you"
+	line "would have been"
+	cont "out of your depth"
+	cont "in a sea-based"
+	cont "INVERSE BATTLE!"
+	prompt
+
+_CeruleanGymAfterBattleText3::
+	text "I thought I had"
+	line "you like a fish"
+	cont "out of water..."
+
+	para "Fool me!"
+	done
+
 _CeruleanGymGuidePreBattleText::
 	text "Yo! Champ in"
 	line "making!"

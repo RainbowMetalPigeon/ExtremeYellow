@@ -63,13 +63,19 @@ OakSpeech:
 	ld [wcf91], a
 	ld a, 1
 	ld [wItemQuantity], a
-	call AddItemToInventory  ; give one old rod
+	call AddItemToInventory
 
 	ld a, BICYCLE
 	ld [wcf91], a
 	ld a, 1
 	ld [wItemQuantity], a
-	call AddItemToInventory  ; give one bicycle
+	call AddItemToInventory
+
+	ld a, TM_MIMIC
+	ld [wcf91], a
+	ld a, 1
+	ld [wItemQuantity], a
+	call AddItemToInventory
 
 	; ---------------------------- TEMP FOR TESTING, END ----------------------------
 
@@ -323,9 +329,6 @@ IntroDisplayPicCenteredOrUpperRight:
 ; displays boy/girl choice
 BoyGirlChoice::
 	call SaveScreenTilesToBuffer1
-	jr DisplayBoyGirlNoChoice
-
-DisplayBoyGirlNoChoice::
 	ld a, BOY_GIRL_NO
 	ld [wTextBoxID], a
 	call DisplayTextBoxID

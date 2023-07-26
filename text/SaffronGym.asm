@@ -236,3 +236,31 @@ _SaffronGymAfterBattleText7::
 	line "used telepathy to"
 	cont "read your mind!"
 	done
+
+_SaffronGymBattleText8::
+	text "I don't have any"
+	line "psychic power"
+	cont "like SABRINA, but"
+	cont "despite so I can"
+	cont "foresee a fiery"
+	cont "battle unfolding!"
+	done
+
+_SaffronGymEndBattleText8::
+	text "Well,"
+	line "maybe using such"
+	cont "a powerful type"
+	cont "as the PSYCHIC"
+	cont "one in an INVERSE"
+	cont "BATTLE isn't a"
+	cont "good idea..."
+	prompt
+
+_SaffronGymAfterBattleText8::
+	text "I joined the GYM"
+	line "not because I"
+	cont "have ESP, but be-"
+	cont "cause PSYCHIC and"
+	cont "GHOST #MON are"
+	cont "amazing!"
+	done

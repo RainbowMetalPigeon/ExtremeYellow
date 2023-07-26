@@ -19,15 +19,23 @@ PlayBattleMusic::
 ;	jr z, .wildBattle			; countercomment to do tutorial to go beyond 200
 	cp OPP_RIVAL3
 	jr z, .finalBattle
+	cp OPP_PROF_OAK
+	jr z, .finalBattle
+	cp OPP_LORELEI ; the whole E4 now play the gym leader battle theme
+	jr z, .Elite4Battle
+	cp OPP_BRUNO
+	jr z, .Elite4Battle
+	cp OPP_AGATHA
+	jr z, .Elite4Battle
 	cp OPP_LANCE
-	jr nz, .normalTrainerBattle
-	ld a, MUSIC_GYM_LEADER_BATTLE ; lance also plays gym leader theme
-	jr .playSong
-.normalTrainerBattle
+	jr z, .Elite4Battle
 	ld a, MUSIC_TRAINER_BATTLE
 	jr .playSong
 .finalBattle
 	ld a, MUSIC_FINAL_BATTLE
+	jr .playSong
+.Elite4Battle
+	ld a, MUSIC_GYM_LEADER_BATTLE
 	jr .playSong
 .wildBattle
 	ld a, MUSIC_WILD_BATTLE
