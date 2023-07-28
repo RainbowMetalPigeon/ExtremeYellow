@@ -234,6 +234,9 @@ Route21TextOak:
 	set 6, [hl]
 	set 7, [hl]
 
+	ld hl, wOptions
+	res 7, [hl]		; Turn on battle animations to make the battle feel more epic.
+
 	call Delay3
 	ld a, OPP_PROF_OAK
 	ld [wCurOpponent], a

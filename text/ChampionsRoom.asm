@@ -144,3 +144,18 @@ _GaryText_7612a::
 	para "<PLAYER>!"
 	line "Come with me!"
 	done
+
+; -------
+
+_GaryText2ndBattle::
+	text "AGAIN!"
+	line "2ND TEAM!"
+	done
+
+_GaryDefeatedText2ndBattle::
+	text "TEST DEFEAT"
+	done
+
+_GaryVictoryText2ndBattle::
+	text "TEST VICTORY"
+	done

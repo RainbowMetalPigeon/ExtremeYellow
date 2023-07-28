@@ -938,6 +938,31 @@ SpecialTrainerMoves:
 	db 1, 2, BODY_SLAM
 	db 1, 3, EARTHQUAKE
 	db 1, 4, BLIZZARD
+	; MGYARADOS
+	db 2, 1, NIGHT_SLASH
+	db 2, 2, HYDRO_PUMP
+	db 2, 3, HYPER_BEAM
+	db 2, 4, EARTHQUAKE
+	; MEWTWO
+	db 3, 1, AMNESIA
+	db 3, 2, PSYCHIC_M
+	db 3, 3, RECOVER
+	db 3, 4, THUNDERBOLT
+	; MMEWTWOX
+	db 4, 1, CLOSE_COMBAT
+	db 4, 2, STONE_EDGE
+	db 4, 3, LEECH_LIFE
+	db 4, 4, METEOR_MASH
+	; MMEWTWOY
+	db 5, 1, BLIZZARD
+	db 5, 2, PSYCHO_CUT
+	db 5, 3, THUNDER
+	db 5, 4, MOONBLAST
+	; VENUSTOISE
+	db 6, 1, HYDRO_CANNON
+	db 6, 2, FRENZY_PLANT
+	db 6, 3, GUNK_SHOT
+	db 6, 4, ZEN_HEADBUTT
 	db 0
 
 	db -1 ; end

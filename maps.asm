@@ -1225,6 +1225,11 @@ INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
 
+INCLUDE "data/maps/headers/TestMap1.asm"
+INCLUDE "scripts/TestMap1.asm"
+INCLUDE "data/maps/objects/TestMap1.asm"
+TestMap1_Blocks: INCBIN "maps/TestMap1.blk"
+
 
 SECTION "Maps 22", ROMX
 

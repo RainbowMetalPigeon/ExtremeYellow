@@ -23,6 +23,7 @@ ChampionsRoom_ScriptPointers:
 	dw GaryScript8
 	dw GaryScript9
 	dw GaryScript10
+	dw GaryScript2ndBattle
 
 GaryScript0:
 	ret
@@ -75,6 +76,38 @@ GaryScript2:
 	ld [wTrainerNo], a
 ;	ld a, 1							; countercomment to do tutorial to go beyond 200?
 ;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200?
+
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $b ; edited, to be changed if I rearrange all the scripts
+	ld [wChampionsRoomCurScript], a
+	ret
+
+GaryScript2ndBattle:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, wOptions
+	res 7, [hl]  ; Turn on battle animations to make the battle feel more epic.
+	ld a, $6
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Delay3
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, GaryDefeatedText2ndBattle
+	ld de, GaryVictoryText2ndBattle
+	call SaveEndBattleTextPointers
+	ld a, OPP_RIVAL3
+	ld [wCurOpponent], a
+
+	; select second Champion's team
+	ld a, $2
+	ld [wTrainerNo], a
 
 	xor a
 	ldh [hJoyHeld], a
@@ -240,6 +273,7 @@ ChampionsRoom_TextPointers:
 	dw GaryText3
 	dw GaryText4
 	dw GaryText5
+	dw GaryText2ndBattle
 
 GaryText1:
 	text_asm
@@ -290,4 +324,18 @@ GaryText4:
 
 GaryText5:
 	text_far _GaryText_7612a
+	text_end
+
+; ------
+
+GaryText2ndBattle:
+	text_far _GaryText2ndBattle
+	text_end
+
+GaryDefeatedText2ndBattle:
+	text_far _GaryDefeatedText2ndBattle
+	text_end
+
+GaryVictoryText2ndBattle:
+	text_far _GaryVictoryText2ndBattle
 	text_end
