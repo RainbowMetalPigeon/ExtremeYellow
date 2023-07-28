@@ -67,7 +67,8 @@ ENDM
 	warp_tiles $15, $55, $04
 
 .CavernWarpTileIDs:
-	warp_tiles $18, $1A, $22, $42
+	warp_tiles $18, $1A, $22
+;	warp_tiles $18, $1A, $22, $42
 
 .LobbyWarpTileIDs:
 	warp_tiles $1A, $1C, $38

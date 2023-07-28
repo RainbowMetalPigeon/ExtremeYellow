@@ -160,6 +160,8 @@ IsWarpTileInFrontOfPlayer::
 	ld a, [wCurMap]
 	cp SS_ANNE_BOW
 	jr z, IsSSAnneBowWarpTileInFrontOfPlayer
+	cp TEST_MAP_1									; test
+	jr z, IsInternalTestMapWarpTileInFrontOfPlayer	; test
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -187,6 +189,16 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
 .notSSAnne5Warp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
+IsInternalTestMapWarpTileInFrontOfPlayer: ; test
+	ld a, [wTileInFrontOfPlayer]
+	cp $22
+	jr nz, .notTestMapWarp
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notTestMapWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
