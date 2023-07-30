@@ -1,3 +1,7 @@
+; "Coll" is fully misleading because the indexes
+; refer to tiles that are NOT collision-like
+; aka, these are lists of WALKABLE tiles
+
 MACRO coll_tiles
 	IF _NARG
 		db \# ; all args
@@ -47,7 +51,7 @@ Interior_Coll::
 	coll_tiles $04, $0f, $15, $1f, $3b, $45, $47, $55, $56
 
 Cavern_Coll::
-	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42
+	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42 ; updated, added last one, new tile
 
 	coll_tiles ; unused
 

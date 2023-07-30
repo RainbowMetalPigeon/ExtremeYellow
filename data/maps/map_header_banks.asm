@@ -242,9 +242,9 @@ MapHeaderBanks::
 	db $11 ; UNUSED_MAP_EE
 	db BANK(TradeCenter_h)
 	db BANK(Colosseum_h)
-	db $11 ; UNUSED_MAP_F1
-	db BANK(TestMap1_h) ; edited
-	db $11 ; UNUSED_MAP_F3
+	db BANK(CeruleanCaveExtraTop_h) ; edited
+	db BANK(CeruleanCaveExtraMiddle_h) ; edited
+	db BANK(CeruleanCaveExtraBottom_h) ; edited
 	db $11 ; UNUSED_MAP_F4
 	db BANK(LoreleisRoom_h)
 	db BANK(BrunosRoom_h)

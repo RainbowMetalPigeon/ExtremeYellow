@@ -69,5 +69,5 @@ SECTION "Tilesets 4", ROMX
 BeachHouse_GFX::    INCBIN "gfx/tilesets/beach_house.2bpp"
 	ds 384
 BeachHouse_Block::  INCBIN "gfx/blocksets/beach_house.bst"
-Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"	; test
-Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"	; test
+Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"	; moved
+Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"	; moved

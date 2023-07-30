@@ -14,6 +14,7 @@ DungeonWarpList:
 	db POKEMON_MANSION_1F,  1
 	db POKEMON_MANSION_1F,  2
 	db POKEMON_MANSION_2F,  3
+	db CERULEAN_CAVE_EXTRA_BOTTOM,  1 ; new
 	db -1 ; end
 
 
@@ -36,6 +37,7 @@ DungeonWarpData:
 	fly_warp POKEMON_MANSION_1F,  16, 14
 	fly_warp POKEMON_MANSION_1F,  16, 14
 	fly_warp POKEMON_MANSION_2F,  18, 14
+	fly_warp CERULEAN_CAVE_EXTRA_BOTTOM, 39, 39 ; new
 
 
 MACRO special_warp_spec

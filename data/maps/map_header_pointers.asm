@@ -242,9 +242,9 @@ MapHeaderPointers::
 	dw SilphCo2F_h ; UNUSED_MAP_EE
 	dw TradeCenter_h
 	dw Colosseum_h
-	dw SilphCo2F_h ; UNUSED_MAP_F1
-	dw TestMap1_h ; edited
-	dw SilphCo2F_h ; UNUSED_MAP_F3
+	dw CeruleanCaveExtraTop_h ; edited
+	dw CeruleanCaveExtraMiddle_h ; edited
+	dw CeruleanCaveExtraBottom_h ; edited
 	dw SilphCo2F_h ; UNUSED_MAP_F4
 	dw LoreleisRoom_h
 	dw BrunosRoom_h

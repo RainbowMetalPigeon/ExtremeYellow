@@ -241,9 +241,9 @@ MapSongBanks::
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_EE
 	db MUSIC_CELADON, BANK(Music_Celadon) ; TRADE_CENTER
 	db MUSIC_CELADON, BANK(Music_Celadon) ; COLOSSEUM
-	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_F1
-	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_F2
-	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_F3
+	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; edited
+	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; edited
+	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; edited
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_F4
 	db MUSIC_GYM, BANK(Music_Gym) ; LORELEIS_ROOM
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1) ; BRUNOS_ROOM

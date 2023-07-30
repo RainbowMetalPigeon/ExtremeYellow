@@ -709,6 +709,12 @@ ExtraWarpCheck::
 	jr z, .useFunction2
 	cp ROCK_TUNNEL_1F
 	jr z, .useFunction2
+	cp CERULEAN_CAVE_EXTRA_TOP		; new
+	jr z, .useFunction2				; new
+	cp CERULEAN_CAVE_EXTRA_MIDDLE	; new
+	jr z, .useFunction2				; new
+	cp CERULEAN_CAVE_EXTRA_BOTTOM	; new
+	jr z, .useFunction2				; new
 	ld a, [wCurMapTileset]
 	and a ; outside tileset (OVERWORLD)
 	jr z, .useFunction2

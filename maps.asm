@@ -1225,10 +1225,20 @@ INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
 
-INCLUDE "data/maps/headers/TestMap1.asm"
-INCLUDE "scripts/TestMap1.asm"
-INCLUDE "data/maps/objects/TestMap1.asm"
-TestMap1_Blocks: INCBIN "maps/TestMap1.blk"
+INCLUDE "data/maps/headers/CeruleanCaveExtraTop.asm"
+INCLUDE "scripts/CeruleanCaveExtraTop.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraTop.asm"
+CeruleanCaveExtraTop_Blocks: INCBIN "maps/CeruleanCaveExtraTop.blk"
+
+INCLUDE "data/maps/headers/CeruleanCaveExtraMiddle.asm"
+INCLUDE "scripts/CeruleanCaveExtraMiddle.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraMiddle.asm"
+CeruleanCaveExtraMiddle_Blocks: INCBIN "maps/CeruleanCaveExtraMiddle.blk"
+
+INCLUDE "data/maps/headers/CeruleanCaveExtraBottom.asm"
+INCLUDE "scripts/CeruleanCaveExtraBottom.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraBottom.asm"
+CeruleanCaveExtraBottom_Blocks: INCBIN "maps/CeruleanCaveExtraBottom.blk"
 
 
 SECTION "Maps 22", ROMX

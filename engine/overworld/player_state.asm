@@ -160,8 +160,12 @@ IsWarpTileInFrontOfPlayer::
 	ld a, [wCurMap]
 	cp SS_ANNE_BOW
 	jr z, IsSSAnneBowWarpTileInFrontOfPlayer
-	cp TEST_MAP_1									; test
-	jr z, IsInternalTestMapWarpTileInFrontOfPlayer	; test
+	cp CERULEAN_CAVE_EXTRA_TOP						; new
+	jr z, IsInternalMapWarpTileInFrontOfPlayer		; new
+	cp CERULEAN_CAVE_EXTRA_MIDDLE					; new
+	jr z, IsInternalMapWarpTileInFrontOfPlayer		; new
+	cp CERULEAN_CAVE_EXTRA_BOTTOM					; new
+	jr z, IsInternalMapWarpTileInFrontOfPlayer		; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -192,9 +196,9 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
-IsInternalTestMapWarpTileInFrontOfPlayer: ; test
+IsInternalMapWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
-	cp $22
+	cp $3C
 	jr nz, .notTestMapWarp
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
