@@ -397,6 +397,21 @@ INCLUDE "scripts/SeafoamIslandsB4F.asm"
 INCLUDE "data/maps/objects/SeafoamIslandsB4F.asm"
 SeafoamIslandsB4F_Blocks: INCBIN "maps/SeafoamIslandsB4F.blk"
 
+INCLUDE "data/maps/headers/CeruleanCaveExtraTop.asm"
+INCLUDE "scripts/CeruleanCaveExtraTop.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraTop.asm"
+CeruleanCaveExtraTop_Blocks: INCBIN "maps/CeruleanCaveExtraTop.blk"
+
+INCLUDE "data/maps/headers/CeruleanCaveExtraMiddle.asm"
+INCLUDE "scripts/CeruleanCaveExtraMiddle.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraMiddle.asm"
+CeruleanCaveExtraMiddle_Blocks: INCBIN "maps/CeruleanCaveExtraMiddle.blk"
+
+INCLUDE "data/maps/headers/CeruleanCaveExtraBottom.asm"
+INCLUDE "scripts/CeruleanCaveExtraBottom.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraBottom.asm"
+CeruleanCaveExtraBottom_Blocks: INCBIN "maps/CeruleanCaveExtraBottom.blk"
+
 
 SECTION "Maps 7", ROMX
 
@@ -1224,21 +1239,6 @@ INCLUDE "data/maps/headers/AgathasRoom.asm"
 INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
-
-INCLUDE "data/maps/headers/CeruleanCaveExtraTop.asm"
-INCLUDE "scripts/CeruleanCaveExtraTop.asm"
-INCLUDE "data/maps/objects/CeruleanCaveExtraTop.asm"
-CeruleanCaveExtraTop_Blocks: INCBIN "maps/CeruleanCaveExtraTop.blk"
-
-INCLUDE "data/maps/headers/CeruleanCaveExtraMiddle.asm"
-INCLUDE "scripts/CeruleanCaveExtraMiddle.asm"
-INCLUDE "data/maps/objects/CeruleanCaveExtraMiddle.asm"
-CeruleanCaveExtraMiddle_Blocks: INCBIN "maps/CeruleanCaveExtraMiddle.blk"
-
-INCLUDE "data/maps/headers/CeruleanCaveExtraBottom.asm"
-INCLUDE "scripts/CeruleanCaveExtraBottom.asm"
-INCLUDE "data/maps/objects/CeruleanCaveExtraBottom.asm"
-CeruleanCaveExtraBottom_Blocks: INCBIN "maps/CeruleanCaveExtraBottom.blk"
 
 
 SECTION "Maps 22", ROMX

@@ -154,8 +154,8 @@ _GaryText2ndBattle::
 
 _GaryDefeatedText2ndBattle::
 	text "TEST DEFEAT"
-	done
+	prompt
 
 _GaryVictoryText2ndBattle::
 	text "TEST VICTORY"
-	done
+	prompt
