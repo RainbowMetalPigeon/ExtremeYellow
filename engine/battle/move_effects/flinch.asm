@@ -24,7 +24,10 @@ FlinchSideEffect_:
 	cp FLINCH_SIDE_EFFECT2											; new
 	ld b, 20 percent + 1 ; chance of flinch (FLINCH_SIDE_EFFECT2)	; new
 	jr z, .gotEffectChance											; new
-	ld b, 30 percent + 1 ; chance of flinch otherwise (FLINCH_SIDE_EFFECT3)
+	cp FLINCH_SIDE_EFFECT3											; new
+	ld b, 30 percent + 1 ; chance of flinch (FLINCH_SIDE_EFFECT3)	; new
+	jr z, .gotEffectChance											; new
+	ld b, 50 percent + 1 ; chance of flinch otherwise (FLINCH_SIDE_EFFECT5)
 .gotEffectChance
 	call BattleRandom2	; edited
 	cp b

@@ -311,7 +311,7 @@ SpecialTrainerMoves:
 	db 6, 3, LEECH_SEED
 	db 6, 4, ROCK_SLIDE
 	db 0
-
+	
 	db KOGA, 1
 	; MUK
 	db 1, 1, TOXIC

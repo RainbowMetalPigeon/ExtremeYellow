@@ -23,7 +23,7 @@ GetTrainerInformation::
 	ld a, [hli]
 	ld [de], a
 	call IsFightingJessieJames
-	call IsFightingPseudoRed
+;	call IsFightingPseudoRed
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -51,19 +51,19 @@ IsFightingJessieJames::
 	ld [hl], d
 	ret
 
-IsFightingPseudoRed::
-	ld a, [wTrainerClass]
-	cp COOLTRAINER_M
-	ret nz
-	ld a, [wTrainerNo]
-	cp 5
-	ret nz
-	ld de, RedPicFront
-	ld hl, wTrainerPicPointer
-	ld a, e
-	ld [hli], a
-	ld [hl], d
-	ret
+;IsFightingPseudoRed::
+;	ld a, [wTrainerClass]
+;	cp COOLTRAINER_M
+;	ret nz
+;	ld a, [wTrainerNo]
+;	cp 5
+;	ret nz
+;	ld de, RedPicFront
+;	ld hl, wTrainerPicPointer
+;	ld a, e
+;	ld [hli], a
+;	ld [hl], d
+;	ret
 
 GetTrainerName::
 	farjp GetTrainerName_

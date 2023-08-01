@@ -35,7 +35,7 @@ MoveEffectPointerTable:
 	dw SleepEffect               ; SLEEP_EFFECT
 	dw PoisonEffect              ; POISON_SIDE_EFFECT2
 	dw FreezeBurnParalyzeEffect  ; BURN_SIDE_EFFECT2
-	dw FreezeBurnParalyzeEffect  ; unused effect
+	dw FlinchSideEffect		     ; FLINCH_SIDE_EFFECT5 - new
 	dw FreezeBurnParalyzeEffect  ; PARALYZE_SIDE_EFFECT2
 	dw FlinchSideEffect          ; FLINCH_SIDE_EFFECT2
 	dw OneHitKOEffect            ; OHKO_EFFECT

@@ -8,4 +8,5 @@ HighCriticalMoves:
 	db SHADOW_CLAW ; new
 	db PSYCHO_CUT ; new
 	db STONE_EDGE ; new
+	db ANCESTOR_PWR ; new
 	db -1 ; end

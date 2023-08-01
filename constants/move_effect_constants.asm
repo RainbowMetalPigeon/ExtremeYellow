@@ -39,7 +39,7 @@
 	const SLEEP_EFFECT               ; $20
 	const POISON_SIDE_EFFECT2        ; $21
 	const BURN_SIDE_EFFECT2          ; $22
-	const UNUSED_EFFECT_23           ; $23
+	const FLINCH_SIDE_EFFECT5        ; $23 repurposed, was UNUSED_EFFECT_23 - new
 	const PARALYZE_SIDE_EFFECT2      ; $24
 	const FLINCH_SIDE_EFFECT2        ; $25
 	const OHKO_EFFECT                ; $26 moves like Horn Drill

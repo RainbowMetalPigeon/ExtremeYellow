@@ -228,16 +228,17 @@ FreezeBurnParalyzeEffect:
 	cp b ; do target type 2 and move type match?
 	ret z  ; return if they match
 	ld a, [wPlayerMoveEffect]
-	cp UNUSED_EFFECT_23 ; more stadium stuff
-	jr nz, .asm_3f2c7
-	ld a, [wUnknownSerialFlag_d499]
-	and a
-	ld a, FREEZE_SIDE_EFFECT
-	ld b, 30 percent + 1
-	jr z, .regular_effectiveness
-	ld b, 10 percent + 1
-	jr .regular_effectiveness
-.asm_3f2c7
+	; block commented away because it's useless stuff
+;	cp UNUSED_EFFECT_23 ; more stadium stuff
+;	jr nz, .asm_3f2c7
+;	ld a, [wUnknownSerialFlag_d499]
+;	and a
+;	ld a, FREEZE_SIDE_EFFECT
+;	ld b, 30 percent + 1
+;	jr z, .regular_effectiveness
+;	ld b, 10 percent + 1
+;	jr .regular_effectiveness
+;.asm_3f2c7
 	cp PARALYZE_SIDE_EFFECT_CERT	; new
 	jr z, .paralyze1				; new
 	cp PARALYZE_SIDE_EFFECT1 + 1
@@ -293,16 +294,17 @@ FreezeBurnParalyzeEffect:
 	cp b
 	ret z
 	ld a, [wEnemyMoveEffect]
-	cp UNUSED_EFFECT_23 ; more stadium stuff
-	jr nz, .asm_3f341
-	ld a, [wUnknownSerialFlag_d499]
-	and a
-	ld a, FREEZE_SIDE_EFFECT
-	ld b, 30 percent + 1
-	jr z, .regular_effectiveness2
-	ld b, 10 percent + 1
-	jr .regular_effectiveness2
-.asm_3f341
+	; block commented away because it's useless stuff
+;	cp UNUSED_EFFECT_23 ; more stadium stuff
+;	jr nz, .asm_3f341
+;	ld a, [wUnknownSerialFlag_d499]
+;	and a
+;	ld a, FREEZE_SIDE_EFFECT
+;	ld b, 30 percent + 1
+;	jr z, .regular_effectiveness2
+;	ld b, 10 percent + 1
+;	jr .regular_effectiveness2
+;.asm_3f341
 	cp PARALYZE_SIDE_EFFECT_CERT	; new
 	jr z, .paralyze2				; new
 	cp PARALYZE_SIDE_EFFECT1 + 1
@@ -367,6 +369,7 @@ TriAttackEffect:
 ;	cp b ; do target type 2 and move type match?
 ;	ret z  ; return if they match
     ; I think i can comment all of this away? It'll be one single move and I don't care for Stadium shenanigans
+	; oh lol I did it only for part of the code
 ;	ld a, [wPlayerMoveEffect]
 ;	cp UNUSED_EFFECT_23 ; more stadium stuff
 ;	jr nz, .asm_3f2c7
@@ -1317,8 +1320,19 @@ ThrashPetalDanceEffect:
 	inc a
 	inc a
 	ld [de], a ; set thrash/petal dance counter to 2 or 3 at random
+	; edited to avoid the squares for OUTRAGE
 	ldh a, [hWhoseTurn]
-	add ANIM_B0
+	and a
+	ld a, [wPlayerMoveNum]
+	jr z, .continue
+	ld a, [wEnemyMoveNum]
+.continue
+	cp OUTRAGE
+	ld a, 0
+	jr z, .skipExtraAnimation
+	ldh a, [hWhoseTurn]	; vanilla code
+	add ANIM_B0			; vanilla code
+.skipExtraAnimation
 	jp PlayBattleAnimation2
 
 SwitchAndTeleportEffect:			; made into a jpfar to save space

@@ -4644,6 +4644,20 @@ CalculateDamage:
 ;   d: base power
 ;   e: level
 
+	; new block for ANCESTOR_PWR, it halves defense
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveNum]
+	jr z, .continue
+	ld a, [wEnemyMoveNum]
+.continue
+	cp ANCESTOR_PWR
+	jr nz, .okNew
+	srl c
+	jr nz, .okNew
+	inc c ; ...with a minimum value of 1 (used as a divisor later on)
+.okNew
+
 	ldh a, [hWhoseTurn] ; whose turn?
 	and a
 	ld a, [wPlayerMoveEffect]
@@ -5620,6 +5634,24 @@ AdjustDamageForMoveType:
 	ld b, a
 	ld a, [hl] ; a = damage multiplier
 	ldh [hMultiplier], a
+
+; new block of code, bugfix for super-not-very effective moves effectiveness display bug
+	and a  ; cp NO_EFFECT
+	jr z, .gotMultiplier
+	cp NOT_VERY_EFFECTIVE
+	jr nz, .nothalf
+	ld a, [wDamageMultipliers]
+	and $7f
+	srl a
+	jr .gotMultiplier
+.nothalf
+	cp SUPER_EFFECTIVE
+	jr nz, .gotMultiplier
+	ld a, [wDamageMultipliers]
+	and $7f
+	sla a
+.gotMultiplier
+
 	add b
 	ld [wDamageMultipliers], a
 	xor a
@@ -5630,7 +5662,7 @@ AdjustDamageForMoveType:
 	ld a, [hld]
 	ldh [hMultiplicand + 2], a
 	call Multiply
-	ld a, 10
+	ld a, 10 ; this is the "normal effectiveness", I edited it in another hackrom, and actually also did a PR
 	ldh [hDivisor], a
 	ld b, $04
 	call Divide

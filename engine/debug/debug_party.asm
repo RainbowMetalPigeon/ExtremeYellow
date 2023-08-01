@@ -37,19 +37,25 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets Psychic or test moves
-	ld a, PSYCHIC_M
+	ld a, PAY_DAY
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ICE_BEAM
+	ld a, FEINT_ATTACK
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, THUNDERBOLT
+	ld a, DRAGON_CLAW
 	ld hl, wPartyMon1Moves + 2
+	ld [hl], a
+	ld a, SHADOW_BALL
+	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Pikachu gets Surf.
 	ld a, SURF
 	ld hl, wPartyMon4Moves + 2
+	ld [hl], a
+	ld a, ANCESTOR_PWR
+	ld hl, wPartyMon4Moves + 3
 	ld [hl], a
 
 	; Snorlax gets four HM moves.

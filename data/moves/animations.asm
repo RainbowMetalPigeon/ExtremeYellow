@@ -120,7 +120,7 @@ AttackAnimationPointers:
 	dw MetronomeAnim
 	dw MirrorMoveAnim
 	dw SelfdestructAnim
-;	dw EggBombAnim ; - REMOVED
+;	dw EggBombAnim
 	dw LickAnim
 	dw SmogAnim
 	dw SludgeAnim
@@ -129,11 +129,11 @@ AttackAnimationPointers:
 	dw WaterfallAnim
 	dw ClampAnim
 	dw SwiftAnim
-;	dw SkullBashAnim
+;	dw SkullBashAnim ; cool sound
 	dw SpikeCannonAnim
 ;	dw ConstrictAnim
 	dw AmnesiaAnim
-;	dw KinesisAnim
+;	dw KinesisAnim ; weird sound
 	dw SoftboiledAnim
 	dw HiJumpKickAnim
 	dw GlareAnim
@@ -962,7 +962,6 @@ ReflectAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
-DragonDanceAnim:		; improve if space
 FocusEnergyAnim:
 	battle_anim FOCUS_ENERGY, SE_SPIRAL_BALLS_INWARD
 	db -1 ; end
@@ -1015,16 +1014,11 @@ BoneClubAnim:
 
 ; ------------------------------------------------------------------------------
 
-InfestationAnim:
+; TODO:
 
-FeintAttackAnim:
 CrunchAnim:
 NightSlashAnim:
 DarkPulseAnim:
-
-TwisterAnim:
-DragonBreathAnim:
-OutrageAnim:
 
 ZapCannonAnim:
 ShockWaveAnim:
@@ -1055,7 +1049,6 @@ ShadowClawAnim:
 MagicaLeafAnim:
 BulletSeedAnim:
 LeafStormAnim:
-EnergyBallAnim:
 
 IcicleSpearAnim:
 IcicleCrashAnim:
@@ -1304,6 +1297,8 @@ TriAttackAnim: 										; ultra revamped
 
 ; ------------------------------------------------------------------------------
 
+; DONE new animations:
+
 BlastBurnAnim:
 	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
 	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
@@ -1372,17 +1367,10 @@ MegahornAnim:
 	battle_anim NO_MOVE, SUBANIM_05, 1, 6
 	db -1 ; end
 
-DragonClawAnim:
-	battle_anim SLASH, SUBANIM_0F, 0, 6
-	battle_anim DRAGON_RAGE, SUBANIM_0C, 1, 4
-	battle_anim NO_MOVE, SUBANIM_0D, 1, 4
-	battle_anim NO_MOVE, SUBANIM_0E, 1, 4
-	db -1 ; end
-
 ShadowBallAnim:
 	battle_anim CONFUSE_RAY, SE_DARK_SCREEN_PALETTE
 	battle_anim NO_MOVE, SUBANIM_3E, 1, 6
-;	battle_anim PSYCHIC_M, SE_FLASH_SCREEN_LONG 	; too much
+;	battle_anim PSYCHIC_M, SE_DARK_SCREEN_FLASH ; too much
 	battle_anim NO_MOVE, SE_WAVY_SCREEN
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
@@ -1432,6 +1420,55 @@ PsychoCutAnim:
 	battle_anim PSYCHIC_M, SE_WAVY_SCREEN
 	battle_anim CUT, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SUBANIM_16, 0, 4
+	db -1 ; end
+
+OutrageAnim:
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim THRASH, SUBANIM_04, 1, 6
+	db -1 ; end
+
+DragonBreathAnim:
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim FLAMETHROWER, SUBANIM_1F, 1, 6
+	db -1 ; end
+
+DragonClawAnim:
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim SLASH, SUBANIM_0F, 0, 6
+	db -1 ; end
+
+TwisterAnim:
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim GUST, SUBANIM_10, 1, 6
+	db -1 ; end
+
+DragonDanceAnim:
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim FOCUS_ENERGY, SE_SPIRAL_BALLS_INWARD
+	db -1 ; end
+
+InfestationAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim POISON_GAS, SUBANIM_3E, 1, 6
+	battle_anim BIND, SUBANIM_27spec, 0, 8
+	battle_anim BIND, SUBANIM_27spec, 0, 8
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+EnergyBallAnim:
+	battle_anim RAZOR_LEAF, SE_LEAVES_FALLING
+	battle_anim CONFUSE_RAY, SUBANIM_1fcircles, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	db -1 ; end
+
+FeintAttackAnim:
+	battle_anim NO_MOVE, SE_SQUISH_MON_PIC
+	battle_anim NO_MOVE, SE_SHOOT_BALLS_UPWARD
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim MEGA_PUNCH, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	battle_anim NO_MOVE, SUBANIM_04, 1, 4
 	db -1 ; end
 
 ; ------------------------------------------------------------------------------

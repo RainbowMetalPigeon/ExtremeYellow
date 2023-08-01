@@ -19,7 +19,7 @@ Moves:
 ;	move DOUBLESLAP,   TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,        85, 10
 	move COMET_PUNCH,  TWO_TO_FIVE_ATTACKS_EFFECT,  18, NORMAL,        85, 15
 	move MEGA_PUNCH,   NO_ADDITIONAL_EFFECT,        80, NORMAL,        85, 20 ; [TM01]
-	move PAY_DAY,      PAY_DAY_EFFECT,              40, NORMAL,       100, 20
+	move PAY_DAY,      PAY_DAY_EFFECT,              40, NORMAL,       100, 20 ; can't give coins=LVLx5 because uses 1 byte, max=255
 	move FIRE_PUNCH,   BURN_SIDE_EFFECT1,           75, FIRE,         100, 15
 	move ICE_PUNCH,    FREEZE_SIDE_EFFECT,          75, ICE,          100, 15
 	move THUNDERPUNCH, PARALYZE_SIDE_EFFECT1,       75, ELECTRIC,     100, 15
@@ -33,29 +33,29 @@ Moves:
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,       100, 35 ; power 35->60
 ;	move WHIRLWIND,    SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,        85, 20 ; - REMOVED
 	move FLY,          FLY_EFFECT,                  90, FLYING,        95, 15 ; power 70->90
-	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        75, 20
+	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        85, 20 ; accuracy 75->85
 	move SLAM,         NO_ADDITIONAL_EFFECT,        80, NORMAL,        75, 20
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        45, GRASS,        100, 25 ; power 35->45, PP 10->25
 	move STOMP,        FLINCH_SIDE_EFFECT3,         65, NORMAL,       100, 20
 	move DOUBLE_KICK,  ATTACK_TWICE_EFFECT,         30, FIGHTING,     100, 30
 ;	move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, NORMAL,        75,  5 - REMOVED
-	move JUMP_KICK,    JUMP_KICK_EFFECT,            70, FIGHTING,      95, 25
+	move JUMP_KICK,    JUMP_KICK_EFFECT,           100, FIGHTING,      95, 25 ; power 70->100
 	move ROLLING_KICK, FLINCH_SIDE_EFFECT3,         60, FIGHTING,      85, 15
 	move SAND_ATTACK,  ACCURACY_DOWN1_EFFECT,        0, NORMAL,       100, 15
 	move HEADBUTT,     FLINCH_SIDE_EFFECT3,         70, NORMAL,       100, 15
 	move HORN_ATTACK,  NO_ADDITIONAL_EFFECT,        65, NORMAL,       100, 25
 	move FURY_ATTACK,  TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,        85, 20
 	move HORN_DRILL,   OHKO_EFFECT,                  1, NORMAL,        30,  5
-	move TACKLE,       NO_ADDITIONAL_EFFECT,        35, NORMAL,        95, 35
+	move TACKLE,       NO_ADDITIONAL_EFFECT,        50, NORMAL,       100, 35 ; power 35->50, accuracy 95->100
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       85, NORMAL,       100, 15 ; [TM08]
-	move WRAP,         TRAPPING_EFFECT,             15, NORMAL,        85, 20
+	move WRAP,         TRAPPING_EFFECT,             15, NORMAL,        90, 20 ; accuracy 85->90
 	move TAKE_DOWN,    RECOIL_EFFECT,               90, NORMAL,        85, 20
-	move THRASH,       THRASH_PETAL_DANCE_EFFECT,  120, NORMAL,       100, 10 ; power 90->120, PP 20->10
+	move THRASH,       THRASH_PETAL_DANCE_EFFECT,  120, NORMAL,       100, 20 ; power 90->120
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              120, NORMAL,       100, 15 ; [TM10] power 100->120
 ;	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 30 ; - REMOVED
 	move POISON_STING, POISON_SIDE_EFFECT3,         15, POISON,       100, 35 ; 20->30% chance of poison
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            25, BUG,          100, 20
-	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,           95, 20 ; power 14->25, accuracy 85->95
+	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,           95, 20 ; power 14->25, accuracy 85->95 ; CONTINUE UPDATES FROM HERE
 	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 30
 	move BITE,         FLINCH_SIDE_EFFECT1,         60, DARK,         100, 25 ; TYPE CHANGED
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,       100, 40
@@ -64,7 +64,7 @@ Moves:
 	move SUPERSONIC,   CONFUSION_EFFECT,             0, NORMAL,        55, 20
 	move SONICBOOM,    SPECIAL_DAMAGE_EFFECT,        1, NORMAL,        90, 20
 	move DISABLE,      DISABLE_EFFECT,               0, NORMAL,        55, 20
-	move ACID,         DEFENSE_DOWN_SIDE_EFFECT3,    40, POISON,       100, 30
+	move ACID,         DEFENSE_DOWN_SIDE_EFFECT3,   40, POISON,       100, 30
 	move EMBER,        BURN_SIDE_EFFECT1,           40, FIRE,         100, 25
 	move FLAMETHROWER, BURN_SIDE_EFFECT1,           95, FIRE,         100, 15
 	move MIST,         MIST_EFFECT,                  0, ICE,          100, 30
@@ -130,7 +130,7 @@ Moves:
 	move HAZE,         HAZE_EFFECT,                  0, ICE,          100, 30
 	move REFLECT,      REFLECT_EFFECT,               0, PSYCHIC_TYPE, 100, 20 ; [TM33]
 	move FOCUS_ENERGY, FOCUS_ENERGY_EFFECT,          0, NORMAL,       100, 30
-	move BIDE,         BIDE_EFFECT,                  0, NORMAL,       100, 10 ; [TM34]
+	move BIDE,         BIDE_EFFECT,                  0, NORMAL,       100, 10 ; now has prio +1 [TM34]
 	move METRONOME,    METRONOME_EFFECT,             0, NORMAL,       100, 10 ; [TM12]
 	move MIRROR_MOVE,  MIRROR_MOVE_EFFECT,           0, FLYING,       100, 20
 	move SELFDESTRUCT, EXPLODE_EFFECT,             200, NORMAL,       100,  5 ; [TM36] power 130->200
@@ -264,7 +264,7 @@ Moves:
 	move SCALD,        BURN_SIDE_EFFECT2,           80,	WATER,	      100, 15 ; done
 	move HYDRO_CANNON, HYPER_BEAM_EFFECT,          150,	WATER,	       90, 5  ; done
 
-	move ANCESTOR_PWR, OHKO_EFFECT,		             1,	WATER,	       95, 5  ; prio +3 - meme secret easter-egg move for Magikarp :)
+	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate - meme secret easter-egg move for Magikarp :)
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS

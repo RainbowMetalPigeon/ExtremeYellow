@@ -10,6 +10,7 @@ PriorityMovesList:
 ;	db ACCELEROCK,		8
 	db AQUA_JET,		8
     db QUICK_ATTACK,	8
+	db BIDE,			8
 	db EXTREMESPEED, 	9
 	db ANCESTOR_PWR,	10
 	db -1 ; end
