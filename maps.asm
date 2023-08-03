@@ -1240,6 +1240,11 @@ INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
 
+INCLUDE "data/maps/headers/OchreCity1.asm"
+INCLUDE "scripts/OchreCity1.asm"
+INCLUDE "data/maps/objects/OchreCity1.asm"
+OchreCity1_Blocks: INCBIN "maps/OchreCity1.blk"
+
 
 SECTION "Maps 22", ROMX
 

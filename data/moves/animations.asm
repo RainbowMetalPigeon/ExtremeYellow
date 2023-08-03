@@ -1016,13 +1016,6 @@ BoneClubAnim:
 
 ; TODO:
 
-CrunchAnim:
-NightSlashAnim:
-DarkPulseAnim:
-
-ZapCannonAnim:
-ShockWaveAnim:
-
 PlayRoughAnim:
 MoonBlastAnim:
 
@@ -1031,9 +1024,7 @@ SuperPowerAnim:
 CloseCombatAnim:
 DrainPunchAnim:
 
-WillOWispAnim:
 FlareBlitzAnim:
-HeatWaveAnim:
 
 RoostAnim:
 AirCutterAnim:
@@ -1042,18 +1033,14 @@ AirSlashAnim:
 BraveBirdAnim:
 HurricaneAnim:
 
-ShadowPunch:
 ShadowSneakAnim:
 ShadowClawAnim:
 
 MagicaLeafAnim:
-BulletSeedAnim:
 LeafStormAnim:
 
 IcicleSpearAnim:
 IcicleCrashAnim:
-
-ExtremespeedAnim:
 
 GunkShot:
 SludgeWaveAnim:
@@ -1153,6 +1140,7 @@ PoisonGasAnim:
 	battle_anim POISON_GAS, SUBANIM_19, 1, 6
 	db -1 ; end
 
+BulletSeedAnim:		; improve if space and will
 BarrageAnim:
 	battle_anim BARRAGE, SUBANIM_41, 1, 3
 	battle_anim NO_MOVE, SUBANIM_55, 0, 5
@@ -1470,6 +1458,69 @@ FeintAttackAnim:
 	battle_anim NO_MOVE, SE_SHOW_MON_PIC
 	battle_anim NO_MOVE, SUBANIM_04, 1, 4
 	db -1 ; end
+
+HeatWaveAnim:
+	battle_anim LEECH_SEED, SE_LIGHT_SCREEN_PALETTE
+	battle_anim FIRE_SPIN, SE_WAVY_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim FLAMETHROWER, SUBANIM_0C, 1, 6
+	battle_anim FLAMETHROWER, SUBANIM_0D, 1, 6
+	db -1 ; end
+
+CrunchAnim:
+	battle_anim BITE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_02, 0, 8
+	battle_anim BITE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_02, 0, 8
+	db -1 ; end
+
+NightSlashAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim SLASH, SUBANIM_16, 0, 4
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+DarkPulseAnim:
+	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
+	battle_anim PSYCHIC_M, SE_WAVY_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+ZapCannonAnim:
+	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
+	battle_anim THUNDERBOLT, SUBANIM_1fcircles, 1, 6
+	battle_anim THUNDERSHOCK, SUBANIM_29, 1, 2
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+ShockWaveAnim:
+	battle_anim THUNDER_WAVE, SE_WAVY_SCREEN
+	battle_anim THUNDERSHOCK, SUBANIM_2B, 1, 6
+;	battle_anim THUNDERSHOCK, SUBANIM_29, 1, 2
+	db -1 ; end
+
+ExtremespeedAnim:
+	battle_anim TELEPORT, SE_SQUISH_MON_PIC
+	battle_anim NO_MOVE, SE_SHOOT_BALLS_UPWARD
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+;	battle_anim NO_MOVE, SE_MOVE_OPP_HORIZONTALLY	; they don't work as intended, may update them at the end
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 4
+;	battle_anim NO_MOVE, SE_RESET_OPP_POSITION		; they don't work as intended, may update them at the end
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+ShadowPunch:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+WillOWispAnim:
+	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
+	db -1 ; end
+
+; ENDDONE
 
 ; ------------------------------------------------------------------------------
 

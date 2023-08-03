@@ -27,8 +27,9 @@ ENDM
 	map_const CINNABAR_ISLAND,               10,  9 ; $08
 	map_const INDIGO_PLATEAU,                10,  9 ; $09
 	map_const SAFFRON_CITY,                  20, 18 ; $0A
+	map_const OCHRE_CITY_1,                  21, 21 ; $0B, new, test, takes the place of UNUSED_MAP_0B
 DEF NUM_CITY_MAPS EQU const_value
-	map_const UNUSED_MAP_0B,                  0,  0 ; $0B
+;	map_const UNUSED_MAP_0B,                  0,  0 ; $0B ; edited, commented out
 DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_1,                       10, 18 ; $0C
 	map_const ROUTE_2,                       10, 36 ; $0D
@@ -260,9 +261,9 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const UNUSED_MAP_EE,                  0,  0 ; $EE
 	map_const TRADE_CENTER,                   5,  4 ; $EF
 	map_const COLOSSEUM,                      5,  4 ; $F0
-	map_const CERULEAN_CAVE_EXTRA_TOP,       21, 21 ; $F1
+	map_const CERULEAN_CAVE_EXTRA_TOP,       21, 21 ; $F1 ; edited
 	map_const CERULEAN_CAVE_EXTRA_MIDDLE,    21, 21 ; $F2 ; edited
-	map_const CERULEAN_CAVE_EXTRA_BOTTOM,    21, 21 ; $F3
+	map_const CERULEAN_CAVE_EXTRA_BOTTOM,    21, 21 ; $F3 ; edited
 	map_const UNUSED_MAP_F4,                  0,  0 ; $F4
 	map_const LORELEIS_ROOM,                  5,  6 ; $F5
 	map_const BRUNOS_ROOM,                    5,  6 ; $F6

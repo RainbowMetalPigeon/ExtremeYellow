@@ -1536,6 +1536,23 @@ AnimationMoveMonHorizontally:
 	ld c, 3
 	jp DelayFrames
 
+;AnimationMoveOppHorizontally: ; new, testing
+;; Shifts the opp mon's sprite horizontally to a fixed location.
+;	call AnimationHideMonPic
+;	ldh a, [hWhoseTurn]
+;	and a
+;	hlcoord 11, 0
+;	jr z, .next
+;	hlcoord 2, 5
+;.next
+;	xor a ; TILEMAP_MON_PIC
+;	push hl
+;	call GetTileIDList
+;	pop hl
+;	call CopyPicTiles
+;	ld c, 3
+;	jp DelayFrames
+
 AnimationResetMonPosition:
 ; Resets the mon's sprites to be located at the normal coordinates.
 	ldh a, [hWhoseTurn]
@@ -1546,6 +1563,17 @@ AnimationResetMonPosition:
 .next
 	call ClearMonPicFromTileMap
 	jp AnimationShowMonPic
+
+;AnimationResetOppPosition: ; new, testing
+;; Resets the opp mon's sprites to be located at the normal coordinates.
+;	ldh a, [hWhoseTurn]
+;	and a
+;	ld a, 11
+;	jr z, .next
+;	ld a, 5 * SCREEN_WIDTH + 2
+;.next
+;	call ClearMonPicFromTileMap
+;	jp AnimationShowMonPic
 
 AnimationSpiralBallsInward:
 ; Creates an effect that looks like energy balls spiralling into the

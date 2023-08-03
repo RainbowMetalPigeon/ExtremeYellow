@@ -12,9 +12,11 @@ DEF FIRST_SE_ID EQU const_value
 	const SE_BLINK_ENEMY_MON           ; $DE used in Seismic Toss
 	const SE_HIDE_ENEMY_MON_PIC        ; $DF used in Seismic Toss
 	const SE_FLASH_ENEMY_MON_PIC       ; $E0 unused
+;	const SE_RESET_OPP_POSITION        ; $E0 new, testing
 	const SE_DELAY_ANIMATION_10        ; $E1 used in lots of animations
 	const SE_SPIRAL_BALLS_INWARD       ; $E2 used in Growth/Focus Energy/Hyper Beam etc.
 	const SE_SHAKE_ENEMY_HUD_2         ; $E3 unused
+;	const SE_MOVE_OPP_HORIZONTALLY     ; $E3 new, testing
 	const SE_SHAKE_ENEMY_HUD           ; $E4
 	const SE_SLIDE_MON_HALF_OFF        ; $E5 used in Softboiled
 	const SE_PETALS_FALLING            ; $E6 used in Petal Dance
