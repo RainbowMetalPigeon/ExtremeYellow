@@ -32,6 +32,10 @@ INCLUDE "data/maps/headers/FuchsiaCity.asm"
 INCLUDE "data/maps/objects/FuchsiaCity.asm"
 FuchsiaCity_Blocks: INCBIN "maps/FuchsiaCity.blk"
 
+INCLUDE "data/maps/headers/OchreCity.asm"		; new
+INCLUDE "data/maps/objects/OchreCity.asm"		; new
+OchreCity_Blocks: INCBIN "maps/OchreCity.blk"	; new
+
 
 SECTION "Maps 2", ROMX
 
@@ -42,6 +46,7 @@ INCLUDE "scripts/CeruleanCity.asm"
 INCLUDE "scripts/VermilionCity.asm"
 INCLUDE "scripts/CeladonCity.asm"
 INCLUDE "scripts/FuchsiaCity.asm"
+INCLUDE "scripts/OchreCity.asm"					; new
 
 INCLUDE "data/maps/headers/BluesHouse.asm"
 INCLUDE "scripts/BluesHouse.asm"
@@ -1239,11 +1244,6 @@ INCLUDE "data/maps/headers/AgathasRoom.asm"
 INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
-
-INCLUDE "data/maps/headers/OchreCity1.asm"
-INCLUDE "scripts/OchreCity1.asm"
-INCLUDE "data/maps/objects/OchreCity1.asm"
-OchreCity1_Blocks: INCBIN "maps/OchreCity1.blk"
 
 
 SECTION "Maps 22", ROMX

@@ -12,7 +12,7 @@ MapHeaderPointers::
 	dw CinnabarIsland_h
 	dw IndigoPlateau_h
 	dw SaffronCity_h
-	dw OchreCity1_h ; new, testing, was UNUSED_MAP_0B
+	dw OchreCity_h ; new, testing, was UNUSED_MAP_0B
 	dw Route1_h
 	dw Route2_h
 	dw Route3_h

@@ -27,7 +27,7 @@ ENDM
 	map_const CINNABAR_ISLAND,               10,  9 ; $08
 	map_const INDIGO_PLATEAU,                10,  9 ; $09
 	map_const SAFFRON_CITY,                  20, 18 ; $0A
-	map_const OCHRE_CITY_1,                  21, 21 ; $0B, new, test, takes the place of UNUSED_MAP_0B
+	map_const OCHRE_CITY,                    21, 21 ; $0B, new, test, takes the place of UNUSED_MAP_0B
 DEF NUM_CITY_MAPS EQU const_value
 ;	map_const UNUSED_MAP_0B,                  0,  0 ; $0B ; edited, commented out
 DEF FIRST_ROUTE_MAP EQU const_value

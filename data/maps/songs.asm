@@ -11,7 +11,7 @@ MapSongBanks::
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; CINNABAR_ISLAND
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; INDIGO_PLATEAU
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; SAFFRON_CITY
-	db MUSIC_CITIES1, BANK(Music_Cities1) ; UNUSED_MAP_0B
+	db MUSIC_CITIES1, BANK(Music_Cities1) ; OCHRE_CITY, new, testing
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_1
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_2
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_3

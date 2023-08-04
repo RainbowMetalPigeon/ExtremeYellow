@@ -156,7 +156,7 @@ DebugItemsList:
 	db MOON_STONE, 99
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
-	db PP_UP, 99
+	db POKE_FLUTE, 1
 	db -1 ; end
 
 DebugUnusedList:
