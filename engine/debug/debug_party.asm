@@ -143,6 +143,7 @@ DebugSetPokedexEntries:
 	ret
 
 DebugItemsList:
+	db MEGA_STONE_X, 99
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
@@ -153,10 +154,9 @@ DebugItemsList:
 	db CARD_KEY, 1
 	db POKE_DOLL, 99 ; FULL_HEAL
 	db REVIVE, 99
-	db MOON_STONE, 99
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
-	db PP_UP, 99
+	db POKE_FLUTE, 1
 	db -1 ; end
 
 DebugUnusedList:

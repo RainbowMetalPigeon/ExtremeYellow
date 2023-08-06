@@ -209,13 +209,9 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld a, [wd0b5]
 	ld [wd11e], a
 	predef IndexToPokedex
-	ld a, [wd11e]
-	dec a
-	ld hl, BaseStats
-	ld bc, BASE_DATA_SIZE
-	call AddNTimes
-	ld de, wMonHeader
-	call CopyData
+; ------------------------------
+	callfar BaseStatsCopying	; new, this should save tons of space
+; ------------------------------
 	ld a, [wd0b5]
 	ld [wMonHIndex], a
 	pop af

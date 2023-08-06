@@ -11,7 +11,7 @@ MapSpriteSets:
 	db $01 ; CINNABAR_ISLAND
 	db $06 ; INDIGO_PLATEAU
 	db $07 ; SAFFRON_CITY
-	db $01 ; unused map ID
+	db $08 ; OCHRE_CITY , new
 	db $01 ; ROUTE_1
 	db $f1 ; ROUTE_2
 	db $02 ; ROUTE_3

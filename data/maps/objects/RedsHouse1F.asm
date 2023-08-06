@@ -4,7 +4,7 @@ RedsHouse1F_Object:
 	def_warp_events
 ;	warp_event  2,  7, LAST_MAP, 1
 	warp_event  2,  7, SAFFRON_CITY, 1
-	warp_event  2,  7, OCHRE_CITY_1, 1
+;	warp_event  2,  7, OCHRE_CITY, 1
 	warp_event  3,  7, LAST_MAP, 1
 	warp_event  7,  1, REDS_HOUSE_2F, 1
 
