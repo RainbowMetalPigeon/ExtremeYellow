@@ -60,7 +60,7 @@ IF DEF(_DEBUG)
 	ld a, EXTREMESPEED
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
-	ld a, SHADOW_PUNCH
+	ld a, FLASH
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 

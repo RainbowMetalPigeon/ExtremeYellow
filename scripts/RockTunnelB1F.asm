@@ -13,6 +13,7 @@ RockTunnelB1F_ScriptPointers:
 	dw EndTrainerBattle
 
 RockTunnelB1F_TextPointers:
+	dw RockTunnel2TextBrock ; new
 	dw RockTunnel2Text1
 	dw RockTunnel2Text2
 	dw RockTunnel2Text3
@@ -23,7 +24,7 @@ RockTunnelB1F_TextPointers:
 	dw RockTunnel2Text8
 
 RockTunnel2TrainerHeaders:
-	def_trainers
+	def_trainers 2 ; edited because of rematch Brock
 RockTunnel2TrainerHeader0:
 	trainer EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_0, 4, RockTunnel2BattleText2, RockTunnel2EndBattleText2, RockTunnel2AfterBattleText2
 RockTunnel2TrainerHeader1:
@@ -184,4 +185,42 @@ RockTunnel2EndBattleText9:
 
 RockTunnel2AfterBattleText9:
 	text_far _RockTunnel2AfterBattleText9
+	text_end
+
+; new ------------------------------------------------
+
+RockTunnel2TextBrock:
+	text_asm
+	ld hl, RockTunnel2BrockBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_BROCK
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, RockTunnel2BrockPostBattleText
+	ld de, RockTunnel2BrockPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+RockTunnel2BrockBeforeBattleText:
+	text_far _RockTunnel2BrockBeforeBattleText
+	text_end
+
+RockTunnel2BrockPostBattleText:
+	text_far _RockTunnel2BrockPostBattleText
 	text_end

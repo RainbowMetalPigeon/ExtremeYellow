@@ -13,7 +13,7 @@ ViridianForest_ScriptPointers:
 	dw EndTrainerBattle
 
 ViridianForest_TextPointers:
-	dw ViridianForestTextErika
+	dw ViridianForestTextErika ; new
 	dw ViridianForestText1
 	dw ViridianForestText2
 	dw ViridianForestText3
@@ -173,13 +173,13 @@ ViridianForestScript_6120d:
 	call Bankswitch
 	jp TextScriptEnd
 
-; ------------------------------------------------
+; new ------------------------------------------------
 
 ViridianForestTextErika:
 	text_asm
-	ld hl, ErikaBeforeBattleText
+	ld hl, ViridianForestErikaBeforeBattleText
 	call PrintText
-	ld c, BANK(Music_MeetMaleTrainer)
+	ld c, BANK(Music_MeetFemaleTrainer)
 	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
 
@@ -198,15 +198,15 @@ ViridianForestTextErika:
 	ld a, 2
 	ld [wTrainerNo], a
 
-	ld hl, ErikaPostBattleText
-	ld de, ErikaPostBattleText
+	ld hl, ViridianForestErikaPostBattleText
+	ld de, ViridianForestErikaPostBattleText
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
-ErikaBeforeBattleText:
-	text_far _ErikaBeforeBattleText
+ViridianForestErikaBeforeBattleText:
+	text_far _ViridianForestErikaBeforeBattleText
 	text_end
 
-ErikaPostBattleText:
-	text_far _ErikaPostBattleText
+ViridianForestErikaPostBattleText:
+	text_far _ViridianForestErikaPostBattleText
 	text_end

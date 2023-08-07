@@ -92,11 +92,11 @@
 	const EVENT_BEAT_POKEMONTOWER_5_TRAINER_3
 	const EVENT_GOT_FUJI_MEGA_STONE_X ; new
 	const EVENT_IN_PURIFIED_ZONE
-	const_skip
+	const_skip 2 ; edited from / to 2 because of rematch Agatha
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_0
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_1
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_2
-	const_skip 3
+	const_skip 2 ; edited from 3 to 2 because of rematch Agatha
 	const EVENT_BEAT_GHOST_MAROWAK
 	const_skip
 	const EVENT_BEAT_POKEMONTOWER_7_TRAINER_0
@@ -210,16 +210,15 @@
 ; Saffron City events
 	const_next $340
 	const EVENT_GOT_TM31
-	const_skip 15
+	const_skip 16 ; edited from 15 to 16 because of rematch Bruno
 	const EVENT_DEFEATED_FIGHTING_DOJO
 	const EVENT_BEAT_KARATE_MASTER
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_0
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_1
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_2
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_3
-	const EVENT_GOT_HITMONLEE
-	const EVENT_GOT_HITMONCHAN
-	const_skip 8
+	const EVENT_GOT_A_HITMON ; new, merge of the previous Hitmon-specific ones
+	const_skip 8 ; edited from 8 to 6 to 8 because of rematch Bruno and addition of Hitmontop but change of the event
 	const EVENT_GOT_TM46
 	const EVENT_BEAT_SABRINA
 	const EVENT_BEAT_SAFFRON_GYM_TRAINER_0
@@ -780,7 +779,7 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 
 ; Rock Tunnel events
 	const_next $9B0
-	const_skip
+	const_skip 2 ; edited because of rematch Brock
 	const EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_0
 	const EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_1
 	const EVENT_BEAT_ROCK_TUNNEL_2_TRAINER_2

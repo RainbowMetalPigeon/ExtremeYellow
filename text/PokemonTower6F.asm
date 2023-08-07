@@ -59,3 +59,17 @@ _PokemonTower6Text6::
 	text "Be gone..."
 	line "Intruders..."
 	done
+
+; new ------------------------------------------------
+
+_PokemonTower6AgathaBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_PokemonTower6AgathaPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "ERIKA: " extra space
+	line "for the battle!"
+	prompt

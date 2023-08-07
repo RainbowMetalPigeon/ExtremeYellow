@@ -108,6 +108,18 @@ HallofFameRoomScript1:
 	ld [wMissableObjectIndex], a	; new
 	predef ShowObject				; new
 
+	ld a, HS_FIGHTING_DOJO_BRUNO	; new, to show Bruno in Fighting Dojo after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef ShowObject				; new
+
+	ld a, HS_ROCK_TUNNEL_B1F_BROCK	; new, to show Brock in Rock Tunnel B1F after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef ShowObject				; new
+
+	ld a, HS_POKEMON_TOWER_6F_AGATHA	; new, to show Agatha in Pokemon Tower 6F after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef ShowObject				; new
+
 	; vanilla code
 	ld a, $2
 	ld [wHallOfFameCurScript], a

@@ -235,7 +235,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw RockTunnelB1FHS ; new because of Brock
 	dw SilphCo9FHS
 	dw SilphCo10FHS
 	dw SilphCo11FHS
@@ -352,9 +352,10 @@ PokemonTower4FHS:
 	db POKEMON_TOWER_4F, $06, SHOW
 PokemonTower5FHS:
 	db POKEMON_TOWER_5F, $06, SHOW
-PokemonTower6FHS:
-	db POKEMON_TOWER_6F, $04, SHOW
+PokemonTower6FHS: ; edited because of rematch Agatha
+	db POKEMON_TOWER_6F, $01, HIDE
 	db POKEMON_TOWER_6F, $05, SHOW
+	db POKEMON_TOWER_6F, $06, SHOW
 PokemonTower7FHS:
 	db POKEMON_TOWER_7F, $01, HIDE ; jessie & james?
 	db POKEMON_TOWER_7F, $02, HIDE
@@ -370,9 +371,11 @@ WardensHouseHS:
 PokemonMansion1FHS:
 	db POKEMON_MANSION_1F, $02, SHOW
 	db POKEMON_MANSION_1F, $03, SHOW
-FightingDojoHS:
-	db FIGHTING_DOJO, $06, SHOW
+FightingDojoHS: ; edited because of rematch Bruno
+	db FIGHTING_DOJO, $01, HIDE
 	db FIGHTING_DOJO, $07, SHOW
+	db FIGHTING_DOJO, $08, SHOW
+	db FIGHTING_DOJO, $09, SHOW
 SilphCo1FHS:
 	db SILPH_CO_1F, $01, HIDE
 PowerPlantHS:
@@ -499,6 +502,8 @@ SilphCo8FHS:
 	db SILPH_CO_8F, $02, SHOW
 	db SILPH_CO_8F, $03, SHOW
 	db SILPH_CO_8F, $04, SHOW
+RockTunnelB1FHS:
+	db ROCK_TUNNEL_B1F, $01, HIDE
 SilphCo9FHS:
 	db SILPH_CO_9F, $02, SHOW
 	db SILPH_CO_9F, $03, SHOW

@@ -127,3 +127,17 @@ _RockTunnel2AfterBattleText9::
 	text "I'm an artist,"
 	line "not a fighter."
 	done
+
+; new ------------------------------------------------
+
+_RockTunnel2BrockBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_RockTunnel2BrockPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "BROCK: " extra space
+	line "for the battle!"
+	prompt
