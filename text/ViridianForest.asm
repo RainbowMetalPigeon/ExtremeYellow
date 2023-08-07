@@ -123,7 +123,7 @@ _ViridianForestText10::
 _ViridianForestText11::
 	text "TRAINER TIPS"
 
-	para "Contact PROF.OAK"
+	para "Contact PROF.Erika"
 	line "via PC to get"
 	cont "your #DEX"
 	cont "evaluated!"
@@ -155,3 +155,17 @@ _ViridianForestText14::
 	line "VIRIDIAN FOREST"
 	cont "PEWTER CITY AHEAD"
 	done
+
+; ------------------------------------------------
+
+_ErikaBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_ErikaPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you for the"
+	line "great battle!"
+	prompt

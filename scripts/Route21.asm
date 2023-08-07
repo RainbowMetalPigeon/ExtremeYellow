@@ -25,7 +25,7 @@ Route21_TextPointers:
 	dw Route21Text9
 
 Route21TrainerHeaders:
-	def_trainers 2
+	def_trainers 2 ; edited because of Oak
 Route21TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_21_TRAINER_0, 0, Route21BattleText1, Route21EndBattleText1, Route21AfterBattleText1
 Route21TrainerHeader1:

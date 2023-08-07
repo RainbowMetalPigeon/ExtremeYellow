@@ -484,16 +484,6 @@ BlackbeltData:
 ; Victory Road 2F
 	db 64, MACHAMP, 0 ; updated, one single overleveled mon
 
-Rival1Data:
-	db 5, EEVEE, 0
-; Route 22
-	db 9, SPEAROW, RATTATA, PIDGEY, NIDORAN_M, MANKEY, EEVEE, 0 ; updated
-; Cerulean City
-	db 19, PIDGEOTTO, NIDOKING, CLEFABLE, SANDSHREW, MANKEY, EEVEE, 0 ; updated
-
-ProfOakData:
-	db $FF, 82, TAUROS, 83, MGYARADOS, 84, MEWTWO, 85, MMEWTWOX, 86, MMEWTWOY, 87, VENUSTOISE, 0 ; updated
-
 ChiefData:
 ; none
 
@@ -524,13 +514,55 @@ ScientistData:
 ; Mansion B1F
 	db 34, MAGNEMITE, ELECTRODE, 0
 
-GiovanniData:
-; Rocket Hideout B4F
-	db $FF, 28, ONIX, 28, RHYHORN, 28, DUGTRIO, 28, KANGASKHAN, 28, MAROWAK, 29, PERSIAN, 0 ; updated
-; Silph Co. 11F
-	db $FF, 42, STEELIX, 42, NIDOKING, 42, RHYDON, 42, NIDOQUEEN, 42, GOLEM, 43, PERSIAN, 0 ; updated
-; Viridian Gym
-	db $FF, 54, DUGTRIO, 54, GOLEM, 54, NIDOQUEEN, 54, NIDOKING, 54, RHYPERIOR, 55, PERSIAN, 0 ; updated
+GentlemanData:
+; SS Anne 1F Rooms
+	db 18, GROWLITHE, GROWLITHE, 0
+	db 19, NIDORAN_M, NIDORAN_F, 0
+; SS Anne 2F Rooms/Vermilion Gym
+	db 23, ELEKID, MAGNEMITE, MAGNEMITE, MAGNETON, 0 ; updated
+; Unused
+	db 48, PRIMEAPE, 0
+; SS Anne 2F Rooms
+	db 17, GROWLITHE, PONYTA, 0
+
+ChannelerData:
+; Unused
+	db 22, GASTLY, 0
+	db 24, GASTLY, 0
+	db 23, GASTLY, GASTLY, 0
+	db 24, GASTLY, 0
+; Pokémon Tower 3F
+	db 23, GASTLY, 0
+	db 24, GASTLY, 0
+; Unused
+	db 24, HAUNTER, 0
+; Pokémon Tower 3F
+	db 22, GASTLY, 0
+; Pokémon Tower 4F
+	db 24, GASTLY, 0
+	db 23, GASTLY, GASTLY, 0
+; Unused
+	db 24, GASTLY, 0
+; Pokémon Tower 4F
+	db 22, GASTLY, 0
+; Unused
+	db 24, GASTLY, 0
+; Pokémon Tower 5F
+	db 23, HAUNTER, 0
+; Unused
+	db 24, GASTLY, 0
+; Pokémon Tower 5F
+	db 22, GASTLY, 0
+	db 24, GASTLY, 0
+	db 22, HAUNTER, 0
+; Pokémon Tower 6F
+	db 22, GASTLY, GASTLY, GASTLY, 0
+	db 24, GASTLY, 0
+	db 24, GASTLY, 0
+; Saffron Gym
+	db 45, GASTLY, HAUNTER, GENGAR, ANNIHILAPE, 0 ; updated
+	db 47, GENGAR, ANNIHILAPE, 0 ; updated
+	db 44, GASTLY, GASTLY, GASTLY, HAUNTER, HAUNTER, GENGAR, 0 ; updated
 
 RocketData:
 ; Mt. Moon B2F
@@ -656,40 +688,66 @@ CooltrainerFData:
 ; Cinnabar Gym
 	db 52, ARCANINE, MAGMAR, NINETALES, RAPIDASH, CHARIZARD, 0 ; new
 
-BrunoData:
-	db 58, HITMONTOP, HITMONCHAN, HITMONLEE, POLIWRATH, MACHAMP, MSTEELIX, 0 ; updated
-
 BrockData:
 	db $FF, 10, GEODUDE, 10, OMANYTE, 10, KABUTO, 10, RHYHORN, 10, VULPIX, 11, ONIX, 0 ; updated
+	db 70, GOLEM, OMASTAR, KABUTOPS, RHYPERIOR, KLEAVOR, MARODACTYL, 0 ; rematch
 
 MistyData:
 	db $FF, 20, STARYU, 20, PSYDUCK, 20, POLIWHIRL, 20, GYARADOS, 20, VAPOREON, 21, STARMIE, 0 ; updated
+	db 70, GOLDUCK, LAPRAS, POLITOED, VAPOREON, STARMIE, MBLASTOISE, 0 ; rematch; maybe GYARADOS instead of LAPRAS?
 
 LtSurgeData:
 	db $FF, 27, PIKACHU, 27, VOLTORB, 27, MAGNEMITE, 27, ELECTABUZZ, 27, JOLTEON, 28, RAICHU, 0 ; updated
+	db 70, ELECTRODE, RAICHU, MAGNEZONE, ELECTIVIRE, JOLTEON, RAICHU, 0 ; rematch
 
 ErikaData:
 	db $FF, 31, PARASECT, 31, VILEPLUME, 31, BELLOSSOM, 31, VICTREEBEL, 31, LEAFEON, 32, TANGROWTH, 0 ; updated
+	db 70, VICTREEBEL, VILEPLUME, BELLOSSOM, LEAFEON, TANGROWTH, MVENUSAUR, 0 ; rematch
 
 KogaData:
 	db $FF, 42, MUK, 42, BEEDRILL, 42, VENOMOTH, 42, TENTACRUEL, 42, CROBAT, 43, WEEZING, 0 ; updated
-
-BlaineData:
-	db $FF, 53, NINETALES, 53, RAPIDASH, 53, MAGMORTAR, 53, FLAREON, 53, RHYDON, 54, ARCANINE, 0 ; updated
+	db 70, MUK, GENGAR, TENTACRUEL, CROBAT, WEEZING, MBEEDRILL, 0 ; rematch
 
 SabrinaData:
 	db $FF, 49, EXEGGUTOR, 49, SLOWKING, 49, MR_MIME, 49, ESPEON, 49, HAUNTER, 50, ALAKAZAM, 0 ; updated
+	db 70, EXEGGUTOR, MR_MIME, SLOWKING, ALAKAZAM, ESPEON, MALAKAZAM, 0 ; rematch
 
-GentlemanData:
-; SS Anne 1F Rooms
-	db 18, GROWLITHE, GROWLITHE, 0
-	db 19, NIDORAN_M, NIDORAN_F, 0
-; SS Anne 2F Rooms/Vermilion Gym
-	db 23, ELEKID, MAGNEMITE, MAGNEMITE, MAGNETON, 0 ; updated
-; Unused
-	db 48, PRIMEAPE, 0
-; SS Anne 2F Rooms
-	db 17, GROWLITHE, PONYTA, 0
+
+BlaineData:
+	db $FF, 53, NINETALES, 53, RAPIDASH, 53, MAGMORTAR, 53, FLAREON, 53, RHYDON, 54, ARCANINE, 0 ; updated
+	db 70, NINETALES, MAGMORTAR, RAPIDASH, FLAREON, ARCANINE, MCHARZARDY, 0 ; rematch
+
+GiovanniData:
+; Rocket Hideout B4F
+	db $FF, 28, ONIX, 28, RHYHORN, 28, DUGTRIO, 28, KANGASKHAN, 28, MAROWAK, 29, PERSIAN, 0 ; updated
+; Silph Co. 11F
+	db $FF, 42, STEELIX, 42, NIDOKING, 42, RHYDON, 42, NIDOQUEEN, 42, GOLEM, 43, PERSIAN, 0 ; updated
+; Viridian Gym
+	db $FF, 54, DUGTRIO, 54, GOLEM, 54, NIDOQUEEN, 54, NIDOKING, 54, RHYPERIOR, 55, PERSIAN, 0 ; updated
+	db 70, MAROWAK, STEELIX, NIDOKING, NIDOQUEEN, MKANGASKAN, PERSIAN, 0 ; rematch
+
+LoreleiData:
+	db 56, DEWGONG, CLOYSTER, JYNX, GLACEON, LAPRAS, MSLOWBRO, 0 ; updated
+	db 75, JYNX, DEWGONG, CLOYSTER, GLACEON, LAPRAS, MSLOWBRO, 0 ; rematch
+
+BrunoData:
+	db 58, HITMONTOP, HITMONCHAN, HITMONLEE, POLIWRATH, MACHAMP, MSTEELIX, 0 ; updated
+	db 75, HITMONLEE, POLIWRATH, HITMONTOP, ANNIHILAPE, MACHAMP, MSTEELIX, 0 ; rematch
+
+AgathaData:
+	db 60, GENGAR, CROBAT, GENGAR, ANNIHILAPE, UMBREON, MGENGAR, 0 ; updated
+	db 75, GENGAR, ANNIHILAPE, CROBAT, GENGAR, UMBREON, MGENGAR, 0 ; rematch
+
+LanceData:
+	db 62, GYARADOS, DRAGONITE, AERODACTYL, KINGDRA, DRAGONITE, MCHARZARDX, 0 ; updated
+	db 75, AERODACTYL, DRAGONITE, GYARADOS, KINGDRA, DRAGONITE, MCHARZARDX, 0 ; rematch
+
+Rival1Data:
+	db 5, EEVEE, 0
+; Route 22
+	db 9, SPEAROW, RATTATA, PIDGEY, NIDORAN_M, MANKEY, EEVEE, 0 ; updated
+; Cerulean City
+	db 19, PIDGEOTTO, NIDOKING, CLEFABLE, SANDSHREW, MANKEY, EEVEE, 0 ; updated
 
 Rival2Data:
 ; SS Anne 2F
@@ -704,7 +762,7 @@ Rival2Data:
 Rival3Data:
 	db 65, MPIDGEOT, MALAKAZAM, MSCIZOR, MVENUSAUR, MCHARZARDY, MBLASTOISE, 0 ; updated
 	db 70, ARTICUNO, ZAPDOS, MOLTRES, 0 ; to be updated
-	; team for the randomized rematches
+	; teams for the randomized rematches
 	db $FF, 80, JYNX, 80, SANDSLASH, 80, FEAROW, 80, CHARIZARD, 80, MPIDGEOT, 85, UMBREON, 0
 	db $FF, 80, STEELIX, 80, ARCANINE, 80, MUK, 80, RHYPERIOR, 80, MBEEDRILL, 85, UMBREON, 0
 	db $FF, 80, BLISSEY, 80, HITMONLEE, 80, MAROWAK, 80, SYLVEON, 80, MGYARADOS, 85, UMBREON, 0
@@ -731,50 +789,5 @@ Rival3Data:
 	db $FF, 80, MKANGASKAN, 80, MGYARADOS, 80, MBEEDRILL, 80, MCHARZARDY, 80, MMEWTWOX, 85, UMBREON, 0
 	db $FF, 80, MGYARADOS, 80, MKANGASKAN, 80, MARODACTYL, 80, MBEEDRILL, 80, MPINSIR, 85, UMBREON, 0
 
-LoreleiData:
-	db 56, DEWGONG, CLOYSTER, JYNX, GLACEON, LAPRAS, MSLOWBRO, 0 ; updated
-
-ChannelerData:
-; Unused
-	db 22, GASTLY, 0
-	db 24, GASTLY, 0
-	db 23, GASTLY, GASTLY, 0
-	db 24, GASTLY, 0
-; Pokémon Tower 3F
-	db 23, GASTLY, 0
-	db 24, GASTLY, 0
-; Unused
-	db 24, HAUNTER, 0
-; Pokémon Tower 3F
-	db 22, GASTLY, 0
-; Pokémon Tower 4F
-	db 24, GASTLY, 0
-	db 23, GASTLY, GASTLY, 0
-; Unused
-	db 24, GASTLY, 0
-; Pokémon Tower 4F
-	db 22, GASTLY, 0
-; Unused
-	db 24, GASTLY, 0
-; Pokémon Tower 5F
-	db 23, HAUNTER, 0
-; Unused
-	db 24, GASTLY, 0
-; Pokémon Tower 5F
-	db 22, GASTLY, 0
-	db 24, GASTLY, 0
-	db 22, HAUNTER, 0
-; Pokémon Tower 6F
-	db 22, GASTLY, GASTLY, GASTLY, 0
-	db 24, GASTLY, 0
-	db 24, GASTLY, 0
-; Saffron Gym
-	db 45, GASTLY, HAUNTER, GENGAR, ANNIHILAPE, 0 ; updated
-	db 47, GENGAR, ANNIHILAPE, 0 ; updated
-	db 44, GASTLY, GASTLY, GASTLY, HAUNTER, HAUNTER, GENGAR, 0 ; updated
-
-AgathaData:
-	db 60, GENGAR, CROBAT, GENGAR, ANNIHILAPE, UMBREON, MGENGAR, 0 ; updated
-
-LanceData:
-	db 62, GYARADOS, DRAGONITE, AERODACTYL, KINGDRA, DRAGONITE, MCHARZARDX, 0 ; updated
+ProfOakData:
+	db $FF, 82, TAUROS, 83, MGYARADOS, 84, MEWTWO, 85, MMEWTWOX, 86, MMEWTWOY, 87, VENUSTOISE, 0 ; updated

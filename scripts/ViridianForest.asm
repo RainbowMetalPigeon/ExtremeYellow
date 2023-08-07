@@ -13,6 +13,7 @@ ViridianForest_ScriptPointers:
 	dw EndTrainerBattle
 
 ViridianForest_TextPointers:
+	dw ViridianForestTextErika
 	dw ViridianForestText1
 	dw ViridianForestText2
 	dw ViridianForestText3
@@ -31,7 +32,7 @@ ViridianForest_TextPointers:
 	dw ViridianForestText16
 
 ViridianForestTrainerHeaders:
-	def_trainers 2
+	def_trainers 3 ; edited because of rematch Erika
 ViridianForestTrainerHeader0:
 	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_0, 4, ViridianForestBattleText1, ViridianForestEndBattleText1, ViridianForestAfterBattleText1
 ViridianForestTrainerHeader1:
@@ -171,3 +172,41 @@ ViridianForestScript_6120d:
 	ld b, BANK(Func_f2528)
 	call Bankswitch
 	jp TextScriptEnd
+
+; ------------------------------------------------
+
+ViridianForestTextErika:
+	text_asm
+	ld hl, ErikaBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_ERIKA
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, ErikaPostBattleText
+	ld de, ErikaPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+ErikaBeforeBattleText:
+	text_far _ErikaBeforeBattleText
+	text_end
+
+ErikaPostBattleText:
+	text_far _ErikaPostBattleText
+	text_end

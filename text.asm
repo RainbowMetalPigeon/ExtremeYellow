@@ -5,7 +5,7 @@ SECTION "Text 1", ROMX
 
 INCLUDE "data/text/text_1.asm"
 
-INCLUDE "text/ViridianForest.asm"
+;INCLUDE "text/ViridianForest.asm" ; edited, move to Text Extra 1
 INCLUDE "text/MtMoon1F.asm"
 INCLUDE "text/MtMoonB1F.asm"
 INCLUDE "text/MtMoonB2F.asm"
@@ -240,7 +240,8 @@ INCLUDE "text/MrPsychicsHouse.asm"
 
 INCLUDE "data/text/text_7.asm"
 
-INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution
+INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
+
 
 SECTION "Text 8", ROMX
 
@@ -259,6 +260,11 @@ INCLUDE "text/SaffronCity.asm"
 INCLUDE "text/OchreCity.asm"
 
 INCLUDE "data/text/text_9.asm"
+
+
+SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big
+
+INCLUDE "text/ViridianForest.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -382,7 +382,10 @@ wMenuCursorLocation:: dw
 ; if 0, normal battle; if 1, Inverse Battle
 wInverseBattle:: db ; new
 
-	ds 1 ; updated from 2
+; if 0, no level scaling; if 1, yes
+wLevelScaling:: db ; new
+
+;	ds 2 ; edited, commented out because I added the two wram variables above
 
 ; how many times should HandleMenuInput poll the joypad state before it returns?
 wMenuJoypadPollCount:: db

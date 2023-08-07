@@ -469,7 +469,7 @@
 
 ; Route 21 events
 	const_next $510
-	const_skip
+	const_skip ; edited because of Oak
 	const EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
 	const EVENT_BEAT_ROUTE_21_TRAINER_0
 	const EVENT_BEAT_ROUTE_21_TRAINER_1
@@ -544,7 +544,7 @@
 
 ; Viridian Forest events
 	const_next $560
-	const_skip 2
+	const_skip 3 ; edited because of rematch Erika
 	const EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_0
 	const EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_1
 	const EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_2

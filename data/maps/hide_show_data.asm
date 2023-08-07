@@ -35,7 +35,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw Route21HS
+	dw Route21HS ; new because of Oak
 	dw Route22HS
 	dw NoHS
 	dw Route24HS
@@ -310,7 +310,7 @@ Route15HS:
 Route16HS:
 	db ROUTE_16, $07, SHOW
 Route21HS:
-	db ROUTE_21, $01, HIDE ; new
+	db ROUTE_21, $01, HIDE ; new because of Oak
 Route22HS:
 	db ROUTE_22, $01, HIDE
 	db ROUTE_22, $02, HIDE
@@ -401,10 +401,11 @@ BillsHouseHS:
 	db BILLS_HOUSE, $01, SHOW
 	db BILLS_HOUSE, $02, HIDE
 	db BILLS_HOUSE, $03, HIDE
-ViridianForestHS:
-	db VIRIDIAN_FOREST, $07, SHOW
+ViridianForestHS: ; edited because of rematch Erika
+	db VIRIDIAN_FOREST, $01, HIDE
 	db VIRIDIAN_FOREST, $08, SHOW
 	db VIRIDIAN_FOREST, $09, SHOW
+	db VIRIDIAN_FOREST, $0A, SHOW
 MtMoon1FHS:
 	db MT_MOON_1F, $08, SHOW
 	db MT_MOON_1F, $09, SHOW

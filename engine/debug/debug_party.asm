@@ -37,16 +37,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets Psychic or test moves
-	ld a, HEAT_WAVE
+	ld a, PSYCHIC_M
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, CRUNCH
+	ld a, THUNDERBOLT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, WILL_O_WISP
+	ld a, ICE_BEAM
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, THUNDER_WAVE
+	ld a, EARTHQUAKE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

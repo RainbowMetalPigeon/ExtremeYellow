@@ -40,6 +40,16 @@ ReadTrainer:
 	jr nz, .inner
 	jr .outer
 
+	; new, block of code to handle level scaling
+	ld a, [wLevelScaling]
+	and a ; faster, lighter cp 0
+	jr z, .IterateTrainer ; if not in level scaling mode, jump to normal routine
+	push hl ; gotta preserve hl
+	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
+	ld a, d
+	ld [wCurEnemyLVL], a
+	pop hl ; gotta preserve hl
+
 ; if the first byte of trainer data is FF,
 ; - each pokemon has a specific level
 ;      (as opposed to the whole team being of the same level)
@@ -49,6 +59,14 @@ ReadTrainer:
 	ld a, [hli]
 	cp $FF ; is the trainer special?
 	jr z, .SpecialTrainer ; if so, check for special moves
+
+	; new, prolly suboptimal code, but oh well, it'd just be fitting :D
+	ld b, a ; temporarily store a in b
+	ld a, [wLevelScaling]
+	and a ; if z flag, then no level scaling
+	jr nz, .LoopTrainerData
+	ld a, b ; restore the previous a
+
 	ld [wCurEnemyLVL], a
 .LoopTrainerData
 	ld a, [hli]
@@ -69,6 +87,14 @@ ReadTrainer:
 	ld a, [hli]
 	and a ; have we reached the end of the trainer data?
 	jr z, .AddAdditionalMoveData
+
+	; new, prolly suboptimal code, but oh well, it'd just be fitting :D
+	ld b, a ; temporarily store a in b
+	ld a, [wLevelScaling]
+	and a ; if z flag, then no level scaling
+	jr nz, .LoopTrainerData
+	ld a, b ; restore the previous a
+
 	ld [wCurEnemyLVL], a
 	ld a, [hli]
 	ld [wcf91], a
@@ -143,3 +169,27 @@ ReadTrainer:
 	dec b
 	jr nz, .LastLoop ; repeat wCurEnemyLVL times
 	ret
+
+; new, function to handle level scaling
+FindMaxLevelPlayersMons:
+    ld e, 0 ; which pokemon we're on in the party
+    ld hl, wPartyMon1Level
+    ld d, 0 ; temp max
+.loop
+    ld a, [hl]
+    cp d ; a-d
+    jr nc, .levelNotHigherThanTempMaximum
+    ld d, a
+
+.levelNotHigherThanTempMaximum
+    inc e
+    ld a, e
+    cp PARTY_LENGTH
+
+    jr z, .done
+    ld hl, wPartyMon1Level
+    ld bc, wPartyMon2 - wPartyMon1
+    call AddNTimes
+    jr .loop
+.done
+    ret

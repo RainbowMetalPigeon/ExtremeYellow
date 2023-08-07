@@ -129,6 +129,8 @@ AgathasRoomTrainerHeader0:
 AgathaText1:
 	text_asm
 	ld hl, AgathasRoomTrainerHeader0
+	ld a, 1					; testing
+	ld [wLevelScaling], a	; testing
 	call TalkToTrainer
 	jp TextScriptEnd
 

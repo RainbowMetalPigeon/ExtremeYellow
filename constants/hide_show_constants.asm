@@ -107,6 +107,7 @@ DEF SHOW EQU $15
 	const HS_BILL_POKEMON                  ; 61
 	const HS_BILL_1                        ; 62
 	const HS_BILL_2                        ; 63
+	const HS_VIRIDIAN_FOREST_ERIKA         ; new
 	const HS_VIRIDIAN_FOREST_ITEM_1        ; 64
 	const HS_VIRIDIAN_FOREST_ITEM_2        ; 65
 	const HS_VIRIDIAN_FOREST_ITEM_3        ; 66

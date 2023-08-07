@@ -94,12 +94,21 @@ HallofFameRoomScript1:
 	call DisplayTextID
 	ld a, $ff
 	ld [wJoyIgnore], a
+
+	; start of all the hide/show, only the first one (Cerulean Cave Guy) is vanilla
 	ld a, HS_CERULEAN_CAVE_GUY
 	ld [wMissableObjectIndex], a
 	predef HideObject
+
 	ld a, HS_ROUTE_21_OAK 			; new, to show Oak in Route21 after becoming champion
 	ld [wMissableObjectIndex], a	; new
 	predef ShowObject				; new
+
+	ld a, HS_VIRIDIAN_FOREST_ERIKA	; new, to show Erika in Viridian Forest after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef ShowObject				; new
+
+	; vanilla code
 	ld a, $2
 	ld [wHallOfFameCurScript], a
 	ret
