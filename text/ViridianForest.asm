@@ -156,16 +156,16 @@ _ViridianForestText14::
 	cont "PEWTER CITY AHEAD"
 	done
 
-; ------------------------------------------------
+; new ------------------------------------------------
 
-_ErikaBeforeBattleText::
+_ViridianForestErikaBeforeBattleText::
 ;	xxxx "123456789012345678"
 	text "Let us have a nice"
 	line "INVERSE BATTLE!"
 	done
 
-_ErikaPostBattleText::
+_ViridianForestErikaPostBattleText::
 ;	xxxx "123456789012345678"
-	text "Thank you for the"
-	line "great battle!"
+	text "Thank you" ; need to consider a "ERIKA: " extra space
+	line "for the battle!"
 	prompt

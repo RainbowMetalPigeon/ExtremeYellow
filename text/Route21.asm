@@ -189,7 +189,7 @@ _OakBeforeBattleText2::
 	line "Let us begin!"
 
 	para "My and my"
-	line "friend's #MON"
+	line "friends' #MON"
 	cont "are looking"
 	cont "forward for this!"
 	done

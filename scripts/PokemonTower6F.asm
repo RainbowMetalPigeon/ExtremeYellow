@@ -29,7 +29,7 @@ PokemonTower6Script0:
 	jp nc, CheckFightingMapTrainers
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $6
+	ld a, $7 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, RESTLESS_SOUL
@@ -61,7 +61,7 @@ PokemonTower6Script4:
 	and a
 	jr nz, .asm_60b82
 	SetEvent EVENT_BEAT_GHOST_MAROWAK
-	ld a, $7
+	ld a, $8
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -96,6 +96,7 @@ PokemonTower6Script3:
 	ret
 
 PokemonTower6F_TextPointers:
+	dw PokemonTower6TextAgatha ; new
 	dw PokemonTower6Text1
 	dw PokemonTower6Text2
 	dw PokemonTower6Text3
@@ -105,7 +106,7 @@ PokemonTower6F_TextPointers:
 	dw PokemonTower6Text7
 
 PokemonTower6TrainerHeaders:
-	def_trainers
+	def_trainers 2 ; edited because of rematch Agatha
 PokemonTower6TrainerHeader0:
 	trainer EVENT_BEAT_POKEMONTOWER_6_TRAINER_0, 3, PokemonTower6BattleText1, PokemonTower6EndBattleText1, PokemonTower6AfterBattleText1
 PokemonTower6TrainerHeader1:
@@ -191,4 +192,42 @@ PokemonTower6AfterBattleText3:
 
 PokemonTower6Text6:
 	text_far _PokemonTower6Text6
+	text_end
+
+; new ------------------------------------------------
+
+PokemonTower6TextAgatha:
+	text_asm
+	ld hl, PokemonTower6AgathaBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_AGATHA
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, PokemonTower6AgathaPostBattleText
+	ld de, PokemonTower6AgathaPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+PokemonTower6AgathaBeforeBattleText:
+	text_far _PokemonTower6AgathaBeforeBattleText
+	text_end
+
+PokemonTower6AgathaPostBattleText:
+	text_far _PokemonTower6AgathaPostBattleText
 	text_end

@@ -280,7 +280,7 @@ INCLUDE "gfx/version.asm"
 
 SECTION "bank1C", ROMX
 
-INCLUDE "engine/movie/splash.asm"
+;INCLUDE "engine/movie/splash.asm" ; moved away to the next bank
 INCLUDE "engine/movie/hall_of_fame.asm"
 INCLUDE "engine/overworld/healing_machine.asm"
 INCLUDE "engine/overworld/player_animations.asm"
@@ -291,6 +291,11 @@ INCLUDE "engine/gfx/mon_icons.asm"
 INCLUDE "engine/events/in_game_trades.asm"
 INCLUDE "engine/gfx/palettes.asm"
 INCLUDE "engine/menus/save.asm"
+
+
+SECTION "bank1C bis", ROMX ; new, move some stuff out of the original bank1c
+
+INCLUDE "engine/movie/splash.asm" ; this seems to be referenced only by intro.asm with a farcall?
 
 
 SECTION "Itemfinder 1", ROMX

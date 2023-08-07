@@ -33,21 +33,21 @@ FightingDojoScript1:
 	ldh [hJoyHeld], a
 	ld [wcf0d], a
 	ld a, [wYCoord]
-	cp 3
+	cp 4 ; it was 3
 	ret nz
 	ld a, [wXCoord]
-	cp 4
+	cp 6 ; it was 4
 	ret nz
 	ld a, $1
 	ld [wcf0d], a
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
-	ld a, $1
+	ld a, $2
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_LEFT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
-	ld a, $1
+	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ret
@@ -71,7 +71,7 @@ FightingDojoScript3:
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEventRange EVENT_BEAT_KARATE_MASTER, EVENT_BEAT_FIGHTING_DOJO_TRAINER_3
-	ld a, $8
+	ld a, $A
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -81,6 +81,7 @@ FightingDojoScript3:
 	ret
 
 FightingDojo_TextPointers:
+	dw FightingDojoTextBruno ; new
 	dw FightingDojoText1
 	dw FightingDojoText2
 	dw FightingDojoText3
@@ -88,10 +89,11 @@ FightingDojo_TextPointers:
 	dw FightingDojoText5
 	dw FightingDojoText6
 	dw FightingDojoText7
-	dw FightingDojoText8
+	dw FightingDojoText8 ; new/edited
+	dw FightingDojoText9 ; new
 
 FightingDojoTrainerHeaders:
-	def_trainers 2
+	def_trainers 3 ; edited because of rematch Bruno
 FightingDojoTrainerHeader0:
 	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_0, 4, FightingDojoBattleText1, FightingDojoEndBattleText1, FightingDojoAfterBattleText1
 FightingDojoTrainerHeader1:
@@ -129,7 +131,7 @@ FightingDojoText1:
 	call PrintText
 	jr .asm_9dba4
 .continue2
-	ld hl, FightingDojoText8
+	ld hl, FightingDojoText9
 	call PrintText
 .asm_9dba4
 	jp TextScriptEnd
@@ -142,7 +144,7 @@ FightingDojoText_5ce93:
 	text_far _FightingDojoText_5ce93
 	text_end
 
-FightingDojoText8:
+FightingDojoText9:
 	text_far _FightingDojoText_5ce98
 	text_end
 
@@ -225,7 +227,7 @@ FightingDojoAfterBattleText4:
 FightingDojoText6:
 ; Hitmonlee Poké Ball
 	text_asm
-	CheckEitherEventSet EVENT_GOT_HITMONLEE, EVENT_GOT_HITMONCHAN
+	CheckEvent EVENT_GOT_A_HITMON
 	jr z, .GetMon
 	ld hl, OtherHitmonText
 	call PrintText
@@ -249,7 +251,7 @@ FightingDojoText6:
 	ld a, HS_FIGHTING_DOJO_GIFT_1
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	SetEvents EVENT_GOT_HITMONLEE, EVENT_DEFEATED_FIGHTING_DOJO
+	SetEvents EVENT_GOT_A_HITMON, EVENT_DEFEATED_FIGHTING_DOJO
 .done
 	jp TextScriptEnd
 
@@ -260,7 +262,7 @@ WantHitmonleeText:
 FightingDojoText7:
 ; Hitmonchan Poké Ball
 	text_asm
-	CheckEitherEventSet EVENT_GOT_HITMONLEE, EVENT_GOT_HITMONCHAN
+	CheckEvent EVENT_GOT_A_HITMON
 	jr z, .GetMon
 	ld hl, OtherHitmonText
 	call PrintText
@@ -279,7 +281,7 @@ FightingDojoText7:
 	ld c, 35 ; new, increased levels for the gift hitmons
 	call GivePokemon
 	jr nc, .done
-	SetEvents EVENT_GOT_HITMONCHAN, EVENT_DEFEATED_FIGHTING_DOJO
+	SetEvents EVENT_GOT_A_HITMON, EVENT_DEFEATED_FIGHTING_DOJO
 
 	; once Poké Ball is taken, hide sprite
 	ld a, HS_FIGHTING_DOJO_GIFT_2
@@ -292,6 +294,79 @@ WantHitmonchanText:
 	text_far _WantHitmonchanText
 	text_end
 
+FightingDojoText8:
+; Hitmontop Poké Ball
+	text_asm
+	CheckEvent EVENT_GOT_A_HITMON
+	jr z, .GetMon
+	ld hl, OtherHitmonText
+	call PrintText
+	jr .done
+.GetMon
+	ld a, HITMONTOP
+	call DisplayPokedex
+	ld hl, WantHitmontopText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .done
+	ld a, [wcf91]
+	ld b, a
+	ld c, 35 ; new, increased levels for the gift hitmons
+	call GivePokemon
+	jr nc, .done
+	SetEvents EVENT_GOT_A_HITMON, EVENT_DEFEATED_FIGHTING_DOJO
+
+	; once Poké Ball is taken, hide sprite
+	ld a, HS_FIGHTING_DOJO_GIFT_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+.done
+	jp TextScriptEnd
+
+WantHitmontopText:
+	text_far _WantHitmontopText
+	text_end
+
 OtherHitmonText:
 	text_far _OtherHitmonText
+	text_end
+
+; ------------------------------------------------
+
+FightingDojoTextBruno:
+	text_asm
+	ld hl, FightingDojoBrunoBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_BRUNO
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, FightingDojoBrunoPostBattleText
+	ld de, FightingDojoBrunoPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+FightingDojoBrunoBeforeBattleText:
+	text_far _FightingDojoBrunoBeforeBattleText
+	text_end
+
+FightingDojoBrunoPostBattleText:
+	text_far _FightingDojoBrunoPostBattleText
 	text_end

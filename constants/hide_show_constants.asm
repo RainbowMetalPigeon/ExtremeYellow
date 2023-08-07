@@ -70,6 +70,7 @@ DEF SHOW EQU $15
 	const HS_POKEMON_TOWER_4F_ITEM_2       ; 3C
 	const HS_POKEMON_TOWER_4F_ITEM_3       ; 3D
 	const HS_POKEMON_TOWER_5F_ITEM         ; 3E
+	const HS_POKEMON_TOWER_6F_AGATHA       ; new
 	const HS_POKEMON_TOWER_6F_ITEM_1       ; 3F
 	const HS_POKEMON_TOWER_6F_ITEM_2       ; 40
 	const HS_POKEMON_TOWER_7F_JESSIE       ; 41
@@ -81,8 +82,10 @@ DEF SHOW EQU $15
 	const HS_WARDENS_HOUSE_ITEM            ; 47
 	const HS_POKEMON_MANSION_1F_ITEM_1     ; 48
 	const HS_POKEMON_MANSION_1F_ITEM_2     ; 49
+	const HS_FIGHTING_DOJO_BRUNO           ; new
 	const HS_FIGHTING_DOJO_GIFT_1          ; 4A
 	const HS_FIGHTING_DOJO_GIFT_2          ; 4B
+	const HS_FIGHTING_DOJO_GIFT_3          ; new
 	const HS_SILPH_CO_1F_RECEPTIONIST      ; 4C
 	const HS_VOLTORB_1                     ; 4D
 	const HS_VOLTORB_2                     ; 4E
@@ -186,6 +189,7 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_8F_1                 ; AF
 	const HS_SILPH_CO_8F_2                 ; B0
 	const HS_SILPH_CO_8F_3                 ; B1
+	const HS_ROCK_TUNNEL_B1F_BROCK         ; new
 	const HS_SILPH_CO_9F_1                 ; B2
 	const HS_SILPH_CO_9F_2                 ; B3
 	const HS_SILPH_CO_9F_3                 ; B4

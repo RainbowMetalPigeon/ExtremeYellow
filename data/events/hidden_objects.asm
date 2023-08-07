@@ -295,10 +295,12 @@ CopycatsHouse2FHiddenObjects:
 	db -1 ; end
 
 FightingDojoHiddenObjects:
-	hidden_object  3,  9, SPRITE_FACING_UP, PrintFightingDojoText
-	hidden_object  6,  9, SPRITE_FACING_UP, PrintFightingDojoText
-	hidden_object  4,  0, SPRITE_FACING_UP, PrintFightingDojoText2
-	hidden_object  5,  0, SPRITE_FACING_UP, PrintFightingDojoText3
+	hidden_object  5, 13, SPRITE_FACING_UP, PrintFightingDojoText
+	hidden_object  8, 13, SPRITE_FACING_UP, PrintFightingDojoText
+	hidden_object  2,  0, SPRITE_FACING_UP, PrintFightingDojoText2
+	hidden_object  3,  0, SPRITE_FACING_UP, PrintFightingDojoText3
+	hidden_object 10,  0, SPRITE_FACING_UP, PrintFightingDojoText3
+	hidden_object 11,  0, SPRITE_FACING_UP, PrintFightingDojoText2
 	db -1 ; end
 
 SaffronGymHiddenObjects:

@@ -124,7 +124,27 @@ _WantHitmonchanText::
 	cont "HITMONCHAN?"
 	done
 
+_WantHitmontopText::
+	text "You want the"
+	line "speedy-spinning"
+	cont "HITMONTOP?"
+	done
+
 _OtherHitmonText::
 	text "Better not get"
 	line "greedy..."
 	done
+
+; new ------------------------------------------------
+
+_FightingDojoBrunoBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_FightingDojoBrunoPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "Bruno: " extra space
+	line "for the battle!"
+	prompt
