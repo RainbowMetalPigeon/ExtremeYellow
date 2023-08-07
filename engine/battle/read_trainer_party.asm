@@ -179,8 +179,8 @@ FindMaxLevelPlayersMons:
     ld d, 0 ; temp max
 .loop
     ld a, [hl]
-    cp d ; a-d
-    jr nc, .levelNotHigherThanTempMaximum
+    cp d ; a-d, c flag set if a<d
+    jr c, .levelNotHigherThanTempMaximum
     ld d, a
 
 .levelNotHigherThanTempMaximum
