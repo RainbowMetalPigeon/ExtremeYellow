@@ -417,6 +417,11 @@ INCLUDE "scripts/CeruleanCaveExtraBottom.asm"
 INCLUDE "data/maps/objects/CeruleanCaveExtraBottom.asm"
 CeruleanCaveExtraBottom_Blocks: INCBIN "maps/CeruleanCaveExtraBottom.blk"
 
+INCLUDE "data/maps/headers/OchreWonderland.asm"
+INCLUDE "scripts/OchreWonderland.asm"
+INCLUDE "data/maps/objects/OchreWonderland.asm"
+OchreWonderland_Blocks: INCBIN "maps/OchreWonderland.blk"
+
 
 SECTION "Maps 7", ROMX
 
@@ -1000,6 +1005,11 @@ INCLUDE "data/maps/headers/VictoryRoad1F.asm"
 INCLUDE "scripts/VictoryRoad1F.asm"
 INCLUDE "data/maps/objects/VictoryRoad1F.asm"
 VictoryRoad1F_Blocks: INCBIN "maps/VictoryRoad1F.blk"
+
+INCLUDE "data/maps/headers/OchreGym.asm"
+INCLUDE "scripts/OchreGym.asm"
+INCLUDE "data/maps/objects/OchreGym.asm"
+OchreGym_Blocks: INCBIN "maps/OchreGym.blk"
 
 
 SECTION "Maps 17", ROMX

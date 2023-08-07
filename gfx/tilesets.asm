@@ -17,8 +17,8 @@ ShipPort_GFX::      INCBIN "gfx/tilesets/ship_port.2bpp"
 ShipPort_Block::    INCBIN "gfx/blocksets/ship_port.bst"
 Interior_GFX::      INCBIN "gfx/tilesets/interior.2bpp"
 Interior_Block::    INCBIN "gfx/blocksets/interior.bst"
-Plateau_GFX::       INCBIN "gfx/tilesets/plateau.2bpp"
-Plateau_Block::     INCBIN "gfx/blocksets/plateau.bst"
+;Plateau_GFX::       INCBIN "gfx/tilesets/plateau.2bpp" ; moved away
+;Plateau_Block::     INCBIN "gfx/blocksets/plateau.bst" ; moved away
 
 
 SECTION "Tilesets 2", ROMX
@@ -40,8 +40,8 @@ ForestGate_Block::
 Museum_Block::
 Gate_Block::        INCBIN "gfx/blocksets/gate.bst"
 
-Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp"
-Forest_Block::      INCBIN "gfx/blocksets/forest.bst"
+;Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp" ; moved away
+;Forest_Block::      INCBIN "gfx/blocksets/forest.bst" ; moved away
 Facility_GFX::      INCBIN "gfx/tilesets/facility.2bpp"
 Facility_Block::    INCBIN "gfx/blocksets/facility.bst"
 
@@ -50,8 +50,8 @@ SECTION "Tilesets 3", ROMX
 
 Cemetery_GFX::      INCBIN "gfx/tilesets/cemetery.2bpp"
 Cemetery_Block::    INCBIN "gfx/blocksets/cemetery.bst"
-;Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"
-;Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"
+;Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp" ; moved away
+;Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst" ; moved away
 Lobby_GFX::         INCBIN "gfx/tilesets/lobby.2bpp"
 Lobby_Block::       INCBIN "gfx/blocksets/lobby.bst"
 Ship_GFX::          INCBIN "gfx/tilesets/ship.2bpp"
@@ -69,5 +69,13 @@ SECTION "Tilesets 4", ROMX
 BeachHouse_GFX::    INCBIN "gfx/tilesets/beach_house.2bpp"
 	ds 384
 BeachHouse_Block::  INCBIN "gfx/blocksets/beach_house.bst"
-Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"	; moved
-Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"	; moved
+Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"	; moved in
+Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"	; moved in
+
+
+SECTION "Tilesets 5", ROMX ; new, to contain even more beefy stuff
+
+Plateau_GFX::       INCBIN "gfx/tilesets/plateau.2bpp" ; moved in
+Plateau_Block::     INCBIN "gfx/blocksets/plateau.bst" ; moved in
+Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp" ; moved in
+Forest_Block::      INCBIN "gfx/blocksets/forest.bst" ; moved in

@@ -265,6 +265,7 @@ INCLUDE "data/text/text_9.asm"
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big
 
 INCLUDE "text/ViridianForest.asm"
+INCLUDE "text/OchreWonderland.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
