@@ -40,22 +40,24 @@ ReadTrainer:
 	jr nz, .inner
 	jr .outer
 
-	; new, block of code to handle level scaling
-	ld a, [wLevelScaling]
-	and a ; faster, lighter cp 0
-	jr z, .IterateTrainer ; if not in level scaling mode, jump to normal routine
-	push hl ; gotta preserve hl
-	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
-	ld a, d
-	ld [wCurEnemyLVL], a
-	pop hl ; gotta preserve hl
-
 ; if the first byte of trainer data is FF,
 ; - each pokemon has a specific level
 ;      (as opposed to the whole team being of the same level)
 ; - if [wLoneAttackNo] != 0, one pokemon on the team has a special move
 ; else the first byte is the level of every pokemon on the team
 .IterateTrainer
+
+	; new block of code to handle level scaling
+	ld a, [wLevelScaling]
+	and a ; faster, lighter cp 0
+	jr z, .continueNoLevelScaling ; if not in level scaling mode, jump to normal routine
+	push hl ; gotta preserve hl
+	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
+	ld a, d
+	ld [wCurEnemyLVL], a
+	pop hl ; gotta preserve hl
+.continueNoLevelScaling
+
 	ld a, [hli]
 	cp $FF ; is the trainer special?
 	jr z, .SpecialTrainer ; if so, check for special moves
@@ -63,7 +65,7 @@ ReadTrainer:
 	; new, prolly suboptimal code, but oh well, it'd just be fitting :D
 	ld b, a ; temporarily store a in b
 	ld a, [wLevelScaling]
-	and a ; if z flag, then no level scaling
+	and a ; = cp a, 0: if z flag, then no level scaling
 	jr nz, .LoopTrainerData
 	ld a, b ; restore the previous a
 
