@@ -468,7 +468,7 @@
 
 ; Route 21 events
 	const_next $510
-	const_skip ; edited because of Oak
+	const_skip ; edited because of Oak (and then edited back?)
 	const EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
 	const EVENT_BEAT_ROUTE_21_TRAINER_0
 	const EVENT_BEAT_ROUTE_21_TRAINER_1
@@ -801,6 +801,20 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
 	const_skip 8
 	const EVENT_BEAT_ARTICUNO
+
+; Ochre City events
+	const_next $9F0
+	const_skip 2
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_0
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_1
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_2
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_3
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_4
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_5
+	const EVENT_BEAT_OCHRE_GYM_TRAINER_6
+	const EVENT_BEAT_OCHRE_GYM_ORAGE
+	const EVENT_GOT_GIFT
+	const EVENT_OCHRE_LOCK_TRY_1
 
 ; End of events
 	const_next $A00

@@ -25,7 +25,7 @@ Pokecenter_Coll::
 
 Dojo_Coll::
 Gym_Coll::
-	coll_tiles $11, $16, $19, $2b, $3c, $3d, $3f, $4a, $4c, $4d, $03
+	coll_tiles $11, $16, $19, $2b, $3c, $3d, $3f, $4a, $4c, $4d, $03, $15 ; updated, added last one
 
 Forest_Coll::
 	coll_tiles $1e, $20, $2e, $30, $34, $37, $39, $3a, $40, $51, $52, $5a, $5c, $5e, $5f
@@ -51,7 +51,7 @@ Interior_Coll::
 	coll_tiles $04, $0f, $15, $1f, $3b, $45, $47, $55, $56
 
 Cavern_Coll::
-	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42 ; updated, added last one, new tile
+	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42, $43 ; updated, added last two, new tiles
 
 	coll_tiles ; unused
 

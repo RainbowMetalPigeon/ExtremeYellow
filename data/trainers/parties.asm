@@ -103,6 +103,8 @@ BugCatcherData:
 	db 20, CATERPIE, WEEDLE, VENONAT, 0
 ; Viridian Forest
 	db 7, PINSIR, METAPOD, 0 ; pokeyellow only; updated
+; Ochre Gym
+	db 38, SCIZOR, BUTTERFREE, BEEDRILL, VENOMOTH, KLEAVOR, PINSIR, 0 ; new
 
 LassData:
 ; Route 3
@@ -219,6 +221,8 @@ PokemaniacData:
 	db 51, PICHU, CLEFFA, SMOOCHUM, TYROGUE, HAPPINY, 0 ; updated, baby mons
 ; Rock Tunnel 1F
 	db 23, SANDSLASH, SLOWPOKE, 0 ; updated, removed Cubone
+; Ochre Gym
+	db 39, CLEFABLE, WIGGLYTUFF, MR_MIME, SYLVEON, 0 ; new
 
 SuperNerdData:
 ; Mt. Moon 1F
@@ -238,6 +242,8 @@ SuperNerdData:
 	db 47, MAGBY, MAGMAR, MAGMORTAR, CHARMANDER, CHARMELEON, CHARIZARD, 0 ; updated
 	db 50, MAGMORTAR, CHARIZARD, ARCANINE, 0 ; updated
 ;	db 37, GROWLITHE, VULPIX, 0 ; newly unused
+; Ochre Gym
+	db 38, PERSIAN, KANGASKHAN, BLISSEY, TAUROS, SNORLAX, PORYGONZ, 0 ; new
 
 HikerData:
 ; Mt. Moon 1F
@@ -302,8 +308,8 @@ BurglarData:
 	db 34, GROWLITHE, PONYTA, 0
 
 EngineerData:
-; Unused
-	db 21, VOLTORB, MAGNEMITE, 0
+; Ochre Gym
+	db 40, MAGNEZONE, STEELIX, SCIZOR, 0 ; new, previously unused
 ; Route 11
 	db 21, MAGNEMITE, 0
 	db 18, MAGNEMITE, MAGNEMITE, MAGNETON, 0
@@ -469,6 +475,8 @@ BirdKeeperData:
 	db 26, PIDGEY, SPEAROW, PIDGEY, FEAROW, 0
 	db 29, PIDGEOTTO, FEAROW, 0
 	db 28, SPEAROW, DODUO, FEAROW, 0
+; Ochre Gym
+	db 38, FEAROW, BUTTERFREE, FARFETCHD, PIDGEOT, SCYTHER, DODRIO, 0 ; new
 
 BlackbeltData:
 ; Fighting Dojo ; all updated
@@ -563,6 +571,8 @@ ChannelerData:
 	db 45, GASTLY, HAUNTER, GENGAR, ANNIHILAPE, 0 ; updated
 	db 47, GENGAR, ANNIHILAPE, 0 ; updated
 	db 44, GASTLY, GASTLY, GASTLY, HAUNTER, HAUNTER, GENGAR, 0 ; updated
+; Ochre Gym
+	db 42, UMBREON, 0 ; new
 
 RocketData:
 ; Mt. Moon B2F
@@ -687,6 +697,8 @@ CooltrainerFData:
 	db 41, VENOMOTH, WEEZING, TENTACRUEL, NIDOQUEEN, CROBAT, 0 ; new
 ; Cinnabar Gym
 	db 52, ARCANINE, MAGMAR, NINETALES, RAPIDASH, CHARIZARD, 0 ; new
+; Ochre Gym
+	db 40, KLEAVOR, UMBREON, FEAROW, CLEFABLE, STEELIX, SNORLAX, 0 ; new
 
 BrockData:
 	db $FF, 10, GEODUDE, 10, OMANYTE, 10, KABUTO, 10, RHYHORN, 10, VULPIX, 11, ONIX, 0 ; updated
@@ -741,6 +753,7 @@ AgathaData:
 LanceData:
 	db 62, GYARADOS, DRAGONITE, AERODACTYL, KINGDRA, DRAGONITE, MCHARZARDX, 0 ; updated
 	db 75, AERODACTYL, DRAGONITE, GYARADOS, KINGDRA, DRAGONITE, MCHARZARDX, 0 ; rematch
+	db $FF, 41, BLISSEY, 41, DODRIO, 41, PINSIR, 41, SCIZOR, 41, UMBREON, 42, SYLVEON, 0 ; temp, to be edited!
 
 Rival1Data:
 	db 5, EEVEE, 0
