@@ -127,7 +127,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $68
 	map_const OCHRE_GYM,                     15, 17 ; $69 ; edited
 	map_const OCHRE_WONDERLAND,              30, 30 ; $6A ; edited
-	map_const UNUSED_MAP_6B,                  0,  0 ; $6B
+	map_const OCHRE_RESEARCH_CENTER,          6,  4 ; $6B ; edited
 	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
 	map_const UNUSED_MAP_6D,                  0,  0 ; $6D
 	map_const UNUSED_MAP_6E,                  0,  0 ; $6E

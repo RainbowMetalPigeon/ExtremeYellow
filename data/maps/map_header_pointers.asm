@@ -108,7 +108,7 @@ MapHeaderPointers::
 	dw SSAnneB1FRooms_h
 	dw OchreGym_h ; edited
 	dw OchreWonderland_h ; edited
-	dw LancesRoom_h ; UNUSED_MAP_6B
+	dw OchreResearchCenter_h ; edited
 	dw VictoryRoad1F_h
 	dw LancesRoom_h ; UNUSED_MAP_6D
 	dw LancesRoom_h ; UNUSED_MAP_6E

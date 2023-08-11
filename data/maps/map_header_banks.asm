@@ -108,7 +108,7 @@ MapHeaderBanks::
 	db BANK(SSAnneB1FRooms_h)
 	db BANK(OchreGym_h) ; edited
 	db BANK(OchreWonderland_h) ; edited
-	db $1D ; UNUSED_MAP_6B
+	db BANK(OchreResearchCenter_h) ; edited
 	db BANK(VictoryRoad1F_h)
 	db $1D ; UNUSED_MAP_6D
 	db $1D ; UNUSED_MAP_6E

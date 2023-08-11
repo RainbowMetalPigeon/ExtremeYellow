@@ -2,8 +2,8 @@ OchreGym_Object:
 	db $3 ; border block
 
 	def_warp_events
-	warp_event 14, 33, OCHRE_CITY, 3 ; will be 6
-	warp_event 15, 33, OCHRE_CITY, 3 ; will be 6
+	warp_event 14, 33, OCHRE_CITY, 6
+	warp_event 15, 33, OCHRE_CITY, 6
 	warp_event 14, 26, OCHRE_GYM, 4
 	warp_event 25,  2, OCHRE_GYM, 3
 
