@@ -13,6 +13,7 @@ DoorTileIDPointers:
 	dbw FACILITY,    .FacilityDoorTileIDs
 	dbw PLATEAU,     .PlateauDoorTileIDs
 	dbw INTERIOR,    .InteriorDoorTileIDs
+	dbw RESEARCH_CENTER, .ResearchCenterTileIDs ; new
 	db -1 ; end
 
 MACRO door_tiles
@@ -57,3 +58,6 @@ ENDM
 
 .InteriorDoorTileIDs:
 	door_tiles $04, $15
+
+.ResearchCenterTileIDs: ; new
+	door_tiles $20, $30

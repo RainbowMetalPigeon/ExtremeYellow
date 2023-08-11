@@ -75,3 +75,6 @@ Plateau_Coll::
 
 BeachHouse_Coll::
 	coll_tiles $01, $11, $12, $14
+
+ResearchCenter_Coll:: ; new
+	coll_tiles $0c, $16, $1e, $20, $26, $30, $34, $37 ; new

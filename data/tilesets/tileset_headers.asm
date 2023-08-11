@@ -34,4 +34,5 @@ Tilesets:
 	tileset Facility,    $12, -1, -1,  -1, TILEANIM_WATER
 	tileset Plateau,      -1, -1, -1, $45, TILEANIM_WATER
 	tileset BeachHouse,   -1, -1, -1,  -1, TILEANIM_NONE
+	tileset ResearchCenter, -1, -1, -1,  -1, TILEANIM_WATER ; new
 	assert_table_length NUM_TILESETS
