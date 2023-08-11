@@ -1,7 +1,7 @@
 OchreGym_Script:
-	ld hl, .CityName
-	ld de, .LeaderName
-	call LoadGymLeaderAndCityName
+;	ld hl, .CityName
+;	ld de, .LeaderName
+;	call LoadGymLeaderAndCityName
 	call EnableAutoTextBoxDrawing
 	ld hl, OchreGymTrainerHeaders
 	ld de, OchreGym_ScriptPointers
@@ -10,11 +10,11 @@ OchreGym_Script:
 	ld [wOchreGymCurScript], a
 	ret
 
-.CityName:
-	db "OCHRE CITY@"
+;.CityName:
+;	db "OCHRE CITY@"
 
-.LeaderName:
-	db "ORAGE@"
+;.LeaderName:
+;	db "ORAGE@"
 
 OchreGymResetScripts:
 	xor a

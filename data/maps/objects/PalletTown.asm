@@ -10,8 +10,8 @@ PalletTown_Object:
 	warp_event 13,  5, ROCK_TUNNEL_B1F, 4
 ;	warp_event 13,  5, SAFFRON_GYM, 1
 
-;	warp_event 12, 11, OAKS_LAB, 2
-	warp_event 12, 11, POKEMON_TOWER_6F, 1
+	warp_event 12, 11, OAKS_LAB, 2
+;	warp_event 12, 11, POKEMON_TOWER_6F, 1
 
 	def_bg_events
 	bg_event 13, 13, 4 ; PalletTownText4
