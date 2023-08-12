@@ -197,9 +197,10 @@ ItemUseBall:
 ; Get the first random number. Let it be called Rand1.
 ; Rand1 must be within a certain range according the kind of ball being thrown.
 ; The ranges are as follows.
-; Poké Ball:         [0, 255]
-; Great Ball:        [0, 200]
-; Ultra/Safari Ball: [0, 150]
+; Poké Ball:    [0, 255]
+; Great Ball:   [0, 200]
+; Ultra Ball:   [0, 150] ; only ultra now
+; Safari Ball:  [0, 100] ; new
 ; Loop until an acceptable number is found.
 
 .loop
@@ -228,12 +229,12 @@ ItemUseBall:
 	cp GREAT_BALL
 	jr z, .checkForAilments
 
-; If it's an Ultra Ball and Rand1 is greater than 150, try again. - updated
+; If it's an Ultra/Safari Ball and Rand1 is greater than 150, try again. - updated
 	ld a, 150
 	cp b
 	jr c, .loop
 
-; new - Less than or equal to 200 is good enough for an Ultra Ball.
+; new - Less than or equal to 150 is good enough for an Ultra Ball.
 	ld a, [hl]
 	cp ULTRA_BALL
 	jr z, .checkForAilments
