@@ -213,3 +213,7 @@ _OchreGymTrashBinText_Try1::
 _OchreGymTrashBinText_Try2::
 	text "Trash text 2"
 	done
+
+_OchreGymTrashBinText_Try3::
+	text "Trash text 3"
+	done

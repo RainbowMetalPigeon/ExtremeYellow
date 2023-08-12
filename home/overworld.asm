@@ -236,11 +236,26 @@ OverworldLoopLessDelay::
 	call UpdateSprites
 
 .moveAhead2
+;	ld hl, wFlags_0xcd60
+;	res 2, [hl]
+;	xor a
+;	ld [wd435], a
+;	call DoBikeSpeedup
+
 	ld hl, wFlags_0xcd60
 	res 2, [hl]
-	xor a
-	ld [wd435], a
-	call DoBikeSpeedup
+	ld a, [wWalkBikeSurfState]
+	dec a ; riding a bike?
+	jr nz, .normalPlayerSpriteAdvancement
+	ld a, [wd736]
+	bit 6, a ; jumping a ledge?
+	jr nz, .normalPlayerSpriteAdvancement
+	call DoBikeSpeedup ; if riding a bike and not jumping a ledge
+	call DoBikeSpeedup ; added
+.normalPlayerSpriteAdvancement
+; now you surf at previous bike speed = new walking speed
+	call DoBikeSpeedup ; Make you go faster than vanilla
+
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
 	and a
@@ -337,12 +352,13 @@ NewBattle::
 
 ; function to make bikes twice as fast as walking
 DoBikeSpeedup::
-	ld a, [wWalkBikeSurfState]
-	dec a ; riding a bike?
-	ret nz
-	ld a, [wd736]
-	bit 6, a
-	ret nz
+; edited: moved back these checks in the main function, a la pokered
+;	ld a, [wWalkBikeSurfState]
+;	dec a ; riding a bike?
+;	ret nz
+;	ld a, [wd736]
+;	bit 6, a
+;	ret nz
 	ld a, [wNPCMovementScriptPointerTableNum]
 	and a
 	ret nz

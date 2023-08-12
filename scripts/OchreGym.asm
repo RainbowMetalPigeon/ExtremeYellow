@@ -2,6 +2,11 @@ OchreGym_Script:
 ;	ld hl, .CityName
 ;	ld de, .LeaderName
 ;	call LoadGymLeaderAndCityName
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, OchreGymSetDoorTile
+
 	call EnableAutoTextBoxDrawing
 	ld hl, OchreGymTrainerHeaders
 	ld de, OchreGym_ScriptPointers
@@ -15,6 +20,18 @@ OchreGym_Script:
 
 ;.LeaderName:
 ;	db "ORAGE@"
+
+OchreGymSetDoorTile:
+	CheckEvent EVENT_OCHRE_LOCK_TRY_2
+	jr nz, .doorsOpen
+	ld a, $24 ; double door tile ID
+	jr .replaceTile
+.doorsOpen
+	ld a, $5 ; clear floor tile ID
+.replaceTile
+	ld [wNewTileBlockID], a
+	lb bc, 14, 7
+	predef_jump ReplaceTileBlock
 
 OchreGymResetScripts:
 	xor a
@@ -419,6 +436,10 @@ OchreGymTrashBinText:
     call PrintText
     jr .done
 .secondTry
+; second try always open the door
+	CheckEvent EVENT_OCHRE_LOCK_TRY_2
+	jr nz, .thirdTry
+	SetEvent EVENT_OCHRE_LOCK_TRY_2
     ld a, SFX_GO_INSIDE
     call PlaySound
     ld a, $5 ; clear floor tile ID
@@ -427,6 +448,19 @@ OchreGymTrashBinText:
     predef ReplaceTileBlock
     ld hl, OchreGymTrashBinText_Try2
     call PrintText
+	jr .done
+.thirdTry
+; third try closes the door
+	ResetEvent EVENT_OCHRE_LOCK_TRY_2
+    ld a, SFX_GO_INSIDE
+    call PlaySound
+	ld a, $24 ; double door tile ID
+    ld [wNewTileBlockID], a
+    lb bc, 14, 7
+    predef ReplaceTileBlock
+	ld hl, OchreGymTrashBinText_Try3
+	call PrintText
+	jr .done
 .done
     jp TextScriptEnd
 
@@ -436,4 +470,8 @@ OchreGymTrashBinText_Try1:
 
 OchreGymTrashBinText_Try2:
 	text_far _OchreGymTrashBinText_Try2
+	text_end
+
+OchreGymTrashBinText_Try3:
+	text_far _OchreGymTrashBinText_Try3
 	text_end

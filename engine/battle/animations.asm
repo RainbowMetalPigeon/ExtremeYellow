@@ -1430,7 +1430,7 @@ AnimationBlinkEnemyMon:
 AnimationBlinkMon:
 ; Make the mon's sprite blink on and off for a second or two.
 	push af
-	ld c, 6
+	ld c, 4 ; edited, it was 6, it's the number of blinkings when hit
 .loop
 	push bc
 	call AnimationHideMonPic

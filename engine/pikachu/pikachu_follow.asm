@@ -514,9 +514,10 @@ Func_fc7aa:
 	ld [hl], a
 	cp $4
 	jp z, Func_fca0a
-	call AreThereAtLeastTwoStepsInPikachuFollowCommandBuffer
-	jp c, FastPikachuFollow
-	jp NormalPikachuFollow
+;	call AreThereAtLeastTwoStepsInPikachuFollowCommandBuffer ; commented, default speed is doubled
+;	jp c, FastPikachuFollow ; commented, default speed is doubled
+;	jp NormalPikachuFollow ; commented, default speed is doubled
+	jp FastPikachuFollow ; new, default speed is doubled
 
 Pointer_fc7e3:
 	db  0,  0

@@ -1,6 +1,6 @@
 ItemPrices::
 	table_width 3, ItemPrices
-	bcd3 0     ; MASTER_BALL
+	bcd3 50000     ; MASTER_BALL, bought pricey, sold for 0
 	bcd3 1200  ; ULTRA_BALL
 	bcd3 600   ; GREAT_BALL
 	bcd3 200   ; POKE_BALL
@@ -83,8 +83,8 @@ ItemPrices::
 	bcd3 0     ; MAX_ETHER
 	bcd3 0     ; ELIXER
 	bcd3 0     ; MAX_ELIXER
-	bcd3 0     ; MEGA_STONE_X, better 0 to de-incentivate sell
-	bcd3 0     ; MEGA_STONE_Y, better 0 to de-incentivate sell
+	bcd3 50000     ; MEGA_STONE_X, bought pricey, sold for 0
+	bcd3 50000     ; MEGA_STONE_Y, bought pricey, sold for 0
 	bcd3 2100  ; SUN_STONE, like all other buy-able evo stones
 	bcd3 2100  ; ICE_STONE, like all other buy-able evo stones
 	bcd3 2100  ; KINGS_ROCK, like all other buy-able evo stones

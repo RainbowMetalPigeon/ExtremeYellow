@@ -815,6 +815,7 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_BEAT_OCHRE_GYM_ORAGE
 	const EVENT_GOT_GIFT
 	const EVENT_OCHRE_LOCK_TRY_1
+	const EVENT_OCHRE_LOCK_TRY_2
 
 ; End of events
 	const_next $A00

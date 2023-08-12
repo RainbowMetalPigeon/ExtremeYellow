@@ -280,6 +280,21 @@ DisplayChooseQuantityMenu::
 	ldh [hDivideBCDDivisor + 2], a
 	predef DivideBCDPredef3 ; halves the price
 ; store the halved price
+	; new block, check if you should get no money for selling that item
+	ld a, [wcf91]
+	cp MASTER_BALL
+	jr nz, .normalSell
+	cp MEGA_STONE_X
+	jr nz, .normalSell
+	cp MEGA_STONE_Y
+	jr nz, .normalSell
+	xor a
+	ldh [hMoney], a
+	ldh [hMoney + 1], a
+	ldh [hMoney + 2], a
+	jr .skipHalvingPrice
+.normalSell
+
 	ldh a, [hDivideBCDQuotient]
 	ldh [hMoney], a
 	ldh a, [hDivideBCDQuotient + 1]
