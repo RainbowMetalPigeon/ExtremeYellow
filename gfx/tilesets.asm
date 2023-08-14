@@ -81,3 +81,5 @@ Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp" ; moved in
 Forest_Block::      INCBIN "gfx/blocksets/forest.bst" ; moved in
 ResearchCenter_GFX::   INCBIN "gfx/tilesets/research_center.2bpp" ; new
 ResearchCenter_Block:: INCBIN "gfx/blocksets/research_center.bst" ; new
+Island_GFX::   INCBIN "gfx/tilesets/island.2bpp" ; new
+Island_Block:: INCBIN "gfx/blocksets/island.bst" ; new

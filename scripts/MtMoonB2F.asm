@@ -259,6 +259,7 @@ MtMoon3Script_49e15:
 	ret
 
 MovementData_f9e65:
+	db NO_INPUT ; test
 	db $06
 MovementData_f9e66:
 	db $06

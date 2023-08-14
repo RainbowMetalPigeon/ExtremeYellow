@@ -10,5 +10,6 @@ DungeonTilesets:
 	db FACILITY
 	db CEMETERY
 	db GYM
-	db RESEARCH_CENTER
+	db RESEARCH_CENTER ; new
+	db ISLAND ; new
 	db -1 ; end

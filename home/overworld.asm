@@ -244,17 +244,19 @@ OverworldLoopLessDelay::
 
 	ld hl, wFlags_0xcd60
 	res 2, [hl]
+	ld a, [wd736]
+	bit 6, a ; jumping a ledge?
+	jr nz, .slowPlayerSpriteAdvancement
 	ld a, [wWalkBikeSurfState]
 	dec a ; riding a bike?
 	jr nz, .normalPlayerSpriteAdvancement
-	ld a, [wd736]
-	bit 6, a ; jumping a ledge?
-	jr nz, .normalPlayerSpriteAdvancement
 	call DoBikeSpeedup ; if riding a bike and not jumping a ledge
-	call DoBikeSpeedup ; added
+	call DoBikeSpeedup ; if riding a bike and not jumping a ledge, new
 .normalPlayerSpriteAdvancement
 ; now you surf at previous bike speed = new walking speed
-	call DoBikeSpeedup ; Make you go faster than vanilla
+	call DoBikeSpeedup ; new, makes you go faster than vanilla
+; unless you're jumping down a ledge, otherwise bugs may happen, like getting into walls or Pikachu glitching
+.slowPlayerSpriteAdvancement
 
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
