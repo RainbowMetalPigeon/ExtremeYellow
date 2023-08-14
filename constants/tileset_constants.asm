@@ -27,4 +27,5 @@
 	const PLATEAU      ; 23
 	const BEACH_HOUSE  ; 24
 	const RESEARCH_CENTER  ; 25, new
+	const ISLAND       ; 26, new
 DEF NUM_TILESETS EQU const_value
