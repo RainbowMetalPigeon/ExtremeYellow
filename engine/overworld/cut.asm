@@ -5,7 +5,14 @@ UsedCut:
 	and a ; OVERWORLD
 	jr z, .overworld
 	cp GYM
+	jr z, .gym
+	cp ISLAND ; new (and surrounding lines)
 	jr nz, .nothingToCut
+	ld a, [wTileInFrontOfPlayer]
+	cp $3d ; island cut tree
+	jr nz, .nothingToCut
+	jr .canCut
+.gym
 	ld a, [wTileInFrontOfPlayer]
 	cp $50 ; gym cut tree
 	jr nz, .nothingToCut

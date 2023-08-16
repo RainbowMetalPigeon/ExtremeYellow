@@ -9,4 +9,6 @@ WaterTilesets:
 	db CAVERN
 	db FACILITY
 	db PLATEAU
+	db RESEARCH_CENTER ; new
+	db ISLAND ; new
 	db -1 ; end

@@ -10,4 +10,5 @@ CutTreeBlockSwaps:
 	db $3C, $35
 	db $3F, $35
 	db $3D, $36
+	db $4D, $4E ; new, for ISLAND blockset
 	db -1 ; end

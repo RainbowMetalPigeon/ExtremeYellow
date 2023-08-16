@@ -3,6 +3,8 @@
 
 # compiled objects
 *.o
+gfx/tileset.o
+gfx/tilesets_debug.o
 
 # compiled graphics
 *.1bpp

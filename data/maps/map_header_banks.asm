@@ -110,10 +110,10 @@ MapHeaderBanks::
 	db BANK(OchreWonderland_h) ; edited
 	db BANK(OchreResearchCenter_h) ; edited
 	db BANK(VictoryRoad1F_h)
-	db $1D ; UNUSED_MAP_6D
-	db $1D ; UNUSED_MAP_6E
-	db $1D ; UNUSED_MAP_6F
-	db $1D ; UNUSED_MAP_70
+	db BANK(SecludedAtollNW_h) ; edited
+	db BANK(SecludedAtollNE_h) ; edited
+	db BANK(SecludedAtollSE_h) ; edited
+	db BANK(SecludedAtollSW_h) ; edited
 	db BANK(LancesRoom_h)
 	db $1D ; UNUSED_MAP_72
 	db $1D ; UNUSED_MAP_73

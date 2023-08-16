@@ -52,3 +52,4 @@ PokemonMansionName:  db "<PKMN> MANSION@"
 SafariZoneName:      db "SAFARI ZONE@"
 CeruleanCaveName:    db "CERULEAN CAVE@"
 PowerPlantName:      db "POWER PLANT@"
+SecludedAtollName:   db "SECLUDED ATOLL@" ; new

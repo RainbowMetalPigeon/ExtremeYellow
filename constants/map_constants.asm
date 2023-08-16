@@ -129,10 +129,10 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const OCHRE_WONDERLAND,              30, 30 ; $6A ; edited
 	map_const OCHRE_RESEARCH_CENTER,          6,  4 ; $6B ; edited
 	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
-	map_const UNUSED_MAP_6D,                  0,  0 ; $6D
-	map_const UNUSED_MAP_6E,                  0,  0 ; $6E
-	map_const UNUSED_MAP_6F,                  0,  0 ; $6F
-	map_const UNUSED_MAP_70,                  0,  0 ; $70
+	map_const SECLUDED_ATOLL_NW,             27, 15 ; $6D ; edited
+	map_const SECLUDED_ATOLL_NE,             15, 15 ; $6E ; edited
+	map_const SECLUDED_ATOLL_SE,             15, 24 ; $6F ; edited
+	map_const SECLUDED_ATOLL_SW,             27, 24 ; $70 ; edited
 	map_const LANCES_ROOM,                   13, 13 ; $71
 	map_const UNUSED_MAP_72,                  0,  0 ; $72
 	map_const UNUSED_MAP_73,                  0,  0 ; $73

@@ -110,10 +110,10 @@ MapHeaderPointers::
 	dw OchreWonderland_h ; edited
 	dw OchreResearchCenter_h ; edited
 	dw VictoryRoad1F_h
-	dw LancesRoom_h ; UNUSED_MAP_6D
-	dw LancesRoom_h ; UNUSED_MAP_6E
-	dw LancesRoom_h ; UNUSED_MAP_6F
-	dw LancesRoom_h ; UNUSED_MAP_70
+	dw SecludedAtollNW_h ; edited
+	dw SecludedAtollNE_h ; edited
+	dw SecludedAtollSE_h ; edited
+	dw SecludedAtollSW_h ; edited
 	dw LancesRoom_h
 	dw LancesRoom_h ; UNUSED_MAP_72
 	dw LancesRoom_h ; UNUSED_MAP_73

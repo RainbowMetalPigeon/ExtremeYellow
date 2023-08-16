@@ -77,6 +77,7 @@ InternalMapEntries:
 	internal_map VERMILION_DOCK,                10,  9, VermilionCityName
 	internal_map SS_ANNE_B1F_ROOMS,              9, 10, SSAnneName
 	internal_map VICTORY_ROAD_1F,                0,  4, VictoryRoadName
+	internal_map SECLUDED_ATOLL_SW,             15, 15, SecludedAtollName ; new, not really an internal map but oh well, testing
 	internal_map HALL_OF_FAME,                   0,  2, PokemonLeagueName
 	internal_map UNDERGROUND_PATH_NORTH_SOUTH,  10,  5, UndergroundPathName
 	internal_map CHAMPIONS_ROOM,                 0,  2, PokemonLeagueName
@@ -115,8 +116,8 @@ InternalMapEntries:
 	internal_map CERULEAN_BADGE_HOUSE,          10,  2, CeruleanCityName
 	internal_map ROCK_TUNNEL_B1F,               14,  3, RockTunnelName
 	internal_map SILPH_CO_ELEVATOR,             10,  5, SilphCoName
-	internal_map CERULEAN_CAVE_EXTRA_TOP,        9,  1, CeruleanCaveName	; new
-	internal_map CERULEAN_CAVE_EXTRA_MIDDLE,     9,  1, CeruleanCaveName	; new
+	internal_map CERULEAN_CAVE_EXTRA_TOP,        9,  1, CeruleanCaveName	; new, unnecessary?
+	internal_map CERULEAN_CAVE_EXTRA_MIDDLE,     9,  1, CeruleanCaveName	; new, unnecessary?
 	internal_map CERULEAN_CAVE_EXTRA_BOTTOM,     9,  1, CeruleanCaveName	; new
 	internal_map AGATHAS_ROOM,                   0,  2, PokemonLeagueName
 	internal_map SUMMER_BEACH_HOUSE,             6, 15, Route19Name

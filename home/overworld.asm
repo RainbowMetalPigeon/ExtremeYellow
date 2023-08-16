@@ -707,6 +707,8 @@ CheckIfInOutsideMap::
 	and a ; most towns/routes have tileset 0 (OVERWORLD)
 	ret z
 	cp PLATEAU ; Route 23 / Indigo Plateau
+	ret z ; new
+	cp ISLAND ; new
 	ret
 
 ; this function is an extra check that sometimes has to pass in order to warp, beyond just standing on a warp
