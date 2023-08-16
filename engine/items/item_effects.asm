@@ -203,7 +203,7 @@ ItemUseBall:
 ; Safari Ball:  [0, 100] ; new
 ; Loop until an acceptable number is found.
 
-; new, store base speed of opp mon in c for FAST_BALL
+; new, store base speed of opp mon in c for FAST_BALL - TODO move it within FAST BALL check?
 	ld a, [wEnemyMonSpecies]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -222,18 +222,18 @@ ItemUseBall:
 	cp MASTER_BALL
 	jp z, .captured
 
-; Checks for FAST_BALL
-	cp FAST_BALL
-	jr nz, .notFastBall
-	ld a, 100 ; base speed above which the FAST_BALL works wonders
-	cp c ; compare with opp base speed
-	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=100, slow mon, works as a pokeball
-;	srl b ; halves the random number
-;	srl b ; quarters the random number
-	ld a, 2
-	cp b
-	jr c, .loop
-.notFastBall
+;; Checks for FAST_BALL
+;	cp FAST_BALL
+;	jr nz, .notFastBall
+;	ld a, 100 ; base speed above which the FAST_BALL works wonders
+;	cp c ; compare with opp base speed
+;	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=100, slow mon, works as a pokeball
+;;	srl b ; halves the random number
+;;	srl b ; quarters the random number
+;	ld a, 2
+;	cp b
+;	jr c, .loop
+;.notFastBall
 
 ; Anything will do for the basic Poké Ball.
 	cp POKE_BALL
