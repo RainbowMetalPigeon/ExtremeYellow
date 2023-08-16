@@ -203,6 +203,13 @@ ItemUseBall:
 ; Safari Ball:  [0, 100] ; new
 ; Loop until an acceptable number is found.
 
+; new, store base speed of opp mon in c for FAST_BALL
+	ld a, [wEnemyMonSpecies]
+	ld [wd0b5], a
+	call GetMonHeader
+	ld a, [wMonHBaseSpeed]
+	ld c, a
+
 .loop
 	call Random
 	ld b, a
@@ -214,6 +221,19 @@ ItemUseBall:
 ; The Master Ball always succeeds.
 	cp MASTER_BALL
 	jp z, .captured
+
+; Checks for FAST_BALL
+	cp FAST_BALL
+	jr nz, .notFastBall
+	ld a, 100 ; base speed above which the FAST_BALL works wonders
+	cp c ; compare with opp base speed
+	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=100, slow mon, works as a pokeball
+;	srl b ; halves the random number
+;	srl b ; quarters the random number
+	ld a, 2
+	cp b
+	jr c, .loop
+.notFastBall
 
 ; Anything will do for the basic Poké Ball.
 	cp POKE_BALL
@@ -243,6 +263,15 @@ ItemUseBall:
 	ld a, 100
 	cp b
 	jr c, .loop
+
+; new - Less than or equal to 100 is good enough for a Safari Ball.
+	ld a, [hl]
+	cp SAFARI_BALL
+	jr z, .checkForAilments
+
+
+
+
 
 .checkForAilments
 ; Pokémon can be caught more easily with a status ailment.
