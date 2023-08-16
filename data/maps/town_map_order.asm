@@ -29,7 +29,7 @@ TownMapOrder:
 	db ROUTE_11
 	db ROUTE_12
 	db ROUTE_13
-	db OCHRE_CITY ; new, testing
+	db OCHRE_CITY ; new
 	db ROUTE_14
 	db ROUTE_15
 	db ROUTE_16
@@ -47,4 +47,5 @@ TownMapOrder:
 	db VICTORY_ROAD_3F
 	db INDIGO_PLATEAU
 	db POWER_PLANT
+	db SECLUDED_ATOLL_SE ; new, testing
 TownMapOrderEnd:

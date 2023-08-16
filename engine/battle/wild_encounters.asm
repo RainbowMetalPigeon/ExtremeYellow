@@ -45,6 +45,8 @@ TryDoWildEncounter:
 	ld a, [wCurMapTileset]
 	cp FOREST ; Viridian Forest/Safari Zone
 	jr z, .CantEncounter2
+	cp ISLAND ; new, Secluded Island
+	jr z, .CantEncounter2 ; new
 	ld a, [wGrassRate]
 .CanEncounter
 ; compare encounter chance with a random number to determine if there will be an encounter

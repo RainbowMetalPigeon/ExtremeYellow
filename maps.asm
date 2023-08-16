@@ -1293,3 +1293,27 @@ INCLUDE "scripts/BillsHouse2.asm"
 INCLUDE "scripts/ViridianForest2.asm"
 INCLUDE "scripts/SSAnne2FRooms_2.asm"
 INCLUDE "scripts/SilphCo11F_2.asm"
+
+
+SECTION "Maps New", ROMX ; new
+
+INCLUDE "data/maps/headers/SecludedAtollNW.asm"
+INCLUDE "scripts/SecludedAtollNW.asm"
+INCLUDE "data/maps/objects/SecludedAtollNW.asm"
+SecludedAtollNW_Blocks: INCBIN "maps/SecludedAtollNW.blk"
+
+INCLUDE "data/maps/headers/SecludedAtollNE.asm"
+INCLUDE "scripts/SecludedAtollNE.asm"
+INCLUDE "data/maps/objects/SecludedAtollNE.asm"
+SecludedAtollNE_Blocks: INCBIN "maps/SecludedAtollNE.blk"
+
+INCLUDE "data/maps/headers/SecludedAtollSE.asm"
+INCLUDE "scripts/SecludedAtollSE.asm"
+INCLUDE "data/maps/objects/SecludedAtollSE.asm"
+SecludedAtollSE_Blocks: INCBIN "maps/SecludedAtollSE.blk"
+
+INCLUDE "data/maps/headers/SecludedAtollSW.asm"
+INCLUDE "scripts/SecludedAtollSW.asm"
+INCLUDE "data/maps/objects/SecludedAtollSW.asm"
+SecludedAtollSW_Blocks: INCBIN "maps/SecludedAtollSW.blk"
+

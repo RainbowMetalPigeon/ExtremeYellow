@@ -94,7 +94,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons			; VermilionDockWildMons VERMILION_DOCK, new
+	dw NothingWildMons			; VermilionDockWildMons VERMILION_DOCK, wannabe
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -109,10 +109,10 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw VictoryRoad1FWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw SecludedAtollNWWildMons ; new, testing
+	dw SecludedAtollNEWildMons ; new, testing
+	dw SecludedAtollSEWildMons ; new, testing
+	dw SecludedAtollSWWildMons ; new, testing
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -324,3 +324,7 @@ INCLUDE "data/wild/maps/VictoryRoad2F.asm"
 INCLUDE "data/wild/maps/VictoryRoad3F.asm"
 INCLUDE "data/wild/maps/VictoryRoad1F.asm"
 INCLUDE "data/wild/maps/DiglettsCave.asm"
+INCLUDE "data/wild/maps/SecludedAtollNW.asm" ; new
+INCLUDE "data/wild/maps/SecludedAtollNE.asm" ; new
+INCLUDE "data/wild/maps/SecludedAtollSE.asm" ; new
+INCLUDE "data/wild/maps/SecludedAtollSW.asm" ; new
