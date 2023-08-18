@@ -37,16 +37,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets Psychic or test moves
-	ld a, PSYCHIC_M
+	ld a, SUPERPOWER
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, THUNDERBOLT
+	ld a, CLOSE_COMBAT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, ICE_BEAM
+	ld a, DRAIN_PUNCH
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, EARTHQUAKE
+	ld a, ROOST
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -143,12 +143,12 @@ DebugSetPokedexEntries:
 	ret
 
 DebugItemsList:
+	db HEAVY_BALL, 99
+	db FAST_BALL, 99
 	db MEGA_STONE_X, 99
-	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
 	db FULL_RESTORE, 99
-	db ESCAPE_ROPE, 99
 	db RARE_CANDY, 99
 	db SECRET_KEY, 1
 	db CARD_KEY, 1

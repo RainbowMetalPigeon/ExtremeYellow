@@ -11,7 +11,7 @@ OchreCity_Object:
 	warp_event 10, 19, OCHRE_RESEARCH_CENTER, 1 ; 7
 	warp_event 37, 27, REDS_HOUSE_1F, 1 ; 8, to edit - front entrance sanctuary house
 	warp_event 12, 33, OCHRE_WONDERLAND, 1 ; 9
-;	todo: back entrance to the sanctuary house! - 37, 25; maybe also 36, 25? see cerulean badge house
+	warp_event 37, 25, REDS_HOUSE_1F, 1 ; 10, to edit - back entrance sanctuary house
 
 	def_bg_events
 	bg_event 28, 11, 1 ; MartSignText

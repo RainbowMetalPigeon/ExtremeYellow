@@ -91,6 +91,8 @@ ItemNames::
 	li "METAL COAT"
 	li "UPGRADE"
 	li "DUBIOUS DISK"
+	li "FAST BALL"
+	li "HEAVY BALL"
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

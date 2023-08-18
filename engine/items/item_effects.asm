@@ -100,14 +100,16 @@ ItemUsePtrTable:
 	dw ItemUsePPRestore  ; MAX_ETHER
 	dw ItemUsePPRestore  ; ELIXER
 	dw ItemUsePPRestore  ; MAX_ELIXER
-	dw ItemUseEvoStone   ; MEGA_STONE_X
-	dw ItemUseEvoStone   ; MEGA_STONE_Y
-	dw ItemUseEvoStone   ; SUN_STONE
-	dw ItemUseEvoStone   ; ICE_STONE
-	dw ItemUseEvoStone   ; KINGS_ROCK
-	dw ItemUseEvoStone	 ; METAL_COAT
-	dw ItemUseEvoStone	 ; UPGRADE
-	dw ItemUseEvoStone	 ; DUBIOUS_DISK
+	dw ItemUseEvoStone   ; MEGA_STONE_X, new
+	dw ItemUseEvoStone   ; MEGA_STONE_Y, new
+	dw ItemUseEvoStone   ; SUN_STONE, new
+	dw ItemUseEvoStone   ; ICE_STONE, new
+	dw ItemUseEvoStone   ; KINGS_ROCK, new
+	dw ItemUseEvoStone	 ; METAL_COAT, new
+	dw ItemUseEvoStone	 ; UPGRADE, new
+	dw ItemUseEvoStone	 ; DUBIOUS_DISK, new
+	dw ItemUseBall       ; FAST_BALL, new
+	dw ItemUseBall       ; HEAVY_BALL, new
 
 ItemUseBall:
 
@@ -201,6 +203,7 @@ ItemUseBall:
 ; Great Ball:   [0, 200]
 ; Ultra Ball:   [0, 150] ; only ultra now
 ; Safari Ball:  [0, 100] ; new
+; Fast Ball:    [0, 255/64] ; new, if mon's base speed <100 or >=100
 ; Loop until an acceptable number is found.
 
 ; new, store base speed of opp mon in c for FAST_BALL - TODO move it within FAST BALL check?
@@ -222,18 +225,31 @@ ItemUseBall:
 	cp MASTER_BALL
 	jp z, .captured
 
-;; Checks for FAST_BALL
-;	cp FAST_BALL
-;	jr nz, .notFastBall
-;	ld a, 100 ; base speed above which the FAST_BALL works wonders
-;	cp c ; compare with opp base speed
-;	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=100, slow mon, works as a pokeball
-;;	srl b ; halves the random number
-;;	srl b ; quarters the random number
-;	ld a, 2
-;	cp b
-;	jr c, .loop
-;.notFastBall
+; Checks for FAST_BALL
+	cp FAST_BALL
+	jr nz, .notFastBall
+	ld a, 99 ; base speed above which the FAST_BALL works wonders
+	cp c ; compare with opp base speed
+	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=99, slow mon, works as a pokeball
+;	srl b ; halves the random number
+;	srl b ; quarters the random number
+	ld a, 1 ; testing
+	cp b
+	jr c, .loop
+	jr .checkForAilments
+.notFastBall
+
+; Checks for HEAVY_BALL
+	cp HEAVY_BALL
+	jr nz, .notHeavyBall
+	call GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	cp $0F ; check if beyond max-tier weight
+	jr c, .checkForAilments
+	ld a, 1 ; testing
+	cp b
+	jr c, .loop
+	jr .checkForAilments
+.notHeavyBall
 
 ; Anything will do for the basic Poké Ball.
 	cp POKE_BALL
@@ -311,16 +327,48 @@ ItemUseBall:
 	call Multiply
 
 ; Determine BallFactor. It's 8 for Great Balls, 10 for Safari Balls, and 12 for the others. - updated
+; new: more detailed calculations for Fast and Heavy
 	ld a, [wcf91]
 	cp GREAT_BALL
-	ld a, 8			; updated
-	jr z, .skip1	; updated
-	cp SAFARI_BALL	; new
-	ld a, 10		; new
-	jr z, .skip1	; new
-	ld a, 12		; updated
+	jr z, .GreatBallFactor
+	cp SAFARI_BALL
+	jr z, .SafariBallFactor
+	cp FAST_BALL
+	jr z, .FastBallFactor
+	cp HEAVY_BALL
+	jr z, .HeavyBallFactor
+	; if none of the above, it's Poke or Ultra
+	ld a, 12
+	jr .continueAfterBallFactor
 
-.skip1
+.GreatBallFactor
+	ld a, 8
+	jr .continueAfterBallFactor
+.SafariBallFactor
+	ld a, 10
+	jr .continueAfterBallFactor
+.FastBallFactor
+	ld a, [wEnemyMonSpecies]	; unnecessary, already loaded earlier? Need to check with debugger if it gets rewritten
+	ld [wd0b5], a				; unnecessary, already loaded earlier? Need to check with debugger if it gets rewritten
+	call GetMonHeader			; unnecessary, already loaded earlier? Need to check with debugger if it gets rewritten
+	ld a, [wMonHBaseSpeed]
+	ld c, a
+	ld a, 99 ; base speed above which the FAST_BALL works wonders
+	cp c ; compare with opp base speed
+	ld a, 12
+	jr nc, .continueAfterBallFactor ; if there is no carry, a-c>=0, BS<=99, slow mon, works as a pokeball
+	ld a, 1 ; for testing, when final will be 6 or 8 or 10
+	jr .continueAfterBallFactor
+.HeavyBallFactor
+	call GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	cp $0F ; check if beyond max-tier weight
+	ld a, 12
+	jr c, .continueAfterBallFactor
+	ld a, 1 ; testing
+	jr .continueAfterBallFactor ; unnecessary for the last jump, as we go just down here
+
+
+.continueAfterBallFactor
 ; Note that the results of all division operations are floored.
 
 ; Calculate (MaxHP * 255) / BallFactor.
@@ -3249,4 +3297,35 @@ CheckMapForMon:
 	dec b
 	jr nz, .loop
 	dec hl
+	ret
+
+GetMSBEnemyWeight:: ; new
+; input: wEnemyMonSpecies
+; output: a as the most-significant byte of the weight
+; does not preserve hl, de
+; 400 kg = 4000 hectograms = FA0 -> MSB = 0F
+; 300 kg = 3000 hectograms = BB8 -> MSB = 0B
+; 200 kg = 2000 hectograms = 7D0 -> MSB = 07
+; 100 kg = 1000 hectograms = 3E8 -> MSB = 03
+;	wd11e = wEnemyMonSpecies +- 1 ???
+
+	ld hl, PokedexEntryPointers
+	ld a, [wEnemyMonSpecies] ; in the pokedex code is wd11e
+	dec a
+	ld e, a
+	ld d, 0
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld e, a
+	ld d, [hl] ; de = address of pokedex entry
+
+	inc de ; de = address of decimetre (height)
+	inc de
+	inc de
+	inc de ; de = address of upper byte of weight
+	ld a, [de] ; a = upper byte of weight
+	dec de
+	ld a, [de] ; a = lower byte of weight
+
 	ret
