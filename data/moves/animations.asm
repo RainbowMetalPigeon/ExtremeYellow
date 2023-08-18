@@ -1020,13 +1020,10 @@ PlayRoughAnim:
 MoonBlastAnim:
 
 MachPunch:
-SuperPowerAnim:
-CloseCombatAnim:
-DrainPunchAnim:
 
+WillOWispAnim:
 FlareBlitzAnim:
 
-RoostAnim:
 AirCutterAnim:
 AerialAceAnim:
 AirSlashAnim:
@@ -1516,8 +1513,50 @@ ShadowPunch:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
-WillOWispAnim:
-	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
+;---: ; fire geyser
+;	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
+;	db -1 ; end
+
+SuperPowerAnim:
+	battle_anim EARTHQUAKE, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SHAKE_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim MEGA_PUNCH, SUBANIM_1fcircles, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim SUBMISSION, SUBANIM_04, 1, 6
+	db -1 ; end
+
+DrainPunchAnim:
+	battle_anim LOW_KICK, SUBANIM_02, 0, 6
+	battle_anim MEGA_DRAIN, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_21, 0, 6
+	battle_anim NO_MOVE, SUBANIM_22, 0, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	db -1 ; end
+
+CloseCombatAnim:
+	battle_anim KARATE_CHOP, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_03, 0, 3
+	battle_anim LOW_KICK, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_01, 0, 3
+	battle_anim ROLLING_KICK, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_02, 0, 3
+	battle_anim MEGA_PUNCH, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_04, 1, 4
+	db -1 ; end
+
+RoostAnim:
+	battle_anim GUST, SUBANIM_17flip, 0, 6
+	battle_anim NO_MOVE, SUBANIM_17flip, 0, 6
+	battle_anim NO_MOVE, SUBANIM_17flip, 0, 6
+	battle_anim RECOVER, SE_BLINK_MON
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
 ; ENDDONE

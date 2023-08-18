@@ -363,7 +363,7 @@ PidgeyDexEntry:
 PidgeottoDexEntry:
 	db "BIRD@"
 	db 11
-	dw 300
+	dw 299
 	text_far _PidgeottoDexEntry
 	text_end
 
@@ -419,7 +419,7 @@ EkansDexEntry:
 ArbokDexEntry:
 	db "COBRA@"
 	db 35
-	dw 650
+	dw 649
 	text_far _ArbokDexEntry
 	text_end
 
@@ -440,7 +440,7 @@ PikachuDexEntry:
 RaichuDexEntry:
 	db "MOUSE@"
 	db 8
-	dw 300
+	dw 299
 	text_far _RaichuDexEntry
 	text_end
 
@@ -475,7 +475,7 @@ NidorinaDexEntry:
 NidoqueenDexEntry:
 	db "DRILL@"
 	db 13
-	dw 600
+	dw 599
 	text_far _NidoqueenDexEntry
 	text_end
 
@@ -517,7 +517,7 @@ ClefairyDexEntry:
 ClefableDexEntry:
 	db "FAIRY@"
 	db 13
-	dw 400
+	dw 399
 	text_far _ClefableDexEntry
 	text_end
 
@@ -566,7 +566,7 @@ ZubatDexEntry:
 GolbatDexEntry:
 	db "BAT@"
 	db 16
-	dw 550
+	dw 549
 	text_far _GolbatDexEntry
 	text_end
 
@@ -622,7 +622,7 @@ ParasectDexEntry:
 VenonatDexEntry:
 	db "INSECT@"
 	db 10
-	dw 300
+	dw 299
 	text_far _VenonatDexEntry
 	text_end
 
@@ -1441,7 +1441,7 @@ JolteonDexEntry:
 FlareonDexEntry:
 	db "FLAME@"
 	db 9
-	dw 250
+	dw 249
 	text_far _FlareonDexEntry
 	text_end
 
@@ -1511,7 +1511,7 @@ OmanyteDexEntry:
 OmastarDexEntry:
 	db "SPIRAL@"
 	db 10
-	dw 350
+	dw 349
 	text_far _OmastarDexEntry
 	text_end
 
@@ -1553,7 +1553,7 @@ MunchlaxDexEntry:
 SnorlaxDexEntry:
 	db "SLEEPING@"
 	db 21
-	dw 4600
+	dw 4599
 	text_far _SnorlaxDexEntry
 	text_end
 
@@ -1574,7 +1574,7 @@ ZapdosDexEntry:
 MoltresDexEntry:
 	db "FLAME@"
 	db 20
-	dw 600
+	dw 599
 	text_far _MoltresDexEntry
 	text_end
 

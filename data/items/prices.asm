@@ -91,6 +91,8 @@ ItemPrices::
 	bcd3 2100  ; METAL_COAT, like all other buy-able evo stones
 	bcd3 0     ; UPGRADE, better 0 to de-incentivate sell
 	bcd3 0     ; DUBIOUS_DISK, better 0 to de-incentivate sell
+	bcd3 1500  ; FAST_BALL, new, testing
+	bcd3 1500  ; HEAVY_BALL, new, testing
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F
