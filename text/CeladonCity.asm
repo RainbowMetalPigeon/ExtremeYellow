@@ -155,3 +155,21 @@ _CeladonCityText10::
 	line "CELADON DEPT."
 	cont "STORE!"
 	done
+
+_CeladonCityText19:: ; new
+	text "CELADON DINER"
+	line "You need food to"
+	cont "shop and gamble!"
+	done
+
+_CeladonCityText20:: ; new
+	text "CELADON HOTEL"
+	line "You need rest to"
+	cont "gamble and shop!"
+	done
+
+_CeladonCityText21:: ; new
+	text "CELADON UNIVERSITY"
+	line "The apotheosis of"
+	cont "KANTO learning!"
+	done

@@ -381,6 +381,8 @@ DisplayWildLocations:
 	ld a, [wd11e]				; new
 	cp MEW						; new
 	jr z, .printMysterious		; new
+	cp MAROWAK					; new, testing
+	jr z, .printMysterious		; new, testing
 	farcall FindWildLocationsOfMon
 	call ZeroOutDuplicatesInList
 	ld hl, wShadowOAM
@@ -397,6 +399,8 @@ DisplayWildLocations:
 	ld a, [de]
 	cp $19 ; Cerulean Cave's coordinates
 	jr z, .nextEntry ; skip Cerulean Cave
+	cp $FF ; new, Secluded Island apparently? testing
+	jr z, .nextEntry ; new, testing
 	call TownMapCoordsToOAMCoords
 	ld a, $4 ; nest icon tile no.
 	ld [hli], a
@@ -419,6 +423,9 @@ DisplayWildLocations:
 	ld a, [wd11e]				; new
 	cp MEW						; new
 	jr z, .notUnknownText		; new
+	ld de, AreaExtinctText		; new, testing
+	cp MAROWAK					; new, testing
+	jr z, .notUnknownText		; new, testing
 	ld de, AreaUnknownText
 .notUnknownText					; new
 	call PlaceString
@@ -438,6 +445,9 @@ AreaUnknownText:
 
 AreaMysteriousText:				; new
 	db " AREA: MYSTERY@"		; new
+
+AreaExtinctText:				; new
+	db "    EXTINCT@"			; new
 
 TownMapCoordsToOAMCoords:
 ; in: lower nybble of a = x, upper nybble of a = y

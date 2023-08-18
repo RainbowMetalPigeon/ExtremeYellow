@@ -11,21 +11,25 @@ CeladonCity_Object:
 	warp_event 12, 27, CELADON_GYM, 1
 	warp_event 28, 19, GAME_CORNER, 1
 	warp_event 39, 19, CELADON_MART_5F, 1
-	warp_event 33, 19, GAME_CORNER_PRIZE_ROOM, 1
-	warp_event 31, 27, CELADON_DINER, 1
-	warp_event 35, 27, CELADON_CHIEF_HOUSE, 1
-	warp_event 43, 27, CELADON_HOTEL, 1
+	warp_event 33, 19, GAME_CORNER_PRIZE_ROOM, 1 ; useless
+	warp_event 27, 27, CELADON_DINER, 1 ; updated
+	warp_event 31, 27, CELADON_CHIEF_HOUSE, 1 ; updated
+	warp_event 35, 27, CELADON_HOTEL, 1 ; updated
+	warp_event 44, 27, CELADON_UNIVERSITY, 1 ; new
 
 	def_bg_events
 	bg_event 27, 15, 10 ; CeladonCityText10
 	bg_event 19, 15, 11 ; CeladonCityText11
 	bg_event 42,  9, 12 ; PokeCenterSignText
-	bg_event 13, 29, 13 ; CeladonCityText13
+	bg_event 13, 29, 13 ; CeladonCityText13 ; Gym
 	bg_event 21,  9, 14 ; CeladonCityText14
-	bg_event 12, 13, 15 ; CeladonCityText15
+	bg_event 12, 13, 15 ; CeladonCityText15 ; Mart
 	bg_event 39, 21, 16 ; CeladonCityText16
 	bg_event 33, 21, 17 ; CeladonCityText17
 	bg_event 27, 21, 18 ; CeladonCityText18
+	bg_event 27, 29, 19 ; CeladonCityText19 ; new, Diner
+	bg_event 35, 29, 20 ; CeladonCityText20 ; new, Hotel
+	bg_event 43, 29, 21 ; CeladonCityText21 ; new, University
 
 	def_object_events
 	object_event  8, 17, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
