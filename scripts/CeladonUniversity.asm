@@ -10,6 +10,11 @@ CeladonUniversity_TextPointers:
 	dw CeladonUniversityText4
 	dw CeladonUniversityText5
 	dw CeladonUniversityText6
+	dw CeladonUniversityTextTest
+	dw CeladonUniversityTextTest
+	dw CeladonUniversityTextTest
+	dw CeladonUniversityTextTest
+	dw CeladonUniversityTextTest
 	; signs
 	dw CeladonUniversityDoor1
 	dw CeladonUniversityDoor2
@@ -18,7 +23,7 @@ CeladonUniversity_TextPointers:
 	dw CeladonUniversityConstitution1
 	dw CeladonUniversityConstitution2
 
-; --- people ---
+; --- hall ---
 
 CeladonUniversityText1:
 	text_far _CeladonUniversityText1
@@ -42,6 +47,12 @@ CeladonUniversityText5:
 
 CeladonUniversityText6:
 	text_far _CeladonUniversityText6
+	text_end
+
+; --- swimming pool ---
+
+CeladonUniversityTextTest:
+	text_far _CeladonUniversityTextTest
 	text_end
 
 ; --- signs ---

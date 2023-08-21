@@ -70,6 +70,7 @@
 	const SPRITE_JIGGLYPUFF              ; $42
 	const SPRITE_CLEFAIRY                ; $43
 	const SPRITE_CHANSEY                 ; $44
+	const SPRITE_MAGIKARP                ; new, wrong numbers in comment down below
 	const SPRITE_JESSIE                  ; $45
 	const SPRITE_JAMES                   ; $46
 DEF FIRST_STILL_SPRITE EQU const_value

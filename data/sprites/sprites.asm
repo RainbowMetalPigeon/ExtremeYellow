@@ -75,6 +75,7 @@ SpriteSheetPointerTable:
 	overworld_sprite JigglypuffSprite, 12       ; SPRITE_JIGGLYPUFF
 	overworld_sprite ClefairySprite, 12         ; SPRITE_CLEFAIRY
 	overworld_sprite ChanseySprite, 12          ; SPRITE_CHANSEY
+	overworld_sprite MagikarpSprite, 12         ; SPRITE_MAGIKARP
 	overworld_sprite JessieSprite, 12           ; SPRITE_JESSIE
 	overworld_sprite JamesSprite, 12            ; SPRITE_JAMES
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL

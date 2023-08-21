@@ -1,3 +1,5 @@
+; --- hall ---
+
 _CeladonUniversityText1::
 	text "JOHTO may be close"
 	line "to KANTO, but it"
@@ -67,6 +69,12 @@ _CeladonUniversityText6::
 	line "unique atmosphere"
 	cont "that you cannot"
 	cont "find elsewhere."
+	done
+
+; --- swimming pool ---
+
+_CeladonUniversityTextTest::
+	text "TEST POOL"
 	done
 
 ; --- signs ---
