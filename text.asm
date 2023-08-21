@@ -264,10 +264,15 @@ INCLUDE "data/text/text_9.asm"
 INCLUDE "text/OchreGym.asm" ; new
 
 
-SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big
+SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 
 INCLUDE "text/ViridianForest.asm"
-INCLUDE "text/OchreWonderland.asm"
+INCLUDE "text/OchreWonderland.asm" ; new
+INCLUDE "text/ObsidianIsland.asm" ; new
+INCLUDE "text/Route26.asm" ; new
+INCLUDE "text/Route27.asm" ; new
+INCLUDE "text/Route28.asm" ; new
+INCLUDE "text/CeladonUniversity.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

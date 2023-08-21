@@ -137,6 +137,7 @@ VermilionCity_TextPointers:
 	dw VermilionCityText3
 	dw VermilionCityText4
 	dw VermilionCityText5
+	dw VermilionCityText5PG
 	dw VermilionCityText6
 	dw VermilionCityText7
 	dw VermilionCityText8
@@ -146,6 +147,7 @@ VermilionCity_TextPointers:
 	dw VermilionCityText12
 	dw VermilionCityText13
 	dw VermilionCityText14
+	dw VermilionCityText16
 
 VermilionCityText1:
 	text_far _VermilionCityText1
@@ -235,20 +237,34 @@ SSAnneNotHereText:
 	text_end
 
 VermilionCityText4:
-	text_far _VermilionCityText4
-	text_end
+	text_asm
+	farcall Func_ElderBattleFacility
+	jp TextScriptEnd
 
 VermilionCityText5:
 	text_far _VermilionCityText5
 	text_asm
-	ld a, MACHOP
+	ld a, MACHOKE
 	call PlayCry
 	call WaitForSoundToFinish
 	ld hl, VermilionCityText15
 	ret
 
+VermilionCityText5PG:
+	text_far _VermilionCityText5PG
+	text_asm
+	ld a, MACHAMP
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, VermilionCityText15PG
+	ret
+
 VermilionCityText15:
 	text_far _VermilionCityText15
+	text_end
+
+VermilionCityText15PG:
+	text_far _VermilionCityText15PG
 	text_end
 
 VermilionCityText6:
@@ -283,4 +299,9 @@ VermilionCityText14:
 VermilionCityText7:
 	text_asm
 	farcall Func_f1a0f
+	jp TextScriptEnd
+
+VermilionCityText16: ; new
+	text_asm
+	farcall Func_BattleFacility
 	jp TextScriptEnd

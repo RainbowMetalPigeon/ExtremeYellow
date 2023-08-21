@@ -57,25 +57,53 @@ _SSAnneNotHereText::
 	text "The ship set sail."
 	done
 
-_VermilionCityText4::
-	text "I'm putting up a"
-	line "building on this"
-	cont "plot of land."
+_ElderBattleFacilityText1::
+	text "Finally!!! It took"
+	line "me so much longer"
+	cont "than I initially"
+	cont "thought, but my"
+	cont "project is close"
+	cont "to completion!"
 
-	para "My #MON is"
-	line "tamping the land."
+	para "Come back shortly"
+	line "and you'll be"
+	cont "fully amazed!"
+
+	para "No spoilers!"
+	done
+
+_ElderBattleFacilityText2:: ; new
+	text "IT'S DONE!!!"
+	line "I'm so excited!!!"
+	cont "It took forever,"
+	cont "but it's ready!"
+
+	para "Come and enjoy at"
+	line "your fullest my"
+	para "BATTLE FACILITY!"
 	done
 
 _VermilionCityText5::
-	text "MACHOP: Guoh!"
-	line "Gogogoh!@"
+	text "MACHOKE: Guoh!"
+	line "Kokokoh!@"
 	text_end
 
 _VermilionCityText15::
 	text_start
-	para "A MACHOP is"
-	line "stomping the land"
-	cont "flat."
+	para "A MACHOKE is"
+	line "finishing instal-"
+	cont "ling the door."
+	done
+
+_VermilionCityText5PG::
+	text "MACHAMP: Zzz...@"
+	text_end
+
+_VermilionCityText15PG::
+	text_start
+	para "MACHAMP is"
+	line "enjoying a well-"
+	cont "deserved rest!"
 	done
 
 _VermilionCityText6::
@@ -166,4 +194,24 @@ _VermilionCityText13::
 
 _VermilionCityText14::
 	text "VERMILION HARBOR"
+	done
+
+_SignBattleFacilityText1::
+	text "Feast your eyes!"
+	line "COMING SOON!"
+
+	para "...the sign does"
+	line "not say WHAT it"
+	cont "is advertising..."
+	done
+
+_SignBattleFacilityText2::
+;	xxxx "123456789012345678"
+	text "BATTLE FACILITY"
+	line "The ultimate test"
+	cont "of battle skills!"
+
+;	line "Test your skills"
+;	cont "in the ultimate"
+;	cont "battle experience!"
 	done

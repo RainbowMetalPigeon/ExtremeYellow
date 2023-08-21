@@ -89,6 +89,21 @@ _CeladonCityText9::
 	line "ROCKET's way!"
 	done
 
+_CeladonCityText10New::
+	text "Shoo! Scram away,"
+	line "you vermin!"
+	done
+
+_CeladonCityText11New::
+	text "Don't meddle with"
+	line "TEAM ROCKET, or"
+	cont "you'll regret it."
+
+	para "Even if not for a"
+	line "long time, if you"
+	cont "know what I mean."
+	done
+
 _CeladonCityText11::
 	text "CELADON CITY"
 	line "The City of"

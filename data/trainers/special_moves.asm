@@ -840,6 +840,24 @@ SpecialTrainerMoves:
 ;	db 6, 4, HYDRO_CANNON
 	db 0
 
+	db RIVAL3, 2
+	; ARTICUNO
+	db 1, 1, ROOST
+	db 1, 2, BRAVE_BIRD
+	db 1, 3, BLIZZARD
+	db 1, 4, WATER_PULSE
+	; ZAPDOS
+	db 2, 1, ROOST
+	db 2, 2, BRAVE_BIRD
+	db 2, 3, THUNDERBOLT
+	db 2, 4, HEAT_WAVE
+	; MOLTRES
+	db 3, 1, ROOST
+	db 3, 2, BRAVE_BIRD
+	db 3, 3, FIRE_BLAST
+	db 3, 4, STEEL_WING
+	db 0
+
 	db ROCKET, 42
 	; EKANS
 	db 1, 1, WRAP

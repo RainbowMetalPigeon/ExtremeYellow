@@ -6,6 +6,7 @@ TownMapOrder:
 	db VIRIDIAN_FOREST
 	db DIGLETTS_CAVE
 	db PEWTER_CITY
+	db ROUTE_26 ; new
 	db ROUTE_3
 	db MT_MOON_1F
 	db ROUTE_4
@@ -25,6 +26,9 @@ TownMapOrder:
 	db ROUTE_8
 	db ROUTE_7
 	db CELADON_CITY
+	db ROUTE_27 ; new
+	db OBSIDIAN_ISLAND ; new
+	db ROUTE_28 ; new
 	db SAFFRON_CITY
 	db ROUTE_11
 	db ROUTE_12
@@ -47,5 +51,5 @@ TownMapOrder:
 	db VICTORY_ROAD_3F
 	db INDIGO_PLATEAU
 	db POWER_PLANT
-	db SECLUDED_ATOLL_SE ; new, testing
+	db SECLUDED_ATOLL_SE ; new
 TownMapOrderEnd:

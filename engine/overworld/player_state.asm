@@ -160,12 +160,14 @@ IsWarpTileInFrontOfPlayer::
 	ld a, [wCurMap]
 	cp SS_ANNE_BOW
 	jr z, IsSSAnneBowWarpTileInFrontOfPlayer
-	cp CERULEAN_CAVE_EXTRA_TOP						; new
-	jr z, IsInternalMapWarpTileInFrontOfPlayer		; new
-	cp CERULEAN_CAVE_EXTRA_MIDDLE					; new
-	jr z, IsInternalMapWarpTileInFrontOfPlayer		; new
-	cp CERULEAN_CAVE_EXTRA_BOTTOM					; new
-	jr z, IsInternalMapWarpTileInFrontOfPlayer		; new
+	cp CERULEAN_CAVE_EXTRA_TOP							; new
+	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
+	cp CERULEAN_CAVE_EXTRA_MIDDLE						; new
+	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
+	cp CERULEAN_CAVE_EXTRA_BOTTOM						; new
+	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
+	cp CELADON_UNIVERSITY								; new
+	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -196,13 +198,23 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
-IsInternalMapWarpTileInFrontOfPlayer: ; new
+IsCeruleanCaveExtraWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $3C
-	jr nz, .notTestMapWarp
+	jr nz, .notCerulanExtraWarp
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
-.notTestMapWarp
+.notCerulanExtraWarp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
+IsCeladonUniversityWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $36
+	jr nz, .notUniversityWarp
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notUniversityWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 

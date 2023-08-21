@@ -22,14 +22,14 @@ ENDM
 	map_const CERULEAN_CITY,                 20, 18 ; $03
 	map_const LAVENDER_TOWN,                 10,  9 ; $04
 	map_const VERMILION_CITY,                20, 18 ; $05
-	map_const CELADON_CITY,                  25, 18 ; $06
+	map_const CELADON_CITY,                  25, 19 ; $06 ; edited
+	map_const OCHRE_CITY,                    21, 21 ; new, moved
 	map_const FUCHSIA_CITY,                  20, 18 ; $07
+	map_const OBSIDIAN_ISLAND,               20, 20 ; new, testing
 	map_const CINNABAR_ISLAND,               10,  9 ; $08
 	map_const INDIGO_PLATEAU,                10,  9 ; $09
 	map_const SAFFRON_CITY,                  20, 18 ; $0A
-	map_const OCHRE_CITY,                    21, 21 ; $0B, new, test, takes the place of UNUSED_MAP_0B
 DEF NUM_CITY_MAPS EQU const_value
-;	map_const UNUSED_MAP_0B,                  0,  0 ; $0B ; edited, commented out
 DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_1,                       10, 18 ; $0C
 	map_const ROUTE_2,                       10, 36 ; $0D
@@ -56,6 +56,9 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_23,                      10, 72 ; $22
 	map_const ROUTE_24,                      10, 18 ; $23
 	map_const ROUTE_25,                      30,  9 ; $24
+	map_const ROUTE_26,                      30, 30 ; new, messes up the numbering in the comments
+	map_const ROUTE_27,                      11, 18 ; new, messes up the numbering in the comments
+	map_const ROUTE_28,                      12,  9 ; new, messes up the numbering in the comments
 DEF FIRST_INDOOR_MAP EQU const_value
 	map_const REDS_HOUSE_1F,                  4,  4 ; $25
 	map_const REDS_HOUSE_2F,                  4,  4 ; $26
@@ -251,7 +254,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E4
 	map_const NAME_RATERS_HOUSE,              4,  4 ; $E5
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
-	map_const UNUSED_MAP_E7,                  0,  0 ; $E7
+	map_const CELADON_UNIVERSITY,             30, 30 ; $E7, new
 	map_const ROCK_TUNNEL_B1F,               20, 18 ; $E8
 	map_const SILPH_CO_9F,                   13,  9 ; $E9
 	map_const SILPH_CO_10F,                   8,  9 ; $EA

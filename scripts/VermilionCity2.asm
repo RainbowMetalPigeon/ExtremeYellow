@@ -1,3 +1,39 @@
+Func_BattleFacility:: ; new
+	ld hl, SignBattleFacilityText2
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .postGame
+	ld hl, SignBattleFacilityText1
+.postGame
+	call PrintText
+	ret
+
+SignBattleFacilityText1:
+	text_far _SignBattleFacilityText1
+	text_end
+
+SignBattleFacilityText2:
+	text_far _SignBattleFacilityText2
+	text_end
+
+Func_ElderBattleFacility:: ; new
+	ld hl, ElderBattleFacilityText2
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .postGame
+	ld hl, ElderBattleFacilityText1
+.postGame
+	call PrintText
+	ret
+
+ElderBattleFacilityText1:
+	text_far _ElderBattleFacilityText1
+	text_end
+
+ElderBattleFacilityText2:
+	text_far _ElderBattleFacilityText2
+	text_end
+
+; --------------------
+
 Func_f1a0f::
 	CheckEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 	jr nz, .asm_f1a69

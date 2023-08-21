@@ -18,18 +18,18 @@ CeladonCity_Object:
 	warp_event 44, 27, CELADON_UNIVERSITY, 1 ; new
 
 	def_bg_events
-	bg_event 27, 15, 10 ; CeladonCityText10
-	bg_event 19, 15, 11 ; CeladonCityText11
-	bg_event 42,  9, 12 ; PokeCenterSignText
-	bg_event 13, 29, 13 ; CeladonCityText13 ; Gym
-	bg_event 21,  9, 14 ; CeladonCityText14
-	bg_event 12, 13, 15 ; CeladonCityText15 ; Mart
-	bg_event 39, 21, 16 ; CeladonCityText16
-	bg_event 33, 21, 17 ; CeladonCityText17
-	bg_event 27, 21, 18 ; CeladonCityText18
-	bg_event 27, 29, 19 ; CeladonCityText19 ; new, Diner
-	bg_event 35, 29, 20 ; CeladonCityText20 ; new, Hotel
-	bg_event 43, 29, 21 ; CeladonCityText21 ; new, University
+	bg_event 27, 15, 12 ; CeladonCityText10
+	bg_event 19, 15, 13 ; CeladonCityText11
+	bg_event 42,  9, 14 ; PokeCenterSignText
+	bg_event 13, 29, 15 ; CeladonCityText13 ; Gym
+	bg_event 21,  9, 16 ; CeladonCityText14
+	bg_event 12, 13, 17 ; CeladonCityText15 ; Mart
+	bg_event 39, 21, 18 ; CeladonCityText16
+	bg_event 33, 21, 19 ; CeladonCityText17
+	bg_event 27, 21, 20 ; CeladonCityText18
+	bg_event 27, 29, 21 ; CeladonCityText19 ; new, Diner
+	bg_event 35, 29, 22 ; CeladonCityText20 ; new, Hotel
+	bg_event 43, 29, 23 ; CeladonCityText21 ; new, University
 
 	def_object_events
 	object_event  8, 17, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
@@ -41,5 +41,7 @@ CeladonCity_Object:
 	object_event 30, 12, SPRITE_MONSTER, STAY, RIGHT, 7 ; person
 	object_event 32, 29, SPRITE_ROCKET, WALK, LEFT_RIGHT, 8 ; person
 	object_event 42, 14, SPRITE_ROCKET, WALK, LEFT_RIGHT, 9 ; person
+	object_event 28, 35, SPRITE_ROCKET, STAY, DOWN, 10 ; new, guard the bridge
+	object_event 29, 35, SPRITE_ROCKET, STAY, DOWN, 11 ; new, guard the bridge
 
 	def_warps_to CELADON_CITY

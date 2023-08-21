@@ -14,19 +14,20 @@ ExternalMapEntries:
 	external_map 14,  5, LavenderTownName
 	external_map 10,  9, VermilionCityName
 	external_map  7,  5, CeladonCityName
+	external_map 11, 11, OchreCityName ; new, moved
 	external_map  8, 13, FuchsiaCityName
+	external_map  7,  9, ObsidianIslandName ; new, testing
 	external_map  2, 15, CinnabarIslandName
 	external_map  0,  2, IndigoPlateauName
 	external_map 10,  5, SaffronCityName
-	external_map 11, 11, OchreCityName ; new
 	external_map  2, 10, Route1Name
 	external_map  2,  6, Route2Name
 	external_map  4,  3, Route3Name
 	external_map  8,  2, Route4Name
 	external_map 10,  3, Route5Name
-	external_map 10,  8, Route6Name
+	external_map 10,  7, Route6Name ; edited, 8->7
 	external_map  8,  5, Route7Name
-	external_map 13,  5, Route8Name
+	external_map 12,  5, Route8Name ; edited, 13->12
 	external_map 13,  2, Route9Name
 	external_map 14,  4, Route10Name
 	external_map 12,  9, Route11Name
@@ -37,13 +38,16 @@ ExternalMapEntries:
 	external_map  5,  5, Route16Name
 	external_map  4,  8, Route17Name
 	external_map  6, 13, Route18Name
-	external_map  6, 15, Route19Name
+	external_map  7, 15, Route19Name ; edited, 6->7
 	external_map  4, 15, Route20Name
 	external_map  2, 13, Route21Name
 	external_map  0,  8, Route22Name
 	external_map  0,  6, Route23Name
 	external_map 10,  1, Route24Name
 	external_map 11,  0, Route25Name
+	external_map  2,  1, Route26Name ; new
+	external_map  7,  7, Route27Name ; new
+	external_map  8,  9, Route28Name ; new
 	assert_table_length FIRST_INDOOR_MAP
 
 
@@ -75,7 +79,7 @@ InternalMapEntries:
 	internal_map ROUTE_12_GATE_1F,              14,  7, Route12Name
 	internal_map BILLS_HOUSE,                   12,  0, SeaCottageName
 	internal_map VERMILION_DOCK,                10,  9, VermilionCityName
-	internal_map SS_ANNE_B1F_ROOMS,              9, 10, SSAnneName
+	internal_map SS_ANNE_B1F_ROOMS,             10, 10, SSAnneName ; edited, x=9->10
 	internal_map VICTORY_ROAD_1F,                0,  4, VictoryRoadName
 	internal_map SECLUDED_ATOLL_SW,             15, 15, SecludedAtollName ; new, not really an internal map but oh well, testing
 	internal_map HALL_OF_FAME,                   0,  2, PokemonLeagueName
@@ -114,6 +118,7 @@ InternalMapEntries:
 	internal_map CERULEAN_CAVE_1F,               9,  1, CeruleanCaveName
 	internal_map NAME_RATERS_HOUSE,             14,  5, LavenderTownName
 	internal_map CERULEAN_BADGE_HOUSE,          10,  2, CeruleanCityName
+	internal_map CELADON_UNIVERSITY,             7,  5, CeladonCityName ; new
 	internal_map ROCK_TUNNEL_B1F,               14,  3, RockTunnelName
 	internal_map SILPH_CO_ELEVATOR,             10,  5, SilphCoName
 	internal_map CERULEAN_CAVE_EXTRA_TOP,        9,  1, CeruleanCaveName	; new, unnecessary?

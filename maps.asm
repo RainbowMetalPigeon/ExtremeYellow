@@ -36,6 +36,10 @@ INCLUDE "data/maps/headers/OchreCity.asm"		; new
 INCLUDE "data/maps/objects/OchreCity.asm"		; new
 OchreCity_Blocks: INCBIN "maps/OchreCity.blk"	; new
 
+INCLUDE "data/maps/headers/ObsidianIsland.asm"			; new, testing
+INCLUDE "data/maps/objects/ObsidianIsland.asm"			; new, testing
+ObsidianIsland_Blocks: INCBIN "maps/ObsidianIsland.blk"	; new, testing
+
 
 SECTION "Maps 2", ROMX
 
@@ -47,6 +51,7 @@ INCLUDE "scripts/VermilionCity.asm"
 INCLUDE "scripts/CeladonCity.asm"
 INCLUDE "scripts/FuchsiaCity.asm"
 INCLUDE "scripts/OchreCity.asm"					; new
+INCLUDE "scripts/ObsidianIsland.asm"			; new
 
 INCLUDE "data/maps/headers/BluesHouse.asm"
 INCLUDE "scripts/BluesHouse.asm"
@@ -1317,3 +1322,22 @@ INCLUDE "scripts/SecludedAtollSW.asm"
 INCLUDE "data/maps/objects/SecludedAtollSW.asm"
 SecludedAtollSW_Blocks: INCBIN "maps/SecludedAtollSW.blk"
 
+INCLUDE "data/maps/headers/Route26.asm"
+INCLUDE "data/maps/objects/Route26.asm"
+Route26_Blocks: INCBIN "maps/Route26.blk"
+INCLUDE "scripts/Route26.asm"
+
+INCLUDE "data/maps/headers/Route27.asm"
+INCLUDE "data/maps/objects/Route27.asm"
+Route27_Blocks: INCBIN "maps/Route27.blk"
+INCLUDE "scripts/Route27.asm"
+
+INCLUDE "data/maps/headers/Route28.asm"
+INCLUDE "data/maps/objects/Route28.asm"
+Route28_Blocks: INCBIN "maps/Route28.blk"
+INCLUDE "scripts/Route28.asm"
+
+INCLUDE "data/maps/headers/CeladonUniversity.asm"
+INCLUDE "data/maps/objects/CeladonUniversity.asm"
+CeladonUniversity_Blocks: INCBIN "maps/CeladonUniversity.blk"
+INCLUDE "scripts/CeladonUniversity.asm"

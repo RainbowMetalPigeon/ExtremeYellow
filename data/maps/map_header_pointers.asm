@@ -8,11 +8,12 @@ MapHeaderPointers::
 	dw LavenderTown_h
 	dw VermilionCity_h
 	dw CeladonCity_h
+	dw OchreCity_h ; new, moved
 	dw FuchsiaCity_h
+	dw ObsidianIsland_h ; new, testing
 	dw CinnabarIsland_h
 	dw IndigoPlateau_h
 	dw SaffronCity_h
-	dw OchreCity_h ; new, testing, was UNUSED_MAP_0B
 	dw Route1_h
 	dw Route2_h
 	dw Route3_h
@@ -38,6 +39,9 @@ MapHeaderPointers::
 	dw Route23_h
 	dw Route24_h
 	dw Route25_h
+	dw Route26_h
+	dw Route27_h
+	dw Route28_h
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h
@@ -232,7 +236,7 @@ MapHeaderPointers::
 	dw CeruleanCave1F_h
 	dw NameRatersHouse_h
 	dw CeruleanBadgeHouse_h
-	dw Route16Gate1F_h ; UNUSED_MAP_E7
+	dw CeladonUniversity_h ; new
 	dw RockTunnelB1F_h
 	dw SilphCo9F_h
 	dw SilphCo10F_h

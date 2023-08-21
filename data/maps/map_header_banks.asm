@@ -8,11 +8,12 @@ MapHeaderBanks::
 	db BANK(LavenderTown_h)
 	db BANK(VermilionCity_h)
 	db BANK(CeladonCity_h)
+	db BANK(OchreCity_h) ; new, moved
 	db BANK(FuchsiaCity_h)
+	db BANK(ObsidianIsland_h) ; new, testing
 	db BANK(CinnabarIsland_h)
 	db BANK(IndigoPlateau_h)
 	db BANK(SaffronCity_h)
-	db BANK(OchreCity_h) ; new, testing, was UNUSED_MAP_0B
 	db BANK(Route1_h)
 	db BANK(Route2_h)
 	db BANK(Route3_h)
@@ -38,6 +39,9 @@ MapHeaderBanks::
 	db BANK(Route23_h)
 	db BANK(Route24_h)
 	db BANK(Route25_h)
+	db BANK(Route26_h)
+	db BANK(Route27_h)
+	db BANK(Route28_h)
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
 	db BANK(BluesHouse_h)
@@ -232,7 +236,7 @@ MapHeaderBanks::
 	db BANK(CeruleanCave1F_h)
 	db BANK(NameRatersHouse_h)
 	db BANK(CeruleanBadgeHouse_h)
-	db $01 ; UNUSED_MAP_E7
+	db BANK(CeladonUniversity_h) ; new
 	db BANK(RockTunnelB1F_h)
 	db BANK(SilphCo9F_h)
 	db BANK(SilphCo10F_h)

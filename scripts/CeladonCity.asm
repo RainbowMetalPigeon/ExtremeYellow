@@ -23,6 +23,8 @@ CeladonCity_TextPointers:
 	dw CeladonCityText7
 	dw CeladonCityText8
 	dw CeladonCityText9
+	dw CeladonCityText10New
+	dw CeladonCityText11New
 	dw CeladonCityText10
 	dw CeladonCityText11
 	dw PokeCenterSignText
@@ -35,6 +37,14 @@ CeladonCity_TextPointers:
 	dw CeladonCityText19 ; new
 	dw CeladonCityText20 ; new
 	dw CeladonCityText21 ; new
+
+CeladonCityText10New:
+	text_far _CeladonCityText10New
+	text_end
+
+CeladonCityText11New:
+	text_far _CeladonCityText11New
+	text_end
 
 CeladonCityText1:
 	text_far _CeladonCityText1

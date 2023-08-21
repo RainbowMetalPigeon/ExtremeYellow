@@ -5,11 +5,12 @@ CeruleanCityName:    db "CERULEAN CITY@"
 LavenderTownName:    db "LAVENDER TOWN@"
 VermilionCityName:   db "VERMILION CITY@"
 CeladonCityName:     db "CELADON CITY@"
+OchreCityName:       db "OCHRE CITY@" ; new, moved
 FuchsiaCityName:     db "FUCHSIA CITY@"
+ObsidianIslandName:  db "OBSIDIAN ISLAND@" ; new
 CinnabarIslandName:  db "CINNABAR ISLAND@"
 IndigoPlateauName:   db "INDIGO PLATEAU@"
 SaffronCityName:     db "SAFFRON CITY@"
-OchreCityName:       db "OCHRE CITY@" ; new
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
 Route3Name:          db "ROUTE 3@"
@@ -35,6 +36,9 @@ Route22Name:         db "ROUTE 22@"
 Route23Name:         db "ROUTE 23@"
 Route24Name:         db "ROUTE 24@"
 Route25Name:         db "ROUTE 25@"
+Route26Name:         db "ROUTE 26@" ; new
+Route27Name:         db "ROUTE 27@" ; new
+Route28Name:         db "SEA ROUTE 28@" ; new
 ViridianForestName:  db "VIRIDIAN FOREST@"
 MountMoonName:       db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"

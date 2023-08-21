@@ -190,7 +190,7 @@ ItemUseBall:
 ; Pokémon can't be caught and skip the capture calculations.
 	ld a, [wCurMap]
 	cp POKEMON_TOWER_6F
-	jr nz, .loop
+	jr nz, .preloop ; edited, it was .loop
 	ld a, [wEnemyMonSpecies2]
 	cp RESTLESS_SOUL
 	ld b, $10 ; can't be caught value
@@ -207,6 +207,7 @@ ItemUseBall:
 ; Loop until an acceptable number is found.
 
 ; new, store base speed of opp mon in c for FAST_BALL - TODO move it within FAST BALL check?
+.preloop
 	ld a, [wEnemyMonSpecies]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -242,7 +243,16 @@ ItemUseBall:
 ; Checks for HEAVY_BALL
 	cp HEAVY_BALL
 	jr nz, .notHeavyBall
-	call GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	push hl
+	push bc
+	farcall GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	; de contains the higher and lower byte of the weight at the end of the farcall
+	; this is because they're the only registers not touched by farcalling
+	ld a, e
+	ld c, a ; c is not used for the speed, so now it has the lower byte of the weight
+	ld a, d ; a now has the higher byte of the weight
+	pop bc
+	pop hl
 	cp $0F ; check if beyond max-tier weight
 	jr c, .checkForAilments
 	ld a, 1 ; testing
@@ -360,7 +370,16 @@ ItemUseBall:
 	ld a, 1 ; for testing, when final will be 6 or 8 or 10
 	jr .continueAfterBallFactor
 .HeavyBallFactor
-	call GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	push hl
+	push bc
+	farcall GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	; de contains the higher and lower byte of the weight at the end of the farcall
+	; this is because they're the only registers not touched by farcalling
+	ld a, e
+	ld c, a ; c is not used for the speed, so now it has the lower byte of the weight
+	ld a, d ; a now has the higher byte of the weight
+	pop bc
+	pop hl
 	cp $0F ; check if beyond max-tier weight
 	ld a, 12
 	jr c, .continueAfterBallFactor
@@ -3299,33 +3318,4 @@ CheckMapForMon:
 	dec hl
 	ret
 
-GetMSBEnemyWeight:: ; new
-; input: wEnemyMonSpecies
-; output: a as the most-significant byte of the weight
-; does not preserve hl, de
-; 400 kg = 4000 hectograms = FA0 -> MSB = 0F
-; 300 kg = 3000 hectograms = BB8 -> MSB = 0B
-; 200 kg = 2000 hectograms = 7D0 -> MSB = 07
-; 100 kg = 1000 hectograms = 3E8 -> MSB = 03
-;	wd11e = wEnemyMonSpecies +- 1 ???
 
-	ld hl, PokedexEntryPointers
-	ld a, [wEnemyMonSpecies] ; in the pokedex code is wd11e
-	dec a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl] ; de = address of pokedex entry
-
-	inc de ; de = address of decimetre (height)
-	inc de
-	inc de
-	inc de ; de = address of upper byte of weight
-	ld a, [de] ; a = upper byte of weight
-	dec de
-	ld a, [de] ; a = lower byte of weight
-
-	ret

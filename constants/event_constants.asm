@@ -258,8 +258,13 @@
 	const_next $3F0
 	const_skip 2
 	const EVENT_BEAT_ROUTE_4_TRAINER_0
-	const_skip 12
+;	const_skip 12 ; edited, commented away?
 	const EVENT_BOUGHT_MAGIKARP
+
+; Route 26 events, new, temp?
+	const_next $400
+	const_skip
+	const EVENT_BEAT_ROUTE_26_TRAINER_0
 
 ; Route 6 events
 	const_next $410
@@ -764,8 +769,9 @@ DEF INDIGO_PLATEAU_EVENTS_START EQU const_value
 	const_skip
 	const EVENT_BEAT_CHAMPION_RIVAL
 	const_skip 5
-	const_skip
+;	const_skip ; commented away
 DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
+	const EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ; Victory Road 1F events
 	const_next $910

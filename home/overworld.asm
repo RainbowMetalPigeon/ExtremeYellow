@@ -735,6 +735,8 @@ ExtraWarpCheck::
 	jr z, .useFunction2				; new
 	cp CERULEAN_CAVE_EXTRA_BOTTOM	; new
 	jr z, .useFunction2				; new
+	cp CELADON_UNIVERSITY			; new
+	jr z, .useFunction2				; new
 	ld a, [wCurMapTileset]
 	and a ; outside tileset (OVERWORLD)
 	jr z, .useFunction2

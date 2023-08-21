@@ -7,11 +7,12 @@ MapSongBanks::
 	db MUSIC_LAVENDER, BANK(Music_Lavender) ; LAVENDER_TOWN
 	db MUSIC_VERMILION, BANK(Music_Vermilion) ; VERMILION_CITY
 	db MUSIC_CELADON, BANK(Music_Celadon) ; CELADON_CITY
+	db MUSIC_CELADON, BANK(Music_Celadon) ; OCHRE_CITY, new
 	db MUSIC_CITIES2, BANK(Music_Cities2) ; FUCHSIA_CITY
+	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; OBSIDIAN_ISLAND
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; CINNABAR_ISLAND
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; INDIGO_PLATEAU
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; SAFFRON_CITY
-	db MUSIC_CELADON, BANK(Music_Celadon) ; OCHRE_CITY, new
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_1
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_2
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_3
@@ -37,6 +38,9 @@ MapSongBanks::
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; ROUTE_23
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_24
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_25
+	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_26, new, testing, to be modified?
+	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_27, new, testing, to be modified?
+	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_28, new, testing, to be modified?
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_1F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_2F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; BLUES_HOUSE
@@ -231,7 +235,7 @@ MapSongBanks::
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1) ; CERULEAN_CAVE_1F
 	db MUSIC_CITIES2, BANK(Music_Cities2) ; NAME_RATERS_HOUSE
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; CERULEAN_BADGE_HOUSE
-	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; UNUSED_MAP_E7
+	db MUSIC_CELADON, BANK(Music_Celadon) ; CELADON_UNIVERSITY, new
 	db MUSIC_DUNGEON3, BANK(Music_Dungeon3) ; ROCK_TUNNEL_B1F
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; SILPH_CO_9F
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; SILPH_CO_10F

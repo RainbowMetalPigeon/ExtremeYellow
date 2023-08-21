@@ -61,7 +61,7 @@ ENDM
 	door_tiles $04, $15
 
 .ResearchCenterDoorTileIDs: ; new
-	door_tiles $20, $30
+	door_tiles $20, $30, $34
 
 .IslandDoorTileIDs: ; new
 	door_tiles $58

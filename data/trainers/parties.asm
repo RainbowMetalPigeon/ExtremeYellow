@@ -267,6 +267,8 @@ HikerData:
 	db 19, GEODUDE, MACHOP, GEODUDE, GEODUDE, 0
 	db 20, ONIX, ONIX, GEODUDE, 0
 	db 21, GEODUDE, GRAVELER, 0
+; Route 26
+	db $FF, 6, ONIX, 7, ONIX, 8, ONIX, 9, ONIX, 10, ONIX, 0 ; new
 
 BikerData:
 ; Route 13

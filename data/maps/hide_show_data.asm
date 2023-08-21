@@ -3,18 +3,19 @@
 MapHSPointers:
 ; entries correspond to map ids
 	table_width 2, MapHSPointers
-	dw PalletTownHS
-	dw ViridianCityHS
-	dw PewterCityHS
-	dw CeruleanCityHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw SaffronCityHS
-	dw NoHS
+	dw PalletTownHS ; PALLET_TOWN
+	dw ViridianCityHS ; VIRIDIAN_CITY
+	dw PewterCityHS ; PEWTER_CITY
+	dw CeruleanCityHS ; CERULEAN_CITY
+	dw NoHS ; LAVENDER_TOWN
+	dw VermilionCityHS ; VERMILION_CITY
+	dw CeladonCityHS ; CELADON_CITY
+	dw NoHS ; OCHRE_CITY
+	dw NoHS ; FUCHSIA_CITY
+	dw NoHS ; OBSIDIAN_ISLAND
+	dw NoHS ; CINNABAR_ISLAND
+	dw NoHS ; INDIGO_PLATEAU
+	dw SaffronCityHS ; SAFFRON_CITY
 	dw NoHS
 	dw Route2HS
 	dw NoHS
@@ -40,6 +41,9 @@ MapHSPointers:
 	dw NoHS
 	dw Route24HS
 	dw Route25HS
+	dw NoHS ; new, Route26
+	dw NoHS ; new, Route27
+	dw NoHS ; new, Route28
 	dw NoHS
 	dw NoHS
 	dw BluesHouseHS
@@ -278,6 +282,14 @@ CeruleanCityHS:
 	db CERULEAN_CITY, $06, HIDE
 	db CERULEAN_CITY, $0A, SHOW
 	db CERULEAN_CITY, $0B, SHOW
+VermilionCityHS: ; new
+	db VERMILION_CITY, $05, SHOW
+	db VERMILION_CITY, $06, HIDE
+CeladonCityHS:
+	db CELADON_CITY, $08, SHOW ; old Rocket grunts
+	db CELADON_CITY, $09, SHOW ; old Rocket grunts
+	db CELADON_CITY, $0A, SHOW ; new Rocket grunts
+	db CELADON_CITY, $0B, SHOW ; new Rocket grunts
 SaffronCityHS:
 	db SAFFRON_CITY, $01, SHOW
 	db SAFFRON_CITY, $02, SHOW
@@ -439,25 +451,34 @@ VictoryRoad3FHS:
 	db VICTORY_ROAD_3F, $06, SHOW
 	db VICTORY_ROAD_3F, $0A, SHOW
 RocketHideoutB1FHS:
+	db ROCKET_HIDEOUT_B1F, $01, SHOW ; new, Rocket grunt
+	db ROCKET_HIDEOUT_B1F, $02, SHOW ; new, Rocket grunt
+	db ROCKET_HIDEOUT_B1F, $03, SHOW ; new, Rocket grunt
+	db ROCKET_HIDEOUT_B1F, $04, SHOW ; new, Rocket grunt
+	db ROCKET_HIDEOUT_B1F, $05, SHOW ; new, Rocket grunt
 	db ROCKET_HIDEOUT_B1F, $06, SHOW
 	db ROCKET_HIDEOUT_B1F, $07, SHOW
 RocketHideoutB2FHS:
+	db ROCKET_HIDEOUT_B2F, $01, SHOW ; new, Rocket grunt
 	db ROCKET_HIDEOUT_B2F, $02, SHOW
 	db ROCKET_HIDEOUT_B2F, $03, SHOW
 	db ROCKET_HIDEOUT_B2F, $04, SHOW
 	db ROCKET_HIDEOUT_B2F, $05, SHOW
 RocketHideoutB3FHS:
+	db ROCKET_HIDEOUT_B3F, $01, SHOW ; new, Rocket grunt
+	db ROCKET_HIDEOUT_B3F, $02, SHOW ; new, Rocket grunt
 	db ROCKET_HIDEOUT_B3F, $03, SHOW
 	db ROCKET_HIDEOUT_B3F, $04, SHOW
 RocketHideoutB4FHS:
-	db ROCKET_HIDEOUT_B4F, $01, SHOW
-	db ROCKET_HIDEOUT_B4F, $02, HIDE
-	db ROCKET_HIDEOUT_B4F, $03, HIDE
+	db ROCKET_HIDEOUT_B4F, $01, SHOW ; Giovanni
+	db ROCKET_HIDEOUT_B4F, $02, HIDE ; James
+	db ROCKET_HIDEOUT_B4F, $03, HIDE ; Jessie
+	db ROCKET_HIDEOUT_B4F, $04, SHOW ; new, Rocket grunt
 	db ROCKET_HIDEOUT_B4F, $05, SHOW
 	db ROCKET_HIDEOUT_B4F, $06, SHOW
 	db ROCKET_HIDEOUT_B4F, $07, SHOW
-	db ROCKET_HIDEOUT_B4F, $08, HIDE
-	db ROCKET_HIDEOUT_B4F, $09, HIDE
+	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Silph Scope
+	db ROCKET_HIDEOUT_B4F, $09, HIDE ; Lift Key
 SilphCo2FHS:
 	db SILPH_CO_2F, $01, SHOW
 	db SILPH_CO_2F, $02, SHOW

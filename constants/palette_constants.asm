@@ -43,11 +43,12 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_LAVENDER  ; $05
 	const PAL_VERMILION ; $06
 	const PAL_CELADON   ; $07
+	const PAL_OCHRE     ; $0B ; new, +1 for this and all the comments below
 	const PAL_FUCHSIA   ; $08
+	const PAL_OBSIDIAN  ; $0B ; new, +1 for this and all the comments below
 	const PAL_CINNABAR  ; $09
 	const PAL_INDIGO    ; $0A
 	const PAL_SAFFRON   ; $0B
-	const PAL_OCHRE     ; $0B ; new, +1 for this and all the comments below
 	const PAL_TOWNMAP   ; $0C
 	const PAL_LOGO1     ; $0D
 	const PAL_LOGO2     ; $0E

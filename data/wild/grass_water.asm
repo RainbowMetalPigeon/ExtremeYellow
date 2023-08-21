@@ -7,11 +7,12 @@ WildDataPointers:
 	dw NothingWildMons         ; LAVENDER_TOWN
 	dw NothingWildMons         ; VERMILION_CITY
 	dw NothingWildMons         ; CELADON_CITY
+	dw NothingWildMons         ; OCHRE_CITY, new, moved
 	dw NothingWildMons         ; FUCHSIA_CITY
+	dw NothingWildMons         ; OBSIDIAN_ISLAND, new, testing
 	dw NothingWildMons         ; CINNABAR_ISLAND
 	dw NothingWildMons         ; INDIGO_PLATEAU
 	dw NothingWildMons         ; SAFFRON_CITY
-	dw NothingWildMons         ; OCHRE_CITY, new, testing
 	dw Route1WildMons          ; ROUTE_1
 	dw Route2WildMons          ; ROUTE_2
 	dw Route3WildMons          ; ROUTE_3
@@ -37,6 +38,9 @@ WildDataPointers:
 	dw Route23WildMons         ; ROUTE_23
 	dw Route24WildMons         ; ROUTE_24
 	dw Route25WildMons         ; ROUTE_25
+	dw NothingWildMons		   ; ROUTE_26, new, testing, temporary
+	dw NothingWildMons		   ; ROUTE_27, new, testing
+	dw NothingWildMons		   ; ROUTE_28, new, testing
 	dw NothingWildMons         ; REDS_HOUSE_1F
 	dw NothingWildMons
 	dw NothingWildMons
@@ -231,7 +235,7 @@ WildDataPointers:
 	dw CeruleanCave1FWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
+	dw NothingWildMons ; Celadon University
 	dw RockTunnelB1FWildMons
 	dw NothingWildMons
 	dw NothingWildMons

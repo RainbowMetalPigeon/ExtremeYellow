@@ -54,6 +54,7 @@ RocketHideout4Script3:
 	ld a, HS_ROCKET_HIDEOUT_B4F_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	call RocketHidoutHideRockets ; new, function to loop-y hide all Rocket grunts in the hideout
 	ld a, HS_ROCKET_HIDEOUT_B4F_ITEM_4
 	ld [wMissableObjectIndex], a
 	predef ShowObject
@@ -413,3 +414,31 @@ RocketHideout4Trainer0AfterText:
 RocketHideout4Text_45844:
 	text_far _RocketHideout4Text_455ec
 	text_end
+
+; new
+
+RocketHidoutHideRockets:
+	ld hl, RocketHideoutRockets
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of rockets to hide?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	pop hl
+	jr .hideLoop
+
+RocketHideoutRockets:
+	db HS_ROCKET_HIDEOUT_B1F_TRAINER_1
+	db HS_ROCKET_HIDEOUT_B1F_TRAINER_2
+	db HS_ROCKET_HIDEOUT_B1F_TRAINER_3
+	db HS_ROCKET_HIDEOUT_B1F_TRAINER_4
+	db HS_ROCKET_HIDEOUT_B1F_TRAINER_5
+	db HS_ROCKET_HIDEOUT_B2F_TRAINER_1
+	db HS_ROCKET_HIDEOUT_B3F_TRAINER_1
+	db HS_ROCKET_HIDEOUT_B3F_TRAINER_2
+	db HS_ROCKET_HIDEOUT_B4F_TRAINER_4
+	db HS_CELADON_ROCKET_1
+	db HS_CELADON_ROCKET_2
+	db $ff

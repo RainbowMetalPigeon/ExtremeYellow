@@ -95,6 +95,7 @@ HallofFameRoomScript1:
 	ld a, $ff
 	ld [wJoyIgnore], a
 
+.justTest
 	; start of all the hide/show, only the first one (Cerulean Cave Guy) is vanilla
 	ld a, HS_CERULEAN_CAVE_GUY
 	ld [wMissableObjectIndex], a
@@ -119,6 +120,20 @@ HallofFameRoomScript1:
 	ld a, HS_POKEMON_TOWER_6F_AGATHA	; new, to show Agatha in Pokemon Tower 6F after becoming champion
 	ld [wMissableObjectIndex], a	; new
 	predef ShowObject				; new
+
+	ld a, HS_VERMILION_MACHOKE		; new, to hide Machoke in Vermilion after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef HideObject				; new
+
+	ld a, HS_VERMILION_MACHAMP		; new, to show Machamp in Vermilion after becoming champion
+	ld [wMissableObjectIndex], a	; new
+	predef ShowObject				; new
+
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; temp
+	jr z, .continue ; temp
+	ld a, $25 ; temp
+.continue ; temp
 
 	; vanilla code
 	ld a, $2
