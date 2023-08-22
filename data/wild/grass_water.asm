@@ -245,10 +245,10 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw NothingWildMons ; CeruleanCaveExtras
+	dw NothingWildMons ; CeruleanCaveExtras
+	dw NothingWildMons ; CeruleanCaveExtras
+	dw NothingWildMons ; CeruleanCaveExtras
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons

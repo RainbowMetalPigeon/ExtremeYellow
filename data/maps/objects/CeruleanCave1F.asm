@@ -11,6 +11,8 @@ CeruleanCave1F_Object:
 	warp_event  1,  3, CERULEAN_CAVE_2F, 5
 	warp_event  3, 11, CERULEAN_CAVE_2F, 6
 	warp_event  0,  6, CERULEAN_CAVE_B1F, 1
+	warp_event 16,  0, CERULEAN_CAVE_EXTRA_MIDDLE, 23 ; new
+	warp_event 17,  0, CERULEAN_CAVE_EXTRA_MIDDLE, 24 ; new
 
 	def_bg_events
 

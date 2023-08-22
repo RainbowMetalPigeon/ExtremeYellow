@@ -32,16 +32,16 @@ CeladonUniversity_Object:
 
 	def_object_events
 	; hall
-	object_event  4, 55, SPRITE_YOUNGSTER, STAY, DOWN, 1 ; person
-	object_event  3, 56, SPRITE_BEAUTY, STAY, RIGHT, 2 ; person
+	object_event  4, 55, SPRITE_SUPER_NERD, STAY, DOWN, 1 ; person
+	object_event  3, 56, SPRITE_GIRL, STAY, RIGHT, 2 ; person
 	object_event  5, 56, SPRITE_COOLTRAINER_F, STAY, LEFT, 3 ; person
 	object_event  4, 57, SPRITE_GIRL, STAY, UP, 4 ; person
 	object_event 13, 52, SPRITE_SUPER_NERD, WALK, ANY_DIR, 5 ; person
 	object_event 14, 57, SPRITE_HIKER, WALK, LEFT_RIGHT, 6 ; person
 	; swimming pool
 	object_event 15, 17, SPRITE_MAGIKARP, STAY, LEFT_RIGHT, 7 ; mons
-	object_event 13, 13, SPRITE_SEEL, WALK, LEFT_RIGHT, 8 ; mons
-	object_event 15,  8, SPRITE_FOSSIL, WALK, ANY_DIR, 9 ; mons
+	object_event 13, 13, SPRITE_MAGIKARP, WALK, LEFT_RIGHT, 8 ; mons
+	object_event 15,  8, SPRITE_MAGIKARP, WALK, ANY_DIR, 9 ; mons
 	object_event  9, 19, SPRITE_SWIMMER, STAY, DOWN, 10
 	object_event  6, 10, SPRITE_SWIMMER, WALK, UP_DOWN, 11
 	; magna auditorium

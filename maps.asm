@@ -422,6 +422,11 @@ INCLUDE "scripts/CeruleanCaveExtraBottom.asm"
 INCLUDE "data/maps/objects/CeruleanCaveExtraBottom.asm"
 CeruleanCaveExtraBottom_Blocks: INCBIN "maps/CeruleanCaveExtraBottom.blk"
 
+INCLUDE "data/maps/headers/CeruleanCaveExtraFinal.asm"
+INCLUDE "scripts/CeruleanCaveExtraFinal.asm"
+INCLUDE "data/maps/objects/CeruleanCaveExtraFinal.asm"
+CeruleanCaveExtraFinal_Blocks: INCBIN "maps/CeruleanCaveExtraFinal.blk"
+
 INCLUDE "data/maps/headers/OchreWonderland.asm"
 INCLUDE "scripts/OchreWonderland.asm"
 INCLUDE "data/maps/objects/OchreWonderland.asm"

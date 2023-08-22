@@ -22,7 +22,7 @@ ENDM
 	map_const CERULEAN_CITY,                 20, 18 ; $03
 	map_const LAVENDER_TOWN,                 10,  9 ; $04
 	map_const VERMILION_CITY,                20, 18 ; $05
-	map_const CELADON_CITY,                  25, 19 ; $06 ; edited
+	map_const CELADON_CITY,                  25, 21 ; $06 ; edited
 	map_const OCHRE_CITY,                    21, 21 ; new, moved
 	map_const FUCHSIA_CITY,                  20, 18 ; $07
 	map_const OBSIDIAN_ISLAND,               20, 20 ; new, testing
@@ -57,7 +57,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_24,                      10, 18 ; $23
 	map_const ROUTE_25,                      30,  9 ; $24
 	map_const ROUTE_26,                      30, 30 ; new, messes up the numbering in the comments
-	map_const ROUTE_27,                      11, 17 ; new, messes up the numbering in the comments
+	map_const ROUTE_27,                      11, 15 ; new, messes up the numbering in the comments
 	map_const ROUTE_28,                      12,  9 ; new, messes up the numbering in the comments
 DEF FIRST_INDOOR_MAP EQU const_value
 	map_const REDS_HOUSE_1F,                  4,  4 ; $25
@@ -267,7 +267,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_CAVE_EXTRA_TOP,       21, 21 ; $F1 ; edited
 	map_const CERULEAN_CAVE_EXTRA_MIDDLE,    21, 21 ; $F2 ; edited
 	map_const CERULEAN_CAVE_EXTRA_BOTTOM,    21, 21 ; $F3 ; edited
-	map_const UNUSED_MAP_F4,                  0,  0 ; $F4 ; will be the final Labyrinth
+	map_const CERULEAN_CAVE_EXTRA_FINAL,     30, 30 ; $F4 ; edited, final Labyrinth
 	map_const LORELEIS_ROOM,                  5,  6 ; $F5
 	map_const BRUNOS_ROOM,                    5,  6 ; $F6
 	map_const AGATHAS_ROOM,                   5,  6 ; $F7
