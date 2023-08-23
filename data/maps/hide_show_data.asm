@@ -559,9 +559,9 @@ SafariZoneEastHS:
 	db SAFARI_ZONE_EAST, $02, SHOW
 	db SAFARI_ZONE_EAST, $03, SHOW
 	db SAFARI_ZONE_EAST, $04, SHOW
-SafariZoneNorthHS:
-	db SAFARI_ZONE_NORTH, $01, SHOW
+SafariZoneNorthHS: ; edited because of rematch Giovanni
 	db SAFARI_ZONE_NORTH, $02, SHOW
+	db SAFARI_ZONE_NORTH, $03, SHOW
 SafariZoneWestHS:
 	db SAFARI_ZONE_WEST, $01, SHOW
 	db SAFARI_ZONE_WEST, $02, SHOW

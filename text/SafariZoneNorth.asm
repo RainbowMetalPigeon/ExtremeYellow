@@ -31,3 +31,17 @@ _SafariZoneNorthText7::
 	line "finding the"
 	cont "SECRET HOUSE!"
 	done
+
+; new ------------------------------------------------
+
+_SafariZoneNorthGiovanniBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "You will not"
+	line "catch me!!!"
+	done
+
+_SafariZoneNorthGiovanniPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thanks" ; need to consider a "GIOVANNI: " extra space
+	line "for the battle!"
+	prompt
