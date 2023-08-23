@@ -759,6 +759,9 @@ INCLUDE "data/pokemon/dex_order.asm"
 ; new, testing
 
 GetMSBEnemyWeight:: ; new
+; input: wEnemyMonSpecies
+; output: d,a=higher weight bit
+; no register is preserved
 	ld a, [wEnemyMonSpecies]
 	dec a
 	ld c, a
@@ -784,153 +787,11 @@ GetMSBEnemyWeight:: ; new
 	cp "@"
 	jr nz, .loop2
 	ld a, [hli]
-;	cp $7
-;	jp nc, asm_f5689
-;	add a
-;	add a
-;	ld b, a
-;	add a
-;	add b
-;	ld b, a
-;	ld a, [hli] ; now wrong because i'm using real units and not fake ones?
-;	add b
-;	cp $51
-;	jp nc, asm_f5689
+
 	ld a, [hli] ; now a contains the lower weight bit
 	ld e, a ; now d contains the lower weight bit
-;	sub $b9
+
 	ld a, [hl] ; now a contains the higher weight bit
 	ld d, a ; now e contains the higher weight bit
-;	sbc $1
-;	jp nc, asm_f569b
 	
 	ret
-
-
-
-
-GetMSBEnemyWeight0:: ; new
-; input: wEnemyMonSpecies
-; output: a as the most-significant byte of the weight
-; does not preserve hl, de
-; 400 kg = 4000 hectograms = FA0 -> MSB = 0F
-; 300 kg = 3000 hectograms = BB8 -> MSB = 0B
-; 200 kg = 2000 hectograms = 7D0 -> MSB = 07
-; 100 kg = 1000 hectograms = 3E8 -> MSB = 03
-;	wd11e = wEnemyMonSpecies +- 1/0 ???
-	
-	ld hl, PokedexEntryPointers
-	ld a, [wEnemyMonSpecies]
-	dec a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl] ; de = address of pokedex entry
-
-;	hlcoord 9, 4
-	call PlaceString2 ; extract species name, the edited version should just advance de properly
-
-	ld h, b
-	ld l, c
-	push de
-	ld a, [wEnemyMonSpecies]
-	push af
-;	call IndexToPokedex
-
-	hlcoord 2, 8
-	ld a, "№"
-	ld [hli], a
-	ld a, "<DOT>"
-	ld [hli], a
-	ld de, wEnemyMonSpecies
-	lb bc, LEADING_ZEROES | 1, 3
-;	call PrintNumber ; print pokedex number
-
-;	ld hl, wPokedexOwned
-;	call IsPokemonBitSet
-	pop af
-	ld [wEnemyMonSpecies], a
-	ld a, [wEnemyMonSpecies]
-	ld [wd0b5], a
-	pop de
-
-	push af
-	push bc
-	push de
-	push hl
-
-;	call Delay3
-;	call GBPalNormal
-;	call GetMonHeader ; load pokemon picture location
-	hlcoord 1, 1
-;	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
-	ld a, [wEnemyMonSpecies]
-;	call PlayCry ; play pokemon cry
-
-	pop hl
-	pop de
-	pop bc
-	pop af
-
-	ld a, c
-	and a
-;	ret z ; if the pokemon has not been owned, don't print the height, weight, or description
-
-; change to proper units
-	inc de ; de = address of decimetre (height)
-	ld a, [de] ; reads decimetre, but a is overwritten without being used
-	push af
-	hlcoord 13, 6
-	lb bc, 1, 3
-;	call PrintNumber ; print decimetre (height)
-	dec de ; clunky af but let's try
-	hlcoord 14, 6
-	pop af
-	cp $a
-	jr nc, .heightNext
-	ld [hl], "0" ; if the height is less than 10, put a 0 before the decimal point
-.heightNext
-	inc hl
-	ld a, [hli]
-	ld [hld], a ; make space for the decimal point by moving the last digit forward one tile
-	ld [hl], "<DOT>" ; decimal point tile
-; now print the weight (note that weight is stored in tenths of kilograms internally)
-; back to default code
-	inc de
-	inc de
-	inc de ; de = address of upper byte of weight
-	push de
-; put weight in big-endian order at hDexWeight
-	ld hl, hDexWeight
-	ld a, [hl] ; save existing value of [hDexWeight]
-	push af
-	ld a, [de] ; a = upper byte of weight
-	ld [hli], a ; store upper byte of weight in [hDexWeight]
-	ld a, [hl] ; save existing value of [hDexWeight + 1]
-	push af
-	dec de
-	ld a, [de] ; a = lower byte of weight
-
-	ret
-
-
-PlaceString2::
-	push hl
-
-PlaceNextChar2::
-	ld a, [de]
-	cp "@"
-	jr nz, .NotTerminator
-	ld b, h
-	ld c, l
-	pop hl
-	ret
-
-.NotTerminator
-	ld [hli], a
-
-	inc de
-	jp PlaceNextChar2

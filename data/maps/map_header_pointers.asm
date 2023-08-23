@@ -249,7 +249,7 @@ MapHeaderPointers::
 	dw CeruleanCaveExtraTop_h ; edited
 	dw CeruleanCaveExtraMiddle_h ; edited
 	dw CeruleanCaveExtraBottom_h ; edited
-	dw SilphCo2F_h ; UNUSED_MAP_F4
+	dw CeruleanCaveExtraFinal_h ; edited
 	dw LoreleisRoom_h
 	dw BrunosRoom_h
 	dw AgathasRoom_h

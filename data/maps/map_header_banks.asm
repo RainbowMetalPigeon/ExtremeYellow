@@ -249,7 +249,7 @@ MapHeaderBanks::
 	db BANK(CeruleanCaveExtraTop_h) ; edited
 	db BANK(CeruleanCaveExtraMiddle_h) ; edited
 	db BANK(CeruleanCaveExtraBottom_h) ; edited
-	db $11 ; UNUSED_MAP_F4
+	db BANK(CeruleanCaveExtraFinal_h) ; edited
 	db BANK(LoreleisRoom_h)
 	db BANK(BrunosRoom_h)
 	db BANK(AgathasRoom_h)

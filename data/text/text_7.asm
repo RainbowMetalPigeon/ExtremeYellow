@@ -7,6 +7,18 @@ _PokemartGreetingText::
 	next "May I help you?"
 	done
 
+_ForbiddenMerchantGreetingText:: ; new
+	text "Oh oh oh!"
+	line "You did amazingly"
+	cont "in finding me!"
+
+	para "Allow me to reward"
+	line "you with marvels"
+	cont "that cannot be"
+	cont "bought anywhere"
+	cont "else in KANTO!"
+	prompt
+
 _PokemonFaintedText::
 	text_ram wcd6d
 	text_start

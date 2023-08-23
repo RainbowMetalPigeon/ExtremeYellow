@@ -20,3 +20,6 @@ CeladonMart5Text2:
 CeladonMart5Text5:
 	text_far _CeladonMart5Text5
 	text_end
+
+CeladonMart5Clerk2Text: ; moved
+	script_mart HP_UP, PROTEIN, IRON, CARBOS, CALCIUM
