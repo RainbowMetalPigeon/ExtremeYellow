@@ -23,7 +23,7 @@ CeladonUniversity_Object:
 	warp_event  7, 43, CELADON_UNIVERSITY, 6 ; 14
 
 	def_bg_events
-	bg_event  3, 48, 12  ; CeladonUniversityDoor1
+	bg_event  3, 48, 12 ; CeladonUniversityDoor1
 	bg_event  7, 48, 13 ; CeladonUniversityDoor2
 	bg_event 11, 48, 14 ; CeladonUniversityDoor3
 	bg_event 15, 48, 15 ; CeladonUniversityDoor4

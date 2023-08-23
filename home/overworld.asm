@@ -502,6 +502,18 @@ WarpFound2::
 	cp LAST_MAP
 	jr z, .goBackOutside
 ; if not going back to the previous map
+
+	; new block of code to darken the final labyrinth and make it need FLASH
+	ldh a, [hWarpDestinationMap]
+	ld [wCurMap], a
+	cp CERULEAN_CAVE_EXTRA_FINAL
+	jr nz, .notFinalLabyrinth
+	ld a, $06
+	ld [wMapPalOffset], a
+	call GBFadeOutToBlack
+.notFinalLabyrinth
+	ldh a, [hWarpDestinationMap] ; destination map
+
 	ld [wCurMap], a
 	farcall IsPlayerStandingOnWarpPadOrHole
 	ld a, [wStandingOnWarpPadOrHole]

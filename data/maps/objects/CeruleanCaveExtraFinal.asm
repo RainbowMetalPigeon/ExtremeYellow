@@ -4,12 +4,12 @@ CeruleanCaveExtraFinal_Object:
 	def_warp_events
 	warp_event 28, 59, CERULEAN_CAVE_EXTRA_MIDDLE, 2
 	warp_event 29, 59, CERULEAN_CAVE_EXTRA_MIDDLE, 3
-	warp_event 37,  3, REDS_HOUSE_1F, 1
 
 	def_bg_events
+	bg_event  3,  0, 15 ; sign
 
 	def_object_events
-	object_event  2,  0, SPRITE_SUPER_NERD, STAY, DOWN, 1 ; person
+	object_event  2,  0, SPRITE_GRANNY, STAY, DOWN, 1 ; person
 	object_event 26, 54, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 2 ; boulder
 	object_event 31, 54, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 3 ; boulder
 	object_event 35, 24, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 4 ; boulder

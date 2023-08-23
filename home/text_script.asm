@@ -135,6 +135,11 @@ CloseTextDisplay::
 DisplayPokemartDialogue::
 	push hl
 	ld hl, PokemartGreetingText
+	ld a, [wCurMap]							; new
+	cp CERULEAN_CAVE_EXTRA_FINAL			; new
+	jr nz, .notForbiddenMerchant			; new
+	ld hl, ForbiddenMerchantGreetingText	; new
+.notForbiddenMerchant						; new
 	call PrintText
 	pop hl
 	inc hl
@@ -146,6 +151,10 @@ DisplayPokemartDialogue::
 
 PokemartGreetingText::
 	text_far _PokemartGreetingText
+	text_end
+
+ForbiddenMerchantGreetingText:: ; new
+	text_far _ForbiddenMerchantGreetingText
 	text_end
 
 LoadItemList::

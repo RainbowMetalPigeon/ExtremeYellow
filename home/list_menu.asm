@@ -280,14 +280,18 @@ DisplayChooseQuantityMenu::
 	ldh [hDivideBCDDivisor + 2], a
 	predef DivideBCDPredef3 ; halves the price
 ; store the halved price
-	; new block, check if you should get no money for selling that item
+
+	; new block of code, check if you should get no money for selling that item
 	ld a, [wcf91]
 	cp MASTER_BALL
-	jr nz, .normalSell
+	jr z, .zeroSell
 	cp MEGA_STONE_X
-	jr nz, .normalSell
+	jr z, .zeroSell
 	cp MEGA_STONE_Y
+	jr z, .zeroSell
+	cp RARE_CANDY
 	jr nz, .normalSell
+.zeroSell
 	xor a
 	ldh [hMoney], a
 	ldh [hMoney + 1], a

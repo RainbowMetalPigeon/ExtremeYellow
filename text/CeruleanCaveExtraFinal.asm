@@ -1,4 +1,5 @@
-_CeruleanCaveExtraFinalTextSeller::
-	text "You did well in"
-	line "finding me!"
+_CeruleanCaveExtraFinalSign::
+	text "FORBIDDEN MERCHANT"
+	line "For all of your"
+	cont "taboo puchases!"
 	done

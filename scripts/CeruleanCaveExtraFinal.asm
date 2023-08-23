@@ -16,7 +16,11 @@ CeruleanCaveExtraFinal_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
+	dw CeruleanCaveExtraFinalSign
+
+CeruleanCaveExtraFinalSign:
+	text_far _CeruleanCaveExtraFinalSign
+	text_end
 
 CeruleanCaveExtraFinalTextSeller:
-	text_far _CeruleanCaveExtraFinalTextSeller
-	text_end
+	script_mart MASTER_BALL, MEGA_STONE_X, MEGA_STONE_Y, RARE_CANDY, ESCAPE_ROPE

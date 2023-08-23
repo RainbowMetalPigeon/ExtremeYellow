@@ -5,8 +5,8 @@ CeruleanCaveExtraMiddle_Object:
 	; room 1-1
 	warp_event   5,  3, CERULEAN_CAVE_EXTRA_TOP, 1		; 1, stairs up
 	; room 2-1
-	warp_event  20,  0, CERULEAN_CAVE_EXTRA_FINAL, 1	; 2, exit, testing
-	warp_event  21,  0, CERULEAN_CAVE_EXTRA_FINAL, 2	; 3, exit, testing
+	warp_event  20,  0, CERULEAN_CAVE_EXTRA_FINAL, 1	; 2, exit
+	warp_event  21,  0, CERULEAN_CAVE_EXTRA_FINAL, 2	; 3, exit
 	warp_event  19,  7, CERULEAN_CAVE_EXTRA_BOTTOM, 1	; 4, stairs down
 	; room 3-1
 	warp_event  35,  3, CERULEAN_CAVE_EXTRA_BOTTOM, 4	; 5, stairs down
@@ -32,8 +32,8 @@ CeruleanCaveExtraMiddle_Object:
 	warp_event  16, 37, CERULEAN_CAVE_EXTRA_MIDDLE, 15	; 20, room 1-3, east
 	warp_event  25, 36, CERULEAN_CAVE_EXTRA_MIDDLE, 27	; 21, room 3-3, west
 	warp_event  25, 37, CERULEAN_CAVE_EXTRA_MIDDLE, 28	; 22, room 3-3, west
-	warp_event  20, 41, CERULEAN_CAVE_1F, 10			; 23, entrance, testing
-	warp_event  21, 41, CERULEAN_CAVE_1F, 11			; 24, entrance, testing
+	warp_event  20, 41, CERULEAN_CAVE_1F, 10			; 23, entrance
+	warp_event  21, 41, CERULEAN_CAVE_1F, 11			; 24, entrance
 	; room 3-3
 	warp_event  36, 32, CERULEAN_CAVE_EXTRA_MIDDLE, 11	; 25, room 3-2, south
 	warp_event  37, 32, CERULEAN_CAVE_EXTRA_MIDDLE, 12	; 26, room 3-2, south
