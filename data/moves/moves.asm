@@ -33,13 +33,13 @@ Moves:
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,       100, 35 ; power 35->60
 ;	move WHIRLWIND,    SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,        85, 20 ; - REMOVED
 	move FLY,          FLY_EFFECT,                  90, FLYING,        95, 15 ; power 70->90
-	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        85, 20 ; accuracy 75->85
+;	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        85, 20 ; accuracy 75->85 - REMOVED
 	move SLAM,         NO_ADDITIONAL_EFFECT,        80, NORMAL,        75, 20
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        45, GRASS,        100, 25 ; power 35->45, PP 10->25
 	move STOMP,        FLINCH_SIDE_EFFECT3,         65, NORMAL,       100, 20
 	move DOUBLE_KICK,  ATTACK_TWICE_EFFECT,         30, FIGHTING,     100, 30
 ;	move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, NORMAL,        75,  5 - REMOVED
-	move JUMP_KICK,    JUMP_KICK_EFFECT,           100, FIGHTING,      95, 25 ; power 70->100
+;	move JUMP_KICK,    JUMP_KICK_EFFECT,           100, FIGHTING,      95, 25 ; power 70->100 - REMOVED
 	move ROLLING_KICK, FLINCH_SIDE_EFFECT3,         60, FIGHTING,      85, 15
 	move SAND_ATTACK,  ACCURACY_DOWN1_EFFECT,        0, NORMAL,       100, 15
 	move HEADBUTT,     FLINCH_SIDE_EFFECT3,         70, NORMAL,       100, 15
@@ -67,7 +67,7 @@ Moves:
 	move ACID,         DEFENSE_DOWN_SIDE_EFFECT3,   40, POISON,       100, 30
 	move EMBER,        BURN_SIDE_EFFECT1,           40, FIRE,         100, 25
 	move FLAMETHROWER, BURN_SIDE_EFFECT1,           95, FIRE,         100, 15
-	move MIST,         MIST_EFFECT,                  0, ICE,          100, 30
+;	move MIST,         MIST_EFFECT,                  0, ICE,          100, 30 ; - REMOVED
 	move WATER_GUN,    NO_ADDITIONAL_EFFECT,        40, WATER,        100, 25
 	move HYDRO_PUMP,   NO_ADDITIONAL_EFFECT,       120, WATER,         80,  5 ; [TM35]
 	move SURF,         NO_ADDITIONAL_EFFECT,        95, WATER,        100, 15
@@ -109,7 +109,7 @@ Moves:
 	move CONFUSION,    CONFUSION_SIDE_EFFECT1,      50, PSYCHIC_TYPE, 100, 25
 	move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT3,   90, PSYCHIC_TYPE, 100, 10 ; [TM29]
 	move HYPNOSIS,     SLEEP_EFFECT,                 0, PSYCHIC_TYPE,  70, 20
-	move MEDITATE,     ATTACK_UP1_EFFECT,            0, PSYCHIC_TYPE, 100, 40
+;	move MEDITATE,     ATTACK_UP1_EFFECT,            0, PSYCHIC_TYPE, 100, 40 ; - REMOVED
 	move AGILITY,      SPEED_UP2_EFFECT,             0, PSYCHIC_TYPE, 100, 30
 	move QUICK_ATTACK, NO_ADDITIONAL_EFFECT,        40, NORMAL,       100, 30 ; prio +1
 ;	move RAGE,         RAGE_EFFECT,                 20, NORMAL,       100, 20 ; - REMOVED
@@ -145,7 +145,7 @@ Moves:
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,       100, 20
 ;	move SKULL_BASH,   CHARGE_EFFECT,              100, NORMAL,       100, 15
 	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  20, NORMAL,       100, 15
-;	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT3,      10, NORMAL,       100, 35 ; - REMOVED
+;	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT3,      10, NORMAL,      100, 35 ; - REMOVED
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, PSYCHIC_TYPE, 100, 20
 ;	move KINESIS,      ACCURACY_DOWN1_EFFECT,        0, PSYCHIC_TYPE,  80, 15 ; - REMOVED
 	move SOFTBOILED,   HEAL_EFFECT,                  0, NORMAL,       100, 10
@@ -153,7 +153,7 @@ Moves:
 	move GLARE,        PARALYZE_EFFECT,              0, NORMAL,        75, 30
 	move DREAM_EATER,  DREAM_EATER_EFFECT,         100, PSYCHIC_TYPE, 100, 15
 	move POISON_GAS,   POISON_EFFECT,                0, POISON,        55, 40
-	move BARRAGE,      TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,        85, 20
+;	move BARRAGE,      TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,        85, 20 ; - REMOVED
 	move LEECH_LIFE,   DRAIN_HP_EFFECT,             80, BUG,          100, 10 ; power 20->80, PP 15->10
 	move LOVELY_KISS,  SLEEP_EFFECT,                 0, NORMAL,        75, 10
 ;	move SKY_ATTACK,   CHARGE_EFFECT,              140, FLYING,        90,  5
@@ -265,6 +265,13 @@ Moves:
 	move HYDRO_CANNON, HYPER_BEAM_EFFECT,          150,	WATER,	       90, 5  ; done
 
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate - meme secret easter-egg move for Magikarp :)
+
+	; anomalies' signature moves
+	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90, 5 ; done
+	move DRAGONASCENT, DEFENSE_SPECIAL_SELFDOWN1,  120, FLYING,       100, 5 ; done
+	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,        90, GROUND,       100, 5 ; TODO: implement effect!
+	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TODO: implement effect?
+	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; TODO: implement effect?! Or change BP to 200? Or add a new type like Normal in def but super against all types?
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS

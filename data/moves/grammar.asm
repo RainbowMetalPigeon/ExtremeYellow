@@ -11,13 +11,13 @@ ExclamationPointMoveSets:
 	db 0 ; end set
 
 ; set 2
-	db MEDITATE
+;	db MEDITATE
 	db AGILITY
 	db TELEPORT
 	db MIMIC
 	db DOUBLE_TEAM
 	db BIDE ; corrected JP grammar: moved from set 1 in pokered
-	db BARRAGE
+;	db BARRAGE
 	db 0 ; end set
 
 ; set 3
@@ -26,7 +26,7 @@ ExclamationPointMoveSets:
 ;	db VICEGRIP
 	db WING_ATTACK
 	db FLY
-	db BIND
+;	db BIND
 	db SLAM
 	db HORN_ATTACK
 	db BODY_SLAM

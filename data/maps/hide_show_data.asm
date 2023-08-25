@@ -537,9 +537,9 @@ SilphCo10FHS:
 	db SILPH_CO_10F, $05, SHOW
 	db SILPH_CO_10F, $06, SHOW
 SilphCo11FHS:
-	db SILPH_CO_11F, $03, SHOW
+	db SILPH_CO_11F, $03, SHOW ; Silph Giovanni
 	db SILPH_CO_11F, $04, SHOW
-	db SILPH_CO_11F, $05, SHOW
+	db SILPH_CO_11F, $05, SHOW ; Rocket grunt
 	db SILPH_CO_11F, $06, SHOW
 ;UnusedMapF4HS:						; edited, removed
 ;	db UNUSED_MAP_F4, $02, SHOW		; edited, removed

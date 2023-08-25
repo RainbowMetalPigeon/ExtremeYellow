@@ -214,9 +214,9 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_10F_ITEM_1           ; B8
 	const HS_SILPH_CO_10F_ITEM_2           ; B9
 	const HS_SILPH_CO_10F_ITEM_3           ; BA
-	const HS_SILPH_CO_11F_1                ; BB
+	const HS_SILPH_CO_11F_1                ; BB, Silph Giovanni
 	const HS_SILPH_CO_11F_JAMES            ; BC
-	const HS_SILPH_CO_11F_2                ; BD
+	const HS_SILPH_CO_11F_2                ; BD Rocket grunt
 	const HS_SILPH_CO_11F_JESSIE           ; BE
 ;	const HS_UNUSED_MAP_F4_1               ; BF XXX sprite doesn't exist ; edited, removed
 	const HS_POKEMON_MANSION_2F_ITEM       ; C0

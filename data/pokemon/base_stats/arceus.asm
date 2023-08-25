@@ -10,17 +10,16 @@
 	INCBIN "gfx/pokemon/front/arceus.pic", 0, 1 ; sprite dimensions
 	dw ArceusPicFront, ArceusPicBack
 
-	db SEISMIC_TOSS, STOMP, LIGHT_SCREEN, REFLECT ; level 1 learnset
+	db SEISMIC_TOSS, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   COUNTER,      SEISMIC_TOSS, \
-	     GIGA_DRAIN,   THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      \
-	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     METRONOME,    FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          SURF,         STRENGTH,     \
-	     FLASH         
+	tmhm SWORDS_DANCE, DRAGON_CLAW,  DARK_PULSE,   ICE_BEAM,     BLIZZARD,     \
+	     HYPER_BEAM,   FLASH_CANNON, GIGA_DRAIN,   STONE_EDGE,   WILL_O_WISP,  \
+	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   PSYCHIC_M,    DOUBLE_TEAM,  \
+	     REFLECT,      FIRE_BLAST,   OUTRAGE,      REST,         X_SCISSOR,    \
+	     THUNDER_WAVE, ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   CUT,          \
+	     FLY,          SURF,         STRENGTH,     FLASH         
 	; end
 
 	db BANK(ArceusPicFront)

@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/hitmontop.pic", 0, 1 ; sprite dimensions
 	dw HitmontopPicFront, HitmontopPicBack
 
-	db DOUBLE_KICK, MEDITATE, COMET_PUNCH, AGILITY ; level 1 learnset
+	db DOUBLE_KICK, COMET_PUNCH, AGILITY, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

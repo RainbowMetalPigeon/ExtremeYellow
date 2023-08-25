@@ -13,7 +13,7 @@ SpriteSheetPointerTable:
 	overworld_sprite YoungsterSprite, 12        ; SPRITE_YOUNGSTER
 	overworld_sprite MonsterSprite, 12          ; SPRITE_MONSTER
 	overworld_sprite CooltrainerFSprite, 12     ; SPRITE_COOLTRAINER_F
-	overworld_sprite CooltrainerMSprite, 12     ; SPRITE_COOLTRAINER_M
+	overworld_sprite CooltrainerMSprite, 12     ; SPRITE_COOLTRAINER_M ; maybe remove?
 	overworld_sprite LittleGirlSprite, 12       ; SPRITE_LITTLE_GIRL
 	overworld_sprite BirdSprite, 12             ; SPRITE_BIRD
 	overworld_sprite MiddleAgedManSprite, 12    ; SPRITE_MIDDLE_AGED_MAN

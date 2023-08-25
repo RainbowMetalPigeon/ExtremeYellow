@@ -43,7 +43,7 @@ OakSprite::              INCBIN "gfx/sprites/oak.2bpp"
 YoungsterSprite::        INCBIN "gfx/sprites/youngster.2bpp"
 MonsterSprite::          INCBIN "gfx/sprites/monster.2bpp"
 CooltrainerFSprite::     INCBIN "gfx/sprites/cooltrainer_f.2bpp"
-CooltrainerMSprite::     INCBIN "gfx/sprites/cooltrainer_m.2bpp"
+CooltrainerMSprite::     INCBIN "gfx/sprites/cooltrainer_m.2bpp" ; maybe remove?
 LittleGirlSprite::       INCBIN "gfx/sprites/little_girl.2bpp"
 BirdSprite::             INCBIN "gfx/sprites/bird.2bpp"
 MiddleAgedManSprite::    INCBIN "gfx/sprites/middle_aged_man.2bpp"

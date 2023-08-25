@@ -25,13 +25,13 @@
 	const WING_ATTACK  ; 11
 ;	const WHIRLWIND    ; 12
 	const FLY          ; 13-4
-	const BIND         ; 14
+;	const BIND         ; 14 - REMOVED
 	const SLAM         ; 15
 	const VINE_WHIP    ; 16
 	const STOMP        ; 17
 	const DOUBLE_KICK  ; 18
 ;	const MEGA_KICK    ; 19
-	const JUMP_KICK    ; 1a
+;	const JUMP_KICK    ; 1a - REMOVED
 	const ROLLING_KICK ; 1b
 	const SAND_ATTACK  ; 1c
 	const HEADBUTT     ; 1d
@@ -59,7 +59,7 @@
 	const ACID         ; 33
 	const EMBER        ; 34
 	const FLAMETHROWER ; 35
-	const MIST         ; 36
+;	const MIST         ; 36 - REMOVED
 	const WATER_GUN    ; 37
 	const HYDRO_PUMP   ; 38
 	const SURF         ; 39
@@ -101,7 +101,7 @@
 	const CONFUSION    ; 5d
 	const PSYCHIC_M    ; 5e
 	const HYPNOSIS     ; 5f
-	const MEDITATE     ; 60
+;	const MEDITATE     ; 60 - REMOVED
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62
 ;	const RAGE         ; 63-7
@@ -145,7 +145,7 @@
 	const GLARE        ; 89
 	const DREAM_EATER  ; 8a
 	const POISON_GAS   ; 8b
-	const BARRAGE      ; 8c
+;	const BARRAGE      ; 8c - REMOVED
 	const LEECH_LIFE   ; 8d
 	const LOVELY_KISS  ; 8e
 ;	const SKY_ATTACK   ; 8f
@@ -257,6 +257,13 @@
 	const	HYDRO_CANNON
 
 	const	ANCESTOR_PWR
+
+	; anomalies' signature moves
+	const	ETERNABEAM
+	const	DRAGONASCENT
+	const	THOUSANDARROWS
+	const	PHOTONGEYSER
+	const	JUDGMENT
 
 	const STRUGGLE     ; formerly a5
 DEF NUM_ATTACKS EQU const_value - 1

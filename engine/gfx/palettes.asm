@@ -415,8 +415,7 @@ GetPal_Pikachu::
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
-;	cp SAFFRON_CITY + 1
-	cp OCHRE_CITY + 1 ; new, testing
+	cp SAFFRON_CITY + 1
 	jr c, .town
 	ld a, PAL_ROUTE - 1
 .town

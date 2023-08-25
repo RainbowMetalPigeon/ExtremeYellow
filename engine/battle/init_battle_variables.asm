@@ -48,12 +48,8 @@ InitBattleVariables:
 	jpfar PlayBattleMusic
 
 CoordsData_SafariGiovanni: ; new
-	dbmapcoord 25, 14
 	dbmapcoord 25, 15
-	dbmapcoord 25, 16
 	dbmapcoord 26, 14
 	dbmapcoord 26, 16
-	dbmapcoord 27, 14
 	dbmapcoord 27, 15
-	dbmapcoord 27, 16
 	db -1 ; end

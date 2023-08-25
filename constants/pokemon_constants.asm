@@ -210,9 +210,14 @@
 	const MMEWTWOY           ; 201
 	const MEW                ; 202
 	const VENUSTOISE         ; 203
-	const FOSSIL_KABUTOPS    ; 204
-	const FOSSIL_AERODACTYL  ; 205
-	const MON_GHOST          ; 206
+	const ZYGARDEC           ; 204
+	const UNECROZMA          ; 205
+	const MRAYQUAZA          ; 206
+	const EETERNATUS         ; 207
+	const ARCEUS             ; 208
+	const FOSSIL_KABUTOPS    ; 209
+	const FOSSIL_AERODACTYL  ; 210
+	const MON_GHOST          ; 211
 
 DEF NUM_POKEMON_INDEXES EQU const_value - 1
 
