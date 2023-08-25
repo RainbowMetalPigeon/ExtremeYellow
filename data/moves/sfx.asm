@@ -20,13 +20,13 @@ MoveSoundTable:
 	db SFX_BATTLE_12,          $10, $a0 ; WING_ATTACK
 ;	db SFX_BATTLE_13,          $00, $e0 ; WHIRLWIND
 	db SFX_NOT_VERY_EFFECTIVE, $20, $c0 ; FLY
-	db SFX_BATTLE_14,          $00, $80 ; BIND
+;	db SFX_BATTLE_14,          $00, $80 ; BIND - sound moved to MEGAHORN
 	db SFX_BATTLE_22,          $00, $80 ; SLAM
 	db SFX_VINE_WHIP,          $01, $80 ; VINE_WHIP
 	db SFX_BATTLE_20,          $00, $80 ; STOMP
 	db SFX_BATTLE_17,          $f0, $40 ; DOUBLE_KICK
 ;	db SFX_SUPER_EFFECTIVE,    $00, $80 ; MEGA_KICK
-	db SFX_BATTLE_17,          $00, $80 ; JUMP_KICK
+;	db SFX_BATTLE_17,          $00, $80 ; JUMP_KICK
 	db SFX_BATTLE_21,          $10, $80 ; ROLLING_KICK
 	db SFX_BATTLE_1B,          $01, $a0 ; SAND_ATTACK
 	db SFX_BATTLE_18,          $00, $80 ; HEADBUTT
@@ -54,7 +54,7 @@ MoveSoundTable:
 	db SFX_BATTLE_2A,          $80, $c0 ; ACID
 	db SFX_BATTLE_19,          $10, $a0 ; EMBER
 	db SFX_BATTLE_19,          $21, $e0 ; FLAMETHROWER
-	db SFX_BATTLE_29,          $00, $80 ; MIST
+;	db SFX_BATTLE_29,          $00, $80 ; MIST
 	db SFX_BATTLE_24,          $20, $60 ; WATER_GUN
 	db SFX_BATTLE_2A,          $00, $80 ; HYDRO_PUMP
 	db SFX_BATTLE_2C,          $00, $80 ; SURF
@@ -96,7 +96,7 @@ MoveSoundTable:
 	db SFX_BATTLE_14,          $00, $20 ; CONFUSION
 	db SFX_PSYCHIC_M,          $00, $80 ; PSYCHIC_M
 	db SFX_BATTLE_35,          $11, $18 ; HYPNOSIS
-	db SFX_BATTLE_09,          $20, $c0 ; MEDITATE
+;	db SFX_BATTLE_09,          $20, $c0 ; MEDITATE
 	db SFX_FAINT_FALL,         $20, $c0 ; AGILITY
 	db SFX_BATTLE_25,          $00, $10 ; QUICK_ATTACK
 ;	db SFX_BATTLE_26,          $f0, $20 ; RAGE
@@ -140,7 +140,7 @@ MoveSoundTable:
 	db SFX_NOT_VERY_EFFECTIVE, $09, $ff ; GLARE
 	db SFX_BATTLE_35,          $42, $01 ; DREAM_EATER
 	db SFX_BATTLE_1C,          $00, $ff ; POISON_GAS
-	db SFX_BATTLE_32,          $08, $e0 ; BARRAGE
+;	db SFX_BATTLE_32,          $08, $e0 ; BARRAGE - sound moved to X_SCISSOR
 	db SFX_BATTLE_24,          $00, $80 ; LEECH_LIFE
 	db SFX_BATTLE_09,          $88, $10 ; LOVELY_KISS
 ;	db SFX_BATTLE_25,          $48, $ff ; SKY_ATTACK
@@ -166,8 +166,8 @@ MoveSoundTable:
 	db SFX_NOT_VERY_EFFECTIVE, $01, $ff ; SLASH
 	db SFX_BATTLE_2C,          $d8, $04 ; SUBSTITUTE
 
-;	db SFX_BATTLE_36,          $00, $80 ; MEGAHORN
-;	db SFX_BATTLE_36,          $00, $80 ; X_SCISSOR
+	db SFX_BATTLE_14,          $00, $80 ; MEGAHORN - it has the sound of the removed BIND
+	db SFX_BATTLE_32,          $08, $e0 ; X_SCISSOR
 ;	db SFX_BATTLE_14,          $0f, $80 ; INFESTATION - same as CONSTRICT to "save" CLAMP - prolly could use BIND
 
 ;	db SFX_BATTLE_36,          $00, $80 ; FEINT_ATTACK
@@ -252,6 +252,12 @@ MoveSoundTable:
 ;	db SFX_BATTLE_36,          $00, $80 ; HYDRO_CANNON
 
 ;	db SFX_BATTLE_36,          $00, $80 ; ANCESTOR_PWR
+
+;	db SFX_BATTLE_36,          $00, $80 ; ETERNABEAM
+;	db SFX_BATTLE_36,          $00, $80 ; DRAGONASCENT
+;	db SFX_BATTLE_36,          $00, $80 ; THOUSANDARROWS
+;	db SFX_BATTLE_36,          $00, $80 ; PHOTONGEYSER
+;	db SFX_BATTLE_36,          $00, $80 ; JUDGMENT
 
 ;	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 ;	assert_table_length NUM_ATTACKS

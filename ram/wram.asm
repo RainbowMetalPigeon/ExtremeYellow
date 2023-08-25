@@ -2231,7 +2231,8 @@ wViridianMartCurScript:: db
 wRoute22GateCurScript:: db
 wCeruleanCityCurScript:: db
 wRoute26CurScript:: db ; new
-	ds 6 ; was 7
+wSafariZoneNorthCurScript:: db ; new
+	ds 5 ; was 7
 wSSAnneBowCurScript:: db
 wViridianForestCurScript:: db
 wMuseum1FCurScript:: db

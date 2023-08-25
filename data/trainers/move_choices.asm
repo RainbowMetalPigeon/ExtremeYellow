@@ -13,15 +13,15 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; BUG CATCHER
 	move_choices 1       ; LASS
 	move_choices 1, 3    ; SAILOR
-	move_choices 1       ; JR_TRAINER_M
+;	move_choices 1       ; JR_TRAINER_M
 	move_choices 1       ; JR_TRAINER_F
 	move_choices 1, 2, 3 ; POKEMANIAC
 	move_choices 1, 2    ; SUPER_NERD
 	move_choices 1       ; HIKER
 	move_choices 1       ; BIKER
 	move_choices 1, 3    ; BURGLAR
-	move_choices 1       ; ENGINEER
-	move_choices 1, 2    ; UNUSED_JUGGLER
+;	move_choices 1       ; ENGINEER
+;	move_choices 1, 2    ; UNUSED_JUGGLER
 	move_choices 1, 3    ; FISHER
 	move_choices 1, 3    ; SWIMMER
 	move_choices         ; CUE_BALL
@@ -35,12 +35,12 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; BLACKBELT
 	move_choices 1       ; RIVAL1
 	move_choices 1, 3    ; PROF_OAK
-	move_choices 1, 2    ; CHIEF
+;	move_choices 1, 2    ; CHIEF
 	move_choices 1, 2, 3 ; SCIENTIST ; updated
 	move_choices 1, 3    ; GIOVANNI
 	move_choices 1       ; ROCKET
-	move_choices 1, 3    ; COOLTRAINER_M
-	move_choices 1, 3    ; COOLTRAINER_F
+;	move_choices 1, 3    ; COOLTRAINER_M
+	move_choices 1, 3    ; COOLTRAINER
 	move_choices 1, 3    ; BRUNO ; updated
 	move_choices 1, 3    ; BROCK ; updated
 	move_choices 1, 3    ; MISTY

@@ -203,6 +203,11 @@ PokedexEntryPointers:
 	dw MMewtwoYDexEntry
 	dw MewDexEntry
 	dw VenustoiseDexEntry
+	dw ZygardeCDexEntry
+	dw UNecrozmaDexEntry
+	dw MRayquazaDexEntry
+	dw EEternatusDexEntry
+	dw ArceusDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
@@ -1632,6 +1637,41 @@ VenustoiseDexEntry:
 	db 26
 	dw 1361
 	text_far _VenustoiseDexEntry
+	text_end
+
+ZygardeCDexEntry:
+	db "ORDER@"
+	db 45
+	dw 6100
+	text_far _ZygardeCDexEntry
+	text_end
+
+UNecrozmaDexEntry:
+	db "PRISM@"
+	db 75
+	dw 2300
+	text_far _UNecrozmaDexEntry
+	text_end
+
+MRayquazaDexEntry:
+	db "SKY HIGH@"
+	db 108
+	dw 3920
+	text_far _MRayquazaDexEntry
+	text_end
+
+EEternatusDexEntry:
+	db "GIGANTIC@"
+	db 1000 ; buggy
+	dw 9500
+	text_far _EEternatusDexEntry
+	text_end
+
+ArceusDexEntry:
+	db "ALPHA@"
+	db 32
+	dw 3200
+	text_far _ArceusDexEntry
 	text_end
 
 MissingNoDexEntry:

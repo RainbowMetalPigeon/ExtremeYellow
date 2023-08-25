@@ -8,7 +8,7 @@
 	const SPRITE_YOUNGSTER               ; $04
 	const SPRITE_MONSTER                 ; $05
 	const SPRITE_COOLTRAINER_F           ; $06
-	const SPRITE_COOLTRAINER_M           ; $07
+	const SPRITE_COOLTRAINER_M           ; $07 maybe remove?
 	const SPRITE_LITTLE_GIRL             ; $08
 	const SPRITE_BIRD                    ; $09
 	const SPRITE_MIDDLE_AGED_MAN         ; $0a

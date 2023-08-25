@@ -5608,9 +5608,7 @@ AdjustDamageForMoveType:
 	cp 1						; new, load Inverse Battle chart on demand; e.g. Oak can load 1
 	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
     ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
-    cp OPP_COOLTRAINER_M		; new, load Inverse Battle chart for COOL trainers
-    jr z, .loadInverseChart		; new, load Inverse Battle chart for COOL trainers
-    cp OPP_COOLTRAINER_F		; new, load Inverse Battle chart for COOL trainers
+    cp OPP_COOLTRAINER			; new, load Inverse Battle chart for COOL trainers - now genderless
     jr nz, .loop				; new, load Inverse Battle chart for COOL trainers
 .loadInverseChart				; new, load Inverse Battle chart for COOL trainers
     ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
@@ -5710,9 +5708,7 @@ AIGetTypeEffectiveness:
 	cp 1						; new, load Inverse Battle chart on demand; e.g. Oak can load 1
 	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
     ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
-    cp OPP_COOLTRAINER_M		; new, load Inverse Battle chart for COOL trainers
-    jr z, .loadInverseChart		; new, load Inverse Battle chart for COOL trainers
-    cp OPP_COOLTRAINER_F		; new, load Inverse Battle chart for COOL trainers
+    cp OPP_COOLTRAINER			; new, load Inverse Battle chart for COOL trainers - now genderless
     jr nz, .loop				; new, load Inverse Battle chart for COOL trainers
 .loadInverseChart				; new, load Inverse Battle chart for COOL trainers
     ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers

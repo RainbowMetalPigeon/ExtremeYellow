@@ -207,5 +207,10 @@
 	const DEX_MMEWTWOY   ; 201
 	const DEX_MEW        ; 202
 	const DEX_VENUSTOISE ; 203
+	const DEX_ZYGARDEC   ; 204
+	const DEX_UNECROZMA  ; 205
+	const DEX_MRAYQUAZA  ; 206
+	const DEX_EETERNATUS ; 207
+	const DEX_ARCEUS     ; 208
 
 DEF NUM_POKEMON EQU const_value - 1

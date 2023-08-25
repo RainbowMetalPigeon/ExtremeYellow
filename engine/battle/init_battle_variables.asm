@@ -32,7 +32,24 @@ InitBattleVariables:
 	jr c, .notSafariBattle
 	cp SAFARI_ZONE_CENTER_REST_HOUSE
 	jr nc, .notSafariBattle
+
+; new special code for Safari Giovanni
+	cp SAFARI_ZONE_NORTH
+	jr nz, .yesSafariBattle
+	; are we around Giovanni?
+	ld hl, CoordsData_SafariGiovanni
+	call ArePlayerCoordsInArray
+	jr c, .notSafariBattle ; if yes, don't load the safari battle
+.yesSafariBattle
+
 	ld a, BATTLE_TYPE_SAFARI
 	ld [wBattleType], a
 .notSafariBattle
 	jpfar PlayBattleMusic
+
+CoordsData_SafariGiovanni: ; new
+	dbmapcoord 25, 15
+	dbmapcoord 26, 14
+	dbmapcoord 26, 16
+	dbmapcoord 27, 15
+	db -1 ; end

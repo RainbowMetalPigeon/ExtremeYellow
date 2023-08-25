@@ -2022,3 +2022,51 @@ _VenustoiseDexEntry::
 	next "otherworldy fury"
 	dex
 
+_ZygardeCDexEntry::
+	text "This is ZYGARDE's"
+	next "perfected form. It"
+	next "can radiate high-"
+
+	page "powered energy"
+	next "that eliminates"
+	next "everything"
+	dex
+
+_UNecrozmaDexEntry::
+	text "It absorbed over-"
+	next "whelming light en-"
+	next "ergy. It fires"
+
+	page "lasers that affect"
+	next "every living being"
+	dex
+
+_MRayquazaDexEntry::
+	text "Has lived for mil-"
+	next "lion of years in"
+	next "the ozone layer."
+
+	page "It Mega Evolved"
+	next "thanks to the met-"
+	next "eorites it eats"
+	dex
+
+_EEternatusDexEntry::
+	text "Infinite amounts"
+	next "of energy pour"
+	next "from this #MON-"
+
+	page "mon's enlarged"
+	next "core, warping the"
+	next "space-time around"
+	dex
+
+_ArceusDexEntry::
+	text "It is said to have"
+	next "emerged from an"
+	next "egg in a place"
+
+	page "where there was"
+	next "nothing, then"
+	next "shaped the world"
+	dex

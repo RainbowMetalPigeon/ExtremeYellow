@@ -353,12 +353,12 @@ GiovanniAI:
 	ret nc
 	jp AIUseGuardSpec
 
-CooltrainerMAI:
-	cp 25 percent + 1
-	ret nc
-	jp AIUseXAttack
+;CooltrainerMAI: ; commented out
+;	cp 25 percent + 1
+;	ret nc
+;	jp AIUseXAttack
 
-CooltrainerFAI:
+CooltrainerAI:
 	; The intended 25% chance to consider switching will not apply.
 	; Uncomment the line below to fix this - done
 	cp 25 percent + 1

@@ -37,27 +37,27 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets Psychic or test moves
-	ld a, PSYCHIC_M
+	ld a, ETERNABEAM
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, CLOSE_COMBAT
+	ld a, DRAGONASCENT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, ICE_BEAM
+	ld a, THOUSANDARROWS
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, THUNDERBOLT
+	ld a, PHOTONGEYSER
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Persian gets Moves.
-	ld a, ZAP_CANNON
+	ld a, JUDGMENT
 	ld hl, wPartyMon3Moves
 	ld [hl], a
-	ld a, SHOCK_WAVE
+	ld a, SCALD
 	ld hl, wPartyMon3Moves + 1
 	ld [hl], a
-	ld a, EXTREMESPEED
+	ld a, HYDRO_CANNON
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
 	ld a, FLASH
@@ -139,7 +139,7 @@ DebugSetPokedexEntries:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	ld [hl], %00000111
+	ld [hl], %11111111
 	ret
 
 DebugItemsList:

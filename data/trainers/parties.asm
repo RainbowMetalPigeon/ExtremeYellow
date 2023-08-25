@@ -3,15 +3,15 @@ TrainerDataPointers:
 	dw BugCatcherData
 	dw LassData
 	dw SailorData
-	dw JrTrainerMData
+;	dw JrTrainerMData ; removed
 	dw JrTrainerFData
 	dw PokemaniacData
 	dw SuperNerdData
 	dw HikerData
 	dw BikerData
 	dw BurglarData
-	dw EngineerData
-	dw UnusedJugglerData
+;	dw EngineerData ; removed
+;	dw UnusedJugglerData ; removed
 	dw FisherData
 	dw SwimmerData
 	dw CueBallData
@@ -25,12 +25,12 @@ TrainerDataPointers:
 	dw BlackbeltData
 	dw Rival1Data
 	dw ProfOakData
-	dw ChiefData
+;	dw ChiefData ; removed
 	dw ScientistData
 	dw GiovanniData
 	dw RocketData
-	dw CooltrainerMData
-	dw CooltrainerFData
+;	dw CooltrainerMData ; removed
+	dw CooltrainerData
 	dw BrunoData
 	dw BrockData
 	dw MistyData
@@ -150,25 +150,6 @@ SailorData:
 ; Vermilion Gym
 	db 23, ELEKID, PIKACHU, PIKACHU, RAICHU, 0 ; updated
 
-JrTrainerMData:
-; Pewter Gym
-	db 9, GEODUDE, ONIX, 0 ; updated
-; Route 24/Route 25
-	db 14, RATTATA, EKANS, 0
-; Route 24
-	db 18, MANKEY, 0
-; Route 6
-	db 20, SQUIRTLE, 0
-	db 16, SPEAROW, RATICATE, 0
-; Unused
-	db 18, DIGLETT, DIGLETT, SANDSHREW, 0
-; Route 9
-	db 21, GROWLITHE, CHARMANDER, 0
-	db 19, RATTATA, DIGLETT, EKANS, SANDSHREW, 0
-; Route 12
-	db 29, NIDORAN_M, NIDORINO, 0
-	db 16, WEEPINBELL, 0
-
 JrTrainerFData:
 ; Cerulean Gym
 	db 19, GOLDEEN, KRABBY, PSYDUCK, 0 ; updated
@@ -208,6 +189,24 @@ JrTrainerFData:
 	db 30, TENTACOOL, HORSEA, SEEL, 0
 ; Route 6
 	db 20, CHARMANDER, 0 ; updated, removed Cubone
+;JrTrainerMData: ; removed, did a + 25 to merge with the above
+; Pewter Gym
+	db 9, GEODUDE, ONIX, 0 ; updated
+; Route 24/Route 25
+	db 14, RATTATA, EKANS, 0
+; Route 24
+	db 18, MANKEY, 0
+; Route 6
+	db 20, SQUIRTLE, 0
+	db 16, SPEAROW, RATICATE, 0
+; Unused
+	db 18, DIGLETT, DIGLETT, SANDSHREW, 0
+; Route 9
+	db 21, GROWLITHE, CHARMANDER, 0 ; unused?
+	db 19, RATTATA, DIGLETT, EKANS, SANDSHREW, 0
+; Route 12
+	db 29, NIDORAN_M, NIDORINO, 0 ; unused
+	db 16, WEEPINBELL, 0
 
 PokemaniacData:
 ; Route 10
@@ -309,14 +308,7 @@ BurglarData:
 ; Mansion B1F
 	db 34, GROWLITHE, PONYTA, 0
 
-EngineerData:
-; Ochre Gym
-	db 40, MAGNEZONE, STEELIX, SCIZOR, 0 ; new, previously unused
-; Route 11
-	db 21, MAGNEMITE, 0
-	db 18, MAGNEMITE, MAGNEMITE, MAGNETON, 0
-
-UnusedJugglerData:
+;UnusedJugglerData: ; removed
 ; none
 
 FisherData:
@@ -423,6 +415,12 @@ RockerData:
 	db 23, ELEKID, VOLTORB, VOLTORB, ELECTRODE, 0 ; updated
 ; Route 12
 	db 29, VOLTORB, ELECTRODE, 0
+;EngineerData: ; removed
+; Ochre Gym
+	db 40, MAGNEZONE, STEELIX, SCIZOR, 0 ; new
+; Route 11
+	db 21, MAGNEMITE, 0
+	db 18, MAGNEMITE, MAGNEMITE, MAGNETON, 0
 
 JugglerData:
 ; Silph Co. 5F
@@ -494,7 +492,7 @@ BlackbeltData:
 ; Victory Road 2F
 	db 64, MACHAMP, 0 ; updated, one single overleveled mon
 
-ChiefData:
+;ChiefData: ; removed
 ; none
 
 ScientistData:
@@ -649,7 +647,31 @@ RocketData:
 	db 29, WEEZING, 0
 	db 33, WEEZING, 0
 
-CooltrainerMData:
+CooltrainerData:
+; Celadon Gym
+	db 29, EXEGGUTOR, IVYSAUR, TANGROWTH, 0 ; updated
+; Victory Road 3F
+	db 49, ELECTIVIRE, CLOYSTER, VICTREEBEL, NINETALES, POLIWRATH, 0 ; updated
+	db 49, STEELIX, SLOWKING, BLISSEY, KLEAVOR, SCIZOR, 0 ; updated
+; Unused
+	db 46, VILEPLUME, BUTTERFREE, 0
+; Victory Road 1F
+	db $FF, 50, JIGGLYPUFF, 50, ALAKAZAM, 50, DITTO, 50, CLEFABLE, 50, NIDOQUEEN, 55, BLASTOISE, 0 ; updated, pseudo-Green, manga
+; Unused
+	db 45, IVYSAUR, VENUSAUR, 0
+	db 45, NIDORINA, NIDOQUEEN, 0
+	db 43, PERSIAN, NINETALES, RAICHU, 0
+; Pewter Gym
+	db 10, GEODUDE, GEODUDE, RHYHORN, ONIX, AERODACTYL, 0 ; new
+; Vermilion Gym
+	db 26, PICHU, ELEKID, VOLTORB, MAGNEMITE, MAGNEMITE, 0 ; new
+; Fuchsia Gym
+	db 41, VENOMOTH, WEEZING, TENTACRUEL, NIDOQUEEN, CROBAT, 0 ; new
+; Cinnabar Gym
+	db 52, ARCANINE, MAGMAR, NINETALES, RAPIDASH, CHARIZARD, 0 ; new
+; Ochre Gym
+	db 40, KLEAVOR, UMBREON, FEAROW, CLEFABLE, STEELIX, SNORLAX, 0 ; new
+;CooltrainerMData: ; removed, did a + 13 to merge with the above
 ; Viridian Gym
 	db 50, DUGTRIO, GOLEM, RHYDON, STEELIX, 0 ; updated
 ; Victory Road 3F
@@ -676,31 +698,6 @@ CooltrainerMData:
 	db 48, JYNX, EXEGGUTOR, STARMIE, ALAKAZAM, GENGAR, 0 ; new
 ; Viridian Gym
 	db 53, MACHAMP, SANDSLASH, TAUROS, GOLEM, STEELIX, 0 ; new
-
-CooltrainerFData:
-; Celadon Gym
-	db 29, EXEGGUTOR, IVYSAUR, TANGROWTH, 0 ; updated
-; Victory Road 3F
-	db 49, ELECTIVIRE, CLOYSTER, VICTREEBEL, NINETALES, POLIWRATH, 0 ; updated
-	db 49, STEELIX, SLOWKING, BLISSEY, KLEAVOR, SCIZOR, 0 ; updated
-; Unused
-	db 46, VILEPLUME, BUTTERFREE, 0
-; Victory Road 1F
-	db $FF, 50, JIGGLYPUFF, 50, ALAKAZAM, 50, DITTO, 50, CLEFABLE, 50, NIDOQUEEN, 55, BLASTOISE, 0 ; updated, pseudo-Green, manga
-; Unused
-	db 45, IVYSAUR, VENUSAUR, 0
-	db 45, NIDORINA, NIDOQUEEN, 0
-	db 43, PERSIAN, NINETALES, RAICHU, 0
-; Pewter Gym
-	db 10, GEODUDE, GEODUDE, RHYHORN, ONIX, AERODACTYL, 0 ; new
-; Vermilion Gym
-	db 26, PICHU, ELEKID, VOLTORB, MAGNEMITE, MAGNEMITE, 0 ; new
-; Fuchsia Gym
-	db 41, VENOMOTH, WEEZING, TENTACRUEL, NIDOQUEEN, CROBAT, 0 ; new
-; Cinnabar Gym
-	db 52, ARCANINE, MAGMAR, NINETALES, RAPIDASH, CHARIZARD, 0 ; new
-; Ochre Gym
-	db 40, KLEAVOR, UMBREON, FEAROW, CLEFABLE, STEELIX, SNORLAX, 0 ; new
 
 BrockData:
 	db $FF, 10, GEODUDE, 10, OMANYTE, 10, KABUTO, 10, RHYHORN, 10, VULPIX, 11, ONIX, 0 ; updated

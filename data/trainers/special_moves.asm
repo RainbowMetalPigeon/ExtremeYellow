@@ -6,7 +6,7 @@
 SpecialTrainerMoves:
 	db BUG_CATCHER, 15 ; updated
 ;	db 1, 1, TACKLE
-	db 1, 2, BIND
+	db 1, 2, WRAP
 	db 0
 
 	db YOUNGSTER, 14
@@ -49,7 +49,50 @@ SpecialTrainerMoves:
 	db 6, 4, NO_MOVE
 	db 0
 
-	db COOLTRAINER_M, 5 ; pseudo-Red
+	db COOLTRAINER, 5 ; pseudo-Green
+	; JIGGLYPUFF
+	db 1, 1, SING
+	db 1, 2, DISABLE
+	db 1, 3, DOUBLE_EDGE
+	db 1, 4, DEFENSE_CURL
+	; ALAKAZAM
+;	db 2, 1, THUNDERPUNCH
+;	db 2, 2, ICE_PUNCH
+;	db 2, 3, FIRE_PUNCH
+	db 2, 4, PSYCHIC_M
+	; DITTO
+	; lol
+	; CLEFABLE
+	db 1, 1, MOONBLAST
+	db 1, 2, LIGHT_SCREEN
+	db 1, 3, REFLECT
+	db 1, 4, METRONOME
+	; NIDOQUEEN
+;	db 5, 1, CRUNCH
+	db 5, 2, DOUBLE_KICK
+;	db 5, 3, ROCK_TOMB
+;	db 5, 4, SLUDGE_WAVE
+	; BLASTOISE
+	db 6, 1, HYDRO_CANNON
+	db 6, 2, FLASH_CANNON
+	db 6, 3, ICE_BEAM
+	db 6, 4, EARTHQUAKE
+	db 0
+
+	db COOLTRAINER, 10 ; Cerulean Gym, new
+	; PICHU
+	db 1, 1, VOLT_TACKLE
+	db 1, 2, FLY
+	db 1, 3, SURF
+	db 1, 4, PSYCHIC_M
+	; ELEKID
+;	db 2, 1, IRON_TAIL
+;	db 2, 2, THUNDERBOLT
+;	db 2, 3, KARATE_CHOP
+	db 2, 4, CLOSE_COMBAT
+	db 0
+
+	db COOLTRAINER, 18 ; pseudo-Red
 	; POLIWRATH
 	db 1, 1, CLOSE_COMBAT
 	db 1, 2, SCALD
@@ -82,7 +125,7 @@ SpecialTrainerMoves:
 	db 6, 4, HYPER_BEAM
 	db 0
 
-	db COOLTRAINER_M, 11 ; pseudo-Blue
+	db COOLTRAINER, 24 ; pseudo-Blue
 	; SCIZOR
 	db 1, 1, SLASH
 	db 1, 2, STEEL_WING
@@ -115,13 +158,13 @@ SpecialTrainerMoves:
 	db 6, 4, HORN_DRILL
 	db 0
 
-	db COOLTRAINER_M, 12 ; Cerulean Gym, new
+	db COOLTRAINER, 25 ; Cerulean Gym, new
 	; KRABBY
 	db 4, 1, METAL_CLAW
 	db 4, 4, CRABHAMMER
 	db 0
 
-	db COOLTRAINER_M, 14 ; Saffron Gym, new
+	db COOLTRAINER, 27 ; Saffron Gym, new
 	; JYNX
 	db 1, 1, PSYCHIC_M
 ;	db 1, 2, LOVELY_KISS
@@ -129,55 +172,12 @@ SpecialTrainerMoves:
 	db 1, 4, DRAININGKISS
 	db 0
 
-	db COOLTRAINER_M, 13 ; Celadon Gym, new
+	db COOLTRAINER, 26 ; Celadon Gym, new
 	; EXEGGUTOR
 	db 5, 1, SLEEP_POWDER
 	db 5, 2, PSYCHIC_M
 	db 5, 3, EXPLOSION
 	db 5, 4, ENERGY_BALL
-	db 0
-
-	db COOLTRAINER_F, 5 ; pseudo-Green
-	; JIGGLYPUFF
-	db 1, 1, SING
-	db 1, 2, DISABLE
-	db 1, 3, DOUBLE_EDGE
-	db 1, 4, DEFENSE_CURL
-	; ALAKAZAM
-;	db 2, 1, THUNDERPUNCH
-;	db 2, 2, ICE_PUNCH
-;	db 2, 3, FIRE_PUNCH
-	db 2, 4, PSYCHIC_M
-	; DITTO
-	; lol
-	; CLEFABLE
-	db 1, 1, MOONBLAST
-	db 1, 2, LIGHT_SCREEN
-	db 1, 3, REFLECT
-	db 1, 4, METRONOME
-	; NIDOQUEEN
-;	db 5, 1, CRUNCH
-	db 5, 2, DOUBLE_KICK
-;	db 5, 3, ROCK_TOMB
-;	db 5, 4, SLUDGE_WAVE
-	; BLASTOISE
-	db 6, 1, HYDRO_CANNON
-	db 6, 2, FLASH_CANNON
-	db 6, 3, ICE_BEAM
-	db 6, 4, EARTHQUAKE
-	db 0
-
-	db COOLTRAINER_F, 10 ; Cerulean Gym, new
-	; PICHU
-	db 1, 1, VOLT_TACKLE
-	db 1, 2, FLY
-	db 1, 3, SURF
-	db 1, 4, PSYCHIC_M
-	; ELEKID
-;	db 2, 1, IRON_TAIL
-;	db 2, 2, THUNDERBOLT
-;	db 2, 3, KARATE_CHOP
-	db 2, 4, CLOSE_COMBAT
 	db 0
 
 	db BROCK, 1
@@ -189,7 +189,7 @@ SpecialTrainerMoves:
 	; OMANYTE
 ;	db 2, 1, WATER_GUN
 ;	db 2, 2, DEFENSE_CURL
-;	db 2, 3, BIND
+;	db 2, 3, WRAP
 ;	db 2, 4, SAND_ATTACK
 	; KABUTO
 ;	db 3, 1, SCRATCH
@@ -207,7 +207,7 @@ SpecialTrainerMoves:
 ;	db 5, 3, DISABLE
 ;	db 5, 4, QUICK_ATTACK
 	; ONIX
-	db 6, 1, BIND
+	db 6, 1, WRAP
 ;	db 6, 2, SCREECH
 	db 6, 3, BIDE
 ;	db 6, 4, MUD_SLAP
@@ -415,7 +415,7 @@ SpecialTrainerMoves:
 	; ONIX
 ;	db 1, 1, ROCK_SLIDE
 	db 1, 2, DIG
-	db 1, 3, BIND
+	db 1, 3, WRAP
 	db 1, 4, TWISTER
 	; RHYHORN
 ;	db 2, 1, FURY_ATTACK

@@ -203,4 +203,9 @@ MonPartyData:
 	nybble ICON_MON       ; MMewtwoY
 	nybble ICON_MON       ; Mew
 	nybble ICON_MON       ; Venustoise
+	nybble ICON_MON       ; ZygardeC
+	nybble ICON_MON       ; UNecrozma
+	nybble ICON_MON       ; MRayquaza
+	nybble ICON_MON       ; EEternatus
+	nybble ICON_MON       ; Arceus
 	end_nybble_array NUM_POKEMON

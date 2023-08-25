@@ -19,13 +19,13 @@ AttackAnimationPointers:
 	dw WingAttackAnim
 ;	dw WhirlwindAnim
 	dw FlyAnim
-	dw BindAnim
+;	dw BindAnim
 	dw SlamAnim
 	dw VineWhipAnim
 	dw StompAnim
 	dw DoubleKickAnim
 ;	dw MegaKickAnim
-	dw JumpKickAnim
+;	dw JumpKickAnim
 	dw RollingKickAnim
 	dw SandAttackAnim
 	dw HeadButtAnim
@@ -53,7 +53,7 @@ AttackAnimationPointers:
 	dw AcidAnim
 	dw EmberAnim
 	dw FlamethrowerAnim
-	dw MistAnim
+;	dw MistAnim
 	dw WaterGunAnim
 	dw HydroPumpAnim
 	dw SurfAnim
@@ -95,7 +95,7 @@ AttackAnimationPointers:
 	dw ConfusionAnim
 	dw PsychicAnim
 	dw HypnosisAnim
-	dw MeditateAnim
+;	dw MeditateAnim
 	dw AgilityAnim
 	dw QuickAttackAnim
 ;	dw RageAnim
@@ -139,7 +139,7 @@ AttackAnimationPointers:
 	dw GlareAnim
 	dw DreamEaterAnim
 	dw PoisonGasAnim
-	dw BarrageAnim
+;	dw BarrageAnim
 	dw LeechLifeAnim
 	dw LovelyKissAnim
 ;	dw SkyAttackAnim
@@ -250,7 +250,13 @@ AttackAnimationPointers:
 	dw	ScaldAnim
 	dw	HydroCannonAnim
 
-	dw AncestorPwrAnim
+	dw  AncestorPwrAnim
+
+	dw  EternabeamAnim
+	dw  DragonAscentAnim
+	dw  ThousandArrowsAnim
+	dw  PhotonGeyserAnim
+	dw  JudgmentAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
@@ -403,10 +409,10 @@ FlyAnim:
 	battle_anim NO_MOVE, SE_SHOW_MON_PIC
 	db -1 ; end
 
-BindAnim:
-	battle_anim BIND, SUBANIM_23, 0, 4
-	battle_anim BIND, SUBANIM_23, 0, 4
-	db -1 ; end
+;BindAnim:
+;	battle_anim MEGAHORN, SUBANIM_23, 0, 4
+;	battle_anim MEGAHORN, SUBANIM_23, 0, 4
+;	db -1 ; end
 
 SlamAnim:
 	battle_anim SLAM, SUBANIM_02, 0, 6
@@ -430,9 +436,9 @@ DoubleKickAnim:
 ;	battle_anim MEGA_KICK, SUBANIM_04, 1, 6
 ;	db -1 ; end
 
-JumpKickAnim:
-	battle_anim JUMP_KICK, SUBANIM_04, 1, 6
-	db -1 ; end
+;JumpKickAnim:
+;	battle_anim JUMP_KICK, SUBANIM_04, 1, 6
+;	db -1 ; end
 
 RollingKickAnim:
 	battle_anim ROLLING_KICK, SE_DARK_SCREEN_FLASH
@@ -586,11 +592,11 @@ FlamethrowerAnim:
 	battle_anim FLAMETHROWER, SUBANIM_0D, 1, 6
 	db -1 ; end
 
-MistAnim:
-	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
-	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; end
+;MistAnim:
+;	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+;	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
+;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+;	db -1 ; end
 
 WaterGunAnim:
 	battle_anim WATER_GUN, SUBANIM_2C, 0, 6
@@ -669,7 +675,7 @@ CounterAnim:
 
 SeismicTossAnim:
 	battle_anim NO_MOVE, SE_BLINK_ENEMY_MON
-	battle_anim BARRAGE, SUBANIM_4E, 1, 1
+	battle_anim X_SCISSOR, SUBANIM_4E, 1, 1
 	battle_anim NO_MOVE, SE_HIDE_ENEMY_MON_PIC
 	battle_anim NO_MOVE, SE_SLIDE_MON_OFF
 	battle_anim SEISMIC_TOSS, SUBANIM_4F, 1, 2
@@ -824,12 +830,12 @@ HypnosisAnim:
 	battle_anim HYPNOSIS, SE_FLASH_SCREEN_LONG
 	db -1 ; end
 
-MeditateAnim:
-	battle_anim MEDITATE, SE_LIGHT_SCREEN_PALETTE
-	battle_anim NO_MOVE, SUBANIM_43, 1, 6
-	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; end
+;MeditateAnim:
+;	battle_anim MEDITATE, SE_LIGHT_SCREEN_PALETTE
+;	battle_anim NO_MOVE, SUBANIM_43, 1, 6
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+;	db -1 ; end
 
 AgilityAnim:
 	battle_anim AGILITY, SE_LIGHT_SCREEN_PALETTE
@@ -1066,6 +1072,13 @@ FireBlastAnim:
 	battle_anim NO_MOVE, SUBANIM_0D, 1, 6
 	db -1 ; end
 
+TODO:
+EternabeamAnim:
+DragonAscentAnim:
+ThousandArrowsAnim:
+PhotonGeyserAnim:
+JudgmentAnim:
+
 WaterfallAnim:
 	battle_anim LEECH_SEED, SE_SLIDE_MON_DOWN
 	battle_anim HYDRO_PUMP, SUBANIM_1A, 0, 6
@@ -1138,8 +1151,8 @@ PoisonGasAnim:
 	db -1 ; end
 
 BulletSeedAnim:		; improve if space and will
-BarrageAnim:
-	battle_anim BARRAGE, SUBANIM_41, 1, 3
+;BarrageAnim:
+	battle_anim X_SCISSOR, SUBANIM_41, 1, 3
 	battle_anim NO_MOVE, SUBANIM_55, 0, 5
 	db -1 ; end
 
@@ -1435,8 +1448,8 @@ DragonDanceAnim:
 InfestationAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim POISON_GAS, SUBANIM_3E, 1, 6
-	battle_anim BIND, SUBANIM_27spec, 0, 8
-	battle_anim BIND, SUBANIM_27spec, 0, 8
+	battle_anim MEGAHORN, SUBANIM_27spec, 0, 8
+	battle_anim MEGAHORN, SUBANIM_27spec, 0, 8
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
@@ -1650,13 +1663,13 @@ UnusedAnim:
 	db -1 ; end
 
 ParalyzeAnim:
-	battle_anim BIND, SUBANIM_24, 0, 4
-	battle_anim BIND, SUBANIM_24, 0, 4
+	battle_anim MEGAHORN, SUBANIM_24, 0, 4
+	battle_anim MEGAHORN, SUBANIM_24, 0, 4
 	db -1 ; end
 
 PoisonAnim:
-	battle_anim BIND, SUBANIM_27, 0, 8
-	battle_anim BIND, SUBANIM_27, 0, 8
+	battle_anim MEGAHORN, SUBANIM_27, 0, 8
+	battle_anim MEGAHORN, SUBANIM_27, 0, 8
 	db -1 ; end
 
 SleepPlayerAnim:
@@ -1692,9 +1705,9 @@ ShakeScreenAnim:
 	db -1 ; end
 
 ThrowRockAnim:
-	battle_anim BARRAGE, SUBANIM_53, 0, 3
+	battle_anim X_SCISSOR, SUBANIM_53, 0, 3
 	db -1 ; end
 
 ThrowBaitAnim:
-	battle_anim BARRAGE, SUBANIM_54, 0, 3
+	battle_anim X_SCISSOR, SUBANIM_54, 0, 3
 	db -1 ; end

@@ -1,4 +1,4 @@
-DEF OPP_ID_OFFSET EQU 203 ; was 200, but I added 52 mons
+DEF OPP_ID_OFFSET EQU 208 ; was 200, but I added 57 mons
 
 MACRO trainer_const
 	const \1
@@ -19,15 +19,15 @@ ENDM
 	trainer_const BUG_CATCHER    ; $02
 	trainer_const LASS           ; $03
 	trainer_const SAILOR         ; $04
-	trainer_const JR_TRAINER_M   ; $05
-	trainer_const JR_TRAINER_F   ; $06
+;	trainer_const JR_TRAINER_M   ; $05 - will be removed
+	trainer_const JR_TRAINER     ; $06
 	trainer_const POKEMANIAC     ; $07
 	trainer_const SUPER_NERD     ; $08
 	trainer_const HIKER          ; $09
 	trainer_const BIKER          ; $0A
 	trainer_const BURGLAR        ; $0B
-	trainer_const ENGINEER       ; $0C
-	trainer_const UNUSED_JUGGLER ; $0D
+;	trainer_const ENGINEER       ; $0C - will be removed
+;	trainer_const UNUSED_JUGGLER ; $0D - will be removed
 	trainer_const FISHER         ; $0E
 	trainer_const SWIMMER        ; $0F
 	trainer_const CUE_BALL       ; $10
@@ -41,12 +41,12 @@ ENDM
 	trainer_const BLACKBELT      ; $18
 	trainer_const RIVAL1         ; $19
 	trainer_const PROF_OAK       ; $1A
-	trainer_const CHIEF          ; $1B
+;	trainer_const CHIEF          ; $1B - will be removed
 	trainer_const SCIENTIST      ; $1C
 	trainer_const GIOVANNI       ; $1D
 	trainer_const ROCKET         ; $1E
-	trainer_const COOLTRAINER_M  ; $1F
-	trainer_const COOLTRAINER_F  ; $20
+;	trainer_const COOLTRAINER_M  ; $1F - will be removed
+	trainer_const COOLTRAINER    ; $20
 	trainer_const BRUNO          ; $21
 	trainer_const BROCK          ; $22
 	trainer_const MISTY          ; $23
