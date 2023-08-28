@@ -80,4 +80,9 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_27        ; $27
 	const PAL_AQUAMARMON ; $28 - new
 	const PAL_PORYMON	; $29 - new
+	const PAL_ZYGARDEC   ; new
+	const PAL_UNECROZMA  ; new
+	const PAL_MRAYQUAZA  ; new
+	const PAL_EETERNATUS ; new
+	const PAL_ARCEUS     ; new
 DEF NUM_SGB_PALS EQU const_value
