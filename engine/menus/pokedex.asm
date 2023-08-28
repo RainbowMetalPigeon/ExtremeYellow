@@ -758,7 +758,7 @@ INCLUDE "data/pokemon/dex_order.asm"
 
 ; new, testing
 
-GetMSBEnemyWeight:: ; new
+GetEnemyWeight:: ; new
 ; input: wEnemyMonSpecies
 ; output: d,a=higher weight bit
 ; no register is preserved

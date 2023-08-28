@@ -203,7 +203,8 @@ ItemUseBall:
 ; Great Ball:   [0, 200]
 ; Ultra Ball:   [0, 150] ; only ultra now
 ; Safari Ball:  [0, 100] ; new
-; Fast Ball:    [0, 255/64] ; new, if mon's base speed <100 or >=100
+; Fast Ball:    [0, 255/63] ; new, if mon's base speed <100 or >=100
+; Heavy Ball:   [0, 255/255/175/125/63] ; new, depending on mon's weight tier (see later the 5 tiers)
 ; Loop until an acceptable number is found.
 
 ; new, store base speed of opp mon in c for FAST_BALL - TODO move it within FAST BALL check?
@@ -232,11 +233,11 @@ ItemUseBall:
 	ld a, 99 ; base speed above which the FAST_BALL works wonders
 	cp c ; compare with opp base speed
 	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=99, slow mon, works as a pokeball
-;	srl b ; halves the random number
-;	srl b ; quarters the random number
-	ld a, 1 ; testing
-	cp b
-	jr c, .loop
+	srl b ; halves the random number
+	srl b ; quarters the random number - now Rand1 is in range [0,63]
+;	ld a, 1 ; testing
+;	cp b
+;	jr c, .loop
 	jr .checkForAilments
 .notFastBall
 
@@ -245,7 +246,7 @@ ItemUseBall:
 	jr nz, .notHeavyBall
 	push hl
 	push bc
-	farcall GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	farcall GetEnemyWeight
 	; de contains the higher and lower byte of the weight at the end of the farcall
 	; this is because they're the only registers not touched by farcalling
 	ld a, e
@@ -253,11 +254,29 @@ ItemUseBall:
 	ld a, d ; a now has the higher byte of the weight
 	pop bc
 	pop hl
-	cp $0F ; check if beyond max-tier weight
-	jr c, .checkForAilments
-	ld a, 1 ; testing
+	cp $10 ; check tier weight - $04, $08, $0C, $10
+	jr nc, .weightTier4 ; weight>=409.6 kg
+	cp $0C
+	jr nc, .weightTier3 ; 307.2<=weight<409.6 kg
+	cp $08
+	jr nc, .weightTier2 ; 204.8<=weight<307.2 kg
+	; next two lines are commented here because I can't make Rand1 upper limit bigger than 255, so weightTier0 and weightTier1 behave the same
+;	cp $04
+;	jr nc, .checkForAilments ; 102.4<=weight<204.8 kg
+	jr .checkForAilments ; weight<102.4 kg
+.weightTier2
+	ld a, 175
 	cp b
 	jr c, .loop
+	jr .checkForAilments
+.weightTier3
+	ld a, 125
+	cp b
+	jr c, .loop
+	jr .checkForAilments
+.weightTier4
+	srl b
+	srl b ; capped at 63, faster equivalent to do the whole ld a, 125 and loop if c
 	jr .checkForAilments
 .notHeavyBall
 
@@ -294,9 +313,6 @@ ItemUseBall:
 	ld a, [hl]
 	cp SAFARI_BALL
 	jr z, .checkForAilments
-
-
-
 
 
 .checkForAilments
@@ -367,12 +383,12 @@ ItemUseBall:
 	cp c ; compare with opp base speed
 	ld a, 12
 	jr nc, .continueAfterBallFactor ; if there is no carry, a-c>=0, BS<=99, slow mon, works as a pokeball
-	ld a, 1 ; for testing, when final will be 6 or 8 or 10
+	ld a, 10
 	jr .continueAfterBallFactor
 .HeavyBallFactor
 	push hl
 	push bc
-	farcall GetMSBEnemyWeight ; now a stores the MSB of the enemy weight
+	farcall GetEnemyWeight
 	; de contains the higher and lower byte of the weight at the end of the farcall
 	; this is because they're the only registers not touched by farcalling
 	ld a, e
@@ -380,12 +396,30 @@ ItemUseBall:
 	ld a, d ; a now has the higher byte of the weight
 	pop bc
 	pop hl
-	cp $0F ; check if beyond max-tier weight
+	cp $10 ; check tier weight - $04, $08, $0C, $10
+	jr nc, .weightTier4Bis ; weight>=409.6 kg
+	cp $0C
+	jr nc, .weightTier3Bis ; 307.2<=weight<409.6 kg
+	cp $08
+	jr nc, .weightTier2Bis ; 204.8<=weight<307.2 kg
+	cp $04
+	jr nc, .weightTier1Bis ; 102.4<=weight<204.8 kg
+;	jr .weightTier0Bis ; weight<102.4 kg
+;.weightTier0Bis
+	ld a, 16
+	jr .continueAfterBallFactor
+.weightTier1Bis
 	ld a, 12
-	jr c, .continueAfterBallFactor
-	ld a, 1 ; testing
-	jr .continueAfterBallFactor ; unnecessary for the last jump, as we go just down here
-
+	jr .continueAfterBallFactor
+.weightTier2Bis
+	ld a, 10
+	jr .continueAfterBallFactor
+.weightTier3Bis
+	ld a, 8
+	jr .continueAfterBallFactor
+.weightTier4Bis
+	ld a, 6
+	jr .continueAfterBallFactor
 
 .continueAfterBallFactor
 ; Note that the results of all division operations are floored.
