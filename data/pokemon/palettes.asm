@@ -182,9 +182,9 @@ MonsterPalettes:
 	db PAL_GREENMON  ; LEAFEON
 	db PAL_CYANMON   ; GLACEON
 	db PAL_PINKMON   ; SYLVEON
-	db PAL_PORYMON   ; PORYGON
-	db PAL_PORYMON   ; PORYGON2
-	db PAL_PORYMON   ; PORYGONZ
+	db PAL_PORYMON   ; PORYGON, personalized palette
+	db PAL_PORYMON   ; PORYGON2, personalized palette
+	db PAL_PORYMON   ; PORYGONZ, personalized palette
 	db PAL_BLUEMON   ; OMANYTE
 	db PAL_BLUEMON   ; OMASTAR
 	db PAL_BROWNMON  ; KABUTO
@@ -203,10 +203,10 @@ MonsterPalettes:
 	db PAL_MEWMON2   ; MMEWTWOX
 	db PAL_MEWMON2   ; MMEWTWOY
 	db PAL_MEWMON2   ; MEW
-	db PAL_AQUAMARMON; VENUSTOISE
-	db PAL_MEWMON2   ; ZYGARDEC
-	db PAL_MEWMON2   ; UNECROZMA
-	db PAL_MEWMON2   ; MRAYQUAZA
-	db PAL_MEWMON2   ; EETERNATUS
-	db PAL_MEWMON2   ; ARCEUS
+	db PAL_AQUAMARMON; VENUSTOISE, personalized palette
+	db PAL_ZYGARDEC   ; ZYGARDEC, personalized palette
+	db PAL_UNECROZMA  ; UNECROZMA, personalized palette
+	db PAL_MRAYQUAZA  ; MRAYQUAZA, personalized palette
+	db PAL_EETERNATUS ; EETERNATUS, personalized palette
+	db PAL_ARCEUS     ; ARCEUS, personalized palette
 	assert_table_length NUM_POKEMON + 1
