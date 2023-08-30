@@ -163,12 +163,21 @@ _LoadTrainerPic:
 	and a
 	jr nz, .playerLikeSprite ; new
 
-	ld a, [wTrainerClass] ; new
-	cp ORAGE ; new
-;	xor a ; testing
-;	ld e, a
-;	ld d, a
-	jr z, .playerLikeSprite ; new
+	; new
+	ld a, [wTrainerClass]
+	cp ORAGE
+	jr nz, .notMultiSpriteTrainer
+	call Random
+	srl a
+	jr c, .withCarry
+	ld a, BANK(GreenPicFront) ; testing
+	ld de, GreenPicFront ; testing
+	jr .loadSprite
+.withCarry
+	ld a, BANK(Rival3Pic) ; testing
+	ld de, Rival3Pic ; testing
+	jr .loadSprite
+.notMultiSpriteTrainer ; new
 
 	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
 	jr .loadSprite ; edited
