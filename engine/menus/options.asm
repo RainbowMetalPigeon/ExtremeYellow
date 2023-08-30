@@ -36,7 +36,7 @@ OptionMenuJumpTable:
 	dw OptionsMenu_BattleStyle
 	dw OptionsMenu_SpeakerSettings
 	dw OptionsMenu_GBPrinterBrightness
-	dw OptionsMenu_Dummy
+	dw OptionsMenu_LevelScaling
 	dw OptionsMenu_Dummy
 	dw OptionsMenu_Cancel
 
@@ -304,6 +304,66 @@ DarkerPrintText:
 DarkestPrintText:
 	db "DARKEST @"
 
+OptionsMenu_LevelScaling: ; new
+	ld a, [wLevelScaling]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $4
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $5
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wLevelScaling], a
+.nonePressed
+	ld b, $0
+	ld hl, LevelScalingStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 12, 12
+	call PlaceString
+	and a
+	ret
+
+LevelScalingStringsPointerTable: ; new
+	dw NoScaling
+	dw ExactScaling
+	dw FluctuatingScaling
+	dw HardcoreScaling
+	dw ImpossibleScaling
+
+NoScaling: ; new
+	db "NONE @"
+ExactScaling:
+	db "EXACT@"
+FluctuatingScaling:
+	db "FLUCT@"
+HardcoreScaling:
+	db "HARD @"
+ImpossibleScaling:
+	db "IMPOS@"
+
 Func_41e7b:
 	ld a, [wPrinterSettings]
 	and a
@@ -437,7 +497,8 @@ AllOptionsText:
 	next "ANIMATION  :"
 	next "BATTLESTYLE:"
 	next "SOUND:"
-	next "PRINT:@"
+	next "PRINT:" ; edited
+	next "LVL SCALE:@" ; new
 
 OptionMenuCancelText:
 	db "CANCEL@"
