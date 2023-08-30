@@ -2,6 +2,9 @@ GainExperience:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z ; return if link battle
+	ld a, [wExpGainOption] ; new
+	cp 3 ; new, NEITHER Exp nor Stats are gained
+	ret z ; new, testing
 	call DivideExpDataByNumMonsGainingExp
 	ld hl, wPartyMon1
 	xor a
@@ -28,10 +31,14 @@ GainExperience:
 	ld hl, wEnemyMonBaseStats
 	ld c, NUM_STATS
 .gainStatExpLoop
+	ld a, [wExpGainOption] ; new
+	cp 2 ; new, if z flag set, then NO STATS gained (see .doNotGainStats)
 	ld a, [hli]
 	ld b, a ; enemy mon base stat
 	ld a, [de] ; stat exp
+	jr z, .doNotGainStats ; new, testing
 	add b ; add enemy mon base state to stat exp
+.doNotGainStats ; new, testing
 	ld [de], a
 	jr nc, .nextBaseStat
 ; if there was a carry, increment the upper byte
@@ -54,10 +61,14 @@ GainExperience:
 	inc de
 	jr .gainStatExpLoop
 .statExpDone
-	xor a
+	ld a, [wExpGainOption] ; new
+	cp 1 ; new, if z flag set, then NO EXP gained (see .doNotGainExp)
+	ld a, 0 ; edited, it was xor a, but I don't want to set the z flag
 	ldh [hMultiplicand], a
 	ldh [hMultiplicand + 1], a
+	jr z, .doNotGainExp ; new, testing
 	ld a, [wEnemyMonBaseExp]
+.doNotGainExp ; new, testing
 	ldh [hMultiplicand + 2], a
 	ld a, [wEnemyMonLevel]
 	ldh [hMultiplier], a

@@ -37,7 +37,7 @@ OptionMenuJumpTable:
 	dw OptionsMenu_SpeakerSettings
 	dw OptionsMenu_GBPrinterBrightness
 	dw OptionsMenu_LevelScaling
-	dw OptionsMenu_Dummy
+	dw OptionsMenu_ExpGain
 	dw OptionsMenu_Cancel
 
 OptionsMenu_TextSpeed:
@@ -304,7 +304,9 @@ DarkerPrintText:
 DarkestPrintText:
 	db "DARKEST @"
 
-OptionsMenu_LevelScaling: ; new
+; ----- new, beginning -----
+
+OptionsMenu_LevelScaling:
 	ld a, [wLevelScaling]
 	ld c, a
 	ldh a, [hJoy5]
@@ -346,14 +348,14 @@ OptionsMenu_LevelScaling: ; new
 	and a
 	ret
 
-LevelScalingStringsPointerTable: ; new
+LevelScalingStringsPointerTable:
 	dw NoScaling
 	dw ExactScaling
 	dw FluctuatingScaling
 	dw HardcoreScaling
 	dw ImpossibleScaling
 
-NoScaling: ; new
+NoScaling:
 	db "NONE @"
 ExactScaling:
 	db "EXACT@"
@@ -363,6 +365,65 @@ HardcoreScaling:
 	db "HARD @"
 ImpossibleScaling:
 	db "IMPOS@"
+
+OptionsMenu_ExpGain:
+	ld a, [wExpGainOption]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $3
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $4
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wExpGainOption], a
+.nonePressed
+	ld b, $0
+	ld hl, ExpGainStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 7, 14
+	call PlaceString
+	and a
+	ret
+
+ExpGainStringsPointerTable:
+	dw NormalGain
+	dw NoExpGain
+	dw NoStatsGain
+	dw NeitherGain
+
+NormalGain:
+	db "NORMAL  @"
+NoExpGain:
+	db "NO EXP  @"
+NoStatsGain:
+	db "NO STATS@"
+NeitherGain:
+	db "NEITHER @"
+
+; ----- new, end -----
 
 Func_41e7b:
 	ld a, [wPrinterSettings]
@@ -425,7 +486,7 @@ OptionsControl:
 	scf
 	ret
 .doNotWrapAround
-	cp $4
+	cp $6 ; edited, 2 new options, it was $4
 	jr c, .regularIncrement
 	ld [hl], $6
 .regularIncrement
@@ -435,11 +496,11 @@ OptionsControl:
 .pressedUp
 	ld a, [hl]
 	cp $7
-	jr nz, .doNotMoveCursorToPrintOption
-	ld [hl], $4
+	jr nz, .doNotMoveCursorToLastValidOption
+	ld [hl], $6 ; edited, 2 new options, it was $4
 	scf
 	ret
-.doNotMoveCursorToPrintOption
+.doNotMoveCursorToLastValidOption
 	and a
 	jr nz, .regularDecrement
 	ld [hl], $8
@@ -476,7 +537,7 @@ InitOptionsMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 7 ; the number of options to loop through, edited
 .loop
 	push bc
 	call GetOptionPointer ; updates the next option
@@ -498,7 +559,8 @@ AllOptionsText:
 	next "BATTLESTYLE:"
 	next "SOUND:"
 	next "PRINT:" ; edited
-	next "LVL SCALE:@" ; new
+	next "LVL SCALE:" ; new
+	next "GAIN:@" ; new
 
 OptionMenuCancelText:
 	db "CANCEL@"
