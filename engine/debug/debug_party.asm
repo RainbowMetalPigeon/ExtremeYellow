@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 100
+	db MEWTWO, 50
 	db SNORLAX, 80
 	db PERSIAN, 80
 	db STARTER_PIKACHU, 5

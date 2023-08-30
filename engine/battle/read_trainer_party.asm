@@ -50,13 +50,41 @@ ReadTrainer:
 	; new block of code to handle level scaling
 	ld a, [wLevelScaling]
 	and a ; faster, lighter cp 0
-	jr z, .continueNoLevelScaling ; if not in level scaling mode, jump to normal routine
+	jr z, .afterHandlingLevelScaling ; if not in level scaling mode, jump to normal routine
+	cp 1 ; EXACT level scaling
+	jr z, .lvlScalingExact
+	cp 2 ; FLUCT level scaling
+	jr z, .lvlScalingExact ; first step is to get the same base level as the EXACT case, the FLUCTuating part comes later
+	cp 3 ; HARD level scaling
+	jr z, .lvlScalingHardcore
+;	cp 4 ; IMPOS level scaling; commented because redundant, [wLevelScaling] shouldn't have any value outisde of [0,4]; if keep, line below needs a jr z, .label
+	jr .lvlScalingImpossible
+.lvlScalingExact
 	push hl ; gotta preserve hl
 	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
+	pop hl ; gotta preserve hl
 	ld a, d
 	ld [wCurEnemyLVL], a
+	jr .afterHandlingLevelScaling
+.lvlScalingHardcore
+	push hl ; gotta preserve hl
+	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
 	pop hl ; gotta preserve hl
-.continueNoLevelScaling
+	ld a, d
+	ldh [hDividend], a
+	ld a, 10 ; 1/10th increase of level
+	ldh [hDivisor], a
+	ld b, $01 ; number of bytes in the dividend
+	call Divide
+	ldh a, [hQuotient + 3]
+	add d ; add to a the original max level of player's team
+	ld [wCurEnemyLVL], a
+	jr .afterHandlingLevelScaling
+.lvlScalingImpossible
+	ld a, 100
+	ld [wCurEnemyLVL], a
+;	jr .afterHandlingLevelScaling ; unnecessary line if it's the last subroutine
+.afterHandlingLevelScaling
 
 	ld a, [hli]
 	cp $FF ; is the trainer special?
@@ -67,10 +95,41 @@ ReadTrainer:
 	ld a, [wLevelScaling]
 	and a ; = cp a, 0: if z flag, then no level scaling
 	jr nz, .LoopTrainerData
-	ld a, b ; restore the previous a
+	ld a, b ; restore the previous a, which in vanilla code contains the hard-coded levels of the opp's mons
 
 	ld [wCurEnemyLVL], a
 .LoopTrainerData
+	; new code to handle FLUCT level scaling, which needs to be run mon per mon, rather than once per trainer
+	ld a, [wLevelScaling]
+	cp 2 ; is it FLUCT?
+	jr nz, .notFluctuatingLevelScaling ; if not, continue
+;	ld a, [wCurEnemyLVL]
+;	ld d, a ; now d contains the level of max mon of the player's team
+.loopRandom
+	call Random ; now a contains a random number in [0,255]
+	and 7 ; now the random number is in [0,7]
+	cp 5
+	jr nc, .loopRandom ; but we want the random number to be in [0,4], so we cp to 5 and if there's no carry (i.e. a>=5) we call the RNG again
+	add d ; now a contains [0,4]+maxLevelPlayersMons, because d still contains maxLevelPlayersMons
+	; before subtracting 2 and obtain the final result, we need to check that a is currently in [3,102], so that the final level is in [1,100]
+	; currently a should possibly be only in [1,104], if the starting level was in the non-glitchy range [1,100]
+	cp 103
+	jr c, .notTooHigh
+	ld a, 100 ; if a is 103 or 104, let's cap the level at 100 and go back to vanilla code
+	ld [wCurEnemyLVL], a
+	jr .notFluctuatingLevelScaling
+.notTooHigh
+	cp 3
+	jr nc, .notTooLow
+	ld a, 1 ; if a is 1 or 2, let's cap the level at 1 and go back to vanilla code
+	ld [wCurEnemyLVL], a
+	jr .notFluctuatingLevelScaling
+.notTooLow
+	sub 2 ; after all the checks, we can now safely remove the offset and bring [3,102] to [1,100]
+	ld [wCurEnemyLVL], a
+.notFluctuatingLevelScaling
+	; back to vanilla code
+
 	ld a, [hli]
 	and a ; have we reached the end of the trainer data?
 	jp z, .AddAdditionalMoveData
@@ -94,10 +153,42 @@ ReadTrainer:
 	ld b, a ; temporarily store a in b
 	ld a, [wLevelScaling]
 	and a ; if z flag, then no level scaling
-	jr nz, .LoopTrainerData
-	ld a, b ; restore the previous a
+	jr nz, .specialTrainerContinue
+	ld a, b ; restore the previous a, which in vanilla code contains the hard-coded levels of the opp's mons
 
 	ld [wCurEnemyLVL], a
+.specialTrainerContinue ; new
+	; new code to handle FLUCT level scaling, which needs to be run mon per mon, rather than once per trainer
+	ld a, [wLevelScaling]
+	cp 2 ; is it FLUCT?
+	jr nz, .notFluctuatingLevelScaling2 ; if not, continue
+;	ld a, [wCurEnemyLVL]
+;	ld d, a ; now d contains the level of max mon of the player's team
+.loopRandom2
+	call Random ; now a contains a random number in [0,255]
+	and 7 ; now the random number is in [0,7]
+	cp 5
+	jr nc, .loopRandom2 ; but we want the random number to be in [0,4], so we cp to 5 and if there's no carry (i.e. a>=5) we call the RNG again
+	add d ; now a contains [0,4]+maxLevelPlayersMons, because d still contains maxLevelPlayersMons
+	; before subtracting 2 and obtain the final result, we need to check that a is currently in [3,102], so that the final level is in [1,100]
+	; currently a should possibly be only in [1,104], if the starting level was in the non-glitchy range [1,100]
+	cp 103
+	jr c, .notTooHigh2
+	ld a, 100 ; if a is 103 or 104, let's cap the level at 100 and go back to vanilla code
+	ld [wCurEnemyLVL], a
+	jr .notFluctuatingLevelScaling2
+.notTooHigh2
+	cp 3
+	jr nc, .notTooLow2
+	ld a, 1 ; if a is 1 or 2, let's cap the level at 1 and go back to vanilla code
+	ld [wCurEnemyLVL], a
+	jr .notFluctuatingLevelScaling2
+.notTooLow2
+	sub 2 ; after all the checks, we can now safely remove the offset and bring [3,102] to [1,100]
+	ld [wCurEnemyLVL], a
+.notFluctuatingLevelScaling2
+	; back to vanilla code
+
 	ld a, [hli]
 	ld [wcf91], a
 	ld a, ENEMY_PARTY_DATA

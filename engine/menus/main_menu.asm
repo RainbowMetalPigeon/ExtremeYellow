@@ -130,6 +130,8 @@ InitOptions:
 	ld [wOptions], a
 	ld a, 64 ; audio?
 	ld [wPrinterSettings], a
+	xor a ; new
+	ld [wLevelScaling], a ; new
 	ret
 
 Func_5cc1:

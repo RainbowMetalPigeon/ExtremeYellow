@@ -425,7 +425,7 @@ OptionsControl:
 	scf
 	ret
 .doNotWrapAround
-	cp $4
+	cp $5 ; edited, one new option, it was $4
 	jr c, .regularIncrement
 	ld [hl], $6
 .regularIncrement
@@ -435,11 +435,11 @@ OptionsControl:
 .pressedUp
 	ld a, [hl]
 	cp $7
-	jr nz, .doNotMoveCursorToPrintOption
-	ld [hl], $4
+	jr nz, .doNotMoveCursorToLastValidOption
+	ld [hl], $5 ; edited, one new option, it was $4
 	scf
 	ret
-.doNotMoveCursorToPrintOption
+.doNotMoveCursorToLastValidOption
 	and a
 	jr nz, .regularDecrement
 	ld [hl], $8
@@ -476,7 +476,7 @@ InitOptionsMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through, edited
 .loop
 	push bc
 	call GetOptionPointer ; updates the next option

@@ -956,7 +956,7 @@ ReplaceFaintedEnemyMon:
 TrainerBattleVictory:
 	xor a						; new, ld a, 0
 	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
-	ld [wLevelScaling], a		; new, remove level scaling (currently it's planned only for specific trainer, not for everyone)
+;	ld [wLevelScaling], a		; new, remove level scaling (currently it's planned only for specific trainer, not for everyone)
 	call EndLowHealthAlarm
 	ld b, MUSIC_DEFEATED_GYM_LEADER
 	ld a, [wGymLeaderNo]
@@ -1207,7 +1207,7 @@ ChooseNextMon:
 HandlePlayerBlackOut:
 	xor a						; new, ld a, 0
 	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
-	ld [wLevelScaling], a		; new, remove level scaling (currently it's planned only for specific trainer, not for everyone)
+;	ld [wLevelScaling], a		; new, remove level scaling (currently it's planned only for specific trainer, not for everyone)
 ;	xor a						; countercomment to do tutorial to go beyond 200
 ;	ld [wIsTrainerBattle], a	; countercomment to do tutorial to go beyond 200
 	ld a, [wLinkState]
