@@ -161,8 +161,18 @@ _LoadTrainerPic:
 	ld d, a ; de contains pointer to trainer pic
 	ld a, [wLinkState]
 	and a
+	jr nz, .playerLikeSprite ; new
+
+	ld a, [wTrainerClass] ; new
+	cp ORAGE ; new
+;	xor a ; testing
+;	ld e, a
+;	ld d, a
+	jr z, .playerLikeSprite ; new
+
 	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
-	jr z, .loadSprite
+	jr .loadSprite ; edited
+.playerLikeSprite ; new
 	ld a, BANK(RedPicFront)
 .loadSprite
 	call UncompressSpriteFromDE

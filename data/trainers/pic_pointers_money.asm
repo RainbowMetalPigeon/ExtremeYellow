@@ -6,7 +6,7 @@ ENDM
 TrainerPicAndMoneyPointers::
 	table_width 5, TrainerPicAndMoneyPointers
 	; pic pointer, base reward money
-	; money received after battle = base money × level of last enemy mon
+	; money received after battle = base money × level of last enemy mon ; divided by 100?
 	pic_money YoungsterPic,    1500
 	pic_money BugCatcherPic,   1000
 	pic_money LassPic,         1500
@@ -54,4 +54,9 @@ TrainerPicAndMoneyPointers::
 	pic_money ChannelerPic,    3000
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
+; new classes
+	pic_money OragePic,        9900
+	pic_money PigeonPic,       15000
+	pic_money TravelerPic,     50000
+	pic_money BFTrainerPic,    0 ; to be edited, same as online battle
 	assert_table_length NUM_TRAINERS

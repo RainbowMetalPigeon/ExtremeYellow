@@ -69,7 +69,7 @@ MonsterPalettes:
 	db PAL_BLUEMON   ; GOLDUCK, updated
 	db PAL_BROWNMON  ; MANKEY
 	db PAL_BROWNMON  ; PRIMEAPE
-	db PAL_BROWNMON  ; ANNIHILAPE
+	db PAL_GREYMON   ; ANNIHILAPE, updated, testing
 	db PAL_REDMON    ; GROWLITHE, updated
 	db PAL_REDMON    ; ARCANINE
 	db PAL_BLUEMON   ; POLIWAG

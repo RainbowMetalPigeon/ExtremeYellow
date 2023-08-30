@@ -327,7 +327,7 @@ BirdKeeperPic::    INCBIN "gfx/trainers/birdkeeper.pic"
 BlackbeltPic::     INCBIN "gfx/trainers/blackbelt.pic"
 Rival1Pic::        INCBIN "gfx/trainers/rival1.pic"
 ProfOakPic::       INCBIN "gfx/trainers/prof.oak.pic"
-ChiefPic::
+;ChiefPic::
 ScientistPic::     INCBIN "gfx/trainers/scientist.pic"
 GiovanniPic::      INCBIN "gfx/trainers/giovanni.pic"
 RocketPic::        INCBIN "gfx/trainers/rocket.pic"
@@ -349,6 +349,11 @@ ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
+; new classes, dunno if this Section is fine
+OragePic::         INCBIN "gfx/trainers/engineer.pic" ; temp
+PigeonPic::        INCBIN "gfx/trainers/engineer.pic" ; temp
+BFTrainerPic:: ; temp
+TravelerPic::      INCBIN "gfx/trainers/engineer.pic" ; temp
 
 
 SECTION "Pics 7", ROMX

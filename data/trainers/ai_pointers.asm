@@ -45,10 +45,16 @@ TrainerAIPointers:
 	dbw 2, BlaineAI ; BLAINE
 	dbw 1, SabrinaAI ; SABRINA
 	dbw 3, GenericAI ; GENTLEMAN
-	dbw 1, Rival2AI ; RIVAL2
-	dbw 4, Rival3AI ; RIVAL3 ; updated
+	dbw 2, Rival2AI ; RIVAL2
+	dbw 3, Rival3AI ; RIVAL3 ; updated
 	dbw 2, LoreleiAI ; LORELEI
 	dbw 3, GenericAI ; CHANNELER
 	dbw 2, AgathaAI ; AGATHA
 	dbw 1, LanceAI ; LANCE
+; new classes
+	dbw 3, OrageAI ; ORAGE
+	dbw 3, GenericAI ; PigeonAI; PIGEON
+	dbw 3, GenericAI ; TravelerAI; TRAVELER
+	dbw 3, GenericAI ; BFTrainerAI; BF_TRAINER
+
 	assert_table_length NUM_TRAINERS

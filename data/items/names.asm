@@ -83,16 +83,16 @@ ItemNames::
 	li "MAX ETHER"
 	li "ELIXER"
 	li "MAX ELIXER"
-	li "MEGA STONE X"
-	li "MEGA STONE Y"
-	li "SUN STONE"
-	li "ICE STONE"
-	li "KING's ROCK"
-	li "METAL COAT"
-	li "UPGRADE"
-	li "DUBIOUS DISK"
-	li "FAST BALL"
-	li "HEAVY BALL"
+	li "MEGA STONE X" ; new
+	li "MEGA STONE Y" ; new
+	li "SUN STONE" ; new
+	li "ICE STONE" ; new
+	li "KING's ROCK" ; new
+	li "METAL COAT" ; new
+	li "UPGRADE" ; new
+	li "DUBIOUS DISK" ; new
+	li "FAST BALL" ; new
+	li "HEAVY BALL" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

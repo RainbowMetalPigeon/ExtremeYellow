@@ -349,9 +349,9 @@ ProfOakAI: ; new
 	jp AIUseFullRestore
 
 GiovanniAI:
-	cp 25 percent + 1
+	cp 15 percent + 1 ; edited, was 25
 	ret nc
-	jp AIUseGuardSpec
+	jp AIUseXAttack ; edited, was GuardSpec
 
 ;CooltrainerMAI: ; commented out
 ;	cp 25 percent + 1
@@ -401,6 +401,11 @@ KogaAI:
 	ret nc
 	jp AIUseXAttack
 
+SabrinaAI:
+	cp 25 percent + 1
+	ret nc
+	jp AIUseXDefend
+
 BlaineAI:
 	cp 25 percent + 1
 	ret nc
@@ -409,10 +414,13 @@ BlaineAI:
 	ret nc
 	jp AIUseHyperPotion ; updated
 
-SabrinaAI:
-	cp 25 percent + 1
+OrageAI: ; new
+	cp 45 percent + 1
 	ret nc
-	jp AIUseXDefend
+	ld a, 8
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
 
 Rival2AI:
 	cp 13 percent - 1
