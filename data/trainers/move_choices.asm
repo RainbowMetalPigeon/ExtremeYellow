@@ -56,4 +56,9 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; CHANNELER
 	move_choices 1       ; AGATHA
 	move_choices 1, 3    ; LANCE
+; new classes
+	move_choices 1, 2, 3 ; ORAGE
+	move_choices 1, 2, 3 ; PIGEON
+	move_choices 1, 2, 3 ; TRAVELER
+	move_choices 1, 2, 3 ; BF_TRAINER
 	assert_list_length NUM_TRAINERS

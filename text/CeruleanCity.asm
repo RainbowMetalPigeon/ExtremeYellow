@@ -198,9 +198,9 @@ _CeruleanCityText10::
 	cont "live in there!"
 
 	para "The #MON LEAGUE"
-	line "champion is the"
-	cont "only person who"
-	cont "is allowed in!"
+	line "champions are the"
+	cont "only people who"
+	cont "are allowed in!"
 	done
 
 _CeruleanCityText12::

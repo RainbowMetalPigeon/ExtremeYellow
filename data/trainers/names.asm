@@ -46,3 +46,8 @@ TrainerNames::
 	db "CHANNELER@"
 	db "AGATHA@"
 	db "LANCE@"
+; new classes
+	db "ORAGE@"
+	db "PIGEON@"
+	db "TRAVELER@"
+	db "B.F. TRAINER@" ; to be decided
