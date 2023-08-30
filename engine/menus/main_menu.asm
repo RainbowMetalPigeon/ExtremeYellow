@@ -132,6 +132,7 @@ InitOptions:
 	ld [wPrinterSettings], a
 	xor a ; new
 	ld [wLevelScaling], a ; new
+	ld [wExpGainOption], a ; new
 	ret
 
 Func_5cc1:

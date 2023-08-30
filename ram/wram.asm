@@ -405,7 +405,8 @@ wMenuWatchMovingOutOfBounds:: db
 
 wTradeCenterPointerTableIndex:: db
 
-	ds 1
+;	ds 1 ; edited, commented out to add the var below
+wExpGainOption:: db ; new
 
 ; destination pointer for text output
 ; this variable is written to, but is never read from
