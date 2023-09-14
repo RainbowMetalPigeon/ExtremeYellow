@@ -560,6 +560,7 @@ SafariZoneEastHS:
 	db SAFARI_ZONE_EAST, $03, SHOW
 	db SAFARI_ZONE_EAST, $04, SHOW
 SafariZoneNorthHS: ; edited because of rematch Giovanni
+	db SAFARI_ZONE_NORTH, $01, HIDE ; new, Giovanni, which starts hidden, then shown, then hidden again
 	db SAFARI_ZONE_NORTH, $02, SHOW
 	db SAFARI_ZONE_NORTH, $03, SHOW
 SafariZoneWestHS:
@@ -603,9 +604,9 @@ SeafoamIslandsB4FHS:
 	db SEAFOAM_ISLANDS_B4F, $01, HIDE
 	db SEAFOAM_ISLANDS_B4F, $02, HIDE
 	db SEAFOAM_ISLANDS_B4F, $03, SHOW
-BluesHouseHSCopy: ; unreferenced
-	db BLUES_HOUSE, $01, SHOW
-	db BLUES_HOUSE, $02, HIDE
-	db BLUES_HOUSE, $03, SHOW
+;BluesHouseHSCopy: ; unreferenced, edited, commented out
+;	db BLUES_HOUSE, $01, SHOW, edited, commented out
+;	db BLUES_HOUSE, $02, HIDE, edited, commented out
+;	db BLUES_HOUSE, $03, SHOW, edited, commented out
 	db $FF, $01, SHOW ; end
 	assert_table_length NUM_HS_OBJECTS + 1

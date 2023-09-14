@@ -811,7 +811,7 @@ DoBallShakeSpecialEffects:
 ; plays a sound after the second frame of the poof animation
 DoPoofSpecialEffects:
 	ld a, [wSubAnimCounter]
-	cp 5
+	cp 3 ; edited, was 5
 	ret nz
 	ld a, SFX_BALL_POOF
 	jp PlaySound

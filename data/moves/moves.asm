@@ -74,8 +74,8 @@ Moves:
 	move ICE_BEAM,     FREEZE_SIDE_EFFECT,          95, ICE,          100, 10 ; [TM13]
 	move BLIZZARD,     FREEZE_SIDE_EFFECT,         120, ICE,           90,  5 ; [TM14]
 	move PSYBEAM,      CONFUSION_SIDE_EFFECT1,      65, PSYCHIC_TYPE, 100, 20
-	move BUBBLEBEAM,   SPEED_DOWN_SIDE_EFFECT3,      65, WATER,        100, 20 ; [TM11]
-	move AURORA_BEAM,  ATTACK_DOWN_SIDE_EFFECT3,     65, ICE,          100, 20
+	move BUBBLEBEAM,   SPEED_DOWN_SIDE_EFFECT3,      65, WATER,       100, 20 ; [TM11]
+	move AURORA_BEAM,  ATTACK_DOWN_SIDE_EFFECT3,     65, ICE,         100, 20
 	move HYPER_BEAM,   HYPER_BEAM_EFFECT,          150, NORMAL,        90,  5 ; [TM15]
 	move PECK,         NO_ADDITIONAL_EFFECT,        35, FLYING,       100, 35
 	move DRILL_PECK,   NO_ADDITIONAL_EFFECT,        80, FLYING,       100, 20
@@ -158,7 +158,7 @@ Moves:
 	move LOVELY_KISS,  SLEEP_EFFECT,                 0, NORMAL,        75, 10
 ;	move SKY_ATTACK,   CHARGE_EFFECT,              140, FLYING,        90,  5
 	move TRANSFORM,    TRANSFORM_EFFECT,             0, NORMAL,       100, 10
-	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT3,      20, WATER,        100, 30 ; keep power 20 instead raising to 40  otherwise gets just better than WATER_GUN
+	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT3,      20, WATER,       100, 30 ; keep power 20 instead raising to 40  otherwise gets just better than WATER_GUN
 	move DIZZY_PUNCH,  CONFUSION_SIDE_EFFECT2,      70, NORMAL,       100, 10 ; 20% confusion
 	move SPORE,        SLEEP_EFFECT,                 0, GRASS,        100, 15
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, NORMAL,       100, 20 ; 70->100% accuracy
@@ -269,7 +269,7 @@ Moves:
 	; anomalies' signature moves
 	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90, 5 ; done
 	move DRAGONASCENT, DEFENSE_SPECIAL_SELFDOWN1,  120, FLYING,       100, 5 ; done
-	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,        90, GROUND,       100, 5 ; TODO: implement effect!
+	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND,       100, 5 ; TODO: implement effect!
 	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TODO: implement effect?
 	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; TODO: implement effect?! Or change BP to 200? Or add a new type like Normal in def but super against all types?
 

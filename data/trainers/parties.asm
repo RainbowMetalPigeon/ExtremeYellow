@@ -109,7 +109,7 @@ BugCatcherData:
 ; Viridian Forest
 	db 7, PINSIR, METAPOD, 0 ; pokeyellow only; updated
 ; Ochre Gym
-	db 38, SCIZOR, BUTTERFREE, BEEDRILL, VENOMOTH, KLEAVOR, PINSIR, 0 ; new
+	db 43, SCIZOR, BUTTERFREE, BEEDRILL, VENOMOTH, KLEAVOR, PINSIR, 0 ; new
 
 LassData:
 ; Route 3
@@ -226,7 +226,7 @@ PokemaniacData:
 ; Rock Tunnel 1F
 	db 23, SANDSLASH, SLOWPOKE, 0 ; updated, removed Cubone
 ; Ochre Gym
-	db 39, CLEFABLE, WIGGLYTUFF, MR_MIME, SYLVEON, 0 ; new
+	db 44, CLEFABLE, WIGGLYTUFF, MR_MIME, SYLVEON, 0 ; new
 
 SuperNerdData:
 ; Mt. Moon 1F
@@ -247,7 +247,7 @@ SuperNerdData:
 	db 50, MAGMORTAR, CHARIZARD, ARCANINE, 0 ; updated
 ;	db 37, GROWLITHE, VULPIX, 0 ; newly unused
 ; Ochre Gym
-	db 38, PERSIAN, KANGASKHAN, BLISSEY, TAUROS, SNORLAX, PORYGONZ, 0 ; new
+	db 43, PERSIAN, KANGASKHAN, BLISSEY, TAUROS, SNORLAX, PORYGONZ, 0 ; new
 
 HikerData:
 ; Mt. Moon 1F
@@ -422,7 +422,7 @@ RockerData:
 	db 29, VOLTORB, ELECTRODE, 0
 ;EngineerData: ; removed
 ; Ochre Gym
-	db 40, MAGNEZONE, STEELIX, SCIZOR, 0 ; new
+	db 45, MAGNEZONE, STEELIX, SCIZOR, 0 ; new
 ; Route 11
 	db 21, MAGNEMITE, 0
 	db 18, MAGNEMITE, MAGNEMITE, MAGNETON, 0
@@ -481,7 +481,7 @@ BirdKeeperData:
 	db 29, PIDGEOTTO, FEAROW, 0
 	db 28, SPEAROW, DODUO, FEAROW, 0
 ; Ochre Gym
-	db 38, FEAROW, BUTTERFREE, FARFETCHD, PIDGEOT, SCYTHER, DODRIO, 0 ; new
+	db 43, FEAROW, BUTTERFREE, FARFETCHD, PIDGEOT, SCYTHER, DODRIO, 0 ; new
 
 BlackbeltData:
 ; Fighting Dojo ; all updated
@@ -577,7 +577,7 @@ ChannelerData:
 	db 47, GENGAR, ANNIHILAPE, 0 ; updated
 	db 44, GASTLY, GASTLY, GASTLY, HAUNTER, HAUNTER, GENGAR, 0 ; updated
 ; Ochre Gym
-	db 42, UMBREON, 0 ; new
+	db 47, UMBREON, 0 ; new
 
 RocketData:
 ; Mt. Moon B2F
@@ -675,7 +675,7 @@ CooltrainerData:
 ; Cinnabar Gym
 	db 52, ARCANINE, MAGMAR, NINETALES, RAPIDASH, CHARIZARD, 0 ; new
 ; Ochre Gym
-	db 40, KLEAVOR, UMBREON, FEAROW, CLEFABLE, STEELIX, SNORLAX, 0 ; new
+	db 45, KLEAVOR, UMBREON, FEAROW, CLEFABLE, STEELIX, SNORLAX, 0 ; new
 ;CooltrainerMData: ; removed, did a + 13 to merge with the above
 ; Viridian Gym
 	db 50, DUGTRIO, GOLEM, RHYDON, STEELIX, 0 ; updated
@@ -728,7 +728,6 @@ SabrinaData:
 	db $FF, 49, EXEGGUTOR, 49, SLOWKING, 49, MR_MIME, 49, ESPEON, 49, HAUNTER, 50, ALAKAZAM, 0 ; updated
 	db 70, EXEGGUTOR, MR_MIME, SLOWKING, ALAKAZAM, ESPEON, MALAKAZAM, 0 ; rematch
 
-
 BlaineData:
 	db $FF, 53, NINETALES, 53, RAPIDASH, 53, MAGMORTAR, 53, FLAREON, 53, RHYDON, 54, ARCANINE, 0 ; updated
 	db 70, NINETALES, MAGMORTAR, RAPIDASH, FLAREON, ARCANINE, MCHARZARDY, 0 ; rematch
@@ -738,6 +737,8 @@ GiovanniData:
 	db $FF, 28, ONIX, 28, RHYHORN, 28, DUGTRIO, 28, KANGASKHAN, 28, MAROWAK, 29, PERSIAN, 0 ; updated
 ; Silph Co. 11F
 	db $FF, 42, STEELIX, 42, NIDOKING, 42, RHYDON, 42, NIDOQUEEN, 42, GOLEM, 43, PERSIAN, 0 ; updated
+; Obsidian Warehouse
+	db $FF, 45, SANDSLASH, 45, DUGTRIO, 45, NIDOKING, 45, NIDOQUEEN, 45, KANGASKHAN, 46, PERSIAN, 0 ; new, to be implemented
 ; Viridian Gym
 	db $FF, 54, DUGTRIO, 54, GOLEM, 54, NIDOQUEEN, 54, NIDOKING, 54, RHYPERIOR, 55, PERSIAN, 0 ; updated
 	db 70, MAROWAK, STEELIX, NIDOKING, NIDOQUEEN, MKANGASKAN, PERSIAN, 0 ; rematch
@@ -777,7 +778,7 @@ Rival2Data:
 
 Rival3Data:
 	db 65, MPIDGEOT, MALAKAZAM, MSCIZOR, MVENUSAUR, MCHARZARDY, MBLASTOISE, 0 ; updated
-	db 70, ARTICUNO, ZAPDOS, MOLTRES, 0 ; to be updated
+	db 70, ARTICUNO, ZAPDOS, MOLTRES, 0 ; new
 	; teams for the randomized rematches
 	db $FF, 80, JYNX, 80, SANDSLASH, 80, FEAROW, 80, CHARIZARD, 80, MPIDGEOT, 85, UMBREON, 0
 	db $FF, 80, STEELIX, 80, ARCANINE, 80, MUK, 80, RHYPERIOR, 80, MBEEDRILL, 85, UMBREON, 0
@@ -809,8 +810,14 @@ ProfOakData:
 	db $FF, 82, TAUROS, 83, MGYARADOS, 84, MEWTWO, 85, MMEWTWOX, 86, MMEWTWOY, 87, VENUSTOISE, 0 ; updated
 
 OrageData:
-	db $FF, 41, BLISSEY, 41, DODRIO, 41, PINSIR, 41, SCIZOR, 41, UMBREON, 42, SYLVEON, 0 ; temp, to be edited, need higher levels
+	db $FF, 46, BLISSEY, 46, DODRIO, 46, PINSIR, 46, SCIZOR, 46, UMBREON, 47, SYLVEON, 0 ; new
 
 PigeonData:
+	db 100, PIDGEY, DRAGONAIR, HAUNTER, PORYGON, MMEWTWOY, MAGIKARP, 0 ; new
+
 TravelerData:
+	db 100, ZYGARDEC, UNECROZMA, MRAYQUAZA, EETERNATUS, ARCEUS, 0 ; new
+;	db 100, ZYGARDEC, UNECROZMA, MRAYQUAZA, EETERNATUS, ARCEUS, MMEWTWOX, 0 ; maybe for rematch?
+
 BFTrainerData:
+; TODO: prepare about 7x10 teams

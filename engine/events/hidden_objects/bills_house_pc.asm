@@ -104,6 +104,18 @@ BillsHousePokemonList::
 	jr z, .displayPokedex
 	cp VAPOREON
 	jr z, .displayPokedex
+; new Eevolutions
+	cp ESPEON
+	jr z, .displayPokedex
+	cp UMBREON
+	jr z, .displayPokedex
+	cp LEAFEON
+	jr z, .displayPokedex
+	cp GLACEON
+	jr z, .displayPokedex
+	cp SYLVEON
+	jr z, .displayPokedex
+; back to vanilla code
 	jr .cancel
 .displayPokedex
 	call DisplayPokedex
@@ -124,6 +136,12 @@ BillsMonListText:
 	next "FLAREON"
 	next "JOLTEON"
 	next "VAPOREON"
+; new Eevolutions, need more work
+;	next "ESPEON"
+;	next "UMBREON"
+;	next "LEAFEON"
+;	next "GLACEON"
+;	next "SYLVEON"
 	next "CANCEL@"
 
 BillsHousePokemonListText2:

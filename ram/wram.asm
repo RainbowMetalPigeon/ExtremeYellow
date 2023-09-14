@@ -2330,7 +2330,8 @@ wTyrogueEvolutions::
 	ds 1
 
 ; unused
-	ds 54
+	ds 53 ; edited, originally 54
+wPlayerMoveAccuracyPercent:: db ; new, to host the accuract in [0,100] rather than [0,255]
 
 wObtainedHiddenItemsFlags:: flag_array 112
 

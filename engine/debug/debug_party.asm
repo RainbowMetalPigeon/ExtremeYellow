@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 50
+	db MEWTWO, 98
 	db SNORLAX, 80
 	db PERSIAN, 80
 	db STARTER_PIKACHU, 5
@@ -143,6 +143,7 @@ DebugSetPokedexEntries:
 	ret
 
 DebugItemsList:
+	db MASTER_BALL, 99
 	db HEAVY_BALL, 99
 	db FAST_BALL, 99
 	db MEGA_STONE_X, 99

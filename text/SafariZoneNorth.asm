@@ -34,14 +34,20 @@ _SafariZoneNorthText7::
 
 ; new ------------------------------------------------
 
-_SafariZoneNorthGiovanniBeforeBattleText::
+_GiovanniSafariBeforeBattleText::
 ;	xxxx "123456789012345678"
 	text "You will not"
 	line "catch me!!!"
 	done
 
-_SafariZoneNorthGiovanniPostBattleText::
+_GiovanniSafariEndBattleText::
 ;	xxxx "123456789012345678"
 	text "Thanks" ; need to consider a "GIOVANNI: " extra space
 	line "for the battle!"
 	prompt
+
+_GiovanniSafariAfterBattleText::
+	text "Now I will do"
+	line "a very big!"
+	cont "escape!"
+	done

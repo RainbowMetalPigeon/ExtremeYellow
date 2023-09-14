@@ -163,19 +163,33 @@ _LoadTrainerPic:
 	and a
 	jr nz, .playerLikeSprite ; new
 
-	; new
+	; new, random picture selection between the 4 "color names" for Battle Facility trainer
 	ld a, [wTrainerClass]
-	cp ORAGE
+	cp BF_TRAINER
 	jr nz, .notMultiSpriteTrainer
 	call Random
-	srl a
-	jr c, .withCarry
-	ld a, BANK(GreenPicFront) ; testing
-	ld de, GreenPicFront ; testing
+	and 3 ; = %00000111, which is perfect because we have 4 options, now a is randomly in [0,3]
+	cp 0
+	jr z, .randomNumber0
+	cp 1
+	jr z, .randomNumber1
+	cp 2
+	jr z, .randomNumber2
+	; cp 3 is redundant
+	ld a, BANK(GreenPicFront)
+	ld de, GreenPicFront
 	jr .loadSprite
-.withCarry
-	ld a, BANK(Rival3Pic) ; testing
-	ld de, Rival3Pic ; testing
+.randomNumber0
+	ld a, BANK(Rival3Pic)
+	ld de, Rival3Pic
+	jr .loadSprite
+.randomNumber1
+	ld a, BANK(RedPicFront)
+	ld de, RedPicFront
+	jr .loadSprite
+.randomNumber2
+	ld a, BANK(YellowPicFront)
+	ld de, YellowPicFront
 	jr .loadSprite
 .notMultiSpriteTrainer ; new
 
