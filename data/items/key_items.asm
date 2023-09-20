@@ -93,4 +93,5 @@ KeyItemFlags:
 	dbit FALSE ; DUBIOUS_DISK	- new
 	dbit FALSE ; FAST_BALL		- new, testing
 	dbit FALSE ; HEAVY_BALL		- new, testing
+	dbit FALSE ; LEGEND_CANDY	- new, testing
 	end_bit_array NUM_ITEMS

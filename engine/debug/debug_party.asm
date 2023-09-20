@@ -159,6 +159,7 @@ DebugItemsList:
 	db LIFT_KEY, 1
 	db POKE_FLUTE, 1
 	db ESCAPE_ROPE, 99
+	db LEGEND_CANDY, 42
 	db -1 ; end
 
 DebugUnusedList:

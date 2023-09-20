@@ -505,7 +505,7 @@ WarpFound2::
 
 	; new block of code to darken the final labyrinth and make it need FLASH
 	ldh a, [hWarpDestinationMap]
-	ld [wCurMap], a
+;	ld [wCurMap], a
 	cp CERULEAN_CAVE_EXTRA_FINAL
 	jr nz, .notFinalLabyrinth
 	ld a, $06
@@ -513,6 +513,16 @@ WarpFound2::
 	call GBFadeOutToBlack
 .notFinalLabyrinth
 	ldh a, [hWarpDestinationMap] ; destination map
+	; are we exiting the final labyrinth back into the 3D one?
+	cp CERULEAN_CAVE_EXTRA_MIDDLE
+	jr nz, .notFinalLabyrinthHandling
+	ld a, [wCurMap]
+	cp CERULEAN_CAVE_EXTRA_FINAL
+	jr nz, .notFinalLabyrinthHandling
+	xor a
+	ld [wMapPalOffset], a
+	ldh a, [hWarpDestinationMap] ; destination map
+.notFinalLabyrinthHandling
 
 	ld [wCurMap], a
 	farcall IsPlayerStandingOnWarpPadOrHole

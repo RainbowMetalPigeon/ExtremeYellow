@@ -50,10 +50,10 @@ SafariZoneEntranceText_9e747::
 _SafariZoneEntranceText_75360::
 	text_start
 
-	para "We'll call you on"
-	line "the PA when you"
-	cont "run out of time"
-	cont "or SAFARI BALLs!"
+	para "We'll call you"
+	line "when you run out"
+	cont "of time or"
+	cont "SAFARI BALLs!"
 	done
 
 _SafariZoneEntranceText_75365::

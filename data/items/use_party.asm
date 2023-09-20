@@ -44,4 +44,5 @@ UsableItems_PartyMenu:
 	db METAL_COAT	; new
 	db UPGRADE		; new
 	db DUBIOUS_DISK	; new
+	db LEGEND_CANDY ; new
 	db -1 ; end

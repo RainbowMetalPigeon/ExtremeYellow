@@ -773,10 +773,14 @@ UpdateStatDone:
 	pop af
 	call nz, Bankswitch
 .applyBadgeBoostsAndStatusPenalties
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	cp 2						; new code to handle the badge boost option
+	jr c, .noGlitchyBadgeBoost1	; new code to handle the badge boost option
 	ldh a, [hWhoseTurn]
 	and a
 	call z, ApplyBadgeStatBoosts ; whenever the player uses a stat-up move, badge boosts get reapplied again to every stat,
 	                             ; even to those not affected by the stat-up move (will be boosted further)
+.noGlitchyBadgeBoost1			; new code to handle the badge boost option
 	ld hl, MonsStatsRoseText
 	call PrintText
 
@@ -1011,16 +1015,24 @@ UpdateLoweredStatDone:
 .ApplyBadgeBoostsAndStatusPenalties
     cp ATTACK_SELFDOWN1
     jr nc, .selfDebuffingMoves
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	cp 2						; new code to handle the badge boost option
+	jr c, .noGlitchyBadgeBoost2	; new code to handle the badge boost option
 	ldh a, [hWhoseTurn]
 	and a
 	call nz, ApplyBadgeStatBoosts	; vanilla "nz" call
+.noGlitchyBadgeBoost2			; new code to handle the badge boost option
 	ld hl, MonsStatsFellText
 	call PrintText
 	jr .bizarreContinuation			; new
 .selfDebuffingMoves
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	cp 2						; new code to handle the badge boost option
+	jr c, .noGlitchyBadgeBoost3	; new code to handle the badge boost option
     ldh a, [hWhoseTurn]
     and a
-    call z, ApplyBadgeStatBoosts	; new, edited: whenever the player uses a self-debuff move, badge boosts get reapplied again to every stat - note to myself: should I change this behavior to make it more challenging?
+    call z, ApplyBadgeStatBoosts	; new, edited: whenever the player uses a self-debuff move, badge boosts get reapplied again to every stat
+.noGlitchyBadgeBoost3			; new code to handle the badge boost option
 	ld hl, MonsStatsSelfFellText
 	call PrintText
 .bizarreContinuation				; new

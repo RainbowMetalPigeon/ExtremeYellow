@@ -289,6 +289,8 @@ DisplayChooseQuantityMenu::
 	jr z, .zeroSell
 	cp MEGA_STONE_Y
 	jr z, .zeroSell
+	cp LEGEND_CANDY
+	jr z, .zeroSell
 	cp RARE_CANDY
 	jr nz, .normalSell
 .zeroSell

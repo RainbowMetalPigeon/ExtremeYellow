@@ -38,11 +38,6 @@ _PewterCityText_193fb::
 	done
 
 _PewterCityText13::
-	text "It's right here!"
-	line "You have to pay"
-	cont "to get in, but"
-	cont "it's worth it!"
-	cont "See you around!"
 	done
 
 _PewterCityText_19427::
@@ -67,7 +62,16 @@ _PewterCityText_1945d::
 	line "right? BROCK's"
 	cont "looking for new"
 	cont "challengers!"
-	cont "Follow me!"
+	para "You should"
+	line "totally go!"
+	done
+
+_PewterCityText_1945dBis::
+	text "You defeated"
+	line "BROCK?! Congrats!"
+	cont "Was the challenge"
+	cont "up to your"
+	cont "expectations?"
 	done
 
 _PewterCityText14::

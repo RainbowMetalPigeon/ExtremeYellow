@@ -39,7 +39,7 @@ ItemPrices::
 	bcd3 9800  ; IRON
 	bcd3 9800  ; CARBOS
 	bcd3 9800  ; CALCIUM
-	bcd3 15000  ; RARE_CANDY, bought pricey, sold for 0
+	bcd3 100   ; RARE_CANDY, bought for a price, sold for 0
 	bcd3 0     ; DOME_FOSSIL
 	bcd3 0     ; HELIX_FOSSIL
 	bcd3 0     ; SECRET_KEY
@@ -93,6 +93,7 @@ ItemPrices::
 	bcd3 0     ; DUBIOUS_DISK, better 0 to de-incentivate sell
 	bcd3 1500  ; FAST_BALL, new, testing
 	bcd3 1500  ; HEAVY_BALL, new, testing
+	bcd3 10000 ; LEGEND_CANDY, bought for a price, sold for 0
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

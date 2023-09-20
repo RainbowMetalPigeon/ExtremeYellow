@@ -108,8 +108,9 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone	 ; METAL_COAT, new
 	dw ItemUseEvoStone	 ; UPGRADE, new
 	dw ItemUseEvoStone	 ; DUBIOUS_DISK, new
-	dw ItemUseBall       ; FAST_BALL, new
-	dw ItemUseBall       ; HEAVY_BALL, new
+	dw ItemUseBall       ; FAST_BALL, new, testing
+	dw ItemUseBall       ; HEAVY_BALL, new, testing
+	dw ItemUseVitamin    ; LEGEND_CANDY, new, testing
 
 ItemUseBall:
 
@@ -1118,6 +1119,11 @@ ItemUseMedicine:
 	jr z, ItemUseMedicine ; if so, force another choice
 .checkItemType
 	ld a, [wcf91]
+
+	; new, custom ugly code cause i don't feel like reordering items
+	cp LEGEND_CANDY
+	jp z, .useVitamin
+
 	cp REVIVE
 	jr nc, .healHP ; if it's a Revive or Max Revive
 	cp FULL_HEAL
@@ -1558,6 +1564,8 @@ ItemUseMedicine:
 	ld a, [wcf91]
 	cp RARE_CANDY
 	jp z, .useRareCandy
+	cp LEGEND_CANDY     ; new
+	jr z, .useRareCandy ; new
 	push hl
 	sub HP_UP
 	add a
@@ -1627,7 +1635,18 @@ ItemUseMedicine:
 	ld a, [hl] ; a = level
 	cp MAX_LEVEL
 	jr z, .vitaminNoEffect ; can't raise level above 100
+
+	; new code for LEGEND_CANDY
+	ld a, [wcf91] ; a contains the item ID, and if we are here, should be only a RARE or a LEGEND candy
+	cp LEGEND_CANDY
+	jr z, .legendaryCandyCode
+	ld a, [hl] ; a = level
 	inc a
+	jr .continueVanillaCandy
+.legendaryCandyCode
+	ld a, MAX_LEVEL
+.continueVanillaCandy
+
 	ld [hl], a ; store incremented level
 	ld [wCurEnemyLVL], a
 	push hl
@@ -3351,5 +3370,3 @@ CheckMapForMon:
 	jr nz, .loop
 	dec hl
 	ret
-
-

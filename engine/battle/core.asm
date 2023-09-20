@@ -1749,7 +1749,11 @@ LoadBattleMonFromParty:
 	ld bc, 1 + NUM_STATS * 2
 	call CopyData
 	call ApplyBurnAndParalysisPenaltiesToPlayer
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	and a						; new code to handle the badge boost option
+	jr z, .noBadgeBoost			; new code to handle the badge boost option
 	call ApplyBadgeStatBoosts
+.noBadgeBoost					; new code to handle the badge boost option
 	ld a, $7 ; default stat modifier
 	ld b, NUM_STAT_MODS
 	ld hl, wPlayerMonAttackMod
