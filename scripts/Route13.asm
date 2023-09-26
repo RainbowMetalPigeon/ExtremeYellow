@@ -36,19 +36,19 @@ Route13TrainerHeader1:
 Route13TrainerHeader2:
 	trainer EVENT_BEAT_ROUTE_13_TRAINER_2, 2, Route13BattleText4, Route13EndBattleText4, Route13AfterBattleText4
 Route13TrainerHeader3:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_3, 2, Route13BattleText5, Route13EndBattleText5, Route13AfterBattleText5
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_3, 4, Route13BattleText5, Route13EndBattleText5, Route13AfterBattleText5
 Route13TrainerHeader4:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_4, 4, Route13BattleText6, Route13EndBattleText6, Route13AfterBattleText6
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_4, 2, Route13BattleText6, Route13EndBattleText6, Route13AfterBattleText6
 Route13TrainerHeader5:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_5, 2, Route13BattleText7, Route13EndBattleText7, Route13AfterBattleText7
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_5, 1, Route13BattleText7, Route13EndBattleText7, Route13AfterBattleText7
 Route13TrainerHeader6:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_6, 4, Route13BattleText8, Route13EndBattleText8, Route13AfterBattleText8
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_6, 1, Route13BattleText8, Route13EndBattleText8, Route13AfterBattleText8
 Route13TrainerHeader7:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_7, 2, Route13BattleText9, Route13EndBattleText9, Route13AfterBattleText9
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_7, 1, Route13BattleText9, Route13EndBattleText9, Route13AfterBattleText9
 Route13TrainerHeader8:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_8, 2, Route13BattleText10, Route13EndBattleText10, Route13AfterBattleText10
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_8, 4, Route13BattleText10, Route13EndBattleText10, Route13AfterBattleText10
 Route13TrainerHeader9:
-	trainer EVENT_BEAT_ROUTE_13_TRAINER_9, 4, Route13BattleText11, Route13EndBattleText11, Route13AfterBattleText11
+	trainer EVENT_BEAT_ROUTE_13_TRAINER_9, 1, Route13BattleText11, Route13EndBattleText11, Route13AfterBattleText11
 	db -1 ; end
 
 Route13Text1:

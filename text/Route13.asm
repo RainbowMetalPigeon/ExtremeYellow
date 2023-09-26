@@ -158,10 +158,10 @@ _Route13AfterBattleText11::
 	done
 
 _Route13Text11::
-	text "TRAINER TIPS"
+	text "BIRD SANCTUARY"
 
-	para "Look to the left"
-	line "of that post!"
+	para "Access from OCHRE"
+	line "CITY only"
 	done
 
 _Route13Text12::
@@ -176,4 +176,6 @@ _Route13Text13::
 	text "ROUTE 13"
 	line "North to SILENCE"
 	cont "BRIDGE"
+	
+	para "West to OCHRE CITY"
 	done

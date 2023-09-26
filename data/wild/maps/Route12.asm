@@ -9,10 +9,10 @@ Route12WildMons:
 	db 29, VENONAT
 	db 31, GLOOM
 	db 31, WEEPINBELL
-	db 29, FARFETCHD
-	db 31, FARFETCHD
-	db 31, FARFETCHD
-	db 31, FARFETCHD
+	db 33, GLOOM
+	db 33, WEEPINBELL
+	db 33, WEEPINBELL
+	db 33, WEEPINBELL
 	db  1, MEW
 	end_grass_wildmons
 

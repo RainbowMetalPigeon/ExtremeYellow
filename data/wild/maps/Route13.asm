@@ -1,18 +1,18 @@
 Route13WildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 26, ODDISH
-	db 26, BELLSPROUT
-	db 27, VENONAT
-	db 29, PIDGEOTTO
-	db 28, GLOOM
-	db 28, WEEPINBELL
-	db 30, VENONAT
-	db 32, GLOOM
-	db 32, WEEPINBELL
-	db 30, FARFETCHD
+	db 26, FARFETCHD
+	db 26, PSYDUCK
+	db 29, PIDGEOT
+	db 28, DODRIO
+	db 27, FEAROW
+	db 30, PSYDUCK
+	db 32, GOLDUCK
+	db 32, DODRIO
+	db 31, FEAROW
+	db 33, PIDGEOT
 	db 32, FARFETCHD
-	db 32, FARFETCHD
-	db 32, FARFETCHD
+	db 35, FARFETCHD
+	db 37, FARFETCHD
 	db  1, MEW
 	end_grass_wildmons
 
