@@ -76,6 +76,10 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	call SetScrollXForSlidingPlayerBodyLeft ; begin background scrolling on line $40
 	inc b
 	inc b
+	inc b ; new, testing
+	inc b ; new, testing
+	inc b ; new, testing
+	inc b ; new, testing
 	ld h, $0
 	ld l, $60
 	call SetScrollXForSlidingPlayerBodyLeft ; end background scrolling on line $60
@@ -84,6 +88,10 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	ldh [hSCX], a
 	dec c
 	dec c
+	dec c ; new, testing
+	dec c ; new, testing
+	dec c ; new, testing
+	dec c ; new, testing
 	jr nz, .slideSilhouettesLoop
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
@@ -114,6 +122,10 @@ SlidePlayerHeadLeft:
 .loop
 	dec [hl] ; decrement X
 	dec [hl] ; decrement X
+	dec [hl] ; decrement X ; new, testing
+	dec [hl] ; decrement X ; new, testing
+	dec [hl] ; decrement X ; new, testing
+	dec [hl] ; decrement X ; new, testing
 	add hl, de ; next OAM entry
 	dec c
 	jr nz, .loop
@@ -1737,7 +1749,11 @@ LoadBattleMonFromParty:
 	ld bc, 1 + NUM_STATS * 2
 	call CopyData
 	call ApplyBurnAndParalysisPenaltiesToPlayer
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	and a						; new code to handle the badge boost option
+	jr z, .noBadgeBoost			; new code to handle the badge boost option
 	call ApplyBadgeStatBoosts
+.noBadgeBoost					; new code to handle the badge boost option
 	ld a, $7 ; default stat modifier
 	ld b, NUM_STAT_MODS
 	ld hl, wPlayerMonAttackMod
@@ -3066,7 +3082,7 @@ PrintMenuItem:
 	hlcoord 1, 10
 	ld de, DisabledText
 	call PlaceString
-	jr .moveDisabled
+	jp .moveDisabled ; edited, was jr, now too much stuff in between
 .notDisabled
 	ld hl, wCurrentMenuItem
 	dec [hl]
@@ -3094,25 +3110,85 @@ PrintMenuItem:
 	ld a, [hl]
 	and $3f
 	ld [wcd6d], a
+
+	; new, testing
+	ld de, wPlayerMoveNum
+	ld a, [wPlayerSelectedMove]
+	dec a
+	ld hl, Moves
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call FarCopyData
+
 ; print TYPE/<type> and <curPP>/<maxPP>
-	hlcoord 1, 9
-	ld de, TypeText
+
+	hlcoord 1, 11 ; new
+	ld de, PPText
 	call PlaceString
+
 	hlcoord 7, 11
 	ld [hl], "/"
-	hlcoord 5, 9
-	ld [hl], "/"
+
+	hlcoord 8, 10
+	ld [hl], "%"
+
+	hlcoord 3, 10 ; new
+	ld a, [wPlayerMoveEffect]
+	cp OHKO_EFFECT
+	jr z, .OHKOMove
+	cp SPECIAL_DAMAGE_EFFECT
+	jr z, .specialDamage
+	hlcoord 1, 10
+	ld de, wPlayerMovePower ; testing
+	lb bc, 1, 3
+	call PrintNumber ; prints the c-digit, b-byte value at de
+	jr .afterDamagePrinting
+.OHKOMove
+	ld [hl], "INF"
+	jr .afterDamagePrinting
+.specialDamage
+	ld [hl], "?"
+.afterDamagePrinting
+
 	hlcoord 5, 11
 	ld de, wcd6d
 	lb bc, 1, 2
 	call PrintNumber
+
+	hlcoord 5, 10 ; new
+	xor a
+	ld b, a
+	ld a, [wPlayerMoveAccuracy]
+.loopAccuracy
+	sub 12
+	jr c, .accuracyFound
+	ld c, a
+	ld a, b
+	add 5
+	ld b, a
+	ld a, c
+	jr .loopAccuracy
+.accuracyFound
+	ld a, b
+	cp 76 ; fine-tuned number because
+	jr c, .noSub5
+	sub 5
+.noSub5
+	ld [wPlayerMoveAccuracyPercent], a
+	ld de, wPlayerMoveAccuracyPercent
+	lb bc, 1, 3
+	call PrintNumber ; prints the c-digit, b-byte value at de
+
 	hlcoord 8, 11
 	ld de, wMaxPP
 	lb bc, 1, 2
 	call PrintNumber
+
 	call GetCurrentMove
-	hlcoord 2, 10
+	hlcoord 1, 9 ; edited
 	predef PrintMoveType
+
 .moveDisabled
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
@@ -3123,6 +3199,9 @@ DisabledText:
 
 TypeText:
 	db "TYPE@"
+
+PPText:
+db "PP:@"
 
 SelectEnemyMove:
 	ld a, [wLinkState]
@@ -5786,49 +5865,51 @@ MoveHitTest:
 	and a
 	jr nz, .enemyTurn
 .playerTurn
-; this checks if the move effect is disallowed by mist
-	ld a, [wPlayerMoveEffect]
-	cp ATTACK_DOWN1_EFFECT
-	jr c, .skipEnemyMistCheck
-	cp HAZE_EFFECT + 1
-	jr c, .enemyMistCheck
-	cp ATTACK_DOWN2_EFFECT
-	jr c, .skipEnemyMistCheck
-	cp REFLECT_EFFECT + 1
-	jr c, .enemyMistCheck
-	jr .skipEnemyMistCheck
-.enemyMistCheck
-; if move effect is from $12 to $19 inclusive or $3a to $41 inclusive
-; i.e. the following moves
-; GROWL, TAIL WHIP, LEER, STRING SHOT, SAND-ATTACK, SMOKESCREEN, (KINESIS was removed (and anyway I'll remove MIST too lol)),
-; FLASH, CONVERSION*, HAZE*, SCREECH, LIGHT SCREEN*, REFLECT*
-; the moves that are marked with an asterisk are not affected since this
-; function is not called when those moves are used
-	ld a, [wEnemyBattleStatus2]
-	bit PROTECTED_BY_MIST, a ; is mon protected by mist?
-	jp nz, .moveMissed
-.skipEnemyMistCheck
+
+; edited: commented out as I removed MIST
+;; this checks if the move effect is disallowed by mist
+;	ld a, [wPlayerMoveEffect]
+;	cp ATTACK_DOWN1_EFFECT
+;	jr c, .skipEnemyMistCheck
+;	cp HAZE_EFFECT + 1
+;	jr c, .enemyMistCheck
+;	cp ATTACK_DOWN2_EFFECT
+;	jr c, .skipEnemyMistCheck
+;	cp REFLECT_EFFECT + 1
+;	jr c, .enemyMistCheck
+;	jr .skipEnemyMistCheck
+;.enemyMistCheck
+;; if move effect is from $12 to $19 inclusive or $3a to $41 inclusive
+;; i.e. the following moves
+;; GROWL, TAIL WHIP, LEER, STRING SHOT, SAND-ATTACK, SMOKESCREEN, (KINESIS was removed (and anyway I'll remove MIST too lol)),
+;; FLASH, CONVERSION*, HAZE*, SCREECH, LIGHT SCREEN*, REFLECT*
+;; the moves that are marked with an asterisk are not affected since this
+;; function is not called when those moves are used
+;	ld a, [wEnemyBattleStatus2]
+;	bit PROTECTED_BY_MIST, a ; is mon protected by mist?
+;	jp nz, .moveMissed
+;.skipEnemyMistCheck
 	ld a, [wPlayerBattleStatus2]
 	bit USING_X_ACCURACY, a ; is the player using X Accuracy?
 	ret nz ; if so, always hit regardless of accuracy/evasion
 	jr .calcHitChance
 .enemyTurn
-	ld a, [wEnemyMoveEffect]
-	cp ATTACK_DOWN1_EFFECT
-	jr c, .skipPlayerMistCheck
-	cp HAZE_EFFECT + 1
-	jr c, .playerMistCheck
-	cp ATTACK_DOWN2_EFFECT
-	jr c, .skipPlayerMistCheck
-	cp REFLECT_EFFECT + 1
-	jr c, .playerMistCheck
-	jr .skipPlayerMistCheck
-.playerMistCheck
-; similar to enemy mist check
-	ld a, [wPlayerBattleStatus2]
-	bit PROTECTED_BY_MIST, a ; is mon protected by mist?
-	jp nz, .moveMissed
-.skipPlayerMistCheck
+;	ld a, [wEnemyMoveEffect]
+;	cp ATTACK_DOWN1_EFFECT
+;	jr c, .skipPlayerMistCheck
+;	cp HAZE_EFFECT + 1
+;	jr c, .playerMistCheck
+;	cp ATTACK_DOWN2_EFFECT
+;	jr c, .skipPlayerMistCheck
+;	cp REFLECT_EFFECT + 1
+;	jr c, .playerMistCheck
+;	jr .skipPlayerMistCheck
+;.playerMistCheck
+;; similar to enemy mist check
+;	ld a, [wPlayerBattleStatus2]
+;	bit PROTECTED_BY_MIST, a ; is mon protected by mist?
+;	jp nz, .moveMissed
+;.skipPlayerMistCheck
 	ld a, [wEnemyBattleStatus2]
 	bit USING_X_ACCURACY, a ; is the enemy using X Accuracy?
 	ret nz ; if so, always hit regardless of accuracy/evasion

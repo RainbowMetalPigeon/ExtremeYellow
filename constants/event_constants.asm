@@ -739,6 +739,8 @@
 
 ; Safari Zone events
 	const_next $880
+	const_skip ; new, for Giovanni
+	const EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0 ; new, for Giovanni
 	const EVENT_GOT_HM03
 
 ; Cerulean Cave events

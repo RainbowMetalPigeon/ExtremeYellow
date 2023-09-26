@@ -101,33 +101,41 @@ HallofFameRoomScript1:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 
-	ld a, HS_ROUTE_21_OAK 			; new, to show Oak in Route21 after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef ShowObject				; new
+; ----- new HS, begin -----
 
-	ld a, HS_VIRIDIAN_FOREST_ERIKA	; new, to show Erika in Viridian Forest after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef ShowObject				; new
+	ld a, HS_ROUTE_21_OAK 			; Oak in Route21
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
-	ld a, HS_FIGHTING_DOJO_BRUNO	; new, to show Bruno in Fighting Dojo after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef ShowObject				; new
+	ld a, HS_VIRIDIAN_FOREST_ERIKA	; Erika in Viridian Forest
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
-	ld a, HS_ROCK_TUNNEL_B1F_BROCK	; new, to show Brock in Rock Tunnel B1F after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef ShowObject				; new
+	ld a, HS_FIGHTING_DOJO_BRUNO	; Bruno in Fighting Dojo
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
-	ld a, HS_POKEMON_TOWER_6F_AGATHA	; new, to show Agatha in Pokemon Tower 6F after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef ShowObject				; new
+	ld a, HS_ROCK_TUNNEL_B1F_BROCK	; Brock in Rock Tunnel B1F
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
-	ld a, HS_VERMILION_MACHOKE		; new, to hide Machoke in Vermilion after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef HideObject				; new
+	ld a, HS_POKEMON_TOWER_6F_AGATHA	; Agatha in Pokemon Tower 6F
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
-	ld a, HS_VERMILION_MACHAMP		; new, to show Machamp in Vermilion after becoming champion
-	ld [wMissableObjectIndex], a	; new
-	predef ShowObject				; new
+	ld a, HS_VERMILION_MACHOKE		; Machoke in Vermilion
+	ld [wMissableObjectIndex], a
+	predef HideObject
+
+	ld a, HS_VERMILION_MACHAMP		; Machamp in Vermilion
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
+	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI ; Giovanni in the Safari Zone
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
+; ----- new HS, end -----
 
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; temp

@@ -23,4 +23,4 @@ CeruleanCaveExtraFinalSign:
 	text_end
 
 CeruleanCaveExtraFinalTextSeller:
-	script_mart MASTER_BALL, MEGA_STONE_X, MEGA_STONE_Y, RARE_CANDY, ESCAPE_ROPE
+	script_mart MASTER_BALL, MEGA_STONE_X, MEGA_STONE_Y, RARE_CANDY, LEGEND_CANDY, ESCAPE_ROPE

@@ -35,7 +35,7 @@ OptionMenuJumpTable:
 	dw OptionsMenu_BattleAnimations
 	dw OptionsMenu_BattleStyle
 	dw OptionsMenu_SpeakerSettings
-	dw OptionsMenu_GBPrinterBrightness
+	dw OptionsMenu_BadgeBoost ; new, it was OptionsMenu_GBPrinterBrightness
 	dw OptionsMenu_LevelScaling
 	dw OptionsMenu_ExpGain
 	dw OptionsMenu_Cancel
@@ -306,6 +306,62 @@ DarkestPrintText:
 
 ; ----- new, beginning -----
 
+OptionsMenu_BadgeBoost:
+	ld a, [wBadgeBoostOption]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $2
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $3
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wBadgeBoostOption], a
+.nonePressed
+	ld b, $0
+	ld hl, BadgeBoostStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 12, 10
+	call PlaceString
+	and a
+	ret
+
+BadgeBoostStringsPointerTable:
+	dw BadgeBoostNone
+	dw BadgeBoostFixed
+	dw BadgeBoostGlitchy
+
+BadgeBoostNone:
+	db "NONE   @"
+BadgeBoostFixed:
+	db "FIXED  @"
+BadgeBoostGlitchy:
+	db "GLITCHY@"
+
+; ---
+
 OptionsMenu_LevelScaling:
 	ld a, [wLevelScaling]
 	ld c, a
@@ -366,6 +422,8 @@ HardcoreScaling:
 ImpossibleScaling:
 	db "IMPOS@"
 
+; ---
+
 OptionsMenu_ExpGain:
 	ld a, [wExpGainOption]
 	ld c, a
@@ -403,7 +461,7 @@ OptionsMenu_ExpGain:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 7, 14
+	hlcoord 11, 14
 	call PlaceString
 	and a
 	ret
@@ -558,9 +616,9 @@ AllOptionsText:
 	next "ANIMATION  :"
 	next "BATTLESTYLE:"
 	next "SOUND:"
-	next "PRINT:" ; edited
+	next "BADGE BST:" ; new, it was PRINT
 	next "LVL SCALE:" ; new
-	next "GAIN:@" ; new
+	next "EXP GAIN:@" ; new
 
 OptionMenuCancelText:
 	db "CANCEL@"

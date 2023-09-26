@@ -231,6 +231,7 @@ DEF SHOW EQU $15
 	const HS_SAFARI_ZONE_EAST_ITEM_2       ; C9
 	const HS_SAFARI_ZONE_EAST_ITEM_3       ; CA
 	const HS_SAFARI_ZONE_EAST_ITEM_4       ; CB
+	const HS_SAFARI_ZONE_NORTH_GIOVANNI    ; new, Safari Giovanni
 	const HS_SAFARI_ZONE_NORTH_ITEM_1      ; CC
 	const HS_SAFARI_ZONE_NORTH_ITEM_2      ; CD
 	const HS_SAFARI_ZONE_WEST_ITEM_1       ; CE
@@ -263,7 +264,7 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E9
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
-	const HS_DAISY_SITTING_COPY            ; EC
-	const HS_DAISY_WALKING_COPY            ; ED
-	const HS_TOWN_MAP_COPY                 ; EE
+;	const HS_DAISY_SITTING_COPY            ; EC, edited, commented out
+;	const HS_DAISY_WALKING_COPY            ; ED, edited, commented out
+;	const HS_TOWN_MAP_COPY                 ; EE, edited, commented out
 DEF NUM_HS_OBJECTS EQU const_value

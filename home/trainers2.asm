@@ -38,10 +38,10 @@ IsFightingJessieJames::
 	cp ROCKET
 	ret nz
 	ld a, [wTrainerNo]
-	cp $2a
+	cp $2a ; to be edited if I add more Rockets
 	ret c
 	ld de, JessieJamesPic
-	cp $2e
+	cp $2e ; to be edited if I add more Rockets
 	jr c, .dummy
 	ld de, JessieJamesPic ; possibly meant to add another pic
 .dummy

@@ -230,6 +230,6 @@ _CeruleanCityText17::
 	line "#MON GYM"
 	cont "LEADER: MISTY"
 
-	para "The Tomboyish"
+	para "The Fighter"
 	line "Mermaid!"
 	done

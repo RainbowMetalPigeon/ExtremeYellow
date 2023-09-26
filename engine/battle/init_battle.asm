@@ -163,12 +163,35 @@ _LoadTrainerPic:
 	and a
 	jr nz, .playerLikeSprite ; new
 
-	ld a, [wTrainerClass] ; new
-	cp ORAGE ; new
-;	xor a ; testing
-;	ld e, a
-;	ld d, a
-	jr z, .playerLikeSprite ; new
+	; new, random picture selection between the 4 "color names" for Battle Facility trainer
+	ld a, [wTrainerClass]
+	cp BF_TRAINER
+	jr nz, .notMultiSpriteTrainer
+	call Random
+	and 3 ; = %00000111, which is perfect because we have 4 options, now a is randomly in [0,3]
+	cp 0
+	jr z, .randomNumber0
+	cp 1
+	jr z, .randomNumber1
+	cp 2
+	jr z, .randomNumber2
+	; cp 3 is redundant
+	ld a, BANK(GreenPicFront)
+	ld de, GreenPicFront
+	jr .loadSprite
+.randomNumber0
+	ld a, BANK(Rival3Pic)
+	ld de, Rival3Pic
+	jr .loadSprite
+.randomNumber1
+	ld a, BANK(RedPicFront)
+	ld de, RedPicFront
+	jr .loadSprite
+.randomNumber2
+	ld a, BANK(YellowPicFront)
+	ld de, YellowPicFront
+	jr .loadSprite
+.notMultiSpriteTrainer ; new
 
 	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
 	jr .loadSprite ; edited

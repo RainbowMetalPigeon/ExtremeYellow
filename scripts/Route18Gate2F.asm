@@ -8,7 +8,7 @@ Route18Gate2F_TextPointers:
 
 Route18GateUpstairsText1:
 	text_asm
-	ld a, TRADE_FOR_SPIKE
+	ld a, TRADE_FOR_PHANTA ; edited
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
 	jp TextScriptEnd

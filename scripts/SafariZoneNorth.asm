@@ -1,18 +1,60 @@
 SafariZoneNorth_Script:
 	call EnableAutoTextBoxDrawing
-;	ld de, SafariZoneNorth_ScriptPointers	; new
-;	ld a, [wSafariZoneNorthCurScript]		; new
-;	call ExecuteCurMapScriptInTable			; new
-;	ld [wSafariZoneNorthCurScript], a		; new
+	ld hl, SafariZoneNorthTrainerHeaders
+	ld de, SafariZoneNorth_ScriptPointers
+	ld a, [wSafariZoneNorthCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wSafariZoneNorthCurScript], a
 	ret
 
-;SafariZoneNorth_ScriptPointers: ; new
-;	dw CheckFightingMapTrainers
-;	dw DisplayEnemyTrainerTextAndStartBattle
-;	dw EndTrainerBattle
+ResetSafariZoneNorthScript:
+	xor a
+	ld [wSafariZoneNorthCurScript], a
+	ret
+
+SafariZoneNorth_ScriptPointers:
+	dw SafariZoneNorthScript0
+	dw DisplayEnemyTrainerTextAndStartBattle
+	dw SafariZoneNorthScript2
+	dw SafariZoneNorthScript3
+	dw SafariZoneNorthScript4
+
+SafariZoneNorthScript4:
+	ret
+
+SafariZoneNorthScript0:
+	jp nc, CheckFightingMapTrainers
+	ld a, $3
+	ld [wSafariZoneNorthCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+SafariZoneNorthScript3:
+	xor a
+	ld [wSafariZoneNorthCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+SafariZoneNorthScript2:
+	call EndTrainerBattle
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetSafariZoneNorthScript
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	; hide Safari Giovanni after having defeat them
+	call GBFadeOutToBlack
+	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jp TextScriptEnd
 
 SafariZoneNorth_TextPointers:
-	dw SafariZoneNorthTextGiovanni ; new
+	dw GiovanniSafariText1
 	dw PickUpItemText
 	dw PickUpItemText
 	dw SafariZoneNorthText3
@@ -20,6 +62,12 @@ SafariZoneNorth_TextPointers:
 	dw SafariZoneNorthText5
 	dw SafariZoneNorthText6
 	dw SafariZoneNorthText7
+
+SafariZoneNorthTrainerHeaders:
+	def_trainers
+SafariZoneNorthTrainerHeader0:
+	trainer EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0, 0, GiovanniSafariBeforeBattleText, GiovanniSafariEndBattleText, GiovanniSafariAfterBattleText
+	db -1 ; end
 
 SafariZoneNorthText3:
 	text_far _SafariZoneNorthText3
@@ -41,36 +89,22 @@ SafariZoneNorthText7:
 	text_far _SafariZoneNorthText7
 	text_end
 
-; new ------------------------------------------------
+; --------------------
 
-SafariZoneNorthTextGiovanni:
+GiovanniSafariText1:
 	text_asm
-	ld hl, SafariZoneNorthGiovanniBeforeBattleText
-	call PrintText
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-
-	call Delay3
-	ld a, OPP_GIOVANNI
-	ld [wCurOpponent], a
-
-	ld a, 4
-	ld [wTrainerNo], a
-
-	ld hl, SafariZoneNorthGiovanniPostBattleText
-	ld de, SafariZoneNorthGiovanniPostBattleText
-	call SaveEndBattleTextPointers
+	ld hl, SafariZoneNorthTrainerHeader0
+	call TalkToTrainer
 	jp TextScriptEnd
 
-SafariZoneNorthGiovanniBeforeBattleText:
-	text_far _SafariZoneNorthGiovanniBeforeBattleText
+GiovanniSafariBeforeBattleText:
+	text_far _GiovanniSafariBeforeBattleText
 	text_end
 
-SafariZoneNorthGiovanniPostBattleText:
-	text_far _SafariZoneNorthGiovanniPostBattleText
+GiovanniSafariEndBattleText:
+	text_far _GiovanniSafariEndBattleText
+	text_end
+
+GiovanniSafariAfterBattleText:
+	text_far _GiovanniSafariAfterBattleText
 	text_end

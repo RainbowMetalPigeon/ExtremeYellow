@@ -133,6 +133,7 @@ InitOptions:
 	xor a ; new
 	ld [wLevelScaling], a ; new
 	ld [wExpGainOption], a ; new
+	ld [wBadgeBoostOption], a ; new
 	ret
 
 Func_5cc1:

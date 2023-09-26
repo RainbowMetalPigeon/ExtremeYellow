@@ -314,35 +314,35 @@ SpecialTrainerMoves:
 
 	db KOGA, 1
 	; MUK
-	db 1, 1, FEINT_ATTACK
-	db 1, 2, ENERGY_BALL
-	db 1, 3, NO_MOVE
-	db 1, 4, NO_MOVE
+	db 1, 1, TOXIC
+	db 1, 2, MINIMIZE
+	db 1, 3, DIG ; FIRE_BLAST?
+;	db 1, 4, GUNK_SHOT
 	; BEEDRILL
-	db 2, 1, HEAT_WAVE
-	db 2, 2, CRUNCH
-	db 2, 3, NO_MOVE
-	db 2, 4, NO_MOVE
+	db 2, 1, SWORDS_DANCE
+	db 2, 2, X_SCISSOR
+	db 2, 3, ROOST
+;	db 2, 4, SLUDGE_WAVE
 	; VENOMOTH
-	db 3, 1, NIGHT_SLASH
-	db 3, 2, DARK_PULSE
-	db 3, 3, NO_MOVE
-	db 3, 4, NO_MOVE
+	db 3, 1, STUN_SPORE
+	db 3, 2, SLEEP_POWDER
+	db 3, 3, LEECH_LIFE
+	db 3, 4, PSYCHIC_M
 	; TENTACRUEL
-	db 4, 1, ZAP_CANNON
-	db 4, 2, SHOCK_WAVE
-	db 4, 3, NO_MOVE
-	db 4, 4, NO_MOVE
+	db 4, 1, TOXIC ; ACID_ARMOR? (default)
+	db 4, 2, ICE_BEAM
+;	db 4, 3, SURF
+;	db 4, 4, SLUDGE_WAVE
 	; CROBAT
-	db 5, 1, EXTREMESPEED
-	db 5, 2, SHADOW_PUNCH
-	db 5, 3, NO_MOVE
-	db 5, 4, NO_MOVE
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, SUPER_FANG
+	db 5, 3, DOUBLE_TEAM
+	db 5, 4, LEECH_LIFE ; ROOST?
 	; WEEZING
-	db 6, 1, PSYCHO_CUT
-	db 6, 2, HYDRO_CANNON
-	db 6, 3, NO_MOVE
-	db 6, 4, NO_MOVE
+;	db 6, 1, SLUDGE_WAVE
+	db 6, 2, SMOKESCREEN
+;	db 6, 3, FLAMETHROWER
+;	db 6, 4, EXPLOSION
 	db 0
 
 	db BLAINE, 1
@@ -981,6 +981,72 @@ SpecialTrainerMoves:
 	db 6, 2, FRENZY_PLANT
 	db 6, 3, GUNK_SHOT
 	db 6, 4, ZEN_HEADBUTT
+	db 0
+
+	db ORAGE, 1
+	; BLISSEY
+	db 1, 1, SOFTBOILED
+	db 1, 2, ICE_BEAM
+	db 1, 3, REFLECT
+	db 1, 4, THUNDER_WAVE
+	; DODRIO
+	db 2, 1, BRAVE_BIRD
+;	db 2, 2, SWORDS_DANCE
+	db 2, 3, ROOST
+	db 2, 4, STEEL_WING
+	; PINSIR
+	db 3, 1, EARTHQUAKE
+	db 3, 2, STONE_EDGE
+;	db 3, 3, SWORDS_DANCE
+	db 3, 4, X_SCISSOR
+	; SCIZOR
+;	db 4, 1, BULLET_PUNCH
+	db 4, 2, ROOST ; ?
+;	db 4, 3, X_SCISSOR
+	db 4, 4, SWORDS_DANCE ; ?
+	; UMBREON
+	db 5, 1, PSYCHIC_M
+	db 5, 2, CONFUSE_RAY
+;	db 5, 3, DARK_PULSE
+	db 5, 4, REST
+	; SYLVEON
+	db 6, 1, REFLECT
+;	db 6, 2, DRAININGKISS
+	db 6, 3, MAGICAL_LEAF
+	db 6, 4, DIG ; ? weakness coverage, but Sylveon has poor attack
+	db 0
+
+	db PIGEON, 1
+	; PIDGEY
+;	db 1, 1, NO_MOVE
+;	db 1, 2, NO_MOVE
+;	db 1, 3, NO_MOVE
+;	db 1, 4, NO_MOVE
+	; DRAGONAIR
+;	db 2, 1, NO_MOVE
+;	db 2, 2, NO_MOVE
+;	db 2, 3, NO_MOVE
+;	db 2, 4, NO_MOVE
+	; HAUNTER
+;	db 3, 1, NO_MOVE
+;	db 3, 2, NO_MOVE
+;	db 3, 3, NO_MOVE
+;	db 3, 4, NO_MOVE
+	; PORYGON
+;	db 4, 1, NO_MOVE
+;	db 4, 2, NO_MOVE
+;	db 4, 3, NO_MOVE
+;	db 4, 4, NO_MOVE
+	; MMEWTWOY
+;	db 5, 1, NO_MOVE
+;	db 5, 2, NO_MOVE
+;	db 5, 3, NO_MOVE
+;	db 5, 4, NO_MOVE
+	; MAGIKARP
+	db 6, 1, ANCESTOR_PWR
+	db 6, 2, NO_MOVE
+	db 6, 3, NO_MOVE
+	db 6, 4, NO_MOVE
 	db 0
 
 	db -1 ; end

@@ -1593,7 +1593,7 @@ BallShakeAnim:
 	db -1 ; end
 
 BallPoofAnim:
-	battle_anim NO_MOVE, SUBANIM_0A, 0, 4
+	battle_anim NO_MOVE, SUBANIM_0A, 0, 1 ; edited, the delay was 4
 	db -1 ; end
 
 ShowPicAnim:

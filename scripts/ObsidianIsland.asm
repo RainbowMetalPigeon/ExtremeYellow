@@ -3,8 +3,8 @@ ObsidianIsland_Script:
 
 ObsidianIsland_TextPointers:
 	dw ObsidianIslandTextTest ; welcome
-	dw MartSignText
 	dw PokeCenterSignText
+	dw MartSignText
 	dw ObsidianIslandTextTest ; pier
 	dw ObsidianIslandTextTest ; forest
 	dw ObsidianIslandTextTest ; forest

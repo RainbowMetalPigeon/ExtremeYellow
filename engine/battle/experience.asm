@@ -248,8 +248,12 @@ GainExperience:
 	call CallBattleCore
 	ld hl, ApplyBurnAndParalysisPenaltiesToPlayer
 	call CallBattleCore
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	and a						; new code to handle the badge boost option
+	jr z, .noBadgeBoost			; new code to handle the badge boost option
 	ld hl, ApplyBadgeStatBoosts
 	call CallBattleCore
+.noBadgeBoost					; new code to handle the badge boost option
 	ld hl, DrawPlayerHUDAndHPBar
 	call CallBattleCore
 	ld hl, PrintEmptyString
