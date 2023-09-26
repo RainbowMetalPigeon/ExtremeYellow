@@ -8,7 +8,7 @@ MapSpriteSets:
 	db $04 ; VERMILION_CITY
 	db $05 ; CELADON_CITY
 	db $08 ; OCHRE_CITY, new, moved
-	db $0a ; FUCHSIA_CITY
+	db $0b ; FUCHSIA_CITY ; edited, it was $0a
 	db $02 ; OBSIDIAN_ISLAND, new, testing, may need to change it
 	db $01 ; CINNABAR_ISLAND
 	db $06 ; INDIGO_PLATEAU
@@ -59,7 +59,7 @@ SplitMapSpriteSets:
 	db EAST_WEST,    8, $0A, $08 ; $f5
 	db EAST_WEST,   24, $09, $05 ; $f6
 	db EAST_WEST,   34, $09, $0A ; $f7
-	db EAST_WEST,   53, $01, $0A ; $f8
+	db EAST_WEST,   53, $01, $0B ; $f8 ; edited, 0B was 0A
 	db NORTH_SOUTH, 33, $02, $07 ; $f9
 	db NORTH_SOUTH,  2, $07, $04 ; $fa
 	db EAST_WEST,   17, $05, $07 ; $fb
@@ -209,6 +209,21 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_COOLTRAINER_M ; maybe remove?
+	db SPRITE_CHANSEY
+	db SPRITE_FISHER
+	db SPRITE_GAMBLER
+	db SPRITE_MONSTER
+	db SPRITE_SEEL
+	db SPRITE_SWIMMER
+	db SPRITE_YOUNGSTER
+	db SPRITE_POKE_BALL
+	db SPRITE_FOSSIL
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $0b ; new, copy of $0a with the addition of Misty
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BRUNETTE_GIRL ; for Misty
 	db SPRITE_CHANSEY
 	db SPRITE_FISHER
 	db SPRITE_GAMBLER

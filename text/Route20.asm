@@ -154,3 +154,17 @@ _Route20Text12::
 _Route20Text11::
 	text "SEAFOAM ISLANDS"
 	done
+
+; new ------------------------------------------------
+
+_Route20MistyBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_Route20MistyPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "ERIKA: " extra space
+	line "for the battle!"
+	prompt

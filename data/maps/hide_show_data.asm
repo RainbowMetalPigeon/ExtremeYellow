@@ -35,7 +35,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw Route20HS ; new because of Misty
 	dw Route21HS ; new because of Oak
 	dw Route22HS
 	dw NoHS
@@ -321,6 +321,8 @@ Route15HS:
 	db ROUTE_15, $0B, SHOW
 Route16HS:
 	db ROUTE_16, $07, SHOW
+Route20HS:
+	db ROUTE_20, $01, HIDE ; new because of Misty
 Route21HS:
 	db ROUTE_21, $01, HIDE ; new because of Oak
 Route22HS:
@@ -600,10 +602,11 @@ SeafoamIslandsB3FHS:
 	db SEAFOAM_ISLANDS_B3F, $03, SHOW
 	db SEAFOAM_ISLANDS_B3F, $05, HIDE
 	db SEAFOAM_ISLANDS_B3F, $06, HIDE
-SeafoamIslandsB4FHS:
+SeafoamIslandsB4FHS: ; edited because of rematch Lorelei
 	db SEAFOAM_ISLANDS_B4F, $01, HIDE
 	db SEAFOAM_ISLANDS_B4F, $02, HIDE
-	db SEAFOAM_ISLANDS_B4F, $03, SHOW
+	db SEAFOAM_ISLANDS_B4F, $03, HIDE
+	db SEAFOAM_ISLANDS_B4F, $04, SHOW
 ;BluesHouseHSCopy: ; unreferenced, edited, commented out
 ;	db BLUES_HOUSE, $01, SHOW, edited, commented out
 ;	db BLUES_HOUSE, $02, HIDE, edited, commented out

@@ -135,6 +135,14 @@ HallofFameRoomScript1:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 
+	ld a, HS_SEAFOAM_ISLANDS_B4F_LORELEI ; Lorelei in Seafoam Island B4F
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
+	ld a, HS_ROUTE_20_MISTY ; Misty in Route 20
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
 ; ----- new HS, end -----
 
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new

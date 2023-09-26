@@ -349,7 +349,7 @@ GetSplitMapSpriteSetID:
 	ret c
 	ld a, [hl]
 	cp $3e
-	ld a, $0a
+	ld a, $0b ; edited for rematch Misty
 	ret nc
 	ld a, [hl]
 	cp $37
@@ -359,7 +359,7 @@ GetSplitMapSpriteSetID:
 .next
 	ld a, [wYCoord]
 	cp b
-	ld a, $0a
+	ld a, $0b ; edited for rematch Misty
 	ret c
 	ld a, $01
 	ret

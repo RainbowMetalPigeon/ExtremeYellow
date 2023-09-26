@@ -456,6 +456,7 @@
 
 ; Route 20 events
 	const_next $500
+	const_skip ; edited because of rematch Misty
 	const EVENT_IN_SEAFOAM_ISLANDS
 	const EVENT_BEAT_ROUTE_20_TRAINER_0
 	const EVENT_BEAT_ROUTE_20_TRAINER_1
@@ -467,7 +468,7 @@
 	const EVENT_BEAT_ROUTE_20_TRAINER_7
 	const EVENT_BEAT_ROUTE_20_TRAINER_8
 	const EVENT_BEAT_ROUTE_20_TRAINER_9
-	const_skip 3
+	const_skip 2 ; edited because of rematch Misty
 	const EVENT_SEAFOAM1_BOULDER1_DOWN_HOLE
 	const EVENT_SEAFOAM1_BOULDER2_DOWN_HOLE
 

@@ -62,6 +62,7 @@ Route20_ScriptPointers:
 	dw EndTrainerBattle
 
 Route20_TextPointers:
+	dw Route20TextMisty
 	dw Route20Text1
 	dw Route20Text2
 	dw Route20Text3
@@ -76,7 +77,7 @@ Route20_TextPointers:
 	dw Route20Text12
 
 Route20TrainerHeaders:
-	def_trainers
+	def_trainers 2 ; edited because of rematch Misty
 Route20TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_20_TRAINER_0, 4, Route20BattleText1, Route20EndBattleText1, Route20AfterBattleText1
 Route20TrainerHeader1:
@@ -282,4 +283,42 @@ Route20AfterBattleText10:
 Route20Text12:
 Route20Text11:
 	text_far _Route20Text11
+	text_end
+
+; new ------------------------------------------------
+
+Route20TextMisty:
+	text_asm
+	ld hl, Route20MistyBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_MISTY
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, Route20MistyPostBattleText
+	ld de, Route20MistyPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+Route20MistyBeforeBattleText:
+	text_far _Route20MistyBeforeBattleText
+	text_end
+
+Route20MistyPostBattleText:
+	text_far _Route20MistyPostBattleText
 	text_end

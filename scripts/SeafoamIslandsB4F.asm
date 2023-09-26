@@ -132,6 +132,7 @@ SeaFoamIslands5Script_46872:
 	jp ForceBikeOrSurf
 
 SeafoamIslandsB4F_TextPointers:
+	dw SeafoamIslandB4FTextLorelei ; new
 	dw BoulderText
 	dw BoulderText
 	dw ArticunoText
@@ -168,4 +169,42 @@ SeafoamIslands5Text4:
 
 SeafoamIslands5Text5:
 	text_far _SeafoamIslands5Text5
+	text_end
+
+; new ------------------------------------------------
+
+SeafoamIslandB4FTextLorelei:
+	text_asm
+	ld hl, SeafoamIslandB4FLoreleiBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_LORELEI
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, SeafoamIslandB4FLoreleiPostBattleText
+	ld de, SeafoamIslandB4FLoreleiPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+SeafoamIslandB4FLoreleiBeforeBattleText:
+	text_far _SeafoamIslandB4FLoreleiBeforeBattleText
+	text_end
+
+SeafoamIslandB4FLoreleiPostBattleText:
+	text_far _SeafoamIslandB4FLoreleiPostBattleText
 	text_end

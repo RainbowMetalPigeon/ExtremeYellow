@@ -123,7 +123,7 @@ _ViridianForestText10::
 _ViridianForestText11::
 	text "TRAINER TIPS"
 
-	para "Contact PROF.Erika"
+	para "Contact PROF.OAK"
 	line "via PC to get"
 	cont "your #DEX"
 	cont "evaluated!"

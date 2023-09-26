@@ -47,6 +47,7 @@ DEF SHOW EQU $15
 	const HS_ROUTE_12_ITEM_2               ; 20
 	const HS_ROUTE_15_ITEM                 ; 21
 	const HS_ROUTE_16_SNORLAX              ; 22
+	const HS_ROUTE_20_MISTY				   ; new
 	const HS_ROUTE_21_OAK				   ; new
 	const HS_ROUTE_22_RIVAL_1              ; 23
 	const HS_ROUTE_22_RIVAL_2              ; 24
@@ -261,6 +262,7 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B3F_BOULDER_2 ; E6
 	const HS_SEAFOAM_ISLANDS_B3F_BOULDER_3 ; E7
 	const HS_SEAFOAM_ISLANDS_B3F_BOULDER_4 ; E8
+	const HS_SEAFOAM_ISLANDS_B4F_LORELEI   ; new
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E9
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
