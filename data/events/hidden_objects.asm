@@ -26,7 +26,8 @@ HiddenObjectMaps:
 	dbw POWER_PLANT,                  PowerPlantHiddenObjects
 	dbw ROUTE_11,                     Route11HiddenObjects
 	dbw ROUTE_12,                     Route12HiddenObjects
-	dbw ROUTE_13,                     Route13HiddenObjects
+	dbw ROUTE_13,                     Route13HiddenObjects ; edited
+	dbw ROUTE_14,                     Route14HiddenObjects ; new
 	dbw ROUTE_15_GATE_2F,             Route15Gate2FHiddenObjects
 	dbw ROUTE_17,                     Route17HiddenObjects
 	dbw ROUTE_23,                     Route23HiddenObjects
@@ -221,9 +222,15 @@ Route12HiddenObjects:
 	hidden_object  2, 63, HYPER_POTION, HiddenItems
 	db -1 ; end
 
-Route13HiddenObjects:
-	hidden_object  1, 14, PP_UP, HiddenItems
-	hidden_object 16, 13, CALCIUM, HiddenItems
+Route13HiddenObjects: ; edited
+	hidden_object 13,  6, PP_UP, HiddenItems
+	hidden_object  1,  4, CALCIUM, HiddenItems
+	db -1 ; end
+
+Route14HiddenObjects: ; new
+	hidden_object 15,  8, RARE_CANDY, HiddenItems
+	hidden_object 14,  9, NUGGET, HiddenItems
+	hidden_object 16, 37, ULTRA_BALL, HiddenItems
 	db -1 ; end
 
 Route15Gate2FHiddenObjects:

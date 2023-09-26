@@ -1,5 +1,5 @@
 OchreCity_Object:
-	db $f ; border block
+	db $43 ; border block
 
 	def_warp_events
 	warp_event  9,  9, REDS_HOUSE_1F, 1 ; 1, to edit - house 1
