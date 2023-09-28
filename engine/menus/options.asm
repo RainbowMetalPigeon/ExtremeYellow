@@ -79,39 +79,39 @@ OptionsMenu_TextSpeed:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 14, 2
+	hlcoord 12, 2 ; edited
 	call PlaceString
 	and a
 	ret
 
-TextSpeedStringsPointerTable:
+TextSpeedStringsPointerTable: ; edited
+	dw InstantText
 	dw FastText
 	dw MidText
-	dw SlowText
 
+InstantText: ; edited
+	db "INSTANT@"
 FastText:
-	db "FAST@"
+	db "FAST   @"
 MidText:
-	db "MID @"
-SlowText:
-	db "SLOW@"
+	db "MID    @"
 
 GetTextSpeed:
 	ld a, [wOptions]
 	and $f
 	cp $5
-	jr z, .slowTextOption
+	jr z, .midTextOption
 	cp $1
-	jr z, .fastTextOption
-; mid text option
+	jr z, .instantTextOption
+; fast text option
 	ld c, $1
 	lb de, 1, 5
 	ret
-.slowTextOption
+.midTextOption
 	ld c, $2
 	lb de, 3, 1
 	ret
-.fastTextOption
+.instantTextOption
 	ld c, $0
 	lb de, 5, 3
 	ret
@@ -137,7 +137,7 @@ OptionsMenu_BattleAnimations:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 14, 4
+	hlcoord 12, 4 ; edited
 	call PlaceString
 	and a
 	ret
@@ -612,8 +612,8 @@ InitOptionsMenu:
 	ret
 
 AllOptionsText:
-	db "TEXT SPEED :"
-	next "ANIMATION  :"
+	db "TXT SPEED:" ; edited
+	next "ANIMATION:" ; edited
 	next "BATTLESTYLE:"
 	next "SOUND:"
 	next "BADGE BST:" ; new, it was PRINT

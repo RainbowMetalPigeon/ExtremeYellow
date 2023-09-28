@@ -485,6 +485,10 @@ HeightWeightText:
 	db   "HT   ???<M>"
 	next "WT   ???<K><G>@"
 
+HeightWeightTextEEternatus: ; new, to handle EEternatus
+	db   "HT 100.0<M>"
+	next "WT 950.0<K><G>@"
+
 ; XXX does anything point to this?
 PokeText:
 	db "#@"
@@ -654,6 +658,24 @@ DrawDexEntryOnScreen:
 	ldh [hDexWeight], a ; restore original value of [hDexWeight]
 	pop hl
 	inc hl ; hl = address of pokedex description text
+
+	; new, to handle EEternatus
+	push af
+	ld a, [wd11e]
+	cp EETERNATUS
+	jr nz, .normalInfoPrinter
+	push bc
+	push de
+	push hl
+	hlcoord 9, 6
+	ld de, HeightWeightTextEEternatus
+	call PlaceString
+	pop hl
+	pop de
+	pop bc
+.normalInfoPrinter
+	pop af
+
 	scf
 	ret
 

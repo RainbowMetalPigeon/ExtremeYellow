@@ -1662,7 +1662,7 @@ MRayquazaDexEntry:
 
 EEternatusDexEntry:
 	db "GIGANTIC@"
-	db 1000 ; buggy
+	db 1 ; placeholder for 1000, handled by the pokedex code
 	dw 9500
 	text_far _EEternatusDexEntry
 	text_end

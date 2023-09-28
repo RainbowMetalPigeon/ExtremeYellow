@@ -1953,9 +1953,9 @@ wRivalName:: ds NAME_LENGTH
 ; 0: Shift
 ; 1: Set
 ; bits 0-3 = text speed (number of frames to delay after printing a letter)
-; 1: Fast
-; 3: Medium
-; 5: Slow
+; 1: Instant
+; 3: Fast
+; 5: Medium
 wOptions:: db
 
 wObtainedBadges:: flag_array NUM_BADGES
