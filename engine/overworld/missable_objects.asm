@@ -17,11 +17,42 @@ MarkTownVisitedAndLoadMissableObjects::
 	ld h, [hl]
 	ld l, a
 	push hl
+
+; new block of code for splitting the HS
+	ld de, MissableObjectsExtra
+	ld a, d
+	sub h
+	jr c, .useExtra
+	jr nz, .useNormal
+	ld a, e
+	sub l
+	jr z, .useExtra
+	jr c, .useExtra
+.useNormal
+	ResetEventA EVENT_USE_EXTRA_HIDESHOW
+;	ld de, MissableObjectsBase
 	ld a, l
-	sub LOW(MissableObjects)   ; calculate difference between out pointer and the base pointer
+	sub LOW(MissableObjectsBase)   ; calculate difference between out pointer and the base pointer
 	ld l, a
 	ld a, h
-	sbc HIGH(MissableObjects)
+	sbc HIGH(MissableObjectsBase)
+	jr .addressSelected
+.useExtra
+	SetEventA EVENT_USE_EXTRA_HIDESHOW
+	ld a, l
+	sub LOW(MissableObjectsExtra)   ; calculate difference between out pointer and the base pointer
+	ld l, a
+	ld a, h
+	sbc HIGH(MissableObjectsExtra)
+.addressSelected
+
+; commented away for splitting the HS
+;	ld a, l
+;	sub LOW(MissableObjects)   ; calculate difference between out pointer and the base pointer
+;	ld l, a
+;	ld a, h
+;	sbc HIGH(MissableObjects)
+
 	ld h, a
 	ld a, h
 	ldh [hDividend], a
@@ -65,19 +96,51 @@ InitializeMissableObjectsFlags:
 	ld bc, wMissableObjectFlagsEnd - wMissableObjectFlags
 	xor a
 	call FillMemory ; clear missable objects flags
-	ld hl, MissableObjects
+	ld hl, MissableObjectsBase ; edited for splitting the HS
 	xor a
 	ld [wMissableObjectCounter], a
 .missableObjectsLoop
 	ld a, [hli]
 	cp -1           ; end of list
-	ret z
+;	ret z ; commented for splitting the HS
+	jr z, InitializeMissableObjectsFlagsExtra ; new for splitting the HS
 	push hl
 	inc hl
 	ld a, [hl]
 	cp HIDE
 	jr nz, .skip
 	ld hl, wMissableObjectFlags
+	ld a, [wMissableObjectCounter]
+	ld c, a
+	ld b, FLAG_SET
+	call MissableObjectFlagAction ; set flag if Item is hidden
+.skip
+	ld hl, wMissableObjectCounter
+	inc [hl]
+	pop hl
+	inc hl
+	inc hl
+	jr .missableObjectsLoop
+
+; new function for splitting the HS
+InitializeMissableObjectsFlagsExtra:
+	ld hl, wMissableObjectFlagsExtra
+	ld bc, wMissableObjectFlagsExtraEnd - wMissableObjectFlagsExtra
+	xor a
+	call FillMemory ; clear missable objects flags
+	ld hl, MissableObjectsExtra
+	xor a
+	ld [wMissableObjectCounter], a
+.missableObjectsLoop
+	ld a, [hli]
+	cp $ff          ; end of list
+	ret z
+	push hl
+	inc hl
+	ld a, [hl]
+	cp HIDE
+	jr nz, .skip
+	ld hl, wMissableObjectFlagsExtra
 	ld a, [wMissableObjectCounter]
 	ld c, a
 	ld b, FLAG_SET
@@ -105,7 +168,11 @@ IsObjectHidden:
 	jr nz, .loop
 	ld c, a
 	ld b, FLAG_TEST
+	CheckEvent EVENT_USE_EXTRA_HIDESHOW		; new for splitting HS
 	ld hl, wMissableObjectFlags
+	jr z, .callAction						; new for splitting HS
+	ld hl, wMissableObjectFlagsExtra		; new for splitting HS
+.callAction									; new for splitting HS
 	call MissableObjectFlagAction
 	ld a, c
 	and a
@@ -118,9 +185,16 @@ IsObjectHidden:
 
 ; adds missable object (items, leg. pokemon, etc.) to the map
 ; [wMissableObjectIndex]: index of the missable object to be added (global index)
-ShowObject:
-ShowObject2:
+ShowObject: ; edited for splitting HS
+;ShowObject2: ; removed, useless?
 	ld hl, wMissableObjectFlags
+	jr ShowObjectCommon
+
+ShowObjectExtra: ; new for splitting HS
+	ld hl, wMissableObjectFlagsExtra
+	jr ShowObjectCommon
+
+ShowObjectCommon: ; new for splitting HS
 	ld a, [wMissableObjectIndex]
 	ld c, a
 	ld b, FLAG_RESET
@@ -129,8 +203,15 @@ ShowObject2:
 
 ; removes missable object (items, leg. pokemon, etc.) from the map
 ; [wMissableObjectIndex]: index of the missable object to be removed (global index)
-HideObject:
+HideObject: ; edited for splitting HS
 	ld hl, wMissableObjectFlags
+	jr HideObjectCommon
+
+HideObjectExtra: ; new for splitting HS
+	ld hl, wMissableObjectFlagsExtra
+	jr HideObjectCommon
+
+HideObjectCommon: ; new for splitting HS
 	ld a, [wMissableObjectIndex]
 	ld c, a
 	ld b, FLAG_SET

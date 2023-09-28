@@ -26,10 +26,10 @@ SeafoamIslandsB3F_Script:
 .asm_465c4
 	ld a, [wObjectToHide]
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra ; edited, new HS function
 	ld a, [wObjectToShow]
 	ld [wMissableObjectIndex], a
-	predef ShowObject
+	predef ShowObjectExtra ; edited, new HS function
 	jr .asm_465ed
 .asm_465dc
 	ld a, SEAFOAM_ISLANDS_B4F

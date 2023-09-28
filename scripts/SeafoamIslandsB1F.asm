@@ -26,10 +26,10 @@ SeafoamIslandsB1F_Script:
 .asm_4634c
 	ld a, [wObjectToHide]
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra ; edited, new HS function
 	ld a, [wObjectToShow]
 	ld [wMissableObjectIndex], a
-	predef_jump ShowObject
+	predef_jump ShowObjectExtra ; edited, new HS function
 .asm_46362
 	ld a, SEAFOAM_ISLANDS_B2F
 	ld [wDungeonWarpDestinationMap], a

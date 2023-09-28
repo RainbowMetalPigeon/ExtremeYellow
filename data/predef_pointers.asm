@@ -28,11 +28,13 @@ PredefPointers::
 	add_predef InitPlayerData
 	add_predef FlagActionPredef
 	add_predef HideObject
+	add_predef HideObjectExtra ; new for splitting HS
 	add_predef IsObjectHidden
 	add_predef ApplyOutOfBattlePoisonDamage
 	add_predef AnyPartyAlive
 	add_predef ShowObject
-	add_predef ShowObject2
+;	add_predef ShowObject2 ; never used?
+	add_predef ShowObjectExtra ; new for splitting HS
 	add_predef ReplaceTileBlock
 	add_predef InitPlayerData2
 	add_predef LoadTilesetHeader

@@ -133,11 +133,11 @@ HallofFameRoomScript1:
 
 	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI ; Giovanni in the Safari Zone
 	ld [wMissableObjectIndex], a
-	predef ShowObject
+	predef ShowObjectExtra ; edited, new HS function
 
 	ld a, HS_SEAFOAM_ISLANDS_B4F_LORELEI ; Lorelei in Seafoam Island B4F
 	ld [wMissableObjectIndex], a
-	predef ShowObject
+	predef ShowObjectExtra ; edited, new HS function
 
 	ld a, HS_ROUTE_20_MISTY ; Misty in Route 20
 	ld [wMissableObjectIndex], a

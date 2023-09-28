@@ -178,6 +178,15 @@ ENDM
 
 
 ;\1 = event index
+; new for splitting HS
+MACRO SetEventA
+	ld a, [wEventFlags + ((\1) / 8)]
+	set (\1) % 8, a
+	ld [wEventFlags + ((\1) / 8)], a
+ENDM
+
+
+;\1 = event index
 MACRO SetEventReuseHL
 	IF event_byte != ((\1) / 8)
 		DEF event_byte = ((\1) / 8)
@@ -226,6 +235,15 @@ MACRO ResetEvent
 	DEF event_byte = ((\1) / 8)
 	ld hl, wEventFlags + event_byte
 	res (\1) % 8, [hl]
+ENDM
+
+
+;\1 = event index
+; new for splitting HS
+MACRO ResetEventA
+	ld a, [wEventFlags + ((\1) / 8)]
+	res (\1) % 8, a
+	ld [wEventFlags + ((\1) / 8)], a
 ENDM
 
 

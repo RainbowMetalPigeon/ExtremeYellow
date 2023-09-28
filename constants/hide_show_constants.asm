@@ -4,8 +4,9 @@ DEF SHOW EQU $15
 ; MissableObjects indexes (see data/maps/hide_show_data.asm)
 ; this is a list of the sprites that can be enabled/disabled during the game
 ; TODO: mark sprite constants with an X that are never used
+; new: this first block now corresponds to MissableObjectsBase
 
-	const_def
+	const_def							   ; equivalent to "const_value=0"
 	const HS_PALLET_TOWN_OAK               ; 00
 	const HS_LYING_OLD_MAN                 ; 01
 	const HS_OLD_MAN_1                     ; 02
@@ -219,7 +220,12 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_11F_JAMES            ; BC
 	const HS_SILPH_CO_11F_2                ; BD Rocket grunt
 	const HS_SILPH_CO_11F_JESSIE           ; BE
-;	const HS_UNUSED_MAP_F4_1               ; BF XXX sprite doesn't exist ; edited, removed
+;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
+
+; --- start of the variables moved to the extra block ---
+
+; new ; this block now corresponds to MissableObjectsExtra
+	const_def							   ; equivalent to "const_value=0" ; TODO: verify that this works as intended
 	const HS_POKEMON_MANSION_2F_ITEM       ; C0
 	const HS_POKEMON_MANSION_3F_ITEM_1     ; C1
 	const HS_POKEMON_MANSION_3F_ITEM_2     ; C2
@@ -266,7 +272,3 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E9
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
-;	const HS_DAISY_SITTING_COPY            ; EC, edited, commented out
-;	const HS_DAISY_WALKING_COPY            ; ED, edited, commented out
-;	const HS_TOWN_MAP_COPY                 ; EE, edited, commented out
-DEF NUM_HS_OBJECTS EQU const_value

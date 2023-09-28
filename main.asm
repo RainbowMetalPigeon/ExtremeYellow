@@ -49,7 +49,7 @@ INCLUDE "engine/overworld/daycare_exp.asm"
 INCLUDE "data/maps/hide_show_data.asm"
 INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/menus/draw_badges.asm"
+;INCLUDE "engine/menus/draw_badges.asm" ; moved to bankGarage
 INCLUDE "engine/overworld/update_map.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/missable_objects.asm"
@@ -68,6 +68,11 @@ INCLUDE "engine/events/hidden_objects/book_or_sculpture.asm"
 INCLUDE "engine/events/hidden_objects/elevator.asm"
 INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
+
+
+SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks
+
+INCLUDE "engine/menus/draw_badges.asm" ; moved from bank3
 
 
 SECTION "bank4", ROMX

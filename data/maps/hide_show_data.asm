@@ -262,9 +262,9 @@ MapHSPointers:
 NoHS:
 	db $FF, $FF, $FF
 
-MissableObjects:
+MissableObjectsBase: ; edited, now it's the "Base" block
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
-	table_width 3, MissableObjects
+	table_width 3, MissableObjectsBase ; edited, now it's the "Base" block
 ; format: map id, object id, HIDE/SHOW
 
 PalletTownHS:
@@ -481,6 +481,7 @@ RocketHideoutB4FHS:
 	db ROCKET_HIDEOUT_B4F, $07, SHOW
 	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Silph Scope
 	db ROCKET_HIDEOUT_B4F, $09, HIDE ; Lift Key
+	db $FF, $01, SHOW ; end, list terminator
 SilphCo2FHS:
 	db SILPH_CO_2F, $01, SHOW
 	db SILPH_CO_2F, $02, SHOW
@@ -543,8 +544,14 @@ SilphCo11FHS:
 	db SILPH_CO_11F, $04, SHOW
 	db SILPH_CO_11F, $05, SHOW ; Rocket grunt
 	db SILPH_CO_11F, $06, SHOW
-;UnusedMapF4HS:						; edited, removed
-;	db UNUSED_MAP_F4, $02, SHOW		; edited, removed
+;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
+
+; --- start of the variables moved to the extra block ---
+
+MissableObjectsExtra: ; new, it's the "Extra" block
+; entries correspond to HS_* constants (see constants/hide_show_constants)
+	table_width 3, MissableObjectsExtra ; new, it's the "Extra" block
+; format: map id, object id, HIDE/SHOW
 PokemonMansion2FHS:
 	db POKEMON_MANSION_2F, $02, SHOW
 PokemonMansion3FHS:
@@ -607,9 +614,4 @@ SeafoamIslandsB4FHS: ; edited because of rematch Lorelei
 	db SEAFOAM_ISLANDS_B4F, $02, HIDE
 	db SEAFOAM_ISLANDS_B4F, $03, HIDE
 	db SEAFOAM_ISLANDS_B4F, $04, SHOW
-;BluesHouseHSCopy: ; unreferenced, edited, commented out
-;	db BLUES_HOUSE, $01, SHOW, edited, commented out
-;	db BLUES_HOUSE, $02, HIDE, edited, commented out
-;	db BLUES_HOUSE, $03, SHOW, edited, commented out
-	db $FF, $01, SHOW ; end
-	assert_table_length NUM_HS_OBJECTS + 1
+	db $FF, $01, SHOW ; end, list terminator

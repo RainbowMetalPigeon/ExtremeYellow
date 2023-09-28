@@ -32,7 +32,13 @@ PickUpItem:
 
 	ldh a, [hMissableObjectIndex]
 	ld [wMissableObjectIndex], a
+	CheckEvent EVENT_USE_EXTRA_HIDESHOW ; new
+	jr nz, .hideExtra 					; new
 	predef HideObject
+	jr .hidden							; new
+.hideExtra								; new
+	predef HideObjectExtra				; new
+.hidden									; new
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, FoundItemText

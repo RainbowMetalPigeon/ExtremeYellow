@@ -50,6 +50,7 @@ DEF START_MONEY EQU $3000
 	ld bc, wGameProgressFlagsEnd - wGameProgressFlags
 	call FillMemory ; clear all game progress flags
 
+	call InitializeMissableObjectsFlagsExtra ; new for splitting HS
 	jp InitializeMissableObjectsFlags
 
 InitializeEmptyList:

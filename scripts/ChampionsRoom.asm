@@ -149,7 +149,7 @@ GaryScript4:
 	call MoveSprite
 	ld a, HS_CHAMPIONS_ROOM_OAK
 	ld [wMissableObjectIndex], a
-	predef ShowObject
+	predef ShowObjectExtra ; edited, new HS function
 	ld a, $5
 	ld [wChampionsRoomCurScript], a
 	ret

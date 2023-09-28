@@ -2186,6 +2186,11 @@ wPlayerCoins:: ds 2 ; BCD
 wMissableObjectFlags:: flag_array $100
 wMissableObjectFlagsEnd::
 
+; new for splitting HS - TODO: may break a lot of stuff because 100 bits are a lot (...)
+; bit array of missable objects. set = removed
+wMissableObjectFlagsExtra:: flag_array $50 ; $50 = 80 new HS variables, may need to expand if I add more variables
+wMissableObjectFlagsExtraEnd::
+
 ;	ds 7		; new - commented to try to save space to be able to add all new mons
 
 ; temp copy of SPRITESTATEDATA1_IMAGEINDEX (used for sprite facing/anim)

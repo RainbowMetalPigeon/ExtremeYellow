@@ -47,7 +47,7 @@ SafariZoneNorthScript2:
 	call GBFadeOutToBlack
 	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra ; edited, new HS function
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
