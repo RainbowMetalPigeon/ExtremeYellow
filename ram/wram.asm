@@ -2239,7 +2239,10 @@ wRoute22GateCurScript:: db
 wCeruleanCityCurScript:: db
 wRoute26CurScript:: db ; new
 wSafariZoneNorthCurScript:: db ; new
-	ds 5 ; was 7
+wObsidianWoodCurScript:: db ; new
+wObsidianWarehouseCurScript:: db ; new
+wObsidianWarehouseFinalCurScript:: db ; new
+	ds 2 ; was 7
 wSSAnneBowCurScript:: db
 wViridianForestCurScript:: db
 wMuseum1FCurScript:: db

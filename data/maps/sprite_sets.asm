@@ -8,7 +8,7 @@ MapSpriteSets:
 	db $04 ; VERMILION_CITY
 	db $05 ; CELADON_CITY
 	db $08 ; OCHRE_CITY, new, moved
-	db $0b ; FUCHSIA_CITY ; edited, it was $0a
+	db $0c ; FUCHSIA_CITY ; edited, it was $0a
 	db $02 ; OBSIDIAN_ISLAND, new, testing, may need to change it
 	db $01 ; CINNABAR_ISLAND
 	db $06 ; INDIGO_PLATEAU
@@ -224,6 +224,21 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_BRUNETTE_GIRL ; for Misty
+	db SPRITE_CHANSEY
+	db SPRITE_FISHER
+	db SPRITE_GAMBLER
+	db SPRITE_MONSTER
+	db SPRITE_SEEL
+	db SPRITE_SWIMMER
+	db SPRITE_YOUNGSTER
+	db SPRITE_POKE_BALL
+	db SPRITE_FOSSIL
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $0c ; new, copy of $0a with the addition of Rocket
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_ROCKET ; for guarding the Safari Zone
 	db SPRITE_CHANSEY
 	db SPRITE_FISHER
 	db SPRITE_GAMBLER

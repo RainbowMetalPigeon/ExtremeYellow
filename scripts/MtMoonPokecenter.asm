@@ -10,6 +10,7 @@ MtMoonPokecenter_TextPointers:
 	dw MtMoonPokecenterText5
 	dw MtMoonTradeNurseText
 	dw MtMoonPokecenterText7
+	dw MtMoonPokecenterText8 ; new
 
 MtMoonHealNurseText:
 	script_pokecenter_nurse
@@ -38,3 +39,16 @@ MtMoonPokecenterText7:
 	text_asm
 	callfar PokecenterChanseyText
 	jp TextScriptEnd
+
+MtMoonPokecenterText8: ; new
+	text_asm
+	ld hl, MtMoonPokecenterText8b
+	call PrintText
+	ld a, MAGIKARP
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
+
+MtMoonPokecenterText8b: ; new
+	text_far _MtMoonPokecenterText8b
+	text_end

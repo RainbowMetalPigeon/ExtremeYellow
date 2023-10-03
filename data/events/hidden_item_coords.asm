@@ -62,4 +62,6 @@ HiddenItemCoords:
 	hidden_item CELADON_CITY,                  48,  15
 	hidden_item SAFARI_ZONE_GATE,              10,   1 ; inaccessible
 	hidden_item POKEMON_MANSION_1F,             8,  16
+	hidden_item OBSIDIAN_WAREHOUSE,            35,  25 ; new
+	hidden_item OBSIDIAN_WAREHOUSE,            42,  26 ; new
 	db -1 ; end

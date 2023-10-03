@@ -31,6 +31,13 @@ _FuchsiaCityText5::
 	text "!"
 	done
 
+_FuchsiaCityTextRocket:: ; new
+	text "Scram, brat!"
+	line "The SAFARI ZONE"
+	cont "is closed."
+	cont "Come back never!"
+	done
+
 _FuchsiaCityText11::
 	text "FUCHSIA CITY"
 	line "Behold! It's"

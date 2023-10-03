@@ -16,7 +16,7 @@ ExternalMapEntries:
 	external_map  7,  5, CeladonCityName
 	external_map 11, 11, OchreCityName ; new, moved
 	external_map  8, 13, FuchsiaCityName
-	external_map  7,  9, ObsidianIslandName ; new, testing
+	external_map  7,  9, ObsidianIslandName ; new
 	external_map  2, 15, CinnabarIslandName
 	external_map  0,  2, IndigoPlateauName
 	external_map 10,  5, SaffronCityName
@@ -82,6 +82,8 @@ InternalMapEntries:
 	internal_map SS_ANNE_B1F_ROOMS,             10, 10, SSAnneName ; edited, x=9->10
 	internal_map VICTORY_ROAD_1F,                0,  4, VictoryRoadName
 	internal_map SECLUDED_ATOLL_SW,             15, 15, SecludedAtollName ; new, not really an internal map but oh well, testing
+	internal_map LANCES_ROOM,                    0,  2, PokemonLeagueName
+	internal_map OBSIDIAN_WAREHOUSE_FINAL,       7,  9, ObsidianIslandName ; new, to be extended?
 	internal_map HALL_OF_FAME,                   0,  2, PokemonLeagueName
 	internal_map UNDERGROUND_PATH_NORTH_SOUTH,  10,  5, UndergroundPathName
 	internal_map CHAMPIONS_ROOM,                 0,  2, PokemonLeagueName

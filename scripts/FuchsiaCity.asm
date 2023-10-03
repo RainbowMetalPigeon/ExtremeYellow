@@ -12,6 +12,7 @@ FuchsiaCity_TextPointers:
 	dw FuchsiaCityText8
 	dw FuchsiaCityText9
 	dw FuchsiaCityText10
+	dw FuchsiaCityTextRocket ; new
 	dw FuchsiaCityText11
 	dw FuchsiaCityText12
 	dw FuchsiaCityText13
@@ -50,6 +51,10 @@ FuchsiaCityText8:
 FuchsiaCityText9:
 FuchsiaCityText10:
 	text_far _FuchsiaCityText5
+	text_end
+
+FuchsiaCityTextRocket:
+	text_far _FuchsiaCityTextRocket
 	text_end
 
 FuchsiaCityText12:

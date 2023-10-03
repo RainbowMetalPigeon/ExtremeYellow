@@ -15,5 +15,6 @@ MtMoonPokecenter_Object:
 	object_event  7,  2, SPRITE_CLIPBOARD, STAY, NONE, 5 ; person
 	object_event 11,  2, SPRITE_LINK_RECEPTIONIST, STAY, DOWN, 6 ; person
 	object_event  4,  1, SPRITE_CHANSEY, STAY, DOWN, 7 ; person
+	object_event  8,  7, SPRITE_MAGIKARP, STAY, LEFT_RIGHT, 8 ; new
 
 	def_warps_to MT_MOON_POKECENTER

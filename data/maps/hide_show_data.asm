@@ -75,7 +75,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw MtMoonPokecenterHS ; new
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -116,16 +116,16 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw VictoryRoad1FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; SECLUDED_ATOLL_NW
+	dw NoHS ; SECLUDED_ATOLL_NE
+	dw NoHS ; SECLUDED_ATOLL_SE
+	dw NoHS ; SECLUDED_ATOLL_SW
+	dw NoHS ; LANCES_ROOM
+	dw ObsidianWoodHS ; OBSIDIAN_WOOD
+	dw ObsidianWarehouseHS ; OBSIDIAN_WAREHOUSE
+	dw ObsidianWarehouseFinalHS ; OBSIDIAN_WAREHOUSE_FINAL
+	dw NoHS ; UNUSED_MAP_75
+	dw NoHS ; HALL_OF_FAME
 	dw NoHS
 	dw ChampionsRoomHS
 	dw NoHS
@@ -481,7 +481,6 @@ RocketHideoutB4FHS:
 	db ROCKET_HIDEOUT_B4F, $07, SHOW
 	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Silph Scope
 	db ROCKET_HIDEOUT_B4F, $09, HIDE ; Lift Key
-	db $FF, $01, SHOW ; end, list terminator
 SilphCo2FHS:
 	db SILPH_CO_2F, $01, SHOW
 	db SILPH_CO_2F, $02, SHOW
@@ -544,6 +543,36 @@ SilphCo11FHS:
 	db SILPH_CO_11F, $04, SHOW
 	db SILPH_CO_11F, $05, SHOW ; Rocket grunt
 	db SILPH_CO_11F, $06, SHOW
+MtMoonPokecenterHS: ; new
+	db MT_MOON_POKECENTER, $08, SHOW ; Magikarp for sale
+ObsidianWoodHS: ; new
+	db OBSIDIAN_WOOD, $02, SHOW
+	db OBSIDIAN_WOOD, $03, SHOW
+	db OBSIDIAN_WOOD, $04, SHOW
+ObsidianWarehouseHS: ; new
+	db OBSIDIAN_WAREHOUSE, $01, SHOW
+	db OBSIDIAN_WAREHOUSE, $02, SHOW
+	db OBSIDIAN_WAREHOUSE, $03, SHOW
+	db OBSIDIAN_WAREHOUSE, $04, SHOW
+	db OBSIDIAN_WAREHOUSE, $05, SHOW
+	db OBSIDIAN_WAREHOUSE, $06, SHOW
+	db OBSIDIAN_WAREHOUSE, $07, SHOW
+	db OBSIDIAN_WAREHOUSE, $08, SHOW
+	db OBSIDIAN_WAREHOUSE, $09, SHOW
+	db OBSIDIAN_WAREHOUSE, $0A, SHOW
+	db OBSIDIAN_WAREHOUSE, $0B, SHOW
+	db OBSIDIAN_WAREHOUSE, $0C, SHOW
+	db OBSIDIAN_WAREHOUSE, $0D, HIDE
+ObsidianWarehouseFinalHS: ; new
+	db OBSIDIAN_WAREHOUSE_FINAL, $01, SHOW ; James
+	db OBSIDIAN_WAREHOUSE_FINAL, $02, SHOW ; Jessie
+	db OBSIDIAN_WAREHOUSE_FINAL, $03, SHOW 
+	db OBSIDIAN_WAREHOUSE_FINAL, $04, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
+
+	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
 
 ; --- start of the variables moved to the extra block ---

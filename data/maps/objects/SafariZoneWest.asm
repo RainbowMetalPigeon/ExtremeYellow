@@ -13,7 +13,7 @@ SafariZoneWest_Object:
 
 	def_bg_events
 	bg_event 12, 12, 5 ; SafariZoneWestText5
-	bg_event 17,  3, 6 ; SafariZoneWestText6
+;	bg_event 17,  3, 6 ; SafariZoneWestText6 ; edited: commented away
 	bg_event 26,  4, 7 ; SafariZoneWestText7
 	bg_event 24, 22, 8 ; SafariZoneWestText8
 
@@ -21,6 +21,6 @@ SafariZoneWest_Object:
 	object_event  8, 20, SPRITE_POKE_BALL, STAY, NONE, 1, MAX_POTION
 	object_event  9,  7, SPRITE_POKE_BALL, STAY, NONE, 2, TM_DOUBLE_TEAM
 	object_event 18, 18, SPRITE_POKE_BALL, STAY, NONE, 3, MAX_REVIVE
-	object_event 19,  7, SPRITE_POKE_BALL, STAY, NONE, 4, GOLD_TEETH
+	object_event 22, 12, SPRITE_POKE_BALL, STAY, NONE, 4, NUGGET ; edited: moved and changed, no longer GOLD_TEETH
 
 	def_warps_to SAFARI_ZONE_WEST

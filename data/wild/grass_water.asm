@@ -117,10 +117,10 @@ WildDataPointers:
 	dw SecludedAtollNEWildMons ; new, testing
 	dw SecludedAtollSEWildMons ; new, testing
 	dw SecludedAtollSWWildMons ; new, testing
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw NothingWildMons ; LANCES_ROOM
+	dw ObsidianWoodWildMons ; new
+	dw NothingWildMons ; OBSIDIAN_WAREHOUSE
+	dw NothingWildMons ; OBSIDIAN_WAREHOUSE_FINAL
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -332,3 +332,4 @@ INCLUDE "data/wild/maps/SecludedAtollNW.asm" ; new
 INCLUDE "data/wild/maps/SecludedAtollNE.asm" ; new
 INCLUDE "data/wild/maps/SecludedAtollSE.asm" ; new
 INCLUDE "data/wild/maps/SecludedAtollSW.asm" ; new
+INCLUDE "data/wild/maps/ObsidianWood.asm"    ; new

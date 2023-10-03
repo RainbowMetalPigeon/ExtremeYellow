@@ -119,9 +119,9 @@ MapHeaderBanks::
 	db BANK(SecludedAtollSE_h) ; edited
 	db BANK(SecludedAtollSW_h) ; edited
 	db BANK(LancesRoom_h)
-	db $1D ; UNUSED_MAP_72
-	db $1D ; UNUSED_MAP_73
-	db $1D ; UNUSED_MAP_74
+	db BANK(ObsidianWood_h) ; new
+	db BANK(ObsidianWarehouse_h) ; new
+	db BANK(ObsidianWarehouseFinal_h) ; new
 	db $1D ; UNUSED_MAP_75
 	db BANK(HallOfFame_h)
 	db BANK(UndergroundPathNorthSouth_h)

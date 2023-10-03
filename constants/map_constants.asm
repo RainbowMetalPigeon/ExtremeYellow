@@ -92,7 +92,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const BIKE_SHOP,                      4,  4 ; $42
 	map_const CERULEAN_MART,                  4,  4 ; $43
 	map_const MT_MOON_POKECENTER,             7,  4 ; $44
-	map_const CERULEAN_TRASHED_HOUSE_COPY,    4,  4 ; $45
+	map_const CERULEAN_TRASHED_HOUSE_COPY,    4,  4 ; $45 ; unused?
 	map_const ROUTE_5_GATE,                   4,  3 ; $46
 	map_const UNDERGROUND_PATH_ROUTE_5,       4,  4 ; $47
 	map_const DAYCARE,                        4,  4 ; $48
@@ -137,9 +137,9 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SECLUDED_ATOLL_SE,             15, 24 ; $6F ; edited
 	map_const SECLUDED_ATOLL_SW,             27, 24 ; $70 ; edited
 	map_const LANCES_ROOM,                   13, 13 ; $71
-	map_const UNUSED_MAP_72,                  0,  0 ; $72
-	map_const UNUSED_MAP_73,                  0,  0 ; $73
-	map_const UNUSED_MAP_74,                  0,  0 ; $74
+	map_const OBSIDIAN_WOOD,                 24, 24 ; $72 ; new
+	map_const OBSIDIAN_WAREHOUSE,            30, 22 ; $73 ; new
+	map_const OBSIDIAN_WAREHOUSE_FINAL,       6, 11 ; $74 ; new
 	map_const UNUSED_MAP_75,                  0,  0 ; $75
 	map_const HALL_OF_FAME,                   5,  4 ; $76
 	map_const UNDERGROUND_PATH_NORTH_SOUTH,   4, 24 ; $77 ; UndergroundPathNorthSouth.blk is actually 4x23

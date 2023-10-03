@@ -1346,3 +1346,18 @@ INCLUDE "data/maps/headers/CeladonUniversity.asm"
 INCLUDE "data/maps/objects/CeladonUniversity.asm"
 CeladonUniversity_Blocks: INCBIN "maps/CeladonUniversity.blk"
 INCLUDE "scripts/CeladonUniversity.asm"
+
+INCLUDE "data/maps/headers/ObsidianWood.asm"
+INCLUDE "data/maps/objects/ObsidianWood.asm"
+ObsidianWood_Blocks: INCBIN "maps/ObsidianWood.blk"
+INCLUDE "scripts/ObsidianWood.asm"
+
+INCLUDE "data/maps/headers/ObsidianWarehouse.asm"
+INCLUDE "data/maps/objects/ObsidianWarehouse.asm"
+ObsidianWarehouse_Blocks: INCBIN "maps/ObsidianWarehouse.blk"
+INCLUDE "scripts/ObsidianWarehouse.asm"
+
+INCLUDE "data/maps/headers/ObsidianWarehouseFinal.asm"
+INCLUDE "data/maps/objects/ObsidianWarehouseFinal.asm"
+ObsidianWarehouseFinal_Blocks: INCBIN "maps/ObsidianWarehouseFinal.blk"
+INCLUDE "scripts/ObsidianWarehouseFinal.asm"

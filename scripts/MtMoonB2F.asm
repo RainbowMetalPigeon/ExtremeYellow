@@ -334,7 +334,7 @@ MtMoon3Script12:
 	call SaveEndBattleTextPointers
 	ld a, OPP_ROCKET
 	ld [wCurOpponent], a
-	ld a, $2a
+	ld a, $2e ; edited
 	ld [wTrainerNo], a
 	xor a
 	ldh [hJoyHeld], a

@@ -210,7 +210,7 @@ RocketHideout4Script10:
 	call SaveEndBattleTextPointers
 	ld a, OPP_ROCKET
 	ld [wCurOpponent], a
-	ld a, $2b
+	ld a, $2f ; edited
 	ld [wTrainerNo], a
 	xor a
 	ldh [hJoyHeld], a

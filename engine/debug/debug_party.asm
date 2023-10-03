@@ -126,9 +126,9 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld [hl], a
 
-	; set fast text and set mode - new
-	ld a, %01100001
-	ld [wOptions], a
+;	; set fast text and set mode - new
+;	ld a, %01100001
+;	ld [wOptions], a
 
 	ret
 

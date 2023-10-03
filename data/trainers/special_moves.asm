@@ -858,7 +858,7 @@ SpecialTrainerMoves:
 	db 3, 4, STEEL_WING
 	db 0
 
-	db ROCKET, 42
+	db ROCKET, 46
 	; EKANS
 	db 1, 1, WRAP
 ;	db 1, 2, POISON_STING
@@ -876,7 +876,7 @@ SpecialTrainerMoves:
 ;	db 3, 4, BITE
 	db 0
 
-	db ROCKET, 43
+	db ROCKET, 47
 	; ARBOK
 ;	db 1, 1, GLARE
 ;	db 1, 2, SCREECH
@@ -894,7 +894,7 @@ SpecialTrainerMoves:
 ;	db 3, 4, HEADBUTT
 	db 0
 
-	db ROCKET, 44
+	db ROCKET, 48
 	; ARBOK
 	db 1, 1, GLARE
 ;	db 1, 2, CRUNCH
@@ -922,7 +922,7 @@ SpecialTrainerMoves:
 ;	db 5, 4, WATER_PULSE
 	db 0
 
-	db ROCKET, 45
+	db ROCKET, 49
 	; ARBOK
 	db 1, 1, DARK_PULSE
 	db 1, 2, EARTHQUAKE
@@ -948,6 +948,67 @@ SpecialTrainerMoves:
 ;	db 5, 2, SLASH
 ;	db 5, 3, SING
 ;	db 5, 4, DREAM_EATER
+	db 0
+
+	db ROCKET, 50
+	; ARBOK
+	db 1, 1, DARK_PULSE
+	db 1, 2, EARTHQUAKE
+	db 1, 3, GIGA_DRAIN
+	db 1, 4, SLUDGE_WAVE
+	; LICKILICKY
+	db 2, 1, ICE_BEAM
+	db 2, 2, THUNDERBOLT
+	db 2, 3, FIRE_BLAST
+	db 2, 4, AMNESIA
+	; WEEZING
+	db 3, 1, SHADOW_BALL
+	db 3, 2, EXPLOSION
+	db 3, 3, SLUDGE_WAVE
+	db 3, 4, HEAT_WAVE
+	; VICTREEBEL
+	db 4, 1, TOXIC
+	db 4, 2, GROWTH
+	db 4, 3, GIGA_DRAIN
+	db 4, 4, LEECH_LIFE
+	; MEOWTH
+	db 5, 1, PAY_DAY
+	db 5, 2, SLASH
+	db 5, 3, SING
+	db 5, 4, BUBBLEBEAM
+	db 0
+
+	db ROCKET, 52
+	; KOFFING
+	db 1, 1, EXPLOSION
+	db 1, 2, NO_MOVE
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
+	; KOFFING
+	db 2, 1, EXPLOSION
+	db 2, 2, NO_MOVE
+	db 2, 3, NO_MOVE
+	db 2, 4, NO_MOVE
+	; KOFFING
+	db 3, 1, EXPLOSION
+	db 3, 2, NO_MOVE
+	db 3, 3, NO_MOVE
+	db 3, 4, NO_MOVE
+	; KOFFING
+	db 4, 1, EXPLOSION
+	db 4, 2, NO_MOVE
+	db 4, 3, NO_MOVE
+	db 4, 4, NO_MOVE
+	; KOFFING
+	db 5, 1, EXPLOSION
+	db 5, 2, NO_MOVE
+	db 5, 3, NO_MOVE
+	db 5, 4, NO_MOVE
+	; WEEZING
+	db 6, 1, EXPLOSION
+	db 6, 2, SHADOW_BALL
+	db 6, 3, SLUDGE_WAVE
+	db 6, 4, HEAT_WAVE
 	db 0
 
 	db PROF_OAK, 1

@@ -389,7 +389,7 @@ SilphCo11Script11:
 	call SaveEndBattleTextPointers
 	ld a, OPP_ROCKET
 	ld [wCurOpponent], a
-	ld a, $2d
+	ld a, $31 ; edited
 	ld [wTrainerNo], a
 	xor a
 	ldh [hJoyHeld], a

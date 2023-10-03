@@ -220,6 +220,30 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_11F_JAMES            ; BC
 	const HS_SILPH_CO_11F_2                ; BD Rocket grunt
 	const HS_SILPH_CO_11F_JESSIE           ; BE
+	const HS_MT_MOON_POKECENTER_MAGIKARP   ; new
+	const HS_OBSIDIAN_WOOD_ITEM_1          ; new
+	const HS_OBSIDIAN_WOOD_ITEM_2          ; new
+	const HS_OBSIDIAN_WOOD_ITEM_3          ; new
+	const HS_OBSIDIAN_WAREHOUSE_TRAINER_1  ; new
+	const HS_OBSIDIAN_WAREHOUSE_TRAINER_2  ; new
+	const HS_OBSIDIAN_WAREHOUSE_TRAINER_3  ; new
+	const HS_OBSIDIAN_WAREHOUSE_TRAINER_4  ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_1     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_2     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_3     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_4     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_5     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_6     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_7     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES    ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE   ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1  ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_2  ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3  ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4  ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---

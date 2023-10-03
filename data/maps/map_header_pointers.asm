@@ -119,9 +119,9 @@ MapHeaderPointers::
 	dw SecludedAtollSE_h ; edited
 	dw SecludedAtollSW_h ; edited
 	dw LancesRoom_h
-	dw LancesRoom_h ; UNUSED_MAP_72
-	dw LancesRoom_h ; UNUSED_MAP_73
-	dw LancesRoom_h ; UNUSED_MAP_74
+	dw ObsidianWood_h ; new
+	dw ObsidianWarehouse_h ; new
+	dw ObsidianWarehouseFinal_h ; new
 	dw LancesRoom_h ; UNUSED_MAP_75
 	dw HallOfFame_h
 	dw UndergroundPathNorthSouth_h

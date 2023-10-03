@@ -155,7 +155,7 @@ PokemonTower7Script7:
 	call SaveEndBattleTextPointers
 	ld a, OPP_ROCKET
 	ld [wCurOpponent], a
-	ld a, $2c
+	ld a, $30 ; edited
 	ld [wTrainerNo], a
 	xor a
 	ldh [hJoyHeld], a

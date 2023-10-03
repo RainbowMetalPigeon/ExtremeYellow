@@ -46,3 +46,7 @@ _MagikarpSalesmanText2::
 	text "MAN: Well, I don't"
 	line "give refunds!"
 	done
+
+_MtMoonPokecenterText8b:: ; new
+	text "MAGIKARP: Kaaaarp!"
+	done

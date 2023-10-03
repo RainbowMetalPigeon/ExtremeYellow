@@ -38,13 +38,13 @@ IsFightingJessieJames::
 	cp ROCKET
 	ret nz
 	ld a, [wTrainerNo]
-	cp $2a ; to be edited if I add more Rockets
+	cp $2e ; edited because I added more Rockets (Obsidian Warehouse)
 	ret c
-	ld de, JessieJamesPic
-	cp $2e ; to be edited if I add more Rockets
-	jr c, .dummy
+	ld de, LancePic ; Rocket executives' pics here, or in init_battle if gotta load another BANK... temp testing with Lance's pic
+	cp $33 ; edited, for the Rocket executives
+	jr nc, .executives
 	ld de, JessieJamesPic ; possibly meant to add another pic
-.dummy
+.executives
 	ld hl, wTrainerPicPointer
 	ld a, e
 	ld [hli], a

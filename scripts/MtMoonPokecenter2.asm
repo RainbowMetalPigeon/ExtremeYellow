@@ -34,9 +34,13 @@ MagikarpSalesman::
 	ld de, wPlayerMoney + 2
 	ld c, $3
 	predef SubBCDPredef
+.tempCheck
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
+	ld a, HS_MT_MOON_POKECENTER_MAGIKARP	; new
+	ld [wMissableObjectIndex], a			; new
+	predef HideObject						; new
 	SetEvent EVENT_BOUGHT_MAGIKARP
 	jr .done
 .choseNo

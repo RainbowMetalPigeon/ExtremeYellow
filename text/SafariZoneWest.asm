@@ -2,18 +2,18 @@ _SafariZoneWestText5::
 	text "REST HOUSE"
 	done
 
-_SafariZoneWestText6::
-	text "REQUEST NOTICE"
-
-	para "Please find the"
-	line "SAFARI WARDEN's"
-	cont "lost GOLD TEETH."
-	cont "They're around"
-	cont "here somewhere."
-
-	para "Reward offered!"
-	line "Contact: WARDEN"
-	done
+;_SafariZoneWestText6:: ; edited: commented away
+;	text "REQUEST NOTICE"
+;
+;	para "Please find the"
+;	line "SAFARI WARDEN's"
+;	cont "lost GOLD TEETH."
+;	cont "They're around"
+;	cont "here somewhere."
+;
+;	para "Reward offered!"
+;	line "Contact: WARDEN"
+;	done
 
 _SafariZoneWestText7::
 	text "TRAINER TIPS"
