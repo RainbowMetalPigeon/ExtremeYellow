@@ -11,8 +11,8 @@ MapHSPointers:
 	dw VermilionCityHS ; VERMILION_CITY
 	dw CeladonCityHS ; CELADON_CITY
 	dw NoHS ; OCHRE_CITY
-	dw NoHS ; FUCHSIA_CITY
-	dw NoHS ; OBSIDIAN_ISLAND
+	dw FuchsiaCityHS ; FUCHSIA_CITY
+	dw ObsidianIslandHS ; OBSIDIAN_ISLAND
 	dw NoHS ; CINNABAR_ISLAND
 	dw NoHS ; INDIGO_PLATEAU
 	dw SaffronCityHS ; SAFFRON_CITY
@@ -571,6 +571,23 @@ ObsidianWarehouseFinalHS: ; new
 	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
+FuchsiaCityHS: ; new
+	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone
+ObsidianIslandHS: ; new
+	db OBSIDIAN_ISLAND, $01, SHOW
+	db OBSIDIAN_ISLAND, $02, SHOW
+	db OBSIDIAN_ISLAND, $03, SHOW
+	db OBSIDIAN_ISLAND, $04, SHOW
+	db OBSIDIAN_ISLAND, $05, SHOW
+	db OBSIDIAN_ISLAND, $06, SHOW
+	db OBSIDIAN_ISLAND, $07, HIDE
+	db OBSIDIAN_ISLAND, $08, HIDE
+	db OBSIDIAN_ISLAND, $09, HIDE
+	db OBSIDIAN_ISLAND, $0A, HIDE
+	db OBSIDIAN_ISLAND, $0B, HIDE
+	db OBSIDIAN_ISLAND, $0C, HIDE
+	db OBSIDIAN_ISLAND, $0D, HIDE
+	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it

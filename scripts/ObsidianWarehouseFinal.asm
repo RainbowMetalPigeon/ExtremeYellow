@@ -11,7 +11,7 @@ ObsidianWarehouseFinal_ScriptPointers:
 	dw ObsidianWarehouseFinalScript0
 ;	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
-	dw EndTrainerBattle
+	dw EndTrainerBattle_Custom ; TBV
 	dw ObsidianWarehouseFinalScript_JessieJamesMovement1 ; TBV
 	dw ObsidianWarehouseFinalScript_JessieJamesMovement2 ; TBV
 	dw ObsidianWarehouseFinalScript_JessieJamesFight ; TBV
@@ -24,13 +24,38 @@ ObsidianWarehouseFinal_TextPointers:
 	dw ObsidianWarehouseFinalText4
 	dw ObsidianWarehouseFinalText5
 	dw ObsidianWarehouseFinalText6
-	dw ObsidianWarehouseFinalText7
+	dw ObsidianWarehouseFinalText7 ; Giovanni?
 	dw ObsidianWarehouseFinalText8_JessieJames1
 	dw ObsidianWarehouseFinalText9_JessieJames2
 	dw ObsidianWarehouseFinalText10_JessieJames3
 	dw ObsidianWarehouseFinalText11_JessieJames4
 
 ; ================= scripts, beginning =================
+
+EndTrainerBattle_Custom:
+	call EndTrainerBattle
+	ld a, [wYCoord]
+	cp 1
+	ret nz
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+	ld a, $7
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	; hide Obsidian Rockets, Fuchsia Rocket, and show Obsidian citizens
+	call GBFadeOutToBlack
+
+	call HideObsidianFuchsiaRockets
+	call ShowObsidianCitizens
+;	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
+;	ld [wMissableObjectIndex], a
+;	predef HideObject
+
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jp TextScriptEnd
 
 ObsidianWarehouseFinalScript_ResetScript:
 	xor a
@@ -260,6 +285,59 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 	ld a, $0
 	call ObsidianWarehouseFinalScript_ChangeScript ; TBV
 	ret
+
+HideObsidianFuchsiaRockets:
+	ld hl, ObsidianFuchsiaRockets
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of rockets to hide?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	pop hl
+	jr .hideLoop
+
+ObsidianFuchsiaRockets:
+	db HS_OBSIDIAN_WAREHOUSE_TRAINER_1
+	db HS_OBSIDIAN_WAREHOUSE_TRAINER_2
+	db HS_OBSIDIAN_WAREHOUSE_TRAINER_3
+	db HS_OBSIDIAN_WAREHOUSE_TRAINER_4
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_2
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
+	db HS_FUCHSIA_CITY_ROCKET_SAFARI
+	db HS_OBSIDIAN_ISLAND_ROCKET_1
+	db HS_OBSIDIAN_ISLAND_ROCKET_2
+	db HS_OBSIDIAN_ISLAND_ROCKET_3
+	db HS_OBSIDIAN_ISLAND_ROCKET_4
+	db HS_OBSIDIAN_ISLAND_SLAVE_1
+	db HS_OBSIDIAN_ISLAND_SLAVE_2
+	db $ff
+
+ShowObsidianCitizens:
+	ld hl, ObsidianCitizens
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of citizens to show?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	pop hl
+	jr .hideLoop
+
+ObsidianCitizens:
+	db HS_OBSIDIAN_ISLAND_SCIENTIST_1
+	db HS_OBSIDIAN_ISLAND_SCIENTIST_2
+	db HS_OBSIDIAN_ISLAND_OFFICIER
+	db HS_OBSIDIAN_ISLAND_CITIZEN_1
+	db HS_OBSIDIAN_ISLAND_CITIZEN_2
+	db HS_OBSIDIAN_ISLAND_CITIZEN_3
+	db HS_OBSIDIAN_ISLAND_CITIZEN_4
+	db $ff
 
 ; ================= scripts, end =================
 

@@ -10,6 +10,7 @@ SafariZoneNorth_Script:
 ResetSafariZoneNorthScript:
 	xor a
 	ld [wSafariZoneNorthCurScript], a
+	ld [wCurMapScript], a ; new, TBV
 	ret
 
 SafariZoneNorth_ScriptPointers:

@@ -244,6 +244,21 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
+	const HS_FUCHSIA_CITY_ROCKET_SAFARI    ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_4      ; new
+	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
+	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
+	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new
+	const HS_OBSIDIAN_ISLAND_SCIENTIST_2   ; new
+	const HS_OBSIDIAN_ISLAND_OFFICIER      ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_1     ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_2     ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_3     ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
+	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---

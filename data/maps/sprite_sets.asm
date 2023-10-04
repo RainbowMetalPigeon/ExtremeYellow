@@ -9,7 +9,7 @@ MapSpriteSets:
 	db $05 ; CELADON_CITY
 	db $08 ; OCHRE_CITY, new, moved
 	db $0c ; FUCHSIA_CITY ; edited, it was $0a
-	db $02 ; OBSIDIAN_ISLAND, new, testing, may need to change it
+	db $0d ; OBSIDIAN_ISLAND, new, testing, custom made
 	db $01 ; CINNABAR_ISLAND
 	db $06 ; INDIGO_PLATEAU
 	db $07 ; SAFFRON_CITY
@@ -39,8 +39,8 @@ MapSpriteSets:
 	db $02 ; ROUTE_24
 	db $02 ; ROUTE_25
 	db $03 ; ROUTE_26, new, testing
-	db $02 ; ROUTE_27, new, testing
-	db $01 ; ROUTE_28, new, testing, may need a split thingy
+	db $0d ; ROUTE_27, new, testing, may need a split thingy between $0d (Obsidian) and $05 (Celadon)
+	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
 	assert_table_length FIRST_INDOOR_MAP
 
 DEF EAST_WEST   EQU 1
@@ -248,4 +248,19 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FOSSIL
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $0d
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_YOUNGSTER
+	db SPRITE_ROCKET
+	db SPRITE_SUPER_NERD
+	db SPRITE_FISHER
+	db SPRITE_SCIENTIST
+	db SPRITE_OFFICER_JENNY
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M ; maybe remove?
+	db SPRITE_POKE_BALL
+	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	assert_table_length SPRITE_SET_LENGTH
