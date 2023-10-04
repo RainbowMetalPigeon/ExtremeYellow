@@ -478,6 +478,39 @@ SpecialTrainerMoves:
 	db 0
 
 	db GIOVANNI, 3
+	; SANDSLASH
+;	db 1, 1, ROCK_TOMB
+	db 1, 2, EARTHQUAKE
+	db 1, 3, SLASH
+;	db 1, 4, SHADOW_CLAW
+	; DUGTRIO
+	db 2, 1, EARTHQUAKE
+;	db 2, 2, SLUDGE_WAVE
+	db 2, 3, FISSURE
+;	db 2, 4, STONE_EDGE
+	; NIDOKING
+	db 3, 1, THUNDERBOLT
+	db 3, 2, ICE_BEAM
+	db 3, 3, LOVELY_KISS
+	db 3, 4, SUPER_FANG
+	; NIDOQUEEN
+	db 4, 1, EARTHQUAKE
+;	db 4, 2, SHADOW_CLAW
+;	db 4, 3, TOXIC
+	db 4, 4, FIRE_BLAST
+	; KANGASKHAN
+;	db 5, 1, DRAIN_PUNCH
+	db 5, 2, SHADOW_CLAW
+;	db 5, 3, DIZZY_PUNCH
+	db 5, 4, AERIAL_ACE
+	; PERSIAN
+	db 6, 1, SLASH
+	db 6, 2, HYPER_BEAM
+	db 6, 3, THUNDERBOLT
+	db 6, 4, PAY_DAY
+	db 0
+
+	db GIOVANNI, 4
 	; DUGTRIO
 ;	db 1, 1, EARTHQUAKE
 	db 1, 2, SLUDGE_WAVE

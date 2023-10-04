@@ -193,6 +193,24 @@ _LoadTrainerPic:
 	jr .loadSprite
 .notMultiSpriteTrainer ; new
 
+; now check if it's one of the Rocket Admins
+	ld a, [wTrainerClass]
+	cp ROCKET
+	jr nz, .notAdmin
+	ld a, [wTrainerNo]
+	cp $33 ; edited, for the Rocket executives
+	jr c, .notAdmin
+	cp $35
+	ld a, BANK(RocketAdminF) ; M and F are in the same bank
+	jr z, .Ariana
+	; not Ariana
+	ld de, RocketAdminM
+	jr .loadSprite
+.Ariana
+	ld de, RocketAdminF
+	jr .loadSprite
+.notAdmin ; back to normal code
+
 	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
 	jr .loadSprite ; edited
 .playerLikeSprite ; new

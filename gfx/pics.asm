@@ -356,11 +356,17 @@ BFTrainerPic:: ; temp
 TravelerPic::      INCBIN "gfx/trainers/engineer.pic" ; temp
 
 
+SECTION "Pics 6b", ROMX ; new
+
+RocketAdminM::   INCBIN "gfx/trainers/rocketadminm.pic" ; new
+RocketAdminF::   INCBIN "gfx/trainers/rocketadminf.pic" ; new
+
+
 SECTION "Pics 7", ROMX
 
 RedPicBack::       INCBIN "gfx/player/redb.pic"
 GreenPicBack::     INCBIN "gfx/player/greenb.pic"
-YellowPicBack::     INCBIN "gfx/player/yellowb.pic"
+YellowPicBack::    INCBIN "gfx/player/yellowb.pic"
 OldManPicBack::    INCBIN "gfx/battle/oldmanb.pic"
 ProfOakPicBack::   INCBIN "gfx/battle/prof.oakb.pic"
 
