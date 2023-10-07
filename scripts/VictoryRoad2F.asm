@@ -83,6 +83,7 @@ VictoryRoad2F_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
+	dw VictoryRoad2TextKoga ; new, testing
 
 VictoryRoad2TrainerHeaders:
 	def_trainers
@@ -202,4 +203,42 @@ VictoryRoad2EndBattleText5:
 
 VictoryRoad2AfterBattleText5:
 	text_far _VictoryRoad2AfterBattleText5
+	text_end
+
+; new ------------------------------------------------
+
+VictoryRoad2TextKoga:
+	text_asm
+	ld hl, VictoryRoad2KogaBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_KOGA
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, VictoryRoad2KogaPostBattleText
+	ld de, VictoryRoad2KogaPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+VictoryRoad2KogaBeforeBattleText:
+	text_far _VictoryRoad2KogaBeforeBattleText
+	text_end
+
+VictoryRoad2KogaPostBattleText:
+	text_far _VictoryRoad2KogaPostBattleText
 	text_end

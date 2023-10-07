@@ -335,7 +335,7 @@
 	const EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_4
 	const EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_5
 	const EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_6
-	const_skip
+	const_skip ; it would 2 because of rematch LtSurge, but it's unnecessary, as it is for Articuno and Lorelei, as they have sight=0 (see Articuno comments)
 	const EVENT_BEAT_POWER_PLANT_VOLTORB_0
 	const EVENT_BEAT_POWER_PLANT_VOLTORB_1
 	const EVENT_BEAT_POWER_PLANT_VOLTORB_2
@@ -745,9 +745,9 @@
 
 ; Pokémon Mansion events
 	const_next $800
-	const_skip
+	const_skip 2 ; edited for rematch Blaine
 	const EVENT_BEAT_MANSION_2_TRAINER_0
-	const_skip 15
+	const_skip 14 ; edited for rematch Blaine
 	const EVENT_BEAT_MANSION_3_TRAINER_0
 	const EVENT_BEAT_MANSION_3_TRAINER_1
 	const_skip 14

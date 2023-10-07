@@ -13,6 +13,7 @@ PowerPlant_ScriptPointers:
 	dw EndTrainerBattle
 
 PowerPlant_TextPointers:
+	dw PowerPlantTextLtSurge ; new
 	dw Voltorb0Text
 	dw Voltorb1Text
 	dw Voltorb2Text
@@ -22,7 +23,6 @@ PowerPlant_TextPointers:
 	dw Voltorb6Text
 	dw Voltorb7Text
 	dw ZapdosText
-	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -112,3 +112,41 @@ ZapdosBattleText:
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd
+
+; new ------------------------------------------------
+
+PowerPlantTextLtSurge:
+	text_asm
+	ld hl, PowerPlantLtSurgeBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_LT_SURGE
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, PowerPlantLtSurgePostBattleText
+	ld de, PowerPlantLtSurgePostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+PowerPlantLtSurgeBeforeBattleText:
+	text_far _PowerPlantLtSurgeBeforeBattleText
+	text_end
+
+PowerPlantLtSurgePostBattleText:
+	text_far _PowerPlantLtSurgePostBattleText
+	text_end

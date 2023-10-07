@@ -189,8 +189,8 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw SilphCo1FHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; Saffron Pokecenter
+	dw MrPsychicsHouseHS ; new
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -243,19 +243,19 @@ MapHSPointers:
 	dw SilphCo9FHS
 	dw SilphCo10FHS
 	dw SilphCo11FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS ; edited, was UnusedMapF4HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; SILPH_CO_ELEVATOR
+	dw NoHS ; UNUSED_MAP_ED
+	dw NoHS ; UNUSED_MAP_EE
+	dw NoHS ; TRADE_CENTER
+	dw NoHS ; COLOSSEUM
+	dw NoHS ; CERULEAN_CAVE_EXTRA_TOP
+	dw CeruleanCaveExtraMiddleHS ; new
+	dw NoHS ; CERULEAN_CAVE_EXTRA_BOTTOM
+	dw NoHS ; CERULEAN_CAVE_EXTRA_FINAL
+	dw NoHS ; LORELEIS_ROOM
+	dw NoHS ; BRUNOS_ROOM
+	dw NoHS ; AGATHAS_ROOM
+	dw NoHS ; SUMMER_BEACH_HOUSE
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 
@@ -393,7 +393,7 @@ FightingDojoHS: ; edited because of rematch Bruno
 SilphCo1FHS:
 	db SILPH_CO_1F, $01, HIDE
 PowerPlantHS:
-	db POWER_PLANT, $01, SHOW
+	db POWER_PLANT, $01, HIDE ; edited because of rematch LtSurge
 	db POWER_PLANT, $02, SHOW
 	db POWER_PLANT, $03, SHOW
 	db POWER_PLANT, $04, SHOW
@@ -414,6 +414,7 @@ VictoryRoad2FHS:
 	db VICTORY_ROAD_2F, $09, SHOW
 	db VICTORY_ROAD_2F, $0A, SHOW
 	db VICTORY_ROAD_2F, $0D, SHOW
+	db VICTORY_ROAD_2F, $0E, HIDE ; new because of rematch Koga
 BillsHouseHS:
 	db BILLS_HOUSE, $01, SHOW
 	db BILLS_HOUSE, $02, HIDE
@@ -566,28 +567,15 @@ ObsidianWarehouseHS: ; new
 ObsidianWarehouseFinalHS: ; new
 	db OBSIDIAN_WAREHOUSE_FINAL, $01, SHOW ; James
 	db OBSIDIAN_WAREHOUSE_FINAL, $02, SHOW ; Jessie
-	db OBSIDIAN_WAREHOUSE_FINAL, $03, SHOW 
+	db OBSIDIAN_WAREHOUSE_FINAL, $03, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $04, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
 FuchsiaCityHS: ; new
 	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone
-ObsidianIslandHS: ; new
-	db OBSIDIAN_ISLAND, $01, SHOW
-	db OBSIDIAN_ISLAND, $02, SHOW
-	db OBSIDIAN_ISLAND, $03, SHOW
-	db OBSIDIAN_ISLAND, $04, SHOW
-	db OBSIDIAN_ISLAND, $05, SHOW
-	db OBSIDIAN_ISLAND, $06, SHOW
-	db OBSIDIAN_ISLAND, $07, HIDE
-	db OBSIDIAN_ISLAND, $08, HIDE
-	db OBSIDIAN_ISLAND, $09, HIDE
-	db OBSIDIAN_ISLAND, $0A, HIDE
-	db OBSIDIAN_ISLAND, $0B, HIDE
-	db OBSIDIAN_ISLAND, $0C, HIDE
-	db OBSIDIAN_ISLAND, $0D, HIDE
-	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
+CeruleanCaveExtraMiddleHS: ; new, includes rematch Lance
+	db CERULEAN_CAVE_EXTRA_MIDDLE, $01, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -598,8 +586,9 @@ MissableObjectsExtra: ; new, it's the "Extra" block
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
 	table_width 3, MissableObjectsExtra ; new, it's the "Extra" block
 ; format: map id, object id, HIDE/SHOW
-PokemonMansion2FHS:
-	db POKEMON_MANSION_2F, $02, SHOW
+PokemonMansion2FHS: ; edited because of rematch Blaine
+	db POKEMON_MANSION_2F, $01, HIDE
+	db POKEMON_MANSION_2F, $03, SHOW
 PokemonMansion3FHS:
 	db POKEMON_MANSION_3F, $03, SHOW
 	db POKEMON_MANSION_3F, $04, SHOW
@@ -660,4 +649,22 @@ SeafoamIslandsB4FHS: ; edited because of rematch Lorelei
 	db SEAFOAM_ISLANDS_B4F, $02, HIDE
 	db SEAFOAM_ISLANDS_B4F, $03, HIDE
 	db SEAFOAM_ISLANDS_B4F, $04, SHOW
+MrPsychicsHouseHS: ; new for rematch Sabrina
+	db MR_PSYCHICS_HOUSE, $02, HIDE
+ObsidianIslandHS: ; new
+	db OBSIDIAN_ISLAND, $01, SHOW
+	db OBSIDIAN_ISLAND, $02, SHOW
+	db OBSIDIAN_ISLAND, $03, SHOW
+	db OBSIDIAN_ISLAND, $04, SHOW
+	db OBSIDIAN_ISLAND, $05, SHOW
+	db OBSIDIAN_ISLAND, $06, SHOW
+	db OBSIDIAN_ISLAND, $07, HIDE
+	db OBSIDIAN_ISLAND, $08, HIDE
+	db OBSIDIAN_ISLAND, $09, HIDE
+	db OBSIDIAN_ISLAND, $0A, HIDE
+	db OBSIDIAN_ISLAND, $0B, HIDE
+	db OBSIDIAN_ISLAND, $0C, HIDE
+	db OBSIDIAN_ISLAND, $0D, HIDE
+	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
+
 	db $FF, $01, SHOW ; end, list terminator

@@ -3,6 +3,7 @@ MrPsychicsHouse_Script:
 
 MrPsychicsHouse_TextPointers:
 	dw SaffronHouse2Text1
+	dw SaffronHouse2TextSabrina ; new
 
 SaffronHouse2Text1:
 	text_asm
@@ -42,4 +43,42 @@ TM29ExplanationText:
 
 TM29NoRoomText:
 	text_far _TM29NoRoomText
+	text_end
+
+; new ------------------------------------------------
+
+SaffronHouse2TextSabrina:
+	text_asm
+	ld hl, SaffronHouse2SabrinaBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_SABRINA
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, SaffronHouse2SabrinaPostBattleText
+	ld de, SaffronHouse2SabrinaPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+SaffronHouse2SabrinaBeforeBattleText:
+	text_far _SaffronHouse2SabrinaBeforeBattleText
+	text_end
+
+SaffronHouse2SabrinaPostBattleText:
+	text_far _SaffronHouse2SabrinaPostBattleText
 	text_end

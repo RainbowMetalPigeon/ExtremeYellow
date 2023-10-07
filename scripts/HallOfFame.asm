@@ -95,63 +95,13 @@ HallofFameRoomScript1:
 	ld a, $ff
 	ld [wJoyIgnore], a
 
-.justTest
-	; start of all the hide/show, only the first one (Cerulean Cave Guy) is vanilla
-	ld a, HS_CERULEAN_CAVE_GUY
-	ld [wMissableObjectIndex], a
-	predef HideObject
-
-; ----- new HS, begin -----
-
-	ld a, HS_ROUTE_21_OAK 			; Oak in Route21
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-	ld a, HS_VIRIDIAN_FOREST_ERIKA	; Erika in Viridian Forest
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-	ld a, HS_FIGHTING_DOJO_BRUNO	; Bruno in Fighting Dojo
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-	ld a, HS_ROCK_TUNNEL_B1F_BROCK	; Brock in Rock Tunnel B1F
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-	ld a, HS_POKEMON_TOWER_6F_AGATHA	; Agatha in Pokemon Tower 6F
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-	ld a, HS_VERMILION_MACHOKE		; Machoke in Vermilion
-	ld [wMissableObjectIndex], a
-	predef HideObject
-
-	ld a, HS_VERMILION_MACHAMP		; Machamp in Vermilion
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI ; Giovanni in the Safari Zone
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra ; edited, new HS function
-
-	ld a, HS_SEAFOAM_ISLANDS_B4F_LORELEI ; Lorelei in Seafoam Island B4F
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra ; edited, new HS function
-
-	ld a, HS_ROUTE_20_MISTY ; Misty in Route 20
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-
-; ----- new HS, end -----
-
+	; new code for HS and to set the event that we beat the game at least once
+	call LoopHide
+	call LoopShow
+	call LoopShowExtra
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
-	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; temp
-	jr z, .continue ; temp
-	ld a, $25 ; temp
-.continue ; temp
 
-	; vanilla code
+	; back to vanilla code
 	ld a, $2
 	ld [wHallOfFameCurScript], a
 	ret
@@ -162,3 +112,70 @@ HallOfFame_TextPointers:
 HallofFameRoomText1:
 	text_far _HallofFameRoomText1
 	text_end
+
+; ----- new HS compat functions -----
+
+LoopHide:
+	ld hl, ObjectsToHide
+.hideLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	pop hl
+	jr .hideLoop
+
+ObjectsToHide:
+	db HS_CERULEAN_CAVE_GUY
+	db HS_VERMILION_MACHOKE
+	db $ff
+
+LoopShow:
+	ld hl, ObjectsToShow
+.hideLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	pop hl
+	jr .hideLoop
+
+ObjectsToShow:
+	db HS_ROUTE_21_OAK
+	db HS_VIRIDIAN_FOREST_ERIKA
+	db HS_FIGHTING_DOJO_BRUNO
+	db HS_ROCK_TUNNEL_B1F_BROCK
+	db HS_POKEMON_TOWER_6F_AGATHA
+	db HS_VERMILION_MACHAMP
+	db HS_ROUTE_20_MISTY
+	db HS_POWER_PLANT_LT_SURGE
+	db HS_VICTORY_ROAD_2F_KOGA
+	db HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE
+	db HS_MOLTRES
+	db HS_ZAPDOS
+	db $ff
+
+LoopShowExtra:
+	ld hl, ObjectsToShowExtra
+.hideLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	pop hl
+	jr .hideLoop
+
+ObjectsToShowExtra:
+	db HS_SAFARI_ZONE_NORTH_GIOVANNI
+	db HS_SEAFOAM_ISLANDS_B4F_LORELEI
+	db HS_MR_PSYCHIC_SABRINA
+	db HS_POKEMON_MANSION_2F_BLAINE
+	db HS_MEWTWO
+	db HS_ARTICUNO
+	db $ff

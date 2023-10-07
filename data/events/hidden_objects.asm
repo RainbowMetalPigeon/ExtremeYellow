@@ -213,6 +213,7 @@ RockTunnelPokecenterHiddenObjects:
 PowerPlantHiddenObjects:
 	hidden_object 17, 16, MAX_ELIXER, HiddenItems
 	hidden_object 12,  1, PP_UP, HiddenItems
+	hidden_object 28,  2, HP_UP, HiddenItems ; new
 	db -1 ; end
 
 Route11HiddenObjects:

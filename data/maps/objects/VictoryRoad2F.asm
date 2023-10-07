@@ -26,5 +26,6 @@ VictoryRoad2F_Object:
 	object_event  4, 14, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 11 ; person
 	object_event  5,  5, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 12 ; person
 	object_event 23, 16, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 13 ; person
+	object_event 20,  1, SPRITE_SILPH_WORKER, STAY, ANY_DIR, 14 ; new, Koga, testing as last
 
 	def_warps_to VICTORY_ROAD_2F

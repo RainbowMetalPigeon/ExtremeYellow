@@ -15,5 +15,42 @@ CeruleanCaveExtraMiddleHolesCoords:
 	db -1 ; end
 
 CeruleanCaveExtraMiddle_TextPointers:
+	dw CeruleanCaveExtraMiddleTextLance ; new
 
-	text_end ; unused
+; new ------------------------------------------------
+
+CeruleanCaveExtraMiddleTextLance:
+	text_asm
+	ld hl, CeruleanCaveExtraMiddleLanceBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_LANCE
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, CeruleanCaveExtraMiddleLancePostBattleText
+	ld de, CeruleanCaveExtraMiddleLancePostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+CeruleanCaveExtraMiddleLanceBeforeBattleText:
+	text_far _CeruleanCaveExtraMiddleLanceBeforeBattleText
+	text_end
+
+CeruleanCaveExtraMiddleLancePostBattleText:
+	text_far _CeruleanCaveExtraMiddleLancePostBattleText
+	text_end

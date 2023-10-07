@@ -43,5 +43,6 @@ CeruleanCaveExtraMiddle_Object:
 	def_bg_events
 
 	def_object_events
+	object_event  0, 25, SPRITE_LANCE, STAY, ANY_DIR, 1 ; new
 
 	def_warps_to CERULEAN_CAVE_EXTRA_MIDDLE

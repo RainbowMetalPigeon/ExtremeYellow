@@ -32,6 +32,7 @@ HiddenItemCoords:
 	hidden_item ROUTE_10,                      16,  53
 	hidden_item POWER_PLANT,                   17,  16
 	hidden_item POWER_PLANT,                   12,   1
+	hidden_item POWER_PLANT,                   28,   2 ; new
 	hidden_item ROUTE_11,                      48,   5
 	hidden_item ROUTE_12,                       2,  63
 	hidden_item ROUTE_13,                      13,   6 ; edited

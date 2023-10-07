@@ -84,3 +84,17 @@ _VictoryRoad2AfterBattleText5::
 	line "up the challenge"
 	cont "here."
 	done
+
+; new ------------------------------------------------
+
+_VictoryRoad2KogaBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_VictoryRoad2KogaPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "KOGA: " extra space
+	line "for the battle!"
+	prompt

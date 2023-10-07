@@ -521,8 +521,9 @@ WarpFound2::
 	jr nz, .notFinalLabyrinthHandling
 	xor a
 	ld [wMapPalOffset], a
-	ldh a, [hWarpDestinationMap] ; destination map
+;	ldh a, [hWarpDestinationMap] ; destination map, unnecessary?
 .notFinalLabyrinthHandling
+	ldh a, [hWarpDestinationMap] ; fixing glitchy stairs?
 
 	ld [wCurMap], a
 	farcall IsPlayerStandingOnWarpPadOrHole

@@ -24,3 +24,17 @@ _TM29NoRoomText::
 	text "Where do you plan"
 	line "to put this?"
 	done
+
+; new ------------------------------------------------
+
+_SaffronHouse2SabrinaBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_SaffronHouse2SabrinaPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "SABRINA: " extra space
+	line "for the battle!"
+	prompt

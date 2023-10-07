@@ -45,3 +45,17 @@ _Mansion2Text_520c7::
 _Mansion2Text_520cc::
 	text "Not quite yet!"
 	done
+
+; new ------------------------------------------------
+
+_Mansion2BlaineBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_Mansion2BlainePostBattleText::
+;	xxxx "123456789012345678"
+	text "Thank you" ; need to consider a "BLAINE: " extra space
+	line "for the battle!"
+	prompt

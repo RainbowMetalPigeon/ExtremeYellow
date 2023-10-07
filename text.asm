@@ -273,6 +273,7 @@ INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/Route27.asm" ; new
 INCLUDE "text/Route28.asm" ; new
 INCLUDE "text/CeladonUniversity.asm" ; new
+INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
 INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
 INCLUDE "text/ObsidianWood.asm" ; new
 INCLUDE "text/ObsidianWarehouse.asm" ; new

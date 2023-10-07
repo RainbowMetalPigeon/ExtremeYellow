@@ -47,7 +47,7 @@ Mansion2Script_Switches::
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $5
+	ld a, $6 ; edited because rematch Blaine
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
@@ -57,14 +57,15 @@ PokemonMansion2F_ScriptPointers:
 	dw EndTrainerBattle
 
 PokemonMansion2F_TextPointers:
+	dw Mansion2TextBlaine ; new
 	dw Mansion2Text1
 	dw PickUpItemText
 	dw Mansion2Text3
 	dw Mansion2Text4
-	dw Mansion2Text5
+	dw Mansion2Text5 ; statue switch text
 
 Mansion2TrainerHeaders:
-	def_trainers
+	def_trainers 2 ; edited because of rematch Blaine
 Mansion2TrainerHeader0:
 	trainer EVENT_BEAT_MANSION_2_TRAINER_0, 0, Mansion2BattleText1, Mansion2EndBattleText1, Mansion2AfterBattleText1
 	db -1 ; end
@@ -132,4 +133,42 @@ Mansion2Text_520c7:
 
 Mansion2Text_520cc:
 	text_far _Mansion2Text_520cc
+	text_end
+
+; new ------------------------------------------------
+
+Mansion2TextBlaine:
+	text_asm
+	ld hl, Mansion2BlaineBeforeBattleText
+	call PrintText
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+
+	; make this an inverse battle
+	ld a, 1
+	ld [wInverseBattle], a
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	call Delay3
+	ld a, OPP_BLAINE
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, Mansion2BlainePostBattleText
+	ld de, Mansion2BlainePostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+Mansion2BlaineBeforeBattleText:
+	text_far _Mansion2BlaineBeforeBattleText
+	text_end
+
+Mansion2BlainePostBattleText:
+	text_far _Mansion2BlainePostBattleText
 	text_end

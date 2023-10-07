@@ -45,13 +45,9 @@ EndTrainerBattle_Custom:
 	call DisplayTextID
 	; hide Obsidian Rockets, Fuchsia Rocket, and show Obsidian citizens
 	call GBFadeOutToBlack
-
 	call HideObsidianFuchsiaRockets
+	call HideObsidianFuchsiaRocketsExtra
 	call ShowObsidianCitizens
-;	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
-;	ld [wMissableObjectIndex], a
-;	predef HideObject
-
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -182,7 +178,7 @@ ObsidianWarehouseFinalData_JessieX5:
 	db $4
 	db $4
 	db $ff
-	
+
 ObsidianWarehouseFinalData_JessieX6:
 	db $7 ; TBV
 	db $4
@@ -201,7 +197,7 @@ ObsidianWarehouseFinalScript_JessieJamesFight:
 	ld a, $2
 	ld [wSprite02StateData1MovementStatus], a
 	ld hl, wSprite02StateData1FacingDirection
-	
+
 	ld a, [wXCoord]
 	cp $4 ; $5, $6
 	jr z, .playerX4
@@ -298,6 +294,18 @@ HideObsidianFuchsiaRockets:
 	pop hl
 	jr .hideLoop
 
+HideObsidianFuchsiaRocketsExtra:
+	ld hl, ObsidianFuchsiaRockets
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of rockets to hide?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	pop hl
+	jr .hideLoop
+
 ObsidianFuchsiaRockets:
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_1
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_2
@@ -309,6 +317,9 @@ ObsidianFuchsiaRockets:
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
 	db HS_FUCHSIA_CITY_ROCKET_SAFARI
+	db $ff
+
+ObsidianFuchsiaRocketsExtra:
 	db HS_OBSIDIAN_ISLAND_ROCKET_1
 	db HS_OBSIDIAN_ISLAND_ROCKET_2
 	db HS_OBSIDIAN_ISLAND_ROCKET_3
@@ -325,7 +336,7 @@ ShowObsidianCitizens:
 	ret z ; if so, we're done
 	push hl
 	ld [wMissableObjectIndex], a
-	predef ShowObject
+	predef ShowObjectExtra
 	pop hl
 	jr .hideLoop
 

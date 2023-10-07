@@ -95,6 +95,7 @@ DEF SHOW EQU $15
 	const HS_FIGHTING_DOJO_GIFT_2          ; 4B
 	const HS_FIGHTING_DOJO_GIFT_3          ; new
 	const HS_SILPH_CO_1F_RECEPTIONIST      ; 4C
+	const HS_POWER_PLANT_LT_SURGE          ; new
 	const HS_VOLTORB_1                     ; 4D
 	const HS_VOLTORB_2                     ; 4E
 	const HS_VOLTORB_3                     ; 4F
@@ -108,13 +109,13 @@ DEF SHOW EQU $15
 	const HS_POWER_PLANT_ITEM_2            ; 57
 	const HS_POWER_PLANT_ITEM_3            ; 58
 	const HS_POWER_PLANT_ITEM_4            ; 59
-	const HS_POWER_PLANT_ITEM_5            ; 5A
 	const HS_MOLTRES                       ; 5B
 	const HS_VICTORY_ROAD_2F_ITEM_1        ; 5C
 	const HS_VICTORY_ROAD_2F_ITEM_2        ; 5D
 	const HS_VICTORY_ROAD_2F_ITEM_3        ; 5E
 	const HS_VICTORY_ROAD_2F_ITEM_4        ; 5F
 	const HS_VICTORY_ROAD_2F_BOULDER       ; 60
+	const HS_VICTORY_ROAD_2F_KOGA          ; new
 	const HS_BILL_POKEMON                  ; 61
 	const HS_BILL_1                        ; 62
 	const HS_BILL_2                        ; 63
@@ -245,26 +246,14 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
 	const HS_FUCHSIA_CITY_ROCKET_SAFARI    ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_4      ; new
-	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
-	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
-	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new
-	const HS_OBSIDIAN_ISLAND_SCIENTIST_2   ; new
-	const HS_OBSIDIAN_ISLAND_OFFICIER      ; new
-	const HS_OBSIDIAN_ISLAND_CITIZEN_1     ; new
-	const HS_OBSIDIAN_ISLAND_CITIZEN_2     ; new
-	const HS_OBSIDIAN_ISLAND_CITIZEN_3     ; new
-	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
-	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
+	const HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE  ; new
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---
 
 ; new ; this block now corresponds to MissableObjectsExtra
 	const_def							   ; equivalent to "const_value=0" ; TODO: verify that this works as intended
+	const HS_POKEMON_MANSION_2F_BLAINE     ; new
 	const HS_POKEMON_MANSION_2F_ITEM       ; C0
 	const HS_POKEMON_MANSION_3F_ITEM_1     ; C1
 	const HS_POKEMON_MANSION_3F_ITEM_2     ; C2
@@ -311,3 +300,18 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E9
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
+	const HS_MR_PSYCHIC_SABRINA            ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_4      ; new
+	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
+	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
+	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new
+	const HS_OBSIDIAN_ISLAND_SCIENTIST_2   ; new
+	const HS_OBSIDIAN_ISLAND_OFFICIER      ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_1     ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_2     ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_3     ; new
+	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
+	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
