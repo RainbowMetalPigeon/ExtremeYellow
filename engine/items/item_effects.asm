@@ -2253,11 +2253,17 @@ ItemUseSuperRod:
 	ld a, c
 	and a ; are there fish in the map?
 	jr z, DoNotGenerateFishingEncounter ; if not, do not generate an encounter
+	; moved the ld a, $1 down
+	call Random
+
+	; new, increased fishing chances with Super Rod
+	cp 192 ; about 75% of 255
 	ld a, $1
 	ld [wRodResponse], a
-	call Random
-	and $1
-	jr nz, RodResponse
+	jr c, RodResponse ; get a respose if there's a carry, i.e. if a-192 is negative, i.e. if a<192, i.e. 75%
+;	and $1
+;	jr nz, RodResponse
+
 	xor a
 	ld [wRodResponse], a
 	jr DoNotGenerateFishingEncounter

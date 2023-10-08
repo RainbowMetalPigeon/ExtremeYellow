@@ -145,6 +145,7 @@ DebugSetPokedexEntries:
 	ret
 
 DebugItemsList:
+	db SUPER_ROD, 1
 	db MASTER_BALL, 99
 	db HEAVY_BALL, 99
 	db FAST_BALL, 99
@@ -152,7 +153,6 @@ DebugItemsList:
 	db TOWN_MAP, 1
 	db BICYCLE, 1
 	db FULL_RESTORE, 99
-	db RARE_CANDY, 99
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db POKE_DOLL, 99 ; FULL_HEAL

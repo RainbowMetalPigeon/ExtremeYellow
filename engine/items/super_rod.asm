@@ -8,7 +8,7 @@ ReadSuperRodData:
 	jr z, .notfound
 	cp c
 	jr z, .found
-	ld de, $8
+	ld de, $0A ; edited becasue I added one species per location, it was $8
 	add hl, de
 	jr .loop
 .found
