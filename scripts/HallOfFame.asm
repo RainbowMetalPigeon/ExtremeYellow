@@ -99,7 +99,8 @@ HallofFameRoomScript1:
 	call LoopHide
 	call LoopShow
 	call LoopShowExtra
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing
 
 	; back to vanilla code
 	ld a, $2

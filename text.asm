@@ -278,6 +278,8 @@ INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
 INCLUDE "text/ObsidianWood.asm" ; new
 INCLUDE "text/ObsidianWarehouse.asm" ; new
 INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
+INCLUDE "text/OnixBurrowing.asm" ; new
+INCLUDE "text/SecludedCaves.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -23,7 +23,7 @@ ObsidianWoodWildMons:
 	db 35, POLIWHIRL
 	db 34, GOLDUCK
 	db 35, GOLDUCK
-	db 36, POLITOED
+	db 37, POLIWHIRL
 	db 36, GOLDUCK
 	db 37, GOLDUCK
 	db 33, GRIMER

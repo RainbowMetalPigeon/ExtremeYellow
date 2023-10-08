@@ -294,18 +294,6 @@ HideObsidianFuchsiaRockets:
 	pop hl
 	jr .hideLoop
 
-HideObsidianFuchsiaRocketsExtra:
-	ld hl, ObsidianFuchsiaRockets
-.hideLoop
-	ld a, [hli]
-	cp $ff ; have we run out of rockets to hide?
-	ret z ; if so, we're done
-	push hl
-	ld [wMissableObjectIndex], a
-	predef HideObjectExtra
-	pop hl
-	jr .hideLoop
-
 ObsidianFuchsiaRockets:
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_1
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_2
@@ -318,6 +306,18 @@ ObsidianFuchsiaRockets:
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
 	db HS_FUCHSIA_CITY_ROCKET_SAFARI
 	db $ff
+
+HideObsidianFuchsiaRocketsExtra:
+	ld hl, ObsidianFuchsiaRocketsExtra
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of rockets to hide?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	pop hl
+	jr .hideLoop
 
 ObsidianFuchsiaRocketsExtra:
 	db HS_OBSIDIAN_ISLAND_ROCKET_1

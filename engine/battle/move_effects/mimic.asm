@@ -68,7 +68,7 @@ MimicEffect_::
 	ld hl, MimicLearnedMoveText
 	jp PrintText
 .mimicMissed
-	jp PrintButItFailedText_
+	jpfar PrintButItFailedText_ ; edited, made into a jpfar
 
 MimicLearnedMoveText:
 	text_far _MimicLearnedMoveText

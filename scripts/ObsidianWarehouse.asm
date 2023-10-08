@@ -121,11 +121,11 @@ ObsidianWarehouseArrowTilePlayerMovement:
 	map_coord_movement  8, 34, Spinner_UP_3
 	map_coord_movement 12, 34, Spinner_UP_5
 	map_coord_movement 20, 34, Spinner_DOWN_3
-	map_coord_movement 25, 34, Spinner_LEFT_5
+	map_coord_movement 24, 34, Spinner_LEFT_4
 
 	map_coord_movement  5, 35, Spinner_UP_3
 	map_coord_movement 15, 35, Spinner_LEFT_5
-	map_coord_movement 25, 35, Spinner_LEFT_4
+	map_coord_movement 24, 35, Spinner_LEFT_3
 
 	map_coord_movement  7, 36, Spinner_DOWN_3
 	map_coord_movement 15, 36, Spinner_UP_1
@@ -171,7 +171,8 @@ ObsidianWarehouseArrowTilePlayerMovement:
 	map_coord_movement 35, 27, Spinner_UP_1
 	map_coord_movement 39, 27, Spinner_DOWN_10
 	map_coord_movement 42, 27, Spinner_LEFT_3
-	map_coord_movement 46, 27, Spinner_RIGHT_4
+	map_coord_movement 45, 27, Spinner_RIGHT_4
+	map_coord_movement 49, 27, Spinner_DOWN_4
 	map_coord_movement 50, 27, Spinner_UP_2
 	map_coord_movement 53, 27, Spinner_DOWN_4
 
@@ -362,6 +363,7 @@ ObsidianWarehouse_TextPointers:
 	dw ObsidianWarehouseTrainerText2
 	dw ObsidianWarehouseTrainerText3
 	dw ObsidianWarehouseTrainerText4
+	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

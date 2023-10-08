@@ -407,6 +407,8 @@ INCLUDE "scripts/SeafoamIslandsB4F.asm"
 INCLUDE "data/maps/objects/SeafoamIslandsB4F.asm"
 SeafoamIslandsB4F_Blocks: INCBIN "maps/SeafoamIslandsB4F.blk"
 
+; --- new dungeon maps, prolly they need to stay here because this Section is in the same bank as the "Dungeon Warps" one ---
+
 INCLUDE "data/maps/headers/CeruleanCaveExtraTop.asm"
 INCLUDE "scripts/CeruleanCaveExtraTop.asm"
 INCLUDE "data/maps/objects/CeruleanCaveExtraTop.asm"
@@ -1305,7 +1307,7 @@ INCLUDE "scripts/SSAnne2FRooms_2.asm"
 INCLUDE "scripts/SilphCo11F_2.asm"
 
 
-SECTION "Maps New", ROMX ; new
+SECTION "Maps New 1", ROMX ; new
 
 INCLUDE "data/maps/headers/SecludedAtollNW.asm"
 INCLUDE "scripts/SecludedAtollNW.asm"
@@ -1361,3 +1363,14 @@ INCLUDE "data/maps/headers/ObsidianWarehouseFinal.asm"
 INCLUDE "data/maps/objects/ObsidianWarehouseFinal.asm"
 ObsidianWarehouseFinal_Blocks: INCBIN "maps/ObsidianWarehouseFinal.blk"
 INCLUDE "scripts/ObsidianWarehouseFinal.asm"
+
+; hopefully this doesn't NEED to be in ROM 6 with the other dungeon maps... because it's full
+INCLUDE "data/maps/headers/OnixBurrowing.asm"
+INCLUDE "scripts/OnixBurrowing.asm"
+INCLUDE "data/maps/objects/OnixBurrowing.asm"
+OnixBurrowing_Blocks: INCBIN "maps/OnixBurrowing.blk"
+
+INCLUDE "data/maps/headers/SecludedCaves.asm"
+INCLUDE "scripts/SecludedCaves.asm"
+INCLUDE "data/maps/objects/SecludedCaves.asm"
+SecludedCaves_Blocks: INCBIN "maps/SecludedCaves.blk"

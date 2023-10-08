@@ -596,7 +596,13 @@
 	const_skip 4
 	const EVENT_BEAT_SS_ANNE_5_TRAINER_0
 	const EVENT_BEAT_SS_ANNE_5_TRAINER_1
-	const_skip 26
+	const_skip 3 ; edited for anomalies
+	const EVENT_BEAT_ZYGARDEC
+	const EVENT_BEAT_UNECROZMA
+	const EVENT_BEAT_MRAYQUAZA
+	const EVENT_BEAT_EETERNATUS
+	const EVENT_BEAT_ARCEUS
+	const_skip 18 ; edited for anomalies
 	const EVENT_GOT_HM01
 	const EVENT_RUBBED_CAPTAINS_BACK
 	const EVENT_SS_ANNE_LEFT
@@ -790,7 +796,8 @@ DEF INDIGO_PLATEAU_EVENTS_START EQU const_value
 	const_skip 5
 ;	const_skip ; commented away
 DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
-	const EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	const EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
+	const EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; new
 
 ; Victory Road 1F events
 	const_next $910
@@ -827,7 +834,7 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const_skip 8
 	const EVENT_BEAT_ARTICUNO
 
-; Ochre City events
+; Ochre City events ; new
 	const_next $9F0
 	const_skip 2
 	const EVENT_BEAT_OCHRE_GYM_TRAINER_0

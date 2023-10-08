@@ -92,16 +92,16 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const BIKE_SHOP,                      4,  4 ; $42
 	map_const CERULEAN_MART,                  4,  4 ; $43
 	map_const MT_MOON_POKECENTER,             7,  4 ; $44
-	map_const CERULEAN_TRASHED_HOUSE_COPY,    4,  4 ; $45 ; unused?
+	map_const ONIX_BURROWING,                26, 26 ; $45 ; new, was a copy of the trashed house
 	map_const ROUTE_5_GATE,                   4,  3 ; $46
 	map_const UNDERGROUND_PATH_ROUTE_5,       4,  4 ; $47
 	map_const DAYCARE,                        4,  4 ; $48
 	map_const ROUTE_6_GATE,                   4,  3 ; $49
 	map_const UNDERGROUND_PATH_ROUTE_6,       4,  4 ; $4A
-	map_const UNDERGROUND_PATH_ROUTE_6_COPY,  4,  4 ; $4B
+	map_const SECLUDED_CAVES,                19, 18 ; $4B ; new, was a copy fo the underground path route 6
 	map_const ROUTE_7_GATE,                   3,  4 ; $4C
 	map_const UNDERGROUND_PATH_ROUTE_7,       4,  4 ; $4D
-	map_const UNDERGROUND_PATH_ROUTE_7_COPY,  4,  4 ; $4E
+	map_const UNDERGROUND_PATH_ROUTE_7_COPY,  4,  4 ; $4E ; unused?
 	map_const ROUTE_8_GATE,                   3,  4 ; $4F
 	map_const UNDERGROUND_PATH_ROUTE_8,       4,  4 ; $50
 	map_const ROCK_TUNNEL_POKECENTER,         7,  4 ; $51
@@ -196,7 +196,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA
 	map_const CINNABAR_POKECENTER,            7,  4 ; $AB
 	map_const CINNABAR_MART,                  4,  4 ; $AC
-	map_const CINNABAR_MART_COPY,             4,  4 ; $AD
+	map_const CINNABAR_MART_COPY,             4,  4 ; $AD ; unused?
 	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $AE
 	map_const COPYCATS_HOUSE_1F,              4,  4 ; $AF
 	map_const COPYCATS_HOUSE_2F,              4,  4 ; $B0

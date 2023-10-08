@@ -1,4 +1,4 @@
-DEF OPP_ID_OFFSET EQU 208 ; was 200, but I added 57 mons
+DEF OPP_ID_OFFSET EQU 209 ; was 200, but I added 57 mons
 
 MACRO trainer_const
 	const \1

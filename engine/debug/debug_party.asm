@@ -16,7 +16,7 @@ SetDebugTeam:
 DebugTeam:
 	db MEWTWO, 98
 	db SNORLAX, 80
-	db PERSIAN, 80
+	db ARCEUS, 10
 	db STARTER_PIKACHU, 5
 	db -1 ; end
 
@@ -40,7 +40,7 @@ IF DEF(_DEBUG)
 	ld a, ETERNABEAM
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DRAGONASCENT
+	ld a, DISABLE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, THOUSANDARROWS
@@ -54,7 +54,7 @@ IF DEF(_DEBUG)
 	ld a, JUDGMENT
 	ld hl, wPartyMon3Moves
 	ld [hl], a
-	ld a, SCALD
+	ld a, INFESTATION
 	ld hl, wPartyMon3Moves + 1
 	ld [hl], a
 	ld a, HYDRO_CANNON
@@ -129,6 +129,8 @@ IF DEF(_DEBUG)
 ;	; set fast text and set mode - new
 ;	ld a, %01100001
 ;	ld [wOptions], a
+
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
 
 	ret
 

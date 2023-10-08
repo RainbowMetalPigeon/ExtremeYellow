@@ -2,7 +2,7 @@ SecludedAtollSE_Object:
 	db $43 ; border block
 
 	def_warp_events
-	warp_event 12, 13, REDS_HOUSE_2F, 1
+	warp_event 12, 13, SECLUDED_CAVES, 1
 
 	def_bg_events
 

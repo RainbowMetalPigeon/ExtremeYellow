@@ -73,7 +73,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
+	dw OnixBurrowingWildMons ; new
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -333,3 +333,4 @@ INCLUDE "data/wild/maps/SecludedAtollNE.asm" ; new
 INCLUDE "data/wild/maps/SecludedAtollSE.asm" ; new
 INCLUDE "data/wild/maps/SecludedAtollSW.asm" ; new
 INCLUDE "data/wild/maps/ObsidianWood.asm"    ; new
+INCLUDE "data/wild/maps/OnixBurrowing.asm"   ; new

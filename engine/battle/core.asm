@@ -3145,7 +3145,7 @@ PrintMenuItem:
 	call PrintNumber ; prints the c-digit, b-byte value at de
 	jr .afterDamagePrinting
 .OHKOMove
-	ld [hl], "INF"
+	ld [hl], "INFINITE"
 	jr .afterDamagePrinting
 .specialDamage
 	ld [hl], "?"
@@ -5680,6 +5680,18 @@ AdjustDamageForMoveType:
 	ld hl, wDamageMultipliers
 	set 7, [hl]
 .skipSameTypeAttackBonus
+
+; new block of code to handle Judgment (always super effective)
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveNum]
+	jr z, .player
+	ld a, [wEnemyMoveNum]
+.player
+	cp JUDGMENT
+	ld a, SUPER_EFFECTIVE
+	jr z, .isTheAttackOfGod
+
 	ld a, [wMoveType]
 	ld b, a
 	ld hl, TypeEffects
@@ -5712,6 +5724,7 @@ AdjustDamageForMoveType:
 	and $80
 	ld b, a
 	ld a, [hl] ; a = damage multiplier
+.isTheAttackOfGod ; new, to handle Judgment
 	ldh [hMultiplier], a
 
 ; new block of code, bugfix for super-not-very effective moves effectiveness display bug
@@ -5758,6 +5771,19 @@ AdjustDamageForMoveType:
 	inc a
 	ld [wMoveMissed], a
 .skipTypeImmunity
+
+; new block of code to handle Judgment (always super effective)
+; this second block is here to prevent counting multiple times its effectiveness
+; we already made it super effective once regardless of defender's type(s)
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveNum]
+	jr z, .player2
+	ld a, [wEnemyMoveNum]
+.player2
+	cp JUDGMENT
+	ret z
+
 	pop bc
 	pop hl
 .nextTypePair

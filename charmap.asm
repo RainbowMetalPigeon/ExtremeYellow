@@ -172,7 +172,7 @@
 	charmap ".",         $e8
 
 	charmap "%",         $e9 ; edited: was katakana small a, unused; new, "%"
-	charmap "INF",         $ea ; edited: was katakana small u, unused ; new, "infinity"
+	charmap "INFINITE",  $ea ; edited: was katakana small u, unused ; new, "infinite"
 	charmap "ェ",         $eb ; katakana small e, unused
 
 	charmap "▷",         $ec

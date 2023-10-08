@@ -74,13 +74,13 @@ MapHeaderBanks::
 	db BANK(BikeShop_h)
 	db BANK(CeruleanMart_h)
 	db BANK(MtMoonPokecenter_h)
-	db BANK(CeruleanTrashedHouse_h)
+	db BANK(OnixBurrowing_h) ; new, was a copy of the trashed house
 	db BANK(Route5Gate_h)
 	db BANK(UndergroundPathRoute5_h)
 	db BANK(Daycare_h)
 	db BANK(Route6Gate_h)
 	db BANK(UndergroundPathRoute6_h)
-	db BANK(UndergroundPathRoute6_h) ; UNDERGROUND_PATH_ROUTE_6_COPY
+	db BANK(SecludedCaves_h) ; new, was a copy fo the underground path route 6
 	db BANK(Route7Gate_h)
 	db BANK(UndergroundPathRoute7_h)
 	db BANK(UndergroundPathRoute7Copy_h)

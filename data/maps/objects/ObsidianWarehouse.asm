@@ -29,7 +29,7 @@ ObsidianWarehouse_Object:
 	warp_event 49,  9, OBSIDIAN_WAREHOUSE_FINAL, 1	; 21
 
 	def_bg_events
-	bg_event 55,  3, 14 ; ObsidianWarehouseStatueText
+	bg_event 55,  3, 15 ; ObsidianWarehouseStatueText
 
 	def_object_events
 	; trainers
@@ -41,11 +41,12 @@ ObsidianWarehouse_Object:
 	object_event  9, 39, SPRITE_POKE_BALL, STAY, NONE, 5, MAX_ELIXER
 	object_event 23, 30, SPRITE_POKE_BALL, STAY, NONE, 6, TM_METEOR_MASH ; previously was at SilphCo5F
 	object_event 36, 42, SPRITE_POKE_BALL, STAY, NONE, 7, IRON
-	object_event 46, 26, SPRITE_POKE_BALL, STAY, NONE, 8, PROTEIN
+	object_event 45, 26, SPRITE_POKE_BALL, STAY, NONE, 8, PROTEIN
 	object_event 11, 11, SPRITE_POKE_BALL, STAY, NONE, 9, PP_UP
 	object_event 12, 10, SPRITE_POKE_BALL, STAY, NONE, 10, NUGGET
 	object_event 56, 11, SPRITE_POKE_BALL, STAY, NONE, 11, MAX_REVIVE
 	object_event 50, 10, SPRITE_POKE_BALL, STAY, NONE, 12, GOLD_TEETH ; fundamental!!!
-	object_event 56,  3, SPRITE_POKE_BALL, STAY, NONE, 13, ESCAPE_ROPE
+	object_event 58, 42, SPRITE_POKE_BALL, STAY, NONE, 13, RARE_CANDY
+	object_event 56,  3, SPRITE_POKE_BALL, STAY, NONE, 14, ESCAPE_ROPE
 
 	def_warps_to OBSIDIAN_WAREHOUSE

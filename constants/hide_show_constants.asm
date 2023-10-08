@@ -237,6 +237,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_6     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_7     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
+	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES    ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE   ; new
@@ -247,6 +248,11 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
 	const HS_FUCHSIA_CITY_ROCKET_SAFARI    ; new
 	const HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE  ; new
+	const HS_ZYGARDEC					   ; new
+	const HS_UNECROZMA					   ; new
+	const HS_MRAYQUAZA					   ; new
+	const HS_EETERNATUS					   ; new
+	const HS_ARCEUS						   ; new
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---

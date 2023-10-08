@@ -333,8 +333,6 @@ FisherData:
 	db 33, SEAKING, GOLDEEN, 0
 ; Route 12
 	db 24, MAGIKARP, GYARADOS, GYARADOS, 0
-; Victory Road 1F ; to be updated
-	db $FF, 50, RATICATE, 50, DODRIO, 50, GOLEM, 50, OMASTAR, 50, BUTTERFREE, 55, PIKACHU, 0 ; pseudo-Yellow
 
 SwimmerData:
 ; Cerulean Gym
@@ -709,6 +707,8 @@ CooltrainerData:
 	db 48, JYNX, EXEGGUTOR, STARMIE, ALAKAZAM, GENGAR, 0 ; new
 ; Viridian Gym
 	db 53, MACHAMP, SANDSLASH, TAUROS, GOLEM, STEELIX, 0 ; new
+; Victory Road 1F ; 
+	db $FF, 50, RATICATE, 50, DODRIO, 50, GOLEM, 50, OMASTAR, 50, BUTTERFREE, 55, PIKACHU, 0 ; pseudo-Yellow
 
 BrockData:
 	db $FF, 10, GEODUDE, 10, OMANYTE, 10, KABUTO, 10, RHYHORN, 10, VULPIX, 11, ONIX, 0 ; updated

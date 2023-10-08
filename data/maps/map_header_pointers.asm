@@ -74,13 +74,13 @@ MapHeaderPointers::
 	dw BikeShop_h
 	dw CeruleanMart_h
 	dw MtMoonPokecenter_h
-	dw CeruleanTrashedHouse_h ; CERULEAN_TRASHED_HOUSE_COPY
+	dw OnixBurrowing_h ; new, was a copy of the trashed house
 	dw Route5Gate_h
 	dw UndergroundPathRoute5_h
 	dw Daycare_h
 	dw Route6Gate_h
 	dw UndergroundPathRoute6_h
-	dw UndergroundPathRoute6_h ; UNDERGROUND_PATH_ROUTE_6_COPY
+	dw SecludedCaves_h ; new, was a copy fo the underground path route 6
 	dw Route7Gate_h
 	dw UndergroundPathRoute7_h
 	dw UndergroundPathRoute7Copy_h

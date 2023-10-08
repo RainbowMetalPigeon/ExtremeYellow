@@ -170,6 +170,8 @@ IsWarpTileInFrontOfPlayer::
 	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	cp OBSIDIAN_WAREHOUSE								; new
 	jr z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new
+	cp SECLUDED_CAVES									; new
+	jr z, IsSecludedCavesWarpTileInFrontOfPlayer		; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -200,6 +202,7 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
+IsSecludedCavesWarpTileInFrontOfPlayer: ; new, testing
 IsCeruleanCaveExtraWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $3C

@@ -2242,7 +2242,9 @@ wSafariZoneNorthCurScript:: db ; new
 wObsidianWoodCurScript:: db ; new
 wObsidianWarehouseCurScript:: db ; new
 wObsidianWarehouseFinalCurScript:: db ; new
-	ds 2 ; was 7
+wOnixBurrowingCurScript:: db ; new
+wSecludedCavesCurScript:: db ; new
+;   db 7
 wSSAnneBowCurScript:: db
 wViridianForestCurScript:: db
 wMuseum1FCurScript:: db

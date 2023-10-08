@@ -76,20 +76,20 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw MtMoonPokecenterHS ; new
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; ONIX_BURROWING
+	dw NoHS ; ROUTE_5_GATE
+	dw NoHS ; UNDERGROUND_PATH_ROUTE_5
+	dw NoHS ; DAYCARE
+	dw NoHS ; ROUTE_6_GATE
+	dw NoHS ; UNDERGROUND_PATH_ROUTE_6
+	dw SecludedCavesHS ; new
+	dw NoHS ; ROUTE_7_GATE
+	dw NoHS ; UNDERGROUND_PATH_ROUTE_7
+	dw NoHS ; UNDERGROUND_PATH_ROUTE_7_COPY
+	dw NoHS ; ROUTE_8_GATE
+	dw NoHS ; UNDERGROUND_PATH_ROUTE_8
+	dw NoHS ; ROCK_TUNNEL_POKECENTER
+	dw NoHS ; ROCK_TUNNEL_1F
 	dw PowerPlantHS
 	dw NoHS
 	dw NoHS
@@ -563,7 +563,8 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0A, SHOW
 	db OBSIDIAN_WAREHOUSE, $0B, SHOW
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
-	db OBSIDIAN_WAREHOUSE, $0D, HIDE
+	db OBSIDIAN_WAREHOUSE, $0D, SHOW
+	db OBSIDIAN_WAREHOUSE, $0E, HIDE
 ObsidianWarehouseFinalHS: ; new
 	db OBSIDIAN_WAREHOUSE_FINAL, $01, SHOW ; James
 	db OBSIDIAN_WAREHOUSE_FINAL, $02, SHOW ; Jessie
@@ -576,6 +577,12 @@ FuchsiaCityHS: ; new
 	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone
 CeruleanCaveExtraMiddleHS: ; new, includes rematch Lance
 	db CERULEAN_CAVE_EXTRA_MIDDLE, $01, HIDE
+SecludedCavesHS: ; new, anomalies
+	db SECLUDED_CAVES, $01, SHOW
+	db SECLUDED_CAVES, $02, SHOW
+	db SECLUDED_CAVES, $03, SHOW
+	db SECLUDED_CAVES, $04, SHOW
+	db SECLUDED_CAVES, $05, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it

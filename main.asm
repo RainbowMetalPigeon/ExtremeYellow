@@ -435,6 +435,7 @@ INCLUDE "engine/battle/move_effects/teleport.asm"			; new, testing
 INCLUDE "engine/battle/move_effects/flinch.asm"				; new, testing
 INCLUDE "engine/battle/move_effects/burn.asm"				; new
 INCLUDE "engine/battle/move_effects/trapping.asm"			; new, moved
+INCLUDE "engine/battle/move_effects/disable.asm"			; new, testing
 INCLUDE "engine/items/tm_prices.asm"
 INCLUDE "engine/math/multiply_divide.asm"
 INCLUDE "engine/events/give_pokemon.asm"
