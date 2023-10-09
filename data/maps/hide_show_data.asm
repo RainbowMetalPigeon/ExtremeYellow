@@ -112,9 +112,9 @@ MapHSPointers:
 	dw SSAnne1FRoomsHS
 	dw SSAnne2FRoomsHS
 	dw SSAnneB1FRoomsHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; OCHRE_GYM
+	dw OchreWonderlandHS ; new
+	dw NoHS ; OCHRE_RESEARCH_CENTER
 	dw VictoryRoad1FHS
 	dw NoHS ; SECLUDED_ATOLL_NW
 	dw NoHS ; SECLUDED_ATOLL_NE
@@ -673,5 +673,7 @@ ObsidianIslandHS: ; new
 	db OBSIDIAN_ISLAND, $0C, HIDE
 	db OBSIDIAN_ISLAND, $0D, HIDE
 	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
+OchreWonderlandHS: ; new
+	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
 
 	db $FF, $01, SHOW ; end, list terminator

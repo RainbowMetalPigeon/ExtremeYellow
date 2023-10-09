@@ -8,8 +8,9 @@ OchreWonderland_Object:
 	warp_event 18, 40, OCHRE_WONDERLAND, 3
 
 	def_bg_events
-	bg_event  5, 57, 1 ; OchreWonderlandText1
+	bg_event  5, 57, 2 ; OchreWonderland_Sign1
 
 	def_object_events
+	object_event  9,  4, SPRITE_BLUE, STAY, DOWN, 1
 
 	def_warps_to OCHRE_WONDERLAND

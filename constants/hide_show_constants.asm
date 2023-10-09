@@ -321,3 +321,4 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_CITIZEN_3     ; new
 	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
 	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
+	const HS_OCHRE_WONDERLAND_BLUE		   ; new, Wonderland Blue

@@ -834,9 +834,10 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const_skip 8
 	const EVENT_BEAT_ARTICUNO
 
-; Ochre City events ; new
+; Ochre City events ; new, and then scattered around
 	const_next $9F0
-	const_skip 2
+	const_skip 1
+	const EVENT_1ST_SPOKE_WITH_WONDERLAND_BLUE ; new, testing
 	const EVENT_BEAT_OCHRE_GYM_TRAINER_0
 	const EVENT_BEAT_OCHRE_GYM_TRAINER_1
 	const EVENT_BEAT_OCHRE_GYM_TRAINER_2
