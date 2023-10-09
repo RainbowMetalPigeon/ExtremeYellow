@@ -1374,3 +1374,8 @@ INCLUDE "data/maps/headers/SecludedCaves.asm"
 INCLUDE "scripts/SecludedCaves.asm"
 INCLUDE "data/maps/objects/SecludedCaves.asm"
 SecludedCaves_Blocks: INCBIN "maps/SecludedCaves.blk"
+
+INCLUDE "data/maps/headers/OchreRehabilitationCenter.asm"
+INCLUDE "scripts/OchreRehabilitationCenter.asm"
+INCLUDE "data/maps/objects/OchreRehabilitationCenter.asm"
+OchreRehabilitationCenter_Blocks: INCBIN "maps/OchreRehabilitationCenter.blk"

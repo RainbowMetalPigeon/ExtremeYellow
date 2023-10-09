@@ -128,14 +128,14 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SS_ANNE_1F_ROOMS,              12,  8 ; $66
 	map_const SS_ANNE_2F_ROOMS,              12,  8 ; $67
 	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $68
-	map_const OCHRE_GYM,                     15, 17 ; $69 ; edited
-	map_const OCHRE_WONDERLAND,              30, 30 ; $6A ; edited
-	map_const OCHRE_RESEARCH_CENTER,          6,  5 ; $6B ; edited
+	map_const OCHRE_GYM,                     15, 17 ; $69 ; new
+	map_const OCHRE_WONDERLAND,              30, 30 ; $6A ; new
+	map_const OCHRE_RESEARCH_CENTER,          6,  5 ; $6B ; new
 	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
-	map_const SECLUDED_ATOLL_NW,             27, 15 ; $6D ; edited
-	map_const SECLUDED_ATOLL_NE,             15, 15 ; $6E ; edited
-	map_const SECLUDED_ATOLL_SE,             15, 24 ; $6F ; edited
-	map_const SECLUDED_ATOLL_SW,             27, 24 ; $70 ; edited
+	map_const SECLUDED_ATOLL_NW,             27, 15 ; $6D ; new
+	map_const SECLUDED_ATOLL_NE,             15, 15 ; $6E ; new
+	map_const SECLUDED_ATOLL_SE,             15, 24 ; $6F ; new
+	map_const SECLUDED_ATOLL_SW,             27, 24 ; $70 ; new
 	map_const LANCES_ROOM,                   13, 13 ; $71
 	map_const OBSIDIAN_WOOD,                 24, 24 ; $72 ; new
 	map_const OBSIDIAN_WAREHOUSE,            30, 22 ; $73 ; new
@@ -227,7 +227,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROCKET_HIDEOUT_B3F,            15, 14 ; $C9
 	map_const ROCKET_HIDEOUT_B4F,            15, 12 ; $CA
 	map_const ROCKET_HIDEOUT_ELEVATOR,        3,  4 ; $CB
-	map_const UNUSED_MAP_CC,                  0,  0 ; $CC
+	map_const OCHRE_REHABILITATION_CENTER,    6,  4 ; $CC, new
 	map_const UNUSED_MAP_CD,                  0,  0 ; $CD
 	map_const UNUSED_MAP_CE,                  0,  0 ; $CE
 	map_const SILPH_CO_2F,                   15,  9 ; $CF

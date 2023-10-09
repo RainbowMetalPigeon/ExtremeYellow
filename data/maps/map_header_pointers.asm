@@ -209,7 +209,7 @@ MapHeaderPointers::
 	dw RocketHideoutB3F_h
 	dw RocketHideoutB4F_h
 	dw RocketHideoutElevator_h
-	dw RocketHideoutElevator_h ; UNUSED_MAP_CC
+	dw OchreRehabilitationCenter_h ; new
 	dw RocketHideoutElevator_h ; UNUSED_MAP_CD
 	dw RocketHideoutElevator_h ; UNUSED_MAP_CE
 	dw SilphCo2F_h

@@ -261,8 +261,6 @@ INCLUDE "text/OchreCity.asm"
 
 INCLUDE "data/text/text_9.asm"
 
-INCLUDE "text/OchreGym.asm" ; new
-
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 
@@ -280,6 +278,8 @@ INCLUDE "text/ObsidianWarehouse.asm" ; new
 INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 INCLUDE "text/OnixBurrowing.asm" ; new
 INCLUDE "text/SecludedCaves.asm" ; new
+INCLUDE "text/OchreRehabilitationCenter.asm" ; new
+INCLUDE "text/OchreGym.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

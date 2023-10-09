@@ -1,0 +1,20 @@
+OchreRehabilitationCenter_Script:
+	call EnableAutoTextBoxDrawing
+	ret
+
+OchreRehabilitationCenter_TextPointers:
+	dw OchreRehabilitationCenterText1
+	dw OchreRehabilitationCenterText2
+	dw OchreRehabilitationCenterText3
+
+OchreRehabilitationCenterText1:
+	text_far _OchreRehabilitationCenterText1
+	text_end
+
+OchreRehabilitationCenterText2:
+	text_far _OchreRehabilitationCenterText2
+	text_end
+
+OchreRehabilitationCenterText3:
+	text_far _OchreRehabilitationCenterText3
+	text_end
