@@ -212,6 +212,10 @@ Route21AfterBattleText9:
 
 Route21TextOak:
 	text_asm
+	ld c, BANK(Music_MeetProfOak)
+	ld a, MUSIC_MEET_PROF_OAK
+	call PlayMusic
+
 	ld hl, OakBeforeBattleText
 	CheckEvent EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
 	jr z, .goPrint
@@ -226,9 +230,6 @@ Route21TextOak:
 
 	ld hl, OakBeforeBattleText2
 	call PrintText
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
 
 	ld hl, wd72d
 	set 6, [hl]

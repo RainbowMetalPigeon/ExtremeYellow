@@ -49,6 +49,10 @@ SafariZoneNorthScript2:
 	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra ; edited, new HS function
+	; and show them in Oaks Lab
+	ld a, HS_OAKS_LAB_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
