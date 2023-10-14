@@ -132,11 +132,11 @@ OaksLabScript5:
 	SetEvent EVENT_OAK_ASKED_TO_CHOOSE_MON
 	ld a, $fc
 	ld [wJoyIgnore], a
-	ld a, $d
+	ld a, $e ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
-	ld a, $e
+	ld a, $f ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
@@ -144,11 +144,11 @@ OaksLabScript5:
 	ld [wSprite01StateData1MovementStatus], a
 	ld a, SPRITE_FACING_UP
 	ld [wSprite01StateData1FacingDirection], a
-	ld a, $f
+	ld a, $10 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
-	ld a, $10
+	ld a, $11 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -173,7 +173,7 @@ OaksLabScript6:
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
 	call UpdateSprites
-	ld a, $a
+	ld a, $b ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $1
@@ -233,7 +233,7 @@ OaksLabScript9:
 	call GetMonName
 	ld a, ~(A_BUTTON | B_BUTTON)
 	ld [wJoyIgnore], a
-	ld a, $11
+	ld a, $12 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 
@@ -291,7 +291,7 @@ OaksLabScript11:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret nz
-	ld a, $12
+	ld a, $13 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -315,7 +315,7 @@ OaksLabScript12:
 	ld c, BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
-	ld a, $b
+	ld a, $c ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $1
@@ -401,7 +401,7 @@ OaksLabScript14:
 OaksLabScript15:
 	ld c, 20
 	call DelayFrames
-	ld a, $c
+	ld a, $d ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	farcall Music_RivalAlternateStart
@@ -475,7 +475,7 @@ OaksLabScript17:
 	ld [wPikachuSpawnState], a
 	farcall SchedulePikachuSpawnForAfterText
 	call EnablePikachuOverworldSpriteDrawing
-	ld a, $1a
+	ld a, $1b ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $12
@@ -483,7 +483,7 @@ OaksLabScript17:
 	ret
 
 OaksLabScript18:
-	ld a, $1b
+	ld a, $1c ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -498,7 +498,7 @@ OaksLabScript19:
 	call EnableAutoTextBoxDrawing
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
-	ld a, $13
+	ld a, $14 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	callfar Func_f1be0
@@ -544,21 +544,21 @@ OaksLabScript20:
 	ld a, ~(A_BUTTON | B_BUTTON)
 	ld [wJoyIgnore], a
 	call OaksLabScript_1c78e
-	ld a, $14
+	ld a, $15 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call DelayFrame
 	call OaksLabScript_1c78e
-	ld a, $15
+	ld a, $16 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call DelayFrame
 	call OaksLabScript_1c78e
-	ld a, $16
+	ld a, $17 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call DelayFrame
-	ld a, $17
+	ld a, $18 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
@@ -569,7 +569,7 @@ OaksLabScript20:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	call OaksLabScript_1c78e
-	ld a, $18
+	ld a, $19 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $1
@@ -578,7 +578,7 @@ OaksLabScript20:
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
 	call Delay3
-	ld a, $19
+	ld a, $1a ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_POKEDEX
@@ -711,6 +711,7 @@ OaksLab_TextPointers:
 	dw OaksLabText7
 	dw OaksLabText8
 	dw OaksLabText9
+	dw OaksLabTextGiovanni ; new, testing
 	dw OaksLabText10
 	dw OaksLabText11
 	dw OaksLabText12
@@ -740,6 +741,7 @@ OaksLab_TextPointers2:
 	dw OaksLabText7
 	dw OaksLabText8
 	dw OaksLabText9
+	dw OaksLabTextGiovanni ; new, testing
 
 OaksLabText1:
 	text_asm
@@ -1144,4 +1146,63 @@ OaksLabText9:
 
 OaksLabText_1c31d:
 	text_far _OaksLabText_1d405
+	text_end
+
+; new ------------------------------------------------
+
+OaksLabTextGiovanni:
+	text_asm
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+
+	ld hl, GiovanniBeforeBattleText
+	CheckEvent EVENT_1ST_SPOKE_WITH_OAKSLAB_GIOVANNI
+	jr z, .goPrint
+	ld hl, GiovanniBeforeBattleTextShort
+.goPrint
+	call PrintText
+	SetEvent EVENT_1ST_SPOKE_WITH_OAKSLAB_GIOVANNI
+
+	callfar NormalInverseChoice
+	ld a, [wCurrentMenuItem]
+	ld [wInverseBattle], a
+
+	ld hl, GiovanniBeforeBattleText2
+	call PrintText
+
+	; they seem to do nothing?
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+
+	ld hl, wOptions
+	res 7, [hl]		; Turn on battle animations to make the battle feel more epic.
+
+	call Delay3
+	ld a, OPP_GIOVANNI
+	ld [wCurOpponent], a
+
+	ld a, 6
+	ld [wTrainerNo], a
+
+	ld hl, GiovanniPostBattleText
+	ld de, GiovanniPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+GiovanniBeforeBattleText:
+	text_far _GiovanniBeforeBattleText
+	text_end
+
+GiovanniBeforeBattleTextShort:
+	text_far _GiovanniBeforeBattleTextShort
+	text_end
+
+GiovanniBeforeBattleText2:
+	text_far _GiovanniBeforeBattleText2
+	text_end
+
+GiovanniPostBattleText:
+	text_far _GiovanniPostBattleText
 	text_end

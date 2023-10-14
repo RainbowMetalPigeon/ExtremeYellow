@@ -136,7 +136,7 @@ _Route21AfterBattleText9::
 	line "bite! Yeah!"
 	done
 
-; ------------------------------------------------
+; new ------------------------------------------------
 
 _OakBeforeBattleText::
 	text "OAK: <PLAYER>!"

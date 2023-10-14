@@ -399,3 +399,29 @@ _OaksLabText_1d405::
 	text "I study #MON as"
 	line "PROF.OAK's AIDE."
 	done
+
+; new ------------------------------------------------
+
+_GiovanniBeforeBattleText::
+;	xxxx "123456789012345678"
+	text "Pre choice"
+	line "Long"
+	prompt
+
+_GiovanniBeforeBattleTextShort::
+;	xxxx "123456789012345678"
+	text "Pre choice"
+	line "Short"
+	prompt
+
+_GiovanniBeforeBattleText2::
+;	xxxx "123456789012345678"
+	text "Let us have a nice"
+	line "INVERSE BATTLE!"
+	done
+
+_GiovanniPostBattleText::
+;	xxxx "123456789012345678"
+	text "Thanks"
+	line "for the battle!"
+	prompt

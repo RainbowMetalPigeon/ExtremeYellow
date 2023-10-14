@@ -344,6 +344,7 @@ OaksLabHS:
 	db OAKS_LAB, $04, SHOW
 	db OAKS_LAB, $05, SHOW
 	db OAKS_LAB, $06, HIDE
+	db OAKS_LAB, $0A, HIDE ; new, Giovanni, testing
 ViridianGymHS:
 	db VIRIDIAN_GYM, $01, SHOW
 	db VIRIDIAN_GYM, $0C, SHOW	; updated, +1
@@ -526,7 +527,7 @@ SilphCo8FHS:
 	db SILPH_CO_8F, $02, SHOW
 	db SILPH_CO_8F, $03, SHOW
 	db SILPH_CO_8F, $04, SHOW
-RockTunnelB1FHS:
+RockTunnelB1FHS: ; new
 	db ROCK_TUNNEL_B1F, $01, HIDE
 SilphCo9FHS:
 	db SILPH_CO_9F, $02, SHOW

@@ -17,5 +17,6 @@ OaksLab_Object:
 	object_event  1,  9, SPRITE_GIRL, WALK, UP_DOWN, 7 ; person
 	object_event  2, 10, SPRITE_SCIENTIST, STAY, NONE, 8 ; person
 	object_event  8, 10, SPRITE_SCIENTIST, STAY, NONE, 9 ; person
+	object_event  0,  2, SPRITE_GIOVANNI, STAY, UP, 10 ; new, testing
 
 	def_warps_to OAKS_LAB

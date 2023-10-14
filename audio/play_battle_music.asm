@@ -51,7 +51,7 @@ PlayBattleMusic::
 	cp OPP_GIOVANNI ; Giovanni is special
 	jr nz, .normalTrainerBattle
 	ld a, [wTrainerNo]
-	cp 3 ; check if it's 3rd or later battle (gym leader or rematch)
+	cp 4 ; check if it's 3rd or later battle (gym leader or rematch)
 	jr nc, .GymLeaderOrElite4Battle
 
 .normalTrainerBattle
