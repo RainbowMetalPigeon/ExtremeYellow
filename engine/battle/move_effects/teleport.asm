@@ -84,7 +84,8 @@ SwitchAndTeleportEffect_:
 ;	ld a, [wEnemyMoveNum]			; edited, there's only teleport here now, no more roar or whirlwind
 ;	cp TELEPORT						; edited, there's only teleport here now, no more roar or whirlwind
 ;	jp nz, PrintText				; edited, there's only teleport here now, no more roar or whirlwind
-	jp ConditionalPrintButItFailed
+;	jp ConditionalPrintButItFailed	; edited, commented, seems very unnecessary, substituted with the line below, much safer?
+	jp PrintButItFailedText2_
 .playAnimAndPrintText
 	push af
 ;	call PlayBattleAnimation			; edited
