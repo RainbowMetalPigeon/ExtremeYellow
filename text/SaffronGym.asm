@@ -264,3 +264,16 @@ _SaffronGymAfterBattleText8::
 	cont "GHOST #MON are"
 	cont "amazing!"
 	done
+
+; new ---------------------
+
+_SabrinaRematchPreBattleText::
+	text "Rematch"
+	line "SABRINA"
+	cont "Pre"
+	done
+
+_SabrinaRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

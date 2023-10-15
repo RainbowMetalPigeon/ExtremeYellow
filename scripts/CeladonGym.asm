@@ -34,6 +34,7 @@ CeladonGym_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw CeladonGymErikaPostBattle
+	dw CeladonGymErikaPostBattleRematch ; new
 
 CeladonGymErikaPostBattle:
 	ld a, [wIsInBattle]
@@ -70,6 +71,18 @@ CeladonGymReceiveTM21:
 
 	jp CeladonGymResetScripts
 
+CeladonGymErikaPostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, CeladonGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $d
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_ERIKA_REMATCH
+	jp CeladonGymResetScripts
+
 CeladonGym_TextPointers:
 	dw ErikaText
 	dw CeladonGymTrainerText1
@@ -83,6 +96,7 @@ CeladonGym_TextPointers:
 	dw ErikaRainbowBadgeInfoText
 	dw ReceivedTM21Text
 	dw TM21NoRoomText
+	dw ErikaPostRematchText; new, $d
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
@@ -106,6 +120,8 @@ CeladonGymTrainerHeader7:
 
 ErikaText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_ERIKA
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM21
@@ -113,6 +129,33 @@ ErikaText:
 	call z, CeladonGymReceiveTM21
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, ErikaRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+;	ldh a, [hSpriteIndex]
+;	ld [wSpriteIndex], a
+;	call EngageMapTrainer
+	call Delay3
+	ld a, OPP_ERIKA
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, ErikaRematchDefeatedText
+	ld de, ErikaRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wCeladonGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
+
 .afterBeat
 	ld hl, ErikaPostBattleAdviceText
 	call PrintText
@@ -306,4 +349,18 @@ CeladonGymEndBattleText9:
 
 CeladonGymAfterBattleText9:
 	text_far _CeladonGymAfterBattleText9
+	text_end
+
+; new ---------------------
+
+ErikaRematchPreBattleText:
+	text_far _ErikaRematchPreBattleText
+	text_end
+
+ErikaRematchDefeatedText:
+	text_far _ErikaRematchDefeatedText
+	text_end
+
+ErikaPostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

@@ -162,3 +162,16 @@ _CeruleanGymGuidePostBattleText::
 	line "we make a pretty"
 	cont "darn good team!"
 	done
+
+; new ---------------------
+
+_MistyRematchPreBattleText::
+	text "Rematch"
+	line "MISTY"
+	cont "Pre"
+	done
+
+_MistyRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

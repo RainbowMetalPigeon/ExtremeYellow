@@ -61,7 +61,8 @@
 	const_next $68
 	const EVENT_BOUGHT_MUSEUM_TICKET
 	const EVENT_GOT_OLD_AMBER
-	const_skip 8
+	const_skip 7 ; edited, was 8
+	const EVENT_BEAT_BROCK_REMATCH ; new
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_0
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_1
 	const_skip 2
@@ -74,7 +75,8 @@
 	const_skip 14
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
-	const_skip 17
+	const_skip 16 ; edited, was 17
+	const EVENT_BEAT_MISTY_REMATCH ; new
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_0
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_1
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_2
@@ -134,7 +136,8 @@
 	const_skip 3
 	const EVENT_SEEL_FAN_BOAST
 	const EVENT_PIKACHU_FAN_BOAST
-	const_skip 8
+	const_skip 7 ; edited, was 8
+	const EVENT_BEAT_LT_SURGE_REMATCH ; new
 	const EVENT_2ND_LOCK_OPENED
 	const EVENT_1ST_LOCK_OPENED
 	const EVENT_BEAT_VERMILION_GYM_TRAINER_0
@@ -153,7 +156,8 @@
 	const EVENT_GOT_TM48
 	const EVENT_GOT_TM49
 	const EVENT_GOT_TM18
-	const_skip 24
+	const_skip 23 ; edited, was 24
+	const EVENT_BEAT_ERIKA_REMATCH ; new
 	const EVENT_GOT_TM21
 	const EVENT_BEAT_ERIKA
 	const EVENT_BEAT_CELADON_GYM_TRAINER_0
@@ -182,7 +186,8 @@
 	const_skip 20
 	const EVENT_SAFARI_GAME_OVER
 	const EVENT_IN_SAFARI_ZONE
-	const_skip 8
+	const_skip 7 ; edited, was 8
+	const EVENT_BEAT_KOGA_REMATCH ; new
 	const EVENT_GOT_TM06
 	const EVENT_BEAT_KOGA
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_0
@@ -198,7 +203,8 @@
 	const EVENT_MANSION_SWITCH_ON
 	const_skip 16
 	const EVENT_BEAT_MANSION_1_TRAINER_0
-	const_skip 14
+	const_skip 13 ; edited, was 14
+	const EVENT_BEAT_BLAINE_REMATCH ; new
 	const EVENT_GOT_TM38
 	const EVENT_BEAT_BLAINE
 	const EVENT_BEAT_CINNABAR_GYM_TRAINER_0
@@ -246,7 +252,8 @@
 	const EVENT_BEAT_SAFFRON_GYM_TRAINER_5
 	const EVENT_BEAT_SAFFRON_GYM_TRAINER_6
 	const EVENT_BEAT_SAFFRON_GYM_TRAINER_7
-	const_skip 45
+	const_skip 44 ; edited, was 45
+	const EVENT_BEAT_SABRINA_REMATCH ; new
 	const EVENT_SILPH_CO_RECEPTIONIST_AT_DESK
 	const_skip 24
 	const EVENT_GOT_TM29

@@ -190,3 +190,16 @@ _VermilionGymGuidePostBattleText::
 	text "Whew! That match"
 	line "was electric!"
 	done
+
+; new ---------------------
+
+_LtSurgeRematchPreBattleText::
+	text "Rematch"
+	line "LT SURGE"
+	cont "Pre"
+	done
+
+_LtSurgeRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

@@ -33,13 +33,13 @@ OchreWonderlandTextBlue:
 .loop
 	call Random
 	cp 25 ; there are 25 teams to choose from
-	jr nc, .loop ; we for a to be in the range [0,24]
-	ld b, 5 ; the offset for the random rematch team
-	add b ; we add b to a, so now a is in the range [5,29]
+	jr nc, .loop ; we force a to be in the range [0,24]
+	ld b, 7 ; the offset for the random rematch team
+	add b ; we add b to a, so now a is in the range [7,31]
 	ld [wTrainerNo], a
 
 	ld hl, BlueBeforeBattleText2Normal
-	cp 27 ; a-27: if there is a carry, normal team; otherwise, tough one (last 3 teams, 27/28/29, have 5 megas)
+	cp 29 ; a-39: if there is a carry, normal team; otherwise, tough one (last 3 teams, 29/30/31, have 5 megas)
 	jr c, .continue
 	ld hl, BlueBeforeBattleText2Tough
 .continue

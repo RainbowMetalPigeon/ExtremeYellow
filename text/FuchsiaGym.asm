@@ -247,3 +247,16 @@ _FuchsiaGymGuidePostBattleText::
 	line "ninja can terrify"
 	cont "even now!"
 	done
+
+; new ---------------------
+
+_KogaRematchPreBattleText::
+	text "Rematch"
+	line "KOGA"
+	cont "Pre"
+	done
+
+_KogaRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

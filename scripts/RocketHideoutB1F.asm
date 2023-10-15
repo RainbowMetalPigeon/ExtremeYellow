@@ -13,8 +13,10 @@ RocketHideout1Script_44be0:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEvent EVENT_677
+	CheckEvent EVENT_677 ; never set???
 	jr nz, .asm_44c01
+	CheckEvent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI	; new, testing
+	jr nz, .asm_44c01								; new, testing
 	CheckEventReuseA EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4
 	jr nz, .asm_44bf7
 	ld a, $54
@@ -22,7 +24,7 @@ RocketHideout1Script_44be0:
 .asm_44bf7
 	ld a, SFX_GO_INSIDE
 	call PlaySound
-	CheckEventHL EVENT_677
+	CheckEventHL EVENT_677 ; never set???
 .asm_44c01
 	ld a, $e
 .asm_44c03

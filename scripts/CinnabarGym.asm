@@ -50,6 +50,7 @@ CinnabarGym_ScriptPointers:
 	dw CinnabarGymScript1
 	dw CinnabarGymScript2
 	dw CinnabarGymBlainePostBattle
+	dw CinnabarGymBlainePostBattleRematch ; new
 
 CinnabarGymScript0:
 	ld a, [wOpponentAfterWrongAnswer]
@@ -233,6 +234,18 @@ CinnabarGymReceiveTM38:
 
 	jp CinnabarGymResetScripts
 
+CinnabarGymBlainePostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, CinnabarGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $d
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_BLAINE_REMATCH
+	jp CinnabarGymResetScripts
+
 CinnabarGym_TextPointers:
 	dw BlaineText
 	dw CinnabarGymTrainerText1
@@ -246,6 +259,7 @@ CinnabarGym_TextPointers:
 	dw BlaineVolcanoBadgeInfoText
 	dw ReceivedTM38Text
 	dw TM38NoRoomText
+	dw BlainePostRematchText; new, $d
 
 CinnabarGymScript_750c3:
 	ldh a, [hSpriteIndexOrTextID]
@@ -269,6 +283,8 @@ CinnabarGymScript_750c3:
 
 BlaineText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_BLAINE
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM38
@@ -276,6 +292,30 @@ BlaineText:
 	call z, CinnabarGymReceiveTM38
 	call DisableWaitingAfterTextDisplay
 	jp TextScriptEnd
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, BlaineRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BLAINE
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, BlaineRematchDefeatedText
+	ld de, BlaineRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wCinnabarGymCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd ; slightly different from other gyms' rematches and from the rest of Cinnabar Gym, but should do
+; back to vanilla code
+
 .afterBeat
 	ld hl, BlainePostBattleAdviceText
 	call PrintText
@@ -567,3 +607,17 @@ CinnabarGymGuideText:
 	text_asm
 	callfar Func_f2133
 	jp TextScriptEnd
+
+; new ---------------------
+
+BlaineRematchPreBattleText:
+	text_far _BlaineRematchPreBattleText
+	text_end
+
+BlaineRematchDefeatedText:
+	text_far _BlaineRematchDefeatedText
+	text_end
+
+BlainePostRematchText:
+	text_far _GymLeaderPostRematchText
+	text_end

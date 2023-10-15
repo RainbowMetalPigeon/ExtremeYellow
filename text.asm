@@ -232,11 +232,6 @@ INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/FightingDojo.asm"
 INCLUDE "text/SaffronGym.asm"
-INCLUDE "text/SaffronPidgeyHouse.asm"
-INCLUDE "text/SaffronMart.asm"
-INCLUDE "text/SilphCo1F.asm"
-INCLUDE "text/SaffronPokecenter.asm"
-INCLUDE "text/MrPsychicsHouse.asm"
 
 INCLUDE "data/text/text_7.asm"
 
@@ -280,7 +275,13 @@ INCLUDE "text/OnixBurrowing.asm" ; new
 INCLUDE "text/SecludedCaves.asm" ; new
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
-INCLUDE "text/OaksLab.asm" ; new, moved here
+INCLUDE "text/OaksLab.asm" ; new, moved here (from Text 5)
+; moved from Text 7
+INCLUDE "text/SaffronPidgeyHouse.asm"
+INCLUDE "text/SaffronMart.asm"
+INCLUDE "text/SilphCo1F.asm"
+INCLUDE "text/SaffronPokecenter.asm"
+INCLUDE "text/MrPsychicsHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

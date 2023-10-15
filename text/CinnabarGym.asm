@@ -277,3 +277,16 @@ _CinnabarGymText_7::
 	text "Come on, answer"
 	line "the question!"
 	done
+
+; new ---------------------
+
+_BlaineRematchPreBattleText::
+	text "Rematch"
+	line "BLAINE"
+	cont "Pre"
+	done
+
+_BlaineRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

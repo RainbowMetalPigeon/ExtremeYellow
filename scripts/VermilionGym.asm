@@ -53,6 +53,7 @@ VermilionGym_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw VermilionGymLTSurgePostBattle
+	dw VermilionGymLTSurgePostBattleRematch ; new
 
 VermilionGymLTSurgePostBattle:
 	ld a, [wIsInBattle]
@@ -89,6 +90,18 @@ VermilionGymReceiveTM24:
 
 	jp VermilionGymResetScripts
 
+VermilionGymLTSurgePostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, VermilionGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $a
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_LT_SURGE_REMATCH
+	jp VermilionGymResetScripts
+
 VermilionGym_TextPointers:
 	dw LTSurgeText
 	dw VermilionGymTrainerText1
@@ -99,6 +112,7 @@ VermilionGym_TextPointers:
 	dw LTSurgeThunderBadgeInfoText
 	dw ReceivedTM24Text
 	dw TM24NoRoomText
+	dw LtSurgePostRematchText; new, $a
 
 VermilionGymTrainerHeaders:
 	def_trainers 2
@@ -114,6 +128,8 @@ VermilionGymTrainerHeader3:
 
 LTSurgeText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_LT_SURGE
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM24
@@ -121,6 +137,29 @@ LTSurgeText:
 	call z, VermilionGymReceiveTM24
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, LtSurgeRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_LT_SURGE
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, LtSurgeRematchDefeatedText
+	ld de, LtSurgeRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wVermilionGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
 .afterBeat
 	ld hl, LTSurgePostBattleAdviceText
 	call PrintText
@@ -266,4 +305,18 @@ VermilionGymGuidePreBattleText:
 
 VermilionGymGuidePostBattleText:
 	text_far _VermilionGymGuidePostBattleText
+	text_end
+
+; new ---------------------
+
+LtSurgeRematchPreBattleText:
+	text_far _LtSurgeRematchPreBattleText
+	text_end
+
+LtSurgeRematchDefeatedText:
+	text_far _LtSurgeRematchDefeatedText
+	text_end
+
+LtSurgePostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

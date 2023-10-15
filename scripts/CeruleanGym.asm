@@ -34,6 +34,7 @@ CeruleanGym_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw CeruleanGymMistyPostBattle
+	dw CeruleanGymMistyPostBattleRematch ; new
 
 CeruleanGymMistyPostBattle:
 	ld a, [wIsInBattle]
@@ -70,6 +71,18 @@ CeruleanGymReceiveTM11:
 
 	jp CeruleanGymResetScripts
 
+CeruleanGymMistyPostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, CeruleanGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $9
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_MISTY_REMATCH
+	jp CeruleanGymResetScripts
+
 CeruleanGym_TextPointers:
 	dw MistyText
 	dw CeruleanGymTrainerText1
@@ -79,6 +92,7 @@ CeruleanGym_TextPointers:
 	dw MistyCascadeBadgeInfoText
 	dw ReceivedTM11Text
 	dw TM11NoRoomText
+	dw MistyPostRematchText; new, $9
 
 CeruleanGymTrainerHeaders:
 	def_trainers 2
@@ -92,6 +106,8 @@ CeruleanGymTrainerHeader2:
 
 MistyText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_MISTY
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM11
@@ -99,6 +115,30 @@ MistyText:
 	call z, CeruleanGymReceiveTM11
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, MistyRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_MISTY
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, MistyRematchDefeatedText
+	ld de, MistyRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wCeruleanGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
+
 .afterBeat
 	ld hl, TM11ExplanationText
 	call PrintText
@@ -223,4 +263,18 @@ CeruleanGymGuidePreBattleText:
 
 CeruleanGymGuidePostBattleText:
 	text_far _CeruleanGymGuidePostBattleText
+	text_end
+
+; new ---------------------
+
+MistyRematchPreBattleText:
+	text_far _MistyRematchPreBattleText
+	text_end
+
+MistyRematchDefeatedText:
+	text_far _MistyRematchDefeatedText
+	text_end
+
+MistyPostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

@@ -1,5 +1,7 @@
 Route26_Script:
 	call EnableAutoTextBoxDrawing
+	ld hl, wd72e	; ugly fix for the non-encounter thingy of the Onix Burrowing
+	res 4, [hl]		; ugly fix for the non-encounter thingy of the Onix Burrowing
 	ld hl, Route26TrainerHeaders
 	ld de, Route26_ScriptPointers
 	ld a, [wRoute26CurScript]
