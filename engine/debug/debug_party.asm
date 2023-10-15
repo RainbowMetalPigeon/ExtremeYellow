@@ -40,7 +40,7 @@ IF DEF(_DEBUG)
 	ld a, ETERNABEAM
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DISABLE
+	ld a, TELEPORT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, THOUSANDARROWS

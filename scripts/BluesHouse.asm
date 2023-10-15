@@ -43,6 +43,8 @@ BluesHouseDaisySittingText:
 	ld hl, GotMapText
 	call PrintText
 	SetEvent EVENT_GOT_TOWN_MAP
+	ld hl, DaisyPostGiveMapText ; new
+	call PrintText ; new
 	jr .done
 
 .got_town_map
@@ -83,4 +85,8 @@ BluesHouseDaisyWalkingText:
 
 BluesHouseTownMapText:
 	text_far _BluesHouseTownMapText
+	text_end
+
+DaisyPostGiveMapText: ; new
+	text_far _DaisyPostGiveMapText
 	text_end

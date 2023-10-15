@@ -1,5 +1,5 @@
 _PewterMartText2::
-	text "A shady old man"
+	text "A shady old person"
 	line "got me to buy"
 	cont "this really weird"
 	cont "fish #MON!"

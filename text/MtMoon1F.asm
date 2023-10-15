@@ -79,7 +79,7 @@ _MtMoon1AfterBattleText6::
 	done
 
 _MtMoon1BattleText7::
-	text "Suspicious men"
+	text "Suspicious people"
 	line "are in the cave."
 	cont "What about you?"
 	done

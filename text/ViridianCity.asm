@@ -5,9 +5,10 @@ _ViridianCityText_19219::
 	done
 
 _ViridianCityText_1920a::
-	text "Ahh, I've had my"
-	line "coffee now and I"
-	cont "feel great!"
+	text "Mmn... Looks like"
+	line "I was pretty"
+	cont "drunk! My head"
+	cont "hurts..."
 
 	para "Sure, you can go"
 	line "through!"
@@ -80,10 +81,15 @@ _ViridianCityText_19157::
 	done
 
 _ViridianCityText_19175::
-	text "Oh Grandpa! Don't"
-	line "be so mean!"
-	cont "He hasn't had his"
-	cont "coffee yet."
+	text "Yare yare daze,"
+	line "Gramps! Sleeping"
+	cont "here of all"
+	cont "places!"
+
+	para "It can’t be"
+	line "helped... We have"
+	cont "to wait until"
+	cont "they sobers up."
 	done
 
 _ViridianCityText_1917a::
@@ -95,11 +101,13 @@ _ViridianCityText_1917a::
 	done
 
 _ViridianCityText_19191::
-	text "You can't go"
-	line "through here!"
+	text "Uugh...! Hic..."
+	line "hold it right"
+	cont "there! Lissen to"
+	cont "what I hafta say!"
 
-	para "This is private"
-	line "property!"
+	para "...hey! Don' go,"
+	line "I said!!"
 	done
 
 _ViridianCityText_191ca::

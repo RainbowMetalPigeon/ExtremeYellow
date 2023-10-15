@@ -434,60 +434,67 @@ _NotEnoughMemoryText::
 
 _OakSpeechText1::
 	text "Hello there!"
-;	line "Welcome to the"
-;	cont "world of #MON!"
+	line "Welcome to the"
+	cont "world of #MON!"
 
-;	para "My name is OAK!"
-;	line "People call me"
-;	cont "the #MON PROF!"
+	para "My name is OAK!"
+	line "People call me"
+	cont "the #MON PROF!"
 	prompt
 
 _OakSpeechText2A::
 	text "This world is"
-;	line "inhabited by"
-;	cont "creatures called"
-;	cont "#MON!@"
+	line "inhabited by"
+	cont "creatures called"
+	cont "#MON!@"
 	text_end
 
 _OakSpeechText2B::
 	text $51,"For some people,"
-;	line "#MON are"
-;	cont "pets. Others use"
-;	cont "them for fights."
+	line "#MON are"
+	cont "pets. Others use"
+	cont "them for fights."
 
-;	para "Myself..."
+	para "Myself..."
 
-;	para "I study #MON"
-;	line "as a profession."
+	para "I study #MON"
+	line "as a profession."
 	prompt
 
 _IntroducePlayerText::
 	text "First, what is"
-;	line "your name?"
+	line "your name?"
 	prompt
 
 _IntroduceRivalText::
 	text "This is my grand-"
-;	line "kid. They have"
-;	cont "been your rival"
-;	cont "since you were"
-;	cont "babies."
+	line "kid. They have"
+	cont "been your rival"
+	cont "since you were"
+	cont "babies."
 
-;	para "...Erm, what is"
-;	line "their name again?"
+	para "...Erm, this is a"
+	line "bit awkward,"
+	cont "but..."
+
+	para "...What is their"
+	line "their name again?"
+
+	para "Please, don't tell"
+	line "them I asked you!"
 	prompt
 
 _OakSpeechText3::
-	text "<PLAYER>!"
+	text "Well! <PLAYER>!"
 
-;	para "Your very own"
-;	line "#MON legend is"
-;	cont "about to unfold!"
+	para "Your very own"
+	line "#MON legend is"
+	cont "about to unfold!"
 
-;	para "A world of dreams"
-;	line "and adventures"
-;	cont "with #MON"
-;	cont "awaits! Let's go!"
+	para "A world of dreams"
+	line "and adventures"
+	cont "with #MON"
+	cont "awaits! Let's go!"
 	done
 
 _DoYouWantToNicknameText::
@@ -500,14 +507,18 @@ _DoYouWantToNicknameText::
 
 _YourNameIsText::
 	text "Right! So your"
-;	line "name is <PLAYER>!"
+	line "name is <PLAYER>!"
 	prompt
 
 _HisNameIsText::
 	text "That's right! I"
-;	line "remember now!"
-;	cont "Their name is"
-;	cont "<RIVAL>!"
+	line "remember now!"
+	cont "Their name is"
+	cont "<RIVAL>!"
+
+	para "Thank you! Please,"
+	line "don't tell them"
+	cont "I forgot..."
 	prompt
 
 _WillBeTradedText::

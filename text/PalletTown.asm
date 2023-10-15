@@ -5,10 +5,10 @@ _OakAppearsText::
 
 _OakWalksUpText::
 	text "OAK: That was"
-;	line "close!"
+	line "close!"
 
-;	para "Wild #MON live"
-;	line "in tall grass!"
+	para "Wild #MON live"
+	line "in tall grass!"
 	done
 
 _OakWhewText::
@@ -17,16 +17,16 @@ _OakWhewText::
 
 _OakGrassText::
 	text "OAK: A #MON can"
-;	line "appear anytime in"
-;	cont "tall grass."
+	line "appear anytime in"
+	cont "tall grass."
 
-;	para "You need your own"
-;	line "#MON for your"
-;	cont "protection."
-;	cont "I know!"
+	para "You need your own"
+	line "#MON for your"
+	cont "protection."
+	cont "I know!"
 
-;	para "Here, come with"
-;	line "me!"
+	para "Here, come with"
+	line "me!"
 	done
 
 _PalletTownText2::
@@ -46,6 +46,13 @@ _PalletTownText3::
 	line "and recall items"
 	cont "and #MON as"
 	cont "data via PC!"
+
+	para "I wonder if soon"
+	line "we'll be able to"
+	cont "hack our own"
+	cont "reality as if it"
+	cont "was the code of a"
+	cont "videogame!"
 	done
 
 _PalletTownText4::

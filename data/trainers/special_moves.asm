@@ -182,10 +182,10 @@ SpecialTrainerMoves:
 
 	db BROCK, 1
 	; GEODUDE
-	db 1, 1, DISABLE
-	db 1, 2, NO_MOVE
-	db 1, 3, NO_MOVE
-	db 1, 4, NO_MOVE
+;	db 1, 1, TACKLE
+;	db 1, 2, DEFENSE_CURL
+;	db 1, 3, MUD_SLAP
+	db 1, 4, ROCK_THROW
 	; OMANYTE
 ;	db 2, 1, WATER_GUN
 ;	db 2, 2, DEFENSE_CURL

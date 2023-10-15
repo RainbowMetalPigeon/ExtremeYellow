@@ -140,7 +140,7 @@ INCLUDE "data/text/text_5.asm"
 
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/BluesHouse.asm"
-INCLUDE "text/OaksLab.asm"
+;INCLUDE "text/OaksLab.asm" ; moved to a new Section
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"
 INCLUDE "text/ViridianMart.asm"
@@ -280,6 +280,7 @@ INCLUDE "text/OnixBurrowing.asm" ; new
 INCLUDE "text/SecludedCaves.asm" ; new
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
+INCLUDE "text/OaksLab.asm" ; new, moved here
 
 
 ; new: splitted the Pokédex text into two separate sections

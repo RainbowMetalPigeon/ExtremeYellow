@@ -486,6 +486,10 @@ OaksLabScript18:
 	ld a, $1c ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	call Delay3 ; new
+	ld a, $1d ; new
+	ldh [hSpriteIndexOrTextID], a ; new
+	call DisplayTextID ; new
 	xor a
 	ld [wJoyIgnore], a
 	ld a, $16
@@ -730,6 +734,7 @@ OaksLab_TextPointers:
 	dw OaksLabText25
 	dw OaksLabText26
 	dw OaksLabText27
+	dw OaksLabTextMeds ; new
 
 OaksLab_TextPointers2:
 	dw OaksLabText1
@@ -1135,6 +1140,16 @@ OaksLabText24:
 
 OaksLabText25:
 	text_far _OaksLabText27
+	text_end
+
+OaksLabTextMeds: ; new
+	text_asm
+	ld hl, OaksLabTextMedsInternal
+	call PrintText
+	jp TextScriptEnd
+
+OaksLabTextMedsInternal: ; new
+	text_far _OaksLabTextMeds
 	text_end
 
 OaksLabText8:

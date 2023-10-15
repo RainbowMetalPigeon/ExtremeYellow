@@ -11,6 +11,8 @@ _ViridianPokeCenterText3::
 	line "CENTER in every"
 	cont "town ahead."
 
-	para "They don't charge"
-	line "any money either!"
+	para "They are obviously"
+	line "free, like pub-"
+	cont "lich healthcare"
+	cont "should always be!"
 	done

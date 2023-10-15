@@ -1,23 +1,39 @@
 _OaksLabGaryText1::
-	text "<RIVAL>: Yo"
-	line "<PLAYER>! Gramps"
-	cont "isn't around!"
+	text "<RIVAL>: Ah,"
+	line "<PLAYER>. Gramps"
+	cont "isn't around."
 
 	para "I ran here 'cos"
-	line "he said he had a"
-	cont "#MON for me."
+	line "they said they"
+	cont "had a #MON for"
+	cont "me."
+
+	para "Unless they pulled"
+	line "another one of"
+	cont "their craps and"
+	cont "just forgot..."
 	done
 
 _OaksLabText40::
 	text "<RIVAL>: Humph!"
 	line "I'll get a better"
 	cont "#MON than you!"
+
+	para "I'll show you"
+	line "who's the best!"
 	done
 
 _OaksLabText41::
 	text "<RIVAL>: Heh, my"
 	line "#MON looks a"
-	cont "lot stronger."
+	cont "lot stronger"
+	cont "than yours."
+
+	para "Serves you well"
+	line "for trying to"
+	cont "steal my #MON"
+	cont "and my Gramps'"
+	cont "attentions!"
 	done
 
 _OaksLabText39::
@@ -29,6 +45,12 @@ _OaksLabText39::
 _OaksLabPikachuText::
 	text "OAK: Go ahead,"
 	line "it's yours!"
+
+	para "Don't worry about"
+	line "<RIVAL>, I'll"
+	cont "give them a"
+	cont "#MON too in"
+	cont "a second!"
 	done
 
 _OaksLabText_1d2f5::
@@ -37,8 +59,11 @@ _OaksLabText_1d2f5::
 	cont "your #MON can"
 	cont "fight against it!"
 
-	para "Afterward, go on"
-	line "to the next town."
+	para "With it at your"
+	line "side, you can ex-"
+	cont "plore the whole"
+	cont "vast region of"
+	cont "KANTO!"
 	done
 
 _OaksLabText_1d2fa::
@@ -50,11 +75,11 @@ _OaksLabText_1d2fa::
 _OaksLabDeliverParcelText1::
 	text "OAK: Oh, <PLAYER>!"
 
-	para "How is my old"
-	line "#MON?"
+	para "How is you"
+	line "PIKACHU doing?"
 
 	para "Well, it seems to"
-	line "like you a lot."
+	line "like you a lot!"
 
 	para "You must be"
 	line "talented as a"
@@ -69,14 +94,19 @@ _OaksLabDeliverParcelText1::
 
 _OaksLabDeliverParcelText2::
 	text_start
-	para "Ah! This is the"
-	line "custom # BALL"
-	cont "I ordered!"
-	cont "Thanks, <PLAYER>!"
+	para "Ah! Right, right!"
+	line "That's the parcel"
+	cont "I asked you to"
+	cont "pick up!"
 
-	para "By the way, I must"
-	line "ask you to do"
-	cont "something for me."
+	para "Thank you so much"
+	line "for bringing it"
+	cont "to me!"
+
+	para "By the way,"
+	line "there's something"
+	cont "else I would like"
+	cont "to ask you."
 	done
 
 _OaksLabAroundWorldText::
@@ -152,55 +182,100 @@ _OaksLabText_1d340::
 	cont "#MON!"
 
 	para "Many #MON"
-	line "trainers hold him"
-	cont "in high regard!"
+	line "trainers hold"
+	cont "them in the"
+	cont "highest regard!"
 	done
 
 _OaksLabRivalWaitingText::
 	text "<RIVAL>: Gramps!"
-;	line "I'm fed up with"
-;	cont "waiting!"
+	line "I'm fed up with"
+	cont "waiting!"
+
+	para "Why the hell were"
+	line "you hanging"
+	cont "around with"
+	cont "<PLAYER>? You call"
+	cont "me here and then"
+	cont "you leave me"
+	cont "waiting like"
+	cont "an idiot?!"
 	done
 
 _OaksLabChooseMonText::
 	text "OAK: Hmm? <RIVAL>?"
-;	line "Why are you here"
-;	cont "already?"
+	line "Why are you...?"
+	cont "Did I call"
+	cont "you...?"
 
-;	para "I said for you to"
-;	line "come by later..."
+	para "Oh! Right, right,"
+	line "that's true! I'm"
+	cont "sorry, I forg..."
 
-;	para "Ah, whatever!"
-;	line "Just wait there."
+	para "Erm, I had to save"
+	line "<PLAYER>, they"
+	cont "were going to"
+	cont "venture into the"
+	cont "tall grass"
+	cont "without a"
+	cont "#MON!"
 
-;	para "Look, <PLAYER>! Do"
-;	line "you see that ball"
-;	cont "on the table?"
+	para "It's very danger-"
+	line "ous to go alone."
+	cont "<PLAYER>, do you"
+	cont "see that ball on"
+	cont "the table?"
 
-;	para "It's called a #"
-;	line "BALL. It holds a"
-;	cont "#MON inside."
-
-;	para "You may have it!"
-;	line "Go on, take it!"
+	para "You may have it!"
+	line "Go on, take it!"
 	done
 
 _OaksLabRivalInterjectionText::
 	text "<RIVAL>: Hey!"
-;	line "Gramps! What"
-;	cont "about me?"
+	line "What the actual"
+	cont "hell, Gramps?!"
+
+	para "You called me here"
+	line "first, forgot"
+	cont "about me, and"
+	cont "then let <PLAYER>"
+	cont "pick up the"
+	cont "#MON you"
+	cont "promised ME?!"
 	done
 
 _OaksLabBePatientText::
-	text "OAK: Be patient,"
-;	line "<RIVAL>, I'll give"
-;	cont "you one later."
+	text "OAK: Oh..."
+
+	para "I'm sorry,"
+	line "...Erm..."
+	cont "<RIVAL>!"
+
+	para "Is that I saw"
+	line "<PLAYER> in danger"
+	cont "and I got"
+	cont "worried..."
+
+	para "Please wait just a"
+	line "moment, I have"
+	cont "another #MON"
+	cont "for you too!"
 	done
 
 _OaksLabRivalTakesText1::
 	text "<RIVAL>: No way!"
-;	line "<PLAYER>, I want"
-;	cont "this #MON!"
+	line "I don't give a"
+	cont "damn!"
+
+	para "I was called"
+	line "first, I was here"
+	cont "first, I'm"
+	cont "Gramps' grandkid,"
+	cont "and yet I should"
+	cont "get my #MON"
+	cont "after you?!"
+
+	para "Over my dead body!"
 	prompt
 
 _OaksLabRivalTakesText2::
@@ -210,37 +285,41 @@ _OaksLabRivalTakesText2::
 
 _OaksLabRivalTakesText3::
 	text "OAK: <RIVAL>! What"
-;	line "are you doing?"
+	line "are you doing?"
+	cont "I told you, I"
+	cont "have another"
+	cont "#MON for you!"
 	prompt
 
 _OaksLabRivalTakesText4::
-	text "<RIVAL>: Gramps, I"
-;	line "want this one!"
+	text "<RIVAL>: I don't"
+	line "care!"
+
+	para "I am getting this"
+	line "one and I'm get-"
+	cont "ting it now!"
 	prompt
 
 _OaksLabRivalTakesText5::
-	text "OAK: But, I... Oh,"
-;	line "all right then."
-;	cont "That #MON is"
-;	cont "yours."
+	text "OAK: ..."
+	line "I understand."
+	cont "I am sorry,"
+	cont "... <RIVAL>."
+	cont "You can keep it."
 
-;	para "I was going to"
-;	line "give you one"
-;	cont "anyway..."
-
-;	para "<PLAYER>, come over"
-;	line "here."
+	para "<PLAYER>, come"
+	line "here, please."
 	done
 
 _OaksLabOakGivesText::
-	text "OAK: <PLAYER>, this"
-;	line "is the #MON I"
-;	cont "caught earlier."
-
-;	para "You can have it."
-;	line "I caught it in"
-;	cont "the wild and it's"
-;	cont "not tame yet."
+	text "OAK: I have other"
+	line "#MON, but I"
+	cont "think it would be"
+	cont "quite fitting if"
+	cont "you were to take"
+	cont "care of the"
+	cont "little fellow we"
+	cont "met shortly ago."
 	prompt
 
 _OaksLabReceivedText::
@@ -261,8 +340,7 @@ _OaksLabRivalChallengeText::
 	cont "Let's check out"
 	cont "our #MON!"
 
-	para "Come on, I'll take"
-	line "you on!"
+	para "I'll demolish you!"
 	done
 
 _OaksLabText_1d3be::
@@ -275,6 +353,9 @@ _OaksLabText_1d3be::
 _OaksLabText_1d3c3::
 	text "<RIVAL>: Yeah! Am"
 	line "I great or what?"
+
+	para "In your face,"
+	line "<PLAYER>!"
 	prompt
 
 _OaksLabRivalToughenUpText::
@@ -311,6 +392,22 @@ _OaksLabPikachuDislikesPokeballsText2::
 	cont "feels about you."
 	done
 
+_OaksLabTextMeds:: ; new
+	text "OAK: Oh, <PLAYER>?"
+
+	para "There's a favour"
+	line "I'd like to ask"
+	cont "you..."
+
+	para "Could you pick up"
+	line "a parcel for me"
+	cont "at VIRIDIAN MART?"
+
+	para "And please, don't"
+	line "let <RIVAL> know"
+	cont "of it."
+	done
+
 _OaksLabText21::
 	text "<RIVAL>: Gramps!"
 	done
@@ -320,11 +417,12 @@ _OaksLabText22::
 	line "my #MON has"
 	cont "grown stronger!"
 	cont "Check it out!"
+	cont "Look at it!"
 	done
 
 _OaksLabText23::
 	text "OAK: Ah, <RIVAL>,"
-	line "good timing!"
+	line "great timing!"
 
 	para "I needed to ask"
 	line "both of you to do"
@@ -381,18 +479,22 @@ _OaksLabText27::
 	text "<RIVAL>: Alright"
 	line "Gramps! Leave it"
 	cont "all to me!"
+	cont "I will make you"
+	cont "proud of me!"
 
-	para "<PLAYER>, I hate to"
-	line "say it, but I"
-	cont "don't need you!"
+	para "I have no need"
+	line "whatsoever for"
+	cont "the ridiculous"
+	cont "help of <PLAYER>!"
+	cont "I will handle of"
+	cont "this by myself!"
 
-	para "I know! I'll"
-	line "borrow a TOWN MAP"
-	cont "from my sis!"
-
-	para "I'll tell her not"
-	line "to lend you one,"
-	cont "<PLAYER>! Hahaha!"
+	para "I'll grab a TOWN"
+	line "MAP from my sib,"
+	cont "and I'll tell 'em"
+	cont "not to give you"
+	cont "one, <PLAYER>!"
+	cont "Hahaha!"
 	done
 
 _OaksLabText_1d405::

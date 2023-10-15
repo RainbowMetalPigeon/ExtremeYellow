@@ -1,6 +1,6 @@
 _MomWakeUpText::
 	text "MOM: Right."
-	line "All boys leave"
+	line "All kids leave"
 	cont "home someday."
 	cont "It said so on TV."
 
@@ -29,9 +29,10 @@ _MomHealText2::
 	done
 
 _StandByMeText::
-	text "There's a movie"
-	line "on TV. Four boys"
-	cont "are walking on"
+	text "There is a movie"
+	line "on TV: four"
+	cont "youths are"
+	cont "walking on"
 	cont "railroad tracks."
 
 	para "I better go too."
