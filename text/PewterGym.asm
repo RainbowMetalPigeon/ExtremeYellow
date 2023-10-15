@@ -209,3 +209,16 @@ _PewterGymGuyText::
 	cont "BROCK's ground-"
 	cont "type #MON."
 	done
+
+; new ---------------------
+
+_BrockRematchPreBattleText::
+	text "Rematch"
+	line "BROCK"
+	cont "Pre"
+	done
+
+_BrockRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

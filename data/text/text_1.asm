@@ -152,3 +152,10 @@ _NurseChanseyText::
 	text "CHANSEY: Chaaan"
 	line "sey!"
 	done
+
+_GymLeaderPostRematchText:: ; new, TBE
+	text "Now that you're"
+	line "Champion, we can"
+	cont "battle whenever"
+	cont "you want!"
+	done

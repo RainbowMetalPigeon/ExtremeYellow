@@ -34,6 +34,7 @@ SaffronGym_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw SaffronGymSabrinaPostBattle
+	dw SaffronGymSabrinaPostBattleRematch ; new
 
 SaffronGymSabrinaPostBattle:
 	ld a, [wIsInBattle]
@@ -70,6 +71,18 @@ SaffronGymReceiveTM46:
 
 	jp SaffronGymResetScripts
 
+SaffronGymSabrinaPostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SaffronGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $e
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_SABRINA_REMATCH
+	jp SaffronGymResetScripts
+
 SaffronGym_TextPointers:
 	dw SabrinaText
 	dw SaffronGymTrainerText1
@@ -81,9 +94,10 @@ SaffronGym_TextPointers:
 	dw SaffronGymTrainerText7
 	dw SaffronGymTrainerText8
 	dw SaffronGymGuideText
-	dw KogaMarshBadgeInfoText
+	dw KogaMarshBadgeInfoText ; why Koga lol
 	dw ReceivedTM46Text
 	dw TM46NoRoomText
+	dw SabrinaPostRematchText; new, $e
 
 SaffronGymTrainerHeaders:
 	def_trainers 2
@@ -107,6 +121,8 @@ SaffronGymTrainerHeader7:
 
 SabrinaText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_SABRINA
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM46
@@ -114,6 +130,30 @@ SabrinaText:
 	call z, SaffronGymReceiveTM46
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, SabrinaRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_SABRINA
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, SabrinaRematchDefeatedText
+	ld de, SabrinaRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wSaffronGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
+
 .afterBeat
 	ld hl, SabrinaPostBattleAdviceText
 	call PrintText
@@ -329,4 +369,18 @@ SaffronGymEndBattleText8:
 
 SaffronGymAfterBattleText8:
 	text_far _SaffronGymAfterBattleText8
+	text_end
+
+; new ---------------------
+
+SabrinaRematchPreBattleText:
+	text_far _SabrinaRematchPreBattleText
+	text_end
+
+SabrinaRematchDefeatedText:
+	text_far _SabrinaRematchDefeatedText
+	text_end
+
+SabrinaPostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

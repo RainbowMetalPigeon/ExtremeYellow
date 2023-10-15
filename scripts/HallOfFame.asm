@@ -95,14 +95,16 @@ HallofFameRoomScript1:
 	ld a, $ff
 	ld [wJoyIgnore], a
 
-	; new code for HS and to set the event that we beat the game at least once
+	; new code for HS and to re/set the event that we beat the game at least once
 	call LoopHide
 	call LoopShow
 	call LoopShowExtra
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing
-
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
+	; let's also heal the party, why not
+	predef HealParty
 	; back to vanilla code
+	
 	ld a, $2
 	ld [wHallOfFameCurScript], a
 	ret

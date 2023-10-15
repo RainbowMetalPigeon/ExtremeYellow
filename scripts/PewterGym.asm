@@ -35,6 +35,7 @@ PewterGym_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw PewterGymBrockPostBattle
+	dw PewterGymBrockPostBattleRematch ; new
 
 PewterGymBrockPostBattle:
 	ld a, [wIsInBattle]
@@ -66,7 +67,7 @@ PewterGymScriptReceiveTM34:
 	ld hl, wBeatGymFlags
 	set BIT_BOULDERBADGE, [hl]
 
-; newly commented out, don't hide the gym guy anymore
+; edited, commented out, don't hide the gym guy anymore
 ;	ld a, HS_GYM_GUY
 ;	ld [wMissableObjectIndex], a
 ;	predef HideObject
@@ -81,6 +82,18 @@ PewterGymScriptReceiveTM34:
 
 	jp PewterGymResetScripts
 
+PewterGymBrockPostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, PewterGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $8
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_BROCK_REMATCH
+	jp PewterGymResetScripts
+
 PewterGym_TextPointers:
 	dw BrockText
 	dw PewterGymTrainerText1
@@ -89,6 +102,7 @@ PewterGym_TextPointers:
 	dw BeforeReceivedTM34Text
 	dw ReceivedTM34Text
 	dw TM34NoRoomText
+	dw BrockPostRematchText; new, $8
 
 PewterGymTrainerHeaders:
 	def_trainers 2
@@ -100,6 +114,8 @@ PewterGymTrainerHeader1:
 
 BrockText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_BROCK
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM34
@@ -107,6 +123,30 @@ BrockText:
 	call z, PewterGymScriptReceiveTM34
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, BrockRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BROCK
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, BrockRematchDefeatedText
+	ld de, BrockRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wPewterGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
+
 .afterBeat
 	ld hl, BrockPostBattleAdviceText
 	call PrintText
@@ -254,4 +294,18 @@ PewterGymGuidePostBattleText:
 
 PewterGymText_5c41c:
 	text_far _PewterGymGuyText
+	text_end
+
+; new ---------------------
+
+BrockRematchPreBattleText:
+	text_far _BrockRematchPreBattleText
+	text_end
+
+BrockRematchDefeatedText:
+	text_far _BrockRematchDefeatedText
+	text_end
+
+BrockPostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

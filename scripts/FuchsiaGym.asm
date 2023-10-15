@@ -36,6 +36,7 @@ FuchsiaGym_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw FuchsiaGymKogaPostBattle
+	dw FuchsiaGymKogaPostBattleRematch ; new
 
 FuchsiaGymKogaPostBattle:
 	ld a, [wIsInBattle]
@@ -72,6 +73,18 @@ FuchsiaGymReceiveTM06:
 
 	jp FuchsiaGymResetScripts
 
+FuchsiaGymKogaPostBattleRematch: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, FuchsiaGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $d
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_KOGA_REMATCH
+	jp FuchsiaGymResetScripts
+
 FuchsiaGym_TextPointers:
 	dw KogaText
 	dw FuchsiaGymTrainerText1
@@ -85,6 +98,7 @@ FuchsiaGym_TextPointers:
 	dw KogaSoulBadgeInfoText
 	dw ReceivedTM06Text
 	dw TM06NoRoomText
+	dw KogaPostRematchText; new, $d
 
 FuchsiaGymTrainerHeaders:
 	def_trainers 2
@@ -106,6 +120,8 @@ FuchsiaGymTrainerHeader6:
 
 KogaText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE	; new
+	jr nz, .postGameCode						; new
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_TM06
@@ -113,6 +129,30 @@ KogaText:
 	call z, FuchsiaGymReceiveTM06
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, KogaRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_KOGA
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, KogaRematchDefeatedText
+	ld de, KogaRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $4 ; new script
+	ld [wFuchsiaGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
+
 .afterBeat
 	ld hl, KogaPostBattleAdviceText
 	call PrintText
@@ -309,4 +349,18 @@ FuchsiaGymGuidePreBattleText:
 
 FuchsiaGymGuidePostBattleText:
 	text_far _FuchsiaGymGuidePostBattleText
+	text_end
+
+; new ---------------------
+
+KogaRematchPreBattleText:
+	text_far _KogaRematchPreBattleText
+	text_end
+
+KogaRematchDefeatedText:
+	text_far _KogaRematchDefeatedText
+	text_end
+
+KogaPostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

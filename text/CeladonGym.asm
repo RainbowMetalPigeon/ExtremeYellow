@@ -251,3 +251,16 @@ _CeladonGymAfterBattleText9::
 	line "kind, welcoming,"
 	cont "and inclusive!"
 	done
+
+; new ---------------------
+
+_ErikaRematchPreBattleText::
+	text "Rematch"
+	line "ERIKA"
+	cont "Pre"
+	done
+
+_ErikaRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt
