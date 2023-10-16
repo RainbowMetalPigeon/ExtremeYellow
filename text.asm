@@ -5,7 +5,7 @@ SECTION "Text 1", ROMX
 
 INCLUDE "data/text/text_1.asm"
 
-;INCLUDE "text/ViridianForest.asm" ; edited, move to Text Extra 1
+;INCLUDE "text/ViridianForest.asm" ; edited, moved to Text Extra 1
 INCLUDE "text/MtMoon1F.asm"
 INCLUDE "text/MtMoonB1F.asm"
 INCLUDE "text/MtMoonB2F.asm"
@@ -38,9 +38,9 @@ INCLUDE "text/SilphCo10F.asm"
 SECTION "Text 2", ROMX
 
 INCLUDE "text/SilphCo11F.asm"
-INCLUDE "text/PokemonMansion2F.asm"
-INCLUDE "text/PokemonMansion3F.asm"
-INCLUDE "text/PokemonMansionB1F.asm"
+;INCLUDE "text/PokemonMansion2F.asm" ; edited, moved to Text Extra 1
+;INCLUDE "text/PokemonMansion3F.asm" ; edited, moved to Text Extra 1
+;INCLUDE "text/PokemonMansionB1F.asm" ; edited, moved to Text Extra 1
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/SafariZoneWest.asm"
@@ -282,6 +282,10 @@ INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
+; moved from Text 2
+INCLUDE "text/PokemonMansion2F.asm"
+INCLUDE "text/PokemonMansion3F.asm"
+INCLUDE "text/PokemonMansionB1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

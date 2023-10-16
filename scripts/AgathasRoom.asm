@@ -14,7 +14,7 @@ AgathaShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
+	CheckEitherEventSet EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, EVENT_BEAT_AGATHAS_ROOM_TRAINER_1 ; edited
 	jr z, .blockExitToNextRoom
 	ld a, $e
 	jp .setExitBlock
@@ -124,10 +124,34 @@ AgathasRoomTrainerHeaders:
 	def_trainers
 AgathasRoomTrainerHeader0:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, 0, AgathaBeforeBattleText, AgathaEndBattleText, AgathaAfterBattleText
+AgathasRoomTrainerHeader1:
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, AgathaBeforeBattleTextRematch, AgathaEndBattleTextRematch, AgathaAfterBattleTextRematch
 	db -1 ; end
 
 AgathaText1:
 	text_asm
+; new, ugly checks for all the gym leaders
+	ld hl, AgathasRoomTrainerHeader1
+	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_MISTY_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_SABRINA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH
+	jr z, .notRematch
+	ld a, 1
+	ld [wTrainerNo], a
+	call TalkToTrainer
+	jp TextScriptEnd
+.notRematch
+; end of ugly code
 	ld hl, AgathasRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
@@ -146,4 +170,18 @@ AgathaAfterBattleText:
 
 AgathaDontRunAwayText:
 	text_far _AgathaDontRunAwayText
+	text_end
+
+; new -------------------------------
+
+AgathaBeforeBattleTextRematch:
+	text_far _AgathaBeforeBattleTextRematch
+	text_end
+
+AgathaEndBattleTextRematch:
+	text_far _AgathaEndBattleTextRematch
+	text_end
+
+AgathaAfterBattleTextRematch:
+	text_far _AgathaAfterBattleTextRematch
 	text_end

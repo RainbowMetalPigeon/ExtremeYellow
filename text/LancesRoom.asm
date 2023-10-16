@@ -52,13 +52,31 @@ _LanceAfterBattleText::
 
 	para "You have to face"
 	line "another trainer!"
-	cont "His name is..."
+	cont "Their name is..."
 
 	para "<RIVAL>!"
-	line "He beat the ELITE"
-	cont "FOUR before you!"
+	line "They beat the"
+	cont "ELITE FOUR"
+	cont "before you!"
 
-	para "He is the real"
+	para "They are the real"
 	line "#MON LEAGUE"
 	cont "champion!@"
 	text_end
+
+; new -------------------------------
+
+_LanceBeforeBattleTextRematch::
+	text "Rematch Lance"
+	line "Pre"
+	done
+
+_LanceEndBattleTextRematch::
+	text "Rematch Lance"
+	line "Post"
+	prompt
+
+_LanceAfterBattleTextRematch::
+	text "Rematch Lance"
+	line "After"
+	done

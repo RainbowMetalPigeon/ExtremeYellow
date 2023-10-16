@@ -14,7 +14,7 @@ BrunoShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
+	CheckEitherEventSet EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, EVENT_BEAT_BRUNOS_ROOM_TRAINER_1 ; edited
 	jr z, .blockExitToNextRoom
 	ld a, $5
 	jp .setExitBlock
@@ -121,10 +121,34 @@ BrunosRoomTrainerHeaders:
 	def_trainers
 BrunosRoomTrainerHeader0:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, 0, BrunoBeforeBattleText, BrunoEndBattleText, BrunoAfterBattleText
+BrunosRoomTrainerHeader1:
+	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_1, 0, BrunoBeforeBattleTextRematch, BrunoEndBattleTextRematch, BrunoAfterBattleTextRematch
 	db -1 ; end
 
 BrunoText1:
 	text_asm
+; new, ugly checks for all the gym leaders
+	ld hl, BrunosRoomTrainerHeader1
+	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_MISTY_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_SABRINA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH
+	jr z, .notRematch
+	ld a, 1
+	ld [wTrainerNo], a
+	call TalkToTrainer
+	jp TextScriptEnd
+.notRematch
+; end of ugly code
 	ld hl, BrunosRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
@@ -143,4 +167,18 @@ BrunoAfterBattleText:
 
 BrunoDontRunAwayText:
 	text_far _BrunoDontRunAwayText
+	text_end
+
+; new -------------------------------
+
+BrunoBeforeBattleTextRematch:
+	text_far _BrunoBeforeBattleTextRematch
+	text_end
+
+BrunoEndBattleTextRematch:
+	text_far _BrunoEndBattleTextRematch
+	text_end
+
+BrunoAfterBattleTextRematch:
+	text_far _BrunoAfterBattleTextRematch
 	text_end

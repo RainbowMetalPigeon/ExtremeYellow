@@ -132,10 +132,34 @@ LancesRoomTrainerHeaders:
 	def_trainers
 LancesRoomTrainerHeader0:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_0, 0, LanceBeforeBattleText, LanceEndBattleText, LanceAfterBattleText
+LancesRoomTrainerHeader1:
+	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_1, 0, LanceBeforeBattleTextRematch, LanceEndBattleTextRematch, LanceAfterBattleTextRematch
 	db -1 ; end
 
 LanceText1:
 	text_asm
+; new, ugly checks for all the gym leaders
+	ld hl, LancesRoomTrainerHeader1
+	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_MISTY_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_SABRINA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH
+	jr z, .notRematch
+	ld a, 1
+	ld [wTrainerNo], a
+	call TalkToTrainer
+	jp TextScriptEnd
+.notRematch
+; end of ugly code
 	ld hl, LancesRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
@@ -153,3 +177,17 @@ LanceAfterBattleText:
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd
+
+; new -------------------------------
+
+LanceBeforeBattleTextRematch:
+	text_far _LanceBeforeBattleTextRematch
+	text_end
+
+LanceEndBattleTextRematch:
+	text_far _LanceEndBattleTextRematch
+	text_end
+
+LanceAfterBattleTextRematch:
+	text_far _LanceAfterBattleTextRematch
+	text_end

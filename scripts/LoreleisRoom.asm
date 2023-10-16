@@ -16,7 +16,7 @@ LoreleiShowOrHideExitBlock:
 	ret z
 	ld hl, wBeatLorelei
 	set 1, [hl]
-	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
+	CheckEitherEventSet EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, EVENT_BEAT_LORELEIS_ROOM_TRAINER_1 ; edited
 	jr z, .blockExitToNextRoom
 	ld a, $5
 	jr .setExitBlock
@@ -123,11 +123,36 @@ LoreleisRoomTrainerHeaders:
 	def_trainers
 LoreleisRoomTrainerHeader0:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, 0, LoreleiBeforeBattleText, LoreleiEndBattleText, LoreleiAfterBattleText
+LoreleisRoomTrainerHeader1:
+	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_1, 0, LoreleiBeforeBattleTextRematch, LoreleiEndBattleTextRematch, LoreleiAfterBattleTextRematch
 	db -1 ; end
 
-LoreleiText1:
+LoreleiText1: ; edited
 	text_asm
+	ld hl, LoreleisRoomTrainerHeader1
+; new, ugly checks for all the gym leaders
+	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_MISTY_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_SABRINA_REMATCH
+	jr z, .notRematch
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH
+	jr z, .notRematch
+	ld a, 1
+	ld [wTrainerNo], a
+	call TalkToTrainer
+	jp TextScriptEnd
+.notRematch
 	ld hl, LoreleisRoomTrainerHeader0
+;	xor a
+;	ld [wTrainerNo], a
 	call TalkToTrainer
 	jp TextScriptEnd
 
@@ -145,4 +170,18 @@ LoreleiAfterBattleText:
 
 LoreleiDontRunAwayText:
 	text_far _LoreleiDontRunAwayText
+	text_end
+
+; new -------------------------------
+
+LoreleiBeforeBattleTextRematch:
+	text_far _LoreleiBeforeBattleTextRematch
+	text_end
+
+LoreleiEndBattleTextRematch:
+	text_far _LoreleiEndBattleTextRematch
+	text_end
+
+LoreleiAfterBattleTextRematch:
+	text_far _LoreleiAfterBattleTextRematch
 	text_end

@@ -23,7 +23,7 @@ ChampionsRoom_ScriptPointers:
 	dw GaryScript8
 	dw GaryScript9
 	dw GaryScript10
-	dw GaryScript2ndBattle
+	dw GaryScript2ndBattle ; $b
 
 GaryScript0:
 	ret
@@ -60,6 +60,7 @@ GaryScript2:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
+.temporary
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -70,12 +71,35 @@ GaryScript2:
 	ld [wCurOpponent], a
 
 	; select which team to use during the encounter
-;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
-;	add $0 ; Wow GameFreak	; new, commented to lock the rival's team
-	ld a, $1				; this and the next line load the rival3 #0 - new
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; have we beaten the game at least once?
+	jr z, .loadTeam1Number1 ; if not, proceed with loading the team number 1
+	; if we did beat the game at least once, we need to check if it's the post-gym-leader-rematch team or not
+	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	jr z, .loadTeam1Number3
+	CheckEvent EVENT_BEAT_MISTY_REMATCH
+	jr z, .loadTeam1Number3
+	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
+	jr z, .loadTeam1Number3
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH
+	jr z, .loadTeam1Number3
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	jr z, .loadTeam1Number3
+	CheckEvent EVENT_BEAT_SABRINA_REMATCH
+	jr z, .loadTeam1Number3
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH
+	jr z, .loadTeam1Number3
+	; if we arrived here, then it's post-game and post-gym-rematches
+	jr .loadTeam1Number5
+.loadTeam1Number1
+	ld a, $1
+	jr .continuePostLoadingTeam1
+.loadTeam1Number3
+	ld a, $3
+	jr .continuePostLoadingTeam1
+.loadTeam1Number5
+	ld a, $5
+.continuePostLoadingTeam1
 	ld [wTrainerNo], a
-;	ld a, 1							; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200?
 
 	xor a
 	ldh [hJoyHeld], a
@@ -119,8 +143,6 @@ GaryScript3:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetGaryScript
-;	xor a							; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200?
 	call UpdateSprites
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld a, $f0
@@ -268,12 +290,12 @@ GaryScript_760c8:
 	ret
 
 ChampionsRoom_TextPointers:
-	dw GaryText1
-	dw GaryText2
-	dw GaryText3
-	dw GaryText4
-	dw GaryText5
-	dw GaryText2ndBattle
+	dw GaryText1			; 1 - before first battle / why did I lose
+	dw GaryText2			; 2 - simply Oak that calls you
+	dw GaryText3			; 3 - Oak so you won, so long since you left w Pikachu
+	dw GaryText4			; 4 -  Oak disappointed in Rival (sigh)
+	dw GaryText5			; 5 - Oak come with me to HoF
+	dw GaryText2ndBattle	; 6
 
 GaryText1:
 	text_asm

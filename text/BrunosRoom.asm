@@ -35,3 +35,20 @@ _BrunoDontRunAwayText::
 	text "Someone's voice:"
 	line "Don't run away!"
 	done
+
+; new -------------------------------
+
+_BrunoBeforeBattleTextRematch::
+	text "Rematch Bruno"
+	line "Pre"
+	done
+
+_BrunoEndBattleTextRematch::
+	text "Rematch Bruno"
+	line "Post"
+	prompt
+
+_BrunoAfterBattleTextRematch::
+	text "Rematch Bruno"
+	line "After"
+	done

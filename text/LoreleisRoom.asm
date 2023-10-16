@@ -40,3 +40,20 @@ _LoreleiDontRunAwayText::
 	text "Someone's voice:"
 	line "Don't run away!"
 	done
+
+; new -------------------------------
+
+_LoreleiBeforeBattleTextRematch::
+	text "Rematch Lorelei"
+	line "Pre"
+	done
+
+_LoreleiEndBattleTextRematch::
+	text "Rematch Lorelei"
+	line "Post"
+	prompt
+
+_LoreleiAfterBattleTextRematch::
+	text "Rematch Lorelei"
+	line "After"
+	done

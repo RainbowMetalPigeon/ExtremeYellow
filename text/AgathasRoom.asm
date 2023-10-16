@@ -11,11 +11,12 @@ _AgathaBeforeBattleText::
 	cont "handsome! That"
 	cont "was decades ago!"
 
-	para "Now he just wants"
+	para "Now they just want"
 	line "to fiddle with"
-	cont "his #DEX! He's"
-	cont "wrong! #MON"
-	cont "are for fighting!"
+	cont "their #DEX!"
+	cont "They're wrong!"
+	cont "#MON are for"
+	cont "fighting!"
 
 	para "<PLAYER>! I'll show"
 	line "you how a real"
@@ -41,4 +42,21 @@ _AgathaAfterBattleText::
 _AgathaDontRunAwayText::
 	text "Someone's voice:"
 	line "Don't run away!"
+	done
+
+; new -------------------------------
+
+_AgathaBeforeBattleTextRematch::
+	text "Rematch Agatha"
+	line "Pre"
+	done
+
+_AgathaEndBattleTextRematch::
+	text "Rematch Agatha"
+	line "Post"
+	prompt
+
+_AgathaAfterBattleTextRematch::
+	text "Rematch Agatha"
+	line "After"
 	done

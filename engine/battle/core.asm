@@ -980,6 +980,11 @@ TrainerBattleVictory:
 	cp RIVAL3 ; final battle against rival
 	jr nz, .notrival
 	ld b, MUSIC_DEFEATED_GYM_LEADER
+; new, to handle Rival3 rematches' music
+	ld a, [wCurMap]
+	cp CHAMPIONS_ROOM
+	jr nz, .notrival ; if we are not in the Champion's Room, we don't want to set bit 1 of wFlags_D733, as it prevents music from changing when switching map
+; back to vanilla
 	ld hl, wFlags_D733
 	set 1, [hl]
 .notrival
@@ -1219,27 +1224,33 @@ ChooseNextMon:
 HandlePlayerBlackOut:
 	xor a						; new, ld a, 0
 	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
-;	ld [wLevelScaling], a		; new, remove level scaling (currently it's planned only for specific trainer, not for everyone)
-;	xor a						; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a	; countercomment to do tutorial to go beyond 200
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
-	jr z, .notRival1Battle
+	jr z, .notRival1or3Battle ; edited
 	ld a, [wCurOpponent]
+	cp OPP_RIVAL3		; new
+	jr z, .rival1Or3	; new
 	cp OPP_RIVAL1
-	jr nz, .notRival1Battle
-	hlcoord 0, 0  ; rival 1 battle
+	jr nz, .notRival1or3Battle ; edited
+.rival1Or3 ; new
+	hlcoord 0, 0  ; rival 1 (and 3) battle
 	lb bc, 8, 21
 	call ClearScreenArea
 	call ScrollTrainerPicAfterBattle
 	ld c, 40
 	call DelayFrames
 	ld hl, Rival1WinText
+	ld a, [wCurOpponent]	; new, to handle Rival3
+	cp OPP_RIVAL1			; new
+	jr z, .isRival1			; new
+	call PrintEndBattleText ; new
+	jr .notRival1or3Battle	; new
+.isRival1					; new
 	call PrintText
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            ; starter battle in oak's lab: don't black out
-.notRival1Battle
+.notRival1or3Battle	 ; edited
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
 	ld hl, PlayerBlackedOutText2
@@ -1254,6 +1265,7 @@ HandlePlayerBlackOut:
 	ld [wd732], a
 	call ClearScreen
 	scf
+.temporary
 	ret
 
 Rival1WinText:
