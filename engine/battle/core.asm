@@ -1221,36 +1221,33 @@ ChooseNextMon:
 
 ; called when player is out of usable mons.
 ; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight)
+; trying updates from Vortiene
 HandlePlayerBlackOut:
-	xor a						; new, ld a, 0
-	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
-	jr z, .notRival1or3Battle ; edited
+	jr z, .noLossText
 	ld a, [wCurOpponent]
-	cp OPP_RIVAL3		; new
-	jr z, .rival1Or3	; new
 	cp OPP_RIVAL1
-	jr nz, .notRival1or3Battle ; edited
-.rival1Or3 ; new
-	hlcoord 0, 0  ; rival 1 (and 3) battle
+	jr z, .lossText
+	cp OPP_RIVAL2 ; FIXED: loss text for Rival 2 trainer class restored
+	jr z, .lossText
+	cp OPP_RIVAL3 ; FIXED: loss text for Rival 3 trainer class restored
+	jr z, .lossText
+	cp OPP_PROF_OAK
+	jr z, .lossText
+	jr .noLossText
+.lossText
+	hlcoord 0, 0  ; battle that has loss text
 	lb bc, 8, 21
 	call ClearScreenArea
 	call ScrollTrainerPicAfterBattle
 	ld c, 40
 	call DelayFrames
-	ld hl, Rival1WinText
-	ld a, [wCurOpponent]	; new, to handle Rival3
-	cp OPP_RIVAL1			; new
-	jr z, .isRival1			; new
-	call PrintEndBattleText ; new
-	jr .notRival1or3Battle	; new
-.isRival1					; new
-	call PrintText
+	call PrintEndBattleText ; in this case the end battle text is the "loss" text
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            ; starter battle in oak's lab: don't black out
-.notRival1or3Battle	 ; edited
+.noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
 	ld hl, PlayerBlackedOutText2

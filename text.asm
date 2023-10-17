@@ -254,12 +254,11 @@ INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
 INCLUDE "text/OchreCity.asm"
 
-INCLUDE "data/text/text_9.asm"
+;INCLUDE "data/text/text_9.asm" ; edited, moved to Text Extra 1
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 
-INCLUDE "text/ViridianForest.asm"
 INCLUDE "text/OchreWonderland.asm" ; new
 INCLUDE "text/ObsidianIsland.asm" ; new
 INCLUDE "text/Route26.asm" ; new
@@ -275,7 +274,10 @@ INCLUDE "text/OnixBurrowing.asm" ; new
 INCLUDE "text/SecludedCaves.asm" ; new
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
-INCLUDE "text/OaksLab.asm" ; new, moved here (from Text 5)
+; moved from Text 5
+INCLUDE "text/OaksLab.asm"
+; moved from Text 1
+INCLUDE "text/ViridianForest.asm"
 ; moved from Text 7
 INCLUDE "text/SaffronPidgeyHouse.asm"
 INCLUDE "text/SaffronMart.asm"
@@ -286,6 +288,8 @@ INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/PokemonMansion3F.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
+; moved from Text 8
+INCLUDE "data/text/text_9.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

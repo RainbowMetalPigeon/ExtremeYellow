@@ -108,6 +108,11 @@ GaryScript2:
 	ret
 
 GaryScript2ndBattle:
+	; new block to fix bug if blackout
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetGaryScript
+
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret nz
