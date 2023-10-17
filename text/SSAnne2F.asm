@@ -1,5 +1,5 @@
 _SSAnne2Text1::
-	text "This ship, she is"
+	text "This ship, it is"
 	line "a luxury liner"
 	cont "for trainers!"
 
@@ -9,55 +9,70 @@ _SSAnne2Text1::
 	done
 
 _SSAnneRivalBeforeBattleText::
-	text "<RIVAL>: Bonjour!"
-	line "<PLAYER>!"
+	text "<RIVAL>: You"
+	line "again?!"
 
-	para "Imagine seeing"
-	line "you here!"
+	para "Stop getting in"
+	line "the way between"
+	cont "me and my Gramps!"
 
-	para "<PLAYER>, were you"
-	line "really invited?"
+	para "I know you're try-"
+	line "ing to make your-"
+	cont "self look cool in"
+	cont "their eyes to"
+	cont "steal their at-"
+	cont "tentions, but it"
+	cont "will be me to"
+	cont "complete the"
+	cont "#DEX and be-"
+	cont "come CHAMPION!"
 
-	para "So how's your"
-	line "#DEX coming?"
-
-	para "I already caught"
-	line "40 kinds, pal!"
-
-	para "Different kinds"
-	line "are everywhere!"
-
-	para "Crawl around in"
-	line "grassy areas!"
+	para "That's enough! I"
+	line "promised you,"
+	cont "this time I'll"
+	cont "crush you for"
+	cont "good, I'll un-"
+	cont "leash the full"
+	cont "power of my"
+	cont "#MON!"
 	done
 
 _SSAnneRivalDefeatedText::
-	text "Humph!"
+	text "No..."
 
-	para "At least you're"
-	line "raising your"
-	cont "#MON!"
+	para "No no no no!!!"
+
+	para "How? Why?! It"
+	line "should have not"
+	cont "gone like this!!!"
 	prompt
 
 _SSAnneRivalWonText::
-	text "<PLAYER>! What are"
-	line "you, seasick?"
+	text "Ah! Serves you"
+	line "well!"
 
-	para "You should shape"
-	line "up, pal!"
+	para "Never get in my"
+	line "way again, or"
+	cont "this will seems"
+	cont "like a gentle"
+	cont "caress!"
 	prompt
 
 _SSAnneRivalCaptainText::
-	text "<RIVAL>: I heard"
-	line "there was a CUT"
-	cont "master on board."
+	text "<RIVAL>: No..."
 
-	para "But, he was just a"
-	line "seasick, old man!"
+	para "It's impossible..."
+	line "RATICATE!"
 
-	para "But, CUT itself is"
-	line "really useful!"
+	para "What have you done"
+	line "to my #MON?!"
 
-	para "You should go see"
-	line "him! Smell ya!"
+	para "You monster!"
+	line "How..."
+	cont "Why did you..."
+
+	para "I don't have time"
+	line "to lose with you,"
+	cont "I have to run to"
+	cont "a #MON CENTER!"
 	done
