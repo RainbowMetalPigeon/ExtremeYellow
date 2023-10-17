@@ -1,61 +1,65 @@
 _CeruleanCityText_19668::
-	text "<RIVAL>: Yo!"
+	text "<RIVAL>: Ehy,"
 	line "<PLAYER>!"
 
-	para "You're still"
-	line "struggling along"
-	cont "back here?"
+	para "Are you still"
+	line "chasing me? Give"
+	cont "in, you'll always"
+	cont "be late."
 
-	para "I'm doing great!"
-	line "I caught a bunch"
-	cont "of strong and"
-	cont "smart #MON!"
+	para "Stop living in my"
+	line "shadow, and get"
+	cont "out of my way!"
 
-	para "Here, let me see"
-	line "what you caught,"
-	cont "<PLAYER>!"
+	para "You'll never be"
+	line "able complete the"
+	cont "#DEX or beat"
+	cont "the #MON"
+	cont "LEAGUE!"
 	done
 
 _CeruleanCityText_1966d::
-	text "Hey!"
-	line "Take it easy!"
-	cont "You won already!"
+	text "<RIVAL>: Grrr..."
+
+	para "How is it"
+	line "possible?"
+
+	para "I put myself and"
+	line "my #MON under"
+	cont "the harshest"
+	cont "training!"
 	prompt
 
 _CeruleanCityText_19672::
-	text "Heh!"
+	text "Hah!"
 	line "You're no match"
 	cont "for my genius!"
+
+	para "Surrender and go"
+	line "back home, loser!"
 	prompt
 
 _CeruleanCityText_19677::
-	text "<RIVAL>: Hey,"
-	line "guess what?"
+	text "<RIVAL>: ...it"
+	line "doesn't matter."
 
-	para "I went to BILL's"
-	line "and got him to"
-	cont "show me his rare"
-	cont "#MON!"
+	para "It was just a"
+	line "fluke. It can't"
+	cont "be in a million"
+	cont "year that you are"
+	cont "stronger than me."
 
-	para "That added a lot"
-	line "of pages to my"
-	cont "#DEX!"
+	para "Don't you try to"
+	line "interfere any"
+	cont "more with the"
+	cont "quest my Gramps"
+	cont "gave me, or next"
+	cont "time I will have"
+	cont "to crush you like"
+	cont "the bug you are."
 
-	para "After all, BILL's"
-	line "world famous as a"
-	cont "#MANIAC!"
-
-	para "He invented the"
-	line "#MON Storage"
-	cont "System on PC!"
-
-	para "Since you're using"
-	line "his system, go"
-	cont "thank him!"
-
-	para "Well, I better"
-	line "get rolling!"
-	cont "Smell ya later!"
+	para "Farewell,"
+	line "weakling."
 	done
 
 _CeruleanCityText_196d9::

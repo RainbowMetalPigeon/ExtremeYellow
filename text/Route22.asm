@@ -1,101 +1,138 @@
+_Route22RivalBeforeBattleText1::
+	text "<RIVAL>: What?"
+	line "<PLAYER>?!"
+
+	para "Are you following"
+	line "me or something?!"
+
+	para "I told you, I"
+	line "don't need your"
+	cont "help to complete"
+	cont "the quest that"
+	cont "Gramps entrusted"
+	cont "to me!"
+
+	para "So stop trying to"
+	line "steal the spot-"
+	cont "light from me, it"
+	cont "will be me who'll"
+	cont "make Gramps"
+	cont "proud!"
+
+	para "And while I will"
+	line "catch all the"
+	cont "#MON that"
+	cont "exist, I will"
+	cont "become the"
+	cont "strongest trainer"
+	cont "and conquer the"
+	cont "#MON LEAGUE!"
+	done
+
 _Route22RivalDefeatedText1::
-	text "Awww!"
-	line "You just lucked"
-	cont "out!"
+	text "Tsk!"
+	line "Mere luck!"
 	prompt
 
 _Route22Text_511bc::
-	text "<RIVAL>: What?"
-	line "Why do I have 2"
-	cont "#MON?"
+	text "<RIVAL>: See?"
+	para "You aren't fit for"
+	line "any of this."
 
-	para "You should catch"
-	cont "some more too!"
+	para "Give up already!"
 	prompt
 
-_Route22RivalDefeatedText2::
-	text "What!?"
+_Route22RivalAfterBattleText1::
+	text "Don't get your"
+	line "hopes high, you"
+	cont "are still a"
+	cont "nobody."
 
-	para "I was just"
-	line "careless!"
+	para "You will not de-"
+	line "feat me again!"
+
+	para "I will get the"
+	line "strongest #MON"
+	cont "and give them the"
+	cont "hardest training!"
+
+	para "I will crush you,"
+	line "the #MON"
+	cont "LEAGUE, and any-"
+	cont "one who will dare"
+	cont "opposing me!"
+	done
+
+; 7th match -------------------
+
+_Route22RivalBeforeBattleText2::
+	text "<RIVAL>: Of course"
+	line "you would have"
+	cont "come here too!"
+
+	para "I won't let you"
+	line "desecrate the"
+	cont "prestigious"
+	cont "#MON LEAGUE"
+	cont "with your filthy"
+	cont "presence!"
+
+	para "I will defeat the"
+	line "ELITE FOUR and"
+	cont "return to my"
+	cont "Gramps with the"
+	cont "title of CHAMPION"
+	cont "and a complete"
+	cont "#DEX!"
+
+	para "And to achieve so,"
+	line "I first need to"
+	cont "destroy you once"
+	cont "and for all."
+
+	para "My soulmate, my"
+	line "starter, never"
+	cont "has had a more"
+	cont "fitting team!"
+
+	para "You're going down!"
+	done
+
+_Route22RivalDefeatedText2::
+	text "No..."
+	line "Enough... I can't"
+	cont "stand this"
+	cont "anymore..."
 	prompt
 
 _Route22Text_511d0::
 	text "<RIVAL>: Hahaha!"
-	line "<PLAYER>! That's"
-	cont "your best? You're"
-	cont "nowhere near as"
-	cont "good as me, pal!"
 
-	para "Go train some"
-	line "more! You loser!"
+	para "Yes, yes! Weep and"
+	line "cry in utter des-"
+	cont "peration, loser!"
 	prompt
 
-_Route22RivalBeforeBattleText1::
-	text "<RIVAL>: Hey!"
-	line "<PLAYER>!"
-
-	para "You're going to"
-	line "#MON LEAGUE?"
-
-	para "Forget it! You"
-	line "probably don't"
-	cont "have any BADGEs!"
-
-	para "The guard won't"
-	line "let you through!"
-
-	para "By the way, did"
-	line "your #MON"
-	cont "get any stronger?"
-	done
-
-_Route22RivalAfterBattleText1::
-	text "I heard #MON"
-	line "LEAGUE has many"
-	cont "tough trainers!"
-
-	para "I have to figure"
-	line "out how to get"
-	cont "past them!"
-
-	para "You should quit"
-	line "dawdling and get"
-	cont "a move on!"
-	done
-
-_Route22RivalBeforeBattleText2::
-	text "<RIVAL>: What?"
-	line "<PLAYER>! What a"
-	cont "surprise to see"
-	cont "you here!"
-
-	para "So you're going to"
-	line "#MON LEAGUE?"
-
-	para "You collected all"
-	line "the BADGEs too?"
-	cont "That's cool!"
-
-	para "Then I'll whip"
-	line "you, <PLAYER>, as"
-	cont "a warmup for"
-	cont "#MON LEAGUE!"
-
-	para "Come on!"
-	done
-
 _Route22RivalAfterBattleText2::
-	text "That loosened me"
-	line "up! I'm ready for"
-	cont "#MON LEAGUE!"
+	text "<RIVAL>: This is"
+	line "unbearable..."
 
-	para "<PLAYER>, you need"
-	line "more practice!"
+	para "I cannot keep on"
+	line "losing against"
+	cont "you!"
 
-	para "But hey, you know"
-	line "that! I'm out of"
-	cont "here. Smell ya!"
+	para "I have... I must"
+	line "find a way to"
+	cont "defeat you, to"
+	cont "completely crush"
+	cont "you, to prove"
+	cont "once and for all"
+	cont "that I'm better"
+	cont "than you!"
+
+	para "And... I may just"
+	line "know want is"
+	cont "needed..."
 	done
 
 _Route22FrontGateText::
