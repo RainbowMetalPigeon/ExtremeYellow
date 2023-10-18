@@ -351,7 +351,7 @@ LancePic::         INCBIN "gfx/trainers/lance.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 ; new classes, dunno if this Section is fine
 OragePic::         INCBIN "gfx/trainers/engineer.pic" ; temp
-PigeonPic::        INCBIN "gfx/trainers/engineer.pic" ; temp
+PigeonPic::        INCBIN "gfx/trainers/pigeon.pic" ; testing
 BFTrainerPic:: ; temp
 TravelerPic::      INCBIN "gfx/trainers/engineer.pic" ; temp
 

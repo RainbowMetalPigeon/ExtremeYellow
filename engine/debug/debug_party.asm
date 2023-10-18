@@ -40,10 +40,10 @@ IF DEF(_DEBUG)
 	ld a, ETERNABEAM
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TELEPORT
+	ld a, THUNDERBOLT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, THOUSANDARROWS
+	ld a, EARTHQUAKE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, PHOTONGEYSER
@@ -131,6 +131,8 @@ IF DEF(_DEBUG)
 ;	ld [wOptions], a
 
 	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; temporary, testing
+	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temporary, testing
 
 	ret
 

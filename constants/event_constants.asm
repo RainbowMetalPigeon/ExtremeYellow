@@ -805,11 +805,14 @@ DEF INDIGO_PLATEAU_EVENTS_START EQU const_value
 	const EVENT_LANCES_ROOM_LOCK_DOOR
 	const_skip
 	const EVENT_BEAT_CHAMPION_RIVAL
-	const_skip 5
+	const_skip 4 ; edited, was 5
+	const EVENT_ENGAGED_CHAMPION_FINAL_REMATCH ; new, ugly but whatever, we have plenty of events...
 ;	const_skip ; commented away
 DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
 	const EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; new
+	const EVENT_BEAT_ALL_GYMS_REMATCH ; new
+	const EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
 
 ; Victory Road 1F events
 	const_next $910

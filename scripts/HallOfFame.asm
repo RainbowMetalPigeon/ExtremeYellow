@@ -101,10 +101,11 @@ HallofFameRoomScript1:
 	call LoopShowExtra
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
+	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
 	; let's also heal the party, why not
 	predef HealParty
 	; back to vanilla code
-	
+
 	ld a, $2
 	ld [wHallOfFameCurScript], a
 	ret

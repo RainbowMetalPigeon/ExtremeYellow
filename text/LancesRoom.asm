@@ -78,5 +78,5 @@ _LanceEndBattleTextRematch::
 
 _LanceAfterBattleTextRematch::
 	text "Rematch Lance"
-	line "After"
-	done
+	line "After@" ; why the @?
+	text_end ; why?

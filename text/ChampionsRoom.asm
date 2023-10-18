@@ -1,4 +1,4 @@
-_GaryChampionIntroText::
+_GaryChampionIntroText_BG::
 	text "<RIVAL>: Hey!"
 
 	para "I was looking"
@@ -35,7 +35,7 @@ _GaryChampionIntroText::
 	cont "in the world!"
 	done
 
-_GaryDefeatedText::
+_GaryDefeatedText_BG::
 	text "NO!"
 	line "That can't be!"
 	cont "You beat my best!"
@@ -49,7 +49,7 @@ _GaryDefeatedText::
 	cont "It's not fair!"
 	prompt
 
-_GaryVictoryText::
+_GaryVictoryText_BG::
 	text "Hahaha!"
 	line "I won, I won!"
 
@@ -65,7 +65,7 @@ _GaryVictoryText::
 	line "Hahaha!"
 	prompt
 
-_GaryText_76103::
+_GaryText_OWPostDefeat_BG::
 	text "Why?"
 	line "Why did I lose?"
 
@@ -80,6 +80,60 @@ _GaryText_76103::
 	para "Although I don't"
 	line "like to admit it."
 	done
+
+; --------
+
+_GaryChampionIntroText_AG_BGR::
+	text "<RIVAL>: Intro"
+	line "After Game"
+	cont "Before Gym Rem"
+	done
+
+_GaryDefeatedText_AG_BGR::
+	text "Win"
+	line "After Game"
+	cont "Before Gym Rem"
+	prompt
+
+_GaryVictoryText_AG_BGR::
+	text "Lose"
+	line "After Game"
+	cont "Before Gym Rem"
+	prompt
+
+_GaryText_OWPostDefeat_AG_BGR::
+	text "Overworld"
+	line "After Game"
+	cont "Before Gym Rem"
+	done
+
+; --------
+
+_GaryChampionIntroText_AG_AGR::
+	text "<RIVAL>: Intro"
+	line "After Game"
+	cont "After Gym Rem"
+	done
+
+_GaryDefeatedText_AG_AGR::
+	text "Win"
+	line "After Game"
+	cont "After Gym Rem"
+	prompt
+
+_GaryVictoryText_AG_AGR::
+	text "Lose"
+	line "After Game"
+	cont "After Gym Rem"
+	prompt
+
+_GaryText_OWPostDefeat_AG_AGR::
+	text "Overworld"
+	line "After Game"
+	cont "After Gym Rem"
+	done
+
+; ==================================
 
 _GaryText2::
 	text "OAK: <PLAYER>!"
@@ -145,17 +199,70 @@ _GaryText_7612a::
 	line "Come with me!"
 	done
 
-; -------
+; ==================================
 
-_GaryText2ndBattle::
+_GaryText2ndBattle_BG::
 	text "AGAIN!"
 	line "2ND TEAM!"
 	done
 
-_GaryDefeatedText2ndBattle::
+_GaryDefeatedText2ndBattle_BG::
 	text "TEST DEFEAT"
 	prompt
 
-_GaryVictoryText2ndBattle::
+_GaryVictoryText2ndBattle_BG::
 	text "TEST VICTORY"
+	prompt
+
+; --------
+
+_GaryText2ndBattle_AG::
+	text "Would you like"
+	line "2nd battle?"
+	done ; prompt?
+
+_GaryText2ndBattle_AG_Refused::
+	text "Understandable,"
+	line "it sounds unfair"
+	cont "so you won!"
+	done
+
+; --------
+
+_GaryText2ndBattle_AG_BGL::
+	text "Excellent!"
+	line "Get ready to meet"
+	cont "some old 'friends'!"
+	done
+
+_GaryDefeatedText2ndBattle_AG_BGL::
+	text "Damn!"
+	line "I lost again!"
+	cont "Nice battle!"
+	prompt
+
+_GaryVictoryText2ndBattle_AG_BGL::
+	text "Phew!"
+	line "You fought well,"
+	cont "I won this time!"
+	prompt
+
+; --------
+
+_GaryText2ndBattle_AG_AGL::
+	text "Wonderful!"
+	line "This other team"
+	cont "is new too!"
+	done
+
+_GaryDefeatedText2ndBattle_AG_AGL::
+	text "Wow!"
+	line "You won again!"
+	cont "You're the best!"
+	prompt
+
+_GaryVictoryText2ndBattle_AG_AGL::
+	text "Ah!"
+	line "Great battle!"
+	cont "Finally I win!"
 	prompt

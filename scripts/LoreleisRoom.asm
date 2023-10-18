@@ -129,30 +129,17 @@ LoreleisRoomTrainerHeader1:
 
 LoreleiText1: ; edited
 	text_asm
+; new, check if we beat all gyms leaders in their gym rematches
 	ld hl, LoreleisRoomTrainerHeader1
-; new, ugly checks for all the gym leaders
-	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .notRematch
-	CheckEvent EVENT_BEAT_MISTY_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_ERIKA_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_KOGA_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_SABRINA_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_BLAINE_REMATCH
-	jr z, .notRematch
-	ld a, 1
-	ld [wTrainerNo], a
 	call TalkToTrainer
+	ld a, 2
+	ld [wTrainerNo], a
 	jp TextScriptEnd
 .notRematch
+; end rematches check
 	ld hl, LoreleisRoomTrainerHeader0
-;	xor a
-;	ld [wTrainerNo], a
 	call TalkToTrainer
 	jp TextScriptEnd
 

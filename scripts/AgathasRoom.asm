@@ -130,28 +130,16 @@ AgathasRoomTrainerHeader1:
 
 AgathaText1:
 	text_asm
-; new, ugly checks for all the gym leaders
+; new, check if we beat all gyms leaders in their gym rematches
 	ld hl, AgathasRoomTrainerHeader1
-	CheckEvent EVENT_BEAT_BROCK_REMATCH
+	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .notRematch
-	CheckEvent EVENT_BEAT_MISTY_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_ERIKA_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_KOGA_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_SABRINA_REMATCH
-	jr z, .notRematch
-	CheckEvent EVENT_BEAT_BLAINE_REMATCH
-	jr z, .notRematch
-	ld a, 1
-	ld [wTrainerNo], a
 	call TalkToTrainer
+	ld a, 2
+	ld [wTrainerNo], a
 	jp TextScriptEnd
 .notRematch
-; end of ugly code
+; end rematches check
 	ld hl, AgathasRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd

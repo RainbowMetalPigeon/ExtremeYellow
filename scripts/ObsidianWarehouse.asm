@@ -468,8 +468,8 @@ ObsidianWarehouseStatueText:
     CheckEvent EVENT_OBSIDIAN_WAREHOUSE_SWITCH_CLICKED
     jr nz, .secondTry
 ; first click at the statue, open door
-    ld hl, ObsidianWarehouseStatueText_Click1Pre
-    call PrintText
+	ld hl, ObsidianWarehouseStatueText_Click1Pre
+	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a

@@ -81,6 +81,23 @@ CeruleanGymMistyPostBattleRematch: ; new
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY_REMATCH
+	; block to check if with this we defeated all gym rematches
+	; if yes, let's set one single event that will make League scripts so much nicer
+	; in every gym we can skip the check corresponding to the gym itself
+	CheckEvent EVENT_BEAT_BROCK_REMATCH
+    jr z, .notAllRematchWons
+    CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
+    jr z, .notAllRematchWons
+    CheckEvent EVENT_BEAT_ERIKA_REMATCH
+    jr z, .notAllRematchWons
+    CheckEvent EVENT_BEAT_KOGA_REMATCH
+    jr z, .notAllRematchWons
+    CheckEvent EVENT_BEAT_SABRINA_REMATCH
+    jr z, .notAllRematchWons
+    CheckEvent EVENT_BEAT_BLAINE_REMATCH
+    jr z, .notAllRematchWons
+    SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
+.notAllRematchWons
 	jp CeruleanGymResetScripts
 
 CeruleanGym_TextPointers:
