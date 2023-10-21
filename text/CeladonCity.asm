@@ -120,7 +120,8 @@ _CeladonCityText13::
 	done
 
 _CeladonCityText14::
-	text "CELADON MANSION"
+	text "CELADON"
+	line "CONDOMINIUMS"
 	done
 
 _CeladonCityText15::

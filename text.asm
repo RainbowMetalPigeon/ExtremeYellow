@@ -37,19 +37,22 @@ INCLUDE "text/SilphCo10F.asm"
 
 SECTION "Text 2", ROMX
 
-INCLUDE "text/SilphCo11F.asm"
-;INCLUDE "text/PokemonMansion2F.asm" ; edited, moved to Text Extra 1
-;INCLUDE "text/PokemonMansion3F.asm" ; edited, moved to Text Extra 1
-;INCLUDE "text/PokemonMansionB1F.asm" ; edited, moved to Text Extra 1
-INCLUDE "text/SafariZoneEast.asm"
-INCLUDE "text/SafariZoneNorth.asm"
-INCLUDE "text/SafariZoneWest.asm"
-INCLUDE "text/SafariZoneCenter.asm"
-INCLUDE "text/SafariZoneCenterRestHouse.asm"
-INCLUDE "text/SafariZoneSecretHouse.asm"
-INCLUDE "text/SafariZoneWestRestHouse.asm"
-INCLUDE "text/SafariZoneEastRestHouse.asm"
-INCLUDE "text/SafariZoneNorthRestHouse.asm"
+; --- edited, moved to Text Extra 1:
+;INCLUDE "text/SilphCo11F.asm"
+;INCLUDE "text/PokemonMansion2F.asm"
+;INCLUDE "text/PokemonMansion3F.asm"
+;INCLUDE "text/PokemonMansionB1F.asm"
+;INCLUDE "text/SafariZoneEast.asm"
+;INCLUDE "text/SafariZoneNorth.asm"
+;INCLUDE "text/SafariZoneWest.asm"
+;INCLUDE "text/SafariZoneCenter.asm"
+; --- edited, moved to Text Extra 2:
+;INCLUDE "text/SafariZoneCenterRestHouse.asm"
+;INCLUDE "text/SafariZoneSecretHouse.asm"
+;INCLUDE "text/SafariZoneWestRestHouse.asm"
+;INCLUDE "text/SafariZoneEastRestHouse.asm"
+;INCLUDE "text/SafariZoneNorthRestHouse.asm"
+; ---
 INCLUDE "text/CeruleanCaveB1F.asm"
 INCLUDE "text/VictoryRoad1F.asm"
 INCLUDE "text/LancesRoom.asm"
@@ -182,8 +185,8 @@ INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/VermilionGym.asm"
-INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/VermilionDock.asm"
+;INCLUDE "text/VermilionPidgeyHouse.asm" ; ; edited, moved to Text Extra 1
+;INCLUDE "text/VermilionDock.asm" ; ; edited, moved to Text Extra 1
 
 INCLUDE "data/text/text_6.asm"
 
@@ -285,11 +288,28 @@ INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 ; moved from Text 2
+INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/PokemonMansion3F.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
+INCLUDE "text/SafariZoneEast.asm"
+INCLUDE "text/SafariZoneNorth.asm"
+INCLUDE "text/SafariZoneWest.asm"
+INCLUDE "text/SafariZoneCenter.asm"
 ; moved from Text 8
 INCLUDE "data/text/text_9.asm"
+; moved from Text 6
+INCLUDE "text/VermilionPidgeyHouse.asm"
+INCLUDE "text/VermilionDock.asm"
+
+
+SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+; moved from Text 2
+INCLUDE "text/SafariZoneCenterRestHouse.asm"
+INCLUDE "text/SafariZoneSecretHouse.asm"
+INCLUDE "text/SafariZoneWestRestHouse.asm"
+INCLUDE "text/SafariZoneEastRestHouse.asm"
+INCLUDE "text/SafariZoneNorthRestHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

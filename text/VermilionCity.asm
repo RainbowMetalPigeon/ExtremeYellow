@@ -17,8 +17,20 @@ _VermilionCityTextSSAnneDeparted::
 	text "So, S.S.ANNE has"
 	line "departed!"
 
-	para "She'll be back in"
-	line "about a year."
+	para "Who knows when it"
+	line "will be back!"
+	done
+
+_VermilionCityTextAnneReturned::
+	text "Ah! The S.S.ANNE"
+	line "is back!"
+
+	para "I didn't expect it"
+	line "to return so"
+	cont "soon, usually"
+	cont "it takes what it"
+	cont "seems like an"
+	cont "eternity!"
 	done
 
 _SSAnneWelcomeText4::
@@ -112,7 +124,7 @@ _VermilionCityText6::
 	cont "cruise ship."
 
 	para "We visit VERMILION"
-	line "once a year."
+	line "quite frequently."
 	done
 
 _OfficerJennyText1::
@@ -188,7 +200,7 @@ _VermilionCityText13::
 	line "#MON GYM"
 	cont "LEADER: LT.SURGE"
 
-	para "The Lightning "
+	para "The Lightning"
 	line "American!"
 	done
 
@@ -206,12 +218,19 @@ _SignBattleFacilityText1::
 	done
 
 _SignBattleFacilityText2::
-;	xxxx "123456789012345678"
 	text "BATTLE FACILITY"
 	line "The ultimate test"
 	cont "of battle skills!"
+	done
 
-;	line "Test your skills"
-;	cont "in the ultimate"
-;	cont "battle experience!"
+_SSAnneWelcomeTextPostReturn::
+	text "The S.S.ANNE is"
+	line "back in the port!"
+
+	para "We changed policy:"
+	line "now the entrance"
+	cont "is free for"
+	cont "everyone, you"
+	cont "don't need to"
+	cont "have a TICKET."
 	done

@@ -138,13 +138,13 @@ SSAnne2Script2:
 	ret
 
 MovementData_614b7:
-	db NPC_MOVEMENT_RIGHT
-	db NPC_MOVEMENT_DOWN
+	db $07 ; fast NPC_MOVEMENT_RIGHT?
+	db $04 ; fast NPC_MOVEMENT_DOWN?
 MovementData_614b9:
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
+	db $04 ; fast NPC_MOVEMENT_DOWN?
+	db $04 ; fast NPC_MOVEMENT_DOWN?
+	db $04 ; fast NPC_MOVEMENT_DOWN?
+	db $04 ; fast NPC_MOVEMENT_DOWN?
 	db -1 ; end
 
 SSAnne2Script3:

@@ -161,7 +161,7 @@ GaryScript3:
 	call UpdateSprites
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 
-	; new, set the flag for the supervictory, if appropriate 
+	; new, set the flag for the supervictory, if appropriate
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .continue
 	CheckEvent EVENT_ENGAGED_CHAMPION_FINAL_REMATCH
@@ -174,7 +174,7 @@ GaryScript3:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
-	call GaryScript_760c8
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld a, $1
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
@@ -184,21 +184,32 @@ GaryScript3:
 
 ; ==================================
 
-GaryScript4:
+GaryScript4: ; Oak calls you and walks towards you
 	farcall Music_Cities1AlternateTempo
+; Oak calls you two
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
-	call GaryScript_760c8
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; prepare Oak for movement?
 	ld a, $2
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
+; Oak walks upward
 	ld de, OakEntranceAfterVictoryMovement
 	ld a, $2
 	ldh [hSpriteIndex], a
 	call MoveSprite
+; Show Oak (interesting that it's done now and not before the movement)
 	ld a, HS_CHAMPIONS_ROOM_OAK
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra ; edited, new HS function
+; new, Blue facing downward, testing
+	ld a, $1
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+; load next script
 	ld a, $5
 	ld [wChampionsRoomCurScript], a
 	ret
@@ -213,80 +224,129 @@ OakEntranceAfterVictoryMovement:
 
 ; ==================================
 
+; all changes of direction and talkings here?
+; PRE POST GAME ONLY???
 GaryScript5:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
+; MAYBE LOAD SCRIPT 6 FOR POST GAME INTERACTIONS???
+	; load script 6?
+; player facing Oak
 	ld a, PLAYER_DIR_LEFT
 	ld [wPlayerMovingDirection], a
+; Blue facing Oak
 	ld a, $1
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_LEFT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+; Oak facing Rival
 	ld a, $2
 	ldh [hSpriteIndex], a
-	xor a ; SPRITE_FACING_DOWN
+	ld a,  SPRITE_FACING_RIGHT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+; Oak & Rival talk
 	ld a, $3
 	ldh [hSpriteIndexOrTextID], a
-	call GaryScript_760c8
-	ld a, $6
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; Oak facing Player
+	ld a, $2
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+; Oak talks
+	ld a, $4
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; Oak facing Rival
+	ld a, $2
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+; Oak and Rival talk
+	ld a, $0b
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; let the hug sink in for a bit... :)
+	ld c, 200 ; feel about right :)
+	call DelayFrames
+; load next script
+	ld a, $7 ; TRY LOAD SCRIPT 7, AS 6 WILL BE LOADED FOR POST GAME INTERACTIONS???
 	ld [wChampionsRoomCurScript], a
 	ret
 
 ; ==================================
 
 GaryScript6:
-	ld a, $2
-	ldh [hSpriteIndex], a
-	ld a, SPRITE_FACING_RIGHT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
-	ld a, $4
-	ldh [hSpriteIndexOrTextID], a
-	call GaryScript_760c8
+; LIKE SCRIPT 5, BUT FOR POST-GAME INTERACTIONS???
+	; load next script
 	ld a, $7
 	ld [wChampionsRoomCurScript], a
 	ret
 
 ; ==================================
 
-GaryScript7:
+GaryScript7: ; Oak faces and talks to Player and then leaves the room for the HoF
+; Blue facing Oak (why is it even necessary to re-state this?)
+	ld a, $1
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+; Oak facing Player
 	ld a, $2
 	ldh [hSpriteIndex], a
 	xor a ; SPRITE_FACING_DOWN
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+; Oak talks
 	ld a, $5
 	ldh [hSpriteIndexOrTextID], a
-	call GaryScript_760c8
-	ld de, OakExitGaryRoomMovement
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; Oak walks towards HoF
+	ld de, OaksExitGaryRoomMovement
 	ld a, $2
 	ldh [hSpriteIndex], a
 	call MoveSprite
+; Blue walks towards HoF (oh cute, they walk together :3)
+	ld de, OaksExitGaryRoomMovement
+	ld a, $1
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; load nextr script
 	ld a, $8
 	ld [wChampionsRoomCurScript], a
 	ret
 
-OakExitGaryRoomMovement:
+OaksExitGaryRoomMovement:
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
 	db -1 ; end
 
 ; ==================================
 
-GaryScript8:
+GaryScript8: ; hide the Oaks
 	ld a, [wd730]
 	bit 0, a
 	ret nz
+; hide Oak
 	ld a, HS_CHAMPIONS_ROOM_OAK
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra ; edited, new HS function
+; hide Rival
+	ld a, HS_CHAMPIONS_ROOM_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra ; edited, new HS function
+; load next script
 	ld a, $9
 	ld [wChampionsRoomCurScript], a
 	ret
+
+; ==================================
 
 GaryScript9:
 	ld a, $ff
@@ -303,7 +363,7 @@ GaryScript9:
 
 WalkToHallOfFame_RLEMovment:
 	db D_UP, 4
-	db D_LEFT, 1
+;	db D_LEFT, 1 ; not needed anymore, but makes the HoF movements flow better?
 	db -1 ; end
 
 ; ==================================
@@ -320,7 +380,7 @@ GaryScript10:
 
 ; ==================================
 
-GaryScript_760c8:
+GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 	ld a, $f0
 	ld [wJoyIgnore], a
 	call DisplayTextID
@@ -331,16 +391,17 @@ GaryScript_760c8:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ChampionsRoom_TextPointers:
-	dw GaryText1				; 1 - before first battle / why did I lose
+	dw GaryText1				; 1 - before/after first battle(s, including rematches)
 	dw GaryText2				; 2 - simply Oak that calls you
-	dw GaryText3				; 3 - Oak so you won, so long since you left w Pikachu
-	dw GaryText4				; 4 - Oak disappointed in Rival (sigh)
+	dw GaryText3				; 3 - Oak compliments Rival, Rival embarassed
+	dw GaryText4				; 4 - Oak compliments Player, Rival silent
 	dw GaryText5				; 5 - Oak come with me to HoF
 	dw GaryText2ndBattle_BG		; 6 - second battle, before post game
 	dw GaryText2ndBattle_AG		; 7 - second battle, post game, asking if we want to do it
 	dw GaryText2ndBattle_AG_BGL	; 8 - second battle accepted, before gym leaders' rematches
 	dw GaryText2ndBattle_AG_AGL	; 9 - second battle accepted, after gym leaders' rematches
-	dw GaryText2ndBattle_AG_Refused	; 10 - second battle refused
+	dw GaryText2ndBattle_AG_Refused	; 0a - second battle refused
+	dw GaryText6                ; 0b - long emotional conversation between Oak and Rival
 
 ; ==================================
 
@@ -434,25 +495,114 @@ GaryText2:
 	text_far _GaryText2
 	text_end
 
+; ==================================
+
 GaryText3:
 	text_asm
-	ld a, [wPlayerStarter]
-	ld [wd11e], a
-	call GetMonName
-	ld hl, GaryText_76120
+	ld hl, GaryText3_OakCompliment
+	call PrintText
+	ld hl, GaryText3_RivalEmbarassed
 	call PrintText
 	jp TextScriptEnd
 
-GaryText_76120:
-	text_far _GaryText_76120
+; --------
+
+GaryText3_OakCompliment:
+	text_far _GaryText3_OakCompliment
 	text_end
+
+GaryText3_RivalEmbarassed:
+	text_far _GaryText3_RivalEmbarassed
+	text_end
+
+; ==================================
 
 GaryText4:
-	text_far _GaryText_76125
+	text_asm
+	ld hl, GaryText4_OakAcknowledgePlayer
+	call PrintText
+	ld hl, GaryText4_RivalSore
+	call PrintText
+	jp TextScriptEnd
+
+GaryText4_OakAcknowledgePlayer:
+	text_far _GaryText4_OakAcknowledgePlayer
 	text_end
 
+GaryText4_RivalSore:
+	text_far _GaryText4_RivalSore
+	text_end
+
+; ==================================
+
+GaryText6:
+	text_asm
+	ld hl, GaryText6_OakScoldsRival
+	call PrintText
+	ld c, 20 ; testing
+	call DelayFrames
+	ld hl, GaryText6_RivalGrudge
+	call PrintText
+	ld c, 20 ; testing
+	call DelayFrames
+	ld hl, GaryText6_OakAmaze
+	call PrintText
+	ld c, 20 ; testing
+	call DelayFrames
+	ld hl, GaryText6_RivalUnbelief
+	call PrintText
+	ld c, 20 ; testing
+	call DelayFrames
+	ld hl, GaryText6_OakSorrow
+	call PrintText
+	ld c, 20 ; testing
+	call DelayFrames
+	ld hl, GaryText6_RivalSobbing
+	call PrintText
+	ld c, 20 ; testing
+	call DelayFrames
+	ld hl, GaryText6_OakHug
+	call PrintText
+	jp TextScriptEnd
+
+GaryText6_OakScoldsRival:
+	text_far _GaryText6_OakScoldsRival
+	text_end
+
+GaryText6_RivalGrudge:
+	text_far _GaryText6_RivalGrudge
+	text_end
+
+GaryText6_OakAmaze:
+	text_far _GaryText6_OakAmaze
+	text_end
+
+GaryText6_RivalUnbelief:
+	text_far _GaryText6_RivalUnbelief
+	text_end
+
+GaryText6_OakSorrow:
+	text_far _GaryText6_OakSorrow
+	text_end
+
+GaryText6_RivalSobbing:
+	text_far _GaryText6_RivalSobbing
+	text_end
+
+GaryText6_OakHug:
+	text_far _GaryText6_OakHug
+	text_end
+
+; ==================================
+
 GaryText5:
-	text_far _GaryText_7612a
+	text_asm
+	ld hl, GaryText5_OakLetsCelebrate
+	call PrintText
+	jp TextScriptEnd
+
+GaryText5_OakLetsCelebrate:
+	text_far _GaryText5_OakLetsCelebrate
 	text_end
 
 ; ==================================

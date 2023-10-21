@@ -26,7 +26,7 @@ VermilionCity_Object:
 	def_object_events
 	object_event 19,  7, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 1 ; person
 	object_event 14,  6, SPRITE_GAMBLER, STAY, NONE, 2 ; person
-	object_event 19, 30, SPRITE_SAILOR, STAY, UP, 3 ; person
+	object_event 19, 30, SPRITE_SAILOR, STAY, UP, 3 ; person; SS Anne Guardian
 	object_event 30,  9, SPRITE_GAMBLER, STAY, ANY_DIR, 4 ; Battle Facility builder, edited
 	object_event 30,  8, SPRITE_MONSTER, STAY, UP, 5 ; Machoke, working at the door - TODO hide/show it
 	object_event 33, 12, SPRITE_MONSTER, STAY, LEFT, 6 ; Machamp, now is resting - TODO hide/show it

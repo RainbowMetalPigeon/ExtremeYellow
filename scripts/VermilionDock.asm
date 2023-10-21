@@ -2,6 +2,8 @@ VermilionDock_Script:
 	call EnableAutoTextBoxDrawing
 	CheckEventHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	jr nz, .asm_1db8d
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
+	ret nz ; new, testing
 	CheckEventReuseHL EVENT_GOT_HM01
 	ret z
 	ld a, [wDestinationWarpID]
@@ -212,5 +214,15 @@ VermilionDock_TextPointers:
 	dw VermilionDockText1
 
 VermilionDockText1:
-	text_far _VermilionDockText1
+	text_asm
+	ld hl, VermilionDockNoteText
+	call PrintText
+	; let's make PIGEON appear in Celadon
+	ld a, HS_CELADON_MANSION_PIGEON
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	jp TextScriptEnd
+
+VermilionDockNoteText: ; new
+	text_far _VermilionDockNoteText
 	text_end

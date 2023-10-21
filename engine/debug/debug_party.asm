@@ -131,8 +131,8 @@ IF DEF(_DEBUG)
 ;	ld [wOptions], a
 
 	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; temporary, testing
-	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temporary, testing
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; temporary, testing
+;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temporary, testing
 
 	ret
 

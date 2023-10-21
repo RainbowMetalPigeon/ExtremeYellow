@@ -135,11 +135,11 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw CeladonMansionRoofHouseHS
+	dw NoHS ; CELADON_MANSION_1F
+	dw CeladonMansion2FHS ; new, CELADON_MANSION_2F
+	dw NoHS ; CELADON_MANSION_3F
+	dw NoHS ; CELADON_MANSION_ROOF
+	dw CeladonMansionRoofHouseHS ; CELADON_MANSION_ROOF_HOUSE
 	dw NoHS
 	dw NoHS
 	dw GameCornerHS
@@ -637,6 +637,7 @@ VictoryRoad1FHS:					; updated, +2
 	db VICTORY_ROAD_1F, $05, SHOW
 	db VICTORY_ROAD_1F, $06, SHOW
 ChampionsRoomHS:
+	db CHAMPIONS_ROOM, $01, SHOW ; new, to later hide the Rival when goes to HoF
 	db CHAMPIONS_ROOM, $02, HIDE
 SeafoamIslands1FHS:
 	db SEAFOAM_ISLANDS_1F, $01, SHOW
@@ -676,5 +677,7 @@ ObsidianIslandHS: ; new
 	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
 OchreWonderlandHS: ; new
 	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
+CeladonMansion2FHS:
+	db CELADON_MANSION_2F; $01, HIDE ; PIGEON cameo
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -4,7 +4,7 @@ HallOfFame_Script:
 	ld a, [wHallOfFameCurScript]
 	jp CallFunctionInTable
 
-HallofFameRoomScript_5a4aa:
+HallofFameRoomScript_5a4aa: ; is this even for anything?
 	xor a
 	ld [wJoyIgnore], a
 	ld [wHallOfFameCurScript], a
@@ -16,8 +16,76 @@ HallOfFame_ScriptPointers:
 	dw HallofFameRoomScript2
 	dw HallofFameRoomScript3
 
-HallofFameRoomScript3:
+; ==================================
+
+HallofFameRoomScript3: ; is this even ever used?
 	ret
+
+; ==================================
+
+HallofFameRoomScript0: ; makes player walk up to Rival and Oak
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, RLEMovement5a528
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+	ld a, $1
+	ld [wHallOfFameCurScript], a
+	ret
+
+RLEMovement5a528:
+	db D_UP, 4 ; edited, was 5, stop before Rival
+	db -1 ; end
+
+; ==================================
+
+HallofFameRoomScript1:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; player faces right
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+; Oak faces left
+	ld a, $1
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+; delay lol
+	call Delay3
+; non-moving step of player?
+	xor a
+	ld [wJoyIgnore], a
+	inc a ; PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+; Oak talks
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, $ff
+	ld [wJoyIgnore], a
+
+	; new code for HS and to re/set the event that we beat the game at least once
+	call LoopHide
+	call LoopShow
+	call LoopShowExtra
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
+	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
+	; let's also heal the party, why not
+	predef HealParty
+	; back to vanilla code
+
+	ld a, $2
+	ld [wHallOfFameCurScript], a
+	ret
+
+; ==================================
 
 HallofFameRoomScript2:
 	call Delay3
@@ -55,60 +123,7 @@ HallofFameRoomScript2:
 	call WaitForTextScrollButtonPress
 	jp Init
 
-HallofFameRoomScript0:
-	ld a, $ff
-	ld [wJoyIgnore], a
-	ld hl, wSimulatedJoypadStatesEnd
-	ld de, RLEMovement5a528
-	call DecodeRLEList
-	dec a
-	ld [wSimulatedJoypadStatesIndex], a
-	call StartSimulatingJoypadStates
-	ld a, $1
-	ld [wHallOfFameCurScript], a
-	ret
-
-RLEMovement5a528:
-	db D_UP, 5
-	db -1 ; end
-
-HallofFameRoomScript1:
-	ld a, [wSimulatedJoypadStatesIndex]
-	and a
-	ret nz
-	ld a, PLAYER_DIR_RIGHT
-	ld [wPlayerMovingDirection], a
-	ld a, $1
-	ldh [hSpriteIndex], a
-	call SetSpriteMovementBytesToFF
-	ld a, SPRITE_FACING_LEFT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
-	call Delay3
-	xor a
-	ld [wJoyIgnore], a
-	inc a ; PLAYER_DIR_RIGHT
-	ld [wPlayerMovingDirection], a
-	ld a, $1
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	ld a, $ff
-	ld [wJoyIgnore], a
-
-	; new code for HS and to re/set the event that we beat the game at least once
-	call LoopHide
-	call LoopShow
-	call LoopShowExtra
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
-	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
-	; let's also heal the party, why not
-	predef HealParty
-	; back to vanilla code
-
-	ld a, $2
-	ld [wHallOfFameCurScript], a
-	ret
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 HallOfFame_TextPointers:
 	dw HallofFameRoomText1
@@ -117,6 +132,7 @@ HallofFameRoomText1:
 	text_far _HallofFameRoomText1
 	text_end
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; ----- new HS compat functions -----
 
 LoopHide:
@@ -135,6 +151,8 @@ ObjectsToHide:
 	db HS_CERULEAN_CAVE_GUY
 	db HS_VERMILION_MACHOKE
 	db $ff
+
+; -----
 
 LoopShow:
 	ld hl, ObjectsToShow
@@ -163,6 +181,8 @@ ObjectsToShow:
 	db HS_ZAPDOS
 	db $ff
 
+; -----
+
 LoopShowExtra:
 	ld hl, ObjectsToShowExtra
 .hideLoop
@@ -183,4 +203,5 @@ ObjectsToShowExtra:
 	db HS_MEWTWO
 	db HS_ARTICUNO
 	db HS_OCHRE_WONDERLAND_BLUE
+	db HS_CHAMPIONS_ROOM_RIVAL ; new, here to re-show Rival after we hid them when walking towards HoF
 	db $ff

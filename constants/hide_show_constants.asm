@@ -292,6 +292,7 @@ DEF SHOW EQU $15
 	const HS_CERULEAN_CAVE_B1F_ITEM_4      ; DB
 	const HS_VICTORY_ROAD_1F_ITEM_1        ; DC
 	const HS_VICTORY_ROAD_1F_ITEM_2        ; DD
+	const HS_CHAMPIONS_ROOM_RIVAL          ; new
 	const HS_CHAMPIONS_ROOM_OAK            ; DE
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_1  ; DF
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_2  ; E0
@@ -323,3 +324,4 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
 	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
 	const HS_OCHRE_WONDERLAND_BLUE		   ; new, Wonderland Blue
+	const HS_CELADON_MANSION_PIGEON		   ; new, PIGEON cameo

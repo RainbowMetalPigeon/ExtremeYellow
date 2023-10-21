@@ -9,5 +9,6 @@ HallOfFame_Object:
 
 	def_object_events
 	object_event  5,  2, SPRITE_OAK, STAY, DOWN, 1 ; person
+	object_event  4,  2, SPRITE_BLUE, STAY, RIGHT, 1 ; new
 
 	def_warps_to HALL_OF_FAME

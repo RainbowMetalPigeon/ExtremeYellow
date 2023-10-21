@@ -36,6 +36,8 @@ VermilionCity_Script:
 	ret
 
 .initCityScript
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
+	ret nz ; new, testing
 	CheckEventHL EVENT_SS_ANNE_LEFT
 	ret z
 	CheckEventReuseHL EVENT_WALKED_PAST_GUARD_AFTER_SS_ANNE_LEFT
@@ -53,6 +55,8 @@ VermilionCity_ScriptPointers:
 	dw VermilionCityScript4
 
 VermilionCityScript0:
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
+	ret nz ; new, testing
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
 	jr nz, .return
@@ -134,7 +138,7 @@ VermilionCityScript1:
 VermilionCity_TextPointers:
 	dw VermilionCityText1
 	dw VermilionCityText2
-	dw VermilionCityText3
+	dw VermilionCityText3 ; SS Anne Guardian
 	dw VermilionCityText4
 	dw VermilionCityText5
 	dw VermilionCityText5PG
@@ -155,6 +159,14 @@ VermilionCityText1:
 
 VermilionCityText2:
 	text_asm
+; new code to handle the ship return
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .beforeShipReturn
+	ld hl, VermilionCityTextAnneReturned
+	call PrintText
+	jr .end
+.beforeShipReturn
+; back to vanilla code
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .shipHasDeparted
 	ld hl, VermilionCityTextDidYouSee
@@ -174,8 +186,20 @@ VermilionCityTextSSAnneDeparted:
 	text_far _VermilionCityTextSSAnneDeparted
 	text_end
 
+VermilionCityTextAnneReturned:
+	text_far _VermilionCityTextAnneReturned
+	text_end
+
 VermilionCityText3:
 	text_asm
+; new code to handle the ship return
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .beforeShipReturn
+	ld hl, SSAnneWelcomeTextPostReturn
+	call PrintText
+	jr .end
+.beforeShipReturn
+; back to vanilla code
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .shipHasDeparted
 	ld a, [wSpritePlayerStateData1FacingDirection]
@@ -222,6 +246,10 @@ SSAnneWelcomeText4:
 
 SSAnneWelcomeText9:
 	text_far _SSAnneWelcomeText9
+	text_end
+
+SSAnneWelcomeTextPostReturn:
+	text_far _SSAnneWelcomeTextPostReturn
 	text_end
 
 SSAnneFlashedTicketText:

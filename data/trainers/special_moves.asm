@@ -1111,7 +1111,7 @@ SpecialTrainerMoves:
 	db 0
 
 	db PIGEON, 1
-	; PIDGEY
+	; MPIDGEOT
 ;	db 1, 1, NO_MOVE
 ;	db 1, 2, NO_MOVE
 ;	db 1, 3, NO_MOVE
