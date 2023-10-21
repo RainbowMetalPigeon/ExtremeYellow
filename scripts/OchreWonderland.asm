@@ -81,14 +81,3 @@ BlueBeforeBattleText2Tough:
 BluePostBattleText:
 	text_far _BluePostBattleText
 	text_end
-
-;NormalInverseChoice:
-;	call SaveScreenTilesToBuffer1
-;	ld a, NORMAL_INVERSE_MENU
-;	ld [wTwoOptionMenuID], a
-;	coord hl, 10, 7
-;	ld bc, $80b ; weird coordinates for the cursor
-;	ld a, $14
-;	ld [wTextBoxID], a
-;	call DisplayTextBoxID
-;	jp LoadScreenTilesFromBuffer1

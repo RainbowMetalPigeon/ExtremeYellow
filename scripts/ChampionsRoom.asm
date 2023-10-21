@@ -166,7 +166,7 @@ GaryScript3:
 	jr z, .continue
 	CheckEvent EVENT_ENGAGED_CHAMPION_FINAL_REMATCH
 	jr z, .continue
-	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; this makes the SS Anne return, which in turns allow to battle PIGEON (eheh)
+	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; this makes the SS Anne return, which in turn allows to battle PIGEON (eheh)
 .continue
 	; back to vanilla code
 
