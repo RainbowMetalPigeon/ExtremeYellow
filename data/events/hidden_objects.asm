@@ -69,7 +69,7 @@ HiddenObjectMaps:
 	dbw VERMILION_GYM,                VermilionGymHiddenObjects
 	dbw CELADON_CITY,                 CeladonCityHiddenObjects
 	dbw CELADON_HOTEL,                CeladonHotelHiddenObjects
-	dbw CELADON_MANSION_2F,           CeladonMansion2HiddenObjects
+;	dbw CELADON_MANSION_2F,           CeladonMansion2HiddenObjects ; edited, commented out as map is reworked
 	dbw CELADON_MANSION_ROOF_HOUSE,   CeladonMansion5HiddenObjects
 	dbw CELADON_POKECENTER,           CeladonPokecenterHiddenObjects
 	dbw CELADON_GYM,                  CeladonGymHiddenObjects
@@ -464,9 +464,9 @@ CeladonHotelHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	db -1 ; end
 
-CeladonMansion2HiddenObjects:
-	hidden_object  0,  5, SPRITE_FACING_UP, OpenPokemonCenterPC
-	db -1 ; end
+;CeladonMansion2HiddenObjects: ; edited, commented out as map is reworked
+;	hidden_object  0,  5, SPRITE_FACING_UP, OpenPokemonCenterPC
+;	db -1 ; end
 
 CeladonMansion5HiddenObjects:
 	hidden_text_predef  3,  0, LinkCableHelp, PrintBlackboardLinkCableText
