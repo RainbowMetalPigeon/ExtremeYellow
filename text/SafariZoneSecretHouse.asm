@@ -14,19 +14,20 @@ _SecretHouseText_4a350::
 	line "You have won!"
 	prompt
 
-_ReceivedHM03Text::
+_ReceivedHM04Text::
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_HM03ExplanationText::
-	text "HM03 is SURF!"
+_HM04ExplanationText::
+	text "HM04 is STRENGTH!"
 
-	para "#MON will be"
-	line "able to ferry you"
-	cont "across water!"
+	para "It lets #MON"
+	line "move boulders"
+	cont "when you're out-"
+	cont "side of battle."
 
 	para "And, this HM isn't"
 	line "disposable! You"
@@ -38,7 +39,7 @@ _HM03ExplanationText::
 	cont "fabulous prize!"
 	done
 
-_HM03NoRoomText::
+_HM04NoRoomText::
 	text "You don't have"
 	line "room for this"
 	cont "fabulous prize!"

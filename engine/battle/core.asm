@@ -5711,7 +5711,7 @@ AdjustDamageForMoveType:
 	set 7, [hl]
 .skipSameTypeAttackBonus
 
-; new block of code to handle Judgment (always super effective)
+; new block of code to handle Judgment & Ancestor_Pwr (always super effective)
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPlayerMoveNum]
@@ -5719,6 +5719,9 @@ AdjustDamageForMoveType:
 	ld a, [wEnemyMoveNum]
 .player
 	cp JUDGMENT
+	ld a, SUPER_EFFECTIVE
+	jr z, .isTheAttackOfGod
+	cp ANCESTOR_PWR
 	ld a, SUPER_EFFECTIVE
 	jr z, .isTheAttackOfGod
 
@@ -5802,7 +5805,7 @@ AdjustDamageForMoveType:
 	ld [wMoveMissed], a
 .skipTypeImmunity
 
-; new block of code to handle Judgment (always super effective)
+; new block of code to handle Judgment and Ancestor_Pwr (always super effective)
 ; this second block is here to prevent counting multiple times its effectiveness
 ; we already made it super effective once regardless of defender's type(s)
 	ldh a, [hWhoseTurn]
@@ -5812,6 +5815,8 @@ AdjustDamageForMoveType:
 	ld a, [wEnemyMoveNum]
 .player2
 	cp JUDGMENT
+	ret z
+	cp ANCESTOR_PWR
 	ret z
 
 	pop bc

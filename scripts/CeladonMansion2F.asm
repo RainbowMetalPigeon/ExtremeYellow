@@ -17,11 +17,63 @@ CeladonMansion2F_TextPointers:
 	dw CeladonMansion2TextSign3
 	dw CeladonMansion2TextSign4
 
-; NPCs -------------------
+; NPCs =========================
 
 CeladonMansion2Text1:
-	text_far _CeladonMansion2TextPigeon
+	text_asm
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	ld hl, PigeonBeforeBattleText
+	CheckEvent EVENT_1ST_SPOKE_WITH_PIGEON
+	jr z, .goPrint
+	ld hl, PigeonBeforeBattleTextShort
+.goPrint
+	call PrintText
+	SetEvent EVENT_1ST_SPOKE_WITH_PIGEON
+
+	callfar NormalInverseChoice
+	ld a, [wCurrentMenuItem]
+	ld [wInverseBattle], a
+
+	ld hl, PigeonBeforeBattleText2
+	call PrintText
+
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl]	; Turn on battle animations to make the battle feel more epic.
+
+	call Delay3
+	ld a, OPP_PIGEON
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+
+	ld hl, PigeonPostBattleText
+	ld de, PigeonPostBattleText
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+PigeonBeforeBattleText:
+	text_far _PigeonBeforeBattleText
 	text_end
+
+PigeonBeforeBattleTextShort:
+	text_far _PigeonBeforeBattleTextShort
+	text_end
+
+PigeonBeforeBattleText2:
+	text_far _PigeonBeforeBattleText2
+	text_end
+
+PigeonPostBattleText:
+	text_far _PigeonPostBattleText
+	text_end
+
+; ---------------------
 
 CeladonMansion2Text2:
 	text_far _CeladonMansion2TextCramorant
@@ -47,7 +99,7 @@ CeladonMansion2Text7:
 	text_far _CeladonMansion2TextJoJo
 	text_end
 
-; Signs ------------------
+; Signs =========================
 
 CeladonMansion2TextSign1:
 	text_far _CeladonMansion2TextSign1

@@ -36,28 +36,58 @@ _WardenThankYouText::
 	cont "understand a word"
 	cont "that I said."
 
-	para "I couldn't work"
-	line "that way."
+	para "I lost my teeth in"
+	line "OBSIDIAN ISLAND"
+	cont "when I went there"
+	cont "to try and kick"
+	cont "out TEAM ROCKET."
+
+	para "Nobody dared to"
+	line "challenge them,"
+	cont "so I went alone,"
+	cont "and dear lord,"
+	cont "the beating I"
+	cont "received..."
+
+	para "TEAM ROCKET uses"
+	line "that island"
+	cont "as a base for"
+	cont "trafficking the"
+	cont "#MON they"
+	cont "poach in the"
+	cont "SAFARI ZONE."
+
+	para "They send them to"
+	line "their CASINO in"
+	cont "CELADON CITY as"
+	cont "prizes, and to"
+	cont "VERMILION CITY so"
+	cont "that they can be"
+	cont "shipped to other"
+	cont "regions as well."
+
+	para "Anyway, thanks so"
+	line "much for bringing"
+	cont "back my teeth!"
 	cont "Let me give you"
 	cont "something for"
 	cont "your trouble."
 	prompt
 
-_ReceivedHM04Text::
+_ReceivedHM03Text::
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_HM04ExplanationText::
-	text "WARDEN: HM04"
-	line "teaches STRENGTH!"
+_HM03ExplanationText::
+	text "WARDEN: HM03"
+	line "teaches SURF!"
 
-	para "It lets #MON"
-	line "move boulders"
-	cont "when you're out-"
-	cont "side of battle."
+	para "#MON will be"
+	line "able to ferry you"
+	cont "across water!"
 
 	para "Oh yes, did you"
 	line "find SECRET HOUSE"
@@ -67,10 +97,32 @@ _HM04ExplanationText::
 	line "win an HM!"
 
 	para "I hear it's the"
-	line "rare SURF HM."
+	line "rare STRENGTH HM."
 	done
 
-_HM04NoRoomText::
+_BeatGiovanniAmazementText::
+	text "What?!"
+
+	para "You fend off TEAM"
+	line "ROCKET and freed"
+	cont "OBSIDIAN ISLAND,"
+	cont "and now the"
+	cont "SAFARI ZONE is no"
+	cont "longer under the"
+	cont "control of those"
+	cont "criminals?!"
+
+	para "You are really"
+	line "unbelievable!"
+	cont "You gave us all"
+	cont "hope again! I can"
+	cont "go back to work!"
+
+	para "Thank you so"
+	line "immensely much!!!"
+	done
+
+_HM03NoRoomText::
 	text "Your pack is"
 	line "stuffed full!"
 	done

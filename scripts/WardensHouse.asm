@@ -10,7 +10,7 @@ WardensHouse_TextPointers:
 
 FuchsiaHouse2Text1:
 	text_asm
-	CheckEvent EVENT_GOT_HM04
+	CheckEvent EVENT_GOT_HM03 ; edited
 	jr nz, .got_item
 	ld b, GOLD_TEETH
 	call IsItemInBag
@@ -38,19 +38,25 @@ FuchsiaHouse2Text1:
 .gave_gold_teeth
 	ld hl, WardenThankYouText
 	call PrintText
-	lb bc, HM_STRENGTH, 1
+	lb bc, HM_SURF, 1 ; edited
 	call GiveItem
 	jr nc, .bag_full
-	ld hl, ReceivedHM04Text
+	ld hl, ReceivedHM03Text
 	call PrintText
-	SetEvent EVENT_GOT_HM04
+	SetEvent EVENT_GOT_HM03 ; edited
 	jr .done
 .got_item
-	ld hl, HM04ExplanationText
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4 ; new
+	jr nz, .beatObsidianGiovanni ; new
+	ld hl, HM03ExplanationText
 	call PrintText
 	jr .done
+.beatObsidianGiovanni ; new
+	ld hl, BeatGiovanniAmazementText ; new
+	call PrintText ; new
+	jr .done ; new
 .bag_full
-	ld hl, HM04NoRoomText
+	ld hl, HM03NoRoomText
 	call PrintText
 .done
 	jp TextScriptEnd
@@ -79,17 +85,21 @@ WardenThankYouText:
 	text_far _WardenThankYouText
 	text_end
 
-ReceivedHM04Text:
-	text_far _ReceivedHM04Text
+ReceivedHM03Text:
+	text_far _ReceivedHM03Text
 	sound_get_item_1
 	text_end
 
-HM04ExplanationText:
-	text_far _HM04ExplanationText
+HM03ExplanationText:
+	text_far _HM03ExplanationText
 	text_end
 
-HM04NoRoomText:
-	text_far _HM04NoRoomText
+BeatGiovanniAmazementText: ; new
+	text_far _BeatGiovanniAmazementText
+	text_end
+
+HM03NoRoomText:
+	text_far _HM03NoRoomText
 	text_end
 
 FuchsiaHouse2Text5:

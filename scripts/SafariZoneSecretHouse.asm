@@ -6,23 +6,23 @@ SafariZoneSecretHouse_TextPointers:
 
 SafariZoneSecretHouseText1:
 	text_asm
-	CheckEvent EVENT_GOT_HM03
+	CheckEvent EVENT_GOT_HM04 ; edited
 	jr nz, .got_item
 	ld hl, SafariZoneSecretHouseText_4a350
 	call PrintText
-	lb bc, HM_SURF, 1
+	lb bc, HM_STRENGTH, 1 ; edited
 	call GiveItem
 	jr nc, .bag_full
-	ld hl, ReceivedHM03Text
+	ld hl, ReceivedHM04Text
 	call PrintText
-	SetEvent EVENT_GOT_HM03
+	SetEvent EVENT_GOT_HM04 ; edited
 	jr .done
 .bag_full
-	ld hl, HM03NoRoomText
+	ld hl, HM04NoRoomText
 	call PrintText
 	jr .done
 .got_item
-	ld hl, HM03ExplanationText
+	ld hl, HM04ExplanationText
 	call PrintText
 .done
 	jp TextScriptEnd
@@ -31,15 +31,15 @@ SafariZoneSecretHouseText_4a350:
 	text_far _SecretHouseText_4a350
 	text_end
 
-ReceivedHM03Text:
-	text_far _ReceivedHM03Text
+ReceivedHM04Text:
+	text_far _ReceivedHM04Text
 	sound_get_item_1
 	text_end
 
-HM03ExplanationText:
-	text_far _HM03ExplanationText
+HM04ExplanationText:
+	text_far _HM04ExplanationText
 	text_end
 
-HM03NoRoomText:
-	text_far _HM03NoRoomText
+HM04NoRoomText:
+	text_far _HM04NoRoomText
 	text_end

@@ -1,10 +1,60 @@
-_CeladonMansion2TextPigeon::
-	text "BRRRIIIBBB!!!"
-;	text "Oh found my note"
-;	line "Hope you enjoy my hackrom"
-;	cont "What about a battle?"
-;	cont "I can challenge you with my fav mons!"
-;	cont "Tough choosing 6 out of 208..."
+_PigeonBeforeBattleText::
+	text "But hello!"
+
+	para "I am the creator"
+	line "of this hackROM,"
+	cont "RAINBOW METAL"
+	cont "PIGEON!"
+
+	para "I hope you're"
+	line "enjoying playing"
+	cont "it! :D"
+
+	para "I see you've"
+	line "found my note,"
+	cont "well done!"
+
+	para "What about a"
+	line "battle? I'd like"
+	cont "to challenge you"
+	cont "using my"
+	cont "favourite #MON!"
+
+	para "Would you prefer"
+	line "a NORMAL or an"
+	cont "INVERSE battle?"
+	done
+
+_PigeonBeforeBattleTextShort::
+	text "Hello hello!"
+
+	para "I hope you're"
+	line "enjoying playing"
+	cont "EXTREME YELLOW!"
+
+	para "I see you're down"
+	line "for a rematch! :D"
+
+	para "Would you prefer"
+	line "a NORMAL or an"
+	cont "INVERSE battle?"
+	done
+
+_PigeonBeforeBattleText2::
+	text "Excellent!"
+
+	para "Let us enjoy"
+	line "ourselves!"
+	done
+
+_PigeonPostBattleText::
+	text "Wow! :D"
+
+	para "That was a hell"
+	line "of a battle!"
+
+	para "Thanks for it,"
+	line "<PLAYER>!"
 	done
 
 _CeladonMansion2TextCramorant::
@@ -30,7 +80,6 @@ _CeladonMansion2TextSatoMew::
 _CeladonMansion2TextJoJo::
 	text "JoJo!"
 	done
-
 
 ; Signs ------------------
 

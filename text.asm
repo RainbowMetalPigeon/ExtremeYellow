@@ -182,11 +182,13 @@ INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/NameRatersHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
-INCLUDE "text/PokemonFanClub.asm"
-INCLUDE "text/VermilionMart.asm"
-INCLUDE "text/VermilionGym.asm"
-;INCLUDE "text/VermilionPidgeyHouse.asm" ; ; edited, moved to Text Extra 1
-;INCLUDE "text/VermilionDock.asm" ; ; edited, moved to Text Extra 1
+; edited, moved to Text Extra 2
+;INCLUDE "text/PokemonFanClub.asm"
+;INCLUDE "text/VermilionMart.asm"
+;INCLUDE "text/VermilionGym.asm"
+; edited, moved to Text Extra 1
+;INCLUDE "text/VermilionPidgeyHouse.asm"
+;INCLUDE "text/VermilionDock.asm"
 
 INCLUDE "data/text/text_6.asm"
 
@@ -318,6 +320,10 @@ INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
+; moved from Text 6
+INCLUDE "text/PokemonFanClub.asm"
+INCLUDE "text/VermilionMart.asm"
+INCLUDE "text/VermilionGym.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
