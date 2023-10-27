@@ -4,21 +4,32 @@ HallOfFame_Script:
 	ld a, [wHallOfFameCurScript]
 	jp CallFunctionInTable
 
-HallofFameRoomScript_5a4aa: ; is this even for anything?
-	xor a
-	ld [wJoyIgnore], a
-	ld [wHallOfFameCurScript], a
-	ret
+;HallofFameRoomScript_5a4aa: ; is this even for anything?
+;	xor a
+;	ld [wJoyIgnore], a
+;	ld [wHallOfFameCurScript], a
+;	ret
 
 HallOfFame_ScriptPointers:
 	dw HallofFameRoomScript0
 	dw HallofFameRoomScript1
 	dw HallofFameRoomScript2
 	dw HallofFameRoomScript3
+	dw HallofFameRoomScript4
+	dw HallofFameRoomScript5
+	dw HallofFameRoomScript6
 
 ; ==================================
 
-HallofFameRoomScript3: ; is this even ever used?
+;HallofFameRoomScript3: ; is this even ever used?
+;	ret
+
+HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore:
+	ld a, $f0
+	ld [wJoyIgnore], a
+	call DisplayTextID
+	ld a, $ff
+	ld [wJoyIgnore], a
 	ret
 
 ; ==================================
@@ -50,37 +61,72 @@ HallofFameRoomScript1:
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
 ; Oak faces left
-	ld a, $1
-	ldh [hSpriteIndex], a
-	call SetSpriteMovementBytesToFF
+;	ld a, $1
+;	ldh [hSpriteIndex], a
+;	call SetSpriteMovementBytesToFF
+;	ld a, SPRITE_FACING_LEFT
+;	ldh [hSpriteFacingDirection], a
+;	call SetSpriteFacingDirectionAndDelay
+
+	ld a, $2
+	ld [wSprite01StateData1MovementStatus], a
 	ld a, SPRITE_FACING_LEFT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
-; delay lol
+	ld [wSprite01StateData1FacingDirection], a
+; Rival faces right
+;	ld a, $2
+;	ldh [hSpriteIndex], a
+;	call SetSpriteMovementBytesToFF
+;	ld a, SPRITE_FACING_RIGHT
+;	ldh [hSpriteFacingDirection], a
+;	call SetSpriteFacingDirectionAndDelay
+
+	ld a, $2
+	ld [wSprite02StateData1MovementStatus], a
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSprite02StateData1FacingDirection], a
+; delay
 	call Delay3
-; non-moving step of player?
-	xor a
-	ld [wJoyIgnore], a
-	inc a ; PLAYER_DIR_RIGHT
-	ld [wPlayerMovingDirection], a
 ; Oak talks
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	ld a, $ff
-	ld [wJoyIgnore], a
+	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; Rival faces up
+;	ld a, $2
+;	ldh [hSpriteIndex], a
+;	call SetSpriteMovementBytesToFF
+;	ld a, SPRITE_FACING_UP
+;	ldh [hSpriteFacingDirection], a
+;	call SetSpriteFacingDirectionAndDelay
 
-	; new code for HS and to re/set the event that we beat the game at least once
+	ld a, $2
+	ld [wSprite02StateData1MovementStatus], a
+	ld a, SPRITE_FACING_UP
+	ld [wSprite02StateData1FacingDirection], a
+; player faces up
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+; Oak faces left (should be redundant but maybe is not?)
+;	ld a, $1
+;	ldh [hSpriteIndex], a
+;	call SetSpriteMovementBytesToFF
+;	ld a, SPRITE_FACING_LEFT
+;	ldh [hSpriteFacingDirection], a
+;	call SetSpriteFacingDirectionAndDelay
+
+	ld a, $2
+	ld [wSprite01StateData1MovementStatus], a
+	ld a, SPRITE_FACING_LEFT
+	ld [wSprite01StateData1FacingDirection], a
+; new code for HS and to re/set the event that we beat the game at least once
 	call LoopHide
 	call LoopShow
 	call LoopShowExtra
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
 	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
-	; let's also heal the party, why not
+; let's also heal the party, why not
 	predef HealParty
-	; back to vanilla code
-
+; load next script
 	ld a, $2
 	ld [wHallOfFameCurScript], a
 	ret
@@ -88,6 +134,113 @@ HallofFameRoomScript1:
 ; ==================================
 
 HallofFameRoomScript2:
+; is this to let time for the player movement to happen? So unnecessary now?
+;	ld a, [wSimulatedJoypadStatesIndex]
+;	and a
+;	ret nz
+; wait a moment for Rival to load their team
+	ld c, 120 ; testing
+	call DelayFrames
+; delay
+	call Delay3
+; Oaks talk
+	ld a, $4
+	ldh [hSpriteIndexOrTextID], a
+	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; load next script
+	ld a, $3
+	ld [wHallOfFameCurScript], a
+	ret
+
+; ==================================
+
+HallofFameRoomScript3:
+; preare Rival for movement?
+	ld a, $2
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+; Rival walks left to leave you space
+	ld de, RivalLeavesYouSpaceMovement
+	ld a, $2
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; load next script
+	ld a, $4
+	ld [wHallOfFameCurScript], a
+	ret
+
+RivalLeavesYouSpaceMovement:
+	db NPC_MOVEMENT_LEFT
+	db -1 ; end
+
+; ==================================
+
+HallofFameRoomScript4:
+; this is to leave time for the NPC movement to happen!
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; Rival faces right
+;	ld a, $2
+;	ldh [hSpriteIndex], a
+;	call SetSpriteMovementBytesToFF
+;	ld a, SPRITE_FACING_RIGHT
+;	ldh [hSpriteFacingDirection], a
+;	call SetSpriteFacingDirectionAndDelay
+
+	ld a, $2
+	ld [wSprite02StateData1MovementStatus], a
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSprite02StateData1FacingDirection], a
+; delay
+	ld c, 20 ; testing
+	call DelayFrames
+; player walks up one step
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, WalkToHallOfFameConsole_RLEMovment
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; load next script
+	ld a, $5
+	ld [wHallOfFameCurScript], a
+	ret
+
+WalkToHallOfFameConsole_RLEMovment:
+	db D_UP, 1
+	db -1 ; end
+
+; ==================================
+
+HallofFameRoomScript5:
+; this is to leave time for the player movement to happen!
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; delay
+	call Delay3
+; Oaks talk
+	ld a, $3
+	ldh [hSpriteIndexOrTextID], a
+	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; delay lol
+	call Delay3
+; non-moving step of player?
+	xor a
+	ld [wJoyIgnore], a
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+; load next script
+	ld a, $6
+	ld [wHallOfFameCurScript], a
+	ret
+
+; ==================================
+
+HallofFameRoomScript6:
 	call Delay3
 	ld a, [wLetterPrintingDelayFlags]
 	push af
@@ -127,9 +280,53 @@ HallofFameRoomScript2:
 
 HallOfFame_TextPointers:
 	dw HallofFameRoomText1
+	dw HallofFameRoomText2 ; just a proxy to avoid issues with indexing
+	dw HallofFameRoomText3
+	dw HallofFameRoomText4
 
 HallofFameRoomText1:
-	text_far _HallofFameRoomText1
+	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .postGame
+	ld hl, HallofFameRoomText1_Oak
+	call PrintText
+	ld hl, HallofFameRoomText1_Rival
+	call PrintText
+	jr .donePrinting
+.postGame
+	ld hl, HallofFameRoomText1_PG_Oak
+	call PrintText
+.donePrinting
+	jp TextScriptEnd
+
+HallofFameRoomText1_Oak:
+	text_far _HallofFameRoomText1_Oak
+	text_end
+
+HallofFameRoomText1_Rival:
+	text_far _HallofFameRoomText1_Rival
+	text_end
+
+HallofFameRoomText1_PG_Oak:
+	text_far _HallofFameRoomText1_PG_Oak
+	text_end
+
+; -------------
+
+HallofFameRoomText2: ; silly proxy
+	text_far _HallofFameRoomText2
+	text_end
+
+; -------------
+
+HallofFameRoomText3: ; fourth dialogue, screw logic lol
+	text_far _HallofFameRoomText3
+	text_end
+
+; -------------
+
+HallofFameRoomText4: ; third dialogue
+	text_far _HallofFameRoomText4
 	text_end
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

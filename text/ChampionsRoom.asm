@@ -1,32 +1,37 @@
 _GaryChampionIntroText_BG::
-	text "<RIVAL>: Hey!"
+	text "<RIVAL>: <PLAYER>!"
 
-	para "I was looking"
-	line "forward to seeing"
-	cont "you, <PLAYER>!"
+	para "Of course you"
+	line "would have"
+	cont "haunted me until"
+	cont "the very top,"
+	cont "until the"
+	cont "very end!"
 
-	para "My rival should"
-	line "be strong to keep"
-	cont "me sharp!"
+	para "But it all"
+	line "ends now."
 
-	para "While working on"
-	line "#DEX, I looked"
-	cont "all over for"
-	cont "powerful #MON!"
+	para "This won't be a"
+	line "normal #MON"
+	cont "battle."
 
-	para "Not only that, I"
-	line "assembled teams"
-	cont "that would beat"
-	cont "any #MON type!"
+	para "This will be a"
+	line "massacre."
 
-	para "And now!"
+	para "I acquired a power"
+	line "that you cannot"
+	cont "even fathom, and"
+	cont "I will use every"
+	cont "last bit of it to"
+	cont "destroy you."
 
-	para "I'm the #MON"
-	line "LEAGUE champion!"
+	para "<PLAYER>!"
 
-	para "<PLAYER>! Do you"
-	line "know what that"
-	cont "means?"
+	para "I am the #MON"
+	line "LEAGUE CHAMPION!"
+
+	para "Do you know what"
+	line "that means?"
 
 	para "I'll tell you!"
 
@@ -36,101 +41,212 @@ _GaryChampionIntroText_BG::
 	done
 
 _GaryDefeatedText_BG::
-	text "NO!"
-	line "That can't be!"
-	cont "You beat my best!"
+	text "No..."
 
-	para "After all that"
-	line "work to become"
-	cont "LEAGUE champ?"
+	para "No no NO NO!!!"
+	line "This is"
+	cont "IMPOSSIBLE!"
+	cont "This CANNOT BE!"
 
-	para "My reign is over"
-	line "already?"
-	cont "It's not fair!"
+	para "How?!"
+	line "How did you win?!"
 	prompt
 
 _GaryVictoryText_BG::
-	text "Hahaha!"
-	line "I won, I won!"
+	text "HAHAHAH!!"
 
-	para "I'm too good for"
-	line "you, <PLAYER>!"
+	para "Yes, yes, YES!!!"
 
-	para "You did well to"
-	line "even reach me,"
-	cont "<RIVAL>, the"
-	cont "#MON genius!"
+	para "I won, I won!"
+	line "I destroyed you!"
+	cont "You cannot win"
+	cont "against my"
+	cont "ultimate team!"
 
-	para "Nice try, loser!"
-	line "Hahaha!"
+	para "You cannot"
+	line "dethrone me!"
+
+	para "Disappear in the"
+	line "shadows,"
+	cont "and never dare to"
+	cont "battle ever"
+	cont "again!!!"
 	prompt
 
 _GaryText_OWPostDefeat_BG::
-	text "Why?"
-	line "Why did I lose?"
+	text "<RIVAL>: ..."
 
-	para "I never made any"
-	line "mistakes raising"
-	cont "my #MON..."
+	para "This... is"
+	line "unbelievable..."
 
-	para "Darn it! You're"
-	line "the new #MON"
-	cont "LEAGUE champion!"
+	para "How did you manage"
+	line "to win against 6"
+	cont "MEGA EVOLVED"
+	cont "#MON, AND the"
+	cont "3 birds of"
+	cont "legends?"
 
-	para "Although I don't"
-	line "like to admit it."
+	para "I did my best..."
+
+	para "I gave my absolute"
+	line "everything..."
+
+	para "I did more than"
+	line "anyone else..."
+
+	para "And yet..."
 	done
 
 ; --------
 
 _GaryChampionIntroText_AG_BGR::
-	text "<RIVAL>: Intro"
-	line "After Game"
-	cont "Before Gym Rem"
+	text "<RIVAL>: <PLAYER>!"
+
+	para "I am happy to see"
+	line "you again!"
+
+	para "I know that our"
+	line "first encounter"
+	cont "in this sacred"
+	cont "battlefield has"
+	cont "been tainted by"
+	cont "my grudge and"
+	cont "pain, and I am"
+	cont "sorry for that."
+
+	para "I would be"
+	line "delighted to face"
+	cont "you one more"
+	cont "time, CHAMPION"
+	cont "against CHAMPION,"
+	cont "without shadows"
+	cont "hovering over us."
+
+	para "<PLAYER>!"
+
+	para "Let us have a"
+	line "beautiful battle!"
 	done
 
 _GaryDefeatedText_AG_BGR::
-	text "Win"
-	line "After Game"
-	cont "Before Gym Rem"
+	text "Ah!"
+	line "You're amazing"
+	cont "as always!"
 	prompt
 
 _GaryVictoryText_AG_BGR::
-	text "Lose"
-	line "After Game"
-	cont "Before Gym Rem"
+	text "...!"
+
+	para "Maybe what was"
+	line "holding me back"
+	cont "was actually the"
+	cont "pain in my"
+	cont "heart...?"
 	prompt
 
 _GaryText_OWPostDefeat_AG_BGR::
-	text "Overworld"
-	line "After Game"
-	cont "Before Gym Rem"
+	text "<RIVAL>: <PLAYER>!"
+
+	para "That was a"
+	line "terrific battle!"
+
+	para "I am happy you're"
+	line "my rival."
+
+	para "Keep pushing me"
+	line "forward, I will"
+	cont "continue to"
+	cont "improve!"
+
+	para "So, I'll do"
+	line "whatever I can to"
+	cont "not have to admit"
+	cont "it again next"
+	cont "time, but today I"
+	cont "have to say this:"
+
+	para "You are the new"
+	line "#MON LEAGUE"
+	cont "CHAMPION!"
 	done
 
 ; --------
 
 _GaryChampionIntroText_AG_AGR::
-	text "<RIVAL>: Intro"
-	line "After Game"
-	cont "After Gym Rem"
+	text "<RIVAL>: <PLAYER>!"
+
+	para "Here we meet"
+	line "again!"
+
+	para "I have tried to"
+	line "atone for the"
+	cont "darkness that"
+	cont "dwelled in me up"
+	cont "to our first"
+	cont "encounter in"
+	cont "this sacred"
+	cont "battlefield."
+
+	para "I restarted"
+	line "my journey,"
+	cont "and faced all"
+	cont "GYM LEADERS"
+	cont "one more time."
+
+	para "And I know you've"
+	line "done the same!"
+
+	para "<PLAYER>! Let us"
+	line "have one more"
+	cont "fight at the"
+	cont "pinnacle of"
+	cont "#MON battles!"
+
+	para "CHAMPION versus"
+	line "CHAMPION!"
 	done
 
 _GaryDefeatedText_AG_AGR::
-	text "Win"
-	line "After Game"
-	cont "After Gym Rem"
+	text "Wow!"
+	line "You're incredible!"
+	cont "You became even"
+	cont "stronger than"
+	cont "before!"
 	prompt
 
 _GaryVictoryText_AG_AGR::
-	text "Lose"
-	line "After Game"
-	cont "After Gym Rem"
+	text "Wow!"
+	line "What a battle!"
+
+	para "It seems that my"
+	line "journey of"
+	cont "redemption was"
+	cont "really what"
+	cont "I needed?"
 	prompt
 
 _GaryText_OWPostDefeat_AG_AGR::
-	text "Overworld"
-	line "After Game"
-	cont "After Gym Rem"
+	text "<RIVAL>: <PLAYER>!"
+
+	para "That was an"
+	line "amazing battle!"
+
+	para "I am happy you're"
+	line "my rival."
+
+	para "Even with my new"
+	line "and improved"
+	cont "team, even after"
+	cont "restarting my"
+	cont "trip, I got"
+	cont "defeated."
+
+	para "<PLAYER>!"
+	line "Congratulations!"
+
+	para "You are the new"
+	line "#MON LEAGUE"
+	cont "CHAMPION!"
 	done
 
 ; ==================================
@@ -368,13 +484,56 @@ _GaryText6_OakHug::
 
 ; ==================================
 
+_GaryText7_OakYouDidItAgain::
+	text "OAK: You did it"
+	line "again!"
+
+	para "You climbed one"
+	line "more time till"
+	cont "the very top of"
+	cont "the #MON"
+	cont "LEAGUE!"
+
+	para "And you both"
+	line "conquered again"
+	cont "the title of"
+	cont "#MON CHAMPION!"
+
+	para "<RIVAL>! I am so"
+	line "happy to see that"
+	cont "your battling is"
+	cont "now free of any"
+	cont "grudge or"
+	cont "sadness!"
+	cont "You have no idea"
+	cont "how much joy"
+	cont "this brings me!"
+
+	para "<PLAYER>! One more"
+	line "time, you managed"
+	cont "to go fight on"
+	cont "equal ground"
+	cont "against a whole"
+	cont "plethora of these"
+	cont "barely known MEGA"
+	cont "EVOLVED #MON!"
+
+	para "You both did"
+	line "amazingly! I"
+	cont "congratulate you"
+	cont "from the bottom"
+	cont "of my heart!"
+	done
+
+; ==================================
+
 _GaryText5_OakLetsCelebrate::
 	text "OAK: <RIVAL>!"
 	line "<PLAYER>!"
 
 	para "Let us shed tears"
-	line "of joy, but also"
-	cont "of happiness!"
+	line "of sorrow, but"
+	cont "also of joy!"
 
 	para "You both performed"
 	line "beyond anything"
@@ -386,32 +545,127 @@ _GaryText5_OakLetsCelebrate::
 	cont "the HALL OF FAME!"
 	done
 
+_GaryText5_OakLetsCelebrate_AG::
+	text "OAK: <RIVAL>!"
+	line "<PLAYER>!"
+
+	para "Let us celebrate"
+	line "your greatness!"
+
+	para "Please, come"
+	line "with me to the"
+	cont "HALL OF FAME!"
+	done
+
 ; ==================================
 
 _GaryText2ndBattle_BG::
-	text "AGAIN!"
-	line "2ND TEAM!"
+	text "<RIVAL>: I broke"
+	line "beyond the bound-"
+	cont "aries of mortals,"
+	cont "and grasped a"
+	cont "power vaster than"
+	cont "anything seen"
+	cont "before..."
+
+	para "And yet, one"
+	line "more time, you"
+	cont "DEFEATED ME"
+	cont "AGAIN!"
+
+	para "...I guess there's"
+	line "only one thing"
+	cont "left to do..."
+
+	para "I really didn't"
+	line "want to have to"
+	cont "resort to this..."
+
+	para "...What? You're"
+	line "saying I cannot"
+	cont "do that?"
+
+	para "You're saying that"
+	line "I cannot use more"
+	cont "than 6 Pokémon in"
+	cont "a battle?"
+
+	para "Too bad for you,"
+	line "because this is"
+	cont "EXACTLY WHAT I'M"
+	cont "DOING!"
 	done
 
 _GaryDefeatedText2ndBattle_BG::
-	text "TEST DEFEAT"
+	text "..."
+
+	para "No..."
+
+	para "Enough..."
+
+	para "How..."
 	prompt
 
 _GaryVictoryText2ndBattle_BG::
-	text "TEST VICTORY"
+	text "..."
+	line "I won, yes..."
+
+	para "But it is a some-"
+	line "how unsatisfaying"
+	cont "victory..."
+
+	para "Anyway! Get lost,"
+	line "you loser!"
 	prompt
 
 ; --------
 
 _GaryText2ndBattle_AG::
-	text "Would you like"
-	line "2nd battle?"
+	text "<RIVAL>: ..."
+
+	para "When we first"
+	line "fought here, I"
+	cont "sordidly forced"
+	cont "you into facing"
+	cont "more than 6"
+	cont "#MON..."
+
+	para "This time, I want"
+	line "to offer you this"
+	cont "option."
+
+	para "I have another"
+	line "team that is"
+	cont "quivering in"
+	cont "excitement for"
+	cont "fighting you."
+
+	para "But! Please, don't"
+	line "feel obliged. I"
+	cont "will acknowledge"
+	cont "your victory"
+	cont "right now if you"
+	cont "don't feel ready"
+	cont "to battle again."
+
+	para "Would you like to"
+	line "face my second"
+	cont "team?"
 	done ; prompt?
 
 _GaryText2ndBattle_AG_Refused::
 	text "Understandable,"
-	line "it sounds unfair"
-	cont "so you won!"
+	line "you already went"
+	cont "through a lot."
+
+	para "I hope we can have"
+	line "a full rematch"
+	cont "soon!"
+
+	para "But for now,"
+	line "I have to"
+	cont "acknowledge your"
+	cont "victory."
 	done
 
 ; --------
@@ -419,37 +673,62 @@ _GaryText2ndBattle_AG_Refused::
 _GaryText2ndBattle_AG_BGL::
 	text "Excellent!"
 	line "Get ready to meet"
-	cont "some old 'friends'!"
+	cont "some old friends!"
 	done
 
 _GaryDefeatedText2ndBattle_AG_BGL::
-	text "Damn!"
-	line "I lost again!"
-	cont "Nice battle!"
+	text "I see you're really" ; TBV, is the apostrophe fine?
+	line "in top shape."
+
+	para "Not even my birds"
+	line "of legends could"
+	cont "take you down!"
 	prompt
 
 _GaryVictoryText2ndBattle_AG_BGL::
 	text "Phew!"
 	line "You fought well,"
-	cont "I won this time!"
+	cont "but I finally"
+	cont "emerged"
+	cont "victorious!"
+
+	para "Train more and"
+	line "let's fight again!" ; TBV
 	prompt
 
 ; --------
 
 _GaryText2ndBattle_AG_AGL::
 	text "Wonderful!"
-	line "This other team"
-	cont "is new too!"
+	line "Let me introduce"
+	cont "you to some new"
+	cont "faces!"
 	done
 
 _GaryDefeatedText2ndBattle_AG_AGL::
-	text "Wow!"
-	line "You won again!"
-	cont "You're the best!"
+	text "...wow."
+	line "You managed to"
+	cont "defeat BOTH of my"
+	cont "new teams."
+
+	para "I really need to"
+	line "crank up my"
+	cont "training even"
+	cont "further."
 	prompt
 
 _GaryVictoryText2ndBattle_AG_AGL::
-	text "Ah!"
-	line "Great battle!"
-	cont "Finally I win!"
+	text "Ah!!!"
+	line "That was a"
+	cont "great battle,"
+	cont "but I finally"
+	cont "defeated you!"
+
+	para "Yet, you did great"
+	line "in standing in"
+	cont "front of both of"
+	cont "my new teams."
+
+	para "Train more and"
+	line "let's fight again!" ; TBV
 	prompt

@@ -224,14 +224,11 @@ OakEntranceAfterVictoryMovement:
 
 ; ==================================
 
-; all changes of direction and talkings here?
-; PRE POST GAME ONLY???
+; all changes of direction and talkings here, pre-postgame only
 GaryScript5:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
-; MAYBE LOAD SCRIPT 6 FOR POST GAME INTERACTIONS???
-	; load script 6?
 ; player facing Oak
 	ld a, PLAYER_DIR_LEFT
 	ld [wPlayerMovingDirection], a
@@ -247,6 +244,14 @@ GaryScript5:
 	ld a,  SPRITE_FACING_RIGHT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+; load script 6 for post-game interactions
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr z, .notPostGame ; if not, continue with end-game stuff
+; if yes, load post-game script
+	ld a, $6
+	ld [wChampionsRoomCurScript], a
+	ret
+.notPostGame ; --------------------
 ; Oak & Rival talk
 	ld a, $3
 	ldh [hSpriteIndexOrTextID], a
@@ -275,15 +280,19 @@ GaryScript5:
 	ld c, 200 ; feel about right :)
 	call DelayFrames
 ; load next script
-	ld a, $7 ; TRY LOAD SCRIPT 7, AS 6 WILL BE LOADED FOR POST GAME INTERACTIONS???
+	ld a, $7
 	ld [wChampionsRoomCurScript], a
 	ret
 
 ; ==================================
 
+; all changes of direction and talkings here, postgame only
 GaryScript6:
-; LIKE SCRIPT 5, BUT FOR POST-GAME INTERACTIONS???
-	; load next script
+; Oak talks
+	ld a, $0c
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; load next script
 	ld a, $7
 	ld [wChampionsRoomCurScript], a
 	ret
@@ -390,7 +399,7 @@ GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-ChampionsRoom_TextPointers:
+ChampionsRoom_TextPointers: ; goddess, the order is such a mess xD
 	dw GaryText1				; 1 - before/after first battle(s, including rematches)
 	dw GaryText2				; 2 - simply Oak that calls you
 	dw GaryText3				; 3 - Oak compliments Rival, Rival embarassed
@@ -402,6 +411,7 @@ ChampionsRoom_TextPointers:
 	dw GaryText2ndBattle_AG_AGL	; 9 - second battle accepted, after gym leaders' rematches
 	dw GaryText2ndBattle_AG_Refused	; 0a - second battle refused
 	dw GaryText6                ; 0b - long emotional conversation between Oak and Rival
+	dw GaryText7				; 0c - Oak compliments Rival and Player for having repeated their achievements
 
 ; ==================================
 
@@ -595,14 +605,36 @@ GaryText6_OakHug:
 
 ; ==================================
 
+GaryText7:
+	text_asm
+	ld hl, GaryText7_OakYouDidItAgain
+	call PrintText
+	jp TextScriptEnd
+
+GaryText7_OakYouDidItAgain:
+	text_far _GaryText7_OakYouDidItAgain
+	text_end
+
+; ==================================
+
 GaryText5:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .postGame
 	ld hl, GaryText5_OakLetsCelebrate
+	jr .printText
+.postGame
+	ld hl, GaryText5_OakLetsCelebrate_AG
+.printText
 	call PrintText
 	jp TextScriptEnd
 
 GaryText5_OakLetsCelebrate:
 	text_far _GaryText5_OakLetsCelebrate
+	text_end
+
+GaryText5_OakLetsCelebrate_AG:
+	text_far _GaryText5_OakLetsCelebrate_AG
 	text_end
 
 ; ==================================

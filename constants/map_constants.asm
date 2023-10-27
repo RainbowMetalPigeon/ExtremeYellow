@@ -152,7 +152,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CELADON_MART_ROOF,             10,  4 ; $7E
 	map_const CELADON_MART_ELEVATOR,          2,  2 ; $7F
 	map_const CELADON_MANSION_1F,             4,  6 ; $80
-	map_const CELADON_MANSION_2F,             4,  6 ; $81
+	map_const CELADON_MANSION_2F,             5,  6 ; $81 ; edited, enlarged to host the pret meetup
 	map_const CELADON_MANSION_3F,             4,  6 ; $82
 	map_const CELADON_MANSION_ROOF,           4,  6 ; $83
 	map_const CELADON_MANSION_ROOF_HOUSE,     4,  4 ; $84
