@@ -7,7 +7,7 @@ MapHSPointers:
 	dw ViridianCityHS ; VIRIDIAN_CITY
 	dw PewterCityHS ; PEWTER_CITY
 	dw CeruleanCityHS ; CERULEAN_CITY
-	dw NoHS ; LAVENDER_TOWN
+	dw LavenderHS ; LAVENDER_TOWN
 	dw VermilionCityHS ; VERMILION_CITY
 	dw CeladonCityHS ; CELADON_CITY
 	dw NoHS ; OCHRE_CITY
@@ -679,5 +679,7 @@ OchreWonderlandHS: ; new
 	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
 CeladonMansion2FHS:
 	db CELADON_MANSION_2F, $01, HIDE ; PIGEON cameo
+LavenderHS: ; new
+	db LAVENDER_TOWN, $04, HIDE ; Traveler, testing
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -62,3 +62,9 @@ _LavenderTownText9::
 	line "#MON Rest Easy"
 	cont "#MON TOWER"
 	done
+
+; -----------------------------
+
+_LavenderTownTextTraveler:: ; new
+	text "TRAVELER: test!"
+	done

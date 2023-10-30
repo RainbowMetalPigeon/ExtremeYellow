@@ -10,16 +10,17 @@ LavenderTown_Object:
 	warp_event  7, 13, NAME_RATERS_HOUSE, 1
 
 	def_bg_events
-	bg_event 11,  9, 4 ; LavenderTownText4
-	bg_event  9,  3, 5 ; LavenderTownText5
-	bg_event 16, 13, 6 ; MartSignText
-	bg_event  4,  5, 7 ; PokeCenterSignText
-	bg_event  5,  9, 8 ; LavenderTownText8
-	bg_event 17,  7, 9 ; LavenderTownText9
+	bg_event 11,  9, 5 ; LavenderTownText4
+	bg_event  9,  3, 6 ; LavenderTownText5
+	bg_event 16, 13, 7 ; MartSignText
+	bg_event  4,  5, 8 ; PokeCenterSignText
+	bg_event  5,  9, 9 ; LavenderTownText8
+	bg_event 17,  7, 10 ; LavenderTownText9
 
 	def_object_events
 	object_event 15,  9, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
 	object_event  9, 10, SPRITE_COOLTRAINER_M, STAY, NONE, 2 ; person
 	object_event  8,  7, SPRITE_SUPER_NERD, WALK, LEFT_RIGHT, 3 ; person
+	object_event  7,  5, SPRITE_LANCE, STAU, ANY_DIR, 4 ; new, testing traveler
 
 	def_warps_to LAVENDER_TOWN

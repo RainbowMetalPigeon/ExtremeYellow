@@ -1,16 +1,47 @@
 LavenderTown_Script:
+	call SpawnTraveler ; new
 	jp EnableAutoTextBoxDrawing
 
 LavenderTown_TextPointers:
 	dw LavenderTownText1
 	dw LavenderTownText2
 	dw LavenderTownText3
+	dw LavenderTownTextTraveler ; new, can't be bothered to rename and reorder other text pointers
 	dw LavenderTownText4
 	dw LavenderTownText5
 	dw MartSignText
 	dw PokeCenterSignText
 	dw LavenderTownText8
 	dw LavenderTownText9
+
+; --------------------------------
+
+SpawnTraveler: ; new
+    ld hl, wCurrentMapScriptFlags
+    bit 5, [hl]
+    res 5, [hl]
+    ret z
+	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
+	ret z
+	call Random
+	cp 200 ; TBE
+	jr nc, .makeAppear
+;.makeDisappear
+    ld a, HS_LAVENDER_TOWN_TRAVELER
+    ld [wMissableObjectIndex], a
+    predef HideObjectExtra
+	ret
+.makeDisappear
+    ld a, HS_LAVENDER_TOWN_TRAVELER
+    ld [wMissableObjectIndex], a
+    predef ShowObjectExtra
+    ret
+
+LavenderTownTextTraveler: ; new, proxy for now
+	text_far _LavenderTownTextTraveler
+	text_end
+
+; --------------------------------
 
 LavenderTownText1:
 	text_asm
@@ -61,3 +92,6 @@ LavenderTownText8:
 LavenderTownText9:
 	text_far _LavenderTownText9
 	text_end
+
+; --------------------------------
+
