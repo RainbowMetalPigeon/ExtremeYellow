@@ -32,7 +32,7 @@
 	const SPRITE_MIDDLE_AGED_WOMAN       ; $1c
 	const SPRITE_BRUNETTE_GIRL           ; $1d
 	const SPRITE_LANCE                   ; $1e
-	const SPRITE_GREEN                   ; $1f, edited, it was an unsued Red sprites
+	const SPRITE_GREEN                   ; $1f, edited, it was an unused Red sprites
 	const SPRITE_SCIENTIST               ; $20
 	const SPRITE_ROCKER                  ; $21
 	const SPRITE_SWIMMER                 ; $22
@@ -51,11 +51,11 @@
 	const SPRITE_FISHER                  ; $2f
 	const SPRITE_KOGA                    ; $30
 	const SPRITE_GUARD                   ; $31
-	const SPRITE_YELLOW                  ; $32, edited, it was an unsued Red sprites
+	const SPRITE_YELLOW                  ; $32, edited, it was an unused Red sprites
 	const SPRITE_MOM                     ; $33
 	const SPRITE_BALDING_GUY             ; $34
 	const SPRITE_LITTLE_BOY              ; $35
-	const SPRITE_UNUSED_RED_3            ; $36
+	const SPRITE_DARK_GUIDE              ; $36, edited, it was an unused Red sprites
 	const SPRITE_GAMEBOY_KID             ; $37
 	const SPRITE_FAIRY                   ; $38
 	const SPRITE_AGATHA                  ; $39

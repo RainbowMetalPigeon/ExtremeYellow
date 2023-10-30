@@ -24,14 +24,15 @@ PalletTown_Object:
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1
 
 	def_bg_events
-	bg_event 13, 13, 4 ; PalletTownText4
-	bg_event  7,  9, 5 ; PalletTownText5
-	bg_event  3,  5, 6 ; PalletTownText6
-	bg_event 11,  5, 7 ; PalletTownText7
+	bg_event 13, 13, 5 ; PalletTownText4
+	bg_event  7,  9, 6 ; PalletTownText5
+	bg_event  3,  5, 7 ; PalletTownText6
+	bg_event 11,  5, 8 ; PalletTownText7
 
 	def_object_events
 	object_event 10,  4, SPRITE_OAK, STAY, NONE, 1 ; person
 	object_event  3,  8, SPRITE_GIRL, WALK, ANY_DIR, 2 ; person
 	object_event 11, 14, SPRITE_FISHER, WALK, ANY_DIR, 3 ; person
+	object_event  9,  4, SPRITE_DARK_GUIDE, STAY, ANY_DIR, 4 ; new
 
 	def_warps_to PALLET_TOWN

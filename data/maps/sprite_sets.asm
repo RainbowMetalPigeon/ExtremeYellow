@@ -1,6 +1,6 @@
 MapSpriteSets:
 	table_width 1, MapSpriteSets
-	db $01 ; PALLET_TOWN
+	db $0e ; PALLET_TOWN ; edited, it was $01
 	db $01 ; VIRIDIAN_CITY
 	db $02 ; PEWTER_CITY
 	db $02 ; CERULEAN_CITY
@@ -250,7 +250,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_FOSSIL
 	assert_table_length SPRITE_SET_LENGTH
 
-; sprite set $0d
+; sprite set $0d ; new, for Obsidian
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_YOUNGSTER
@@ -263,4 +263,19 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
 	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $0e ; new, copy of $01 for Pallet Town
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BLUE
+	db SPRITE_YOUNGSTER
+	db SPRITE_GIRL
+	db SPRITE_FISHER
+	db SPRITE_DARK_GUIDE ; it was SPRITE_COOLTRAINER_M
+	db SPRITE_GAMBLER
+	db SPRITE_OAK
+	db SPRITE_SWIMMER
+	db SPRITE_POKE_BALL
+	db SPRITE_GAMBLER_ASLEEP
 	assert_table_length SPRITE_SET_LENGTH

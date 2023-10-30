@@ -73,3 +73,9 @@ _PalletTownText6::
 _PalletTownText7::
 	text "<RIVAL>'s house "
 	done
+
+; new ----------------------
+
+_PalletTownTextDarkGuide::
+	text "I'm Dark Guide"
+	done

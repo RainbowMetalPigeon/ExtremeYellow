@@ -17,8 +17,8 @@ _PigeonBeforeBattleText::
 	para "What about a"
 	line "battle? I'd like"
 	cont "to challenge you"
-	cont "using my"
-	cont "favourite #MON!"
+	cont "with my favourite"
+	cont "#MON!"
 
 	para "Would you prefer"
 	line "a NORMAL or an"

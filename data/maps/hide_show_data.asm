@@ -678,6 +678,6 @@ ObsidianIslandHS: ; new
 OchreWonderlandHS: ; new
 	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
 CeladonMansion2FHS:
-	db CELADON_MANSION_2F; $01, HIDE ; PIGEON cameo
+	db CELADON_MANSION_2F, $01, HIDE ; PIGEON cameo
 
 	db $FF, $01, SHOW ; end, list terminator

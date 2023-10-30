@@ -222,6 +222,8 @@ PalletTown_TextPointers:
 	dw PalletTownText1
 	dw PalletTownText2
 	dw PalletTownText3
+	dw PalletTownTextDarkGuide ; can't be bothered to rename everything lol
+	; signs from here onward
 	dw PalletTownText4
 	dw PalletTownText5
 	dw PalletTownText6
@@ -312,4 +314,10 @@ PalletTownText6: ; sign by Red's house
 
 PalletTownText7: ; sign by Blue's house
 	text_far _PalletTownText7
+	text_end
+
+; new ----------------------
+
+PalletTownTextDarkGuide: ; proxy for now, will eventually emulate Badge Fanatic
+	text_far _PalletTownTextDarkGuide
 	text_end
