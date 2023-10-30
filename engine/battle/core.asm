@@ -1005,11 +1005,6 @@ TrainerBattleVictory:
 	ld hl, MoneyForWinningText
 	call PrintText
 
-;	xor a						; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a	; countercomment to do tutorial to go beyond 200
-;	ld a, 1						; countercomment to do tutorial to go beyond 200
-;	ld [wWasTrainerBattle], a	; countercomment to do tutorial to go beyond 200
-
 	ld de, wPlayerMoney + 2
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3
@@ -1246,7 +1241,10 @@ HandlePlayerBlackOut:
 	call PrintEndBattleText ; in this case the end battle text is the "loss" text
 	ld a, [wCurMap]
 	cp OAKS_LAB
-	ret z            ; starter battle in oak's lab: don't black out
+	ret z            		; starter battle in oak's lab: don't black out
+	ld a, [wCurOpponent]	; new
+	cp OPP_TRAVELER			; new
+	ret z					; new, if lost against Traveler, no black out
 .noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
@@ -2365,11 +2363,16 @@ DisplayBattleMenu::
 	cp $2
 	jp nz, PartyMenuOrRockOrRun
 
+; new: can't use bag items against Traveler
+	ld a, [wCurOpponent]
+	cp OPP_TRAVELER
+	jr nz, .cannotUseItemsInBattle
 ; either the bag (normal battle) or bait (safari battle) was selected
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr nz, .notLinkBattle
 
+.cannotUseItemsInBattle ; new label
 ; can't use items in link battles
 	ld hl, ItemsCantBeUsedHereText
 	call PrintText
@@ -5719,11 +5722,13 @@ AdjustDamageForMoveType:
 	ld a, [wEnemyMoveNum]
 .player
 	cp JUDGMENT
-	ld a, SUPER_EFFECTIVE
-	jr z, .isTheAttackOfGod
+	jr z, .isDivine
 	cp ANCESTOR_PWR
+	jr nz, .notTheAttackOfGod
+.isDivine
 	ld a, SUPER_EFFECTIVE
-	jr z, .isTheAttackOfGod
+	jr .isTheAttackOfGod
+.notTheAttackOfGod
 
 	ld a, [wMoveType]
 	ld b, a
