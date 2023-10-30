@@ -9,8 +9,8 @@ CeladonMansion2F_Object:
 
 	def_bg_events
 	bg_event  6,  9, 8 ; CeladonMansion2TextSign1
-	bg_event  1,  3, 9 ; CeladonMansion2TextSign2 ; Drush/issotm, (Sylvie/Rangi42), ax6, Crystal_, luckytyphlosion
-	bg_event  3,  3, 10 ; CeladonMansion2TextSign3 ; Vortiene, PlagueVonKarma, (Chatot4444), Lily, Xillicis
+	bg_event  1,  3, 9 ; CeladonMansion2TextSign2 ; Drush/issotm, (Sylvie/Rangi42), ax6, -Crystal-, -luckytyphlosion-
+	bg_event  3,  3, 10 ; CeladonMansion2TextSign3 ; Vortiene, PlagueVonKarma, Lily, Xillicis
 	bg_event  5,  3, 11 ; CeladonMansion2TextSign4 ; Orange, MauveSea, LJSTAR, [Sanqui]
 
 	def_object_events
