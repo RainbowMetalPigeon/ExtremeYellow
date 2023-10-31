@@ -94,6 +94,7 @@ ItemNames::
 	li "FAST BALL" ; new
 	li "HEAVY BALL" ; new
 	li "LEGEND CANDY" ; new
+	li "BIG NUGGET" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

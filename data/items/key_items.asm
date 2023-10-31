@@ -94,4 +94,5 @@ KeyItemFlags:
 	dbit FALSE ; FAST_BALL		- new, testing
 	dbit FALSE ; HEAVY_BALL		- new, testing
 	dbit FALSE ; LEGEND_CANDY	- new, testing
+	dbit FALSE ; BIG_NUGGET		- new
 	end_bit_array NUM_ITEMS
