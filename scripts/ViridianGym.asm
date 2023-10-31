@@ -135,20 +135,20 @@ ViridianGymGiovanniPostBattle:
 	ld [wJoyIgnore], a
 ; fallthrough
 ViridianGymReceiveTM27:
-	ld a, $d
+	ld a, $e ; edited, +1 because of additional boulder
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
 	lb bc, TM_FISSURE, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $e
+	ld a, $f ; edited, +1 because of additional boulder
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM27
 	jr .gymVictory
 .BagFull
-	ld a, $f
+	ld a, $10 ; edited, +1 because of additional boulder
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -176,12 +176,13 @@ ViridianGym_TextPointers:
 	dw ViridianGymTrainerText6
 	dw ViridianGymTrainerText7
 	dw ViridianGymTrainerText8
-	dw ViridianGymTrainerText9
-	dw ViridianGymGuideText
-	dw PickUpItemText
-	dw GiovanniEarthBadgeInfoText
-	dw ReceivedTM27Text
-	dw TM27NoRoomText
+	dw ViridianGymTrainerText9 ; $0a
+	dw ViridianGymGuideText ; $0b
+	dw PickUpItemText ; $0c
+	dw BoulderText ; new ; $0d
+	dw GiovanniEarthBadgeInfoText ; $0e
+	dw ReceivedTM27Text ; $0f
+	dw TM27NoRoomText ; $10
 
 ViridianGymTrainerHeaders:
 	def_trainers 2

@@ -1379,3 +1379,8 @@ INCLUDE "data/maps/headers/OchreRehabilitationCenter.asm"
 INCLUDE "scripts/OchreRehabilitationCenter.asm"
 INCLUDE "data/maps/objects/OchreRehabilitationCenter.asm"
 OchreRehabilitationCenter_Blocks: INCBIN "maps/OchreRehabilitationCenter.blk"
+
+INCLUDE "data/maps/headers/ObsidianMines.asm"
+INCLUDE "scripts/ObsidianMines.asm"
+INCLUDE "data/maps/objects/ObsidianMines.asm"
+ObsidianMines_Blocks: INCBIN "maps/ObsidianMines.blk"

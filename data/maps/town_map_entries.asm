@@ -85,7 +85,7 @@ InternalMapEntries:
 	internal_map VICTORY_ROAD_1F,                0,  4, VictoryRoadName
 	internal_map SECLUDED_ATOLL_SW,             15, 15, SecludedAtollName ; new, not really an internal map but oh well, testing
 	internal_map LANCES_ROOM,                    0,  2, PokemonLeagueName
-	internal_map OBSIDIAN_WAREHOUSE_FINAL,       7,  9, ObsidianIslandName ; new, to be extended?
+	internal_map OBSIDIAN_MINES,                 7,  9, ObsidianIslandName ; new, testing
 	internal_map HALL_OF_FAME,                   0,  2, PokemonLeagueName
 	internal_map UNDERGROUND_PATH_NORTH_SOUTH,  10,  5, UndergroundPathName
 	internal_map CHAMPIONS_ROOM,                 0,  2, PokemonLeagueName

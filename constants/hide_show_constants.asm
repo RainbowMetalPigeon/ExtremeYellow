@@ -326,3 +326,11 @@ DEF SHOW EQU $15
 	const HS_OCHRE_WONDERLAND_BLUE		   ; new, Wonderland Blue
 	const HS_CELADON_MANSION_PIGEON		   ; new, PIGEON cameo
 	const HS_LAVENDER_TOWN_TRAVELER        ; new, TRAVELER, testing
+	const HS_OBSIDIAN_MINES_LOST_HIKER     ; new
+	const HS_OBSIDIAN_MINES_ITEM_1         ; new
+	const HS_OBSIDIAN_MINES_ITEM_2         ; new
+	const HS_OBSIDIAN_MINES_ITEM_3         ; new
+	const HS_OBSIDIAN_MINES_ITEM_4         ; new
+	const HS_OBSIDIAN_MINES_ITEM_5         ; new
+	const HS_OBSIDIAN_MINES_ITEM_6         ; new
+	const HS_OBSIDIAN_MINES_ITEM_7         ; new

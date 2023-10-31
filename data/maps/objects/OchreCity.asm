@@ -36,7 +36,7 @@ OchreCity_Object:
 	object_event 30, 12, SPRITE_BEAUTY, WALK, ANY_DIR, 10 ; ochre city so great
 	object_event 26, 19, SPRITE_SUPER_NERD, WALK, ANY_DIR, 11 ; zoning
 	object_event 19, 26, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 12 ; wait friends walk park
-	object_event 34, 36, SPRITE_BIRD, STAY, ANY_DIR, 13
-	object_event 39, 33, SPRITE_BIRD, STAY, ANY_DIR, 14
+	object_event 34, 36, SPRITE_BIRD, WALK, ANY_DIR, 13
+	object_event 39, 33, SPRITE_BIRD, WALK, ANY_DIR, 14
 
 	def_warps_to OCHRE_CITY

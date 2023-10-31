@@ -94,7 +94,7 @@ ItemPrices::
 	bcd3 1500  ; FAST_BALL, new, testing
 	bcd3 1500  ; HEAVY_BALL, new, testing
 	bcd3 10000 ; LEGEND_CANDY, bought for a price, sold for 0
-	bcd3 25000 ; BIG_NUGGET
+	bcd3 60000 ; BIG_NUGGET
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

@@ -111,6 +111,7 @@ ItemUsePtrTable:
 	dw ItemUseBall       ; FAST_BALL, new, testing
 	dw ItemUseBall       ; HEAVY_BALL, new, testing
 	dw ItemUseVitamin    ; LEGEND_CANDY, new, testing
+	dw UnusableItem      ; BIG_NUGGET, new
 
 ItemUseBall:
 

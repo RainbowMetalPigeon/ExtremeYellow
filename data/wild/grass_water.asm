@@ -121,7 +121,7 @@ WildDataPointers:
 	dw ObsidianWoodWildMons ; new
 	dw NothingWildMons ; OBSIDIAN_WAREHOUSE
 	dw NothingWildMons ; OBSIDIAN_WAREHOUSE_FINAL
-	dw NothingWildMons
+	dw NothingWildMons ; OBSIDIAN_MINES
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons

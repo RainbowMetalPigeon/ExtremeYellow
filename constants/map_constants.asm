@@ -140,7 +140,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const OBSIDIAN_WOOD,                 24, 24 ; $72 ; new
 	map_const OBSIDIAN_WAREHOUSE,            30, 22 ; $73 ; new
 	map_const OBSIDIAN_WAREHOUSE_FINAL,       6, 11 ; $74 ; new
-	map_const UNUSED_MAP_75,                  0,  0 ; $75
+	map_const OBSIDIAN_MINES,                30, 30 ; $75 ; new
 	map_const HALL_OF_FAME,                   5,  4 ; $76
 	map_const UNDERGROUND_PATH_NORTH_SOUTH,   4, 24 ; $77 ; UndergroundPathNorthSouth.blk is actually 4x23
 	map_const CHAMPIONS_ROOM,                 4,  4 ; $78

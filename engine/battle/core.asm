@@ -1224,11 +1224,13 @@ HandlePlayerBlackOut:
 	ld a, [wCurOpponent]
 	cp OPP_RIVAL1
 	jr z, .lossText
-	cp OPP_RIVAL2 ; FIXED: loss text for Rival 2 trainer class restored
+	cp OPP_RIVAL2 ; edited: loss text for Rival2 trainer class restored
 	jr z, .lossText
-	cp OPP_RIVAL3 ; FIXED: loss text for Rival 3 trainer class restored
+	cp OPP_RIVAL3 ; edited: loss text for Rival3 trainer class restored
 	jr z, .lossText
-	cp OPP_PROF_OAK
+	cp OPP_PROF_OAK ; edited: loss text for Oak trainer class restored
+	jr z, .lossText
+	cp OPP_TRAVELER ; new
 	jr z, .lossText
 	jr .noLossText
 .lossText
@@ -1242,9 +1244,6 @@ HandlePlayerBlackOut:
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            		; starter battle in oak's lab: don't black out
-	ld a, [wCurOpponent]	; new
-	cp OPP_TRAVELER			; new
-	ret z					; new, if lost against Traveler, no black out
 .noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
@@ -2366,7 +2365,7 @@ DisplayBattleMenu::
 ; new: can't use bag items against Traveler
 	ld a, [wCurOpponent]
 	cp OPP_TRAVELER
-	jr nz, .cannotUseItemsInBattle
+	jr z, .cannotUseItemsInBattle
 ; either the bag (normal battle) or bait (safari battle) was selected
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING

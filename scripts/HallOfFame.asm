@@ -122,8 +122,8 @@ HallofFameRoomScript1:
 	call LoopShow
 	call LoopShowExtra
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
-	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
+;	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
+;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
 ; let's also heal the party, why not
 	predef HealParty
 ; load next script

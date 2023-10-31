@@ -33,7 +33,9 @@
 	const EVENT_02D
 	const EVENT_02E
 	const EVENT_02F
-	const_skip 8
+	const_skip 1 ; split from below
+	const EVENT_BEAT_OBSIDIAN_MINES_TRAINER_0 ; new
+	const_skip 6 ; edited, was 8
 	const EVENT_OAK_GOT_PARCEL
 	const EVENT_GOT_OAKS_PARCEL
 	const_skip 7

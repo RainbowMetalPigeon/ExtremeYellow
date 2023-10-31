@@ -82,6 +82,7 @@ HiddenObjectMaps:
 	dbw CINNABAR_LAB_FOSSIL_ROOM,     CinnabarLab4HiddenObjects
 	dbw CINNABAR_POKECENTER,          CinnabarPokecenterHiddenObjects
 	dbw OBSIDIAN_WAREHOUSE,           ObsidianWarehouseHiddenObjects ; new
+	dbw OBSIDIAN_MINES,               ObsidianMinesHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -250,6 +251,15 @@ Route17HiddenObjects:
 ObsidianWarehouseHiddenObjects: ; new
 	hidden_object 35, 25, RARE_CANDY, HiddenItems
 	hidden_object 42, 26, PROTEIN, HiddenItems
+	db -1 ; end
+
+ObsidianMinesHiddenObjects: ; new
+	hidden_object 24, 30, MEGA_STONE_X, HiddenItems
+	hidden_object  5, 57, IRON, HiddenItems
+	hidden_object 19, 56, CALCIUM, HiddenItems
+	hidden_object 49, 58, NUGGET, HiddenItems
+	hidden_object  3,  2, KINGS_ROCK, HiddenItems
+	hidden_object  8, 18, METAL_COAT, HiddenItems
 	db -1 ; end
 
 Route23HiddenObjects:

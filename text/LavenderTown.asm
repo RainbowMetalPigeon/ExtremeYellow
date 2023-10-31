@@ -85,3 +85,30 @@ _LavenderTownTextTraveler_NoMMewtwo::
 	line "Dammit!"
 	cont "No fight!"
 	done
+
+_TravelerDefeatPostBattleText::
+	text "Nice!"
+	line "MEGA MEWTWO"
+	cont "is really strong!"
+	prompt
+
+_TravelerVictoryPostBattleText::
+	text "Uhm..."
+	line "I guess that"
+	cont "MEGA MEWTWO"
+	cont "is not so strong."
+	prompt
+
+_LavenderTownTextTraveler_Compliments::
+	text "Compliments!"
+	line "Lemme say some"
+	cont "things just to"
+	cont "do some tests."
+	prompt
+
+_LavenderTownTextTraveler_WhatWasThat::
+	text "What was that?!"
+	line "Lemme say some"
+	cont "things just to"
+	cont "do some tests."
+	done

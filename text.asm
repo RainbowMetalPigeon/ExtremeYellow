@@ -306,6 +306,7 @@ INCLUDE "text/VermilionDock.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/ObsidianMines.asm" ; new
 ; moved from Text 2
 INCLUDE "text/SafariZoneCenterRestHouse.asm"
 INCLUDE "text/SafariZoneSecretHouse.asm"

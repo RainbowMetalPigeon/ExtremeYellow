@@ -124,7 +124,7 @@ MapHSPointers:
 	dw ObsidianWoodHS ; OBSIDIAN_WOOD
 	dw ObsidianWarehouseHS ; OBSIDIAN_WAREHOUSE
 	dw ObsidianWarehouseFinalHS ; OBSIDIAN_WAREHOUSE_FINAL
-	dw NoHS ; UNUSED_MAP_75
+	dw ObsidianMinesHS ; OBSIDIAN_MINES
 	dw NoHS ; HALL_OF_FAME
 	dw NoHS
 	dw ChampionsRoomHS
@@ -681,5 +681,14 @@ CeladonMansion2FHS:
 	db CELADON_MANSION_2F, $01, HIDE ; PIGEON cameo
 LavenderHS: ; new
 	db LAVENDER_TOWN, $04, HIDE ; Traveler, testing
+ObsidianMinesHS: ; new
+	db OBSIDIAN_MINES, $03, SHOW ; lost hiker
+	db OBSIDIAN_MINES, $04, SHOW ; item
+	db OBSIDIAN_MINES, $05, SHOW ; item
+	db OBSIDIAN_MINES, $06, SHOW ; item
+	db OBSIDIAN_MINES, $07, SHOW ; item
+	db OBSIDIAN_MINES, $08, SHOW ; item
+	db OBSIDIAN_MINES, $09, SHOW ; item
+	db OBSIDIAN_MINES, $0A, SHOW ; item
 
 	db $FF, $01, SHOW ; end, list terminator

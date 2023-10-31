@@ -4,23 +4,35 @@ _Route4Text1::
 	cont "#MON, GEODUDE!"
 	done
 
-_Route4BattleText1::
-	text "I came to get my"
-	line "mushroom #MON!"
+_Route4BattleText1:: ; edited
+	text "I want to explore"
+	line "that intriguing"
+	cont "cave, but the"
+	cont "guard stopped me."
+
+	para "Apparently only"
+	line "CHAMPIONs can"
+	cont "enter it."
+
+	para "Well, it means I"
+	line "must become one!" 
 	done
 
-_Route4EndBattleText1::
-	text "Oh! My cute"
-	line "mushroom #MON!"
+_Route4EndBattleText1:: ; edited
+	text "Damn!"
+	line "I am not ready."
 	prompt
 
-_Route4AfterBattleText1::
-	text "There might not"
-	line "be any more"
-	cont "mushrooms here."
+_Route4AfterBattleText1:: ; edited
+	text "I am not happy I"
+	line "lost to you, but"
+	cont "I am glad that I"
+	cont "learn something."
 
-	para "I think I got"
-	line "them all."
+	para "This brings me one"
+	line "step closer to my"
+	cont "goal of becoming"
+	cont "CHAMPION!"
 	done
 
 _Route4Text5::

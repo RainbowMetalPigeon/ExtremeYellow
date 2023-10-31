@@ -122,7 +122,7 @@ MapHeaderPointers::
 	dw ObsidianWood_h ; new
 	dw ObsidianWarehouse_h ; new
 	dw ObsidianWarehouseFinal_h ; new
-	dw LancesRoom_h ; UNUSED_MAP_75
+	dw ObsidianMines_h ; new
 	dw HallOfFame_h
 	dw UndergroundPathNorthSouth_h
 	dw ChampionsRoom_h

@@ -6,21 +6,18 @@ PlayBattleMusic::
 	call DelayFrame
 	ld c, BANK(Music_GymLeaderBattle)
 
-;	ld a, [wGymLeaderNo]
-;	and a
-;	jr z, .notGymLeaderOrElite4Battle
-;	ld a, MUSIC_GYM_LEADER_BATTLE
-;	jr .playSong
-;.notGymLeaderOrElite4Battle
-
 	ld a, [wCurOpponent]
 	cp OPP_ID_OFFSET
 	jr c, .wildBattle
 
-	; Rival3 and Oak are the most epic
+	; Rival3, Oak, Pigeon, and Traveler are the most epic
 	cp OPP_RIVAL3
 	jr z, .finalBattle
 	cp OPP_PROF_OAK
+	jr z, .finalBattle
+	cp OPP_TRAVELER
+	jr z, .finalBattle
+	cp OPP_PIGEON
 	jr z, .finalBattle
 
 	; the whole E4 now play the gym leader battle theme, even during the rematches
@@ -51,7 +48,7 @@ PlayBattleMusic::
 	cp OPP_GIOVANNI ; Giovanni is special
 	jr nz, .normalTrainerBattle
 	ld a, [wTrainerNo]
-	cp 4 ; check if it's 3rd or later battle (gym leader or rematch)
+	cp 4 ; check if it's 4rd or later battle (gym leader or rematch)
 	jr nc, .GymLeaderOrElite4Battle
 
 .normalTrainerBattle

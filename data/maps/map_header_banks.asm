@@ -122,7 +122,7 @@ MapHeaderBanks::
 	db BANK(ObsidianWood_h) ; new
 	db BANK(ObsidianWarehouse_h) ; new
 	db BANK(ObsidianWarehouseFinal_h) ; new
-	db $1D ; UNUSED_MAP_75
+	db BANK(ObsidianMines_h) ; new
 	db BANK(HallOfFame_h)
 	db BANK(UndergroundPathNorthSouth_h)
 	db BANK(ChampionsRoom_h)

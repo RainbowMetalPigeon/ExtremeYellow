@@ -2207,7 +2207,8 @@ wMissableObjectList:: ds 16 * 2 + 1
 wGameProgressFlags::
 wOaksLabCurScript:: db
 wPalletTownCurScript:: db
-	ds 1
+wLavenderTownCurScript:: db ; new
+;	ds 1
 wBluesHouseCurScript:: db
 wViridianCityCurScript:: db
 	ds 2
@@ -2256,7 +2257,8 @@ wRoute21CurScript:: db
 wSafariZoneGateCurScript:: db
 wRockTunnelB1FCurScript:: db
 wRockTunnel1FCurScript:: db
-	ds 1
+wObsidianMinesCurScript:: db ; new
+;	ds 1
 wRoute11CurScript:: db
 wRoute12CurScript:: db
 wRoute15CurScript:: db

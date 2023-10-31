@@ -6,6 +6,9 @@ SecludedAtollSW_Script:
 	call EnableAutoTextBoxDrawing
 	ret
 
+SecludedAtollSW_TextPointers:
+	dw BoulderText
+
 SecludedAtollSWHideShowCaveEntrance:
 	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
 	jr nz, .caveOpen	; if yes, cave open
@@ -17,7 +20,3 @@ SecludedAtollSWHideShowCaveEntrance:
 	ld [wNewTileBlockID], a
 	lb bc, 6, 21 ; Y and X coordinates - opposite as usual
 	predef_jump ReplaceTileBlock
-
-SecludedAtollSW_TextPointers:
-
-	text_end ; unused

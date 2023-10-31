@@ -65,4 +65,10 @@ HiddenItemCoords:
 	hidden_item POKEMON_MANSION_1F,             8,  16
 	hidden_item OBSIDIAN_WAREHOUSE,            35,  25 ; new
 	hidden_item OBSIDIAN_WAREHOUSE,            42,  26 ; new
+	hidden_item OBSIDIAN_MINES,                24,  30 ; new, MEGA_STONE_X
+	hidden_item OBSIDIAN_MINES,                 5,  57 ; new, IRON
+	hidden_item OBSIDIAN_MINES,                19,  56 ; new, CALCIUM
+	hidden_item OBSIDIAN_MINES,                49,  58 ; new, NUGGET
+	hidden_item OBSIDIAN_MINES,                 3,   2 ; new, KINGS_ROCK
+	hidden_item OBSIDIAN_MINES,                 8,  18 ; new, METAL_COAT
 	db -1 ; end
