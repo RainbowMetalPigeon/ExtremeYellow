@@ -40,7 +40,10 @@
 	const EVENT_GOT_OAKS_PARCEL
 	const_skip 7
 	const EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_0 ; new
-	const_skip 6
+	const EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_1 ; new
+	const EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_2 ; new
+	const EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_3 ; new
+	const_skip 3 ; edited
 	const EVENT_OBSIDIAN_WAREHOUSE_SWITCH_CLICKED ; new
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_TRAINER_0 ; new
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_TRAINER_1 ; new
@@ -376,7 +379,7 @@
 ; Route 12 events
 	const_next $480
 	const EVENT_GOT_TM39
-	const_skip
+	const_skip 2 ; edited, +1 due to Hiker
 	const EVENT_BEAT_ROUTE_12_TRAINER_0
 	const EVENT_BEAT_ROUTE_12_TRAINER_1
 	const EVENT_BEAT_ROUTE_12_TRAINER_2
@@ -384,7 +387,7 @@
 	const EVENT_BEAT_ROUTE_12_TRAINER_4
 	const EVENT_BEAT_ROUTE_12_TRAINER_5
 	const EVENT_BEAT_ROUTE_12_TRAINER_6
-	const_skip 5
+	const_skip 4 ; edited, -1 due to Hiker
 	const EVENT_FIGHT_ROUTE12_SNORLAX
 	const EVENT_BEAT_ROUTE12_SNORLAX
 

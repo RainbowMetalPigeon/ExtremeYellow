@@ -1,3 +1,20 @@
+_Route12TextObsidianMinesHiker::
+	text "Is it really you?!"
+	line "My saviour!"
+
+	para "Lemme thank you"
+	line "again for having"
+	cont "saved me from"
+	cont "those labyrinthic"
+	cont "MINES!"
+
+	para "I'm now enjoying"
+	line "a break from"
+	cont "hiking, and relax"
+	cont "fishing, another"
+	cont "passion of mine!"
+	done
+
 _Route12Text1::
 	text "A sleeping #MON"
 	line "blocks the way!"

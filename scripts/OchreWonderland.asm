@@ -3,10 +3,24 @@ OchreWonderland_Script:
 
 OchreWonderland_TextPointers:
 	dw OchreWonderlandTextBlue
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw OchreWonderlandTextEevee
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 	dw OchreWonderland_Sign1
+	dw OchreWonderland_Sign2
 
 OchreWonderland_Sign1:
 	text_far _OchreWonderland_Sign1
+	text_end
+
+OchreWonderland_Sign2:
+	text_far _OchreWonderland_Sign2
 	text_end
 
 ; ------------------------------------------------
@@ -81,3 +95,16 @@ BlueBeforeBattleText2Tough:
 BluePostBattleText:
 	text_far _BluePostBattleText
 	text_end
+
+; ------------------------------------------------
+
+OchreWonderlandTextEevee:
+	text_asm
+	lb bc, EEVEE, 40
+	call GivePokemon
+	jr nc, .party_full
+	ld a, HS_OCHRE_WONDERLAND_EEVEE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+.party_full
+	jp TextScriptEnd

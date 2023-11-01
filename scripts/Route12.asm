@@ -26,15 +26,13 @@ Route12Script0:
 	CheckEventReuseHL EVENT_FIGHT_ROUTE12_SNORLAX
 	ResetEventReuseHL EVENT_FIGHT_ROUTE12_SNORLAX
 	jp z, CheckFightingMapTrainers
-	ld a, $d
+	ld a, $e ; edited, +1 for new Hiker
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SNORLAX
 	ld [wCurOpponent], a
 	ld a, 30
 	ld [wCurEnemyLVL], a
-;	xor a							; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200
 	ld a, HS_ROUTE_12_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject
@@ -51,7 +49,7 @@ Route12Script3:
 	ld a, [wBattleResult]
 	cp $2
 	jr z, .asm_59664
-	ld a, $e
+	ld a, $f ; edited, +1 for new Hiker
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .asm_59664
@@ -64,6 +62,7 @@ Route12Script3:
 
 Route12_TextPointers:
 	dw Route12Text1
+	dw Route12TextObsidianMinesHiker ; new, can't be bothered to reorder and rename following labels lol
 	dw Route12Text2
 	dw Route12Text3
 	dw Route12Text4
@@ -73,13 +72,13 @@ Route12_TextPointers:
 	dw Route12Text8
 	dw PickUpItemText
 	dw PickUpItemText
-	dw Route12Text11
-	dw Route12Text12
+	dw Route12Text11 ; sign
+	dw Route12Text12 ; sign
 	dw Route12Text13
 	dw Route12Text14
 
 Route12TrainerHeaders:
-	def_trainers 2
+	def_trainers 3 ; edited, +1 for new Hiker
 Route12TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_12_TRAINER_0, 4, Route12BattleText1, Route12EndBattleText1, Route12AfterBattleText1
 Route12TrainerHeader1:
@@ -95,6 +94,10 @@ Route12TrainerHeader5:
 Route12TrainerHeader6:
 	trainer EVENT_BEAT_ROUTE_12_TRAINER_6, 1, Route12BattleText7, Route12EndBattleText7, Route12AfterBattleText7
 	db -1 ; end
+
+Route12TextObsidianMinesHiker: ; new
+	text_far _Route12TextObsidianMinesHiker
+	text_end
 
 Route12Text1:
 	text_far _Route12Text1

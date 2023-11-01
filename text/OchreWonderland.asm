@@ -6,6 +6,10 @@ _OchreWonderland_Sign1::
 	line "miniature KANTO!"
 	done
 
+_OchreWonderland_Sign2::
+	text "You are here!"
+	done
+
 ; Rival rematches
 
 _BlueBeforeBattleText::

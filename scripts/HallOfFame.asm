@@ -376,6 +376,7 @@ ObjectsToShow:
 	db HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE
 	db HS_MOLTRES
 	db HS_ZAPDOS
+	db HS_OBSIDIAN_WOOD_ORAGE
 	db $ff
 
 ; -----

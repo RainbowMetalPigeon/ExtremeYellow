@@ -71,4 +71,9 @@ HiddenItemCoords:
 	hidden_item OBSIDIAN_MINES,                49,  58 ; new, NUGGET
 	hidden_item OBSIDIAN_MINES,                 3,   2 ; new, KINGS_ROCK
 	hidden_item OBSIDIAN_MINES,                 8,  18 ; new, METAL_COAT
+	hidden_item OCHRE_WONDERLAND,              56,  21 ; new, MEGA_STONE_Y
+	hidden_item PALLET_TOWN,                    5,  11 ; new, MEGA_STONE_X
+	hidden_item SECLUDED_ATOLL_SW,             42,  16 ; new, MEGA_STONE_Y
+	hidden_item OBSIDIAN_WOOD,                 40,  42 ; new
+	hidden_item OBSIDIAN_WOOD,                 29,  45 ; new
 	db -1 ; end

@@ -315,8 +315,9 @@ Route9HS:
 	db ROUTE_9, $0A, SHOW
 Route12HS:
 	db ROUTE_12, $01, SHOW
-	db ROUTE_12, $09, SHOW
-	db ROUTE_12, $0A, SHOW
+	db ROUTE_12, $02, HIDE ; new
+	db ROUTE_12, $0A, SHOW ; edited
+	db ROUTE_12, $0B, SHOW ; edited
 Route15HS:
 	db ROUTE_15, $0B, SHOW
 Route16HS:
@@ -548,9 +549,10 @@ SilphCo11FHS:
 MtMoonPokecenterHS: ; new
 	db MT_MOON_POKECENTER, $08, SHOW ; Magikarp for sale
 ObsidianWoodHS: ; new
-	db OBSIDIAN_WOOD, $02, SHOW
-	db OBSIDIAN_WOOD, $03, SHOW
-	db OBSIDIAN_WOOD, $04, SHOW
+	db OBSIDIAN_WOOD, $05, HIDE
+	db OBSIDIAN_WOOD, $06, SHOW
+	db OBSIDIAN_WOOD, $07, SHOW
+	db OBSIDIAN_WOOD, $08, SHOW
 ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $01, SHOW
 	db OBSIDIAN_WAREHOUSE, $02, SHOW
@@ -677,6 +679,15 @@ ObsidianIslandHS: ; new
 	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
 OchreWonderlandHS: ; new
 	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
+	db OCHRE_WONDERLAND, $02, SHOW ; item
+	db OCHRE_WONDERLAND, $03, SHOW ; item
+	db OCHRE_WONDERLAND, $04, SHOW ; item
+	db OCHRE_WONDERLAND, $05, SHOW ; item
+	db OCHRE_WONDERLAND, $06, SHOW ; Eevee
+	db OCHRE_WONDERLAND, $07, SHOW ; item
+	db OCHRE_WONDERLAND, $08, SHOW ; item
+	db OCHRE_WONDERLAND, $09, SHOW ; item
+	db OCHRE_WONDERLAND, $0A, SHOW ; item
 CeladonMansion2FHS:
 	db CELADON_MANSION_2F, $01, HIDE ; PIGEON cameo
 LavenderHS: ; new

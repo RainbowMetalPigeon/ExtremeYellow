@@ -83,6 +83,10 @@ HiddenObjectMaps:
 	dbw CINNABAR_POKECENTER,          CinnabarPokecenterHiddenObjects
 	dbw OBSIDIAN_WAREHOUSE,           ObsidianWarehouseHiddenObjects ; new
 	dbw OBSIDIAN_MINES,               ObsidianMinesHiddenObjects ; new
+	dbw OCHRE_WONDERLAND,             OchreWonderlandHiddenObjects ; new
+	dbw PALLET_TOWN,                  PalletTownHiddenObjects ; new
+	dbw SECLUDED_ATOLL_SW,            SecludedAtollSWHiddenObjects ; new
+	dbw OBSIDIAN_WOOD,                ObsidianWoodHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -260,6 +264,23 @@ ObsidianMinesHiddenObjects: ; new
 	hidden_object 49, 58, NUGGET, HiddenItems
 	hidden_object  3,  2, KINGS_ROCK, HiddenItems
 	hidden_object  8, 18, METAL_COAT, HiddenItems
+	db -1 ; end
+
+OchreWonderlandHiddenObjects: ; new
+	hidden_object 56, 21, MEGA_STONE_Y, HiddenItems
+	db -1 ; end
+
+PalletTownHiddenObjects: ; new
+	hidden_object  5, 11, MEGA_STONE_X, HiddenItems
+	db -1 ; end
+
+SecludedAtollSWHiddenObjects: ; new
+	hidden_object 42, 16, MEGA_STONE_Y, HiddenItems
+	db -1 ; end
+
+ObsidianWoodHiddenObjects: ; new
+	hidden_object 40, 42, NUGGET, HiddenItems
+	hidden_object 29, 45, RARE_CANDY, HiddenItems
 	db -1 ; end
 
 Route23HiddenObjects:

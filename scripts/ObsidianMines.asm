@@ -18,6 +18,9 @@ ScriptTest:
     ld a, HS_OBSIDIAN_MINES_LOST_HIKER
     ld [wMissableObjectIndex], a
     predef HideObjectExtra
+    ld a, HS_ROUTE_12_HIKER
+    ld [wMissableObjectIndex], a
+    predef ShowObject
 	call UpdateSprites
 	ld a, SFX_GO_OUTSIDE
 	call PlaySound

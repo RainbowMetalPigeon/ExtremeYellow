@@ -281,10 +281,11 @@ INCLUDE "data/maps/headers/ViridianPokecenter.asm"
 INCLUDE "scripts/ViridianPokecenter.asm"
 INCLUDE "data/maps/objects/ViridianPokecenter.asm"
 
-INCLUDE "data/maps/headers/CeladonMart1F.asm"
-INCLUDE "scripts/CeladonMart1F.asm"
-INCLUDE "data/maps/objects/CeladonMart1F.asm"
-CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
+; moved to Maps New 1
+;INCLUDE "data/maps/headers/CeladonMart1F.asm"
+;INCLUDE "scripts/CeladonMart1F.asm"
+;INCLUDE "data/maps/objects/CeladonMart1F.asm"
+;CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
 
 INCLUDE "data/maps/headers/PokemonMansion1F.asm"
 INCLUDE "scripts/PokemonMansion1F.asm"
@@ -1364,7 +1365,7 @@ INCLUDE "data/maps/objects/ObsidianWarehouseFinal.asm"
 ObsidianWarehouseFinal_Blocks: INCBIN "maps/ObsidianWarehouseFinal.blk"
 INCLUDE "scripts/ObsidianWarehouseFinal.asm"
 
-; hopefully this doesn't NEED to be in ROM 6 with the other dungeon maps... because it's full
+; hopefully these doen't NEED to be in ROM 6 with the other dungeon maps... because it's full
 INCLUDE "data/maps/headers/OnixBurrowing.asm"
 INCLUDE "scripts/OnixBurrowing.asm"
 INCLUDE "data/maps/objects/OnixBurrowing.asm"
@@ -1384,3 +1385,9 @@ INCLUDE "data/maps/headers/ObsidianMines.asm"
 INCLUDE "scripts/ObsidianMines.asm"
 INCLUDE "data/maps/objects/ObsidianMines.asm"
 ObsidianMines_Blocks: INCBIN "maps/ObsidianMines.blk"
+
+; moved from Maps 6
+INCLUDE "data/maps/headers/CeladonMart1F.asm"
+INCLUDE "scripts/CeladonMart1F.asm"
+INCLUDE "data/maps/objects/CeladonMart1F.asm"
+CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"

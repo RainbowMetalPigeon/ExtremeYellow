@@ -44,6 +44,7 @@ DEF SHOW EQU $15
 	const HS_ROUTE_4_ITEM                  ; 1C
 	const HS_ROUTE_9_ITEM                  ; 1D
 	const HS_ROUTE_12_SNORLAX              ; 1E
+	const HS_ROUTE_12_HIKER	               ; new
 	const HS_ROUTE_12_ITEM_1               ; 1F
 	const HS_ROUTE_12_ITEM_2               ; 20
 	const HS_ROUTE_15_ITEM                 ; 21
@@ -223,6 +224,7 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_11F_2                ; BD Rocket grunt
 	const HS_SILPH_CO_11F_JESSIE           ; BE
 	const HS_MT_MOON_POKECENTER_MAGIKARP   ; new
+	const HS_OBSIDIAN_WOOD_ORAGE           ; new
 	const HS_OBSIDIAN_WOOD_ITEM_1          ; new
 	const HS_OBSIDIAN_WOOD_ITEM_2          ; new
 	const HS_OBSIDIAN_WOOD_ITEM_3          ; new
@@ -324,6 +326,15 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
 	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
 	const HS_OCHRE_WONDERLAND_BLUE		   ; new, Wonderland Blue
+	const HS_OCHRE_WONDERLAND_ITEM_1	   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_2	   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_3	   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_4	   ; new
+	const HS_OCHRE_WONDERLAND_EEVEE		   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_5	   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_6	   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_7	   ; new
+	const HS_OCHRE_WONDERLAND_ITEM_8	   ; new
 	const HS_CELADON_MANSION_PIGEON		   ; new, PIGEON cameo
 	const HS_LAVENDER_TOWN_TRAVELER        ; new, TRAVELER, testing
 	const HS_OBSIDIAN_MINES_LOST_HIKER     ; new
