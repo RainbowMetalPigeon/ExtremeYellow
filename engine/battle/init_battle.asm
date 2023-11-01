@@ -201,15 +201,27 @@ _LoadTrainerPic:
 	cp $33 ; edited, for the Rocket executives
 	jr c, .notAdmin
 	cp $35
-	ld a, BANK(RocketAdminF) ; M and F are in the same bank
+	ld a, BANK(RocketAdminFPic) ; M and F are in the same bank
 	jr z, .Ariana
 	; not Ariana
-	ld de, RocketAdminM
+	ld de, RocketAdminMPic
 	jr .loadSprite
 .Ariana
-	ld de, RocketAdminF
+	ld de, RocketAdminFPic
 	jr .loadSprite
-.notAdmin ; back to normal code
+.notAdmin
+
+; now check if it's rematch vs Traveler
+	ld a, [wTrainerClass]
+	cp TRAVELER
+	jr nz, .notTraveler
+	ld a, [wTrainerNo]
+	cp 2 ; second team, rematch
+	jr nz, .notTraveler ; if not the rematch, do nothing as if it wasn't Traveler
+	ld a, BANK(Traveler2Pic)
+	ld de, Traveler2Pic
+	jr .loadSprite
+.notTraveler ; back to normal code
 
 	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
 	jr .loadSprite ; edited

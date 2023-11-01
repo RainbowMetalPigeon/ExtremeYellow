@@ -351,15 +351,16 @@ LancePic::         INCBIN "gfx/trainers/lance.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 ; new classes, dunno if this Section is fine
 OragePic::         INCBIN "gfx/trainers/engineer.pic" ; temp
-PigeonPic::        INCBIN "gfx/trainers/pigeon.pic" ; testing
-BFTrainerPic:: ; temp
-TravelerPic::      INCBIN "gfx/trainers/engineer.pic" ; temp
+PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
+BFTrainerPic::
+TravelerPic::      INCBIN "gfx/trainers/traveler.pic" ; testing
 
 
 SECTION "Pics 6b", ROMX ; new
 
-RocketAdminM::   INCBIN "gfx/trainers/rocketadminm.pic" ; new
-RocketAdminF::   INCBIN "gfx/trainers/rocketadminf.pic" ; new
+RocketAdminMPic::  INCBIN "gfx/trainers/rocketadminm.pic"
+RocketAdminFPic::  INCBIN "gfx/trainers/rocketadminf.pic"
+Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic" ; testing
 
 
 SECTION "Pics 7", ROMX
