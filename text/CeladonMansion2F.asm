@@ -62,7 +62,7 @@ _CeladonMansion2TextCramorant::
 	done
 
 _CeladonMansion2TextCarrot::
-	text "Carrot!"
+	text "BlueZangoose!"
 	done
 
 _CeladonMansion2TextMord::
@@ -79,6 +79,10 @@ _CeladonMansion2TextSatoMew::
 
 _CeladonMansion2TextJoJo::
 	text "JoJo!"
+	done
+
+_CeladonMansion2TextOrange::
+	text "Orange!"
 	done
 
 ; Signs ------------------
@@ -105,8 +109,7 @@ _CeladonMansion2TextSign3::
 	done
 
 _CeladonMansion2TextSign4::
-	text "Orange"
-	line "MauveSea"
+	text "MauveSea"
 	cont "LJSTAR"
 	cont "[Sanqui]"
 	done

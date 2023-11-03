@@ -171,9 +171,9 @@
 	charmap "!",         $e7
 	charmap ".",         $e8
 
-	charmap "%",         $e9 ; edited: was katakana small a, unused; new, "%"
+	charmap "%",         $e9 ; edited: was katakana small a, unused ; new, "%"
 	charmap "INFINITE",  $ea ; edited: was katakana small u, unused ; new, "infinite"
-	charmap "ェ",         $eb ; katakana small e, unused
+	charmap "&",         $eb ; edited: was katakana small e, unused ; new, "&"
 
 	charmap "▷",         $ec
 	charmap "▶",         $ed

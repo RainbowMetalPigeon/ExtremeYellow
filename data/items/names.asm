@@ -110,4 +110,11 @@ ItemNames::
 	li "10F"
 	li "11F"
 	li "B4F"
+	; new
+	li "CLUE 1"
+	li "CLUE 2"
+	li "CLUE 3"
+	li "CLUE 4"
+	li "CLUE 5"
+	li "CLUE 6"
 	assert_list_length NUM_ITEMS + NUM_FLOORS

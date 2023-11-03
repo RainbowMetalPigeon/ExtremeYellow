@@ -15,6 +15,6 @@ SeafoamIslandsB4F_Object:
 	object_event 19,  3, SPRITE_LORELEI, STAY, ANY_DIR, 1 ; new
 	object_event  4, 15, SPRITE_BOULDER, STAY, NONE, 2 ; person
 	object_event  5, 15, SPRITE_BOULDER, STAY, NONE, 3 ; person
-	object_event  6,  1, SPRITE_BIRD, STAY, DOWN, 4, ARTICUNO, 50
+	object_event  6,  1, SPRITE_ARTICUNO, STAY, DOWN, 4, ARTICUNO, 50
 
 	def_warps_to SEAFOAM_ISLANDS_B4F

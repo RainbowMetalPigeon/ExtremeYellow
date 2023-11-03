@@ -161,7 +161,7 @@ PalletTownScript5:
 	ld [wSprite01StateData1MovementStatus], a
 	ld a, SPRITE_FACING_UP
 	ld [wSprite01StateData1FacingDirection], a
-	ld a, $8
+	ld a, $9 ; edited because Dark Guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff

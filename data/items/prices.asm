@@ -110,4 +110,11 @@ ItemPrices::
 	bcd3 0     ; FLOOR_10F
 	bcd3 0     ; FLOOR_11F
 	bcd3 0     ; FLOOR_B4F
+	; new
+	bcd3 0     ; MEGASTONE_CLUE_1
+	bcd3 0     ; MEGASTONE_CLUE_2
+	bcd3 0     ; MEGASTONE_CLUE_3
+	bcd3 0     ; MEGASTONE_CLUE_4
+	bcd3 0     ; MEGASTONE_CLUE_5
+	bcd3 0     ; MEGASTONE_CLUE_6
 	assert_table_length NUM_ITEMS + NUM_FLOORS

@@ -19,7 +19,7 @@ _CeruleanCityText_19668::
 	done
 
 _CeruleanCityText_1966d::
-	text "<RIVAL>: Grrr..."
+	text "Grrr..."
 
 	para "How is it"
 	line "possible?"

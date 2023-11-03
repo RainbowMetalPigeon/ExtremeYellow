@@ -73,6 +73,16 @@
 	const SPRITE_MAGIKARP                ; new, wrong numbers in comment down below
 	const SPRITE_JESSIE                  ; $45
 	const SPRITE_JAMES                   ; $46
+	const SPRITE_FRENCHORANGE            ; new
+	const SPRITE_CRAMORANT               ; new
+	const SPRITE_MORD                    ; new
+	const SPRITE_CARROT                  ; new
+	const SPRITE_CUBONE                  ; new
+	const SPRITE_MEW                     ; new
+	const SPRITE_ARTICUNO                ; new
+	const SPRITE_ZAPDOS                  ; new
+	const SPRITE_MOLTRES                 ; new
+	const SPRITE_MEWTWO                  ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48

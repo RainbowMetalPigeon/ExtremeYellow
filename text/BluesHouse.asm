@@ -87,3 +87,109 @@ _BluesHouseTownMapText::
 	text "It's a big map!"
 	line "This is useful!"
 	done
+
+; new, for the Mega Stone's Clues
+
+_BluesHouseClues_Intro::
+	text "Ehy, now that I"
+	line "think about it, I"
+;	cont "may have another"
+;	cont "something that"
+;	cont "may be helpful in"
+;	cont "your quest..."
+;	
+;	para "...or maybe not."
+;	line "The point is that"
+;	cont "I don't really"
+;	cont "know what..."
+;	cont "they are?"
+;	
+;	para "As you probably"
+;	line "know, I have a"
+;	cont "passion for"
+;	cont "cartography."
+;	cont "Which is exactly"
+;	cont "the reason why I"
+;	cont "had such cool"
+;	cont "maps of KANTO"
+;	cont "around, eheh."
+;
+;	para "Anyway! While I"
+;	line "was doing some"
+;	cont "researches, I"
+;	cont "stumbled upon"
+;	cont "these cryptic"
+;	cont "messages."
+;
+;	para "Long story short,"
+;	line "they all seem to"
+;	cont "refer to some"
+;	cont "kind of treasure,"
+;	cont "or something of"
+;	cont "that sort..."
+;
+;	para "I can't really"
+;	line "tell you much"
+	cont "more, as the"
+	cont "sources were"
+	cont "obscure."
+	prompt
+
+_BluesHouseClues_Question::
+	text "What clue would"
+	line "you like to hear"
+	cont "about?"
+	done
+
+_BluesHouseClues_Outro::
+	text "Come back asking"
+	line "me any time you"
+	cont "want to hear"
+	cont "the clues again!"
+	done
+
+_BluesHouseClues_Clue1::
+	text "ORIGINS"
+	prompt
+
+_BluesHouseClues_Clue2::
+	text "DIGGY DIGGY HOLE"
+	line "L-U-U-U-U-R-"
+	cont "L-U-L-L-D-L-"
+	cont "L-L-U-R-L-L."
+	prompt
+
+_BluesHouseClues_Clue3::
+	text "In the WONDERful"
+	line "projection of the"
+	cont "ORIGINal one."
+	prompt
+
+_BluesHouseClues_Clue4::
+	text "REMOTE & ISOLATED"
+	line "Do what you want"
+	cont "cause you're free"
+	cont "3 W"
+	cont "11 N"
+	cont "4 W"
+	cont "12 N"
+	cont "21 W"
+	cont "2 S"
+	cont "6 W"
+	cont "20 S"
+	cont "5 E"
+	cont "6 S"
+	cont "5 E"
+	cont "2 N"
+	prompt
+
+_BluesHouseClues_Clue5::
+	text "The forgotten"
+	line "corner of"
+	cont "the root of"
+	cont "everything."
+	prompt
+
+_BluesHouseClues_Clue6::
+	text "FLY, YOU FOOLS!"
+	prompt
