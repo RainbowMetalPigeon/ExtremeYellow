@@ -12,6 +12,7 @@ Kanto at its max
 - secret and post-game new areas
 - various touches to existing buildings and areas
 - multiple final bosses and extended post-game experience
+- powered-up rematches against main trainers
 - inverse battles make their appearance for selected trainers
 - non-binary gender selection
 - introduced multiple game difficulty options (exp/stats gain, badge boost, level scaling)

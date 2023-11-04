@@ -2211,7 +2211,8 @@ wLavenderTownCurScript:: db ; new
 ;	ds 1
 wBluesHouseCurScript:: db
 wViridianCityCurScript:: db
-	ds 2
+wObsidianIslandCurScript:: db
+	ds 1 ; edited, was 2
 wPewterCityCurScript:: db
 wRoute3CurScript:: db
 wRoute4CurScript:: db

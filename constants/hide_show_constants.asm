@@ -8,6 +8,7 @@ DEF SHOW EQU $15
 
 	const_def							   ; equivalent to "const_value=0"
 	const HS_PALLET_TOWN_OAK               ; 00
+	const HS_PALLET_TOWN_DARK_GUIDE        ; new
 	const HS_LYING_OLD_MAN                 ; 01
 	const HS_OLD_MAN_1                     ; 02
 	const HS_OLD_MAN                       ; 03

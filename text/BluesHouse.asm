@@ -70,25 +70,25 @@ _DaisyBagFullText::
 	line "stuff with you."
 	done
 
-_DaisyUseMapText:: ; TBE
-	text "Use the TOWN MAP"
-	line "to find out where"
-	cont "you are."
-	done
+;_DaisyUseMapText:: ; TBE
+;	text "Use the TOWN MAP"
+;	line "to find out where"
+;	cont "you are."
+;	done
 
-_BluesHouseDaisyWalkingText::
-	text "Spending time"
-	line "with your #MON"
-	cont "makes them more"
-	cont "friendly to you."
-	done
+;_BluesHouseDaisyWalkingText::
+;	text "Spending time"
+;	line "with your #MON"
+;	cont "makes them more"
+;	cont "friendly to you."
+;	done
 
 _BluesHouseTownMapText::
 	text "It's a big map!"
 	line "This is useful!"
 	done
 
-; new, for the Mega Stone's Clues
+; new, for the Mega Stone's Clues ------------
 
 _BluesHouseClues_Intro::
 	text "Ehy, now that I"

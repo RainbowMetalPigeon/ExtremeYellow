@@ -18,7 +18,7 @@ BluesHouseScript1:
 
 BluesHouse_TextPointers:
 	dw BluesHouseDaisySittingText
-	dw BluesHouseDaisyWalkingText
+	dw DaisyMegaStonesCluesText
 	dw BluesHouseTownMapText
 
 BluesHouseDaisySittingText:
@@ -48,7 +48,7 @@ BluesHouseDaisySittingText:
 	jr .done
 
 .got_town_map
-	ld hl, DaisyUseMapText
+	ld hl, DaisyMegaStonesCluesText
 	call PrintText
 	jr .done
 
@@ -83,14 +83,11 @@ DaisyPostGiveMapText: ; new
 	text_far _DaisyPostGiveMapText
 	text_end
 
-; ------------------------- testing
+; new -------------------------
 
-DaisyUseMapText: ; TBE
-BluesHouseDaisyWalkingText: ; TBE
+DaisyMegaStonesCluesText:
 	text_asm
 	ld hl, BluesHouseClues_Intro
-	call PrintText
-	ld hl, BluesHouseClues_Question
 	call PrintText
 	xor a
 	ld [wCurrentMenuItem], a

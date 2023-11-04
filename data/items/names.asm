@@ -117,4 +117,12 @@ ItemNames::
 	li "CLUE 4"
 	li "CLUE 5"
 	li "CLUE 6"
+	li "HINT 1"
+	li "HINT 2"
+	li "HINT 3"
+	li "HINT 4"
+	li "HINT 5"
+	li "HINT 6"
+	li "HINT 7"
+	li "HINT 8"
 	assert_list_length NUM_ITEMS + NUM_FLOORS
