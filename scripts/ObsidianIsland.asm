@@ -17,7 +17,7 @@ ObsidianIslandScript0:
 	ret nc
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, $17
+	ld a, $16
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $1
@@ -54,7 +54,6 @@ ObsidianIsland_TextPointers:
 	dw ObsidianIslandText1_RocketMines
 	dw ObsidianIslandText2_RocketSouthBridge1
 	dw ObsidianIslandText3_RocketSouthBridge2
-	dw ObsidianIslandText4_RocketEastBridge
 	dw ObsidianIslandText5_SouthBridgeSlave1
 	dw ObsidianIslandText6_SouthBridgeSlave2
 	; after Giovanni's defeat
@@ -84,7 +83,6 @@ ObsidianIsland_TextPointers:
 ObsidianIslandText1_RocketMines:
 ObsidianIslandText2_RocketSouthBridge1:
 ObsidianIslandText3_RocketSouthBridge2:
-ObsidianIslandText4_RocketEastBridge:
 ObsidianIslandText5_SouthBridgeSlave1:
 ObsidianIslandText6_SouthBridgeSlave2:
 ObsidianIslandText7_Scientist1:

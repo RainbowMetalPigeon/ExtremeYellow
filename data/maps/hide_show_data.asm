@@ -43,7 +43,7 @@ MapHSPointers:
 	dw Route25HS
 	dw NoHS ; new, Route26
 	dw NoHS ; new, Route27
-	dw NoHS ; new, Route28
+	dw Route28HS ; new, Route28
 	dw NoHS
 	dw NoHS
 	dw BluesHouseHS
@@ -669,15 +669,14 @@ ObsidianIslandHS: ; new
 	db OBSIDIAN_ISLAND, $03, SHOW
 	db OBSIDIAN_ISLAND, $04, SHOW
 	db OBSIDIAN_ISLAND, $05, SHOW
-	db OBSIDIAN_ISLAND, $06, SHOW
+	db OBSIDIAN_ISLAND, $06, HIDE
 	db OBSIDIAN_ISLAND, $07, HIDE
 	db OBSIDIAN_ISLAND, $08, HIDE
 	db OBSIDIAN_ISLAND, $09, HIDE
 	db OBSIDIAN_ISLAND, $0A, HIDE
 	db OBSIDIAN_ISLAND, $0B, HIDE
 	db OBSIDIAN_ISLAND, $0C, HIDE
-	db OBSIDIAN_ISLAND, $0D, HIDE
-	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
+	db OBSIDIAN_ISLAND, $0D, SHOW ; Rare Candy
 OchreWonderlandHS: ; new
 	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
 	db OCHRE_WONDERLAND, $02, SHOW ; item
@@ -702,5 +701,10 @@ ObsidianMinesHS: ; new
 	db OBSIDIAN_MINES, $08, SHOW ; item
 	db OBSIDIAN_MINES, $09, SHOW ; item
 	db OBSIDIAN_MINES, $0A, SHOW ; item
+Route28HS: ; new
+	db ROUTE_28, $01, SHOW
+	db ROUTE_28, $02, SHOW
+	db ROUTE_28, $03, SHOW
+	db ROUTE_28, $04, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

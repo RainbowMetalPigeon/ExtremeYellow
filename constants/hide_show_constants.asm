@@ -315,7 +315,6 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
 	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
 	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_4      ; new
 	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
 	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
 	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new
@@ -346,3 +345,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_MINES_ITEM_5         ; new
 	const HS_OBSIDIAN_MINES_ITEM_6         ; new
 	const HS_OBSIDIAN_MINES_ITEM_7         ; new
+	const HS_ROUTE_28_ROCKET_1             ; new
+	const HS_ROUTE_28_ROCKET_2             ; new
+	const HS_ROUTE_28_ROCKET_3             ; new
+	const HS_ROUTE_28_ROCKET_4             ; new

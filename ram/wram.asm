@@ -2108,7 +2108,7 @@ wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
 wd49c:: db
 
-	ds 19
+	ds 10 ; edited, reduced from 19 to save some space for the new HS variables
 
 ; number of signs in the current map (up to 16)
 wNumSigns:: db
@@ -2165,7 +2165,7 @@ wTilesetTalkingOverTiles:: ds 3
 
 wGrassTile:: db
 
-	ds 4
+;	ds 4 ; commented out to save space for the extra HS variables
 
 wNumBoxItems:: db
 ; item, quantity
@@ -2188,7 +2188,7 @@ wMissableObjectFlagsEnd::
 
 ; new for splitting HS - TODO: may break a lot of stuff because 100 bits are a lot (...)
 ; bit array of missable objects. set = removed
-wMissableObjectFlagsExtra:: flag_array $50 ; $50 = 80 new HS variables, may need to expand if I add more variables
+wMissableObjectFlagsExtra:: flag_array $70 ; $70 = 112 (bits = 14 bytes) new HS variables, may need to expand if I add more variables
 wMissableObjectFlagsExtraEnd::
 
 ;	ds 7		; new - commented to try to save space to be able to add all new mons
