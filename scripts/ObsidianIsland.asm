@@ -76,7 +76,7 @@ ObsidianIsland_TextPointers:
 	dw ObsidianIslandTextTest ; mines
 	dw ObsidianIslandTextTest ; warehouse
 	; other
-	dw ObsidianIslandTextClosedHouse ; 23 = $17
+	dw ObsidianIslandTextClosedHouse ; 22 = $16
 
 ; ----------------- people -----------------
 

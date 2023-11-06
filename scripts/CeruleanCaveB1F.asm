@@ -18,6 +18,7 @@ CeruleanCaveB1F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	dw CeruleanCaveB1FTextTraveler ; new
 
 CeruleanCaveB1FTrainerHeaders:
 	def_trainers
@@ -38,3 +39,56 @@ MewtwoBattleText:
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd
+
+; Traveler rematch, new ------------------------------------------------
+
+CeruleanCaveB1FTextTraveler:
+	text_asm
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+
+	ld hl, TravelerBeforeBattleText
+	call PrintText
+
+	callfar NormalInverseChoice
+	ld a, [wCurrentMenuItem]
+	ld [wInverseBattle], a
+
+	ld hl, TravelerBeforeBattleText2
+	call PrintText
+
+	; they seem to do nothing?
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl]		; Turn on battle animations to make the battle feel more epic
+
+	call Delay3
+	ld a, OPP_TRAVELER
+	ld [wCurOpponent], a
+
+	ld a, 2
+	ld [wTrainerNo], a
+
+	ld hl, TravelerPostBattleTextVictory
+	ld de, TravelerPostBattleTextDefeat
+	call SaveEndBattleTextPointers
+	jp TextScriptEnd
+
+TravelerBeforeBattleText:
+	text_far _TravelerBeforeBattleText
+	text_end
+
+TravelerBeforeBattleText2:
+	text_far _TravelerBeforeBattleText2
+	text_end
+
+TravelerPostBattleTextVictory:
+	text_far _TravelerPostBattleTextVictory
+	text_end
+
+TravelerPostBattleTextDefeat:
+	text_far _TravelerPostBattleTextDefeat
+	text_end

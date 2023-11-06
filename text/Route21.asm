@@ -194,7 +194,18 @@ _OakBeforeBattleText2::
 	cont "forward for this!"
 	done
 
-_OakPostBattleText::
+_OakPostBattleTextVictory::
+	text "Amazing!"
+
+	para "This has been the"
+	line "greatest battle"
+	cont "I've ever had!"
+
+	para "<PLAYER>!"
+	line "Thank you!"
+	prompt
+
+_OakPostBattleTextDefeat::
 	text "Amazing!"
 
 	para "This has been the"

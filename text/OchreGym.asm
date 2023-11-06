@@ -217,3 +217,16 @@ _OchreGymTrashBinText_Try2::
 _OchreGymTrashBinText_Try3::
 	text "Trash text 3"
 	done
+
+; for rematch ---------------------
+
+_OrageRematchPreBattleText::
+	text "Rematch"
+	line "ORAGE"
+	cont "Pre"
+	done
+
+_OrageRematchDefeatedText::
+	text "Nice!"
+	line "Thanks!"
+	prompt

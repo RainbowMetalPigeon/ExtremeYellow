@@ -248,8 +248,8 @@ Route21TextOak:
 ;	ld a, $1
 ;	ld [wRoute21CurScript], a
 
-	ld hl, OakPostBattleText
-	ld de, OakPostBattleText
+	ld hl, OakPostBattleTextVictory
+	ld de, OakPostBattleTextDefeat
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
@@ -265,11 +265,15 @@ OakBeforeBattleText2:
 	text_far _OakBeforeBattleText2
 	text_end
 
-OakPostBattleText:
-	text_far _OakPostBattleText
+OakPostBattleTextVictory:
+	text_far _OakPostBattleTextVictory
 	text_end
 
-NormalInverseChoice:
+OakPostBattleTextDefeat:
+	text_far _OakPostBattleTextDefeat
+	text_end
+
+NormalInverseChoice:: ; how did it even work with just one column?!
 	call SaveScreenTilesToBuffer1
 	ld a, NORMAL_INVERSE_MENU
 	ld [wTwoOptionMenuID], a
