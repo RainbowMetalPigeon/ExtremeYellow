@@ -1,7 +1,4 @@
 OchreGym_Script:
-;	ld hl, .CityName
-;	ld de, .LeaderName
-;	call LoadGymLeaderAndCityName
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -14,12 +11,6 @@ OchreGym_Script:
 	call ExecuteCurMapScriptInTable
 	ld [wOchreGymCurScript], a
 	ret
-
-;.CityName:
-;	db "OCHRE CITY@"
-
-;.LeaderName:
-;	db "ORAGE@"
 
 OchreGymSetDoorTile:
 	CheckEvent EVENT_OCHRE_LOCK_TRY_2

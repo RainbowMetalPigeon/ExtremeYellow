@@ -1,9 +1,9 @@
 _ObsidianWarehouseFinalText1::
-	text "James test"
+	text "James text"
 	done
 
 _ObsidianWarehouseFinalText2::
-	text "Jessie test"
+	text "Jessie text"
 	done
 
 _ObsidianWarehouseFinalJessieJamesText1::
@@ -14,23 +14,37 @@ _ObsidianWarehouseFinalJessieJamesText1::
 
 _ObsidianWarehouseFinalJessieJamesText2::
 ;	xxxx "123456789012345678
-	text "Pre battle!"
+	text "This is our last"
+	line "chance to redeem"
+	cont "ourselves in"
+	cont "front of our"
+	cont "BOSS!"
+
+	para "We won't let them"
+	line "down again! We"
+	cont "will stop you"
+	cont "once and for all!"
 	done
 
 _ObsidianWarehouseFinalJessieJamesText3::
-;	xxxx "123456789012345678
-	text "Oh no!"
-	line "Defeated again!"
+	texts "Oh no!"
+
+	para "Not again! We"
+	line "cannot show our"
+	cont "face around"
+	cont "anymore now..."
+
+	para "Our time at TEAM"
+	line "ROCKET is over..."
 	prompt
 
 _ObsidianWarehouseFinalJessieJamesText4::
-;	xxxx "123456789012345678
 	text "TEAM ROCKET,"
 	line "blast off at the"
 	cont "speed of light!"
 
-	para "...yet one more"
-	line "time..."
+	para "...for one very"
+	line "last time..."
 	prompt
 
 ; ----------
@@ -104,16 +118,84 @@ _ObsidianWarehouseFinalAfterBattleText4::
 ; ----------
 
 _ObsidianWarehouseFinalBattleText5::
-	text "5"
-	line "Pre battle"
+	text "Of course you"
+	line "would have"
+	cont "haunted me till"
+	cont "here..."
+
+	para "You passed the few"
+	line "grunts that are"
+	cont "still faithful to"
+	cont "me after the"
+	cont "humiliation you"
+	cont "inflicted me at"
+	cont "SILPH, and got"
+	cont "rid of all of my"
+	cont "admins."
+
+	para "...tsk. If I"
+	line "didn't hate you,"
+	cont "I'd commend you."
+
+	para "I was informed you"
+	line "already refused"
+	cont "an offer to join"
+	cont "TEAM ROCKET, and"
+	cont "I doubt you'd"
+	cont "accept now."
+
+	para "But it does not"
+	line "matter."
+
+	para "BECAUSE YOU'RE"
+	line "GOING DOWN NOW!"
+	cont "DIE, YOU INSOLENT"
+	cont "BASTARD!"
 	done
 
 _ObsidianWarehouseFinalEndBattleText5::
-	text "5"
-	line "End battle"
+	text "No..."
+	line "This can't be..."
+	cont "This is my end..."
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText5::
-	text "5"
-	line "After battle"
+	para "How is it"
+	line "possible?! You"
+	cont "defeated me"
+	cont "AGAIN!!!"
+	cont "How?! I am the"
+	cont "strongest!"
+	cont "My weapons are"
+	cont "the best!"
+
+	para "I made them"
+	line "undergo the most"
+	cont "excruciating"
+	cont "trainings, I"
+	cont "purged all the"
+	cont "inferior ones..."
+
+	para "If only that"
+	line "fucked MEWTWO"
+	cont "project hadn't"
+	cont "failed so"
+	cont "miserably..."
+
+	para "May you be damned!"
+	line "You humiliated me"
+	cont "again, further-"
+	cont "more in front of"
+	cont "my admins!"
+	cont "Nobody will any"
+	cont "more follow me."
+	cont "TEAM ROCKET is"
+	cont "finished..."
+
+	para "But I am not!"
+	line "You may have"
+	cont "destroyed all my"
+	cont "aspirations, but"
+	cont "I won't let you"
+	cont "take my life too!"
 	done

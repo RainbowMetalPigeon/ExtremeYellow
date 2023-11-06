@@ -59,20 +59,26 @@ _SilphCo11Text2::
 	done
 
 _SilphCo11Text3::
-	text "Ah, <PLAYER>!"
-	line "So we meet again!"
+	para "You again!!!"
 
-	para "The PRESIDENT and"
-	line "I are discussing"
-	cont "a vital business"
-	cont "proposition."
+	para "Why do you"
+	line "keep sticking"
+	cont "your nose in"
+	cont "TEAM ROCKET's"
+	cont "business?!"
 
-	para "Keep your nose"
-	line "out of grown-up"
-	cont "matters..."
+	para "Who are you? Who"
+	line "sent you, the"
+	cont "police? Are you"
+	cont "a plainclothes"
+	cont "agent?!"
 
-	para "or, experience a"
-	line "world of pain!"
+	para "It doesn't matter!"
+	line "My weapons are"
+	cont "stronger than"
+	cont "ever, I'll crush"
+	cont "you for good this"
+	cont "time!"
 	done
 
 _SilphCo10Text_62330::
@@ -81,20 +87,21 @@ _SilphCo10Text_62330::
 	prompt
 
 _SilphCo10Text_62335::
-	text "Blast it all!"
-	line "You ruined our"
-	cont "plans for SILPH!"
+	text "You little piece"
+	line "of shit...!"
 
-	para "But, TEAM ROCKET"
-	line "will never fall!"
+	para "No! You will not"
+	line "catch me! My life"
+	cont "cannot end here!"
 
-	para "<PLAYER>! Never"
-	line "forget that all"
-	cont "#MON exist"
-	cont "for TEAM ROCKET!"
-
-	para "I must go, but I"
-	line "shall return!"
+	para "Remember, TEAM"
+	line "ROCKET doesn't"
+	cont "forget nor"
+	cont "forgive!"
+	cont "We will get you"
+	cont "and your beloved"
+	cont "ones when you"
+	cont "less expect it!"
 	done
 
 _SilphCo11BattleText2::

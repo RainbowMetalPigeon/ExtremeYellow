@@ -24,31 +24,58 @@ _RocketHideoutJessieJamesText4::
 	text_end
 
 _RocketHideout4Text_4557a::
-	text "So! I must say, I"
-	line "am impressed you"
-	cont "got here!"
+	text "Umph. I knew an"
+	line "intruder, a young"
+	cont "one, was trying"
+	cont "to sneak their"
+	cont "way in here."
+
+	para "Evidently my"
+	line "troops need more"
+	cont "cracks of my whip"
+	cont "to be shaped into"
+	cont "proper fighters."
+
+	para "Well, you fool."
+	line "I do not know why"
+	cont "you decided to"
+	cont "defy TEAM ROCKET,"
+	cont "but this is the"
+	cont "last mistake you"
+	cont "will ever make."
+
+	para "Your little"
+	line "bravado ends"
+	cont "here."
+
+	para "Say farewell to"
+	line "this world."
 	done
 
 _RocketHideout4Text_4557f::
-	text "WHAT!"
+	text "WHAT?!"
 	line "This cannot be!"
+
+	para "Is this really"
+	line "the end?!"
+
+	para "I can't accept it!"
 	prompt
 
 _RocketHideout4Text_45584::
-	text "I see that you"
-	line "raise #MON"
-	cont "with utmost care."
+	text "You... little"
+	line "brat!"
+	cont "I can't believe"
+	cont "it..."
 
-	para "A child like you"
-	line "would never"
-	cont "understand what I"
-	cont "hope to achieve."
+	para "But this is not"
+	line "the end!"
+	cont "You won't get me"
+	cont "here!"
 
-	para "I shall step"
-	line "aside this time!"
-
-	para "I hope we meet"
-	line "again..."
+	para "I'll strengthen my"
+	line "weapons, and will"
+	cont "exact my revenge!"
 	done
 
 _RocketHideout4BattleText4::
