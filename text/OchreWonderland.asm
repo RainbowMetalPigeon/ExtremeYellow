@@ -33,7 +33,12 @@ _BlueBeforeBattleText2Tough::
 	line "Will be tough!"
 	done
 
-_BluePostBattleText::
+_BluePostBattleTextVictory::
+	text "Nice!"
+	line "Let's redo asap!"
+	prompt
+
+_BluePostBattleTextDefeat::
 	text "Nice!"
 	line "Let's redo asap!"
 	prompt

@@ -71,8 +71,8 @@ OchreWonderlandTextBlue:
 	ld a, OPP_RIVAL3
 	ld [wCurOpponent], a
 
-	ld hl, BluePostBattleText
-	ld de, BluePostBattleText
+	ld hl, BluePostBattleTextVictory
+	ld de, BluePostBattleTextDefeat
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
@@ -92,8 +92,12 @@ BlueBeforeBattleText2Tough:
 	text_far _BlueBeforeBattleText2Tough
 	text_end
 
-BluePostBattleText:
-	text_far _BluePostBattleText
+BluePostBattleTextVictory:
+	text_far _BluePostBattleTextVictory
+	text_end
+
+BluePostBattleTextDefeat:
+	text_far _BluePostBattleTextDefeat
 	text_end
 
 ; ------------------------------------------------

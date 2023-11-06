@@ -8,6 +8,7 @@ DEF SHOW EQU $15
 
 	const_def							   ; equivalent to "const_value=0"
 	const HS_PALLET_TOWN_OAK               ; 00
+	const HS_PALLET_TOWN_DARK_GUIDE        ; new
 	const HS_LYING_OLD_MAN                 ; 01
 	const HS_OLD_MAN_1                     ; 02
 	const HS_OLD_MAN                       ; 03
@@ -292,6 +293,7 @@ DEF SHOW EQU $15
 	const HS_CERULEAN_CAVE_B1F_ITEM_2      ; D9
 	const HS_CERULEAN_CAVE_B1F_ITEM_3      ; DA
 	const HS_CERULEAN_CAVE_B1F_ITEM_4      ; DB
+	const HS_CERULEAN_CAVE_B1F_TRAVELER    ; new
 	const HS_VICTORY_ROAD_1F_ITEM_1        ; DC
 	const HS_VICTORY_ROAD_1F_ITEM_2        ; DD
 	const HS_CHAMPIONS_ROOM_RIVAL          ; new
@@ -314,7 +316,6 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
 	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
 	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_4      ; new
 	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
 	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
 	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new
@@ -345,3 +346,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_MINES_ITEM_5         ; new
 	const HS_OBSIDIAN_MINES_ITEM_6         ; new
 	const HS_OBSIDIAN_MINES_ITEM_7         ; new
+	const HS_ROUTE_28_ROCKET_1             ; new
+	const HS_ROUTE_28_ROCKET_2             ; new
+	const HS_ROUTE_28_ROCKET_3             ; new
+	const HS_ROUTE_28_ROCKET_4             ; new

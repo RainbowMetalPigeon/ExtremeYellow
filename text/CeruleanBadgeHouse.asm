@@ -3,8 +3,8 @@ _CeruleanHouse2Text_74e77::
 	line "are owned only by"
 	cont "skilled trainers."
 
-	para "I see you have"
-	line "at least one."
+;	para "I see you have"
+;	line "at least one."
 
 	para "Those BADGEs have"
 	line "amazing secrets!"

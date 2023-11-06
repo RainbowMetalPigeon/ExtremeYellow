@@ -349,7 +349,7 @@ ObjectsToHide:
 	db HS_VERMILION_MACHOKE
 	db $ff
 
-; -----
+; ---------------
 
 LoopShow:
 	ld hl, ObjectsToShow
@@ -377,9 +377,10 @@ ObjectsToShow:
 	db HS_MOLTRES
 	db HS_ZAPDOS
 	db HS_OBSIDIAN_WOOD_ORAGE
+	db HS_PALLET_TOWN_DARK_GUIDE
 	db $ff
 
-; -----
+; ---------------
 
 LoopShowExtra:
 	ld hl, ObjectsToShowExtra

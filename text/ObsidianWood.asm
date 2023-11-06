@@ -1,3 +1,5 @@
+; ------------------------------ ; scared kid
+
 _ObsidianWoodBattleText1::
 	text "AAAHHH!!!"
 	done
@@ -17,7 +19,7 @@ _ObsidianWoodAfterBattleText1::
 	cont "out there..."
 	done
 
-; ------------------------------
+; ------------------------------ ; cool bugs in this forest. what do you mean outside? rocket? what're you talk about?
 
 _ObsidianWoodBattleText2::
 	text "AAAHHH!!!"
@@ -31,7 +33,7 @@ _ObsidianWoodAfterBattleText2::
 	text "You scared the"
 	done
 
-; ------------------------------
+; ------------------------------ ; came here for unusual mons, found rocket, help me training to defeat them; with that strength, i'm sure you can eradicate those sick rocket yourself; rumors say that safari swim till here
 
 _ObsidianWoodBattleText3::
 	text "AAAHHH!!!"
@@ -45,7 +47,7 @@ _ObsidianWoodAfterBattleText3::
 	text "You scared the"
 	done
 
-; ------------------------------
+; ------------------------------ ; Junior Woodchucks, i'm a ten-star general, i'm stronger
 
 _ObsidianWoodBattleText4::
 	text "AAAHHH!!!"

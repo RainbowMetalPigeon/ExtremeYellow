@@ -121,6 +121,21 @@ DEF NUM_ITEMS EQU const_value - 1
 	const FLOOR_10F     ; $5F
 	const FLOOR_11F     ; $60
 	const FLOOR_B4F     ; $61
+; new ----- I guess I can treat the special-dialogue "items" as "floors"
+	const MEGASTONE_CLUE_1
+	const MEGASTONE_CLUE_2
+	const MEGASTONE_CLUE_3
+	const MEGASTONE_CLUE_4
+	const MEGASTONE_CLUE_5
+	const MEGASTONE_CLUE_6
+	const DARKGUIDE_HINT_1
+	const DARKGUIDE_HINT_2
+	const DARKGUIDE_HINT_3
+	const DARKGUIDE_HINT_4
+	const DARKGUIDE_HINT_5
+	const DARKGUIDE_HINT_6
+	const DARKGUIDE_HINT_7
+	const DARKGUIDE_HINT_8
 DEF NUM_FLOORS EQU const_value - 1 - NUM_ITEMS
 
 	const_next $C4

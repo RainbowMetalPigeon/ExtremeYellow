@@ -35,6 +35,9 @@ LavenderScript1:
     ld a, HS_LAVENDER_TOWN_TRAVELER
     ld [wMissableObjectIndex], a
     predef HideObjectExtra
+	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
+    ld [wMissableObjectIndex], a
+    predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -42,7 +45,7 @@ LavenderScript1:
 
 ; --------------------------------
 
-SpawnTraveler: ; new
+SpawnTraveler:: ; new
     ld hl, wCurrentMapScriptFlags
     bit 5, [hl]
     res 5, [hl]

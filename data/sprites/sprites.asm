@@ -78,6 +78,16 @@ SpriteSheetPointerTable:
 	overworld_sprite MagikarpSprite, 12         ; SPRITE_MAGIKARP
 	overworld_sprite JessieSprite, 12           ; SPRITE_JESSIE
 	overworld_sprite JamesSprite, 12            ; SPRITE_JAMES
+	overworld_sprite FrenchOrangeSprite, 12     ; SPRITE_FRENCHORANGE ; new
+	overworld_sprite CramorantSprite, 12        ; SPRITE_CRAMORANT ; new
+	overworld_sprite MordSprite, 12             ; SPRITE_MORD ; new
+	overworld_sprite CarrotSprite, 12           ; SPRITE_CARROT ; new
+	overworld_sprite CuboneSprite, 12           ; SPRITE_CUBONE ; new
+	overworld_sprite MewSprite, 12              ; SPRITE_MEW ; new
+	overworld_sprite ArticunoSprite, 12         ; SPRITE_ARTICUNO ; new
+	overworld_sprite ZapdosSprite, 12           ; SPRITE_ZAPDOS ; new
+	overworld_sprite MoltresSprite, 12          ; SPRITE_MOLTRES ; new
+	overworld_sprite MewtwoSprite, 12           ; SPRITE_MEWTWO ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

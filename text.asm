@@ -268,7 +268,6 @@ INCLUDE "text/OchreWonderland.asm" ; new
 INCLUDE "text/ObsidianIsland.asm" ; new
 INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/Route27.asm" ; new
-INCLUDE "text/Route28.asm" ; new
 INCLUDE "text/CeladonUniversity.asm" ; new
 INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
 INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
@@ -307,6 +306,7 @@ INCLUDE "text/VermilionDock.asm"
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianMines.asm" ; new
 INCLUDE "text/ObsidianWood.asm" ; new
+INCLUDE "text/Route28.asm" ; new
 ; moved from Text 2
 INCLUDE "text/SafariZoneCenterRestHouse.asm"
 INCLUDE "text/SafariZoneSecretHouse.asm"

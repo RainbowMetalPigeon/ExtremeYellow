@@ -16,7 +16,6 @@ SetDebugTeam:
 DebugTeam:
 	db MEWTWO, 98
 	db SNORLAX, 80
-	db ARCEUS, 10
 	db STARTER_PIKACHU, 5
 	db -1 ; end
 
@@ -50,26 +49,26 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
-	; Persian gets Moves.
-	ld a, JUDGMENT
-	ld hl, wPartyMon3Moves
-	ld [hl], a
-	ld a, INFESTATION
-	ld hl, wPartyMon3Moves + 1
-	ld [hl], a
-	ld a, HYDRO_CANNON
-	ld hl, wPartyMon3Moves + 2
-	ld [hl], a
-	ld a, FLASH
-	ld hl, wPartyMon3Moves + 3
-	ld [hl], a
+;	; Persian gets Moves.
+;	ld a, JUDGMENT
+;	ld hl, wPartyMon3Moves
+;	ld [hl], a
+;	ld a, INFESTATION
+;	ld hl, wPartyMon3Moves + 1
+;	ld [hl], a
+;	ld a, HYDRO_CANNON
+;	ld hl, wPartyMon3Moves + 2
+;	ld [hl], a
+;	ld a, FLASH
+;	ld hl, wPartyMon3Moves + 3
+;	ld [hl], a
 
 	; Pikachu gets Surf.
 	ld a, SURF
-	ld hl, wPartyMon4Moves + 2
+	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
 	ld a, ANCESTOR_PWR
-	ld hl, wPartyMon4Moves + 3
+	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
 	; Snorlax gets four HM moves.

@@ -161,7 +161,7 @@ PalletTownScript5:
 	ld [wSprite01StateData1MovementStatus], a
 	ld a, SPRITE_FACING_UP
 	ld [wSprite01StateData1FacingDirection], a
-	ld a, $8
+	ld a, $9 ; edited because Dark Guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff
@@ -318,6 +318,335 @@ PalletTownText7: ; sign by Blue's house
 
 ; new ----------------------
 
-PalletTownTextDarkGuide: ; proxy for now, will eventually emulate Badge Fanatic
-	text_far _PalletTownTextDarkGuide
+PalletTownTextDarkGuide:
+	text_asm
+	ld hl, DarkGuideHints_Intro
+	call PrintText
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+.kindaLoop
+	ld hl, DarkGuideHints_Question
+	call PrintText
+	ld hl, DarkGuideHintList
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .kindaExit
+	ld hl, TextPointers_Hints
+	ld a, [wcf91]
+	sub DARKGUIDE_HINT_1
+	add a
+	ld d, $0
+	ld e, a
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call PrintText
+	jr .kindaLoop
+.kindaExit
+	xor a
+	ld [wListScrollOffset], a
+	ld hl, DarkGuideHints_Outro
+	call PrintText
+	jp TextScriptEnd
+
+DarkGuideHintList:
+	db 8 ; #
+	db DARKGUIDE_HINT_1
+	db DARKGUIDE_HINT_2
+	db DARKGUIDE_HINT_3
+	db DARKGUIDE_HINT_4
+	db DARKGUIDE_HINT_5
+	db DARKGUIDE_HINT_6
+	db DARKGUIDE_HINT_7
+	db DARKGUIDE_HINT_8
+	db -1 ; end
+
+DarkGuideHints_Intro:
+	text_far _DarkGuideHints_Intro
+	text_end
+
+DarkGuideHints_Question:
+	text_far _DarkGuideHints_Question
+	text_end
+
+DarkGuideHints_Outro:
+	text_far _DarkGuideHints_Outro
+	text_end
+
+TextPointers_Hints:
+	dw DarkGuideHints_Hint1
+	dw DarkGuideHints_Hint2
+	dw DarkGuideHints_Hint3
+	dw DarkGuideHints_Hint4
+	dw DarkGuideHints_Hint5
+	dw DarkGuideHints_Hint6
+	dw DarkGuideHints_Hint7
+	dw DarkGuideHints_Hint8
+
+WantMoreDetails:
+	ld hl, WantMoreDetailsText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ret
+
+WantExplicitSolution:
+	ld hl, WantExplicitSolutionText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ret
+
+WantMoreDetailsText:
+	text_far _WantMoreDetailsText
+	text_end
+
+WantExplicitSolutionText:
+	text_far _WantExplicitSolutionText
+	text_end
+
+; -------
+
+DarkGuideHints_Hint1:
+	text_asm
+	ld hl, DarkGuideHints_Hint1_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint1_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint1_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint1_Base:
+	text_far _DarkGuideHints_Hint1_Base
+	text_end
+
+DarkGuideHints_Hint1_Details:
+	text_far _DarkGuideHints_Hint1_Details
+	text_end
+
+DarkGuideHints_Hint1_Solution:
+	text_far _DarkGuideHints_Hint1_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint2:
+	text_asm
+	ld hl, DarkGuideHints_Hint2_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint2_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint2_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint2_Base:
+	text_far _DarkGuideHints_Hint2_Base
+	text_end
+
+DarkGuideHints_Hint2_Details:
+	text_far _DarkGuideHints_Hint2_Details
+	text_end
+
+DarkGuideHints_Hint2_Solution:
+	text_far _DarkGuideHints_Hint2_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint3:
+	text_asm
+	ld hl, DarkGuideHints_Hint3_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint3_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint3_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint3_Base:
+	text_far _DarkGuideHints_Hint3_Base
+	text_end
+
+DarkGuideHints_Hint3_Details:
+	text_far _DarkGuideHints_Hint3_Details
+	text_end
+
+DarkGuideHints_Hint3_Solution:
+	text_far _DarkGuideHints_Hint3_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint4:
+	text_asm
+	ld hl, DarkGuideHints_Hint4_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint4_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint4_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint4_Base:
+	text_far _DarkGuideHints_Hint4_Base
+	text_end
+
+DarkGuideHints_Hint4_Details:
+	text_far _DarkGuideHints_Hint4_Details
+	text_end
+
+DarkGuideHints_Hint4_Solution:
+	text_far _DarkGuideHints_Hint4_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint5:
+	text_asm
+	ld hl, DarkGuideHints_Hint5_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint5_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint5_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint5_Base:
+	text_far _DarkGuideHints_Hint5_Base
+	text_end
+
+DarkGuideHints_Hint5_Details:
+	text_far _DarkGuideHints_Hint5_Details
+	text_end
+
+DarkGuideHints_Hint5_Solution:
+	text_far _DarkGuideHints_Hint5_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint6:
+	text_asm
+	ld hl, DarkGuideHints_Hint6_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint6_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint6_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint6_Base:
+	text_far _DarkGuideHints_Hint6_Base
+	text_end
+
+DarkGuideHints_Hint6_Details:
+	text_far _DarkGuideHints_Hint6_Details
+	text_end
+
+DarkGuideHints_Hint6_Solution:
+	text_far _DarkGuideHints_Hint6_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint7:
+	text_asm
+	ld hl, DarkGuideHints_Hint7_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint7_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint7_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint7_Base:
+	text_far _DarkGuideHints_Hint7_Base
+	text_end
+
+DarkGuideHints_Hint7_Details:
+	text_far _DarkGuideHints_Hint7_Details
+	text_end
+
+DarkGuideHints_Hint7_Solution:
+	text_far _DarkGuideHints_Hint7_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint8:
+	text_asm
+	ld hl, DarkGuideHints_Hint8_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint8_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint8_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint8_Base:
+	text_far _DarkGuideHints_Hint8_Base
+	text_end
+
+DarkGuideHints_Hint8_Details:
+	text_far _DarkGuideHints_Hint8_Details
+	text_end
+
+DarkGuideHints_Hint8_Solution:
+	text_far _DarkGuideHints_Hint8_Solution
 	text_end

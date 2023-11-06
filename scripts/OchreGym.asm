@@ -37,6 +37,7 @@ OchreGym_ScriptPointers:
 	dw EndTrainerBattle
 	dw OchreGymOragePostBattle
 	dw OchreGymScript4
+	dw OchreGymOragePostBattleRematch
 
 OchreGymScript0:
 	ld a, [wYCoord]
@@ -59,8 +60,6 @@ OchreGymScript0:
 	ret
 
 OchreGymArrowTilePlayerMovement:
-;	map_coord_movement 14, 31, OchreGymArrowMovement1
-;	map_coord_movement 15, 31, OchreGymArrowMovement2
 	map_coord_movement 18, 33, OchreGymArrowMovement3
 	map_coord_movement  2,  2, OchreGymArrowMovement4
 	map_coord_movement  2,  8, OchreGymArrowMovement5
@@ -76,14 +75,6 @@ OchreGymArrowTilePlayerMovement:
 	map_coord_movement 25, 21, OchreGymArrowMovement15
 	map_coord_movement 25, 12, OchreGymArrowMovement16
 	db -1 ; end
-
-;OchreGymArrowMovement1:
-;	db D_UP, 5
-;	db -1 ; end
-
-;OchreGymArrowMovement2:
-;	db D_UP, 5
-;	db -1 ; end
 
 OchreGymArrowMovement3:
 	db D_LEFT, 6
@@ -184,6 +175,17 @@ OchreGymReceiveGift:
 ;	SetEventRange EVENT_BEAT_OCHRE_GYM_TRAINER_0, EVENT_BEAT_OCHRE_GYM_TRAINER_7 ; not needed because they're all unavoidable
 	jp OchreGymResetScripts
 
+OchreGymOragePostBattleRematch:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, OchreGymResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, $12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	jp OchreGymResetScripts
+
 OchreGym_TextPointers:
 	dw OrageText
 	dw OchreGymTrainerText1
@@ -194,7 +196,7 @@ OchreGym_TextPointers:
 	dw OchreGymTrainerText6
 	dw OchreGymTrainerText7
 	dw OchreGymStatueText
-	dw OchreGymStatueText
+	dw OchreGymStatueText ; $0a
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
@@ -202,6 +204,7 @@ OchreGym_TextPointers:
 	dw OrageNoBadgeInfoText
 	dw ReceivedGiftText
 	dw GiftNoRoomText
+	dw OragePostRematchText; new, 18=$12
 
 OchreGymTrainerHeaders:
 	def_trainers 2
@@ -223,6 +226,8 @@ OchreGymTrainerHeader6:
 
 OrageText:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .postGameCode
 	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 	jr z, .beforeBeat
 	CheckEventReuseA EVENT_GOT_GIFT
@@ -230,6 +235,30 @@ OrageText:
 	call z, OchreGymReceiveGift
 	call DisableWaitingAfterTextDisplay
 	jr .done
+; new block of code for rematch
+.postGameCode
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, OrageRematchPreBattleText
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_ORAGE
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld hl, OrageRematchDefeatedText
+	ld de, OrageRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, $5 ; new script
+	ld [wOchreGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+; back to vanilla code
+
 .afterBeat
 	ld hl, OragePostBattleAdviceText
 	call PrintText
@@ -247,8 +276,6 @@ OrageText:
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
-;	ld a, $8
-;	ld [wGymLeaderNo], a
 	ld a, $3
 	ld [wOchreGymCurScript], a
 .done
@@ -465,4 +492,18 @@ OchreGymTrashBinText_Try2:
 
 OchreGymTrashBinText_Try3:
 	text_far _OchreGymTrashBinText_Try3
+	text_end
+
+; for rematch ---------------------
+
+OrageRematchPreBattleText:
+	text_far _OrageRematchPreBattleText
+	text_end
+
+OrageRematchDefeatedText:
+	text_far _OrageRematchDefeatedText
+	text_end
+
+OragePostRematchText:
+	text_far _GymLeaderPostRematchText
 	text_end

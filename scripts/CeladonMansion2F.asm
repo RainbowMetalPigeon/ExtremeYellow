@@ -11,6 +11,7 @@ CeladonMansion2F_TextPointers:
 	dw CeladonMansion2Text5
 	dw CeladonMansion2Text6
 	dw CeladonMansion2Text7
+	dw CeladonMansion2Text8
 	; signs
 	dw CeladonMansion2TextSign1
 	dw CeladonMansion2TextSign2
@@ -99,6 +100,10 @@ CeladonMansion2Text7:
 	text_far _CeladonMansion2TextJoJo
 	text_end
 
+CeladonMansion2Text8:
+	text_far _CeladonMansion2TextOrange
+	text_end
+	
 ; Signs =========================
 
 CeladonMansion2TextSign1:
