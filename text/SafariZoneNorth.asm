@@ -35,19 +35,111 @@ _SafariZoneNorthText7::
 ; new ------------------------------------------------
 
 _GiovanniSafariBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "You will not"
-	line "catch me!!!"
+	text "No! This is a"
+	line "nightmare!!! Why"
+	cont "are you here?!"
+
+	para "I thought you were"
+	line "going to leave me"
+	cont "alone!"
+
+	para "You liar!"
+	line "Why are you"
+	cont "torturing me?!"
+
+	para "You will not"
+	line "catch me!"
 	done
 
 _GiovanniSafariEndBattleText::
-;	xxxx "123456789012345678"
-	text "Thanks" ; need to consider a "GIOVANNI: " extra space
-	line "for the battle!"
+	text "No..."
+
+	para "Will this hell"
+	line "ever end...?"
 	prompt
 
 _GiovanniSafariAfterBattleText::
-	text "Now I will do"
-	line "a very big!"
-	cont "escape!"
+	text "Defeated one more"
+	line "time... Even now,"
+	cont "even here, while"
+	cont "I was trying to"
+	cont "atone for my"
+	cont "sins..."
+
+	para "But all the lives"
+	line "I could nurture"
+	cont "will never be"
+	cont "enough to"
+	cont "compensate for"
+	cont "all the suffering"
+	cont "that I caused."
+
+	para "I surrender. Come"
+	line "on. Hand me to"
+	cont "the police."
+
+	para "...what? You're"
+	line "not working with"
+	cont "the police? They"
+	cont "didn't send you"
+	cont "to hunt me down?"
+	cont "Then why are you"
+	cont "even...?"
+
+	para "Why... are you..."
+	line "why... am I..."
+
+	para "Sigh... sigh..."
+
+	para "Sniff..."
+
+	para "I... thought I was"
+	line "done for real"
+	cont "this time. I"
+	cont "already saw my-"
+	cont "self spending the"
+	cont "rest of my days"
+	cont "in jail."
+
+	para "Ma... maybe... I"
+	line "could... I could"
+	cont "really try to"
+	cont "live the life"
+	cont "that I once would"
+	cont "have loved to"
+	cont "have."
+
+	para "I don't have any"
+	line "right whatsoever"
+	cont "to even hope for"
+	cont "something like"
+	cont "that, but..."
+
+	para "...but maybe..."
+	line "just maybe..."
+	cont "Samuel could..."
+	cont "wel... welcome me"
+	cont "back...?"
+
+	para "..."
+
+	para "I will..."
+	line "I will try."
+
+	para "<PLAYER>."
+
+	para "Words cannot"
+	line "express how"
+	cont "remorseful I"
+	cont "feel for the way"
+	xxxx "123456789012345678"
+	cont "I have treated"
+	cont "you, nor how"
+	cont "grateful I am"
+	cont "for what you have"
+	cont "done to me."
+
+	para "I hope to see you"
+	line "again soon."
+	cont "I really do."
 	done

@@ -268,15 +268,6 @@ INCLUDE "text/OchreWonderland.asm" ; new
 INCLUDE "text/ObsidianIsland.asm" ; new
 INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/Route27.asm" ; new
-INCLUDE "text/CeladonUniversity.asm" ; new
-INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
-INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
-INCLUDE "text/ObsidianWarehouse.asm" ; new
-INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
-INCLUDE "text/OnixBurrowing.asm" ; new
-INCLUDE "text/SecludedCaves.asm" ; new
-INCLUDE "text/OchreRehabilitationCenter.asm" ; new
-INCLUDE "text/OchreGym.asm" ; new
 ; moved from Text 5
 INCLUDE "text/OaksLab.asm"
 ; moved from Text 1
@@ -307,6 +298,15 @@ SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that becam
 INCLUDE "text/ObsidianMines.asm" ; new
 INCLUDE "text/ObsidianWood.asm" ; new
 INCLUDE "text/Route28.asm" ; new
+INCLUDE "text/OnixBurrowing.asm" ; new
+INCLUDE "text/SecludedCaves.asm" ; new
+INCLUDE "text/OchreRehabilitationCenter.asm" ; new
+INCLUDE "text/OchreGym.asm" ; new
+INCLUDE "text/CeladonUniversity.asm" ; new
+INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
+INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
+INCLUDE "text/ObsidianWarehouse.asm" ; new
+INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 ; moved from Text 2
 INCLUDE "text/SafariZoneCenterRestHouse.asm"
 INCLUDE "text/SafariZoneSecretHouse.asm"

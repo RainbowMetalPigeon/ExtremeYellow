@@ -20,6 +20,7 @@ ViridianGym_Object:
 	object_event  1,  4, SPRITE_COOLTRAINER_F, STAY, RIGHT, 10, OPP_COOLTRAINER, 28
 	object_event 16, 15, SPRITE_GYM_GUIDE, STAY, DOWN, 11 ; person
 	object_event 16,  9, SPRITE_POKE_BALL, STAY, NONE, 12, REVIVE
-	object_event 14, 11, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 13 ; new
+	object_event  1,  1, SPRITE_POKE_BALL, STAY, NONE, 13, TM_FISSURE ; new
+	object_event 14, 11, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 14 ; new
 
 	def_warps_to VIRIDIAN_GYM

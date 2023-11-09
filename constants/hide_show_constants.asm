@@ -68,7 +68,8 @@ DEF SHOW EQU $15
 	const HS_OAKS_LAB_OAK_2                ; 30
 	const HS_OAKS_LAB_GIOVANNI             ; new
 	const HS_VIRIDIAN_GYM_GIOVANNI         ; 31
-	const HS_VIRIDIAN_GYM_ITEM             ; 32
+	const HS_VIRIDIAN_GYM_ITEM_1           ; 32
+	const HS_VIRIDIAN_GYM_ITEM_2           ; new
 	const HS_OLD_AMBER                     ; 33
 	const HS_CERULEAN_BULBASAUR            ; 34
 	const HS_CERULEAN_CAVE_1F_ITEM_1       ; 35

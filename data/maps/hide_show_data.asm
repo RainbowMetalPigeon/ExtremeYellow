@@ -350,6 +350,7 @@ OaksLabHS:
 ViridianGymHS:
 	db VIRIDIAN_GYM, $01, SHOW
 	db VIRIDIAN_GYM, $0C, SHOW	; updated, +1
+	db VIRIDIAN_GYM, $0D, HIDE	; new, FISSURE
 Museum1FHS:
 	db MUSEUM_1F, $05, SHOW
 CeruleanMelaniesHouseHS:

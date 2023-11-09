@@ -150,15 +150,34 @@ _OakBeforeBattleText::
 	cont "you and <RIVAL>"
 	cont "faced..."
 
-	para "Admiring you two"
-	line "reignited my"
+	para "Your burning fire,"
+	line "your youthful"
+	cont "passion,"
+	cont "your raging"
+	cont "enthusiasm,"
+	cont "your outstanding"
+	cont "achievements!"
+
+	para "I feel like all"
+	line "this has been a"
+	cont "balm for my"
+	cont "memory, more"
+	cont "effective than"
+	cont "any medicine."
+
+	para "I have never felt"
+	line "this well in so"
+	cont "long!"
+
+	para "And admiring you"
+	line "two reignited my"
 	cont "trainer spirit"
 	cont "that has been"
 	cont "dormant for oh-so"
 	cont "many years now."
 
-	para "<PLAYER>!"
-	line "Allow me to"
+	para "<PLAYER>! Please,"
+	line "allow me to"
 	cont "challenge you to"
 	cont "#MON battle!"
 

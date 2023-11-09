@@ -133,25 +133,13 @@ ViridianGymGiovanniPostBattle:
 	jp z, ViridianGymResetScripts
 	ld a, $f0
 	ld [wJoyIgnore], a
-; fallthrough
-ViridianGymReceiveTM27:
-	ld a, $e ; edited, +1 because of additional boulder
+
+	ld a, $f ; ViridianGymGiovanniPostBattleText
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+
 	SetEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
-	lb bc, TM_FISSURE, 1
-	call GiveItem
-	jr nc, .BagFull
-	ld a, $f ; edited, +1 because of additional boulder
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	SetEvent EVENT_GOT_TM27
-	jr .gymVictory
-.BagFull
-	ld a, $10 ; edited, +1 because of additional boulder
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
+
 	ld hl, wObtainedBadges
 	set BIT_EARTHBADGE, [hl]
 	ld hl, wBeatGymFlags
@@ -163,6 +151,18 @@ ViridianGymReceiveTM27:
 	ld a, HS_ROUTE_22_RIVAL_2
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+
+	call GBFadeOutToBlack
+	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_VIRIDIAN_GYM_ITEM_2 ; new, show TM_FISSURE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+
 	SetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 	jp ViridianGymResetScripts
 
@@ -176,13 +176,12 @@ ViridianGym_TextPointers:
 	dw ViridianGymTrainerText6
 	dw ViridianGymTrainerText7
 	dw ViridianGymTrainerText8
-	dw ViridianGymTrainerText9 ; $0a
-	dw ViridianGymGuideText ; $0b
-	dw PickUpItemText ; $0c
-	dw BoulderText ; new ; $0d
-	dw GiovanniEarthBadgeInfoText ; $0e
-	dw ReceivedTM27Text ; $0f
-	dw TM27NoRoomText ; $10
+	dw ViridianGymTrainerText9 ; $a
+	dw ViridianGymGuideText ; $b
+	dw PickUpItemText ; $c
+	dw PickUpItemText ; new, $d
+	dw BoulderText ; new ; $e
+	dw ViridianGymGiovanniPostBattleText ; $f
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -206,36 +205,15 @@ ViridianGymTrainerHeader8:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8, 3, ViridianGymBattleText9, ViridianGymEndBattleText9, ViridianGymAfterBattleText9
 	db -1 ; end
 
-GiovanniText:
+GiovanniText: ; edited
 	text_asm
-	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
-	jr z, .beforeBeat
-	CheckEventReuseA EVENT_GOT_TM27
-	jr nz, .afterBeat
-	call z, ViridianGymReceiveTM27
-	call DisableWaitingAfterTextDisplay
-	jr .done
-.afterBeat
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld hl, GiovanniPostBattleAdviceText
-	call PrintText
-	call GBFadeOutToBlack
-	ld a, HS_VIRIDIAN_GYM_GIOVANNI
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	call UpdateSprites
-	call Delay3
-	call GBFadeInFromBlack
-	jr .done
-.beforeBeat
 	ld hl, GiovanniPreBattleText
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, ReceivedEarthBadgeText
-	ld de, ReceivedEarthBadgeText
+	ld hl, GiovanniPostDefeatText
+	ld de, GiovanniPostDefeatText
 	call SaveEndBattleTextPointers
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
@@ -245,38 +223,45 @@ GiovanniText:
 	ld [wGymLeaderNo], a
 	ld a, $3
 	ld [wViridianGymCurScript], a
-.done
 	jp TextScriptEnd
 
 GiovanniPreBattleText:
 	text_far _GiovanniPreBattleText
 	text_end
 
-ReceivedEarthBadgeText:
-	text_far _ReceivedEarthBadgeText
-	sound_level_up ; probably supposed to play SFX_GET_ITEM_1 but the wrong music bank is loaded
+GiovanniPostDefeatText:
+	text_far _GiovanniPostDefeatText
 	text_end
 
-GiovanniPostBattleAdviceText:
-	text_far _GiovanniPostBattleAdviceText
-	text_waitbutton
+ViridianGymGiovanniPostBattleText:
+	text_far _ViridianGymGiovanniPostBattleText
 	text_end
 
-GiovanniEarthBadgeInfoText:
-	text_far _GiovanniEarthBadgeInfoText
-	text_end
+;ReceivedEarthBadgeText:
+;	text_far _ReceivedEarthBadgeText
+;	sound_level_up ; probably supposed to play SFX_GET_ITEM_1 but the wrong music bank is loaded
+;	text_end
 
-ReceivedTM27Text:
-	text_far _ReceivedTM27Text
-	sound_get_item_1
+;GiovanniPostBattleAdviceText:
+;	text_far _GiovanniPostBattleAdviceText
+;	text_waitbutton
+;	text_end
 
-TM27ExplanationText:
-	text_far _TM27ExplanationText
-	text_end
+;GiovanniEarthBadgeInfoText:
+;	text_far _GiovanniEarthBadgeInfoText
+;	text_end
 
-TM27NoRoomText:
-	text_far _TM27NoRoomText
-	text_end
+;ReceivedTM27Text:
+;	text_far _ReceivedTM27Text
+;	sound_get_item_1
+
+;TM27ExplanationText:
+;	text_far _TM27ExplanationText
+;	text_end
+
+;TM27NoRoomText:
+;	text_far _TM27NoRoomText
+;	text_end
 
 ViridianGymTrainerText1:
 	text_asm

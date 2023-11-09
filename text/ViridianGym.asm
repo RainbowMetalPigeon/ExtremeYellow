@@ -1,22 +1,87 @@
 _GiovanniPreBattleText::
-	text "Fwahahaha! This is"
-	line "my hideout!"
+	text "...Stop..."
+	line "You already took"
+	cont "everything away"
+	cont "from me..."
 
-	para "I planned to"
-	line "resurrect TEAM"
-	cont "ROCKET here!"
-
-	para "But, you have"
-	line "caught me again!"
-	cont "So be it! This"
-	cont "time, I'm not"
-	cont "holding back!"
-
-	para "Once more, you"
-	line "shall face"
-	cont "GIOVANNI, the"
-	cont "greatest trainer!"
+	para "What else do"
+	line "you want?"
 	done
+
+_GiovanniPostDefeatText::
+	text "..."
+	line "...I give up."
+	prompt
+
+_ViridianGymGiovanniPostBattleText::
+	text "...enough."
+	line "You have won. You"
+	cont "humiliated me not"
+	cont "one, not two, not"
+	cont "three, but FOUR"
+	cont "times."
+
+	para "I give up. My"
+	line "weapons are"
+	cont "empty, while"
+	cont "yours are still"
+	cont "functioning."
+
+	para "Come on, deal the"
+	line "finishing blow."
+	cont "I can't run away"
+	cont "any more."
+
+	para "...what? You don't"
+	line "want to end me?"
+	cont "But it doesn't"
+	cont "make any sense!"
+	cont "Why?!"
+
+	para "...I see... you"
+	line "remind me the"
+	cont "myself of so, so"
+	cont "many, too many"
+	cont "years ago..."
+
+	para "I... I... don't"
+	line "know what to do."
+	cont "I cannot keep"
+	cont "leading TEAM"
+	cont "ROCKET, you"
+	cont "humiliated me too"
+	cont "many time, I lost"
+	cont "any respect from"
+	cont "my troops."
+	cont "Police will soon"
+	cont "come for me."
+
+	para "If only there was"
+	line "a way to rewind,"
+	cont "to go back to my"
+	cont "researches..."
+	cont "But at this point"
+	cont "is impossible. I"
+	cont "have committed"
+	cont "too many"
+	cont "atrocities."
+
+	para "I can't do"
+	line "anything but"
+	cont "escape, run"
+	cont "away."
+
+	para "I'll spend the"
+	line "rest of my life"
+	cont "hiding. It is"
+	cont "what I deserve."
+
+	para "Farewell, <PLAYER>."
+
+	para "And... thank you."
+	done
+
+; -----------------------------
 
 _ReceivedEarthBadgeText::
 	text "Ha!"
@@ -83,6 +148,8 @@ _TM27NoRoomText::
 	text "You do not have"
 	line "space for this!"
 	done
+
+; -----------------------------
 
 _ViridianGymBattleText1::
 	text "Heh! You must be"

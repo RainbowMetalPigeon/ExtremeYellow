@@ -1167,8 +1167,8 @@ OaksLabText_1c31d:
 
 OaksLabTextGiovanni:
 	text_asm
-	ld c, BANK(Music_MeetEvilTrainer)
-	ld a, MUSIC_MEET_EVIL_TRAINER
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
 
 	ld hl, GiovanniBeforeBattleText
@@ -1190,7 +1190,6 @@ OaksLabTextGiovanni:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-
 	ld hl, wOptions
 	res 7, [hl]		; Turn on battle animations to make the battle feel more epic.
 

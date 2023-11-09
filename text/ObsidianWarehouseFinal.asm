@@ -27,7 +27,7 @@ _ObsidianWarehouseFinalJessieJamesText2::
 	done
 
 _ObsidianWarehouseFinalJessieJamesText3::
-	texts "Oh no!"
+	text "Oh no!"
 
 	para "Not again! We"
 	line "cannot show our"
@@ -47,72 +47,153 @@ _ObsidianWarehouseFinalJessieJamesText4::
 	line "last time..."
 	prompt
 
-; ----------
+; ---------- Proton
 
 _ObsidianWarehouseFinalBattleText1::
-	text "1"
-	line "Pre battle"
+	text "I am PROTON, one"
+	line "of the highest-"
+	cont "ranking ROCKET!"
+
+	para "Our BOSS summoned"
+	line "us from other"
+	cont "branches to deal"
+	cont "with a trouble-"
+	cont "some intruder."
+
+	para "That would be"
+	line "you?! Don't make"
+	cont "me laugh! A small"
+	cont "fry like you"
+	cont "isn't worth my"
+	cont "trip from JOHTO!"
+
+	para "I will exterminate"
+	line "you and go back"
+	cont "home before"
+	cont "lunch!"
 	done
 
 _ObsidianWarehouseFinalEndBattleText1::
-	text "1"
-	line "End battle"
+	text "Wh-what?!"
+
+	para "Now I see why the"
+	line "main branch is"
+	cont "struggling to"
+	cont "deal with you..."
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText1::
-	text "1"
-	line "After battle"
+	text "Tsk! We weakened"
+	line "you enough that"
+	cont "the BOSS will get"
+	cont "rid of you with"
+	cont "ease!"
 	done
 
-; ----------
+; ---------- Petrel
 
 _ObsidianWarehouseFinalBattleText2::
-	text "2"
-	line "Pre battle"
+	text "I am PETREL."
+	line "I am of the"
+	cont "ROCKET ADMINs."
+
+	para "And your presence"
+	line "is not welcome."
+
+	para "Not here, nor any-"
+	line "where else in"
+	cont "this world!"
 	done
 
 _ObsidianWarehouseFinalEndBattleText2::
-	text "2"
-	line "End battle"
+	text "H-how?!"
+	line "How could you"
+	cont "win?!"
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText2::
-	text "2"
-	line "After battle"
+	text "You scum... you"
+	line "may have defeated"
+	cont "us, but will"
+	cont "never win against"
+	cont "our BOSS!"
 	done
 
-; ----------
+; ---------- Ariana
 
 _ObsidianWarehouseFinalBattleText3::
-	text "3"
-	line "Pre battle"
+	text "I am ARIANA."
+	line "I am the third in"
+	cont "command of the"
+	cont "TEAM ROCKET"
+	cont "organization."
+
+	para "I am disappointed"
+	line "in our troops for"
+	cont "letting you"
+	cont "arrive till here,"
+	cont "but stay assured"
+	cont "of one thing:"
+
+	para "you are going to"
+	line "regret dearly"
+	cont "having defied us!"
 	done
 
 _ObsidianWarehouseFinalEndBattleText3::
-	text "3"
-	line "End battle"
+	text "Th-this"
+	line "doesn't make"
+	cont "any sense!"
+
+	para "I can't have lost!"
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText3::
-	text "3"
-	line "After battle"
+	text "Grrr... you fucked"
+	line "cockroach. Don't"
+	cont "get too cocky!"
+
+	para "You won't even"
+	line "reach our BOSS!"
+
+	para "I don't like"
+	line "admitting it, but"
+	cont "ARCHER is even"
+	cont "stronger than me,"
+	cont "they will crush"
+	cont "you for sure!"
 	done
 
-; ----------
+; ---------- Archer
 
 _ObsidianWarehouseFinalBattleText4::
-	text "4"
-	line "Pre battle"
+	text "Me? I am ARCHER."
+
+	para "You? You are dead."
 	done
 
 _ObsidianWarehouseFinalEndBattleText4::
-	text "4"
-	line "End battle"
+	text "WHAT?"
+	line "This is"
+	cont "ridicolous!!!"
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText4::
-	text "4"
-	line "After battle"
+	text "I am the right"
+	line "hand of GIOVANNI"
+	cont "themselves! How"
+	cont "did I possibly"
+	cont "lose against a"
+	cont "nobody like you?!"
+
+	para "Now only the BOSS"
+	line "is left to punish"
+	cont "you."
+
+	para "They... they will"
+	line "succeed for sure!"
+	cont "I believe in"
+	cont "them!"
 	done
 
 ; ----------
@@ -131,7 +212,7 @@ _ObsidianWarehouseFinalBattleText5::
 	cont "inflicted me at"
 	cont "SILPH, and got"
 	cont "rid of all of my"
-	cont "admins."
+	cont "ADMINs."
 
 	para "...tsk. If I"
 	line "didn't hate you,"
@@ -160,7 +241,7 @@ _ObsidianWarehouseFinalEndBattleText5::
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText5::
-	para "How is it"
+	text "How is it"
 	line "possible?! You"
 	cont "defeated me"
 	cont "AGAIN!!!"
@@ -186,7 +267,7 @@ _ObsidianWarehouseFinalAfterBattleText5::
 	line "You humiliated me"
 	cont "again, further-"
 	cont "more in front of"
-	cont "my admins!"
+	cont "my ADMINs!"
 	cont "Nobody will any"
 	cont "more follow me."
 	cont "TEAM ROCKET is"
