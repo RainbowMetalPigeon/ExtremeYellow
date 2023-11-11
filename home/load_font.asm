@@ -20,13 +20,13 @@ LoadTextBoxTilePatterns::
 	jr nz, .on
 .off
 	ld hl, TextBoxGraphics
-	ld de, vChars2 tile $79 ; new, to expand tileset
+	ld de, vChars2 tile $76 ; new, to expand tileset
 	ld bc, TextBoxGraphicsEnd - TextBoxGraphics
 	ld a, BANK(TextBoxGraphics)
 	jp FarCopyData ; if LCD is off, transfer all at once
 .on
 	ld de, TextBoxGraphics
-	ld hl, vChars2 tile $79 ; new, to expand tileset
+	ld hl, vChars2 tile $76 ; new, to expand tileset
 	lb bc, BANK(TextBoxGraphics), (TextBoxGraphicsEnd - TextBoxGraphics) / $10
 	jp CopyVideoData ; if LCD is on, transfer during V-blank
 

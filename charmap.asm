@@ -55,6 +55,11 @@
 ;	charmap "ぇ",         $77 ; hiragana small e, unused
 ;	charmap "ぉ",         $78 ; hiragana small o, unused
 
+; edited, to expand tileset	
+	charmap "<BOLD_V>",  $76
+	charmap "<BOLD_S>",  $77
+	charmap "<COLON>",   $78 ; colon with tinier dots than ":"
+
 	charmap "┌",         $79
 	charmap "─",         $7a
 	charmap "┐",         $7b

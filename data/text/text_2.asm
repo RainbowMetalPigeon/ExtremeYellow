@@ -136,8 +136,7 @@ _DexSeenOwnedText::
 	text_end
 
 _DexRatingText::
-;	text "#DEX Rating<COLON>"
-	text "#DEX Rating:" ; edited, to expand tileset
+	text "#DEX Rating<COLON>"
 	done
 
 _GymStatueText1::

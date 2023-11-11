@@ -35,7 +35,7 @@ Printer_GetMonStats:
 	ld [hl], " "
 
 	hlcoord 2, 11
-	ld [hl], "’"
+	ld [hl], "'" ; edited, to expand tileset
 
 	hlcoord 4, 11
 	ld de, wLoadedMonMaxHP

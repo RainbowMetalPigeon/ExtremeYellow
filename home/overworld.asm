@@ -920,7 +920,7 @@ LoadTilesetTilePatternData::
 	ld a, [wTilesetGfxPtr + 1]
 	ld h, a
 	ld de, vTileset
-	ld bc, $790 ; new, to expand tileset
+	ld bc, $760 ; new, to expand tileset
 	ld a, [wTilesetBank]
 	jp FarCopyData
 
