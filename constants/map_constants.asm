@@ -26,7 +26,7 @@ ENDM
 	map_const OCHRE_CITY,                    23, 23 ; new, moved
 	map_const FUCHSIA_CITY,                  20, 18 ; $07
 	map_const OBSIDIAN_ISLAND,               20, 20 ; new, testing
-	map_const CINNABAR_ISLAND,               10,  9 ; $08
+	map_const CINNABAR_ISLAND,               25, 15 ; $08 ; edited
 	map_const INDIGO_PLATEAU,                10,  9 ; $09
 	map_const SAFFRON_CITY,                  20, 18 ; $0A
 DEF NUM_CITY_MAPS EQU const_value

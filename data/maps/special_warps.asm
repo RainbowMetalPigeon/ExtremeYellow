@@ -100,7 +100,7 @@ FlyWarpDataPtr:
 .OchreCity:      fly_warp OCHRE_CITY,      35, 12		; new, testing
 .FuchsiaCity:    fly_warp FUCHSIA_CITY,    19, 28
 .ObsidianIsland: fly_warp OBSIDIAN_ISLAND, 35,  6		; new, testing
-.CinnabarIsland: fly_warp CINNABAR_ISLAND, 11, 12
+.CinnabarIsland: fly_warp CINNABAR_ISLAND, 41, 12		; edited
 .IndigoPlateau:  fly_warp INDIGO_PLATEAU,   9,  6
 .SaffronCity:    fly_warp SAFFRON_CITY,     9, 30
 .Route4:         fly_warp ROUTE_4,         11,  6

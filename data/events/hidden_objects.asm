@@ -87,6 +87,7 @@ HiddenObjectMaps:
 	dbw PALLET_TOWN,                  PalletTownHiddenObjects ; new
 	dbw SECLUDED_ATOLL_SW,            SecludedAtollSWHiddenObjects ; new
 	dbw OBSIDIAN_WOOD,                ObsidianWoodHiddenObjects ; new
+	dbw CINNABAR_ISLAND,              CinnabarIslandHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -281,6 +282,10 @@ SecludedAtollSWHiddenObjects: ; new
 ObsidianWoodHiddenObjects: ; new
 	hidden_object 40, 42, NUGGET, HiddenItems
 	hidden_object 29, 45, RARE_CANDY, HiddenItems
+	db -1 ; end
+
+CinnabarIslandHiddenObjects: ; new
+	hidden_object 19, 12, MEGA_STONE_Y, HiddenItems
 	db -1 ; end
 
 Route23HiddenObjects:

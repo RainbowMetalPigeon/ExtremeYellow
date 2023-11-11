@@ -76,4 +76,5 @@ HiddenItemCoords:
 	hidden_item SECLUDED_ATOLL_SW,             42,  16 ; new, MEGA_STONE_Y
 	hidden_item OBSIDIAN_WOOD,                 40,  42 ; new
 	hidden_item OBSIDIAN_WOOD,                 29,  45 ; new
+	hidden_item CINNABAR_ISLAND,               19,  12 ; new, MEGA_STONE_Y
 	db -1 ; end

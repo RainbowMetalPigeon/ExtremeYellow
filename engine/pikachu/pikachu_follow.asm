@@ -1499,7 +1499,7 @@ WillPikachuSpawnOnTheScreen:
 	jr c, .not_on_screen
 .same_x
 	call .GetNPCCurrentTile
-	ld d, $60
+	ld d, MAP_TILESET_SIZE ; edited, to expand tileset
 	ld a, [hli]
 	ld e, a
 	cp d

@@ -24,7 +24,7 @@ CinnabarIslandScript0:
 	ret nz
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, $8
+	ld a, $d
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -53,15 +53,20 @@ CinnabarIslandScript1:
 CinnabarIsland_TextPointers:
 	dw CinnabarIslandText1
 	dw CinnabarIslandText2
+	dw CinnabarIslandTextNewPerson1 ; new
+	dw CinnabarIslandTextNewPerson2 ; new
+	dw CinnabarIslandTextNewPerson3 ; new
+	dw CinnabarIslandTextNewPerson4 ; new
 	dw CinnabarIslandText3
 	dw MartSignText
 	dw PokeCenterSignText
 	dw CinnabarIslandText6
 	dw CinnabarIslandText7
-	dw CinnabarIslandText8
+	dw CinnabarIslandTextVulcano ; new
+	dw CinnabarIslandTextGymDoor ; $d
 
-CinnabarIslandText8:
-	text_far _CinnabarIslandText8
+CinnabarIslandTextGymDoor:
+	text_far _CinnabarIslandTextGymDoor
 	text_end
 
 CinnabarIslandText1:
@@ -82,4 +87,26 @@ CinnabarIslandText6:
 
 CinnabarIslandText7:
 	text_far _CinnabarIslandText7
+	text_end
+
+; new -----
+
+CinnabarIslandTextNewPerson1:
+	text_far _CinnabarIslandTextNewPerson1
+	text_end
+
+CinnabarIslandTextNewPerson2:
+	text_far _CinnabarIslandTextNewPerson2
+	text_end
+
+CinnabarIslandTextNewPerson3:
+	text_far _CinnabarIslandTextNewPerson3
+	text_end
+
+CinnabarIslandTextNewPerson4:
+	text_far _CinnabarIslandTextNewPerson4
+	text_end
+
+CinnabarIslandTextVulcano:
+	text_far _CinnabarIslandTextVulcano
 	text_end

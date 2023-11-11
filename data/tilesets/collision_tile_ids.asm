@@ -13,7 +13,7 @@ Underground_Coll::
 	coll_tiles $0b, $0c, $13, $15, $18
 
 Overworld_Coll::
-	coll_tiles $00, $10, $1b, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b
+	coll_tiles $00, $10, $1b, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b, $11, $60, $62 ; edited, last 3 are new
 
 RedsHouse1_Coll::
 RedsHouse2_Coll::
@@ -51,7 +51,7 @@ Interior_Coll::
 	coll_tiles $04, $0f, $15, $1f, $3b, $45, $47, $55, $56
 
 Cavern_Coll::
-	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42, $43 ; updated, added last two, new tiles
+	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42, $43 ; edited, added last two, new tiles
 
 	coll_tiles ; unused
 
