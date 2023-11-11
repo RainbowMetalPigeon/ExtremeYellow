@@ -132,7 +132,7 @@ PlacePlayerHUDTiles:
 PlayerBattleHUDGraphicsTiles:
 ; The tile numbers for specific parts of the battle display for the player's pokemon
 	db $73 ; unused ($73 is hardcoded into the routine that uses these bytes)
-	db $76 ; lower-right corner tile of the HUD ; edited, to expand tileset
+	db $77 ; lower-right corner tile of the HUD
 	db $6F ; lower-left triangle tile of the HUD
 
 PlaceEnemyHUDTiles:
@@ -148,7 +148,7 @@ EnemyBattleHUDGraphicsTiles:
 ; The tile numbers for specific parts of the battle display for the enemy
 	db $73 ; unused ($73 is hardcoded in the routine that uses these bytes)
 	db $74 ; lower-left corner tile of the HUD
-	db $77 ; lower-right triangle tile of the HUD ; edited, to expand tileset
+	db $78 ; lower-right triangle tile of the HUD
 
 PlaceHUDTiles:
 	ld [hl], $73
@@ -159,7 +159,7 @@ PlaceHUDTiles:
 	ld a, 8
 .loop
 	add hl, de
-	ld [hl], $75 ; edited, to expand tileset
+	ld [hl], $76
 	dec a
 	jr nz, .loop
 	add hl, de

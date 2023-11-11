@@ -35,7 +35,7 @@ AskName:
 	call ReloadMapSpriteTilePatterns
 	call ReloadTilesetTilePatterns ; new, to expand tileset
 .inBattle
-	call LoadScreenTilesFromBuffer1
+;	call LoadScreenTilesFromBuffer1 ; to be commented out to expand tileset?
 	pop hl
 	pop af
 	ld [wUpdateSpritesEnabled], a
@@ -160,6 +160,7 @@ DisplayNamingScreen:
 	ld bc, NAME_LENGTH
 	call CopyData
 	call GBPalWhiteOutWithDelay3
+	call ReloadMapData ; needed for expanded tileset?	
 	call ClearScreen
 	call ClearSprites
 	call RunDefaultPaletteCommand

@@ -998,6 +998,7 @@ ItemUseEvoStone:
 	xor a
 	ld [wActionResultOrTookBattleTurn], a ; item not used
 	pop af
+	call ReloadMapData ; needed to expand tileset?
 	ret
 
 Func_d85d: ; from suloku
@@ -1618,6 +1619,7 @@ ItemUseMedicine:
 	pop hl
 	ld hl, VitaminNoEffectText
 	call PrintText
+	call ReloadMapData ; needed to expand tileset?
 	jp GBPalWhiteOut
 
 .recalculateStats
