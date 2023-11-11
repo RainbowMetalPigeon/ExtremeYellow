@@ -44,6 +44,7 @@ INCLUDE "engine/joypad.asm"
 INCLUDE "engine/overworld/clear_variables.asm"
 INCLUDE "engine/overworld/player_state.asm"
 INCLUDE "engine/events/poison.asm"
+INCLUDE "engine/events/heat_damage.asm" ; new, testing
 INCLUDE "engine/overworld/tilesets.asm"
 INCLUDE "engine/overworld/daycare_exp.asm"
 INCLUDE "data/maps/hide_show_data.asm"
