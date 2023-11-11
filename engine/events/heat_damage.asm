@@ -2,7 +2,7 @@ ApplyHeatDamage:
 	ld a, [wCurMap]
 	cp CINNABAR_ISLAND ; will be CINNABAR_VOLCANO
 	ret nz ; do nothing at all if it's not the map of interest
-	ret ; will be removed
+;	ret ; will be removed
 
 	ld a, [wd730]
 	add a
@@ -16,8 +16,6 @@ ApplyHeatDamage:
 	ld a, [wPartyCount]
 	and a
 	jp z, .noBlackOut
-;	call IncrementDayCareMonExp
-;	call Func_c4c7
 ;	ld a, [wStepCounter]
 ;	and $3 ; is the counter a multiple of 4?
 ;	jp nz, .skipPoisonEffectAndSound ; only apply poison damage every fourth step
@@ -26,6 +24,23 @@ ApplyHeatDamage:
 	ld hl, wPartyMon1Status
 	ld de, wPartySpecies
 .applyDamageLoop
+; check if the mon is FIRE type or RHYDON/RHYPERIOR, and if so, don't inflict damage
+	ld a, [de]
+	cp RHYDON
+	jr z, .nextMon2
+	cp RHYPERIOR
+	jr z, .nextMon2
+	ld [wd0b5], a
+	push hl
+	call GetMonHeader
+	pop hl
+	ld a, [wMonHType1]
+	cp FIRE
+	jr z, .nextMon2
+	ld a, [wMonHType2]
+	cp FIRE
+	jr z, .nextMon2
+
 	ld a, [hl]
 ;	and (1 << PSN)
 ;	jr z, .nextMon2 ; not poisoned
@@ -89,7 +104,7 @@ ApplyHeatDamage:
 	ld hl, wWhichPokemon
 	inc [hl]
 	pop hl
-	jr .applyDamageLoop
+	jp .applyDamageLoop
 .applyDamageLoopDone
 ;	ld hl, wPartyMon1Status
 ;	ld a, [wPartyCount]
@@ -130,28 +145,4 @@ ApplyHeatDamage:
 	ld [wOutOfBattleBlackout], a
 	ret
 
-;Func_c4c7:
-;	ld a, [wStepCounter]
-;	and a
-;	jr nz, .asm_c4de
-;	call Random
-;	and $1
-;	jr z, .asm_c4de
-;	calladb_ModifyPikachuHappiness $6
-;.asm_c4de
-;	ld hl, wPikachuMood
-;	ld a, [hl]
-;	cp $80
-;	jr z, .asm_c4ef
-;	jr c, .asm_c4ea
-;	dec a
-;	dec a
-;.asm_c4ea
-;	inc a
-;	ld [hl], a
-;	cp $80
-;	ret nz
-;.asm_c4ef
-;	xor a
-;	ld [wd49c], a
-;	ret
+;wMonHType1
