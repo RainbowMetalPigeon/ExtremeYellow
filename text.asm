@@ -300,8 +300,6 @@ INCLUDE "text/ObsidianWood.asm" ; new
 INCLUDE "text/Route28.asm" ; new
 INCLUDE "text/OnixBurrowing.asm" ; new
 INCLUDE "text/SecludedCaves.asm" ; new
-INCLUDE "text/OchreRehabilitationCenter.asm" ; new
-INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/CeladonUniversity.asm" ; new
 INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
 INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
@@ -325,6 +323,11 @@ INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/VermilionGym.asm"
+
+
+SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/OchreRehabilitationCenter.asm" ; new
+INCLUDE "text/OchreGym.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

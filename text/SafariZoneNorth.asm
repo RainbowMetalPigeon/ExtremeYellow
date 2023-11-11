@@ -74,8 +74,8 @@ _GiovanniSafariAfterBattleText::
 	cont "all the suffering"
 	cont "that I caused."
 
-	para "I surrender. Come"
-	line "on. Hand me to"
+	para "I surrender. Go"
+	line "on and hand me to"
 	cont "the police."
 
 	para "...what? You're"
@@ -113,11 +113,13 @@ _GiovanniSafariAfterBattleText::
 	line "right whatsoever"
 	cont "to even hope for"
 	cont "something like"
-	cont "that, but..."
+	cont "that, after all"
+	cont "that I have done,"
+	cont "but..."
 
 	para "...but maybe..."
 	line "just maybe..."
-	cont "Samuel could..."
+	cont "SAMUEL could..."
 	cont "wel... welcome me"
 	cont "back...?"
 
@@ -132,7 +134,6 @@ _GiovanniSafariAfterBattleText::
 	line "express how"
 	cont "remorseful I"
 	cont "feel for the way"
-	xxxx "123456789012345678"
 	cont "I have treated"
 	cont "you, nor how"
 	cont "grateful I am"

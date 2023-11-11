@@ -816,6 +816,14 @@ OaksLabText3:
 	cp 2
 	jr c, .asm_1c9ec
 .asm_1c9d9
+;	--- new block to handle post-redemption Giovanni
+	CheckEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0
+	jr z, .notPostRedemption
+	ld hl, OaksLabText_OakPostGiovanniRedemption
+	call PrintText
+	jp .asm_1ca6f
+.notPostRedemption
+;	--- end new code for post-redemption Giovanni
 	ld hl, OaksLabText_1ca9f
 	call PrintText
 	ld a, $1
@@ -914,6 +922,10 @@ OaksLabPleaseVisitText:
 
 OaksLabText_1ca9f:
 	text_far _OaksLabText_1d31d
+	text_end
+
+OaksLabText_OakPostGiovanniRedemption: ; new
+	text_far _OaksLabText_OakPostGiovanniRedemption
 	text_end
 
 OaksLabText4:

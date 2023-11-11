@@ -504,26 +504,161 @@ _OaksLabText_1d405::
 
 ; new ------------------------------------------------
 
+_OaksLabText_OakPostGiovanniRedemption::
+	text "OAK: <PLAYER>!"
+	line "I am so happy"
+	cont "to see you!"
+
+	para "What you have done"
+	line "is... I am"
+	cont "speechless. You"
+	cont "keep bringing joy"
+	cont "to this old heart"
+	cont "of mine."
+
+	para "GIOVANNI... told"
+	line "me everything,"
+	cont "every single"
+	cont "encounter and"
+	cont "fight you two"
+	cont "had, and how they"
+	cont "affected the"
+	cont "person they"
+	cont "are now."
+
+	para "<PLAYER>, you"
+	line "didn't just"
+	cont "redeem a criminal"
+	cont "and save a life,"
+	cont "you also made"
+	cont "KANTO a better"
+	cont "place and re-"
+	cont "united two long-"
+	cont "lost old friends."
+
+	para "You have"
+	line "our eternal"
+	cont "gratitude."
+	done
+
 _GiovanniBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Pre choice"
-	line "Long"
+	text "<PLAYER>! We meet"
+	line "again! ...this is"
+	cont "the first time I"
+	cont "can admit I am"
+	cont "immediately glad"
+	cont "to see you."
+
+	para "I... I am out of"
+	line "words to express"
+	cont "how much you"
+	cont "changed my life."
+
+	para "You saved me from"
+	line "a life a crime,"
+	cont "and gave me"
+	cont "another chance"
+	cont "at life, when not"
+	cont "even I would have"
+	cont "given one myself."
+
+	para "...it is no"
+	line "exaggeration to"
+	cont "say you're my"
+	cont "saviour. I will"
+	cont "be thankful to"
+	cont "you for all of"
+	cont "my life."
+
+	para "And my neverending"
+	line "gratitude also"
+	cont "goes to SAMUEL,"
+	cont "which welcomed me"
+	cont "back with open"
+	cont "arms and tears in"
+	cont "their eyes, ready"
+	cont "to forgive me and"
+	cont "accept me even"
+	cont "after all the"
+	cont "horrors I stained"
+	cont "my soul with..."
+
+	para "I can't even"
+	line "fathom how you"
+	cont "two can be so"
+	cont "magnanimous and"
+	cont "forgiving."
+	cont "I want to learn"
+	cont "from you."
+
+	para "Now... now I can"
+	line "finally return to"
+	cont "my researches,"
+	cont "which I abandoned"
+	cont "so long ago to"
+	cont "pursue a life of"
+	cont "crime."
+
+	para "This is filling me"
+	line "with a joy I feel"
+	cont "so undeserved."
+
+	para "...<PLAYER>, I know"
+	line "it's arrogant"
+	cont "from my side, but"
+	cont "there is a favour"
+	cont "I would love to"
+	cont "ask you: would"
+	cont "you honor me by"
+	cont "battling with me"
+	cont "once again?"
+
+	para "After all these"
+	line "years... I forgot"
+	cont "how a #MON"
+	cont "battle not"
+	cont "finalized to"
+	cont "crash your enemy"
+	cont "or steal their"
+	cont "life feels."
+
+	para "I'd like to have a"
+	line "battle... for"
+	cont "fun... with you."
+
+	para "I have been made"
+	line "aware of this"
+	cont "different mode,"
+	cont "INVERSE BATTLE."
+	cont "Which would you"
+	cont "prefer?"
 	prompt
 
 _GiovanniBeforeBattleTextShort::
-;	xxxx "123456789012345678"
-	text "Pre choice"
-	line "Short"
+	text "<PLAYER>! I am glad"
+	line "to see you again!"
+
+	para "I'd love to have"
+	line "a fun battle"
+	cont "with you."
+
+	para "Would battle mode"
+	line "do you prefer?"
 	prompt
 
 _GiovanniBeforeBattleText2::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "Amazing! I wish"
+	line "you luck and fun."
+	cont "And... thank you."
 	done
 
 _GiovanniPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thanks"
-	line "for the battle!"
+	text "I..."
+	line "I forgot how"
+	cont "beautifully a"
+	cont "battle fought for"
+	cont "fun can feel."
+
+	para "Thank you,"
+	line "<PLAYER>. Really."
 	prompt

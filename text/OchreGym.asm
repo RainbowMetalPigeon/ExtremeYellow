@@ -1,101 +1,163 @@
 ; ----- Trainer 1, STEEL -----
 
 _OchreGymBattleText1::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "STEEL!"
+	text "Welcome to"
+	line "OCHRE GYM!"
+
+	para "Here we don't"
+	line "specialize in one"
+	cont "single type, but"
+	cont "we pay respect to"
+	cont "all the ones that"
+	cont "have been ignored"
+	cont "by the"
+	cont "#MON LEAGUE."
+
+	para "Me, I am a"
+	line "master of STEEL!"
+	cont "Get ready to face"
+	cont "my metal!"
 	done
 
 _OchreGymEndBattleText1::
-	text "OCHRE GYM"
-	line "End text"
-	cont "STEEL!"
+	text "Dang!"
+	line "How could you"
+	cont "overcome the many"
+	cont "resistances of"
+	cont "STEEL #MON?!"
 	prompt
 
 _OchreGymAfterBattleText1::
-	text "OCHRE GYM"
-	line "After text"
-	cont "STEEL!"
+	text "You did well, but"
+	line "there's no way"
+	cont "you can defeat"
+	cont "ORAGE!"
 	done
 
 ; ----- Trainer 2, FLYING -----
 
 _OchreGymBattleText2::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "FLYING!"
+	text "FLYING #MON"
+	line "are fast and"
+	cont "beautiful!"
+	cont "Let's fight!"
 	done
 
 _OchreGymEndBattleText2::
-	text "OCHRE GYM"
-	line "End text"
-	cont "FLYING!"
+	text "Argh!"
+	line "The speed and"
+	cont "elegance and"
+	cont "intelligence of"
+	cont "FLYING #MON!"
+	cont "It wasn't enough!"
 	prompt
 
 _OchreGymAfterBattleText2::
-	text "OCHRE GYM"
-	line "After text"
-	cont "FLYING!"
+	text "Congrats. But be"
+	line "kind to birds!"
 	done
 
 ; ----- Trainer 3, DARK -----
 
 _OchreGymBattleText3::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "DARK!"
+	text "That voice within"
+	line "our minds... That"
+	cont "whispers of evil"
+	cont "deeds and cruel"
+	cont "acts..."
+
+	para "Embracing its lure"
+	line "can bring"
+	cont "power... DARK"
+	cont "types are"
+	cont "extraordinarily"
+	cont "rare and"
+	cont "powerful!"
 	done
 
 _OchreGymEndBattleText3::
-	text "OCHRE GYM"
-	line "End text"
-	cont "DARK!"
+	text "Wha?!"
+	line "How did you resist"
+	cont "the temptation of"
+	cont "DARKness?!"
 	prompt
 
 _OchreGymAfterBattleText3::
-	text "OCHRE GYM"
-	line "After text"
-	cont "DARK!"
+	text "Umph."
+	line "You may have stood"
+	cont "strong to your"
+	cont "ideals today, but"
+	cont "you'll eventually"
+	cont "give in."
 	done
 
 ; ----- Trainer 4, BUG -----
 
 _OchreGymBattleText4::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "BUG!"
+	text "Hi! I like BUGs!"
+	line "They are"
+	cont "fascinating,"
+	cont "evolve quickly,"
+	cont "and can be"
+	cont "deceptively"
+	cont "strong!"
+
+	para "Allow me to"
+	line "demonstrate!"
 	done
 
 _OchreGymEndBattleText4::
-	text "OCHRE GYM"
-	line "End text"
-	cont "BUG!"
+	text "Oh."
+
+	para "Too bad. It was"
+	line "a nice fight!"
+	cont "I hope you liked"
+	cont "my BUG #MON!"
 	prompt
 
 _OchreGymAfterBattleText4::
-	text "OCHRE GYM"
-	line "After text"
-	cont "BUG!"
+	text "Keep up the good"
+	line "work, you're"
+	cont "almost arrived at"
+	cont "our LEADER!"
 	done
 
 ; ----- Trainer 5, FAIRY -----
 
 _OchreGymBattleText5::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "FAIRY!"
+	text "Can you feel the"
+	line "voices of the"
+	cont "forest, and the"
+	cont "deeper truths"
+	cont "hidden within"
+	cont "fairy tales?"
+
+	para "No? I suspected"
+	line "so. You should"
+	cont "armonize more"
+	cont "with FAIRY types."
 	done
 
 _OchreGymEndBattleText5::
-	text "OCHRE GYM"
-	line "End text"
-	cont "FAIRY!"
+	text "Well,"
+
+	para "maybe you are"
+	line "synchronized with"
+	cont "the world even"
+	cont "without the power"
+	cont "of FAIRY..."
 	prompt
 
 _OchreGymAfterBattleText5::
-	text "OCHRE GYM"
-	line "After text"
-	cont "FAIRY!"
+	text "FAIRY #MON have"
+	line "been discovered"
+	cont "recently."
+
+	para "They use their"
+	line "magical power to"
+	cont "subdue whom who"
+	cont "rely on brutal"
+	cont "strength."
 	done
 
 ; ----- Trainer 6, NORMAL -----
