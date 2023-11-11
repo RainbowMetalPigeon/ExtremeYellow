@@ -20,11 +20,18 @@ TilePairCollisionsLand::
 	db OVERWORLD, $11, $62 ; new
 ;	db OVERWORLD, $63, $01 ; new
 	db OVERWORLD, $58, $62 ; new
+	; to prevent walking onto rock plateau from above, now that is walkable
+	db OVERWORLD, $2C, $11 ; new
+	db OVERWORLD, $23, $11 ; new
+	db OVERWORLD, $52, $11 ; new
+	db OVERWORLD, $39, $11 ; new
+	db OVERWORLD, $30, $11 ; new
 	db -1 ; end
 
 TilePairCollisionsWater::
 	db FOREST, $14, $2E
 	db FOREST, $48, $2E
 	db CAVERN, $14, $05
+	; to prevent landing onto rock plateau from above, now that is walkable
 	db OVERWORLD, $14, $11 ; new
 	db -1 ; end
