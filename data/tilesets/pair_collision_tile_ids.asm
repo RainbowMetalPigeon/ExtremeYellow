@@ -15,17 +15,16 @@ TilePairCollisionsLand::
 	db FOREST, $20, $2E
 	db FOREST, $5E, $2E
 	db FOREST, $5F, $2E
-
-	db OVERWORLD, $39, $11
-;	db OVERWORLD, $30, $01
-	db OVERWORLD, $11, $62
-;	db OVERWORLD, $63, $01
-	db OVERWORLD, $58, $62
-
+	db OVERWORLD, $39, $11 ; new
+;	db OVERWORLD, $30, $01 ; new
+	db OVERWORLD, $11, $62 ; new
+;	db OVERWORLD, $63, $01 ; new
+	db OVERWORLD, $58, $62 ; new
 	db -1 ; end
 
 TilePairCollisionsWater::
 	db FOREST, $14, $2E
 	db FOREST, $48, $2E
 	db CAVERN, $14, $05
+	db OVERWORLD, $14, $11 ; new
 	db -1 ; end
