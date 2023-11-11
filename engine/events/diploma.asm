@@ -13,5 +13,6 @@ DisplayDiploma::
 	call GBPalWhiteOutWithDelay3
 	call ReloadTilesetTilePatterns
 	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadTilesetTilePatterns ; new, to expand tileset
 	call Delay3
 	jp GBPalNormal

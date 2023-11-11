@@ -8,10 +8,10 @@ CeladonMansion2F_Object:
 	warp_event  6,  1, CELADON_MANSION_3F, 4
 
 	def_bg_events
-	bg_event  6,  9, 11 ; CeladonMansion2TextSign1
-	bg_event  1,  3, 12 ; CeladonMansion2TextSign2 ; Drush/ISSOtm, ax6, (Sylvie/Rangi42), -Crystal-, -luckytyphlosion-
-	bg_event  3,  3, 13 ; CeladonMansion2TextSign3 ; Vortiene, PlagueVonKarma, Lily, Xillicis
-	bg_event  5,  3, 14 ; CeladonMansion2TextSign4 ; MauveSea, LJSTAR, [Sanqui]
+	bg_event  6,  9, 9 ; CeladonMansion2TextSign1
+	bg_event  1,  3, 10 ; CeladonMansion2TextSign2 ; Drush/ISSOtm, ax6, (Sylvie/Rangi42), -Crystal-, -luckytyphlosion-
+	bg_event  3,  3, 11 ; CeladonMansion2TextSign3 ; Vortiene, PlagueVonKarma, Lily, Xillicis
+	bg_event  5,  3, 12 ; CeladonMansion2TextSign4 ; MauveSea, LJSTAR, [Sanqui]
 
 	def_object_events
 	object_event  2,  4, SPRITE_BIRD, STAY, ANY_DIR, 1 ; pigeon

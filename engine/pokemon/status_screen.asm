@@ -87,8 +87,8 @@ StatusScreen:
 	call LoadHpBarAndStatusTilePatterns
 	ld de, BattleHudTiles1  ; source
 	ld hl, vChars2 tile $6d ; dest
-	lb bc, BANK(BattleHudTiles1), 3
-	call CopyVideoDataDouble ; ·│ :L and halfarrow line end
+	lb bc, BANK(BattleHudTiles1), 1 ; edited, to expand tileset
+	call CopyVideoDataDouble ; ·│ ; edited, to expand tileset
 	ld de, BattleHudTiles2
 	ld hl, vChars2 tile $78
 	lb bc, BANK(BattleHudTiles2), 1

@@ -177,7 +177,7 @@ TrainerCharText:: db "TRAINER@"
 PCCharText::      db "PC@"
 RocketCharText::  db "ROCKET@"
 PlacePOKeText::   db "POKé@"
-SixDotsCharText:: db "……@"
+SixDotsCharText:: db "..@" ; edited, to expand tileset
 EnemyText::       db "Enemy @"
 PlacePKMNText::   db "<PK><MN>@"
 
@@ -558,7 +558,7 @@ TextCommandSounds::
 	db TX_SOUND_CRY_DEWGONG,          DEWGONG ; unused
 
 TextCommand_DOTS::
-; wait for button press or 30 frames while printing "…"s
+; wait for button press or 30 frames while printing "."s ; edited, to expand tileset
 	pop hl
 	ld a, [hli]
 	ld d, a
@@ -567,7 +567,7 @@ TextCommand_DOTS::
 	ld l, c
 
 .loop
-	ld a, "…"
+	ld a, "." ; edited, to expand tileset
 	ld [hli], a
 	push de
 	call Joypad

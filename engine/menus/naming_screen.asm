@@ -33,6 +33,7 @@ AskName:
 	and a
 	jr nz, .inBattle
 	call ReloadMapSpriteTilePatterns
+	call ReloadTilesetTilePatterns ; new, to expand tileset
 .inBattle
 	call LoadScreenTilesFromBuffer1
 	pop hl
@@ -481,9 +482,12 @@ PrintNamingText:
 	call GetMonName
 	hlcoord 4, 1
 	call PlaceString
-	ld hl, $1
-	add hl, bc
-	ld [hl], "の" ; leftover from Japanese version; blank tile $c9 in English
+;	ld hl, $1
+;	add hl, bc
+;	ld [hl], "の" ; leftover from Japanese version; blank tile $c9 in English
+    ld hl, $0		; new
+    add hl, bc		; new
+    ld [hl], "'s"	; new
 	hlcoord 1, 3
 	ld de, NicknameTextString
 	jr .placeString

@@ -63,12 +63,14 @@ NameRaterText1:
 	call NameRaterScript_1da20
 	ld hl, NameRaterText_1dad1
 	jr c, .asm_1daa8
+	call ReloadTilesetTilePatterns ; new, to expand tileset
 	ld hl, NameRaterText_1dabd
 	call NameRaterScript_1da15
 	jr nz, .asm_1daae
 	ld hl, NameRaterText_1dac2
 	call PrintText
 	farcall DisplayNameRaterScreen
+	call ReloadTilesetTilePatterns ; new, to expand tileset
 	jr c, .asm_1daae
 	ld hl, NameRaterText_1dac7
 .asm_1daa8

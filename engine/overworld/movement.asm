@@ -1,4 +1,4 @@
-DEF MAP_TILESET_SIZE EQU $60
+DEF MAP_TILESET_SIZE EQU $79 ; new, to expand tileset
 
 UpdatePlayerSprite:
 	ld a, [wSpritePlayerStateData2WalkAnimationCounter]

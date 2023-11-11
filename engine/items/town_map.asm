@@ -150,6 +150,7 @@ LoadTownMap_Fly::
 	ldh [hJoy7], a
 	call LoadPlayerSpriteGraphics
 	call LoadFontTilePatterns
+;	call ReloadTilesetTilePatterns ; new, to expand tileset?
 	ld de, BirdSprite
 	ld b, BANK(BirdSprite)
 	ld c, 12
@@ -348,6 +349,7 @@ ExitTownMap:
 	call ClearSprites
 	call LoadPlayerSpriteGraphics
 	call LoadFontTilePatterns
+	call ReloadTilesetTilePatterns ; new, to expand tileset
 	call UpdateSprites
 	jp RunDefaultPaletteCommand
 

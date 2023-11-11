@@ -50,6 +50,7 @@ UsedCut:
 	call GBPalWhiteOutWithDelay3
 	call ClearSprites
 	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	call Delay3

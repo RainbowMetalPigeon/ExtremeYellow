@@ -27,6 +27,7 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
 	call LoadGBPal
+	call ReloadMapData ; new, to expand tileset
 	jp RedisplayStartMenu
 .chosePokemon
 	call SaveScreenTilesToBuffer1
@@ -291,6 +292,7 @@ StartMenu_Pokemon::
 	text_end
 .goBackToMap
 	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset
 	jp CloseTextDisplay
 .newBadgeRequired
 	ld hl, .newBadgeRequiredText
@@ -431,6 +433,7 @@ StartMenu_Item::
 	jp z, .partyMenuNotDisplayed
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset
 	pop af
 	ld [wUpdateSpritesEnabled], a
 	jp StartMenu_Item
@@ -591,7 +594,7 @@ DrawTrainerInfo:
 	ld de, wPlayTimeHours ; hours
 	lb bc, LEFT_ALIGN | 1, 3
 	call PrintNumber
-	ld [hl], $d6 ; colon tile ID
+	ld [hl], "<COLON>" ; edited, to expand tileset
 	inc hl
 	ld de, wPlayTimeMinutes ; minutes
 	lb bc, LEADING_ZEROES | 1, 2
