@@ -2,7 +2,7 @@ ApplyHeatDamage:
 	ld a, [wCurMap]
 	cp CINNABAR_ISLAND ; will be CINNABAR_VOLCANO
 	ret nz ; do nothing at all if it's not the map of interest
-;	ret ; will be removed
+	ret ; will be removed
 
 	ld a, [wd730]
 	add a
@@ -16,9 +16,6 @@ ApplyHeatDamage:
 	ld a, [wPartyCount]
 	and a
 	jp z, .noBlackOut
-;	ld a, [wStepCounter]
-;	and $3 ; is the counter a multiple of 4?
-;	jp nz, .skipPoisonEffectAndSound ; only apply poison damage every fourth step
 	xor a
 	ld [wWhichPokemon], a
 	ld hl, wPartyMon1Status
@@ -40,10 +37,7 @@ ApplyHeatDamage:
 	ld a, [wMonHType2]
 	cp FIRE
 	jr z, .nextMon2
-
 	ld a, [hl]
-;	and (1 << PSN)
-;	jr z, .nextMon2 ; not poisoned
 	dec hl
 	dec hl
 	ld a, [hld]
@@ -106,27 +100,6 @@ ApplyHeatDamage:
 	pop hl
 	jp .applyDamageLoop
 .applyDamageLoopDone
-;	ld hl, wPartyMon1Status
-;	ld a, [wPartyCount]
-;	ld d, a
-;	ld e, 0
-;.countPoisonedLoop
-;	ld a, [hl]
-;	and (1 << PSN)
-;	or e
-;	ld e, a
-;	ld bc, wPartyMon2 - wPartyMon1
-;	add hl, bc
-;	dec d
-;	jr nz, .countPoisonedLoop
-;	ld a, e
-;	and a ; are any party members poisoned?
-;	jr z, .skipPoisonEffectAndSound
-;	ld b, $2
-;	predef ChangeBGPalColor0_4Frames ; change BG white to dark grey for 4 frames
-;	ld a, SFX_POISONED
-;	call PlaySound
-;.skipPoisonEffectAndSound
 	predef AnyPartyAlive
 	ld a, d
 	and a
@@ -144,5 +117,3 @@ ApplyHeatDamage:
 .done
 	ld [wOutOfBattleBlackout], a
 	ret
-
-;wMonHType1

@@ -76,7 +76,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw MtMoonPokecenterHS ; new
-	dw NoHS ; ONIX_BURROWING
+	dw OnixBurrowingHS ; ONIX_BURROWING
 	dw NoHS ; ROUTE_5_GATE
 	dw NoHS ; UNDERGROUND_PATH_ROUTE_5
 	dw NoHS ; DAYCARE
@@ -708,5 +708,7 @@ Route28HS: ; new
 	db ROUTE_28, $02, SHOW
 	db ROUTE_28, $03, SHOW
 	db ROUTE_28, $04, SHOW
+OnixBurrowingHS: ; new
+	db ONIX_BURROWING, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

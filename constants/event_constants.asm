@@ -616,7 +616,9 @@
 	const EVENT_BEAT_MRAYQUAZA
 	const EVENT_BEAT_EETERNATUS
 	const EVENT_BEAT_ARCEUS
-	const_skip 18 ; edited for anomalies
+	const_skip 3 ; edited for anomalies and Snorlax Den
+	const EVENT_BEAT_SNORLAX_DEN ; new, testing
+	const_skip 14 ; edited for anomalies and Snorlax Den
 	const EVENT_GOT_HM01
 	const EVENT_RUBBED_CAPTAINS_BACK
 	const EVENT_SS_ANNE_LEFT

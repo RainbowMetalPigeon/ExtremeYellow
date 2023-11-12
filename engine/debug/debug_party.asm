@@ -17,8 +17,8 @@ DebugTeam:
 	db MEWTWO, 98
 	db SNORLAX, 80
 	db STARTER_PIKACHU, 5
-	db CHARIZARD, 80
-	db RHYDON, 80
+;	db CHARIZARD, 80
+;	db RHYDON, 80
 	db -1 ; end
 
 DebugStart:

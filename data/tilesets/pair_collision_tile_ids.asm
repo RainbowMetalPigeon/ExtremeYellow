@@ -26,6 +26,7 @@ TilePairCollisionsLand::
 	db OVERWORLD, $52, $11 ; new
 	db OVERWORLD, $39, $11 ; new
 	db OVERWORLD, $30, $11 ; new
+	db OVERWORLD, $58, $11 ; new, should be unnecessary in all cases? it's between a cavern entrance and the rock plateau, but you should just warp
 	db -1 ; end
 
 TilePairCollisionsWater::

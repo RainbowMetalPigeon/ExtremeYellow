@@ -172,6 +172,8 @@ IsWarpTileInFrontOfPlayer::
 	jr z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new
 	cp SECLUDED_CAVES									; new
 	jr z, IsSecludedCavesWarpTileInFrontOfPlayer		; new
+	cp ONIX_BURROWING									; new
+	jr z, IsOnixBurrowingWarpTileInFrontOfPlayer		; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -202,7 +204,7 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
-IsSecludedCavesWarpTileInFrontOfPlayer: ; new, testing
+IsSecludedCavesWarpTileInFrontOfPlayer: ; new
 IsCeruleanCaveExtraWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $3C
@@ -230,6 +232,19 @@ IsObsidianWarehouseWarpTileInFrontOfPlayer: ; new
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
 .notWarehouseWarp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
+IsOnixBurrowingWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $3C ; why in the universe is this even needed?
+	jr z, .yesBurrowingWarp
+	cp $1C
+	jr nz, .notBurrowingWarp
+.yesBurrowingWarp
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notBurrowingWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 

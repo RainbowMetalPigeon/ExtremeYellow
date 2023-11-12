@@ -4,7 +4,7 @@ SecludedCaves_Object:
 	def_warp_events
 	warp_event  6, 31, SECLUDED_ATOLL_SE, 1
 	warp_event  7, 31, SECLUDED_ATOLL_SE, 1
-	warp_event  6, 28, ONIX_BURROWING, 5
+	warp_event  6, 28, ONIX_BURROWING, 7
 	warp_event 18, 21, SECLUDED_ATOLL_SW, 1
 	warp_event 19, 21, SECLUDED_ATOLL_SW, 1
 
