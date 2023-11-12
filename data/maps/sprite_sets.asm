@@ -4,7 +4,7 @@ MapSpriteSets:
 	db $01 ; VIRIDIAN_CITY
 	db $02 ; PEWTER_CITY
 	db $02 ; CERULEAN_CITY
-	db $03 ; LAVENDER_TOWN
+	db $0f ; LAVENDER_TOWN ; edited, it was $03
 	db $04 ; VERMILION_CITY
 	db $05 ; CELADON_CITY
 	db $08 ; OCHRE_CITY, new, moved
@@ -53,9 +53,9 @@ DEF NORTH_SOUTH EQU 2
 ; 03: sprite set ID if in the East or South side
 SplitMapSpriteSets:
 	db NORTH_SOUTH, 37, $02, $01 ; $f1
-	db NORTH_SOUTH, 50, $02, $03 ; $f2
+	db NORTH_SOUTH, 50, $02, $0f ; $f2, edited, $0f was $03
 	db EAST_WEST,   57, $04, $08 ; $f3
-	db NORTH_SOUTH, 21, $03, $08 ; $f4
+	db NORTH_SOUTH, 21, $0f, $08 ; $f4, edited, $0f was $03
 	db EAST_WEST,    8, $0A, $08 ; $f5
 	db EAST_WEST,   24, $09, $05 ; $f6
 	db EAST_WEST,   34, $09, $0A ; $f7
@@ -63,7 +63,7 @@ SplitMapSpriteSets:
 	db NORTH_SOUTH, 33, $02, $07 ; $f9
 	db NORTH_SOUTH,  2, $07, $04 ; $fa
 	db EAST_WEST,   17, $05, $07 ; $fb
-	db EAST_WEST,    3, $07, $03 ; $fc
+	db EAST_WEST,    3, $07, $0f ; $fc, edited, $0f was $03
 
 SpriteSets:
 
@@ -278,4 +278,19 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_SWIMMER
 	db SPRITE_POKE_BALL
 	db SPRITE_GAMBLER_ASLEEP
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $0f ; copy of $03 for Lavender
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_LITTLE_GIRL
+	db SPRITE_GIRL
+	db SPRITE_SUPER_NERD
+	db SPRITE_HIKER
+	db SPRITE_GAMBLER
+	db SPRITE_TRAVELER ; edited, was SPRITE_MONSTER
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_BOULDER ; edited, was SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	assert_table_length SPRITE_SET_LENGTH
