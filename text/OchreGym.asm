@@ -163,48 +163,109 @@ _OchreGymAfterBattleText5::
 ; ----- Trainer 6, NORMAL -----
 
 _OchreGymBattleText6::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "NORMAL!"
+	text "Looked down..."
+	line "neglected..."
+	cont "considered"
+	cont "trivial and"
+	cont "boring..."
+
+	para "Nothing more wrong"
+	line "that that!!!"
+
+	para "NORMAL is secretly"
+	line "the strongest"
+	cont "type ever, and we"
+	cont "will show you!"
 	done
 
 _OchreGymEndBattleText6::
-	text "OCHRE GYM"
-	line "End text"
-	cont "NORMAL!"
+	text "WHA!!!"
+	line "But- how- can't-"
+	cont "believe- that-"
+	cont "NORMAL-... lost-!"
 	prompt
 
 _OchreGymAfterBattleText6::
-	text "OCHRE GYM"
-	line "After text"
-	cont "NORMAL!"
+	text "Tskkk. Don't get"
+	line "yourself too"
+	cont "hyped."
+
+	para "NORMAL types are"
+	line "still the best!"
+	cont "All-rounded,"
+	cont "versatile,"
+	cont "deceptively so"
+	cont "powerful!"
+
+	para "They are the real"
+	line "underdogs of the"
+	cont "#MON world!"
 	done
 
 ; ----- Trainer 7, COOLTRAINER -----
 
 _OchreGymBattleText7::
-	text "OCHRE GYM"
-	line "Battle text"
-	cont "COOLTRAINER!"
+	text "Hi there! Me? I"
+	line "like all of the"
+	cont "underdog types!"
+
+	para "Their weak spots?"
+	line "I have my ways of"
+	cont "covering them, if"
+	cont "you know what I"
+	cont "mean!"
 	done
 
 _OchreGymEndBattleText7::
-	text "OCHRE GYM"
-	line "End text"
-	cont "COOLTRAINER!"
+	text "Ah!"
+	line "Congratulations,"
+	cont "winning an"
+	cont "INVERSE BATTLE"
+	cont "against the most"
+	cont "neglected types"
+	cont "is quite the"
+	cont "achievement!"
 	prompt
 
 _OchreGymAfterBattleText7::
-	text "OCHRE GYM"
-	line "After text"
-	cont "COOLTRAINER!"
+	text "Well done. Now"
+	line "push forward,"
+	cont "ORAGE can't wait"
+	cont "to face you!"
 	done
 
 ; ----- ORAGE -----
 
 _OragePreBattleText::
-	text "Pre-battle"
-	line "text, test"
+	text "Kudos,"
+	line "challenger."
+
+	para "You won your way"
+	line "through all of my"
+	cont "TRAINERS."
+
+	para "As you know by"
+	line "now, this GYM"
+	cont "specializes in"
+	cont "all types that"
+	cont "have been"
+	cont "neglected by the"
+	cont "INDIGO PLATEAU."
+	cont "It's our job and"
+	cont "passion to give"
+	cont "them the"
+	cont "acknowledgment"
+	cont "they deserve."
+
+	para "Despite so, this"
+	line "is GYM is not..."
+	cont "Nevermind, doesn't"
+	cont "matter."
+
+	para "The only thing"
+	line "that matters,"
+	cont "is that it"
+	cont "is time to duel!"
 	done
 
 _ReceivedNoBadgeText::
@@ -265,19 +326,41 @@ _GiftNoRoomText::
 ; ----- "signs" -----
 
 _OchreGymStatueText::
-	text "Statue text"
+	text "OCHRE CITY"
+	line "#MON gym"
+	cont "Leader: ORAGE"
+
+	para "...the style is"
+	line "somehow off, and"
+	cont "there isn't the"
+	cont "usual list of"
+	cont "winning trainers?"
 	done
 
 _OchreGymTrashBinText_Try1::
-	text "Trash text 1"
+	text "There is a switch!"
+	line "And no trash!"
+	cont "Click!"
 	done
 
 _OchreGymTrashBinText_Try2::
-	text "Trash text 2"
+	text "Again no trash,"
+	line "and yet another"
+	cont "switch!"
+
+	para "Click!"
+	line "A door just"
+	cont "opened nearby!"
 	done
 
 _OchreGymTrashBinText_Try3::
-	text "Trash text 3"
+	text "Still no trash,"
+	line "and one more time"
+	cont "a switch!"
+
+	para "Click!"
+	line "Oh, the door"
+	cont "got closed..."
 	done
 
 ; for rematch ---------------------
@@ -286,6 +369,7 @@ _OrageRematchPreBattleText::
 	text "Rematch"
 	line "ORAGE"
 	cont "Pre"
+;	xxxx "123456789012345678"
 	done
 
 _OrageRematchDefeatedText::

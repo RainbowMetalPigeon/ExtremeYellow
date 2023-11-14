@@ -77,164 +77,337 @@ _PalletTownText7::
 ; new, for the Dark Guide's Hints ------------
 
 _DarkGuideHints_Intro::
-	text "Hi am Dark Guide"
+	text "Hello! I've been"
+	line "wanting to talk"
+	cont "with you."
 
-	para "I have hints for"
-	line "you for the"
-	cont "post game."
+	para "No, not 'you',"
+	line "YOU."
+
+	para "'You' don't"
+	line "understand?"
+	cont "Doesn't matter,"
+	cont "'you' don't need"
+	cont "to. I only want"
+	cont "to speak with YOU"
+	cont "anyhow."
+
+	para "Yes, YOU, behind"
+	line "the screen. Yes,"
+	cont "this is a"
+	cont "4th-wall"
+	cont "breaking, indeed!"
+
+	para "Me? YOU can refer"
+	line "to me as the"
+	cont "DARK GUIDE."
+
+	para "I've been"
+	line "programmed to"
+	cont "give YOU hints"
+	cont "about the"
+	cont "post-game."
+
+	para "There's a lot of"
+	line "post-game"
+	cont "content, so much"
+	cont "that actually"
+	cont "shouldn't even be"
+	cont "considered 'post'"
+	cont "anymore, lol."
+
+	para "Anyway, here I am,"
+	line "to give YOU"
+	cont "progressively"
+	cont "more explicit"
+	cont "hints so YOU"
+	cont "don't have to"
+	cont "jump straight"
+	cont "into googling"
+	cont "stuff."
 	prompt
 
 _DarkGuideHints_Question::
-	text "What hint want"
-	line "to have?"
+	text "What hint to YOU"
+	line "want to have?"
 	done
 
 _DarkGuideHints_Outro::
-	text "Ask me whenever"
+	text "Come back whenever"
+	line "YOU want to hear"
+	cont "more from me!"
+
+	para "YOU'll always find"
+	line "me here. I am"
+	cont "programmed to"
+	cont "never despawn."
+	cont "Ever."
 ;	xxxx "123456789012345678"
-	line "you want guidance"
 	done
 
 _WantMoreDetailsText::
-	text "More details?"
+	text "Would YOU like"
+	line "more details?"
 	done
 
 _WantExplicitSolutionText::
-	text "Explicit solution?"
+	text "Do YOU want the"
+	line "explicit"
+	cont "solution? Careful"
+	cont "about spoilers!"
 	done
 
 ; -----------
 
 _DarkGuideHints_Hint1_Base::
-	text "Hint 1"
-	line "Base"
+	text "A journey anew to"
+	line "venture into"
+	cont "legend and break"
+	cont "through reality."
 	prompt
 
 _DarkGuideHints_Hint1_Details::
-	text "Hint 1"
-	line "More details"
+	text "Famed trainers are"
+	line "waiting to test"
+	cont "themselves and"
+	cont "you, and this"
+	cont "will sail to some"
+	cont "rumors to turn"
+	cont "somehow true."
 	prompt
 
 _DarkGuideHints_Hint1_Solution::
-	text "Hint 1"
-	line "Solution"
+	text "Defeat all GYM"
+	line "LEADERS in a"
+	cont "higher-level"
+	cont "rematch to unlock"
+	cont "the rematches"
+	cont "against the ELITE"
+	cont "FOUR, and if you"
+	cont "will win against"
+	cont "both of"
+	cont "CHAMPION's teams,"
+	cont "you'll make the"
+	cont "SS ANNE return,"
+	cont "which will let"
+	cont "you reach the"
+	cont "famous truck."
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint2_Base::
-	text "Hint 2"
-	line "Base"
+	text "Derettacs"
+	line "sehctamer fo"
+	cont "emaf."
 	prompt
 
 _DarkGuideHints_Hint2_Details::
-	text "Hint 2"
-	line "More details"
+	text "Scattered"
+	line "throughout KANTO,"
+	cont "famous entities"
+	cont "will challenge"
+	cont "your strength as"
+	cont "well as your"
+	cont "flexibility and"
+	cont "knowledge."
 	prompt
 
 _DarkGuideHints_Hint2_Solution::
-	text "Hint 2"
-	line "Solution"
+	text "GYM LEADER and"
+	line "ELITE FOUR"
+	cont "members are"
+	cont "available around"
+	cont "the regions, in"
+	cont "locations fitting"
+	cont "to them, to"
+	cont "challenge you to"
+	cont "an INVERSE"
+	cont "battle."
+
+	para "The locations are"
+	line "the following:"
+
+	para "BROCK:"
+	line "ROCK TUNNEL"
+
+	para "MISTY:"
+	line "SEAFOAM ISLANDS O"
+
+	para "LT.SURGE:"
+	line "POWER PLANT"
+
+	para "ERIKA:"
+	line "VIRIDIAN FOREST"
+
+	para "KOGA:"
+	line "VICTORY ROAD"
+
+	para "SABRINA:"
+	line "MX. PSYCHIC's"
+
+	para "BLAINE:"
+	line "#MON MANSION"
+
+	para "LORELEI:"
+	line "SEAFOAM ISLANDS I"
+
+	para "BRUNO:"
+	line "FIGHTING DOJO"
+
+	para "AGATHA:"
+	line "#MON TOWER"
+
+	para "LANCE:"
+	line "CERULEAN CAVE"
+
+	para "RIVAL:"
+	line "WONDERLAND"
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint3_Base::
-	text "Hint 3"
-	line "Base"
+	text "Scrapped ultimate."
 	prompt
 
 _DarkGuideHints_Hint3_Details::
-	text "Hint 3"
-	line "More details"
+	text "The strongest"
+	line "trainer from the"
+	cont "past will"
+	cont "interrupt their"
+	cont "job to challenge"
+	cont "you."
 	prompt
 
 _DarkGuideHints_Hint3_Solution::
-	text "Hint 3"
-	line "Solution"
+	text "PROF OAK can be"
+	line "fought on"
+	cont "ROUTE 21, where"
+	cont "they are"
+	cont "searching"
+	cont "starters for new"
+	cont "trainers."
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint4_Base::
-	text "Hint 4"
-	line "Base"
+	text "Damnation and"
+	line "redemption."
 	prompt
 
 _DarkGuideHints_Hint4_Details::
-	text "Hint 4"
-	line "More details"
+	text "The future of the"
+	line "missing LEADER is"
+	cont "not yet decided,"
+	cont "as they are"
+	cont "hiding from any"
+	cont "trainer."
 	prompt
 
 _DarkGuideHints_Hint4_Solution::
-	text "Hint 4"
-	line "Solution"
+	text "GIOVANNI can be"
+	line "fought again in"
+	cont "the SAFARI ZONE,"
+	cont "where their story"
+	cont "will continue."
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint5_Base::
-	text "Hint 5"
-	line "Base"
+	text "Interdimensional"
+	line "rupture."
 	prompt
 
 _DarkGuideHints_Hint5_Details::
-	text "Hint 5"
-	line "More details"
+	text "A mysterious"
+	line "traveler from far"
+	cont "far far away will"
+	cont "be eager to"
+	cont "challenge you if"
+	cont "you fulfill the"
+	cont "ultimate"
+	cont "conditions of"
+	cont "power."
 	prompt
 
 _DarkGuideHints_Hint5_Solution::
-	text "Hint 5"
-	line "Solution"
+	text "An inter-"
+	line "dimensional"
+	cont "traveler can"
+	cont "randomly appear"
+	cont "in any city, and"
+	cont "will challenge"
+	cont "you if you have a"
+	cont "MEGA MEWTWO in"
+	cont "your team."
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint6_Base::
-	text "Hint 6"
-	line "Base"
+	text "Beyond the"
+	line "original end."
 	prompt
 
 _DarkGuideHints_Hint6_Details::
-	text "Hint 6"
-	line "More details"
+	text "What was once the"
+	line "final test, is"
+	cont "now presenting a"
+	cont "whole new"
+	cont "challenge."
 	prompt
 
 _DarkGuideHints_Hint6_Solution::
-	text "Hint 6"
-	line "Solution"
+	text "A new door is"
+	line "present in"
+	cont "CERULEAN CAVE,"
+	cont "which will lead"
+	cont "you to the"
+	cont "greatest dungeon,"
+	cont "ending with a"
+	cont "fabulous reward."
+
+	para "A suggestion:"
+	line "venture into the"
+	cont "unknown fully"
+	cont "equipped with"
+	cont "helpers and"
+	cont "money."
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint7_Base::
-	text "Hint 7"
-	line "Base"
+	text "Not ready in"
+	line "the beta version."
 	prompt
 
 _DarkGuideHints_Hint7_Details::
-	text "Hint 7"
-	line "More details"
+	text "Not ready in"
+	line "the beta version."
 	prompt
 
 _DarkGuideHints_Hint7_Solution::
-	text "Hint 7"
-	line "Solution"
+	text "BATTLE FACILITY"
+	line "in VERMILION!"
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint8_Base::
-	text "Hint 8"
-	line "Base"
+	text "Not ready in"
+	line "the beta version."
 	prompt
 
 _DarkGuideHints_Hint8_Details::
-	text "Hint 8"
-	line "More details"
+	text "Not ready in"
+	line "the beta version."
 	prompt
 
 _DarkGuideHints_Hint8_Solution::
-	text "Hint 8"
-	line "Solution"
+	text "HAUNTED HOUSE"
+	line "near LAVENDER!"
 	prompt
