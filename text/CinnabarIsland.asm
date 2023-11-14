@@ -89,6 +89,78 @@ _CinnabarIslandTextNewPerson4::
 	cont "relaxing..."
 	done
 
+_CinnabarIslandTextNewPerson5::
+	text "Everyone is so"
+	line "on fire for the"
+	cont "HOT SPRINGS."
+
+	para "I prefer taking it"
+	line "chill and enjoy"
+	cont "some good fishing"
+	cont "time alone."
+	done
+
+_CinnabarIslandTextNewPerson6::
+	text "I love hiking up"
+	line "on the volcano!"
+
+	para "The path that"
+	line "leads to the cave"
+	cont "is shorter, but"
+	cont "the cave itself"
+	cont "is faaar too hot"
+	cont "for me."
+
+	para "They say there are"
+	line "some rare #MON"
+	cont "and that even"
+	cont "merely walking is"
+	cont "dangerous!"
+	done
+
+_CinnabarIslandTextNewPerson7::
+	text "Everyone calls"
+	line "them HOT SPRINGS,"
+	cont "but actually they"
+	cont "are not hot water"
+	cont "sources, like the"
+	cont "ones in LAVARIDGE"
+	cont "TOWN in HOENN."
+
+	para "Here in CINNABAR"
+	line "ISLAND, it is"
+	cont "simply rain water"
+	cont "that accumulates"
+	cont "in the caldera,"
+	cont "and gets warmed"
+	cont "up by the heath"
+	cont "of the volcano."
+	done
+
+_CinnabarIslandTextNewPerson8::
+	text "..."
+
+	para "Uh? Did you say"
+	line "something?"
+
+	para "Sorry, I was"
+	line "admiring the"
+	cont "panorama."
+	cont "It is so gorgeous"
+	cont "and relaxing."
+
+	para "JOHTO is too far"
+	line "away on the west"
+	cont "to be visible,"
+	cont "but you can"
+	cont "totally see"
+	cont "PALLET TOWN from"
+	cont "here, and even"
+	cont "INDIGO PLATEAU"
+	cont "in the clearest"
+	cont "days!"
+	done
+
 _CinnabarIslandTextVulcano::
 	text "CINNABAR VOLCANO"
 	line "and HOT SPRINGS"

@@ -353,7 +353,7 @@ ObjectsToHide:
 
 LoopShow:
 	ld hl, ObjectsToShow
-.hideLoop
+.showLoop
 	ld a, [hli]
 	cp $ff
 	ret z
@@ -361,7 +361,7 @@ LoopShow:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 	pop hl
-	jr .hideLoop
+	jr .showLoop
 
 ObjectsToShow:
 	db HS_ROUTE_21_OAK
@@ -373,7 +373,6 @@ ObjectsToShow:
 	db HS_ROUTE_20_MISTY
 	db HS_POWER_PLANT_LT_SURGE
 	db HS_VICTORY_ROAD_2F_KOGA
-	db HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE
 	db HS_MOLTRES
 	db HS_ZAPDOS
 	db HS_OBSIDIAN_WOOD_ORAGE
@@ -384,7 +383,7 @@ ObjectsToShow:
 
 LoopShowExtra:
 	ld hl, ObjectsToShowExtra
-.hideLoop
+.showExtraLoop
 	ld a, [hli]
 	cp $ff
 	ret z
@@ -392,7 +391,7 @@ LoopShowExtra:
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
 	pop hl
-	jr .hideLoop
+	jr .showExtraLoop
 
 ObjectsToShowExtra:
 	db HS_SAFARI_ZONE_NORTH_GIOVANNI
@@ -404,4 +403,5 @@ ObjectsToShowExtra:
 	db HS_OCHRE_WONDERLAND_BLUE
 	db HS_CHAMPIONS_ROOM_RIVAL ; new, here to re-show Rival after we hid them when walking towards HoF
 	db HS_SNORLAX_DEN
+	db HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE
 	db $ff

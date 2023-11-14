@@ -304,7 +304,6 @@ ObsidianFuchsiaRockets:
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
-	db HS_FUCHSIA_CITY_ROCKET_SAFARI
 	db $ff
 
 HideObsidianFuchsiaRocketsExtra:
@@ -329,6 +328,7 @@ ObsidianFuchsiaRocketsExtra:
 	db HS_ROUTE_28_ROCKET_2
 	db HS_ROUTE_28_ROCKET_3
 	db HS_ROUTE_28_ROCKET_4
+	db HS_FUCHSIA_CITY_ROCKET_SAFARI
 	db $ff
 
 ShowObsidianCitizens:

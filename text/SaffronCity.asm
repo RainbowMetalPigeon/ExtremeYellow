@@ -4,7 +4,7 @@ _SaffronCityText1::
 	done
 
 _SaffronCityText2::
-	text "BOSS said he'll"
+	text "BOSS said they'll"
 	line "take this town!"
 	done
 
@@ -23,10 +23,10 @@ _SaffronCityText5::
 	line "me feel so alive!"
 	done
 
-_SaffronCityText6::
-	text "Ow! Watch where"
-	line "you're walking!"
-	done
+;_SaffronCityText6::
+;	text "Ow! Watch where"
+;	line "you're walking!"
+;	done
 
 _SaffronCityText7::
 	text "With SILPH under"
@@ -82,13 +82,13 @@ _SaffronCityText14::
 	line "don't allow in!"
 	done
 
-_SaffronCityText15::
-	text "..."
-	line "Snore..."
-
-	para "Hah! He's taking"
-	line "a snooze!"
-	done
+;_SaffronCityText15::
+;	text "..."
+;	line "Snore..."
+;
+;	para "Hah! He's taking"
+;	line "a snooze!"
+;	done
 
 _SaffronCityText16::
 	text "SAFFRON CITY"
@@ -139,7 +139,7 @@ _SaffronCityText22::
 	done
 
 _SaffronCityText24::
-	text "MR.PSYCHIC's"
+	text "MX.PSYCHIC's"
 	line "HOUSE"
 	done
 

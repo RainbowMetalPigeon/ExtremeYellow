@@ -562,6 +562,7 @@ OaksLabScript20:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call DelayFrame
+	call OaksLabScript_1c78e ; why do I need to re-apply this after after/before every dialogue???
 	ld a, $18 ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID

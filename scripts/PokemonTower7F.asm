@@ -307,9 +307,9 @@ PokemonTower7Text3:
 	ld a, HS_SAFFRON_CITY_E
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	ld a, HS_SAFFRON_CITY_F
-	ld [wMissableObjectIndex], a
-	predef ShowObject
+;	ld a, HS_SAFFRON_CITY_F			; does not exist?
+;	ld [wMissableObjectIndex], a	; does not exist?
+;	predef ShowObject				; does not exist?
 	ld a, $b
 	ld [wPokemonTower7FCurScript], a
 	jp TextScriptEnd

@@ -253,6 +253,11 @@ INCLUDE "engine/events/saffron_guards.asm"
 ;INCLUDE "engine/events/starter_dex.asm"
 
 
+SECTION "Traveler functions", ROMX ; new, testing
+
+INCLUDE "engine/miscellanea/traveler.asm"
+
+
 SECTION "Hidden Objects 3", ROMX
 
 INCLUDE "engine/movie/evolution.asm"

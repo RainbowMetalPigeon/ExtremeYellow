@@ -30,10 +30,11 @@ OchreCity_Object:
 	object_event 18, 31, SPRITE_SUPER_NERD, STAY, ANY_DIR, 4 ; lost park
 	object_event 21, 20, SPRITE_FISHER, STAY, RIGHT, 5 ; fish fountain
 	object_event 11, 21, SPRITE_SUPER_NERD, STAY, UP, 6 ; wanna work research
-	object_event 26, 37, SPRITE_ROCKER, WALK, ANY_DIR, 7 ; bikers illegal races
+	object_event 26, 37, SPRITE_BIKER, WALK, ANY_DIR, 7 ; bikers illegal races ; was a ROCKER, but maybe is more cute/ironic if it's a biker complaining about illegal races?
 	object_event 32, 24, SPRITE_BEAUTY, WALK, ANY_DIR, 8 ; rehabilitation center and bird fan club
 	object_event 20, 10, SPRITE_COOLTRAINER_M, WALK, ANY_DIR, 9 ; nature integration
-	object_event 30, 12, SPRITE_BEAUTY, WALK, ANY_DIR, 10 ; ochre city so great
+;	object_event 30, 12, SPRITE_BEAUTY, WALK, ANY_DIR, 10 ; ochre city so great
+	object_event 30, 12, SPRITE_TRAVELER, STAY, ANY_DIR, 10 ; new, traveler
 	object_event 26, 19, SPRITE_SUPER_NERD, WALK, ANY_DIR, 11 ; zoning
 	object_event 19, 26, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 12 ; wait friends walk park
 	object_event 34, 36, SPRITE_BIRD, WALK, ANY_DIR, 13

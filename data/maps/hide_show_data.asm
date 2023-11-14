@@ -10,10 +10,10 @@ MapHSPointers:
 	dw LavenderHS ; LAVENDER_TOWN
 	dw VermilionCityHS ; VERMILION_CITY
 	dw CeladonCityHS ; CELADON_CITY
-	dw NoHS ; OCHRE_CITY
+	dw OchreCityHS ; OCHRE_CITY
 	dw FuchsiaCityHS ; FUCHSIA_CITY
 	dw ObsidianIslandHS ; OBSIDIAN_ISLAND
-	dw NoHS ; CINNABAR_ISLAND
+	dw CinnabarIslandHS ; CINNABAR_ISLAND
 	dw NoHS ; INDIGO_PLATEAU
 	dw SaffronCityHS ; SAFFRON_CITY
 	dw NoHS
@@ -274,30 +274,33 @@ ViridianCityHS:
 	db VIRIDIAN_CITY, $05, SHOW
 	db VIRIDIAN_CITY, $07, HIDE
 	db VIRIDIAN_CITY, $08, HIDE
-PewterCityHS:
-	db PEWTER_CITY, $03, SHOW
-	db PEWTER_CITY, $05, SHOW
+	db VIRIDIAN_CITY, $09, HIDE ; Traveler
+PewterCityHS: ; edited, removed old, now-unused HS and added traveler
+	db PEWTER_CITY, $07, HIDE ; Traveler
 CeruleanCityHS:
 	db CERULEAN_CITY, $01, HIDE
 	db CERULEAN_CITY, $02, SHOW
 	db CERULEAN_CITY, $06, HIDE
 	db CERULEAN_CITY, $0A, SHOW
 	db CERULEAN_CITY, $0B, SHOW
+	db CERULEAN_CITY, $0C, HIDE ; Traveler
 VermilionCityHS: ; new
 	db VERMILION_CITY, $05, SHOW
 	db VERMILION_CITY, $06, HIDE
+	db VERMILION_CITY, $09, HIDE
 CeladonCityHS:
 	db CELADON_CITY, $08, SHOW ; old Rocket grunts
 	db CELADON_CITY, $09, SHOW ; old Rocket grunts
 	db CELADON_CITY, $0A, SHOW ; new Rocket grunts
 	db CELADON_CITY, $0B, SHOW ; new Rocket grunts
+	db CELADON_CITY, $0C, HIDE ; Traveler
 SaffronCityHS:
 	db SAFFRON_CITY, $01, SHOW
 	db SAFFRON_CITY, $02, SHOW
 	db SAFFRON_CITY, $03, SHOW
 	db SAFFRON_CITY, $04, SHOW
 	db SAFFRON_CITY, $05, SHOW
-	db SAFFRON_CITY, $06, SHOW
+	db SAFFRON_CITY, $06, HIDE ; Traveler, edited, was a Rocket
 	db SAFFRON_CITY, $07, SHOW
 	db SAFFRON_CITY, $08, HIDE
 	db SAFFRON_CITY, $09, HIDE
@@ -306,7 +309,7 @@ SaffronCityHS:
 	db SAFFRON_CITY, $0C, HIDE
 	db SAFFRON_CITY, $0D, HIDE
 	db SAFFRON_CITY, $0E, SHOW
-	db SAFFRON_CITY, $0F, HIDE
+;	db SAFFRON_CITY, $0F, HIDE ; does not exist?
 Route2HS:
 	db ROUTE_2, $01, SHOW
 	db ROUTE_2, $02, SHOW
@@ -578,16 +581,6 @@ ObsidianWarehouseFinalHS: ; new
 	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
-FuchsiaCityHS: ; new
-	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone
-CeruleanCaveExtraMiddleHS: ; new, includes rematch Lance
-	db CERULEAN_CAVE_EXTRA_MIDDLE, $01, HIDE
-SecludedCavesHS: ; new, anomalies
-	db SECLUDED_CAVES, $01, SHOW
-	db SECLUDED_CAVES, $02, SHOW
-	db SECLUDED_CAVES, $03, SHOW
-	db SECLUDED_CAVES, $04, SHOW
-	db SECLUDED_CAVES, $05, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -678,7 +671,8 @@ ObsidianIslandHS: ; new
 	db OBSIDIAN_ISLAND, $0A, HIDE
 	db OBSIDIAN_ISLAND, $0B, HIDE
 	db OBSIDIAN_ISLAND, $0C, HIDE
-	db OBSIDIAN_ISLAND, $0D, SHOW ; Rare Candy
+	db OBSIDIAN_ISLAND, $0D, HIDE ; Traveler
+	db OBSIDIAN_ISLAND, $0E, SHOW ; Rare Candy
 OchreWonderlandHS: ; new
 	db OCHRE_WONDERLAND, $01, HIDE ; rematch Blue
 	db OCHRE_WONDERLAND, $02, SHOW ; item
@@ -693,7 +687,7 @@ OchreWonderlandHS: ; new
 CeladonMansion2FHS:
 	db CELADON_MANSION_2F, $01, HIDE ; PIGEON cameo
 LavenderHS: ; new
-	db LAVENDER_TOWN, $04, HIDE ; Traveler, testing
+	db LAVENDER_TOWN, $04, HIDE ; Traveler
 ObsidianMinesHS: ; new
 	db OBSIDIAN_MINES, $03, SHOW ; lost hiker
 	db OBSIDIAN_MINES, $04, SHOW ; item
@@ -710,5 +704,23 @@ Route28HS: ; new
 	db ROUTE_28, $04, SHOW
 OnixBurrowingHS: ; new
 	db ONIX_BURROWING, $01, SHOW
+FuchsiaCityHS: ; new
+	db FUCHSIA_CITY, $03, SHOW ; Erik waiting for Sara
+	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone
+	db FUCHSIA_CITY, $0C, HIDE ; Erik watching Sara
+	db FUCHSIA_CITY, $0D, HIDE ; Sara watching Erik
+	db FUCHSIA_CITY, $0E, HIDE ; Traveler
+CeruleanCaveExtraMiddleHS: ; new, includes rematch Lance
+	db CERULEAN_CAVE_EXTRA_MIDDLE, $01, HIDE
+SecludedCavesHS: ; new, anomalies
+	db SECLUDED_CAVES, $01, SHOW
+	db SECLUDED_CAVES, $02, SHOW
+	db SECLUDED_CAVES, $03, SHOW
+	db SECLUDED_CAVES, $04, SHOW
+	db SECLUDED_CAVES, $05, SHOW
+OchreCityHS: ; new
+	db OCHRE_CITY, $0A, HIDE ; Traveler
+CinnabarIslandHS: ; new
+	db CINNABAR_ISLAND, $0B, HIDE ; Traveler
 
 	db $FF, $01, SHOW ; end, list terminator

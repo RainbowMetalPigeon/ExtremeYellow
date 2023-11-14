@@ -88,6 +88,7 @@ HiddenObjectMaps:
 	dbw SECLUDED_ATOLL_SW,            SecludedAtollSWHiddenObjects ; new
 	dbw OBSIDIAN_WOOD,                ObsidianWoodHiddenObjects ; new
 	dbw CINNABAR_ISLAND,              CinnabarIslandHiddenObjects ; new
+	dbw ROUTE_3,                      Route3HiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -288,6 +289,10 @@ CinnabarIslandHiddenObjects: ; new
 	hidden_object 19, 12, MEGA_STONE_Y, HiddenItems
 	db -1 ; end
 
+Route3HiddenObjects: ; new
+	hidden_object 20,  9, IRON, HiddenItems
+	db -1 ; end
+
 Route23HiddenObjects:
 	hidden_object  9, 44, FULL_RESTORE, HiddenItems
 	hidden_object 19, 70, ULTRA_BALL, HiddenItems
@@ -310,6 +315,7 @@ BillsHouseHiddenObjects:
 
 Route4HiddenObjects:
 	hidden_object 40,  3, GREAT_BALL, HiddenItems
+	hidden_object  6,  4, HP_UP, HiddenItems ; new
 	db -1 ; end
 
 MtMoonPokecenterHiddenObjects:

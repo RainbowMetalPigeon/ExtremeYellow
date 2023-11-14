@@ -7,9 +7,9 @@ WildDataPointers:
 	dw NothingWildMons         ; LAVENDER_TOWN
 	dw NothingWildMons         ; VERMILION_CITY
 	dw NothingWildMons         ; CELADON_CITY
-	dw NothingWildMons         ; OCHRE_CITY, new, moved
+	dw OchreCityWildMons       ; OCHRE_CITY, new
 	dw NothingWildMons         ; FUCHSIA_CITY
-	dw NothingWildMons         ; OBSIDIAN_ISLAND, new, testing
+	dw NothingWildMons         ; OBSIDIAN_ISLAND, new
 	dw NothingWildMons         ; CINNABAR_ISLAND
 	dw NothingWildMons         ; INDIGO_PLATEAU
 	dw NothingWildMons         ; SAFFRON_CITY
@@ -38,9 +38,9 @@ WildDataPointers:
 	dw Route23WildMons         ; ROUTE_23
 	dw Route24WildMons         ; ROUTE_24
 	dw Route25WildMons         ; ROUTE_25
-	dw NothingWildMons		   ; ROUTE_26, new, testing, temporary
-	dw NothingWildMons		   ; ROUTE_27, new, testing
-	dw NothingWildMons		   ; ROUTE_28, new, testing
+	dw NothingWildMons		   ; ROUTE_26, new
+	dw NothingWildMons		   ; ROUTE_27, new
+	dw NothingWildMons		   ; ROUTE_28, new
 	dw NothingWildMons         ; REDS_HOUSE_1F
 	dw NothingWildMons
 	dw NothingWildMons
@@ -334,3 +334,4 @@ INCLUDE "data/wild/maps/SecludedAtollSE.asm" ; new
 INCLUDE "data/wild/maps/SecludedAtollSW.asm" ; new
 INCLUDE "data/wild/maps/ObsidianWood.asm"    ; new
 INCLUDE "data/wild/maps/OnixBurrowing.asm"   ; new
+INCLUDE "data/wild/maps/OchreCity.asm"   	 ; new

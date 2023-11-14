@@ -409,11 +409,11 @@ _NidokingDexEntry::
 _CleffaDexEntry::
 	text "If the impact site"
 	next "of a meteorite is"
-	next "found, this Poké-"
+	next "found, this"
 
-	page "mon is certain to"
-	next "be within the im-"
-	next "mediate area"
+	page "#MON is certain"
+	next "to be within the"
+	next "immediate area"
 	dex
 
 _ClefairyDexEntry::
@@ -492,7 +492,7 @@ _ZubatDexEntry::
 	next "flies. They act as"
 
 	page "a sonar used to"
-	next "check for ob-jects"
+	next "check for objects"
 	next "in its way"
 	dex
 
@@ -651,7 +651,7 @@ _GolduckDexEntry::
 	next "limbs end in broad"
 	next "flippers. They are"
 
-	page "used for swim-ming"
+	page "used for swimming"
 	next "gracefully in"
 	next "lakes"
 	dex
@@ -721,9 +721,9 @@ _PoliwhirlDexEntry::
 	next "uses its belly"
 	next "spiral to put the"
 
-	page "foe to sleep. It"
-	next "then makes its es-"
-	next "cape"
+	page "foe to sleep."
+	next "It then makes"
+	next "its escape"
 	dex
 
 _PoliwrathDexEntry::
@@ -971,9 +971,9 @@ _MagnetonDexEntry::
 	next "radio signals. It"
 	next "raises the temper-"
 
-	page "ature by 2C de-"
-	next "grees within a"
-	next "kilometer"
+	page "ature by 2C"
+	next "degrees within"
+	next "a kilometer"
 	dex
 
 _MagnezoneDexEntry::

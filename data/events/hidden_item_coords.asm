@@ -77,4 +77,6 @@ HiddenItemCoords:
 	hidden_item OBSIDIAN_WOOD,                 40,  42 ; new
 	hidden_item OBSIDIAN_WOOD,                 29,  45 ; new
 	hidden_item CINNABAR_ISLAND,               19,  12 ; new, MEGA_STONE_Y
+	hidden_item ROUTE_3,                       20,   9 ; new
+	hidden_item ROUTE_4,                        6,   4 ; new
 	db -1 ; end

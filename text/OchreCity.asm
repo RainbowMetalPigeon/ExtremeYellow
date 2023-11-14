@@ -153,17 +153,17 @@ _OchreCity_NPCText9:: ; nature integration
 	cont "MAZE PARK!"
 	done
 
-_OchreCity_NPCText10:: ; ochre city so great
-	text "I like this city"
-	line "so much!"
-
-	para "It's been founded"
-	line "very recently,"
-	cont "yet is already"
-	cont "one of the"
-	cont "biggest cities"
-	cont "of KANTO!"
-	done
+;_OchreCity_NPCText10:: ; ochre city so great
+;	text "I like this city"
+;	line "so much!"
+;
+;	para "It's been founded"
+;	line "very recently,"
+;	cont "yet is already"
+;	cont "one of the"
+;	cont "biggest cities"
+;	cont "of KANTO!"
+;	done
 
 _OchreCity_NPCText11:: ; zoning
 	text "This city has a"

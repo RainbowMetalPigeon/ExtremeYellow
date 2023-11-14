@@ -12,25 +12,28 @@ DEF SHOW EQU $15
 	const HS_LYING_OLD_MAN                 ; 01
 	const HS_OLD_MAN_1                     ; 02
 	const HS_OLD_MAN                       ; 03
-	const HS_MUSEUM_GUY                    ; 04
-	const HS_GYM_GUY                       ; 05
+	const HS_VIRIDIAN_CITY_TRAVELER        ; new
+	const HS_PEWTER_CITY_TRAVELER          ; new
 	const HS_CERULEAN_RIVAL                ; 06
 	const HS_CERULEAN_ROCKET               ; 07
 	const HS_CERULEAN_GUARD_1              ; 08
 	const HS_CERULEAN_CAVE_GUY             ; 09
 	const HS_CERULEAN_GUARD_2              ; 0A
+	const HS_CERULEAN_CITY_TRAVELER        ; new
 	const HS_VERMILION_MACHOKE             ; new
 	const HS_VERMILION_MACHAMP             ; new
+	const HS_VERMILION_CITY_TRAVELER       ; new
 	const HS_CELADON_ROCKET_1			   ; new
 	const HS_CELADON_ROCKET_2			   ; new
 	const HS_CELADON_ROCKET_GUARD_1		   ; new
 	const HS_CELADON_ROCKET_GUARD_2		   ; new
+	const HS_CELADON_CITY_TRAVELER		   ; new
 	const HS_SAFFRON_CITY_1                ; 0B
 	const HS_SAFFRON_CITY_2                ; 0C
 	const HS_SAFFRON_CITY_3                ; 0D
 	const HS_SAFFRON_CITY_4                ; 0E
 	const HS_SAFFRON_CITY_5                ; 0F
-	const HS_SAFFRON_CITY_6                ; 10
+	const HS_SAFFRON_CITY_TRAVELER         ; new/edited
 	const HS_SAFFRON_CITY_7                ; 11
 	const HS_SAFFRON_CITY_8                ; 12
 	const HS_SAFFRON_CITY_9                ; 13
@@ -39,7 +42,7 @@ DEF SHOW EQU $15
 	const HS_SAFFRON_CITY_C                ; 16
 	const HS_SAFFRON_CITY_D                ; 17
 	const HS_SAFFRON_CITY_E                ; 18
-	const HS_SAFFRON_CITY_F                ; 19
+;	const HS_SAFFRON_CITY_F                ; 19 ; does not exist?
 	const HS_ROUTE_2_ITEM_1                ; 1A
 	const HS_ROUTE_2_ITEM_2                ; 1B
 	const HS_ROUTE_4_ITEM                  ; 1C
@@ -251,13 +254,6 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
-	const HS_FUCHSIA_CITY_ROCKET_SAFARI    ; new
-	const HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE  ; new
-	const HS_ZYGARDEC					   ; new
-	const HS_UNECROZMA					   ; new
-	const HS_MRAYQUAZA					   ; new
-	const HS_EETERNATUS					   ; new
-	const HS_ARCEUS						   ; new
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---
@@ -326,6 +322,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_CITIZEN_2     ; new
 	const HS_OBSIDIAN_ISLAND_CITIZEN_3     ; new
 	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
+	const HS_OBSIDIAN_ISLAND_TRAVELER      ; new
 	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
 	const HS_OCHRE_WONDERLAND_BLUE		   ; new, Wonderland Blue
 	const HS_OCHRE_WONDERLAND_ITEM_1	   ; new
@@ -338,7 +335,7 @@ DEF SHOW EQU $15
 	const HS_OCHRE_WONDERLAND_ITEM_7	   ; new
 	const HS_OCHRE_WONDERLAND_ITEM_8	   ; new
 	const HS_CELADON_MANSION_PIGEON		   ; new, PIGEON cameo
-	const HS_LAVENDER_TOWN_TRAVELER        ; new, TRAVELER, testing
+	const HS_LAVENDER_TOWN_TRAVELER        ; new
 	const HS_OBSIDIAN_MINES_LOST_HIKER     ; new
 	const HS_OBSIDIAN_MINES_ITEM_1         ; new
 	const HS_OBSIDIAN_MINES_ITEM_2         ; new
@@ -352,3 +349,16 @@ DEF SHOW EQU $15
 	const HS_ROUTE_28_ROCKET_3             ; new
 	const HS_ROUTE_28_ROCKET_4             ; new
 	const HS_SNORLAX_DEN                   ; new
+	const HS_FUCHSIA_CITY_ERIK_WAITING     ; new
+	const HS_FUCHSIA_CITY_ROCKET_SAFARI    ; new
+	const HS_FUCHSIA_CITY_ERIK_HAPPY       ; new
+	const HS_FUCHSIA_CITY_SARA_HAPPY       ; new
+	const HS_FUCHSIA_CITY_TRAVELER         ; new
+	const HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE  ; new
+	const HS_ZYGARDEC					   ; new
+	const HS_UNECROZMA					   ; new
+	const HS_MRAYQUAZA					   ; new
+	const HS_EETERNATUS					   ; new
+	const HS_ARCEUS						   ; new
+	const HS_OCHRE_CITY_TRAVELER           ; new
+	const HS_CINNABAR_ISLAND_TRAVELER      ; new

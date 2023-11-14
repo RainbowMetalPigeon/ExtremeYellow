@@ -257,7 +257,6 @@ INCLUDE "text/CeladonCity.asm"
 INCLUDE "text/FuchsiaCity.asm"
 INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
-INCLUDE "text/OchreCity.asm"
 
 ;INCLUDE "data/text/text_9.asm" ; edited, moved to Text Extra 1
 
@@ -328,6 +327,8 @@ INCLUDE "text/VermilionGym.asm"
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
+INCLUDE "text/OchreCity.asm"
+INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 
 
 ; new: splitted the Pokédex text into two separate sections

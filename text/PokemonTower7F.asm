@@ -25,7 +25,7 @@ _PokemonTowerJessieJamesText4::
 	text_end
 
 _TowerRescueFujiText::
-	text "MR.FUJI: Heh? You"
+	text "MX.FUJI: Heh? You"
 	line "came to save me?"
 
 	para "Thank you. But, I"

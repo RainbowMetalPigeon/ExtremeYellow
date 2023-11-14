@@ -2186,7 +2186,7 @@ wPlayerCoins:: ds 2 ; BCD
 wMissableObjectFlags:: flag_array $100
 wMissableObjectFlagsEnd::
 
-; new for splitting HS - TODO: may break a lot of stuff because 100 bits are a lot (...)
+; new for splitting HS - careful: may break a stuff because 100 bits are "a lot"
 ; bit array of missable objects. set = removed
 wMissableObjectFlagsExtra:: flag_array $70 ; $70 = 112 (bits = 14 bytes) new HS variables, may need to expand if I add more variables
 wMissableObjectFlagsExtraEnd::
@@ -2212,7 +2212,8 @@ wLavenderTownCurScript:: db ; new
 wBluesHouseCurScript:: db
 wViridianCityCurScript:: db
 wObsidianIslandCurScript:: db
-	ds 1 ; edited, was 2
+wOchreCityCurScript:: db ; new
+;	ds 2
 wPewterCityCurScript:: db
 wRoute3CurScript:: db
 wRoute4CurScript:: db
@@ -2278,10 +2279,12 @@ wRocketHideoutB1FCurScript:: db
 wRocketHideoutB2FCurScript:: db
 wRocketHideoutB3FCurScript:: db
 wRocketHideoutB4FCurScript:: db
-	ds 1
+wFuchsiaCityCurScript:: db ; new
+;	ds 1
 wRoute6GateCurScript:: db
 wRoute8GateCurScript:: db
-	ds 1
+wSaffronCityCurScript:: db ; new
+;	ds 1
 wCinnabarIslandCurScript:: db
 wPokemonMansion1FCurScript:: db
 	ds 1

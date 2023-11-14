@@ -1,22 +1,23 @@
 _LavenderHouse1Text_1d8d1::
-	text "That's odd, MR.FUJI"
+	text "That's odd, MX.FUJI"
 	line "isn't here."
-	cont "Where'd he go?"
+	cont "Where'd they go?"
 	done
 
 _LavenderHouse1Text_1d8d6::
-	text "MR.FUJI had been"
+	text "MX.FUJI had been"
 	line "praying alone for"
 	cont "CUBONE's mother."
 	done
 
 _LavenderHouse1Text_1d8f4::
 	text "This is really"
-	line "MR.FUJI's house."
+	line "MX.FUJI's house."
 
-	para "He's really kind!"
+	para "They're really"
+	line "kind!"
 
-	para "He looks after"
+	para "They look after"
 	line "abandoned and"
 	cont "orphaned #MON!"
 	done
@@ -36,7 +37,7 @@ _LavenderHouse1Text4::
 	text_end
 
 _LavenderHouse1Text_1d94c::
-	text "MR.FUJI: <PLAYER>."
+	text "MX.FUJI: <PLAYER>."
 
 	para "Your #DEX quest"
 	line "may fail without"
@@ -48,7 +49,7 @@ _LavenderHouse1Text_1d94c::
 	prompt
 
 _LavenderHouse1Text_MegaStone:: ; new
-	text "MR.FUJI: <PLAYER>."
+	text "MX.FUJI: <PLAYER>."
 
 	para "You have shown"
 	line "both compassion"
@@ -100,7 +101,7 @@ _FluteOrStoneNoRoomText::
 	done
 
 _MrFujiAfterFluteAndStoneText::
-	text "MR.FUJI: Has my"
+	text "MX.FUJI: Has my"
 	line "FLUTE helped you?"
 
 	; new

@@ -296,8 +296,8 @@ _OaksLabRivalTakesText4::
 	line "care!"
 
 	para "I am getting this"
-	line "one and I'm get-"
-	cont "ting it now!"
+	line "one and I'm"
+	cont "getting it now!"
 	prompt
 
 _OaksLabRivalTakesText5::
@@ -432,7 +432,7 @@ _OaksLabText23::
 _OaksLabText24::
 	text "On the desk there"
 	line "is my invention,"
-	cont "#DEX!"
+	cont "the #DEX!"
 
 	para "It automatically"
 	line "records data on"

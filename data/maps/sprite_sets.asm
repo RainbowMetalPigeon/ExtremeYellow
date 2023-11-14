@@ -1,19 +1,19 @@
 MapSpriteSets:
 	table_width 1, MapSpriteSets
 	db $0e ; PALLET_TOWN ; edited, it was $01
-	db $01 ; VIRIDIAN_CITY
-	db $02 ; PEWTER_CITY
-	db $02 ; CERULEAN_CITY
+	db $10 ; VIRIDIAN_CITY ; edited, it was $01
+	db $12 ; PEWTER_CITY ; edited, it was $02
+	db $12 ; CERULEAN_CITY ; edited, it was $02
 	db $0f ; LAVENDER_TOWN ; edited, it was $03
-	db $04 ; VERMILION_CITY
+	db $11 ; VERMILION_CITY ; edited, it was $04
 	db $05 ; CELADON_CITY
 	db $08 ; OCHRE_CITY, new, moved
 	db $0c ; FUCHSIA_CITY ; edited, it was $0a
 	db $0d ; OBSIDIAN_ISLAND, new, testing, custom made
-	db $01 ; CINNABAR_ISLAND
+	db $13 ; CINNABAR_ISLAND ; edited, it was $01
 	db $06 ; INDIGO_PLATEAU
 	db $07 ; SAFFRON_CITY
-	db $01 ; ROUTE_1
+	db $01 ; ROUTE_1 ; is the only $01 left together with R22, we can modify them hopefully, maybe split south with 0e and north with 10?
 	db $f1 ; ROUTE_2
 	db $02 ; ROUTE_3
 	db $02 ; ROUTE_4
@@ -33,12 +33,12 @@ MapSpriteSets:
 	db $f7 ; ROUTE_18
 	db $0a ; ROUTE_19
 	db $f8 ; ROUTE_20
-	db $01 ; ROUTE_21
-	db $01 ; ROUTE_22
+	db $13 ; ROUTE_21 ; edited, it was $01
+	db $01 ; ROUTE_22 ; is the only $01 left together with R1, we can modify them hopefully?
 	db $06 ; ROUTE_23
 	db $02 ; ROUTE_24
 	db $02 ; ROUTE_25
-	db $03 ; ROUTE_26, new, testing
+	db $02 ; ROUTE_26, new
 	db $0d ; ROUTE_27, new, testing, may need a split thingy between $0d (Obsidian) and $05 (Celadon)
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
 	assert_table_length FIRST_INDOOR_MAP
@@ -59,9 +59,9 @@ SplitMapSpriteSets:
 	db EAST_WEST,    8, $0A, $08 ; $f5
 	db EAST_WEST,   24, $09, $05 ; $f6
 	db EAST_WEST,   34, $09, $0A ; $f7
-	db EAST_WEST,   53, $01, $0B ; $f8 ; edited, 0B was 0A
+	db EAST_WEST,   53, $13, $0B ; $f8, edited, $0B was $0A, and $13 was $01
 	db NORTH_SOUTH, 33, $02, $07 ; $f9
-	db NORTH_SOUTH,  2, $07, $04 ; $fa
+	db NORTH_SOUTH,  2, $07, $11 ; $fa, edited, $11 was $04
 	db EAST_WEST,   17, $05, $07 ; $fb
 	db EAST_WEST,    3, $07, $0f ; $fc, edited, $0f was $03
 
@@ -97,7 +97,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
-	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	db SPRITE_BOULDER ; edited, was SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	assert_table_length SPRITE_SET_LENGTH
 
 ; sprite set $03
@@ -134,10 +134,10 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_LITTLE_GIRL
-	db SPRITE_LITTLE_BOY
+	db SPRITE_LITTLE_BOY ; unused?
 	db SPRITE_GIRL
 	db SPRITE_FISHER
-	db SPRITE_MIDDLE_AGED_MAN
+	db SPRITE_TRAVELER ; edited, was SPRITE_MIDDLE_AGED_MAN
 	db SPRITE_GRAMPS
 	db SPRITE_MONSTER
 	db SPRITE_ROCKET
@@ -160,7 +160,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	assert_table_length SPRITE_SET_LENGTH
 
-; sprite set $07
+; sprite set $07 ; edited for traveler
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_ROCKET
@@ -169,7 +169,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_ERIKA
 	db SPRITE_GENTLEMAN
 	db SPRITE_BIRD
-	db SPRITE_ROCKER
+	db SPRITE_TRAVELER ; was SPRITE_ROCKER
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
 	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
@@ -185,7 +185,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_BEAUTY
 	db SPRITE_FISHER
-	db SPRITE_ROCKER ; unused?
+	db SPRITE_TRAVELER ; edited, was a SPRITE_ROCKER
 	db SPRITE_POKE_BALL
 	db SPRITE_SNORLAX
 	assert_table_length SPRITE_SET_LENGTH
@@ -235,7 +235,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_FOSSIL
 	assert_table_length SPRITE_SET_LENGTH
 
-; sprite set $0c ; new, copy of $0a with the addition of Rocket
+; sprite set $0c ; new, copy of $0a for Fuchsia
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_ROCKET ; for guarding the Safari Zone
@@ -244,8 +244,8 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_GAMBLER
 	db SPRITE_MONSTER
 	db SPRITE_SEEL
-	db SPRITE_SWIMMER
-	db SPRITE_YOUNGSTER
+	db SPRITE_TRAVELER ; edited, was SPRITE_SWIMMER
+	db SPRITE_GIRL ; edited, was SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FOSSIL
 	assert_table_length SPRITE_SET_LENGTH
@@ -255,7 +255,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_PIKACHU
 	db SPRITE_YOUNGSTER
 	db SPRITE_ROCKET
-	db SPRITE_SUPER_NERD
+	db SPRITE_TRAVELER
 	db SPRITE_FISHER
 	db SPRITE_SCIENTIST
 	db SPRITE_OFFICER_JENNY
@@ -293,4 +293,64 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
 	db SPRITE_BOULDER ; edited, was SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $10 ; copy of $01 for Viridian
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BLUE
+	db SPRITE_YOUNGSTER
+	db SPRITE_GIRL
+	db SPRITE_FISHER
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_GAMBLER
+	db SPRITE_OAK
+	db SPRITE_TRAVELER ; edited, was SPRITE_SWIMMER
+	db SPRITE_POKE_BALL
+	db SPRITE_GAMBLER_ASLEEP
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $11, copy of $04 for Vermilion
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_OFFICER_JENNY
+	db SPRITE_TRAVELER ; edited, was SPRITE_SUPER_NERD
+	db SPRITE_YOUNGSTER
+	db SPRITE_GAMBLER
+	db SPRITE_MONSTER
+	db SPRITE_SAILOR
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $12, copy of $02 for Pewtwer and Cerulean
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_TRAVELER ; edited, was SPRITE_YOUNGSTER
+	db SPRITE_ROCKET
+	db SPRITE_SUPER_NERD
+	db SPRITE_HIKER
+	db SPRITE_BLUE
+	db SPRITE_OFFICER_JENNY
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_BOULDER ; edited, was SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $13, copy of $01 for Cinnabar, R21, R22
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BLUE
+	db SPRITE_TRAVELER ; was SPRITE_YOUNGSTER
+	db SPRITE_GIRL
+	db SPRITE_FISHER
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_GAMBLER
+	db SPRITE_OAK
+	db SPRITE_SWIMMER
+	db SPRITE_POKE_BALL
+	db SPRITE_GAMBLER_ASLEEP
 	assert_table_length SPRITE_SET_LENGTH

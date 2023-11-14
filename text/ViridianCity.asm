@@ -86,7 +86,7 @@ _ViridianCityText_19175::
 	cont "here of all"
 	cont "places!"
 
-	para "It can’t be"
+	para "It can't be"
 	line "helped... We have"
 	cont "to wait until"
 	cont "they sobers up."

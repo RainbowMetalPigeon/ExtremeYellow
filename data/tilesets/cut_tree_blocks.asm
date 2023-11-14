@@ -10,6 +10,8 @@ CutTreeBlockSwaps:
 	db $3C, $35
 	db $3F, $35
 	db $3D, $36
+	db $B8, $4C ; new, for OVERWORLD (used in FUCHSIA_CITY)
+	db $B9, $BA ; new, for OVERWORLD (used in FUCHSIA_CITY)
 	db $4D, $4E ; new, for ISLAND blockset
 	db $8B, $05 ; new, for CAVERN blockset
 	db -1 ; end

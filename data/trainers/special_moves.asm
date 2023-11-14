@@ -8,6 +8,17 @@ SpecialTrainerMoves:
 ;	db 1, 1, TACKLE
 	db 1, 2, WRAP
 	db 0
+	
+	db BUG_CATCHER, 3 ; new, testing
+	; BUTTERFREE
+	db 1, 2, TACKLE
+	db 1, 3, STRING_SHOT
+	db 1, 4, HARDEN
+	; BEEDRILL
+	db 1, 2, POISON_STING
+	db 1, 3, STRING_SHOT
+	db 1, 4, HARDEN
+	db 0
 
 	db YOUNGSTER, 14
 ;	db 6, 1, SLASH

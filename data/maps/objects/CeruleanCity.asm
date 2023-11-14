@@ -14,12 +14,12 @@ CeruleanCity_Object:
 	warp_event  9,  9, CERULEAN_BADGE_HOUSE, 1
 
 	def_bg_events
-	bg_event 23, 19, 12 ; CeruleanCityText12
-	bg_event 17, 29, 13 ; CeruleanCityText13
-	bg_event 26, 25, 14 ; MartSignText
-	bg_event 20, 17, 15 ; PokeCenterSignText
-	bg_event 11, 25, 16 ; CeruleanCityText16
-	bg_event 27, 21, 17 ; CeruleanCityText17
+	bg_event 23, 19, 13 ; CeruleanCityText12
+	bg_event 17, 29, 14 ; CeruleanCityText13
+	bg_event 26, 25, 15 ; MartSignText
+	bg_event 20, 17, 16 ; PokeCenterSignText
+	bg_event 11, 25, 17 ; CeruleanCityText16
+	bg_event 27, 21, 18 ; CeruleanCityText17
 
 	def_object_events
 	object_event 20,  2, SPRITE_BLUE, STAY, DOWN, 1 ; person
@@ -33,5 +33,6 @@ CeruleanCity_Object:
 	object_event  9, 27, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 9 ; person
 	object_event  4, 12, SPRITE_SUPER_NERD, STAY, DOWN, 10 ; person
 	object_event 27, 12, SPRITE_OFFICER_JENNY, STAY, DOWN, 11 ; person
+	object_event 23, 12, SPRITE_TRAVELER, STAY, ANY_DIR, 12 ; new, traveler
 
 	def_warps_to CERULEAN_CITY

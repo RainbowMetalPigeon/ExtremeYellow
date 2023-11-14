@@ -1,4 +1,5 @@
 ViridianCity_Script:
+	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, ViridianCity_ScriptPointers
 	ld a, [wViridianCityCurScript]
@@ -17,6 +18,7 @@ ViridianCity_ScriptPointers:
 	dw ViridianCityScript8
 	dw ViridianCityScript9
 	dw ViridianCityScript10
+	dw ViridianScript_Traveler ; new, for traveler
 
 ViridianCityScript0:
 	call ViridianCityScript_1905b
@@ -263,6 +265,7 @@ ViridianCity_TextPointers:
 	dw ViridianCityText_5
 	dw ViridianCityText_6
 	dw ViridianCityText_7
+	dw TextPreBattle_ViridianTraveler ; new, for traveler
 	dw ViridianCityText_8
 	dw ViridianCityText_9
 	dw ViridianCityText_10
@@ -271,6 +274,7 @@ ViridianCity_TextPointers:
 	dw ViridianCityText_11
 	dw ViridianCityText_12
 	dw ViridianCityText_13
+	dw TextPostBattle_ViridianTraveler ; 18=$12 new, for traveler
 
 ViridianCityText_0:
 	text_asm
@@ -361,3 +365,128 @@ ViridianCityText_12:
 	text_asm
 	farcall Func_f19f5
 	jp TextScriptEnd
+
+; ================================
+
+TextPreBattle_ViridianTraveler: ; new
+	text_asm 
+	ld hl, Text_Intro_ViridianTraveler
+	call PrintText
+	callfar CheckIfMegaMewtwoInParty
+	jr c, .MMewtwoIsInParty
+	ld hl, Text_NoMMewtwo_ViridianTraveler
+	call PrintText
+	jp TextScriptEnd
+.MMewtwoIsInParty
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, Text_YesMMewtwo_ViridianTraveler
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
+	call Delay3
+	ld a, OPP_TRAVELER
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld hl, Text_DefeatPostBattle_ViridianTraveler
+	ld de, Text_VictoryPostBattle_ViridianTraveler
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 11 ; city-specific
+	ld [wViridianCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_ViridianTraveler:
+	text_asm
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
+	ld hl, Text_Compliments_ViridianTraveler
+	call PrintText
+	call GBFadeOutToBlack
+    ld a, SFX_PUSH_BOULDER
+    call PlaySound
+	ld c, 50
+	call DelayFrames
+	call GBFadeInFromBlack
+	call GBFadeOutToBlack
+	call GBFadeInFromBlack
+	call GBFadeOutToBlack
+    ld a, SFX_GO_INSIDE
+    call PlaySound
+	ld c, 50
+	call DelayFrames
+	call GBFadeInFromBlack
+	ld hl, Text_WhatWasThat_ViridianTraveler
+	call PrintText
+	; script handling
+	xor a
+	ld [wViridianCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+; --------------------------------
+
+Text_Intro_ViridianTraveler:
+	text_far _TextTraveler_Intro
+	text_end
+
+Text_YesMMewtwo_ViridianTraveler:
+	text_far _TextTraveler_YesMMewtwo
+	text_end
+
+Text_NoMMewtwo_ViridianTraveler:
+	text_far _TextTraveler_NoMMewtwo
+	text_end
+
+Text_DefeatPostBattle_ViridianTraveler:
+	text_far _TextTraveler_DefeatPostBattle
+	text_end
+
+Text_VictoryPostBattle_ViridianTraveler:
+	text_far _TextTraveler_VictoryPostBattle
+	text_end
+
+Text_Compliments_ViridianTraveler:
+	text_far _TextTraveler_Compliments
+	text_end
+
+Text_WhatWasThat_ViridianTraveler:
+	text_far _TextTraveler_WhatWasThat
+	text_end
+
+; --------------------------------
+
+ViridianScript_Traveler:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wViridianCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+; this is to guarantee that the traveler is visible after the battle
+    ld a, HS_VIRIDIAN_CITY_TRAVELER ; city-specific
+    ld [wMissableObjectIndex], a
+    predef ShowObject ; city-specific
+	ld a, 18 ; city-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; make the traveler run away to search Mega Mewtwo
+	call GBFadeOutToBlack
+    callfar LoopHideTraveler
+    callfar LoopHideTravelerExtra
+	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
+    ld [wMissableObjectIndex], a
+    predef ShowObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	ret
+
+; ================================

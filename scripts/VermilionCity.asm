@@ -1,4 +1,5 @@
 VermilionCity_Script:
+	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, wd492
 	res 7, [hl]
@@ -53,6 +54,7 @@ VermilionCity_ScriptPointers:
 	dw VermilionCityScript2
 	dw VermilionCityScript3
 	dw VermilionCityScript4
+	dw VermilionScript_Traveler ; new, for traveler
 
 VermilionCityScript0:
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
@@ -140,10 +142,11 @@ VermilionCity_TextPointers:
 	dw VermilionCityText2
 	dw VermilionCityText3 ; SS Anne Guardian
 	dw VermilionCityText4
-	dw VermilionCityText5
-	dw VermilionCityText5PG
+	dw VermilionCityText5 ; Machoke
+	dw VermilionCityText5PG ; new, Machamp
 	dw VermilionCityText6
 	dw VermilionCityText7
+	dw TextPreBattle_VermilionTraveler ; new, for traveler
 	dw VermilionCityText8
 	dw VermilionCityText9
 	dw MartSignText
@@ -152,6 +155,7 @@ VermilionCity_TextPointers:
 	dw VermilionCityText13
 	dw VermilionCityText14
 	dw VermilionCityText16
+	dw TextPostBattle_VermilionTraveler ; 18, new, for traveler
 
 VermilionCityText1:
 	text_far _VermilionCityText1
@@ -333,3 +337,128 @@ VermilionCityText16: ; new
 	text_asm
 	farcall Func_BattleFacility
 	jp TextScriptEnd
+
+; ================================
+
+TextPreBattle_VermilionTraveler: ; new
+	text_asm 
+	ld hl, Text_Intro_VermilionTraveler
+	call PrintText
+	callfar CheckIfMegaMewtwoInParty
+	jr c, .MMewtwoIsInParty
+	ld hl, Text_NoMMewtwo_VermilionTraveler
+	call PrintText
+	jp TextScriptEnd
+.MMewtwoIsInParty
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, Text_YesMMewtwo_VermilionTraveler
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
+	call Delay3
+	ld a, OPP_TRAVELER
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld hl, Text_DefeatPostBattle_VermilionTraveler
+	ld de, Text_VictoryPostBattle_VermilionTraveler
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 5 ; city-specific
+	ld [wVermilionCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_VermilionTraveler:
+	text_asm
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
+	ld hl, Text_Compliments_VermilionTraveler
+	call PrintText
+	call GBFadeOutToBlack
+    ld a, SFX_PUSH_BOULDER
+    call PlaySound
+	ld c, 50
+	call DelayFrames
+	call GBFadeInFromBlack
+	call GBFadeOutToBlack
+	call GBFadeInFromBlack
+	call GBFadeOutToBlack
+    ld a, SFX_GO_INSIDE
+    call PlaySound
+	ld c, 50
+	call DelayFrames
+	call GBFadeInFromBlack
+	ld hl, Text_WhatWasThat_VermilionTraveler
+	call PrintText
+	; script handling
+	xor a
+	ld [wVermilionCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+; --------------------------------
+
+VermilionScript_Traveler:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wVermilionCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+; this is to guarantee that the traveler is visible after the battle
+    ld a, HS_VERMILION_CITY_TRAVELER ; city-specific
+    ld [wMissableObjectIndex], a
+    predef ShowObject ; city-specific
+	ld a, 18 ; city-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; make the traveler run away to search Mega Mewtwo
+	call GBFadeOutToBlack
+    callfar LoopHideTraveler
+    callfar LoopHideTravelerExtra
+	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
+    ld [wMissableObjectIndex], a
+    predef ShowObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	ret
+
+; --------------------------------
+
+Text_Intro_VermilionTraveler:
+	text_far _TextTraveler_Intro
+	text_end
+
+Text_YesMMewtwo_VermilionTraveler:
+	text_far _TextTraveler_YesMMewtwo
+	text_end
+
+Text_NoMMewtwo_VermilionTraveler:
+	text_far _TextTraveler_NoMMewtwo
+	text_end
+
+Text_DefeatPostBattle_VermilionTraveler:
+	text_far _TextTraveler_DefeatPostBattle
+	text_end
+
+Text_VictoryPostBattle_VermilionTraveler:
+	text_far _TextTraveler_VictoryPostBattle
+	text_end
+
+Text_Compliments_VermilionTraveler:
+	text_far _TextTraveler_Compliments
+	text_end
+
+Text_WhatWasThat_VermilionTraveler:
+	text_far _TextTraveler_WhatWasThat
+	text_end
+
+; ================================

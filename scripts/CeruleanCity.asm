@@ -1,4 +1,5 @@
 CeruleanCity_Script:
+	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, CeruleanCity_ScriptPointers
 	ld a, [wCeruleanCityCurScript]
@@ -18,6 +19,7 @@ CeruleanCity_ScriptPointers:
 	dw CeruleanCityScript2
 	dw CeruleanCityScript3
 	dw CeruleanCityScript4
+	dw CeruleanScript_Traveler ; new, for traveler
 
 CeruleanCityScript4:
 	ld a, [wIsInBattle]
@@ -140,8 +142,6 @@ CeruleanCityScript1:
 	ld [wCurOpponent], a
 	ld a, 3
 	ld [wTrainerNo], a
-;	ld a, 1								; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?
 	xor a
 	ldh [hJoyHeld], a
 	call CeruleanCityScript_1955d
@@ -153,8 +153,6 @@ CeruleanCityScript2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CeruleanCityScript_1948c
-;	xor a								; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?
 	call CeruleanCityScript_1955d
 	ld a, $f0
 	ld [wJoyIgnore], a
@@ -228,12 +226,14 @@ CeruleanCity_TextPointers:
 	dw CeruleanCityText9
 	dw CeruleanCityText10
 	dw CeruleanCityText11
+	dw TextPreBattle_CeruleanTraveler ; new, for traveler
 	dw CeruleanCityText12
 	dw CeruleanCityText13
 	dw MartSignText
 	dw PokeCenterSignText
 	dw CeruleanCityText16
 	dw CeruleanCityText17
+	dw TextPostBattle_CeruleanTraveler ; $13=19, new, for traveler
 
 CeruleanCityText1:
 	text_asm
@@ -442,3 +442,128 @@ CeruleanCityText16:
 CeruleanCityText17:
 	text_far _CeruleanCityText17
 	text_end
+
+; ================================
+
+TextPreBattle_CeruleanTraveler: ; new
+	text_asm 
+	ld hl, Text_Intro_CeruleanTraveler
+	call PrintText
+	callfar CheckIfMegaMewtwoInParty
+	jr c, .MMewtwoIsInParty
+	ld hl, Text_NoMMewtwo_CeruleanTraveler
+	call PrintText
+	jp TextScriptEnd
+.MMewtwoIsInParty
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, Text_YesMMewtwo_CeruleanTraveler
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
+	call Delay3
+	ld a, OPP_TRAVELER
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld hl, Text_DefeatPostBattle_CeruleanTraveler
+	ld de, Text_VictoryPostBattle_CeruleanTraveler
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 5 ; city-specific
+	ld [wCeruleanCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_CeruleanTraveler:
+	text_asm
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
+	ld hl, Text_Compliments_CeruleanTraveler
+	call PrintText
+	call GBFadeOutToBlack
+    ld a, SFX_PUSH_BOULDER
+    call PlaySound
+	ld c, 50
+	call DelayFrames
+	call GBFadeInFromBlack
+	call GBFadeOutToBlack
+	call GBFadeInFromBlack
+	call GBFadeOutToBlack
+    ld a, SFX_GO_INSIDE
+    call PlaySound
+	ld c, 50
+	call DelayFrames
+	call GBFadeInFromBlack
+	ld hl, Text_WhatWasThat_CeruleanTraveler
+	call PrintText
+	; script handling
+	xor a
+	ld [wCeruleanCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+; --------------------------------
+
+CeruleanScript_Traveler:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wCeruleanCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+; this is to guarantee that the traveler is visible after the battle
+    ld a, HS_CERULEAN_CITY_TRAVELER ; city-specific
+    ld [wMissableObjectIndex], a
+    predef ShowObject ; city-specific
+	ld a, $13 ; city-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; make the traveler run away to search Mega Mewtwo
+	call GBFadeOutToBlack
+    callfar LoopHideTraveler
+    callfar LoopHideTravelerExtra
+	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
+    ld [wMissableObjectIndex], a
+    predef ShowObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	ret
+
+; --------------------------------
+
+Text_Intro_CeruleanTraveler:
+	text_far _TextTraveler_Intro
+	text_end
+
+Text_YesMMewtwo_CeruleanTraveler:
+	text_far _TextTraveler_YesMMewtwo
+	text_end
+
+Text_NoMMewtwo_CeruleanTraveler:
+	text_far _TextTraveler_NoMMewtwo
+	text_end
+
+Text_DefeatPostBattle_CeruleanTraveler:
+	text_far _TextTraveler_DefeatPostBattle
+	text_end
+
+Text_VictoryPostBattle_CeruleanTraveler:
+	text_far _TextTraveler_VictoryPostBattle
+	text_end
+
+Text_Compliments_CeruleanTraveler:
+	text_far _TextTraveler_Compliments
+	text_end
+
+Text_WhatWasThat_CeruleanTraveler:
+	text_far _TextTraveler_WhatWasThat
+	text_end
+
+; ================================

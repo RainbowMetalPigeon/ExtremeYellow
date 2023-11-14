@@ -37,8 +37,8 @@ _PewterCityText_193fb::
 	cont "have to go!"
 	done
 
-_PewterCityText13::
-	done
+;_PewterCityText13::
+;	done
 
 _PewterCityText_19427::
 	text "Psssst!"
@@ -74,10 +74,21 @@ _PewterCityText_1945dBis::
 	cont "expectations?"
 	done
 
-_PewterCityText14::
-	text "If you have the"
-	line "right stuff, go"
-	cont "take on BROCK!"
+;_PewterCityText14::
+;	text "If you have the"
+;	line "right stuff, go"
+;	cont "take on BROCK!"
+;	done
+
+_PewterCityTextNewRoute:: ; new
+	text "They opened up a"
+	line "new hike north"
+	cont "of here."
+
+	para "I tried it out,"
+	line "but is very steep"
+	cont "and I haven't"
+	cont "completed it yet."
 	done
 
 _PewterCityText6::

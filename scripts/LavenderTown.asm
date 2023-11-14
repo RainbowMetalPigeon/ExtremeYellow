@@ -1,5 +1,5 @@
 LavenderTown_Script:
-	call SpawnTraveler ; new
+	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, LavenderTown_ScriptPointers
 	ld a, [wLavenderTownCurScript]
@@ -7,34 +7,35 @@ LavenderTown_Script:
 	ld [wLavenderTownCurScript], a
 	ret
 
-LavenderTown_ScriptPointers: ; new, testing
+LavenderTown_ScriptPointers: ; new, for traveler
 	dw LavenderScript0
-	dw LavenderScript1
+	dw LavenderScript_Traveler
 
 LavenderScript0:
 	ret
 
-LavenderScript1:
+; ================================
+
+LavenderScript_Traveler:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wLavenderTownCurScript], a
+	ld [wLavenderTownCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated
 ; this is to guarantee that the traveler is visible after the battle
-    ld a, HS_LAVENDER_TOWN_TRAVELER
+    ld a, HS_LAVENDER_TOWN_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
-    predef ShowObjectExtra
-	ld a, $0b
+    predef ShowObjectExtra ; city-specific
+	ld a, $0b ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo
 	call GBFadeOutToBlack
-    ld a, HS_LAVENDER_TOWN_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef HideObjectExtra
+    callfar LoopHideTraveler
+    callfar LoopHideTravelerExtra
 	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
     ld [wMissableObjectIndex], a
     predef ShowObjectExtra
@@ -43,111 +44,61 @@ LavenderScript1:
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
-
-SpawnTraveler:: ; new
-    ld hl, wCurrentMapScriptFlags
-    bit 5, [hl]
-    res 5, [hl]
-    ret z
-;	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-;	ret z
-;	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-;	ret nz
-	call Random
-	cp 200 ; TBE
-	jr c, .makeAppear
-    ld a, HS_LAVENDER_TOWN_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef HideObjectExtra
-	ret
-.makeAppear
-    ld a, HS_LAVENDER_TOWN_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef ShowObjectExtra
-    ret
-
 ; ================================
 
 LavenderTown_TextPointers:
 	dw LavenderTownText1
 	dw LavenderTownText2
 	dw LavenderTownText3
-	dw LavenderTownTextTravelerPreBattle ; new, can't be bothered to rename and reorder other text pointers
+	dw TextPreBattle_LavenderTraveler ; new, for traveler
 	dw LavenderTownText4
 	dw LavenderTownText5
 	dw MartSignText
 	dw PokeCenterSignText
 	dw LavenderTownText8
 	dw LavenderTownText9 ; $0a
-	dw LavenderTownTextTravelerPostBattle ; $0b
+	dw TextPostBattle_LavenderTraveler ; $0b, new, for traveler
 
-; --------------------------------
+; ================================
 
-LavenderTownTextTravelerPreBattle: ; new, proxy for now
+TextPreBattle_LavenderTraveler: ; new
 	text_asm 
-	ld hl, LavenderTownTextTraveler_Intro
+	ld hl, Text_Intro_LavenderTraveler
 	call PrintText
-	call CheckIfMegaMewtwoInParty
+	callfar CheckIfMegaMewtwoInParty
 	jr c, .MMewtwoIsInParty
-	ld hl, LavenderTownTextTraveler_NoMMewtwo
+	ld hl, Text_NoMMewtwo_LavenderTraveler
 	call PrintText
 	jp TextScriptEnd
 .MMewtwoIsInParty
 	ld c, BANK(Music_MeetMaleTrainer)
 	ld a, MUSIC_MEET_MALE_TRAINER
 	call PlayMusic
-
-	ld hl, LavenderTownTextTraveler_YesMMewtwo
+	ld hl, Text_YesMMewtwo_LavenderTraveler
 	call PrintText
-
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
 	ld hl, wOptions
 	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-
 	call Delay3
 	ld a, OPP_TRAVELER
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
-
-	ld hl, TravelerDefeatPostBattleText
-	ld de, TravelerVictoryPostBattleText
+	ld hl, TextDefeatPostBattle_LavenderTraveler
+	ld de, TextVictoryPostBattle_LavenderTraveler
 	call SaveEndBattleTextPointers
-
-	; script handling
-	ld a, 1
-	ld [wLavenderTownCurScript], a
+; script handling
+	ld a, 1 ; city-specific
+	ld [wLavenderTownCurScript], a ; city-specific
 	ld [wCurMapScript], a
-
 	jp TextScriptEnd
 
-LavenderTownTextTraveler_Intro:
-	text_far _LavenderTownTextTraveler_Intro
-	text_end
-
-LavenderTownTextTraveler_YesMMewtwo:
-	text_far _LavenderTownTextTraveler_YesMMewtwo
-	text_end
-
-LavenderTownTextTraveler_NoMMewtwo:
-	text_far _LavenderTownTextTraveler_NoMMewtwo
-	text_end
-
-TravelerDefeatPostBattleText:
-	text_far _TravelerDefeatPostBattleText
-	text_end
-
-TravelerVictoryPostBattleText:
-	text_far _TravelerVictoryPostBattleText
-	text_end
-
-LavenderTownTextTravelerPostBattle:
+TextPostBattle_LavenderTraveler:
 	text_asm
 	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, LavenderTownTextTraveler_Compliments
+	ld hl, Text_Compliments_LavenderTraveler
 	call PrintText
 	call GBFadeOutToBlack
     ld a, SFX_PUSH_BOULDER
@@ -163,42 +114,43 @@ LavenderTownTextTravelerPostBattle:
 	ld c, 50
 	call DelayFrames
 	call GBFadeInFromBlack
-	ld hl, LavenderTownTextTraveler_WhatWasThat
+	ld hl, Text_WhatWasThat_LavenderTraveler
 	call PrintText
 	; script handling
 	xor a
-	ld [wLavenderTownCurScript], a
+	ld [wLavenderTownCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
-LavenderTownTextTraveler_Compliments:
-	text_far _LavenderTownTextTraveler_Compliments
-	text_end
-
-LavenderTownTextTraveler_WhatWasThat:
-	text_far _LavenderTownTextTraveler_WhatWasThat
-	text_end
-
 ; --------------------------------
 
-CheckIfMegaMewtwoInParty:: ; new, testing
-	ld hl, wPartyCount
-	ld a, [hli]
-	ld b, a ; b has the numnber of Mons in the party
-.loop
-	ld a, [hli]
-	cp MMEWTWOX
-	jp z, .MMewtwoInParty
-	cp MMEWTWOY
-	jp z, .MMewtwoInParty
-	dec b
-	jr nz, .loop
-	cp 0 ; a is always >=1, so when we do cp 0 the carry flag is never set (a-0)
-		 ; this is the opposite of what happens if a Mega Mewtwo IS in the party
-	ret
-.MMewtwoInParty
-	scf ; set carry flag
-	ret
+Text_Intro_LavenderTraveler:
+	text_far _TextTraveler_Intro
+	text_end
+
+Text_YesMMewtwo_LavenderTraveler:
+	text_far _TextTraveler_YesMMewtwo
+	text_end
+
+Text_NoMMewtwo_LavenderTraveler:
+	text_far _TextTraveler_NoMMewtwo
+	text_end
+
+TextDefeatPostBattle_LavenderTraveler:
+	text_far _TextTraveler_DefeatPostBattle
+	text_end
+
+TextVictoryPostBattle_LavenderTraveler:
+	text_far _TextTraveler_VictoryPostBattle
+	text_end
+
+Text_Compliments_LavenderTraveler:
+	text_far _TextTraveler_Compliments
+	text_end
+
+Text_WhatWasThat_LavenderTraveler:
+	text_far _TextTraveler_WhatWasThat
+	text_end
 
 ; ================================
 
@@ -251,5 +203,3 @@ LavenderTownText8:
 LavenderTownText9:
 	text_far _LavenderTownText9
 	text_end
-
-; ================================

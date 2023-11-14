@@ -38,7 +38,7 @@ _FuchsiaCityTextRocket:: ; new
 	cont "Come back never!"
 	done
 
-_FuchsiaCityText11::
+_FuchsiaCityText12:: ; edited
 	text "FUCHSIA CITY"
 	line "Behold! It's"
 	cont "Passion Pink!"
@@ -85,7 +85,7 @@ _FuchsiaCityVoltorbText::
 _FuchsiaCityKangaskhanText::
 	text "Name: KANGASKHAN"
 
-	para "A maternal #MON"
+	para "A parental #MON"
 	line "that raises its"
 	cont "young in a pouch"
 	cont "on its belly."
@@ -101,7 +101,7 @@ _FuchsiaCitySlowpokeText::
 _FuchsiaCityLaprasText::
 	text "Name: LAPRAS"
 
-	para "A.K.A. the king"
+	para "A.K.A. the ruler"
 	line "of the seas."
 	prompt
 
@@ -123,4 +123,34 @@ _FuchsiaCityKabutoText::
 
 _FuchsiaCityText_19b2a::
 	text "..."
+	done
+
+_FuchsiaCityTextErikHappy:: ; new
+	text "Thank you so much"
+	line "for helping us!"
+	cont "That misunder-"
+	cont "standing could"
+	cont "have costed us"
+	cont "the whole day."
+
+	para "I risked spending"
+	cont "hours here..."
+
+	para "I am so happy to"
+	line "be with SARA!"
+	done
+
+_FuchsiaCityTextSaraHappy:: ; new
+	text "Thank you so much"
+	line "for helping us!"
+	cont "That misunder-"
+	cont "standing could"
+	cont "have costed us"
+	cont "the whole day."
+
+	para "I risked spending"
+	cont "hours there..."
+
+	para "I am so happy to"
+	line "be with ERIK!"
 	done
