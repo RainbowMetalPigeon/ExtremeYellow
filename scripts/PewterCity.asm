@@ -91,33 +91,61 @@ PewterCityText_193fb:
 ;	text_far _PewterCityText13
 ;	text_end
 
-PewterCityText4:
+PewterCityText4: ; edited
 	text_asm
-	ld hl, PewterCityText_19427
+	CheckEvent EVENT_GOT_PEWTER_REPELS
+	jr z, .didntGetRepelYet
+	ld hl, PewterCityText_RepelToCross
+	call PrintText
+	jr .done
+.didntGetRepelYet
+	ld hl, PewterCityText_DoYouKnow
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	cp $0
 	jr nz, .playerDoesNotKnow
-	ld hl, PewterCityText_1942c
+	ld hl, PewterCityText_HardWork
 	call PrintText
 	jr .done
 .playerDoesNotKnow
-	ld hl, PewterCityText_19431
+	ld hl, PewterCityText_Spraying
 	call PrintText
+	lb bc, REPEL, 5
+	call GiveItem
+	jr nc, .bag_full
+	ld hl, PewterCityText_GotRepel
+	call PrintText
+	SetEvent EVENT_GOT_PEWTER_REPELS
+.bag_full
+	ld hl, PewterCityText_BagFull
+	jr .done
 .done
 	jp TextScriptEnd
 
-PewterCityText_19427:
-	text_far _PewterCityText_19427
+PewterCityText_DoYouKnow:
+	text_far _PewterCityText_DoYouKnow
 	text_end
 
-PewterCityText_1942c:
-	text_far _PewterCityText_1942c
+PewterCityText_HardWork:
+	text_far _PewterCityText_HardWork
 	text_end
 
-PewterCityText_19431:
-	text_far _PewterCityText_19431
+PewterCityText_Spraying:
+	text_far _PewterCityText_Spraying
+	text_end
+
+PewterCityText_GotRepel: ; new
+	text_far _PewterCityText_GotRepel
+	sound_get_item_1
+	text_end
+
+PewterCityText_BagFull: ; new
+	text_far _PewterCityText_BagFull
+	text_end
+
+PewterCityText_RepelToCross: ; new
+	text_far _PewterCityText_RepelToCross
 	text_end
 
 PewterCityText5:

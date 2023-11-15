@@ -66,7 +66,8 @@
 	const_next $68
 	const EVENT_BOUGHT_MUSEUM_TICKET
 	const EVENT_GOT_OLD_AMBER
-	const_skip 7 ; edited, was 8
+	const EVENT_GOT_PEWTER_REPELS ; new
+	const_skip 6 ; edited, was 8
 	const EVENT_BEAT_BROCK_REMATCH ; new
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_0
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_1

@@ -5617,7 +5617,7 @@ MetronomePickMove:
 	call BattleRandom
 	and a
 	jr z, .pickMoveLoop
-	cp STRUGGLE
+	cp ANCESTOR_PWR ; edited, I don't want Metronome to pick the signature of Magikarp or of one of the anomalies
 	assert NUM_ATTACKS == STRUGGLE ; random numbers greater than STRUGGLE are not moves
 	jr nc, .pickMoveLoop
 	cp METRONOME

@@ -40,21 +40,47 @@ _PewterCityText_193fb::
 ;_PewterCityText13::
 ;	done
 
-_PewterCityText_19427::
+_PewterCityText_DoYouKnow::
 	text "Psssst!"
 	line "Do you know what"
 	cont "I'm doing?"
 	done
 
-_PewterCityText_1942c::
+_PewterCityText_HardWork::
 	text "That's right!"
 	line "It's hard work!"
 	done
 
-_PewterCityText_19431::
+_PewterCityText_Spraying::
 	text "I'm spraying REPEL"
 	line "to keep #MON"
 	cont "out of my garden!"
+
+	para "Now I feel a bit"
+	line "bad, because I"
+	cont "bought all the"
+	cont "supplies they had"
+	cont "at the MART..."
+
+	para "Here, you can"
+	line "have some!"
+	prompt
+
+_PewterCityText_GotRepel:: ; new
+	text "<PLAYER> got"
+	line "5 REPEL!"
+	done
+
+_PewterCityText_BagFull:: ; new
+	text "Your bag is"
+	line "too full!"
+	done
+
+_PewterCityText_RepelToCross:: ; new
+	text "You can use REPEL"
+	line "to cross caves"
+	cont "without any weak"
+	cont "encounter!"
 	done
 
 _PewterCityText_1945d::
