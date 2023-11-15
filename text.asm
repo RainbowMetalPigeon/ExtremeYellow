@@ -247,7 +247,7 @@ SECTION "Text 8", ROMX
 
 INCLUDE "data/text/text_8.asm"
 
-INCLUDE "text/PalletTown.asm"
+;INCLUDE "text/PalletTown.asm" ; edited, moved to Text Extra 3
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/CeruleanCity.asm"
@@ -329,6 +329,8 @@ INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm"
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
+; moved from Text 8
+INCLUDE "text/PalletTown.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

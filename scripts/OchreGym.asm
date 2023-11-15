@@ -158,7 +158,7 @@ OchreGymReceiveGift:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
-	lb bc, MAX_REVIVE, 1
+	lb bc, MAX_REVIVE, 1 ; TBE with PERFECTER
 	call GiveItem
 	jr nc, .BagFull
 	ld a, $10 ; testing
