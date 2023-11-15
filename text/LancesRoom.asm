@@ -67,16 +67,63 @@ _LanceAfterBattleText::
 ; new -------------------------------
 
 _LanceBeforeBattleTextRematch::
-	text "Rematch Lance"
-	line "Pre"
+	text "I salute you,"
+	line "CHAMPION."
+
+	para "It is an honor to"
+	line "be standing on"
+	cont "the battlefield"
+	cont "against you one"
+	cont "more time."
+
+	para "Your deeds have"
+	line "changed this"
+	cont "region and its"
+	cont "people more than"
+	cont "you can imagine."
+
+	para "I am thrilling to"
+	line "measure myself"
+	cont "with you again."
+	cont "I, LANCE,"
+	cont "challenge with"
+	cont "with my ultimate"
+	cont "dragons!"
 	done
 
 _LanceEndBattleTextRematch::
-	text "Rematch Lance"
-	line "Post"
+	text "That's it!"
+
+	para "You beat the best"
+	line "of my best!"
 	prompt
 
 _LanceAfterBattleTextRematch::
-	text "Rematch Lance"
-	line "After@" ; why the @?
+	text "Despite all my"
+	line "efforts, the"
+	cont "power of my"
+	cont "dragons, and our"
+	cont "determination..."
+	cont "you won!"
+
+	para "<PLAYER>! You are"
+	line "astounding!"
+
+	para "I would love to"
+	line "crown you"
+	cont "CHAMPION once"
+	cont "again..."
+
+	para "But I guess it"
+	line "comes as no"
+	cont "surprise that"
+	cont "there is one more"
+	cont "person that is"
+	cont "dying to fight"
+	cont "against you."
+
+	para "Proceed now, and"
+	line "face <RIVAL> in"
+	cont "the highest of"
+	cont "all battles!@"
 	text_end ; why?

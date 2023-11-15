@@ -4,14 +4,14 @@ PrizeDifferentMenuPtrs:
 	dw PrizeMenuTMsEntries,  PrizeMenuTMsCost
 
 PrizeMenuMon1Entries:
-	db ABRA
 	db LICKITUNG
+	db KANGASKHAN
 	db CUBONE
 	db "@"
 
 PrizeMenuMon1Cost:
-	bcd2 230
-	bcd2 2500
+	bcd2 2300
+	bcd2 4200
 	bcd2 4444
 	db "@"
 

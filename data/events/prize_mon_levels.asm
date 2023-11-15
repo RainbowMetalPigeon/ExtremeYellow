@@ -1,6 +1,6 @@
 PrizeMonLevelDictionary:
-	db ABRA,       15
-	db LICKITUNG,  35
+	db LICKITUNG,   35
+	db KANGASKHAN,  32
 	db CUBONE,      1
 
 	db SCYTHER,    37

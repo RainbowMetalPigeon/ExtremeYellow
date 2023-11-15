@@ -177,11 +177,12 @@ INCLUDE "text/PokemonTower4F.asm"
 INCLUDE "text/PokemonTower5F.asm"
 INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PokemonTower7F.asm"
-INCLUDE "text/MrFujisHouse.asm"
-INCLUDE "text/LavenderMart.asm"
-INCLUDE "text/LavenderCuboneHouse.asm"
-INCLUDE "text/NameRatersHouse.asm"
-INCLUDE "text/VermilionPokecenter.asm"
+; edited, moved to Text Extra 3
+;INCLUDE "text/MrFujisHouse.asm"
+;INCLUDE "text/LavenderMart.asm"
+;INCLUDE "text/LavenderCuboneHouse.asm"
+;INCLUDE "text/NameRatersHouse.asm"
+;INCLUDE "text/VermilionPokecenter.asm"
 ; edited, moved to Text Extra 2
 ;INCLUDE "text/PokemonFanClub.asm"
 ;INCLUDE "text/VermilionMart.asm"
@@ -264,7 +265,6 @@ INCLUDE "text/SaffronCity.asm"
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 
 INCLUDE "text/OchreWonderland.asm" ; new
-INCLUDE "text/ObsidianIsland.asm" ; new
 INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/Route27.asm" ; new
 ; moved from Text 5
@@ -303,7 +303,6 @@ INCLUDE "text/CeladonUniversity.asm" ; new
 INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
 INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
 INCLUDE "text/ObsidianWarehouse.asm" ; new
-INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 ; moved from Text 2
 INCLUDE "text/SafariZoneCenterRestHouse.asm"
 INCLUDE "text/SafariZoneSecretHouse.asm"
@@ -327,10 +326,21 @@ INCLUDE "text/VermilionGym.asm"
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
-INCLUDE "text/OchreCity.asm"
+INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 ; moved from Text 8
 INCLUDE "text/PalletTown.asm"
+; moved from Text 6
+INCLUDE "text/MrFujisHouse.asm"
+INCLUDE "text/LavenderMart.asm"
+INCLUDE "text/LavenderCuboneHouse.asm"
+INCLUDE "text/NameRatersHouse.asm"
+INCLUDE "text/VermilionPokecenter.asm"
+
+
+SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/ObsidianIsland.asm" ; new
+INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

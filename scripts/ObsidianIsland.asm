@@ -10,7 +10,7 @@ ObsidianIsland_ScriptPointers:
 	dw ObsidianIslandScript0
 	dw ObsidianIslandScript1
 	dw ObsidianScript_Traveler ; new, for traveler
-	
+
 ObsidianIslandScript0:
 	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
 	ret nz
@@ -70,14 +70,14 @@ ObsidianIsland_TextPointers:
 	; item
 	dw PickUpItemText
 	; signs
-	dw ObsidianIslandTextTest ; welcome
+	dw ObsidianIslandTextWelcome ; welcome
 	dw PokeCenterSignText
 	dw MartSignText
-	dw ObsidianIslandTextTest ; pier
-	dw ObsidianIslandTextTest ; forest
-	dw ObsidianIslandTextTest ; forest
-	dw ObsidianIslandTextTest ; mines
-	dw ObsidianIslandTextTest ; warehouse
+	dw ObsidianIslandTextPier ; pier
+	dw ObsidianIslandTextWoodNorth ; wood
+	dw ObsidianIslandTextWoodWest ; wood
+	dw ObsidianIslandTextMines ; mines
+	dw ObsidianIslandTextWarehouse ; warehouse
 	; other
 	dw ObsidianIslandTextClosedHouse ; 23 = $17
 	dw TextPostBattle_ObsidianTraveler ; 24, new, for traveler
@@ -85,24 +85,77 @@ ObsidianIsland_TextPointers:
 ; ----------------- people -----------------
 
 ObsidianIslandText1_RocketMines:
+	text_far _ObsidianIslandText1_RocketMines
+	text_end
+
 ObsidianIslandText2_RocketSouthBridge1:
+	text_far _ObsidianIslandText2_RocketSouthBridge1
+	text_end
+
 ObsidianIslandText3_RocketSouthBridge2:
+	text_far _ObsidianIslandText3_RocketSouthBridge2
+	text_end
+
 ObsidianIslandText5_SouthBridgeSlave1:
+	text_far _ObsidianIslandText5_SouthBridgeSlave1
+	text_end
+
 ObsidianIslandText6_SouthBridgeSlave2:
+	text_far _ObsidianIslandText6_SouthBridgeSlave2
+	text_end
+
 ObsidianIslandText7_Scientist1:
+	text_far _ObsidianIslandText7_Scientist1
+	text_end
+
 ObsidianIslandText8_Scientist2:
+	text_far _ObsidianIslandText8_Scientist2
+	text_end
+
 ObsidianIslandText9_Officier:
+	text_far _ObsidianIslandText9_Officier
+	text_end
+
 ObsidianIslandText10_Citizen1:
+	text_far _ObsidianIslandText10_Citizen1
+	text_end
+
 ObsidianIslandText11_Citizen2:
+	text_far _ObsidianIslandText11_Citizen2
+	text_end
+
 ObsidianIslandText12_Citizen3:
+	text_far _ObsidianIslandText12_Citizen3
+	text_end
+
 ObsidianIslandText13_Citizen4:
-	text_far _ObsidianIslandTextTestHuman
+	text_far _ObsidianIslandText13_Citizen4
 	text_end
 
 ; ----------------- signs -----------------
 
-ObsidianIslandTextTest:
-	text_far _ObsidianIslandTextTest
+ObsidianIslandTextWelcome:
+	text_far _ObsidianIslandTextWelcome
+	text_end
+
+ObsidianIslandTextPier:
+	text_far _ObsidianIslandTextPier
+	text_end
+
+ObsidianIslandTextWoodNorth:
+	text_far _ObsidianIslandTextWoodNorth
+	text_end
+
+ObsidianIslandTextWoodWest:
+	text_far _ObsidianIslandTextWoodWest
+	text_end
+
+ObsidianIslandTextMines:
+	text_far _ObsidianIslandTextMines
+	text_end
+
+ObsidianIslandTextWarehouse:
+	text_far _ObsidianIslandTextWarehouse
 	text_end
 
 ; ----------------- other -----------------
@@ -114,7 +167,7 @@ ObsidianIslandTextClosedHouse:
 ; ================================
 
 TextPreBattle_ObsidianTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_ObsidianTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty

@@ -19,46 +19,84 @@ _ObsidianWoodAfterBattleText1::
 	cont "out there..."
 	done
 
-; ------------------------------ ; cool bugs in this forest. what do you mean outside? rocket? what're you talk about?
+; ------------------------------
 
 _ObsidianWoodBattleText2::
-	text "AAAHHH!!!"
+	text "This forest is"
+	line "brimming with"
+	cont "super-cool bugs!"
 	done
 
 _ObsidianWoodEndBattleText2::
-	text "Uh?!"
+	text "Uh?"
+	line "What do you mean"
+	cont "outside?"
 	prompt
 
 _ObsidianWoodAfterBattleText2::
-	text "You scared the"
+	text "TEAM ROCKET?"
+	line "What are you"
+	cont "talking about?"
 	done
 
-; ------------------------------ ; came here for unusual mons, found rocket, help me training to defeat them; with that strength, i'm sure you can eradicate those sick rocket yourself; rumors say that safari swim till here
+; ------------------------------
 
 _ObsidianWoodBattleText3::
-	text "AAAHHH!!!"
+	text "I came here to"
+	line "search for some"
+	cont "unusual #MON,"
+	cont "but I stumbled"
+	cont "upon TEAM ROCKET."
+
+	para "Help me training,"
+	line "so I can go and"
+	cont "defeat them!"
 	done
 
 _ObsidianWoodEndBattleText3::
-	text "Uh?!"
+	text "Ah!"
+	line "With that"
+	cont "strength, I'm"
+	cont "sure you can"
+	cont "eradice those"
+	cont "sick ROCKETs"
+	cont "by yourself!"
 	prompt
 
 _ObsidianWoodAfterBattleText3::
-	text "You scared the"
+	text "Rumors say that"
+	line "the fauna in this"
+	cont "wood is peculiar"
+	cont "because a number"
+	cont "of #MON swims"
+	cont "from the SAFARI"
+	cont "ZONE till here!"
 	done
 
-; ------------------------------ ; Junior Woodchucks, i'm a ten-star general, i'm stronger
+; ------------------------------
 
 _ObsidianWoodBattleText4::
-	text "AAAHHH!!!"
+	text "I am part of"
+	line "JUNIOR"
+	cont "WOODCHUCKS!"
+
+	para "But I'm not your"
+	line "average"
+	cont "JR.TRAINER:"
+	cont "I am a ten-star"
+	cont "general!"
 	done
 
 _ObsidianWoodEndBattleText4::
-	text "Uh?!"
+	text "Alas,"
+	line "not even my"
+	cont "medals allowed me"
+	cont "win..."
 	prompt
 
 _ObsidianWoodAfterBattleText4::
-	text "You scared the"
+	text "I need to exercise"
+	line "and train more!"
 	done
 
 ; ------------------------------

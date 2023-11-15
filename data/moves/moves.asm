@@ -55,7 +55,7 @@ Moves:
 ;	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 30 ; - REMOVED
 	move POISON_STING, POISON_SIDE_EFFECT3,         15, POISON,       100, 35 ; 20->30% chance of poison
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            25, BUG,          100, 20
-	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,           95, 20 ; power 14->25, accuracy 85->95 ; CONTINUE UPDATES FROM HERE
+	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  25, BUG,           95, 20 ; power 14->25, accuracy 85->95
 	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 30
 	move BITE,         FLINCH_SIDE_EFFECT1,         60, DARK,         100, 25 ; TYPE CHANGED
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,       100, 40

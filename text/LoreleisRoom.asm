@@ -44,16 +44,41 @@ _LoreleiDontRunAwayText::
 ; new -------------------------------
 
 _LoreleiBeforeBattleTextRematch::
-	text "Rematch Lorelei"
-	line "Pre"
+	text "Welcome back to"
+	line "the #MON"
+	cont "LEAGUE, CHAMPION!"
+
+	para "I know you have"
+	line "been going around"
+	cont "testing yourself"
+	cont "again."
+
+	para "Perfect! I will"
+	line "show you that my"
+	cont "new and improved"
+	cont "ICE strategies"
+	cont "are more"
+	cont "threatening than"
+	cont "ever!"
 	done
 
 _LoreleiEndBattleTextRematch::
-	text "Rematch Lorelei"
-	line "Post"
+	text "Damn!"
+	line "Not even my"
+	cont "enhanced team"
+	cont "was enough..."
 	prompt
 
 _LoreleiAfterBattleTextRematch::
-	text "Rematch Lorelei"
-	line "After"
+	text "Well done! You"
+	line "didn't disappoint"
+	cont "me for the"
+	cont "slightest."
+
+	para "Go on now! The"
+	line "rest of the"
+	cont "#MON LEAGUE is"
+	cont "eager to test"
+	cont "their new"
+	cont "strengths!"
 	done

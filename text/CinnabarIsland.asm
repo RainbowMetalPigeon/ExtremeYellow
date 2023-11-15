@@ -101,24 +101,6 @@ _CinnabarIslandTextNewPerson5::
 	done
 
 _CinnabarIslandTextNewPerson6::
-	text "I love hiking up"
-	line "on the volcano!"
-
-	para "The path that"
-	line "leads to the cave"
-	cont "is shorter, but"
-	cont "the cave itself"
-	cont "is faaar too hot"
-	cont "for me."
-
-	para "They say there are"
-	line "some rare #MON"
-	cont "and that even"
-	cont "merely walking is"
-	cont "dangerous!"
-	done
-
-_CinnabarIslandTextNewPerson7::
 	text "Everyone calls"
 	line "them HOT SPRINGS,"
 	cont "but actually they"
@@ -135,6 +117,24 @@ _CinnabarIslandTextNewPerson7::
 	cont "and gets warmed"
 	cont "up by the heath"
 	cont "of the volcano."
+	done
+
+_CinnabarIslandTextNewPerson7::
+	text "I love hiking up"
+	line "on the volcano!"
+
+	para "The path that"
+	line "leads to the cave"
+	cont "is shorter, but"
+	cont "the cave itself"
+	cont "is faaar too hot"
+	cont "for me."
+
+	para "They say there are"
+	line "some rare #MON"
+	cont "and that even"
+	cont "merely walking is"
+	cont "dangerous!"
 	done
 
 _CinnabarIslandTextNewPerson8::

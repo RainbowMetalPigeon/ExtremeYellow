@@ -81,7 +81,7 @@ ObsidianMinesText2: ; relax
 ObsidianMinesText2_1:
 	text_far _ObsidianMinesText2_1
 	text_end
-	
+
 ObsidianMinesText3: ; panic, escape rope
 	text_asm
 	ld hl, ObsidianMinesText3_Intro
@@ -108,11 +108,9 @@ ObsidianMinesText3: ; panic, escape rope
 	farcall RemoveItemByID
 	ld hl, ObsidianMinesText3_ThanksATon
 	call PrintText
-
 	ld a, 3
 	ld [wObsidianMinesCurScript], a
 	ld [wCurMapScript], a
-	
 	jp TextScriptEnd
 .noEscapeRope
 	ld hl, ObsidianMinesText3_NoRope

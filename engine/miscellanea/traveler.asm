@@ -3,9 +3,8 @@ SpawnTraveler:: ; testing, TBE
     bit 5, [hl]
     res 5, [hl]
     ret z
-; must uncomment these when will be done
-;	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-;	ret z
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ret z
 	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
 	ret nz
 	call Random

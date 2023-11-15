@@ -39,16 +39,37 @@ _BrunoDontRunAwayText::
 ; new -------------------------------
 
 _BrunoBeforeBattleTextRematch::
-	text "Rematch Bruno"
-	line "Pre"
+	text "Nice to see you"
+	line "again, CHAMPION."
+
+	para "I now you have"
+	line "been testing your"
+	cont "strength from"
+	cont "scratch."
+
+	para "And so I have"
+	line "intensified and"
+	cont "diversified my"
+	cont "training too!"
+
+	para "I will not"
+	line "fall behind!"
+	cont "Aaahhh!"
 	done
 
 _BrunoEndBattleTextRematch::
-	text "Rematch Bruno"
-	line "Post"
+	text "Argh!"
+	line "Not again!"
 	prompt
 
 _BrunoAfterBattleTextRematch::
-	text "Rematch Bruno"
-	line "After"
+	text "Congratulations."
+	line "Your power"
+	cont "overwhelmed mine."
+
+	para "Proceed now! More"
+	line "people can't wait"
+	cont "to measure"
+	cont "themselves"
+	cont "against you!"
 	done

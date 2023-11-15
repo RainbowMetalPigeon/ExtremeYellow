@@ -2,9 +2,9 @@ _AgathaBeforeBattleText::
 	text "I am AGATHA of"
 	line "the ELITE FOUR!"
 
-	para "OAK's taken a lot"
-	line "of interest in"
-	cont "you, child!"
+	para "SAMUEL has taken"
+	line "a lot of interest"
+	cont "in you, child!"
 
 	para "That old duff was"
 	line "once tough and"
@@ -47,16 +47,43 @@ _AgathaDontRunAwayText::
 ; new -------------------------------
 
 _AgathaBeforeBattleTextRematch::
-	text "Rematch Agatha"
-	line "Pre"
+	text "I am happy you are"
+	line "back, CHAMPION."
+
+	para "You and SAMUEL's"
+	line "grankid have been"
+	cont "amazing things."
+
+	para "You reignited the"
+	line "fighting spirit"
+	cont "in all of us! I"
+	cont "hope you will be"
+	cont "able to witness"
+	cont "the old duff's"
+	cont "too... because is"
+	cont "marvelous..."
+
+	para "But for now, you"
+	line "will see how even"
+	cont "the afterlife can"
+	cont "evolve!"
 	done
 
 _AgathaEndBattleTextRematch::
-	text "Rematch Agatha"
-	line "Post"
+	text "Ahahah!"
+	line "Yes! This is what"
+	cont "I wanted to see!"
 	prompt
 
 _AgathaAfterBattleTextRematch::
-	text "Rematch Agatha"
-	line "After"
+	text "Glorious! Your"
+	line "battle spirit is"
+	cont "maybe even"
+	cont "brigther than"
+	cont "theirs!"
+
+	para "But don't stop"
+	line "now! Others want"
+	cont "to see your"
+	cont "blinding light!"
 	done

@@ -720,7 +720,7 @@ CooltrainerData:
 	db 45, GENGAR, TAUROS, ZAPDOS, CHANSEY, STARMIE, SNORLAX, 0 ; new, gen1 OU sample team, for trainer near Cerulean Cave ; 30
 ; Obsidian Wood
 	db 40, PORYGON2, ESPEON, KINGDRA, TANGROWTH, LEAFEON, MAGNEZONE, 0 ; new ; 31
-	
+
 ;PORYGON2	3
 ;POLITOED 	5
 ;ELECTIVIRE 5
@@ -824,7 +824,7 @@ Rival3Data:
 	db 1, ARTICUNO, 0; ZAPDOS, MOLTRES, 0 ; 70
 	; teams for League Rematch (pre rematch gym leaders)
 	db 2, MPIDGEOT, 0; MALAKAZAM, MVENUSAUR, MCHARZARDY, MBLASTOISE, UMBREON, 0 ; 65
-	db 2, ARTICUNO, 0; ZAPDOS, MOLTRES, 0 ; 70 - redundant because the same as the first rematch, but like this the structure is more uniform
+	db 2, ARTICUNO, 0; ZAPDOS, MOLTRES, 0 ; 70
 	; teams for League Rematch (post rematch gym leaders)
 	db 3, MPINSIR, 0; MPIDGEOT, MALAKAZAM, MVENUSAUR, MCHARZARDY, MBLASTOISE, 0 ; 80
 	db $FF, 3, ARTICUNO, 0; 83, ZAPDOS, 83, MOLTRES, 84, MEWTWO, 84, MEW, 85, UMBREON, 0 ; 83 83 83 84 84 85
