@@ -80,10 +80,10 @@ MapHeaderPointers::
 	dw Daycare_h
 	dw Route6Gate_h
 	dw UndergroundPathRoute6_h
-	dw SecludedCaves_h ; new, was a copy fo the underground path route 6
+	dw SecludedCaves_h ; new, was a copy of the underground path route 6
 	dw Route7Gate_h
 	dw UndergroundPathRoute7_h
-	dw UndergroundPathRoute7Copy_h
+	dw OchreHouses_h ; new, was a copy fo the underground path route 6
 	dw Route8Gate_h
 	dw UndergroundPathRoute8_h
 	dw RockTunnelPokecenter_h

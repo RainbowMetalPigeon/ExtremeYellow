@@ -42,10 +42,15 @@ DEF SHOW EQU $15
 	const HS_SAFFRON_CITY_C                ; 16
 	const HS_SAFFRON_CITY_D                ; 17
 	const HS_SAFFRON_CITY_E                ; 18
-;	const HS_SAFFRON_CITY_F                ; 19 ; does not exist?
 	const HS_ROUTE_2_ITEM_1                ; 1A
 	const HS_ROUTE_2_ITEM_2                ; 1B
+	const HS_ROUTE_4_HIKER_1               ; new
+	const HS_ROUTE_4_HIKER_2               ; new
 	const HS_ROUTE_4_ITEM                  ; 1C
+	const HS_ROUTE_4_BOULDER_1             ; new
+	const HS_ROUTE_4_BOULDER_2             ; new
+	const HS_ROUTE_4_BOULDER_3             ; new
+	const HS_ROUTE_4_BOULDER_4             ; new
 	const HS_ROUTE_9_ITEM                  ; 1D
 	const HS_ROUTE_12_SNORLAX              ; 1E
 	const HS_ROUTE_12_HIKER	               ; new

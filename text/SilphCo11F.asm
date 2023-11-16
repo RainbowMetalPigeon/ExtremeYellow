@@ -59,7 +59,7 @@ _SilphCo11Text2::
 	done
 
 _SilphCo11Text3::
-	para "You again!!!"
+	text "You again!!!"
 
 	para "Why do you"
 	line "keep sticking"

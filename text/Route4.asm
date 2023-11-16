@@ -4,6 +4,32 @@ _Route4Text1::
 	cont "#MON, GEODUDE!"
 	done
 
+_Route4TextHiker1:: ; new
+	text "A rockslide has"
+	line "blocked the"
+	cont "way towards"
+	cont "CERULEAN CITY!"
+
+	para "We are waiting"
+	line "for a team of"
+	cont "MACHAMPs to"
+	cont "arrived and help."
+
+	para "Until then, the"
+	line "only path is"
+	cont "through MT.MOON!"
+	done
+
+_Route4TextHiker2:: ; new
+	text "Dammit! This is"
+	line "such a pain."
+
+	para "Luckily the"
+	line "MACHAMPs should"
+	cont "arrive any minute"
+	cont "now!"
+	done
+
 _Route4BattleText1:: ; edited
 	text "I want to explore"
 	line "that intriguing"

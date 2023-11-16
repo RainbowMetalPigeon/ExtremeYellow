@@ -1,4 +1,4 @@
-SpawnTraveler:: ; testing, TBE
+SpawnTraveler::
     ld hl, wCurrentMapScriptFlags
     bit 5, [hl]
     res 5, [hl]
@@ -8,7 +8,7 @@ SpawnTraveler:: ; testing, TBE
 	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
 	ret nz
 	call Random
-	cp 200 ; TBE
+	cp 13
 	jr c, .makeAppear
     call LoopHideTraveler
     call LoopHideTravelerExtra

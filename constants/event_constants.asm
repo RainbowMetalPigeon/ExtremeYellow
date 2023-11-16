@@ -81,7 +81,8 @@
 	const_skip 14
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
-	const_skip 16 ; edited, was 17
+	const_skip 15 ; edited, was 17
+	const EVENT_FREED_ROUTE_4 ; new
 	const EVENT_BEAT_MISTY_REMATCH ; new
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_0
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_1
@@ -287,7 +288,7 @@
 
 ; Route 4 events
 	const_next $3F0
-	const_skip 2
+	const_skip 4 ; edited, was 2
 	const EVENT_BEAT_ROUTE_4_TRAINER_0
 ;	const_skip 12 ; edited, commented away?
 	const EVENT_BOUGHT_MAGIKARP
