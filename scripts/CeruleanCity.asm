@@ -1,4 +1,27 @@
 CeruleanCity_Script:
+; new block of code to remove the rockslide in Route 4
+	CheckEvent EVENT_FREED_ROUTE_4
+	jr nz, .continue
+	ld a, HS_ROUTE_4_BOULDER_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_4_BOULDER_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_4_BOULDER_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_4_BOULDER_4
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_4_HIKER_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_4_HIKER_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvent EVENT_FREED_ROUTE_4
+.continue
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, CeruleanCity_ScriptPointers

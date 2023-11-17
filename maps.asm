@@ -1005,10 +1005,6 @@ INCLUDE "data/maps/headers/UndergroundPathRoute7.asm"
 INCLUDE "scripts/UndergroundPathRoute7.asm"
 INCLUDE "data/maps/objects/UndergroundPathRoute7.asm"
 
-INCLUDE "data/maps/headers/UndergroundPathRoute7Copy.asm"
-INCLUDE "scripts/UndergroundPathRoute7Copy.asm"
-INCLUDE "data/maps/objects/UndergroundPathRoute7Copy.asm"
-
 INCLUDE "data/maps/headers/SilphCo9F.asm"
 INCLUDE "scripts/SilphCo9F.asm"
 INCLUDE "data/maps/objects/SilphCo9F.asm"
@@ -1386,8 +1382,22 @@ INCLUDE "scripts/ObsidianMines.asm"
 INCLUDE "data/maps/objects/ObsidianMines.asm"
 ObsidianMines_Blocks: INCBIN "maps/ObsidianMines.blk"
 
+INCLUDE "data/maps/headers/OchreHouses.asm"
+INCLUDE "scripts/OchreHouses.asm"
+INCLUDE "data/maps/objects/OchreHouses.asm"
+OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
+
+; Mateo's move deleter/relearner files
+INCLUDE "scripts/MoveDeleter.asm"
+INCLUDE "scripts/MoveRelearner.asm"
+
 ; moved from Maps 6
 INCLUDE "data/maps/headers/CeladonMart1F.asm"
 INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
 CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
+
+INCLUDE "data/maps/headers/ObsidianHouses.asm"
+INCLUDE "scripts/ObsidianHouses.asm"
+INCLUDE "data/maps/objects/ObsidianHouses.asm"
+ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"

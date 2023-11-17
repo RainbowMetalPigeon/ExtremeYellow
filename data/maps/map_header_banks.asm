@@ -80,10 +80,10 @@ MapHeaderBanks::
 	db BANK(Daycare_h)
 	db BANK(Route6Gate_h)
 	db BANK(UndergroundPathRoute6_h)
-	db BANK(SecludedCaves_h) ; new, was a copy fo the underground path route 6
+	db BANK(SecludedCaves_h) ; new, was a copy of the underground path route 6
 	db BANK(Route7Gate_h)
 	db BANK(UndergroundPathRoute7_h)
-	db BANK(UndergroundPathRoute7Copy_h)
+	db BANK(OchreHouses_h) ; new, was a copy of the underground path route 6
 	db BANK(Route8Gate_h)
 	db BANK(UndergroundPathRoute8_h)
 	db BANK(RockTunnelPokecenter_h)
@@ -178,7 +178,7 @@ MapHeaderBanks::
 	db BANK(CinnabarLabFossilRoom_h)
 	db BANK(CinnabarPokecenter_h)
 	db BANK(CinnabarMart_h)
-	db BANK(CinnabarMart_h)
+	db BANK(ObsidianHouses_h) ; new
 	db BANK(IndigoPlateauLobby_h)
 	db BANK(CopycatsHouse1F_h)
 	db BANK(CopycatsHouse2F_h)

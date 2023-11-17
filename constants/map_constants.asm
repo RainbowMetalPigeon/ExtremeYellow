@@ -98,10 +98,10 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const DAYCARE,                        4,  4 ; $48
 	map_const ROUTE_6_GATE,                   4,  3 ; $49
 	map_const UNDERGROUND_PATH_ROUTE_6,       4,  4 ; $4A
-	map_const SECLUDED_CAVES,                19, 18 ; $4B ; new, was a copy fo the underground path route 6
+	map_const SECLUDED_CAVES,                19, 18 ; $4B ; new, was a copy of the underground path route 6
 	map_const ROUTE_7_GATE,                   3,  4 ; $4C
 	map_const UNDERGROUND_PATH_ROUTE_7,       4,  4 ; $4D
-	map_const UNDERGROUND_PATH_ROUTE_7_COPY,  4,  4 ; $4E ; unused?
+	map_const OCHRE_HOUSES,                  27,  6 ; $4E ; new, was a copy of the underground path route 7
 	map_const ROUTE_8_GATE,                   3,  4 ; $4F
 	map_const UNDERGROUND_PATH_ROUTE_8,       4,  4 ; $50
 	map_const ROCK_TUNNEL_POKECENTER,         7,  4 ; $51
@@ -130,7 +130,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $68
 	map_const OCHRE_GYM,                     15, 17 ; $69 ; new
 	map_const OCHRE_WONDERLAND,              30, 30 ; $6A ; new
-	map_const OCHRE_RESEARCH_CENTER,          6,  5 ; $6B ; new
+	map_const OCHRE_RESEARCH_CENTER,          6,  8 ; $6B ; new
 	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
 	map_const SECLUDED_ATOLL_NW,             27, 15 ; $6D ; new
 	map_const SECLUDED_ATOLL_NE,             15, 15 ; $6E ; new
@@ -196,7 +196,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA
 	map_const CINNABAR_POKECENTER,            7,  4 ; $AB
 	map_const CINNABAR_MART,                  4,  4 ; $AC
-	map_const CINNABAR_MART_COPY,             4,  4 ; $AD ; unused?
+	map_const OBSIDIAN_HOUSES,               18,  4 ; $AD, new
 	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $AE
 	map_const COPYCATS_HOUSE_1F,              4,  4 ; $AF
 	map_const COPYCATS_HOUSE_2F,              4,  4 ; $B0

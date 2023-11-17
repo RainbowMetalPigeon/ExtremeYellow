@@ -72,7 +72,8 @@ InternalMapEntries:
 	internal_map DAYCARE,                       10,  4, Route5Name
 	internal_map UNDERGROUND_PATH_ROUTE_6,      10,  6, Route6Name
 	internal_map SECLUDED_CAVES,                15, 15, SecludedAtollName ; new, testing
-	internal_map UNDERGROUND_PATH_ROUTE_7_COPY,  9,  5, Route7Name
+	internal_map UNDERGROUND_PATH_ROUTE_7,       9,  5, Route7Name
+	internal_map OCHRE_HOUSES,                  11, 11, OchreCityName ; new
 	internal_map UNDERGROUND_PATH_ROUTE_8,      11,  5, Route8Name
 	internal_map ROCK_TUNNEL_1F,                14,  3, RockTunnelName
 	internal_map POWER_PLANT,                   15,  4, PowerPlantName
@@ -101,7 +102,8 @@ InternalMapEntries:
 	internal_map VERMILION_OLD_ROD_HOUSE,       10,  9, VermilionCityName
 	internal_map FUCHSIA_GOOD_ROD_HOUSE,         8, 13, FuchsiaCityName
 	internal_map POKEMON_MANSION_1F,             2, 15, PokemonMansionName
-	internal_map CINNABAR_MART_COPY,             2, 15, CinnabarIslandName
+	internal_map CINNABAR_MART,                  2, 15, CinnabarIslandName ; edited
+	internal_map OBSIDIAN_HOUSES,                7,  9, ObsidianIslandName ; new
 	internal_map INDIGO_PLATEAU_LOBBY,           0,  2, IndigoPlateauName
 	internal_map MR_PSYCHICS_HOUSE,             10,  5, SaffronCityName
 	internal_map ROUTE_15_GATE_2F,               9, 13, Route15Name

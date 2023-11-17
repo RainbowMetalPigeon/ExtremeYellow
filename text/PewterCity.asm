@@ -68,7 +68,7 @@ _PewterCityText_Spraying::
 
 _PewterCityText_GotRepel:: ; new
 	text "<PLAYER> got"
-	line "5 REPEL!"
+	line "5 REPELs!"
 	done
 
 _PewterCityText_BagFull:: ; new

@@ -343,6 +343,10 @@ INCLUDE "text/VermilionPokecenter.asm"
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianIsland.asm" ; new
 INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
+INCLUDE "text/OchreHouses.asm" ; new
+INCLUDE "text/MoveDeleter.asm" ; new
+INCLUDE "text/MoveRelearner.asm" ; new
+INCLUDE "text/ObsidianHouses.asm" ; new
 ; moved from Text 6
 INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PokemonTower7F.asm"

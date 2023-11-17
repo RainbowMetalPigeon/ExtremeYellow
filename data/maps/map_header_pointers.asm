@@ -80,10 +80,10 @@ MapHeaderPointers::
 	dw Daycare_h
 	dw Route6Gate_h
 	dw UndergroundPathRoute6_h
-	dw SecludedCaves_h ; new, was a copy fo the underground path route 6
+	dw SecludedCaves_h ; new, was a copy of the underground path route 6
 	dw Route7Gate_h
 	dw UndergroundPathRoute7_h
-	dw UndergroundPathRoute7Copy_h
+	dw OchreHouses_h ; new, was a copy fo the underground path route 6
 	dw Route8Gate_h
 	dw UndergroundPathRoute8_h
 	dw RockTunnelPokecenter_h
@@ -178,7 +178,7 @@ MapHeaderPointers::
 	dw CinnabarLabFossilRoom_h
 	dw CinnabarPokecenter_h
 	dw CinnabarMart_h
-	dw CinnabarMart_h ; CINNABAR_MART_COPY
+	dw ObsidianHouses_h ; new
 	dw IndigoPlateauLobby_h
 	dw CopycatsHouse1F_h
 	dw CopycatsHouse2F_h

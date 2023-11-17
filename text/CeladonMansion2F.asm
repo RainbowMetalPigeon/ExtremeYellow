@@ -359,7 +359,7 @@ _CeladonMansion2TextSign3::
 	cont "talent!"
 
 	para "XILLICIS is the"
-	line "author of the LEO"
+	line "author of the XIL"
 	cont "EDITION hackROM,"
 	cont "an ambitious"
 	cont "project for which"
@@ -435,7 +435,7 @@ _CeladonMansion2TextSign4::
 	cont "of joy,"
 	cont "satisfaction,"
 	cont "overcome"
-	cont "challanges,"
+	cont "challenges,"
 	cont "improvement, and"
 	cont "helped PIGEON"
 	cont "turning a"

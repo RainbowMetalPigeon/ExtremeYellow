@@ -314,7 +314,13 @@ Route2HS:
 	db ROUTE_2, $01, SHOW
 	db ROUTE_2, $02, SHOW
 Route4HS:
-	db ROUTE_4, $03, SHOW
+	db ROUTE_4, $02, SHOW ; new, hiker
+	db ROUTE_4, $03, SHOW ; new, hiker
+	db ROUTE_4, $05, SHOW ; edited, item
+	db ROUTE_4, $06, SHOW ; new, boulder
+	db ROUTE_4, $07, SHOW ; new, boulder
+	db ROUTE_4, $08, SHOW ; new, boulder
+	db ROUTE_4, $09, SHOW ; new, boulder
 Route9HS:
 	db ROUTE_9, $0A, SHOW
 Route12HS:
