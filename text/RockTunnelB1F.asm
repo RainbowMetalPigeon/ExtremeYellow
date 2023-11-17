@@ -131,13 +131,29 @@ _RockTunnel2AfterBattleText9::
 ; new ------------------------------------------------
 
 _RockTunnel2BrockBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "BROCK: Oh, it's"
+	line "you! I didn't"
+	cont "expect to see you"
+	cont "here."
+
+	para "I like this place"
+	line "a lot, it's where"
+	cont "I got my beloved"
+	cont "ONIX."
+
+	para "Today I feel..."
+	line "bizarre. I want"
+	cont "to challenge you"
+	cont "to an INVERSE"
+	cont "BATTLE with my"
+	cont "ultra-offensive"
+	cont "rock-type team!"
 	done
 
 _RockTunnel2BrockPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "BROCK: " extra space
-	line "for the battle!"
+	text "Ahah!"
+	line "Thank you! That"
+	cont "was a very fun"
+	cont "and enjoyable"
+	cont "battle!"
 	prompt

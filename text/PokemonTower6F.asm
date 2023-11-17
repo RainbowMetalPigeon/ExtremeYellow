@@ -63,13 +63,53 @@ _PokemonTower6Text6::
 ; new ------------------------------------------------
 
 _PokemonTower6AgathaBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "AGATHA: CHAMPION!"
+	line "Are you here to"
+	cont "pay respect to"
+	cont "the spirits?"
+
+	para "...after battling"
+	line "with you,"
+	cont "something clicked"
+	cont "in my head. I"
+	cont "decided to"
+	cont "contact SAMUEL"
+	cont "again. It has"
+	cont "been so long"
+	cont "since we last"
+	cont "talked..."
+
+	para "I didn't know of"
+	line "their..."
+	cont "condition. It"
+	cont "saddened me, but"
+	cont "they told me that"
+	cont "since after you"
+	cont "and their grankid"
+	cont "embarked on your"
+	cont "journey, they are"
+	cont "doing much"
+	cont "better."
+
+	para "I am glad I"
+	line "reconnected with"
+	cont "them. Very glad."
+	cont "And it is thanks"
+	cont "to you!"
+
+	para "It may sound"
+	line "weird, but..."
+	cont "I would like to"
+	cont "celebrate by"
+	cont "engaging with"
+	cont "you in an"
+	cont "INVERSE BATTLE!"
 	done
 
 _PokemonTower6AgathaPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "ERIKA: " extra space
-	line "for the battle!"
+	text "AGATHA: Ah!"
+	line "That was a great"
+	cont "battle!"
+	cont "SAMUEL must be so"
+	cont "proud of you!"
 	prompt

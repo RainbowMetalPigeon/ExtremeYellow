@@ -158,13 +158,27 @@ _Route20Text11::
 ; new ------------------------------------------------
 
 _Route20MistyBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "MISTY: Oh, look"
+	line "who's there!"
+	cont "That's a really"
+	cont "nice surprise."
+
+	para "Did you know this"
+	line "my training"
+	cont "ground?"
+
+	para "Today I feel..."
+	line "bizarre. I want"
+	cont "to build up an"
+	cont "impenetrable"
+	cont "defense with my"
+	cont "water-type in an"
+	cont "INVERSE BATTLE!"
 	done
 
 _Route20MistyPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "ERIKA: " extra space
-	line "for the battle!"
+	text "Nice nice"
+	line "nice! It's always"
+	cont "a pleasure"
+	cont "battling you!"
 	prompt

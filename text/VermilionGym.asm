@@ -194,12 +194,32 @@ _VermilionGymGuidePostBattleText::
 ; new ---------------------
 
 _LtSurgeRematchPreBattleText::
-	text "Rematch"
-	line "LT SURGE"
-	cont "Pre"
+	text "Woah, CHAMPION!"
+	line "It's an honor to"
+	cont "see you again!"
+
+	para "You defeated me"
+	line "once, but a good"
+	cont "soldier can lose"
+	cont "a battle and"
+	cont "still win the"
+	cont "war."
+
+	para "Now, you too must"
+	line "deploy your most"
+	cont "valiant fighters"
+	cont "to take on my"
+	cont "ultimate blitz"
+	cont "strategy!"
 	done
 
 _LtSurgeRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "Ah! This"
+	line "fight was a jolt"
+	cont "of thrill!"
+
+	para "I'm shocked I lost"
+	line "again, but I pay"
+	cont "respects to your"
+	cont "victory."
 	prompt

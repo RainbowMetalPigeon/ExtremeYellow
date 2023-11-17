@@ -244,7 +244,7 @@ _DarkGuideHints_Hint2_Solution::
 	line "VICTORY ROAD"
 
 	para "SABRINA:"
-	line "MX. PSYCHIC's"
+	line "MX.PSYCHIC's"
 
 	para "BLAINE:"
 	line "#MON MANSION"

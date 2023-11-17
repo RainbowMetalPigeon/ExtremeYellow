@@ -149,13 +149,13 @@ _OaksAideNoRoomText::
 	done
 
 _NurseChanseyText::
-	text "CHANSEY: Chaaan"
+	text "CHANSEY: Chaaan-"
 	line "sey!"
 	done
 
-_GymLeaderPostRematchText:: ; new, TBE
+_GymLeaderPostRematchText:: ; new
 	text "Now that you're"
-	line "Champion, we can"
-	cont "battle whenever"
-	cont "you want!"
+	line "CHAMPION, we can"
+	cont "battle again any"
+	cont "time you want!"
 	done

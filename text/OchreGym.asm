@@ -366,13 +366,32 @@ _OchreGymTrashBinText_Try3::
 ; for rematch ---------------------
 
 _OrageRematchPreBattleText::
-	text "Rematch"
-	line "ORAGE"
-	cont "Pre"
-;	xxxx "123456789012345678"
+	text "Hello, CHAMPION. I"
+	line "guess I should"
+	cont "thank you for"
+	cont "visiting me, even"
+	cont "if we are not an"
+	cont "official GYM."
+
+	para "Have you put in a"
+	line "good word for us"
+	cont "with the big"
+	cont "bosses at the"
+	cont "#MON LEAGUE?"
+
+	para "Well, doesn't"
+	line "matter now. I"
+	cont "know why you"
+	cont "folks come here,"
+	cont "and I'll gladly"
+	cont "take you on with"
+	cont "my ultimate team"
+	cont "of underdogs!"
 	done
 
 _OrageRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "Damn."
+	line "We need to prove"
+	cont "ourselves even"
+	cont "further!"
 	prompt

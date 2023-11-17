@@ -166,12 +166,28 @@ _CeruleanGymGuidePostBattleText::
 ; new ---------------------
 
 _MistyRematchPreBattleText::
-	text "Rematch"
-	line "MISTY"
-	cont "Pre"
+	text "Nice to see you"
+	line "again, CHAMPION!"
+
+	para "I am glad to be"
+	line "able to have"
+	cont "another chance of"
+	cont "battling you as"
+	cont "well!"
+
+	para "Get ready for my"
+	line "ultimate hydro"
+	cont "onslaught!"
 	done
 
 _MistyRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "I can't"
+	line "believe I lost"
+	cont "again!"
+
+	para "Dammit, not even"
+	line "my ultra-offense"
+	cont "strategy worked."
+	cont "Well done, you"
+	cont "sweetie!"
 	prompt

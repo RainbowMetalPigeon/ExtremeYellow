@@ -1,4 +1,4 @@
-; ------------------------------ ; scared kid
+; ------------------------------
 
 _ObsidianWoodBattleText1::
 	text "AAAHHH!!!"
@@ -124,13 +124,28 @@ _ObsidianWoodTextSignExit::
 ; ------------------------------
 
 _ObsidianWoodOrageBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "ORAGE: Ah! It's"
+	line "you! So nice to"
+	cont "bump into you!"
+
+	para "I am weirdly"
+	line "attracted by"
+	cont "OBSIDIAN ISLAND."
+	cont "I kinda feel it"
+	cont "has some sort of"
+	cont "connection to"
+	cont "OCHRE CITY."
+
+	para "Today I feel..."
+	line "bizarre. Would"
+	cont "you like break"
+	cont "the rules and"
+	cont "indulge in an"
+	cont "INVERSE BATTLE?"
 	done
 
 _ObsidianWoodOragePostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "ORAGE: " extra space
-	line "for the battle!"
+	text "Yeah!"
+	line "That felt great!"
+	cont "Thanks!"
 	prompt

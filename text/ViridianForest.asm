@@ -159,13 +159,29 @@ _ViridianForestText14::
 ; new ------------------------------------------------
 
 _ViridianForestErikaBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "ERIKA:"
+	line "Salutations! What"
+	cont "a surprise to"
+	cont "meet you here."
+
+	para "Today I feel..."
+	line "bizarre. I jogged"
+	cont "till here all the"
+	cont "way from CELADON,"
+	cont "I am so full of"
+	cont "energy!"
+
+	para "I know how I can"
+	line "get some steam"
+	cont "out! Let's engage"
+	cont "in a powerful"
+	cont "INVERSE BATTLE,"
+	cont "right here & now!"
 	done
 
 _ViridianForestErikaPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "ERIKA: " extra space
-	line "for the battle!"
+	text "Yes!"
+	line "That felt great!"
+	cont "I wanna go for"
+	cont "another round!"
 	prompt

@@ -175,8 +175,9 @@ INCLUDE "text/PokemonTower2F.asm"
 INCLUDE "text/PokemonTower3F.asm"
 INCLUDE "text/PokemonTower4F.asm"
 INCLUDE "text/PokemonTower5F.asm"
-INCLUDE "text/PokemonTower6F.asm"
-INCLUDE "text/PokemonTower7F.asm"
+; edited, moved to Text Extra 4
+;INCLUDE "text/PokemonTower6F.asm"
+;INCLUDE "text/PokemonTower7F.asm"
 ; edited, moved to Text Extra 3
 ;INCLUDE "text/MrFujisHouse.asm"
 ;INCLUDE "text/LavenderMart.asm"
@@ -236,8 +237,9 @@ INCLUDE "text/CinnabarMart.asm"
 INCLUDE "text/IndigoPlateauLobby.asm"
 INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
-INCLUDE "text/FightingDojo.asm"
-INCLUDE "text/SaffronGym.asm"
+; edited, moved to Text Extra 4
+;INCLUDE "text/FightingDojo.asm"
+;INCLUDE "text/SaffronGym.asm"
 
 INCLUDE "data/text/text_7.asm"
 
@@ -341,6 +343,12 @@ INCLUDE "text/VermilionPokecenter.asm"
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianIsland.asm" ; new
 INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
+; moved from Text 6
+INCLUDE "text/PokemonTower6F.asm"
+INCLUDE "text/PokemonTower7F.asm"
+; moved from Text 7
+INCLUDE "text/FightingDojo.asm"
+INCLUDE "text/SaffronGym.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -281,12 +281,30 @@ _CinnabarGymText_7::
 ; new ---------------------
 
 _BlaineRematchPreBattleText::
-	text "Rematch"
-	line "BLAINE"
-	cont "Pre"
+	text "CHAMPION! Allow me"
+	line "to give you a"
+	cont "warm welcome -"
+	cont "in fact, a"
+	cont "white-hot one!"
+
+	para "Your deeds fueled"
+	line "my burning"
+	cont "passion even"
+	cont "further!"
+
+	para "Bring it on,"
+	line "challengers! Will"
+	cont "you manage to go"
+	cont "through the fire"
+	cont "and flames"
+	cont "against my"
+	cont "ultimate team?!"
 	done
 
 _BlaineRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "BLAINE: Whoo-hoo!"
+	line "You're burning"
+	cont "hotter than the"
+	cont "sun in the middle"
+	cont "of July!"
 	prompt

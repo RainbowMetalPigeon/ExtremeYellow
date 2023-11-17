@@ -88,13 +88,28 @@ _VictoryRoad2AfterBattleText5::
 ; new ------------------------------------------------
 
 _VictoryRoad2KogaBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "KOGA: Look at who"
+	line "else is climbing"
+	cont "VICTORY ROAD!"
+
+	para "Me? I'm training"
+	line "hard, my goal is"
+	cont "to battle beyond"
+	cont "the end of this"
+	cont "path."
+
+	para "Today I feel..."
+	line "bizarre. I want"
+	cont "to challenge you"
+	cont "to a face-to-face"
+	cont "INVERSE BATTLE,"
+	cont "no tricks or"
+	cont "shadowy"
+	cont "strategies!"
 	done
 
 _VictoryRoad2KogaPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "KOGA: " extra space
-	line "for the battle!"
+	text "Dang! That"
+	line "was an intense"
+	cont "confrontation!"
 	prompt

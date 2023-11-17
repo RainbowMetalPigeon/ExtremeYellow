@@ -213,12 +213,29 @@ _PewterGymGuyText::
 ; new ---------------------
 
 _BrockRematchPreBattleText::
-	text "Rematch"
-	line "BROCK"
-	cont "Pre"
+	text "Welcome back,"
+	line "CHAMPION!"
+
+	para "I see that you too"
+	line "are back at"
+	cont "measuring"
+	cont "yourself against"
+	cont "me."
+
+	para "Very well! I'll"
+	line "show you the"
+	cont "impenetrable"
+	cont "defense of my"
+	cont "ultimate"
+	cont "rock-type team!"
 	done
 
 _BrockRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "I prepared"
+	line "at my best, and"
+	cont "yet you broke"
+	cont "through my"
+	cont "defense."
+
+	para "Well done!"
 	prompt

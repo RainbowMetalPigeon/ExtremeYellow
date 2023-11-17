@@ -28,13 +28,33 @@ _TM29NoRoomText::
 ; new ------------------------------------------------
 
 _SaffronHouse2SabrinaBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "SABRINA: I could"
+	line "tell you I'm"
+	cont "surprised to see"
+	cont "you here, but"
+	cont "we'd both know it"
+	cont "wouldn't be true,"
+	cont "right?"
+
+	para "I like hanging out"
+	line "with MX.PSYCHIC."
+	cont "Our conversations"
+	cont "are..."
+	cont "ESP-ecially"
+	cont "interesting,"
+	cont "eheh."
+
+	para "Today I feel..."
+	line "bizarre. I have a"
+	cont "roaring desire"
+	cont "for fighting! I"
+	cont "challenge you to"
+	cont "an INVERSE"
+	cont "BATTLE!"
 	done
 
 _SaffronHouse2SabrinaPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "SABRINA: " extra space
-	line "for the battle!"
+	text "Yes! That"
+	line "was a blast!"
+	cont "Thank you!"
 	prompt

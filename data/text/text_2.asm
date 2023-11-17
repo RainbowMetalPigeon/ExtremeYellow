@@ -869,9 +869,9 @@ _PokemonBooksText::
 	line "#MON books!"
 	done
 
-_DiglettSculptureText::
-	text "It's a sculpture"
-	line "of DIGLETT."
+_DiglettSculptureText:: ; edited
+	text "It's a buddhist"
+	line "altar."
 	done
 
 _ElevatorText::

@@ -49,13 +49,26 @@ _Mansion2Text_520cc::
 ; new ------------------------------------------------
 
 _Mansion2BlaineBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "BLAINE: ...oh,"
+	line "hello. I was..."
+	cont "lost in thoughts."
+
+	para "This place holds a"
+	line "special meaning"
+	cont "to me. Many"
+	cont "memories ties me"
+	cont "to it... And not"
+	cont "all of them are"
+	cont "pleasant..."
+
+	para "Today I feel..."
+	line "bizarre. Would"
+	cont "you like to have"
+	cont "a chill, cool"
+	cont "INVERSE BATTLE?"
 	done
 
 _Mansion2BlainePostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "BLAINE: " extra space
-	line "for the battle!"
+	text "Thanks."
+	line "Was refreshing."
 	prompt

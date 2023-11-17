@@ -255,12 +255,34 @@ _CeladonGymAfterBattleText9::
 ; new ---------------------
 
 _ErikaRematchPreBattleText::
-	text "Rematch"
-	line "ERIKA"
-	cont "Pre"
+	text "Zzz..."
+
+	para "...Oh! Salutation,"
+	line "CHAMPION."
+	cont "Apologies, I was"
+	cont "taking a nap."
+
+	para "I tired myself by"
+	line "training to"
+	cont "improve my team,"
+	cont "in view of my"
+	cont "rematches against"
+	cont "powerful trainers"
+	cont "like you."
+
+	para "And here you are,"
+	line "challenging the"
+	cont "ultimate"
+	cont "composition of my"
+	cont "grass-types."
+	cont "Marvelous: shall"
+	cont "we start?"
 	done
 
 _ErikaRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "I admit my"
+	line "defeat."
+
+	para "You are superbly"
+	line "powerful."
 	prompt

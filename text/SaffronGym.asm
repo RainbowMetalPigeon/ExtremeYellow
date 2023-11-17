@@ -268,12 +268,35 @@ _SaffronGymAfterBattleText8::
 ; new ---------------------
 
 _SabrinaRematchPreBattleText::
-	text "Rematch"
-	line "SABRINA"
-	cont "Pre"
+	text "I foresaw you"
+	line "arriving,"
+	cont "CHAMPION. Your"
+	cont "power can be"
+	cont "sensed from far"
+	cont "away."
+
+	para "And I can perceive"
+	line "you will reach"
+	cont "even greater"
+	cont "achievements."
+
+	para "People keep coming"
+	line "to battle me. I"
+	cont "may not be"
+	cont "passionate about"
+	cont "fighting, but I"
+	cont "take my role as"
+	cont "GYM LEADER"
+	cont "seriously, so I"
+	cont "polished my team"
+	cont "into its ultimate"
+	cont "form. En garde!"
 	done
 
 _SabrinaRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "Eheh."
+	line "Even if this time"
+	cont "I worked harder,"
+	cont "I also foresaw my"
+	cont "defeat."
 	prompt

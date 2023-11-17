@@ -138,13 +138,39 @@ _OtherHitmonText::
 ; new ------------------------------------------------
 
 _FightingDojoBrunoBeforeBattleText::
-;	xxxx "123456789012345678"
-	text "Let us have a nice"
-	line "INVERSE BATTLE!"
+	text "BRUNO: CHAMPION!"
+	line "You visit honors"
+	cont "this DOJO!"
+
+	para "I used to train"
+	line "here, some time"
+	cont "ago. I still come"
+	cont "back from time to"
+	cont "time for a"
+	cont "sparring session"
+	cont "with my old"
+	cont "friends."
+
+	para "After our showdown"
+	line "and my defeat, I"
+	cont "have been"
+	cont "training more"
+	cont "than just my raw"
+	cont "strength."
+
+	para "I am working on"
+	line "refining my"
+	cont "strategy too. I"
+	cont "would be deeply"
+	cont "pleased if you"
+	cont "helped me trainig"
+	cont "my wit with an"
+	cont "INVERSE BATTLE!"
 	done
 
 _FightingDojoBrunoPostBattleText::
-;	xxxx "123456789012345678"
-	text "Thank you" ; need to consider a "Bruno: " extra space
-	line "for the battle!"
+	text "Whoo-hoo!"
+	line "That was a hell"
+	cont "of an experience!"
+	cont "Thank you!"
 	prompt

@@ -1,5 +1,5 @@
 _KogaBeforeBattleText::
-	text "KOGA: Fwahahaha!"
+	text "Fwahahaha!"
 
 	para "A mere child like"
 	line "you dares to"
@@ -251,12 +251,30 @@ _FuchsiaGymGuidePostBattleText::
 ; new ---------------------
 
 _KogaRematchPreBattleText::
-	text "Rematch"
-	line "KOGA"
-	cont "Pre"
+	text "Ahahah! Seeing you"
+	line "thrills me,"
+	cont "CHAMPION!"
+
+	para "After our"
+	line "face-off, I've"
+	cont "worked hard to"
+	cont "refine my ninja"
+	cont "skills. I'll"
+	cont "ascend to the"
+	cont "level of the"
+	cont "ELITE FOUR and"
+	cont "beyond!"
+
+	para "So you too"
+	line "challenge me?"
+	cont "Perfect! Prepare"
+	cont "to face my"
+	cont "ultimate"
+	cont "nightmare team!"
 	done
 
 _KogaRematchDefeatedText::
-	text "Nice!"
-	line "Thanks!"
+	text "Mph. Not"
+	line "half bad, not"
+	cont "half bad at all."
 	prompt
