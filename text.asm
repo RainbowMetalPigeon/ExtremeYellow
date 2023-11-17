@@ -111,7 +111,8 @@ INCLUDE "text/Route5.asm"
 INCLUDE "text/Route6.asm"
 INCLUDE "text/Route7.asm"
 INCLUDE "text/Route8.asm"
-INCLUDE "text/Route9.asm"
+; edited, moved to Text Extra 4
+;INCLUDE "text/Route9.asm"
 
 
 SECTION "Text 4", ROMX
@@ -353,6 +354,8 @@ INCLUDE "text/PokemonTower7F.asm"
 ; moved from Text 7
 INCLUDE "text/FightingDojo.asm"
 INCLUDE "text/SaffronGym.asm"
+; moved from Text 3
+INCLUDE "text/Route9.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
