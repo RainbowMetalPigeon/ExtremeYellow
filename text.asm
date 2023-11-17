@@ -344,6 +344,7 @@ INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 INCLUDE "text/OchreHouses.asm" ; new
 INCLUDE "text/MoveDeleter.asm" ; new
 INCLUDE "text/MoveRelearner.asm" ; new
+INCLUDE "text/ObsidianHouses.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

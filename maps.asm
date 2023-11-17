@@ -1388,11 +1388,16 @@ INCLUDE "data/maps/objects/OchreHouses.asm"
 OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 
 ; Mateo's move deleter/relearner files
-INCLUDE "scripts/MoveDeleter.asm" ; new
-INCLUDE "scripts/MoveRelearner.asm" ; new
+INCLUDE "scripts/MoveDeleter.asm"
+INCLUDE "scripts/MoveRelearner.asm"
 
 ; moved from Maps 6
 INCLUDE "data/maps/headers/CeladonMart1F.asm"
 INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
 CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
+
+INCLUDE "data/maps/headers/ObsidianHouses.asm"
+INCLUDE "scripts/ObsidianHouses.asm"
+INCLUDE "data/maps/objects/ObsidianHouses.asm"
+ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"

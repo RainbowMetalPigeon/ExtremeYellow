@@ -178,7 +178,7 @@ MapHeaderBanks::
 	db BANK(CinnabarLabFossilRoom_h)
 	db BANK(CinnabarPokecenter_h)
 	db BANK(CinnabarMart_h)
-	db BANK(CinnabarMart_h)
+	db BANK(ObsidianHouses_h) ; new
 	db BANK(IndigoPlateauLobby_h)
 	db BANK(CopycatsHouse1F_h)
 	db BANK(CopycatsHouse2F_h)
