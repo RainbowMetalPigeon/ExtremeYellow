@@ -1387,6 +1387,16 @@ INCLUDE "scripts/OchreHouses.asm"
 INCLUDE "data/maps/objects/OchreHouses.asm"
 OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 
+; new! Center+Mart
+INCLUDE "data/maps/headers/OchrePokecenter.asm"
+INCLUDE "scripts/OchrePokecenter.asm"
+INCLUDE "data/maps/objects/OchrePokecenter.asm"
+INCLUDE "data/maps/headers/ObsidianPokecenter.asm"
+INCLUDE "scripts/ObsidianPokecenter.asm"
+INCLUDE "data/maps/objects/ObsidianPokecenter.asm"
+ObsidianPokecenter_Blocks:
+OchrePokecenter_Blocks: INCBIN "maps/PokemonCenterAndMart.blk"
+
 ; Mateo's move deleter/relearner files
 INCLUDE "scripts/MoveDeleter.asm"
 INCLUDE "scripts/MoveRelearner.asm"

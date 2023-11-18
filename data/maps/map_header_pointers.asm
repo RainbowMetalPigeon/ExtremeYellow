@@ -210,8 +210,8 @@ MapHeaderPointers::
 	dw RocketHideoutB4F_h
 	dw RocketHideoutElevator_h
 	dw OchreRehabilitationCenter_h ; new
-	dw RocketHideoutElevator_h ; UNUSED_MAP_CD
-	dw RocketHideoutElevator_h ; UNUSED_MAP_CE
+	dw OchrePokecenter_h ; new
+	dw ObsidianPokecenter_h ; new
 	dw SilphCo2F_h
 	dw SilphCo3F_h
 	dw SilphCo4F_h

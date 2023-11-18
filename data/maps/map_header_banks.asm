@@ -210,8 +210,8 @@ MapHeaderBanks::
 	db BANK(RocketHideoutB4F_h)
 	db BANK(RocketHideoutElevator_h)
 	db BANK(OchreRehabilitationCenter_h) ; new
-	db $01 ; UNUSED_MAP_CD
-	db $01 ; UNUSED_MAP_CE
+	db BANK(OchrePokecenter_h) ; new
+	db BANK(ObsidianPokecenter_h) ; new
 	db BANK(SilphCo2F_h)
 	db BANK(SilphCo3F_h)
 	db BANK(SilphCo4F_h)

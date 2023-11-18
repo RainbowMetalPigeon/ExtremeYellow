@@ -38,7 +38,7 @@ WildDataPointers:
 	dw Route23WildMons         ; ROUTE_23
 	dw Route24WildMons         ; ROUTE_24
 	dw Route25WildMons         ; ROUTE_25
-	dw NothingWildMons		   ; ROUTE_26, new
+	dw Route26WildMons		   ; ROUTE_26, new
 	dw NothingWildMons		   ; ROUTE_27, new
 	dw NothingWildMons		   ; ROUTE_28, new
 	dw NothingWildMons         ; REDS_HOUSE_1F
@@ -335,3 +335,4 @@ INCLUDE "data/wild/maps/SecludedAtollSW.asm" ; new
 INCLUDE "data/wild/maps/ObsidianWood.asm"    ; new
 INCLUDE "data/wild/maps/OnixBurrowing.asm"   ; new
 INCLUDE "data/wild/maps/OchreCity.asm"   	 ; new
+INCLUDE "data/wild/maps/Route26.asm"		 ; new

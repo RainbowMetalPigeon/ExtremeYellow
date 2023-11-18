@@ -6,7 +6,8 @@ PalletTown_Object:
 ;	warp_event  5,  5, HALL_OF_FAME, 1
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 1
-;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 7 ; 23 entrance, 4 exit, 7 Lance
+;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23 ; 23 entrance, 4 exit, 7 Lance
+;	warp_event  5,  5, CERULEAN_CAVE_1F, 10
 ;	warp_event  5,  5, SAFARI_ZONE_GATE, 1
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE, 1

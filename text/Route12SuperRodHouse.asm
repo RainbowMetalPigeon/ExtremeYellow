@@ -2,7 +2,7 @@ _Route12HouseText_564c0::
 	text "I'm the FISHING"
 	line "GURU's sibling!"
 
-	para "I simply Looove"
+	para "I simply looove"
 	line "fishing!"
 
 	para "Do you like to"

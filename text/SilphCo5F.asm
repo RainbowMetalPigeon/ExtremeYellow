@@ -114,7 +114,7 @@ _SilphCo5BattleText4::
 
 _SilphCo5EndBattleText4::
 	text "Oh"
-	line "goodness!"
+	line "goddess!"
 	prompt
 
 _SilphCo5AfterBattleText4::

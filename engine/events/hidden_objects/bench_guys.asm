@@ -47,16 +47,12 @@ RockTunnelPokecenterBenchGuyText::
 	text_far _RockTunnelPokecenterGuyText
 	text_end
 
-UnusedBenchGuyText1::
-	text_far _UnusedBenchGuyText1
+OchrePokecenterBenchGuyText:: ; new
+	text_far _OchrePokecenterGuyText
 	text_end
 
-UnusedBenchGuyText2::
-	text_far _UnusedBenchGuyText2
-	text_end
-
-UnusedBenchGuyText3::
-	text_far _UnusedBenchGuyText3
+ObsidianPokecenterBenchGuyText:: ; new
+	text_far _ObsidianPokecenterGuyText
 	text_end
 
 VermilionCityPokecenterBenchGuyText::

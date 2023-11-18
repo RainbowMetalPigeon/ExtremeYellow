@@ -44,5 +44,6 @@ CeruleanCaveExtraBottom_Object:
 	def_bg_events
 
 	def_object_events
+	object_event  0,  0, SPRITE_POKE_BALL, STAY, NONE, 1, ESCAPE_ROPE
 
 	def_warps_to CERULEAN_CAVE_EXTRA_BOTTOM

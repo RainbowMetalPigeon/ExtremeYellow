@@ -20,14 +20,15 @@ _SilphCo6Text_1a266::
 	done
 
 _SilphCo6Text_1a278::
-	text "Look at him! He's"
-	line "such a coward!"
+	text "Look at them!"
+	line "They're such"
+	cont "a coward!"
 	done
 
 _SilphCo6Text_1a27d::
 	text "I feel so sorry"
-	line "for him, I have"
-	cont "to marry him!"
+	line "for them, I have"
+	cont "to marry them!"
 	done
 
 _SilphCo6Text_1a28f::
@@ -57,7 +58,7 @@ _SilphCo6Text_1a2ab::
 
 _SilphCo6BattleText2::
 	text "I am one of the 4"
-	line "ROCKET BROTHERS!"
+	line "ROCKET SIBLINGS!"
 	done
 
 _SilphCo6EndBattleText2::
@@ -67,7 +68,7 @@ _SilphCo6EndBattleText2::
 
 _SilphCo6AfterBattleText2::
 	text "No matter!"
-	line "My brothers will"
+	line "My siblings will"
 	cont "avenge me!"
 	done
 
@@ -75,9 +76,10 @@ _SilphCo6BattleText3::
 	text "That rotten"
 	line "PRESIDENT!"
 
-	para "He shouldn't have"
-	line "sent me to the"
-	cont "TIKSI BRANCH!"
+	para "They should have"
+	line "not sent me to"
+	cont "the TUNGUSKA"
+	cont "BRANCH!"
 	done
 
 _SilphCo6EndBattleText3::
@@ -85,7 +87,7 @@ _SilphCo6EndBattleText3::
 	prompt
 
 _SilphCo6AfterBattleText3::
-	text "TIKSI BRANCH?"
+	text "TUNGUSKA BRANCH?"
 	line "It's in Russian"
 	cont "no man's land!"
 	done

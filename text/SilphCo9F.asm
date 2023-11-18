@@ -48,15 +48,15 @@ _SilphCo9AfterBattleText2::
 
 _SilphCo9BattleText3::
 	text "I am one of the 4"
-	line "ROCKET BROTHERS!"
+	line "ROCKET SIBLINGS!"
 	done
 
 _SilphCo9EndBattleText3::
 	text "Warg!"
-	line "Brothers, I lost!"
+	line "Siblings, I lost!"
 	prompt
 
 _SilphCo9AfterBattleText3::
-	text "My brothers will"
+	text "My siblings will"
 	line "avenge me!"
 	done

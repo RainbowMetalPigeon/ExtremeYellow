@@ -268,7 +268,6 @@ INCLUDE "text/SaffronCity.asm"
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 
 INCLUDE "text/OchreWonderland.asm" ; new
-INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/Route27.asm" ; new
 ; moved from Text 5
 INCLUDE "text/OaksLab.asm"
@@ -348,6 +347,9 @@ INCLUDE "text/OchreHouses.asm" ; new
 INCLUDE "text/MoveDeleter.asm" ; new
 INCLUDE "text/MoveRelearner.asm" ; new
 INCLUDE "text/ObsidianHouses.asm" ; new
+INCLUDE "text/OchrePokecenter.asm" ; new
+INCLUDE "text/ObsidianPokecenter.asm" ; new
+INCLUDE "text/Route26.asm" ; new
 ; moved from Text 6
 INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PokemonTower7F.asm"

@@ -42,15 +42,15 @@ _SilphCo8AfterBattleText2::
 
 _SilphCo8BattleText3::
 	text "I am one of the 4"
-	line "ROCKET BROTHERS!"
+	line "ROCKET SIBLINGS!"
 	done
 
 _SilphCo8EndBattleText3::
 	text "Whoo!"
-	line "Oh brothers!"
+	line "Oh siblings!"
 	prompt
 
 _SilphCo8AfterBattleText3::
 	text "I'll leave you up"
-	line "to my brothers!"
+	line "to my siblings!"
 	done

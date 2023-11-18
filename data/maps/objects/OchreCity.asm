@@ -4,8 +4,8 @@ OchreCity_Object:
 	def_warp_events
 	warp_event  9,  9, OCHRE_HOUSES, 1 ; 1 - house 1
 	warp_event 17,  9, OCHRE_HOUSES, 3 ; 2 - house 2
-	warp_event 27, 11, REDS_HOUSE_1F, 1 ; 3, to edit - poke mart
-	warp_event 35, 11, REDS_HOUSE_1F, 1 ; 4, to edit - poke center
+	warp_event 27, 11, OCHRE_POKECENTER, 3 ; 3 - poke mart
+	warp_event 35, 11, OCHRE_POKECENTER, 1 ; 4 - poke center
 	warp_event 17, 15, OCHRE_HOUSES, 5 ; 5 - bird fan club
 	warp_event 34, 17, OCHRE_GYM, 1 ; 6
 	warp_event 10, 19, OCHRE_RESEARCH_CENTER, 1 ; 7

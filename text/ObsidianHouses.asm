@@ -1,8 +1,9 @@
 _ObsidianHousesTextFlowerEnthusiast::
-	text "Plants and flowers"
-	line "in particular are"
+	text "Plants, and"
+	line "flowers in"
+	cont "particular, are"
 	cont "my greatest"
-	cont "passions!"
+	cont "passion!"
 
 	para "I study flower"
 	line "composition under"
@@ -139,6 +140,10 @@ _ObsidianHousesTextFlowerNotes::
 	cont "achieve a higher"
 	cont "density of"
 	cont "flowers!"
+
+	para "Not a word on what"
+	line "the building is"
+	cont "about, tho."
 	done
 
 _ObsidianHousesTextFishingBoard::

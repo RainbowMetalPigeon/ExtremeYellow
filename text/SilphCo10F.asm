@@ -51,7 +51,7 @@ _SilphCoJessieJamesText2::
 	line "meeting!"
 
 	para "You better not"
-	line "disturb him!"
+	line "disturb them!"
 	done
 
 _SilphCoJessieJamesText3::

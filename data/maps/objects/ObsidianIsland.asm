@@ -3,9 +3,9 @@ ObsidianIsland_Object:
 
 	def_warp_events
 	warp_event 17,  3, OBSIDIAN_HOUSES, 1 ; flower person
-	warp_event 35,  5, REDS_HOUSE_1F, 1 ; pokemon center - TODO
+	warp_event 35,  5, OBSIDIAN_POKECENTER, 1 ; pokemon center
 	warp_event 19,  7, OBSIDIAN_WOOD, 1 ; entrance to wood
-	warp_event 35, 11, REDS_HOUSE_1F, 1 ; poke mart - TODO
+	warp_event 35, 11, OBSIDIAN_POKECENTER, 3 ; poke mart
 	warp_event 35, 21, OBSIDIAN_HOUSES, 3 ; fishing guru
 	warp_event 35, 25, OBSIDIAN_HOUSES, 5 ; workers
 	warp_event  9, 16, OBSIDIAN_WOOD, 3 ; exit wood

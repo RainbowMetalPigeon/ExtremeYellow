@@ -1,3 +1,41 @@
+_Route26TextHiker1::
+	text "Uuufff... Uuff..."
+	line "This route is"
+	cont "deceptively"
+	cont "steep!"
+	done
+
+_Route26TextHiker2::
+	text "Apparently, no-one"
+	line "has explored"
+	cont "fully that ONIX"
+	cont "BURROWING ahead!"
+
+	para "I am so excited!"
+	line "I wonder what"
+	cont "it may be waiting"
+	cont "in its deepest"
+	cont "layers!"
+	done
+
+_Route26TextHiker3::
+	text "Damn... I must be"
+	line "out of shape."
+
+	para "Should I push"
+	line "forward a bit"
+	cont "more, or head"
+	cont "back now?"
+	done
+
+_Route26TextHiker4::
+	text "Rumors say that"
+	line "JASMINE, the GYM"
+	cont "LEADER of JOHTO,"
+	cont "has recently been"
+	cont "seen around here!" 
+	done
+
 _Route26BattleText1::
 	text "Hey! Are you"
 	line "wanna steal my"

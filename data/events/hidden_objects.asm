@@ -89,6 +89,8 @@ HiddenObjectMaps:
 	dbw OBSIDIAN_WOOD,                ObsidianWoodHiddenObjects ; new
 	dbw CINNABAR_ISLAND,              CinnabarIslandHiddenObjects ; new
 	dbw ROUTE_3,                      Route3HiddenObjects ; new
+	dbw OCHRE_POKECENTER,             OchrePokecenterHiddenObjects ; new
+	dbw OBSIDIAN_POKECENTER,          ObsidianPokecenterHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -614,5 +616,15 @@ CinnabarLab4HiddenObjects:
 
 CinnabarPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_UP, PrintBenchGuyText
+	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+OchrePokecenterHiddenObjects: ; new
+	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
+	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+ObsidianPokecenterHiddenObjects: ; new
+	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end

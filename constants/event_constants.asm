@@ -295,7 +295,7 @@
 
 ; Route 26 events, new, temp?
 	const_next $400
-	const_skip
+	const_skip 5
 	const EVENT_BEAT_ROUTE_26_TRAINER_0
 
 ; Route 6 events

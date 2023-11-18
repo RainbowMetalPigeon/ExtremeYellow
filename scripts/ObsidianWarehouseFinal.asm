@@ -339,7 +339,7 @@ ShowObsidianCitizens:
 	ret z ; if so, we're done
 	push hl
 	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
+	predef ShowObjectExtra ; NB: they must all be in the Extra HS section, otherwise I need to duplicate this function
 	pop hl
 	jr .hideLoop
 
@@ -351,6 +351,8 @@ ObsidianCitizens:
 	db HS_OBSIDIAN_ISLAND_CITIZEN_2
 	db HS_OBSIDIAN_ISLAND_CITIZEN_3
 	db HS_OBSIDIAN_ISLAND_CITIZEN_4
+	db HS_OBSIDIAN_POKECENTER_NPC_1
+	db HS_OBSIDIAN_POKECENTER_NPC_2
 	db $ff
 
 ; ================= scripts, end =================

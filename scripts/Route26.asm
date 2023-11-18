@@ -15,18 +15,38 @@ Route26_ScriptPointers:
 	dw EndTrainerBattle
 
 Route26_TextPointers:
+	dw Route26TextHiker1
+	dw Route26TextHiker2
+	dw Route26TextHiker3
+	dw Route26TextHiker4
 	dw Route26Text1
 	dw BoulderText
 	dw Route26Text2 ; sign welcome
 	dw Route26Text3 ; sign burrowing
 
 Route26TrainerHeaders:
-	def_trainers
+	def_trainers 5
 Route26TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_26_TRAINER_0, 1, Route26BattleText1, Route26EndBattleText1, Route26AfterBattleText1
 	db -1 ; end
 
 ; --- non-trainers ---
+
+Route26TextHiker1:
+	text_far _Route26TextHiker1
+	text_end
+
+Route26TextHiker2:
+	text_far _Route26TextHiker2
+	text_end
+
+Route26TextHiker3:
+	text_far _Route26TextHiker3
+	text_end
+
+Route26TextHiker4:
+	text_far _Route26TextHiker4
+	text_end
 
 ; --- trainers ---
 

@@ -210,10 +210,10 @@ MapHSPointers:
 	dw RocketHideoutB2FHS
 	dw RocketHideoutB3FHS
 	dw RocketHideoutB4FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; ROCKET_HIDEOUT_ELEVATOR
+	dw NoHS ; OCHRE_REHABILITATION_CENTER
+	dw NoHS ; OCHRE_POKECENTER
+	dw ObsidianPokecenterHS ; new
 	dw SilphCo2FHS
 	dw SilphCo3FHS
 	dw SilphCo4FHS
@@ -250,7 +250,7 @@ MapHSPointers:
 	dw NoHS ; COLOSSEUM
 	dw NoHS ; CERULEAN_CAVE_EXTRA_TOP
 	dw CeruleanCaveExtraMiddleHS ; new
-	dw NoHS ; CERULEAN_CAVE_EXTRA_BOTTOM
+	dw CeruleanCaveExtraBottomHS ; new
 	dw NoHS ; CERULEAN_CAVE_EXTRA_FINAL
 	dw NoHS ; LORELEIS_ROOM
 	dw NoHS ; BRUNOS_ROOM
@@ -728,5 +728,10 @@ OchreCityHS: ; new
 	db OCHRE_CITY, $0A, HIDE ; Traveler
 CinnabarIslandHS: ; new
 	db CINNABAR_ISLAND, $0B, HIDE ; Traveler
+ObsidianPokecenterHS: ; new
+	db OBSIDIAN_POKECENTER, $02, HIDE
+	db OBSIDIAN_POKECENTER, $03, HIDE
+CeruleanCaveExtraBottomHS: ; new
+	db CERULEAN_CAVE_EXTRA_BOTTOM, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

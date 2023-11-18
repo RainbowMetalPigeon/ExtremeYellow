@@ -2,7 +2,7 @@ _VermilionHouse2Text_560b1::
 	text "I'm the FISHING"
 	line "GURU!"
 
-	para "I simply Looove"
+	para "I simply looove"
 	line "fishing!"
 
 	para "Do you like to"

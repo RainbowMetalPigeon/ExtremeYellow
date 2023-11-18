@@ -367,3 +367,6 @@ DEF SHOW EQU $15
 	const HS_ARCEUS						   ; new
 	const HS_OCHRE_CITY_TRAVELER           ; new
 	const HS_CINNABAR_ISLAND_TRAVELER      ; new
+	const HS_OBSIDIAN_POKECENTER_NPC_1     ; new
+	const HS_OBSIDIAN_POKECENTER_NPC_2     ; new
+	const HS_CERULEAN_CAVE_EXTRA_BOTTOM_ITEM_1	; new

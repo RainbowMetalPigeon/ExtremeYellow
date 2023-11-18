@@ -211,22 +211,24 @@ _RockTunnelPokecenterGuyText::
 	cont "LAVENDER TOWN!"
 	done
 
-_UnusedBenchGuyText1::
-	text "I wish I could"
-	line "catch #MON."
+_OchrePokecenterGuyText:: ; new
+	text "There's so much to"
+	line "do in this city!"
+
+	para "I'll take a small"
+	line "break before I"
+	cont "keep exploring!"
 	done
 
-_UnusedBenchGuyText2::
-	text "I'm tired from"
-	line "all the fun..."
-	done
+_ObsidianPokecenterGuyText:: ; new
+	text "You have no idea"
+	line "how difficult was"
+	cont "to get me here."
 
-_UnusedBenchGuyText3::
-	text "SILPH's manager"
-	line "is hiding in the"
-	cont "SAFARI ZONE."
+	para "I won't move just"
+	line "for TEAM ROCKET!"
 	done
-
+	
 _VermilionPokecenterGuyText::
 	text "It is true that a"
 	line "higher level"
@@ -283,9 +285,19 @@ _SaffronCityPokecenterGuyText2::
 	cont "That's great!"
 	done
 
-_CeladonCityHotelText::
-	text "My sis brought me"
-	line "on this vacation!"
+_CeladonCityHotelText:: ; edited
+	text "I came here all"
+	line "the way from"
+	cont "UNOVA!"
+
+	para "It's my first"
+	line "visit to KANTO."
+	cont "I am liking"
+	cont "CELADON a lot,"
+	cont "and I am looking"
+	cont "forward to visit"
+	cont "OCHRE CITY and"
+	cont "CINNABAR ISLAND!"
 	done
 
 _BookcaseText::
