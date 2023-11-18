@@ -1,9 +1,9 @@
 _FuchsiaHouse3Text_561bd::
 	text "I'm the FISHING"
 	line "GURU's older"
-	cont "brother!"
+	cont "sibling!"
 
-	para "I simply Looove"
+	para "I simply looove"
 	line "fishing!"
 
 	para "Do you like to"

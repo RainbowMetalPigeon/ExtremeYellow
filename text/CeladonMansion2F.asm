@@ -313,7 +313,7 @@ _CeladonMansion2TextSign2::
 	para "LUCKYTYPHLOSION is"
 	line "another big"
 	cont "contributor to"
-	cont "pret, whose"
+	cont "pret, their"
 	cont "biggest"
 	cont "contribution has"
 	cont "been creating"

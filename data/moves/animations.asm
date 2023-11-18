@@ -236,7 +236,6 @@ AttackAnimationPointers:
 	dw	RockTombAnim
 	dw	HeadSmashAnim
 	dw	StoneEdgeAnim
-;	dw	AccelerockAnim
 
 	dw	IronTailAnim
 	dw	SteelWingAnim
@@ -471,6 +470,55 @@ HornDrillAnim:
 	battle_anim NO_MOVE, SUBANIM_05, 1, 2
 	battle_anim NO_MOVE, SUBANIM_05, 1, 2
 	db -1 ; end
+
+; TODO:
+
+PlayRoughAnim:
+MoonBlastAnim:
+
+MachPunch:
+
+WillOWispAnim:
+FlareBlitzAnim:
+
+AirCutterAnim:
+AerialAceAnim:
+AirSlashAnim:
+BraveBirdAnim:
+HurricaneAnim:
+
+ShadowSneakAnim:
+ShadowClawAnim:
+
+MagicaLeafAnim:
+LeafStormAnim:
+
+IcicleSpearAnim:
+IcicleCrashAnim:
+
+GunkShot:
+SludgeWaveAnim:
+
+ZenHeadbuttAnim:
+
+RockTombAnim:
+HeadSmashAnim:
+StoneEdgeAnim:
+
+IronTailAnim:
+SteelWingAnim:
+MetalClawAnim:
+BulletPunchAnim:
+FlashCannonAnim:
+
+WaterPulseAnim:
+AquaJetAnim:
+
+EternabeamAnim:
+DragonAscentAnim:
+ThousandArrowsAnim:
+PhotonGeyserAnim:
+JudgmentAnim:
 
 TackleAnim:
 	battle_anim LEECH_SEED, SE_MOVE_MON_HORIZONTALLY
@@ -1020,50 +1068,6 @@ BoneClubAnim:
 
 ; ------------------------------------------------------------------------------
 
-; TODO:
-
-PlayRoughAnim:
-MoonBlastAnim:
-
-MachPunch:
-
-WillOWispAnim:
-FlareBlitzAnim:
-
-AirCutterAnim:
-AerialAceAnim:
-AirSlashAnim:
-BraveBirdAnim:
-HurricaneAnim:
-
-ShadowSneakAnim:
-ShadowClawAnim:
-
-MagicaLeafAnim:
-LeafStormAnim:
-
-IcicleSpearAnim:
-IcicleCrashAnim:
-
-GunkShot:
-SludgeWaveAnim:
-
-ZenHeadbuttAnim:
-
-RockTombAnim:
-HeadSmashAnim:
-StoneEdgeAnim:
-;AccelerockAnim:
-
-IronTailAnim:
-SteelWingAnim:
-MetalClawAnim:
-BulletPunchAnim:
-FlashCannonAnim:
-
-WaterPulseAnim:
-AquaJetAnim:
-
 FireBlastAnim:
 	battle_anim FIRE_BLAST, SUBANIM_1F, 1, 6
 	battle_anim NO_MOVE, SUBANIM_20, 1, 6
@@ -1071,13 +1075,6 @@ FireBlastAnim:
 	battle_anim NO_MOVE, SUBANIM_0C, 1, 6
 	battle_anim NO_MOVE, SUBANIM_0D, 1, 6
 	db -1 ; end
-
-TODO:
-EternabeamAnim:
-DragonAscentAnim:
-ThousandArrowsAnim:
-PhotonGeyserAnim:
-JudgmentAnim:
 
 WaterfallAnim:
 	battle_anim LEECH_SEED, SE_SLIDE_MON_DOWN
