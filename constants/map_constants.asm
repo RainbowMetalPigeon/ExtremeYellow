@@ -23,9 +23,9 @@ ENDM
 	map_const LAVENDER_TOWN,                 10,  9 ; $04
 	map_const VERMILION_CITY,                20, 18 ; $05
 	map_const CELADON_CITY,                  25, 21 ; $06 ; edited
-	map_const OCHRE_CITY,                    23, 23 ; new, moved
+	map_const OCHRE_CITY,                    23, 23 ; new
 	map_const FUCHSIA_CITY,                  20, 18 ; $07
-	map_const OBSIDIAN_ISLAND,               20, 20 ; new, testing
+	map_const OBSIDIAN_ISLAND,               20, 20 ; new
 	map_const CINNABAR_ISLAND,               25, 15 ; $08 ; edited
 	map_const INDIGO_PLATEAU,                10,  9 ; $09
 	map_const SAFFRON_CITY,                  20, 18 ; $0A
@@ -34,7 +34,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_1,                       10, 18 ; $0C
 	map_const ROUTE_2,                       10, 36 ; $0D
 	map_const ROUTE_3,                       35,  9 ; $0E
-	map_const ROUTE_4,                       45,  9 ; $0F
+	map_const ROUTE_4,                       45, 19 ; $0F ; editing
 	map_const ROUTE_5,                       10, 18 ; $10
 	map_const ROUTE_6,                       10, 18 ; $11
 	map_const ROUTE_7,                       10,  9 ; $12

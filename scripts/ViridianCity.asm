@@ -46,7 +46,7 @@ ViridianCityScript_1905b:
 	ld a, [wXCoord]
 	cp 32
 	ret nz
-	ld a, $f
+	ld a, $10 ; +1 because of traveler
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call StartSimulatingJoypadStates
@@ -125,7 +125,7 @@ ViridianCityScript4:
 	SetEvent EVENT_02E
 	xor a
 	ld [wJoyIgnore], a
-	ld a, $10
+	ld a, $11 ; +1 because of traveler
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -257,23 +257,23 @@ ViridianCityScript10:
 	ret
 
 ViridianCity_TextPointers:
-	dw ViridianCityText_0
-	dw ViridianCityText_1
-	dw ViridianCityText_2
-	dw ViridianCityText_3
-	dw ViridianCityText_4
-	dw ViridianCityText_5
-	dw ViridianCityText_6
-	dw ViridianCityText_7
-	dw TextPreBattle_ViridianTraveler ; new, for traveler
-	dw ViridianCityText_8
-	dw ViridianCityText_9
-	dw ViridianCityText_10
-	dw MartSignText
-	dw PokeCenterSignText
-	dw ViridianCityText_11
-	dw ViridianCityText_12
-	dw ViridianCityText_13
+	dw ViridianCityText_0 ; 1
+	dw ViridianCityText_1 ; 2
+	dw ViridianCityText_2 ; 3
+	dw ViridianCityText_3 ; 4
+	dw ViridianCityText_4 ; 5
+	dw ViridianCityText_5 ; 6
+	dw ViridianCityText_6 ; 7
+	dw ViridianCityText_7 ; 8
+	dw TextPreBattle_ViridianTraveler ; 9, new, for traveler
+	dw ViridianCityText_8 ; $A
+	dw ViridianCityText_9 ; $B
+	dw ViridianCityText_10 ; $C
+	dw MartSignText ; $D
+	dw PokeCenterSignText ; $E
+	dw ViridianCityText_11 ; $F
+	dw ViridianCityText_12 ; $10
+	dw ViridianCityText_13 ; $11 ; need to weak target mon
 	dw TextPostBattle_ViridianTraveler ; 18=$12 new, for traveler
 
 ViridianCityText_0:

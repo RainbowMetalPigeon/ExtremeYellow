@@ -15,9 +15,9 @@ SpecialTrainerMoves:
 	db 1, 3, STRING_SHOT
 	db 1, 4, HARDEN
 	; BEEDRILL
-	db 1, 2, POISON_STING
-	db 1, 3, STRING_SHOT
-	db 1, 4, HARDEN
+	db 2, 2, POISON_STING
+	db 2, 3, STRING_SHOT
+	db 2, 4, HARDEN
 	db 0
 
 	db YOUNGSTER, 14

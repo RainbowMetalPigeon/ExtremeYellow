@@ -12,7 +12,7 @@ _ViridianPokeCenterText3::
 	cont "town ahead."
 
 	para "They are obviously"
-	line "free, like pub-"
-	cont "lich healthcare"
-	cont "should always be!"
+	line "free, as public"
+	cont "healthcare should"
+	cont "always be!"
 	done

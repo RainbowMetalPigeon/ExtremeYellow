@@ -99,8 +99,8 @@ BugCatcherData:
 ; Mt. Moon 1F
 	db 11, WEEDLE, KAKUNA, 0
 	db 10, CATERPIE, METAPOD, CATERPIE, 0
-; Route 24
-	db 14, CATERPIE, WEEDLE, 0
+; Route 24 (Nugget Bridge)
+	db 14, BUTTERFREE, BEEDRILL, 0
 ; Route 6
 	db 16, WEEDLE, CATERPIE, WEEDLE, 0
 	db 20, BUTTERFREE, 0
@@ -126,7 +126,7 @@ LassData:
 	db 14, CLEFAIRY, 0
 ; Route 24
 	db 16, PIDGEY, NIDORAN_F, 0
-	db 14, PIDGEY, NIDORAN_F, 0
+	db 15, PIDGEY, NIDORAN_F, 0
 ; Route 25
 	db 15, NIDORAN_M, NIDORAN_F, 0
 	db 13, ODDISH, PIDGEY, ODDISH, 0
