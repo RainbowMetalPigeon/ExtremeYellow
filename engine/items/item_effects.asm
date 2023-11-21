@@ -2214,6 +2214,12 @@ ItemUseOldRod:
 	call FishingInit
 	jp c, ItemUseNotTime
 	lb bc, 5, MAGIKARP
+	; new, to improve rods (Obsidian Fishing Guru) - begin
+	CheckEvent EVENT_ENHANCED_RODS
+	jr z, .setBite
+	lb bc, 15, MAGIKARP
+.setBite
+	; new, to improve rods (Obsidian Fishing Guru) - end
 	ld a, $1 ; set bite
 	jr RodResponse
 
@@ -2221,6 +2227,15 @@ ItemUseGoodRod:
 	call FishingInit
 	jp c, ItemUseNotTime
 .RandomLoop
+	; new, to improve rods (Obsidian Fishing Guru) - begin
+	CheckEvent EVENT_ENHANCED_RODS
+	jr z, .notEnhancedRod
+	call Random
+	and %1
+	ld hl, GoodRodMons_Enhanced
+	jr .readMonInfo
+.notEnhancedRod
+	; new, to improve rods (Obsidian Fishing Guru) - end
 	call Random
 	srl a
 	jr c, .SetBite
@@ -2229,6 +2244,7 @@ ItemUseGoodRod:
 	jr nc, .RandomLoop
 	; choose which monster appears
 	ld hl, GoodRodMons
+.readMonInfo ; new, to improve rods (Obsidian Fishing Guru)
 	add a
 	ld c, a
 	ld b, 0
@@ -2256,16 +2272,20 @@ ItemUseSuperRod:
 	ld a, c
 	and a ; are there fish in the map?
 	jr z, DoNotGenerateFishingEncounter ; if not, do not generate an encounter
-	; moved the ld a, $1 down
-	call Random
 
-	; new, increased fishing chances with Super Rod
+	; new, increased fishing chances with Super Rod and to improve rods (Obsidian Fishing Guru)
+	CheckEvent EVENT_ENHANCED_RODS
+	jr nz, .enhancedRods
+	call Random
 	cp 192 ; about 75% of 255
+	jr .storeResult
+.enhancedRods
+	call Random
+	cp 230 ; about 90% of 255
+.storeResult
 	ld a, $1
 	ld [wRodResponse], a
-	jr c, RodResponse ; get a respose if there's a carry, i.e. if a-192 is negative, i.e. if a<192, i.e. 75%
-;	and $1
-;	jr nz, RodResponse
+	jr c, RodResponse ; get a respose if there's a carry, i.e. if a-192[230] is negative, i.e. if a<192[230], i.e. 75[90]%
 
 	xor a
 	ld [wRodResponse], a

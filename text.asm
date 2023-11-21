@@ -346,7 +346,6 @@ INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 INCLUDE "text/OchreHouses.asm" ; new
 INCLUDE "text/MoveDeleter.asm" ; new
 INCLUDE "text/MoveRelearner.asm" ; new
-INCLUDE "text/ObsidianHouses.asm" ; new
 INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
@@ -358,6 +357,10 @@ INCLUDE "text/FightingDojo.asm"
 INCLUDE "text/SaffronGym.asm"
 ; moved from Text 3
 INCLUDE "text/Route9.asm"
+
+
+SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/ObsidianHouses.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections
