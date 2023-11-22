@@ -44,7 +44,7 @@ _PokemonTower2Text_60632::
 	prompt
 
 _PokemonTower2Text_60637::
-	text "<RIVAL>: Yes!!!"
+	text "Yes!!!"
 	line "Revenge! Finally!"
 	cont "How does it feel"
 	cont "to be a loser?"

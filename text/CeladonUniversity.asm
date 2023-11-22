@@ -17,11 +17,11 @@ _CeladonUniversityText2::
 	line "has been amazing!"
 
 	para "To be honest, tho,"
-	line "there is too much"
-	cont "water, and the"
-	cont "teacher used too"
-	cont "frequently their"
-	cont "QUICK CLAW..."
+	line "there is not"
+	cont "enough water, and"
+	cont "the teacher used"
+	cont "too frequently"
+	cont "their QUICK CLAW."
 	done
 
 _CeladonUniversityText3::

@@ -1161,6 +1161,7 @@ DoUseNextMonDialogue:
 	and a
 	jr z, .displayYesNoBox ; xxx when does this happen?
 	ld hl, wPartyMon1Speed
+	ld a, [wPartyMon1Speed] ; for testing only
 	ld de, wEnemyMonSpeed
 	jp TryRunningFromBattle
 
