@@ -1161,7 +1161,6 @@ DoUseNextMonDialogue:
 	and a
 	jr z, .displayYesNoBox ; xxx when does this happen?
 	ld hl, wPartyMon1Speed
-	ld a, [wPartyMon1Speed] ; for testing only
 	ld de, wEnemyMonSpeed
 	jp TryRunningFromBattle
 
@@ -1768,17 +1767,6 @@ LoadBattleMonFromParty:
 	ld [hli], a
 	dec b
 	jr nz, .statModLoop
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;shinpokerednote: ADDED: if this is a trainer battle, set the pkmn as being sent out and apply any burn/par stat changes
-	push af
-	ld a, [wIsInBattle]
-	cp 2 ; is it a trainer battle?
-	jr nz, .end_set_sendout
-	call SetAISentOut	;joenote - custom function
-	call ApplyBurnAndParalysisPenaltiesToEnemy
-.end_set_sendout
-	pop af
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ret
 
 ; copies from enemy party data to current enemy mon data when sending out a new enemy mon
@@ -6883,6 +6871,17 @@ LoadEnemyMonData:
 	ld [hli], a
 	dec b
 	jr nz, .statModLoop
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;shinpokerednote: ADDED: if this is a trainer battle, set the pkmn as being sent out and apply any burn/par stat changes
+	push af
+	ld a, [wIsInBattle]
+	cp 2 ; is it a trainer battle?
+	jr nz, .end_set_sendout
+	call SetAISentOut	;joenote - custom function
+	call ApplyBurnAndParalysisPenaltiesToEnemy
+.end_set_sendout
+	pop af
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ret
 
 ; calls BattleTransition to show the battle transition animation and initializes some battle variables
