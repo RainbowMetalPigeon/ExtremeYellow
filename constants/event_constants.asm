@@ -130,7 +130,8 @@
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_2
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_3
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4 ; Warehouse Giovanni
-	const_skip 8
+	const EVENT_ENHANCED_RODS ; new
+	const_skip 7 ; edited, was 8
 	const EVENT_GOT_POKE_FLUTE
 	const_skip 30 ; temporarily edited wrongly for Fuji mega stone, gotta check if all still works
 	const EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY

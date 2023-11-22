@@ -17,7 +17,7 @@ _ObsidianHousesTextFlowerEnthusiast::
 	cont "project!"
 	done
 
-_ObsidianHousesTextFishingSuperGuru::
+_ObsidianHousesTextFishingSuperGuru_Intro::
 	text "I'm FISHING GURU's"
 	line "cousin!"
 
@@ -55,10 +55,41 @@ _ObsidianHousesTextFishingSuperGuru::
 	cont "fish stronger"
 	cont "#MON. What do"
 	cont "you think?"
+	done
 
-	para "...uhhh sadly this"
-	line "is not ready for"
-	cont "the BETA version."
+_ObsidianHousesTextFishingSuperGuru_HowFishingGo::
+	text "Heya! How's your"
+	line "enhanced fishing"
+	cont "going?"
+	done
+
+_ObsidianHousesTextFishingSuperGuru_Refused::
+	text "Oh...! Ok, sure."
+	line "Feel free to come"
+	cont "back any time if"
+	cont "you change your"
+	cont "mind and want me"
+	cont "to teach you!"
+	done
+
+_ObsidianHousesTextFishingSuperGuru_Accepted::
+	text "Great!!! Now,"
+	line "let's dive into"
+	cont "the lessons!"
+	done
+
+_ObsidianHousesTextFishingSuperGuru_Done::
+	text "Excellent! You now"
+	line "know everything"
+	cont "you need to"
+	cont "improve your"
+	cont "fishing"
+	cont "technique!"
+
+	para "You will get more"
+	line "bites, and you"
+	cont "will fish"
+	cont "stronger #MON!"
 	done
 
 _ObsidianHousesTextFamily1::

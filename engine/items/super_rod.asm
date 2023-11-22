@@ -2,6 +2,9 @@ ReadSuperRodData:
 	ld a, [wCurMap]
 	ld c, a
 	ld hl, SuperRodFishingSlots
+	CheckEvent EVENT_ENHANCED_RODS			; new, to improve rods (Obsidian Fishing Guru)
+	jr z, .loop								; new, to improve rods (Obsidian Fishing Guru)
+	ld hl, SuperRodFishingSlots_Enhanced	; new, to improve rods (Obsidian Fishing Guru)
 .loop
 	ld a, [hli]
 	cp $ff
