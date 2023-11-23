@@ -98,6 +98,10 @@ _CeladonMansion3Text5::
 	line "program! Messing"
 	cont "with it could bug"
 	cont "out the game!"
+
+	para "...go tell that to"
+	line "those people"
+	cont "downstairs..."
 	done
 
 _CeladonMansion3Text6::

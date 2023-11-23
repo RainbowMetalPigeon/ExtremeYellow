@@ -234,7 +234,7 @@ _CeladonMansion2TextJoJo::
 	cont "used, is an"
 	cont "adapation of my"
 	cont "code that"
-	cont "increases that"
+	cont "increases the"
 	cont "stats of"
 	cont "opponents'"
 	cont "#MON!"

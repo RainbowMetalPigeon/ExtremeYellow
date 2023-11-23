@@ -1347,12 +1347,11 @@ _WildMonAppearedText::
 	line "appeared!"
 	prompt
 
-_HookedMonAttackedText::
-	text "The hooked"
-	line "@"
+_HookedMonAttackedText:: ; edited, 2-liner
+	text "Hooked @"
 	text_ram wEnemyMonNick
 	text_start
-	cont "attacked!"
+	line "appeared!"
 	prompt
 
 _BoyGirlText::
