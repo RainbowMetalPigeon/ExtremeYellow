@@ -164,7 +164,7 @@ OchreGymReceiveGift:
 	ld a, $10 ; testing
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	SetEvent EVENT_GOT_GIFT
+	SetEvent EVENT_OCHRE_GYM_GOT_GIFT
 	jr .gymVictory
 .BagFull
 	ld a, $11 ; testing
@@ -230,7 +230,7 @@ OrageText:
 	jr nz, .postGameCode
 	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 	jr z, .beforeBeat
-	CheckEventReuseA EVENT_GOT_GIFT
+	CheckEventReuseA EVENT_OCHRE_GYM_GOT_GIFT
 	jr nz, .afterBeat
 	call z, OchreGymReceiveGift
 	call DisableWaitingAfterTextDisplay

@@ -1,4 +1,4 @@
-_OchreHousesTextReactivater::
+_OchreHousesTextReactivater_Intro::
 	text "Those two siblings"
 	line "downstairs spend"
 	cont "all their time"
@@ -35,16 +35,63 @@ _OchreHousesTextReactivater::
 	para "You get more"
 	line "training, and I"
 	cont "get to see more"
-	cont "battles! It's a"
-	cont "win-win! What do"
-	cont "you think?"
-
-	para "...uhhh sadly this"
-	line "is not ready for"
-	cont "the BETA version."
+	cont "battles!"
+	cont "It's a win-win!"
+	cont "Whaddya think?"
 	done
 
-_OchreHousesTextMagikarpTutor::
+_OchreHousesTextReactivater_EnjoyRebattles::
+	text "Are you enjoying"
+	line "your renewed wave"
+	cont "of battles?"
+	done
+
+_OchreHousesTextReactivater_Refused::
+	text "Oh... as you"
+	line "prefer... but"
+	cont "there are only"
+	cont "advantages in"
+	cont "accepting this"
+	cont "offer!"
+	done
+
+_OchreHousesTextReactivater_Accepted::
+	text "OH, YEEEAH!"
+
+	para "Lemme summon the"
+	line "otherworldly"
+	cont "powers, and I"
+	cont "will cast this"
+	cont "enchantement on"
+	cont "the whole KANTO!"
+	done
+
+_OchreHousesTextReactivater_Done::
+	text "Done! Now you can"
+	line "go and talk to"
+	cont "any trainer, and"
+	cont "you will be able"
+	cont "to battle them as"
+	cont "many times as you"
+	cont "wish!"
+
+	para "Mind, tho, that"
+	line "there are a"
+	cont "handful of elite"
+	cont "trainers which"
+	cont "have not been"
+	cont "affected by my"
+	cont "spell."
+
+	para "Definitely all GYM"
+	line "LEADERS, and"
+	cont "possibly someone"
+	cont "else too..."
+	done
+
+; ------------------------------
+
+_OchreHousesTextMagikarpTutor_Intro::
 	text "I'm working on a"
 	line "system to make"
 	cont "the most underdog"
@@ -59,6 +106,8 @@ _OchreHousesTextMagikarpTutor::
 	cont "BETA version..."
 ;	xxxx "123456789012345678"
 	done
+
+; ------------------------------
 
 _OchreHousesTextBirbFan1::
 	text "BIRD #MON are"

@@ -100,6 +100,8 @@ TalkToTrainer::
 	ld a, c
 	and a
 	jr z, .trainerNotYetFought     ; test trainer's flag
+	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS	; new, to reactivate trainers
+	jr nz, .trainerNotYetFought					; new, to reactivate trainers
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
 	jp PrintText

@@ -139,7 +139,7 @@ InGameTrade_DoTrade:
 	ld [wInGameTradeTextPointerTableIndex], a
 	ret
 
-InGameTrade_RestoreScreen:
+InGameTrade_RestoreScreen:: ; testing double colon
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
 	call ReloadTilesetTilePatterns

@@ -146,7 +146,7 @@ _CeladonMansion2TextDannye::
 	text "Hi! I am DANNYE!"
 
 	para "I am one of the"
-	line "parents of the"
+	line "founders of the"
 	cont "whole #MON"
 	cont "reverse engineer"
 	cont "team, or pret"
@@ -160,7 +160,7 @@ _CeladonMansion2TextDannye::
 	cont "song editor, and"
 	cont "much more."
 
-	para "Besides allowing"
+	para "Besides enabling"
 	line "PIGEON to work on"
 	cont "their project to"
 	cont "begin with, I"

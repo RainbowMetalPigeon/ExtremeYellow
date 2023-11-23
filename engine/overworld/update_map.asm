@@ -46,7 +46,7 @@ ReplaceTileBlock:
 	call CompareHLWithBC
 	ret c ; return if the replaced tile block is above the map view in memory
 
-RedrawMapView:
+RedrawMapView:: ; how did you work being just one colon but being farcalled?
 	ld a, [wIsInBattle]
 	inc a
 	ret z
