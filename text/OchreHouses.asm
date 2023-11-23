@@ -92,7 +92,7 @@ _OchreHousesTextReactivater_Done::
 ; ------------------------------
 
 _OchreHousesTextMagikarpTutor_Intro::
-	text "I'm working on a"
+	text "I developed a"
 	line "system to make"
 	cont "the most underdog"
 	cont "of all #MON,"
@@ -101,9 +101,53 @@ _OchreHousesTextMagikarpTutor_Intro::
 	cont "power of its"
 	cont "forgotten past!"
 
-	para "Sadly, this is not"
-	line "ready yet for the"
-	cont "BETA version..."
+	para "With my machine,"
+	line "I can awaken the"
+	cont "slumbering genes"
+	cont "and unleash"
+	cont "MAGIKARP's hidden"
+	cont "ultimate attack!"
+
+	para "Do you have a"
+	line "MAGIKARP?"
+	cont "Show me!"
+	prompt
+
+_OchreHousesTextMagikarpTutor_Cancel::
+	text "Are you scared of"
+	line "awakening a power"
+	cont "too grand to be"
+	cont "controlled?"
+	done
+
+_OchreHousesTextMagikarpTutor_WrongMon::
+	text "Ah, no, this"
+	line "#MON won't do!"
+
+	para "We need a glorious"
+	line "MAGIKARP!"
+	done
+
+_OchreHousesTextMagikarpTutor_WrongLevel::
+	text "This MAGIKARP is"
+	line "not potent enough"
+	cont "to be a proper"
+	cont "vessel for the"
+	cont "ultimate move..."
+	done
+
+_OchreHousesTextMagikarpTutor_OhYeah::
+	text "OH YEAH!"
+	line "It worked GREAT!"
+;	xxxx "123456789012345678"
+	done
+
+_OchreHousesTextMagikarpTutor_AlreadyKnows::
+	text "But this pokeMON"
+	line "already knows"
+	cont "ANCESTOR POWER!!!"
+
+	para "That's amazing!!!"
 ;	xxxx "123456789012345678"
 	done
 

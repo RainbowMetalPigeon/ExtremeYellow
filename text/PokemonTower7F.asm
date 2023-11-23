@@ -3,10 +3,10 @@ _PokemonTowerJessieJamesText1::
 	text_end
 
 _PokemonTowerJessieJamesText2::
-	text "Grampa here wanted"
+	text "Gramps here wanted"
 	line "to complain, so"
-	cont "we're setting him"
-	cont "straight."
+	cont "we're setting"
+	cont "them straight."
 
 	para "So render yourself"
 	line "invisible, or"

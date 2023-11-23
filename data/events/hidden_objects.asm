@@ -91,6 +91,7 @@ HiddenObjectMaps:
 	dbw ROUTE_3,                      Route3HiddenObjects ; new
 	dbw OCHRE_POKECENTER,             OchrePokecenterHiddenObjects ; new
 	dbw OBSIDIAN_POKECENTER,          ObsidianPokecenterHiddenObjects ; new
+	dbw POKEMON_TOWER_6F,             Pokemontower6HiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -293,6 +294,10 @@ CinnabarIslandHiddenObjects: ; new
 
 Route3HiddenObjects: ; new
 	hidden_object 20,  9, IRON, HiddenItems
+	db -1 ; end
+
+Pokemontower6HiddenObjects: ; new
+	hidden_object 12, 12, POKE_DOLL, HiddenItems
 	db -1 ; end
 
 Route23HiddenObjects:

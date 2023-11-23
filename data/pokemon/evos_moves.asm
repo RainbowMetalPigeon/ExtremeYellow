@@ -4633,7 +4633,6 @@ MagikarpEvosMoves:
 ; Learnset
 	db 15, TACKLE
 	db 50, DRAGON_RAGE
-	db 100, ANCESTOR_PWR
 	db 0
 
 GyaradosEvosMoves:

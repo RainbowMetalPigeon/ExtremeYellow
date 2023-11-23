@@ -79,4 +79,5 @@ HiddenItemCoords:
 	hidden_item CINNABAR_ISLAND,               19,  12 ; new, MEGA_STONE_Y
 	hidden_item ROUTE_3,                       20,   9 ; new
 	hidden_item ROUTE_4,                        6,   4 ; new
+	hidden_item POKEMON_TOWER_6F,              12,  16 ; new
 	db -1 ; end

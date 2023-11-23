@@ -69,6 +69,7 @@ OchreHousesTextReactivater_Done:
 
 OchreHousesTextMagikarpTutor:
 	text_asm
+	call SaveScreenTilesToBuffer2
 	ld hl, OchreHousesTextMagikarpTutor_Intro
 	call PrintText
 	xor a ; NORMAL_PARTY_MENU
@@ -77,27 +78,27 @@ OchreHousesTextMagikarpTutor:
     ld [wUpdateSpritesEnabled], a
     call DisplayPartyMenu
     push af
-    callfar InGameTrade_RestoreScreen
+    call MoveTutor_RestoreScreen
     pop af
     ld a, $1
-    jp c, .tutoringFailed ; jump if the player didn't select a pokemon
+    jp c, .tutoringFailedCancel ; jump if the player didn't select a pokemon
     ld a, MAGIKARP
     ld b, a
     ld a, [wcf91]
     cp b
     ld a, $2
-    jr nz, .tutoringFailed ; jump if the selected mon is not MAGIKARP
+    jr nz, .tutoringFailedWrongMon ; jump if the selected mon is not MAGIKARP
     ld a, [wWhichPokemon]
     ld hl, wPartyMon1Level
     ld bc, wPartyMon2 - wPartyMon1
     call AddNTimes
     ld a, [hl]
     cp 100 ; is the level 100?
-    jr nz, .tutoringFailed ; jump if the MAGIKARP is not level 100
+    jr nz, .tutoringFailedWrongLevel ; jump if the MAGIKARP is not level 100
 
 ; block to teach ANCESTOR_PWR
+.teachDeMove ; temp
 ;    push bc
-    ; Save the selected move id.
 ;    ld a, [wcf91]
     ld a, ANCESTOR_PWR
     ld [wMoveNum], a
@@ -107,25 +108,45 @@ OchreHousesTextMagikarpTutor:
 ;    pop bc
 ;    ld a, b
 ;    ld [wWhichPokemon], a
-    ld a, [wLetterPrintingDelayFlags]
-    push af
-    xor a
-    ld [wLetterPrintingDelayFlags], a
+;    ld a, [wLetterPrintingDelayFlags]
+;    push af
+;    xor a
+;    ld [wLetterPrintingDelayFlags], a
+	call CheckIfMoveIsKnown2 ; testing
+	jr c, .alreadyKnows
     predef LearnMove
-    pop af
-    ld [wLetterPrintingDelayFlags], a
-    ld a, b
-    and a
-    jr z, .tradeSucceeded
+;    pop af
+;    ld [wLetterPrintingDelayFlags], a
+;	ld a, b
+;	and a
+;	jr z, .tradeSucceeded
 
-    call ClearScreen
-    callfar InGameTrade_RestoreScreen
-    callfar RedrawMapView
-    and a
- ;  ld a, $3
-    jr .tradeSucceeded
-.tutoringFailed
+;	call ClearScreen
+;	call MoveTutor_RestoreScreen
+;	callfar RedrawMapView
+;	and a
+;	ld a, $3
+	ld hl, OchreHousesTextMagikarpTutor_OhYeah
+	call PrintText
+	jr .tradeSucceeded
+.tutoringFailedCancel
+	ld hl, OchreHousesTextMagikarpTutor_Cancel
+	call PrintText
     scf
+	jr .tradeSucceeded
+.tutoringFailedWrongMon
+	ld hl, OchreHousesTextMagikarpTutor_WrongMon
+	call PrintText
+    scf
+	jr .tradeSucceeded
+.tutoringFailedWrongLevel
+	ld hl, OchreHousesTextMagikarpTutor_WrongLevel
+	call PrintText
+    scf
+	jr .tradeSucceeded
+.alreadyKnows
+	ld hl, OchreHousesTextMagikarpTutor_AlreadyKnows
+	call PrintText
 .tradeSucceeded
 ;    ld [wInGameTradeTextPointerTableIndex], a
 	jp TextScriptEnd
@@ -133,6 +154,59 @@ OchreHousesTextMagikarpTutor:
 OchreHousesTextMagikarpTutor_Intro:
 	text_far _OchreHousesTextMagikarpTutor_Intro
 	text_end
+
+OchreHousesTextMagikarpTutor_Cancel:
+	text_far _OchreHousesTextMagikarpTutor_Cancel
+	text_end
+
+OchreHousesTextMagikarpTutor_WrongMon:
+	text_far _OchreHousesTextMagikarpTutor_WrongMon
+	text_end
+
+OchreHousesTextMagikarpTutor_WrongLevel:
+	text_far _OchreHousesTextMagikarpTutor_WrongLevel
+	text_end
+
+OchreHousesTextMagikarpTutor_AlreadyKnows:
+	text_far _OchreHousesTextMagikarpTutor_AlreadyKnows
+	text_end
+
+OchreHousesTextMagikarpTutor_OhYeah:
+	text_far _OchreHousesTextMagikarpTutor_OhYeah
+	text_end
+
+MoveTutor_RestoreScreen:
+	call GBPalWhiteOutWithDelay3
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadTilesetTilePatterns
+	call LoadScreenTilesFromBuffer2
+	call Delay3
+	call LoadGBPal
+	ld c, 10
+	call DelayFrames
+	farjp LoadWildData
+
+; this is a stupid copy but can't make it work otherwise
+; checks if the mon in [wWhichPokemon] already knows the move in [wMoveNum]
+CheckIfMoveIsKnown2:
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMon1Moves
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes
+	ld a, [wMoveNum]
+	ld b, a
+	ld c, NUM_MOVES
+.loop
+	ld a, [hli]
+	cp b
+	jr z, .alreadyKnown ; found a match
+	dec c
+	jr nz, .loop
+	and a
+	ret
+.alreadyKnown
+	scf
+	ret
 
 ; ------------------------
 
