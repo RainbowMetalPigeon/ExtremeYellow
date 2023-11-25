@@ -45,4 +45,5 @@ UsableItems_PartyMenu:
 	db UPGRADE		; new
 	db DUBIOUS_DISK	; new
 	db LEGEND_CANDY ; new
+	db PERFECTER    ; new, testing
 	db -1 ; end
