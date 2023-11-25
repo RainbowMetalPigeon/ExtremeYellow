@@ -1567,8 +1567,105 @@ ItemUseMedicine:
 	cp RARE_CANDY
 	jp z, .useRareCandy
 	cp LEGEND_CANDY     ; new
-	jr z, .useRareCandy ; new
+	jp z, .useRareCandy ; new
 	push hl
+
+; PERFECTER code, beginning ----------------------------------------------------
+
+	cp PERFECTER
+	jr nz, .notPerfecterCode
+
+; check if everything has already been maxed out
+	push hl
+	ld bc, wPartyMon1HPExp - wPartyMon1
+	add hl, bc ; hl now points to stat experience
+	ld a, $FF
+	cp [hl]	; load max hp exp
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]	; load max attack exp
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]	; load max defense exp
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]	; load max speed exp
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]	; load max special exp
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl]
+	jr nz, .canBeUsed
+	pop hl
+
+	push hl
+	ld bc, wPartyMon1DVs - wPartyMon1
+	add hl, bc ; hl now points to DVs
+	ld a, $FF
+	cp [hl] ; is the first byte of their DVs maxed?
+	jr nz, .canBeUsed
+	inc hl
+	cp [hl] ; is the second byte of their DVs maxed?
+	pop hl
+	jr nz, .canBeUsed
+	jp ItemUseMedicine.vitaminNoEffect
+
+.canBeUsed
+
+; max out STATS exp
+	push hl
+	ld bc, wPartyMon1HPExp - wPartyMon1
+	add hl, bc ; hl now points to stat experience
+	ld a, $FF
+	ld [hli], a	; load max hp exp
+	ld [hli], a
+	ld [hli], a	; load max attack exp
+	ld [hli], a
+	ld [hli], a	; load max defense exp
+	ld [hli], a
+	ld [hli], a	; load max speed exp
+	ld [hli], a
+	ld [hli], a	; load max special exp
+	ld [hli], a
+	pop hl
+
+; max out DVs
+	push hl
+	ld bc, wPartyMon1DVs - wPartyMon1
+	add hl, bc ; hl now points to DVs
+	ld a, $FF
+	cp [hl] ; is the first byte of their DVs maxed?
+	ld [hli], a ; set first byte of DVs to max
+	ld [hl], a  ; set second byte of DVs to max
+	pop hl
+
+.endOfPerfecter
+	call .recalculateStats
+
+	ld a, SFX_HEAL_AILMENT
+	call PlaySound
+	ld hl, PerfecterHasBeenUsedText
+	call PrintText
+	jp RemoveUsedItem
+
+.notPerfecterCode
+
+; PERFECTER code, end ----------------------------------------------------------
+
+	ld a, [wcf91] ; new, to ensure a contains the right stuff
 	sub HP_UP
 	add a
 	ld bc, wPartyMon1HPExp - wPartyMon1
@@ -3401,3 +3498,7 @@ CheckMapForMon:
 	jr nz, .loop
 	dec hl
 	ret
+
+PerfecterHasBeenUsedText: ; new
+	text_far _PerfecterHasBeenUsedText
+	text_end

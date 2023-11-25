@@ -440,3 +440,8 @@ _UsedCutText::
 	text " hacked"
 	line "away with CUT!"
 	prompt
+
+_PerfecterHasBeenUsedText:: ; new
+	text "The #MON stats"
+	line "have been maxed!"
+	prompt
