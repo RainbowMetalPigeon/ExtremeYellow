@@ -147,6 +147,7 @@ VermilionCity_TextPointers:
 	dw VermilionCityText6
 	dw VermilionCityText7
 	dw TextPreBattle_VermilionTraveler ; new, for traveler
+	dw PickUpItemText ; 10=$A, new, rare candy
 	dw VermilionCityText8
 	dw VermilionCityText9
 	dw MartSignText
@@ -155,7 +156,7 @@ VermilionCity_TextPointers:
 	dw VermilionCityText13
 	dw VermilionCityText14
 	dw VermilionCityText16
-	dw TextPostBattle_VermilionTraveler ; 18, new, for traveler
+	dw TextPostBattle_VermilionTraveler ; 19, new, for traveler
 
 VermilionCityText1:
 	text_far _VermilionCityText1
@@ -416,7 +417,7 @@ VermilionScript_Traveler:
     ld a, HS_VERMILION_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, 18 ; city-specific
+	ld a, 19 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

@@ -288,6 +288,7 @@ VermilionCityHS: ; new
 	db VERMILION_CITY, $05, SHOW
 	db VERMILION_CITY, $06, HIDE
 	db VERMILION_CITY, $09, HIDE
+	db VERMILION_CITY, $0A, SHOW ; rare candy
 CeladonCityHS:
 	db CELADON_CITY, $08, SHOW ; old Rocket grunts
 	db CELADON_CITY, $09, SHOW ; old Rocket grunts
