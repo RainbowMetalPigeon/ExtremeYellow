@@ -135,6 +135,13 @@ StartMenu_Pokemon::
 	jp z, .newBadgeRequired
 	call CheckIfInOutsideMap
 	jr z, .canFly
+; new block to make roof maps flyable
+	ld a, [wCurMap]
+	cp CELADON_MART_ROOF
+	jr z, .canFly
+	cp CELADON_MANSION_ROOF
+	jr z, .canFly
+; end of new block to make roof maps flyable
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
