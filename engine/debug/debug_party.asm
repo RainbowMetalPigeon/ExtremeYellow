@@ -17,8 +17,8 @@ DebugTeam:
 	db MEWTWO, 98
 	db SNORLAX, 80
 	db STARTER_PIKACHU, 5
-	db MAGIKARP, 42
-	db MAGIKARP, 100
+;	db MAGIKARP, 42
+;	db MAGIKARP, 100
 ;	db MAGIKARP, 2
 	db -1 ; end
 

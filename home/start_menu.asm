@@ -25,9 +25,9 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	jr nz, .loop
 ; if the player pressed tried to go past the top item, wrap around to the bottom
 	CheckEvent EVENT_GOT_POKEDEX
-	ld a, 6 ; there are 7 menu items with the pokedex, so the max index is 6
+	ld a, 7 ; edited; there are 8 menu items with the pokedex + portablePC, so the max index is 7
 	jr nz, .wrapMenuItemId
-	dec a ; there are only 6 menu items without the pokedex
+	ld a, 5 ; there are only 6 menu items without the pokedex + portablePC
 .wrapMenuItemId
 	ld [wCurrentMenuItem], a
 	call EraseMenuCursor
@@ -38,9 +38,9 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 ; if the player pressed tried to go past the bottom item, wrap around to the top
 	CheckEvent EVENT_GOT_POKEDEX
 	ld a, [wCurrentMenuItem]
-	ld c, 7 ; there are 7 menu items with the pokedex
+	ld c, 8 ; edited, there are 8 menu items with the pokedex + portablePC
 	jr nz, .checkIfPastBottom
-	dec c ; there are only 6 menu items without the pokedex
+	ld c, 6 ; edited, there are only 6 menu items without the pokedex + portablePC
 .checkIfPastBottom
 	cp c
 	jr nz, .loop
@@ -60,7 +60,7 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	CheckEvent EVENT_GOT_POKEDEX
 	ld a, [wCurrentMenuItem]
 	jr nz, .displayMenuItem
-	inc a ; adjust position to account for missing pokedex menu item
+	inc a ; adjust position to account for missing pokedex menu item; TBC, do I need to repeat this command due to portablePC?
 .displayMenuItem
 	cp 0
 	jp z, StartMenu_Pokedex
@@ -74,6 +74,8 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	jp z, StartMenu_SaveReset
 	cp 5
 	jp z, StartMenu_Option
+	cp 6 ; new
+	jp z, StartMenu_PortablePC ; new
 
 ; EXIT falls through to here
 CloseStartMenu::
