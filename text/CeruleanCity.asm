@@ -40,7 +40,7 @@ _CeruleanCityText_19672::
 	prompt
 
 _CeruleanCityText_19677::
-	text "<RIVAL>: ...it"
+	text "...it"
 	line "doesn't matter."
 
 	para "It was just a"

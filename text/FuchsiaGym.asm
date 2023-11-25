@@ -221,7 +221,7 @@ _FuchsiaGymAfterBattleText7::
 	line "hard to be able"
 	cont "to one day in-"
 	cont "herit the place"
-	cont "of my da..."
+	cont "of my pa..."
 	cont "I mean, KOGA!"
 	done
 
@@ -234,12 +234,12 @@ _FuchsiaGymGuidePreBattleText::
 	cont "invisible walls!"
 
 	para "KOGA might appear"
-	line "close, but he's"
-	cont "blocked off!"
+	line "close, but they"
+	cont "are blocked off!"
 
 	para "You have to find"
 	line "gaps in the walls"
-	cont "to reach him!"
+	cont "to reach them!"
 	done
 
 _FuchsiaGymGuidePostBattleText::

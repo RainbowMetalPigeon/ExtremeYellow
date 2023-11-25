@@ -35,7 +35,7 @@ _Route22RivalDefeatedText1::
 	prompt
 
 _Route22Text_511bc::
-	text "<RIVAL>: See?"
+	text "See?"
 	para "You aren't fit for"
 	line "any of this."
 
@@ -106,7 +106,7 @@ _Route22RivalDefeatedText2::
 	prompt
 
 _Route22Text_511d0::
-	text "<RIVAL>: Hahaha!"
+	text "Hahaha!"
 
 	para "Yes, yes! Weep and"
 	line "cry in utter des-"

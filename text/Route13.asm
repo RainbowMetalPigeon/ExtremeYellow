@@ -105,9 +105,9 @@ _Route13EndBattleText8::
 	prompt
 
 _Route13AfterBattleText8::
-	text "I wonder which is"
-	line "stronger, male or"
-	cont "female #MON?"
+	text "You could have"
+	line "gone easier"
+	cont "on me!"
 	done
 
 _Route13BattleText9::

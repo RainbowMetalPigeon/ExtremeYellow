@@ -232,7 +232,7 @@ _SilphCo7Text_51ec8::
 	prompt
 
 _SilphCo7Text_51ecd::
-	text "<RIVAL>: Ah! Yes!"
+	text "Ah! Yes!"
 	line "Yes! Yes!"
 
 	para "This is exactly"

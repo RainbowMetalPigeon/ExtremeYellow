@@ -69,7 +69,7 @@ _GaryVictoryText_BG::
 	para "Disappear in the"
 	line "shadows,"
 	cont "and never dare to"
-	cont "battle ever"
+	cont "fight ever"
 	cont "again!!!"
 	prompt
 

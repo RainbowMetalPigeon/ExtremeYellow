@@ -95,60 +95,38 @@ OchreHousesTextMagikarpTutor:
     ld a, [hl]
     cp 100 ; is the level 100?
     jr nz, .tutoringFailedWrongLevel ; jump if the MAGIKARP is not level 100
-
-; block to teach ANCESTOR_PWR
-.teachDeMove ; temp
-;    push bc
-;    ld a, [wcf91]
+; let's teach ANCESTOR_PWR
     ld a, ANCESTOR_PWR
     ld [wMoveNum], a
     ld [wd11e],a
     call GetMoveName
     call CopyToStringBuffer ; copy name to wcf4b
-;    pop bc
-;    ld a, b
-;    ld [wWhichPokemon], a
-;    ld a, [wLetterPrintingDelayFlags]
-;    push af
-;    xor a
-;    ld [wLetterPrintingDelayFlags], a
 	call CheckIfMoveIsKnown2 ; testing
 	jr c, .alreadyKnows
     predef LearnMove
-;    pop af
-;    ld [wLetterPrintingDelayFlags], a
-;	ld a, b
-;	and a
-;	jr z, .tradeSucceeded
-
-;	call ClearScreen
-;	call MoveTutor_RestoreScreen
-;	callfar RedrawMapView
-;	and a
-;	ld a, $3
+; text stuff
 	ld hl, OchreHousesTextMagikarpTutor_OhYeah
 	call PrintText
-	jr .tradeSucceeded
+	jr .teachingSucceeded
 .tutoringFailedCancel
 	ld hl, OchreHousesTextMagikarpTutor_Cancel
 	call PrintText
     scf
-	jr .tradeSucceeded
+	jr .teachingSucceeded
 .tutoringFailedWrongMon
 	ld hl, OchreHousesTextMagikarpTutor_WrongMon
 	call PrintText
     scf
-	jr .tradeSucceeded
+	jr .teachingSucceeded
 .tutoringFailedWrongLevel
 	ld hl, OchreHousesTextMagikarpTutor_WrongLevel
 	call PrintText
     scf
-	jr .tradeSucceeded
+	jr .teachingSucceeded
 .alreadyKnows
 	ld hl, OchreHousesTextMagikarpTutor_AlreadyKnows
 	call PrintText
-.tradeSucceeded
-;    ld [wInGameTradeTextPointerTableIndex], a
+.teachingSucceeded
 	jp TextScriptEnd
 
 OchreHousesTextMagikarpTutor_Intro:
