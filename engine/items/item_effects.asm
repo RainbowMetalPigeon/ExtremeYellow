@@ -112,6 +112,7 @@ ItemUsePtrTable:
 	dw ItemUseBall       ; HEAVY_BALL, new, testing
 	dw ItemUseVitamin    ; LEGEND_CANDY, new, testing
 	dw UnusableItem      ; BIG_NUGGET, new
+	dw ItemUseVitamin    ; PERFECTER, new, testing
 
 ItemUseBall:
 
@@ -1125,6 +1126,8 @@ ItemUseMedicine:
 	; new, custom ugly code cause i don't feel like reordering items
 	cp LEGEND_CANDY
 	jp z, .useVitamin
+	cp PERFECTER
+	jp z, .useVitamin
 
 	cp REVIVE
 	jr nc, .healHP ; if it's a Revive or Max Revive
@@ -1619,11 +1622,14 @@ ItemUseMedicine:
 	jr nz, .canBeUsed
 	inc hl
 	cp [hl] ; is the second byte of their DVs maxed?
-	pop hl
 	jr nz, .canBeUsed
+	pop hl ; ???
 	jp ItemUseMedicine.vitaminNoEffect
 
 .canBeUsed
+	pop hl ; by trials and errors :')
+
+	pop hl ; by trials and errors :')
 
 ; max out STATS exp
 	push hl
@@ -1659,13 +1665,15 @@ ItemUseMedicine:
 	call PlaySound
 	ld hl, PerfecterHasBeenUsedText
 	call PrintText
+.tempPerf
+;	call ReloadMapData
 	jp RemoveUsedItem
 
 .notPerfecterCode
-
+	ld a, [wcf91] ; new, to ensure a contains the right stuff
+	
 ; PERFECTER code, end ----------------------------------------------------------
 
-	ld a, [wcf91] ; new, to ensure a contains the right stuff
 	sub HP_UP
 	add a
 	ld bc, wPartyMon1HPExp - wPartyMon1
