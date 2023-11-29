@@ -17,8 +17,8 @@ HiddenItemCoords:
 	hidden_item SEAFOAM_ISLANDS_B4F,           25,  17
 	hidden_item VIRIDIAN_FOREST,                1,  18
 	hidden_item VIRIDIAN_FOREST,               16,  42
-	hidden_item MT_MOON_B2F,                   18,  12
-	hidden_item MT_MOON_B2F,                   33,   9
+	hidden_item MT_MOON_B2F,                   18,  36 ; edited, +24 on the y coordinate
+	hidden_item MT_MOON_B2F,                   33,  33 ; edited, +24 on the y coordinate
 	hidden_item SS_ANNE_B1F_ROOMS,              3,   1
 	hidden_item SS_ANNE_KITCHEN,               13,   9
 	hidden_item UNDERGROUND_PATH_NORTH_SOUTH,   3,   4
@@ -52,7 +52,7 @@ HiddenItemCoords:
 	hidden_item VICTORY_ROAD_2F,               26,   7
 	hidden_item ROUTE_25,                      38,   3
 	hidden_item ROUTE_25,                      10,   1
-	hidden_item ROUTE_4,                       40,   3
+	hidden_item ROUTE_4,                       38,   3 ; edited
 	hidden_item ROUTE_9,                       14,   7
 	hidden_item COPYCATS_HOUSE_2F,              1,   1
 	hidden_item VIRIDIAN_CITY,                 14,   4
@@ -60,7 +60,7 @@ HiddenItemCoords:
 	hidden_item CERULEAN_CAVE_1F,              18,   7
 	hidden_item POKEMON_TOWER_5F,               4,  12
 	hidden_item VERMILION_CITY,                14,  11
-	hidden_item CELADON_CITY,                  48,  15
+	hidden_item CELADON_CITY,                  48,  29 ; edited, +14 on the y coordinate
 	hidden_item SAFARI_ZONE_GATE,              10,   1 ; inaccessible
 	hidden_item POKEMON_MANSION_1F,             8,  16
 	hidden_item OBSIDIAN_WAREHOUSE,            35,  25 ; new

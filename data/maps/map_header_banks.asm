@@ -242,7 +242,7 @@ MapHeaderBanks::
 	db BANK(SilphCo10F_h)
 	db BANK(SilphCo11F_h)
 	db BANK(SilphCoElevator_h)
-	db $11 ; UNUSED_MAP_ED
+	db BANK(MtMoon1FExtra_h) ; new, testing
 	db $11 ; UNUSED_MAP_EE
 	db BANK(TradeCenter_h)
 	db BANK(Colosseum_h)

@@ -8,7 +8,7 @@ MtMoonB2F_Script:
 	CheckEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
 	ret z
 	ld hl, CoordsData_49d37
-	call ArePlayerCoordsInArray
+	call ArePlayerCoordsInArray ; if yes, no wild encounters
 	jr nc, .asm_49d31
 	ld hl, wd72e
 	set 4, [hl]
@@ -18,23 +18,23 @@ MtMoonB2F_Script:
 	res 4, [hl]
 	ret
 
-CoordsData_49d37:
-	dbmapcoord 11,  5
-	dbmapcoord 12,  5
-	dbmapcoord 13,  5
-	dbmapcoord 14,  5
-	dbmapcoord 11,  6
-	dbmapcoord 12,  6
-	dbmapcoord 13,  6
-	dbmapcoord 14,  6
-	dbmapcoord 11,  7
-	dbmapcoord 12,  7
-	dbmapcoord 13,  7
-	dbmapcoord 14,  7
-	dbmapcoord 11,  8
-	dbmapcoord 12,  8
-	dbmapcoord 13,  8
-	dbmapcoord 14,  8
+CoordsData_49d37: ; edited, +24 on the y coordinate
+	dbmapcoord 11, 29
+	dbmapcoord 12, 29
+	dbmapcoord 13, 29
+	dbmapcoord 14, 29
+	dbmapcoord 11, 30
+	dbmapcoord 12, 30
+	dbmapcoord 13, 30
+	dbmapcoord 14, 30
+	dbmapcoord 11, 31
+	dbmapcoord 12, 31
+	dbmapcoord 13, 31
+	dbmapcoord 14, 31
+	dbmapcoord 11, 32
+	dbmapcoord 12, 32
+	dbmapcoord 13, 32
+	dbmapcoord 14, 32
 	db -1 ; end
 
 MtMoon3Script_49cd7:
@@ -87,7 +87,7 @@ MtMoon3Script_49d28:
 	CheckEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
 	jp nz, .asm_49d4b
 	ld a, [wYCoord]
-	cp 8
+	cp 32 ; edited, +24 on the y coordinate
 	jp nz, .asm_49d4b
 	ld a, [wXCoord]
 	cp 13
@@ -157,14 +157,14 @@ MtMoon3Script4:
 	call MtMoon3Script_49ce5
 	ret
 
-CoordsData_49dc0:
-	dbmapcoord 12,  7
-	dbmapcoord 11,  6
-	dbmapcoord 12,  5
+CoordsData_49dc0: ; edited, +24 on the y coordinate
+	dbmapcoord 12, 31
+	dbmapcoord 11, 30
+	dbmapcoord 12, 29
 	db -1 ; end
 
-CoordsData_49dc7:
-	dbmapcoord 12,  7
+CoordsData_49dc7: ; edited, +24 on the y coordinate
+	dbmapcoord 12, 31
 	db -1 ; end
 
 PikachuMovementData_49dca:
@@ -173,14 +173,14 @@ PikachuMovementData_49dca:
 	db $33
 	db $3f
 
-CoordsData_49dce:
-	dbmapcoord 13,  7
-	dbmapcoord 14,  6
-	dbmapcoord 14,  5
+CoordsData_49dce: ; edited, +24 on the y coordinate
+	dbmapcoord 13, 31
+	dbmapcoord 14, 30
+	dbmapcoord 14, 29
 	db -1 ; end
 
-CoordsData_49dd5:
-	dbmapcoord 13,  7
+CoordsData_49dd5: ; edited, +24 on the y coordinate
+	dbmapcoord 13, 31
 	db -1 ; end
 
 PikachuMovementData_49dd8:
@@ -226,7 +226,7 @@ MtMoon3Script_49e15:
 	cp $3
 	ret nz
 	ld a, [wYCoord]
-	cp $5
+	cp 29 ; edited, +24 on the y coordinate
 	ret nz
 	call StopAllMusic
 	ld c, BANK(Music_MeetJessieJames)

@@ -15,8 +15,8 @@ Mansion_GFX::       INCBIN "gfx/tilesets/mansion.2bpp"
 Mansion_Block::     INCBIN "gfx/blocksets/mansion.bst"
 ShipPort_GFX::      INCBIN "gfx/tilesets/ship_port.2bpp"
 ShipPort_Block::    INCBIN "gfx/blocksets/ship_port.bst"
-Interior_GFX::      INCBIN "gfx/tilesets/interior.2bpp"
-Interior_Block::    INCBIN "gfx/blocksets/interior.bst"
+;Interior_GFX::      INCBIN "gfx/tilesets/interior.2bpp" ; moved away
+;Interior_Block::    INCBIN "gfx/blocksets/interior.bst" ; moved away
 ;Plateau_GFX::       INCBIN "gfx/tilesets/plateau.2bpp" ; moved away
 ;Plateau_Block::     INCBIN "gfx/blocksets/plateau.bst" ; moved away
 
@@ -75,6 +75,8 @@ Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"	; moved in
 
 SECTION "Tilesets 5", ROMX ; new, to contain even more beefy stuff
 
+Interior_GFX::      INCBIN "gfx/tilesets/interior.2bpp" ; moved in
+Interior_Block::    INCBIN "gfx/blocksets/interior.bst" ; moved in
 Plateau_GFX::       INCBIN "gfx/tilesets/plateau.2bpp" ; moved in
 Plateau_Block::     INCBIN "gfx/blocksets/plateau.bst" ; moved in
 Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp" ; moved in

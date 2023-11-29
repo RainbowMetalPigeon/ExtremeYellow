@@ -129,6 +129,7 @@ InternalMapEntries:
 	internal_map CELADON_UNIVERSITY,             7,  5, CeladonCityName ; new
 	internal_map ROCK_TUNNEL_B1F,               14,  3, RockTunnelName
 	internal_map SILPH_CO_ELEVATOR,             10,  5, SilphCoName
+	internal_map MT_MOON_1F_EXTRA,               6,  2, MountMoonName ; new, testing
 ;	internal_map CERULEAN_CAVE_EXTRA_TOP,        9,  1, CeruleanCaveName	; new, unnecessary?
 ;	internal_map CERULEAN_CAVE_EXTRA_MIDDLE,     9,  1, CeruleanCaveName	; new, unnecessary?
 	internal_map CERULEAN_CAVE_EXTRA_FINAL,      9,  1, CeruleanCaveName	; new

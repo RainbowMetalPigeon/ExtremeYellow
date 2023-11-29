@@ -2035,7 +2035,7 @@ wMapBackgroundTile:: db
 wNumberOfWarps:: db
 
 ; current map warp entries
-wWarpEntries:: ds 32 * 4 ; Y, X, warp ID, map ID
+wWarpEntries:: ds 36 * 4 ; Y, X, warp ID, map ID ; testing
 
 ; if $ff, the player's coordinates are not updated when entering the map
 wDestinationWarpID:: db
@@ -2344,7 +2344,6 @@ wRoute18Gate1FCurScript:: db
 	ds 78
 wGameProgressFlagsEnd::
 
-;	ds 56
 wPlayerGender::
 	; $00 = male
 	; $01 = female
@@ -2356,8 +2355,10 @@ wTyrogueEvolutions::
 	ds 1
 
 ; unused
-	ds 53 ; edited, originally 54
-wPlayerMoveAccuracyPercent:: db ; new, to host the accuract in [0,100] rather than [0,255]
+	ds 37 ; edited, originally 56
+	      ; reduced by 3 for gender, tyrogue, and accuracypercent, and by 16 for increasing max warps from 32 to 36
+
+wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
 wObtainedHiddenItemsFlags:: flag_array 112
 

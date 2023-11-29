@@ -1390,6 +1390,7 @@ CheckForTilePairCollisions::
 	ld a, [hl]
 	cp c
 	jr z, .foundMatch
+	inc hl ; new, needed to fix a bug
 	jr .tilePairCollisionLoop
 .currentTileMatchesSecondInPair
 	dec hl

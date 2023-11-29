@@ -1411,3 +1411,8 @@ INCLUDE "data/maps/headers/ObsidianHouses.asm"
 INCLUDE "scripts/ObsidianHouses.asm"
 INCLUDE "data/maps/objects/ObsidianHouses.asm"
 ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
+
+INCLUDE "data/maps/headers/MtMoon1FExtra.asm"
+INCLUDE "scripts/MtMoon1FExtra.asm"
+INCLUDE "data/maps/objects/MtMoon1FExtra.asm"
+MtMoon1FExtra_Blocks: INCBIN "maps/MtMoon1FExtra.blk"

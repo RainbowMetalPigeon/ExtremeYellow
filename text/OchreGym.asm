@@ -310,12 +310,23 @@ _ReceivedGiftText::
 _GiftExplanationText::
 	text_start
 
-	para "MAX REVIVE fully"
-	line "heals a fainted"
-	cont "pokeMON, so that"
-	cont "it can continue"
-	cont "to defy any and"
-	cont "all opponents!"
+	para "The PERFECTER is a"
+	line "super-rare item"
+	cont "that pulls out"
+	cont "the absolute"
+	cont "maximum potential"
+	cont "of a #MON!"
+
+	para "It maximizes its"
+	line "latent natural"
+	cont "power, AND it"
+	cont "equates to the"
+	cont "fullest training!"
+
+	para "With this, even"
+	line "the most underdog"
+	cont "#MON'll have a"
+	cont "fighting chance!"
 	done
 
 _GiftNoRoomText::

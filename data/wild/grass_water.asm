@@ -6,7 +6,7 @@ WildDataPointers:
 	dw NothingWildMons         ; CERULEAN_CITY
 	dw NothingWildMons         ; LAVENDER_TOWN
 	dw NothingWildMons         ; VERMILION_CITY
-	dw NothingWildMons         ; CELADON_CITY
+	dw CeladonCityWildMons     ; CELADON_CITY
 	dw OchreCityWildMons       ; OCHRE_CITY, new
 	dw NothingWildMons         ; FUCHSIA_CITY
 	dw NothingWildMons         ; OBSIDIAN_ISLAND, new
@@ -236,15 +236,15 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons ; Celadon University
-	dw RockTunnelB1FWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw RockTunnelB1FWildMons ; ROCK_TUNNEL_B1F
+	dw NothingWildMons ; SILPH_CO_9F
+	dw NothingWildMons ; SILPH_CO_10F
+	dw NothingWildMons ; SILPH_CO_11F
+	dw NothingWildMons ; SILPH_CO_ELEVATOR
+	dw MtMoon1FWildMons ; new, MT_MOON_1F_EXTRA, testing
+	dw NothingWildMons ; UNUSED_MAP_EE
+	dw NothingWildMons ; TRADE_CENTER
+	dw NothingWildMons ; COLOSSEUM
 	dw NothingWildMons ; CeruleanCaveExtras
 	dw NothingWildMons ; CeruleanCaveExtras
 	dw NothingWildMons ; CeruleanCaveExtras
@@ -336,3 +336,4 @@ INCLUDE "data/wild/maps/ObsidianWood.asm"    ; new
 INCLUDE "data/wild/maps/OnixBurrowing.asm"   ; new
 INCLUDE "data/wild/maps/OchreCity.asm"   	 ; new
 INCLUDE "data/wild/maps/Route26.asm"		 ; new
+INCLUDE "data/wild/maps/CeladonCity.asm"   	 ; new

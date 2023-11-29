@@ -173,9 +173,9 @@ ViridianForestHiddenObjects:
 	hidden_object 16, 42, ANTIDOTE, HiddenItems
 	db -1 ; end
 
-MtMoon3HiddenObjects:
-	hidden_object 18, 12, MOON_STONE, HiddenItems
-	hidden_object 33,  9, ETHER, HiddenItems
+MtMoon3HiddenObjects: ; edited, +24 on the y coordinate
+	hidden_object 18, 36, MOON_STONE, HiddenItems
+	hidden_object 33, 33, ETHER, HiddenItems
 	db -1 ; end
 
 SSAnne10HiddenObjects:
@@ -297,7 +297,7 @@ Route3HiddenObjects: ; new
 	db -1 ; end
 
 Pokemontower6HiddenObjects: ; new
-	hidden_object 12, 12, POKE_DOLL, HiddenItems
+	hidden_object 12, 16, POKE_DOLL, HiddenItems
 	db -1 ; end
 
 Route23HiddenObjects:
@@ -321,7 +321,7 @@ BillsHouseHiddenObjects:
 	db -1 ; end
 
 Route4HiddenObjects:
-	hidden_object 40,  3, GREAT_BALL, HiddenItems
+	hidden_object 38,  3, GREAT_BALL, HiddenItems ; edited
 	hidden_object  6,  4, HP_UP, HiddenItems ; new
 	db -1 ; end
 
@@ -506,7 +506,7 @@ VermilionGymHiddenObjects:
 	db -1 ; end
 
 CeladonCityHiddenObjects:
-	hidden_object 48, 15, PP_UP, HiddenItems
+	hidden_object 48, 29, PP_UP, HiddenItems ; edited, +14 on the y coordinate
 	db -1 ; end
 
 CeladonHotelHiddenObjects:

@@ -241,7 +241,7 @@ MapSongBanks::
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; SILPH_CO_10F
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; SILPH_CO_11F
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; SILPH_CO_ELEVATOR
-	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_ED
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3) ; MT_MOON_1F_EXTRA, new, testing
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo) ; UNUSED_MAP_EE
 	db MUSIC_CELADON, BANK(Music_Celadon) ; TRADE_CENTER
 	db MUSIC_CELADON, BANK(Music_Celadon) ; COLOSSEUM

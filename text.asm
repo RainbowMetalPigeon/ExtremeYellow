@@ -361,6 +361,7 @@ INCLUDE "text/Route9.asm"
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianHouses.asm" ; new
+INCLUDE "text/MtMoon1FExtra.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -96,7 +96,7 @@ FlyWarpDataPtr:
 .CeruleanCity:   fly_warp CERULEAN_CITY,   19, 18
 .LavenderTown:   fly_warp LAVENDER_TOWN,    3,  6
 .VermilionCity:  fly_warp VERMILION_CITY,  11,  4
-.CeladonCity:    fly_warp CELADON_CITY,    41, 10
+.CeladonCity:    fly_warp CELADON_CITY,    41, 24		; edited
 .OchreCity:      fly_warp OCHRE_CITY,      35, 12		; new, testing
 .FuchsiaCity:    fly_warp FUCHSIA_CITY,    19, 28
 .ObsidianIsland: fly_warp OBSIDIAN_ISLAND, 35,  6		; new, testing

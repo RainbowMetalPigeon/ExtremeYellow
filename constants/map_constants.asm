@@ -22,7 +22,7 @@ ENDM
 	map_const CERULEAN_CITY,                 20, 18 ; $03
 	map_const LAVENDER_TOWN,                 10,  9 ; $04
 	map_const VERMILION_CITY,                20, 18 ; $05
-	map_const CELADON_CITY,                  25, 21 ; $06 ; edited
+	map_const CELADON_CITY,                  25, 28 ; $06 ; edited
 	map_const OCHRE_CITY,                    23, 23 ; new
 	map_const FUCHSIA_CITY,                  20, 18 ; $07
 	map_const OBSIDIAN_ISLAND,               20, 20 ; new
@@ -34,7 +34,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_1,                       10, 18 ; $0C
 	map_const ROUTE_2,                       10, 36 ; $0D
 	map_const ROUTE_3,                       35,  9 ; $0E
-	map_const ROUTE_4,                       45, 19 ; $0F ; editing
+	map_const ROUTE_4,                       45, 19 ; $0F ; edited
 	map_const ROUTE_5,                       10, 18 ; $10
 	map_const ROUTE_6,                       10, 18 ; $11
 	map_const ROUTE_7,                       10,  9 ; $12
@@ -82,9 +82,9 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const PEWTER_MART,                    4,  4 ; $38
 	map_const PEWTER_SPEECH_HOUSE,            4,  4 ; $39
 	map_const PEWTER_POKECENTER,              7,  4 ; $3A
-	map_const MT_MOON_1F,                    20, 18 ; $3B
-	map_const MT_MOON_B1F,                   14, 14 ; $3C
-	map_const MT_MOON_B2F,                   20, 18 ; $3D
+	map_const MT_MOON_1F,                    30, 30 ; $3B ; edited
+	map_const MT_MOON_B1F,                   30, 30 ; $3C ; edited
+	map_const MT_MOON_B2F,                   30, 30 ; $3D ; edited
 	map_const CERULEAN_TRASHED_HOUSE,         4,  4 ; $3E
 	map_const CERULEAN_MELANIES_HOUSE,        4,  4 ; $3F
 	map_const CERULEAN_POKECENTER,            7,  4 ; $40
@@ -254,13 +254,13 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E4
 	map_const NAME_RATERS_HOUSE,              4,  4 ; $E5
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
-	map_const CELADON_UNIVERSITY,             30, 30 ; $E7, new
+	map_const CELADON_UNIVERSITY,             30, 30 ; $E7, new, incomplete
 	map_const ROCK_TUNNEL_B1F,               20, 18 ; $E8
 	map_const SILPH_CO_9F,                   13,  9 ; $E9
 	map_const SILPH_CO_10F,                   8,  9 ; $EA
 	map_const SILPH_CO_11F,                   9,  9 ; $EB
 	map_const SILPH_CO_ELEVATOR,              2,  2 ; $EC
-	map_const UNUSED_MAP_ED,                  0,  0 ; $ED
+	map_const MT_MOON_1F_EXTRA,               5, 18 ; $ED, UNUSED
 	map_const UNUSED_MAP_EE,                  0,  0 ; $EE
 	map_const TRADE_CENTER,                   5,  4 ; $EF
 	map_const COLOSSEUM,                      5,  4 ; $F0
