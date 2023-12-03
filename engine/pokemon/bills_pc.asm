@@ -384,7 +384,7 @@ BillsPCMenuText:
 	next "RELEASE <PKMN>"
 	next "CHANGE BOX"
 	next "PRINT BOX"
-	next "SEE YA!"
+	next "CIAO!" ; edited
 	db "@"
 
 BoxNoPCText:

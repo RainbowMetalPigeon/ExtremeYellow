@@ -8,7 +8,7 @@ SpecialTrainerMoves:
 ;	db 1, 1, TACKLE
 	db 1, 2, WRAP
 	db 0
-	
+
 	db BUG_CATCHER, 3 ; new, testing
 	; BUTTERFREE
 	db 1, 2, TACKLE
@@ -267,12 +267,12 @@ SpecialTrainerMoves:
 ;	db 2, 1, SONICBOOM
 	db 2, 2, THUNDER_WAVE
 ;	db 2, 3, SELFDESTRUCT
-;	db 2, 4, SHOCK_WAVE
+	db 2, 4, THUNDERBOLT
 	; MAGNEMITE
 ;	db 3, 1, SONICBOOM
 	db 3, 2, FLASH_CANNON
 	db 3, 3, SUPERSONIC
-;	db 3, 4, SHOCK_WAVE
+	db 3, 4, THUNDERBOLT
 	; ELECTABUZZ
 ;	db 4, 1, THUNDER_WAVE
 ;	db 4, 2, BARRIER
@@ -791,26 +791,26 @@ SpecialTrainerMoves:
 	db 1, 2, SHADOW_CLAW
 	db 1, 3, STONE_EDGE
 	db 1, 4, GUNK_SHOT ; COUNTER?
-	; ALAKAZAM
-;	db 2, 1, REFLECT
-	db 2, 2, THUNDER_WAVE
-	db 2, 3, PSYCHO_CUT
-	db 2, 4, RECOVER
 	; ELECTIVIRE
-;	db 3, 1, ICE_PUNCH
-;	db 3, 2, ROCK_TOMB
-	db 3, 3, THUNDERPUNCH
-	db 3, 4, KARATE_CHOP
+;	db 2, 1, ICE_PUNCH
+;	db 2, 2, ROCK_TOMB
+	db 2, 3, THUNDERPUNCH
+	db 2, 4, KARATE_CHOP
 	; JYNX
-	db 4, 1, ICE_BEAM
-	db 4, 2, DRAININGKISS
-;	db 4, 3, LOVELY_KISS
-;	db 4, 4, DREAM_EATER
+	db 3, 1, ICE_BEAM
+	db 3, 2, DRAININGKISS
+;	db 3, 3, LOVELY_KISS
+	db 3, 4, PSYCHIC_M
 	; MAGMORTAR
-	db 5, 1, ROCK_SLIDE
-	db 5, 2, FIRE_BLAST
-;	db 5, 3, KARATE_CHOP
-	db 5, 4, BULLET_SEED
+	db 4, 1, ROCK_SLIDE
+	db 4, 2, FIRE_BLAST
+;	db 4, 3, KARATE_CHOP
+	db 4, 4, BULLET_SEED
+	; SNORLAX
+	db 5, 1, BODY_SLAM
+	db 5, 2, SELFDESTRUCT
+	db 5, 3, SHADOW_BALL
+	db 5, 4, PLAY_ROUGH
 	; UMBREON
 	db 6, 1, TOXIC
 	db 6, 2, DOUBLE_TEAM
