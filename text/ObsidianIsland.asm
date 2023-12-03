@@ -18,7 +18,7 @@ _ObsidianIslandText2_RocketSouthBridge1::
 	cont "bridge too, or"
 	cont "you won't see"
 	cont "your family"
-	cont "again!"
+	cont "ever again!"
 	done
 
 _ObsidianIslandText3_RocketSouthBridge2::
