@@ -6,7 +6,7 @@ SECTION "Text 1", ROMX
 INCLUDE "data/text/text_1.asm"
 
 ;INCLUDE "text/ViridianForest.asm" ; edited, moved to Text Extra 1
-INCLUDE "text/MtMoon1F.asm"
+;INCLUDE "text/MtMoon1F.asm" ; edited, moved to Text Extra 5
 INCLUDE "text/MtMoonB1F.asm"
 INCLUDE "text/MtMoonB2F.asm"
 INCLUDE "text/SSAnne1F.asm"
@@ -362,6 +362,8 @@ INCLUDE "text/Route9.asm"
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianHouses.asm" ; new
 INCLUDE "text/MtMoon1FExtra.asm" ; new
+; moved from Text 1
+INCLUDE "text/MtMoon1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -117,3 +117,25 @@ _MtMoon1Text14::
 	text "Beware! ZUBAT is"
 	line "a bloodsucker!"
 	done
+
+; new ------------------------------
+
+_MtMoon1FRivalText_PreBattle::
+	text "Pre-battle text"
+;	xxxx "123456789012345678"
+	done
+	
+_MtMoon1FRivalText_Win::
+	text "Win text"
+;	xxxx "123456789012345678"
+	prompt
+
+_MtMoon1FRivalText_Lose::
+	text "Lose text"
+;	xxxx "123456789012345678"
+	prompt
+	
+_MtMoon1FRivalText_PostBattle::
+	text "Post-battle text"
+;	xxxx "123456789012345678"
+	done

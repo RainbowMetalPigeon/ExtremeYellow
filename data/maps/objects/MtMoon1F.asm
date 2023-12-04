@@ -43,7 +43,7 @@ MtMoon1F_Object:
 
 
 	def_bg_events ; edited, +24 on the y coordinate
-	bg_event 15, 47, 14 ; MtMoon1Text14
+	bg_event 15, 47, 15 ; MtMoon1Text14
 
 	def_object_events ; edited, +24 on the y coordinate
 	object_event  5, 30, SPRITE_HIKER, STAY, DOWN, 1, OPP_HIKER, 1
@@ -59,5 +59,6 @@ MtMoon1F_Object:
 	object_event 36, 47, SPRITE_POKE_BALL, STAY, NONE, 11, ESCAPE_ROPE
 	object_event 20, 57, SPRITE_POKE_BALL, STAY, NONE, 12, POTION
 	object_event  5, 56, SPRITE_POKE_BALL, STAY, NONE, 13, TM_METRONOME
+	object_event 36, 23, SPRITE_BLUE, STAY, DOWN, 14 ; new
 
 	def_warps_to MT_MOON_1F

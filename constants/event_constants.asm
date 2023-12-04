@@ -607,6 +607,7 @@
 	const EVENT_BEAT_MT_MOON_3_TRAINER_3
 	const EVENT_57E
 	const EVENT_GOT_HELIX_FOSSIL
+	const EVENT_BEAT_MT_MOON_1_RIVAL ; new, testing
 
 ; S.S. Anne events
 	const_next $5C0

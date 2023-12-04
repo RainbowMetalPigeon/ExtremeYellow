@@ -8,9 +8,175 @@ MtMoon1F_Script:
 	ret
 
 MtMoon1F_ScriptPointers:
-	dw CheckFightingMapTrainers
+	dw MtMoon1Script0 ; new
+;	dw CheckFightingMapTrainers ; commented out, testing
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw MtMoon1Script3 ; new
+	dw MtMoon1Script4 ; new
+	dw MtMoon1Script5 ; new
+
+; -------------------------------
+
+MtMoon1Script0: ; new
+	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
+	jp nz, CheckFightingMapTrainers ; testing
+	ld hl, MtMoon1FCoords
+	call ArePlayerCoordsInArray
+	jp nc, CheckFightingMapTrainers ; testing
+	ld a, [wWalkBikeSurfState]
+	and a
+	jr z, .walking
+	call StopAllMusic
+.walking
+	ld c, BANK(Music_MeetRival)
+	ld a, MUSIC_MEET_RIVAL
+	call PlayMusic
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $f0
+	ld [wJoyIgnore], a
+	
+	ld a, HS_MT_MOON_1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
+	ld a, [wXCoord]
+	cp 36 ; is the player standing on the left of the post-water corridor?
+	jr z, .playerOnLeftSideOfCorridor
+	ld de, MtMoon1FMovements1_Right
+	jr .continue
+.playerOnLeftSideOfCorridor
+	ld de, MtMoon1FMovements1
+.continue
+	ld a, 14 ; index of Rival's sprite
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, $3 ; testing
+	ld [wMtMoon1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+MtMoon1FCoords:
+	dbmapcoord 36, 28
+	dbmapcoord 37, 28
+	db -1 ; end
+
+MtMoon1FMovements1_Right:
+	db NPC_MOVEMENT_RIGHT
+MtMoon1FMovements1:
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN ; TBC
+	db -1 ; end
+
+; -------------------------------
+
+MtMoon1Script3: ; new
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 14 ; Rival's text (and sprite) index
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, MtMoon1FRivalText_Win ; text if player wins
+	ld de, MtMoon1FRivalText_Lose ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld a, 6
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+	call MtMoon1FScript_RivalFacingDown
+	ld a, 4 ; TBC
+	ld [wMtMoon1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+MtMoon1FRivalText_Win:
+	text_far _MtMoon1FRivalText_Win
+	text_end
+
+MtMoon1FRivalText_Lose:
+	text_far _MtMoon1FRivalText_Lose
+	text_end
+
+MtMoon1FScript_RivalFacingDown:
+	ld a, 14
+	ldh [hSpriteIndex], a
+	xor a ; SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	jp SetSpriteFacingDirectionAndDelay ; face object
+
+; -------------------------------
+
+MtMoon1Script4: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, MtMoon1FScript_ResetIfLoseVsRival
+	call MtMoon1FScript_RivalFacingDown
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_BEAT_MT_MOON_1_RIVAL
+	ld a, 14 ; Rival's text (and sprite) index
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call StopAllMusic
+	farcall Music_RivalAlternateStart
+	ld a, 14 ; Rival's text (and sprite) index
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld de, MtMoon1FMovements2
+.skip
+	ld a, 14 ; Rival's text (and sprite) index
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, $5 ; TBC
+	ld [wMtMoon1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+MtMoon1FScript_ResetIfLoseVsRival:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wMtMoon1FCurScript], a
+	ld [wCurMapScript], a
+	ld a, HS_MT_MOON_1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef_jump HideObject
+
+MtMoon1FMovements2:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP ; TBC
+	db -1 ; end
+
+; -------------------------------
+
+MtMoon1Script5: ; new
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	ld a, HS_MT_MOON_1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic
+	ld a, $0
+	ld [wMtMoon1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; ===============================
 
 MtMoon1F_TextPointers:
 	dw MtMoon1Text1
@@ -26,7 +192,8 @@ MtMoon1F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw MtMoon1Text14
+	dw MtMoon1TextRival ; new, 14
+	dw MtMoon1Text14 ; 15
 
 MtMoon1TrainerHeaders:
 	def_trainers
@@ -45,6 +212,31 @@ MtMoon1TrainerHeader5:
 MtMoon1TrainerHeader6:
 	trainer EVENT_BEAT_MT_MOON_1_TRAINER_6, 3, MtMoon1BattleText8, MtMoon1EndBattleText8, MtMoon1AfterBattleText8
 	db -1 ; end
+
+; -------------------------------
+
+MtMoon1TextRival: ; new
+	text_asm
+	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
+	jr z, .PreBattleText
+	ld hl, MtMoon1FRivalText_PostBattle
+	call PrintText
+	jr .end
+.PreBattleText
+	ld hl, MtMoon1FRivalText_PreBattle
+	call PrintText
+.end
+	jp TextScriptEnd
+
+MtMoon1FRivalText_PreBattle:
+	text_far _MtMoon1FRivalText_PreBattle
+	text_end
+
+MtMoon1FRivalText_PostBattle:
+	text_far _MtMoon1FRivalText_PostBattle
+	text_end
+
+; -------------------------------
 
 MtMoon1Text1:
 	text_asm

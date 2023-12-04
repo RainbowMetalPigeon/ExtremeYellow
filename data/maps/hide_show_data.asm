@@ -445,6 +445,7 @@ MtMoon1FHS:
 	db MT_MOON_1F, $0B, SHOW
 	db MT_MOON_1F, $0C, SHOW
 	db MT_MOON_1F, $0D, SHOW
+	db MT_MOON_1F, $0E, HIDE ; new, Rival
 MtMoonB2FHS:
 	db MT_MOON_B2F, $02, HIDE
 	db MT_MOON_B2F, $06, HIDE
