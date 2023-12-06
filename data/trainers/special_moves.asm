@@ -60,6 +60,39 @@ SpecialTrainerMoves:
 	db 6, 4, NO_MOVE
 	db 0
 
+	db GENTLEMAN, 6 ; new, SS Anne Captain
+	; SCYTHER
+	db 1, 1, CUT
+	db 1, 2, AIR_SLASH
+	db 1, 3, X_SCISSOR
+	db 1, 4, AIR_CUTTER
+	; KABUTOPS
+	db 2, 1, CUT
+	db 2, 2, SLASH
+	db 2, 3, STONE_EDGE
+	db 2, 4,
+	; SCIZOR
+	db 3, 1, CUT
+	db 3, 2, SLASH
+	db 3, 3, X_SCISSOR
+	db 3, 4, PSYCHO_CUT
+	; SANDSLASH
+	db 4, 1, CUT
+	db 4, 2, SLASH
+	db 4, 3, STONE_EDGE
+	db 4, 4, NIGHT_SLASH
+	; KLEAVOR
+	db 5, 1, CUT
+	db 5, 2, SLASH
+	db 5, 3, STONE_EDGE
+	db 5, 4, X_SCISSOR
+	; FARFETCHD
+	db 6, 1, CUT
+	db 6, 2, SLASH
+	db 6, 3, SWORDS_DANCE
+	db 6, 4, NIGHT_SLASH
+	db 0
+
 	db COOLTRAINER, 5 ; pseudo-Green
 	; JIGGLYPUFF
 	db 1, 1, SING
@@ -562,17 +595,17 @@ SpecialTrainerMoves:
 	db 1, 4, BLIZZARD
 	; CLOYSTER
 	db 2, 1, EXPLOSION
-;	db 2, 2, PIN_MISSILE
-;	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
-;	db 2, 4, ICICLE_SPEAR
+	db 2, 2, PIN_MISSILE
+	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
+	db 2, 4, ICICLE_SPEAR
 	; JYNX
 	db 3, 1, BLIZZARD
 	db 3, 2, LOVELY_KISS
 	db 3, 3, DRAININGKISS
-;	db 3, 4, PSYCHO_CUT
+	db 3, 4, PSYCHO_CUT
 	; GLACEON
 	db 4, 1, BLIZZARD
-;	db 4, 2, MIRROR_COAT
+	db 4, 2, MIRROR_COAT
 	db 4, 3, WATER_PULSE
 	db 4, 4, BARRIER
 	; LAPRAS
@@ -584,22 +617,22 @@ SpecialTrainerMoves:
 	db 6, 1, AMNESIA
 	db 6, 2, PSYCHIC_M
 	db 6, 3, REST
-;	db 6, 4, SCALD ; THUNDER_WAVE?
+	db 6, 4, SCALD ; THUNDER_WAVE?
 	db 0
 
 	db BRUNO, 1
 	; HITMONTOP
-;	db 1, 1, FOCUS_ENERGY
+	db 1, 1, FOCUS_ENERGY
 	db 1, 2, STONE_EDGE
 	db 1, 3, EARTHQUAKE
-;	db 1, 3, HI_JUMP_KICK
+	db 1, 3, HI_JUMP_KICK
 	; HITMONCHAN
 	db 2, 1, DRAIN_PUNCH
 	db 2, 2, SHADOW_PUNCH
 	db 2, 3, DIZZY_PUNCH
-;	db 2, 4, BULLET_PUNCH
+	db 2, 4, BULLET_PUNCH
 	; HITMONLEE
-;	db 3, 1, HI_JUMP_KICK
+	db 3, 1, HI_JUMP_KICK
 	db 3, 2, CLOSE_COMBAT
 	db 3, 3, ROLLING_KICK
 	db 3, 4, STONE_EDGE
@@ -607,17 +640,17 @@ SpecialTrainerMoves:
 	db 4, 1, ROCK_SLIDE
 	db 4, 2, CLOSE_COMBAT
 	db 4, 3, SCALD
-;	db 4, 4, LOVELY_KISS
+	db 4, 4, LOVELY_KISS
 	; MACHAMP
  	db 5, 1, STONE_EDGE
 	db 5, 2, FISSURE
 	db 5, 3, CLOSE_COMBAT
-;	db 5, 4, DRAIN_PUNCH
+	db 5, 4, DRAIN_PUNCH
 	; MSTEELIX
  	db 6, 1, METEOR_MASH
 	db 6, 2, EARTHQUAKE
 	db 6, 3, EXPLOSION
-;	db 6, 4, DRAGON_DANCE
+	db 6, 4, DRAGON_DANCE
 	db 0
 
 	db AGATHA, 1
@@ -628,8 +661,8 @@ SpecialTrainerMoves:
 	db 1, 4, DARK_PULSE
 	; CROBAT
 	db 2, 1, AIR_SLASH
-;	db 2, 2, ROOST
-;	db 2, 3, GUNK_SHOT
+	db 2, 2, ROOST
+	db 2, 3, GUNK_SHOT
 	db 2, 4, LEECH_LIFE
 	; GENGAR 2
 	db 3, 1, PSYCHIC_M
@@ -643,7 +676,7 @@ SpecialTrainerMoves:
 	db 4, 4, GUNK_SHOT
 	; UMBREON
 	db 5, 1, REST
-;	db 5, 2, DARK_PULSE
+	db 5, 2, DARK_PULSE
 	db 5, 3, DOUBLE_TEAM
 	db 5, 4, TOXIC
 	; MGENGAR

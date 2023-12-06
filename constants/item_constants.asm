@@ -105,6 +105,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const LEGEND_CANDY  ; new, testing
 	const BIG_NUGGET	; new
 	const PERFECTER     ; new, testing
+	const LUNAR_RELIC   ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

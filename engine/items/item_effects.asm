@@ -113,6 +113,7 @@ ItemUsePtrTable:
 	dw ItemUseVitamin    ; LEGEND_CANDY, new, testing
 	dw UnusableItem      ; BIG_NUGGET, new
 	dw ItemUseVitamin    ; PERFECTER, new, testing
+	dw UnusableItem      ; LUNAR_RELIC, new
 
 ItemUseBall:
 
@@ -1671,7 +1672,7 @@ ItemUseMedicine:
 
 .notPerfecterCode
 	ld a, [wcf91] ; new, to ensure a contains the right stuff
-	
+
 ; PERFECTER code, end ----------------------------------------------------------
 
 	sub HP_UP

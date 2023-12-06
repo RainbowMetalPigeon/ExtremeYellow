@@ -50,7 +50,7 @@ _PokemonTower2Text_60637::
 	cont "to be a loser?"
 
 	para "I hope you'll too"
-	line "be late at the"
+	line "be late to the"
 	cont "#MON CENTER!"
 	prompt
 

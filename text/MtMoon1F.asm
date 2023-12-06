@@ -121,21 +121,77 @@ _MtMoon1Text14::
 ; new ------------------------------
 
 _MtMoon1FRivalText_PreBattle::
-	text "Pre-battle text"
-;	xxxx "123456789012345678"
+	text "<RIVAL>: What are"
+	line "YOU doing HERE?!"
+
+	para "Again spying on"
+	line "me? Following me"
+	cont "to steal my"
+	cont "discovery?"
+
+	para "Too bad for you,"
+	line "you leech!"
+	cont "There's only a"
+	cont "decrepit geezer"
+	cont "in an even more"
+	cont "decrepit hovel."
+
+	para "But! I will not"
+	line "forgive you for"
+	cont "following me like"
+	cont "a shadow and try"
+	cont "stealing my"
+	cont "hard-gained"
+	cont "discoveries!"
+
+	para "I will demolish"
+	line "you with my"
+	cont "brand-new team!"
 	done
-	
+
 _MtMoon1FRivalText_Win::
-	text "Win text"
-;	xxxx "123456789012345678"
+	text "Not"
+	line "again!!!"
+	cont "This is absurd!"
 	prompt
 
 _MtMoon1FRivalText_Lose::
-	text "Lose text"
-;	xxxx "123456789012345678"
+	text "YES!"
+	line "Serves you well!"
+	cont "Whine and cry in"
+	cont "desperation!"
+
+	para "The only thing I'm"
+	line "sorry for, is"
+	cont "that there is a"
+	cont "#MON CENTER"
+	cont "nearby..."
 	prompt
-	
+
 _MtMoon1FRivalText_PostBattle::
-	text "Post-battle text"
-;	xxxx "123456789012345678"
+	text "<RIVAL>: You..."
+	line "damn... filthy..."
+	cont "piece of crap..."
+
+	para "How can you keep"
+	line "defeating my"
+	cont "formidable"
+	cont "teams?!"
+	cont "It doesn't make"
+	cont "any sense!"
+
+	para "I'm a genius!"
+	line "I have the"
+	cont "strongest"
+	cont "#MON! I train"
+	cont "the hardest! And"
+	cont "yet you keep"
+	cont "winning!"
+
+	para "...tsk. Your"
+	line "fucked luck will"
+	cont "end one day, and"
+	cont "that's when I"
+	cont "will exact my"
+	cont "revenge."
 	done

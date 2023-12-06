@@ -48,8 +48,8 @@ _Route22RivalAfterBattleText1::
 	cont "are still a"
 	cont "nobody."
 
-	para "You will not de-"
-	line "feat me again!"
+	para "You will not"
+	line "defeat me again!"
 
 	para "I will get the"
 	line "strongest #MON"
