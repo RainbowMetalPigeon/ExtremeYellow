@@ -96,6 +96,7 @@ ItemPrices::
 	bcd3 10000 ; LEGEND_CANDY, bought for a price, sold for 0
 	bcd3 60000 ; BIG_NUGGET
 	bcd3 0     ; PERFECTER
+	bcd3 0     ; LUNAR_RELIC
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

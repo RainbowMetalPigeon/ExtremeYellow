@@ -16,6 +16,32 @@ SSAnneCaptainsRoom_TextPointers:
 
 SSAnne7Text1:
 	text_asm
+; --- beginning, new code for battle vs Captain ---
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .preExtraBattle
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+	ld hl, SSAnne7TextCaptain_PreBattle
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_GENTLEMAN
+	ld [wCurOpponent], a
+	ld a, 6
+	ld [wTrainerNo], a
+	ld hl, SSAnne7TextCaptain_Defeat
+	ld de, SSAnne7TextCaptain_Defeat
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 1 ; city-specific
+	ld [wOchreCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.preExtraBattle ; back to vanilla
+; --- end, new code for battle vs Captain ---
 	CheckEvent EVENT_GOT_HM01
 	jr nz, .got_item
 	ld hl, SSAnne7RubText
@@ -88,4 +114,14 @@ SSAnne7Text2:
 
 SSAnne7Text3:
 	text_far _SSAnne7Text3
+	text_end
+
+; new ----------------------------
+
+SSAnne7TextCaptain_PreBattle:
+	text_far _SSAnne7TextCaptain_PreBattle
+	text_end
+
+SSAnne7TextCaptain_Defeat:
+	text_far _SSAnne7TextCaptain_Defeat
 	text_end

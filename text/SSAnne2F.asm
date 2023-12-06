@@ -31,8 +31,8 @@ _SSAnneRivalBeforeBattleText::
 	line "promised you,"
 	cont "this time I'll"
 	cont "crush you for"
-	cont "good, I'll un-"
-	cont "leash the full"
+	cont "good, I'll"
+	cont "unleash the full"
 	cont "power of my"
 	cont "#MON!"
 	done
@@ -72,7 +72,7 @@ _SSAnneRivalCaptainText::
 	cont "Why did you..."
 
 	para "I don't have time"
-	line "to lose with you,"
+	line "to waste with you,"
 	cont "I have to run to"
 	cont "a #MON CENTER!"
 	done

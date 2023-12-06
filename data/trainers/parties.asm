@@ -542,6 +542,8 @@ GentlemanData:
 	db 48, PRIMEAPE, 0
 ; SS Anne 2F Rooms
 	db 17, GROWLITHE, PONYTA, 0
+; new, SS Anne Captain
+	db 75, SCYTHER, KABUTOPS, SCIZOR, SANDSLASH, KLEAVOR, FARFETCHD, 0 ; 6
 
 ChannelerData:
 ; Unused

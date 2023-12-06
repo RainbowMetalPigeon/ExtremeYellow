@@ -96,4 +96,5 @@ KeyItemFlags:
 	dbit FALSE ; LEGEND_CANDY	- new, testing
 	dbit FALSE ; BIG_NUGGET		- new
 	dbit FALSE ; PERFECTER      - new, testing
+	dbit TRUE  ; LUNAR_RELIC    - new
 	end_bit_array NUM_ITEMS

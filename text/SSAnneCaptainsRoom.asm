@@ -62,3 +62,15 @@ _SSAnne7Text3::
 	cont "The CAPTAIN's"
 	cont "reading this!"
 	done
+
+; new ----------------------
+
+_SSAnne7TextCaptain_PreBattle::
+	text "Pre battle"
+;	xxxx "123456789012345678"
+	done
+
+_SSAnne7TextCaptain_Defeat::
+	text "Pre battle"
+;	xxxx "123456789012345678"
+	done
