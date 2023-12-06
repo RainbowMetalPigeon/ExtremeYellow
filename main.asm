@@ -74,6 +74,7 @@ INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
 SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks
 
 INCLUDE "engine/menus/draw_badges.asm" ; moved from bank3
+INCLUDE "engine/gfx/animated_tiles_code.asm" ; contains function moved from vcopy.asm, which is in home
 
 
 SECTION "bank4", ROMX

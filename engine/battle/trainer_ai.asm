@@ -267,7 +267,7 @@ ReadMove:
 	ld bc, MOVE_LENGTH
 	call AddNTimes
 	ld de, wEnemyMoveNum
-	call CopyData
+	call CopyData ; copies bc bytes from hl to de
 	pop bc
 	pop de
 	pop hl
@@ -386,7 +386,10 @@ MistyAI:
 LtSurgeAI:
 	cp 25 percent + 1
 	ret nc
-	jp AIUseXSpeed
+	ld a, 8 ; new
+	call AICheckIfHPBelowFraction ; new
+	ret nc ; new
+	jp AIUseSuperPotion ; edited, was AIUseXSpeed
 
 ErikaAI:
 	cp 50 percent + 1
@@ -447,7 +450,7 @@ LoreleiAI:
 	jp AIUseFullRestore ; updated
 
 BrunoAI:
-	cp 25 percent + 1
+	cp 15 percent + 1 ; edited
 	ret nc
 	jp AIUseXAttack ; updated
 

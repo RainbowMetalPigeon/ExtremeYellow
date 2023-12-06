@@ -100,8 +100,17 @@ TalkToTrainer::
 	ld a, c
 	and a
 	jr z, .trainerNotYetFought     ; test trainer's flag
-	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS	; new, to reactivate trainers
-	jr nz, .trainerNotYetFought					; new, to reactivate trainers
+; --- beginning new block to reactivate trainers ---
+	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	ld hl, TextAskRematch
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .trainerNotYetFought
+.trainerAlreadyFoughtAndNotGonnaRefight
+; --- end new block to reactivate trainers ---
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
 	jp PrintText
@@ -126,6 +135,10 @@ TalkToTrainer::
 	ld hl, wCurMapScript
 	inc [hl]      ; increment map script index before StartTrainerBattle increments it again (next script function is usually EndTrainerBattle)
 	jp StartTrainerBattle
+
+TextAskRematch: ; new, to reactivate trainers
+	text_far _TextAskRematch
+	text_end
 
 ; checks if any trainers are seeing the player and wanting to fight
 CheckFightingMapTrainers::

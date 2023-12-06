@@ -1363,3 +1363,7 @@ _CantUsePCHere:: ; new, for portablePC
 	text "You cannot use"
 	line "this here!"
 	prompt
+
+_TextAskRematch:: ; new, to reactivate trainers
+	text "Rematch?"
+	done
