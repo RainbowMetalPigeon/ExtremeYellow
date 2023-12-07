@@ -144,6 +144,9 @@ DEF SHOW EQU $15
 	const HS_MT_MOON_1F_ITEM_6             ; 6C
 	const HS_MT_MOON_1F_RIVAL              ; new
 	const HS_MT_MOON_B2F_JESSIE            ; 6D
+	const HS_MT_MOON_B2F_ROCKET_1          ; new
+	const HS_MT_MOON_B2F_ROCKET_2          ; new
+	const HS_MT_MOON_B2F_ROCKET_3          ; new
 	const HS_MT_MOON_B2F_JAMES             ; 6E
 	const HS_MT_MOON_B2F_FOSSIL_1          ; 6F
 	const HS_MT_MOON_B2F_FOSSIL_2          ; 70
@@ -251,6 +254,13 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
+	const HS_CELADON_CHIEF_HOUSE_1         ; new
+	const HS_CELADON_CHIEF_HOUSE_2         ; new
+	const HS_CELADON_CHIEF_HOUSE_3         ; new
+	const HS_LUNAR_SHRINE_2                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_3                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_4                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_5                ; new, secretly part of CELADON_CHIEF_HOUSE
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---

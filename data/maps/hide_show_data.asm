@@ -146,10 +146,10 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw CeladonChiefHouseHS ; new
+	dw NoHS ; CELADON_HOTEL
+	dw NoHS ; LAVENDER_POKECENTER
+	dw NoHS ; POKEMON_TOWER_1F
 	dw PokemonTower2FHS
 	dw PokemonTower3FHS
 	dw PokemonTower4FHS
@@ -448,6 +448,9 @@ MtMoon1FHS:
 	db MT_MOON_1F, $0E, HIDE ; new, Rival
 MtMoonB2FHS:
 	db MT_MOON_B2F, $02, HIDE
+	db MT_MOON_B2F, $03, SHOW ; new
+	db MT_MOON_B2F, $04, SHOW ; new
+	db MT_MOON_B2F, $05, SHOW ; new
 	db MT_MOON_B2F, $06, HIDE
 	db MT_MOON_B2F, $07, SHOW
 	db MT_MOON_B2F, $08, SHOW
@@ -578,6 +581,14 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
 	db OBSIDIAN_WAREHOUSE, $0E, HIDE
+CeladonChiefHouseHS: ; new
+	db CELADON_CHIEF_HOUSE, $01, SHOW
+	db CELADON_CHIEF_HOUSE, $02, SHOW
+	db CELADON_CHIEF_HOUSE, $03, SHOW
+	db CELADON_CHIEF_HOUSE, $05, HIDE
+	db CELADON_CHIEF_HOUSE, $06, HIDE
+	db CELADON_CHIEF_HOUSE, $07, HIDE
+	db CELADON_CHIEF_HOUSE, $08, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it

@@ -37,10 +37,8 @@ SaffronCityRockets:
 	db HS_SAFFRON_CITY_3
 	db HS_SAFFRON_CITY_4
 	db HS_SAFFRON_CITY_5
-;	db HS_SAFFRON_CITY_6 ; now is the traveler
 	db HS_SAFFRON_CITY_7
 	db HS_SAFFRON_CITY_E
-;	db HS_SAFFRON_CITY_F ; does not exist?
 	db HS_SILPH_CO_2F_2
 	db HS_SILPH_CO_2F_3
 	db HS_SILPH_CO_2F_4
@@ -75,4 +73,7 @@ SaffronCityRockets:
 	db HS_SILPH_CO_11F_JESSIE
 	db HS_CELADON_ROCKET_GUARD_1 ; new
 	db HS_CELADON_ROCKET_GUARD_2 ; new
+	db HS_MT_MOON_B2F_ROCKET_1 ; new
+	db HS_MT_MOON_B2F_ROCKET_2 ; new
+	db HS_MT_MOON_B2F_ROCKET_3 ; new
 	db $ff

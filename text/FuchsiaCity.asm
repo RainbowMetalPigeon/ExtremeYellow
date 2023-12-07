@@ -98,12 +98,12 @@ _FuchsiaCitySlowpokeText::
 	line "slow moving."
 	prompt
 
-_FuchsiaCityLaprasText::
-	text "Name: LAPRAS"
-
-	para "A.K.A. the ruler"
-	line "of the seas."
-	prompt
+;_FuchsiaCityLaprasText::
+;	text "Name: LAPRAS"
+;
+;	para "A.K.A. the ruler"
+;	line "of the seas."
+;	prompt
 
 _FuchsiaCityOmanyteText::
 	text "Name: OMANYTE"
@@ -121,9 +121,9 @@ _FuchsiaCityKabutoText::
 	cont "from a fossil."
 	prompt
 
-_FuchsiaCityText_19b2a::
-	text "..."
-	done
+;_FuchsiaCityText_19b2a::
+;	text "..."
+;	done
 
 _FuchsiaCityTextErikHappy:: ; new
 	text "Thank you so much"

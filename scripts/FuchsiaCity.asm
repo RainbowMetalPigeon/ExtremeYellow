@@ -142,51 +142,28 @@ FuchsiaCitySlowpokeText:
 	text_far _FuchsiaCitySlowpokeText
 	text_end
 
-FuchsiaCityText23:
+FuchsiaCityText23: ; edited
 	text_asm
-	ld hl, FuchsiaCityLaprasText
-	call PrintText
-	ld a, LAPRAS
-	call DisplayPokedex
-	jp TextScriptEnd
-
-FuchsiaCityLaprasText:
-	text_far _FuchsiaCityLaprasText
-	text_end
-
-FuchsiaCityText24:
-	text_asm
-	CheckEvent EVENT_GOT_DOME_FOSSIL
-	jr nz, .asm_3b4e8
-	CheckEventReuseA EVENT_GOT_HELIX_FOSSIL
-	jr nz, .asm_667d5
-	ld hl, FuchsiaCityText_19b2a
-	call PrintText
-	jr .asm_4343f
-.asm_3b4e8
 	ld hl, FuchsiaCityOmanyteText
 	call PrintText
 	ld a, OMANYTE
-	jr .asm_81556
-.asm_667d5
-	ld hl, FuchsiaCityKabutoText
-	call PrintText
-	ld a, KABUTO
-.asm_81556
 	call DisplayPokedex
-.asm_4343f
 	jp TextScriptEnd
 
 FuchsiaCityOmanyteText:
 	text_far _FuchsiaCityOmanyteText
 	text_end
 
+FuchsiaCityText24: ; edited
+	text_asm
+	ld hl, FuchsiaCityKabutoText
+	call PrintText
+	ld a, KABUTO
+	call DisplayPokedex
+	jp TextScriptEnd
+
 FuchsiaCityKabutoText:
 	text_far _FuchsiaCityKabutoText
-	text_end
-
-FuchsiaCityText_19b2a:
-	text_far _FuchsiaCityText_19b2a
 	text_end
 
 FuchsiaCityTextErikHappy:
