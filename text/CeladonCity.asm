@@ -1,10 +1,10 @@
-_CeladonCityText1::
-	text "I got my KOFFING"
-	line "from my friend!"
+_CeladonCityText1:: ; edited
+	text "This park is so"
+	line "neat and cute!"
 
-	para "We get along now,"
-	line "because I was"
-	cont "very nice to it!"
+	para "It's a bit small,"
+	line "but it definitely"
+	cont "improves CELADON!"
 	done
 
 _CeladonCityText2::

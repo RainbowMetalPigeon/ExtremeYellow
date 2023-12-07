@@ -289,12 +289,13 @@ VermilionCityHS: ; new
 	db VERMILION_CITY, $06, HIDE
 	db VERMILION_CITY, $09, HIDE
 	db VERMILION_CITY, $0A, SHOW ; rare candy
-CeladonCityHS:
+CeladonCityHS: ; new
 	db CELADON_CITY, $08, SHOW ; old Rocket grunts
 	db CELADON_CITY, $09, SHOW ; old Rocket grunts
 	db CELADON_CITY, $0A, SHOW ; new Rocket grunts
 	db CELADON_CITY, $0B, SHOW ; new Rocket grunts
 	db CELADON_CITY, $0C, HIDE ; Traveler
+	db CELADON_CITY, $0D, SHOW ; Rare Candy
 SaffronCityHS:
 	db SAFFRON_CITY, $01, SHOW
 	db SAFFRON_CITY, $02, SHOW

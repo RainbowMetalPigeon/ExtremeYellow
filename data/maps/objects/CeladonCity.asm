@@ -20,18 +20,18 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	warp_event 36,  8, CELADON_CHIEF_HOUSE, 3 ; LUNAR_SHRINE
 
 	def_bg_events
-	bg_event 27, 29, 13 ; CeladonCityText10
-	bg_event 19, 29, 14 ; CeladonCityText11
-	bg_event 42, 23, 15 ; PokeCenterSignText
-	bg_event 13, 43, 16 ; CeladonCityText13 ; Gym
-	bg_event 21, 23, 17 ; CeladonCityText14
-	bg_event 12, 27, 18 ; CeladonCityText15 ; Mart
-	bg_event 39, 35, 19 ; CeladonCityText16
-	bg_event 33, 35, 20 ; CeladonCityText17
-	bg_event 27, 35, 21 ; CeladonCityText18
-	bg_event 27, 43, 22 ; CeladonCityText19 ; new, Diner
-	bg_event 35, 43, 23 ; CeladonCityText20 ; new, Hotel
-	bg_event 43, 43, 24 ; CeladonCityText21 ; new, University
+	bg_event 27, 29, 14 ; CeladonCityText10
+	bg_event 19, 29, 15 ; CeladonCityText11
+	bg_event 42, 23, 16 ; PokeCenterSignText
+	bg_event 13, 43, 17 ; CeladonCityText13 ; Gym
+	bg_event 21, 23, 18 ; CeladonCityText14
+	bg_event 12, 27, 19 ; CeladonCityText15 ; Mart
+	bg_event 39, 35, 20 ; CeladonCityText16
+	bg_event 33, 35, 21 ; CeladonCityText17
+	bg_event 27, 35, 22 ; CeladonCityText18
+	bg_event 27, 43, 23 ; CeladonCityText19 ; new, Diner
+	bg_event 35, 43, 24 ; CeladonCityText20 ; new, Hotel
+	bg_event 43, 43, 25 ; CeladonCityText21 ; new, University
 
 	def_object_events
 	object_event  8, 31, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
@@ -46,5 +46,6 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	object_event 28, 49, SPRITE_ROCKET, STAY, DOWN, 10 ; new, guard the bridge
 	object_event 29, 49, SPRITE_ROCKET, STAY, DOWN, 11 ; new, guard the bridge
 	object_event 17, 26, SPRITE_TRAVELER, STAY, ANY_DIR, 12 ; new, traveler
+	object_event 45,  2, SPRITE_POKE_BALL, STAY, NONE, 13, RARE_CANDY ; new
 
 	def_warps_to CELADON_CITY

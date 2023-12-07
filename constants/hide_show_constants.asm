@@ -29,6 +29,7 @@ DEF SHOW EQU $15
 	const HS_CELADON_ROCKET_GUARD_1		   ; new
 	const HS_CELADON_ROCKET_GUARD_2		   ; new
 	const HS_CELADON_CITY_TRAVELER		   ; new
+	const HS_CELADON_CITY_ITEM_1		   ; new
 	const HS_SAFFRON_CITY_1                ; 0B
 	const HS_SAFFRON_CITY_2                ; 0C
 	const HS_SAFFRON_CITY_3                ; 0D

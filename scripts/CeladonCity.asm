@@ -28,6 +28,7 @@ CeladonCity_TextPointers:
 	dw CeladonCityText10New
 	dw CeladonCityText11New
 	dw TextPreBattle_CeladonTraveler ; new, for traveler
+	dw PickUpItemText ; new, Rare Candy for Lunar Shrine teasing
 	; signs
 	dw CeladonCityText10
 	dw CeladonCityText11
@@ -41,7 +42,7 @@ CeladonCity_TextPointers:
 	dw CeladonCityText19 ; new
 	dw CeladonCityText20 ; new
 	dw CeladonCityText21 ; new
-	dw TextPostBattle_CeladonTraveler ; 25, new, for traveler
+	dw TextPostBattle_CeladonTraveler ; 26, new, for traveler
 
 CeladonCityText10New:
 	text_far _CeladonCityText10New
@@ -249,7 +250,7 @@ CeladonScript_Traveler:
     ld a, HS_CELADON_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, 25 ; city-specific
+	ld a, 26 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo
