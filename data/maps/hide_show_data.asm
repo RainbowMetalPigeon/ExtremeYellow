@@ -498,7 +498,7 @@ RocketHideoutB4FHS:
 	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Silph Scope
 	db ROCKET_HIDEOUT_B4F, $09, HIDE ; Lift Key
 SilphCo2FHS:
-	db SILPH_CO_2F, $01, SHOW
+;	db SILPH_CO_2F, $01, SHOW ; commented out because unused
 	db SILPH_CO_2F, $02, SHOW
 	db SILPH_CO_2F, $03, SHOW
 	db SILPH_CO_2F, $04, SHOW
@@ -536,7 +536,7 @@ SilphCo7FHS:
 	db SILPH_CO_7F, $09, SHOW
 	db SILPH_CO_7F, $0A, SHOW
 	db SILPH_CO_7F, $0B, SHOW
-	db SILPH_CO_7F, $0C, SHOW
+;	db SILPH_CO_7F, $0C, SHOW ; commented out because unused
 SilphCo8FHS:
 	db SILPH_CO_8F, $02, SHOW
 	db SILPH_CO_8F, $03, SHOW
@@ -550,7 +550,7 @@ SilphCo9FHS:
 SilphCo10FHS:
 	db SILPH_CO_10F, $01, SHOW
 	db SILPH_CO_10F, $02, SHOW
-	db SILPH_CO_10F, $03, SHOW
+;	db SILPH_CO_10F, $03, SHOW ; commented out because unused
 	db SILPH_CO_10F, $04, SHOW
 	db SILPH_CO_10F, $05, SHOW
 	db SILPH_CO_10F, $06, SHOW
