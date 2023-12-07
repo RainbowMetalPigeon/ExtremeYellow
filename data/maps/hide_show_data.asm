@@ -498,7 +498,6 @@ RocketHideoutB4FHS:
 	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Silph Scope
 	db ROCKET_HIDEOUT_B4F, $09, HIDE ; Lift Key
 SilphCo2FHS:
-;	db SILPH_CO_2F, $01, SHOW ; commented out because unused
 	db SILPH_CO_2F, $02, SHOW
 	db SILPH_CO_2F, $03, SHOW
 	db SILPH_CO_2F, $04, SHOW
@@ -536,7 +535,6 @@ SilphCo7FHS:
 	db SILPH_CO_7F, $09, SHOW
 	db SILPH_CO_7F, $0A, SHOW
 	db SILPH_CO_7F, $0B, SHOW
-;	db SILPH_CO_7F, $0C, SHOW ; commented out because unused
 SilphCo8FHS:
 	db SILPH_CO_8F, $02, SHOW
 	db SILPH_CO_8F, $03, SHOW
@@ -550,7 +548,6 @@ SilphCo9FHS:
 SilphCo10FHS:
 	db SILPH_CO_10F, $01, SHOW
 	db SILPH_CO_10F, $02, SHOW
-;	db SILPH_CO_10F, $03, SHOW ; commented out because unused
 	db SILPH_CO_10F, $04, SHOW
 	db SILPH_CO_10F, $05, SHOW
 	db SILPH_CO_10F, $06, SHOW
@@ -581,14 +578,6 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
 	db OBSIDIAN_WAREHOUSE, $0E, HIDE
-ObsidianWarehouseFinalHS: ; new
-	db OBSIDIAN_WAREHOUSE_FINAL, $01, SHOW ; James
-	db OBSIDIAN_WAREHOUSE_FINAL, $02, SHOW ; Jessie
-	db OBSIDIAN_WAREHOUSE_FINAL, $03, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $04, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -599,6 +588,14 @@ MissableObjectsExtra: ; new, it's the "Extra" block
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
 	table_width 3, MissableObjectsExtra ; new, it's the "Extra" block
 ; format: map id, object id, HIDE/SHOW
+ObsidianWarehouseFinalHS: ; new
+	db OBSIDIAN_WAREHOUSE_FINAL, $01, SHOW ; James
+	db OBSIDIAN_WAREHOUSE_FINAL, $02, SHOW ; Jessie
+	db OBSIDIAN_WAREHOUSE_FINAL, $03, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $04, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
 PokemonMansion2FHS: ; edited because of rematch Blaine
 	db POKEMON_MANSION_2F, $01, HIDE
 	db POKEMON_MANSION_2F, $03, SHOW

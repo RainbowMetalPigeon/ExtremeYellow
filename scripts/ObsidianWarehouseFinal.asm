@@ -61,9 +61,9 @@ ObsidianWarehouseFinalScript_ChangeScript:
 	ld [wCurMapScript], a
 	ret
 
-ObsidianWarehouseFinalScript_HideObject:
+ObsidianWarehouseFinalScript_HideObjectExtra:
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra
 	ret
 
 ObsidianWarehouseFinalScript0:
@@ -266,9 +266,9 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 	ld [wJoyIgnore], a
 	call GBFadeOutToBlack
 	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES
-	call ObsidianWarehouseFinalScript_HideObject
+	call ObsidianWarehouseFinalScript_HideObjectExtra
 	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE
-	call ObsidianWarehouseFinalScript_HideObject
+	call ObsidianWarehouseFinalScript_HideObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -299,11 +299,6 @@ ObsidianFuchsiaRockets:
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_2
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_3
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_4
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_2
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
 	db $ff
 
 HideObsidianFuchsiaRocketsExtra:
@@ -329,6 +324,11 @@ ObsidianFuchsiaRocketsExtra:
 	db HS_ROUTE_28_ROCKET_3
 	db HS_ROUTE_28_ROCKET_4
 	db HS_FUCHSIA_CITY_ROCKET_SAFARI
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_2
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
 	db $ff
 
 ShowObsidianCitizens:

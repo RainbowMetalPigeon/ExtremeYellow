@@ -184,7 +184,6 @@ DEF SHOW EQU $15
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_3     ; 8A
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_4     ; 8B
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_5     ; 8C
-;	const HS_SILPH_CO_2F_1                 ; 8D XXX never (de)activated? ; commented out because unused
 	const HS_SILPH_CO_2F_2                 ; 8E
 	const HS_SILPH_CO_2F_3                 ; 8F
 	const HS_SILPH_CO_2F_4                 ; 90
@@ -217,7 +216,6 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_7F_RIVAL             ; AB
 	const HS_SILPH_CO_7F_ITEM_1            ; AC
 	const HS_SILPH_CO_7F_ITEM_2            ; AD
-;	const HS_SILPH_CO_7F_8                 ; AE XXX sprite doesn't exist ; commented out because unused
 	const HS_SILPH_CO_8F_1                 ; AF
 	const HS_SILPH_CO_8F_2                 ; B0
 	const HS_SILPH_CO_8F_3                 ; B1
@@ -227,7 +225,6 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_9F_3                 ; B4
 	const HS_SILPH_CO_10F_1                ; B5
 	const HS_SILPH_CO_10F_2                ; B6
-;	const HS_SILPH_CO_10F_3                ; B7 XXX never (de)activated? ; commented out because unused
 	const HS_SILPH_CO_10F_ITEM_1           ; B8
 	const HS_SILPH_CO_10F_ITEM_2           ; B9
 	const HS_SILPH_CO_10F_ITEM_3           ; BA
@@ -254,6 +251,12 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
+;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
+
+; --- start of the variables moved to the extra block ---
+
+; new ; this block now corresponds to MissableObjectsExtra
+	const_def							   ; equivalent to "const_value=0" ; TODO: verify that this works as intended
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES    ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE   ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1  ; new
@@ -261,12 +264,6 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
-;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
-
-; --- start of the variables moved to the extra block ---
-
-; new ; this block now corresponds to MissableObjectsExtra
-	const_def							   ; equivalent to "const_value=0" ; TODO: verify that this works as intended
 	const HS_POKEMON_MANSION_2F_BLAINE     ; new
 	const HS_POKEMON_MANSION_2F_ITEM       ; C0
 	const HS_POKEMON_MANSION_3F_ITEM_1     ; C1
