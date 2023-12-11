@@ -102,13 +102,13 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw NoHS ; SS_ANNE_1F
 	dw SSAnne2FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; SS_ANNE_3F
+	dw NoHS ; SS_ANNE_B1F
+	dw NoHS ; SS_ANNE_BOW
+	dw NoHS ; SS_ANNE_KITCHEN
+	dw SSAnneCaptainsRoomHS ; new
 	dw SSAnne1FRoomsHS
 	dw SSAnne2FRoomsHS
 	dw SSAnneB1FRoomsHS
@@ -744,5 +744,8 @@ ObsidianPokecenterHS: ; new
 	db OBSIDIAN_POKECENTER, $03, HIDE
 CeruleanCaveExtraBottomHS: ; new
 	db CERULEAN_CAVE_EXTRA_BOTTOM, $01, SHOW
+SSAnneCaptainsRoomHS: ; new
+	db SS_ANNE_CAPTAINS_ROOM, $01, SHOW
+	db SS_ANNE_CAPTAINS_ROOM, $02, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -184,9 +184,9 @@ _MtMoon1FRivalText_PostBattle::
 	line "I have the"
 	cont "strongest"
 	cont "#MON! I train"
-	cont "the hardest! And"
-	cont "yet you keep"
-	cont "winning!"
+	cont "the hardest!"
+	cont "And yet you"
+	cont "keep winning!"
 
 	para "...tsk. Your"
 	line "fucked luck will"
@@ -194,4 +194,12 @@ _MtMoon1FRivalText_PostBattle::
 	cont "that's when I"
 	cont "will exact my"
 	cont "revenge."
+
+	para "I hope you'll get"
+	line "lost in this"
+	cont "absurd maze, at"
+	cont "least I won't"
+	cont "have to bear the"
+	cont "sight of your"
+	cont "face ever again."
 	done

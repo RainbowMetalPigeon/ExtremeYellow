@@ -36,7 +36,7 @@ DisplayPokemonCenterDialogue_::
 .notHealingPlayerPikachu
 	ld hl, NeedYourPokemonText
 	call PrintText
-	ld c, 64
+	ld c, 1 ; edited
 	call DelayFrames
 	call CheckPikachuFollowingPlayer
 	jr nz, .playerPikachuNotOnScreen
@@ -46,7 +46,7 @@ DisplayPokemonCenterDialogue_::
 .playerPikachuNotOnScreen
 	lb bc, 1, 8
 	call Func_6ebb
-	ld c, 30
+	ld c, 1 ; edited
 	call DelayFrames
 	farcall AnimateHealingMachine ; do the healing machine animation
 	predef HealParty
@@ -84,7 +84,7 @@ DisplayPokemonCenterDialogue_::
 	ld a, $1
 	ldh [hSpriteImageIndex], a
 	call SpriteFunc_34a1
-	ld c, 40
+	ld c, 20 ; edited
 	call DelayFrames
 	call UpdateSprites
 	call LoadFontTilePatterns
@@ -95,6 +95,9 @@ DisplayPokemonCenterDialogue_::
 	ld hl, PokemonCenterFarewellText
 	call PrintText
 	call UpdateSprites
+; new, testing
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
 	ret
 
 Func_6eaa:
@@ -103,7 +106,7 @@ Func_6eaa:
 	ld a, $4
 	ldh [hSpriteImageIndex], a
 	call SpriteFunc_34a1
-	ld c, 64
+	ld c, 1 ; edited
 	call DelayFrames
 	ret
 
@@ -113,7 +116,7 @@ Func_6ebb:
 	ld a, c
 	ldh [hSpriteImageIndex], a
 	push bc
-	call SetSpriteFacingDirectionAndDelay
+	call SetSpriteFacingDirection ; edited, was SetSpriteFacingDirectionAndDelay
 	pop bc
 	ld a, b
 	ldh [hSpriteIndex], a

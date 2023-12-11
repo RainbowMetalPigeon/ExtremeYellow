@@ -534,7 +534,7 @@ wSlotMachineSavedROMBank:: db
 wMoveBuffer:: ; new
 wRelearnableMoves:: ; new
 	ds 164
-; Try not to use this stack. 
+; Try not to use this stack.
 ; A good amount of space is needed to store data for the move relearner.
 ; If it's like, 2, it'll lag like crazy and show garbage from elsewhere.
 
@@ -2296,7 +2296,8 @@ wSaffronCityCurScript:: db ; new
 ;	ds 1
 wCinnabarIslandCurScript:: db
 wPokemonMansion1FCurScript:: db
-	ds 1
+wSSAnneCaptainsRoomCurScript:: db ; new
+;	ds 1
 wPokemonMansion2FCurScript:: db
 wPokemonMansion3FCurScript:: db
 wPokemonMansionB1FCurScript:: db
