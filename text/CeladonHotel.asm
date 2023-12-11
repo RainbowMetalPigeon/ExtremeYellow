@@ -16,7 +16,7 @@ _CeladonHotelText2:: ; edited
 
 	para "Uh? What do you"
 	line "mean that I"
-	cont "missed an 'and'?"
+	cont "missed a 'my'?"
 	done
 
 _CeladonHotelText3:: ; edited
