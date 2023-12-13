@@ -41,8 +41,8 @@ DisplayPokemonCenterDialogue_::
 	call CheckPikachuFollowingPlayer
 	jr nz, .playerPikachuNotOnScreen
 	call DisablePikachuOverworldSpriteDrawing
-	callfar IsStarterPikachuInOurParty
-	call c, Func_6eaa
+;	callfar IsStarterPikachuInOurParty ; edited
+;	call c, Func_6eaa ; edited
 .playerPikachuNotOnScreen
 	lb bc, 1, 8
 	call Func_6ebb
@@ -60,8 +60,8 @@ DisplayPokemonCenterDialogue_::
 	call PlaySound
 	call CheckPikachuFollowingPlayer
 	jr nz, .doNotReturnPikachu
-	callfar IsStarterPikachuInOurParty
-	call c, Func_6eaa
+;	callfar IsStarterPikachuInOurParty ; edited
+;	call c, Func_6eaa ; edited
 	ld a, $5
 	ld [wPikachuSpawnState], a
 	call EnablePikachuOverworldSpriteDrawing
@@ -100,15 +100,15 @@ DisplayPokemonCenterDialogue_::
 	ld [wPlayerMovingDirection], a
 	ret
 
-Func_6eaa:
-	ld a, $1
-	ldh [hSpriteIndex], a
-	ld a, $4
-	ldh [hSpriteImageIndex], a
-	call SpriteFunc_34a1
-	ld c, 1 ; edited
-	call DelayFrames
-	ret
+;Func_6eaa: ; edited
+;	ld a, $1
+;	ldh [hSpriteIndex], a
+;	ld a, $4
+;	ldh [hSpriteImageIndex], a
+;	call SpriteFunc_34a1
+;	ld c, 1 ; edited
+;	call DelayFrames
+;	ret
 
 Func_6ebb:
 	ld a, b

@@ -1,6 +1,11 @@
 SSAnneCaptainsRoom_Script:
 	call SSAnne7Script_6189b
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, FuchsiaCity_ScriptPointers
+	ld a, [wSSAnneCaptainsRoomCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wSSAnneCaptainsRoomCurScript], a
+	ret
 
 SSAnne7Script_6189b:
 	CheckEvent EVENT_GOT_HM01
@@ -10,9 +15,10 @@ SSAnne7Script_6189b:
 	ret
 
 SSAnneCaptainsRoom_TextPointers:
-	dw SSAnne7Text1
-	dw SSAnne7Text2
-	dw SSAnne7Text3
+	dw SSAnne7Text1 ; captain
+	dw SSAnne7TextJenny ; new, Jenny
+	dw SSAnne7Text2 ; trash
+	dw SSAnne7Text3 ; book
 
 SSAnne7Text1:
 	text_asm
@@ -36,8 +42,8 @@ SSAnne7Text1:
 	ld de, SSAnne7TextCaptain_Defeat
 	call SaveEndBattleTextPointers
 ; script handling
-	ld a, 1 ; city-specific
-	ld [wOchreCityCurScript], a ; city-specific
+	ld a, 1
+	ld [wSSAnneCaptainsRoomCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .preExtraBattle ; back to vanilla

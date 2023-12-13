@@ -178,7 +178,7 @@ _PokemonCenterWelcomeText:: ; edited
 
 ;	para "We heal #MON"
 ;	line "back to health!"
-	prompt
+	done
 
 _ShallWeHealYourPokemonText:: ; edited
 	text "Do you want to"
