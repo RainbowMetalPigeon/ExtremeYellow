@@ -1,11 +1,82 @@
 SSAnneCaptainsRoom_Script:
 	call SSAnne7Script_6189b
 	call EnableAutoTextBoxDrawing
-	ld de, FuchsiaCity_ScriptPointers
+	ld de, SSAnneCaptainsRoom_ScriptPointers
 	ld a, [wSSAnneCaptainsRoomCurScript]
 	call ExecuteCurMapScriptInTable
 	ld [wSSAnneCaptainsRoomCurScript], a
 	ret
+
+SSAnneCaptainsRoom_ScriptPointers: ; new, for battle vs Captain
+	dw SSAnneCaptainsRoomScript0
+	dw SSAnneCaptainsRoomScript1
+
+SSAnneCaptainsRoomScript0: ; new
+	ret
+
+SSAnneCaptainsRoomScript1: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wSSAnneCaptainsRoomCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+	ld a, 5
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide Captain and show Jenny
+	call GBFadeOutToBlack
+	ld a, HS_SS_ANNE_CAPTAINS_ROOM_CAPTAIN
+    ld [wMissableObjectIndex], a
+    predef HideObjectExtra
+	ld a, HS_SS_ANNE_CAPTAINS_ROOM_JENNY
+    ld [wMissableObjectIndex], a
+    predef ShowObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; Jenny turn and dialogue
+	ld hl, LeftWrtJennyCoord
+	call ArePlayerCoordsInArray
+	jp c, .turnJennyLeft
+	ld hl, RightWrtJennyCoord
+	call ArePlayerCoordsInArray
+	jp c, .turnJennyRight
+; third check is unnecessary, and turning is unnecessary too
+	jr .goToDialogue
+.turnJennyLeft
+	ld a, $2
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	jr .goToDialogue
+.turnJennyRight
+	ld a, $2
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+.goToDialogue
+	ld a, 2
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wSSAnneCaptainsRoomCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LeftWrtJennyCoord:
+	dbmapcoord 3,  2
+	db -1 ; end
+
+RightWrtJennyCoord:
+	dbmapcoord 5,  2
+	db -1 ; end
 
 SSAnne7Script_6189b:
 	CheckEvent EVENT_GOT_HM01
@@ -19,6 +90,7 @@ SSAnneCaptainsRoom_TextPointers:
 	dw SSAnne7TextJenny ; new, Jenny
 	dw SSAnne7Text2 ; trash
 	dw SSAnne7Text3 ; book
+	dw SSAnne7Text5 ; defeated captain
 
 SSAnne7Text1:
 	text_asm
@@ -123,6 +195,14 @@ SSAnne7Text3:
 	text_end
 
 ; new ----------------------------
+
+SSAnne7TextJenny:
+	text_far _SSAnne7TextJenny
+	text_end
+
+SSAnne7Text5: ; defeated captain
+	text_far _SSAnne7Text5
+	text_end
 
 SSAnne7TextCaptain_PreBattle:
 	text_far _SSAnne7TextCaptain_PreBattle

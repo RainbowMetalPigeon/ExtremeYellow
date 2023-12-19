@@ -3,6 +3,7 @@ GetTrainerName_::
 	ld a, [wLinkState]
 	and a
 	jr nz, .foundName
+
 	ld hl, wRivalName
 	ld a, [wTrainerClass]
 	cp RIVAL1
@@ -11,6 +12,18 @@ GetTrainerName_::
 	jr z, .foundName
 	cp RIVAL3
 	jr z, .foundName
+
+; new, for the SS Anne Captain
+	cp GENTLEMAN
+	jr nz, .continue
+	ld a, [wCurMap]
+	cp SS_ANNE_CAPTAINS_ROOM
+	jr nz, .continue
+	ld hl, CaptainText ; testing
+	jr .foundName ; testing
+.continue
+	ld a, [wTrainerClass] ; added because I have overwritten a for the captain check
+
 	ld [wd0b5], a
 	ld a, TRAINER_NAME
 	ld [wNameListType], a
@@ -21,4 +34,6 @@ GetTrainerName_::
 .foundName
 	ld de, wTrainerName
 	ld bc, $d
-	jp CopyData
+	jp CopyData ; copies bc bytes from hl to de
+
+CaptainText: db "CAPTAIN@" ; new

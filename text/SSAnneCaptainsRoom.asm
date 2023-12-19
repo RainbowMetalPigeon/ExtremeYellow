@@ -66,11 +66,68 @@ _SSAnne7Text3::
 ; new ----------------------
 
 _SSAnne7TextCaptain_PreBattle::
-	text "Pre battle"
-;	xxxx "123456789012345678"
+	text "CAPTAIN: Oh? Look"
+	line "who's there! How"
+	cont "long! How are you"
+	cont "doing?"
+
+	para "...wait, what do"
+	line "you mean? Police"
+	cont "is investigating"
+	cont "to find TEAM"
+	cont "ROCKET's"
+	cont "accomplice in"
+	cont "their poaching in"
+	cont "the SAFARI ZONE?"
+
+	para "And how would you"
+	line "know that...?"
+
+	para "WHAT? YOU are the"
+	line "one that crumbled"
+	cont "our traffics?!"
+
+	para "May you be"
+	line "damned!!! I lost"
+	cont "so much money"
+	cont "because of you!"
+
+	para "Oh, you'll regret"
+	line "so much coming"
+	cont "here alone!"
+	cont "I'll slice you"
+	cont "down and feed you"
+	cont "to the fish!"
 	done
 
 _SSAnne7TextCaptain_Defeat::
-	text "Pre battle"
-;	xxxx "123456789012345678"
+	text "No...! It"
+	line "can't be...!"
+
+	para "Now I see how"
+	line "you defeated"
+	cont "GIOVANNI..."
+	prompt
+
+_SSAnne7TextJenny::
+	text "JENNY: One more"
+	line "time, thank you"
+	cont "so very much!"
+
+	para "You help has again"
+	line "been invaluable"
+	cont "in cleansing"
+	cont "KANTO from this"
+	cont "scum."
+
+	para "As soon as you'll"
+	line "be of age, what"
+	cont "about joining the"
+	cont "police force"
+	cont "officially?"
+	done
+
+_SSAnne7Text5::
+	text "CAPTAIN: May you"
+	line "be damned!!!"
 	done

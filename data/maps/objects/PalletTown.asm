@@ -17,7 +17,8 @@ PalletTown_Object:
 ;	warp_event  5,  5, OCHRE_HOUSES, 3
 ;	warp_event  5,  5, OBSIDIAN_HOUSES, 4
 ;	warp_event  5,  5, MT_MOON_1F, 1
-	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
+;	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
+	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
