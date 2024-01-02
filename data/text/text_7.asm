@@ -172,29 +172,29 @@ _HMCantDeleteText::
 	line "can't be deleted!"
 	prompt
 
-_PokemonCenterWelcomeText::
+_PokemonCenterWelcomeText:: ; edited
 	text "Welcome to our"
 	line "#MON CENTER!"
 
-	para "We heal your"
-	line "#MON back to"
-	cont "perfect health!"
-	prompt
-
-_ShallWeHealYourPokemonText::
-	text "Shall we heal your"
-	line "#MON?"
+;	para "We heal #MON"
+;	line "back to health!"
 	done
 
-_NeedYourPokemonText::
-	text "OK. We'll need"
-	line "your #MON."
+_ShallWeHealYourPokemonText:: ; edited
+	text "Do you want to"
+	line "heal you #MON?"
 	done
 
-_PokemonFightingFitText::
-	text "Thank you!"
-	line "Your #MON are"
-	cont "fighting fit!"
+_NeedYourPokemonText:: ; edited
+	text "OK! Just a second!"
+	done
+
+_PokemonFightingFitText:: ; edited
+;	text "Thank you!"
+;	line "Your #MON are"
+;	cont "fighting fit!"
+	text "Your pokemon are"
+	line "now fully healed!"
 	prompt
 
 _PokemonCenterFarewellText::
