@@ -238,7 +238,7 @@ TextPostBattle_CeladonTraveler:
 ; --------------------------------
 
 CeladonScript_Traveler:
-	ld a, [wIsInBattle]
+	ld a, [wIsInBattle] 
 	cp $ff
 	jr nz, .notDefeated
 	xor a
