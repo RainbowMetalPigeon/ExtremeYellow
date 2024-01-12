@@ -13,8 +13,8 @@ Route16_Object:
 	warp_event  7,  5, ROUTE_16_FLY_HOUSE, 1
 
 	def_bg_events
-	bg_event 27, 11, 8 ; Route16Text8
-	bg_event  5, 17, 9 ; Route16Text9
+	bg_event 27, 11, 9 ; Route16Text8
+	bg_event  5, 17, 10 ; Route16Text9
 
 	def_object_events
 	object_event 17, 12, SPRITE_BIKER, STAY, LEFT, 1, OPP_BIKER, 5
@@ -24,5 +24,6 @@ Route16_Object:
 	object_event  6, 10, SPRITE_BIKER, STAY, RIGHT, 5, OPP_CUE_BALL, 3
 	object_event  3, 12, SPRITE_BIKER, STAY, RIGHT, 6, OPP_BIKER, 7
 	object_event 26, 10, SPRITE_SNORLAX, STAY, DOWN, 7 ; person
+	object_event 33, 10, SPRITE_BLUE, STAY, LEFT, 8 ; new
 
 	def_warps_to ROUTE_16

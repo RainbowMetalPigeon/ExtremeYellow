@@ -58,8 +58,11 @@ DEF SHOW EQU $15
 	const HS_ROUTE_12_HIKER	               ; new
 	const HS_ROUTE_12_ITEM_1               ; 1F
 	const HS_ROUTE_12_ITEM_2               ; 20
+	const HS_ROUTE_12_RIVAL_LEFT		   ; new
+	const HS_ROUTE_12_RIVAL_RIGHT		   ; new
 	const HS_ROUTE_15_ITEM                 ; 21
 	const HS_ROUTE_16_SNORLAX              ; 22
+	const HS_ROUTE_16_RIVAL                ; new
 	const HS_ROUTE_20_MISTY				   ; new
 	const HS_ROUTE_21_OAK				   ; new
 	const HS_ROUTE_22_RIVAL_1              ; 23
@@ -255,13 +258,6 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
-	const HS_CELADON_CHIEF_HOUSE_1         ; new
-	const HS_CELADON_CHIEF_HOUSE_2         ; new
-	const HS_CELADON_CHIEF_HOUSE_3         ; new
-	const HS_LUNAR_SHRINE_2                ; new, secretly part of CELADON_CHIEF_HOUSE
-	const HS_LUNAR_SHRINE_3                ; new, secretly part of CELADON_CHIEF_HOUSE
-	const HS_LUNAR_SHRINE_4                ; new, secretly part of CELADON_CHIEF_HOUSE
-	const HS_LUNAR_SHRINE_5                ; new, secretly part of CELADON_CHIEF_HOUSE
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---
@@ -382,3 +378,10 @@ DEF SHOW EQU $15
 	const HS_CERULEAN_CAVE_EXTRA_BOTTOM_ITEM_1	; new
 	const HS_SS_ANNE_CAPTAINS_ROOM_CAPTAIN ; new
 	const HS_SS_ANNE_CAPTAINS_ROOM_JENNY   ; new
+	const HS_CELADON_CHIEF_HOUSE_1         ; new
+	const HS_CELADON_CHIEF_HOUSE_2         ; new
+	const HS_CELADON_CHIEF_HOUSE_3         ; new
+	const HS_LUNAR_SHRINE_2                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_3                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_4                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_5                ; new, secretly part of CELADON_CHIEF_HOUSE

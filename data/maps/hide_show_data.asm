@@ -330,10 +330,13 @@ Route12HS:
 	db ROUTE_12, $02, HIDE ; new
 	db ROUTE_12, $0A, SHOW ; edited
 	db ROUTE_12, $0B, SHOW ; edited
+	db ROUTE_12, $0C, HIDE ; new, rival left
+	db ROUTE_12, $0D, HIDE ; new, rival right
 Route15HS:
 	db ROUTE_15, $0B, SHOW
 Route16HS:
 	db ROUTE_16, $07, SHOW
+	db ROUTE_16, $08, HIDE ; new, rival
 Route20HS:
 	db ROUTE_20, $01, HIDE ; new because of Misty
 Route21HS:
@@ -582,14 +585,6 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
 	db OBSIDIAN_WAREHOUSE, $0E, HIDE
-CeladonChiefHouseHS: ; new
-	db CELADON_CHIEF_HOUSE, $01, SHOW
-	db CELADON_CHIEF_HOUSE, $02, SHOW
-	db CELADON_CHIEF_HOUSE, $03, SHOW
-	db CELADON_CHIEF_HOUSE, $05, HIDE
-	db CELADON_CHIEF_HOUSE, $06, HIDE
-	db CELADON_CHIEF_HOUSE, $07, HIDE
-	db CELADON_CHIEF_HOUSE, $08, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -747,5 +742,13 @@ CeruleanCaveExtraBottomHS: ; new
 SSAnneCaptainsRoomHS: ; new
 	db SS_ANNE_CAPTAINS_ROOM, $01, SHOW
 	db SS_ANNE_CAPTAINS_ROOM, $02, HIDE
+CeladonChiefHouseHS: ; new
+	db CELADON_CHIEF_HOUSE, $01, SHOW
+	db CELADON_CHIEF_HOUSE, $02, SHOW
+	db CELADON_CHIEF_HOUSE, $03, SHOW
+	db CELADON_CHIEF_HOUSE, $05, HIDE
+	db CELADON_CHIEF_HOUSE, $06, HIDE
+	db CELADON_CHIEF_HOUSE, $07, HIDE
+	db CELADON_CHIEF_HOUSE, $08, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator

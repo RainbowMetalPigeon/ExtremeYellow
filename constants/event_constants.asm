@@ -390,7 +390,8 @@
 	const EVENT_BEAT_ROUTE_12_TRAINER_4
 	const EVENT_BEAT_ROUTE_12_TRAINER_5
 	const EVENT_BEAT_ROUTE_12_TRAINER_6
-	const_skip 4 ; edited, -1 due to Hiker
+	const_skip 3 ; edited, -1 due to Hiker, -1 for new Rival Battle
+	const EVENT_FACED_SNORLAX_RIVAL ; new
 	const EVENT_FIGHT_ROUTE12_SNORLAX
 	const EVENT_BEAT_ROUTE12_SNORLAX
 

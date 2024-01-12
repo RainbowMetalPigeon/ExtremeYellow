@@ -19,22 +19,66 @@ Route16_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw Route16Script3
+	dw Route16Script4 ; new, trigger battle vs Rival
+	dw Route16Script5 ; new
+	dw Route16Script6 ; new
+
+AroundSnorlaxRoute16Coords: ; new
+	dbmapcoord 27, 10
+	db -1 ; end
 
 Route16Script0:
+; new, for Rival Snorlax battle
+; we need to: NOT have faced this rival already; be around Snorlax; have the flute in the bag
+	CheckEvent EVENT_FACED_SNORLAX_RIVAL
+	jp nz, .vanillaCode
+	ld hl, AroundSnorlaxRoute16Coords
+	call ArePlayerCoordsInArray
+	jr nz, .vanillaCode
+	ld b, POKE_FLUTE
+	call IsItemInBag
+	jr z, .vanillaCode
+; if we are here, we begin triggering the battle vs the rival
+; walking code
+	ld a, [wWalkBikeSurfState]
+	and a
+	jr z, .walking
+	call StopAllMusic
+.walking
+	ld c, BANK(Music_MeetRival)
+	ld a, MUSIC_MEET_RIVAL
+	call PlayMusic
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, HS_ROUTE_16_RIVAL
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, PLAYER_DIR_RIGHT ; TBC
+	ld [wPlayerMovingDirection], a
+	ld de, Route16FMovements1
+	ld a, 8 ; index of Rival's sprite
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, $4 ; TBC
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+.vanillaCode
+; back to vanilla
 	CheckEventHL EVENT_BEAT_ROUTE16_SNORLAX
 	jp nz, CheckFightingMapTrainers
 	CheckEventReuseHL EVENT_FIGHT_ROUTE16_SNORLAX
 	ResetEventReuseHL EVENT_FIGHT_ROUTE16_SNORLAX
 	jp z, CheckFightingMapTrainers
-	ld a, $a
+	ld a, $b ; edited, +1 because rival
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SNORLAX
 	ld [wCurOpponent], a
 	ld a, 30
 	ld [wCurEnemyLVL], a
-;	xor a							; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200
 	ld a, HS_ROUTE_16_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject
@@ -44,6 +88,14 @@ Route16Script0:
 	ld [wCurMapScript], a
 	ret
 
+Route16FMovements1: ; new
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db -1 ; end
+
 Route16Script3:
 	ld a, [wIsInBattle]
 	cp $ff
@@ -52,7 +104,7 @@ Route16Script3:
 	ld a, [wBattleResult]
 	cp $2
 	jr z, .asm_599a8
-	ld a, $b
+	ld a, $c ; edited, +1 because rival
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .asm_599a8
@@ -63,6 +115,104 @@ Route16Script3:
 	ld [wCurMapScript], a
 	ret
 
+; ----------------------------------------------
+
+Route16Script4: ; new
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 8 ; Rival's text ID, pre-battle
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, Route16RivalText_Win ; text if player wins
+	ld de, Route16RivalText_Lose ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld a, 5
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+	call Route16Script_RivalFacingLeft
+	SetEvent EVENT_FACED_SNORLAX_RIVAL
+	ld a, 5
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route16Script5: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route16Script_ResetIfLoseVsRival
+; stuff to do if we defeat the rival
+	call Route16Script_RivalFacingLeft
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 13 ; Rival's text ID
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call StopAllMusic
+	farcall Music_RivalAlternateStart
+	ld a, 8 ; Rival's sprite ID
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld de, Route16FMovements2
+	call MoveSprite
+	ld a, $6
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route16FMovements2: ; new
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+Route16Script_ResetIfLoseVsRival: ; new
+	xor a
+	ld [wJoyIgnore], a
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ld a, HS_ROUTE_16_SNORLAX
+	ld [wMissableObjectIndex], a
+	predef_jump HideObject
+
+Route16Script_RivalFacingLeft:
+	ld a, 8
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Route16Script6: ; new
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	ld a, HS_ROUTE_16_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic
+	ld a, HS_ROUTE_12_SNORLAX
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, $0
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; ==============================================
+
 Route16_TextPointers:
 	dw Route16Text1
 	dw Route16Text2
@@ -71,10 +221,12 @@ Route16_TextPointers:
 	dw Route16Text5
 	dw Route16Text6
 	dw Route16Text7
-	dw Route16Text8
-	dw Route16Text9
-	dw Route16Text10
-	dw Route16Text11
+	dw Route16TextRival ; new
+	dw Route16Text8 ; sign
+	dw Route16Text9 ; sign
+	dw Route16Text10 ; Snorlax-related text
+	dw Route16Text11 ; Snorlax-related text
+	dw Route16TextRivalPostBattle ; new, TBC; ID=13
 
 Route16TrainerHeaders:
 	def_trainers
@@ -218,4 +370,20 @@ Route16Text8:
 
 Route16Text9:
 	text_far _Route16Text9
+	text_end
+
+Route16TextRival: ; new
+	text_far _Route12TextRival
+	text_end
+
+Route16TextRivalPostBattle: ; new
+	text_far _Route12TextRivalPostBattle
+	text_end
+
+Route16RivalText_Win: ; new
+	text_far _Route12RivalText_Win
+	text_end
+
+Route16RivalText_Lose: ; new
+	text_far _Route12RivalText_Lose
 	text_end

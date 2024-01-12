@@ -36,7 +36,7 @@ MtMoon1Script0: ; new
 	ldh [hJoyHeld], a
 	ld a, $f0
 	ld [wJoyIgnore], a
-	
+
 	ld a, HS_MT_MOON_1F_RIVAL
 	ld [wMissableObjectIndex], a
 	predef ShowObject
@@ -68,7 +68,7 @@ MtMoon1FMovements1:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN ; TBC
+	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 
 ; -------------------------------
@@ -95,7 +95,7 @@ MtMoon1Script3: ; new
 	xor a
 	ldh [hJoyHeld], a
 	call MtMoon1FScript_RivalFacingDown
-	ld a, 4 ; TBC
+	ld a, 4
 	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -134,11 +134,10 @@ MtMoon1Script4: ; new
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, MtMoon1FMovements2
-.skip
 	ld a, 14 ; Rival's text (and sprite) index
 	ldh [hSpriteIndex], a
 	call MoveSprite
-	ld a, $5 ; TBC
+	ld a, $5
 	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -156,7 +155,7 @@ MtMoon1FMovements2:
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
-	db NPC_MOVEMENT_UP ; TBC
+	db NPC_MOVEMENT_UP
 	db -1 ; end
 
 ; -------------------------------

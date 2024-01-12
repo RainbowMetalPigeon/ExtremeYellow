@@ -55,7 +55,7 @@ SplitMapSpriteSets:
 	db NORTH_SOUTH, 37, $02, $01 ; $f1
 	db NORTH_SOUTH, 50, $02, $0f ; $f2, edited, $0f was $03
 	db EAST_WEST,   57, $04, $08 ; $f3
-	db NORTH_SOUTH, 21, $0f, $08 ; $f4, edited, $0f was $03
+	db NORTH_SOUTH, 21, $0f, $14 ; $f4, edited, $0f was $03, and $14 was $08
 	db EAST_WEST,    8, $0A, $08 ; $f5
 	db EAST_WEST,   24, $09, $05 ; $f6
 	db EAST_WEST,   34, $09, $0A ; $f7
@@ -353,4 +353,19 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_SWIMMER
 	db SPRITE_POKE_BALL
 	db SPRITE_GAMBLER_ASLEEP
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $14, copy of $08, for South part of R12
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BIKER
+	db SPRITE_SUPER_NERD
+	db SPRITE_BLUE ; this is the difference wrt $08
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_BEAUTY
+	db SPRITE_FISHER
+	db SPRITE_TRAVELER
+	db SPRITE_POKE_BALL
+	db SPRITE_SNORLAX
 	assert_table_length SPRITE_SET_LENGTH

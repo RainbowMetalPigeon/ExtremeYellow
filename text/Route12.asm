@@ -154,3 +154,21 @@ _Route12Text11::
 _Route12Text12::
 	text "SPORT FISHING AREA"
 	done
+
+_Route12TextRival::
+	text "Pre battle"
+;	xxxx "123456789012345678"
+	done
+
+_Route12TextRivalPostBattle::
+	text "Post battle"
+;	xxxx "123456789012345678"
+	done
+
+_Route12RivalText_Win::
+	text "Win"
+	prompt
+
+_Route12RivalText_Lose::
+	text "Lose"
+	prompt
