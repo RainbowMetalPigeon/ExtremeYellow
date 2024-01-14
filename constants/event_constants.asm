@@ -165,7 +165,9 @@
 	const EVENT_GOT_TM48
 	const EVENT_GOT_TM49
 	const EVENT_GOT_TM18
-	const_skip 23 ; edited, was 24
+	const_skip 21 ; edited, was 24
+	const EVENT_RETURNED_LUNAR_RELIC ; new
+	const EVENT_MONK_NOTICED_RELIC ; new
 	const EVENT_BEAT_ERIKA_REMATCH ; new
 	const EVENT_GOT_TM21
 	const EVENT_BEAT_ERIKA

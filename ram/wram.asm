@@ -2320,7 +2320,8 @@ wBrunosRoomCurScript:: db
 wAgathasRoomCurScript:: db
 wCeruleanCaveB1FCurScript:: db
 wVictoryRoad1FCurScript:: db
-	ds 1
+wCeladonChiefHouseCurScript:: db ; new
+;	ds 1
 wLancesRoomCurScript:: db
 	ds 4
 wSilphCo10FCurScript:: db

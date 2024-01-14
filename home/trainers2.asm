@@ -40,6 +40,8 @@ IsFightingJessieJames::
 	ld a, [wTrainerNo]
 	cp $2e ; edited because I added more Rockets (Obsidian Warehouse)
 	ret c
+	cp $33 ; added because of Rocket siblings in Lunar Shrine
+	ret nc
 ;	ld de, LancePic ; Rocket executives' pics here, or in init_battle if gotta load another BANK... temp testing with Lance's pic
 ;	cp $33 ; edited, for the Rocket executives
 ;	jr nc, .executives

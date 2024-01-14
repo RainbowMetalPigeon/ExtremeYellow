@@ -1,11 +1,456 @@
 CeladonChiefHouse_Script:
 	call EnableAutoTextBoxDrawing
+	ld de, CeladonChiefHouse_ScriptPointers
+	ld a, [wCeladonChiefHouseCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCeladonChiefHouseCurScript], a
 	ret
+
+CeladonChiefHouse_ScriptPointers: ; new
+	dw LunarShrineScript0 ; ret
+	dw LunarShrineScript1
+	dw LunarShrineScript2
+	dw LunarShrineScript3
+	dw LunarShrineScript4
+	dw LunarShrineScript5
+	dw LunarShrineScript6
+	dw LunarShrineScript7
+	dw LunarShrineScript8
+	dw LunarShrineScript9
+	dw LunarShrineScript10
+	dw LunarShrineScript11
+
+LunarShrineScript0:
+	ret
+
+LunarShrineScript1:
+; music change, dialogue, and controls stuff
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 10
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; player looks down
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
+; Monk looks down
+	ld c, 10
+	call DelayFrames
+	call MonkFacesDown
+; exclamation bubbles
+	ld a, $0 ; player
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ld a, $4 ; Monk
+	ld [wEmotionBubbleSpriteIndex], a
+;	ld a, EXCLAMATION_BUBBLE
+;	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ld c, 20
+	call DelayFrames
+; make Rockets visible and walk toward player
+	; Rocket 1
+	ld a, HS_LUNAR_SHRINE_2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld de, LunarShrineMovements1_Sprite5
+	ld a, 5
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	; Rocket 2
+	ld a, HS_LUNAR_SHRINE_3
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld de, LunarShrineMovements1_Sprite6
+	ld a, 6
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	; Rocket 3
+	ld a, HS_LUNAR_SHRINE_4
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld de, LunarShrineMovements_Sprite7
+	ld a, 7
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	; Rocket 4
+	ld a, HS_LUNAR_SHRINE_5
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld de, LunarShrineMovements_Sprite8
+	ld a, 8
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; try fixing Monk facing
+	call MonkFacesDown
+; script handling
+	ld a, $2
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript2:
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+; fix facing of Monk
+	call MonkFacesDown
+; fix facing of bottom Rockets
+	call Rocket1FaceUp
+	call Rocket2FaceUp
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+; script handling
+	ld a, $3
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript3:
+; fix facings
+	call MonkFacesDown
+	call Rocket1FaceUp
+	call Rocket2FaceUp
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+; dialogue
+	ld a, $0 ; return controls to the player?
+	ld [wJoyIgnore], a
+	ld a, 11
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; script handling
+	ld a, $4
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript4:
+; fix facings
+	call MonkFacesDown
+	call Rocket1FaceUp
+	call Rocket2FaceUp
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+; dialogues
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; script handling
+	ld a, $5
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript5:
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+; keep moving the side Rockets
+; Rocket 1
+	ld de, LunarShrineMovements2_Sprite5
+	ld a, 5
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; Rocket 2
+	ld de, LunarShrineMovements2_Sprite6
+	ld a, 6
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, $6
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript6:
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+	call Rocket1FaceRight
+	call Rocket2FaceLeft
+; script handling
+	ld a, $7
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript7:
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+	call Rocket1FaceRight
+	call Rocket2FaceLeft
+; trigger 1st battle
+	xor a
+	ld [wJoyIgnore], a
+;	ld a, 16
+;	ldh [hSpriteIndexOrTextID], a
+;	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, LunarShrineRocket1Text_Win ; text if player wins
+	ld de, LunarShrineRocket1Text_Win ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_ROCKET
+	ld [wCurOpponent], a
+	ld a, 55
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+;	call Route16Script_RivalFacingLeft
+; script handling
+	ld a, $8
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript8:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+; trigger 2nd battle
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, LunarShrineRocket2Text_Win ; text if player wins
+	ld de, LunarShrineRocket2Text_Win ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_ROCKET
+	ld [wCurOpponent], a
+	ld a, 56
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+; script handling
+	ld a, $9
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript9:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+; trigger 3rd battle
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, LunarShrineRocket3Text_Win ; text if player wins
+	ld de, LunarShrineRocket3Text_Win ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_ROCKET
+	ld [wCurOpponent], a
+	ld a, 57
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+; script handling
+	ld a, 10
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript10:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	xor a
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notDefeated
+; trigger 4th battle
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, LunarShrineRocket4Text_Win ; text if player wins
+	ld de, LunarShrineRocket4Text_Win ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_ROCKET
+	ld [wCurOpponent], a
+	ld a, 58
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+; script handling
+	ld a, 11
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript11:
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide Rocket siblings
+	call GBFadeOutToBlack
+	ld a, HS_LUNAR_SHRINE_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_4
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_5
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; end stuff
+	ld a, $0 ; return controls to the player?
+	ld [wJoyIgnore], a
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; -----------------------------
+
+LunarShrineMovements1_Sprite5:
+LunarShrineMovements1_Sprite6:
+LunarShrineMovements_Sprite7:
+LunarShrineMovements_Sprite8:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+LunarShrineMovements2_Sprite5:
+LunarShrineMovements2_Sprite6:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+MonkFacesDown:
+	ld a, 4
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Rocket1FaceUp:
+	ld a, 5
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Rocket2FaceUp:
+	ld a, 6
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Rocket3FaceUp:
+	ld a, 7
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Rocket4FaceUp:
+	ld a, 8
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Rocket1FaceRight:
+	ld a, 5
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+Rocket2FaceLeft:
+	ld a, 6
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+; ================================================
 
 CeladonChiefHouse_TextPointers:
 	dw CeladonHouseText1
 	dw CeladonHouseText2
 	dw CeladonHouseText3
+	; Lunar Shrine
+	dw LunarShrineTextMonk ; monk
+	dw LunarShrineText2 ; Rocket 1, proxy
+	dw LunarShrineText3 ; Rocket 2, proxy
+	dw LunarShrineText4 ; Rocket 3, proxy
+	dw LunarShrineText5 ; Rocket 4, proxy
+	dw LunarShrineTextTemple ; tempietto
+	dw LunarShrineTextRockets1 ; 10
+	dw LunarShrineTextRockets2 ; 11, Monk
+	dw LunarShrineTextRockets3 ; 12, Rocket 1
+	dw LunarShrineTextRockets4 ; 13, Rocket 2
+	dw LunarShrineTextRockets5 ; 14, Rocket 3
+	dw LunarShrineTextRockets6 ; 15, Rocket 4
+	dw LunarShrineTextRockets7 ; 16, post-battle 1
+	dw LunarShrineTextRockets8 ; 17, post-battle 2
+	dw LunarShrineTextRockets9 ; 18, post-battle 3
+	dw LunarShrineTextRockets10 ; 19, post-battle 4
 
 CeladonHouseText1:
 	text_far _CeladonHouseText1
@@ -17,4 +462,155 @@ CeladonHouseText2:
 
 CeladonHouseText3:
 	text_far _CeladonHouseText3
+	text_end
+
+; LUNAR SHRINE ===================================
+
+LunarShrineTextMonk:
+	text_asm
+	CheckEvent EVENT_RETURNED_LUNAR_RELIC
+	jr nz, .alreadyReturnedRelic
+	ld b, LUNAR_RELIC
+	call IsItemInBag
+	jr nz, .relicInBag
+	ld hl, LunarShrineMonkText_RelicNotInBag
+	jr .printAndEnd
+.alreadyReturnedRelic
+	ld hl, LunarShrineMonkText_AlreadyReturnedRelic
+	jr .printAndEnd
+.relicInBag
+	CheckAndSetEvent EVENT_MONK_NOTICED_RELIC
+	jr nz, .relicAlreadyNoticed
+	ld hl, LunarShrineMonkText_RelicInBag_FirstTime
+	jr .printAndEnd
+.relicAlreadyNoticed
+	ld hl, LunarShrineMonkText_RelicInBag_NotFirstTime
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+LunarShrineTextTemple:
+	text_asm
+	CheckEvent EVENT_MONK_NOTICED_RELIC
+	jr nz, .canTryPlacingRelic
+	ld hl, LunarShrineTempleText_RelicNotNoticed
+	jr .printAndEnd
+.canTryPlacingRelic
+	ld hl, LunarShrineTempleText_YesNo
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, LunarShrineTempleText_DoNotPlaceRelic
+	jp nz, .printAndEnd
+; try to place the relic, handle the scripts and print corresponding text
+	ld a, 1
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ld hl, LunarShrineTempleText_PlaceRelic
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+; ---------------------------------------------------
+
+LunarShrineMonkText_RelicNotInBag:
+	text_far _LunarShrineMonkText_RelicNotInBag
+	text_end
+
+LunarShrineMonkText_AlreadyReturnedRelic:
+	text_far _LunarShrineMonkText_AlreadyReturnedRelic
+	text_end
+
+LunarShrineMonkText_RelicInBag_FirstTime:
+	text_far _LunarShrineMonkText_RelicInBag_FirstTime
+	text_end
+
+LunarShrineMonkText_RelicInBag_NotFirstTime:
+	text_far _LunarShrineMonkText_RelicInBag_NotFirstTime
+	text_end
+
+; ---------------------------
+
+LunarShrineTempleText_RelicNotNoticed:
+	text_far _LunarShrineTempleText_RelicNotNoticed
+	text_end
+
+LunarShrineTempleText_YesNo:
+	text_far _LunarShrineTempleText_YesNo
+	text_end
+
+LunarShrineTempleText_DoNotPlaceRelic:
+	text_far _LunarShrineTempleText_DoNotPlaceRelic
+	text_end
+
+LunarShrineTempleText_PlaceRelic:
+	text_far _LunarShrineTempleText_PlaceRelic
+	text_end
+
+; ---------------------------
+
+LunarShrineText2:
+LunarShrineText3:
+LunarShrineText4:
+LunarShrineText5:
+	text_far _LunarShrineTextProxy
+	text_end
+
+; ---------------------------
+
+LunarShrineTextRockets1:
+	text_far _LunarShrineTextRockets1
+	text_end
+
+LunarShrineTextRockets2:
+	text_far _LunarShrineTextRockets2
+	text_end
+
+LunarShrineTextRockets3:
+	text_far _LunarShrineTextRockets3
+	text_end
+
+LunarShrineTextRockets4:
+	text_far _LunarShrineTextRockets4
+	text_end
+
+LunarShrineTextRockets5:
+	text_far _LunarShrineTextRockets5
+	text_end
+
+LunarShrineTextRockets6:
+	text_far _LunarShrineTextRockets6
+	text_end
+
+LunarShrineTextRockets7:
+	text_far _LunarShrineTextRockets7
+	text_end
+
+LunarShrineTextRockets8:
+	text_far _LunarShrineTextRockets8
+	text_end
+
+LunarShrineTextRockets9:
+	text_far _LunarShrineTextRockets9
+	text_end
+
+LunarShrineTextRockets10:
+	text_far _LunarShrineTextRockets10
+	text_end
+
+LunarShrineRocket1Text_Win:
+	text_far _LunarShrineRocket1Text_Win
+	text_end
+
+LunarShrineRocket2Text_Win:
+	text_far _LunarShrineRocket2Text_Win
+	text_end
+
+LunarShrineRocket3Text_Win:
+	text_far _LunarShrineRocket3Text_Win
+	text_end
+
+LunarShrineRocket4Text_Win:
+	text_far _LunarShrineRocket4Text_Win
 	text_end

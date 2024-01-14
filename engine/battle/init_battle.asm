@@ -200,6 +200,8 @@ _LoadTrainerPic:
 	ld a, [wTrainerNo]
 	cp $33 ; edited, for the Rocket executives
 	jr c, .notAdmin
+	cp $37 ; for the Rocket siblings in Lunar Shrine
+	jr nc, .notAdmin
 	cp $35
 	ld a, BANK(RocketAdminFPic) ; M and F are in the same bank
 	jr z, .Ariana

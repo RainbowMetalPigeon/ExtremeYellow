@@ -1055,7 +1055,7 @@ SpecialTrainerMoves:
 	db 5, 4, BUBBLEBEAM
 	db 0
 
-	db ROCKET, 52
+	db ROCKET, 52 ; Petrel
 	; KOFFING
 	db 1, 1, EXPLOSION
 	db 1, 2, NO_MOVE
@@ -1086,6 +1086,118 @@ SpecialTrainerMoves:
 	db 6, 2, SHADOW_BALL
 	db 6, 3, SLUDGE_WAVE
 	db 6, 4, HEAT_WAVE
+	db 0
+
+	db ROCKET, 55 ; Lunar Shrine Rocket Sibling 1
+	; PARASECT
+	db 1, 1, SPORE
+	db 1, 2, INFESTATION
+	db 1, 3, GIGA_DRAIN
+	db 1, 4, LEECH_SEED
+	; VENOMOTH
+	db 2, 1, TOXIC
+	db 2, 2, SLEEP_POWDER
+	db 2, 3, PSYCHIC_M
+	db 2, 4, LEECH_LIFE
+	; ARBOK
+	db 3, 1, GLARE
+	db 3, 2, WRAP
+	db 3, 3, TOXIC
+	db 3, 4, GUNK_SHOT
+	; CLOYSTER
+	db 4, 1, CLAMP
+	db 4, 2, BLIZZARD
+	db 4, 3, EXPLOSION
+	db 4, 4, NO_MOVE
+	; WEEZING
+	db 5, 1, WILL_O_WISP
+	db 5, 2, TOXIC
+	db 5, 3, FIRE_BLAST
+	db 5, 4, SHADOW_BALL
+	db 0
+
+	db ROCKET, 56 ; Lunar Shrine Rocket Sibling 2
+	; DUGTRIO
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STONE_EDGE
+	db 1, 3, SHADOW_CLAW
+	db 1, 4, HYPER_BEAM
+	; PERSIAN
+	db 2, 1, SLASH
+	db 2, 2, NIGHT_SLASH
+	db 2, 3, PLAY_ROUGH
+	db 2, 4, IRON_TAIL
+	; CROBAT
+	db 3, 1, SUPER_FANG
+	db 3, 2, GUNK_SHOT
+	db 3, 3, AIR_SLASH
+	db 3, 4, HEAT_WAVE
+	; ALAKAZAM
+	db 4, 1, PSYCHO_CUT
+	db 4, 2, ENERGY_BALL
+	db 4, 3, ICE_PUNCH
+	db 4, 4, THUNDERPUNCH
+	; TAUROS
+	db 5, 1, BODY_SLAM
+	db 5, 2, HYPER_BEAM
+	db 5, 3, EARTHQUAKE
+	db 5, 4, BLIZZARD
+	db 0
+
+	db ROCKET, 57 ; Lunar Shrine Rocket Sibling 3
+	; ELECTRODE
+	db 1, 1, EXPLOSION
+	db 1, 2, THUNDERBOLT
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
+	; WEEZING
+	db 2, 1, EXPLOSION
+	db 2, 2, GUNK_SHOT
+	db 2, 3, NO_MOVE
+	db 2, 4, NO_MOVE
+	; GOLEM
+	db 3, 1, EXPLOSION
+	db 3, 2, STONE_EDGE
+	db 3, 3, EARTHQUAKE
+	db 3, 4, NO_MOVE
+	; CLOYSTER
+	db 4, 1, EXPLOSION
+	db 4, 2, BLIZZARD
+	db 4, 3, HYDRO_PUMP
+	db 4, 4, NO_MOVE
+	; LICKILICKY
+	db 5, 1, EXPLOSION
+	db 5, 2, SHADOW_BALL
+	db 5, 3, NO_MOVE
+	db 5, 4, NO_MOVE
+	db 0
+
+	db ROCKET, 58 ; Lunar Shrine Rocket Sibling 4
+	; MUK
+	db 1, 1, MINIMIZE
+	db 1, 2, REST
+	db 1, 3, SUBSTITUTE
+	db 1, 4, FLAMETHROWER
+	; VILEPLUME
+	db 2, 1, LEECH_SEED
+	db 2, 2, REST
+	db 2, 3, PETAL_DANCE
+	db 2, 4, GUNK_SHOT
+	; BLISSEY
+	db 3, 1, REFLECT
+	db 3, 2, SOFTBOILED
+	db 3, 3, ICE_BEAM
+	db 3, 4, PSYCHIC_M
+	; STEELIX
+	db 4, 1, REST
+	db 4, 2, DOUBLE_TEAM
+	db 4, 3, FLASH_CANNON
+	db 4, 4, EARTHQUAKE
+	; UMBREON
+	db 5, 1, DOUBLE_TEAM
+	db 5, 2, SUBSTITUTE
+	db 5, 3, REST
+	db 5, 4, DARK_PULSE
 	db 0
 
 	db PROF_OAK, 1

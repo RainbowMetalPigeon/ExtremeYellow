@@ -149,11 +149,12 @@ DebugSetPokedexEntries:
 	ret
 
 DebugItemsList:
+	db LUNAR_RELIC, 1
 	db PERFECTER, 50
 	db SUPER_ROD, 1
 	db GOOD_ROD, 1
 	db MASTER_BALL, 99
-	db MEGA_STONE_X, 99
+;	db MEGA_STONE_X, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
 	db FULL_RESTORE, 99
