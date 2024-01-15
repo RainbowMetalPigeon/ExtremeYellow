@@ -218,7 +218,7 @@ ReadTrainer:
 .writeAdditionalMoveDataLoop
 	ld a, [de]
 	inc de
-	and a
+	cp $FE ; edited, it was "and a", to avoid bugs with NO_MOVE in the special_moves file
 	jp z, .FinishUp
 	dec a
 	ld hl, wEnemyMon1Moves
@@ -236,7 +236,7 @@ ReadTrainer:
 	jr .writeAdditionalMoveDataLoop
 .asm_39c46
 	ld a, [hli]
-	and a
+	cp $FE ; edited, it was "and a", to avoid bugs with NO_MOVE in the special_moves file
 	jr nz, .asm_39c46
 	jr .loopAdditionalMoveData
 .FinishUp

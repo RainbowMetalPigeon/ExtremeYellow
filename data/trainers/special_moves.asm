@@ -1,13 +1,13 @@
 ; Yellow entry format:
 ;	db trainerclass, trainerid
 ;	repeat { db partymon location, partymon move, move id }
-;	db 0
+;	db $FE
 
 SpecialTrainerMoves:
 	db BUG_CATCHER, 15 ; updated
 ;	db 1, 1, TACKLE
 	db 1, 2, WRAP
-	db 0
+	db $FE
 
 	db BUG_CATCHER, 3 ; new, testing
 	; BUTTERFREE
@@ -18,14 +18,14 @@ SpecialTrainerMoves:
 	db 2, 2, POISON_STING
 	db 2, 3, STRING_SHOT
 	db 2, 4, HARDEN
-	db 0
+	db $FE
 
 	db YOUNGSTER, 14
 ;	db 6, 1, SLASH
 	db 6, 2, DIG
 	db 6, 3, DEFENSE_CURL
 	db 6, 4, FISSURE
-	db 0
+	db $FE
 
 	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')
 	; WEEZING
@@ -58,7 +58,7 @@ SpecialTrainerMoves:
 	db 6, 2, NO_MOVE
 	db 6, 3, NO_MOVE
 	db 6, 4, NO_MOVE
-	db 0
+	db $FE
 
 	db GENTLEMAN, 6 ; new, SS Anne Captain
 	; SCYTHER
@@ -91,7 +91,7 @@ SpecialTrainerMoves:
 	db 6, 2, SLASH
 	db 6, 3, SWORDS_DANCE
 	db 6, 4, NIGHT_SLASH
-	db 0
+	db $FE
 
 	db COOLTRAINER, 5 ; pseudo-Green
 	; JIGGLYPUFF
@@ -121,7 +121,7 @@ SpecialTrainerMoves:
 	db 6, 2, FLASH_CANNON
 	db 6, 3, ICE_BEAM
 	db 6, 4, EARTHQUAKE
-	db 0
+	db $FE
 
 	db COOLTRAINER, 10 ; Cerulean Gym, new
 	; PICHU
@@ -134,7 +134,7 @@ SpecialTrainerMoves:
 ;	db 2, 2, THUNDERBOLT
 ;	db 2, 3, KARATE_CHOP
 	db 2, 4, CLOSE_COMBAT
-	db 0
+	db $FE
 
 	db COOLTRAINER, 18 ; pseudo-Red
 	; POLIWRATH
@@ -167,7 +167,7 @@ SpecialTrainerMoves:
 	db 6, 2, HEAD_SMASH
 	db 6, 3, DRAGON_CLAW
 	db 6, 4, HYPER_BEAM
-	db 0
+	db $FE
 
 	db COOLTRAINER, 24 ; pseudo-Blue
 	; SCIZOR
@@ -200,13 +200,13 @@ SpecialTrainerMoves:
 	db 6, 2, HEAD_SMASH
 	db 6, 3, MEGAHORN
 	db 6, 4, HORN_DRILL
-	db 0
+	db $FE
 
 	db COOLTRAINER, 25 ; Cerulean Gym, new
 	; KRABBY
 	db 4, 1, METAL_CLAW
 	db 4, 4, CRABHAMMER
-	db 0
+	db $FE
 
 	db COOLTRAINER, 27 ; Saffron Gym, new
 	; JYNX
@@ -214,7 +214,7 @@ SpecialTrainerMoves:
 ;	db 1, 2, LOVELY_KISS
 	db 1, 3, BLIZZARD
 	db 1, 4, DRAININGKISS
-	db 0
+	db $FE
 
 	db COOLTRAINER, 26 ; Celadon Gym, new
 	; EXEGGUTOR
@@ -222,7 +222,7 @@ SpecialTrainerMoves:
 	db 5, 2, PSYCHIC_M
 	db 5, 3, EXPLOSION
 	db 5, 4, ENERGY_BALL
-	db 0
+	db $FE
 
 	db BROCK, 1
 	; GEODUDE
@@ -255,7 +255,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, SCREECH
 	db 6, 3, BIDE
 ;	db 6, 4, MUD_SLAP
-	db 0
+	db $FE
 
 	db MISTY, 1
 	; STARYU
@@ -288,7 +288,7 @@ SpecialTrainerMoves:
 	db 6, 2, BUBBLEBEAM
 ;	db 6, 3, MINIMIZE
 	db 6, 4, PSYBEAM
-	db 0
+	db $FE
 
 	db LT_SURGE, 1
 	; PIKACHU
@@ -321,7 +321,7 @@ SpecialTrainerMoves:
 	db 6, 2, MEGA_PUNCH
 	db 6, 3, IRON_TAIL
 	db 6, 4, SUBMISSION
-	db 0
+	db $FE
 
 	db ERIKA, 1
 	; PARASECT
@@ -354,7 +354,7 @@ SpecialTrainerMoves:
 	db 6, 2, REFLECT
 	db 6, 3, LEECH_SEED
 	db 6, 4, ROCK_SLIDE
-	db 0
+	db $FE
 
 	db KOGA, 1
 	; MUK
@@ -387,7 +387,7 @@ SpecialTrainerMoves:
 	db 6, 2, SMOKESCREEN
 ;	db 6, 3, FLAMETHROWER
 ;	db 6, 4, EXPLOSION
-	db 0
+	db $FE
 
 	db BLAINE, 1
 	; NINETALES
@@ -420,7 +420,7 @@ SpecialTrainerMoves:
 	db 6, 2, FLARE_BLITZ
 	db 6, 3, CLOSE_COMBAT
 	db 6, 4, HYPER_BEAM
-	db 0
+	db $FE
 
 	db SABRINA, 1
 	; EXEGGUTOR
@@ -453,7 +453,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, ICE_PUNCH
 ;	db 6, 3, FIRE_PUNCH
 	db 6, 4, PSYCHIC_M
-	db 0
+	db $FE
 
 	db GIOVANNI, 1
 	; ONIX
@@ -486,7 +486,7 @@ SpecialTrainerMoves:
 	db 6, 2, BUBBLEBEAM
 	db 6, 3, PAY_DAY
 	db 6, 4, SLASH
-	db 0
+	db $FE
 
 	db GIOVANNI, 2
 	; STEELIX
@@ -519,7 +519,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, PAY_DAY
 	db 6, 3, DREAM_EATER
 	db 6, 4, HYPNOSIS
-	db 0
+	db $FE
 
 	db GIOVANNI, 3
 	; SANDSLASH
@@ -552,7 +552,7 @@ SpecialTrainerMoves:
 	db 6, 2, HYPER_BEAM
 	db 6, 3, THUNDERBOLT
 	db 6, 4, PAY_DAY
-	db 0
+	db $FE
 
 	db GIOVANNI, 4
 	; DUGTRIO
@@ -585,7 +585,7 @@ SpecialTrainerMoves:
 	db 6, 2, AERIAL_ACE ; HYPER_BEAM?
 	db 6, 3, SHADOW_CLAW ; THUNDERBOLT?
 	db 6, 4, SLASH ; TOXIC? PAY_DAY?
-	db 0
+	db $FE
 
 	db LORELEI, 1
 	; DEWGONG
@@ -618,7 +618,7 @@ SpecialTrainerMoves:
 	db 6, 2, PSYCHIC_M
 	db 6, 3, REST
 	db 6, 4, SCALD ; THUNDER_WAVE?
-	db 0
+	db $FE
 
 	db BRUNO, 1
 	; HITMONTOP
@@ -651,7 +651,7 @@ SpecialTrainerMoves:
 	db 6, 2, EARTHQUAKE
 	db 6, 3, EXPLOSION
 	db 6, 4, DRAGON_DANCE
-	db 0
+	db $FE
 
 	db AGATHA, 1
 	; GENGAR 1
@@ -684,7 +684,7 @@ SpecialTrainerMoves:
 	db 6, 2, NIGHT_SLASH
 	db 6, 3, THUNDERBOLT
 	db 6, 4, ENERGY_BALL
-	db 0
+	db $FE
 
 	db LANCE, 1
 	; GYARADOS
@@ -717,7 +717,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, SHADOW_CLAW
 ;	db 6, 3, DRAGON_DANCE
 	db 6, 4, STEEL_WING
-	db 0
+	db $FE
 
 	db RIVAL1, 3
 	; PIDGEOTTO
@@ -750,7 +750,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, QUICK_ATTACK
 	db 6, 3, BIDE ; TM!
 ;	db 6, 4, MUD_SLAP
-	db 0
+	db $FE
 
 	db RIVAL2, 1
 	; NIDOKING
@@ -783,7 +783,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, QUICK_ATTACK
 	db 6, 3, BIDE
 	db 6, 4, BITE
-	db 0
+	db $FE
 
 	db RIVAL2, 2
 	; PINSIR
@@ -816,7 +816,7 @@ SpecialTrainerMoves:
 	db 6, 2, DOUBLE_TEAM
 ;	db 6, 3, CONFUSE_RAY
 	db 6, 4, REST
-	db 0
+	db $FE
 
 	db RIVAL2, 3
 	; ANNIHILAPE
@@ -849,7 +849,7 @@ SpecialTrainerMoves:
 	db 6, 2, DOUBLE_TEAM
 	db 6, 3, REST
 ;	db 6, 4, DARK_PULSE
-	db 0
+	db $FE
 
 	db RIVAL2, 4
 	; JOLTEON
@@ -882,7 +882,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, DARK_PULSE
 	db 6, 3, REST
 	db 6, 4, DOUBLE_TEAM
-	db 0
+	db $FE
 
 	db RIVAL3, 1
 	; MPIDGEOT
@@ -915,7 +915,7 @@ SpecialTrainerMoves:
 	db 6, 2, OUTRAGE
 	db 6, 3, BLIZZARD
 ;	db 6, 4, HYDRO_CANNON
-	db 0
+	db $FE
 
 	db RIVAL3, 2
 	; ARTICUNO
@@ -933,7 +933,7 @@ SpecialTrainerMoves:
 	db 3, 2, BRAVE_BIRD
 	db 3, 3, FIRE_BLAST
 	db 3, 4, STEEL_WING
-	db 0
+	db $FE
 
 	db ROCKET, 46
 	; EKANS
@@ -951,7 +951,7 @@ SpecialTrainerMoves:
 ;	db 3, 2, LEER
 ;	db 3, 3, DEFENSE_CURL
 ;	db 3, 4, BITE
-	db 0
+	db $FE
 
 	db ROCKET, 47
 	; ARBOK
@@ -969,7 +969,7 @@ SpecialTrainerMoves:
 ;	db 3, 2, MUD_SLAP
 ;	db 3, 3, SWIFT
 ;	db 3, 4, HEADBUTT
-	db 0
+	db $FE
 
 	db ROCKET, 48
 	; ARBOK
@@ -997,7 +997,7 @@ SpecialTrainerMoves:
 	db 5, 2, PAY_DAY
 ;	db 5, 3, CRUNCH
 ;	db 5, 4, WATER_PULSE
-	db 0
+	db $FE
 
 	db ROCKET, 49
 	; ARBOK
@@ -1025,7 +1025,7 @@ SpecialTrainerMoves:
 ;	db 5, 2, SLASH
 ;	db 5, 3, SING
 ;	db 5, 4, DREAM_EATER
-	db 0
+	db $FE
 
 	db ROCKET, 50
 	; ARBOK
@@ -1053,7 +1053,7 @@ SpecialTrainerMoves:
 	db 5, 2, SLASH
 	db 5, 3, SING
 	db 5, 4, BUBBLEBEAM
-	db 0
+	db $FE
 
 	db ROCKET, 52 ; Petrel
 	; KOFFING
@@ -1086,7 +1086,7 @@ SpecialTrainerMoves:
 	db 6, 2, SHADOW_BALL
 	db 6, 3, SLUDGE_WAVE
 	db 6, 4, HEAT_WAVE
-	db 0
+	db $FE
 
 	db ROCKET, 55 ; Lunar Shrine Rocket Sibling 1
 	; PARASECT
@@ -1114,7 +1114,7 @@ SpecialTrainerMoves:
 	db 5, 2, TOXIC
 	db 5, 3, FIRE_BLAST
 	db 5, 4, SHADOW_BALL
-	db 0
+	db $FE
 
 	db ROCKET, 56 ; Lunar Shrine Rocket Sibling 2
 	; DUGTRIO
@@ -1142,7 +1142,7 @@ SpecialTrainerMoves:
 	db 5, 2, HYPER_BEAM
 	db 5, 3, EARTHQUAKE
 	db 5, 4, BLIZZARD
-	db 0
+	db $FE
 
 	db ROCKET, 57 ; Lunar Shrine Rocket Sibling 3
 	; ELECTRODE
@@ -1170,7 +1170,7 @@ SpecialTrainerMoves:
 	db 5, 2, SHADOW_BALL
 	db 5, 3, NO_MOVE
 	db 5, 4, NO_MOVE
-	db 0
+	db $FE
 
 	db ROCKET, 58 ; Lunar Shrine Rocket Sibling 4
 	; MUK
@@ -1198,7 +1198,7 @@ SpecialTrainerMoves:
 	db 5, 2, SUBSTITUTE
 	db 5, 3, REST
 	db 5, 4, DARK_PULSE
-	db 0
+	db $FE
 
 	db PROF_OAK, 1
 	; TAUROS
@@ -1231,7 +1231,7 @@ SpecialTrainerMoves:
 	db 6, 2, FRENZY_PLANT
 	db 6, 3, GUNK_SHOT
 	db 6, 4, ZEN_HEADBUTT
-	db 0
+	db $FE
 
 	db ORAGE, 1
 	; BLISSEY
@@ -1264,7 +1264,7 @@ SpecialTrainerMoves:
 ;	db 6, 2, DRAININGKISS
 	db 6, 3, MAGICAL_LEAF
 	db 6, 4, DIG ; ? weakness coverage, but Sylveon has poor attack
-	db 0
+	db $FE
 
 	db PIGEON, 1
 	; MPIDGEOT
@@ -1297,6 +1297,6 @@ SpecialTrainerMoves:
 	db 6, 2, NO_MOVE
 	db 6, 3, NO_MOVE
 	db 6, 4, NO_MOVE
-	db 0
+	db $FE
 
 	db -1 ; end
