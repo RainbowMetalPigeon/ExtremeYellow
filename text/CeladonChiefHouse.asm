@@ -57,6 +57,10 @@ _LunarShrineTempleText_PlaceRelic::
 	text "Let's do, but..."
 	done
 
+_LunarShrineTempleText_RelicAlreadyReturned::
+	text "RELICE is great"
+	done
+
 ; ------------------
 
 _LunarShrineTextProxy::
@@ -140,4 +144,45 @@ _LunarShrineRocket4Text_Win::
 _LunarShrineTextRockets10::
 	text "This... we did"
 	line "NOT foresee this."
+	done
+
+_LunarShrineTextRockets11::
+	text "MONK: Thank you"
+	line "so much!"
+	para "Let's now put an"
+	cont "end to this ugly"
+	cont "story and return"
+	cont "the RELIC."
+	done
+
+_LunarShrineTextRockets12::
+	text "<PLAYER> and the"
+;	xxxx "123456789012345678"
+	line "MONK return the"
+	cont "LUNAR RELIC in"
+	cont "its proper place!"
+	done
+
+_LunarShrineTextRockets13::
+	text "MONK: this... is"
+;	xxxx "123456789012345678"
+	line "beautiful."
+	cont "I guess you have"
+	cont "heard about the"
+	cont "treasure that"
+	cont "ROCKET were blah"
+	cont "about. Here, I'd"
+	cont "like you have it."
+	done
+
+_LunarShrineTextRockets14::
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
+
+_LunarShrineTextRockets15::
+	text "MONK: HM04"
+	line "teaches STRENGTH!"
 	done

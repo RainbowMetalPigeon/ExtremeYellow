@@ -19,6 +19,9 @@ CeladonChiefHouse_ScriptPointers: ; new
 	dw LunarShrineScript9
 	dw LunarShrineScript10
 	dw LunarShrineScript11
+	dw LunarShrineScript12
+	dw LunarShrineScript13
+	dw LunarShrineScript14
 
 LunarShrineScript0:
 	ret
@@ -232,11 +235,17 @@ LunarShrineScript8:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
-	xor a
-	ld [wCeladonChiefHouseCurScript], a
-	ld [wCurMapScript], a
-	ret
+	jp HandleDefeat
 .notDefeated
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+	call Rocket1FaceRight
+	call Rocket2FaceLeft
 ; trigger 2nd battle
 	xor a
 	ld [wJoyIgnore], a
@@ -265,11 +274,17 @@ LunarShrineScript9:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
-	xor a
-	ld [wCeladonChiefHouseCurScript], a
-	ld [wCurMapScript], a
-	ret
+	jp HandleDefeat
 .notDefeated
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+	call Rocket1FaceRight
+	call Rocket2FaceLeft
 ; trigger 3rd battle
 	xor a
 	ld [wJoyIgnore], a
@@ -298,11 +313,17 @@ LunarShrineScript10:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
-	xor a
-	ld [wCeladonChiefHouseCurScript], a
-	ld [wCurMapScript], a
-	ret
+	jp HandleDefeat
 .notDefeated
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+	call Rocket1FaceRight
+	call Rocket2FaceLeft
 ; trigger 4th battle
 	xor a
 	ld [wJoyIgnore], a
@@ -328,6 +349,21 @@ LunarShrineScript10:
 	ret
 
 LunarShrineScript11:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	jp HandleDefeat
+.notDefeated
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+; fix facings
+	call MonkFacesDown
+	call Rocket3FaceUp
+	call Rocket4FaceUp
+	call Rocket1FaceRight
+	call Rocket2FaceLeft
+; dialogue
 	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -348,11 +384,93 @@ LunarShrineScript11:
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
+; script handling
+	ld a, 12
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript12:
+	call PlayDefaultMusic
+	ld a, 4
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+	ld a, 20
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; script handling
+	ld a, 13
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript13:
+	ld a, 4
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+	ld a, 21
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, LUNAR_RELIC
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_RETURNED_LUNAR_RELIC
+; script handling
+	ld a, 14
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript14:
+	ld a, 4
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+	ld a, 22
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	lb bc, HM_STRENGTH, 1
+	call GiveItem
+	ld a, 23
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 24
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
 ; end stuff
 	ld a, $0 ; return controls to the player?
 	ld [wJoyIgnore], a
 	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
+	ret
+
+HandleDefeat:
+	xor a
+	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a
+	ld a, HS_LUNAR_SHRINE_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_4
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_5
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 	ret
 
 ; -----------------------------
@@ -451,6 +569,11 @@ CeladonChiefHouse_TextPointers:
 	dw LunarShrineTextRockets8 ; 17, post-battle 2
 	dw LunarShrineTextRockets9 ; 18, post-battle 3
 	dw LunarShrineTextRockets10 ; 19, post-battle 4
+	dw LunarShrineTextRockets11 ; 20, Monk thanks and let's place Relic
+	dw LunarShrineTextRockets12 ; 21, Monk and Player place Relic
+	dw LunarShrineTextRockets13 ; 22, Monk wants to reward Player
+	dw LunarShrineTextRockets14 ; 23, Monk gifts STRENGTH
+	dw LunarShrineTextRockets15 ; 24, Monk explains STRENGTH
 
 CeladonHouseText1:
 	text_far _CeladonHouseText1
@@ -491,6 +614,11 @@ LunarShrineTextMonk:
 
 LunarShrineTextTemple:
 	text_asm
+	CheckEvent EVENT_RETURNED_LUNAR_RELIC
+	jr z, .relicNotYetReturned
+	ld hl, LunarShrineTempleText_RelicAlreadyReturned
+	jr .printAndEnd
+.relicNotYetReturned
 	CheckEvent EVENT_MONK_NOTICED_RELIC
 	jr nz, .canTryPlacingRelic
 	ld hl, LunarShrineTempleText_RelicNotNoticed
@@ -548,6 +676,10 @@ LunarShrineTempleText_PlaceRelic:
 	text_far _LunarShrineTempleText_PlaceRelic
 	text_end
 
+LunarShrineTempleText_RelicAlreadyReturned:
+	text_far _LunarShrineTempleText_RelicAlreadyReturned
+	text_end
+
 ; ---------------------------
 
 LunarShrineText2:
@@ -597,6 +729,28 @@ LunarShrineTextRockets9:
 
 LunarShrineTextRockets10:
 	text_far _LunarShrineTextRockets10
+	text_end
+
+LunarShrineTextRockets11:
+	text_far _LunarShrineTextRockets11
+	text_end
+
+LunarShrineTextRockets12:
+	text_far _LunarShrineTextRockets12
+	sound_get_item_1 ; testing
+	text_end
+
+LunarShrineTextRockets13:
+	text_far _LunarShrineTextRockets13
+	text_end
+
+LunarShrineTextRockets14:
+	text_far _LunarShrineTextRockets14
+	sound_get_key_item ; testing
+	text_end
+
+LunarShrineTextRockets15:
+	text_far _LunarShrineTextRockets15
 	text_end
 
 LunarShrineRocket1Text_Win:

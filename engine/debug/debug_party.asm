@@ -161,12 +161,13 @@ DebugItemsList:
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db POKE_DOLL, 99 ; FULL_HEAL
-	db REVIVE, 99
+;	db REVIVE, 99
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
 	db POKE_FLUTE, 1
 	db ESCAPE_ROPE, 99
 	db LEGEND_CANDY, 42
+	db GOLD_TEETH, 1
 	db -1 ; end
 
 DebugUnusedList:

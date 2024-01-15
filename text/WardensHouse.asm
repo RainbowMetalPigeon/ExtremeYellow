@@ -94,10 +94,14 @@ _HM03ExplanationText::
 	cont "in SAFARI ZONE?"
 
 	para "If you do, you"
-	line "win an HM!"
+	line "win a prize!"
 
-	para "I hear it's the"
-	line "rare STRENGTH HM."
+	para "I heard it's a"
+	line "unique treasure"
+	cont "of mysterious"
+	cont "origins, somehow"
+	cont "connected to the"
+	cont "Moon itself!"
 	done
 
 _BeatGiovanniAmazementText::

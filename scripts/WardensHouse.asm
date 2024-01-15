@@ -75,7 +75,7 @@ WardenGibberishText3:
 
 WardenTeethText1:
 	text_far _WardenTeethText1
-	sound_get_item_1
+	sound_get_key_item ; edited, was just sound_get_item_1
 
 WardenTeethText2:
 	text_far _WardenTeethText2
@@ -87,7 +87,7 @@ WardenThankYouText:
 
 ReceivedHM03Text:
 	text_far _ReceivedHM03Text
-	sound_get_item_1
+	sound_get_key_item ; edited, was just sound_get_item_1
 	text_end
 
 HM03ExplanationText:
