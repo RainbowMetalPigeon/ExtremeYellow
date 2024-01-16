@@ -57,3 +57,23 @@ _Museum2FText7::
 	line "fell on MT.MOON."
 	cont "(MOON STONE?)"
 	done
+
+_Museum2FText8::
+	text "I've become an"
+	line "explorer out of"
+	cont "admiration from"
+	cont "my Gramps!"
+
+	para "They found a mega"
+	line "rare treasure"
+	cont "while exploring"
+	cont "the depths of MT."
+	cont "MOON, and made"
+	cont "big money by"
+	cont "selling it to"
+	cont "some collector in"
+	cont "FUCHSIA."
+
+	para "I wanna be like"
+	line "them! Yes!"
+	done

@@ -14,32 +14,42 @@ _SecretHouseText_4a350::
 	line "You have won!"
 	prompt
 
-_ReceivedHM04Text::
+_ReceivedLunarRelicText::
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_HM04ExplanationText::
-	text "HM04 is STRENGTH!"
+_LunarRelicExplanationText::
+	text "This LUNAR RELIC"
+	line "is a treasure of"
+	cont "priceless value!"
 
-	para "It lets #MON"
-	line "move boulders"
-	cont "when you're out-"
-	cont "side of battle."
+	para "It is a unique"
+	line "artifact whose"
+	cont "origins are still"
+	cont "unknown, but it"
+	cont "is voiced to have"
+	cont "some connection"
+	cont "with the Moon"
+	cont "itself."
 
-	para "And, this HM isn't"
-	line "disposable! You"
-	cont "can use it over"
-	cont "and over!"
+	para "Some even say it's"
+	line "carved out of a"
+	cont "single gigantic"
+	cont "MOON STONE!"
 
-	para "You're super lucky"
-	line "for winning this"
-	cont "fabulous prize!"
+	para "Its exact place of"
+	line "discovery has now"
+	cont "been lost to"
+	cont "time."
+	para "Rumors say it"
+	line "was found in"
+	cont "MT. MOON."
 	done
 
-_HM04NoRoomText::
+_LunarRelicNoRoomText::
 	text "You don't have"
 	line "room for this"
 	cont "fabulous prize!"

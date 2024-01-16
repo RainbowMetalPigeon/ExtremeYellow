@@ -5,8 +5,6 @@ SECTION "Text 1", ROMX
 
 INCLUDE "data/text/text_1.asm"
 
-;INCLUDE "text/ViridianForest.asm" ; edited, moved to Text Extra 1
-;INCLUDE "text/MtMoon1F.asm" ; edited, moved to Text Extra 5
 INCLUDE "text/MtMoonB1F.asm"
 INCLUDE "text/MtMoonB2F.asm"
 INCLUDE "text/SSAnne1F.asm"
@@ -37,30 +35,6 @@ INCLUDE "text/SilphCo10F.asm"
 
 SECTION "Text 2", ROMX
 
-; --- edited, moved to Text Extra 1:
-;INCLUDE "text/SilphCo11F.asm"
-;INCLUDE "text/PokemonMansion2F.asm"
-;INCLUDE "text/PokemonMansion3F.asm"
-;INCLUDE "text/PokemonMansionB1F.asm"
-;INCLUDE "text/SafariZoneEast.asm"
-;INCLUDE "text/SafariZoneNorth.asm"
-;INCLUDE "text/SafariZoneWest.asm"
-;INCLUDE "text/SafariZoneCenter.asm"
-; --- edited, moved to Text Extra 2:
-;INCLUDE "text/SafariZoneCenterRestHouse.asm"
-;INCLUDE "text/SafariZoneSecretHouse.asm"
-;INCLUDE "text/SafariZoneWestRestHouse.asm"
-;INCLUDE "text/SafariZoneEastRestHouse.asm"
-;INCLUDE "text/SafariZoneNorthRestHouse.asm"
-;INCLUDE "text/CeruleanCaveB1F.asm"
-;INCLUDE "text/VictoryRoad1F.asm"
-;INCLUDE "text/RockTunnelB1F.asm"
-;INCLUDE "text/SeafoamIslandsB4F.asm"
-;INCLUDE "text/LoreleisRoom.asm"
-;INCLUDE "text/BrunosRoom.asm"
-;INCLUDE "text/AgathasRoom.asm"
-;INCLUDE "text/LancesRoom.asm"
-; ---
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/ChampionsRoom.asm"
 
@@ -111,8 +85,6 @@ INCLUDE "text/Route5.asm"
 INCLUDE "text/Route6.asm"
 INCLUDE "text/Route7.asm"
 INCLUDE "text/Route8.asm"
-; edited, moved to Text Extra 4
-;INCLUDE "text/Route9.asm"
 
 
 SECTION "Text 4", ROMX
@@ -144,7 +116,6 @@ INCLUDE "data/text/text_5.asm"
 
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/BluesHouse.asm"
-;INCLUDE "text/OaksLab.asm" ; moved to a new Section
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"
 INCLUDE "text/ViridianMart.asm"
@@ -176,22 +147,6 @@ INCLUDE "text/PokemonTower2F.asm"
 INCLUDE "text/PokemonTower3F.asm"
 INCLUDE "text/PokemonTower4F.asm"
 INCLUDE "text/PokemonTower5F.asm"
-; edited, moved to Text Extra 4
-;INCLUDE "text/PokemonTower6F.asm"
-;INCLUDE "text/PokemonTower7F.asm"
-; edited, moved to Text Extra 3
-;INCLUDE "text/MrFujisHouse.asm"
-;INCLUDE "text/LavenderMart.asm"
-;INCLUDE "text/LavenderCuboneHouse.asm"
-;INCLUDE "text/NameRatersHouse.asm"
-;INCLUDE "text/VermilionPokecenter.asm"
-; edited, moved to Text Extra 2
-;INCLUDE "text/PokemonFanClub.asm"
-;INCLUDE "text/VermilionMart.asm"
-;INCLUDE "text/VermilionGym.asm"
-; edited, moved to Text Extra 1
-;INCLUDE "text/VermilionPidgeyHouse.asm"
-;INCLUDE "text/VermilionDock.asm"
 
 INCLUDE "data/text/text_6.asm"
 
@@ -228,19 +183,6 @@ INCLUDE "text/FuchsiaGym.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/PokemonMansion1F.asm"
-INCLUDE "text/CinnabarGym.asm"
-INCLUDE "text/CinnabarLab.asm"
-INCLUDE "text/CinnabarLabTradeRoom.asm"
-INCLUDE "text/CinnabarLabMetronomeRoom.asm"
-INCLUDE "text/CinnabarLabFossilRoom.asm"
-INCLUDE "text/CinnabarPokecenter.asm"
-INCLUDE "text/CinnabarMart.asm"
-INCLUDE "text/IndigoPlateauLobby.asm"
-INCLUDE "text/CopycatsHouse1F.asm"
-INCLUDE "text/CopycatsHouse2F.asm"
-; edited, moved to Text Extra 4
-;INCLUDE "text/FightingDojo.asm"
-;INCLUDE "text/SaffronGym.asm"
 
 INCLUDE "data/text/text_7.asm"
 
@@ -251,7 +193,6 @@ SECTION "Text 8", ROMX
 
 INCLUDE "data/text/text_8.asm"
 
-;INCLUDE "text/PalletTown.asm" ; edited, moved to Text Extra 3
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/CeruleanCity.asm"
@@ -262,24 +203,18 @@ INCLUDE "text/FuchsiaCity.asm"
 INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
 
-;INCLUDE "data/text/text_9.asm" ; edited, moved to Text Extra 1
-
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 
 INCLUDE "text/OchreWonderland.asm" ; new
 INCLUDE "text/Route27.asm" ; new
-; moved from Text 5
 INCLUDE "text/OaksLab.asm"
-; moved from Text 1
 INCLUDE "text/ViridianForest.asm"
-; moved from Text 7
 INCLUDE "text/SaffronPidgeyHouse.asm"
 INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
-; moved from Text 2
 INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/PokemonMansion3F.asm"
@@ -288,9 +223,7 @@ INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/SafariZoneCenter.asm"
-; moved from Text 8
 INCLUDE "data/text/text_9.asm"
-; moved from Text 6
 INCLUDE "text/VermilionPidgeyHouse.asm"
 INCLUDE "text/VermilionDock.asm"
 
@@ -305,7 +238,6 @@ INCLUDE "text/CeladonUniversity.asm" ; new
 INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
 INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
 INCLUDE "text/ObsidianWarehouse.asm" ; new
-; moved from Text 2
 INCLUDE "text/SafariZoneCenterRestHouse.asm"
 INCLUDE "text/SafariZoneSecretHouse.asm"
 INCLUDE "text/SafariZoneWestRestHouse.asm"
@@ -319,7 +251,6 @@ INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
-; moved from Text 6
 INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/VermilionGym.asm"
@@ -330,9 +261,7 @@ INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
-; moved from Text 8
 INCLUDE "text/PalletTown.asm"
-; moved from Text 6
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
@@ -349,21 +278,27 @@ INCLUDE "text/MoveRelearner.asm" ; new
 INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
-; moved from Text 6
 INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PokemonTower7F.asm"
-; moved from Text 7
 INCLUDE "text/FightingDojo.asm"
 INCLUDE "text/SaffronGym.asm"
-; moved from Text 3
 INCLUDE "text/Route9.asm"
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianHouses.asm" ; new
 INCLUDE "text/MtMoon1FExtra.asm" ; new
-; moved from Text 1
 INCLUDE "text/MtMoon1F.asm"
+INCLUDE "text/CinnabarGym.asm"
+INCLUDE "text/CinnabarLab.asm"
+INCLUDE "text/CinnabarLabTradeRoom.asm"
+INCLUDE "text/CinnabarLabMetronomeRoom.asm"
+INCLUDE "text/CinnabarLabFossilRoom.asm"
+INCLUDE "text/CinnabarPokecenter.asm"
+INCLUDE "text/CinnabarMart.asm"
+INCLUDE "text/IndigoPlateauLobby.asm"
+INCLUDE "text/CopycatsHouse1F.asm"
+INCLUDE "text/CopycatsHouse2F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

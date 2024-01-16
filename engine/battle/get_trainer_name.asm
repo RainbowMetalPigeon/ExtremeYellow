@@ -14,8 +14,8 @@ GetTrainerName_::
 	jr z, .foundName
 
 ; new, for the SS Anne Captain
-	cp GENTLEMAN
-	jr nz, .continue
+;	cp GENTLEMAN
+;	jr nz, .continue
 	ld a, [wCurMap]
 	cp SS_ANNE_CAPTAINS_ROOM
 	jr nz, .continue

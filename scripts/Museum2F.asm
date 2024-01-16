@@ -8,6 +8,7 @@ Museum2F_TextPointers:
 	dw Museum2FText3
 	dw Museum2FText4
 	dw Museum2FText5
+	dw Museum2FText8 ; new
 	dw Museum2FText6
 	dw Museum2FText7
 
@@ -68,4 +69,8 @@ Museum2FText6:
 
 Museum2FText7:
 	text_far _Museum2FText7
+	text_end
+
+Museum2FText8:
+	text_far _Museum2FText8
 	text_end

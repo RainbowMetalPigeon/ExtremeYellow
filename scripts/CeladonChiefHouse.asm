@@ -593,6 +593,8 @@ LunarShrineTextMonk:
 	text_asm
 	CheckEvent EVENT_RETURNED_LUNAR_RELIC
 	jr nz, .alreadyReturnedRelic
+	CheckEvent EVENT_MONK_NOTICED_RELIC
+	jr nz, .relicAlreadyNoticed
 	ld b, LUNAR_RELIC
 	call IsItemInBag
 	jr nz, .relicInBag
@@ -624,6 +626,12 @@ LunarShrineTextTemple:
 	ld hl, LunarShrineTempleText_RelicNotNoticed
 	jr .printAndEnd
 .canTryPlacingRelic
+	ld b, LUNAR_RELIC
+	call IsItemInBag
+	jr nz, .relicInBag
+	ld hl, LunarShrineTempleText_RelicNotWithYou
+	jp .printAndEnd
+.relicInBag
 	ld hl, LunarShrineTempleText_YesNo
 	call PrintText
 	call YesNoChoice
@@ -678,6 +686,10 @@ LunarShrineTempleText_PlaceRelic:
 
 LunarShrineTempleText_RelicAlreadyReturned:
 	text_far _LunarShrineTempleText_RelicAlreadyReturned
+	text_end
+
+LunarShrineTempleText_RelicNotWithYou:
+	text_far _LunarShrineTempleText_RelicNotWithYou
 	text_end
 
 ; ---------------------------

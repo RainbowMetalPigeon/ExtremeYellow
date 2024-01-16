@@ -18,7 +18,7 @@ _FuchsiaCityText2::
 _FuchsiaCityText3::
 	text "ERIK: Where's"
 	line "SARA? I said I'd"
-	cont "meet her here."
+	cont "meet them here."
 	done
 
 _FuchsiaCityText4::

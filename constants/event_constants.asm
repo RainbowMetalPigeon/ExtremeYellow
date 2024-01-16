@@ -192,7 +192,7 @@
 
 ; Fuchsia City events
 	const_next $238
-	const EVENT_GOT_HM04
+	const EVENT_GOT_LUNAR_RELIC ; edited
 	const EVENT_GAVE_GOLD_TEETH
 	const_skip 20
 	const EVENT_SAFARI_GAME_OVER

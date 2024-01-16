@@ -5,8 +5,8 @@ Museum2F_Object:
 	warp_event  7,  7, MUSEUM_1F, 5
 
 	def_bg_events
-	bg_event 11,  2, 6 ; Museum2FText6
-	bg_event  2,  5, 7 ; Museum2FText7
+	bg_event 11,  2, 7 ; Museum2FText6
+	bg_event  2,  5, 8 ; Museum2FText7
 
 	def_object_events
 	object_event  1,  7, SPRITE_YOUNGSTER, WALK, LEFT_RIGHT, 1 ; person
@@ -14,5 +14,6 @@ Museum2F_Object:
 	object_event  7,  5, SPRITE_SCIENTIST, STAY, DOWN, 3 ; person
 	object_event 11,  5, SPRITE_BRUNETTE_GIRL, STAY, NONE, 4 ; person
 	object_event 12,  5, SPRITE_HIKER, STAY, DOWN, 5 ; person
+	object_event  3,  3, SPRITE_HIKER, STAY, DOWN, 6 ; new
 
 	def_warps_to MUSEUM_2F
