@@ -22,6 +22,9 @@ Route12_ScriptPointers:
 	dw Route12Script4 ; new, trigger battle vs Rival
 	dw Route12Script5 ; new
 	dw Route12Script6 ; new
+	dw Route12Script7 ; new
+	dw Route12Script8 ; new
+	dw Route12Script9 ; new
 
 AroundSnorlaxRoute12Coords: ; new
 	dbmapcoord  9, 62
@@ -36,10 +39,10 @@ Route12Script0:
 	jp nz, .vanillaCode
 	ld hl, AroundSnorlaxRoute12Coords
 	call ArePlayerCoordsInArray
-	jr nz, .vanillaCode
+	jp nz, .vanillaCode
 	ld b, POKE_FLUTE
 	call IsItemInBag
-	jr z, .vanillaCode
+	jp z, .vanillaCode
 ; if we are here, we begin triggering the battle vs the rival
 ; walking code
 	ld a, [wWalkBikeSurfState]
@@ -47,6 +50,19 @@ Route12Script0:
 	jr z, .walking
 	call StopAllMusic
 .walking
+	ld a, 21
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Pikachu scared and hide
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $f
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
 	ld c, BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
@@ -193,6 +209,12 @@ Route12Script5: ; new
 	ld a, 18 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	ld a, $6
+	ld [wRoute12CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route12Script6: ; new
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
 	ld a, [wXCoord]
@@ -202,25 +224,96 @@ Route12Script5: ; new
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, Route12FMovements2_Right
-;	ld a, 13 ; Rival's sprite ID
-;	ldh [hSpriteIndex], a
 	jr .continue
 .playerIsLeftOfSnorlax
 	ld a, 12 ; Rival's sprite ID
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, Route12FMovements2_Left
-;	ld a, 12 ; Rival's sprite ID
-;	ldh [hSpriteIndex], a
 .continue
 	call MoveSprite
-	ld a, $6
+	ld a, $7
 	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
+Route12Script7: ; new
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+	call Route12Script_RivalFacingLeftOrUp
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 19 ; Rival's text ID
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Route12Script_RivalFacingLeftOrUp
+	ld a, $8
+	ld [wRoute12CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route12Script8: ; new
+	call Route12Script_RivalFacingLeftOrUp
+	call Route12Script_RivalFacingRightOrDown
+	ld a, 20 ; Rival's text ID
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, [wXCoord]
+	cp 9
+	jr z, .playerIsLeftOfSnorlax
+	ld a, 13 ; Rival's sprite ID
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld de, Route12FMovements3_Right
+	jr .continue
+.playerIsLeftOfSnorlax
+	ld a, 12 ; Rival's sprite ID
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld de, Route12FMovements3_Left
+.continue
+	call MoveSprite
+	ld a, $9
+	ld [wRoute12CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route12Script9: ; new
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	ld a, HS_ROUTE_12_RIVAL_RIGHT
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_12_RIVAL_LEFT
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic
+; Show Pikachu
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+	ld a, HS_ROUTE_16_SNORLAX
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, $0
+	ld [wRoute12CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; ----------------------------------------------
+
 Route12FMovements2_Right: ; new
 	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+Route12FMovements3_Right: ; new
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
@@ -228,6 +321,9 @@ Route12FMovements2_Right: ; new
 
 Route12FMovements2_Left: ; new
 	db NPC_MOVEMENT_LEFT
+	db -1 ; end
+
+Route12FMovements3_Left: ; new
 	db NPC_MOVEMENT_LEFT
 	db NPC_MOVEMENT_LEFT
 	db NPC_MOVEMENT_LEFT
@@ -259,25 +355,21 @@ Route12Script_RivalFacingRightOrDown:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ret
 
-Route12Script6: ; new
-	ld a, [wd730]
-	bit 0, a
-	ret nz
-	ld a, HS_ROUTE_12_RIVAL_RIGHT
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld a, HS_ROUTE_12_RIVAL_LEFT
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	xor a
-	ld [wJoyIgnore], a
-	call PlayDefaultMusic
-	ld a, HS_ROUTE_16_SNORLAX
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld a, $0
-	ld [wRoute12CurScript], a
-	ld [wCurMapScript], a
+Route12Script_RivalFacingLeftOrUp:
+	ld a, [wXCoord]
+	cp 9 ; where is the player standing?
+	jr z, .playerLeftOfSnorlax ; handles it differently, because loads another sprite
+	ld a, 13
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	jr .continue
+.playerLeftOfSnorlax
+	ld a, 12
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+.continue
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
 	ret
 
 ; ==============================================
@@ -300,7 +392,10 @@ Route12_TextPointers:
 	dw Route12Text12 ; sign
 	dw Route12Text13
 	dw Route12Text14
-	dw Route12TextRivalPostBattle ; new, TBC; ID=18
+	dw Route12TextRivalPostBattle1 ; new, 18
+	dw Route12TextRivalPostBattle2 ; new, 19
+	dw Route12TextRivalPostBattle3 ; new, 20
+	dw Route12TextRivalStop ; new, 21
 
 Route12TrainerHeaders:
 	def_trainers 3 ; edited, +1 for new Hiker
@@ -474,8 +569,16 @@ Route12TextRival: ; new
 	text_far _Route12TextRival
 	text_end
 
-Route12TextRivalPostBattle: ; new
-	text_far _Route12TextRivalPostBattle
+Route12TextRivalPostBattle1: ; new
+	text_far _Route12TextRivalPostBattle1
+	text_end
+
+Route12TextRivalPostBattle2: ; new
+	text_far _Route12TextRivalPostBattle2
+	text_end
+
+Route12TextRivalPostBattle3: ; new
+	text_far _Route12TextRivalPostBattle3
 	text_end
 
 Route12RivalText_Win: ; new
@@ -484,4 +587,8 @@ Route12RivalText_Win: ; new
 
 Route12RivalText_Lose: ; new
 	text_far _Route12RivalText_Lose
+	text_end
+
+Route12TextRivalStop: ; new
+	text_far _Route12TextRivalStop
 	text_end

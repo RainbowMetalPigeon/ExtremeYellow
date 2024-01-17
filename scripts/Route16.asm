@@ -22,6 +22,9 @@ Route16_ScriptPointers:
 	dw Route16Script4 ; new, trigger battle vs Rival
 	dw Route16Script5 ; new
 	dw Route16Script6 ; new
+	dw Route16Script7 ; new
+	dw Route16Script8 ; new
+	dw Route16Script9 ; new
 
 AroundSnorlaxRoute16Coords: ; new
 	dbmapcoord 27, 10
@@ -45,6 +48,19 @@ Route16Script0:
 	jr z, .walking
 	call StopAllMusic
 .walking
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Pikachu scared and hide
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $f
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
 	ld c, BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
@@ -72,7 +88,7 @@ Route16Script0:
 	CheckEventReuseHL EVENT_FIGHT_ROUTE16_SNORLAX
 	ResetEventReuseHL EVENT_FIGHT_ROUTE16_SNORLAX
 	jp z, CheckFightingMapTrainers
-	ld a, $b ; edited, +1 because rival
+	ld a, $b ; =11, edited, +1 because rival
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SNORLAX
@@ -104,7 +120,7 @@ Route16Script3:
 	ld a, [wBattleResult]
 	cp $2
 	jr z, .asm_599a8
-	ld a, $c ; edited, +1 because rival
+	ld a, $c ; =12, edited, +1 because rival
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .asm_599a8
@@ -156,6 +172,13 @@ Route16Script5: ; new
 	ld a, 13 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	call Route16Script_RivalFacingRight
+	ld a, $6
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route16Script6: ; new
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
 	ld a, 8 ; Rival's sprite ID
@@ -163,13 +186,73 @@ Route16Script5: ; new
 	call SetSpriteMovementBytesToFF
 	ld de, Route16FMovements2
 	call MoveSprite
-	ld a, $6
+	ld a, $7
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route16Script7: ; new
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+	call Route16Script_RivalFacingRight
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 14 ; Rival's text ID
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Route16Script_RivalFacingRight
+	ld a, $8
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route16Script8: ; new
+	call Route16Script_RivalFacingRight
+	call Route16Script_RivalFacingLeft
+	ld a, 15 ; Rival's text ID
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 8 ; Rival's sprite ID
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld de, Route16FMovements3
+	call MoveSprite
+	ld a, $9
+	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Route16Script9: ; new
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	ld a, HS_ROUTE_16_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_12_SNORLAX
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic
+; Show Pikachu
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+	ld a, $0
 	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
 Route16FMovements2: ; new
 	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+Route16FMovements3: ; new
 	db NPC_MOVEMENT_RIGHT
 	db NPC_MOVEMENT_RIGHT
 	db NPC_MOVEMENT_RIGHT
@@ -193,22 +276,12 @@ Route16Script_RivalFacingLeft:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ret
 
-Route16Script6: ; new
-	ld a, [wd730]
-	bit 0, a
-	ret nz
-	ld a, HS_ROUTE_16_RIVAL
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	xor a
-	ld [wJoyIgnore], a
-	call PlayDefaultMusic
-	ld a, HS_ROUTE_12_SNORLAX
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld a, $0
-	ld [wRoute16CurScript], a
-	ld [wCurMapScript], a
+Route16Script_RivalFacingRight:
+	ld a, 8
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
 	ret
 
 ; ==============================================
@@ -226,7 +299,10 @@ Route16_TextPointers:
 	dw Route16Text9 ; sign
 	dw Route16Text10 ; Snorlax-related text
 	dw Route16Text11 ; Snorlax-related text
-	dw Route16TextRivalPostBattle ; new, TBC; ID=13
+	dw Route16TextRivalPostBattle1 ; new, ID=13
+	dw Route16TextRivalPostBattle2 ; new, ID=14
+	dw Route16TextRivalPostBattle3 ; new, ID=15
+	dw Route16TextRivalStop ; new, ID=16
 
 Route16TrainerHeaders:
 	def_trainers
@@ -376,8 +452,16 @@ Route16TextRival: ; new
 	text_far _Route12TextRival
 	text_end
 
-Route16TextRivalPostBattle: ; new
-	text_far _Route12TextRivalPostBattle
+Route16TextRivalPostBattle1: ; new
+	text_far _Route12TextRivalPostBattle1
+	text_end
+
+Route16TextRivalPostBattle2: ; new
+	text_far _Route12TextRivalPostBattle2
+	text_end
+
+Route16TextRivalPostBattle3: ; new
+	text_far _Route12TextRivalPostBattle3
 	text_end
 
 Route16RivalText_Win: ; new
@@ -386,4 +470,8 @@ Route16RivalText_Win: ; new
 
 Route16RivalText_Lose: ; new
 	text_far _Route12RivalText_Lose
+	text_end
+
+Route16TextRivalStop: ; new
+	text_far _Route12TextRivalStop
 	text_end

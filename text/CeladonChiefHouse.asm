@@ -263,10 +263,11 @@ _LunarShrineTextRockets6::
 
 	para "But now you're"
 	line "finished. We came"
-	cont "prepared. Say"
-	cont "farewell to this"
-	cont "world, you"
-	cont "bastard!"
+	cont "prepared. We will"
+	cont "paint the walls"
+	cont "of this place red"
+	cont "with your blood,"
+	cont "you bastard!"
 	done
 
 _LunarShrineRocket1Text_Win::

@@ -104,8 +104,6 @@ INCLUDE "text/Route20.asm"
 INCLUDE "text/Route21.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route23.asm"
-INCLUDE "text/Route24.asm"
-INCLUDE "text/Route25.asm"
 
 INCLUDE "data/text/text_4.asm"
 
@@ -299,6 +297,8 @@ INCLUDE "text/CinnabarMart.asm"
 INCLUDE "text/IndigoPlateauLobby.asm"
 INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
+INCLUDE "text/Route24.asm"
+INCLUDE "text/Route25.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

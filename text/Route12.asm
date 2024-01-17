@@ -156,19 +156,79 @@ _Route12Text12::
 	done
 
 _Route12TextRival::
-	text "Pre battle"
-;	xxxx "123456789012345678"
-	done
+	text "<RIVAL>: What?!"
+	line "You again? Damn,"
+	cont "<PLAYER>, can't"
+	cont "you do anything"
+	cont "different than"
+	cont "getting in my"
+	cont "way?!"
 
-_Route12TextRivalPostBattle::
-	text "Post battle"
-;	xxxx "123456789012345678"
+	para "Get your hands off"
+	line "that SNORLAX! I"
+	cont "saw it first, and"
+	cont "it will be who"
+	cont "will catch it!"
+
+	para "And if you don't"
+	line "want to comply,"
+	cont "I'll make you"
+	cont "with my"
+	cont "renewed team!"
 	done
 
 _Route12RivalText_Win::
-	text "Win"
+	text "...tsk."
+	line "You will run out"
+	cont "of luck one day,"
+	cont "and I'll be there"
+	cont "to enjoy it."
 	prompt
 
 _Route12RivalText_Lose::
-	text "Lose"
+	text "AH!"
+
+	para "Serves you well"
+	line "for trying to"
+	cont "steal my #MON!"
+
+	para "This SNORLAX is"
+	line "mine now, and"
+	cont "I'll you use to"
+	cont "squash you even"
+	cont "harder next time"
+	cont "we meet!"
 	prompt
+
+_Route12TextRivalPostBattle1::
+	text "<RIVAL>: WHATEVER!"
+	line "That was a weak"
+	cont "specimen anyhow,"
+	cont "I'll fetch myself"
+	cont "a better one."
+	cont "Stick with the"
+	cont "garbage, it suits"
+	cont "you well."
+
+	para "And next time I"
+	line "will face you,"
+	cont "I'll use mine to"
+	cont "squash you."
+	done
+
+_Route12TextRivalPostBattle2::
+	text "...<PLAYER>?"
+	done
+
+_Route12TextRivalPostBattle3::
+	text "I have not"
+	line "forgiven you for"
+	cont "what you did to"
+	cont "RATICATE, and"
+	cont "I never will."
+	done
+
+_Route12TextRivalStop::
+	text "Hey you! Stop"
+	line "right there!"
+	done
