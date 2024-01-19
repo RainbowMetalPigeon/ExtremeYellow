@@ -419,6 +419,8 @@ PsychicData:
 	db 46, EXEGGUTOR, ALAKAZAM, STARMIE, 0 ; updated
 	db 45, ALAKAZAM, SLOWKING, STARMIE, JYNX, 0 ; updated
 	db 45, SLOWKING, HYPNO, MR_MIME, SLOWBRO, 0 ; updated
+; Proxy for COPYCAT
+	db 50, MIME_JR, MR_MIME, DITTO, 0 ; new, 5
 
 RockerData:
 ; Vermilion Gym

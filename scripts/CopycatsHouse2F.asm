@@ -1,5 +1,39 @@
 CopycatsHouse2F_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, CopycatsHouse2F_ScriptPointers
+	ld a, [wCopycatsHouse2FCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCopycatsHouse2FCurScript], a
+	ret
+
+; ===============================
+
+CopycatsHouse2F_ScriptPointers:
+	dw CopycatsHouse2FScript0
+	dw CopycatsHouse2FScriptPostBattle
+
+CopycatsHouse2FScript0:
+	ret
+
+CopycatsHouse2FScriptPostBattle:
+	ld a, [wLevelScalingBackup]
+	ld [wLevelScaling], a
+	xor a
+	ld [wCopycatsHouse2FCurScript], a
+	ld [wCurMapScript], a
+; check battle result
+	ld a, [wIsInBattle]
+	cp $ff
+	jr z, .gotDefeated
+; if you won
+	SetEvent EVENT_DEFEATED_COPYCAT
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.gotDefeated
+	ret
+
+; ===============================
 
 CopycatsHouse2F_TextPointers:
 	dw CopycatsHouse2FText1
@@ -10,10 +44,12 @@ CopycatsHouse2F_TextPointers:
 	dw CopycatsHouse2FText6
 	dw CopycatsHouse2FText7
 
-CopycatsHouse2FText1:
+CopycatsHouse2FText1: ; edited
 	text_asm
 	CheckEvent EVENT_GOT_TM31
 	jr nz, .got_item
+	CheckEvent EVENT_DEFEATED_COPYCAT
+	jr nz, .defatedCopycatButNotGotTMYet
 	ld a, TRUE
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, CopycatsHouse2FText_5ccd4
@@ -23,14 +59,36 @@ CopycatsHouse2FText1:
 	jr z, .done
 	ld hl, TM31PreReceiveText
 	call PrintText
+; backup the current Level Scaling option choice to restore it after the battle
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 1
+	ld [wLevelScaling], a
+; set up the battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, CopycatText_PostBattleText
+	ld de, CopycatText_PostBattleText
+	call SaveEndBattleTextPointers
+	ld a, OPP_PSYCHIC_TR
+	ld [wCurOpponent], a
+	ld a, 5
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 1
+	ld [wCopycatsHouse2FCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.defatedCopycatButNotGotTMYet
+	ld hl, PostBattleAndGiveTMText
+	call PrintText
 	lb bc, TM_MIMIC, 1
 	call GiveItem
 	jr nc, .bag_full
 	ld hl, ReceivedTM31Text
 	call PrintText
-	ld a, POKE_DOLL
-	ldh [hItemToRemoveID], a
-	farcall RemoveItemByID
 	SetEvent EVENT_GOT_TM31
 	jr .done
 .bag_full
@@ -56,7 +114,7 @@ ReceivedTM31Text:
 	sound_get_item_1
 TM31ExplanationText1:
 	text_far _TM31ExplanationText1
-	text_waitbutton
+;	text_waitbutton
 	text_end
 
 TM31ExplanationText2:
@@ -99,4 +157,12 @@ CopycatsHouse2FText_5cd17:
 
 CopycatsHouse2FText_5cd1c:
 	text_far _CopycatsHouse2FText_5cd1c
+	text_end
+
+PostBattleAndGiveTMText: ; new
+	text_far _PostBattleAndGiveTMText
+	text_end
+
+CopycatText_PostBattleText: ; new
+	text_far _CopycatText_PostBattleText
 	text_end

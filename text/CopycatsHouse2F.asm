@@ -15,15 +15,31 @@ _CopycatsHouse2FText_5ccd4::
 	line "favorite hobby!"
 	prompt
 
-_TM31PreReceiveText::
+_TM31PreReceiveText:: ; edited
 	text "Oh wow!"
 	line "A # DOLL!"
 
 	para "For me?"
 	line "Thank you!"
 
-	para "You can have"
-	line "this, then!"
+	para "Unfortunately, I"
+	line "already have this"
+	cont "doll... but I"
+	cont "appreciate the"
+	cont "thought!"
+
+	para "But you know what"
+	line "else I like? A"
+	cont "good #MON"
+	cont "battle!"
+	prompt
+
+_PostBattleAndGiveTMText::
+	text "Thanks for the"
+	line "lovely battle!"
+
+	para "Here, you can"
+	line "have this!"
 	prompt
 
 _ReceivedTM31Text::
@@ -54,12 +70,12 @@ _TM31ExplanationText2::
 	cont "my every move?"
 
 	para "COPYCAT: You bet!"
-	line "It's a scream!"
+	line "It's a blast!" ; edited
 	done
 
-_TM31NoRoomText::
-	text "Don't you want"
-	line "this?@"
+_TM31NoRoomText:: ; edited
+	text "Oh, you don't have"
+	line "enough space.@"
 	text_end
 
 _CopycatsHouse2FText2::
@@ -79,8 +95,9 @@ _CopycatsHouse2FText3::
 
 _CopycatsHouse2FText6::
 	text "A game with MARIO"
-	line "wearing a bucket"
-	cont "on his head!"
+	line "wearing a talking"
+	cont "hat with eyes!"
+;	xxxx "123456789012345678"
 	done
 
 _CopycatsHouse2FText_5cd17::
@@ -98,3 +115,7 @@ _CopycatsHouse2FText_5cd17::
 _CopycatsHouse2FText_5cd1c::
 	text "Huh? Can't see!"
 	done
+
+_CopycatText_PostBattleText::
+	text "<PLAYER>: TEST!"
+	prompt

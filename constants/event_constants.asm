@@ -245,7 +245,8 @@
 ; Saffron City events
 	const_next $340
 	const EVENT_GOT_TM31
-	const_skip 16 ; edited from 15 to 16 because of rematch Bruno
+	const EVENT_DEFEATED_COPYCAT
+	const_skip 15 ; edited from 15 to 16 because of rematch Bruno, then back to 15 for copycat battle
 	const EVENT_DEFEATED_FIGHTING_DOJO
 	const EVENT_BEAT_KARATE_MASTER
 	const EVENT_BEAT_FIGHTING_DOJO_TRAINER_0

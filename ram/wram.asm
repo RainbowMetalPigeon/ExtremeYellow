@@ -472,7 +472,8 @@ wPredefBC:: dw
 
 wTrainerHeaderFlagBit:: db
 
-	ds 1
+;	ds 1 ; edited, commented to allocate variable below
+wLevelScalingBackup:: db ; new
 
 ; which NPC movement script pointer is being used
 ; 0 if an NPC movement script is not running
@@ -2323,7 +2324,8 @@ wVictoryRoad1FCurScript:: db
 wCeladonChiefHouseCurScript:: db ; new
 ;	ds 1
 wLancesRoomCurScript:: db
-	ds 4
+wCopycatsHouse2FCurScript:: db ; new
+	ds 3 ; edited, was 4
 wSilphCo10FCurScript:: db
 wSilphCo11FCurScript:: db
 	ds 1

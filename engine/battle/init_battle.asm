@@ -161,7 +161,7 @@ _LoadTrainerPic:
 	ld d, a ; de contains pointer to trainer pic
 	ld a, [wLinkState]
 	and a
-	jr nz, .playerLikeSprite ; new
+	jp nz, .playerLikeSprite ; new
 
 	; new, random picture selection between the 4 "color names" for Battle Facility trainer
 	ld a, [wTrainerClass]
@@ -223,7 +223,29 @@ _LoadTrainerPic:
 	ld a, BANK(Traveler2Pic)
 	ld de, Traveler2Pic
 	jr .loadSprite
-.notTraveler ; back to normal code
+.notTraveler
+
+; now check if it's Copycat battle
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_2F
+	jr nz, .notCopycat
+	ld a, [wPlayerGender] ; 00 = male, 01 = female, 02 = enby
+	and a ; = cp 0
+	jr z, .maleTrainerPic
+	cp 1
+	jr z, .femaleTrainerPic
+	ld a, BANK(YellowPicFront)
+	ld de, YellowPicFront
+	jr .loadSprite
+.femaleTrainerPic
+	ld a, BANK(GreenPicFront)
+	ld de, GreenPicFront
+	jr .loadSprite
+.maleTrainerPic
+	ld a, BANK(RedPicFront)
+	ld de, RedPicFront
+	jr .loadSprite
+.notCopycat ; back to normal code
 
 	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
 	jr .loadSprite ; edited

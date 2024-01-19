@@ -399,8 +399,17 @@ PrintEndBattleText::
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a
 	push hl
+; new, don't load trainer's name if we are vs Copycat
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_2F
+	jr nz, .notCopycatBattle
+	ld hl, TrainerEndBattleTextNameless
+	jr .continue
+.notCopycatBattle
 	farcall SaveTrainerName
 	ld hl, TrainerEndBattleText
+.continue
+; back to vanilla
 	call PrintText
 	pop hl
 	pop af
@@ -428,6 +437,7 @@ GetSavedEndBattleTextPointer::
 
 TrainerEndBattleText::
 	text_far _TrainerNameText
+TrainerEndBattleTextNameless:: ; new
 	text_asm
 	call GetSavedEndBattleTextPointer
 	call TextCommandProcessor

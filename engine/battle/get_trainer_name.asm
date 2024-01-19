@@ -13,16 +13,19 @@ GetTrainerName_::
 	cp RIVAL3
 	jr z, .foundName
 
-; new, for the SS Anne Captain
-;	cp GENTLEMAN
-;	jr nz, .continue
+; new, for the SS Anne Captain and Copycat
 	ld a, [wCurMap]
 	cp SS_ANNE_CAPTAINS_ROOM
-	jr nz, .continue
-	ld hl, CaptainText ; testing
+	jr nz, .continue1
+	ld hl, CaptainText
+	jr .foundName
+.continue1
+	cp COPYCATS_HOUSE_2F ; a already contains [wCurMap]
+	jr nz, .continue2
+	ld hl, wPlayerName ; testing
 	jr .foundName ; testing
-.continue
-	ld a, [wTrainerClass] ; added because I have overwritten a for the captain check
+.continue2
+	ld a, [wTrainerClass] ; added because I have overwritten a for the captain-and-copycat check
 
 	ld [wd0b5], a
 	ld a, TRAINER_NAME
