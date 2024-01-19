@@ -42,7 +42,25 @@ _LunarShrineMonkText_RelicNotInBag::
 	done
 
 _LunarShrineMonkText_RelicInBag_FirstTime::
-	text "Wha- what is that"
+	text "How did you arrive"
+	line "here?"
+
+	para "Well, I would"
+	line "invite to leave,"
+	cont "if you please. I"
+	cont "don't enjoy"
+	cont "visitors and"
+	cont "strangers."
+
+	para "...the MONK"
+	line "mutters something"
+	cont "about how they"
+	cont "only bring"
+	cont "misfortune..."
+
+	para "MONK: ...?! Wait!"
+;	xxxx "123456789012345678"
+	para "Wha- what is that"
 	line "that you have"
 	cont "with you?"
 
@@ -158,7 +176,6 @@ _LunarShrineTempleText_RelicNotWithYou::
 	text "You don't have"
 	line "the LUNAR RELIC"
 	cont "with you."
-;	xxxx "123456789012345678"
 	done
 
 ; ------------------

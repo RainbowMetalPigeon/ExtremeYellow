@@ -172,6 +172,8 @@ Route16Script5: ; new
 	ld a, 13 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	ld a, $ff ; testing
+	ld [wJoyIgnore], a
 	call Route16Script_RivalFacingRight
 	ld a, $6
 	ld [wRoute16CurScript], a
@@ -210,6 +212,8 @@ Route16Script7: ; new
 Route16Script8: ; new
 	call Route16Script_RivalFacingRight
 	call Route16Script_RivalFacingLeft
+	ld a, $f0
+	ld [wJoyIgnore], a
 	ld a, 15 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID

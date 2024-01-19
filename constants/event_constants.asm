@@ -214,7 +214,8 @@
 	const EVENT_MANSION_SWITCH_ON
 	const_skip 16
 	const EVENT_BEAT_MANSION_1_TRAINER_0
-	const_skip 13 ; edited, was 14
+	const_skip 12 ; edited, was 14
+	const EVENT_BEAT_MANSION_RIVAL ; new
 	const EVENT_BEAT_BLAINE_REMATCH ; new
 	const EVENT_GOT_TM38
 	const EVENT_BEAT_BLAINE

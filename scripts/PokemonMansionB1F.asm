@@ -49,14 +49,186 @@ Mansion4Script_Switches::
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $9
+	ld a, 10 ; edited because rival
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
 PokemonMansionB1F_ScriptPointers:
-	dw CheckFightingMapTrainers
+	dw Mansion4Script0 ; new
+;	dw CheckFightingMapTrainers ; edited, commented out
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw Mansion4Script3 ; new
+	dw Mansion4Script4 ; new
+	dw Mansion4Script5 ; new
+
+; ==============================================
+
+Mansion4Script0: ; new
+	CheckEvent EVENT_BEAT_MANSION_RIVAL
+	jp nz, CheckFightingMapTrainers
+	ld hl, MansionB1FCoords
+	call ArePlayerCoordsInArray
+	jp nc, CheckFightingMapTrainers
+	ld a, [wWalkBikeSurfState]
+	and a
+	jr z, .walking
+	call StopAllMusic
+.walking
+	ld c, BANK(Music_MeetRival)
+	ld a, MUSIC_MEET_RIVAL
+	call PlayMusic
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $f0
+	ld [wJoyIgnore], a
+	; no need to keep the sprite hidden and show it later, it's anyhow not visible from anywhere
+	ld a, [wYCoord]
+	cp 6 ; top part of entrance
+	jr z, .playerOnTopPart
+	ld de, MansionB1FMovements1_Bottom
+	jr .continue
+.playerOnTopPart
+	ld de, MansionB1FMovements1
+.continue
+	ld a, 9 ; index of Rival's sprite
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, $3 ; testing
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Mansion4Script3: ; new
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 9 ; Rival's text (and sprite) index
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d ; nobody knows what it does lol
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, Mansion4RivalText_Win ; text if player wins
+	ld de, Mansion4RivalText_Lose ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld a, 7
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+	call Mansion4Script_RivalFacingRight
+	ld a, 4
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Mansion4Script4: ; new
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Mansion4Script_ResetIfLoseVsRival
+	call Mansion4Script_RivalFacingRight
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_BEAT_MANSION_RIVAL
+	ld a, 9 ; Rival's text (and sprite) index
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, $ff ; testing
+	ld [wJoyIgnore], a
+	call StopAllMusic
+	farcall Music_RivalAlternateStart
+	ld a, 9 ; Rival's text (and sprite) index
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, [wYCoord]
+	cp 6 ; top part of entrance
+	jr z, .playerOnTopPart
+	ld de, MansionB1FMovements2_Bottom
+	jr .continue
+.playerOnTopPart
+	ld de, MansionB1FMovements2
+.continue
+	call MoveSprite
+	ld a, $5
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+Mansion4Script5: ; new
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	ld a, HS_POKEMON_MANSION_B1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	call PlayDefaultMusic
+	ld a, $0
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; -------------------------------
+
+MansionB1FCoords:
+	dbmapcoord  8,  6
+	dbmapcoord  8,  7
+	db -1 ; end
+
+MansionB1FMovements1_Bottom:
+	db NPC_MOVEMENT_DOWN
+MansionB1FMovements1:
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+Mansion4Script_ResetIfLoseVsRival:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+;	ld a, HS_MT_MOON_1F_RIVAL
+;	ld [wMissableObjectIndex], a
+;	predef_jump HideObject
+
+MansionB1FMovements2:
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+MansionB1FMovements2_Bottom:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+Mansion4Script_RivalFacingRight:
+	ld a, 9
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	jp SetSpriteFacingDirectionAndDelay ; face object
+
+; ==============================================
 
 PokemonMansionB1F_TextPointers:
 	dw Mansion4Text1
@@ -67,7 +239,8 @@ PokemonMansionB1F_TextPointers:
 	dw PickUpItemText
 	dw Mansion4Text7
 	dw PickUpItemText
-	dw Mansion3Text6
+	dw Mansion4TextRival ; new, 9
+	dw Mansion3Text6 ; 10
 
 Mansion4TrainerHeaders:
 	def_trainers
@@ -115,4 +288,35 @@ Mansion4AfterBattleText2:
 
 Mansion4Text7:
 	text_far _Mansion4Text7
+	text_end
+
+; ------------
+
+Mansion4TextRival: ; new
+	text_asm
+	CheckEvent EVENT_BEAT_MANSION_RIVAL
+	jr z, .PreBattleText
+	ld hl, Mansion4RivalText_PostBattle
+	call PrintText
+	jr .end
+.PreBattleText
+	ld hl, Mansion4RivalText_PreBattle
+	call PrintText
+.end
+	jp TextScriptEnd
+
+Mansion4RivalText_PreBattle:
+	text_far _Mansion4RivalText_PreBattle
+	text_end
+
+Mansion4RivalText_PostBattle:
+	text_far _Mansion4RivalText_PostBattle
+	text_end
+
+Mansion4RivalText_Win:
+	text_far _Mansion4RivalText_Win
+	text_end
+
+Mansion4RivalText_Lose:
+	text_far _Mansion4RivalText_Lose
 	text_end

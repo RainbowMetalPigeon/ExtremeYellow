@@ -222,8 +222,6 @@ INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/SafariZoneCenter.asm"
 INCLUDE "data/text/text_9.asm"
-INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/VermilionDock.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -299,6 +297,8 @@ INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/Route24.asm"
 INCLUDE "text/Route25.asm"
+INCLUDE "text/VermilionPidgeyHouse.asm"
+INCLUDE "text/VermilionDock.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

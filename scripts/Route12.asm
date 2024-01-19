@@ -209,6 +209,9 @@ Route12Script5: ; new
 	ld a, 18 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	ld a, $ff ; testing
+	ld [wJoyIgnore], a
+	call Route12Script_RivalFacingLeftOrUp
 	ld a, $6
 	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a

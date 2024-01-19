@@ -367,6 +367,8 @@ LunarShrineScript11:
 	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	ld a, $ff ; testing
+	ld [wJoyIgnore], a
 ; hide Rocket siblings
 	call GBFadeOutToBlack
 	ld a, HS_LUNAR_SHRINE_2
@@ -399,6 +401,8 @@ LunarShrineScript12:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
+	ld a, $f0 ; testing
+	ld [wJoyIgnore], a
 	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -416,6 +420,8 @@ LunarShrineScript13:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
+	ld a, $f0 ; testing
+	ld [wJoyIgnore], a
 	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -599,13 +605,12 @@ LunarShrineTextMonk:
 	call IsItemInBag
 	jr nz, .relicInBag
 	ld hl, LunarShrineMonkText_RelicNotInBag
-	jr .printAndEnd
+	jp .printAndEnd
 .alreadyReturnedRelic
 	ld hl, LunarShrineMonkText_AlreadyReturnedRelic
 	jr .printAndEnd
 .relicInBag
-	CheckAndSetEvent EVENT_MONK_NOTICED_RELIC
-	jr nz, .relicAlreadyNoticed
+	SetEvent EVENT_MONK_NOTICED_RELIC
 	ld hl, LunarShrineMonkText_RelicInBag_FirstTime
 	jr .printAndEnd
 .relicAlreadyNoticed

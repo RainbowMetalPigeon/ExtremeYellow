@@ -400,7 +400,7 @@ ObjectsToShowExtra:
 	db HS_POKEMON_MANSION_2F_BLAINE
 	db HS_MEWTWO
 	db HS_ARTICUNO
-	db HS_OCHRE_WONDERLAND_BLUE
+	db HS_OCHRE_WONDERLAND_RIVAL
 	db HS_CHAMPIONS_ROOM_RIVAL ; new, here to re-show Rival after we hid them when walking towards HoF
 	db HS_SNORLAX_DEN
 	db HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE

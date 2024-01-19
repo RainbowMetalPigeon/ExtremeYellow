@@ -9,7 +9,7 @@ MtMoon1F_Script:
 
 MtMoon1F_ScriptPointers:
 	dw MtMoon1Script0 ; new
-;	dw CheckFightingMapTrainers ; commented out, testing
+;	dw CheckFightingMapTrainers ; edited, commented out
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw MtMoon1Script3 ; new
@@ -20,10 +20,10 @@ MtMoon1F_ScriptPointers:
 
 MtMoon1Script0: ; new
 	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
-	jp nz, CheckFightingMapTrainers ; testing
+	jp nz, CheckFightingMapTrainers
 	ld hl, MtMoon1FCoords
 	call ArePlayerCoordsInArray
-	jp nc, CheckFightingMapTrainers ; testing
+	jp nc, CheckFightingMapTrainers
 	ld a, [wWalkBikeSurfState]
 	and a
 	jr z, .walking
@@ -128,6 +128,8 @@ MtMoon1Script4: ; new
 	ld a, 14 ; Rival's text (and sprite) index
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	ld a, $ff ; testing
+	ld [wJoyIgnore], a
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
 	ld a, 14 ; Rival's text (and sprite) index

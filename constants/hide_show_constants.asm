@@ -280,6 +280,7 @@ DEF SHOW EQU $15
 	const HS_POKEMON_MANSION_B1F_ITEM_3    ; C5
 	const HS_POKEMON_MANSION_B1F_ITEM_4    ; C6
 	const HS_POKEMON_MANSION_B1F_ITEM_5    ; C7
+	const HS_POKEMON_MANSION_B1F_RIVAL     ; new
 	const HS_SAFARI_ZONE_EAST_ITEM_1       ; C8
 	const HS_SAFARI_ZONE_EAST_ITEM_2       ; C9
 	const HS_SAFARI_ZONE_EAST_ITEM_3       ; CA
@@ -335,7 +336,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_ISLAND_CITIZEN_4     ; new
 	const HS_OBSIDIAN_ISLAND_TRAVELER      ; new
 	const HS_OBSIDIAN_ISLAND_ITEM_1        ; new
-	const HS_OCHRE_WONDERLAND_BLUE		   ; new, Wonderland Blue
+	const HS_OCHRE_WONDERLAND_RIVAL		   ; new, Wonderland rival
 	const HS_OCHRE_WONDERLAND_ITEM_1	   ; new
 	const HS_OCHRE_WONDERLAND_ITEM_2	   ; new
 	const HS_OCHRE_WONDERLAND_ITEM_3	   ; new
