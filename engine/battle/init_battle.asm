@@ -38,7 +38,18 @@ InitBattleCommon:
 	jp c, InitWildBattle		; countercomment to do tutorial to go beyond 200?
 	ld [wTrainerClass], a
 	call GetTrainerInformation
+; new, to handle Copycat's full copy team
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_2F
+	jr nz, .normalReading
+	CheckEvent EVENT_GOT_TM31
+	jr z, .normalReading
+	callfar ReadTrainer_CopyPlayersTeam
+	jr .continueFromCopycat
+.normalReading
 	callfar ReadTrainer
+.continueFromCopycat
+; back to vanilla
 	callfar DoBattleTransitionAndInitBattleVariables
 	call _LoadTrainerPic
 	xor a

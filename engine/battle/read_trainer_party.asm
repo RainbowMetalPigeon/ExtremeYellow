@@ -286,3 +286,36 @@ FindMaxLevelPlayersMons:
     jr .loop
 .done
     ret
+
+ReadTrainer_CopyPlayersTeam::
+	ld hl, wPartyCount
+	ld de, wEnemyPartyCount
+	ld bc, wPartyMon6Nick - wPartyCount
+	call CopyData ; copies bc bytes from hl to de
+; all stuff about money, copied from the main function
+	xor a
+	ld de, wAmountMoneyWon
+	ld [de], a
+	inc de
+	ld [de], a
+	inc de
+	ld [de], a
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1Level
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes ; add bc to hl a times
+	ld a, [hl]
+	ld b, a
+.LastLoop
+; update wAmountMoneyWon addresses (money to win) based on enemy's level
+	ld hl, wTrainerBaseMoney + 1
+	ld c, 2 ; wAmountMoneyWon is a 3-byte number
+	push bc
+	predef AddBCDPredef
+	pop bc
+	inc de
+	inc de
+	dec b
+	jr nz, .LastLoop ; repeat wCurEnemyLVL times
+	ret

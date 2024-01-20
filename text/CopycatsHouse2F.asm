@@ -71,6 +71,14 @@ _TM31ExplanationText2::
 
 	para "COPYCAT: You bet!"
 	line "It's a blast!" ; edited
+
+	para "Hey! I know it!"
+	line "What would you"
+	cont "think of another"
+	cont "battle? I can"
+	cont "show off my"
+	cont "ultimate mimicry"
+	cont "skills!"
 	done
 
 _TM31NoRoomText:: ; edited
@@ -117,5 +125,30 @@ _CopycatsHouse2FText_5cd1c::
 	done
 
 _CopycatText_PostBattleText::
-	text "<PLAYER>: TEST!"
+	text "<PLAYER>: Yes!"
+	line "I won!"
 	prompt
+
+_CopycatText_PostBattleText2::
+	text "<PLAYER>: Yes!"
+	line "I won again!"
+	prompt
+
+_CopycatsHouse2FText_BattleRefused::
+	text "Oh, that's a"
+	line "bummer..."
+
+	para "Well, you know"
+	line "where to find me"
+	cont "if you change"
+	cont "your mind, my"
+	cont "bedroom is always"
+	cont "open for you!"
+	done
+
+_CopycatsHouse2FText_BattleAccepted::
+	text "Eheh, get ready"
+	line "for a battle like"
+	cont "you've never had"
+	cont "before!"
+	done

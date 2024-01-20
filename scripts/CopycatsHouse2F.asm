@@ -56,7 +56,7 @@ CopycatsHouse2FText1: ; edited
 	call PrintText
 	ld b, POKE_DOLL
 	call IsItemInBag
-	jr z, .done
+	jp z, .done
 	ld hl, TM31PreReceiveText
 	call PrintText
 ; backup the current Level Scaling option choice to restore it after the battle
@@ -97,6 +97,28 @@ CopycatsHouse2FText1: ; edited
 	jr .done
 .got_item
 	ld hl, TM31ExplanationText2
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .rematchRefused
+	ld hl, CopycatsHouse2FText_BattleAccepted
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, CopycatText_PostBattleText2
+	ld de, CopycatText_PostBattleText2
+	call SaveEndBattleTextPointers
+	ld a, OPP_PSYCHIC_TR
+	ld [wCurOpponent], a
+	ld a, 5
+	ld [wTrainerNo], a
+	xor a
+	ldh [hJoyHeld], a
+	jr .done
+.rematchRefused
+	ld hl, CopycatsHouse2FText_BattleRefused
 	call PrintText
 .done
 	jp TextScriptEnd
@@ -165,4 +187,16 @@ PostBattleAndGiveTMText: ; new
 
 CopycatText_PostBattleText: ; new
 	text_far _CopycatText_PostBattleText
+	text_end
+
+CopycatText_PostBattleText2: ; new
+	text_far _CopycatText_PostBattleText2
+	text_end
+
+CopycatsHouse2FText_BattleRefused: ; new
+	text_far _CopycatsHouse2FText_BattleRefused
+	text_end
+
+CopycatsHouse2FText_BattleAccepted: ; new
+	text_far _CopycatsHouse2FText_BattleAccepted
 	text_end
