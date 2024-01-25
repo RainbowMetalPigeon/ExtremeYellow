@@ -228,11 +228,11 @@ MapHSPointers:
 	dw SafariZoneNorthHS
 	dw SafariZoneWestHS
 	dw SafariZoneCenterHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw SafariZoneCenterRestHouseHS ; new
+	dw NoHS ; SAFARI_ZONE_SECRET_HOUSE
+	dw NoHS ; SAFARI_ZONE_WEST_REST_HOUSE
+	dw NoHS ; SAFARI_ZONE_EAST_REST_HOUSE
+	dw NoHS ; SAFARI_ZONE_NORTH_REST_HOUSE
 	dw CeruleanCave2FHS
 	dw CeruleanCaveB1FHS
 	dw CeruleanCaveHS
@@ -720,8 +720,8 @@ OnixBurrowingHS: ; new
 FuchsiaCityHS: ; new
 	db FUCHSIA_CITY, $03, SHOW ; Erik waiting for Sara
 	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone
-	db FUCHSIA_CITY, $0C, HIDE ; Erik watching Sara
-	db FUCHSIA_CITY, $0D, HIDE ; Sara watching Erik
+	db FUCHSIA_CITY, $0C, HIDE ; Erik happy with Sara
+	db FUCHSIA_CITY, $0D, HIDE ; Sara happy with Erik
 	db FUCHSIA_CITY, $0E, HIDE ; Traveler
 CeruleanCaveExtraMiddleHS: ; new, includes rematch Lance
 	db CERULEAN_CAVE_EXTRA_MIDDLE, $01, HIDE
@@ -751,5 +751,9 @@ CeladonChiefHouseHS: ; new
 	db CELADON_CHIEF_HOUSE, $06, HIDE
 	db CELADON_CHIEF_HOUSE, $07, HIDE
 	db CELADON_CHIEF_HOUSE, $08, HIDE
+SafariZoneCenterRestHouseHS: ; new
+	db SAFARI_ZONE_CENTER_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
+	db SAFARI_ZONE_CENTER_REST_HOUSE, $03, HIDE ; Sara happy with Erik
+	db SAFARI_ZONE_CENTER_REST_HOUSE, $04, HIDE ; Erik happy with Sara
 
 	db $FF, $01, SHOW ; end, list terminator

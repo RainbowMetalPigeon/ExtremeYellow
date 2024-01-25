@@ -332,15 +332,17 @@ INCLUDE "scripts/RocketHideoutB4F.asm"
 INCLUDE "data/maps/objects/RocketHideoutB4F.asm"
 RocketHideoutB4F_Blocks: INCBIN "maps/RocketHideoutB4F.blk"
 
-INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
-INCLUDE "scripts/RocketHideoutElevator.asm"
-INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
-RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
+; moved to Maps New 1
+;INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
+;INCLUDE "scripts/RocketHideoutElevator.asm"
+;INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
+;RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
 
-INCLUDE "data/maps/headers/SilphCoElevator.asm"
-INCLUDE "scripts/SilphCoElevator.asm"
-INCLUDE "data/maps/objects/SilphCoElevator.asm"
-SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
+; moved to Maps New 1
+;INCLUDE "data/maps/headers/SilphCoElevator.asm"
+;INCLUDE "scripts/SilphCoElevator.asm"
+;INCLUDE "data/maps/objects/SilphCoElevator.asm"
+;SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
 
 INCLUDE "data/maps/headers/SafariZoneEast.asm"
 INCLUDE "scripts/SafariZoneEast.asm"
@@ -1386,6 +1388,16 @@ INCLUDE "data/maps/headers/OchreHouses.asm"
 INCLUDE "scripts/OchreHouses.asm"
 INCLUDE "data/maps/objects/OchreHouses.asm"
 OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
+
+INCLUDE "data/maps/headers/SilphCoElevator.asm"
+INCLUDE "scripts/SilphCoElevator.asm"
+INCLUDE "data/maps/objects/SilphCoElevator.asm"
+SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
+
+INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
+INCLUDE "scripts/RocketHideoutElevator.asm"
+INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
+RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
 
 ; new! Center+Mart
 INCLUDE "data/maps/headers/OchrePokecenter.asm"

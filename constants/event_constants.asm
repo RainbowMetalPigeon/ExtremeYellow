@@ -194,7 +194,9 @@
 	const_next $238
 	const EVENT_GOT_LUNAR_RELIC ; edited
 	const EVENT_GAVE_GOLD_TEETH
-	const_skip 20
+	const_skip 18 ; edited, was 20
+	const EVENT_SPOKEN_WITH_ERIK ; new
+	const EVENT_SPOKEN_WITH_SARA ; new
 	const EVENT_SAFARI_GAME_OVER
 	const EVENT_IN_SAFARI_ZONE
 	const_skip 7 ; edited, was 8

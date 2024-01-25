@@ -10,6 +10,8 @@ FuchsiaCity_Script:
 FuchsiaCity_ScriptPointers: ; new, for traveler
 	dw FuchsiaScript0
 	dw FuchsiaScript_Traveler
+	dw FuchsiaScript_MoveErik
+	dw FuchsiaScript_HideAndShowErikAndSara
 
 FuchsiaScript0:
 	ret
@@ -44,6 +46,7 @@ FuchsiaCity_TextPointers:
 	dw FuchsiaCityText23
 	dw FuchsiaCityText24
 	dw TextPostBattle_FuchsiaTraveler ; new, for traveler
+	dw FuchsiaCityText_ErikSurprised ; new, for Erik, 29
 
 FuchsiaCityText1:
 	text_far _FuchsiaCityText1
@@ -54,8 +57,86 @@ FuchsiaCityText2:
 	text_end
 
 FuchsiaCityText3:
-	text_far _FuchsiaCityText3
-	text_end
+	text_asm
+	ld hl, FuchsiaCityText_ErikWaiting
+	call PrintText
+	CheckEvent EVENT_SPOKEN_WITH_SARA
+	jr z, .notSpokenWithSara
+	ld a, 2
+	ld [wFuchsiaCityCurScript], a
+	ld [wCurMapScript], a
+	jr .conclude
+.notSpokenWithSara
+	SetEvent EVENT_SPOKEN_WITH_ERIK
+.conclude
+	jp TextScriptEnd
+
+FuchsiaScript_MoveErik: ; new
+	ld a, 3 ; Erik waiting
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ld c, 20
+	call DelayFrames
+	ld a, 29
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, [wXCoord]
+	cp 29 ; is player standing left of Erik?
+	jr z, .leftOfErik
+	ld de, FuchsiaErikMovements_PlayerRight
+	jr .continue
+.leftOfErik
+	ld de, FuchsiaErikMovements_PlayerLeft
+.continue
+	ld a, 3 ; index of Erik
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 3
+	ld [wFuchsiaCityCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+FuchsiaScript_HideAndShowErikAndSara:
+	ld a, [wd730] ; bit 0: NPC being moved by script
+	bit 0, a
+	ret nz
+	ld a, HS_FUCHSIA_CITY_ERIK_WAITING
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_SAFARI_REST_HOUSE_SARA_WAITING
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_SAFARI_REST_HOUSE_ERIK_HAPPY
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_SAFARI_REST_HOUSE_SARA_HAPPY
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+; script handling and return control to players
+	xor a
+	ld [wJoyIgnore], a
+	ld [wFuchsiaCityCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+FuchsiaErikMovements_PlayerLeft:
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db -1 ; end
+
+FuchsiaErikMovements_PlayerRight:
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_LEFT
+	db -1 ; end
 
 FuchsiaCityText4:
 	text_far _FuchsiaCityText4
@@ -166,18 +247,28 @@ FuchsiaCityKabutoText:
 	text_far _FuchsiaCityKabutoText
 	text_end
 
-FuchsiaCityTextErikHappy:
+; ---------------------------------
+
+FuchsiaCityText_ErikWaiting: ; new
+	text_far _FuchsiaCityText_ErikWaiting
+	text_end
+
+FuchsiaCityText_ErikSurprised: ; new
+	text_far _FuchsiaCityText_ErikSurprised
+	text_end
+
+FuchsiaCityTextErikHappy: ; new
 	text_far _FuchsiaCityTextErikHappy
 	text_end
 
-FuchsiaCityTextSaraHappy:
+FuchsiaCityTextSaraHappy: ; new
 	text_far _FuchsiaCityTextSaraHappy
 	text_end
 
 ; ================================
 
 TextPreBattle_FuchsiaTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_FuchsiaTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty

@@ -15,10 +15,23 @@ _FuchsiaCityText2::
 	cont "catching #MON."
 	done
 
-_FuchsiaCityText3::
+_FuchsiaCityText_ErikWaiting::
 	text "ERIK: Where's"
 	line "SARA? I said I'd"
 	cont "meet them here."
+	done
+
+_FuchsiaCityText_ErikSurprised:: ; new
+	text "! What?!"
+	line "You talked with"
+	cont "them and they're"
+	cont "waiting for me"
+	cont "inside the SAFARI"
+	cont "ZONE?"
+
+	para "Thanks a ton!!!"
+	line "I'll go right"
+	cont "away!"
 	done
 
 _FuchsiaCityText4::
@@ -134,7 +147,7 @@ _FuchsiaCityTextErikHappy:: ; new
 	cont "the whole day."
 
 	para "I risked spending"
-	cont "hours here..."
+	line "hours here..."
 
 	para "I am so happy to"
 	line "be with SARA!"
@@ -149,7 +162,7 @@ _FuchsiaCityTextSaraHappy:: ; new
 	cont "the whole day."
 
 	para "I risked spending"
-	cont "hours there..."
+	line "hours there..."
 
 	para "I am so happy to"
 	line "be with ERIK!"
