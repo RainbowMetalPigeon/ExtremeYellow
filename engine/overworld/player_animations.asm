@@ -55,7 +55,7 @@ EnterMapAnim::
 	jr nz, .vanillaFlyAnimation
 ; Pikachu landing, let's see if we crashland or not
 	call Random
-	cp 200 ; TBE
+	cp 3 ; about 1% chance
 	jr c, .crashLand
 ; not crashlanding
 	call LoadFlyingPikachuSpriteGraphics

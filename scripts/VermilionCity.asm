@@ -162,25 +162,40 @@ VermilionCityText1:
 	text_far _VermilionCityText1
 	text_end
 
-VermilionCityText2:
+VermilionCityText2: ; edited
 	text_asm
-; new code to handle the ship return
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 	jr z, .beforeShipReturn
 	ld hl, VermilionCityTextAnneReturned
-	call PrintText
 	jr .end
 .beforeShipReturn
-; back to vanilla code
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .shipHasDeparted
 	ld hl, VermilionCityTextDidYouSee
-	call PrintText
 	jr .end
 .shipHasDeparted
+	ld hl, wObtainedBadges
+	ld b, 1
+	call CountSetBits ; INPUT: hl = address of string of bytes, b = length of string of bytes, OUTPUT: [wNumSetBits] = number of set bits
+	ld a, [wNumSetBits]
+	cp 4
+	jr nc, .someBadges1
 	ld hl, VermilionCityTextSSAnneDeparted
-	call PrintText
+	jr .end
+.someBadges1
+	cp 7
+	jr nc, .someBadges2
+	ld hl, VermilionCityTextSSAnneReturnsSoon
+	jr .end
+.someBadges2
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .beatenLeague
+	ld hl, VermilionCityTextSSAnneReturnsVerySoon
+	jr .end
+.beatenLeague
+	ld hl, VermilionCityTextSSAnneReturnsAnyTimeNow
 .end
+	call PrintText
 	jp TextScriptEnd
 
 VermilionCityTextDidYouSee:
@@ -191,7 +206,19 @@ VermilionCityTextSSAnneDeparted:
 	text_far _VermilionCityTextSSAnneDeparted
 	text_end
 
-VermilionCityTextAnneReturned:
+VermilionCityTextSSAnneReturnsSoon: ; new
+	text_far _VermilionCityTextSSAnneReturnsSoon
+	text_end
+
+VermilionCityTextSSAnneReturnsVerySoon: ; new
+	text_far _VermilionCityTextSSAnneReturnsVerySoon
+	text_end
+
+VermilionCityTextSSAnneReturnsAnyTimeNow: ; new
+	text_far _VermilionCityTextSSAnneReturnsAnyTimeNow
+	text_end
+
+VermilionCityTextAnneReturned: ; new
 	text_far _VermilionCityTextAnneReturned
 	text_end
 
@@ -342,7 +369,7 @@ VermilionCityText16: ; new
 ; ================================
 
 TextPreBattle_VermilionTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_VermilionTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty

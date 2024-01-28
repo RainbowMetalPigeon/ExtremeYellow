@@ -21,16 +21,44 @@ _VermilionCityTextSSAnneDeparted::
 	line "will be back!"
 	done
 
-_VermilionCityTextAnneReturned::
-	text "Ah! The S.S.ANNE"
-	line "is back!"
+_VermilionCityTextSSAnneReturnsSoon::
+	text "Have you heard?"
 
-	para "I didn't expect it"
-	line "to return so"
-	cont "soon, usually"
-	cont "it takes what it"
-	cont "seems like an"
-	cont "eternity!"
+	para "It seems that the"
+	line "SS ANNE is to"
+	cont "return somewhen"
+	cont "soon!"
+	done
+
+_VermilionCityTextSSAnneReturnsVerySoon::
+	text "Oh, I'm so"
+	line "excited!"
+
+	para "They say that the"
+	line "SS ANNE is going"
+	cont "to return very"
+	cont "soon!"
+	done
+
+_VermilionCityTextSSAnneReturnsAnyTimeNow::
+	text "I'm out of myself"
+	line "for the"
+	cont "excitement!"
+
+	para "The SS ANNE"
+	line "will be back"
+	cont "any time now!"
+	done
+
+_VermilionCityTextAnneReturned:: ; new
+	text "YES! The S.S.ANNE"
+	line "is back!!!"
+
+	para "I'm so happy it's"
+	line "already returned,"
+	cont "sometimes it"
+	cont "takes forever to"
+	cont "be back!"
 	done
 
 _SSAnneWelcomeText4::

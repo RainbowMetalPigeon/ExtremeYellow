@@ -34,6 +34,7 @@ IF DEF(_DEBUG)
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
+;	ld a, %11111111
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
@@ -133,8 +134,10 @@ IF DEF(_DEBUG)
 ;	ld [wOptions], a
 
 ;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
-	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
-	SetEvent EVENT_GOT_HM01
+;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+;	SetEvent EVENT_GOT_HM01
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_SS_ANNE_LEFT
 
 	ret
 
