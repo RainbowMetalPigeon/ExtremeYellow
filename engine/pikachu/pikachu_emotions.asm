@@ -284,23 +284,31 @@ PikachuEmotionTable:
 	pikaemotion_def PikachuEmotion19
 	pikaemotion_def PikachuEmotion20
 	pikaemotion_def PikachuEmotion21 ; used a fishing rod
-	pikaemotion_def PikachuEmotion22
-	pikaemotion_def PikachuEmotion23
+	pikaemotion_def PikachuEmotion22 ; scared in Pokemon Tower
+	pikaemotion_def PikachuEmotion23 ; $17? a confusion?
 	pikaemotion_def PikachuEmotion24
 	pikaemotion_def PikachuEmotion25
 	pikaemotion_def PikachuEmotion26 ; wake up pikachu in pewter pokemon center
-	pikaemotion_def PikachuEmotion27
+	pikaemotion_def PikachuEmotion27 ; $1b? surprise?
 	pikaemotion_def PikachuEmotion28
 	pikaemotion_def PikachuEmotion29
 	pikaemotion_def PikachuEmotion30
 	pikaemotion_def PikachuEmotion31
-	pikaemotion_def PikachuEmotion32
+	pikaemotion_def PikachuEmotion32 ; $20? a confusion?
 	pikaemotion_def PikachuEmotion33
 
 PikachuEmotion33:
 	db $ff
 
 MapSpecificPikachuExpression:
+; new, testing for crashlanding
+	ld a, [wJustCrashLanded]
+	and a
+	jr z, .goToVanilla
+	ldpikaemotion a, PikachuEmotion27 ; TBE
+	jr .play_emotion
+.goToVanilla
+; back to vanilla
 	ld a, [wCurMap]
 	cp POKEMON_FAN_CLUB
 	jr nz, .notFanClub

@@ -482,7 +482,8 @@ wNPCMovementScriptPointerTableNum:: db
 ; ROM bank of current NPC movement script
 wNPCMovementScriptBank:: db
 
-	ds 2
+;	ds 1 ; edited, was 1, reduced for variable below
+wJustCrashLanded:: db ; new, to see if we just crashlanded, used only to handle Pikachu's emotion
 
 ; This union spans 180 bytes.
 UNION

@@ -67,10 +67,10 @@ IF DEF(_DEBUG)
 ;	ld [hl], a
 
 	; Pikachu gets Surf.
-	ld a, SURF
+	ld a, FLY
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
-	ld a, ANCESTOR_PWR
+	ld a, SURF
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
@@ -149,7 +149,7 @@ DebugSetPokedexEntries:
 	ret
 
 DebugItemsList:
-	db LUNAR_RELIC, 1
+;	db LUNAR_RELIC, 1
 	db PERFECTER, 50
 	db SUPER_ROD, 1
 	db GOOD_ROD, 1
@@ -168,6 +168,7 @@ DebugItemsList:
 	db ESCAPE_ROPE, 99
 	db LEGEND_CANDY, 42
 	db GOLD_TEETH, 1
+	db SILPH_SCOPE, 1
 	db -1 ; end
 
 DebugUnusedList:
@@ -180,7 +181,6 @@ DebugUnusedList:
 	db S_S_TICKET, 1
 	db GOLD_TEETH, 1
 	db COIN_CASE, 1
-	db SILPH_SCOPE, 1
 	db POKE_FLUTE, 1
 	db LIFT_KEY, 1
 	db ETHER, 99

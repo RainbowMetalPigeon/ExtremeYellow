@@ -294,9 +294,9 @@ SECTION "bank1C", ROMX
 
 ;INCLUDE "engine/movie/splash.asm" ; moved away to the next bank
 INCLUDE "engine/movie/hall_of_fame.asm"
-INCLUDE "engine/overworld/healing_machine.asm"
+;INCLUDE "engine/overworld/healing_machine.asm" ; moved away to the next bank
 INCLUDE "engine/overworld/player_animations.asm"
-INCLUDE "engine/battle/ghost_marowak_anim.asm"
+;INCLUDE "engine/battle/ghost_marowak_anim.asm" ; moved away to the next bank
 INCLUDE "engine/battle/battle_transitions.asm"
 INCLUDE "engine/items/town_map.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
@@ -308,6 +308,8 @@ INCLUDE "engine/menus/save.asm"
 SECTION "bank1C bis", ROMX ; new, move some stuff out of the original bank1c
 
 INCLUDE "engine/movie/splash.asm" ; this seems to be referenced only by intro.asm with a farcall?
+INCLUDE "engine/battle/ghost_marowak_anim.asm" ; only by common_text.asm with a farcall?
+INCLUDE "engine/overworld/healing_machine.asm" ; needed for the marowak animation, and only farcalled?
 
 
 SECTION "Itemfinder 1", ROMX

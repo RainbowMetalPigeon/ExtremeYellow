@@ -91,13 +91,13 @@ Func_f24ae::
 	jr z, .asm_f24d2
 	ld a, [wBillsHouseCurScript]
 	cp $5
-	ld e, $1b
+	ld e, $1b ; surprise?
 	ret z
 	cp $0
-	ld e, $17
+	ld e, $17 ; confusion?
 	ret z
 	CheckEventHL EVENT_MET_BILL_2
-	ld e, $20
+	ld e, $20 ; another confusion?
 	ret z
 	ld e, $1f
 	ret

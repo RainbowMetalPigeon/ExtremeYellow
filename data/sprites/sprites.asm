@@ -89,6 +89,8 @@ SpriteSheetPointerTable:
 	overworld_sprite MoltresSprite, 12          ; SPRITE_MOLTRES ; new
 	overworld_sprite MewtwoSprite, 12           ; SPRITE_MEWTWO ; new
 	overworld_sprite TravelerSprite, 12         ; SPRITE_TRAVELER ; new
+	overworld_sprite FlyingPikachuSprite, 12    ; SPRITE_FLYING_PIKACHU ; new
+	overworld_sprite CrashingPikachuSprite, 12  ; SPRITE_CRASHING_PIKACHU ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL
