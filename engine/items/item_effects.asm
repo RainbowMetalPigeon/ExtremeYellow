@@ -2141,18 +2141,18 @@ ItemUseXStat:
 ItemUsePokeflute:
 	ld a, [wIsInBattle]
 	and a
-	jr nz, .inBattle
+	jp nz, .inBattle
 ; if not in battle
 	call ItemUseReloadOverworldData
 	ld a, [wCurMap]
 	cp ROUTE_12
 	jr nz, .notRoute12
 	CheckEvent EVENT_BEAT_ROUTE12_SNORLAX
-	jr nz, .noSnorlaxOrPikachuToWakeUp
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
 ; if the player hasn't beaten Route 12 Snorlax
 	ld hl, Route12SnorlaxFluteCoords
 	call ArePlayerCoordsInArray
-	jr nc, .noSnorlaxOrPikachuToWakeUp
+	jr nc, .noSnorlaxOrPikachuOrMachampToWakeUp
 	ld hl, PlayedFluteHadEffectText
 	call PrintText
 	SetEvent EVENT_FIGHT_ROUTE12_SNORLAX
@@ -2162,11 +2162,11 @@ ItemUsePokeflute:
 	cp ROUTE_16
 	jr nz, .notRoute16
 	CheckEvent EVENT_BEAT_ROUTE16_SNORLAX
-	jr nz, .noSnorlaxOrPikachuToWakeUp
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
 ; if the player hasn't beaten Route 16 Snorlax
 	ld hl, Route16SnorlaxFluteCoords
 	call ArePlayerCoordsInArray
-	jr nc, .noSnorlaxOrPikachuToWakeUp
+	jr nc, .noSnorlaxOrPikachuOrMachampToWakeUp
 	ld hl, PlayedFluteHadEffectText
 	call PrintText
 	SetEvent EVENT_FIGHT_ROUTE16_SNORLAX
@@ -2174,11 +2174,11 @@ ItemUsePokeflute:
 
 .notRoute16
 	cp PEWTER_POKECENTER
-	jr nz, .noSnorlaxOrPikachuToWakeUp
+	jr nz, .notPewterPokecenter ; edited
 	call CheckPikachuFollowingPlayer
-	jr z, .noSnorlaxOrPikachuToWakeUp
+	jr z, .noSnorlaxOrPikachuOrMachampToWakeUp
 	callfar IsPikachuRightNextToPlayer
-	jr nc, .noSnorlaxOrPikachuToWakeUp
+	jr nc, .noSnorlaxOrPikachuOrMachampToWakeUp
 	ld hl, PlayedFluteHadEffectText
 	call PrintText
 	call ItemUseReloadOverworldData
@@ -2186,7 +2186,21 @@ ItemUsePokeflute:
 	callfar PlaySpecificPikachuEmotion
 	ret
 
-.noSnorlaxOrPikachuToWakeUp
+.notPewterPokecenter ; new
+	cp VERMILION_CITY
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp ; wrong city
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr z, .noSnorlaxOrPikachuOrMachampToWakeUp ; Machamp hasn't finished building yet
+	ld hl, VermilionMachampFluteCoords
+	call ArePlayerCoordsInArray
+	jr nc, .noSnorlaxOrPikachuOrMachampToWakeUp
+	ld hl, PlayedFluteHadEffectText
+	call PrintText
+	ld hl, MachampAnnoyedText
+	call PrintText
+	ret
+
+.noSnorlaxOrPikachuOrMachampToWakeUp ; edited label name
 	ld hl, PlayedFluteNoEffectText
 	jp PrintText
 
@@ -2276,6 +2290,15 @@ Route16SnorlaxFluteCoords:
 	dbmapcoord 27, 10 ; one space East of Snorlax
 	dbmapcoord 25, 10 ; one space West of Snorlax
 	db -1 ; end
+
+VermilionMachampFluteCoords: ; new
+	dbmapcoord 33, 11 ; one space North of Machamp
+	dbmapcoord 32, 12 ; one space West of Machamp
+	db -1 ; end
+
+MachampAnnoyedText: ; new
+	text_far _MachampAnnoyedText
+	text_end
 
 PlayedFluteNoEffectText:
 	text_far _PlayedFluteNoEffectText

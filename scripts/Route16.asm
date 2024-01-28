@@ -237,6 +237,7 @@ Route16Script9: ; new
 	ld a, HS_ROUTE_12_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	SetEvent EVENT_BEAT_ROUTE12_SNORLAX ; necessary only to avoid using pokeflute in front of "nowhere"
 	xor a
 	ld [wJoyIgnore], a
 	call PlayDefaultMusic

@@ -305,6 +305,7 @@ Route12Script9: ; new
 	ld a, HS_ROUTE_16_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	SetEvent EVENT_BEAT_ROUTE16_SNORLAX ; necessary only to avoid using pokeflute in front of "nowhere"
 	ld a, $0
 	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a

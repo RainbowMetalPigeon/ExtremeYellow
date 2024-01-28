@@ -262,3 +262,13 @@ _SSAnneWelcomeTextPostReturn::
 	cont "don't need to"
 	cont "have a TICKET."
 	done
+
+_MachampAnnoyedText::
+	text "MACHAMP opens an"
+	line "eye to give you a"
+	cont "hard gaze."
+
+	para "It goes back"
+	line "napping with an"
+	cont "annoyed grunt..."
+	prompt
