@@ -4607,6 +4607,7 @@ MPinsirEvosMoves:
 	db 56, LEECH_LIFE
 	db 57, SLASH
 	db 60, SUPERPOWER
+	db 62, AIR_SLASH
 	db 63, GUILLOTINE
 	db 0
 

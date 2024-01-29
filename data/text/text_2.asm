@@ -228,7 +228,7 @@ _ObsidianPokecenterGuyText:: ; new
 	para "I won't move just"
 	line "for TEAM ROCKET!"
 	done
-	
+
 _VermilionPokecenterGuyText::
 	text "It is true that a"
 	line "higher level"
@@ -613,8 +613,8 @@ _ViridianSchoolNotebookText5::
 	cont "arrived from a"
 	cont "faraway region."
 
-	para "During an inverse"
-	line "battle, the usual"
+	para "During an INVERSE"
+	line "BATTLE, the usual"
 	cont "resistances and"
 	cont "weaknesses are"
 	cont "inverted!"

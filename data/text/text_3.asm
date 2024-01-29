@@ -478,7 +478,7 @@ _IntroduceRivalText::
 	cont "but..."
 
 	para "...What is their"
-	line "their name again?"
+	line "name again?"
 
 	para "Please, don't tell"
 	line "them I asked you!"

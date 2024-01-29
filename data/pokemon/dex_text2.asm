@@ -103,10 +103,11 @@ _HaunterDexEntry::
 _GengarDexEntry::
 	text "A GENGAR is close"
 	next "by if you feel a"
-	next "sudden chill. It"
+	next "sudden chill."
 
-	page "may be trying to"
-	next "lay a curse on you"
+	page "It may be trying"
+	next "to lay a curse"
+	next "on you"
 	dex
 
 _MGengarDexEntry::

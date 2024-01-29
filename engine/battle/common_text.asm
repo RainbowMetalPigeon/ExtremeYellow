@@ -16,8 +16,8 @@ PrintBeginningBattleText:
 	jr c, .asm_f4026
 	ld e, $a
 .asm_f4026
-;	callfar PlayPikachuSoundClip
-;	jr .continue
+	callfar PlayPikachuSoundClip
+	jr .continue
 .notPikachuBattle
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry

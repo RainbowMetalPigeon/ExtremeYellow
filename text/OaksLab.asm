@@ -251,7 +251,7 @@ _OaksLabBePatientText::
 	line "...Erm..."
 	cont "<RIVAL>!"
 
-	para "Is that I saw"
+	para "It's that I saw"
 	line "<PLAYER> in danger"
 	cont "and I got"
 	cont "worried..."

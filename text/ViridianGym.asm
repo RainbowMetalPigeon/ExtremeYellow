@@ -61,8 +61,8 @@ _ViridianGymGiovanniPostBattleText::
 	cont "to go back to my"
 	cont "researches..."
 	cont "But at this point"
-	cont "is impossible. I"
-	cont "have committed"
+	cont "it's impossible."
+	cont "I have committed"
 	cont "too many"
 	cont "atrocities."
 

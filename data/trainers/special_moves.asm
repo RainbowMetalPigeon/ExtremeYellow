@@ -752,7 +752,7 @@ SpecialTrainerMoves:
 ;	db 6, 4, MUD_SLAP
 	db $FE
 
-	db RIVAL2, 1
+	db RIVAL2, 1 ; SS Anne
 	; NIDOKING
 	db 1, 1, DOUBLE_KICK
 	db 1, 2, DIG
@@ -785,7 +785,7 @@ SpecialTrainerMoves:
 	db 6, 4, BITE
 	db $FE
 
-	db RIVAL2, 2
+	db RIVAL2, 2 ; Pokemon Tower
 	; PINSIR
 ;	db 1, 1, SEISMIC_TOSS
 	db 1, 2, X_SCISSOR
@@ -818,7 +818,7 @@ SpecialTrainerMoves:
 	db 6, 4, REST
 	db $FE
 
-	db RIVAL2, 3
+	db RIVAL2, 3 ; Silph Co
 	; ANNIHILAPE
 	db 1, 1, CLOSE_COMBAT ; DRAIN_PUNCH?
 	db 1, 2, SHADOW_CLAW
@@ -851,7 +851,7 @@ SpecialTrainerMoves:
 ;	db 6, 4, DARK_PULSE
 	db $FE
 
-	db RIVAL2, 4
+	db RIVAL2, 4 ; Route 22
 	; JOLTEON
 	db 1, 1, DOUBLE_KICK
 	db 1, 2, THUNDER_WAVE
@@ -884,40 +884,241 @@ SpecialTrainerMoves:
 	db 6, 4, DOUBLE_TEAM
 	db $FE
 
+	db RIVAL2, 5 ; Snorlaxs
+	; AERODACTYL
+	db 1, 1, DRAGON_RAGE
+	db 1, 2, AERIAL_ACE
+	db 1, 3, ROCK_SLIDE
+	db 1, 4, IRON_TAIL
+	; STARMIE
+	db 2, 1, PSYCHIC_M
+	db 2, 2, WATER_PULSE
+	db 2, 3, THUNDERBOLT
+	db 2, 4, RECOVER
+	; TANGROWTH
+	db 3, 1, SLEEP_POWDER
+	db 3, 2, LEECH_SEED
+	db 3, 3, INFESTATION
+	db 3, 4, GIGA_DRAIN
+	; MAGNEZONE
+	db 4, 1, THUNDER_WAVE
+	db 4, 2, THUNDERBOLT
+	db 4, 3, LIGHT_SCREEN
+	db 4, 4, FLASH_CANNON
+	; KINGDRA
+	db 5, 1, DRAGONBREATH
+	db 5, 2, BUBBLEBEAM
+	db 5, 3, ICE_BEAM
+	db 5, 4, SMOKESCREEN
+	; UMBREON
+	db 6, 1, DARK_PULSE
+	db 6, 2, DOUBLE_TEAM
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, REST
+	db $FE
+
+	db RIVAL2, 6 ; Mt Moon
+	; ALAKAZAM
+	db 1, 1, PSYCHIC_M
+	db 1, 2, RECOVER
+	db 1, 3, THUNDER_WAVE
+	db 1, 4, REFLECT
+	; BLISSEY
+	db 2, 1, SOFTBOILED
+	db 2, 2, ICE_BEAM
+	db 2, 3, THUNDER_WAVE
+	db 2, 4, COUNTER
+	; RHYPERIOR
+	db 3, 1, STONE_EDGE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, SUBSTITUTE
+	db 3, 4, HYPER_BEAM
+	; EXEGGUTOR
+	db 4, 1, EXPLOSION
+	db 4, 2, PSYCHIC_M
+	db 4, 3, SLEEP_POWDER
+	db 4, 4, GIGA_DRAIN
+	; TAUROS
+	db 5, 1, HYPER_BEAM
+	db 5, 2, BODY_SLAM
+	db 5, 3, EARTHQUAKE
+	db 5, 4, BLIZZARD
+	; UMBREON
+	db 6, 1, DARK_PULSE
+	db 6, 2, DOUBLE_TEAM
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, REST
+	db $FE
+
+	db RIVAL2, 7 ; Pokemon Mansion
+	; LAPRAS
+	db 1, 1, HYDRO_PUMP
+	db 1, 2, BLIZZARD
+	db 1, 3, CONFUSE_RAY
+	db 1, 4, THUNDERBOLT
+	; MACHAMP
+	db 2, 1, CLOSE_COMBAT
+	db 2, 2, STONE_EDGE
+	db 2, 3, BULLET_PUNCH
+	db 2, 4, EARTHQUAKE
+	; GENGAR
+	db 3, 1, CONFUSE_RAY
+	db 3, 2, MINIMIZE
+	db 3, 3, NIGHT_SLASH
+	db 3, 4, WILL_O_WISP
+	; DRAGONITE
+	db 4, 1, DRAGON_DANCE
+	db 4, 2, AIR_SLASH
+	db 4, 3, EARTHQUAKE
+	db 4, 4, OUTRAGE
+	; GYARADOS
+	db 5, 1, DRAGON_DANCE
+	db 5, 2, HURRICANE
+	db 5, 3, HYPER_BEAM
+	db 5, 4, EARTHQUAKE
+	; UMBREON
+	db 6, 1, DARK_PULSE
+	db 6, 2, DOUBLE_TEAM
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, TOXIC
+	db $FE
+
 	db RIVAL3, 1
 	; MPIDGEOT
 	db 1, 1, THUNDER
 	db 1, 2, BLIZZARD
 	db 1, 3, HEAT_WAVE
-;	db 1, 4, HURRICANE
+	db 1, 4, HURRICANE
 	; MALAKAZAM
-;	db 2, 1, PSYCHIC_M
+	db 2, 1, PSYCHIC_M
 	db 2, 2, DARK_PULSE
 	db 2, 3, MOONBLAST
-;	db 2, 4, ZAP_CANNON
+	db 2, 4, ZAP_CANNON
 	; MSCIZOR
 	db 3, 1, METEOR_MASH
-;	db 3, 2, STEEL_WING
+	db 3, 2, STEEL_WING
 	db 3, 3, LEECH_LIFE
 	db 3, 4, CLOSE_COMBAT
 	; MVENUSAUR
 	db 4, 1, DOUBLE_EDGE
-;	db 4, 2, GUNK_SHOT
+	db 4, 2, GUNK_SHOT
 	db 4, 3, EARTHQUAKE
-;	db 4, 4, FRENZY_PLANT
+	db 4, 4, FRENZY_PLANT
 	; MCHARZARDY
 	db 5, 1, HURRICANE ; ?
 	db 5, 2, DRAGON_CLAW
 	db 5, 3, CRUNCH
-;	db 5, 4, BLAST_BURN
+	db 5, 4, BLAST_BURN
 	; MBLASTOISE
 	db 6, 1, ZAP_CANNON
 	db 6, 2, OUTRAGE
 	db 6, 3, BLIZZARD
-;	db 6, 4, HYDRO_CANNON
+	db 6, 4, HYDRO_CANNON
 	db $FE
 
 	db RIVAL3, 2
+	; ARTICUNO
+	db 1, 1, ROOST
+	db 1, 2, BRAVE_BIRD
+	db 1, 3, BLIZZARD
+	db 1, 4, WATER_PULSE
+	; ZAPDOS
+	db 2, 1, ROOST
+	db 2, 2, BRAVE_BIRD
+	db 2, 3, THUNDER
+	db 2, 4, HEAT_WAVE
+	; MOLTRES
+	db 3, 1, ROOST
+	db 3, 2, BRAVE_BIRD
+	db 3, 3, FIRE_BLAST
+	db 3, 4, STEEL_WING
+	db $FE
+
+	db RIVAL3, 3
+	; MPIDGEOT
+	db 1, 1, THUNDER
+	db 1, 2, BLIZZARD
+	db 1, 3, HEAT_WAVE
+	db 1, 4, ROOST
+	; MALAKAZAM
+	db 2, 1, PSYCHIC_M
+	db 2, 2, REFLECT
+	db 2, 3, MOONBLAST
+	db 2, 4, RECOVER
+	; MVENUSAUR
+	db 3, 1, LEECH_SEED
+	db 3, 2, GUNK_SHOT
+	db 3, 3, EARTHQUAKE
+	db 3, 4, FRENZY_PLANT
+	; MCHARZARDY
+	db 4, 1, ROOST
+	db 4, 2, DRAGON_CLAW
+	db 4, 3, CRUNCH
+	db 4, 4, BLAST_BURN
+	; MBLASTOISE
+	db 5, 1, REST
+	db 5, 2, OUTRAGE
+	db 5, 3, BLIZZARD
+	db 5, 4, HYDRO_CANNON
+	; UMBREON
+	db 6, 1, DARK_PULSE
+	db 6, 2, DOUBLE_TEAM
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, REST
+	db $FE
+
+	db RIVAL3, 4
+	; ARTICUNO
+	db 1, 1, ROOST
+	db 1, 2, BRAVE_BIRD
+	db 1, 3, ICE_BEAM
+	db 1, 4, WATER_PULSE
+	; ZAPDOS
+	db 2, 1, ROOST
+	db 2, 2, BRAVE_BIRD
+	db 2, 3, THUNDERBOLT
+	db 2, 4, HEAT_WAVE
+	; MOLTRES
+	db 3, 1, ROOST
+	db 3, 2, BRAVE_BIRD
+	db 3, 3, FLAMETHROWER
+	db 3, 4, STEEL_WING
+	db $FE
+
+	db RIVAL3, 5
+	; MPINSIR
+	db 1, 1, AIR_SLASH
+	db 1, 2, MEGAHORN
+	db 1, 3, SWORDS_DANCE
+	db 1, 4, CLOSE_COMBAT
+	; MPIDGEOT
+	db 2, 1, THUNDER
+	db 2, 2, BLIZZARD
+	db 2, 3, HEAT_WAVE
+	db 2, 4, ROOST
+	; MALAKAZAM
+	db 3, 1, PSYCHIC_M
+	db 3, 2, REFLECT
+	db 3, 3, MOONBLAST
+	db 3, 4, RECOVER
+	; MVENUSAUR
+	db 4, 1, LEECH_SEED
+	db 4, 2, GUNK_SHOT
+	db 4, 3, EARTHQUAKE
+	db 4, 4, FRENZY_PLANT
+	; MCHARZARDY
+	db 5, 1, ROOST
+	db 5, 2, DRAGON_CLAW
+	db 5, 3, CRUNCH
+	db 5, 4, BLAST_BURN
+	; MBLASTOISE
+	db 6, 1, REST
+	db 6, 2, OUTRAGE
+	db 6, 3, BLIZZARD
+	db 6, 4, HYDRO_CANNON
+	db $FE
+
+	db RIVAL3, 6
 	; ARTICUNO
 	db 1, 1, ROOST
 	db 1, 2, BRAVE_BIRD
@@ -931,8 +1132,23 @@ SpecialTrainerMoves:
 	; MOLTRES
 	db 3, 1, ROOST
 	db 3, 2, BRAVE_BIRD
-	db 3, 3, FIRE_BLAST
+	db 3, 3, FLAMETHROWER
 	db 3, 4, STEEL_WING
+	; MEWTWO
+	db 4, 1, PSYCHO_CUT
+	db 4, 2, RECOVER
+	db 4, 3, BLIZZARD
+	db 4, 4, FIRE_BLAST
+	; MEW
+	db 5, 1, TRI_ATTACK
+	db 5, 2, CRABHAMMER
+	db 5, 3, VOLT_TACKLE
+	db 5, 4, SOFTBOILED
+	; UMBREON
+	db 6, 1, DARK_PULSE
+	db 6, 2, DOUBLE_TEAM
+	db 6, 3, TOXIC
+	db 6, 4, REST
 	db $FE
 
 	db ROCKET, 46
