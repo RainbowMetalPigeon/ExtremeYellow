@@ -62,61 +62,45 @@ BillsHouseInitiatedText::
 	call DelayFrames
 	jp TextScriptEnd
 
-BillsHousePokemonList::
+BillsHousePokemonList:: ; edited
 	text_asm
 	call SaveScreenTilesToBuffer1
 	ld hl, BillsHousePokemonListText1
 	call PrintText
 	xor a
+	ld [wListScrollOffset], a ; not used?
 	ld [wMenuItemOffset], a ; not used
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
-	ld a, A_BUTTON | B_BUTTON
-	ld [wMenuWatchedKeys], a
-	ld a, 4
-	ld [wMaxMenuItem], a
-	ld a, 2
-	ld [wTopMenuItemY], a
-	ld a, 1
-	ld [wTopMenuItemX], a
 .billsPokemonLoop
 	ld hl, wd730
-	set 6, [hl]
-	hlcoord 0, 0
-	lb bc, 10, 9
-	call TextBoxBorder
-	hlcoord 2, 2
-	ld de, BillsMonListText
-	call PlaceString
+	set 6, [hl] ; bit 6: print text with no delay between each letter
 	ld hl, BillsHousePokemonListText2
 	call PrintText
 	call SaveScreenTilesToBuffer2
-	call HandleMenuInput
-	bit BIT_B_BUTTON, a
-	jr nz, .cancel
-	ld a, [wCurrentMenuItem]
+	ld hl, BillsPcEevolutionsList
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .cancel
+	ld a, [wcf91]
+	sub BILLSPC_EEVOLUTION_EEVEE
 	add EEVEE
+; these checks are kinda redundant tbh, I could just check if jr z, SYLVEON + 1 I think?
 	cp EEVEE
-	jr z, .displayPokedex
-	cp FLAREON
-	jr z, .displayPokedex
-	cp JOLTEON
-	jr z, .displayPokedex
-	cp VAPOREON
-	jr z, .displayPokedex
-; new Eevolutions
-	cp ESPEON
-	jr z, .displayPokedex
-	cp UMBREON
-	jr z, .displayPokedex
-	cp LEAFEON
-	jr z, .displayPokedex
-	cp GLACEON
-	jr z, .displayPokedex
-	cp SYLVEON
-	jr z, .displayPokedex
-; back to vanilla code
-	jr .cancel
+	jr c, .cancel
+	cp SYLVEON + 1
+	jr nc, .cancel
+	jr .displayPokedex
 .displayPokedex
 	call DisplayPokedex
 	call LoadScreenTilesFromBuffer2
@@ -127,22 +111,22 @@ BillsHousePokemonList::
 	call LoadScreenTilesFromBuffer2
 	jp TextScriptEnd
 
+BillsPcEevolutionsList:
+	db 9 ; #
+	db BILLSPC_EEVOLUTION_EEVEE
+	db BILLSPC_EEVOLUTION_VAPOREON
+	db BILLSPC_EEVOLUTION_JOLTEON
+	db BILLSPC_EEVOLUTION_FLAREON
+	db BILLSPC_EEVOLUTION_ESPEON
+	db BILLSPC_EEVOLUTION_UMBREON
+	db BILLSPC_EEVOLUTION_LEAFEON
+	db BILLSPC_EEVOLUTION_GLACEON
+    db BILLSPC_EEVOLUTION_SYLVEON
+	db -1 ; end
+
 BillsHousePokemonListText1:
 	text_far _BillsHousePokemonListText1
 	text_end
-
-BillsMonListText:
-	db   "EEVEE"
-	next "FLAREON"
-	next "JOLTEON"
-	next "VAPOREON"
-; new Eevolutions, need more work
-;	next "ESPEON"
-;	next "UMBREON"
-;	next "LEAFEON"
-;	next "GLACEON"
-;	next "SYLVEON"
-	next "CANCEL@"
 
 BillsHousePokemonListText2:
 	text_far _BillsHousePokemonListText2

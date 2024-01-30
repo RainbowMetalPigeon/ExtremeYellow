@@ -127,4 +127,13 @@ ItemNames::
 	li "HINT 6"
 	li "HINT 7"
 	li "HINT 8"
+	li "EEVEE"
+	li "VAPOREON"
+	li "JOLTEON"
+	li "FLAREON"
+	li "ESPEON"
+	li "UMBREON"
+	li "LEAFEON"
+	li "GLACEON"
+	li "SYLVEON"
 	assert_list_length NUM_ITEMS + NUM_FLOORS
