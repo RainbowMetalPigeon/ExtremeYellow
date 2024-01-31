@@ -13,12 +13,13 @@ VictoryRoad2F_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 12,  9, SPRITE_HIKER, STAY, LEFT, 1, OPP_BLACKBELT, 9
-	object_event 21, 13, SPRITE_SUPER_NERD, STAY, LEFT, 2, OPP_JUGGLER, 2
-	object_event 19,  8, SPRITE_COOLTRAINER_M, STAY, DOWN, 3, OPP_TAMER, 5
-	object_event  4,  2, SPRITE_SUPER_NERD, STAY, DOWN, 4, OPP_POKEMANIAC, 6
-	object_event 26,  3, SPRITE_SUPER_NERD, STAY, LEFT, 5, OPP_JUGGLER, 5
-	object_event 11,  5, SPRITE_MOLTRES, STAY, DOWN, 6, MOLTRES, 50
+	object_event 12,  9, SPRITE_HIKER, STAY, ANY_DIR, 1, OPP_BLACKBELT, 9
+	object_event 21, 13, SPRITE_SUPER_NERD, STAY, ANY_DIR, 2, OPP_JUGGLER, 2
+	object_event 19,  8, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 3, OPP_TAMER, 5
+	object_event  4,  2, SPRITE_SUPER_NERD, STAY, ANY_DIR, 4, OPP_POKEMANIAC, 6
+	object_event 26,  3, SPRITE_SUPER_NERD, STAY, ANY_DIR, 5, OPP_JUGGLER, 5
+	object_event 11,  5, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 6, OPP_BIRD_KEEPER, 19 ; new, it was Moltres
+;	object_event 11,  5, SPRITE_MOLTRES, STAY, DOWN, 6, MOLTRES, 50 ; removed
 	object_event 27,  5, SPRITE_POKE_BALL, STAY, NONE, 7, TM_DRAININGKISS
 	object_event 18,  9, SPRITE_POKE_BALL, STAY, NONE, 8, FULL_HEAL
 	object_event  9, 11, SPRITE_POKE_BALL, STAY, NONE, 9, TM_DRAGON_CLAW

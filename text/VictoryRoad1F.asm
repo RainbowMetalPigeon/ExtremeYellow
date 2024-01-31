@@ -16,8 +16,8 @@ _VictoryRoad1EndBattleText1::
 
 _VictoryRoad1AfterBattleText1::
 	text "What? Really?!"
-	line "I am from Pallet"
-	cont "Town as well!"
+	line "I am from PALLET"
+	cont "TOWN as well!"
 	cont "And so PROF OAK"
 	cont "gave a #DEX"
 	cont "to you and one"

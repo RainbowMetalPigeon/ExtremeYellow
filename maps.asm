@@ -302,10 +302,11 @@ INCLUDE "scripts/SeafoamIslands1F.asm"
 INCLUDE "data/maps/objects/SeafoamIslands1F.asm"
 SeafoamIslands1F_Blocks: INCBIN "maps/SeafoamIslands1F.blk"
 
-INCLUDE "data/maps/headers/SSAnne3F.asm"
-INCLUDE "scripts/SSAnne3F.asm"
-INCLUDE "data/maps/objects/SSAnne3F.asm"
-SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
+; moved to Maps New 1
+;INCLUDE "data/maps/headers/SSAnne3F.asm"
+;INCLUDE "scripts/SSAnne3F.asm"
+;INCLUDE "data/maps/objects/SSAnne3F.asm"
+;SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
 
 INCLUDE "data/maps/headers/VictoryRoad3F.asm"
 INCLUDE "scripts/VictoryRoad3F.asm"
@@ -1389,16 +1390,6 @@ INCLUDE "scripts/OchreHouses.asm"
 INCLUDE "data/maps/objects/OchreHouses.asm"
 OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 
-INCLUDE "data/maps/headers/SilphCoElevator.asm"
-INCLUDE "scripts/SilphCoElevator.asm"
-INCLUDE "data/maps/objects/SilphCoElevator.asm"
-SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
-
-INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
-INCLUDE "scripts/RocketHideoutElevator.asm"
-INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
-RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
-
 ; new! Center+Mart
 INCLUDE "data/maps/headers/OchrePokecenter.asm"
 INCLUDE "scripts/OchrePokecenter.asm"
@@ -1428,3 +1419,18 @@ INCLUDE "data/maps/headers/MtMoon1FExtra.asm"
 INCLUDE "scripts/MtMoon1FExtra.asm"
 INCLUDE "data/maps/objects/MtMoon1FExtra.asm"
 MtMoon1FExtra_Blocks: INCBIN "maps/MtMoon1FExtra.blk"
+
+INCLUDE "data/maps/headers/SilphCoElevator.asm"
+INCLUDE "scripts/SilphCoElevator.asm"
+INCLUDE "data/maps/objects/SilphCoElevator.asm"
+SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
+
+INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
+INCLUDE "scripts/RocketHideoutElevator.asm"
+INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
+RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
+
+INCLUDE "data/maps/headers/SSAnne3F.asm"
+INCLUDE "scripts/SSAnne3F.asm"
+INCLUDE "data/maps/objects/SSAnne3F.asm"
+SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"

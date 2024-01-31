@@ -426,7 +426,7 @@ PowerPlantHS:
 	db POWER_PLANT, $0D, SHOW
 	db POWER_PLANT, $0E, SHOW
 VictoryRoad2FHS:
-	db VICTORY_ROAD_2F, $06, SHOW
+;	db VICTORY_ROAD_2F, $06, SHOW ; edited, Moltres will be moved in the Volcano
 	db VICTORY_ROAD_2F, $07, SHOW
 	db VICTORY_ROAD_2F, $08, SHOW
 	db VICTORY_ROAD_2F, $09, SHOW
@@ -471,10 +471,10 @@ SSAnneB1FRoomsHS:
 	db SS_ANNE_B1F_ROOMS, $09, SHOW
 	db SS_ANNE_B1F_ROOMS, $0A, SHOW
 	db SS_ANNE_B1F_ROOMS, $0B, SHOW
-VictoryRoad3FHS:
-	db VICTORY_ROAD_3F, $05, SHOW
-	db VICTORY_ROAD_3F, $06, SHOW
+VictoryRoad3FHS: ; +4 for new trainers
+	db VICTORY_ROAD_3F, $09, SHOW
 	db VICTORY_ROAD_3F, $0A, SHOW
+	db VICTORY_ROAD_3F, $0E, SHOW
 RocketHideoutB1FHS:
 	db ROCKET_HIDEOUT_B1F, $01, SHOW ; new, Rocket grunt
 	db ROCKET_HIDEOUT_B1F, $02, SHOW ; new, Rocket grunt

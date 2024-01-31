@@ -54,13 +54,13 @@ VictoryRoad1F_TextPointers:
 
 VictoryRoad1TrainerHeaders:
 	def_trainers
-VictoryRoad1TrainerHeader0:
-	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_0, 2, VictoryRoad1BattleText1, VictoryRoad1EndBattleText1, VictoryRoad1AfterBattleText1
-VictoryRoad1TrainerHeader1:
-	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_1, 2, VictoryRoad1BattleText2, VictoryRoad1EndBattleText2, VictoryRoad1AfterBattleText2
-VictoryRoad1TrainerHeader2:
-	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_2, 2, VictoryRoad1BattleText3, VictoryRoad1EndBattleText3, VictoryRoad1AfterBattleText3
-VictoryRoad1TrainerHeader3:
+VictoryRoad1TrainerHeader0: ; pseudo-GREEN
+	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_0, 4, VictoryRoad1BattleText1, VictoryRoad1EndBattleText1, VictoryRoad1AfterBattleText1
+VictoryRoad1TrainerHeader1: ; pseudo-RED
+	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_1, 4, VictoryRoad1BattleText2, VictoryRoad1EndBattleText2, VictoryRoad1AfterBattleText2
+VictoryRoad1TrainerHeader2: ; pseudo-YELLOW
+	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_2, 4, VictoryRoad1BattleText3, VictoryRoad1EndBattleText3, VictoryRoad1AfterBattleText3
+VictoryRoad1TrainerHeader3: ; pseudo-BLUE
 	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_3, 1, VictoryRoad1BattleText4, VictoryRoad1EndBattleText4, VictoryRoad1AfterBattleText4
 	db -1 ; end
 

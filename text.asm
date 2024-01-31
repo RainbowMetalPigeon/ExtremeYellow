@@ -28,9 +28,6 @@ INCLUDE "text/SilphCo4F.asm"
 INCLUDE "text/SilphCo5F.asm"
 INCLUDE "text/SilphCo6F.asm"
 INCLUDE "text/SilphCo7F.asm"
-INCLUDE "text/SilphCo8F.asm"
-INCLUDE "text/SilphCo9F.asm"
-INCLUDE "text/SilphCo10F.asm"
 
 
 SECTION "Text 2", ROMX
@@ -263,6 +260,8 @@ INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/NameRatersHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
+INCLUDE "text/SilphCo10F.asm"
+INCLUDE "text/SilphCo9F.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -279,6 +278,7 @@ INCLUDE "text/PokemonTower7F.asm"
 INCLUDE "text/FightingDojo.asm"
 INCLUDE "text/SaffronGym.asm"
 INCLUDE "text/Route9.asm"
+INCLUDE "text/SilphCo8F.asm"
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones

@@ -82,6 +82,10 @@ VictoryRoad3F_TextPointers:
 	dw VictoryRoad3Text2
 	dw VictoryRoad3Text3
 	dw VictoryRoad3Text4
+	dw VictoryRoad3Text5 ; new
+	dw VictoryRoad3Text6 ; new
+	dw VictoryRoad3Text7 ; new
+	dw VictoryRoad3Text8 ; new
 	dw PickUpItemText
 	dw PickUpItemText
 	dw BoulderText
@@ -99,6 +103,15 @@ VictoryRoad3TrainerHeader2:
 	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_2, 4, VictoryRoad3BattleText4, VictoryRoad3EndBattleText4, VictoryRoad3AfterBattleText4
 VictoryRoad3TrainerHeader3:
 	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_3, 4, VictoryRoad3BattleText5, VictoryRoad3EndBattleText5, VictoryRoad3AfterBattleText5
+; new ones
+VictoryRoad3TrainerHeader4:
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_4, 4, VictoryRoad3BattleText6, VictoryRoad3EndBattleText6, VictoryRoad3AfterBattleText6
+VictoryRoad3TrainerHeader5:
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_5, 4, VictoryRoad3BattleText7, VictoryRoad3EndBattleText7, VictoryRoad3AfterBattleText7
+VictoryRoad3TrainerHeader6:
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_6, 4, VictoryRoad3BattleText8, VictoryRoad3EndBattleText8, VictoryRoad3AfterBattleText8
+VictoryRoad3TrainerHeader7:
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_7, 4, VictoryRoad3BattleText9, VictoryRoad3EndBattleText9, VictoryRoad3AfterBattleText9
 	db -1 ; end
 
 VictoryRoad3Text1:
@@ -171,4 +184,84 @@ VictoryRoad3EndBattleText5:
 
 VictoryRoad3AfterBattleText5:
 	text_far _VictoryRoad3AfterBattleText5
+	text_end
+
+; new =================================
+
+VictoryRoad3Text5:
+	text_asm
+	ld hl, VictoryRoad3TrainerHeader4
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VictoryRoad3BattleText6:
+	text_far _VictoryRoad3BattleText6
+	text_end
+
+VictoryRoad3EndBattleText6:
+	text_far _VictoryRoad3EndBattleText6
+	text_end
+
+VictoryRoad3AfterBattleText6:
+	text_far _VictoryRoad3AfterBattleText6
+	text_end
+
+; -------------------------------------
+
+VictoryRoad3Text6:
+	text_asm
+	ld hl, VictoryRoad3TrainerHeader5
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VictoryRoad3BattleText7:
+	text_far _VictoryRoad3BattleText7
+	text_end
+
+VictoryRoad3EndBattleText7:
+	text_far _VictoryRoad3EndBattleText7
+	text_end
+
+VictoryRoad3AfterBattleText7:
+	text_far _VictoryRoad3AfterBattleText7
+	text_end
+
+; -------------------------------------
+
+VictoryRoad3Text7:
+	text_asm
+	ld hl, VictoryRoad3TrainerHeader6
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VictoryRoad3BattleText8:
+	text_far _VictoryRoad3BattleText8
+	text_end
+
+VictoryRoad3EndBattleText8:
+	text_far _VictoryRoad3EndBattleText8
+	text_end
+
+VictoryRoad3AfterBattleText8:
+	text_far _VictoryRoad3AfterBattleText8
+	text_end
+
+; -------------------------------------
+
+VictoryRoad3Text8:
+	text_asm
+	ld hl, VictoryRoad3TrainerHeader7
+	call TalkToTrainer
+	jp TextScriptEnd
+
+VictoryRoad3BattleText9:
+	text_far _VictoryRoad3BattleText9
+	text_end
+
+VictoryRoad3EndBattleText9:
+	text_far _VictoryRoad3EndBattleText9
+	text_end
+
+VictoryRoad3AfterBattleText9:
+	text_far _VictoryRoad3AfterBattleText9
 	text_end

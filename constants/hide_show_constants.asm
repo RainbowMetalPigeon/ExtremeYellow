@@ -126,7 +126,7 @@ DEF SHOW EQU $15
 	const HS_POWER_PLANT_ITEM_2            ; 57
 	const HS_POWER_PLANT_ITEM_3            ; 58
 	const HS_POWER_PLANT_ITEM_4            ; 59
-	const HS_MOLTRES                       ; 5B
+;	const HS_MOLTRES                       ; edited, Moltres will be moved in the Volcano
 	const HS_VICTORY_ROAD_2F_ITEM_1        ; 5C
 	const HS_VICTORY_ROAD_2F_ITEM_2        ; 5D
 	const HS_VICTORY_ROAD_2F_ITEM_3        ; 5E

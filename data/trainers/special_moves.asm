@@ -5,11 +5,11 @@
 
 SpecialTrainerMoves:
 	db BUG_CATCHER, 15 ; updated
-;	db 1, 1, TACKLE
+	db 1, 1, TACKLE
 	db 1, 2, WRAP
 	db $FE
 
-	db BUG_CATCHER, 3 ; new, testing
+	db BUG_CATCHER, 3 ; new
 	; BUTTERFREE
 	db 1, 2, TACKLE
 	db 1, 3, STRING_SHOT
@@ -21,7 +21,7 @@ SpecialTrainerMoves:
 	db $FE
 
 	db YOUNGSTER, 14
-;	db 6, 1, SLASH
+	db 6, 1, SLASH
 	db 6, 2, DIG
 	db 6, 3, DEFENSE_CURL
 	db 6, 4, FISSURE
@@ -55,6 +55,39 @@ SpecialTrainerMoves:
 	db 5, 4, NO_MOVE
 	; SNORLAX
 	db 6, 1, SELFDESTRUCT
+	db 6, 2, NO_MOVE
+	db 6, 3, NO_MOVE
+	db 6, 4, NO_MOVE
+	db $FE
+
+	db JUGGLER, 9 ; new
+	; HYPNO
+	db 1, 1, METRONOME
+	db 1, 2, NO_MOVE
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
+	; CLEFAIRY
+	db 2, 1, METRONOME
+	db 2, 2, NO_MOVE
+	db 2, 3, NO_MOVE
+	db 2, 4, NO_MOVE
+	; ALAKAZAM
+	db 3, 1, METRONOME
+	db 3, 2, NO_MOVE
+	db 3, 3, NO_MOVE
+	db 3, 4, NO_MOVE
+	; WIGGLYTUFF
+	db 4, 1, METRONOME
+	db 4, 2, NO_MOVE
+	db 4, 3, NO_MOVE
+	db 4, 4, NO_MOVE
+	; MR_MIME
+	db 5, 1, METRONOME
+	db 5, 2, NO_MOVE
+	db 5, 3, NO_MOVE
+	db 5, 4, NO_MOVE
+	; GENGAR
+	db 6, 1, METRONOME
 	db 6, 2, NO_MOVE
 	db 6, 3, NO_MOVE
 	db 6, 4, NO_MOVE

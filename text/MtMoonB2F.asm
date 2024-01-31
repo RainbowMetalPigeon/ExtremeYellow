@@ -1,13 +1,50 @@
-_MtMoonJessieJamesText1::
-	text "Stop right there!@"
+_MtMoonJessieJamesText1:: ; edited
+	text "Stop right there!"
+
+	para "That fossil is"
+	line "TEAM ROCKET's!@"
 	text_end
 
-_MtMoonJessieJamesText2::
-	text "That fossil is"
-	line "TEAM ROCKET's!"
+_MtMoonJessieJamesText2:: ; edited
+	text "JESSIE: Prepare"
+	line "for trouble!"
 
-	para "Surrender now, or "
-	line "prepare to fight!"
+	para "JAMES: Make it"
+	line "double!"
+
+	para "JESSIE: To protect"
+	line "the world from"
+	cont "devastation!"
+
+	para "JAMES: To unite"
+	line "all peoples"
+	cont "within our"
+	cont "nation!"
+
+	para "JESSIE: To"
+	line "denounce the"
+	cont "evils of truth"
+	cont "and love!"
+
+	para "JAMES: To extend"
+	line "our reach to the"
+	cont "stars above!"
+
+	para "JESSIE: Jessie!"
+
+	para "JAMES: James!"
+
+	para "JESSIE: Team"
+	line "Rocket blasts off"
+	cont "at the speed of"
+	cont "light!"
+
+	para "JAMES: Surrender"
+	line "now or prepare to"
+	cont "fight!"
+
+	para "MEOWTH: Meowth!"
+	line "That's right!"
 	done
 
 _MtMoonJessieJamesText3::

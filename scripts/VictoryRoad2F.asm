@@ -75,7 +75,8 @@ VictoryRoad2F_TextPointers:
 	dw VictoryRoad2Text3
 	dw VictoryRoad2Text4
 	dw VictoryRoad2Text5
-	dw MoltresText
+	dw VictoryRoad2Text6 ; new
+;	dw MoltresText
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -97,8 +98,10 @@ VictoryRoad2TrainerHeader3:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_3, 1, VictoryRoad2BattleText4, VictoryRoad2EndBattleText4, VictoryRoad2AfterBattleText4
 VictoryRoad2TrainerHeader4:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_4, 3, VictoryRoad2BattleText5, VictoryRoad2EndBattleText5, VictoryRoad2AfterBattleText5
-MoltresTrainerHeader:
-	trainer EVENT_BEAT_MOLTRES, 0, MoltresBattleText, MoltresBattleText, MoltresBattleText
+VictoryRoad2TrainerHeader5: ; new
+	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_5, 3, VictoryRoad2BattleText6, VictoryRoad2EndBattleText6, VictoryRoad2AfterBattleText6
+;MoltresTrainerHeader:
+;	trainer EVENT_BEAT_MOLTRES, 0, MoltresBattleText, MoltresBattleText, MoltresBattleText
 	db -1 ; end
 
 VictoryRoad2Text1:
@@ -131,19 +134,25 @@ VictoryRoad2Text5:
 	call TalkToTrainer
 	jp TextScriptEnd
 
-MoltresText:
+VictoryRoad2Text6: ; new
 	text_asm
-	ld hl, MoltresTrainerHeader
+	ld hl, VictoryRoad2TrainerHeader5
 	call TalkToTrainer
 	jp TextScriptEnd
 
-MoltresBattleText:
-	text_far _MoltresBattleText
-	text_asm
-	ld a, MOLTRES
-	call PlayCry
-	call WaitForSoundToFinish
-	jp TextScriptEnd
+;MoltresText:
+;	text_asm
+;	ld hl, MoltresTrainerHeader
+;	call TalkToTrainer
+;	jp TextScriptEnd
+
+;MoltresBattleText:
+;	text_far _MoltresBattleText
+;	text_asm
+;	ld a, MOLTRES
+;	call PlayCry
+;	call WaitForSoundToFinish
+;	jp TextScriptEnd
 
 VictoryRoad2BattleText1:
 	text_far _VictoryRoad2BattleText1
@@ -203,6 +212,18 @@ VictoryRoad2EndBattleText5:
 
 VictoryRoad2AfterBattleText5:
 	text_far _VictoryRoad2AfterBattleText5
+	text_end
+
+VictoryRoad2BattleText6: ; new
+	text_far _VictoryRoad2BattleText6
+	text_end
+
+VictoryRoad2EndBattleText6: ; new
+	text_far _VictoryRoad2EndBattleText6
+	text_end
+
+VictoryRoad2AfterBattleText6: ; new
+	text_far _VictoryRoad2AfterBattleText6
 	text_end
 
 ; new ------------------------------------------------

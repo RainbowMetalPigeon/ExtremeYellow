@@ -373,7 +373,7 @@ ObjectsToShow:
 	db HS_ROUTE_20_MISTY
 	db HS_POWER_PLANT_LT_SURGE
 	db HS_VICTORY_ROAD_2F_KOGA
-	db HS_MOLTRES
+;	db HS_MOLTRES ; to be restored when Moltres will be placed in the Volcano
 	db HS_ZAPDOS
 	db HS_OBSIDIAN_WOOD_ORAGE
 	db HS_PALLET_TOWN_DARK_GUIDE

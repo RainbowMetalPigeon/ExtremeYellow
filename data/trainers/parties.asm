@@ -112,7 +112,9 @@ BugCatcherData:
 ; Viridian Forest
 	db 7, PINSIR, METAPOD, 0 ; pokeyellow only; updated
 ; Ochre Gym ; new
-	db 43, SCIZOR, BUTTERFREE, BEEDRILL, VENOMOTH, KLEAVOR, PINSIR, 0
+	db 43, SCIZOR, BUTTERFREE, BEEDRILL, VENOMOTH, KLEAVOR, PINSIR, 0 ; 16
+; Victory Road 3F ; new
+	db 55, SCIZOR, KLEAVOR, PINSIR, VENOMOTH, BUTTERFREE, BEEDRILL, 0 ; 17
 
 LassData:
 ; Route 3
@@ -227,11 +229,13 @@ PokemaniacData:
 	db 20, CHARMELEON, WARTORTLE, IVYSAUR, 0 ; updated, all starters
 	db 25, SLOWPOKE, 0
 ; Victory Road 2F
-	db 51, PICHU, CLEFFA, SMOOCHUM, TYROGUE, HAPPINY, 0 ; updated, baby mons
+	db 60, PICHU, CLEFFA, IGGLYBUFF, SMOOCHUM, TYROGUE, HAPPINY, 0 ; updated, baby mons
 ; Rock Tunnel 1F
 	db 23, SANDSLASH, SLOWPOKE, 0 ; updated, removed Cubone
 ; Ochre Gym
 	db 44, CLEFABLE, WIGGLYTUFF, MR_MIME, SYLVEON, 0 ; new
+; Victory Road 3F
+	db $FF, 60, CHARIZARD, 50, PIKACHU, 25, VAPOREON, 42, BLISSEY, 47, DRAGONITE, 33, DITTO ; new, 9
 
 SuperNerdData:
 ; Mt. Moon 1F
@@ -421,6 +425,8 @@ PsychicData:
 	db 45, SLOWKING, HYPNO, MR_MIME, SLOWBRO, 0 ; updated
 ; Proxy for COPYCAT
 	db 50, MIME_JR, MR_MIME, DITTO, 0 ; new, 5
+; Victory Road 3F ; new
+	db 55, ESPEON, JYNX, EXEGGUTOR, SLOWKING, STARMIE, ALAKAZAM, 0 ; 6, other options: HYPNO, MR_MIME, SLOWBRO
 
 RockerData:
 ; Vermilion Gym
@@ -438,17 +444,19 @@ JugglerData:
 ; Silph Co. 5F
 	db 29, KADABRA, MR_MIME, 0
 ; Victory Road 2F
-	db 49, ELECTRODE, GOLEM, CLOYSTER, DITTO, ALAKAZAM, 0 ; updated, spherical mons and Alakazam
+	db 55, ELECTRODE, GOLEM, CLOYSTER, DITTO, GENGAR, ALAKAZAM, 0 ; updated, spherical mons (Golem and Gengar are stretches) and Alakazam
 ; Fuchsia Gym
 	db 38, MUK, WEEZING, ARBOK, HAUNTER, 0 ; updated
 	db 37, WEEZING, ELECTRODE, GOLEM, CLOYSTER, LICKILICKY, SNORLAX, 0 ; updated
 ; Victory Road 2F
-	db 49, MIME_JR, HYPNO, SLOWBRO, JYNX, MR_MIME, 0 ; updated, all psychic not used by others in Victory Road
+	db 55, MIME_JR, HYPNO, SLOWBRO, SLOWKING, JYNX, MR_MIME, 0 ; updated, most psychic
 ; Unused
 	db 33, HYPNO, 0
 ; Fuchsia Gym
 	db 38, BEEDRILL, TENTACRUEL, GOLBAT, VENUSAUR, 0 ; updated
 	db 38, HYPNO, KADABRA, HAUNTER, VENUSAUR, 0 ; updated
+; Victory Road 3F ; new
+	db 55, HYPNO, CLEFAIRY, ALAKAZAM, WIGGLYTUFF, MR_MIME, GENGAR, 0 ; 9, metronome trainer
 
 TamerData:
 ; Fuchsia Gym
@@ -458,7 +466,7 @@ TamerData:
 	db 51, STEELIX, RHYPERIOR, NIDOKING, 0 ; updated
 	db 51, RHYHORN, RHYDON, RHYPERIOR, TAUROS, 0 ; updated
 ; Victory Road 2F
-	db 48, HITMONTOP, KINGDRA, POLITOED, LICKILICKY, RHYPERIOR, 0 ; updated, all new ones
+	db 55, HITMONTOP, KINGDRA, POLITOED, LICKILICKY, RHYPERIOR, SYLVEON, 0 ; updated, all new ones
 ; Unused
 	db 42, RHYHORN, PRIMEAPE, ARBOK, TAUROS, 0
 
@@ -487,8 +495,10 @@ BirdKeeperData:
 	db 26, PIDGEOTTO, FEAROW, PIDGEOTTO, FEAROW, 0
 	db 29, PIDGEOTTO, FEAROW, 0
 	db 31, FEAROW, DODRIO, FEAROW, 0
-; Ochre Gym
-	db 43, FEAROW, BUTTERFREE, FARFETCHD, PIDGEOT, SCYTHER, DODRIO, 0 ; new
+; Ochre Gym ; new
+	db 43, FEAROW, BUTTERFREE, FARFETCHD, PIDGEOT, SCYTHER, DODRIO, 0 ; 18
+; Victory Road 3F ; new
+	db 55, PIDGEOT, CHARIZARD, CROBAT, GYARADOS, AERODACTYL, DRAGONITE, 0 ; 19, other options: FEAROW, BUTTERFREE, FARFETCHD, SCYTHER, DODRIO
 
 BlackbeltData:
 ; Fighting Dojo ; all updated
@@ -502,7 +512,7 @@ BlackbeltData:
 	db 51, MACHAMP, RHYPERIOR, NIDOKING, 0 ; updated
 	db 49, MACHAMP, RHYDON, NIDOQUEEN, RHYPERIOR, NIDOKING, GOLEM, 0 ; updated
 ; Victory Road 2F
-	db 64, MACHAMP, 0 ; updated, one single overleveled mon
+	db 69, MACHAMP, 0 ; updated, one single overleveled mon
 
 ;ChiefData: ; removed
 ; none
@@ -676,12 +686,12 @@ CooltrainerData:
 ; Celadon Gym
 	db 29, EXEGGUTOR, IVYSAUR, TANGROWTH, 0 ; updated
 ; Victory Road 3F
-	db 49, ELECTIVIRE, CLOYSTER, VICTREEBEL, NINETALES, POLIWRATH, 0 ; updated
-	db 49, STEELIX, SLOWKING, BLISSEY, KLEAVOR, SCIZOR, 0 ; updated
+	db 55, ELECTIVIRE, CLOYSTER, VICTREEBEL, NINETALES, POLIWRATH, PORYGONZ, 0 ; updated
+	db 55, STEELIX, SLOWKING, BLISSEY, SCIZOR, KLEAVOR, MAGNEZONE, 0 ; updated
 ; Unused
 	db 46, VILEPLUME, BUTTERFREE, 0
 ; Victory Road 1F
-	db $FF, 50, JIGGLYPUFF, 50, ALAKAZAM, 50, DITTO, 50, CLEFABLE, 50, NIDOQUEEN, 55, BLASTOISE, 0 ; updated, pseudo-Green, manga
+	db $FF, 55, JIGGLYPUFF, 55, ALAKAZAM, 55, DITTO, 55, CLEFABLE, 55, NIDOQUEEN, 60, BLASTOISE, 0 ; updated, pseudo-Green, manga
 ; Unused
 	db 45, IVYSAUR, VENUSAUR, 0
 	db 45, NIDORINA, NIDOQUEEN, 0
@@ -700,12 +710,12 @@ CooltrainerData:
 ; Viridian Gym
 	db 50, DUGTRIO, GOLEM, RHYDON, STEELIX, 0 ; updated
 ; Victory Road 3F
-	db 49, ARCANINE, EXEGGUTOR, MAGNEZONE, TANGROWTH, STARMIE, 0 ; updated
-	db 49, CROBAT, PORYGONZ, BELLOSSOM, MAGMORTAR, ANNIHILAPE, 0 ; updated
+	db 55, ARCANINE, EXEGGUTOR, MAGNEZONE, TANGROWTH, STARMIE, GLACEON, 0 ; updated
+	db 55, CROBAT, PORYGONZ, BELLOSSOM, MAGMORTAR, ANNIHILAPE, JOLTEON, 0 ; updated
 ; Unused
 	db 45, KINGLER, STARMIE, 0
 ; Victory Road 1F
-	db $FF, 50, POLIWRATH, 55, VENUSAUR, 50, PIKACHU, 50, SNORLAX, 50, GYARADOS, 50, AERODACTYL, 0 ; updated, pseudo-Red, manga
+	db $FF, 55, POLIWRATH, 60, VENUSAUR, 55, PIKACHU, 55, SNORLAX, 55, GYARADOS, 55, AERODACTYL, 0 ; updated, pseudo-Red, manga
 ; Unused
 	db 44, IVYSAUR, WARTORTLE, CHARMELEON, 0
 	db 49, NIDOKING, 0
@@ -714,7 +724,7 @@ CooltrainerData:
 	db 50, NIDOQUEEN, NIDOKING, SANDSLASH, DUGTRIO, 0 ; updated
 	db 52, GOLEM, RHYPERIOR, 0 ; updated
 ; Victory Road 1F
-	db $FF, 50, SCIZOR, 55, CHARIZARD, 50, GOLDUCK, 50, MACHAMP, 50, PORYGON2, 50, RHYPERIOR, 0 ; updated, pseudo-Blue, manga
+	db $FF, 55, SCIZOR, 60, CHARIZARD, 55, GOLDUCK, 55, MACHAMP, 55, PORYGON2, 55, RHYPERIOR, 0 ; updated, pseudo-Blue, manga
 ; Cerulean Gym
 	db 19, WARTORTLE, SLOWPOKE, SEEL, KRABBY, TENTACOOL, 0 ; new
 ; Celadon Gym
@@ -724,7 +734,7 @@ CooltrainerData:
 ; Viridian Gym
 	db 53, MACHAMP, SANDSLASH, TAUROS, GOLEM, STEELIX, 0 ; new
 ; Victory Road 1F
-	db $FF, 50, RATICATE, 50, DODRIO, 50, GOLEM, 50, OMASTAR, 50, BUTTERFREE, 55, PIKACHU, 0 ; pseudo-Yellow ; 29
+	db $FF, 55, RATICATE, 55, DODRIO, 55, GOLEM, 55, OMASTAR, 55, BUTTERFREE, 60, PIKACHU, 0 ; pseudo-Yellow ; 29
 ; Route 4
 	db 45, GENGAR, TAUROS, ZAPDOS, CHANSEY, STARMIE, SNORLAX, 0 ; new, gen1 OU sample team, for trainer near Cerulean Cave ; 30
 ; Obsidian Wood
@@ -733,24 +743,24 @@ CooltrainerData:
 ;PORYGON2	2
 ;POLITOED 	5
 ;ELECTIVIRE 4
-;ESPEON 	4
-;GLACEON 	4
-;PORYGONZ 	4
+;ESPEON 	5
+;GLACEON 	5
+;PORYGONZ 	5
 ;HITMONTOP 	5
 ;LEAFEON 	5
-;SYLVEON 	5
-;MAGNEZONE 	6
+;SYLVEON 	6
 ;LICKILICKY 6
 ;KINGDRA 	6
-;SLOWKING 	6
-;BLISSEY 	7
+;MAGNEZONE 	7
 ;BELLOSSOM 	7
+;SLOWKING 	8
+;BLISSEY 	8
 ;TANGROWTH 	8
-;KLEAVOR 	8
+;KLEAVOR 	9
 ;ANNIHILAPE 9
-;CROBAT 	10
-;SCIZOR 	10
 ;MAGMORTAR 	10
+;CROBAT 	11
+;SCIZOR 	11
 ;RHYPERIOR 	12
 ;STEELIX 	15
 ;UMBREON 	41

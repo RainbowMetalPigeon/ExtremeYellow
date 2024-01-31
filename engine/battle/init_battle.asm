@@ -189,19 +189,19 @@ _LoadTrainerPic:
 	; cp 3 is redundant
 	ld a, BANK(GreenPicFront)
 	ld de, GreenPicFront
-	jr .loadSprite
+	jp .loadSprite
 .randomNumber0
 	ld a, BANK(Rival3Pic)
 	ld de, Rival3Pic
-	jr .loadSprite
+	jp .loadSprite
 .randomNumber1
 	ld a, BANK(RedPicFront)
 	ld de, RedPicFront
-	jr .loadSprite
+	jp .loadSprite
 .randomNumber2
 	ld a, BANK(YellowPicFront)
 	ld de, YellowPicFront
-	jr .loadSprite
+	jp .loadSprite
 .notMultiSpriteTrainer ; new
 
 ; now check if it's one of the Rocket Admins
@@ -225,7 +225,7 @@ _LoadTrainerPic:
 .notAdmin
 
 ; now check if it's rematch vs Traveler
-	ld a, [wTrainerClass]
+	ld a, [wTrainerClass] ; this is unnecessary, isn't it?
 	cp TRAVELER
 	jr nz, .notTraveler
 	ld a, [wTrainerNo]
@@ -235,6 +235,38 @@ _LoadTrainerPic:
 	ld de, Traveler2Pic
 	jr .loadSprite
 .notTraveler
+
+; now check if it's one of the special COOLTRAINER (pseudo manga protagonists)
+	ld a, [wTrainerClass] ; this is unnecessary, isn't it?
+	cp COOLTRAINER
+	jr nz, .notPseudoMangaProtagonists
+	ld a, [wTrainerNo]
+	cp 5 ; pseudo-green
+	jr z, .pseudoGreen
+	cp 18 ; pseudo-red
+	jr z, .pseudoRed
+	cp 29 ; pseudo-yellow
+	jr z, .pseudoYellow
+	cp 24 ; pseudo-blue
+	jr z, .pseudoBlue
+	jr .notPseudoMangaProtagonists
+.pseudoGreen
+	ld a, BANK(GreenPicFront)
+	ld de, GreenPicFront
+	jr .loadSprite
+.pseudoRed
+	ld a, BANK(RedPicFront)
+	ld de, RedPicFront
+	jr .loadSprite
+.pseudoYellow
+	ld a, BANK(YellowPicFront)
+	ld de, YellowPicFront
+	jr .loadSprite
+.pseudoBlue
+	ld a, BANK(Rival3Pic)
+	ld de, Rival3Pic
+	jr .loadSprite
+.notPseudoMangaProtagonists
 
 ; now check if it's Copycat battle
 	ld a, [wCurMap]

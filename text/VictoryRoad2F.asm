@@ -1,6 +1,6 @@
-_MoltresBattleText::
-	text "Gyaoo!@"
-	text_end
+;_MoltresBattleText::
+;	text "Gyaoo!@"
+;	text_end
 
 _VictoryRoad2BattleText1::
 	text "VICTORY ROAD is"
@@ -83,6 +83,31 @@ _VictoryRoad2AfterBattleText5::
 	text "Many trainers give"
 	line "up the challenge"
 	cont "here."
+	done
+
+_VictoryRoad2BattleText6::
+	text "Birds are"
+	line "absolutely"
+	cont "majestic, but"
+	cont "they are not the"
+	cont "only creatures"
+	cont "that mastered the"
+	cont "art of flight!"
+	done
+
+_VictoryRoad2EndBattleText6::
+	text "Woah!"
+	line "I feel like I"
+	cont "crashlanded!"
+	prompt
+
+_VictoryRoad2AfterBattleText6::
+	text "A mere defeat"
+	line "won't be enough"
+	cont "to prevent me"
+	cont "from soaring the"
+	cont "skies with my"
+	cont "trusted #MON!"
 	done
 
 ; new ------------------------------------------------
