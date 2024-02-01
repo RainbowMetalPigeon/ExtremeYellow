@@ -50,7 +50,7 @@ UsedCut:
 	call GBPalWhiteOutWithDelay3
 	call ClearSprites
 	call RestoreScreenTilesAndReloadTilePatterns
-	call ReloadMapData ; new, to expand tileset
+	call ReloadMapData ; new, to expand tileset (is it even necessary?)
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	call Delay3
@@ -85,7 +85,7 @@ UsedCutText:
 	text_far _UsedCutText
 	text_end
 
-InitCutAnimOAM:
+InitCutAnimOAM::
 	xor a
 	ld [wWhichAnimationOffsets], a
 	ld a, %11100100

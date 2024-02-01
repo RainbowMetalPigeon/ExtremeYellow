@@ -125,7 +125,7 @@ _ViridianCityText_191ca::
 	cont "asleep...?"
 
 	para "! What's this?"
-	cont "Where did this TM"
+	line "Where did this TM"
 	cont "come from?"
 
 	para "This is spooky!"

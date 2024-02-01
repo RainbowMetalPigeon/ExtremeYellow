@@ -90,7 +90,7 @@ HealParty:
 	ld b, a
 .ppup
 	push bc
-	call RestoreBonusPP
+	callfar RestoreBonusPP ; edited, was a call, but I moved this file in another Section
 	pop bc
 	ld hl, wWhichPokemon
 	inc [hl]

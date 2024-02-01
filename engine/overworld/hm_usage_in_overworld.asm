@@ -1,18 +1,16 @@
 ; whole new file
 
-CheckIfCanSurfFromOverworld::
-;	ldh a, [hLoadedROMBank]
-;	push af
+CheckIfCanSurfOrCutFromOverworld::
 	ldh a, [hJoyHeld]
 	bit BIT_A_BUTTON, a
-	jr z, .done
+	jp z, .done
 ; A button is pressed
     ld a, [wWalkBikeSurfState]
     cp 2 ; is the player already surfing?
-    jr z, .done
+    jp z, .done
 ; if we are not already surfing
     callfar IsNextTileShoreOrWater
-    jp nc, .done ; in front of us we don't have water
+    jp nc, .cannotSurf ; in front of us we don't have water
 ; we have water in front of us
     ld d, SURF
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
@@ -36,7 +34,6 @@ CheckIfCanSurfFromOverworld::
     ld a, $2
 .continue
 	ld [wd473], a
-
 ; unnecessary???
 ;    ld hl, TilePairCollisionsWater
 ;    call CheckForTilePairCollisions
@@ -50,29 +47,119 @@ CheckIfCanSurfFromOverworld::
     call PlayDefaultMusic ; play surfing music
     call EnableAutoTextBoxDrawing
     tx_pre_jump PlayerStartedSurfingText
-    jr .done
-
-;	ld a, SURFBOARD
-;	ld [wcf91], a
-;	ld [wPseudoItemID], a
-;	call UseItem
-;;   [wActionResultOrTookBattleTurn]
-;;   call ItemUseSurfboard
-;    jr .done
-
+    jp .done
 .notSurfInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisWaterIsSurfableText
-    jr .done
+    jp .done
 .newBadgeRequired
     call EnableAutoTextBoxDrawing
     tx_pre_jump NewBadgeRequiredText2
+    jp .done
+.cannotSurf
+; check for cut
+
+; &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+    ld a, [wCurMapTileset]
+    and a ; OVERWORLD
+    jr z, .overworld
+    cp GYM
+    jr z, .gym
+    cp ISLAND
+    jr z, .island
+    cp CAVERN
+    ld a, [wTileInFrontOfPlayer]
+    cp $54 ; cavern cut tree
+    jp nz, .done
+    jr .cuttableTile
+.island
+    ld a, [wTileInFrontOfPlayer]
+    cp $3d ; island cut tree
+    jp nz, .done
+    jr .cuttableTile
+.gym
+    ld a, [wTileInFrontOfPlayer]
+    cp $50 ; gym cut tree
+    jp nz, .done
+    jr .cuttableTile
+.overworld
+    dec a
+    ld a, [wTileInFrontOfPlayer]
+    cp $3d ; cut tree
+    jp nz, .done ; we don't check for grass, differently from vanilla
+.cuttableTile
+    ld [wCutTile], a
+
+; we are in front of a tree
+    ld d, CUT
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
+    jr z, .notCutInTeam
+; we have a Pokemon with CUT in the team
+    ld a, [wObtainedBadges]
+    bit BIT_CASCADEBADGE, a
+	jp z, .newBadgeRequired ; backjump actually, no reasons not to share the same text and code
+; we have the badge to cut it
+
+; is this even necessary?
+    ld a, 1
+    ld [wActionResultOrTookBattleTurn], a ; used cut
+
+; are these needed?
+;    call ClearSprites
+;    call RestoreScreenTilesAndReloadTilePatterns
+;    call ReloadMapData
+;    ld a, SCREEN_HEIGHT_PX
+;    ldh [hWY], a
+;    call Delay3
+;    call LoadGBPal
+;    call LoadCurrentMapView
+;    call SaveScreenTilesToBuffer2
+;    call Delay3
+;    xor a
+;    ldh [hWY], a
+
+; insta printing
+    ld hl, wd730
+    set 6, [hl]
+    call EnableAutoTextBoxDrawing
+    tx_pre UsedCutText2
+    ld hl, wd730
+    res 6, [hl]
+
+; necessary only if the one above is
+;    call LoadScreenTilesFromBuffer2
+
+; actual cutting stuff?
+    ld a, $ff
+    ld [wUpdateSpritesEnabled], a
+    callfar InitCutAnimOAM
+    ld de, CutTreeBlockSwaps
+    callfar ReplaceTreeTileBlock
+    callfar RedrawMapView
+    farcall AnimCut
+    ld a, $1
+    ld [wUpdateSpritesEnabled], a
+    ld a, SFX_CUT
+    call PlaySound
+    ld a, $90
+    ldh [hWY], a
+
+; needed?
+    call UpdateSprites
+    callfar RedrawMapView ; should this be simply a jp RedrawMapView?
+    jr .done
+
+.notCutInTeam
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump ThisTreeIsCuttableText
+
+; &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 .done
-;	pop af
-;	call BankswitchCommon
 	ret
 
-; --------------------------------------------
+; ============================================
 
 ThisWaterIsSurfableText::
     text_far _ThisWaterIsSurfableText
@@ -99,6 +186,24 @@ PlayerStartedSurfingText::
 _PlayerStartedSurfingText::
     text "<PLAYER> SURFs on"
     line "their #MON!"
+    done
+
+ThisTreeIsCuttableText::
+    text_far _ThisTreeIsCuttableText
+    text_end
+
+_ThisTreeIsCuttableText::
+    text "A #MON could"
+    line "cut this tree!"
+    done
+
+UsedCutText2::
+    text_far _UsedCutText2
+    text_end
+
+_UsedCutText2::
+    text "<PLAYER>'s #MON"
+    line "cuts the tree!"
     done
 
 ; --------------------------------------------
@@ -161,3 +266,23 @@ IsMoveInParty:
 	ld a, d
 	and a
 	ret
+
+; --------------------------------------------
+
+CutTreeBlockSwaps2: ; stupid copy
+	; first byte = tileset block containing the cut tree
+	; second byte = corresponding tileset block after the cut animation happens
+	db $32, $6D
+	db $33, $6C
+	db $34, $6F
+	db $35, $4C
+	db $60, $6E
+	db $0B, $0A
+	db $3C, $35
+	db $3F, $35
+	db $3D, $36
+	db $B8, $4C ; new, for OVERWORLD (used in FUCHSIA_CITY)
+	db $B9, $BA ; new, for OVERWORLD (used in FUCHSIA_CITY)
+	db $4D, $4E ; new, for ISLAND blockset
+	db $8B, $05 ; new, for CAVERN blockset
+	db -1 ; end

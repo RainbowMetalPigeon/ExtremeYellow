@@ -88,7 +88,7 @@ OverworldLoopLessDelay::
 	jp nz, .noDirectionButtonsPressed
 	call IsPlayerCharacterBeingControlledByGame
 	jr nz, .checkForOpponent
-	callfar CheckIfCanSurfFromOverworld ; new, testing
+	callfar CheckIfCanSurfOrCutFromOverworld ; new, testing
 	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
 	ldh a, [hItemAlreadyFound]
 	and a

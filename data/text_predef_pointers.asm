@@ -70,6 +70,8 @@ TextPredefs::
 	add_tx_pre BookOrSculptureText                  ; 42
 	add_tx_pre ElevatorText                         ; 43
 	add_tx_pre PokemonStuffText                     ; 44
-	add_tx_pre ThisWaterIsSurfableText              ; new, testing
 	add_tx_pre NewBadgeRequiredText2                ; new, testing
+	add_tx_pre ThisWaterIsSurfableText              ; new, testing
 	add_tx_pre PlayerStartedSurfingText             ; new, testing
+	add_tx_pre ThisTreeIsCuttableText               ; new, testing
+	add_tx_pre UsedCutText2                         ; new, testing

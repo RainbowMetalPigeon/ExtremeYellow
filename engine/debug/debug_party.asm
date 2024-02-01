@@ -155,9 +155,10 @@ DebugSetPokedexEntries:
 
 DebugItemsList:
 ;	db LUNAR_RELIC, 1
+	db PP_UP, 42
 	db PERFECTER, 50
 	db SUPER_ROD, 1
-	db GOOD_ROD, 1
+;	db GOOD_ROD, 1
 	db MASTER_BALL, 99
 ;	db MEGA_STONE_X, 99
 	db TOWN_MAP, 1

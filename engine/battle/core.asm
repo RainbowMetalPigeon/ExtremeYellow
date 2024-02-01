@@ -6296,7 +6296,17 @@ EnemyCheckIfMirrorMoveEffect:
 .moveDidNotMiss
 	call ApplyAttackToPlayerPokemon
 	call PrintCriticalOHKOText
-	callfar DisplayEffectiveness
+; new block, beginning: display effectiveness only once for multi-hit moves
+	ld a, [wEnemyMoveEffect]
+	cp TWO_TO_FIVE_ATTACKS_EFFECT
+	jr z, .dontDisplayEffectivenessYet
+	cp ATTACK_TWICE_EFFECT
+	jr z, .dontDisplayEffectivenessYet
+	cp TWINEEDLE_EFFECT
+	jr z, .dontDisplayEffectivenessYet
+	callfar DisplayEffectiveness ; this was already here but has been absorbed in the block
+.dontDisplayEffectivenessYet
+; new block, end: display effectiveness only once for multi-hit moves
 	ld a, 1
 	ld [wMoveDidntMiss], a
 .handleExplosionMiss
@@ -6322,6 +6332,7 @@ EnemyCheckIfMirrorMoveEffect:
 	res ATTACKING_MULTIPLE_TIMES, [hl] ; mon is no longer hitting multiple times
 	ld hl, HitXTimesText
 	call PrintText
+	callfar DisplayEffectiveness ; new, added here to display effectiveness only once for multi-hit moves
 	xor a
 	ld [wEnemyNumHits], a
 .notMultiHitMove
