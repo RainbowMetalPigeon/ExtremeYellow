@@ -75,7 +75,7 @@ SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuf
 
 INCLUDE "engine/menus/draw_badges.asm" ; moved from bank3
 INCLUDE "engine/gfx/animated_tiles_code.asm" ; contains function moved from vcopy.asm, which is in home
-
+INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new, testing
 
 SECTION "bank4", ROMX
 
