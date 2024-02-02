@@ -39,7 +39,7 @@ CheckIfCanSurfOrCutFromOverworld::
 ;    call CheckForTilePairCollisions
 ;    jp c, SurfingAttemptFailed
     call LoadSurfingPlayerSpriteGraphics2
-    call makePlayerMoveForward2
+    callfar ItemUseSurfboard.makePlayerMoveForward
     ld hl, wd730
     set 7, [hl]
     ld a, 2
@@ -178,27 +178,6 @@ _UsedCutText2::
 
 ; --------------------------------------------
 
-makePlayerMoveForward2:
-	ld a, [wPlayerDirection] ; direction the player is going
-	bit PLAYER_DIR_BIT_UP, a
-	ld b, D_UP
-	jr nz, .storeSimulatedButtonPress
-	bit PLAYER_DIR_BIT_DOWN, a
-	ld b, D_DOWN
-	jr nz, .storeSimulatedButtonPress
-	bit PLAYER_DIR_BIT_LEFT, a
-	ld b, D_LEFT
-	jr nz, .storeSimulatedButtonPress
-	ld b, D_RIGHT
-.storeSimulatedButtonPress
-	ld a, b
-	ld [wSimulatedJoypadStatesEnd], a
-	xor a
-	ld [wWastedByteCD39], a
-	inc a
-	ld [wSimulatedJoypadStatesIndex], a
-	ret
-
 ; from Vortiene
 ; Searches for a specific move in the party and also counts how many occurrences of it there are
 ; input:
@@ -236,23 +215,3 @@ IsMoveInParty:: ; maybe unnecessary to use double colon?
 	ld a, d
 	and a
 	ret
-
-; --------------------------------------------
-
-CutTreeBlockSwaps2: ; stupid copy
-	; first byte = tileset block containing the cut tree
-	; second byte = corresponding tileset block after the cut animation happens
-	db $32, $6D
-	db $33, $6C
-	db $34, $6F
-	db $35, $4C
-	db $60, $6E
-	db $0B, $0A
-	db $3C, $35
-	db $3F, $35
-	db $3D, $36
-	db $B8, $4C ; new, for OVERWORLD (used in FUCHSIA_CITY)
-	db $B9, $BA ; new, for OVERWORLD (used in FUCHSIA_CITY)
-	db $4D, $4E ; new, for ISLAND blockset
-	db $8B, $05 ; new, for CAVERN blockset
-	db -1 ; end

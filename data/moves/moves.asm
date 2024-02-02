@@ -158,7 +158,7 @@ Moves:
 	move LOVELY_KISS,  SLEEP_EFFECT,                 0, NORMAL,        75, 10
 ;	move SKY_ATTACK,   CHARGE_EFFECT,              140, FLYING,        90,  5
 	move TRANSFORM,    TRANSFORM_EFFECT,             0, NORMAL,       100, 10
-	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT3,      20, WATER,       100, 30 ; keep power 20 instead raising to 40  otherwise gets just better than WATER_GUN
+	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT3,      20, WATER,       100, 30 ; keep power 20 instead raising to 40 otherwise gets just better than WATER_GUN
 	move DIZZY_PUNCH,  CONFUSION_SIDE_EFFECT2,      70, NORMAL,       100, 10 ; 20% confusion
 	move SPORE,        SLEEP_EFFECT,                 0, GRASS,        100, 15
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, NORMAL,       100, 20 ; 70->100% accuracy
