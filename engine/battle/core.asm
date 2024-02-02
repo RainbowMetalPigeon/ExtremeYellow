@@ -887,7 +887,8 @@ FaintEnemyPokemon:
 	ld [wBoostExpByExpAll], a
 	callfar GainExperience
 	pop af
-	ret z ; return if no exp all
+	jp z, .tryMidBattleEvolution ; new, testing
+;	ret z ; return if no exp all
 
 ; the player has exp all
 ; now, set the gain exp flag for every party member
@@ -903,7 +904,83 @@ FaintEnemyPokemon:
 	jr nz, .gainExpFlagsLoop
 	ld a, b
 	ld [wPartyGainExpFlags], a
-	jpfar GainExperience
+;	jpfar GainExperience
+	callfar GainExperience ; new, testing
+
+.tryMidBattleEvolution ; new, testing
+	predef EvolutionAfterBattle
+
+;	ld a, [wWhichPokemon]
+;	ld bc, wPartyMon2 - wPartyMon1
+;	ld hl, wPartyMon1Species
+;	call AddNTimes
+
+;	ld a, [wWhichPokemon]
+;	ld [wPlayerMonNumber], a
+;	inc a
+;	ld hl, wPartySpecies - 1
+;	ld c, a
+;	ld b, 0
+;	add hl, bc
+;	ld a, [hl] ; species
+;	ld [wcf91], a
+;	ld [wBattleMonSpecies2], a
+
+;	ld a, [wBattleMonSpecies2]
+;	ld [wd0b5], a
+;	call GetMonHeader
+;	predef LoadMonBackPic
+;	predef AnimateSendingOutMon
+
+	ld a, [wEvolutionOccurred]
+	and a
+	ret z
+
+;	xor a
+;	ldh [hWY], a
+
+;	call SaveScreenTilesToBuffer1
+;	ld a, MON_SPRITE_POPUP
+;	ld [wTextBoxID], a
+;	call DisplayTextBoxID
+;	call UpdateSprites
+
+	ld a, [wBattleMonSpecies2]
+	ld [wcf91], a
+	ld [wd0b5], a
+	call GetMonHeader
+
+;	ld de, vChars1 tile $31
+	predef LoadMonBackPic
+	xor a
+	ldh [hStartTileID], a
+	hlcoord 4, 11
+
+	ld a, [wIsInBattle]
+	push af
+	xor a
+	ld [wIsInBattle], a
+	predef AnimateSendingOutMon
+	pop af
+	ld [wIsInBattle], a
+
+;	call WaitForTextScrollButtonPress
+;	call LoadScreenTilesFromBuffer1
+;	call Delay3
+;	ld a, $90
+;	ldh [hWY], a
+
+;	call ClearScreen
+;	call ClearSprites
+;	call ReloadMapData
+;	call ReloadTilesetTilePatterns
+;	call LoadPlayerSpriteGraphics
+;	call RestoreScreenTilesAndReloadTilePatterns
+;	call LoadFontTilePatterns
+;	call UpdateSprites
+
+	callfar PlayBattleMusic
+	ret
 
 EnemyMonFaintedText:
 	text_far _EnemyMonFaintedText
@@ -4938,7 +5015,7 @@ JumpToOHKOMoveEffect:
 	dec a
 	ret
 
-INCLUDE "data/battle/unused_critical_hit_moves.asm"
+;INCLUDE "data/battle/unused_critical_hit_moves.asm" ; edited, commented away
 
 ; determines if attack is a critical hit
 ; Azure Heights claims "the fastest pokémon (who are, not coincidentally,
@@ -5047,24 +5124,30 @@ HandleCounterMove:
 ; check if the move the target last selected was Normal or Fighting type
 	inc de
 	ld a, [de]
-	and a ; NORMAL type
-	jr z, .counterableType
-	cp FIGHTING
-	jr z, .counterableType
-	cp FLYING				; check for all other physical types too - ugly as hell but should work
-	jr z, .counterableType
-	cp POISON
-	jr z, .counterableType
-	cp GROUND
-	jr z, .counterableType
-	cp ROCK
-	jr z, .counterableType
-	cp BUG
-	jr z, .counterableType
-	cp GHOST
-	jr z, .counterableType
-	cp STEEL
-	jr z, .counterableType
+; cheaper way of checking if the move if physical:
+; in constants/type_constants.asm physical move have number <20
+; just check if a is below 15 or so, there's a gap between physical and special
+; this now also includes TYPELESS, so STRUGGLE can be countered
+	cp 15
+	jr c, .counterableType
+;	and a ; NORMAL type
+;	jr z, .counterableType
+;	cp FIGHTING
+;	jr z, .counterableType
+;	cp FLYING				; check for all other physical types too - ugly as hell but should work
+;	jr z, .counterableType
+;	cp POISON
+;	jr z, .counterableType
+;	cp GROUND
+;	jr z, .counterableType
+;	cp ROCK
+;	jr z, .counterableType
+;	cp BUG
+;	jr z, .counterableType
+;	cp GHOST
+;	jr z, .counterableType
+;	cp STEEL
+;	jr z, .counterableType
 ; if the move wasn't a physical type (but TYPELESS, used only by STRUGGLE), miss
 	xor a
 	ret
@@ -5148,26 +5231,29 @@ HandleMirrorCoatMove:
 ; check if the move the target last selected was special
 	inc de
 	ld a, [de]
-;	and a ; NORMAL type        ; no longer valid to just do and a
-;	jr z, .mirrorcoatableType  ; no longer valid to just do and a
-	cp FIRE                    ; check for all special types too - ugly as hell but should work
-	jr z, .mirrorcoatableType
-	cp WATER
-	jr z, .mirrorcoatableType
-	cp GRASS
-	jr z, .mirrorcoatableType
-	cp ELECTRIC
-	jr z, .mirrorcoatableType
-	cp PSYCHIC_TYPE
-	jr z, .mirrorcoatableType
-	cp ICE
-	jr z, .mirrorcoatableType
-	cp DRAGON
-	jr z, .mirrorcoatableType
-	cp DARK
-	jr z, .mirrorcoatableType
-    cp FAIRY
-    jr z, .mirrorcoatableType
+; cheaper way of checking if the move if special:
+; in constants/type_constants.asm special move have number >=20
+; just check if a is above 15 or so, there's a gap between physical and special
+	cp 15
+	jr nc, .mirrorcoatableType
+;	cp FIRE                    ; check for all special types too - ugly as hell but should work
+;	jr z, .mirrorcoatableType
+;	cp WATER
+;	jr z, .mirrorcoatableType
+;	cp GRASS
+;	jr z, .mirrorcoatableType
+;	cp ELECTRIC
+;	jr z, .mirrorcoatableType
+;	cp PSYCHIC_TYPE
+;	jr z, .mirrorcoatableType
+;	cp ICE
+;	jr z, .mirrorcoatableType
+;	cp DRAGON
+;	jr z, .mirrorcoatableType
+;	cp DARK
+;	jr z, .mirrorcoatableType
+;   cp FAIRY
+;   jr z, .mirrorcoatableType
 ; if the move wasn't a special type, miss
 	xor a
 	ret

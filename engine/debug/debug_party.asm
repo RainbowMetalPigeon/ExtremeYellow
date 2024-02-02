@@ -15,9 +15,9 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98
-	db SNORLAX, 80
+	db MEW, 100
 	db STARTER_PIKACHU, 5
-;	db MAGIKARP, 42
+	db METAPOD, 9
 ;	db MAGIKARP, 100
 ;	db MAGIKARP, 2
 	db -1 ; end
