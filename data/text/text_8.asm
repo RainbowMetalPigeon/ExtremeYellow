@@ -86,6 +86,11 @@ _CanMoveBouldersText::
 	line "move boulders."
 	prompt
 
+_CanMoveBouldersText2:: ; new
+	text "Your #MON can"
+	line "move boulders!"
+	done
+
 _CurrentTooFastText::
 	text "The current is"
 	line "much too fast!"

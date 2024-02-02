@@ -57,10 +57,7 @@ CheckIfCanSurfOrCutFromOverworld::
     tx_pre_jump NewBadgeRequiredText2
     jp .done
 .cannotSurf
-; check for cut
-
-; &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
+; check if we have a tree in front of us
     ld a, [wCurMapTileset]
     and a ; OVERWORLD
     jr z, .overworld
@@ -90,7 +87,6 @@ CheckIfCanSurfOrCutFromOverworld::
     jp nz, .done ; we don't check for grass, differently from vanilla
 .cuttableTile
     ld [wCutTile], a
-
 ; we are in front of a tree
     ld d, CUT
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
@@ -100,25 +96,9 @@ CheckIfCanSurfOrCutFromOverworld::
     bit BIT_CASCADEBADGE, a
 	jp z, .newBadgeRequired ; backjump actually, no reasons not to share the same text and code
 ; we have the badge to cut it
-
 ; is this even necessary?
     ld a, 1
     ld [wActionResultOrTookBattleTurn], a ; used cut
-
-; are these needed?
-;    call ClearSprites
-;    call RestoreScreenTilesAndReloadTilePatterns
-;    call ReloadMapData
-;    ld a, SCREEN_HEIGHT_PX
-;    ldh [hWY], a
-;    call Delay3
-;    call LoadGBPal
-;    call LoadCurrentMapView
-;    call SaveScreenTilesToBuffer2
-;    call Delay3
-;    xor a
-;    ldh [hWY], a
-
 ; insta printing
     ld hl, wd730
     set 6, [hl]
@@ -126,11 +106,7 @@ CheckIfCanSurfOrCutFromOverworld::
     tx_pre UsedCutText2
     ld hl, wd730
     res 6, [hl]
-
-; necessary only if the one above is
-;    call LoadScreenTilesFromBuffer2
-
-; actual cutting stuff?
+; actual cutting stuff
     ld a, $ff
     ld [wUpdateSpritesEnabled], a
     callfar InitCutAnimOAM
@@ -144,18 +120,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call PlaySound
     ld a, $90
     ldh [hWY], a
-
-; needed?
     call UpdateSprites
     callfar RedrawMapView ; should this be simply a jp RedrawMapView?
     jr .done
-
 .notCutInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisTreeIsCuttableText
-
-; &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
 .done
 	ret
 
@@ -194,7 +164,7 @@ ThisTreeIsCuttableText::
 
 _ThisTreeIsCuttableText::
     text "A #MON could"
-    line "cut this tree!"
+    line "CUT this tree!"
     done
 
 UsedCutText2::
@@ -236,7 +206,7 @@ makePlayerMoveForward2:
 ; output:
 ; d = how many matches
 ; z flag = whether a match was found (z = not found; nz = found)
-IsMoveInParty:
+IsMoveInParty:: ; maybe unnecessary to use double colon?
 	ld c, d ; which move to check
 	ld hl, wPartyMon1Moves
 	lb de, 0, 0 ; d = how many matches were found e = which pokemon we're on

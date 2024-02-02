@@ -394,7 +394,7 @@ OaksLabHiddenObjects:
 	db -1 ; end
 
 ViridianCityHiddenObjects:
-	hidden_object 14,  4, POTION, HiddenItems
+	hidden_object 13,  4, POTION, HiddenItems ; edited
 	db -1 ; end
 
 ViridianPokecenterHiddenObjects:
