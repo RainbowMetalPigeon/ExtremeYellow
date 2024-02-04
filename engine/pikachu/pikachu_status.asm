@@ -10,19 +10,19 @@ IsStarterPikachuInOurParty::
 	inc a
 	jr z, .noPlayerPikachu
 	cp STARTER_PIKACHU + 1
-	jr nz, .curMonNotPlayerPikachu
+	jr nz, .curMonNotStarterPikachu
 	ld h, d
 	ld l, e
-	ld a, [wPlayerID]
+	xor a ; edited, was ld a, [wPlayerID]
 	cp [hl]
-	jr nz, .curMonNotPlayerPikachu
+	jr nz, .curMonNotStarterPikachu
 	inc hl
-	ld a, [wPlayerID+1]
+	xor a ; edited, was ld a, [wPlayerID+1]
 	cp [hl]
-	jr nz, .curMonNotPlayerPikachu
+	jr nz, .curMonNotStarterPikachu
 	push de
 	push bc
-	ld hl, wPlayerName
+	ld hl, SamuelNameForPikachu2 ; edited, was wPlayerName
 	ld d, $6 ; possible player length - 1
 .nameCompareLoop
 	dec d
@@ -34,7 +34,7 @@ IsStarterPikachuInOurParty::
 	jr z, .nameCompareLoop
 	pop bc
 	pop de
-.curMonNotPlayerPikachu
+.curMonNotStarterPikachu
 	ld hl, wPartyMon2 - wPartyMon1
 	add hl, de
 	ld d, h
@@ -83,11 +83,11 @@ asm_fce21:
 	jr nz, .notPlayerPikachu
 	ld bc, wPartyMon1OTID - wPartyMon1
 	add hl, bc
-	ld a, [wPlayerID]
+	xor a ; edited, was ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .notPlayerPikachu
 	inc hl
-	ld a, [wPlayerID+1]
+	xor a ; edited, was ld a, [wPlayerID+1]
 	cp [hl]
 	jr nz, .notPlayerPikachu
 	ld h, d
@@ -95,7 +95,7 @@ asm_fce21:
 	ld a, [wWhichPokemon]
 	ld bc, NAME_LENGTH
 	call AddNTimes
-	ld de, wPlayerName
+	ld de, SamuelNameForPikachu2 ; edited, was wPlayerName
 	ld b, $6
 .loop
 	dec b
@@ -213,16 +213,16 @@ IsSurfingPikachuInThePlayersParty::
 	inc hl
 	inc hl
 	inc hl
-	ld a, [wPlayerID]
+	xor a ; edited, was ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .curMonNotSurfingPlayerPikachu
 	inc hl
-	ld a, [wPlayerID+1]
+	xor a ; edited, was ld a, [wPlayerID+1]
 	cp [hl]
 	jr nz, .curMonNotSurfingPlayerPikachu
 	push de
 	push bc
-	ld hl, wPlayerName
+	ld hl, SamuelNameForPikachu2 ; edited, was wPlayerName
 	ld d, $6
 .nameCompareLoop
 	dec d
@@ -256,3 +256,5 @@ IsSurfingPikachuInThePlayersParty::
 	pop hl
 	and a
 	ret
+
+SamuelNameForPikachu2: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it

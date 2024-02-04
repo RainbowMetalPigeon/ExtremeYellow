@@ -909,53 +909,18 @@ FaintEnemyPokemon:
 
 .tryMidBattleEvolution ; new, testing
 	predef EvolutionAfterBattle
-
-;	ld a, [wWhichPokemon]
-;	ld bc, wPartyMon2 - wPartyMon1
-;	ld hl, wPartyMon1Species
-;	call AddNTimes
-
-;	ld a, [wWhichPokemon]
-;	ld [wPlayerMonNumber], a
-;	inc a
-;	ld hl, wPartySpecies - 1
-;	ld c, a
-;	ld b, 0
-;	add hl, bc
-;	ld a, [hl] ; species
-;	ld [wcf91], a
-;	ld [wBattleMonSpecies2], a
-
-;	ld a, [wBattleMonSpecies2]
-;	ld [wd0b5], a
-;	call GetMonHeader
-;	predef LoadMonBackPic
-;	predef AnimateSendingOutMon
-
 	ld a, [wEvolutionOccurred]
 	and a
 	ret z
-
-;	xor a
-;	ldh [hWY], a
-
-;	call SaveScreenTilesToBuffer1
-;	ld a, MON_SPRITE_POPUP
-;	ld [wTextBoxID], a
-;	call DisplayTextBoxID
-;	call UpdateSprites
-
+; load and redraw the disappeared backsprite of the battling mon
 	ld a, [wBattleMonSpecies2]
-	ld [wcf91], a
-	ld [wd0b5], a
+	ld [wcf91], a ; one of these may be unnecessary
+	ld [wd0b5], a ; one of these may be unnecessary
 	call GetMonHeader
-
-;	ld de, vChars1 tile $31
 	predef LoadMonBackPic
 	xor a
 	ldh [hStartTileID], a
 	hlcoord 4, 11
-
 	ld a, [wIsInBattle]
 	push af
 	xor a
@@ -963,22 +928,7 @@ FaintEnemyPokemon:
 	predef AnimateSendingOutMon
 	pop af
 	ld [wIsInBattle], a
-
-;	call WaitForTextScrollButtonPress
-;	call LoadScreenTilesFromBuffer1
-;	call Delay3
-;	ld a, $90
-;	ldh [hWY], a
-
-;	call ClearScreen
-;	call ClearSprites
-;	call ReloadMapData
-;	call ReloadTilesetTilePatterns
-;	call LoadPlayerSpriteGraphics
-;	call RestoreScreenTilesAndReloadTilePatterns
-;	call LoadFontTilePatterns
-;	call UpdateSprites
-
+; restart music
 	callfar PlayBattleMusic
 	ret
 

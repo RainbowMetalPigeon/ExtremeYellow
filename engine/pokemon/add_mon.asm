@@ -38,8 +38,15 @@ _AddPartyMon::
 	ld d, h
 	ld e, l
 	ld hl, wPlayerName
+; new, to give STARTER_PIKACHU the OT of SAMUEL
+	ld a, [wCurMap]
+	cp OAKS_LAB
+	jr nz, .vanilla
+	ld hl, SamuelNameForPikachu
+.vanilla
+; back to vanilla
 	ld bc, NAME_LENGTH
-	call CopyData
+	call CopyData ; copies bc bytes from hl to de
 	ld a, [wMonDataLocation]
 	and a
 	jr nz, .skipNaming
@@ -198,12 +205,26 @@ _AddPartyMon::
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves
 	pop de
-	ld a, [wPlayerID]  ; set trainer ID to player ID
+; new, to give STARTER_PIKACHU the ID of 00000
 	inc de
+	ld a, [wCurMap]
+	cp OAKS_LAB
+	jr nz, .vanilla2
+	xor a
+;	inc de
+	ld [de], a
+	inc de
+	ld [de], a
+	jr .doneWithSpecialID
+.vanilla2
+; back to vanilla
+	ld a, [wPlayerID]  ; set trainer ID to player ID
+;	inc de ; increased above
 	ld [de], a
 	ld a, [wPlayerID + 1]
 	inc de
 	ld [de], a
+.doneWithSpecialID ; new
 	push de
 	ld a, [wCurEnemyLVL]
 	ld d, a
@@ -520,3 +541,5 @@ _MoveMon::
 .done
 	and a
 	ret
+
+SamuelNameForPikachu: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it

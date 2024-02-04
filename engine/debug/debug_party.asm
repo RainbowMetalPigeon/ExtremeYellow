@@ -1,4 +1,4 @@
-; not IshiharaTeam
+      ; not IshiharaTeam
 SetDebugTeam:
 	ld de, DebugTeam
 .loop
@@ -17,8 +17,8 @@ DebugTeam:
 	db MEWTWO, 98
 	db MEW, 100
 	db STARTER_PIKACHU, 5
-	db METAPOD, 9
-;	db MAGIKARP, 100
+;	db METAPOD, 9
+;	db KAKUNA, 9
 ;	db MAGIKARP, 2
 	db -1 ; end
 
@@ -68,13 +68,24 @@ IF DEF(_DEBUG)
 ;	ld hl, wPartyMon3Moves + 3
 ;	ld [hl], a
 
-	; Pikachu gets Surf.
+	; Pikachu gets Surf and Fly.
 	ld a, FLY
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
 	ld a, SURF
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
+
+	; Pikachu get transformed into Starter Pikachu
+	ld de, wPartyMon3OT
+	ld hl, SamuelNameForPikachu3
+	ld bc, NAME_LENGTH
+	call CopyData ; copies bc bytes from hl to de
+	ld de, wPartyMon3OTID
+	xor a
+	ld [de], a
+	inc de
+	ld [de], a
 
 	; Snorlax gets four HM moves.
 	ld hl, wPartyMon2Moves
@@ -153,6 +164,8 @@ DebugSetPokedexEntries:
 	ld [hl], %11111111
 	ret
 
+SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
+
 DebugItemsList:
 ;	db LUNAR_RELIC, 1
 	db PP_UP, 42
@@ -172,9 +185,10 @@ DebugItemsList:
 	db LIFT_KEY, 1
 	db POKE_FLUTE, 1
 	db ESCAPE_ROPE, 99
-	db LEGEND_CANDY, 42
+;	db LEGEND_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
+;	db EXP_ALL, 1
 	db -1 ; end
 
 DebugUnusedList:
