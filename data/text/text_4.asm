@@ -54,3 +54,7 @@ _StoppedEvolvingText::
 	text_start
 	line "stopped evolving!"
 	prompt
+
+_RepelUseAnotherText:: ; new, from Vortiene
+	text "Use another?"
+	done

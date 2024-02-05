@@ -36,7 +36,7 @@ _PlayerBlackedOutText::
 _RepelWoreOffText::
 	text "REPEL's effect"
 	line "wore off."
-	done
+	prompt
 
 _PokemartBuyingGreetingText::
 	text "Take your time."

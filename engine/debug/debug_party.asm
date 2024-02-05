@@ -167,6 +167,9 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db SUPER_REPEL, 3
+	db REPEL, 3
+	db MAX_REPEL, 3
 ;	db LUNAR_RELIC, 1
 	db PP_UP, 42
 	db PERFECTER, 50
@@ -179,7 +182,7 @@ DebugItemsList:
 	db FULL_RESTORE, 99
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
-	db POKE_DOLL, 99 ; FULL_HEAL
+;	db POKE_DOLL, 99 ; FULL_HEAL
 ;	db REVIVE, 99
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
