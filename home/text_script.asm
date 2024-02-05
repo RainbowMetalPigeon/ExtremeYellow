@@ -223,7 +223,7 @@ DisplayRepelWoreOffText::
 	ld hl, RepelWoreOffText
 	call PrintText
 	callfar UseAnotherRepel ; new, from Vortiene: when repel wears off ask to use another if available
-	jp AfterDisplayingTextID
+	jp CloseTextDisplay ; edited
 
 RepelWoreOffText::
 	text_far _RepelWoreOffText
