@@ -3474,7 +3474,7 @@ PlayerCalcMoveDamage:
 	ld de, 1
 	call IsInArray
 	jp c, .moveHitTest ; SetDamageEffects moves (e.g. Seismic Toss and Super Fang) skip damage calculation
-	call CriticalHitTest
+	callfar CriticalHitTest ; edited
 	call HandleCounterLikeMoves		; new
 ;	call HandleCounterMove
 ;	call HandleMirrorCoatMove		; new
@@ -4313,40 +4313,108 @@ CheckForDisobedience:
 	ld [wMonIsDisobedient], a
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
-	jr nz, .checkIfMonIsTraded
+	jr nz, .notLinkBattle
 	ld a, $1
 	and a
 	ret
-; compare the mon's original trainer ID with the player's ID to see if it was traded
-.checkIfMonIsTraded
-	ld hl, wPartyMon1OTID
-	ld bc, wPartyMon2 - wPartyMon1
-	ld a, [wPlayerMonNumber]
-	call AddNTimes
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .monIsTraded
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	jp z, .canUseMove
-; it was traded
-.monIsTraded
-; what level might disobey?
-	ld hl, wObtainedBadges
-	bit BIT_EARTHBADGE, [hl]
+; edited: we apply the disobedience check for all mons, even the non-traded ones
+.notLinkBattle
+; new: Starter Pikachu is treated differently
+	callfar IsThisPartymonStarterPikachu_Party
+	jr nc, .notStarterPikachu
+; check for Pikachu happiness, using same thresholds as for the overworld emotions (see engine/pikachu/pikachu_pic_animation.asm)
+; 50 - 100 - 130 - 160 - 200 - 250 - 255
+	call BattleRandom
+	ld b, a ; now b holds a random number
+	ld a, [wPikachuHappiness]
+	cp 131
+	jp nc, .canUseMove
+	cp 101
+	jr nc, .pikachu10PercentDisobey
+	cp 51
+	jr nc, .pikachu30PercentDisobey
+	; 60% range
+	ld a, b
+	cp 60 percent
+	jp nc, .canUseMove
+	jr .pikachuDisobeyed
+.pikachu30PercentDisobey
+	ld a, b
+	cp 30 percent
+	jp nc, .canUseMove
+	jr .pikachuDisobeyed
+.pikachu10PercentDisobey
+	ld a, b
+	cp 10 percent
+	jp nc, .canUseMove
+.pikachuDisobeyed
+; now the probabilities of doing one of the three bad things depend on the mood
+	call BattleRandom
+	ld b, a ; now b holds a random number (maybe do push-pop?)
+	ld a, [wPikachuMood]
+	cp $80
+	ld a, b ; now a holds again (maybe do push-pop?)
+	jr z, .neutralMood
+	jr c, .badMood
+;.goodMood
+	cp 60
+	jp c, .useRandomMove
+	cp 80
+	jp c, .monDoesNothing
+	cp 15
+	jp c, .monHitItself
+	jp .monNaps
+.neutralMood
+	cp 30
+	jp c, .useRandomMove
+	cp 70
+	jp c, .monDoesNothing
+	cp 90
+	jp c, .monHitItself
+	jp .monNaps
+.badMood
+	cp 10
+	jp c, .useRandomMove
+	cp 30
+	jp c, .monDoesNothing
+	cp 60
+	jp c, .monHitItself
+	jp .monNaps
+; back to non-pikachu code
+.notStarterPikachu
+; what level might disobey? - modified, added threshold at every level and for post-League
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	ld a, 101
 	jr nz, .next
+; now we check all the badges, one by one
+	ld hl, wObtainedBadges
+	bit BIT_EARTHBADGE, [hl]
+	ld a, 75
+	jr nz, .next
+	bit BIT_VOLCANOBADGE, [hl]
+	ld a, 60
+	jr nz, .next
 	bit BIT_MARSHBADGE, [hl]
-	ld a, 70
+	ld a, 60
+	jr nz, .next
+	bit BIT_SOULBADGE, [hl]
+	ld a, 55
 	jr nz, .next
 	bit BIT_RAINBOWBADGE, [hl]
 	ld a, 50
 	jr nz, .next
-	bit BIT_CASCADEBADGE, [hl]
-	ld a, 30
+	bit BIT_THUNDERBADGE, [hl]
+	ld a, 40
 	jr nz, .next
-	ld a, 10
+	bit BIT_CASCADEBADGE, [hl]
+	ld a, 35
+	jr nz, .next
+	bit BIT_BOULDERBADGE, [hl]
+	ld a, 25
+	jr nz, .next
+	; no badges
+	ld a, 15
+; back to vanilla
 .next
 	ld b, a
 	ld c, a
@@ -4382,6 +4450,7 @@ CheckForDisobedience:
 	jr c, .monNaps
 	cp b
 	jr nc, .monDoesNothing
+.monHitItself
 	ld hl, WontObeyText
 	call PrintText
 	call HandleSelfConfusionDamage
@@ -4967,77 +5036,8 @@ JumpToOHKOMoveEffect:
 
 ;INCLUDE "data/battle/unused_critical_hit_moves.asm" ; edited, commented away
 
-; determines if attack is a critical hit
-; Azure Heights claims "the fastest pokémon (who are, not coincidentally,
-; among the most popular) tend to CH about 20 to 25% of the time."
-CriticalHitTest:
-	xor a
-	ld [wCriticalHitOrOHKO], a
-	ldh a, [hWhoseTurn]
-	and a
-	ld a, [wEnemyMonSpecies]
-	jr nz, .handleEnemy
-	ld a, [wBattleMonSpecies]
-.handleEnemy
-	ld [wd0b5], a
-	call GetMonHeader
-	ld a, [wMonHBaseSpeed]
-	ld b, a
-;	srl b                        ; (effective (base speed/2))
-	ldh a, [hWhoseTurn]
-	and a
-	ld hl, wPlayerMovePower
-	ld de, wPlayerBattleStatus2
-	jr z, .calcCriticalHitProbability
-	ld hl, wEnemyMovePower
-	ld de, wEnemyBattleStatus2
-.calcCriticalHitProbability
-	ld a, [hld]                  ; read base power from RAM
-	and a
-	ret z                        ; do nothing if zero
-	dec hl
-	ld c, [hl]                   ; read move id
-	ld hl, HighCriticalMoves     ; table of high critical hit moves
-.Loop
-	ld a, [hli]                  ; read move from move table
-	cp c                         ; does it match the move about to be used?
-	jr z, .HighCritical          ; if so, the move about to be used is a high critical hit ratio move
-	inc a                        ; move on to the next move, FF terminates loop
-	jr nz, .Loop                 ; check the next move in HighCriticalMoves
-	srl b                        ; /2 for regular move
-	jr .SkipHighCritical         ; continue as a normal move
-.HighCritical
-	sla b                        ; *2 for high critical hit moves
-	jr nc, .noCarry
-	ld b, $ff                    ; cap at 255/256
-.noCarry
-	sla b                        ; *4 for high critical move
-	jr nc, .SkipHighCritical
-	ld b, $ff
-.SkipHighCritical
-	ld a, [de]
-	bit GETTING_PUMPED, a        ; test for focus energy
-	jr z, .noFocusEnergyUsed
-	sla b                        ; (effective (base speed)*2)
-	jr nc, .focusEnergyUsed
-	ld b, $ff                    ; cap at 255/256
-	jr .noFocusEnergyUsed
-.focusEnergyUsed
-	sla b                        ; (effective ((base speed*2)*2))
-	jr nc, .noFocusEnergyUsed
-	ld b, $ff                    ; cap at 255/256
-.noFocusEnergyUsed
-	call BattleRandom            ; generates a random value, in "a"
-	rlc a
-	rlc a
-	rlc a
-	cp b                         ; check a against calculated crit rate
-	ret nc                       ; no critical hit if no borrow
-	ld a, $1
-	ld [wCriticalHitOrOHKO], a   ; set critical hit flag
-	ret
-
-INCLUDE "data/battle/critical_hit_moves.asm"
+; edited: moved "CriticalHitTest" to its own file in another bank
+; made all calls to it into callfars
 
 ; function to determine if Counter hits and if so, how much damage it does
 HandleCounterMove:
@@ -5967,50 +5967,13 @@ MoveHitTest:
 	jr nz, .enemyTurn
 .playerTurn
 
-; edited: commented out as I removed MIST
-;; this checks if the move effect is disallowed by mist
-;	ld a, [wPlayerMoveEffect]
-;	cp ATTACK_DOWN1_EFFECT
-;	jr c, .skipEnemyMistCheck
-;	cp HAZE_EFFECT + 1
-;	jr c, .enemyMistCheck
-;	cp ATTACK_DOWN2_EFFECT
-;	jr c, .skipEnemyMistCheck
-;	cp REFLECT_EFFECT + 1
-;	jr c, .enemyMistCheck
-;	jr .skipEnemyMistCheck
-;.enemyMistCheck
-;; if move effect is from $12 to $19 inclusive or $3a to $41 inclusive
-;; i.e. the following moves
-;; GROWL, TAIL WHIP, LEER, STRING SHOT, SAND-ATTACK, SMOKESCREEN, (KINESIS was removed (and anyway I'll remove MIST too lol)),
-;; FLASH, CONVERSION*, HAZE*, SCREECH, LIGHT SCREEN*, REFLECT*
-;; the moves that are marked with an asterisk are not affected since this
-;; function is not called when those moves are used
-;	ld a, [wEnemyBattleStatus2]
-;	bit PROTECTED_BY_MIST, a ; is mon protected by mist?
-;	jp nz, .moveMissed
-;.skipEnemyMistCheck
+; edited: bunch of code commented out as I removed MIST
 	ld a, [wPlayerBattleStatus2]
 	bit USING_X_ACCURACY, a ; is the player using X Accuracy?
 	ret nz ; if so, always hit regardless of accuracy/evasion
 	jr .calcHitChance
 .enemyTurn
-;	ld a, [wEnemyMoveEffect]
-;	cp ATTACK_DOWN1_EFFECT
-;	jr c, .skipPlayerMistCheck
-;	cp HAZE_EFFECT + 1
-;	jr c, .playerMistCheck
-;	cp ATTACK_DOWN2_EFFECT
-;	jr c, .skipPlayerMistCheck
-;	cp REFLECT_EFFECT + 1
-;	jr c, .playerMistCheck
-;	jr .skipPlayerMistCheck
-;.playerMistCheck
-;; similar to enemy mist check
-;	ld a, [wPlayerBattleStatus2]
-;	bit PROTECTED_BY_MIST, a ; is mon protected by mist?
-;	jp nz, .moveMissed
-;.skipPlayerMistCheck
+; edited: bunch of code commented out as I removed MIST
 	ld a, [wEnemyBattleStatus2]
 	bit USING_X_ACCURACY, a ; is the enemy using X Accuracy?
 	ret nz ; if so, always hit regardless of accuracy/evasion
@@ -6232,7 +6195,7 @@ EnemyCalcMoveDamage:
 	ld de, $1
 	call IsInArray
 	jp c, EnemyMoveHitTest
-	call CriticalHitTest
+	callfar CriticalHitTest ; edited
 	call HandleCounterLikeMoves		; new
 ;	call HandleCounterMove
 ;	call HandleMirrorCoatMove		; new

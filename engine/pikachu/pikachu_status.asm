@@ -70,7 +70,7 @@ IsThisPartymonStarterPikachu_Box::
 	ld de, wBoxMonOT
 	jr asm_fce21
 
-IsThisPartymonStarterPikachu_Party::
+IsThisPartymonStarterPikachu_Party:: ; sets carry flag if it's Starter Pikachu
 IsThisPartymonStarterPikachu::
 	ld hl, wPartyMon1
 	ld bc, wPartyMon2 - wPartyMon1
