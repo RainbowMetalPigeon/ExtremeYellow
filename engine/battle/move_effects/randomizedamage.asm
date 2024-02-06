@@ -1,6 +1,9 @@
 ; multiplies damage by a random percentage from ~85% to 100%
 RandomizeDamage:
 ; new, maximize the damage roll if Starter Pikachu is happy enough (>160)
+	ldh a, [hWhoseTurn]
+	and a
+	jr nz, .notStarterPikachu ; we don't do this if it's not our turn
 	callfar IsThisPartymonStarterPikachu_Party
 	jr nc, .notStarterPikachu
 	ld a, [wPikachuHappiness]

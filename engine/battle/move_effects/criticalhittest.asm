@@ -59,6 +59,9 @@ CriticalHitTest:
 	ld b, $ff                    ; cap at 255/256
 .noFocusEnergyUsed
 ; new, to boost happy Starter Pikachu -> quadruple crit rate if happiness is 250 or more
+	ldh a, [hWhoseTurn]
+	and a
+	jr nz, .vanilla ; we don't do this if it's not our turn
 	push bc
 	callfar IsThisPartymonStarterPikachu_Party
 	jr nc, .notStarterPikachu
