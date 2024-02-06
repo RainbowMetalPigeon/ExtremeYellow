@@ -8,7 +8,7 @@ Kanto at its max
 - opponents are stronger than ever, with max DVs and Stats (IVs and EVs) and better AI
 - expanded backstory and deeper psychology for the main characters
 - two whole new cities
-- new main game arch
+- two new main game archs
 - secret and post-game new areas
 - various touches to existing buildings and areas
 - multiple final bosses and extended post-game experience
@@ -19,3 +19,4 @@ Kanto at its max
 - implemented Heavy Ball and Fast Ball
 - improved Safari Zone experience
 - improved GUI for move info box
+- widened the experience with the Starter Pikachu
