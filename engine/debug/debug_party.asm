@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 98
+	db MEWTWO, 98 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 5
 ;	db METAPOD, 9
@@ -86,6 +86,14 @@ IF DEF(_DEBUG)
 	ld [de], a
 	inc de
 	ld [de], a
+; this adds a status (SLP, PSN, etc) to the 3rd mon
+; still not clear which number corresponds to which status
+; bit-wise system?
+; 1, 2 = SLP
+; 10 = PSN but is also SLP
+;	ld a, 10
+;	ld de, wPartyMon3Status
+;	ld [de], a
 
 	; Snorlax gets four HM moves.
 	ld hl, wPartyMon2Moves
@@ -167,9 +175,9 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
-	db SUPER_REPEL, 3
-	db REPEL, 3
-	db MAX_REPEL, 3
+;	db SUPER_REPEL, 3
+;	db REPEL, 3
+;	db MAX_REPEL, 3
 ;	db LUNAR_RELIC, 1
 	db PP_UP, 42
 	db PERFECTER, 50
@@ -188,7 +196,8 @@ DebugItemsList:
 	db LIFT_KEY, 1
 	db POKE_FLUTE, 1
 	db ESCAPE_ROPE, 99
-;	db LEGEND_CANDY, 42
+	db LEGEND_CANDY, 42
+	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
 ;	db EXP_ALL, 1

@@ -516,6 +516,38 @@ INCLUDE "data/battle/priority_moves.asm"
 ; ------ end of Xillicis' tutorial addition -------
 
 HandlePoisonBurnLeechSeed:
+; new, give a chance to Starter Pikachu to heal itself
+	callfar IsThisPartymonStarterPikachu_Party
+	jr nc, .vanilla ; no starter Pikachu
+	ld a, [wPikachuHappiness]
+	cp 200
+	jr c, .vanilla ; not happy enough to shrug off conditions
+	ld a, [wBattleMonStatus]
+	and a
+	jp nz, .hasConditionsToHeal
+	; if we are here, Pikachu isn't statused, check for Leech Seed and Confusion
+	ld a, [wPlayerBattleStatus2]
+	add a
+	jr c, .hasConditionsToHeal
+	; if here, no statuses nor seeds, check for Confusion
+	ld hl, wPlayerBattleStatus1
+	bit CONFUSED, [hl] ; set the zero flag if bit not set
+	jr z, .vanilla ; not confused either, so back to normal stuff, could jump furher away but need to check too many things
+.hasConditionsToHeal
+	call BattleRandom
+	cp 25 percent
+	jr nc, .vanilla ; nothing happens
+	; 25% chance to heal itself from all conditions
+	xor a
+	ld [wBattleMonStatus], a ; heal status
+	ld hl, wPlayerBattleStatus1
+	res CONFUSED, [hl] ; heal confusion
+	ld hl, wPlayerBattleStatus2
+	res SEEDED, [hl] ; remove seeds
+	ld hl, PikachuHealItself
+	call PrintText
+.vanilla
+; back to vanilla
 	ld hl, wBattleMonHP
 	ld de, wBattleMonStatus
 	ldh a, [hWhoseTurn]
@@ -589,6 +621,10 @@ HurtByBurnText:
 
 HurtByLeechSeedText:
 	text_far _HurtByLeechSeedText
+	text_end
+
+PikachuHealItself: ; end
+	text_far _PikachuHealItself
 	text_end
 
 ; decreases the mon's current HP by 1/16 of the Max HP (multiplied by number of toxic ticks if active)
@@ -1241,65 +1277,9 @@ ChooseNextMon:
 	or [hl]
 	ret
 
-; called when player is out of usable mons.
-; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight)
-; trying updates from Vortiene
+; edited: moved the code for HandlePlayerBlackOut to its own file in another bank
 HandlePlayerBlackOut:
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	jr z, .noLossText
-	ld a, [wCurOpponent]
-	cp OPP_RIVAL1
-	jr z, .lossText
-	cp OPP_RIVAL2 ; edited: loss text for Rival2 trainer class restored
-	jr z, .lossText
-	cp OPP_RIVAL3 ; edited: loss text for Rival3 trainer class restored
-	jr z, .lossText
-	cp OPP_PROF_OAK ; edited: loss text for Oak trainer class restored
-	jr z, .lossText
-	cp OPP_TRAVELER ; new
-	jr z, .lossText
-	jr .noLossText
-.lossText
-	hlcoord 0, 0  ; battle that has loss text
-	lb bc, 8, 21
-	call ClearScreenArea
-	call ScrollTrainerPicAfterBattle
-	ld c, 40
-	call DelayFrames
-	call PrintEndBattleText ; in this case the end battle text is the "loss" text
-	ld a, [wCurMap]
-	cp OAKS_LAB
-	ret z            		; starter battle in oak's lab: don't black out
-.noLossText
-	ld b, SET_PAL_BATTLE_BLACK
-	call RunPaletteCommand
-	ld hl, PlayerBlackedOutText2
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	jr nz, .noLinkBattle
-	ld hl, LinkBattleLostText
-.noLinkBattle
-	call PrintText
-	ld a, [wd732]
-	res 5, a
-	ld [wd732], a
-	call ClearScreen
-	scf
-.temporary
-	ret
-
-Rival1WinText:
-	text_far _Rival1WinText
-	text_end
-
-PlayerBlackedOutText2:
-	text_far _PlayerBlackedOutText2
-	text_end
-
-LinkBattleLostText:
-	text_far _LinkBattleLostText
-	text_end
+	jpfar _HandlePlayerBlackOut
 
 ; slides pic of fainted mon downwards until it disappears
 ; bug: when this is called, [hAutoBGTransferEnabled] is non-zero, so there is screen tearing
@@ -3477,14 +3457,13 @@ PlayerCalcMoveDamage:
 	callfar CriticalHitTest ; edited
 	call HandleCounterLikeMoves		; new
 ;	call HandleCounterMove
-;	call HandleMirrorCoatMove		; new
 	jr z, handleIfPlayerMoveMissed
 	call GetDamageVarsForPlayerAttack
 	call CalculateDamage
 	jp z, playerCheckIfFlyOrChargeEffect ; for moves with 0 BP, skip any further damage calculation and, for now, skip MoveHitTest
 	               ; for these moves, accuracy tests will only occur if they are called as part of the effect itself
 	call AdjustDamageForMoveType
-	call RandomizeDamage
+	callfar RandomizeDamage ; edited into a callfar
 .moveHitTest
 	call MoveHitTest
 handleIfPlayerMoveMissed:
@@ -6084,42 +6063,8 @@ CalcHitChance:
 	ld [hl], a ; store the hit chance in the move accuracy variable
 	ret
 
-; multiplies damage by a random percentage from ~85% to 100%
-RandomizeDamage:
-	ld hl, wDamage
-	ld a, [hli]
-	and a
-	jr nz, .DamageGreaterThanOne
-	ld a, [hl]
-	cp 2
-	ret c ; return if damage is equal to 0 or 1
-.DamageGreaterThanOne
-	xor a
-	ldh [hMultiplicand], a
-	dec hl
-	ld a, [hli]
-	ldh [hMultiplicand + 1], a
-	ld a, [hl]
-	ldh [hMultiplicand + 2], a
-; loop until a random number greater than or equal to 217 is generated
-.loop
-	call BattleRandom
-	rrca
-	cp 217
-	jr c, .loop
-	ldh [hMultiplier], a
-	call Multiply ; multiply damage by the random number, which is in the range [217, 255]
-	ld a, 255
-	ldh [hDivisor], a
-	ld b, $4
-	call Divide ; divide the result by 255
-; store the modified damage
-	ldh a, [hQuotient + 2]
-	ld hl, wDamage
-	ld [hli], a
-	ldh a, [hQuotient + 3]
-	ld [hl], a
-	ret
+; edited: moved "RandomizeDamage" to its own file in another bank
+; made all calls to it into callfars
 
 ; for more detailed commentary, see equivalent function for player side (ExecutePlayerMove)
 ExecuteEnemyMove:
@@ -6198,7 +6143,6 @@ EnemyCalcMoveDamage:
 	callfar CriticalHitTest ; edited
 	call HandleCounterLikeMoves		; new
 ;	call HandleCounterMove
-;	call HandleMirrorCoatMove		; new
 	jr z, handleIfEnemyMoveMissed
 	call SwapPlayerAndEnemyLevels
 	call GetDamageVarsForEnemyAttack
@@ -6206,7 +6150,7 @@ EnemyCalcMoveDamage:
 	call CalculateDamage
 	jp z, EnemyCheckIfFlyOrChargeEffect
 	call AdjustDamageForMoveType
-	call RandomizeDamage
+	callfar RandomizeDamage ; edited into a callfar
 
 EnemyMoveHitTest:
 	call MoveHitTest

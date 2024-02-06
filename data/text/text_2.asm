@@ -936,6 +936,14 @@ _HurtByLeechSeedText::
 	line "<USER>!"
 	prompt
 
+_PikachuHealItself:: ; new
+	text "@"
+	text_ram wBattleMonNick
+	text " healed"
+	line "itself from"
+	cont "all conditions!"
+	prompt
+
 _EnemyMonFaintedText::
 	text "Enemy @"
 	text_ram wEnemyMonNick

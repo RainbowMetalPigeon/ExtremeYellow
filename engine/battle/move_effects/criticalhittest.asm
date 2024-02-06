@@ -58,7 +58,29 @@ CriticalHitTest:
 	jr nc, .noFocusEnergyUsed
 	ld b, $ff                    ; cap at 255/256
 .noFocusEnergyUsed
-	call BattleRandom2           ; generates a random value, in "a" ; changed into the copy
+; new, to boost happy Starter Pikachu -> quadruple crit rate if happiness is 250 or more
+	push bc
+	callfar IsThisPartymonStarterPikachu_Party
+	jr nc, .notStarterPikachu
+	ld a, [wPikachuHappiness]
+	cp 250
+	jr c, .notStarterPikachu
+; happy Starter Pikachu
+	pop bc
+	sla b
+	jr nc, .continue
+	ld b, $ff
+	jr .vanilla
+.continue
+	sla b
+	jr nc, .vanilla
+	ld b, $ff
+	jr .vanilla
+.notStarterPikachu
+	pop bc
+.vanilla
+; back to vanilla
+	call BattleRandom2           ; generates a random value, in "a" ; edited into the copy
 	rlc a
 	rlc a
 	rlc a
