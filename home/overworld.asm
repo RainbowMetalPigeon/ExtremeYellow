@@ -88,7 +88,6 @@ OverworldLoopLessDelay::
 	jp nz, .noDirectionButtonsPressed
 	call IsPlayerCharacterBeingControlledByGame
 	jr nz, .checkForOpponent
-	callfar CheckIfCanSurfOrCutFromOverworld ; new, testing
 	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
 	ldh a, [hItemAlreadyFound]
 	and a
@@ -96,10 +95,12 @@ OverworldLoopLessDelay::
 	xor a
 	ld [wd436], a ; new yellow address
 	call IsSpriteOrSignInFrontOfPlayer
-	call Func_0ffe
+	call FuncIsPlayerTalkingToPikachu
 	ldh a, [hSpriteIndexOrTextID]
 	and a
-	jp z, OverworldLoop
+	jr nz, .displayDialogue ; edited, testing
+	callfar CheckIfCanSurfOrCutFromOverworld ; new, testing
+	jp OverworldLoop
 .displayDialogue
 	predef GetTileAndCoordsInFrontOfPlayer
 	call UpdateSprites
@@ -2219,7 +2220,7 @@ IsSpinning::
 	ret z ; no spinning
 	farjp LoadSpinnerArrowTiles ; spin while moving
 
-Func_0ffe::
+FuncIsPlayerTalkingToPikachu::
 	jpfar IsPlayerTalkingToPikachu
 
 InitSprites::

@@ -4927,6 +4927,29 @@ CalculateDamage:
 	ld b, 4
 	call Divide
 
+;; new, double "attack" of Pikachu if we have the LIGHT BALL
+;	push af
+;	push hl
+;	; no need to push bc because we already used both of them above
+;	; not even de, e = level and d = base power already used
+;	callfar IsThisPartymonStarterPikachu_Party
+;	jr nc, .vanilla ; no starter Pikachu
+;	ld b, LIGHT_BALL
+;	call IsItemInBag ; set zero flag if item isn't in player's bag
+;	jr z, .vanilla ; we don't have the item
+;	ldh a, [hWhoseTurn]
+;	and a
+;	jr nz, .vanilla ; it's not our turn
+;	; all conditions satisfied, let's double the damage
+;	ld [hl], 2
+;	call Multiply
+;	jr .vanilla2
+;.vanilla
+;	pop hl
+;	pop af
+;.vanilla2
+;; back to vanilla
+
 ; Update wCurDamage.
 ; Capped at MAX_NEUTRAL_DAMAGE - MIN_NEUTRAL_DAMAGE: 999 - 2 = 997.
 	ld hl, wDamage
