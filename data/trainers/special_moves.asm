@@ -103,7 +103,7 @@ SpecialTrainerMoves:
 	db 2, 1, CUT
 	db 2, 2, SLASH
 	db 2, 3, STONE_EDGE
-	db 2, 4,
+	db 2, 4, SWORDS_DANCE
 	; SCIZOR
 	db 3, 1, CUT
 	db 3, 2, SLASH

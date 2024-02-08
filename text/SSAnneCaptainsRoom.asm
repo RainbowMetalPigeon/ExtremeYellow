@@ -114,11 +114,11 @@ _SSAnne7TextJenny::
 	line "time, thank you"
 	cont "so very much!"
 
-	para "You help has again"
-	line "been invaluable"
-	cont "in cleansing"
-	cont "KANTO from this"
-	cont "scum."
+	para "Your help has once"
+	line "again been"
+	cont "invaluable in"
+	cont "cleansing KANTO"
+	cont "from this scum."
 
 	para "As soon as you'll"
 	line "be of age, what"
