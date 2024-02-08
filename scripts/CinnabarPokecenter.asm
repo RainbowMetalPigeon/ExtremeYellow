@@ -8,6 +8,10 @@ CinnabarPokecenter_TextPointers:
 	dw CinnabarPokecenterText3
 	dw CinnabarTradeNurseText
 	dw CinnabarPokecenterText5
+	; new, from Mart
+	dw CinnabarCashierText
+	dw CinnabarMartText2
+	dw CinnabarMartText3
 
 CinnabarHealNurseText:
 	script_pokecenter_nurse
@@ -27,3 +31,16 @@ CinnabarPokecenterText5:
 	text_asm
 	callfar PokecenterChanseyText
 	jp TextScriptEnd
+
+; new, from Mart
+
+CinnabarMartText2:
+	text_far _CinnabarMartText2
+	text_end
+
+CinnabarMartText3:
+	text_far _CinnabarMartText3
+	text_end
+
+CinnabarCashierText: ; moved
+	script_mart ULTRA_BALL, GREAT_BALL, HYPER_POTION, MAX_REPEL, ESCAPE_ROPE, FULL_HEAL, REVIVE

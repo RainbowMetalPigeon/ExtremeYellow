@@ -61,7 +61,7 @@ MapHeaderBanks::
 	db BANK(Museum2F_h)
 	db BANK(PewterGym_h)
 	db BANK(PewterNidoranHouse_h)
-	db BANK(PewterMart_h)
+	db BANK(PewterPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(PewterSpeechHouse_h)
 	db BANK(PewterPokecenter_h)
 	db BANK(MtMoon1F_h)
@@ -72,7 +72,7 @@ MapHeaderBanks::
 	db BANK(CeruleanPokecenter_h)
 	db BANK(CeruleanGym_h)
 	db BANK(BikeShop_h)
-	db BANK(CeruleanMart_h)
+	db BANK(CeruleanPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(MtMoonPokecenter_h)
 	db BANK(OnixBurrowing_h) ; new, was a copy of the trashed house
 	db BANK(Route5Gate_h)
@@ -96,7 +96,7 @@ MapHeaderBanks::
 	db BANK(BillsHouse_h)
 	db BANK(VermilionPokecenter_h)
 	db BANK(PokemonFanClub_h)
-	db BANK(VermilionMart_h)
+	db BANK(VermilionPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(VermilionGym_h)
 	db BANK(VermilionPidgeyHouse_h)
 	db BANK(VermilionDock_h)
@@ -155,9 +155,9 @@ MapHeaderBanks::
 	db BANK(PokemonTower6F_h)
 	db BANK(PokemonTower7F_h)
 	db BANK(MrFujisHouse_h)
-	db BANK(LavenderMart_h)
+	db BANK(LavenderPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(LavenderCuboneHouse_h)
-	db BANK(FuchsiaMart_h)
+	db BANK(FuchsiaPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(FuchsiaBillsGrandpasHouse_h)
 	db BANK(FuchsiaPokecenter_h)
 	db BANK(WardensHouse_h)
@@ -177,7 +177,7 @@ MapHeaderBanks::
 	db BANK(CinnabarLabMetronomeRoom_h)
 	db BANK(CinnabarLabFossilRoom_h)
 	db BANK(CinnabarPokecenter_h)
-	db BANK(CinnabarMart_h)
+	db BANK(CinnabarPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(ObsidianHouses_h) ; new
 	db BANK(IndigoPlateauLobby_h)
 	db BANK(CopycatsHouse1F_h)
@@ -185,7 +185,7 @@ MapHeaderBanks::
 	db BANK(FightingDojo_h)
 	db BANK(SaffronGym_h)
 	db BANK(SaffronPidgeyHouse_h)
-	db BANK(SaffronMart_h)
+	db BANK(SaffronPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(SilphCo1F_h)
 	db BANK(SaffronPokecenter_h)
 	db BANK(MrPsychicsHouse_h)

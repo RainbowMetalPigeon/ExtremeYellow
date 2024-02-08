@@ -117,7 +117,7 @@ ROMX $17
 	"Maps 15"
 ;	"Starter Dex" ; removed this because useless in yellow?
 	"Maps 16"
-	"Hidden Objects 3"
+;	"Hidden Objects 3" ; probably doesn't need to stay there with the rest?
 ROMX $18
 	"Maps 17"
 	"Cinnabar Lab Fossils"

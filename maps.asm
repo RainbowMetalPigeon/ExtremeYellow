@@ -190,11 +190,6 @@ INCLUDE "data/maps/headers/CeladonMansionRoofHouse.asm"
 INCLUDE "scripts/CeladonMansionRoofHouse.asm"
 INCLUDE "data/maps/objects/CeladonMansionRoofHouse.asm"
 
-INCLUDE "data/maps/headers/FuchsiaMart.asm"
-INCLUDE "scripts/FuchsiaMart.asm"
-INCLUDE "data/maps/objects/FuchsiaMart.asm"
-FuchsiaMart_Blocks: INCBIN "maps/FuchsiaMart.blk"
-
 INCLUDE "data/maps/headers/SaffronPidgeyHouse.asm"
 INCLUDE "scripts/SaffronPidgeyHouse.asm"
 INCLUDE "data/maps/objects/SaffronPidgeyHouse.asm"
@@ -872,22 +867,12 @@ HallOfFame_Blocks: INCBIN "maps/HallOfFame.blk"
 
 SECTION "Maps 15", ROMX
 
-SaffronMart_Blocks:
-LavenderMart_Blocks:
-CeruleanMart_Blocks:
-VermilionMart_Blocks: INCBIN "maps/VermilionMart.blk"
-
 CopycatsHouse2F_Blocks:
 RedsHouse2F_Blocks: INCBIN "maps/RedsHouse2F.blk"
 
 Museum1F_Blocks: INCBIN "maps/Museum1F.blk"
 
 Museum2F_Blocks: INCBIN "maps/Museum2F.blk"
-
-SaffronPokecenter_Blocks:
-VermilionPokecenter_Blocks:
-LavenderPokecenter_Blocks:
-PewterPokecenter_Blocks: INCBIN "maps/PewterPokecenter.blk"
 
 UndergroundPathRoute7_Blocks:
 UndergroundPathRoute7Copy_Blocks:
@@ -925,32 +910,19 @@ INCLUDE "data/maps/objects/PewterPokecenter.asm"
 INCLUDE "data/maps/headers/CeruleanPokecenter.asm"
 INCLUDE "scripts/CeruleanPokecenter.asm"
 INCLUDE "data/maps/objects/CeruleanPokecenter.asm"
-CeruleanPokecenter_Blocks: INCBIN "maps/CeruleanPokecenter.blk"
 
 INCLUDE "data/maps/headers/CeruleanGym.asm"
 INCLUDE "scripts/CeruleanGym.asm"
 INCLUDE "data/maps/objects/CeruleanGym.asm"
 CeruleanGym_Blocks: INCBIN "maps/CeruleanGym.blk"
 
-INCLUDE "data/maps/headers/CeruleanMart.asm"
-INCLUDE "scripts/CeruleanMart.asm"
-INCLUDE "data/maps/objects/CeruleanMart.asm"
-
 INCLUDE "data/maps/headers/LavenderPokecenter.asm"
 INCLUDE "scripts/LavenderPokecenter.asm"
 INCLUDE "data/maps/objects/LavenderPokecenter.asm"
 
-INCLUDE "data/maps/headers/LavenderMart.asm"
-INCLUDE "scripts/LavenderMart.asm"
-INCLUDE "data/maps/objects/LavenderMart.asm"
-
 INCLUDE "data/maps/headers/VermilionPokecenter.asm"
 INCLUDE "scripts/VermilionPokecenter.asm"
 INCLUDE "data/maps/objects/VermilionPokecenter.asm"
-
-INCLUDE "data/maps/headers/VermilionMart.asm"
-INCLUDE "scripts/VermilionMart.asm"
-INCLUDE "data/maps/objects/VermilionMart.asm"
 
 INCLUDE "data/maps/headers/VermilionGym.asm"
 INCLUDE "scripts/VermilionGym.asm"
@@ -970,10 +942,6 @@ INCLUDE "data/maps/headers/SaffronGym.asm"
 INCLUDE "scripts/SaffronGym.asm"
 INCLUDE "data/maps/objects/SaffronGym.asm"
 SaffronGym_Blocks: INCBIN "maps/SaffronGym.blk"
-
-INCLUDE "data/maps/headers/SaffronMart.asm"
-INCLUDE "scripts/SaffronMart.asm"
-INCLUDE "data/maps/objects/SaffronMart.asm"
 
 INCLUDE "data/maps/headers/SilphCo1F.asm"
 INCLUDE "scripts/SilphCo1F.asm"
@@ -1022,6 +990,31 @@ INCLUDE "data/maps/headers/OchreGym.asm"
 INCLUDE "scripts/OchreGym.asm"
 INCLUDE "data/maps/objects/OchreGym.asm"
 OchreGym_Blocks: INCBIN "maps/OchreGym.blk"
+
+INCLUDE "data/maps/headers/CinnabarPokecenter.asm"
+INCLUDE "scripts/CinnabarPokecenter.asm"
+INCLUDE "data/maps/objects/CinnabarPokecenter.asm"
+
+INCLUDE "data/maps/headers/FuchsiaPokecenter.asm"
+INCLUDE "scripts/FuchsiaPokecenter.asm"
+INCLUDE "data/maps/objects/FuchsiaPokecenter.asm"
+
+; new! Center+Mart, testing
+INCLUDE "data/maps/headers/OchrePokecenter.asm"
+INCLUDE "scripts/OchrePokecenter.asm"
+INCLUDE "data/maps/objects/OchrePokecenter.asm"
+INCLUDE "data/maps/headers/ObsidianPokecenter.asm"
+INCLUDE "scripts/ObsidianPokecenter.asm"
+INCLUDE "data/maps/objects/ObsidianPokecenter.asm"
+PewterPokecenter_Blocks:
+CeruleanPokecenter_Blocks:
+VermilionPokecenter_Blocks:
+LavenderPokecenter_Blocks:
+SaffronPokecenter_Blocks:
+FuchsiaPokecenter_Blocks:
+CinnabarPokecenter_Blocks:
+ObsidianPokecenter_Blocks:
+OchrePokecenter_Blocks: INCBIN "maps/PokemonCenterAndMart.blk"
 
 
 SECTION "Maps 17", ROMX
@@ -1145,13 +1138,7 @@ SECTION "Maps 19", ROMX
 
 CopycatsHouse1F_Blocks: INCBIN "maps/CopycatsHouse1F.blk"
 
-CinnabarMart_Blocks:
-PewterMart_Blocks: INCBIN "maps/PewterMart.blk"
-
 FuchsiaBillsGrandpasHouse_Blocks: INCBIN "maps/FuchsiaBillsGrandpasHouse.blk"
-
-CinnabarPokecenter_Blocks:
-FuchsiaPokecenter_Blocks: INCBIN "maps/FuchsiaPokecenter.blk"
 
 CeruleanBadgeHouse_Blocks: INCBIN "maps/CeruleanBadgeHouse.blk"
 
@@ -1164,10 +1151,6 @@ INCLUDE "data/maps/headers/ViridianGym.asm"
 INCLUDE "scripts/ViridianGym.asm"
 INCLUDE "data/maps/objects/ViridianGym.asm"
 ViridianGym_Blocks: INCBIN "maps/ViridianGym.blk"
-
-INCLUDE "data/maps/headers/PewterMart.asm"
-INCLUDE "scripts/PewterMart.asm"
-INCLUDE "data/maps/objects/PewterMart.asm"
 
 INCLUDE "data/maps/headers/CeruleanCave1F.asm"
 INCLUDE "scripts/CeruleanCave1F.asm"
@@ -1184,10 +1167,6 @@ SECTION "Maps 21", ROMX
 INCLUDE "data/maps/headers/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "scripts/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "data/maps/objects/FuchsiaBillsGrandpasHouse.asm"
-
-INCLUDE "data/maps/headers/FuchsiaPokecenter.asm"
-INCLUDE "scripts/FuchsiaPokecenter.asm"
-INCLUDE "data/maps/objects/FuchsiaPokecenter.asm"
 
 INCLUDE "data/maps/headers/WardensHouse.asm"
 INCLUDE "scripts/WardensHouse.asm"
@@ -1234,14 +1213,6 @@ INCLUDE "data/maps/headers/CinnabarLabFossilRoom.asm"
 INCLUDE "scripts/CinnabarLabFossilRoom.asm"
 INCLUDE "data/maps/objects/CinnabarLabFossilRoom.asm"
 CinnabarLabFossilRoom_Blocks: INCBIN "maps/CinnabarLabFossilRoom.blk"
-
-INCLUDE "data/maps/headers/CinnabarPokecenter.asm"
-INCLUDE "scripts/CinnabarPokecenter.asm"
-INCLUDE "data/maps/objects/CinnabarPokecenter.asm"
-
-INCLUDE "data/maps/headers/CinnabarMart.asm"
-INCLUDE "scripts/CinnabarMart.asm"
-INCLUDE "data/maps/objects/CinnabarMart.asm"
 
 INCLUDE "data/maps/headers/CopycatsHouse1F.asm"
 INCLUDE "scripts/CopycatsHouse1F.asm"
@@ -1389,16 +1360,6 @@ INCLUDE "data/maps/headers/OchreHouses.asm"
 INCLUDE "scripts/OchreHouses.asm"
 INCLUDE "data/maps/objects/OchreHouses.asm"
 OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
-
-; new! Center+Mart
-INCLUDE "data/maps/headers/OchrePokecenter.asm"
-INCLUDE "scripts/OchrePokecenter.asm"
-INCLUDE "data/maps/objects/OchrePokecenter.asm"
-INCLUDE "data/maps/headers/ObsidianPokecenter.asm"
-INCLUDE "scripts/ObsidianPokecenter.asm"
-INCLUDE "data/maps/objects/ObsidianPokecenter.asm"
-ObsidianPokecenter_Blocks:
-OchrePokecenter_Blocks: INCBIN "maps/PokemonCenterAndMart.blk"
 
 ; Mateo's move deleter/relearner files
 INCLUDE "scripts/MoveDeleter.asm"

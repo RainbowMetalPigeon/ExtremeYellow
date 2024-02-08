@@ -8,6 +8,10 @@ VermilionPokecenter_TextPointers:
 	dw VermilionPokecenterText3
 	dw VermilionTradeNurseText
 	dw VermilionPokecenterText5
+	; new, from Mart
+	dw VermilionCashierText
+	dw VermilionMartText2
+	dw VermilionMartText3
 
 VermilionHealNurseText:
 	script_pokecenter_nurse
@@ -27,3 +31,16 @@ VermilionPokecenterText5:
 	text_asm
 	callfar PokecenterChanseyText
 	jp TextScriptEnd
+
+; new, from Mart
+
+VermilionMartText2:
+	text_far _VermilionMartText2
+	text_end
+
+VermilionMartText3:
+	text_far _VermilionMartText3
+	text_end
+
+VermilionCashierText: ; moved
+	script_mart POKE_BALL, SUPER_POTION, ICE_HEAL, AWAKENING, PARLYZ_HEAL, REPEL

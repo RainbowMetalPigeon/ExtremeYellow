@@ -3,6 +3,8 @@ PewterPokecenter_Script:
 	set 7, [hl]
 	call Serial_TryEstablishingExternallyClockedConnection
 	call EnableAutoTextBoxDrawing
+;	ld a, TRUE ; unnecessary
+;	ld [wAutoTextBoxDrawingControl], a ; unnecessary
 	ret
 
 PewterPokecenter_TextPointers:
@@ -12,6 +14,10 @@ PewterPokecenter_TextPointers:
 	dw PewterTradeNurseText
 	dw PewterPokecenterText5
 	dw PewterPokecenterText6
+	; from Mart
+	dw PewterCashierText
+	dw PewterMartText2
+	dw PewterMartText3
 
 PewterHealNurseText:
 	script_pokecenter_nurse
@@ -37,3 +43,28 @@ PewterPokecenterText6:
 	text_asm
 	callfar PokecenterChanseyText
 	jp TextScriptEnd
+
+; from Mart
+
+PewterMartText2:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text
+	text_far _PewterMartText2
+	text_end
+
+PewterMartText3:
+	text_asm
+	ld hl, .Text
+	call PrintText
+	jp TextScriptEnd
+
+.Text
+	text_far _PewterMartText3
+	text_end
+
+PewterCashierText: ; moved
+	script_mart POKE_BALL, POTION, ESCAPE_ROPE, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL

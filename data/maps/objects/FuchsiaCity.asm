@@ -2,7 +2,7 @@ FuchsiaCity_Object:
 	db $f ; border block
 
 	def_warp_events
-	warp_event  5, 13, FUCHSIA_MART, 1
+	warp_event  5, 13, FUCHSIA_POKECENTER, 3 ; edited due to MERGING
 	warp_event 11, 27, FUCHSIA_BILLS_GRANDPAS_HOUSE, 1
 	warp_event 19, 27, FUCHSIA_POKECENTER, 1
 	warp_event 27, 27, WARDENS_HOUSE, 1

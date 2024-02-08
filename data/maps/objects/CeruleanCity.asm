@@ -7,7 +7,7 @@ CeruleanCity_Object:
 	warp_event 19, 17, CERULEAN_POKECENTER, 1
 	warp_event 30, 19, CERULEAN_GYM, 1
 	warp_event 13, 25, BIKE_SHOP, 1
-	warp_event 25, 25, CERULEAN_MART, 1
+	warp_event 25, 25, CERULEAN_POKECENTER, 3 ; edited due to MERGING
 	warp_event  4, 11, CERULEAN_CAVE_1F, 1
 	warp_event 27,  9, CERULEAN_TRASHED_HOUSE, 3
 	warp_event  9, 11, CERULEAN_BADGE_HOUSE, 2

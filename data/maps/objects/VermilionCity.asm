@@ -4,7 +4,7 @@ VermilionCity_Object:
 	def_warp_events
 	warp_event 11,  3, VERMILION_POKECENTER, 1
 	warp_event  9, 13, POKEMON_FAN_CLUB, 1
-	warp_event 21, 13, VERMILION_MART, 1 ; moved to the left
+	warp_event 21, 13, VERMILION_POKECENTER, 3 ; moved to the left ; edited due to MERGING
 	warp_event 12, 19, VERMILION_GYM, 1
 	warp_event 23, 19, VERMILION_PIDGEY_HOUSE, 1
 	warp_event 18, 31, VERMILION_DOCK, 1

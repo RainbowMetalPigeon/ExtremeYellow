@@ -85,7 +85,7 @@ _ObsidianMinesText3_Asshole::
     text "What the solid"
     line "actual fuck?!"
 
-    para "Would you live me"
+    para "Would you leave me"
     line "dying here?!"
     done
 

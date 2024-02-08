@@ -8,6 +8,10 @@ SaffronPokecenter_TextPointers:
 	dw SaffronPokecenterText3
 	dw SaffronTradeNurseText
 	dw SaffronPokecenterText5
+	; new, from Mart
+	dw SaffronCashierText
+	dw SaffronMartText2
+	dw SaffronMartText3
 
 SaffronHealNurseText:
 	script_pokecenter_nurse
@@ -27,3 +31,16 @@ SaffronPokecenterText5:
 	text_asm
 	callfar PokecenterChanseyText
 	jp TextScriptEnd
+
+; new, from Mart
+
+SaffronMartText2:
+	text_far _SaffronMartText2
+	text_end
+
+SaffronMartText3:
+	text_far _SaffronMartText3
+	text_end
+
+SaffronCashierText: ; moved
+	script_mart GREAT_BALL, HYPER_POTION, MAX_REPEL, ESCAPE_ROPE, FULL_HEAL, REVIVE

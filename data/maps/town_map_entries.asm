@@ -66,7 +66,7 @@ InternalMapEntries:
 	internal_map VIRIDIAN_FOREST,                2,  4, ViridianForestName
 	internal_map PEWTER_POKECENTER,              2,  3, PewterCityName
 	internal_map MT_MOON_B2F,                    6,  2, MountMoonName
-	internal_map CERULEAN_MART,                 10,  2, CeruleanCityName
+	internal_map BIKE_SHOP,                     10,  2, CeruleanCityName ; edited because of map MERGING
 	internal_map MT_MOON_POKECENTER,             5,  2, Route4Name
 	internal_map ONIX_BURROWING,                 2,  1, Route26Name ; new, testing
 	internal_map DAYCARE,                       10,  4, Route5Name
@@ -102,7 +102,7 @@ InternalMapEntries:
 	internal_map VERMILION_OLD_ROD_HOUSE,       10,  9, VermilionCityName
 	internal_map FUCHSIA_GOOD_ROD_HOUSE,         8, 13, FuchsiaCityName
 	internal_map POKEMON_MANSION_1F,             2, 15, PokemonMansionName
-	internal_map CINNABAR_MART,                  2, 15, CinnabarIslandName ; edited
+	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
 	internal_map OBSIDIAN_HOUSES,                7,  9, ObsidianIslandName ; new
 	internal_map INDIGO_PLATEAU_LOBBY,           0,  2, IndigoPlateauName
 	internal_map MR_PSYCHICS_HOUSE,             10,  5, SaffronCityName

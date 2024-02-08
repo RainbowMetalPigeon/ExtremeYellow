@@ -61,7 +61,7 @@ MapHeaderPointers::
 	dw Museum2F_h
 	dw PewterGym_h
 	dw PewterNidoranHouse_h
-	dw PewterMart_h
+	dw PewterPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw PewterSpeechHouse_h
 	dw PewterPokecenter_h
 	dw MtMoon1F_h
@@ -72,7 +72,7 @@ MapHeaderPointers::
 	dw CeruleanPokecenter_h
 	dw CeruleanGym_h
 	dw BikeShop_h
-	dw CeruleanMart_h
+	dw CeruleanPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw MtMoonPokecenter_h
 	dw OnixBurrowing_h ; new, was a copy of the trashed house
 	dw Route5Gate_h
@@ -96,7 +96,7 @@ MapHeaderPointers::
 	dw BillsHouse_h
 	dw VermilionPokecenter_h
 	dw PokemonFanClub_h
-	dw VermilionMart_h
+	dw VermilionPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw VermilionGym_h
 	dw VermilionPidgeyHouse_h
 	dw VermilionDock_h
@@ -155,9 +155,9 @@ MapHeaderPointers::
 	dw PokemonTower6F_h
 	dw PokemonTower7F_h
 	dw MrFujisHouse_h
-	dw LavenderMart_h
+	dw LavenderPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw LavenderCuboneHouse_h
-	dw FuchsiaMart_h
+	dw FuchsiaPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw FuchsiaBillsGrandpasHouse_h
 	dw FuchsiaPokecenter_h
 	dw WardensHouse_h
@@ -177,7 +177,7 @@ MapHeaderPointers::
 	dw CinnabarLabMetronomeRoom_h
 	dw CinnabarLabFossilRoom_h
 	dw CinnabarPokecenter_h
-	dw CinnabarMart_h
+	dw CinnabarPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw ObsidianHouses_h ; new
 	dw IndigoPlateauLobby_h
 	dw CopycatsHouse1F_h
@@ -185,7 +185,7 @@ MapHeaderPointers::
 	dw FightingDojo_h
 	dw SaffronGym_h
 	dw SaffronPidgeyHouse_h
-	dw SaffronMart_h
+	dw SaffronPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw SilphCo1F_h
 	dw SaffronPokecenter_h
 	dw MrPsychicsHouse_h
