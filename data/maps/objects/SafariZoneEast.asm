@@ -6,7 +6,7 @@ SafariZoneEast_Object:
 	warp_event  0,  5, SAFARI_ZONE_NORTH, 8
 	warp_event  0, 22, SAFARI_ZONE_CENTER, 7
 	warp_event  0, 23, SAFARI_ZONE_CENTER, 7
-	warp_event 25,  9, SAFARI_ZONE_EAST_REST_HOUSE, 1
+	warp_event 25,  9, SAFARI_ZONE_QUADRUPLE_REST_HOUSE, 5 ; edited because of MERGING
 
 	def_bg_events
 	bg_event 26, 10, 5 ; SafariZoneEastText5

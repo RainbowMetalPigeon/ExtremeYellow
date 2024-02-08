@@ -244,11 +244,11 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SAFARI_ZONE_NORTH,             20, 18 ; $DA
 	map_const SAFARI_ZONE_WEST,              15, 13 ; $DB
 	map_const SAFARI_ZONE_CENTER,            15, 13 ; $DC
-	map_const SAFARI_ZONE_CENTER_REST_HOUSE,  4,  4 ; $DD
+	map_const SAFARI_ZONE_QUADRUPLE_REST_HOUSE, 25,  4 ; $DD ; edited because of MERGING
 	map_const SAFARI_ZONE_SECRET_HOUSE,       4,  4 ; $DE
-	map_const SAFARI_ZONE_WEST_REST_HOUSE,    4,  4 ; $DF
-	map_const SAFARI_ZONE_EAST_REST_HOUSE,    4,  4 ; $E0
-	map_const SAFARI_ZONE_NORTH_REST_HOUSE,   4,  4 ; $E1
+	map_const SAFARI_ZONE_WEST_REST_HOUSE,    4,  4 ; $DF ; edited, made UNUSED because of map MERGING
+	map_const SAFARI_ZONE_EAST_REST_HOUSE,    4,  4 ; $E0 ; edited, made UNUSED because of map MERGING
+	map_const SAFARI_ZONE_NORTH_REST_HOUSE,   4,  4 ; $E1 ; edited, made UNUSED because of map MERGING
 	map_const CERULEAN_CAVE_2F,              15,  9 ; $E2
 	map_const CERULEAN_CAVE_B1F,             15,  9 ; $E3
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E4

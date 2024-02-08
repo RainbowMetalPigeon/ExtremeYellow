@@ -122,7 +122,7 @@ InternalMapEntries:
 	internal_map OBSIDIAN_POKECENTER,           11, 11, ObsidianIslandName	; new
 	internal_map SILPH_CO_8F,                   10,  5, SilphCoName
 	internal_map POKEMON_MANSION_B1F,            2, 15, PokemonMansionName
-	internal_map SAFARI_ZONE_NORTH_REST_HOUSE,   8, 12, SafariZoneName
+	internal_map SAFARI_ZONE_SECRET_HOUSE,       8, 12, SafariZoneName ; edited
 	internal_map CERULEAN_CAVE_1F,               9,  1, CeruleanCaveName
 	internal_map NAME_RATERS_HOUSE,             14,  5, LavenderTownName
 	internal_map CERULEAN_BADGE_HOUSE,          10,  2, CeruleanCityName

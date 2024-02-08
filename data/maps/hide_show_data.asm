@@ -228,7 +228,7 @@ MapHSPointers:
 	dw SafariZoneNorthHS
 	dw SafariZoneWestHS
 	dw SafariZoneCenterHS
-	dw SafariZoneCenterRestHouseHS ; new
+	dw SafariZoneQuadrupleRestHouseHS ; new
 	dw NoHS ; SAFARI_ZONE_SECRET_HOUSE
 	dw NoHS ; SAFARI_ZONE_WEST_REST_HOUSE
 	dw NoHS ; SAFARI_ZONE_EAST_REST_HOUSE
@@ -751,9 +751,9 @@ CeladonChiefHouseHS: ; new
 	db CELADON_CHIEF_HOUSE, $06, HIDE
 	db CELADON_CHIEF_HOUSE, $07, HIDE
 	db CELADON_CHIEF_HOUSE, $08, HIDE
-SafariZoneCenterRestHouseHS: ; new
-	db SAFARI_ZONE_CENTER_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
-	db SAFARI_ZONE_CENTER_REST_HOUSE, $03, HIDE ; Sara happy with Erik
-	db SAFARI_ZONE_CENTER_REST_HOUSE, $04, HIDE ; Erik happy with Sara
+SafariZoneQuadrupleRestHouseHS: ; new
+	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
+	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $03, HIDE ; Sara happy with Erik
+	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $04, HIDE ; Erik happy with Sara
 
 	db $FF, $01, SHOW ; end, list terminator

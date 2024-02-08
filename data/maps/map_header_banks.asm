@@ -226,11 +226,11 @@ MapHeaderBanks::
 	db BANK(SafariZoneNorth_h)
 	db BANK(SafariZoneWest_h)
 	db BANK(SafariZoneCenter_h)
-	db BANK(SafariZoneCenterRestHouse_h)
+	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited because of MERGING
 	db BANK(SafariZoneSecretHouse_h)
-	db BANK(SafariZoneWestRestHouse_h)
-	db BANK(SafariZoneEastRestHouse_h)
-	db BANK(SafariZoneNorthRestHouse_h)
+	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
+	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
+	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CeruleanCave2F_h)
 	db BANK(CeruleanCaveB1F_h)
 	db BANK(CeruleanCave1F_h)
@@ -242,7 +242,7 @@ MapHeaderBanks::
 	db BANK(SilphCo10F_h)
 	db BANK(SilphCo11F_h)
 	db BANK(SilphCoElevator_h)
-	db BANK(MtMoon1FExtra_h) ; new, testing
+	db $11 ; UNUSED
 	db $11 ; UNUSED_MAP_EE
 	db BANK(TradeCenter_h)
 	db BANK(Colosseum_h)

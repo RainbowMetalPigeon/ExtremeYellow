@@ -262,10 +262,7 @@ LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
 ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
 
-SafariZoneCenterRestHouse_Blocks:
-SafariZoneWestRestHouse_Blocks:
-SafariZoneEastRestHouse_Blocks:
-SafariZoneNorthRestHouse_Blocks: INCBIN "maps/SafariZoneCenterRestHouse.blk"
+SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
 
 INCLUDE "scripts/LavenderTown.asm"
 
@@ -355,21 +352,10 @@ INCLUDE "scripts/SafariZoneCenter.asm"
 INCLUDE "data/maps/objects/SafariZoneCenter.asm"
 SafariZoneCenter_Blocks: INCBIN "maps/SafariZoneCenter.blk"
 
-INCLUDE "data/maps/headers/SafariZoneCenterRestHouse.asm"
-INCLUDE "scripts/SafariZoneCenterRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneCenterRestHouse.asm"
-
-INCLUDE "data/maps/headers/SafariZoneWestRestHouse.asm"
-INCLUDE "scripts/SafariZoneWestRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneWestRestHouse.asm"
-
-INCLUDE "data/maps/headers/SafariZoneEastRestHouse.asm"
-INCLUDE "scripts/SafariZoneEastRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneEastRestHouse.asm"
-
-INCLUDE "data/maps/headers/SafariZoneNorthRestHouse.asm"
-INCLUDE "scripts/SafariZoneNorthRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneNorthRestHouse.asm"
+; new/edited because of MERGING
+INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
 
 INCLUDE "data/maps/headers/CeruleanCave2F.asm"
 INCLUDE "scripts/CeruleanCave2F.asm"
@@ -1375,11 +1361,6 @@ INCLUDE "data/maps/headers/ObsidianHouses.asm"
 INCLUDE "scripts/ObsidianHouses.asm"
 INCLUDE "data/maps/objects/ObsidianHouses.asm"
 ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
-
-INCLUDE "data/maps/headers/MtMoon1FExtra.asm"
-INCLUDE "scripts/MtMoon1FExtra.asm"
-INCLUDE "data/maps/objects/MtMoon1FExtra.asm"
-MtMoon1FExtra_Blocks: INCBIN "maps/MtMoon1FExtra.blk"
 
 INCLUDE "data/maps/headers/SilphCoElevator.asm"
 INCLUDE "scripts/SilphCoElevator.asm"

@@ -226,11 +226,11 @@ MapHeaderPointers::
 	dw SafariZoneNorth_h
 	dw SafariZoneWest_h
 	dw SafariZoneCenter_h
-	dw SafariZoneCenterRestHouse_h
+	dw SafariZoneQuadrupleRestHouse_h ; edited because of MERGING
 	dw SafariZoneSecretHouse_h
-	dw SafariZoneWestRestHouse_h
-	dw SafariZoneEastRestHouse_h
-	dw SafariZoneNorthRestHouse_h
+	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
+	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
+	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
 	dw CeruleanCave2F_h
 	dw CeruleanCaveB1F_h
 	dw CeruleanCave1F_h
@@ -242,7 +242,7 @@ MapHeaderPointers::
 	dw SilphCo10F_h
 	dw SilphCo11F_h
 	dw SilphCoElevator_h
-	dw MtMoon1FExtra_h ; new, testing
+	dw SilphCo2F_h ; UNUSED
 	dw SilphCo2F_h ; UNUSED_MAP_EE
 	dw TradeCenter_h
 	dw Colosseum_h

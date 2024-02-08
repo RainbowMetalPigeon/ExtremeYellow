@@ -45,7 +45,7 @@ InitBattleVariables:
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EAST
 	jr c, .notSafariBattle
-	cp SAFARI_ZONE_CENTER_REST_HOUSE
+	cp SAFARI_ZONE_QUADRUPLE_REST_HOUSE ; edited because of MERGING
 	jr nc, .notSafariBattle
 
 ; new special code for Safari Giovanni
