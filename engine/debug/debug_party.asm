@@ -17,8 +17,8 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 5
-;	db METAPOD, 9
-;	db KAKUNA, 9
+	db CHARIZARD, 9
+	db RHYPERIOR, 9
 ;	db MAGIKARP, 2
 	db -1 ; end
 

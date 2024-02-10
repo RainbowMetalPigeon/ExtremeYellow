@@ -244,8 +244,8 @@ MapHSPointers:
 	dw SilphCo10FHS
 	dw SilphCo11FHS
 	dw NoHS ; SILPH_CO_ELEVATOR
-	dw NoHS ; UNUSED_MAP_ED
-	dw NoHS ; UNUSED_MAP_EE
+	dw NoHS ; CINNABAR_VOLCANO
+	dw CinnabarVolcanoBFHS ; new
 	dw NoHS ; TRADE_CENTER
 	dw NoHS ; COLOSSEUM
 	dw NoHS ; CERULEAN_CAVE_EXTRA_TOP
@@ -755,5 +755,12 @@ SafariZoneQuadrupleRestHouseHS: ; new
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $03, HIDE ; Sara happy with Erik
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $04, HIDE ; Erik happy with Sara
+CinnabarVolcanoBFHS: ; new
+	db CINNABAR_VOLCANO_BF, $01, SHOW
+	db CINNABAR_VOLCANO_BF, $02, SHOW
+	db CINNABAR_VOLCANO_BF, $03, SHOW
+	db CINNABAR_VOLCANO_BF, $04, SHOW
+	db CINNABAR_VOLCANO_BF, $05, SHOW
+	db CINNABAR_VOLCANO_BF, $06, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

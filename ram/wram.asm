@@ -2327,7 +2327,8 @@ wCeladonChiefHouseCurScript:: db ; new
 wLancesRoomCurScript:: db
 wCopycatsHouse2FCurScript:: db ; new
 wSafariZoneRestHouseCurScript:: db ; new
-	ds 2 ; edited, was 4
+wCinnabarVolcanoBFCurScript:: db ; new
+	ds 1 ; edited, was 4
 wSilphCo10FCurScript:: db
 wSilphCo11FCurScript:: db
 	ds 1

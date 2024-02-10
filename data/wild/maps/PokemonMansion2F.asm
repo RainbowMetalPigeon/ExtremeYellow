@@ -3,16 +3,16 @@ PokemonMansion2FWildMons:
 	db 37, KOFFING
 	db 37, GRIMER
 	db 41, RATICATE
-	db 40, PONYTA
-	db 40, GROWLITHE
-	db 40, VULPIX
+	db 40, RATICATE
+	db 40, WEEZING
+	db 40, MUK
 	db 41, WEEZING
-	db 43, MAGMAR
+	db 43, WEEZING
 	db 41, MUK
 	db 41, MUK
-	db  1, MAGBY
-	db  1, MAGBY
-	db  1, MAGBY
+	db 45, MUK
+	db 45, MUK
+	db 45, MUK
 	db  1, MEW
 	end_grass_wildmons
 

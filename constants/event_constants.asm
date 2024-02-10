@@ -228,7 +228,8 @@
 	const EVENT_BEAT_CINNABAR_GYM_TRAINER_4
 	const EVENT_BEAT_CINNABAR_GYM_TRAINER_5
 	const EVENT_BEAT_CINNABAR_GYM_TRAINER_6
-	const_skip 6
+	const EVENT_BEAT_MOLTRES ; newly moved here from Victory Road
+	const_skip 5 ; edited, was 6
 	const EVENT_2A7 ; ???
 	const EVENT_CINNABAR_GYM_GATE0_UNLOCKED
 	const EVENT_CINNABAR_GYM_GATE1_UNLOCKED
@@ -552,7 +553,6 @@
 	const EVENT_BEAT_VICTORY_ROAD_2_TRAINER_3
 	const EVENT_BEAT_VICTORY_ROAD_2_TRAINER_4
 	const EVENT_BEAT_VICTORY_ROAD_2_TRAINER_5 ; new
-;	const EVENT_BEAT_MOLTRES ; to be moved elsewhere, this is full and Moltres will be in the Volcano
 	const EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH2
 
 ; Route 24 events

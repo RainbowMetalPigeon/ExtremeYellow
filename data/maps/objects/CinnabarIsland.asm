@@ -7,7 +7,7 @@ CinnabarIsland_Object:
 	warp_event 36,  9, CINNABAR_LAB, 1
 	warp_event 41, 11, CINNABAR_POKECENTER, 1
 	warp_event 45, 11, CINNABAR_POKECENTER, 3 ; edited due to MERGING
-	warp_event 17, 17, REDS_HOUSE_1F, 1 ; new, testing
+	warp_event 17, 17, CINNABAR_VOLCANO, 1 ; new
 
 	def_bg_events
 	bg_event 39,  5, 12; CinnabarIslandText3

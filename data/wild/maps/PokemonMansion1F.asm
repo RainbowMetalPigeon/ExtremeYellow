@@ -3,9 +3,9 @@ PokemonMansion1FWildMons:
 	db 34, KOFFING
 	db 34, GRIMER
 	db 37, RATICATE
-	db 38, PONYTA
-	db 38, GROWLITHE
-	db 38, VULPIX
+	db 38, KOFFING
+	db 38, GRIMER
+	db 38, RATICATE
 	db 39, RATICATE
 	db 37, KOFFING
 	db 37, GRIMER

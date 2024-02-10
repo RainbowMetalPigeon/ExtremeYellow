@@ -242,8 +242,8 @@ MapHeaderPointers::
 	dw SilphCo10F_h
 	dw SilphCo11F_h
 	dw SilphCoElevator_h
-	dw SilphCo2F_h ; UNUSED
-	dw SilphCo2F_h ; UNUSED_MAP_EE
+	dw CinnabarVolcano_h ; new
+	dw CinnabarVolcanoBF_h ; new
 	dw TradeCenter_h
 	dw Colosseum_h
 	dw CeruleanCaveExtraTop_h ; edited

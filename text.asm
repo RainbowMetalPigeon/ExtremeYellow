@@ -283,7 +283,6 @@ INCLUDE "text/SilphCo8F.asm"
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/ObsidianHouses.asm" ; new
-INCLUDE "text/MtMoon1FExtra.asm" ; new
 INCLUDE "text/MtMoon1F.asm"
 INCLUDE "text/CinnabarGym.asm"
 INCLUDE "text/CinnabarLab.asm"
@@ -299,6 +298,8 @@ INCLUDE "text/Route24.asm"
 INCLUDE "text/Route25.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
 INCLUDE "text/VermilionDock.asm"
+INCLUDE "text/CinnabarVolcano.asm"
+INCLUDE "text/CinnabarVolcanoBF.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

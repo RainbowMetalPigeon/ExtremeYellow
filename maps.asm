@@ -257,27 +257,12 @@ BillsHouse_Blocks: INCBIN "maps/BillsHouse.blk"
 SECTION "Maps 5", ROMX
 
 INCLUDE "data/maps/headers/LavenderTown.asm"
+INCLUDE "scripts/LavenderTown.asm"
 INCLUDE "data/maps/objects/LavenderTown.asm"
 LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
-ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
-
-SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
-
-INCLUDE "scripts/LavenderTown.asm"
-
 
 SECTION "Maps 6", ROMX
-
-INCLUDE "data/maps/headers/ViridianPokecenter.asm"
-INCLUDE "scripts/ViridianPokecenter.asm"
-INCLUDE "data/maps/objects/ViridianPokecenter.asm"
-
-; moved to Maps New 1
-;INCLUDE "data/maps/headers/CeladonMart1F.asm"
-;INCLUDE "scripts/CeladonMart1F.asm"
-;INCLUDE "data/maps/objects/CeladonMart1F.asm"
-;CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
 
 INCLUDE "data/maps/headers/PokemonMansion1F.asm"
 INCLUDE "scripts/PokemonMansion1F.asm"
@@ -293,12 +278,6 @@ INCLUDE "data/maps/headers/SeafoamIslands1F.asm"
 INCLUDE "scripts/SeafoamIslands1F.asm"
 INCLUDE "data/maps/objects/SeafoamIslands1F.asm"
 SeafoamIslands1F_Blocks: INCBIN "maps/SeafoamIslands1F.blk"
-
-; moved to Maps New 1
-;INCLUDE "data/maps/headers/SSAnne3F.asm"
-;INCLUDE "scripts/SSAnne3F.asm"
-;INCLUDE "data/maps/objects/SSAnne3F.asm"
-;SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
 
 INCLUDE "data/maps/headers/VictoryRoad3F.asm"
 INCLUDE "scripts/VictoryRoad3F.asm"
@@ -325,18 +304,6 @@ INCLUDE "scripts/RocketHideoutB4F.asm"
 INCLUDE "data/maps/objects/RocketHideoutB4F.asm"
 RocketHideoutB4F_Blocks: INCBIN "maps/RocketHideoutB4F.blk"
 
-; moved to Maps New 1
-;INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
-;INCLUDE "scripts/RocketHideoutElevator.asm"
-;INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
-;RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
-
-; moved to Maps New 1
-;INCLUDE "data/maps/headers/SilphCoElevator.asm"
-;INCLUDE "scripts/SilphCoElevator.asm"
-;INCLUDE "data/maps/objects/SilphCoElevator.asm"
-;SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
-
 INCLUDE "data/maps/headers/SafariZoneEast.asm"
 INCLUDE "scripts/SafariZoneEast.asm"
 INCLUDE "data/maps/objects/SafariZoneEast.asm"
@@ -351,11 +318,6 @@ INCLUDE "data/maps/headers/SafariZoneCenter.asm"
 INCLUDE "scripts/SafariZoneCenter.asm"
 INCLUDE "data/maps/objects/SafariZoneCenter.asm"
 SafariZoneCenter_Blocks: INCBIN "maps/SafariZoneCenter.blk"
-
-; new/edited because of MERGING
-INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
-INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
 
 INCLUDE "data/maps/headers/CeruleanCave2F.asm"
 INCLUDE "scripts/CeruleanCave2F.asm"
@@ -418,6 +380,16 @@ INCLUDE "data/maps/headers/OchreWonderland.asm"
 INCLUDE "scripts/OchreWonderland.asm"
 INCLUDE "data/maps/objects/OchreWonderland.asm"
 OchreWonderland_Blocks: INCBIN "maps/OchreWonderland.blk"
+
+INCLUDE "data/maps/headers/CinnabarVolcano.asm"
+INCLUDE "scripts/CinnabarVolcano.asm"
+INCLUDE "data/maps/objects/CinnabarVolcano.asm"
+CinnabarVolcano_Blocks: INCBIN "maps/CinnabarVolcano.blk"
+
+INCLUDE "data/maps/headers/CinnabarVolcanoBF.asm"
+INCLUDE "scripts/CinnabarVolcanoBF.asm"
+INCLUDE "data/maps/objects/CinnabarVolcanoBF.asm"
+CinnabarVolcanoBF_Blocks: INCBIN "maps/CinnabarVolcanoBF.blk"
 
 
 SECTION "Maps 7", ROMX
@@ -1351,7 +1323,7 @@ OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 INCLUDE "scripts/MoveDeleter.asm"
 INCLUDE "scripts/MoveRelearner.asm"
 
-; moved from Maps 6
+; moved from Maps 6/5
 INCLUDE "data/maps/headers/CeladonMart1F.asm"
 INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
@@ -1376,3 +1348,14 @@ INCLUDE "data/maps/headers/SSAnne3F.asm"
 INCLUDE "scripts/SSAnne3F.asm"
 INCLUDE "data/maps/objects/SSAnne3F.asm"
 SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
+
+INCLUDE "data/maps/headers/ViridianPokecenter.asm"
+INCLUDE "scripts/ViridianPokecenter.asm"
+INCLUDE "data/maps/objects/ViridianPokecenter.asm"
+ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
+
+; new/edited because of MERGING
+INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
+SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING

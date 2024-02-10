@@ -242,8 +242,8 @@ MapHeaderBanks::
 	db BANK(SilphCo10F_h)
 	db BANK(SilphCo11F_h)
 	db BANK(SilphCoElevator_h)
-	db $11 ; UNUSED
-	db $11 ; UNUSED_MAP_EE
+	db BANK(CinnabarVolcano_h) ; new
+	db BANK(CinnabarVolcanoBF_h) ; new
 	db BANK(TradeCenter_h)
 	db BANK(Colosseum_h)
 	db BANK(CeruleanCaveExtraTop_h) ; edited

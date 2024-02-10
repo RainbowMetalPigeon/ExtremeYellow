@@ -254,14 +254,14 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E4
 	map_const NAME_RATERS_HOUSE,              4,  4 ; $E5
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
-	map_const CELADON_UNIVERSITY,             30, 30 ; $E7, new, incomplete
+	map_const CELADON_UNIVERSITY,            30, 30 ; $E7, new, incomplete
 	map_const ROCK_TUNNEL_B1F,               20, 18 ; $E8
 	map_const SILPH_CO_9F,                   13,  9 ; $E9
 	map_const SILPH_CO_10F,                   8,  9 ; $EA
 	map_const SILPH_CO_11F,                   9,  9 ; $EB
 	map_const SILPH_CO_ELEVATOR,              2,  2 ; $EC
-	map_const MT_MOON_1F_EXTRA,               5, 18 ; $ED, UNUSED
-	map_const UNUSED_MAP_EE,                  0,  0 ; $EE
+	map_const CINNABAR_VOLCANO,              21, 21 ; $ED, new
+	map_const CINNABAR_VOLCANO_BF,           12, 13 ; $EE, new
 	map_const TRADE_CENTER,                   5,  4 ; $EF
 	map_const COLOSSEUM,                      5,  4 ; $F0
 	map_const CERULEAN_CAVE_EXTRA_TOP,       21, 21 ; $F1 ; edited

@@ -241,8 +241,8 @@ WildDataPointers:
 	dw NothingWildMons ; SILPH_CO_10F
 	dw NothingWildMons ; SILPH_CO_11F
 	dw NothingWildMons ; SILPH_CO_ELEVATOR
-	dw MtMoon1FWildMons ; new, MT_MOON_1F_EXTRA, testing
-	dw NothingWildMons ; UNUSED_MAP_EE
+	dw CinnabarVolcanoWildMons ; CINNABAR_VOLCANO, new
+	dw CinnabarVolcanoBFWildMons ; CINNABAR_VOLCANO_BF, new
 	dw NothingWildMons ; TRADE_CENTER
 	dw NothingWildMons ; COLOSSEUM
 	dw NothingWildMons ; CeruleanCaveExtras
@@ -337,3 +337,5 @@ INCLUDE "data/wild/maps/OnixBurrowing.asm"   ; new
 INCLUDE "data/wild/maps/OchreCity.asm"   	 ; new
 INCLUDE "data/wild/maps/Route26.asm"		 ; new
 INCLUDE "data/wild/maps/CeladonCity.asm"   	 ; new
+INCLUDE "data/wild/maps/CinnabarVolcano.asm" ; new
+INCLUDE "data/wild/maps/CinnabarVolcanoBF.asm" ; new

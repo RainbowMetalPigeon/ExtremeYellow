@@ -1,9 +1,11 @@
 ApplyHeatDamage:
 	ld a, [wCurMap]
-	cp CINNABAR_ISLAND ; will be CINNABAR_VOLCANO
-	ret nz ; do nothing at all if it's not the map of interest
-	ret ; will be removed
-
+	cp CINNABAR_VOLCANO
+	jr z, .rightMap
+	cp CINNABAR_VOLCANO_BF
+	jr z, .rightMap
+	ret ; do nothing at all if it's not the map of interest
+.rightMap
 	ld a, [wd730]
 	add a
 	jp c, .noBlackOut ; no black out if joypad states are being simulated

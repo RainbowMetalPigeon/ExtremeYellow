@@ -3,16 +3,16 @@ PokemonMansionB1FWildMons:
 	db 47, WEEZING
 	db 47, MUK
 	db 35, DITTO
-	db 46, PONYTA
-	db 46, GROWLITHE
-	db 46, VULPIX
+	db 46, KOFFING
+	db 46, GRIMER
+	db 46, RATICATE
 	db 35, DITTO
-	db 47, RAPIDASH
+	db 49, MUK
 	db 50, DITTO
-	db 49, MAGMAR
-	db 49, MAGMAR
-	db  1, MAGBY
-	db  1, MAGBY
+	db 49, WEEZING
+	db 49, WEEZING
+	db 52, DITTO
+	db 52, DITTO
 	db  1, MEW
 	end_grass_wildmons
 

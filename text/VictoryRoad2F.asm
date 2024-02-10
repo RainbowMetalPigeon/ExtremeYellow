@@ -1,7 +1,3 @@
-;_MoltresBattleText::
-;	text "Gyaoo!@"
-;	text_end
-
 _VictoryRoad2BattleText1::
 	text "VICTORY ROAD is"
 	line "the final test"

@@ -126,7 +126,6 @@ DEF SHOW EQU $15
 	const HS_POWER_PLANT_ITEM_2            ; 57
 	const HS_POWER_PLANT_ITEM_3            ; 58
 	const HS_POWER_PLANT_ITEM_4            ; 59
-;	const HS_MOLTRES                       ; edited, Moltres will be moved in the Volcano
 	const HS_VICTORY_ROAD_2F_ITEM_1        ; 5C
 	const HS_VICTORY_ROAD_2F_ITEM_2        ; 5D
 	const HS_VICTORY_ROAD_2F_ITEM_3        ; 5E
@@ -389,3 +388,9 @@ DEF SHOW EQU $15
 	const HS_SAFARI_REST_HOUSE_SARA_WAITING ; new
 	const HS_SAFARI_REST_HOUSE_SARA_HAPPY   ; new
 	const HS_SAFARI_REST_HOUSE_ERIK_HAPPY   ; new
+	const HS_MOLTRES                       ; new/edited
+	const HS_CINNABAR_VOLCANO_BF_ITEM_1    ; new
+	const HS_CINNABAR_VOLCANO_BF_ITEM_2    ; new
+	const HS_CINNABAR_VOLCANO_BF_ITEM_3    ; new
+	const HS_CINNABAR_VOLCANO_BF_ITEM_4    ; new
+	const HS_CINNABAR_VOLCANO_BF_ITEM_5    ; new

@@ -90,7 +90,7 @@ ROMX $10
 	"bank10"
 ROMX $11
 	"Maps 5"
-	"Pokédex Rating"
+;	"Pokédex Rating" ; edited, commented away as it should be completely unrelated from the other maps?
 	"Maps 6"
 	"Dungeon Warps"
 ROMX $12
