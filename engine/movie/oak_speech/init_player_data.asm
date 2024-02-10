@@ -13,7 +13,7 @@ InitPlayerData2:
 	ld [wUnusedD71B], a
 
 	xor a ; edited, initialize happiness to 0
-	ld a, $FF
+;	ld a, $FF
 	ld [wPikachuHappiness], a
 	ld [wPikachuMood], a ; edited, initialize mood to 0
 

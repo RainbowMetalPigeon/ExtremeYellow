@@ -622,10 +622,14 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, AQUA_JET
-	db 1, 2, REST
-	db 1, 3, WATERFALL
-	db 1, 4, BLIZZARD
+	db 1, 1, MOONBLAST
+	db 1, 2, PLAY_ROUGH
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
+;	db 1, 1, AQUA_JET
+;	db 1, 2, REST
+;	db 1, 3, WATERFALL
+;	db 1, 4, BLIZZARD
 	; CLOYSTER
 	db 2, 1, EXPLOSION
 	db 2, 2, PIN_MISSILE

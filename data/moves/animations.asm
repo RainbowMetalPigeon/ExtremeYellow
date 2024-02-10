@@ -473,9 +473,6 @@ HornDrillAnim:
 
 ; TODO:
 
-PlayRoughAnim:
-MoonBlastAnim:
-
 MachPunch:
 
 WillOWispAnim:
@@ -1567,6 +1564,25 @@ RoostAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+PlayRoughAnim:
+	battle_anim ROLLING_KICK, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_02, 0, 6
+	battle_anim LOVELY_KISS, SUBANIM_EmanatingFromOpponent, 0, 6
+	battle_anim MEGA_PUNCH, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_04, 1, 6
+	battle_anim LOVELY_KISS, SUBANIM_EmanatingFromOpponent, 0, 6
+	db -1 ; end
+
+MoonBlastAnim:
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim CONFUSE_RAY, SUBANIM_1fcircles, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim LOVELY_KISS, SUBANIM_EmanatingFromOpponent, 0, 6
+;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
 ; ENDDONE

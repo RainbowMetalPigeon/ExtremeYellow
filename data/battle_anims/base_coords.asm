@@ -1,5 +1,6 @@
 FrameBlockBaseCoords:
 	table_width 2, FrameBlockBaseCoords
+	; y, x coordinates
 	db $10, $68 ; BASECOORD_00
 	db $10, $70 ; BASECOORD_01
 	db $10, $78 ; BASECOORD_02

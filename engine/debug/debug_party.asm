@@ -40,17 +40,17 @@ IF DEF(_DEBUG)
 
 	call SetDebugTeam
 
-	; Mewtwo gets Psychic or test moves
-	ld a, ETERNABEAM
+	; Mewtwo gets test moves
+	ld a, MOONBLAST
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, THUNDERBOLT
+	ld a, CLOSE_COMBAT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, EARTHQUAKE
+	ld a, PLAY_ROUGH
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, PHOTONGEYSER
+	ld a, LOVELY_KISS
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -156,7 +156,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 ;	SetEvent EVENT_GOT_HM01
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 ;	SetEvent EVENT_SS_ANNE_LEFT
 ;	SetEvent EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING
 

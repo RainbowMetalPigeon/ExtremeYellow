@@ -92,6 +92,7 @@ SubanimationPointers:
 	dw Subanimation56
 	dw Subanimation1fcircles
 	dw Subanimation17flip
+	dw SubanimationEmanatingFromOpponent
 	assert_table_length NUM_SUBANIMS
 
 ; format:
@@ -238,6 +239,13 @@ Subanimation12:
 	db FRAMEBLOCK_17, BASECOORD_3E, FRAMEBLOCKMODE_00
 	db FRAMEBLOCK_17, BASECOORD_3F, FRAMEBLOCKMODE_00
 	db FRAMEBLOCK_17, BASECOORD_1F, FRAMEBLOCKMODE_00
+
+SubanimationEmanatingFromOpponent: ; new
+	subanim SUBANIMTYPE_HFLIP, 4
+	db FRAMEBLOCK_17, BASECOORD_3E, FRAMEBLOCKMODE_00
+	db FRAMEBLOCK_17, BASECOORD_0F, FRAMEBLOCKMODE_00
+	db FRAMEBLOCK_17, BASECOORD_18, FRAMEBLOCKMODE_00
+	db FRAMEBLOCK_17, BASECOORD_0C, FRAMEBLOCKMODE_00
 
 Subanimation00:
 	subanim SUBANIMTYPE_HFLIP, 1

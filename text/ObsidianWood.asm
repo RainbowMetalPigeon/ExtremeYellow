@@ -70,7 +70,16 @@ _ObsidianWoodAfterBattleText3::
 	cont "because a number"
 	cont "of #MON swims"
 	cont "from the SAFARI"
-	cont "ZONE till here!"
+	cont "ZONE till here."
+
+	para "My theory is that"
+	line "these are the"
+	cont "#MON that"
+	cont "escaped TEAM"
+	cont "ROCKET's"
+	cont "trafficking and"
+	cont "found shelter in"
+	cont "this wood..."
 	done
 
 ; ------------------------------
