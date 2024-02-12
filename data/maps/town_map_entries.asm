@@ -82,7 +82,7 @@ InternalMapEntries:
 	internal_map BILLS_HOUSE,                   12,  0, SeaCottageName
 	internal_map VERMILION_DOCK,                10,  9, VermilionCityName
 	internal_map SS_ANNE_B1F_ROOMS,             10, 10, SSAnneName ; edited, x=9->10
-	internal_map OCHRE_RESEARCH_CENTER,         11, 11, OchreCityName ; new
+	internal_map OCHRE_RESEARCH_CENTER_1,       11, 11, OchreCityName ; new
 	internal_map VICTORY_ROAD_1F,                0,  4, VictoryRoadName
 	internal_map SECLUDED_ATOLL_SW,             15, 15, SecludedAtollName ; new, not really an internal map but oh well, testing
 	internal_map LANCES_ROOM,                    0,  2, PokemonLeagueName
@@ -94,6 +94,7 @@ InternalMapEntries:
 	internal_map CELADON_HOTEL,                  7,  5, CeladonCityName
 	internal_map LAVENDER_POKECENTER,           14,  5, LavenderTownName
 	internal_map POKEMON_TOWER_7F,              15,  5, PokemonTowerName
+	internal_map OCHRE_RESEARCH_CENTER_2,       11, 11, OchreCityName ; new
 	internal_map LAVENDER_CUBONE_HOUSE,         14,  5, LavenderTownName
 	internal_map WARDENS_HOUSE,                  8, 13, FuchsiaCityName
 	internal_map SAFARI_ZONE_GATE,               8, 12, SafariZoneName

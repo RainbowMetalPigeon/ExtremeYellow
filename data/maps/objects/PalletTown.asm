@@ -24,7 +24,8 @@ PalletTown_Object:
 ;	warp_event  5,  5, BILLS_HOUSE, 1
 ;	warp_event  5,  5, VICTORY_ROAD_1F, 1
 ;	warp_event  5,  5, OBSIDIAN_MINES, 1
-	warp_event  5,  5, LORELEIS_ROOM, 1
+;	warp_event  5,  5, LORELEIS_ROOM, 1
+	warp_event  5,  5, SAFFRON_GYM, 1
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23

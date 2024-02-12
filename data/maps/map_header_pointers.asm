@@ -112,7 +112,7 @@ MapHeaderPointers::
 	dw SSAnneB1FRooms_h
 	dw OchreGym_h ; edited
 	dw OchreWonderland_h ; edited
-	dw OchreResearchCenter_h ; edited
+	dw OchreResearchCenter1_h ; edited
 	dw VictoryRoad1F_h
 	dw SecludedAtollNW_h ; edited
 	dw SecludedAtollNE_h ; edited
@@ -157,7 +157,7 @@ MapHeaderPointers::
 	dw MrFujisHouse_h
 	dw LavenderPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw LavenderCuboneHouse_h
-	dw FuchsiaPokecenter_h ; edited, made UNUSED because of map MERGING
+	dw OchreResearchCenter2_h ; edited
 	dw FuchsiaBillsGrandpasHouse_h
 	dw FuchsiaPokecenter_h
 	dw WardensHouse_h

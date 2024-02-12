@@ -8,7 +8,7 @@ OchreCity_Object:
 	warp_event 35, 11, OCHRE_POKECENTER, 1 ; 4 - poke center
 	warp_event 17, 15, OCHRE_HOUSES, 5 ; 5 - bird fan club
 	warp_event 34, 17, OCHRE_GYM, 1 ; 6
-	warp_event 10, 19, OCHRE_RESEARCH_CENTER, 1 ; 7
+	warp_event 10, 19, OCHRE_RESEARCH_CENTER_1, 1 ; 7
 	warp_event 37, 27, OCHRE_REHABILITATION_CENTER, 2 ; 8 - front entrance rehabilitation
 	warp_event 12, 33, OCHRE_WONDERLAND, 1 ; 9
 	warp_event 37, 25, OCHRE_REHABILITATION_CENTER, 1 ; 10 - back entrance rehabilitation
