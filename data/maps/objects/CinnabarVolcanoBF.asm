@@ -14,10 +14,10 @@ CinnabarVolcanoBF_Object:
 
 	def_object_events
 	object_event  5, 21, SPRITE_MOLTRES, STAY, DOWN, 1, MOLTRES, 50
-	object_event 16,  0, SPRITE_POKE_BALL, STAY, NONE, 2, FIRE_STONE
+	object_event 16,  0, SPRITE_POKE_BALL, STAY, NONE, 2, LAVA_STONE ; new items
 	object_event 16,  6, SPRITE_POKE_BALL, STAY, NONE, 3, FIRE_STONE
-	object_event 16, 12, SPRITE_POKE_BALL, STAY, NONE, 4, FIRE_STONE
+	object_event 16, 12, SPRITE_POKE_BALL, STAY, NONE, 4, MAGMA_STONE ; new items
 	object_event 16, 18, SPRITE_POKE_BALL, STAY, NONE, 5, FIRE_STONE
-	object_event 16, 24, SPRITE_POKE_BALL, STAY, NONE, 6, FIRE_STONE
+	object_event 16, 24, SPRITE_POKE_BALL, STAY, NONE, 6, MOLTEN_STONE ; new items
 
 	def_warps_to CINNABAR_VOLCANO_BF
