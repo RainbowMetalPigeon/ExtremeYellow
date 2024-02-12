@@ -482,3 +482,21 @@ _LunarShrineTextRockets15::
 	cont "you'll always be"
 	cont "welcome here!"
 	done
+
+; --------------------------- tourists
+
+_LunarShrineTextTourist1::
+	text "Tourist 1"
+	done
+
+_LunarShrineTextTourist2::
+	text "Tourist 2"
+	done
+
+_LunarShrineTextTourist3::
+	text "Tourist 3"
+	done
+
+_LunarShrineTextTourist4::
+	text "Tourist 4"
+	done

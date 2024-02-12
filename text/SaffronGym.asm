@@ -132,9 +132,15 @@ _SaffronGymEndBattleText2::
 	line "foresaw this!"
 	prompt
 
-_SaffronGymAfterBattleText2::
+_SaffronGymAfterBattleText2:: ; edited
 	text "Psychic #MON"
 	line "fear only bugs!"
+
+	para "...and ghosts..."
+	line "and darkness..."
+
+	para "Damn, they fear"
+	line "all scary stuff!"
 	done
 
 _SaffronGymBattleText3::

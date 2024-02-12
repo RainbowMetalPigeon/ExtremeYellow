@@ -45,29 +45,26 @@ OchreResearchCenter1Text_Ball_Fast:
 	text_end
 
 OchreResearchCenter1Text_Power_Galar:
-	text_asm
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
-	ld hl, TESTTEXT
-	call PrintText
-	jp TextScriptEnd
-
-TESTTEXT:
-	text_far _TESTTEXT
+	text_far _OchreResearchCenter1Text_Power_Galar
 	text_end
-
-_TESTTEXT::
-	text "TEST!!!"
-	done
-
-;	text_far _OchreResearchCenter1Text_Power_Galar
+;	text_asm
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
+;	ld hl, TESTTEXT
+;	call PrintText
+;	jp TextScriptEnd
+;TESTTEXT:
+;	text_far _TESTTEXT
 ;	text_end
+;_TESTTEXT::
+;	text "TEST!!!"
+;	done
 	
 OchreResearchCenter1Text_Power_Kanto:
 	text_far _OchreResearchCenter1Text_Power_Kanto

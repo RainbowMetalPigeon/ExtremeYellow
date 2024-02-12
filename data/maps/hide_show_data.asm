@@ -743,7 +743,7 @@ CeruleanCaveExtraBottomHS: ; new
 SSAnneCaptainsRoomHS: ; new
 	db SS_ANNE_CAPTAINS_ROOM, $01, SHOW
 	db SS_ANNE_CAPTAINS_ROOM, $02, HIDE
-CeladonChiefHouseHS: ; new
+CeladonChiefHouseHS: ; new, most of it is practically the Lunar Shrine
 	db CELADON_CHIEF_HOUSE, $01, SHOW
 	db CELADON_CHIEF_HOUSE, $02, SHOW
 	db CELADON_CHIEF_HOUSE, $03, SHOW
@@ -751,6 +751,10 @@ CeladonChiefHouseHS: ; new
 	db CELADON_CHIEF_HOUSE, $06, HIDE
 	db CELADON_CHIEF_HOUSE, $07, HIDE
 	db CELADON_CHIEF_HOUSE, $08, HIDE
+	db CELADON_CHIEF_HOUSE, $09, HIDE
+	db CELADON_CHIEF_HOUSE, $0A, HIDE
+	db CELADON_CHIEF_HOUSE, $0B, HIDE
+	db CELADON_CHIEF_HOUSE, $0C, HIDE
 SafariZoneQuadrupleRestHouseHS: ; new
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $03, HIDE ; Sara happy with Erik

@@ -1,4 +1,8 @@
 OchreCity_Script:
+	ld hl, wCurrentMapScriptFlags ; for the fence
+	bit 6, [hl]
+	res 6, [hl]
+	call nz, OchreCityHideShowRehabilitationFence
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, OchreCity_ScriptPointers
@@ -6,6 +10,18 @@ OchreCity_Script:
 	call ExecuteCurMapScriptInTable
 	ld [wOchreCityCurScript], a
 	ret
+
+OchreCityHideShowRehabilitationFence:
+	CheckEvent EVENT_OCHRE_CITY_FENCE_FORCED
+	jr nz, .fenceForced	; if yes, remove fence
+	ld a, $4D			; solid fence block ID
+	jr .replaceBlock
+.fenceForced
+	ld a, $E6			; fence-less block ID
+.replaceBlock
+	ld [wNewTileBlockID], a
+	lb bc, 16, 20 ; Y and X coordinates - opposite as usual
+	predef_jump ReplaceTileBlock
 
 OchreCity_ScriptPointers: ; new, for traveler
 	dw OchreScript0
@@ -39,7 +55,9 @@ OchreCity_TextPointers:
 	dw OchreCity_SignParkAndSquare
 	dw OchreCity_SignResearch
 	dw OchreCity_SignBirbFan
-	dw TextPostBattle_OchreTraveler ; 23, new, for traveler
+	dw OchreCity_LooseFence
+	; non-NPC dialogues
+	dw TextPostBattle_OchreTraveler ; 24, new, for traveler
 
 ; -------------- NPCs texts --------------
 
@@ -125,6 +143,52 @@ OchreCity_SignBirbFan:
 	text_far _OchreCity_SignBirbFan
 	text_end
 
+OchreCity_LooseFence:
+	text_asm
+	CheckEvent EVENT_OCHRE_CITY_FENCE_FORCED
+	jr nz, .alreadyForced
+	ld hl, OchreCity_LooseFence_ItsLoose
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .notOpen
+    ld a, SFX_PUSH_BOULDER
+    call PlaySound
+    SetEvent EVENT_OCHRE_CITY_FENCE_FORCED
+    ld a, $E6 ; clear floor block ID
+    ld [wNewTileBlockID], a
+    lb bc, 16, 20 ; y, x coordinates
+    predef ReplaceTileBlock
+    ld hl, OchreCity_LooseFence_FenceForced
+    call PrintText
+    jr .done
+.alreadyForced
+    ld hl, OchreCity_LooseFence_AlreadyForced
+    call PrintText
+	jr .done
+.notOpen
+    ld hl, OchreCity_LooseFence_BetterNotTo
+    call PrintText
+.done
+    jp TextScriptEnd
+
+OchreCity_LooseFence_ItsLoose:
+	text_far _OchreCity_LooseFence_ItsLoose
+	text_end
+
+OchreCity_LooseFence_FenceForced:
+	text_far _OchreCity_LooseFence_FenceForced
+	text_end
+
+OchreCity_LooseFence_AlreadyForced:
+	text_far _OchreCity_LooseFence_AlreadyForced
+	text_end
+
+OchreCity_LooseFence_BetterNotTo:
+	text_far _OchreCity_LooseFence_BetterNotTo
+	text_end
+
 ; ================================
 
 TextPreBattle_OchreTraveler: ; new
@@ -203,7 +267,7 @@ OchreScript_Traveler:
     ld a, HS_OCHRE_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObjectExtra ; city-specific
-	ld a, 23 ; city-specific
+	ld a, 24 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

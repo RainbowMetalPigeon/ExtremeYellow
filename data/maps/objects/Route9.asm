@@ -8,7 +8,7 @@ Route9_Object:
 
 	def_object_events
 	object_event 13, 10, SPRITE_COOLTRAINER_F, STAY, LEFT, 1, OPP_JR_TRAINER, 5
-	object_event 24,  7, SPRITE_COOLTRAINER_M, STAY, LEFT, 2, OPP_YOUNGSTER, 14
+	object_event 20, 11, SPRITE_COOLTRAINER_M, STAY, RIGHT, 2, OPP_YOUNGSTER, 14 ; edited position to be made mandatory
 	object_event 31,  7, SPRITE_COOLTRAINER_F, STAY, RIGHT, 3, OPP_JR_TRAINER, 33
 	object_event 48,  8, SPRITE_COOLTRAINER_F, STAY, RIGHT, 4, OPP_JR_TRAINER, 6
 	object_event 16, 15, SPRITE_HIKER, STAY, LEFT, 5, OPP_HIKER, 11

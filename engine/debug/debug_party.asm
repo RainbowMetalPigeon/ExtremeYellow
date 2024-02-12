@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, MOONBLAST
+	ld a, PSYCHO_CUT
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, CLOSE_COMBAT
@@ -187,8 +187,8 @@ DebugItemsList:
 ;	db SUPER_REPEL, 3
 ;	db REPEL, 3
 ;	db MAX_REPEL, 3
-;	db LUNAR_RELIC, 1
-	db PP_UP, 42
+	db LUNAR_RELIC, 1
+;	db PP_UP, 42
 	db PERFECTER, 50
 	db SUPER_ROD, 1
 ;	db GOOD_ROD, 1

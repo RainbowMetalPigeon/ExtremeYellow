@@ -35,7 +35,7 @@ LunarShrineScript1:
 	ldh [hJoyHeld], a
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 10
+	ld a, 14
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; player looks down
@@ -126,7 +126,7 @@ LunarShrineScript3:
 ; dialogue
 	ld a, $0 ; return controls to the player?
 	ld [wJoyIgnore], a
-	ld a, 11
+	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; script handling
@@ -143,16 +143,16 @@ LunarShrineScript4:
 	call Rocket3FaceUp
 	call Rocket4FaceUp
 ; dialogues
-	ld a, 12
+	ld a, 16
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, 13
+	ld a, 17
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, 14
+	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, 15
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; script handling
@@ -209,9 +209,6 @@ LunarShrineScript7:
 ; trigger 1st battle
 	xor a
 	ld [wJoyIgnore], a
-;	ld a, 16
-;	ldh [hSpriteIndexOrTextID], a
-;	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
 	set 6, [hl]
 	set 7, [hl]
@@ -249,7 +246,7 @@ LunarShrineScript8:
 ; trigger 2nd battle
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 16
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -288,7 +285,7 @@ LunarShrineScript9:
 ; trigger 3rd battle
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 17
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -327,7 +324,7 @@ LunarShrineScript10:
 ; trigger 4th battle
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 18
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -364,7 +361,7 @@ LunarShrineScript11:
 	call Rocket1FaceRight
 	call Rocket2FaceLeft
 ; dialogue
-	ld a, 19
+	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff ; testing
@@ -403,7 +400,7 @@ LunarShrineScript12:
 	ld [wPlayerMovingDirection], a
 	ld a, $f0 ; testing
 	ld [wJoyIgnore], a
-	ld a, 20
+	ld a, 24
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; script handling
@@ -422,7 +419,7 @@ LunarShrineScript13:
 	ld [wPlayerMovingDirection], a
 	ld a, $f0 ; testing
 	ld [wJoyIgnore], a
-	ld a, 21
+	ld a, 25
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, LUNAR_RELIC
@@ -443,15 +440,15 @@ LunarShrineScript14:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
-	ld a, 22
+	ld a, 26
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	lb bc, HM_STRENGTH, 1
 	call GiveItem
-	ld a, 23
+	ld a, 27
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, 24
+	ld a, 28
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; end stuff
@@ -564,22 +561,29 @@ CeladonChiefHouse_TextPointers:
 	dw LunarShrineText3 ; Rocket 2, proxy
 	dw LunarShrineText4 ; Rocket 3, proxy
 	dw LunarShrineText5 ; Rocket 4, proxy
-	dw LunarShrineTextTemple ; tempietto
-	dw LunarShrineTextRockets1 ; 10
-	dw LunarShrineTextRockets2 ; 11, Monk
-	dw LunarShrineTextRockets3 ; 12, Rocket 1
-	dw LunarShrineTextRockets4 ; 13, Rocket 2
-	dw LunarShrineTextRockets5 ; 14, Rocket 3
-	dw LunarShrineTextRockets6 ; 15, Rocket 4
-	dw LunarShrineTextRockets7 ; 16, post-battle 1
-	dw LunarShrineTextRockets8 ; 17, post-battle 2
-	dw LunarShrineTextRockets9 ; 18, post-battle 3
-	dw LunarShrineTextRockets10 ; 19, post-battle 4
-	dw LunarShrineTextRockets11 ; 20, Monk thanks and let's place Relic
-	dw LunarShrineTextRockets12 ; 21, Monk and Player place Relic
-	dw LunarShrineTextRockets13 ; 22, Monk wants to reward Player
-	dw LunarShrineTextRockets14 ; 23, Monk gifts STRENGTH
-	dw LunarShrineTextRockets15 ; 24, Monk explains STRENGTH
+	; tourists
+	dw LunarShrineTextTourist1 ; tourist 1
+	dw LunarShrineTextTourist2 ; tourist 2
+	dw LunarShrineTextTourist3 ; tourist 3
+	dw LunarShrineTextTourist4 ; tourist 4
+	; signs
+	dw LunarShrineTextTemple ; 13, shrine
+	; non-NPC dialogues
+	dw LunarShrineTextRockets1 ; 14
+	dw LunarShrineTextRockets2 ; 15, Monk
+	dw LunarShrineTextRockets3 ; 16, Rocket 1
+	dw LunarShrineTextRockets4 ; 17, Rocket 2
+	dw LunarShrineTextRockets5 ; 18, Rocket 3
+	dw LunarShrineTextRockets6 ; 19, Rocket 4
+	dw LunarShrineTextRockets7 ; 20, post-battle 1
+	dw LunarShrineTextRockets8 ; 21, post-battle 2
+	dw LunarShrineTextRockets9 ; 22, post-battle 3
+	dw LunarShrineTextRockets10 ; 23, post-battle 4
+	dw LunarShrineTextRockets11 ; 24, Monk thanks and let's place Relic
+	dw LunarShrineTextRockets12 ; 25, Monk and Player place Relic
+	dw LunarShrineTextRockets13 ; 26, Monk wants to reward Player
+	dw LunarShrineTextRockets14 ; 27, Monk gifts STRENGTH
+	dw LunarShrineTextRockets15 ; 28, Monk explains STRENGTH
 
 CeladonHouseText1:
 	text_far _CeladonHouseText1
@@ -785,3 +789,22 @@ LunarShrineRocket3Text_Win:
 LunarShrineRocket4Text_Win:
 	text_far _LunarShrineRocket4Text_Win
 	text_end
+
+; ---------------------------
+
+LunarShrineTextTourist1:
+	text_far _LunarShrineTextTourist1
+	text_end
+	
+LunarShrineTextTourist2:
+	text_far _LunarShrineTextTourist2
+	text_end
+	
+LunarShrineTextTourist3:
+	text_far _LunarShrineTextTourist3
+	text_end
+	
+LunarShrineTextTourist4:
+	text_far _LunarShrineTextTourist4
+	text_end
+	

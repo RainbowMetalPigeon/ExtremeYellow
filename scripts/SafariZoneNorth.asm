@@ -53,6 +53,10 @@ SafariZoneNorthScript2:
 	ld a, HS_OAKS_LAB_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	; also spawn another tourist
+	ld a, HS_LUNAR_SHRINE_TOURIST_3
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack

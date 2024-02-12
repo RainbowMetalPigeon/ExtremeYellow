@@ -385,6 +385,10 @@ DEF SHOW EQU $15
 	const HS_LUNAR_SHRINE_3                ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_LUNAR_SHRINE_4                ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_LUNAR_SHRINE_5                ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_TOURIST_1        ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_TOURIST_2        ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_TOURIST_3        ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_TOURIST_4        ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_SAFARI_REST_HOUSE_SARA_WAITING ; new
 	const HS_SAFARI_REST_HOUSE_SARA_HAPPY   ; new
 	const HS_SAFARI_REST_HOUSE_ERIK_HAPPY   ; new

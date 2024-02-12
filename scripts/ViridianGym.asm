@@ -152,6 +152,11 @@ ViridianGymGiovanniPostBattle:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 
+	; new
+	ld a, HS_LUNAR_SHRINE_TOURIST_1
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+
 	call GBFadeOutToBlack
 	ld a, HS_VIRIDIAN_GYM_GIOVANNI
 	ld [wMissableObjectIndex], a

@@ -22,6 +22,7 @@ OchreCity_Object:
 	bg_event 15, 21, 20 ; OchreCity_SignParkAndSquare
 	bg_event  7, 19, 21 ; OchreCity_SignResearch
 	bg_event 15, 15, 22 ; OchreCity_SignBirbFan
+	bg_event 41, 32, 23 ; OchreCity_LooseFence
 
 	def_object_events
 	object_event  6, 10, SPRITE_BIKER, WALK, UP_DOWN, 1 ; like biking circle

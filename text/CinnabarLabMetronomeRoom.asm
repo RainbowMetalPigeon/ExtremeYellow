@@ -28,10 +28,11 @@ _TM35ExplanationText::
 	para "Someone, like,"
 	line "speculates that,"
 	cont "like, there is an"
-	cont "even stronger move"
-	cont "around, but I,"
-	cont "like, don't really"
-	cont "believe it..."
+	cont "even stronger"
+	cont "move around,"
+	cont "but I, like,"
+	cont "don't really"
+	cont "believe that..."
 	done
 
 _TM35NoRoomText::
