@@ -16,19 +16,19 @@ SeafoamIslandsB4FWildMons:
 	db  1, MEW
 	end_grass_wildmons
 
-	def_water_wildmons 5 ; encounter rate
-	db 30, HORSEA
-	db 33, HORSEA
-	db 36, HORSEA
-	db 30, STARYU
-	db 37, PSYDUCK
-	db 35, SEEL
-	db 40, TENTACOOL
-	db 41, STARMIE
-	db 41, GOLDUCK
-	db 42, SEADRA
-	db 42, SEADRA
-	db 44, LAPRAS
-	db 44, LAPRAS
-	db  1, MEW
+	def_water_wildmons 15 ; encounter rate
+	db 33, HORSEA		; 51
+	db 36, HORSEA		; 51
+	db 30, STARYU		; 39
+	db 37, PSYDUCK		; 25
+	db 35, SEEL			; 25
+	db 40, TENTACOOL	; 25
+	db 41, STARMIE		; 13
+	db 41, GOLDUCK		; 10
+	db 42, SEADRA		; 10
+	db 42, LAPRAS		;  3
+	db 42, LAPRAS		;  1
+	db 44, LAPRAS		;  1
+	db 44, LAPRAS		;  1
+	db  1, MEW			;  1
 	end_water_wildmons

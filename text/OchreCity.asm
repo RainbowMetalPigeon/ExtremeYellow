@@ -193,7 +193,7 @@ _OchreCity_NPCText13_Bird::
 
 _OchreCity_NPCText14_Bird::
 	text "Quack!"
-	done
+	prompt
 
 _OchreCity_Scolded::
 	text "NO!"
