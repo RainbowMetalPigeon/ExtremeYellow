@@ -1196,10 +1196,15 @@ INCLUDE "scripts/AgathasRoom.asm"
 INCLUDE "data/maps/objects/AgathasRoom.asm"
 AgathasRoom_Blocks: INCBIN "maps/AgathasRoom.blk"
 
-INCLUDE "data/maps/headers/OchreResearchCenter.asm"
-INCLUDE "scripts/OchreResearchCenter.asm"
-INCLUDE "data/maps/objects/OchreResearchCenter.asm"
-OchreResearchCenter_Blocks: INCBIN "maps/OchreResearchCenter.blk"
+INCLUDE "data/maps/headers/OchreResearchCenter1.asm"
+INCLUDE "scripts/OchreResearchCenter1.asm"
+INCLUDE "data/maps/objects/OchreResearchCenter1.asm"
+OchreResearchCenter1_Blocks: INCBIN "maps/OchreResearchCenter1.blk"
+
+INCLUDE "data/maps/headers/OchreResearchCenter2.asm"
+INCLUDE "scripts/OchreResearchCenter2.asm"
+INCLUDE "data/maps/objects/OchreResearchCenter2.asm"
+OchreResearchCenter2_Blocks: INCBIN "maps/OchreResearchCenter2.blk"
 
 
 SECTION "Maps 22", ROMX

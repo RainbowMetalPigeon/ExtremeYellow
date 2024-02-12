@@ -1,10 +1,28 @@
 CeladonCity_Script:
+	; new, to open path to Lunar Temple after its events
+	ld hl, wCurrentMapScriptFlags
+	bit 6, [hl]
+	res 6, [hl]
+	call nz, CeladonCityHideShowLunarTemplePath
+	; end of Lunar temple stuff
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonCity_ScriptPointers
 	ld a, [wCeladonCityCurScript]
 	call CallFunctionInTable
 	ret
+
+CeladonCityHideShowLunarTemplePath:
+	CheckEvent EVENT_RETURNED_LUNAR_RELIC
+	jr nz, .openPath	; if yes, open path
+	ld a, 229			; ledge block ID
+	jr .replaceBlock
+.openPath
+	ld a, 10			; clear path block ID
+.replaceBlock
+	ld [wNewTileBlockID], a
+	lb bc, 5, 5 ; Y and X coordinates - opposite as usual
+	predef_jump ReplaceTileBlock
 
 CeladonCity_ScriptPointers:
 	dw CeladonCityScript1 ; this is actually script 0?

@@ -167,6 +167,10 @@ GaryScript3:
 	CheckEvent EVENT_ENGAGED_CHAMPION_FINAL_REMATCH
 	jr z, .continue
 	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; this makes the SS Anne return, which in turn allows to battle PIGEON (eheh)
+	; also spawn another tourist
+	ld a, HS_LUNAR_SHRINE_TOURIST_4
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 .continue
 	; back to vanilla code
 

@@ -34,6 +34,7 @@ SaffronGym_Object:
 	warp_event 19, 15, SAFFRON_GYM, 26
 	warp_event 15, 17, SAFFRON_GYM, 12
 	warp_event 19, 17, SAFFRON_GYM, 20
+	warp_event  7,  7, SAFFRON_GYM, 20 ; new, one-way back to return straight to the entrance
 
 	def_bg_events
 

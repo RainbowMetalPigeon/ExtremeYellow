@@ -17,9 +17,9 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 5
-	db CHARIZARD, 9
-	db RHYPERIOR, 9
-;	db MAGIKARP, 2
+;	db CHARIZARD, 9
+;	db RHYPERIOR, 9
+;	db MAGIKARP, 100
 	db -1 ; end
 
 DebugStart:
@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, MOONBLAST
+	ld a, PSYCHO_CUT
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, CLOSE_COMBAT
@@ -160,6 +160,15 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SS_ANNE_LEFT
 ;	SetEvent EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING
 
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
+
 	ret
 
 DebugSetPokedexEntries:
@@ -180,7 +189,7 @@ DebugItemsList:
 ;	db MAX_REPEL, 3
 ;	db LUNAR_RELIC, 1
 ;	db PP_UP, 42
-    db OAKS_PARCEL, 1
+;   db OAKS_PARCEL, 1
 	db PERFECTER, 50
 	db SUPER_ROD, 1
 ;	db GOOD_ROD, 1

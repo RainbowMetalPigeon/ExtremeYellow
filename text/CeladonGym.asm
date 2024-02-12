@@ -85,19 +85,19 @@ _TM21NoRoomText::
 	line "room for this."
 	done
 
-_CeladonGymBattleText2::
+_CeladonGymBattleText2:: ; TBE
 	text "Hey!"
 
 	para "You are not"
 	line "allowed in here!"
 	done
 
-_CeladonGymEndBattleText2::
+_CeladonGymEndBattleText2:: ; TBE
 	text "You're"
 	line "too rough!"
 	prompt
 
-_CeladonGymAfterBattleText2::
+_CeladonGymAfterBattleText2:: ; TBE
 	text "Bleaah!"
 	line "I hope ERIKA"
 	cont "wipes you out!"
@@ -123,7 +123,7 @@ _CeladonGymAfterBattleText3::
 	cont "ground #MON!"
 	done
 
-_CeladonGymBattleText4::
+_CeladonGymBattleText4:: ; TBE
 	text "Aren't you the"
 	line "peeping Tom?"
 	done
@@ -133,7 +133,7 @@ _CeladonGymEndBattleText4::
 	line "in shock!"
 	prompt
 
-_CeladonGymAfterBattleText4::
+_CeladonGymAfterBattleText4:: ; TBE
 	text "Oh, you weren't"
 	line "peeping? We get a"
 	cont "lot of gawkers!"
@@ -175,7 +175,7 @@ _CeladonGymEndBattleText6::
 _CeladonGymAfterBattleText6::
 	text "Our LEADER, ERIKA,"
 	line "might be quiet,"
-	cont "but she's also"
+	cont "but they're also"
 	cont "very skilled!"
 	done
 
@@ -197,7 +197,7 @@ _CeladonGymAfterBattleText7::
 	cont "to be polite."
 	done
 
-_CeladonGymBattleText8::
+_CeladonGymBattleText8:: ; TBE
 	text "Welcome to"
 	line "CELADON GYM!"
 
@@ -211,7 +211,7 @@ _CeladonGymEndBattleText8::
 	line "Beaten!"
 	prompt
 
-_CeladonGymAfterBattleText8::
+_CeladonGymAfterBattleText8:: ; TBE
 	text "I didn't bring my"
 	line "best #MON!"
 
@@ -242,7 +242,7 @@ _CeladonGymEndBattleText9::
 	cont "GRASS #MON!"
 	prompt
 
-_CeladonGymAfterBattleText9::
+_CeladonGymAfterBattleText9:: ; TBE
 	text "I am very happy"
 	line "they accepted me"
 	cont "in this GYM."
@@ -253,6 +253,22 @@ _CeladonGymAfterBattleText9::
 	done
 
 ; new ---------------------
+
+_CeladonGymGuidePreBattleText:: ; TBE
+	text "Yo! Champ in"
+	line "making!"
+
+	para "Here's my advice!"
+
+	para "The LEADER, ERIKA,"
+	line "is a pro who uses"
+	cont "grass #MON!"
+	done
+
+_CeladonGymGuidePostBattleText:: ; TBE
+	text "You beat ERIKA!"
+	line "What'd I tell ya?"
+	done
 
 _ErikaRematchPreBattleText::
 	text "Zzz..."

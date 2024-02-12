@@ -49,3 +49,32 @@ _OchreRehabilitationCenterText3::
 	cont "see really"
 	cont "anywhere else!"
 	done
+
+_OchreCity_LooseFence_ItsLoose::
+	text "Hey! This part of"
+	line "the fence seems"
+	cont "quite loose."
+
+	para "Do you want to"
+	line "force it open?"
+	done
+
+_OchreCity_LooseFence_FenceForced::
+	text "The fence gives in"
+	line "with a little"
+	cont "effort, leaving"
+	cont "enough space to"
+	cont "sneak in through!"
+	done
+
+_OchreCity_LooseFence_AlreadyForced::
+	text "You already forced"
+	line "the fence open."
+	done
+
+_OchreCity_LooseFence_BetterNotTo::
+	text "Of course no!"
+
+	para "It seems a pretty"
+	line "terrible idea."
+	done

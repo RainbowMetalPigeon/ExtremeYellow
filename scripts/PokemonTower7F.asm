@@ -247,7 +247,7 @@ PokemonTower7Script11:
 	ld a, LAVENDER_TOWN
 	ld [wLastMap], a
 	ld hl, wd72d
-	set 3, [hl]
+	set 3, [hl] ; do scripted warp
 	ld a, $0
 	ld [wPokemonTower7FCurScript], a
 	ret

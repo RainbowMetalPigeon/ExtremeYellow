@@ -44,20 +44,20 @@ CeladonGymErikaPostBattle:
 	ld [wJoyIgnore], a
 
 CeladonGymReceiveTM21:
-	ld a, $a
+	ld a, $b ; +1 for gym guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA
 	lb bc, TM_GIGA_DRAIN, 1
 	call GiveItem
 	jr nc, .BagFull
-	ld a, $b
+	ld a, $c ; +1 for gym guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM21
 	jr .gymVictory
 .BagFull
-	ld a, $c
+	ld a, $d ; +1 for gym guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .gymVictory
@@ -77,7 +77,7 @@ CeladonGymErikaPostBattleRematch: ; new
 	jp z, CeladonGymResetScripts
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $d
+	ld a, $e ; +1 for gym guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA_REMATCH
@@ -109,11 +109,12 @@ CeladonGym_TextPointers:
 	dw CeladonGymTrainerText5
 	dw CeladonGymTrainerText6
 	dw CeladonGymTrainerText7
-	dw CeladonGymTrainerText8
-	dw ErikaRainbowBadgeInfoText
-	dw ReceivedTM21Text
-	dw TM21NoRoomText
-	dw ErikaPostRematchText; new, $d
+	dw CeladonGymTrainerText8 ; 9
+	dw CeladonGymGuideText ; 10, new
+	dw ErikaRainbowBadgeInfoText ; $b=11
+	dw ReceivedTM21Text ; $c=12
+	dw TM21NoRoomText ; $d=13
+	dw ErikaPostRematchText; new, $e=14
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
@@ -369,6 +370,27 @@ CeladonGymAfterBattleText9:
 	text_end
 
 ; new ---------------------
+
+CeladonGymGuideText:
+	text_asm
+	CheckEvent EVENT_BEAT_ERIKA
+	jr nz, .afterBeat
+	ld hl, CeladonGymGuidePreBattleText
+	call PrintText
+	jr .done
+.afterBeat
+	ld hl, CeladonGymGuidePostBattleText
+	call PrintText
+.done
+	jp TextScriptEnd
+
+CeladonGymGuidePreBattleText:
+	text_far _CeladonGymGuidePreBattleText
+	text_end
+
+CeladonGymGuidePostBattleText:
+	text_far _CeladonGymGuidePostBattleText
+	text_end
 
 ErikaRematchPreBattleText:
 	text_far _ErikaRematchPreBattleText

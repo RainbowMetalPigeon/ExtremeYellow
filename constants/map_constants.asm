@@ -130,7 +130,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $68
 	map_const OCHRE_GYM,                     15, 17 ; $69 ; new
 	map_const OCHRE_WONDERLAND,              30, 30 ; $6A ; new
-	map_const OCHRE_RESEARCH_CENTER,          6,  8 ; $6B ; new
+	map_const OCHRE_RESEARCH_CENTER_1,        6, 16 ; $6B ; new
 	map_const VICTORY_ROAD_1F,               10,  9 ; $6C
 	map_const SECLUDED_ATOLL_NW,             27, 15 ; $6D ; new
 	map_const SECLUDED_ATOLL_NE,             15, 15 ; $6E ; new
@@ -175,7 +175,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MR_FUJIS_HOUSE,                 4,  4 ; $95
 	map_const LAVENDER_MART,                  4,  4 ; $96 ; edited, made UNUSED because of map MERGING
 	map_const LAVENDER_CUBONE_HOUSE,          4,  4 ; $97
-	map_const FUCHSIA_MART,                   4,  4 ; $98 ; edited, made UNUSED because of map MERGING
+	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $98 ; new
 	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $99
 	map_const FUCHSIA_POKECENTER,            14,  4 ; $9A ; edited, Center+Mart
 	map_const WARDENS_HOUSE,                  5,  4 ; $9B

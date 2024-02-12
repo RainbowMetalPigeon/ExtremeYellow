@@ -300,6 +300,8 @@ INCLUDE "text/VermilionPidgeyHouse.asm"
 INCLUDE "text/VermilionDock.asm"
 INCLUDE "text/CinnabarVolcano.asm"
 INCLUDE "text/CinnabarVolcanoBF.asm"
+INCLUDE "text/OchreResearchCenter1.asm"
+INCLUDE "text/OchreResearchCenter2.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

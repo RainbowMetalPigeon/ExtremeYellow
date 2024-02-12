@@ -86,6 +86,7 @@
 	const SPRITE_TRAVELER                ; new
 	const SPRITE_FLYING_PIKACHU          ; new
 	const SPRITE_CRASHING_PIKACHU        ; new
+	const SPRITE_SCIENTIST_F             ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48

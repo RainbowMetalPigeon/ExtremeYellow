@@ -112,7 +112,7 @@ MapHeaderBanks::
 	db BANK(SSAnneB1FRooms_h)
 	db BANK(OchreGym_h) ; edited
 	db BANK(OchreWonderland_h) ; edited
-	db BANK(OchreResearchCenter_h) ; edited
+	db BANK(OchreResearchCenter1_h) ; edited
 	db BANK(VictoryRoad1F_h)
 	db BANK(SecludedAtollNW_h) ; edited
 	db BANK(SecludedAtollNE_h) ; edited
@@ -157,7 +157,7 @@ MapHeaderBanks::
 	db BANK(MrFujisHouse_h)
 	db BANK(LavenderPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(LavenderCuboneHouse_h)
-	db BANK(FuchsiaPokecenter_h) ; edited, made UNUSED because of map MERGING
+	db BANK(OchreResearchCenter2_h) ; edited
 	db BANK(FuchsiaBillsGrandpasHouse_h)
 	db BANK(FuchsiaPokecenter_h)
 	db BANK(WardensHouse_h)

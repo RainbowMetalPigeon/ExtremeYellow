@@ -1,0 +1,83 @@
+OchreResearchCenter2_Script:
+	call EnableAutoTextBoxDrawing
+	ret
+
+OchreResearchCenter2_TextPointers:
+	; fossil
+	dw OchreResearchCenter2Text_Fossils_Cinnabar
+	dw OchreResearchCenter2Text_Fossils_Devon
+	dw OchreResearchCenter2Text_Fossils_Sinnoh
+	dw OchreResearchCenter2Text_Fossils_Unova
+	dw OchreResearchCenter2Text_Fossils_Kalos
+	dw OchreResearchCenter2Text_Fossils_Alola
+	dw OchreResearchCenter2Text_Fossils_Galar
+	dw OchreResearchCenter2Text_Fossils_Fossil
+	; dreams
+	dw OchreResearchCenter2Text_Dreams_Devon
+	dw OchreResearchCenter2Text_Dreams_Unova
+	dw OchreResearchCenter2Text_Dreams_Interim
+	dw OchreResearchCenter2Text_Dreams_Clefairy
+	; signs
+	dw OchreResearchCenterSign_Fossil
+	dw OchreResearchCenterSign_Dreams
+	dw OchreResearchCenterSign_Monitor
+
+OchreResearchCenter2Text_Fossils_Cinnabar:
+	text_far _OchreResearchCenter2Text_Fossils_Cinnabar
+	text_end
+
+OchreResearchCenter2Text_Fossils_Devon:
+	text_far _OchreResearchCenter2Text_Fossils_Devon
+	text_end
+
+OchreResearchCenter2Text_Fossils_Sinnoh:
+	text_far _OchreResearchCenter2Text_Fossils_Sinnoh
+	text_end
+
+OchreResearchCenter2Text_Fossils_Unova:
+	text_far _OchreResearchCenter2Text_Fossils_Unova
+	text_end
+
+OchreResearchCenter2Text_Fossils_Kalos:
+	text_far _OchreResearchCenter2Text_Fossils_Kalos
+	text_end
+
+OchreResearchCenter2Text_Fossils_Alola:
+	text_far _OchreResearchCenter2Text_Fossils_Alola
+	text_end
+
+OchreResearchCenter2Text_Fossils_Galar:
+	text_far _OchreResearchCenter2Text_Fossils_Galar
+	text_end
+
+OchreResearchCenter2Text_Fossils_Fossil:
+	text_far _OchreResearchCenter2Text_Fossils_Fossil
+	text_end
+
+OchreResearchCenter2Text_Dreams_Devon:
+	text_far _OchreResearchCenter2Text_Dreams_Devon
+	text_end
+
+OchreResearchCenter2Text_Dreams_Unova:
+	text_far _OchreResearchCenter2Text_Dreams_Unova
+	text_end
+
+OchreResearchCenter2Text_Dreams_Interim:
+	text_far _OchreResearchCenter2Text_Dreams_Interim
+	text_end
+
+OchreResearchCenter2Text_Dreams_Clefairy:
+	text_far _OchreResearchCenter2Text_Dreams_Clefairy
+	text_end
+
+OchreResearchCenterSign_Fossil:
+	text_far _OchreResearchCenterSign_Fossil
+	text_end
+
+OchreResearchCenterSign_Dreams:
+	text_far _OchreResearchCenterSign_Dreams
+	text_end
+
+OchreResearchCenterSign_Monitor:
+	text_far _OchreResearchCenterSign_Monitor
+	text_end
