@@ -114,6 +114,14 @@ ItemUsePtrTable:
 	dw UnusableItem      ; BIG_NUGGET, new
 	dw ItemUseVitamin    ; PERFECTER, new, testing
 	dw UnusableItem      ; LUNAR_RELIC, new
+	dw UnusableItem      ; ICE_ORB, new
+	dw UnusableItem      ; THUNDER_ORB, new
+	dw UnusableItem      ; FIRE_ORB, new
+	dw UnusableItem      ; LIGHT_BALL, new
+	dw UnusableItem      ; MYSTERY_MAP, new, TBE
+	dw UnusableItem      ; LAVA_STONE, new
+	dw UnusableItem      ; MAGMA_STONE, new
+	dw UnusableItem      ; MOLTEN_STONE, new
 
 ItemUseBall:
 
@@ -3249,7 +3257,7 @@ IsKeyItem_::
 	push af
 	ld hl, KeyItemFlags
 	ld de, wBuffer
-	ld bc, 15 ; only 11 bytes are actually used
+	ld bc, 15 ; only 11 bytes are actually used ; this needs to be edited if I end up with more than 120 items?
 	ASSERT 15 >= (NUM_ITEMS + 7) / 8
 	call CopyData
 	pop af

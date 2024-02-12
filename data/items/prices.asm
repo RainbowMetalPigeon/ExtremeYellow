@@ -97,6 +97,14 @@ ItemPrices::
 	bcd3 60000 ; BIG_NUGGET
 	bcd3 0     ; PERFECTER
 	bcd3 0     ; LUNAR_RELIC
+	bcd3 0     ; ICE_ORB
+	bcd3 0     ; THUNDER_ORB
+	bcd3 0     ; FIRE_ORB
+	bcd3 0     ; LIGHT_BALL
+	bcd3 0     ; MYSTERY_MAP
+	bcd3 0     ; LAVA_STONE
+	bcd3 0     ; MAGMA_STONE
+	bcd3 0     ; MOLTEN_STONE
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

@@ -179,7 +179,8 @@ DebugItemsList:
 ;	db REPEL, 3
 ;	db MAX_REPEL, 3
 ;	db LUNAR_RELIC, 1
-	db PP_UP, 42
+;	db PP_UP, 42
+    db OAKS_PARCEL, 1
 	db PERFECTER, 50
 	db SUPER_ROD, 1
 ;	db GOOD_ROD, 1

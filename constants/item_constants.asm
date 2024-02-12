@@ -106,6 +106,14 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const BIG_NUGGET	; new
 	const PERFECTER     ; new, testing
 	const LUNAR_RELIC   ; new
+	const ICE_ORB       ; new
+	const THUNDER_ORB   ; new
+	const FIRE_ORB      ; new
+	const LIGHT_BALL    ; new
+	const MYSTERY_MAP   ; new
+	const LAVA_STONE    ; new
+	const MAGMA_STONE   ; new
+	const MOLTEN_STONE  ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

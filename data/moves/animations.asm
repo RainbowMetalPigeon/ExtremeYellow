@@ -474,6 +474,11 @@ HornDrillAnim:
 ; TODO:
 
 MachPunch:
+	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
+	battle_anim NO_MOVE, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+	
 
 WillOWispAnim:
 FlareBlitzAnim:

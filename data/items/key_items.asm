@@ -97,4 +97,12 @@ KeyItemFlags:
 	dbit FALSE ; BIG_NUGGET		- new
 	dbit FALSE ; PERFECTER      - new, testing
 	dbit TRUE  ; LUNAR_RELIC    - new
+	dbit TRUE  ; ICE_ORB        - new
+	dbit TRUE  ; THUNDER_ORB    - new
+	dbit TRUE  ; FIRE_ORB       - new
+	dbit TRUE  ; LIGHT_BALL     - new
+	dbit TRUE  ; MYSTERY_MAP    - new
+	dbit TRUE  ; LAVA_STONE     - new
+	dbit TRUE  ; MAGMA_STONE    - new
+	dbit TRUE  ; MOLTEN_STONE   - new
 	end_bit_array NUM_ITEMS

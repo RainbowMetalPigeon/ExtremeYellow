@@ -97,6 +97,14 @@ ItemNames::
 	li "BIG NUGGET" ; new
 	li "PERFECTER" ; new
 	li "LUNAR RELIC" ; new
+	li "ICE ORB" ; new
+	li "THUNDER ORB" ; new
+	li "FIRE ORB" ; new
+	li "LIGHT BALL" ; new
+	li "MYSTERY MAP" ; new
+	li "LAVA STONE" ; new
+	li "MAGMA STONE" ; new
+	li "MOLTEN STONE" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"
