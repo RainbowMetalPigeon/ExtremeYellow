@@ -130,7 +130,7 @@ OchreResearchCenter1Text_Power_Windworks:
 	ld hl, OchreResearchCenter1Text_Power_Windworks_FoundThisYouCanHaveIt
 	call PrintText
 .tryToGiveThunderOrb
-	lb bc, THUNDER_STONE, 1 ; TBE, THUNDER_ORB
+	lb bc, THUNDER_ORB, 1
 	call GiveItem
 	jr nc, .bagFull
 	SetEvent EVENT_ALREADY_REWARDED_ORB_OCHRE_POWER_ENGINEER

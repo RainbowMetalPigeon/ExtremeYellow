@@ -2328,7 +2328,8 @@ wLancesRoomCurScript:: db
 wCopycatsHouse2FCurScript:: db ; new
 wSafariZoneRestHouseCurScript:: db ; new
 wCinnabarVolcanoBFCurScript:: db ; new
-	ds 1 ; edited, was 4
+wOchreRehabilitationCenterCurScript:: db ; new
+;	ds 4
 wSilphCo10FCurScript:: db
 wSilphCo11FCurScript:: db
 	ds 1

@@ -187,12 +187,17 @@ _OchreCity_NPCText12:: ; wait friends walk park
 	cont "MAZE PARK!"
 	done
 
-_OchreCity_NPCText13::
+_OchreCity_NPCText13_Bird::
 	text "BRIIIBBB!!!"
+	prompt
+
+_OchreCity_NPCText14_Bird::
+	text "Quack!"
 	done
 
-_OchreCity_NPCText14::
-	text "Quack!"
+_OchreCity_Scolded::
+	text "NO!"
+	line "Come back here!"
 	done
 
 ; -------------- signs texts --------------

@@ -22,19 +22,6 @@ _OchreRehabilitationCenterText1::
 	done
 
 _OchreRehabilitationCenterText2::
-	text "There is so much"
-	line "to do! We are"
-	cont "severly under-"
-	cont "staffed!"
-
-	para "Do your things but"
-	line "don't bother us"
-	cont "or the recovering"
-	cont "#MON in the"
-	cont "enclosure!"
-	done
-
-_OchreRehabilitationCenterText3::
 	text "This place is so"
 	line "incredibly"
 	cont "endearing!"
@@ -48,6 +35,42 @@ _OchreRehabilitationCenterText3::
 	cont "that you can't"
 	cont "see really"
 	cont "anywhere else!"
+	done
+
+_OchreRehabilitationCenterText3::
+	text "There is so much"
+	line "to do! We are"
+	cont "severly under-"
+	cont "staffed!"
+
+	para "Do your things but"
+	line "don't bother us"
+	cont "or the recovering"
+	cont "#MON in the"
+	cont "enclosure!"
+	done
+
+_OchreRehabilitationCenterText4::
+	text "b... b... b..."
+	done
+
+_OchreRehabilitationCenterText5_Once::
+	text "Never again!"
+	line "Next time fine!"
+	done
+
+_OchreRehabilitationCenterText5_Again::
+	text "This is it!"
+	line "Mega fine!"
+	done
+
+_OchreRehabilitationCenterText6::
+	text "It's a book about"
+	line "bird anatomy and"
+	cont "physiology!"
+
+	para "...it looks very"
+	line "complex..."
 	done
 
 _OchreCity_LooseFence_ItsLoose::

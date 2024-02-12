@@ -261,7 +261,6 @@ INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/NameRatersHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/SilphCo10F.asm"
-INCLUDE "text/SilphCo9F.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -302,6 +301,7 @@ INCLUDE "text/CinnabarVolcano.asm"
 INCLUDE "text/CinnabarVolcanoBF.asm"
 INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
+INCLUDE "text/SilphCo9F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

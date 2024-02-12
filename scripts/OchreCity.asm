@@ -114,11 +114,29 @@ OchreCity_NPCText12:
 	text_end
 
 OchreCity_NPCText13:
-	text_far _OchreCity_NPCText13
+	text_asm
+	ld hl, OchreCity_NPCText13_Bird
+	call PrintText
+	call DontTouchTheBribs
+    jp TextScriptEnd
+
+OchreCity_NPCText13_Bird:
+	text_far _OchreCity_NPCText13_Bird
 	text_end
 
 OchreCity_NPCText14:
-	text_far _OchreCity_NPCText14
+	text_asm
+	ld hl, OchreCity_NPCText14_Bird
+	call PrintText
+	call DontTouchTheBribs
+    jp TextScriptEnd
+
+OchreCity_NPCText14_Bird:
+	text_far _OchreCity_NPCText14_Bird
+	text_end
+
+OchreCity_Scolded:
+	text_far _OchreCity_Scolded
 	text_end
 
 ; -------------- signs texts --------------
@@ -317,3 +335,35 @@ Text_WhatWasThat_OchreTraveler:
 	text_end
 
 ; ================================
+
+DontTouchTheBribs:
+	call StopAllMusic
+	ld c, BANK(SFX_Safari_Zone_PA)
+	ld a, SFX_SAFARI_ZONE_PA
+	call PlayMusic
+.waitForMusicToPlay
+	ld a, [wChannelSoundIDs + CHAN5]
+	cp SFX_SAFARI_ZONE_PA
+	jr nz, .waitForMusicToPlay
+	ld hl, OchreCity_Scolded
+	call PrintText
+	ld a, SPRITE_FACING_UP
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, OCHRE_REHABILITATION_CENTER
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld a, OCHRE_CITY
+	ld [wLastMap], a
+	CheckAndSetEvent EVENT_OCHRE_REHABILITATION_SCOLDED_ONCE
+	jr z, .firstTime
+	SetEvent EVENT_OCHRE_REHABILITATION_SCOLDED_AGAIN
+.firstTime
+	ld a, HS_OCHRE_REHABILITATION_GURU_2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, 1
+	ld [wOchreRehabilitationCenterCurScript], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	ret

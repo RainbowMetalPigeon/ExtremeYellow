@@ -211,7 +211,7 @@ MapHSPointers:
 	dw RocketHideoutB3FHS
 	dw RocketHideoutB4FHS
 	dw NoHS ; ROCKET_HIDEOUT_ELEVATOR
-	dw NoHS ; OCHRE_REHABILITATION_CENTER
+	dw OchreRehabilitationCenterHS ; new
 	dw NoHS ; OCHRE_POKECENTER
 	dw ObsidianPokecenterHS ; new
 	dw SilphCo2FHS
@@ -766,5 +766,7 @@ CinnabarVolcanoBFHS: ; new
 	db CINNABAR_VOLCANO_BF, $04, SHOW
 	db CINNABAR_VOLCANO_BF, $05, SHOW
 	db CINNABAR_VOLCANO_BF, $06, SHOW
+OchreRehabilitationCenterHS: ; new
+	db OCHRE_REHABILITATION_CENTER, $05, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator
