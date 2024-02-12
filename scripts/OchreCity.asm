@@ -2,6 +2,10 @@ OchreCity_Script:
 	ld hl, wCurrentMapScriptFlags ; for the fence
 	bit 6, [hl]
 	res 6, [hl]
+	call nz, OchreCityHideShowRehabilitationFence ; from Vortiene
+	ld hl, wCurrentMapScriptFlags
+	bit 4, [hl]
+	res 4, [hl]
 	call nz, OchreCityHideShowRehabilitationFence
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing

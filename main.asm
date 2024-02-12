@@ -80,6 +80,7 @@ INCLUDE "engine/gfx/hp_bar.asm" ; moved from bank3
 INCLUDE "engine/events/heal_party.asm" ; moved from bank3, after modifying one call into a callfar
 INCLUDE "engine/overworld/wild_mons.asm" ; moved from bank3, it seems it's only callfar-ed or jumpfar-ed
 INCLUDE "engine/overworld/use_another_repel.asm" ; new, from Vortiene
+INCLUDE "engine/overworld/check_map_connections.asm" ; new, from Vortiene
 
 SECTION "bank4", ROMX
 
