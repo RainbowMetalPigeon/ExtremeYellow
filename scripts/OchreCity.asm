@@ -2,8 +2,8 @@ OchreCity_Script:
 	ld hl, wCurrentMapScriptFlags ; for the fence
 	bit 6, [hl]
 	res 6, [hl]
-	call nz, OchreCityHideShowRehabilitationFence ; from Vortiene
-	ld hl, wCurrentMapScriptFlags
+	call nz, OchreCityHideShowRehabilitationFence
+	ld hl, wCurrentMapScriptFlags ; from Vortiene
 	bit 4, [hl]
 	res 4, [hl]
 	call nz, OchreCityHideShowRehabilitationFence
@@ -214,7 +214,7 @@ OchreCity_LooseFence_BetterNotTo:
 ; ================================
 
 TextPreBattle_OchreTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_OchreTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty

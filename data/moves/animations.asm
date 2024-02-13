@@ -473,16 +473,6 @@ HornDrillAnim:
 
 ; TODO:
 
-MachPunch:
-	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
-	battle_anim NO_MOVE, SUBANIM_04, 1, 6
-	battle_anim NO_MOVE, SE_SHOW_MON_PIC
-	db -1 ; end
-	
-
-WillOWispAnim:
-FlareBlitzAnim:
-
 AirCutterAnim:
 AerialAceAnim:
 AirSlashAnim:
@@ -500,8 +490,6 @@ IcicleCrashAnim:
 
 GunkShot:
 SludgeWaveAnim:
-
-ZenHeadbuttAnim:
 
 RockTombAnim:
 HeadSmashAnim:
@@ -1588,6 +1576,31 @@ MoonBlastAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim LOVELY_KISS, SUBANIM_EmanatingFromOpponent, 0, 6
 ;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+MachPunch:
+	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
+	battle_anim MEGA_PUNCH, SUBANIM_02, 1, 6
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+WillOWispAnim:
+	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
+	db -1 ; end
+
+FlareBlitzAnim:
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim LEECH_SEED, SE_MOVE_MON_HORIZONTALLY
+	battle_anim TAKE_DOWN, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim FLAMETHROWER, SUBANIM_0C, 1, 6
+	battle_anim FLAMETHROWER, SUBANIM_0D, 1, 6
+	db -1 ; end
+
+ZenHeadbuttAnim:
+	battle_anim PSYCHIC_M, SE_FLASH_SCREEN_LONG
+;	battle_anim PSYCHIC_M, SE_WAVY_SCREEN
+	battle_anim HEADBUTT, SUBANIM_05, 1, 6
 	db -1 ; end
 
 ; ENDDONE

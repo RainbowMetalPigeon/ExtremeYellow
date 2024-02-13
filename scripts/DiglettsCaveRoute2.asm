@@ -1,6 +1,9 @@
 DiglettsCaveRoute2_Script:
 	ld a, ROUTE_2
 	ld [wLastMap], a
+	; new, fix Diglett Cave conditional encounters (only after defeating Surge)
+	ld hl, wd72e
+	res 4, [hl]
 	jp EnableAutoTextBoxDrawing
 
 DiglettsCaveRoute2_TextPointers:

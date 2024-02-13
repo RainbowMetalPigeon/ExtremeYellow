@@ -404,11 +404,13 @@ AnimationTilesetPointers:
 	anim_tileset 79, AnimationTileset2
 	anim_tileset 64, AnimationTileset1
 
-AnimationTileset1:
-	INCBIN "gfx/battle/attack_anim_1.2bpp"
+; edited, commented to save space
+;AnimationTileset1:
+;	INCBIN "gfx/battle/attack_anim_1.2bpp"
 
-AnimationTileset2:
-	INCBIN "gfx/battle/attack_anim_2.2bpp"
+; edited, commented to save space
+;AnimationTileset2:
+;	INCBIN "gfx/battle/attack_anim_2.2bpp"
 
 ;SlotMachineTiles2: 					; implementing Vortiene's solution
 ;	INCBIN "gfx/slots/slots_2.2bpp" 	; implementing Vortiene's solution

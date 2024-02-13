@@ -345,6 +345,10 @@ INCLUDE "data/battle_anims/subanimations.asm"
 INCLUDE "data/battle_anims/frame_blocks.asm"
 
 
+SECTION "bank1EExtra", ROMX ; new, just to host the animation tilesets
+INCLUDE "engine/battle/animationtilesets.asm" ; new
+
+
 SECTION "bank1F", ROMX ; new: contains stuff moved from bank1E
 
 INCLUDE "gfx/fishing.asm"
