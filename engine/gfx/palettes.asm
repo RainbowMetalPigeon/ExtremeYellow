@@ -64,6 +64,37 @@ SetPal_Battle:
 	ld [wDefaultPaletteCommand], a
 	ret
 
+SetPalCustom_Battle:: ; new
+	ld hl, PalPacket_Empty
+	ld de, wPalPacket
+	ld bc, $10
+	call CopyData
+	ld a, PAL_BLACK
+	ld b, a
+	ld hl, wEnemyMonSpecies2
+	call DeterminePaletteID
+	ld c, a
+	ld hl, wPalPacket + 1
+	ld a, [wPlayerHPBarColor]
+	add PAL_BLACK
+	ld [hli], a
+	inc hl
+	ld a, [wEnemyHPBarColor]
+	add PAL_BLACK
+	ld [hli], a
+	inc hl
+	ld a, b
+	ld [hli], a
+	inc hl
+	ld a, c
+	ld [hl], a
+	ld hl, wPalPacket
+	ld de, BlkPacket_Battle
+	ld a, SET_PAL_BATTLE ; TBC
+	ld [wDefaultPaletteCommand], a
+	call RunPaletteCommand
+	ret
+
 SetPal_TownMap:
 	ld hl, PalPacket_TownMap
 	ld de, BlkPacket_WholeScreen

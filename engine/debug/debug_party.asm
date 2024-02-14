@@ -44,13 +44,13 @@ IF DEF(_DEBUG)
 	ld a, MACH_PUNCH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, WILL_O_WISP
+	ld a, BLAST_BURN
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, FLARE_BLITZ
+	ld a, WILL_O_WISP
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, ZEN_HEADBUTT
+	ld a, HAZE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

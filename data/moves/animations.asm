@@ -1292,7 +1292,10 @@ BlastBurnAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SUBANIM_20, 1, 6
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim NO_MOVE, SUBANIM_0C, 1, 6
+	battle_anim FLAMETHROWER, SUBANIM_1A, 1, 6
+	battle_anim NO_MOVE, SUBANIM_1A, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim EMBER, SUBANIM_0C, 1, 6
 	battle_anim NO_MOVE, SUBANIM_0D, 1, 6
 	battle_anim NO_MOVE, SUBANIM_0E, 1, 6
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
@@ -1580,12 +1583,8 @@ MoonBlastAnim:
 
 MachPunch:
 	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
-	battle_anim MEGA_PUNCH, SUBANIM_02, 1, 6
+	battle_anim MEGA_PUNCH, SUBANIM_02, 0, 6
 	battle_anim NO_MOVE, SE_SHOW_MON_PIC
-	db -1 ; end
-
-WillOWispAnim:
-	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
 	db -1 ; end
 
 FlareBlitzAnim:
@@ -1601,6 +1600,13 @@ ZenHeadbuttAnim:
 	battle_anim PSYCHIC_M, SE_FLASH_SCREEN_LONG
 ;	battle_anim PSYCHIC_M, SE_WAVY_SCREEN
 	battle_anim HEADBUTT, SUBANIM_05, 1, 6
+	db -1 ; end
+
+WillOWispAnim:
+	battle_anim EMBER, SUBANIM_3E_fire, 1, 6
+	battle_anim FIRE_BLAST, SUBANIM_1A, 1, 6
+;	battle_anim NO_MOVE, SUBANIM_1A, 1, 6
+;	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
 	db -1 ; end
 
 ; ENDDONE

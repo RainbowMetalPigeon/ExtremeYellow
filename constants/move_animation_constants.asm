@@ -141,6 +141,7 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_1fcircles
 	const SUBANIM_17flip
 	const SUBANIM_EmanatingFromOpponent
+	const SUBANIM_3E_fire
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations

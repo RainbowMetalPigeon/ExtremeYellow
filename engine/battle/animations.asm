@@ -1103,8 +1103,9 @@ AnimationDarkScreenPalette:
 
 AnimationDarkenMonPalette:
 ; Darkens the mon sprite's palette.
-	lb bc, $f9, $f4
-	jr SetAnimationBGPalette
+;	lb bc, $f9, $f4
+;	jr SetAnimationBGPalette
+	jpfar SetPalCustom_Battle
 
 AnimationUnusedPalette1:
 	lb bc, $fe, $f8
