@@ -167,3 +167,12 @@ _CinnabarIslandTextVulcano::
 	cont "Proceed with"
 	cont "caution!"
 	done
+
+_CinnabarIslandTextHotSprings::
+	text "The warm, relaxing"
+	line "waters soothe you"
+	cont "and your team."
+
+	para "<PLAYER>'s #MON"
+	line "are fully healed!"
+	done

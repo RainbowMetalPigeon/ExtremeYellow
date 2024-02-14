@@ -15,11 +15,11 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db PIDGEOT, 100
+	db MEW, 100
 	db STARTER_PIKACHU, 5
-	db ARTICUNO, 9
-	db ZAPDOS, 9
-	db MOLTRES, 100
+;	db CHARIZARD, 9
+;	db RHYPERIOR, 9
+;	db MAGIKARP, 100
 	db -1 ; end
 
 DebugStart:

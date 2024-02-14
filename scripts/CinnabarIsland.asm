@@ -14,7 +14,41 @@ CinnabarIsland_ScriptPointers:
 	dw CinnabarIslandScript1
 	dw CinnabarScript_Traveler ; new, for traveler
 
-CinnabarIslandScript0:
+CinnabarIslandScript0: ; edited
+	; new, to handle hot springs healing
+	; caldera: 14<=x<=23, 10<=y<=15
+	ld a, [wXCoord]
+	cp 24
+	jr nc, .vanilla ; right of the caldera
+	cp 14
+	jr c, .vanilla ; left of the caldera
+	ld a, [wYCoord]
+	cp 16
+	jr nc, .vanilla ; down of the caldera
+	cp 10
+	jr c, .vanilla
+; we're IN the caldera
+	CheckAndSetEvent EVENT_IN_HOT_SPRINGS
+	ret nz ; do nothing else if we are and were already in the caldera
+; heal otherwise
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $f0
+	ld [wJoyIgnore], a
+	predef HealParty
+	call GBFadeOutToWhite
+	call Delay3
+	call Delay3
+	call GBFadeInFromWhite
+	ld a, 20 ; text ID of the hot spring message
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wJoyIgnore], a
+	ret
+.vanilla
+	ResetEvent EVENT_IN_HOT_SPRINGS
+; back to vanilla
 	ld b, SECRET_KEY
 	call IsItemInBag
 	ret nz
@@ -72,6 +106,7 @@ CinnabarIsland_TextPointers:
 	dw CinnabarIslandTextVulcano ; new
 	dw CinnabarIslandTextGymDoor ; 18
 	dw TextPostBattle_CinnabarTraveler ; 19, new, for traveler
+	dw CinnabarIslandTextHotSprings ; 20, new
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor
@@ -133,6 +168,10 @@ CinnabarIslandTextNewPerson7:
 
 CinnabarIslandTextNewPerson8:
 	text_far _CinnabarIslandTextNewPerson8
+	text_end
+
+CinnabarIslandTextHotSprings:
+	text_far _CinnabarIslandTextHotSprings
 	text_end
 
 ; ================================

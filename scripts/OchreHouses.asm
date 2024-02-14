@@ -317,6 +317,12 @@ CheckIfABirdInParty::
 	jp z, .aBirdInParty
 	cp FARFETCHD
 	jp z, .aBirdInParty
+	cp ARTICUNO
+	jp z, .aBirdInParty
+	cp ZAPDOS
+	jp z, .aBirdInParty
+	cp MOLTRES
+	jp z, .aBirdInParty
 	dec b
 	jr nz, .loop
 	cp 0 ; a is always >=1, so when we do cp 0 the carry flag is never set (a-0)
