@@ -44,6 +44,7 @@ MapHSPointers:
 	dw NoHS ; new, Route26
 	dw NoHS ; new, Route27
 	dw Route28HS ; new, Route28
+	dw NoHS ; new, Route29
 	dw NoHS
 	dw NoHS
 	dw BluesHouseHS

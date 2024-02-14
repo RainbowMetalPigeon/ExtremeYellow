@@ -44,13 +44,17 @@ _OchreResearchCenterSign_Power::
 
 ; ------------------------------
 
-_OchreResearchCenter1Text_Power_Windworks_Intro::
+_OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt::
 	text "Intro"
 	done
 
+_OchreResearchCenter1Text_Power_Windworks_Intro_WithPrompt::
+	text "Intro"
+	prompt
+
 _OchreResearchCenter1Text_Power_Windworks_WowAlreadyDefeated::
 	text "Wow already"
-	done
+	prompt
 
 _OchreResearchCenter1Text_Power_Windworks_FoundThisYouCanHaveIt::
 	text "Found this"

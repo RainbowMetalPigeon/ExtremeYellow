@@ -302,6 +302,7 @@ INCLUDE "text/CinnabarVolcanoBF.asm"
 INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo9F.asm"
+INCLUDE "text/Route29.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

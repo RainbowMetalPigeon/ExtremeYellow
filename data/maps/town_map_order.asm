@@ -35,6 +35,7 @@ TownMapOrder:
 	db ROUTE_13
 	db OCHRE_CITY ; new
 	db ROUTE_14
+	db ROUTE_29 ; new
 	db ROUTE_15
 	db ROUTE_16
 	db ROUTE_17

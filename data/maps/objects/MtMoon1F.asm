@@ -14,7 +14,7 @@ MtMoon1F_Object:
 	warp_event 55,  3, ROUTE_4,     14 ; 8  (3)
 
 	warp_event 13,  5, ROUTE_4,     8  ; 9  (19)
-	warp_event 22,  4, ROUTE_4,     10 ; 10 (53)
+	warp_event 23,  4, ROUTE_4,     10 ; 10 (53)
 
 	warp_event 27,  3, ROUTE_4,     9  ; 11 (40)
 	warp_event 35,  5, ROUTE_4,     12 ; 12 (31)
@@ -29,8 +29,8 @@ MtMoon1F_Object:
 	warp_event 30, 14, MT_MOON_B1F, 33 ; 18 (37)
 	warp_event 38, 18, ROUTE_4,     11 ; 19 (36)
 
-	warp_event 44, 16, ROUTE_4,     5  ; 20 (10)
-	warp_event 52, 32, ROUTE_4,     6  ; 21 (13)
+	warp_event 45, 17, ROUTE_4,     5  ; 20 (10)
+	warp_event 53, 32, ROUTE_4,     6  ; 21 (13)
 
 	warp_event 54, 54, MT_MOON_B1F, 30 ; 22 (17)
 	warp_event 42, 44, ROUTE_4,     7  ; 23 (18)

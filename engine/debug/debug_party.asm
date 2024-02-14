@@ -210,6 +210,9 @@ DebugItemsList:
 	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
+	db LAVA_STONE, 1
+	db MAGMA_STONE, 1
+	db MOLTEN_STONE, 1
 ;	db EXP_ALL, 1
 	db -1 ; end
 

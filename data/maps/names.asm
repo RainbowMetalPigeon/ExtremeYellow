@@ -39,6 +39,7 @@ Route25Name:         db "ROUTE 25@"
 Route26Name:         db "ROUTE 26@" ; new
 Route27Name:         db "ROUTE 27@" ; new
 Route28Name:         db "SEA ROUTE 28@" ; new
+Route29Name:         db "SEA ROUTE 29@" ; new
 ViridianForestName:  db "VIRIDIAN FOREST@"
 MountMoonName:       db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"
