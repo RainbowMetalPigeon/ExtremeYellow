@@ -128,7 +128,7 @@ InternalMapEntries:
 	internal_map CERULEAN_CAVE_1F,               9,  1, CeruleanCaveName
 	internal_map NAME_RATERS_HOUSE,             14,  5, LavenderTownName
 	internal_map CERULEAN_BADGE_HOUSE,          10,  2, CeruleanCityName
-	internal_map CELADON_UNIVERSITY,             7,  5, CeladonCityName ; new
+	internal_map CELADON_UNIVERSITY_2,           7,  5, CeladonCityName ; new
 	internal_map ROCK_TUNNEL_B1F,               14,  3, RockTunnelName
 	internal_map SILPH_CO_ELEVATOR,             10,  5, SilphCoName
 	internal_map CINNABAR_VOLCANO_BF,            2, 15, CinnabarIslandName ; new, testing

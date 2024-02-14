@@ -639,7 +639,9 @@ ExtraWarpCheck::
 	jr z, .useFunction2				; new
 	cp CERULEAN_CAVE_EXTRA_BOTTOM	; new
 	jr z, .useFunction2				; new
-	cp CELADON_UNIVERSITY			; new
+	cp CELADON_UNIVERSITY_1     	; new
+	jr z, .useFunction2				; new
+	cp CELADON_UNIVERSITY_2 		; new
 	jr z, .useFunction2				; new
 	cp OBSIDIAN_WAREHOUSE			; new
 	jr z, .useFunction2				; new

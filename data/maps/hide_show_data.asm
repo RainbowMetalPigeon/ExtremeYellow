@@ -233,13 +233,13 @@ MapHSPointers:
 	dw NoHS ; SAFARI_ZONE_SECRET_HOUSE
 	dw NoHS ; SAFARI_ZONE_WEST_REST_HOUSE
 	dw NoHS ; SAFARI_ZONE_EAST_REST_HOUSE
-	dw NoHS ; SAFARI_ZONE_NORTH_REST_HOUSE
 	dw CeruleanCave2FHS
 	dw CeruleanCaveB1FHS
 	dw CeruleanCaveHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; NAME_RATERS_HOUSE
+	dw NoHS ; CERULEAN_BADGE_HOUSE
+	dw NoHS ; CELADON_UNIVERSITY_1 ; new
+	dw NoHS ; CELADON_UNIVERSITY_2 ; new
 	dw RockTunnelB1FHS ; new because of Brock
 	dw SilphCo9FHS
 	dw SilphCo10FHS

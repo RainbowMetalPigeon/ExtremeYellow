@@ -166,7 +166,9 @@ IsWarpTileInFrontOfPlayer::
 	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CERULEAN_CAVE_EXTRA_BOTTOM						; new
 	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
-	cp CELADON_UNIVERSITY								; new
+	cp CELADON_UNIVERSITY_1 							; new
+	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
+	cp CELADON_UNIVERSITY_2								; new
 	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	cp OBSIDIAN_WAREHOUSE								; new
 	jr z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new

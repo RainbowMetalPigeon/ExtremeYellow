@@ -231,13 +231,13 @@ MapHeaderBanks::
 	db BANK(SafariZoneSecretHouse_h)
 	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
 	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
-	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CeruleanCave2F_h)
 	db BANK(CeruleanCaveB1F_h)
 	db BANK(CeruleanCave1F_h)
 	db BANK(NameRatersHouse_h)
 	db BANK(CeruleanBadgeHouse_h)
-	db BANK(CeladonUniversity_h) ; new
+	db BANK(CeladonUniversity1_h) ; new
+	db BANK(CeladonUniversity2_h) ; new
 	db BANK(RockTunnelB1F_h)
 	db BANK(SilphCo9F_h)
 	db BANK(SilphCo10F_h)

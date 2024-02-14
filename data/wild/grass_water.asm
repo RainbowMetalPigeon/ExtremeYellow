@@ -226,17 +226,17 @@ WildDataPointers:
 	dw SafariZoneNorthWildMons
 	dw SafariZoneWestWildMons
 	dw SafariZoneCenterWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw NothingWildMons ; SAFARI_ZONE_QUADRUPLE_REST_HOUSE
+	dw NothingWildMons ; SAFARI_ZONE_SECRET_HOUSE
+	dw NothingWildMons ; SAFARI_ZONE_WEST_REST_HOUSE
+	dw NothingWildMons ; SAFARI_ZONE_EAST_REST_HOUSE
 	dw CeruleanCave2FWildMons
 	dw CeruleanCaveB1FWildMons
 	dw CeruleanCave1FWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons ; Celadon University
+	dw NothingWildMons ; CeladonUniversity1
+	dw NothingWildMons ; CeladonUniversity2
 	dw RockTunnelB1FWildMons ; ROCK_TUNNEL_B1F
 	dw NothingWildMons ; SILPH_CO_9F
 	dw NothingWildMons ; SILPH_CO_10F
