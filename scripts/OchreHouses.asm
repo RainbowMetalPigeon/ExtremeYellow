@@ -14,6 +14,7 @@ OchreHouses_TextPointers:
 	dw OchreHousesTextBirb2 ; FARFETCHD
 	dw OchreHousesTextBirb3 ; PIDGEOT
 	dw OchreHousesTextBirb4 ; DODRIO
+	dw OchreHousesTextMapPiece
 	; signs
 	dw OchreHousesTextNotebook
 
@@ -189,17 +190,46 @@ CheckIfMoveIsKnown2:
 ; ------------------------
 
 OchreHousesTextBirbFan1:
-	text_far _OchreHousesTextBirbFan1
-	text_end
+	text_asm
+	ld de, OchreHousesTextBirbFan1_Specific
+	call CheckMemberOrPresidentAndSetDialogue
+	call PrintText
+	jp TextScriptEnd
 
 OchreHousesTextBirbFan2:
-	text_far _OchreHousesTextBirbFan2
-	text_end
+	text_asm
+	ld de, OchreHousesTextBirbFan2_Specific
+	call CheckMemberOrPresidentAndSetDialogue
+	call PrintText
+	jp TextScriptEnd
 
 OchreHousesTextBirbFan3:
-	text_far _OchreHousesTextBirbFan3
+	text_asm
+	ld de, OchreHousesTextBirbFan3_Specific
+	call CheckMemberOrPresidentAndSetDialogue
+	call PrintText
+	jp TextScriptEnd
+
+OchreHousesTextBirbFan1_Specific:
+	text_far _OchreHousesTextBirbFan1_Specific
 	text_end
 
+OchreHousesTextBirbFan2_Specific:
+	text_far _OchreHousesTextBirbFan2_Specific
+	text_end
+
+OchreHousesTextBirbFan3_Specific:
+	text_far _OchreHousesTextBirbFan3_Specific
+	text_end
+
+OchreHousesTextBirbFan_BecomePresident:
+	text_far _OchreHousesTextBirbFan_BecomePresident
+	text_end
+
+OchreHousesTextBirbFan_BecomeMember:
+	text_far _OchreHousesTextBirbFan_BecomeMember
+	text_end
+	
 OchreHousesTextBirb1:
 	text_far _OchreHousesTextBirb1
 	text_asm
@@ -232,6 +262,103 @@ OchreHousesTextBirb4:
 	call WaitForSoundToFinish
 	jp TextScriptEnd
 
+OchreHousesTextMapPiece:
+	text_asm
+	ld hl, OchreHousesTextMapPiece_NotPresident
+	CheckEvent EVENT_OCHRE_BIRD_FAN_CLUB_PRESIDENT
+	jr z, .printAndEnd
+	ld a, HS_OCHRE_HOUSES_MAP_PIECE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	; TODO: set the event corresponding to this fourth of the map,
+	; and give the MYSTERY_MAP if not already given
+	ld hl, OchreHousesTextMapPiece_President
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OchreHousesTextMapPiece_NotPresident:
+	text_far _OchreHousesTextMapPiece_NotPresident
+	text_end
+
+OchreHousesTextMapPiece_President:
+	text_far _OchreHousesTextMapPiece_President
+	text_end
+
+; ------------------------
+
 OchreHousesTextNotebook:
 	text_far _OchreHousesTextNotebook
 	text_end
+
+; ========================
+
+CheckIfABirdInParty::
+	ld hl, wPartyCount
+	ld a, [hli]
+	ld b, a ; b has the number of Mons in the party
+.loop
+	ld a, [hli]
+	cp PIDGEY
+	jp z, .aBirdInParty
+	cp PIDGEOTTO
+	jp z, .aBirdInParty
+	cp PIDGEOT
+	jp z, .aBirdInParty
+	cp MPIDGEOT
+	jp z, .aBirdInParty
+	cp SPEAROW
+	jp z, .aBirdInParty
+	cp FEAROW
+	jp z, .aBirdInParty
+	cp DODUO
+	jp z, .aBirdInParty
+	cp DODRIO
+	jp z, .aBirdInParty
+	cp FARFETCHD
+	jp z, .aBirdInParty
+	dec b
+	jr nz, .loop
+	cp 0 ; a is always >=1, so when we do cp 0 the carry flag is never set (a-0)
+		 ; if we have a bird, instead, we set the carry flag
+	ret
+.aBirdInParty
+	scf ; set carry flag
+	ret
+	
+CheckIfAllLegendaryBirdsAreInParty:
+	ld d, ARTICUNO
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	ret nc
+	ld d, ZAPDOS
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	ret nc
+	ld d, MOLTRES
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	ret
+
+; assumes that default text has been loaded in de
+CheckMemberOrPresidentAndSetDialogue:
+	CheckEvent EVENT_OCHRE_BIRD_FAN_CLUB_PRESIDENT
+	jr nz, .defaultText
+	push de
+	call CheckIfAllLegendaryBirdsAreInParty ; c flag if yes; push-pop necessary because of the callfars inside this function
+	pop de
+	jr nc, .checkForMember
+	SetEvent EVENT_OCHRE_BIRD_FAN_CLUB_PRESIDENT
+	ld hl, OchreHousesTextBirbFan_BecomePresident
+;	jr .printAndEnd
+	ret
+.checkForMember
+	CheckEvent EVENT_OCHRE_BIRD_FAN_CLUB_MEMBER
+	jr nz, .defaultText
+	call CheckIfABirdInParty ; c flag if yes
+	jr nc, .defaultText
+	SetEvent EVENT_OCHRE_BIRD_FAN_CLUB_MEMBER
+	ld hl, OchreHousesTextBirbFan_BecomeMember
+;	jr .printAndEnd
+	ret
+.defaultText
+	ld h, d
+	ld l, e
+	ret

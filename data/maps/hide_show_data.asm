@@ -85,7 +85,7 @@ MapHSPointers:
 	dw SecludedCavesHS ; new
 	dw NoHS ; ROUTE_7_GATE
 	dw NoHS ; UNDERGROUND_PATH_ROUTE_7
-	dw NoHS ; UNDERGROUND_PATH_ROUTE_7_COPY
+	dw OchreHousesHS ; new
 	dw NoHS ; ROUTE_8_GATE
 	dw NoHS ; UNDERGROUND_PATH_ROUTE_8
 	dw NoHS ; ROCK_TUNNEL_POKECENTER
@@ -768,5 +768,7 @@ CinnabarVolcanoBFHS: ; new
 	db CINNABAR_VOLCANO_BF, $06, SHOW
 OchreRehabilitationCenterHS: ; new
 	db OCHRE_REHABILITATION_CENTER, $05, HIDE
+OchreHousesHS: ; new
+	db OCHRE_HOUSES, $0C, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

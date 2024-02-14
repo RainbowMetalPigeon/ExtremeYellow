@@ -153,7 +153,7 @@ _OchreHousesTextMagikarpTutor_AlreadyKnows::
 
 ; ------------------------------
 
-_OchreHousesTextBirbFan1::
+_OchreHousesTextBirbFan1_Specific::
 	text "BIRD #MON are"
 	line "the best!"
 
@@ -168,7 +168,7 @@ _OchreHousesTextBirbFan1::
 	cont "around!"
 	done
 
-_OchreHousesTextBirbFan2::
+_OchreHousesTextBirbFan2_Specific::
 	text "BIRD #MON are"
 	line "the best!"
 
@@ -183,7 +183,7 @@ _OchreHousesTextBirbFan2::
 	cont "gorgeousness!"
 	done
 
-_OchreHousesTextBirbFan3::
+_OchreHousesTextBirbFan3_Specific::
 	text "BIRD #MON are"
 	line "the best!"
 
@@ -218,6 +218,22 @@ _OchreHousesTextBirb4::
 	text "DODRIO:"
 	line "DoDoDo-RioRioRio!@"
 	text_end
+
+_OchreHousesTextMapPiece_NotPresident::
+	text "Piece of map!"
+	done
+
+_OchreHousesTextMapPiece_President::
+	text "Grab the map!"
+	done
+
+_OchreHousesTextBirbFan_BecomePresident::
+	text "Now president!"
+	done
+
+_OchreHousesTextBirbFan_BecomeMember::
+	text "Now member!"
+	done
 
 ; signs ---------------------------
 

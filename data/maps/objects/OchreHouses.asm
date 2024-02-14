@@ -16,7 +16,7 @@ OchreHouses_Object:
 	warp_event 21,  5, OCHRE_HOUSES, 7 ; 8
 
 	def_bg_events
-	bg_event 31,  9, 12 ; OchreHousesTextNotebook
+	bg_event 31,  9, 13 ; OchreHousesTextNotebook
 
 	def_object_events
 	; room 1: deleter and reminder
@@ -34,5 +34,6 @@ OchreHouses_Object:
 	object_event 44,  8, SPRITE_BIRD, WALK, ANY_DIR, 9 ; bird
 	object_event 45,  2, SPRITE_BIRD, WALK, ANY_DIR, 10 ; bird
 	object_event 52,  3, SPRITE_BIRD, WALK, ANY_DIR, 11 ; bird
+	object_event 48,  0, SPRITE_PAPER, STAY, NONE, 12 ; piece of map
 
 	def_warps_to OCHRE_HOUSES
