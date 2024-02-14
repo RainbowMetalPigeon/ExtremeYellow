@@ -22,7 +22,7 @@ MtMoonB2F_Object:
 	warp_event 23, 19, MT_MOON_B1F, 14 ; 13 (41)
 
 	warp_event 27, 11, ROUTE_4,     27 ; 14 (22)
-	warp_event 41,  1, ROUTE_4,     29 ; 15 (56)
+	warp_event 40,  0, ROUTE_4,     29 ; 15 (56)
 
 	warp_event 31, 19, MT_MOON_B1F, 19 ; 16 (52)
 	warp_event 43, 23, MT_MOON_B1F, 22 ; 17 (50)

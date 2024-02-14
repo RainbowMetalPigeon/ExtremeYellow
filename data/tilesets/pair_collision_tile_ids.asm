@@ -8,9 +8,9 @@ TilePairCollisionsLand::
 	db CAVERN, $41, $05
 	db CAVERN, $2A, $05
 	db CAVERN, $05, $21
-	; new, between stairs and short rocks
-	db CAVERN, $18, $05
-	db CAVERN, $1A, $05
+;	; new, between stairs and short rocks
+;	db CAVERN, $18, $05
+;	db CAVERN, $1A, $05
 	
 	db FOREST, $30, $2E
 	db FOREST, $52, $2E

@@ -42,6 +42,7 @@ MapHeaderPointers::
 	dw Route26_h
 	dw Route27_h
 	dw Route28_h
+	dw Route29_h
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h

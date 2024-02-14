@@ -48,6 +48,7 @@ ExternalMapEntries:
 	external_map  2,  1, Route26Name ; new
 	external_map  7,  7, Route27Name ; new
 	external_map  8,  9, Route28Name ; new
+	external_map 11, 15, Route29Name ; new
 	assert_table_length FIRST_INDOOR_MAP
 
 

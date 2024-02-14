@@ -43,15 +43,6 @@ _ObsidianIslandText6_SouthBridgeSlave2::
 	line "I beg you!!!"
 	done
 
-_ObsidianIslandText7_Scientist1::
-	text "Now that OBSIDIAN"
-	line "ISLAND is free"
-	cont "from the grip of"
-	cont "TEAM ROCKET, we"
-	cont "can return to our"
-	cont "research!"
-	done
-
 _ObsidianIslandText8_Scientist2::
 	text "We are studying"
 	line "ways of"
@@ -194,3 +185,67 @@ _ObsidianIslandTextClosedHouse::
 	cont "scared to let"
 	cont "anyone in?"
 	done
+
+; ----------------- Fire Orb -----------------
+
+;_ObsidianIslandText7_Scientist1::
+;	text "Now that OBSIDIAN"
+;	line "ISLAND is free"
+;	cont "from the grip of"
+;	cont "TEAM ROCKET, we"
+;	cont "can return to our"
+;	cont "research!"
+;	done
+
+_ObsidianIslandText7_Scientist1_Intro_NoPrompt::
+	text "Intro 1"
+	line "Intro 2"
+	cont "Intro 3"
+	done
+
+_ObsidianIslandText7_Scientist1_Intro_WithPrompt::
+	text "Intro 1"
+	line "Intro 2"
+	cont "Intro 3"
+	prompt
+
+_ObsidianIslandText7_Scientist1_WowAlreadyCollected::
+	text "Wow already"
+	prompt
+
+_ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt::
+	text "Found this"
+	line "can have it"
+	prompt
+
+_ObsidianIslandText7_Scientist1_BagFull::
+	text "Bag full"
+	done
+
+_ObsidianIslandText7_Scientist1_AlreadyRewardedOrb::
+	text "We'll do big study"
+	done
+
+_ObsidianIslandText7_Scientist1_HiBackHaveYouDone::
+	text "Hi back done?"
+	prompt
+
+_ObsidianIslandText7_Scientist1_NotDoneYet::
+	text "Oh you're not done"
+	done
+
+_ObsidianIslandText7_Scientist1_AlreadyRewardedMoneySpaceForOrb::
+	text "Have space now?"
+	prompt
+
+_ObsidianIslandText7_Scientist1_ThanksHereIsReward::
+	text "Thanks a ton"
+	line "here promised rewa"
+	prompt
+
+_ObsidianIslandText7_Scientist1_ReceivedFireOrb::
+	text "<PLAYER> got"
+	line "@"
+	text_ram wStringBuffer
+	text "!@"
+	text_end

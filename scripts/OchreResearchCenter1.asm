@@ -45,26 +45,26 @@ OchreResearchCenter1Text_Ball_Fast:
 	text_end
 
 OchreResearchCenter1Text_Power_Galar:
-	text_far _OchreResearchCenter1Text_Power_Galar
-	text_end
-;	text_asm
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
-;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
-;	ld hl, TESTTEXT
-;	call PrintText
-;	jp TextScriptEnd
-;TESTTEXT:
-;	text_far _TESTTEXT
+;	text_far _OchreResearchCenter1Text_Power_Galar
 ;	text_end
-;_TESTTEXT::
-;	text "TEST!!!"
-;	done
+	text_asm
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
+	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
+	ld hl, TESTTEXT
+	call PrintText
+	jp TextScriptEnd
+TESTTEXT:
+	text_far _TESTTEXT
+	text_end
+_TESTTEXT::
+	text "TEST!!!"
+	done
 	
 OchreResearchCenter1Text_Power_Kanto:
 	text_far _OchreResearchCenter1Text_Power_Kanto
@@ -86,7 +86,6 @@ OchreResearchCenterSign_Power:
 
 OchreResearchCenter1Text_Power_Windworks:
 	text_asm
-	ld hl, OchreResearchCenter1Text_Power_Windworks_Intro
 	CheckEvent EVENT_ALREADY_SPOKEN_WITH_OCHRE_POWER_ENGINEER
 	jr z, .firstTimeSpeaking
 ; already spoken with them
@@ -110,10 +109,12 @@ OchreResearchCenter1Text_Power_Windworks:
 	call PrintText
 	jr .giveMoney
 .firstTimeSpeaking
-	call PrintText
 	SetEvent EVENT_ALREADY_SPOKEN_WITH_OCHRE_POWER_ENGINEER
 	call CheckIfDefeatedAllVoltorbs
-	jr nc, .justEnd
+	ld hl, OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt
+	jr nc, .printAndEnd
+	ld hl, OchreResearchCenter1Text_Power_Windworks_Intro_WithPrompt
+	call PrintText
 	ld hl, OchreResearchCenter1Text_Power_Windworks_WowAlreadyDefeated
 	call PrintText
 .giveMoney
@@ -145,8 +146,12 @@ OchreResearchCenter1Text_Power_Windworks:
 	
 ; ------------------------
 
-OchreResearchCenter1Text_Power_Windworks_Intro:
-	text_far _OchreResearchCenter1Text_Power_Windworks_Intro
+OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt:
+	text_far _OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt
+	text_end
+
+OchreResearchCenter1Text_Power_Windworks_Intro_WithPrompt:
+	text_far _OchreResearchCenter1Text_Power_Windworks_Intro_WithPrompt
 	text_end
 
 OchreResearchCenter1Text_Power_Windworks_WowAlreadyDefeated:

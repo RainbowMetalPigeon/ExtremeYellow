@@ -1278,6 +1278,11 @@ INCLUDE "data/maps/objects/Route28.asm"
 Route28_Blocks: INCBIN "maps/Route28.blk"
 INCLUDE "scripts/Route28.asm"
 
+INCLUDE "data/maps/headers/Route29.asm"
+INCLUDE "data/maps/objects/Route29.asm"
+Route29_Blocks: INCBIN "maps/Route29.blk"
+INCLUDE "scripts/Route29.asm"
+
 INCLUDE "data/maps/headers/CeladonUniversity.asm"
 INCLUDE "data/maps/objects/CeladonUniversity.asm"
 CeladonUniversity_Blocks: INCBIN "maps/CeladonUniversity.blk"

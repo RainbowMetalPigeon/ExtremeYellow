@@ -17,6 +17,6 @@ ObsidianWarehouseFinal_Object:
 	object_event  6,  7, SPRITE_ROCKET, STAY, DOWN, 5, OPP_ROCKET, 53
 	object_event  8,  5, SPRITE_ROCKET, STAY, LEFT, 6, OPP_ROCKET, 54 ; =$36
 	; Giovanni
-	object_event  5,  1, SPRITE_GIOVANNI, STAY, DOWN, 7, OPP_GIOVANNI, 3
+	object_event  6,  1, SPRITE_GIOVANNI, STAY, DOWN, 7, OPP_GIOVANNI, 3
 
 	def_warps_to OBSIDIAN_WAREHOUSE_FINAL

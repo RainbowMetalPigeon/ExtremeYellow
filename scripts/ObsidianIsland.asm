@@ -104,10 +104,6 @@ ObsidianIslandText6_SouthBridgeSlave2:
 	text_far _ObsidianIslandText6_SouthBridgeSlave2
 	text_end
 
-ObsidianIslandText7_Scientist1:
-	text_far _ObsidianIslandText7_Scientist1
-	text_end
-
 ObsidianIslandText8_Scientist2:
 	text_far _ObsidianIslandText8_Scientist2
 	text_end
@@ -130,6 +126,124 @@ ObsidianIslandText12_Citizen3:
 
 ObsidianIslandText13_Citizen4:
 	text_far _ObsidianIslandText13_Citizen4
+	text_end
+
+; --- Fire Orb
+
+ObsidianIslandText7_Scientist1:
+	text_asm
+	CheckEvent EVENT_ALREADY_SPOKEN_WITH_OBSIDIAN_SCIENTIST
+	jr z, .firstTimeSpeaking
+; already spoken with them
+	ld hl, ObsidianIslandText7_Scientist1_AlreadyRewardedOrb
+	CheckEvent EVENT_ALREADY_REWARDED_ORB_OBSIDIAN_SCIENTIST
+	jp nz, .printAndEnd
+; orb not given, check for money
+	CheckEvent EVENT_ALREADY_REWARDED_MONEY_OBSIDIAN_SCIENTIST
+	jr z, .notYetAnyReward
+	ld hl, ObsidianIslandText7_Scientist1_AlreadyRewardedMoneySpaceForOrb
+	call PrintText
+	jr .tryToGiveFireOrb
+.notYetAnyReward
+	ld hl, ObsidianIslandText7_Scientist1_HiBackHaveYouDone
+	call PrintText
+	call CheckIfCollectedAllVolcanicStones
+	ld hl, ObsidianIslandText7_Scientist1_NotDoneYet
+	jr nc, .printAndEnd
+; not first interaction, but all Volcanic Stones collected
+	ld hl, ObsidianIslandText7_Scientist1_ThanksHereIsReward
+	call PrintText
+	jr .giveMoney
+.firstTimeSpeaking
+	SetEvent EVENT_ALREADY_SPOKEN_WITH_OBSIDIAN_SCIENTIST
+	call CheckIfCollectedAllVolcanicStones
+	ld hl, ObsidianIslandText7_Scientist1_Intro_NoPrompt
+	jr nc, .printAndEnd
+	ld hl, ObsidianIslandText7_Scientist1_Intro_WithPrompt
+	call PrintText
+	ld hl, ObsidianIslandText7_Scientist1_WowAlreadyCollected
+	call PrintText
+.giveMoney
+	ld a, LAVA_STONE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld a, MAGMA_STONE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld a, MOLTEN_STONE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+    xor a  
+    ld [hMoney + 1], a    
+    ld [hMoney + 2], a    
+    ld a, $03
+    ld [hMoney], a
+	ld hl, hMoney + 2
+	ld de, wPlayerMoney + 2
+	ld c, $3
+	predef AddBCDPredef ; add HL to DE with length C
+	SetEvent EVENT_ALREADY_REWARDED_MONEY_OBSIDIAN_SCIENTIST
+	ld hl, ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt
+	call PrintText
+.tryToGiveFireOrb
+	lb bc, FIRE_ORB, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_ALREADY_REWARDED_ORB_OBSIDIAN_SCIENTIST
+	ld hl, ObsidianIslandText7_Scientist1_ReceivedFireOrb
+	jr .printAndEnd
+.bagFull
+	ld hl, ObsidianIslandText7_Scientist1_BagFull
+.printAndEnd
+	call PrintText
+.justEnd
+	jp TextScriptEnd
+	
+; ---
+
+ObsidianIslandText7_Scientist1_Intro_NoPrompt:
+	text_far _ObsidianIslandText7_Scientist1_Intro_NoPrompt
+	text_end
+
+ObsidianIslandText7_Scientist1_Intro_WithPrompt:
+	text_far _ObsidianIslandText7_Scientist1_Intro_WithPrompt
+	text_end
+
+ObsidianIslandText7_Scientist1_WowAlreadyCollected:
+	text_far _ObsidianIslandText7_Scientist1_WowAlreadyCollected
+	text_end
+
+ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt:
+	text_far _ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt
+	text_end
+
+ObsidianIslandText7_Scientist1_BagFull:
+	text_far _ObsidianIslandText7_Scientist1_BagFull
+	text_end
+
+ObsidianIslandText7_Scientist1_AlreadyRewardedOrb:
+	text_far _ObsidianIslandText7_Scientist1_AlreadyRewardedOrb
+	text_end
+
+ObsidianIslandText7_Scientist1_HiBackHaveYouDone:
+	text_far _ObsidianIslandText7_Scientist1_HiBackHaveYouDone
+	text_end
+
+ObsidianIslandText7_Scientist1_NotDoneYet:
+	text_far _ObsidianIslandText7_Scientist1_NotDoneYet
+	text_end
+
+ObsidianIslandText7_Scientist1_AlreadyRewardedMoneySpaceForOrb:
+	text_far _ObsidianIslandText7_Scientist1_AlreadyRewardedMoneySpaceForOrb
+	text_end
+
+ObsidianIslandText7_Scientist1_ThanksHereIsReward:
+	text_far _ObsidianIslandText7_Scientist1_ThanksHereIsReward
+	text_end
+
+ObsidianIslandText7_Scientist1_ReceivedFireOrb:
+	text_far _ObsidianIslandText7_Scientist1_ReceivedFireOrb
+	sound_get_key_item
 	text_end
 
 ; ----------------- signs -----------------
@@ -288,3 +402,21 @@ Text_WhatWasThat_ObsidianTraveler:
 	text_end
 
 ; ================================
+
+; carry flag is set if all Volcanic Stones are collected, otherwise not
+CheckIfCollectedAllVolcanicStones:
+	ld b, LAVA_STONE
+	call IsItemInBag
+	jr z, .missingAStone
+	ld b, MAGMA_STONE
+	call IsItemInBag
+	jr z, .missingAStone
+	ld b, MOLTEN_STONE
+	call IsItemInBag
+	jr z, .missingAStone
+	scf
+	jr .end
+.missingAStone
+	xor a
+.end
+	ret

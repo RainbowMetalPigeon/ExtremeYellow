@@ -41,6 +41,7 @@ MapSongBanks::
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_26, new, testing, to be modified?
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_27, new, testing, to be modified?
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_28, new, testing, to be modified?
+	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_29, new, testing, to be modified?
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_1F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_2F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; BLUES_HOUSE

@@ -42,6 +42,7 @@ MapHeaderBanks::
 	db BANK(Route26_h)
 	db BANK(Route27_h)
 	db BANK(Route28_h)
+	db BANK(Route29_h)
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
 	db BANK(BluesHouse_h)

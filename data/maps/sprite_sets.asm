@@ -41,6 +41,7 @@ MapSpriteSets:
 	db $02 ; ROUTE_26, new
 	db $0d ; ROUTE_27, new, testing, may need a split thingy between $0d (Obsidian) and $05 (Celadon)
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
+	db $08 ; ROUTE_29, new, testing (for now same set as Route14)
 	assert_table_length FIRST_INDOOR_MAP
 
 DEF EAST_WEST   EQU 1
