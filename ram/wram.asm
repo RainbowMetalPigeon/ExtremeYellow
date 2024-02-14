@@ -2199,7 +2199,7 @@ wMissableObjectFlagsEnd::
 
 ; new for splitting HS - careful: may break a stuff because 100 bits are "a lot"
 ; bit array of missable objects. set = removed
-wMissableObjectFlagsExtra:: flag_array $C0 ; $C0 = 192 (bits = 24 bytes) new HS variables
+wMissableObjectFlagsExtra:: flag_array $100 ; now it's $100=256, earlier it was $C0 = 192 (bits = 24 bytes) new HS variables
 wMissableObjectFlagsExtraEnd::
 
 ;	ds 7		; new - commented to try to save space to be able to add all new mons
@@ -2363,8 +2363,8 @@ wTyrogueEvolutions::
 	ds 1
 
 ; unused
-	ds 37 ; edited, originally 56
-	      ; reduced by 3 for gender, tyrogue, and accuracypercent, and by 16 for increasing max warps from 32 to 36
+	ds 29 ; edited, originally 56
+	      ; reduced by 3 for gender, tyrogue, and accuracypercent, by 16 for increasing max warps from 32 to 36, and by 8 for new HS variables
 
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 

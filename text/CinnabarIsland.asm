@@ -169,6 +169,8 @@ _CinnabarIslandTextVulcano::
 	done
 
 _CinnabarIslandTextHotSprings::
+	; The water is perfectly warm. It feels exquisite...
+	; <PLAYER> and the #MON were fully refreshed!
 	text "The warm, relaxing"
 	line "waters soothe you"
 	cont "and your team."
