@@ -28,6 +28,7 @@ DEF NUM_ACTIVE_PALS EQU 4
 	const SET_PAL_POKEMON_WHOLE_SCREEN ; $0B
 	const SET_PAL_GAME_FREAK_INTRO     ; $0C
 	const SET_PAL_TRAINER_CARD         ; $0D
+	const SET_PAL_BATTLE_METAL         ; new
 
 DEF SET_PAL_PARTY_MENU_HP_BARS EQU $fc
 DEF SET_PAL_DEFAULT EQU $ff
@@ -85,4 +86,5 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_MRAYQUAZA  ; new
 	const PAL_EETERNATUS ; new
 	const PAL_ARCEUS     ; new
+	const PAL_METALMON   ; new, for STEEL moves
 DEF NUM_SGB_PALS EQU const_value

@@ -64,23 +64,40 @@ SetPal_Battle:
 	ld [wDefaultPaletteCommand], a
 	ret
 
-SetPalCustom_Battle:: ; new
+SetPal_BattleMetal:: ; new
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
 	call CopyData
-	ld a, PAL_BLACK
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .playersTurn
+	ld hl, wBattleMonSpecies
+	ld a, [hl]
+	and a
+	jr z, .asm_71ef9
+	ld hl, wPartyMon1
+	ld a, [wPlayerMonNumber]
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes
+.asm_71ef9
+	call DeterminePaletteID
 	ld b, a
+	ld c, PAL_METALMON
+	jr .continue
+.playersTurn
+	ld b, PAL_METALMON
 	ld hl, wEnemyMonSpecies2
 	call DeterminePaletteID
 	ld c, a
+.continue
 	ld hl, wPalPacket + 1
 	ld a, [wPlayerHPBarColor]
-	add PAL_BLACK
+	add PAL_GREENBAR
 	ld [hli], a
 	inc hl
 	ld a, [wEnemyHPBarColor]
-	add PAL_BLACK
+	add PAL_GREENBAR
 	ld [hli], a
 	inc hl
 	ld a, b
@@ -90,9 +107,8 @@ SetPalCustom_Battle:: ; new
 	ld [hl], a
 	ld hl, wPalPacket
 	ld de, BlkPacket_Battle
-	ld a, SET_PAL_BATTLE ; TBC
+	ld a, SET_PAL_BATTLE_METAL
 	ld [wDefaultPaletteCommand], a
-	call RunPaletteCommand
 	ret
 
 SetPal_TownMap:
@@ -310,6 +326,7 @@ SetPalFunctions:
 	dw SetPal_PokemonWholeScreen
 	dw SetPal_GameFreakIntro
 	dw SetPal_TrainerCard
+	dw SetPal_BattleMetal ; new, testing
 	dw SendUnknownPalPacket_7205d
 	dw SendUnknownPalPacket_72064
 

@@ -40,33 +40,36 @@ IF DEF(_DEBUG)
 
 	call SetDebugTeam
 
+;SteelWingAnim
+;IronTailAnim
+;MetalClawAnim
+;BulletPunchAnim
+;FlashCannonAnim
+
 	; Mewtwo gets test moves
-	ld a, MACH_PUNCH
+	ld a, STEEL_WING
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, BLAST_BURN
+	ld a, IRON_TAIL
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, WILL_O_WISP
+	ld a, METAL_CLAW
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, HAZE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
-;	; Persian gets Moves.
-;	ld a, JUDGMENT
-;	ld hl, wPartyMon3Moves
-;	ld [hl], a
-;	ld a, INFESTATION
-;	ld hl, wPartyMon3Moves + 1
-;	ld [hl], a
-;	ld a, HYDRO_CANNON
-;	ld hl, wPartyMon3Moves + 2
-;	ld [hl], a
-;	ld a, FLASH
-;	ld hl, wPartyMon3Moves + 3
-;	ld [hl], a
+	; Mew gets four HM moves.
+	ld hl, wPartyMon2Moves
+	ld a, BULLET_PUNCH ; FLY
+	ld [hli], a
+	ld a, FLASH_CANNON ; CUT
+	ld [hli], a
+	ld a, SURF
+	ld [hli], a
+	ld a, AGILITY ; STRENGTH
+	ld [hl], a
 
 	; Pikachu gets Surf and Fly.
 	ld a, FLY
@@ -94,17 +97,6 @@ IF DEF(_DEBUG)
 ;	ld a, 10
 ;	ld de, wPartyMon3Status
 ;	ld [de], a
-
-	; Snorlax gets four HM moves.
-	ld hl, wPartyMon2Moves
-	ld a, FLY
-	ld [hli], a
-	ld a, CUT
-	ld [hli], a
-	ld a, SURF
-	ld [hli], a
-	ld a, STRENGTH
-	ld [hl], a
 
 	; Get some debug items.
 	ld hl, wNumBagItems

@@ -495,12 +495,6 @@ RockTombAnim:
 HeadSmashAnim:
 StoneEdgeAnim:
 
-IronTailAnim:
-SteelWingAnim:
-MetalClawAnim:
-BulletPunchAnim:
-FlashCannonAnim:
-
 WaterPulseAnim:
 AquaJetAnim:
 
@@ -1607,6 +1601,41 @@ WillOWispAnim:
 	battle_anim FIRE_BLAST, SUBANIM_1A, 1, 6
 ;	battle_anim NO_MOVE, SUBANIM_1A, 1, 6
 ;	battle_anim FIRE_BLAST, SUBANIM_3D, 1, 6
+	db -1 ; end
+
+SteelWingAnim:
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
+	battle_anim GUST, SUBANIM_10, 1, 6
+	battle_anim NO_MOVE, SUBANIM_02, 0, 6
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
+	db -1 ; end
+
+IronTailAnim:
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
+	battle_anim VINE_WHIP, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
+	db -1 ; end
+
+MetalClawAnim:
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
+	battle_anim SLASH, SUBANIM_0F, 0, 6
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
+	db -1 ; end
+
+BulletPunchAnim:
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
+	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
+	battle_anim MEGA_PUNCH, SUBANIM_02, 0, 6
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
+	db -1 ; end
+
+FlashCannonAnim:
+	battle_anim LEECH_SEED, SE_METALLIFY_MON_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim FOCUS_ENERGY, SUBANIM_1fcircles, 1, 6
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
 	db -1 ; end
 
 ; ENDDONE

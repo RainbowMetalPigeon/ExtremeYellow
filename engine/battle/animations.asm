@@ -1103,9 +1103,15 @@ AnimationDarkScreenPalette:
 
 AnimationDarkenMonPalette:
 ; Darkens the mon sprite's palette.
-;	lb bc, $f9, $f4
-;	jr SetAnimationBGPalette
-	jpfar SetPalCustom_Battle
+	lb bc, $f9, $f4
+	jr SetAnimationBGPalette
+;	ld b, SET_PAL_BATTLE_METAL
+;	jp RunPaletteCommand
+
+AnimationMetalMonPalette: ; new
+; Metallifies the mon sprite's palette.
+	ld b, SET_PAL_BATTLE_METAL
+	jp RunPaletteCommand
 
 AnimationUnusedPalette1:
 	lb bc, $fe, $f8
@@ -1119,6 +1125,10 @@ AnimationResetScreenPalette:
 ; Restores the screen's palette to the normal palette.
 	lb bc, $e4, $e4
 	jr SetAnimationBGPalette
+
+AnimationResetMonPalette: ; new, testing
+	ld b, SET_PAL_BATTLE
+	jp RunPaletteCommand
 
 AnimationUnusedPalette3:
 	lb bc, $00, $00
