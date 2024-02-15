@@ -1,6 +1,6 @@
 ; --- hall ---
 
-_CeladonUniversityText1::
+_CeladonUniversity1Text1::
 	text "JOHTO may be close"
 	line "to KANTO, but it"
 	cont "is as different"
@@ -12,7 +12,7 @@ _CeladonUniversityText1::
 	cont "art and culture!"
 	done
 
-_CeladonUniversityText2::
+_CeladonUniversity1Text2::
 	text "My Summer in HOENN"
 	line "has been amazing!"
 
@@ -24,7 +24,7 @@ _CeladonUniversityText2::
 	cont "their QUICK CLAW."
 	done
 
-_CeladonUniversityText3::
+_CeladonUniversity1Text3::
 	text "The SUMMER ACADEMY"
 	line "in SINNOH felt"
 	cont "like it was in a"
@@ -37,7 +37,7 @@ _CeladonUniversityText3::
 	cont "amazing library!"
 	done
 
-_CeladonUniversityText4::
+_CeladonUniversity1Text4::
 	text "Summer in PALDEA"
 	line "is absurdly hot,"
 	cont "but the region is"
@@ -51,14 +51,14 @@ _CeladonUniversityText4::
 	cont "GREAT CRATER..."
 	done
 
-_CeladonUniversityText5::
+_CeladonUniversity1Text5::
 	text "AAAH I'M PANICKING"
 	line "oh no oh no oh no"
 	cont "where is the exam"
 	cont "room I'm late!!!"
 	done
 
-_CeladonUniversityText6::
+_CeladonUniversity1Text6::
 	text "I travel a lot"
 	line "around the world,"
 	cont "but I'm always"
@@ -73,31 +73,30 @@ _CeladonUniversityText6::
 
 ; --- swimming pool ---
 
-_CeladonUniversityTextTest::
+_CeladonUniversity1TextTest::
 	text "TEST POOL"
 	done
 
 ; --- signs ---
 
-_CeladonUniversityDoor1::
+_CeladonUniversity1Door1::
 	text "SWIMMING POOL"
 	done
 
-_CeladonUniversityDoor2::
+_CeladonUniversity1Door2::
 	text "MAGNA AUDITORIUM"
 	done
 
-_CeladonUniversityDoor3::
+_CeladonUniversity1Door3::
 	text "LIBRARY"
 	line "STUDY ROOM"
 	done
 
-_CeladonUniversityDoor4::
+_CeladonUniversity1Door4::
 	text "COMPUTING CENTER"
-	line ""
 	done
 
-_CeladonUniversityConstitution1::
+_CeladonUniversity1Constitution1::
 	text "FOUNDING CHARTA"
 
 	para "In this document"
@@ -110,7 +109,7 @@ _CeladonUniversityConstitution1::
 	cont "carved forever!"
 	done
 
-_CeladonUniversityConstitution2::
+_CeladonUniversity1Constitution2::
 	text "FOUNDING CHARTA"
 
 	para "Is that..."

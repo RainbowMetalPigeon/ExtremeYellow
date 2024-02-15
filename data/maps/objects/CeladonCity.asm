@@ -11,11 +11,11 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	warp_event 12, 41, CELADON_GYM, 1
 	warp_event 28, 33, GAME_CORNER, 1
 	warp_event 39, 33, CELADON_MART_5F, 1
-	warp_event 33, 33, GAME_CORNER_PRIZE_ROOM, 1 ; useless
+	warp_event 33, 33, GAME_CORNER_PRIZE_ROOM, 1
 	warp_event 27, 41, CELADON_DINER, 1 ; updated
 	warp_event 31, 41, CELADON_CHIEF_HOUSE, 1 ; updated
 	warp_event 35, 41, CELADON_HOTEL, 1 ; updated
-	warp_event 44, 41, CELADON_UNIVERSITY, 1 ; new
+	warp_event 44, 41, CELADON_UNIVERSITY_1, 1 ; new
 	warp_event 12,  7, MT_MOON_B2F, 29 ; new
 	warp_event 36,  8, CELADON_CHIEF_HOUSE, 3 ; LUNAR_SHRINE
 

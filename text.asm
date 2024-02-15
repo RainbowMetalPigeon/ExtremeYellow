@@ -227,7 +227,8 @@ INCLUDE "text/ObsidianWood.asm" ; new
 INCLUDE "text/Route28.asm" ; new
 INCLUDE "text/OnixBurrowing.asm" ; new
 INCLUDE "text/SecludedCaves.asm" ; new
-INCLUDE "text/CeladonUniversity.asm" ; new
+INCLUDE "text/CeladonUniversity1.asm" ; new
+INCLUDE "text/CeladonUniversity2.asm" ; new
 INCLUDE "text/CeruleanCaveExtraMiddle.asm" ; new
 INCLUDE "text/CeruleanCaveExtraFinal.asm" ; new
 INCLUDE "text/ObsidianWarehouse.asm" ; new

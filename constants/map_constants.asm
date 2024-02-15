@@ -249,13 +249,13 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SAFARI_ZONE_SECRET_HOUSE,       4,  4 ; $DE
 	map_const SAFARI_ZONE_WEST_REST_HOUSE,    4,  4 ; $DF ; edited, made UNUSED because of map MERGING
 	map_const SAFARI_ZONE_EAST_REST_HOUSE,    4,  4 ; $E0 ; edited, made UNUSED because of map MERGING
-	map_const SAFARI_ZONE_NORTH_REST_HOUSE,   4,  4 ; $E1 ; edited, made UNUSED because of map MERGING
 	map_const CERULEAN_CAVE_2F,              15,  9 ; $E2
 	map_const CERULEAN_CAVE_B1F,             15,  9 ; $E3
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E4
 	map_const NAME_RATERS_HOUSE,              4,  4 ; $E5
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
-	map_const CELADON_UNIVERSITY,            30, 30 ; $E7, new, incomplete
+	map_const CELADON_UNIVERSITY_1,          10, 15 ; $E7, new
+	map_const CELADON_UNIVERSITY_2,          25, 17 ; $E7, new
 	map_const ROCK_TUNNEL_B1F,               20, 18 ; $E8
 	map_const SILPH_CO_9F,                   13,  9 ; $E9
 	map_const SILPH_CO_10F,                   8,  9 ; $EA

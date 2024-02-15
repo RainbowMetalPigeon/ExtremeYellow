@@ -231,13 +231,13 @@ MapHeaderPointers::
 	dw SafariZoneSecretHouse_h
 	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
 	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
-	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
 	dw CeruleanCave2F_h
 	dw CeruleanCaveB1F_h
 	dw CeruleanCave1F_h
 	dw NameRatersHouse_h
 	dw CeruleanBadgeHouse_h
-	dw CeladonUniversity_h ; new
+	dw CeladonUniversity1_h ; new
+	dw CeladonUniversity2_h ; new
 	dw RockTunnelB1F_h
 	dw SilphCo9F_h
 	dw SilphCo10F_h
