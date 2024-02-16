@@ -2332,7 +2332,8 @@ wOchreRehabilitationCenterCurScript:: db ; new
 ;	ds 4
 wSilphCo10FCurScript:: db
 wSilphCo11FCurScript:: db
-	ds 1
+wRoute29CurScript:: db ; new
+;	ds 1
 wFuchsiaGymCurScript:: db
 wSaffronGymCurScript:: db
 	ds 1

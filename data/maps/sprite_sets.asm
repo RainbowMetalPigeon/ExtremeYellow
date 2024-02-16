@@ -41,7 +41,7 @@ MapSpriteSets:
 	db $02 ; ROUTE_26, new
 	db $0d ; ROUTE_27, new, testing, may need a split thingy between $0d (Obsidian) and $05 (Celadon)
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
-	db $08 ; ROUTE_29, new, testing (for now same set as Route14)
+	db $15 ; ROUTE_29, new, testing (for now same set as Route14)
 	assert_table_length FIRST_INDOOR_MAP
 
 DEF EAST_WEST   EQU 1
@@ -367,6 +367,21 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_BEAUTY
 	db SPRITE_FISHER
 	db SPRITE_TRAVELER
+	db SPRITE_POKE_BALL
+	db SPRITE_SNORLAX
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $15, copy of $08, for South part of R12
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BIKER
+	db SPRITE_SUPER_NERD
+	db SPRITE_SLOWKING ; edited, was SPRITE_MIDDLE_AGED_MAN / SPRITE_BIRD
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_BEAUTY
+	db SPRITE_FISHER
+	db SPRITE_TRAVELER ; edited, was a SPRITE_ROCKER
 	db SPRITE_POKE_BALL
 	db SPRITE_SNORLAX
 	assert_table_length SPRITE_SET_LENGTH
