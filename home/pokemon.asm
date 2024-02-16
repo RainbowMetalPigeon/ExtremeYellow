@@ -423,6 +423,15 @@ GetMonHeader::
 	ld b, $77 ; size of Aerodactyl fossil sprite
 	cp FOSSIL_AERODACTYL ; Aerodactyl fossil
 	jr z, .specialID
+; new, to handle map pieces, beginning
+	cp MAP_PIECES_1
+	jr c, .trivialID
+	ld d, a ; now d contains the map piece ID
+	callfar ConvertMapIDToMapPicID ; now de contains the pointer ID
+	ld b, $77 ; b has been messed up by the callfar, need to be reloaded
+	jr .specialID
+.trivialID
+; new, to handle map pieces, end
 	predef IndexToPokedex   ; convert pokemon ID in [wd11e] to pokedex number
 	ld a, [wd11e]
 	dec a

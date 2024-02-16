@@ -63,15 +63,17 @@ TextPredefs::
 	add_tx_pre NewBicycleText                       ; 3B
 	add_tx_pre IndigoPlateauStatues                 ; 3C
 	add_tx_pre VermilionGymTrashSuccessText1        ; 3D
-	add_tx_pre VermilionGymTrashSuccessText2        ; 3E XXX unused
+;	add_tx_pre VermilionGymTrashSuccessText2        ; 3E XXX unused
 	add_tx_pre VermilionGymTrashSuccessText3        ; 3F
 	add_tx_pre VermilionGymTrashFailText            ; 40
 	add_tx_pre TownMapText                          ; 41
 	add_tx_pre BookOrSculptureText                  ; 42
 	add_tx_pre ElevatorText                         ; 43
 	add_tx_pre PokemonStuffText                     ; 44
-	add_tx_pre NewBadgeRequiredText2                ; new, testing
-	add_tx_pre ThisWaterIsSurfableText              ; new, testing
-	add_tx_pre PlayerStartedSurfingText             ; new, testing
-	add_tx_pre ThisTreeIsCuttableText               ; new, testing
-	add_tx_pre UsedCutText2                         ; new, testing
+	add_tx_pre NewBadgeRequiredText2                ; new
+	add_tx_pre ThisWaterIsSurfableText              ; new
+	add_tx_pre PlayerStartedSurfingText             ; new
+	add_tx_pre ThisTreeIsCuttableText               ; new
+	add_tx_pre UsedCutText2                         ; new
+	add_tx_pre MapMessage                           ; new, testing
+	add_tx_pre MapMessageComplete                   ; new, testing

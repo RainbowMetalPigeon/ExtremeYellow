@@ -102,9 +102,9 @@ VermilionGymTrashSuccessText1::
 	jp TextScriptEnd
 
 ; unused
-VermilionGymTrashSuccessText2::
-	text_far _VermilionGymTrashSuccessText2
-	text_end
+;VermilionGymTrashSuccessText2::
+;	text_far _VermilionGymTrashSuccessText2
+;	text_end
 
 ; unused
 VermilionGymTrashSuccesPlaySfx:

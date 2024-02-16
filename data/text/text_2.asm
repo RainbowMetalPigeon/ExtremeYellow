@@ -805,12 +805,12 @@ _VermilionGymTrashSuccessText1::
 	line "lock opened!@"
 	text_end
 
-_VermilionGymTrashSuccessText2::
-	text "Hey! There's"
-	line "another switch"
-	cont "under the trash!"
-	cont "Turn it on!"
-	prompt
+;_VermilionGymTrashSuccessText2::
+;	text "Hey! There's"
+;	line "another switch"
+;	cont "under the trash!"
+;	cont "Turn it on!"
+;	prompt
 
 _VermilionGymTrashSuccessText3::
 	text "The 2nd electric"
@@ -1374,4 +1374,14 @@ _CantUsePCHere:: ; new, for portablePC
 
 _TextAskRematch:: ; new, to reactivate trainers
 	text "Rematch?"
+	done
+
+_MapMessage:: ; new
+	text "Some parts of an"
+	line "uncanny map..."
+	done
+
+_MapMessageComplete:: ; new
+	text "The complete map!"
+	line "It looks eerie..."
 	done

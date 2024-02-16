@@ -211,4 +211,21 @@ MonsterNames::
 	db "MISSINGNO."
 	db "MISSINGNO."
 	db "MISSINGNO."
+; map pieces, new
+	db "MAP 1@@@@@"
+	db "MAP 2@@@@@"
+	db "MAP 3@@@@@"
+	db "MAP 4@@@@@"
+	db "MAP 12@@@@"
+	db "MAP 13@@@@"
+	db "MAP 14@@@@"
+	db "MAP 23@@@@"
+	db "MAP 24@@@@"
+	db "MAP 34@@@@"
+	db "MAP 123@@@"
+	db "MAP 124@@@"
+	db "MAP 134@@@"
+	db "MAP 234@@@"
+	db "MAP 1234@@"
+
 	assert_table_length NUM_POKEMON_INDEXES

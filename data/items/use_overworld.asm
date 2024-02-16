@@ -6,4 +6,5 @@ UsableItems_CloseMenu:
 	db OLD_ROD
 	db GOOD_ROD
 	db SUPER_ROD
+	db MYSTERY_MAP ; new
 	db -1 ; end

@@ -211,6 +211,22 @@ PokedexEntryPointers:
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
+; map pieces, new
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
 	assert_table_length NUM_POKEMON_INDEXES
 
 ; string: species name
@@ -1676,6 +1692,12 @@ ArceusDexEntry:
 
 MissingNoDexEntry:
 	db "???@"
-	db 31
-	dw 45
+	db 10
+	dw 10
 	db "コメント　さくせいちゅう@" ; コメント作成中 (Comment to be written)
+
+MapPieceDexEntry: ; new
+	db "MAP@"
+	db 1
+	dw 1
+	db "Map pieces"

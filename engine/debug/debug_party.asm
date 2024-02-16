@@ -161,6 +161,11 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
 ;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
 
+;    SetEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+;    SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+;    SetEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+;    SetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+
 	ret
 
 DebugSetPokedexEntries:
@@ -176,6 +181,7 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+    db MYSTERY_MAP, 1
 ;	db SUPER_REPEL, 3
 ;	db REPEL, 3
 ;	db MAX_REPEL, 3
@@ -202,9 +208,9 @@ DebugItemsList:
 	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
-	db LAVA_STONE, 1
-	db MAGMA_STONE, 1
-	db MOLTEN_STONE, 1
+;	db LAVA_STONE, 1
+;	db MAGMA_STONE, 1
+;	db MOLTEN_STONE, 1
 ;	db EXP_ALL, 1
 	db -1 ; end
 

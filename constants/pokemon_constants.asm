@@ -218,6 +218,22 @@
 	const FOSSIL_KABUTOPS    ; 209
 	const FOSSIL_AERODACTYL  ; 210
 	const MON_GHOST          ; 211
+; map pieces, new
+	const MAP_PIECES_1
+	const MAP_PIECES_2
+	const MAP_PIECES_3
+	const MAP_PIECES_4
+	const MAP_PIECES_12
+	const MAP_PIECES_13
+	const MAP_PIECES_14
+	const MAP_PIECES_23
+	const MAP_PIECES_24
+	const MAP_PIECES_34
+	const MAP_PIECES_123
+	const MAP_PIECES_124
+	const MAP_PIECES_134
+	const MAP_PIECES_234
+	const MAP_PIECES_1234	
 
 DEF NUM_POKEMON_INDEXES EQU const_value - 1
 

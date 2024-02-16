@@ -214,6 +214,22 @@ EvosMovesPointerTable:
 	dw FossilKabutopsEvosMoves
 	dw FossilAerodactylEvosMoves
 	dw MonGhostEvosMoves
+; map pieces, new
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
 	assert_table_length NUM_POKEMON_INDEXES
 
 BulbasaurEvosMoves:
@@ -5725,21 +5741,12 @@ ArceusEvosMoves:
 	db 100, JUDGMENT
 	db 0
 
+; rearranged to have them all together
 FossilKabutopsEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
-
 FossilAerodactylEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
-
 MonGhostEvosMoves:
+MapPiecesEvosMoves: ; new
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
-

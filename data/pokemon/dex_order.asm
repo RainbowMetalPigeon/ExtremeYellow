@@ -211,4 +211,20 @@ PokedexOrder:
 	db 0 ; MISSINGNO.
 	db 0 ; MISSINGNO.
 	db 0 ; MISSINGNO.
+; map pieces, new
+	db 0 ; MAP_PIECES_1
+	db 0 ; MAP_PIECES_2
+	db 0 ; MAP_PIECES_3
+	db 0 ; MAP_PIECES_4
+	db 0 ; MAP_PIECES_12
+	db 0 ; MAP_PIECES_13
+	db 0 ; MAP_PIECES_14
+	db 0 ; MAP_PIECES_23
+	db 0 ; MAP_PIECES_24
+	db 0 ; MAP_PIECES_34
+	db 0 ; MAP_PIECES_123
+	db 0 ; MAP_PIECES_124
+	db 0 ; MAP_PIECES_134
+	db 0 ; MAP_PIECES_234
+	db 0 ; MAP_PIECES_1234
 	assert_table_length NUM_POKEMON_INDEXES

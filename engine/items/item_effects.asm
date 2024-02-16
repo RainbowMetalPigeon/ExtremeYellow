@@ -118,10 +118,138 @@ ItemUsePtrTable:
 	dw UnusableItem      ; THUNDER_ORB, new
 	dw UnusableItem      ; FIRE_ORB, new
 	dw UnusableItem      ; LIGHT_BALL, new
-	dw UnusableItem      ; MYSTERY_MAP, new, TBE
+	dw ItemShowMysteryMap ; MYSTERY_MAP, new, TBE
 	dw UnusableItem      ; LAVA_STONE, new
 	dw UnusableItem      ; MAGMA_STONE, new
 	dw UnusableItem      ; MOLTEN_STONE, new
+
+; new: code for MYSTERY_MAP, beginning ------------------------
+
+ItemShowMysteryMap: ; new
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseNotTime
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+	jr z, .notAllPieces
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	jr z, .notAllPieces
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	jr z, .notAllPieces
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr z, .notAllPieces
+	call EnableAutoTextBoxDrawing
+	tx_pre MapMessageComplete
+	jr .postPrinting
+.notAllPieces
+	call EnableAutoTextBoxDrawing
+	tx_pre MapMessage
+.postPrinting
+;	ld a, [wcf91]
+;	ld e, a
+;	push de
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+	jr nz, .piece_1
+; no piece 1
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	jr nz, .piece_no1_2
+; no piece 1, 2
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	jr nz, .piece_no12_3
+; no piece 1, 2, 3
+	ld a, MAP_PIECES_4
+	jp .printMap
+.piece_no12_3
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_no12_34
+; no piece 1, 2, 4
+	ld a, MAP_PIECES_3
+	jr .printMap
+.piece_no12_34
+	ld a, MAP_PIECES_34
+	jr .printMap
+.piece_no1_2
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	jr nz, .piece_no1_23
+; piece 2 ; no piece 1, 3
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_no13_24
+; piece 2 ; no piece 1, 3, 4
+	ld a, MAP_PIECES_2
+	jr .printMap
+.piece_no13_24
+	ld a, MAP_PIECES_24
+	jr .printMap
+.piece_no1_23
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_no1_234
+; piece 2, 3 ; no piece 1, 4
+	ld a, MAP_PIECES_23
+	jr .printMap
+.piece_no1_234
+	ld a, MAP_PIECES_234
+	jr .printMap
+.piece_1
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	jr nz, .piece_12
+; piece 1 ; no piece 2
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	jr nz, .piece_no2_13
+; piece 1 ; no piece 2, 3
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_no23_14
+; piece 1 ; no piece 2, 3, 4
+	ld a, MAP_PIECES_1
+	jr .printMap
+.piece_no23_14
+	ld a, MAP_PIECES_14
+	jr .printMap
+.piece_no2_13
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_no2_134
+; piece 1, 3; no piece 2, 4
+	ld a, MAP_PIECES_13
+	jr .printMap
+.piece_no2_134
+	ld a, MAP_PIECES_134
+	jr .printMap
+.piece_12
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	jr nz, .piece_123
+; piece 1, 2 ; no piece, 3
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_no3_124
+; piece 1, 2 ; no piece 3, 4
+	ld a, MAP_PIECES_12
+	jr .printMap
+.piece_no3_124
+	ld a, MAP_PIECES_124
+	jr .printMap
+.piece_123
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .piece_1234
+; piece 1, 2, 3 ; no piece 4
+	ld a, MAP_PIECES_123
+	jr .printMap
+.piece_1234
+	ld a, MAP_PIECES_1234
+.printMap
+	ld [wcf91], a
+	callfar DisplayMonFrontSpriteInBox
+	call ItemUseReloadOverworldData
+;	pop de
+;	ld a, e
+;	ld [wcf91], a
+	ret
+
+MapMessage::
+	text_far _MapMessage
+	text_end
+
+MapMessageComplete::
+	text_far _MapMessageComplete
+	text_end
+
+; new: code for MYSTERY_MAP, end ------------------------
 
 ItemUseBall:
 

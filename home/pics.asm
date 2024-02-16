@@ -9,12 +9,18 @@ UncompressMonSprite::
 	ld a, [hl]
 	ld [wSpriteInputPtr+1], a
 	ld a, [wcf91] ; XXX name for this ram location
+
+; new approach because of map pieces
 	cp FOSSIL_KABUTOPS
-	jr z, .RecallBank
-	cp FOSSIL_AERODACTYL
-	jr z, .RecallBank
-	cp MON_GHOST
-	jr z, .RecallBank
+	jr nc, .RecallBank
+; old approach before map pieces
+;	cp FOSSIL_KABUTOPS
+;	jr z, .RecallBank
+;	cp FOSSIL_AERODACTYL
+;	jr z, .RecallBank
+;	cp MON_GHOST
+;	jr z, .RecallBank
+
 	ld a, [wMonHPicBank]
 	jr .GotBank
 .RecallBank
