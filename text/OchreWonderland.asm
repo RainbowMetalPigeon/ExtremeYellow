@@ -17,7 +17,7 @@ _BlueBeforeBattleText::
 
 	para "What a marvelous"
 	line "whim of destiny"
-	cont "to mee you here!"
+	cont "to meet you here!"
 	cont "You have realized"
 	cont "where we are"
 	cont "standing right"

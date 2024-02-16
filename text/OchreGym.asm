@@ -377,20 +377,31 @@ _OchreGymTrashBinText_Try3::
 ; for rematch ---------------------
 
 _OrageRematchPreBattleText::
-	text "Hello, CHAMPION. I"
-	line "guess I should"
+	text "Hello, CHAMPION."
+	line "I guess I should"
 	cont "thank you for"
 	cont "visiting me, even"
 	cont "if we are not an"
 	cont "official GYM."
 
-	para "Have you put in a"
-	line "good word for us"
+	para "Which is frankly"
+	line "preposterous,"
+	cont "given how"
+	cont "VIRIDIAN GYM is"
+	cont "currently"
+	cont "leaderless, and"
+	cont "yet the INDICO HQ"
+	cont "still doesn't"
+	cont "acknowledge us..."
+
+	para "Talking about it,"
+	line "have you put in a"
+	cont "good word for us"
 	cont "with the big"
 	cont "bosses at the"
 	cont "#MON LEAGUE?"
 
-	para "Well, doesn't"
+	para "Well, it doesn't"
 	line "matter now. I"
 	cont "know why you"
 	cont "folks come here,"

@@ -9,12 +9,12 @@ CeladonMansion2F_Object:
 
 	def_bg_events
 	bg_event  6,  9, 9 ; CeladonMansion2TextSign1
-	bg_event  1,  3, 10 ; CeladonMansion2TextSign2 ; Drush/ISSOtm, ax6, (Sylvie/Rangi42), -Crystal-, -luckytyphlosion-
+	bg_event  1,  3, 10 ; CeladonMansion2TextSign2 ; Drush/ISSOtm, ax6, (Sylvie/Rangi42), Crystal, luckytyphlosion
 	bg_event  3,  3, 11 ; CeladonMansion2TextSign3 ; Vortiene, PlagueVonKarma, Lily, Xillicis
 	bg_event  5,  3, 12 ; CeladonMansion2TextSign4 ; MauveSea, LJSTAR, [Sanqui]
 
 	def_object_events
-	object_event  2,  4, SPRITE_BIRD, STAY, ANY_DIR, 1 ; pigeon
+	object_event  2,  4, SPRITE_BIRD, STAY, ANY_DIR, 1 ; Pigeon
 	object_event  5,  6, SPRITE_CRAMORANT, WALK, ANY_DIR, 2 ; Cramorant
 	object_event  0,  5, SPRITE_CARROT, WALK, ANY_DIR, 3 ; Vimescarrot = BlueZangoose
 	object_event  1,  7, SPRITE_MORD, WALK, ANY_DIR, 4 ; Mord
