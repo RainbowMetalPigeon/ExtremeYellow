@@ -235,6 +235,10 @@ _OchreHousesTextBirbFan_BecomeMember::
 	text "Now member!"
 	done
 
+_OchreHousesTextMapPiece_BagFull::
+	text "Bag full!"
+	done
+
 ; signs ---------------------------
 
 _OchreHousesTextNotebook::

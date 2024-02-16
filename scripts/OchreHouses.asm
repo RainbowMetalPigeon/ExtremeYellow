@@ -229,7 +229,7 @@ OchreHousesTextBirbFan_BecomePresident:
 OchreHousesTextBirbFan_BecomeMember:
 	text_far _OchreHousesTextBirbFan_BecomeMember
 	text_end
-	
+
 OchreHousesTextBirb1:
 	text_far _OchreHousesTextBirb1
 	text_asm
@@ -267,15 +267,25 @@ OchreHousesTextMapPiece:
 	ld hl, OchreHousesTextMapPiece_NotPresident
 	CheckEvent EVENT_OCHRE_BIRD_FAN_CLUB_PRESIDENT
 	jr z, .printAndEnd
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .alreadyHaveAPiece
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .alreadyHaveAPiece
+	ld hl, OchreHousesTextMapPiece_BagFull
+	jr .printAndEnd
+.alreadyHaveAPiece
 	ld a, HS_OCHRE_HOUSES_MAP_PIECE
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
-	; TODO: set the event corresponding to this fourth of the map,
-	; and give the MYSTERY_MAP if not already given
+	SetEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
 	ld hl, OchreHousesTextMapPiece_President
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
+
+;	ld a, SFX_GET_KEY_ITEM
+;	call PlaySound
 
 OchreHousesTextMapPiece_NotPresident:
 	text_far _OchreHousesTextMapPiece_NotPresident
@@ -283,6 +293,11 @@ OchreHousesTextMapPiece_NotPresident:
 
 OchreHousesTextMapPiece_President:
 	text_far _OchreHousesTextMapPiece_President
+	sound_get_key_item
+	text_end
+
+OchreHousesTextMapPiece_BagFull:
+	text_far _OchreHousesTextMapPiece_BagFull
 	text_end
 
 ; ------------------------
@@ -331,7 +346,7 @@ CheckIfABirdInParty::
 .aBirdInParty
 	scf ; set carry flag
 	ret
-	
+
 CheckIfAllLegendaryBirdsAreInParty:
 	ld d, ARTICUNO
 	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes

@@ -17,9 +17,9 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 5
-;	db CHARIZARD, 9
-;	db RHYPERIOR, 9
-;	db MAGIKARP, 100
+	db ARTICUNO, 9
+	db ZAPDOS, 9
+	db MOLTRES, 100
 	db -1 ; end
 
 DebugStart:
@@ -181,7 +181,7 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
-    db MYSTERY_MAP, 1
+;    db MYSTERY_MAP, 1
 ;	db SUPER_REPEL, 3
 ;	db REPEL, 3
 ;	db MAX_REPEL, 3

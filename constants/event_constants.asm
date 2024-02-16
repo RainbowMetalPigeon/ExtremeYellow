@@ -8,7 +8,8 @@
 	const_skip
 	const EVENT_PLAYER_AT_RIGHT_EXIT_TO_PALLET_TOWN
 	const EVENT_PALLET_AFTER_GETTING_POKEBALLS
-	const_skip 12 ; edited, was 17
+	const_skip 11 ; edited, was 17
+	const EVENT_OBTAIN_ANY_MAP_PIECE ; new
 	const EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB ; new
 	const EVENT_OBTAIN_MAP_PIECE_2_PIGEON ; new
 	const EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER ; new
