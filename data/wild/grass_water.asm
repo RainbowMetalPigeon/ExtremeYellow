@@ -39,10 +39,10 @@ WildDataPointers:
 	dw Route24WildMons         ; ROUTE_24
 	dw Route25WildMons         ; ROUTE_25
 	dw Route26WildMons		   ; ROUTE_26, new
-	dw NothingWildMons		   ; ROUTE_27, new, TBE
-	dw NothingWildMons		   ; ROUTE_28, new, TBE
-	dw NothingWildMons		   ; ROUTE_29, new, TBE
-	dw NothingWildMons		   ; ROUTE_30, new, TBE
+	dw Route27WildMons		   ; ROUTE_27, new, TBE
+	dw Route28WildMons		   ; ROUTE_28, new, TBE
+	dw Route29WildMons		   ; ROUTE_29, new, TBE
+	dw Route30WildMons		   ; ROUTE_30, new, TBE
 	dw NothingWildMons         ; REDS_HOUSE_1F
 	dw NothingWildMons ; REDS_HOUSE_2F
 	dw NothingWildMons ; BLUES_HOUSE
@@ -341,3 +341,7 @@ INCLUDE "data/wild/maps/CeladonCity.asm"   	 ; new
 INCLUDE "data/wild/maps/CinnabarVolcano.asm" ; new
 INCLUDE "data/wild/maps/CinnabarVolcanoBF.asm" ; new
 INCLUDE "data/wild/maps/PikachuGrotto.asm" ; new
+INCLUDE "data/wild/maps/Route27.asm" ; new
+INCLUDE "data/wild/maps/Route28.asm" ; new
+INCLUDE "data/wild/maps/Route29.asm" ; new
+INCLUDE "data/wild/maps/Route30.asm" ; new
