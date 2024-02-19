@@ -42,6 +42,7 @@ MapSongBanks::
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; ROUTE_27, new, testing, to be modified?
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_28, new, testing, to be modified?
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_29, new, testing, to be modified?
+	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_30, new, testing, to be modified?
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_1F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_2F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; BLUES_HOUSE
@@ -61,7 +62,6 @@ MapSongBanks::
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; MUSEUM_2F
 	db MUSIC_GYM, BANK(Music_Gym) ; PEWTER_GYM
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; PEWTER_NIDORAN_HOUSE
-	db MUSIC_POKECENTER, BANK(Music_Pokecenter) ; PEWTER_MART ; edited, made UNUSED because of map MERGING
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; PEWTER_SPEECH_HOUSE
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter) ; PEWTER_POKECENTER
 	db MUSIC_DUNGEON3, BANK(Music_Dungeon3) ; MT_MOON_1F
@@ -72,15 +72,15 @@ MapSongBanks::
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter) ; CERULEAN_POKECENTER
 	db MUSIC_GYM, BANK(Music_Gym) ; CERULEAN_GYM
 	db MUSIC_CITIES2, BANK(Music_Cities2) ; BIKE_SHOP
-	db MUSIC_POKECENTER, BANK(Music_Pokecenter) ; CERULEAN_MART
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1) ; PIKACHU_GROTTO, new
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter) ; MT_MOON_POKECENTER
-	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ; ONIX_BURROWING, new, testing
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ; ONIX_BURROWING, new
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; ROUTE_5_GATE
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; UNDERGROUND_PATH_ROUTE_5
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; DAYCARE
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; ROUTE_6_GATE
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; UNDERGROUND_PATH_ROUTE_6
-	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ; SECLUDED_CAVES, new, testing
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ; SECLUDED_CAVES, new
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; ROUTE_7_GATE
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; UNDERGROUND_PATH_ROUTE_7
 	db MUSIC_CELADON, BANK(Music_Celadon) ; OCHRE_HOUSES, new

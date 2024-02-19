@@ -42,26 +42,26 @@ WildDataPointers:
 	dw NothingWildMons		   ; ROUTE_27, new, TBE
 	dw NothingWildMons		   ; ROUTE_28, new, TBE
 	dw NothingWildMons		   ; ROUTE_29, new, TBE
+	dw NothingWildMons		   ; ROUTE_30, new, TBE
 	dw NothingWildMons         ; REDS_HOUSE_1F
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw ViridianForestWildMons ; ViridianForest
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
+	dw NothingWildMons ; REDS_HOUSE_2F
+	dw NothingWildMons ; BLUES_HOUSE
+	dw NothingWildMons ; OAKS_LAB
+	dw NothingWildMons ; VIRIDIAN_POKECENTER
+	dw NothingWildMons ; VIRIDIAN_MART
+	dw NothingWildMons ; VIRIDIAN_SCHOOL_HOUSE
+	dw NothingWildMons ; VIRIDIAN_NICKNAME_HOUSE
+	dw NothingWildMons ; VIRIDIAN_GYM
+	dw NothingWildMons ; DIGLETTS_CAVE_ROUTE_2
+	dw NothingWildMons ; VIRIDIAN_FOREST_NORTH_GATE
+	dw NothingWildMons ; ROUTE_2_TRADE_HOUSE
+	dw NothingWildMons ; ROUTE_2_GATE
+	dw NothingWildMons ; VIRIDIAN_FOREST_SOUTH_GATE
+	dw ViridianForestWildMons ; VIRIDIAN_FOREST
+	dw NothingWildMons ; MUSEUM_1F
+	dw NothingWildMons ; MUSEUM_2F
+	dw NothingWildMons ; PEWTER_GYM
+	dw NothingWildMons ; PEWTER_NIDORAN_HOUSE
 	dw NothingWildMons
 	dw NothingWildMons
 	dw MtMoon1FWildMons
@@ -72,7 +72,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons
+	dw PikachuGrottoWildMons ; new
 	dw NothingWildMons
 	dw OnixBurrowingWildMons ; new
 	dw NothingWildMons
@@ -340,3 +340,4 @@ INCLUDE "data/wild/maps/Route26.asm"		 ; new
 INCLUDE "data/wild/maps/CeladonCity.asm"   	 ; new
 INCLUDE "data/wild/maps/CinnabarVolcano.asm" ; new
 INCLUDE "data/wild/maps/CinnabarVolcanoBF.asm" ; new
+INCLUDE "data/wild/maps/PikachuGrotto.asm" ; new

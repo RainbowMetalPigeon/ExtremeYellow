@@ -43,6 +43,7 @@ MapHeaderBanks::
 	db BANK(Route27_h)
 	db BANK(Route28_h)
 	db BANK(Route29_h)
+	db BANK(Route30_h)
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
 	db BANK(BluesHouse_h)
@@ -62,7 +63,6 @@ MapHeaderBanks::
 	db BANK(Museum2F_h)
 	db BANK(PewterGym_h)
 	db BANK(PewterNidoranHouse_h)
-	db BANK(PewterPokecenter_h) ; edited, made UNUSED because of map MERGING
 	db BANK(PewterSpeechHouse_h)
 	db BANK(PewterPokecenter_h)
 	db BANK(MtMoon1F_h)
@@ -73,7 +73,7 @@ MapHeaderBanks::
 	db BANK(CeruleanPokecenter_h)
 	db BANK(CeruleanGym_h)
 	db BANK(BikeShop_h)
-	db BANK(CeruleanPokecenter_h) ; edited, made UNUSED because of map MERGING
+	db BANK(PikachuGrotto_h) ; new
 	db BANK(MtMoonPokecenter_h)
 	db BANK(OnixBurrowing_h) ; new, was a copy of the trashed house
 	db BANK(Route5Gate_h)

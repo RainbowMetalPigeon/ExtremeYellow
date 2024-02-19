@@ -40,6 +40,7 @@ Route26Name:         db "ROUTE 26@" ; new
 Route27Name:         db "ROUTE 27@" ; new
 Route28Name:         db "SEA ROUTE 28@" ; new
 Route29Name:         db "SEA ROUTE 29@" ; new
+Route30Name:         db "ROUTE 30@" ; new
 ViridianForestName:  db "VIRIDIAN FOREST@"
 MountMoonName:       db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"
@@ -58,3 +59,4 @@ SafariZoneName:      db "SAFARI ZONE@"
 CeruleanCaveName:    db "CERULEAN CAVE@"
 PowerPlantName:      db "POWER PLANT@"
 SecludedAtollName:   db "SECLUDED ATOLL@" ; new
+PikachuGrottoName:   db "PIKACHU GROTTO@" ; new

@@ -345,6 +345,13 @@ MapSpecificPikachuExpression:
 	ldpikaemotion a, PikachuEmotion28
 	jr c, .play_emotion
 	ld a, [wCurMap]
+; new, to handle GROTTO emotion
+	cp PIKACHU_GROTTO
+	jr nz, .notGrotto
+	ldpikaemotion a, PikachuEmotion25
+	jr c, .play_emotion
+.notGrotto
+; back to vanilla
 	cp POKEMON_TOWER_1F
 	jr c, .notInLavenderTower
 	cp POKEMON_TOWER_7F + 1

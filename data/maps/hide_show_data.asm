@@ -45,6 +45,7 @@ MapHSPointers:
 	dw NoHS ; new, Route27
 	dw Route28HS ; new, Route28
 	dw NoHS ; new, Route29
+	dw NoHS ; new, Route30
 	dw NoHS
 	dw NoHS
 	dw BluesHouseHS
@@ -61,12 +62,11 @@ MapHSPointers:
 	dw NoHS
 	dw ViridianForestHS
 	dw Museum1FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; MUSEUM_2F
+	dw NoHS ; PEWTER_GYM
+	dw NoHS ; PEWTER_NIDORAN_HOUSE
+	dw NoHS ; PEWTER_SPEECH_HOUSE
+	dw NoHS ; PEWTER_POKECENTER
 	dw MtMoon1FHS
 	dw NoHS
 	dw MtMoonB2FHS
@@ -75,7 +75,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw PikachuGrottoHS ; new
 	dw MtMoonPokecenterHS ; new
 	dw OnixBurrowingHS ; ONIX_BURROWING
 	dw NoHS ; ROUTE_5_GATE
@@ -771,5 +771,7 @@ OchreRehabilitationCenterHS: ; new
 	db OCHRE_REHABILITATION_CENTER, $05, HIDE
 OchreHousesHS: ; new
 	db OCHRE_HOUSES, $0C, SHOW
+PikachuGrottoHS: ; new
+	db PIKACHU_GROTTO, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

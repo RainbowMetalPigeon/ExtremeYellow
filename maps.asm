@@ -1283,6 +1283,16 @@ INCLUDE "data/maps/objects/Route29.asm"
 Route29_Blocks: INCBIN "maps/Route29.blk"
 INCLUDE "scripts/Route29.asm"
 
+INCLUDE "data/maps/headers/Route30.asm"
+INCLUDE "data/maps/objects/Route30.asm"
+Route30_Blocks: INCBIN "maps/Route30.blk"
+INCLUDE "scripts/Route30.asm"
+
+INCLUDE "data/maps/headers/PikachuGrotto.asm"
+INCLUDE "data/maps/objects/PikachuGrotto.asm"
+PikachuGrotto_Blocks: INCBIN "maps/PikachuGrotto.blk"
+INCLUDE "scripts/PikachuGrotto.asm"
+
 INCLUDE "data/maps/headers/CeladonUniversity1.asm"
 INCLUDE "data/maps/objects/CeladonUniversity1.asm"
 CeladonUniversity1_Blocks: INCBIN "maps/CeladonUniversity1.blk"

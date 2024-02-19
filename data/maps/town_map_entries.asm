@@ -49,6 +49,7 @@ ExternalMapEntries:
 	external_map  7,  7, Route27Name ; new
 	external_map  8,  9, Route28Name ; new
 	external_map 11, 15, Route29Name ; new
+	external_map  3,  7, Route30Name ; new
 	assert_table_length FIRST_INDOOR_MAP
 
 
@@ -68,6 +69,7 @@ InternalMapEntries:
 	internal_map PEWTER_POKECENTER,              2,  3, PewterCityName
 	internal_map MT_MOON_B2F,                    6,  2, MountMoonName
 	internal_map BIKE_SHOP,                     10,  2, CeruleanCityName ; edited because of map MERGING
+	internal_map PIKACHU_GROTTO,                 3,  7, PikachuGrottoName ; new
 	internal_map MT_MOON_POKECENTER,             5,  2, Route4Name
 	internal_map ONIX_BURROWING,                 2,  1, Route26Name ; new, testing
 	internal_map DAYCARE,                       10,  4, Route5Name
