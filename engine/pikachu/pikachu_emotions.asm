@@ -262,40 +262,40 @@ MACRO pikaemotion_def
 ENDM
 
 PikachuEmotionTable:
-	pikaemotion_def PikachuEmotion0
-	pikaemotion_def PikachuEmotion1
-	pikaemotion_def PikachuEmotion2
-	pikaemotion_def PikachuEmotion3
-	pikaemotion_def PikachuEmotion4
-	pikaemotion_def PikachuEmotion5
-	pikaemotion_def PikachuEmotion6
-	pikaemotion_def PikachuEmotion7
-	pikaemotion_def PikachuEmotion8
-	pikaemotion_def PikachuEmotion9
-	pikaemotion_def PikachuEmotion10
-	pikaemotion_def PikachuEmotion11
-	pikaemotion_def PikachuEmotion12
-	pikaemotion_def PikachuEmotion13
-	pikaemotion_def PikachuEmotion14
-	pikaemotion_def PikachuEmotion15
-	pikaemotion_def PikachuEmotion16
-	pikaemotion_def PikachuEmotion17
-	pikaemotion_def PikachuEmotion18
-	pikaemotion_def PikachuEmotion19
-	pikaemotion_def PikachuEmotion20
+	pikaemotion_def PikachuEmotion0 ; nothing
+	pikaemotion_def PikachuEmotion1 ; friendship 101-130, mood normal
+	pikaemotion_def PikachuEmotion2 ; friendship 161-200, mood good
+	pikaemotion_def PikachuEmotion3 ; friendship 101-160, mood bad
+	pikaemotion_def PikachuEmotion4 ; friendship 131-160, mood normal
+	pikaemotion_def PikachuEmotion5 ; friendship 51-100, mood normal
+	pikaemotion_def PikachuEmotion6 ; friendship 0-50, mood normal
+	pikaemotion_def PikachuEmotion7 ; friendship 161-200, mood normal
+	pikaemotion_def PikachuEmotion8 ; friendship 101-130, mood good
+	pikaemotion_def PikachuEmotion9 ; friendship 51-100, mood bad
+	pikaemotion_def PikachuEmotion10 ; friendship 201-250, mood good
+	pikaemotion_def PikachuEmotion11 ; asleep
+	pikaemotion_def PikachuEmotion12 ; friendship 51-100, mood good
+	pikaemotion_def PikachuEmotion13 ; friendship 0-50, mood good
+	pikaemotion_def PikachuEmotion14 ; friendship 0-50, mood bad
+	pikaemotion_def PikachuEmotion15 ; friendship 131-160, mood good
+	pikaemotion_def PikachuEmotion16 ; friendship 201-250, mood normal
+	pikaemotion_def PikachuEmotion17 ; friendship 161-255, mood bad
+	pikaemotion_def PikachuEmotion18 ; caught a mon
+	pikaemotion_def PikachuEmotion19 ; friendship 251-255, mood normal
+	pikaemotion_def PikachuEmotion20 ; friendship 251-255, mood good
 	pikaemotion_def PikachuEmotion21 ; used a fishing rod
 	pikaemotion_def PikachuEmotion22 ; scared in Pokemon Tower
-	pikaemotion_def PikachuEmotion23 ; $17? a confusion?
-	pikaemotion_def PikachuEmotion24
-	pikaemotion_def PikachuEmotion25
+	pikaemotion_def PikachuEmotion23 ; confused
+	pikaemotion_def PikachuEmotion24 ; refuse Thunderstone
+	pikaemotion_def PikachuEmotion25 ; learn Thunder/bolt
 	pikaemotion_def PikachuEmotion26 ; wake up pikachu in pewter pokemon center
-	pikaemotion_def PikachuEmotion27 ; $1b? surprise?
-	pikaemotion_def PikachuEmotion28
-	pikaemotion_def PikachuEmotion29
-	pikaemotion_def PikachuEmotion30
-	pikaemotion_def PikachuEmotion31
-	pikaemotion_def PikachuEmotion32 ; $20? a confusion?
-	pikaemotion_def PikachuEmotion33
+	pikaemotion_def PikachuEmotion27 ; surprised (Bill de-transforms)
+	pikaemotion_def PikachuEmotion28 ; statused (except asleep)
+	pikaemotion_def PikachuEmotion29 ; approaches Clefairy in Fan Club
+	pikaemotion_def PikachuEmotion30 ; in love with Clefairy
+	pikaemotion_def PikachuEmotion31 ; confused (a clone of 23 but different sound?)
+	pikaemotion_def PikachuEmotion32 ; confused (a clone of 23 but different sound)
+	pikaemotion_def PikachuEmotion33 ; nothing
 
 PikachuEmotion33:
 	db $ff

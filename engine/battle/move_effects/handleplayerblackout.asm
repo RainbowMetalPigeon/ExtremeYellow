@@ -16,6 +16,8 @@ _HandlePlayerBlackOut:
 	jr z, .lossText
 	cp OPP_TRAVELER ; new
 	jr z, .lossText
+	cp OPP_PIGEON ; new
+	jr z, .lossText
 	jr .noLossText
 .lossText
 	hlcoord 0, 0  ; battle that has loss text

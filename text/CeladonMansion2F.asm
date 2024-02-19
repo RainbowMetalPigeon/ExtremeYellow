@@ -47,7 +47,7 @@ _PigeonBeforeBattleText2::
 	line "ourselves!"
 	done
 
-_PigeonPostBattleText::
+_PigeonPostBattlePlayerWinsText::
 	text "Wow! :D"
 
 	para "That was a hell"
@@ -55,6 +55,34 @@ _PigeonPostBattleText::
 
 	para "Thanks for it,"
 	line "<PLAYER>!"
+	done
+
+_PigeonPostBattlePlayerLosesText::
+	text "Woah! :D"
+
+	para "That was a ton"
+	line "of fun!"
+	cont "You'll have better"
+	cont "luck next time."
+
+	para "Come back soon,"
+	line "<PLAYER>!"
+	done
+
+_CeladonMansion2TextPigeon_PostBattleMapUnrelated::
+	text "Map unrelated"
+	done
+
+_CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece::
+	text "Pre give map"
+	done
+
+_CeladonMansion2TextPigeon_PostBattleGivenMapPiece::
+	text "Given map"
+	done
+
+_CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece::
+	text "Failed give map"
 	done
 
 ; ------------------------------------

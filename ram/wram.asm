@@ -2336,7 +2336,8 @@ wRoute29CurScript:: db ; new
 ;	ds 1
 wFuchsiaGymCurScript:: db
 wSaffronGymCurScript:: db
-	ds 1
+wCeladonMansion2FCurScript:: db ; new
+;	ds 1
 wCinnabarGymCurScript:: db
 wGameCornerCurScript:: db
 wRoute16Gate1FCurScript:: db

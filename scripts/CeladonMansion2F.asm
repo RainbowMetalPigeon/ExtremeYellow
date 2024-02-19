@@ -1,6 +1,61 @@
 CeladonMansion2F_Script:
 	call EnableAutoTextBoxDrawing
+	ld de, CeladonMansion2F_ScriptPointers
+	ld a, [wCeladonMansion2FCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCeladonMansion2FCurScript], a
 	ret
+
+CeladonMansion2F_ScriptPointers:
+	dw CeladonMansion2FScript0
+	dw CeladonMansion2FScript1 ; post-battle
+
+CeladonMansion2FScript0:
+	ret
+
+CeladonMansion2FScript1:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .notDefeated
+	jr .endScript
+.notDefeated
+; give piece of Map if not already done
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	jr z, .noPieceObtained
+; piece already obtained
+	ld a, 13 ; TBE, normal dialogue, map-unrelated
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	jr .endScript
+.noPieceObtained
+	ld a, 14 ; TBE, pre-give map piece
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .alreadyHaveAPiece
+; first piece we obtain
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .alreadyHaveAPiece
+; bag is full
+	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
+	ld a, 16 ; TBE, failed to obtain map piece (bag full)
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	jr .endScript
+.alreadyHaveAPiece
+	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
+	ld a, 15 ; TBE, successfully given a piece
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.endScript
+	xor a
+	ld [wCeladonMansion2FCurScript], a
+	ld [wCurMapScript], a
+	ret
+
+; =========================
 
 CeladonMansion2F_TextPointers:
 	; NPCs
@@ -17,11 +72,42 @@ CeladonMansion2F_TextPointers:
 	dw CeladonMansion2TextSign2
 	dw CeladonMansion2TextSign3
 	dw CeladonMansion2TextSign4
+	; non-NPC dialogues
+	dw CeladonMansion2TextPigeon_PostBattleMapUnrelated ; 13
+	dw CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece ; 14
+	dw CeladonMansion2TextPigeon_PostBattleGivenMapPiece ; 15
+	dw CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece ; 16
 
 ; NPCs =========================
 
 CeladonMansion2Text1:
 	text_asm
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
+	jr z, .beginBattle
+; try again to give map piece
+
+;	ld hl, PigeonText_PROXY
+;	call PrintText
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .alreadyHaveAPiece
+; first piece we obtain
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .alreadyHaveAPiece
+; bag is full
+	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
+;	ld hl, PigeonText_PROXY
+;	call PrintText
+;	jr .endScript
+.alreadyHaveAPiece
+	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
+
+;	ld hl, PigeonText_PROXY
+;	call PrintText
+
+.beginBattle
+; initiate battle
 	ld c, BANK(Music_MeetFemaleTrainer)
 	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
@@ -53,8 +139,13 @@ CeladonMansion2Text1:
 	ld a, 1
 	ld [wTrainerNo], a
 
-	ld hl, PigeonPostBattleText
-	ld de, PigeonPostBattleText
+	ld hl, PigeonPostBattlePlayerWinsText ; text if player wins
+	ld de, PigeonPostBattlePlayerLosesText ; text if player loses
+
+	; handle scripts
+	ld a, 1
+	ld [wCeladonMansion2FCurScript], a
+
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
@@ -70,8 +161,12 @@ PigeonBeforeBattleText2:
 	text_far _PigeonBeforeBattleText2
 	text_end
 
-PigeonPostBattleText:
-	text_far _PigeonPostBattleText
+PigeonPostBattlePlayerWinsText:
+	text_far _PigeonPostBattlePlayerWinsText
+	text_end
+
+PigeonPostBattlePlayerLosesText:
+	text_far _PigeonPostBattlePlayerLosesText
 	text_end
 
 ; ---------------------
@@ -103,7 +198,7 @@ CeladonMansion2Text7:
 CeladonMansion2Text8:
 	text_far _CeladonMansion2TextOrange
 	text_end
-	
+
 ; Signs =========================
 
 CeladonMansion2TextSign1:
@@ -120,4 +215,23 @@ CeladonMansion2TextSign3:
 
 CeladonMansion2TextSign4:
 	text_far _CeladonMansion2TextSign4
+	text_end
+
+; non-NPCs dialogues =========================
+
+CeladonMansion2TextPigeon_PostBattleMapUnrelated:
+	text_far _CeladonMansion2TextPigeon_PostBattleMapUnrelated
+	text_end
+
+CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece:
+	text_far _CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece
+	text_end
+
+CeladonMansion2TextPigeon_PostBattleGivenMapPiece:
+	text_far _CeladonMansion2TextPigeon_PostBattleGivenMapPiece
+	sound_get_key_item
+	text_end
+
+CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece:
+	text_far _CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece
 	text_end
