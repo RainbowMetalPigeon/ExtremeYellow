@@ -304,6 +304,8 @@ INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo9F.asm"
 INCLUDE "text/Route29.asm" ; new
+INCLUDE "text/Route30.asm" ; new
+INCLUDE "text/PikachuGrotto.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

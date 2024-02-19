@@ -43,6 +43,7 @@ MapHeaderPointers::
 	dw Route27_h
 	dw Route28_h
 	dw Route29_h
+	dw Route30_h
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h
@@ -62,7 +63,6 @@ MapHeaderPointers::
 	dw Museum2F_h
 	dw PewterGym_h
 	dw PewterNidoranHouse_h
-	dw PewterPokecenter_h ; edited, made UNUSED because of map MERGING
 	dw PewterSpeechHouse_h
 	dw PewterPokecenter_h
 	dw MtMoon1F_h
@@ -73,7 +73,7 @@ MapHeaderPointers::
 	dw CeruleanPokecenter_h
 	dw CeruleanGym_h
 	dw BikeShop_h
-	dw CeruleanPokecenter_h ; edited, made UNUSED because of map MERGING
+	dw PikachuGrotto_h ; new
 	dw MtMoonPokecenter_h
 	dw OnixBurrowing_h ; new, was a copy of the trashed house
 	dw Route5Gate_h

@@ -60,6 +60,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_27,                      11, 15 ; new, messes up the numbering in the comments
 	map_const ROUTE_28,                      12,  9 ; new, messes up the numbering in the comments
 	map_const ROUTE_29,                      14, 32 ; new, messes up the numbering in the comments
+	map_const ROUTE_30,                      20,  8 ; new, messes up the numbering in the comments
 DEF FIRST_INDOOR_MAP EQU const_value
 	map_const REDS_HOUSE_1F,                  4,  4 ; $25
 	map_const REDS_HOUSE_2F,                  4,  4 ; $26
@@ -80,7 +81,6 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MUSEUM_2F,                      7,  4 ; $35
 	map_const PEWTER_GYM,                     5,  7 ; $36
 	map_const PEWTER_NIDORAN_HOUSE,           4,  4 ; $37
-	map_const PEWTER_MART,                    4,  4 ; $38 ; edited, made UNUSED because of map MERGING
 	map_const PEWTER_SPEECH_HOUSE,            4,  4 ; $39
 	map_const PEWTER_POKECENTER,             14,  4 ; $3A ; edited, Center+Mart
 	map_const MT_MOON_1F,                    30, 30 ; $3B ; edited
@@ -91,7 +91,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_POKECENTER,           14,  4 ; $40 ; edited, Center+Mart
 	map_const CERULEAN_GYM,                   5,  7 ; $41
 	map_const BIKE_SHOP,                      4,  4 ; $42
-	map_const CERULEAN_MART,                  4,  4 ; $43 ; edited, made UNUSED because of map MERGING
+	map_const PIKACHU_GROTTO,                11, 11 ; $43 ; new
 	map_const MT_MOON_POKECENTER,             7,  4 ; $44
 	map_const ONIX_BURROWING,                26, 26 ; $45 ; new, was a copy of the trashed house
 	map_const ROUTE_5_GATE,                   4,  3 ; $46

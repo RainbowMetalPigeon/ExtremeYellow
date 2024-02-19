@@ -42,6 +42,7 @@ MapSpriteSets:
 	db $0d ; ROUTE_27, new, testing, may need a split thingy between $0d (Obsidian) and $05 (Celadon)
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
 	db $15 ; ROUTE_29, new, testing (for now same set as Route14)
+	db $10 ; ROUTE_30, new, testing (for now same set as Viridian City, i.e. south of Route2)
 	assert_table_length FIRST_INDOOR_MAP
 
 DEF EAST_WEST   EQU 1
@@ -53,7 +54,7 @@ DEF NORTH_SOUTH EQU 2
 ; 02: sprite set ID if in the West or North side
 ; 03: sprite set ID if in the East or South side
 SplitMapSpriteSets:
-	db NORTH_SOUTH, 37, $02, $01 ; $f1
+	db NORTH_SOUTH, 37, $12, $10 ; $f1, edited, $10 was $01, and $12 was $02
 	db NORTH_SOUTH, 50, $02, $0f ; $f2, edited, $0f was $03
 	db EAST_WEST,   57, $04, $08 ; $f3
 	db NORTH_SOUTH, 21, $0f, $14 ; $f4, edited, $0f was $03, and $14 was $08
