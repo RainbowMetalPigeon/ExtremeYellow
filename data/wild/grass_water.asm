@@ -99,7 +99,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw NothingWildMons			; VermilionDockWildMons VERMILION_DOCK, wannabe
+	dw VermilionDockWildMons ; new
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -324,7 +324,7 @@ INCLUDE "data/wild/maps/CeruleanCave2F.asm"
 INCLUDE "data/wild/maps/CeruleanCaveB1F.asm"
 INCLUDE "data/wild/maps/PowerPlant.asm"
 INCLUDE "data/wild/maps/Route23.asm"
-;INCLUDE "data/wild/maps/VermilionDock.asm"
+INCLUDE "data/wild/maps/VermilionDock.asm"
 INCLUDE "data/wild/maps/VictoryRoad2F.asm"
 INCLUDE "data/wild/maps/VictoryRoad3F.asm"
 INCLUDE "data/wild/maps/VictoryRoad1F.asm"
