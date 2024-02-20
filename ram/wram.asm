@@ -1971,7 +1971,7 @@ wOptions:: db
 
 wObtainedBadges:: flag_array NUM_BADGES
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: If 0, limit the delay to 1 frame. Note that this has no effect if
 ;        the delay has been disabled entirely through bit 1 of this variable
@@ -2028,7 +2028,7 @@ wSpriteSetID:: db
 
 wObjectDataPointerTemp:: dw
 
-	ds 2
+	ds 2 ; UNUSED bytes in "Main Data"
 
 ; the tile shown outside the boundaries of the map
 wMapBackgroundTile:: db
@@ -2104,15 +2104,15 @@ wPikachuHappiness:: db
 wPikachuMood:: db
 wd472:: db
 wd473:: db
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 wd475:: db
-	ds 4
+	ds 4 ; UNUSED bytes in "Main Data"
 wd47a:: db
-	ds 24
+;	ds 4 ; edited to increase bag capacity
 wd492:: db
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 wSurfingMinigameHiScore:: dw ; little-endian BCD
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 wPrinterSettings:: db
 wUnknownSerialFlag_d499:: db
 wPrinterConnectionOpen:: db
@@ -2213,7 +2213,7 @@ wd5cd:: db
 ; terminated with $FF
 wMissableObjectList:: ds 16 * 2 + 1
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 wGameProgressFlags::
 wOaksLabCurScript:: db
@@ -2345,13 +2345,13 @@ wBillsHouseCurScript:: db
 wRoute5GateCurScript:: db
 wPowerPlantCurScript:: ; overload
 wRoute7GateCurScript:: db
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 wSSAnne2FCurScript:: db
 wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
 wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
-	ds 78
+	ds 78 ; UNUSED bytes in "Main Data"
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2364,9 +2364,12 @@ wTyrogueEvolutions::
 	; stores directly the number/name of the chosen Hitmon
 	ds 1
 
-; unused
-	ds 29 ; edited, originally 56
-	      ; reduced by 3 for gender, tyrogue, and accuracypercent, by 16 for increasing max warps from 32 to 36, and by 8 for new HS variables
+; UNUSED bytes in "Main Data"
+	ds 13 ; edited, originally 56
+	      ; reduced by 3 for gender, tyrogue, and accuracypercent
+		  ; by 16 for increasing max warps from 32 to 36
+		  ; by 8 for new HS variables
+		  ; by 16 to increase bag capacity
 
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
@@ -2379,7 +2382,7 @@ wObtainedHiddenCoinsFlags:: flag_array 16
 ; $02 = surfing
 wWalkBikeSurfState:: db
 
-	ds 10
+	ds 10 ; UNUSED bytes in "Main Data"
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS
 
@@ -2391,7 +2394,7 @@ wFossilItem:: db
 ; mon that will result from the item
 wFossilMon:: db
 
-	ds 2
+	ds 2 ; UNUSED bytes in "Main Data"
 
 ; trainer classes start at OPP_ID_OFFSET
 wEnemyMonOrTrainerClass:: db
@@ -2431,7 +2434,7 @@ wWhichDungeonWarp:: db
 
 wUnusedD71F:: db
 
-	ds 8
+	ds 8 ; UNUSED bytes in "Main Data"
 
 ; bit 0: using Strength outside of battle
 ; bit 1: set by IsSurfingAllowed when surfing's allowed, but the caller resets it after checking the result
@@ -2442,13 +2445,13 @@ wUnusedD71F:: db
 ; bit 7: set by ItemUseCardKey, which is leftover code from a previous implementation of the Card Key
 wd728:: db
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; redundant because it matches wObtainedBadges
 ; used to determine whether to show name on statue and in two NPC text scripts
 wBeatGymFlags:: db
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: if not set, the 3 minimum steps between random battles have passed
 ; bit 1: prevent audio fade out
@@ -2476,7 +2479,7 @@ wd72d:: db
 ; bit 7: set if scripted NPC movement has been initialised
 wd72e:: db
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: NPC sprite being moved by script
 ; bit 5: ignore joypad input
@@ -2484,7 +2487,7 @@ wd72e:: db
 ; bit 7: set if joypad states are being simulated in the overworld or an NPC's movement is being scripted
 wd730:: db
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: play time being counted
 ; bit 1: remnant of debug mode; only set by the debug build.
@@ -2517,7 +2520,7 @@ wFlags_D733:: db
 ; the game uses this to tell when Elite 4 events need to be reset
 wBeatLorelei:: db
 
-	ds 1
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: check if the player is standing on a door and make him walk down a step if so
 ; bit 1: the player is currently stepping down from a door
@@ -2528,22 +2531,22 @@ wd736:: db
 
 wCompletedInGameTradeFlags:: dw
 
-	ds 2
+	ds 2 ; UNUSED bytes in "Main Data"
 
 wWarpedFromWhichWarp:: db
 wWarpedFromWhichMap:: db
 
-	ds 2
+	ds 2 ; UNUSED bytes in "Main Data"
 
 wCardKeyDoorY:: db
 wCardKeyDoorX:: db
 
-	ds 2
+	ds 2 ; UNUSED bytes in "Main Data"
 
 wFirstLockTrashCanIndex:: db
 wSecondLockTrashCanIndex:: db
 
-	ds 2
+	ds 2 ; UNUSED bytes in "Main Data"
 
 wEventFlags:: flag_array NUM_EVENTS
 
@@ -2593,7 +2596,7 @@ ENDU
 
 wTrainerHeaderPtr:: dw
 
-	ds 6
+	ds 6 ; UNUSED bytes in "Main Data"
 
 ; the trainer the player must face after getting a wrong answer in the Cinnabar
 ; gym quiz
@@ -2604,7 +2607,7 @@ wUnusedDA38:: db
 ; mostly copied from map-specific map script pointer and written back later
 wCurMapScript:: db
 
-	ds 7
+	ds 7 ; UNUSED bytes in "Main Data"
 
 wPlayTimeHours:: db
 wPlayTimeMaxed:: db

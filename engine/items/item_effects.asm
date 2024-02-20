@@ -3659,6 +3659,10 @@ CheckMapForMon:
 	ld a, c
 	ld [de], a
 	inc de
+; new, to make this function more efficient and fix the Tentacool bug
+	inc hl
+	ret
+; back to vanilla
 .nextEntry
 	inc hl
 	inc hl
