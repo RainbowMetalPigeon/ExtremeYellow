@@ -5,14 +5,14 @@ Route13WildMons:
 	db 29, PIDGEOT
 	db 28, DODRIO
 	db 27, FEAROW
-	db 30, PSYDUCK
 	db 32, GOLDUCK
 	db 32, DODRIO
 	db 31, FEAROW
 	db 33, PIDGEOT
-	db 32, FARFETCHD
-	db 35, FARFETCHD
 	db 37, FARFETCHD
+	db 34, PORYGON
+	db 35, PORYGON2
+	db 36, PORYGONZ
 	db  1, MEW
 	end_grass_wildmons
 

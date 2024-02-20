@@ -349,7 +349,7 @@ MapSpecificPikachuExpression:
 	cp PIKACHU_GROTTO
 	jr nz, .notGrotto
 	ldpikaemotion a, PikachuEmotion25
-	jr c, .play_emotion
+	jr .play_emotion
 .notGrotto
 ; back to vanilla
 	cp POKEMON_TOWER_1F
