@@ -77,6 +77,7 @@ CeladonMansion2F_TextPointers:
 	dw CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece ; 14
 	dw CeladonMansion2TextPigeon_PostBattleGivenMapPiece ; 15
 	dw CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece ; 16
+	dw CeladonMansion2TextPigeon_AreYouBackForYourReward ; 17
 
 ; NPCs =========================
 
@@ -85,9 +86,8 @@ CeladonMansion2Text1:
 	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
 	jr z, .beginBattle
 ; try again to give map piece
-
-;	ld hl, PigeonText_PROXY
-;	call PrintText
+	ld hl, CeladonMansion2TextPigeon_AreYouBackForYourReward
+	call PrintText
 	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
 	jr nz, .alreadyHaveAPiece
 ; first piece we obtain
@@ -95,16 +95,18 @@ CeladonMansion2Text1:
 	call GiveItem
 	jr c, .alreadyHaveAPiece
 ; bag is full
-	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
-;	ld hl, PigeonText_PROXY
-;	call PrintText
-;	jr .endScript
+	ld hl, CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece
+	call PrintText
+	jp TextScriptEnd
 .alreadyHaveAPiece
-	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
 	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
-
-;	ld hl, PigeonText_PROXY
-;	call PrintText
+	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	ld a, SFX_GET_KEY_ITEM
+	call PlaySound
+	call Delay3
+	ld hl, CeladonMansion2TextPigeon_PostBattleGivenMapPiece
+	call PrintText
+	jp TextScriptEnd
 
 .beginBattle
 ; initiate battle
@@ -234,4 +236,8 @@ CeladonMansion2TextPigeon_PostBattleGivenMapPiece:
 
 CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece:
 	text_far _CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece
+	text_end
+
+CeladonMansion2TextPigeon_AreYouBackForYourReward:
+	text_far _CeladonMansion2TextPigeon_AreYouBackForYourReward
 	text_end

@@ -85,6 +85,10 @@ _CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece::
 	text "Failed give map"
 	done
 
+_CeladonMansion2TextPigeon_AreYouBackForYourReward::
+	text "Back for reward?"
+	prompt
+
 ; ------------------------------------
 
 _CeladonMansion2TextCramorant::
@@ -201,14 +205,12 @@ _CeladonMansion2TextDannye::
 _CeladonMansion2TextSatoMew::
 	text "Hi! I am SATOMEW!"
 
-	para "I am a top"
-	line "contributor of"
-	cont "the pret project!"
+	para "I am a contributor"
+	line "of the pret"
+	cont "project!"
 
-	para "Besides"
-	line "contributing to"
-	cont "pret itself, I"
-	cont "helped PIGEON"
+	para "Beyond that, I"
+	line "helped PIGEON"
 	cont "with a number of"
 	cont "doubts they have"
 	cont "had, provided"

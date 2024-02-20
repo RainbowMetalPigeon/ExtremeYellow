@@ -141,6 +141,8 @@ StartMenu_Pokemon::
 	jr z, .canFly
 	cp CELADON_MANSION_ROOF
 	jr z, .canFly
+	cp VERMILION_DOCK
+	jr z, .canFly
 ; end of new block to make roof maps flyable
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
@@ -864,7 +866,7 @@ StartMenu_PortablePC:: ; new
 ; if none of the above cp is met, let's open the pc and do the things
 	callfar ActivatePC ; main part
 	jr .done
-	
+
 .cantUseItHere ; no cheese!
 	ld hl, CantUsePCHere
 	call PrintText
