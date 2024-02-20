@@ -44,11 +44,10 @@ INCLUDE "engine/joypad.asm"
 INCLUDE "engine/overworld/clear_variables.asm"
 INCLUDE "engine/overworld/player_state.asm"
 INCLUDE "engine/events/poison.asm"
-INCLUDE "engine/events/heat_damage.asm" ; new, testing
 INCLUDE "engine/overworld/tilesets.asm"
 INCLUDE "engine/overworld/daycare_exp.asm"
 INCLUDE "data/maps/hide_show_data.asm"
-;INCLUDE "engine/overworld/wild_mons.asm" ; moved to bankGarage
+INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
 ;INCLUDE "engine/menus/draw_badges.asm" ; moved to bankGarage
 INCLUDE "engine/overworld/update_map.asm"
@@ -69,7 +68,6 @@ INCLUDE "engine/events/hidden_objects/book_or_sculpture.asm"
 INCLUDE "engine/events/hidden_objects/elevator.asm"
 INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
-INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new, testing
 
 
 SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks
@@ -78,10 +76,11 @@ INCLUDE "engine/menus/draw_badges.asm" ; moved from bank3
 INCLUDE "engine/gfx/animated_tiles_code.asm" ; contains function moved from vcopy.asm, which is in home
 INCLUDE "engine/gfx/hp_bar.asm" ; moved from bank3
 INCLUDE "engine/events/heal_party.asm" ; moved from bank3, after modifying one call into a callfar
-INCLUDE "engine/overworld/wild_mons.asm" ; moved from bank3, it seems it's only callfar-ed or jumpfar-ed
 INCLUDE "engine/overworld/use_another_repel.asm" ; new, from Vortiene
 INCLUDE "engine/overworld/check_map_connections.asm" ; new, from Vortiene
 INCLUDE "engine/miscellanea/miscellanea.asm" ; new
+INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new, testing
+INCLUDE "engine/events/heat_damage.asm" ; new, testing
 
 
 SECTION "bank4", ROMX
