@@ -2345,7 +2345,8 @@ wBillsHouseCurScript:: db
 wRoute5GateCurScript:: db
 wPowerPlantCurScript:: ; overload
 wRoute7GateCurScript:: db
-	ds 1 ; UNUSED bytes in "Main Data"
+wCeladonUniversity2CurScript:: db ; new
+;	ds 1
 wSSAnne2FCurScript:: db
 wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
