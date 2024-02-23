@@ -92,7 +92,7 @@ PredefPointers::
 	add_predef EmotionBubble
 	add_predef EmptyFunc ; return immediately
 	add_predef AskName
-	add_predef PewterGuys
+;	add_predef PewterGuys
 	add_predef SaveSAVtoSRAM2
 	add_predef LoadSAV2
 	add_predef LoadSAV

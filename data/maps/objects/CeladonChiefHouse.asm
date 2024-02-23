@@ -3,11 +3,11 @@ CeladonChiefHouse_Object:
 
 	def_warp_events
 	; old warps, edited, +6 on the y coordinate
-	warp_event  2,  13, LAST_MAP, 12
-	warp_event  3,  13, LAST_MAP, 12
+	warp_event  2,  13, LAST_MAP, 11 ; edited coz removed useless CELADON warp
+	warp_event  3,  13, LAST_MAP, 11 ; edited coz removed useless CELADON warp
 	; new warps, LUNAR_SHRINE
-	warp_event 20,  13, CELADON_CITY, 16
-	warp_event 21,  13, CELADON_CITY, 16
+	warp_event 20,  13, CELADON_CITY, 15
+	warp_event 21,  13, CELADON_CITY, 15
 
 	def_bg_events
 	bg_event 20,  1, 13 ; empty shrine

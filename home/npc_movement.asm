@@ -40,8 +40,8 @@ RunNPCMovementScript::
 
 .NPCMovementScriptPointerTables
 	dw PalletMovementScriptPointerTable
-	dw PewterMuseumGuyMovementScriptPointerTable
-	dw PewterGymGuyMovementScriptPointerTable
+;	dw PewterMuseumGuyMovementScriptPointerTable
+;	dw PewterGymGuyMovementScriptPointerTable
 .playerStepOutFromDoor
 	farjp PlayerStepOutFromDoor
 

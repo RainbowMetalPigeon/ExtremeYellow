@@ -11,11 +11,9 @@ INCLUDE "data/items/prices.asm"
 INCLUDE "data/items/names.asm"
 ;INCLUDE "data/text/unused_names.asm" ; edited, commented out as unused
 INCLUDE "engine/gfx/sprite_oam.asm"
-INCLUDE "engine/link/print_waiting_text.asm"
 INCLUDE "engine/overworld/sprite_collisions.asm"
 INCLUDE "engine/events/pick_up_item.asm"
 INCLUDE "engine/overworld/movement.asm"
-INCLUDE "engine/link/cable_club.asm"
 INCLUDE "engine/menus/main_menu.asm"
 INCLUDE "engine/movie/oak_speech/oak_speech.asm"
 INCLUDE "engine/overworld/special_warps.asm"
@@ -30,12 +28,12 @@ INCLUDE "engine/events/pokecenter.asm"
 INCLUDE "engine/events/set_blackout_map.asm"
 INCLUDE "engine/menus/display_text_id_init.asm"
 INCLUDE "engine/menus/draw_start_menu.asm"
-INCLUDE "engine/link/cable_club_npc.asm"
 INCLUDE "engine/menus/text_box.asm"
 INCLUDE "engine/battle/move_effects/drain_hp.asm"
 INCLUDE "engine/menus/players_pc.asm"
 INCLUDE "engine/pokemon/remove_mon.asm"
 INCLUDE "engine/events/display_pokedex.asm"
+; moved all engine/link files to another bank
 
 
 SECTION "bank3", ROMX
@@ -81,6 +79,9 @@ INCLUDE "engine/overworld/check_map_connections.asm" ; new, from Vortiene
 INCLUDE "engine/miscellanea/miscellanea.asm" ; new
 INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new, testing
 INCLUDE "engine/events/heat_damage.asm" ; new, testing
+INCLUDE "engine/link/print_waiting_text.asm" ; moved from bank1
+INCLUDE "engine/link/cable_club.asm" ; moved from bank1
+INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
 
 
 SECTION "bank4", ROMX

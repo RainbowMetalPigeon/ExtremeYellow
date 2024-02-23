@@ -190,14 +190,67 @@ _CeladonCityText21:: ; new
 	cont "KANTO learning!"
 	done
 
-_CeladonCityTextUniQuizQuestion::
-	text "Question"
-	done
+_CeladonCityTextUniQuizQuestion1::
+	text "You enter the"
+	line "UNIVERSITY, you"
+	cont "must first answer"
+	cont "a question!"
+
+	para "How is this"
+	line "building"
+	cont "labelled?"
+	prompt
+
+_CeladonCityTextUniQuizQuestion2::
+	text "You enter the"
+	line "UNIVERSITY, you"
+	cont "must first answer"
+	cont "a question!"
+
+	para "How is this"
+	line "BUILDING"
+	cont "labelled?"
+
+	para "You can find the"
+	line "answer on the"
+	cont "BUILDING itself."
+	prompt
+
+_CeladonCityTextUniQuizQuestion3::
+	text "You enter the"
+	line "UNIVERSITY, you"
+	cont "must first answer"
+	cont "a question!"
+
+	para "How is this"
+	line "BUILDING"
+	cont "labelled?"
+
+	para "Let me give you"
+	line "one more hint:"
+	cont "look at what"
+	cont "letters appear"
+	cont "on the BUILDING"
+	cont "itself."
+	prompt
 
 _CeladonCityTextUniQuizWrong::
-	text "Wrong"
+	text "Sorry, this is not"
+	line "correct."
+
+	para "Try again any"
+	line "time!"
 	done
 
 _CeladonCityTextUniQuizCorrect::
-	text "Right"
+	text "Exact!"
+
+	para "You're now granted"
+	line "access to the"
+	cont "CELADON"
+	cont "UNIVERSITY."
+
+	para "Explore and enjoy"
+	line "it to your"
+	cont "heart's content!"
 	done

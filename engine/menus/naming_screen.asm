@@ -202,7 +202,7 @@ DisplayNamingScreen:
 	ld bc, NAME_LENGTH
 	call CopyData
 	call GBPalWhiteOutWithDelay3
-	call ReloadMapData ; needed for expanded tileset?	
+	call ReloadMapData ; needed for expanded tileset?
 	call ClearScreen
 	call ClearSprites
 	call RunDefaultPaletteCommand
@@ -280,8 +280,11 @@ DisplayNamingScreen:
 	ld de, Handakutens
 	jr z, .dakutensAndHandakutens
 	ld a, [wNamingScreenType]
+	cp NAME_UNI_QUIZ ; new
+	jr z, .checkPlayerRivalUniAnswerNameLength ; new
 	cp NAME_MON_SCREEN
 	jr nc, .checkMonNameLength
+.checkPlayerRivalUniAnswerNameLength ; new
 	ld a, [wNamingScreenNameLength]
 	cp $7 ; max length of player/rival names
 	jr .checkNameLength
@@ -437,8 +440,11 @@ PrintNicknameAndUnderscores:
 	call PlaceString
 	hlcoord 10, 3
 	ld a, [wNamingScreenType]
-	cp NAME_MON_SCREEN
+	cp NAME_UNI_QUIZ ; new
+	jr z, .playerRivalUniAnswer ; new
+	cp NAME_MON_SCREEN ; new
 	jr nc, .pokemon1
+.playerRivalUniAnswer ; new
 	ld b, 7 ; player or rival max name length
 	jr .playerOrRival1
 .pokemon1
@@ -513,7 +519,6 @@ PrintNamingText:
 	ld de, YourTextString
 	and a
 	jr z, .notNickname
-	ld de, UniQuizAnswerTextString ; new
 	cp NAME_UNI_QUIZ ; =3, new
 	jr z, .quizAnswer ; new
 	ld de, RivalsTextString
@@ -564,4 +569,4 @@ NicknameTextString:
 	db "NICKNAME?@"
 
 UniQuizAnswerTextString: ; new
-	db "YOUR ANSWER:@"
+	db "ANSWER:@"

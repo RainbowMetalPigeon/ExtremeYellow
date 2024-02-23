@@ -24,6 +24,7 @@ DEF SHOW EQU $15
 	const HS_VERMILION_MACHAMP             ; new
 	const HS_VERMILION_CITY_TRAVELER       ; new
 	const HS_VERMILION_CITY_ITEM_1         ; new
+	const HS_CELADON_UNI_GUARD             ; new
 	const HS_CELADON_ROCKET_1			   ; new
 	const HS_CELADON_ROCKET_2			   ; new
 	const HS_CELADON_ROCKET_GUARD_1		   ; new

@@ -2,22 +2,22 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	db $f ; border block
 
 	def_warp_events
-	warp_event  8, 27, CELADON_MART_1F, 1
-	warp_event 10, 27, CELADON_MART_1F, 3
-	warp_event 24, 23, CELADON_MANSION_1F, 1
-	warp_event 24, 17, CELADON_MANSION_1F, 3
-	warp_event 25, 17, CELADON_MANSION_1F, 3
-	warp_event 41, 23, CELADON_POKECENTER, 1
-	warp_event 12, 41, CELADON_GYM, 1
-	warp_event 28, 33, GAME_CORNER, 1
+	warp_event  8, 27, CELADON_MART_1F, 1 ; 1
+	warp_event 10, 27, CELADON_MART_1F, 3 ; 2
+	warp_event 24, 23, CELADON_MANSION_1F, 1 ; 3
+	warp_event 24, 17, CELADON_MANSION_1F, 3 ; 4
+	warp_event 25, 17, CELADON_MANSION_1F, 3 ; 5
+	warp_event 41, 23, CELADON_POKECENTER, 1 ; 6
+	warp_event 12, 41, CELADON_GYM, 1 ; 7
+	warp_event 28, 33, GAME_CORNER, 1 ; 8
 ;	warp_event 39, 33, CELADON_MART_5F, 1 ; useless
-	warp_event 33, 33, GAME_CORNER_PRIZE_ROOM, 1
-	warp_event 27, 41, CELADON_DINER, 1 ; updated
-	warp_event 31, 41, CELADON_CHIEF_HOUSE, 1 ; updated
-	warp_event 35, 41, CELADON_HOTEL, 1 ; updated
-	warp_event 44, 41, CELADON_UNIVERSITY_1, 1 ; new
-	warp_event 12,  7, MT_MOON_B2F, 29 ; new
-	warp_event 36,  8, CELADON_CHIEF_HOUSE, 3 ; LUNAR_SHRINE
+	warp_event 33, 33, GAME_CORNER_PRIZE_ROOM, 1 ; 9
+	warp_event 27, 41, CELADON_DINER, 1 ; updated, 10
+	warp_event 31, 41, CELADON_CHIEF_HOUSE, 1 ; updated, 11
+	warp_event 35, 41, CELADON_HOTEL, 1 ; updated, 12
+	warp_event 44, 41, CELADON_UNIVERSITY_1, 1 ; new, 13
+	warp_event 12,  7, MT_MOON_B2F, 29 ; new, 14
+	warp_event 36,  8, CELADON_CHIEF_HOUSE, 3 ; LUNAR_SHRINE, 15
 
 	def_bg_events
 	bg_event 27, 29, 14 ; CeladonCityText10

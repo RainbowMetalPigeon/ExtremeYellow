@@ -169,8 +169,9 @@
 ; Celadon City events
 	const_next $180
 	const EVENT_GOT_TM41
-	const_skip 9 ; edited, was 11
-	const EVENT_ANSWERED_UNI_QUIZ ; new
+	const_skip 8 ; edited, was 11
+	const EVENT_UNI_QUIZ_ANSWERED_WRONGLY_1 ; new
+	const EVENT_UNI_QUIZ_ANSWERED_WRONGLY_2 ; new
 	const EVENT_1ST_SPOKE_WITH_PIGEON ; new
 	const EVENT_GOT_TM13
 	const EVENT_GOT_TM48

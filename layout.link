@@ -54,7 +54,7 @@ ROMX $5
 ROMX $6
 	"Maps 1"
 	"Maps 2"
-;	"Doors and Ledges" ; testing
+	"Doors and Ledges"
 ROMX $7
 	"Maps 3"
 	"bank7"

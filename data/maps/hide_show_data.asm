@@ -291,6 +291,7 @@ VermilionCityHS: ; new
 	db VERMILION_CITY, $09, HIDE
 	db VERMILION_CITY, $0A, SHOW ; rare candy
 CeladonCityHS: ; new
+	db CELADON_CITY, $02, SHOW ; Uni guard
 	db CELADON_CITY, $08, SHOW ; old Rocket grunts
 	db CELADON_CITY, $09, SHOW ; old Rocket grunts
 	db CELADON_CITY, $0A, SHOW ; new Rocket grunts

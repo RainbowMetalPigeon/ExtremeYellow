@@ -27,100 +27,22 @@ CeladonCityHideShowLunarTemplePath:
 CeladonCity_ScriptPointers:
 	dw CeladonCityScript0
 	dw CeladonScript_Traveler ; new, for traveler
-	dw CeladonCityScript2 ; new
+	dw CeladonCityScript2 ; new, to hide Uni guard
 
 CeladonCityScript0: ; edited, for Uni entry quiz
 	ret
-	CheckEvent EVENT_ANSWERED_UNI_QUIZ
-	ret nz
-
-	ld hl, CoordsData_CeladonUniDoor
-	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
-	ret nc
-
-	ld a, PLAYER_DIR_UP
-	ld [wPlayerMovingDirection], a
-	ld a, 27 ; TBE
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-
-.entryAnswer
-
-	ld hl, wUniQuizAnswer ; this can hold a 7-letter answer
-
-	xor a ; NAME_PLAYER_SCREEN
-	ld [wNamingScreenType], a
-
-	farcall DisplayNameRaterScreen
-	call ReloadTilesetTilePatterns ; new, to expand tileset
-
-	ld a, [wStringBuffer]
-	cp "@"
-	jr z, .entryAnswer
-	call ClearScreen
-	call Delay3
-
-	ld a, [wUniQuizAnswer]
-	cp "U"
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+1]
-	cp "N"
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+2]
-	cp "I"
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+3]
-	cp "U"
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+4]
-	cp "N"
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+5]
-	cp "I"
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+6]
-	cp "@"
-	jr nz, .wrongAnswer
-; right answer
-	ld a, 29 ; TBE
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	SetEvent EVENT_ANSWERED_UNI_QUIZ
-	ret
-
-.wrongAnswer
-	ld a, 28 ; TBE
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-
-	ld a, $1
-	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_DOWN
-	ld [wSimulatedJoypadStatesEnd], a
-	call StartSimulatingJoypadStates
-
-	xor a
-	ld [wSpritePlayerStateData1FacingDirection], a
-	ld [wJoyIgnore], a
-	ldh [hJoyHeld], a
-
-	ld a, 2 ; TBE
-	ld [wCeladonCityCurScript], a
-	ret
-
-	ret
-
-CoordsData_CeladonUniDoor:
-	dbmapcoord 44,  42
-	db -1 ; end
 
 CeladonCityScript2:
-	ld a, [wSimulatedJoypadStatesIndex]
-	and a
-	ret nz
+	call GBFadeOutToBlack
+	ld a, HS_CELADON_UNI_GUARD
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
 	call Delay3
-	ld a, 0
+	call GBFadeInFromBlack
+	xor a
 	ld [wCeladonCityCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 ; ================================
@@ -153,9 +75,11 @@ CeladonCity_TextPointers:
 	dw CeladonCityText20 ; new
 	dw CeladonCityText21 ; new
 	dw TextPostBattle_CeladonTraveler ; 26, new, for traveler
-	dw CeladonCityTextUniQuizQuestion ; 27, TBE
-	dw CeladonCityTextUniQuizWrong ; 28, TBE
-	dw CeladonCityTextUniQuizCorrect ; 29, TBE
+	dw CeladonCityTextUniQuizQuestion1 ; 27
+	dw CeladonCityTextUniQuizQuestion2 ; 28
+	dw CeladonCityTextUniQuizQuestion3 ; 29
+	dw CeladonCityTextUniQuizWrong ; 30
+	dw CeladonCityTextUniQuizCorrect ; 31
 
 CeladonCityText10New:
 	text_far _CeladonCityText10New
@@ -171,19 +95,60 @@ CeladonCityText1:
 
 CeladonCityText2: ; edited
 	text_asm
-
 	call SaveScreenTilesToBuffer2
-	ld hl, TM41PreText
+	CheckEvent EVENT_UNI_QUIZ_ANSWERED_WRONGLY_2
+	jr nz, .question3
+	CheckEvent EVENT_UNI_QUIZ_ANSWERED_WRONGLY_1
+	jr nz, .question2
+	; first time
+	ld hl, CeladonCityTextUniQuizQuestion1
+	jr .continue
+.question2
+	ld hl, CeladonCityTextUniQuizQuestion2
+	jr .continue
+.question3
+	ld hl, CeladonCityTextUniQuizQuestion3
+	jr .continue
+.continue
 	call PrintText
-	farcall DisplayUniQuizScreen ; DisplayNameRaterScreen
-;	call GBPalWhiteOutWithDelay3
-;	call RestoreScreenTilesAndReloadTilePatterns
-;	call LoadGBPal
-;	call ReloadMapSpriteTilePatterns
-;	call ReloadTilesetTilePatterns
-	ld hl, TM41ExplanationText
+	farcall DisplayUniQuizScreen
+; check the answer
+	ld a, [wUniQuizAnswer]
+	cp "U"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+1]
+	cp "N"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+2]
+	cp "I"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+3]
+	cp "U"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+4]
+	cp "N"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+5]
+	cp "I"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+6]
+	cp "@"
+	jr nz, .wrongAnswer
+; right answer
+	ld hl, CeladonCityTextUniQuizCorrect
 	call PrintText
-
+; script handling
+	ld a, 2
+	ld [wCeladonCityCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.wrongAnswer
+	CheckAndSetEvent EVENT_UNI_QUIZ_ANSWERED_WRONGLY_1
+	jr z, .firstWrong
+	SetEvent EVENT_UNI_QUIZ_ANSWERED_WRONGLY_2
+.firstWrong
+	ld hl, CeladonCityTextUniQuizWrong
+	call PrintText
 	jp TextScriptEnd
 
 CeladonCityText3:
@@ -298,8 +263,16 @@ CeladonCityText21: ; new
 	text_far _CeladonCityText21
 	text_end
 
-CeladonCityTextUniQuizQuestion: ; new
-	text_far _CeladonCityTextUniQuizQuestion
+CeladonCityTextUniQuizQuestion1: ; new
+	text_far _CeladonCityTextUniQuizQuestion1
+	text_end
+
+CeladonCityTextUniQuizQuestion2: ; new
+	text_far _CeladonCityTextUniQuizQuestion2
+	text_end
+
+CeladonCityTextUniQuizQuestion3: ; new
+	text_far _CeladonCityTextUniQuizQuestion3
 	text_end
 
 CeladonCityTextUniQuizWrong: ; new
@@ -313,7 +286,7 @@ CeladonCityTextUniQuizCorrect: ; new
 ; ================================
 
 TextPreBattle_CeladonTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_CeladonTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty
@@ -376,7 +349,7 @@ TextPostBattle_CeladonTraveler:
 ; --------------------------------
 
 CeladonScript_Traveler:
-	ld a, [wIsInBattle] 
+	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
 	xor a

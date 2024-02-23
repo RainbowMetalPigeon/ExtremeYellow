@@ -3,8 +3,8 @@ CeladonUniversity1_Object:
 
 	def_warp_events
 	; hall
-	warp_event  6, 29, LAST_MAP, 14 ; 1
-	warp_event  7, 29, LAST_MAP, 14 ; 2
+	warp_event  6, 29, LAST_MAP, 13 ; 1
+	warp_event  7, 29, LAST_MAP, 13 ; 2
 	warp_event  2, 22, CELADON_UNIVERSITY_1, 7 ; 3
 	warp_event  4, 22, CELADON_UNIVERSITY_2, 1 ; 4
 	warp_event  8, 22, CELADON_UNIVERSITY_2, 3 ; 5

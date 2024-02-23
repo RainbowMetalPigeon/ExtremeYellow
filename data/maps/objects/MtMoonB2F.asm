@@ -43,7 +43,7 @@ MtMoonB2F_Object:
 	warp_event 38, 52, ROUTE_4,     34 ; 27 (15)
 
 	warp_event 58,  2, ROUTE_4,     35 ; 28 (47)
-	warp_event 58, 56, CELADON_CITY, 15 ; 29
+	warp_event 58, 56, CELADON_CITY, 14 ; 29
 
 
 	def_bg_events
