@@ -10,7 +10,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	warp_event 41, 23, CELADON_POKECENTER, 1
 	warp_event 12, 41, CELADON_GYM, 1
 	warp_event 28, 33, GAME_CORNER, 1
-	warp_event 39, 33, CELADON_MART_5F, 1
+;	warp_event 39, 33, CELADON_MART_5F, 1 ; useless
 	warp_event 33, 33, GAME_CORNER_PRIZE_ROOM, 1
 	warp_event 27, 41, CELADON_DINER, 1 ; updated
 	warp_event 31, 41, CELADON_CHIEF_HOUSE, 1 ; updated
@@ -35,7 +35,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 
 	def_object_events
 	object_event  8, 31, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
-	object_event 11, 42, SPRITE_GRAMPS, STAY, UP, 2 ; person
+	object_event 44, 42, SPRITE_GUARD, STAY, DOWN, 2 ; ex-geezer, now University guard
 	object_event 14, 33, SPRITE_GIRL, WALK, UP_DOWN, 3 ; person
 	object_event 25, 36, SPRITE_GRAMPS, STAY, DOWN, 4 ; person
 	object_event 22, 30, SPRITE_GRAMPS, STAY, DOWN, 5 ; person

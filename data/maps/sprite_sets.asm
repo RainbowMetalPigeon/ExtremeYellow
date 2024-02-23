@@ -136,7 +136,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_LITTLE_GIRL
-	db SPRITE_BLUE ; edited
+	db SPRITE_GUARD ; edited (twice?), was SPRITE_BLUE but why?
 	db SPRITE_GIRL
 	db SPRITE_FISHER
 	db SPRITE_TRAVELER ; edited, was SPRITE_MIDDLE_AGED_MAN

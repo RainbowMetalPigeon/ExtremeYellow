@@ -35,7 +35,7 @@ AskName:
 	call ReloadMapSpriteTilePatterns
 	call ReloadTilesetTilePatterns ; new, to expand tileset
 .inBattle
-;	call LoadScreenTilesFromBuffer1 ; to be commented out to expand tileset?
+;	call LoadScreenTilesFromBuffer1 ; to be commented out to expand tileset? - it seems to do nothing
 	pop hl
 	pop af
 	ld [wUpdateSpritesEnabled], a
@@ -81,6 +81,36 @@ DisplayNameRaterScreen::
 	scf
 	ret
 
+DisplayUniQuizScreen:: ; new
+	ld hl, wUniQuizAnswer ; does this even do anything?
+	xor a
+	ld [wUpdateSpritesEnabled], a
+
+	ld a, NAME_UNI_QUIZ ; 3
+	ld [wNamingScreenType], a
+
+	call DisplayNamingScreen
+
+	call GBPalWhiteOutWithDelay3
+	call RestoreScreenTilesAndReloadTilePatterns
+	call LoadGBPal
+
+	ld a, [wStringBuffer]
+	cp "@"
+	jr z, .playerCancelled
+
+;	ld e, l
+;	ld d, h
+;	ld hl, wUniQuizAnswer
+;	ld bc, NAME_LENGTH
+;	call CopyData ; copies bc bytes from hl to de
+
+	and a
+	ret
+.playerCancelled
+	scf
+	ret
+
 DisplayNamingScreen:
 	push hl
 	ld hl, wd730
@@ -92,7 +122,13 @@ DisplayNamingScreen:
 	call RunPaletteCommand
 	call LoadHpBarAndStatusTilePatterns
 	call LoadEDTile
+; new, to handle Uni Quiz
+	ld a, [wNamingScreenType]
+	cp NAME_UNI_QUIZ
+	jr z, .skipMonsAnimation
 	farcall LoadMonPartySpriteGfx
+.skipMonsAnimation
+; back to vanilla
 	hlcoord 0, 4
 	lb bc, 9, 18
 	call TextBoxBorder
@@ -127,7 +163,13 @@ DisplayNamingScreen:
 .inputLoop
 	ld a, [wCurrentMenuItem]
 	push af
+; new, to handle Uni Quiz
+	ld a, [wNamingScreenType]
+	cp NAME_UNI_QUIZ
+	jr z, .skipMonsAnimation2
 	farcall AnimatePartyMon_ForceSpeed1
+.skipMonsAnimation2
+; back to vanilla
 	pop af
 	ld [wCurrentMenuItem], a
 	call JoypadLowSensitivity
@@ -471,6 +513,9 @@ PrintNamingText:
 	ld de, YourTextString
 	and a
 	jr z, .notNickname
+	ld de, UniQuizAnswerTextString ; new
+	cp NAME_UNI_QUIZ ; =3, new
+	jr z, .quizAnswer ; new
 	ld de, RivalsTextString
 	dec a
 	jr z, .notNickname
@@ -486,11 +531,17 @@ PrintNamingText:
 ;	ld hl, $1
 ;	add hl, bc
 ;	ld [hl], "の" ; leftover from Japanese version; blank tile $c9 in English
-    ld hl, $0		; new
-    add hl, bc		; new
-    ld [hl], "'s"	; new
+	ld hl, $0		; new
+	add hl, bc		; new
+	ld [hl], "'s"	; new
 	hlcoord 1, 3
 	ld de, NicknameTextString
+	jr .placeString
+.quizAnswer
+	call PlaceString
+	ld l, c
+	ld h, b
+	ld de, UniQuizAnswerTextString
 	jr .placeString
 .notNickname
 	call PlaceString
@@ -511,3 +562,6 @@ NameTextString:
 
 NicknameTextString:
 	db "NICKNAME?@"
+
+UniQuizAnswerTextString: ; new
+	db "YOUR ANSWER:@"

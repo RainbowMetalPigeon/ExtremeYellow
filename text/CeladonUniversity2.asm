@@ -132,6 +132,8 @@ _CeladonUniversity2Text14:: ; researcher
 
 ; --- signs ---
 
+; --- other ---
+
 _CeladonUniversity2SignTest1::
     text "SIGN TEST 1"
     done

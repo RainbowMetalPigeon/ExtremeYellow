@@ -110,14 +110,17 @@ _MrFujiAfterFluteAndStoneText::
 	cont "mysterious stone?"
 	done
 
-_LavenderHouse1Text6::
-	text "#MON Monthly"
-	line "Grand Prize"
-	cont "Drawing!"
+_LavenderHouse1Text6:: ; edited
+	text "That's number 25"
+	line "of the GAMR FREAK"
+	cont "magazine!"
 
-	para "The application"
-	line "form is..."
+	para "There's a kid"
+	line "happily playing,"
+	cont "and a number of"
+	cont "funny creatures."
 
-	para "Gone! It's been"
-	line "clipped out!"
+	para "One of them looks"
+	line "like a bit like a"
+	cont "familiar mouse..."
 	done
