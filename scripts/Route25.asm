@@ -33,9 +33,9 @@ Route25Script_515e1:
 	CheckEventAfterBranchReuseHL EVENT_GOT_SS_TICKET, EVENT_MET_BILL_2
 	jr z, .asm_5165c
 	SetEventReuseHL EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING
-	ld a, HS_NUGGET_BRIDGE_GUY
-	ld [wMissableObjectIndex], a
-	predef HideObject
+;	ld a, HS_NUGGET_BRIDGE_GUY		; edited, moved after Obsidian Warehouse
+;	ld [wMissableObjectIndex], a	; edited, moved after Obsidian Warehouse
+;	predef HideObject				; edited, moved after Obsidian Warehouse
 	ld a, HS_BILL_1
 	ld [wMissableObjectIndex], a
 	predef HideObject

@@ -158,15 +158,15 @@ MapHSPointers:
 	dw PokemonTower6FHS
 	dw PokemonTower7FHS
 	dw MrFujisHouseHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; LAVENDER_MART
+	dw NoHS ; LAVENDER_CUBONE_HOUSE
+	dw NoHS ; OCHRE_RESEARCH_CENTER_2
+	dw NoHS ; FUCHSIA_BILLS_GRANDPAS_HOUSE
+	dw NoHS ; FUCHSIA_POKECENTER
 	dw WardensHouseHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; SAFARI_ZONE_GATE
+	dw FuchsiaGymHS ; new
+	dw FuchsiaMeetingRoomHS ; new
 	dw SeafoamIslandsB1FHS
 	dw SeafoamIslandsB2FHS
 	dw SeafoamIslandsB3FHS
@@ -774,5 +774,15 @@ OchreHousesHS: ; new
 	db OCHRE_HOUSES, $0C, SHOW
 PikachuGrottoHS: ; new
 	db PIKACHU_GROTTO, $01, SHOW
+FuchsiaMeetingRoomHS: ; new
+	db FUCHSIA_MEETING_ROOM, $01, HIDE
+	db FUCHSIA_MEETING_ROOM, $02, HIDE
+	db FUCHSIA_MEETING_ROOM, $03, HIDE
+	db FUCHSIA_MEETING_ROOM, $04, SHOW
+	db FUCHSIA_MEETING_ROOM, $05, SHOW
+	db FUCHSIA_MEETING_ROOM, $06, SHOW
+	db FUCHSIA_MEETING_ROOM, $07, SHOW ; Koga
+FuchsiaGymHS: ; new
+	db FUCHSIA_GYM, $01, HIDE ; Koga
 
 	db $FF, $01, SHOW ; end, list terminator

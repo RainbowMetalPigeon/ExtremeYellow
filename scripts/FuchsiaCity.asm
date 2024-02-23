@@ -17,10 +17,10 @@ FuchsiaScript0:
 	ret
 
 FuchsiaCity_TextPointers:
-	dw FuchsiaCityText1
-	dw FuchsiaCityText2
-	dw FuchsiaCityText3 ; Erik waiting for Sara
-	dw FuchsiaCityText4
+	dw FuchsiaCityText1 ; edited
+	dw FuchsiaCityText2 ; edited
+	dw FuchsiaCityText3 ; Erik waiting for Sara, edited
+	dw FuchsiaCityText4 ; edited
 	dw FuchsiaCityText5
 	dw FuchsiaCityText6
 	dw FuchsiaCityText7
@@ -49,15 +49,53 @@ FuchsiaCity_TextPointers:
 	dw FuchsiaCityText_ErikSurprised ; new, for Erik, 29
 
 FuchsiaCityText1:
-	text_far _FuchsiaCityText1
+	text_asm
+	ld hl, FuchsiaCityText1_Pre
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr z, .printAndEnd
+	ld hl, FuchsiaCityText1_Post
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaCityText1_Pre:
+	text_far _FuchsiaCityText1_Pre
 	text_end
+
+FuchsiaCityText1_Post:
+	text_far _FuchsiaCityText1_Post
+	text_end
+
+; ---------------
 
 FuchsiaCityText2:
-	text_far _FuchsiaCityText2
+	text_asm
+	ld hl, FuchsiaCityText2_Pre
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr z, .printAndEnd
+	ld hl, FuchsiaCityText2_Post
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaCityText2_Pre:
+	text_far _FuchsiaCityText2_Pre
 	text_end
 
-FuchsiaCityText3:
+FuchsiaCityText2_Post:
+	text_far _FuchsiaCityText2_Post
+	text_end
+
+; ---------------
+
+FuchsiaCityText3: ; edited
 	text_asm
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr nz, .giovanniDefeat
+	ld hl, FuchsiaCityText_Erik_Pre
+	call PrintText
+	jr .conclude
+.giovanniDefeat
 	ld hl, FuchsiaCityText_ErikWaiting
 	call PrintText
 	CheckEvent EVENT_SPOKEN_WITH_SARA
@@ -138,9 +176,27 @@ FuchsiaErikMovements_PlayerRight:
 	db NPC_MOVEMENT_LEFT
 	db -1 ; end
 
+; ---------------
+
 FuchsiaCityText4:
-	text_far _FuchsiaCityText4
+	text_asm
+	ld hl, FuchsiaCityText4_Pre
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr z, .printAndEnd
+	ld hl, FuchsiaCityText4_Post
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaCityText4_Pre:
+	text_far _FuchsiaCityText4_Pre
 	text_end
+
+FuchsiaCityText4_Post:
+	text_far _FuchsiaCityText4_Post
+	text_end
+
+; ---------------
 
 FuchsiaCityText5:
 FuchsiaCityText6:
@@ -249,7 +305,11 @@ FuchsiaCityKabutoText:
 
 ; ---------------------------------
 
-FuchsiaCityText_ErikWaiting: ; new
+FuchsiaCityText_Erik_Pre: ; new, before Giovanni defeat
+	text_far _FuchsiaCityText_Erik_Pre
+	text_end
+
+FuchsiaCityText_ErikWaiting: ; edited
 	text_far _FuchsiaCityText_ErikWaiting
 	text_end
 

@@ -352,6 +352,11 @@ FuchsiaGymAfterBattleText7:
 
 FuchsiaGymGuideText:
 	text_asm
+; new, modify text if Koga is absent
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymGuidePreKogaReturn
+	jr z, .afterBeat
+; back to vanilla
 	CheckEvent EVENT_BEAT_KOGA
 	ld hl, FuchsiaGymGuidePostBattleText
 	jr nz, .afterBeat
@@ -359,6 +364,10 @@ FuchsiaGymGuideText:
 .afterBeat
 	call PrintText
 	jp TextScriptEnd
+
+FuchsiaGymGuidePreKogaReturn: ; new
+	text_far _FuchsiaGymGuidePreKogaReturn
+	text_end
 
 FuchsiaGymGuidePreBattleText:
 	text_far _FuchsiaGymGuidePreBattleText

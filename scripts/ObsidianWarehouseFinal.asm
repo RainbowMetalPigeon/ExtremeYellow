@@ -43,11 +43,14 @@ EndTrainerBattle_Custom:
 	ld a, $7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	; hide Obsidian Rockets, Fuchsia Rocket, and show Obsidian citizens
+	; hide Obsidian Rockets, Fuchsia Rocket, and show Obsidian citizens, as well as people in Fuchsia Meeting Room
 	call GBFadeOutToBlack
-	call HideObsidianFuchsiaRockets
-	call HideObsidianFuchsiaRocketsExtra
-	call ShowObsidianCitizens
+
+	call HideNPCsAfterObsidianGiovanni
+	call HideExtraNPCsAfterObsidianGiovanni
+;	call ShowNPCsAfterObsidianGiovanni ; unnecessary right now, so not written
+	call ShowExtraNPCsAfterObsidianGiovanni
+
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -279,14 +282,16 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_JESSIEJAMES
 	ld a, $0
-	call ObsidianWarehouseFinalScript_ChangeScript ; TBV
+	call ObsidianWarehouseFinalScript_ChangeScript
 	ret
 
-HideObsidianFuchsiaRockets:
-	ld hl, ObsidianFuchsiaRockets
+; ----------------- hide/show functions -----------------
+
+HideNPCsAfterObsidianGiovanni:
+	ld hl, NPCsToHide
 .hideLoop
 	ld a, [hli]
-	cp $ff ; have we run out of rockets to hide?
+	cp $ff ; have we run out of NPCs to hide?
 	ret z ; if so, we're done
 	push hl
 	ld [wMissableObjectIndex], a
@@ -294,18 +299,19 @@ HideObsidianFuchsiaRockets:
 	pop hl
 	jr .hideLoop
 
-ObsidianFuchsiaRockets:
+NPCsToHide:
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_1
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_2
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_3
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_4
+	db HS_NUGGET_BRIDGE_GUY ; previously hidden right after helping Bill
 	db $ff
 
-HideObsidianFuchsiaRocketsExtra:
-	ld hl, ObsidianFuchsiaRocketsExtra
+HideExtraNPCsAfterObsidianGiovanni:
+	ld hl, NPCsToHideExtra
 .hideLoop
 	ld a, [hli]
-	cp $ff ; have we run out of rockets to hide?
+	cp $ff ; have we run out of NPCs to hide?
 	ret z ; if so, we're done
 	push hl
 	ld [wMissableObjectIndex], a
@@ -313,7 +319,7 @@ HideObsidianFuchsiaRocketsExtra:
 	pop hl
 	jr .hideLoop
 
-ObsidianFuchsiaRocketsExtra:
+NPCsToHideExtra:
 	db HS_OBSIDIAN_ISLAND_ROCKET_1
 	db HS_OBSIDIAN_ISLAND_ROCKET_2
 	db HS_OBSIDIAN_ISLAND_ROCKET_3
@@ -329,16 +335,19 @@ ObsidianFuchsiaRocketsExtra:
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
-	db HS_CELADON_CHIEF_HOUSE_1 ; new
-	db HS_CELADON_CHIEF_HOUSE_2 ; new
-	db HS_CELADON_CHIEF_HOUSE_3 ; new
+	db HS_CELADON_CHIEF_HOUSE_1
+	db HS_CELADON_CHIEF_HOUSE_2
+	db HS_CELADON_CHIEF_HOUSE_3
+	db HS_FUCHSIA_MEETING_ROOM_BEFORE_1
+	db HS_FUCHSIA_MEETING_ROOM_BEFORE_2
+	db HS_FUCHSIA_MEETING_ROOM_BEFORE_3
 	db $ff
 
-ShowObsidianCitizens:
-	ld hl, ObsidianCitizens
+ShowExtraNPCsAfterObsidianGiovanni:
+	ld hl, NPCsToShowExtra
 .hideLoop
 	ld a, [hli]
-	cp $ff ; have we run out of citizens to show?
+	cp $ff ; have we run out of NPCs to show?
 	ret z ; if so, we're done
 	push hl
 	ld [wMissableObjectIndex], a
@@ -346,7 +355,7 @@ ShowObsidianCitizens:
 	pop hl
 	jr .hideLoop
 
-ObsidianCitizens:
+NPCsToShowExtra:
 	db HS_OBSIDIAN_ISLAND_SCIENTIST_1
 	db HS_OBSIDIAN_ISLAND_SCIENTIST_2
 	db HS_OBSIDIAN_ISLAND_OFFICIER
@@ -356,6 +365,9 @@ ObsidianCitizens:
 	db HS_OBSIDIAN_ISLAND_CITIZEN_4
 	db HS_OBSIDIAN_POKECENTER_NPC_1
 	db HS_OBSIDIAN_POKECENTER_NPC_2
+	db HS_FUCHSIA_MEETING_ROOM_AFTER_1
+	db HS_FUCHSIA_MEETING_ROOM_AFTER_2
+	db HS_FUCHSIA_MEETING_ROOM_AFTER_3
 	db $ff
 
 ; ================= scripts, end =================

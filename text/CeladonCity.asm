@@ -191,7 +191,7 @@ _CeladonCityText21:: ; new
 	done
 
 _CeladonCityTextUniQuizQuestion1::
-	text "You enter the"
+	text "To enter the"
 	line "UNIVERSITY, you"
 	cont "must first answer"
 	cont "a question!"
@@ -202,7 +202,7 @@ _CeladonCityTextUniQuizQuestion1::
 	prompt
 
 _CeladonCityTextUniQuizQuestion2::
-	text "You enter the"
+	text "To enter the"
 	line "UNIVERSITY, you"
 	cont "must first answer"
 	cont "a question!"
@@ -217,7 +217,7 @@ _CeladonCityTextUniQuizQuestion2::
 	prompt
 
 _CeladonCityTextUniQuizQuestion3::
-	text "You enter the"
+	text "To enter the"
 	line "UNIVERSITY, you"
 	cont "must first answer"
 	cont "a question!"

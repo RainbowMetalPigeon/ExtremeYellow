@@ -33,7 +33,7 @@ CeladonUniversity2_Object:
 
 	; computing center
 	object_event 34, 29, SPRITE_SCIENTIST_F, STAY, UP, 12 ; researcher, pc
-	object_event 40, 27, SPRITE_SCIENTIST, STAY, UP, 13 ; researcher, table
-	object_event 46, 24, SPRITE_SCIENTIST_F, WALK, LEFT_RIGHT, 14 ; researcher, machines
+	object_event 40, 27, SPRITE_SCIENTIST_F, STAY, UP, 13 ; researcher, table
+	object_event 46, 24, SPRITE_SCIENTIST, WALK, LEFT_RIGHT, 14 ; researcher, machines
 
 	def_warps_to CELADON_UNIVERSITY_2

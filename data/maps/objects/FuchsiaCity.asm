@@ -28,16 +28,19 @@ FuchsiaCity_Object:
 	bg_event  7,  7, 27 ; FuchsiaCityText24
 
 	def_object_events
+	; humans
 	object_event 10, 12, SPRITE_FISHER, WALK, LEFT_RIGHT, 1 ; edited, it was SPRITE_YOUNGSTER
 	object_event 28, 17, SPRITE_GAMBLER, WALK, LEFT_RIGHT, 2 ; person
 	object_event 30, 14, SPRITE_FISHER, STAY, DOWN, 3 ; Erik waiting for Sara
 	object_event 24,  8, SPRITE_GAMBLER, STAY, UP, 4 ; edited, it was SPRITE_YOUNGSTER
+	; mons
 	object_event 31,  5, SPRITE_MONSTER, STAY, DOWN, 5 ; zoo mon ; edited sprite
 	object_event 25,  6, SPRITE_POKE_BALL, STAY, NONE, 6 ; zoo mon
 	object_event 12,  6, SPRITE_MONSTER, WALK, LEFT_RIGHT, 7 ; zoo mon
 	object_event 30, 12, SPRITE_MONSTER, WALK, LEFT_RIGHT, 8 ; zoo mon
 	object_event  8, 17, SPRITE_FOSSIL, WALK, ANY_DIR, 9 ; zoo mon ; edited sprite
 	object_event  6,  5, SPRITE_FOSSIL, STAY, NONE, 10 ; zoo mon
+	; new humans
 	object_event 18,  4, SPRITE_ROCKET, STAY, DOWN, 11 ; new
 	object_event 30, 14, SPRITE_FISHER, STAY, LEFT, 12 ; new, Erik happy
 	object_event 29, 14, SPRITE_GIRL, STAY, RIGHT, 13 ; new, Sara happy

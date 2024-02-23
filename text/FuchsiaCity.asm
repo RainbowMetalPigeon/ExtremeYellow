@@ -1,24 +1,69 @@
-_FuchsiaCityText1::
-	text "Did you try the"
-	line "SAFARI GAME? Some"
-	cont "#MON can only"
-	cont "be caught there."
+_FuchsiaCityText1_Pre:: ; new
+	text "Damn, I miss the"
+	line "SAFARI GAME, but"
+	cont "with those"
+	cont "ROCKETs around,"
+	cont "we can't play it"
+	cont "anymore..."
 	done
 
-_FuchsiaCityText2::
-	text "SAFARI ZONE has a"
-	line "zoo in front of"
-	cont "the entrance."
+_FuchsiaCityText1_Post:: ; edited
+	text "Finally TEAM"
+	line "ROCKET left! I"
+	cont "can go back"
+	cont "playing the"
+	cont "SAFARI GAME!"
 
-	para "Out back is the"
-	line "SAFARI GAME for"
+	para "Did you try it?"
+	line "Some #MON can"
+	cont "only be caught"
+	cont "there."
+	done
+
+_FuchsiaCityText2_Pre:: ; new
+	text "TEAM ROCKET is"
+	line "really"
+	cont "terrible... they"
+	cont "took control of"
+	cont "the SAFARI ZONE,"
+	cont "and when the KOGA"
+	cont "chased away their"
+	cont "grunt, they"
+	cont "retaliate on the"
+	cont "whole city."
+
+	para "I never got"
+	line "clobbered so"
+	cont "badly..."
+	done
+
+_FuchsiaCityText2_Post:: ; edited
+	text "The SAFARI ZONE is"
+	line "now open again!"
+
+	para "It has a zoo in"
+	line "front of the"
+	cont "entrance, while"
+	cont "out back is the"
+	cont "SAFARI GAME for"
 	cont "catching #MON."
 	done
 
-_FuchsiaCityText_ErikWaiting::
+_FuchsiaCityText_Erik_Pre:: ; new
+	text "ERIK: With this"
+	line "horrible ROCKET"
+	cont "situation, I'm so"
+	cont "worried for my"
+	cont "partner SARA..."
+	done
+
+_FuchsiaCityText_ErikWaiting:: ; edited
 	text "ERIK: Where's"
 	line "SARA? I said I'd"
-	cont "meet them here."
+	cont "meet them here,"
+	cont "now that someone"
+	cont "finally got rid"
+	cont "of TEAM ROCKET."
 	done
 
 _FuchsiaCityText_ErikSurprised:: ; new
@@ -34,10 +79,35 @@ _FuchsiaCityText_ErikSurprised:: ; new
 	cont "away!"
 	done
 
-_FuchsiaCityText4::
-	text "That item ball in"
-	line "there is really a"
-	cont "#MON."
+_FuchsiaCityText4_Pre:: ; new
+	text "Sssh! Stop asking"
+	line "questions about"
+	cont "TEAM ROCKET!"
+
+	para "My ribs still hurt"
+	line "from all the"
+	cont "kicks I took last"
+	cont "time somebody"
+	cont "bothered them."
+
+	para "It's easier to"
+	line "just leave them"
+	cont "be. Trust me."
+	done
+
+_FuchsiaCityText4_Post:: ; edited
+	text "Unbelievable!"
+	line "Somebody faced"
+	cont "and defeated TEAM"
+	cont "ROCKET!"
+
+	para "Now we can enjoy"
+	line "our lives as we"
+	cont "once did!"
+
+;	text "That item ball in"
+;	line "there is really a"
+;	cont "#MON."
 	done
 
 _FuchsiaCityText5::

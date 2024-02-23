@@ -225,6 +225,22 @@ _FuchsiaGymAfterBattleText7::
 	cont "I mean, KOGA!"
 	done
 
+_FuchsiaGymGuidePreKogaReturn:: ; new
+	text "Hey! You're here"
+	line "to challenge"
+	cont "KOGA?"
+
+	para "I'm sorry, but the"
+	line "GYM LEADER is"
+	cont "currently absent."
+
+	para "They are having a"
+	line "meeting with the"
+	cont "SAFARI ZONE"
+	cont "people..."
+	cont "tough stuff."
+	done
+
 _FuchsiaGymGuidePreBattleText::
 	text "Yo! Champ in"
 	line "making!"
