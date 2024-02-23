@@ -189,3 +189,15 @@ _CeladonCityText21:: ; new
 	line "The apotheosis of"
 	cont "KANTO learning!"
 	done
+
+_CeladonCityTextUniQuizQuestion::
+	text "Question"
+	done
+
+_CeladonCityTextUniQuizWrong::
+	text "Wrong"
+	done
+
+_CeladonCityTextUniQuizCorrect::
+	text "Right"
+	done

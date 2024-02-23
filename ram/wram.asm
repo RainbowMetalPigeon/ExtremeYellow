@@ -2345,7 +2345,8 @@ wBillsHouseCurScript:: db
 wRoute5GateCurScript:: db
 wPowerPlantCurScript:: ; overload
 wRoute7GateCurScript:: db
-	ds 1 ; UNUSED bytes in "Main Data"
+wCeladonUniversity2CurScript:: db ; new
+;	ds 1
 wSSAnne2FCurScript:: db
 wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
@@ -2596,7 +2597,7 @@ ENDU
 
 wTrainerHeaderPtr:: dw
 
-	ds 6 ; UNUSED bytes in "Main Data"
+	ds 4 ; UNUSED bytes in "Main Data"; edited, was 6
 
 ; the trainer the player must face after getting a wrong answer in the Cinnabar
 ; gym quiz
@@ -2607,7 +2608,8 @@ wUnusedDA38:: db
 ; mostly copied from map-specific map script pointer and written back later
 wCurMapScript:: db
 
-	ds 7 ; UNUSED bytes in "Main Data"
+;	ds 7
+wUniQuizAnswer:: ds NAME_LENGTH ; new, apparently it's 11 and not 7 as I thought, same length as Mons' names + terminator
 
 wPlayTimeHours:: db
 wPlayTimeMaxed:: db

@@ -169,13 +169,17 @@
 ; Celadon City events
 	const_next $180
 	const EVENT_GOT_TM41
-	const_skip 10 ; edited, was 11
+	const_skip 9 ; edited, was 11
+	const EVENT_ANSWERED_UNI_QUIZ ; new
 	const EVENT_1ST_SPOKE_WITH_PIGEON ; new
 	const EVENT_GOT_TM13
 	const EVENT_GOT_TM48
 	const EVENT_GOT_TM49
 	const EVENT_GOT_TM18
-	const_skip 21 ; edited, was 24
+	const_skip 18 ; edited, was 24
+	const EVENT_ALREADY_SPOKEN_WITH_CELADON_PHD ; new
+	const EVENT_ALREADY_REWARDED_ORB_CELADON_PHD ; new
+	const EVENT_ALREADY_REWARDED_MONEY_CELADON_PHD ; new
 	const EVENT_RETURNED_LUNAR_RELIC ; new
 	const EVENT_MONK_NOTICED_RELIC ; new
 	const EVENT_BEAT_ERIKA_REMATCH ; new

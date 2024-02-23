@@ -87,3 +87,4 @@ DEF FIRST_PARTY_MENU_TEXT_ID EQU const_value
 	const NAME_PLAYER_SCREEN ; 0
 	const NAME_RIVAL_SCREEN  ; 1
 	const NAME_MON_SCREEN    ; 2
+	const NAME_UNI_QUIZ      ; 3, new
