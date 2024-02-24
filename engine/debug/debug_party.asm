@@ -42,16 +42,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, STEEL_WING
+	ld a, THOUSANDARROWS
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, IRON_TAIL
+	ld a, JUDGMENT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, METAL_CLAW
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, HAZE
+	ld a, SPORE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -143,7 +143,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 ;	SetEvent EVENT_GOT_HM01
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 ;	SetEvent EVENT_SS_ANNE_LEFT
 ;	SetEvent EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING
 

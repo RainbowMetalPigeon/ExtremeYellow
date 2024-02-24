@@ -105,7 +105,7 @@ Moves:
 	move EARTHQUAKE,   NO_ADDITIONAL_EFFECT,       100, GROUND,       100, 10 ; [TM26]
 	move FISSURE,      OHKO_EFFECT,                  1, GROUND,        30,  5 ; [TM27]
 	move DIG,          CHARGE_EFFECT,              100, GROUND,       100, 10 ; [TM28]
-	move TOXIC,        POISON_EFFECT,                0, POISON,        85, 10 ; [TM06]
+	move TOXIC,        POISON_EFFECT,                0, POISON,        10, 10 ; [TM06]
 	move CONFUSION,    CONFUSION_SIDE_EFFECT1,      50, PSYCHIC_TYPE, 100, 25
 	move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT3,   90, PSYCHIC_TYPE, 100, 10 ; [TM29]
 	move HYPNOSIS,     SLEEP_EFFECT,                 0, PSYCHIC_TYPE,  70, 20
@@ -269,7 +269,7 @@ Moves:
 	; anomalies' signature moves
 	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90, 5 ; done
 	move DRAGONASCENT, DEFENSE_SPECIAL_SELFDOWN1,  120, FLYING,       100, 5 ; done
-	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND,       100, 5 ; TODO: implement effect!
+	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100, 5 ; TBV
 	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TODO: implement effect?
 	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; TODO: implement effect?! Or change BP to 200? Or add a new type like Normal in def but super against all types?
 

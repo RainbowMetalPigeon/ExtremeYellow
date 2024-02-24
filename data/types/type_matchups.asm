@@ -122,6 +122,15 @@ TypeEffects:
 	db GROUND,       BUG,          NOT_VERY_EFFECTIVE
 	db GROUND,       FLYING,       NO_EFFECT
 
+	; new, for THOUSANDARROWS
+	db GROUND2,      FIRE,         SUPER_EFFECTIVE
+	db GROUND2,      ELECTRIC,     SUPER_EFFECTIVE
+	db GROUND2,      ROCK,         SUPER_EFFECTIVE
+	db GROUND2,      POISON,       SUPER_EFFECTIVE
+	db GROUND2,      STEEL,        SUPER_EFFECTIVE
+	db GROUND2,      GRASS,        NOT_VERY_EFFECTIVE
+	db GROUND2,      BUG,          NOT_VERY_EFFECTIVE
+
 	db ROCK,         FIRE,         SUPER_EFFECTIVE
 	db ROCK,         FLYING,       SUPER_EFFECTIVE
 	db ROCK,         BUG,          SUPER_EFFECTIVE
@@ -263,6 +272,17 @@ TypeEffectsInverse:
 	db GROUND,       GRASS,        SUPER_EFFECTIVE
 	db GROUND,       BUG,          SUPER_EFFECTIVE
 	db GROUND,       FLYING,       SUPER_EFFECTIVE
+
+	; new, for THOUSANDARROWS
+	db GROUND2,      FIRE,         NOT_VERY_EFFECTIVE
+	db GROUND2,      ELECTRIC,     NOT_VERY_EFFECTIVE
+	db GROUND2,      ROCK,         NOT_VERY_EFFECTIVE
+	db GROUND2,      POISON,       NOT_VERY_EFFECTIVE
+	db GROUND2,      STEEL,        NOT_VERY_EFFECTIVE
+	db GROUND2,      GRASS,        SUPER_EFFECTIVE
+	db GROUND2,      BUG,          SUPER_EFFECTIVE
+	db GROUND2,      FLYING,       SUPER_EFFECTIVE
+
 
 	db ROCK,         FIRE,         NOT_VERY_EFFECTIVE
 	db ROCK,         FLYING,       NOT_VERY_EFFECTIVE

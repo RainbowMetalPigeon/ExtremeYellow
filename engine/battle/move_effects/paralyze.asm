@@ -11,6 +11,11 @@ ParalyzeEffect_:
 	and a ; does the target already have a status ailment?
 	jr nz, .didntAffect
 ; check if the target is immune due to types
+; new, during an inverse battle ELECTRIC is not non-effective vs GROUND
+	ld a, [wInverseBattle]
+	cp 1
+	jr z, .hitTest
+; back to vanilla
 	ld a, [de]
 	cp ELECTRIC
 	jr nz, .hitTest

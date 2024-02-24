@@ -35,7 +35,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 
 	def_object_events
 	object_event  8, 31, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
-	object_event 44, 42, SPRITE_GUARD, STAY, DOWN, 2 ; ex-geezer, now University guard
+	object_event 44, 42, SPRITE_GRAMPS, STAY, DOWN, 2 ; ex-geezer, now University guard, TBE
 	object_event 14, 33, SPRITE_GIRL, WALK, UP_DOWN, 3 ; person
 	object_event 25, 36, SPRITE_GRAMPS, STAY, DOWN, 4 ; person
 	object_event 22, 30, SPRITE_GRAMPS, STAY, DOWN, 5 ; person

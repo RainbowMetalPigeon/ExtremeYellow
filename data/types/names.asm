@@ -12,6 +12,7 @@ TypeNames:
 	dw .Ghost
 	dw .Steel
 	dw .Typeless
+	dw .Ground2 ; new, for THOUSANDARROWS
 
 REPT UNUSED_TYPES_END - UNUSED_TYPES
 	dw .Normal
@@ -49,3 +50,4 @@ ENDR
 .Dark:	   db "DARK@"
 .Fairy:	   db "FAIRY@"
 .Typeless  db "TYPELESS@"
+.Ground2   db "GROUND@" ; new, for THOUSANDARROWS

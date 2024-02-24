@@ -5724,6 +5724,17 @@ AdjustDamageForMoveType:
 	ld [wMoveType], a
 .next
 	ld a, [wMoveType]
+; new block of code to handle ThousandArrows
+	cp GROUND2
+	jr nz, .notThousandArrows
+	ld a, GROUND
+	cp b
+	jr z, .sameTypeAttackBonus
+	cp c
+	jr z, .sameTypeAttackBonus
+	jr .skipSameTypeAttackBonus
+.notThousandArrows
+; back to vanilla
 	cp b ; does the move type match type 1 of the attacker?
 	jr z, .sameTypeAttackBonus
 	cp c ; does the move type match type 2 of the attacker?
@@ -5929,6 +5940,27 @@ INCLUDE "data/types/type_matchups.asm"
 
 ; some tests that need to pass for a move to hit
 MoveHitTest:
+; new, TOXIC can't miss if used by a POISON type
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveNum]
+	ld hl, wBattleMonType1
+	ld de, wBattleMonType2
+	jr z, .player0
+	ld a, [wEnemyMoveNum]
+	ld hl, wEnemyMonType1
+	ld de, wEnemyMonType2
+.player0
+	cp TOXIC
+	jr nz, .vanilla
+	ld a, [hl]
+	cp POISON
+	ret z
+	ld a, [de]
+	cp POISON
+	ret z
+.vanilla
+; back to vanilla
 ; player's turn
 	ld hl, wEnemyBattleStatus1
 	ld de, wPlayerMoveEffect
