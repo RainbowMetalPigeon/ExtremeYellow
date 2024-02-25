@@ -4,7 +4,9 @@ Route29_Object:
 	def_warp_events
 
 	def_bg_events
-;	bg_event  9, 51, 11 ; Route17Text11
+	bg_event 13, 55,  3 ; Route29TextIceOrbRecess
+	bg_event 15, 55,  4 ; Route29TextThunderOrbRecess
+	bg_event 17, 55,  5 ; Route29TextFireOrbRecess
 
 	def_object_events
 	object_event 17,  9, SPRITE_COOLTRAINER_F, STAY, DOWN, 1, OPP_COOLTRAINER, 1 ; testing, TBE

@@ -36,17 +36,30 @@ PoisonEffect:
 	ld de, wEnemyMoveEffect
 .poisonEffect
 	call CheckTargetSubstitute
-	jr nz, .noEffect ; can't poison a substitute target
+	jp nz, .noEffect ; can't poison a substitute target
 	ld a, [hli]
 	ld b, a
 	and a
-	jr nz, .noEffect ; miss if target is already statused
+	jp nz, .noEffect ; miss if target is already statused
+; new, to handle STEEL (which can be poisoned in inverse battles but not in normal ones, while POISON can't anytime)
+	ld a, [wInverseBattle]
+	and a
+	jr nz, .inverseBattle
+	ld a, [hli]
+	cp STEEL ; can't poison a steel-type target in a normal battle
+	jr z, .noEffect
+	ld a, [hld]
+	cp STEEL ; can't poison a steel-type target in a normal battle
+	jr z, .noEffect
+.inverseBattle ; vanilla bits
 	ld a, [hli]
 	cp POISON ; can't poison a poison-type target
 	jr z, .noEffect
 	ld a, [hld]
 	cp POISON ; can't poison a poison-type target
 	jr z, .noEffect
+.vanilla
+; back to vanilla
 	ld a, [de]
 	; changed names to make numbers reflect rate, and added two new rates
 	cp POISON_SIDE_EFFECT1

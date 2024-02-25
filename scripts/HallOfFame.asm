@@ -121,6 +121,18 @@ HallofFameRoomScript1:
 	call LoopHide
 	call LoopShow
 	call LoopShowExtra
+	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
+	jr z, .dontShowLegendaryBirbs
+	ld a, HS_ARTICUNO
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_ZAPDOS
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_MOLTRES
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+.dontShowLegendaryBirbs
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 ;	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
 ;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
@@ -373,8 +385,6 @@ ObjectsToShow:
 	db HS_ROUTE_20_MISTY
 	db HS_POWER_PLANT_LT_SURGE
 	db HS_VICTORY_ROAD_2F_KOGA
-	db HS_MOLTRES
-	db HS_ZAPDOS
 	db HS_OBSIDIAN_WOOD_ORAGE
 	db HS_PALLET_TOWN_DARK_GUIDE
 	db $ff
@@ -399,7 +409,6 @@ ObjectsToShowExtra:
 	db HS_MR_PSYCHIC_SABRINA
 	db HS_POKEMON_MANSION_2F_BLAINE
 	db HS_MEWTWO
-	db HS_ARTICUNO
 	db HS_OCHRE_WONDERLAND_RIVAL
 	db HS_CHAMPIONS_ROOM_RIVAL ; new, here to re-show Rival after we hid them when walking towards HoF
 	db HS_SNORLAX_DEN

@@ -1278,11 +1278,6 @@ INCLUDE "data/maps/objects/Route28.asm"
 Route28_Blocks: INCBIN "maps/Route28.blk"
 INCLUDE "scripts/Route28.asm"
 
-INCLUDE "data/maps/headers/Route29.asm"
-INCLUDE "data/maps/objects/Route29.asm"
-Route29_Blocks: INCBIN "maps/Route29.blk"
-INCLUDE "scripts/Route29.asm"
-
 INCLUDE "data/maps/headers/Route30.asm"
 INCLUDE "data/maps/objects/Route30.asm"
 Route30_Blocks: INCBIN "maps/Route30.blk"
@@ -1384,3 +1379,11 @@ INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
 INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
 INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
 SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
+
+
+SECTION "Maps New 2", ROMX ; new
+
+INCLUDE "data/maps/headers/Route29.asm"
+INCLUDE "data/maps/objects/Route29.asm"
+Route29_Blocks: INCBIN "maps/Route29.blk"
+INCLUDE "scripts/Route29.asm"

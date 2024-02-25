@@ -105,7 +105,7 @@ Moves:
 	move EARTHQUAKE,   NO_ADDITIONAL_EFFECT,       100, GROUND,       100, 10 ; [TM26]
 	move FISSURE,      OHKO_EFFECT,                  1, GROUND,        30,  5 ; [TM27]
 	move DIG,          CHARGE_EFFECT,              100, GROUND,       100, 10 ; [TM28]
-	move TOXIC,        POISON_EFFECT,                0, POISON,        10, 10 ; [TM06]
+	move TOXIC,        POISON_EFFECT,                0, POISON,        90, 10 ; [TM06] ; accuracy increased 85->90
 	move CONFUSION,    CONFUSION_SIDE_EFFECT1,      50, PSYCHIC_TYPE, 100, 25
 	move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT3,   90, PSYCHIC_TYPE, 100, 10 ; [TM29]
 	move HYPNOSIS,     SLEEP_EFFECT,                 0, PSYCHIC_TYPE,  70, 20

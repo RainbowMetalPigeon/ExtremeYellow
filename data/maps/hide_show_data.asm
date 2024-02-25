@@ -422,7 +422,7 @@ PowerPlantHS:
 	db POWER_PLANT, $07, SHOW
 	db POWER_PLANT, $08, SHOW
 	db POWER_PLANT, $09, SHOW
-	db POWER_PLANT, $0A, SHOW
+	db POWER_PLANT, $0A, HIDE ; edited, hide ZAPDOS initially
 	db POWER_PLANT, $0B, SHOW
 	db POWER_PLANT, $0C, SHOW
 	db POWER_PLANT, $0D, SHOW
@@ -670,7 +670,7 @@ SeafoamIslandsB4FHS: ; edited because of rematch Lorelei
 	db SEAFOAM_ISLANDS_B4F, $01, HIDE
 	db SEAFOAM_ISLANDS_B4F, $02, HIDE
 	db SEAFOAM_ISLANDS_B4F, $03, HIDE
-	db SEAFOAM_ISLANDS_B4F, $04, SHOW
+	db SEAFOAM_ISLANDS_B4F, $04, HIDE ; edited, hide ARTICUNO initially
 MrPsychicsHouseHS: ; new for rematch Sabrina
 	db MR_PSYCHICS_HOUSE, $02, HIDE
 ObsidianIslandHS: ; new
@@ -762,7 +762,7 @@ SafariZoneQuadrupleRestHouseHS: ; new
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $03, HIDE ; Sara happy with Erik
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $04, HIDE ; Erik happy with Sara
 CinnabarVolcanoBFHS: ; new
-	db CINNABAR_VOLCANO_BF, $01, SHOW
+	db CINNABAR_VOLCANO_BF, $01, HIDE ; edited, hide MOLTRES initially
 	db CINNABAR_VOLCANO_BF, $02, SHOW
 	db CINNABAR_VOLCANO_BF, $03, SHOW
 	db CINNABAR_VOLCANO_BF, $04, SHOW

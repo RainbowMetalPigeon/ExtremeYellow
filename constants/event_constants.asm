@@ -240,7 +240,11 @@
 	const EVENT_MANSION_SWITCH_ON
 	const_skip 16
 	const EVENT_BEAT_MANSION_1_TRAINER_0
-	const_skip 11 ; edited, was 14
+	const_skip 7 ; edited, was 14
+	const EVENT_PLACED_ALL_ORBS_IN_RECESSES ; new
+	const EVENT_PLACED_ICE_ORB_IN_RECESS ; new
+	const EVENT_PLACED_THUNDER_ORB_IN_RECESS ; new
+	const EVENT_PLACED_FIRE_ORB_IN_RECESS ; new
 	const EVENT_IN_HOT_SPRINGS ; new
 	const EVENT_BEAT_MANSION_RIVAL ; new
 	const EVENT_BEAT_BLAINE_REMATCH ; new

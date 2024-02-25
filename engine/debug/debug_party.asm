@@ -45,10 +45,10 @@ IF DEF(_DEBUG)
 	ld a, THOUSANDARROWS
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, JUDGMENT
+	ld a, SLUDGE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, ANCESTOR_PWR
+	ld a, TOXIC
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, SPORE
@@ -207,6 +207,9 @@ DebugItemsList:
 ;	db MAGMA_STONE, 1
 ;	db MOLTEN_STONE, 1
 ;	db EXP_ALL, 1
+    db ICE_ORB, 1
+    db THUNDER_ORB, 1
+    db FIRE_ORB, 1
 	db -1 ; end
 
 DebugUnusedList:
