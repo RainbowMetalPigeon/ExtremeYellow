@@ -87,8 +87,16 @@
 ; Cerulean City events
 	const_next $98
 	const EVENT_BEAT_CERULEAN_RIVAL
-	const EVENT_BEAT_ROUTE_29_TRAINER_0 ; new, testing
-	const_skip 13 ; edited, was 14
+	const EVENT_BEAT_ROUTE_29_TRAINER_0 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_1 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_2 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_3 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_4 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_5 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_6 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_7 ; new
+	const EVENT_BEAT_ROUTE_29_TRAINER_8 ; new
+	const_skip 5 ; edited, was 14
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
 	const_skip 15 ; edited, was 17

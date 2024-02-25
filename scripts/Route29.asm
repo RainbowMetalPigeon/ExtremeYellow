@@ -15,10 +15,10 @@ Route29_ScriptPointers:
 	dw Route29Script_PlacedAllOrbs2 ; 4
 
 Route29Script_PlacedAllOrbs1:
-	ld a, 6 ; TBE, Route29TextOrbsVanish1
+	ld a, 14 ; Route29TextOrbsVanish1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	call GBFadeOutToBlack
+	call GBFadeOutToWhite
 	ld a, ARTICUNO
 	call PlayCry
 	call WaitForSoundToFinish
@@ -39,14 +39,14 @@ Route29Script_PlacedAllOrbs1:
 	predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
-	call GBFadeInFromBlack
+	call GBFadeInFromWhite
 	ld a, 4 ; Route29Script_PlacedAllOrbs2
 	ld [wRoute29CurScript], a
 	ld [wCurMapScript], a
 	ret
 
 Route29Script_PlacedAllOrbs2:
-	ld a, 7 ; TBE, Route29TextOrbsVanish2
+	ld a, 15 ; Route29TextOrbsVanish2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 0
@@ -57,20 +57,44 @@ Route29Script_PlacedAllOrbs2:
 Route29_TextPointers:
 	; trainers
 	dw Route29Text1                ; 1
+	dw Route29Text2                ; 2
+	dw Route29Text3                ; 3
+	dw Route29Text4                ; 4
+	dw Route29Text5                ; 5
+	dw Route29Text6                ; 6
+	dw Route29Text7                ; 7
+	dw Route29Text8                ; 8
+	dw Route29Text9                ; 9
 	; non-trainers
-	dw Route29TextSlowking         ; 2
+	dw Route29TextSlowking         ; 10
 	; signs
-	dw Route29TextIceOrbRecess     ; 3
-	dw Route29TextThunderOrbRecess ; 4
-	dw Route29TextFireOrbRecess    ; 5
+	dw Route29TextIceOrbRecess     ; 11
+	dw Route29TextThunderOrbRecess ; 12
+	dw Route29TextFireOrbRecess    ; 13
 	; non-NPCs/signs
-	dw Route29TextOrbsVanish1      ; 6
-	dw Route29TextOrbsVanish2      ; 7
+	dw Route29TextOrbsVanish1      ; 14
+	dw Route29TextOrbsVanish2      ; 15
 
 Route29TrainerHeaders:
 	def_trainers
 Route29TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_29_TRAINER_0, 0, Route29BattleText1, Route29EndBattleText1, Route29AfterBattleText1
+Route29TrainerHeader1:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_1, 0, Route29BattleText2, Route29EndBattleText2, Route29AfterBattleText2
+Route29TrainerHeader2:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_2, 0, Route29BattleText3, Route29EndBattleText3, Route29AfterBattleText3
+Route29TrainerHeader3:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_3, 0, Route29BattleText4, Route29EndBattleText4, Route29AfterBattleText4
+Route29TrainerHeader4:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_4, 0, Route29BattleText5, Route29EndBattleText5, Route29AfterBattleText5
+Route29TrainerHeader5:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_5, 0, Route29BattleText6, Route29EndBattleText6, Route29AfterBattleText6
+Route29TrainerHeader6:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_6, 0, Route29BattleText7, Route29EndBattleText7, Route29AfterBattleText7
+Route29TrainerHeader7:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_7, 0, Route29BattleText8, Route29EndBattleText8, Route29AfterBattleText8
+Route29TrainerHeader8:
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_8, 0, Route29BattleText9, Route29EndBattleText9, Route29AfterBattleText9
 	db -1 ; end
 
 ; trainers -------------------
@@ -91,6 +115,166 @@ Route29EndBattleText1:
 
 Route29AfterBattleText1:
 	text_far _Route29AfterBattleText1
+	text_end
+
+; ---
+
+Route29Text2:
+	text_asm
+	ld hl, Route29TrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText2:
+	text_far _Route29BattleText2
+	text_end
+
+Route29EndBattleText2:
+	text_far _Route29EndBattleText2
+	text_end
+
+Route29AfterBattleText2:
+	text_far _Route29AfterBattleText2
+	text_end
+
+; ---
+
+Route29Text3:
+	text_asm
+	ld hl, Route29TrainerHeader2
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText3:
+	text_far _Route29BattleText3
+	text_end
+
+Route29EndBattleText3:
+	text_far _Route29EndBattleText3
+	text_end
+
+Route29AfterBattleText3:
+	text_far _Route29AfterBattleText3
+	text_end
+
+; ---
+
+Route29Text4:
+	text_asm
+	ld hl, Route29TrainerHeader3
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText4:
+	text_far _Route29BattleText4
+	text_end
+
+Route29EndBattleText4:
+	text_far _Route29EndBattleText4
+	text_end
+
+Route29AfterBattleText4:
+	text_far _Route29AfterBattleText4
+	text_end
+
+; ---
+
+Route29Text5:
+	text_asm
+	ld hl, Route29TrainerHeader4
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText5:
+	text_far _Route29BattleText5
+	text_end
+
+Route29EndBattleText5:
+	text_far _Route29EndBattleText5
+	text_end
+
+Route29AfterBattleText5:
+	text_far _Route29AfterBattleText5
+	text_end
+
+; ---
+
+Route29Text6:
+	text_asm
+	ld hl, Route29TrainerHeader5
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText6:
+	text_far _Route29BattleText6
+	text_end
+
+Route29EndBattleText6:
+	text_far _Route29EndBattleText6
+	text_end
+
+Route29AfterBattleText6:
+	text_far _Route29AfterBattleText6
+	text_end
+
+; ---
+
+Route29Text7:
+	text_asm
+	ld hl, Route29TrainerHeader6
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText7:
+	text_far _Route29BattleText7
+	text_end
+
+Route29EndBattleText7:
+	text_far _Route29EndBattleText7
+	text_end
+
+Route29AfterBattleText7:
+	text_far _Route29AfterBattleText7
+	text_end
+
+; ---
+
+Route29Text8:
+	text_asm
+	ld hl, Route29TrainerHeader7
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText8:
+	text_far _Route29BattleText8
+	text_end
+
+Route29EndBattleText8:
+	text_far _Route29EndBattleText8
+	text_end
+
+Route29AfterBattleText8:
+	text_far _Route29AfterBattleText8
+	text_end
+
+; ---
+
+Route29Text9:
+	text_asm
+	ld hl, Route29TrainerHeader8
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route29BattleText9:
+	text_far _Route29BattleText9
+	text_end
+
+Route29EndBattleText9:
+	text_far _Route29EndBattleText9
+	text_end
+
+Route29AfterBattleText9:
+	text_far _Route29AfterBattleText9
 	text_end
 
 ; non-trainers ---------------

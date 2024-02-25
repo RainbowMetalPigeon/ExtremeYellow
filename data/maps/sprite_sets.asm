@@ -372,11 +372,11 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_SNORLAX
 	assert_table_length SPRITE_SET_LENGTH
 
-; sprite set $15, copy of $08, for South part of R12
+; sprite set $15, copy of $08, for Route 29
 	table_width 1
 	db SPRITE_PIKACHU
-	db SPRITE_BIKER
-	db SPRITE_SUPER_NERD
+	db SPRITE_SWIMMER ; edited, was SPRITE_BIKER
+	db SPRITE_HIKER ; edited, was SPRITE_SUPER_NERD
 	db SPRITE_SLOWKING ; edited, was SPRITE_MIDDLE_AGED_MAN / SPRITE_BIRD
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M
