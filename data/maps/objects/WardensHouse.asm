@@ -24,8 +24,8 @@ WardensHouse_Object:
 	def_object_events
 	object_event  2,  3, SPRITE_WARDEN, STAY, NONE, 1 ; person
 	object_event 20,  3, SPRITE_GRAMPS, STAY, DOWN, 2 ; new, antiquities seller
-	object_event 16,  5, SPRITE_AMBER_2, STAY, NONE, 3 ; new, antique stuff
-	object_event 25,  5, SPRITE_AMBER_2, STAY, NONE, 4 ; new, antique stuff
+	object_event 16,  5, SPRITE_AMBER_2, STAY, DOWN, 3 ; new, antique stuff
+	object_event 25,  5, SPRITE_AMBER_2, STAY, DOWN, 4 ; new, antique stuff
 	object_event 17,  5, SPRITE_FOSSIL, STAY, NONE, 5 ; new, antique stuff
 	object_event 24,  5, SPRITE_FOSSIL, STAY, NONE, 6 ; new, antique stuff
 	object_event 21,  0, SPRITE_PAPER, STAY, NONE, 7 ; new, piece of map
