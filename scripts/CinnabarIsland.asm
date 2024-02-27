@@ -40,7 +40,7 @@ CinnabarIslandScript0: ; edited
 	call Delay3
 	call Delay3
 	call GBFadeInFromWhite
-	ld a, 20 ; text ID of the hot spring message
+	ld a, 21 ; text ID of the hot spring message
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -60,7 +60,7 @@ CinnabarIslandScript0: ; edited
 	ret nz
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, 18
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -104,9 +104,10 @@ CinnabarIsland_TextPointers:
 	dw CinnabarIslandText6
 	dw CinnabarIslandText7
 	dw CinnabarIslandTextVulcano ; new
-	dw CinnabarIslandTextGymDoor ; 18
-	dw TextPostBattle_CinnabarTraveler ; 19, new, for traveler
-	dw CinnabarIslandTextHotSprings ; 20, new
+	dw CinnabarIslandTextSeismic ; new
+	dw CinnabarIslandTextGymDoor ; 19
+	dw TextPostBattle_CinnabarTraveler ; 20, new, for traveler
+	dw CinnabarIslandTextHotSprings ; 21, new
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor
@@ -152,6 +153,10 @@ CinnabarIslandTextNewPerson4:
 
 CinnabarIslandTextVulcano:
 	text_far _CinnabarIslandTextVulcano
+	text_end
+
+CinnabarIslandTextSeismic:
+	text_far _CinnabarIslandTextSeismic
 	text_end
 
 CinnabarIslandTextNewPerson5:
@@ -252,7 +257,7 @@ CinnabarScript_Traveler:
     ld a, HS_CINNABAR_ISLAND_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObjectExtra ; city-specific
-	ld a, 19 ; city-specific
+	ld a, 20 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

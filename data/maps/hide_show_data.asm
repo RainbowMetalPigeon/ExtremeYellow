@@ -174,17 +174,17 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw PokemonMansion1FHS
+	dw NoHS ; CINNABAR_GYM
+	dw CinnabarLabHS ; new
+	dw NoHS ; CINNABAR_LAB_TRADE_ROOM
+	dw NoHS ; CINNABAR_LAB_METRONOME_ROOM
+	dw NoHS ; CINNABAR_LAB_FOSSIL_ROOM
+	dw NoHS ; CINNABAR_POKECENTER
 	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; OBSIDIAN_HOUSES
+	dw NoHS ; INDIGO_PLATEAU_LOBBY
+	dw NoHS ; COPYCATS_HOUSE_1F
+	dw NoHS ; COPYCATS_HOUSE_2F
 	dw FightingDojoHS
 	dw NoHS
 	dw NoHS
@@ -784,5 +784,7 @@ FuchsiaMeetingRoomHS: ; new
 	db FUCHSIA_MEETING_ROOM, $07, SHOW ; Koga
 FuchsiaGymHS: ; new
 	db FUCHSIA_GYM, $01, HIDE ; Koga
+CinnabarLabHS: ; new
+	db CINNABAR_LAB, $05, SHOW ; ARTIFACT
 
 	db $FF, $01, SHOW ; end, list terminator

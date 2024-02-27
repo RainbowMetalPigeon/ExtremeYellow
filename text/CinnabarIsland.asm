@@ -168,6 +168,13 @@ _CinnabarIslandTextVulcano::
 	cont "caution!"
 	done
 
+_CinnabarIslandTextSeismic::
+	text "Seismology and"
+	line "volcanology"
+	cont "KANTO institute"
+	cont "of research"
+	done
+
 _CinnabarIslandTextHotSprings::
 	; The water is perfectly warm. It feels exquisite...
 	; <PLAYER> and the #MON were fully refreshed!
