@@ -247,7 +247,9 @@
 ; Cinnabar Island events
 	const_next $278
 	const EVENT_MANSION_SWITCH_ON
-	const_skip 16
+	const_skip 14 ; edited, was 16
+	const EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT ; new
+	const EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT_FAILED ; new
 	const EVENT_BEAT_MANSION_1_TRAINER_0
 	const_skip 7 ; edited, was 14
 	const EVENT_PLACED_ALL_ORBS_IN_RECESSES ; new

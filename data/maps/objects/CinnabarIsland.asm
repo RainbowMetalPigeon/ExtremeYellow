@@ -8,6 +8,10 @@ CinnabarIsland_Object:
 	warp_event 41, 11, CINNABAR_POKECENTER, 1
 	warp_event 45, 11, CINNABAR_POKECENTER, 3 ; edited due to MERGING
 	warp_event 17, 17, CINNABAR_VOLCANO, 1 ; new
+	; new houses that are actually in the Cinnabar Lab map
+	warp_event 37, 15, CINNABAR_LAB, 6 ; new, 7
+	warp_event  3,  3, CINNABAR_LAB, 8 ; new, 8
+	warp_event 39, 19, CINNABAR_LAB, 10 ; new, 9
 
 	def_bg_events
 	bg_event 39,  5, 12; CinnabarIslandText3
@@ -16,6 +20,7 @@ CinnabarIsland_Object:
 	bg_event 39, 11, 15 ; CinnabarIslandText6
 	bg_event 43,  3, 16 ; CinnabarIslandText7
 	bg_event 33, 17, 17 ; CinnabarIslandTextVulcano, new
+	bg_event  5,  4, 18 ; CinnabarIslandTextSeismic, new
 
 	def_object_events
 	object_event 42,  5, SPRITE_GIRL, WALK, LEFT_RIGHT, 1 ; person

@@ -27,3 +27,69 @@ _Lab1Text5::
 	text "#MON LAB"
 	line "Testing Room"
 	done
+
+; new ------------------
+
+; people ---
+
+_Lab1Text2_Archeologist_PostGift::
+	text ""
+	done
+
+_Lab1Text2_Archeologist_PreReturnRelic::
+	text ""
+	done
+
+_Lab1Text2_Archeologist_PostReturnRelic_FirstTime::
+	text ""
+	done
+
+_Lab1Text2_Archeologist_PostReturnRelic_NotFirstTime::
+	text ""
+	done
+
+_Lab1Text2_Archeologist_GiftedArtifact::
+	text ""
+	done
+
+_Lab1Text2_Archeologist_BagFull::
+	text ""
+	done
+
+_Lab1Text3_Seismologist::
+	text ""
+	done
+
+_Lab1Text4_PlantEnthusiast::
+	text ""
+	done
+	
+_Lab1Text5_Treasure::
+	text ""
+	done
+
+; signs ---
+
+_Lab1ArcheologistSign1::
+	text ""
+	done
+
+_Lab1ArcheologistSign2::
+	text ""
+	done
+
+_Lab1ArcheologistSign3::
+	text ""
+	done
+
+_Lab1ArcheologistSign4::
+	text ""
+	done
+
+_Lab1ArcheologistSign5::
+	text ""
+	done
+
+_Lab1SeismologySign1::
+	text ""
+	done

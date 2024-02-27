@@ -191,7 +191,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const FUCHSIA_GOOD_ROD_HOUSE,         4,  4 ; $A4
 	map_const POKEMON_MANSION_1F,            15, 14 ; $A5
 	map_const CINNABAR_GYM,                  10,  9 ; $A6
-	map_const CINNABAR_LAB,                   9,  4 ; $A7
+	map_const CINNABAR_LAB,                  30,  4 ; $A7 ; edited
 	map_const CINNABAR_LAB_TRADE_ROOM,        4,  4 ; $A8
 	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA
