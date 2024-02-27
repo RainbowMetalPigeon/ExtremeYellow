@@ -93,6 +93,7 @@ SpriteSheetPointerTable:
 	overworld_sprite CrashingPikachuSprite, 12  ; SPRITE_CRASHING_PIKACHU ; new
 	overworld_sprite ScientistFSprite, 12       ; SPRITE_SCIENTIST_F ; new
 	overworld_sprite SlowkingSprite, 12         ; SPRITE_SLOWKING ; new
+	overworld_sprite Amber2Sprite, 12           ; SPRITE_AMBER_2 ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

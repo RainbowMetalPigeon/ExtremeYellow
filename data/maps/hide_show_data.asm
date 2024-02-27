@@ -401,7 +401,8 @@ CeladonMansionRoofHouseHS:
 GameCornerHS:
 	db GAME_CORNER, $0B, SHOW
 WardensHouseHS:
-	db WARDENS_HOUSE, $02, SHOW
+;	db WARDENS_HOUSE, $02, SHOW
+	db WARDENS_HOUSE, $07, SHOW ; new, Map Piece
 PokemonMansion1FHS:
 	db POKEMON_MANSION_1F, $02, SHOW
 	db POKEMON_MANSION_1F, $03, SHOW

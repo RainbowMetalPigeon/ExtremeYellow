@@ -105,7 +105,8 @@ DEF SHOW EQU $15
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; 44
 	const HS_CELADON_MANSION_EEVEE_GIFT    ; 45
 	const HS_GAME_CORNER_ROCKET            ; 46
-	const HS_WARDENS_HOUSE_ITEM            ; 47
+;	const HS_WARDENS_HOUSE_ITEM            ; 47
+	const HS_WARDENS_ANTIQUITIES_MAP_PIECE ; new
 	const HS_POKEMON_MANSION_1F_ITEM_1     ; 48
 	const HS_POKEMON_MANSION_1F_ITEM_2     ; 49
 	const HS_FIGHTING_DOJO_BRUNO           ; new

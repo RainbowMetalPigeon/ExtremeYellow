@@ -45,8 +45,10 @@ FuchsiaCity_TextPointers:
 	dw FuchsiaCityText22
 	dw FuchsiaCityText23
 	dw FuchsiaCityText24
-	dw TextPostBattle_FuchsiaTraveler ; new, for traveler
-	dw FuchsiaCityText_ErikSurprised ; new, for Erik, 29
+	dw FuchsiaCityTextAntiquities ; new, 28
+	; extra
+	dw TextPostBattle_FuchsiaTraveler ; new, for traveler, 29
+	dw FuchsiaCityText_ErikSurprised ; new, for Erik, 30
 
 FuchsiaCityText1:
 	text_asm
@@ -117,7 +119,7 @@ FuchsiaScript_MoveErik: ; new
 	predef EmotionBubble
 	ld c, 20
 	call DelayFrames
-	ld a, 29
+	ld a, 30
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, [wXCoord]
@@ -303,6 +305,24 @@ FuchsiaCityKabutoText:
 	text_far _FuchsiaCityKabutoText
 	text_end
 
+FuchsiaCityTextAntiquities: ; new
+	text_asm
+	ld hl, FuchsiaCityTextAntiquities_Pre
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr z, .printAndEnd
+	ld hl, FuchsiaCityTextAntiquities_Post
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaCityTextAntiquities_Pre: ; new
+	text_far _FuchsiaCityTextAntiquities_Pre
+	text_end
+
+FuchsiaCityTextAntiquities_Post: ; new
+	text_far _FuchsiaCityTextAntiquities_Post
+	text_end
+
 ; ---------------------------------
 
 FuchsiaCityText_Erik_Pre: ; new, before Giovanni defeat
@@ -403,7 +423,7 @@ FuchsiaScript_Traveler:
     ld a, HS_FUCHSIA_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObjectExtra ; city-specific
-	ld a, 28 ; city-specific
+	ld a, 29 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

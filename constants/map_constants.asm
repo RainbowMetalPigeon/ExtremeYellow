@@ -179,7 +179,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $98 ; new
 	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $99
 	map_const FUCHSIA_POKECENTER,            14,  4 ; $9A ; edited, Center+Mart
-	map_const WARDENS_HOUSE,                  5,  4 ; $9B
+	map_const WARDENS_HOUSE,                 13,  4 ; $9B ; edited
 	map_const SAFARI_ZONE_GATE,               4,  3 ; $9C
 	map_const FUCHSIA_GYM,                    5,  9 ; $9D
 	map_const FUCHSIA_MEETING_ROOM,           7,  4 ; $9E

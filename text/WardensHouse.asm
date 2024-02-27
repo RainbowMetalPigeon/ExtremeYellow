@@ -1,3 +1,5 @@
+; people ------
+
 _WardenGibberishText1::
 	text "WARDEN: Hif fuff"
 	line "hefifoo!"
@@ -131,6 +133,57 @@ _HM03NoRoomText::
 	line "stuffed full!"
 	done
 
+; new ---
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_PreObsidianGiovanniDefeat::
+	text "No business"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoArtifact::
+	text "No money? then"
+	line "bring me smth"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesArtifact::
+	text "Wow trade?!"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoTrade::
+	text "Dammit"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesTrade::
+	text "Great!"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_PostGivingMap::
+	text "Happy?"
+	done
+
+; ---
+
+_FuchsiaHouse2AntiquitiesText2::
+	text "Stuff 1"
+	done
+
+_FuchsiaHouse2AntiquitiesText3::
+	text "Stuff 1"
+	done
+
+_FuchsiaHouse2AntiquitiesText4::
+	text "Stuff 2"
+	done
+
+_FuchsiaHouse2AntiquitiesText5::
+	text "Stuff 3"
+	done
+
+_FuchsiaHouse2AntiquitiesTextMapPiece::
+	text "Piece of map"
+	done
+
+; signs ------
+
 _FuchsiaHouse2Text_75176::
 	text "#MON photos"
 	line "and fossils."
@@ -139,4 +192,38 @@ _FuchsiaHouse2Text_75176::
 _FuchsiaHouse2Text_7517b::
 	text "Old #MON"
 	line "merchandise."
+	done
+
+; new --- ¥
+
+_FuchsiaHouse2AntiquitiesSign1::
+	text "Stuff sign 1"
+	done
+
+_FuchsiaHouse2AntiquitiesSign2::
+	text "Stuff sign 2"
+	done
+
+_FuchsiaHouse2AntiquitiesSign3::
+	text "Stuff sign 3"
+	done
+
+_FuchsiaHouse2AntiquitiesSign4::
+	text "Stuff sign 4"
+	done
+
+_FuchsiaHouse2AntiquitiesSign5::
+	text "Stuff sign 5"
+	done
+
+_FuchsiaHouse2AntiquitiesSign6::
+	text "Stuff sign 6"
+	done
+
+_FuchsiaHouse2AntiquitiesSign7::
+	text "Stuff sign 7"
+	done
+
+_FuchsiaHouse2AntiquitiesSign8::
+	text "Stuff sign 8"
 	done

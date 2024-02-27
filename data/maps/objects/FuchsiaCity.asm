@@ -11,6 +11,7 @@ FuchsiaCity_Object:
 	warp_event 22, 13, FUCHSIA_MEETING_ROOM, 1
 	warp_event 31, 27, FUCHSIA_GOOD_ROD_HOUSE, 2
 	warp_event 31, 24, FUCHSIA_GOOD_ROD_HOUSE, 1
+	warp_event 15, 27, WARDENS_HOUSE, 3 ; new
 
 	def_bg_events
 	bg_event 25, 15, 15 ; FuchsiaCityText12
@@ -26,6 +27,7 @@ FuchsiaCity_Object:
 	bg_event 31, 13, 25 ; FuchsiaCityText22
 	bg_event 13, 15, 26 ; FuchsiaCityText23
 	bg_event  7,  7, 27 ; FuchsiaCityText24
+	bg_event 15, 29, 28 ; FuchsiaCityTextAntiquities ; new
 
 	def_object_events
 	; humans

@@ -208,6 +208,22 @@ _FuchsiaCityKabutoText::
 ;	text "..."
 ;	done
 
+_FuchsiaCityTextAntiquities_Pre:: ; new
+	text "The sign is"
+	line "completely"
+	cont "painted in black."
+
+	para "Nothing can be"
+	line "read..."
+	done
+
+_FuchsiaCityTextAntiquities_Post:: ; new
+	text "ANTIQUITIES"
+	line "The finest shop"
+	cont "for ancient items"
+	cont "in KANTO!"
+	done
+
 _FuchsiaCityTextErikHappy:: ; new
 	text "Thank you so much"
 	line "for helping us!"
