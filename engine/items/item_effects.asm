@@ -122,6 +122,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; LAVA_STONE, new
 	dw UnusableItem      ; MAGMA_STONE, new
 	dw UnusableItem      ; MOLTEN_STONE, new
+	dw UnusableItem      ; ARTIFACT, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 

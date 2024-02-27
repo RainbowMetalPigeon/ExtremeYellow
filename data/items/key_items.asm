@@ -105,4 +105,5 @@ KeyItemFlags:
 	dbit TRUE  ; LAVA_STONE     - new
 	dbit TRUE  ; MAGMA_STONE    - new
 	dbit TRUE  ; MOLTEN_STONE   - new
+	dbit TRUE  ; ARTIFACT       - new
 	end_bit_array NUM_ITEMS

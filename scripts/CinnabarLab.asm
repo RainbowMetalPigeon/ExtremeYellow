@@ -61,7 +61,7 @@ Lab1Text2_Archeologist:
 	ld hl, Lab1Text2_Archeologist_PostReturnRelic_NotFirstTime
 .firstTimePostRelicReturn
 	call PrintText
-	lb bc, POTION, 1 ; ARTIFACT
+	lb bc, ARTIFACT, 1
 	call GiveItem
 	jr nc, .bagFull
 	ResetEvent EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT_FAILED
@@ -69,7 +69,9 @@ Lab1Text2_Archeologist:
 	ld a, HS_CINNABAR_LAB_ARTIFACT
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
-	ld hl, Lab1Text2_Archeologist_GiftedArtifact
+	ld hl, Lab1Text2_Archeologist_GiftedArtifact1
+	call PrintText
+	ld hl, Lab1Text2_Archeologist_GiftedArtifact2
 	jr .printAndEnd
 .bagFull
 	SetEvent EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT_FAILED
@@ -94,9 +96,13 @@ Lab1Text2_Archeologist_PostReturnRelic_NotFirstTime:
 	text_far _Lab1Text2_Archeologist_PostReturnRelic_NotFirstTime
 	text_end
 
-Lab1Text2_Archeologist_GiftedArtifact:
-	text_far _Lab1Text2_Archeologist_GiftedArtifact
+Lab1Text2_Archeologist_GiftedArtifact1:
+	text_far _Lab1Text2_Archeologist_GiftedArtifact1
 	sound_get_key_item
+	text_end
+
+Lab1Text2_Archeologist_GiftedArtifact2:
+	text_far _Lab1Text2_Archeologist_GiftedArtifact2
 	text_end
 
 Lab1Text2_Archeologist_BagFull:

@@ -105,6 +105,7 @@ ItemPrices::
 	bcd3 0     ; LAVA_STONE
 	bcd3 0     ; MAGMA_STONE
 	bcd3 0     ; MOLTEN_STONE
+	bcd3 0     ; ARTIFACT
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F
