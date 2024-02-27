@@ -12,8 +12,8 @@ Route12_Object:
 	bg_event 11, 63, 15 ; Route12Text12
 
 	def_object_events
-	object_event 10, 62, SPRITE_SNORLAX, STAY, DOWN, 1 ; person
-	object_event  5, 17, SPRITE_HIKER, STAY, DOWN, 2 ; new
+	object_event 10, 62, SPRITE_SNORLAX, STAY, DOWN, 1 ; ronfo
+	object_event  5, 17, SPRITE_HIKER, STAY, DOWN, 2 ; new, rescued adventurer/traveler from Obsidian Mines
 	object_event 14, 31, SPRITE_FISHER, STAY, LEFT, 3, OPP_FISHER, 3
 	object_event  5, 39, SPRITE_FISHER, STAY, UP, 4, OPP_FISHER, 4
 	object_event 11, 92, SPRITE_COOLTRAINER_F, STAY, LEFT, 5, OPP_JR_TRAINER, 34

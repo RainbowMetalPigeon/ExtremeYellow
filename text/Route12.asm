@@ -1,19 +1,81 @@
-_Route12TextObsidianMinesHiker::
-	text "Is it really you?!"
-	line "My saviour!"
+_Route12TextObsidianMinesHiker_FirstDialogue::
+	text "Is it really"
+	line "you...?!"
 
-	para "Lemme thank you"
-	line "again for having"
-	cont "saved me from"
-	cont "those labyrinthic"
-	cont "MINES!"
+	para "My saviour! I'm so"
+	line "delighted to meet"
+	cont "you again!"
+	cont "There's no day I"
+	cont "don't think about"
+	cont "the terror I felt"
+	cont "when I was lost"
+	cont "in those"
+	cont "atrocious"
+	cont "OBSIDIAN MINES..."
 
-	para "I'm now enjoying"
-	line "a break from"
-	cont "hiking, and relax"
-	cont "fishing, another"
-	cont "passion of mine!"
+	para "And you came and"
+	line "literally saved"
+	cont "my life!"
+
+	para "I've been feeling"
+	line "guilty since"
+	cont "then, because the"
+	cont "token of"
+	cont "gratitude I gave"
+	cont "you feels so"
+	cont "completely"
+	cont "inadequate."
+
+	para "That's why I beg"
+	line "you to accept"
+	cont "this gift from"
+	cont "me. It is my most"
+	cont "valuable"
+	cont "possession, and"
+	cont "I would be"
+	cont "delighted if you"
+	cont "accepted it."
+	prompt
+
+_Route12TextObsidianMinesHiker_WelcomeBackForReward::
+	text "Welcome back, my"
+	line "saviour! Can you"
+	cont "now accept my"
+	cont "gift?"
+	prompt
+
+_Route12TextObsidianMinesHiker_BagFull::
+	text "Oh, you can't take"
+	line "it now..."
+
+	para "Please make space"
+	line "and come back!"
 	done
+
+_Route12TextObsidianMinesHiker_GiveMapPiece:: ; used for all 4 pieces dialogues
+	text "<PLAYER> obtains a"
+	line "piece of the"
+	cont "MYSTERY MAP!"
+	done
+
+_Route12TextObsidianMinesHiker_PostGivingMap::
+	text "Hello, my saviour!"
+
+	para "I hope my gift has"
+	line "proved useful to"
+	cont "you."
+
+	para "As for me, I'll"
+	line "stay away from"
+	cont "hiking and"
+	cont "speleology for a"
+	cont "while, and relax"
+	cont "by fishing,"
+	cont "another passion"
+	cont "of mine!"
+	done
+
+; --------------
 
 _Route12Text1::
 	text "A sleeping #MON"

@@ -74,6 +74,12 @@ _Museum2FText8::
 	cont "some collector in"
 	cont "FUCHSIA."
 
+	para "Now they are long"
+	line "retired and"
+	cont "chillax in"
+	cont "CINNABAR in"
+	cont "wealth."
+
 	para "I wanna be like"
 	line "them! Yes!"
 	done

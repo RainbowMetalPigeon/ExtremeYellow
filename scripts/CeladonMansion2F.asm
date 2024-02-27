@@ -45,6 +45,7 @@ CeladonMansion2FScript1:
 	jr .endScript
 .alreadyHaveAPiece
 	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
 	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
 	ld a, 15 ; TBE, successfully given a piece
 	ldh [hSpriteIndexOrTextID], a
@@ -99,8 +100,9 @@ CeladonMansion2Text1:
 	call PrintText
 	jp TextScriptEnd
 .alreadyHaveAPiece
-	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
 	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
 	ld a, SFX_GET_KEY_ITEM
 	call PlaySound
 	call Delay3
@@ -230,7 +232,7 @@ CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece:
 	text_end
 
 CeladonMansion2TextPigeon_PostBattleGivenMapPiece:
-	text_far _CeladonMansion2TextPigeon_PostBattleGivenMapPiece
+	text_far _Route12TextObsidianMinesHiker_GiveMapPiece ; edited
 	sound_get_key_item
 	text_end
 

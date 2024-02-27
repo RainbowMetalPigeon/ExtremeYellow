@@ -279,6 +279,7 @@ OchreHousesTextMapPiece:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 	SetEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
 	ld hl, OchreHousesTextMapPiece_President
 .printAndEnd
 	call PrintText
@@ -292,7 +293,7 @@ OchreHousesTextMapPiece_NotPresident:
 	text_end
 
 OchreHousesTextMapPiece_President:
-	text_far _OchreHousesTextMapPiece_President
+	text_far _Route12TextObsidianMinesHiker_GiveMapPiece ; edited
 	sound_get_key_item
 	text_end
 

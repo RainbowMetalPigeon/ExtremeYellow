@@ -77,9 +77,9 @@ _CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece::
 	text "Pre give map"
 	done
 
-_CeladonMansion2TextPigeon_PostBattleGivenMapPiece::
-	text "Given map"
-	done
+;_CeladonMansion2TextPigeon_PostBattleGivenMapPiece::
+;	text "Given map"
+;	done
 
 _CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece::
 	text "Failed give map"

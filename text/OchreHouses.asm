@@ -223,9 +223,9 @@ _OchreHousesTextMapPiece_NotPresident::
 	text "Piece of map!"
 	done
 
-_OchreHousesTextMapPiece_President::
-	text "Grab the map!"
-	done
+;_OchreHousesTextMapPiece_President::
+;	text "Grab the map!"
+;	done
 
 _OchreHousesTextBirbFan_BecomePresident::
 	text "Now president!"

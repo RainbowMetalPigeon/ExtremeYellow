@@ -419,9 +419,64 @@ Route12TrainerHeader6:
 	trainer EVENT_BEAT_ROUTE_12_TRAINER_6, 1, Route12BattleText7, Route12EndBattleText7, Route12AfterBattleText7
 	db -1 ; end
 
+; -------------
+
 Route12TextObsidianMinesHiker: ; new
-	text_far _Route12TextObsidianMinesHiker
+	text_asm
+	ld hl, Route12TextObsidianMinesHiker_PostGivingMap
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr nz, .printAndEnd
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER_FAILED
+	jr nz, .notGivenMapButNotFirstTime
+; first time we talk with them
+	ld hl, Route12TextObsidianMinesHiker_FirstDialogue
+	call PrintText
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .setMapPieceEvent
+; first piece we ever obtain, we need to try to give the item as well
+.tryGivingMap
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .setMapPieceEvent
+; bag is full
+	SetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER_FAILED
+	ld hl, Route12TextObsidianMinesHiker_BagFull
+	jr .printAndEnd
+.notGivenMapButNotFirstTime
+	ld hl, Route12TextObsidianMinesHiker_WelcomeBackForReward
+	call PrintText
+	jr .tryGivingMap
+.setMapPieceEvent
+	SetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	ResetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER_FAILED
+	ld hl, Route12TextObsidianMinesHiker_GiveMapPiece
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Route12TextObsidianMinesHiker_FirstDialogue:
+	text_far _Route12TextObsidianMinesHiker_FirstDialogue
 	text_end
+
+Route12TextObsidianMinesHiker_WelcomeBackForReward:
+	text_far _Route12TextObsidianMinesHiker_WelcomeBackForReward
+	text_end
+
+Route12TextObsidianMinesHiker_BagFull:
+	text_far _Route12TextObsidianMinesHiker_BagFull
+	text_end
+
+Route12TextObsidianMinesHiker_GiveMapPiece:
+	text_far _Route12TextObsidianMinesHiker_GiveMapPiece
+	sound_get_key_item
+	text_end
+
+Route12TextObsidianMinesHiker_PostGivingMap:
+	text_far _Route12TextObsidianMinesHiker_PostGivingMap
+	text_end
+
+; -------------
 
 Route12Text1:
 	text_far _Route12Text1
