@@ -9,17 +9,17 @@ WardensHouse_Object:
 	warp_event 21,  7, LAST_MAP, 10
 
 	def_bg_events
-	bg_event  4,  3, 4 ; FuchsiaHouse2Text4
-	bg_event  5,  3, 5 ; FuchsiaHouse2Text5
+	bg_event  4,  3, 8 ; FuchsiaHouse2Text4
+	bg_event  5,  3, 9 ; FuchsiaHouse2Text5
 	; new, ANTIQUITIES shop
-	bg_event 16,  1,  8 ; FuchsiaHouse2AntiquitiesSign1
-	bg_event 17,  1,  9 ; FuchsiaHouse2AntiquitiesSign2
-	bg_event 18,  1, 10 ; FuchsiaHouse2AntiquitiesSign3
-	bg_event 19,  1, 11 ; FuchsiaHouse2AntiquitiesSign4
-	bg_event 22,  1, 12 ; FuchsiaHouse2AntiquitiesSign5
-	bg_event 23,  1, 13 ; FuchsiaHouse2AntiquitiesSign6
-	bg_event 24,  1, 14 ; FuchsiaHouse2AntiquitiesSign7
-	bg_event 25,  1, 15 ; FuchsiaHouse2AntiquitiesSign8
+	bg_event 16,  1, 10 ; FuchsiaHouse2AntiquitiesSign1
+	bg_event 17,  1, 11 ; FuchsiaHouse2AntiquitiesSign2
+	bg_event 18,  1, 12 ; FuchsiaHouse2AntiquitiesSign3
+	bg_event 19,  1, 13 ; FuchsiaHouse2AntiquitiesSign4
+	bg_event 22,  1, 14 ; FuchsiaHouse2AntiquitiesSign5
+	bg_event 23,  1, 15 ; FuchsiaHouse2AntiquitiesSign6
+	bg_event 24,  1, 16 ; FuchsiaHouse2AntiquitiesSign7
+	bg_event 25,  1, 17 ; FuchsiaHouse2AntiquitiesSign8
 
 	def_object_events
 	object_event  2,  3, SPRITE_WARDEN, STAY, NONE, 1 ; person

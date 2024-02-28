@@ -136,50 +136,172 @@ _HM03NoRoomText::
 ; new ---
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PreObsidianGiovanniDefeat::
-	text "No business"
+	text "We're close!"
+	line "No business!"
+
+	para "...the elder"
+	line "mumbles something"
+	cont "about how TEAM"
+	cont "ROCKET ruined"
+	cont "their shop..."
+
+	para "Have a nice day!"
 	done
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoArtifact::
-	text "No money? then"
-	line "bring me smth"
+	text "You're interested"
+	line "in something? But"
+	cont "you don't enough"
+	cont "money? I'm sorry,"
+	cont "I cannot apply"
+	cont "any discount"
+	cont "whatsoever."
+
+	para "...the elder"
+	line "mumbles something"
+	cont "about how poor"
+	cont "people should"
+	cont "stop wasting"
+	cont "their time..."
+
+	para "If you really wish"
+	line "something but you"
+	cont "can't afford it,"
+	cont "I could reduce"
+	cont "its price if you"
+	cont "bring me some"
+	cont "valuable antique"
+	cont "item."
 	done
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesArtifact::
-	text "Wow trade?!"
+	text "Wait... how did"
+	line "you get that"
+	cont "ARTIFACT?!"
+
+	para "I tried for years"
+	line "to convince that"
+	cont "stubborn"
+	cont "archeologist to"
+	cont "sell it to me,"
+	cont "but I never got"
+	cont "anything out of"
+	cont "them after that"
+	cont "splendid LUNAR"
+	cont "RELIC!"
+
+	para "...the elder"
+	line "mumbles something"
+	cont "about how they"
+	cont "ended up selling"
+	cont "it to the SAFARI"
+	cont "ZONE for some"
+	cont "cash during a"
+	cont "tough time..."
+
+	para "That ARTIFACT! I"
+	line "absolutely want"
+	cont "it! Although..."
+	cont "I don't have"
+	cont "much money with"
+	cont "me right now."
+
+	para "Could I interest"
+	line "you with a trade?"
+	cont "What about that"
+	cont "mysterious map"
+	cont "fragment there on"
+	cont "the wall?"
 	done
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoTrade::
-	text "Dammit"
+	text "Oh... that's too"
+	line "bad. Please"
+	cont "reconsider it!"
+
+	para "...the elder"
+	line "mumbles something"
+	cont "about how youths"
+	cont "nowadays can't"
+	cont "recognize a good"
+	cont "deal when they"
+	cont "see one..."
+
+	para "Give it some"
+	line "thought. You know"
+	cont "where to find me."
 	done
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesTrade::
-	text "Great!"
+	text "Fantastic!"
+	line "Let's do this"
+	cont "right away!"
+
+	para "...the elder"
+	line "mumbles something"
+	cont "about how easy it"
+	cont "was..."
+
+	para "You made this old"
+	line "antique dealer so"
+	cont "really happy!"
 	done
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PostGivingMap::
-	text "Happy?"
+	text "Hello there!"
+	line "Are you satisfied"
+	cont "with our little"
+	cont "trade?"
+
+	para "...the elder"
+	line "mumbles something"
+	cont "about they"
+	cont "definitely are"
+	cont "extremely"
+	cont "satisfied..."
+
+	para "Please come back"
+	line "if you discover"
+	cont "anything"
+	cont "interesting or"
+	cont "wish to buy"
+	cont "something!"
 	done
 
 ; ---
 
 _FuchsiaHouse2AntiquitiesText2::
-	text "Stuff 1"
+	text "NAUTILUS FOSSIL"
+
+	para "Price: ¥100000000"
 	done
 
 _FuchsiaHouse2AntiquitiesText3::
-	text "Stuff 1"
+	text "MOSQUITO WITH DINO"
+	line "BLOOD IN AMBER"
+
+	para "Price: ¥300000000"
 	done
 
 _FuchsiaHouse2AntiquitiesText4::
-	text "Stuff 2"
+	text "OPAL FROM"
+	line "DREAMTALE CAVE"
+
+	para "Price: ¥500000000"
 	done
 
 _FuchsiaHouse2AntiquitiesText5::
-	text "Stuff 3"
+	text "MYSTERIOUS HAIR"
+	line "FOSSIL, GUYANA"
+
+	para "Price: ¥999000000"
 	done
 
 _FuchsiaHouse2AntiquitiesTextMapPiece::
-	text "Piece of map"
+	text "ANCIENT MAP"
+	line "FRAGMENT"
+
+	para "Price: ¥42000000"
 	done
 
 ; signs ------
@@ -194,36 +316,57 @@ _FuchsiaHouse2Text_7517b::
 	line "merchandise."
 	done
 
-; new --- ¥
+; new ---
 
 _FuchsiaHouse2AntiquitiesSign1::
-	text "Stuff sign 1"
+	text "MELLANJE ORE,"
+	line "POKKE"
+
+	para "Price: ¥1920000"
 	done
 
 _FuchsiaHouse2AntiquitiesSign2::
-	text "Stuff sign 2"
+	text "BLACK DRANZER"
+
+	para "Price: ¥6660000"
 	done
 
 _FuchsiaHouse2AntiquitiesSign3::
-	text "Stuff sign 3"
+	text "BLEATING COW"
+	line "PLUSHIE, 24 Y.A."
+
+	para "Price: ¥INFINITE"
 	done
 
 _FuchsiaHouse2AntiquitiesSign4::
-	text "Stuff sign 4"
+	text "SHADOWLESS MINT"
+	line "B.S. CHARIZARD"
+
+	para "Price: ¥63200000"
 	done
 
 _FuchsiaHouse2AntiquitiesSign5::
-	text "Stuff sign 5"
+	text "MILLENNIUM PUZZLE"
+
+	para "Price: ¥666666666"
 	done
 
 _FuchsiaHouse2AntiquitiesSign6::
-	text "Stuff sign 6"
+	text "PHILOSOPHER STONE,"
+	line "536329 SOULS"
+
+	para "Price: YOUR BODY"
 	done
 
 _FuchsiaHouse2AntiquitiesSign7::
-	text "Stuff sign 7"
+	text "SUUSHINCHUU"
+
+	para "Price: ¥4000000"
 	done
 
 _FuchsiaHouse2AntiquitiesSign8::
-	text "Stuff sign 8"
+	text "FIRST CARTRIDGE OF"
+	line "#MON GREEN"
+
+	para "Price: ¥9999999999"
 	done

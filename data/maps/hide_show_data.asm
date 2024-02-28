@@ -329,7 +329,7 @@ Route9HS:
 	db ROUTE_9, $0A, SHOW
 Route12HS:
 	db ROUTE_12, $01, SHOW
-	db ROUTE_12, $02, SHOW ; TBE new
+	db ROUTE_12, $02, HIDE ; new
 	db ROUTE_12, $0A, SHOW ; edited
 	db ROUTE_12, $0B, SHOW ; edited
 	db ROUTE_12, $0C, HIDE ; new, rival left

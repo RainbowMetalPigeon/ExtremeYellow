@@ -226,7 +226,7 @@ FuchsiaHouse2Text5:
 FuchsiaHouse2Text4:
 	text_asm
 	ldh a, [hSpriteIndex]
-	cp $4
+	cp $8 ; lol this whole thing is beyond idiotic
 	ld hl, FuchsiaHouse2Text_7517b
 	jr nz, .asm_4c9a2
 	ld hl, FuchsiaHouse2Text_75176
@@ -275,4 +275,3 @@ FuchsiaHouse2AntiquitiesSign7:
 FuchsiaHouse2AntiquitiesSign8:
 	text_far _FuchsiaHouse2AntiquitiesSign8
 	text_end
-	

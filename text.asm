@@ -172,7 +172,6 @@ INCLUDE "text/CeladonHotel.asm"
 INCLUDE "text/FuchsiaMart.asm"
 INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "text/FuchsiaPokecenter.asm"
-INCLUDE "text/WardensHouse.asm"
 INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/FuchsiaGym.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
@@ -309,6 +308,7 @@ INCLUDE "text/CeladonUniversity2.asm" ; new
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/Route29.asm" ; new
+INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 
 
 ; new: splitted the Pokédex text into two separate sections
