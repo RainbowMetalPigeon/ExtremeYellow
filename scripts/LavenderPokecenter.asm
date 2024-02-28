@@ -34,10 +34,41 @@ LavenderPokecenterText5:
 
 ; new, from Mart
 
-LavenderMartText2:
-	text_far _LavenderMartText2
+LavenderMartText2: ; edited
+	text_asm
+	ld hl, LavenderMartText2_Question
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .IKnow
+	ld hl, LavenderMartText2_Dunno
+	jr .printAndEnd
+.IKnow
+	ld hl, LavenderMartText2_Where
+	call PrintText
+	call YesNoChoice
+	ld hl, LavenderMartText2_NotFun
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+LavenderMartText2_Question: ; new
+	text_far _LavenderMartText2_Question
 	text_end
 
+LavenderMartText2_Dunno: ; new
+	text_far _LavenderMartText2_Dunno
+	text_end
+
+LavenderMartText2_Where: ; new
+	text_far _LavenderMartText2_Where
+	text_end
+
+LavenderMartText2_NotFun: ; new
+	text_far _LavenderMartText2_NotFun
+	text_end
+	
 LavenderMartText3:
 	text_asm
 	CheckEvent EVENT_RESCUED_MR_FUJI

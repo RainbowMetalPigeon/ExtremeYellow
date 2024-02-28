@@ -401,6 +401,28 @@ _Route29TextFireOrbRecess_AlreadyPlacedAllOrbs::
 
 ; ---------------
 
+_Route29TextRuin1::
+    text "Ci--ne"
+    done
+
+_Route29TextRuin2::
+    text ""
+    done
+
+_Route29TextRuin3::
+    text ""
+    done
+
+_Route29TextRuin4::
+    text ""
+    done
+
+_Route29TextRuin5::
+    text ""
+    done
+
+; ---------------
+
 _Route29TextOrbsVanish1::
     text "The three ORBs"
     line "react to their"

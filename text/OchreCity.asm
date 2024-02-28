@@ -195,7 +195,7 @@ _OchreCity_NPCText14_Bird::
 	text "Quack!"
 	prompt
 
-_OchreCity_Scolded::
+_OchreCity_Scolded:: ; TBE
 	text "NO!"
 	line "Come back here!"
 	done

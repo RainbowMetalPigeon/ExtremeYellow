@@ -12,6 +12,8 @@ OchreCity_Object:
 	warp_event 37, 27, OCHRE_REHABILITATION_CENTER, 2 ; 8 - front entrance rehabilitation
 	warp_event 12, 33, OCHRE_WONDERLAND, 1 ; 9
 	warp_event 37, 25, OCHRE_REHABILITATION_CENTER, 1 ; 10 - back entrance rehabilitation
+	warp_event 27, 31, OCHRE_REHABILITATION_CENTER, 4 ; 11 - extra house 1
+	warp_event 27, 35, OCHRE_REHABILITATION_CENTER, 6 ; 12 - extra house 2
 
 	def_bg_events
 	bg_event 28, 11, 15 ; MartSignText

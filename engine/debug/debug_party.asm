@@ -212,7 +212,7 @@ DebugItemsList:
 	db LAVA_STONE, 1
 	db MAGMA_STONE, 1
 	db MOLTEN_STONE, 1
-	db EXP_ALL, 1
+;	db EXP_ALL, 1
     db POTION, 99
     db POTION, 99
     db POTION, 99

@@ -259,7 +259,6 @@ INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/NameRatersHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
-INCLUDE "text/SilphCo10F.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -309,6 +308,7 @@ INCLUDE "text/CeladonUniversity2.asm" ; new
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
+INCLUDE "text/SilphCo10F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

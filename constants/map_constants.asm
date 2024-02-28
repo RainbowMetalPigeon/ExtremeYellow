@@ -228,7 +228,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROCKET_HIDEOUT_B3F,            15, 14 ; $C9
 	map_const ROCKET_HIDEOUT_B4F,            15, 12 ; $CA
 	map_const ROCKET_HIDEOUT_ELEVATOR,        3,  4 ; $CB
-	map_const OCHRE_REHABILITATION_CENTER,    6,  4 ; $CC, new
+	map_const OCHRE_REHABILITATION_CENTER,   20,  4 ; $CC, new
 	map_const OCHRE_POKECENTER,              14,  4 ; $CD, new, Center+Mart
 	map_const OBSIDIAN_POKECENTER,           14,  4 ; $CE, new, Center+Mart
 	map_const SILPH_CO_2F,                   15,  9 ; $CF

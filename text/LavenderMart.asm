@@ -1,4 +1,4 @@
-_LavenderMartText2::
+_LavenderMartText2_Question::
 	text "I'm searching for"
 	line "items that raise"
 	cont "the abilities of"
@@ -12,6 +12,23 @@ _LavenderMartText2::
 
 	para "Do you know where"
 	line "I can get them?"
+	done
+
+_LavenderMartText2_Dunno::
+	text "Ah, too bad..."
+	done
+
+_LavenderMartText2_Where::
+	text "Oh! That's great!"
+	line "You're the first"
+	cont "one knowing!"
+
+	para "Where can I"
+	line "find them?"
+	done
+
+_LavenderMartText2_NotFun::
+	text "That's... not fun."
 	done
 
 _LavenderMartReviveText::

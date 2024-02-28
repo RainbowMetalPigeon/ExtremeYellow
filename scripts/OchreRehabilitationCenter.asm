@@ -67,8 +67,15 @@ OchreRehabilitationCenter_TextPointers:
 	dw OchreRehabilitationCenterText3
 	dw OchreRehabilitationCenterText4
 	dw OchreRehabilitationCenterText5 ; boss copy, only for scolding
+	; house 1
+	dw OchreRehabilitationCenterText6 ; battle enthusiast
+	; house 1
+	dw OchreRehabilitationCenterText7 ; parent
+	dw OchreRehabilitationCenterText8 ; parent
+	dw OchreRehabilitationCenterText9 ; urban legend kid
 	; signs
-	dw OchreRehabilitationCenterText6
+	dw OchreRehabilitationCenterSign1
+	dw OchreRehabilitationCenterSign2
 
 OchreRehabilitationCenterText1:
 	text_far _OchreRehabilitationCenterText1
@@ -108,6 +115,24 @@ OchreRehabilitationCenterText6:
 	text_far _OchreRehabilitationCenterText6
 	text_end
 
-;EVENT_OCHRE_CITY_FENCE_FORCED
-;EVENT_OCHRE_REHABILITATION_SCOLDED_ONCE
-;EVENT_OCHRE_REHABILITATION_SCOLDED_AGAIN
+OchreRehabilitationCenterText7:
+	text_far _OchreRehabilitationCenterText7
+	text_end
+
+OchreRehabilitationCenterText8:
+	text_far _OchreRehabilitationCenterText8
+	text_end
+
+OchreRehabilitationCenterText9:
+	text_far _OchreRehabilitationCenterText9
+	text_end
+
+; signs
+
+OchreRehabilitationCenterSign1:
+	text_far _OchreRehabilitationCenterSign1
+	text_end
+
+OchreRehabilitationCenterSign2:
+	text_far _OchreRehabilitationCenterSign2
+	text_end

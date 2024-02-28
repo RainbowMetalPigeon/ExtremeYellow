@@ -54,23 +54,45 @@ _OchreRehabilitationCenterText4::
 	text "b... b... b..."
 	done
 
-_OchreRehabilitationCenterText5_Once::
+_OchreRehabilitationCenterText5_Once:: ; TBE
 	text "Never again!"
 	line "Next time fine!"
 	done
 
-_OchreRehabilitationCenterText5_Again::
+_OchreRehabilitationCenterText5_Again:: ; TBE
 	text "This is it!"
 	line "Mega fine!"
 	done
 
-_OchreRehabilitationCenterText6::
+_OchreRehabilitationCenterText6:: ; TBE
+	text "Battles are cool"
+	done
+
+_OchreRehabilitationCenterText7:: ; TBE
+	text "Parent 1"
+	done
+
+_OchreRehabilitationCenterText8:: ; TBE
+	text "Parent 2"
+	done
+
+_OchreRehabilitationCenterText9:: ; TBE
+	text "Urban legends"
+	done
+
+; signs and else
+
+_OchreRehabilitationCenterSign1::
 	text "It's a book about"
 	line "bird anatomy and"
 	cont "physiology!"
 
 	para "...it looks very"
 	line "complex..."
+	done
+
+_OchreRehabilitationCenterSign2:: ; TBE
+	text ""
 	done
 
 _OchreCity_LooseFence_ItsLoose::

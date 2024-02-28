@@ -15,7 +15,7 @@ Route29_ScriptPointers:
 	dw Route29Script_PlacedAllOrbs2 ; 4
 
 Route29Script_PlacedAllOrbs1:
-	ld a, 14 ; Route29TextOrbsVanish1
+	ld a, 24 ; Route29TextOrbsVanish1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call GBFadeOutToWhite
@@ -46,7 +46,7 @@ Route29Script_PlacedAllOrbs1:
 	ret
 
 Route29Script_PlacedAllOrbs2:
-	ld a, 15 ; Route29TextOrbsVanish2
+	ld a, 25 ; Route29TextOrbsVanish2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 0
@@ -71,30 +71,40 @@ Route29_TextPointers:
 	dw Route29TextIceOrbRecess     ; 11
 	dw Route29TextThunderOrbRecess ; 12
 	dw Route29TextFireOrbRecess    ; 13
+	dw Route29TextRuin1			   ; 14
+	dw Route29TextRuin1			   ; 15
+	dw Route29TextRuin2			   ; 16
+	dw Route29TextRuin2			   ; 17
+	dw Route29TextRuin3			   ; 18
+	dw Route29TextRuin3			   ; 19
+	dw Route29TextRuin4			   ; 20
+	dw Route29TextRuin4			   ; 21
+	dw Route29TextRuin5			   ; 22
+	dw Route29TextRuin5			   ; 23
 	; non-NPCs/signs
-	dw Route29TextOrbsVanish1      ; 14
-	dw Route29TextOrbsVanish2      ; 15
+	dw Route29TextOrbsVanish1      ; 24
+	dw Route29TextOrbsVanish2      ; 25
 
 Route29TrainerHeaders:
 	def_trainers
 Route29TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_29_TRAINER_0, 0, Route29BattleText1, Route29EndBattleText1, Route29AfterBattleText1
 Route29TrainerHeader1:
-	trainer EVENT_BEAT_ROUTE_29_TRAINER_1, 0, Route29BattleText2, Route29EndBattleText2, Route29AfterBattleText2
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_1, 3, Route29BattleText2, Route29EndBattleText2, Route29AfterBattleText2
 Route29TrainerHeader2:
-	trainer EVENT_BEAT_ROUTE_29_TRAINER_2, 0, Route29BattleText3, Route29EndBattleText3, Route29AfterBattleText3
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_2, 3, Route29BattleText3, Route29EndBattleText3, Route29AfterBattleText3
 Route29TrainerHeader3:
-	trainer EVENT_BEAT_ROUTE_29_TRAINER_3, 0, Route29BattleText4, Route29EndBattleText4, Route29AfterBattleText4
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_3, 3, Route29BattleText4, Route29EndBattleText4, Route29AfterBattleText4
 Route29TrainerHeader4:
-	trainer EVENT_BEAT_ROUTE_29_TRAINER_4, 0, Route29BattleText5, Route29EndBattleText5, Route29AfterBattleText5
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_4, 1, Route29BattleText5, Route29EndBattleText5, Route29AfterBattleText5
 Route29TrainerHeader5:
 	trainer EVENT_BEAT_ROUTE_29_TRAINER_5, 0, Route29BattleText6, Route29EndBattleText6, Route29AfterBattleText6
 Route29TrainerHeader6:
 	trainer EVENT_BEAT_ROUTE_29_TRAINER_6, 0, Route29BattleText7, Route29EndBattleText7, Route29AfterBattleText7
 Route29TrainerHeader7:
-	trainer EVENT_BEAT_ROUTE_29_TRAINER_7, 0, Route29BattleText8, Route29EndBattleText8, Route29AfterBattleText8
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_7, 4, Route29BattleText8, Route29EndBattleText8, Route29AfterBattleText8
 Route29TrainerHeader8:
-	trainer EVENT_BEAT_ROUTE_29_TRAINER_8, 0, Route29BattleText9, Route29EndBattleText9, Route29AfterBattleText9
+	trainer EVENT_BEAT_ROUTE_29_TRAINER_8, 4, Route29BattleText9, Route29EndBattleText9, Route29AfterBattleText9
 	db -1 ; end
 
 ; trainers -------------------
@@ -513,6 +523,28 @@ Route29TextFireOrbRecess_AlreadyPlacedThisOrb:
 
 Route29TextFireOrbRecess_AlreadyPlacedAllOrbs:
 	text_far _Route29TextFireOrbRecess_AlreadyPlacedAllOrbs
+	text_end
+
+; ---------------
+
+Route29TextRuin1:
+	text_far _Route29TextRuin1
+	text_end
+
+Route29TextRuin2:
+	text_far _Route29TextRuin2
+	text_end
+
+Route29TextRuin3:
+	text_far _Route29TextRuin3
+	text_end
+
+Route29TextRuin4:
+	text_far _Route29TextRuin4
+	text_end
+
+Route29TextRuin5:
+	text_far _Route29TextRuin5
 	text_end
 
 ; ---------------
