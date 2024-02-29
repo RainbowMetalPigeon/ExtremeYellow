@@ -7,7 +7,7 @@ _OchreResearchCenter1Text_Ball_Kalos::
 	done
 
 _OchreResearchCenter1Text_Ball_Kurtz::
-	text "Ball Kurtz"
+	text "Ball Kurt" ; no Z
 	done
 
 _OchreResearchCenter1Text_Ball_Silph::

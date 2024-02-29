@@ -401,24 +401,48 @@ _Route29TextFireOrbRecess_AlreadyPlacedAllOrbs::
 
 ; ---------------
 
-_Route29TextRuin1::
-    text "Ci--ne"
+_Route29TextRuin1:: ; Shall the three ORBs be reunited, the awakening of the Gods will be unavoidable.
+    text "S-a-l th- th--e"
+    line "OR-s be r---ited,"
+    cont "-he a-ake--ng of"
+    cont "t-e Gods w-ll be"
+    cont "u-av--dabl-."
     done
 
-_Route29TextRuin2::
-    text ""
+_Route29TextRuin2:: ; The Gods hid from this plane of reality leaving a shard of their power behind for us to awe at.
+    text "Th- Gods hi- fr-m"
+    line "th-s p--ne of"
+    cont "real-ty le---ng a"
+    cont "sha-d o- their"
+    cont "po--r be--nd fo-"
+    cont "us -o awe -t."
     done
 
-_Route29TextRuin3::
-    text ""
+_Route29TextRuin3:: ; The ancestral nests of the Gods should not be violated, as they are sacred and holy.
+    text "-he ances-ra-"
+    line "ne-ts of --e Gods"
+    cont "s-oul- n-t be"
+    cont "v--lated, a- the-"
+    cont "-re sa--ed and"
+    cont "ho-y."
     done
 
-_Route29TextRuin4::
-    text ""
+_Route29TextRuin4:: ; The one who wields the power of the Gods will reign supreme over the world.
+    text "Th- o-e -ho w--lds"
+    line "the p-wer o- --e"
+    cont "Gods -i-l r-ign"
+    cont "sup--me -ver t-e"
+    cont "wor-d."
     done
 
-_Route29TextRuin5::
-    text ""
+_Route29TextRuin5:: ; Freezing as the polar winter night, crackling as the supreme thunderstorm, burning as the wildest volcano.
+    text "Fr-ezi-g as th-"
+    line "pol-r win--r"
+    cont "-ig-t, c-ack-ing"
+    cont "as -he su--eme"
+    cont "t-unde-st--m,"
+    cont "bu-nin- -s t-e"
+    cont "wi-des- vol-an-."
     done
 
 ; ---------------

@@ -73,8 +73,21 @@ _CeladonUniversity1Text6::
 
 ; --- swimming pool ---
 
-_CeladonUniversity1TextTest::
-	text "TEST POOL"
+_CeladonUniversity1TextMagikarp::
+	text "MAGIKARP:"
+	line "Kaaa...aaarp!@"
+	text_end
+
+_CeladonUniversity1TextPool1::
+	text "POOL 1"
+	done
+
+_CeladonUniversity1TextPool2::
+	text "POOL 2"
+	done
+
+_CeladonUniversity1TextPool3::
+	text "POOL 3"
 	done
 
 ; --- signs ---
@@ -115,7 +128,7 @@ _CeladonUniversity1Constitution2::
 	para "Is that..."
 	line "PROF OAK's"
 	cont "signature?"
-	
+
 	para "The other ones are"
 	line "even more"
 	cont "unreadable."

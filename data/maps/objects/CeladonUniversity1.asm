@@ -30,7 +30,7 @@ CeladonUniversity1_Object:
 	object_event 10, 25, SPRITE_COOLTRAINER_M, WALK, ANY_DIR, 5 ; person
 	object_event 11, 27, SPRITE_HIKER, WALK, LEFT_RIGHT, 6 ; person
 	; swimming pool
-	object_event 10,  4, SPRITE_MAGIKARP, STAY, LEFT_RIGHT, 7 ; mons
+	object_event 11,  4, SPRITE_MAGIKARP, STAY, LEFT_RIGHT, 7 ; mons
 	object_event  9,  7, SPRITE_MAGIKARP, WALK, LEFT_RIGHT, 8 ; mons
 	object_event 10, 11, SPRITE_MAGIKARP, WALK, ANY_DIR, 9 ; mons
 	object_event  3,  5, SPRITE_SWIMMER, WALK, UP_DOWN, 10

@@ -82,6 +82,7 @@ INCLUDE "engine/events/heat_damage.asm" ; new, testing
 INCLUDE "engine/link/print_waiting_text.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
+INCLUDE "engine/miscellanea/overworld.asm" ; new
 
 
 SECTION "bank4", ROMX

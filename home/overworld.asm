@@ -81,7 +81,7 @@ OverworldLoopLessDelay::
 	jp .displayDialogue
 .startButtonNotPressed
 	bit BIT_A_BUTTON, a
-	jp z, .checkIfDownButtonIsPressed
+	jp z, .checkIfDirectionalButtonIsPressed ; edited, was checkIfDownButtonIsPressed
 ; if A is pressed
 	ld a, [wd730]
 	bit 2, a
@@ -142,37 +142,12 @@ OverworldLoopLessDelay::
 .overworldloop
 	jp OverworldLoop
 
-.checkIfDownButtonIsPressed
-	ldh a, [hJoyHeld] ; current joypad state
-	bit BIT_D_DOWN, a
-	jr z, .checkIfUpButtonIsPressed
-	ld a, 1
-	ld [wSpritePlayerStateData1YStepVector], a
-	ld a, PLAYER_DIR_DOWN
-	jr .handleDirectionButtonPress
-
-.checkIfUpButtonIsPressed
-	bit BIT_D_UP, a
-	jr z, .checkIfLeftButtonIsPressed
-	ld a, -1
-	ld [wSpritePlayerStateData1YStepVector], a
-	ld a, PLAYER_DIR_UP
-	jr .handleDirectionButtonPress
-
-.checkIfLeftButtonIsPressed
-	bit BIT_D_LEFT, a
-	jr z, .checkIfRightButtonIsPressed
-	ld a, -1
-	ld [wSpritePlayerStateData1XStepVector], a
-	ld a, PLAYER_DIR_LEFT
-	jr .handleDirectionButtonPress
-
-.checkIfRightButtonIsPressed
-	bit BIT_D_RIGHT, a
+; edited: made this block into a callfar-able function to better edit it for the Haunted House
+.checkIfDirectionalButtonIsPressed
+	callfar CheckIfDirectionalButtonIsPressed
 	jr z, .noDirectionButtonsPressed
-	ld a, 1
-	ld [wSpritePlayerStateData1XStepVector], a
-	ld a, 1
+	ld a, e
+; back to vanilla
 
 .handleDirectionButtonPress
 	ld [wPlayerDirection], a ; new direction

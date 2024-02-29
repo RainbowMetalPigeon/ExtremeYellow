@@ -9,7 +9,7 @@ CeladonUniversity2_ScriptPointers:
 	dw CeladonUniversity2Script0
 
 CoordinatesForBooksTextsIDs:
-; x, y, textID
+; x, y
     db 32,  2
     db 41,  2
     db 42, 10
@@ -83,11 +83,11 @@ CeladonUniversity2_TextPointers:
 	dw CeladonUniversity2Text13 ; researcher
 	dw CeladonUniversity2Text14 ; researcher
 	; signs
-	; other
-	dw CeladonUniversity2SignTest1 ; 15, starting point of the books texts IDs
+	; other (mostly books)
+	dw CeladonUniversity2SignTest1 ; 15, starting point of the books texts IDs <-> OFFSET = 0
 	dw CeladonUniversity2SignTest2 ; 16
 	dw CeladonUniversity2SignTest3 ; 17
-	
+
 ; --- magna auditorium ---
 
 CeladonUniversity2Text1:
@@ -158,9 +158,9 @@ CeladonUniversity2Text8:
 	ld hl, CeladonUniversity2Text8_WowAlreadyCaught
 	call PrintText
 .giveMoney
-    xor a  
-    ld [hMoney + 1], a    
-    ld [hMoney + 2], a    
+    xor a
+    ld [hMoney + 1], a
+    ld [hMoney + 2], a
     ld a, $01
     ld [hMoney], a
 	ld hl, hMoney + 2
@@ -183,7 +183,7 @@ CeladonUniversity2Text8:
 	call PrintText
 .justEnd
 	jp TextScriptEnd
-	
+
 CeladonUniversity2Text8_Intro_NoPrompt:
 	text_far _CeladonUniversity2Text8_Intro_NoPrompt
 	text_end
@@ -262,11 +262,11 @@ CeladonUniversity2Text14:
 CeladonUniversity2SignTest1:
 	text_far _CeladonUniversity2SignTest1
 	text_end
-	
+
 CeladonUniversity2SignTest2:
 	text_far _CeladonUniversity2SignTest2
 	text_end
-	
+
 CeladonUniversity2SignTest3:
 	text_far _CeladonUniversity2SignTest3
 	text_end

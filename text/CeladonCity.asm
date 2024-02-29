@@ -7,11 +7,11 @@ _CeladonCityText1:: ; edited
 	cont "improves CELADON!"
 	done
 
-_CeladonCityText2::
-	text "Heheh! This GYM"
-	line "is great! It's"
-	cont "full of women!"
-	done
+;_CeladonCityText2::
+;	text "Heheh! This GYM"
+;	line "is great! It's"
+;	cont "full of women!"
+;	done
 
 _CeladonCityText3::
 	text "The GAME CORNER"
@@ -19,13 +19,18 @@ _CeladonCityText3::
 	cont "city's image!"
 	done
 
-_CeladonCityText4::
-	text "Moan! I blew it"
-	line "all at the slots!"
+_CeladonCityText4:: ; edited
+	text "The LUNAR SHRINE,"
+	line "north from here,"
+	cont "is technically"
+	cont "within CELADON"
+	cont "limits."
 
-	para "I knew I should"
-	line "have cashed in my"
-	cont "coins for prizes!"
+	para "Despite so, it"
+	line "feels so"
+	cont "isolated, and"
+	cont "it's very tough"
+	cont "to reach."
 	done
 
 _TM41PreText::
@@ -110,13 +115,13 @@ _CeladonCityText11::
 	cont "Rainbow Dreams"
 	done
 
-_CeladonCityText13::
+_CeladonCityText13:: ; edited
 	text "CELADON CITY"
 	line "#MON GYM"
 	cont "LEADER: ERIKA"
 
 	para "The Nature-Loving"
-	line "Princess!"
+	line "Sleeping Ruler!"
 	done
 
 _CeladonCityText14::
@@ -130,14 +135,13 @@ _CeladonCityText15::
 	cont "DEPT. STORE!"
 	done
 
-_CeladonCityText16::
+_CeladonCityText16:: ; edited
 	text "TRAINER TIPS"
 
 	para "GUARD SPEC."
 	line "protects #MON"
-	cont "against SPECIAL"
-	cont "attacks such as"
-	cont "fire and water!"
+	cont "from having their"
+	cont "STATS lowered!"
 
 	para "Get your items at"
 	line "CELADON DEPT."
@@ -243,7 +247,7 @@ _CeladonCityTextUniQuizWrong::
 	done
 
 _CeladonCityTextUniQuizCorrect::
-	text "Exact!"
+	text "Correct!"
 
 	para "You're now granted"
 	line "access to the"

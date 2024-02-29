@@ -12,12 +12,12 @@ CeladonUniversity1_TextPointers:
 	dw CeladonUniversity1Text5
 	dw CeladonUniversity1Text6
 	; pool
-	dw CeladonUniversity1TextTest ; Magikarp
-	dw CeladonUniversity1TextTest ; Magikarp
-	dw CeladonUniversity1TextTest ; Magikarp
-	dw CeladonUniversity1TextTest ; Swimmer
-	dw CeladonUniversity1TextTest ; Swimmer
-	dw CeladonUniversity1TextTest ; Bench
+	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw CeladonUniversity1TextPool1 ; Swimmer
+	dw CeladonUniversity1TextPool2 ; Swimmer
+	dw CeladonUniversity1TextPool3 ; Bench
 	; signs
 	dw CeladonUniversity1Door1
 	dw CeladonUniversity1Door2
@@ -54,8 +54,24 @@ CeladonUniversity1Text6:
 
 ; --- swimming pool ---
 
-CeladonUniversity1TextTest:
-	text_far _CeladonUniversity1TextTest
+CeladonUniversity1TextMagikarp:
+	text_far _CeladonUniversity1TextMagikarp
+	text_asm
+	ld a, MAGIKARP
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
+
+CeladonUniversity1TextPool1:
+	text_far _CeladonUniversity1TextPool1
+	text_end
+
+CeladonUniversity1TextPool2:
+	text_far _CeladonUniversity1TextPool2
+	text_end
+
+CeladonUniversity1TextPool3:
+	text_far _CeladonUniversity1TextPool3
 	text_end
 
 ; --- signs ---
