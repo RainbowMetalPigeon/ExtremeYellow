@@ -242,7 +242,7 @@ Route13HiddenObjects: ; edited
 Route14HiddenObjects: ; new
 	hidden_object 15,  8, RARE_CANDY, HiddenItems
 	hidden_object 14,  9, NUGGET, HiddenItems
-	hidden_object 16, 37, ULTRA_BALL, HiddenItems
+	hidden_object 15, 38, ULTRA_BALL, HiddenItems
 	db -1 ; end
 
 Route15Gate2FHiddenObjects:
@@ -311,9 +311,9 @@ VictoryRoad2HiddenObjects:
 	hidden_object 26,  7, FULL_RESTORE, HiddenItems
 	db -1 ; end
 
-Route25HiddenObjects:
-	hidden_object 38,  3, ETHER, HiddenItems
-	hidden_object 10,  1, ELIXER, HiddenItems
+Route25HiddenObjects: ; edited, +34 in y
+	hidden_object 38, 37, ETHER, HiddenItems
+	hidden_object 10, 35, ELIXER, HiddenItems
 	db -1 ; end
 
 BillsHouseHiddenObjects:

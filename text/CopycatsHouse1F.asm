@@ -1,16 +1,16 @@
 _CopycatsHouse1FText1::
-	text "My daughter is so"
+	text "My kid is so"
 	line "self-centered."
-	cont "She only has a"
-	cont "few friends."
+	cont "They only have"
+	cont "a few friends."
 	done
 
 _CopycatsHouse1FText2::
-	text "My daughter likes"
+	text "My kid likes"
 	line "to mimic people."
 
-	para "Her mimicry has"
-	line "earned her the"
+	para "Their mimicry has"
+	line "earned them the"
 	cont "nickname COPYCAT"
 	cont "around here!"
 	done

@@ -1,10 +1,28 @@
 BillsHouse_Script:
+	; new
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, BillsHouseSetDoorBlock
+	; vanilla
 	call BillsHouseScript_1e09e
 	call EnableAutoTextBoxDrawing
 	ld a, [wBillsHouseCurScript]
 	ld hl, BillsHouse_ScriptPointers
 	call CallFunctionInTable
 	ret
+
+BillsHouseSetDoorBlock: ; new
+	CheckEvent EVENT_SHOWN_COMPLETE_MAP_TO_BILL
+	jr nz, .doorWorking
+	ld a, $0B ; machine without door
+	jr .replaceTile
+.doorWorking
+	ld a, $3A ; machine with door
+.replaceTile
+	ld [wNewTileBlockID], a
+	lb bc, 1, 3 ; y, x in block coordinates
+	predef_jump ReplaceTileBlock
 
 BillsHouse_ScriptPointers:
 	dw BillsHouseScript0
@@ -17,6 +35,7 @@ BillsHouse_ScriptPointers:
 	dw BillsHouseScript7
 	dw BillsHouseScript8
 	dw BillsHouseScript9
+	dw BillsHouseScript10 ; new
 
 BillsHouseScript_1e09e:
 	ld hl, wd492
@@ -256,7 +275,7 @@ BillsHouseScript9:
 BillsHouse_TextPointers:
 	dw BillsHouseText1
 	dw BillsHouseText2
-	dw BillsHouseText3
+	dw BillsHouseText3 ; Bill after having saved them
 	dw BillsHouseText4
 
 BillsHouseText4:
@@ -273,7 +292,57 @@ BillsHouseText2:
 	farcall Func_f244a
 	jp TextScriptEnd
 
-BillsHouseText3:
+BillsHouseText3: ; completely ridicolous way of printing a text lol; also, edited for Secret Garden
 	text_asm
+; new
+	CheckEvent EVENT_SHOWN_COMPLETE_MAP_TO_BILL
+	jr z, .mapNotShownYet
+	ld hl, BillsHouseText3_MapAlreadyShown
+	call PrintText
+	jr .end
+.mapNotShownYet
+	ld b, MYSTERY_MAP
+	call IsItemInBag
+	jr z, .noMapInBag
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+	jr z, .noMapInBag
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	jr z, .noMapInBag
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	jr z, .noMapInBag
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	jr z, .noMapInBag
+; we have the complete map
+	ld hl, BillsHouseText3_YouHaveThatMap
+	call PrintText
+	ld a, 10
+	ld [wCurMapScript], a
+	ld [wBillsHouseCurScript], a
+	jr .end
+; back to vanilla
+.noMapInBag
 	farcall Func_f24a2
+.end
 	jp TextScriptEnd
+
+BillsHouseScript10: ; new
+	SetEvent EVENT_SHOWN_COMPLETE_MAP_TO_BILL
+	ld a, SFX_GO_INSIDE
+    call PlaySound
+	ld a, $3A ; machine with door
+	ld [wNewTileBlockID], a
+	lb bc, 1, 3 ; y, x in block coordinates
+	predef ReplaceTileBlock
+	ld a, 1
+	ld [wCurMapScript], a
+	ld [wBillsHouseCurScript], a
+	ret
+
+BillsHouseText3_MapAlreadyShown: ; new
+	text_far _BillsHouseText3_MapAlreadyShown
+	text_end
+
+BillsHouseText3_YouHaveThatMap: ; new
+	text_far _BillsHouseText3_YouHaveThatMap
+	text_end
+	

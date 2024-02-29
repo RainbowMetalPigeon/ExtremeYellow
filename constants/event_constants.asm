@@ -622,7 +622,8 @@
 	const EVENT_BEAT_ROUTE_25_TRAINER_6
 	const EVENT_BEAT_ROUTE_25_TRAINER_7
 	const EVENT_BEAT_ROUTE_25_TRAINER_8
-	const_skip
+;	const_skip ; edited, commented away
+	const EVENT_SHOWN_COMPLETE_MAP_TO_BILL ; new
 	const EVENT_USED_CELL_SEPARATOR_ON_BILL
 	const EVENT_GOT_SS_TICKET
 	const EVENT_MET_BILL_2

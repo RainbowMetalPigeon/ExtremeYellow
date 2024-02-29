@@ -58,7 +58,7 @@ ENDM
 	door_tiles $3b, $1b
 
 .InteriorDoorTileIDs:
-	door_tiles $04, $15
+	door_tiles $04, $15, $5f ; edited, last one is new
 
 .ResearchCenterDoorTileIDs: ; new
 	door_tiles $20, $30, $34

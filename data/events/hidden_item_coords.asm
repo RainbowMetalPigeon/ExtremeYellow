@@ -39,7 +39,7 @@ HiddenItemCoords:
 	hidden_item ROUTE_13,                       1,   4 ; edited
 	hidden_item ROUTE_14,                      15,   8 ; new
 	hidden_item ROUTE_14,                      14,   9 ; new
-	hidden_item ROUTE_14,                      16,  37 ; new
+	hidden_item ROUTE_14,                      15,  38 ; new
 	hidden_item ROUTE_17,                      15,  14
 	hidden_item ROUTE_17,                       8,  45
 	hidden_item ROUTE_17,                      17,  72
@@ -50,8 +50,8 @@ HiddenItemCoords:
 	hidden_item ROUTE_23,                       8,  90
 	hidden_item VICTORY_ROAD_2F,                5,   2
 	hidden_item VICTORY_ROAD_2F,               26,   7
-	hidden_item ROUTE_25,                      38,   3
-	hidden_item ROUTE_25,                      10,   1
+	hidden_item ROUTE_25,                      38,  37 ; edited, +34 in y
+	hidden_item ROUTE_25,                      10,  35 ; edited, +34 in y
 	hidden_item ROUTE_4,                       38,   3 ; edited
 	hidden_item ROUTE_9,                       14,   7
 	hidden_item COPYCATS_HOUSE_2F,              1,   1

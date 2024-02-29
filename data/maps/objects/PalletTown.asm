@@ -20,8 +20,8 @@ PalletTown_Object:
 ;	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
 ;	warp_event  5,  5, COPYCATS_HOUSE_2F, 1
-	warp_event  5,  5, SILPH_CO_11F, 4
-;	warp_event  5,  5, BILLS_HOUSE, 1
+;	warp_event  5,  5, SILPH_CO_11F, 4
+	warp_event  5,  5, BILLS_HOUSE, 1
 ;	warp_event  5,  5, VICTORY_ROAD_1F, 1
 ;	warp_event  5,  5, OBSIDIAN_MINES, 1
 ;	warp_event  5,  5, LORELEIS_ROOM, 1

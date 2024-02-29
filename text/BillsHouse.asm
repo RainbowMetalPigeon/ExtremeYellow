@@ -91,3 +91,18 @@ _BillsHouseText_1e8da::
 	cont "some of my rare"
 	cont "#MON on my PC!"
 	done
+
+; new ---
+
+_BillsHouseText3_MapAlreadyShown:: ; TBE
+	text "Please don't go"
+	line "Ultra dangerous"
+	cont "plz reconsider"
+	done
+
+_BillsHouseText3_YouHaveThatMap:: ; TBE
+	text "Oh no you found it"
+	line "It's dangerous"
+	cont "don't go"
+	cont "open door for you"
+	done
