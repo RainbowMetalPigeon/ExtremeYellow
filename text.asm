@@ -302,13 +302,14 @@ INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo9F.asm"
 INCLUDE "text/Route30.asm" ; new
 INCLUDE "text/PikachuGrotto.asm" ; new
-INCLUDE "text/CeladonUniversity2.asm" ; new
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 INCLUDE "text/SilphCo10F.asm"
+INCLUDE "text/CeladonUniversity2.asm" ; new
+INCLUDE "text/HauntedHouse1.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

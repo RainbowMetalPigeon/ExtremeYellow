@@ -63,3 +63,21 @@ ConvertMapIDToMapPicID::
 	ret z
 	ld de, MysteryMap1234Pic
 	ret
+
+TallGrassBillsSecretGardenCheckSteps::
+	ld a, [wTallGrassBillsSecretGardenSteps]
+	ld b, a
+	ld a, [wTallGrassBillsSecretGardenSteps + 1]
+	ld c, a
+	or b
+	jr z, .stepsOver
+; decrease step counter by 1
+	dec bc
+	ld a, b
+	ld [wTallGrassBillsSecretGardenSteps], a
+	ld a, c
+	ld [wTallGrassBillsSecretGardenSteps + 1], a
+	ret
+.stepsOver
+	SetEvent EVENT_WALKED_ALL_STEPS_SECRET_GARDEN
+	ret

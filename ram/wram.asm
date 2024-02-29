@@ -2395,7 +2395,8 @@ wFossilItem:: db
 ; mon that will result from the item
 wFossilMon:: db
 
-	ds 2 ; UNUSED bytes in "Main Data"
+;	ds 2
+wTallGrassBillsSecretGardenSteps:: dw ; new, will start at 666
 
 ; trainer classes start at OPP_ID_OFFSET
 wEnemyMonOrTrainerClass:: db

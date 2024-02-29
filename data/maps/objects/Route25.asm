@@ -4,7 +4,7 @@ Route25_Object:
 	def_warp_events
 	warp_event 45, 37, BILLS_HOUSE, 1
 	warp_event 46, 34, BILLS_HOUSE, 3 ; new
-	warp_event 43,  5, REDS_HOUSE_1F, 1 ; new will be HAUNTED_HOUSE
+	warp_event 43,  5, HAUNTED_HOUSE_1, 1 ; new
 
 	def_bg_events
 	bg_event 43, 37, 11 ; Route25Text11

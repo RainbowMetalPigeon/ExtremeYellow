@@ -229,7 +229,7 @@ MapHeaderPointers::
 	dw SafariZoneCenter_h
 	dw SafariZoneQuadrupleRestHouse_h ; edited because of MERGING
 	dw SafariZoneSecretHouse_h
-	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
+	dw HauntedHouse1_h ; new
 	dw SafariZoneQuadrupleRestHouse_h ; edited, made UNUSED because of map MERGING
 	dw CeruleanCave2F_h
 	dw CeruleanCaveB1F_h

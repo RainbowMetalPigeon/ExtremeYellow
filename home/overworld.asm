@@ -248,6 +248,12 @@ OverworldLoopLessDelay::
 	and a
 	jp nz, WarpFound2
 .notSafariZone
+; new, to handle Route 25 for Haunted House
+	CheckEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
+	jr z, .vanilla
+	farcall TallGrassBillsSecretGardenCheckSteps
+.vanilla
+; back to vanilla
 	ld a, [wIsInBattle]
 	and a
 	jp nz, CheckWarpsNoCollision

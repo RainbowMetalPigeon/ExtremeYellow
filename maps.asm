@@ -1387,3 +1387,8 @@ INCLUDE "data/maps/headers/Route29.asm"
 INCLUDE "data/maps/objects/Route29.asm"
 Route29_Blocks: INCBIN "maps/Route29.blk"
 INCLUDE "scripts/Route29.asm"
+
+INCLUDE "data/maps/headers/HauntedHouse1.asm"
+INCLUDE "data/maps/objects/HauntedHouse1.asm"
+HauntedHouse1_Blocks: INCBIN "maps/HauntedHouse1.blk"
+INCLUDE "scripts/HauntedHouse1.asm"

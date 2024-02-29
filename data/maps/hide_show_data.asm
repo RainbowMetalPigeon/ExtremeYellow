@@ -231,8 +231,8 @@ MapHSPointers:
 	dw SafariZoneCenterHS
 	dw SafariZoneQuadrupleRestHouseHS ; new
 	dw NoHS ; SAFARI_ZONE_SECRET_HOUSE
-	dw NoHS ; SAFARI_ZONE_WEST_REST_HOUSE
-	dw NoHS ; SAFARI_ZONE_EAST_REST_HOUSE
+	dw NoHS ; HAUNTED_HOUSE_1
+	dw NoHS ; UNUSED
 	dw CeruleanCave2FHS
 	dw CeruleanCaveB1FHS
 	dw CeruleanCaveHS

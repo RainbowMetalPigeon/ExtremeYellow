@@ -283,7 +283,7 @@ PrintSafariZoneSteps::
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EAST
 	ret c
-	cp CERULEAN_CAVE_2F
+	cp HAUNTED_HOUSE_1 ; edited
 	ret nc
 	hlcoord 0, 0
 	lb bc, 3, 7

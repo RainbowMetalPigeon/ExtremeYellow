@@ -154,3 +154,12 @@ _Route25Text11::
 	text "SEA COTTAGE"
 	line "BILL lives here!"
 	done
+
+; new ----------------
+
+_Route25TextCompleted666Steps::
+	text "TEST 1"
+	line "TEST 2"
+	cont "TEST 3"
+	cont "TEST 4"
+	done

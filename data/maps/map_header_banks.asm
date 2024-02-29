@@ -229,7 +229,7 @@ MapHeaderBanks::
 	db BANK(SafariZoneCenter_h)
 	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited because of MERGING
 	db BANK(SafariZoneSecretHouse_h)
-	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedHouse1_h) ; new
 	db BANK(SafariZoneQuadrupleRestHouse_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CeruleanCave2F_h)
 	db BANK(CeruleanCaveB1F_h)

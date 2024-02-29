@@ -1,4 +1,8 @@
 Route25_Script:
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, Route25OpenPathToHauntedHouse
 	call EnableAutoTextBoxDrawing
 	ld hl, Route25TrainerHeaders
 	ld de, Route25_ScriptPointers
@@ -7,6 +11,37 @@ Route25_Script:
 	ld [wRoute25CurScript], a
 	call Route25Script_515e1
 	ret
+
+Route25OpenPathToHauntedHouse:
+	CheckEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
+	ret z ; if we have not unlocked, do nothing, as by default the path is blocked
+Route25OpenPathToHauntedHouse_Core:
+
+	ld a, $29 ; plateau on the left, edge on the right
+	ld [wNewTileBlockID], a
+	lb bc, 12, 21
+	predef ReplaceTileBlock
+	lb bc, 13, 21
+	predef ReplaceTileBlock
+
+	ld a, $31 ; free path
+	ld [wNewTileBlockID], a
+	lb bc, 12, 22
+	predef ReplaceTileBlock
+	lb bc, 13, 22
+	predef ReplaceTileBlock
+
+	ld a, $28 ; plateau on the right, edge on the left
+	ld [wNewTileBlockID], a
+	lb bc, 12, 23
+	predef ReplaceTileBlock
+
+	ld a, $24 ; bottom-left corner, plateau top-right
+	ld [wNewTileBlockID], a
+	lb bc, 13, 23
+	predef ReplaceTileBlock; testing
+
+	ret ; testing
 
 Route25Script_515e1:
 	ld hl, wd492
@@ -46,9 +81,56 @@ Route25Script_515e1:
 	ret
 
 Route25_ScriptPointers:
-	dw CheckFightingMapTrainers
+	dw Route25Script0 ; edited, was CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+
+Route25Script0: ; new
+	ld a, [wXCoord]
+	cp 44
+	jr c, .normalMap ; if X<=43
+	cp 48
+	jr nc, .normalMap ; if X>=48
+	ld a, [wYCoord]
+	cp 28
+	jr c, .normalMap ; if X<=27
+	cp 34
+	jr c, .noEncounters ; if X>=34
+.normalMap
+	ld hl, wd72e
+	res 4, [hl]
+	ResetEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
+	jp CheckFightingMapTrainers
+.noEncounters ; we're in the grass area of the Secret Garden of Bill
+	CheckAndSetEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
+	jr z, .justEnteredTheGrass
+; we are already and still in the grass
+	CheckEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
+	ret nz ; do nothing else if already unlocked path
+	CheckEvent EVENT_WALKED_ALL_STEPS_SECRET_GARDEN
+	ret z ; we still have to walk all steps
+; print message (and then do more things) if walked all the steps
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
+	call Route25OpenPathToHauntedHouse_Core ; testing
+	ret
+.justEnteredTheGrass
+	CheckEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
+	jr nz, .justPreventEncounters ; no need to handle the steps if we already unlocked the path
+; reset the step counters if we have just entered the grass
+	ld hl, 20 ; 666, TBE
+	ld a, h
+	ld [wTallGrassBillsSecretGardenSteps], a
+	ld a, l
+	ld [wTallGrassBillsSecretGardenSteps + 1], a
+.justPreventEncounters
+	ld hl, wd72e
+	set 4, [hl]
+	ret
+
+; ==================
 
 Route25_TextPointers:
 	dw Route25Text1
@@ -62,6 +144,8 @@ Route25_TextPointers:
 	dw Route25Text9
 	dw PickUpItemText
 	dw Route25Text11
+	; new, not NPCs or signs
+	dw Route25TextCompleted666Steps ; 12
 
 Route25TrainerHeaders:
 	def_trainers
@@ -249,4 +333,10 @@ Route25AfterBattleText9:
 
 Route25Text11:
 	text_far _Route25Text11
+	text_end
+
+; new ----------------
+
+Route25TextCompleted666Steps:
+	text_far _Route25TextCompleted666Steps
 	text_end
