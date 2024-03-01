@@ -21,7 +21,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
 ;	warp_event  5,  5, COPYCATS_HOUSE_2F, 1
 ;	warp_event  5,  5, SILPH_CO_11F, 4
-	warp_event  5,  5, BILLS_HOUSE, 1
+;	warp_event  5,  5, BILLS_HOUSE, 1
 ;	warp_event  5,  5, VICTORY_ROAD_1F, 1
 ;	warp_event  5,  5, OBSIDIAN_MINES, 1
 ;	warp_event  5,  5, LORELEIS_ROOM, 1
@@ -29,13 +29,14 @@ PalletTown_Object:
 ;	warp_event  5,  5, OCHRE_RESEARCH_CENTER_2, 1
 ;	warp_event  5,  5, POKEMON_TOWER_1F, 1
 ;	warp_event  5,  5, CELADON_UNIVERSITY_1, 1
+	warp_event  5,  5, HAUNTED_HOUSE_1, 1
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
 ;	warp_event 13,  5, SECLUDED_ATOLL_SE, 1
 	warp_event 13,  5, SILPH_CO_11F, 4
 ;	warp_event 13,  5, HALL_OF_FAME, 1
-:	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
+;	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 
 	warp_event 12, 11, OAKS_LAB, 2
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1

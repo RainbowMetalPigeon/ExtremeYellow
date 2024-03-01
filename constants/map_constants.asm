@@ -247,7 +247,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SAFARI_ZONE_CENTER,            15, 13 ; $DC
 	map_const SAFARI_ZONE_QUADRUPLE_REST_HOUSE, 25,  4 ; $DD ; edited because of MERGING
 	map_const SAFARI_ZONE_SECRET_HOUSE,       4,  4 ; $DE
-	map_const HAUNTED_HOUSE_1,                5,  5 ; $DF ; new, TBE
+	map_const HAUNTED_HOUSE_1,                7,  7 ; $DF ; new, TBE
 	map_const SAFARI_ZONE_EAST_REST_HOUSE,    4,  4 ; $E0 ; edited, made UNUSED because of map MERGING
 	map_const CERULEAN_CAVE_2F,              15,  9 ; $E2
 	map_const CERULEAN_CAVE_B1F,             15,  9 ; $E3

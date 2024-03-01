@@ -2352,7 +2352,8 @@ wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
 wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
-	ds 78 ; UNUSED bytes in "Main Data"
+wHauntedHouse1CurScript:: db ; new
+	ds 77 ; UNUSED bytes in "Main Data", was 78
 wGameProgressFlagsEnd::
 
 wPlayerGender::

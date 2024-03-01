@@ -198,6 +198,10 @@ SetPal_Overworld:
 	cp CAVERN
 	jr z, .caveOrBruno
 	ld a, [wCurMap]
+; new, to handle Haunted House
+	cp HAUNTED_HOUSE_1
+	jr z, .hauntedHouse
+; back to vanilla
 	cp FIRST_INDOOR_MAP
 	jr c, .townOrRoute
 	cp CERULEAN_CAVE_2F
@@ -237,6 +241,11 @@ SetPal_Overworld:
 	jr .town
 .trade_center_colosseum
 	ld a, PAL_GREYMON - 1
+	jr .town
+.hauntedHouse ; new
+	call Random
+	cp NUM_SGB_PALS + 1
+	jr nc, .hauntedHouse
 	jr .town
 
 ; used when a Pokemon is the only thing on the screen

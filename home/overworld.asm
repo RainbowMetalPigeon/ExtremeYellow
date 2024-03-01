@@ -258,7 +258,9 @@ OverworldLoopLessDelay::
 	and a
 	jp nz, CheckWarpsNoCollision
 	predef ApplyOutOfBattlePoisonDamage ; also increment daycare mon exp
-	predef ApplyHeatDamage ; new, testing
+	predef ApplyHeatDamage ; new
+	predef HauntedHouseFakeOutOfBattlePoisonDamage ; new, testing
+	predef HauntedHouseFakePikachuFainting ; new, testing
 	ld a, [wOutOfBattleBlackout]
 	and a
 	jp nz, HandleBlackOut ; if all pokemon fainted

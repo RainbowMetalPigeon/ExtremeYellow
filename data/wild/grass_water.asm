@@ -228,8 +228,8 @@ WildDataPointers:
 	dw SafariZoneCenterWildMons
 	dw NothingWildMons ; SAFARI_ZONE_QUADRUPLE_REST_HOUSE
 	dw NothingWildMons ; SAFARI_ZONE_SECRET_HOUSE
-	dw NothingWildMons ; SAFARI_ZONE_WEST_REST_HOUSE
-	dw NothingWildMons ; SAFARI_ZONE_EAST_REST_HOUSE
+	dw HauntedHouseWildMons ; new
+	dw NothingWildMons ; UNUSED
 	dw CeruleanCave2FWildMons
 	dw CeruleanCaveB1FWildMons
 	dw CeruleanCave1FWildMons
@@ -345,3 +345,4 @@ INCLUDE "data/wild/maps/Route27.asm" ; new
 INCLUDE "data/wild/maps/Route28.asm" ; new
 INCLUDE "data/wild/maps/Route29.asm" ; new
 INCLUDE "data/wild/maps/Route30.asm" ; new
+INCLUDE "data/wild/maps/HauntedHouse.asm" ; new

@@ -80,8 +80,94 @@ InitWildBattle:
 	cp RESTLESS_SOUL
 	jr z, .isGhost
 	callfar IsGhostBattle
-	jr nz, .isNoGhost
+	jp nz, .isNoGhost
 .isGhost
+; new, to handle Haunted House
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
+	jp nz, .vanilla
+	call Random
+	cp 85
+	jr nc, .notFossilAerodactyl
+; load Fossil Aerodactyl info
+	ld hl, wMonHSpriteDim
+	ld a, $77
+	ld [hli], a   ; write sprite dimensions
+	ld bc, FossilAerodactylPic
+	ld a, c
+	ld [hli], a   ; write front sprite pointer
+	ld [hl], b
+	ld hl, wEnemyMonNick  ; set name to "FOSSIL A."
+	ld a, "F"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld a, "S"
+	ld [hli], a
+	ld a, "S"
+	ld [hli], a
+	ld a, "I"
+	ld [hli], a
+	ld a, "L"
+	ld [hli], a
+	ld a, " "
+	ld [hli], a
+	ld a, "A"
+	ld [hli], a
+	ld a, "."
+	ld [hli], a
+	ld [hl], "@"
+	ld a, [wcf91]
+	push af
+	ld a, FOSSIL_AERODACTYL
+	ld [wcf91], a
+	ld de, vFrontPic
+	call LoadMonFrontSprite ; load fossil sprite
+	pop af
+	ld [wcf91], a
+	jp .spriteLoaded
+.notFossilAerodactyl ; if not Fossil Aerodactyl, check if Fossil Kabutops or Ghost
+	cp 170
+	jr nc, .vanilla
+; load Fossil Kabutops info
+	ld hl, wMonHSpriteDim
+	ld a, $66
+	ld [hli], a   ; write sprite dimensions
+	ld bc, FossilKabutopsPic
+	ld a, c
+	ld [hli], a   ; write front sprite pointer
+	ld [hl], b
+	ld hl, wEnemyMonNick  ; set name to "FOSSIL K."
+	ld a, "F"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld a, "S"
+	ld [hli], a
+	ld a, "S"
+	ld [hli], a
+	ld a, "I"
+	ld [hli], a
+	ld a, "L"
+	ld [hli], a
+	ld a, " "
+	ld [hli], a
+	ld a, "K"
+	ld [hli], a
+	ld a, "."
+	ld [hli], a
+	ld [hl], "@"
+	ld a, [wcf91]
+	push af
+	ld a, FOSSIL_KABUTOPS
+	ld [wcf91], a
+	ld de, vFrontPic
+	call LoadMonFrontSprite ; load fossil sprite
+	pop af
+	ld [wcf91], a
+	jr .spriteLoaded
+.vanilla ; load Ghost info
+; back to vanilla
 	ld hl, wMonHSpriteDim
 	ld a, $66
 	ld [hli], a   ; write sprite dimensions

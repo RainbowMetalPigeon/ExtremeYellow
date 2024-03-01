@@ -112,4 +112,6 @@ PredefPointers::
 	add_predef DrawHP2
 	add_predef DisplayElevatorFloorMenu
 	add_predef OaksAideScript
-	add_predef ApplyHeatDamage ; new, testing
+	add_predef ApplyHeatDamage ; new
+	add_predef HauntedHouseFakeOutOfBattlePoisonDamage ; new, testing
+	add_predef HauntedHouseFakePikachuFainting ; new, testing

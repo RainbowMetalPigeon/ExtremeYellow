@@ -60,3 +60,4 @@ CeruleanCaveName:    db "CERULEAN CAVE@"
 PowerPlantName:      db "POWER PLANT@"
 SecludedAtollName:   db "SECLUDED ATOLL@" ; new
 PikachuGrottoName:   db "PIKACHU GROTTO@" ; new
+HauntedHouseName:    db "@" ; new

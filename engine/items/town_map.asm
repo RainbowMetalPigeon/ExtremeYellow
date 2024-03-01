@@ -45,10 +45,27 @@ DisplayTownMap:
 	ld a, [de]
 	push hl
 	call TownMapCoordsToOAMCoords
+; new, to handle Haunted House
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
+	jr z, .doNotPrintMapCursor
+	; checks for the other future Haunted House maps
+	jr .normalMapCursor
+.doNotPrintMapCursor
+	hlcoord 1, 7
+	lb bc, 2, 15
+	call TextBoxBorder
+	hlcoord 2, 9
+	ld de, AreaQuestionMarksText
+	call PlaceString
+	jr .vanilla
+.normalMapCursor
 	ld a, $4
 	ld [wOAMBaseTile], a
 	ld hl, wShadowOAMSprite04
 	call WriteTownMapSpriteOAM ; town map cursor sprite
+.vanilla
+; back to vanilla
 	pop hl
 	ld de, wcd6d
 .copyMapName
@@ -375,7 +392,13 @@ DrawPlayerOrBirdSprite:
 	ld a, [de]
 	push hl
 	call TownMapCoordsToOAMCoords
+; new, to handle Haunted House
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
+	jr z, .skipSpriteDrawing
 	call WritePlayerOrBirdSpriteOAM
+.skipSpriteDrawing
+; back to vanilla
 	pop hl
 	ld de, wcd6d
 .loop
@@ -460,6 +483,9 @@ AreaMysteriousText:				; new
 
 AreaExtinctText:				; new
 	db "    EXTINCT@"			; new
+
+AreaQuestionMarksText:          ; new
+	db " ?????????????@"       ; new
 
 TownMapCoordsToOAMCoords:
 ; in: lower nybble of a = x, upper nybble of a = y

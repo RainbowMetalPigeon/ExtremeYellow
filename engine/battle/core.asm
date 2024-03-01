@@ -3640,6 +3640,10 @@ IsGhostBattle:
 	dec a
 	ret nz
 	ld a, [wCurMap]
+; new, to handle Haunted House
+	cp HAUNTED_HOUSE_1
+	ret z
+; back to vanilla
 	cp POKEMON_TOWER_1F
 	jr c, .next
 	cp POKEMON_TOWER_7F + 1
