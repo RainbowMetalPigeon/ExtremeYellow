@@ -1,19 +1,19 @@
 HauntedHouseWildMons:
-	def_grass_wildmons 25 ; encounter rate
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
-	db 99, HAUNTER
+	def_grass_wildmons 1 ; encounter rate
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
+	db 101, HAUNTER
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

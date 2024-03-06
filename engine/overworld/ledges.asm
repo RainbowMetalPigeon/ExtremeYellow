@@ -2,9 +2,12 @@ HandleLedges::
 	ld a, [wd736]
 	bit 6, a ; already jumping down ledge
 	ret nz
+	callfar IsCurrentMapHauntedHouse ; new, to handle Haunted House
+	jr z, .doTheChecks ; new, to handle Haunted House
 	ld a, [wCurMapTileset]
 	and a ; OVERWORLD
 	ret nz
+.doTheChecks ; new, to handle Haunted House
 	predef GetTileAndCoordsInFrontOfPlayer
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	ld b, a

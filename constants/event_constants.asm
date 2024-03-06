@@ -672,7 +672,10 @@
 	const EVENT_BEAT_ARCEUS
 	const_skip 3 ; edited for anomalies and Snorlax Den
 	const EVENT_BEAT_SNORLAX_DEN ; new, testing
-	const_skip 10 ; edited for anomalies and Snorlax Den and Haunted House
+	const_skip 7 ; edited for anomalies and Snorlax Den and Haunted House
+	const EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_1 ; new
+	const EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_2 ; new
+	const EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_3 ; new
 	const EVENT_HAUNTED_HOUSE_FAKE_POISON ; new
 	const EVENT_WALKED_ALL_STEPS_SECRET_GARDEN ; new
 	const EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN ; new

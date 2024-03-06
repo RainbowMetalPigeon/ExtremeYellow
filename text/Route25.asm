@@ -158,8 +158,28 @@ _Route25Text11::
 ; new ----------------
 
 _Route25TextCompleted666Steps::
-	text "TEST 1"
-	line "TEST 2"
-	cont "TEST 3"
-	cont "TEST 4"
+	text "Forces from beyond"
+	line "this world alter"
+	cont "the reality in"
+	cont "front of you..."
+	done
+
+_Route25TextToHauntedHouseMessage1::
+	text "Stop in your way."
+	line "Do not proceed."
+	done
+
+_Route25TextToHauntedHouseMessage2::
+	text "Turn away this"
+	line "very moment."
+
+	para "You do not"
+	line "comprehend the"
+	cont "danger ahead."
+	done
+
+_Route25TextToHauntedHouseMessage3::
+	text "This is your last"
+	line "chance ever:"
+	cont "GO. BACK. NOW."
 	done

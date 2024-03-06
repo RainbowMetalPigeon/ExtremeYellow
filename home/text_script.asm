@@ -31,6 +31,7 @@ DisplayTextID::
 	dict TEXT_MON_FAINTED,      DisplayPokemonFaintedText
 	dict TEXT_BLACKED_OUT,      DisplayPlayerBlackedOutText
 	dict TEXT_REPEL_WORE_OFF,   DisplayRepelWoreOffText
+	dict TEXT_RANDOM_MESSAGE_HAUNTED_HOUSE, DisplayRandomMessageHauntedHouseText ; new, testing
 
 	ld a, [wNumSprites]
 	ld e, a
@@ -232,3 +233,8 @@ RepelWoreOffText::
 DisplayPikachuEmotion::
 	callfar TalkToPikachu
 	jp CloseTextDisplay
+
+DisplayRandomMessageHauntedHouseText:: ; new, testing
+	callfar DisplayHauntedHouseRandomMessage
+	jp AfterDisplayingTextID
+;	jp CloseTextDisplay

@@ -3617,12 +3617,25 @@ PrintGhostText:
 	ld a, [wBattleMonStatus] ; player's turn
 	and (1 << FRZ) | SLP_MASK
 	ret nz
+; new, to handle Haunted House
+	ld hl, FrozenInTerrorText
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
+	jr z, .printAndEnd
 	ld hl, ScaredText
+; back to vanilla
 	call PrintText
 	xor a
 	ret
 .Ghost ; ghost's turn
+; new, to handle Haunted House
+	ld hl, HauntedHouseMonsText
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
+	jr z, .printAndEnd
 	ld hl, GetOutText
+.printAndEnd
+; back to vanilla
 	call PrintText
 	xor a
 	ret
@@ -3631,8 +3644,16 @@ ScaredText:
 	text_far _ScaredText
 	text_end
 
+FrozenInTerrorText: ; new
+	text_far _FrozenInTerrorText
+	text_end
+
 GetOutText:
 	text_far _GetOutText
+	text_end
+
+HauntedHouseMonsText: ; new
+	text_far _HauntedHouseMonsText
 	text_end
 
 IsGhostBattle:

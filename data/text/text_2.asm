@@ -1078,9 +1078,20 @@ _ScaredText::
 	line "scared to move!"
 	prompt
 
+_FrozenInTerrorText:: ; new
+	text_ram wBattleMonNick
+	text " is"
+	line "frozen in terror."
+	prompt
+
 _GetOutText::
 	text "GHOST: Get out..."
 	line "Get out..."
+	prompt
+
+_HauntedHouseMonsText:: ; new
+	text "ABOMINATION: Fool."
+	line "You're dead now."
 	prompt
 
 _FastAsleepText::

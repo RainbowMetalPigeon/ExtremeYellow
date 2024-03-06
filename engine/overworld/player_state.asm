@@ -18,6 +18,7 @@ IsPlayerStandingOnWarp::
 	ld [wDestinationWarpID], a
 	ld a, [hl] ; target map
 	ldh [hWarpDestinationMap], a
+	callfar RandomizeWarpsForHauntedHouse ; new, to handle Haunted House randomizable warps
 	ld hl, wd736
 	set 2, [hl] ; standing on warp flag
 	ret
@@ -157,6 +158,8 @@ IsWarpTileInFrontOfPlayer::
 	push de
 	push bc
 	call _GetTileAndCoordsInFrontOfPlayer
+	callfar IsCurrentMapHauntedHouse                    ; new
+	jp z, IsHauntedHouseExtraWarpTileInFrontOfPlayer    ; new
 	ld a, [wCurMap]
 	cp SS_ANNE_BOW
 	jr z, IsSSAnneBowWarpTileInFrontOfPlayer
@@ -234,6 +237,16 @@ IsObsidianWarehouseWarpTileInFrontOfPlayer: ; new
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
 .notWarehouseWarp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
+IsHauntedHouseExtraWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $10
+	jr nz, .notHauntedHouseWarp
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notHauntedHouseWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 

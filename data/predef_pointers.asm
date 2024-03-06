@@ -114,4 +114,4 @@ PredefPointers::
 	add_predef OaksAideScript
 	add_predef ApplyHeatDamage ; new
 	add_predef HauntedHouseFakeOutOfBattlePoisonDamage ; new, testing
-	add_predef HauntedHouseFakePikachuFainting ; new, testing
+	add_predef HauntedHouseFakePikachuFaintingAndRandomMessages ; new, testing

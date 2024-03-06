@@ -1,5 +1,5 @@
 Route25_Script:
-	ld hl, wCurrentMapScriptFlags
+	ld hl, wCurrentMapScriptFlags ; new
 	bit 5, [hl]
 	res 5, [hl]
 	call nz, Route25OpenPathToHauntedHouse
@@ -12,7 +12,10 @@ Route25_Script:
 	call Route25Script_515e1
 	ret
 
-Route25OpenPathToHauntedHouse:
+Route25OpenPathToHauntedHouse: ; new
+	ResetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_1
+	ResetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_2
+	ResetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_3
 	CheckEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
 	ret z ; if we have not unlocked, do nothing, as by default the path is blocked
 Route25OpenPathToHauntedHouse_Core:
@@ -86,6 +89,39 @@ Route25_ScriptPointers:
 	dw EndTrainerBattle
 
 Route25Script0: ; new
+	CheckEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_1
+	jr nz, .checkMessage2
+	ld hl, Route25ToHauntedHouse_CoordinatesMessage1
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jr nc, .checkMessage2
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_1
+	ret
+.checkMessage2
+	CheckEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_2
+	jr nz, .checkMessage3
+	ld hl, Route25ToHauntedHouse_CoordinatesMessage2
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jr nc, .checkMessage3
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_2
+	ret
+.checkMessage3
+	CheckEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_3
+	jr nz, .checkIfInTallGrass
+	ld hl, Route25ToHauntedHouse_CoordinatesMessage3
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jr nc, .checkIfInTallGrass
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_3
+	ret
+.checkIfInTallGrass
 	ld a, [wXCoord]
 	cp 44
 	jr c, .normalMap ; if X<=43
@@ -93,9 +129,9 @@ Route25Script0: ; new
 	jr nc, .normalMap ; if X>=48
 	ld a, [wYCoord]
 	cp 28
-	jr c, .normalMap ; if X<=27
+	jr c, .normalMap ; if Y<=27
 	cp 34
-	jr c, .noEncounters ; if X>=34
+	jr c, .noEncounters ; if Y<34
 .normalMap
 	ld hl, wd72e
 	res 4, [hl]
@@ -130,6 +166,20 @@ Route25Script0: ; new
 	set 4, [hl]
 	ret
 
+Route25ToHauntedHouse_CoordinatesMessage1:
+	dbmapcoord 44, 23
+	dbmapcoord 45, 23
+	db -1 ; end
+
+Route25ToHauntedHouse_CoordinatesMessage2:
+	dbmapcoord 44, 14
+	dbmapcoord 45, 14
+	db -1 ; end
+
+Route25ToHauntedHouse_CoordinatesMessage3:
+	dbmapcoord 43,  6
+	db -1 ; end
+
 ; ==================
 
 Route25_TextPointers:
@@ -146,6 +196,9 @@ Route25_TextPointers:
 	dw Route25Text11
 	; new, not NPCs or signs
 	dw Route25TextCompleted666Steps ; 12
+	dw Route25TextToHauntedHouseMessage1 ; 13
+	dw Route25TextToHauntedHouseMessage2 ; 14
+	dw Route25TextToHauntedHouseMessage3 ; 15
 
 Route25TrainerHeaders:
 	def_trainers
@@ -340,3 +393,16 @@ Route25Text11:
 Route25TextCompleted666Steps:
 	text_far _Route25TextCompleted666Steps
 	text_end
+
+Route25TextToHauntedHouseMessage1:
+	text_far _Route25TextToHauntedHouseMessage1
+	text_end
+	
+Route25TextToHauntedHouseMessage2:
+	text_far _Route25TextToHauntedHouseMessage2
+	text_end
+	
+Route25TextToHauntedHouseMessage3:
+	text_far _Route25TextToHauntedHouseMessage3
+	text_end
+	

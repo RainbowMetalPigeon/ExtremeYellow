@@ -31,9 +31,9 @@ UseAnotherRepel::
 	predef GetIndexOfItemInBag
 	ld a, b
 	ld [wWhichPokemon], a ; load item index to be deleted when used
-	call GetItemName	;get the item name into de register
+	call GetItemName	; get the item name into de register
 	call CopyToStringBuffer ; copy name from de to wcf4b so it shows up in text
-	jp UseItem	;use the item
+	jp UseItem	; use the item
 
 RepelUseAnotherText:
 	text_far _RepelUseAnotherText

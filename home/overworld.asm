@@ -260,7 +260,7 @@ OverworldLoopLessDelay::
 	predef ApplyOutOfBattlePoisonDamage ; also increment daycare mon exp
 	predef ApplyHeatDamage ; new
 	predef HauntedHouseFakeOutOfBattlePoisonDamage ; new, testing
-	predef HauntedHouseFakePikachuFainting ; new, testing
+	predef HauntedHouseFakePikachuFaintingAndRandomMessages ; new, testing
 	ld a, [wOutOfBattleBlackout]
 	and a
 	jp nz, HandleBlackOut ; if all pokemon fainted
@@ -440,6 +440,13 @@ CheckWarpsCollision::
 	ld [wDestinationWarpID], a
 	ld a, [hl]
 	ldh [hWarpDestinationMap], a
+; new, to handle Haunted House randomizable warps - no need to push-pop hl?
+	push hl
+	push bc
+	callfar RandomizeWarpsForHauntedHouse
+	pop bc
+	pop hl
+; back to vanilla
 	jr WarpFound2
 .retry1
 	inc hl
@@ -455,6 +462,13 @@ WarpFound1::
 	ld [wDestinationWarpID], a
 	ld a, [hli]
 	ldh [hWarpDestinationMap], a
+; new, to handle Haunted House randomizable warps - no need to push-pop hl?
+	push hl
+	push bc
+	callfar RandomizeWarpsForHauntedHouse
+	pop bc
+	pop hl
+; back to vanilla
 
 WarpFound2::
 	ld a, [wNumberOfWarps]
@@ -605,6 +619,8 @@ CheckIfInOutsideMap::
 ; "function 2" passes when the the tile in front of the player is among a certain set
 ; sets carry if the check passes, otherwise clears carry
 ExtraWarpCheck::
+	callfar IsCurrentMapHauntedHouse ; new
+	jr z, .useFunction2				 ; new
 	ld a, [wCurMap]
 	cp SS_ANNE_3F
 	jr z, .useFunction1
@@ -1514,6 +1530,7 @@ JoypadOverworld::
 	call RunMapScript
 	call Joypad
 	call ForceBikeDown
+	callfar ForceMovementsHauntedHouse ; new, to handle Haunted House, testing, TBE
 	call AreInputsSimulated
 	ret
 
