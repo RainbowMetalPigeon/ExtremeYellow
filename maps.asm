@@ -837,9 +837,7 @@ UndergroundPathRoute7Copy_Blocks:
 UndergroundPathRoute6_Blocks:
 UndergroundPathRoute5_Blocks: INCBIN "maps/UndergroundPathRoute5.blk"
 
-Route2Gate_Blocks:
-ViridianForestSouthGate_Blocks:
-ViridianForestNorthGate_Blocks: INCBIN "maps/ViridianForestNorthGate.blk"
+Route2AllGates_Blocks: INCBIN "maps/Route2AllGates.blk" ; new, merge of all Route 2 gates
 
 INCLUDE "data/maps/headers/RedsHouse2F.asm"
 INCLUDE "scripts/RedsHouse2F.asm"
@@ -910,17 +908,10 @@ INCLUDE "data/maps/headers/SaffronPokecenter.asm"
 INCLUDE "scripts/SaffronPokecenter.asm"
 INCLUDE "data/maps/objects/SaffronPokecenter.asm"
 
-INCLUDE "data/maps/headers/ViridianForestNorthGate.asm"
-INCLUDE "scripts/ViridianForestNorthGate.asm"
-INCLUDE "data/maps/objects/ViridianForestNorthGate.asm"
-
-INCLUDE "data/maps/headers/Route2Gate.asm"
-INCLUDE "scripts/Route2Gate.asm"
-INCLUDE "data/maps/objects/Route2Gate.asm"
-
-INCLUDE "data/maps/headers/ViridianForestSouthGate.asm"
-INCLUDE "scripts/ViridianForestSouthGate.asm"
-INCLUDE "data/maps/objects/ViridianForestSouthGate.asm"
+; edited, merge of alla route 2 gates
+INCLUDE "data/maps/headers/Route2AllGates.asm"
+INCLUDE "scripts/Route2AllGates.asm"
+INCLUDE "data/maps/objects/Route2AllGates.asm"
 
 INCLUDE "data/maps/headers/UndergroundPathRoute5.asm"
 INCLUDE "scripts/UndergroundPathRoute5.asm"

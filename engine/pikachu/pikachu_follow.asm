@@ -250,7 +250,7 @@ Pointer_fc653::
 	db CERULEAN_TRASHED_HOUSE
 	db VERMILION_DOCK
 	db CELADON_MANSION_1F
-	db ROUTE_2_GATE
+	db ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates
 	db FUCHSIA_GOOD_ROD_HOUSE
 	db $ff
 
@@ -303,7 +303,7 @@ SetPikachuSpawnBackOutside::
 	ld a, [wCurMap]
 	cp ROUTE_22_GATE
 	jr z, .asm_fc6a7
-	cp ROUTE_2_GATE
+	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates
 	jr z, .asm_fc6b0
 	jr .asm_fc6bd
 

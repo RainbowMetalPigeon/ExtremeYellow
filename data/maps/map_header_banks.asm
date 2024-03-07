@@ -54,10 +54,10 @@ MapHeaderBanks::
 	db BANK(ViridianNicknameHouse_h)
 	db BANK(ViridianGym_h)
 	db BANK(DiglettsCaveRoute2_h)
-	db BANK(ViridianForestNorthGate_h)
+	db BANK(Route2AllGates_h) ; edited, made UNUSED because of map MERGING
 	db BANK(Route2TradeHouse_h)
-	db BANK(Route2Gate_h)
-	db BANK(ViridianForestSouthGate_h)
+	db BANK(Route2AllGates_h)
+	db BANK(Route2AllGates_h) ; edited, made UNUSED because of map MERGING
 	db BANK(ViridianForest_h)
 	db BANK(Museum1F_h)
 	db BANK(Museum2F_h)

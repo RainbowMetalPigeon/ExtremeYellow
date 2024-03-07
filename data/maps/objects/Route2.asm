@@ -3,12 +3,12 @@ Route2_Object:
 
 	def_warp_events
 	warp_event 12,  9, DIGLETTS_CAVE_ROUTE_2, 1
-	warp_event  3, 11, VIRIDIAN_FOREST_NORTH_GATE, 2
+	warp_event  3, 11, ROUTE_2_ALL_GATES, 10
 	warp_event 15, 19, ROUTE_2_TRADE_HOUSE, 1
-	warp_event 16, 35, ROUTE_2_GATE, 2
-	warp_event 15, 39, ROUTE_2_GATE, 3
-	warp_event  3, 43, VIRIDIAN_FOREST_SOUTH_GATE, 3
-	warp_event 17, 35, ROUTE_2_GATE, 2
+	warp_event 16, 35, ROUTE_2_ALL_GATES, 2
+	warp_event 15, 39, ROUTE_2_ALL_GATES, 3
+	warp_event  3, 43, ROUTE_2_ALL_GATES, 7
+	warp_event 17, 35, ROUTE_2_ALL_GATES, 2
 
 	def_bg_events
 	bg_event  5, 65, 3 ; Route2Text3

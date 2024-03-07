@@ -54,10 +54,10 @@ MapHeaderPointers::
 	dw ViridianNicknameHouse_h
 	dw ViridianGym_h
 	dw DiglettsCaveRoute2_h
-	dw ViridianForestNorthGate_h
+	dw Route2AllGates_h ; edited, made UNUSED because of map MERGING
 	dw Route2TradeHouse_h
-	dw Route2Gate_h
-	dw ViridianForestSouthGate_h
+	dw Route2AllGates_h
+	dw Route2AllGates_h ; edited, made UNUSED because of map MERGING
 	dw ViridianForest_h
 	dw Museum1F_h
 	dw Museum2F_h
