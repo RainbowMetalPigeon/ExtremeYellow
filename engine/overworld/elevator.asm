@@ -1,14 +1,35 @@
+; edited: adopted all edits from Vortiene
+
 ShakeElevator::
 	ld de, -$20
 	call ShakeElevatorRedrawRow
 	ld de, SCREEN_HEIGHT * $20
 	call ShakeElevatorRedrawRow
 	call Delay3
-	call StopAllMusic
+	ld a, SFX_STOP_ALL_MUSIC
+	call PlaySound
+	ld a, [wCurMap]
+	cp SILPH_CO_ELEVATOR
+	ld c, 10 ; silph co has 10 frames of animation per floor
+	jr z, .foundMap
+	cp CELADON_MART_ELEVATOR
+	ld c, 20 ; celadon mart has 20 frames of animation per floor
+	jr z, .foundMap
+	ld c, 30 ; rocket hideout elevator has 30 frames of animation per floor
+.foundMap
+	ld a, [wElevatorTravelDistance]
+	ld e, a
+	xor a
+.getTravelDistanceLoop
+	add c
+	dec e
+	jr nz, .getTravelDistanceLoop
+	ld b, a ; how many frames will the shake loop happen for (depends on how far the elevator is travelling now)
+	ld a, [wWarpEntries + 3] ; map we will go to
 	ldh a, [hSCY]
 	ld d, a
 	ld e, $1
-	ld b, 100
+	;ld b, 100 ; b now decided by the travel distance variable
 .shakeLoop ; scroll the BG up and down and play a sound effect
 	ld a, e
 	xor $fe
@@ -26,7 +47,8 @@ ShakeElevator::
 	jr nz, .shakeLoop
 	ld a, d
 	ldh [hSCY], a
-	call StopAllMusic
+	ld a, SFX_STOP_ALL_MUSIC
+	call PlaySound
 	ld c, BANK(SFX_Safari_Zone_PA)
 	ld a, SFX_SAFARI_ZONE_PA
 	call PlayMusic

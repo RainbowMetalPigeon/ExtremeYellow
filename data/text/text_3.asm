@@ -83,6 +83,11 @@ _WhichFloorText::
 	line "you want? "
 	done
 
+_AlreadyOnThatFloor:: ; new, from Vortiene
+	text "Already on that"
+	line "floor."
+	prompt
+
 _SleepingPikachuText1::
 	text "There isn't any"
 	line "response..."
