@@ -7,7 +7,7 @@ _CeladonGameCornerText1::
 	cont "next door."
 	done
 
-_CeladonGameCornerText_48d22::
+_CeladonGameCornerText_WelcomeWantCoins::
 	text "Welcome to ROCKET"
 	line "GAME CORNER!"
 
@@ -19,29 +19,59 @@ _CeladonGameCornerText_48d22::
 	cont "like some?"
 	done
 
-_CeladonGameCornerText_48d27::
-	text "Thanks! Here are"
-	line "your 50 coins!"
+_CeladonGameCornerText_WelcomeWantCoinsBis:: ; new
+	text "Welcome to ROCKET"
+	line "GAME CORNER!"
+
+	para "Do you need some"
+	line "game coins?"
+
+	para "It's just ¥9500 for"
+	line "500 coins. Would"
+	cont "you like some?"
 	done
 
-_CeladonGameCornerText_48d2c::
+_CeladonGameCornerText_HereAreCoins::
+	text "Thanks! Here are"
+	line "your 50 coins!"
+	prompt
+
+_CeladonGameCornerText_HereAreCoinsBis:: ; new
+	text "Thanks! Here are"
+	line "your 500 coins!"
+	prompt
+
+_CeladonGameCornerText_RefusedCoins::
 	text "No? Please come"
 	line "play sometime!"
 	done
 
-_CeladonGameCornerText_48d31::
+_CeladonGameCornerText_CantAfford::
 	text "You can't afford"
 	line "the coins!"
 	done
 
-_CeladonGameCornerText_48d36::
+_CeladonGameCornerText_CoinCaseFull::
 	text "Oops! Your COIN"
 	line "CASE is full."
 	done
 
-_CeladonGameCornerText_48d3b::
+_CeladonGameCornerText_DontHaveCoinCase::
 	text "You don't have a"
 	line "COIN CASE!"
+	done
+
+_CeladonGameCornerText_WannaMoreCoins:: ; new
+	text "Want another 50?"
+	prompt
+
+_CeladonGameCornerText_WannaMoreCoinsBis:: ; new
+	text "Want another 500?"
+	prompt
+
+_CeladonGameCornerText_ThanksAnyhow:: ; new
+	text "No? Then I wish"
+	line "you LOTS of luck!"
 	done
 
 _CeladonGameCornerText3::
@@ -176,7 +206,7 @@ _CeladonGameCornerText_48ed8::
 	cont "better tell BOSS!"
 	done
 
-_CeladonGameCornerText_48f09::
+_CeladonGameCornerText_SwitchBehindPoster::
 	text "Hey!"
 
 	para "A switch behind"

@@ -399,7 +399,7 @@ MrFujisHouseHS:
 CeladonMansionRoofHouseHS:
 	db CELADON_MANSION_ROOF_HOUSE, $02, SHOW
 GameCornerHS:
-	db GAME_CORNER, $0B, SHOW
+	db GAME_CORNER, $0C, SHOW ; edited, +1 for new coin seller
 WardensHouseHS:
 ;	db WARDENS_HOUSE, $02, SHOW
 	db WARDENS_HOUSE, $07, SHOW ; new, Map Piece

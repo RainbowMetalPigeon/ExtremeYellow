@@ -1,4 +1,4 @@
-_CeladonGameCornerText_48f19::
+_CeladonGameCornerText_ForgotCoinCase::
 	text "Oops! Forgot the"
 	line "COIN CASE!"
 	done
