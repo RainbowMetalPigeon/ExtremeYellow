@@ -1881,6 +1881,8 @@ ItemUseMedicine:
 	ld a, [hl] ; a = level
 	cp MAX_LEVEL
 	jr z, .vitaminNoEffect ; can't raise level above 100
+	cp MAX_LEVEL_2 ; new
+	jr z, .vitaminNoEffect ; new
 
 	; new code for LEGEND_CANDY
 	ld a, [wcf91] ; a contains the item ID, and if we are here, should be only a RARE or a LEGEND candy

@@ -409,10 +409,12 @@ StatusScreen2:
 	ld a, [wLoadedMonLevel]
 	push af
 	cp MAX_LEVEL
-	jr z, .Level100
+	jr z, .LevelMax ; edited label
+	cp MAX_LEVEL_2 ; new
+	jr z, .LevelMax ; new
 	inc a
 	ld [wLoadedMonLevel], a ; Increase temporarily if not 100
-.Level100
+.LevelMax ; edited label
 	hlcoord 14, 6
 	ld [hl], "<to>"
 	inc hl
@@ -455,6 +457,8 @@ CalcExpToLevelUp:
 	ld a, [wLoadedMonLevel]
 	cp MAX_LEVEL
 	jr z, .atMaxLevel
+	cp MAX_LEVEL_2 ; new
+	jr z, .atMaxLevel ; new
 	inc a
 	ld d, a
 	callfar CalcExperience

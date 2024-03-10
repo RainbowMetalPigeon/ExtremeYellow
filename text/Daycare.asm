@@ -95,3 +95,11 @@ _DayCareNotEnoughMoneyText::
 	text "Hey, you don't"
 	line "have enough ¥!"
 	done
+
+_DayCareCantTakeThisMon:: ; new
+	text "What... what is"
+	line "this THING???"
+
+	para "I cannot take"
+	line "care of it!!!"
+	done

@@ -43,6 +43,21 @@ DayCareMText1:
 	xor a
 	ld [wPartyAndBillsPCSavedMenuItem], a
 	ld a, [wWhichPokemon]
+; new, to handle MISSINGNO
+	push af
+	push bc
+	push de
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl] ; species
+	cp CHANSEY ; TBE with MISSINGNO, testing
+	jp z, .cantTakeThisMon
+; back to vanilla
+	pop de
+	pop bc
+	pop af
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
 	call ReloadTilesetTilePatterns ; new, to expand tileset
@@ -242,6 +257,15 @@ DayCareMText1:
 	call PrintText
 	jp TextScriptEnd
 
+; new, to handle MISSINGNO
+.cantTakeThisMon
+	pop de
+	pop bc
+	pop af
+	call ReloadTilesetTilePatterns ; necessary?
+	ld hl, DayCareCantTakeThisMon
+	jr .done
+
 DayCareIntroText:
 	text_far _DayCareIntroText
 	text_end
@@ -298,4 +322,8 @@ DayCareHeresYourMonText:
 
 DayCareNotEnoughMoneyText:
 	text_far _DayCareNotEnoughMoneyText
+	text_end
+
+DayCareCantTakeThisMon: ; new
+	text_far _DayCareCantTakeThisMon
 	text_end

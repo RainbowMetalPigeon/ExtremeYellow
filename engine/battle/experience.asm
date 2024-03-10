@@ -126,10 +126,19 @@ GainExperience:
 	add hl, bc
 	ld a, [hl] ; species
 	ld [wd0b5], a
+; new block of code to handle MISSINGNO level 255
+	cp CHANSEY ; TBE with MISSINGNO, testing
+	jr nz, .vanilla
+	call GetMonHeader ; this will check for grow group that must be fast or medium fast otherwise we overflow at level 255
+	ld d, MAX_LEVEL_2
+	callfar CalcExperience ; get max exp for MISSINGNO
+	jr .doCompare
+.vanilla
+; back to vanilla
 	call GetMonHeader
 	ld d, MAX_LEVEL
 	callfar CalcExperience ; get max exp
-; compare max exp with current exp
+.doCompare ; compare max exp with current exp; added label
 	ldh a, [hExperience]
 	ld b, a
 	ldh a, [hExperience + 1]

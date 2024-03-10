@@ -17,7 +17,7 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 5
-;	db LAPRAS, 42
+	db CHANSEY, 255
 ;	db ARTICUNO, 9
 ;	db ZAPDOS, 9
 ;	db MOLTRES, 100
