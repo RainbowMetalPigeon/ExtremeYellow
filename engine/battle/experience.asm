@@ -129,7 +129,7 @@ GainExperience:
 ; new block of code to handle MISSINGNO level 255
 	cp CHANSEY ; TBE with MISSINGNO, testing
 	jr nz, .vanilla
-	call GetMonHeader ; this will check for grow group that must be fast or medium fast otherwise we overflow at level 255
+	call GetMonHeader ; this will check for grow group that must be fast or medium fast, otherwise we overflow at level 255
 	ld d, MAX_LEVEL_2
 	callfar CalcExperience ; get max exp for MISSINGNO
 	jr .doCompare
@@ -177,12 +177,15 @@ GainExperience:
 	jr nz, .vanilla2
 	ld hl, GainedTextMissigNo
 	call PrintText
-	jr .postPrinting
+	pop hl
+	ld bc, wPartyMon1Level - wPartyMon1Exp
+	add hl, bc
+	ld a, [hl] ; current level
+	jp z, .nextMon
 .vanilla2
 ; back to vanilla
 	ld hl, GainedText
 	call PrintText
-.postPrinting ; new label
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData

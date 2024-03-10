@@ -4388,7 +4388,7 @@ CheckForDisobedience:
 .notStarterPikachu
 ; what level might disobey? - modified, added threshold at every level and for post-League
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-	ld a, 101 ; this makes so that MISSINGNO will disobey quite often; to make it disobey more rarely, rise it to 255 or nearby
+	ld a, 255 ; this makes so that MISSINGNO will anyhow disobey sometimes
 	jr nz, .next
 ; now we check all the badges, one by one
 	ld hl, wObtainedBadges

@@ -9,6 +9,8 @@ NameRaterScript_1da15:
 	ret
 
 NameRaterScript_1da20:
+	callfar IsThisPartymonStarterPikachu_Party ; sets carry flag if it's Starter Pikachu ; new
+	jr c, .canRename ; new
 	ld hl, wPartyMonOT
 	ld bc, NAME_LENGTH
 	ld a, [wWhichPokemon]
@@ -31,9 +33,10 @@ NameRaterScript_1da20:
 	inc de
 	dec c
 	jr nz, .asm_1da47
+.canRename ; new label
 	and a
 	ret
-.asm_1da52
+.asm_1da52 ; cannot rename
 	scf
 	ret
 
@@ -60,6 +63,16 @@ NameRaterText1:
 	pop af
 	jr c, .asm_1daae
 	call GetPartyMonName2
+; new, to handle MISSINGNO, shouldn't need push-pop
+	ld a, [wWhichPokemon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl] ; species
+	cp CHANSEY ; TBE with MISSINGNO, testing
+	jp z, .cantHandleThisMon
+; back to vanilla
 	call NameRaterScript_1da20
 	ld hl, NameRaterText_1dad1
 	jr c, .asm_1daa8
@@ -78,6 +91,9 @@ NameRaterText1:
 	jp TextScriptEnd
 .asm_1daae
 	ld hl, NameRaterText_1dacc
+	jr .asm_1daa8
+.cantHandleThisMon ; new
+	ld hl, NameRaterText_cantHandleThisMon
 	jr .asm_1daa8
 
 NameRaterText_1dab3:
@@ -106,4 +122,8 @@ NameRaterText_1dacc:
 
 NameRaterText_1dad1:
 	text_far _NameRaterText_1dad1
+	text_end
+
+NameRaterText_cantHandleThisMon: ; new
+	text_far _DayCareCantTakeThisMon ; same as Day Care
 	text_end

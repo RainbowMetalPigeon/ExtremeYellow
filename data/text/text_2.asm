@@ -1313,9 +1313,9 @@ _GainedText::
 	text_end
 
 _GainedTextMissigNo:: ; new
-	text "MISSINGNO gained"
-	line "no EXP!"
-	done
+	text "MISSINGNO refused"
+	line "to gain EXP!"
+	prompt
 
 _WithExpAllText::
 	text "with EXP.ALL,"

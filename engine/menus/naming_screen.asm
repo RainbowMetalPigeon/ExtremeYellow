@@ -1,6 +1,17 @@
 AskName:
 	call SaveScreenTilesToBuffer1
 	call GetPredefRegisters
+; new, to avoid nicknaming MISSINGNO
+;	callfar IsCurrentMapHauntedHouse ; counter comment when finished
+	ld a, [wCurMap] ; temp, testing
+	cp ROUTE_21 ; temp, testing
+	jr nz, .vanilla
+	ld a, [wcf91]
+	ld [wd11e], a
+	call GetMonName
+	jr .declinedNickname
+.vanilla
+; back to vanilla
 	push hl
 	ld a, [wIsInBattle]
 	dec a
