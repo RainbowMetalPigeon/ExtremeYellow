@@ -301,9 +301,9 @@ ForceUp_HauntedHouse1:
 ; ===========================================================
 
 WarpIntervals_HauntedHouse1:
-	db  1,  6 ; first room
-	db  7, 11 ; second room
-	db 16, 22 ; wide room
+	db  1,  5 ; first room
+	db  6, 10 ; second room
+	db 15, 19 ; wide room
 	db $FF
 
 WarpIntervals_HauntedHouse2:
@@ -329,9 +329,12 @@ RandomizeWarpsForHauntedHouse::
 	ret z
 	inc b ; b now contains the (nominal destination warp ID + 1)
 	cp b ; a - b = left range - (nominal destination warp ID + 1)
+	dec b ; restore b as nominal destination warp ID
 	jr nc, .nope1
 	ld a, [hli] ; hl now points to the first extreme of the next range, a contains the second
+	inc b ; b now contains the (nominal destination warp ID + 1)
 	cp b ; a - b = right range - (nominal destination warp ID + 1)
+	dec b ; restore b as nominal destination warp ID
 	jr c, .loop
 ; we're in the right interval
 	dec hl
