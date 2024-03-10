@@ -166,8 +166,23 @@ GainExperience:
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
+; new, to handle MISSINGNO ; push-pop should not be needed
+	ld a, [wWhichPokemon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl] ; species
+	cp CHANSEY ; TBE with MISSINGNO, testing
+	jr nz, .vanilla2
+	ld hl, GainedTextMissigNo
+	call PrintText
+	jr .postPrinting
+.vanilla2
+; back to vanilla
 	ld hl, GainedText
 	call PrintText
+.postPrinting ; new label
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData
@@ -386,6 +401,10 @@ GainedText:
 	ret z
 	ld hl, BoostedText
 	ret
+
+GainedTextMissigNo: ; new
+	text_far _GainedTextMissigNo
+	text_end
 
 WithExpAllText:
 	text_far _WithExpAllText

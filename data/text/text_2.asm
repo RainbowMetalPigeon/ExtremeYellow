@@ -1312,6 +1312,11 @@ _GainedText::
 	line "@"
 	text_end
 
+_GainedTextMissigNo:: ; new
+	text "MISSINGNO gained"
+	line "no EXP!"
+	done
+
 _WithExpAllText::
 	text "with EXP.ALL,"
 	cont "@"
