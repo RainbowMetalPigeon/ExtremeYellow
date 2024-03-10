@@ -10,7 +10,8 @@ Kanto at its max
 - two whole new cities
 - two new main game archs
 - secret and post-game new areas
-- various touches to existing buildings and areas
+- multiple optional subquests
+- various edits to existing buildings and areas
 - multiple final bosses and extended post-game experience
 - powered-up rematches against main trainers
 - inverse battles make their appearance for selected trainers
