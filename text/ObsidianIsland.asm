@@ -186,7 +186,7 @@ _ObsidianIslandTextClosedHouse::
 	cont "anyone in?"
 	done
 
-; ----------------- Fire Orb -----------------
+; ----------------- FIRE ORB -----------------
 
 ;_ObsidianIslandText7_Scientist1::
 ;	text "Now that OBSIDIAN"

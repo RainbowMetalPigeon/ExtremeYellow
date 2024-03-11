@@ -8,7 +8,7 @@ _PigeonBeforeBattleText::
 
 	para "I hope you're"
 	line "enjoying playing"
-	cont "it! :D"
+	cont "it! :3"
 
 	para "I see you've"
 	line "found my note,"
@@ -44,7 +44,7 @@ _PigeonBeforeBattleText2::
 	text "Excellent!"
 
 	para "Let us enjoy"
-	line "ourselves!"
+	line "ourselves! :D"
 	done
 
 _PigeonPostBattlePlayerWinsText::
@@ -70,11 +70,36 @@ _PigeonPostBattlePlayerLosesText::
 	done
 
 _CeladonMansion2TextPigeon_PostBattleMapUnrelated::
-	text "Map unrelated"
+	text "Come back any"
+	line "time! I look"
+	cont "forward to a"
+	cont "rematch ;)"
 	done
 
 _CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece::
-	text "Pre give map"
+	text "Kudos! You managed"
+	line "to outplay my"
+	cont "team of"
+	cont "favorites!"
+
+	para "I have a lil"
+	line "something that"
+	cont "I'd like to gift"
+	cont "to you as a"
+	cont "reward for your"
+	cont "victory."
+
+	para "You may or may not"
+	line "already have"
+	cont "something like"
+	cont "this -I mean, I"
+	cont "COULD know if you"
+	cont "do, but I didn't"
+	cont "program myself to"
+	cont "check it, eheh-,"
+	cont "but I'm sure it"
+	cont "will be useful to"
+	cont "you regardless ;)"
 	done
 
 ;_CeladonMansion2TextPigeon_PostBattleGivenMapPiece::
@@ -82,11 +107,15 @@ _CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece::
 ;	done
 
 _CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece::
-	text "Failed give map"
+	text "Ohhh, you don't"
+	line "have enough space"
+	cont "in your bag for"
+	cont "this :("
 	done
 
 _CeladonMansion2TextPigeon_AreYouBackForYourReward::
-	text "Back for reward?"
+	text "Are you back for"
+	line "your gift? :D"
 	prompt
 
 ; ------------------------------------

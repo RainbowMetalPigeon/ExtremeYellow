@@ -4396,7 +4396,7 @@ CheckForDisobedience:
 	ld a, 75
 	jr nz, .next
 	bit BIT_VOLCANOBADGE, [hl]
-	ld a, 60
+	ld a, 65
 	jr nz, .next
 	bit BIT_MARSHBADGE, [hl]
 	ld a, 60

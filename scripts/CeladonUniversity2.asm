@@ -259,6 +259,8 @@ CeladonUniversity2Text14:
 
 ; --- signs ---
 
+; --- (books) ---
+
 CeladonUniversity2SignTest1:
 	text_far _CeladonUniversity2SignTest1
 	text_end

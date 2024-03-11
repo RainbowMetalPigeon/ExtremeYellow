@@ -42,7 +42,7 @@ _OchreResearchCenterSign_Power::
 	text "Power floor"
 	done
 
-; ------------------------------
+; ------------------------------ THUNDER ORB ---
 
 _OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt::
 	text "Intro"

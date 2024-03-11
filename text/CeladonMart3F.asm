@@ -46,9 +46,10 @@ _CeladonMart3Text7::
 	line "no time for that!"
 	done
 
-_CeladonMart3Text9::
+_CeladonMart3Text9:: ; edited
 	text "A sports game!"
-	line "Dad'll like that!"
+	line "DAD would have"
+	cont "liked that..."
 	done
 
 _CeladonMart3Text11::

@@ -220,7 +220,18 @@ _OchreHousesTextBirb4::
 	text_end
 
 _OchreHousesTextMapPiece_NotPresident::
-	text "Piece of map!"
+	text "It looks like the"
+	line "fragment of a"
+	cont "mysterious map!"
+
+	para "It's as intriguing"
+	line "as it is eerie..."
+
+	para "A note says"
+	line "that only the"
+	cont "PRESIDENT of"
+	cont "the CLUB can"
+	cont "handle it."
 	done
 
 ;_OchreHousesTextMapPiece_President::
@@ -228,15 +239,44 @@ _OchreHousesTextMapPiece_NotPresident::
 ;	done
 
 _OchreHousesTextBirbFan_BecomePresident::
-	text "Now president!"
+	text "What?!"
+
+	para "Those are really"
+	line "the three"
+	cont "LEGENDARY BIRDS"
+	cont "ARTICUNO, ZAPDOS,"
+	cont "and MOLTRES?!"
+
+	para "That's absolutely"
+	line "incredible and"
+	cont "amazing!!!"
+
+	para "This achievement"
+	line "is worthy of"
+	cont "making you our"
+	cont "PRESIDENT right"
+	cont "away!"
 	done
 
 _OchreHousesTextBirbFan_BecomeMember::
-	text "Now member!"
+	text "Oh! You have a"
+	line "BIRD #MON!"
+
+	para "That's great!"
+	line "We're always"
+	cont "happy to welcome"
+	cont "new BIRD"
+	cont "enthusiasts!"
+
+	para "I hereby declare"
+	line "you MEMBER of the"
+	cont "BIRD FAN CLUB!"
 	done
 
 _OchreHousesTextMapPiece_BagFull::
-	text "Bag full!"
+	text "Your bag is full!"
+	line "You can't take"
+	cont "the map."
 	done
 
 ; signs ---------------------------

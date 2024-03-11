@@ -79,15 +79,41 @@ _CeladonUniversity1TextMagikarp::
 	text_end
 
 _CeladonUniversity1TextPool1::
-	text "POOL 1"
+	text "I love swimming a"
+	line "couple kilometers"
+	cont "after a long day"
+	cont "of studying!"
+
+	para "It helps resting"
+	line "my mind."
 	done
 
 _CeladonUniversity1TextPool2::
-	text "POOL 2"
+	text "We study the"
+	line "MAGIKARP in the"
+	cont "other pool to see"
+	cont "if they can"
+	cont "awaken some of"
+	cont "their dormant"
+	cont "dragon traits,"
+	cont "like using"
+	cont "DRAGON RAGE."
+
+	para "The greatest"
+	line "MAGIKARP expert"
+	cont "lives in OCHRE"
+	cont "CITY, and is an"
+	cont "ex student of"
+	cont "this UNIVERSITY!"
 	done
 
 _CeladonUniversity1TextPool3::
-	text "POOL 3"
+	text "I really like the"
+	line "smell of chlorine"
+	cont "of swimming"
+	cont "pools."
+
+	para "Am I weird?"
 	done
 
 ; --- signs ---

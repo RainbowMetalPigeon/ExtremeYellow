@@ -1,38 +1,71 @@
 ; --- magna auditorium ---
 
-; joke about the fact that the exam starts tomorrow, joke is that the guy outside is PANICKING already
-; whiteboard: info on Legendary Birds
-; lecturer getting ready
-; student mentioning Erika
-
 _CeladonUniversity2Text1:: ; prof
-    text "I'm prof"
+    text "I'm getting ready"
+    line "for the lecture."
+    cont "As per usual, we"
+    cont "start 15 minutes"
+    cont "after o'clock."
+
+    para "Don't tell the"
+    line "students, but"
+    cont "this is my first"
+    cont "time teaching"
+    cont "about this topic,"
+    cont "so I'm quite"
+    cont "thrilled!"
     done
-    
+
 _CeladonUniversity2Text2:: ; student
-    text "Nervous for exam"
-    line "tomorrow but have"
-    cont "to attent today"
+    text "I'm nervous for"
+    line "tomorrow's exam,"
+    cont "but I have to"
+    cont "attend today's"
+    cont "lessons."
+
+    para "Uff, a long night"
+    line "of studying"
+    cont "awaits me."
     done
-    
+
 _CeladonUniversity2Text3:: ; lovebirds
-    text "Leave us alone"
+    text "Uh? What about"
+    line "leaving as alone?"
     done
-    
+
 _CeladonUniversity2Text4:: ; lovebirds
-    text "Some privacy plz"
+    text "Some privacy,"
+    line "please?"
     done
-    
+
 _CeladonUniversity2Text5:: ; student
-    text "Erika lessons cool"
-    line "but rare"
+    text "I really like"
+    line "ERIKA's lectures,"
+    cont "but unfortunately"
+    cont "they don't teach"
+    cont "here on a"
+    cont "constant basis,"
+    cont "they only hold"
+    cont "colloquiums."
+
+    para "I heard they've"
+    line "been offered a"
+    cont "position here,"
+    cont "but they declined"
+    cont "because they're"
+    cont "too busy with"
+    cont "their GYM duties."
     done
-    
+
 ; --- library & study room ---
 
 _CeladonUniversity2Text6:: ; researcher
-    text "Searching a book"
-    line "about assembly"
+    text "I'm searching a"
+    line "specific book on"
+    cont "microprocessor"
+    cont "architecture, but"
+    cont "I can't happen to"
+    cont "find it."
     done
 
 _CeladonUniversity2Text7:: ; student
@@ -40,7 +73,7 @@ _CeladonUniversity2Text7:: ; student
     done
 
 ; ------------------------------
-; PhD student researching on Lapras
+; PhD student researching on Lapras - ICE ORB -
 
 _CeladonUniversity2Text8_Intro_NoPrompt::
 	text "Intro"
@@ -95,54 +128,78 @@ _CeladonUniversity2Text8_ReceivedIceOrb::
 ; ------------------------------
 
 _CeladonUniversity2Text9:: ; student
-    text "Studying together"
-    line "can be bad"
+    text "Uff. Studying"
+    line "together with a"
+    cont "coursemate can be"
+    cont "quite annoying at"
+    cont "times. Too many"
+    cont "distractions."
     done
 
 _CeladonUniversity2Text10:: ; student
-    text "Studying together"
-    line "is great!"
+    text "Ah! Studying"
+    line "together with a"
+    cont "coursemate is so"
+    cont "great! We can"
+    cont "help each other"
+    cont "and dig deep into"
+    cont "the topic!"
     done
 
 _CeladonUniversity2Text11:: ; student
-    text "Searching book"
-    line "about LIGHT BALL"
+    text "I'm searching a"
+    line "book about the"
+    cont "LIGHT BALL. It"
+    cont "should be around"
+    cont "here, but I can't"
+    cont "find it..."
     done
 
 ; --- computing center ---
 
-; wanna use Alakazam and Porygon for their studies
-
 _CeladonUniversity2Text12:: ; researcher
-    text "Have to test and"
-    line "install new"
-    cont "components"
+    text "We just received a"
+    line "new piece of"
+    cont "equipment, and"
+    cont "I'm going to test"
+    cont "and install all"
+    cont "the components."
     done
 
 _CeladonUniversity2Text13:: ; researcher
-    text "Studying to use"
-    line "ALAKA and PORY"
+    text "There are ongoing"
+    line "studies on the"
+    cont "feasibility of"
+    cont "using ALAKAZAM"
+    cont "and PORYGON to"
+    cont "enhance the"
+    cont "computing power"
+    cont "of our machines."
     done
 
 _CeladonUniversity2Text14:: ; researcher
-    text "Oh goddess too"
-    line "many cables"
-    cont "and no labels"
+    text "Oh dear goddess,"
+    line "this is a"
+    cont "nightmare!"
+    cont "So many cables,"
+    cont "and not a"
+    cont "single label!"
     done
 
 ; --- signs ---
+
+; whiteboard: info on Legendary Birds
 
 ; --- other ---
 
 _CeladonUniversity2SignTest1::
     text "SIGN TEST 1"
     done
-    
+
 _CeladonUniversity2SignTest2::
     text "SIGN TEST 2"
     done
-    
+
 _CeladonUniversity2SignTest3::
     text "SIGN TEST 3"
     done
-    

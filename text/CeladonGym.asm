@@ -1,6 +1,6 @@
 _ErikaPreBattleText::
 	text "Hello. Lovely"
-	line "weather isn't it?"
+	line "weather, isn't it?" ; edited
 	cont "It's so pleasant."
 
 	para "...Oh dear..."
@@ -85,20 +85,20 @@ _TM21NoRoomText::
 	line "room for this."
 	done
 
-_CeladonGymBattleText2:: ; TBE
-	text "Hey!"
-
-	para "You are not"
-	line "allowed in here!"
+_CeladonGymBattleText2:: ; edited
+	text "Ah! Get ready to"
+	line "be overwhelmed by"
+	cont "our combo of"
+	cont "status and"
+	cont "attacks!"
 	done
 
-_CeladonGymEndBattleText2:: ; TBE
-	text "You're"
-	line "too rough!"
+_CeladonGymEndBattleText2:: ; edited
+	text "Dammit"
 	prompt
 
-_CeladonGymAfterBattleText2:: ; TBE
-	text "Bleaah!"
+_CeladonGymAfterBattleText2:: ; edited
+	text "Dang!"
 	line "I hope ERIKA"
 	cont "wipes you out!"
 	done
@@ -123,9 +123,10 @@ _CeladonGymAfterBattleText3::
 	cont "ground #MON!"
 	done
 
-_CeladonGymBattleText4:: ; TBE
-	text "Aren't you the"
-	line "peeping Tom?"
+_CeladonGymBattleText4:: ; edited
+	text "Are you here to"
+	line "study flower"
+	cont "composition?"
 	done
 
 _CeladonGymEndBattleText4::
@@ -133,10 +134,11 @@ _CeladonGymEndBattleText4::
 	line "in shock!"
 	prompt
 
-_CeladonGymAfterBattleText4:: ; TBE
-	text "Oh, you weren't"
-	line "peeping? We get a"
-	cont "lot of gawkers!"
+_CeladonGymAfterBattleText4:: ; edited
+	text "Oh, so you're here"
+	line "merely for the"
+	cont "BADGE. What a"
+	cont "disappointment."
 	done
 
 _CeladonGymBattleText5::
@@ -197,13 +199,13 @@ _CeladonGymAfterBattleText7::
 	cont "to be polite."
 	done
 
-_CeladonGymBattleText8:: ; TBE
+_CeladonGymBattleText8:: ; edited
 	text "Welcome to"
 	line "CELADON GYM!"
 
 	para "You better not"
 	line "underestimate"
-	cont "girl power!"
+	cont "plant power!"
 	done
 
 _CeladonGymEndBattleText8::
@@ -211,12 +213,9 @@ _CeladonGymEndBattleText8::
 	line "Beaten!"
 	prompt
 
-_CeladonGymAfterBattleText8:: ; TBE
+_CeladonGymAfterBattleText8:: ; edited
 	text "I didn't bring my"
 	line "best #MON!"
-
-	para "Wait 'til next"
-	line "time!"
 	done
 
 _CeladonGymBattleText9::
@@ -242,32 +241,50 @@ _CeladonGymEndBattleText9::
 	cont "GRASS #MON!"
 	prompt
 
-_CeladonGymAfterBattleText9:: ; TBE
-	text "I am very happy"
-	line "they accepted me"
-	cont "in this GYM."
+_CeladonGymAfterBattleText9::
+	text "This GYM is so"
+	line "relaxing. It's"
+	cont "like the chillest"
+	cont "camping, within"
+	cont "the comfort of a"
+	cont "city."
 
-	para "People here are so"
-	line "kind, welcoming,"
-	cont "and inclusive!"
+	para "I can meditate so"
+	line "well I often end"
+	cont "up napping..."
 	done
 
 ; new ---------------------
 
-_CeladonGymGuidePreBattleText:: ; TBE
+_CeladonGymGuidePreBattleText::
 	text "Yo! Champ in"
 	line "making!"
 
-	para "Here's my advice!"
+	para "This GYM is"
+	line "specialized in"
+	cont "GRASS #MON!"
 
-	para "The LEADER, ERIKA,"
-	line "is a pro who uses"
-	cont "grass #MON!"
+	para "Plants are quite"
+	line "delicate, as they"
+	cont "suffer ICE, BUGs,"
+	cont "FIRE, but also"
+	cont "POISON and"
+	cont "FLYING, but on"
+	cont "the other hand"
+	cont "they have many"
+	cont "tricks up their"
+	cont "sleeves."
+
+	para "Be careful, as you"
+	line "could end up full"
+	cont "of LEECH SEEDs"
+	cont "and asleep before"
+	cont "you can see it!"
 	done
 
-_CeladonGymGuidePostBattleText:: ; TBE
-	text "You beat ERIKA!"
-	line "What'd I tell ya?"
+_CeladonGymGuidePostBattleText::
+	text "You did it! You're"
+	line "the real deal!"
 	done
 
 _ErikaRematchPreBattleText::
