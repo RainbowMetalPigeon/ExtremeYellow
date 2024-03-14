@@ -97,7 +97,7 @@ MapHeaderBanks::
 	db BANK(BillsHouse_h)
 	db BANK(VermilionPokecenter_h)
 	db BANK(PokemonFanClub_h)
-	db BANK(VermilionPokecenter_h) ; edited, made UNUSED because of map MERGING
+	db BANK(BattleFacility_h) ; new
 	db BANK(VermilionGym_h)
 	db BANK(VermilionPidgeyHouse_h)
 	db BANK(VermilionDock_h)

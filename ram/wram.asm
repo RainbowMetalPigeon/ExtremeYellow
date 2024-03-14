@@ -2354,7 +2354,8 @@ wRoute23CurScript:: db
 wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
 wHauntedHouse1CurScript:: db ; new
-	ds 77 ; UNUSED bytes in "Main Data", was 78
+wBattleFacilityCurScript:: db ; new
+	ds 76 ; UNUSED bytes in "Main Data", was 78
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2438,7 +2439,14 @@ wWhichDungeonWarp:: db
 
 wUnusedD71F:: db
 
-	ds 8 ; UNUSED bytes in "Main Data"
+wBattleFacilityWhichMonIsRandomized:: db ; new
+wBattleFacilityMonNumber1:: db ; new
+wBattleFacilityMonNumber2:: db ; new
+wBattleFacilityMonNumber3:: db ; new
+wBattleFacilityMonNumber4:: db ; new
+wBattleFacilityMonNumber5:: db ; new
+wBattleFacilityWinningStreak:: db ; new
+	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: using Strength outside of battle
 ; bit 1: set by IsSurfingAllowed when surfing's allowed, but the caller resets it after checking the result

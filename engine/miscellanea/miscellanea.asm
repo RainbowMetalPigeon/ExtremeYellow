@@ -15,6 +15,8 @@ CheckIfOneGivenMonIsInParty::
 	scf ; set carry flag
 	ret
 
+; =====================================
+
 ; INPUT: d contains the Map Piece ID
 ; OUTPUT: de is the pointes to the corresponding pic
 ConvertMapIDToMapPicID::
@@ -64,6 +66,8 @@ ConvertMapIDToMapPicID::
 	ld de, MysteryMap1234Pic
 	ret
 
+; =====================================
+
 TallGrassBillsSecretGardenCheckSteps::
 	ld a, [wTallGrassBillsSecretGardenSteps]
 	ld b, a
@@ -81,3 +85,214 @@ TallGrassBillsSecretGardenCheckSteps::
 .stepsOver
 	SetEvent EVENT_WALKED_ALL_STEPS_SECRET_GARDEN
 	ret
+
+; =====================================
+
+RandomizeTeamForBattleFacilityTrainer::
+	ld de, wBattleFacilityMonNumber1
+	ld a, [wBattleFacilityWhichMonIsRandomized]
+	inc a
+	ld [wBattleFacilityWhichMonIsRandomized], a
+	dec a
+	cp 5
+	jr nc, .continue ; we don't need to move the address next if we are treating already the 6th mon
+.storeMonAddressLoop
+	dec a
+	cp $FF
+	jr z, .continue
+	inc de
+	jr .storeMonAddressLoop
+.continue
+; depending on winning streak and which mon number, choose normal list or Megas' one
+	ld a, [wBattleFacilityWhichMonIsRandomized]
+	ld hl, wBattleFacilityWinningStreak
+	ld b, [hl] ; how many consecutive victories do we have in this session?
+	add b ; now a contains a+b, i.e. which mon in the BF trainer team's is being randomized + how many victories we have
+	cp 7 ; is the sum of a+b at least 7?
+	jr nc, .RNGLoopMega ; if yes, load the list of megas; if not, load the list of non-mega mons
+; loopS for non-Mega
+.RNGLoop
+	ld hl, FullyEvolvedMons
+; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 83 included
+	call Random
+	cp 84
+	jr nc, .RNGLoop
+; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
+.uglyLoop
+	dec a
+	cp $FF
+	jr z, .doneUglyLoop
+	inc hl
+	jr .uglyLoop
+.doneUglyLoop
+; finally, we need to check if the mon we just generated is the same as any of the previously generated ones
+	ld a, [wBattleFacilityMonNumber1]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoop
+	ld a, [wBattleFacilityMonNumber2]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoop
+	ld a, [wBattleFacilityMonNumber3]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoop
+	ld a, [wBattleFacilityMonNumber4]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoop
+	ld a, [wBattleFacilityMonNumber5]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoop
+	jr .doneOffset
+; loopS for Mega
+.RNGLoopMega
+	ld hl, MegaEvolvedMons
+; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 16 included
+	call Random
+	cp 16
+	jr nc, .RNGLoopMega
+; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
+.uglyLoopMega
+	dec a
+	cp $FF
+	jr z, .doneUglyLoopMega
+	inc hl
+	jr .uglyLoopMega
+.doneUglyLoopMega
+; finally, we need to check if the mon we just generated is the same as any of the previously generated ones
+	ld a, [wBattleFacilityMonNumber1]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopMega
+	ld a, [wBattleFacilityMonNumber2]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopMega
+	ld a, [wBattleFacilityMonNumber3]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopMega
+	ld a, [wBattleFacilityMonNumber4]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopMega
+	ld a, [wBattleFacilityMonNumber5]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopMega
+.doneOffset
+	ld a, [hl]
+	ld [wcf91], a
+	ld b, a
+	ld a, [wBattleFacilityWhichMonIsRandomized]
+	cp 6
+	ret z ; if we're treating the 6th mon, we don't save anything in the non-existing wBattleFacilityMonNumber6, otherwise we mess up stuff
+	ld a, b
+	ld [de], a ; saves Mon in wBattleFacilityMonNumberN
+	ret
+
+FullyEvolvedMons: ; 0-83
+	; weaks
+	db BUTTERFREE
+	db BEEDRILL
+	db CLEFABLE
+	db WIGGLYTUFF
+	db PARASECT
+	db VENOMOTH
+	db GOLDUCK
+	db FARFETCHD
+	db DEWGONG
+	db MUK
+	db HYPNO
+	db KINGLER
+	db ELECTRODE
+	db MAROWAK
+	db WEEZING
+	db SEAKING
+	db DITTO
+	; average
+	db PIDGEOT
+	db RATICATE
+	db FEAROW
+	db ARBOK
+	db RAICHU
+	db SANDSLASH
+	db NINETALES
+	db CROBAT
+	db VILEPLUME
+	db BELLOSSOM
+	db ARCANINE
+	db POLIWRATH
+	db POLITOED
+	db GOLEM
+	db RAPIDASH
+	db DODRIO
+	db HITMONLEE
+	db HITMONCHAN
+	db HITMONTOP
+	db LICKILICKY
+	db KANGASKHAN
+	db MR_MIME
+	db PINSIR
+	db OMASTAR
+	db KABUTOPS
+	db VICTREEBEL
+	db TENTACRUEL
+	db SLOWKING
+	db CLOYSTER
+	db TANGROWTH
+	db KLEAVOR
+	db ELECTIVIRE
+	db MAGMORTAR
+	db AERODACTYL
+	; strong
+	db VENUSAUR
+	db CHARIZARD
+	db BLASTOISE
+	db NIDOQUEEN
+	db NIDOKING
+	db DUGTRIO
+	db PERSIAN
+	db ANNIHILAPE
+	db ALAKAZAM
+	db SLOWBRO
+	db MAGNEZONE
+	db GENGAR
+	db STEELIX
+	db EXEGGUTOR
+	db RHYPERIOR
+	db BLISSEY
+	db KINGDRA
+	db STARMIE
+	db SCIZOR
+	db JYNX
+	db TAUROS
+	db GYARADOS
+	db LAPRAS
+	db SNORLAX
+	db DRAGONITE
+	db VAPOREON
+	db JOLTEON
+	db FLAREON
+	db ESPEON
+	db LEAFEON
+	db GLACEON
+	db SYLVEON
+	db PORYGONZ
+	db MACHAMP
+	db -1
+
+MegaEvolvedMons: ; 0-16
+	db MVENUSAUR
+	db MCHARZARDX
+	db MCHARZARDY
+	db MBLASTOISE
+	db MBEEDRILL
+	db MPIDGEOT
+	db MALAKAZAM
+	db MSLOWBRO
+	db MGENGAR
+	db MSTEELIX
+	db MKANGASKAN
+	db MSCIZOR
+	db MPINSIR
+	db MGYARADOS
+	db MARODACTYL
+	db MMEWTWOX
+	db MMEWTWOY
+	db -1
+
+; =====================================

@@ -21,6 +21,18 @@ _AddPartyMon::
 	jr nc, .noCarry
 	inc d
 .noCarry
+; new, to handle Battle Facility randomized teams
+	ld a, [wCurMap]
+	cp BATTLE_FACILITY
+	jr nz, .vanilla3
+	ld a, [wMonDataLocation]
+	and $f
+	jr z, .vanilla3
+	push de
+	callfar RandomizeTeamForBattleFacilityTrainer
+	pop de
+.vanilla3
+; back to vanilla
 	ld a, [wcf91]
 	ld [de], a ; write species of new mon in party list
 	inc de

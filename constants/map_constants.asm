@@ -115,7 +115,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const BILLS_HOUSE,                    4,  4 ; $58
 	map_const VERMILION_POKECENTER,          14,  4 ; $59 ; edited, Center+Mart
 	map_const POKEMON_FAN_CLUB,               4,  4 ; $5A
-	map_const VERMILION_MART,                 4,  4 ; $5B ; edited, made UNUSED because of map MERGING
+	map_const BATTLE_FACILITY,               15,  5 ; $5B ; mew
 	map_const VERMILION_GYM,                  5,  9 ; $5C
 	map_const VERMILION_PIDGEY_HOUSE,         4,  4 ; $5D
 	map_const VERMILION_DOCK,                14,  6 ; $5E
