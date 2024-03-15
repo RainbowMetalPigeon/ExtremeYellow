@@ -143,7 +143,7 @@ CeladonUniversity2Text8:
 	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
 	ld hl, CeladonUniversity2Text8_NotDoneYet
 	jr nc, .printAndEnd
-; not first interaction, but all Voltorbs defeated
+; not first interaction, but Lapras already caught
 	ld hl, CeladonUniversity2Text8_ThanksHereIsReward
 	call PrintText
 	jr .giveMoney

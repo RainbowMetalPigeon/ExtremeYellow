@@ -40,7 +40,7 @@ _OchreCity_NPCText2:: ; underdog
 _OchreCity_NPCText3:: ; relax square
 	text "This square is so"
 	line "quiet and nice."
-	
+
 	para "I love just come"
 	line "here to chill and"
 	cont "relax, enjoy the"
@@ -92,7 +92,7 @@ _OchreCity_NPCText6:: ; wanna work research
 	cont "progress further!"
 	cont "I wanna work"
 	cont "there too!"
-	
+
 	para "I will graduate at"
 	line "CELADON"
 	cont "UNIVERSITY"
@@ -114,13 +114,13 @@ _OchreCity_NPCText8:: ; rehabilitation center and bird fan club
 	text "This building is"
 	line "one of the gems"
 	cont "of OCHRE CITY!"
-	
+
 	para "They take in"
 	line "wounded #MON"
 	cont "and cure 'em till"
 	cont "they are able to"
 	cont "back to the wild!"
-	
+
 	para "They are connected"
 	line "directly to the"
 	cont "BIRD SANCTUARY,"
@@ -195,9 +195,12 @@ _OchreCity_NPCText14_Bird::
 	text "Quack!"
 	prompt
 
-_OchreCity_Scolded:: ; TBE
-	text "NO!"
-	line "Come back here!"
+_OchreCity_Scolded::
+	text "Stop bothering the"
+	line "BIRDs!"
+
+	para "Come back here"
+	line "right away!"
 	done
 
 ; -------------- signs texts --------------
@@ -235,7 +238,7 @@ _OchreCity_SignRehabilitation::
 _OchreCity_SignParkAndSquare::
 	text "East:"
 	line "CENTRAL PLATZ"
-	
+
 	para "South:"
 	line "MAZE PARK"
 	done
@@ -247,7 +250,7 @@ _OchreCity_SignResearch::
 
 _OchreCity_SignBirbFan::
 	text "BIRD FAN CLUB"
-	
+
 	para "Somebody wrote a"
 	line "'B' over the 'D',"
 	cont "and a 'U' over"

@@ -70,52 +70,198 @@ _CeladonUniversity2Text6:: ; researcher
 
 _CeladonUniversity2Text7:: ; student
     text "They are sleeping!"
+
+    para "Under their head,"
+    line "you can see some"
+    cont "notes about"
+    cont "the ruins on"
+    cont "ROUTE 29."
     done
 
 ; ------------------------------
 ; PhD student researching on Lapras - ICE ORB -
 
 _CeladonUniversity2Text8_Intro_NoPrompt::
-	text "Intro"
+    text "I'm working on my"
+    line "PhD thesis about"
+    cont "SURFing #MON,"
+    cont "but I still need"
+    cont "data on the most"
+    cont "important one of"
+    cont "them all, LAPRAS."
+
+    para "My thesis can't be"
+    line "considered"
+    cont "complete without"
+    cont "info on it, but"
+    cont "it lives only in"
+    cont "the deepest depth"
+    cont "of the SEAFOAM"
+    cont "ISLANDS."
+
+    para "That place is"
+    line "treacherous, with"
+    cont "strong #MON"
+    cont "and an harsh"
+    cont "environment."
+
+    para "I'm not that good"
+    line "of a trainer, so"
+    cont "I wasn't able to"
+    cont "venture very"
+    cont "deep..."
+
+    para "You, although,"
+    line "seem quite"
+    cont "strong! May I ask"
+    cont "you to catch a"
+    cont "LAPRAS and show"
+    cont "it to me?"
+
+    para "It would help me"
+    line "immensely! I'll"
+    cont "pay you for this"
+    cont "task, of course."
+    cont "My PhD funds are"
+    cont "not great, but I"
+    cont "saved something."
 	done
 
 _CeladonUniversity2Text8_Intro_WithPrompt::
-	text "Intro"
+    text "I'm working on my"
+    line "PhD thesis about"
+    cont "SURFing #MON,"
+    cont "but I still need"
+    cont "data on the most"
+    cont "important one of"
+    cont "them all, LAPRAS."
+
+    para "My thesis can't be"
+    line "considered"
+    cont "complete without"
+    cont "info on it, but"
+    cont "it lives only in"
+    cont "the deepest depth"
+    cont "of the SEAFOAM"
+    cont "ISLANDS."
+
+    para "That place is"
+    line "treacherous, with"
+    cont "strong #MON"
+    cont "and an harsh"
+    cont "environment."
+
+    para "I'm not that good"
+    line "of a trainer, so"
+    cont "I wasn't able to"
+    cont "venture very"
+    cont "deep..."
+
+    para "You, although,"
+    line "seem quite"
+    cont "strong! May I ask"
+    cont "you to catch a"
+    cont "LAPRAS and show"
+    cont "it to me?"
+
+    para "It would help me"
+    line "immensely! I'll"
+    cont "pay you for this"
+    cont "task, of course."
+    cont "My PhD funds are"
+    cont "not great, but I"
+    cont "saved something."
 	prompt
 
 _CeladonUniversity2Text8_WowAlreadyCaught::
-	text "Wow already"
+    text "! Wow! You caught"
+    line "a LAPRAS"
+    cont "already?!"
+
+    para "This is just so"
+    line "perfect! So I was"
+    cont "right, you do be"
+    cont "extraordinary!"
+
+    para "May I see it?"
+
+    para "Yes... yes... as I"
+    line "thought... oh..."
+    cont "that's"
+    cont "unexpected..."
+    cont "cool!"
+
+    para "Thanks a ton!"
+    line "Here's your"
+    cont "payment, please"
+    cont "accept it!"
 	prompt
 
 _CeladonUniversity2Text8_FoundThisYouCanHaveIt::
-	text "Found this"
-	line "can have it"
+    text "Also... I didn't"
+    line "make it far when"
+    cont "I ventured into"
+    cont "the SEAFOAM, but"
+    cont "I happened to"
+    cont "find this."
+
+    para "Maybe a trainer of"
+    line "your caliber may"
+    cont "find a good use"
+    cont "for it!"
 	prompt
 
 _CeladonUniversity2Text8_BagFull::
-	text "Bag full"
+    text "Oh, your bag is"
+    line "full. Please come"
+    cont "back."
 	done
 
 _CeladonUniversity2Text8_AlreadyRewardedOrb::
-	text "Now I can"
-	line "complete thesis"
+    text "Thanks to you, now"
+    line "I can finally"
+    cont "complete my"
+    cont "thesis!"
 	done
 
 _CeladonUniversity2Text8_HiBackHaveYouDone::
-	text "Hi back done?"
+    text "Welcome back! Have"
+    line "you managed to"
+    cont "find a LAPRAS"
+    cont "already?"
 	prompt
 
 _CeladonUniversity2Text8_NotDoneYet::
-	text "Oh you're not done"
+    text "Oh, you don't have"
+    line "a LAPRAS yet."
+
+    para "Take your time."
+    line "You know where to"
+    cont "find me!"
 	done
 
 _CeladonUniversity2Text8_AlreadyRewardedMoneySpaceForOrb::
-	text "Have space now?"
+    text "Hi! Do you have"
+    line "space for my gift"
+    cont "now?"
 	prompt
 
 _CeladonUniversity2Text8_ThanksHereIsReward::
-	text "Thanks a ton"
-	line "here promised rewa"
+    text "You did! I knew,"
+    line "you're amazing!"
+
+    para "May I see it?"
+
+    para "Yes... yes... as I"
+    line "thought... oh..."
+    cont "that's"
+    cont "unexpected..."
+    cont "cool!"
+
+    para "Thanks a ton!"
+    line "Here's your"
+    cont "payment, please"
+    cont "accept it!"
 	prompt
 
 _CeladonUniversity2Text8_ReceivedIceOrb::
