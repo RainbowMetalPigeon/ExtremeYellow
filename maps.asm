@@ -1383,3 +1383,9 @@ INCLUDE "data/maps/headers/HauntedHouse1.asm"
 INCLUDE "data/maps/objects/HauntedHouse1.asm"
 HauntedHouse1_Blocks: INCBIN "maps/HauntedHouse1.blk"
 INCLUDE "scripts/HauntedHouse1.asm"
+
+; new
+INCLUDE "data/maps/headers/BattleFacility.asm"
+INCLUDE "data/maps/objects/BattleFacility.asm"
+BattleFacility_Blocks: INCBIN "maps/BattleFacility.blk"
+INCLUDE "scripts/BattleFacility.asm"

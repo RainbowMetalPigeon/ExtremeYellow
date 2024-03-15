@@ -11,7 +11,7 @@ VermilionCity_Object:
 	warp_event 19, 31, VERMILION_DOCK, 1
 	warp_event 15, 13, VERMILION_TRADE_HOUSE, 1
 	warp_event  7,  3, VERMILION_OLD_ROD_HOUSE, 1
-	warp_event 30,  7, REDS_HOUSE_1F, 1 ; new - BATTLE_FACILITY
+	warp_event 30,  7, BATTLE_FACILITY, 1 ; new
 
 	def_bg_events
 	bg_event 17,  5, 11 ; VermilionCityText8 ; moved to the left

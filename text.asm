@@ -308,6 +308,7 @@ INCLUDE "text/CeladonUniversity2.asm" ; new
 INCLUDE "text/HauntedHouse1.asm" ; new
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
+INCLUDE "text/BattleFacility.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

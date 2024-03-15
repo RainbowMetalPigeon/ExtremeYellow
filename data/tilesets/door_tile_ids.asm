@@ -15,6 +15,7 @@ DoorTileIDPointers:
 	dbw INTERIOR,    .InteriorDoorTileIDs
 	dbw RESEARCH_CENTER, .ResearchCenterDoorTileIDs ; new
 	dbw ISLAND,      .IslandDoorTileIDs ; new
+	dbw CLUB,        .ClubDoorTileIDs ; new
 	db -1 ; end
 
 MACRO door_tiles
@@ -65,3 +66,6 @@ ENDM
 
 .IslandDoorTileIDs: ; new
 	door_tiles $58
+
+.ClubDoorTileIDs: ; new
+	door_tiles $4D

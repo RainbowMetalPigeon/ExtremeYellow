@@ -92,9 +92,11 @@ ENDM
 .PlateauWarpTileIDs:
 	db $1B, $3B
 	; fallthrough
-.ShipPortWarpTileIDs:
-.ClubWarpTileIDs:
+.ShipPortWarpTileIDs: ; edited
 	warp_tiles ; end
+
+.ClubWarpTileIDs: ; edited
+	warp_tiles $4D ; new
 
 .BeachHouseWarpTileIDs:
 	warp_tiles ; end

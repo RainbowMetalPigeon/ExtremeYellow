@@ -97,7 +97,7 @@ MapHeaderPointers::
 	dw BillsHouse_h
 	dw VermilionPokecenter_h
 	dw PokemonFanClub_h
-	dw VermilionPokecenter_h ; edited, made UNUSED because of map MERGING
+	dw BattleFacility_h ; new
 	dw VermilionGym_h
 	dw VermilionPidgeyHouse_h
 	dw VermilionDock_h

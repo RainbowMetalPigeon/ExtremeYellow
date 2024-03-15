@@ -96,7 +96,7 @@ WildDataPointers:
 	dw NothingWildMons ; BILLS_HOUSE
 	dw NothingWildMons ; VERMILION_POKECENTER
 	dw NothingWildMons ; POKEMON_FAN_CLUB
-	dw NothingWildMons ; VERMILION_MART
+	dw NothingWildMons ; BATTLE_FACILITY
 	dw NothingWildMons ; VERMILION_GYM
 	dw NothingWildMons ; VERMILION_PIDGEY_HOUSE
 	dw VermilionDockWildMons ; new, VERMILION_DOCK
