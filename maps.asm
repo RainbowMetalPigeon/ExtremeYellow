@@ -58,11 +58,6 @@ INCLUDE "scripts/BluesHouse.asm"
 INCLUDE "data/maps/objects/BluesHouse.asm"
 BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
 
-INCLUDE "data/maps/headers/VermilionTradeHouse.asm"
-INCLUDE "scripts/VermilionTradeHouse.asm"
-INCLUDE "data/maps/objects/VermilionTradeHouse.asm"
-VermilionTradeHouse_Blocks: INCBIN "maps/VermilionTradeHouse.blk"
-
 INCLUDE "data/maps/headers/IndigoPlateauLobby.asm"
 INCLUDE "scripts/IndigoPlateauLobby.asm"
 INCLUDE "data/maps/objects/IndigoPlateauLobby.asm"
@@ -102,13 +97,12 @@ MrPsychicsHouse_Blocks:
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
 SaffronPidgeyHouse_Blocks:
-VermilionPidgeyHouse_Blocks:
 CeruleanMelaniesHouse_Blocks:
 PewterNidoranHouse_Blocks:
 PewterSpeechHouse_Blocks:
 ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk"
 
-;VermilionHouses_Blocks: ; new, merge of all Vermilion houses
+VermilionHouses_Blocks: ; new, merge of all Vermilion houses
 LavenderHouses_Blocks: INCBIN "maps/LavenderHouses.blk" ; new, merge of all Lavender houses
 
 CeladonMansionRoofHouse_Blocks:
@@ -170,9 +164,10 @@ INCLUDE "data/maps/headers/LavenderHouses.asm"
 INCLUDE "scripts/LavenderHouses.asm"
 INCLUDE "data/maps/objects/LavenderHouses.asm"
 
-INCLUDE "data/maps/headers/VermilionPidgeyHouse.asm"
-INCLUDE "scripts/VermilionPidgeyHouse.asm"
-INCLUDE "data/maps/objects/VermilionPidgeyHouse.asm"
+; edited, merge of all Vermilion houses
+INCLUDE "data/maps/headers/VermilionHouses.asm"
+INCLUDE "scripts/VermilionHouses.asm"
+INCLUDE "data/maps/objects/VermilionHouses.asm"
 
 INCLUDE "data/maps/headers/VermilionDock.asm"
 INCLUDE "scripts/VermilionDock.asm"
@@ -690,7 +685,6 @@ INCLUDE "data/maps/headers/Route21.asm"
 INCLUDE "data/maps/objects/Route21.asm"
 Route21_Blocks: INCBIN "maps/Route21.blk"
 
-VermilionOldRodHouse_Blocks:
 Route12SuperRodHouse_Blocks:
 Daycare_Blocks: INCBIN "maps/Daycare.blk"
 
@@ -709,10 +703,6 @@ INCLUDE "scripts/Route14.asm"
 INCLUDE "scripts/Route17.asm"
 INCLUDE "scripts/Route19.asm"
 INCLUDE "scripts/Route21.asm"
-
-INCLUDE "data/maps/headers/VermilionOldRodHouse.asm"
-INCLUDE "scripts/VermilionOldRodHouse.asm"
-INCLUDE "data/maps/objects/VermilionOldRodHouse.asm"
 
 INCLUDE "data/maps/headers/CeladonMart2F.asm"
 INCLUDE "scripts/CeladonMart2F.asm"

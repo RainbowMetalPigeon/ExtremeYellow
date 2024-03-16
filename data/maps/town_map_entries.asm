@@ -103,7 +103,7 @@ InternalMapEntries:
 	internal_map SAFARI_ZONE_GATE,               8, 12, SafariZoneName
 	internal_map FUCHSIA_MEETING_ROOM,           8, 13, FuchsiaCityName
 	internal_map SEAFOAM_ISLANDS_B4F,            5, 15, SeafoamIslandsName
-	internal_map VERMILION_OLD_ROD_HOUSE,       10,  9, VermilionCityName
+;	internal_map VERMILION_OLD_ROD_HOUSE,       10,  9, VermilionCityName ; commented out because of MERGING
 	internal_map FUCHSIA_GOOD_ROD_HOUSE,         8, 13, FuchsiaCityName
 	internal_map POKEMON_MANSION_1F,             2, 15, PokemonMansionName
 	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
@@ -118,7 +118,7 @@ InternalMapEntries:
 	internal_map ROUTE_22_GATE,                  0,  7, Route22Name
 	internal_map VICTORY_ROAD_2F,                0,  4, VictoryRoadName
 	internal_map ROUTE_12_GATE_2F,              14,  7, Route12Name
-	internal_map VERMILION_TRADE_HOUSE,         10,  9, VermilionCityName
+;	internal_map VERMILION_TRADE_HOUSE,         10,  9, VermilionCityName ; edited also because of MERGING
 	internal_map DIGLETTS_CAVE,                  3,  4, DiglettsCaveName
 	internal_map VICTORY_ROAD_3F,                0,  4, VictoryRoadName
 	internal_map ROCKET_HIDEOUT_ELEVATOR,        7,  5, RocketHQName

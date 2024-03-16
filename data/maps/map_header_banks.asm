@@ -99,7 +99,7 @@ MapHeaderBanks::
 	db BANK(PokemonFanClub_h)
 	db BANK(BattleFacility_h) ; new
 	db BANK(VermilionGym_h)
-	db BANK(VermilionPidgeyHouse_h)
+	db BANK(VermilionHouses_h)
 	db BANK(VermilionDock_h)
 	db BANK(SSAnne1F_h)
 	db BANK(SSAnne2F_h)
@@ -169,7 +169,7 @@ MapHeaderBanks::
 	db BANK(SeafoamIslandsB2F_h)
 	db BANK(SeafoamIslandsB3F_h)
 	db BANK(SeafoamIslandsB4F_h)
-	db BANK(VermilionOldRodHouse_h)
+	db BANK(VermilionHouses_h) ; edited, made UNUSED because of map MERGING
 	db BANK(FuchsiaGoodRodHouse_h)
 	db BANK(PokemonMansion1F_h)
 	db BANK(CinnabarGym_h)
@@ -202,7 +202,7 @@ MapHeaderBanks::
 	db BANK(Route22Gate_h)
 	db BANK(VictoryRoad2F_h)
 	db BANK(Route12Gate2F_h)
-	db BANK(VermilionTradeHouse_h)
+	db BANK(VermilionHouses_h) ; edited, made UNUSED because of map MERGING
 	db BANK(DiglettsCave_h)
 	db BANK(VictoryRoad3F_h)
 	db BANK(RocketHideoutB1F_h)

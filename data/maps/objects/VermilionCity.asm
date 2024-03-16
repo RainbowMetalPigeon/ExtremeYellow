@@ -6,11 +6,11 @@ VermilionCity_Object:
 	warp_event  9, 13, POKEMON_FAN_CLUB, 1
 	warp_event 21, 13, VERMILION_POKECENTER, 3 ; moved to the left ; edited due to MERGING
 	warp_event 12, 19, VERMILION_GYM, 1
-	warp_event 23, 19, VERMILION_PIDGEY_HOUSE, 1
+	warp_event 23, 19, VERMILION_HOUSES, 5 ; edited because of map merging
 	warp_event 18, 31, VERMILION_DOCK, 1
 	warp_event 19, 31, VERMILION_DOCK, 1
-	warp_event 15, 13, VERMILION_TRADE_HOUSE, 1
-	warp_event  7,  3, VERMILION_OLD_ROD_HOUSE, 1
+	warp_event 15, 13, VERMILION_HOUSES, 3 ; edited because of map merging
+	warp_event  7,  3, VERMILION_HOUSES, 1 ; edited because of map merging
 	warp_event 30,  7, BATTLE_FACILITY, 1 ; new
 
 	def_bg_events

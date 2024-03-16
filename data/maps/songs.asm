@@ -98,7 +98,7 @@ MapSongBanks::
 	db MUSIC_VERMILION, BANK(Music_Vermilion) ; POKEMON_FAN_CLUB
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; BATTLE_FACILITY, new
 	db MUSIC_GYM, BANK(Music_Gym) ; VERMILION_GYM
-	db MUSIC_VERMILION, BANK(Music_Vermilion) ; VERMILION_PIDGEY_HOUSE
+	db MUSIC_VERMILION, BANK(Music_Vermilion) ; VERMILION_HOUSES, edited because of map merging
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ; VERMILION_DOCK
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ; SS_ANNE_1F
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne) ; SS_ANNE_2F

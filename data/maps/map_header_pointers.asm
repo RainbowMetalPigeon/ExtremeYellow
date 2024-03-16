@@ -99,7 +99,7 @@ MapHeaderPointers::
 	dw PokemonFanClub_h
 	dw BattleFacility_h ; new
 	dw VermilionGym_h
-	dw VermilionPidgeyHouse_h
+	dw VermilionHouses_h
 	dw VermilionDock_h
 	dw SSAnne1F_h
 	dw SSAnne2F_h
@@ -169,7 +169,7 @@ MapHeaderPointers::
 	dw SeafoamIslandsB2F_h
 	dw SeafoamIslandsB3F_h
 	dw SeafoamIslandsB4F_h
-	dw VermilionOldRodHouse_h
+	dw VermilionHouses_h ; edited, made UNUSED because of map MERGING
 	dw FuchsiaGoodRodHouse_h
 	dw PokemonMansion1F_h
 	dw CinnabarGym_h
@@ -202,7 +202,7 @@ MapHeaderPointers::
 	dw Route22Gate_h
 	dw VictoryRoad2F_h
 	dw Route12Gate2F_h
-	dw VermilionTradeHouse_h
+	dw VermilionHouses_h ; edited, made UNUSED because of map MERGING
 	dw DiglettsCave_h
 	dw VictoryRoad3F_h
 	dw RocketHideoutB1F_h

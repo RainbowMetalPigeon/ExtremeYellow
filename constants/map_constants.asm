@@ -117,7 +117,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_FAN_CLUB,               4,  4 ; $5A
 	map_const BATTLE_FACILITY,               15,  4 ; $5B ; mew
 	map_const VERMILION_GYM,                  5,  9 ; $5C
-	map_const VERMILION_PIDGEY_HOUSE,         4,  4 ; $5D
+	map_const VERMILION_HOUSES,              18,  4 ; $5D ; new, merge of all Vermilion houses
 	map_const VERMILION_DOCK,                14,  6 ; $5E
 	map_const SS_ANNE_1F,                    20,  9 ; $5F
 	map_const SS_ANNE_2F,                    20,  9 ; $60
@@ -187,7 +187,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SEAFOAM_ISLANDS_B2F,           15,  9 ; $A0
 	map_const SEAFOAM_ISLANDS_B3F,           15,  9 ; $A1
 	map_const SEAFOAM_ISLANDS_B4F,           15,  9 ; $A2
-	map_const VERMILION_OLD_ROD_HOUSE,        4,  4 ; $A3
+	map_const VERMILION_OLD_ROD_HOUSE,        4,  4 ; $A3 ; edited, made UNUSED because of map MERGING
 	map_const FUCHSIA_GOOD_ROD_HOUSE,         4,  4 ; $A4
 	map_const POKEMON_MANSION_1F,            15, 14 ; $A5
 	map_const CINNABAR_GYM,                  10,  9 ; $A6
@@ -220,7 +220,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROUTE_22_GATE,                  5,  4 ; $C1
 	map_const VICTORY_ROAD_2F,               15,  9 ; $C2
 	map_const ROUTE_12_GATE_2F,               4,  4 ; $C3
-	map_const VERMILION_TRADE_HOUSE,          4,  4 ; $C4
+	map_const VERMILION_TRADE_HOUSE,          4,  4 ; $C4 ; edited, made UNUSED because of map MERGING
 	map_const DIGLETTS_CAVE,                 20, 18 ; $C5
 	map_const VICTORY_ROAD_3F,               15,  9 ; $C6
 	map_const ROCKET_HIDEOUT_B1F,            15, 14 ; $C7
