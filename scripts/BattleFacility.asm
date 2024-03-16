@@ -73,6 +73,7 @@ BattleFacilityScript1_PostBattle:
 	ld [wBattleFacilityWinningStreak], a
 	; more? TBV
 .warpToEntrance
+	predef HealParty ; heal the team, now or just after, why not now
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, BATTLE_FACILITY
@@ -666,7 +667,7 @@ WhatBattleFacilityMode:
 
 UpdateRecords:
 	ret
-	
+
 ;wBattleFacilityBattleMode
 ;wBattleFacilityInverseBattle
 

@@ -6,7 +6,7 @@ BattleFacility_Object:
 	warp_event  7,  9, VERMILION_CITY, 10
 	warp_event  6,  0, BATTLE_FACILITY, 4
 	warp_event 21,  9, BATTLE_FACILITY, 3
-	warp_event  6,  5, BATTLE_FACILITY, 5 ; testing, for return after battles
+	warp_event  6,  5, BATTLE_FACILITY, 5 ; for return after battles
 
 	def_bg_events
 ;	bg_event  0,  0, nn ; proxy, tabelloni segnapunti

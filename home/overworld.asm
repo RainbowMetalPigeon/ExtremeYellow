@@ -225,12 +225,18 @@ OverworldLoopLessDelay::
 	bit 6, a ; jumping a ledge?
 	jr nz, .slowPlayerSpriteAdvancement
 	ld a, [wWalkBikeSurfState]
-	dec a ; riding a bike?
-	jr nz, .normalPlayerSpriteAdvancement
+	and a ; edited, walking?
+	jr z, .normalPlayerSpriteAdvancement ; edited, walking?
 	call DoBikeSpeedup ; if riding a bike and not jumping a ledge
+	ld a, [hJoyHeld]                     ; bike-run only if pressing B
+	and B_BUTTON                         ; bike-run only if pressing B
+	jr z, .normalPlayerSpriteAdvancement ; bike-run only if pressing B
 	call DoBikeSpeedup ; if riding a bike and not jumping a ledge, new
 .normalPlayerSpriteAdvancement
-; now you surf at previous bike speed = new walking speed
+; now you surf at previous bike speed = new walking speed ; IF you're pressing B
+	ld a, [hJoyHeld]                   ; run only if pressing B
+	and B_BUTTON                       ; run only if pressing B
+	jr z, .slowPlayerSpriteAdvancement ; run only if pressing B
 	call DoBikeSpeedup ; new, makes you go faster than vanilla
 ; unless you're jumping down a ledge, otherwise bugs may happen, like getting into walls or Pikachu glitching
 .slowPlayerSpriteAdvancement

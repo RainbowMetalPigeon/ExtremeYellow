@@ -511,10 +511,16 @@ Func_fc7aa:
 	ld [hl], a
 	cp $4
 	jp z, Func_fca0a
-;	call AreThereAtLeastTwoStepsInPikachuFollowCommandBuffer ; commented, default speed is doubled
-;	jp c, FastPikachuFollow ; commented, default speed is doubled
-;	jp NormalPikachuFollow ; commented, default speed is doubled
+; edited, to handle running with following Pikachu
+	ld a, [hJoyHeld]   ; run only if pressing B
+	and B_BUTTON       ; run only if pressing B
+	jr z, .notRunning  ; run only if pressing B
 	jp FastPikachuFollow ; new, default speed is doubled
+.notRunning
+	call AreThereAtLeastTwoStepsInPikachuFollowCommandBuffer ; commented, default speed is doubled
+	jp c, FastPikachuFollow ; commented, default speed is doubled
+	jp NormalPikachuFollow ; commented, default speed is doubled
+; back to vanilla
 
 Pointer_fc7e3:
 	db  0,  0
