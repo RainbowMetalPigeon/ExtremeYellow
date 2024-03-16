@@ -301,7 +301,7 @@ INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/CeladonUniversity2.asm" ; new
-INCLUDE "text/HauntedHouse1.asm" ; new
+INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new

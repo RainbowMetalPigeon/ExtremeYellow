@@ -36,4 +36,5 @@ Tilesets:
 	tileset BeachHouse,   -1, -1, -1,  -1, TILEANIM_NONE
 	tileset ResearchCenter, $22, -1, -1,  -1, TILEANIM_WATER ; new
 	tileset Island,       -1, -1, -1, $52, TILEANIM_WATER_FLOWER ; new
+	tileset OverworldHaunted, -1, -1, -1, $52, TILEANIM_NONE ; new, testing
 	assert_table_length NUM_TILESETS

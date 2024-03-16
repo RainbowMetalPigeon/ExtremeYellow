@@ -46,11 +46,14 @@ DisplayTownMap:
 	push hl
 	call TownMapCoordsToOAMCoords
 ; new, to handle Haunted House
-	ld a, [wCurMap]
-	cp HAUNTED_HOUSE_1
-	jr z, .doNotPrintMapCursor
-	; checks for the other future Haunted House maps
-	jr .normalMapCursor
+	push hl
+	push de
+	push bc
+	callfar IsCurrentMapHauntedHouse ; testing
+	pop bc
+	pop de
+	pop hl
+	jr nz, .normalMapCursor
 .doNotPrintMapCursor
 	hlcoord 1, 7
 	lb bc, 2, 15
@@ -393,8 +396,13 @@ DrawPlayerOrBirdSprite:
 	push hl
 	call TownMapCoordsToOAMCoords
 ; new, to handle Haunted House
-	ld a, [wCurMap]
-	cp HAUNTED_HOUSE_1
+	push hl
+	push de
+	push bc
+	callfar IsCurrentMapHauntedHouse ; testing
+	pop bc
+	pop de
+	pop hl
 	jr z, .skipSpriteDrawing
 	call WritePlayerOrBirdSpriteOAM
 .skipSpriteDrawing

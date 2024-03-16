@@ -21,11 +21,11 @@ HauntedHouse1_Object:
 	warp_event 12, 18, HAUNTED_HOUSE_1, 13 ; 13 ; -> itself, for trapping
 	warp_event 13, 31, HAUNTED_HOUSE_1,  1 ; 14 ; -> first room
 	; wide room
-	warp_event  5,  0, HAUNTED_HOUSE_1,  1 ; 15 ; TBE
+	warp_event  5,  0, HAUNTED_HOUSE_1,  1 ; 15 ; -> first room
 	warp_event 12,  0, HAUNTED_HOUSE_1, 22 ; 16 ; -> super-small room
 	warp_event 28,  0, HAUNTED_HOUSE_1,  1 ; 17 ; TBE
-	warp_event 36,  0, HAUNTED_HOUSE_1,  1 ; 18 ; TBE
-	warp_event 52,  0, HAUNTED_HOUSE_1,  1 ; 19 ; TBE
+	warp_event 36,  0, HAUNTED_HOUSE_1, 18 ; 18 ; -> itself
+	warp_event 52,  0, HAUNTED_HOUSE_2,  1 ; 19 ; -> entrance of HAUNTED_HOUSE_2
 	; small room
 	warp_event 32, 49, HAUNTED_HOUSE_1, 13 ; 20 ; -> ledge room
 	warp_event 33, 48, HAUNTED_HOUSE_1, 12 ; 21 ; -> long room (top)

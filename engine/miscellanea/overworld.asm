@@ -1,9 +1,9 @@
 CheckIfDirectionalButtonIsPressed::
 	jr .vanilla ; countercomment this line when created ready
 	ld a, [wCurMap]
-	cp HAUNTED_HOUSE_1
-	jr z, .anomalousMovements
-	jr nz, .vanilla ; redundant for now
+	call IsCurrentMapHauntedHouse ; callfar is not needed, right?
+;	jr z, .anomalousMovements ; redundant?
+	jr nz, .vanilla
 
 .anomalousMovements
 	ldh a, [hJoyHeld] ; current joypad state
@@ -76,6 +76,43 @@ CheckIfDirectionalButtonIsPressed::
 
 ; ===========================================================
 
+HauntedHouseHandleRandomGlitchyBehaviours::
+
+; handle fake poison
+	call Random
+	srl a ; 50% chance of fake poison
+	jr c, .setFakePoison
+	ResetEvent EVENT_HAUNTED_HOUSE_FAKE_POISON
+	jr .handleLowHealthAlarm
+.setFakePoison
+	SetEvent EVENT_HAUNTED_HOUSE_FAKE_POISON
+
+.handleLowHealthAlarm
+	call Random
+	srl a ; 50% chance of low-health alarm
+	jr c, .lowHealthAlarm
+	call PlayDefaultMusic
+	ld hl, wLowHealthAlarm
+	res 7, [hl] ; disable low health alarm
+	jr .handleSpinning
+.lowHealthAlarm
+	call StopAllMusic
+	ld hl, wLowHealthAlarm
+	set 7, [hl] ; enable low health alarm
+
+.handleSpinning
+	call Random
+	cp 25 ; 10% chance of moving by spinning
+	ld hl, wd736 ; bit 7: spinning; bit 6: jumping, but requires much more work
+	jr c, .spinning
+	res 7, [hl]
+	ret
+.spinning
+	set 7, [hl]
+	ret
+
+; ===========================================================
+
 HauntedHouseFakeOutOfBattlePoisonDamage::
 	CheckEvent EVENT_HAUNTED_HOUSE_FAKE_POISON
 	ret z
@@ -100,7 +137,7 @@ HauntedHouseFakeOutOfBattlePoisonDamage::
 ; % 1111 1111 = 255
 
 HauntedHouseFakePikachuFaintingAndRandomMessages::
-	callfar IsCurrentMapHauntedHouse
+	callfar IsCurrentMapHauntedHouse ; no need for it to be a callfar?
 	ret nz
 ; handle random messages
 	ld a, [wStepCounter]
@@ -198,18 +235,17 @@ IsCurrentMapHauntedHouse::
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
 	ret z
+	cp HAUNTED_HOUSE_2
+	ret z
 	; all other CPs
 	ret
 	
 ; ===========================================================
 
 ForceMovementsHauntedHouse::
-;	ld a, [wFlags_D733]
-;	bit 3, a ; check if a trainer wants a challenge
-;	ret nz
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
-	ret nz
+	ret nz ; TBE
 	call ForceRight_HauntedHouse1
 	call ForceDown_HauntedHouse1
 	call ForceLeft_HauntedHouse1
@@ -307,18 +343,39 @@ WarpIntervals_HauntedHouse1:
 	db $FF
 
 WarpIntervals_HauntedHouse2:
+;	db  1,  4 ; room 1
+;	db  5,  8 ; room 2
+;	db  9, 10 ; room 3
+;	db 11, 14 ; room 4
+;	db 15, 18 ; room 5
+;	db 19, 20 ; room 6
+;	db 21, 24 ; room 7
+;	db 25, 26 ; room 8
+;	db 27, 29 ; room 9
+;	db 30, 31 ; room 10
+;	db 32, 33 ; room 11
+;	db 34, 36 ; room 12
 	db $FF
 
 RandomizeWarpsForHauntedHouse::
-	ld a, [wCurMap]
+	call IsCurrentMapHauntedHouse
+	ret nz
+	ld a, [hWarpDestinationMap] ; testing
 	cp HAUNTED_HOUSE_1
 	jr z, .loadListForHauntedHouse1
+	cp HAUNTED_HOUSE_2
+	jr z, .loadListForHauntedHouse2
 ; other checks for other floors
-	ret nz
+	ret nz ; this should never be hit if I do things right
+
 .loadListForHauntedHouse1
 	ld hl, WarpIntervals_HauntedHouse1
+	jr .checkIfRandomizable
+.loadListForHauntedHouse2
+	ld hl, WarpIntervals_HauntedHouse2
 	jr .checkIfRandomizable ; unnecessary right now
 ; load the other lists of ranges
+
 .checkIfRandomizable
 	ld a, [wDestinationWarpID]
 	ld b, a ; b now contains the nominal destination warp ID

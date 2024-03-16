@@ -39,8 +39,9 @@ PalletTown_Object:
 ;	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 	warp_event 13,  5, BATTLE_FACILITY, 1
 
-	warp_event 12, 11, OAKS_LAB, 2
+;	warp_event 12, 11, OAKS_LAB, 2
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1
+	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 
 	def_bg_events
 	bg_event 13, 13, 5 ; PalletTownText4

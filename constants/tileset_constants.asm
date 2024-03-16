@@ -28,4 +28,5 @@
 	const BEACH_HOUSE  ; 24
 	const RESEARCH_CENTER  ; 25, new
 	const ISLAND       ; 26, new
+	const OVERWORLD_HAUNTED ; 27, new
 DEF NUM_TILESETS EQU const_value

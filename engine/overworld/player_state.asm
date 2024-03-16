@@ -296,7 +296,7 @@ PrintSafariZoneSteps::
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EAST
 	ret c
-	cp HAUNTED_HOUSE_1 ; edited
+	cp HAUNTED_HOUSE_1 ; edited, SAFARI_ZONE_SECRET_HOUSE + 1
 	ret nc
 	hlcoord 0, 0
 	lb bc, 3, 7

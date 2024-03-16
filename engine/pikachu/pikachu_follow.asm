@@ -245,7 +245,6 @@ Pointer_fc64b::
 	db $ff
 
 Pointer_fc653::
-	db VIRIDIAN_FOREST_NORTH_GATE
 	db CERULEAN_BADGE_HOUSE
 	db CERULEAN_TRASHED_HOUSE
 	db VERMILION_DOCK
@@ -256,9 +255,9 @@ Pointer_fc653::
 
 SetPikachuSpawnWarpPad::
 	ld a, [wCurMap]
-	cp VIRIDIAN_FOREST_NORTH_GATE
+	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
 	jr z, .viridian_forest_exit
-	cp VIRIDIAN_FOREST_SOUTH_GATE
+	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
 	jr z, .viridian_forest_entrance
 	ld a, [wCurMap]
 	ld hl, Pointer_fc68e

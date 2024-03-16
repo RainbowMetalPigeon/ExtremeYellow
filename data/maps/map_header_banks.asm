@@ -54,10 +54,10 @@ MapHeaderBanks::
 	db BANK(ViridianNicknameHouse_h)
 	db BANK(ViridianGym_h)
 	db BANK(DiglettsCaveRoute2_h)
-	db BANK(Route2AllGates_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedRedsHouse_h) ; new
 	db BANK(Route2TradeHouse_h)
 	db BANK(Route2AllGates_h)
-	db BANK(Route2AllGates_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedPalletTown_h) ; new
 	db BANK(ViridianForest_h)
 	db BANK(Museum1F_h)
 	db BANK(Museum2F_h)
@@ -156,7 +156,7 @@ MapHeaderBanks::
 	db BANK(PokemonTower6F_h)
 	db BANK(PokemonTower7F_h)
 	db BANK(LavenderHouses_h)
-	db BANK(LavenderPokecenter_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedHouse2_h) ; new
 	db BANK(LavenderHouses_h) ; edited, made UNUSED because of map MERGING
 	db BANK(OchreResearchCenter2_h) ; edited
 	db BANK(FuchsiaBillsGrandpasHouse_h)

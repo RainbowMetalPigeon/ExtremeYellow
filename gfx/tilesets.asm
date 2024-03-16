@@ -85,3 +85,10 @@ ResearchCenter_GFX::   INCBIN "gfx/tilesets/research_center.2bpp" ; new
 ResearchCenter_Block:: INCBIN "gfx/blocksets/research_center.bst" ; new
 Island_GFX::   INCBIN "gfx/tilesets/island.2bpp" ; new
 Island_Block:: INCBIN "gfx/blocksets/island.bst" ; new
+
+
+SECTION "Tilesets 6", ROMX ; new, to contain even more beefy stuff
+
+OverworldHaunted_GFX::     INCBIN "gfx/tilesets/overworld_haunted.2bpp" ; new
+;	ds 32 ; is this needed for anything at all?
+OverworldHaunted_Block::   INCBIN "gfx/blocksets/overworld_haunted.bst" ; new

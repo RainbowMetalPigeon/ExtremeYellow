@@ -53,10 +53,10 @@ WildDataPointers:
 	dw NothingWildMons ; VIRIDIAN_NICKNAME_HOUSE
 	dw NothingWildMons ; VIRIDIAN_GYM
 	dw NothingWildMons ; DIGLETTS_CAVE_ROUTE_2
-	dw NothingWildMons ; UNUSED
+	dw NothingWildMons ; HAUNTED_REDS_HOUSE
 	dw NothingWildMons ; ROUTE_2_TRADE_HOUSE
 	dw NothingWildMons ; ROUTE_2_ALL_GATES
-	dw NothingWildMons ; UNUSED
+	dw NothingWildMons ; HAUNTED_PALLET_TOWN
 	dw ViridianForestWildMons ; VIRIDIAN_FOREST
 	dw NothingWildMons ; MUSEUM_1F
 	dw NothingWildMons ; MUSEUM_2F
@@ -155,7 +155,7 @@ WildDataPointers:
 	dw PokemonTower6FWildMons
 	dw PokemonTower7FWildMons
 	dw NothingWildMons ; LAVENDER_HOUSES
-	dw NothingWildMons ; LAVENDER_MART
+	dw HauntedHouseWildMons ; HAUNTED_HOUSE_2, new
 	dw NothingWildMons ; LAVENDER_CUBONE_HOUSE
 	dw NothingWildMons ; OCHRE_RESEARCH_CENTER_2
 	dw NothingWildMons ; FUCHSIA_BILLS_GRANDPAS_HOUSE
@@ -228,7 +228,7 @@ WildDataPointers:
 	dw SafariZoneCenterWildMons
 	dw NothingWildMons ; SAFARI_ZONE_QUADRUPLE_REST_HOUSE
 	dw NothingWildMons ; SAFARI_ZONE_SECRET_HOUSE
-	dw HauntedHouseWildMons ; new
+	dw HauntedHouseWildMons ; HAUNTED_HOUSE_1, new
 	dw NothingWildMons ; UNUSED
 	dw CeruleanCave2FWildMons
 	dw CeruleanCaveB1FWildMons

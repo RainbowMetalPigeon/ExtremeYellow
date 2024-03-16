@@ -54,10 +54,10 @@ MapHeaderPointers::
 	dw ViridianNicknameHouse_h
 	dw ViridianGym_h
 	dw DiglettsCaveRoute2_h
-	dw Route2AllGates_h ; edited, made UNUSED because of map MERGING
+	dw HauntedRedsHouse_h ; new
 	dw Route2TradeHouse_h
 	dw Route2AllGates_h
-	dw Route2AllGates_h ; edited, made UNUSED because of map MERGING
+	dw HauntedPalletTown_h ; new
 	dw ViridianForest_h
 	dw Museum1F_h
 	dw Museum2F_h
@@ -156,7 +156,7 @@ MapHeaderPointers::
 	dw PokemonTower6F_h
 	dw PokemonTower7F_h
 	dw LavenderHouses_h
-	dw LavenderPokecenter_h ; edited, made UNUSED because of map MERGING
+	dw HauntedHouse2_h ; new
 	dw LavenderHouses_h ; edited, made UNUSED because of map MERGING
 	dw OchreResearchCenter2_h ; edited
 	dw FuchsiaBillsGrandpasHouse_h

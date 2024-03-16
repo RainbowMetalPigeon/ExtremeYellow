@@ -3620,9 +3620,8 @@ PrintGhostText:
 	and (1 << FRZ) | SLP_MASK
 	ret nz
 ; new, to handle Haunted House
+	callfar IsCurrentMapHauntedHouse ; testing
 	ld hl, FrozenInTerrorText
-	ld a, [wCurMap]
-	cp HAUNTED_HOUSE_1
 	jr z, .printAndEnd
 	ld hl, ScaredText
 ; back to vanilla
@@ -3631,9 +3630,8 @@ PrintGhostText:
 	ret
 .Ghost ; ghost's turn
 ; new, to handle Haunted House
+	callfar IsCurrentMapHauntedHouse ; testing
 	ld hl, HauntedHouseMonsText
-	ld a, [wCurMap]
-	cp HAUNTED_HOUSE_1
 	jr z, .printAndEnd
 	ld hl, GetOutText
 .printAndEnd
@@ -3658,15 +3656,15 @@ HauntedHouseMonsText: ; new
 	text_far _HauntedHouseMonsText
 	text_end
 
-IsGhostBattle:
+IsGhostBattle: ; this can be easily moved outside of this file, as we care only about flags
 	ld a, [wIsInBattle]
 	dec a
 	ret nz
-	ld a, [wCurMap]
 ; new, to handle Haunted House
-	cp HAUNTED_HOUSE_1
+	callfar IsCurrentMapHauntedHouse ; testing
 	ret z
 ; back to vanilla
+	ld a, [wCurMap]
 	cp POKEMON_TOWER_1F
 	jr c, .next
 	cp POKEMON_TOWER_7F + 1

@@ -1367,7 +1367,21 @@ INCLUDE "data/maps/objects/HauntedHouse1.asm"
 HauntedHouse1_Blocks: INCBIN "maps/HauntedHouse1.blk"
 INCLUDE "scripts/HauntedHouse1.asm"
 
-; new
+INCLUDE "data/maps/headers/HauntedHouse2.asm"
+INCLUDE "data/maps/objects/HauntedHouse2.asm"
+HauntedHouse2_Blocks: INCBIN "maps/HauntedHouse2.blk"
+INCLUDE "scripts/HauntedHouse2.asm"
+
+INCLUDE "data/maps/headers/HauntedRedsHouse.asm"
+INCLUDE "data/maps/objects/HauntedRedsHouse.asm"
+HauntedRedsHouse_Blocks: INCBIN "maps/HauntedRedsHouse.blk"
+INCLUDE "scripts/HauntedRedsHouse.asm"
+
+INCLUDE "data/maps/headers/HauntedPalletTown.asm"
+INCLUDE "data/maps/objects/HauntedPalletTown.asm"
+HauntedPalletTown_Blocks: INCBIN "maps/HauntedPalletTown.blk"
+INCLUDE "scripts/HauntedPalletTown.asm"
+
 INCLUDE "data/maps/headers/BattleFacility.asm"
 INCLUDE "data/maps/objects/BattleFacility.asm"
 BattleFacility_Blocks: INCBIN "maps/BattleFacility.blk"

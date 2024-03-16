@@ -83,8 +83,7 @@ InitWildBattle:
 	jp nz, .isNoGhost
 .isGhost
 ; new, to handle Haunted House
-	ld a, [wCurMap]
-	cp HAUNTED_HOUSE_1
+	callfar IsCurrentMapHauntedHouse
 	jp nz, .vanilla
 	call Random
 	cp 85

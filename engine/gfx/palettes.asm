@@ -197,11 +197,11 @@ SetPal_Overworld:
 	jr z, .PokemonTowerOrAgatha
 	cp CAVERN
 	jr z, .caveOrBruno
-	ld a, [wCurMap]
 ; new, to handle Haunted House
-	cp HAUNTED_HOUSE_1
+	callfar IsCurrentMapHauntedHouse ; testing
 	jr z, .hauntedHouse
 ; back to vanilla
+	ld a, [wCurMap]
 	cp FIRST_INDOOR_MAP
 	jr c, .townOrRoute
 	cp CERULEAN_CAVE_2F

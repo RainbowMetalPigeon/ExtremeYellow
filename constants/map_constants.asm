@@ -72,10 +72,10 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const VIRIDIAN_NICKNAME_HOUSE,        4,  4 ; $2C
 	map_const VIRIDIAN_GYM,                  10,  9 ; $2D
 	map_const DIGLETTS_CAVE_ROUTE_2,          4,  4 ; $2E
-	map_const VIRIDIAN_FOREST_NORTH_GATE,     5,  4 ; $2F ; edited, made UNUSED because of map MERGING
+	map_const HAUNTED_REDS_HOUSE,            11,  4 ; $2F ; new
 	map_const ROUTE_2_TRADE_HOUSE,            4,  4 ; $30
 	map_const ROUTE_2_ALL_GATES,             21,  4 ; $31 ; new, merge of all Route 2 gates
-	map_const VIRIDIAN_FOREST_SOUTH_GATE,     5,  4 ; $32 ; edited, made UNUSED because of map MERGING
+	map_const HAUNTED_PALLET_TOWN,           14, 13 ; $32 ; new
 	map_const VIRIDIAN_FOREST,               17, 24 ; $33
 	map_const MUSEUM_1F,                     10,  4 ; $34
 	map_const MUSEUM_2F,                      7,  4 ; $35
@@ -174,7 +174,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_TOWER_6F,              10,  9 ; $93
 	map_const POKEMON_TOWER_7F,              10,  9 ; $94
 	map_const LAVENDER_HOUSES,               18,  4 ; $95 ; new, merge of all Lavender houses
-	map_const LAVENDER_MART,                  4,  4 ; $96 ; edited, made UNUSED because of map MERGING
+	map_const HAUNTED_HOUSE_2,               15, 18 ; $96 ; new
 	map_const LAVENDER_CUBONE_HOUSE,          4,  4 ; $97 ; edited, made UNUSED because of map MERGING
 	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $98 ; new
 	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $99
@@ -247,7 +247,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SAFARI_ZONE_CENTER,            15, 13 ; $DC
 	map_const SAFARI_ZONE_QUADRUPLE_REST_HOUSE, 25,  4 ; $DD ; edited because of MERGING
 	map_const SAFARI_ZONE_SECRET_HOUSE,       4,  4 ; $DE
-	map_const HAUNTED_HOUSE_1,               30, 30 ; $DF ; new, TBE
+	map_const HAUNTED_HOUSE_1,               30, 30 ; $DF ; new
 	map_const SAFARI_ZONE_EAST_REST_HOUSE,    4,  4 ; $E0 ; edited, made UNUSED because of map MERGING
 	map_const CERULEAN_CAVE_2F,              15,  9 ; $E2
 	map_const CERULEAN_CAVE_B1F,             15,  9 ; $E3
