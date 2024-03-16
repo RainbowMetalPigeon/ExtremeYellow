@@ -15,7 +15,7 @@ CinnabarGymSetMapAndTiles:
 	bit 5, [hl]
 	res 5, [hl]
 	call nz, UpdateCinnabarGymGateTileBlocks
-	ResetEvent EVENT_2A7
+;	ResetEvent EVENT_2A7 ; edited because useless?
 	ret
 
 .LoadNames:

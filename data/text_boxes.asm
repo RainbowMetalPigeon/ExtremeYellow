@@ -33,9 +33,12 @@ TextBoxTextAndCoordTable:
 	text_box_text SWITCH_STATS_CANCEL_MENU_TEMPLATE, 11, 11, 19, 17, SwitchStatsCancelText,   13, 12
 	text_box_text BUY_SELL_QUIT_MENU_TEMPLATE,        0,  0, 10,  6, BuySellQuitText,          2,  1
 	text_box_text MONEY_BOX_TEMPLATE,                11,  0, 19,  2, MoneyText,               13,  0
-	text_box_text BOY_GIRL_NO,                       13,  6, 19, 12, BoyGirlNoText,           15,  7
-	text_box_text TYROGUE_EVOLUTIONS,				  9,  6, 19, 12, TyrogueEvolutions,		  11,  7
+	text_box_text BOY_GIRL_NO,                       13,  6, 19, 12, BoyGirlNoText,           15,  7 ; new
+	text_box_text TYROGUE_EVOLUTIONS,				  9,  6, 19, 12, TyrogueEvolutions,		  11,  7 ; new
 	text_box_text JP_POKEDEX_MENU_TEMPLATE,          11,  8, 19, 17, JapanesePokedexMenu,     12, 10
+	text_box_text BF_MENU_INFO_BATTLE_EXIT,          11,  6, 19, 12, BFInfoBattleExit,        13,  7 ; new
+	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,     9,  6, 19, 12, BFStandardHardcoreExit,  11,  7 ; new
+
 
 BuySellQuitText:
 	db   "BUY"
@@ -79,15 +82,25 @@ SwitchStatsCancelText:
 	next "STATS"
 	next "CANCEL@"
 
-BoyGirlNoText:
+BoyGirlNoText: ; new
 	db   "BOY"
 	next "GIRL"
 	next "NO@"
 
-TyrogueEvolutions:
+TyrogueEvolutions: ; new
 	db   "GLOVES"
 	next "ANNIE"
 	next "BEYBLADE@"
+
+BFInfoBattleExit: ; new
+	db   "INFO"
+	next "BATTLE"
+	next "EXIT@"
+
+BFStandardHardcoreExit: ; new
+	db   "STANDARD"
+	next "HARDCORE"
+	next "EXIT@"
 
 JapanesePokedexMenu:
 	db   "データをみる"

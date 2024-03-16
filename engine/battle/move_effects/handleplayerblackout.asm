@@ -18,6 +18,8 @@ _HandlePlayerBlackOut:
 	jr z, .lossText
 	cp OPP_PIGEON ; new
 	jr z, .lossText
+	cp OPP_BF_TRAINER ; new
+	jr z, .lossText
 	jr .noLossText
 .lossText
 	hlcoord 0, 0  ; battle that has loss text
@@ -30,6 +32,8 @@ _HandlePlayerBlackOut:
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            		; starter battle in oak's lab: don't black out
+	cp BATTLE_FACILITY      ; new: don't black out in Battle Facility
+	ret z                   ; new
 .noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand

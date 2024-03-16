@@ -251,10 +251,6 @@ INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 INCLUDE "text/PalletTown.asm"
 INCLUDE "text/MrFujisHouse.asm"
-INCLUDE "text/LavenderMart.asm"
-INCLUDE "text/LavenderCuboneHouse.asm"
-INCLUDE "text/NameRatersHouse.asm"
-INCLUDE "text/VermilionPokecenter.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -309,6 +305,10 @@ INCLUDE "text/HauntedHouse1.asm" ; new
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new
+INCLUDE "text/VermilionPokecenter.asm"
+INCLUDE "text/NameRatersHouse.asm"
+INCLUDE "text/LavenderCuboneHouse.asm"
+INCLUDE "text/LavenderMart.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

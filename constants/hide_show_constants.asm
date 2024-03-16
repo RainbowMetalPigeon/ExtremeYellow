@@ -412,3 +412,7 @@ DEF SHOW EQU $15
 	const HS_FUCHSIA_MEETING_ROOM_BEFORE_KOGA ; new
 	const HS_FUCHSIA_GYM_KOGA	           ; new
 	const HS_CINNABAR_LAB_ARTIFACT         ; new
+	const HS_BATTLE_FACILITY_OPP_BLUE      ; new
+	const HS_BATTLE_FACILITY_OPP_RED       ; new
+	const HS_BATTLE_FACILITY_OPP_YELLOW    ; new
+	const HS_BATTLE_FACILITY_OPP_GREEN     ; new

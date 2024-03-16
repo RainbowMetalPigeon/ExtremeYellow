@@ -2307,9 +2307,9 @@ DisplayBattleMenu::
 .AButtonPressed
 	call PlaceUnfilledArrowMenuCursor
 	ld a, [wBattleType]
-	cp BATTLE_TYPE_RUN
-	jr z, .handleUnusedBattle
-	ld a, [wBattleType]
+;	cp BATTLE_TYPE_RUN ; edited, removed because unused
+;	jr z, .handleUnusedBattle
+;	ld a, [wBattleType]
 	cp BATTLE_TYPE_SAFARI
 	ld a, [wCurrentMenuItem]
 	ld [wBattleAndStartSavedMenuItem], a
@@ -2342,13 +2342,13 @@ DisplayBattleMenu::
 	ld a, SAFARI_BALL
 	ld [wcf91], a
 	jp UseBagItem
-.handleUnusedBattle
-	ld a, [wCurrentMenuItem]
-	cp $3
-	jp z, BattleMenu_RunWasSelected
-	ld hl, .RunAwayText
-	call PrintText
-	jp DisplayBattleMenu
+;.handleUnusedBattle ; edited, removed because unused
+;	ld a, [wCurrentMenuItem]
+;	cp $3
+;	jp z, BattleMenu_RunWasSelected
+;	ld hl, .RunAwayText
+;	call PrintText
+;	jp DisplayBattleMenu
 
 .RunAwayText
 	text_far _RunAwayText
@@ -2358,9 +2358,11 @@ DisplayBattleMenu::
 	cp $2
 	jp nz, PartyMenuOrRockOrRun
 
-; new: can't use bag items against Traveler
+; new: can't use bag items against Traveler nor Batle Facility Trainers
 	ld a, [wCurOpponent]
 	cp OPP_TRAVELER
+	jr z, .cannotUseItemsInBattle
+	cp OPP_BF_TRAINER
 	jr z, .cannotUseItemsInBattle
 ; either the bag (normal battle) or bait (safari battle) was selected
 	ld a, [wLinkState]

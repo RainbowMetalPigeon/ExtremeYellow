@@ -2368,12 +2368,24 @@ wTyrogueEvolutions::
 	; stores directly the number/name of the chosen Hitmon
 	ds 1
 
+wBattleFacilityBattleMode:: db ; new: 0 is default (blocks of 7 battles), 1 is for hardcore
+wBattleFacilityInverseBattle:: db ; new: if 0, normal battle; if 1, Inverse Battle
+
+wBattleFacilityHardcoreCurrentStreak:: db ; new
+
+wBattleFacilityHardcoreRecordNormal:: db ; new
+wBattleFacilityHardcoreRecordInverse:: db ; new
+
+wBattleFacilityStandardRecordNormal:: db ; new
+wBattleFacilityStandardRecordInverse:: db ; new
+
 ; UNUSED bytes in "Main Data"
-	ds 13 ; edited, originally 56
+	ds  6 ; edited, originally 56
 	      ; reduced by 3 for gender, tyrogue, and accuracypercent
 		  ; by 16 for increasing max warps from 32 to 36
 		  ; by 8 for new HS variables
 		  ; by 16 to increase bag capacity
+		  ; by 7 for battle facility
 
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
@@ -2439,6 +2451,7 @@ wWhichDungeonWarp:: db
 
 wUnusedD71F:: db
 
+wBattleFacilityOpponentTrainerSprite:: db ; new
 wBattleFacilityWhichMonIsRandomized:: db ; new
 wBattleFacilityMonNumber1:: db ; new
 wBattleFacilityMonNumber2:: db ; new
@@ -2446,7 +2459,7 @@ wBattleFacilityMonNumber3:: db ; new
 wBattleFacilityMonNumber4:: db ; new
 wBattleFacilityMonNumber5:: db ; new
 wBattleFacilityWinningStreak:: db ; new
-	ds 1 ; UNUSED bytes in "Main Data"
+;	ds 8 ; now used for the variables above
 
 ; bit 0: using Strength outside of battle
 ; bit 1: set by IsSurfingAllowed when surfing's allowed, but the caller resets it after checking the result

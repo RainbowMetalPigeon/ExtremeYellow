@@ -97,12 +97,12 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw BillsHouseHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; VERMILION_POKECENTER
+	dw NoHS ; POKEMON_FAN_CLUB
+	dw BattleFacilityHS ; new
+	dw NoHS ; VERMILION_GYM
+	dw NoHS ; VERMILION_PIDGEY_HOUSE
+	dw NoHS ; VERMILION_DOCK
 	dw NoHS ; SS_ANNE_1F
 	dw SSAnne2FHS
 	dw NoHS ; SS_ANNE_3F
@@ -787,5 +787,11 @@ FuchsiaGymHS: ; new
 	db FUCHSIA_GYM, $01, HIDE ; Koga
 CinnabarLabHS: ; new
 	db CINNABAR_LAB, $05, SHOW ; ARTIFACT
+BattleFacilityHS: ; new
+	db BATTLE_FACILITY, $02, HIDE ; BLUE
+	db BATTLE_FACILITY, $03, HIDE ; RED
+	db BATTLE_FACILITY, $04, HIDE ; YELLOW
+	db BATTLE_FACILITY, $05, HIDE ; GREEN
+
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -279,16 +279,19 @@ OverworldLoopLessDelay::
 	set 6, [hl]
 	xor a
 	ldh [hJoyHeld], a
-	ld a, [wCurMap]
-	cp CINNABAR_GYM
-	jr nz, .notCinnabarGym
-	SetEvent EVENT_2A7
-.notCinnabarGym
+; edited because useless?
+;	ld a, [wCurMap]
+;	cp CINNABAR_GYM
+;	jr nz, .notCinnabarGym
+;	SetEvent EVENT_2A7 ; never used?
+;.notCinnabarGym
 	ld hl, wd72e
 	set 5, [hl]
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jp z, .noFaintCheck ; no blacking out if the player lost to the rival in Oak's lab
+	cp BATTLE_FACILITY ; new: don't black out in Battle Facility
+	jp z, .specialFaintCheck ; new
 	callfar AnyPartyAlive
 	ld a, d
 	and a
@@ -297,6 +300,16 @@ OverworldLoopLessDelay::
 	ld c, 10
 	call DelayFrames
 	jp EnterMap
+.specialFaintCheck ; new, just for battle facility
+; we need to NOT black out BUT to mark ourselves as defeated if that's the case
+	callfar AnyPartyAlive
+	ld a, d
+	and a
+	jr nz, .noFaintCheck
+	ld a, $ff ; mark us as defeated if no more mons are alive
+	ld [wIsInBattle], a
+	jr .noFaintCheck
+; back to vanilla
 
 StepCountCheck::
 	ld a, [wd730]

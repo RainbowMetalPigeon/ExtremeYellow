@@ -30,6 +30,10 @@ PlayBattleMusic::
 	cp OPP_LANCE
 	jr z, .GymLeaderOrElite4Battle
 
+	; also the Battle Facility trainers play the gym leader theme
+	cp OPP_BF_TRAINER
+	jr z, .GymLeaderOrElite4Battle
+
 	; all gym leaders (also during their rematches) play the gym leader battle theme
 	cp OPP_BROCK
 	jr z, .GymLeaderOrElite4Battle

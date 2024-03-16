@@ -92,6 +92,7 @@ HiddenObjectMaps:
 	dbw OCHRE_POKECENTER,             OchrePokecenterHiddenObjects ; new
 	dbw OBSIDIAN_POKECENTER,          ObsidianPokecenterHiddenObjects ; new
 	dbw POKEMON_TOWER_6F,             Pokemontower6HiddenObjects ; new
+	dbw BATTLE_FACILITY,              BattleFacilityHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -632,4 +633,8 @@ OchrePokecenterHiddenObjects: ; new
 ObsidianPokecenterHiddenObjects: ; new
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+BattleFacilityHiddenObjects: ; new
+	hidden_object 12,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end

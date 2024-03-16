@@ -622,7 +622,7 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, STEEL_WING
+	db 1, 1, ROOST
 	db 1, 2, METAL_CLAW
 	db 1, 3, HAZE
 	db 1, 4, BULLET_PUNCH
