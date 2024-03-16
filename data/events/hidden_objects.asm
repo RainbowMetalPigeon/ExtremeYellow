@@ -62,7 +62,7 @@ HiddenObjectMaps:
 	dbw CERULEAN_CAVE_1F,             CeruleanCave1HiddenObjects
 	dbw LAVENDER_POKECENTER,          LavenderPokecenterHiddenObjects
 	dbw POKEMON_TOWER_5F,             Pokemontower5HiddenObjects
-	dbw MR_FUJIS_HOUSE,               LavenderHouse1HiddenObjects
+	dbw LAVENDER_HOUSES,              LavenderHouse1HiddenObjects ; edited because of map merging
 	dbw VERMILION_CITY,               VermilionCityHiddenObjects
 	dbw VERMILION_POKECENTER,         VermilionPokecenterHiddenObjects
 	dbw POKEMON_FAN_CLUB,             PokemonFanClubHiddenObjects
@@ -636,5 +636,5 @@ ObsidianPokecenterHiddenObjects: ; new
 	db -1 ; end
 
 BattleFacilityHiddenObjects: ; new
-	hidden_object 12,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 11,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end

@@ -240,7 +240,7 @@ PokemonTower7Script11:
 	predef HideObject
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, MR_FUJIS_HOUSE
+	ld a, LAVENDER_HOUSES ; edited because of map merging
 	ldh [hWarpDestinationMap], a
 	ld a, $1
 	ld [wDestinationWarpID], a

@@ -97,8 +97,8 @@ InternalMapEntries:
 	internal_map CELADON_HOTEL,                  7,  5, CeladonCityName
 	internal_map LAVENDER_POKECENTER,           14,  5, LavenderTownName
 	internal_map POKEMON_TOWER_7F,              15,  5, PokemonTowerName
+	internal_map LAVENDER_HOUSES,               14,  5, LavenderTownName ; edited
 	internal_map OCHRE_RESEARCH_CENTER_2,       11, 11, OchreCityName ; new
-	internal_map LAVENDER_CUBONE_HOUSE,         14,  5, LavenderTownName
 	internal_map WARDENS_HOUSE,                  8, 13, FuchsiaCityName
 	internal_map SAFARI_ZONE_GATE,               8, 12, SafariZoneName
 	internal_map FUCHSIA_MEETING_ROOM,           8, 13, FuchsiaCityName

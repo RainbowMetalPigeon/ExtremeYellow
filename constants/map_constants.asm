@@ -115,7 +115,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const BILLS_HOUSE,                    4,  4 ; $58
 	map_const VERMILION_POKECENTER,          14,  4 ; $59 ; edited, Center+Mart
 	map_const POKEMON_FAN_CLUB,               4,  4 ; $5A
-	map_const BATTLE_FACILITY,               15,  5 ; $5B ; mew
+	map_const BATTLE_FACILITY,               15,  4 ; $5B ; mew
 	map_const VERMILION_GYM,                  5,  9 ; $5C
 	map_const VERMILION_PIDGEY_HOUSE,         4,  4 ; $5D
 	map_const VERMILION_DOCK,                14,  6 ; $5E
@@ -173,9 +173,9 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_TOWER_5F,              10,  9 ; $92
 	map_const POKEMON_TOWER_6F,              10,  9 ; $93
 	map_const POKEMON_TOWER_7F,              10,  9 ; $94
-	map_const MR_FUJIS_HOUSE,                 4,  4 ; $95
+	map_const LAVENDER_HOUSES,               18,  4 ; $95 ; new, merge of all Lavender houses
 	map_const LAVENDER_MART,                  4,  4 ; $96 ; edited, made UNUSED because of map MERGING
-	map_const LAVENDER_CUBONE_HOUSE,          4,  4 ; $97
+	map_const LAVENDER_CUBONE_HOUSE,          4,  4 ; $97 ; edited, made UNUSED because of map MERGING
 	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $98 ; new
 	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $99
 	map_const FUCHSIA_POKECENTER,            14,  4 ; $9A ; edited, Center+Mart
@@ -252,7 +252,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_CAVE_2F,              15,  9 ; $E2
 	map_const CERULEAN_CAVE_B1F,             15,  9 ; $E3
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E4
-	map_const NAME_RATERS_HOUSE,              4,  4 ; $E5
+	map_const NAME_RATERS_HOUSE,              4,  4 ; $E5 ; edited, made UNUSED because of map MERGING
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
 	map_const CELADON_UNIVERSITY_1,          10, 15 ; $E7, new
 	map_const CELADON_UNIVERSITY_2,          25, 17 ; $E7, new

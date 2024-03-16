@@ -155,9 +155,9 @@ MapHeaderBanks::
 	db BANK(PokemonTower5F_h)
 	db BANK(PokemonTower6F_h)
 	db BANK(PokemonTower7F_h)
-	db BANK(MrFujisHouse_h)
+	db BANK(LavenderHouses_h)
 	db BANK(LavenderPokecenter_h) ; edited, made UNUSED because of map MERGING
-	db BANK(LavenderCuboneHouse_h)
+	db BANK(LavenderHouses_h) ; edited, made UNUSED because of map MERGING
 	db BANK(OchreResearchCenter2_h) ; edited
 	db BANK(FuchsiaBillsGrandpasHouse_h)
 	db BANK(FuchsiaPokecenter_h)
@@ -234,7 +234,7 @@ MapHeaderBanks::
 	db BANK(CeruleanCave2F_h)
 	db BANK(CeruleanCaveB1F_h)
 	db BANK(CeruleanCave1F_h)
-	db BANK(NameRatersHouse_h)
+	db BANK(LavenderHouses_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CeruleanBadgeHouse_h)
 	db BANK(CeladonUniversity1_h) ; new
 	db BANK(CeladonUniversity2_h) ; new

@@ -154,7 +154,7 @@ WildDataPointers:
 	dw PokemonTower5FWildMons
 	dw PokemonTower6FWildMons
 	dw PokemonTower7FWildMons
-	dw NothingWildMons ; MR_FUJIS_HOUSE
+	dw NothingWildMons ; LAVENDER_HOUSES
 	dw NothingWildMons ; LAVENDER_MART
 	dw NothingWildMons ; LAVENDER_CUBONE_HOUSE
 	dw NothingWildMons ; OCHRE_RESEARCH_CENTER_2

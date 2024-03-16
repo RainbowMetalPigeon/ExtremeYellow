@@ -157,7 +157,7 @@ MapHSPointers:
 	dw PokemonTower5FHS
 	dw PokemonTower6FHS
 	dw PokemonTower7FHS
-	dw MrFujisHouseHS
+	dw LavenderHousesHS ; edited because of map merging
 	dw NoHS ; LAVENDER_MART
 	dw NoHS ; LAVENDER_CUBONE_HOUSE
 	dw NoHS ; OCHRE_RESEARCH_CENTER_2
@@ -394,8 +394,8 @@ PokemonTower7FHS:
 	db POKEMON_TOWER_7F, $01, HIDE ; jessie & james?
 	db POKEMON_TOWER_7F, $02, HIDE
 	db POKEMON_TOWER_7F, $03, SHOW
-MrFujisHouseHS:
-	db MR_FUJIS_HOUSE, $05, HIDE
+LavenderHousesHS: ; edited because of map merging
+	db LAVENDER_HOUSES, $05, HIDE
 CeladonMansionRoofHouseHS:
 	db CELADON_MANSION_ROOF_HOUSE, $02, SHOW
 GameCornerHS:

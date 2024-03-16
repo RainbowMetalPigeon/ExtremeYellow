@@ -43,6 +43,34 @@ _BattleFacilityTextOpponent_PostBattleLoss::
 
 ; -------------------------------------
 
+_BattleFacilityTextPerson1::
+	text "I'm excited!"
+	line "Will do INVERSE"
+	cont "my specialty"
+	done
+
+_BattleFacilityTextPerson2::
+	text "I wanna see"
+	line "my numbers big"
+	done
+
+_BattleFacilityTextPerson3::
+	text "What can be"
+	line "best team?!"
+	done
+
+_BattleFacilityTextSign1::
+	text "Points"
+	line "NORMAL"
+	done
+
+_BattleFacilityTextSign2::
+	text "Points"
+	line "INVERSE"
+	done
+
+; -------------------------------------
+
 _BattleFacilityText6_NextBattle::
 	text "Next!"
 	done

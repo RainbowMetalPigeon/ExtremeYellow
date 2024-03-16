@@ -4,10 +4,10 @@ LavenderTown_Object:
 	def_warp_events
 	warp_event  3,  5, LAVENDER_POKECENTER, 1
 	warp_event 14,  5, POKEMON_TOWER_1F, 1
-	warp_event  7,  9, MR_FUJIS_HOUSE, 1
+	warp_event  7,  9, LAVENDER_HOUSES, 1 ; edited due to MERGING
 	warp_event 15, 13, LAVENDER_POKECENTER, 3 ; edited due to MERGING
-	warp_event  3, 13, LAVENDER_CUBONE_HOUSE, 1
-	warp_event  7, 13, NAME_RATERS_HOUSE, 1
+	warp_event  3, 13, LAVENDER_HOUSES, 3 ; edited due to MERGING
+	warp_event  7, 13, LAVENDER_HOUSES, 5 ; edited due to MERGING
 
 	def_bg_events
 	bg_event 11,  9, 5 ; LavenderTownText4

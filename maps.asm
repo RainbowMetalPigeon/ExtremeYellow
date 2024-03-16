@@ -99,17 +99,17 @@ UndergroundPathRoute8_Blocks: INCBIN "maps/UndergroundPathRoute8.blk"
 OaksLab_Blocks: INCBIN "maps/OaksLab.blk"
 
 MrPsychicsHouse_Blocks:
-NameRatersHouse_Blocks:
-MrFujisHouse_Blocks:
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
 SaffronPidgeyHouse_Blocks:
 VermilionPidgeyHouse_Blocks:
-LavenderCuboneHouse_Blocks:
 CeruleanMelaniesHouse_Blocks:
 PewterNidoranHouse_Blocks:
 PewterSpeechHouse_Blocks:
 ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk"
+
+;VermilionHouses_Blocks: ; new, merge of all Vermilion houses
+LavenderHouses_Blocks: INCBIN "maps/LavenderHouses.blk" ; new, merge of all Lavender houses
 
 CeladonMansionRoofHouse_Blocks:
 ViridianSchoolHouse_Blocks: INCBIN "maps/ViridianSchoolHouse.blk"
@@ -165,17 +165,10 @@ INCLUDE "scripts/BikeShop.asm"
 INCLUDE "data/maps/objects/BikeShop.asm"
 BikeShop_Blocks: INCBIN "maps/BikeShop.blk"
 
-INCLUDE "data/maps/headers/MrFujisHouse.asm"
-INCLUDE "scripts/MrFujisHouse.asm"
-INCLUDE "data/maps/objects/MrFujisHouse.asm"
-
-INCLUDE "data/maps/headers/LavenderCuboneHouse.asm"
-INCLUDE "scripts/LavenderCuboneHouse.asm"
-INCLUDE "data/maps/objects/LavenderCuboneHouse.asm"
-
-INCLUDE "data/maps/headers/NameRatersHouse.asm"
-INCLUDE "scripts/NameRatersHouse.asm"
-INCLUDE "data/maps/objects/NameRatersHouse.asm"
+; edited, merge of all Lavender houses
+INCLUDE "data/maps/headers/LavenderHouses.asm"
+INCLUDE "scripts/LavenderHouses.asm"
+INCLUDE "data/maps/objects/LavenderHouses.asm"
 
 INCLUDE "data/maps/headers/VermilionPidgeyHouse.asm"
 INCLUDE "scripts/VermilionPidgeyHouse.asm"

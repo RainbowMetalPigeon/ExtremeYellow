@@ -33,7 +33,7 @@ BattleFacilityScript0:
 	cp 21
 	ret nz
 	ld a, [wYCoord]
-	cp 9
+	cp 7
 	ret nz
 ; if yes, load the script that moves them up
 	ld a, 6
@@ -177,7 +177,7 @@ BattleFacilityScript4_MovePlayer1:
 	ret
 
 WalkToArena_RLEMovment:
-	db D_UP, 5
+	db D_UP, 4
 	db -1 ; end
 
 ; -------------------------------------
@@ -441,6 +441,12 @@ BattleFacility_TextPointers:
 	dw BattleFacilityTextOpponent ; 4, opponent(s)
 	dw BattleFacilityTextOpponent ; 5, opponent(s)
 	; other NPCs' texts
+	dw BattleFacilityTextPerson1 ; 6, person
+	dw BattleFacilityTextPerson2 ; 7, person
+	dw BattleFacilityTextPerson3 ; 8, person
+	; signs
+	dw BattleFacilityTextSign1 ; 9, tabellone segnapunti
+	dw BattleFacilityTextSign2 ; 10, tabellone segnapunti
 ; non-NPCs texts
 	dw BattleFacilityText6_NextBattle       ; 6, TBE
 	dw BattleFacilityText7_AfterWarpVictory ; 7, TBE
@@ -581,6 +587,28 @@ BattleFacilityTextOpponent_PostBattleLoss:
 	text_end
 
 ; -------------------------------------
+
+BattleFacilityTextPerson1:
+	text_far _BattleFacilityTextPerson1
+	text_end
+
+BattleFacilityTextPerson2:
+	text_far _BattleFacilityTextPerson2
+	text_end
+
+BattleFacilityTextPerson3:
+	text_far _BattleFacilityTextPerson3
+	text_end
+
+; -------------------------------------
+
+BattleFacilityTextSign1:
+	text_far _BattleFacilityTextSign1
+	text_end
+
+BattleFacilityTextSign2:
+	text_far _BattleFacilityTextSign2
+	text_end
 
 ; non-NPCs texts ----------------------
 

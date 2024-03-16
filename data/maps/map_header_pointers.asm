@@ -155,9 +155,9 @@ MapHeaderPointers::
 	dw PokemonTower5F_h
 	dw PokemonTower6F_h
 	dw PokemonTower7F_h
-	dw MrFujisHouse_h
+	dw LavenderHouses_h
 	dw LavenderPokecenter_h ; edited, made UNUSED because of map MERGING
-	dw LavenderCuboneHouse_h
+	dw LavenderHouses_h ; edited, made UNUSED because of map MERGING
 	dw OchreResearchCenter2_h ; edited
 	dw FuchsiaBillsGrandpasHouse_h
 	dw FuchsiaPokecenter_h
@@ -234,7 +234,7 @@ MapHeaderPointers::
 	dw CeruleanCave2F_h
 	dw CeruleanCaveB1F_h
 	dw CeruleanCave1F_h
-	dw NameRatersHouse_h
+	dw LavenderHouses_h ; edited, made UNUSED because of map MERGING
 	dw CeruleanBadgeHouse_h
 	dw CeladonUniversity1_h ; new
 	dw CeladonUniversity2_h ; new
