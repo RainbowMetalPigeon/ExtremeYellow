@@ -163,6 +163,16 @@ IF DEF(_DEBUG)
     SetEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
     SetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
 
+;; BATTLE_FACILITY testing
+;	ld a, 222
+;	ld [wBattleFacilityStandardRecordNormal], a
+;	ld a, 42
+;	ld [wBattleFacilityHardcoreRecordNormal], a
+;	ld a, 5
+;	ld [wBattleFacilityStandardRecordInverse], a
+;	ld a, 255
+;	ld [wBattleFacilityHardcoreRecordInverse], a
+
 	ret
 
 DebugSetPokedexEntries:

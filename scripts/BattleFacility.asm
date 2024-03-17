@@ -445,8 +445,8 @@ BattleFacility_TextPointers:
 	dw BattleFacilityTextPerson2 ; 7, person
 	dw BattleFacilityTextPerson3 ; 8, person
 	; signs
-	dw BattleFacilityTextSign1 ; 9, tabellone segnapunti
-	dw BattleFacilityTextSign2 ; 10, tabellone segnapunti
+	dw BattleFacilityTextSignRecordsNormal ; 9, tabellone segnapunti
+	dw BattleFacilityTextSignRecordsInverse ; 10, tabellone segnapunti
 ; non-NPCs texts
 	dw BattleFacilityText6_NextBattle       ; 6, TBE
 	dw BattleFacilityText7_AfterWarpVictory ; 7, TBE
@@ -602,13 +602,53 @@ BattleFacilityTextPerson3:
 
 ; -------------------------------------
 
-BattleFacilityTextSign1:
-	text_far _BattleFacilityTextSign1
+BattleFacilityTextSignRecordsNormal:
+	text_asm
+	ld a, 1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a ; ? what does this do?
+	ld hl, BattleFacilitySignIntroNormal
+	call PrintText
+	call PrintBattleFacilityRecords ; the wrapper for the main function
+	jp TextScriptEnd
+
+BattleFacilitySignIntroNormal:
+	text_far _BattleFacilitySignIntroNormal
+	text_waitbutton
 	text_end
 
-BattleFacilityTextSign2:
-	text_far _BattleFacilityTextSign2
+BattleFacilityTextSignRecordsInverse:
+	text_asm
+	ld a, 1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a ; ? what does this do?
+	ld hl, BattleFacilitySignIntroInverse
+	call PrintText
+	call PrintBattleFacilityRecords ; the wrapper for the main function
+	jp TextScriptEnd
+
+BattleFacilitySignIntroInverse:
+	text_far _BattleFacilitySignIntroInverse
+	text_waitbutton
 	text_end
+
+PrintBattleFacilityRecords:
+	call SaveScreenTilesToBuffer2
+	ld hl, wd730
+	set 6, [hl]
+	xor a
+	ld [wUpdateSpritesEnabled], a
+	callfar Printer_PrintBattleFacilityRecords ; the beefy function, the rest is to set up the graphic
+	call WaitForTextScrollButtonPress
+	ld hl, wd730
+	res 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ReloadTilesetTilePatterns
+	call RestoreScreenTilesAndReloadTilePatterns
+	call LoadScreenTilesFromBuffer2
+	call Delay3
+	call GBPalNormal
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
+	ret
 
 ; non-NPCs texts ----------------------
 

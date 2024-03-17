@@ -635,6 +635,7 @@ Printer_PrepareSurfingMinigameHighScoreTileMap::
 	ld hl, vChars2
 	lb bc, BANK(SurfingPikachu2Graphics), (SurfingPikachu2GraphicsEnd - SurfingPikachu2Graphics) / $10
 	call CopyVideoData
+; draws external columns and rows
 	hlcoord 0, 0
 	call .PlaceRowAlternatingTiles
 	hlcoord 0, 17
@@ -643,6 +644,7 @@ Printer_PrepareSurfingMinigameHighScoreTileMap::
 	call .PlaceColumnAlternatingTiles
 	hlcoord 19, 0
 	call .PlaceColumnAlternatingTiles
+; draws corners
 	ld a, $4
 	hlcoord 0, 0
 	ld [hl], a
@@ -652,23 +654,29 @@ Printer_PrepareSurfingMinigameHighScoreTileMap::
 	ld [hl], a
 	hlcoord 19, 17
 	ld [hl], a
+; draw top part of the palm
 	ld de, .Tilemap1
 	hlcoord 10, 8
 	lb bc, 3, 8
 	call Diploma_Surfing_CopyBox
+; draw rest of the beach scene
 	ld de, .Tilemap2
 	hlcoord 2, 11
 	lb bc, 6, 16
 	call Diploma_Surfing_CopyBox
+; draw sentence 1
 	ld de, .PikachusBeachString
 	hlcoord 3, 2
 	call PlaceString
+; draw sentence 2
 	ld de, .HiScoreString
 	hlcoord 9, 4
 	call PlaceString
+; draw sentence 3
 	ld de, .PointsString
 	hlcoord 12, 6
 	call PlaceString
+; draw sentence 4
 	ld de, wPlayerName
 	ld hl, wPlayerName
 	ld bc, 0
@@ -686,8 +694,9 @@ Printer_PrepareSurfingMinigameHighScoreTileMap::
 	hlcoord 2, 4
 	add hl, bc
 	call PlaceString
+; draw number of points
 	call CopySurfingMinigameScore
-	ld b, 8
+	ld b, SET_PAL_GENERIC ; edited, was 8, now it's clearer
 	call RunPaletteCommand
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
@@ -984,3 +993,164 @@ PrintPCBox_PlaceHorizontalLines:
 
 .HorizontalLineString:
 	db "----------@"
+
+; new, for Battle Facility =============================================
+
+Printer_PrintBattleFacilityRecords::
+	call GBPalWhiteOutWithDelay3
+	call ClearScreen
+	ld de, SurfingPikachu2Graphics ; TBE, may change it for something more tailored?
+	ld hl, vChars2
+	lb bc, BANK(SurfingPikachu2Graphics), (SurfingPikachu2GraphicsEnd - SurfingPikachu2Graphics) / $10 ; TBE
+	call CopyVideoData
+
+; draws external columns and rows
+	hlcoord 0, 0
+	call .PlaceRowAlternatingTiles
+	hlcoord 0, 17
+	call .PlaceRowAlternatingTiles
+	hlcoord 0, 0
+	call .PlaceColumnAlternatingTiles
+	hlcoord 19, 0
+	call .PlaceColumnAlternatingTiles
+
+; draws corners
+	ld a, $4
+	hlcoord 0, 0
+	ld [hl], a
+	hlcoord 0, 17
+	ld [hl], a
+	hlcoord 19, 0
+	ld [hl], a
+	hlcoord 19, 17
+	ld [hl], a
+
+; draw string for BF
+	ld de, .BattleFacilityString
+	hlcoord 3, 2
+	call PlaceString
+
+; draw string for NORMAL/INVERSE battle(s)
+	ld de, .NormalBattleString
+	ld a, [wXCoord]
+	cp 1
+	jr z, .continue3
+	ld de, .InverseBattleString
+.continue3
+	hlcoord 4, 4
+	call PlaceString
+
+; draw string for player's name
+	ld de, wPlayerName
+	ld hl, wPlayerName
+	ld bc, 0
+.find_end_of_name
+	ld a, [hli]
+	inc c
+	cp "@"
+	jr nz, .find_end_of_name
+	ld a, 8
+	sub c
+	jr nc, .got_name_length
+	xor a
+.got_name_length
+	ld c, a
+	hlcoord 2, 6
+	add hl, bc
+	call PlaceString
+
+; draw string for RECORDs
+	ld de, .RecordsString
+	hlcoord 9, 6
+	call PlaceString
+
+; draw string for STANDARD
+	ld de, .StandardModeString
+	hlcoord 1, 10
+	call PlaceString
+
+; draw string for sessions
+	ld de, .SessionsString
+	hlcoord 10, 12
+	call PlaceString
+
+; draw string for HARDCORE
+	ld de, .HardcoreModeString
+	hlcoord 1, 14
+	call PlaceString
+
+; draw string for battles
+	ld de, .BattlesString
+	hlcoord 10, 16
+	call PlaceString
+
+; draw record for STANDARD
+	hlcoord 10, 10
+	ld de, wBattleFacilityStandardRecordNormal
+	ld a, [wXCoord] ; horrible horrible solution lol
+	cp 1
+	jr z, .continue1
+	ld de, wBattleFacilityStandardRecordInverse
+.continue1
+	lb bc, 1, 3
+	call PrintNumber
+
+; draw record for HARDCORE
+	hlcoord 10, 14
+	ld de, wBattleFacilityHardcoreRecordNormal
+	ld a, [wXCoord]
+	cp 1
+	jr z, .continue2
+	ld de, wBattleFacilityHardcoreRecordInverse
+.continue2
+	lb bc, 1, 3
+	call PrintNumber
+
+; set color and conclude
+	ld b, SET_PAL_TOWN_MAP ; TBE
+	call RunPaletteCommand
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a
+	call Delay3
+	call GBPalNormal
+	ret
+
+.PlaceRowAlternatingTiles:
+	ld c, SCREEN_WIDTH / 2
+.row_loop
+	ld [hl], $0
+	inc hl
+	ld [hl], $1
+	inc hl
+	dec c
+	jr nz, .row_loop
+	ret
+
+.PlaceColumnAlternatingTiles:
+	ld c, SCREEN_HEIGHT / 2
+	ld de, SCREEN_WIDTH
+.col_loop
+	ld [hl], $2
+	add hl, de
+	ld [hl], $3
+	add hl, de
+	dec c
+	jr nz, .col_loop
+	ret
+
+.BattleFacilityString:
+	db "BATTLE FACILITY@"
+.NormalBattleString:
+	db "NORMAL BATTLE@"
+.InverseBattleString:
+	db "INVERSE BATTLE@"
+.StandardModeString:
+	db "STANDARD:@"
+.HardcoreModeString:
+	db "HARDCORE:@"
+.RecordsString:
+	db "'s RECORDs@"
+.SessionsString:
+	db "SESSIONs@"
+.BattlesString:
+	db "BATTLEs@"
