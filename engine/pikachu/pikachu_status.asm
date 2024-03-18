@@ -76,7 +76,7 @@ IsThisPartymonStarterPikachu::
 	ld bc, wPartyMon2 - wPartyMon1
 	ld de, wPartyMonOT
 asm_fce21:
-	ld a, [wWhichPokemon]
+	ld a, [wPlayerMonNumber] ; edited, was wWhichPokemon, but may cause bugs
 	call AddNTimes
 	ld a, [hl]
 	cp STARTER_PIKACHU
@@ -92,7 +92,7 @@ asm_fce21:
 	jr nz, .notPlayerPikachu
 	ld h, d
 	ld l, e
-	ld a, [wWhichPokemon]
+	ld a, [wPlayerMonNumber] ; edited, was wWhichPokemon, but may cause bugs
 	ld bc, NAME_LENGTH
 	call AddNTimes
 	ld de, SamuelNameForPikachu2 ; edited, was wPlayerName
