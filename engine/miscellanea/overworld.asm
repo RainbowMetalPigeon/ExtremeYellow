@@ -80,7 +80,7 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 ; handle fake poison
 	call Random
-	srl a ; 50% chance of fake poison
+	cp 25 ; 10% chance of fake poison ; TBE
 	jr c, .setFakePoison
 	ResetEvent EVENT_HAUNTED_HOUSE_FAKE_POISON
 	jr .handleLowHealthAlarm
@@ -89,7 +89,7 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 .handleLowHealthAlarm
 	call Random
-	srl a ; 50% chance of low-health alarm
+	cp 25 ; 10% chance of low-health alarm ; TBE
 	jr c, .lowHealthAlarm
 	call PlayDefaultMusic
 	ld hl, wLowHealthAlarm
@@ -102,13 +102,22 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 .handleSpinning
 	call Random
-	cp 25 ; 10% chance of moving by spinning
+	cp 25 ; 10% chance of moving by spinning ; TBE
 	ld hl, wd736 ; bit 7: spinning; bit 6: jumping, but requires much more work
 	jr c, .spinning
 	res 7, [hl]
-	ret
+	jr .handlePlayerSprite
 .spinning
 	set 7, [hl]
+
+.handlePlayerSprite
+	call Random
+	cp 25 ; 10% chance of glitchy sprite ; TBE
+	jr c, .setGlitchySprite
+	jp LoadWalkingPlayerSpriteGraphics ; needed?
+.setGlitchySprite
+	jp LoadGlitchyPlayerSpriteGraphics ; LoadTransparentPlayerSpriteGraphics
+
 	ret
 
 ; ===========================================================

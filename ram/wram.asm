@@ -2356,7 +2356,7 @@ wRoute18Gate1FCurScript:: db
 wHauntedHouse1CurScript:: db ; new
 wBattleFacilityCurScript:: db ; new
 wHauntedRedsHouseCurScript:: db ; new
-wHauntedPalletTownCurScript:: db ; new
+wHauntedPalletTownCurScript:: db ; new, TBV
 	ds 74 ; UNUSED bytes in "Main Data", was 78
 wGameProgressFlagsEnd::
 

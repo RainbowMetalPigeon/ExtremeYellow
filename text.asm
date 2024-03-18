@@ -2,9 +2,7 @@ INCLUDE "constants.asm"
 
 
 SECTION "Text 1", ROMX
-
 INCLUDE "data/text/text_1.asm"
-
 INCLUDE "text/MtMoonB1F.asm"
 INCLUDE "text/MtMoonB2F.asm"
 INCLUDE "text/SSAnne1F.asm"
@@ -31,17 +29,13 @@ INCLUDE "text/SilphCo7F.asm"
 
 
 SECTION "Text 2", ROMX
-
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/ChampionsRoom.asm"
-
 INCLUDE "data/text/text_2.asm"
 
 
 SECTION "Text 3", ROMX
-
 INCLUDE "data/text/text_3.asm"
-
 INCLUDE "text/DiglettsCaveRoute2.asm"
 INCLUDE "text/ViridianForestNorthGate.asm"
 INCLUDE "text/Route2TradeHouse.asm"
@@ -85,7 +79,6 @@ INCLUDE "text/Route8.asm"
 
 
 SECTION "Text 4", ROMX
-
 INCLUDE "text/Route9_2.asm"
 INCLUDE "text/Route10.asm"
 INCLUDE "text/Route11.asm"
@@ -101,14 +94,11 @@ INCLUDE "text/Route20.asm"
 INCLUDE "text/Route21.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route23.asm"
-
 INCLUDE "data/text/text_4.asm"
 
 
 SECTION "Text 5", ROMX
-
 INCLUDE "data/text/text_5.asm"
-
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/pokedex_ratings.asm"
@@ -134,7 +124,6 @@ INCLUDE "text/CeruleanBadgeHouse.asm"
 
 
 SECTION "Text 6", ROMX
-
 INCLUDE "text/CeruleanBadgeHouse_2.asm"
 INCLUDE "text/LavenderPokecenter.asm"
 INCLUDE "text/PokemonTower1F.asm"
@@ -159,7 +148,6 @@ INCLUDE "text/CeladonGym.asm"
 
 
 SECTION "Text 7", ROMX
-
 INCLUDE "text/GameCorner_2.asm"
 INCLUDE "text/CeladonMart5F.asm"
 INCLUDE "text/GameCornerPrizeRoom.asm"
@@ -174,16 +162,12 @@ INCLUDE "text/FuchsiaGym.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/PokemonMansion1F.asm"
-
 INCLUDE "data/text/text_7.asm"
-
 INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
 
 
 SECTION "Text 8", ROMX
-
 INCLUDE "data/text/text_8.asm"
-
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/CeruleanCity.asm"
@@ -196,7 +180,6 @@ INCLUDE "text/SaffronCity.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-
 INCLUDE "text/OchreWonderland.asm" ; new
 INCLUDE "text/Route27.asm" ; new
 INCLUDE "text/OaksLab.asm"
@@ -301,7 +284,6 @@ INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/CeladonUniversity2.asm" ; new
-INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new
@@ -311,22 +293,22 @@ INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/LavenderMart.asm"
 
 
+SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/HauntedHouse.asm" ; new
+
+
 ; new: splitted the Pokédex text into two separate sections
 ;SECTION "Pokédex Text", ROMX
-
 ;INCLUDE "data/pokemon/dex_text.asm"
 
 
 SECTION "Pokédex Text1", ROMX
-
 INCLUDE "data/pokemon/dex_text1.asm"
 
 
 SECTION "Pokédex Text2", ROMX
-
 INCLUDE "data/pokemon/dex_text2.asm"
 
 
 SECTION "Move Names", ROMX
-
 INCLUDE "data/moves/names.asm"

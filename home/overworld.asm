@@ -1722,6 +1722,20 @@ LoadWalkingPlayerSpriteGraphics::
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 
+LoadGlitchyPlayerSpriteGraphics:: ; new, testing, for Haunted House
+	xor a
+	ld [wd473], a
+	ld b, BANK(GlitchyPlayerSprite)
+	ld de, GlitchyPlayerSprite
+	jr LoadPlayerSpriteGraphicsCommon
+
+LoadTransparentPlayerSpriteGraphics:: ; new, testing, for Haunted House
+	xor a
+	ld [wd473], a
+	ld b, BANK(TransparentSprite)
+	ld de, TransparentSprite
+	jr LoadPlayerSpriteGraphicsCommon
+
 LoadSurfingPlayerSpriteGraphics2::
 	ld a, [wd473]
 	and a
