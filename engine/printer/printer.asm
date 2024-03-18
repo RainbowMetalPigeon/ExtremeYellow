@@ -1107,7 +1107,7 @@ Printer_PrintBattleFacilityRecords::
 	call PrintNumber
 
 ; set color and conclude
-	ld b, SET_PAL_TOWN_MAP ; TBE
+	ld b, SET_PAL_TOWN_MAP
 	call RunPaletteCommand
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
