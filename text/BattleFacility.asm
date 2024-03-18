@@ -59,12 +59,12 @@ _BattleFacilityTextPerson3::
 	line "best team?!"
 	done
 
-_BattleFacilityTextSign1::
+_BattleFacilitySignIntroNormal::
 	text "Points"
 	line "NORMAL"
 	done
 
-_BattleFacilityTextSign2::
+_BattleFacilitySignIntroInverse::
 	text "Points"
 	line "INVERSE"
 	done

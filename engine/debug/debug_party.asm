@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db MEW, 100
+	db MEW, 97
 	db STARTER_PIKACHU, 5
 ;	db CHANSEY, 255
 ;	db ARTICUNO, 9
@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, THOUSANDARROWS
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, SLUDGE
+	ld a, PSYCHO_CUT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, ROOST
@@ -162,6 +162,16 @@ IF DEF(_DEBUG)
     SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
     SetEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
     SetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+
+;; BATTLE_FACILITY testing
+;	ld a, 222
+;	ld [wBattleFacilityStandardRecordNormal], a
+;	ld a, 42
+;	ld [wBattleFacilityHardcoreRecordNormal], a
+;	ld a, 5
+;	ld [wBattleFacilityStandardRecordInverse], a
+;	ld a, 255
+;	ld [wBattleFacilityHardcoreRecordInverse], a
 
 	ret
 

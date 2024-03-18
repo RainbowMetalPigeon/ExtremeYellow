@@ -103,19 +103,58 @@ RandomizeTeamForBattleFacilityTrainer::
 	inc de
 	jr .storeMonAddressLoop
 .continue
-; depending on winning streak and which mon number, choose normal list or Megas' one
+
+; depending on battle mode, we choose ANY random (fully evolved) mon, or only out of 1-or-2 specific lists
+	ld a, [wBattleFacilityBattleMode] ; 0 = standard, 1 = hardcore
+	and a
+	jr z, .standardBattleMode
+; hardcore battle mode = we choose out of the bigger list of megas, legendaries, and other fully evo
+.RNGLoopHardcore
+	ld hl, AllFinalStageMons
+; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 105 included
+	call Random
+	cp 106 ; 105+1
+	jr nc, .RNGLoopHardcore
+; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
+.uglyLoopHardcore
+	dec a
+	cp $FF
+	jr z, .doneUglyLoopHardcore
+	inc hl
+	jr .uglyLoopHardcore
+.doneUglyLoopHardcore
+; finally, we need to check if the mon we just generated is the same as any of the previously generated ones
+	ld a, [wBattleFacilityMonNumber1]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopHardcore
+	ld a, [wBattleFacilityMonNumber2]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopHardcore
+	ld a, [wBattleFacilityMonNumber3]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopHardcore
+	ld a, [wBattleFacilityMonNumber4]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopHardcore
+	ld a, [wBattleFacilityMonNumber5]
+	cp [hl] ; hl points to the mon we are trying to generate
+	jr z, .RNGLoopHardcore
+	jr .doneOffset
+
+.standardBattleMode ; depending on winning streak and which mon number, choose normal list or Megas' one
 	ld a, [wBattleFacilityWhichMonIsRandomized]
 	ld hl, wBattleFacilityWinningStreak
 	ld b, [hl] ; how many consecutive victories do we have in this session?
 	add b ; now a contains a+b, i.e. which mon in the BF trainer team's is being randomized + how many victories we have
 	cp 7 ; is the sum of a+b at least 7?
 	jr nc, .RNGLoopMega ; if yes, load the list of megas; if not, load the list of non-mega mons
+
 ; loopS for non-Mega
 .RNGLoop
 	ld hl, FullyEvolvedMons
-; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 83 included
+; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 84 included
 	call Random
-	cp 84
+	cp 85 ; 84+1
 	jr nc, .RNGLoop
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
 .uglyLoop
@@ -142,12 +181,13 @@ RandomizeTeamForBattleFacilityTrainer::
 	cp [hl] ; hl points to the mon we are trying to generate
 	jr z, .RNGLoop
 	jr .doneOffset
+
 ; loopS for Mega
 .RNGLoopMega
 	ld hl, MegaEvolvedMons
-; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 16 included
+; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 14 included (14 and not 16 because we skip Mega Mewtwos)
 	call Random
-	cp 16
+	cp 15 ; 14+1
 	jr nc, .RNGLoopMega
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
 .uglyLoopMega
@@ -173,6 +213,7 @@ RandomizeTeamForBattleFacilityTrainer::
 	ld a, [wBattleFacilityMonNumber5]
 	cp [hl] ; hl points to the mon we are trying to generate
 	jr z, .RNGLoopMega
+
 .doneOffset
 	ld a, [hl]
 	ld [wcf91], a
@@ -184,7 +225,15 @@ RandomizeTeamForBattleFacilityTrainer::
 	ld [de], a ; saves Mon in wBattleFacilityMonNumberN
 	ret
 
-FullyEvolvedMons: ; 0-83
+AllFinalStageMons: ; 0-105
+;	db MEW ; no, to make it more unique, only you and Rival can have it
+	db MEWTWO
+	db ARTICUNO
+	db ZAPDOS
+	db MOLTRES
+	db MMEWTWOX
+	db MMEWTWOY
+FullyEvolvedMons: ; 0-84
 	; weaks
 	db BUTTERFREE
 	db BEEDRILL
@@ -273,9 +322,7 @@ FullyEvolvedMons: ; 0-83
 	db SYLVEON
 	db PORYGONZ
 	db MACHAMP
-	db -1
-
-MegaEvolvedMons: ; 0-16
+MegaEvolvedMons: ; 0-14
 	db MVENUSAUR
 	db MCHARZARDX
 	db MCHARZARDY
@@ -291,8 +338,5 @@ MegaEvolvedMons: ; 0-16
 	db MPINSIR
 	db MGYARADOS
 	db MARODACTYL
-	db MMEWTWOX
-	db MMEWTWOY
-	db -1
 
 ; =====================================

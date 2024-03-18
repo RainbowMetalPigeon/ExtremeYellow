@@ -86,7 +86,7 @@ BattleFacilityScript1_PostBattle:
 	set 3, [hl] ; do scripted warp
 	ret
 .notDefeated ; we won -----------------------
-	ld a, 6 ; TBE
+	ld a, 11
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; increase win streak
@@ -393,7 +393,7 @@ BattleFacilityScript11_PostMoveOpponentOut:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 ; wait a moment before the next opponent
-	ld c, 200 ; TBE, 30 = half a second
+	ld c, 30 ; TBE, 30 = half a second
 	call DelayFrames
 ; is this needed? maybe if I print something?
 ;	xor a
@@ -411,10 +411,52 @@ BattleFacilityScript11_PostMoveOpponentOut:
 ; -------------------------------------
 
 BattleFacilityScript12_AfterWarpVictory:
-	ld a, 7 ; TBE
+	ld a, 12
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; script handling
+; hide all opponents just to be safe
+	ld a, HS_BATTLE_FACILITY_OPP_GREEN
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_BATTLE_FACILITY_OPP_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_BATTLE_FACILITY_OPP_RED
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_BATTLE_FACILITY_OPP_YELLOW
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+; handle records
+; if hardcore mode, we cannot exit the Arena by winning
+; so we can skip this check entirely
+;    ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
+;    and a
+;    jr nz, .scriptHandling
+; standard
+	ld a, [wBattleFacilityInverseBattle] ; 0 for Normal battle, 1 for Inverse Battle
+	and a
+	jr nz, .standard_inverse
+; standard_normal
+	ld a, [wBattleFacilityStandardCurrentStreakNormal]
+	inc a
+	ld [wBattleFacilityStandardCurrentStreakNormal], a
+	ld hl, wBattleFacilityStandardRecordNormal
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityStandardRecordNormal], a ; "useless" in case we achieve the same record as last time
+												; otherwise it updates the record
+	jr .scriptHandling
+.standard_inverse
+	ld a, [wBattleFacilityStandardCurrentStreakInverse]
+	inc a
+	ld [wBattleFacilityStandardCurrentStreakInverse], a
+	ld hl, wBattleFacilityStandardRecordInverse
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityStandardRecordInverse], a ; "useless" in case we achieve the same record as last time
+												 ; otherwise it updates the record
+.scriptHandling
 	ld a, 0
 	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
@@ -423,10 +465,56 @@ BattleFacilityScript12_AfterWarpVictory:
 ; -------------------------------------
 
 BattleFacilityScript13_AfterWarpDefeat:
-	ld a, 8 ; TBE
+	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; script handling
+; hide all opponents just to be safe
+	ld a, HS_BATTLE_FACILITY_OPP_GREEN
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_BATTLE_FACILITY_OPP_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_BATTLE_FACILITY_OPP_RED
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_BATTLE_FACILITY_OPP_YELLOW
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+; handle records
+	ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
+	and a
+	jr nz, .hardcore
+; standard
+	ld a, [wBattleFacilityInverseBattle] ; 0 for Normal battle, 1 for Inverse Battle
+	and a
+	jr nz, .standard_inverse
+; standard_normal
+	xor a
+	ld [wBattleFacilityStandardCurrentStreakNormal], a
+	jr .scriptHandling
+.standard_inverse
+	xor a
+	ld [wBattleFacilityStandardCurrentStreakInverse], a
+	jr .scriptHandling
+.hardcore
+	ld a, [wBattleFacilityInverseBattle] ; 0 for Normal battle, 1 for Inverse Battle
+	and a
+	jr nz, .hardcore_inverse
+; hardcore_normal
+	ld a, [wBattleFacilityHardcoreCurrentStreak]
+	ld hl, wBattleFacilityHardcoreRecordNormal
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityHardcoreRecordNormal], a
+	jr .scriptHandling
+.hardcore_inverse
+	ld a, [wBattleFacilityHardcoreCurrentStreak]
+	ld hl, wBattleFacilityHardcoreRecordInverse
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityHardcoreRecordInverse], a
+.scriptHandling
 	ld a, 0
 	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
@@ -445,12 +533,12 @@ BattleFacility_TextPointers:
 	dw BattleFacilityTextPerson2 ; 7, person
 	dw BattleFacilityTextPerson3 ; 8, person
 	; signs
-	dw BattleFacilityTextSign1 ; 9, tabellone segnapunti
-	dw BattleFacilityTextSign2 ; 10, tabellone segnapunti
+	dw BattleFacilityTextSignRecordsNormal ; 9, tabellone segnapunti
+	dw BattleFacilityTextSignRecordsInverse ; 10, tabellone segnapunti
 ; non-NPCs texts
-	dw BattleFacilityText6_NextBattle       ; 6, TBE
-	dw BattleFacilityText7_AfterWarpVictory ; 7, TBE
-	dw BattleFacilityText8_AfterWarpDefeat  ; 8, TBE
+	dw BattleFacilityText6_NextBattle       ; 11
+	dw BattleFacilityText7_AfterWarpVictory ; 12
+	dw BattleFacilityText8_AfterWarpDefeat  ; 13
 
 ; NPCs texts --------------------------
 
@@ -488,7 +576,7 @@ BattleFacilityTextGuide:
 	call PrintText
 	callfar NormalInverseChoice
 	ld a, [wCurrentMenuItem]
-	ld [wBattleFacilityInverseBattle], a
+	ld [wBattleFacilityInverseBattle], a ; 0 for Normal battle, 1 for Inverse Battle
 	ld hl, BattleFacilityTextGuide_Battle3
 	call PrintText
 ; script handling
@@ -550,7 +638,7 @@ BattleFacilityTextOpponent:
 ; backup the current Level Scaling option choice to restore it after the battle, and set up the level scaling
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a
-	ld a, 1 ; TBE into 1, 0 for easy testing
+	ld a, 0 ; TBE into 1, 0 for easy testing
 	ld [wLevelScaling], a
 ; set up normal or inverse battle
 	ld a, [wBattleFacilityInverseBattle] ; loaded when talking with the guide at the entrance
@@ -602,13 +690,53 @@ BattleFacilityTextPerson3:
 
 ; -------------------------------------
 
-BattleFacilityTextSign1:
-	text_far _BattleFacilityTextSign1
+BattleFacilityTextSignRecordsNormal:
+	text_asm
+	ld a, 1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a ; ? what does this do?
+	ld hl, BattleFacilitySignIntroNormal
+	call PrintText
+	call PrintBattleFacilityRecords ; the wrapper for the main function
+	jp TextScriptEnd
+
+BattleFacilitySignIntroNormal:
+	text_far _BattleFacilitySignIntroNormal
+	text_waitbutton
 	text_end
 
-BattleFacilityTextSign2:
-	text_far _BattleFacilityTextSign2
+BattleFacilityTextSignRecordsInverse:
+	text_asm
+	ld a, 1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a ; ? what does this do?
+	ld hl, BattleFacilitySignIntroInverse
+	call PrintText
+	call PrintBattleFacilityRecords ; the wrapper for the main function
+	jp TextScriptEnd
+
+BattleFacilitySignIntroInverse:
+	text_far _BattleFacilitySignIntroInverse
+	text_waitbutton
 	text_end
+
+PrintBattleFacilityRecords:
+	call SaveScreenTilesToBuffer2
+	ld hl, wd730
+	set 6, [hl]
+	xor a
+	ld [wUpdateSpritesEnabled], a
+	callfar Printer_PrintBattleFacilityRecords ; the beefy function, the rest is to set up the graphic
+	call WaitForTextScrollButtonPress
+	ld hl, wd730
+	res 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ReloadTilesetTilePatterns
+	call RestoreScreenTilesAndReloadTilePatterns
+	call LoadScreenTilesFromBuffer2
+	call Delay3
+	call GBPalNormal
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
+	ret
 
 ; non-NPCs texts ----------------------
 
@@ -690,19 +818,3 @@ WhatBattleFacilityMode:
 	ld [wCurrentMenuItem], a
 	ret
 ;	jp LoadScreenTilesFromBuffer1
-
-; -------------------------------------
-
-UpdateRecords:
-	ret
-
-;wBattleFacilityBattleMode
-;wBattleFacilityInverseBattle
-
-;wBattleFacilityHardcoreCurrentStreak
-
-;wBattleFacilityHardcoreRecordNormal
-;wBattleFacilityHardcoreRecordInverse
-
-;wBattleFacilityStandardRecordNormal
-;wBattleFacilityStandardRecordInverse

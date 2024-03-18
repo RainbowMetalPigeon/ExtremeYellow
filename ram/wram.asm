@@ -2370,9 +2370,11 @@ wTyrogueEvolutions::
 	; stores directly the number/name of the chosen Hitmon
 	ds 1
 
-wBattleFacilityBattleMode:: db ; new: 0 is default (blocks of 7 battles), 1 is for hardcore
-wBattleFacilityInverseBattle:: db ; new: if 0, normal battle; if 1, Inverse Battle
+wBattleFacilityBattleMode:: db ; new: 0 is standard (blocks of 7 battles), 1 is for hardcore
+wBattleFacilityInverseBattle:: db ; new: if 0, Normal battle; if 1, Inverse Battle
 
+wBattleFacilityStandardCurrentStreakNormal:: db ; new
+wBattleFacilityStandardCurrentStreakInverse:: db ; new
 wBattleFacilityHardcoreCurrentStreak:: db ; new
 
 wBattleFacilityHardcoreRecordNormal:: db ; new
@@ -2382,12 +2384,12 @@ wBattleFacilityStandardRecordNormal:: db ; new
 wBattleFacilityStandardRecordInverse:: db ; new
 
 ; UNUSED bytes in "Main Data"
-	ds  6 ; edited, originally 56
+	ds  4 ; edited, originally 56
 	      ; reduced by 3 for gender, tyrogue, and accuracypercent
 		  ; by 16 for increasing max warps from 32 to 36
 		  ; by 8 for new HS variables
 		  ; by 16 to increase bag capacity
-		  ; by 7 for battle facility
+		  ; by 9 for battle facility
 
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
