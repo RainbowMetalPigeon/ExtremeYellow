@@ -55,7 +55,7 @@ INCLUDE "engine/overworld/push_boulder.asm"
 INCLUDE "engine/pokemon/add_mon.asm"
 INCLUDE "engine/flag_action.asm"
 ;INCLUDE "engine/events/heal_party.asm" ; moved to bankGarage
-INCLUDE "engine/math/bcd.asm"
+;INCLUDE "engine/math/bcd.asm" ; moved to bankGarage
 INCLUDE "engine/movie/oak_speech/init_player_data.asm"
 INCLUDE "engine/items/get_bag_item_quantity.asm"
 INCLUDE "engine/overworld/pathfinding.asm"
@@ -83,6 +83,7 @@ INCLUDE "engine/link/print_waiting_text.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
 INCLUDE "engine/miscellanea/overworld.asm" ; new
+INCLUDE "engine/math/bcd.asm" ; moved from bank3
 
 
 SECTION "bank4", ROMX

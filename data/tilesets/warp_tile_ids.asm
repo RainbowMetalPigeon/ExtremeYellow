@@ -28,6 +28,7 @@ WarpTileIDPointers:
 	dw .ResearchCenterWarpTileIDs ; new
 	dw .IslandWarpTileIDs ; new
 	dw .OverworldHauntedWarpTileIDs ; new
+	dw .IslandOfNumbersdWarpTileIDs ; new
 	assert_table_length NUM_TILESETS
 
 MACRO warp_tiles
@@ -110,3 +111,7 @@ ENDM
 
 .OverworldHauntedWarpTileIDs: ; new, TBE
 	warp_tiles $1B, $58
+
+.IslandOfNumbersdWarpTileIDs: ; new, TBE
+	warp_tiles ; end, no warps? Only need one to get there, not to exit
+	

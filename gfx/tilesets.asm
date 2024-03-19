@@ -1,7 +1,7 @@
 SECTION "Tilesets 1", ROMX
 
 Overworld_GFX::     INCBIN "gfx/tilesets/overworld.2bpp"
-	ds 32
+	ds 32 ; why?
 Overworld_Block::   INCBIN "gfx/blocksets/overworld.bst"
 
 RedsHouse1_GFX::
@@ -13,8 +13,8 @@ House_GFX::         INCBIN "gfx/tilesets/house.2bpp"
 House_Block::       INCBIN "gfx/blocksets/house.bst"
 Mansion_GFX::       INCBIN "gfx/tilesets/mansion.2bpp"
 Mansion_Block::     INCBIN "gfx/blocksets/mansion.bst"
-ShipPort_GFX::      INCBIN "gfx/tilesets/ship_port.2bpp"
-ShipPort_Block::    INCBIN "gfx/blocksets/ship_port.bst"
+;ShipPort_GFX::      INCBIN "gfx/tilesets/ship_port.2bpp" ; moved away
+;ShipPort_Block::    INCBIN "gfx/blocksets/ship_port.bst" ; moved away
 ;Interior_GFX::      INCBIN "gfx/tilesets/interior.2bpp" ; moved away
 ;Interior_Block::    INCBIN "gfx/blocksets/interior.bst" ; moved away
 ;Plateau_GFX::       INCBIN "gfx/tilesets/plateau.2bpp" ; moved away
@@ -89,6 +89,12 @@ Island_Block:: INCBIN "gfx/blocksets/island.bst" ; new
 
 SECTION "Tilesets 6", ROMX ; new, to contain even more beefy stuff
 
+ShipPort_GFX::      INCBIN "gfx/tilesets/ship_port.2bpp" ; moved in
+ShipPort_Block::    INCBIN "gfx/blocksets/ship_port.bst" ; moved in
+
 OverworldHaunted_GFX::     INCBIN "gfx/tilesets/overworld_haunted.2bpp" ; new
 ;	ds 32 ; is this needed for anything at all?
 OverworldHaunted_Block::   INCBIN "gfx/blocksets/overworld_haunted.bst" ; new
+
+IslandOfNumbers_GFX::   INCBIN "gfx/tilesets/island_of_numbers.2bpp" ; new
+IslandOfNumbers_Block:: INCBIN "gfx/blocksets/island_of_numbers.bst" ; new
