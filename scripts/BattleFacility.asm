@@ -788,14 +788,14 @@ AskHowTheyCanHelp:
 ; -------------------------------------
 
 WhatBattleFacilityMode:
-;	call SaveScreenTilesToBuffer1
+	call SaveScreenTilesToBuffer1
 	ld a, BF_MENU_STANDARD_HARDCORE_EXIT
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	ld hl, wTopMenuItemY
 	ld a, 7
 	ld [hli], a ; top menu item Y
-	ld a, 10 ; AAA
+	ld a, 12 ; AAA
 	ld [hli], a ; top menu item X
 	xor a
 	ld [hli], a ; current menu item ID
@@ -816,5 +816,4 @@ WhatBattleFacilityMode:
 .defaultOption
 	ld a, $02
 	ld [wCurrentMenuItem], a
-	ret
-;	jp LoadScreenTilesFromBuffer1
+	jp LoadScreenTilesFromBuffer1

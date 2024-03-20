@@ -37,7 +37,7 @@ TextBoxTextAndCoordTable:
 	text_box_text TYROGUE_EVOLUTIONS,				  9,  6, 19, 12, TyrogueEvolutions,		  11,  7 ; new
 	text_box_text JP_POKEDEX_MENU_TEMPLATE,          11,  8, 19, 17, JapanesePokedexMenu,     12, 10
 	text_box_text BF_MENU_INFO_BATTLE_EXIT,          11,  6, 19, 12, BFInfoBattleExit,        13,  7 ; new
-	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,     9,  6, 19, 12, BFStandardHardcoreExit,  11,  7 ; new
+	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,    11,  6, 19, 12, BFStandardHardcoreExit,  13,  7 ; new
 
 
 BuySellQuitText:
@@ -98,8 +98,8 @@ BFInfoBattleExit: ; new
 	next "EXIT@"
 
 BFStandardHardcoreExit: ; new
-	db   "STANDARD"
-	next "HARDCORE"
+	db   "STAND." ; testing
+	next "HARDC." ; testing
 	next "EXIT@"
 
 JapanesePokedexMenu:

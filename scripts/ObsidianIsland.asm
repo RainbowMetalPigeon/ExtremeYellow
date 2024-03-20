@@ -24,7 +24,7 @@ ObsidianIslandScript0:
 	call DisplayTextID
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_DOWN
+	ld a, D_DOWN | B_BUTTON ; edited, to fix blocking Pikachu glitch
 	ld [wSimulatedJoypadStatesEnd], a
 	call StartSimulatingJoypadStates
 	xor a
@@ -173,9 +173,9 @@ ObsidianIslandText7_Scientist1:
 	ld a, MOLTEN_STONE
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
-    xor a  
-    ld [hMoney + 1], a    
-    ld [hMoney + 2], a    
+    xor a
+    ld [hMoney + 1], a
+    ld [hMoney + 2], a
     ld a, $03
     ld [hMoney], a
 	ld hl, hMoney + 2
@@ -198,7 +198,7 @@ ObsidianIslandText7_Scientist1:
 	call PrintText
 .justEnd
 	jp TextScriptEnd
-	
+
 ; ---
 
 ObsidianIslandText7_Scientist1_Intro_NoPrompt:

@@ -67,7 +67,7 @@ CinnabarIslandScript0: ; edited
 	ldh [hJoyHeld], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_DOWN
+	ld a, D_DOWN | B_BUTTON ; edited, to fix blocking Pikachu glitch
 	ld [wSimulatedJoypadStatesEnd], a
 	call StartSimulatingJoypadStates
 	xor a
@@ -182,7 +182,7 @@ CinnabarIslandTextHotSprings:
 ; ================================
 
 TextPreBattle_CinnabarTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_CinnabarTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty

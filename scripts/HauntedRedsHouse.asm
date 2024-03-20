@@ -32,7 +32,7 @@ HauntedRedsHouseScript0:
 	ld a, 1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID ; Haunted Mom's dialogues
-	ld a, D_UP
+	ld a, D_UP | B_BUTTON ; edited, to fix blocking Pikachu glitch
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
