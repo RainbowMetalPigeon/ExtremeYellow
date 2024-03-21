@@ -79,7 +79,7 @@ VermilionCityScript0:
 	and a
 	ret nz
 .shipHasDeparted
-	ld a, D_UP
+	ld a, D_UP | B_BUTTON ; edited to fix Pikachu blocker, testing
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
@@ -106,7 +106,7 @@ VermilionCityScript4:
 VermilionCityScript2:
 	ld a, $ff
 	ld [wJoyIgnore], a
-	ld a, D_UP
+	ld a, D_UP | B_BUTTON ; edited to fix Pikachu blocker, testing
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
 	ld a, 2
