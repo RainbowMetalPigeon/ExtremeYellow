@@ -16,30 +16,30 @@ HauntedRedsHouse_ScriptPointers:
 	dw HauntedRedsHouseScript1
 
 HauntedRedsHouseScript0:
+; have we spoken with Haunted Mom 5 times already?
+	CheckEvent EVENT_SPOKEN_WITH_HAUNTED_MOM_5
+	ret nz ; if yes, we're free
 ; are we trying to get out?
 	ld hl, HauntedRedsHouseEntranceCoords
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	ret nc
-; have we spoken with Haunted Mom 5 times already?
-	CheckEvent EVENT_SPOKEN_WITH_HAUNTED_MOM_5
-	ret nz ; if yes, we're free
-; if not, trigger the dialogue and push us up
-	xor a
-	ldh [hJoyPressed], a
-	ldh [hJoyHeld], a
-	ld [wSimulatedJoypadStatesEnd], a
-	ld [wSimulatedJoypadStatesIndex], a
-	ld a, 1
+.doorCoordinates
+; if we're at the door, trigger the dialogue and push us up
+	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID ; Haunted Mom's dialogues
-	ld a, D_UP | B_BUTTON ; edited, to fix blocking Pikachu glitch
-	ld [wSimulatedJoypadStatesEnd], a
+	call DisplayTextID
+	xor a
+	ldh [hJoyHeld], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_UP | B_BUTTON ; to fix blocking Pikachu glitch
+	ld [wSimulatedJoypadStatesEnd], a
 	call StartSimulatingJoypadStates
-	ld a, 1
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a ; SPRITE_FACING_UP
+	ld [wJoyIgnore], a
+	ld a, $1
 	ld [wHauntedRedsHouseCurScript], a
-	ld [wCurMapScript], a
 	ret
 
 HauntedRedsHouseEntranceCoords:
@@ -53,11 +53,11 @@ HauntedRedsHouseScript1:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret nz
-	call Delay3
+	ld c, 10
+	call DelayFrames
 	xor a
-	ld [wJoyIgnore], a
 	ld [wHauntedRedsHouseCurScript], a
-	ld [wCurMapScript], a
+;	ld [wCurMapScript], a
 	ret
 
 ; =================================

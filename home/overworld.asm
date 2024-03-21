@@ -667,6 +667,8 @@ ExtraWarpCheck::
 	jr z, .useFunction2				; new
 	cp ONIX_BURROWING				; new
 	jr z, .useFunction2				; new
+	cp HAUNTED_REDS_HOUSE			; new
+	jr z, .useFunction2				; new
 	ld a, [wCurMapTileset]
 	and a ; outside tileset (OVERWORLD)
 	jr z, .useFunction2
