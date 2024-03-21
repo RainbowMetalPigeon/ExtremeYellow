@@ -69,6 +69,7 @@ HauntedRedsHouse_TextPointers:
 	dw HauntedRedsHousePCText
 	dw HauntedRedsHouseBookshelvesText
 	dw HauntedRedsHouseBookshelvesText
+	dw HauntedRedsHousePictureText
 
 ; ------------------------
 
@@ -152,4 +153,24 @@ HauntedRedsHousePCText:
 
 HauntedRedsHouseBookshelvesText:
 	text_far _HauntedRedsHouseBookshelvesText
+	text_end
+
+HauntedRedsHousePictureText:
+	text_asm
+	CheckAndSetEvent EVENT_INTERACTED_WITH_DAD_PICTURE
+	jr nz, .alreadyInteracted
+	ld hl, HauntedRedsHousePictureText1
+	jr .printAndEnd
+.alreadyInteracted
+	ld hl, HauntedRedsHousePictureText2
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+HauntedRedsHousePictureText1:
+	text_far _HauntedRedsHousePictureText1
+	text_end
+
+HauntedRedsHousePictureText2:
+	text_far _HauntedRedsHousePictureText2
 	text_end

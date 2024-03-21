@@ -78,7 +78,7 @@ LoreleiScript0:
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID  ; "Don't run away!"
-	ld a, D_UP
+	ld a, D_UP | B_BUTTON ; edited, to fix blocking Pikachu glitch
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a

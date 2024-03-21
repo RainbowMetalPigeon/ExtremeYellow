@@ -41,3 +41,10 @@ _StandByMeText::
 _TVWrongSideText::
 	text "Oops, wrong side."
 	done
+
+_RedsHouse1FPictureText:: ; new
+	text "A picture of DAD."
+
+	para "...a tear runs"
+	line "down your face."
+	done

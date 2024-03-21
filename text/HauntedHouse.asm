@@ -78,3 +78,20 @@ _HauntedRedsHouseBookshelvesText::
     line "every book is"
     cont "completely blank."
     done
+
+_HauntedRedsHousePictureText1::
+	text "A picture of DAD."
+
+	para "His face twists"
+	line "into a mask of"
+	cont "agony under your"
+	cont "eyes, and then"
+	cont "vanishes."
+	done
+
+_HauntedRedsHousePictureText2::
+	text "A picture of DAD."
+
+	para "His face has"
+	line "disappeared."
+	done

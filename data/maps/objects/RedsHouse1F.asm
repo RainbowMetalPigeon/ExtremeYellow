@@ -8,6 +8,7 @@ RedsHouse1F_Object:
 
 	def_bg_events
 	bg_event  3,  1, 2 ; RedsHouse1FTVText
+	bg_event  4,  0, 3 ; RedsHouse1FPictureText ; new
 
 	def_object_events
 	object_event  5,  4, SPRITE_MOM, STAY, LEFT, 1
