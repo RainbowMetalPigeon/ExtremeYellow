@@ -49,7 +49,7 @@ DisplayTownMap:
 	push hl
 	push de
 	push bc
-	callfar IsCurrentMapHauntedHouse ; testing
+	callfar IsCurrentMapHauntedHouse_AlsoIsland ; testing
 	pop bc
 	pop de
 	pop hl
@@ -399,7 +399,7 @@ DrawPlayerOrBirdSprite:
 	push hl
 	push de
 	push bc
-	callfar IsCurrentMapHauntedHouse ; testing
+	callfar IsCurrentMapHauntedHouse_AlsoIsland ; testing
 	pop bc
 	pop de
 	pop hl

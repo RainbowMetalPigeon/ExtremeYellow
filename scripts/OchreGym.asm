@@ -15,10 +15,10 @@ OchreGym_Script:
 OchreGymSetDoorTile:
 	CheckEvent EVENT_OCHRE_LOCK_TRY_2
 	jr nz, .doorsOpen
-	ld a, $24 ; double door tile ID
+	ld a, $24 ; double door block ID
 	jr .replaceTile
 .doorsOpen
-	ld a, $5 ; clear floor tile ID
+	ld a, $5 ; clear floor block ID
 .replaceTile
 	ld [wNewTileBlockID], a
 	lb bc, 14, 7
@@ -460,7 +460,7 @@ OchreGymTrashBinText:
 	SetEvent EVENT_OCHRE_LOCK_TRY_2
     ld a, SFX_GO_INSIDE
     call PlaySound
-    ld a, $5 ; clear floor tile ID
+    ld a, $5 ; clear floor block ID
     ld [wNewTileBlockID], a
     lb bc, 14, 7
     predef ReplaceTileBlock
@@ -472,7 +472,7 @@ OchreGymTrashBinText:
 	ResetEvent EVENT_OCHRE_LOCK_TRY_2
     ld a, SFX_GO_INSIDE
     call PlaySound
-	ld a, $24 ; double door tile ID
+	ld a, $24 ; double door block ID
     ld [wNewTileBlockID], a
     lb bc, 14, 7
     predef ReplaceTileBlock

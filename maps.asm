@@ -1372,6 +1372,16 @@ INCLUDE "data/maps/objects/HauntedHouse2.asm"
 HauntedHouse2_Blocks: INCBIN "maps/HauntedHouse2.blk"
 INCLUDE "scripts/HauntedHouse2.asm"
 
+INCLUDE "data/maps/headers/HauntedHouse3.asm"
+INCLUDE "data/maps/objects/HauntedHouse3.asm"
+HauntedHouse3_Blocks: INCBIN "maps/HauntedHouse3.blk"
+INCLUDE "scripts/HauntedHouse3.asm"
+
+INCLUDE "data/maps/headers/HauntedHouse4.asm"
+INCLUDE "data/maps/objects/HauntedHouse4.asm"
+HauntedHouse4_Blocks: INCBIN "maps/HauntedHouse4.blk"
+INCLUDE "scripts/HauntedHouse4.asm"
+
 INCLUDE "data/maps/headers/HauntedRedsHouse.asm"
 INCLUDE "data/maps/objects/HauntedRedsHouse.asm"
 HauntedRedsHouse_Blocks: INCBIN "maps/HauntedRedsHouse.blk"
@@ -1381,6 +1391,11 @@ INCLUDE "data/maps/headers/HauntedPalletTown.asm"
 INCLUDE "data/maps/objects/HauntedPalletTown.asm"
 HauntedPalletTown_Blocks: INCBIN "maps/HauntedPalletTown.blk"
 INCLUDE "scripts/HauntedPalletTown.asm"
+
+INCLUDE "data/maps/headers/HauntedIslandOfNumbers.asm"
+INCLUDE "data/maps/objects/HauntedIslandOfNumbers.asm"
+HauntedIslandOfNumbers_Blocks: INCBIN "maps/HauntedIslandOfNumbers.blk"
+INCLUDE "scripts/HauntedIslandOfNumbers.asm"
 
 INCLUDE "data/maps/headers/BattleFacility.asm"
 INCLUDE "data/maps/objects/BattleFacility.asm"

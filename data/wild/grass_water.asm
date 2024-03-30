@@ -156,7 +156,7 @@ WildDataPointers:
 	dw PokemonTower7FWildMons
 	dw NothingWildMons ; LAVENDER_HOUSES
 	dw HauntedHouseWildMons ; HAUNTED_HOUSE_2, new
-	dw NothingWildMons ; LAVENDER_CUBONE_HOUSE
+	dw HauntedHouseWildMons ; HAUNTED_HOUSE_3, new
 	dw NothingWildMons ; OCHRE_RESEARCH_CENTER_2
 	dw NothingWildMons ; FUCHSIA_BILLS_GRANDPAS_HOUSE
 	dw NothingWildMons ; FUCHSIA_POKECENTER
@@ -168,7 +168,7 @@ WildDataPointers:
 	dw SeafoamIslandsB2FWildMons
 	dw SeafoamIslandsB3FWildMons
 	dw SeafoamIslandsB4FWildMons
-	dw NothingWildMons ; VERMILION_OLD_ROD_HOUSE
+	dw HauntedHouseWildMons ; HAUNTED_HOUSE_4, new
 	dw NothingWildMons ; FUCHSIA_GOOD_ROD_HOUSE
 	dw PokemonMansion1FWildMons
 	dw NothingWildMons ; CINNABAR_GYM
@@ -177,7 +177,7 @@ WildDataPointers:
 	dw NothingWildMons ; CINNABAR_LAB_METRONOME_ROOM
 	dw NothingWildMons ; CINNABAR_LAB_FOSSIL_ROOM
 	dw NothingWildMons ; CINNABAR_POKECENTER
-	dw NothingWildMons ; CINNABAR_MART
+	dw NothingWildMons ; HAUNTED_ISLAND_OF_NUMBERS
 	dw NothingWildMons ; OBSIDIAN_HOUSES
 	dw NothingWildMons ; INDIGO_PLATEAU_LOBBY
 	dw NothingWildMons ; COPYCATS_HOUSE_1F

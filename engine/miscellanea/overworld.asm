@@ -1,7 +1,7 @@
 CheckIfDirectionalButtonIsPressed::
 	jr .vanilla ; countercomment this line when created ready
 	ld a, [wCurMap]
-	call IsCurrentMapHauntedHouse ; callfar is not needed, right?
+	call IsCurrentMapHauntedHouse_AlsoIsland
 ;	jr z, .anomalousMovements ; redundant?
 	jr nz, .vanilla
 
@@ -146,7 +146,7 @@ HauntedHouseFakeOutOfBattlePoisonDamage::
 ; % 1111 1111 = 255
 
 HauntedHouseFakePikachuFaintingAndRandomMessages::
-	callfar IsCurrentMapHauntedHouse ; no need for it to be a callfar?
+	call IsCurrentMapHauntedHouse ; no need for it to be a callfar?
 	ret nz
 ; handle random messages
 	ld a, [wStepCounter]
@@ -246,7 +246,26 @@ IsCurrentMapHauntedHouse::
 	ret z
 	cp HAUNTED_HOUSE_2
 	ret z
-	; all other CPs
+	cp HAUNTED_HOUSE_3
+	ret z
+	cp HAUNTED_HOUSE_4
+	ret z
+	ret
+	
+; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS
+; nz otherwise
+IsCurrentMapHauntedHouse_AlsoIsland::
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
+	ret z
+	cp HAUNTED_HOUSE_2
+	ret z
+	cp HAUNTED_HOUSE_3
+	ret z
+	cp HAUNTED_HOUSE_4
+	ret z
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	ret z
 	ret
 	
 ; ===========================================================

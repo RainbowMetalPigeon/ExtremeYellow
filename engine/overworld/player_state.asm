@@ -267,7 +267,7 @@ IsOnixBurrowingWarpTileInFrontOfPlayer: ; new
 
 IsHauntedRedsHouseWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
-	cp $0A
+	cp $10
 	jr nz, .notHauntedHouseWarp
 	scf
 	jr IsWarpTileInFrontOfPlayer.done

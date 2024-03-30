@@ -1,12 +1,25 @@
 HauntedRedsHouse_Script:
-;	ld hl, wCurrentMapScriptFlags
-;	bit 5, [hl]
-;	res 5, [hl]
-;	call nz, HauntedRedsHouseHandleRandomGlitchyBehaviours
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, HauntedRedsHouseSetExitTile
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedRedsHouse_ScriptPointers
 	ld a, [wHauntedRedsHouseCurScript]
 	call CallFunctionInTable
+	ret
+
+HauntedRedsHouseSetExitTile:
+	CheckEvent EVENT_SPOKEN_WITH_HAUNTED_MOM_5
+	jr nz, .exitOpen
+	ld a, $2B ; non-working exit block ID
+	jr .replaceTile
+.exitOpen
+	ld a, $0A ; working exit block ID
+.replaceTile
+	ld [wNewTileBlockID], a
+	lb bc, 4, 8 ; Y, X block coordinates
+	predef ReplaceTileBlock
 	ret
 
 ; =================================
@@ -85,6 +98,7 @@ HauntedRedsHouseMomText:
 	jr z, .hauntedMomDialogue4
 ; dialogue5
 	SetEvent EVENT_SPOKEN_WITH_HAUNTED_MOM_5
+	call HauntedRedsHouseSetExitTile ; testing
 	ld hl, HauntedRedsHouseMomText5
 	jr .printAndEnd
 .hauntedMomDialogue4

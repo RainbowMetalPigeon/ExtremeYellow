@@ -157,7 +157,7 @@ MapHeaderBanks::
 	db BANK(PokemonTower7F_h)
 	db BANK(LavenderHouses_h)
 	db BANK(HauntedHouse2_h) ; new
-	db BANK(LavenderHouses_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedHouse3_h) ; new
 	db BANK(OchreResearchCenter2_h) ; edited
 	db BANK(FuchsiaBillsGrandpasHouse_h)
 	db BANK(FuchsiaPokecenter_h)
@@ -169,7 +169,7 @@ MapHeaderBanks::
 	db BANK(SeafoamIslandsB2F_h)
 	db BANK(SeafoamIslandsB3F_h)
 	db BANK(SeafoamIslandsB4F_h)
-	db BANK(VermilionHouses_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedHouse4_h) ; new
 	db BANK(FuchsiaGoodRodHouse_h)
 	db BANK(PokemonMansion1F_h)
 	db BANK(CinnabarGym_h)
@@ -178,7 +178,7 @@ MapHeaderBanks::
 	db BANK(CinnabarLabMetronomeRoom_h)
 	db BANK(CinnabarLabFossilRoom_h)
 	db BANK(CinnabarPokecenter_h)
-	db BANK(CinnabarPokecenter_h) ; edited, made UNUSED because of map MERGING
+	db BANK(HauntedIslandOfNumbers_h) ; new
 	db BANK(ObsidianHouses_h) ; new
 	db BANK(IndigoPlateauLobby_h)
 	db BANK(CopycatsHouse1F_h)

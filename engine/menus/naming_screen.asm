@@ -2,9 +2,8 @@ AskName:
 	call SaveScreenTilesToBuffer1
 	call GetPredefRegisters
 ; new, to avoid nicknaming MISSINGNO
-;	callfar IsCurrentMapHauntedHouse ; counter comment when finished
 	ld a, [wCurMap] ; temp, testing
-	cp ROUTE_21 ; temp, testing
+	cp HAUNTED_ISLAND_OF_NUMBERS ; temp, testing
 	jr nz, .vanilla
 	ld a, [wcf91]
 	ld [wd11e], a

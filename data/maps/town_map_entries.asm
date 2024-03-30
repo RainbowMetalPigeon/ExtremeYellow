@@ -64,7 +64,10 @@ InternalMapEntries:
 	; maximum map id subject to this rule, x, y, name
 	internal_map OAKS_LAB,                       2, 11, PalletTownName
 	internal_map VIRIDIAN_GYM,                   2,  8, ViridianCityName
+	internal_map DIGLETTS_CAVE_ROUTE_2,          2,  6, Route2Name ; edited because of map MERGING
+	internal_map HAUNTED_REDS_HOUSE,             2, 11, PalletTownName ; edited because of map MERGING
 	internal_map ROUTE_2_ALL_GATES,              2,  6, Route2Name ; edited because of map MERGING
+	internal_map HAUNTED_PALLET_TOWN,            2, 11, PalletTownName ; edited because of map MERGING
 	internal_map VIRIDIAN_FOREST,                2,  4, ViridianForestName
 	internal_map PEWTER_POKECENTER,              2,  3, PewterCityName
 	internal_map MT_MOON_B2F,                    6,  2, MountMoonName
@@ -103,7 +106,6 @@ InternalMapEntries:
 	internal_map SAFARI_ZONE_GATE,               8, 12, SafariZoneName
 	internal_map FUCHSIA_MEETING_ROOM,           8, 13, FuchsiaCityName
 	internal_map SEAFOAM_ISLANDS_B4F,            5, 15, SeafoamIslandsName
-;	internal_map VERMILION_OLD_ROD_HOUSE,       10,  9, VermilionCityName ; commented out because of MERGING
 	internal_map FUCHSIA_GOOD_ROD_HOUSE,         8, 13, FuchsiaCityName
 	internal_map POKEMON_MANSION_1F,             2, 15, PokemonMansionName
 	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
@@ -118,7 +120,6 @@ InternalMapEntries:
 	internal_map ROUTE_22_GATE,                  0,  7, Route22Name
 	internal_map VICTORY_ROAD_2F,                0,  4, VictoryRoadName
 	internal_map ROUTE_12_GATE_2F,              14,  7, Route12Name
-;	internal_map VERMILION_TRADE_HOUSE,         10,  9, VermilionCityName ; edited also because of MERGING
 	internal_map DIGLETTS_CAVE,                  3,  4, DiglettsCaveName
 	internal_map VICTORY_ROAD_3F,                0,  4, VictoryRoadName
 	internal_map ROCKET_HIDEOUT_ELEVATOR,        7,  5, RocketHQName
@@ -135,8 +136,6 @@ InternalMapEntries:
 	internal_map ROCK_TUNNEL_B1F,               14,  3, RockTunnelName
 	internal_map SILPH_CO_ELEVATOR,             10,  5, SilphCoName
 	internal_map CINNABAR_VOLCANO_BF,            2, 15, CinnabarIslandName ; new, testing
-;	internal_map CERULEAN_CAVE_EXTRA_TOP,        9,  1, CeruleanCaveName	; new, unnecessary?
-;	internal_map CERULEAN_CAVE_EXTRA_MIDDLE,     9,  1, CeruleanCaveName	; new, unnecessary?
 	internal_map CERULEAN_CAVE_EXTRA_FINAL,      9,  1, CeruleanCaveName	; new
 	internal_map AGATHAS_ROOM,                   0,  2, PokemonLeagueName
 	internal_map SUMMER_BEACH_HOUSE,             6, 15, Route19Name

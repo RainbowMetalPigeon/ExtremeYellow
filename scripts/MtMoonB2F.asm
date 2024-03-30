@@ -249,7 +249,7 @@ MtMoon3Script_49e15:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_UP
+	ld a, D_UP | B_BUTTON ; edited, to fix blocking Pikachu glitch
 	ld [wSimulatedJoypadStatesEnd], a
 	call StartSimulatingJoypadStates
 	ld a, $ff

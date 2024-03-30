@@ -157,7 +157,7 @@ MapHeaderPointers::
 	dw PokemonTower7F_h
 	dw LavenderHouses_h
 	dw HauntedHouse2_h ; new
-	dw LavenderHouses_h ; edited, made UNUSED because of map MERGING
+	dw HauntedHouse3_h ; new
 	dw OchreResearchCenter2_h ; edited
 	dw FuchsiaBillsGrandpasHouse_h
 	dw FuchsiaPokecenter_h
@@ -169,7 +169,7 @@ MapHeaderPointers::
 	dw SeafoamIslandsB2F_h
 	dw SeafoamIslandsB3F_h
 	dw SeafoamIslandsB4F_h
-	dw VermilionHouses_h ; edited, made UNUSED because of map MERGING
+	dw HauntedHouse4_h ; new
 	dw FuchsiaGoodRodHouse_h
 	dw PokemonMansion1F_h
 	dw CinnabarGym_h
@@ -178,7 +178,7 @@ MapHeaderPointers::
 	dw CinnabarLabMetronomeRoom_h
 	dw CinnabarLabFossilRoom_h
 	dw CinnabarPokecenter_h
-	dw CinnabarPokecenter_h ; edited, made UNUSED because of map MERGING
+	dw HauntedIslandOfNumbers_h ; new
 	dw ObsidianHouses_h ; new
 	dw IndigoPlateauLobby_h
 	dw CopycatsHouse1F_h

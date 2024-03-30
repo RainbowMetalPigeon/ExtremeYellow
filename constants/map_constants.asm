@@ -175,7 +175,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_TOWER_7F,              10,  9 ; $94
 	map_const LAVENDER_HOUSES,               18,  4 ; $95 ; new, merge of all Lavender houses
 	map_const HAUNTED_HOUSE_2,               15, 18 ; $96 ; new
-	map_const LAVENDER_CUBONE_HOUSE,          4,  4 ; $97 ; edited, made UNUSED because of map MERGING
+	map_const HAUNTED_HOUSE_3,               30, 30 ; $97 ; new, was LAVENDER_CUBONE_HOUSE
 	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $98 ; new
 	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $99
 	map_const FUCHSIA_POKECENTER,            14,  4 ; $9A ; edited, Center+Mart
@@ -187,7 +187,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const SEAFOAM_ISLANDS_B2F,           15,  9 ; $A0
 	map_const SEAFOAM_ISLANDS_B3F,           15,  9 ; $A1
 	map_const SEAFOAM_ISLANDS_B4F,           15,  9 ; $A2
-	map_const VERMILION_OLD_ROD_HOUSE,        4,  4 ; $A3 ; edited, made UNUSED because of map MERGING
+	map_const HAUNTED_HOUSE_4,               30, 30 ; $A3 ; new, was VERMILION_OLD_ROD_HOUSE
 	map_const FUCHSIA_GOOD_ROD_HOUSE,         4,  4 ; $A4
 	map_const POKEMON_MANSION_1F,            15, 14 ; $A5
 	map_const CINNABAR_GYM,                  10,  9 ; $A6
@@ -196,7 +196,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA
 	map_const CINNABAR_POKECENTER,           14,  4 ; $AB ; edited, Center+Mart
-	map_const CINNABAR_MART,                  4,  4 ; $AC ; edited, made UNUSED because of map MERGING
+	map_const HAUNTED_ISLAND_OF_NUMBERS,     30, 30 ; $AC ; new, was CINNABAR_MART
 	map_const OBSIDIAN_HOUSES,               18,  4 ; $AD, new
 	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $AE
 	map_const COPYCATS_HOUSE_1F,              4,  4 ; $AF
