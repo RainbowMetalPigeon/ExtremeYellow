@@ -59,7 +59,7 @@ ENDM
 
 .DojoWarpTileIDs:
 .GymWarpTileIDs:
-	warp_tiles $4A, $15 ; updated, added the last one
+	warp_tiles $4A, $15 ; edited, last 1 are new
 
 .HouseWarpTileIDs:
 	warp_tiles $54, $5C, $32
@@ -68,7 +68,7 @@ ENDM
 	warp_tiles $37, $39, $1E, $4A
 
 .InteriorWarpTileIDs:
-	warp_tiles $15, $55, $04, $5f ; edited, last one is new
+	warp_tiles $15, $55, $04, $5f ; edited, last 1 are new
 
 .CavernWarpTileIDs:
 	warp_tiles $18, $1A, $22
@@ -77,7 +77,7 @@ ENDM
 	warp_tiles $1A, $1C, $38
 
 .MansionWarpTileIDs:
-	warp_tiles $1A, $1C, $53
+	warp_tiles $1A, $1C, $53, $6F ; edited, last 1 are new
 
 .LabWarpTileIDs:
 	warp_tiles $34

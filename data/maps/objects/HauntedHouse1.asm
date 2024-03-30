@@ -11,7 +11,7 @@ HauntedHouse1_Object:
 	; second room
 	warp_event 19, 48, HAUNTED_HOUSE_1,  6 ;  6 ; -> itself, for trapping
 	warp_event 25, 55, HAUNTED_HOUSE_1, 11 ;  7 ; -> long room
-	warp_event 16, 52, HAUNTED_HOUSE_1,  8 ;  8 ; TBE
+	warp_event 16, 52, HAUNTED_HOUSE_3, 10 ;  8 ; -> troll locked room in HAUNTED_HOUSE_3
 	warp_event 18, 59, HAUNTED_HOUSE_1,  1 ;  9 ; -> first room
 	warp_event 23, 59, HAUNTED_HOUSE_1, 15 ; 10 ; -> wide room
 	; long room
@@ -35,10 +35,10 @@ HauntedHouse1_Object:
 	warp_event  1, 13, HAUNTED_HOUSE_1,  1 ; 23 ; purposely doesn't work
 	warp_event 17, 13, HAUNTED_HOUSE_1, 14 ; 24 ; -> ledge room (center)
 	; infinite room
-	warp_event 36, 59, HAUNTED_HOUSE_1,  1 ; 25 ; TBE, will be -> room where you can access the infinite rooms (warp N)
+	warp_event 36, 59, HAUNTED_HOUSE_3, 17 ; 25 ; -> triple-door room, warp 3
 	warp_event 37, 54, HAUNTED_HOUSE_1, 25 ; 26 ; -> same room, lower entrance
 	; series of same-looking rooms
-	warp_event 48, 59, HAUNTED_HOUSE_1,  1 ; 27 ; TBE, will be -> room where you can access the infinite rooms (warp N+1)
+	warp_event 48, 59, HAUNTED_HOUSE_3, 16 ; 27 ; -> triple-door room, warp 2
 	warp_event 49, 54, HAUNTED_HOUSE_1, 29 ; 28 ; -> next room, lower entrance
 	warp_event 48, 49, HAUNTED_HOUSE_1, 28 ; 29 ; -> previous room, upper entrance
 	warp_event 49, 44, HAUNTED_HOUSE_1, 31 ; 30 ; -> next room, lower entrance
