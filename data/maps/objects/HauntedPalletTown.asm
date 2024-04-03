@@ -2,7 +2,7 @@ HauntedPalletTown_Object:
 	db $b ; border block
 
 	def_warp_events
-	warp_event  9,  9, HAUNTED_REDS_HOUSE, 3
+	warp_event  9,  9, HAUNTED_ISLAND_OF_NUMBERS, 1
 
 	def_bg_events
 ;	bg_event 13, 13, 5 ; PalletTownText4

@@ -89,6 +89,7 @@
 	const SPRITE_SCIENTIST_F             ; new
 	const SPRITE_SLOWKING                ; new
 	const SPRITE_AMBER_2                 ; new
+	const SPRITE_MISSINGNO               ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
