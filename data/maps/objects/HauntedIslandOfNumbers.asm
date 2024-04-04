@@ -3,7 +3,7 @@ HauntedIslandOfNumbers_Object:
 
 	def_warp_events
 ;	warp_event 29, 58, HAUNTED_ISLAND_OF_NUMBERS,  1 ; 1 ; on itself, not meant to work, arrive only
-	warp_event 30, 35, HAUNTED_ISLAND_OF_NUMBERS,  1 ; 1 ; just a test
+	warp_event 30, 35, HAUNTED_ISLAND_OF_NUMBERS,  1 ; 1 ; for testing purposes
 
 	def_bg_events
 ;	bg_event  6,  9, 9 ; CeladonMansion2TextSign1

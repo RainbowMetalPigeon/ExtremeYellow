@@ -3,39 +3,39 @@ HauntedHouse4_Object:
 
 	def_warp_events
 	; swirling room
-	warp_event  0, 29, HAUNTED_HOUSE_4,  1 ; 1
-	warp_event 10, 29, HAUNTED_HOUSE_4,  1 ; 2
-	warp_event 21, 29, HAUNTED_HOUSE_4,  1 ; 3
+	warp_event  0, 29, HAUNTED_HOUSE_4,  1 ; 1 ; TBE
+	warp_event 10, 29, HAUNTED_HOUSE_4,  1 ; 2 ; TBE
+	warp_event 21, 29, HAUNTED_HOUSE_4,  1 ; 3 ; TBE
 	; small connected rooms - NW
-	warp_event  3, 44, HAUNTED_HOUSE_4,  1 ; 4
+	warp_event  3, 44, HAUNTED_HOUSE_4,  1 ; 4 ; TBE
 	warp_event  5, 47, HAUNTED_HOUSE_4, 11 ; 5
 	warp_event  2, 49, HAUNTED_HOUSE_4, 16 ; 6
-	warp_event  0, 46, HAUNTED_HOUSE_4,  1 ; 7
+	warp_event  0, 46, HAUNTED_HOUSE_4,  1 ; 7 ; TBE
 	; small connected rooms - NE
-	warp_event 15, 44, HAUNTED_HOUSE_4,  1 ; 8
-	warp_event 17, 47, HAUNTED_HOUSE_4,  1 ; 9
+	warp_event 15, 44, HAUNTED_HOUSE_4,  1 ; 8 ; TBE
+	warp_event 17, 47, HAUNTED_HOUSE_4,  1 ; 9 ; TBE
 	warp_event 14, 49, HAUNTED_HOUSE_4, 12 ; 10
 	warp_event 12, 46, HAUNTED_HOUSE_4,  5 ; 11
 	; small connected rooms - SE
 	warp_event 15, 54, HAUNTED_HOUSE_4, 10 ; 12
-	warp_event 17, 57, HAUNTED_HOUSE_4,  1 ; 13
-	warp_event 14, 59, HAUNTED_HOUSE_4,  1 ; 14
+	warp_event 17, 57, HAUNTED_HOUSE_4,  1 ; 13 ; TBE
+	warp_event 14, 59, HAUNTED_HOUSE_4,  1 ; 14 ; TBE
 	warp_event 12, 56, HAUNTED_HOUSE_4, 17 ; 15
 	; small connected rooms - SW
 	warp_event  3, 54, HAUNTED_HOUSE_4,  6 ; 16
 	warp_event  5, 57, HAUNTED_HOUSE_4, 15 ; 17
-	warp_event  2, 59, HAUNTED_HOUSE_4,  1 ; 18
-	warp_event  0, 56, HAUNTED_HOUSE_4,  1 ; 19
+	warp_event  2, 59, HAUNTED_HOUSE_4,  1 ; 18 ; TBE
+	warp_event  0, 56, HAUNTED_HOUSE_4,  1 ; 19 ; TBE
 	; room with "tornado" NPC
 	warp_event 28, 55, HAUNTED_HOUSE_4,  1 ; 20 ; purposely only arrive
-	warp_event 29, 50, HAUNTED_HOUSE_4,  1 ; 21
+	warp_event 29, 50, HAUNTED_HOUSE_4,  1 ; 21 ; TBE
 	; room with PokeBall
-	warp_event 42, 59, HAUNTED_HOUSE_4,  1 ; 22
-	warp_event 43, 54, HAUNTED_HOUSE_4,  1 ; 23
+	warp_event 42, 59, HAUNTED_HOUSE_4,  1 ; 22 ; TBE
+	warp_event 43, 54, HAUNTED_HOUSE_4,  1 ; 23 ; TBE
 	; small dark room
 	warp_event 56, 58, HAUNTED_HOUSE_4,  1 ; 24 ; purposely only arrive
-	warp_event 59, 56, HAUNTED_HOUSE_4,  1 ; 25
-	warp_event 59, 59, HAUNTED_HOUSE_4,  1 ; 26
+	warp_event 59, 56, HAUNTED_HOUSE_4,  1 ; 25 ; TBE
+	warp_event 59, 59, HAUNTED_HOUSE_4,  1 ; 26 ; TBE
 
 	def_bg_events
 ;	bg_event  6,  9, 9 ; CeladonMansion2TextSign1

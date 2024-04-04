@@ -1972,7 +1972,8 @@ wOptions:: db
 
 wObtainedBadges:: flag_array NUM_BADGES
 
-	ds 1 ; UNUSED bytes in "Main Data"
+wHauntedHouse3HowManyTimeBetweenBeds:: ds 1 ; new
+;	ds 1
 
 ; bit 0: If 0, limit the delay to 1 frame. Note that this has no effect if
 ;        the delay has been disabled entirely through bit 1 of this variable
@@ -2353,7 +2354,7 @@ wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
 wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
-wHauntedHouse1CurScript:: db ; new
+wHauntedHouse3CurScript:: db ; new
 wBattleFacilityCurScript:: db ; new
 wHauntedRedsHouseCurScript:: db ; new
 wHauntedPalletTownCurScript:: db ; new, TBV
