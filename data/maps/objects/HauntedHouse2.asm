@@ -24,7 +24,7 @@ HauntedHouse2_Object:
 	warp_event  3, 20, HAUNTED_HOUSE_2,  5 ; 13, RW3
 	warp_event  0, 22, HAUNTED_HOUSE_2, 10 ; 14
 	; room 5
-	warp_event 14, 25, HAUNTED_HOUSE_1,  1 ; 15 ; this is the exit, RW5, destination TBE
+	warp_event 14, 25, HAUNTED_HOUSE_3, 19 ; 15 ; RW5, exit, dark maze
 	warp_event 17, 23, HAUNTED_HOUSE_2, 35 ; 16
 	warp_event 15, 20, HAUNTED_HOUSE_2, 20 ; 17
 	warp_event 12, 22, HAUNTED_HOUSE_2,  3 ; 18

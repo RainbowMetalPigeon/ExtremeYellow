@@ -1,3 +1,9 @@
+; HAUNTED_HOUSE_4 ---------------------------
+
+_HauntedHouse4TextProxy::
+    text "PROXY"
+    done
+
 ; HAUNTED_REDS_HOUSE ------------------------
 
 _HauntedRedsHouseMomText1::
