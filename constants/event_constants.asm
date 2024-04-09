@@ -664,7 +664,8 @@
 	const_skip 4
 	const EVENT_BEAT_SS_ANNE_5_TRAINER_0
 	const EVENT_BEAT_SS_ANNE_5_TRAINER_1
-	const_skip 2 ; edited for anomalies and Haunted House
+	const_skip 1 ; edited for anomalies and Haunted House
+	const EVENT_FACED_MISSINGNO_AT_LEAST_ONCE ; new
 	const EVENT_HAUNTED_HOUSE_INTERACTED_WITH_POKEBALL ; new
 	const EVENT_BEAT_ZYGARDEC
 	const EVENT_BEAT_UNECROZMA

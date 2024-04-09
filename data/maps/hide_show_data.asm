@@ -180,7 +180,7 @@ MapHSPointers:
 	dw NoHS ; CINNABAR_LAB_METRONOME_ROOM
 	dw NoHS ; CINNABAR_LAB_FOSSIL_ROOM
 	dw NoHS ; CINNABAR_POKECENTER
-	dw NoHS
+	dw HauntedIslandOfNumbersHS ; new
 	dw NoHS ; OBSIDIAN_HOUSES
 	dw NoHS ; INDIGO_PLATEAU_LOBBY
 	dw NoHS ; COPYCATS_HOUSE_1F
@@ -792,6 +792,7 @@ BattleFacilityHS: ; new
 	db BATTLE_FACILITY, $03, HIDE ; RED
 	db BATTLE_FACILITY, $04, HIDE ; YELLOW
 	db BATTLE_FACILITY, $05, HIDE ; GREEN
-
+HauntedIslandOfNumbersHS: ; new
+	db HAUNTED_ISLAND_OF_NUMBERS, $01, SHOW ; MISSINGNO
 
 	db $FF, $01, SHOW ; end, list terminator

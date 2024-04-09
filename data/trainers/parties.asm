@@ -51,6 +51,7 @@ TrainerDataPointers:
 	dw PigeonData
 	dw TravelerData
 	dw BFTrainerData
+	dw MissingNoTData
 
 ; if first byte != $FF, then
 	; first byte is level (of all pokemon on this team)
@@ -913,3 +914,7 @@ TravelerData:
 
 BFTrainerData:
 	db 1, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, 0 ; new
+
+MissingNoTData:
+;	db 50, BLUESDAD, BLUESMOM, DAD, 0 ; new
+	db 1, DAD, 0 ; new

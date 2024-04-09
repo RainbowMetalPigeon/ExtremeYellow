@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/bluesmom.pic", 0, 1 ; sprite dimensions
 	dw BluesMomPicFront, BluesMomPicBack
 
-	db SCRATCH, STOMP, LOW_KICK, BITE ; level 1 learnset
+	db SCRATCH, STOMP, LOW_KICK, CUT ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

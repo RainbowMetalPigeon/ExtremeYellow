@@ -101,3 +101,29 @@ _HauntedRedsHousePictureText2::
 	para "His face has"
 	line "disappeared."
 	done
+
+; HAUNTED_ISLAND_OF_NUMBERS ------------------------
+
+_HauntedIslandOfNumbersText_MissingNo_NotFirstTime::
+    text "Not 1st time"
+    done
+
+_HauntedIslandOfNumbersText_MissingNo_FirstTime::
+    text "1st time"
+    done
+
+_MissingNoTrainerText_Win::
+    text "Player wins"
+    prompt
+
+_MissingNoTrainerText_Lose::
+    text "Player loses"
+    prompt
+
+_HauntedIslandOfNumbersText_PostTrainerBattle::
+    text "Post trainer"
+    done
+
+_HauntedIslandOfNumbersText_PostPokemonBattle::
+    text "Post pokemon"
+    done

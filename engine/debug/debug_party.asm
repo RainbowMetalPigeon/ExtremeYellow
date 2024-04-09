@@ -17,9 +17,9 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db MEW, 97
 	db STARTER_PIKACHU, 5
-	db MISSINGNO, 255
-	db BLUESDAD, 9
-	db BLUESMOM, 9
+;	db MISSINGNO, 255
+;	db BLUESDAD, 9
+;	db BLUESMOM, 9
 ;	db DAD, 100
 	db -1 ; end
 

@@ -336,7 +336,7 @@ _CeladonUniversity2Text14:: ; researcher
 
 ; whiteboard: info on Legendary Birds
 
-; --- other ---
+; --- other (books) ---
 
 _CeladonUniversity2SignTest1::
     text "SIGN TEST 1"
