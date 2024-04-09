@@ -17,10 +17,10 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db MEW, 97
 	db STARTER_PIKACHU, 5
-;	db CHANSEY, 255
-;	db ARTICUNO, 9
-;	db ZAPDOS, 9
-;	db MOLTRES, 100
+	db MISSINGNO, 255
+	db BLUESDAD, 9
+	db BLUESMOM, 9
+	db DAD, 100
 	db -1 ; end
 
 DebugStart:
@@ -182,7 +182,7 @@ DebugSetPokedexEntries:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	ld [hl], %11111111
+	ld [hl], %00001111
 	ret
 
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it

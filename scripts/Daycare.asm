@@ -52,7 +52,7 @@ DayCareMText1:
 	ld hl, wPartySpecies
 	add hl, bc
 	ld a, [hl] ; species
-	cp CHANSEY ; TBE with MISSINGNO, testing
+	cp MISSINGNO
 	jp z, .cantTakeThisMon
 ; back to vanilla
 	pop de

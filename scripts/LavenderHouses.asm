@@ -201,7 +201,7 @@ NameRaterText1:
 	ld hl, wPartySpecies
 	add hl, bc
 	ld a, [hl] ; species
-	cp CHANSEY ; TBE with MISSINGNO, testing
+	cp MISSINGNO
 	jp z, .cantHandleThisMon
 ; back to vanilla
 	call NameRaterScript_1da20

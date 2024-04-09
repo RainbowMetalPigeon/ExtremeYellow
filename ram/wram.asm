@@ -2029,7 +2029,7 @@ wSpriteSetID:: db
 
 wObjectDataPointerTemp:: dw
 
-	ds 2 ; UNUSED bytes in "Main Data"
+;	ds 2 ; commented out because went from 208 to 212 mons, i.e. one more byte needed both for seen and for owned
 
 ; the tile shown outside the boundaries of the map
 wMapBackgroundTile:: db
