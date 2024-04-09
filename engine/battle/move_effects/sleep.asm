@@ -50,7 +50,7 @@ SleepEffect_:
 	ld hl, FellAsleepText
 	jp PrintText
 .didntAffect
-	jp PrintDidntAffectText
+	jpfar PrintDidntAffectText ; edited, made into a jpfar
 
 FellAsleepText:
 	text_far _FellAsleepText
