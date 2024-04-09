@@ -13,7 +13,7 @@ TrainerNamePointers:
 	dw wTrainerName
 	dw wTrainerName
 	dw .BurglarName
-;	dw .EngineerName
+	dw .EngineerName
 ;	dw .UnusedJugglerName
 	dw wTrainerName
 	dw .SwimmerName
@@ -54,6 +54,7 @@ TrainerNamePointers:
 	dw wTrainerName
 	dw wTrainerName
 	dw wTrainerName
+	dw .MissingNoTName
 
 .YoungsterName:     db "YOUNGSTER@"
 .BugCatcherName:    db "BUG CATCHER@"
@@ -63,7 +64,7 @@ TrainerNamePointers:
 .PokemaniacName:    db "POKéMANIAC@"
 .SuperNerdName:     db "SUPER NERD@"
 .BurglarName:       db "BURGLAR@"
-;.EngineerName:      db "ENGINEER@"
+.EngineerName:      db "ENGINEER@"
 ;.UnusedJugglerName: db "JUGGLER@"
 .SwimmerName:       db "SWIMMER@"
 .BeautyName:        db "BEAUTY@"
@@ -76,3 +77,4 @@ TrainerNamePointers:
 .RocketName:        db "ROCKET@"
 ;.CooltrainerMName:  db "COOLTRAINER♂@"
 .CooltrainerFName:  db "COOLTRAINER@"
+.MissingNoTName:   db "MISSINGNO.@" ; new

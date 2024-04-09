@@ -255,6 +255,7 @@ _LoadTrainerPic:
 	ld e, a
 	ld a, [wTrainerPicPointer + 1]
 	ld d, a ; de contains pointer to trainer pic
+	        ; but we perform a number of checks down there to see if it needs to be overwritten
 	ld a, [wLinkState]
 	and a
 	jp nz, .playerLikeSprite ; new
@@ -302,23 +303,11 @@ _LoadTrainerPic:
 	jr z, .Ariana
 	; not Ariana
 	ld de, RocketAdminMPic
-	jr .loadSprite
+	jp .loadSprite
 .Ariana
 	ld de, RocketAdminFPic
 	jr .loadSprite
 .notAdmin
-
-; now check if it's rematch vs Traveler
-	ld a, [wTrainerClass] ; this is unnecessary, isn't it?
-	cp TRAVELER
-	jr nz, .notTraveler
-	ld a, [wTrainerNo]
-	cp 2 ; second team, rematch
-	jr nz, .notTraveler ; if not the rematch, do nothing as if it wasn't Traveler
-	ld a, BANK(Traveler2Pic)
-	ld de, Traveler2Pic
-	jr .loadSprite
-.notTraveler
 
 ; now check if it's one of the special COOLTRAINER (pseudo manga protagonists)
 	ld a, [wTrainerClass] ; this is unnecessary, isn't it?
@@ -372,9 +361,27 @@ _LoadTrainerPic:
 	ld a, BANK(RedPicFront)
 	ld de, RedPicFront
 	jr .loadSprite
-.notCopycat ; back to normal code
+.notCopycat
 
-	ld a, BANK("Pics 6") ; this is where all the trainer pics are (not counting Red's)
+; now check if it's one of the trainers that need bank "Pics 6b" but is otherwise normally handled
+; this means ORAGE, PIGEON, TRAVELER (but it requires a double check), MISSINGNO_T
+	ld a, [wTrainerClass]
+	cp ORAGE
+	jr c, .notNewNormalClasses
+; now check if it's rematch vs Traveler
+	cp TRAVELER
+	jr nz, .notTraveler
+	ld a, [wTrainerNo]
+	cp 2 ; second team, rematch
+	jr nz, .notTraveler ; if not the rematch, load default (5-ball) pic normally
+	ld de, Traveler2Pic
+.notTraveler
+	ld a, BANK("Pics 6b") ; non-vanilla trainers' pics
+	jr .loadSprite
+.notNewNormalClasses
+; back to normal code
+
+	ld a, BANK("Pics 6") ; this is where all the vanilla trainer pics are (not counting Red's)
 	jr .loadSprite ; edited
 .playerLikeSprite ; new
 	ld a, BANK(RedPicFront)

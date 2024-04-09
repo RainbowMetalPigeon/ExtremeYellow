@@ -313,7 +313,7 @@ SuperNerdPic::     INCBIN "gfx/trainers/supernerd.pic"
 HikerPic::         INCBIN "gfx/trainers/hiker.pic"
 BikerPic::         INCBIN "gfx/trainers/biker.pic"
 BurglarPic::       INCBIN "gfx/trainers/burglar.pic"
-;EngineerPic::      INCBIN "gfx/trainers/engineer.pic" ; commented out
+EngineerPic::      INCBIN "gfx/trainers/engineer.pic"
 FisherPic::        INCBIN "gfx/trainers/fisher.pic"
 SwimmerPic::       INCBIN "gfx/trainers/swimmer.pic"
 CueBallPic::       INCBIN "gfx/trainers/cueball.pic"
@@ -349,19 +349,18 @@ ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
-; new classes, dunno if this Section is fine
-OragePic::         INCBIN "gfx/trainers/engineer.pic" ; temp
-PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
-BFTrainerPic::
-TravelerPic::      INCBIN "gfx/trainers/traveler.pic" ; testing
 
 
 SECTION "Pics 6b", ROMX ; new
 
+; new trainer classes, "init_battle" has been modified to handle this bank too
+OragePic::         INCBIN "gfx/trainers/engineer.pic" ; TBE, temp!
+PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
+BFTrainerPic::
+TravelerPic::      INCBIN "gfx/trainers/traveler.pic" ; testing
 RocketAdminMPic::  INCBIN "gfx/trainers/rocketadminm.pic"
 RocketAdminFPic::  INCBIN "gfx/trainers/rocketadminf.pic"
 Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic" ; testing
-MissingNoTPic::    INCBIN "gfx/trainers/missingno.pic" ; testing, MissingNo as a Trainer (hence the T)
 
 
 SECTION "Pics 7", ROMX
@@ -518,6 +517,7 @@ EEternatusPicFront::  INCBIN "gfx/pokemon/front/eeternatus.pic"
 EEternatusPicBack::   INCBIN "gfx/pokemon/back/eeternatusb.pic"
 ArceusPicFront::  INCBIN "gfx/pokemon/front/arceus.pic"
 ArceusPicBack::   INCBIN "gfx/pokemon/back/arceusb.pic"
+MissingNoTPic:: ; testing, we don't need to waste space if they are exactly identical, TBV
 MissingNoPicFront::  INCBIN "gfx/pokemon/front/missingno.pic"
 MissingNoPicBack::   INCBIN "gfx/pokemon/back/missingnob.pic"
 BluesDadPicFront::  INCBIN "gfx/pokemon/front/bluesdad.pic"

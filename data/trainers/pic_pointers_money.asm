@@ -18,7 +18,7 @@ TrainerPicAndMoneyPointers::
 	pic_money HikerPic,        3500
 	pic_money BikerPic,        2000
 	pic_money BurglarPic,      9000
-;	pic_money EngineerPic,     5000
+	pic_money EngineerPic,     5000
 ;	pic_money JugglerPic,      3500
 	pic_money FisherPic,       3500
 	pic_money SwimmerPic,       500
@@ -58,5 +58,6 @@ TrainerPicAndMoneyPointers::
 	pic_money OragePic,        9900
 	pic_money PigeonPic,       15000
 	pic_money TravelerPic,     50000
-	pic_money BFTrainerPic,    0 ; to be edited, same as online battle
+	pic_money BFTrainerPic,    0 ; TBE, same as online battle
+	pic_money MissingNoTPic,   0 ; TBE?
 	assert_table_length NUM_TRAINERS

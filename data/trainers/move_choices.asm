@@ -20,7 +20,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; HIKER
 	move_choices 1       ; BIKER
 	move_choices 1, 3    ; BURGLAR
-;	move_choices 1       ; ENGINEER
+	move_choices 1       ; ENGINEER
 ;	move_choices 1, 2    ; UNUSED_JUGGLER
 	move_choices 1, 3    ; FISHER
 	move_choices 1, 3    ; SWIMMER
@@ -61,4 +61,5 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3 ; PIGEON
 	move_choices 1, 2, 3 ; TRAVELER
 	move_choices 1, 2, 3 ; BF_TRAINER
+	move_choices 1, 2, 3 ; MISSINGNO_T
 	assert_list_length NUM_TRAINERS

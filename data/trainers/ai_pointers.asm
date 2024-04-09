@@ -15,7 +15,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; HIKER
 	dbw 3, GenericAI ; BIKER
 	dbw 3, GenericAI ; BURGLAR
-;	dbw 3, GenericAI ; ENGINEER
+	dbw 3, GenericAI ; ENGINEER
 ;	dbw 3, JugglerAI ; UNUSED_JUGGLER
 	dbw 3, GenericAI ; FISHER
 	dbw 3, GenericAI ; SWIMMER
@@ -52,9 +52,10 @@ TrainerAIPointers:
 	dbw 2, AgathaAI ; AGATHA
 	dbw 1, LanceAI ; LANCE
 ; new classes
-	dbw 3, OrageAI ; ORAGE
-	dbw 3, GenericAI ; PigeonAI; PIGEON
-	dbw 3, GenericAI ; TravelerAI; TRAVELER
-	dbw 3, GenericAI ; BFTrainerAI; BF_TRAINER
+	dbw 3, OrageAI   ; ORAGE
+	dbw 3, GenericAI ; PIGEON
+	dbw 3, GenericAI ; TRAVELER
+	dbw 3, GenericAI ; BF_TRAINER
+	dbw 3, GenericAI ; MISSINGNO_T
 
 	assert_table_length NUM_TRAINERS

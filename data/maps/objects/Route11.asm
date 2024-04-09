@@ -15,12 +15,12 @@ Route11_Object:
 	object_event 10, 14, SPRITE_GAMBLER, STAY, DOWN, 1, OPP_GAMBLER, 1
 	object_event 26,  9, SPRITE_GAMBLER, STAY, DOWN, 2, OPP_GAMBLER, 2
 	object_event 13,  5, SPRITE_YOUNGSTER, STAY, LEFT, 3, OPP_YOUNGSTER, 9
-	object_event 36, 11, SPRITE_SUPER_NERD, STAY, DOWN, 4, OPP_ROCKER, 4 ; I may change these into SPRITE_COOLTRAINER_M and modify the sprite set transition for more smoothness
+	object_event 36, 11, SPRITE_SUPER_NERD, STAY, DOWN, 4, OPP_ENGINEER, 2 ; edited, TBV
 	object_event 22,  4, SPRITE_YOUNGSTER, STAY, UP, 5, OPP_YOUNGSTER, 10
 	object_event 45,  7, SPRITE_GAMBLER, STAY, DOWN, 6, OPP_GAMBLER, 3
 	object_event 33,  3, SPRITE_GAMBLER, STAY, UP, 7, OPP_GAMBLER, 4
 	object_event 43,  5, SPRITE_YOUNGSTER, STAY, RIGHT, 8, OPP_YOUNGSTER, 11
-	object_event 45, 16, SPRITE_SUPER_NERD, STAY, LEFT, 9, OPP_ROCKER, 5 ; I may change these into SPRITE_COOLTRAINER_M and modify the sprite set transition for more smoothness
+	object_event 45, 16, SPRITE_SUPER_NERD, STAY, LEFT, 9, OPP_ENGINEER, 3 ; edited, TBV
 	object_event 22, 12, SPRITE_YOUNGSTER, STAY, UP, 10, OPP_YOUNGSTER, 12
 
 	def_warps_to ROUTE_11

@@ -10,7 +10,7 @@ TrainerDataPointers:
 	dw HikerData
 	dw BikerData
 	dw BurglarData
-;	dw EngineerData ; removed
+	dw EngineerData
 ;	dw UnusedJugglerData ; removed
 	dw FisherData
 	dw SwimmerData
@@ -439,7 +439,8 @@ RockerData:
 	db 23, ELEKID, VOLTORB, VOLTORB, ELECTRODE, 0 ; updated
 ; Route 12
 	db 29, VOLTORB, ELECTRODE, 0
-;EngineerData: ; removed
+
+EngineerData:
 ; Ochre Gym
 	db 45, MAGNEZONE, STEELIX, SCIZOR, 0 ; new
 ; Route 11
@@ -912,4 +913,3 @@ TravelerData:
 
 BFTrainerData:
 	db 1, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, 0 ; new
-

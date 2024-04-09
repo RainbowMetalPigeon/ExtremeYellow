@@ -1,4 +1,4 @@
-DEF OPP_ID_OFFSET EQU 209 ; was 200, but I added 57 mons
+DEF OPP_ID_OFFSET EQU 200 ; unnecessary after the whole go beyond 200???
 
 MACRO trainer_const
 	const \1
@@ -26,7 +26,7 @@ ENDM
 	trainer_const HIKER          ; $09
 	trainer_const BIKER          ; $0A
 	trainer_const BURGLAR        ; $0B
-;	trainer_const ENGINEER       ; $0C - will be removed
+	trainer_const ENGINEER       ; $0C
 ;	trainer_const UNUSED_JUGGLER ; $0D - will be removed
 	trainer_const FISHER         ; $0E
 	trainer_const SWIMMER        ; $0F
@@ -67,5 +67,6 @@ ENDM
 	trainer_const PIGEON		 ; Self-cameo
 	trainer_const TRAVELER		 ; Interdimensional traveler
 	trainer_const BF_TRAINER	 ; Battle Facility opponent
+	trainer_const MISSINGNO_T	 ; self-explanatory
 
 DEF NUM_TRAINERS EQU const_value - 1

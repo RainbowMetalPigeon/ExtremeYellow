@@ -10,7 +10,7 @@ TrainerNames::
 	db "HIKER@"
 	db "BIKER@"
 	db "BURGLAR@"
-;	db "ENGINEER@"
+	db "ENGINEER@"
 ;	db "JUGGLER@"
 	db "FISHERMAN@"
 	db "SWIMMER@"
@@ -51,3 +51,4 @@ TrainerNames::
 	db "PIGEON@"
 	db "TRAVELER@"
 	db "B.F. TRAINER@" ; to be decided
+	db "MISSINGNO.@"
