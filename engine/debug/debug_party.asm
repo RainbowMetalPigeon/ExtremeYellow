@@ -20,7 +20,7 @@ DebugTeam:
 	db MISSINGNO, 255
 	db BLUESDAD, 9
 	db BLUESMOM, 9
-	db DAD, 100
+;	db DAD, 100
 	db -1 ; end
 
 DebugStart:
