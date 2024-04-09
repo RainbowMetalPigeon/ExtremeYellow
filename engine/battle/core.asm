@@ -5967,7 +5967,7 @@ AIGetTypeEffectiveness:
 INCLUDE "data/types/type_matchups.asm"
 
 ; some tests that need to pass for a move to hit
-MoveHitTest:
+MoveHitTest::
 ; new, TOXIC can't miss if used by a POISON type
 	ldh a, [hWhoseTurn]
 	and a
@@ -6233,7 +6233,7 @@ EnemyCalcMoveDamage:
 	call AdjustDamageForMoveType
 	callfar RandomizeDamage ; edited into a callfar
 
-EnemyMoveHitTest:
+EnemyMoveHitTest::
 	call MoveHitTest
 handleIfEnemyMoveMissed:
 	ld a, [wMoveMissed]

@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/dad.pic", 0, 1 ; sprite dimensions
 	dw DadPicFront, DadPicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db LOVELY_KISS, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
