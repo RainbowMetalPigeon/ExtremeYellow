@@ -208,4 +208,8 @@ INCLUDE "data/pokemon/base_stats/unecrozma.asm"
 INCLUDE "data/pokemon/base_stats/mrayquaza.asm"
 INCLUDE "data/pokemon/base_stats/eeternatus.asm"
 INCLUDE "data/pokemon/base_stats/arceus.asm"
+INCLUDE "data/pokemon/base_stats/missingno.asm"
+INCLUDE "data/pokemon/base_stats/bluesdad.asm"
+INCLUDE "data/pokemon/base_stats/bluesmom.asm"
+INCLUDE "data/pokemon/base_stats/dad.asm"
 	assert_table_length NUM_POKEMON

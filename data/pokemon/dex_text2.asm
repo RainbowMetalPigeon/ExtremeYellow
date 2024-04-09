@@ -1076,3 +1076,35 @@ _ArceusDexEntry::
 	next "no??in?, ??en"
 	next "s?a??d t?e w??l?"
 	dex
+
+_MissingNoDexEntry::
+	text "Comment to be"
+	next "written"
+	dex
+
+_BluesDadDexEntry::
+	text "<RIVAL>'s DAD."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex
+
+_BluesMomDexEntry::
+	text "<RIVAL>'s MOM."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex
+
+_DadDexEntry::
+	text "Your DAD."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex

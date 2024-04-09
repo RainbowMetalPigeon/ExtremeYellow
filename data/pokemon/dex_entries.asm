@@ -209,6 +209,10 @@ PokedexEntryPointers:
 	dw EEternatusDexEntry
 	dw ArceusDexEntry
 	dw MissingNoDexEntry
+	dw BluesDadDexEntry
+	dw BluesMomDexEntry
+	dw DadDexEntry
+	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 ; map pieces, new
@@ -1693,8 +1697,30 @@ ArceusDexEntry:
 MissingNoDexEntry:
 	db "???@"
 	db 10
-	dw 10
-	db "コメント　さくせいちゅう@" ; コメント作成中 (Comment to be written)
+	dw 100
+	text_far _MissingNoDexEntry
+	text_end
+
+BluesDadDexEntry:
+	db "HUMAN@"
+	db 17
+	dw 650
+	text_far _BluesDadDexEntry
+	text_end
+
+BluesMomDexEntry:
+	db "HUMAN@"
+	db 16
+	dw 550
+	text_far _BluesMomDexEntry
+	text_end
+
+DadDexEntry:
+	db "HUMAN@"
+	db 18
+	dw 700
+	text_far _DadDexEntry
+	text_end
 
 MapPieceDexEntry: ; new
 	db "MAP@"

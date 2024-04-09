@@ -203,6 +203,15 @@ PokedexEntryPointers:
 	dw MMewtwoYDexEntry
 	dw MewDexEntry
 	dw VenustoiseDexEntry
+	dw ZygardeCDexEntry
+	dw UNecrozmaDexEntry
+	dw MRayquazaDexEntry
+	dw EEternatusDexEntry
+	dw ArceusDexEntry
+	dw MissingNoDexEntry
+	dw BluesDadDexEntry
+	dw BluesMomDexEntry
+	dw DadDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
@@ -1632,6 +1641,69 @@ VenustoiseDexEntry:
 	db 26
 	dw 1361
 	text_far _VenustoiseDexEntry
+	text_end
+
+ZygardeCDexEntry:
+	db "ORDER@"
+	db 45
+	dw 6100
+	text_far _ZygardeCDexEntry
+	text_end
+
+UNecrozmaDexEntry:
+	db "PRISM@"
+	db 75
+	dw 2300
+	text_far _UNecrozmaDexEntry
+	text_end
+
+MRayquazaDexEntry:
+	db "SKY HIGH@"
+	db 108
+	dw 3920
+	text_far _MRayquazaDexEntry
+	text_end
+
+EEternatusDexEntry:
+	db "GIGANTIC@"
+	db 100
+	dw 9500
+	text_far _EEternatusDexEntry
+	text_end
+
+ArceusDexEntry:
+	db "ALPHA@"
+	db 32
+	dw 3200
+	text_far _ArceusDexEntry
+	text_end
+
+MissingNoDexEntry:
+	db "???@"
+	db 10
+	dw 100
+	text_far _MissingNoDexEntry
+	text_end
+
+BluesDadDexEntry:
+	db "HUMAN@"
+	db 17
+	dw 650
+	text_far _BluesDadDexEntry
+	text_end
+
+BluesMomDexEntry:
+	db "HUMAN@"
+	db 16
+	dw 550
+	text_far _BluesMomDexEntry
+	text_end
+
+DadDexEntry:
+	db "HUMAN@"
+	db 18
+	dw 700
+	text_far _DadDexEntry
 	text_end
 
 MissingNoDexEntry:

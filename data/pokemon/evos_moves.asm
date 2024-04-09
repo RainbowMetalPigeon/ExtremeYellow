@@ -211,6 +211,10 @@ EvosMovesPointerTable:
 	dw MRayquazaEvosMoves
 	dw EEternatusEvosMoves
 	dw ArceusEvosMoves
+	dw MissingNoEvosMoves
+	dw BluesDadEvosMoves
+	dw BluesMomEvosMoves
+	dw DadEvosMoves
 	dw FossilKabutopsEvosMoves
 	dw FossilAerodactylEvosMoves
 	dw MonGhostEvosMoves
@@ -852,29 +856,27 @@ PichuEvosMoves:
 	db 12, DOUBLE_TEAM
 	db 13, DEFENSE_CURL
 	db 14, QUICK_ATTACK
-	db 15, FLY
-	db 16, SURF
-	db 17, DOUBLE_KICK
-	db 18, SLAM
-	db 19, AGILITY
-	db 20, SWIFT
-	db 21, MUD_SLAP
-	db 22, SING
-	db 23, THUNDERBOLT
-	db 24, TAKE_DOWN
-	db 25, THUNDERPUNCH
-	db 26, HEADBUTT
-	db 27, VOLT_TACKLE
-	db 28, IRON_TAIL
-	db 29, LIGHT_SCREEN
-	db 30, SHOCK_WAVE
-	db 31, PLAY_ROUGH
-	db 32, THUNDER
-	db 33, EXTREMESPEED
-	db 34, SUBMISSION
-	db 35, ZAP_CANNON
-	db 36, PETAL_DANCE
-	db 37, PSYCHIC_M
+	db 15, DOUBLE_KICK
+	db 16, SLAM
+	db 17, AGILITY
+	db 18, SWIFT
+	db 19, MUD_SLAP
+	db 20, SING
+	db 21, THUNDERBOLT
+	db 22, TAKE_DOWN
+	db 23, THUNDERPUNCH
+	db 24, HEADBUTT
+	db 25, VOLT_TACKLE
+	db 26, IRON_TAIL
+	db 27, LIGHT_SCREEN
+	db 28, SHOCK_WAVE
+	db 29, PLAY_ROUGH
+	db 30, THUNDER
+	db 31, EXTREMESPEED
+	db 32, SUBMISSION
+	db 33, ZAP_CANNON
+	db 34, PETAL_DANCE
+	db 35, PSYCHIC_M
 	db 0
 
 PikachuEvosMoves:
@@ -920,7 +922,6 @@ RaichuEvosMoves:
 	db 13, DOUBLE_TEAM
 	db 14, DEFENSE_CURL
 	db 16, QUICK_ATTACK
-	db 18, SURF
 	db 19, DOUBLE_KICK
 	db 22, SLAM
 	db 24, AGILITY
@@ -2232,7 +2233,7 @@ MAlakazamEvosMoves:
 	db 62, ENERGY_BALL
 	db 65, PSYCHO_CUT
 	db 68, ZAP_CANNON
-	db 70, NIGHT_SLASH
+	db 71, NIGHT_SLASH
 	db 0
 
 MachopEvosMoves:
@@ -5741,10 +5742,19 @@ ArceusEvosMoves:
 	db 100, JUDGMENT
 	db 0
 
-; rearranged to have them all together
+MissingNoEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+; rearranged to have all the proxies together
 FossilKabutopsEvosMoves:
 FossilAerodactylEvosMoves:
 MonGhostEvosMoves:
+BluesDadEvosMoves:
+BluesMomEvosMoves:
+DadEvosMoves:
 MapPiecesEvosMoves: ; new
 ; Evolutions
 	db 0

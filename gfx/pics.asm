@@ -361,6 +361,7 @@ SECTION "Pics 6b", ROMX ; new
 RocketAdminMPic::  INCBIN "gfx/trainers/rocketadminm.pic"
 RocketAdminFPic::  INCBIN "gfx/trainers/rocketadminf.pic"
 Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic" ; testing
+MissingNoTPic::    INCBIN "gfx/trainers/missingno.pic" ; testing, MissingNo as a Trainer (hence the T)
 
 
 SECTION "Pics 7", ROMX
@@ -517,6 +518,14 @@ EEternatusPicFront::  INCBIN "gfx/pokemon/front/eeternatus.pic"
 EEternatusPicBack::   INCBIN "gfx/pokemon/back/eeternatusb.pic"
 ArceusPicFront::  INCBIN "gfx/pokemon/front/arceus.pic"
 ArceusPicBack::   INCBIN "gfx/pokemon/back/arceusb.pic"
+MissingNoPicFront::  INCBIN "gfx/pokemon/front/missingno.pic"
+MissingNoPicBack::   INCBIN "gfx/pokemon/back/missingnob.pic"
+BluesDadPicFront::  INCBIN "gfx/pokemon/front/bluesdad.pic"
+BluesMomPicFront::  INCBIN "gfx/pokemon/front/bluesmom.pic"
+DadPicFront::  INCBIN "gfx/pokemon/front/dad.pic"
+BluesDadPicBack::
+BluesMomPicBack::
+DadPicBack::   INCBIN "gfx/pokemon/back/dadb.pic" ; just one, they are all proxies
 
 FossilKabutopsPic::   INCBIN "gfx/pokemon/front/fossilkabutops.pic"
 FossilAerodactylPic::  INCBIN "gfx/pokemon/front/fossilaerodactyl.pic"

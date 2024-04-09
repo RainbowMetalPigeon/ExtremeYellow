@@ -214,6 +214,10 @@ CryData::
 	mon_cry SFX_CRY_13, $14, $FF ; MRayquaza
 	mon_cry SFX_CRY_13, $14, $FF ; EEternatus
 	mon_cry SFX_CRY_1C, $0D, $FF ; Arceus
+	mon_cry SFX_CRY_00, $00, $00 ; MissingNo
+	mon_cry SFX_CRY_00, $00, $00 ; BluesDad
+	mon_cry SFX_CRY_00, $00, $00 ; BluesMom
+	mon_cry SFX_CRY_00, $00, $00 ; Dad
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.

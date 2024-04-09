@@ -263,9 +263,7 @@ _LoadTrainerPic:
 	ld a, [wTrainerClass]
 	cp BF_TRAINER
 	jr nz, .notMultiSpriteTrainer
-;	call Random
-;	and 3 ; = %00000111, which is perfect because we have 4 options, now a is randomly in [0,3]
-	ld a, [wBattleFacilityOpponentTrainerSprite] ; edited, testing
+	ld a, [wBattleFacilityOpponentTrainerSprite] ; edited
 	cp 0
 	jr z, .randomNumber0
 	cp 1

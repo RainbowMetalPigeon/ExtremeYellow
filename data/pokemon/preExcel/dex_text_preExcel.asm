@@ -409,11 +409,11 @@ _NidokingDexEntry::
 _CleffaDexEntry::
 	text "If the impact site"
 	next "of a meteorite is"
-	next "found, this Poké-"
+	next "found, this"
 
-	page "mon is certain to"
-	next "be within the im-"
-	next "mediate area"
+	page "#MON is certain"
+	next "to be within the"
+	next "immediate area"
 	dex
 
 _ClefairyDexEntry::
@@ -492,7 +492,7 @@ _ZubatDexEntry::
 	next "flies. They act as"
 
 	page "a sonar used to"
-	next "check for ob-jects"
+	next "check for objects"
 	next "in its way"
 	dex
 
@@ -651,7 +651,7 @@ _GolduckDexEntry::
 	next "limbs end in broad"
 	next "flippers. They are"
 
-	page "used for swim-ming"
+	page "used for swimming"
 	next "gracefully in"
 	next "lakes"
 	dex
@@ -2020,5 +2020,87 @@ _VenustoiseDexEntry::
 	page "unparalleled power"
 	next "and attack with"
 	next "otherworldy fury"
+	dex
+
+_ZygardeCDexEntry::
+	text "This is ZYGARDE's"
+	next "perfected form. It"
+	next "can radiate high-"
+
+	page "powered energy"
+	next "that eliminates"
+	next "everything"
+	dex
+
+_UNecrozmaDexEntry::
+	text "It absorbed over-"
+	next "whelming light en-"
+	next "ergy. It fires"
+
+	page "lasers that affect"
+	next "each and every"
+	next "living being"
+	dex
+
+_MRayquazaDexEntry::
+	text "Has lived for mil-"
+	next "lion of years in"
+	next "the ozone layer."
+
+	page "It Mega Evolved"
+	next "thanks to the met-"
+	next "eorites it eats"
+	dex
+
+_EEternatusDexEntry::
+	text "Infinite amounts"
+	next "of energy pour"
+	next "from this #MON-"
+
+	page "mon's enlarged"
+	next "core, warping the"
+	next "space-time around"
+	dex
+
+_ArceusDexEntry::
+	text "It is said to have"
+	next "emerged from an"
+	next "egg in a place"
+
+	page "where there was"
+	next "nothing, then"
+	next "shaped the world"
+	dex
+
+_MissingNoDexEntry::
+	text "Comment to be"
+	next "written"
+	dex
+
+_BluesDadDexEntry::
+	text "<RIVAL>'s DAD."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex
+
+_BluesMomDexEntry::
+	text "<RIVAL>'s MOM."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex
+
+_DadDexEntry::
+	text "Your DAD. Thought"
+	next "dead long ago, was"
+	next "actually made"
+
+	page "prisoner by MISS-"
+	next "INGNO."
 	dex
 

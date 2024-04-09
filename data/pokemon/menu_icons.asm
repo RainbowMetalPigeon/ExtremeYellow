@@ -208,4 +208,8 @@ MonPartyData:
 	nybble ICON_SNAKE     ; MRayquaza
 	nybble ICON_MON       ; EEternatus
 	nybble ICON_QUADRUPED ; Arceus
+	nybble ICON_BIRD      ; MissingNo
+	nybble ICON_MON       ; BluesDad
+	nybble ICON_MON       ; BluesMom
+	nybble ICON_MON       ; Dad
 	end_nybble_array NUM_POKEMON

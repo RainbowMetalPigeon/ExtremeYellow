@@ -209,6 +209,10 @@ MonsterNames::
 	db "EETERNATUS"
 	db "ARCEUS@@@@"
 	db "MISSINGNO."
+	db "BLUE's DAD"
+	db "BLUE's MOM"
+	db "DAD@@@@@@@"
+	db "MISSINGNO."
 	db "MISSINGNO."
 	db "MISSINGNO."
 ; map pieces, new

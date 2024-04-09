@@ -215,9 +215,13 @@
 	const MRAYQUAZA          ; 206
 	const EETERNATUS         ; 207
 	const ARCEUS             ; 208
-	const FOSSIL_KABUTOPS    ; 209
-	const FOSSIL_AERODACTYL  ; 210
-	const MON_GHOST          ; 211
+	const MISSINGNO          ; 209
+	const BLUESDAD           ; 210
+	const BLUESMOM           ; 211
+	const DAD                ; 212
+	const FOSSIL_KABUTOPS    ; 213
+	const FOSSIL_AERODACTYL  ; 214
+	const MON_GHOST          ; 215
 ; map pieces, new
 	const MAP_PIECES_1
 	const MAP_PIECES_2
@@ -233,7 +237,7 @@
 	const MAP_PIECES_124
 	const MAP_PIECES_134
 	const MAP_PIECES_234
-	const MAP_PIECES_1234	
+	const MAP_PIECES_1234
 
 DEF NUM_POKEMON_INDEXES EQU const_value - 1
 

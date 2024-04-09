@@ -203,4 +203,13 @@ MonPartyData:
 	nybble ICON_MON       ; MMewtwoY
 	nybble ICON_MON       ; Mew
 	nybble ICON_MON       ; Venustoise
+	nybble ICON_MON       ; ZygardeC
+	nybble ICON_MON       ; UNecrozma
+	nybble ICON_SNAKE     ; MRayquaza
+	nybble ICON_MON       ; EEternatus
+	nybble ICON_QUADRUPED ; Arceus
+	nybble ICON_BIRD      ; MissingNo
+	nybble ICON_MON       ; BluesDad
+	nybble ICON_MON       ; BluesMom
+	nybble ICON_MON       ; Dad
 	end_nybble_array NUM_POKEMON

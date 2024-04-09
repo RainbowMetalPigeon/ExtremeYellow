@@ -409,11 +409,11 @@ _NidokingDexEntry::
 _CleffaDexEntry::
 	text "If the impact site"
 	next "of a meteorite is"
-	next "found, this Poké-"
+	next "found, this"
 
-	page "mon is certain to"
-	next "be within the im-"
-	next "mediate area"
+	page "#MON is certain"
+	next "to be within the"
+	next "immediate area"
 	dex
 
 _ClefairyDexEntry::
@@ -492,7 +492,7 @@ _ZubatDexEntry::
 	next "flies. They act as"
 
 	page "a sonar used to"
-	next "check for ob-jects"
+	next "check for objects"
 	next "in its way"
 	dex
 
@@ -651,7 +651,7 @@ _GolduckDexEntry::
 	next "limbs end in broad"
 	next "flippers. They are"
 
-	page "used for swim-ming"
+	page "used for swimming"
 	next "gracefully in"
 	next "lakes"
 	dex
@@ -2038,7 +2038,8 @@ _UNecrozmaDexEntry::
 	next "ergy. It fires"
 
 	page "lasers that affect"
-	next "every living being"
+	next "each and every"
+	next "living being"
 	dex
 
 _MRayquazaDexEntry::
@@ -2070,3 +2071,36 @@ _ArceusDexEntry::
 	next "nothing, then"
 	next "shaped the world"
 	dex
+
+_MissingNoDexEntry::
+	text "Comment to be"
+	next "written"
+	dex
+
+_BluesDadDexEntry::
+	text "<RIVAL>'s DAD."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex
+
+_BluesMomDexEntry::
+	text "<RIVAL>'s MOM."
+	next "Thought dead long"
+	next "ago, was actually"
+
+	page "made prisoner by"
+	next "MISSINGNO."
+	dex
+
+_DadDexEntry::
+	text "Your DAD. Thought"
+	next "dead long ago, was"
+	next "actually made"
+
+	page "prisoner by MISS-"
+	next "INGNO."
+	dex
+

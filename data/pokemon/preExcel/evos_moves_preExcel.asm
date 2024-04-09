@@ -211,6 +211,10 @@ EvosMovesPointerTable:
 	dw MRayquazaEvosMoves
 	dw EEternatusEvosMoves
 	dw ArceusEvosMoves
+	dw MissingNoEvosMoves
+	dw BluesDadEvosMoves
+	dw BluesMomEvosMoves
+	dw DadEvosMoves
 	dw FossilKabutopsEvosMoves
 	dw FossilAerodactylEvosMoves
 	dw MonGhostEvosMoves
@@ -836,29 +840,27 @@ PichuEvosMoves:
 	db 12, DOUBLE_TEAM
 	db 13, DEFENSE_CURL
 	db 14, QUICK_ATTACK
-	db 15, FLY
-	db 16, SURF
-	db 17, DOUBLE_KICK
-	db 18, SLAM
-	db 19, AGILITY
-	db 20, SWIFT
-	db 21, MUD_SLAP
-	db 22, SING
-	db 23, THUNDERBOLT
-	db 24, TAKE_DOWN
-	db 25, THUNDERPUNCH
-	db 26, HEADBUTT
-	db 27, VOLT_TACKLE
-	db 28, IRON_TAIL
-	db 29, LIGHT_SCREEN
-	db 30, SHOCK_WAVE
-	db 31, PLAY_ROUGH
-	db 32, THUNDER
-	db 33, EXTREMESPEED
-	db 34, SUBMISSION
-	db 35, ZAP_CANNON
-	db 36, PETAL_DANCE
-	db 37, PSYCHIC_M
+	db 15, DOUBLE_KICK
+	db 16, SLAM
+	db 17, AGILITY
+	db 18, SWIFT
+	db 19, MUD_SLAP
+	db 20, SING
+	db 21, THUNDERBOLT
+	db 22, TAKE_DOWN
+	db 23, THUNDERPUNCH
+	db 24, HEADBUTT
+	db 25, VOLT_TACKLE
+	db 26, IRON_TAIL
+	db 27, LIGHT_SCREEN
+	db 28, SHOCK_WAVE
+	db 29, PLAY_ROUGH
+	db 30, THUNDER
+	db 31, EXTREMESPEED
+	db 32, SUBMISSION
+	db 33, ZAP_CANNON
+	db 34, PETAL_DANCE
+	db 35, PSYCHIC_M
 	db 0
 
 PikachuEvosMoves:
@@ -904,7 +906,6 @@ RaichuEvosMoves:
 	db 13, DOUBLE_TEAM
 	db 14, DEFENSE_CURL
 	db 16, QUICK_ATTACK
-	db 18, SURF
 	db 19, DOUBLE_KICK
 	db 22, SLAM
 	db 24, AGILITY
@@ -2136,20 +2137,19 @@ KadabraEvosMoves:
 	db EV_LEVEL, 42, ALAKAZAM
 	db 0
 ; Learnset
-	db 5, PSYBEAM
-	db 8, BARRIER
-	db 11, CONFUSION
-	db 14, DISABLE
-	db 17, SWIFT
-	db 19, PSYCHO_CUT
-	db 22, NIGHT_SHADE
-	db 25, RECOVER
-	db 27, HYPNOSIS
-	db 29, DREAM_EATER
-	db 31, REFLECT
-	db 34, LIGHT_SCREEN
-	db 37, ZEN_HEADBUTT
-	db 40, IRON_TAIL
+	db 16, CONFUSION
+	db 18, DISABLE
+	db 20, BARRIER
+	db 23, PSYBEAM
+	db 25, SWIFT
+	db 27, NIGHT_SHADE
+	db 30, RECOVER
+	db 32, HYPNOSIS
+	db 33, DREAM_EATER
+	db 35, REFLECT
+	db 37, LIGHT_SCREEN
+	db 39, ZEN_HEADBUTT
+	db 41, IRON_TAIL
 	db 43, THUNDERPUNCH
 	db 44, ICE_PUNCH
 	db 45, FIRE_PUNCH
@@ -2157,7 +2157,8 @@ KadabraEvosMoves:
 	db 50, PSYCHIC_M
 	db 52, SHOCK_WAVE
 	db 55, ENERGY_BALL
-	db 57, ZAP_CANNON
+	db 57, PSYCHO_CUT
+	db 60, ZAP_CANNON
 	db 0
 
 AlakazamEvosMoves:
@@ -2166,20 +2167,19 @@ AlakazamEvosMoves:
 	db EV_ITEM, MEGA_STONE_Y, 1, MALAKAZAM
 	db 0
 ; Learnset
-	db 5, PSYBEAM
-	db 8, BARRIER
-	db 11, CONFUSION
-	db 14, DISABLE
-	db 17, SWIFT
-	db 19, PSYCHO_CUT
-	db 22, NIGHT_SHADE
-	db 25, RECOVER
-	db 27, HYPNOSIS
-	db 29, DREAM_EATER
-	db 31, REFLECT
-	db 34, LIGHT_SCREEN
-	db 37, ZEN_HEADBUTT
-	db 40, IRON_TAIL
+	db 16, CONFUSION
+	db 18, DISABLE
+	db 20, BARRIER
+	db 23, PSYBEAM
+	db 25, SWIFT
+	db 27, NIGHT_SHADE
+	db 30, RECOVER
+	db 32, HYPNOSIS
+	db 33, DREAM_EATER
+	db 35, REFLECT
+	db 37, LIGHT_SCREEN
+	db 39, ZEN_HEADBUTT
+	db 41, IRON_TAIL
 	db 46, THUNDERPUNCH
 	db 47, ICE_PUNCH
 	db 48, FIRE_PUNCH
@@ -2187,27 +2187,27 @@ AlakazamEvosMoves:
 	db 53, PSYCHIC_M
 	db 55, SHOCK_WAVE
 	db 57, ENERGY_BALL
-	db 60, ZAP_CANNON
+	db 60, PSYCHO_CUT
+	db 63, ZAP_CANNON
 	db 0
 
 MAlakazamEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 10, PSYBEAM
-	db 13, BARRIER
-	db 16, CONFUSION
-	db 19, DISABLE
-	db 22, SWIFT
-	db 24, PSYCHO_CUT
-	db 27, NIGHT_SHADE
-	db 30, RECOVER
-	db 32, HYPNOSIS
-	db 34, DREAM_EATER
-	db 36, REFLECT
-	db 39, LIGHT_SCREEN
-	db 42, ZEN_HEADBUTT
-	db 45, IRON_TAIL
+	db 21, CONFUSION
+	db 23, DISABLE
+	db 25, BARRIER
+	db 28, PSYBEAM
+	db 30, SWIFT
+	db 32, NIGHT_SHADE
+	db 35, RECOVER
+	db 37, HYPNOSIS
+	db 38, DREAM_EATER
+	db 40, REFLECT
+	db 42, LIGHT_SCREEN
+	db 44, ZEN_HEADBUTT
+	db 46, IRON_TAIL
 	db 51, THUNDERPUNCH
 	db 52, ICE_PUNCH
 	db 53, FIRE_PUNCH
@@ -2215,8 +2215,9 @@ MAlakazamEvosMoves:
 	db 58, PSYCHIC_M
 	db 60, SHOCK_WAVE
 	db 62, ENERGY_BALL
-	db 65, ZAP_CANNON
-	db 67, NIGHT_SLASH
+	db 65, PSYCHO_CUT
+	db 68, ZAP_CANNON
+	db 71, NIGHT_SLASH
 	db 0
 
 MachopEvosMoves:
@@ -4646,11 +4647,11 @@ GyaradosEvosMoves:
 	db EV_ITEM, MEGA_STONE_Y, 1, MGYARADOS
 	db 0
 ; Learnset
-	db 15, TWISTER
-	db 17, BUBBLE
-	db 19, LEER
-	db 21, FOCUS_ENERGY
-	db 23, BITE
+	db 20, BITE
+	db 21, BUBBLE
+	db 22, LEER
+	db 23, TWISTER
+	db 24, FOCUS_ENERGY
 	db 25, WATER_GUN
 	db 27, DRAGON_RAGE
 	db 30, WRAP
@@ -4675,11 +4676,11 @@ MGyaradosEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 20, TWISTER
-	db 22, BUBBLE
-	db 24, LEER
-	db 26, FOCUS_ENERGY
-	db 28, BITE
+	db 25, BITE
+	db 26, BUBBLE
+	db 27, LEER
+	db 28, TWISTER
+	db 29, FOCUS_ENERGY
 	db 30, WATER_GUN
 	db 32, DRAGON_RAGE
 	db 35, WRAP
@@ -5725,6 +5726,30 @@ ArceusEvosMoves:
 	db 100, JUDGMENT
 	db 0
 
+MissingNoEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+BluesDadEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+BluesMomEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
+DadEvosMoves:
+; Evolutions
+	db 0
+; Learnset
+	db 0
+
 FossilKabutopsEvosMoves:
 ; Evolutions
 	db 0
@@ -5742,3 +5767,4 @@ MonGhostEvosMoves:
 	db 0
 ; Learnset
 	db 0
+

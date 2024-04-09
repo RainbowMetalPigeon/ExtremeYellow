@@ -212,5 +212,9 @@
 	const DEX_MRAYQUAZA  ; 206
 	const DEX_EETERNATUS ; 207
 	const DEX_ARCEUS     ; 208
+	const DEX_MISSINGNO  ; 209
+	const DEX_BLUESDAD   ; 210
+	const DEX_BLUESMOM   ; 211
+	const DEX_DAD        ; 212
 
 DEF NUM_POKEMON EQU const_value - 1
