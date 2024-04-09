@@ -336,6 +336,8 @@ MtMoon3Script12:
 	ld [wCurOpponent], a
 	ld a, $2e ; edited
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
@@ -350,6 +352,8 @@ MtMoon3Script13:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, MtMoon3Script_49cd7
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
 	ld [wSprite02StateData1MovementStatus], a
 	ld [wSprite06StateData1MovementStatus], a

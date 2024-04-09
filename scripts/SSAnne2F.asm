@@ -98,8 +98,8 @@ SSAnne2Script1:
 	ld [wCurOpponent], a
 	ld a, $1				; this and the next line load the rival2 #1
 	ld [wTrainerNo], a
-;	ld a, 1								; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call SSAnne2Script_61416
 	ld a, $2
 	ld [wSSAnne2FCurScript], a
@@ -109,8 +109,8 @@ SSAnne2Script2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SSAnne2Script_613ab
-;	xor a								; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call SSAnne2Script_61416
 	ld a, $f0
 	ld [wJoyIgnore], a

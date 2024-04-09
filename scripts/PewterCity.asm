@@ -197,7 +197,7 @@ PewterCityText12:
 ; ================================
 
 TextPreBattle_PewterTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_PewterTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty
@@ -221,6 +221,8 @@ TextPreBattle_PewterTraveler: ; new
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, Text_DefeatPostBattle_PewterTraveler
 	ld de, Text_VictoryPostBattle_PewterTraveler
 	call SaveEndBattleTextPointers
@@ -268,6 +270,8 @@ PewterScript_Traveler:
 	ld [wCurMapScript], a
 	ret
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; this is to guarantee that the traveler is visible after the battle
     ld a, HS_PEWTER_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a

@@ -26,17 +26,17 @@ Route22Script_50ed6:
 	ld [wCurOpponent], a
 	ld a, $2
 	ld [wTrainerNo], a
-;	ld a, 1						; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a	; countercomment to do tutorial to go beyond 200?
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ret
 
 Route22Script_50ee1:
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
-;	add 7					; new, commented to lock the rival's team
-	ld a, $4				; this and the next line load the rival2 #4 - new
+	ld a, $4				; edited
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ret
 
 Route22MoveRivalSprite:
@@ -150,8 +150,8 @@ Route22Script2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route22Script_50ece
-;	xor a							; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200?
+	xor a							; new, to go beyond 200
+	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ld a, [wRivalStarter]
 	cp RIVAL_STARTER_FLAREON
 	jr nz, .keep_rival_starter
@@ -307,8 +307,8 @@ Route22Script5:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route22Script_50ece
-;	xor a								; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a			; countercomment to do tutorial to go beyond 200?
+	xor a								; new, to go beyond 200
+	ld [wIsTrainerBattle], a			; new, to go beyond 200
 	ld a, $2
 	ldh [hSpriteIndex], a
 	ld a, [wcf0d]

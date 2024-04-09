@@ -238,6 +238,8 @@ TextPreBattle_OchreTraveler: ; new
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, Text_DefeatPostBattle_OchreTraveler
 	ld de, Text_VictoryPostBattle_OchreTraveler
 	call SaveEndBattleTextPointers
@@ -285,6 +287,8 @@ OchreScript_Traveler:
 	ld [wCurMapScript], a
 	ret
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; this is to guarantee that the traveler is visible after the battle
     ld a, HS_OCHRE_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a

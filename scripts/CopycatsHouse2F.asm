@@ -26,6 +26,8 @@ CopycatsHouse2FScriptPostBattle:
 	cp $ff
 	jr z, .gotDefeated
 ; if you won
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	SetEvent EVENT_DEFEATED_COPYCAT
 	ld a, 1
 	ldh [hSpriteIndexOrTextID], a
@@ -75,6 +77,8 @@ CopycatsHouse2FText1: ; edited
 	ld [wCurOpponent], a
 	ld a, 5
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	ld a, 1
@@ -114,6 +118,8 @@ CopycatsHouse2FText1: ; edited
 	ld [wCurOpponent], a
 	ld a, 5
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	jr .done

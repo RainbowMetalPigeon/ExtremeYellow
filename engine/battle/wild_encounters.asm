@@ -100,7 +100,7 @@ TryDoWildEncounter:
 	ret
 .willEncounter
 	xor a
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200
+	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ret
 
 INCLUDE "data/wild/probabilities.asm"

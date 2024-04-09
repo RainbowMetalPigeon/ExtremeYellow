@@ -23,6 +23,8 @@ SSAnneCaptainsRoomScript1: ; new
 	ld [wCurMapScript], a
 	ret
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, 5
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -110,6 +112,8 @@ SSAnne7Text1:
 	ld [wCurOpponent], a
 	ld a, 6
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, SSAnne7TextCaptain_Defeat
 	ld de, SSAnne7TextCaptain_Defeat
 	call SaveEndBattleTextPointers

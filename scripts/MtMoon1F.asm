@@ -92,6 +92,8 @@ MtMoon1Script3: ; new
 	ld [wCurOpponent], a
 	ld a, 6
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	call MtMoon1FScript_RivalFacingDown
@@ -121,6 +123,8 @@ MtMoon1Script4: ; new
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, MtMoon1FScript_ResetIfLoseVsRival
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call MtMoon1FScript_RivalFacingDown
 	ld a, $f0
 	ld [wJoyIgnore], a

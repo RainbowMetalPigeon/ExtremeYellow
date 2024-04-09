@@ -244,6 +244,8 @@ Route21TextOak:
 
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 ;	ld a, $1
 ;	ld [wRoute21CurScript], a

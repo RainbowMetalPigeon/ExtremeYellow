@@ -6,9 +6,11 @@ PlayBattleMusic::
 	call DelayFrame
 	ld c, BANK(Music_GymLeaderBattle)
 
+	; new, to go beyond 200
+	ld a, [wIsTrainerBattle]
+	and a
+	jr z, .wildBattle
 	ld a, [wCurOpponent]
-	cp OPP_ID_OFFSET
-	jr c, .wildBattle
 
 	; Rival3, Oak, Pigeon, and Traveler are the most epic
 	cp OPP_RIVAL3

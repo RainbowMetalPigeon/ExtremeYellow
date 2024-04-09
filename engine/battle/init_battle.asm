@@ -30,12 +30,12 @@ InitBattleCommon:
 	push af
 	res 1, [hl]
 	call InitBattleVariables
-;	ld a, [wIsTrainerBattle]	; countercomment to do tutorial to go beyond 200?
-;	and a						; countercomment to do tutorial to go beyond 200?
-;	jp z, InitWildBattle		; countercomment to do tutorial to go beyond 200?
+	ld a, [wIsTrainerBattle]	; new to go beyond 200
+	and a						; new to go beyond 200
+	jp z, InitWildBattle		; new to go beyond 200
 	ld a, [wEnemyMonSpecies2]
-	sub OPP_ID_OFFSET
-	jp c, InitWildBattle		; countercomment to do tutorial to go beyond 200?
+	sub OPP_ID_OFFSET           ; still relevant?
+;	jp c, InitWildBattle		; commented to go beyond 200
 	ld [wTrainerClass], a
 	call GetTrainerInformation
 ; new, to handle Copycat's full copy team

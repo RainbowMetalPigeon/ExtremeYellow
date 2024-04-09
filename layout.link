@@ -89,10 +89,11 @@ ROMX $F
 ROMX $10
 	"bank10"
 ROMX $11
-	"Maps 5"
+;	"Maps 5"         ; edited, commented away as it has no holes, so no need to stay with "Dungeon Warps", can go wherever
 ;	"Pokédex Rating" ; edited, commented away as it should be completely unrelated from the other maps?
 	"Maps 6"
-	"Dungeon Warps"
+	"Dungeon Warps"  ; actually, only Seafoam Island 1F, B1F, B2F, B3F, Victory Road 3F, and Cerulean Cave Extra Middle and Top need to be here
+	                 ; basically, everything with holes
 ROMX $12
 	"Maps 7"
 	"Maps 8"

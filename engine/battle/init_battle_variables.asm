@@ -2,6 +2,7 @@ InitBattleVariables:
 	ldh a, [hTileAnimations]
 	ld [wSavedTileAnimations], a
 	xor a
+	ld [wWasTrainerBattle], a             ; new, to go beyond 200
 	ld [wActionResultOrTookBattleTurn], a
 	ld [wBattleResult], a
 	ld hl, wPartyAndBillsPCSavedMenuItem
@@ -27,7 +28,7 @@ InitBattleVariables:
 ;	ld [wAITargetMonType2], a
 ;	ld [wAITargetMonStatus], a
 	ld a, [wAIWhichPokemonSentOutAlready]
-	and $81	;clear bits 1 to 6 only by ANDing with 1000 0001
+	and $81	; clear bits 1 to 6 only by ANDing with 1000 0001
 	ld [wAIWhichPokemonSentOutAlready], a
 	xor a
 ;;;;;;;;;;

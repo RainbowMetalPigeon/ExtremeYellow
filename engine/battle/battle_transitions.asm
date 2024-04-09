@@ -81,12 +81,9 @@ BattleTransitions:
 	dw BattleTransition_Split             ; %111
 
 GetBattleTransitionID_WildOrTrainer:
-	ld a, [wCurOpponent]		; countercomment to do tutorial to go beyond 200
-	cp OPP_ID_OFFSET			; countercomment to do tutorial to go beyond 200
-	jr nc, .trainer				; countercomment to do tutorial to go beyond 200
-;	ld a, [wIsTrainerBattle]	; countercomment to do tutorial to go beyond 200
-;	and a						; countercomment to do tutorial to go beyond 200
-;	jr nz, .trainer				; countercomment to do tutorial to go beyond 200
+	ld a, [wIsTrainerBattle]	; new, to go beyond 200
+	and a						; new, to go beyond 200
+	jr nz, .trainer				; new, to go beyond 200
 	res 0, c
 	ret
 .trainer

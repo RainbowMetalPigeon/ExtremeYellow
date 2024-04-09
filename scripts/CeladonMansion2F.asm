@@ -19,6 +19,8 @@ CeladonMansion2FScript1:
 	jr nz, .notDefeated
 	jr .endScript
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; give piece of Map if not already done
 	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
 	jr z, .noPieceObtained
@@ -142,6 +144,8 @@ CeladonMansion2Text1:
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 	ld hl, PigeonPostBattlePlayerWinsText ; text if player wins
 	ld de, PigeonPostBattlePlayerLosesText ; text if player loses

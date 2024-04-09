@@ -157,6 +157,8 @@ PokemonTower7Script7:
 	ld [wCurOpponent], a
 	ld a, $30 ; edited
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
@@ -170,6 +172,8 @@ PokemonTower7Script8:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, PokemonTower7Script_60d01
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
 	ld [wSprite01StateData1MovementStatus], a
 	ld [wSprite02StateData1MovementStatus], a

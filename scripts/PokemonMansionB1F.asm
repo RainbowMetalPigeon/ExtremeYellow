@@ -118,6 +118,8 @@ Mansion4Script3: ; new
 	ld [wCurOpponent], a
 	ld a, 7
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	call Mansion4Script_RivalFacingRight
@@ -130,6 +132,8 @@ Mansion4Script4: ; new
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Mansion4Script_ResetIfLoseVsRival
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call Mansion4Script_RivalFacingRight
 	ld a, $f0
 	ld [wJoyIgnore], a

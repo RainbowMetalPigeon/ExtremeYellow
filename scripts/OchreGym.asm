@@ -179,6 +179,8 @@ OchreGymOragePostBattleRematch:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, OchreGymResetScripts
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, $12
@@ -250,6 +252,8 @@ OrageText:
 	ld [wCurOpponent], a
 	ld a, 2
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, OrageRematchDefeatedText
 	ld de, OrageRematchDefeatedText
 	call SaveEndBattleTextPointers

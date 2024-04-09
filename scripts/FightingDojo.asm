@@ -357,6 +357,8 @@ FightingDojoTextBruno:
 
 	ld a, 2
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 	ld hl, FightingDojoBrunoPostBattleText
 	ld de, FightingDojoBrunoPostBattleText

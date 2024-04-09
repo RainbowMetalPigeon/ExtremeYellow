@@ -64,8 +64,8 @@ PokemonTower2Script1:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, PokemonTower2Script_604fe
-;	xor a									; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a				; countercomment to do tutorial to go beyond 200?
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_POKEMON_TOWER_RIVAL
@@ -147,12 +147,10 @@ PokemonTower2Text1:
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-;	ld a, [wRivalStarter]	; new, commented to lock the rival's team
-;	add $1					; new, commented to lock the rival's team
 	ld a, $2				; this and the next line load the rival2 #2 - new
 	ld [wTrainerNo], a
-;	ld a, 1									; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a				; countercomment to do tutorial to go beyond 200?
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 	ld a, $1
 	ld [wPokemonTower2FCurScript], a

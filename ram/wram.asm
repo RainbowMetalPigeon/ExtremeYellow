@@ -1853,7 +1853,9 @@ wSavedSpriteScreenX:: db
 wSavedSpriteMapY:: db
 wSavedSpriteMapX:: db
 
-	ds 5
+	ds 3 ; edited to go beyond 200, it was ds 5
+wIsTrainerBattle:: db  ; new, to go beyond 200
+wWasTrainerBattle:: db ; new, to go beyond 200
 
 wWhichPrize:: db
 
@@ -1898,11 +1900,8 @@ wPseudoItemID:: db
 wEnemyStatEXPStore:: ; shinpokerednote: ADDED: store for EVs applied to the opponent's pokemon if the option is turned on
 wUnusedD153:: db
 
-	ds 1			; countercomment to do tutorial to go beyond 200 - it was "ds 2", but with the edit above from Vortiene is now "ds 1"
-;wIsTrainerBattle::	; countercomment to do tutorial to go beyond 200
-;	ds 1			; countercomment to do tutorial to go beyond 200
-;wWasTrainerBattle::	; countercomment to do tutorial to go beyond 200
-;	ds 1			; countercomment to do tutorial to go beyond 200
+	ds 1			; it was "ds 2", but with the edit above from Vortiene is now "ds 1"
+	                ; this needs to stay free for the EVs-to-opponents to work fine, because I didn't declare wEnemyStatEXPStore as a dw?!
 
 wEvoStoneItemID:: db
 

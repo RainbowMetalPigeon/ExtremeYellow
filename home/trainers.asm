@@ -205,23 +205,20 @@ EndTrainerBattle::
 	res 0, [hl]                  ; player is no longer engaged by any trainer
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, ResetButtonPressedAndMapScript	; countercomment to do tutorial to go beyond 200
-;	jp z, EndTrainerBattleWhiteout			; countercomment to do tutorial to go beyond 200
+;	jp z, ResetButtonPressedAndMapScript	; commented to go beyond 200
+	jp z, EndTrainerBattleWhiteout			; new, to go beyond 200
 	ld a, $2
 	call ReadTrainerHeaderInfo
 	ld a, [wTrainerHeaderFlagBit]
 	ld c, a
 	ld b, FLAG_SET
 	call TrainerFlagAction   ; flag trainer as fought
-	ld a, [wEnemyMonOrTrainerClass]			; countercomment to do tutorial to go beyond 200
-	cp OPP_ID_OFFSET						; countercomment to do tutorial to go beyond 200
-	jr nc, .skipRemoveSprite    ; test if trainer was fought (in that case skip removing the corresponding sprite) ; countercomment to do tutorial to go beyond 200
-;	ld a, [wWasTrainerBattle]				; countercomment to do tutorial to go beyond 200
-;	and a									; countercomment to do tutorial to go beyond 200
-;	jr nz, .skipRemoveSprite ; test if trainer was fought (in that case skip removing the corresponding sprite) ; countercomment to do tutorial to go beyond 200
-;	ld a, [wCurMap]							; countercomment to do tutorial to go beyond 200
-;	cp POKEMON_TOWER_7F						; countercomment to do tutorial to go beyond 200
-;	jr z, .skipRemoveSprite ; the two 7f scripts call EndTrainerBattle manually after wIsTrainerBattle has been unset ; countercomment to do tutorial to go beyond 200
+;	ld a, [wEnemyMonOrTrainerClass]			; commented to go beyond 200
+;	cp OPP_ID_OFFSET						; commented to go beyond 200
+;	jr nc, .skipRemoveSprite    ; test if trainer was fought (in that case skip removing the corresponding sprite) ; commented to go beyond 200
+	ld a, [wWasTrainerBattle]				; new, to go beyond 200
+	and a									; new, to go beyond 200
+	jr nz, .skipRemoveSprite ; test if trainer was fought (in that case skip removing the corresponding sprite) ; new, to go beyond 200 ; TBV: is there any case like in vanilla pokered with in TOWER_7F???
 	ld hl, wMissableObjectList
 	ld de, $2
 	ld a, [wSpriteIndex]
@@ -237,26 +234,24 @@ EndTrainerBattle::
 	predef HideObjectExtra				; new
 .hidden									; new
 .skipRemoveSprite
-;	xor a									; countercomment to do tutorial to go beyond 200
-;	ld [wWasTrainerBattle], a				; countercomment to do tutorial to go beyond 200
+	xor a									; new, to go beyond 200
+	ld [wWasTrainerBattle], a				; new, to go beyond 200
 	ld hl, wd730
 	bit 4, [hl]
 	res 4, [hl]
 	ret nz
 
-;EndTrainerBattleWhiteout:					; countercomment to do tutorial to go beyond 200
-;	xor a									; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a				; countercomment to do tutorial to go beyond 200
-;	ld [wWasTrainerBattle], a				; countercomment to do tutorial to go beyond 200
-;	; fallthrough to original routine		; countercomment to do tutorial to go beyond 200
-
-ResetButtonPressedAndMapScript::
-	xor a
+;ResetButtonPressedAndMapScript::           ; commented, to go beyond 200
+EndTrainerBattleWhiteout:					; new, to go beyond 200
+	xor a									; new, to go beyond 200
+	ld [wIsTrainerBattle], a				; new, to go beyond 200
+	ld [wWasTrainerBattle], a				; new, to go beyond 200
+	; fallthrough to original routine		; new, to go beyond 200
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
 	ldh [hJoyPressed], a
 	ldh [hJoyReleased], a
-	ld [wCurMapScript], a               ; reset battle status
+	ld [wCurMapScript], a                   ; reset battle status
 	ret
 
 ; calls TrainerWalkUpToPlayer
@@ -268,16 +263,15 @@ InitBattleEnemyParameters::
 	ld a, [wEngagedTrainerClass]
 	ld [wCurOpponent], a
 	ld [wEnemyMonOrTrainerClass], a
-	cp OPP_ID_OFFSET					; countercomment to do tutorial to go beyond 200
-;	ld a, [wIsTrainerBattle]			; countercomment to do tutorial to go beyond 200
-;	and a								; countercomment to do tutorial to go beyond 200
-;	jr z, .noTrainer					; countercomment to do tutorial to go beyond 200
+;	cp OPP_ID_OFFSET					; commented, to go beyond 200
+	ld a, [wIsTrainerBattle]			; new, to go beyond 200
+	and a								; new, to go beyond 200
 	ld a, [wEngagedTrainerSet]
-	jr c, .noTrainer					; countercomment to do tutorial to go beyond 200
+;	jr c, .noTrainer					; commented, to go beyond 200
+	jr z, .noTrainer					; new, to go beyond 200
 	ld [wTrainerNo], a
 	ret
 .noTrainer
-;	ld a, [wEngagedTrainerSet]			; countercomment to do tutorial to go beyond 200
 	ld [wCurEnemyLVL], a
 	ret
 
@@ -373,17 +367,17 @@ EngageMapTrainer::
 	ld a, [hli]    ; load trainer class
 	ld [wEngagedTrainerClass], a
 	ld a, [hl]     ; load trainer mon set
-;	bit 7, a						; countercomment to do tutorial to go beyond 200
-;	jr nz, .pokemon					; countercomment to do tutorial to go beyond 200
-;	ld [wEngagedTrainerSet], a		; countercomment to do tutorial to go beyond 200
-;	ld a, 1							; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200
-;	jp PlayTrainerMusic				; countercomment to do tutorial to go beyond 200
-;.pokemon							; countercomment to do tutorial to go beyond 200
-;	and $7F							; countercomment to do tutorial to go beyond 200
+	bit 7, a						; new, to go beyond 200
+	jr nz, .pokemon					; new, to go beyond 200
+	ld [wEngagedTrainerSet], a		; new, to go beyond 200
+	ld a, 1							; new, to go beyond 200
+	ld [wIsTrainerBattle], a		; new, to go beyond 200
+	jp PlayTrainerMusic				; new, to go beyond 200
+.pokemon							; new, to go beyond 200
+	and $7F							; new, to go beyond 200
 	ld [wEngagedTrainerSet], a
-;	xor a							; countercomment to do tutorial to go beyond 200
-;	ld [wIsTrainerBattle], a		; countercomment to do tutorial to go beyond 200
+	xor a							; new, to go beyond 200
+	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	jp PlayTrainerMusic
 
 PrintEndBattleText::

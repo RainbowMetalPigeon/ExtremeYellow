@@ -2,6 +2,8 @@
 ; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight)
 ; trying updates from Vortiene
 _HandlePlayerBlackOut:
+	xor a                    ; new, to go beyond 200
+	ld [wIsTrainerBattle], a ; new, to go beyond 200
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .noLossText

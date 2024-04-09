@@ -340,8 +340,6 @@ OaksLabScript13:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
-;	ld a, 1						; countercomment to do tutorial to go beyond 200?
-;	ld [wIsTrainerBattle], a	; countercomment to do tutorial to go beyond 200?
 	ld a, $1
 	ld [wSpriteIndex], a
 	call GetSpritePosition1
@@ -349,6 +347,8 @@ OaksLabScript13:
 	ld [wCurOpponent], a
 	ld a, $1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, OaksLabRivalDefeatedText
 	ld de, OaksLabRivalBeatYouText
 	call SaveEndBattleTextPointers
@@ -364,22 +364,10 @@ OaksLabScript13:
 	ret
 
 OaksLabScript14:
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $ff
 	ld [wJoyIgnore], a
-
-	; If you beat your rival here, his Eevee will evolve into
-	; Jolteon if you beat him on Route 22, or Flareon if you
-	; skip or lose that battle.
-	; Otherwise, it will evolve into Vaporeon.
-	ld a, [wBattleResult]
-	and a
-	ld b, RIVAL_STARTER_VAPOREON
-	jr nz, .got_rival_starter
-	ld b, RIVAL_STARTER_FLAREON
-.got_rival_starter
-	ld a, b
-	ld [wRivalStarter], a
-
 	ld a, ~(A_BUTTON | B_BUTTON)
 	ld [wJoyIgnore], a
 	ld a, PLAYER_DIR_UP

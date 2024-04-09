@@ -33,7 +33,9 @@ ObsidianWarehouseFinal_TextPointers:
 ; ================= scripts, beginning =================
 
 EndTrainerBattle_Custom:
-	call EndTrainerBattle
+	call EndTrainerBattle ; no need to do any shenanigans to go above 200? Not even a special case in EndTrainerBattle in home/trainers.asm?
+	                      ; in the original tutorial, https://github.com/pret/pokered/wiki/Trainers-are-not-Pokemon, special case for Tower 7F
+						  ; but that is weirdly handled in pokered, so I think I'm in the clear here?
 	ld a, [wYCoord]
 	cp 1
 	ret nz
@@ -230,6 +232,8 @@ ObsidianWarehouseFinalScript_JessieJamesFight:
 	ld [wCurOpponent], a
 	ld a, $32
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
@@ -243,6 +247,8 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ObsidianWarehouseFinalScript_ResetScript ; TBV
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
 	ld [wSprite01StateData1MovementStatus], a
 	ld [wSprite02StateData1MovementStatus], a

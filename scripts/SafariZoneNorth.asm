@@ -37,7 +37,7 @@ SafariZoneNorthScript3:
 	ret
 
 SafariZoneNorthScript2:
-	call EndTrainerBattle
+	call EndTrainerBattle ; any need to to any shenanigans with the beyond 200?
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetSafariZoneNorthScript

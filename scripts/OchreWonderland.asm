@@ -51,6 +51,8 @@ OchreWonderlandTextBlue:
 	ld b, 7 ; the offset for the random rematch team
 	add b ; we add b to a, so now a is in the range [7,31]
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 	ld hl, BlueBeforeBattleText2Normal
 	cp 29 ; a-39: if there is a carry, normal team; otherwise, tough one (last 3 teams, 29/30/31, have 5 megas)

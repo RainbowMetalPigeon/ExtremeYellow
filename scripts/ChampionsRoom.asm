@@ -99,6 +99,8 @@ GaryScript2:
 	ld a, $5
 .continuePostLoadingTeam1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 	xor a
 	ldh [hJoyHeld], a
@@ -109,11 +111,12 @@ GaryScript2:
 ; ==================================
 
 GaryScript2ndBattle:
-	; new block to fix bug if blackout
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetGaryScript
 
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret nz
@@ -138,6 +141,8 @@ GaryScript2ndBattle:
 	call SaveEndBattleTextPointers
 	ld a, $2
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call Delay3
 	ld hl, wd72d
 	set 6, [hl]
@@ -158,6 +163,9 @@ GaryScript3:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetGaryScript
+
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call UpdateSprites
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 
@@ -694,6 +702,8 @@ GaryText2ndBattle_AG: ; beefy text that is de facto the script handling the seco
 	ld a, $6
 	ld [wTrainerNo], a
 .finishSettingBattleParameters
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call Delay3
 	ld hl, wd72d
 	set 6, [hl]

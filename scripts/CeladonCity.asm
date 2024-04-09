@@ -310,6 +310,8 @@ TextPreBattle_CeladonTraveler: ; new
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, Text_DefeatPostBattle_CeladonTraveler
 	ld de, Text_VictoryPostBattle_CeladonTraveler
 	call SaveEndBattleTextPointers
@@ -357,6 +359,8 @@ CeladonScript_Traveler:
 	ld [wCurMapScript], a
 	ret
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; this is to guarantee that the traveler is visible after the battle
     ld a, HS_CELADON_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a

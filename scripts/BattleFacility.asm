@@ -44,6 +44,8 @@ BattleFacilityScript0:
 ; -------------------------------------
 
 BattleFacilityScript1_PostBattle:
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 ; some dialogue?
 
@@ -649,9 +651,8 @@ BattleFacilityTextOpponent:
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
-; is it needed? TBV
-;	xor a
-;	ldh [hJoyHeld], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; end-of-battle text
 	ld hl, BattleFacilityTextOpponent_PostBattleWin ; text if player wins
 	ld de, BattleFacilityTextOpponent_PostBattleLoss ; text if player loses

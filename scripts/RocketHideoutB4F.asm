@@ -44,6 +44,7 @@ RocketHideout4Script3:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, RocketHideout4Script_45510
+	; no need of any shenanigans to go beyond 200, right?
 	ld a, $fc
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI
@@ -212,6 +213,8 @@ RocketHideout4Script10:
 	ld [wCurOpponent], a
 	ld a, $2f ; edited
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
@@ -226,6 +229,8 @@ RocketHideout4Script11:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, RocketHideout4Script_45510
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
 	ld [wSprite02StateData1MovementStatus], a
 	ld [wSprite03StateData1MovementStatus], a

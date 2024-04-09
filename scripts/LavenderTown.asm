@@ -25,6 +25,8 @@ LavenderScript_Traveler:
 	ld [wCurMapScript], a
 	ret
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; this is to guarantee that the traveler is visible after the battle
     ld a, HS_LAVENDER_TOWN_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
@@ -62,7 +64,7 @@ LavenderTown_TextPointers:
 ; ================================
 
 TextPreBattle_LavenderTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_LavenderTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty
@@ -86,6 +88,8 @@ TextPreBattle_LavenderTraveler: ; new
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, TextDefeatPostBattle_LavenderTraveler
 	ld de, TextVictoryPostBattle_LavenderTraveler
 	call SaveEndBattleTextPointers

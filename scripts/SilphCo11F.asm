@@ -391,6 +391,8 @@ SilphCo11Script11:
 	ld [wCurOpponent], a
 	ld a, $31 ; edited
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
@@ -404,6 +406,8 @@ SilphCo11Script12:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SilphCo11Script_62185
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
 	ld [wSprite04StateData1MovementStatus], a
 	ld [wSprite06StateData1MovementStatus], a

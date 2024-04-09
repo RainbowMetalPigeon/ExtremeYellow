@@ -165,6 +165,8 @@ CeruleanCityScript1:
 	ld [wCurOpponent], a
 	ld a, 3
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	call CeruleanCityScript_1955d
@@ -176,6 +178,8 @@ CeruleanCityScript2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CeruleanCityScript_1948c
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call CeruleanCityScript_1955d
 	ld a, $f0
 	ld [wJoyIgnore], a
@@ -469,7 +473,7 @@ CeruleanCityText17:
 ; ================================
 
 TextPreBattle_CeruleanTraveler: ; new
-	text_asm 
+	text_asm
 	ld hl, Text_Intro_CeruleanTraveler
 	call PrintText
 	callfar CheckIfMegaMewtwoInParty
@@ -493,6 +497,8 @@ TextPreBattle_CeruleanTraveler: ; new
 	ld [wCurOpponent], a
 	ld a, 1
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld hl, Text_DefeatPostBattle_CeruleanTraveler
 	ld de, Text_VictoryPostBattle_CeruleanTraveler
 	call SaveEndBattleTextPointers
@@ -540,6 +546,8 @@ CeruleanScript_Traveler:
 	ld [wCurMapScript], a
 	ret
 .notDefeated
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 ; this is to guarantee that the traveler is visible after the battle
     ld a, HS_CERULEAN_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a

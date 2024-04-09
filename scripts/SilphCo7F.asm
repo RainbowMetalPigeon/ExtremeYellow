@@ -183,8 +183,10 @@ SilphCo7Script3:
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-	ld a, $3				; this and the next line load the rival2 #3 - new
+	ld a, $3				; edited
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $4
 	call SilphCo7Text_51c10
 	ret
@@ -193,6 +195,8 @@ SilphCo7Script4:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SilphCo7Text_51c0c
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_SILPH_CO_RIVAL

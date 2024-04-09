@@ -124,6 +124,8 @@ Route12Script0:
 	ld [wCurOpponent], a
 	ld a, 30
 	ld [wCurEnemyLVL], a
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, HS_ROUTE_12_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject
@@ -189,6 +191,8 @@ Route12Script4: ; new
 	ld [wCurOpponent], a
 	ld a, 5
 	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 	call Route12Script_RivalFacingRightOrDown
@@ -203,6 +207,8 @@ Route12Script5: ; new
 	cp $ff
 	jp z, Route12Script_ResetIfLoseVsRival
 ; stuff to do if we defeat the rival
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call Route12Script_RivalFacingRightOrDown
 	ld a, $f0
 	ld [wJoyIgnore], a
