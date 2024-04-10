@@ -109,7 +109,13 @@ _HauntedIslandOfNumbersText_MissingNo_NotFirstTime::
     done
 
 _HauntedIslandOfNumbersText_MissingNo_FirstTime::
-    text "1st time"
+    text ""
+    line "1st time"
+    line "1st time A"
+    line "1st time B2"
+    line "1st time C3"
+    line "1st time D34"
+    line "1st time E539"
     done
 
 _MissingNoTrainerText_Win::

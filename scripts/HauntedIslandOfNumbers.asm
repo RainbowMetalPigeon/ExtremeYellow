@@ -1,9 +1,25 @@
 HauntedIslandOfNumbers_Script:
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, HauntedIslandOfNumbersReplaceBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedIslandOfNumbers_ScriptPointers
 	ld a, [wHauntedIslandOfNumbersCurScript]
 	call CallFunctionInTable
 	ret
+
+HauntedIslandOfNumbersReplaceBlock:
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	jr nz, .pathOpen
+	ld a, $78 ; only-white block ID
+	jr .replaceBlock
+.pathOpen
+	ld a, $84 ; white-with-black-warp block ID
+.replaceBlock
+	ld [wNewTileBlockID], a
+	lb bc, 14, 15 ; block coordinates in Y, X
+	predef_jump ReplaceTileBlock
 
 HauntedIslandOfNumbers_ScriptPointers:
 	dw HauntedIslandOfNumbersScript0
@@ -67,24 +83,28 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	cp $ff
 	jp z, HauntedIslandOfNumbersScript_ResetAfterDefeat ; TBE
 	call UpdateSprites
-;	call Delay3
+	SetEvent EVENT_DEFEATED_MISSINGNO
 	xor a                            ; new, to go beyond 200; unnecessary here?
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200; unnecessary here?
-;	ld a, $f0 ; testing
-;	ld [wJoyIgnore], a
 	ld a, 3 ; HauntedIslandOfNumbersText_PostPokemonBattle
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-;	ld a, $ff ; testing
-;	ld [wJoyIgnore], a
-
-	; open path to exit, TBE
-
+	ld hl, wPokedexSeen
+	call CleanHumanPokedexEntries
+	call HauntedIslandOfNumbersReplaceBlock ; open exit
 	call Delay3
 	ld a, 0
-;	ld [wJoyIgnore], a
 	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
+	ret
+	
+CleanHumanPokedexEntries: ; oh-so horribly hard coded xD
+	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
+.loop
+	inc hl
+	dec b
+	jr nz, .loop
+	ld [hl], %00000001
 	ret
 
 HauntedIslandOfNumbersScript_ResetAfterDefeat:
@@ -94,7 +114,7 @@ HauntedIslandOfNumbersScript_ResetAfterDefeat:
 	ld [wCurMapScript], a
 
 	; print a dialogue?
-	; set destination warp, TBE
+	; set special destination warp?
 
 	ret
 

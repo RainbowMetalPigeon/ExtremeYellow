@@ -249,7 +249,6 @@ IsCurrentMapHauntedHouse::
 	cp HAUNTED_HOUSE_3
 	ret z
 	cp HAUNTED_HOUSE_4
-	ret z
 	ret
 	
 ; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS
@@ -265,7 +264,25 @@ IsCurrentMapHauntedHouse_AlsoIsland::
 	cp HAUNTED_HOUSE_4
 	ret z
 	cp HAUNTED_ISLAND_OF_NUMBERS
+	ret
+	
+; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS and HAUNTED REDS HOUSE and PALLET TOWN
+; nz otherwise
+IsCurrentMapHauntedHouse_AlsoIslandAndPallet::
+	ld a, [wCurMap]
+	cp HAUNTED_HOUSE_1
 	ret z
+	cp HAUNTED_HOUSE_2
+	ret z
+	cp HAUNTED_HOUSE_3
+	ret z
+	cp HAUNTED_HOUSE_4
+	ret z
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	ret z
+	cp HAUNTED_REDS_HOUSE
+	ret z
+	cp HAUNTED_PALLET_TOWN
 	ret
 	
 ; ===========================================================
@@ -371,29 +388,40 @@ WarpIntervals_HauntedHouse1:
 	db $FF
 
 WarpIntervals_HauntedHouse2:
-;	db  1,  4 ; room 1
-;	db  5,  8 ; room 2
-;	db  9, 10 ; room 3
-;	db 11, 14 ; room 4
-;	db 15, 18 ; room 5
-;	db 19, 20 ; room 6
-;	db 21, 24 ; room 7
-;	db 25, 26 ; room 8
-;	db 27, 29 ; room 9
-;	db 30, 31 ; room 10
-;	db 32, 33 ; room 11
-;	db 34, 36 ; room 12
+	db  1,  4 ; room 1
+	db  5,  8 ; room 2
+	db  9, 10 ; room 3
+	db 11, 14 ; room 4
+	db 15, 18 ; room 5
+	db 19, 20 ; room 6
+	db 21, 24 ; room 7
+	db 25, 26 ; room 8
+	db 27, 29 ; room 9
+	db 30, 31 ; room 10
+	db 32, 33 ; room 11
+	db 34, 36 ; room 12
+	db $FF
+
+WarpIntervals_HauntedHouse3:
+	db 21, 25 ; door madness room
+	db $FF
+
+WarpIntervals_HauntedHouse4:
+	db 24, 26 ; small dark room
 	db $FF
 
 RandomizeWarpsForHauntedHouse::
 	call IsCurrentMapHauntedHouse
 	ret nz
-	ld a, [hWarpDestinationMap] ; testing
+	ld a, [hWarpDestinationMap]
 	cp HAUNTED_HOUSE_1
 	jr z, .loadListForHauntedHouse1
 	cp HAUNTED_HOUSE_2
 	jr z, .loadListForHauntedHouse2
-; other checks for other floors
+	cp HAUNTED_HOUSE_3
+	jr z, .loadListForHauntedHouse3
+	cp HAUNTED_HOUSE_4
+	jr z, .loadListForHauntedHouse4
 	ret nz ; this should never be hit if I do things right
 
 .loadListForHauntedHouse1
@@ -401,8 +429,12 @@ RandomizeWarpsForHauntedHouse::
 	jr .checkIfRandomizable
 .loadListForHauntedHouse2
 	ld hl, WarpIntervals_HauntedHouse2
-	jr .checkIfRandomizable ; unnecessary right now
-; load the other lists of ranges
+	jr .checkIfRandomizable
+.loadListForHauntedHouse3
+	ld hl, WarpIntervals_HauntedHouse3
+	jr .checkIfRandomizable
+.loadListForHauntedHouse4
+	ld hl, WarpIntervals_HauntedHouse4
 
 .checkIfRandomizable
 	ld a, [wDestinationWarpID]

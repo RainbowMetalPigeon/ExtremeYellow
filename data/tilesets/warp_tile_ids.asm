@@ -112,6 +112,6 @@ ENDM
 .OverworldHauntedWarpTileIDs: ; new, TBE
 	warp_tiles $1B, $58
 
-.IslandOfNumbersdWarpTileIDs: ; new, TBE
-	warp_tiles ; end, no warps? Only need one to get there, not to exit
+.IslandOfNumbersdWarpTileIDs: ; new
+	warp_tiles $00 ; only warp is the black one that appears after missingno is defeated
 	

@@ -863,6 +863,8 @@ StartMenu_PortablePC:: ; new
 	jr z, .cantUseItHere
 	cp LANCES_ROOM
 	jr z, .cantUseItHere
+	callfar IsCurrentMapHauntedHouse_AlsoIslandAndPallet ; new, testing
+	jr z, .cantUseItHere
 ; if none of the above cp is met, let's open the pc and do the things
 	callfar ActivatePC ; main part
 	jr .done

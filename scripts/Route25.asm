@@ -89,6 +89,8 @@ Route25_ScriptPointers:
 	dw EndTrainerBattle
 
 Route25Script0: ; new
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	jr nz, .checkIfInTallGrass ; we don't display anything anymore if we defeated MissingNo
 	CheckEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_1
 	jr nz, .checkMessage2
 	ld hl, Route25ToHauntedHouse_CoordinatesMessage1
@@ -156,7 +158,7 @@ Route25Script0: ; new
 	CheckEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
 	jr nz, .justPreventEncounters ; no need to handle the steps if we already unlocked the path
 ; reset the step counters if we have just entered the grass
-	ld hl, 20 ; 666, TBE
+	ld hl, 666 ; e.g. 20 for testing purposes
 	ld a, h
 	ld [wTallGrassBillsSecretGardenSteps], a
 	ld a, l
