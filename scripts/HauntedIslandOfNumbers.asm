@@ -139,6 +139,50 @@ HauntedIslandOfNumbers_TextPointers:
 
 HauntedIslandOfNumbersText_MissingNo:
 	text_asm
+; play a bunch of sounds
+
+	ld a, SFX_SS_ANNE_HORN
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_GET_KEY_ITEM
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_POKEDEX_RATING
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_TRADE_MACHINE
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_TELEPORT_ENTER_1
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_SAVE
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_LEDGE
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
 ; load the right dialogue
 	CheckAndSetEvent EVENT_FACED_MISSINGNO_AT_LEAST_ONCE
 	jr z, .firstTime

@@ -414,18 +414,22 @@ HauntedHouse4TornadoCenterCoords:
 
 HauntedHouse4MommyEntrance_SW:
 	dbmapcoord  3, 55
+	dbmapcoord  5, 57
 	db -1 ; end
 
 HauntedHouse4MommyEntrance_SE:
 	dbmapcoord 12, 56
+	dbmapcoord 15, 54
 	db -1 ; end
 
 HauntedHouse4MommyEntrance_NE:
 	dbmapcoord 14, 49
+	dbmapcoord 12, 46
 	db -1 ; end
 
 HauntedHouse4MommyEntrance_NW:
 	dbmapcoord  5, 47
+	dbmapcoord  2, 49
 	db -1 ; end
 
 HauntedHouse4MovementMom_SW:

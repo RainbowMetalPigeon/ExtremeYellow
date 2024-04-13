@@ -404,12 +404,12 @@ ForceRight_HauntedHouse4:
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
-	lb bc,  8, 15
+	lb bc,  6, 13
 	lb de, 24, 25
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
-	lb bc, 10, 13
+	lb bc,  8, 11
 	lb de, 26, 27
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	ret nc
@@ -436,17 +436,17 @@ ForceDown_HauntedHouse4:
 	jr c, .doThePush
 
 	lb bc, 16, 17
-	lb de, 22, 33
+	lb de, 22, 31
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
 	lb bc, 14, 15
-	lb de, 26, 33
+	lb de, 24, 29
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
 	lb bc, 12, 13
-	lb de, 28, 31
+	lb de, 26, 29
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	ret nc
 
@@ -476,12 +476,12 @@ ForceLeft_HauntedHouse4:
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
-	lb bc,  8, 13
+	lb bc,  8, 17
 	lb de, 32, 33
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
-	lb bc, 10, 11
+	lb bc, 10, 15
 	lb de, 30, 31
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	ret nc
@@ -513,12 +513,12 @@ ForceUp_HauntedHouse4:
 	jr c, .doThePush
 
 	lb bc,  6,  7
-	lb de, 24, 33
+	lb de, 26, 33
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
 
 	lb bc,  8,  9
-	lb de, 26, 31
+	lb de, 28, 31
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	ret nc
 	

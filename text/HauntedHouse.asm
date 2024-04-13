@@ -110,12 +110,19 @@ _HauntedIslandOfNumbersText_MissingNo_NotFirstTime::
 
 _HauntedIslandOfNumbersText_MissingNo_FirstTime::
     text ""
-    line "1st time"
-    line "1st time A"
-    line "1st time B2"
-    line "1st time C3"
-    line "1st time D34"
-    line "1st time E539"
+    line "    dare you"
+    cont ""
+    cont "   here coming"
+    
+    para ""
+    line " m  y  w  o rl     d"
+    
+    para "00101011000100100010010"
+
+    para "       fear      I"
+
+    para "     N  O  !!!!!!!!!!!!!"
+;   xxxx "123456789012345678"
     done
 
 _MissingNoTrainerText_Win::
