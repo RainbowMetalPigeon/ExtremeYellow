@@ -216,6 +216,10 @@ SetPal_Overworld:
 	jr z, .trade_center_colosseum
 	cp COLOSSEUM
 	jr z, .trade_center_colosseum
+	cp HAUNTED_REDS_HOUSE ; new
+	jr z, .Lorelei ; new
+	cp HAUNTED_PALLET_TOWN ; new
+	jr z, .Lorelei ; new
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute

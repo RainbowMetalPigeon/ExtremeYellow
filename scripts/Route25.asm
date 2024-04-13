@@ -122,6 +122,7 @@ Route25Script0: ; new
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_3
+	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SW ; testing, to "reset" the position of the walking "Mom"
 	ret
 .checkIfInTallGrass
 	ld a, [wXCoord]

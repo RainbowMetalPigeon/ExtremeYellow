@@ -46,9 +46,9 @@ HauntedHouse4_Object:
 	object_event 14, 46, SPRITE_MOM, STAY, DOWN, 3 ; NE room
 	object_event  2, 47, SPRITE_MOM, STAY, RIGHT, 4 ; NW room
 	object_event 28, 52, SPRITE_MOM, STAY, DOWN, 5 ; "tornado" room, up
-	object_event 31, 55, SPRITE_MOM, STAY, DOWN, 6 ; "tornado" room, right
-	object_event 28, 58, SPRITE_MOM, STAY, DOWN, 7 ; "tornado" room, down
-	object_event 25, 55, SPRITE_MOM, STAY, DOWN, 8 ; "tornado" room, left
+	object_event 31, 55, SPRITE_MOM, STAY, LEFT, 6 ; "tornado" room, right
+	object_event 28, 58, SPRITE_MOM, STAY, UP, 7 ; "tornado" room, down
+	object_event 25, 55, SPRITE_MOM, STAY, RIGHT, 8 ; "tornado" room, left
 	object_event 42, 56, SPRITE_POKE_BALL, STAY, NONE, 9 ; PokeBall room
 
 	def_warps_to HAUNTED_HOUSE_4

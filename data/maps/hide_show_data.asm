@@ -158,8 +158,8 @@ MapHSPointers:
 	dw PokemonTower6FHS
 	dw PokemonTower7FHS
 	dw LavenderHousesHS ; edited because of map merging
-	dw NoHS ; LAVENDER_MART
-	dw NoHS ; LAVENDER_CUBONE_HOUSE
+	dw NoHS ; HAUNTED_HOUSE_2
+	dw NoHS ; HAUNTED_HOUSE_3
 	dw NoHS ; OCHRE_RESEARCH_CENTER_2
 	dw NoHS ; FUCHSIA_BILLS_GRANDPAS_HOUSE
 	dw NoHS ; FUCHSIA_POKECENTER
@@ -171,8 +171,8 @@ MapHSPointers:
 	dw SeafoamIslandsB2FHS
 	dw SeafoamIslandsB3FHS
 	dw SeafoamIslandsB4FHS
-	dw NoHS
-	dw NoHS
+	dw HauntedHouse4HS ; new
+	dw NoHS ; FUCHSIA_GOOD_ROD_HOUSE
 	dw PokemonMansion1FHS
 	dw NoHS ; CINNABAR_GYM
 	dw CinnabarLabHS ; new
@@ -794,5 +794,14 @@ BattleFacilityHS: ; new
 	db BATTLE_FACILITY, $05, HIDE ; GREEN
 HauntedIslandOfNumbersHS: ; new
 	db HAUNTED_ISLAND_OF_NUMBERS, $01, SHOW ; MISSINGNO
+HauntedHouse4HS: ; new
+	db HAUNTED_HOUSE_4, $01, SHOW ; SW room - the starting one
+	db HAUNTED_HOUSE_4, $02, HIDE ; SE room
+	db HAUNTED_HOUSE_4, $03, HIDE ; NE room
+	db HAUNTED_HOUSE_4, $04, HIDE ; NW room
+	db HAUNTED_HOUSE_4, $05, HIDE ; "tornado" room, up
+	db HAUNTED_HOUSE_4, $06, HIDE ; "tornado" room, right
+	db HAUNTED_HOUSE_4, $07, HIDE ; "tornado" room, down
+	db HAUNTED_HOUSE_4, $08, HIDE ; "tornado" room, left
 
 	db $FF, $01, SHOW ; end, list terminator

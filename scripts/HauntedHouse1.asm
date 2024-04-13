@@ -10,8 +10,17 @@ HauntedHouse1_Script:
 	ret
 
 HauntedHouse1HandleRandomGlitchyBehaviours:
+	ld hl, HauntedHouse1Entrance
+	call ArePlayerCoordsInArray ; carry flag if yes
+	jr nc, .notEntrance
+	predef HealParty
+.notEntrance
 	callfar HauntedHouseHandleRandomGlitchyBehaviours ; testing
 	ret ; testing
+
+HauntedHouse1Entrance:
+	dbmapcoord  4, 57
+	db -1 ; end
 
 ;HauntedHouse1_ScriptPointers:
 ;	dw HauntedHouse1Script0

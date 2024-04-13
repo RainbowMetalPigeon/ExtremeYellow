@@ -290,11 +290,18 @@ IsCurrentMapHauntedHouse_AlsoIslandAndPallet::
 ForceMovementsHauntedHouse::
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
-	ret nz ; TBE
+	jr nz, .checkHH4
 	call ForceRight_HauntedHouse1
 	call ForceDown_HauntedHouse1
 	call ForceLeft_HauntedHouse1
 	call ForceUp_HauntedHouse1
+.checkHH4
+	cp HAUNTED_HOUSE_4
+	ret nz
+	call ForceRight_HauntedHouse4
+	call ForceDown_HauntedHouse4
+	call ForceLeft_HauntedHouse4
+	call ForceUp_HauntedHouse4
 	ret
 
 ; ------------------------------
@@ -303,7 +310,7 @@ ForceMovementsHauntedHouse::
 ; b = min x, c = max x, d = min y, e = max y
 ; output:
 ; c flag = in the rectangle, nc otherwise
-CheckIfInRectangle_Copy:
+CheckIfInRectangle_OW:
 	inc c
 	inc e
 	ld a, [wXCoord]
@@ -328,7 +335,7 @@ CheckIfInRectangle_Copy:
 ForceRight_HauntedHouse1:
 	lb bc, 18, 21
 	lb de, 50, 51
-	call CheckIfInRectangle_Copy
+	call CheckIfInRectangle_OW
 	ret nc
 	ldh a, [hJoyHeld]
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
@@ -342,7 +349,7 @@ ForceRight_HauntedHouse1:
 ForceDown_HauntedHouse1:
 	lb bc, 22, 23
 	lb de, 50, 53
-	call CheckIfInRectangle_Copy
+	call CheckIfInRectangle_OW
 	ret nc
 	ldh a, [hJoyHeld]
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
@@ -356,7 +363,7 @@ ForceDown_HauntedHouse1:
 ForceLeft_HauntedHouse1:
 	lb bc, 20, 23
 	lb de, 54, 55
-	call CheckIfInRectangle_Copy
+	call CheckIfInRectangle_OW
 	ret nc
 	ldh a, [hJoyHeld]
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
@@ -370,8 +377,152 @@ ForceLeft_HauntedHouse1:
 ForceUp_HauntedHouse1:
 	lb bc, 18, 19
 	lb de, 52, 55
-	call CheckIfInRectangle_Copy
+	call CheckIfInRectangle_OW
 	ret nc
+	ldh a, [hJoyHeld]
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
+	ret nz
+	ld a, D_UP
+	ldh [hJoyHeld], a
+	ret
+
+; ------------------------------ HH 4
+
+ForceRight_HauntedHouse4:
+	lb bc,  0,  1
+	lb de, 20, 37
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+	
+	lb bc,  2,  3
+	lb de, 22, 35
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  4, 15
+	lb de, 22, 23
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  8, 15
+	lb de, 24, 25
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc, 10, 13
+	lb de, 26, 27
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	ret nc
+
+.doThePush
+	ldh a, [hJoyHeld]
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
+	ret nz
+	ld a, D_RIGHT
+	ldh [hJoyHeld], a
+	ret
+
+; ------------------------------
+
+ForceDown_HauntedHouse4:
+	lb bc,  2, 19
+	lb de, 18, 19
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  4, 17
+	lb de, 20, 21
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc, 16, 17
+	lb de, 22, 33
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc, 14, 15
+	lb de, 26, 33
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc, 12, 13
+	lb de, 28, 31
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	ret nc
+
+.doThePush
+	ldh a, [hJoyHeld]
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
+	ret nz
+	ld a, D_DOWN
+	ldh [hJoyHeld], a
+	ret
+
+; ------------------------------
+
+ForceLeft_HauntedHouse4:
+	lb bc, 20, 21
+	lb de, 20, 37
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+	
+	lb bc, 18, 19
+	lb de, 22, 35
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  6, 17
+	lb de, 34, 35
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  8, 13
+	lb de, 32, 33
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc, 10, 11
+	lb de, 30, 31
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	ret nc
+
+.doThePush
+	ldh a, [hJoyHeld]
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
+	ret nz
+	ld a, D_LEFT
+	ldh [hJoyHeld], a
+	ret
+
+; ------------------------------
+
+ForceUp_HauntedHouse4:
+	lb bc,  2, 19
+	lb de, 38, 39
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+	
+	lb bc,  4, 17
+	lb de, 36, 37
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  4,  5
+	lb de, 24, 35
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  6,  7
+	lb de, 24, 33
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	jr c, .doThePush
+
+	lb bc,  8,  9
+	lb de, 26, 31
+	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
+	ret nc
+	
+.doThePush
 	ldh a, [hJoyHeld]
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
 	ret nz

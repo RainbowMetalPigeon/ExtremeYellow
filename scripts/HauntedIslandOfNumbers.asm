@@ -84,6 +84,18 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	jp z, HauntedIslandOfNumbersScript_ResetAfterDefeat ; TBE
 	call UpdateSprites
 	SetEvent EVENT_DEFEATED_MISSINGNO
+	ld a, HS_HAUNTED_HOUSE_4_MOM_SW
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HAUNTED_HOUSE_4_MOM_SE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HAUNTED_HOUSE_4_MOM_NE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HAUNTED_HOUSE_4_MOM_NW
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 	xor a                            ; new, to go beyond 200; unnecessary here?
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200; unnecessary here?
 	ld a, 3 ; HauntedIslandOfNumbersText_PostPokemonBattle
