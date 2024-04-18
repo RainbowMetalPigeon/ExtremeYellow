@@ -135,6 +135,13 @@ UnknownPacket_72751:
 	ATTR_BLK_DATA %111, 1,1,0, 04,00, 15,05
 	ds 8
 
+BlkPacket_Rainbow: ; new, testing
+	ATTR_BLK 4
+	ATTR_BLK_DATA %011, 0,0,0, 00,00, 04,17 ; left: pal 1
+	ATTR_BLK_DATA %011, 1,1,0, 05,00, 09,17 ; center left: pal 2
+	ATTR_BLK_DATA %011, 2,2,0, 10,00, 14,17 ; center right: pal 3
+	ATTR_BLK_DATA %011, 3,3,0, 15,00, 19,17 ; right: pal 4
+	ds 2, 0
 
 PalPacket_Empty:          PAL_SET 0, 0, 0, 0
 PalPacket_PartyMenu:      PAL_SET PAL_MEWMON, PAL_GREENBAR, PAL_YELLOWBAR, PAL_REDBAR
@@ -149,6 +156,7 @@ PalPacket_NidorinoIntro:  PAL_SET PAL_PURPLEMON, PAL_BLACK, 0, 0
 PalPacket_GameFreakIntro: PAL_SET PAL_GAMEFREAK, PAL_REDMON, PAL_VIRIDIAN, PAL_BLUEMON
 UnknownPalPacket_72811:   PAL_SET PAL_25, PAL_25, PAL_25, PAL_25
 UnknownPalPacket_72821:   PAL_SET PAL_25, PAL_27, PAL_25, PAL_25
+PalPacket_Rainbow:        PAL_SET PAL_YELLOWMON, PAL_REDMON, PAL_ROUTE, PAL_BLUEMON ; new, testing
 
 PalTrnPacket:  PAL_TRN
 MltReq1Packet: MLT_REQ 1

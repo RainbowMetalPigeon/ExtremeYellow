@@ -2358,7 +2358,8 @@ wBattleFacilityCurScript:: db ; new
 wHauntedRedsHouseCurScript:: db ; new
 wHauntedPalletTownCurScript:: db ; new, TBV
 wHauntedIslandOfNumbersCurScript:: db ; new
-	ds 73 ; UNUSED bytes in "Main Data", was 78
+wHauntedHouse4CurScript:: db ; new
+	ds 72 ; UNUSED bytes in "Main Data", was 78
 wGameProgressFlagsEnd::
 
 wPlayerGender::

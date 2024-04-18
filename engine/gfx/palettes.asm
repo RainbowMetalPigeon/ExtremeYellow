@@ -188,6 +188,22 @@ SetPal_GameFreakIntro:
 
 ; uses PalPacket_Empty to build a packet based on the current map
 SetPal_Overworld:
+
+; new, code for rainbow palette
+    ld a, [wCurMap]
+    cp HAUNTED_ISLAND_OF_NUMBERS
+    jr nz, .notIslandOfNumbers
+    ld hl, PalPacket_Rainbow
+    ld de, wPalPacket
+    ld bc, $10
+    call CopyData
+    ld hl, PalPacket_Rainbow
+    ld de, BlkPacket_Rainbow
+    ld a, SET_PAL_OVERWORLD
+    ld [wDefaultPaletteCommand], a
+    ret
+.notIslandOfNumbers
+
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
@@ -200,6 +216,7 @@ SetPal_Overworld:
 ; new, to handle Haunted House
 	callfar IsCurrentMapHauntedHouse ; testing
 	jr z, .hauntedHouse
+
 ; back to vanilla
 	ld a, [wCurMap]
 	cp FIRST_INDOOR_MAP
@@ -216,6 +233,10 @@ SetPal_Overworld:
 	jr z, .trade_center_colosseum
 	cp COLOSSEUM
 	jr z, .trade_center_colosseum
+	cp HAUNTED_REDS_HOUSE ; new
+	jr z, .Lorelei ; new
+	cp HAUNTED_PALLET_TOWN ; new
+	jr z, .Lorelei ; new
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute

@@ -84,6 +84,18 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	jp z, HauntedIslandOfNumbersScript_ResetAfterDefeat ; TBE
 	call UpdateSprites
 	SetEvent EVENT_DEFEATED_MISSINGNO
+	ld a, HS_HAUNTED_HOUSE_4_MOM_SW
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HAUNTED_HOUSE_4_MOM_SE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HAUNTED_HOUSE_4_MOM_NE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HAUNTED_HOUSE_4_MOM_NW
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 	xor a                            ; new, to go beyond 200; unnecessary here?
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200; unnecessary here?
 	ld a, 3 ; HauntedIslandOfNumbersText_PostPokemonBattle
@@ -127,6 +139,50 @@ HauntedIslandOfNumbers_TextPointers:
 
 HauntedIslandOfNumbersText_MissingNo:
 	text_asm
+; play a bunch of sounds
+
+	ld a, SFX_SS_ANNE_HORN
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_GET_KEY_ITEM
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_POKEDEX_RATING
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_TRADE_MACHINE
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_TELEPORT_ENTER_1
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_SAVE
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
+	ld a, SFX_LEDGE
+	call PlaySound
+;	ld c, 50
+;	call DelayFrames
+	call WaitForSoundToFinish
+
 ; load the right dialogue
 	CheckAndSetEvent EVENT_FACED_MISSINGNO_AT_LEAST_ONCE
 	jr z, .firstTime

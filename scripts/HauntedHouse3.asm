@@ -10,6 +10,14 @@ HauntedHouse3_Script:
 	ret
 
 HauntedHouse3HandleRandomGlitchyBehaviours:
+	lb bc, 39, 59
+	lb de, 41, 59
+	call CheckIfInRectangle_HH ; b = min x, c = max x, d = min y, e = max y
+	jr nc, .notInDarkMaze
+; in dark maze
+	jp LoadTransparentPlayerSpriteGraphics
+	ret ; unnecessary?
+.notInDarkMaze
 	callfar HauntedHouseHandleRandomGlitchyBehaviours ; testing
 	call HauntedHouse3ReplaceBlockForRealExit
 	ret
@@ -62,3 +70,27 @@ HauntedHouse3_TextPointers:
 	text_end
 
 ; ============================
+
+; inputs:
+; b = min x, c = max x, d = min y, e = max y
+; output:
+; c flag = in the rectangle, nc otherwise
+CheckIfInRectangle_HH::
+	inc c
+	inc e
+	ld a, [wXCoord]
+	cp b
+	jr c, .outsideRectangle ; if X<=b-1
+	cp c
+	jr nc, .outsideRectangle ; if X>=c+1
+	ld a, [wYCoord]
+	cp d
+	jr c, .outsideRectangle ; if Y<=d-1
+	cp e
+	jr nc, .outsideRectangle ; if Y>=e+1
+;insideRectangle
+	scf
+	ret
+.outsideRectangle
+	xor a
+	ret

@@ -67,6 +67,7 @@ LanceScript0:
 .notStandingNextToLance
 	cp $5  ; Is player standing on the entrance staircase?
 	jr z, WalkToLance
+.test
 	CheckAndSetEvent EVENT_LANCES_ROOM_LOCK_DOOR
 	ret nz
 	ld hl, wCurrentMapScriptFlags
@@ -78,8 +79,8 @@ LanceScript0:
 LanceTriggerMovementCoords:
 	dbmapcoord  5,  1
 	dbmapcoord  6,  2
-	dbmapcoord  5, 11
-	dbmapcoord  6, 11
+	dbmapcoord  5, 10 ; edited, leftover from Red?
+	dbmapcoord  6, 10 ; edited, leftover from Red?
 	dbmapcoord 24, 16
 	db -1 ; end
 
