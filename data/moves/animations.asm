@@ -473,24 +473,6 @@ HornDrillAnim:
 
 ; TODO:
 
-AirCutterAnim:
-AerialAceAnim:
-AirSlashAnim:
-BraveBirdAnim:
-HurricaneAnim:
-
-ShadowSneakAnim:
-ShadowClawAnim:
-
-MagicaLeafAnim:
-LeafStormAnim:
-
-IcicleSpearAnim:
-IcicleCrashAnim:
-
-GunkShot:
-SludgeWaveAnim:
-
 RockTombAnim:
 HeadSmashAnim:
 StoneEdgeAnim:
@@ -1637,6 +1619,91 @@ FlashCannonAnim:
 	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
 	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
 	db -1 ; end
+
+AirCutterAnim:
+	battle_anim GUST, SUBANIM_10, 1, 6
+	battle_anim CUT, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_16, 0, 4
+	db -1 ; end
+
+AerialAceAnim:
+	battle_anim FLY, SE_SQUISH_MON_PIC
+	battle_anim NO_MOVE, SE_SHOOT_BALLS_UPWARD
+	battle_anim SLASH, SUBANIM_16, 0, 5
+;	battle_anim NO_MOVE, SUBANIM_02, 0, 3
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+AirSlashAnim:
+	battle_anim GUST, SUBANIM_10, 1, 6
+	battle_anim SLASH, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_0F, 0, 6
+	db -1 ; end
+
+BraveBirdAnim:
+	battle_anim GUST, SUBANIM_17flip, 0, 4
+	battle_anim NO_MOVE, SUBANIM_17flip, 0, 4
+	battle_anim NO_MOVE, SUBANIM_17flip, 0, 4
+	battle_anim TAKE_DOWN, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	db -1 ; end
+
+HurricaneAnim:
+	battle_anim GUST, SUBANIM_10, 1, 4
+	battle_anim WING_ATTACK, SUBANIM_HURRICANE, 1, 8
+	battle_anim NO_MOVE, SUBANIM_02, 0, 6
+	db -1 ; end
+
+ShadowSneakAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
+	battle_anim NO_MOVE, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+ShadowClawAnim: ; meh withouth dark screen, but otherwise would be identical to NightSlash...
+	battle_anim CONFUSE_RAY, SE_WAVY_SCREEN
+	battle_anim SLASH, SUBANIM_0F, 0, 6
+	db -1 ; end
+
+MagicaLeafAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim RAZOR_LEAF, SE_LEAVES_FALLING
+	battle_anim CONFUSION, SE_WAVY_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim CUT, SUBANIM_16, 0, 1
+	db -1 ; end
+
+LeafStormAnim:
+	battle_anim LEECH_SEED, SE_LIGHT_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
+	battle_anim RAZOR_LEAF, SE_LEAVES_FALLING
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim SWIFT, SUBANIM_44, 1, 1
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_44, 1, 1
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+;	battle_anim SLASH, SUBANIM_16, 0, 1
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	db -1 ; end
+
+IcicleSpearAnim:
+	battle_anim ICE_BEAM, SUBANIM_ICICLESPEAR, 0, 3
+	db -1 ; end
+
+IcicleCrashAnim:
+	battle_anim BLIZZARD, SUBANIM_30bis, 0, 6
+	db -1 ; end
+
+GunkShot:
+
+SludgeWaveAnim:
+
+
+
 
 ; ENDDONE
 

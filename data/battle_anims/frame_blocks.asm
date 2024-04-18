@@ -122,7 +122,9 @@ FrameBlockPointers:
 	dw FrameBlock77
 	dw FrameBlock78
 	dw FrameBlock79
-	dw FrameBlock2bspec
+	dw FrameBlock2bspec ; new
+	dw FrameBlock66bis ; new
+	dw FrameBlock66ter ; new
 	assert_table_length NUM_FRAMEBLOCKS
 
 FrameBlock01:
@@ -482,6 +484,10 @@ FrameBlock24:
 	dbsprite  0,  1,  0,  0, $0a, 0
 	dbsprite  1,  1,  0,  0, $0b, 0
 
+FrameBlock66ter: ; new
+	db 1 ; #
+	dbsprite  0,  1,  0,  0, $03, 0
+
 FrameBlock25:
 	db 12 ; #
 	dbsprite  0,  2,  0,  0, $0a, 0
@@ -496,6 +502,15 @@ FrameBlock25:
 	dbsprite  5,  1,  0,  0, $0b, 0
 	dbsprite  4,  2,  0,  0, $1a, 0
 	dbsprite  5,  2,  0,  0, $1b, 0
+
+FrameBlock66bis: ; new
+	db 6 ; #
+	dbsprite  0,  2,  0,  0, $03, 0
+	dbsprite  0,  3,  0,  0, $13, 0
+	dbsprite  2,  0,  0,  0, $03, 0
+	dbsprite  2,  1,  0,  0, $13, 0
+	dbsprite  4,  1,  0,  0, $03, 0
+	dbsprite  4,  2,  0,  0, $13, 0
 
 FrameBlock26:
 	db 4 ; #

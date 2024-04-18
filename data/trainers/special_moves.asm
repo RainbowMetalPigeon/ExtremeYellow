@@ -622,10 +622,10 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, ROOST
-	db 1, 2, METAL_CLAW
-	db 1, 3, HAZE
-	db 1, 4, BULLET_PUNCH
+	db 1, 1, ICICLE_SPEAR
+	db 1, 2, ICICLE_CRASH
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
 ;	db 1, 1, AQUA_JET
 ;	db 1, 2, REST
 ;	db 1, 3, WATERFALL

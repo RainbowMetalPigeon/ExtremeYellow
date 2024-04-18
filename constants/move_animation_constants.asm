@@ -142,6 +142,9 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_17flip
 	const SUBANIM_EmanatingFromOpponent
 	const SUBANIM_3E_fire
+	const SUBANIM_HURRICANE
+	const SUBANIM_ICICLESPEAR
+	const SUBANIM_30bis
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations
@@ -278,7 +281,9 @@ DEF NUM_SUBANIMS EQU const_value
 	const FRAMEBLOCK_77
 	const FRAMEBLOCK_78
 	const FRAMEBLOCK_79
-	const FRAMEBLOCK_2Bspec
+	const FRAMEBLOCK_2Bspec ; new
+	const FRAMEBLOCK_66bis ; new
+	const FRAMEBLOCK_66ter ; new
 DEF NUM_FRAMEBLOCKS EQU const_value
 
 ; base coordinates that are part of subanimations
@@ -472,6 +477,9 @@ DEF NUM_FRAMEBLOCKS EQU const_value
 	const BASECOORD_B8
 	const BASECOORD_B9
 	const BASECOORD_BA
+	const BASECOORD_BB
+	const BASECOORD_BC
+	const BASECOORD_BD
 DEF NUM_BASECOORDS EQU const_value
 
 ; frame block modes that are part of subanimations

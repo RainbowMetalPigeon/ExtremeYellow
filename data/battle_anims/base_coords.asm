@@ -189,5 +189,8 @@ FrameBlockBaseCoords:
 	db $40, $10 ; BASECOORD_B8
 	db $40, $20 ; BASECOORD_B9
 	db $40, $30 ; BASECOORD_BA
+	db $48, $30 ; BASECOORD_BB
+	db $28, $40 ; BASECOORD_BC
+	db $18, $48 ; BASECOORD_BD
 
 	assert_table_length NUM_BASECOORDS
