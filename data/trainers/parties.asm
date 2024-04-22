@@ -916,5 +916,5 @@ BFTrainerData:
 	db 1, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, MAGIKARP, 0 ; new
 
 MissingNoTData:
-;	db 50, BLUESDAD, BLUESMOM, DAD, 0 ; new
-	db 1, DAD, 0 ; new
+	db 50, BLUESDAD, BLUESMOM, DAD, 0 ; new
+;	db 1, DAD, 0 ; for testing
