@@ -10,9 +10,59 @@ CeladonUniversity2_ScriptPointers:
 
 CoordinatesForBooksTextsIDs:
 ; x, y
+; 3rd row
     db 32,  2
+    db 33,  2
+    db 34,  2
+    db 35,  2
+    db 36,  2
+    db 37,  2
+    db 38,  2
+    db 39,  2
+    db 40,  2
     db 41,  2
+    db 42,  2
+    db 43,  2
+    db 44,  2
+    db 45,  2
+    db 46,  2
+    db 47,  2
+    db 48,  2
+    db 49,  2
+; 2nd row
+    db 32,  6
+    db 33,  6
+    db 34,  6
+    db 35,  6
+    db 36,  6
+    db 37,  6
+    db 38,  6
+    db 39,  6
+    db 42,  6
+    db 43,  6
+    db 44,  6
+    db 45,  6
+    db 46,  6
+    db 47,  6
+    db 48,  6
+    db 49,  6
+; 1st row
+    db 32, 10
+    db 33, 10
+    db 34, 10
+    db 35, 10
+    db 36, 10
+    db 37, 10
+    db 38, 10
+    db 39, 10
     db 42, 10
+    db 43, 10
+    db 44, 10
+    db 45, 10
+    db 46, 10
+    db 47, 10
+    db 48, 10
+    db 49, 10
 	db $FF ; end
 
 CheckIfCoordinateWithBook:
@@ -84,9 +134,56 @@ CeladonUniversity2_TextPointers:
 	dw CeladonUniversity2Text14 ; researcher
 	; signs
 	; other (mostly books)
-	dw CeladonUniversity2SignTest1 ; 15, starting point of the books texts IDs <-> OFFSET = 0
-	dw CeladonUniversity2SignTest2 ; 16
-	dw CeladonUniversity2SignTest3 ; 17
+	dw CeladonUniversity2SignBook01 ; 15, starting point of the books texts IDs <-> OFFSET = 0
+	dw CeladonUniversity2SignBook02 ; 16
+	dw CeladonUniversity2SignBook03 ; 17
+	dw CeladonUniversity2SignBook04 ; 18
+	dw CeladonUniversity2SignBook05 ; 19
+	dw CeladonUniversity2SignBook06 ; 20
+	dw CeladonUniversity2SignBook07 ; 21
+	dw CeladonUniversity2SignBook08 ; 22
+	dw CeladonUniversity2SignBook09 ; 23
+	dw CeladonUniversity2SignBook10 ; 24
+	dw CeladonUniversity2SignBook11 ; 25
+	dw CeladonUniversity2SignBook12 ; 26
+	dw CeladonUniversity2SignBook13 ; 27
+	dw CeladonUniversity2SignBook14 ; 28
+	dw CeladonUniversity2SignBook15 ; 29
+	dw CeladonUniversity2SignBook16 ; 30
+	dw CeladonUniversity2SignBook17 ; 31
+	dw CeladonUniversity2SignBook18 ; 32
+	dw CeladonUniversity2SignBook19 ; 33
+	dw CeladonUniversity2SignBook20 ; 34
+	dw CeladonUniversity2SignBook21 ; 35
+	dw CeladonUniversity2SignBook22 ; 36
+	dw CeladonUniversity2SignBook23 ; 37
+	dw CeladonUniversity2SignBook24 ; 38
+	dw CeladonUniversity2SignBook25 ; 39
+	dw CeladonUniversity2SignBook26 ; 40
+	dw CeladonUniversity2SignBook27 ; 41
+	dw CeladonUniversity2SignBook28 ; 42
+	dw CeladonUniversity2SignBook29 ; 43
+	dw CeladonUniversity2SignBook30 ; 44
+	dw CeladonUniversity2SignBook31 ; 45
+	dw CeladonUniversity2SignBook32 ; 46
+	dw CeladonUniversity2SignBook33 ; 47
+	dw CeladonUniversity2SignBook34 ; 48
+	dw CeladonUniversity2SignBook35 ; 49
+	dw CeladonUniversity2SignBook36 ; 50
+	dw CeladonUniversity2SignBook37 ; 51
+	dw CeladonUniversity2SignBook38 ; 52
+	dw CeladonUniversity2SignBook39 ; 53
+	dw CeladonUniversity2SignBook40 ; 54
+	dw CeladonUniversity2SignBook41 ; 55
+	dw CeladonUniversity2SignBook42 ; 56
+	dw CeladonUniversity2SignBook43 ; 57
+	dw CeladonUniversity2SignBook44 ; 58
+	dw CeladonUniversity2SignBook45 ; 59
+	dw CeladonUniversity2SignBook46 ; 60
+	dw CeladonUniversity2SignBook47 ; 61
+	dw CeladonUniversity2SignBook48 ; 62
+	dw CeladonUniversity2SignBook49 ; 63
+	dw CeladonUniversity2SignBook50 ; 64
 
 ; --- magna auditorium ---
 
@@ -261,14 +358,202 @@ CeladonUniversity2Text14:
 
 ; --- (books) ---
 
-CeladonUniversity2SignTest1:
-	text_far _CeladonUniversity2SignTest1
+CeladonUniversity2SignBook01:
+	text_far _CeladonUniversity2SignBook01
 	text_end
 
-CeladonUniversity2SignTest2:
-	text_far _CeladonUniversity2SignTest2
+CeladonUniversity2SignBook02:
+	text_far _CeladonUniversity2SignBook02
 	text_end
 
-CeladonUniversity2SignTest3:
-	text_far _CeladonUniversity2SignTest3
+CeladonUniversity2SignBook03:
+	text_far _CeladonUniversity2SignBook03
+	text_end
+
+CeladonUniversity2SignBook04:
+	text_far _CeladonUniversity2SignBook04
+	text_end
+
+CeladonUniversity2SignBook05:
+	text_far _CeladonUniversity2SignBook05
+	text_end
+
+CeladonUniversity2SignBook06:
+	text_far _CeladonUniversity2SignBook06
+	text_end
+
+CeladonUniversity2SignBook07:
+	text_far _CeladonUniversity2SignBook07
+	text_end
+
+CeladonUniversity2SignBook08:
+	text_far _CeladonUniversity2SignBook08
+	text_end
+
+CeladonUniversity2SignBook09:
+	text_far _CeladonUniversity2SignBook09
+	text_end
+
+CeladonUniversity2SignBook10:
+	text_far _CeladonUniversity2SignBook10
+	text_end
+
+CeladonUniversity2SignBook11:
+	text_far _CeladonUniversity2SignBook11
+	text_end
+
+CeladonUniversity2SignBook12:
+	text_far _CeladonUniversity2SignBook12
+	text_end
+
+CeladonUniversity2SignBook13:
+	text_far _CeladonUniversity2SignBook13
+	text_end
+
+CeladonUniversity2SignBook14:
+	text_far _CeladonUniversity2SignBook14
+	text_end
+
+CeladonUniversity2SignBook15:
+	text_far _CeladonUniversity2SignBook15
+	text_end
+
+CeladonUniversity2SignBook16:
+	text_far _CeladonUniversity2SignBook16
+	text_end
+
+CeladonUniversity2SignBook17:
+	text_far _CeladonUniversity2SignBook17
+	text_end
+
+CeladonUniversity2SignBook18:
+	text_far _CeladonUniversity2SignBook18
+	text_end
+
+CeladonUniversity2SignBook19:
+	text_far _CeladonUniversity2SignBook19
+	text_end
+
+CeladonUniversity2SignBook20:
+	text_far _CeladonUniversity2SignBook20
+	text_end
+
+CeladonUniversity2SignBook21:
+	text_far _CeladonUniversity2SignBook21
+	text_end
+
+CeladonUniversity2SignBook22:
+	text_far _CeladonUniversity2SignBook22
+	text_end
+
+CeladonUniversity2SignBook23:
+	text_far _CeladonUniversity2SignBook23
+	text_end
+
+CeladonUniversity2SignBook24:
+	text_far _CeladonUniversity2SignBook24
+	text_end
+
+CeladonUniversity2SignBook25:
+	text_far _CeladonUniversity2SignBook25
+	text_end
+
+CeladonUniversity2SignBook26:
+	text_far _CeladonUniversity2SignBook26
+	text_end
+
+CeladonUniversity2SignBook27:
+	text_far _CeladonUniversity2SignBook27
+	text_end
+
+CeladonUniversity2SignBook28:
+	text_far _CeladonUniversity2SignBook28
+	text_end
+
+CeladonUniversity2SignBook29:
+	text_far _CeladonUniversity2SignBook29
+	text_end
+
+CeladonUniversity2SignBook30:
+	text_far _CeladonUniversity2SignBook30
+	text_end
+
+CeladonUniversity2SignBook31:
+	text_far _CeladonUniversity2SignBook31
+	text_end
+
+CeladonUniversity2SignBook32:
+	text_far _CeladonUniversity2SignBook32
+	text_end
+
+CeladonUniversity2SignBook33:
+	text_far _CeladonUniversity2SignBook33
+	text_end
+
+CeladonUniversity2SignBook34:
+	text_far _CeladonUniversity2SignBook34
+	text_end
+
+CeladonUniversity2SignBook35:
+	text_far _CeladonUniversity2SignBook35
+	text_end
+
+CeladonUniversity2SignBook36:
+	text_far _CeladonUniversity2SignBook36
+	text_end
+
+CeladonUniversity2SignBook37:
+	text_far _CeladonUniversity2SignBook37
+	text_end
+
+CeladonUniversity2SignBook38:
+	text_far _CeladonUniversity2SignBook38
+	text_end
+
+CeladonUniversity2SignBook39:
+	text_far _CeladonUniversity2SignBook39
+	text_end
+
+CeladonUniversity2SignBook40:
+	text_far _CeladonUniversity2SignBook40
+	text_end
+
+CeladonUniversity2SignBook41:
+	text_far _CeladonUniversity2SignBook41
+	text_end
+
+CeladonUniversity2SignBook42:
+	text_far _CeladonUniversity2SignBook42
+	text_end
+
+CeladonUniversity2SignBook43:
+	text_far _CeladonUniversity2SignBook43
+	text_end
+
+CeladonUniversity2SignBook44:
+	text_far _CeladonUniversity2SignBook44
+	text_end
+
+CeladonUniversity2SignBook45:
+	text_far _CeladonUniversity2SignBook45
+	text_end
+
+CeladonUniversity2SignBook46:
+	text_far _CeladonUniversity2SignBook46
+	text_end
+
+CeladonUniversity2SignBook47:
+	text_far _CeladonUniversity2SignBook47
+	text_end
+
+CeladonUniversity2SignBook48:
+	text_far _CeladonUniversity2SignBook48
+	text_end
+
+CeladonUniversity2SignBook49:
+	text_far _CeladonUniversity2SignBook49
+	text_end
+
+CeladonUniversity2SignBook50:
+	text_far _CeladonUniversity2SignBook50
 	text_end
