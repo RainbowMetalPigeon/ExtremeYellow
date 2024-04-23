@@ -135,6 +135,26 @@ HauntedHouseFakeOutOfBattlePoisonDamage::
 
 ; ===========================================================
 
+HauntedPalletTownHandlePalettes::
+; check if we ran out of palettes
+	ld a, [wHauntedPalletTownPaletteCounter]
+	cp 15
+	ret z
+; if we haven't ran out of palettes
+	ld a, [wStepCounter]
+	and $3 ; is the counter a multiple of 4?
+	ret nz
+; if the counter is indeed a multiple of 4
+	ld a, [wHauntedPalletTownPaletteCounter]
+	inc a
+	ld [wHauntedPalletTownPaletteCounter], a ; increase the counter, initially 0
+	                                         ; and to be reset to 0 when we leave the Haunted House, either by winning or losing vs MISSINGNO
+	ld b, SET_PAL_OVERWORLD
+	call RunPaletteCommand
+	ret
+
+; ===========================================================
+
 ; % 0000 0000 =   0
 ; % 0000 0001 =   1
 ; % 0000 0011 =   3
@@ -250,7 +270,7 @@ IsCurrentMapHauntedHouse::
 	ret z
 	cp HAUNTED_HOUSE_4
 	ret
-	
+
 ; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS
 ; nz otherwise
 IsCurrentMapHauntedHouse_AlsoIsland::
@@ -265,7 +285,7 @@ IsCurrentMapHauntedHouse_AlsoIsland::
 	ret z
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	ret
-	
+
 ; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS and HAUNTED REDS HOUSE and PALLET TOWN
 ; nz otherwise
 IsCurrentMapHauntedHouse_AlsoIslandAndPallet::
@@ -284,7 +304,7 @@ IsCurrentMapHauntedHouse_AlsoIslandAndPallet::
 	ret z
 	cp HAUNTED_PALLET_TOWN
 	ret
-	
+
 ; ===========================================================
 
 ForceMovementsHauntedHouse::
@@ -393,7 +413,7 @@ ForceRight_HauntedHouse4:
 	lb de, 20, 37
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
-	
+
 	lb bc,  2,  3
 	lb de, 22, 35
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
@@ -465,7 +485,7 @@ ForceLeft_HauntedHouse4:
 	lb de, 20, 37
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
-	
+
 	lb bc, 18, 19
 	lb de, 22, 35
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
@@ -501,7 +521,7 @@ ForceUp_HauntedHouse4:
 	lb de, 38, 39
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	jr c, .doThePush
-	
+
 	lb bc,  4, 17
 	lb de, 36, 37
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
@@ -521,7 +541,7 @@ ForceUp_HauntedHouse4:
 	lb de, 28, 31
 	call CheckIfInRectangle_OW ; b = min x, c = max x, d = min y, e = max y
 	ret nc
-	
+
 .doThePush
 	ldh a, [hJoyHeld]
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON

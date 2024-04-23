@@ -256,10 +256,16 @@ OverworldLoopLessDelay::
 .notSafariZone
 ; new, to handle Route 25 for Haunted House
 	CheckEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
-	jr z, .vanilla
+	jr z, .checkHauntedPallet
 	farcall TallGrassBillsSecretGardenCheckSteps
-.vanilla
+.checkHauntedPallet
+; new, to handle darkening HAUNTED_PALLET_TOWN palette(s), testing
+	ld a, [wCurMap]
+	cp HAUNTED_PALLET_TOWN
+	jr nz, .vanilla
+	farcall HauntedPalletTownHandlePalettes
 ; back to vanilla
+.vanilla
 	ld a, [wIsInBattle]
 	and a
 	jp nz, CheckWarpsNoCollision

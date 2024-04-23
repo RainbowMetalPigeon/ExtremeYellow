@@ -2359,7 +2359,8 @@ wHauntedRedsHouseCurScript:: db ; new
 wHauntedPalletTownCurScript:: db ; new, TBV
 wHauntedIslandOfNumbersCurScript:: db ; new
 wHauntedHouse4CurScript:: db ; new
-	ds 72 ; UNUSED bytes in "Main Data", was 78
+wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok
+	ds 71 ; UNUSED bytes in "Main Data", was 78
 wGameProgressFlagsEnd::
 
 wPlayerGender::
