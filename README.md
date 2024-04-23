@@ -1,5 +1,5 @@
 # ExtremeYellow
-Kanto at its max
+Kanto at its max (and beyond!)
 
 - more than 50 new mons related to Kantonian Gen1
 - more than 60 new famous moves taken from later-gen games
