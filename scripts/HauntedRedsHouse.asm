@@ -10,6 +10,7 @@ HauntedRedsHouse_Script:
 	ret
 
 HauntedRedsHouseSetExitTile:
+; warp stuff
 	CheckEvent EVENT_SPOKEN_WITH_HAUNTED_MOM_5
 	jr nz, .exitOpen
 	ld a, $2B ; non-working exit block ID
@@ -20,6 +21,15 @@ HauntedRedsHouseSetExitTile:
 	ld [wNewTileBlockID], a
 	lb bc, 4, 8 ; Y, X block coordinates
 	predef ReplaceTileBlock
+; reset all stuff that may have been set in the previous part of the Haunted House
+	ResetEvent EVENT_HAUNTED_HOUSE_FAKE_POISON
+	ld hl, wLowHealthAlarm
+	res 7, [hl] ; disable low health alarm
+	ld hl, wd736 ; bit 7: spinning
+	res 7, [hl]
+    ld hl, wFontLoaded ; fix from Engeze
+    bit 0, [hl]
+    jp z, LoadWalkingPlayerSpriteGraphics
 	ret
 
 ; =================================

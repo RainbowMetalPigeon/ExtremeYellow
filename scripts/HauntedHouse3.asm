@@ -15,10 +15,23 @@ HauntedHouse3HandleRandomGlitchyBehaviours:
 	call CheckIfInRectangle_HH ; b = min x, c = max x, d = min y, e = max y
 	jr nc, .notInDarkMaze
 ; in dark maze
+; hide Pikachu too, if present
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+; hide player
 	jp LoadTransparentPlayerSpriteGraphics
 	ret ; unnecessary?
 .notInDarkMaze
-	callfar HauntedHouseHandleRandomGlitchyBehaviours ; testing
+; show Pikachu, if present
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu2
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu2
+	callfar HauntedHouseHandleRandomGlitchyBehaviours
 	call HauntedHouse3ReplaceBlockForRealExit
 	ret
 

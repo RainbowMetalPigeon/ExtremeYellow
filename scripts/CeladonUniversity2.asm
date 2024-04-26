@@ -63,6 +63,20 @@ CoordinatesForBooksTextsIDs:
     db 47, 10
     db 48, 10
     db 49, 10
+; library PC
+    db 36, 17
+; whiteboard
+    db  9,  4
+    db 10,  4
+    db 11,  4
+    db 12,  4
+    db 13,  4
+    db 14,  4
+    db 15,  4
+    db 16,  4
+; magna PCs
+    db  4,  5
+    db 20,  5
 	db $FF ; end
 
 CheckIfCoordinateWithBook:
@@ -96,6 +110,18 @@ CheckIfCoordinateWithBook:
 	ret
 
 CeladonUniversity2Script0:
+; do not move sleeping student
+	ld hl, CeladonUniversity2SleepingStudentCoords
+	call ArePlayerCoordsInArray ; carry flag if yes
+	jr nc, .checkForAButton
+; we are nearby 
+	ld hl, wd72d
+	set 5, [hl]
+	ret
+.checkForAButton
+; reset "no moving when spoken to" bit
+	ld hl, wd72d
+	res 5, [hl]
 ; check if A button is pressed
 	ldh a, [hJoyHeld]
 	bit BIT_A_BUTTON, a
@@ -110,6 +136,14 @@ CeladonUniversity2Script0:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ret
+
+CeladonUniversity2SleepingStudentCoords:
+	dbmapcoord 33, 13
+	dbmapcoord 32, 14
+	dbmapcoord 34, 13
+	dbmapcoord 33, 14
+	dbmapcoord 32, 15
+	db -1 ; end
 
 ; ================================
 
@@ -184,6 +218,17 @@ CeladonUniversity2_TextPointers:
 	dw CeladonUniversity2SignBook48 ; 62
 	dw CeladonUniversity2SignBook49 ; 63
 	dw CeladonUniversity2SignBook50 ; 64
+	dw CeladonUniversity2SignLibraryPC ; 65
+	dw CeladonUniversity2SignWhiteboard ; 66
+	dw CeladonUniversity2SignWhiteboard ; 67
+	dw CeladonUniversity2SignWhiteboard ; 68
+	dw CeladonUniversity2SignWhiteboard ; 69
+	dw CeladonUniversity2SignWhiteboard ; 70
+	dw CeladonUniversity2SignWhiteboard ; 71
+	dw CeladonUniversity2SignWhiteboard ; 72
+	dw CeladonUniversity2SignWhiteboard ; 73
+	dw CeladonUniversity2SignMagnaPC ; 74
+	dw CeladonUniversity2SignMagnaPC ; 75
 
 ; --- magna auditorium ---
 
@@ -557,3 +602,16 @@ CeladonUniversity2SignBook49:
 CeladonUniversity2SignBook50:
 	text_far _CeladonUniversity2SignBook50
 	text_end
+
+CeladonUniversity2SignLibraryPC:
+	text_far _CeladonUniversity2SignLibraryPC
+	text_end
+	
+CeladonUniversity2SignWhiteboard:
+	text_far _CeladonUniversity2SignWhiteboard
+	text_end
+	
+CeladonUniversity2SignMagnaPC:
+	text_far _CeladonUniversity2SignMagnaPC
+	text_end
+	

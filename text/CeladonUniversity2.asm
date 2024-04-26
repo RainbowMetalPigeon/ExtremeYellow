@@ -102,7 +102,7 @@ _CeladonUniversity2Text8_Intro_NoPrompt::
     para "That place is"
     line "treacherous, with"
     cont "strong #MON"
-    cont "and an harsh"
+    cont "and a harsh"
     cont "environment."
 
     para "I'm not that good"
@@ -655,3 +655,30 @@ _CeladonUniversity2SignBook50::
     cont "AND LACK THEREOF"
     done
     
+_CeladonUniversity2SignLibraryPC::
+    text "With this, one"
+    line "can search and"
+    cont "and reserve any"
+    cont "book of the"
+    cont "library!"
+    done
+
+_CeladonUniversity2SignWhiteboard::
+    text "An electronic"
+    line "whiteboard!"
+
+    para "There are still"
+    line "notes from the"
+    cont "previous lesson,"
+    cont "something about"
+    cont "the slumbering"
+    cont "Element Gods...?"
+    done
+
+_CeladonUniversity2SignMagnaPC::
+    text "The PCs are set up"
+    line "to stream the"
+    cont "lectures to"
+    cont "anyone following"
+    cont "remotely!"
+    done
