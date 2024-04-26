@@ -14,6 +14,8 @@ HauntedHouse1HandleRandomGlitchyBehaviours:
 	call ArePlayerCoordsInArray ; carry flag if yes
 	jr nc, .notEntrance
 	predef HealParty
+	xor a
+	ld [wHauntedPalletTownPaletteCounter], a ; to reset the counter in case this is not the first time we enter
 .notEntrance
 	callfar HauntedHouseHandleRandomGlitchyBehaviours ; testing
 	ret ; testing

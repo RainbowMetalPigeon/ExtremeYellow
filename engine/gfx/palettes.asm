@@ -219,6 +219,8 @@ SetPal_Overworld:
 
 ; back to vanilla
 	ld a, [wCurMap]
+	cp HAUNTED_PALLET_TOWN ; new
+	jr z, .HauntedPalletTown ; new
 	cp FIRST_INDOOR_MAP
 	jr c, .townOrRoute
 	cp CERULEAN_CAVE_2F
@@ -234,8 +236,6 @@ SetPal_Overworld:
 	cp COLOSSEUM
 	jr z, .trade_center_colosseum
 	cp HAUNTED_REDS_HOUSE ; new
-	jr z, .Lorelei ; new
-	cp HAUNTED_PALLET_TOWN ; new
 	jr z, .Lorelei ; new
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
@@ -258,7 +258,13 @@ SetPal_Overworld:
 	ld a, PAL_CAVE - 1
 	jr .town
 .Lorelei
-	xor a
+	xor a ; PAL_PALLET - 1
+	jr .town
+.HauntedPalletTown ; new, testing
+	ld a, [wHauntedPalletTownPaletteCounter]
+	ld b, PAL_PALLET_00
+	add b
+	dec a
 	jr .town
 .trade_center_colosseum
 	ld a, PAL_GREYMON - 1

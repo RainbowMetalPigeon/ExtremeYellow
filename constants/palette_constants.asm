@@ -87,4 +87,20 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_EETERNATUS ; new
 	const PAL_ARCEUS     ; new
 	const PAL_METALMON   ; new, for STEEL moves
+	const PAL_PALLET_00 ; new
+	const PAL_PALLET_01 ; new
+	const PAL_PALLET_02 ; new
+	const PAL_PALLET_03 ; new
+	const PAL_PALLET_04 ; new
+	const PAL_PALLET_05 ; new
+	const PAL_PALLET_06 ; new
+	const PAL_PALLET_07 ; new
+	const PAL_PALLET_08 ; new
+	const PAL_PALLET_09 ; new
+	const PAL_PALLET_10 ; new
+	const PAL_PALLET_11 ; new
+	const PAL_PALLET_12 ; new
+	const PAL_PALLET_13 ; new
+	const PAL_PALLET_14 ; new
+	const PAL_PALLET_15 ; new
 DEF NUM_SGB_PALS EQU const_value
