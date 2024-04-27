@@ -1,5 +1,5 @@
 CheckIfDirectionalButtonIsPressed::
-	jr .vanilla ; countercomment this line when created ready
+;	jr .vanilla ; countercomment this line when created ready
 	ld a, [wCurMap]
 	call IsCurrentMapHauntedHouse_AlsoIsland
 ;	jr z, .anomalousMovements ; redundant?

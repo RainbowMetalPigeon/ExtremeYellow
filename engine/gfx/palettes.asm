@@ -271,7 +271,7 @@ SetPal_Overworld:
 	jr .town
 .hauntedHouse ; new
 	call Random
-	cp NUM_SGB_PALS + 1
+	cp NUM_SGB_PALS_HAUNTEDLESS + 1 ; edited to avoid the dark Pallett Town palettes
 	jr nc, .hauntedHouse
 	jr .town
 

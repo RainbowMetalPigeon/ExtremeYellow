@@ -10,10 +10,11 @@ LedgeTiles:
 	db SPRITE_FACING_RIGHT, $2C, $1D, D_RIGHT
 	db SPRITE_FACING_RIGHT, $39, $0D, D_RIGHT
 	; new, for Haunted House, testing, may need a separate list if there are overlaps with OVERWORLD
-	db SPRITE_FACING_DOWN,  $11, $67, D_DOWN
-	db SPRITE_FACING_RIGHT, $11, $68, D_RIGHT
-	db SPRITE_FACING_UP,    $11, $69, D_UP
-	db SPRITE_FACING_LEFT,  $11, $6A, D_LEFT
-	db SPRITE_FACING_RIGHT, $64, $68, D_RIGHT
-	db SPRITE_FACING_LEFT,  $64, $6A, D_LEFT
+	; need to modify the button vs the direction, due to the scrambling happening in CheckIfDirectionalButtonIsPressed
+	db SPRITE_FACING_DOWN,  $11, $67, D_RIGHT ; going DOWN
+	db SPRITE_FACING_RIGHT, $11, $68, D_UP    ; going RIGHT
+	db SPRITE_FACING_UP,    $11, $69, D_LEFT  ; going UP
+	db SPRITE_FACING_LEFT,  $11, $6A, D_DOWN  ; going LEFT
+	db SPRITE_FACING_RIGHT, $64, $68, D_UP    ; going RIGHT
+	db SPRITE_FACING_LEFT,  $64, $6A, D_DOWN  ; going LEFT
 	db -1 ; end

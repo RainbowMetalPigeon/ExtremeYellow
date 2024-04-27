@@ -105,38 +105,80 @@ _HauntedRedsHousePictureText2::
 ; HAUNTED_ISLAND_OF_NUMBERS ------------------------
 
 _HauntedIslandOfNumbersText_MissingNo_NotFirstTime::
-    text "Not 1st time"
+    text "    N   O         "
+
+    para "    w h    yyyyyyyy"
+    line " r e t  u rn ed?????"
     done
 
 _HauntedIslandOfNumbersText_MissingNo_FirstTime::
     text ""
-    line "    dare you"
-    cont ""
-    cont "   here coming"
-    
+    line "w   h y   here y0uuuu"
+
+    para "  TH       I   S"
+
     para ""
-    line " m  y  w  o rl     d"
-    
+    line "   W 0   R  L D"
+
+    para "MMMMMMMMMINEEEEEEEEEE"
+
+    para "1ntrud3r"
+    line "      mmmmm u ssttt"
+
+    para ""
+
+    para ""
+
+    para "D                E"
+    line "        I         "
+
+    para "w1l l    fac3333333"
+    line "th      hhh0s  eee"
+    cont "  wh0o0 c a mmm eeee"
+    cont "B e FO r3  Y O U"
+    done
+
+_MissingNoTrainerText_Win::
+    text "00000000"
+    line "  cA Nn nNn 0tt be"
+
+    para "      you"
+
+    para "  kkk1ll ll lleed"
+
+    para "        you       "
+    line "        DAD       "
+;   xxxx "123456789012345678"
+    prompt
+
+_MissingNoTrainerText_Lose::
+    text "001101001"
+    line " die die die die"
+    prompt
+
+_HauntedIslandOfNumbersText_PostTrainerBattle::
+    text "      N O         "
+
+    para "  h  o w d  a r e "
+    line "   0011100  10100100110"
+    cont "   r e f    u se"
+    cont "N0 TRAPPED NO NO"
+
+    para ""
+    line "    F1G  HT"
+    done
+
+_HauntedIslandOfNumbersText_PostPokemonBattle::
+    text " m  y  w  o rl    d"
+
+    para "  m  y   l 1 f  e"
+
     para "00101011000100100010010"
 
     para "       fear      I"
 
     para "     N  O  !!!!!!!!!!!!!"
-;   xxxx "123456789012345678"
-    done
 
-_MissingNoTrainerText_Win::
-    text "Player wins"
-    prompt
-
-_MissingNoTrainerText_Lose::
-    text "Player loses"
-    prompt
-
-_HauntedIslandOfNumbersText_PostTrainerBattle::
-    text "Post trainer"
-    done
-
-_HauntedIslandOfNumbersText_PostPokemonBattle::
-    text "Post pokemon"
+    para ""
+    line "    ..scared...   "
     done
