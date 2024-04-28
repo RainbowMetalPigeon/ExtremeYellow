@@ -445,3 +445,20 @@ _PerfecterHasBeenUsedText:: ; new
 	text "The #MON stats"
 	line "have been maxed!"
 	prompt
+
+_ThrowMasterBallAtMissingnoText1:: ; new
+	text "The MASTER BALL"
+	line "stops mid-air and"
+	cont "vanishes into"
+	cont "nothingness!"
+	prompt
+
+_ThrowMasterBallAtMissingnoText2:: ; new
+	text "MISSINGNO.: TtThAtTtT"
+	line " th hhhhh1ngg g!!!"
+
+	para ""
+	line "  n000t al l0 www"
+	cont "tHAt ABOMINATION!!!!!"
+;	xxxx "123456789012345678"
+	prompt

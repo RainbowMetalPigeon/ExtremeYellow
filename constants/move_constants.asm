@@ -307,5 +307,6 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const HIDEPIC_ANIM ; monster disappears
 	const ROCK_ANIM ; throw rock
 	const BAIT_ANIM ; throw bait
+	const VANISHBALL_ANIM ; new, for Haunted House
 
 DEF NUM_ATTACK_ANIMS EQU const_value - 1

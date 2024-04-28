@@ -145,6 +145,7 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_HURRICANE
 	const SUBANIM_ICICLESPEAR
 	const SUBANIM_30bis
+	const SUBANIM_BALLVANISH
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations
@@ -284,6 +285,8 @@ DEF NUM_SUBANIMS EQU const_value
 	const FRAMEBLOCK_2Bspec ; new
 	const FRAMEBLOCK_66bis ; new
 	const FRAMEBLOCK_66ter ; new
+	const FRAMEBLOCK_SmallBall ; new
+	const FRAMEBLOCK_ReverseDrop ; new
 DEF NUM_FRAMEBLOCKS EQU const_value
 
 ; base coordinates that are part of subanimations

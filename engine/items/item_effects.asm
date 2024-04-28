@@ -263,6 +263,16 @@ ItemUseBall:
 	dec a
 	jp nz, ThrowBallAtTrainerMon
 
+; new, to handle Mewtwo and Master Ball
+	ld a, [wCurMap]
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	jr nz, .notMissingnoWithMaster
+	ld hl, wcf91 ; get item ID
+	ld a, [hl]
+	cp MASTER_BALL
+	jp z, ThrowMasterBallAtMissingno
+.notMissingnoWithMaster
+
 ; If this is for the old man battle, skip checking if the party & box are full.
 	ld a, [wBattleType]
 	cp BATTLE_TYPE_OLD_MAN
@@ -3062,6 +3072,19 @@ ThrowBallAtTrainerMon:
 	call PrintText
 	jr RemoveUsedItem
 
+ThrowMasterBallAtMissingno: ; new
+	call RunDefaultPaletteCommand
+	call LoadScreenTilesFromBuffer1 ; restore saved screen
+	call Delay3
+	ld a, TOSS_ANIM
+	ld [wAnimationID], a
+	predef MoveAnimation ; do animation
+	ld hl, ThrowMasterBallAtMissingnoText1
+	call PrintText
+	ld hl, ThrowMasterBallAtMissingnoText2
+	call PrintText
+	jr RemoveUsedItem
+
 NoCyclingAllowedHere:
 	ld hl, NoCyclingAllowedHereText
 	jr ItemUseFailed
@@ -3096,6 +3119,14 @@ ThrowBallAtTrainerMonText1:
 
 ThrowBallAtTrainerMonText2:
 	text_far _ThrowBallAtTrainerMonText2
+	text_end
+
+ThrowMasterBallAtMissingnoText1: ; new
+	text_far _ThrowMasterBallAtMissingnoText1
+	text_end
+
+ThrowMasterBallAtMissingnoText2: ; new
+	text_far _ThrowMasterBallAtMissingnoText2
 	text_end
 
 NoCyclingAllowedHereText:

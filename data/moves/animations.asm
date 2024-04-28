@@ -296,6 +296,7 @@ AttackAnimationPointers:
 	dw HidePicAnim
 	dw ThrowRockAnim
 	dw ThrowBaitAnim
+	dw VanishBallAnim ; new, for Haunted House
 	assert_table_length NUM_ATTACK_ANIMS
 
 ; each animation is a list of subanimations
@@ -1827,6 +1828,10 @@ ConfusedEnemyAnim:
 
 BallBlockAnim:
 	battle_anim NO_MOVE, SUBANIM_0B, 0, 3
+	db -1 ; end
+
+VanishBallAnim: ; new
+	battle_anim NO_MOVE, SUBANIM_BALLVANISH, 0, 11
 	db -1 ; end
 
 FaintAnim:

@@ -2,6 +2,41 @@ DEF NOT_VISITED EQU $fe
 
 DisplayTownMap:
 	call LoadTownMap
+; new, to handle Haunted House
+	push hl
+	push de
+	push bc
+	callfar IsCurrentMapHauntedHouse_AlsoIsland
+	pop bc
+	pop de
+	pop hl
+	jr nz, .notHauntedHouse
+.doNotPrintMapCursor
+	hlcoord 1, 7
+	lb bc, 2, 15
+	call TextBoxBorder
+	hlcoord 2, 9
+	ld de, AreaQuestionMarksText
+	call PlaceString
+; handle inputs
+.inputLoopHaunted
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	ld b, a
+	and A_BUTTON | B_BUTTON
+	jr z, .inputLoopHaunted
+;	ld a, SFX_TINK
+;	call PlaySound
+	xor a
+	ldh [hJoy7], a
+;	ld [wAnimCounter], a ; ?
+	call ExitTownMap
+;	pop hl
+;	pop af
+;	ld [hl], a ; ?
+	ret
+.notHauntedHouse
+; back to vanilla
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
@@ -45,30 +80,10 @@ DisplayTownMap:
 	ld a, [de]
 	push hl
 	call TownMapCoordsToOAMCoords
-; new, to handle Haunted House
-	push hl
-	push de
-	push bc
-	callfar IsCurrentMapHauntedHouse_AlsoIsland ; testing
-	pop bc
-	pop de
-	pop hl
-	jr nz, .normalMapCursor
-.doNotPrintMapCursor
-	hlcoord 1, 7
-	lb bc, 2, 15
-	call TextBoxBorder
-	hlcoord 2, 9
-	ld de, AreaQuestionMarksText
-	call PlaceString
-	jr .vanilla
-.normalMapCursor
 	ld a, $4
 	ld [wOAMBaseTile], a
 	ld hl, wShadowOAMSprite04
 	call WriteTownMapSpriteOAM ; town map cursor sprite
-.vanilla
-; back to vanilla
 	pop hl
 	ld de, wcd6d
 .copyMapName
@@ -395,18 +410,7 @@ DrawPlayerOrBirdSprite:
 	ld a, [de]
 	push hl
 	call TownMapCoordsToOAMCoords
-; new, to handle Haunted House
-	push hl
-	push de
-	push bc
-	callfar IsCurrentMapHauntedHouse_AlsoIsland ; testing
-	pop bc
-	pop de
-	pop hl
-	jr z, .skipSpriteDrawing
 	call WritePlayerOrBirdSpriteOAM
-.skipSpriteDrawing
-; back to vanilla
 	pop hl
 	ld de, wcd6d
 .loop

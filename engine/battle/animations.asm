@@ -2818,6 +2818,16 @@ TossBallAnimation:
 	ld a, [wIsInBattle]
 	cp 2
 	jr z, .BlockBall ; if in trainer battle, play different animation
+; new, to handle MissingNo
+	ld a, [wCurMap]
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	jr nz, .vanilla
+	ld hl, wcf91 ; get item ID
+	ld a, [hl]
+	cp MASTER_BALL
+	jr z, .MissingNo
+.vanilla
+; back to vanilla
 	ld a, [wPokeBallAnimData]
 	ld b, a
 
@@ -2868,6 +2878,16 @@ TossBallAnimation:
 	ld a, SFX_FAINT_THUD
 	call PlaySound
 	ld a, BLOCKBALL_ANIM
+	ld [wAnimationID], a
+	jp PlayAnimation
+
+.MissingNo ; new
+	ld a, TOSS_ANIM
+	ld [wAnimationID], a
+	call PlayAnimation
+	ld a, SFX_FAINT_THUD
+	call PlaySound
+	ld a, VANISHBALL_ANIM
 	ld [wAnimationID], a
 	jp PlayAnimation
 

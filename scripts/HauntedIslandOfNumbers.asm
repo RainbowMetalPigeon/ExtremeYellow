@@ -51,6 +51,8 @@ HauntedIslandOfNumbersScript_StartMissingNoTrainerBattle:
 	ret
 
 HauntedIslandOfNumbersScript_PostTrainerBattle:
+	ld hl, wPokedexSeen
+	call CleanHumanPokedexEntries
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, HauntedIslandOfNumbersScript_ResetAfterDefeat ; TBE
@@ -101,15 +103,13 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	ld a, 3 ; HauntedIslandOfNumbersText_PostPokemonBattle
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld hl, wPokedexSeen
-	call CleanHumanPokedexEntries
 	call HauntedIslandOfNumbersReplaceBlock ; open exit
 	call Delay3
 	ld a, 0
 	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
 	ret
-	
+
 CleanHumanPokedexEntries: ; oh-so horribly hard coded xD
 	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
 .loop

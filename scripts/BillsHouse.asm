@@ -295,6 +295,8 @@ BillsHouseText2:
 BillsHouseText3: ; completely ridicolous way of printing a text lol; also, edited for Secret Garden
 	text_asm
 ; new
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	jr z, .missingnoDefeated
 	CheckEvent EVENT_SHOWN_COMPLETE_MAP_TO_BILL
 	jr z, .mapNotShownYet
 	ld hl, BillsHouseText3_MapAlreadyShown
@@ -318,6 +320,10 @@ BillsHouseText3: ; completely ridicolous way of printing a text lol; also, edite
 	ld a, 10
 	ld [wCurMapScript], a
 	ld [wBillsHouseCurScript], a
+	jr .end
+.missingnoDefeated
+	ld hl, BillsHouseText3_MissingnoDefeated
+	call PrintText
 	jr .end
 ; back to vanilla
 .noMapInBag
@@ -345,4 +351,7 @@ BillsHouseText3_MapAlreadyShown: ; new
 BillsHouseText3_YouHaveThatMap: ; new
 	text_far _BillsHouseText3_YouHaveThatMap
 	text_end
-	
+
+BillsHouseText3_MissingnoDefeated: ; new
+	text_far _BillsHouseText3_MissingnoDefeated
+	text_end

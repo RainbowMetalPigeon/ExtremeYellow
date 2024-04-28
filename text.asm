@@ -67,7 +67,6 @@ INCLUDE "text/Route18Gate2F.asm"
 INCLUDE "text/SummerBeachHouse.asm"
 INCLUDE "text/Route22Gate.asm"
 INCLUDE "text/VictoryRoad2F.asm"
-INCLUDE "text/BillsHouse.asm"
 INCLUDE "text/Route1.asm"
 INCLUDE "text/Route2.asm"
 INCLUDE "text/Route3.asm"
@@ -196,7 +195,6 @@ INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/SafariZoneWest.asm"
-INCLUDE "text/SafariZoneCenter.asm"
 INCLUDE "data/text/text_9.asm"
 
 
@@ -295,6 +293,8 @@ INCLUDE "text/LavenderMart.asm"
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/CeladonUniversity2.asm" ; new
+INCLUDE "text/BillsHouse.asm" ; moved from Text 3
+INCLUDE "text/SafariZoneCenter.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

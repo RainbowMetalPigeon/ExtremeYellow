@@ -1030,6 +1030,15 @@ _NoRunningText::
 	cont "trainer battle!"
 	prompt
 
+_NoRunningFromMissingnoText:: ; new
+	text "MISSINGNO.: nNnn000!!!"
+	line "  y0 u cann0 00 t"
+	cont "          es cape!!"
+
+	para " H3 RE M UST D1E!!!!!"
+;	xxxx "123456789012345678"
+	prompt
+
 _GotAwayText::
 	text "Got away safely!"
 	prompt

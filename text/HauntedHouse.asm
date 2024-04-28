@@ -139,15 +139,15 @@ _HauntedIslandOfNumbersText_MissingNo_FirstTime::
     done
 
 _MissingNoTrainerText_Win::
-    text "00000000"
+    text "0000000000000"
     line "  cA Nn nNn 0tt be"
 
     para "      you"
 
     para "  kkk1ll ll lleed"
 
-    para "        you       "
-    line "        DAD       "
+    para "     your         "
+    line "         DAD      "
 ;   xxxx "123456789012345678"
     prompt
 

@@ -972,32 +972,11 @@ EnemyMonFaintedText:
 	text_far _EnemyMonFaintedText
 	text_end
 
-EndLowHealthAlarm:
-; This function is called when the player has the won the battle. It turns off
-; the low health alarm and prevents it from reactivating until the next battle.
-	xor a
-	ld [wLowHealthAlarm], a ; turn off low health alarm
-	ld [wChannelSoundIDs + CHAN5], a
-	inc a
-	ld [wLowHealthAlarmDisabled], a ; prevent it from reactivating
-	ret
+EndLowHealthAlarm: ; edited into a jpfar to save space
+	jpfar _EndLowHealthAlarm
 
-AnyEnemyPokemonAliveCheck:
-	ld a, [wEnemyPartyCount]
-	ld b, a
-	xor a
-	ld hl, wEnemyMon1HP
-	ld de, wEnemyMon2 - wEnemyMon1
-.nextPokemon
-	or [hl]
-	inc hl
-	or [hl]
-	dec hl
-	add hl, de
-	dec b
-	jr nz, .nextPokemon
-	and a
-	ret
+AnyEnemyPokemonAliveCheck: ; edited into a jpfar to save space
+	jpfar _AnyEnemyPokemonAliveCheck
 
 ; stores whether enemy ran in Z flag
 ReplaceFaintedEnemyMon:
@@ -1611,9 +1590,14 @@ TryRunningFromBattle:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jp z, .canEscape
+; new, to prevent running from MissingNo (both Mon and trainer)
+	ld a, [wCurMap]
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	jr z, .cannotEscapeFromMissingNo
+; back to vanilla
 	ld a, [wIsInBattle]
 	dec a
-	jr nz, .trainerBattle ; jump if it's a trainer battle
+	jp nz, .trainerBattle ; jump if it's a trainer battle
 	ld a, [wNumRunAttempts]
 	inc a
 	ld [wNumRunAttempts], a
@@ -1681,6 +1665,11 @@ TryRunningFromBattle:
 	ld [wActionResultOrTookBattleTurn], a ; you lose your turn when you can't escape
 	ld hl, CantEscapeText
 	jr .printCantEscapeOrNoRunningText
+.cannotEscapeFromMissingNo ; new
+	ld a, $1
+	ld [wActionResultOrTookBattleTurn], a
+	ld hl, NoRunningFromMissingnoText
+	jr .printCantEscapeOrNoRunningText
 .trainerBattle
 	ld hl, NoRunningText
 .printCantEscapeOrNoRunningText
@@ -1725,6 +1714,10 @@ CantEscapeText:
 
 NoRunningText:
 	text_far _NoRunningText
+	text_end
+
+NoRunningFromMissingnoText: ; new
+	text_far _NoRunningFromMissingnoText
 	text_end
 
 GotAwayText:
@@ -2310,9 +2303,6 @@ DisplayBattleMenu::
 .AButtonPressed
 	call PlaceUnfilledArrowMenuCursor
 	ld a, [wBattleType]
-;	cp BATTLE_TYPE_RUN ; edited, removed because unused
-;	jr z, .handleUnusedBattle
-;	ld a, [wBattleType]
 	cp BATTLE_TYPE_SAFARI
 	ld a, [wCurrentMenuItem]
 	ld [wBattleAndStartSavedMenuItem], a
@@ -2345,13 +2335,6 @@ DisplayBattleMenu::
 	ld a, SAFARI_BALL
 	ld [wcf91], a
 	jp UseBagItem
-;.handleUnusedBattle ; edited, removed because unused
-;	ld a, [wCurrentMenuItem]
-;	cp $3
-;	jp z, BattleMenu_RunWasSelected
-;	ld hl, .RunAwayText
-;	call PrintText
-;	jp DisplayBattleMenu
 
 .RunAwayText
 	text_far _RunAwayText
@@ -5061,8 +5044,6 @@ JumpToOHKOMoveEffect:
 	ld a, [wMoveMissed]
 	dec a
 	ret
-
-;INCLUDE "data/battle/unused_critical_hit_moves.asm" ; edited, commented away
 
 ; edited: moved "CriticalHitTest" to its own file in another bank
 ; made all calls to it into callfars

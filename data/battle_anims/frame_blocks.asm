@@ -125,7 +125,17 @@ FrameBlockPointers:
 	dw FrameBlock2bspec ; new
 	dw FrameBlock66bis ; new
 	dw FrameBlock66ter ; new
+	dw FrameBlockSmallBall ; new
+	dw FrameBlockReverseDrop ; new
 	assert_table_length NUM_FRAMEBLOCKS
+
+FrameBlockSmallBall: ; new
+	db 1 ; #
+	dbsprite  1,  1,  0,  0, $49, 0
+
+FrameBlockReverseDrop: ; new
+	db 1 ; #
+	dbsprite  1,  1,  0,  0, $37, OAM_VFLIP
 
 FrameBlock01:
 	db 9 ; #
