@@ -68,15 +68,15 @@ IsThisPartymonStarterPikachu_Box::
 	ld hl, wBoxMon1
 	ld bc, wBoxMon2 - wBoxMon1
 	ld de, wBoxMonOT
-	jr asm_fce21
+	jr asm_fce21_bis ; edited, prolly this needs to use the Party logic
 
-IsThisPartymonStarterPikachu_Party:: ; sets carry flag if it's Starter Pikachu
-IsThisPartymonStarterPikachu::
+; edited: separated from the other, see below
+IsThisPartymonStarterPikachu:: ; sets carry flag if it's Starter Pikachu
 	ld hl, wPartyMon1
 	ld bc, wPartyMon2 - wPartyMon1
 	ld de, wPartyMonOT
 asm_fce21:
-	ld a, [wPlayerMonNumber] ; edited, was wWhichPokemon, but may cause bugs
+	ld a, [wPlayerMonNumber] ; edited, was wWhichPokemon, but may cause bugs in battle
 	call AddNTimes
 	ld a, [hl]
 	cp STARTER_PIKACHU
@@ -92,7 +92,7 @@ asm_fce21:
 	jr nz, .notPlayerPikachu
 	ld h, d
 	ld l, e
-	ld a, [wPlayerMonNumber] ; edited, was wWhichPokemon, but may cause bugs
+	ld a, [wPlayerMonNumber] ; edited, was wWhichPokemon, but may cause bugs in battle
 	ld bc, NAME_LENGTH
 	call AddNTimes
 	ld de, SamuelNameForPikachu2 ; edited, was wPlayerName
@@ -108,7 +108,48 @@ asm_fce21:
 .notPlayerPikachu
 	and a
 	ret
+.isPlayerPikachu
+	scf
+	ret
 
+; edited: separated because it seems to do not work in the start menu
+IsThisPartymonStarterPikachu_Party:: ; sets carry flag if it's Starter Pikachu
+	ld hl, wPartyMon1
+	ld bc, wPartyMon2 - wPartyMon1
+	ld de, wPartyMonOT
+asm_fce21_bis: ; renamed label
+	ld a, [wWhichPokemon] ; only difference wrt the other
+	call AddNTimes
+	ld a, [hl]
+	cp STARTER_PIKACHU
+	jr nz, .notPlayerPikachu
+	ld bc, wPartyMon1OTID - wPartyMon1
+	add hl, bc
+	xor a ; edited, was ld a, [wPlayerID]
+	cp [hl]
+	jr nz, .notPlayerPikachu
+	inc hl
+	xor a ; edited, was ld a, [wPlayerID+1]
+	cp [hl]
+	jr nz, .notPlayerPikachu
+	ld h, d
+	ld l, e
+	ld a, [wWhichPokemon] ; only difference wrt the other
+	ld bc, NAME_LENGTH
+	call AddNTimes
+	ld de, SamuelNameForPikachu2 ; edited, was wPlayerName
+	ld b, $6
+.loop
+	dec b
+	jr z, .isPlayerPikachu
+	ld a, [de]
+	inc de
+	cp [hl]
+	inc hl
+	jr z, .loop
+.notPlayerPikachu
+	and a
+	ret
 .isPlayerPikachu
 	scf
 	ret

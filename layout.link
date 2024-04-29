@@ -227,7 +227,7 @@ ROMX $3E
 	"Surfing Minigame"
 ROMX $3F
 	"Overworld Pikachu"
-	"NPC Sprites 3"
+;	"NPC Sprites 3" ; edited, does not need to stay together with the other?
 WRAM0
 	"Audio RAM"
 	org $c100

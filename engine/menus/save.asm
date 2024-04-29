@@ -616,12 +616,13 @@ SaveHallOfFameTeams:
 	jr nc, .shiftHOFTeams
 	ld hl, sHallOfFame
 	ld bc, HOF_TEAM
-	call AddNTimes
+	call AddNTimes ; adds bc to hl a times
 	ld e, l
 	ld d, h
 	ld hl, wHallOfFame
 	ld bc, HOF_TEAM
-	jr HallOfFame_Copy
+	jr HallOfFame_Copy ; a glorified CopyData: copies bc bytes from hl to de
+	                   ; copies HOF_TEAM bytes from wHallOfFame to sHallOfFame + HOF_TEAM x ([wNumHoFTeams]-1)
 
 .shiftHOFTeams
 ; if the space designated for HOF teams is full, then shift all HOF teams to the next slot, making space for the new HOF team
@@ -648,7 +649,7 @@ HallOfFame_Copy:
 	call EnableSRAMAndLatchClockData
 	xor a
 	ld [MBC1SRamBank], a
-	call CopyData
+	call CopyData ; copies bc bytes from hl to de
 	call DisableSRAMAndPrepareClockData
 	ret
 

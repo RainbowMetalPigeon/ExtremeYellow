@@ -50,9 +50,19 @@ AnimateHallOfFame:
 	ld [wHoFPartyMonIndex], a
 	ld hl, wPartyMon1Level
 	ld bc, wPartyMon2 - wPartyMon1
-	call AddNTimes
+	call AddNTimes ; adds bc to hl a times
 	ld a, [hl]
 	ld [wHoFMonLevel], a
+; new, for the shiny
+	pop bc
+	ld a, c
+	push bc
+	ld hl, wPartyMon1CatchRate
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes ; adds bc to hl a times
+	ld a, [hl]
+	ld [wHoFMonShiny], a
+; back to vanilla
 	call HoFShowMonOrPlayer
 	call HoFDisplayAndRecordMonInfo
 	ld c, 80
@@ -327,7 +337,7 @@ HoFRecordMonInfo:
 	ld hl, wHallOfFame
 	ld bc, HOF_MON
 	ld a, [wHoFPartyMonIndex]
-	call AddNTimes
+	call AddNTimes ; adds bc to hl a times
 	ld a, [wHoFMonSpecies]
 	ld [hli], a
 	ld a, [wHoFMonLevel]
@@ -336,7 +346,15 @@ HoFRecordMonInfo:
 	ld d, h
 	ld hl, wcd6d
 	ld bc, NAME_LENGTH
-	jp CopyData
+	call CopyData ; copies bc bytes from hl to de; edited, it was a jump
+; new, for the shiny
+; we need to advance hl by NAME_LENGTH times
+	ld bc, 1
+	ld a, NAME_LENGTH
+	call AddNTimes ; adds bc to hl a times
+	ld a, [wHoFMonShiny]
+	ld [hl], a
+	ret ; will this do???
 
 HoFFadeOutScreenAndMusic:
 	ld a, 10

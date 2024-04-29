@@ -91,10 +91,24 @@ LeaguePCShowMon:
 	ld [wHoFMonLevel], a
 	ld de, wcd6d
 	ld bc, NAME_LENGTH
-	call CopyData
+	call CopyData ; copies bc bytes from hl to de; edited
+
+; new, for the shiny
+; we need to advance hl by NAME_LENGTH times
+	ld bc, 1
+	ld a, NAME_LENGTH
+	call AddNTimes ; adds bc to hl a times
+	ld a, [hl] ; a should contain the shiny-ness of that HoF mon
+	ld [wPlayerMonShiny], a
+
 	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
 	ld c, 0
 	call RunPaletteCommand
+
+	xor a
+	ld [wPlayerMonShiny], a
+; back to vanilla
+
 	hlcoord 12, 5
 	call GetMonHeader
 	call LoadFrontSpriteByMonIndex
