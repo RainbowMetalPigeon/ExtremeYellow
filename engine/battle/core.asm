@@ -1580,13 +1580,17 @@ NoWillText:
 ; try to run from battle (hl = player speed, de = enemy speed)
 ; stores whether the attempt was successful in carry flag
 TryRunningFromBattle:
-	call IsGhostBattle
+	push de
+	push hl
+	call IsGhostBattle ; edited: wrapped this in push-pops to preserve hl and de that point to mons' speeds
+	pop hl
+	pop de
 	jp z, .canEscape ; jump if it's a ghost battle
 	ld a, [wBattleType]
 	cp BATTLE_TYPE_SAFARI
 	jp z, .canEscape ; jump if it's a safari battle
-	cp BATTLE_TYPE_RUN
-	jp z, .canEscape ; hurry, get away?
+;	cp BATTLE_TYPE_RUN
+;	jp z, .canEscape ; hurry, get away?
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jp z, .canEscape
