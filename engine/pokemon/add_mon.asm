@@ -94,7 +94,7 @@ _AddPartyMon::
 	push hl
 	ld a, [wMonDataLocation]
 	and $f
-	ld a, ATKDEFDV_TRAINER  ; set enemy trainer mon IVs to fixed average values
+	ld a, ATKDEFDV_TRAINER  ; set enemy trainer mon IVs to fixed values
 	ld b, SPDSPCDV_TRAINER
 	jr nz, .next4
 
@@ -186,15 +186,18 @@ _AddPartyMon::
 	inc de
 	ld a, [hli]       ; type 2
 	ld [de], a
+
 	inc de
-	ld a, [hli]       ; catch rate (held item in gen 2)
+;	ld a, [hli]       ; catch rate (held item in gen 2), now shiny flag
+	ld a, [wOpponentMonShiny]
 	ld [de], a
-	ld a, [wcf91]
-	cp KADABRA
-	jr nz, .notKadabra
-	ld a, TWISTEDSPOON_GSC
-	ld [de], a
-.notKadabra
+;	ld a, [wcf91]
+;	cp KADABRA
+;	jr nz, .notKadabra
+;	ld a, TWISTEDSPOON_GSC
+;	ld [de], a
+;.notKadabra
+
 	ld hl, wMonHMoves
 	ld a, [hli]
 	inc de

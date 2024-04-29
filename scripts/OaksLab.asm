@@ -1037,8 +1037,8 @@ OaksLabText18:
 	ld [wd11e], a
 	ld [wcf91], a
 	call AddPartyMon
-	ld a, LIGHT_BALL_GSC
-	ld [wPartyMon1CatchRate], a
+;	ld a, LIGHT_BALL_GSC        ; edited, commented out
+;	ld [wPartyMon1CatchRate], a ; edited, commented out
 	call DisablePikachuOverworldSpriteDrawing
 	SetEvent EVENT_GOT_STARTER
 	ld hl, wd72e

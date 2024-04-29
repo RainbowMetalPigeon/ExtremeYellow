@@ -3605,12 +3605,15 @@ SendNewMonToBox:
 	ld [de], a
 	dec b
 	jr nz, .loop6
-	ld a, [wcf91]
-	cp KADABRA
-	jr nz, .notKadabra
-	ld a, TWISTEDSPOON_GSC
+
+	ld a, [wOpponentMonShiny]
+;	ld a, [wcf91]
+;	cp KADABRA
+;	jr nz, .notKadabra
+;	ld a, TWISTEDSPOON_GSC
 	ld [wBoxMon1CatchRate], a
-.notKadabra
+;.notKadabra
+
 	ret
 
 ; checks if the tile in front of the player is a shore or water tile

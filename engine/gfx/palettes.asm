@@ -37,13 +37,30 @@ SetPal_Battle:
 	ld hl, wPartyMon1
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
-	call AddNTimes
+	call AddNTimes ; add bc to hl a times
 .asm_71ef9
+
+	ld a, [wBattleMonCatchRate]
+	cp 1
+	jr z, .shinyPlayer
 	call DeterminePaletteID
+	jr .continuePlayer
+.shinyPlayer
+	call DetermineShinyPaletteID
+.continuePlayer
 	ld b, a
+
 	ld hl, wEnemyMonSpecies2
+	ld a, [wOpponentMonShiny]
+	cp 1
+	jr z, .shinyOpponent
 	call DeterminePaletteID
+	jr .continueOpponent
+.shinyOpponent
+	call DetermineShinyPaletteID
+.continueOpponent
 	ld c, a
+
 	ld hl, wPalPacket + 1
 	ld a, [wPlayerHPBarColor]
 	add PAL_GREENBAR
@@ -126,8 +143,21 @@ SetPal_StatusScreen:
 	cp NUM_POKEMON_INDEXES + 1
 	jr c, .pokemon
 	ld a, $1 ; not pokemon
+	jr .notMon
 .pokemon
+
+	ld b, a ; save the index in b
+	ld a, [wLoadedMonCatchRate]
+	cp 1
+	ld a, b ; load the index from b
+	jr z, .shinyMon
+.notMon
 	call DeterminePaletteIDOutOfBattle
+	jr .continueMon
+.shinyMon
+	call DetermineShinyPaletteIDOutOfBattle
+.continueMon
+
 	push af
 	ld hl, wPalPacket + 1
 	ld a, [wStatusScreenHPBarColor]
@@ -392,6 +422,24 @@ DeterminePaletteIDOutOfBattle:
 	ld e, a
 	ld d, 0
 	ld hl, MonsterPalettes ; not just for Pokemon, Trainers use it too
+	add hl, de
+	ld a, [hl]
+	ret
+
+DetermineShinyPaletteID: ; new
+	ld a, [hl]
+DetermineShinyPaletteIDOutOfBattle:
+	ld [wd11e], a
+	and a ; is the mon index 0?
+	jr z, .skipDexNumConversion
+	push bc
+	predef IndexToPokedex
+	pop bc
+	ld a, [wd11e]
+.skipDexNumConversion
+	ld e, a
+	ld d, 0
+	ld hl, MonsterPalettesShiny
 	add hl, de
 	ld a, [hl]
 	ret

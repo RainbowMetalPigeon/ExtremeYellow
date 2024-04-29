@@ -65,6 +65,7 @@ TryDoWildEncounter:
 	jr .determineEncounterSlot
 .gotEncounterSlot
 ; determine which wild pokemon (grass or water) can appear in the half-block we're standing in
+; edit: "can", because the repel check is applied later
 	ld c, [hl]
 	ld hl, wGrassMons
 	lda_coord 8, 9
@@ -99,6 +100,17 @@ TryDoWildEncounter:
 	and a
 	ret
 .willEncounter
+; new, for shiny
+;	call Random
+;	and a
+;	jr nz, .vanilla
+	call Random
+	and %00000100
+	jr z, .vanilla
+	ld a, 1
+	ld [wOpponentMonShiny], a
+.vanilla
+; back to vanilla
 	xor a
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ret

@@ -2107,7 +2107,9 @@ wd472:: db
 wd473:: db
 	ds 1 ; UNUSED bytes in "Main Data"
 wd475:: db
-	ds 4 ; UNUSED bytes in "Main Data"
+	ds 2 ; UNUSED bytes in "Main Data"; edited, it was 4
+wOpponentMonShiny:: db ; new
+wPlayerMonShiny:: db ; new
 wd47a:: db
 ;	ds 4 ; edited to increase bag capacity
 wd492:: db

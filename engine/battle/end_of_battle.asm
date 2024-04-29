@@ -49,7 +49,8 @@ EndOfBattle:
 	callfar UpdatePikachuMoodAfterBattle
 .resetVariables
 	xor a
-	ld [wLowHealthAlarm], a ;disable low health alarm
+	ld [wOpponentMonShiny], a ; new
+	ld [wLowHealthAlarm], a ; disable low health alarm
 	ld [wChannelSoundIDs + CHAN5], a
 	ld [wIsInBattle], a
 	ld [wBattleType], a
