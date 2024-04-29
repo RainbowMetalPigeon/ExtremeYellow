@@ -235,7 +235,6 @@ LunarShrineScript8:
 	jr nz, .notDefeated
 	jp HandleDefeat
 .notDefeated
-	; no need to clear the wIsTrainerBattle variable, as they are consecutive ones
 	ld c, BANK(Music_MeetEvilTrainer)
 	ld a, MUSIC_MEET_EVIL_TRAINER
 	call PlayMusic
@@ -261,7 +260,8 @@ LunarShrineScript8:
 	ld [wCurOpponent], a
 	ld a, 56
 	ld [wTrainerNo], a
-	; no need to load the wIsTrainerBattle variable, as they are consecutive ones
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 ; script handling
@@ -276,7 +276,6 @@ LunarShrineScript9:
 	jr nz, .notDefeated
 	jp HandleDefeat
 .notDefeated
-	; no need to clear the wIsTrainerBattle variable, as they are consecutive ones
 	ld c, BANK(Music_MeetEvilTrainer)
 	ld a, MUSIC_MEET_EVIL_TRAINER
 	call PlayMusic
@@ -302,7 +301,8 @@ LunarShrineScript9:
 	ld [wCurOpponent], a
 	ld a, 57
 	ld [wTrainerNo], a
-	; no need to load the wIsTrainerBattle variable, as they are consecutive ones
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 ; script handling
@@ -317,7 +317,6 @@ LunarShrineScript10:
 	jr nz, .notDefeated
 	jp HandleDefeat
 .notDefeated
-	; no need to clear the wIsTrainerBattle variable, as they are consecutive ones
 	ld c, BANK(Music_MeetEvilTrainer)
 	ld a, MUSIC_MEET_EVIL_TRAINER
 	call PlayMusic
@@ -343,7 +342,8 @@ LunarShrineScript10:
 	ld [wCurOpponent], a
 	ld a, 58
 	ld [wTrainerNo], a
-	; no need to load the wIsTrainerBattle variable, as they are consecutive ones
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
 ; script handling
