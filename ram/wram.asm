@@ -2105,11 +2105,12 @@ wPikachuHappiness:: db
 wPikachuMood:: db
 wd472:: db
 wd473:: db
-	ds 1 ; UNUSED bytes in "Main Data"
+wHoFMonShiny:: db ; new, 0 if the mon is not shiny, 1 if it is
+;	ds 1 ; edited, used for the above
 wd475:: db
 	ds 2 ; UNUSED bytes in "Main Data"; edited, it was 4
 wOpponentMonShiny:: db ; new
-wPlayerMonShiny:: db ; new
+wPlayerMonShiny:: db ; new, ugly-ly used only in the HoF PC?
 wd47a:: db
 ;	ds 4 ; edited to increase bag capacity
 wd492:: db

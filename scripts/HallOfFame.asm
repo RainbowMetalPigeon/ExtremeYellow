@@ -258,7 +258,9 @@ HallofFameRoomScript6:
 	push af
 	xor a
 	ld [wJoyIgnore], a
-	predef HallOfFamePC
+	predef HallOfFamePC ; this, in credits.asm, callfars AnimateHallOfFame, which is in movie/hall_of_fame.asm
+	                    ; and after showing the part, it call(far)s SaveHallOfFameTeams which is in save.asm
+						; also (???), it calls AnimateHallOfFame, which jumps to HoFRecordMonInfo, which saves level, species, and nickname
 	pop af
 	ld [wLetterPrintingDelayFlags], a
 	ld hl, wFlags_D733
