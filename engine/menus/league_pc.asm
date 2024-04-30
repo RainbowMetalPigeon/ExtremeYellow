@@ -62,7 +62,7 @@ LeaguePCShowTeam:
 	ld hl, wHallOfFame + HOF_MON
 	ld de, wHallOfFame
 	ld bc, HOF_TEAM - HOF_MON
-	call CopyData
+	call CopyData ; copies bc bytes from hl to de
 	pop bc
 	ld a, [wHallOfFame + 0]
 	cp $ff
@@ -94,10 +94,7 @@ LeaguePCShowMon:
 	call CopyData ; copies bc bytes from hl to de; edited
 
 ; new, for the shiny
-; we need to advance hl by NAME_LENGTH times
-	ld bc, 1
-	ld a, NAME_LENGTH
-	call AddNTimes ; adds bc to hl a times
+	inc hl ; does hl work here?
 	ld a, [hl] ; a should contain the shiny-ness of that HoF mon
 	ld [wPlayerMonShiny], a
 
