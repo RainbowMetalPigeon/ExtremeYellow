@@ -348,13 +348,12 @@ HoFRecordMonInfo:
 	ld bc, NAME_LENGTH
 	call CopyData ; copies bc bytes from hl to de; edited, it was a jump
 ; new, for the shiny
-; we need to advance hl by NAME_LENGTH times
-	ld bc, 1
-	ld a, NAME_LENGTH
-	call AddNTimes ; adds bc to hl a times
+; de is not pointing to what hl was pointing, + 11
+; so we need to just increase de and we write there
+	inc de
 	ld a, [wHoFMonShiny]
-	ld [hl], a
-	ret ; will this do???
+	ld [de], a
+	ret ; this should do
 
 HoFFadeOutScreenAndMusic:
 	ld a, 10
