@@ -107,23 +107,7 @@ InGameTrade_DoTrade:
 	call PrintText
 	ld a, [wWhichPokemon]
 	push af
-	ld a, [wCurEnemyLVL]
-	push af
-	call LoadHpBarAndStatusTilePatterns
-	call InGameTrade_PrepareTradeData
-	predef InternalClockTradeAnim
-	pop af
-	ld [wCurEnemyLVL], a
-	pop af
-	ld [wWhichPokemon], a
-	ld a, [wInGameTradeReceiveMonSpecies]
-	ld [wcf91], a
-	xor a
-	ld [wMonDataLocation], a ; not used
-	ld [wRemoveMonFromBox], a
-	call RemovePokemon
-	ld a, $80 ; prevent the player from naming the mon
-	ld [wMonDataLocation], a
+.test
 ; new, for the shiny
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMon1CatchRate
@@ -149,6 +133,23 @@ InGameTrade_DoTrade:
 ; and now wOpponentMonShiny is properly set
 .vanilla
 ; back to vanilla
+	ld a, [wCurEnemyLVL]
+	push af
+	call LoadHpBarAndStatusTilePatterns
+	call InGameTrade_PrepareTradeData
+	predef InternalClockTradeAnim
+	pop af
+	ld [wCurEnemyLVL], a
+	pop af
+	ld [wWhichPokemon], a
+	ld a, [wInGameTradeReceiveMonSpecies]
+	ld [wcf91], a
+	xor a
+	ld [wMonDataLocation], a ; not used
+	ld [wRemoveMonFromBox], a
+	call RemovePokemon
+	ld a, $80 ; prevent the player from naming the mon
+	ld [wMonDataLocation], a
 	call AddPartyMon
 	call InGameTrade_CopyDataToReceivedMon
 	call InGameTrade_CheckForTradeEvo
