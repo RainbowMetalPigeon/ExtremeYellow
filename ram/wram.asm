@@ -2217,7 +2217,8 @@ wd5cd:: db
 ; terminated with $FF
 wMissableObjectList:: ds 16 * 2 + 1
 
-	ds 1 ; UNUSED bytes in "Main Data"
+wAreWeUsingTheHoFPC:: db ; new, for the shiny
+;	ds 1 ; edited, used for the above
 
 wGameProgressFlags::
 wOaksLabCurScript:: db

@@ -1,4 +1,6 @@
 PKMNLeaguePC:
+	ld a, 1                     ; new, for the shiny
+	ld [wAreWeUsingTheHoFPC], a ; new, for the shiny
 	ld hl, AccessedHoFPCText
 	call PrintText
 	ld hl, wd730
@@ -73,6 +75,8 @@ LeaguePCShowTeam:
 	and a
 	ret
 .exit
+	xor a                       ; new, for the shiny
+	ld [wAreWeUsingTheHoFPC], a ; new, for the shiny
 	pop bc
 	scf
 	ret

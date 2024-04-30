@@ -319,20 +319,23 @@ SetPal_PokemonWholeScreen:
 	ld a, PAL_BLACK
 	jr nz, .next
 ; new, for the shiny
-	ld a, [wPlayerMonShiny]
+	ld a, [wAreWeUsingTheHoFPC]
 	and a
 	jr z, .notHoFPC
 ; we are using the HoF PC and the mon is shiny
+	ld a, [wPlayerMonShiny]
+	and a
 	ld a, [wWholeScreenPaletteMonSpecies]
+	jr z, .notShinyPalette
 	jr .shinyPalette
 .notHoFPC
 	ld a, [wCurMap]
 	cp HALL_OF_FAME
+	ld a, [wHoFPartyMonIndex] ; testing
+	jr z, .continueWithHoF
+; we are not in the HoF
 	ld a, [wWhichPokemon]
-	jr nz, .notHoF
-; we do be in the HoF
-	inc a ; the player itself is "the first pokemon"
-.notHoF
+.continueWithHoF
 	ld hl, wPartyMon1CatchRate
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ; add bc to hl a times
@@ -340,6 +343,7 @@ SetPal_PokemonWholeScreen:
 	cp 1
 	ld a, [wWholeScreenPaletteMonSpecies]
 	jr z, .shinyPalette
+.notShinyPalette
 	call DeterminePaletteIDOutOfBattle
 	jr .next
 .shinyPalette
