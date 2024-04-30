@@ -100,17 +100,7 @@ TryDoWildEncounter:
 	and a
 	ret
 .willEncounter
-; new, for shiny
-;	call Random
-;	and a
-;	jr nz, .vanilla
-	call Random
-	and %00000100
-	jr z, .vanilla
-	ld a, 1
-	ld [wOpponentMonShiny], a
-.vanilla
-; back to vanilla
+	callfar RollForShiny ; new, for the shiny
 	xor a
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ret

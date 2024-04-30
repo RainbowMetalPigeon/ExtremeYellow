@@ -50,6 +50,8 @@ PKMNLeaguePC:
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 	call RunDefaultPaletteCommand
+	xor a                       ; new, for the shiny
+	ld [wAreWeUsingTheHoFPC], a ; new, for the shiny
 	jp GBPalNormal
 
 LeaguePCShowTeam:
@@ -75,8 +77,6 @@ LeaguePCShowTeam:
 	and a
 	ret
 .exit
-	xor a                       ; new, for the shiny
-	ld [wAreWeUsingTheHoFPC], a ; new, for the shiny
 	pop bc
 	scf
 	ret
@@ -96,20 +96,16 @@ LeaguePCShowMon:
 	ld de, wcd6d
 	ld bc, NAME_LENGTH
 	call CopyData ; copies bc bytes from hl to de; edited
-
 ; new, for the shiny
 	inc hl ; does hl work here?
 	ld a, [hl] ; a should contain the shiny-ness of that HoF mon
 	ld [wPlayerMonShiny], a
-
 	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
 	ld c, 0
 	call RunPaletteCommand
-
 	xor a
 	ld [wPlayerMonShiny], a
 ; back to vanilla
-
 	hlcoord 12, 5
 	call GetMonHeader
 	call LoadFrontSpriteByMonIndex

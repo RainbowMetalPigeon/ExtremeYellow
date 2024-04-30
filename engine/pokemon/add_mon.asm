@@ -188,15 +188,8 @@ _AddPartyMon::
 	ld [de], a
 
 	inc de
-;	ld a, [hli]       ; catch rate (held item in gen 2), now shiny flag
-	ld a, [wOpponentMonShiny]
+	ld a, [wOpponentMonShiny] ; edited: it was the useless catch rate, now shiny flag
 	ld [de], a
-;	ld a, [wcf91]
-;	cp KADABRA
-;	jr nz, .notKadabra
-;	ld a, TWISTEDSPOON_GSC
-;	ld [de], a
-;.notKadabra
 
 	ld hl, wMonHMoves
 	ld a, [hli]

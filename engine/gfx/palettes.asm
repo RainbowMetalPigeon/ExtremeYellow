@@ -39,7 +39,7 @@ SetPal_Battle:
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ; add bc to hl a times
 .asm_71ef9
-
+; for the shiny
 	ld a, [wBattleMonCatchRate]
 	cp 1
 	jr z, .shinyPlayer
@@ -60,7 +60,7 @@ SetPal_Battle:
 	call DetermineShinyPaletteID
 .continueOpponent
 	ld c, a
-
+; back to vanilla
 	ld hl, wPalPacket + 1
 	ld a, [wPlayerHPBarColor]
 	add PAL_GREENBAR
@@ -145,7 +145,7 @@ SetPal_StatusScreen:
 	ld a, $1 ; not pokemon
 	jr .notMon
 .pokemon
-
+; for the shiny
 	ld b, a ; save the index in b
 	ld a, [wLoadedMonCatchRate]
 	cp 1
@@ -157,7 +157,7 @@ SetPal_StatusScreen:
 .shinyMon
 	call DetermineShinyPaletteIDOutOfBattle
 .continueMon
-
+; back to vanilla
 	push af
 	ld hl, wPalPacket + 1
 	ld a, [wStatusScreenHPBarColor]
@@ -319,6 +319,16 @@ SetPal_PokemonWholeScreen:
 	ld a, PAL_BLACK
 	jr nz, .next
 ; new, for the shiny
+	ld a, [wWeAreTrading]
+	and a
+	jr z, .wWeAreNotTrading
+; we do are trading, specifically we are receiving the traded mon, we need to check if it is shiny or not
+	ld a, [wOpponentMonShiny]
+	cp 1
+	ld a, [wWholeScreenPaletteMonSpecies]
+	jr z, .shinyPalette
+	jr .notShinyPalette
+.wWeAreNotTrading
 	ld a, [wAreWeUsingTheHoFPC]
 	and a
 	jr z, .notHoFPC
@@ -457,7 +467,7 @@ DeterminePaletteIDOutOfBattle:
 
 DetermineShinyPaletteID: ; new
 	ld a, [hl]
-DetermineShinyPaletteIDOutOfBattle:
+DetermineShinyPaletteIDOutOfBattle: ; new
 	ld [wd11e], a
 	and a ; is the mon index 0?
 	jr z, .skipDexNumConversion

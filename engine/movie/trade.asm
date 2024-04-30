@@ -353,6 +353,8 @@ Trade_BallInsideLinkCableOAM:
 	dbsprite  8, 15,  0,  6, $7e, OAM_HFLIP | OAM_VFLIP
 
 Trade_ShowEnemyMon:
+	ld a, 1               ; for the shiny
+	ld [wWeAreTrading], a ; for the shiny
 	ld a, TRADE_BALL_TILT_ANIM
 	call Trade_ShowAnimation
 	call Trade_ShowClearedWindow
@@ -375,6 +377,8 @@ Trade_ShowEnemyMon:
 	hlcoord 4, 10
 	lb bc, 8, 12
 	call ClearScreenArea
+	xor a                 ; for the shiny
+	ld [wWeAreTrading], a ; for the shiny
 	jp PrintTradeTakeCareText
 
 Trade_AnimLeftToRight:

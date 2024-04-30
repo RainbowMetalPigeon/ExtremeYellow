@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db MEW, 97
+	db DEWGONG, 97
 	db STARTER_PIKACHU, 5
 ;	db MISSINGNO, 255
 ;	db BLUESDAD, 9
@@ -65,6 +65,10 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, STRENGTH
 	ld [hl], a
+    ; second Mon is shiny
+    ld hl, wPartyMon2CatchRate
+    ld a, 1
+    ld [hl], a
 
 	; Pikachu gets Surf and Fly.
 	ld a, FLY

@@ -2108,7 +2108,8 @@ wd473:: db
 wHoFMonShiny:: db ; new, 0 if the mon is not shiny, 1 if it is
 ;	ds 1 ; edited, used for the above
 wd475:: db
-	ds 2 ; UNUSED bytes in "Main Data"; edited, it was 4
+	ds 1 ; UNUSED bytes in "Main Data"; edited, it was 4
+wWeAreTrading:: db ; new, used for the shiny
 wOpponentMonShiny:: db ; new
 wPlayerMonShiny:: db ; new, ugly-ly used only in the HoF PC?
 wd47a:: db
