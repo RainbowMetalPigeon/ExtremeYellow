@@ -48,7 +48,7 @@ IF DEF(_DEBUG)
 	ld a, PSYCHO_CUT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, MAGICAL_LEAF
+	ld a, HURRICANE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, CLOSE_COMBAT
