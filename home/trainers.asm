@@ -378,6 +378,7 @@ EngageMapTrainer::
 	ld [wEngagedTrainerSet], a
 	xor a							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
+	callfar RollForShiny            ; new, for the shiny
 	jp PlayTrainerMusic
 
 PrintEndBattleText::

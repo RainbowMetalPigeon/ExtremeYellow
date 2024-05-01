@@ -23,4 +23,8 @@ GivePokemon::
 	ld [wCurEnemyLVL], a
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
-	farjp _GivePokemon
+	callfar RollForShiny       ; new, for the shiny
+	callfar _GivePokemon
+	xor a                      ; new, for the shiny
+	ld [wOpponentMonShiny], a  ; new, for the shiny
+	ret

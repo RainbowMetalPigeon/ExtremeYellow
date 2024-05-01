@@ -72,6 +72,7 @@ HauntedIslandOfNumbersScript_PostTrainerBattle:
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld [wJoyIgnore], a ; testing
+	callfar RollForShiny ; new, for the shiny
 	ld a, HS_HAUNTED_ISLAND_OF_NUMBERS_MISSINGNO
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra

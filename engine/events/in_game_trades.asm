@@ -107,7 +107,6 @@ InGameTrade_DoTrade:
 	call PrintText
 	ld a, [wWhichPokemon]
 	push af
-.test
 ; new, for the shiny
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMon1CatchRate

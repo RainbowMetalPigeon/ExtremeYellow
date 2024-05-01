@@ -97,6 +97,7 @@ Route16Script0:
 	ld [wCurEnemyLVL], a
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	callfar RollForShiny ; new, for the shiny
 	ld a, HS_ROUTE_16_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef HideObject
