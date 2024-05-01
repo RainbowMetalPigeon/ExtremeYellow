@@ -338,20 +338,3 @@ MegaEvolvedMons: ; 0-14
 	db MPINSIR
 	db MGYARADOS
 	db MARODACTYL
-
-; =====================================
-
-RollForShiny::
-; roll some numbers and do some checks
-;	call Random
-;	and a
-;	jr nz, .vanilla
-	call Random
-	and %00000100
-
-	ld a, 1 ; this is the "yes it is shiny" value
-	jr nz, .shiny ; this check is a nz now, but may need to be edited
-	xor a ; not shiny; prolly redundant, but safer
-.shiny
-	ld [wOpponentMonShiny], a
-	ret

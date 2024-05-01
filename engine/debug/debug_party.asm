@@ -42,16 +42,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, ICICLE_SPEAR
+	ld a, BLIZZARD
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ICICLE_CRASH
+	ld a, PSYCHO_CUT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, MAGICAL_LEAF
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, LEAF_STORM
+	ld a, CLOSE_COMBAT
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

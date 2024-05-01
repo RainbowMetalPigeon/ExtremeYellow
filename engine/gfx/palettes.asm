@@ -50,6 +50,15 @@ SetPal_Battle:
 .continuePlayer
 	ld b, a
 
+	ld a, [wIsTrainerBattle]
+	and a
+	jr z, .wildBattle
+; trainer battle, do the checks
+	push bc
+	callfar CheckForTrainersShinyMons
+	pop bc
+.wildBattle
+
 	ld hl, wEnemyMonSpecies2
 	ld a, [wOpponentMonShiny]
 	cp 1
