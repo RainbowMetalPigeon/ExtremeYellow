@@ -48,8 +48,8 @@ EndOfBattle:
 	ld d, $82
 	callfar UpdatePikachuMoodAfterBattle
 .resetVariables
+	callfar RollForShiny ; testing, for the shiny
 	xor a
-	ld [wOpponentMonShiny], a ; new
 	ld [wLowHealthAlarm], a ; disable low health alarm
 	ld [wChannelSoundIDs + CHAN5], a
 	ld [wIsInBattle], a
