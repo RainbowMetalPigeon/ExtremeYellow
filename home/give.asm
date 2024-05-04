@@ -25,6 +25,6 @@ GivePokemon::
 	ld [wMonDataLocation], a
 	callfar RollForShiny       ; new, for the shiny
 	callfar _GivePokemon
-	xor a                      ; new, for the shiny
+	ld a, 0                    ; new, for the shiny
 	ld [wOpponentMonShiny], a  ; new, for the shiny
 	ret
