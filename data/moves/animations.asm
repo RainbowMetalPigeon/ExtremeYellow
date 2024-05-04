@@ -226,7 +226,7 @@ AttackAnimationPointers:
 
 	dw ExtremespeedAnim
 
-	dw	GunkShot
+	dw	GunkShotAnim
 	dw	SludgeWaveAnim
 
 	dw	MirrorCoatAnim
@@ -259,44 +259,46 @@ AttackAnimationPointers:
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
-	dw ShowPicAnim
-	dw EnemyFlashAnim
-	dw PlayerFlashAnim
-	dw EnemyHUDShakeAnim
-	dw TradeBallDropAnim
-	dw TradeBallAppear1Anim
-	dw TradeBallAppear2Anim
-	dw TradeBallPoofAnim
-	dw XStatItemAnim
-	dw XStatItemAnim
-	dw ShrinkingSquareAnim
-	dw ShrinkingSquareAnim
-	dw XStatItemBlackAnim
-	dw XStatItemBlackAnim
-	dw ShrinkingSquareBlackAnim
-	dw ShrinkingSquareBlackAnim
-	dw UnusedAnim
-	dw UnusedAnim
-	dw ParalyzeAnim
-	dw ParalyzeAnim
-	dw PoisonAnim
-	dw PoisonAnim
-	dw SleepPlayerAnim
-	dw SleepEnemyAnim
-	dw ConfusedPlayerAnim
-	dw ConfusedEnemyAnim
-	dw FaintAnim
-	dw BallTossAnim
-	dw BallShakeAnim
-	dw BallPoofAnim
-	dw BallBlockAnim
-	dw GreatTossAnim
-	dw UltraTossAnim
-	dw ShakeScreenAnim
-	dw HidePicAnim
-	dw ThrowRockAnim
-	dw ThrowBaitAnim
-	dw VanishBallAnim ; new, for Haunted House
+	dw ShowPicAnim ; SHOWPIC_ANIM
+	dw EnemyFlashAnim ; STATUS_AFFECTED_ANIM
+	dw PlayerFlashAnim ; ANIM_A8
+	dw EnemyHUDShakeAnim ; ANIM_A9
+	dw TradeBallDropAnim ; TRADE_BALL_DROP_ANIM
+	dw TradeBallAppear1Anim ; TRADE_BALL_SHAKE_ANIM
+	dw TradeBallAppear2Anim ; TRADE_BALL_TILT_ANIM
+	dw TradeBallPoofAnim ; TRADE_BALL_POOF_ANIM
+	dw XStatItemAnim ; XSTATITEM_ANIM
+	dw XStatItemAnim ; ANIM_AF
+	dw ShrinkingSquareAnim ; ANIM_B0
+	dw ShrinkingSquareAnim ; ANIM_B1
+	dw XStatItemBlackAnim ; ANIM_B2
+	dw XStatItemBlackAnim ; ANIM_B3
+	dw ShrinkingSquareBlackAnim ; ANIM_B4
+	dw ShrinkingSquareBlackAnim ; ANIM_B5
+;	dw UnusedAnim ; ANIM_B6
+;	dw UnusedAnim ; ANIM_B7
+	dw ParalyzeAnim ; ANIM_B8
+	dw ParalyzeAnim ; ANIM_B9
+	dw PoisonAnim ; BURN_PSN_ANIM
+	dw PoisonAnim ; ANIM_BB
+	dw SleepPlayerAnim ; ANIM_BC
+	dw SleepEnemyAnim ; SLP_ANIM
+	dw ConfusedPlayerAnim ; ANIM_BE
+	dw ConfusedEnemyAnim ; CONF_ANIM
+	dw FaintAnim ; ANIM_C0
+	dw BallTossAnim ; TOSS_ANIM
+	dw BallShakeAnim ; SHAKE_ANIM
+	dw BallPoofAnim ; POOF_ANIM
+	dw BallBlockAnim ; BLOCKBALL_ANIM
+	dw GreatTossAnim ; GREATTOSS_ANIM
+	dw UltraTossAnim ; ULTRATOSS_ANIM
+	dw ShakeScreenAnim ; ANIM_C7
+	dw HidePicAnim ; HIDEPIC_ANIM
+	dw ThrowRockAnim ; ROCK_ANIM
+	dw ThrowBaitAnim ; BAIT_ANIM
+	dw VanishBallAnim ; VANISHBALL_ANIM ; new, for Haunted House
+	dw ShinyPlayerAnim ; SHINY_PLAYER_ANIM ; new, for the shiny
+	dw ShinyEnemyAnim ;  SHINY_ENEMY_ANIM ; new, for the shiny
 	assert_table_length NUM_ATTACK_ANIMS
 
 ; each animation is a list of subanimations
@@ -1699,9 +1701,15 @@ IcicleCrashAnim:
 	battle_anim BLIZZARD, SUBANIM_30bis, 0, 6
 	db -1 ; end
 
-GunkShot:
+GunkShotAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_SHINY_PLAYER, 1, 3
+	db -1 ; end
 
 SludgeWaveAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_SHINY_ENEMY, 1, 3
+	db -1 ; end
 
 
 
@@ -1848,4 +1856,14 @@ ThrowRockAnim:
 
 ThrowBaitAnim:
 	battle_anim X_SCISSOR, SUBANIM_54, 0, 3
+	db -1 ; end
+
+ShinyPlayerAnim: ; new
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_SHINY_PLAYER, 1, 3
+	db -1 ; end
+
+ShinyEnemyAnim: ; new
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SUBANIM_SHINY_ENEMY, 1, 3
 	db -1 ; end

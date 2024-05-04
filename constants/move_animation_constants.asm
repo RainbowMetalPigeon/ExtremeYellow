@@ -146,6 +146,8 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_ICICLESPEAR
 	const SUBANIM_30bis
 	const SUBANIM_BALLVANISH
+	const SUBANIM_SHINY_PLAYER
+	const SUBANIM_SHINY_ENEMY
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations
@@ -483,6 +485,10 @@ DEF NUM_FRAMEBLOCKS EQU const_value
 	const BASECOORD_BB
 	const BASECOORD_BC
 	const BASECOORD_BD
+	const BASECOORD_BE
+	const BASECOORD_BF
+	const BASECOORD_C0
+	const BASECOORD_C1
 DEF NUM_BASECOORDS EQU const_value
 
 ; frame block modes that are part of subanimations

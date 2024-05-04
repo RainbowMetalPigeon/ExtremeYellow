@@ -286,8 +286,8 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ANIM_B3
 	const ANIM_B4
 	const ANIM_B5
-	const ANIM_B6
-	const ANIM_B7
+;	const ANIM_B6 ; unused?
+;	const ANIM_B7 ; unused?
 	const ANIM_B8
 	const ANIM_B9
 	const BURN_PSN_ANIM ; Plays when a monster is burned or poisoned
@@ -308,5 +308,7 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ROCK_ANIM ; throw rock
 	const BAIT_ANIM ; throw bait
 	const VANISHBALL_ANIM ; new, for Haunted House
+	const SHINY_PLAYER_ANIM ; new, for the shiny
+	const SHINY_ENEMY_ANIM ; new, for the shiny
 
 DEF NUM_ATTACK_ANIMS EQU const_value - 1

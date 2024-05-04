@@ -58,3 +58,44 @@ RollForShiny::
 .shiny
 	ld [wOpponentMonShiny], a
 	ret
+
+; =====================================
+
+PlayShinyAnimationIfShinyPlayerMon:
+    ld a, [wBattleMonCatchRate]
+    cp 1
+    ret nz
+    xor a
+	ld [wAnimationType], a
+	ld a, SHINY_PLAYER_ANIM
+	call PlayMoveAnimationCopy
+    ret
+
+PlayShinyAnimationIfShinyEnemyMon:
+    ld a, [wIsTrainerBattle]
+    and a
+    jr z, .wildBattle
+; trainer battle, do the checks
+    call CheckForTrainersShinyMons
+    ld a, [wOpponentMonShiny]
+    and a
+    ret z
+    jr .playShinyAnim
+.wildBattle
+    ld hl, wEnemyMonSpecies2
+    ld a, [wOpponentMonShiny]
+    cp 1
+    ret nz
+.playShinyAnim
+    xor a
+	ld [wAnimationType], a
+	ld a, SHINY_ENEMY_ANIM
+	call PlayMoveAnimationCopy
+    ret
+
+PlayMoveAnimationCopy:
+	ld [wAnimationID], a
+	call Delay3
+	predef MoveAnimation
+	callfar Func_78e98
+	ret

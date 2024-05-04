@@ -107,6 +107,7 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	call Delay3
 	ld b, SET_PAL_BATTLE
 	call RunPaletteCommand
+	callfar PlayShinyAnimationIfShinyEnemyMon ; new, for shiny
 	call HideSprites
 	jpfar PrintBeginningBattleText
 
@@ -1516,6 +1517,7 @@ EnemySendOutFirstMon:
 	ldh [hStartTileID], a
 	hlcoord 15, 6
 	predef AnimateSendingOutMon
+	callfar PlayShinyAnimationIfShinyEnemyMon ; new, for shiny
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry
 	call DrawEnemyHUDAndHPBar
@@ -1872,6 +1874,7 @@ SendOutMon:
 	call PlayMoveAnimation
 	hlcoord 4, 11
 	predef AnimateSendingOutMon
+	callfar PlayShinyAnimationIfShinyPlayerMon ; new, for shiny
 	jr .playRegularCry
 .starterPikachu
 	xor a

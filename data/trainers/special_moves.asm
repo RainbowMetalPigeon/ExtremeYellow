@@ -622,7 +622,7 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, HURRICANE
+	db 1, 1, AMNESIA
 	db 1, 2, NO_MOVE
 	db 1, 3, NO_MOVE
 	db 1, 4, NO_MOVE
