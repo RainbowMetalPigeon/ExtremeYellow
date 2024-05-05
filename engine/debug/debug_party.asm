@@ -14,13 +14,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 98 ; 255
-	db DEWGONG, 97
+	db ZYGARDEC, 98 ; 255
+	db UNECROZMA, 97
 	db STARTER_PIKACHU, 5
-;	db MISSINGNO, 255
-;	db BLUESDAD, 9
-;	db BLUESMOM, 9
-;	db DAD, 100
+	db MRAYQUAZA, 50
+	db EETERNATUS, 9
+	db MISSINGNO, 9
 	db -1 ; end
 
 DebugStart:
@@ -65,10 +64,6 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, STRENGTH
 	ld [hl], a
-    ; second Mon is shiny
-    ld hl, wPartyMon2CatchRate
-    ld a, 1
-    ld [hl], a
 
 	; Pikachu gets Surf and Fly.
 	ld a, FLY
@@ -96,6 +91,21 @@ IF DEF(_DEBUG)
 ;	ld a, 10
 ;	ld de, wPartyMon3Status
 ;	ld [de], a
+
+    ; define who is shiny
+    ld a, 1
+    ld hl, wPartyMon1CatchRate
+    ld [hl], a
+    ld hl, wPartyMon2CatchRate
+    ld [hl], a
+    ld hl, wPartyMon3CatchRate
+    ld [hl], a
+    ld hl, wPartyMon4CatchRate
+    ld [hl], a
+    ld hl, wPartyMon5CatchRate
+    ld [hl], a
+    ld hl, wPartyMon6CatchRate
+    ld [hl], a
 
 	; Get some debug items.
 	ld hl, wNumBagItems

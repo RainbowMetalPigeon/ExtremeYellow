@@ -62,9 +62,12 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_PURPLEMON ; $14
 	const PAL_BROWNMON  ; $15
 	const PAL_GREENMON  ; $16
+	const PAL_GREENLIGHTMON  ; new
 	const PAL_PINKMON   ; $17
 	const PAL_YELLOWMON ; $18
+	const PAL_ORANGEMON ; new
 	const PAL_GREYMON   ; $19
+	const PAL_BLACKMON  ; new
 	const PAL_SLOTS1    ; $1A
 	const PAL_SLOTS2    ; $1B
 	const PAL_SLOTS3    ; $1C
@@ -79,7 +82,7 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_25        ; $25
 	const PAL_26        ; $26
 	const PAL_27        ; $27
-	const PAL_AQUAMARMON ; $28 - new
+	const PAL_VENUSTOISE ; $28 - new
 	const PAL_PORYMON	; $29 - new
 	const PAL_ZYGARDEC   ; new
 	const PAL_UNECROZMA  ; new
@@ -87,6 +90,14 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_EETERNATUS ; new
 	const PAL_ARCEUS     ; new
 	const PAL_METALMON   ; new, for STEEL moves
+	const PAL_PORYMONSHINY ; new
+	const PAL_VENUSTOISESHINY ; new
+	const PAL_ZYGARDECSHINY ; new
+	const PAL_UNECROZMASHINY ; new
+	const PAL_MRAYQUAZASHINY ; new
+	const PAL_EETERNATUSSHINY ; new
+	const PAL_ARCEUSSHINY ; new
+	const PAL_MISSINGNOSHINY ; new
 DEF NUM_SGB_PALS_HAUNTEDLESS EQU const_value ; new, used only to select palettes in Haunted maps
 	const PAL_PALLET_00 ; new
 	const PAL_PALLET_01 ; new

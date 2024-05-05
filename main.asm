@@ -312,7 +312,7 @@ INCLUDE "engine/items/town_map.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
 INCLUDE "engine/events/in_game_trades.asm"
 INCLUDE "engine/gfx/palettes.asm"
-INCLUDE "engine/menus/save.asm"
+;INCLUDE "engine/menus/save.asm" ; moved away to the next bank
 
 
 SECTION "bank1C bis", ROMX ; new, move some stuff out of the original bank1c
@@ -321,6 +321,7 @@ INCLUDE "engine/movie/splash.asm" ; this seems to be referenced only by intro.as
 INCLUDE "engine/battle/ghost_marowak_anim.asm" ; only by common_text.asm with a farcall?
 INCLUDE "engine/overworld/healing_machine.asm" ; needed for the marowak animation, and only farcalled?
 INCLUDE "engine/movie/hall_of_fame.asm" ; only referenced via farcalling, and calling nothing away?
+INCLUDE "engine/menus/save.asm" ; only used as a predef?
 
 
 SECTION "Itemfinder 1", ROMX
