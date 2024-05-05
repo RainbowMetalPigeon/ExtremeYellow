@@ -1882,6 +1882,7 @@ SendOutMon:
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 	callfar StarterPikachuBattleEntranceAnimation
+	callfar PlayShinyAnimationIfShinyPlayerMon ; new, for shiny
 	callfar IsPlayerPikachuAsleepInParty
 	ld e, $24
 	jr c, .asm_3cd81
@@ -2042,8 +2043,8 @@ DrawEnemyHUDAndHPBar:
 	ld a, c
 	and a
 	jr z, .notOwned
-	coord hl, 1, 1; horizontal/vertical
-	ld [hl], $72; replace this with your Poké Ball icon or other character
+	coord hl, 1, 1 ; horizontal/vertical
+	ld [hl], $72
 	.notOwned
 	pop hl
 ; ============================== end

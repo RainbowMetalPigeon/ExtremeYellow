@@ -14,12 +14,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ZYGARDEC, 98 ; 255
-	db UNECROZMA, 97
+	db PORYGON, 98 ; 255
+	db VENUSAUR, 97
 	db STARTER_PIKACHU, 5
 	db MRAYQUAZA, 50
-	db EETERNATUS, 9
-	db MISSINGNO, 9
+	db GENGAR, 9
+	db CHARIZARD, 9
 	db -1 ; end
 
 DebugStart:
@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, SLUDGE_WAVE
+	ld a, TOXIC
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, GUNK_SHOT
@@ -56,7 +56,7 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, FLY
+	ld a, TOXIC
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a
