@@ -45,5 +45,6 @@ UsableItems_PartyMenu:
 	db UPGRADE		; new
 	db DUBIOUS_DISK	; new
 	db LEGEND_CANDY ; new
-	db PERFECTER    ; new, testing
+	db PERFECTER    ; new
+	db CHROMOGENE   ; new, testing
 	db -1 ; end

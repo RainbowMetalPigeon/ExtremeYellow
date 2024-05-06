@@ -106,6 +106,7 @@ ItemNames::
 	li "MAGMA STONE" ; new
 	li "MOLTEN STONE" ; new
 	li "ARTIFACT" ; new
+	li "CHROMOGENE" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

@@ -242,7 +242,7 @@ DebugItemsList:
     db POTION, 99
     db POTION, 99
     db POTION, 99
-    db POTION, 99
+    db CHROMOGENE, 99
     db ULTRA_BALL, 99
     db GREAT_BALL, 99
     db POKE_BALL, 99

@@ -446,6 +446,13 @@ _PerfecterHasBeenUsedText:: ; new
 	line "have been maxed!"
 	prompt
 
+_ChromogeneHasBeenUsedText:: ; new
+	text "The chromatic"
+	line "genes of the"
+	cont "#MON have been"
+	cont "altered!"
+	prompt
+
 _ThrowMasterBallAtMissingnoText1:: ; new
 	text "The MASTER BALL"
 	line "stops mid-air and"

@@ -110,19 +110,20 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone	 ; DUBIOUS_DISK, new
 	dw ItemUseBall       ; FAST_BALL, new, testing
 	dw ItemUseBall       ; HEAVY_BALL, new, testing
-	dw ItemUseVitamin    ; LEGEND_CANDY, new, testing
+	dw ItemUseVitamin    ; LEGEND_CANDY, new
 	dw UnusableItem      ; BIG_NUGGET, new
-	dw ItemUseVitamin    ; PERFECTER, new, testing
+	dw ItemUseVitamin    ; PERFECTER, new
 	dw UnusableItem      ; LUNAR_RELIC, new
 	dw UnusableItem      ; ICE_ORB, new
 	dw UnusableItem      ; THUNDER_ORB, new
 	dw UnusableItem      ; FIRE_ORB, new
-	dw UnusableItem      ; LIGHT_BALL, new
+	dw UnusableItem      ; LIGHT_BALL, new, testing
 	dw ItemShowMysteryMap ; MYSTERY_MAP, new, TBE
 	dw UnusableItem      ; LAVA_STONE, new
 	dw UnusableItem      ; MAGMA_STONE, new
 	dw UnusableItem      ; MOLTEN_STONE, new
 	dw UnusableItem      ; ARTIFACT, new
+	dw ItemUseVitamin    ; CHROMOGENE, new, testing
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -1276,6 +1277,8 @@ ItemUseMedicine:
 	jp z, .useVitamin
 	cp PERFECTER
 	jp z, .useVitamin
+	cp CHROMOGENE
+	jp z, .useVitamin
 
 	cp REVIVE
 	jr nc, .healHP ; if it's a Revive or Max Revive
@@ -1813,14 +1816,41 @@ ItemUseMedicine:
 	call PlaySound
 	ld hl, PerfecterHasBeenUsedText
 	call PrintText
-.tempPerf
-;	call ReloadMapData
 	jp RemoveUsedItem
 
 .notPerfecterCode
 	ld a, [wcf91] ; new, to ensure a contains the right stuff
 
 ; PERFECTER code, end ----------------------------------------------------------
+
+; CHROMOGENE code, beginning ---------------------------------------------------
+
+	cp CHROMOGENE
+	jr nz, .notChromogeneCode
+; it's actually the Chromogene
+;	push hl
+	ld bc, wPartyMon1CatchRate - wPartyMon1
+	add hl, bc ; hl now points to catch rate, aka shiny-ness
+	ld a, [hl]
+	and a
+	jr z, .notShiny
+; the mon is shiny, we de-shiny-fy it
+	xor a
+	ld [hl], a
+	jr .concludeChromogene
+.notShiny
+	ld a, 1
+	ld [hl], a
+.concludeChromogene
+	ld a, SFX_HEAL_AILMENT
+	call PlaySound
+	ld hl, ChromogeneHasBeenUsedText
+	call PrintText
+	jp RemoveUsedItem
+.notChromogeneCode
+	ld a, [wcf91] ; to ensure a contains the right stuff
+
+; CHROMOGENE code, end ---------------------------------------------------------
 
 	sub HP_UP
 	add a
@@ -3704,4 +3734,8 @@ CheckMapForMon:
 
 PerfecterHasBeenUsedText: ; new
 	text_far _PerfecterHasBeenUsedText
+	text_end
+
+ChromogeneHasBeenUsedText: ; new
+	text_far _ChromogeneHasBeenUsedText
 	text_end

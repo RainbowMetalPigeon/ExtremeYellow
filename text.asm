@@ -194,7 +194,6 @@ INCLUDE "text/PokemonMansion3F.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
-INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "data/text/text_9.asm"
 
 
@@ -295,6 +294,7 @@ INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/CeladonUniversity2.asm" ; new
 INCLUDE "text/BillsHouse.asm" ; moved from Text 3
 INCLUDE "text/SafariZoneCenter.asm"
+INCLUDE "text/SafariZoneWest.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
