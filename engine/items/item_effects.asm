@@ -124,6 +124,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; MOLTEN_STONE, new
 	dw UnusableItem      ; ARTIFACT, new
 	dw ItemUseVitamin    ; CHROMOGENE, new, testing
+	dw UnusableItem      ; SHINY_CHARM, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 

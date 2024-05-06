@@ -107,4 +107,5 @@ KeyItemFlags:
 	dbit TRUE  ; MOLTEN_STONE   - new
 	dbit TRUE  ; ARTIFACT       - new
 	dbit FALSE ; CHROMOGENE       - new
+	dbit TRUE ; SHINY_CHARM       - new
 	end_bit_array NUM_ITEMS

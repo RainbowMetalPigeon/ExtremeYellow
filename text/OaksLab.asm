@@ -541,6 +541,82 @@ _OaksLabText_OakPostGiovanniRedemption::
 	cont "gratitude."
 	done
 
+_OaksLabText_OakShinyCharm_Offer::
+	text "OAK: <PLAYER>!"
+	line "I am so happy"
+	cont "to see you!"
+
+	para "What you have done"
+	line "is... I am"
+	cont "speechless. You"
+	cont "keep bringing joy"
+	cont "to this old heart"
+	cont "of mine."
+
+	para "GIOVANNI... told"
+	line "me everything,"
+	cont "every single"
+	cont "encounter and"
+	cont "fight you two"
+	cont "had, and how they"
+	cont "affected the"
+	cont "person they"
+	cont "are now."
+
+	para "<PLAYER>, you"
+	line "didn't just"
+	cont "redeem a criminal"
+	cont "and save a life,"
+	cont "you also made"
+	cont "KANTO a better"
+	cont "place and re-"
+	cont "united two long-"
+	cont "lost old friends."
+
+	para "You have"
+	line "our eternal"
+	cont "gratitude."
+
+	para "And... I would be"
+	line "happy to express"
+	cont "my gratitude in a"
+	cont "tangible way."
+	prompt
+
+_OaksLabText_OakShinyCharm_Received::
+	text "<PLAYER> received"
+	line "SHINY CHARM!"
+	prompt
+
+_OaksLabText_OakShinyCharm_Explanation::
+	text "This is the reward"
+	line "I was gifted for"
+	cont "winning the first"
+	cont "#MON LEAGUE."
+
+	para "It has the power"
+	line "to attract shiny"
+	cont "#MON."
+
+	para "I spent years"
+	line "trying to figure"
+	cont "out how it works,"
+	cont "to no avail."
+	cont "I can only"
+	cont "guarantee you"
+	cont "that it works"
+	cont "like a charm!"
+
+	para "Please, have it as"
+	line "a token of my"
+	cont "gratitude."
+	done
+
+_OaksLabText_OakShinyCharm_BagFull::
+	text "Oh! You don't have"
+	line "space for this..."
+	done
+
 _GiovanniBeforeBattleText::
 	text "<PLAYER>! We meet"
 	line "again! ...this is"

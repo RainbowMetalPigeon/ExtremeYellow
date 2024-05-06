@@ -46,23 +46,36 @@ INCLUDE "data/trainers/trainers_shiny_mons.asm"
 
 RollForShiny::
 ; roll some numbers and do some checks
-;	call Random
-;	and a
-;	jr nz, .vanilla
-	call Random
-;	and %00000100
-    and %00000000
-
-    ld hl, wNonShinyEncounters
-	jr nz, .shinyEncounter ; this check is a nz now, but may need to be edited
-
+; "debug" function, simply scalable
+;    call Random
+;    and %00000100
+;    jr nz, .shinyEncounter
+; hRandomAdd/Sub needs to be substituted with calls to Random if I change to Jojo's code
+; in that case I also move the call to this routine from end of battle to the wild encounter code
+    ldh a, [hRandomAdd]
+    cp 42 ; can be any number, I just want a 1/256 chance here
+    jr nz, .badShinyRoll
+; second random number, the badge-dependent one
+; we skip this check if we have the SHINY CHARM, ergo the probability is 1/256
+    ld b, SHINY_CHARM
+    call IsItemInBag
+    jr nz, .shinyEncounter
+; if we don't have the SHINY CHARM, we need to roll another number and check against the badge-dependent U.L.
+    call CountHowManyBadges ; a contains the number of badges
+    call ConvertNumberOfBadgesIntoUpperLimit ; a contains the upper limit for the second random number
+    ld b, a ; now it's b that holds the upper limit
+    ldh a, [hRandomSub] ; a holds the random number
+    cp b ; a-b, random-limit, c flag set if a is strictly lower than b, aka in b/256 cases, as 0 is included
+    jr c, .shinyEncounter
+.badShinyRoll
 ; not shiny, let's count non-shiny encounters for the "safety net"
+    ld hl, wNonShinyEncounters
 	inc [hl]
 	ld a, [hli] ; let's now compare [wNonShinyEncounters] with 1500=$05DC
-	cp $05; $DC
+	cp $DC ; $05 for testing purposes, $DC for the 1500
 	jr nz, .notShinyEncounter
-	ld a, [hld]
-	cp $0; $05
+	ld a, [hl]
+	cp $05 ; $00 for testing purposes, $05 for the 1500
 	jr nz, .notShinyEncounter
 ; let's make the encounter shiny because we had 1500 non-shiny ones
 .shinyEncounter
@@ -70,12 +83,95 @@ RollForShiny::
     ld [wOpponentMonShiny], a
 ; reset the non-shiny counter
     xor a
+    ld hl, wNonShinyEncounters ; not elegant but clearer to read, I could do some hld and preload it but whatever
     ld [hli], a
     ld [hl], a
     ret
 .notShinyEncounter
 	xor a ; not shiny
 	ld [wOpponentMonShiny], a
+    ret
+
+CountHowManyBadges: ; returns in a the number of badges we own
+    xor a
+    ld hl, wObtainedBadges
+	bit BIT_EARTHBADGE, [hl]
+	jr z, .next1
+    inc a
+.next1
+	bit BIT_VOLCANOBADGE, [hl]
+	jr z, .next2
+    inc a
+.next2
+	bit BIT_MARSHBADGE, [hl]
+	jr z, .next3
+    inc a
+.next3
+	bit BIT_SOULBADGE, [hl]
+	jr z, .next4
+    inc a
+.next4
+	bit BIT_RAINBOWBADGE, [hl]
+	jr z, .next5
+    inc a
+.next5
+	bit BIT_THUNDERBADGE, [hl]
+	jr z, .next6
+    inc a
+.next6
+	bit BIT_CASCADEBADGE, [hl]
+	jr z, .next7
+    inc a
+.next7
+	bit BIT_BOULDERBADGE, [hl]
+	jr z, .next8
+    inc a
+.next8
+    ret
+
+ConvertNumberOfBadgesIntoUpperLimit: ; returns in a the upper limit for the second random number
+    cp 0
+    jr z, .badges0
+    cp 1
+    jr z, .badges1
+    cp 2
+    jr z, .badges2
+    cp 3
+    jr z, .badges3
+    cp 4
+    jr z, .badges4
+    cp 5
+    jr z, .badges5
+    cp 6
+    jr z, .badges6
+    cp 7
+    jr z, .badges7
+; badges8
+    ld a, 66
+    ret
+.badges7
+    ld a, 33
+    ret
+.badges6
+    ld a, 22
+    ret
+.badges5
+    ld a, 16
+    ret
+.badges4
+    ld a, 13
+    ret
+.badges3
+    ld a, 11
+    ret
+.badges2
+    ld a, 9
+    ret
+.badges1
+    ld a, 8
+    ret
+.badges0
+    ld a, 7
     ret
 
 ; =====================================
