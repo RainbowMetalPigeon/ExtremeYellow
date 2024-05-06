@@ -2221,9 +2221,10 @@ ChangeMonPic:
 	call GetMonHeader
 	hlcoord 12, 0
 	call LoadFrontSpriteByMonIndex
-	ld b, SET_PAL_BATTLE   ; edited, for the shiny
-	call RunPaletteCommand ; edited, for the shiny
-	jp PlayShinyAnimationIfShinyEnemyMon ; new, for the shiny, testing the jp
+	jr .done
+;	ld b, SET_PAL_BATTLE   ; edited, for the shiny
+;	call RunPaletteCommand ; edited, for the shiny
+;	jp PlayShinyAnimationIfShinyEnemyMon ; new, for the shiny, testing the jp
 .playerTurn
 	ld a, [wBattleMonSpecies2]
 	push af
@@ -2238,9 +2239,11 @@ ChangeMonPic:
 	call CopyPicTiles
 	pop af
 	ld [wBattleMonSpecies2], a
+.done
 	ld b, SET_PAL_BATTLE
-	call RunPaletteCommand                ; edited, for the shiny
-	jp PlayShinyAnimationIfShinyPlayerMon ; new, for the shiny, testing the jp
+	jp RunPaletteCommand
+;	call RunPaletteCommand                ; edited, for the shiny
+;	jp PlayShinyAnimationIfShinyPlayerMon ; new, for the shiny, testing the jp
 
 AnimationHideEnemyMonPic:
 ; Hides the enemy mon's sprite
