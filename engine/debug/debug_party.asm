@@ -17,9 +17,9 @@ DebugTeam:
 	db PORYGON, 98 ; 255
 	db VENUSAUR, 97
 	db STARTER_PIKACHU, 5
-	db MRAYQUAZA, 50
-	db GENGAR, 9
-	db CHARIZARD, 9
+;	db MRAYQUAZA, 50
+;	db GENGAR, 9
+;	db CHARIZARD, 9
 	db -1 ; end
 
 DebugStart:
@@ -100,12 +100,12 @@ IF DEF(_DEBUG)
     ld [hl], a
     ld hl, wPartyMon3CatchRate
     ld [hl], a
-    ld hl, wPartyMon4CatchRate
-    ld [hl], a
-    ld hl, wPartyMon5CatchRate
-    ld [hl], a
-    ld hl, wPartyMon6CatchRate
-    ld [hl], a
+;    ld hl, wPartyMon4CatchRate
+;    ld [hl], a
+;    ld hl, wPartyMon5CatchRate
+;    ld [hl], a
+;    ld hl, wPartyMon6CatchRate
+;    ld [hl], a
 
 	; Get some debug items.
 	ld hl, wNumBagItems

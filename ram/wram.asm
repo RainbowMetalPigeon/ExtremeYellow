@@ -774,7 +774,8 @@ wWastedByteCD3A:: db
 ; XXX is it ever not 0?
 wOverrideSimulatedJoypadStatesMask:: db
 
-	ds 1
+wShinyOrNotShinyPokedexPalette:: db ; new
+;	ds 1
 
 ; This union spans 30 bytes.
 UNION
@@ -2568,7 +2569,8 @@ wd736:: db
 
 wCompletedInGameTradeFlags:: dw
 
-	ds 2 ; UNUSED bytes in "Main Data"
+wNonShinyEncounters:: dw ; new
+;	ds 2 ; edited, used for above
 
 wWarpedFromWhichWarp:: db
 wWarpedFromWhichMap:: db

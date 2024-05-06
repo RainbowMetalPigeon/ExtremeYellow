@@ -1842,6 +1842,7 @@ ItemUseMedicine:
 	ld a, 1
 	ld [hl], a
 .concludeChromogene
+	pop hl ; trying
 	ld a, SFX_HEAL_AILMENT
 	call PlaySound
 	ld hl, ChromogeneHasBeenUsedText

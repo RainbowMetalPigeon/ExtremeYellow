@@ -197,6 +197,19 @@ SetPal_Pokedex:
 	ld de, BlkPacket_Pokedex
 	ret
 
+SetPal_PokedexShiny: ; new
+	ld hl, PalPacket_Pokedex
+	ld de, wPalPacket
+	ld bc, $10
+	call CopyData
+	ld a, [wcf91]
+	call DetermineShinyPaletteIDOutOfBattle ; only difference wrt vanilla instruction
+	ld hl, wPalPacket + 3
+	ld [hl], a
+	ld hl, wPalPacket
+	ld de, BlkPacket_Pokedex
+	ret
+
 SetPal_Slots:
 	ld hl, PalPacket_Slots
 	ld de, BlkPacket_Slots
@@ -440,9 +453,10 @@ SetPalFunctions:
 	dw SetPal_PokemonWholeScreen
 	dw SetPal_GameFreakIntro
 	dw SetPal_TrainerCard
-	dw SetPal_BattleMetal ; new, testing
-	dw SendUnknownPalPacket_7205d
-	dw SendUnknownPalPacket_72064
+	dw SetPal_BattleMetal ; new
+	dw SetPal_PokedexShiny ; new, testing
+	dw SendUnknownPalPacket_7205d ; related to engine/minigame/surfing_pikachu.asm
+	dw SendUnknownPalPacket_72064 ; related to engine/minigame/surfing_pikachu.asm
 
 ; The length of the blk data of each badge on the Trainer Card.
 ; The Rainbow Badge has 3 entries because of its many colors.

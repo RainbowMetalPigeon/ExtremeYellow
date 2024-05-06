@@ -50,14 +50,33 @@ RollForShiny::
 ;	and a
 ;	jr nz, .vanilla
 	call Random
-	and %00000100
+;	and %00000100
+    and %00000000
 
-	ld a, 1 ; this is the "yes it is shiny" value
-	jr nz, .shiny ; this check is a nz now, but may need to be edited
+    ld hl, wNonShinyEncounters
+	jr nz, .shinyEncounter ; this check is a nz now, but may need to be edited
+
+; not shiny, let's count non-shiny encounters for the "safety net"
+	inc [hl]
+	ld a, [hli] ; let's now compare [wNonShinyEncounters] with 1500=$05DC
+	cp $05; $DC
+	jr nz, .notShinyEncounter
+	ld a, [hld]
+	cp $0; $05
+	jr nz, .notShinyEncounter
+; let's make the encounter shiny because we had 1500 non-shiny ones
+.shinyEncounter
+    ld a, 1 ; this is the "yes it is shiny" value
+    ld [wOpponentMonShiny], a
+; reset the non-shiny counter
+    xor a
+    ld [hli], a
+    ld [hl], a
+    ret
+.notShinyEncounter
 	xor a ; not shiny
-.shiny
 	ld [wOpponentMonShiny], a
-	ret
+    ret
 
 ; =====================================
 
