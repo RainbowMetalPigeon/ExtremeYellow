@@ -626,9 +626,6 @@ BattleFacilityTextOpponent:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, wOptions
-; Turn on battle animations to make the battle feel more epic
-	res 7, [hl]
 ; handle all wram variables needed for randomization
 	xor a
 	ld [wBattleFacilityWhichMonIsRandomized], a
@@ -637,6 +634,8 @@ BattleFacilityTextOpponent:
 	ld [wBattleFacilityMonNumber3], a
 	ld [wBattleFacilityMonNumber4], a
 	ld [wBattleFacilityMonNumber5], a
+; randomize the shiny-ness of opp's mons
+	callfar AssignShinyToBattleFacilityTrainers
 ; backup the current Level Scaling option choice to restore it after the battle, and set up the level scaling
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a

@@ -1055,7 +1055,13 @@ wRightGBMonSpecies:: db
 ; bit 6: tried pushing against boulder once (you need to push twice before it will move)
 wFlags_0xcd60:: db
 
-	ds 9
+	ds 3 ; edited, was ds 9
+wBattleFacilityMon1Shinyness:: db ; new
+wBattleFacilityMon2Shinyness:: db ; new
+wBattleFacilityMon3Shinyness:: db ; new
+wBattleFacilityMon4Shinyness:: db ; new
+wBattleFacilityMon5Shinyness:: db ; new
+wBattleFacilityMon6Shinyness:: db ; new
 
 ; This has overlapping related uses.
 ; When the player tries to use an item or use certain field moves, 0 is stored

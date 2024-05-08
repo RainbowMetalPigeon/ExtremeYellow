@@ -1,5 +1,7 @@
 CheckForTrainersShinyMons::
     ld a, [wTrainerClass]
+    cp BF_TRAINER
+    jr z, .battleFacility ; handled specially
     ld b, a
     ld a, [wTrainerNo]
     ld c, a
@@ -39,8 +41,40 @@ CheckForTrainersShinyMons::
     xor a
     ld [wOpponentMonShiny], a
     ret
+.battleFacility
+    ld hl, wEnemyMonSpecies2
+    ld a, [hl]
+    and a
+    jr z, .noShiny ; trainers can't be shiny ; is this even necessary???
+; BF mons, not trainers
+    ld a, [wEnemyMonPartyPos] ; wEnemyMonPartyPos starts from 0
+    ld hl, wBattleFacilityMon1Shinyness
+    ld b, 0
+    ld c, a
+    add hl, bc ; now hl contains wBattleFacilityMon[N]Shinyness
+    ld a, [hl]
+    and a
+    jr z, .noShiny
+    jr .matchFound
 
 INCLUDE "data/trainers/trainers_shiny_mons.asm"
+
+; =====================================
+
+AssignShinyToBattleFacilityTrainers::
+    ld hl, wBattleFacilityMon1Shinyness
+    ld b, 6
+.loopOnMons
+    call Random
+    cp 51 ; 20% chance
+    ld a, 1
+    jr c, .itIsShiny
+    xor a
+.itIsShiny
+    ld [hli], a
+    dec b
+    jr nz, .loopOnMons
+    ret
 
 ; =====================================
 
@@ -54,7 +88,7 @@ RollForShiny::
 ; in that case I also move the call to this routine from end of battle to the wild encounter code
     ldh a, [hRandomAdd]
     cp 42 ; can be any number, I just want a 1/256 chance here
-    jr nz, .badShinyRoll
+    jr z, .badShinyRoll ; nz for real, z for testing purposes
 ; second random number, the badge-dependent one
 ; we skip this check if we have the SHINY CHARM, ergo the probability is 1/256
     ld b, SHINY_CHARM
@@ -191,7 +225,7 @@ PlayShinyAnimationIfShinyEnemyMon:
     and a
     jr z, .wildBattle
 ; trainer battle, do the checks
-    call CheckForTrainersShinyMons
+;    call CheckForTrainersShinyMons ; unnecessary, already calling this in engine/gfx/palettes.asm
     ld a, [wOpponentMonShiny]
     and a
     ret z
