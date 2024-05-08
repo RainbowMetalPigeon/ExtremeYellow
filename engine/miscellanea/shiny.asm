@@ -88,7 +88,7 @@ RollForShiny::
 ; in that case I also move the call to this routine from end of battle to the wild encounter code
     ldh a, [hRandomAdd]
     cp 42 ; can be any number, I just want a 1/256 chance here
-    jr z, .badShinyRoll ; nz for real, z for testing purposes
+    jr nz, .badShinyRoll ; nz for real, z for testing purposes
 ; second random number, the badge-dependent one
 ; we skip this check if we have the SHINY CHARM, ergo the probability is 1/256
     ld b, SHINY_CHARM

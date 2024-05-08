@@ -1056,6 +1056,7 @@ wRightGBMonSpecies:: db
 wFlags_0xcd60:: db
 
 	ds 3 ; edited, was ds 9
+wShinyStarterPikachu:: ; new, shares the coordinate with the next one, they never overlay
 wBattleFacilityMon1Shinyness:: db ; new
 wBattleFacilityMon2Shinyness:: db ; new
 wBattleFacilityMon3Shinyness:: db ; new

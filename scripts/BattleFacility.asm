@@ -775,7 +775,7 @@ AskHowTheyCanHelp:
 	ld [hl], a ; wLastMenuItem
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
-	jr nz, .defaultOption ; if B was pressed, assign enby
+	jr nz, .defaultOption ; if B was pressed, exit
 ; A was pressed
 	call PlaceUnfilledArrowMenuCursor
 	ld a, [wCurrentMenuItem]
