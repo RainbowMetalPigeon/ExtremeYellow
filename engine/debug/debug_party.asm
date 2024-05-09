@@ -190,6 +190,12 @@ IF DEF(_DEBUG)
 ;	ld [wBattleFacilityStandardRecordInverse], a
 ;	ld a, 255
 ;	ld [wBattleFacilityHardcoreRecordInverse], a
+    ld a, 0
+    ld [wBattleFacilityBacklogPPUPs], a
+    ld a, 0
+    ld [wBattleFacilityBacklogPerfecters], a
+    ld a, 0
+    ld [wBattleFacilityBacklogChromogenes], a
 
 	ret
 
@@ -208,7 +214,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 DebugItemsList:
 	db MYSTERY_MAP, 1
 ;   db OAKS_PARCEL, 1
-	db PERFECTER, 50
+	db POTION, 99 ; PERFECTER, 99
 	db SUPER_ROD, 1
 	db GOOD_ROD, 1
 	db MASTER_BALL, 99
@@ -234,7 +240,7 @@ DebugItemsList:
 	db REPEL, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
-	db PP_UP, 42
+	db POTION, 99 ; PP_UP, 42
 	db MEGA_STONE_X, 99
 	db POKE_DOLL, 99
 	db LAVA_STONE, 1
@@ -244,7 +250,7 @@ DebugItemsList:
     db POTION, 99
     db POTION, 99
     db POTION, 99
-    db CHROMOGENE, 99
+    db POTION, 99 ; CHROMOGENE, 99
     db ULTRA_BALL, 99
     db GREAT_BALL, 99
     db POKE_BALL, 99

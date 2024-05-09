@@ -18,7 +18,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const LIST_MENU_BOX                     ; $0d
 	const BUY_SELL_QUIT_MENU_TEMPLATE       ; $0e
 	const MONEY_BOX_TEMPLATE                ; $0f
-	const MENU_TEMPLATE_10                  ; $10 unused
+	const BF_MENU_INFO_BATTLE_PRIZES_EXIT   ; $10 new, for Battle Facility
 	const MON_SPRITE_POPUP                  ; $11
 	const BOY_GIRL_NO                       ; $12 new for gender non-binary selection
 	const MONEY_BOX                         ; $13

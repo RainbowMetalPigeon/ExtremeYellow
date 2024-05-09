@@ -2399,13 +2399,17 @@ wBattleFacilityHardcoreRecordInverse:: db ; new
 wBattleFacilityStandardRecordNormal:: db ; new
 wBattleFacilityStandardRecordInverse:: db ; new
 
+wBattleFacilityBacklogPPUPs:: db ; new
+wBattleFacilityBacklogPerfecters:: db ; new
+wBattleFacilityBacklogChromogenes:: db ; new
+
 ; UNUSED bytes in "Main Data"
-	ds  4 ; edited, originally 56
+	ds  1 ; edited, originally 56
 	      ; reduced by 3 for gender, tyrogue, and accuracypercent
 		  ; by 16 for increasing max warps from 32 to 36
 		  ; by 8 for new HS variables
 		  ; by 16 to increase bag capacity
-		  ; by 9 for battle facility
+		  ; by 12 for battle facility
 
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
@@ -2469,8 +2473,6 @@ wDungeonWarpDestinationMap:: db
 ; which dungeon warp within the source map was used
 wWhichDungeonWarp:: db
 
-wUnusedD71F:: db
-
 wBattleFacilityOpponentTrainerSprite:: db ; new
 wBattleFacilityWhichMonIsRandomized:: db ; new
 wBattleFacilityMonNumber1:: db ; new
@@ -2480,6 +2482,7 @@ wBattleFacilityMonNumber4:: db ; new
 wBattleFacilityMonNumber5:: db ; new
 wBattleFacilityWinningStreak:: db ; new
 ;	ds 8 ; now used for the variables above
+wBattleFacilityWinningStreakNext:: db ; edited, it was wUnusedD71F
 
 ; bit 0: using Strength outside of battle
 ; bit 1: set by IsSurfingAllowed when surfing's allowed, but the caller resets it after checking the result
