@@ -1816,6 +1816,7 @@ ItemUseMedicine:
 	call PlaySound
 	ld hl, PerfecterHasBeenUsedText
 	call PrintText
+.perfTest
 	jp RemoveUsedItem
 
 .notPerfecterCode
@@ -1846,6 +1847,7 @@ ItemUseMedicine:
 	call PlaySound
 	ld hl, ChromogeneHasBeenUsedText
 	call PrintText
+.chromoTest
 	jp RemoveUsedItem
 .notChromogeneCode
 	ld a, [wcf91] ; to ensure a contains the right stuff
