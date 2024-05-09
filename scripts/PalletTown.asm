@@ -146,6 +146,11 @@ PalletTownScript4:
 	ld a, 5
 	ld [wCurEnemyLVL], a
 
+	; new, rolls for shiny
+	callfar RollForShiny
+	ld a, [wOpponentMonShiny]
+	ld [wShinyStarterPikachu], a
+
 	; trigger the next script
 	ld a, 5
 	ld [wPalletTownCurScript], a

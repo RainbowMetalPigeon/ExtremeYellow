@@ -124,6 +124,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; MOLTEN_STONE, new
 	dw UnusableItem      ; ARTIFACT, new
 	dw ItemUseVitamin    ; CHROMOGENE, new, testing
+	dw UnusableItem      ; SHINY_CHARM, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -1843,6 +1844,7 @@ ItemUseMedicine:
 	ld a, 1
 	ld [hl], a
 .concludeChromogene
+	pop hl ; trying
 	ld a, SFX_HEAL_AILMENT
 	call PlaySound
 	ld hl, ChromogeneHasBeenUsedText
@@ -2171,8 +2173,8 @@ ItemUseXAccuracy:
 ; This function is bugged and never works. It always jumps to ItemUseNotTime.
 ; The Card Key is handled in a different way.
 ItemUseCardKey:
-	xor a
-	ld [wUnusedD71F], a
+;	xor a               ; edited, commented out as unused
+;	ld [wUnusedD71F], a ; edited, commented out as unused
 	call GetTileAndCoordsInFrontOfPlayer
 	ld a, [GetTileAndCoordsInFrontOfPlayer]
 	cp $18
@@ -2206,7 +2208,7 @@ ItemUseCardKey:
 	cp e
 	jr nz, .nextEntry3
 	ld a, [hl]
-	ld [wUnusedD71F], a
+;	ld [wUnusedD71F], a ; edited, commented out as unused
 	jr .done
 
 .nextEntry1

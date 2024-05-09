@@ -23,8 +23,18 @@ GivePokemon::
 	ld [wCurEnemyLVL], a
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
-	callfar RollForShiny       ; new, for the shiny
-	callfar _GivePokemon
-	ld a, 0                    ; new, for the shiny
-	ld [wOpponentMonShiny], a  ; new, for the shiny
+; new, for the shiny (starter pikachu)
+	ld a, [wCurMap]
+	cp OAKS_LAB
+	jr nz, .notOaksLab
+	ld a, [wShinyStarterPikachu]
+	ld [wOpponentMonShiny], a
+	jr .skipTheNormalShinyRoll
+.notOaksLab
+	callfar RollForShiny
+.skipTheNormalShinyRoll
+	callfar _GivePokemon ; main thingy
+	ld a, 0
+	ld [wOpponentMonShiny], a
+; back to vanilla
 	ret

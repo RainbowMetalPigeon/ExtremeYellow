@@ -465,8 +465,29 @@ ShowPokedexDataInternal:
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
+	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny
 	jr z, .waitForButtonPress
+; new, for the shiny
+	bit BIT_SELECT, a
+	jr z, .vanilla
+; SELECT has been pressed, change palette shiny <-> non-shiny
+	ld a, [wShinyOrNotShinyPokedexPalette]
+	and a
+	ld b, SET_PAL_POKEDEX_SHINY
+	jr z, .changeToShiny
+; palette is already shiny, let's make it non-shiny
+	ld b, SET_PAL_POKEDEX
+	call RunPaletteCommand
+	xor a
+	jr .end
+.changeToShiny
+	call RunPaletteCommand
+	ld a, 1
+.end
+	ld [wShinyOrNotShinyPokedexPalette], a
+	jr .waitForButtonPress
+.vanilla
+; back to vanilla
 	pop af
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut
@@ -815,5 +836,5 @@ GetEnemyWeight:: ; new
 
 	ld a, [hl] ; now a contains the higher weight bit
 	ld d, a ; now e contains the higher weight bit
-	
+
 	ret

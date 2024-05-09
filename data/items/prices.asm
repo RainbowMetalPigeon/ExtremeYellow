@@ -107,6 +107,7 @@ ItemPrices::
 	bcd3 0     ; MOLTEN_STONE
 	bcd3 0     ; ARTIFACT
 	bcd3 0     ; CHROMOGENE
+	bcd3 0     ; SHINY_CHARM
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

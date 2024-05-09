@@ -806,8 +806,29 @@ OaksLabText3:
 	jr c, .asm_1c9ec
 .asm_1c9d9
 ;	--- new block to handle post-redemption Giovanni
-	CheckEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0
+; first check if we have been gifted the SHINY CHARM
+	CheckEvent EVENT_OAK_GIFTED_SHINY_CHARM
+	jr nz, .postRedemption ; if yes, normal post-Giovanni-redemption dialogue
+	CheckEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0 ; if not, check if Giovanni has been redeemed
 	jr z, .notPostRedemption
+; we have not received the SHINY CHARM yet, but we could
+	ld hl, OaksLabText_OakShinyCharm_Offer
+	call PrintText
+	lb bc, SHINY_CHARM, 1
+	call GiveItem
+	jr nc, .bagFullForShinyCharm
+; received
+	ld hl, OaksLabText_OakShinyCharm_Received
+	call PrintText
+	SetEvent EVENT_OAK_GIFTED_SHINY_CHARM
+	ld hl, OaksLabText_OakShinyCharm_Explanation
+	call PrintText
+	jp .asm_1ca6f
+.bagFullForShinyCharm
+	ld hl, OaksLabText_OakShinyCharm_BagFull
+	call PrintText
+	jp .asm_1ca6f
+.postRedemption
 	ld hl, OaksLabText_OakPostGiovanniRedemption
 	call PrintText
 	jp .asm_1ca6f
@@ -915,6 +936,23 @@ OaksLabText_1ca9f:
 
 OaksLabText_OakPostGiovanniRedemption: ; new
 	text_far _OaksLabText_OakPostGiovanniRedemption
+	text_end
+
+OaksLabText_OakShinyCharm_Offer: ; new
+	text_far _OaksLabText_OakShinyCharm_Offer
+	text_end
+
+OaksLabText_OakShinyCharm_Received: ; new
+	text_far _OaksLabText_OakShinyCharm_Received
+	sound_get_item_2
+	text_end
+
+OaksLabText_OakShinyCharm_Explanation: ; new
+	text_far _OaksLabText_OakShinyCharm_Explanation
+	text_end
+
+OaksLabText_OakShinyCharm_BagFull: ; new
+	text_far _OaksLabText_OakShinyCharm_BagFull
 	text_end
 
 OaksLabText4:

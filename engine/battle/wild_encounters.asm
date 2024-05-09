@@ -100,7 +100,7 @@ TryDoWildEncounter:
 	and a
 	ret
 .willEncounter
-;	callfar RollForShiny ; new, for the shiny
+;	callfar RollForShiny ; deprecated
 	xor a
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ret

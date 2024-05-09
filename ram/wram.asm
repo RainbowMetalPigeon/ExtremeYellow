@@ -774,7 +774,8 @@ wWastedByteCD3A:: db
 ; XXX is it ever not 0?
 wOverrideSimulatedJoypadStatesMask:: db
 
-	ds 1
+wShinyOrNotShinyPokedexPalette:: db ; new
+;	ds 1
 
 ; This union spans 30 bytes.
 UNION
@@ -1054,7 +1055,14 @@ wRightGBMonSpecies:: db
 ; bit 6: tried pushing against boulder once (you need to push twice before it will move)
 wFlags_0xcd60:: db
 
-	ds 9
+	ds 3 ; edited, was ds 9
+wShinyStarterPikachu:: ; new, shares the coordinate with the next one, they never overlay
+wBattleFacilityMon1Shinyness:: db ; new
+wBattleFacilityMon2Shinyness:: db ; new
+wBattleFacilityMon3Shinyness:: db ; new
+wBattleFacilityMon4Shinyness:: db ; new
+wBattleFacilityMon5Shinyness:: db ; new
+wBattleFacilityMon6Shinyness:: db ; new
 
 ; This has overlapping related uses.
 ; When the player tries to use an item or use certain field moves, 0 is stored
@@ -2391,13 +2399,17 @@ wBattleFacilityHardcoreRecordInverse:: db ; new
 wBattleFacilityStandardRecordNormal:: db ; new
 wBattleFacilityStandardRecordInverse:: db ; new
 
+wBattleFacilityBacklogPPUPs:: db ; new
+wBattleFacilityBacklogPerfecters:: db ; new
+wBattleFacilityBacklogChromogenes:: db ; new
+
 ; UNUSED bytes in "Main Data"
-	ds  4 ; edited, originally 56
+	ds  1 ; edited, originally 56
 	      ; reduced by 3 for gender, tyrogue, and accuracypercent
 		  ; by 16 for increasing max warps from 32 to 36
 		  ; by 8 for new HS variables
 		  ; by 16 to increase bag capacity
-		  ; by 9 for battle facility
+		  ; by 12 for battle facility
 
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
@@ -2461,8 +2473,6 @@ wDungeonWarpDestinationMap:: db
 ; which dungeon warp within the source map was used
 wWhichDungeonWarp:: db
 
-wUnusedD71F:: db
-
 wBattleFacilityOpponentTrainerSprite:: db ; new
 wBattleFacilityWhichMonIsRandomized:: db ; new
 wBattleFacilityMonNumber1:: db ; new
@@ -2472,6 +2482,7 @@ wBattleFacilityMonNumber4:: db ; new
 wBattleFacilityMonNumber5:: db ; new
 wBattleFacilityWinningStreak:: db ; new
 ;	ds 8 ; now used for the variables above
+wBattleFacilityWinningStreakNext:: db ; edited, it was wUnusedD71F
 
 ; bit 0: using Strength outside of battle
 ; bit 1: set by IsSurfingAllowed when surfing's allowed, but the caller resets it after checking the result
@@ -2568,7 +2579,8 @@ wd736:: db
 
 wCompletedInGameTradeFlags:: dw
 
-	ds 2 ; UNUSED bytes in "Main Data"
+wNonShinyEncounters:: dw ; new
+;	ds 2 ; edited, used for above
 
 wWarpedFromWhichWarp:: db
 wWarpedFromWhichMap:: db

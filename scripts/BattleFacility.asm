@@ -47,7 +47,7 @@ BattleFacilityScript1_PostBattle:
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
-; some dialogue?
+; some dialogue? TBE
 
 	ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
 	cp 1
@@ -58,7 +58,7 @@ BattleFacilityScript1_PostBattle:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
-; we have been defeated
+; we have been defeated --------------------------
 	ld a, [wLevelScalingBackup] ; reset level scaling as chosen by the player, TBV
 	ld [wLevelScaling], a
 	ld a, 13
@@ -88,29 +88,59 @@ BattleFacilityScript1_PostBattle:
 	set 3, [hl] ; do scripted warp
 	ret
 .notDefeated ; we won -----------------------
-	ld a, 11
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 ; increase win streak
 	ld a, [wBattleFacilityWinningStreak]
 	inc a
-	ld [wBattleFacilityWinningStreak], a ; TBE: this needs to be set to 0 after we finish the 7-battle streak
+	ld [wBattleFacilityWinningStreak], a
+	inc a
+	ld [wBattleFacilityWinningStreakNext], a
 ; check if we are in standard mode or hardcore
 	ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
 	cp 1
-	jr z, .hardcoreMode3 ; if we are in hardcore mode, don't stop regardless of how many victories
-; check if we are at 7 victories (aka completed a session) in standard mode
+	jr z, .hardcoreMode2 ; if we are in hardcore mode, don't stop regardless of how many victories
+; here we are in standard mode
+; print dialogue (depends if we finished the block or not)
 	ld a, [wBattleFacilityWinningStreak]
-	cp 7
-	jr c, .hardcoreMode3 ; it could be also "jr nz", because we don't go ABOVE 7, unless bugs
-	                     ; if we are below 7 victories in standard mode, go with another battle
+	cp 2 ; TEMPORARY FOR TESTING, TBE, should be 7
+	jr nz, .notFinishedBlock
+; we finished a block in standard mode
+	ld a, 14 ; BattleFacilityText_FinishedBlock
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
 	ld a, 12 ; we finished the session
 	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	jr .warpToEntrance
-.hardcoreMode3
-; script handling, continue with the next battle
-	ld a, 10 ; TBE, different script if we finished the session
+.notFinishedBlock
+	ld a, 15 ; BattleFacilityText_HealAndSmolPrize
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; try to reward the PP UP
+	ld c, 1
+	ld b, PP_UP
+	call GiveItem
+	jr nc, .bagFullPPUP
+; we successfully rewarded the PP UP
+	ld a, 16 ; BattleFacilityText_ReceivedItem
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	jr .hardcoreMode2
+.bagFullPPUP
+	ld a, 17 ; BattleFacilityText_BagFull
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; bag is full, we add it to the backlog stack
+	ld hl, wBattleFacilityBacklogPPUPs
+	inc [hl]
+	jr nz, .hardcoreMode2
+; the backlog of PP UPs is full, let's cap it at 255
+	ld [hl], 255
+.hardcoreMode2
+	ld a, 11 ; BattleFacilityText_NextBattle
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.scriptHandling ; continue with the next battle
+	ld a, 10
 	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -413,7 +443,7 @@ BattleFacilityScript11_PostMoveOpponentOut:
 ; -------------------------------------
 
 BattleFacilityScript12_AfterWarpVictory:
-	ld a, 12
+	ld a, 12 ; BattleFacilityText_AfterWarpVictory
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; hide all opponents just to be safe
@@ -429,12 +459,7 @@ BattleFacilityScript12_AfterWarpVictory:
 	ld a, HS_BATTLE_FACILITY_OPP_YELLOW
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
-; handle records
-; if hardcore mode, we cannot exit the Arena by winning
-; so we can skip this check entirely
-;    ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
-;    and a
-;    jr nz, .scriptHandling
+; handle records: if hardcore mode, we cannot exit the Arena by winning, so we can skip this check entirely
 ; standard
 	ld a, [wBattleFacilityInverseBattle] ; 0 for Normal battle, 1 for Inverse Battle
 	and a
@@ -445,19 +470,51 @@ BattleFacilityScript12_AfterWarpVictory:
 	ld [wBattleFacilityStandardCurrentStreakNormal], a
 	ld hl, wBattleFacilityStandardRecordNormal
 	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
-	jr c, .scriptHandling
+	jr c, .givePrizes
 	ld [wBattleFacilityStandardRecordNormal], a ; "useless" in case we achieve the same record as last time
 												; otherwise it updates the record
-	jr .scriptHandling
+	jr .givePrizes
 .standard_inverse
 	ld a, [wBattleFacilityStandardCurrentStreakInverse]
 	inc a
 	ld [wBattleFacilityStandardCurrentStreakInverse], a
 	ld hl, wBattleFacilityStandardRecordInverse
 	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
-	jr c, .scriptHandling
+	jr c, .givePrizes
 	ld [wBattleFacilityStandardRecordInverse], a ; "useless" in case we achieve the same record as last time
 												 ; otherwise it updates the record
+.givePrizes ; a still holds wBattleFacilityStandardCurrentStreakX (normal or inverse, doesn't matter)
+; check which prize to give: PERFECTER normally, CHROMOGENE if streak is multiple of 7 (some weirdnesses when we go beyond 255 but oh well)
+	call CheckIfMultipleOf7 ; z flag if multiple
+	ld b, CHROMOGENE
+	ld hl, wBattleFacilityBacklogChromogenes
+	jr z, .giveChromogene
+	ld b, PERFECTER
+	ld hl, wBattleFacilityBacklogPerfecters
+.giveChromogene
+	push hl ; to preserve the backlog wram address
+; shared code to reward perfecter or chromogene
+    ld c, 1
+    call GiveItem
+    jr nc, .bagFullItem
+; we successfully rewarded the prize
+    ld a, 16 ; BattleFacilityText_ReceivedItem
+    ldh [hSpriteIndexOrTextID], a
+    call DisplayTextID
+    jr .justToDoThePop
+.bagFullItem
+    ld a, 17 ; BattleFacilityText_BagFull
+    ldh [hSpriteIndexOrTextID], a
+    call DisplayTextID
+; bag is full, we add it to the backlog stack
+	pop hl ; to retrieve the backlog wram address
+    inc [hl]
+    jr nz, .scriptHandling
+; the backlog of this prize is full, let's cap it at 255
+    ld [hl], 255
+	jr .scriptHandling
+.justToDoThePop
+	pop hl ; to preserve the push-pops in case we gave the prize right away
 .scriptHandling
 	ld a, 0
 	ld [wBattleFacilityCurScript], a
@@ -538,9 +595,13 @@ BattleFacility_TextPointers:
 	dw BattleFacilityTextSignRecordsNormal ; 9, tabellone segnapunti
 	dw BattleFacilityTextSignRecordsInverse ; 10, tabellone segnapunti
 ; non-NPCs texts
-	dw BattleFacilityText6_NextBattle       ; 11
-	dw BattleFacilityText7_AfterWarpVictory ; 12
-	dw BattleFacilityText8_AfterWarpDefeat  ; 13
+	dw BattleFacilityText_NextBattle       ; 11
+	dw BattleFacilityText_AfterWarpVictory ; 12
+	dw BattleFacilityText_AfterWarpDefeat  ; 13
+	dw BattleFacilityText_FinishedBlock    ; 14
+	dw BattleFacilityText_HealAndSmolPrize ; 15
+	dw BattleFacilityText_ReceivedItem     ; 16
+	dw BattleFacilityText_BagFull          ; 17
 
 ; NPCs texts --------------------------
 
@@ -550,6 +611,9 @@ BattleFacilityTextGuide:
 	ld hl, BattleFacilityTextGuide_Intro
 	call PrintText
 ; ask how they can help us
+	call WhichInfoMenuToShow
+	jp nz, .backlogPrizes
+; basic menu, without prizes to claim
 	call AskHowTheyCanHelp
 	ld a, [wCurrentMenuItem] ; 0 for INFO, 1 for BATTLE, 2 for EXIT
 	cp 2 ; EXIT
@@ -557,7 +621,61 @@ BattleFacilityTextGuide:
 	cp 1 ; BATTLE
 	jr z, .battle
 ; else, INFO
+.info
 	ld hl, BattleFacilityTextGuide_Info
+	call PrintText
+	jp TextScriptEnd
+.prizes
+	ld hl, BattleFacilityTextGuide_Prizes
+	call PrintText
+; try giving the PPUPs
+	ld a, [wBattleFacilityBacklogPPUPs]
+	and a
+	jr z, .tryGivingPerfecters
+	ld c, a
+	ld b, PP_UP
+	call GiveItem
+	jr nc, .bagFull_PPUPs
+	xor a
+	ld [wBattleFacilityBacklogPPUPs], a
+	ld hl, BattleFacilityTextGuide_Prizes_PPUPs_Given
+	call PrintText
+.tryGivingPerfecters
+	ld a, [wBattleFacilityBacklogPerfecters]
+	and a
+	jr z, .tryGivingChromogenes
+	ld c, a
+	ld b, PERFECTER
+	call GiveItem
+	jr nc, .bagFull_Perfecters
+	xor a
+	ld [wBattleFacilityBacklogPerfecters], a
+	ld hl, BattleFacilityTextGuide_Prizes_Perfecters_Given
+	call PrintText
+.tryGivingChromogenes
+	ld a, [wBattleFacilityBacklogChromogenes]
+	and a
+	jr z, .doneWithPrizes
+	ld c, a
+	ld b, CHROMOGENE
+	call GiveItem
+	jr nc, .bagFull_Chromogenes
+	xor a
+	ld [wBattleFacilityBacklogChromogenes], a
+	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Given
+	call PrintText
+.doneWithPrizes
+	ld hl, BattleFacilityTextGuide_Prizes_Ender
+	jr .concludePrizes ; here we gave all prizes
+.bagFull_PPUPs
+	ld hl, BattleFacilityTextGuide_Prizes_PPUPs_Failed
+	jr .concludePrizes
+.bagFull_Perfecters
+	ld hl, BattleFacilityTextGuide_Prizes_Perfecters_Failed
+	jr .concludePrizes
+.bagFull_Chromogenes
+	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Failed
+.concludePrizes
 	call PrintText
 	jp TextScriptEnd
 .exit
@@ -581,14 +699,60 @@ BattleFacilityTextGuide:
 	ld [wBattleFacilityInverseBattle], a ; 0 for Normal battle, 1 for Inverse Battle
 	ld hl, BattleFacilityTextGuide_Battle3
 	call PrintText
+; reset the "internal" winning streak for standard mode, here is good enough
+	xor a
+	ld [wBattleFacilityWinningStreak], a
 ; script handling
 	ld a, 2 ; BattleFacilityScript_MoveGuide
 	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
+; if we have a backlog of unclaimed prizes
+.backlogPrizes
+	call AskHowTheyCanHelp
+	ld a, [wCurrentMenuItem] ; 0 for INFO, 1 for BATTLE, 2 for PRIZES, 3 for EXIT
+	cp 3 ; EXIT
+	jr z, .exit
+	cp 2 ; PRIZES
+	jp z, .prizes
+	cp 1 ; BATTLE
+	jr z, .battle
+	jp .info
 
 BattleFacilityTextGuide_Intro:
 	text_far _BattleFacilityTextGuide_Intro
+	text_end
+
+BattleFacilityTextGuide_Prizes:
+	text_far _BattleFacilityTextGuide_Prizes
+	text_end
+
+BattleFacilityTextGuide_Prizes_PPUPs_Given:
+	text_far _BattleFacilityTextGuide_Prizes_PPUPs_Given
+	text_end
+
+BattleFacilityTextGuide_Prizes_Perfecters_Given:
+	text_far _BattleFacilityTextGuide_Prizes_Perfecters_Given
+	text_end
+
+BattleFacilityTextGuide_Prizes_Chromogenes_Given:
+	text_far _BattleFacilityTextGuide_Prizes_Chromogenes_Given
+	text_end
+
+BattleFacilityTextGuide_Prizes_PPUPs_Failed:
+	text_far _BattleFacilityTextGuide_Prizes_PPUPs_Failed
+	text_end
+
+BattleFacilityTextGuide_Prizes_Perfecters_Failed:
+	text_far _BattleFacilityTextGuide_Prizes_Perfecters_Failed
+	text_end
+
+BattleFacilityTextGuide_Prizes_Chromogenes_Failed:
+	text_far _BattleFacilityTextGuide_Prizes_Chromogenes_Failed
+	text_end
+
+BattleFacilityTextGuide_Prizes_Ender:
+	text_far _BattleFacilityTextGuide_Prizes_Ender
 	text_end
 
 BattleFacilityTextGuide_Exit:
@@ -626,9 +790,6 @@ BattleFacilityTextOpponent:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, wOptions
-; Turn on battle animations to make the battle feel more epic
-	res 7, [hl]
 ; handle all wram variables needed for randomization
 	xor a
 	ld [wBattleFacilityWhichMonIsRandomized], a
@@ -637,6 +798,8 @@ BattleFacilityTextOpponent:
 	ld [wBattleFacilityMonNumber3], a
 	ld [wBattleFacilityMonNumber4], a
 	ld [wBattleFacilityMonNumber5], a
+; randomize the shiny-ness of opp's mons
+	callfar AssignShinyToBattleFacilityTrainers
 ; backup the current Level Scaling option choice to restore it after the battle, and set up the level scaling
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a
@@ -741,21 +904,53 @@ PrintBattleFacilityRecords:
 
 ; non-NPCs texts ----------------------
 
-BattleFacilityText6_NextBattle:
-	text_far _BattleFacilityText6_NextBattle
+BattleFacilityText_NextBattle:
+	text_far _BattleFacilityText_NextBattle
 	text_end
 
-BattleFacilityText7_AfterWarpVictory:
-	text_far _BattleFacilityText7_AfterWarpVictory
+BattleFacilityText_FinishedBlock:
+	text_far _BattleFacilityText_FinishedBlock
 	text_end
 
-BattleFacilityText8_AfterWarpDefeat:
-	text_far _BattleFacilityText8_AfterWarpDefeat
+BattleFacilityText_HealAndSmolPrize:
+	text_far _BattleFacilityText_HealAndSmolPrize
+	text_end
+
+BattleFacilityText_ReceivedItem:
+	text_far _BattleFacilityText_ReceivedItem
+	text_end
+
+BattleFacilityText_BagFull:
+	text_far _BattleFacilityText_BagFull
+	text_end
+
+BattleFacilityText_AfterWarpVictory:
+	text_far _BattleFacilityText_AfterWarpVictory
+	text_end
+
+BattleFacilityText_AfterWarpDefeat:
+	text_far _BattleFacilityText_AfterWarpDefeat
 	text_end
 
 ; Extra functions =====================
 
+WhichInfoMenuToShow: ; nz for the reward-including one, z for the basic one
+	ld a, [wBattleFacilityBacklogPPUPs]
+	and a
+	ret nz
+	ld a, [wBattleFacilityBacklogPerfecters]
+	and a
+	ret nz
+	ld a, [wBattleFacilityBacklogChromogenes]
+	and a
+	ret
+
+; -------------------------------------
+
 AskHowTheyCanHelp:
+	call WhichInfoMenuToShow
+	jr nz, .backlogPrizes
+; no backlog of unclaimed prizes
 	call SaveScreenTilesToBuffer1
 	ld a, BF_MENU_INFO_BATTLE_EXIT ; AAA
 	ld [wTextBoxID], a
@@ -776,13 +971,43 @@ AskHowTheyCanHelp:
 	ld [hl], a ; wLastMenuItem
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
-	jr nz, .defaultOption ; if B was pressed, assign enby
+	jr nz, .defaultOption ; if B was pressed, exit
 ; A was pressed
 	call PlaceUnfilledArrowMenuCursor
 	ld a, [wCurrentMenuItem]
 	jp LoadScreenTilesFromBuffer1
 .defaultOption
 	ld a, $02
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1
+.backlogPrizes ; we do have a backlog of unclaimed prizes, show more options
+	call SaveScreenTilesToBuffer1
+	ld a, BF_MENU_INFO_BATTLE_PRIZES_EXIT ; AAA
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 5 ; AAA
+	ld [hli], a ; top menu item Y
+	ld a, 12 ; AAA
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, $3 ; AAA
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .defaultOption2 ; if B was pressed, exit
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.defaultOption2
+	ld a, $03
 	ld [wCurrentMenuItem], a
 	jp LoadScreenTilesFromBuffer1
 
@@ -818,3 +1043,12 @@ WhatBattleFacilityMode:
 	ld a, $02
 	ld [wCurrentMenuItem], a
 	jp LoadScreenTilesFromBuffer1
+
+; -------------------------------------
+
+CheckIfMultipleOf7: ; input: a, output: z flag for multiple, nz if not multiple
+.loop
+	sub 2 ; TBE into 7
+	ret z
+	jr nc, .loop ; c flag is "Set if borrow (set if n8 > A)"
+	ret

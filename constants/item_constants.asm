@@ -116,6 +116,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const MOLTEN_STONE  ; new
 	const ARTIFACT      ; new
 	const CHROMOGENE    ; new
+	const SHINY_CHARM   ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

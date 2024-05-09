@@ -11,7 +11,7 @@ TextBoxCoordTable:
 	db MENU_TEMPLATE_03,  0,  0, 19, 14
 	db MENU_TEMPLATE_07,  0,  0, 11,  6
 	db LIST_MENU_BOX,     4,  2, 19, 12
-	db MENU_TEMPLATE_10,  7,  0, 19, 17
+;	db MENU_TEMPLATE_10,  7,  0, 19, 17 ; edited, removed as it was not used
 	db MON_SPRITE_POPUP,  6,  4, 14, 13
 	db -1 ; end
 
@@ -37,6 +37,7 @@ TextBoxTextAndCoordTable:
 	text_box_text TYROGUE_EVOLUTIONS,				  9,  6, 19, 12, TyrogueEvolutions,		  11,  7 ; new
 	text_box_text JP_POKEDEX_MENU_TEMPLATE,          11,  8, 19, 17, JapanesePokedexMenu,     12, 10
 	text_box_text BF_MENU_INFO_BATTLE_EXIT,          11,  6, 19, 12, BFInfoBattleExit,        13,  7 ; new
+	text_box_text BF_MENU_INFO_BATTLE_PRIZES_EXIT,   11,  4, 19, 12, BFInfoBattlePrizesExit,  13,  5 ; new, TBV
 	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,    11,  6, 19, 12, BFStandardHardcoreExit,  13,  7 ; new
 
 
@@ -95,6 +96,12 @@ TyrogueEvolutions: ; new
 BFInfoBattleExit: ; new
 	db   "INFO"
 	next "BATTLE"
+	next "EXIT@"
+
+BFInfoBattlePrizesExit: ; new
+	db   "INFO"
+	next "BATTLE"
+	next "PRIZES"
 	next "EXIT@"
 
 BFStandardHardcoreExit: ; new
