@@ -11,9 +11,9 @@ CeladonHotel_TextPointers:
 CeladonHotelText1: ; edited
 	text_asm
 	CheckEvent EVENT_CELADON_HOTEL_GOT_GUTSCHEIN
-	jp c, .alreadyGotGutschein
+	jp nz, .alreadyGotGutschein
 	CheckEvent EVENT_CELADON_HOTEL_PAID_ROOM
-	jp c, .alreadyPaidRoom
+	jp nz, .alreadyPaidRoom
 	ld hl, CeladonHotelText1_WannaARoom
 	call PrintText
 	ld a, MONEY_BOX
@@ -23,7 +23,7 @@ CeladonHotelText1: ; edited
 	ld a, [wCurrentMenuItem]
 	and a
 	jp nz, .choseNo
-	; $050000 ; [wPriceTemp + 2] is the LEAST significant
+	; $050000 ; [wPriceTemp+1] is the LEAST significant
 	ld a, $5
 	ldh [hMoney], a
 	xor a
@@ -38,10 +38,10 @@ CeladonHotelText1: ; edited
 	call PrintText
 	; $050000
 	ld a, $5
-	ldh [hMoney], a
+	ld [wPriceTemp], a
 	xor a
-	ldh [hMoney + 1], a
-	ldh [hMoney + 2], a
+	ld [wPriceTemp + 1], a
+	ld [wPriceTemp + 2], a
 	ld hl, wPriceTemp + 2
 	ld de, wPlayerMoney + 2
 	ld c, $3

@@ -37,11 +37,12 @@ _CeladonHotelText3:: ; edited
 
 _CeladonHotelText1_WannaARoom::
 	text "Wanna room?"
+	line "¥50000"
 	done
 
 _CeladonHotelText1_AlreadyPaidRoom::
 	text "Here GUTSCHEIN"
-	done
+	prompt
 
 _CeladonHotelText1_AlreadyGotGutschein::
 	text "How is room?"
@@ -66,7 +67,7 @@ _CeladonHotelText1_BagFull::
 
 _CeladonHotelText1_ExcellentChoice::
 	text "Excellent choice"
-	done
+	prompt
 
 _CeladonHotelText4:: ; TBE
 	text "Stop!"
@@ -92,7 +93,7 @@ _CeladonHotelHallSign3::
 
 _CeladonHotelHallSign4::
 	text "Room N. 4"
-	
+
 	para "There's a huge red"
 	line "sticker: CLOSED"
 ;	xxxx "123456789012345678"

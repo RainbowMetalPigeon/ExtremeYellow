@@ -173,8 +173,8 @@ StartBattle:
 	call SaveScreenTilesToBuffer1
 .checkAnyPartyAlive
 	ld a, [wBattleType]
-	cp BATTLE_TYPE_RUN
-	jp z, .specialBattle
+;	cp BATTLE_TYPE_RUN
+;	jp z, .specialBattle
 	cp BATTLE_TYPE_PIKACHU
 	jp z, .specialBattle
 	call AnyPartyAlive
@@ -1588,6 +1588,11 @@ TryRunningFromBattle:
 	pop hl
 	pop de
 	jp z, .canEscape ; jump if it's a ghost battle
+; new, for the shiny, prevent running from them
+	ld a, [wOpponentMonShiny]
+	and a
+	jp nz, .cannotEscapeFromWild
+; back to vanilla
 	ld a, [wBattleType]
 	cp BATTLE_TYPE_SAFARI
 	jp z, .canEscape ; jump if it's a safari battle
@@ -1666,7 +1671,7 @@ TryRunningFromBattle:
 	cp b
 	jr nc, .canEscape ; if the random value was less than or equal to the quotient
 	                  ; plus 30 times the number of attempts, the player can escape
-; can't escape
+.cannotEscapeFromWild ; new label, used for the shiny
 	ld a, $1
 	ld [wActionResultOrTookBattleTurn], a ; you lose your turn when you can't escape
 	ld hl, CantEscapeText

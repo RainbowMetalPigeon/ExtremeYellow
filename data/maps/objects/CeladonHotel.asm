@@ -12,7 +12,7 @@ CeladonHotel_Object:
 	object_event  3,  1, SPRITE_GRANNY, STAY, DOWN, 1 ; person
 	object_event  2,  4, SPRITE_BEAUTY, STAY, NONE, 2 ; person
 	object_event  8,  4, SPRITE_SUPER_NERD, WALK, LEFT_RIGHT, 3 ; person
-	object_event 10,  5, SPRITE_GUARD, STAY, DOWN, 4 ; new, blocking pass, will be 10,  2
+	object_event 10,  2, SPRITE_GUARD, STAY, DOWN, 4 ; new, blocking pass
 	object_event 11,  3, SPRITE_GUARD, STAY, LEFT, 5 ; new, allowing pass
 
 	def_warps_to CELADON_HOTEL
