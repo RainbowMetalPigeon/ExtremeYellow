@@ -469,3 +469,16 @@ _ThrowMasterBallAtMissingnoText2:: ; new
 	cont "tHAt ABOMINATION!!!!!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_UsedOnigiriBoxText:: ; new
+	text "Itadakimasu!"
+
+	para "<PLAYER> and their"
+	line "team enjoy the"
+	cont "ONIGIRI BOX."
+
+	para "It's delicious!"
+	line "Everybody feels"
+	cont "at their best!"
+;	xxxx "123456789012345678"
+	prompt
