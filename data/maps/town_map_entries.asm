@@ -111,6 +111,8 @@ InternalMapEntries:
 	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
 	internal_map OBSIDIAN_HOUSES,                7,  9, ObsidianIslandName ; new
 	internal_map INDIGO_PLATEAU_LOBBY,           0,  2, IndigoPlateauName
+	internal_map SAFFRON_PIDGEY_HOUSE,          10,  5, SaffronCityName ; edited
+	internal_map CELADON_HOTEL_HALL,             7,  5, CeladonCityName ; new
 	internal_map MR_PSYCHICS_HOUSE,             10,  5, SaffronCityName
 	internal_map ROUTE_15_GATE_2F,               9, 13, Route15Name
 	internal_map ROUTE_16_FLY_HOUSE,             4,  5, Route16Name
@@ -120,6 +122,7 @@ InternalMapEntries:
 	internal_map ROUTE_22_GATE,                  0,  7, Route22Name
 	internal_map VICTORY_ROAD_2F,                0,  4, VictoryRoadName
 	internal_map ROUTE_12_GATE_2F,              14,  7, Route12Name
+	internal_map CELADON_HOTEL_ROOMS,            7,  5, CeladonCityName ; new
 	internal_map DIGLETTS_CAVE,                  3,  4, DiglettsCaveName
 	internal_map VICTORY_ROAD_3F,                0,  4, VictoryRoadName
 	internal_map ROCKET_HIDEOUT_ELEVATOR,        7,  5, RocketHQName

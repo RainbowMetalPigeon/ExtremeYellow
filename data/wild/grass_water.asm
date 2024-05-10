@@ -185,7 +185,7 @@ WildDataPointers:
 	dw NothingWildMons ; FIGHTING_DOJO
 	dw NothingWildMons ; SAFFRON_GYM
 	dw NothingWildMons ; SAFFRON_PIDGEY_HOUSE
-	dw NothingWildMons ; SAFFRON_MART
+	dw NothingWildMons ; CELADON_HOTEL_HALL
 	dw NothingWildMons ; SILPH_CO_1F
 	dw NothingWildMons ; SAFFRON_POKECENTER
 	dw NothingWildMons ; MR_PSYCHICS_HOUSE
@@ -201,7 +201,7 @@ WildDataPointers:
 	dw NothingWildMons ; ROUTE_22_GATE
 	dw VictoryRoad2FWildMons
 	dw NothingWildMons ; ROUTE_12_GATE_2F
-	dw NothingWildMons ; VERMILION_TRADE_HOUSE
+	dw NothingWildMons ; CELADON_HOTEL_ROOMS
 	dw DiglettsCaveWildMons
 	dw VictoryRoad3FWildMons
 	dw NothingWildMons ; ROCKET_HIDEOUT_B1F

@@ -4318,7 +4318,7 @@ CheckForDisobedience:
 ; edited: we apply the disobedience check for all mons, even the non-traded ones
 .notLinkBattle
 ; new: Starter Pikachu is treated differently
-	callfar IsThisPartymonStarterPikachu_Party
+	callfar IsThisPartymonStarterPikachu ; edited, was the _Party version, but gave weird bugs with disobedience with STRUGGLE-ing mons
 	jr nc, .notStarterPikachu
 ; check for Pikachu happiness, using same thresholds as for the overworld emotions (see engine/pikachu/pikachu_pic_animation.asm)
 ; 50 - 100 - 130 - 160 - 200 - 250 - 255

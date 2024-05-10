@@ -186,7 +186,7 @@ MapHeaderPointers::
 	dw FightingDojo_h
 	dw SaffronGym_h
 	dw SaffronPidgeyHouse_h
-	dw SaffronPokecenter_h ; edited, made UNUSED because of map MERGING
+	dw CeladonHotelHall_h ; new
 	dw SilphCo1F_h
 	dw SaffronPokecenter_h
 	dw MrPsychicsHouse_h
@@ -202,7 +202,7 @@ MapHeaderPointers::
 	dw Route22Gate_h
 	dw VictoryRoad2F_h
 	dw Route12Gate2F_h
-	dw VermilionHouses_h ; edited, made UNUSED because of map MERGING
+	dw CeladonHotelRooms_h ; new
 	dw DiglettsCave_h
 	dw VictoryRoad3F_h
 	dw RocketHideoutB1F_h

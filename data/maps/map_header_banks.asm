@@ -186,7 +186,7 @@ MapHeaderBanks::
 	db BANK(FightingDojo_h)
 	db BANK(SaffronGym_h)
 	db BANK(SaffronPidgeyHouse_h)
-	db BANK(SaffronPokecenter_h) ; edited, made UNUSED because of map MERGING
+	db BANK(CeladonHotelHall_h) ; new
 	db BANK(SilphCo1F_h)
 	db BANK(SaffronPokecenter_h)
 	db BANK(MrPsychicsHouse_h)
@@ -202,7 +202,7 @@ MapHeaderBanks::
 	db BANK(Route22Gate_h)
 	db BANK(VictoryRoad2F_h)
 	db BANK(Route12Gate2F_h)
-	db BANK(VermilionHouses_h) ; edited, made UNUSED because of map MERGING
+	db BANK(CeladonHotelRooms_h) ; new
 	db BANK(DiglettsCave_h)
 	db BANK(VictoryRoad3F_h)
 	db BANK(RocketHideoutB1F_h)

@@ -56,13 +56,13 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, TOXIC
+	ld a, HYPER_BEAM
 	ld [hli], a
-	ld a, CUT
+	ld a, FRENZY_PLANT
 	ld [hli], a
-	ld a, SURF
+	ld a, BLAST_BURN
 	ld [hli], a
-	ld a, STRENGTH
+	ld a, HYDRO_CANNON
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly.

@@ -180,7 +180,9 @@
 ; Celadon City events
 	const_next $180
 	const EVENT_GOT_TM41
-	const_skip 8 ; edited, was 11
+	const_skip 6 ; edited, was 11
+	const EVENT_CELADON_HOTEL_GOT_GUTSCHEIN ; new
+	const EVENT_CELADON_HOTEL_PAID_ROOM ; new
 	const EVENT_UNI_QUIZ_ANSWERED_WRONGLY_1 ; new
 	const EVENT_UNI_QUIZ_ANSWERED_WRONGLY_2 ; new
 	const EVENT_1ST_SPOKE_WITH_PIGEON ; new

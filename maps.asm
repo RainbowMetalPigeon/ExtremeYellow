@@ -1401,3 +1401,13 @@ INCLUDE "data/maps/headers/BattleFacility.asm"
 INCLUDE "data/maps/objects/BattleFacility.asm"
 BattleFacility_Blocks: INCBIN "maps/BattleFacility.blk"
 INCLUDE "scripts/BattleFacility.asm"
+
+INCLUDE "data/maps/headers/CeladonHotelHall.asm"
+INCLUDE "scripts/CeladonHotelHall.asm"
+INCLUDE "data/maps/objects/CeladonHotelHall.asm"
+CeladonHotelHall_Blocks: INCBIN "maps/CeladonHotelHall.blk"
+
+INCLUDE "data/maps/headers/CeladonHotelRooms.asm"
+INCLUDE "scripts/CeladonHotelRooms.asm"
+INCLUDE "data/maps/objects/CeladonHotelRooms.asm"
+CeladonHotelRooms_Blocks: INCBIN "maps/CeladonHotelRooms.blk"

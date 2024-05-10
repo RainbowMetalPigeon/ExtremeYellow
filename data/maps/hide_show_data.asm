@@ -148,7 +148,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw CeladonChiefHouseHS ; new
-	dw NoHS ; CELADON_HOTEL
+	dw CeladonHotelHS ; new
 	dw NoHS ; LAVENDER_POKECENTER
 	dw NoHS ; POKEMON_TOWER_1F
 	dw PokemonTower2FHS
@@ -186,11 +186,11 @@ MapHSPointers:
 	dw NoHS ; COPYCATS_HOUSE_1F
 	dw NoHS ; COPYCATS_HOUSE_2F
 	dw FightingDojoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; SAFFRON_GYM
+	dw NoHS ; SAFFRON_PIDGEY_HOUSE
+	dw NoHS ; CELADON_HOTEL_HALL
 	dw SilphCo1FHS
-	dw NoHS ; Saffron Pokecenter
+	dw NoHS ; SAFFRON_POKECENTER
 	dw MrPsychicsHouseHS ; new
 	dw NoHS
 	dw NoHS
@@ -201,11 +201,11 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw SeafoamIslands1FHS
-	dw NoHS
+	dw NoHS ; ROUTE_22_GATE
 	dw VictoryRoad2FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; ROUTE_12_GATE_2F
+	dw NoHS ; CELADON_HOTEL_ROOMS
+	dw NoHS ; DIGLETTS_CAVE
 	dw VictoryRoad3FHS
 	dw RocketHideoutB1FHS
 	dw RocketHideoutB2FHS
@@ -803,5 +803,8 @@ HauntedHouse4HS: ; new
 	db HAUNTED_HOUSE_4, $06, HIDE ; "tornado" room, right
 	db HAUNTED_HOUSE_4, $07, HIDE ; "tornado" room, down
 	db HAUNTED_HOUSE_4, $08, HIDE ; "tornado" room, left
+CeladonHotelHS: ; new
+	db CELADON_HOTEL, $04, SHOW ; guard blocking pass
+	db CELADON_HOTEL, $05, HIDE ; guard allowing pass
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -204,7 +204,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const FIGHTING_DOJO,                  7,  8 ; $B1
 	map_const SAFFRON_GYM,                   10,  9 ; $B2
 	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B3
-	map_const SAFFRON_MART,                   4,  4 ; $B4 ; edited, made UNUSED because of map MERGING
+	map_const CELADON_HOTEL_HALL,            10,  2 ; $B4 ; new, was SAFFRON_MART
 	map_const SILPH_CO_1F,                   15,  9 ; $B5
 	map_const SAFFRON_POKECENTER,            14,  4 ; $B6 ; edited, Center+Mart
 	map_const MR_PSYCHICS_HOUSE,              4,  4 ; $B7
@@ -220,7 +220,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROUTE_22_GATE,                  5,  4 ; $C1
 	map_const VICTORY_ROAD_2F,               15,  9 ; $C2
 	map_const ROUTE_12_GATE_2F,               4,  4 ; $C3
-	map_const VERMILION_TRADE_HOUSE,          4,  4 ; $C4 ; edited, made UNUSED because of map MERGING
+	map_const CELADON_HOTEL_ROOMS,           29,  4 ; $C4 ; new, was VERMILION_TRADE_HOUSE
 	map_const DIGLETTS_CAVE,                 20, 18 ; $C5
 	map_const VICTORY_ROAD_3F,               15,  9 ; $C6
 	map_const ROCKET_HIDEOUT_B1F,            15, 14 ; $C7

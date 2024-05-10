@@ -110,13 +110,14 @@ _CeruleanCityText3::
 	cont "tough life."
 	done
 
-_CeruleanCityText4::
-	text "That bush in"
-	line "front of the shop"
-	cont "is in the way."
+_CeruleanCityText4:: ; edited
+	text "We have recently"
+	line "renewed CERULEAN."
 
-	para "There might be a"
-	line "way around."
+	para "It looks so much"
+	line "more open now!"
+	cont "Maybe a tad less"
+	cont "cozy, although."
 	done
 
 _CeruleanCityText5::

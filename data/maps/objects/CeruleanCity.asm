@@ -15,7 +15,7 @@ CeruleanCity_Object:
 
 	def_bg_events
 	bg_event 23, 19, 13 ; CeruleanCityText12
-	bg_event 17, 29, 14 ; CeruleanCityText13
+	bg_event 17, 28, 14 ; CeruleanCityText13
 	bg_event 26, 25, 15 ; MartSignText
 	bg_event 20, 17, 16 ; PokeCenterSignText
 	bg_event 11, 25, 17 ; CeruleanCityText16
