@@ -101,20 +101,40 @@ SetPal_BattleMetal:: ; new
 	ld hl, wBattleMonSpecies
 	ld a, [hl]
 	and a
-	jr z, .asm_71ef9
+	jr z, .opponentIsMetallic
 	ld hl, wPartyMon1
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
-.asm_71ef9
+.opponentIsMetallic
+; check if player is shiny or not
+	ld b, a ; save the index in b
+	ld a, [wLoadedMonCatchRate]
+	cp 1
+	ld a, b ; load the index from b
+	jr z, .shinyMon
 	call DeterminePaletteID
+	jr .continue1
+.shinyMon
+	call DetermineShinyPaletteID
+.continue1
+; done with the shiny check
 	ld b, a
 	ld c, PAL_METALMON
 	jr .continue
 .playersTurn
 	ld b, PAL_METALMON
+; check if opponent is shiny
 	ld hl, wEnemyMonSpecies2
+	ld a, [wOpponentMonShiny]
+	cp 1
+	jr z, .shinyOpponent
 	call DeterminePaletteID
+	jr .continueOpponent
+.shinyOpponent
+	call DetermineShinyPaletteID
+.continueOpponent
+; done with the shiny check
 	ld c, a
 .continue
 	ld hl, wPalPacket + 1

@@ -1,11 +1,3 @@
-_CeladonHotelText1::
-	text "#MON? No, this"
-	line "is a hotel for"
-	cont "people."
-
-	para "We're full up."
-	done
-
 _CeladonHotelText2:: ; edited
 	text "I'm on vacation"
 	line "with my sibling"
@@ -69,11 +61,11 @@ _CeladonHotelText1_ExcellentChoice::
 	text "Excellent choice"
 	prompt
 
-_CeladonHotelText4:: ; TBE
+_CeladonHotelText4::
 	text "Stop!"
 	done
 
-_CeladonHotelText5:: ; TBE
+_CeladonHotelText5::
 	text "Go!"
 	done
 

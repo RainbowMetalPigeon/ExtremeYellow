@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, TOXIC
+	ld a, BULLET_PUNCH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, GUNK_SHOT
@@ -182,14 +182,14 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SW
 
 ;; BATTLE_FACILITY testing
-;	ld a, 222
-;	ld [wBattleFacilityStandardRecordNormal], a
+	ld a, 254
+	ld [wBattleFacilityStandardRecordNormal], a
 ;	ld a, 42
 ;	ld [wBattleFacilityHardcoreRecordNormal], a
 ;	ld a, 5
 ;	ld [wBattleFacilityStandardRecordInverse], a
-;	ld a, 255
-;	ld [wBattleFacilityHardcoreRecordInverse], a
+	ld a, 255
+	ld [wBattleFacilityHardcoreRecordInverse], a
     ld a, 0
     ld [wBattleFacilityBacklogPPUPs], a
     ld a, 0
@@ -250,7 +250,7 @@ DebugItemsList:
 ;	db EXP_ALL, 1
     db POTION, 99
     db POTION, 99
-    db POTION, 99 ; CHROMOGENE, 99
+    db CHROMOGENE, 99
     db ULTRA_BALL, 99
     db GREAT_BALL, 99
     db POKE_BALL, 99

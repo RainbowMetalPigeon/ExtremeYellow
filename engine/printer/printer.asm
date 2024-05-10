@@ -1092,8 +1092,20 @@ Printer_PrintBattleFacilityRecords::
 	jr z, .continue1
 	ld de, wBattleFacilityStandardRecordInverse
 .continue1
+; check to see if we maxed out
+	ld a, [de]
+	cp 255
+	jr z, .standardMAX
+; no maxed out
 	lb bc, 1, 3
 	call PrintNumber
+	jr .standardContinue
+
+.standardMAX
+	ld de, .MAXString
+	hlcoord 10, 10
+	call PlaceString
+.standardContinue
 
 ; draw record for HARDCORE
 	hlcoord 10, 14
@@ -1103,8 +1115,20 @@ Printer_PrintBattleFacilityRecords::
 	jr z, .continue2
 	ld de, wBattleFacilityHardcoreRecordInverse
 .continue2
+; check to see if we maxed out
+	ld a, [de]
+	cp 255
+	jr z, .hardcoreMAX
+; no maxed out
 	lb bc, 1, 3
 	call PrintNumber
+	jr .hardcoreContinue
+
+.hardcoreMAX
+	ld de, .MAXString
+	hlcoord 10, 14
+	call PlaceString
+.hardcoreContinue
 
 ; set color and conclude
 	ld b, SET_PAL_TOWN_MAP
@@ -1154,3 +1178,5 @@ Printer_PrintBattleFacilityRecords::
 	db "SESSIONs@"
 .BattlesString:
 	db "BATTLEs@"
+.MAXString:
+	db "MAX@"
