@@ -106,6 +106,8 @@ KeyItemFlags:
 	dbit TRUE  ; MAGMA_STONE    - new
 	dbit TRUE  ; MOLTEN_STONE   - new
 	dbit TRUE  ; ARTIFACT       - new
-	dbit FALSE ; CHROMOGENE       - new
-	dbit TRUE ; SHINY_CHARM       - new
+	dbit FALSE ; CHROMOGENE     - new
+	dbit TRUE  ; SHINY_CHARM    - new
+	dbit FALSE ; GUTSCHEIN      - new
+	dbit FALSE ; ONIGIRI_BOX    - new
 	end_bit_array NUM_ITEMS

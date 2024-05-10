@@ -125,6 +125,8 @@ ItemUsePtrTable:
 	dw UnusableItem      ; ARTIFACT, new
 	dw ItemUseVitamin    ; CHROMOGENE, new, testing
 	dw UnusableItem      ; SHINY_CHARM, new
+	dw UnusableItem      ; GUTSCHEIN, new
+	dw ItemUseOnigiri    ; ONIGIRI_BOX, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -253,6 +255,20 @@ MapMessageComplete::
 	text_end
 
 ; new: code for MYSTERY_MAP, end ------------------------
+
+ItemUseOnigiri: ; new
+	ld hl, UsedOnigiriBoxText
+	call PrintText
+	ld a, SFX_HEAL_AILMENT
+	call PlaySound
+	push hl
+	call RemoveUsedItem
+	pop hl
+	predef_jump HealParty
+
+UsedOnigiriBoxText: ; new
+	text_far _UsedOnigiriBoxText
+	text_end
 
 ItemUseBall:
 

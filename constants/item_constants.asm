@@ -117,6 +117,8 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const ARTIFACT      ; new
 	const CHROMOGENE    ; new
 	const SHINY_CHARM   ; new
+	const GUTSCHEIN     ; new
+	const ONIGIRI_BOX   ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs
@@ -160,7 +162,7 @@ DEF NUM_ITEMS EQU const_value - 1
 	const BILLSPC_EEVOLUTION_SYLVEON
 DEF NUM_FLOORS EQU const_value - 1 - NUM_ITEMS
 
-	const_next $C4
+;	const_next $C4 ; should be totally unnecessary, and damaging if we want to add a ton of items & TMs
 
 ; HMs are defined before TMs, so the actual number of TM definitions
 ; is not yet available. The TM quantity is hard-coded here and must
