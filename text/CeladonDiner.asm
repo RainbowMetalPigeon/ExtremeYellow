@@ -1,15 +1,51 @@
-_CeladonDinerText1::
+_CeladonDinerText1_OnigiriObtained:: ; new
+	text "Our super ONIGIRI"
+	line "are adored by"
+	cont "humans and"
+	cont "#MON alike!"
+
+	para "If you folks eat"
+	line "them together,"
+	cont "you'll all get at"
+	cont "peak shape."
+
+	para "Better than a"
+	line "night at the"
+	cont "#MON CENTER!"
+	done
+
+_CeladonDinerText1_OhYouHaveGutschein:: ; new
+	text "Oh! You have a"
+	line "GUTSCHEIN from"
+	cont "the HOTEL."
+
+	para "Here is your"
+	line "packed meal!"
+	prompt
+
+_CeladonDinerText1_ReceivedOnigiri:: ; new
+	text "<PLAYER> received"
+	line "an ONIGIRI BOX!"
+	done
+
+_CeladonDinerText1_WeAreOnBreak:: ; new
 	text "Hi!"
 
 	para "We're taking a"
 	line "break now."
 	done
 
-_CeladonDinerText2::
-	text "My #MON are"
-	line "weak, so I often"
-	cont "have to go to the"
-	cont "DRUG STORE."
+_CeladonDinerText2:: ; edited
+	text "Donuts?"
+	line "Sandwiches?"
+
+	para "Sorry, we don't"
+	line "have anything"
+	cont "like that here."
+
+	para "We serve only"
+	line "ONIGIRI, our"
+	cont "specialty!"
 	done
 
 _CeladonDinerText3::
@@ -18,10 +54,10 @@ _CeladonDinerText3::
 	cont "the GAME CORNER."
 	done
 
-_CeladonDinerText4::
+_CeladonDinerText4:: ; edited
 	text "Munch..."
 
-	para "The man at that"
+	para "The person at that"
 	line "table lost it all"
 	cont "at the slots."
 	done

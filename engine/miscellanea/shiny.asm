@@ -81,9 +81,9 @@ AssignShinyToBattleFacilityTrainers::
 RollForShiny::
 ; roll some numbers and do some checks
 ; "debug" function, simply scalable
-    call Random
-    and %00000100
-    jr nz, .shinyEncounter
+;    call Random
+;    and %00000100
+;    jr nz, .shinyEncounter
 ; hRandomAdd/Sub needs to be substituted with calls to Random if I change to Jojo's code
 ; in that case I also move the call to this routine from end of battle to the wild encounter code
     ldh a, [hRandomAdd]

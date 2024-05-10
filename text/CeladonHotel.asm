@@ -28,24 +28,39 @@ _CeladonHotelText3:: ; edited
 ; celadon hotel -----------------
 
 _CeladonHotelText1_WannaARoom::
-	text "Wanna room?"
-	line "¥50000"
+	text "#MON? Nein,"
+	line "this ist a hotel"
+	cont "fur people."
+
+	para "Want you a Zimmer?"
+	line "One Nacht,"
+	cont "¥50000."
 	done
 
 _CeladonHotelText1_AlreadyPaidRoom::
-	text "Here GUTSCHEIN"
+	text "Here ist your"
+	line "GUTSCHEIN for the"
+	cont "meal at the"
+	cont "RESTAURANT just"
+	cont "outside."
 	prompt
 
 _CeladonHotelText1_AlreadyGotGutschein::
-	text "How is room?"
+	text "Alles gut mit"
+	line "deinem Zimmer?"
+
+	para "Do you enjoy your"
+	line "stay here in"
+	cont "CELADON?"
 	done
 
 _CeladonHotelText1_NotEnoughMoney::
-	text "Too poor"
+	text "Oh, you hafe not"
+	line "enough money."
 	done
 
 _CeladonHotelText1_RefusedRoom::
-	text "Too bad"
+	text "Too bad."
 	done
 
 _CeladonHotelText1_GutscheinReceived::
@@ -54,19 +69,42 @@ _CeladonHotelText1_GutscheinReceived::
 	done
 
 _CeladonHotelText1_BagFull::
-	text "Bag full"
+	text "Oh. You hafe not"
+	line "enough space fur"
+	cont "the GUTSCHEIN."
+	cont "Kome back later"
+	cont "to get it."
 	done
 
 _CeladonHotelText1_ExcellentChoice::
-	text "Excellent choice"
+	text "Wunderbar!"
+	line "Excellent choice."
+
+	para "Your Zimmer ist"
+	line "Nummer 1."
+
+	para "With the Zimmer,"
+	line "you also kann"
+	cont "hafe a meal at"
+	cont "the RESTAURANT"
+	cont "near here."
+
+	para "You kann get it"
+	line "mit this"
+	cont "GUTSCHEIN."
 	prompt
 
 _CeladonHotelText4::
-	text "Stop!"
+	text "I am sorry, but"
+	line "only customers"
+	cont "can access the"
+	cont "room floor."
 	done
 
 _CeladonHotelText5::
-	text "Go!"
+	text "I wish you a"
+	line "pleasant stay in"
+	cont "our hotel!"
 	done
 
 ; celadon hotel hall -----------------
@@ -98,5 +136,26 @@ _CeladonHotelHallSign5::
 ; celadon hotel rooms -----------------
 
 _CeladonHotelRoomsText1::
-	text "I'm Looker!" ; TBE
+	text "My code name is"
+	line "LOOKER."
+	
+	para "I am in an"
+	line "under-cover"
+	cont "mission for the"
+	cont "International"
+	cont "Police."
+
+	para "We are"
+	line "investigating a"
+	cont "disturbance that"
+	cont "looks"
+	cont "suspiciously"
+	cont "similar to an"
+	cont "ULTRA WORMHOLE."
+
+	para "You do not have to"
+	line "concern yourself"
+	cont "with this matter."
+	cont "Leave it to us"
+	cont "professionals!"
 	done

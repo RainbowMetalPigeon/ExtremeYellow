@@ -34,8 +34,6 @@ CeladonHotelText1: ; edited
 	ld hl, CeladonHotelText1_NotEnoughMoney
 	jr .printText
 .enoughMoney
-	ld hl, CeladonHotelText1_ExcellentChoice
-	call PrintText
 	; $050000
 	ld a, $5
 	ld [wPriceTemp], a
@@ -49,6 +47,8 @@ CeladonHotelText1: ; edited
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
+	ld hl, CeladonHotelText1_ExcellentChoice
+	call PrintText
 	SetEvent EVENT_CELADON_HOTEL_PAID_ROOM
 	ld a, HS_CELADON_HOTEL_GUARD_BLOCKING
 	ld [wMissableObjectIndex], a
