@@ -182,19 +182,19 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SW
 
 ;; BATTLE_FACILITY testing
-	ld a, 254
-	ld [wBattleFacilityStandardRecordNormal], a
+;	ld a, 254
+;	ld [wBattleFacilityStandardRecordNormal], a
 ;	ld a, 42
 ;	ld [wBattleFacilityHardcoreRecordNormal], a
 ;	ld a, 5
 ;	ld [wBattleFacilityStandardRecordInverse], a
-	ld a, 255
-	ld [wBattleFacilityHardcoreRecordInverse], a
-    ld a, 0
+;	ld a, 255
+;	ld [wBattleFacilityHardcoreRecordInverse], a
+    ld a, 35
     ld [wBattleFacilityBacklogPPUPs], a
-    ld a, 0
+    ld a, 25
     ld [wBattleFacilityBacklogPerfecters], a
-    ld a, 0
+    ld a, 15
     ld [wBattleFacilityBacklogChromogenes], a
 
 	ret

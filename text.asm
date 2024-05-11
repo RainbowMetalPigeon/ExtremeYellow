@@ -240,16 +240,9 @@ INCLUDE "text/MoveRelearner.asm" ; new
 INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
-INCLUDE "text/PokemonTower6F.asm"
-INCLUDE "text/PokemonTower7F.asm"
-INCLUDE "text/FightingDojo.asm"
-INCLUDE "text/SaffronGym.asm"
-INCLUDE "text/Route9.asm"
-INCLUDE "text/SilphCo8F.asm"
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/ObsidianHouses.asm" ; new
 INCLUDE "text/MtMoon1F.asm"
 INCLUDE "text/CinnabarGym.asm"
 INCLUDE "text/CinnabarLab.asm"
@@ -268,10 +261,6 @@ INCLUDE "text/VermilionDock.asm"
 INCLUDE "text/CinnabarVolcano.asm"
 INCLUDE "text/CinnabarVolcanoBF.asm"
 INCLUDE "text/OchreResearchCenter1.asm"
-INCLUDE "text/OchreResearchCenter2.asm"
-INCLUDE "text/SilphCo9F.asm"
-INCLUDE "text/Route30.asm" ; new
-INCLUDE "text/PikachuGrotto.asm" ; new
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -295,6 +284,20 @@ INCLUDE "text/SafariZoneCenter.asm"
 INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
+INCLUDE "text/OchreResearchCenter2.asm"
+INCLUDE "text/Route9.asm"
+INCLUDE "text/SilphCo8F.asm"
+
+
+SECTION "Text Extra 8", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/FightingDojo.asm"
+INCLUDE "text/SaffronGym.asm"
+INCLUDE "text/SilphCo9F.asm"
+INCLUDE "text/Route30.asm" ; new
+INCLUDE "text/PikachuGrotto.asm" ; new
+INCLUDE "text/ObsidianHouses.asm" ; new
+INCLUDE "text/PokemonTower7F.asm"
+INCLUDE "text/PokemonTower6F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

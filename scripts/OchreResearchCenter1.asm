@@ -45,27 +45,28 @@ OchreResearchCenter1Text_Ball_Fast:
 	text_end
 
 OchreResearchCenter1Text_Power_Galar:
-;	text_far _OchreResearchCenter1Text_Power_Galar
-;	text_end
-	text_asm
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
-	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
-	ld hl, TESTTEXT
-	call PrintText
-	jp TextScriptEnd
-TESTTEXT:
-	text_far _TESTTEXT
+	text_far _OchreResearchCenter1Text_Power_Galar
 	text_end
-_TESTTEXT::
-	text "TEST!!!"
-	done
-	
+; for debugging/testing only
+;	text_asm
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_0
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_1
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_2
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_3
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_4
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_5
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_6
+;	SetEvent EVENT_BEAT_POWER_PLANT_VOLTORB_7
+;	ld hl, TESTTEXT
+;	call PrintText
+;	jp TextScriptEnd
+;TESTTEXT:
+;	text_far _TESTTEXT
+;	text_end
+;_TESTTEXT::
+;	text "TEST!!!"
+;	done
+
 OchreResearchCenter1Text_Power_Kanto:
 	text_far _OchreResearchCenter1Text_Power_Kanto
 	text_end
@@ -118,9 +119,9 @@ OchreResearchCenter1Text_Power_Windworks:
 	ld hl, OchreResearchCenter1Text_Power_Windworks_WowAlreadyDefeated
 	call PrintText
 .giveMoney
-    xor a  
-    ld [hMoney + 1], a    
-    ld [hMoney + 2], a    
+    xor a
+    ld [hMoney + 1], a
+    ld [hMoney + 2], a
     ld a, $05
     ld [hMoney], a
 	ld hl, hMoney + 2
@@ -143,7 +144,7 @@ OchreResearchCenter1Text_Power_Windworks:
 	call PrintText
 .justEnd
 	jp TextScriptEnd
-	
+
 ; ------------------------
 
 OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt:

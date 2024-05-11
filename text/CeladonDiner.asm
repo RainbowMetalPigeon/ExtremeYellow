@@ -16,8 +16,9 @@ _CeladonDinerText1_OnigiriObtained:: ; new
 
 _CeladonDinerText1_OhYouHaveGutschein:: ; new
 	text "Oh! You have a"
-	line "GUTSCHEIN from"
-	cont "the HOTEL."
+	line "GUTSCHEIN -I"
+	cont "mean, a voucher"
+	cont "from the HOTEL."
 
 	para "Here is your"
 	line "packed meal!"

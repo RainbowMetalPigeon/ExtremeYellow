@@ -172,7 +172,6 @@ _ObsidianIslandTextWarehouse::
 	text "OBSIDIAN WAREHOUSE"
 	done
 
-
 ; ----------------- other -----------------
 
 _ObsidianIslandTextClosedHouse::
@@ -188,59 +187,219 @@ _ObsidianIslandTextClosedHouse::
 
 ; ----------------- FIRE ORB -----------------
 
-;_ObsidianIslandText7_Scientist1::
-;	text "Now that OBSIDIAN"
-;	line "ISLAND is free"
-;	cont "from the grip of"
-;	cont "TEAM ROCKET, we"
-;	cont "can return to our"
-;	cont "research!"
-;	done
-
 _ObsidianIslandText7_Scientist1_Intro_NoPrompt::
-	text "Intro 1"
-	line "Intro 2"
-	cont "Intro 3"
+	text "Hello hello! We"
+	line "constantly strive"
+	cont "to find new"
+	cont "sustainable"
+	cont "sources of"
+	cont "energy."
+
+	para "I have reasons to"
+	line "believe that the"
+	cont "power of"
+	cont "EVOLUTIONARY"
+	cont "STONES may be a"
+	cont "good base."
+
+	para "Sadly, it's"
+	line "usually too"
+	cont "scarce in normal"
+	cont "stones."
+
+	para "Although, I heard"
+	line "that in the"
+	cont "depths of"
+	cont "CINNABAR VOLCANO"
+	cont "special"
+	cont "FIRESTONEs can be"
+	cont "found."
+
+	para "Alas, the"
+	line "environment"
+	cont "prohibitively"
+	cont "harsh. I tried"
+	cont "exploring it"
+	cont "myself, and had"
+	cont "to run away after"
+	cont "few steps."
+
+	para "But you, you are"
+	line "young and"
+	cont "stronger, and"
+	cont "surely a powerful"
+	cont "trainer!"
+
+	para "Could you please"
+	line "bring me 3"
+	cont "special"
+	cont "FIRESTONEs that"
+	cont "can be found only"
+	cont "there for my"
+	cont "studies?"
+
+	para "I'll reward you as"
+	line "richly as our"
+	cont "research funds"
+	cont "will allow me!"
 	done
 
 _ObsidianIslandText7_Scientist1_Intro_WithPrompt::
-	text "Intro 1"
-	line "Intro 2"
-	cont "Intro 3"
+	text "Hello hello! We"
+	line "constantly strive"
+	cont "to find new"
+	cont "sustainable"
+	cont "sources of"
+	cont "energy."
+
+	para "I have reasons to"
+	line "believe that the"
+	cont "power of"
+	cont "EVOLUTIONARY"
+	cont "STONES may be a"
+	cont "good base."
+
+	para "Sadly, it's"
+	line "usually too"
+	cont "scarce in normal"
+	cont "stones."
+
+	para "Although, I heard"
+	line "that in the"
+	cont "depths of"
+	cont "CINNABAR VOLCANO"
+	cont "special"
+	cont "FIRESTONEs can be"
+	cont "found."
+
+	para "Alas, the"
+	line "environment"
+	cont "prohibitively"
+	cont "harsh. I tried"
+	cont "exploring it"
+	cont "myself, and had"
+	cont "to run away after"
+	cont "few steps."
+
+	para "But you, you are"
+	line "young and"
+	cont "stronger, and"
+	cont "surely a powerful"
+	cont "trainer!"
+
+	para "Could you please"
+	line "bring me 3"
+	cont "special"
+	cont "FIRESTONEs that"
+	cont "can be found only"
+	cont "there for my"
+	cont "studies?"
+
+	para "I'll reward you as"
+	line "richly as our"
+	cont "research funds"
+	cont "will allow me!"
 	prompt
 
 _ObsidianIslandText7_Scientist1_WowAlreadyCollected::
-	text "Wow already"
+	text "Oh oh! You have"
+	line "already collected"
+	cont "3 special"
+	cont "FIRESTONEs!"
+
+	para "That's absolutely"
+	line "outstanding! You"
+	cont "did wonderfully!"
+
+	para "Amazing! I'll"
+	line "study them to see"
+	cont "if they can be"
+	cont "used as a new"
+	cont "energy source!"
+
+	para "Here, please have"
+	line "the reward you I"
+	cont "promised you,"
+	cont "together with my"
+	cont "thanks!"
 	prompt
 
 _ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt::
-	text "Found this"
-	line "can have it"
+	text "Also also, I would"
+	line "like to gift you"
+	cont "this."
+
+	para "I found it while"
+	line "exploring the"
+	cont "VOLCANO myself,"
+	cont "just before"
+	cont "giving up."
+
+	para "A trainer like you"
+	line "may have a good"
+	cont "use for it!"
 	prompt
 
 _ObsidianIslandText7_Scientist1_BagFull::
-	text "Bag full"
+	text "Damn damn, your"
+	line "bag is full."
 	done
 
 _ObsidianIslandText7_Scientist1_AlreadyRewardedOrb::
-	text "We'll do big study"
+	text "Thanks thanks!"
+	line "I'll thoroughly"
+	cont "study the special"
+	cont "FIRESTONEs you"
+	cont "brought me!"
+
+	para "Who knows, maybe"
+	line "if few years"
+	cont "we'll have a"
+	cont "clean energy"
+	cont "source thanks to"
+	cont "them!"
 	done
 
 _ObsidianIslandText7_Scientist1_HiBackHaveYouDone::
-	text "Hi back done?"
+	text "Hi hi! Have you"
+	line "already found out"
+	cont "3 special"
+	cont "FIRESTONEs in"
+	cont "CINNABAR VOLCANO"
+	cont "for me?"
 	prompt
 
 _ObsidianIslandText7_Scientist1_NotDoneYet::
-	text "Oh you're not done"
+	text "Well well,"
+	line "not yet."
+
+	para "I understand, it's"
+	line "not an easy task."
+	cont "No hurry."
 	done
 
 _ObsidianIslandText7_Scientist1_AlreadyRewardedMoneySpaceForOrb::
-	text "Have space now?"
+	text "Salut salut! Would"
+	line "you now like to"
+	cont "accept my gift?"
 	prompt
 
 _ObsidianIslandText7_Scientist1_ThanksHereIsReward::
-	text "Thanks a ton"
-	line "here promised rewa"
+	text "Yes yes! You did!"
+	line "I knew you could"
+	cont "manage!"
+
+	para "Amazing! I'll"
+	line "study them to see"
+	cont "if they can be"
+	cont "used as a new"
+	cont "energy source!"
+
+	para "Here, please have"
+	line "the reward you I"
+	cont "promised you,"
+	cont "together with my"
+	cont "thanks!"
 	prompt
 
 _ObsidianIslandText7_Scientist1_ReceivedFireOrb::

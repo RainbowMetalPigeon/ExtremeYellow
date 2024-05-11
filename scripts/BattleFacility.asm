@@ -46,9 +46,6 @@ BattleFacilityScript0:
 BattleFacilityScript1_PostBattle:
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-
-; some dialogue? TBE
-
 	ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
 	cp 1
 	jr z, .hardcoreMode1 ; skip healing
@@ -101,7 +98,7 @@ BattleFacilityScript1_PostBattle:
 ; here we are in standard mode
 ; print dialogue (depends if we finished the block or not)
 	ld a, [wBattleFacilityWinningStreak]
-	cp 2 ; TEMPORARY FOR TESTING, TBE, should be 7
+	cp 7 ; 2 for testing
 	jr nz, .notFinishedBlock
 ; we finished a block in standard mode
 	ld a, 14 ; BattleFacilityText_FinishedBlock
@@ -158,7 +155,7 @@ BattleFacilityScript2_MoveGuide:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 ; script handling
-	ld a, 3 ; TBE
+	ld a, 3
 	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -353,16 +350,12 @@ BattleFacilityScript9_PostMoveOpponent:
 	ld a, SPRITE_FACING_LEFT
 	ld [wSprite04StateData1FacingDirection], a
 .postFacing
-; trigger the battle, testing
+; trigger the battle
 	xor a
 	ld [wJoyIgnore], a
 	ld a, $2 ; this dialogue also handles the script change
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-;; script handling
-;	ld a, 0 ; TBE
-;	ld [wBattleFacilityCurScript], a
-;	ld [wCurMapScript], a
 	ret
 
 ; -------------------------------------
@@ -425,7 +418,7 @@ BattleFacilityScript11_PostMoveOpponentOut:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 ; wait a moment before the next opponent
-	ld c, 30 ; TBE, 30 = half a second
+	ld c, 30 ; 30 = half a second
 	call DelayFrames
 ; is this needed? maybe if I print something?
 ;	xor a
@@ -636,9 +629,13 @@ BattleFacilityTextGuide:
 	ld b, PP_UP
 	call GiveItem
 	jr nc, .bagFull_PPUPs
+	ld hl, BattleFacilityTextGuide_Prizes_PPUPs_Given
+	call PrintText
 	xor a
 	ld [wBattleFacilityBacklogPPUPs], a
-	ld hl, BattleFacilityTextGuide_Prizes_PPUPs_Given
+	jr .tryGivingPerfecters
+.bagFull_PPUPs
+	ld hl, BattleFacilityTextGuide_Prizes_PPUPs_Failed
 	call PrintText
 .tryGivingPerfecters
 	ld a, [wBattleFacilityBacklogPerfecters]
@@ -648,9 +645,13 @@ BattleFacilityTextGuide:
 	ld b, PERFECTER
 	call GiveItem
 	jr nc, .bagFull_Perfecters
+	ld hl, BattleFacilityTextGuide_Prizes_Perfecters_Given
+	call PrintText
 	xor a
 	ld [wBattleFacilityBacklogPerfecters], a
-	ld hl, BattleFacilityTextGuide_Prizes_Perfecters_Given
+	jr .tryGivingChromogenes
+.bagFull_Perfecters
+	ld hl, BattleFacilityTextGuide_Prizes_Perfecters_Failed
 	call PrintText
 .tryGivingChromogenes
 	ld a, [wBattleFacilityBacklogChromogenes]
@@ -660,22 +661,15 @@ BattleFacilityTextGuide:
 	ld b, CHROMOGENE
 	call GiveItem
 	jr nc, .bagFull_Chromogenes
+	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Given
+	call PrintText
 	xor a
 	ld [wBattleFacilityBacklogChromogenes], a
-	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Given
+.bagFull_Chromogenes
+	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Failed
 	call PrintText
 .doneWithPrizes
 	ld hl, BattleFacilityTextGuide_Prizes_Ender
-	jr .concludePrizes ; here we gave all prizes
-.bagFull_PPUPs
-	ld hl, BattleFacilityTextGuide_Prizes_PPUPs_Failed
-	jr .concludePrizes
-.bagFull_Perfecters
-	ld hl, BattleFacilityTextGuide_Prizes_Perfecters_Failed
-	jr .concludePrizes
-.bagFull_Chromogenes
-	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Failed
-.concludePrizes
 	call PrintText
 	jp TextScriptEnd
 .exit
@@ -702,6 +696,9 @@ BattleFacilityTextGuide:
 ; reset the "internal" winning streak for standard mode, here is good enough
 	xor a
 	ld [wBattleFacilityWinningStreak], a
+; set the battle style as Set (not Shift)
+	ld hl, wOptions ; bit 6 = battle style: 0 Shift, 1 Set
+	set 6, [hl]
 ; script handling
 	ld a, 2 ; BattleFacilityScript_MoveGuide
 	ld [wBattleFacilityCurScript], a
@@ -729,14 +726,17 @@ BattleFacilityTextGuide_Prizes:
 
 BattleFacilityTextGuide_Prizes_PPUPs_Given:
 	text_far _BattleFacilityTextGuide_Prizes_PPUPs_Given
+	sound_get_item_1
 	text_end
 
 BattleFacilityTextGuide_Prizes_Perfecters_Given:
 	text_far _BattleFacilityTextGuide_Prizes_Perfecters_Given
+	sound_get_item_1
 	text_end
 
 BattleFacilityTextGuide_Prizes_Chromogenes_Given:
 	text_far _BattleFacilityTextGuide_Prizes_Chromogenes_Given
+	sound_get_item_1
 	text_end
 
 BattleFacilityTextGuide_Prizes_PPUPs_Failed:
@@ -803,7 +803,7 @@ BattleFacilityTextOpponent:
 ; backup the current Level Scaling option choice to restore it after the battle, and set up the level scaling
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a
-	ld a, 0 ; TBE into 1, 0 for easy testing
+	ld a, 1 ; 0 for testing
 	ld [wLevelScaling], a
 ; set up normal or inverse battle
 	ld a, [wBattleFacilityInverseBattle] ; loaded when talking with the guide at the entrance
@@ -1048,7 +1048,7 @@ WhatBattleFacilityMode:
 
 CheckIfMultipleOf7: ; input: a, output: z flag for multiple, nz if not multiple
 .loop
-	sub 2 ; TBE into 7
+	sub 7 ; 2 for testing
 	ret z
 	jr nc, .loop ; c flag is "Set if borrow (set if n8 > A)"
 	ret
