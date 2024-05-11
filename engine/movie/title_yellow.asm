@@ -37,6 +37,9 @@ TitleScreen_PlacePikaSpeechBubble:
 	ld [hl], $64
 	inc hl
 	ld [hl], $65
+; new, fixing the bubble
+	hlcoord 6, 7 ; it would be (4, 6) but we need a (+2, +1)
+	ld [hl], $71
 	ret
 
 TitleScreen_PlacePikachu:
@@ -44,6 +47,7 @@ TitleScreen_PlacePikachu:
 	ld de, TitleScreenPikachuTilemap
 	lb bc, 9, 12
 	call Bank3D_CopyBox
+; stuff to be identified
 	hlcoord 16, 10
 	ld [hl], $96
 	hlcoord 16, 11
@@ -52,6 +56,7 @@ TitleScreen_PlacePikachu:
 	ld [hl], $a7
 	hlcoord 16, 13
 	ld [hl], $b1
+; eyes?
 	ld hl, TitleScreenPikachuEyesOAMData
 	ld de, wShadowOAM
 	ld bc, $20

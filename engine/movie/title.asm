@@ -135,7 +135,7 @@ DisplayTitleScreen:
 	ld a, SFX_INTRO_WHOOSH
 	call PlaySound
 
-; scroll game version in from the right
+; loads the PIKA bubble ; edited, the comment was still about RB
 	callfar TitleScreen_PlacePikaSpeechBubble
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
