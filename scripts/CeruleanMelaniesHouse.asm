@@ -7,6 +7,16 @@ CeruleanMelaniesHouse_TextPointers:
 	dw CeruleanHouse1Text2
 	dw CeruleanHouse1Text3
 	dw CeruleanHouse1Text4
+	; new, trade house
+	dw CeruleanHouse1Text5
+	dw CeruleanHouse1Text6
+	; new, sad elder
+	dw CeruleanHouse1Text7
+	; new, baby expert?
+	dw CeruleanHouse1Text8
+	; new, signs
+	dw CeruleanHouse1Text9
+	dw CeruleanHouse1Text10
 
 CeruleanHouse1Text1:
 	text_asm
@@ -49,12 +59,10 @@ CeruleanHouse1Text1:
 	SetEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
 .asm_1cfb3
 	jp TextScriptEnd
-
 .asm_1cfb6
 	ld hl, CeruleanHouse1Text_1cfdf
 	call PrintText
 	jp TextScriptEnd
-
 .asm_1cfbf
 	ld hl, CeruleanHouse1Text_1cfd9
 	call PrintText
@@ -84,12 +92,16 @@ CeruleanHouse1Text_1cfdf:
 	text_waitbutton
 	text_end
 
+; --------------------------------------
+
 CeruleanHouse1Text2:
 	text_far MelanieBulbasaurText
 	text_asm
 	ld a, BULBASAUR
 	call PlayCry
 	jp TextScriptEnd
+
+; --------------------------------------
 
 CeruleanHouse1Text3:
 	text_far MelanieOddishText
@@ -98,9 +110,41 @@ CeruleanHouse1Text3:
 	call PlayCry
 	jp TextScriptEnd
 
+; --------------------------------------
+
 CeruleanHouse1Text4:
 	text_far MelanieSandshrewText
 	text_asm
 	ld a, SANDSHREW
 	call PlayCry
 	jp TextScriptEnd
+
+; NEW ==================================
+
+CeruleanHouse1Text5:
+	text_asm
+	ld a, TRADE_FOR_SWIRLY
+	ld [wWhichTrade], a
+	predef DoInGameTradeDialogue
+	jp TextScriptEnd
+	
+CeruleanHouse1Text6:
+	text_far _CeruleanHouse1Text6
+	text_end
+	
+CeruleanHouse1Text7:
+	text_far _CeruleanHouse1Text7
+	text_end
+	
+CeruleanHouse1Text8:
+	text_far _CeruleanHouse1Text8
+	text_end
+	
+CeruleanHouse1Text9:
+	text_far _CeruleanHouse1Text9
+	text_end
+	
+CeruleanHouse1Text10:
+	text_far _CeruleanHouse1Text10
+	text_end
+	

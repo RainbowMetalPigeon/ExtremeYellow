@@ -87,7 +87,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MT_MOON_B1F,                   30, 30 ; $3C ; edited
 	map_const MT_MOON_B2F,                   30, 30 ; $3D ; edited
 	map_const CERULEAN_TRASHED_HOUSE,         4,  4 ; $3E
-	map_const CERULEAN_MELANIES_HOUSE,        4,  4 ; $3F
+	map_const CERULEAN_MELANIES_HOUSE,       25,  4 ; $3F ; edited, enlarged for more houses
 	map_const CERULEAN_POKECENTER,           14,  4 ; $40 ; edited, Center+Mart
 	map_const CERULEAN_GYM,                   5,  7 ; $41
 	map_const BIKE_SHOP,                      4,  4 ; $42

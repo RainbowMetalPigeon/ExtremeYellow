@@ -32,6 +32,7 @@ DEF SLOTS_SOMEONESKEYS EQU $ff
 	const TRADE_FOR_SPOONY  ; edited
 	const TRADE_FOR_MUSKY   ; edited
 	const TRADE_FOR_SHELLO  ; edited
+	const TRADE_FOR_SWIRLY  ; new
 DEF NUM_NPC_TRADES EQU const_value
 
 ; in game trade dialog sets

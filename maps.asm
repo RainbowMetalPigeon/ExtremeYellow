@@ -97,7 +97,6 @@ MrPsychicsHouse_Blocks:
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
 SaffronPidgeyHouse_Blocks:
-CeruleanMelaniesHouse_Blocks:
 PewterNidoranHouse_Blocks:
 PewterSpeechHouse_Blocks:
 ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk"
@@ -153,6 +152,7 @@ INCLUDE "data/maps/objects/CeruleanTrashedHouse.asm"
 INCLUDE "data/maps/headers/CeruleanMelaniesHouse.asm"
 INCLUDE "scripts/CeruleanMelaniesHouse.asm"
 INCLUDE "data/maps/objects/CeruleanMelaniesHouse.asm"
+CeruleanMelaniesHouse_Blocks: INCBIN "maps/CeruleanMelaniesHouse.blk" ; new
 
 INCLUDE "data/maps/headers/BikeShop.asm"
 INCLUDE "scripts/BikeShop.asm"

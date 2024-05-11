@@ -102,7 +102,6 @@ INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"
-INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/ViridianNicknameHouse.asm"
 INCLUDE "text/ViridianGym.asm"
@@ -110,7 +109,6 @@ INCLUDE "text/Museum1F.asm"
 INCLUDE "text/Museum2F.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterNidoranHouse.asm"
-INCLUDE "text/PewterMart.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
@@ -298,6 +296,8 @@ INCLUDE "text/PikachuGrotto.asm" ; new
 INCLUDE "text/ObsidianHouses.asm" ; new
 INCLUDE "text/PokemonTower7F.asm"
 INCLUDE "text/PokemonTower6F.asm"
+INCLUDE "text/PewterMart.asm"
+INCLUDE "text/ViridianMart.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
