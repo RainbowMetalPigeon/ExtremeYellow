@@ -93,6 +93,7 @@ HiddenObjectMaps:
 	dbw OBSIDIAN_POKECENTER,          ObsidianPokecenterHiddenObjects ; new
 	dbw POKEMON_TOWER_6F,             Pokemontower6HiddenObjects ; new
 	dbw BATTLE_FACILITY,              BattleFacilityHiddenObjects ; new
+	dbw CELADON_HOTEL_ROOMS,          CeladonHotelRoomsHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -637,4 +638,8 @@ ObsidianPokecenterHiddenObjects: ; new
 
 BattleFacilityHiddenObjects: ; new
 	hidden_object 11,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+CeladonHotelRoomsHiddenObjects: ; new
+	hidden_object  0,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end

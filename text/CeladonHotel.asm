@@ -159,3 +159,53 @@ _CeladonHotelRoomsText1::
 	cont "Leave it to us"
 	cont "professionals!"
 	done
+
+_CeladonHotelRoomsSign1::
+	text "Handcuffs?"
+	line "Somebody got"
+	cont "arrested here?"
+	done
+
+_CeladonHotelRoomsSign2::
+	text "Some rope."
+	line "Maybe the bed"
+	cont "is unstable?"
+	done
+
+_CeladonHotelRoomsSign3::
+	text "The browser is"
+	line "showing a site on"
+	cont "how to tie knots."
+	cont "A sailor's room?"
+	done
+
+_CeladonHotelRoomsSign4::
+	text "The TV is asking"
+	line "for the passcode"
+	cont "to access pay"
+	cont "channels."
+	cont "Maybe some recent"
+	cont "blockbuster!"
+	done
+
+_CeladonHotelRoomsSign5::
+	text "Some wobbly toys"
+	line "are drying near"
+	cont "the sink."
+	cont "For kids? Dogs?"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelRoomsSign6::
+	text "The TV is on the"
+	cont "news channel."
+	done
+
+_CeladonHotelRoomsSign7::
+	text "A half-written"
+	line "report."
+
+	para "...it uses a lot"
+	line "of words to say"
+	cont "nothing at all..."
+	done

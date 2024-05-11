@@ -1,27 +1,39 @@
-_SaffronHouse1Text1::
-	text "Thank you for"
-	line "writing. I hope"
-	cont "to see you soon!"
+_SaffronHouse1Text1:: ; edited
+	text "I really wish to"
+	line "see you soon :)"
 
-	para "Hey! Don't look"
-	line "at my letter!"
+	para "Ehy! Don't peep at"
+	line "other's letters!"
+
+	para "This is for my"
+	line "date. They live"
+	cont "in JOTHO. I wish"
+	cont "there was a quick"
+	cont "way to get there!"
+
+	para "At least with my"
+	line "partner is much"
+	cont "easier, as we"
+	cont "live together!"
 	done
 
 _SaffronHouse1Text2::
 	text "PIDGEY: Kurukkoo!@"
 	text_end
 
-_SaffronHouse1Text3::
+_SaffronHouse1Text3:: ; edited
 	text "The COPYCAT is"
 	line "cute! I'm getting"
-	cont "her a # DOLL!"
+	cont "them a # DOLL!"
+
+	text "My partner will"
+	line "help me choosing!"
 	done
 
-_SaffronHouse1Text4::
-	text "I was given a PP"
-	line "UP as a gift."
+_SaffronHouse1Text4:: ; edited
+	text "It's a letter from"
+	line "GOLDENROD CITY!"
 
-	para "It's used for"
-	line "increasing the PP"
-	cont "of techniques!"
+	para "Better not to read"
+	line "it, it's private."
 	done
