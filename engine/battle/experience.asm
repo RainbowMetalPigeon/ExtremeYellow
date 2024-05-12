@@ -2,6 +2,9 @@ GainExperience:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z ; return if link battle
+	ld a, [wCurMap] ; new
+	cp BATTLE_FACILITY ; new
+	ret z ; new
 	ld a, [wExpGainOption] ; new
 	cp 3 ; new, NEITHER Exp nor Stats are gained
 	ret z ; new, testing

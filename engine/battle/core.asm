@@ -1047,10 +1047,13 @@ TrainerBattleVictory:
 	ld c, 40
 	call DelayFrames
 	call PrintEndBattleText
+; new, to skip giving money in BATTLE FACILITY
+	ld a, [wCurMap]
+	cp BATTLE_FACILITY
+	ret z ; does ret work?
 ; win money
 	ld hl, MoneyForWinningText
 	call PrintText
-
 	ld de, wPlayerMoney + 2
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3

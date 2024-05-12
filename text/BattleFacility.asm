@@ -119,7 +119,10 @@ _BattleFacilityTextGuide_Info::
 	cont "save the game"
 	cont "while engaged in"
 	cont "any of our"
-	cont "challenges."
+	cont "challenges,"
+	cont "and that you won't"
+	cont "win money or EXP"
+	cont "from battles."
 
 	para "This is all. I"
 	line "wish you the best"
@@ -221,6 +224,10 @@ _BattleFacilityTextGuide_InfoShort::
 
 	para "7) Cannot save"
 	line "during challenge."
+
+	para "8) You won't earn"
+	line "money nor EXP."
+;	xxxx "123456789012345678"
 
 ; -------------------------------------
 

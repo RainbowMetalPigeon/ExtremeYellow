@@ -80,7 +80,7 @@ AssignShinyToBattleFacilityTrainers::
 
 RollForShiny::
 ; roll some numbers and do some checks
-; "debug" function, simply scalable
+; "debug"/testing function, simply scalable
 ;    call Random
 ;    and %00000100
 ;    jr nz, .shinyEncounter
