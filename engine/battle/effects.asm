@@ -1191,12 +1191,11 @@ ChargeEffect:
 	ld de, wPlayerMoveEffect
 	ldh a, [hWhoseTurn]
 	and a
-	ld b, XSTATITEM_ANIM
 	jr z, .chargeEffect
 	ld hl, wEnemyBattleStatus1
 	ld de, wEnemyMoveEffect
-	ld b, ANIM_AF
 .chargeEffect
+	ld b, XSTATITEM_ANIM ; edited
 	set CHARGING_UP, [hl]
 	ld a, [de]
 	dec de ; de contains enemy or player MOVENUM

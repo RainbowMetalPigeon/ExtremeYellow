@@ -279,19 +279,17 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const TRADE_BALL_TILT_ANIM
 	const TRADE_BALL_POOF_ANIM
 	const XSTATITEM_ANIM ; use X Attack/Defense/Speed/Special
-	const ANIM_AF
+;	const ANIM_AF
 	const ANIM_B0
-	const ANIM_B1
+;	const ANIM_B1
 	const ANIM_B2
-	const ANIM_B3
-	const ANIM_B4
-	const ANIM_B5
-;	const ANIM_B6 ; unused?
-;	const ANIM_B7 ; unused?
-	const ANIM_B8
-	const ANIM_B9
+;	const ANIM_B3
+;	const ANIM_B4 ; unused?
+;	const ANIM_B5
+	const PARALYSIS_ANIM ; unused, for paralysis, I could re-implement it
+;	const ANIM_B9
 	const BURN_PSN_ANIM ; Plays when a monster is burned or poisoned
-	const ANIM_BB
+;	const ANIM_BB
 	const ANIM_BC
 	const SLP_ANIM ; sleeping monster
 	const ANIM_BE

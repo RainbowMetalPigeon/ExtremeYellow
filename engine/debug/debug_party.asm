@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db PORYGON, 98 ; 255
+	db MEWTWO, 98 ; 255
 	db VENUSAUR, 97
 	db STARTER_PIKACHU, 5
 ;	db MRAYQUAZA, 50
@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, BULLET_PUNCH
+	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, GUNK_SHOT
@@ -56,13 +56,13 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, HYPER_BEAM
+	ld a, FLY
 	ld [hli], a
-	ld a, FRENZY_PLANT
+	ld a, SURF
 	ld [hli], a
-	ld a, BLAST_BURN
+	ld a, CUT
 	ld [hli], a
-	ld a, HYDRO_CANNON
+	ld a, STRENGTH
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly.

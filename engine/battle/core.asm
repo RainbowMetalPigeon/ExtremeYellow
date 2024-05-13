@@ -3811,6 +3811,11 @@ CheckPlayerStatusConditions:
 	jr nc, .BideCheck
 	ld hl, FullyParalyzedText
 	call PrintText
+; new block of code to show paralysis effect when fully paralyzed
+	xor a
+	ld [wAnimationType], a
+	ld a, PARALYSIS_ANIM
+	call PlayMoveAnimation
 
 .MonHurtItselfOrFullyParalysed
 	ld hl, wPlayerBattleStatus1
@@ -6535,6 +6540,11 @@ CheckEnemyStatusConditions:
 	jr nc, .checkIfUsingBide
 	ld hl, FullyParalyzedText
 	call PrintText
+; new, to play paralysis animation
+	xor a
+	ld [wAnimationType], a
+	ld a, PARALYSIS_ANIM
+	call PlayMoveAnimation
 .monHurtItselfOrFullyParalysed
 	ld hl, wEnemyBattleStatus1
 	ld a, [hl]

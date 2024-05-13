@@ -268,19 +268,17 @@ AttackAnimationPointers:
 	dw TradeBallAppear2Anim ; TRADE_BALL_TILT_ANIM
 	dw TradeBallPoofAnim ; TRADE_BALL_POOF_ANIM
 	dw XStatItemAnim ; XSTATITEM_ANIM
-	dw XStatItemAnim ; ANIM_AF
+;	dw XStatItemAnim ; ANIM_AF
 	dw ShrinkingSquareAnim ; ANIM_B0
-	dw ShrinkingSquareAnim ; ANIM_B1
+;	dw ShrinkingSquareAnim ; ANIM_B1
 	dw XStatItemBlackAnim ; ANIM_B2
-	dw XStatItemBlackAnim ; ANIM_B3
-	dw ShrinkingSquareBlackAnim ; ANIM_B4
-	dw ShrinkingSquareBlackAnim ; ANIM_B5
-;	dw UnusedAnim ; ANIM_B6
-;	dw UnusedAnim ; ANIM_B7
-	dw ParalyzeAnim ; ANIM_B8
-	dw ParalyzeAnim ; ANIM_B9
+;	dw XStatItemBlackAnim ; ANIM_B3
+;	dw ShrinkingSquareBlackAnim ; ANIM_B4, unused?
+;	dw ShrinkingSquareBlackAnim ; ANIM_B5
+	dw ParalyzeAnim ; PARALYSIS_ANIM
+;	dw ParalyzeAnim ; ANIM_B9
 	dw PoisonAnim ; BURN_PSN_ANIM
-	dw PoisonAnim ; ANIM_BB
+;	dw PoisonAnim ; ANIM_BB
 	dw SleepPlayerAnim ; ANIM_BC
 	dw SleepEnemyAnim ; SLP_ANIM
 	dw ConfusedPlayerAnim ; ANIM_BE
@@ -1702,14 +1700,8 @@ IcicleCrashAnim:
 	db -1 ; end
 
 GunkShotAnim:
-	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim NO_MOVE, SUBANIM_SHINY_PLAYER, 1, 3
-	db -1 ; end
 
 SludgeWaveAnim:
-	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim NO_MOVE, SUBANIM_SHINY_ENEMY, 1, 3
-	db -1 ; end
 
 
 
@@ -1792,11 +1784,11 @@ XStatItemBlackAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
-ShrinkingSquareBlackAnim:
-	battle_anim NO_MOVE, SE_DARKEN_MON_PALETTE
-	battle_anim NO_MOVE, SUBANIM_43, 1, 6
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; end
+;ShrinkingSquareBlackAnim:
+;	battle_anim NO_MOVE, SE_DARKEN_MON_PALETTE
+;	battle_anim NO_MOVE, SUBANIM_43, 1, 6
+;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+;	db -1 ; end
 
 UnusedAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
