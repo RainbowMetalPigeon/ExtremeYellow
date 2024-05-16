@@ -20,5 +20,6 @@ SaffronPokecenter_Object:
 	object_event 20,  5, SPRITE_CLERK, STAY, RIGHT, 6 ; person
 	object_event 24,  2, SPRITE_SUPER_NERD, STAY, NONE, 7 ; person
 	object_event 26,  5, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 8 ; person
+	object_event 20,  6, SPRITE_CLERK, STAY, RIGHT, 9 ; new, TM seller
 
 	def_warps_to SAFFRON_POKECENTER

@@ -95,7 +95,8 @@ RollForShiny::
     call IsItemInBag
     jr nz, .shinyEncounter
 ; if we don't have the SHINY CHARM, we need to roll another number and check against the badge-dependent U.L.
-    call CountHowManyBadges ; a contains the number of badges
+    call CountHowManyBadges ; d contains the number of badges
+    ld a, d ; a contains the number of badges
     call ConvertNumberOfBadgesIntoUpperLimit ; a contains the upper limit for the second random number
     ld b, a ; now it's b that holds the upper limit
     ldh a, [hRandomSub] ; a holds the random number
@@ -126,40 +127,40 @@ RollForShiny::
 	ld [wOpponentMonShiny], a
     ret
 
-CountHowManyBadges: ; returns in a the number of badges we own
-    xor a
+CountHowManyBadges:: ; returns in d the number of badges we own
+    ld d, 0
     ld hl, wObtainedBadges
 	bit BIT_EARTHBADGE, [hl]
 	jr z, .next1
-    inc a
+    inc d
 .next1
 	bit BIT_VOLCANOBADGE, [hl]
 	jr z, .next2
-    inc a
+    inc d
 .next2
 	bit BIT_MARSHBADGE, [hl]
 	jr z, .next3
-    inc a
+    inc d
 .next3
 	bit BIT_SOULBADGE, [hl]
 	jr z, .next4
-    inc a
+    inc d
 .next4
 	bit BIT_RAINBOWBADGE, [hl]
 	jr z, .next5
-    inc a
+    inc d
 .next5
 	bit BIT_THUNDERBADGE, [hl]
 	jr z, .next6
-    inc a
+    inc d
 .next6
 	bit BIT_CASCADEBADGE, [hl]
 	jr z, .next7
-    inc a
+    inc d
 .next7
 	bit BIT_BOULDERBADGE, [hl]
 	jr z, .next8
-    inc a
+    inc d
 .next8
     ret
 

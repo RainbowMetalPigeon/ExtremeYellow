@@ -12,6 +12,7 @@ CeruleanPokecenter_TextPointers:
 	dw CeruleanCashierText
 	dw CeruleanMartText2
 	dw CeruleanMartText3
+	dw CeruleanCashierTextTM ; new, TM seller
 
 CeruleanTradeNurseText:
 	script_cable_club_receptionist
@@ -44,3 +45,8 @@ CeruleanMartText3:
 
 CeruleanCashierText: ; moved
 	script_mart POKE_BALL, POTION, ESCAPE_ROPE, REPEL, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL
+
+CeruleanCashierTextTM: ; testing
+    text_asm
+	callfar TMMartClerkDialogue
+    jp TextScriptEnd

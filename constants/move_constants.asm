@@ -256,6 +256,10 @@
 	const	SCALD
 	const	HYDRO_CANNON
 
+	; peculiar new moves
+	const   FREEZE_DRY
+
+	; KAAARP!
 	const	ANCESTOR_PWR
 
 	; anomalies' signature moves

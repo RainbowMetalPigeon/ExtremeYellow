@@ -12,6 +12,7 @@ OchrePokecenter_TextPointers:
 	dw OchreCashierText
 	dw OchreMartText2
 	dw OchreMartText3
+	dw OchreCashierTextTM ; new, TM seller
 
 OchreHealNurseText:
 	script_pokecenter_nurse
@@ -42,3 +43,8 @@ OchreMartText3:
 
 OchreCashierText: ; moved
 	script_mart HEAVY_BALL, FAST_BALL, ULTRA_BALL, HYPER_POTION, REVIVE, FULL_HEAL, MAX_REPEL
+
+OchreCashierTextTM: ; testing
+    text_asm
+	callfar TMMartClerkDialogue
+    jp TextScriptEnd

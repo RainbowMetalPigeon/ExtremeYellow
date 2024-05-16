@@ -18,6 +18,7 @@ PewterPokecenter_TextPointers:
 	dw PewterCashierText
 	dw PewterMartText2
 	dw PewterMartText3
+	dw PewterCashierTextTM ; new, TM seller
 
 PewterHealNurseText:
 	script_pokecenter_nurse
@@ -68,3 +69,8 @@ PewterMartText3:
 
 PewterCashierText: ; moved
 	script_mart POKE_BALL, POTION, ESCAPE_ROPE, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL
+
+PewterCashierTextTM: ; testing
+    text_asm
+	callfar TMMartClerkDialogue
+    jp TextScriptEnd

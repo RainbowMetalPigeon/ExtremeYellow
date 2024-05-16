@@ -36,9 +36,7 @@ INCLUDE "home/serial.asm"
 INCLUDE "home/timer.asm"
 INCLUDE "home/audio.asm"
 INCLUDE "home/update_sprites.asm"
-
-INCLUDE "data/items/marts.asm"
-
+;INCLUDE "data/items/marts.asm" ; edited, commented out as unnecessary
 INCLUDE "home/overworld_text.asm"
 INCLUDE "home/uncompress.asm"
 INCLUDE "home/reset_player_sprite.asm"

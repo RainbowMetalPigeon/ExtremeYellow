@@ -249,8 +249,13 @@ AttackAnimationPointers:
 	dw	ScaldAnim
 	dw	HydroCannonAnim
 
+	; peculiar new moves
+	dw FreezeDryAnim
+
+	; KAAARP!
 	dw  AncestorPwrAnim
 
+	; anomalies' signature moves
 	dw  EternabeamAnim
 	dw  DragonAscentAnim
 	dw  ThousandArrowsAnim
@@ -480,6 +485,8 @@ StoneEdgeAnim:
 
 WaterPulseAnim:
 AquaJetAnim:
+
+FreezeDryAnim:
 
 EternabeamAnim:
 DragonAscentAnim:

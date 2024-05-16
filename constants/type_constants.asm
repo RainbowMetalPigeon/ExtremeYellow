@@ -29,5 +29,6 @@ DEF SPECIAL EQU const_value
 	const DRAGON       ; $1A
 	const DARK         ; $1B
 	const FAIRY        ; $1C
+	const ICE2         ; $1D ; new, for FREEZE_DRY
 
 DEF NUM_TYPES EQU const_value

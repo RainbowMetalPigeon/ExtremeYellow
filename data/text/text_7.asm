@@ -7,6 +7,23 @@ _PokemartGreetingText::
 	next "May I help you?"
 	done
 
+_TMPokemartGreetingTextFoundNone:: ; new
+	text "Hi! Here we sell"
+	line "TMs that you have"
+	cont "already found."
+
+	para "Come back when you"
+	line "have got some!"
+	done
+
+_TMPokemartGreetingText:: ; new
+;	text "Hi! Are you"
+;	line "looking for TMs?"
+	text "Hi! I sell TMs you"
+	line "already found!"
+;	xxxx "123456789012345678"
+	done
+
 _ForbiddenMerchantGreetingText:: ; new
 	text "Oh oh oh!"
 	line "You did amazingly"

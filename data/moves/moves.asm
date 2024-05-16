@@ -264,6 +264,10 @@ Moves:
 	move SCALD,        BURN_SIDE_EFFECT2,           80,	WATER,	      100, 15 ; done
 	move HYDRO_CANNON, HYPER_BEAM_EFFECT,          150,	WATER,	       90, 5  ; done
 
+	; peculiar new moves
+	move FREEZE_DRY,   FREEZE_SIDE_EFFECT,          70,	ICE2,	      100, 20 ; testing
+
+	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate - meme secret easter-egg move for Magikarp :)
 
 	; anomalies' signature moves

@@ -43,6 +43,15 @@ TypeEffects:
 	db ICE,          FIRE,         NOT_VERY_EFFECTIVE
 	db ICE,          STEEL,        NOT_VERY_EFFECTIVE
 
+	db ICE2,         GRASS,        SUPER_EFFECTIVE
+	db ICE2,         GROUND,       SUPER_EFFECTIVE
+	db ICE2,         FLYING,       SUPER_EFFECTIVE
+	db ICE2,         DRAGON,       SUPER_EFFECTIVE
+	db ICE2,         WATER,        SUPER_EFFECTIVE
+	db ICE2,         ICE,          NOT_VERY_EFFECTIVE
+	db ICE2,         FIRE,         NOT_VERY_EFFECTIVE
+	db ICE2,         STEEL,        NOT_VERY_EFFECTIVE
+
 	db PSYCHIC_TYPE, FIGHTING,     SUPER_EFFECTIVE
 	db PSYCHIC_TYPE, POISON,       SUPER_EFFECTIVE
 	db PSYCHIC_TYPE, PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
@@ -193,6 +202,15 @@ TypeEffectsInverse:
 	db ICE,          WATER,        SUPER_EFFECTIVE
 	db ICE,          FIRE,         SUPER_EFFECTIVE
 	db ICE,          STEEL,        SUPER_EFFECTIVE
+
+	db ICE2,         GRASS,        NOT_VERY_EFFECTIVE
+	db ICE2,         GROUND,       NOT_VERY_EFFECTIVE
+	db ICE2,         FLYING,       NOT_VERY_EFFECTIVE
+	db ICE2,         DRAGON,       NOT_VERY_EFFECTIVE
+	db ICE2,         ICE,          SUPER_EFFECTIVE
+	db ICE2,         WATER,        SUPER_EFFECTIVE
+	db ICE2,         FIRE,         SUPER_EFFECTIVE
+	db ICE2,         STEEL,        SUPER_EFFECTIVE
 
 	db PSYCHIC_TYPE, FIGHTING,     NOT_VERY_EFFECTIVE
 	db PSYCHIC_TYPE, POISON,       NOT_VERY_EFFECTIVE

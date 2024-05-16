@@ -19,5 +19,6 @@ ObsidianPokecenter_Object:
 	object_event 20,  5, SPRITE_CLERK, STAY, RIGHT, 6 ; fixed
 	object_event 25,  6, SPRITE_FISHER, STAY, NONE, 7 ; custom
 	object_event 23,  3, SPRITE_SCIENTIST, WALK, LEFT_RIGHT, 8 ; custom
+	object_event 20,  6, SPRITE_CLERK, STAY, RIGHT, 9 ; new, TM seller
 
 	def_warps_to OBSIDIAN_POKECENTER

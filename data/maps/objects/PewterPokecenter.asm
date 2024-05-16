@@ -21,5 +21,6 @@ PewterPokecenter_Object:
 	object_event 20,  5, SPRITE_CLERK, STAY, RIGHT, 7 ; person
 	object_event 23,  3, SPRITE_YOUNGSTER, WALK, UP_DOWN, 8 ; person
 	object_event 25,  5, SPRITE_COOLTRAINER_F, STAY, NONE, 9 ; person ; edited sprite
+	object_event 20,  6, SPRITE_CLERK, STAY, RIGHT, 10 ; new, TM seller
 
 	def_warps_to PEWTER_POKECENTER

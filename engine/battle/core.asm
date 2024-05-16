@@ -5754,16 +5754,16 @@ AdjustDamageForMoveType:
 	ld [wMoveType], a
 .next
 	ld a, [wMoveType]
-; new block of code to handle ThousandArrows
+; new block of code to handle ThousandArrows and FreezeDry
 	cp GROUND2
 	jr nz, .notThousandArrows
 	ld a, GROUND
-	cp b
-	jr z, .sameTypeAttackBonus
-	cp c
-	jr z, .sameTypeAttackBonus
-	jr .skipSameTypeAttackBonus
+	jr .continueWithSTABExamine
 .notThousandArrows
+	cp ICE2
+	jr nz, .continueWithSTABExamine
+	ld a, ICE
+.continueWithSTABExamine
 ; back to vanilla
 	cp b ; does the move type match type 1 of the attacker?
 	jr z, .sameTypeAttackBonus

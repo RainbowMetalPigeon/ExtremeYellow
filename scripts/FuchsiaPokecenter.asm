@@ -12,6 +12,7 @@ FuchsiaPokecenter_TextPointers:
 	dw FuchsiaCashierText
 	dw FuchsiaMartText2
 	dw FuchsiaMartText3
+	dw FuchsiaCashierTextTM ; new, TM seller
 
 FuchsiaHealNurseText:
 	script_pokecenter_nurse
@@ -44,3 +45,8 @@ FuchsiaMartText3:
 
 FuchsiaCashierText: ; moved
 	script_mart ULTRA_BALL, GREAT_BALL, HYPER_POTION, REVIVE, FULL_HEAL, SUPER_REPEL
+
+FuchsiaCashierTextTM: ; testing
+    text_asm
+	callfar TMMartClerkDialogue
+    jp TextScriptEnd

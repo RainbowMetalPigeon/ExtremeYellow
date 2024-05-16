@@ -36,6 +36,7 @@ IF DEF(_DEBUG)
 	ld a, ~(1 << BIT_EARTHBADGE)
 ;	ld a, %11111111
 ;	ld a, %00000100
+	ld a, %01001100
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam

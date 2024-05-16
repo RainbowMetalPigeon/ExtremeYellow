@@ -12,6 +12,7 @@ LavenderPokecenter_TextPointers:
 	dw LavenderCashierText
 	dw LavenderMartText2
 	dw LavenderMartText3
+	dw LavenderCashierTextTM ; new, TM seller
 
 LavenderTradeNurseText:
 	script_cable_club_receptionist
@@ -68,7 +69,7 @@ LavenderMartText2_Where: ; new
 LavenderMartText2_NotFun: ; new
 	text_far _LavenderMartText2_NotFun
 	text_end
-	
+
 LavenderMartText3:
 	text_asm
 	CheckEvent EVENT_RESCUED_MR_FUJI
@@ -92,3 +93,8 @@ LavenderMartText3:
 
 LavenderCashierText: ; moved
 	script_mart GREAT_BALL, SUPER_POTION, REVIVE, ESCAPE_ROPE, SUPER_REPEL, ANTIDOTE, BURN_HEAL, ICE_HEAL, PARLYZ_HEAL
+
+LavenderCashierTextTM: ; testing
+    text_asm
+	callfar TMMartClerkDialogue
+    jp TextScriptEnd

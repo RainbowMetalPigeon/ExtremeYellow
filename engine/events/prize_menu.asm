@@ -248,6 +248,27 @@ HandlePrizeChoice:
 	ld de, wPlayerCoins + 1
 	ld c, $02 ; how many bytes
 	predef SubBCDPredef
+; new, to handle events for the casino TMs
+	ld a, [wWhichPrizeWindow]
+	cp 2 ; is prize a TM?
+	jr nz, .vanilla
+; the prize was indeed a TM
+	ld a, [wd11e] ; a contains the item ID
+	cp TM_WILL_O_WISP
+	jr nz, .checkPrizeTM2
+; it's will-o-wisp
+	SetEvent EVENT_OBTAINED_PRIZE_TM_1
+	jr .vanilla
+.checkPrizeTM2
+	cp TM_HYPER_BEAM
+	jr nz, .handlePrizeTM3
+; it's hyper beam
+	SetEvent EVENT_OBTAINED_PRIZE_TM_2
+	jr .vanilla
+.handlePrizeTM3 ; no need to check because must be 3rd TM
+	SetEvent EVENT_OBTAINED_PRIZE_TM_3
+.vanilla
+; back to vanilla
 	jp PrintPrizePrice
 .bagFull
 	ld hl, PrizeRoomBagIsFullTextPtr

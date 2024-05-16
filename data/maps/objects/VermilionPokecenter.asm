@@ -20,5 +20,6 @@ VermilionPokecenter_Object:
 	object_event 20,  5, SPRITE_CLERK, STAY, RIGHT, 6 ; person
 	object_event 25,  6, SPRITE_COOLTRAINER_M, STAY, NONE, 7 ; person
 	object_event 23,  3, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 8 ; person
+	object_event 20,  6, SPRITE_CLERK, STAY, RIGHT, 9 ; new, TM seller
 
 	def_warps_to VERMILION_POKECENTER

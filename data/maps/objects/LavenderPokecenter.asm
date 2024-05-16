@@ -20,5 +20,6 @@ LavenderPokecenter_Object:
 	object_event 20,  5, SPRITE_CLERK, STAY, RIGHT, 6 ; person
 	object_event 23,  4, SPRITE_BALDING_GUY, STAY, NONE, 7 ; person
 	object_event 27,  2, SPRITE_COOLTRAINER_M, STAY, NONE, 8 ; person
+	object_event 20,  6, SPRITE_CLERK, STAY, RIGHT, 9 ; new, TM seller
 
 	def_warps_to LAVENDER_POKECENTER

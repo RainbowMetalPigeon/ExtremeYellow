@@ -13,3 +13,4 @@ INCLUDE "macros/scripts/maps.asm"
 INCLUDE "macros/scripts/events.asm"
 INCLUDE "macros/scripts/text.asm"
 INCLUDE "macros/scripts/gfx_anims.asm"
+INCLUDE "macros/scripts/hideshow.asm" ; new

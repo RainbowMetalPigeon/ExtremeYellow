@@ -180,7 +180,10 @@
 ; Celadon City events
 	const_next $180
 	const EVENT_GOT_TM41
-	const_skip 5 ; edited, was 11
+	const_skip 2 ; edited, was 11
+	const EVENT_OBTAINED_PRIZE_TM_1 ; new
+	const EVENT_OBTAINED_PRIZE_TM_2 ; new
+	const EVENT_OBTAINED_PRIZE_TM_3 ; new
 	const EVENT_CELADON_DINER_ONIGIRI_OBTAINED ; new
 	const EVENT_CELADON_HOTEL_GOT_GUTSCHEIN ; new
 	const EVENT_CELADON_HOTEL_PAID_ROOM ; new

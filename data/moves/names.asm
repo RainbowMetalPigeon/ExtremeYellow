@@ -250,6 +250,10 @@ MoveNames::
 	li "SCALD"
 	li "HYDRO CANNON"
 
+	; peculiar new moves
+	li "FREEZE DRY"
+
+	; KAAARP!
 	li "ANCESTOR PWR"
 
 	; anomalies' signature moves

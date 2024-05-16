@@ -20,5 +20,6 @@ CinnabarPokecenter_Object:
 	object_event 20,  5, SPRITE_CLERK, STAY, RIGHT, 6 ; person
 	object_event 26,  2, SPRITE_ERIKA, STAY, NONE, 7 ; person
 	object_event 23,  4, SPRITE_SCIENTIST, STAY, NONE, 8 ; person
+	object_event 20,  6, SPRITE_CLERK, STAY, RIGHT, 9 ; new, TM seller
 
 	def_warps_to CINNABAR_POKECENTER

@@ -27,6 +27,7 @@ ENDR
 	dw .Dragon
 	dw .Dark
 	dw .Fairy
+	dw .Ice2 ; new, for FREEZE_DRY
 
 	assert_table_length NUM_TYPES
 
@@ -51,3 +52,4 @@ ENDR
 .Fairy:	   db "FAIRY@"
 .Typeless  db "TYPELESS@"
 .Ground2   db "GROUND@" ; new, for THOUSANDARROWS
+.Ice2:	   db "ICE@" ; new, for FREEZE_DRY
