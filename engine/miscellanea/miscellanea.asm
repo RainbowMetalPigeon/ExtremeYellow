@@ -563,7 +563,7 @@ TMMartClerkDialogue::
 .checkTM27
 
 	; TM27
-	CheckHideShow HS_VIRIDIAN_GYM_ITEM_2
+	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
 	jr z, .checkTM28
 	ld a, TM_FISSURE
 	ld [de], a
@@ -594,6 +594,33 @@ TMMartClerkDialogue::
 	inc de
 .checkTM31
 
+	; TM31
+	CheckEvent EVENT_GOT_TM31
+	jr z, .checkTM32
+	ld a, TM_MIMIC
+	ld [de], a
+	inc de
+.checkTM32
+
+	; TM32
+	CheckHideShowExtra HS_SAFARI_ZONE_WEST_ITEM_2
+	jr z, .checkTM33
+	ld a, TM_DOUBLE_TEAM
+	ld [de], a
+	inc de
+.checkTM33
+
+	; TM33
+	CheckHideShow HS_ROUTE_24_ITEM
+	jr z, .checkTM34
+	ld a, TM_REFLECT
+	ld [de], a
+	inc de
+.checkTM34
+
+
+
+
 
 
 
@@ -617,6 +644,21 @@ TMMartClerkDialogue::
 	ld a, -1
 	ld [de], a
 
+	ld de, wItemList
+	inc de
+	ld a, [de]
+	cp -1 ; = $FF = 255
+	jr nz, .atLeastOneTM
+
+; no TMs found
+	ld hl, TMPokemartGreetingTextFoundNone
+	call PrintText
+	ret
+
+.atLeastOneTM
+	ld hl, TMPokemartGreetingText
+	call PrintText
+
 	ld a, PRICEDITEMLISTMENU
 	ld [wListMenuID], a
 	callfar DisplayPokemartDialogue_
@@ -625,94 +667,10 @@ TMMartClerkDialogue::
 
 ; ------------------------
 
-TMMartClerkDialogue2::
-	callfar CountHowManyBadges ; d contains the number of badges
-	ld a, d
-	and a
-	jr nz, .atLeastABadge
-; we have no badges
-	ld hl, TMPokemartGreetingTextBadgeless
-	call PrintText
-	jr .endScript
-.atLeastABadge
-	push af
-	ld hl, TMPokemartGreetingText
-	call PrintText
-	pop af
-	cp 1
-	jr z, .badgesN1
-	cp 2
-	jr z, .badgesN2
-	cp 3
-	jr z, .badgesN3
-	cp 4
-	jr z, .badgesN4
-	cp 5
-	jr z, .badgesN5
-	cp 6
-	jr z, .badgesN6
-	cp 7
-	jr z, .badgesN7
-; 8 badges
-	ld hl, TMClerkItemsBadgesN8
-	jr .continue
-.badgesN7
-	ld hl, TMClerkItemsBadgesN7
-	jr .continue
-.badgesN6
-	ld hl, TMClerkItemsBadgesN6
-	jr .continue
-.badgesN5
-	ld hl, TMClerkItemsBadgesN5
-	jr .continue
-.badgesN4
-	ld hl, TMClerkItemsBadgesN4
-	jr .continue
-.badgesN3
-	ld hl, TMClerkItemsBadgesN3
-	jr .continue
-.badgesN2
-	ld hl, TMClerkItemsBadgesN2
-	jr .continue
-.badgesN1
-	ld hl, TMClerkItemsBadgesN1
-.continue
-	inc hl
-	call LoadItemList
-	ld a, PRICEDITEMLISTMENU
-	ld [wListMenuID], a
-	callfar DisplayPokemartDialogue_
-.endScript
-	ret
-
-TMPokemartGreetingTextBadgeless:
-    text_far _TMPokemartGreetingTextBadgeless
+TMPokemartGreetingTextFoundNone:
+    text_far _TMPokemartGreetingTextFoundNone
     text_end
 
 TMPokemartGreetingText:
     text_far _TMPokemartGreetingText
     text_end
-
-TMClerkItemsBadgesN1:
-    script_mart TM_BIDE
-
-TMClerkItemsBadgesN2:
-    script_mart TM_MEGA_PUNCH, TM_COUNTER, TM_BUBBLEBEAM, TM_METRONOME, TM_SEISMIC_TOSS, TM_BIDE, TM_THUNDER_WAVE
-
-TMClerkItemsBadgesN3:
-    script_mart TM_MEGA_PUNCH, TM_COUNTER, TM_BODY_SLAM, TM_BUBBLEBEAM, TM_METRONOME, TM_SEISMIC_TOSS, TM_THUNDERBOLT, TM_DIG, TM_BIDE, TM_X_SCISSOR, TM_THUNDER_WAVE
-
-TMClerkItemsBadgesN4:
-    script_mart TM_MEGA_PUNCH, TM_MEGAHORN, TM_COUNTER, TM_DARK_PULSE, TM_BODY_SLAM, TM_DOUBLE_EDGE, TM_BUBBLEBEAM, TM_METRONOME, TM_SEISMIC_TOSS, TM_GIGA_DRAIN, TM_THUNDERBOLT, TM_DIG, TM_MOONBLAST, TM_BIDE, TM_X_SCISSOR, TM_THUNDER_WAVE
-
-TMClerkItemsBadgesN5:
-    script_mart TM_MEGA_PUNCH, TM_MEGAHORN, TM_COUNTER, TM_TOXIC, TM_DARK_PULSE, TM_BODY_SLAM, TM_DOUBLE_EDGE, TM_BUBBLEBEAM, TM_METRONOME, TM_ICE_BEAM, TM_FLASH_CANNON, TM_SEISMIC_TOSS, TM_FEINT_ATTACK, TM_GIGA_DRAIN, TM_THUNDERBOLT, TM_DIG, TM_MOONBLAST, TM_BIDE, TM_SHADOW_SNEAK, TM_X_SCISSOR, TM_THUNDER_WAVE, TM_ROCK_SLIDE, TM_SHADOW_BALL
-
-TMClerkItemsBadgesN6:
-    script_mart TM_MEGA_PUNCH, TM_MEGAHORN, TM_SWORDS_DANCE, TM_COUNTER, TM_TOXIC, TM_DARK_PULSE, TM_BODY_SLAM, TM_DOUBLE_EDGE, TM_BUBBLEBEAM, TM_METRONOME, TM_ICE_BEAM, TM_FLASH_CANNON, TM_SEISMIC_TOSS, TM_FEINT_ATTACK, TM_GIGA_DRAIN, TM_THUNDERBOLT, TM_EARTHQUAKE, TM_DIG, TM_PSYCHIC_M, TM_MOONBLAST, TM_MIMIC, TM_BIDE, TM_SELFDESTRUCT, TM_SHADOW_SNEAK, TM_X_SCISSOR, TM_THUNDER_WAVE, TM_PSYWAVE, TM_ROCK_SLIDE, TM_SHADOW_BALL
-
-TMClerkItemsBadgesN7:
-    script_mart TM_MEGA_PUNCH, TM_MEGAHORN, TM_SWORDS_DANCE, TM_COUNTER, TM_TOXIC, TM_DARK_PULSE, TM_BODY_SLAM, TM_METEOR_MASH, TM_DOUBLE_EDGE, TM_BUBBLEBEAM, TM_METRONOME, TM_ICE_BEAM, TM_BLIZZARD, TM_FLASH_CANNON, TM_SEISMIC_TOSS, TM_FEINT_ATTACK, TM_GIGA_DRAIN, TM_STONE_EDGE, TM_THUNDERBOLT, TM_EARTHQUAKE, TM_DIG, TM_PSYCHIC_M, TM_MOONBLAST, TM_MIMIC, TM_DOUBLE_TEAM, TM_BIDE, TM_HYDRO_PUMP, TM_SELFDESTRUCT, TM_CLOSE_COMBAT, TM_FIRE_BLAST, TM_SHADOW_SNEAK, TM_OUTRAGE, TM_X_SCISSOR, TM_THUNDER_WAVE, TM_PSYWAVE, TM_ROCK_SLIDE, TM_SHADOW_BALL
-
-TMClerkItemsBadgesN8:
-	script_mart TM_MEGA_PUNCH, TM_MEGAHORN, TM_SWORDS_DANCE, TM_COUNTER, TM_TOXIC, TM_DARK_PULSE, TM_BODY_SLAM, TM_METEOR_MASH, TM_DOUBLE_EDGE, TM_BUBBLEBEAM, TM_METRONOME, TM_ICE_BEAM, TM_BLIZZARD, TM_MIRROR_COAT, TM_FLASH_CANNON, TM_SEISMIC_TOSS, TM_FEINT_ATTACK, TM_GIGA_DRAIN, TM_STONE_EDGE, TM_THUNDERBOLT, TM_THUNDER, TM_EARTHQUAKE, TM_FISSURE, TM_DIG, TM_PSYCHIC_M, TM_MOONBLAST, TM_MIMIC, TM_DOUBLE_TEAM, TM_REFLECT, TM_BIDE, TM_HYDRO_PUMP, TM_SELFDESTRUCT, TM_CLOSE_COMBAT, TM_FIRE_BLAST, TM_SHADOW_SNEAK, TM_OUTRAGE, TM_BRAVE_BIRD, TM_REST, TM_X_SCISSOR, TM_THUNDER_WAVE, TM_PSYWAVE, TM_ROCK_SLIDE, TM_SHADOW_BALL

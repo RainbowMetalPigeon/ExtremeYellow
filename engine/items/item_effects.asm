@@ -257,6 +257,10 @@ MapMessageComplete::
 ; new: code for MYSTERY_MAP, end ------------------------
 
 ItemUseOnigiri: ; new
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseNotTime
+; we are not in battle
 	ld hl, UsedOnigiriBoxText
 	call PrintText
 	ld a, SFX_HEAL_AILMENT
