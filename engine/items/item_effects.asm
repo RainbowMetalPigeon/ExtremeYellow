@@ -260,7 +260,18 @@ ItemUseOnigiri: ; new
 	ld a, [wIsInBattle]
 	and a
 	jp nz, ItemUseNotTime
-; we are not in battle
+; we are not in battle; ask if we want to eat the box of onigiri with our team
+	ld hl, AskOnigiriBoxText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .yes
+; not eat now
+	ld hl, RefusedOnigiriBoxText
+	call PrintText
+	ret
+.yes
 	ld hl, UsedOnigiriBoxText
 	call PrintText
 	ld a, SFX_HEAL_AILMENT
@@ -272,6 +283,14 @@ ItemUseOnigiri: ; new
 
 UsedOnigiriBoxText: ; new
 	text_far _UsedOnigiriBoxText
+	text_end
+
+AskOnigiriBoxText: ; new
+	text_far _AskOnigiriBoxText
+	text_end
+
+RefusedOnigiriBoxText: ; new
+	text_far _RefusedOnigiriBoxText
 	text_end
 
 ItemUseBall:

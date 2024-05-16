@@ -482,3 +482,14 @@ _UsedOnigiriBoxText:: ; new
 	cont "at their best!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_AskOnigiriBoxText:: ; new
+	text "Do you want to eat"
+	line "the box of"
+	cont "onigiri together"
+	cont "with your team?"
+	done
+
+_RefusedOnigiriBoxText:: ; new
+	text "Not just yet!"
+	prompt
