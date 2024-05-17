@@ -352,7 +352,7 @@ TMMartClerkDialogue::
 	ld [de], a
 	inc de
 
-; 50-to-55 custom additions -----------------------------------
+; 50-to-55 custom additions ----------------------------------------------------
 
 	; TM01
 	CheckHideShow HS_MT_MOON_B2F_ITEM_2
@@ -618,18 +618,93 @@ TMMartClerkDialogue::
 	inc de
 .checkTM34
 
+	; TM34
+	CheckEvent EVENT_GOT_TM34
+	jr z, .checkTM35
+	ld a, TM_BIDE
+	ld [de], a
+	inc de
+.checkTM35
 
+	; TM35
+	CheckEvent EVENT_GOT_TM35
+	jr z, .checkTM36
+	ld a, TM_HYDRO_PUMP
+	ld [de], a
+	inc de
+.checkTM36
 
+	; TM36
+	CheckEvent EVENT_GOT_TM36
+	jr z, .checkTM37
+	ld a, TM_SELFDESTRUCT
+	ld [de], a
+	inc de
+.checkTM37
 
+	; TM37
+	CheckHideShowExtra HS_SAFARI_ZONE_EAST_ITEM_4
+	jr z, .checkTM38
+	ld a, TM_CLOSE_COMBAT
+	ld [de], a
+	inc de
+.checkTM38
 
+	; TM38
+	CheckEvent EVENT_GOT_TM38
+	jr z, .checkTM39
+	ld a, TM_FIRE_BLAST
+	ld [de], a
+	inc de
+.checkTM39
 
+	; TM39
+	CheckEvent EVENT_GOT_TM39
+	jr z, .checkTM40
+	ld a, TM_SHADOW_SNEAK
+	ld [de], a
+	inc de
+.checkTM40
 
+	; TM40
+	CheckHideShowExtra HS_SAFARI_ZONE_NORTH_ITEM_2
+	jr z, .checkTM41
+	ld a, TM_OUTRAGE
+	ld [de], a
+	inc de
+.checkTM41
 
+	; TM41
+	CheckEvent EVENT_GOT_TM41
+	jr z, .checkTM42
+	ld a, TM_BRAVE_BIRD
+	ld [de], a
+	inc de
+.checkTM42
 
+	; TM42
+	CheckEvent EVENT_GOT_TM42
+	jr z, .checkTM43
+	ld a, TM_REST
+	ld [de], a
+	inc de
+.checkTM43
 
+	; TM43
+	CheckHideShowExtra HS_VICTORY_ROAD_1F_ITEM_1
+	jr z, .checkTM44
+	ld a, TM_GUNK_SHOT
+	ld [de], a
+	inc de
+.checkTM44
 
-
-
+	; TM44
+	CheckHideShow HS_SS_ANNE_B1F_ROOMS_ITEM_2
+	jr z, .checkTM45
+	ld a, TM_X_SCISSOR
+	ld [de], a
+	inc de
+.checkTM45
 
 	; TM45
 	CheckHideShow HS_POWER_PLANT_ITEM_4
@@ -639,8 +714,47 @@ TMMartClerkDialogue::
 	inc de
 .checkTM46
 
+	; TM46
+	CheckEvent EVENT_GOT_TM46
+	jr z, .checkTM47
+	ld a, TM_PSYWAVE
+	ld [de], a
+	inc de
+.checkTM47
 
-; ender of the custom itemlist load function -----------------
+	; TM47
+	CheckHideShow HS_VICTORY_ROAD_3F_ITEM_2
+	jr z, .checkTM48
+	ld a, TM_EXPLOSION
+	ld [de], a
+	inc de
+.checkTM48
+
+	; TM48
+	CheckEvent EVENT_GOT_TM48
+	jr z, .checkTM49
+	ld a, TM_ROCK_SLIDE
+	ld [de], a
+	inc de
+.checkTM49
+
+	; TM49
+	CheckEvent EVENT_GOT_TM49
+	jr z, .checkTM50
+	ld a, TM_SHADOW_BALL
+	ld [de], a
+	inc de
+.checkTM50
+
+	; TM50
+	CheckEvent EVENT_OBTAINED_PRIZE_TM_3
+	jr z, .checkTM51
+	ld a, TM_SUBSTITUTE
+	ld [de], a
+	inc de
+.checkTM51
+
+; ender of the custom itemlist load function -----------------------------------
 	ld a, -1
 	ld [de], a
 
