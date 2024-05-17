@@ -260,6 +260,7 @@
 	const   FREEZE_DRY
 	const   GYRO_BALL
 	const   PSYSTRIKE
+	const   BODY_PRESS
 
 	; KAAARP!
 	const	ANCESTOR_PWR

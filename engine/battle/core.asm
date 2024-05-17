@@ -4625,7 +4625,16 @@ GetDamageVarsForPlayerAttack:
 	sla c
 	rl b
 .physicalAttackCritCheck
-	ld hl, wBattleMonAttack
+
+; new, to handle body press
+	ld a, [wPlayerMoveNum]
+	cp BODY_PRESS
+	ld hl, wBattleMonAttack ; vanilla bit
+	jr nz, .notBodyPress1
+	ld hl, wBattleMonDefense
+.notBodyPress1
+; back to vanilla
+
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
@@ -4637,7 +4646,16 @@ GetDamageVarsForPlayerAttack:
 	ldh a, [hProduct + 3]
 	ld c, a
 	push bc
-	ld hl, wPartyMon1Attack
+
+; new, to handle body press
+	ld a, [wPlayerMoveNum]
+	cp BODY_PRESS
+	ld hl, wPartyMon1Attack ; vanilla bit
+	jr nz, .notBodyPress2
+	ld hl, wPartyMon1Defense
+.notBodyPress2
+; back to vanilla
+
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
@@ -4758,7 +4776,16 @@ GetDamageVarsForEnemyAttack:
 	sla c
 	rl b
 .physicalAttackCritCheck
-	ld hl, wEnemyMonAttack
+
+; new, to handle body press
+	ld a, [wPlayerMoveNum]
+	cp BODY_PRESS
+	ld hl, wEnemyMonAttack ; vanilla bit
+	jr nz, .notBodyPress1
+	ld hl, wEnemyMonDefense
+.notBodyPress1
+; back to vanilla
+
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
@@ -4771,7 +4798,16 @@ GetDamageVarsForEnemyAttack:
 	ld b, a
 	ld c, [hl]
 	push bc
+
+; new, to handle body press
+	ld a, [wPlayerMoveNum]
+	cp BODY_PRESS
 	ld c, 2 ; attack stat
+	jr nz, .notBodyPress2
+	ld c, 3 ; defense stat
+.notBodyPress2
+; back to vanilla
+
 	call GetEnemyMonStat
 	ld hl, hProduct + 2
 	pop bc

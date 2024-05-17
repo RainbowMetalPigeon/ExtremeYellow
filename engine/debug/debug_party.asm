@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db VENUSAUR, 97
+	db CLOYSTER, 97
 	db STARTER_PIKACHU, 5
 ;	db MRAYQUAZA, 50
 ;	db GENGAR, 9
@@ -57,9 +57,9 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, FLY
+	ld a, BODY_PRESS
 	ld [hli], a
-	ld a, SURF
+	ld a, SUBMISSION
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a

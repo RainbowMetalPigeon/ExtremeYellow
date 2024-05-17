@@ -254,6 +254,7 @@ MoveNames::
 	li "FREEZE DRY"
 	li "GYRO BALL"
 	li "PSYSTRIKE"
+	li "BODY PRESS"
 
 	; KAAARP!
 	li "ANCESTOR PWR"
