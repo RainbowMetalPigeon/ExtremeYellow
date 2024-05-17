@@ -271,7 +271,7 @@ Moves:
 	move BODY_PRESS,   NO_ADDITIONAL_EFFECT,        80,	FIGHTING,     100, 10 ; testing
 
 	; KAAARP!!!
-	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate - meme secret easter-egg move for Magikarp :)
+	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)
 
 	; anomalies' signature moves
 	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90, 5 ; done

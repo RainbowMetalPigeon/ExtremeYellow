@@ -3169,7 +3169,8 @@ PrintMenuItem:
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
-	cp SPECIAL_DAMAGE_EFFECT
+	ld a, [wPlayerMovePower]
+	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
 	hlcoord 1, 10
 	ld de, wPlayerMovePower ; testing
