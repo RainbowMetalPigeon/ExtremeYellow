@@ -622,8 +622,8 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, SURF
-	db 1, 2, THUNDER_WAVE
+	db 1, 1, GYRO_BALL
+	db 1, 2, NO_MOVE
 	db 1, 3, NO_MOVE
 	db 1, 4, NO_MOVE
 ;	db 1, 1, AQUA_JET

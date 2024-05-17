@@ -252,6 +252,7 @@ MoveNames::
 
 	; peculiar new moves
 	li "FREEZE DRY"
+	li "GYRO BALL"
 
 	; KAAARP!
 	li "ANCESTOR PWR"

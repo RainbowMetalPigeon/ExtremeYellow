@@ -266,6 +266,7 @@ Moves:
 
 	; peculiar new moves
 	move FREEZE_DRY,   FREEZE_SIDE_EFFECT,          70,	ICE2,	      100, 20 ; testing
+	move GYRO_BALL,    NO_ADDITIONAL_EFFECT,         1,	STEEL,	      100,  5 ; testing
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate - meme secret easter-egg move for Magikarp :)

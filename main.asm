@@ -85,6 +85,7 @@ INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
 INCLUDE "engine/miscellanea/overworld.asm" ; new
 INCLUDE "engine/math/bcd.asm" ; moved from bank3
 INCLUDE "engine/miscellanea/shiny.asm" ; new
+INCLUDE "engine/miscellanea/battlecore.asm" ; new
 
 
 SECTION "bank4", ROMX

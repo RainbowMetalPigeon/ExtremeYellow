@@ -4588,6 +4588,7 @@ IgnoredOrdersText:
 	text_end
 
 ; sets b, c, d, and e for the CalculateDamage routine in the case of an attack by the player mon
+; b: attack, c: opponent defense, d: base power, e: level
 GetDamageVarsForPlayerAttack:
 	xor a
 	ld hl, wDamage ; damage to eventually inflict, initialise to zero
@@ -4598,6 +4599,17 @@ GetDamageVarsForPlayerAttack:
 	and a
 	ld d, a ; d = move power
 	ret z ; return if move power is zero
+
+; new, to handle gyro ball
+	ld a, [wPlayerMoveNum]
+	cp GYRO_BALL
+	jr nz, .notGyroBall
+	push hl
+	callfar CalculateGyroBallBasePower
+	pop hl
+.notGyroBall
+; back to vanilla
+
 	ld a, [hl] ; a = [wPlayerMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
 	jr nc, .specialAttack
@@ -4711,6 +4723,17 @@ GetDamageVarsForEnemyAttack:
 	ld d, a ; d = move power
 	and a
 	ret z ; return if move power is zero
+
+; new, to handle gyro ball
+	ld a, [wEnemyMoveNum]
+	cp GYRO_BALL
+	jr nz, .notGyroBall
+	push hl
+	callfar CalculateGyroBallBasePower
+	pop hl
+.notGyroBall
+; back to vanilla
+
 	ld a, [hl] ; a = [wEnemyMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
 	jr nc, .specialAttack

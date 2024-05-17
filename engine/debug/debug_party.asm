@@ -35,7 +35,7 @@ IF DEF(_DEBUG)
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
 ;	ld a, %11111111
-;	ld a, %00000100
+	ld a, %00000100
 	ld a, %01001100
 	ld [wObtainedBadges], a
 
@@ -45,13 +45,13 @@ IF DEF(_DEBUG)
 	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, GUNK_SHOT
+	ld a, PSYCHO_CUT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, HURRICANE
+	ld a, AGILITY
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, EXPLOSION
+	ld a, GYRO_BALL
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
