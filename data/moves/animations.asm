@@ -252,6 +252,7 @@ AttackAnimationPointers:
 	; peculiar new moves
 	dw FreezeDryAnim
 	dw GyroBallAnim
+	dw PsystrikeAnim
 
 	; KAAARP!
 	dw  AncestorPwrAnim
@@ -489,6 +490,7 @@ AquaJetAnim:
 
 FreezeDryAnim:
 GyroBallAnim:
+PsystrikeAnim:
 
 EternabeamAnim:
 DragonAscentAnim:

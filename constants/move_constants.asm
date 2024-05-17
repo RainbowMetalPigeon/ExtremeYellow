@@ -259,6 +259,7 @@
 	; peculiar new moves
 	const   FREEZE_DRY
 	const   GYRO_BALL
+	const   PSYSTRIKE
 
 	; KAAARP!
 	const	ANCESTOR_PWR

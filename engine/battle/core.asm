@@ -4644,7 +4644,16 @@ GetDamageVarsForPlayerAttack:
 	pop bc
 	jr .scaleStats
 .specialAttack
-	ld hl, wEnemyMonSpecial
+
+; new, to handle psystrike
+	ld a, [wPlayerMoveNum]
+	cp PSYSTRIKE
+	ld hl, wEnemyMonDefense
+	jr z, .yesPsystrike
+	ld hl, wEnemyMonSpecial ; vanilla bit
+.yesPsystrike
+; back to vanilla
+
 	ld a, [hli]
 	ld b, a
 	ld c, [hl] ; bc = enemy special
@@ -4768,7 +4777,16 @@ GetDamageVarsForEnemyAttack:
 	pop bc
 	jr .scaleStats
 .specialAttack
-	ld hl, wBattleMonSpecial
+
+; new, to handle psystrike
+	ld a, [wEnemyMoveNum]
+	cp PSYSTRIKE
+	ld hl, wBattleMonDefense
+	jr z, .yesPsystrike
+	ld hl, wBattleMonSpecial ; vanilla bit
+.yesPsystrike
+; back to vanilla
+
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]

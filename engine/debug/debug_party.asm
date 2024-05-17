@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, PSYCHO_CUT
+	ld a, PSYSTRIKE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, AGILITY
