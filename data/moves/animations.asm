@@ -254,6 +254,7 @@ AttackAnimationPointers:
 	dw GyroBallAnim
 	dw PsystrikeAnim
 	dw BodyPressAnim
+	dw FlailAnim
 
 	; KAAARP!
 	dw  AncestorPwrAnim
@@ -493,6 +494,7 @@ FreezeDryAnim:
 GyroBallAnim:
 PsystrikeAnim:
 BodyPressAnim:
+FlailAnim:
 
 EternabeamAnim:
 DragonAscentAnim:

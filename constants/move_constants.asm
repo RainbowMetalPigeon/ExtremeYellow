@@ -261,6 +261,7 @@
 	const   GYRO_BALL
 	const   PSYSTRIKE
 	const   BODY_PRESS
+	const   FLAIL
 
 	; KAAARP!
 	const	ANCESTOR_PWR

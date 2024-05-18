@@ -631,10 +631,14 @@ SpecialTrainerMoves:
 ;	db 1, 3, WATERFALL
 ;	db 1, 4, BLIZZARD
 	; CLOYSTER
-	db 2, 1, EXPLOSION
-	db 2, 2, PIN_MISSILE
-	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
-	db 2, 4, ICICLE_SPEAR
+	db 2, 1, BODY_PRESS
+	db 2, 2, SUBMISSION
+	db 2, 3, NO_MOVE
+	db 2, 4, NO_MOVE
+;	db 2, 1, EXPLOSION
+;	db 2, 2, PIN_MISSILE
+;	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
+;	db 2, 4, ICICLE_SPEAR
 	; JYNX
 	db 3, 1, BLIZZARD
 	db 3, 2, LOVELY_KISS
@@ -1172,7 +1176,7 @@ SpecialTrainerMoves:
 	db 3, 3, FLAMETHROWER
 	db 3, 4, STEEL_WING
 	; MEWTWO
-	db 4, 1, PSYCHO_CUT
+	db 4, 1, PSYSTRIKE
 	db 4, 2, RECOVER
 	db 4, 3, BLIZZARD
 	db 4, 4, FIRE_BLAST
@@ -1466,7 +1470,7 @@ SpecialTrainerMoves:
 	db 2, 4, EARTHQUAKE
 	; MEWTWO
 	db 3, 1, AMNESIA
-	db 3, 2, PSYCHIC_M
+	db 3, 2, PSYSTRIKE
 	db 3, 3, RECOVER
 	db 3, 4, THUNDERBOLT
 	; MMEWTWOX
