@@ -936,6 +936,11 @@ _HurtByLeechSeedText::
 	line "<USER>!"
 	prompt
 
+_HurtByCurseText:: ; new
+	text "The CURSE torments"
+	line "<USER>!"
+	prompt
+
 _PikachuHealItself:: ; new
 	text "@"
 	text_ram wBattleMonNick

@@ -262,6 +262,7 @@
 	const   PSYSTRIKE
 	const   BODY_PRESS
 	const   FLAIL
+	const   CURSE
 
 	; KAAARP!
 	const	ANCESTOR_PWR
@@ -290,8 +291,8 @@ DEF NUM_ATTACKS EQU const_value - 1
 ;	const ANIM_AF
 	const ANIM_B0
 ;	const ANIM_B1
-	const ANIM_B2
-;	const ANIM_B3
+;	const ANIM_B2 ; unused?
+;	const ANIM_B3 ; unused?
 ;	const ANIM_B4 ; unused?
 ;	const ANIM_B5
 	const PARALYSIS_ANIM ; unused, for paralysis, I could re-implement it

@@ -297,10 +297,11 @@ TrainerAI:
 	ld a, [wEnemyBattleStatus1]
 	and 1 << CHARGING_UP | 1 << THRASHING_ABOUT | 1 << STORING_ENERGY
 	jr nz, .done ; don't follow trainer ai if opponent is in a locked state
-	ld a, [wEnemyBattleStatus2]
-	and 1 << USING_RAGE
-	jr nz, .done ; don't follow trainer ai if opponent is locked in rage
-	             ; note that this doesn't check for hyper beam recharge which can cause problems
+; edited, block of code commented out because removed rage
+;	ld a, [wEnemyBattleStatus2]
+;	and 1 << USING_RAGE
+;	jr nz, .done ; don't follow trainer ai if opponent is locked in rage
+;	             ; note that this doesn't check for hyper beam recharge which can cause problems
 	ld a, [wTrainerClass] ; what trainer class is this?
 	dec a
 	ld c, a

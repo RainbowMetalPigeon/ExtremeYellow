@@ -116,7 +116,6 @@ INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/CeruleanPokecenter.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/BikeShop.asm"
-INCLUDE "text/CeruleanMart.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm"
 
 
@@ -298,6 +297,7 @@ INCLUDE "text/PokemonTower7F.asm"
 INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PewterMart.asm"
 INCLUDE "text/ViridianMart.asm"
+INCLUDE "text/CeruleanMart.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

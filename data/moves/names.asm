@@ -256,6 +256,7 @@ MoveNames::
 	li "PSYSTRIKE"
 	li "BODY PRESS"
 	li "FLAIL"
+	li "CURSE"
 
 	; KAAARP!
 	li "ANCESTOR PWR"

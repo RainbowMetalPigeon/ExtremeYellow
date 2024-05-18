@@ -622,8 +622,8 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, GYRO_BALL
-	db 1, 2, NO_MOVE
+	db 1, 1, FLAIL
+	db 1, 2, AQUA_JET
 	db 1, 3, NO_MOVE
 	db 1, 4, NO_MOVE
 ;	db 1, 1, AQUA_JET
@@ -631,14 +631,10 @@ SpecialTrainerMoves:
 ;	db 1, 3, WATERFALL
 ;	db 1, 4, BLIZZARD
 	; CLOYSTER
-	db 2, 1, BODY_PRESS
-	db 2, 2, SUBMISSION
-	db 2, 3, NO_MOVE
-	db 2, 4, NO_MOVE
-;	db 2, 1, EXPLOSION
-;	db 2, 2, PIN_MISSILE
-;	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
-;	db 2, 4, ICICLE_SPEAR
+	db 2, 1, EXPLOSION
+	db 2, 2, PIN_MISSILE
+	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
+	db 2, 4, ICICLE_SPEAR
 	; JYNX
 	db 3, 1, BLIZZARD
 	db 3, 2, LOVELY_KISS

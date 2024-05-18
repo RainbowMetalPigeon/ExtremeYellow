@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db CLOYSTER, 97
+	db HAUNTER, 97
 	db STARTER_PIKACHU, 5
 ;	db MRAYQUAZA, 50
 ;	db GENGAR, 9
@@ -42,7 +42,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, FLAIL
+	ld a, CURSE
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, PSYSTRIKE
@@ -57,13 +57,13 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, BODY_PRESS
+	ld a, CURSE ; FLY
 	ld [hli], a
-	ld a, SUBMISSION
+	ld a, POISONPOWDER ; SURF
 	ld [hli], a
-	ld a, CUT
+	ld a, LEECH_SEED ; CUT
 	ld [hli], a
-	ld a, STRENGTH
+	ld a, WILL_O_WISP ; STRENGTH
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly.
