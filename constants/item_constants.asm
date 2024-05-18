@@ -167,7 +167,7 @@ DEF NUM_FLOORS EQU const_value - 1 - NUM_ITEMS
 ; HMs are defined before TMs, so the actual number of TM definitions
 ; is not yet available. The TM quantity is hard-coded here and must
 ; match the actual number below.
-DEF NUM_TMS EQU 50
+DEF NUM_TMS EQU 55 ; edited, was 50
 
 DEF __tmhm_value__ = NUM_TMS + 1
 
@@ -178,8 +178,8 @@ ENDM
 
 MACRO add_hm
 ; Defines three constants:
-; - HM_\1: the item id, starting at $C4
-; - \1_TMNUM: the learnable TM/HM flag, starting at 51
+; - HM_\1: the item id, starting at $C4 ; edited, they now start right after the other items
+; - \1_TMNUM: the learnable TM/HM flag, starting at 56 ; edited was 51
 ; - HM##_MOVE: alias for the move id, equal to the value of \1
 	const HM_\1
 	DEF HM_VALUE = __tmhm_value__ - NUM_TMS
@@ -187,7 +187,7 @@ MACRO add_hm
 	add_tmnum \1
 ENDM
 
-DEF HM01 EQU const_value
+DEF HM01 EQU const_value ; edited, the numbers below are now wrong
 	add_hm CUT          ; $C4
 	add_hm FLY          ; $C5
 	add_hm SURF         ; $C6
@@ -258,12 +258,18 @@ DEF TM01 EQU const_value
 	add_tm ROCK_SLIDE   ; $F8 = TM48 - gifted: CeladonMartRoof
 	add_tm SHADOW_BALL  ; $F9 = TM49 - gifted: CeladonMartRoof
 	add_tm SUBSTITUTE   ; $FA = TM50 - Casino prize: 7700
+	; new TMs, 51-55
+	add_tm FREEZE_DRY   ; $FB = TM51 - TBE
+	add_tm GYRO_BALL    ; $FC = TM52 - TBE
+	add_tm BODY_PRESS   ; $FD = TM53 - TBE
+	add_tm FLAIL        ; $FE = TM54 - TBE
+	add_tm CURSE        ; $FF = TM55 - TBE
 ASSERT NUM_TMS == const_value - TM01, "NUM_TMS ({d:NUM_TMS}) does not match the number of add_tm definitions"
 
 DEF NUM_TM_HM EQU NUM_TMS + NUM_HMS
 
-; 50 TMs + 5 HMs = 55 learnable TM/HM flags per Pokémon.
-; These fit in 7 bytes, with one unused bit left over.
+; 55 (50) TMs + 5 HMs = 60 (55) learnable TM/HM flags per Pokémon.
+; These fit in 8 (7) bytes, with four (one) unused bit(s) left over.
 DEF __tmhm_value__ = NUM_TM_HM + 1
 DEF UNUSED_TMNUM EQU __tmhm_value__
 

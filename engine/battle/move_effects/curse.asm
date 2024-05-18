@@ -27,7 +27,6 @@ CurseEffect_::
 	set BEING_CURSED, [hl]
 	callfar PlayCurrentMoveAnimation ; testing / unnecessary because we handle CURSE two animations in core, like the charging of multi-turn moves
 ; lose half life, it goes through even if we faint
-
 	ld hl, wBattleMonHP
 	ldh a, [hWhoseTurn]
 	and a
@@ -35,7 +34,6 @@ CurseEffect_::
 	ld hl, wEnemyMonHP
 .playersTurn
 	push hl
-
 	ld bc, $e      ; skip to max HP ; dear Arceus if this is ugly lol
 	add hl, bc
 	ld a, [hli]    ; load max HP
@@ -46,7 +44,6 @@ CurseEffect_::
 	ld c, a
 	srl b
 	rr c         ; bc = max HP/2
-
 	pop hl
 	inc hl
 	ld a, [hl]    ; subtract total damage from current HP
@@ -67,7 +64,6 @@ CurseEffect_::
 	ld [wHPBarNewHP+1], a
 .noOverkill
 	callfar UpdateCurMonHPBar ; made into a callfar, testing
-
 	ld hl, WasCursedText
 	jp PrintText
 .moveMissed

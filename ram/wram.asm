@@ -1746,14 +1746,14 @@ wMonHFrontSprite:: dw
 wMonHBackSprite:: dw
 wMonHMoves:: ds NUM_MOVES
 wMonHGrowthRate:: db
-wMonHLearnset:: flag_array NUM_TMS + NUM_HMS
+wMonHLearnset:: flag_array NUM_TMS + NUM_HMS ; increased by increasing the number of TMs
 wMonHPicBank:: db
 wMonHeaderEnd::
 
 ; saved at the start of a battle and then written back at the end of the battle
 wSavedTileAnimations:: db
 
-	ds 2
+	ds 1 ; edited, it was 2, reduced for increased TMs
 
 wDamage:: dw
 

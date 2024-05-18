@@ -453,28 +453,23 @@ HandlePoisonBurnLeechSeed:
 	ld a, [de]
 ; new, to handle CURSE
 	push af
-
 	push hl
 	ld h, d
 	ld l, e
 	bit BEING_CURSED, [hl] ; BIT u3,r8 : test bit u3 in register r8, set the zero flag if bit not set
 	pop hl
 	jr z, .notCursed
-
 	push hl
 	ld hl, HurtByCurseText
 	call PrintText
-
 	xor a
 	ld [wAnimationType], a
 	ld a, BURN_PSN_ANIM
 	call PlayMoveAnimation   ; play burn/poison animation ; TBE?
 	pop hl
-
 	push hl ; ?
 	call HandleCurse_DecreaseOwnHP
 	pop hl ; ?
-
 .notCursed
 	pop af
 ; back to vanilla

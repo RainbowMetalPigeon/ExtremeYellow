@@ -215,7 +215,6 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
-;   db OAKS_PARCEL, 1
 	db POTION, 99 ; PERFECTER, 99
 	db SUPER_ROD, 1
 	db REPEL, 3
@@ -224,6 +223,7 @@ DebugItemsList:
 	db TOWN_MAP, 1
 	db BICYCLE, 1
 	db FULL_RESTORE, 99
+    ; 10
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db REVIVE, 99
@@ -234,27 +234,27 @@ DebugItemsList:
 	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
-	db SILPH_SCOPE, 1
     ; 20
+	db SILPH_SCOPE, 1
     db ICE_ORB, 1
     db THUNDER_ORB, 1
     db FIRE_ORB, 1
 	db SUPER_REPEL, 3
-	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
-	db POTION, 99 ; PP_UP, 42
 	db MEGA_STONE_X, 99
 	db POKE_DOLL, 99
-	db LAVA_STONE, 1
-	db MAGMA_STONE, 1
-	db MOLTEN_STONE, 1
-;	db EXP_ALL, 1
-    db POTION, 99
-    db POTION, 99
     db CHROMOGENE, 99
-    db ULTRA_BALL, 99
-    db GREAT_BALL, 99
-    db POKE_BALL, 99
+    db TM_MEGA_PUNCH , 3 ; TM_FREEZE_DRY, 3
+    ; 30
+    db TM_MEGAHORN , 3 ; TM_GYRO_BALL, 3
+    db TM_SWORDS_DANCE , 3 ; TM_BODY_PRESS, 3
+    db TM_COUNTER , 3 ; TM_FLAIL, 3
+    db TM_DRAGON_CLAW , 3 ; TM_CURSE, 3
+    db TM_TOXIC, 99
+    db TM_FREEZE_DRY, 99
+    db TM_GYRO_BALL, 99
+    db TM_FLAIL, 99
+    db TM_CURSE, 99
     ; 39
 	db -1 ; end
 
