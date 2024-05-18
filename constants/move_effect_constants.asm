@@ -108,7 +108,7 @@
 	const_skip                       ; $4E
 	const SUBSTITUTE_EFFECT          ; $4F
 	const HYPER_BEAM_EFFECT          ; $50
-;	const RAGE_EFFECT                ; $51
+	const CURSE_EFFECT               ; $51 edited, was rage
 	const MIMIC_EFFECT               ; $52
 	const METRONOME_EFFECT           ; $53
 	const LEECH_SEED_EFFECT          ; $54
@@ -128,6 +128,7 @@
 
 	const ATTACK_DEFENSE_SELFDOWN1	 ; new, testing
 	const DEFENSE_SPECIAL_SELFDOWN1  ; new, testing
+	const ATTACK_UP_DEFENSE_UP_SPEED_DOWN_EFFECT ; new, testing - for curse
 
 	const ATTACK_SELFDOWN1			 ; new, testing
 	const DEFENSE_SELFDOWN1			 ; new, testing

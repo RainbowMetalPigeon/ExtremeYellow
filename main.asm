@@ -159,6 +159,7 @@ SECTION "Battle Engine 4", ROMX
 
 INCLUDE "engine/gfx/screen_effects.asm"
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
+INCLUDE "engine/battle/move_effects/curse.asm" ; new
 
 
 SECTION "Battle Engine 5", ROMX

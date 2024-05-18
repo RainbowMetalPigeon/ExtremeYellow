@@ -92,7 +92,7 @@ DEF SPDSPCDV_TRAINER EQU $FF	; new, maxed to FF = 15-15 (first bit first stat, s
 	const_skip                ; 3 ; unused
 	const HAS_SUBSTITUTE_UP   ; 4
 	const NEEDS_TO_RECHARGE   ; 5 ; Hyper Beam
-	const USING_RAGE          ; 6
+	const BEING_CURSED        ; 6 ; was USING_RAGE
 	const SEEDED              ; 7
 
 ; wPlayerBattleStatus3 or wEnemyBattleStatus3 bit flags

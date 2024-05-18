@@ -208,6 +208,16 @@ _EvadedAttackText::
 	line "evaded attack!"
 	prompt
 
+_WasCursedText:: ; new
+	text "<TARGET>"
+	line "was cursed!"
+	prompt
+
+_AlreadyCursedText:: ; new
+	text "<TARGET> is"
+	line "already cursed!"
+	prompt
+
 _HitWithRecoilText::
 	text "<USER>'s"
 	line "hit with recoil!"

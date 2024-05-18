@@ -183,7 +183,7 @@ MainInBattleLoop:
 	xor a
 	ld [wFirstMonsNotOutYet], a
 	ld a, [wPlayerBattleStatus2]
-	and (1 << NEEDS_TO_RECHARGE) | (1 << USING_RAGE) ; check if the player is using Rage or needs to recharge
+	and (1 << NEEDS_TO_RECHARGE) ; check if the player needs to recharge ; edited, removed rage stuff
 	jr nz, .selectEnemyMove
 ; the player is not using Rage and doesn't need to recharge
 	ld hl, wEnemyBattleStatus1
@@ -350,7 +350,6 @@ HandleMovePriority:
 ; The player's priority value will be stored in register c and
 ; the enemy's priority value will be stored in register e.
 ; These values will be compared after the 'ret' instruction is called
-
     ld a, [wPlayerSelectedMove]
     ld b, a
     ld hl, PriorityMovesList
@@ -452,6 +451,33 @@ HandlePoisonBurnLeechSeed:
 	ld de, wEnemyBattleStatus2
 .playersTurn2
 	ld a, [de]
+; new, to handle CURSE
+	push af
+
+	push hl
+	ld h, d
+	ld l, e
+	bit BEING_CURSED, [hl] ; BIT u3,r8 : test bit u3 in register r8, set the zero flag if bit not set
+	pop hl
+	jr z, .notCursed
+
+	push hl
+	ld hl, HurtByCurseText
+	call PrintText
+
+	xor a
+	ld [wAnimationType], a
+	ld a, BURN_PSN_ANIM
+	call PlayMoveAnimation   ; play burn/poison animation ; TBE?
+	pop hl
+
+	push hl ; ?
+	call HandleCurse_DecreaseOwnHP
+	pop hl ; ?
+
+.notCursed
+	pop af
+; back to vanilla
 	add a
 	jr nc, .notLeechSeeded
 	push hl
@@ -494,11 +520,15 @@ HurtByLeechSeedText:
 	text_far _HurtByLeechSeedText
 	text_end
 
+HurtByCurseText: ; new
+	text_far _HurtByCurseText
+	text_end
+
 PikachuHealItself: ; end
 	text_far _PikachuHealItself
 	text_end
 
-; decreases the mon's current HP by 1/16 of the Max HP (multiplied by number of toxic ticks if active)
+; decreases the mon's current HP by 1/8 (it was 1/16) of the Max HP (multiplied by number of toxic ticks if active)
 ; note that the toxic ticks are considered even if the damage is not poison (hence the Leech Seed glitch)
 ; hl: HP pointer
 ; bc (out): total damage
@@ -545,6 +575,50 @@ HandlePoisonBurnLeechSeed_DecreaseOwnHP:
 	ld b, h       ; bc = damage * toxic counter
 	ld c, l
 .noToxic
+	pop hl
+	inc hl
+	ld a, [hl]    ; subtract total damage from current HP
+	ld [wHPBarOldHP], a
+	sub c
+	ld [hld], a
+	ld [wHPBarNewHP], a
+	ld a, [hl]
+	ld [wHPBarOldHP+1], a
+	sbc b
+	ld [hl], a
+	ld [wHPBarNewHP+1], a
+	jr nc, .noOverkill
+	xor a         ; overkill: zero HP
+	ld [hli], a
+	ld [hl], a
+	ld [wHPBarNewHP], a
+	ld [wHPBarNewHP+1], a
+.noOverkill
+	call UpdateCurMonHPBar
+	pop hl
+	ret
+
+HandleCurse_DecreaseOwnHP: ; new
+	push hl
+	push hl
+	ld bc, $e      ; skip to max HP
+	add hl, bc
+	ld a, [hli]    ; load max HP
+	ld [wHPBarMaxHP+1], a
+	ld b, a
+	ld a, [hl]
+	ld [wHPBarMaxHP], a
+	ld c, a
+	srl b
+	rr c
+	srl b
+	rr c          ; bc = max HP/4 (assumption: HP < 1024)
+;	srl c         ; c = max HP/8 (assumption: HP < 1024)
+	ld a, c
+	and a
+	jr nz, .nonZeroDamage
+	inc c         ; damage is at least 1
+.nonZeroDamage
 	pop hl
 	inc hl
 	ld a, [hl]    ; subtract total damage from current HP
@@ -3130,7 +3204,7 @@ SelectEnemyMove:
 	jr .done
 .noLinkBattle
 	ld a, [wEnemyBattleStatus2]
-	and (1 << NEEDS_TO_RECHARGE) | (1 << USING_RAGE) ; need to recharge or using rage
+	and (1 << NEEDS_TO_RECHARGE) ; need to recharge ; edited, removed rage stuff
 	ret nz
 	ld hl, wEnemyBattleStatus1
 	ld a, [hl]
@@ -3795,19 +3869,6 @@ CheckPlayerStatusConditions:
 	                ; DecrementPP and MoveHitTest
 	jp nz, .returnToHL	; isn't this line redundant is afterwards there's a non-conditional jp .returnToHL?
 	jp .returnToHL
-
-;.RageCheck
-;	ld a, [wPlayerBattleStatus2]
-;	bit USING_RAGE, a ; is mon using rage?
-;	jp z, .checkPlayerStatusConditionsDone ; if we made it this far, mon can move normally this turn
-;	ld a, RAGE
-;	ld [wd11e], a
-;	call GetMoveName
-;	call CopyToStringBuffer
-;	xor a
-;	ld [wPlayerMoveEffect], a
-;	ld hl, PlayerCanExecuteMove
-;	jp .returnToHL
 
 .returnToHL
 	xor a
@@ -5521,53 +5582,6 @@ SubstituteBrokeText:
 	text_far _SubstituteBrokeText
 	text_end
 
-;; this function raises the attack modifier of a pokemon using Rage when that pokemon is attacked ; modified to get rid of RAGE
-;HandleBuildingRage:
-;; values for the player turn
-;	ld hl, wEnemyBattleStatus2
-;	ld de, wEnemyMonStatMods
-;	ld bc, wEnemyMoveNum
-;	ldh a, [hWhoseTurn]
-;	and a
-;	jr z, .next
-;; values for the enemy turn
-;	ld hl, wPlayerBattleStatus2
-;	ld de, wPlayerMonStatMods
-;	ld bc, wPlayerMoveNum
-;.next
-;	bit USING_RAGE, [hl] ; is the pokemon being attacked under the effect of Rage?
-;	ret z ; return if not
-;	ld a, [de]
-;	cp $0d ; maximum stat modifier value
-;	ret z ; return if attack modifier is already maxed
-;	ldh a, [hWhoseTurn]
-;	xor $01 ; flip turn for the stat modifier raising function
-;	ldh [hWhoseTurn], a
-;; temporarily change the target pokemon's move to $00 and the effect to the one
-;; that causes the attack modifier to go up one stage
-;	ld h, b
-;	ld l, c
-;	ld [hl], $00 ; null move number
-;	inc hl
-;	ld [hl], ATTACK_UP1_EFFECT
-;	push hl
-;	ld hl, BuildingRageText
-;	call PrintText
-;	call StatModifierUpEffect ; stat modifier raising function
-;	pop hl
-;	xor a
-;	ldd [hl], a ; null move effect
-;	ld a, RAGE
-;	ld [hl], a ; restore the target pokemon's move number to Rage
-;	ldh a, [hWhoseTurn]
-;	xor $01 ; flip turn back to the way it was
-;	ldh [hWhoseTurn], a
-;	ret
-
-;BuildingRageText: ; modified to get rid of RAGE
-;	text_far _BuildingRageText
-;	text_end
-
 ; copy last move for Mirror Move
 ; sets zero flag on failure and unsets zero flag on success
 MirrorMoveCopyMove:
@@ -6606,18 +6620,7 @@ CheckEnemyStatusConditions:
 	                             ; DecrementPP and MoveHitTest
 	jp nz, .enemyReturnToHL
 	jp .enemyReturnToHL
-;.checkIfUsingRage
-;	ld a, [wEnemyBattleStatus2]
-;	bit USING_RAGE, a ; is mon using rage?
-;	jp z, .checkEnemyStatusConditionsDone ; if we made it this far, mon can move normally this turn
-;	ld a, RAGE
-;	ld [wd11e], a
-;	call GetMoveName
-;	call CopyToStringBuffer
-;	xor a
-;	ld [wEnemyMoveEffect], a
-;	ld hl, EnemyCanExecuteMove
-;	jp .enemyReturnToHL
+
 .enemyReturnToHL
 	xor a ; set Z flag
 	ret

@@ -255,6 +255,7 @@ AttackAnimationPointers:
 	dw PsystrikeAnim
 	dw BodyPressAnim
 	dw FlailAnim
+	dw CurseAnim
 
 	; KAAARP!
 	dw  AncestorPwrAnim
@@ -280,7 +281,7 @@ AttackAnimationPointers:
 ;	dw XStatItemAnim ; ANIM_AF
 	dw ShrinkingSquareAnim ; ANIM_B0
 ;	dw ShrinkingSquareAnim ; ANIM_B1
-	dw XStatItemBlackAnim ; ANIM_B2
+;	dw XStatItemBlackAnim ; ANIM_B2
 ;	dw XStatItemBlackAnim ; ANIM_B3
 ;	dw ShrinkingSquareBlackAnim ; ANIM_B4, unused?
 ;	dw ShrinkingSquareBlackAnim ; ANIM_B5
@@ -1714,6 +1715,12 @@ IcicleCrashAnim:
 	battle_anim BLIZZARD, SUBANIM_30bis, 0, 6
 	db -1 ; end
 
+CurseAnim: ; it was the unused XStatItemBlackAnim
+	battle_anim LICK, SE_DARKEN_MON_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
 GunkShotAnim:
 
 SludgeWaveAnim:
@@ -1790,12 +1797,6 @@ XStatItemAnim:
 ShrinkingSquareAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim NO_MOVE, SUBANIM_43, 1, 6
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; end
-
-XStatItemBlackAnim:
-	battle_anim NO_MOVE, SE_DARKEN_MON_PALETTE
-	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 

@@ -423,6 +423,32 @@ AttackSpeedUpEffect: ; used for Dragon Dance
 	ld [de], a
 	ret
 
+AttackUpDefenseUpSpeedDownEffect:: ; used for Curse
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+	ld de, wEnemyMoveEffect
+.next
+	ld a, SPEED_SELFDOWN1
+	ld [de], a
+	push de
+	call StatModifierSelfDownEffect ; stat modifier self-lowering function
+	pop de
+	ld a, DEFENSE_UP_SIDE_EFF1 ; ugly, see comment of Dragon Dance
+	ld [de], a ; we do the side effect for the second stat because it won't run the animation
+	push de
+	call StatModifierUpEffect ; stat modifier raising function
+	pop de
+	ld a, ATTACK_UP_SIDE_EFF1 ; ugly, see comment of Dragon Dance
+	ld [de], a ; we do the side effect for the second stat because it won't run the animation
+	push de
+	call StatModifierUpEffect ; stat modifier raising function
+	pop de
+	ld a, ATTACK_UP_DEFENSE_UP_SPEED_DOWN_EFFECT
+	ld [de], a
+	ret
+
 StatModifierUpEffect:
 	ld hl, wPlayerMonStatMods
 	ld de, wPlayerMoveEffect
@@ -1402,21 +1428,14 @@ ClearHyperBeam:
 	pop hl
 	ret
 
-;RageEffect:
-;	ld hl, wPlayerBattleStatus2
-;	ldh a, [hWhoseTurn]
-;	and a
-;	jr z, .player
-;	ld hl, wEnemyBattleStatus2
-;.player
-;	set USING_RAGE, [hl] ; mon is now in "rage" mode
-;	ret
-
 MimicEffect:				; made into a jpfar to save space
 	jpfar MimicEffect_		; made into a jpfar to save space
 
 LeechSeedEffect:
 	jpfar LeechSeedEffect_
+
+CurseEffect:
+	jpfar CurseEffect_
 
 SplashEffect:
 	call PlayCurrentMoveAnimation

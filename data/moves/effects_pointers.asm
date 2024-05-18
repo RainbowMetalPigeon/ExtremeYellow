@@ -104,7 +104,7 @@ MoveEffectPointerTable:
 	dw NULL                      ; unused effect
 	dw SubstituteEffect          ; SUBSTITUTE_EFFECT
 	dw HyperBeamEffect           ; HYPER_BEAM_EFFECT
-;	dw RageEffect                ; RAGE_EFFECT
+	dw CurseEffect               ; CURSE_EFFECT ; edited, was rage
 	dw MimicEffect               ; MIMIC_EFFECT
 	dw NULL                      ; METRONOME_EFFECT
 	dw LeechSeedEffect           ; LEECH_SEED_EFFECT
@@ -124,6 +124,7 @@ MoveEffectPointerTable:
 
 	dw AttackDefenseSelfDownEffect  ; ATTACK_DEFENSE_SELFDOWN1 - new for SUPERPOWER
 	dw DefenseSpecialSelfDownEffect ; DEFENSE_SPECIAL_SELFDOWN1 - new for CLOSE_COMBAT
+	dw AttackUpDefenseUpSpeedDownEffect ; ATTACK_UP_DEFENSE_UP_SPEED_DOWN_EFFECT - new for CURSE
 
 	dw StatModifierSelfDownEffect ; ATTACK_SELFDOWN1, new
 	dw StatModifierSelfDownEffect ; DEFENSE_SELFDOWN1, new

@@ -1477,9 +1477,10 @@ wPlayerBattleStatus1:: db
 ; bit 0 - X Accuracy effect
 ; bit 1 - protected by "mist"
 ; bit 2 - focus energy effect
+; bit 3 - UNUSED
 ; bit 4 - has a substitute
 ; bit 5 - need to recharge
-; bit 6 - rage ; never set because I got rid of rage
+; bit 6 - curse ; edited, repurposed from rage which was removed
 ; bit 7 - leech seeded
 wPlayerBattleStatus2:: db
 

@@ -83,9 +83,9 @@ CalculateGyroBallBasePower::
 ;	db HP_BAR_LENGTH_PX * 2 / 3, 40
 ;	db HP_BAR_LENGTH_PX,         20
 
-FlailHPFractionsAndPowers:
-	db 48, 200
-	db 12, 150
+FlailHPFractionsAndPowers: ; Extreme Yellow custom round fractions
+	db 20, 200
+	db 10, 150
 	db  5, 100
 	db  3,  80
 	db  2,  40

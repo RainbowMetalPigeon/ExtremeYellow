@@ -9,8 +9,8 @@ DecrementPP:
 	                     ; wPlayerBattleStatus2 status flags later
 	and (1 << STORING_ENERGY) | (1 << THRASHING_ABOUT) | (1 << ATTACKING_MULTIPLE_TIMES)
 	ret nz               ; if any of these statuses are true, don't decrement PP
-	bit USING_RAGE, [hl]
-	ret nz               ; don't decrement PP either if Pokemon is using Rage
+;	bit USING_RAGE, [hl]                                                       ; edited, removed rage stuff
+;	ret nz               ; don't decrement PP either if Pokemon is using Rage  ; edited, removed rage stuff
 	ld hl, wBattleMonPP  ; PP of first move (in battle)
 
 ; decrement PP in the battle struct

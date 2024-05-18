@@ -270,6 +270,7 @@ Moves:
 	move PSYSTRIKE,    NO_ADDITIONAL_EFFECT,       100,	PSYCHIC_TYPE, 100, 10 ; testing
 	move BODY_PRESS,   NO_ADDITIONAL_EFFECT,        80,	FIGHTING,     100, 10 ; testing
 	move FLAIL,        NO_ADDITIONAL_EFFECT,         1,	NORMAL,       100, 15 ; testing
+	move CURSE,        CURSE_EFFECT,                 0,	TYPELESS,     100, 15 ; testing
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)
