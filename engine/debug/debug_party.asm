@@ -216,7 +216,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 ;   db OAKS_PARCEL, 1
-	db POTION, 99 ; PERFECTER, 99
+	db PERFECTER, 99 ; POTION, 99
 	db SUPER_ROD, 1
 	db REPEL, 3
 	db GOOD_ROD, 1
