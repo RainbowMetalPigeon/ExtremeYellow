@@ -7,7 +7,7 @@ Route21WildMons:
 	db 28, RATICATE
 	db 31, PIDGEOTTO
 	db 31, PIDGEOTTO
-	db 31, RATICATE
+	db 31, MR_MIME
 	db 28, TANGELA
 	db	5, EEVEE
 	db	5, BULBASAUR
