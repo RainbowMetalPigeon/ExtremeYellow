@@ -174,8 +174,13 @@ FindHiddenItemOrCoinsIndex:
 ; ==============================================================================
 
 CheckIfSpecificHiddenItemHasBeenFound:: ; new
-; inputs: d: Y, e: X, b: MAP
+; inputs: c Y, a X, b MAP
 ; output: nz flag if found, z if not
+
+; need to change c Y, a X into d Y, e X
+	ld e, a ; X
+	ld a, c
+	ld d, a ; Y
 	ld hl, HiddenItemCoords ; MAP, Y, X (but they are written as X, Y, as hidden_item loads \1, \3, \2, trickster!)
 	ld c, -1
 .loop ; results: a: index; c flag not in list

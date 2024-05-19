@@ -300,11 +300,11 @@ IF DEF(_DEBUG)
 
 	ld a, VIRIDIAN_CITY
 	ld b, a
-	ld e, 13
-	ld d, 4
-	predef CheckIfSpecificHiddenItemHasBeenFound ; d Y, e X, b MAP ; nz flag if found
+	ld a, 13
+	ld c, 4
+	predef CheckIfSpecificHiddenItemHasBeenFound ; c Y, a X, b MAP ; nz flag if found
 	ld hl, PalletTownText_502b
-	jr nz,     .printAndEnd
+	jr nz, .printAndEnd
 ; not found
 	ld hl, PalletTownText6
 .printAndEnd
