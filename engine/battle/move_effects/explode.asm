@@ -14,5 +14,6 @@ ExplodeEffect_::
 	ld [hl], a ; set mon's status to 0
 	ld a, [de]
 	res SEEDED, a ; clear mon's leech seed status
+;	res BEING_CURSED, a ; clear mon's curse status ; is this even necessary? and the above one?
 	ld [de], a
 	ret
