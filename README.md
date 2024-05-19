@@ -10,7 +10,7 @@ Kanto at its max (and beyond!)
 - expanded backstory and deeper psychology for the main characters
 - two whole new cities
 - two new main game archs
-- secret and post-game new areas
+- secret and post-game new areas, including a Battle Facility with a never-seen-before challenge mode
 - multiple optional subquests
 - various edits to existing buildings and areas
 - multiple final bosses and extended post-game experience
