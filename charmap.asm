@@ -165,6 +165,11 @@
 	charmap "'t",        $be
 	charmap "'v",        $bf
 
+	; huge random gap
+
+	; new characters
+	charmap "<MEGA>",    $df
+
 	charmap "'",         $e0
 	charmap "<PK>",      $e1
 	charmap "<MN>",      $e2

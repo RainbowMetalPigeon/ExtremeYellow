@@ -165,18 +165,29 @@ _CeladonHotelRoomsText2::
 	done
 
 _CeladonHotelRoomsText3::
-	text "Trophy"
-	line "1"
+	text "A TROPHY awarded"
+	line "for overcoming"
+	cont "any and every"
+	cont "challenge and"
+	cont "rise to the rank"
+	cont "of CHAMPION!"
 	done
 
 _CeladonHotelRoomsText4::
-	text "Trophy"
-	line "2"
+	text "A TROPHY awarded"
+	line "for achieving the"
+	cont "impossible and"
+	cont "besting the"
+	cont "BATTLE FACILITY"
+	cont "till the MAX!"
+;	xxxx "123456789012345678
 	done
 
 _CeladonHotelRoomsText5::
-	text "Trophy"
-	line "3"
+	text "A TROPHY awarded"
+	line "for having fully"
+	cont "completed the"
+	cont "#DEX!"
 	done
 
 _CeladonHotelRoomsText6::
@@ -185,8 +196,11 @@ _CeladonHotelRoomsText6::
 	done
 
 _CeladonHotelRoomsText7::
-	text "Trophy"
-	line "5"
+	text "A TROPHY awarded"
+	line "for having found"
+	cont "out all hidden"
+	cont "MEGA STONES!"
+;	xxxx "123456789012345678
 	done
 
 _CeladonHotelRoomsText8::
