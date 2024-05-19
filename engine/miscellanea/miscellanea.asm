@@ -338,7 +338,6 @@ MegaEvolvedMons: ; 0-14
 	db MPINSIR
 	db MGYARADOS
 	db MARODACTYL
-
 ; =====================================
 
 TMMartClerkDialogue::

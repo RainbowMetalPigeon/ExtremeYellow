@@ -297,24 +297,16 @@ PalletTownText4: ; sign by lab
 PalletTownText5: ; sign by fence
 IF DEF(_DEBUG)
 	text_asm
-
-	ld a, VIRIDIAN_CITY
-	ld b, a
-	ld a, 13
-	ld c, 4
-	predef CheckIfSpecificHiddenItemHasBeenFound ; c Y, a X, b MAP ; nz flag if found
+	ld a, 239
+	inc a
+	ld [wWhichPewterGuy], a
 	ld hl, PalletTownText_502b
-	jr nz, .printAndEnd
-; not found
-	ld hl, PalletTownText6
-.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
 PalletTownText_502b:
-;	text_decimal wWhichPewterGuy, 1, 3
-;	text "bit"
-	text "FOUND!"
+	text_decimal wWhichPewterGuy, 1, 3
+	text "bit"
 	done
 ELSE
 	text_far _PalletTownText5

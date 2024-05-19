@@ -194,7 +194,8 @@
 	const EVENT_GOT_TM48
 	const EVENT_GOT_TM49
 	const EVENT_GOT_TM18
-	const_skip 18 ; edited, was 24
+	const_skip 17 ; edited, was 24
+	const EVENT_FOUND_ALL_MEGA_STONES ; new
 	const EVENT_ALREADY_SPOKEN_WITH_CELADON_PHD ; new
 	const EVENT_ALREADY_REWARDED_ORB_CELADON_PHD ; new
 	const EVENT_ALREADY_REWARDED_MONEY_CELADON_PHD ; new

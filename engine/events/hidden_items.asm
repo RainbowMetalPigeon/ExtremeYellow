@@ -173,14 +173,49 @@ FindHiddenItemOrCoinsIndex:
 
 ; ==============================================================================
 
-CheckIfSpecificHiddenItemHasBeenFound:: ; new
-; inputs: c Y, a X, b MAP
-; output: nz flag if found, z if not
+CheckIfMegaStonesHaveAllBeenFound:: ; new
+; z flag if not all stones found, nz if all found
+	CheckEvent EVENT_GOT_FUJI_MEGA_STONE_X
+	ret z
+; 1
+	ld a, OBSIDIAN_MINES
+	ld b, a  ; MAP
+	ld e, 24 ; X
+	ld d, 30  ; Y
+	call CheckIfSpecificHiddenItemHasBeenFound
+	ret z
+; 2
+	ld a, OCHRE_WONDERLAND
+	ld b, a  ; MAP
+	ld e, 56 ; X
+	ld d, 21  ; Y
+	call CheckIfSpecificHiddenItemHasBeenFound
+	ret z
+; 3
+	ld a, PALLET_TOWN
+	ld b, a  ; MAP
+	ld e, 5 ; X
+	ld d, 11  ; Y
+	call CheckIfSpecificHiddenItemHasBeenFound
+	ret z
+; 4
+	ld a, SECLUDED_ATOLL_SW
+	ld b, a  ; MAP
+	ld e, 42 ; X
+	ld d, 16  ; Y
+	call CheckIfSpecificHiddenItemHasBeenFound
+	ret z
+; 5
+	ld a, CINNABAR_ISLAND
+	ld b, a  ; MAP
+	ld e, 19 ; X
+	ld d, 12  ; Y
+	call CheckIfSpecificHiddenItemHasBeenFound
+	ret
 
-; need to change c Y, a X into d Y, e X
-	ld e, a ; X
-	ld a, c
-	ld d, a ; Y
+CheckIfSpecificHiddenItemHasBeenFound:: ; new
+; inputs: d: Y, e: X, b: MAP
+; output: nz flag if found, z if not
 	ld hl, HiddenItemCoords ; MAP, Y, X (but they are written as X, Y, as hidden_item loads \1, \3, \2, trickster!)
 	ld c, -1
 .loop ; results: a: index; c flag not in list

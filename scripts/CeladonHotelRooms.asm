@@ -1,5 +1,22 @@
 CeladonHotelRooms_Script:
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, CeladonHotelRoomsSpawns
 	jp EnableAutoTextBoxDrawing
+
+CeladonHotelRoomsSpawns:
+	CheckEvent EVENT_FOUND_ALL_MEGA_STONES
+	ret nz
+; check if the event is to be set
+	callfar CheckIfMegaStonesHaveAllBeenFound
+	ret z
+; all stones have been found
+	SetEvent EVENT_FOUND_ALL_MEGA_STONES
+	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_1 ; TBV
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ret
 
 CeladonHotelRooms_TextPointers:
 	dw CeladonHotelRoomsText1 ; Looker (Bellocchio)
