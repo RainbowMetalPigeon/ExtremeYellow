@@ -113,5 +113,6 @@ PredefPointers::
 	add_predef DisplayElevatorFloorMenu
 	add_predef OaksAideScript
 	add_predef ApplyHeatDamage ; new
-	add_predef HauntedHouseFakeOutOfBattlePoisonDamage ; new, testing
-	add_predef HauntedHouseFakePikachuFaintingAndRandomMessages ; new, testing
+	add_predef HauntedHouseFakeOutOfBattlePoisonDamage ; new
+	add_predef HauntedHouseFakePikachuFaintingAndRandomMessages ; new
+	add_predef CheckIfSpecificHiddenItemHasBeenFound ; new, testing
