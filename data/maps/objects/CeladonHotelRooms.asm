@@ -12,15 +12,23 @@ CeladonHotelRooms_Object:
 	warp_event 51,  7, CELADON_HOTEL_HALL, 6 ; 8
 
 	def_bg_events
-	bg_event 16,  4, 2 ; CeladonHotelRoomsSign1
-	bg_event 16,  5, 3 ; CeladonHotelRoomsSign2
-	bg_event 16,  1, 4 ; CeladonHotelRoomsSign3
-	bg_event 23,  1, 5 ; CeladonHotelRoomsSign4
-	bg_event 25,  6, 6 ; CeladonHotelRoomsSign5
-	bg_event 39,  1, 7 ; CeladonHotelRoomsSign6
-	bg_event 32,  1, 8 ; CeladonHotelRoomsSign7
+	bg_event 16,  4,  9 ; CeladonHotelRoomsSign1
+	bg_event 16,  5, 10 ; CeladonHotelRoomsSign2
+	bg_event 16,  1, 11 ; CeladonHotelRoomsSign3
+	bg_event 23,  1, 12 ; CeladonHotelRoomsSign4
+	bg_event 25,  6, 13 ; CeladonHotelRoomsSign5
+	bg_event 39,  1, 14 ; CeladonHotelRoomsSign6
+	bg_event 32,  1, 15 ; CeladonHotelRoomsSign7
+	bg_event 25,  5, 16 ; CeladonHotelRoomsSign8
 
 	def_object_events
 	object_event 39,  4, SPRITE_HIKER, STAY, LEFT, 1 ; Looker (Bellocchio)
+	object_event 51,  5, SPRITE_TRAVELER, STAY, RIGHT, 2 ; Traveler (yet unused)
+	object_event  1,  1, SPRITE_OLD_AMBER, STAY, NONE, 3 ; Trophy, proxy
+	object_event  2,  1, SPRITE_OLD_AMBER, STAY, NONE, 4 ; Trophy, proxy
+	object_event  3,  1, SPRITE_OLD_AMBER, STAY, NONE, 5 ; Trophy, proxy
+	object_event  4,  4, SPRITE_OLD_AMBER, STAY, NONE, 6 ; Trophy, proxy
+	object_event  5,  5, SPRITE_OLD_AMBER, STAY, NONE, 7 ; Trophy, proxy
+	object_event  6,  4, SPRITE_OLD_AMBER, STAY, NONE, 8 ; Trophy, proxy
 
 	def_warps_to CELADON_HOTEL_ROOMS

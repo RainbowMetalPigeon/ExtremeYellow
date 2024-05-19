@@ -2370,7 +2370,7 @@ wRoute18Gate1FCurScript:: db
 wHauntedHouse3CurScript:: db ; new
 wBattleFacilityCurScript:: db ; new
 wHauntedRedsHouseCurScript:: db ; new
-wHauntedPalletTownCurScript:: db ; new, TBV
+wHauntedPalletTownCurScript:: db ; new
 wHauntedIslandOfNumbersCurScript:: db ; new
 wHauntedHouse4CurScript:: db ; new
 wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok

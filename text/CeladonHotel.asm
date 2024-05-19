@@ -160,23 +160,62 @@ _CeladonHotelRoomsText1::
 	cont "professionals!"
 	done
 
+_CeladonHotelRoomsText2::
+	text "Proxy"
+	done
+
+_CeladonHotelRoomsText3::
+	text "Trophy"
+	line "1"
+	done
+
+_CeladonHotelRoomsText4::
+	text "Trophy"
+	line "2"
+	done
+
+_CeladonHotelRoomsText5::
+	text "Trophy"
+	line "3"
+	done
+
+_CeladonHotelRoomsText6::
+	text "Trophy"
+	line "4"
+	done
+
+_CeladonHotelRoomsText7::
+	text "Trophy"
+	line "5"
+	done
+
+_CeladonHotelRoomsText8::
+	text "Trophy"
+	line "6"
+	done
+
+; signs -----
+
 _CeladonHotelRoomsSign1::
 	text "Handcuffs?"
-	line "Somebody got"
-	cont "arrested here?"
+
+	para "Somebody got"
+	line "arrested here?!"
 	done
 
 _CeladonHotelRoomsSign2::
-	text "Some rope."
-	line "Maybe the bed"
-	cont "is unstable?"
+	text "Some ropes."
+
+	para "Maybe the bed"
+	line "is unstable?"
 	done
 
 _CeladonHotelRoomsSign3::
 	text "The browser is"
 	line "showing a site on"
 	cont "how to tie knots."
-	cont "A sailor's room?"
+
+	para "A sailor's room?"
 	done
 
 _CeladonHotelRoomsSign4::
@@ -184,15 +223,18 @@ _CeladonHotelRoomsSign4::
 	line "for the passcode"
 	cont "to access pay"
 	cont "channels."
-	cont "Maybe some recent"
-	cont "blockbuster!"
+	
+	para "Maybe some recent"
+	line "blockbuster!"
 	done
 
 _CeladonHotelRoomsSign5::
 	text "Some wobbly toys"
 	line "are drying near"
 	cont "the sink."
-	cont "For kids? Dogs?"
+
+	para "Are they maybe for"
+	line "a kid? Or a dog?"
 ;	xxxx "123456789012345678
 	done
 
@@ -208,4 +250,11 @@ _CeladonHotelRoomsSign7::
 	para "...it uses a lot"
 	line "of words to say"
 	cont "nothing at all..."
+	done
+
+_CeladonHotelRoomsSign8::
+	text "So many tissues..."
+
+	para "Somebody must have"
+	line "cried a lot here."
 	done

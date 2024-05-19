@@ -204,7 +204,7 @@ MapHSPointers:
 	dw NoHS ; ROUTE_22_GATE
 	dw VictoryRoad2FHS
 	dw NoHS ; ROUTE_12_GATE_2F
-	dw NoHS ; CELADON_HOTEL_ROOMS
+	dw CeladonHotelRoomsHS ; new
 	dw NoHS ; DIGLETTS_CAVE
 	dw VictoryRoad3FHS
 	dw RocketHideoutB1FHS
@@ -806,5 +806,13 @@ HauntedHouse4HS: ; new
 CeladonHotelHS: ; new
 	db CELADON_HOTEL, $04, SHOW ; guard blocking pass
 	db CELADON_HOTEL, $05, HIDE ; guard allowing pass
+CeladonHotelRoomsHS: ; new
+	db CELADON_HOTEL_ROOMS, $02, HIDE ; Traveler, not used yet
+	db CELADON_HOTEL_ROOMS, $03, HIDE ; Trophy 1
+	db CELADON_HOTEL_ROOMS, $04, HIDE ; Trophy 2
+	db CELADON_HOTEL_ROOMS, $05, HIDE ; Trophy 3
+	db CELADON_HOTEL_ROOMS, $06, HIDE ; Trophy 4
+	db CELADON_HOTEL_ROOMS, $07, HIDE ; Trophy 5
+	db CELADON_HOTEL_ROOMS, $08, HIDE ; Trophy 6
 
 	db $FF, $01, SHOW ; end, list terminator
