@@ -341,51 +341,6 @@ MegaEvolvedMons: ; 0-14
 
 ; =====================================
 
-CheckIfSpecificHiddenItemHasBeenFound::
-; inputs: d: Y, e: X, b: MAP
-; output: nz flag if found, z if not
-	ld hl, HiddenItemCoords ; MAP, Y, X (but they are written as X, Y, as hidden_item loads \1, \3, \2, trickster!)
-	ld c, -1
-.loop ; results: a: index; c flag not in list
-	inc c
-	ld a, [hli]
-	cp -1 ; end of the list?
-	jr z, .failed
-; actual comparisons
-	cp b ; MAP
-	jr nz, .next1
-	ld a, [hli]
-	cp d ; Y
-	jr nz, .next2
-	ld a, [hli]
-	cp e ; X
-	jr nz, .loop
-	ld a, c
-	jr .exitLoop
-; enders
-.next1
-	inc hl
-.next2
-	inc hl
-	jr .loop
-.exitLoop
-; check if the item, which we now know exists, has been found already or not
-	ld [wHiddenItemOrCoinsIndex], a
-	ld hl, wObtainedHiddenItemsFlags
-	ld a, [wHiddenItemOrCoinsIndex]
-	ld c, a
-	ld b, FLAG_TEST
-	predef FlagActionPredef
-	ld a, c
-	and a
-	ret ; with the z/nz flag already set
-.failed
-	xor a ; to make a=0
-	xor a ; sets z flag
-	ret
-
-; =====================================
-
 TMMartClerkDialogue::
 	ld a, 1
 	ld [wUpdateSpritesEnabled], a
