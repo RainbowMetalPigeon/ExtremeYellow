@@ -5,6 +5,7 @@ ENDM
 HiddenItemCoords:
 	; map id, x, y
 	hidden_item SILPH_CO_5F,                   12,   3
+	hidden_item VIRIDIAN_CITY,                 13,   4 ; edited, and moved in second position
 	hidden_item SILPH_CO_9F,                    2,  15
 	hidden_item POKEMON_MANSION_3F,             1,   9
 	hidden_item POKEMON_MANSION_B1F,            1,   9
@@ -55,7 +56,6 @@ HiddenItemCoords:
 	hidden_item ROUTE_4,                       38,   3 ; edited
 	hidden_item ROUTE_9,                       14,   7
 	hidden_item COPYCATS_HOUSE_2F,              1,   1
-	hidden_item VIRIDIAN_CITY,                 13,   4 ; edited
 	hidden_item CERULEAN_CITY,                 15,   8
 	hidden_item CERULEAN_CAVE_1F,              18,   7
 	hidden_item POKEMON_TOWER_5F,               4,  12

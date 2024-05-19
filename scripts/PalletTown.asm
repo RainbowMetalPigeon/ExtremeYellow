@@ -303,18 +303,18 @@ IF DEF(_DEBUG)
 	ld e, 13
 	ld d, 4
 	predef CheckIfSpecificHiddenItemHasBeenFound ; d Y, e X, b MAP ; nz flag if found
-	jr nz, .found
-	ld hl, PalletTownText6
-	jr .printAndEnd
-.found
 	ld hl, PalletTownText_502b
+	jr nz,     .printAndEnd
+; not found
+	ld hl, PalletTownText6
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
 PalletTownText_502b:
 ;	text_decimal wWhichPewterGuy, 1, 3
-	text "bit"
+;	text "bit"
+	text "FOUND!"
 	done
 ELSE
 	text_far _PalletTownText5
