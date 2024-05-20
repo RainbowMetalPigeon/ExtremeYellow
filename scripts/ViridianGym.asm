@@ -134,7 +134,7 @@ ViridianGymGiovanniPostBattle:
 	ld a, $f0
 	ld [wJoyIgnore], a
 
-	ld a, $f ; ViridianGymGiovanniPostBattleText
+	ld a, $e ; ViridianGymGiovanniPostBattleText
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 
@@ -185,8 +185,8 @@ ViridianGym_TextPointers:
 	dw ViridianGymGuideText ; $b
 	dw PickUpItemText ; $c
 	dw PickUpItemText ; new, $d
-	dw BoulderText ; new ; $e
-	dw ViridianGymGiovanniPostBattleText ; $f
+;	dw BoulderText ; new ; ($e)
+	dw ViridianGymGiovanniPostBattleText ; $e
 
 ViridianGymTrainerHeaders:
 	def_trainers 2

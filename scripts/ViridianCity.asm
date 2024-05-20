@@ -34,9 +34,12 @@ ViridianCityScript2:
 ViridianCityScript_1905b:
 	CheckEvent EVENT_VIRIDIAN_GYM_OPEN
 	ret nz
-	ld a, [wObtainedBadges]
-	cp ~(1 << BIT_EARTHBADGE)
-	jr nz, .gym_closed
+; new, now gym opens after you defeat Giovanni in Obsidian, not if you have all other badges
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr z, .gym_closed
+;	ld a, [wObtainedBadges]
+;	cp ~(1 << BIT_EARTHBADGE)
+;	jr nz, .gym_closed
 	SetEvent EVENT_VIRIDIAN_GYM_OPEN
 	ret
 .gym_closed
