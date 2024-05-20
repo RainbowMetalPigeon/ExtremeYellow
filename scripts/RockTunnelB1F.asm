@@ -11,6 +11,7 @@ RockTunnelB1F_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw RockTunnel2BrockPostBattleRematch ; new, map-dependent
 
 RockTunnelB1F_TextPointers:
 	dw RockTunnel2TextBrock ; new
@@ -22,6 +23,7 @@ RockTunnelB1F_TextPointers:
 	dw RockTunnel2Text6
 	dw RockTunnel2Text7
 	dw RockTunnel2Text8
+	dw RockTunnel2TextBrockPostBattle ; 10, new, map-dependent
 
 RockTunnel2TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Brock
@@ -217,6 +219,11 @@ RockTunnel2TextBrock:
 	ld hl, RockTunnel2BrockPostBattleText
 	ld de, RockTunnel2BrockPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wRockTunnelB1FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 RockTunnel2BrockBeforeBattleText:
@@ -225,4 +232,29 @@ RockTunnel2BrockBeforeBattleText:
 
 RockTunnel2BrockPostBattleText:
 	text_far _RockTunnel2BrockPostBattleText
+	text_end
+
+RockTunnel2BrockPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, RockTunnel2ResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 10 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_BROCK_REMATCH_INVERSE ; map-dependent
+	jp RockTunnel2ResetScripts
+
+RockTunnel2ResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wRockTunnelB1FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+RockTunnel2TextBrockPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

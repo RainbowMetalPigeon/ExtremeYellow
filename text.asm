@@ -269,8 +269,6 @@ INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/NameRatersHouse.asm"
-INCLUDE "text/LavenderCuboneHouse.asm"
-INCLUDE "text/LavenderMart.asm"
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -298,6 +296,8 @@ INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PewterMart.asm"
 INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/CeruleanMart.asm"
+INCLUDE "text/LavenderMart.asm"
+INCLUDE "text/LavenderCuboneHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

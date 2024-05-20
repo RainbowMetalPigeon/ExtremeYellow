@@ -164,7 +164,7 @@ _Route29BattleText7::
     done
 
 _Route29EndBattleText7::
-    text "HIKER: Wow! Go"
+    text "Wow! Go"
     line "easy on me!"
     prompt
 

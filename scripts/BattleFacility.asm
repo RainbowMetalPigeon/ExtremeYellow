@@ -101,7 +101,7 @@ BattleFacilityScript1_PostBattle:
 	cp 7 ; 2 for testing
 	jr nz, .notFinishedBlock
 ; we finished a block in standard mode
-	ld a, 14 ; BattleFacilityText_FinishedBlock
+	ld a, 15 ; BattleFacilityText_FinishedBlock
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 12 ; we finished the session
@@ -109,7 +109,7 @@ BattleFacilityScript1_PostBattle:
 	ld [wCurMapScript], a
 	jr .warpToEntrance
 .notFinishedBlock
-	ld a, 15 ; BattleFacilityText_HealAndSmolPrize
+	ld a, 16 ; BattleFacilityText_HealAndSmolPrize
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; try to reward the PP UP
@@ -118,12 +118,12 @@ BattleFacilityScript1_PostBattle:
 	call GiveItem
 	jr nc, .bagFullPPUP
 ; we successfully rewarded the PP UP
-	ld a, 16 ; BattleFacilityText_ReceivedItem
+	ld a, 17 ; BattleFacilityText_ReceivedItem
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	jr .hardcoreMode2
 .bagFullPPUP
-	ld a, 17 ; BattleFacilityText_BagFull
+	ld a, 18 ; BattleFacilityText_BagFull
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; bag is full, we add it to the backlog stack
@@ -133,7 +133,7 @@ BattleFacilityScript1_PostBattle:
 ; the backlog of PP UPs is full, let's cap it at 255
 	ld [hl], 255
 .hardcoreMode2
-	ld a, 11 ; BattleFacilityText_NextBattle
+	ld a, 12 ; BattleFacilityText_NextBattle
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .scriptHandling ; continue with the next battle
@@ -436,7 +436,7 @@ BattleFacilityScript11_PostMoveOpponentOut:
 ; -------------------------------------
 
 BattleFacilityScript12_AfterWarpVictory:
-	ld a, 12 ; BattleFacilityText_AfterWarpVictory
+	ld a, 13 ; BattleFacilityText_AfterWarpVictory
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; hide all opponents just to be safe
@@ -491,12 +491,12 @@ BattleFacilityScript12_AfterWarpVictory:
     call GiveItem
     jr nc, .bagFullItem
 ; we successfully rewarded the prize
-    ld a, 16 ; BattleFacilityText_ReceivedItem
+    ld a, 17 ; BattleFacilityText_ReceivedItem
     ldh [hSpriteIndexOrTextID], a
     call DisplayTextID
     jr .justToDoThePop
 .bagFullItem
-    ld a, 17 ; BattleFacilityText_BagFull
+    ld a, 18 ; BattleFacilityText_BagFull
     ldh [hSpriteIndexOrTextID], a
     call DisplayTextID
 ; bag is full, we add it to the backlog stack
@@ -517,7 +517,7 @@ BattleFacilityScript12_AfterWarpVictory:
 ; -------------------------------------
 
 BattleFacilityScript13_AfterWarpDefeat:
-	ld a, 13
+	ld a, 14 ; BattleFacilityText_AfterWarpDefeat
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; hide all opponents just to be safe
@@ -587,14 +587,15 @@ BattleFacility_TextPointers:
 	; signs
 	dw BattleFacilityTextSignRecordsNormal ; 9, tabellone segnapunti
 	dw BattleFacilityTextSignRecordsInverse ; 10, tabellone segnapunti
+	dw BattleFacilityTextGuide_Info ; 11, full rules
 ; non-NPCs texts
-	dw BattleFacilityText_NextBattle       ; 11
-	dw BattleFacilityText_AfterWarpVictory ; 12
-	dw BattleFacilityText_AfterWarpDefeat  ; 13
-	dw BattleFacilityText_FinishedBlock    ; 14
-	dw BattleFacilityText_HealAndSmolPrize ; 15
-	dw BattleFacilityText_ReceivedItem     ; 16
-	dw BattleFacilityText_BagFull          ; 17
+	dw BattleFacilityText_NextBattle       ; 12
+	dw BattleFacilityText_AfterWarpVictory ; 13
+	dw BattleFacilityText_AfterWarpDefeat  ; 14
+	dw BattleFacilityText_FinishedBlock    ; 15
+	dw BattleFacilityText_HealAndSmolPrize ; 16
+	dw BattleFacilityText_ReceivedItem     ; 17
+	dw BattleFacilityText_BagFull          ; 18
 
 ; NPCs texts --------------------------
 
@@ -610,12 +611,19 @@ BattleFacilityTextGuide:
 	call AskHowTheyCanHelp
 	ld a, [wCurrentMenuItem] ; 0 for INFO, 1 for BATTLE, 2 for EXIT
 	cp 2 ; EXIT
-	jr z, .exit
+	jp z, .exit
 	cp 1 ; BATTLE
-	jr z, .battle
+	jp z, .battle
 ; else, INFO
 .info
-	ld hl, BattleFacilityTextGuide_Info
+	CheckEvent EVENT_ALREADY_GOT_INFO_BATTLE_FACILITY
+	jr z, .infoLong
+	ld hl, BattleFacilityTextGuide_InfoShort
+	jr .infoPrint
+.infoLong
+	SetEvent EVENT_ALREADY_GOT_INFO_BATTLE_FACILITY
+	ld hl, BattleFacilityTextGuide_InfoFull
+.infoPrint
 	call PrintText
 	jp TextScriptEnd
 .prizes
@@ -773,6 +781,14 @@ BattleFacilityTextGuide_Battle3:
 
 BattleFacilityTextGuide_Info:
 	text_far _BattleFacilityTextGuide_Info
+	text_end
+
+BattleFacilityTextGuide_InfoShort:
+	text_far _BattleFacilityTextGuide_InfoShort
+	text_end
+
+BattleFacilityTextGuide_InfoFull:
+	text_far _BattleFacilityTextGuide_InfoFull
 	text_end
 
 ; -------------------------------------

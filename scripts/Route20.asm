@@ -60,9 +60,10 @@ Route20_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw Route20MistyPostBattleRematch ; new, map-dependent
 
 Route20_TextPointers:
-	dw Route20TextMisty
+	dw Route20TextMisty ; new
 	dw Route20Text1
 	dw Route20Text2
 	dw Route20Text3
@@ -75,6 +76,7 @@ Route20_TextPointers:
 	dw Route20Text10
 	dw Route20Text11
 	dw Route20Text12
+	dw Route20TextMistyPostBattle ; 14, new, map-dependent
 
 Route20TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Misty
@@ -315,6 +317,11 @@ Route20TextMisty:
 	ld hl, Route20MistyPostBattleText
 	ld de, Route20MistyPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wRoute20CurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 Route20MistyBeforeBattleText:
@@ -323,4 +330,29 @@ Route20MistyBeforeBattleText:
 
 Route20MistyPostBattleText:
 	text_far _Route20MistyPostBattleText
+	text_end
+
+Route20MistyPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route20ResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 14 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_MISTY_REMATCH_INVERSE ; map-dependent
+	jp Route20ResetScripts
+
+Route20ResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wRoute20CurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+Route20TextMistyPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

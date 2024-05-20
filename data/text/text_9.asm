@@ -493,3 +493,13 @@ _AskOnigiriBoxText:: ; new
 _RefusedOnigiriBoxText:: ; new
 	text "Not just yet!"
 	prompt
+
+_GymLeaderElite4PostRematchInverseText:: ; new
+	text "That was an"
+	line "unusually great"
+	cont "battle!"
+
+	para "Come back any time"
+	line "for a rematch!"
+;	xxxx "123456789012345678
+	done

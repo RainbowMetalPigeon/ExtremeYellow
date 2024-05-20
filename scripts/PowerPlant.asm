@@ -11,6 +11,7 @@ PowerPlant_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw PowerPlantLtSurgePostBattleRematch ; new, map-dependent
 
 PowerPlant_TextPointers:
 	dw PowerPlantTextLtSurge ; new
@@ -27,6 +28,7 @@ PowerPlant_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	dw RockTunnel2TextBrockPostBattle ; 15, new, map-dependent
 
 PowerPlantTrainerHeaders:
 	def_trainers
@@ -143,6 +145,11 @@ PowerPlantTextLtSurge:
 	ld hl, PowerPlantLtSurgePostBattleText
 	ld de, PowerPlantLtSurgePostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wPowerPlantCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 PowerPlantLtSurgeBeforeBattleText:
@@ -152,3 +159,29 @@ PowerPlantLtSurgeBeforeBattleText:
 PowerPlantLtSurgePostBattleText:
 	text_far _PowerPlantLtSurgePostBattleText
 	text_end
+
+PowerPlantLtSurgePostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, PowerPlantResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 15 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_LT_SURGE_REMATCH_INVERSE ; map-dependent
+	jp PowerPlantResetScripts
+
+PowerPlantResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wPowerPlantCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+PowerPlantTextLtSurgePostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
+	text_end
+	

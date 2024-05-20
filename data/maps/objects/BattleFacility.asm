@@ -11,6 +11,7 @@ BattleFacility_Object:
 	def_bg_events
 	bg_event  1,  0,  9 ; tabelloni segnapunti
 	bg_event  2,  0, 10 ; tabelloni segnapunti
+	bg_event 10,  0, 11 ; full rules
 
 	def_object_events
 	object_event  6,  3, SPRITE_GYM_GUIDE, STAY, DOWN, 1 ; battle facility guide

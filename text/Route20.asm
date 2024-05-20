@@ -164,7 +164,7 @@ _Route20MistyBeforeBattleText::
 	cont "nice surprise."
 
 	para "Did you know this"
-	line "my training"
+	line "is my training"
 	cont "ground?"
 
 	para "Today I feel..."
