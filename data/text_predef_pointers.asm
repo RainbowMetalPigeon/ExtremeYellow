@@ -75,5 +75,7 @@ TextPredefs::
 	add_tx_pre PlayerStartedSurfingText             ; new
 	add_tx_pre ThisTreeIsCuttableText               ; new
 	add_tx_pre UsedCutText2                         ; new
-	add_tx_pre MapMessage                           ; new, testing
-	add_tx_pre MapMessageComplete                   ; new, testing
+	add_tx_pre MapMessage                           ; new
+	add_tx_pre MapMessageComplete                   ; new
+	add_tx_pre CurrentTooFastText2                  ; new, testing
+	add_tx_pre CyclingIsFunText2                    ; new, testing

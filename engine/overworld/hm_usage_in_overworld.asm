@@ -20,7 +20,7 @@ CheckIfCanSurfOrCutFromOverworld::
     bit BIT_SOULBADGE, a
 	jp z, .newBadgeRequired
 ; we have the right badge
-	farcall IsSurfingAllowed
+	call IsSurfingAllowed2
 	ld hl, wd728
 	bit 1, [hl]
 	res 1, [hl]
@@ -215,3 +215,52 @@ IsMoveInParty:: ; maybe unnecessary to use double colon?
 	ld a, d
 	and a
 	ret
+
+; ugly copies to fix ghost messages --------------------------------------------
+
+IsSurfingAllowed2:
+; Returns whether surfing is allowed in bit 1 of wd728.
+; Surfing isn't allowed on the Cycling Road or in the lowest level of the
+; Seafoam Islands before the current has been slowed with boulders.
+	ld hl, wd728
+	set 1, [hl]
+	ld a, [wd732]
+	bit 5, a
+	jr nz, .forcedToRideBike
+	ld a, [wCurMap]
+	cp SEAFOAM_ISLANDS_B4F
+	ret nz
+	CheckBothEventsSet EVENT_SEAFOAM4_BOULDER1_DOWN_HOLE, EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
+	ret z
+	ld hl, SeafoamIslandsB4FStairsCoords2
+	call ArePlayerCoordsInArray
+	ret nc
+	ld hl, wd728
+	res 1, [hl]
+	tx_pre_jump CurrentTooFastText2
+.forcedToRideBike
+	ld hl, wd728
+	res 1, [hl]
+	tx_pre_jump CyclingIsFunText2
+
+SeafoamIslandsB4FStairsCoords2:
+	dbmapcoord  7, 11
+	db -1 ; end
+
+CurrentTooFastText2::
+	text_far _CurrentTooFastText2
+	text_end
+
+_CurrentTooFastText2::
+	text "The current is"
+	line "much too fast!"
+	done
+
+CyclingIsFunText2::
+	text_far _CyclingIsFunText2
+	text_end
+
+_CyclingIsFunText2::
+	text "Cycling is fun!"
+	line "Forget SURFing!"
+	done
