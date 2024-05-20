@@ -11,6 +11,7 @@ ViridianForest_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw ViridianForestErikaPostBattleRematch ; new, map-dependent
 
 ViridianForest_TextPointers:
 	dw ViridianForestTextErika ; new
@@ -30,6 +31,7 @@ ViridianForest_TextPointers:
 	dw ViridianForestText14
 	dw ViridianForestText15
 	dw ViridianForestText16
+	dw ViridianForestTextErikaPostBattle ; 18, new, map-dependent
 
 ViridianForestTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Erika
@@ -203,6 +205,11 @@ ViridianForestTextErika:
 	ld hl, ViridianForestErikaPostBattleText
 	ld de, ViridianForestErikaPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wViridianForestCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 ViridianForestErikaBeforeBattleText:
@@ -211,4 +218,29 @@ ViridianForestErikaBeforeBattleText:
 
 ViridianForestErikaPostBattleText:
 	text_far _ViridianForestErikaPostBattleText
+	text_end
+
+ViridianForestErikaPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ViridianForestResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 18 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_ERIKA_REMATCH_INVERSE ; map-dependent
+	jp ViridianForestResetScripts
+
+ViridianForestResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wViridianForestCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+ViridianForestTextErikaPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end
