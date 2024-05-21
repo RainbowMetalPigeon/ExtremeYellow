@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db CLOYSTER, 97
+	db PINSIR, 97
 	db STARTER_PIKACHU, 5
 ;	db MRAYQUAZA, 50
 ;	db GENGAR, 9

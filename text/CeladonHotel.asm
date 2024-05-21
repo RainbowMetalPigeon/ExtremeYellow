@@ -192,7 +192,7 @@ _CeladonHotelRoomsText5::
 _CeladonHotelRoomsText6::
 	text "A TROPHY awarded"
 	line "after defeating"
-	cont "all GYM LEADERs"
+	cont "all GYM LEADERS"
 	cont "and ELITE FOUR in"
 	cont "INVERSE BATTLES!"
 	done

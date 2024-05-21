@@ -761,7 +761,13 @@ TMMartClerkDialogue::
 	inc de
 .checkTM52
 
-	; TM52 ; GYRO_BALL
+	; TM52
+	CheckHideShow HS_OBSIDIAN_WAREHOUSE_ITEM_4
+	jr z, .checkTM53
+	ld a, TM_GYRO_BALL
+	ld [de], a
+	inc de
+.checkTM53
 
 	; TM53 ; BODY_PRESS
 
