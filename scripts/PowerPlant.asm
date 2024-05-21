@@ -28,7 +28,7 @@ PowerPlant_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw RockTunnel2TextBrockPostBattle ; 15, new, map-dependent
+	dw PowerPlantTextLtSurgePostBattle ; 15, new, map-dependent
 
 PowerPlantTrainerHeaders:
 	def_trainers

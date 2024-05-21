@@ -55,6 +55,7 @@ PokemonMansion2F_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw PokemonMansion2FBlainePostBattleRematch ; new, map-dependent
 
 PokemonMansion2F_TextPointers:
 	dw Mansion2TextBlaine ; new
@@ -63,6 +64,7 @@ PokemonMansion2F_TextPointers:
 	dw Mansion2Text3
 	dw Mansion2Text4
 	dw Mansion2Text5 ; statue switch text
+	dw PokemonMansion2FTextBlainePostBattle ; 7, new, map-dependent
 
 Mansion2TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Blaine
@@ -165,6 +167,11 @@ Mansion2TextBlaine:
 	ld hl, Mansion2BlainePostBattleText
 	ld de, Mansion2BlainePostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wPokemonMansion2FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 Mansion2BlaineBeforeBattleText:
@@ -173,4 +180,29 @@ Mansion2BlaineBeforeBattleText:
 
 Mansion2BlainePostBattleText:
 	text_far _Mansion2BlainePostBattleText
+	text_end
+
+PokemonMansion2FBlainePostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, PokemonMansion2FResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 7 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_BLAINE_REMATCH_INVERSE ; map-dependent
+	jp PokemonMansion2FResetScripts
+
+PokemonMansion2FResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wPokemonMansion2FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+PokemonMansion2FTextBlainePostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

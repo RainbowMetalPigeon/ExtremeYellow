@@ -82,18 +82,41 @@ _OchreRehabilitationCenterText5_Again::
 
 ; --- extra house 1 ---
 
-_OchreRehabilitationCenterText6::
+_OchreRehabilitationCenterText6_TM54PreReceiveText::
+	text "I love underdogs!"
+	line "And who's more of"
+	cont "an underdog of"
+	cont "someone with"
+	cont "their back"
+	cont "against the wall?"
+
+	para "That's why I"
+	line "invented this TM!"
+	
+	para "FLAIL becomes more"
+	line "powerful the less"
+	cont "HP the user has!"
+	prompt
+
+_OchreRehabilitationCenterText6_TM54ReceivedText::
+	text "<PLAYER> received"
+	line "TM54!@"
+	text_end
+
+_OchreRehabilitationCenterText6_TM54NoRoomText::
+	text "Oh! You have no"
+	line "space for my TM."
+	done
+
+_OchreRehabilitationCenterText6_TM54PostReceiveText::
 	text "OCHRE GYM is the"
 	line "best! I adore"
 	cont "going there just"
 	cont "to admire the"
-	cont "cool battles the"
-	cont "trainers there"
-	cont "have with the"
-	cont "underdog types"
-	cont "that have been"
-	cont "neglected by the"
-	cont "INDIGO HQ!"
+	cont "cool battles with"
+	cont "the underdog"
+	cont "types neglected"
+	cont "by the INDIGO HQ!"
 
 	para "And ORAGE is so"
 	line "cool and strong!"

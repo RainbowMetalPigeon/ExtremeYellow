@@ -753,6 +753,28 @@ TMMartClerkDialogue::
 	inc de
 .checkTM51
 
+	; TM51
+	CheckEvent EVENT_GOT_TM51
+	jr z, .checkTM52
+	ld a, TM_FREEZE_DRY
+	ld [de], a
+	inc de
+.checkTM52
+
+	; TM52 ; GYRO_BALL
+
+	; TM53 ; BODY_PRESS
+
+	; TM54
+	CheckEvent EVENT_GOT_TM54
+	jr z, .checkTM55
+	ld a, TM_FLAIL
+	ld [de], a
+	inc de
+.checkTM55
+
+	; TM55 ; CURSE
+
 ; ender of the custom itemlist load function -----------------------------------
 	ld a, -1
 	ld [de], a

@@ -13,12 +13,41 @@ _Route29EndBattleText1::
     line "are special too!"
     prompt
 
-_Route29AfterBattleText1::
+_Route29AfterBattleText1_TM51PreReceiveText::
     text "I am training to"
     line "become strong"
     cont "enough to be able"
     cont "to catch that"
     cont "unique SLOWKING!"
+
+    para "A good competition"
+    line "is what I need to"
+    cont "give my best."
+    cont "Here, have this,"
+    cont "so you'll have a"
+    cont "better shot at"
+    cont "catching it too!"
+    prompt
+
+_Route29AfterBattleText1_TM51ReceivedText::
+	text "<PLAYER> received"
+	line "TM51!@"
+	text_end
+
+_Route29AfterBattleText1_TM51NoRoomText::
+    text "Too bad! Make"
+    line "space for this!"
+    done
+
+_Route29AfterBattleText1_TM51PostReceiveText::
+    text "TM51 is the new"
+    line "move FREEZE DRY!"
+
+    para "It's ICE type, yet"
+    line "it's always super"
+    cont "effective against"
+    cont "WATER #MON"
+    cont "like SLOWKING!"
     done
 
 ; ---

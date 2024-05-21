@@ -39,6 +39,7 @@ VictoryRoad2F_ScriptPointers:
 	dw VictoryRoad2Script0
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw VictoryRoad2FKogaPostBattleRematch ; new, map-dependent
 
 VictoryRoad2Script0:
 	ld hl, CoordsData_51816
@@ -85,6 +86,7 @@ VictoryRoad2F_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw VictoryRoad2TextKoga ; new, testing
+	dw VictoryRoad2FTextKogaPostBattle ; 15, new, map-dependent
 
 VictoryRoad2TrainerHeaders:
 	def_trainers
@@ -256,6 +258,11 @@ VictoryRoad2TextKoga:
 	ld hl, VictoryRoad2KogaPostBattleText
 	ld de, VictoryRoad2KogaPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wVictoryRoad2FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 VictoryRoad2KogaBeforeBattleText:
@@ -264,4 +271,29 @@ VictoryRoad2KogaBeforeBattleText:
 
 VictoryRoad2KogaPostBattleText:
 	text_far _VictoryRoad2KogaPostBattleText
+	text_end
+
+VictoryRoad2FKogaPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, VictoryRoad2FResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 15 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_KOGA_REMATCH_INVERSE ; map-dependent
+	jp VictoryRoad2FResetScripts
+
+VictoryRoad2FResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wVictoryRoad2FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+VictoryRoad2FTextKogaPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

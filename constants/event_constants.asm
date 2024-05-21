@@ -230,7 +230,9 @@
 	const_next $238
 	const EVENT_GOT_LUNAR_RELIC ; edited
 	const EVENT_GAVE_GOLD_TEETH
-	const_skip 9 ; edited, was 20
+	const_skip 7 ; edited, was 20
+	const EVENT_GOT_TM51 ; new
+	const EVENT_GOT_TM54 ; new
 	const EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM ; new
 	const EVENT_ALREADY_SPOKEN_WITH_OCHRE_POWER_ENGINEER ; new
 	const EVENT_ALREADY_REWARDED_ORB_OCHRE_POWER_ENGINEER ; new

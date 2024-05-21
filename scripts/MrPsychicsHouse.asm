@@ -1,9 +1,22 @@
-MrPsychicsHouse_Script:
-	jp EnableAutoTextBoxDrawing
+MrPsychicsHouse_Script: ; edited
+	call EnableAutoTextBoxDrawing
+	ld de, MrPsychicHouse_ScriptPointers
+	ld a, [wMrPsychicsHouseCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wMrPsychicsHouseCurScript], a
+	ret
+
+MrPsychicHouse_ScriptPointers: ; new
+	dw MrPsychicHouseScript0
+	dw MrPsychicHouseSabrinaPostBattleRematch ; new, map-dependent
+
+MrPsychicHouseScript0: ; new
+	ret
 
 MrPsychicsHouse_TextPointers:
 	dw SaffronHouse2Text1
 	dw SaffronHouse2TextSabrina ; new
+	dw MrPsychicHouseTextSabrinaPostBattle ; 10, new, map-dependent
 
 SaffronHouse2Text1:
 	text_asm
@@ -75,6 +88,11 @@ SaffronHouse2TextSabrina:
 	ld hl, SaffronHouse2SabrinaPostBattleText
 	ld de, SaffronHouse2SabrinaPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $1 ; new script, map-dependent
+	ld [wMrPsychicsHouseCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 SaffronHouse2SabrinaBeforeBattleText:
@@ -83,4 +101,29 @@ SaffronHouse2SabrinaBeforeBattleText:
 
 SaffronHouse2SabrinaPostBattleText:
 	text_far _SaffronHouse2SabrinaPostBattleText
+	text_end
+
+MrPsychicHouseSabrinaPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, MrPsychicHouseResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 3 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_SABRINA_REMATCH_INVERSE ; map-dependent
+	jp MrPsychicHouseResetScripts
+
+MrPsychicHouseResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wMrPsychicsHouseCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+MrPsychicHouseTextSabrinaPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

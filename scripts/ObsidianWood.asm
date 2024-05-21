@@ -11,6 +11,7 @@ ObsidianWood_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw ObsidianWoodOragePostBattleRematch ; new, map-dependent
 
 ObsidianWood_TextPointers:
 	dw ObsidianWoodText1
@@ -25,6 +26,7 @@ ObsidianWood_TextPointers:
 	dw ObsidianWoodTextSignSpiral
 	dw ObsidianWoodTextSignPlateau
 	dw ObsidianWoodTextSignExit
+	dw ObsidianWoodTextOragePostBattle ; 13, new, map-dependent
 
 ObsidianWoodTrainerHeaders:
 	def_trainers
@@ -168,6 +170,11 @@ ObsidianWoodTextOrage:
 	ld hl, ObsidianWoodOragePostBattleText
 	ld de, ObsidianWoodOragePostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $3 ; new script, map-dependent
+	ld [wObsidianWoodCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 ObsidianWoodOrageBeforeBattleText:
@@ -176,4 +183,29 @@ ObsidianWoodOrageBeforeBattleText:
 
 ObsidianWoodOragePostBattleText:
 	text_far _ObsidianWoodOragePostBattleText
+	text_end
+
+ObsidianWoodOragePostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWoodResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 13 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_ORAGE_REMATCH_INVERSE ; map-dependent
+	jp ObsidianWoodResetScripts
+
+ObsidianWoodResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wObsidianWoodCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+ObsidianWoodTextOragePostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

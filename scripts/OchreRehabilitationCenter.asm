@@ -111,9 +111,49 @@ OchreRehabilitationCenterText5_Again:
 	text_far _OchreRehabilitationCenterText5_Again
 	text_end
 
+; house 1 -------------------------------------------------------
+
 OchreRehabilitationCenterText6:
-	text_far _OchreRehabilitationCenterText6
+	text_asm
+	CheckEvent EVENT_GOT_TM54 ; FLAIL
+	jr nz, .gotItem
+	ld hl, OchreRehabilitationCenterText6_TM54PreReceiveText
+	call PrintText
+	lb bc, TM_FLAIL, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, OchreRehabilitationCenterText6_TM54ReceivedText
+	call PrintText
+	SetEvent EVENT_GOT_TM54
+	jr .done
+.bagFull
+	ld hl, OchreRehabilitationCenterText6_TM54NoRoomText
+	call PrintText
+	jr .done
+.gotItem
+	ld hl, OchreRehabilitationCenterText6_TM54PostReceiveText
+	call PrintText
+.done
+	jp TextScriptEnd
+
+OchreRehabilitationCenterText6_TM54PreReceiveText:
+	text_far _OchreRehabilitationCenterText6_TM54PreReceiveText
 	text_end
+
+OchreRehabilitationCenterText6_TM54ReceivedText:
+	text_far _OchreRehabilitationCenterText6_TM54ReceivedText
+	sound_get_item_1
+	text_end
+
+OchreRehabilitationCenterText6_TM54NoRoomText:
+	text_far _OchreRehabilitationCenterText6_TM54NoRoomText
+	text_end
+
+OchreRehabilitationCenterText6_TM54PostReceiveText:
+	text_far _OchreRehabilitationCenterText6_TM54PostReceiveText
+	text_end
+
+; house 2 -------------------------------------------------------
 
 OchreRehabilitationCenterText7:
 	text_far _OchreRehabilitationCenterText7
@@ -127,7 +167,7 @@ OchreRehabilitationCenterText9:
 	text_far _OchreRehabilitationCenterText9
 	text_end
 
-; signs
+; signs -------------------------------------------------------
 
 OchreRehabilitationCenterSign1:
 	text_far _OchreRehabilitationCenterSign1
