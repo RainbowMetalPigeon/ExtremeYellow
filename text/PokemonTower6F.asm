@@ -107,7 +107,7 @@ _PokemonTower6AgathaBeforeBattleText::
 	done
 
 _PokemonTower6AgathaPostBattleText::
-	text "AGATHA: Ah!"
+	text "Ah!"
 	line "That was a great"
 	cont "battle!"
 	cont "SAMUEL must be so"

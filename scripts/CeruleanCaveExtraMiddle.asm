@@ -1,9 +1,16 @@
 CeruleanCaveExtraMiddle_Script:
 	call EnableAutoTextBoxDrawing
-;	SetEvent EVENT_IN_SEAFOAM_ISLANDS
-;	ld hl, wFlags_0xcd60
-;	bit 7, [hl]
-;	res 7, [hl]
+	ld de, CeruleanCaveExtraMiddle_ScriptPointers
+	ld a, [wCeruleanCaveExtraMiddleCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wMrPsychicsHouseCurScript], a
+	ret
+
+CeruleanCaveExtraMiddle_ScriptPointers:
+	dw CeruleanCaveExtraMiddleScript0
+	dw CeruleanCaveExtraMiddleLancePostBattleRematch ; new, map-dependent
+
+CeruleanCaveExtraMiddleScript0:
 	ld a, CERULEAN_CAVE_EXTRA_BOTTOM
 	ld [wDungeonWarpDestinationMap], a
 	ld hl, CeruleanCaveExtraMiddleHolesCoords
@@ -15,7 +22,8 @@ CeruleanCaveExtraMiddleHolesCoords:
 	db -1 ; end
 
 CeruleanCaveExtraMiddle_TextPointers:
-	dw CeruleanCaveExtraMiddleTextLance ; new
+	dw CeruleanCaveExtraMiddleTextLance
+	dw CeruleanCaveExtraMiddleTextLancePostBattle ; 2, new, map-dependent
 
 ; new ------------------------------------------------
 
@@ -47,6 +55,11 @@ CeruleanCaveExtraMiddleTextLance:
 	ld hl, CeruleanCaveExtraMiddleLancePostBattleText
 	ld de, CeruleanCaveExtraMiddleLancePostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $1 ; new script, map-dependent
+	ld [wCeruleanCaveExtraMiddleCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 CeruleanCaveExtraMiddleLanceBeforeBattleText:
@@ -55,4 +68,29 @@ CeruleanCaveExtraMiddleLanceBeforeBattleText:
 
 CeruleanCaveExtraMiddleLancePostBattleText:
 	text_far _CeruleanCaveExtraMiddleLancePostBattleText
+	text_end
+
+CeruleanCaveExtraMiddleLancePostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, CeruleanCaveExtraMiddleResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 2 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_LANCE_REMATCH_INVERSE ; map-dependent
+	jp CeruleanCaveExtraMiddleResetScripts
+
+CeruleanCaveExtraMiddleResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCeruleanCaveExtraMiddleCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+CeruleanCaveExtraMiddleTextLancePostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

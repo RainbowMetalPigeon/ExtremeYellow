@@ -17,6 +17,7 @@ SeafoamIslandsB4F_ScriptPointers:
 	dw SeafoamIslands5Script2
 	dw SeafoamIslands5Script3
 	dw SeafoamIslands5Script4
+	dw SeafoamIslandB4FLoreleiPostBattleRematch ; new, map-dependent
 
 SeafoamIslands5Script4:
 	ld a, [wIsInBattle]
@@ -138,6 +139,7 @@ SeafoamIslandsB4F_TextPointers:
 	dw ArticunoText
 	dw SeafoamIslands5Text4
 	dw SeafoamIslands5Text5
+	dw SeafoamIslandB4FTextLoreleiPostBattle ; 7, new, map-dependent
 
 ; Articuno is object 3, but its event flag is bit 2.
 ; This is not a problem because its sight range is 0, and
@@ -201,6 +203,11 @@ SeafoamIslandB4FTextLorelei:
 	ld hl, SeafoamIslandB4FLoreleiPostBattleText
 	ld de, SeafoamIslandB4FLoreleiPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $5 ; new script, map-dependent
+	ld [wSeafoamIslandsB4FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 SeafoamIslandB4FLoreleiBeforeBattleText:
@@ -209,4 +216,29 @@ SeafoamIslandB4FLoreleiBeforeBattleText:
 
 SeafoamIslandB4FLoreleiPostBattleText:
 	text_far _SeafoamIslandB4FLoreleiPostBattleText
+	text_end
+
+SeafoamIslandB4FLoreleiPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeafoamIslandB4FResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 7 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_LORELEI_REMATCH_INVERSE ; map-dependent
+	jp SeafoamIslandB4FResetScripts
+
+SeafoamIslandB4FResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wSeafoamIslandsB4FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+SeafoamIslandB4FTextLoreleiPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

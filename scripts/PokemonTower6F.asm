@@ -20,6 +20,7 @@ PokemonTower6F_ScriptPointers:
 	dw EndTrainerBattle
 	dw PokemonTower6Script3
 	dw PokemonTower6Script4
+	dw PokemonTower6FAgathaPostBattleRematch ; new, map-dependent
 
 PokemonTower6Script0:
 	CheckEvent EVENT_BEAT_GHOST_MAROWAK
@@ -104,6 +105,7 @@ PokemonTower6F_TextPointers:
 	dw PickUpItemText
 	dw PokemonTower6Text6
 	dw PokemonTower6Text7
+	dw PokemonTower6FTextAgathaPostBattle ; 9, new, map-dependent
 
 PokemonTower6TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Agatha
@@ -224,6 +226,11 @@ PokemonTower6TextAgatha:
 	ld hl, PokemonTower6AgathaPostBattleText
 	ld de, PokemonTower6AgathaPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $5 ; new script, map-dependent
+	ld [wPokemonTower6FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 PokemonTower6AgathaBeforeBattleText:
@@ -232,4 +239,29 @@ PokemonTower6AgathaBeforeBattleText:
 
 PokemonTower6AgathaPostBattleText:
 	text_far _PokemonTower6AgathaPostBattleText
+	text_end
+
+PokemonTower6FAgathaPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, PokemonTower6FResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 9 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_AGATHA_REMATCH_INVERSE ; map-dependent
+	jp PokemonTower6FResetScripts
+
+PokemonTower6FResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wPokemonTower6FCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+PokemonTower6FTextAgathaPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

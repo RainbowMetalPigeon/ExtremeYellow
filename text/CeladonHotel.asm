@@ -138,7 +138,7 @@ _CeladonHotelHallSign5::
 _CeladonHotelRoomsText1::
 	text "My code name is"
 	line "LOOKER."
-	
+
 	para "I am in an"
 	line "under-cover"
 	cont "mission for the"
@@ -191,8 +191,12 @@ _CeladonHotelRoomsText5::
 	done
 
 _CeladonHotelRoomsText6::
-	text "Trophy"
-	line "4"
+	text "A TROPHY awarded"
+	line "after defeating"
+	cont "all GYM LEADERs"
+	cont "and ELITE FOUR in"
+	cont "INVERSE BATTLES!"
+;	xxxx "123456789012345678
 	done
 
 _CeladonHotelRoomsText7::
@@ -237,7 +241,7 @@ _CeladonHotelRoomsSign4::
 	line "for the passcode"
 	cont "to access pay"
 	cont "channels."
-	
+
 	para "Maybe some recent"
 	line "blockbuster!"
 	done

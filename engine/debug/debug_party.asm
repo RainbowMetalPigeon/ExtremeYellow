@@ -66,8 +66,11 @@ IF DEF(_DEBUG)
 	ld a, STRENGTH
 	ld [hl], a
 
-	; Pikachu gets Surf and Fly.
+	; Pikachu gets Surf and Fly and Flash
 	ld a, FLY
+	ld hl, wPartyMon3Moves
+	ld [hl], a
+	ld a, FLASH
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
 	ld a, SURF

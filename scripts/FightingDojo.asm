@@ -19,6 +19,7 @@ FightingDojo_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw FightingDojoScript3
+	dw FightingDojoBrunoPostBattleRematch ; new, map-dependent
 
 FightingDojoScript1:
 	CheckEvent EVENT_DEFEATED_FIGHTING_DOJO
@@ -91,6 +92,7 @@ FightingDojo_TextPointers:
 	dw FightingDojoText7
 	dw FightingDojoText8 ; new/edited
 	dw FightingDojoText9 ; new
+	dw FightingDojoTextBrunoPostBattle ; 11, new, map-dependent
 
 FightingDojoTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Bruno
@@ -363,6 +365,11 @@ FightingDojoTextBruno:
 	ld hl, FightingDojoBrunoPostBattleText
 	ld de, FightingDojoBrunoPostBattleText
 	call SaveEndBattleTextPointers
+
+; script handling
+	ld a, $4 ; new script, map-dependent
+	ld [wFightingDojoCurScript], a ; map-dependent
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 FightingDojoBrunoBeforeBattleText:
@@ -371,4 +378,29 @@ FightingDojoBrunoBeforeBattleText:
 
 FightingDojoBrunoPostBattleText:
 	text_far _FightingDojoBrunoPostBattleText
+	text_end
+
+FightingDojoBrunoPostBattleRematch: ; script, map-dependent
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, FightingDojoResetScripts ; map-dependent
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 11 ; map-dependent
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_BRUNO_REMATCH_INVERSE ; map-dependent
+	jp FightingDojoResetScripts
+
+FightingDojoResetScripts: ; map-dependent
+	xor a
+	ld [wJoyIgnore], a
+	ld [wFightingDojoCurScript], a ; map-dependent
+	ld [wCurMapScript], a
+	ret
+
+FightingDojoTextBrunoPostBattle:
+	text_far _GymLeaderElite4PostRematchInverseText
 	text_end

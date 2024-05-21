@@ -34,7 +34,7 @@ _CeruleanCaveExtraMiddleLanceBeforeBattleText::
 	done
 
 _CeruleanCaveExtraMiddleLancePostBattleText::
-	text "LANCE: Wow!"
+	text "Wow!"
 	line "<PLAYER>, you are"
 	cont "really something!"
 
