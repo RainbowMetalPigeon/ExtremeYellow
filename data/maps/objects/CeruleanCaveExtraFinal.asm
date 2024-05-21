@@ -4,6 +4,7 @@ CeruleanCaveExtraFinal_Object:
 	def_warp_events
 	warp_event 28, 59, CERULEAN_CAVE_EXTRA_MIDDLE, 2
 	warp_event 29, 59, CERULEAN_CAVE_EXTRA_MIDDLE, 3
+;	warp_event 2, 2, CERULEAN_CAVE_EXTRA_FINAL, 3 ; testing
 
 	def_bg_events
 	bg_event  3,  0, 15 ; sign

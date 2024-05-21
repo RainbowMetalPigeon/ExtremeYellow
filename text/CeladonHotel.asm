@@ -160,7 +160,7 @@ _CeladonHotelRoomsText1::
 	cont "professionals!"
 	done
 
-_CeladonHotelRoomsText2::
+_CeladonHotelRoomsText2:: ; Traveler
 	text "Proxy"
 	done
 
@@ -180,7 +180,6 @@ _CeladonHotelRoomsText4::
 	cont "besting the"
 	cont "BATTLE FACILITY"
 	cont "till the MAX!"
-;	xxxx "123456789012345678
 	done
 
 _CeladonHotelRoomsText5::
@@ -196,7 +195,6 @@ _CeladonHotelRoomsText6::
 	cont "all GYM LEADERs"
 	cont "and ELITE FOUR in"
 	cont "INVERSE BATTLES!"
-;	xxxx "123456789012345678
 	done
 
 _CeladonHotelRoomsText7::
@@ -204,12 +202,15 @@ _CeladonHotelRoomsText7::
 	line "for having found"
 	cont "out all hidden"
 	cont "MEGA STONES!"
-;	xxxx "123456789012345678
 	done
 
 _CeladonHotelRoomsText8::
-	text "Trophy"
-	line "6"
+	text "A TROPHY awarded"
+	line "for discovering"
+	cont "the location of"
+	cont "the FORBIDDEN"
+	cont "MERCHANT!"
+;	xxxx "123456789012345678
 	done
 
 ; signs -----

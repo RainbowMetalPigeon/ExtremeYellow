@@ -29,6 +29,6 @@ CeladonHotelRooms_Object:
 	object_event  3,  1, SPRITE_OLD_AMBER, STAY, NONE, 5 ; Trophy 3, Pokedex, proxy
 	object_event  4,  4, SPRITE_OLD_AMBER, STAY, NONE, 6 ; Trophy 4, Inverse rematches, proxy
 	object_event  5,  5, SPRITE_OLD_AMBER, STAY, NONE, 7 ; Trophy 5, Mega Stones, proxy
-	object_event  6,  4, SPRITE_OLD_AMBER, STAY, NONE, 8 ; Trophy 6, ???, proxy
+	object_event  6,  4, SPRITE_OLD_AMBER, STAY, NONE, 8 ; Trophy 6, Forbidden Merchant, proxy
 
 	def_warps_to CELADON_HOTEL_ROOMS
