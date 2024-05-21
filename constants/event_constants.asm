@@ -325,7 +325,7 @@
 	const_skip 44 ; edited, was 45
 	const EVENT_BEAT_SABRINA_REMATCH ; new
 	const EVENT_SILPH_CO_RECEPTIONIST_AT_DESK
-	const_skip 12 ; edited, was 24
+	const_skip 11 ; edited, was 24
 	const EVENT_BEAT_BROCK_REMATCH_INVERSE ; new
 	const EVENT_BEAT_MISTY_REMATCH_INVERSE ; new
 	const EVENT_BEAT_LT_SURGE_REMATCH_INVERSE ; new
@@ -338,6 +338,7 @@
 	const EVENT_BEAT_BRUNO_REMATCH_INVERSE ; new
 	const EVENT_BEAT_AGATHA_REMATCH_INVERSE ; new
 	const EVENT_BEAT_LANCE_REMATCH_INVERSE ; new
+	const EVENT_BEAT_ALL_REMATCH_INVERSE ; new
 	const EVENT_GOT_TM29
 
 ; Route 1 events

@@ -36,7 +36,7 @@ CeladonHotelRoomsSpawns:
 
 .checkBattleFacilityRecords
 	CheckEvent EVENT_MAXED_BATTLE_FACILITY
-	jr nz, .nextCheck
+	jr nz, .checkInverseBattles
 ; event not set yet, check if to be set
 	ld a, [wBattleFacilityStandardRecordNormal]
 	cp 255
@@ -50,13 +50,47 @@ CeladonHotelRoomsSpawns:
 	ld a, [wBattleFacilityHardcoreRecordInverse]
 	cp 255
 	jr z, .BFMaxed
-	jr .nextCheck
+	jr .checkInverseBattles
 .BFMaxed
 	SetEvent EVENT_MAXED_BATTLE_FACILITY
 	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_2
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
-	
+
+.checkInverseBattles
+	CheckEvent EVENT_BEAT_ALL_REMATCH_INVERSE
+	jr nz, .nextCheck
+; event not set yet, check if to be set
+	CheckEvent EVENT_BEAT_BROCK_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_MISTY_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_KOGA_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_SABRINA_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_ORAGE_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_LORELEI_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_BRUNO_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_AGATHA_REMATCH_INVERSE
+	jr z, .nextCheck
+	CheckEvent EVENT_BEAT_LANCE_REMATCH_INVERSE
+	jr z, .nextCheck
+; all inverse rematches won
+	SetEvent EVENT_BEAT_ALL_REMATCH_INVERSE
+	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_4
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+
 .nextCheck
 	ret
 
