@@ -218,6 +218,21 @@ EvosMovesPointerTable:
 	dw FossilKabutopsEvosMoves
 	dw FossilAerodactylEvosMoves
 	dw MonGhostEvosMoves
+; map pieces, new	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
+	dw MapPiecesEvosMoves
 	assert_table_length NUM_POKEMON_INDEXES
 
 BulbasaurEvosMoves:
@@ -4637,7 +4652,8 @@ MagikarpEvosMoves:
 	db EV_LEVEL, 20, GYARADOS
 	db 0
 ; Learnset
-	db 15, TACKLE
+	db 10, TACKLE
+	db 20, FLAIL
 	db 50, DRAGON_RAGE
 	db 0
 
@@ -5416,7 +5432,8 @@ MewtwoEvosMoves:
 	db 76, WATER_PULSE
 	db 77, HURRICANE
 	db 78, ENERGY_BALL
-	db 80, FLAMETHROWER
+	db 79, FLAMETHROWER
+	db 80, PSYSTRIKE
 	db 0
 
 MMewtwoXEvosMoves:
@@ -5448,7 +5465,8 @@ MMewtwoXEvosMoves:
 	db 82, HURRICANE
 	db 83, ENERGY_BALL
 	db 84, PLAY_ROUGH
-	db 85, FLAMETHROWER
+	db 84, FLAMETHROWER
+	db 85, PSYSTRIKE
 	db 0
 
 MMewtwoYEvosMoves:
@@ -5480,7 +5498,8 @@ MMewtwoYEvosMoves:
 	db 82, HURRICANE
 	db 83, ENERGY_BALL
 	db 84, X_SCISSOR
-	db 85, FLAMETHROWER
+	db 84, FLAMETHROWER
+	db 85, PSYSTRIKE
 	db 0
 
 MewEvosMoves:
@@ -5732,39 +5751,21 @@ MissingNoEvosMoves:
 ; Learnset
 	db 0
 
-BluesDadEvosMoves:
+MissingNoEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
 
-BluesMomEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
-
-DadEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
-
+; rearranged to have all the proxies together
 FossilKabutopsEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
-
 FossilAerodactylEvosMoves:
-; Evolutions
-	db 0
-; Learnset
-	db 0
-
 MonGhostEvosMoves:
+BluesDadEvosMoves:
+BluesMomEvosMoves:
+DadEvosMoves:
+MapPiecesEvosMoves: ; new
 ; Evolutions
 	db 0
 ; Learnset
 	db 0
-

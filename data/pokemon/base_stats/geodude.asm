@@ -18,7 +18,7 @@
 	     METRONOME,    SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   FISSURE,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
 	     FIRE_BLAST,   REST,         EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   \
-	     STRENGTH      
+	     GYRO_BALL,    FLAIL,        STRENGTH,     CURSE         
 	; end
 
 	db BANK(GeodudePicFront)

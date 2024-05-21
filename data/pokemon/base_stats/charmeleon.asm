@@ -17,7 +17,7 @@
 	tmhm MEGA_PUNCH,   SWORDS_DANCE, DRAGON_CLAW,  TOXIC,        BODY_SLAM,    \
 	     DOUBLE_EDGE,  COUNTER,      SEISMIC_TOSS, DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          STRENGTH      
+	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          STRENGTH,     CURSE         
 	; end
 
 	db BANK(CharmeleonPicFront)

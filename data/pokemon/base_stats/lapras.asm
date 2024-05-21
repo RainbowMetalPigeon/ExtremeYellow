@@ -18,7 +18,8 @@
 	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   THUNDERBOLT,  THUNDER,      \
 	     FISSURE,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         HYDRO_PUMP,   OUTRAGE,      REST,         PSYWAVE,      \
-	     SUBSTITUTE,   SURF,         STRENGTH      
+	     SUBSTITUTE,   FREEZE_DRY,   BODY_PRESS,   SURF,         STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(LaprasPicFront)

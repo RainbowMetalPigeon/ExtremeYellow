@@ -18,7 +18,7 @@
 	     DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     STONE_EDGE,   THUNDERBOLT,  \
 	     THUNDER,      EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   BODY_PRESS,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(RhyhornPicFront)

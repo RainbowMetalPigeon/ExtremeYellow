@@ -1,6 +1,6 @@
 	db DEX_BLUESDAD ; pokedex id
 
-	db 255,   1, 150, 255, 150
+	db 150,   1, 150, 255, 255
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type

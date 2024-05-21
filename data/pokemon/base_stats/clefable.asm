@@ -19,7 +19,8 @@
 	     HYPER_BEAM,   DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      \
 	     DIG,          PSYCHIC_M,    MOONBLAST,    MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         FIRE_BLAST,   REST,         THUNDER_WAVE, \
-	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH         
+	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH,        \
+	     CURSE         
 	; end
 
 	db BANK(ClefablePicFront)

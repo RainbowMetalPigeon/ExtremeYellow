@@ -16,8 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   DRAININGKISS, \
 	     DIG,          MOONBLAST,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE,   CUT,          \
-	     FLASH         
+	     BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE,   FLAIL,        \
+	     CUT,          FLASH,        CURSE         
 	; end
 
 	db BANK(SylveonPicFront)

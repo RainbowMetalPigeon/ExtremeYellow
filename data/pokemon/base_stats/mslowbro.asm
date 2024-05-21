@@ -20,7 +20,7 @@
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   FIRE_BLAST,   \
 	     REST,         THUNDER_WAVE, PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   \
 	     SURF,         STRENGTH,     FLASH,        EXPLOSION,    FLASH_CANNON, \
-	     THUNDERBOLT,  DARK_PULSE,   MIRROR_COAT   
+	     THUNDERBOLT,  DARK_PULSE,   MIRROR_COAT,  CURSE         
 	; end
 
 	db BANK(MSlowbroPicFront)

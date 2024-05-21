@@ -17,8 +17,8 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     HYPER_BEAM,   DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     REST,         THUNDER_WAVE, SUBSTITUTE,   SURF,         STRENGTH,     \
-	     FLASH         
+	     REST,         THUNDER_WAVE, SUBSTITUTE,   FLAIL,        SURF,         \
+	     STRENGTH,     FLASH,        CURSE         
 	; end
 
 	db BANK(RaichuPicFront)

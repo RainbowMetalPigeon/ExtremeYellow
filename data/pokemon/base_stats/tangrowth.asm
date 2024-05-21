@@ -16,8 +16,8 @@
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     GIGA_DRAIN,   EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
-	     STRENGTH,     FLASH         
+	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        \
+	     CUT,          STRENGTH,     FLASH,        CURSE         
 	; end
 
 	db BANK(TangrowthPicFront)

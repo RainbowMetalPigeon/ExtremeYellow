@@ -17,8 +17,8 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
-	     THUNDER_WAVE, SUBSTITUTE,   FLY,          SURF,         STRENGTH,     \
-	     FLASH         
+	     THUNDER_WAVE, SUBSTITUTE,   FLAIL,        FLY,          SURF,         \
+	     STRENGTH,     FLASH,        CURSE         
 	; end
 
 	db BANK(PikachuPicFront)

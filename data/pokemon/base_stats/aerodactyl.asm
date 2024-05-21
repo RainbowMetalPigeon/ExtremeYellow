@@ -17,7 +17,7 @@
 	tmhm DRAGON_CLAW,  TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   STONE_EDGE,   \
 	     EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,   FLY,          \
-	     STRENGTH      
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(AerodactylPicFront)

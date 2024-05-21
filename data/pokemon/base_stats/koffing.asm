@@ -17,7 +17,7 @@
 	tmhm TOXIC,        DARK_PULSE,   WILL_O_WISP,  THUNDERBOLT,  THUNDER,      \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, FIRE_BLAST,   \
 	     REST,         PSYWAVE,      EXPLOSION,    SHADOW_BALL,  SUBSTITUTE,   \
-	     FLASH         
+	     GYRO_BALL,    FLASH,        CURSE         
 	; end
 
 	db BANK(KoffingPicFront)

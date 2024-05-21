@@ -17,7 +17,8 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
 	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   REST,         X_SCISSOR,    \
-	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          SURF,         STRENGTH      
+	     ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        CUT,          SURF,         \
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(KinglerPicFront)

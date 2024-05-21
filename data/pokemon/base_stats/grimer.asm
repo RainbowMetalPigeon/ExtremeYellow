@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    GIGA_DRAIN,   THUNDERBOLT,  THUNDER,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
 	     FIRE_BLAST,   SHADOW_SNEAK, REST,         GUNK_SHOT,    EXPLOSION,    \
-	     ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   STRENGTH      
+	     ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(GrimerPicFront)

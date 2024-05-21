@@ -17,8 +17,8 @@
 	tmhm SWORDS_DANCE, COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     ICE_BEAM,     BLIZZARD,     MIRROR_COAT,  SEISMIC_TOSS, STONE_EDGE,   \
 	     EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
-	     STRENGTH      
+	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    \
+	     FLAIL,        CUT,          STRENGTH,     CURSE         
 	; end
 
 	db BANK(SandshrewPicFront)

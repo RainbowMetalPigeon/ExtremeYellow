@@ -18,7 +18,7 @@
 	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, \
 	     DIG,          PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     HYDRO_PUMP,   REST,         SUBSTITUTE,   SURF,         STRENGTH,     \
-	     FLASH         
+	     FLASH,        CURSE         
 	; end
 
 	db BANK(GolduckPicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   WILL_O_WISP,  \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     CLOSE_COMBAT, FIRE_BLAST,   OUTRAGE,      REST,         SUBSTITUTE,   \
-	     STRENGTH      
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(ArcaninePicFront)

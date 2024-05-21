@@ -1,6 +1,6 @@
-	db DEX_BLUE’s MOM ; pokedex id
+	db DEX_BLUESMOM ; pokedex id
 
-	db 255,   1, 255, 255, 255
+	db 255,   1, 150, 255, 150
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/bluesmom.pic", 0, 1 ; sprite dimensions
 	dw BluesMomPicFront, BluesMomPicBack
 
-	db SCRATCH, STOMP, LOW_KICK, BITE ; level 1 learnset
+	db SCRATCH, STOMP, LOW_KICK, CUT ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

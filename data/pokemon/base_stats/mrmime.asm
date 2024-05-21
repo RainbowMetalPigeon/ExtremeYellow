@@ -18,7 +18,7 @@
 	     METRONOME,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   MIRROR_COAT,  \
 	     SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         THUNDER_WAVE, \
-	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH         
+	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH,        CURSE         
 	; end
 
 	db BANK(MrMimePicFront)

@@ -17,7 +17,8 @@
 	tmhm TOXIC,        DARK_PULSE,   BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
 	     HYPER_BEAM,   FEINT_ATTACK, THUNDERBOLT,  THUNDER,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         GUNK_SHOT,    \
-	     SHADOW_BALL,  SUBSTITUTE,   CUT,          FLASH         
+	     SHADOW_BALL,  SUBSTITUTE,   FLAIL,        CUT,          FLASH,        \
+	     CURSE         
 	; end
 
 	db BANK(PersianPicFront)

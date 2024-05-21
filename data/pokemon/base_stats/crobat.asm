@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   FEINT_ATTACK, GIGA_DRAIN,   \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         BRAVE_BIRD,   REST,         \
-	     SHADOW_BALL,  SUBSTITUTE,   FLY,          GUNK_SHOT,    X_SCISSOR     
+	     SHADOW_BALL,  SUBSTITUTE,   FLAIL,        FLY,          GUNK_SHOT,    \
+	     X_SCISSOR,    CURSE         
 	; end
 
 	db BANK(CrobatPicFront)

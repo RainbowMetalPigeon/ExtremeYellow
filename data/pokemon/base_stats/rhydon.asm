@@ -19,7 +19,8 @@
 	     HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   THUNDERBOLT,  THUNDER,      \
 	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         HYDRO_PUMP,   FIRE_BLAST,   OUTRAGE,      REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          SURF,         STRENGTH      
+	     ROCK_SLIDE,   SUBSTITUTE,   BODY_PRESS,   CUT,          SURF,         \
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(RhydonPicFront)

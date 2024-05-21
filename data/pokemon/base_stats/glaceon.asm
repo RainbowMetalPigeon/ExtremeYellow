@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   MIRROR_COAT,  DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE,   \
-	     STRENGTH      
+	     FLAIL,        FREEZE_DRY,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(GlaceonPicFront)

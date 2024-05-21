@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm MEGAHORN,     SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         HYDRO_PUMP,   REST,         SUBSTITUTE,   SURF          
+	     BIDE,         HYDRO_PUMP,   REST,         SUBSTITUTE,   FLAIL,        \
+	     SURF,         CURSE         
 	; end
 
 	db BANK(GoldeenPicFront)

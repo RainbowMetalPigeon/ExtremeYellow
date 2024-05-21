@@ -17,7 +17,7 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, FEINT_ATTACK, WILL_O_WISP,  \
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   \
-	     REST,         PSYWAVE,      SUBSTITUTE,   STRENGTH      
+	     REST,         PSYWAVE,      SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(MagmarPicFront)

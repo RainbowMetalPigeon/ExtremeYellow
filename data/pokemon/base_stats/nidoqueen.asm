@@ -19,7 +19,8 @@
 	     STONE_EDGE,   THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   SHADOW_BALL,  \
-	     SUBSTITUTE,   CUT,          SURF,         STRENGTH,     GUNK_SHOT     
+	     SUBSTITUTE,   BODY_PRESS,   CUT,          SURF,         STRENGTH,     \
+	     GUNK_SHOT,    CURSE         
 	; end
 
 	db BANK(NidoqueenPicFront)

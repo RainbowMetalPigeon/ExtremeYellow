@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, COUNTER,      TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, REST,         \
-	     X_SCISSOR,    SUBSTITUTE,   CUT           
+	     X_SCISSOR,    SUBSTITUTE,   CUT,          CURSE         
 	; end
 
 	db BANK(ScytherPicFront)

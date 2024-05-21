@@ -19,7 +19,8 @@
 	     SEISMIC_TOSS, FEINT_ATTACK, THUNDERBOLT,  THUNDER,      DIG,          \
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     SELFDESTRUCT, FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH         
+	     SHADOW_BALL,  SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   STRENGTH,     \
+	     FLASH,        CURSE         
 	; end
 
 	db BANK(WigglytuffPicFront)

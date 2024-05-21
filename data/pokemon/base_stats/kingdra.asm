@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     HYPER_BEAM,   FLASH_CANNON, MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         HYDRO_PUMP,   OUTRAGE,      REST,         SUBSTITUTE,   \
-	     SURF          
+	     FLAIL,        SURF,         CURSE         
 	; end
 
 	db BANK(KingdraPicFront)

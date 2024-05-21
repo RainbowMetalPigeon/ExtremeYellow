@@ -20,7 +20,7 @@
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   FIRE_BLAST,   \
 	     OUTRAGE,      REST,         ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
 	     CUT,          SURF,         STRENGTH,     SWORDS_DANCE, METRONOME,    \
-	     METEOR_MASH   
+	     METEOR_MASH,  CURSE         
 	; end
 
 	db BANK(MKangaskanPicFront)

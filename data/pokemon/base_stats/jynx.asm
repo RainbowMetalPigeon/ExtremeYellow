@@ -18,7 +18,7 @@
 	     BUBBLEBEAM,   METRONOME,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
 	     DRAININGKISS, SEISMIC_TOSS, PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         PSYWAVE,      SHADOW_BALL,  \
-	     SUBSTITUTE,   FLASH         
+	     SUBSTITUTE,   FLASH,        CURSE         
 	; end
 
 	db BANK(JynxPicFront)

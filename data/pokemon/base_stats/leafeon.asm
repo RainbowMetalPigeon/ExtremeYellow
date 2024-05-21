@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     GIGA_DRAIN,   DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         REST,         X_SCISSOR,    SHADOW_BALL,  SUBSTITUTE,   \
-	     STRENGTH,     FLASH         
+	     FLAIL,        STRENGTH,     FLASH,        CURSE         
 	; end
 
 	db BANK(LeafeonPicFront)

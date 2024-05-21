@@ -17,7 +17,8 @@
 	tmhm MEGA_PUNCH,   SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   \
 	     METRONOME,    ICE_BEAM,     BLIZZARD,     SEISMIC_TOSS, THUNDERBOLT,  \
 	     THUNDER,      EARTHQUAKE,   FISSURE,      PSYCHIC_M,    BIDE,         \
-	     REST,         THUNDER_WAVE, SUBSTITUTE,   CUT,          FLY
+	     REST,         THUNDER_WAVE, SUBSTITUTE,   CUT,          FLY,          \
+	     CURSE         
 	; end
 
 	db BANK(MissingNoPicFront)

@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         BRAVE_BIRD,   REST,         SUBSTITUTE,   \
-	     FLY,          THUNDER,      BLIZZARD      
+	     FLY,          THUNDER,      BLIZZARD,     CURSE         
 	; end
 
 	db BANK(MPidgeotPicFront)

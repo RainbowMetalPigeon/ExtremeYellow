@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     HYPER_BEAM,   MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         SUBSTITUTE,   SURF,         STRENGTH      
+	     REST,         SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(DewgongPicFront)

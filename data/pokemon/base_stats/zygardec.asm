@@ -7,7 +7,7 @@
 	db 3 ; catch rate
 	db 255 ; base exp
 
-	INCBIN "gfx/pokemon/front/zygardec.pic", 0, 1 ; sprite dimensions
+	INCBIN "gfx/pokemon/front/zygardeC.pic", 0, 1 ; sprite dimensions
 	dw ZygardeCPicFront, ZygardeCPicBack
 
 	db WRAP, DRAGONBREATH, BITE, THOUSANDARROWS ; level 1 learnset
@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   STONE_EDGE,   EARTHQUAKE,   \
 	     DIG,          DOUBLE_TEAM,  OUTRAGE,      REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(ZygardeCPicFront)

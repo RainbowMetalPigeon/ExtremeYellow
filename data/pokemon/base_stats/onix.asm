@@ -17,7 +17,8 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  FLASH_CANNON, STONE_EDGE,   \
 	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         SELFDESTRUCT, REST,         EXPLOSION,    ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   FLAIL,        STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(OnixPicFront)

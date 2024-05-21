@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  GIGA_DRAIN,   PSYCHIC_M,    \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, \
 	     REST,         PSYWAVE,      EXPLOSION,    SUBSTITUTE,   STRENGTH,     \
-	     FLASH         
+	     FLASH,        CURSE         
 	; end
 
 	db BANK(ExeggcutePicFront)

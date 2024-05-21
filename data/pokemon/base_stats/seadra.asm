@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   FLASH_CANNON, MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     HYDRO_PUMP,   OUTRAGE,      REST,         SUBSTITUTE,   SURF          
+	     HYDRO_PUMP,   OUTRAGE,      REST,         SUBSTITUTE,   FLAIL,        \
+	     SURF,         CURSE         
 	; end
 
 	db BANK(SeadraPicFront)

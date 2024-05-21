@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     HYPER_BEAM,   DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         HYDRO_PUMP,   REST,         SHADOW_BALL,  \
-	     SUBSTITUTE,   SURF,         STRENGTH      
+	     SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     CURSE         
 	; end
 
 	db BANK(VaporeonPicFront)

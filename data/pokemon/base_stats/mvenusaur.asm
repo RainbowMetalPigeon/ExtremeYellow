@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     MIRROR_COAT,  GIGA_DRAIN,   EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         GUNK_SHOT,    SUBSTITUTE,   \
-	     CUT,          STRENGTH      
+	     CUT,          STRENGTH,     CURSE         
 	; end
 
 	db BANK(MVenusaurPicFront)

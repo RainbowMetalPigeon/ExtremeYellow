@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  WILL_O_WISP,  PSYCHIC_M,    \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
-	     REST,         SUBSTITUTE,   STRENGTH      
+	     REST,         SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(PonytaPicFront)

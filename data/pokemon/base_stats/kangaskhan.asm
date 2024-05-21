@@ -19,7 +19,7 @@
 	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   FIRE_BLAST,   \
 	     OUTRAGE,      REST,         ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
-	     CUT,          SURF,         STRENGTH      
+	     CUT,          SURF,         STRENGTH,     CURSE         
 	; end
 
 	db BANK(KangaskhanPicFront)

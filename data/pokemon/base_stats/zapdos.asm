@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   THUNDERBOLT,  THUNDER,      \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         BRAVE_BIRD,   \
-	     REST,         THUNDER_WAVE, SUBSTITUTE,   FLY,          FLASH         
+	     REST,         THUNDER_WAVE, SUBSTITUTE,   FLY,          FLASH,        \
+	     CURSE         
 	; end
 
 	db BANK(ZapdosPicFront)

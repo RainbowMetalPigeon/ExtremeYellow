@@ -4653,7 +4653,8 @@ MagikarpEvosMoves:
 	db EV_LEVEL, 20, GYARADOS
 	db 0
 ; Learnset
-	db 15, TACKLE
+	db 10, TACKLE
+	db 20, FLAIL
 	db 50, DRAGON_RAGE
 	db 0
 
@@ -5432,7 +5433,8 @@ MewtwoEvosMoves:
 	db 76, WATER_PULSE
 	db 77, HURRICANE
 	db 78, ENERGY_BALL
-	db 80, FLAMETHROWER
+	db 79, FLAMETHROWER
+	db 80, PSYSTRIKE
 	db 0
 
 MMewtwoXEvosMoves:
@@ -5464,7 +5466,8 @@ MMewtwoXEvosMoves:
 	db 82, HURRICANE
 	db 83, ENERGY_BALL
 	db 84, PLAY_ROUGH
-	db 85, FLAMETHROWER
+	db 84, FLAMETHROWER
+	db 85, PSYSTRIKE
 	db 0
 
 MMewtwoYEvosMoves:
@@ -5496,7 +5499,8 @@ MMewtwoYEvosMoves:
 	db 82, HURRICANE
 	db 83, ENERGY_BALL
 	db 84, X_SCISSOR
-	db 85, FLAMETHROWER
+	db 84, FLAMETHROWER
+	db 85, PSYSTRIKE
 	db 0
 
 MewEvosMoves:

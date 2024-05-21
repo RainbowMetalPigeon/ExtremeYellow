@@ -15,7 +15,8 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  FEINT_ATTACK, GIGA_DRAIN,   MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE    
+	     DOUBLE_TEAM,  BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE,   \
+	     FLAIL,        CURSE         
 	; end
 
 	db BANK(ZubatPicFront)
