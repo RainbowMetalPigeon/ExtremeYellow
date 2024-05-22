@@ -19,6 +19,10 @@ MtMoon1F_ScriptPointers:
 ; -------------------------------
 
 MtMoon1Script0: ; new
+IF DEF(_DEBUG)
+	call DebugPressedOrHeldB
+	ret nz
+ENDC
 	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
 	jp nz, CheckFightingMapTrainers
 	ld hl, MtMoon1FCoords
@@ -203,7 +207,7 @@ MtMoon1F_TextPointers:
 MtMoon1TrainerHeaders:
 	def_trainers
 MtMoon1TrainerHeader0:
-	trainer EVENT_BEAT_MT_MOON_1_TRAINER_0, 2, MtMoon1BattleText2, MtMoon1EndBattleText2, MtMoon1AfterBattleText2
+	trainer EVENT_BEAT_MT_MOON_1_TRAINER_0, 4, MtMoon1BattleText2, MtMoon1EndBattleText2, MtMoon1AfterBattleText2
 MtMoon1TrainerHeader1:
 	trainer EVENT_BEAT_MT_MOON_1_TRAINER_1, 3, MtMoon1BattleText3, MtMoon1EndBattleText3, MtMoon1AfterBattleText3
 MtMoon1TrainerHeader2:
@@ -288,8 +292,30 @@ MtMoon1EndBattleText2:
 	text_far _MtMoon1EndBattleText2
 	text_end
 
-MtMoon1AfterBattleText2:
-	text_far _MtMoon1AfterBattleText2
+MtMoon1AfterBattleText2: ; edited
+	text_asm
+	ld hl, MtMoon1AfterBattleText2_BeforeYesNo
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, MtMoon1AfterBattleText2_NoAdvice
+	jr nz, .printAndEnd
+	ld hl, MtMoon1AfterBattleText2_YesAdvice
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+MtMoon1AfterBattleText2_BeforeYesNo: ; new
+	text_far _MtMoon1AfterBattleText2_BeforeYesNo
+	text_end
+
+MtMoon1AfterBattleText2_NoAdvice: ; new
+	text_far _MtMoon1AfterBattleText2_NoAdvice
+	text_end
+
+MtMoon1AfterBattleText2_YesAdvice: ; new
+	text_far _MtMoon1AfterBattleText2_YesAdvice
 	text_end
 
 MtMoon1BattleText3:

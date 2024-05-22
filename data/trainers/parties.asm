@@ -261,7 +261,7 @@ SuperNerdData:
 
 HikerData:
 ; Mt. Moon 1F
-	db 10, GEODUDE, GEODUDE, ONIX, 0
+	db 43, STEELIX, MACHAMP, DUGTRIO, 0 ; edited
 ; Route 25
 	db 15, MACHOP, GEODUDE, 0
 	db 13, GEODUDE, GEODUDE, MACHOP, GEODUDE, 0

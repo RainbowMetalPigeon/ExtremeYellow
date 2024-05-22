@@ -1,18 +1,45 @@
-_MtMoon1BattleText2::
-	text "WHOA! You shocked"
-	line "me! Oh, you're"
-	cont "just a kid!"
+_MtMoon1BattleText2:: ; edited
+	text "Whoa! These"
+	line "unexplored"
+	cont "tunnels sure are"
+	cont "crowded!"
 	done
 
-_MtMoon1EndBattleText2::
-	text "Wow!"
-	line "Shocked again!"
+_MtMoon1EndBattleText2:: ; edited
+	text "Well!"
+	line "At least you went"
+	cont "easier on me than"
+	cont "the last youth..."
 	prompt
 
-_MtMoon1AfterBattleText2::
-	text "Kids like you"
-	line "shouldn't be"
-	cont "here!"
+_MtMoon1AfterBattleText2_BeforeYesNo:: ; edited/new
+	text "I've searched the"
+	line "exit for ages!"
+
+	para "I don't think I'm"
+	line "close to the"
+	cont "solution, but I've"
+	cont "ruled some paths"
+	cont "out. Wanna me"
+	cont "share my finds?"
+	prompt
+
+_MtMoon1AfterBattleText2_NoAdvice::
+	text "As you prefer!"
+	line "There's fun in"
+	cont "reaching a goal"
+	cont "alone, but there's"
+	cont "no shame in being"
+	cont "helped a bit!"
+	done
+
+_MtMoon1AfterBattleText2_YesAdvice::
+	text "The only thing I"
+	line "can tell you for"
+	cont "sure is that we"
+	cont "first gotta go"
+	cont "down, then up!"
+;	xxxx "123456789012345678"
 	done
 
 _MtMoon1BattleText3::

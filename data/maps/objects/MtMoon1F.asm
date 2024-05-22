@@ -46,7 +46,7 @@ MtMoon1F_Object:
 	bg_event 15, 47, 15 ; MtMoon1Text14
 
 	def_object_events ; edited, +24 on the y coordinate
-	object_event  5, 30, SPRITE_HIKER, STAY, DOWN, 1, OPP_HIKER, 1
+	object_event 41, 22, SPRITE_HIKER, STAY, ANY_DIR, 1, OPP_HIKER, 1 ; edited
 	object_event 12, 40, SPRITE_YOUNGSTER, STAY, RIGHT, 2, OPP_YOUNGSTER, 3
 	object_event 30, 28, SPRITE_COOLTRAINER_F, STAY, DOWN, 3, OPP_LASS, 5
 	object_event 24, 55, SPRITE_SUPER_NERD, STAY, UP, 4, OPP_SUPER_NERD, 1

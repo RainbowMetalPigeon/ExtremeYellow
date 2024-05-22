@@ -378,7 +378,7 @@ TMMartClerkDialogue::
 .checkTM04
 
 	; TM04
-	CheckHideShow HS_ROUTE_4_ITEM
+	CheckHideShow HS_ROUTE_4_ITEM_1
 	jr z, .checkTM05
 	ld a, TM_COUNTER
 	ld [de], a
@@ -779,7 +779,13 @@ TMMartClerkDialogue::
 	inc de
 .checkTM55
 
-	; TM55 ; CURSE
+	; TM55
+	CheckHideShow HS_ROUTE_4_ITEM_2
+	jr z, .checkTMDONE
+	ld a, TM_CURSE
+	ld [de], a
+	inc de
+.checkTMDONE
 
 ; ender of the custom itemlist load function -----------------------------------
 	ld a, -1

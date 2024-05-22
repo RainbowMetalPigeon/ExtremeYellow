@@ -18,6 +18,7 @@ Route4_TextPointers:
 	dw Route4TextHiker2 ; new
 	dw Route4Text2 ; trainer
 	dw PickUpItemText
+	dw PickUpItemText ; new
 	dw BoulderText ; new
 	dw BoulderText ; new
 	dw BoulderText ; new

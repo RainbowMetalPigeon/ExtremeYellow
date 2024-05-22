@@ -49,7 +49,8 @@ DEF SHOW EQU $15
 	const HS_ROUTE_2_ITEM_2                ; 1B
 	const HS_ROUTE_4_HIKER_1               ; new
 	const HS_ROUTE_4_HIKER_2               ; new
-	const HS_ROUTE_4_ITEM                  ; 1C
+	const HS_ROUTE_4_ITEM_1                ; 1C
+	const HS_ROUTE_4_ITEM_2                ; new
 	const HS_ROUTE_4_BOULDER_1             ; new
 	const HS_ROUTE_4_BOULDER_2             ; new
 	const HS_ROUTE_4_BOULDER_3             ; new
