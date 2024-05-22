@@ -424,6 +424,11 @@ AnimateSendingOutMon:
 	ld a, [wIsInBattle]
 	and a
 	jr z, .notInBattle
+; new, to handle mid-battle evolution
+	ld a, [wIsEvolvingMidBattle]
+	and a
+	jr nz, .notInBattle
+; back to vanilla
 	add b
 	ld [hl], a
 	call Delay3

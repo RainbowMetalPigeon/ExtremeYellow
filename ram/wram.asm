@@ -2425,7 +2425,8 @@ wObtainedHiddenCoinsFlags:: flag_array 16
 ; $02 = surfing
 wWalkBikeSurfState:: db
 
-	ds 10 ; UNUSED bytes in "Main Data"
+	ds 9 ; UNUSED bytes in "Main Data", edited, was 10
+wIsEvolvingMidBattle:: db ; new
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS
 

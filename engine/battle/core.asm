@@ -926,10 +926,13 @@ TryMidBattleEvolution: ; new, testing
 	xor a
 	ldh [hStartTileID], a
 	hlcoord 4, 11
+	ld a, 1
+	ld [wIsEvolvingMidBattle], a
 	predef AnimateSendingOutMon
 ; clear the can evolve flags to prevent more evolutions:
-	ld a, 0
+	xor a
 	ld [wCanEvolveFlags], a
+	ld [wIsEvolvingMidBattle], a
 	callfar PlayBattleMusic
 	ret
 
@@ -4347,7 +4350,7 @@ CheckForDisobedience:
 .notStarterPikachu
 ; what level might disobey? - modified, added threshold at every badge and for post-League
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-	ld a, 254 ; this makes so that MISSINGNO will anyhow disobey sometimes
+	ld a, 101
 	jr nz, .next
 ; now we check how many badges we have and set the cap accordingly
 	callfar CountHowManyBadges ; returns in d the number of badges we own

@@ -18,7 +18,7 @@ DebugTeam:
 	db PINSIR, 97
 	db STARTER_PIKACHU, 5
 	db METAPOD, 9
-	db KAKUNA, 9
+;	db GENGAR, 9
 ;	db CHARIZARD, 9
 	db -1 ; end
 
@@ -42,16 +42,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, BLIZZARD
+	ld a, FLAIL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, THUNDERBOLT
+	ld a, PSYSTRIKE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, FLAMETHROWER
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, SOFTBOILED
+	ld a, GYRO_BALL
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -158,7 +158,7 @@ IF DEF(_DEBUG)
 ;	ld a, %01100001
 ;	ld [wOptions], a
 
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;   SetEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0
 ;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
