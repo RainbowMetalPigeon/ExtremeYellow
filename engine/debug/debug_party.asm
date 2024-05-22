@@ -14,11 +14,11 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 98 ; 255
+	db CHANSEY, 65 ; 255
 	db PINSIR, 97
 	db STARTER_PIKACHU, 5
-;	db MRAYQUAZA, 50
-;	db GENGAR, 9
+	db METAPOD, 9
+	db KAKUNA, 9
 ;	db CHARIZARD, 9
 	db -1 ; end
 
@@ -42,16 +42,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, FLAIL
+	ld a, BLIZZARD
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, PSYSTRIKE
+	ld a, THUNDERBOLT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, AGILITY
+	ld a, FLAMETHROWER
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, GYRO_BALL
+	ld a, SOFTBOILED
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

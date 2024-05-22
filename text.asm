@@ -112,7 +112,6 @@ INCLUDE "text/PewterNidoranHouse.asm"
 INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
-INCLUDE "text/CeruleanPokecenter.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm"
 
@@ -139,6 +138,7 @@ INCLUDE "text/CeladonMansionRoof.asm"
 INCLUDE "text/CeladonMansionRoofHouse.asm"
 INCLUDE "text/CeladonPokecenter.asm"
 INCLUDE "text/CeladonGym.asm"
+INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text 7", ROMX

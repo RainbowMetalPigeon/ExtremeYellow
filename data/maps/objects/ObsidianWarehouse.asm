@@ -41,7 +41,7 @@ ObsidianWarehouse_Object:
 	object_event  9, 39, SPRITE_POKE_BALL, STAY, NONE, 5, MAX_ELIXER
 	object_event 23, 30, SPRITE_POKE_BALL, STAY, NONE, 6, TM_METEOR_MASH ; previously was at SilphCo5F
 	object_event 36, 42, SPRITE_POKE_BALL, STAY, NONE, 7, IRON
-	object_event 45, 26, SPRITE_POKE_BALL, STAY, NONE, 8, TM_GYRO_BALL
+	object_event 45, 26, SPRITE_POKE_BALL, STAY, NONE, 8, TM_GYRO_BALL ; newly added
 	object_event 11, 11, SPRITE_POKE_BALL, STAY, NONE, 9, PP_UP
 	object_event 12, 10, SPRITE_POKE_BALL, STAY, NONE, 10, NUGGET
 	object_event 56, 11, SPRITE_POKE_BALL, STAY, NONE, 11, MAX_REVIVE

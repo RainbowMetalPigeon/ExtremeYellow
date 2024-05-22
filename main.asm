@@ -86,6 +86,7 @@ INCLUDE "engine/miscellanea/overworld.asm" ; new
 INCLUDE "engine/math/bcd.asm" ; moved from bank3
 INCLUDE "engine/miscellanea/shiny.asm" ; new
 INCLUDE "engine/miscellanea/battlecore.asm" ; new
+INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
 
 
 SECTION "bank4", ROMX

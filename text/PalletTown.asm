@@ -127,6 +127,24 @@ _DarkGuideHints_Intro::
 	cont "stuff."
 	prompt
 
+_DarkGuideHints_IntroShort::
+	text "Nice to see YOU"
+	line "again."
+
+	para "Oh, come on, we've"
+	line "already been"
+	cont "through this: not"
+	cont "'you', YOU!"
+
+	para "Anyway, as I said:"
+	line "I'll never"
+	cont "despawn."
+	cont "I'll always be"
+	cont "here to help YOU"
+	cont "with post-LEAGUE"
+	cont "content."
+	prompt
+
 _DarkGuideHints_Question::
 	text "What hint to YOU"
 	line "want to have?"

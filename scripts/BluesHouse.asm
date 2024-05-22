@@ -87,7 +87,13 @@ DaisyPostGiveMapText: ; new
 
 DaisyMegaStonesCluesText:
 	text_asm
+	CheckEvent EVENT_ALREADY_SPOKEN_WITH_DAISY_CLUES
+	ld hl, BluesHouseClues_IntroShort
+	jr nz, .continueIntro
+; first time speaking with Daisy about clues
+	SetEvent EVENT_ALREADY_SPOKEN_WITH_DAISY_CLUES
 	ld hl, BluesHouseClues_Intro
+.continueIntro
 	call PrintText
 	xor a
 	ld [wCurrentMenuItem], a
@@ -140,6 +146,10 @@ MegaStoneClueList:
 
 BluesHouseClues_Intro:
 	text_far _BluesHouseClues_Intro
+	text_end
+
+BluesHouseClues_IntroShort:
+	text_far _BluesHouseClues_IntroShort
 	text_end
 
 BluesHouseClues_Question:

@@ -325,7 +325,13 @@ PalletTownText7: ; sign by Blue's house
 
 PalletTownTextDarkGuide:
 	text_asm
+	CheckEvent EVENT_ALREADY_SPOKEN_WITH_DARK_GUIDE
+	ld hl, DarkGuideHints_IntroShort
+	jr nz, .continueIntro
+; first time speaking with Dark Guide
+	SetEvent EVENT_ALREADY_SPOKEN_WITH_DARK_GUIDE
 	ld hl, DarkGuideHints_Intro
+.continueIntro
 	call PrintText
 	xor a
 	ld [wCurrentMenuItem], a
@@ -382,6 +388,10 @@ DarkGuideHints_Intro:
 	text_far _DarkGuideHints_Intro
 	text_end
 
+DarkGuideHints_IntroShort:
+	text_far _DarkGuideHints_IntroShort
+	text_end
+	
 DarkGuideHints_Question:
 	text_far _DarkGuideHints_Question
 	text_end

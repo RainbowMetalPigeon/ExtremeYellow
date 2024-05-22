@@ -523,7 +523,7 @@ TMNotebookText::
 
 	para "..."
 
-	para "There are 50 TMs"
+	para "There are 55 TMs" ; edited
 	line "in all."
 
 	para "There are also 5"

@@ -346,12 +346,12 @@ TMMartClerkDialogue::
 
 	ld de, wItemList
 
-	; beginner?
+	; beginner
 	ld a, TX_SCRIPT_MART
 	ld [de], a
 	inc de
 
-; 50-to-55 custom additions ----------------------------------------------------
+; 55 custom additions ----------------------------------------------------
 
 	; TM01
 	CheckHideShow HS_MT_MOON_B2F_ITEM_2

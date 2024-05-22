@@ -97,13 +97,13 @@ _BluesHouseClues_Intro::
 	cont "something that"
 	cont "may be helpful in"
 	cont "your quest..."
-	
+
 	para "...or maybe not."
 	line "The point is that"
 	cont "I don't really"
 	cont "know what..."
 	cont "they are?"
-	
+
 	para "As you probably"
 	line "know, I have a"
 	cont "passion for"
@@ -133,6 +133,21 @@ _BluesHouseClues_Intro::
 	cont "more, as the"
 	cont "sources were"
 	cont "obscure."
+	prompt
+
+_BluesHouseClues_IntroShort::
+	text "Welcome back!"
+	line "How's your"
+	cont "adventure going?"
+
+	para "Hopefully you'll"
+	line "be able to"
+	cont "discover all the"
+	cont "treasures,"
+	cont "whatever they"
+	cont "are, hinted by"
+	cont "the documents I"
+	cont "found out!"
 	prompt
 
 _BluesHouseClues_Question::

@@ -863,7 +863,7 @@ FaintEnemyPokemon:
 	ld [wBoostExpByExpAll], a
 	callfar GainExperience
 	pop af
-	jp z, .tryMidBattleEvolution ; new, testing
+	jp z, TryMidBattleEvolution ; .tryMidBattleEvolution ; new, for mid-battle evolution
 ;	ret z ; return if no exp all
 
 ; the player has exp all
@@ -881,30 +881,55 @@ FaintEnemyPokemon:
 	ld a, b
 	ld [wPartyGainExpFlags], a
 ;	jpfar GainExperience
-	callfar GainExperience ; new, testing
+	callfar GainExperience ; new, for mid-battle evolution
 
-.tryMidBattleEvolution ; new, testing
+TryMidBattleEvolution: ; new, testing
+	call AnyEnemyPokemonAliveCheck ; if enemy is completely defeated, do normal after battle evolution instead of mid battle evolution
+	ret z
+	ld a, [wIsInBattle]
+	cp $1 ; is it a wild battle?
+    ret z ; skip mid battle evolution, do normal after battle evolution
 	predef EvolutionAfterBattle
 	ld a, [wEvolutionOccurred]
 	and a
 	ret z
-; load and redraw the disappeared backsprite of the battling mon
+; check if current battle mon species has changed, if not, a different pokemon evolved so skip recalculation of stats
+	ld de, wBattleMonSpecies
+	ld hl, wPartyMon1 ; start of party data
+	ld bc, wPartyMon2 - wPartyMon1 ; gap between each party mon data into bc
+	ld a, [wPlayerMonNumber]
+	call AddNTimes ; add bc to hl a times
+; now de is the battlemon species (as per before evolution) and hl is the species of the same mon in the party data (might be evolved)
+	ld a, [de];load battle mon species into a
+	cp [hl];compare with party mon species
+	jr z, .skipRecalc
+	callfar EvolveTemp_ ; callfar to the function in the new file
+	ld hl, wPartyMonNicks
+	ld a, [wPlayerMonNumber]
+	call SkipFixedLengthTextEntries
+	ld de, wBattleMonNick
+	ld bc, NAME_LENGTH
+	call CopyData
+	ld hl, wBattleMonLevel
+	ld de, wPlayerMonUnmodifiedLevel ; block of memory used for unmodified stats
+	ld bc, 1 + NUM_STATS * 2
+	call CopyData
+	ld a, 0
+	ld [wCalculateWhoseStats], a
+	call CalculateModifiedStats
+	call ApplyBadgeStatBoosts
+.skipRecalc
 	ld a, [wBattleMonSpecies2]
-	ld [wcf91], a ; one of these may be unnecessary
-	ld [wd0b5], a ; one of these may be unnecessary
+	ld [wd0b5], a
 	call GetMonHeader
 	predef LoadMonBackPic
 	xor a
 	ldh [hStartTileID], a
 	hlcoord 4, 11
-	ld a, [wIsInBattle]
-	push af
-	xor a
-	ld [wIsInBattle], a
 	predef AnimateSendingOutMon
-	pop af
-	ld [wIsInBattle], a
-; restart music
+; clear the can evolve flags to prevent more evolutions:
+	ld a, 0
+	ld [wCanEvolveFlags], a
 	callfar PlayBattleMusic
 	ret
 
