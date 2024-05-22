@@ -421,14 +421,14 @@ AnimateSendingOutMon:
 	ldh a, [hStartTileID]
 	ldh [hBaseTileID], a
 	ld b, $4c
-	ld a, [wIsInBattle]
-	and a
-	jr z, .notInBattle
 ; new, to handle mid-battle evolution
 	ld a, [wIsEvolvingMidBattle]
 	and a
 	jr nz, .notInBattle
 ; back to vanilla
+	ld a, [wIsInBattle]
+	and a
+	jr z, .notInBattle
 	add b
 	ld [hl], a
 	call Delay3

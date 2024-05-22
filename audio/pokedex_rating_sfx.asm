@@ -30,5 +30,6 @@ PokedexRatingSfxPointers:
 	db SFX_GET_KEY_ITEM,   BANK(SFX_Get_Key_Item_1)
 	db SFX_GET_ITEM_2,     BANK(SFX_Get_Item2_1)
 
-OwnedMonValues:
-	db 10, 40, 60, 90, 120, 150, $ff
+OwnedMonValues: ; up to the value excluded
+;	db 10, 40, 60, 90, 120, 150, $ff ; edited, old
+	db 10, 50, 75, 120, 180, 209, $ff ; edited, new

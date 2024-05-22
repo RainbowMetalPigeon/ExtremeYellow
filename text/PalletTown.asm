@@ -415,33 +415,61 @@ _DarkGuideHints_Hint6_Solution::
 ; -----------
 
 _DarkGuideHints_Hint7_Base::
-	text "Not ready in"
-	line "the beta version."
+	text "Ultimate Showdown."
 	prompt
 
 _DarkGuideHints_Hint7_Details::
-	text "Not ready in"
-	line "the beta version."
+	text "An old mysterious"
+	line "project finally"
+	cont "sees the light of"
+	cont "day."
 	prompt
 
 _DarkGuideHints_Hint7_Solution::
-	text "BATTLE FACILITY"
-	line "in VERMILION!"
+	text "The construction"
+	line "site in VERMILION"
+	cont "has finally been"
+	cont "completed: the"
+	cont "BATTLE FACILITY"
+	cont "welcomes"
+	cont "challengers!"
 	prompt
 
 ; -----------
 
 _DarkGuideHints_Hint8_Base::
-	text "Not ready in"
-	line "the beta version."
+	text "Nightmarish"
+	line "concoction of"
+	cont "infernal myths."
 	prompt
 
 _DarkGuideHints_Hint8_Details::
-	text "Not ready in"
-	line "the beta version."
+	text "Once reassembled,"
+	line "the four"
+	cont "fragments of an"
+	cont "eerie MAP will"
+	cont "show you the way"
+	cont "to all that's"
+	cont "wrong and"
+	cont "corrupted in"
+	cont "this reality."
 	prompt
 
 _DarkGuideHints_Hint8_Solution::
-	text "HAUNTED HOUSE"
-	line "near LAVENDER!"
+	text "Four pieces of the"
+	line "MYST3RY MAP -re"
+	cont "scttrd o-e-"
+	cont "KNTAO, &"
+	cont "INFINITEnce"
+	cont "rEUnIt3D t y wILl"
+	cont "ggggt z0u aXeX -o"
+	cont "B1Il's NONONO"
+	cont "010101, wwwwwwre"
+	cont "yyyooouuu--- FIND"
+	cont "<MEGA> ## NO DARE,"
+	cont "dwelling of"
+	cont "0000000001."
+
+	para "W-what is"
+	line "going on...?!"
 	prompt
