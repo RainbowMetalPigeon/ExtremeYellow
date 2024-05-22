@@ -1,12 +1,11 @@
 ; edited to reflect new obedience threhsolds
 
 _CeruleanHouse2Text_74eaa:: ; SOULBADGE
-	text "#MON up to L55"
-	line "will obey you."
-
-	para "The SPEED of all"
+	text "The SPEED of all"
 	line "#MON increases"
-	cont "a little bit."
+	cont "a little bit,"
+	cont "if you so wish."
+;	xxxx "123456789012345678"
 
 	para "Bizarre, right?"
 	line "It'd make more"
@@ -26,11 +25,14 @@ _CeruleanHouse2Text_74eaa:: ; SOULBADGE
 	prompt
 
 _CeruleanHouse2Text_74eaf:: ; MARSHBADGE
-	text "#MON up to L60"
-	line "will obey you."
-
-	para "Any higher, they"
-	line "become unruly!"
+	text "This one doesn't"
+	line "do anything,"
+	cont "except couting"
+	cont "for the total,"
+	cont "which is what"
+	cont "determines if"
+	cont "your #MON will"
+	cont "obey you or not."
 
 	para "By the way, don't"
 	line "you think that"
@@ -41,22 +43,16 @@ _CeruleanHouse2Text_74eaf:: ; MARSHBADGE
 	prompt
 
 _CeruleanHouse2Text_74eb4:: ; VOLCANOBADGE
-	text "#MON up to L65"
-	line "will obey you."
-
-	para "Your #MON's"
+	text "Your #MON's"
 	line "SPECIAL abilities"
-	cont "increase a bit."
+	cont "increase a bit,"
+	cont "if you so wish."
+;	xxxx "123456789012345678"
 	prompt
 
 _CeruleanHouse2Text_74eb9:: ; EARTHBADGE
-	text "#MON up to L75"
-	line "will obey you."
-
-	para "You need to be"
-	line "crowned CHAMPION"
-	cont "of the INDICO"
-	cont "LEAGUE to have"
-	cont "any and all"
-	cont "#MON obey you!"
+	text "This one does not"
+	line "have any special"
+	cont "property per se."
+;	xxxx "123456789012345678"
 	prompt

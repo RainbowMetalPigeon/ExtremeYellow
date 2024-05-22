@@ -257,38 +257,44 @@ SpecialTrainerMoves:
 	db 5, 4, ENERGY_BALL
 	db $FE
 
+; GYM LEADERS ===================================================
+
+; BROCK's teams -------------------------------------------------
+
 	db BROCK, 1
 	; GEODUDE
-;	db 1, 1, TACKLE
-;	db 1, 2, DEFENSE_CURL
-;	db 1, 3, MUD_SLAP
+	db 1, 1, TACKLE
+	db 1, 2, DEFENSE_CURL
+	db 1, 3, MUD_SLAP
 	db 1, 4, ROCK_THROW
 	; OMANYTE
-;	db 2, 1, WATER_GUN
-;	db 2, 2, DEFENSE_CURL
-;	db 2, 3, WRAP
-;	db 2, 4, SAND_ATTACK
+	db 2, 1, WATER_GUN
+	db 2, 2, DEFENSE_CURL
+	db 2, 3, WRAP
+	db 2, 4, SAND_ATTACK
 	; KABUTO
-;	db 3, 1, SCRATCH
-;	db 3, 2, HARDEN
-;	db 3, 3, WATER_GUN
+	db 3, 1, SCRATCH
+	db 3, 2, HARDEN
+	db 3, 3, WATER_GUN
 	db 3, 4, ABSORB
 	; RHYHORN
-;	db 4, 1, HORN_ATTACK
+	db 4, 1, HORN_ATTACK
 	db 4, 2, BIDE
-;	db 4, 3, MUD_SLAP
-;	db 4, 4, LEER
+	db 4, 3, MUD_SLAP
+	db 4, 4, LEER
 	; VULPIX
-;	db 5, 1, EMBER
-;	db 5, 2, LEER
-;	db 5, 3, DISABLE
-;	db 5, 4, QUICK_ATTACK
+	db 5, 1, EMBER
+	db 5, 2, LEER
+	db 5, 3, DISABLE
+	db 5, 4, QUICK_ATTACK
 	; ONIX
 	db 6, 1, WRAP
-;	db 6, 2, SCREECH
+	db 6, 2, SCREECH
 	db 6, 3, BIDE
-;	db 6, 4, MUD_SLAP
+	db 6, 4, MUD_SLAP
 	db $FE
+
+; MISTY's teams -------------------------------------------------
 
 	db MISTY, 1
 	; STARYU
@@ -323,6 +329,8 @@ SpecialTrainerMoves:
 	db 6, 4, PSYBEAM
 	db $FE
 
+; LT_SURGE's teams -------------------------------------------------
+
 	db LT_SURGE, 1
 	; PIKACHU
 	db 1, 1, FLY
@@ -355,6 +363,8 @@ SpecialTrainerMoves:
 	db 6, 3, IRON_TAIL
 	db 6, 4, SUBMISSION
 	db $FE
+
+; ERIKA's teams -------------------------------------------------
 
 	db ERIKA, 1
 	; PARASECT
@@ -389,6 +399,8 @@ SpecialTrainerMoves:
 	db 6, 4, ROCK_SLIDE
 	db $FE
 
+; KOGA's teams -------------------------------------------------
+
 	db KOGA, 1
 	; MUK
 	db 1, 1, TOXIC
@@ -421,6 +433,43 @@ SpecialTrainerMoves:
 ;	db 6, 3, FLAMETHROWER
 ;	db 6, 4, EXPLOSION
 	db $FE
+
+; SABRINA's teams -------------------------------------------------
+
+	db SABRINA, 1
+	; EXEGGUTOR
+;	db 1, 1, GIGA_DRAIN
+	db 1, 2, PSYCHIC_M
+	db 1, 3, SLEEP_POWDER
+	db 1, 4, EXPLOSION
+	; SLOWKING
+;	db 2, 1, FLAMETHROWER
+	db 2, 2, PSYCHIC_M
+;	db 2, 3, SCALD
+;	db 2, 4, DRAIN_PUNCH
+	; MR_MIME
+	db 3, 1, BARRIER ; SUBSTITUTE?
+	db 3, 2, PLAY_ROUGH
+	db 3, 3, MIMIC
+	db 3, 4, METRONOME ; PSYCHIC_M?
+	; ESPEON
+	db 4, 1, ZAP_CANNON
+;	db 4, 2, PSYCHIC_M
+	db 4, 3, BITE
+	db 4, 4, FOCUS_ENERGY ; HYPER_BEAM?
+	; HAUNTER
+	db 5, 1, ICE_PUNCH
+	db 5, 2, SHADOW_CLAW
+;	db 5, 3, DARK_PULSE
+	db 5, 4, CONFUSE_RAY
+	; ALAKAZAM
+;	db 6, 1, THUNDERPUNCH
+;	db 6, 2, ICE_PUNCH
+;	db 6, 3, FIRE_PUNCH
+	db 6, 4, PSYCHIC_M
+	db $FE
+
+; BLAINE's teams -------------------------------------------------
 
 	db BLAINE, 1
 	; NINETALES
@@ -455,38 +504,7 @@ SpecialTrainerMoves:
 	db 6, 4, HYPER_BEAM
 	db $FE
 
-	db SABRINA, 1
-	; EXEGGUTOR
-;	db 1, 1, GIGA_DRAIN
-	db 1, 2, PSYCHIC_M
-	db 1, 3, SLEEP_POWDER
-	db 1, 4, EXPLOSION
-	; SLOWKING
-;	db 2, 1, FLAMETHROWER
-	db 2, 2, PSYCHIC_M
-;	db 2, 3, SCALD
-;	db 2, 4, DRAIN_PUNCH
-	; MR_MIME
-	db 3, 1, BARRIER ; SUBSTITUTE?
-	db 3, 2, PLAY_ROUGH
-	db 3, 3, MIMIC
-	db 3, 4, METRONOME ; PSYCHIC_M?
-	; ESPEON
-	db 4, 1, ZAP_CANNON
-;	db 4, 2, PSYCHIC_M
-	db 4, 3, BITE
-	db 4, 4, FOCUS_ENERGY ; HYPER_BEAM?
-	; HAUNTER
-	db 5, 1, ICE_PUNCH
-	db 5, 2, SHADOW_CLAW
-;	db 5, 3, DARK_PULSE
-	db 5, 4, CONFUSE_RAY
-	; ALAKAZAM
-;	db 6, 1, THUNDERPUNCH
-;	db 6, 2, ICE_PUNCH
-;	db 6, 3, FIRE_PUNCH
-	db 6, 4, PSYCHIC_M
-	db $FE
+; ===============================================================
 
 	db GIOVANNI, 1
 	; ONIX

@@ -110,6 +110,59 @@ _CeruleanHouse1Text8::
 	done
 
 _CeruleanHouse1Text9::
+	text "I'm DAISY, of the"
+	line "SENSATIONAL"
+	cont "SIBLINGS!"
+
+	para "I am the oldest,"
+	line "so I have to take"
+	cont "care of them all."
+
+	para "Luckily MISTY,"
+	line "the youngest,"
+	cont "took charge of"
+	cont "the GYM."
+
+	para "This leaves us a"
+	line "lot more time for"
+	cont "dancing!"
+	done
+
+_CeruleanHouse1Text10::
+	text "I'm VIOLET, of the"
+	line "SENSATIONAL"
+	cont "SIBLINGS!"
+
+	para "#MON battles?"
+	line "I'm not interested"
+	cont "at all."
+	cont "That's stuff for"
+	cont "MISTY."
+
+	para "All that I care"
+	line "is the ballet!"
+	done
+
+_CeruleanHouse1Text11::
+	text "I'm LILY, of the"
+	line "SENSATIONAL"
+	cont "SIBLINGS!"
+
+	para "I'm the youngest"
+	line "of the three."
+	cont "Only MISTY is"
+	cont "younger than me,"
+	cont "but they have no"
+	cont "interest in"
+	cont "joining our show."
+
+	para "To each their own!"
+;	xxxx "123456789012345678"
+	done
+
+; signs --------------------------
+
+_CeruleanHouse1Sign1::
 	text "The notes on the"
 	line "blackboard say:"
 
@@ -120,7 +173,7 @@ _CeruleanHouse1Text9::
 	cont "one every level!"
 	done
 
-_CeruleanHouse1Text10::
+_CeruleanHouse1Sign2::
 	text "Some notes read:"
 
 	para "Once BABY #MON"
@@ -131,4 +184,12 @@ _CeruleanHouse1Text10::
 	cont "outdo them and"
 	cont "learn an extra"
 	cont "unique one!"
+
+	para "Also, for some"
+	line "reason, they learn"
+	cont "no TM moves."
+	cont "Maybe they want"
+	cont "to grow their own"
+	cont "way? Adorable!!!"
+;	xxxx "123456789012345678"
 	done

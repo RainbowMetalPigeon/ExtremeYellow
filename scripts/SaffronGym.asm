@@ -162,7 +162,7 @@ SabrinaText:
 	call Delay3
 	ld a, OPP_SABRINA
 	ld [wCurOpponent], a
-	ld a, 2
+	ld a, 9
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
@@ -192,6 +192,12 @@ SabrinaText:
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
+; new, for the adaptive gym teams
+	callfar CountHowManyBadges ; d=#badges
+	ld a, d
+	inc a
+	ld [wTrainerNo], a
+; back to vanilla
 	ld a, $6
 	ld [wGymLeaderNo], a
 	ld a, $3

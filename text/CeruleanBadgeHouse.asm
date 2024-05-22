@@ -5,11 +5,40 @@ _CeruleanHouse2Text_74e77::
 	line "are owned only by"
 	cont "skilled trainers."
 
-;	para "I see you have"
-;	line "at least one."
-
 	para "Those BADGEs have"
 	line "amazing secrets!"
+
+	para "The more you have,"
+	line "the stronger are"
+	cont "the #MON that"
+	cont "will follow your"
+	cont "orders!"
+
+	para "With 1 BADGE, only"
+	line "#MON up to L25"
+	cont "will obey you."
+
+	para "With 2 BADGEs,"
+	line "up to L30."
+
+	para "With 3, up to L35."
+
+	para "With 4, up to L45."
+
+	para "With 5, up to L55."
+	
+	para "With 6, up to L60."
+
+	para "With 7, up to L65."
+
+	para "With 8, up to L70."
+	
+	para "You need to be"
+	line "crowned CHAMPION"
+	cont "of the INDICO"
+	cont "LEAGUE to have"
+	cont "any and all"
+	cont "#MON obey you!"
 	prompt
 
 _CeruleanHouse2Text_74e7c::
@@ -22,16 +51,15 @@ _CeruleanHouse2Text_74e7c::
 
 _CeruleanHouse2Text_74e81::
 	text "Come visit me any-"
-	line "time you wish."
+	line "time you wish!"
 	done
 
 _CeruleanHouse2Text_74e96:: ; BOULDERBADGE
-	text "#MON up to L25"
-	line "will obey you."
-
-	para "The ATTACK of all"
+	text "The ATTACK of all"
 	line "#MON increases"
-	cont "a little bit."
+	cont "a little bit,"
+	cont "if you so wish."
+;	xxxx "123456789012345678"
 
 	para "It also lets you"
 	line "use FLASH any-"
@@ -39,24 +67,17 @@ _CeruleanHouse2Text_74e96:: ; BOULDERBADGE
 	prompt
 
 _CeruleanHouse2Text_74e9b:: ; CASCADEBADGE
-	text "#MON up to L35"
-	line "will obey you."
-
-	para "Any higher, they"
-	line "become unruly!"
-
-	para "It also lets you"
+	text "It lets you"
 	line "use CUT outside"
 	cont "of battle."
 	prompt
 
 _CeruleanHouse2Text_74ea0:: ; THUNDERBADGE
-	text "#MON up to L40"
-	line "will obey you."
-
-	para "The DEFENSE of all"
+	text "The DEFENSE of all"
 	line "#MON increases"
-	cont "a little bit."
+	cont "a little bit,"
+	cont "if you so wish."
+;	xxxx "123456789012345678"
 
 	para "Weird, right? It'd"
 	line "make more sense"
@@ -70,13 +91,7 @@ _CeruleanHouse2Text_74ea0:: ; THUNDERBADGE
 	prompt
 
 _CeruleanHouse2Text_74ea5:: ; RAINBOWBADGE
-	text "#MON up to L50"
-	line "will obey you."
-
-	para "Any higher, they"
-	line "become unruly!"
-
-	para "It also lets you"
+	text "It lets you"
 	line "use STRENGTH out-"
 	cont "side of battle."
 	prompt

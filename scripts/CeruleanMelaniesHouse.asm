@@ -12,11 +12,15 @@ CeruleanMelaniesHouse_TextPointers:
 	dw CeruleanHouse1Text6
 	; new, sad elder
 	dw CeruleanHouse1Text7
-	; new, baby expert?
+	; new, baby expert
 	dw CeruleanHouse1Text8
-	; new, signs
+	; new, Misty's siblings
 	dw CeruleanHouse1Text9
 	dw CeruleanHouse1Text10
+	dw CeruleanHouse1Text11
+	; new, signs
+	dw CeruleanHouse1Sign1
+	dw CeruleanHouse1Sign2
 
 CeruleanHouse1Text1:
 	text_asm
@@ -146,5 +150,17 @@ CeruleanHouse1Text9:
 	
 CeruleanHouse1Text10:
 	text_far _CeruleanHouse1Text10
+	text_end
+	
+CeruleanHouse1Text11:
+	text_far _CeruleanHouse1Text11
+	text_end
+	
+CeruleanHouse1Sign1:
+	text_far _CeruleanHouse1Sign1
+	text_end
+	
+CeruleanHouse1Sign2:
+	text_far _CeruleanHouse1Sign2
 	text_end
 	

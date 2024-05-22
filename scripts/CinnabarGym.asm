@@ -294,6 +294,12 @@ CinnabarGymScript_750c3:
 	ld a, $2
 	jr .asm_758d6
 .asm_758d4
+; new, for the adaptive gym teams
+	callfar CountHowManyBadges ; d=#badges
+	ld a, d
+	inc a
+	ld [wTrainerNo], a
+; back to vanilla
 	ld a, $3
 .asm_758d6
 	ld [wCinnabarGymCurScript], a
@@ -324,7 +330,7 @@ BlaineText:
 	call Delay3
 	ld a, OPP_BLAINE
 	ld [wCurOpponent], a
-	ld a, 2
+	ld a, 9
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200

@@ -10,13 +10,16 @@ CeruleanMelaniesHouse_Object:
 	; new, sad elder
 	warp_event 30,  7, CERULEAN_CITY, 12
 	warp_event 31,  7, CERULEAN_CITY, 12
-	; new, baby expert?
+	; new, baby expert
 	warp_event 44,  7, CERULEAN_CITY, 13
 	warp_event 45,  7, CERULEAN_CITY, 13
+	; new, Misty's sisters
+	warp_event 58,  7, CERULEAN_CITY, 14
+	warp_event 59,  7, CERULEAN_CITY, 14
 	
 	def_bg_events
-	bg_event 45,  0,  9 ; sign
-	bg_event 45,  4, 10 ; sign
+	bg_event 45,  0, 12 ; sign
+	bg_event 45,  4, 13 ; sign
 
 	def_object_events
 	object_event  3,  1, SPRITE_GIRL, STAY, DOWN, 1 ; person
@@ -25,10 +28,14 @@ CeruleanMelaniesHouse_Object:
 	object_event  5,  3, SPRITE_SANDSHREW, STAY, LEFT, 4 ; person
 	; new, trade house
 	object_event 16,  3, SPRITE_ERIKA, WALK, ANY_DIR, 5 ; person
-	object_event 19,  4, SPRITE_MIDDLE_AGED_WOMAN, WALK, ANY_DIR, 6 ; person
+	object_event 19,  4, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 6 ; person
 	; new, sad elder
 	object_event 30,  3, SPRITE_GRAMPS, STAY, RIGHT, 7 ; person
-	; new, baby expert?
+	; new, baby expert
 	object_event 44,  1, SPRITE_GRANNY, STAY, UP, 8 ; person
+	; new, Misty's siblings
+	object_event 58,  5, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 9 ; person
+	object_event 59,  3, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 10 ; person
+	object_event 61,  4, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 11 ; person
 
 	def_warps_to CERULEAN_MELANIES_HOUSE

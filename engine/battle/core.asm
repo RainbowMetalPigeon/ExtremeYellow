@@ -4270,15 +4270,15 @@ CheckForDisobedience:
 	cp 101
 	jr nc, .pikachu10PercentDisobey
 	cp 51
-	jr nc, .pikachu30PercentDisobey
-	; 60% range
-	ld a, b
-	cp 60 percent
-	jp nc, .canUseMove
-	jr .pikachuDisobeyed
-.pikachu30PercentDisobey
+	jr nc, .pikachu20PercentDisobey
+	; 30% range
 	ld a, b
 	cp 30 percent
+	jp nc, .canUseMove
+	jr .pikachuDisobeyed
+.pikachu20PercentDisobey
+	ld a, b
+	cp 20 percent
 	jp nc, .canUseMove
 	jr .pikachuDisobeyed
 .pikachu10PercentDisobey
@@ -4320,38 +4320,56 @@ CheckForDisobedience:
 	jp .monNaps
 ; back to non-pikachu code
 .notStarterPikachu
-; what level might disobey? - modified, added threshold at every level and for post-League
+; what level might disobey? - modified, added threshold at every badge and for post-League
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	ld a, 254 ; this makes so that MISSINGNO will anyhow disobey sometimes
 	jr nz, .next
-; now we check all the badges, one by one
-	ld hl, wObtainedBadges
-	bit BIT_EARTHBADGE, [hl]
-	ld a, 75
-	jr nz, .next
-	bit BIT_VOLCANOBADGE, [hl]
-	ld a, 65
-	jr nz, .next
-	bit BIT_MARSHBADGE, [hl]
-	ld a, 60
-	jr nz, .next
-	bit BIT_SOULBADGE, [hl]
-	ld a, 55
-	jr nz, .next
-	bit BIT_RAINBOWBADGE, [hl]
-	ld a, 50
-	jr nz, .next
-	bit BIT_THUNDERBADGE, [hl]
-	ld a, 40
-	jr nz, .next
-	bit BIT_CASCADEBADGE, [hl]
-	ld a, 35
-	jr nz, .next
-	bit BIT_BOULDERBADGE, [hl]
-	ld a, 25
-	jr nz, .next
-	; no badges
+; now we check how many badges we have and set the cap accordingly
+	callfar CountHowManyBadges ; returns in d the number of badges we own
+	ld a, d
+	cp 8
+	jr z, .numberBadges8
+	cp 7
+	jr z, .numberBadges7
+	cp 6
+	jr z, .numberBadges6
+	cp 5
+	jr z, .numberBadges5
+	cp 4
+	jr z, .numberBadges4
+	cp 3
+	jr z, .numberBadges3
+	cp 2
+	jr z, .numberBadges2
+	cp 1
+	jr z, .numberBadges1
+;.numberBadges0
 	ld a, 15
+	jr .next
+.numberBadges1
+	ld a, 25
+	jr .next
+.numberBadges2
+	ld a, 30
+	jr .next
+.numberBadges3
+	ld a, 35
+	jr .next
+.numberBadges4
+	ld a, 45
+	jr .next
+.numberBadges5
+	ld a, 55
+	jr .next
+.numberBadges6
+	ld a, 60
+	jr .next
+.numberBadges7
+	ld a, 65
+	jr .next
+.numberBadges8
+	ld a, 70
+;	jr .next
 ; back to vanilla
 .next
 	ld b, a

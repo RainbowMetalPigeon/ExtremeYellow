@@ -14,7 +14,8 @@ CeruleanCity_Object:
 	warp_event  9,  9, CERULEAN_BADGE_HOUSE, 1
 	warp_event 15, 11, CERULEAN_MELANIES_HOUSE, 3 ; 11, new, trade house
 	warp_event 19, 25, CERULEAN_MELANIES_HOUSE, 5 ; 12, new, sad elder
-	warp_event 35, 11, CERULEAN_MELANIES_HOUSE, 7 ; 13, new, baby expert?
+	warp_event 35, 11, CERULEAN_MELANIES_HOUSE, 7 ; 13, new, baby expert
+	warp_event 29, 25, CERULEAN_MELANIES_HOUSE, 9 ; 14, new, Misty's siblings
 
 	def_bg_events
 	bg_event 23, 19, 13 ; CeruleanCityText12
@@ -31,8 +32,8 @@ CeruleanCity_Object:
 	object_event 15, 18, SPRITE_SUPER_NERD, WALK, UP_DOWN, 4 ; person
 	object_event  9, 21, SPRITE_SUPER_NERD, WALK, LEFT_RIGHT, 5 ; person
 	object_event 28, 12, SPRITE_OFFICER_JENNY, STAY, DOWN, 6 ; person
-	object_event 29, 26, SPRITE_COOLTRAINER_F, STAY, LEFT, 7 ; person
-	object_event 28, 26, SPRITE_POKE_BALL, STAY, DOWN, 8 ; person
+	object_event 32, 27, SPRITE_COOLTRAINER_F, STAY, LEFT, 7 ; person, edited
+	object_event 33, 27, SPRITE_POKE_BALL, STAY, DOWN, 8 ; person, edited
 	object_event  9, 27, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 9 ; person
 	object_event  4, 12, SPRITE_SUPER_NERD, STAY, DOWN, 10 ; person
 	object_event 27, 12, SPRITE_OFFICER_JENNY, STAY, DOWN, 11 ; person
