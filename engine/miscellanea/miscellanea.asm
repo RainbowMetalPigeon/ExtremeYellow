@@ -769,7 +769,13 @@ TMMartClerkDialogue::
 	inc de
 .checkTM53
 
-	; TM53 ; BODY_PRESS
+	; TM53
+	CheckHideShowExtra HS_ONIX_BURROWING_ITEM
+	jr z, .checkTM54
+	ld a, TM_BODY_PRESS
+	ld [de], a
+	inc de
+.checkTM54
 
 	; TM54
 	CheckEvent EVENT_GOT_TM54

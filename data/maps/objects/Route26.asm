@@ -1,5 +1,5 @@
 Route26_Object:
-	db $a ; border block
+	db $2c ; border block
 
 	def_warp_events
 	warp_event 50, 17, ONIX_BURROWING, 1

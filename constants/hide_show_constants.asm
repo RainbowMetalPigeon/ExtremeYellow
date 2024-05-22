@@ -362,7 +362,8 @@ DEF SHOW EQU $15
 	const HS_ROUTE_28_ROCKET_2             ; new
 	const HS_ROUTE_28_ROCKET_3             ; new
 	const HS_ROUTE_28_ROCKET_4             ; new
-	const HS_SNORLAX_DEN                   ; new
+	const HS_ONIX_BURROWING_ITEM           ; new
+	const HS_ONIX_BURROWING_SNORLAX_DEN    ; new
 	const HS_FUCHSIA_CITY_ERIK_WAITING     ; new
 	const HS_FUCHSIA_CITY_ROCKET_SAFARI    ; new
 	const HS_FUCHSIA_CITY_ERIK_HAPPY       ; new

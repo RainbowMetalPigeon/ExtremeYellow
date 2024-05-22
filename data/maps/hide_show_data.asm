@@ -721,6 +721,7 @@ Route28HS: ; new
 	db ROUTE_28, $04, SHOW
 OnixBurrowingHS: ; new
 	db ONIX_BURROWING, $01, SHOW
+	db ONIX_BURROWING, $02, SHOW
 FuchsiaCityHS: ; new
 	db FUCHSIA_CITY, $03, SHOW ; Erik waiting for Sara
 	db FUCHSIA_CITY, $0B, SHOW ; Rocket grunt guarding the Safari Zone

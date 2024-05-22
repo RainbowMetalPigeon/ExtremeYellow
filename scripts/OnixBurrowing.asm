@@ -42,6 +42,7 @@ CoordsData_AroundSnorlax:
 	db -1 ; end
 
 OnixBurrowing_TextPointers:
+	dw PickUpItemText
 	dw SnorlaxDenText
 
 OnixBurrowingTrainerHeaders:
