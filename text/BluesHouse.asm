@@ -135,21 +135,6 @@ _BluesHouseClues_Intro::
 	cont "obscure."
 	prompt
 
-_BluesHouseClues_IntroShort::
-	text "Welcome back!"
-	line "How's your"
-	cont "adventure going?"
-
-	para "Hopefully you'll"
-	line "be able to"
-	cont "discover all the"
-	cont "treasures,"
-	cont "whatever they"
-	cont "are, hinted by"
-	cont "the documents I"
-	cont "found out!"
-	prompt
-
 _BluesHouseClues_Question::
 	text "What clue would"
 	line "you like to hear"

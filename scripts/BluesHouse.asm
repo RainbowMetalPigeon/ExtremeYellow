@@ -150,6 +150,7 @@ BluesHouseClues_Intro:
 
 BluesHouseClues_IntroShort:
 	text_far _BluesHouseClues_IntroShort
+;	text_far _BluesHouseClues_Intro
 	text_end
 
 BluesHouseClues_Question:
