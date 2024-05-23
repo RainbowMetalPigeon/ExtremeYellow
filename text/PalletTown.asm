@@ -256,8 +256,7 @@ _DarkGuideHints_Hint2_Solution::
 	cont "locations fitting"
 	cont "to them, to"
 	cont "challenge you to"
-	cont "an INVERSE"
-	cont "battle."
+	cont "INVERSE BATTLEs."
 
 	para "The locations are"
 	line "the following:"

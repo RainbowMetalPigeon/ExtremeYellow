@@ -185,7 +185,7 @@ _OakBeforeBattleText::
 	line "already familiar"
 	cont "with these new"
 	cont "INVERSE BATTLEs."
-	cont "What battle mode"
+	cont "What battle style"
 	cont "do you prefer?"
 	prompt
 
@@ -199,7 +199,7 @@ _OakBeforeBattleTextShort::
 	line "already familiar"
 	cont "with these new"
 	cont "INVERSE BATTLEs."
-	cont "What battle mode"
+	cont "What battle style"
 	cont "do you prefer?"
 	prompt
 

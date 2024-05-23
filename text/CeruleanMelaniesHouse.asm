@@ -155,8 +155,13 @@ _CeruleanHouse1Text11::
 	cont "but they have no"
 	cont "interest in"
 	cont "joining our show."
-
-	para "To each their own!"
+	
+	text "Too bad for them!"
+	line "We'll soon be"
+	cont "even more famous"
+	cont "than the KIMONO"
+	cont "SIBLINGS of"
+	cont "ECRUTEAK CITY!"
 ;	xxxx "123456789012345678"
 	done
 
