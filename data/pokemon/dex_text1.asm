@@ -81,11 +81,11 @@ _MCharzardXDexEntry::
 _MCharzardYDexEntry::
 	text "The bond with the"
 	next "Trainer is its"
-	next "power source. It"
+	next "power source. Has"
 
-	page "has speed and man-"
-	next "euverability"
-	next "greater than a jet"
+	page "more speed and"
+	next "maneuverability"
+	next "than a jet"
 	dex
 
 _SquirtleDexEntry::
