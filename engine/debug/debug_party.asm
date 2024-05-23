@@ -219,7 +219,7 @@ DebugItemsList:
 ;   db OAKS_PARCEL, 1
 	db POTION, 99 ; PERFECTER, 99
 	db SUPER_ROD, 1
-	db REPEL, 3
+	db TM_PSYCHIC_M, 3
 	db GOOD_ROD, 1
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1

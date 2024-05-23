@@ -753,7 +753,8 @@ wEngagedTrainerClass:: db
 wEngagedTrainerSet:: db
 ENDU
 
-	ds 1
+;	ds 1 ; edited, commented out for the one below
+wSurrenderedFromTrainerBattle:: db ; new
 
 wNPCMovementDirections2Index::
 wUnusedCD37::

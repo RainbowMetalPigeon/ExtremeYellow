@@ -1029,10 +1029,35 @@ _CantEscapeText::
 	text "Can't escape!"
 	prompt
 
-_NoRunningText::
-	text "No! There's no"
-	line "running from a"
-	cont "trainer battle!"
+;_NoRunningText::
+;	text "No! There's no"
+;	line "running from a"
+;	cont "trainer battle!"
+;	prompt
+
+_WannaSurrenderText:: ; new
+	text "Do you want to"
+	line "surrender?"
+;	xxxx "123456789012345678"
+	done
+
+_AreYouSureText:: ; new
+	text "Are you sure to"
+	line "surrender?"
+;	xxxx "123456789012345678"
+	done
+
+_LetsNotGiveUpYet:: ; new
+	text "Let's not give up"
+	line "just yet!"
+;	xxxx "123456789012345678"
+	prompt 
+
+_PlayerGaveUpText:: ; new
+	text "<PLAYER> gave up!"
+
+	para "<PLAYER> blacked"
+	line "out!"
 	prompt
 
 _NoRunningFromMissingnoText:: ; new

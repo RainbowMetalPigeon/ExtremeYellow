@@ -1566,8 +1566,6 @@ TryRunningFromBattle:
 	ld a, [wBattleType]
 	cp BATTLE_TYPE_SAFARI
 	jp z, .canEscape ; jump if it's a safari battle
-;	cp BATTLE_TYPE_RUN
-;	jp z, .canEscape ; hurry, get away?
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jp z, .canEscape
@@ -1596,7 +1594,7 @@ TryRunningFromBattle:
 	ld hl, hEnemySpeed
 	ld c, 2
 	call StringCmp
-	jr nc, .canEscape ; jump if player speed greater than enemy speed
+	jp nc, .canEscape ; jump if player speed greater than enemy speed
 	xor a
 	ldh [hMultiplicand], a
 	ld a, 32
@@ -1651,8 +1649,18 @@ TryRunningFromBattle:
 	ld [wActionResultOrTookBattleTurn], a
 	ld hl, NoRunningFromMissingnoText
 	jr .printCantEscapeOrNoRunningText
-.trainerBattle
-	ld hl, NoRunningText
+.trainerBattle ; edited
+;	ld hl, NoRunningText
+	callfar WantToSurrenderFromTrainerBattle
+	jr nz, .noSurrender
+; we did surrender
+	ld a, 1
+	ld [wSurrenderedFromTrainerBattle], a
+	jp HandlePlayerBlackOut
+.noSurrender
+	ld hl, LetsNotGiveUpYet
+	call PrintText
+	ret
 .printCantEscapeOrNoRunningText
 	call PrintText
 	ld a, 1
@@ -1693,8 +1701,12 @@ CantEscapeText:
 	text_far _CantEscapeText
 	text_end
 
-NoRunningText:
-	text_far _NoRunningText
+;NoRunningText:
+;	text_far _NoRunningText
+;	text_end
+
+LetsNotGiveUpYet: ; new
+	text_far _LetsNotGiveUpYet
 	text_end
 
 NoRunningFromMissingnoText: ; new

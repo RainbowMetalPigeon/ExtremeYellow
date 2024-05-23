@@ -39,7 +39,14 @@ _HandlePlayerBlackOut:
 .noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
+; edited, to handle surrender from a trainer
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	ld hl, PlayerGaveUpText
+	jr nz, .continue
+; back to vanilla
 	ld hl, PlayerBlackedOutText2
+.continue ; new label
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr nz, .noLinkBattle
@@ -60,6 +67,10 @@ Rival1WinText:
 
 PlayerBlackedOutText2:
 	text_far _PlayerBlackedOutText2
+	text_end
+
+PlayerGaveUpText:: ; new
+	text_far _PlayerGaveUpText
 	text_end
 
 LinkBattleLostText:

@@ -308,6 +308,11 @@ OverworldLoopLessDelay::
 	ld a, d
 	and a
 	jr z, AllPokemonFainted
+; new, to handle surrender from trainers
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr nz, AllPokemonFainted
+; back to vanilla
 .noFaintCheck
 	ld c, 10
 	call DelayFrames
@@ -507,7 +512,7 @@ WarpFound2::
 	ld a, [wCurMap]
 	ld [wLastMap], a
 	ld a, [wCurMapWidth]
-	ld [wUnusedD366], a ; not read
+;	ld [wUnusedD366], a ; not read
 	ldh a, [hWarpDestinationMap]
 	ld [wCurMap], a
 	cp ROCK_TUNNEL_1F
@@ -703,7 +708,6 @@ MapEntryAfterBattle::
 HandleBlackOut::
 ; For when all the player's pokemon faint.
 ; Does not print the "blacked out" message.
-
 	call GBFadeOutToBlack
 	ld a, $08
 	call StopMusic
@@ -714,6 +718,8 @@ HandleBlackOut::
 	callfar ResetStatusAndHalveMoneyOnBlackout
 	call SpecialWarpIn
 	call PlayDefaultMusicFadeOutCurrent
+	xor a                                 ; new
+	ld [wSurrenderedFromTrainerBattle], a ; new
 	jp SpecialEnterMap
 
 StopMusic::
@@ -1810,7 +1816,7 @@ Func_0db5:: ; XXX
 	farcall LoadMissableObjectData
 asm_0dbd:
 	ld a, [wCurMapTileset]
-	ld [wUnusedD119], a
+;	ld [wUnusedD119], a
 	ld a, [wCurMap]
 	call SwitchToMapRomBank
 	ld a, [wCurMapTileset]
@@ -2038,7 +2044,7 @@ ResetMapVariables::
 	ldh [hSCY], a
 	ldh [hSCX], a
 	ld [wWalkCounter], a
-	ld [wUnusedD119], a
+;	ld [wUnusedD119], a
 	ld [wSpriteSetID], a
 	ld [wWalkBikeSurfStateCopy], a
 	ret

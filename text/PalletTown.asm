@@ -145,22 +145,6 @@ _DarkGuideHints_IntroShort::
 	cont "content."
 	prompt
 
-_BluesHouseClues_IntroShort:: ; here because otherwise the HoF Dex Rating bugs... why in the universe???
-                              ; https://discord.com/channels/442462691542695948/442462691542695957/1242853113560301609
-	text "Welcome back!"
-	line "How's your"
-	cont "adventure going?"
-
-	para "Hopefully you'll"
-	line "be able to"
-	cont "discover all the"
-	cont "treasures,"
-	cont "whatever they"
-	cont "are, hinted by"
-	cont "the documents I"
-	cont "found out!"
-	prompt
-
 _DarkGuideHints_Question::
 	text "What hint to YOU"
 	line "want to have?"

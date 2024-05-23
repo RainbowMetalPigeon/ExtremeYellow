@@ -164,3 +164,27 @@ CheckIfHPIsBelowFraction::
 	ld a, e
 	sub c
 	ret
+
+; ===========================================================================
+
+WantToSurrenderFromTrainerBattle::
+	ld hl, WannaSurrenderText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ret nz
+	ld hl, AreYouSureText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ret
+
+WannaSurrenderText:
+	text_far _WannaSurrenderText
+	text_end
+
+AreYouSureText:
+	text_far _AreYouSureText
+	text_end
