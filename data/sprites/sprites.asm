@@ -95,6 +95,12 @@ SpriteSheetPointerTable:
 	overworld_sprite SlowkingSprite, 12         ; SPRITE_SLOWKING ; new
 	overworld_sprite Amber2Sprite, 12           ; SPRITE_AMBER_2 ; new
 	overworld_sprite MissingNoSprite, 12        ; SPRITE_MISSINGNO ; new
+	overworld_sprite TrophyLeagueSprite, 12     ; SPRITE_TROPHY_LEAGUE ; new
+	overworld_sprite TrophyInverseSprite, 12    ; SPRITE_TROPHY_INVERSE ; new
+	overworld_sprite TrophyMegaSprite, 12       ; SPRITE_TROPHY_MEGA ; new
+	overworld_sprite TrophyPokedexSprite, 12    ; SPRITE_TROPHY_POKEDEX ; new
+	overworld_sprite TrophyMerchantSprite, 12   ; SPRITE_TROPHY_MERCHANT ; new
+	overworld_sprite TrophyBFSprite, 12         ; SPRITE_TROPHY_BF ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

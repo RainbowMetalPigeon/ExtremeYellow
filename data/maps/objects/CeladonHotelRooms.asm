@@ -24,11 +24,13 @@ CeladonHotelRooms_Object:
 	def_object_events
 	object_event 39,  4, SPRITE_HIKER, STAY, LEFT, 1 ; Looker (Bellocchio)
 	object_event 51,  5, SPRITE_TRAVELER, STAY, RIGHT, 2 ; Traveler (yet unused)
-	object_event  1,  1, SPRITE_OLD_AMBER, STAY, NONE, 3 ; Trophy 1, League, proxy
-	object_event  2,  1, SPRITE_OLD_AMBER, STAY, NONE, 4 ; Trophy 2, MAX in BF, proxy
-	object_event  3,  1, SPRITE_OLD_AMBER, STAY, NONE, 5 ; Trophy 3, Pokedex, proxy
-	object_event  4,  4, SPRITE_OLD_AMBER, STAY, NONE, 6 ; Trophy 4, Inverse rematches, proxy
-	object_event  5,  5, SPRITE_OLD_AMBER, STAY, NONE, 7 ; Trophy 5, Mega Stones, proxy
-	object_event  6,  4, SPRITE_OLD_AMBER, STAY, NONE, 8 ; Trophy 6, Forbidden Merchant, proxy
+
+	object_event  4,  4, SPRITE_TROPHY_LEAGUE, STAY, DOWN, 3 ; Trophy 1, League, proxy
+	object_event  2,  1, SPRITE_TROPHY_BF, STAY, DOWN, 4 ; Trophy 2, MAX in BF, proxy
+	object_event  3,  1, SPRITE_TROPHY_POKEDEX, STAY, DOWN, 5 ; Trophy 3, Pokedex, proxy
+
+	object_event  6,  4, SPRITE_TROPHY_INVERSE, STAY, DOWN, 6 ; Trophy 4, Inverse rematches, proxy
+	object_event  5,  5, SPRITE_TROPHY_MEGA, STAY, DOWN, 7 ; Trophy 5, Mega Stones, proxy
+	object_event  1,  1, SPRITE_TROPHY_MERCHANT, STAY, DOWN, 8 ; Trophy 6, Forbidden Merchant, proxy
 
 	def_warps_to CELADON_HOTEL_ROOMS

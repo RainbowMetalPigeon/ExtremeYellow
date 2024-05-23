@@ -90,6 +90,12 @@
 	const SPRITE_SLOWKING                ; new
 	const SPRITE_AMBER_2                 ; new
 	const SPRITE_MISSINGNO               ; new
+	const SPRITE_TROPHY_LEAGUE           ; new
+	const SPRITE_TROPHY_INVERSE          ; new
+	const SPRITE_TROPHY_MEGA             ; new
+	const SPRITE_TROPHY_POKEDEX          ; new
+	const SPRITE_TROPHY_MERCHANT         ; new
+	const SPRITE_TROPHY_BF               ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
