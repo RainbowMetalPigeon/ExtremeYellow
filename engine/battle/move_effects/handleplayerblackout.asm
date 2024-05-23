@@ -7,6 +7,12 @@ _HandlePlayerBlackOut:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .noLossText
+; edited, to handle surrender from a trainer
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	lb bc, 12, 21
+	jr nz, .surrendered
+; back to vanilla
 	ld a, [wCurOpponent]
 	cp OPP_RIVAL1
 	jr z, .lossText
@@ -23,9 +29,10 @@ _HandlePlayerBlackOut:
 	cp OPP_BF_TRAINER ; new
 	jr z, .lossText
 	jr .noLossText
-.lossText
-	hlcoord 0, 0  ; battle that has loss text
+.lossText ; battle that has loss text
 	lb bc, 8, 21
+.surrendered
+	hlcoord 0, 0 
 	call ClearScreenArea
 	callfar ScrollTrainerPicAfterBattle ; this should do?
 	ld c, 40
@@ -35,7 +42,20 @@ _HandlePlayerBlackOut:
 	cp OAKS_LAB
 	ret z            		; starter battle in oak's lab: don't black out
 	cp BATTLE_FACILITY      ; new: don't black out in Battle Facility
-	ret z                   ; new
+	jr nz, .noLossText      ; new and edited
+; handling battle facility loss, including surrendering
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr z, .notSurrenderInBF
+; we did surrender in BF
+	ld b, SET_PAL_BATTLE_BLACK
+	call RunPaletteCommand
+	ld hl, PlayerGaveUpText
+	call PrintText
+	call ClearScreen
+	scf
+.notSurrenderInBF
+	ret
 .noLossText
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
@@ -43,10 +63,9 @@ _HandlePlayerBlackOut:
 	ld a, [wSurrenderedFromTrainerBattle]
 	and a
 	ld hl, PlayerGaveUpText
-	jr nz, .continue
+	jr nz, .noLinkBattle
 ; back to vanilla
 	ld hl, PlayerBlackedOutText2
-.continue ; new label
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr nz, .noLinkBattle
@@ -58,7 +77,6 @@ _HandlePlayerBlackOut:
 	ld [wd732], a
 	call ClearScreen
 	scf
-.temporary
 	ret
 
 Rival1WinText:

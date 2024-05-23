@@ -70,6 +70,7 @@ BattleFacilityScript1_PostBattle:
 .notHardcoreMode
 	xor a
 	ld [wBattleFacilityWinningStreak], a
+	ld [wIsInBattle], a ; maybe unnecessary but shouldn't hurt
 	; more? TBV
 .warpToEntrance
 	predef HealParty ; heal the team, now or just after, why not now

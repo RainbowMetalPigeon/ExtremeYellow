@@ -319,12 +319,20 @@ OverworldLoopLessDelay::
 	jp EnterMap
 .specialFaintCheck ; new, just for battle facility
 ; we need to NOT black out BUT to mark ourselves as defeated if that's the case
+; new, to handle surrender from trainers
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr nz, .surrenderInBattleFacility
+; back to battle facility stuff
 	callfar AnyPartyAlive
 	ld a, d
 	and a
 	jr nz, .noFaintCheck
+.surrenderInBattleFacility
 	ld a, $ff ; mark us as defeated if no more mons are alive
 	ld [wIsInBattle], a
+	xor a                                 ; new
+	ld [wSurrenderedFromTrainerBattle], a ; new
 	jr .noFaintCheck
 ; back to vanilla
 

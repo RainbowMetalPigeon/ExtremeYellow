@@ -810,11 +810,11 @@ CeladonHotelHS: ; new
 	db CELADON_HOTEL, $05, HIDE ; guard allowing pass
 CeladonHotelRoomsHS: ; new
 	db CELADON_HOTEL_ROOMS, $02, HIDE ; Traveler, not used yet
-	db CELADON_HOTEL_ROOMS, $03, SHOW ; Trophy 1
-	db CELADON_HOTEL_ROOMS, $04, SHOW ; Trophy 2
-	db CELADON_HOTEL_ROOMS, $05, SHOW ; Trophy 3
-	db CELADON_HOTEL_ROOMS, $06, SHOW ; Trophy 4
-	db CELADON_HOTEL_ROOMS, $07, SHOW ; Trophy 5
-	db CELADON_HOTEL_ROOMS, $08, SHOW ; Trophy 6
+	db CELADON_HOTEL_ROOMS, $03, HIDE ; Trophy 1
+	db CELADON_HOTEL_ROOMS, $04, HIDE ; Trophy 2
+	db CELADON_HOTEL_ROOMS, $05, HIDE ; Trophy 3
+	db CELADON_HOTEL_ROOMS, $06, HIDE ; Trophy 4
+	db CELADON_HOTEL_ROOMS, $07, HIDE ; Trophy 5
+	db CELADON_HOTEL_ROOMS, $08, HIDE ; Trophy 6
 
 	db $FF, $01, SHOW ; end, list terminator

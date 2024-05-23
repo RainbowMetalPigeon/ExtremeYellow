@@ -168,6 +168,12 @@ CheckIfHPIsBelowFraction::
 ; ===========================================================================
 
 WantToSurrenderFromTrainerBattle::
+	ld a, [wCurMap]
+	cp OAKS_LAB
+	jr nz, .notOaksLab
+	dec a ; to set the nz flag
+	ret
+.notOaksLab
 	ld hl, WannaSurrenderText
 	call PrintText
 	call YesNoChoice

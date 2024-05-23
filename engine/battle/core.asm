@@ -43,8 +43,6 @@ StartBattle:
 	call SaveScreenTilesToBuffer1
 .checkAnyPartyAlive
 	ld a, [wBattleType]
-;	cp BATTLE_TYPE_RUN
-;	jp z, .specialBattle
 	cp BATTLE_TYPE_PIKACHU
 	jp z, .specialBattle
 	call AnyPartyAlive
@@ -1552,6 +1550,11 @@ NoWillText:
 ; try to run from battle (hl = player speed, de = enemy speed)
 ; stores whether the attempt was successful in carry flag
 TryRunningFromBattle:
+; edited, moved the trainer check earlier
+	ld a, [wIsInBattle]
+	dec a
+	jp nz, .trainerBattle ; jump if it's a trainer battle
+; back to vanilla
 	push de
 	push hl
 	call IsGhostBattle ; edited: wrapped this in push-pops to preserve hl and de that point to mons' speeds
@@ -1574,9 +1577,7 @@ TryRunningFromBattle:
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr z, .cannotEscapeFromMissingNo
 ; back to vanilla
-	ld a, [wIsInBattle]
-	dec a
-	jp nz, .trainerBattle ; jump if it's a trainer battle
+; edited, moved the trainer check earlier
 	ld a, [wNumRunAttempts]
 	inc a
 	ld [wNumRunAttempts], a
@@ -1652,6 +1653,7 @@ TryRunningFromBattle:
 .trainerBattle ; edited
 ;	ld hl, NoRunningText
 	callfar WantToSurrenderFromTrainerBattle
+.test
 	jr nz, .noSurrender
 ; we did surrender
 	ld a, 1
