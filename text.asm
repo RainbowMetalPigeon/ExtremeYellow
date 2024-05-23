@@ -186,7 +186,6 @@ INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/PokemonMansion3F.asm"
-INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "data/text/text_9.asm"
 
 
@@ -215,6 +214,7 @@ INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/VermilionMart.asm"
+INCLUDE "text/PokemonMansionB1F.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones

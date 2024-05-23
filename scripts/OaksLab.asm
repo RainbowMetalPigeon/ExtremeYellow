@@ -1191,15 +1191,36 @@ OaksLabTextMedsInternal: ; new
 	text_far _OaksLabTextMeds
 	text_end
 
-OaksLabText8:
-OaksLabText9:
+OaksLabText8: ; edited
 	text_asm
-	ld hl, OaksLabText_1c31d
+	CheckEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	ld hl, OaksLabText_AidBaseDialogue
+	jr z, .printAndEnd
+	ld hl, OaksLabText_AidPikachuInfo1
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
-OaksLabText_1c31d:
-	text_far _OaksLabText_1d405
+OaksLabText9: ; edited
+	text_asm
+	CheckEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
+	ld hl, OaksLabText_AidBaseDialogue
+	jr z, .printAndEnd
+	ld hl, OaksLabText_AidPikachuInfo2
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OaksLabText_AidBaseDialogue:
+	text_far _OaksLabText_AidBaseDialogue
+	text_end
+
+OaksLabText_AidPikachuInfo1:
+	text_far _OaksLabText_AidPikachuInfo1
+	text_end
+
+OaksLabText_AidPikachuInfo2:
+	text_far _OaksLabText_AidPikachuInfo2
 	text_end
 
 ; new ------------------------------------------------

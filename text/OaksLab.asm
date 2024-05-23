@@ -372,7 +372,7 @@ _OaksLabPikachuDislikesPokeballsText1::
 	text "OAK: What?"
 	done
 
-_OaksLabPikachuDislikesPokeballsText2::
+_OaksLabPikachuDislikesPokeballsText2:: ; edited
 	text "OAK: Would you"
 	line "look at that!"
 
@@ -390,6 +390,20 @@ _OaksLabPikachuDislikesPokeballsText2::
 	para "You can talk to it"
 	line "and see how it"
 	cont "feels about you."
+
+	para "Also... that"
+	line "PIKACHU seems to"
+	cont "be a very"
+	cont "peculiar"
+	cont "specimen."
+
+	para "It may be harder"
+	line "to tame than"
+	cont "usual #MON."
+
+	para "Speak with my"
+	line "assistants for"
+	cont "more details!"
 	done
 
 _OaksLabTextMeds:: ; new
@@ -497,9 +511,71 @@ _OaksLabText27::
 	cont "Hahaha!"
 	done
 
-_OaksLabText_1d405::
+_OaksLabText_AidBaseDialogue::
 	text "I study #MON as"
 	line "PROF.OAK's AIDE."
+	done
+
+_OaksLabText_AidPikachuInfo1:: ; new
+	text "PROF.OAK told us"
+	line "of your PIKACHU."
+
+	para "Let me examine it,"
+	line "please."
+
+	para "Yes... yes..."
+
+	para "Normally, #MON"
+	line "obey you"
+	cont "depending on"
+	cont "their level and"
+	cont "how many BADGEs"
+	cont "you own."
+
+	para "The BADGE EXPERT"
+	line "in CERULEAN can"
+	cont "tell you more"
+	cont "about this."
+
+	para "This PIKACHU,"
+	line "although, only"
+	cont "respects trainers"
+	cont "that it likes."
+
+	para "The stronger your"
+	line "bond, the better"
+	cont "it will battle!"
+	done
+
+_OaksLabText_AidPikachuInfo2:: ; new
+	text "PROF.OAK told us"
+	line "of your PIKACHU."
+
+	para "Let me examine it,"
+	line "please."
+
+	para "Yes... yes..."
+
+	para "Taming this"
+	line "PIKACHU may be"
+	cont "harder than other"
+	cont "#MON, indeed."
+
+	para "BADGEs won't"
+	line "matter. Happiness"
+	cont "and mood are what"
+	cont "will do."
+
+	para "If you'll invest a"
+	line "lot of time in"
+	cont "it, you may be"
+	cont "greatly rewarded!"
+
+	para "Its potential"
+	line "seems vastly"
+	cont "superior of that"
+	cont "of a normal"
+	cont "PIKACHU!"
 	done
 
 ; new ------------------------------------------------
@@ -704,7 +780,7 @@ _GiovanniBeforeBattleText::
 
 	para "I have been made"
 	line "aware of this"
-	cont "different mode,"
+	cont "different style,"
 	cont "INVERSE BATTLE."
 	cont "Which would you"
 	cont "prefer?"
