@@ -40,15 +40,22 @@ DisplayDexRating:
 	ldh a, [hDexRatingNumMonsOwned]
 	ld [de], a
 	inc de
-.copyRatingTextLoop
+	ld b, 5 ; new
+.copyRatingTextLoop ; edited, this is prone to bugs in case the address of the text contains "$50", i.e. "@"
+                    ; let's just hard-count 5 steps in the loop
 	ld a, [hli]
-	cp "@"
-	jr z, .doneCopying
 	ld [de], a
 	inc de
-	jr .copyRatingTextLoop
-.doneCopying
-	ld [de], a
+	dec b
+	jr nz, .copyRatingTextLoop
+;	cp "@"
+;	jr z, .doneCopying
+;	ld [de], a
+;	inc de
+;	jr .copyRatingTextLoop
+;.doneCopying
+;	ld [de], a
+; back to vanilla
 	ret
 
 DexCompletionText:
