@@ -31,29 +31,37 @@ DisplayTitleScreen:
 	call DisableLCD
 	call LoadFontTilePatterns
 ; todo: fix hl pointers
-	ld hl, NintendoCopyrightLogoGraphics
-	ld de, vTitleLogo tile $60
-	ld bc, 5 tiles
-	ld a, BANK(NintendoCopyrightLogoGraphics)
+
+;	ld hl, NintendoCopyrightLogoGraphics
+;	ld de, vTitleLogo tile $60
+;	ld bc, 5 tiles
+;	ld a, BANK(NintendoCopyrightLogoGraphics)
+;	call FarCopyData ; copies bc bytes from a:hl to de
+
+;	ld hl, NineTile
+;	ld de, vTitleLogo tile $6e
+;	ld bc, 1 tiles
+;	ld a, BANK(NineTile)
+;	call FarCopyData
+
+	ld hl, RainbowMetalPigeonLogoGraphics ; edited, was GamefreakLogoGraphics
+	ld de, vTitleLogo tile $60 ; edited, was $60
+	ld bc, 19 tiles ; edited, was 9
+	ld a, BANK(RainbowMetalPigeonLogoGraphics) ; edited, was GamefreakLogoGraphics
 	call FarCopyData
-	ld hl, NineTile
-	ld de, vTitleLogo tile $6e
-	ld bc, 1 tiles
-	ld a, BANK(NineTile)
-	call FarCopyData
-	ld hl, GamefreakLogoGraphics
-	ld de, vTitleLogo tile $65
-	ld bc, 9 tiles
-	ld a, BANK(GamefreakLogoGraphics)
-	call FarCopyData
+
 	callfar LoadYellowTitleScreenGFX
 	ld hl, vBGMap0
 	ld bc, (vBGMap1 tile $40) - vBGMap0
 	ld a, " "
 	call FillMemory
+
 	callfar TitleScreen_PlacePokemonLogo
+
 	call FillSpriteBuffer0WithAA
+
 	call .WriteCopyrightTiles
+
 	call SaveScreenTilesToBuffer2
 	call LoadScreenTilesFromBuffer2
 	call EnableLCD
@@ -115,7 +123,7 @@ DisplayTitleScreen:
 
 ; place tiles for title screen copyright
 .WriteCopyrightTiles
-	hlcoord 2, 17
+	hlcoord 0, 17
 	ld de, .tileScreenCopyrightTiles
 .titleScreenCopyrightTilesLoop
 	ld a, [de]
@@ -126,7 +134,9 @@ DisplayTitleScreen:
 	jr .titleScreenCopyrightTilesLoop
 
 .tileScreenCopyrightTiles
-	db $e0,$e1,$e2,$e3,$e1,$e2,$ee,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ff ; ©1995-1999 GAME FREAK inc.
+;	db $e0,$e1,$e2,$e3,$e1,$e2,$ee,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ff ; ©1995-1999 GAME FREAK inc.
+	db $e0,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ee,$ef,$f0,$f1,$f2,$ff ; 2023-24 RAINBOW METAL PIGEON
+;	db $e0,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ee,$ef,$ff ; 2023-24 RAINBOW METAL PIGEON
 
 .finishedBouncingPokemonLogo
 	call LoadScreenTilesFromBuffer1
@@ -140,8 +150,10 @@ DisplayTitleScreen:
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	call Delay3
-	ld e, 0
-	call TitleScreen_PlayPikachuPCM
+;	ld e, $1b ; edited, was 0 ; edited into the following sound
+;	call TitleScreen_PlayPikachuPCM ; edited
+	ldpikacry e, PikachuCry35 ; new
+	callfar PlayPikachuSoundClip ; new
 	call WaitForSoundToFinish
 	call StopAllMusic
 	ld a, MUSIC_TITLE_SCREEN

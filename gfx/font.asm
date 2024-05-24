@@ -31,3 +31,7 @@ WorldMapTileGraphicsEnd:
 
 PlayerCharacterTitleGraphics: INCBIN "gfx/title/player.2bpp"
 PlayerCharacterTitleGraphicsEnd:
+
+; new
+RainbowMetalPigeonLogoGraphics: INCBIN "gfx/title/rainbowmetalpigeon_logo.2bpp"
+RainbowMetalPigeonLogoGraphicsEnd:

@@ -45,10 +45,10 @@ IF DEF(_DEBUG)
 	ld a, FLAIL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, PSYSTRIKE
+	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, ANCESTOR_PWR
+	ld a, AGILITY
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, GYRO_BALL
@@ -219,7 +219,7 @@ DebugItemsList:
 ;   db OAKS_PARCEL, 1
 	db POTION, 99 ; PERFECTER, 99
 	db SUPER_ROD, 1
-	db TM_PSYCHIC_M, 3
+	db TM_THUNDERBOLT, 3
 	db GOOD_ROD, 1
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1

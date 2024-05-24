@@ -10,7 +10,7 @@ _HandlePlayerBlackOut:
 ; edited, to handle surrender from a trainer
 	ld a, [wSurrenderedFromTrainerBattle]
 	and a
-	lb bc, 12, 21
+	lb bc, 12, SCREEN_WIDTH
 	jr nz, .surrendered
 ; back to vanilla
 	ld a, [wCurOpponent]

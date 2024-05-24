@@ -99,7 +99,8 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_EETERNATUSSHINY ; new
 	const PAL_ARCEUSSHINY ; new
 	const PAL_MISSINGNOSHINY ; new
-	const PAL_EXTREME ; new
+	const PAL_EXTREME1 ; new
+	const PAL_EXTREME2 ; new
 DEF NUM_SGB_PALS_HAUNTEDLESS EQU const_value ; new, used only to select palettes in Haunted maps
 	const PAL_PALLET_00 ; new
 	const PAL_PALLET_01 ; new

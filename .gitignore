@@ -1,6 +1,10 @@
 # Mac stuff
 *DS_Store
 
+# python stuff
+tools/__pycache__/*
+tools/__pycache__/png.cpython-310.pyc
+
 # compiled objects
 *.o
 gfx/tileset.o

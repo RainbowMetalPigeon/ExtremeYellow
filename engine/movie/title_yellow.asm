@@ -14,11 +14,11 @@ LoadYellowTitleScreenGFX:
 	ld bc, TitlePikachuBGGraphicsEnd - TitlePikachuBGGraphics
 	ld a, BANK(TitlePikachuBGGraphics)
 	call FarCopyData
-	ld hl, TitlePikachuOBGraphics
-	ld de, vChars1 tile $70
-	ld bc, TitlePikachuOBGraphicsEnd - TitlePikachuOBGraphics
-	ld a, BANK(TitlePikachuOBGraphics)
-	call FarCopyData
+;	ld hl, TitlePikachuOBGraphics
+;	ld de, vChars1 tile $70
+;	ld bc, TitlePikachuOBGraphicsEnd - TitlePikachuOBGraphics
+;	ld a, BANK(TitlePikachuOBGraphics)
+;	call FarCopyData
 	ret
 
 TitleScreen_PlacePokemonLogo:
@@ -56,22 +56,31 @@ TitleScreen_PlacePikachu:
 	ld [hl], $a7
 	hlcoord 16, 13
 	ld [hl], $b1
+; new, ugly, remove garbage at the right of the tail
+	hlcoord 16, 10
+	ld [hl], $7F
+	hlcoord 16, 11
+	ld [hl], $7F
+	hlcoord 16, 12
+	ld [hl], $7F
+	hlcoord 16, 13
+	ld [hl], $7F
 ; eyes?
-	ld hl, TitleScreenPikachuEyesOAMData
-	ld de, wShadowOAM
-	ld bc, $20
-	call CopyData
+;	ld hl, TitleScreenPikachuEyesOAMData
+;	ld de, wShadowOAM
+;	ld bc, $20
+;	call CopyData
 	ret
 
-TitleScreenPikachuEyesOAMData:
-	db $60, $40, $f1, $22
-	db $60, $48, $f0, $22
-	db $68, $40, $f3, $22
-	db $68, $48, $f2, $22
-	db $60, $60, $f0, $02
-	db $60, $68, $f1, $02
-	db $68, $60, $f2, $02
-	db $68, $68, $f3, $02
+;TitleScreenPikachuEyesOAMData:
+;	db $60, $40, $f1, $22
+;	db $60, $48, $f0, $22
+;	db $68, $40, $f3, $22
+;	db $68, $48, $f2, $22
+;	db $60, $60, $f0, $02
+;	db $60, $68, $f1, $02
+;	db $68, $60, $f2, $02
+;	db $68, $68, $f3, $02
 
 Bank3D_CopyBox:
 ; copy cxb (xy) screen area from de to hl
@@ -110,5 +119,5 @@ PokemonLogoCornerGraphics: INCBIN "gfx/title/pokemon_logo_corner.2bpp"
 PokemonLogoCornerGraphicsEnd:
 TitlePikachuBGGraphics: INCBIN "gfx/title/pikachu_bg.2bpp"
 TitlePikachuBGGraphicsEnd:
-TitlePikachuOBGraphics: INCBIN "gfx/title/pikachu_ob.2bpp"
-TitlePikachuOBGraphicsEnd:
+;TitlePikachuOBGraphics: INCBIN "gfx/title/pikachu_ob.2bpp"
+;TitlePikachuOBGraphicsEnd:
