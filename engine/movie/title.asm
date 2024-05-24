@@ -46,7 +46,7 @@ DisplayTitleScreen:
 
 	ld hl, RainbowMetalPigeonLogoGraphics ; edited, was GamefreakLogoGraphics
 	ld de, vTitleLogo tile $60 ; edited, was $60
-	ld bc, 19 tiles ; edited, was 9
+	ld bc, 20 tiles ; edited, was 9
 	ld a, BANK(RainbowMetalPigeonLogoGraphics) ; edited, was GamefreakLogoGraphics
 	call FarCopyData
 
@@ -135,7 +135,7 @@ DisplayTitleScreen:
 
 .tileScreenCopyrightTiles
 ;	db $e0,$e1,$e2,$e3,$e1,$e2,$ee,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ff ; ©1995-1999 GAME FREAK inc.
-	db $e0,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ee,$ef,$f0,$f1,$f2,$ff ; 2023-24 RAINBOW METAL PIGEON
+	db $e0,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ee,$ef,$f0,$f1,$f2,$f3,$ff ; 2023-24 RAINBOW METAL PIGEON
 ;	db $e0,$e1,$e2,$e3,$e4,$e5,$e6,$e7,$e8,$e9,$ea,$eb,$ec,$ed,$ee,$ef,$ff ; 2023-24 RAINBOW METAL PIGEON
 
 .finishedBouncingPokemonLogo
