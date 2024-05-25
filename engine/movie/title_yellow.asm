@@ -47,24 +47,15 @@ TitleScreen_PlacePikachu:
 	ld de, TitleScreenPikachuTilemap
 	lb bc, 9, 12
 	call Bank3D_CopyBox
-; stuff to be identified
+; edited, to fix the tail
 	hlcoord 16, 10
-	ld [hl], $96
+	ld [hl], $E0
 	hlcoord 16, 11
-	ld [hl], $9d
+	ld [hl], $E1
 	hlcoord 16, 12
-	ld [hl], $a7
+	ld [hl], $E2
 	hlcoord 16, 13
-	ld [hl], $b1
-; new, ugly, remove garbage at the right of the tail
-	hlcoord 16, 10
-	ld [hl], $7F
-	hlcoord 16, 11
-	ld [hl], $7F
-	hlcoord 16, 12
-	ld [hl], $7F
-	hlcoord 16, 13
-	ld [hl], $7F
+	ld [hl], $E3
 ; eyes?
 ;	ld hl, TitleScreenPikachuEyesOAMData
 ;	ld de, wShadowOAM
