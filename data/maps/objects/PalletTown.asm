@@ -9,7 +9,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 7 ; 23 entrance, 4 exit, 7 Lance
 ;	warp_event  5,  5, CERULEAN_CAVE_1F, 10
 ;	warp_event  5,  5, SAFARI_ZONE_GATE, 1
-	warp_event  5,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
+;	warp_event  5,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE, 1
 ;	warp_event  5,  5, POKEMON_MANSION_2F, 1
 ;	warp_event  5,  5, SECLUDED_ATOLL_SW, 1
@@ -31,6 +31,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, CELADON_UNIVERSITY_1, 1
 ;	warp_event  5,  5, HAUNTED_HOUSE_1, 1
 ;	warp_event  5,  5, CELADON_HOTEL_ROOMS, 1
+	warp_event  5,  5, SEAFOAM_ISLANDS_B4F, 3
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
