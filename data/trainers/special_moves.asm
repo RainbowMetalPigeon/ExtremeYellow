@@ -294,6 +294,237 @@ SpecialTrainerMoves:
 	db 6, 4, MUD_SLAP
 	db $FE
 
+	db BROCK, 2
+	; GEODUDE
+	db 1, 1, MUD_SLAP
+	db 1, 2, ROCK_THROW
+	db 1, 3, SELFDESTRUCT
+	db 1, 4, CURSE
+	; OMANYTE
+	db 2, 1, WRAP
+	db 2, 2, SAND_ATTACK
+	db 2, 3, WATER_GUN
+	db 2, 4, SUPERSONIC
+	; KABUTO
+	db 3, 1, AQUA_JET
+	db 3, 2, ROCK_THROW
+	db 3, 3, CONFUSE_RAY
+	db 3, 4, MEGA_DRAIN
+	; RHYHORN
+	db 4, 1, HORN_ATTACK
+	db 4, 2, MUD_SLAP
+	db 4, 3, SAND_ATTACK
+	db 4, 4, ROCK_THROW
+	; VULPIX
+	db 5, 1, EMBER
+	db 5, 2, DISABLE
+	db 5, 3, CONFUSE_RAY
+	db 5, 4, WILL_O_WISP
+	; ONIX
+	db 6, 1, MUD_SLAP
+	db 6, 2, BODY_PRESS
+	db 6, 3, WRAP
+	db 6, 4, ROCK_SLIDE
+	db $FE
+
+	db BROCK, 3
+	; GRAVELER
+	db 1, 1, ROCK_SLIDE
+	db 1, 2, MUD_SLAP
+	db 1, 3, FIRE_BLAST
+	db 1, 4, SELFDESTRUCT
+	; OMANYTE
+	db 2, 1, BUBBLEBEAM
+	db 2, 2, SUPERSONIC
+	db 2, 3, MUD_SHOT
+	db 2, 4, ROCK_TOMB
+	; KABUTO
+	db 3, 1, GIGA_DRAIN
+	db 3, 2, BUBBLEBEAM
+	db 3, 3, ROCK_THROW
+	db 3, 4, CONFUSE_RAY
+	; RHYHORN
+	db 4, 1, ROCK_THROW
+	db 4, 2, IRON_TAIL
+	db 4, 3, DIG
+	db 4, 4, BODY_SLAM
+	; NINETALES
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, HYPNOSIS
+	db 5, 3, FLAMETHROWER
+	db 5, 4, DARK_PULSE
+	; ONIX
+	db 6, 1, DIG
+	db 6, 2, BODY_PRESS
+	db 6, 3, BODY_SLAM
+	db 6, 4, ROCK_SLIDE
+	db $FE
+
+	db BROCK, 4
+	; GRAVELER
+	db 1, 1, ROCK_SLIDE
+	db 1, 2, EARTHQUAKE
+	db 1, 3, FIRE_BLAST
+	db 1, 4, SELFDESTRUCT
+	; OMASTAR
+	db 2, 1, BUBBLEBEAM
+	db 2, 2, ICE_BEAM
+	db 2, 3, BITE
+	db 2, 4, ROCK_SLIDE
+	; KABUTOPS
+	db 3, 1, GIGA_DRAIN
+	db 3, 2, BODY_SLAM
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, CONFUSE_RAY
+	; RHYDON
+	db 4, 1, MEGA_PUNCH
+	db 4, 2, MEGAHORN
+	db 4, 3, DIG
+	db 4, 4, ROCK_SLIDE
+	; NINETALES
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, HYPNOSIS
+	db 5, 3, FLAMETHROWER
+	db 5, 4, DARK_PULSE
+	; ONIX
+	db 6, 1, EARTHBADGE
+	db 6, 2, BODY_PRESS
+	db 6, 3, EXPLOSION
+	db 6, 4, ROCK_SLIDE
+	db $FE
+
+	db BROCK, 5
+	; GOLEM
+	db 1, 1, EARTHQUAKE
+	db 1, 2, EXPLOSION
+	db 1, 3, BODY_PRESS
+	db 1, 4, GYRO_BALL
+	; OMASTAR
+	db 2, 1, SURF
+	db 2, 2, ICE_BEAM
+	db 2, 3, SUPERSONIC
+	db 2, 4, ROCK_SLIDE
+	; KABUTOPS
+	db 3, 1, LEECH_LIFE
+	db 3, 2, SLASH
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, CONFUSE_RAY
+	; RHYDON
+	db 4, 1, EARTHQUAKE
+	db 4, 2, MEGAHORN
+	db 4, 3, IRON_TAIL
+	db 4, 4, ROCK_SLIDE
+	; NINETALES
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, WILL_O_WISP
+	db 5, 3, DARK_PULSE
+	db 5, 4, SUBSTITUTE
+	; KLEAVOR
+	db 6, 1, AIR_SLASH
+	db 6, 2, SLASH
+	db 6, 3, SWORDS_DANCE
+	db 6, 4, X_SCISSOR
+	db $FE
+
+	db BROCK, 6
+	; GOLEM
+	db 1, 1, EARTHQUAKE
+	db 1, 2, CURSE
+	db 1, 3, BODY_PRESS
+	db 1, 4, GYRO_BALL
+	; OMASTAR
+	db 2, 1, SURF
+	db 2, 2, ICE_BEAM
+	db 2, 3, HYPER_BEAM
+	db 2, 4, ROCK_SLIDE
+	; KABUTOPS
+	db 3, 1, LEECH_LIFE
+	db 3, 2, SLASH
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, CONFUSE_RAY
+	; RHYDON
+	db 4, 1, EARTHQUAKE
+	db 4, 2, MEGAHORN
+	db 4, 3, IRON_TAIL
+	db 4, 4, STONE_EDGE
+	; NINETALES
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, WILL_O_WISP
+	db 5, 3, FIRE_BLAST
+	db 5, 4, DOUBLE_TEAM
+	; KLEAVOR
+	db 6, 1, AIR_SLASH
+	db 6, 2, ROOST
+	db 6, 3, CLOSE_COMBAT
+	db 6, 4, X_SCISSOR
+	db $FE
+
+	db BROCK, 7
+	; GOLEM
+	db 1, 1, EARTHQUAKE
+	db 1, 2, EXPLOSION
+	db 1, 3, SUPERPOWER
+	db 1, 4, GYRO_BALL
+	; OMASTAR
+	db 2, 1, HYDRO_PUMP
+	db 2, 2, BLIZZARD
+	db 2, 3, HYPER_BEAM
+	db 2, 4, STONE_EDGE
+	; KABUTOPS
+	db 3, 1, LEECH_LIFE
+	db 3, 2, SLASH
+	db 3, 3, STONE_EDGE
+	db 3, 4, PSYCHO_CUT
+	; RHYPERIOR
+	db 4, 1, EARTHQUAKE
+	db 4, 2, STONE_EDGE
+	db 4, 3, SHADOW_CLAW
+	db 4, 4, BODY_PRESS
+	; KLEAVOR
+	db 6, 1, AIR_SLASH
+	db 6, 2, STONE_EDGE
+	db 6, 3, CLOSE_COMBAT
+	db 6, 4, X_SCISSOR
+	; AERODACTYL
+	db 6, 1, AIR_CUTTER
+	db 6, 2, ROOST
+	db 6, 3, STONE_EDGE
+	db 6, 4, EARTHQUAKE
+	db $FE
+
+	db BROCK, 8
+	; GOLEM
+	db 1, 1, EARTHQUAKE
+	db 1, 2, EXPLOSION
+	db 1, 3, BODY_PRESS
+	db 1, 4, STONE_EDGE
+	; OMASTAR
+	db 2, 1, HYDRO_PUMP
+	db 2, 2, BLIZZARD
+	db 2, 3, HYPER_BEAM
+	db 2, 4, STONE_EDGE
+	; KABUTOPS
+	db 3, 1, LEECH_LIFE
+	db 3, 2, SLASH
+	db 3, 3, STONE_EDGE
+	db 3, 4, PSYCHO_CUT
+	; RHYPERIOR
+	db 4, 1, EARTHQUAKE
+	db 4, 2, STONE_EDGE
+	db 4, 3, HYPER_BEAM
+	db 4, 4, BODY_PRESS
+	; KLEAVOR
+	db 6, 1, AIR_SLASH
+	db 6, 2, STONE_EDGE
+	db 6, 3, CLOSE_COMBAT
+	db 6, 4, X_SCISSOR
+	; AERODACTYL
+	db 6, 1, AIR_CUTTER
+	db 6, 2, ROOST
+	db 6, 3, STONE_EDGE
+	db 6, 4, EARTHQUAKE
+	db $FE
+
 ; MISTY's teams -------------------------------------------------
 
 	db MISTY, 1

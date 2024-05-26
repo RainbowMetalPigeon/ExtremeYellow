@@ -4360,7 +4360,7 @@ KleavorEvosMoves:
 	db 34, X_SCISSOR
 	db 36, ROCK_SLIDE
 	db 41, HEADBUTT
-	db 43, CLOSE_COMBAT,
+	db 43, CLOSE_COMBAT
 	db 60, NIGHT_SLASH
 	db 0
 
