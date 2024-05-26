@@ -894,12 +894,78 @@ SpecialTrainerMoves:
 
 ; ERIKA's teams -------------------------------------------------
 
-	db ERIKA, 1
+	db ERIKA, 2
+	; PARAS
+	db 1, 1, MEGA_DRAIN
+	db 1, 2, LEECH_SEED
+	db 1, 3, INFESTATION
+	db 1, 4, SPORE
+	; GLOOM
+	db 2, 1, LEECH_SEED
+	db 2, 2, POISONPOWDER
+	db 2, 3, STUN_SPORE
+	db 2, 4, GIGA_DRAIN
+	; EXEGGCUTE
+	db 3, 1, PSYWAVE
+	db 3, 2, LEECH_SEED
+	db 3, 3, LIGHT_SCREEN
+	db 3, 4, ENERGY_BALL
+	; WEEPINBELL
+	db 4, 1, WRAP
+	db 4, 2, STUN_SPORE
+	db 4, 3, GIGA_DRAIN
+	db 4, 4, ACID
+	; LEAFEON
+	db 5, 1, SAND_ATTACK
+	db 5, 2, QUICK_ATTACK
+	db 5, 3, FOCUS_ENERGY
+	db 5, 4, DOUBLE_KICK
+	; TANGELA
+	db 6, 1, LEECH_SEED
+	db 6, 2, POISONPOWDER
+	db 6, 3, WRAP
+	db 6, 4, GIGA_DRAIN
+	db $FE
+
+	db ERIKA, 3
 	; PARASECT
-;	db 1, 1, SPORE
+	db 1, 1, GIGA_DRAIN
+	db 1, 2, LEECH_SEED
+	db 1, 3, INFESTATION
+	db 1, 4, SPORE
+	; VILEPLUME
+	db 2, 1, STUN_SPORE
+	db 2, 2, MOONBLAST
+	db 2, 3, SLUDGE_WAVE
+	db 2, 4, ENERGY_BALL
+	; EXEGGUTOR
+	db 3, 1, CONFUSION
+	db 3, 2, LEECH_SEED
+	db 3, 3, BULLET_SEED
+	db 3, 4, STUN_SPORE
+	; VICTREEBEL
+	db 4, 1, WRAP
+	db 4, 2, STUN_SPORE
+	db 4, 3, MAGICAL_LEAF
+	db 4, 4, LEECH_LIFE
+	; LEAFEON
+	db 5, 1, DOUBLE_EDGE
+	db 5, 2, X_SCISSOR
+	db 5, 3, SHADOW_BALL
+	db 5, 4, RAZOR_LEAF
+	; TANGELA
+	db 6, 1, LEECH_SEED
+	db 6, 2, LIGHT_SCREEN
+	db 6, 3, WRAP
+	db 6, 4, GIGA_DRAIN
+	db $FE
+
+	db ERIKA, 4
+	; PARASECT
+	db 1, 1, SPORE
 	db 1, 2, INFESTATION
-	db 1, 3, GIGA_DRAIN
-;	db 1, 4, SLASH
+	db 1, 3, LEECH_LIFE
+	db 1, 4, SLASH
 	; VILEPLUME
 	db 2, 1, STUN_SPORE
 	db 2, 2, MOONBLAST
@@ -925,6 +991,138 @@ SpecialTrainerMoves:
 	db 6, 2, REFLECT
 	db 6, 3, LEECH_SEED
 	db 6, 4, ROCK_SLIDE
+	db $FE
+
+	db ERIKA, 5
+	; VILEPLUME
+	db 1, 1, STUN_SPORE
+	db 1, 2, MOONBLAST
+	db 1, 3, GUNK_SHOT
+	db 1, 4, PETAL_DANCE
+	; BELLOSSOM
+	db 2, 1, STUN_SPORE
+	db 2, 2, MOONBLAST
+	db 2, 3, DRAIN_PUNCH
+	db 2, 4, PETAL_DANCE
+	; VICTREEBEL
+	db 3, 1, WRAP
+	db 3, 2, HYPER_BEAM
+	db 3, 3, SLEEP_POWDER
+	db 3, 4, RAZOR_LEAF
+	; LEAFEON
+	db 4, 1, SWORDS_DANCE
+	db 4, 2, HYPER_BEAM
+	db 4, 3, SHADOW_BALL
+	db 4, 4, RAZOR_LEAF
+	; VENUSAUR
+	db 6, 1, GUNK_SHOT
+	db 6, 2, LEECH_SEED
+	db 6, 3, RAZOR_LEAF
+	db 6, 4, EARTHQUAKE
+	; TANGROWTH
+	db 6, 1, AMNESIA
+	db 6, 2, CURSE
+	db 6, 3, GIGA_DRAIN
+	db 6, 4, ROCK_SLIDE
+	db $FE
+
+	db ERIKA, 6
+	; VILEPLUME
+	db 1, 1, STUN_SPORE
+	db 1, 2, MOONBLAST
+	db 1, 3, GUNK_SHOT
+	db 1, 4, PETAL_DANCE
+	; EXEGGUTOR
+	db 2, 1, PSYCHIC_M
+	db 2, 2, SLEEP_POWDER
+	db 2, 3, OUTRAGE
+	db 2, 4, EXPLOSION
+	; VICTREEBEL
+	db 3, 1, WRAP
+	db 3, 2, HYPER_BEAM
+	db 3, 3, LOVELY_KISS
+	db 3, 4, RAZOR_LEAF
+	; LEAFEON
+	db 4, 1, SWORDS_DANCE
+	db 4, 2, HYPER_BEAM
+	db 4, 3, SHADOW_BALL
+	db 4, 4, X_SCISSOR
+	; VENUSAUR
+	db 6, 1, GUNK_SHOT
+	db 6, 2, LEECH_SEED
+	db 6, 3, RAZOR_LEAF
+	db 6, 4, EARTHQUAKE
+	; TANGROWTH
+	db 6, 1, AMNESIA
+	db 6, 2, CURSE
+	db 6, 3, GIGA_DRAIN
+	db 6, 4, REST
+	db $FE
+
+	db ERIKA, 7
+	; VILEPLUME
+	db 1, 1, STUN_SPORE
+	db 1, 2, MOONBLAST
+	db 1, 3, GUNK_SHOT
+	db 1, 4, PETAL_DANCE
+	; EXEGGUTOR
+	db 2, 1, ZEN_HEADBUTT
+	db 2, 2, SLEEP_POWDER
+	db 2, 3, OUTRAGE
+	db 2, 4, EXPLOSION
+	; VICTREEBEL
+	db 3, 1, WRAP
+	db 3, 2, GUNK_SHOT
+	db 3, 3, STUN_SPORE
+	db 3, 4, RAZOR_LEAF
+	; LEAFEON
+	db 4, 1, LEAF_STORM
+	db 4, 2, HYPER_BEAM
+	db 4, 3, SHADOW_BALL
+	db 4, 4, X_SCISSOR
+	; VENUSAUR
+	db 6, 1, GUNK_SHOT
+	db 6, 2, LEECH_SEED
+	db 6, 3, LEAF_STORM
+	db 6, 4, EARTHQUAKE
+	; TANGROWTH
+	db 6, 1, AMNESIA
+	db 6, 2, CURSE
+	db 6, 3, GIGA_DRAIN
+	db 6, 4, REST
+	db $FE
+
+	db ERIKA, 8
+	; VILEPLUME
+	db 1, 1, STUN_SPORE
+	db 1, 2, MOONBLAST
+	db 1, 3, GUNK_SHOT
+	db 1, 4, ENERGY_BALL
+	; EXEGGUTOR
+	db 2, 1, PSYCHO_CUT
+	db 2, 2, SLEEP_POWDER
+	db 2, 3, OUTRAGE
+	db 2, 4, EXPLOSION
+	; VICTREEBEL
+	db 3, 1, WRAP
+	db 3, 2, GUNK_SHOT
+	db 3, 3, STUN_SPORE
+	db 3, 4, RAZOR_LEAF
+	; LEAFEON
+	db 4, 1, LEAF_STORM
+	db 4, 2, HYPER_BEAM
+	db 4, 3, SHADOW_BALL
+	db 4, 4, X_SCISSOR
+	; VENUSAUR
+	db 6, 1, GUNK_SHOT
+	db 6, 2, LEECH_SEED
+	db 6, 3, LEAF_STORM
+	db 6, 4, EARTHQUAKE
+	; TANGROWTH
+	db 6, 1, AMNESIA
+	db 6, 2, CURSE
+	db 6, 3, GIGA_DRAIN
+	db 6, 4, REST
 	db $FE
 
 ; KOGA's teams -------------------------------------------------
