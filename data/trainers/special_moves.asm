@@ -297,26 +297,59 @@ SpecialTrainerMoves:
 ; MISTY's teams -------------------------------------------------
 
 	db MISTY, 1
+	; GOLDEEN
+	db 1, 1, PECK
+	db 1, 2, SUPERSONIC
+	db 1, 3, LEER
+	db 1, 4, WATER_PULSE
+	; HORSEA
+	db 2, 1, BUBBLE
+	db 2, 2, SMOKESCREEN
+	db 2, 3, TWISTER
+	db 2, 4, NO_MOVE
+	; PSYDUCK
+	db 3, 1, LEER
+	db 3, 2, WATER_GUN
+	db 3, 3, CONFUSION
+	db 3, 4, FURY_SWIPES
+	; POLIWAG
+	db 4, 1, BUBBLE
+	db 4, 2, POUND
+	db 4, 3, DEFENSE_CURL
+	db 4, 4, MUD_SHOT
+	; SQUIRTLE
+	db 5, 1, TACKLE
+	db 5, 2, LEER
+	db 5, 3, BUBBLE
+	db 5, 4, BITE
 	; STARYU
-;	db 1, 1, CONFUSE_RAY
+	db 6, 1, TACKLE
+	db 6, 2, WATER_GUN
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, MINIMIZE
+	db $FE
+
+	db MISTY, 2
+	; STARYU
+	db 1, 1, CONFUSE_RAY
 	db 1, 2, BUBBLEBEAM
-;	db 1, 3, MINIMIZE
-;	db 1, 4, SWIFT
+	db 1, 3, MINIMIZE
+	db 1, 4, SWIFT
 	; PSYDUCK
 	db 2, 1, AMNESIA
-;	db 2, 2, DISABLE
-;	db 2, 3, ZEN_HEADBUTT
+	db 2, 2, DISABLE
+	db 2, 3, ZEN_HEADBUTT
 	db 2, 4, HEADBUTT
 	; POLIWHIRL
-;	db 3, 1, MUD_SHOT
-;	db 3, 2, HYPNOSIS
+	db 3, 1, MUD_SHOT
+	db 3, 2, HYPNOSIS
 	db 3, 3, LOW_KICK
-;	db 3, 4, BUBBLEBEAM
+	db 3, 4, BUBBLEBEAM
 	; GYARADOS
 	db 4, 1, BITE
-;	db 4, 2, TWISTER
+	db 4, 2, TWISTER
 	db 4, 3, BUBBLEBEAM
-;	db 4, 4, LEER
+	db 4, 4, LEER
 	; VAPOREON
 	db 5, 1, ACID_ARMOR
 	db 5, 2, REST ; AMNESIA?
@@ -325,8 +358,41 @@ SpecialTrainerMoves:
 	; STARMIE
 	db 6, 1, RECOVER
 	db 6, 2, BUBBLEBEAM
-;	db 6, 3, MINIMIZE
+	db 6, 3, MINIMIZE
 	db 6, 4, PSYBEAM
+	db $FE
+
+	db MISTY, 3
+	; WARTORTLE
+	db 1, 1, HEADBUTT
+	db 1, 2, MUD_SLAP
+	db 1, 3, WATER_PULSE
+	db 1, 4, CRUNCH
+	; GOLDUCK
+	db 2, 1, AMNESIA
+	db 2, 2, DISABLE
+	db 2, 3, ZEN_HEADBUTT
+	db 2, 4, HEADBUTT
+	; POLIWRATH
+	db 3, 1, BODY_SLAM
+	db 3, 2, HYPNOSIS
+	db 3, 3, SUBMISSION
+	db 3, 4, BUBBLEBEAM
+	; GYARADOS
+	db 4, 1, FOCUS_ENERGY
+	db 4, 2, FLAIL
+	db 4, 3, BUBBLEBEAM
+	db 4, 4, WRAP
+	; VAPOREON
+	db 5, 1, AMNESIA
+	db 5, 2, REST
+	db 5, 3, WATER_PULSE
+	db 5, 4, AURORA_BEAM
+	; STARMIE
+	db 6, 1, RECOVER
+	db 6, 2, BUBBLEBEAM
+	db 6, 3, MINIMIZE
+	db 6, 4, LIGHT_SCREEN
 	db $FE
 
 ; LT_SURGE's teams -------------------------------------------------
@@ -641,7 +707,7 @@ SpecialTrainerMoves:
 	db LORELEI, 1
 	; DEWGONG
 	db 1, 1, FLAIL
-	db 1, 2, AQUA_JET
+	db 1, 2, NO_MOVE
 	db 1, 3, NO_MOVE
 	db 1, 4, NO_MOVE
 ;	db 1, 1, AQUA_JET
@@ -649,10 +715,14 @@ SpecialTrainerMoves:
 ;	db 1, 3, WATERFALL
 ;	db 1, 4, BLIZZARD
 	; CLOYSTER
-	db 2, 1, EXPLOSION
-	db 2, 2, PIN_MISSILE
-	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
-	db 2, 4, ICICLE_SPEAR
+	db 2, 1, SPLASH
+	db 2, 2, NO_MOVE
+	db 2, 3, NO_MOVE
+	db 2, 4, NO_MOVE
+;	db 2, 1, EXPLOSION
+;	db 2, 2, PIN_MISSILE
+;	db 2, 3, SPIKE_CANNON ; HYDRO_PUMP?
+;	db 2, 4, ICICLE_SPEAR
 	; JYNX
 	db 3, 1, BLIZZARD
 	db 3, 2, LOVELY_KISS

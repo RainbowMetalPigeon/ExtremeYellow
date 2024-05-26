@@ -79,7 +79,7 @@ _HallofFameRoomText1_PG_Oak::
 	cont "more time."
 
 	para "<RIVAL>, go ahead!"
-	prompt
+	done
 
 ; -------------
 

@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, FLAIL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, THUNDER_WAVE
+	ld a, DISABLE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, AGILITY

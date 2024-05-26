@@ -32,7 +32,7 @@ CeruleanCity_Object:
 	object_event 15, 18, SPRITE_SUPER_NERD, WALK, UP_DOWN, 4 ; person
 	object_event  9, 21, SPRITE_SUPER_NERD, WALK, LEFT_RIGHT, 5 ; person
 	object_event 28, 12, SPRITE_OFFICER_JENNY, STAY, DOWN, 6 ; person
-	object_event 32, 27, SPRITE_COOLTRAINER_F, STAY, LEFT, 7 ; person, edited
+	object_event 32, 27, SPRITE_COOLTRAINER_F, STAY, RIGHT, 7 ; person, edited
 	object_event 33, 27, SPRITE_POKE_BALL, STAY, DOWN, 8 ; person, edited
 	object_event  9, 27, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 9 ; person
 	object_event  4, 12, SPRITE_SUPER_NERD, STAY, DOWN, 10 ; person

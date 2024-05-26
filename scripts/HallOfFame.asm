@@ -61,24 +61,24 @@ HallofFameRoomScript1:
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
 ; Oak faces left
-;	ld a, $1
-;	ldh [hSpriteIndex], a
-;	call SetSpriteMovementBytesToFF
-;	ld a, SPRITE_FACING_LEFT
-;	ldh [hSpriteFacingDirection], a
-;	call SetSpriteFacingDirectionAndDelay
+	ld a, $1
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 
 	ld a, $2
 	ld [wSprite01StateData1MovementStatus], a
 	ld a, SPRITE_FACING_LEFT
 	ld [wSprite01StateData1FacingDirection], a
 ; Rival faces right
-;	ld a, $2
-;	ldh [hSpriteIndex], a
-;	call SetSpriteMovementBytesToFF
-;	ld a, SPRITE_FACING_RIGHT
-;	ldh [hSpriteFacingDirection], a
-;	call SetSpriteFacingDirectionAndDelay
+	ld a, $2
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 
 	ld a, $2
 	ld [wSprite02StateData1MovementStatus], a
@@ -91,12 +91,12 @@ HallofFameRoomScript1:
 	ldh [hSpriteIndexOrTextID], a
 	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Rival faces up
-;	ld a, $2
-;	ldh [hSpriteIndex], a
-;	call SetSpriteMovementBytesToFF
-;	ld a, SPRITE_FACING_UP
-;	ldh [hSpriteFacingDirection], a
-;	call SetSpriteFacingDirectionAndDelay
+	ld a, $2
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_UP
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 
 	ld a, $2
 	ld [wSprite02StateData1MovementStatus], a
@@ -106,12 +106,12 @@ HallofFameRoomScript1:
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 ; Oak faces left (should be redundant but maybe is not?)
-;	ld a, $1
-;	ldh [hSpriteIndex], a
-;	call SetSpriteMovementBytesToFF
-;	ld a, SPRITE_FACING_LEFT
-;	ldh [hSpriteFacingDirection], a
-;	call SetSpriteFacingDirectionAndDelay
+	ld a, $1
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 
 	ld a, $2
 	ld [wSprite01StateData1MovementStatus], a
@@ -134,8 +134,6 @@ HallofFameRoomScript1:
 	predef ShowObjectExtra
 .dontShowLegendaryBirbs
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-;	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER ; temp, testing, will be modified
-;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH ; temp, testing, will be modified
 ; let's also heal the party, why not
 	predef HealParty
 ; load next script
@@ -192,6 +190,18 @@ HallofFameRoomScript4:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
+; Oak faces left
+	ld a, $1
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+
+	ld a, $2
+	ld [wSprite01StateData1MovementStatus], a
+	ld a, SPRITE_FACING_LEFT
+	ld [wSprite01StateData1FacingDirection], a
 ; Rival faces right
 ;	ld a, $2
 ;	ldh [hSpriteIndex], a
