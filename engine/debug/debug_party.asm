@@ -17,7 +17,7 @@ DebugTeam:
 	db MEWTWO, 98 ; 255
 	db PINSIR, 97
 	db STARTER_PIKACHU, 5
-	db DITTO, 65
+;	db DITTO, 65
 ;	db GENGAR, 9
 ;	db CHARIZARD, 9
 	db -1 ; end
