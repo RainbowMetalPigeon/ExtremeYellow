@@ -11,6 +11,9 @@ CheckIfCanSurfOrCutFromOverworld::
 ; if we are not already surfing
     callfar IsNextTileShoreOrWater
     jp nc, .cannotSurf ; in front of us we don't have water
+    ld hl, TilePairCollisionsWater
+    call CheckForTilePairCollisions
+	jp c, .cannotSurf ; we are too high above water
 ; we have water in front of us
     ld d, SURF
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
@@ -34,10 +37,6 @@ CheckIfCanSurfOrCutFromOverworld::
     ld a, $2
 .continue
 	ld [wd473], a
-; unnecessary???
-;    ld hl, TilePairCollisionsWater
-;    call CheckForTilePairCollisions
-;    jp c, SurfingAttemptFailed
     call LoadSurfingPlayerSpriteGraphics2
     callfar ItemUseSurfboard.makePlayerMoveForward
     ld hl, wd730
