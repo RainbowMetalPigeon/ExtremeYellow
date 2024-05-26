@@ -1127,37 +1127,235 @@ SpecialTrainerMoves:
 
 ; KOGA's teams -------------------------------------------------
 
-	db KOGA, 1
+	db KOGA, 2
+	; GRIMER
+	db 1, 1, TOXIC
+	db 1, 2, SLUDGE
+	db 1, 3, MINIMIZE
+	db 1, 4, LICK
+	; BEEDRILL
+	db 2, 1, FURY_ATTACK
+	db 2, 2, FOCUS_ENERGY
+	db 2, 3, POISON_STING
+	db 2, 4, TWINEEDLE
+	; VENONAT
+	db 3, 1, SUPERSONIC
+	db 3, 2, STUN_SPORE
+	db 3, 3, PSYBEAM
+	db 3, 4, FLASH
+	; TENTACOOL
+	db 4, 1, REFLECT
+	db 4, 2, SUPERSONIC
+	db 4, 3, WRAP
+	db 4, 4, BUBBLEBEAM
+	; GOLBAT
+	db 5, 1, LEECH_LIFE
+	db 5, 2, CONFUSE_RAY
+	db 5, 3, DOUBLE_TEAM
+	db 5, 4, MEGA_DRAIN
+	; WEEZING
+	db 6, 1, SMOKESCREEN
+	db 6, 2, INFESTATION
+	db 6, 3, TOXIC
+	db 6, 4, SLUDGE_WAVE
+	db $FE
+
+	db KOGA, 3
 	; MUK
 	db 1, 1, TOXIC
-	db 1, 2, MINIMIZE
-	db 1, 3, DIG ; FIRE_BLAST?
-;	db 1, 4, GUNK_SHOT
+	db 1, 2, SLUDGE_WAVE
+	db 1, 3, MINIMIZE
+	db 1, 4, SHADOW_SNEAK
+	; BEEDRILL
+	db 2, 1, AGILITY
+	db 2, 2, AERIAL_ACE
+	db 2, 3, SLUDGE_WAVE
+	db 2, 4, X_SCISSOR
+	; VENOMOTH
+	db 3, 1, SUPERSONIC
+	db 3, 2, PSYBEAM
+	db 3, 3, GIGA_DRAIN
+	db 3, 4, SLEEP_POWDER
+	; TENTACOOL
+	db 4, 1, REFLECT
+	db 4, 2, TOXIC
+	db 4, 3, GIGA_DRAIN
+	db 4, 4, WATER_PULSE
+	; CROBAT
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, AIR_CUTTER
+	db 5, 3, SUPER_FANG
+	db 5, 4, SLUDGE_WAVE
+	; WEEZING
+	db 6, 1, SHADOW_BALL
+	db 6, 2, SUBSTITUTE
+	db 6, 3, TOXIC
+	db 6, 4, SLUDGE_WAVE
+	db $FE
+
+	db KOGA, 4
+	; MUK
+	db 1, 1, TOXIC
+	db 1, 2, SLUDGE_WAVE
+	db 1, 3, MINIMIZE
+	db 1, 4, FIRE_BLAST
 	; BEEDRILL
 	db 2, 1, SWORDS_DANCE
 	db 2, 2, X_SCISSOR
-	db 2, 3, ROOST
-;	db 2, 4, SLUDGE_WAVE
+	db 2, 3, AERIAL_ACE
+	db 2, 4, SLUDGE_WAVE
 	; VENOMOTH
-	db 3, 1, STUN_SPORE
+	db 3, 1, SUPERSONIC
+	db 3, 2, ZEN_HEADBUTT
+	db 3, 3, GIGA_DRAIN
+	db 3, 4, SLEEP_POWDER
+	; TENTACRUEL
+	db 4, 1, REFLECT
+	db 4, 2, TOXIC
+	db 4, 3, ICE_BEAM
+	db 4, 4, SURF
+	; CROBAT
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, ROOST
+	db 5, 3, SUPER_FANG
+	db 5, 4, LEECH_LIFE
+	; WEEZING
+	db 6, 1, CURSE
+	db 6, 2, SUBSTITUTE
+	db 6, 3, TOXIC
+	db 6, 4, GYRO_BALL
+	db $FE
+
+	db KOGA, 5
+	; MUK
+	db 1, 1, TOXIC
+	db 1, 2, MINIMIZE
+	db 1, 3, DIG
+	db 1, 4, GUNK_SHOT
+	; ARBOK
+	db 2, 1, GLARE
+	db 2, 2, SLUDGE_WAVE
+	db 2, 3, EARTHQUAKE
+	db 2, 4, ROCK_SLIDE
+	; VENOMOTH
+	db 3, 1, GIGA_DRAIN
 	db 3, 2, SLEEP_POWDER
 	db 3, 3, LEECH_LIFE
 	db 3, 4, PSYCHIC_M
 	; TENTACRUEL
-	db 4, 1, TOXIC ; ACID_ARMOR? (default)
+	db 4, 1, TOXIC
 	db 4, 2, ICE_BEAM
-;	db 4, 3, SURF
-;	db 4, 4, SLUDGE_WAVE
+	db 4, 3, SURF
+	db 4, 4, SLUDGE_WAVE
 	; CROBAT
 	db 5, 1, CONFUSE_RAY
 	db 5, 2, SUPER_FANG
 	db 5, 3, DOUBLE_TEAM
 	db 5, 4, LEECH_LIFE ; ROOST?
 	; WEEZING
-;	db 6, 1, SLUDGE_WAVE
+	db 6, 1, SLUDGE_WAVE
 	db 6, 2, SMOKESCREEN
-;	db 6, 3, FLAMETHROWER
-;	db 6, 4, EXPLOSION
+	db 6, 3, FLAMETHROWER
+	db 6, 4, EXPLOSION
+	db $FE
+
+	db KOGA, 6
+	; MUK
+	db 1, 1, FIRE_BLAST
+	db 1, 2, MINIMIZE
+	db 1, 3, REST
+	db 1, 4, GUNK_SHOT
+	; NIDOQUEEN
+	db 2, 1, SHADOW_BALL
+	db 2, 2, BLIZZARD
+	db 2, 3, THUNDERBOLT
+	db 2, 4, STONE_EDGE
+	; VENOMOTH
+	db 3, 1, CONFUSE_RAY ; illegal lol
+	db 3, 2, SLEEP_POWDER
+	db 3, 3, LEECH_LIFE
+	db 3, 4, PSYCHO_CUT ; illegal lol
+	; TENTACRUEL
+	db 4, 1, ACID_ARMOR
+	db 4, 2, BLIZZARD
+	db 4, 3, SCALD
+	db 4, 4, REST
+	; CROBAT
+	db 5, 1, CONFUSE_RAY
+	db 5, 2, SUPER_FANG
+	db 5, 3, DOUBLE_TEAM
+	db 5, 4, BRAVE_BIRD
+	; WEEZING
+	db 6, 1, GUNK_SHOT
+	db 6, 2, ZAP_CANNON
+	db 6, 3, FIRE_BLAST
+	db 6, 4, EXPLOSION
+	db $FE
+
+	db KOGA, 7
+	; NIDOQUEEN
+	db 1, 1, SUPER_FANG
+	db 1, 2, TOXIC
+	db 1, 3, EARTHQUAKE
+	db 1, 4, REST
+	; TENTACRUEL
+	db 2, 1, ACID_ARMOR
+	db 2, 2, BLIZZARD
+	db 2, 3, SCALD
+	db 2, 4, REST
+	; NIDOKING
+	db 3, 1, EARTHQUAKE
+	db 3, 2, GUNK_SHOT
+	db 3, 3, MEGAHORN
+	db 3, 4, STONE_EDGE
+	; CROBAT
+	db 4, 1, CONFUSE_RAY
+	db 4, 2, SUPER_FANG
+	db 4, 3, DOUBLE_TEAM
+	db 4, 4, BRAVE_BIRD
+	; GENGAR
+	db 5, 1, CURSE
+	db 5, 2, HYPNOSIS
+	db 5, 3, DARK_PULSE
+	db 5, 4, ENERGY_BALL
+	; WEEZING
+	db 6, 1, GUNK_SHOT
+	db 6, 2, SHADOW_BALL
+	db 6, 3, FIRE_BLAST
+	db 6, 4, EXPLOSION
+	db $FE
+
+	db KOGA, 8
+	; NIDOQUEEN
+	db 1, 1, SUPER_FANG
+	db 1, 2, TOXIC
+	db 1, 3, EARTHQUAKE
+	db 1, 4, LOVELY_KISS
+	; TENTACRUEL
+	db 2, 1, HYPER_BEAM
+	db 2, 2, BLIZZARD
+	db 2, 3, HYDRO_PUMP
+	db 2, 4, MIRROR_COAT
+	; NIDOKING
+	db 3, 1, EARTHQUAKE
+	db 3, 2, GUNK_SHOT
+	db 3, 3, MEGAHORN
+	db 3, 4, STONE_EDGE
+	; CROBAT
+	db 4, 1, CONFUSE_RAY
+	db 4, 2, SUPER_FANG
+	db 4, 3, DOUBLE_TEAM
+	db 4, 4, BRAVE_BIRD
+	; GENGAR
+	db 5, 1, CURSE
+	db 5, 2, HYPNOSIS
+	db 5, 3, DARK_PULSE
+	db 5, 4, ENERGY_BALL
+	; WEEZING
+	db 6, 1, GUNK_SHOT
+	db 6, 2, SHADOW_BALL
+	db 6, 3, FIRE_BLAST
+	db 6, 4, EXPLOSION
 	db $FE
 
 ; SABRINA's teams -------------------------------------------------
