@@ -5956,6 +5956,7 @@ AIGetTypeEffectiveness:
 .loadInverseChart				; new, load Inverse Battle chart for COOL trainers
     ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
 .continue
+	push hl ; to re-use it for the second check, if any
 
 	ld a, [wBattleMonType1]
 	ld b, a ; b = type 1 of player's pokemon
@@ -5986,6 +5987,14 @@ AIGetTypeEffectiveness:
 	ld b, 1
 	call Divide ; we divide the type effectivness by 5: 0 for not effective, 1 for not very, 2 for normal, 4 for super
 	; now [hQuotient + 3] contains the scaled-down effectiveness
+
+; testing
+	ldh a, [hQuotient]
+	ldh a, [hQuotient+1]
+	ldh a, [hQuotient+2]
+	ldh a, [hQuotient+3]
+
+	pop hl ; restore the pointer to the effectivness chart
 
 	ld a, [wBattleMonType2]
 	cp b
@@ -6020,10 +6029,22 @@ AIGetTypeEffectiveness:
 	ldh [hMultiplier], a
 	call Multiply ; we have Effectivness1 / 5 * Effectivness2, which is at most 4*20=80<255, so still 1 byte
 
+; testing
+	ldh a, [hProduct]
+	ldh a, [hProduct+1]
+	ldh a, [hProduct+2]
+	ldh a, [hProduct+3]
+
 	ld a, 5
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
+
+; testing
+	ldh a, [hQuotient]
+	ldh a, [hQuotient+1]
+	ldh a, [hQuotient+2]
+	ldh a, [hQuotient+3]
 
 .noSecondTypeCheck
 	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:

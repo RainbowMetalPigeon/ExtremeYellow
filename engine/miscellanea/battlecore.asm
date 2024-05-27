@@ -41,11 +41,11 @@ CalculateGyroBallBasePower::
 	ldh [hMultiplier], a
 	call Multiply
 
-; testing
-	ld a, [hProduct]
-	ld a, [hProduct+1]
-	ld a, [hProduct+2]
-	ld a, [hProduct+3]
+;; testing
+;	ld a, [hProduct]
+;	ld a, [hProduct+1]
+;	ld a, [hProduct+2]
+;	ld a, [hProduct+3]
 
 ; now we gotta divide this result by the UserSpeed/5, temporarily stored in wUnusedD5A3
 	ld a, [wUnusedD5A3]
@@ -59,11 +59,11 @@ CalculateGyroBallBasePower::
 
 	call Divide ; max result should be 6243, so we need to check 2 bytes of result
 
-; testing
-	ld a, [hQuotient]
-	ld a, [hQuotient+1]
-	ld a, [hQuotient+2]
-	ld a, [hQuotient+3]
+;; testing
+;	ld a, [hQuotient]
+;	ld a, [hQuotient+1]
+;	ld a, [hQuotient+2]
+;	ld a, [hQuotient+3]
 
 ; if the more significant byte is not 0, it means the result is surely above 255, so we get 150 as base power
 	ldh a, [hQuotient + 2]

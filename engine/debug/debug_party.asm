@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db CHARIZARD, 98 ; 255
+	db GENGAR, 98 ; 255
 	db MGENGAR, 97
 	db STARTER_PIKACHU, 5
 ;	db DITTO, 65
