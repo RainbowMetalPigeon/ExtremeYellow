@@ -5937,19 +5937,14 @@ AdjustDamageForMoveType:
 	ret
 
 ; function to tell how effective the type of an enemy attack is on the player's current pokemon
-; this doesn't take into account the effects that dual types can have
-; (e.g. 4x weakness / resistance, weaknesses and resistances canceling)
+; edited: it will now take into account various levels of effectiveness
 ; the result is stored in [wTypeEffectiveness]
-; ($05 is not very effective, $10 is neutral, $14 is super effective)
-; as far is can tell, this is only used once in some AI code to help decide which move to use
+; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 AIGetTypeEffectiveness:
 	ld a, [wEnemyMoveType]
 	ld d, a                    ; d = type of enemy move
-	ld hl, wBattleMonType
-	ld b, [hl]                 ; b = type 1 of player's pokemon
-	inc hl
-	ld c, [hl]                 ; c = type 2 of player's pokemon
-	ld a, $10
+
+	ld a, 10
 	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
 	ld hl, TypeEffects
 	ld a, [wInverseBattle]		; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
@@ -5957,40 +5952,88 @@ AIGetTypeEffectiveness:
 	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
     ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
     cp OPP_COOLTRAINER			; new, load Inverse Battle chart for COOL trainers - now genderless
-    jr nz, .loop				; new, load Inverse Battle chart for COOL trainers
+    jr nz, .continue			; new, load Inverse Battle chart for COOL trainers
 .loadInverseChart				; new, load Inverse Battle chart for COOL trainers
     ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
-.loop
+.continue
+
+	ld a, [wBattleMonType1]
+	ld b, a ; b = type 1 of player's pokemon
+.loop1
 	ld a, [hli]
 	cp $ff
-	ret z
+	jp z, .exitLoop1
 	cp d                      ; match the type of the move
-	jr nz, .nextTypePair1
+	jr nz, .nextTypePair11
 	ld a, [hli]
 	cp b                      ; match with type 1 of pokemon
-	jr z, .done
-	cp c                      ; or match with type 2 of pokemon
-	jr z, .done
-	jr .nextTypePair2
-.nextTypePair1
+	jr z, .done1
+	jr .nextTypePair21
+.nextTypePair11
 	inc hl
-.nextTypePair2
+.nextTypePair21
 	inc hl
-	jr .loop
-.done
-	; 40% chance for Lorelei's Dewgong to ignore type effectiveness?
-	ld a, [wTrainerClass]
-	cp LORELEI
-	jr nz, .ok
-	ld a, [wEnemyMonSpecies]
-	cp DEWGONG
-	jr nz, .ok
-	call BattleRandom
-	cp $66 ; 40 percent
-	ret c
-.ok
+	jr .loop1
+.done1
 	ld a, [hl]
 	ld [wTypeEffectiveness], a ; store damage multiplier
+.exitLoop1
+
+	ld a, 5 ; we divide by 5
+	ldh [hDivisor], a
+	ld a, [wTypeEffectiveness]
+	ldh [hDividend], a
+	ld b, 1
+	call Divide ; we divide the type effectivness by 5: 0 for not effective, 1 for not very, 2 for normal, 4 for super
+	; now [hQuotient + 3] contains the scaled-down effectiveness
+
+	ld a, [wBattleMonType2]
+	cp b
+	jr z, .noSecondTypeCheck ; we don't check the same type twice for a monotype mon
+	ld b, a ; b = type 2 of player's pokemon
+
+	ld a, 10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness (in case we find no matches)
+.loop2
+	ld a, [hli]
+	cp $ff
+	jp z, .exitLoop2
+	cp d                      ; match the type of the move
+	jr nz, .nextTypePair12
+	ld a, [hli]
+	cp b                      ; match with type 2 of pokemon
+	jr z, .done2
+	jr .nextTypePair22
+.nextTypePair12
+	inc hl
+.nextTypePair22
+	inc hl
+	jr .loop2
+.done2
+	ld a, [hl]
+	ld [wTypeEffectiveness], a ; store damage multiplier
+.exitLoop2
+
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [wTypeEffectiveness]
+	ldh [hMultiplier], a
+	call Multiply ; we have Effectivness1 / 5 * Effectivness2, which is at most 4*20=80<255, so still 1 byte
+
+	ld a, 5
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+
+.noSecondTypeCheck
+	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:
+						   ; 0 for not effective
+						   ; 1 for 1/4
+						   ; 2 for 1/2
+						   ; 4 for 1
+						   ; 8 for 2
+						   ; 16 for
+	ld [wTypeEffectiveness], a
 	ret
 
 INCLUDE "data/types/type_matchups.asm"

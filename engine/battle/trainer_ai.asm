@@ -1,7 +1,7 @@
 ; creates a set of moves that may be used and returns its address in hl
 ; unused slots are filled with 0, all used slots may be chosen with equal probability
 AIEnemyTrainerChooseMoves:
-	ld a, $a
+	ld a, 10 ; $a
 	ld hl, wBuffer ; init temporary move selection array. Only the moves with the lowest numbers are chosen in the end
 	ld [hli], a   ; move 1
 	ld [hli], a   ; move 2
@@ -113,17 +113,19 @@ AIMoveChoiceModificationFunctionPointers:
 AIMoveChoiceModification1:
 	ld a, [wBattleMonStatus]
 	and a
-	ret z ; return if no status ailment on player's mon
+	jp z, .checkOtherStatuses ; jump if no status ailment (sleep/para/burn/poison) on player's mon
+
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
 .nextMove
 	dec b
-	ret z ; processed all 4 moves
+	jr z, .checkOtherStatuses ; processed all 4 moves; edited
 	inc hl
 	ld a, [de]
 	and a
-	ret z ; no more moves in move set
+	jr z, .checkOtherStatuses ; no more moves in move set; edited
+; actually do things with the move
 	inc de
 	call ReadMove
 	ld a, [wEnemyMovePower]
@@ -141,15 +143,92 @@ AIMoveChoiceModification1:
 	pop hl
 	jr nc, .nextMove
 	ld a, [hl]
-	add $5 ; heavily discourage move
+	add 10 ; very heavily discourage move ; edited, was 5
 	ld [hl], a
 	jr .nextMove
+
+.checkOtherStatuses ; CURSE, LEECH_SEED, SUBSTITUTE
+	ld a, [wPlayerBattleStatus2]
+	and a
+	ret z ; all other checks are useless if all these flags are 0
+
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove2
+	dec b
+	ret z ; processed all 4 moves
+	inc hl
+	ld a, [de]
+	and a
+	ret z ; no more moves in move set
+; actually do things with the move
+	inc de
+	call ReadMove
+	ld a, [wEnemyMovePower]
+	and a
+	jr nz, .nextMove2
+	ld a, [wEnemyMoveEffect]
+	cp CURSE_EFFECT
+	jr nz, .notCurse
+; check if we are already cursed
+	ld a, [wPlayerBattleStatus2]
+	bit BEING_CURSED, a
+	jr z, .notCurse
+.veryHeavilyDiscourage
+	ld a, [hl]
+	add 10 ; very heavily discourage move ; edited, was 5
+	ld [hl], a
+	jr .nextMove2
+.notCurse
+	ld a, [wEnemyMoveEffect]
+	cp LEECH_SEED_EFFECT
+	jr nz, .notLeechSeed
+; check if we are already seeded
+	ld a, [wPlayerBattleStatus2]
+	bit SEEDED, a
+	jr z, .notLeechSeed
+	jr .veryHeavilyDiscourage
+.notLeechSeed
+	ld a, [wPlayerBattleStatus2]
+	bit HAS_SUBSTITUTE_UP, a
+	jr z, .nextMove2
+; the substitute is up: let's discourage moves that do NOTHING through it
+	ld a, [wEnemyMoveEffect]
+	push hl
+	push de
+	push bc
+	ld hl, UselessAgainstSubstituteMoveEffects
+	ld de, 1
+	call IsInArray
+	pop bc
+	pop de
+	pop hl
+	jr nc, .nextMove2
+	jr .veryHeavilyDiscourage
 
 StatusAilmentMoveEffects:
 	db BURN_EFFECT ; updated, from the unused EFFECT_01
 	db SLEEP_EFFECT
 	db POISON_EFFECT
 	db PARALYZE_EFFECT
+	db -1 ; end
+
+UselessAgainstSubstituteMoveEffects:
+	db ATTACK_DOWN1_EFFECT
+	db DEFENSE_DOWN1_EFFECT
+	db SPEED_DOWN1_EFFECT
+	db SPECIAL_DOWN1_EFFECT
+	db ACCURACY_DOWN1_EFFECT
+	db EVASION_DOWN1_EFFECT
+	db ATTACK_DOWN2_EFFECT
+	db DEFENSE_DOWN2_EFFECT
+	db SPEED_DOWN2_EFFECT
+	db SPECIAL_DOWN2_EFFECT
+	db ACCURACY_DOWN2_EFFECT
+	db EVASION_DOWN2_EFFECT
+	db POISON_EFFECT
+	db CONFUSION_EFFECT
 	db -1 ; end
 
 ; slightly encourage moves with specific effects.
@@ -169,6 +248,7 @@ AIMoveChoiceModification2:
 	ld a, [de]
 	and a
 	ret z ; no more moves in move set
+; actually do things with the move
 	inc de
 	call ReadMove
 	ld a, [wEnemyMoveEffect]
@@ -199,8 +279,20 @@ AIMoveChoiceModification3:
 	ld a, [de]
 	and a
 	ret z ; no more moves in move set
+; actually do things with the move
 	inc de
 	call ReadMove
+; this AI modification should NOT dis/en-courage NON-damaging moves
+	ld a, [wEnemyMovePower]
+	and a
+	jr z, .nextMove
+; handle special moves that are unaffected by type match-up
+	ld a, [wEnemyMoveEffect]
+	cp SUPER_FANG_EFFECT
+	jr z, .nextMove
+	cp SPECIAL_DAMAGE_EFFECT
+	jr z, .nextMove
+; normal damaging moves
 	push hl
 	push bc
 	push de
@@ -208,53 +300,33 @@ AIMoveChoiceModification3:
 	pop de
 	pop bc
 	pop hl
-	ld a, [wTypeEffectiveness]
-	cp $10
-	jr z, .nextMove
-	jr c, .notEffectiveMove
-	dec [hl] ; slightly encourage this move
+	ld a, [wTypeEffectiveness] ; 0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective
+	cp 4 ; compare with neutral
+	jr z, .nextMove ; we don't dis/en-courage a neutral move
+	cp 0
+	jr z, .notEffective
+	cp 1
+	jr z, .doubleNotVeryEffective
+	cp 2
+	jr z, .notVeryEffective
+	cp 8
+	jr z, .superEffective
+	; if we are here, it's double super effective
+	dec [hl]
+.superEffective
+	dec [hl]
 	jr .nextMove
-.notEffectiveMove ; discourages non-effective moves if better moves are available
-	push hl
-	push de
-	push bc
-	ld a, [wEnemyMoveType]
-	ld d, a
-	ld hl, wEnemyMonMoves  ; enemy moves
-	ld b, NUM_MOVES + 1
-	ld c, $0
-.loopMoves
-	dec b
-	jr z, .done
-	ld a, [hli]
-	and a
-	jr z, .done
-	call ReadMove
-	ld a, [wEnemyMoveEffect]
-	cp SUPER_FANG_EFFECT
-	jr z, .betterMoveFound ; Super Fang is considered to be a better move
-	cp SPECIAL_DAMAGE_EFFECT
-	jr z, .betterMoveFound ; any special damage moves are considered to be better moves
-	cp FLY_EFFECT
-	jr z, .betterMoveFound ; Fly is considered to be a better move
-	ld a, [wEnemyMoveType]
-	cp d
-	jr z, .loopMoves
-	ld a, [wEnemyMovePower]
-	and a
-	jr nz, .betterMoveFound ; damaging moves of a different type are considered to be better moves
-	jr .loopMoves
-.betterMoveFound
-	ld c, a
-.done
-	ld a, c
-	pop bc
-	pop de
-	pop hl
-	and a
-	jr z, .nextMove
-	inc [hl] ; slightly discourage this move
+.doubleNotVeryEffective
+	inc [hl]
+.notVeryEffective
+	inc [hl]
 	jr .nextMove
+.notEffective
+	ld a, [hl]
+	add 10 ; very heavily discourage move
+	ld [hl], a
+	jr .nextMove
+
 AIMoveChoiceModification4:
 	ret
 
