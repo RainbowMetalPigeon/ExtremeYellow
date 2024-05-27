@@ -403,6 +403,7 @@ MCharzardXEvosMoves:
 	db 56, ROOST
 	db 57, SHADOW_CLAW
 	db 59, DRAGON_DANCE
+	db 60, OUTRAGE
 	db 62, FLARE_BLITZ
 	db 65, BLAST_BURN
 	db 0
