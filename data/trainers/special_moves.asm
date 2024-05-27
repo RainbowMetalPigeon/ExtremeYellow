@@ -1360,37 +1360,235 @@ SpecialTrainerMoves:
 
 ; SABRINA's teams -------------------------------------------------
 
-	db SABRINA, 1
-	; EXEGGUTOR
-;	db 1, 1, GIGA_DRAIN
-	db 1, 2, PSYCHIC_M
-	db 1, 3, SLEEP_POWDER
-	db 1, 4, EXPLOSION
-	; SLOWKING
-;	db 2, 1, FLAMETHROWER
-	db 2, 2, PSYCHIC_M
-;	db 2, 3, SCALD
-;	db 2, 4, DRAIN_PUNCH
-	; MR_MIME
-	db 3, 1, BARRIER ; SUBSTITUTE?
-	db 3, 2, PLAY_ROUGH
-	db 3, 3, MIMIC
-	db 3, 4, METRONOME ; PSYCHIC_M?
-	; ESPEON
-	db 4, 1, ZAP_CANNON
-;	db 4, 2, PSYCHIC_M
-	db 4, 3, BITE
-	db 4, 4, FOCUS_ENERGY ; HYPER_BEAM?
+	db SABRINA, 2
+	; MIME_JR
+	db 1, 1, CONFUSE_RAY
+	db 1, 2, INFESTATION
+	db 1, 3, PSYBEAM
+	db 1, 4, MIMIC
+	; DROWZEE
+	db 2, 1, CONFUSION
+	db 2, 2, HEADBUTT
+	db 2, 3, POISON_GAS
+	db 2, 4, HYPNOSIS
+	; SMOOCHUM
+	db 3, 1, WATER_PULSE
+	db 3, 2, PSYCHIC_M
+	db 3, 3, ICICLE_SPEAR
+	db 3, 4, LOVELY_KISS
+	; SLOWPOKE
+	db 4, 1, WATER_PULSE
+	db 4, 2, BODY_SLAM
+	db 4, 3, ZEN_HEADBUTT
+	db 4, 4, SHADOW_BALL
 	; HAUNTER
-	db 5, 1, ICE_PUNCH
-	db 5, 2, SHADOW_CLAW
-;	db 5, 3, DARK_PULSE
+	db 5, 1, HYPNOSIS
+	db 5, 2, NIGHT_SHADE
+	db 5, 3, CURSE
+	db 5, 4, CONFUSE_RAY
+	; KADABRA
+	db 6, 1, PSYBEAM
+	db 6, 2, NIGHT_SHADE
+	db 6, 3, RECOVER
+	db 6, 4, REFLECT
+	db $FE
+
+	db SABRINA, 3
+	; MR_MIME
+	db 1, 1, SUBSTITUTE
+	db 1, 2, PLAY_ROUGH
+	db 1, 3, MIMIC
+	db 1, 4, PSYCHIC_M
+	; DROWZEE
+	db 2, 1, TAKE_DOWN
+	db 2, 2, DREAM_EATER
+	db 2, 3, BARRIER
+	db 2, 4, HYPNOSIS
+	; JYNX
+	db 3, 1, WATER_PULSE
+	db 3, 2, PSYCHIC_M
+	db 3, 3, ICICLE_SPEAR
+	db 3, 4, LOVELY_KISS
+	; EXEGGCUTE
+	db 4, 1, LEECH_SEED
+	db 4, 2, PSYCHIC_M
+	db 4, 3, STUN_SPORE
+	db 4, 4, ENERGY_BALL
+	; HAUNTER
+	db 5, 1, HYPNOSIS
+	db 5, 2, DARK_PULSE
+	db 5, 3, CURSE
+	db 5, 4, CONFUSE_RAY
+	; KADABRA
+	db 6, 1, PSYCHIC_M
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, RECOVER
+	db 6, 4, REFLECT
+	db $FE
+
+	db SABRINA, 4
+	; MR_MIME
+	db 1, 1, SUBSTITUTE
+	db 1, 2, PLAY_ROUGH
+	db 1, 3, MIMIC
+	db 1, 4, BARRIER
+	; HYPNO
+	db 2, 1, REFLECT
+	db 2, 2, DREAM_EATER
+	db 2, 3, THUNDERPUNCH
+	db 2, 4, HYPNOSIS
+	; ESPEON
+	db 3, 1, SAND_ATTACK
+	db 3, 2, MUD_SLAP
+	db 3, 3, FOCUS_ENERGY
+	db 3, 4, PSYCHIC_M
+	; SLOWKING
+	db 4, 1, ZEN_HEADBUTT
+	db 4, 2, AMNESIA
+	db 4, 3, SCALD
+	db 4, 4, ICE_BEAM
+	; HAUNTER
+	db 5, 1, HYPNOSIS
+	db 5, 2, DARK_PULSE
+	db 5, 3, CURSE
 	db 5, 4, CONFUSE_RAY
 	; ALAKAZAM
-;	db 6, 1, THUNDERPUNCH
-;	db 6, 2, ICE_PUNCH
-;	db 6, 3, FIRE_PUNCH
-	db 6, 4, PSYCHIC_M
+	db 6, 1, PSYCHIC_M
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, RECOVER
+	db 6, 4, REFLECT
+	db $FE
+
+	db SABRINA, 5
+	; SLOWKING
+	db 1, 1, PSYCHO_CUT
+	db 1, 2, AMNESIA
+	db 1, 3, SCALD
+	db 1, 4, BLIZZARD
+	; EXEGGUTOR
+	db 2, 1, LEECH_SEED
+	db 2, 2, SLEEP_POWDER
+	db 2, 3, PSYCHO_CUT
+	db 2, 4, EXPLOSION
+	; ESPEON
+	db 3, 1, SAND_ATTACK
+	db 3, 2, ZAP_CANNON
+	db 3, 3, FOCUS_ENERGY
+	db 3, 4, PSYCHIC_M
+	; STARMIE
+	db 4, 1, THUNDERBOLT
+	db 4, 2, RECOVER
+	db 4, 3, SCALD
+	db 4, 4, PSYCHIC_M
+	; HAUNTER
+	db 5, 1, HYPNOSIS
+	db 5, 2, DARK_PULSE
+	db 5, 3, CURSE
+	db 5, 4, CONFUSE_RAY
+	; ALAKAZAM
+	db 6, 1, PSYCHIC_M
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, RECOVER
+	db 6, 4, REFLECT
+	db $FE
+
+	db SABRINA, 6
+	; MR_MIME
+	db 1, 1, BARRIER ; SUBSTITUTE?
+	db 1, 2, PLAY_ROUGH
+	db 1, 3, MIMIC
+	db 1, 4, METRONOME ; PSYCHIC_M?
+	; JYNX
+	db 2, 1, BLIZZARD
+	db 2, 2, PSYCHIC_M
+	db 2, 3, LOVELY_KISS
+	db 2, 4, DRAININGKISS
+	; ESPEON
+	db 3, 1, ZAP_CANNON
+	db 3, 2, PSYCHIC_M
+	db 3, 3, BITE
+	db 3, 4, FOCUS_ENERGY ; HYPER_BEAM?
+	; EXEGGUTOR
+	db 4, 1, GIGA_DRAIN
+	db 4, 2, PSYCHIC_M
+	db 4, 3, SLEEP_POWDER
+	db 4, 4, EXPLOSION
+	; HAUNTER
+	db 5, 1, ICE_PUNCH
+	db 5, 2, SHADOW_BALL
+	db 5, 3, DARK_PULSE
+	db 5, 4, CONFUSE_RAY
+	; ALAKAZAM
+	db 6, 1, THUNDERPUNCH
+	db 6, 2, ICE_PUNCH
+	db 6, 3, FIRE_PUNCH
+	db 6, 4, PSYCHO_CUT
+	db $FE
+
+	db SABRINA, 7
+	; SLOWBRO
+	db 1, 1, AMNESIA
+	db 1, 2, PSYCHIC_M
+	db 1, 3, SCALD
+	db 1, 4, REST
+	; JYNX
+	db 2, 1, BLIZZARD
+	db 2, 2, PSYCHO_CUT
+	db 2, 3, LOVELY_KISS
+	db 2, 4, DRAININGKISS
+	; ESPEON
+	db 3, 1, ZAP_CANNON
+	db 3, 2, PSYCHO_CUT
+	db 3, 3, BITE
+	db 3, 4, HYPER_BEAM
+	; EXEGGUTOR
+	db 4, 1, GIGA_DRAIN
+	db 4, 2, PSYCHO_CUT
+	db 4, 3, SLEEP_POWDER
+	db 4, 4, EXPLOSION
+	; GENGAR
+	db 5, 1, THUNDERBOLT
+	db 5, 2, CURSE
+	db 5, 3, DARK_PULSE
+	db 5, 4, CONFUSE_RAY
+	; ALAKAZAM
+	db 6, 1, REFLECT
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, FIRE_PUNCH
+	db 6, 4, PSYCHO_CUT
+	db $FE
+
+	db SABRINA, 8
+	; JYNX
+	db 1, 1, BLIZZARD
+	db 1, 2, PSYCHO_CUT
+	db 1, 3, LOVELY_KISS
+	db 1, 4, DRAININGKISS
+	; ESPEON
+	db 2, 1, ZAP_CANNON
+	db 2, 2, PSYCHO_CUT
+	db 2, 3, TOXIC
+	db 2, 4, HYPER_BEAM
+	; EXEGGUTOR
+	db 3, 1, LEAF_STORM
+	db 3, 2, PSYCHO_CUT
+	db 3, 3, SLEEP_POWDER
+	db 3, 4, EXPLOSION
+	; STARMIE
+	db 4, 1, PSYCHO_CUT
+	db 4, 2, HYDRO_PUMP
+	db 4, 3, BLIZZARD
+	db 4, 4, RECOVER
+	; GENGAR
+	db 5, 1, THUNDER
+	db 5, 2, CURSE
+	db 5, 3, EXPLOSION
+	db 5, 4, CONFUSE_RAY
+	; ALAKAZAM
+	db 6, 1, REFLECT
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, FIRE_PUNCH
+	db 6, 4, PSYCHO_CUT
 	db $FE
 
 ; BLAINE's teams -------------------------------------------------
