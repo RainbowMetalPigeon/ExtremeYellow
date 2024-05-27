@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db PINSIR, 97
+	db MGENGAR, 97
 	db STARTER_PIKACHU, 5
 ;	db DITTO, 65
 ;	db GENGAR, 9
@@ -217,7 +217,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 ;   db OAKS_PARCEL, 1
-	db POTION, 99 ; PERFECTER, 99
+	db CHROMOGENE, 99
 	db SUPER_ROD, 1
 	db TM_THUNDERBOLT, 3
 	db GOOD_ROD, 1
@@ -252,7 +252,7 @@ DebugItemsList:
 ;	db EXP_ALL, 1
     db POTION, 99
     db POTION, 99
-    db CHROMOGENE, 99
+    db PERFECTER, 99
     db ULTRA_BALL, 99
     db GREAT_BALL, 99
     db POKE_BALL, 99
