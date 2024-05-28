@@ -302,7 +302,7 @@ AIMoveChoiceModification1:
 	jp z, .veryHeavilyDiscourage
 	ld a, [wInverseBattle]
 	and a
-	jr nz, .nextMove ; if the battle is inverse, we don't perform the check on STEEL
+	jp nz, .nextMove ; if the battle is inverse, we don't perform the check on STEEL
 	ld a, [wBattleMonType1]
 	cp STEEL
 	jp z, .veryHeavilyDiscourage
