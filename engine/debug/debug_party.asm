@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MCHARZARDX, 98 ; 255
+	db MAROWAK, 98 ; 255
 	db MGENGAR, 97
 	db STARTER_PIKACHU, 5
 ;	db DITTO, 65
@@ -48,7 +48,7 @@ IF DEF(_DEBUG)
 	ld a, DISABLE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, AGILITY
+	ld a, RECOVER
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, WILL_O_WISP

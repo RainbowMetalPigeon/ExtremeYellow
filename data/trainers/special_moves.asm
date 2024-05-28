@@ -1927,10 +1927,10 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, WILL_O_WISP
-	db 1, 2, MAGICAL_LEAF
-	db 1, 3, NO_MOVE
-	db 1, 4, NO_MOVE
+	db 1, 1, WATER_GUN
+	db 1, 2, VINE_WHIP
+	db 1, 3, EXPLOSION
+	db 1, 4, RECOVER
 ;	db 1, 1, AQUA_JET
 ;	db 1, 2, REST
 ;	db 1, 3, WATERFALL

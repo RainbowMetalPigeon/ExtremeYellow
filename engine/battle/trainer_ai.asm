@@ -411,18 +411,55 @@ AIMoveChoiceModification2:
 	inc de
 	call ReadMove
 	ld a, [wEnemyMoveEffect]
-	cp ATTACK_UP1_EFFECT
-	jr c, .nextMove
-	cp BIDE_EFFECT
-	jr c, .preferMove
-	cp ATTACK_UP2_EFFECT
-	jr c, .nextMove
-	cp POISON_EFFECT
-	jr c, .preferMove
-	jr .nextMove
+; edited, a big array rather than feeble cps with c/nc flags checks
+	push hl
+	push de
+	push bc
+	ld hl, Modifier2BuffDebuffMoveEffects
+	ld de, 1
+	call IsInArray ; returns count b and carry if found
+	pop bc
+	pop de
+	pop hl
+	jp nc, .nextMove
 .preferMove
 	dec [hl] ; slightly encourage this move
 	jr .nextMove
+
+Modifier2BuffDebuffMoveEffects:
+	db ATTACK_UP1_EFFECT
+	db DEFENSE_UP1_EFFECT
+	db SPEED_UP1_EFFECT
+	db SPECIAL_UP1_EFFECT
+	db ACCURACY_UP1_EFFECT
+	db EVASION_UP1_EFFECT
+	db ATTACK_UP2_EFFECT
+	db DEFENSE_UP2_EFFECT
+	db SPEED_UP2_EFFECT
+	db SPECIAL_UP2_EFFECT
+	db ACCURACY_UP2_EFFECT
+	db EVASION_UP2_EFFECT
+	db LIGHT_SCREEN_EFFECT
+	db REFLECT_EFFECT
+	db CONFUSION_EFFECT
+	db POISON_EFFECT
+	db PARALYZE_EFFECT
+	db BURN_EFFECT
+	db SLEEP_EFFECT
+	db FOCUS_ENERGY_EFFECT
+	db ATTACK_DOWN_SIDE_EFFECT_CERT
+	db DEFENSE_DOWN_SIDE_EFFECT_CERT
+	db SPEED_DOWN_SIDE_EFFECT_CERT
+	db SPECIAL_DOWN_SIDE_EFFECT_CERT
+	db ACCURACY_DOWN_SIDE_EFFECT_CERT
+	db EVASION_DOWN_SIDE_EFFECT_CERT
+	db SUBSTITUTE_EFFECT
+	db CURSE_EFFECT
+	db LEECH_SEED_EFFECT
+	db DISABLE_EFFECT
+	db PARALYZE_SIDE_EFFECT_CERT
+	db ATTACK_SPEED_UP1_EFFECT
+	db -1
 
 ; encourages moves that are effective against the player's mon (even if non-damaging).
 ; discourage damaging moves that are ineffective or not very effective against the player's mon,
@@ -433,11 +470,11 @@ AIMoveChoiceModification3:
 	ld b, NUM_MOVES + 1
 .nextMove
 	dec b
-	ret z ; processed all 4 moves
+	jp z, .modification3Part2 ; processed all 4 moves ; edited
 	inc hl
 	ld a, [de]
 	and a
-	ret z ; no more moves in move set
+	jp z, .modification3Part2 ; no more moves in move set ; edited
 ; actually do things with the move
 	inc de
 	call ReadMove
@@ -491,6 +528,87 @@ AIMoveChoiceModification3:
 	add 10 ; very heavily discourage move
 	ld [hl], a
 	jr .nextMove
+
+.modification3Part2
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove2
+	dec b
+	jp z, .modification3Part3 ; processed all 4 moves
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part3 ; no more moves in move set
+; actually do things with the move
+	inc de
+	call ReadMove
+; read move effect and encourage under specific conditions, like draining or exploding moves at low health
+	ld a, [wEnemyMoveEffect]
+	cp DRAIN_HP_EFFECT
+	jp z, .drainHPEffect
+	cp EXPLODE_EFFECT
+	jp z, .explodeEffect
+; if none of the effects above, go to the next move
+	jp .nextMove2
+.drainHPEffect
+	ld a, 4
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jr c, .encourageTwice
+	ld a, 2
+	call AICheckIfHPBelowFractionPushesPops
+	jr c, .encourageOnce
+	jp .nextMove2
+.explodeEffect
+	ld a, 8
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jr c, .encourageTwice
+	ld a, 3
+	call AICheckIfHPBelowFractionPushesPops
+	jr c, .encourageOnce
+	jp .nextMove2
+.encourageTwice
+	dec [hl]
+.encourageOnce
+	dec [hl]
+	jp .nextMove2
+
+.modification3Part3
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove3
+	dec b
+	jp z, .modification3Part4 ; processed all 4 moves
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part4 ; no more moves in move set
+; actually do things with the move
+	inc de
+	call ReadMove
+; slightly encourage move if benefits from STAB
+	push bc
+	ld a, [wEnemyMoveType]
+	ld b, a
+	ld a, [wEnemyMonType1]
+	cp b ; a is enemy mon's type 1, b is enemy move type
+	jr z, .moveHasSTAB
+	ld a, [wEnemyMonType2]
+	cp b ; a is enemy mon's type 2, b is enemy move type
+	jr z, .moveHasSTAB
+; no STAB
+	pop bc
+	jr .nextMove3
+.moveHasSTAB
+	pop bc
+	dec [hl]
+	jp .nextMove3
+
+.modification3Part4
+	ret
+
+
 
 AIMoveChoiceModification4:
 	ret
@@ -946,6 +1064,16 @@ AICheckIfHPBelowFraction:
 	ret nz
 	ld a, e
 	sub c
+	ret
+
+AICheckIfHPBelowFractionPushesPops: ; new
+	push hl
+	push bc
+	push de
+	call AICheckIfHPBelowFraction
+	pop de
+	pop bc
+	pop hl
 	ret
 
 AIUseXAttack:
