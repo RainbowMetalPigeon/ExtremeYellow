@@ -14,12 +14,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MAROWAK, 98 ; 255
+	db MEWTWO, 98 ; 255
 	db MGENGAR, 97
 	db STARTER_PIKACHU, 5
-;	db DITTO, 65
-;	db GENGAR, 9
-;	db CHARIZARD, 9
+;	db MSTEELIX, 65
+;	db MSCIZOR, 9
+;	db MVENUSAUR, 9
 	db -1 ; end
 
 DebugStart:
@@ -57,7 +57,7 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, MAGICAL_LEAF
+	ld a, EXPLOSION
 	ld [hli], a
 	ld a, WILL_O_WISP
 	ld [hli], a

@@ -390,9 +390,8 @@ UselessAgainstSubstituteMoveEffects:
 	db CONFUSION_EFFECT
 	db -1 ; end
 
-; slightly encourage moves with specific effects.
-; in particular, stat-modifying moves and other move effects
-; that fall in-between
+; slightly encourage moves with specific effects; edited
+; in particular, stat-modifying moves and status moves
 AIMoveChoiceModification2:
 	ld a, [wAILayer2Encouragement]
 	and a ; edited, it was cp $1, now status moves should get prio on turn 1
@@ -464,6 +463,9 @@ Modifier2BuffDebuffMoveEffects:
 ; encourages moves that are effective against the player's mon (even if non-damaging).
 ; discourage damaging moves that are ineffective or not very effective against the player's mon,
 ; unless there's no damaging move that deals at least neutral damage
+; edited: takes into account various levels of effectiveness
+; new: part2 encourages draining and exploding moves at low HP
+; new: part3 encouranges STAB moves
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
