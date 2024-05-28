@@ -1928,9 +1928,9 @@ SpecialTrainerMoves:
 	db LORELEI, 1
 	; DEWGONG
 	db 1, 1, AGILITY
-	db 1, 2, CLOSE_COMBAT
-	db 1, 3, CURSE
-	db 1, 4, WATER_GUN
+	db 1, 2, MAGICAL_LEAF
+	db 1, 3, FOCUS_ENERGY
+	db 1, 4, SUBSTITUTE
 ;	db 1, 1, AQUA_JET
 ;	db 1, 2, REST
 ;	db 1, 3, WATERFALL

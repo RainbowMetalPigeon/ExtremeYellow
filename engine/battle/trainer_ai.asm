@@ -110,52 +110,12 @@ AIMoveChoiceModificationFunctionPointers:
 	dw AIMoveChoiceModification4 ; unused, does nothing
 
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
+; also check for CURSE, LEECH_SEED, SUBSTITUTE, DISABLED, CONFUSED
 AIMoveChoiceModification1:
-	ld a, [wBattleMonStatus]
-	and a
-	jp z, .checkOtherStatuses ; jump if no status ailment (sleep/para/burn/poison) on player's mon
-
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
-.nextMove
-	dec b
-	jr z, .checkOtherStatuses ; processed all 4 moves; edited
-	inc hl
-	ld a, [de]
-	and a
-	jr z, .checkOtherStatuses ; no more moves in move set; edited
-; actually do things with the move
-	inc de
-	call ReadMove
-	ld a, [wEnemyMovePower]
-	and a
-	jr nz, .nextMove
-	ld a, [wEnemyMoveEffect]
-	push hl
-	push de
-	push bc
-	ld hl, StatusAilmentMoveEffects
-	ld de, 1
-	call IsInArray
-	pop bc
-	pop de
-	pop hl
-	jr nc, .nextMove
-	ld a, [hl]
-	add 10 ; very heavily discourage move ; edited, was 5
-	ld [hl], a
-	jr .nextMove
-
-.checkOtherStatuses ; CURSE, LEECH_SEED, SUBSTITUTE
-	ld a, [wPlayerBattleStatus2]
-	and a
-	ret z ; all other checks are useless if all these flags are 0
-
-	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
-	ld de, wEnemyMonMoves ; enemy moves
-	ld b, NUM_MOVES + 1
-.nextMove2
+.nextMove ; --------------------------------------------------------------------
 	dec b
 	ret z ; processed all 4 moves
 	inc hl
@@ -167,45 +127,193 @@ AIMoveChoiceModification1:
 	call ReadMove
 	ld a, [wEnemyMovePower]
 	and a
-	jr nz, .nextMove2
+	jr nz, .nextMove ; we only care about non-damaging moves right now
+; read the effect and start comparing with a list of to-be-checked ones --------
 	ld a, [wEnemyMoveEffect]
 	cp CURSE_EFFECT
-	jr nz, .notCurse
-; check if we are already cursed
-	ld a, [wPlayerBattleStatus2]
-	bit BEING_CURSED, a
-	jr z, .notCurse
-.veryHeavilyDiscourage
-	ld a, [hl]
-	add 10 ; very heavily discourage move ; edited, was 5
-	ld [hl], a
-	jr .nextMove2
-.notCurse
-	ld a, [wEnemyMoveEffect]
+	jp z, .curseEffect
 	cp LEECH_SEED_EFFECT
-	jr nz, .notLeechSeed
-; check if we are already seeded
-	ld a, [wPlayerBattleStatus2]
-	bit SEEDED, a
-	jr z, .notLeechSeed
-	jr .veryHeavilyDiscourage
-.notLeechSeed
-	ld a, [wPlayerBattleStatus2]
-	bit HAS_SUBSTITUTE_UP, a
-	jr z, .nextMove2
-; the substitute is up: let's discourage moves that do NOTHING through it
+	jp z, .leechSeedEffect
+	cp DISABLE_EFFECT
+	jp z, .disableEffect
+	cp CONFUSION_EFFECT
+	jp z, .confusionEffect
+	cp SUBSTITUTE_EFFECT
+	jp z, .substituteEffect
+	cp HEAL_EFFECT
+	jp z, .healEffect
+	cp FOCUS_ENERGY_EFFECT
+	jp z, .focusEnergyEffect
+; check for permanent-status-inflicting effects
+	push hl
+	push de
+	push bc
+	ld hl, StatusAilmentMoveEffects
+	ld de, 1
+	call IsInArray ; returns count b and carry if found
+	pop bc
+	pop de
+	pop hl
+	jp c, .permaStatusEffect
+; check for useless-against-substitute effects
 	ld a, [wEnemyMoveEffect]
 	push hl
 	push de
 	push bc
 	ld hl, UselessAgainstSubstituteMoveEffects
 	ld de, 1
-	call IsInArray
+	call IsInArray ; returns count b and carry if found
 	pop bc
 	pop de
 	pop hl
-	jr nc, .nextMove2
-	jr .veryHeavilyDiscourage
+	jp c, .uselessVsSubstituteEffect
+; check for self-buffing moves
+	ld a, [wEnemyMoveEffect]
+	cp SPEED_UP2_EFFECT
+	jp z, .selfBoost_Speed
+	cp ATTACK_SPEED_UP1_EFFECT
+	jp z, .selfBoost_SpeedAttack
+	cp ATTACK_UP2_EFFECT
+	jp z, .selfBoost_Attack
+	cp DEFENSE_UP1_EFFECT
+	jp z, .selfBoost_Defense
+	cp DEFENSE_UP2_EFFECT
+	jp z, .selfBoost_Defense
+	cp SPECIAL_UP1_EFFECT
+	jp z, .selfBoost_Special
+	cp SPECIAL_UP2_EFFECT
+	jp z, .selfBoost_Special
+	cp EVASION_UP1_EFFECT
+	jp z, .selfBoost_Evasion
+	cp EVASION_UP2_EFFECT
+	jp z, .selfBoost_Evasion
+; if none of the above: we apply no modifier to this move, and we go to the next one
+	jp .nextMove
+
+.curseEffect
+	ld a, [wPlayerBattleStatus2]
+	bit BEING_CURSED, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.leechSeedEffect
+	ld a, [wPlayerBattleStatus2]
+	bit SEEDED, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.disableEffect
+	ld a, [wPlayerDisabledMove]
+	and a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.confusionEffect
+	ld a, [wPlayerBattleStatus1]
+	bit CONFUSED, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.substituteEffect
+	ld a, [wEnemyBattleStatus2]
+	bit HAS_SUBSTITUTE_UP, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.healEffect
+	push hl
+	push de
+	ld hl, wEnemyMonMaxHP
+	ld de, wEnemyMonHP
+	ld a, [de]
+	cp [hl]
+	jr nz, .notFullHealth
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl]
+	jr nz, .notFullHealth
+	pop de
+	pop hl
+	jp .veryHeavilyDiscourage ; if we are here, opponent is at max HP
+.notFullHealth
+	pop de
+	pop hl
+	jp .nextMove ; we don't dis/en-courage a self-healing move at this point as long as it does at least something
+
+.focusEnergyEffect
+	ld a, [wEnemyBattleStatus2]
+	bit GETTING_PUMPED, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.permaStatusEffect
+	ld a, [wBattleMonStatus]
+	and a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.uselessVsSubstituteEffect
+	ld a, [wPlayerBattleStatus2]
+	bit HAS_SUBSTITUTE_UP, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
+.selfBoost_Speed
+	ld a, [wEnemyMonSpeedMod]
+	jr .modifierComparisons_NotEvasion
+.selfBoost_SpeedAttack ; whichever is lower is the one dominating
+	push bc
+	ld a, [wEnemyMonAttackMod]
+	ld b, a
+	ld a, [wEnemyMonSpeedMod]
+	cp b ; speedMod-attackMod
+	pop bc
+	jr c, .modifierComparisons_NotEvasion
+	ld a, [wEnemyMonAttackMod]
+	jr .modifierComparisons_NotEvasion
+.selfBoost_Attack
+	ld a, [wEnemyMonAttackMod]
+	jr .modifierComparisons_NotEvasion
+.selfBoost_Defense
+	ld a, [wEnemyMonDefenseMod]
+	jr .modifierComparisons_NotEvasion
+.selfBoost_Special
+	ld a, [wEnemyMonSpecialMod]
+	jr .modifierComparisons_NotEvasion
+.selfBoost_Evasion
+	ld a, [wEnemyMonEvasionMod]
+	cp 13
+	jp z, .veryHeavilyDiscourage
+	cp 12
+	jr z, .discourageBy1
+	jp .nextMove ; no discouragement if we are at +4 or less
+.modifierComparisons_NotEvasion
+	cp 13
+	jp z, .veryHeavilyDiscourage
+	cp 12
+	jr z, .discourageBy3
+	cp 11
+	jr z, .discourageBy2
+	cp 10
+	jr z, .discourageBy1
+	cp 9
+	jr z, .discourageBy1
+	jp .nextMove ; no discouragement if we are at +1 or less
+.discourageBy3
+	inc [hl]
+.discourageBy2
+	inc [hl]
+.discourageBy1
+	inc [hl]
+	jp .nextMove
+
+.veryHeavilyDiscourage
+	ld a, [hl]
+	add 10 ; very heavily discourage move ; edited, was 5
+	ld [hl], a
+	jp .nextMove
 
 StatusAilmentMoveEffects:
 	db BURN_EFFECT ; updated, from the unused EFFECT_01
@@ -285,13 +393,13 @@ AIMoveChoiceModification3:
 ; this AI modification should NOT dis/en-courage NON-damaging moves
 	ld a, [wEnemyMovePower]
 	and a
-	jr z, .nextMove
+	jp z, .nextMove
 ; handle special moves that are unaffected by type match-up
 	ld a, [wEnemyMoveEffect]
 	cp SUPER_FANG_EFFECT
-	jr z, .nextMove
+	jp z, .nextMove
 	cp SPECIAL_DAMAGE_EFFECT
-	jr z, .nextMove
+	jp z, .nextMove
 ; normal damaging moves
 	push hl
 	push bc
@@ -302,7 +410,7 @@ AIMoveChoiceModification3:
 	pop hl
 	ld a, [wTypeEffectiveness] ; 0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective
 	cp 4 ; compare with neutral
-	jr z, .nextMove ; we don't dis/en-courage a neutral move
+	jp z, .nextMove ; we don't dis/en-courage a neutral move
 	cp 0
 	jr z, .notEffective
 	cp 1
