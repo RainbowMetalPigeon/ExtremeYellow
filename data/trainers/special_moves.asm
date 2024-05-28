@@ -1927,16 +1927,16 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, AGILITY
+	db 1, 1, WILL_O_WISP
 	db 1, 2, MAGICAL_LEAF
-	db 1, 3, FOCUS_ENERGY
-	db 1, 4, SUBSTITUTE
+	db 1, 3, NO_MOVE
+	db 1, 4, NO_MOVE
 ;	db 1, 1, AQUA_JET
 ;	db 1, 2, REST
 ;	db 1, 3, WATERFALL
 ;	db 1, 4, BLIZZARD
 	; CLOYSTER
-	db 2, 1, SPLASH
+	db 2, 1, WILL_O_WISP
 	db 2, 2, NO_MOVE
 	db 2, 3, NO_MOVE
 	db 2, 4, NO_MOVE

@@ -144,19 +144,23 @@ AIMoveChoiceModification1:
 	jp z, .healEffect
 	cp FOCUS_ENERGY_EFFECT
 	jp z, .focusEnergyEffect
+	cp LIGHT_SCREEN_EFFECT
+	jp z, .lightScreenEffect
+	cp REFLECT_EFFECT
+	jp z, .reflectEffect
 ; check for permanent-status-inflicting effects
-	push hl
-	push de
-	push bc
-	ld hl, StatusAilmentMoveEffects
-	ld de, 1
-	call IsInArray ; returns count b and carry if found
-	pop bc
-	pop de
-	pop hl
-	jp c, .permaStatusEffect
+	cp SLEEP_EFFECT
+	jp z, .permaStatusEffect
+	cp PARALYZE_EFFECT
+	jp z, .permaStatusEffect
+; burn is special
+	cp BURN_EFFECT
+	jp z, .burnEffect
+; poison is even more special
+	cp POISON_EFFECT
+	jp z, .poisonEffect
 ; check for useless-against-substitute effects
-	ld a, [wEnemyMoveEffect]
+	ld a, [wEnemyMoveEffect] ; unnecessary?
 	push hl
 	push de
 	push bc
@@ -199,8 +203,15 @@ AIMoveChoiceModification1:
 .leechSeedEffect
 	ld a, [wPlayerBattleStatus2]
 	bit SEEDED, a
-	jp z, .nextMove
-	jp .veryHeavilyDiscourage
+	jp nz, .veryHeavilyDiscourage
+; we also check if our mon is GRASS
+	ld a, [wBattleMonType1]
+	cp GRASS
+	jp z, .veryHeavilyDiscourage
+	ld a, [wBattleMonType2]
+	cp GRASS
+	jp z, .veryHeavilyDiscourage
+	jp .nextMove
 
 .disableEffect
 	ld a, [wPlayerDisabledMove]
@@ -247,10 +258,57 @@ AIMoveChoiceModification1:
 	jp z, .nextMove
 	jp .veryHeavilyDiscourage
 
+.lightScreenEffect
+	ld a, [wPlayerBattleStatus3]
+	bit HAS_LIGHT_SCREEN_UP, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.reflectEffect
+	ld a, [wPlayerBattleStatus3]
+	bit HAS_REFLECT_UP, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
 .permaStatusEffect
 	ld a, [wBattleMonStatus]
 	and a
 	jp z, .nextMove
+	jp .veryHeavilyDiscourage
+
+.burnEffect
+	ld a, [wBattleMonStatus]
+	and a
+	jp nz, .veryHeavilyDiscourage
+; we also check if our mon is FIRE
+	ld a, [wBattleMonType1]
+	cp FIRE
+	jp z, .veryHeavilyDiscourage
+	ld a, [wBattleMonType2]
+	cp FIRE
+	jp z, .veryHeavilyDiscourage
+	jp .nextMove
+
+.poisonEffect
+	ld a, [wBattleMonStatus]
+	and a
+	jp nz, .veryHeavilyDiscourage
+; we also check if our mon is POISON or STEEL during a non-inverse battle
+	ld a, [wBattleMonType1]
+	cp POISON
+	jp z, .veryHeavilyDiscourage
+	ld a, [wBattleMonType2]
+	cp POISON
+	jp z, .veryHeavilyDiscourage
+	ld a, [wInverseBattle]
+	and a
+	jr nz, .nextMove ; if the battle is inverse, we don't perform the check on STEEL
+	ld a, [wBattleMonType1]
+	cp STEEL
+	jp z, .veryHeavilyDiscourage
+	ld a, [wBattleMonType2]
+	cp STEEL
+	jp nz, .nextMove
 	jp .veryHeavilyDiscourage
 
 .uselessVsSubstituteEffect
@@ -314,13 +372,6 @@ AIMoveChoiceModification1:
 	add 10 ; very heavily discourage move ; edited, was 5
 	ld [hl], a
 	jp .nextMove
-
-StatusAilmentMoveEffects:
-	db BURN_EFFECT ; updated, from the unused EFFECT_01
-	db SLEEP_EFFECT
-	db POISON_EFFECT
-	db PARALYZE_EFFECT
-	db -1 ; end
 
 UselessAgainstSubstituteMoveEffects:
 	db ATTACK_DOWN1_EFFECT
@@ -393,6 +444,12 @@ AIMoveChoiceModification3:
 ; this AI modification should NOT dis/en-courage NON-damaging moves
 	ld a, [wEnemyMovePower]
 	and a
+	jp z, .nextMove
+; counter and mirror coat are unaffected by type match-up too and have BP=1
+	ld a, [wEnemyMoveNum]
+	cp COUNTER
+	jp z, .nextMove
+	cp MIRROR_COAT
 	jp z, .nextMove
 ; handle special moves that are unaffected by type match-up
 	ld a, [wEnemyMoveEffect]

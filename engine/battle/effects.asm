@@ -183,9 +183,9 @@ TriAttackEffect:
 	ldh a, [hWhoseTurn]
 	and a
 	jp nz, .opponentAttacker
-	ld a, [wEnemyMonStatus]
-	and a
-	jp nz, CheckDefrost ; can't inflict status if opponent is already statused
+;	ld a, [wEnemyMonStatus]
+;	and a
+;	jp nz, CheckDefrost ; can't inflict status if opponent is already statused
     ; comment this because wanna make TRI_ATTACK powa and so bypasses type immunity because I like Porygon
 ;	ld a, [wPlayerMoveType]
 ;	ld b, a
@@ -260,9 +260,9 @@ TriAttackEffect:
 	jp PrintText
     ; here is basically just copy-and-paste of the "if player is attacking", modulo some different settings at the beginning
 .opponentAttacker
-	ld a, [wBattleMonStatus] ; mostly same as above with addresses swapped for opponent
-	and a
-	jp nz, CheckDefrost
+;	ld a, [wBattleMonStatus] ; mostly same as above with addresses swapped for opponent
+;	and a
+;	jp nz, CheckDefrost
     ; useless as before?
 ;	ld a, [wEnemyMoveType]
 ;	ld b, a

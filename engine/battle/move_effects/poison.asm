@@ -104,7 +104,7 @@ PoisonEffect_:
 	cp POISON_EFFECT
 	ret nz
 .didntAffect
-	ld c, 50
+	ld c, 5 ; edited, was 50
 	call DelayFrames
 	jpfar PrintDidntAffectText
 

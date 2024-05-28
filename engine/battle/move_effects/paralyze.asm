@@ -38,15 +38,15 @@ ParalyzeEffect_:
 	jr nz, .didntAffect
 	set PAR, [hl]
 	callfar QuarterSpeedDueToParalysis
-	ld c, 30
+	ld c, 3 ; edited, was 30
 	call DelayFrames
 	callfar PlayCurrentMoveAnimation
 	jpfar PrintMayNotAttackText
 .didntAffect
-	ld c, 50
+	ld c, 5 ; edited, was 50
 	call DelayFrames
 	jpfar PrintDidntAffectText
 .doesntAffect
-	ld c, 50
+	ld c, 5 ; edited, was 50
 	call DelayFrames
 	jpfar PrintDoesntAffectText

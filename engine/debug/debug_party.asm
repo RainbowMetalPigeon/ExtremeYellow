@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db CHARIZARD, 98 ; 255
+	db MCHARZARDX, 98 ; 255
 	db MGENGAR, 97
 	db STARTER_PIKACHU, 5
 ;	db DITTO, 65
@@ -51,15 +51,15 @@ IF DEF(_DEBUG)
 	ld a, AGILITY
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, GYRO_BALL
+	ld a, WILL_O_WISP
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, BODY_PRESS
+	ld a, MAGICAL_LEAF
 	ld [hli], a
-	ld a, SUBMISSION
+	ld a, WILL_O_WISP
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a
