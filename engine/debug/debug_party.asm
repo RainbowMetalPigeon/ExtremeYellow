@@ -18,8 +18,8 @@ DebugTeam:
 	db MCHARZARDX, 97
 	db STARTER_PIKACHU, 5
 	db MCHARZARDY, 65
-	db MBLASTOISE, 9
-	db MVENUSAUR, 9
+;;	db MBLASTOISE, 9
+;	db MVENUSAUR, 9
 	db -1 ; end
 
 DebugStart:
@@ -48,7 +48,7 @@ IF DEF(_DEBUG)
 	ld a, DISABLE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, RECOVER
+	ld a, SURF
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, WILL_O_WISP

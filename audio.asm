@@ -429,6 +429,10 @@ INCLUDE "audio/music/printer.asm"
 INCLUDE "audio/sfx/get_item1_4.asm"
 INCLUDE "audio/sfx/get_item1_4_2.asm"
 INCLUDE "audio/sfx/get_item2_4.asm"
+; new, to fix Unused Yellow Song
+;INCLUDE "audio/sfx/cut_4.asm"
+;INCLUDE "audio/sfx/swap_4.asm"
+;INCLUDE "audio/sfx/push_boulder_4.asm"
 
 
 SECTION "Audio Engine 1", ROMX
@@ -526,6 +530,7 @@ INCLUDE "audio/music/silphco.asm"
 INCLUDE "audio/music/meeteviltrainer.asm"
 INCLUDE "audio/music/meetfemaletrainer.asm"
 INCLUDE "audio/music/meetmaletrainer.asm"
+INCLUDE "audio/music/yellowunusedsong.asm" ; edited, moved from audio 4
 INCLUDE "audio/music/introbattle.asm"
 INCLUDE "audio/music/surfing.asm"
 INCLUDE "audio/music/jigglypuffsong.asm"
@@ -537,7 +542,7 @@ INCLUDE "audio/music/yellowintro.asm"
 SECTION "Music 4", ROMX
 
 INCLUDE "audio/music/surfingpikachu.asm"
-INCLUDE "audio/music/yellowunusedsong.asm"
+;INCLUDE "audio/music/yellowunusedsong.asm" ; edited, moved to Audio 3
 INCLUDE "audio/music/meetjessiejames.asm"
 
 IF !DEF(_DEBUG)

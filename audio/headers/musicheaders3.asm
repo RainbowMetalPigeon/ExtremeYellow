@@ -113,3 +113,10 @@ Music_MeetMaleTrainer::
 	channel 1, Music_MeetMaleTrainer_Ch1
 	channel 2, Music_MeetMaleTrainer_Ch2
 	channel 3, Music_MeetMaleTrainer_Ch3
+
+Music_YellowUnusedSong:: ; new, moved from audio 4
+	channel_count 4
+	channel 1, Music_YellowUnusedSong_Ch1
+	channel 2, Music_YellowUnusedSong_Ch2
+	channel 3, Music_YellowUnusedSong_Ch3
+	channel 4, Music_YellowUnusedSong_Ch4

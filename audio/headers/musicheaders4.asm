@@ -10,12 +10,12 @@ Music_MeetJessieJames::
 	channel 2, Music_MeetJessieJames_Ch2
 	channel 3, Music_MeetJessieJames_Ch3
 
-Music_YellowUnusedSong::
-	channel_count 4
-	channel 1, Music_YellowUnusedSong_Ch1
-	channel 2, Music_YellowUnusedSong_Ch2
-	channel 3, Music_YellowUnusedSong_Ch3
-	channel 4, Music_YellowUnusedSong_Ch4
+;Music_YellowUnusedSong:: ; edited, moved to Audio 3
+;	channel_count 4
+;	channel 1, Music_YellowUnusedSong_Ch1
+;	channel 2, Music_YellowUnusedSong_Ch2
+;	channel 3, Music_YellowUnusedSong_Ch3
+;	channel 4, Music_YellowUnusedSong_Ch4
 
 Music_GBPrinter::
 	channel_count 1
