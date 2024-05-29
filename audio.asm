@@ -430,9 +430,35 @@ INCLUDE "audio/sfx/get_item1_4.asm"
 INCLUDE "audio/sfx/get_item1_4_2.asm"
 INCLUDE "audio/sfx/get_item2_4.asm"
 ; new, to fix Unused Yellow Song
-;INCLUDE "audio/sfx/cut_4.asm"
-;INCLUDE "audio/sfx/swap_4.asm"
-;INCLUDE "audio/sfx/push_boulder_4.asm"
+INCLUDE "audio/sfx/pokedex_rating_4.asm"
+INCLUDE "audio/sfx/get_key_item_4.asm"
+INCLUDE "audio/sfx/poisoned_4.asm"
+INCLUDE "audio/sfx/trade_machine_4.asm"
+INCLUDE "audio/sfx/turn_on_pc_4.asm"
+INCLUDE "audio/sfx/turn_off_pc_4.asm"
+INCLUDE "audio/sfx/enter_pc_4.asm"
+INCLUDE "audio/sfx/shrink_4.asm"
+INCLUDE "audio/sfx/switch_4.asm"
+INCLUDE "audio/sfx/healing_machine_4.asm"
+INCLUDE "audio/sfx/teleport_exit1_4.asm"
+INCLUDE "audio/sfx/teleport_enter1_4.asm"
+INCLUDE "audio/sfx/teleport_exit2_4.asm"
+INCLUDE "audio/sfx/ledge_4.asm"
+INCLUDE "audio/sfx/teleport_enter2_4.asm"
+INCLUDE "audio/sfx/fly_4.asm"
+INCLUDE "audio/sfx/denied_4.asm"
+INCLUDE "audio/sfx/arrow_tiles_4.asm"
+INCLUDE "audio/sfx/push_boulder_4.asm"
+INCLUDE "audio/sfx/ss_anne_horn_4.asm"
+INCLUDE "audio/sfx/withdraw_deposit_4.asm"
+INCLUDE "audio/sfx/cut_4.asm"
+INCLUDE "audio/sfx/go_inside_4.asm"
+INCLUDE "audio/sfx/swap_4.asm"
+INCLUDE "audio/sfx/59_4.asm"
+INCLUDE "audio/sfx/purchase_4.asm"
+INCLUDE "audio/sfx/collision_4.asm"
+INCLUDE "audio/sfx/go_outside_4.asm"
+INCLUDE "audio/sfx/save_4.asm"
 
 
 SECTION "Audio Engine 1", ROMX
@@ -530,7 +556,7 @@ INCLUDE "audio/music/silphco.asm"
 INCLUDE "audio/music/meeteviltrainer.asm"
 INCLUDE "audio/music/meetfemaletrainer.asm"
 INCLUDE "audio/music/meetmaletrainer.asm"
-INCLUDE "audio/music/yellowunusedsong.asm" ; edited, moved from audio 4
+;INCLUDE "audio/music/yellowunusedsong.asm" ; edited, moved from audio 4
 INCLUDE "audio/music/introbattle.asm"
 INCLUDE "audio/music/surfing.asm"
 INCLUDE "audio/music/jigglypuffsong.asm"
@@ -542,12 +568,12 @@ INCLUDE "audio/music/yellowintro.asm"
 SECTION "Music 4", ROMX
 
 INCLUDE "audio/music/surfingpikachu.asm"
-;INCLUDE "audio/music/yellowunusedsong.asm" ; edited, moved to Audio 3
+INCLUDE "audio/music/yellowunusedsong.asm" ; edited, moved to Audio 3
 INCLUDE "audio/music/meetjessiejames.asm"
 
-IF !DEF(_DEBUG)
-	INCBIN "garbage/bank20.bin"
-ENDC
+;IF !DEF(_DEBUG)
+;	INCBIN "garbage/bank20.bin"
+;ENDC
 
 
 ; Pikachu cries are in different banks

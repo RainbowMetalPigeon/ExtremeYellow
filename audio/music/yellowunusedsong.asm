@@ -198,122 +198,122 @@ Music_YellowUnusedSong_Ch3::
 
 Music_YellowUnusedSong_Ch4::
 	drum_speed 12
-	drum_note 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 4
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 4
+	drum_note_short 3, 4
 .mainloop:
-	drum_note 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 4
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
 	drum_speed 8
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
 	drum_speed 12
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 2
-	drum_note 3, 4
-	drum_note 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 4
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 2
+	drum_note_short 3, 4
+	drum_note_short 3, 4
 	sound_loop 0, .mainloop

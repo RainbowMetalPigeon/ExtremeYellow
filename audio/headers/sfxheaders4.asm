@@ -337,6 +337,136 @@ SFX_Press_AB_4::
 	channel_count 1
 	channel 5, SFX_Press_AB_4_Ch5
 
+; NEW, COPIES FROM AUDIO 1/3----------------------------------------------------
+
+SFX_Pokedex_Rating_4::
+	channel_count 3
+	channel 5, SFX_Pokedex_Rating_4_Ch5
+	channel 6, SFX_Pokedex_Rating_4_Ch6
+	channel 7, SFX_Pokedex_Rating_4_Ch7
+
+SFX_Get_Key_Item_4::
+	channel_count 3
+	channel 5, SFX_Get_Key_Item_4_Ch5
+	channel 6, SFX_Get_Key_Item_4_Ch6
+	channel 7, SFX_Get_Key_Item_4_Ch7
+
+SFX_Poisoned_4::
+	channel_count 1
+	channel 5, SFX_Poisoned_4_Ch5
+
+SFX_Trade_Machine_4::
+	channel_count 1
+	channel 5, SFX_Trade_Machine_4_Ch5
+
+SFX_Turn_On_PC_4::
+	channel_count 1
+	channel 5, SFX_Turn_On_PC_4_Ch5
+
+SFX_Turn_Off_PC_4::
+	channel_count 1
+	channel 5, SFX_Turn_Off_PC_4_Ch5
+
+SFX_Enter_PC_4::
+	channel_count 1
+	channel 5, SFX_Enter_PC_4_Ch5
+
+SFX_Shrink_4::
+	channel_count 1
+	channel 5, SFX_Shrink_4_Ch5
+
+SFX_Switch_4::
+	channel_count 1
+	channel 5, SFX_Switch_4_Ch5
+
+SFX_Healing_Machine_4::
+	channel_count 1
+	channel 5, SFX_Healing_Machine_4_Ch5
+
+SFX_Teleport_Exit1_4::
+	channel_count 1
+	channel 5, SFX_Teleport_Exit1_4_Ch5
+
+SFX_Teleport_Enter1_4::
+	channel_count 1
+	channel 5, SFX_Teleport_Enter1_4_Ch5
+
+SFX_Teleport_Exit2_4::
+	channel_count 1
+	channel 5, SFX_Teleport_Exit2_4_Ch5
+
+SFX_Ledge_4::
+	channel_count 1
+	channel 5, SFX_Ledge_4_Ch5
+
+SFX_Teleport_Enter2_4::
+	channel_count 1
+	channel 8, SFX_Teleport_Enter2_4_Ch8
+
+SFX_Fly_4::
+	channel_count 1
+	channel 8, SFX_Fly_4_Ch8
+
+SFX_Denied_4::
+	channel_count 2
+	channel 5, SFX_Denied_4_Ch5
+	channel 6, SFX_Denied_4_Ch6
+
+SFX_Arrow_Tiles_4::
+	channel_count 1
+	channel 5, SFX_Arrow_Tiles_4_Ch5
+
+SFX_Push_Boulder_4::
+	channel_count 1
+	channel 8, SFX_Push_Boulder_4_Ch8
+
+SFX_SS_Anne_Horn_4::
+	channel_count 2
+	channel 5, SFX_SS_Anne_Horn_4_Ch5
+	channel 6, SFX_SS_Anne_Horn_4_Ch6
+
+SFX_Withdraw_Deposit_4::
+	channel_count 1
+	channel 5, SFX_Withdraw_Deposit_4_Ch5
+
+SFX_Cut_4::
+	channel_count 1
+	channel 8, SFX_Cut_4_Ch8
+
+SFX_Go_Inside_4::
+	channel_count 1
+	channel 8, SFX_Go_Inside_4_Ch8
+
+SFX_Swap_4::
+	channel_count 2
+	channel 5, SFX_Swap_4_Ch5
+	channel 6, SFX_Swap_4_Ch6
+
+SFX_59_4::
+	channel_count 2
+	channel 5, SFX_59_4_Ch5
+	channel 6, SFX_59_4_Ch6
+
+SFX_Purchase_4::
+	channel_count 2
+	channel 5, SFX_Purchase_4_Ch5
+	channel 6, SFX_Purchase_4_Ch6
+
+SFX_Collision_4::
+	channel_count 1
+	channel 5, SFX_Collision_4_Ch5
+
+SFX_Go_Outside_4::
+	channel_count 1
+	channel 8, SFX_Go_Outside_4_Ch8
+
+SFX_Save_4::
+	channel_count 2
+	channel 5, SFX_Save_4_Ch5
+	channel 6, SFX_Save_4_Ch6
+
+; AUDIO 4 - SPECIFIC -----------------------------------------------------------
+
 SFX_Surfing_Jump::
 	channel_count 1
 	channel 8, SFX_Surfing_Jump_Ch8

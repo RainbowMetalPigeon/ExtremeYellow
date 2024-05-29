@@ -55,12 +55,11 @@ ENDM
 	music_const MUSIC_MEET_EVIL_TRAINER,   Music_MeetEvilTrainer
 	music_const MUSIC_MEET_FEMALE_TRAINER, Music_MeetFemaleTrainer
 	music_const MUSIC_MEET_MALE_TRAINER,   Music_MeetMaleTrainer
-	music_const MUSIC_YELLOW_UNUSED_SONG,  Music_YellowUnusedSong ; moved from audio 4
 
 	; AUDIO_4
 	music_const MUSIC_SURFING_PIKACHU,     Music_SurfingPikachu
 	music_const MUSIC_MEET_JESSIE_JAMES,   Music_MeetJessieJames
-;	music_const MUSIC_YELLOW_UNUSED_SONG,  Music_YellowUnusedSong ; moved to audio 3
+	music_const MUSIC_YELLOW_UNUSED_SONG,  Music_YellowUnusedSong
 	music_const MUSIC_GB_PRINTER,          Music_GBPrinter
 
 	; AUDIO_1 AUDIO_2 AUDIO_3 AUDIO_4
@@ -137,7 +136,7 @@ DEF CRY_SFX_END EQUS "SFX_CRY_25 + 3"
 	; AUDIO_1 AUDIO_3 AUDIO_4
 	music_const SFX_GET_ITEM_1,         SFX_Get_Item1_1
 
-	; AUDIO_1 AUDIO_3
+	; AUDIO_1 AUDIO_3 ; how do I tell the code to also use these for AUDIO_4?
 	music_const SFX_POKEDEX_RATING,     SFX_Pokedex_Rating_1
 	music_const SFX_GET_KEY_ITEM,       SFX_Get_Key_Item_1
 	music_const SFX_POISONED,           SFX_Poisoned_1
