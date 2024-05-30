@@ -51,6 +51,18 @@ SurfingPikachuMinigame::
 	ldh [rSTAT], a
 	call RunDefaultPaletteCommand
 	call ReloadMapAfterSurfingMinigame
+
+;	ld a, SPRITE_FACING_UP
+;	ld [wSpritePlayerStateData1FacingDirection], a
+;	ld a, OCHRE_REHABILITATION_CENTER
+;	ldh [hWarpDestinationMap], a
+;	ld a, 2 ; -1 wrt the normal numbering
+;	ld [wDestinationWarpID], a
+;	ld a, OCHRE_CITY
+;	ld [wLastMap], a
+;	ld hl, wd72d
+;	set 3, [hl] ; do scripted warp
+
 	call PlayDefaultMusic
 	call GBPalNormal
 	pop af

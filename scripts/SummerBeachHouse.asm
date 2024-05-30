@@ -49,6 +49,8 @@ ENDC
 	ld hl, .SurfinDudeText2
 	call PrintText
 .done
+;	call UpdateSprites ; new, testing
+;	callfar RedrawMapView ; new, testing
 	jp TextScriptEnd
 
 .SurfinDudeText1

@@ -435,4 +435,4 @@ DEF SHOW EQU $15
 	const HS_CELADON_HOTEL_ROOMS_TROPHY_3 ; new, Pokedex
 	const HS_CELADON_HOTEL_ROOMS_TROPHY_4 ; new, Inverse Rematches
 	const HS_CELADON_HOTEL_ROOMS_TROPHY_5 ; new, Mega Stones
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_6 ; new, ???
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_6 ; new, Forbidden Merchant

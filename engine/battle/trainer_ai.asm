@@ -611,8 +611,12 @@ AIMoveChoiceModification3:
 	ret
 
 
-
+; new, to handle tactical switching:
+; - when all of enemy's moves are below normal effective
+; - when enemy's mon is nerfed too much
+; - when they are trapped in a trapping move
 AIMoveChoiceModification4:
+	jp AISwitchIfEnoughMons
 	ret
 
 ReadMove:
@@ -792,7 +796,7 @@ Rival2AI:
 	jp AIUseSuperPotion ; updated
 
 Rival3AI:
-	cp 95 percent - 1 ; updated
+	cp 90 percent - 1 ; updated
 	ret nc
 	ld a, 5
 	call AICheckIfHPBelowFraction
