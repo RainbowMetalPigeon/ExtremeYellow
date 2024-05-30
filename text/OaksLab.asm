@@ -78,12 +78,12 @@ _OaksLabDeliverParcelText1::
 	para "How is you"
 	line "PIKACHU doing?"
 
-	para "Well, it seems to"
-	line "like you a lot!"
+;	para "Well, it seems to"
+;	line "like you a lot!"
 
-	para "You must be"
-	line "talented as a"
-	cont "#MON trainer!"
+;	para "You must be"
+;	line "talented as a"
+;	cont "#MON trainer!"
 
 	para "What? You have"
 	line "something for me?"
@@ -573,7 +573,7 @@ _OaksLabText_AidPikachuInfo2:: ; new
 
 	para "Its potential"
 	line "seems vastly"
-	cont "superior of that"
+	cont "superior to that"
 	cont "of a normal"
 	cont "PIKACHU!"
 	done

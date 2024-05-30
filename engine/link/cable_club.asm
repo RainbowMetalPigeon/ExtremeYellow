@@ -255,10 +255,10 @@ CableClub_DoBattleOrTradeAgain:
 	ld hl, wEnemyMons + (SERIAL_PREAMBLE_BYTE - 1)
 	dec c
 	jr nz, .unpatchEnemyMonsLoop
-	ld a, LOW(wEnemyMonOT)
-	ld [wUnusedCF8D], a
-	ld a, HIGH(wEnemyMonOT)
-	ld [wUnusedCF8D + 1], a
+;	ld a, LOW(wEnemyMonOT)
+;	ld [wUnusedCF8D], a
+;	ld a, HIGH(wEnemyMonOT)
+;	ld [wUnusedCF8D + 1], a
 	xor a
 	ld [wTradeCenterPointerTableIndex], a
 	call StopAllMusic

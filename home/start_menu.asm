@@ -60,7 +60,7 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	CheckEvent EVENT_GOT_POKEDEX
 	ld a, [wCurrentMenuItem]
 	jr nz, .displayMenuItem
-	inc a ; adjust position to account for missing pokedex menu item; TBC, do I need to repeat this command due to portablePC?
+	inc a ; adjust position to account for missing pokedex menu item
 .displayMenuItem
 	cp 0
 	jp z, StartMenu_Pokedex
@@ -74,8 +74,16 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	jp z, StartMenu_SaveReset
 	cp 5
 	jp z, StartMenu_Option
-	cp 6 ; new
-	jp z, StartMenu_PortablePC ; new
+; new/edited
+	cp 6
+	jp z, .exitOrPortablePC
+	jr CloseStartMenu
+
+.exitOrPortablePC
+	CheckEvent EVENT_GOT_POKEDEX
+	jr z, CloseStartMenu
+	jp StartMenu_PortablePC
+; back to vanilla
 
 ; EXIT falls through to here
 CloseStartMenu::

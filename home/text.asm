@@ -548,14 +548,14 @@ TextCommand_SOUND::
 TextCommandSounds::
 	db TX_SOUND_GET_ITEM_1,           SFX_GET_ITEM_1 ; actually plays SFX_LEVEL_UP when the battle music engine is loaded
 	db TX_SOUND_CAUGHT_MON,           SFX_CAUGHT_MON
-	db TX_SOUND_POKEDEX_RATING,       SFX_POKEDEX_RATING ; unused
-	db TX_SOUND_GET_ITEM_1_DUPLICATE, SFX_GET_ITEM_1 ; unused
+;	db TX_SOUND_POKEDEX_RATING,       SFX_POKEDEX_RATING ; unused
+;	db TX_SOUND_GET_ITEM_1_DUPLICATE, SFX_GET_ITEM_1 ; unused
 	db TX_SOUND_GET_ITEM_2,           SFX_GET_ITEM_2
 	db TX_SOUND_GET_KEY_ITEM,         SFX_GET_KEY_ITEM
 	db TX_SOUND_DEX_PAGE_ADDED,       SFX_DEX_PAGE_ADDED
 	db TX_SOUND_CRY_PIKACHU,          STARTER_PIKACHU ; used in OakSpeech
 	db TX_SOUND_CRY_PIDGEOT,          PIDGEOT ; used in SaffronCityText12
-	db TX_SOUND_CRY_DEWGONG,          DEWGONG ; unused
+;	db TX_SOUND_CRY_DEWGONG,          DEWGONG ; unused
 
 TextCommand_DOTS::
 ; wait for button press or 30 frames while printing "."s ; edited, to expand tileset
