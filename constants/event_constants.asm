@@ -23,7 +23,8 @@
 	const EVENT_GOT_TOWN_MAP
 	const EVENT_ENTERED_BLUES_HOUSE
 	const EVENT_DAISY_WALKING
-	const_skip 3 ; edited, was 5
+	const_skip 2 ; edited, was 5
+	const EVENT_AI_SWITCH_MON ; new
 	const EVENT_OAK_GIFTED_SHINY_CHARM ; new
 	const EVENT_1ST_SPOKE_WITH_OAKSLAB_GIOVANNI ; new
 	const EVENT_FOLLOWED_OAK_INTO_LAB_2

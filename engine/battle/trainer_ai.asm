@@ -548,12 +548,14 @@ AIMoveChoiceModification3:
 ; read move effect and encourage under specific conditions, like draining or exploding moves at low health
 	ld a, [wEnemyMoveEffect]
 	cp DRAIN_HP_EFFECT
-	jp z, .drainHPEffect
+	jp z, .drainHPOrHealEffect
+	cp HEAL_EFFECT
+	jp z, .drainHPOrHealEffect
 	cp EXPLODE_EFFECT
 	jp z, .explodeEffect
 ; if none of the effects above, go to the next move
 	jp .nextMove2
-.drainHPEffect
+.drainHPOrHealEffect
 	ld a, 4
 	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
 	jr c, .encourageTwice
@@ -610,13 +612,97 @@ AIMoveChoiceModification3:
 .modification3Part4
 	ret
 
-
 ; new, to handle tactical switching:
-; - when all of enemy's moves are below normal effective
-; - when enemy's mon is nerfed too much
+; - when they are confused
+; - when they are TOXICed
 ; - when they are trapped in a trapping move
-AIMoveChoiceModification4:
-	jp AISwitchIfEnoughMons
+; - when enemy's mon is nerfed too much
+; - when all of enemy's moves are discouraged
+AIMoveChoiceModification4: ; ---------------------------------------------------
+	ld a, [wEnemyBattleStatus1]
+	bit CONFUSED, a
+	jr z, .checkToxiced
+	call Random
+	cp 66 percent
+	jr nc, .checkToxiced
+	jp .setSwitchingAndEnd
+.checkToxiced ; ----------------------------------------------------------------
+	ld a, [wEnemyBattleStatus3]
+	bit BADLY_POISONED, a
+	jr z, .checkTrapped
+	call Random
+	cp 20 percent
+	jr nc, .checkTrapped
+	jp .setSwitchingAndEnd
+.checkTrapped ; ----------------------------------------------------------------
+	ld a, [wPlayerBattleStatus1]
+	bit USING_TRAPPING_MOVE, a
+	jr z, .checkNerfed
+	call Random
+	cp 90 percent
+	jr nc, .checkNerfed
+	jp .setSwitchingAndEnd
+.checkNerfed ; -----------------------------------------------------------------
+; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
+	ld hl, wEnemyMonAttackMod
+	ld a, [hli]
+	ld b, a ; b holds atk mod
+	ld c, 5
+.modifierLoop
+	ld a, [hli]
+	inc b
+	ld b, a ; b holds atk+(temporary sum of stats) mod
+	dec c
+	jr nz, .modifierLoop
+; now we have the sum of the modifiers in b (and also in a actually)
+	ld a, b ; redundant I guess
+	cp 42
+	jr nc, .checkEncouragement
+; it's 41 or less
+	cp 41
+	jr z, .debuffedBy1
+	cp 40
+	jr z, .debuffedBy2
+	cp 39
+	jr z, .debuffedBy3
+; 38 or less, i.e. debuffed by 4 or more, AI just switches
+	jp .setSwitchingAndEnd
+.debuffedBy1
+	call Random
+	cp 25 percent
+	jr nc, .checkEncouragement
+	jp .setSwitchingAndEnd
+.debuffedBy2
+	call Random
+	cp 66 percent
+	jr nc, .checkEncouragement
+	jp .setSwitchingAndEnd
+.debuffedBy3
+	call Random
+	cp 90 percent
+	jr nc, .checkEncouragement
+	jp .setSwitchingAndEnd
+.checkEncouragement ; ----------------------------------------------------------
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove
+	dec b
+	jp z, .setSwitchingAndEnd ; processed all 4 moves, if here, AI switches
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .setSwitchingAndEnd ; no more moves in move set, if here, AI switches
+; let's check how dis/en-couraged the move is
+	inc de ; for next loop
+	ld a, [hl]
+	cp 11 ; encouragement - 11; neutral: 10-11 -> c; discouraged: 11-11->nc
+	jr c, .checkNext ; if even 1 move is not discouraged, no switch
+	jr .nextMove
+.checkNext ; -------------------------------------------------------------------
+	ret
+.setSwitchingAndEnd ; ==========================================================
+	SetEvent EVENT_AI_SWITCH_MON
 	ret
 
 ReadMove:
@@ -658,11 +744,12 @@ TrainerAI:
 	ld a, [wEnemyBattleStatus1]
 	and 1 << CHARGING_UP | 1 << THRASHING_ABOUT | 1 << STORING_ENERGY
 	jr nz, .done ; don't follow trainer ai if opponent is in a locked state
-; edited, block of code commented out because removed rage
-;	ld a, [wEnemyBattleStatus2]
-;	and 1 << USING_RAGE
-;	jr nz, .done ; don't follow trainer ai if opponent is locked in rage
-;	             ; note that this doesn't check for hyper beam recharge which can cause problems
+; new, to handle switches set by modification 4
+	CheckAndResetEvent EVENT_AI_SWITCH_MON
+	jr z, .noAISwitchFromModification4
+	jp AISwitchIfEnoughMons
+.noAISwitchFromModification4
+; back to vanilla
 	ld a, [wTrainerClass] ; what trainer class is this?
 	dec a
 	ld c, a
