@@ -103,5 +103,5 @@ FlyWarpDataPtr:
 .CinnabarIsland: fly_warp CINNABAR_ISLAND, 41, 12		; edited
 .IndigoPlateau:  fly_warp INDIGO_PLATEAU,   9,  6
 .SaffronCity:    fly_warp SAFFRON_CITY,     9, 30
-.Route4:         fly_warp ROUTE_4,         11,  6
+.Route4:         fly_warp ROUTE_4,         11, 26       ; edited
 .Route10:        fly_warp ROUTE_10,        11, 20
