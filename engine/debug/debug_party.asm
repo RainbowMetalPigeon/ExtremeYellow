@@ -42,7 +42,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo gets test moves
-	ld a, WRAP
+	ld a, GUNK_SHOT
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, CONFUSE_RAY
@@ -215,12 +215,12 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db MYSTERY_MAP, 1
+	db LIGHT_BALL, 1
     db ONIGIRI_BOX, 99
 ;   db OAKS_PARCEL, 1
 	db CHROMOGENE, 99
 	db SUPER_ROD, 1
 	db TM_THUNDERBOLT, 3
-	db GOOD_ROD, 1
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
