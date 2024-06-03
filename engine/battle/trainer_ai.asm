@@ -650,7 +650,7 @@ AIMoveChoiceModification4: ; ---------------------------------------------------
 	ld c, 5
 .modifierLoop
 	ld a, [hli]
-	inc b
+	add b
 	ld b, a ; b holds atk+(temporary sum of stats) mod
 	dec c
 	jr nz, .modifierLoop
