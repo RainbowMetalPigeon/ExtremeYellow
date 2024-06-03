@@ -385,7 +385,7 @@ INCLUDE "data/battle/priority_moves.asm"
 
 HandlePoisonBurnLeechSeed:
 ; new, give a chance to Starter Pikachu to heal itself
-	callfar IsThisPartymonStarterPikachu_Party
+	callfar IsThisPartymonStarterPikachu ; edited, was the other version
 	jr nc, .vanilla ; no starter Pikachu
 	ld a, [wPikachuHappiness]
 	cp 200
@@ -1115,7 +1115,7 @@ RemoveFaintedPlayerMon:
 
 	ld a, [wPlayerMonNumber]
 	ld [wWhichPokemon], a
-	callfar IsThisPartymonStarterPikachu_Party
+	callfar IsThisPartymonStarterPikachu ; edited, was the other version
 	jr nc, .notPlayerPikachu
 	ld e, $3
 	callfar PlayPikachuSoundClip
@@ -5034,14 +5034,16 @@ CalculateDamage:
 	call Divide
 
 ; new, double "attack" of Pikachu if we have the LIGHT BALL
-	push af
-	push hl
 	; no need to push bc because we already used both of them above
 	; not even de, e = level and d = base power already used
-	callfar IsThisPartymonStarterPikachu_Party
+	push hl
+	callfar IsThisPartymonStarterPikachu ; edited, was the other version
+	pop hl
 	jr nc, .vanilla ; no starter Pikachu
 	ld b, LIGHT_BALL
+	push hl
 	call IsItemInBag ; set zero flag if item isn't in player's bag
+	pop hl
 	jr z, .vanilla ; we don't have the item
 	ldh a, [hWhoseTurn]
 	and a
@@ -5050,8 +5052,6 @@ CalculateDamage:
 	ld [hl], 2
 	call Multiply
 .vanilla
-	pop hl
-	pop af
 ; back to vanilla
 
 ; Update wCurDamage.
