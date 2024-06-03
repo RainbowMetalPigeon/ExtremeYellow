@@ -48,7 +48,7 @@ IF DEF(_DEBUG)
 	ld a, CONFUSE_RAY
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, SURF
+	ld a, WRAP
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, TOXIC

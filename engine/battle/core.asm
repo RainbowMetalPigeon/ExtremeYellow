@@ -1361,7 +1361,7 @@ EnemySendOutFirstMon:
 	dec a
 	ld [wAICount], a
 	ld hl, wPlayerBattleStatus1
-	res 5, [hl]
+	res USING_TRAPPING_MOVE, [hl] ; edited, was 5...
 	hlcoord 18, 0
 	ld a, 8
 	call SlideTrainerPicOffScreen
@@ -3257,6 +3257,7 @@ SelectEnemyMove:
 	bit USING_TRAPPING_MOVE, a ; caught in player's trapping move (e.g. wrap)
 	jr z, .canSelectMove
 .unableToSelectMove
+	callfar AIEnemyTrainerChooseMoves
 	ld a, $ff
 	jr .done
 .canSelectMove

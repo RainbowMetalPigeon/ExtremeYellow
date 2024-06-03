@@ -615,11 +615,12 @@ AIMoveChoiceModification3:
 ; new, to handle tactical switching:
 ; - when they are confused
 ; - when they are TOXICed
-; - when they are trapped in a trapping move
+; - when they are trapped in a trapping move ; edited, is handled later
 ; - when enemy's mon is nerfed too much
 ; - when all of enemy's moves are discouraged
-AIMoveChoiceModification4: ; ---------------------------------------------------
-	ld a, [wEnemyBattleStatus1]
+AIMoveChoiceModification4:
+	ResetEvent EVENT_AI_SWITCH_MON
+	ld a, [wEnemyBattleStatus1] ; ----------------------------------------------
 	bit CONFUSED, a
 	jr z, .checkToxiced
 	call Random
@@ -629,19 +630,19 @@ AIMoveChoiceModification4: ; ---------------------------------------------------
 .checkToxiced ; ----------------------------------------------------------------
 	ld a, [wEnemyBattleStatus3]
 	bit BADLY_POISONED, a
-	jr z, .checkTrapped
-	call Random
-	cp 20 percent
-	jr nc, .checkTrapped
-	jp .setSwitchingAndEnd
-.checkTrapped ; ----------------------------------------------------------------
-	ld a, [wPlayerBattleStatus1]
-	bit USING_TRAPPING_MOVE, a
 	jr z, .checkNerfed
 	call Random
-	cp 90 percent
+	cp 20 percent
 	jr nc, .checkNerfed
 	jp .setSwitchingAndEnd
+;.checkTrapped ; ---------------------------------------------------------------
+;	ld a, [wPlayerBattleStatus1]
+;	bit USING_TRAPPING_MOVE, a
+;	jr z, .checkNerfed
+;	call Random
+;	cp 90 percent
+;	jr nc, .checkNerfed
+;	jp .setSwitchingAndEnd
 .checkNerfed ; -----------------------------------------------------------------
 ; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
 	ld hl, wEnemyMonAttackMod
@@ -749,6 +750,37 @@ TrainerAI:
 	jr z, .noAISwitchFromModification4
 	jp AISwitchIfEnoughMons
 .noAISwitchFromModification4
+	ld hl, TrainerClassMoveChoiceModifications
+	ld a, [wTrainerClass]
+	ld b, a
+.loopTrainerClasses
+	dec b
+	jr z, .readTrainerClassData
+.loopTrainerClassData
+	ld a, [hli]
+	and a
+	jr nz, .loopTrainerClassData
+	jr .loopTrainerClasses
+.readTrainerClassData
+	ld a, [hli]
+	cp 4
+	jr z, .trySwitchFromTrapping
+	cp 0
+	jp z, .noSwitchFromTrapping
+	jr .readTrainerClassData
+.trySwitchFromTrapping
+	ld hl, wPlayerBattleStatus1
+	bit USING_TRAPPING_MOVE, [hl]
+	jr z, .noSwitchFromTrapping
+; opponent is actually trapped, has a chance to switch out
+	call Random
+	cp 60 percent
+	jr nc, .noSwitchFromTrapping
+; opponent actually switches out from being trapped
+	ld hl, wPlayerBattleStatus1
+	res USING_TRAPPING_MOVE, [hl]
+	jp AISwitchIfEnoughMons
+.noSwitchFromTrapping
 ; back to vanilla
 	ld a, [wTrainerClass] ; what trainer class is this?
 	dec a
