@@ -1722,6 +1722,11 @@ CurseAnim: ; it was the unused XStatItemBlackAnim
 	db -1 ; end
 
 GunkShotAnim:
+	battle_anim LEECH_SEED, SE_SPIRAL_BALLS_INWARD
+	battle_anim SLUDGE, SUBANIM_1fgunkshot, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim SLUDGE, SUBANIM_14, 1, 6
+	db -1 ; end
 
 SludgeWaveAnim:
 

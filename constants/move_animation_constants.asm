@@ -148,6 +148,7 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_BALLVANISH
 	const SUBANIM_SHINY_PLAYER
 	const SUBANIM_SHINY_ENEMY
+	const SUBANIM_1fgunkshot
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations
