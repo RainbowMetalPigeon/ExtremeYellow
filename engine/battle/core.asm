@@ -3082,7 +3082,7 @@ PrintMenuItem:
 	ldh [hAutoBGTransferEnabled], a
 	hlcoord 0, 8
 	lb bc, 3, 9
-	call TextBoxBorder
+	call TextBoxBorder ; draws a c×b text box at hl
 	ld a, [wPlayerDisabledMove]
 	and a
 	jr z, .notDisabled
@@ -3124,15 +3124,15 @@ PrintMenuItem:
 	and $3f
 	ld [wcd6d], a
 
-	; new, testing
+; new
 	ld de, wPlayerMoveNum
 	ld a, [wPlayerSelectedMove]
 	dec a
 	ld hl, Moves
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	call AddNTimes ; adds bc to hl a times
 	ld a, BANK(Moves)
-	call FarCopyData
+	call FarCopyData ; copies bc bytes from a:hl to de
 
 ; print TYPE/<type> and <curPP>/<maxPP>
 
@@ -3257,7 +3257,7 @@ SelectEnemyMove:
 	bit USING_TRAPPING_MOVE, a ; caught in player's trapping move (e.g. wrap)
 	jr z, .canSelectMove
 .unableToSelectMove
-	callfar AIEnemyTrainerChooseMoves
+;	callfar AIEnemyTrainerChooseMoves
 	ld a, $ff
 	jr .done
 .canSelectMove

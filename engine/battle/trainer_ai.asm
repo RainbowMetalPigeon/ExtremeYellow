@@ -390,12 +390,12 @@ UselessAgainstSubstituteMoveEffects:
 	db CONFUSION_EFFECT
 	db -1 ; end
 
-; slightly encourage moves with specific effects; edited
+; quite encourage moves with specific effects
 ; in particular, stat-modifying moves and status moves
+; encourage more on 1st turn, but also on following ones
+; no need to worry about trying to sleep a statused mon, 
+; because modification1 already handles those cases by ultra discouraging them
 AIMoveChoiceModification2:
-	ld a, [wAILayer2Encouragement]
-	and a ; edited, it was cp $1, now status moves should get prio on turn 1
-	ret nz
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
@@ -422,7 +422,13 @@ AIMoveChoiceModification2:
 	pop hl
 	jp nc, .nextMove
 .preferMove
-	dec [hl] ; slightly encourage this move
+	ld a, [wAILayer2Encouragement]
+	and a ; edited, encourage less if not 1st turn
+	jr nz, .notFirstTurn
+	dec [hl] ; quite encourage this move; edited, it only encouraged by 1
+.notFirstTurn
+	dec [hl]
+	dec [hl] ; now it's encouraged by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones
 	jr .nextMove
 
 Modifier2BuffDebuffMoveEffects:
@@ -461,11 +467,11 @@ Modifier2BuffDebuffMoveEffects:
 	db -1
 
 ; encourages moves that are effective against the player's mon (even if non-damaging).
-; discourage damaging moves that are ineffective or not very effective against the player's mon,
-; unless there's no damaging move that deals at least neutral damage
-; edited: takes into account various levels of effectiveness
-; new: part2 encourages draining and exploding moves at low HP
-; new: part3 encouranges STAB moves
+; discourage damaging moves that are ineffective or not very effective against the player's mon
+; edited: takes into account various levels of effectiveness:
+; encourages by 4 if double super eff, by 2 if super eff, discourages by 2 if not very eff, by 4 if double not very, by 10 if immune
+; new: part2 encourages draining and exploding moves at low HP by 1, 2, or 3, depending on effect and HP left
+; new: part3 encouranges STAB moves by 1
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -517,12 +523,16 @@ AIMoveChoiceModification3:
 	jr z, .superEffective
 	; if we are here, it's double super effective
 	dec [hl]
+	dec [hl]
 .superEffective
+	dec [hl]
 	dec [hl]
 	jr .nextMove
 .doubleNotVeryEffective
 	inc [hl]
+	inc [hl]
 .notVeryEffective
+	inc [hl]
 	inc [hl]
 	jr .nextMove
 .notEffective
@@ -556,24 +566,29 @@ AIMoveChoiceModification3:
 ; if none of the effects above, go to the next move
 	jp .nextMove2
 .drainHPOrHealEffect
-	ld a, 4
+	ld a, 3
 	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
-	jr c, .encourageTwice
+	jr c, .encourage2Times
 	ld a, 2
 	call AICheckIfHPBelowFractionPushesPops
-	jr c, .encourageOnce
+	jr c, .encourage1Times
 	jp .nextMove2
 .explodeEffect
 	ld a, 8
 	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
-	jr c, .encourageTwice
-	ld a, 3
+	jr c, .encourage3Times
+	ld a, 4
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jr c, .encourage2Times
+	ld a, 2
 	call AICheckIfHPBelowFractionPushesPops
-	jr c, .encourageOnce
+	jr c, .encourage1Times
 	jp .nextMove2
-.encourageTwice
+.encourage3Times
 	dec [hl]
-.encourageOnce
+.encourage2Times
+	dec [hl]
+.encourage1Times
 	dec [hl]
 	jp .nextMove2
 
