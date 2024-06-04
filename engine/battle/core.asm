@@ -3077,7 +3077,7 @@ ENDC
 	ld [wMenuItemToSwap], a ; select the current menu item for swapping
 	jp MoveSelectionMenu
 
-PrintMenuItem:
+PrintMenuItem:: ; edited, double colon
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	hlcoord 0, 8
@@ -3211,11 +3211,11 @@ PrintMenuItem:
 DisabledText:
 	db "Disabled!@"
 
-TypeText:
-	db "TYPE@"
+;TypeText:
+;	db "TYPE@"
 
 PPText:
-db "PP:@"
+	db "PP:@"
 
 SelectEnemyMove:
 	ld a, [wLinkState]
@@ -6749,7 +6749,7 @@ CheckEnemyStatusConditions:
 	and a ; clear Z flag
 	ret
 
-GetCurrentMove:
+GetCurrentMove:: ; edited, double colon
 	ldh a, [hWhoseTurn]
 	and a
 	jp z, .player

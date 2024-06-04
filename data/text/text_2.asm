@@ -1038,7 +1038,6 @@ _CantEscapeText::
 _WannaSurrenderText:: ; new
 	text "Do you want to"
 	line "surrender?"
-;	xxxx "123456789012345678"
 	done
 
 _AreYouSureText:: ; new
@@ -1051,7 +1050,7 @@ _LetsNotGiveUpYet:: ; new
 	text "Let's not give up"
 	line "just yet!"
 ;	xxxx "123456789012345678"
-	prompt 
+	prompt
 
 _PlayerGaveUpText:: ; new
 	text "<PLAYER> gave up!"
