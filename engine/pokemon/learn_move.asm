@@ -112,9 +112,18 @@ TryingToLearn:
 	ld a, [wCurrentMenuItem]
 	rra
 	ret c
-; new, set event to hide sprites
-	SetEvent EVENT_TEACHING_NEW_MOVE_IN_PARTY_MENU
-	call DrawPartyMenu ; testing
+; new, testing
+;	call ClearSprites
+;	push hl
+;	push de
+;	push bc
+;	push af
+;	call HideSprites
+;	call DrawPartyMenu_ForMoveLearn ; testing
+;	pop af
+;	pop bc
+;	pop de
+;	pop hl
 ; we decided to learn the new move
 	ld bc, -NUM_MOVES
 	add hl, bc
@@ -130,22 +139,22 @@ TryingToLearn:
 	ld hl, WhichMoveToForgetText
 	call PrintText
 ; print box with the 4 moves
-	hlcoord 4, 7
+	hlcoord 4, 8 ; 4, 7
 	lb bc, 4, 14
 	call TextBoxBorder
 ; print the 4 moves
-	hlcoord 6, 8
+	hlcoord 6, 9 ; 6, 8
 	ld de, wMovesString
 	ldh a, [hUILayoutFlags]
 	set 2, a
 	ldh [hUILayoutFlags], a
 	call PlaceString
-; new, left info boxes borders
-	hlcoord 0, 3
+; new, old-move info boxes borders
+	hlcoord 10, 0 ; 0, 3
 	lb bc, 3, 8
 	call TextBoxBorder ; draws a c×b text box at hl
-; new, right info boxes borders
-	hlcoord 10, 3
+; new, new-move info boxes borders
+	hlcoord 10, 4 ; 10, 3
 	lb bc, 3, 8
 	call TextBoxBorder ; draws a c×b text box at hl
 ; print info for new move
@@ -155,7 +164,7 @@ TryingToLearn:
 	res 2, a
 	ldh [hUILayoutFlags], a
 	ld hl, wTopMenuItemY
-	ld a, 8
+	ld a, 9 ; 8
 	ld [hli], a ; wTopMenuItemY
 	ld a, 5
 	ld [hli], a ; wTopMenuItemX
@@ -171,16 +180,6 @@ TryingToLearn:
 
 ; try printing old move info
 	call PrintInfoCurrentMove ; testing
-
-;	push hl
-;	push de
-;	push bc
-;	push af
-;	callfar PrintMenuItem
-;	pop af
-;	pop bc
-;	pop de
-;	pop hl
 
 .tempTest
 
@@ -216,7 +215,6 @@ TryingToLearn:
 
 	push af
 	call LoadScreenTilesFromBuffer1
-;	ResetEvent EVENT_TEACHING_NEW_MOVE_IN_PARTY_MENU ; new
 	pop af
 	pop hl
 	bit BIT_B_BUTTON, a
@@ -244,6 +242,7 @@ TryingToLearn:
 	pop hl
 	jp .loop
 .cancel
+;	call RedrawPartyMenu
 	scf
 	ret
 
@@ -348,7 +347,7 @@ PrintInfoCurrentMove: ; new
 	ldh [hAutoBGTransferEnabled], a
 
 ; clear screen area of the old move before printing its info
-	hlcoord 1, 4
+	hlcoord 11, 1 ; 1, 4
 	lb bc, 3, 8
 	call ClearScreenArea
 
@@ -357,12 +356,6 @@ PrintInfoCurrentMove: ; new
 	ld a, [wWhichPokemon]
 	call AddNTimes ; adds bc to hl a times ; hl points to the moves
 
-;;	ld hl, wCurrentMenuItem
-;;	dec [hl]
-;	xor a
-;	ldh [hWhoseTurn], a
-;	ld hl, wBattleMonMoves
-
 	ld a, [wCurrentMenuItem]
 	ld c, a
 	ld b, $0 ; which move in the menu is the cursor pointing to? (0-3)
@@ -370,52 +363,28 @@ PrintInfoCurrentMove: ; new
 	ld a, [hl] ; a should be holding the move ID
 	dec a
 
-;	ld [wPlayerSelectedMove], a ; update wPlayerSelectedMove even if the move
-;	                            ; isn't actually selected (just pointed to by the cursor)
-
-;	ld a, [wPlayerMonNumber]
-;	ld [wWhichPokemon], a
-;	ld a, BATTLE_MON_DATA
-;	ld [wMonDataLocation], a
-;	callfar GetMaxPP
-
-;	ld hl, wCurrentMenuItem
-;	ld c, [hl]
-;	inc [hl]
-;	ld b, $0
-;	ld hl, wBattleMonPP
-;	add hl, bc
-;	ld a, [hl]
-;	and $3f
-;	ld [wcd6d], a
-
 	ld de, wPlayerMoveNum
-;	ld a, [wPlayerSelectedMove]
-;	dec a
 	ld hl, Moves
 	ld bc, MOVE_LENGTH
 	call AddNTimes ; adds bc to hl a times
 	ld a, BANK(Moves)
 	call FarCopyData ; copies bc bytes from a:hl to de
 
-	hlcoord 1, 6
+	hlcoord 11, 3 ; 1, 6
 	ld de, PPText2
 	call PlaceString
 
-;	hlcoord 7, 6
-;	ld [hl], "/"
-
-	hlcoord 8, 5
+	hlcoord 18, 2 ; 8, 5
 	ld [hl], "%"
 
-	hlcoord 3, 5
+	hlcoord 13, 2 ; 3, 5
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
 	ld a, [wPlayerMovePower]
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
-	hlcoord 1, 5
+	hlcoord 11, 2 ; 1, 5
 	ld de, wPlayerMovePower ; testing
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
@@ -427,12 +396,7 @@ PrintInfoCurrentMove: ; new
 	ld [hl], "?"
 .afterDamagePrinting
 
-;	hlcoord 5, 11
-;	ld de, wcd6d
-;	lb bc, 1, 2
-;	call PrintNumber
-
-	hlcoord 5, 5
+	hlcoord 15, 2 ; 5, 5
 	xor a
 	ld b, a
 	ld a, [wPlayerMoveAccuracy]
@@ -456,13 +420,13 @@ PrintInfoCurrentMove: ; new
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 
-	hlcoord 7, 6
+	hlcoord 17, 3 ; 7, 6
 	ld de, wPlayerMoveMaxPP ; wMaxPP
 	lb bc, 1, 2
 	call PrintNumber
 
 ;	callfar GetCurrentMove
-	hlcoord 1, 4
+	hlcoord 11, 1 ; 1, 4
 	predef PrintMoveType
 
 	ld a, $1
@@ -499,21 +463,21 @@ PrintInfoNewMove: ; new
 	ld a, BANK(Moves)
 	call FarCopyData ; copies bc bytes from a:hl to de
 
-	hlcoord 11, 6
+	hlcoord 11, 7 ; 11, 6
 	ld de, PPText2
 	call PlaceString
 
-	hlcoord 18, 5
+	hlcoord 18, 6 ; 18, 5
 	ld [hl], "%"
 
-	hlcoord 13, 5
+	hlcoord 13, 6 ; 13, 5
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
 	ld a, [wPlayerMovePower]
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
-	hlcoord 11, 5
+	hlcoord 11, 6 ; 11, 5
 	ld de, wPlayerMovePower ; testing
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
@@ -525,7 +489,7 @@ PrintInfoNewMove: ; new
 	ld [hl], "?"
 .afterDamagePrinting
 
-	hlcoord 15, 5
+	hlcoord 15, 6 ; 15, 5
 	xor a
 	ld b, a
 	ld a, [wPlayerMoveAccuracy]
@@ -549,13 +513,13 @@ PrintInfoNewMove: ; new
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 
-	hlcoord 17, 6
+	hlcoord 17, 7 ; 17, 6
 	ld de, wPlayerMoveMaxPP ; wMaxPP
 	lb bc, 1, 2
 	call PrintNumber
 
 ;	callfar GetCurrentMove
-	hlcoord 11, 4
+	hlcoord 11, 5 ; 11, 4
 	predef PrintMoveType
 
 	ld a, $1

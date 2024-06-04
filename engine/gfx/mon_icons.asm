@@ -172,18 +172,6 @@ WriteMonPartySpriteOAMByPartyIndex:
 	ldh a, [hPartyMonIndex]
 	cp $ff
 	jr z, .asm_7191f
-; new, to handle info boxes when learning a new move
-	CheckEvent EVENT_TEACHING_NEW_MOVE_IN_PARTY_MENU
-	ldh a, [hPartyMonIndex]
-	jr z, .vanilla
-	cp 1
-	jr z, .doNotPrintSprite
-	cp 2
-	jr z, .doNotPrintSprite
-	cp 3
-	jr z, .doNotPrintSprite
-.vanilla
-; back to vanilla
 	ld hl, wPartySpecies
 	ld e, a
 	ld d, 0
@@ -192,12 +180,10 @@ WriteMonPartySpriteOAMByPartyIndex:
 	call GetPartyMonSpriteID
 	ld [wOAMBaseTile], a
 	call WriteMonPartySpriteOAM
-.doNotPrintSprite ; new label
 	pop bc
 	pop de
 	pop hl
 	ret
-
 .asm_7191f
 	ld hl, wShadowOAM
 	ld de, wMonPartySpritesSavedOAM
