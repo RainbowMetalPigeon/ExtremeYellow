@@ -112,18 +112,6 @@ TryingToLearn:
 	ld a, [wCurrentMenuItem]
 	rra
 	ret c
-; new, testing
-;	call ClearSprites
-;	push hl
-;	push de
-;	push bc
-;	push af
-;	call HideSprites
-;	call DrawPartyMenu_ForMoveLearn ; testing
-;	pop af
-;	pop bc
-;	pop de
-;	pop hl
 ; we decided to learn the new move
 	ld bc, -NUM_MOVES
 	add hl, bc
@@ -171,48 +159,39 @@ TryingToLearn:
 	xor a
 	ld [hli], a ; wCurrentMenuItem
 	inc hl
-; do things?
+; do things, including new declaring which buttons to watch (new)
 	ld a, [wNumMovesMinusOne]
 	ld [hli], a ; wMaxMenuItem
-	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP ; testing
+	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP
 	ld [hli], a ; wMenuWatchedKeys
 	ld [hl], 0 ; wLastMenuItem
-
-; try printing old move info
-	call PrintInfoCurrentMove ; testing
-
-.tempTest
-
+; printing old move info
+	call PrintInfoCurrentMove
+.inputLoop
 	ld hl, hUILayoutFlags
 	set 1, [hl]
 	call HandleMenuInput
 	ld hl, hUILayoutFlags
 	res 1, [hl]
-
-; testing stuff
-
+; checking which button has been pressed
 	bit BIT_A_BUTTON, a
 	jr nz, .doTheThings
 	bit BIT_B_BUTTON, a
 	jr nz, .doTheThings
-
+; not A or B, so is UP or DOWN
 	push af
 	bit BIT_D_DOWN, a
 	jr nz, .updateBox
 	bit BIT_D_UP, a
 	jr nz, .updateBox
 	pop af
-	jr .tempTest
-
+	jr .inputLoop
 .updateBox
-	call PrintInfoCurrentMove ; testing
+	call PrintInfoCurrentMove
 	pop af
-	jr .tempTest
-
+	jr .inputLoop
 .doTheThings
-
 ; vanilla
-
 	push af
 	call LoadScreenTilesFromBuffer1
 	pop af
@@ -242,7 +221,6 @@ TryingToLearn:
 	pop hl
 	jp .loop
 .cancel
-;	call RedrawPartyMenu
 	scf
 	ret
 
@@ -315,28 +293,6 @@ HMCantDeleteText:
 
 ; ==============================================================================
 
-PrintInfoCurrentMoveTest: ; new, testing
-	push hl
-	push bc
-	push de
-	push af
-	xor a
-	ldh [hAutoBGTransferEnabled], a
-
-	hlcoord 7, 6
-	ld de, wCurrentMenuItem
-	lb bc, 1, 2
-	call PrintNumber ; prints the c-digit, b-byte value at de
-
-	ld a, 1
-	ldh [hAutoBGTransferEnabled], a
-	pop af
-	pop de
-	pop bc
-	pop hl
-	jp Delay3
-
-
 PrintInfoCurrentMove: ; new
 	push hl
 	push bc
@@ -385,7 +341,7 @@ PrintInfoCurrentMove: ; new
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
 	hlcoord 11, 2 ; 1, 5
-	ld de, wPlayerMovePower ; testing
+	ld de, wPlayerMovePower
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 	jr .afterDamagePrinting
@@ -454,8 +410,7 @@ PrintInfoNewMove: ; new
 	ldh [hAutoBGTransferEnabled], a
 
 	ld de, wPlayerMoveNum
-	ld a, [wMoveNum] ; wMoveNum ; wd11e
-;	ld a, FIRE_BLAST
+	ld a, [wMoveNum]
 	dec a
 	ld hl, Moves
 	ld bc, MOVE_LENGTH
@@ -478,7 +433,7 @@ PrintInfoNewMove: ; new
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
 	hlcoord 11, 6 ; 11, 5
-	ld de, wPlayerMovePower ; testing
+	ld de, wPlayerMovePower
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 	jr .afterDamagePrinting
