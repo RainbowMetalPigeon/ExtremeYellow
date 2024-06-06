@@ -89,6 +89,11 @@ INCLUDE "engine/miscellanea/battlecore.asm" ; new
 INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
 
 
+SECTION "bankGarage2", ROMX ; new
+
+INCLUDE "engine/menus/item_descriptions.asm"
+
+
 SECTION "bank4", ROMX
 
 INCLUDE "gfx/font.asm"

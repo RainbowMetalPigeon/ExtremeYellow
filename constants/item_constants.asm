@@ -5,6 +5,7 @@
 ; - TechnicalMachinePrices (see data/items/tm_prices.asm)
 ; - KeyItemFlags (see data/items/key_items.asm)
 ; - ItemUsePtrTable (see engine/items/item_effects.asm)
+; - ItemDescriptionPointers (see engine/menus/item_description.asm) ; new, for item description
 	const_def
 	const NO_ITEM       ; $00
 	const MASTER_BALL   ; $01

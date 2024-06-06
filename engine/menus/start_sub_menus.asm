@@ -365,11 +365,11 @@ StartMenu_Item::
 	call PlaceUnfilledArrowMenuCursor
 	xor a
 	ld [wMenuItemToSwap], a
-	ld a, [wcf91]
-	cp BICYCLE
-	jp z, .useOrTossItem
-.notBicycle1
-	ld a, USE_TOSS_MENU_TEMPLATE
+;	ld a, [wcf91] ; removed for item description
+;	cp BICYCLE
+;	jp z, .useOrTossItem
+;.notBicycle1
+	ld a, USE_INFO_TOSS_MENU_TEMPLATE ; edited for item description
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	ld hl, wTopMenuItemY
@@ -380,7 +380,8 @@ StartMenu_Item::
 	xor a
 	ld [hli], a ; current menu item ID
 	inc hl
-	inc a ; a = 1
+;	inc a ; a = 1 ; removed for item description
+	ld a, 2 ; edited for item description
 	ld [hli], a ; max menu item ID
 	ld a, A_BUTTON | B_BUTTON
 	ld [hli], a ; menu watched keys
@@ -396,21 +397,29 @@ StartMenu_Item::
 	ld [wd11e], a
 	call GetItemName
 	call CopyToStringBuffer
+; new, for item description
+	ld a, [wCurrentMenuItem]
+	cp a, 2
+	jr z, .tossItem
+	cp a, 1
+	jp z, .infoItem
+; back to vanilla
 	ld a, [wcf91]
 	cp BICYCLE
-	jr nz, .notBicycle2
+	jr nz, .notBicycle ; edited, for item description
 	ld a, [wd732]
 	bit 5, a
 	jr z, .useItem_closeMenu
 	ld hl, CannotGetOffHereText
 	call PrintText
 	jp ItemMenuLoop
-.notBicycle2
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .tossItem
-; use item
-	ld [wPseudoItemID], a ; a must be 0 due to above conditional jump
+.notBicycle ; edited, for item description
+;	ld a, [wCurrentMenuItem]
+;	and a
+;	jr nz, .tossItem
+;; use item
+	xor a ; new, for item description
+	ld [wPseudoItemID], a
 	ld a, [wcf91]
 	cp HM01
 	jr nc, .useItem_partyMenu
@@ -465,6 +474,10 @@ StartMenu_Item::
 	ld hl, wNumBagItems
 	call TossItem
 .tossZeroItems
+	jp ItemMenuLoop
+; new, for item description
+.infoItem
+	farcall DisplayItemDescription
 	jp ItemMenuLoop
 
 CannotUseItemsHereText:

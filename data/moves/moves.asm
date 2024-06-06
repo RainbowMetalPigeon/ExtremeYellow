@@ -100,7 +100,7 @@ Moves:
 	move THUNDERSHOCK, PARALYZE_SIDE_EFFECT1,       40, ELECTRIC,     100, 30
 	move THUNDERBOLT,  PARALYZE_SIDE_EFFECT1,       95, ELECTRIC,     100, 15 ; [TM24]
 	move THUNDER_WAVE, PARALYZE_EFFECT,              0, ELECTRIC,     100, 20 ; [TM45]
-	move THUNDER,      PARALYZE_SIDE_EFFECT1,      120, ELECTRIC,      70, 10 ; [TM25]
+	move THUNDER,      PARALYZE_SIDE_EFFECT2,      120, ELECTRIC,      70, 10 ; [TM25] ; paralysis chance 10%->30%
 	move ROCK_THROW,   NO_ADDITIONAL_EFFECT,        50, ROCK,          90, 15 ; accuracy increased
 	move EARTHQUAKE,   NO_ADDITIONAL_EFFECT,       100, GROUND,       100, 10 ; [TM26]
 	move FISSURE,      OHKO_EFFECT,                  1, GROUND,        30,  5 ; [TM27]
