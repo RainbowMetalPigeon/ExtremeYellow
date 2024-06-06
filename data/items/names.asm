@@ -108,8 +108,9 @@ ItemNames::
 	li "ARTIFACT" ; new
 	li "CHROMOGENE" ; new
 	li "SHINY CHARM" ; new
-	li "GUTSCHEIN" ; new, TBV
+	li "GUTSCHEIN" ; new
 	li "ONIGIRI BOX" ; new
+	li "ATTACKDEX" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

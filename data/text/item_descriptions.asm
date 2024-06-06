@@ -464,6 +464,12 @@ _OnigiriBoxDescription::
 	next "the whole team."
 	prompt
 
+_AttackDexDescription::
+	text "Displays info on"
+	next "observed attacks."
+;	xxxx "123456789012345678"
+	prompt
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::

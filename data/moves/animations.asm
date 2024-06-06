@@ -482,27 +482,6 @@ HornDrillAnim:
 	battle_anim NO_MOVE, SUBANIM_05, 1, 2
 	db -1 ; end
 
-; TODO:
-
-RockTombAnim:
-HeadSmashAnim:
-StoneEdgeAnim:
-
-WaterPulseAnim:
-AquaJetAnim:
-
-FreezeDryAnim:
-GyroBallAnim:
-PsystrikeAnim:
-BodyPressAnim:
-FlailAnim:
-
-EternabeamAnim:
-DragonAscentAnim:
-ThousandArrowsAnim:
-PhotonGeyserAnim:
-JudgmentAnim:
-
 TackleAnim:
 	battle_anim LEECH_SEED, SE_MOVE_MON_HORIZONTALLY
 	battle_anim NO_MOVE, SE_RESET_MON_POSITION
@@ -1275,7 +1254,7 @@ TriAttackAnim: 										; ultra revamped
 
 ; ------------------------------------------------------------------------------
 
-; DONE new animations:
+; new animations:
 
 BlastBurnAnim:
 	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
@@ -1729,11 +1708,169 @@ GunkShotAnim:
 	db -1 ; end
 
 SludgeWaveAnim:
+	battle_anim SLUDGE, SE_WATER_DROPLETS_EVERYWHERE
+	battle_anim SLUDGE, SUBANIM_14, 1, 6
+	db -1 ; end
 
+WaterPulseAnim:
+	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
+	battle_anim CONFUSION, SE_WAVY_SCREEN
+	db -1 ; end
 
+AquaJetAnim:
+	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
+	battle_anim QUICK_ATTACK, SE_SLIDE_MON_OFF
+	battle_anim NO_MOVE, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
 
+HeadSmashAnim:
+	battle_anim NO_MOVE, SE_SLIDE_MON_HALF_OFF
+	battle_anim LEECH_SEED, SE_SPIRAL_BALLS_INWARD
+	battle_anim ROCK_SLIDE, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim EARTHQUAKE, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_SHAKE_SCREEN
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	db -1 ; end
 
-; ENDDONE
+RockTombAnim:
+	battle_anim ROCK_THROW, SUBANIM_30, 0, 3
+	battle_anim ROCK_THROW, SUBANIM_30, 0, 3
+	db -1 ; end
+
+StoneEdgeAnim:
+	battle_anim EARTHQUAKE, SE_SHAKE_SCREEN
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim ROCK_SLIDE, SUBANIM_30reverse, 0, 2
+	battle_anim NO_MOVE, SUBANIM_30reverse, 0, 2
+	db -1 ; end
+
+FreezeDryAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH ; almost useless
+	battle_anim ICE_BEAM, SUBANIM_2F, 0, 16
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+GyroBallAnim:
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
+	battle_anim LEECH_SEED, SUBANIM_1fcircles, 1, 6
+	battle_anim FIRE_PUNCH, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
+	db -1 ; end
+
+PsystrikeAnim:
+	battle_anim PSYCHIC_M, SE_FLASH_SCREEN_LONG
+;	battle_anim NO_MOVE, SE_WAVY_SCREEN
+	battle_anim CONFUSION, SUBANIM_1fcircles, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim STRENGTH, SUBANIM_04, 1, 6
+	db -1 ; end
+
+BodyPressAnim:
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim REFLECT, SUBANIM_33, 1, 6
+	battle_anim REFLECT, SUBANIM_33, 1, 6
+;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim STRENGTH, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim NO_MOVE, SUBANIM_04, 1, 6
+	db -1 ; end
+
+FlailAnim:
+	battle_anim AMNESIA, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim NO_MOVE, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim AMNESIA, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim NO_MOVE, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim STRENGTH, SUBANIM_04, 1, 6
+	db -1 ; end
+
+EternabeamAnim:
+	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
+	battle_anim FLY, SE_SQUISH_MON_PIC
+	battle_anim NO_MOVE, SE_SHOOT_BALLS_UPWARD
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+DragonAscentAnim:
+	battle_anim DRAGON_RAGE, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SUBANIM_56, 1, 10 ; dragonic animation
+	battle_anim FLY, SE_SQUISH_MON_PIC
+	battle_anim NO_MOVE, SE_SHOOT_BALLS_UPWARD
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim FIRE_PUNCH, SE_MOVE_MON_HORIZONTALLY
+	battle_anim NO_MOVE, SE_RESET_MON_POSITION
+	battle_anim FIRE_BLAST, SUBANIM_0C, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FIRE_BLAST, SUBANIM_0D, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FIRE_BLAST, SUBANIM_0E, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	db -1 ; end
+
+ThousandArrowsAnim:
+	battle_anim LEECH_SEED, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+;	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim EARTHQUAKE, SE_SHAKE_SCREEN
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FURY_ATTACK, SUBANIM_46, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FURY_ATTACK, SUBANIM_46, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FURY_ATTACK, SUBANIM_46, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FURY_ATTACK, SUBANIM_46, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	db -1 ; end
+
+PhotonGeyserAnim:
+	battle_anim LEECH_SEED, SE_LIGHT_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim THUNDERBOLT, SUBANIM_1fcircles, 1, 6
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim FIRE_BLAST, SUBANIM_1A, 1, 6
+;	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+JudgmentAnim:
+	battle_anim EARTHQUAKE, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SHAKE_SCREEN
+	battle_anim LEECH_SEED, SE_SPIRAL_BALLS_INWARD
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim DRAGON_RAGE, SUBANIM_StaticCircles, 1, 8
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	db -1 ; new
 
 ; ------------------------------------------------------------------------------
 

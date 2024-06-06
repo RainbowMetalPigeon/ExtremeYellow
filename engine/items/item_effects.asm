@@ -123,10 +123,11 @@ ItemUsePtrTable:
 	dw UnusableItem      ; MAGMA_STONE, new
 	dw UnusableItem      ; MOLTEN_STONE, new
 	dw UnusableItem      ; ARTIFACT, new
-	dw ItemUseVitamin    ; CHROMOGENE, new, testing
+	dw ItemUseVitamin    ; CHROMOGENE, new
 	dw UnusableItem      ; SHINY_CHARM, new
 	dw UnusableItem      ; GUTSCHEIN, new
 	dw ItemUseOnigiri    ; ONIGIRI_BOX, new
+	dw ItemUsePokedex    ; ATTACKDEX, new, testing
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
