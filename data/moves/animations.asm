@@ -1857,19 +1857,65 @@ PhotonGeyserAnim:
 	db -1 ; end
 
 JudgmentAnim:
-	battle_anim EARTHQUAKE, SE_DARK_SCREEN_PALETTE
-	battle_anim NO_MOVE, SE_SHAKE_SCREEN
-	battle_anim LEECH_SEED, SE_SPIRAL_BALLS_INWARD
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	battle_anim DRAGON_RAGE, SUBANIM_StaticCircles, 1, 8
+	battle_anim DRAGON_RAGE, SE_DARK_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD			; GRASS? / NORMAL
 	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
-	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+
+	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 6			; NORMAL / GRASS
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim FLAMETHROWER, SUBANIM_1F, 1, 6			; FIRE / DRAGON
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim STRING_SHOT, SUBANIM_37, 0, 8			; BUG
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	battle_anim LOVELY_KISS, SUBANIM_12, 0, 6			; FAIRY?
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim CONFUSE_RAY, SUBANIM_1fcircles, 1, 6	; DRAGON / GHOST / FAIRY
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+
+	battle_anim PSYCHIC_M, SE_WAVY_SCREEN				; PSYCHIC_TYPE
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+
+	battle_anim EARTHQUAKE, SE_SHAKE_SCREEN				; GROUND
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE		; STEEL
+	battle_anim GUST, SUBANIM_HURRICANE, 1, 8			; FLYING
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE			; STEEL (end)
+	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+	battle_anim ROCK_THROW, SUBANIM_30, 0, 3			; ROCK
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim SLUDGE, SUBANIM_14, 1, 4				; POISON / GHOST
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim ICE_BEAM, SUBANIM_2F, 0, 6				; ICE
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim HYDRO_PUMP, SUBANIM_1A, 0, 5			; WATER
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim THUNDERBOLT, SUBANIM_29, 1, 2			; ELECTRIC
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim KARATE_CHOP, SUBANIM_03, 0, 4			; FIGHTING
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	db -1 ; end
+
+;	battle_anim EARTHQUAKE, SE_DARK_SCREEN_PALETTE
+;	battle_anim NO_MOVE, SE_SHAKE_SCREEN
+;	battle_anim LEECH_SEED, SE_SPIRAL_BALLS_INWARD
+;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+;	battle_anim DRAGON_RAGE, SUBANIM_StaticCircles, 1, 8
+;	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
+;	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+;	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+;	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
+;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+;	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
 	db -1 ; new
 
 ; ------------------------------------------------------------------------------
