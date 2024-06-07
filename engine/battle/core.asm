@@ -3077,7 +3077,7 @@ ENDC
 	ld [wMenuItemToSwap], a ; select the current menu item for swapping
 	jp MoveSelectionMenu
 
-PrintMenuItem:: ; edited, double colon
+PrintMenuItem:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	hlcoord 0, 8
@@ -6757,7 +6757,7 @@ CheckEnemyStatusConditions:
 	and a ; clear Z flag
 	ret
 
-GetCurrentMove:: ; edited, double colon
+GetCurrentMove:
 	ldh a, [hWhoseTurn]
 	and a
 	jp z, .player

@@ -191,6 +191,33 @@ AIMoveChoiceModification1:
 	jp z, .selfBoost_Evasion
 	cp EVASION_UP2_EFFECT
 	jp z, .selfBoost_Evasion
+
+; check for debuffing moves
+; no need to re-load [wEnemyMoveEffect] in a
+	cp ATTACK_DOWN1_EFFECT
+	jp z, .debuff_Attack
+	cp ATTACK_DOWN2_EFFECT
+	jp z, .debuff_Attack
+	cp DEFENSE_DOWN1_EFFECT
+	jp z, .debuff_Defense
+	cp DEFENSE_DOWN2_EFFECT
+	jp z, .debuff_Defense
+	cp SPEED_DOWN1_EFFECT
+	jp z, .debuff_Speed
+	cp SPEED_DOWN2_EFFECT
+	jp z, .debuff_Speed
+	cp SPECIAL_DOWN1_EFFECT
+	jp z, .debuff_Special
+	cp SPECIAL_DOWN2_EFFECT
+	jp z, .debuff_Special
+	cp ACCURACY_DOWN1_EFFECT
+	jp z, .debuff_Accuracy
+	cp ACCURACY_DOWN2_EFFECT
+	jp z, .debuff_Accuracy
+	cp EVASION_DOWN1_EFFECT
+	jp z, .debuff_Evasion
+	cp EVASION_DOWN2_EFFECT
+	jp z, .debuff_Evasion
 ; if none of the above: we apply no modifier to this move, and we go to the next one
 	jp .nextMove
 
@@ -320,7 +347,7 @@ AIMoveChoiceModification1:
 ; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
 .selfBoost_Speed
 	ld a, [wEnemyMonSpeedMod]
-	jr .modifierComparisons_NotEvasion
+	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_SpeedAttack ; whichever is lower is the one dominating
 	push bc
 	ld a, [wEnemyMonAttackMod]
@@ -328,18 +355,18 @@ AIMoveChoiceModification1:
 	ld a, [wEnemyMonSpeedMod]
 	cp b ; speedMod-attackMod
 	pop bc
-	jr c, .modifierComparisons_NotEvasion
+	jr c, .modifierComparisons_SelfBuff_NotEvasion
 	ld a, [wEnemyMonAttackMod]
-	jr .modifierComparisons_NotEvasion
+	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Attack
 	ld a, [wEnemyMonAttackMod]
-	jr .modifierComparisons_NotEvasion
+	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Defense
 	ld a, [wEnemyMonDefenseMod]
-	jr .modifierComparisons_NotEvasion
+	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Special
 	ld a, [wEnemyMonSpecialMod]
-	jr .modifierComparisons_NotEvasion
+	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Evasion
 	ld a, [wEnemyMonEvasionMod]
 	cp 13
@@ -347,7 +374,7 @@ AIMoveChoiceModification1:
 	cp 12
 	jr z, .discourageBy1
 	jp .nextMove ; no discouragement if we are at +4 or less
-.modifierComparisons_NotEvasion
+.modifierComparisons_SelfBuff_NotEvasion
 	cp 13
 	jp z, .veryHeavilyDiscourage
 	cp 12
@@ -359,6 +386,41 @@ AIMoveChoiceModification1:
 	cp 9
 	jr z, .discourageBy1
 	jp .nextMove ; no discouragement if we are at +1 or less
+
+; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
+.debuff_Attack
+	ld a, [wPlayerMonAttackMod]
+	jr .modifierComparisons_Debuff_NotAccuracy
+.debuff_Defense
+	ld a, [wPlayerMonDefenseMod]
+	jr .modifierComparisons_Debuff_NotAccuracy
+.debuff_Speed
+	ld a, [wPlayerMonSpeedMod]
+	jr .modifierComparisons_Debuff_NotAccuracy
+.debuff_Special
+	ld a, [wPlayerMonSpecialMod]
+	jr .modifierComparisons_Debuff_NotAccuracy
+.debuff_Evasion
+	ld a, [wPlayerMonEvasionMod]
+	jr .modifierComparisons_Debuff_NotAccuracy
+.debuff_Accuracy
+	ld a, [wPlayerMonAccuracyMod]
+	cp 6
+	jp nc, .nextMove ; no discouragement if accuracy is -1 or more
+	cp 4
+	jp z, .discourageBy1
+	cp 3
+	jp z, .discourageBy2
+	jp .discourageBy3
+.modifierComparisons_Debuff_NotAccuracy
+	cp 7
+	jp nc, .nextMove ; no discouragement if no debuff is yet applied
+	cp 6
+	jp z, .discourageBy1
+	cp 5
+	jp z, .discourageBy2
+	jp .discourageBy3 ; useless as long as I don't add any new check
+
 .discourageBy3
 	inc [hl]
 .discourageBy2
@@ -366,7 +428,6 @@ AIMoveChoiceModification1:
 .discourageBy1
 	inc [hl]
 	jp .nextMove
-
 .veryHeavilyDiscourage
 	ld a, [hl]
 	add 10 ; very heavily discourage move ; edited, was 5
