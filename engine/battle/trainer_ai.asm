@@ -393,7 +393,7 @@ UselessAgainstSubstituteMoveEffects:
 ; quite encourage moves with specific effects
 ; in particular, stat-modifying moves and status moves
 ; encourage more on 1st turn, but also on following ones
-; no need to worry about trying to sleep a statused mon, 
+; no need to worry about trying to sleep a statused mon,
 ; because modification1 already handles those cases by ultra discouraging them
 AIMoveChoiceModification2:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
@@ -606,6 +606,10 @@ AIMoveChoiceModification3:
 ; actually do things with the move
 	inc de
 	call ReadMove
+;; this AI modification should NOT dis/en-courage NON-damaging moves
+;	ld a, [wEnemyMovePower]
+;	and a
+;	jp z, .nextMove
 ; slightly encourage move if benefits from STAB
 	push bc
 	ld a, [wEnemyMoveType]

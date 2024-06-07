@@ -346,11 +346,6 @@ TMMartClerkDialogue::
 
 	ld de, wItemList
 
-	; beginner
-;	ld a, TX_SCRIPT_MART
-;	ld [de], a
-;	inc de
-
 	inc de ; needed later to write down the number of TMs available
 	ld b, 0 ; used as a counter of the number of TMs on sale
 
@@ -862,13 +857,8 @@ TMMartClerkDialogue::
 
 ; there is at least 1 TM in the least, let's load this value in the right place
 	ld de, wItemList
-;	inc de
 	ld [de], a
 	jr .atLeastOneTM
-
-;	ld a, [de]
-;	cp -1 ; = $FF = 255
-;	jr nz, .atLeastOneTM
 
 .noTMsFound
 	ld hl, TMPokemartGreetingTextFoundNone

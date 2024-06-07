@@ -14,8 +14,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ARCEUS, 98 ; 255
-	db CHARIZARD, 97
+	db MANKEY, 19 ; 255
+	db MAGIKARP, 19
 	db STARTER_PIKACHU, 5
 ;	db MAGIKARP, 19
 ;	db BLASTOISE, 9
