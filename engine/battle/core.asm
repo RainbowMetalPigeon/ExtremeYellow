@@ -5961,6 +5961,7 @@ AIGetTypeEffectiveness:
 
 	ld a, [wBattleMonType1]
 	ld b, a ; b = type 1 of player's pokemon
+	push bc ; to preserve the type 1
 .loop1
 	ld a, [hli]
 	cp $ff
@@ -5968,7 +5969,7 @@ AIGetTypeEffectiveness:
 	cp d                      ; match the type of the move
 	jr nz, .nextTypePair11
 	ld a, [hli]
-	cp b                      ; match with type 1 of pokemon
+	cp b                      ; match with type 1 of player's pokemon
 	jr z, .done1
 	jr .nextTypePair21
 .nextTypePair11
@@ -5995,11 +5996,18 @@ AIGetTypeEffectiveness:
 	ldh a, [hQuotient+2]
 	ldh a, [hQuotient+3]
 
-	pop hl ; restore the pointer to the effectivness chart
+	pop bc ; to restore the type 1
+	pop hl ; restore the pointer to the effectiveness chart
 
 	ld a, [wBattleMonType2]
 	cp b
-	jr z, .noSecondTypeCheck ; we don't check the same type twice for a monotype mon
+	jr nz, .secondTypeCheck
+; we don't check the same type twice for a monotype mon
+	ldh a, [hQuotient+3]
+	add a ; we double the current value, i.e. we multiply by 2, which happens to be the neutral damage of the "copy" of the only one type we have
+	jr .completing
+
+.secondTypeCheck
 	ld b, a ; b = type 2 of player's pokemon
 
 	ld a, 10
@@ -6011,7 +6019,7 @@ AIGetTypeEffectiveness:
 	cp d                      ; match the type of the move
 	jr nz, .nextTypePair12
 	ld a, [hli]
-	cp b                      ; match with type 2 of pokemon
+	cp b                      ; match with type 2 of player's pokemon
 	jr z, .done2
 	jr .nextTypePair22
 .nextTypePair12
@@ -6047,14 +6055,14 @@ AIGetTypeEffectiveness:
 	ldh a, [hQuotient+2]
 	ldh a, [hQuotient+3]
 
-.noSecondTypeCheck
 	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:
 						   ; 0 for not effective
 						   ; 1 for 1/4
 						   ; 2 for 1/2
 						   ; 4 for 1
 						   ; 8 for 2
-						   ; 16 for
+						   ; 16 for 4
+.completing
 	ld [wTypeEffectiveness], a
 	ret
 
