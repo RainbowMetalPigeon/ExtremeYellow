@@ -347,9 +347,12 @@ TMMartClerkDialogue::
 	ld de, wItemList
 
 	; beginner
-	ld a, TX_SCRIPT_MART
-	ld [de], a
-	inc de
+;	ld a, TX_SCRIPT_MART
+;	ld [de], a
+;	inc de
+
+	inc de ; needed later to write down the number of TMs available
+	ld b, 0 ; used as a counter of the number of TMs on sale
 
 ; 55 custom additions ----------------------------------------------------
 
@@ -359,6 +362,7 @@ TMMartClerkDialogue::
 	ld a, TM_MEGA_PUNCH
 	ld [de], a
 	inc de
+	inc b
 .checkTM02
 
 	; TM02
@@ -367,6 +371,7 @@ TMMartClerkDialogue::
 	ld a, TM_MEGAHORN
 	ld [de], a
 	inc de
+	inc b
 .checkTM03
 
 	; TM03
@@ -375,6 +380,7 @@ TMMartClerkDialogue::
 	ld a, TM_SWORDS_DANCE
 	ld [de], a
 	inc de
+	inc b
 .checkTM04
 
 	; TM04
@@ -383,6 +389,7 @@ TMMartClerkDialogue::
 	ld a, TM_COUNTER
 	ld [de], a
 	inc de
+	inc b
 .checkTM05
 
 	; TM05
@@ -391,6 +398,7 @@ TMMartClerkDialogue::
 	ld a, TM_DRAGON_CLAW
 	ld [de], a
 	inc de
+	inc b
 .checkTM06
 
 	; TM06
@@ -399,6 +407,7 @@ TMMartClerkDialogue::
 	ld a, TM_TOXIC
 	ld [de], a
 	inc de
+	inc b
 .checkTM07
 
 	; TM07
@@ -407,6 +416,7 @@ TMMartClerkDialogue::
 	ld a, TM_DARK_PULSE
 	ld [de], a
 	inc de
+	inc b
 .checkTM08
 
 	; TM08
@@ -415,6 +425,7 @@ TMMartClerkDialogue::
 	ld a, TM_BODY_SLAM
 	ld [de], a
 	inc de
+	inc b
 .checkTM09
 
 	; TM09
@@ -423,6 +434,7 @@ TMMartClerkDialogue::
 	ld a, TM_METEOR_MASH
 	ld [de], a
 	inc de
+	inc b
 .checkTM10
 
 	; TM10
@@ -431,6 +443,7 @@ TMMartClerkDialogue::
 	ld a, TM_DOUBLE_EDGE
 	ld [de], a
 	inc de
+	inc b
 .checkTM11
 
 	; TM11
@@ -439,6 +452,7 @@ TMMartClerkDialogue::
 	ld a, TM_BUBBLEBEAM
 	ld [de], a
 	inc de
+	inc b
 .checkTM12
 
 	; TM12
@@ -447,6 +461,7 @@ TMMartClerkDialogue::
 	ld a, TM_METRONOME
 	ld [de], a
 	inc de
+	inc b
 .checkTM13
 
 	; TM13
@@ -455,6 +470,7 @@ TMMartClerkDialogue::
 	ld a, TM_ICE_BEAM
 	ld [de], a
 	inc de
+	inc b
 .checkTM14
 
 	; TM14
@@ -463,6 +479,7 @@ TMMartClerkDialogue::
 	ld a, TM_BLIZZARD
 	ld [de], a
 	inc de
+	inc b
 .checkTM15
 
 	; TM15
@@ -471,6 +488,7 @@ TMMartClerkDialogue::
 	ld a, TM_HYPER_BEAM
 	ld [de], a
 	inc de
+	inc b
 .checkTM16
 
 	; TM16
@@ -479,6 +497,7 @@ TMMartClerkDialogue::
 	ld a, TM_MIRROR_COAT
 	ld [de], a
 	inc de
+	inc b
 .checkTM17
 
 	; TM17
@@ -487,6 +506,7 @@ TMMartClerkDialogue::
 	ld a, TM_DRAININGKISS
 	ld [de], a
 	inc de
+	inc b
 .checkTM18
 
 	; TM18
@@ -495,6 +515,7 @@ TMMartClerkDialogue::
 	ld a, TM_FLASH_CANNON
 	ld [de], a
 	inc de
+	inc b
 .checkTM19
 
 	; TM19
@@ -503,6 +524,7 @@ TMMartClerkDialogue::
 	ld a, TM_SEISMIC_TOSS
 	ld [de], a
 	inc de
+	inc b
 .checkTM20
 
 	; TM20
@@ -511,6 +533,7 @@ TMMartClerkDialogue::
 	ld a, TM_FEINT_ATTACK
 	ld [de], a
 	inc de
+	inc b
 .checkTM21
 
 	; TM21
@@ -519,6 +542,7 @@ TMMartClerkDialogue::
 	ld a, TM_GIGA_DRAIN
 	ld [de], a
 	inc de
+	inc b
 .checkTM22
 
 	; TM22
@@ -527,6 +551,7 @@ TMMartClerkDialogue::
 	ld a, TM_STONE_EDGE
 	ld [de], a
 	inc de
+	inc b
 .checkTM23
 
 	; TM23
@@ -535,6 +560,7 @@ TMMartClerkDialogue::
 	ld a, TM_WILL_O_WISP
 	ld [de], a
 	inc de
+	inc b
 .checkTM24
 
 	; TM24
@@ -543,6 +569,7 @@ TMMartClerkDialogue::
 	ld a, TM_THUNDERBOLT
 	ld [de], a
 	inc de
+	inc b
 .checkTM25
 
 	; TM25
@@ -551,6 +578,7 @@ TMMartClerkDialogue::
 	ld a, TM_THUNDER
 	ld [de], a
 	inc de
+	inc b
 .checkTM26
 
 	; TM26
@@ -559,6 +587,7 @@ TMMartClerkDialogue::
 	ld a, TM_EARTHQUAKE
 	ld [de], a
 	inc de
+	inc b
 .checkTM27
 
 	; TM27
@@ -567,6 +596,7 @@ TMMartClerkDialogue::
 	ld a, TM_FISSURE
 	ld [de], a
 	inc de
+	inc b
 .checkTM28
 
 	; TM28
@@ -575,6 +605,7 @@ TMMartClerkDialogue::
 	ld a, TM_DIG
 	ld [de], a
 	inc de
+	inc b
 .checkTM29
 
 	; TM29
@@ -583,6 +614,7 @@ TMMartClerkDialogue::
 	ld a, TM_PSYCHIC_M
 	ld [de], a
 	inc de
+	inc b
 .checkTM30
 
 	; TM30
@@ -591,6 +623,7 @@ TMMartClerkDialogue::
 	ld a, TM_MOONBLAST
 	ld [de], a
 	inc de
+	inc b
 .checkTM31
 
 	; TM31
@@ -599,6 +632,7 @@ TMMartClerkDialogue::
 	ld a, TM_MIMIC
 	ld [de], a
 	inc de
+	inc b
 .checkTM32
 
 	; TM32
@@ -607,6 +641,7 @@ TMMartClerkDialogue::
 	ld a, TM_DOUBLE_TEAM
 	ld [de], a
 	inc de
+	inc b
 .checkTM33
 
 	; TM33
@@ -615,6 +650,7 @@ TMMartClerkDialogue::
 	ld a, TM_REFLECT
 	ld [de], a
 	inc de
+	inc b
 .checkTM34
 
 	; TM34
@@ -623,6 +659,7 @@ TMMartClerkDialogue::
 	ld a, TM_BIDE
 	ld [de], a
 	inc de
+	inc b
 .checkTM35
 
 	; TM35
@@ -631,6 +668,7 @@ TMMartClerkDialogue::
 	ld a, TM_HYDRO_PUMP
 	ld [de], a
 	inc de
+	inc b
 .checkTM36
 
 	; TM36
@@ -639,6 +677,7 @@ TMMartClerkDialogue::
 	ld a, TM_SELFDESTRUCT
 	ld [de], a
 	inc de
+	inc b
 .checkTM37
 
 	; TM37
@@ -647,6 +686,7 @@ TMMartClerkDialogue::
 	ld a, TM_CLOSE_COMBAT
 	ld [de], a
 	inc de
+	inc b
 .checkTM38
 
 	; TM38
@@ -655,6 +695,7 @@ TMMartClerkDialogue::
 	ld a, TM_FIRE_BLAST
 	ld [de], a
 	inc de
+	inc b
 .checkTM39
 
 	; TM39
@@ -663,6 +704,7 @@ TMMartClerkDialogue::
 	ld a, TM_SHADOW_SNEAK
 	ld [de], a
 	inc de
+	inc b
 .checkTM40
 
 	; TM40
@@ -671,6 +713,7 @@ TMMartClerkDialogue::
 	ld a, TM_OUTRAGE
 	ld [de], a
 	inc de
+	inc b
 .checkTM41
 
 	; TM41
@@ -679,6 +722,7 @@ TMMartClerkDialogue::
 	ld a, TM_BRAVE_BIRD
 	ld [de], a
 	inc de
+	inc b
 .checkTM42
 
 	; TM42
@@ -687,6 +731,7 @@ TMMartClerkDialogue::
 	ld a, TM_REST
 	ld [de], a
 	inc de
+	inc b
 .checkTM43
 
 	; TM43
@@ -695,6 +740,7 @@ TMMartClerkDialogue::
 	ld a, TM_GUNK_SHOT
 	ld [de], a
 	inc de
+	inc b
 .checkTM44
 
 	; TM44
@@ -703,6 +749,7 @@ TMMartClerkDialogue::
 	ld a, TM_X_SCISSOR
 	ld [de], a
 	inc de
+	inc b
 .checkTM45
 
 	; TM45
@@ -711,6 +758,7 @@ TMMartClerkDialogue::
 	ld a, TM_THUNDER_WAVE
 	ld [de], a
 	inc de
+	inc b
 .checkTM46
 
 	; TM46
@@ -719,6 +767,7 @@ TMMartClerkDialogue::
 	ld a, TM_PSYWAVE
 	ld [de], a
 	inc de
+	inc b
 .checkTM47
 
 	; TM47
@@ -727,6 +776,7 @@ TMMartClerkDialogue::
 	ld a, TM_EXPLOSION
 	ld [de], a
 	inc de
+	inc b
 .checkTM48
 
 	; TM48
@@ -735,6 +785,7 @@ TMMartClerkDialogue::
 	ld a, TM_ROCK_SLIDE
 	ld [de], a
 	inc de
+	inc b
 .checkTM49
 
 	; TM49
@@ -743,6 +794,7 @@ TMMartClerkDialogue::
 	ld a, TM_SHADOW_BALL
 	ld [de], a
 	inc de
+	inc b
 .checkTM50
 
 	; TM50
@@ -751,6 +803,7 @@ TMMartClerkDialogue::
 	ld a, TM_SUBSTITUTE
 	ld [de], a
 	inc de
+	inc b
 .checkTM51
 
 	; TM51
@@ -759,6 +812,7 @@ TMMartClerkDialogue::
 	ld a, TM_FREEZE_DRY
 	ld [de], a
 	inc de
+	inc b
 .checkTM52
 
 	; TM52
@@ -767,6 +821,7 @@ TMMartClerkDialogue::
 	ld a, TM_GYRO_BALL
 	ld [de], a
 	inc de
+	inc b
 .checkTM53
 
 	; TM53
@@ -775,6 +830,7 @@ TMMartClerkDialogue::
 	ld a, TM_BODY_PRESS
 	ld [de], a
 	inc de
+	inc b
 .checkTM54
 
 	; TM54
@@ -783,6 +839,7 @@ TMMartClerkDialogue::
 	ld a, TM_FLAIL
 	ld [de], a
 	inc de
+	inc b
 .checkTM55
 
 	; TM55
@@ -791,19 +848,29 @@ TMMartClerkDialogue::
 	ld a, TM_CURSE
 	ld [de], a
 	inc de
+	inc b
 .checkTMDONE
 
 ; ender of the custom itemlist load function -----------------------------------
 	ld a, -1
 	ld [de], a
 
-	ld de, wItemList
-	inc de
-	ld a, [de]
-	cp -1 ; = $FF = 255
-	jr nz, .atLeastOneTM
+; check if already 1 TM is loaded
+	ld a, b ; a should contain the number of TMs loaded
+	and a
+	jr z, .noTMsFound
 
-; no TMs found
+; there is at least 1 TM in the least, let's load this value in the right place
+	ld de, wItemList
+;	inc de
+	ld [de], a
+	jr .atLeastOneTM
+
+;	ld a, [de]
+;	cp -1 ; = $FF = 255
+;	jr nz, .atLeastOneTM
+
+.noTMsFound
 	ld hl, TMPokemartGreetingTextFoundNone
 	call PrintText
 	ret
