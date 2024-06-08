@@ -16,6 +16,14 @@ ReadTrainer:
 
 ; get the pointer to trainer data for this class
 	ld a, [wTrainerClass] ; get trainer class
+; new, to set up Inverse Battles more nicely
+	cp COOLTRAINER
+	jr nz, .continueLoadTrainer
+	ld a, 1
+	ld [wInverseBattle], a
+	ld a, [wTrainerClass] ; get trainer class
+.continueLoadTrainer
+; back to vanilla
 	dec a
 	add a
 	ld hl, TrainerDataPointers

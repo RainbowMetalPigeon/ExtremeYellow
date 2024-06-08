@@ -301,7 +301,6 @@ TypeEffectsInverse:
 	db GROUND2,      BUG,          SUPER_EFFECTIVE
 	db GROUND2,      FLYING,       SUPER_EFFECTIVE
 
-
 	db ROCK,         FIRE,         NOT_VERY_EFFECTIVE
 	db ROCK,         FLYING,       NOT_VERY_EFFECTIVE
 	db ROCK,         BUG,          NOT_VERY_EFFECTIVE

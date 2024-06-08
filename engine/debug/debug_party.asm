@@ -14,7 +14,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db CROBAT, 40 ; 255
+	db MEWTWO, 98 ; 255
 	db CHARIZARD, 97
 	db STARTER_PIKACHU, 5
 ;	db SANDSLASH, 19
@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, TRI_ATTACK
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DIG
+	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, JUDGMENT

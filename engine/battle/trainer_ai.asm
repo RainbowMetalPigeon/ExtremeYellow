@@ -380,9 +380,9 @@ AIMoveChoiceModification1:
 	cp 12
 	jr z, .discourageBy3
 	cp 11
-	jr z, .discourageBy2
+	jr z, .discourageBy3
 	cp 10
-	jr z, .discourageBy1
+	jr z, .discourageBy2
 	cp 9
 	jr z, .discourageBy1
 	jp .nextMove ; no discouragement if we are at +1 or less
@@ -492,7 +492,7 @@ AIMoveChoiceModification2:
 	ld a, [wAILayer2Encouragement]
 	and a ; edited, encourage less if not 1st turn
 	jr nz, .notFirstTurn
-	dec [hl] ; quite encourage this move; edited, it only encouraged by 1
+	dec [hl] ; quite encourage this move, by 2, on par with superEffective moves ; TBE/TBV
 .notFirstTurn
 	dec [hl]
 	dec [hl] ; now it's encouraged by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones

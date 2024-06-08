@@ -5855,15 +5855,13 @@ AdjustDamageForMoveType:
 	ld a, [wMoveType]
 	ld b, a
 	ld hl, TypeEffects
-	ld a, [wInverseBattle]		; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
-	cp 1						; new, load Inverse Battle chart on demand; e.g. Oak can load 1
-	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
-    ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
-    cp OPP_COOLTRAINER			; new, load Inverse Battle chart for COOL trainers - now genderless
-    jr nz, .loop				; new, load Inverse Battle chart for COOL trainers
-.loadInverseChart				; new, load Inverse Battle chart for COOL trainers
-    ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
+; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	ld a, [wInverseBattle]
+	and a
+    jr z, .loop
+    ld hl, TypeEffectsInverse
 .loop
+; back to vanilla
 	ld a, [hli] ; a = "attacking type" of the current type pair
 	cp $ff
 	jr z, .done
@@ -5966,15 +5964,13 @@ AIGetTypeEffectiveness:
 	ld a, 10
 	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
 	ld hl, TypeEffects
-	ld a, [wInverseBattle]		; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
-	cp 1						; new, load Inverse Battle chart on demand; e.g. Oak can load 1
-	jr z, .loadInverseChart		; new, load Inverse Battle chart on demand
-    ld a, [wCurOpponent]		; new, load Inverse Battle chart for COOL trainers
-    cp OPP_COOLTRAINER			; new, load Inverse Battle chart for COOL trainers - now genderless
-    jr nz, .continue			; new, load Inverse Battle chart for COOL trainers
-.loadInverseChart				; new, load Inverse Battle chart for COOL trainers
-    ld hl, TypeEffectsInverse	; new, load Inverse Battle chart for COOL trainers
+; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	ld a, [wInverseBattle]
+	and a
+    jr z, .continue
+    ld hl, TypeEffectsInverse
 .continue
+; back to vanilla
 	push hl ; to re-use it for the second check, if any
 
 	ld a, [wBattleMonType1]
