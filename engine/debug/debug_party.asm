@@ -17,7 +17,7 @@ DebugTeam:
 	db ARCEUS, 30 ; 255
 	db CHARIZARD, 97
 	db STARTER_PIKACHU, 5
-	db SANDSLASH, 19
+;	db SANDSLASH, 19
 ;	db BLASTOISE, 9
 ;	db VENUSAUR, 9
 	db -1 ; end
@@ -51,7 +51,7 @@ IF DEF(_DEBUG)
 	ld a, JUDGMENT
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, THOUSANDARROWS
+	ld a, AGILITY
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -59,7 +59,7 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon2Moves
 	ld a, EXPLOSION
 	ld [hli], a
-	ld a, WILL_O_WISP
+	ld a, FLY
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a

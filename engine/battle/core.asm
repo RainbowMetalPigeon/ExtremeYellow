@@ -384,7 +384,7 @@ INCLUDE "data/battle/priority_moves.asm"
 ; ------ end of Xillicis' tutorial addition -------
 
 AIGetPriority:: ; new
-	ld a, [wEnemySelectedMove]
+	ld a, [wEnemyMoveNum]
 	ld d, a
 	ld hl, PriorityMovesList
 	ld e, 7           ; neutral priority is 7

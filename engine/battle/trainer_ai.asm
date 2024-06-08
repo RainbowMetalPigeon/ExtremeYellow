@@ -539,7 +539,8 @@ Modifier2BuffDebuffMoveEffects:
 ; encourages by 4 if double super eff, by 2 if super eff, discourages by 2 if not very eff, by 4 if double not very, by 10 if immune
 ; new: part2 encourages draining and exploding moves at low HP by 1, 2, or 3, depending on effect and HP left
 ; new: part3 encouranges STAB moves by 1
-; new: part4 encouranges by 1 priority moves if we are slower and they are least neutral
+; new: part4 encouranges by 1 priority moves if we are slower and they are least neutral, and discourages by 5 prio moves if player is invulnerable
+; new: part5 encouranges by 5 swift-like moves if the player is slower and is invulnerable
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -559,9 +560,10 @@ AIMoveChoiceModification3:
 	and a
 	jp z, .nextMove
 ; counter and mirror coat are unaffected by type match-up too and have BP=1
+; but counter is encouraged strongly if opponent is in the invulnerable turn of fly/dig
 	ld a, [wEnemyMoveNum]
 	cp COUNTER
-	jp z, .nextMove
+	jp z, .handleCounter
 	cp MIRROR_COAT
 	jp z, .nextMove
 ; handle special moves that are unaffected by type match-up
@@ -607,6 +609,17 @@ AIMoveChoiceModification3:
 	ld a, [hl]
 	add 10 ; very heavily discourage move
 	ld [hl], a
+	jr .nextMove
+.handleCounter
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a
+	jr z, .nextMove
+; if we are here, player is in the invincible turn of fly/dig and opponent is checking for counter, so extremely encourage the move (-5)
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
 	jr .nextMove
 
 .modification3Part2 ; HEAL and EXPLOSION
@@ -724,10 +737,13 @@ AIMoveChoiceModification3:
 	pop bc
 	pop hl
 	cp 8 ; a-8 = prio-8, it's <0, so c flag, for prios 0-to-7, and >=0, so nc flag, for prios 8 and above
-	jr nc, .highPriorityMove
-; not a high-prio move
-	jp .nextMove4
-.highPriorityMove
+	jp c, .nextMove4
+; if we are here, it's a high-prio move
+; check if the player's mon is NOT in dig/fly invincible state
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a
+	jp nz, .discouragePrioMoveIfInvulnerableState
+; player is not invulnerable, so we can encourage the move
 	push hl
 	push bc
 	push de
@@ -739,10 +755,84 @@ AIMoveChoiceModification3:
 	cp 4 ; compare with neutral
 	jp c, .nextMove4 ; we don't encourage a priority move that is not at least neutral
 ; if we are here, it's a neutral or (double)super effective damaging priority move
+; let's now check if the opponent is slower than us
+	push hl
+	push de
+	ld hl, wBattleMonSpeed
+	ld de, wEnemyMonSpeed
+	ld a, [de]
+	cp [hl] ; opponent's speed - battling mon's speed, MOST significant byte
+	jr c, .opponentIsSlower
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl] ; opponent's speed - battling mon's speed, LEAST significant byte
+	jr c, .opponentIsSlower
+; opponent is not slower than us
+	pop de
+	pop hl
+	jp .nextMove4
+.opponentIsSlower
+	pop de
+	pop hl
 	dec [hl] ; slightly encourage
 	jp .nextMove4
+.discouragePrioMoveIfInvulnerableState
+	ld a, [hl]
+	add 5 ; heavily discourage move
+	ld [hl], a
+	jp .nextMove4
 
-.modification3Part5
+.modification3Part5 ; SWIFT moves if opponent is faster and player is invulnerable
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove5
+	dec b
+	jp z, .modification3Part6 ; processed all 4 moves ; edited
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part6 ; no more moves in move set ; edited
+; actually do things with the move
+	inc de
+	call ReadMove
+; we proceed only if the move is swift-like
+	ld a, [wEnemyMoveEffect]
+	cp SWIFT_EFFECT
+	jp nz, .nextMove5
+; swift-like moves, now check if the player is invulnerable
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a
+	jp z, .nextMove5
+; finally, check if the opponent is faster than the player
+	push hl
+	push de
+	ld hl, wEnemyMonSpeed
+	ld de, wBattleMonSpeed
+	ld a, [de]
+	cp [hl] ; battling's speed - opponent mon's speed, MOST significant byte
+	jr c, .opponentIsFaster
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl] ; battling's speed - opponent mon's speed, LEAST significant byte
+	jr c, .opponentIsFaster
+; player is not slower than opponent
+	pop de
+	pop hl
+	jp .nextMove5
+.opponentIsFaster ; heavily encourage
+	pop de
+	pop hl
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	jp .nextMove5
+
+.modification3Part6
 	ret
 
 ; new, to handle tactical switching:
@@ -936,10 +1026,10 @@ TrainerAI:
 
 INCLUDE "data/trainers/ai_pointers.asm"
 
-JugglerAI:
-	cp 25 percent + 1
-	ret nc
-	jp AISwitchIfEnoughMons
+;JugglerAI:
+;	cp 25 percent + 1
+;	ret nc
+;	jp AISwitchIfEnoughMons
 
 BlackbeltAI:
 	cp 13 percent - 1
@@ -964,18 +1054,13 @@ GiovanniAI:
 ;	ret nc
 ;	jp AIUseXAttack
 
-CooltrainerAI:
-	; The intended 25% chance to consider switching will not apply.
-	; Uncomment the line below to fix this - done
-	cp 25 percent + 1
-	ret nc ; uncommented
-	ld a, 10
-	call AICheckIfHPBelowFraction
-	jp c, AIUseHyperPotion
-	ld a, 5
-	call AICheckIfHPBelowFraction
+CooltrainerAI: ; edited: 50% change to use a Hyper Potion below 1/6 HP, and no switching
+	cp 50 percent + 1
 	ret nc
-	jp AISwitchIfEnoughMons
+	ld a, 6 ; new
+	call AICheckIfHPBelowFraction
+	ret nc ; new
+	jp AIUseSuperPotion
 
 BrockAI:
 ; if his active monster has a status condition, use a full heal
@@ -1060,9 +1145,9 @@ BrunoAI:
 	ret nc
 	jp AIUseXAttack ; updated
 
-AgathaAI:
-	cp 8 percent
-	jp c, AISwitchIfEnoughMons
+AgathaAI: ; edited, no switching
+;	cp 8 percent
+;	jp c, AISwitchIfEnoughMons
 	cp 50 percent + 1
 	ret nc
 	ld a, 4
