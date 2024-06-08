@@ -1,7 +1,7 @@
 ; creates a set of moves that may be used and returns its address in hl
 ; unused slots are filled with 0, all used slots may be chosen with equal probability
 AIEnemyTrainerChooseMoves:
-	ld a, 10 ; $a
+	ld a, 20 ; edited, was 10
 	ld hl, wBuffer ; init temporary move selection array. Only the moves with the lowest numbers are chosen in the end
 	ld [hli], a   ; move 1
 	ld [hli], a   ; move 2
@@ -107,7 +107,7 @@ AIMoveChoiceModificationFunctionPointers:
 	dw AIMoveChoiceModification1
 	dw AIMoveChoiceModification2
 	dw AIMoveChoiceModification3
-	dw AIMoveChoiceModification4 ; unused, does nothing
+	dw AIMoveChoiceModification4
 
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
 ; also check for CURSE, LEECH_SEED, SUBSTITUTE, DISABLED, CONFUSED
@@ -436,7 +436,7 @@ AIMoveChoiceModification1:
 	jp .nextMove
 .veryHeavilyDiscourage
 	ld a, [hl]
-	add 10 ; very heavily discourage move ; edited, was 5
+	add 10 ; very heavily discourage move
 	ld [hl], a
 	jp .nextMove
 
@@ -822,9 +822,16 @@ AIMoveChoiceModification3:
 	pop de
 	pop hl
 	jp .nextMove5
-.opponentIsFaster ; heavily encourage
+.opponentIsFaster ; very heavily encourage, by 12
 	pop de
 	pop hl
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
@@ -912,7 +919,7 @@ AIMoveChoiceModification4:
 ; let's check how dis/en-couraged the move is
 	inc de ; for next loop
 	ld a, [hl]
-	cp 11 ; encouragement - 11; neutral: 10-11 -> c; discouraged: 11-11->nc
+	cp 21 ; encouragement - 21; neutral: 20-21 -> c; discouraged: 21-21->nc
 	jr c, .checkNext ; if even 1 move is not discouraged, no switch
 	jr .nextMove
 .checkNext ; -------------------------------------------------------------------
