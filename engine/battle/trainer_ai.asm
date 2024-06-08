@@ -407,11 +407,15 @@ AIMoveChoiceModification1:
 	ld a, [wPlayerMonAccuracyMod]
 	cp 6
 	jp nc, .nextMove ; no discouragement if accuracy is -1 or more
+	cp 5
+	jp z, .discourageBy1
 	cp 4
 	jp z, .discourageBy1
 	cp 3
 	jp z, .discourageBy2
-	jp .discourageBy3
+	cp 2
+	jp z, .discourageBy3
+	jp .veryHeavilyDiscourage
 .modifierComparisons_Debuff_NotAccuracy
 	cp 7
 	jp nc, .nextMove ; no discouragement if no debuff is yet applied
@@ -419,7 +423,9 @@ AIMoveChoiceModification1:
 	jp z, .discourageBy1
 	cp 5
 	jp z, .discourageBy2
-	jp .discourageBy3 ; useless as long as I don't add any new check
+	cp 4
+	jp z, .discourageBy3
+	jp .veryHeavilyDiscourage
 
 .discourageBy3
 	inc [hl]
@@ -533,6 +539,7 @@ Modifier2BuffDebuffMoveEffects:
 ; encourages by 4 if double super eff, by 2 if super eff, discourages by 2 if not very eff, by 4 if double not very, by 10 if immune
 ; new: part2 encourages draining and exploding moves at low HP by 1, 2, or 3, depending on effect and HP left
 ; new: part3 encouranges STAB moves by 1
+; new: part4 encouranges by 1 priority moves if we are slower and they are least neutral
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -602,7 +609,7 @@ AIMoveChoiceModification3:
 	ld [hl], a
 	jr .nextMove
 
-.modification3Part2
+.modification3Part2 ; HEAL and EXPLOSION
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
@@ -653,7 +660,7 @@ AIMoveChoiceModification3:
 	dec [hl]
 	jp .nextMove2
 
-.modification3Part3
+.modification3Part3 ; STAB
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
@@ -667,10 +674,10 @@ AIMoveChoiceModification3:
 ; actually do things with the move
 	inc de
 	call ReadMove
-;; this AI modification should NOT dis/en-courage NON-damaging moves
-;	ld a, [wEnemyMovePower]
-;	and a
-;	jp z, .nextMove
+; this AI modification should NOT dis/en-courage NON-damaging moves
+	ld a, [wEnemyMovePower]
+	and a
+	jp z, .nextMove3
 ; slightly encourage move if benefits from STAB
 	push bc
 	ld a, [wEnemyMoveType]
@@ -689,7 +696,9 @@ AIMoveChoiceModification3:
 	dec [hl]
 	jp .nextMove3
 
-.modification3Part4
+.modification3Part4 ; priority moves
+
+.modification3Part5
 	ret
 
 ; new, to handle tactical switching:
@@ -715,14 +724,6 @@ AIMoveChoiceModification4:
 	cp 20 percent
 	jr nc, .checkNerfed
 	jp .setSwitchingAndEnd
-;.checkTrapped ; ---------------------------------------------------------------
-;	ld a, [wPlayerBattleStatus1]
-;	bit USING_TRAPPING_MOVE, a
-;	jr z, .checkNerfed
-;	call Random
-;	cp 90 percent
-;	jr nc, .checkNerfed
-;	jp .setSwitchingAndEnd
 .checkNerfed ; -----------------------------------------------------------------
 ; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
 	ld hl, wEnemyMonAttackMod

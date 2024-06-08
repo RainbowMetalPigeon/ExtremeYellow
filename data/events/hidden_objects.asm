@@ -323,7 +323,7 @@ BillsHouseHiddenObjects:
 	db -1 ; end
 
 Route4HiddenObjects:
-	hidden_object 38,  3, GREAT_BALL, HiddenItems ; edited
+	hidden_object 38, 23, GREAT_BALL, HiddenItems ; edited
 	hidden_object  6, 24, HP_UP, HiddenItems ; new
 	db -1 ; end
 

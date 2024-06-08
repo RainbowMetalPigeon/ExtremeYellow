@@ -53,7 +53,7 @@ HiddenItemCoords:
 	hidden_item VICTORY_ROAD_2F,               26,   7
 	hidden_item ROUTE_25,                      38,  37 ; edited, +34 in y
 	hidden_item ROUTE_25,                      10,  35 ; edited, +34 in y
-	hidden_item ROUTE_4,                       38,   3 ; edited
+	hidden_item ROUTE_4,                       38,  23 ; edited
 	hidden_item ROUTE_9,                       14,   7
 	hidden_item COPYCATS_HOUSE_2F,              1,   1
 	hidden_item CERULEAN_CITY,                 15,   8
