@@ -6,7 +6,8 @@ Kanto at its max (and beyond!)
 - all Pokémon can be caught (a living Dex can be completed)
 - named trainers (Gym leaders, E4, rival) have improved full team of 6 with customized movesets
 - shiny are implemented with dynamic probabilities and safety net
-- opponents are stronger than ever, with max DVs and Stats (IVs and EVs) and better AI
+- opponents are stronger than ever, with max DVs and Stats (IVs and EVs)
+- opponent AI is drastically improved
 - expanded backstory and deeper psychology for the main characters
 - two whole new cities
 - two new main game archs
