@@ -383,6 +383,24 @@ HandleMovePriority:
 INCLUDE "data/battle/priority_moves.asm"
 ; ------ end of Xillicis' tutorial addition -------
 
+AIGetPriority:: ; new
+	ld a, [wEnemySelectedMove]
+	ld d, a
+	ld hl, PriorityMovesList
+	ld e, 7           ; neutral priority is 7
+.enemyPriorityMoveLoop
+	ld a, [hli]       ; load the move ID from priority list and increment address to the priority value address
+	cp $FF            ; are we at the end of the list?
+	ret z
+; not at the end of the list
+	cp d              ; compare with move being used
+	jr z, .enemyUsingPriorityMove
+	inc hl            ; increment address to the next move
+	jr .enemyPriorityMoveLoop
+.enemyUsingPriorityMove
+	ld e, [hl]        ; get new priority value
+	ret
+
 HandlePoisonBurnLeechSeed:
 ; new, give a chance to Starter Pikachu to heal itself
 	callfar IsThisPartymonStarterPikachu ; edited, was the other version

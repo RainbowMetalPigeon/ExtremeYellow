@@ -697,6 +697,50 @@ AIMoveChoiceModification3:
 	jp .nextMove3
 
 .modification3Part4 ; priority moves
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove4
+	dec b
+	jp z, .modification3Part5 ; processed all 4 moves ; edited
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part5 ; no more moves in move set ; edited
+; actually do things with the move
+	inc de
+	call ReadMove
+; this AI modification should NOT dis/en-courage NON-damaging moves
+	ld a, [wEnemyMovePower]
+	and a
+	jp z, .nextMove4
+; normal damaging moves
+	push hl
+	push bc
+	push de
+	callfar AIGetPriority ; load the priority of the opponent's move in e: 7 is neutral
+	ld a, e ; a contains the priority of the move
+	pop de
+	pop bc
+	pop hl
+	cp 8 ; a-8 = prio-8, it's <0, so c flag, for prios 0-to-7, and >=0, so nc flag, for prios 8 and above
+	jr nc, .highPriorityMove
+; not a high-prio move
+	jp .nextMove4
+.highPriorityMove
+	push hl
+	push bc
+	push de
+	callfar AIGetTypeEffectiveness
+	pop de
+	pop bc
+	pop hl
+	ld a, [wTypeEffectiveness] ; 0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective
+	cp 4 ; compare with neutral
+	jp c, .nextMove4 ; we don't encourage a priority move that is not at least neutral
+; if we are here, it's a neutral or (double)super effective damaging priority move
+	dec [hl] ; slightly encourage
+	jp .nextMove4
 
 .modification3Part5
 	ret

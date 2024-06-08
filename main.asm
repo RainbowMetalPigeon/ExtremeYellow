@@ -190,7 +190,11 @@ INCLUDE "data/moves/moves.asm"
 INCLUDE "data/pokemon/cries.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
-INCLUDE "gfx/trade.asm"
+
+
+SECTION "Battle Engine 6b", ROMX ; new, to save space in the previous Section
+
+INCLUDE "gfx/trade.asm" ; moved from "Battle Engine 6"
 
 
 SECTION "Evos Moves 1", ROMX ; new, from Vortiene's pureRGB, moved from "Battle Engine 6"
@@ -484,6 +488,7 @@ INCLUDE "engine/battle/get_trainer_name.asm"
 INCLUDE "engine/math/random.asm"
 INCLUDE "engine/predefs.asm"
 INCLUDE "engine/battle/move_effects/slideplayerenemy.asm"	; new, testing
+INCLUDE "engine/battle/move_effects/triattack.asm"          ; new, testing
 
 
 SECTION "Surfing Minigame", ROMX
