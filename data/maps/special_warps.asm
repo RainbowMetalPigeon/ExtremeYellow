@@ -81,9 +81,9 @@ FlyWarpDataPtr:
 	fly_warp_spec LAVENDER_TOWN,   .LavenderTown
 	fly_warp_spec VERMILION_CITY,  .VermilionCity
 	fly_warp_spec CELADON_CITY,    .CeladonCity
-	fly_warp_spec OCHRE_CITY,      .OchreCity			; new, testing
+	fly_warp_spec OCHRE_CITY,      .OchreCity			; new
 	fly_warp_spec FUCHSIA_CITY,    .FuchsiaCity
-	fly_warp_spec OBSIDIAN_ISLAND, .ObsidianIsland		; new, testing
+	fly_warp_spec OBSIDIAN_ISLAND, .ObsidianIsland		; new
 	fly_warp_spec CINNABAR_ISLAND, .CinnabarIsland
 	fly_warp_spec INDIGO_PLATEAU,  .IndigoPlateau
 	fly_warp_spec SAFFRON_CITY,    .SaffronCity
@@ -97,9 +97,9 @@ FlyWarpDataPtr:
 .LavenderTown:   fly_warp LAVENDER_TOWN,    3,  6
 .VermilionCity:  fly_warp VERMILION_CITY,  11,  4
 .CeladonCity:    fly_warp CELADON_CITY,    41, 24		; edited
-.OchreCity:      fly_warp OCHRE_CITY,      35, 12		; new, testing
+.OchreCity:      fly_warp OCHRE_CITY,      35, 12		; new
 .FuchsiaCity:    fly_warp FUCHSIA_CITY,    19, 28
-.ObsidianIsland: fly_warp OBSIDIAN_ISLAND, 35,  6		; new, testing
+.ObsidianIsland: fly_warp OBSIDIAN_ISLAND, 35,  6		; new
 .CinnabarIsland: fly_warp CINNABAR_ISLAND, 41, 12		; edited
 .IndigoPlateau:  fly_warp INDIGO_PLATEAU,   9,  6
 .SaffronCity:    fly_warp SAFFRON_CITY,     9, 30
