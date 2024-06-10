@@ -178,9 +178,11 @@ IsWarpTileInFrontOfPlayer::
 	cp SECLUDED_CAVES									; new
 	jr z, IsSecludedCavesWarpTileInFrontOfPlayer		; new
 	cp ONIX_BURROWING									; new
-	jr z, IsOnixBurrowingWarpTileInFrontOfPlayer		; new
+	jp z, IsOnixBurrowingWarpTileInFrontOfPlayer		; new
 	cp HAUNTED_REDS_HOUSE								; new
-	jp z, IsHauntedRedsHouseWarpTileInFrontOfPlayer		; new
+	jp z, IsRedsHouseWarpTileInFrontOfPlayer			; new
+	cp REDS_HOUSE_1F									; new
+	jp z, IsRedsHouseWarpTileInFrontOfPlayer			; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -265,7 +267,7 @@ IsOnixBurrowingWarpTileInFrontOfPlayer: ; new
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
-IsHauntedRedsHouseWarpTileInFrontOfPlayer: ; new
+IsRedsHouseWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $10
 	jr nz, .notHauntedHouseWarp

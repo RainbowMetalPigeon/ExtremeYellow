@@ -62,7 +62,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_29,                      14, 32 ; new, messes up the numbering in the comments
 	map_const ROUTE_30,                      20,  8 ; new, messes up the numbering in the comments
 DEF FIRST_INDOOR_MAP EQU const_value
-	map_const REDS_HOUSE_1F,                  4,  4 ; $25
+	map_const REDS_HOUSE_1F,                  4,  5 ; $25 ; edited
 	map_const REDS_HOUSE_2F,                  4,  4 ; $26
 	map_const BLUES_HOUSE,                    4,  4 ; $27
 	map_const OAKS_LAB,                       5,  6 ; $28

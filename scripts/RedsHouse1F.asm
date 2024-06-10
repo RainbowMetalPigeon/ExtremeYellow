@@ -1,13 +1,29 @@
 RedsHouse1F_Script: ; edited
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, RedsHouse1FSetExitTile
 	call EnableAutoTextBoxDrawing
 	ld hl, RedsHouse1F_ScriptPointers
 	ld a, [wRedsHouse1FCurScript]
 	call CallFunctionInTable
 	ret
 
+RedsHouse1FSetExitTile:
+	CheckEvent EVENT_MOM_TOLD_US_ABOUT_RUNNING_SHOES
+	jr nz, .exitOpen
+	ld a, $2B ; non-working exit block ID
+	jr .replaceTile
+.exitOpen
+	ld a, $0A ; working exit block ID
+.replaceTile
+	ld [wNewTileBlockID], a
+	lb bc, 4, 1 ; Y, X block coordinates
+	predef ReplaceTileBlock
+	ret
+
 RedsHouse1F_ScriptPointers: ; new
 	dw RedsHouse1FScript0
-;	dw RedsHouse1FScript1_MomRunningShoes
 
 RedsHouse1FScript0:
 	CheckEvent EVENT_MOM_TOLD_US_ABOUT_RUNNING_SHOES
@@ -43,6 +59,7 @@ RedsHouse1FScript0:
 	call DisplayTextID
 ; boring technical stuff
 	SetEvent EVENT_MOM_TOLD_US_ABOUT_RUNNING_SHOES
+	call RedsHouse1FSetExitTile
 	ret
 
 RedsHouse1F_TextPointers:
