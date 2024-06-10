@@ -19,9 +19,24 @@ _ViridianCityText_1920a::
 	para "I see you're using"
 	line "a #DEX."
 
-	para "I'll show you how"
-	line "to catch #MON"
-	cont "as my apology."
+	para "Would you like me"
+	line "to show you how"
+	cont "to catch #MON"
+	cont "as an apology?"
+	done
+
+_ViridianCityText_CatchingTutorialRefused:: ; new
+	text "Oh, I see."
+
+	para "Then I would like"
+	line "to apologize"
+	cont "again for"
+	cont "bothering you"
+	cont "earlier."
+	done
+
+_ViridianCityText_CatchingTutorialAccepted:: ; new
+	text "Ok! Here we go!"
 	done
 
 _OldManTextAfterBattle::

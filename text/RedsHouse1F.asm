@@ -48,3 +48,14 @@ _RedsHouse1FPictureText:: ; new
 	para "...a tear runs"
 	line "down your face."
 	done
+
+_RedsHouse1FMomRunningShoes:: ; new
+	text "MOM: <PLAYER>!"
+
+	para "If you're heading"
+	line "outside, remember"
+	cont "that you can run"
+	cont "at any time by"
+	cont "holding the B"
+	cont "button."
+	done

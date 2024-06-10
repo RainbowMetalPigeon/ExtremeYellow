@@ -21,10 +21,28 @@ _SchoolText3::
 	cont "them has to adapt!"
 	done
 
-_SchoolText2::
-	text "Okay!"
+_SchoolText2:: ; edited
+	text "The STATUSes"
+	line "described on the"
+	cont "blackboard are"
+	cont "mutually"
+	cont "exclusive."
 
-	para "Be sure to read"
-	line "the blackboard"
-	cont "carefully!"
+	para "But your #MON"
+	line "can also be"
+	cont "affected by other"
+	cont "malus at the same"
+	cont "time!"
+
+	para "It can be"
+	line "CONFUSED, have"
+	cont "SEEDs on it, or"
+	cont "suffer from a"
+	cont "CURSE!"
+
+;	text "Okay!"
+
+;	para "Be sure to read"
+;	line "the blackboard"
+;	cont "carefully!"
 	done

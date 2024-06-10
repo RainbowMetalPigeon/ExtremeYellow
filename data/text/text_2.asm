@@ -542,53 +542,11 @@ _ViridianSchoolNotebookText6::
 	line "look at my notes!@"
 	text_end
 
-_ViridianSchoolNotebookText1::
+_ViridianSchoolNotebookText1:: ; edited
 	text "Looked at the"
 	line "notebook!"
 
 	para "First page..."
-
-	para "# BALLs are"
-	line "used to catch"
-	cont "#MON."
-
-	para "Up to 6 #MON"
-	line "can be carried."
-
-	para "People who raise"
-	line "and make #MON"
-	cont "fight are called"
-	cont "#MON trainers."
-	prompt
-
-_ViridianSchoolNotebookText2::
-	text "Second page..."
-
-	para "A healthy #MON"
-	line "may be hard to"
-	cont "catch, so weaken"
-	cont "it first!"
-
-	para "Poison, burns and"
-	line "other damage are"
-	cont "effective!"
-	prompt
-
-_ViridianSchoolNotebookText3::
-	text "Third page..."
-
-	para "#MON trainers"
-	line "seek others to"
-	cont "engage in #MON"
-	cont "fights."
-
-	para "Battles are"
-	line "constantly fought"
-	cont "at #MON GYMs."
-	prompt
-
-_ViridianSchoolNotebookText4::
-	text "Fourth page..."
 
 	para "The goal for"
 	line "#MON trainers"
@@ -603,7 +561,58 @@ _ViridianSchoolNotebookText4::
 	line "#MON LEAGUE!"
 	prompt
 
-_ViridianSchoolNotebookText5::
+_ViridianSchoolNotebookText2:: ; edited
+	text "Second page..."
+
+	para "The 8 GYMs can be"
+	line "challenged in any"
+	cont "order."
+
+	para "The GYM LEADER and"
+	line "their trainers"
+	cont "will choose a"
+	cont "team adequate to"
+	cont "the level of the"
+	cont "challenger."
+
+	para "The more BADGEs"
+	line "you've already"
+	cont "earned, the"
+	cont "tougher the GYMs"
+	cont "will be!"
+	prompt
+
+_ViridianSchoolNotebookText3:: ; edited
+	text "Third page..."
+
+	para "High-level #MON"
+	line "will disobey you"
+	cont "if you don't have"
+	cont "enough BADGEs!"
+
+	para "This applies both"
+	line "to #MON"
+	cont "obtained via"
+	cont "trade, and to the"
+	cont "ones you caught"
+	cont "yourself."
+	prompt
+
+_ViridianSchoolNotebookText4:: ; edited
+	text "Fourth page..."
+
+	para "CONFUSION, LEECH"
+	line "SEEDs, CURSE, and"
+	cont "modification to"
+	cont "stats are reset"
+	cont "upon switching."
+
+	para "A temporary"
+	line "retreat can have"
+	cont "strategic value!"
+	prompt
+
+_ViridianSchoolNotebookText5:: ; new
 	text "Fifth page..."
 
 	para "INVERSE BATTLES"
@@ -689,7 +698,7 @@ _LinkCableHelpText1::
 	prompt
 
 _LinkCableHelpText2::
-	text "Which heading do"
+	text "Which STATUS do" ; edited
 	line "you want to read?"
 	done
 
@@ -722,8 +731,8 @@ _ViridianSchoolBlackboardText1::
 	cont "during battles."
 	prompt
 
-_ViridianSchoolBlackboardText2::
-	text "Which heading do"
+_ViridianSchoolBlackboardText2:: ; edited
+	text "Which STATUS do"
 	line "you want to read?"
 	done
 
@@ -731,6 +740,9 @@ _ViridianBlackboardSleepText::
 	text "A #MON can't"
 	line "attack if it's"
 	cont "asleep!"
+
+	para "SLEEP lasts 1 to" ; new
+	line "7 turns."
 
 	para "#MON will stay"
 	line "asleep even after"
@@ -748,6 +760,10 @@ _ViridianBlackboardPoisonText::
 	para "Poison lingers"
 	line "after battles."
 
+	para "A poisoned #MON" ; new
+	line "takes damage even"
+	cont "when walking!"
+
 	para "Use an ANTIDOTE"
 	line "to cure poison!"
 	prompt
@@ -755,7 +771,10 @@ _ViridianBlackboardPoisonText::
 _ViridianBlackboardPrlzText::
 	text "Paralysis could"
 	line "make #MON"
-	cont "moves misfire!"
+	cont "miss their moves!"
+
+	para "It also heavily" ; new
+	line "reduce speed."
 
 	para "Paralysis remains"
 	line "after battles."
@@ -766,7 +785,7 @@ _ViridianBlackboardPrlzText::
 
 _ViridianBlackboardBurnText::
 	text "A burn reduces"
-	line "power and speed."
+	line "physical attack." ; edited
 	cont "It also causes"
 	cont "ongoing damage."
 
@@ -785,6 +804,9 @@ _ViridianBlackboardFrozenText::
 	para "It stays frozen"
 	line "even after the"
 	cont "battle ends."
+
+	para "You thaw if hit by" ; new
+	line "a FIRE move."
 
 	para "Use ICE HEAL to"
 	line "thaw out #MON!"

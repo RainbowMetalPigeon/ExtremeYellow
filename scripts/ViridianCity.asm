@@ -8,6 +8,7 @@ ViridianCity_Script:
 
 ViridianCity_ScriptPointers:
 	dw ViridianCityScript0
+; old ViridianCityScript1 and ViridianCityScript2 have been deleted
 	dw ViridianCityScript1
 	dw ViridianCityScript2
 	dw ViridianCityScript3
@@ -16,30 +17,19 @@ ViridianCity_ScriptPointers:
 	dw ViridianCityScript6
 	dw ViridianCityScript7
 	dw ViridianCityScript8
-	dw ViridianCityScript9
-	dw ViridianCityScript10
 	dw ViridianScript_Traveler ; new, for traveler
 
 ViridianCityScript0:
-	call ViridianCityScript_1905b
-	call ViridianCityScript_190ab
+	call ViridianCityScript_CheckIfGymIsOpen
+	call ViridianCityScript_CheckIfElderStopsUs
 	ret
 
-ViridianCityScript1:
-	call ViridianCityScript_19162
-ViridianCityScript2:
-	call ViridianCityScript_1905b
-	ret
-
-ViridianCityScript_1905b:
+ViridianCityScript_CheckIfGymIsOpen:
 	CheckEvent EVENT_VIRIDIAN_GYM_OPEN
 	ret nz
 ; new, now gym opens after you defeat Giovanni in Obsidian, not if you have all other badges
 	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
 	jr z, .gym_closed
-;	ld a, [wObtainedBadges]
-;	cp ~(1 << BIT_EARTHBADGE)
-;	jr nz, .gym_closed
 	SetEvent EVENT_VIRIDIAN_GYM_OPEN
 	ret
 .gym_closed
@@ -49,11 +39,11 @@ ViridianCityScript_1905b:
 	ld a, [wXCoord]
 	cp 32
 	ret nz
-	ld a, $10 ; +1 because of traveler
+	ld a, 16 ; +1 because of traveler
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call StartSimulatingJoypadStates
-	ld a, $1
+	ld a, 1
 	ld [wSimulatedJoypadStatesIndex], a
 	ld a, D_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
@@ -61,41 +51,156 @@ ViridianCityScript_1905b:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
-	ld a, $6
+	ld a, 4 ; edited, was 6
 	ld [wViridianCityCurScript], a
 	ret
 
-ViridianCityScript6:
-	ld a, [wSimulatedJoypadStatesIndex]
-	and a
-	ret nz
-	call Delay3
-	ld a, $2
-	ld [wViridianCityCurScript], a
-	ret
-
-ViridianCityScript_190ab:
+ViridianCityScript_CheckIfElderStopsUs:
 	ld a, [wYCoord]
 	cp 9
 	ret nz
 	ld a, [wXCoord]
 	cp 19
 	ret nz
-	ld a, $5
+; we are at the right coordinates, now let's check the two events
+	CheckEvent EVENT_OAK_GOT_PARCEL
+	jr nz, .checkIfTutorialWasProposed
+; push us down, they're drunk
+	ld a, 5
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
 	ldh [hJoyHeld], a
-	call ViridianCityScript_1914d
-	ld a, $5
+	call ViridianCityScript_GetPushedAwayByDrunkElder
+	ld a, 3 ; edited, was 5
+	ld [wViridianCityCurScript], a
+	ret
+.checkIfTutorialWasProposed
+	CheckEvent EVENT_PROPOSED_CATCHING_TUTORIAL
+	ret nz ; don't do any further shenanigans if we have already been proposed the tutorial
+;	CheckEvent EVENT_02D
+;	ret nz
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, 8
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+;	ld a, D_UP | D_DOWN | D_LEFT | D_RIGHT | START | SELECT
+;	ld [wJoyIgnore], a
+	ret
+
+ViridianCityScript1:
+	call ViridianCityScript_190ef
+	call ViridianCityScript_190db
+	ResetEvent EVENT_02F
+	ld a, 2 ; edited, was 4
+	ld [wViridianCityCurScript], a
+	ret
+
+ViridianCityScript2:
+	call ViridianCityScript_1912a
+	call UpdateSprites
+	call Delay3
+	SetEvent EVENT_02E ; useless
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 17 ; +1 because of traveler
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wBattleType], a
+	ld [wJoyIgnore], a
+	ld a, 0 ; edited, was 2
 	ld [wViridianCityCurScript], a
 	ret
 
 ViridianCityScript3:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, 0
+	ld [wViridianCityCurScript], a
+	ret
+
+ViridianCityScript4:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, 0 ; edited, was 2
+	ld [wViridianCityCurScript], a
+	ret
+
+ViridianCityScript5:
 	call ViridianCityScript_190ef
 	call ViridianCityScript_190db
-	ResetEvent EVENT_02F
-	ld a, $4
+	SetEvent EVENT_02F
+	ld a, D_UP | D_DOWN | D_LEFT | D_RIGHT | START | SELECT
+	ld [wJoyIgnore], a
+	ld a, 6 ; edited, was 8
+	ld [wViridianCityCurScript], a
+	ret
+
+ViridianCityScript6:
+	call ViridianCityScript_1912a
+	call UpdateSprites
+	call Delay3
+	SetEvent EVENT_02D
+	ld a, D_UP | D_DOWN | D_LEFT | D_RIGHT | START | SELECT
+	ld [wJoyIgnore], a
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wBattleType], a
+	dec a
+	ld [wJoyIgnore], a
+	ld a, 7 ; edited, was 9
+	ld [wViridianCityCurScript], a
+	ret
+
+ViridianCityScript7:
+	ld de, ViridianCityOldManMovementData2
+	ld a, [wXCoord]
+	cp 19
+	jr z, .asm_191e4
+	callfar Func_f1a01
+	ld de, ViridianCityOldManMovementData1
+.asm_191e4
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	call MoveSprite
+	ld a, 8 ; edited, was 10
+	ld [wViridianCityCurScript], a
+	ret
+
+ViridianCityOldManMovementData1:
+	db NPC_MOVEMENT_RIGHT
+ViridianCityOldManMovementData2:
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db $ff
+
+ViridianCityScript8:
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	ld a, HS_OLD_MAN ; edited, no longer hard-coded
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 0 ; edited, was 2
 	ld [wViridianCityCurScript], a
 	ret
 
@@ -121,23 +226,6 @@ ViridianCityScript_190ef:
 	ldh [hSpriteMapXCoord], a
 	ret
 
-ViridianCityScript4:
-	call ViridianCityScript_1912a
-	call UpdateSprites
-	call Delay3
-	SetEvent EVENT_02E
-	xor a
-	ld [wJoyIgnore], a
-	ld a, $11 ; +1 because of traveler
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	xor a
-	ld [wBattleType], a
-	ld [wJoyIgnore], a
-	ld a, $2
-	ld [wViridianCityCurScript], a
-	ret
-
 ViridianCityScript_1912a:
 	ldh a, [hSpriteScreenYCoord]
 	ld [wSprite03StateData1YPixels], a
@@ -149,114 +237,15 @@ ViridianCityScript_1912a:
 	ld [wSprite03StateData2MapX], a
 	ret
 
-ViridianCityScript5:
-	ld a, [wSimulatedJoypadStatesIndex]
-	and a
-	ret nz
-	call Delay3
-	ld a, $0
-	ld [wViridianCityCurScript], a
-	ret
-
-ViridianCityScript_1914d:
+ViridianCityScript_GetPushedAwayByDrunkElder:
 	call StartSimulatingJoypadStates
-	ld a, $1
+	ld a, 1
 	ld [wSimulatedJoypadStatesIndex], a
-	ld a, D_DOWN
+	ld a, D_DOWN | B_BUTTON ; edited to fix Pikachu blocker, testing
 	ld [wSimulatedJoypadStatesEnd], a
 	xor a
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld [wJoyIgnore], a
-	ret
-
-ViridianCityScript_19162:
-	CheckEvent EVENT_02D
-	ret nz
-	ld a, [wYCoord]
-	cp 9
-	ret nz
-	ld a, [wXCoord]
-	cp 19
-	ret nz
-	ld a, $8
-	ldh [hSpriteIndexOrTextID], a
-	ld a, SPRITE_FACING_RIGHT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
-	ld a, $8
-	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, $8
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	ld a, D_UP | D_DOWN | D_LEFT | D_RIGHT | START | SELECT
-	ld [wJoyIgnore], a
-	ret
-
-ViridianCityScript7:
-	call ViridianCityScript_190ef
-	call ViridianCityScript_190db
-	SetEvent EVENT_02F
-	ld a, D_UP | D_DOWN | D_LEFT | D_RIGHT | START | SELECT
-	ld [wJoyIgnore], a
-	ld a, $8
-	ld [wViridianCityCurScript], a
-	ret
-
-ViridianCityScript8:
-	call ViridianCityScript_1912a
-	call UpdateSprites
-	call Delay3
-	SetEvent EVENT_02D
-	ld a, D_UP | D_DOWN | D_LEFT | D_RIGHT | START | SELECT
-	ld [wJoyIgnore], a
-	ld a, $8
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	xor a
-	ld [wBattleType], a
-	dec a
-	ld [wJoyIgnore], a
-	ld a, $9
-	ld [wViridianCityCurScript], a
-	ret
-
-ViridianCityScript9:
-	ld de, ViridianCityOldManMovementData2
-	ld a, [wXCoord]
-	cp 19
-	jr z, .asm_191e4
-	callfar Func_f1a01
-	ld de, ViridianCityOldManMovementData1
-.asm_191e4
-	ld a, $8
-	ldh [hSpriteIndexOrTextID], a
-	call MoveSprite
-	ld a, $a
-	ld [wViridianCityCurScript], a
-	ret
-
-ViridianCityOldManMovementData1:
-	db NPC_MOVEMENT_RIGHT
-ViridianCityOldManMovementData2:
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db NPC_MOVEMENT_DOWN
-	db $ff
-
-ViridianCityScript10:
-	ld a, [wd730]
-	bit 0, a
-	ret nz
-	ld a, HS_OLD_MAN ; edited, no longer hard-coded
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	xor a
-	ld [wJoyIgnore], a
-	ld a, $2
-	ld [wViridianCityCurScript], a
 	ret
 
 ViridianCity_TextPointers:
@@ -266,8 +255,8 @@ ViridianCity_TextPointers:
 	dw ViridianCityText_3 ; 4
 	dw ViridianCityText_4 ; 5
 	dw ViridianCityText_5 ; 6
-	dw ViridianCityText_6 ; 7
-	dw ViridianCityText_7 ; 8
+	dw ViridianCityText_6 ; 7 ; dialogue for second catching tutorial
+	dw ViridianCityText_7 ; 8 ; dialogue for first catching tutorial
 	dw TextPreBattle_ViridianTraveler ; 9, new, for traveler
 	dw ViridianCityText_8 ; $A
 	dw ViridianCityText_9 ; $B
@@ -275,9 +264,9 @@ ViridianCity_TextPointers:
 	dw MartSignText ; $D
 	dw PokeCenterSignText ; $E
 	dw ViridianCityText_11 ; $F
-	dw ViridianCityText_12 ; $10
-	dw ViridianCityText_13 ; $11 ; need to weak target mon
-	dw TextPostBattle_ViridianTraveler ; 18=$12 new, for traveler
+	dw ViridianCityText_12 ; $10=16
+	dw ViridianCityText_13 ; $11=17 ; first you need to weak target mon
+	dw TextPostBattle_ViridianTraveler ; $12=18 new, for traveler
 
 ViridianCityText_0:
 	text_asm
@@ -318,15 +307,36 @@ ViridianCityText_13:
 	text_far _ViridianCityText_19219
 	text_end
 
-ViridianCityText_7:
+ViridianCityText_7: ; edited
 	text_asm
+	SetEvent EVENT_PROPOSED_CATCHING_TUTORIAL
 	CheckEvent EVENT_02D
 	jr nz, .asm_192a6
 	ld hl, ViridianCityText_192af
 	call PrintText
 	ld c, 2
+	call DelayFrames ; why?
+; new, let's ASK the player if they want to go through the tutorial for the billionth time...
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .accepted
+; we refused
+	ld hl, ViridianCityText_CatchingTutorialRefused
+	call PrintText
+;	SetEvent EVENT_02D
+	xor a
+	ld [wJoyIgnore], a
+	ldh [hJoyHeld], a
+	ld [wViridianCityCurScript], a
+	jp TextScriptEnd
+.accepted
+	ld hl, ViridianCityText_CatchingTutorialAccepted
+	call PrintText
+	ld c, 2
 	call DelayFrames
-	ld a, $7
+; back to vanilla
+	ld a, 5 ; edited, was 7
 	ld [wViridianCityCurScript], a
 	jr .asm_192ac
 
@@ -338,6 +348,14 @@ ViridianCityText_7:
 
 ViridianCityText_192af:
 	text_far _ViridianCityText_1920a
+	text_end
+
+ViridianCityText_CatchingTutorialRefused: ; new
+	text_far _ViridianCityText_CatchingTutorialRefused
+	text_end
+
+ViridianCityText_CatchingTutorialAccepted: ; new
+	text_far _ViridianCityText_CatchingTutorialAccepted
 	text_end
 
 ViridianCityText_192b4:
@@ -402,7 +420,7 @@ TextPreBattle_ViridianTraveler: ; new
 	ld de, Text_VictoryPostBattle_ViridianTraveler
 	call SaveEndBattleTextPointers
 ; script handling
-	ld a, 11 ; city-specific
+	ld a, 9 ; city-specific
 	ld [wViridianCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd

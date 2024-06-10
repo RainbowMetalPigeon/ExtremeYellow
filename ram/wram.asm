@@ -2377,7 +2377,8 @@ wHauntedHouse4CurScript:: db ; new
 wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok
 wMrPsychicsHouseCurScript:: db ; new
 wCeruleanCaveExtraMiddleCurScript:: db ; new
-	ds 69 ; UNUSED bytes in "Main Data", was 78
+wRedsHouse1FCurScript:: db ; new
+	ds 68 ; UNUSED bytes in "Main Data", was 78
 wGameProgressFlagsEnd::
 
 wPlayerGender::

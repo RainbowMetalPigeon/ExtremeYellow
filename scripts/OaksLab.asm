@@ -575,7 +575,7 @@ OaksLabScript20:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_POKEDEX
-	ld a, $1
+	ld a, 0 ; edited, was 1
 	ld [wViridianCityCurScript], a
 	SetEvent EVENT_OAK_GOT_PARCEL
 	ld a, HS_LYING_OLD_MAN

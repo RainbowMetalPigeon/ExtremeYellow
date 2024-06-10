@@ -13,7 +13,7 @@ DefaultNamesGirlList:
 DefaultNamesEnbyList:
 	db "NEW NAME@"
 	db "YELLOW@"
-	db "AMARILLO@"
+	db "AMARILO@"
 	db "ALEXYS@"
 
 DefaultNamesRivalList:

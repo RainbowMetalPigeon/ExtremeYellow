@@ -15,7 +15,7 @@ DefaultNamesGirl:
 DefaultNamesEnby:
 	db   "NEW NAME"
 	next "YELLOW"
-	next "AMARILLO"
+	next "AMARILO"
 	next "ALEXYS"
 	db   "@"
 

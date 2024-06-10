@@ -77,8 +77,8 @@ Func_f192c::
 	ld [wSimulatedJoypadStatesIndex], a
 	ld a, D_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
-	ld a, $5
-	ld [wViridianCityCurScript], a
+;	ld a, 3 ; edited, was 5
+;	ld [wViridianCityCurScript], a
 	ret
 
 ViridianCityText_f1945:
@@ -134,7 +134,7 @@ Func_f198e::
 	jr nz, .refused
 	ld hl, ViridianCityText_f19bb
 	call PrintText
-	ld a, $3
+	ld a, 1 ; edited, was 3
 	ld [wViridianCityCurScript], a
 	jr .done
 .refused

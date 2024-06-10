@@ -103,12 +103,10 @@ INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"
 INCLUDE "text/ViridianSchoolHouse.asm"
-INCLUDE "text/ViridianNicknameHouse.asm"
 INCLUDE "text/ViridianGym.asm"
 INCLUDE "text/Museum1F.asm"
 INCLUDE "text/Museum2F.asm"
 INCLUDE "text/PewterGym.asm"
-INCLUDE "text/PewterNidoranHouse.asm"
 INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
@@ -215,6 +213,7 @@ INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
+INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -223,6 +222,7 @@ INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 INCLUDE "text/PalletTown.asm"
+INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones

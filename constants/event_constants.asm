@@ -8,7 +8,8 @@
 	const_skip
 	const EVENT_PLAYER_AT_RIGHT_EXIT_TO_PALLET_TOWN
 	const EVENT_PALLET_AFTER_GETTING_POKEBALLS
-	const_skip 6 ; edited, was 17
+	const_skip 5 ; edited, was 17
+	const EVENT_MOM_TOLD_US_ABOUT_RUNNING_SHOES ; new
 	const EVENT_ALREADY_SPOKEN_WITH_DAISY_CLUES ; new
 	const EVENT_ALREADY_SPOKEN_WITH_DARK_GUIDE ; new
 	const EVENT_OBTAIN_ANY_MAP_PIECE ; new
@@ -47,7 +48,8 @@
 	const EVENT_02F
 	const_skip 1 ; split from below
 	const EVENT_BEAT_OBSIDIAN_MINES_TRAINER_0 ; new
-	const_skip 6 ; edited, was 8
+	const_skip 5 ; edited, was 8
+	const EVENT_PROPOSED_CATCHING_TUTORIAL ; new
 	const EVENT_OAK_GOT_PARCEL
 	const EVENT_GOT_OAKS_PARCEL
 	const_skip 7
