@@ -89,7 +89,6 @@
 	const SPRITE_SCIENTIST_F             ; new
 	const SPRITE_SLOWKING                ; new
 	const SPRITE_AMBER_2                 ; new
-	const SPRITE_MISSINGNO               ; new
 	const SPRITE_TROPHY_LEAGUE           ; new
 	const SPRITE_TROPHY_INVERSE          ; new
 	const SPRITE_TROPHY_MEGA             ; new
@@ -109,4 +108,5 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_UNUSED_GAMBLER_ASLEEP_1 ; $50
 	const SPRITE_UNUSED_GAMBLER_ASLEEP_2 ; $51
 	const SPRITE_GAMBLER_ASLEEP          ; $52
+	const SPRITE_MISSINGNO               ; new
 DEF NUM_SPRITES EQU const_value - 1

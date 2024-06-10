@@ -411,11 +411,13 @@ HandlePoisonBurnLeechSeed:
 	ld a, [wBattleMonStatus]
 	and a
 	jp nz, .hasConditionsToHeal
-	; if we are here, Pikachu isn't statused, check for Leech Seed and Confusion
+; if we are here, Pikachu isn't statused, check for Leech Seed and Confusion
 	ld a, [wPlayerBattleStatus2]
-	add a
-	jr c, .hasConditionsToHeal
-	; if here, no statuses nor seeds, check for Confusion
+	bit SEEDED, a
+	jr nz, .hasConditionsToHeal
+	bit BEING_CURSED, a
+	jr nz, .hasConditionsToHeal
+; if here, no statuses nor seeds nor curse, check for Confusion
 	ld hl, wPlayerBattleStatus1
 	bit CONFUSED, [hl] ; set the zero flag if bit not set
 	jr z, .vanilla ; not confused either, so back to normal stuff, could jump furher away but need to check too many things
@@ -423,13 +425,16 @@ HandlePoisonBurnLeechSeed:
 	call BattleRandom
 	cp 25 percent
 	jr nc, .vanilla ; nothing happens
-	; 25% chance to heal itself from all conditions
+; 25% chance to heal itself from all conditions
 	xor a
 	ld [wBattleMonStatus], a ; heal status
 	ld hl, wPlayerBattleStatus1
 	res CONFUSED, [hl] ; heal confusion
 	ld hl, wPlayerBattleStatus2
 	res SEEDED, [hl] ; remove seeds
+	res BEING_CURSED, [hl] ; remove curse
+	ld hl, wPlayerBattleStatus3
+	res BADLY_POISONED, [hl] ; removed toxic flag jic
 	ld hl, PikachuHealItself
 	call PrintText
 .vanilla

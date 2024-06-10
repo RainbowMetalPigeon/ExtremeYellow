@@ -125,6 +125,13 @@ AIMoveChoiceModification1:
 ; actually do things with the move
 	inc de
 	call ReadMove
+; check if it is one of the debuffing AND damaging moves, otherwise ignore all damaging moves here
+; actually, do that only for the accuracy one, i.e. Mud Slap, because the other two,
+; Mud Shot and Rock Tomb, are decent moves per se
+	ld a, [wEnemyMoveEffect]
+	cp ACCURACY_DOWN_SIDE_EFFECT_CERT
+	jp z, .debuff_Accuracy
+; if it is not the move above, check if it deals damage
 	ld a, [wEnemyMovePower]
 	and a
 	jr nz, .nextMove ; we only care about non-damaging moves right now
@@ -410,7 +417,7 @@ AIMoveChoiceModification1:
 	cp 5
 	jp z, .discourageBy1
 	cp 4
-	jp z, .discourageBy1
+	jp z, .discourageBy2
 	cp 3
 	jp z, .discourageBy2
 	cp 2
@@ -462,17 +469,19 @@ UselessAgainstSubstituteMoveEffects:
 ; encourage more on 1st turn, but also on following ones
 ; no need to worry about trying to sleep a statused mon,
 ; because modification1 already handles those cases by ultra discouraging them
+; new: first part handles only buff/debuff moves, encouraging them a bit
+; part 2 handles only status moves, encouraging them more than de/buff ones
 AIMoveChoiceModification2:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
 .nextMove
 	dec b
-	ret z ; processed all 4 moves
+	jp z, .modification2part2 ; processed all 4 moves
 	inc hl
 	ld a, [de]
 	and a
-	ret z ; no more moves in move set
+	jp z, .modification2part2 ; no more moves in move set
 ; actually do things with the move
 	inc de
 	call ReadMove
@@ -481,45 +490,89 @@ AIMoveChoiceModification2:
 	push hl
 	push de
 	push bc
-	ld hl, Modifier2BuffDebuffMoveEffects
+	ld hl, Modifier2BuffDebuffMoveEffects ; not the same array as below
 	ld de, 1
 	call IsInArray ; returns count b and carry if found
 	pop bc
 	pop de
 	pop hl
 	jp nc, .nextMove
-.preferMove
+; move is in array
 	ld a, [wAILayer2Encouragement]
 	and a ; edited, encourage less if not 1st turn
 	jr nz, .notFirstTurn
-	dec [hl] ; quite encourage this move, by 2, on par with superEffective moves ; TBE/TBV
-.notFirstTurn
+	dec [hl] ; encourages by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones
 	dec [hl]
-	dec [hl] ; now it's encouraged by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones
+.notFirstTurn ; slightly encourage this move, by 1
+	dec [hl]
 	jr .nextMove
 
-Modifier2BuffDebuffMoveEffects:
-	db ATTACK_UP1_EFFECT		; no move uses them
-	db DEFENSE_UP1_EFFECT
-	db SPEED_UP1_EFFECT			; no move uses them
-	db SPECIAL_UP1_EFFECT
-	db ACCURACY_UP1_EFFECT		; no move uses them
-	db EVASION_UP1_EFFECT
+.modification2part2
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove2
+	dec b
+	jp z, .modification2part3 ; processed all 4 moves
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification2part3 ; no more moves in move set
+; actually do things with the move
+	inc de
+	call ReadMove
+	ld a, [wEnemyMoveEffect]
+; edited, a big array rather than feeble cps with c/nc flags checks
+	push hl
+	push de
+	push bc
+	ld hl, Modifier2StatusMoveEffects ; not the same array as above
+	ld de, 1
+	call IsInArray ; returns count b and carry if found
+	pop bc
+	pop de
+	pop hl
+	jp nc, .nextMove2
+; move is in array
+	ld a, [wAILayer2Encouragement]
+	and a ; edited, encourage less if not 1st turn
+	jr nz, .notFirstTurn2
+	dec [hl] ; encouraged by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones
+.notFirstTurn2 ; quite encourage this move, by 2, on par with superEffective moves
+	dec [hl]
+	dec [hl]
+	jr .nextMove2
 
+.modification2part3 ; currently unused
+	ret
+
+Modifier2BuffDebuffMoveEffects:
+	db ATTACK_UP1_EFFECT				; no move uses them
+	db DEFENSE_UP1_EFFECT
+	db SPEED_UP1_EFFECT					; no move uses them
+	db SPECIAL_UP1_EFFECT
+	db ACCURACY_UP1_EFFECT				; no move uses them
+	db EVASION_UP1_EFFECT
 	db ATTACK_UP2_EFFECT
 	db DEFENSE_UP2_EFFECT
 	db SPEED_UP2_EFFECT
 	db SPECIAL_UP2_EFFECT
-	db ACCURACY_UP2_EFFECT		; no move uses them
+	db ACCURACY_UP2_EFFECT				; no move uses them
 	db EVASION_UP2_EFFECT
 	db ATTACK_SPEED_UP1_EFFECT
-	
+	db ATTACK_DOWN_SIDE_EFFECT_CERT		; no move uses them
+	db DEFENSE_DOWN_SIDE_EFFECT_CERT	; no move uses them
+	db SPEED_DOWN_SIDE_EFFECT_CERT
+	db SPECIAL_DOWN_SIDE_EFFECT_CERT	; no move uses them
+	db ACCURACY_DOWN_SIDE_EFFECT_CERT
+	db EVASION_DOWN_SIDE_EFFECT_CERT	; no move uses them
 	db FOCUS_ENERGY_EFFECT
-
 	db LIGHT_SCREEN_EFFECT
 	db REFLECT_EFFECT
 	db SUBSTITUTE_EFFECT
+	db -1 ; end
 
+Modifier2StatusMoveEffects:
 	db CONFUSION_EFFECT
 	db POISON_EFFECT
 	db PARALYZE_EFFECT
@@ -528,15 +581,7 @@ Modifier2BuffDebuffMoveEffects:
 	db CURSE_EFFECT
 	db LEECH_SEED_EFFECT
 	db DISABLE_EFFECT
-	db PARALYZE_SIDE_EFFECT_CERT
-
-	db ATTACK_DOWN_SIDE_EFFECT_CERT		; no move uses them
-	db DEFENSE_DOWN_SIDE_EFFECT_CERT	; no move uses them
-	db SPEED_DOWN_SIDE_EFFECT_CERT
-	db SPECIAL_DOWN_SIDE_EFFECT_CERT	; no move uses them
-	db ACCURACY_DOWN_SIDE_EFFECT_CERT
-	db EVASION_DOWN_SIDE_EFFECT_CERT	; no move uses them
-	
+	db PARALYZE_SIDE_EFFECT_CERT ; TBV/TBE
 	db -1
 
 ; encourages moves that are effective against the player's mon (even if non-damaging).

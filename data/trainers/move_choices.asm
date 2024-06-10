@@ -28,7 +28,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 4    ; GAMBLER ; edited
 	move_choices 1, 3, 4    ; BEAUTY ; edited
 	move_choices 1, 2, 3, 4 ; PSYCHIC_TR ; edited
-	move_choices 1, 3       ; ROCKER ; edited
+	move_choices 1, 2, 3    ; ROCKER ; edited
 	move_choices 1, 2, 3, 4 ; JUGGLER ; edited
 	move_choices 1, 2, 3, 4 ; TAMER ; edited
 	move_choices 1, 2, 3, 4 ; BIRD_KEEPER ; edited
@@ -49,11 +49,11 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3, 4 ; KOGA ; edited
 	move_choices 1, 2, 3, 4 ; BLAINE ; edited
 	move_choices 1, 2, 3, 4 ; SABRINA ; edited
-	move_choices 1, 2, 4    ; GENTLEMAN
-	move_choices 1, 2, 3, 4 ; RIVAL2
+	move_choices 1, 2, 3, 4 ; GENTLEMAN ; edited
+	move_choices 1, 2, 3, 4 ; RIVAL2 ; edited
 	move_choices 1, 2, 3    ; RIVAL3 ; edited
 	move_choices 1, 2, 3, 4 ; LORELEI ; edited
-	move_choices 1, 2, 4    ; CHANNELER ; edited
+	move_choices 1, 2, 3, 4 ; CHANNELER ; edited
 	move_choices 1, 2, 3, 4 ; AGATHA ; edited
 	move_choices 1, 2, 3, 4 ; LANCE ; edited
 ; new classes
