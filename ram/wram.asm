@@ -1009,6 +1009,7 @@ wTempSCX::
 ; which entry from TradeMons to select
 wWhichTrade::
 wDexMaxSeenMon::
+wDexMaxSeenAttacks:: ; new, testing
 wPPRestoreItem::
 wWereAnyMonsAsleep::
 wNumShakes::
@@ -1959,6 +1960,9 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
+wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 223 moves=bits / 8 bits/byte = 28 bytes needed
+wAttackdexSeenEnd::
+
 wNumBagItems:: db
 ; item, quantity
 wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
@@ -2378,7 +2382,7 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 wMrPsychicsHouseCurScript:: db ; new
 wCeruleanCaveExtraMiddleCurScript:: db ; new
 wRedsHouse1FCurScript:: db ; new
-	ds 68 ; UNUSED bytes in "Main Data", was 78
+	ds 40 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
 wGameProgressFlagsEnd::
 
 wPlayerGender::

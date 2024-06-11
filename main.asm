@@ -222,6 +222,7 @@ INCLUDE "engine/movie/trade.asm"
 INCLUDE "engine/movie/intro.asm"
 INCLUDE "engine/movie/trade2.asm"
 INCLUDE "engine/menus/options.asm"
+INCLUDE "engine/menus/attackdex.asm" ; new, testing
 
 
 SECTION "Pokédex Rating", ROMX

@@ -127,7 +127,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; SHINY_CHARM, new
 	dw UnusableItem      ; GUTSCHEIN, new
 	dw ItemUseOnigiri    ; ONIGIRI_BOX, new
-	dw ItemUsePokedex    ; ATTACKDEX, new, testing
+	dw ItemUseAttackdex  ; ATTACKDEX, new, testing
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -1131,6 +1131,9 @@ SurfingNoPlaceToGetOffText:
 
 ItemUsePokedex:
 	predef_jump ShowPokedexMenu
+
+ItemUseAttackdex: ; new
+	jpfar ShowAttackdexMenu ; testing
 
 ItemUseEvoStone:
 	ld a, [wIsInBattle]

@@ -134,6 +134,11 @@ IF DEF(_DEBUG)
 	call DebugSetPokedexEntries
 	SetEvent EVENT_GOT_POKEDEX
 
+    ; Set some attacks as seen
+    ld hl, wAttackdexSeen
+    ld a, %11001101
+    ld [hli], a
+
 	; Rival chose Jolteon.
 	ld hl, wRivalStarter
 	ld a, RIVAL_STARTER_JOLTEON
