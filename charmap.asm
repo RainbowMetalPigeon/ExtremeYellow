@@ -168,6 +168,7 @@
 	; huge random gap
 
 	; new characters
+	charmap "+",         $de
 	charmap "<MEGA>",    $df
 
 	charmap "'",         $e0

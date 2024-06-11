@@ -2765,7 +2765,7 @@ MoveSelectionMenu:
 	jr z, .matchedkeyspicked
 	ld a, [wFlags_D733]
 	bit BIT_TEST_BATTLE, a
-	ld b, D_UP | D_DOWN | A_BUTTON | B_BUTTON | SELECT
+	ld b, D_UP | D_DOWN | A_BUTTON | B_BUTTON | SELECT | START ; edited, watch also for START
 	jr z, .matchedkeyspicked
 	ld b, $ff
 .matchedkeyspicked
@@ -2815,6 +2815,8 @@ SelectMenuItem:
 	jp nz, SelectMenuItem_CursorDown
 	bit BIT_SELECT, a
 	jp nz, SwapMovesInMenu
+	bit BIT_START, a          ; new
+	jp nz, ShowMoveInfoInMenu ; new, testing
 IF DEF(_DEBUG)
 	bit BIT_START, a
 	jp nz, Func_3d4f5
@@ -2871,6 +2873,13 @@ ENDC
 	add hl, bc
 	ld a, [hl]
 	ld [wPlayerSelectedMove], a
+; new, to add used moves to Attackdex
+	dec a
+	ld c, a
+	ld b, FLAG_SET
+	ld hl, wAttackdexSeen
+	predef FlagActionPredef ; mark this mon as seen in the attackdex
+; back to vanilla
 	xor a
 	ret
 .disabled
@@ -3015,6 +3024,14 @@ AnyMoveToSelect:
 NoMovesLeftText:
 	text_far _NoMovesLeftText
 	text_end
+
+ShowMoveInfoInMenu: ; new
+	call SaveScreenTilesToBuffer2
+	callfar ShowAttackdexData
+	predef LoadMonBackPic
+	call LoadScreenTilesFromBuffer2
+	call LoadHudAndHpBarAndStatusTilePatterns
+	jp MoveSelectionMenu
 
 SwapMovesInMenu:
 IF DEF(_DEBUG)

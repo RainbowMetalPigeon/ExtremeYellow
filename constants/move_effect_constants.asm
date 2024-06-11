@@ -37,7 +37,7 @@
 	const FLINCH_SIDE_EFFECT3        ; $1E repurposed, was EFFECT_1E
 	const FLINCH_SIDE_EFFECT1        ; $1F
 	const SLEEP_EFFECT               ; $20
-	const POISON_SIDE_EFFECT2        ; $21
+	const POISON_SIDE_EFFECT2        ; $21 unused
 	const BURN_SIDE_EFFECT2          ; $22
 	const FLINCH_SIDE_EFFECT5        ; $23 repurposed, was UNUSED_EFFECT_23 - new
 	const PARALYZE_SIDE_EFFECT2      ; $24

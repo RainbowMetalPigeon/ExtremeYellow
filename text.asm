@@ -317,5 +317,9 @@ SECTION "Move Names", ROMX
 INCLUDE "data/moves/names.asm"
 
 
+SECTION "Move Infos", ROMX
+INCLUDE "data/moves/attackdex_text.asm"
+
+
 SECTION "Item Descriptions", ROMX ; new
 INCLUDE "data/text/item_descriptions.asm"

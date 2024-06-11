@@ -159,10 +159,10 @@ TryingToLearn:
 	xor a
 	ld [hli], a ; wCurrentMenuItem
 	inc hl
-; do things, including new declaring which buttons to watch (new)
+; do things, including new declaring which buttons to watch (new, and also new is watching over START)
 	ld a, [wNumMovesMinusOne]
 	ld [hli], a ; wMaxMenuItem
-	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP
+	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP | START
 	ld [hli], a ; wMenuWatchedKeys
 	ld [hl], 0 ; wLastMenuItem
 ; printing old move info
@@ -178,7 +178,9 @@ TryingToLearn:
 	jr nz, .doTheThings
 	bit BIT_B_BUTTON, a
 	jr nz, .doTheThings
-; not A or B, so is UP or DOWN
+	bit BIT_START, a
+	jr nz, ShowDetailedInfoNewMove ; testing
+; not A or B or START, so is UP or DOWN
 	push af
 	bit BIT_D_DOWN, a
 	jr nz, .updateBox
@@ -223,6 +225,14 @@ TryingToLearn:
 .cancel
 	scf
 	ret
+
+ShowDetailedInfoNewMove: ; new
+	call SaveScreenTilesToBuffer2
+	callfar ShowAttackdexData
+;	predef LoadMonBackPic
+	call LoadScreenTilesFromBuffer2
+;	call LoadHudAndHpBarAndStatusTilePatterns
+	jp TryingToLearn.inputLoop
 
 LearnedMove1Text:
 	text_far _LearnedMove1Text

@@ -82,7 +82,7 @@ HandleAttackexSideMenu:
 	ld b, 2
 	jr z, .exitSideMenu
 	ld hl, wTopMenuItemY
-	ld a, 8
+	ld a, 10
 	ld [hli], a ; top menu item Y
 	ld a, 15
 	ld [hli], a ; top menu item X
@@ -223,14 +223,15 @@ HandleAttackdexListMenu:
 Attackdex_DrawInterface:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
-; draw the horizontal line separating the seen and owned amounts from the menu
-	hlcoord 15, 6
+; draw the horizontal line separating the seen amount from the bottom-right menu
+	hlcoord 15, 8
 	ld a, "─"
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
+; draw vertical line
 	hlcoord 14, 0
 	ld [hl], $71 ; vertical line tile
 	hlcoord 14, 1
@@ -252,7 +253,7 @@ Attackdex_DrawInterface:
 	hlcoord 1, 1
 	ld de, AttackdexContentsText
 	call PlaceString
-	hlcoord 16, 8
+	hlcoord 16, 10
 	ld de, AttackdexMenuItemsText
 	call PlaceString
 ; find the highest attackdex number among the attacks the player has seen
@@ -289,11 +290,8 @@ DrawAttackdexVerticalLine:
 AttackdexSeenText:
 	db "SEEN@"
 
-PokedexOwnText2:
-	db "OWN@"
-
 AttackdexContentsText:
-	db "CONTENTS@"
+	db "ATTACKS:@"
 
 AttackdexMenuItemsText:
 	db   "INFO"
@@ -343,7 +341,7 @@ Attackdex_PlaceAttackList:
 	ld de, .dashedLine ; print a dashed line in place of the name if the player hasn't seen the attack
 	jr .skipGettingName
 .dashedLine ; for unseen attack in the list
-	db "----------@"
+	db "------------@"
 .getAttackName
 	call GetMoveName ; TBV
 .skipGettingName
@@ -381,7 +379,7 @@ IsAttackBitSet:
 ShowAttackdexData:
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
-	call UpdateSprites
+;	call UpdateSprites ; TBV
 	callfar LoadPokedexTilePatterns ; load pokedex tiles
 
 ; function to display pokedex data from inside the pokedex
@@ -402,8 +400,8 @@ ShowAttackdexDataInternal:
 	call RunPaletteCommand
 	pop af
 	ld [wd11e], a
-	call DrawDexEntryOnScreen2
-	call Pokedex_PrintFlavorTextAtRow112
+	call DrawAttackdexEntryOnScreen
+	call Attackdex_PrintFlavorTextAtRow10
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
@@ -428,7 +426,7 @@ PokedexDataDividerLine2:
 	db $6B, $6B, $69, $6B, $69, $6B, $69, $6B, $69, $6A
 	db "@"
 
-DrawDexEntryOnScreen2:
+DrawAttackdexEntryOnScreen:
 	call ClearScreen
 
 	hlcoord 0, 0
@@ -449,6 +447,11 @@ DrawDexEntryOnScreen2:
 	ld b, $67
 	call DrawTileLineCopy ; draw right border
 
+	hlcoord 1, 2
+	ld de, 1
+	lb bc, $6B, SCREEN_WIDTH-2
+	call DrawTileLineCopy ; draw divider between attack name and its info
+
 	ld a, $63 ; upper left corner tile
 	ldcoord_a 0, 0
 	ld a, $65 ; upper right corner tile
@@ -458,79 +461,306 @@ DrawDexEntryOnScreen2:
 	ld a, $6e ; lower right corner tile
 	ldcoord_a 19, 17
 
-	hlcoord 0, 9
+	hlcoord 0, 8
 	ld de, PokedexDataDividerLine2
 	call PlaceString ; draw horizontal divider line
 
-	call GetMoveName ; TBV
-	hlcoord 9, 2
+; print move name
+	call GetMoveName
+	hlcoord 2, 1
 	call PlaceString
 
-	ld hl, AttackdexEntryPointers
+; gather info on the move
 	ld a, [wd11e]
 	dec a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl] ; de = address of pokedex entry
+	ld de, wPlayerMoveNum
+	ld hl, Moves
+	ld bc, MOVE_LENGTH
+	call AddNTimes ; adds bc to hl a times
+	ld a, BANK(Moves)
+	call FarCopyData ; copies bc bytes from a:hl to de
 
+; print TYPE, BP, ACC, PP, and % texts
+	hlcoord 1, 3
+	ld de, TypeTextAttackdex
+	call PlaceString
+
+	hlcoord 1, 4
+	ld de, BPTextAttackdex
+	call PlaceString
+
+	hlcoord 1, 5
+	ld de, AccuracyTextAttackdex
+	call PlaceString
+
+	hlcoord 1, 6
+	ld de, PPTextAttackdex
+	call PlaceString
+
+	hlcoord 10, 5
+	ld [hl], "%"
+
+; print base power
 	hlcoord 9, 4
-	call PlaceString ; print species name
+	ld a, [wPlayerMoveEffect]
+	cp OHKO_EFFECT
+	jr z, .OHKOMove
+	ld a, [wPlayerMovePower]
+	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
+	jr z, .specialDamage
+	hlcoord 7, 4
+	ld de, wPlayerMovePower
+	lb bc, 1, 3
+	call PrintNumber ; prints the c-digit, b-byte value at de
+	jr .afterDamagePrinting
+.OHKOMove
+	ld [hl], "INFINITE"
+	jr .afterDamagePrinting
+.specialDamage
+	ld [hl], "?"
+.afterDamagePrinting
 
-	ld h, b
-	ld l, c
-	push de
-	ld a, [wd11e]
-	push af
-	call IndexToPokedex
+; print accuracy
+	hlcoord 7, 5
+	xor a
+	ld b, a
+	ld a, [wPlayerMoveAccuracy]
+.loopAccuracy
+	sub 12
+	jr c, .accuracyFound
+	ld c, a
+	ld a, b
+	add 5
+	ld b, a
+	ld a, c
+	jr .loopAccuracy
+.accuracyFound
+	ld a, b
+	cp 76 ; fine-tuned number because
+	jr c, .noSub5
+	sub 5
+.noSub5
+	ld [wPlayerMoveAccuracyPercent], a
+	ld de, wPlayerMoveAccuracyPercent
+	lb bc, 1, 3
+	call PrintNumber ; prints the c-digit, b-byte value at de
 
-	hlcoord 2, 8
-	ld a, "№"
-	ld [hli], a
-	ld a, "<DOT>"
-	ld [hli], a
-	ld de, wd11e
-	lb bc, LEADING_ZEROES | 1, 3
-	call PrintNumber ; print pokedex number
+; print (base) PP
+	hlcoord 8, 6
+	ld de, wPlayerMoveMaxPP
+	lb bc, 1, 2
+	call PrintNumber
 
-	ld hl, wPokedexOwned
-	call IsAttackBitSet
-	pop af
-	ld [wd11e], a
-	ld a, [wcf91]
-	ld [wd0b5], a
-	pop de
+; print move type
+	hlcoord 7, 3
+	predef PrintMoveType
 
+; prepare pointer for description printing
+	ld a, [wPlayerMoveEffect]
+
+	cp NO_ADDITIONAL_EFFECT
+	jr z, .handleNoAdditionalEffect
+
+	cp DRAIN_HP_EFFECT
+	jr z, .handleDrainHPEffect
+
+
+
+	
+	ld hl, AttackdexText_FreezeSideEffect
+	cp FREEZE_SIDE_EFFECT
+	jr z, .done
+
+	ld hl, AttackdexText_PoisonSideEffect1
+	cp POISON_SIDE_EFFECT1
+	jr z, .done
+
+	ld hl, AttackdexText_PoisonSideEffect3
+	cp POISON_SIDE_EFFECT3
+	jr z, .done
+
+	ld hl, AttackdexText_PoisonSideEffect4
+	cp POISON_SIDE_EFFECT4
+	jr z, .done
+
+	ld hl, AttackdexText_BurnSideEffect1
+	cp BURN_SIDE_EFFECT1
+	jr z, .done
+
+	ld hl, AttackdexText_BurnSideEffect2
+	cp BURN_SIDE_EFFECT2
+	jr z, .done
+
+	ld hl, AttackdexText_ParalyzeSideEffect1
+	cp PARALYZE_SIDE_EFFECT1
+	jr z, .done
+
+	ld hl, AttackdexText_ParalyzeSideEffect2
+	cp PARALYZE_SIDE_EFFECT2
+	jr z, .done
+
+	ld hl, AttackdexText_ParalyzeSideEffectCert
+	cp PARALYZE_SIDE_EFFECT_CERT
+	jr z, .done
+
+	ld hl, AttackdexText_FlinchSideEffect1
+	cp FLINCH_SIDE_EFFECT1
+	jr z, .done
+
+	ld hl, AttackdexText_FlinchSideEffect2
+	cp FLINCH_SIDE_EFFECT2
+	jr z, .done
+
+	ld hl, AttackdexText_FlinchSideEffect3
+	cp FLINCH_SIDE_EFFECT3
+	jr z, .done
+
+;	EXPLODE_EFFECT
+;	DREAM_EATER_EFFECT
+;	MIRROR_MOVE_EFFECT
+;	ATTACK_UP1_EFFECT
+;	DEFENSE_UP1_EFFECT
+;	SPEED_UP1_EFFECT
+;	SPECIAL_UP1_EFFECT
+;	ACCURACY_UP1_EFFECT
+;	EVASION_UP1_EFFECT
+;	PAY_DAY_EFFECT
+;	SWIFT_EFFECT
+;	ATTACK_DOWN1_EFFECT
+;	DEFENSE_DOWN1_EFFECT
+;	SPEED_DOWN1_EFFECT
+;	SPECIAL_DOWN1_EFFECT
+;	ACCURACY_DOWN1_EFFECT
+;	EVASION_DOWN1_EFFECT
+;	CONVERSION_EFFECT
+;	HAZE_EFFECT
+;	BIDE_EFFECT
+;	THRASH_PETAL_DANCE_EFFECT
+;	SWITCH_AND_TELEPORT_EFFECT
+;	TWO_TO_FIVE_ATTACKS_EFFECT
+;	SLEEP_EFFECT
+;	OHKO_EFFECT
+;	CHARGE_EFFECT
+;	SUPER_FANG_EFFECT
+;	SPECIAL_DAMAGE_EFFECT
+;	TRAPPING_EFFECT
+;	FLY_EFFECT
+;	ATTACK_TWICE_EFFECT
+;	JUMP_KICK_EFFECT
+;	MIST_EFFECT
+;	FOCUS_ENERGY_EFFECT
+;	RECOIL_EFFECT
+;	CONFUSION_EFFECT
+;	ATTACK_UP2_EFFECT
+;	DEFENSE_UP2_EFFECT
+;	SPEED_UP2_EFFECT
+;	SPECIAL_UP2_EFFECT
+;	ACCURACY_UP2_EFFECT
+;	EVASION_UP2_EFFECT
+;	HEAL_EFFECT
+;	TRANSFORM_EFFECT
+;	ATTACK_DOWN2_EFFECT
+;	DEFENSE_DOWN2_EFFECT
+;	SPEED_DOWN2_EFFECT
+;	SPECIAL_DOWN2_EFFECT
+;	ACCURACY_DOWN2_EFFECT
+;	EVASION_DOWN2_EFFECT
+;	LIGHT_SCREEN_EFFECT
+;	REFLECT_EFFECT
+;	POISON_EFFECT
+;	PARALYZE_EFFECT
+;	ATTACK_DOWN_SIDE_EFFECT1
+;	DEFENSE_DOWN_SIDE_EFFECT1
+;	SPEED_DOWN_SIDE_EFFECT1
+;	SPECIAL_DOWN_SIDE_EFFECT1
+;	ATTACK_DOWN_SIDE_EFFECT2
+;	DEFENSE_DOWN_SIDE_EFFECT2
+;	SPEED_DOWN_SIDE_EFFECT2
+;	SPECIAL_DOWN_SIDE_EFFECT2
+;	ATTACK_DOWN_SIDE_EFFECT3
+;	DEFENSE_DOWN_SIDE_EFFECT3
+;	SPEED_DOWN_SIDE_EFFECT3
+;	SPECIAL_DOWN_SIDE_EFFECT3
+;	ATTACK_DOWN_SIDE_EFFECT_CERT
+;	DEFENSE_DOWN_SIDE_EFFECT_CERT
+;	SPEED_DOWN_SIDE_EFFECT_CERT
+;	SPECIAL_DOWN_SIDE_EFFECT_CERT
+;	ACCURACY_DOWN_SIDE_EFFECT_CERT
+;	EVASION_DOWN_SIDE_EFFECT_CERT
+;	CONFUSION_SIDE_EFFECT1
+;	CONFUSION_SIDE_EFFECT2
+;	CONFUSION_SIDE_EFFECT3
+;	TWINEEDLE_EFFECT
+;	SUBSTITUTE_EFFECT
+;	HYPER_BEAM_EFFECT
+;	CURSE_EFFECT
+;	MIMIC_EFFECT
+;	METRONOME_EFFECT
+;	LEECH_SEED_EFFECT
+;	SPLASH_EFFECT
+;	DISABLE_EFFECT
+;	BURN_EFFECT
+;	TRIATTACK_EFFECT
+;	ATTACK_SPEED_UP1_EFFECT
+;	ATTACK_UP_SIDE_EFF1
+;	DEFENSE_UP_SIDE_EFF1
+;	ATTACK_UP_SIDE_EFF2
+;	ATTACK_DEFENSE_SELFDOWN1
+;	DEFENSE_SPECIAL_SELFDOWN1
+;	ATTACK_SELFDOWN1
+;	DEFENSE_SELFDOWN1
+;	SPEED_SELFDOWN1
+;	SPECIAL_SELFDOWN1
+;	ATTACK_SELFDOWN2
+;	DEFENSE_SELFDOWN2
+;	SPEED_SELFDOWN2
+;	SPECIAL_SELFDOWN2
+;
+;	FLINCH_SIDE_EFFECT5
+;
+;	FREEZE_DRY
+;	GYRO_BALL
+;	PSYSTRIKE
+;	BODY_PRESS
+;	FLAIL
+;	THOUSANDARROWS
+;	JUDGMENT
+
+
+
+
+
+	ld hl, AttackdexText_PROXY
+	jr .done
+
+.handleNoAdditionalEffect
+	ld hl, AttackdexText_NoAdditionalEffect
+	jr .done
+
+.handleDrainHPEffect
+	ld a, [wPlayerMoveNum]
+	ld hl, AttackdexText_DrainHPEffect50
+	cp DRAININGKISS
+	jr nz, .notDrainingKiss
+	ld hl, AttackdexText_DrainHPEffect75
+.notDrainingKiss
+	jr .done
+
+.done
 	push af
 	push bc
 	push de
 	push hl
-
-	call Delay3
-	call GBPalNormal
-	call GetMonHeader ; load pokemon picture location
-;	hlcoord 1, 1
-;	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
-;	ld a, [wcf91]
-;	call PlayCry ; play pokemon cry
-
+	call GBPalNormal ; what does this even do?
 	pop hl
 	pop de
 	pop bc
 	pop af
-
-	ld a, c
-	and a
-
 	ret
 
-
-Pokedex_PrintFlavorTextAtRow112:
-	bccoord 1, 11
-Pokedex_PrintFlavorTextAtBC2:
+Attackdex_PrintFlavorTextAtRow10:
+	bccoord 1, 10
+Attackdex_PrintFlavorTextAtBC:
 	ld a, %10
 	ldh [hClearLetterPrintingDelayFlags], a
 	call TextCommandProcessor ; print pokedex description text
@@ -562,7 +792,7 @@ Pokedex_PrepareDexEntryForPrinting2:
 	ldh a, [hUILayoutFlags]
 	set 3, a
 	ldh [hUILayoutFlags], a
-	call Pokedex_PrintFlavorTextAtBC2
+	call Attackdex_PrintFlavorTextAtBC
 	ldh a, [hUILayoutFlags]
 	res 3, a
 	ldh [hUILayoutFlags], a
@@ -587,3 +817,81 @@ DrawTileLineCopy:
 	ret
 
 INCLUDE "data/moves/attackdex_entries.asm"
+
+PPTextAttackdex:
+	db "PP:@"
+
+BPTextAttackdex:
+	db "BP:@"
+
+TypeTextAttackdex:
+	db "TYPE:@"
+
+AccuracyTextAttackdex:
+	db "ACC:@"
+
+; ==============================================================
+
+AttackdexText_FreezeSideEffect:
+	text_far _AttackdexText_FreezeSideEffect
+	text_end
+
+AttackdexText_PROXY:
+	text_far _AttackdexText_PROXY
+	text_end
+
+AttackdexText_NoAdditionalEffect:
+	text_far _AttackdexText_NoAdditionalEffect
+	text_end
+
+AttackdexText_PoisonSideEffect1:
+	text_far _AttackdexText_PoisonSideEffect1
+	text_end
+
+AttackdexText_PoisonSideEffect3:
+	text_far _AttackdexText_PoisonSideEffect3
+	text_end
+
+AttackdexText_PoisonSideEffect4:
+	text_far _AttackdexText_PoisonSideEffect4
+	text_end
+
+AttackdexText_BurnSideEffect1:
+	text_far _AttackdexText_BurnSideEffect1
+	text_end
+
+AttackdexText_BurnSideEffect2:
+	text_far _AttackdexText_BurnSideEffect2
+	text_end
+
+AttackdexText_ParalyzeSideEffect1:
+	text_far _AttackdexText_ParalyzeSideEffect1
+	text_end
+
+AttackdexText_ParalyzeSideEffect2:
+	text_far _AttackdexText_ParalyzeSideEffect2
+	text_end
+
+AttackdexText_ParalyzeSideEffectCert:
+	text_far _AttackdexText_ParalyzeSideEffectCert
+	text_end
+
+AttackdexText_FlinchSideEffect1:
+	text_far _AttackdexText_FlinchSideEffect1
+	text_end
+
+AttackdexText_FlinchSideEffect2:
+	text_far _AttackdexText_FlinchSideEffect2
+	text_end
+
+AttackdexText_FlinchSideEffect3:
+	text_far _AttackdexText_FlinchSideEffect3
+	text_end
+
+AttackdexText_DrainHPEffect50:
+	text_far _AttackdexText_DrainHPEffect50
+	text_end
+
+AttackdexText_DrainHPEffect75:
+	text_far _AttackdexText_DrainHPEffect75
+	text_end
