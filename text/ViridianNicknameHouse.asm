@@ -21,3 +21,14 @@ _ViridianHouseText4::
 	text "SPEAROW"
 	line "Name: SPEARY"
 	done
+
+_ViridianHouseText6::
+	text "The notebook is"
+	line "full of notes..."
+
+	para "...but the"
+	line "handwriting is so"
+	cont "terrible that"
+	cont "nothing can be"
+	cont "read!"
+	done

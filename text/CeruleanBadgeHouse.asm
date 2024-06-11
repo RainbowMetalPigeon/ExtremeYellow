@@ -95,3 +95,15 @@ _CeruleanHouse2Text_74ea5:: ; RAINBOWBADGE
 	line "use STRENGTH out-"
 	cont "side of battle."
 	prompt
+
+_CeruleanHouse2Text1:: ; new
+	text "My sibling's kids"
+	line "have such a sweet"
+	cont "tooth!"
+
+	para "They always have"
+	line "some treats with"
+	cont "them when they"
+	cont "come playing in"
+	cont "my backyard."
+	done

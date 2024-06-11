@@ -69,7 +69,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const VIRIDIAN_POKECENTER,            7,  4 ; $29
 	map_const VIRIDIAN_MART,                  4,  4 ; $2A
 	map_const VIRIDIAN_SCHOOL_HOUSE,          4,  4 ; $2B
-	map_const VIRIDIAN_NICKNAME_HOUSE,        4,  4 ; $2C
+	map_const VIRIDIAN_NICKNAME_HOUSE,       11,  4 ; $2C ; edited
 	map_const VIRIDIAN_GYM,                  10,  9 ; $2D
 	map_const DIGLETTS_CAVE_ROUTE_2,          4,  4 ; $2E
 	map_const HAUNTED_REDS_HOUSE,            11,  5 ; $2F ; new

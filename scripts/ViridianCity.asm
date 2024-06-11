@@ -39,7 +39,7 @@ ViridianCityScript_CheckIfGymIsOpen:
 	ld a, [wXCoord]
 	cp 32
 	ret nz
-	ld a, 16 ; +1 because of traveler
+	ld a, 17 ; +1 because of traveler, +1 because new school sign
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call StartSimulatingJoypadStates
@@ -109,7 +109,7 @@ ViridianCityScript2:
 	SetEvent EVENT_02E ; useless
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 17 ; +1 because of traveler
+	ld a, 18 ; +1 because of traveler, +1 because new school sign
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -258,15 +258,16 @@ ViridianCity_TextPointers:
 	dw ViridianCityText_6 ; 7 ; dialogue for second catching tutorial
 	dw ViridianCityText_7 ; 8 ; dialogue for first catching tutorial
 	dw TextPreBattle_ViridianTraveler ; 9, new, for traveler
-	dw ViridianCityText_8 ; $A
-	dw ViridianCityText_9 ; $B
-	dw ViridianCityText_10 ; $C
-	dw MartSignText ; $D
-	dw PokeCenterSignText ; $E
-	dw ViridianCityText_11 ; $F
-	dw ViridianCityText_12 ; $10=16
-	dw ViridianCityText_13 ; $11=17 ; first you need to weak target mon
-	dw TextPostBattle_ViridianTraveler ; $12=18 new, for traveler
+	dw ViridianCityText_8 ; $A=10
+	dw ViridianCityText_9 ; $B=11
+	dw ViridianCityText_10 ; $C=12
+	dw MartSignText ; $D=13
+	dw PokeCenterSignText ; $E=14
+	dw ViridianCityText_11 ; $F=15 ; sign
+	dw ViridianCityText_14_School ; $10=16 ; new sign
+	dw ViridianCityText_12 ; $10=17
+	dw ViridianCityText_13 ; $11=18 ; first you need to weak target mon
+	dw TextPostBattle_ViridianTraveler ; $12=19 new, for traveler
 
 ViridianCityText_0:
 	text_asm
@@ -387,6 +388,10 @@ ViridianCityText_12:
 	farcall Func_f19f5
 	jp TextScriptEnd
 
+ViridianCityText_14_School: ; end
+	text_far _ViridianCityText_14_School
+	text_end
+
 ; ================================
 
 TextPreBattle_ViridianTraveler: ; new
@@ -499,7 +504,7 @@ ViridianScript_Traveler:
     ld a, HS_VIRIDIAN_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, 18 ; city-specific
+	ld a, 19 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

@@ -224,3 +224,11 @@ _ViridianCityText14::
 	text "The GYM's doors"
 	line "are locked..."
 	done
+
+_ViridianCityText_14_School::
+	text "VIRIDIAN SCHOOL"
+
+	para "We nurture the"
+	line "trainers of"
+	cont "tomorrow!"
+	done

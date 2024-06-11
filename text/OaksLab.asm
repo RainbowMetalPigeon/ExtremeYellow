@@ -533,7 +533,7 @@ _OaksLabText_AidPikachuInfo1:: ; new
 	cont "you own."
 
 	para "The BADGE EXPERT"
-	line "in CERULEAN can"
+	line "in VIRIDIAN can"
 	cont "tell you more"
 	cont "about this."
 
