@@ -87,6 +87,7 @@ PlaceNextChar::
 	dict "<SCROLL>",  _ContTextNoPause
 	dict "<_CONT>",   _ContText
 	dict "<PARA>",    Paragraph
+	dict "<ATPG>",    AtpgChar ; new, for Attackdex
 	dict "<PAGE>",    PageChar
 	dict "<PLAYER>",  PrintPlayerName
 	dict "<RIVAL>",   PrintRivalName
@@ -259,6 +260,30 @@ PageChar::
 	pop de
 	pop hl
 	hlcoord 1, 11
+	push hl
+	jp NextChar
+
+AtpgChar:: ; new, for Attackdex
+	ldh a, [hUILayoutFlags]
+	bit 3, a
+	jr z, .atpgChar
+	ld a, "<NEXT>"
+	jp PlaceNextChar.NotTerminator
+
+.atpgChar
+	push de
+	ld a, "▼"
+	ldcoord_a 18, 16
+	call ProtectedDelay3
+	call ManualTextScroll
+	hlcoord 1, 9 ; TBV
+	lb bc, 8, 18 ; TBV
+	call ClearScreenArea
+	ld c, 20
+	call DelayFrames
+	pop de
+	pop hl
+	hlcoord 1, 10 ; main/only difference wrt Pokedex "page" command
 	push hl
 	jp NextChar
 

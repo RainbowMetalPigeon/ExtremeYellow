@@ -94,3 +94,14 @@ CriticalHitTest:
 	ret
 
 INCLUDE "data/battle/critical_hit_moves.asm"
+
+IsMoveHighCrit:: ; to be used in the Attackdex
+; input: move ID in d
+; output: c flag if found
+	ld a, d
+	ld hl, HighCriticalMoves
+	ld de, 1 ; 1-byte entry
+	call IsInArray ; Search an array at hl for the value in a.
+				   ; Entry size is de bytes.
+				   ; Return count b and carry if found.
+	ret

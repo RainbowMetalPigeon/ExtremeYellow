@@ -92,6 +92,7 @@ INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
 SECTION "bankGarage2", ROMX ; new
 
 INCLUDE "engine/menus/item_descriptions.asm"
+INCLUDE "audio/fade_audio.asm" ; moved from home bank
 
 
 SECTION "bank4", ROMX

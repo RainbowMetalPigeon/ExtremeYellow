@@ -8,6 +8,7 @@ DEF prompt EQUS "db \"<PROMPT>\"" ; Prompt the player to end a text box (initiat
 
 DEF page   EQUS "db \"<PAGE>\","         ; Start a new Pokédex page.
 DEF dex    EQUS "db \"<DEXEND>\", \"@\"" ; End a Pokédex entry.
+DEF atpg   EQUS "db \"<ATPG>\","         ; Start a new ATackdex PaGe ; new
 
 
 ; TextCommandJumpTable indexes (see home/text.asm)

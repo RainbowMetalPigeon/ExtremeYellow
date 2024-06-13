@@ -614,82 +614,345 @@ DrawAttackdexEntryOnScreen:
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
-	jr z, .handleNoAdditionalEffect
+	jp z, .handleNoAdditionalEffect
 
 	cp DRAIN_HP_EFFECT
-	jr z, .handleDrainHPEffect
+	jp z, .handleDrainHPEffect
 
+	cp POISON_EFFECT
+	jp z, .handlePoisonEffect
 
 
 
 	ld hl, AttackdexText_FreezeSideEffect
 	cp FREEZE_SIDE_EFFECT
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_PoisonSideEffect1
 	cp POISON_SIDE_EFFECT1
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_PoisonSideEffect3
 	cp POISON_SIDE_EFFECT3
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_PoisonSideEffect4
 	cp POISON_SIDE_EFFECT4
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_BurnSideEffect1
 	cp BURN_SIDE_EFFECT1
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_BurnSideEffect2
 	cp BURN_SIDE_EFFECT2
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_ParalyzeSideEffect1
 	cp PARALYZE_SIDE_EFFECT1
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_ParalyzeSideEffect2
 	cp PARALYZE_SIDE_EFFECT2
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_ParalyzeSideEffectCert
 	cp PARALYZE_SIDE_EFFECT_CERT
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_FlinchSideEffect1
 	cp FLINCH_SIDE_EFFECT1
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_FlinchSideEffect2
 	cp FLINCH_SIDE_EFFECT2
-	jr z, .done
+	jp z, .done
 
 	ld hl, AttackdexText_FlinchSideEffect3
 	cp FLINCH_SIDE_EFFECT3
-	jr z, .done
+	jp z, .done
 
-;	EXPLODE_EFFECT
-;	DREAM_EATER_EFFECT
-;	MIRROR_MOVE_EFFECT
+	ld hl, AttackdexText_ExplodeEffect
+	cp EXPLODE_EFFECT
+	jp z, .done
 
-;	ATTACK_UP1_EFFECT
-;	DEFENSE_UP1_EFFECT
-;	SPEED_UP1_EFFECT
-;	SPECIAL_UP1_EFFECT
-;	ACCURACY_UP1_EFFECT
-;	EVASION_UP1_EFFECT
+	ld hl, AttackdexText_DreamEaterEffect
+	cp DREAM_EATER_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_MirrorMoveEffect
+	cp MIRROR_MOVE_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AttackUp1Effect
+	cp ATTACK_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseUp1Effect
+	cp DEFENSE_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedUp1Effect
+	cp SPEED_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialUp1Effect
+	cp SPECIAL_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AccuracyUp1Effect
+	cp ACCURACY_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_EvasionUp1Effect
+	cp EVASION_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AttackUp2Effect
+	cp ATTACK_UP2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseUp2Effect
+	cp DEFENSE_UP2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedUp2Effect
+	cp SPEED_UP2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialUp2Effect
+	cp SPECIAL_UP2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AccuracyUp2Effect
+	cp ACCURACY_UP2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_EvasionUp2Effect
+	cp EVASION_UP2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDown1Effect
+	cp ATTACK_DOWN1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDown1Effect
+	cp DEFENSE_DOWN1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedDown1Effect
+	cp SPEED_DOWN1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialDown1Effect
+	cp SPECIAL_DOWN1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AccuracyDown1Effect
+	cp ACCURACY_DOWN1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_EvasionDown1Effect
+	cp EVASION_DOWN1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDown2Effect
+	cp ATTACK_DOWN2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDown2Effect
+	cp DEFENSE_DOWN2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedDown2Effect
+	cp SPEED_DOWN2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialDown2Effect
+	cp SPECIAL_DOWN2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AccuracyDown2Effect
+	cp ACCURACY_DOWN2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_EvasionDown2Effect
+	cp EVASION_DOWN2_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDownSide1Effect
+	cp ATTACK_DOWN_SIDE_EFFECT1
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDownSide1Effect
+	cp DEFENSE_DOWN_SIDE_EFFECT1
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedDownSide1Effect
+	cp SPEED_DOWN_SIDE_EFFECT1
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialDownSide1Effect
+	cp SPECIAL_DOWN_SIDE_EFFECT1
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDownSide2Effect
+	cp ATTACK_DOWN_SIDE_EFFECT2
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDownSide2Effect
+	cp DEFENSE_DOWN_SIDE_EFFECT2
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedDownSide2Effect
+	cp SPEED_DOWN_SIDE_EFFECT2
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialDownSide2Effect
+	cp SPECIAL_DOWN_SIDE_EFFECT2
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDownSide3Effect
+	cp ATTACK_DOWN_SIDE_EFFECT3
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDownSide3Effect
+	cp DEFENSE_DOWN_SIDE_EFFECT3
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedDownSide3Effect
+	cp SPEED_DOWN_SIDE_EFFECT3
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialDownSide3Effect
+	cp SPECIAL_DOWN_SIDE_EFFECT3
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDownSideCertEffect
+	cp ATTACK_DOWN_SIDE_EFFECT_CERT
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDownSideCertEffect
+	cp DEFENSE_DOWN_SIDE_EFFECT_CERT
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedDownSideCertEffect
+	cp SPEED_DOWN_SIDE_EFFECT_CERT
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialDownSideCertEffect
+	cp SPECIAL_DOWN_SIDE_EFFECT_CERT
+	jp z, .done
+
+	ld hl, AttackdexText_AccuracyDownSideCertEffect
+	cp ACCURACY_DOWN_SIDE_EFFECT_CERT
+	jp z, .done
+
+	ld hl, AttackdexText_EvasionDownSideCertEffect
+	cp EVASION_DOWN_SIDE_EFFECT_CERT
+	jp z, .done
+
+	ld hl, AttackdexText_ConfusionSide1Effect
+	cp CONFUSION_SIDE_EFFECT1
+	jp z, .done
+
+	ld hl, AttackdexText_ConfusionSide2Effect
+	cp CONFUSION_SIDE_EFFECT2
+	jp z, .done
+
+	ld hl, AttackdexText_ConfusionSide3Effect
+	cp CONFUSION_SIDE_EFFECT3
+	jp z, .done
+
+	ld hl, AttackdexText_AttackSpeedUp1Effect
+	cp ATTACK_SPEED_UP1_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_AttackUpSide1Effect
+	cp ATTACK_UP_SIDE_EFF1
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseUpSide1Effect
+	cp DEFENSE_UP_SIDE_EFF1
+	jp z, .done
+
+	ld hl, AttackdexText_AttackUpSide2Effect
+	cp ATTACK_UP_SIDE_EFF2
+	jp z, .done
+
+	ld hl, AttackdexText_AttackSelfDown1Effect
+	cp ATTACK_SELFDOWN1
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseSelfDown1Effect
+	cp DEFENSE_SELFDOWN1
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedSelfDown1Effect
+	cp SPEED_SELFDOWN1
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialSelfDown1Effect
+	cp SPECIAL_SELFDOWN1
+	jp z, .done
+
+	ld hl, AttackdexText_AttackSelfDown2Effect
+	cp ATTACK_SELFDOWN2
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseSelfDown2Effect
+	cp DEFENSE_SELFDOWN2
+	jp z, .done
+
+	ld hl, AttackdexText_SpeedSelfDown2Effect
+	cp SPEED_SELFDOWN2
+	jp z, .done
+
+	ld hl, AttackdexText_SpecialSelfDown2Effect
+	cp SPECIAL_SELFDOWN2
+	jp z, .done
+
+	ld hl, AttackdexText_AttackDefenseSelfDown1Effect
+	cp ATTACK_DEFENSE_SELFDOWN1
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseSpecialSelfDown1Effect
+	cp DEFENSE_SPECIAL_SELFDOWN1
+	jp z, .done
+
+
+
+
+
+
+	ld hl, AttackdexText_ParalyzeEffect
+	cp PARALYZE_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SleepEffect
+	cp SLEEP_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_BurnEffect
+	cp BURN_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_ConfusionEffect
+	cp CONFUSION_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_CurseEffect
+	cp CURSE_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_LeechSeedEffect
+	cp LEECH_SEED_EFFECT
+	jp z, .done
+
+
 
 ;	PAY_DAY_EFFECT
 ;	SWIFT_EFFECT
-
-;	ATTACK_DOWN1_EFFECT
-;	DEFENSE_DOWN1_EFFECT
-;	SPEED_DOWN1_EFFECT
-;	SPECIAL_DOWN1_EFFECT
-;	ACCURACY_DOWN1_EFFECT
-;	EVASION_DOWN1_EFFECT
 
 ;	CONVERSION_EFFECT
 ;	HAZE_EFFECT
@@ -697,7 +960,6 @@ DrawAttackdexEntryOnScreen:
 ;	THRASH_PETAL_DANCE_EFFECT
 ;	SWITCH_AND_TELEPORT_EFFECT
 ;	TWO_TO_FIVE_ATTACKS_EFFECT
-;	SLEEP_EFFECT
 ;	OHKO_EFFECT
 ;	CHARGE_EFFECT
 ;	SUPER_FANG_EFFECT
@@ -709,86 +971,25 @@ DrawAttackdexEntryOnScreen:
 ;	MIST_EFFECT
 ;	FOCUS_ENERGY_EFFECT
 ;	RECOIL_EFFECT
-;	CONFUSION_EFFECT
-
-;	ATTACK_UP2_EFFECT
-;	DEFENSE_UP2_EFFECT
-;	SPEED_UP2_EFFECT
-;	SPECIAL_UP2_EFFECT
-;	ACCURACY_UP2_EFFECT
-;	EVASION_UP2_EFFECT
 
 ;	HEAL_EFFECT
-;	TRANSFORM_EFFECT
 
-;	ATTACK_DOWN2_EFFECT
-;	DEFENSE_DOWN2_EFFECT
-;	SPEED_DOWN2_EFFECT
-;	SPECIAL_DOWN2_EFFECT
-;	ACCURACY_DOWN2_EFFECT
-;	EVASION_DOWN2_EFFECT
+;	TRANSFORM_EFFECT
 
 ;	LIGHT_SCREEN_EFFECT
 ;	REFLECT_EFFECT
-;	POISON_EFFECT
-;	PARALYZE_EFFECT
-
-;	ATTACK_DOWN_SIDE_EFFECT1
-;	DEFENSE_DOWN_SIDE_EFFECT1
-;	SPEED_DOWN_SIDE_EFFECT1
-;	SPECIAL_DOWN_SIDE_EFFECT1
-;	ATTACK_DOWN_SIDE_EFFECT2
-;	DEFENSE_DOWN_SIDE_EFFECT2
-;	SPEED_DOWN_SIDE_EFFECT2
-;	SPECIAL_DOWN_SIDE_EFFECT2
-;	ATTACK_DOWN_SIDE_EFFECT3
-;	DEFENSE_DOWN_SIDE_EFFECT3
-;	SPEED_DOWN_SIDE_EFFECT3
-;	SPECIAL_DOWN_SIDE_EFFECT3
-
-;	ATTACK_DOWN_SIDE_EFFECT_CERT
-;	DEFENSE_DOWN_SIDE_EFFECT_CERT
-;	SPEED_DOWN_SIDE_EFFECT_CERT
-;	SPECIAL_DOWN_SIDE_EFFECT_CERT
-;	ACCURACY_DOWN_SIDE_EFFECT_CERT
-;	EVASION_DOWN_SIDE_EFFECT_CERT
-
-;	CONFUSION_SIDE_EFFECT1
-;	CONFUSION_SIDE_EFFECT2
-;	CONFUSION_SIDE_EFFECT3
 
 ;	TWINEEDLE_EFFECT
 ;	SUBSTITUTE_EFFECT
 ;	HYPER_BEAM_EFFECT
-;	CURSE_EFFECT
 ;	MIMIC_EFFECT
 ;	METRONOME_EFFECT
-;	LEECH_SEED_EFFECT
 ;	SPLASH_EFFECT
 ;	DISABLE_EFFECT
-;	BURN_EFFECT
 ;	TRIATTACK_EFFECT
 
-;	ATTACK_SPEED_UP1_EFFECT
-
-;	ATTACK_UP_SIDE_EFF1
-;	DEFENSE_UP_SIDE_EFF1
-;	ATTACK_UP_SIDE_EFF2
-;	ATTACK_DEFENSE_SELFDOWN1
-;	DEFENSE_SPECIAL_SELFDOWN1
-
-;	ATTACK_SELFDOWN1
-;	DEFENSE_SELFDOWN1
-;	SPEED_SELFDOWN1
-;	SPECIAL_SELFDOWN1
-
-;	ATTACK_SELFDOWN2
-;	DEFENSE_SELFDOWN2
-;	SPEED_SELFDOWN2
-;	SPECIAL_SELFDOWN2
-
-;	FLINCH_SIDE_EFFECT5
-
+; !!!!!!!!!!!
+;	ANCESTOR_PWR
 ;	FREEZE_DRY
 ;	GYRO_BALL
 ;	PSYSTRIKE
@@ -805,19 +1006,33 @@ DrawAttackdexEntryOnScreen:
 	jr .done
 
 .handleNoAdditionalEffect
-	; TBE: check for high crit rate and for priority
-	; TBV: priority to be handled automatically or manually?
+; TBE: check for high crit rate and for priority
+; TBV: crit rate: IsMoveHighCrit (move ID in d, c flag if found)
+; TBV: priority to be handled automatically or manually? AIGetPriority wEnemyMoveNum
+	ld a, [wPlayerMoveNum]
+	ld d, a
+	callfar IsMoveHighCrit
+	ld hl, AttackdexText_HighCritMove
+	jp c, .done
 	ld hl, AttackdexText_NoAdditionalEffect
-	jr .done
+	jp .done
 
 .handleDrainHPEffect
 	ld a, [wPlayerMoveNum]
 	ld hl, AttackdexText_DrainHPEffect50
 	cp DRAININGKISS
-	jr nz, .notDrainingKiss
+	jp nz, .done
 	ld hl, AttackdexText_DrainHPEffect75
-.notDrainingKiss
-	jr .done
+	jp .done
+
+.handlePoisonEffect
+	ld a, [wPlayerMoveNum]
+	ld hl, AttackdexText_PoisonEffect
+	cp TOXIC
+	jp nz, .done
+	ld hl, AttackdexText_ToxicEffect
+	jp .done
+
 
 .done
 	push af
@@ -903,16 +1118,20 @@ AccuracyTextAttackdex:
 
 ; ==============================================================
 
-AttackdexText_FreezeSideEffect:
-	text_far _AttackdexText_FreezeSideEffect
-	text_end
-
 AttackdexText_PROXY:
 	text_far _AttackdexText_PROXY
 	text_end
 
 AttackdexText_NoAdditionalEffect:
 	text_far _AttackdexText_NoAdditionalEffect
+	text_end
+
+AttackdexText_HighCritMove:
+	text_far _AttackdexText_HighCritMove
+	text_end
+
+AttackdexText_FreezeSideEffect:
+	text_far _AttackdexText_FreezeSideEffect
 	text_end
 
 AttackdexText_PoisonSideEffect1:
@@ -965,4 +1184,284 @@ AttackdexText_DrainHPEffect50:
 
 AttackdexText_DrainHPEffect75:
 	text_far _AttackdexText_DrainHPEffect75
+	text_end
+
+AttackdexText_ExplodeEffect:
+	text_far _AttackdexText_ExplodeEffect
+	text_end
+
+AttackdexText_DreamEaterEffect:
+	text_far _AttackdexText_DreamEaterEffect
+	text_end
+
+AttackdexText_MirrorMoveEffect:
+	text_far _AttackdexText_MirrorMoveEffect
+	text_end
+
+AttackdexText_AttackUp1Effect:
+	text_far _AttackdexText_AttackUp1Effect
+	text_end
+
+AttackdexText_DefenseUp1Effect:
+	text_far _AttackdexText_DefenseUp1Effect
+	text_end
+
+AttackdexText_SpeedUp1Effect:
+	text_far _AttackdexText_SpeedUp1Effect
+	text_end
+
+AttackdexText_SpecialUp1Effect:
+	text_far _AttackdexText_SpecialUp1Effect
+	text_end
+
+AttackdexText_AccuracyUp1Effect:
+	text_far _AttackdexText_AccuracyUp1Effect
+	text_end
+
+AttackdexText_EvasionUp1Effect:
+	text_far _AttackdexText_EvasionUp1Effect
+	text_end
+
+AttackdexText_AttackUp2Effect:
+	text_far _AttackdexText_AttackUp2Effect
+	text_end
+
+AttackdexText_DefenseUp2Effect:
+	text_far _AttackdexText_DefenseUp2Effect
+	text_end
+
+AttackdexText_SpeedUp2Effect:
+	text_far _AttackdexText_SpeedUp2Effect
+	text_end
+
+AttackdexText_SpecialUp2Effect:
+	text_far _AttackdexText_SpecialUp2Effect
+	text_end
+
+AttackdexText_AccuracyUp2Effect:
+	text_far _AttackdexText_AccuracyUp2Effect
+	text_end
+
+AttackdexText_EvasionUp2Effect:
+	text_far _AttackdexText_EvasionUp2Effect
+	text_end
+
+AttackdexText_AttackDown1Effect:
+	text_far _AttackdexText_AttackDown1Effect
+	text_end
+
+AttackdexText_DefenseDown1Effect:
+	text_far _AttackdexText_DefenseDown1Effect
+	text_end
+
+AttackdexText_SpeedDown1Effect:
+	text_far _AttackdexText_SpeedDown1Effect
+	text_end
+
+AttackdexText_SpecialDown1Effect:
+	text_far _AttackdexText_SpecialDown1Effect
+	text_end
+
+AttackdexText_AccuracyDown1Effect:
+	text_far _AttackdexText_AccuracyDown1Effect
+	text_end
+
+AttackdexText_EvasionDown1Effect:
+	text_far _AttackdexText_EvasionDown1Effect
+	text_end
+
+AttackdexText_AttackDown2Effect:
+	text_far _AttackdexText_AttackDown2Effect
+	text_end
+
+AttackdexText_DefenseDown2Effect:
+	text_far _AttackdexText_DefenseDown2Effect
+	text_end
+
+AttackdexText_SpeedDown2Effect:
+	text_far _AttackdexText_SpeedDown2Effect
+	text_end
+
+AttackdexText_SpecialDown2Effect:
+	text_far _AttackdexText_SpecialDown2Effect
+	text_end
+
+AttackdexText_AccuracyDown2Effect:
+	text_far _AttackdexText_AccuracyDown2Effect
+	text_end
+
+AttackdexText_EvasionDown2Effect:
+	text_far _AttackdexText_EvasionDown2Effect
+	text_end
+
+AttackdexText_AttackDownSide1Effect:
+	text_far _AttackdexText_AttackDownSide1Effect
+	text_end
+
+AttackdexText_DefenseDownSide1Effect:
+	text_far _AttackdexText_DefenseDownSide1Effect
+	text_end
+
+AttackdexText_SpeedDownSide1Effect:
+	text_far _AttackdexText_SpeedDownSide1Effect
+	text_end
+
+AttackdexText_SpecialDownSide1Effect:
+	text_far _AttackdexText_SpecialDownSide1Effect
+	text_end
+
+AttackdexText_AttackDownSide2Effect:
+	text_far _AttackdexText_AttackDownSide2Effect
+	text_end
+
+AttackdexText_DefenseDownSide2Effect:
+	text_far _AttackdexText_DefenseDownSide2Effect
+	text_end
+
+AttackdexText_SpeedDownSide2Effect:
+	text_far _AttackdexText_SpeedDownSide2Effect
+	text_end
+
+AttackdexText_SpecialDownSide2Effect:
+	text_far _AttackdexText_SpecialDownSide2Effect
+	text_end
+
+AttackdexText_AttackDownSide3Effect:
+	text_far _AttackdexText_AttackDownSide3Effect
+	text_end
+
+AttackdexText_DefenseDownSide3Effect:
+	text_far _AttackdexText_DefenseDownSide3Effect
+	text_end
+
+AttackdexText_SpeedDownSide3Effect:
+	text_far _AttackdexText_SpeedDownSide3Effect
+	text_end
+
+AttackdexText_SpecialDownSide3Effect:
+	text_far _AttackdexText_SpecialDownSide3Effect
+	text_end
+
+AttackdexText_AttackDownSideCertEffect:
+	text_far _AttackdexText_AttackDownSideCertEffect
+	text_end
+
+AttackdexText_DefenseDownSideCertEffect:
+	text_far _AttackdexText_DefenseDownSideCertEffect
+	text_end
+
+AttackdexText_SpeedDownSideCertEffect:
+	text_far _AttackdexText_SpeedDownSideCertEffect
+	text_end
+
+AttackdexText_SpecialDownSideCertEffect:
+	text_far _AttackdexText_SpecialDownSideCertEffect
+	text_end
+
+AttackdexText_AccuracyDownSideCertEffect:
+	text_far _AttackdexText_AccuracyDownSideCertEffect
+	text_end
+
+AttackdexText_EvasionDownSideCertEffect:
+	text_far _AttackdexText_EvasionDownSideCertEffect
+	text_end
+
+AttackdexText_ConfusionSide1Effect:
+	text_far _AttackdexText_ConfusionSide1Effect
+	text_end
+
+AttackdexText_ConfusionSide2Effect:
+	text_far _AttackdexText_ConfusionSide2Effect
+	text_end
+
+AttackdexText_ConfusionSide3Effect:
+	text_far _AttackdexText_ConfusionSide3Effect
+	text_end
+
+AttackdexText_AttackSpeedUp1Effect::
+	text_far _AttackdexText_AttackSpeedUp1Effect
+	text_end
+
+AttackdexText_AttackUpSide1Effect::
+	text_far _AttackdexText_AttackUpSide1Effect
+	text_end
+
+AttackdexText_DefenseUpSide1Effect::
+	text_far _AttackdexText_DefenseUpSide1Effect
+	text_end
+
+AttackdexText_AttackUpSide2Effect::
+	text_far _AttackdexText_AttackUpSide2Effect
+	text_end
+
+AttackdexText_AttackSelfDown1Effect::
+	text_far _AttackdexText_AttackSelfDown1Effect
+	text_end
+
+AttackdexText_DefenseSelfDown1Effect::
+	text_far _AttackdexText_DefenseSelfDown1Effect
+	text_end
+
+AttackdexText_SpeedSelfDown1Effect::
+	text_far _AttackdexText_SpeedSelfDown1Effect
+	text_end
+
+AttackdexText_SpecialSelfDown1Effect::
+	text_far _AttackdexText_SpecialSelfDown1Effect
+	text_end
+
+AttackdexText_AttackSelfDown2Effect::
+	text_far _AttackdexText_AttackSelfDown2Effect
+	text_end
+
+AttackdexText_DefenseSelfDown2Effect::
+	text_far _AttackdexText_DefenseSelfDown2Effect
+	text_end
+
+AttackdexText_SpeedSelfDown2Effect::
+	text_far _AttackdexText_SpeedSelfDown2Effect
+	text_end
+
+AttackdexText_SpecialSelfDown2Effect::
+	text_far _AttackdexText_SpecialSelfDown2Effect
+	text_end
+
+AttackdexText_AttackDefenseSelfDown1Effect::
+	text_far _AttackdexText_AttackDefenseSelfDown1Effect
+	text_end
+
+AttackdexText_DefenseSpecialSelfDown1Effect::
+	text_far _AttackdexText_DefenseSpecialSelfDown1Effect
+	text_end
+
+AttackdexText_PoisonEffect:
+	text_far _AttackdexText_PoisonEffect
+	text_end
+
+AttackdexText_ToxicEffect:
+	text_far _AttackdexText_ToxicEffect
+	text_end
+
+AttackdexText_ParalyzeEffect:
+	text_far _AttackdexText_ParalyzeEffect
+	text_end
+
+AttackdexText_SleepEffect:
+	text_far _AttackdexText_SleepEffect
+	text_end
+
+AttackdexText_BurnEffect:
+	text_far _AttackdexText_BurnEffect
+	text_end
+
+AttackdexText_ConfusionEffect:
+	text_far _AttackdexText_ConfusionEffect
+	text_end
+
+AttackdexText_CurseEffect:
+	text_far _AttackdexText_CurseEffect
+	text_end
+
+AttackdexText_LeechSeedEffect:
+	text_far _AttackdexText_LeechSeedEffect
 	text_end

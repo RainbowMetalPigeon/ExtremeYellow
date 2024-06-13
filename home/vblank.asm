@@ -57,7 +57,7 @@ VBlank::
 	ldh [hFrameCounter], a
 
 .skipDec
-	call FadeOutAudio
+	callfar FadeOutAudio ; edited into a callfar because moved the function out of home
 
 	ld a, BANK(Music_DoLowHealthAlarm)
 	call BankswitchCommon

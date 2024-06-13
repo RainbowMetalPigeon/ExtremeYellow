@@ -111,7 +111,6 @@ INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/CeruleanGym.asm"
-INCLUDE "text/CeruleanBadgeHouse.asm"
 
 
 SECTION "Text 6", ROMX
@@ -238,6 +237,7 @@ INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/BikeShop.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
+INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones

@@ -5,12 +5,6 @@ _SchoolText1::
 	done
 
 _SchoolText3::
-;	text "Sis says #MON"
-;	line "will become tame"
-;	cont "if you treat them"
-;	cont "nicely."
-;	done
-
 	text "COOL TRAINERS"
 	line "really live up to"
 	cont "their names!"
@@ -28,6 +22,10 @@ _SchoolText2:: ; edited
 	cont "mutually"
 	cont "exclusive."
 
+	para "Also, they are not"
+	line "healed by"
+	cont "switching."
+
 	para "But your #MON"
 	line "can also be"
 	cont "affected by other"
@@ -40,9 +38,10 @@ _SchoolText2:: ; edited
 	cont "suffer from a"
 	cont "CURSE!"
 
-;	text "Okay!"
-
-;	para "Be sure to read"
-;	line "the blackboard"
-;	cont "carefully!"
+	para "All of these can"
+	line "happen at the"
+	cont "same time, but"
+	cont "they are also"
+	cont "healed as soon as"
+	cont "you switch out."
 	done

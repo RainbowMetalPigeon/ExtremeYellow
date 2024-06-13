@@ -1744,6 +1744,7 @@ StoneEdgeAnim:
 	battle_anim EARTHQUAKE, SE_SHAKE_SCREEN
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim ROCK_SLIDE, SUBANIM_30reverse, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SUBANIM_30reverse, 0, 2
 	db -1 ; end
 

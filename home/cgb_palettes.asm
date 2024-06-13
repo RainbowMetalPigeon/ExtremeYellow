@@ -73,7 +73,7 @@ UpdateGBCPal_OBP1::
 Func_3082::
 	ldh a, [hLoadedROMBank]
 	push af
-	call FadeOutAudio
+	callfar FadeOutAudio ; edited into a callfar because moved the function out of home
 	ld a, BANK(Music_DoLowHealthAlarm)
 	call BankswitchCommon
 	call Music_DoLowHealthAlarm

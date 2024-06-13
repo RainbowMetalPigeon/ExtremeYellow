@@ -4334,7 +4334,7 @@ OHKOText:
 	text_end
 
 ; checks if a traded mon will disobey due to lack of badges
-; stores whether the mon will use a move in Z flag
+; stores whether the mon will use a move in Z flag: z flag if cannot use, nz if can
 CheckForDisobedience:
 	xor a
 	ld [wMonIsDisobedient], a

@@ -111,6 +111,7 @@ AIMoveChoiceModificationFunctionPointers:
 
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
 ; also check for CURSE, LEECH_SEED, SUBSTITUTE, DISABLED, CONFUSED
+; also for SCREENs, DREAM EATER, etc...
 AIMoveChoiceModification1:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -137,6 +138,8 @@ AIMoveChoiceModification1:
 	jr nz, .nextMove ; we only care about non-damaging moves right now
 ; read the effect and start comparing with a list of to-be-checked ones --------
 	ld a, [wEnemyMoveEffect]
+	cp DREAM_EATER_EFFECT
+	jp z, .dreamEaterEffect
 	cp CURSE_EFFECT
 	jp z, .curseEffect
 	cp LEECH_SEED_EFFECT
@@ -227,6 +230,12 @@ AIMoveChoiceModification1:
 	jp z, .debuff_Evasion
 ; if none of the above: we apply no modifier to this move, and we go to the next one
 	jp .nextMove
+
+.dreamEaterEffect
+	ld a, [wBattleMonStatus]
+	and SLP_MASK
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
 
 .curseEffect
 	ld a, [wPlayerBattleStatus2]

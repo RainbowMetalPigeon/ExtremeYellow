@@ -3,6 +3,7 @@
 ; Control characters (see home/text.asm)
 
 	charmap "<NULL>",    $00
+	charmap "<ATPG>",    $48 ; new, for Attackdex
 	charmap "<PAGE>",    $49
 	charmap "<PKMN>",    $4a ; "<PK><MN>"
 	charmap "<_CONT>",   $4b ; implements "<CONT>"
@@ -55,7 +56,7 @@
 ;	charmap "ぇ",         $77 ; hiragana small e, unused
 ;	charmap "ぉ",         $78 ; hiragana small o, unused
 
-; edited, to expand tileset	
+; edited, to expand tileset
 	charmap "<BOLD_V>",  $76
 	charmap "<BOLD_S>",  $77
 	charmap "<COLON>",   $78 ; colon with tinier dots than ":"
