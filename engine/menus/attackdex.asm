@@ -466,8 +466,63 @@ DrawAttackdexEntryOnScreen:
 	call PlaceString ; draw horizontal divider line
 
 ; print move name
+
+; TBE: wcd6d points to the move name AFTER GetMoveName has been called
+; moves names are 3 to 12 chars long
+; the screen is 20 chars large
+; get some ugly hard-coded values and choose the right hlcoord values?
+
 	call GetMoveName
-	hlcoord 2, 1
+
+	ld hl, wcd6d
+	ld b, $FF
+.loopMoveNameLength
+	inc b
+	ld a, [hli]
+	cp $50 ; string terminator, @
+	jr nz, .loopMoveNameLength
+	ld a, b ; a now contains the length of the move's name
+
+	cp 3
+	jr z, .shift8
+	cp 4
+	jr z, .shift8
+	cp 5
+	jr z, .shift7
+	cp 6
+	jr z, .shift7
+	cp 7
+	jr z, .shift6
+	cp 8
+	jr z, .shift6
+	cp 9
+	jr z, .shift5
+	cp 10
+	jr z, .shift5
+	cp 11
+	jr z, .shift4
+	cp 12
+	jr z, .shift4
+	hlcoord 1, 1
+	jr .placeMoveNameString
+
+.shift8
+	hlcoord 8, 1
+	jr .placeMoveNameString
+.shift7
+	hlcoord 7, 1
+	jr .placeMoveNameString
+.shift6
+	hlcoord 6, 1
+	jr .placeMoveNameString
+.shift5
+	hlcoord 5, 1
+	jr .placeMoveNameString
+.shift4
+	hlcoord 4, 1
+;	jr .placeMoveNameString
+
+.placeMoveNameString
 	call PlaceString
 
 ; gather info on the move
@@ -566,7 +621,7 @@ DrawAttackdexEntryOnScreen:
 
 
 
-	
+
 	ld hl, AttackdexText_FreezeSideEffect
 	cp FREEZE_SIDE_EFFECT
 	jr z, .done
@@ -618,20 +673,24 @@ DrawAttackdexEntryOnScreen:
 ;	EXPLODE_EFFECT
 ;	DREAM_EATER_EFFECT
 ;	MIRROR_MOVE_EFFECT
+
 ;	ATTACK_UP1_EFFECT
 ;	DEFENSE_UP1_EFFECT
 ;	SPEED_UP1_EFFECT
 ;	SPECIAL_UP1_EFFECT
 ;	ACCURACY_UP1_EFFECT
 ;	EVASION_UP1_EFFECT
+
 ;	PAY_DAY_EFFECT
 ;	SWIFT_EFFECT
+
 ;	ATTACK_DOWN1_EFFECT
 ;	DEFENSE_DOWN1_EFFECT
 ;	SPEED_DOWN1_EFFECT
 ;	SPECIAL_DOWN1_EFFECT
 ;	ACCURACY_DOWN1_EFFECT
 ;	EVASION_DOWN1_EFFECT
+
 ;	CONVERSION_EFFECT
 ;	HAZE_EFFECT
 ;	BIDE_EFFECT
@@ -651,24 +710,29 @@ DrawAttackdexEntryOnScreen:
 ;	FOCUS_ENERGY_EFFECT
 ;	RECOIL_EFFECT
 ;	CONFUSION_EFFECT
+
 ;	ATTACK_UP2_EFFECT
 ;	DEFENSE_UP2_EFFECT
 ;	SPEED_UP2_EFFECT
 ;	SPECIAL_UP2_EFFECT
 ;	ACCURACY_UP2_EFFECT
 ;	EVASION_UP2_EFFECT
+
 ;	HEAL_EFFECT
 ;	TRANSFORM_EFFECT
+
 ;	ATTACK_DOWN2_EFFECT
 ;	DEFENSE_DOWN2_EFFECT
 ;	SPEED_DOWN2_EFFECT
 ;	SPECIAL_DOWN2_EFFECT
 ;	ACCURACY_DOWN2_EFFECT
 ;	EVASION_DOWN2_EFFECT
+
 ;	LIGHT_SCREEN_EFFECT
 ;	REFLECT_EFFECT
 ;	POISON_EFFECT
 ;	PARALYZE_EFFECT
+
 ;	ATTACK_DOWN_SIDE_EFFECT1
 ;	DEFENSE_DOWN_SIDE_EFFECT1
 ;	SPEED_DOWN_SIDE_EFFECT1
@@ -681,15 +745,18 @@ DrawAttackdexEntryOnScreen:
 ;	DEFENSE_DOWN_SIDE_EFFECT3
 ;	SPEED_DOWN_SIDE_EFFECT3
 ;	SPECIAL_DOWN_SIDE_EFFECT3
+
 ;	ATTACK_DOWN_SIDE_EFFECT_CERT
 ;	DEFENSE_DOWN_SIDE_EFFECT_CERT
 ;	SPEED_DOWN_SIDE_EFFECT_CERT
 ;	SPECIAL_DOWN_SIDE_EFFECT_CERT
 ;	ACCURACY_DOWN_SIDE_EFFECT_CERT
 ;	EVASION_DOWN_SIDE_EFFECT_CERT
+
 ;	CONFUSION_SIDE_EFFECT1
 ;	CONFUSION_SIDE_EFFECT2
 ;	CONFUSION_SIDE_EFFECT3
+
 ;	TWINEEDLE_EFFECT
 ;	SUBSTITUTE_EFFECT
 ;	HYPER_BEAM_EFFECT
@@ -701,23 +768,27 @@ DrawAttackdexEntryOnScreen:
 ;	DISABLE_EFFECT
 ;	BURN_EFFECT
 ;	TRIATTACK_EFFECT
+
 ;	ATTACK_SPEED_UP1_EFFECT
+
 ;	ATTACK_UP_SIDE_EFF1
 ;	DEFENSE_UP_SIDE_EFF1
 ;	ATTACK_UP_SIDE_EFF2
 ;	ATTACK_DEFENSE_SELFDOWN1
 ;	DEFENSE_SPECIAL_SELFDOWN1
+
 ;	ATTACK_SELFDOWN1
 ;	DEFENSE_SELFDOWN1
 ;	SPEED_SELFDOWN1
 ;	SPECIAL_SELFDOWN1
+
 ;	ATTACK_SELFDOWN2
 ;	DEFENSE_SELFDOWN2
 ;	SPEED_SELFDOWN2
 ;	SPECIAL_SELFDOWN2
-;
+
 ;	FLINCH_SIDE_EFFECT5
-;
+
 ;	FREEZE_DRY
 ;	GYRO_BALL
 ;	PSYSTRIKE
@@ -734,6 +805,8 @@ DrawAttackdexEntryOnScreen:
 	jr .done
 
 .handleNoAdditionalEffect
+	; TBE: check for high crit rate and for priority
+	; TBV: priority to be handled automatically or manually?
 	ld hl, AttackdexText_NoAdditionalEffect
 	jr .done
 
@@ -815,8 +888,6 @@ DrawTileLineCopy:
 	pop de
 	pop bc
 	ret
-
-INCLUDE "data/moves/attackdex_entries.asm"
 
 PPTextAttackdex:
 	db "PP:@"

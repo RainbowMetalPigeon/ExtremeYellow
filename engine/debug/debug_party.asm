@@ -225,7 +225,7 @@ DebugItemsList:
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
 	db SUPER_ROD, 1
-	db TM_THUNDERBOLT, 3
+	db TM_CLOSE_COMBAT, 3
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
@@ -245,7 +245,7 @@ DebugItemsList:
     db ICE_ORB, 1
     db THUNDER_ORB, 1
     db FIRE_ORB, 1
-	db SUPER_REPEL, 3
+	db TM_SWORDS_DANCE, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 	db POTION, 99 ; PP_UP, 42
