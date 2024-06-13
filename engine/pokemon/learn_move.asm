@@ -241,7 +241,7 @@ ShowDetailedInfoNewMove: ; new
 	call LoadHpBarAndStatusTilePatterns
 ;	ld b, SET_PAL_PARTY_MENU
 ;	call RunPaletteCommand
-;	callfar SetPartyMenuHPBarColor
+	callfar SetPartyMenuHPBarColor
 ;	call GBPalNormal
 	jp TryingToLearn.inputLoop
 .inBattle
