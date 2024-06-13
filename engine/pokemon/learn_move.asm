@@ -227,11 +227,29 @@ TryingToLearn:
 	ret
 
 ShowDetailedInfoNewMove: ; new
+	ld a, [wMoveNum]
+	ld [wd11e], a
+; check if we're learning the move in battle or in the party menu
+	ld a, [wIsInBattle]
+	and a
+	jr nz, .inBattle
+; in the party menu
+	call SaveScreenTilesToBuffer2
+	call HideSprites
+	callfar ShowAttackdexData
+	call LoadScreenTilesFromBuffer2
+	call LoadHpBarAndStatusTilePatterns
+;	ld b, SET_PAL_PARTY_MENU
+;	call RunPaletteCommand
+;	callfar SetPartyMenuHPBarColor
+;	call GBPalNormal
+	jp TryingToLearn.inputLoop
+.inBattle
 	call SaveScreenTilesToBuffer2
 	callfar ShowAttackdexData
-;	predef LoadMonBackPic
+	predef LoadMonBackPic
 	call LoadScreenTilesFromBuffer2
-;	call LoadHudAndHpBarAndStatusTilePatterns
+	callfar LoadHudAndHpBarAndStatusTilePatterns
 	jp TryingToLearn.inputLoop
 
 LearnedMove1Text:

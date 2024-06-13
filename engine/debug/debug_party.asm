@@ -42,7 +42,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, KARATE_CHOP
+	ld a, ZAP_CANNON
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, THUNDER_WAVE
@@ -159,9 +159,10 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld [hl], a
 
-;	; set fast text and set mode - new
-;	ld a, %01100001
-;	ld [wOptions], a
+    ; set Pikachu happiness and mood to max
+    ld a, $FF
+    ld [wPikachuHappiness], a
+    ld [wPikachuMood], a
 
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
@@ -254,7 +255,7 @@ DebugItemsList:
 	db MAGMA_STONE, 1
 	db MOLTEN_STONE, 1
 ;	db EXP_ALL, 1
-    db POTION, 99
+    db SHINY_CHARM, 1
     db LIGHT_BALL, 1
     db PERFECTER, 99
     db ULTRA_BALL, 99

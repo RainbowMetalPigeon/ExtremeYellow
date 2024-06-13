@@ -308,7 +308,7 @@ RareCandyText:
 	text_promptbutton
 	text_end
 
-SetPartyMenuHPBarColor:
+SetPartyMenuHPBarColor:: ; edited, double colon
 	ld hl, wPartyMenuHPBarColors
 	ld a, [wWhichPartyMenuHPBar]
 	ld c, a

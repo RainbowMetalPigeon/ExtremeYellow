@@ -3297,7 +3297,6 @@ SelectEnemyMove:
 	bit USING_TRAPPING_MOVE, a ; caught in player's trapping move (e.g. wrap)
 	jr z, .canSelectMove
 .unableToSelectMove
-;	callfar AIEnemyTrainerChooseMoves
 	ld a, $ff
 	jr .done
 .canSelectMove
@@ -3345,6 +3344,13 @@ SelectEnemyMove:
 	jr z, .chooseRandomMove ; move non-existant, try again
 .done
 	ld [wEnemySelectedMove], a
+; new, to add used moves to Attackdex
+	dec a
+	ld c, a
+	ld b, FLAG_SET
+	ld hl, wAttackdexSeen
+	predef FlagActionPredef ; mark this mon as seen in the attackdex
+; back to vanilla
 	ret
 .linkedOpponentUsedStruggle
 	ld a, STRUGGLE
@@ -7357,7 +7363,7 @@ ApplyBadgeStatBoosts:
 	ld [hld], a
 	ret
 
-LoadHudAndHpBarAndStatusTilePatterns:
+LoadHudAndHpBarAndStatusTilePatterns:: ; edited, double colon
 	call LoadHpBarAndStatusTilePatterns
 
 LoadHudTilePatterns:
