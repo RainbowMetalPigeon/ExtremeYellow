@@ -483,32 +483,32 @@ _AttackdexText_DefenseSpecialSelfDown1Effect::
 
 _AttackdexText_PoisonEffect::
 	text "Inflicts POISON"
-	next "to the enemy."
+	next "to the enemy"
 	dex
 
 _AttackdexText_ToxicEffect::
 	text "Inflicts TOXIC"
-	next "to the enemy."
+	next "to the enemy"
 	dex
 
 _AttackdexText_ParalyzeEffect::
 	text "Inflicts PARALYSIS"
-	next "to the enemy."
+	next "to the enemy"
 	dex
 
 _AttackdexText_SleepEffect::
 	text "Inflicts SLEEP"
-	next "to the enemy."
+	next "to the enemy"
 	dex
 
 _AttackdexText_BurnEffect::
 	text "Inflicts BURN"
-	next "to the enemy."
+	next "to the enemy"
 	dex
 
 _AttackdexText_ConfusionEffect::
 	text "Inflicts CONFUSION"
-	next "to the enemy."
+	next "to the enemy"
 	dex
 
 _AttackdexText_CurseEffect::

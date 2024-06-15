@@ -27,16 +27,16 @@ _SchoolText2:: ; edited
 	cont "switching."
 
 	para "But your #MON"
-	line "can also be"
-	cont "affected by other"
-	cont "malus at the same"
-	cont "time!"
+	line "can also suffer"
+	cont "other maluses,"
+	cont "the so-called"
+	cont "volatile ones:"
 
 	para "It can be"
 	line "CONFUSED, have"
-	cont "SEEDs on it, or"
-	cont "suffer from a"
-	cont "CURSE!"
+	cont "LEECH SEEDS on"
+	cont "itself, or suffer"
+	cont "from a CURSE!"
 
 	para "All of these can"
 	line "happen at the"

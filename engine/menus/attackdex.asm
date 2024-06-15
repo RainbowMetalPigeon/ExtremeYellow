@@ -1003,19 +1003,28 @@ DrawAttackdexEntryOnScreen:
 
 
 	ld hl, AttackdexText_PROXY
-	jr .done
+	jp .done
 
 .handleNoAdditionalEffect
-; TBE: check for high crit rate and for priority
-; TBV: crit rate: IsMoveHighCrit (move ID in d, c flag if found)
+; TBE: check for priority
 ; TBV: priority to be handled automatically or manually? AIGetPriority wEnemyMoveNum
 	ld a, [wPlayerMoveNum]
 	ld d, a
 	callfar IsMoveHighCrit
 	ld hl, AttackdexText_HighCritMove
 	jp c, .done
+; no high-crit-rate move
+	callfar AIGetPriority
+	ld a, e ; a contains the prio
 	ld hl, AttackdexText_NoAdditionalEffect
-	jp .done
+	cp 7
+	jp z, .done
+; if it's not 7, it's not neutral priority
+	jr nc, .higherPrio
+; if there's a carry, it's below-neutral prio
+
+.higherPrio
+	sub 7
 
 .handleDrainHPEffect
 	ld a, [wPlayerMoveNum]

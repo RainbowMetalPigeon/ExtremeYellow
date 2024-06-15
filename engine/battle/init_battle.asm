@@ -395,12 +395,28 @@ _LoadTrainerPic:
 LoadMonBackPic:
 ; Assumes the monster's attributes have
 ; been loaded with GetMonHeader.
+; new, to scramble sprites if MissingNo is in the team, except MissingNo's itself
+	ld d, MISSINGNO
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	ld a, 0
+	jr nc, .noMissingNo
+; MissingNo is in the team: is the active mon MISSINGNO itself?
+	ld a, [wBattleMonSpecies2]
+	cp MISSINGNO
+	ld a, 0
+; if yes, don't scramble its backsprite
+	jr z, .noMissingNo
+; otherwise, scramble it
+	ld a, 1
+.noMissingNo
+	ld [wSpriteFlipped], a
+; back to vanilla
 	ld a, [wBattleMonSpecies2]
 	ld [wcf91], a
 	hlcoord 1, 5
 	lb bc, 7, 8
 	call ClearScreenArea
-	ld hl,  wMonHBackSprite - wMonHeader
+	ld hl, wMonHBackSprite - wMonHeader
 	call UncompressMonSprite
 	predef ScaleSpriteByTwo
 	ld de, vBackPic

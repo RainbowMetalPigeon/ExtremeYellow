@@ -15,7 +15,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 98 ; 255
-	db CHARIZARD, 97
+	db MISSINGNO, 97
 	db STARTER_PIKACHU, 5
 ;	db SANDSLASH, 19
 ;	db BLASTOISE, 9

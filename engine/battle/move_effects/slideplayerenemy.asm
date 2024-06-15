@@ -1,4 +1,14 @@
 _SlidePlayerAndEnemySilhouettesOnScreen::
+; new, to scramble sprites if MissingNo is in the team, except MissingNo's itself
+	ld d, MISSINGNO
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	ld a, 0
+	jr nc, .noMissingNo
+; MissingNo is indeed in the team
+	ld a, 1
+.noMissingNo
+	ld [wSpriteFlipped], a
+; back to vanilla
 	call LoadPlayerBackPic
 	ld a, MESSAGE_BOX ; the usual text box at the bottom of the screen
 	ld [wTextBoxID], a

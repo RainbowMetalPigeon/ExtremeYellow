@@ -2873,13 +2873,6 @@ ENDC
 	add hl, bc
 	ld a, [hl]
 	ld [wPlayerSelectedMove], a
-; new, to add used moves to Attackdex
-	dec a
-	ld c, a
-	ld b, FLAG_SET
-	ld hl, wAttackdexSeen
-	predef FlagActionPredef ; mark this mon as seen in the attackdex
-; back to vanilla
 	xor a
 	ret
 .disabled
@@ -3344,13 +3337,6 @@ SelectEnemyMove:
 	jr z, .chooseRandomMove ; move non-existant, try again
 .done
 	ld [wEnemySelectedMove], a
-; new, to add used moves to Attackdex
-	dec a
-	ld c, a
-	ld b, FLAG_SET
-	ld hl, wAttackdexSeen
-	predef FlagActionPredef ; mark this mon as seen in the attackdex
-; back to vanilla
 	ret
 .linkedOpponentUsedStruggle
 	ld a, STRUGGLE
@@ -3465,6 +3451,14 @@ PlayerCanExecuteChargingMove:
 	                    ; resulting in the Pokemon being invulnerable for the whole battle
 	res INVULNERABLE, [hl]
 PlayerCanExecuteMove:
+; new, to add used moves to Attackdex, TBV
+	ld a, [wPlayerSelectedMove]
+	dec a
+	ld c, a
+	ld b, FLAG_SET
+	ld hl, wAttackdexSeen
+	predef FlagActionPredef ; mark this mon as seen in the attackdex
+; back to vanilla
 	call PrintMonName1Text
 	ld hl, DecrementPP
 	ld de, wPlayerSelectedMove ; pointer to the move just used
@@ -6347,6 +6341,14 @@ EnemyCanExecuteChargingMove:
 EnemyCanExecuteMove:
 	xor a
 	ld [wMonIsDisobedient], a
+; new, to add used moves to Attackdex, TBV
+	ld a, [wEnemySelectedMove]
+	dec a
+	ld c, a
+	ld b, FLAG_SET
+	ld hl, wAttackdexSeen
+	predef FlagActionPredef ; mark this mon as seen in the attackdex
+; back to vanilla
 	call PrintMonName1Text
 	ld a, [wEnemyMoveEffect]
 	ld hl, ResidualEffects1
