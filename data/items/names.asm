@@ -110,7 +110,6 @@ ItemNames::
 	li "SHINY CHARM" ; new
 	li "GUTSCHEIN" ; new
 	li "ONIGIRI BOX" ; new
-	li "ATTACKDEX" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

@@ -39,7 +39,7 @@ TextBoxTextAndCoordTable:
 	text_box_text BF_MENU_INFO_BATTLE_EXIT,          11,  6, 19, 12, BFInfoBattleExit,        13,  7 ; new
 	text_box_text BF_MENU_INFO_BATTLE_PRIZES_EXIT,   11,  4, 19, 12, BFInfoBattlePrizesExit,  13,  5 ; new, TBV
 	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,    11,  6, 19, 12, BFStandardHardcoreExit,  13,  7 ; new
-
+	text_box_text MENU_POKEMON_ATTACKS_EXIT,         10,  6, 19, 12, MenuPokemonAttacksExit,  12,  7 ; new
 
 BuySellQuitText:
 	db   "BUY"
@@ -106,8 +106,13 @@ BFInfoBattlePrizesExit: ; new
 	next "EXIT@"
 
 BFStandardHardcoreExit: ; new
-	db   "STAND." ; testing
-	next "HARDC." ; testing
+	db   "STAND."
+	next "HARDC."
+	next "EXIT@"
+
+MenuPokemonAttacksExit: ; new
+	db   "#MON"
+	next "ATTACKS"
 	next "EXIT@"
 
 JapanesePokedexMenu:

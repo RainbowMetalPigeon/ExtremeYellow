@@ -1,8 +1,8 @@
 TriAttackEffect_::
 	xor a
 	ld [wAnimationType], a
-	callfar CheckTargetSubstitute ; test bit 4 of d063/d068 flags [target has substitute flag] ; edited into a callfar
-	ret nz ; return if they have a substitute, can't effect them
+;	callfar CheckTargetSubstitute ; test bit 4 of d063/d068 flags [target has substitute flag] ; edited into a callfar
+;	ret nz ; return if they have a substitute, can't effect them
 	ldh a, [hWhoseTurn]
 	and a
 	jp nz, .opponentAttacker

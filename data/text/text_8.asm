@@ -37,6 +37,11 @@ _FlashLightsAreaText::
 	line "lights the area!"
 	prompt
 
+_PokedexOrAttackdex:: ; new, testing
+	text "What DEX category"
+	line "to visualize?"
+	done
+
 _WarpToLastPokemonCenterText::
 	text "Warp to the last"
 	line "#MON CENTER."

@@ -114,7 +114,7 @@ Moves:
 	move QUICK_ATTACK, NO_ADDITIONAL_EFFECT,        40, NORMAL,       100, 30 ; prio +1
 ;	move RAGE,         RAGE_EFFECT,                 20, NORMAL,       100, 20 ; - REMOVED
 	move TELEPORT,     SWITCH_AND_TELEPORT_EFFECT,   0, PSYCHIC_TYPE, 100, 20
-	move NIGHT_SHADE,  SPECIAL_DAMAGE_EFFECT,        0, GHOST,        100, 15
+	move NIGHT_SHADE,  SPECIAL_DAMAGE_EFFECT,        1, GHOST,        100, 15 ; edited BP 0->1, should change nothing functionally but fixes info box
 	move MIMIC,        MIMIC_EFFECT,                 0, NORMAL,       100, 10 ; [TM31]
 	move SCREECH,      DEFENSE_DOWN2_EFFECT,         0, NORMAL,        85, 40
 	move DOUBLE_TEAM,  EVASION_UP1_EFFECT,           0, NORMAL,       100, 15 ; [TM32]
@@ -278,9 +278,9 @@ Moves:
 	; anomalies' signature moves
 	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90, 5 ; done
 	move DRAGONASCENT, DEFENSE_SPECIAL_SELFDOWN1,  120, FLYING,       100, 5 ; done
-	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100, 5 ; TBV
-	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TODO: implement effect?
-	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; TODO: implement effect?! Or change BP to 200? Or add a new type like Normal in def but super against all types?
+	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100, 5 ; done
+	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TBV: no effects indeed?
+	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; done
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS

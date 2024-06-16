@@ -12,7 +12,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const MENU_TEMPLATE_07                  ; $07 unused
 	const JP_SAVE_MESSAGE_MENU_TEMPLATE     ; $08
 	const JP_SPEED_OPTIONS_MENU_TEMPLATE    ; $09
-	const_skip                              ; $0a
+	const MENU_POKEMON_ATTACKS_EXIT         ; $0a ; new, for attackdex
 	const BATTLE_MENU_TEMPLATE              ; $0b
 	const SWITCH_STATS_CANCEL_MENU_TEMPLATE ; $0c
 	const LIST_MENU_BOX                     ; $0d

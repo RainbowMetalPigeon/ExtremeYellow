@@ -611,6 +611,44 @@ DrawAttackdexEntryOnScreen:
 	predef PrintMoveType
 
 ; prepare pointer for description printing
+	ld a, [wPlayerMoveNum]
+
+	ld hl, AttackdexText_StruggleEffect
+	cp STRUGGLE
+	jp z, .done
+
+	ld hl, AttackdexText_AncestorPowerEffect
+	cp ANCESTOR_PWR
+	jp z, .done
+
+	ld hl, AttackdexText_FreezeDryEffect
+	cp FREEZE_DRY
+	jp z, .done
+
+	ld hl, AttackdexText_GyroBallEffect
+	cp GYRO_BALL
+	jp z, .done
+
+	ld hl, AttackdexText_BodyPressEffect
+	cp BODY_PRESS
+	jp z, .done
+
+	ld hl, AttackdexText_FlailEffect
+	cp FLAIL
+	jp z, .done
+
+	ld hl, AttackdexText_PsyStrikeEffect
+	cp PSYSTRIKE
+	jp z, .done
+
+	ld hl, AttackdexText_ThousandArrowsEffect
+	cp THOUSANDARROWS
+	jp z, .done
+
+	ld hl, AttackdexText_JudgmentEffect
+	cp JUDGMENT
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -622,7 +660,17 @@ DrawAttackdexEntryOnScreen:
 	cp POISON_EFFECT
 	jp z, .handlePoisonEffect
 
+	cp CHARGE_EFFECT
+	jp z, .handleChargeEffect
 
+	cp SPECIAL_DAMAGE_EFFECT
+	jp z, .handleSpecialDamageEffect
+
+	cp RECOIL_EFFECT
+	jp z, .handleRecoilEffect
+
+	cp HEAL_EFFECT
+	jp z, .handleHealEffect
 
 	ld hl, AttackdexText_FreezeSideEffect
 	cp FREEZE_SIDE_EFFECT
@@ -920,11 +968,6 @@ DrawAttackdexEntryOnScreen:
 	cp DEFENSE_SPECIAL_SELFDOWN1
 	jp z, .done
 
-
-
-
-
-
 	ld hl, AttackdexText_ParalyzeEffect
 	cp PARALYZE_EFFECT
 	jp z, .done
@@ -949,60 +992,111 @@ DrawAttackdexEntryOnScreen:
 	cp LEECH_SEED_EFFECT
 	jp z, .done
 
+	ld hl, AttackdexText_PayDayEffect
+	cp PAY_DAY_EFFECT
+	jp z, .done
 
+	ld hl, AttackdexText_SwiftEffect
+	cp SWIFT_EFFECT
+	jp z, .done
 
-;	PAY_DAY_EFFECT
-;	SWIFT_EFFECT
+	ld hl, AttackdexText_ConversionEffect
+	cp CONVERSION_EFFECT
+	jp z, .done
 
-;	CONVERSION_EFFECT
-;	HAZE_EFFECT
-;	BIDE_EFFECT
-;	THRASH_PETAL_DANCE_EFFECT
-;	SWITCH_AND_TELEPORT_EFFECT
-;	TWO_TO_FIVE_ATTACKS_EFFECT
-;	OHKO_EFFECT
-;	CHARGE_EFFECT
-;	SUPER_FANG_EFFECT
-;	SPECIAL_DAMAGE_EFFECT
-;	TRAPPING_EFFECT
-;	FLY_EFFECT
-;	ATTACK_TWICE_EFFECT
-;	JUMP_KICK_EFFECT
-;	MIST_EFFECT
-;	FOCUS_ENERGY_EFFECT
-;	RECOIL_EFFECT
+	ld hl, AttackdexText_HazeEffect
+	cp HAZE_EFFECT
+	jp z, .done
 
-;	HEAL_EFFECT
+	ld hl, AttackdexText_BideEffect
+	cp BIDE_EFFECT
+	jp z, .done
 
-;	TRANSFORM_EFFECT
+	ld hl, AttackdexText_ThrashPetalDanceEffect
+	cp THRASH_PETAL_DANCE_EFFECT
+	jp z, .done
 
-;	LIGHT_SCREEN_EFFECT
-;	REFLECT_EFFECT
+	ld hl, AttackdexText_SwitchAndTeleportEffect
+	cp SWITCH_AND_TELEPORT_EFFECT
+	jp z, .done
 
-;	TWINEEDLE_EFFECT
-;	SUBSTITUTE_EFFECT
-;	HYPER_BEAM_EFFECT
-;	MIMIC_EFFECT
-;	METRONOME_EFFECT
-;	SPLASH_EFFECT
-;	DISABLE_EFFECT
-;	TRIATTACK_EFFECT
+	ld hl, AttackdexText_FlyEffect
+	cp FLY_EFFECT
+	jp z, .done
 
-; !!!!!!!!!!!
-;	ANCESTOR_PWR
-;	FREEZE_DRY
-;	GYRO_BALL
-;	PSYSTRIKE
-;	BODY_PRESS
-;	FLAIL
-;	THOUSANDARROWS
-;	JUDGMENT
+	ld hl, AttackdexText_TwoToFiveAttacksEffect
+	cp TWO_TO_FIVE_ATTACKS_EFFECT
+	jp z, .done
 
+	ld hl, AttackdexText_AttackTwiceEffect
+	cp ATTACK_TWICE_EFFECT
+	jp z, .done
 
+	ld hl, AttackdexText_TwineedleEffect
+	cp TWINEEDLE_EFFECT
+	jp z, .done
 
+	ld hl, AttackdexText_OHKOEffect
+	cp OHKO_EFFECT
+	jp z, .done
 
+	ld hl, AttackdexText_SuperFangEffect
+	cp SUPER_FANG_EFFECT
+	jp z, .done
 
-	ld hl, AttackdexText_PROXY
+	ld hl, AttackdexText_TrappingEffect
+	cp TRAPPING_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_JumpKickEffect
+	cp JUMP_KICK_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_FocusEnergyEffect
+	cp FOCUS_ENERGY_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SubstituteEffect
+	cp SUBSTITUTE_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_HyperBeamEffect
+	cp HYPER_BEAM_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_MimicEffect
+	cp MIMIC_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_MetronomeEffect
+	cp METRONOME_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_SplashEffect
+	cp SPLASH_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_DisableEffect
+	cp DISABLE_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_TriattackEffect
+	cp TRIATTACK_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_TransformEffect
+	cp TRANSFORM_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_LightScreenEffect
+	cp LIGHT_SCREEN_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_ReflectEffect
+	cp REFLECT_EFFECT
+	jp z, .done
+
+	ld hl, AttackdexText_PROXY ; SHOULD never appear
 	jp .done
 
 .handleNoAdditionalEffect
@@ -1050,6 +1144,43 @@ DrawAttackdexEntryOnScreen:
 	ld hl, AttackdexText_ToxicEffect
 	jp .done
 
+.handleChargeEffect
+	ld a, [wPlayerMoveNum]
+	ld hl, AttackdexText_DigEffect
+	cp DIG
+	jp z, .done
+	ld hl, AttackdexText_SolarBeamEffect
+	jp .done
+
+.handleSpecialDamageEffect
+	ld a, [wPlayerMoveNum]
+	ld hl, AttackdexText_DragonRageEffect
+	cp DRAGON_RAGE
+	jp z, .done
+	ld hl, AttackdexText_SonicboomEffect
+	cp SONICBOOM
+	jp z, .done
+	ld hl, AttackdexText_PsywaveEffect
+	cp PSYWAVE
+	jp z, .done
+	ld hl, AttackdexText_SeismicTossNightShadeEffect
+	jp .done
+
+.handleRecoilEffect
+	ld a, [wPlayerMoveNum]
+	ld hl, AttackdexText_Recoil1o2Effect
+	cp HEAD_SMASH
+	jp z, .done
+	ld hl, AttackdexText_Recoil1o3Effect
+	jp .done
+
+.handleHealEffect
+	ld a, [wPlayerMoveNum]
+	ld hl, AttackdexText_RestEffect
+	cp REST
+	jp z, .done
+	ld hl, AttackdexText_RecoverEffect
+;	jp .done
 
 .done
 	push af
@@ -1489,4 +1620,184 @@ AttackdexText_CurseEffect:
 
 AttackdexText_LeechSeedEffect:
 	text_far _AttackdexText_LeechSeedEffect
+	text_end
+
+AttackdexText_PayDayEffect:
+	text_far _AttackdexText_PayDayEffect
+	text_end
+
+AttackdexText_SwiftEffect:
+	text_far _AttackdexText_SwiftEffect
+	text_end
+
+AttackdexText_ConversionEffect:
+	text_far _AttackdexText_ConversionEffect
+	text_end
+
+AttackdexText_HazeEffect:
+	text_far _AttackdexText_HazeEffect
+	text_end
+
+AttackdexText_BideEffect:
+	text_far _AttackdexText_BideEffect
+	text_end
+
+AttackdexText_ThrashPetalDanceEffect:
+	text_far _AttackdexText_ThrashPetalDanceEffect
+	text_end
+
+AttackdexText_SwitchAndTeleportEffect:
+	text_far _AttackdexText_SwitchAndTeleportEffect
+	text_end
+
+AttackdexText_DigEffect:
+	text_far _AttackdexText_DigEffect
+	text_end
+
+AttackdexText_SolarBeamEffect:
+	text_far _AttackdexText_SolarBeamEffect
+	text_end
+
+AttackdexText_FlyEffect:
+	text_far _AttackdexText_FlyEffect
+	text_end
+
+AttackdexText_TwoToFiveAttacksEffect:
+	text_far _AttackdexText_TwoToFiveAttacksEffect
+	text_end
+
+AttackdexText_AttackTwiceEffect:
+	text_far _AttackdexText_AttackTwiceEffect
+	text_end
+
+AttackdexText_TwineedleEffect:
+	text_far _AttackdexText_TwineedleEffect
+	text_end
+
+AttackdexText_OHKOEffect:
+	text_far _AttackdexText_OHKOEffect
+	text_end
+
+AttackdexText_SuperFangEffect:
+	text_far _AttackdexText_SuperFangEffect
+	text_end
+
+AttackdexText_TrappingEffect:
+	text_far _AttackdexText_TrappingEffect
+	text_end
+
+AttackdexText_JumpKickEffect:
+	text_far _AttackdexText_JumpKickEffect
+	text_end
+
+AttackdexText_FocusEnergyEffect:
+	text_far _AttackdexText_FocusEnergyEffect
+	text_end
+
+AttackdexText_SubstituteEffect:
+	text_far _AttackdexText_SubstituteEffect
+	text_end
+
+AttackdexText_HyperBeamEffect:
+	text_far _AttackdexText_HyperBeamEffect
+	text_end
+
+AttackdexText_MimicEffect:
+	text_far _AttackdexText_MimicEffect
+	text_end
+
+AttackdexText_MetronomeEffect:
+	text_far _AttackdexText_MetronomeEffect
+	text_end
+
+AttackdexText_SplashEffect:
+	text_far _AttackdexText_SplashEffect
+	text_end
+
+AttackdexText_DisableEffect:
+	text_far _AttackdexText_DisableEffect
+	text_end
+
+AttackdexText_TriattackEffect:
+	text_far _AttackdexText_TriattackEffect
+	text_end
+
+AttackdexText_TransformEffect:
+	text_far _AttackdexText_TransformEffect
+	text_end
+
+AttackdexText_LightScreenEffect:
+	text_far _AttackdexText_LightScreenEffect
+	text_end
+
+AttackdexText_ReflectEffect:
+	text_far _AttackdexText_ReflectEffect
+	text_end
+
+AttackdexText_DragonRageEffect:
+	text_far _AttackdexText_DragonRageEffect
+	text_end
+
+AttackdexText_SonicboomEffect:
+	text_far _AttackdexText_SonicboomEffect
+	text_end
+
+AttackdexText_PsywaveEffect:
+	text_far _AttackdexText_PsywaveEffect
+	text_end
+
+AttackdexText_SeismicTossNightShadeEffect:
+	text_far _AttackdexText_SeismicTossNightShadeEffect
+	text_end
+
+AttackdexText_Recoil1o2Effect:
+	text_far _AttackdexText_Recoil1o2Effect
+	text_end
+
+AttackdexText_Recoil1o3Effect:
+	text_far _AttackdexText_Recoil1o3Effect
+	text_end
+
+AttackdexText_RestEffect:
+	text_far _AttackdexText_RestEffect
+	text_end
+
+AttackdexText_RecoverEffect:
+	text_far _AttackdexText_RecoverEffect
+	text_end
+
+AttackdexText_FreezeDryEffect:
+	text_far _AttackdexText_FreezeDryEffect
+	text_end
+
+AttackdexText_GyroBallEffect:
+	text_far _AttackdexText_GyroBallEffect
+	text_end
+
+AttackdexText_BodyPressEffect:
+	text_far _AttackdexText_BodyPressEffect
+	text_end
+
+AttackdexText_FlailEffect:
+	text_far _AttackdexText_FlailEffect
+	text_end
+
+AttackdexText_PsyStrikeEffect:
+	text_far _AttackdexText_PsyStrikeEffect
+	text_end
+
+AttackdexText_ThousandArrowsEffect:
+	text_far _AttackdexText_ThousandArrowsEffect
+	text_end
+
+AttackdexText_JudgmentEffect:
+	text_far _AttackdexText_JudgmentEffect
+	text_end
+
+AttackdexText_StruggleEffect:
+	text_far _AttackdexText_StruggleEffect
+	text_end
+
+AttackdexText_AncestorPowerEffect:
+	text_far _AttackdexText_AncestorPowerEffect
 	text_end

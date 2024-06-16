@@ -1,10 +1,30 @@
 StartMenu_Pokedex::
+; new, for the Attackdex
+	ld hl, PokedexOrAttackdex
+	call PrintText
+	call PokedexAttackdexChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .pokedex
+	cp 1
+	jr z, .attackdex
+	jr .afterDexUsage
+.attackdex
+	callfar ShowAttackdexMenu
+	jr .afterDexUsage
+.pokedex
+; back to vanilla
 	predef ShowPokedexMenu
+.afterDexUsage ; new label
 	call LoadScreenTilesFromBuffer2 ; restore saved screen
 	call Delay3
 	call LoadGBPal
 	call UpdateSprites
 	jp RedisplayStartMenu
+
+PokedexOrAttackdex:
+	text_far _PokedexOrAttackdex
+	text_end
 
 StartMenu_Pokemon::
 	ld a, [wPartyCount]
@@ -897,3 +917,35 @@ StartMenu_PortablePC:: ; new
 CantUsePCHere:
 	text_far _CantUsePCHere
 	text_end
+
+; displays pokedex/attackdex choice
+PokedexAttackdexChoice:
+	call SaveScreenTilesToBuffer1
+	ld a, MENU_POKEMON_ATTACKS_EXIT
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 7
+	ld [hli], a ; top menu item Y
+	ld a, 11 ; AAA
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, $2
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .defaultOption ; if B was pressed, assign enby
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.defaultOption
+	ld a, $02
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1

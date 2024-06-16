@@ -443,7 +443,7 @@ _OaksLabText23::
 	cont "something for me."
 	done
 
-_OaksLabText24::
+_OaksLabText24:: ; edited
 	text "On the desk there"
 	line "is my invention,"
 	cont "the #DEX!"
@@ -452,6 +452,11 @@ _OaksLabText24::
 	line "records data on"
 	cont "#MON you've"
 	cont "seen or caught!"
+
+	para "It also records"
+	line "info on every"
+	cont "attack you"
+	cont "witness!"
 
 	para "It's a hi-tech"
 	line "encyclopedia!"

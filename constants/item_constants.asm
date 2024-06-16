@@ -120,7 +120,6 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const SHINY_CHARM   ; new
 	const GUTSCHEIN     ; new
 	const ONIGIRI_BOX   ; new
-	const ATTACKDEX     ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

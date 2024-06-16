@@ -42,16 +42,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, PAY_DAY
+	ld a, GYRO_BALL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, MIRROR_COAT
+	ld a, DISABLE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, EXTREMESPEED
+	ld a, BODY_PRESS
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, AQUA_JET
+	ld a, FLAIL
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -220,7 +220,6 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
-	db ATTACKDEX, 1
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
@@ -241,6 +240,7 @@ DebugItemsList:
 	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
+    db POTION, 99
     ; 20
     db ICE_ORB, 1
     db THUNDER_ORB, 1
