@@ -29,7 +29,6 @@ INCLUDE "text/SilphCo7F.asm"
 
 
 SECTION "Text 2", ROMX
-INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/ChampionsRoom.asm"
 INCLUDE "data/text/text_2.asm"
 
@@ -298,6 +297,7 @@ INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/CeruleanMart.asm"
 INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
+INCLUDE "text/HallOfFame.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

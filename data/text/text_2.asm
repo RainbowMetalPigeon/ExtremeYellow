@@ -398,7 +398,7 @@ _CinnabarQuizQuestionsText2::
 
 _CinnabarQuizQuestionsText3::
 	text "Are BUG attacks"
-	line "supereffective"
+	line "super effective"
 	cont "against as many"
 	cont "types as FIGHTING"
 	cont "is weak to?"
@@ -724,11 +724,13 @@ _LinkCableInfoText3::
 	cont "#MON."
 	prompt
 
-_ViridianSchoolBlackboardText1::
+_ViridianSchoolBlackboardText1:: ; edited
 	text "The blackboard"
-	line "describes #MON"
+	line "describes"
+	cont "non-volatile"
 	cont "STATUS changes"
-	cont "during battles."
+	cont "that persist even"
+	cont "after battle."
 	prompt
 
 _ViridianSchoolBlackboardText2:: ; edited
@@ -742,23 +744,27 @@ _ViridianBlackboardSleepText::
 	cont "asleep!"
 
 	para "SLEEP lasts 1 to" ; new
-	line "7 turns."
-
-	para "#MON will stay"
-	line "asleep even after"
-	cont "battles."
+	line "7 turns. #MON"
+	cont "cannot attack on"
+	cont "the same turn"
+	cont "they wake up."
 
 	para "Use AWAKENING to"
 	line "wake them up!"
 	prompt
 
 _ViridianBlackboardPoisonText::
-	text "When poisoned, a"
-	line "#MON's health"
-	cont "steadily drops."
+	text "When poisoned, a" ; edited
+	line "pokeMON loses 1/8"
+	cont "of its max HP at"
+	cont "the end of every"
+	cont "of its turns."
 
-	para "Poison lingers"
-	line "after battles."
+	para "If a #MON is" ; new
+	line "affected by TOXIC"
+	cont "poison, it'll lose"
+	cont "N/8 of its max"
+	cont "HP on turn N."
 
 	para "A poisoned #MON" ; new
 	line "takes damage even"
@@ -769,28 +775,27 @@ _ViridianBlackboardPoisonText::
 	prompt
 
 _ViridianBlackboardPrlzText::
-	text "Paralysis could"
-	line "make #MON"
-	cont "miss their moves!"
+	text "Paralysis makes" ; edited
+	line "#MON miss"
+	cont "their moves 25%"
+	cont "of the time!"
 
-	para "It also heavily" ; new
-	line "reduce speed."
-
-	para "Paralysis remains"
-	line "after battles."
+	para "It also reduces" ; new
+	line "SPEED by 75%."
 
 	para "Use PARLYZ HEAL"
 	line "for treatment!"
 	prompt
 
 _ViridianBlackboardBurnText::
-	text "A burn reduces"
-	line "physical attack." ; edited
-	cont "It also causes"
-	cont "ongoing damage."
+	text "A burn halves" ; edited
+	line "physical attack."
 
-	para "Burns remain"
-	line "after battles."
+	para "It also causes"
+	line "ongoing damage"
+	cont "equal to 1/8 of"
+	cont "the #MON max"
+	cont "HP at every turn."
 
 	para "Use BURN HEAL to"
 	line "cure a burn!"
@@ -801,11 +806,7 @@ _ViridianBlackboardFrozenText::
 	line "#MON becomes"
 	cont "totally immobile!"
 
-	para "It stays frozen"
-	line "even after the"
-	cont "battle ends."
-
-	para "You thaw if hit by" ; new
+	para "It thaws if hit by" ; new
 	line "a FIRE move."
 
 	para "Use ICE HEAL to"
