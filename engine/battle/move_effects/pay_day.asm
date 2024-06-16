@@ -8,13 +8,14 @@ PayDayEffect_:
 	jr z, .payDayEffect
 	ld a, [wEnemyMonLevel]
 .payDayEffect
-; level * 2
-	add a
-	ldh [hDividend + 3], a
+; edited: level * 5
+	ldh [hMultiplicand + 2], a
 	xor a
-	ldh [hDividend], a
-	ldh [hDividend + 1], a
-	ldh [hDividend + 2], a
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
+	ld a, 5
+	ldh [hMultiplier], a
+	call Multiply
 ; convert to BCD
 	ld a, 100
 	ldh [hDivisor], a

@@ -14,6 +14,22 @@ _AttackdexText_HighCritMove::
 	next "critical rate"
 	dex
 
+_AttackdexText_PositivePriorityMove::
+	text "Attack with an"
+	next "increased priority"
+	next "of +@"
+	text_decimal wRelativePriorityForAttackdex, 1, 1
+	line ""
+	dex
+
+_AttackdexText_NegativePriorityMove::
+	text "Attack with a"
+	next "decreased priority"
+	next "of -@"
+	text_decimal wRelativePriorityForAttackdex, 1, 1
+	line ""
+	dex
+
 _AttackdexText_FreezeSideEffect::
 	text "10% chance to"
 	next "inflict FREEZE"

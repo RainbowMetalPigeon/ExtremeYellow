@@ -1006,14 +1006,14 @@ DrawAttackdexEntryOnScreen:
 	jp .done
 
 .handleNoAdditionalEffect
-; TBE: check for priority
-; TBV: priority to be handled automatically or manually? AIGetPriority wEnemyMoveNum
 	ld a, [wPlayerMoveNum]
 	ld d, a
 	callfar IsMoveHighCrit
 	ld hl, AttackdexText_HighCritMove
 	jp c, .done
 ; no high-crit-rate move
+	ld a, [wPlayerMoveNum]
+	ld [wEnemyMoveNum], a
 	callfar AIGetPriority
 	ld a, e ; a contains the prio
 	ld hl, AttackdexText_NoAdditionalEffect
@@ -1022,9 +1022,17 @@ DrawAttackdexEntryOnScreen:
 ; if it's not 7, it's not neutral priority
 	jr nc, .higherPrio
 ; if there's a carry, it's below-neutral prio
-
+	ld b, a
+	ld a, 7
+	sub b
+	ld [wRelativePriorityForAttackdex], a
+	ld hl, AttackdexText_NegativePriorityMove
+	jp .done
 .higherPrio
 	sub 7
+	ld [wRelativePriorityForAttackdex], a
+	ld hl, AttackdexText_PositivePriorityMove
+	jp .done
 
 .handleDrainHPEffect
 	ld a, [wPlayerMoveNum]
@@ -1141,6 +1149,14 @@ AttackdexText_HighCritMove:
 
 AttackdexText_FreezeSideEffect:
 	text_far _AttackdexText_FreezeSideEffect
+	text_end
+
+AttackdexText_PositivePriorityMove:
+	text_far _AttackdexText_PositivePriorityMove
+	text_end
+
+AttackdexText_NegativePriorityMove:
+	text_far _AttackdexText_NegativePriorityMove
 	text_end
 
 AttackdexText_PoisonSideEffect1:
