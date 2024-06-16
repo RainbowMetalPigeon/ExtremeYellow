@@ -161,14 +161,15 @@ AIMoveChoiceModification1:
 ; check for permanent-status-inflicting effects
 	cp SLEEP_EFFECT
 	jp z, .permaStatusEffect
-	cp PARALYZE_EFFECT
-	jp z, .permaStatusEffect
 ; burn is special
 	cp BURN_EFFECT
 	jp z, .burnEffect
 ; poison is even more special
 	cp POISON_EFFECT
 	jp z, .poisonEffect
+; paralyze is even more more special
+	cp PARALYZE_EFFECT
+	jp z, .paralyzeEffect
 ; check for useless-against-substitute effects
 	ld a, [wEnemyMoveEffect] ; unnecessary?
 	push hl
@@ -351,6 +352,25 @@ AIMoveChoiceModification1:
 	jp z, .veryHeavilyDiscourage
 	ld a, [wBattleMonType2]
 	cp STEEL
+	jp nz, .nextMove
+	jp .veryHeavilyDiscourage
+
+.paralyzeEffect
+	ld a, [wBattleMonStatus]
+	and a
+	jp nz, .veryHeavilyDiscourage
+; now we check if the move is ELECTRIC and the target is GROUND in a non-inverse battle
+	ld a, [wInverseBattle]
+	and a
+	jp nz, .nextMove ; if the battle is inverse, we don't perform the checks
+	ld a, [wEnemyMoveType]
+	cp ELECTRIC
+	jp nz, .nextMove ; no need to check if the move isn't THUNDER_WAVE, de facto
+	ld a, [wBattleMonType1]
+	cp GROUND
+	jp z, .veryHeavilyDiscourage
+	ld a, [wBattleMonType2]
+	cp GROUND
 	jp nz, .nextMove
 	jp .veryHeavilyDiscourage
 
