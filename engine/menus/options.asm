@@ -317,7 +317,7 @@ OptionsMenu_BadgeBoost:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp $2
+	cp $1
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -328,7 +328,7 @@ OptionsMenu_BadgeBoost:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, $3
+	ld c, $2
 .decrease
 	dec c
 	ld a, d
@@ -350,15 +350,12 @@ OptionsMenu_BadgeBoost:
 
 BadgeBoostStringsPointerTable:
 	dw BadgeBoostNone
-	dw BadgeBoostFixed
-	dw BadgeBoostGlitchy
+	dw BadgeBoostClassic
 
 BadgeBoostNone:
 	db "NONE   @"
-BadgeBoostFixed:
-	db "FIXED  @"
-BadgeBoostGlitchy:
-	db "GLITCHY@"
+BadgeBoostClassic:
+	db "CLASSIC@"
 
 ; ---
 

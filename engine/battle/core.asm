@@ -938,6 +938,9 @@ TryMidBattleEvolution: ; new, testing
 	ld a, 0
 	ld [wCalculateWhoseStats], a
 	call CalculateModifiedStats
+	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
+	and a						; new code to handle the badge boost option
+	jr z, .skipRecalc			; new code to handle the badge boost option
 	call ApplyBadgeStatBoosts
 .skipRecalc
 	ld a, [wBattleMonSpecies2]
