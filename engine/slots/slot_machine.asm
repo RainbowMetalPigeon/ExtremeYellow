@@ -494,31 +494,31 @@ LinedUpText:
 	text_far _LinedUpText
 	text_end
 
-SlotRewardPointers:
-	dw SlotReward300Func
-	dw SlotReward300Text
-	dw SlotReward100Func
-	dw SlotReward100Text
-	dw SlotReward8Func
-	dw SlotReward8Text
-	dw SlotReward15Func
-	dw SlotReward15Text
-	dw SlotReward15Func
-	dw SlotReward15Text
-	dw SlotReward15Func
-	dw SlotReward15Text
+SlotRewardPointers: ; edited, all doubled
+	dw SlotReward777Func
+	dw SlotReward777Text
+	dw SlotReward200Func
+	dw SlotReward200Text
+	dw SlotReward16Func
+	dw SlotReward16Text
+	dw SlotReward30Func
+	dw SlotReward30Text
+	dw SlotReward30Func
+	dw SlotReward30Text
+	dw SlotReward30Func
+	dw SlotReward30Text
 
-SlotReward300Text:
-	db "300@"
+SlotReward777Text:
+	db "777@"
 
-SlotReward100Text:
-	db "100@"
+SlotReward200Text:
+	db "200@"
 
-SlotReward8Text:
-	db "8@"
+SlotReward16Text:
+	db "16@"
 
-SlotReward15Text:
-	db "15@"
+SlotReward30Text:
+	db "30@"
 
 NotThisTimeText:
 	text_far _NotThisTimeText
@@ -564,7 +564,7 @@ SlotMachine_GetWheelTiles:
 	jr nz, .loop
 	ret
 
-SlotReward8Func:
+SlotReward16Func:
 	ld hl, wSlotMachineAllowMatchesCounter
 	ld a, [hl]
 	and a
@@ -572,10 +572,10 @@ SlotReward8Func:
 	dec [hl]
 .skip
 	ld b, $2
-	ld de, 8
+	ld de, 16
 	ret
 
-SlotReward15Func:
+SlotReward30Func:
 	ld hl, wSlotMachineAllowMatchesCounter
 	ld a, [hl]
 	and a
@@ -583,19 +583,19 @@ SlotReward15Func:
 	dec [hl]
 .skip
 	ld b, $4
-	ld de, 15
+	ld de, 30
 	ret
 
-SlotReward100Func:
+SlotReward200Func:
 	ld a, SFX_GET_KEY_ITEM
 	call PlaySound
 	xor a
 	ld [wSlotMachineFlags], a
 	ld b, $8
-	ld de, 100
+	ld de, 200
 	ret
 
-SlotReward300Func:
+SlotReward777Func:
 	ld hl, YeahText
 	call PrintText
 	ld a, SFX_GET_ITEM_2
@@ -608,7 +608,7 @@ SlotReward300Func:
 .skip
 	ld [wSlotMachineAllowMatchesCounter], a
 	ld b, $14
-	ld de, 300
+	ld de, 777
 	ret
 
 YeahText:

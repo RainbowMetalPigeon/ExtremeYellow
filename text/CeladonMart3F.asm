@@ -37,8 +37,8 @@ _CeladonMart3Text5::
 	cont "their ID Numbers!"
 	done
 
-_CeladonMart3Text6::
-	text "It's an SNES!"
+_CeladonMart3Text6:: ; edited
+	text "It's a Switch!"
 	done
 
 _CeladonMart3Text7::

@@ -654,11 +654,21 @@ _IndigoPlateauHQText::
 	line "#MON LEAGUE HQ"
 	done
 
-_RedBedroomSNESText::
-	text "<PLAYER> is"
-	line "playing the SNES!"
-	cont "...Okay!"
-	cont "It's time to go!"
+_RedBedroomSNESText:: ; edited
+	text "<PLAYER> is playing"
+	line "the Switch!"
+
+	para "A mesmerizing"
+	line "open-world with"
+	cont "such a variety of"
+	cont "biomes, secrets,"
+	cont "details, shrines,"
+	cont "quests...!"
+
+	para "It's beautiful,"
+	line "but it's time to"
+	cont "live our own"
+	cont "great adventure!"
 	done
 
 _Route15UpstairsBinocularsText::
