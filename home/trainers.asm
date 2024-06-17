@@ -108,13 +108,19 @@ TalkToTrainer::
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr z, .trainerNotYetFought
+	jr nz, .trainerAlreadyFoughtAndNotGonnaRefight
+	SetEvent EVENT_REMATCHING_TRAINER
+	jr .rematchTheTrainer
 .trainerAlreadyFoughtAndNotGonnaRefight
 ; --- end new block to reactivate trainers ---
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
 	jp PrintText
+; --- beginning second new block to reactivate trainers ---
 .trainerNotYetFought
+	ResetEvent EVENT_REMATCHING_TRAINER
+.rematchTheTrainer
+; --- end second new block to reactivate trainers ---
 	ld a, $4
 	call ReadTrainerHeaderInfo     ; print before battle text
 	call PrintText

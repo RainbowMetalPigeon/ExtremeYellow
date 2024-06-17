@@ -432,7 +432,7 @@ OptionsMenu_ExpGain:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp $3
+	cp $2
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -443,7 +443,7 @@ OptionsMenu_ExpGain:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, $4
+	ld c, $3
 .decrease
 	dec c
 	ld a, d
@@ -465,18 +465,15 @@ OptionsMenu_ExpGain:
 
 ExpGainStringsPointerTable:
 	dw NormalGain
-	dw NoExpGain
-	dw NoStatsGain
-	dw NeitherGain
+	dw LimitedGain
+	dw NothingGain
 
 NormalGain:
-	db "NORMAL  @"
-NoExpGain:
-	db "NO EXP  @"
-NoStatsGain:
-	db "NO STATS@"
-NeitherGain:
-	db "NEITHER @"
+	db "NORMAL @"
+LimitedGain:
+	db "LIMITED@"
+NothingGain:
+	db "NOTHING@"
 
 ; ----- new, end -----
 
