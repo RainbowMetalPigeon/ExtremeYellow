@@ -10,10 +10,10 @@ VictoryRoad3F_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 28,  5, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 1, OPP_COOLTRAINER, 15
-	object_event  7, 13, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 2, OPP_COOLTRAINER, 2
-	object_event  6, 14, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 16
-	object_event 13,  3, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 4, OPP_COOLTRAINER, 3
+	object_event 28,  5, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 1, OPP_COOLTRAINER, 70 ; edited
+	object_event  7, 13, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 2, OPP_COOLTRAINER, 68 ; edited
+	object_event  6, 14, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 71 ; edited
+	object_event 13,  3, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 4, OPP_COOLTRAINER, 69 ; edited
 	object_event 15,  8, SPRITE_SUPER_NERD, STAY, ANY_DIR, 5, OPP_POKEMANIAC, 9 ; new, weeb
 	object_event 17,  0, SPRITE_SUPER_NERD, STAY, ANY_DIR, 6, OPP_JUGGLER, 9 ; new, metronome
 	object_event 17, 15, SPRITE_YOUNGSTER, STAY, ANY_DIR, 7, OPP_PSYCHIC_TR, 6 ; new, full psychic team

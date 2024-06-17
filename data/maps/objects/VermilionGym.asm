@@ -12,7 +12,7 @@ VermilionGym_Object:
 	object_event  9,  6, SPRITE_GENTLEMAN, STAY, LEFT, 2, OPP_GENTLEMAN, 3
 	object_event  3,  8, SPRITE_SUPER_NERD, STAY, LEFT, 3, OPP_ROCKER, 1
 	object_event  0, 10, SPRITE_SAILOR, STAY, RIGHT, 4, OPP_SAILOR, 8
-	object_event  2,  3, SPRITE_COOLTRAINER_F, STAY, RIGHT, 5, OPP_COOLTRAINER, 10
+	object_event  2,  3, SPRITE_COOLTRAINER_F, STAY, RIGHT, 5, OPP_COOLTRAINER, 17 ; new
 	object_event  4, 14, SPRITE_GYM_GUIDE, STAY, DOWN, 6 ; person
 
 	def_warps_to VERMILION_GYM

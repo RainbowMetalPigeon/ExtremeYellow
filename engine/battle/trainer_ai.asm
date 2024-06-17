@@ -127,11 +127,13 @@ AIMoveChoiceModification1:
 	inc de
 	call ReadMove
 ; check if it is one of the debuffing AND damaging moves, otherwise ignore all damaging moves here
-; actually, do that only for the accuracy one, i.e. Mud Slap, because the other two,
-; Mud Shot and Rock Tomb, are decent moves per se
+; treat the accuracy one, i.e. Mud Slap, differently from the other two,
+; Mud Shot and Rock Tomb, which are stronger but reduce less useful stats in Speed
 	ld a, [wEnemyMoveEffect]
 	cp ACCURACY_DOWN_SIDE_EFFECT_CERT
 	jp z, .debuff_Accuracy
+	cp SPEED_DOWN_SIDE_EFFECT_CERT
+	jp z, .debuff_Speed
 ; if it is not the move above, check if it deals damage
 	ld a, [wEnemyMovePower]
 	and a
@@ -1147,7 +1149,7 @@ CooltrainerAI: ; edited: 50% change to use a Hyper Potion below 1/6 HP, and no s
 	ld a, 6 ; new
 	call AICheckIfHPBelowFraction
 	ret nc ; new
-	jp AIUseSuperPotion
+	jp AIUseHyperPotion
 
 BrockAI:
 ; if his active monster has a status condition, use a full heal

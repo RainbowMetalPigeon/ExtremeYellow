@@ -15,9 +15,9 @@ ObsidianWood_Object:
 
 	def_object_events
 	object_event 24, 25, SPRITE_YOUNGSTER, STAY, ANY_DIR, 1, OPP_YOUNGSTER, 15 ; scared kid
-	object_event 40,  2, SPRITE_YOUNGSTER, STAY, ANY_DIR, 2, OPP_BUG_CATCHER, 12 ; cool bugs in this forest. what do you mean outside? rocket? what're you talk about?
-	object_event  9, 31, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 31 ; came here for unusual mons, found rocket, help me training to defeat them; with that strength, i'm sure you can eradicate those sick rocket yourself; rumors say that safari swim till here
-	object_event 45, 37, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 4, OPP_JR_TRAINER, 36 ; Junior Woodchucks, i'm a ten-star general, i'm stronger
+	object_event 40,  2, SPRITE_YOUNGSTER, STAY, ANY_DIR, 2, OPP_BUG_CATCHER, 12 ; cool bugs in this forest. what do you mean outside?
+	object_event  9, 31, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 73 ; came here for unusual mons, found rocket
+	object_event 45, 37, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 4, OPP_JR_TRAINER, 36 ; Junior Woodchucks, i'm a ten-star general
 	object_event 33, 10, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 5 ; to be edited: OW sprite
 
 	object_event  1, 46, SPRITE_POKE_BALL, STAY, NONE, 6, MAX_ETHER

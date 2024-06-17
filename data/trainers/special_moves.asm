@@ -133,9 +133,9 @@ SpecialTrainerMoves:
 	db 1, 3, DOUBLE_EDGE
 	db 1, 4, DEFENSE_CURL
 	; ALAKAZAM
-;	db 2, 1, THUNDERPUNCH
-;	db 2, 2, ICE_PUNCH
-;	db 2, 3, FIRE_PUNCH
+	db 2, 1, THUNDERPUNCH
+	db 2, 2, ICE_PUNCH
+	db 2, 3, FIRE_PUNCH
 	db 2, 4, PSYCHIC_M
 	; DITTO
 	; lol
@@ -145,28 +145,15 @@ SpecialTrainerMoves:
 	db 1, 3, REFLECT
 	db 1, 4, METRONOME
 	; NIDOQUEEN
-;	db 5, 1, CRUNCH
+	db 5, 1, CRUNCH
 	db 5, 2, DOUBLE_KICK
-;	db 5, 3, ROCK_TOMB
-;	db 5, 4, SLUDGE_WAVE
+	db 5, 3, ROCK_TOMB
+	db 5, 4, SLUDGE_WAVE
 	; BLASTOISE
 	db 6, 1, HYDRO_CANNON
 	db 6, 2, FLASH_CANNON
 	db 6, 3, ICE_BEAM
 	db 6, 4, EARTHQUAKE
-	db $FE
-
-	db COOLTRAINER, 10 ; Cerulean Gym, new
-	; PICHU
-	db 1, 1, VOLT_TACKLE
-	db 1, 2, FLY
-	db 1, 3, SURF
-	db 1, 4, PSYCHIC_M
-	; ELEKID
-;	db 2, 1, IRON_TAIL
-;	db 2, 2, THUNDERBOLT
-;	db 2, 3, KARATE_CHOP
-	db 2, 4, CLOSE_COMBAT
 	db $FE
 
 	db COOLTRAINER, 18 ; pseudo-Red
@@ -235,16 +222,31 @@ SpecialTrainerMoves:
 	db 6, 4, HORN_DRILL
 	db $FE
 
+	db COOLTRAINER, 10 ; Vermilion Gym, new
+	; PICHU
+	db 1, 1, VOLT_TACKLE
+	db 1, 2, FLY
+	db 1, 3, SURF
+	db 1, 4, PSYCHIC_M
+	; ELEKID
+	db 2, 1, IRON_TAIL
+	db 2, 2, THUNDERBOLT
+	db 2, 3, KARATE_CHOP
+	db 2, 4, CLOSE_COMBAT
+	db $FE
+
 	db COOLTRAINER, 25 ; Cerulean Gym, new
 	; KRABBY
 	db 4, 1, METAL_CLAW
+	db 4, 2, MUD_SHOT
+	db 4, 3, LEER
 	db 4, 4, CRABHAMMER
 	db $FE
 
 	db COOLTRAINER, 27 ; Saffron Gym, new
 	; JYNX
 	db 1, 1, PSYCHIC_M
-;	db 1, 2, LOVELY_KISS
+	db 1, 2, LOVELY_KISS
 	db 1, 3, BLIZZARD
 	db 1, 4, DRAININGKISS
 	db $FE

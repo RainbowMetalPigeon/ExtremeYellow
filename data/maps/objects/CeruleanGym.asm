@@ -11,7 +11,7 @@ CeruleanGym_Object:
 	object_event  4,  2, SPRITE_BRUNETTE_GIRL, STAY, DOWN, 1, OPP_MISTY, 1
 	object_event  2,  3, SPRITE_COOLTRAINER_F, STAY, RIGHT, 2, OPP_JR_TRAINER, 1
 	object_event  8,  7, SPRITE_SWIMMER, STAY, LEFT, 3, OPP_SWIMMER, 1
-	object_event  5,  2, SPRITE_COOLTRAINER_F, STAY, DOWN, 4, OPP_COOLTRAINER, 25 ; new
+	object_event  5,  2, SPRITE_COOLTRAINER_F, STAY, DOWN, 4, OPP_COOLTRAINER, 9 ; new
 	object_event  7, 10, SPRITE_GYM_GUIDE, STAY, DOWN, 5 ; person
 
 	def_warps_to CERULEAN_GYM

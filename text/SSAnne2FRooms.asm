@@ -32,9 +32,11 @@ _SSAnne9EndBattleText1::
 	cont "young again!"
 	prompt
 
-_SSAnne9AfterBattleText1::
+_SSAnne9AfterBattleText1:: ; edited
 	text "15 years ago, I"
 	line "would have won!"
+	cont "Ah, how beautiful"
+	cont "is to be young!"
 	done
 
 _SSAnne9BattleText2::

@@ -33,7 +33,7 @@ ReadTrainer:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [wTrainerNo]
+	call LoadTrainerNumber ; edited, was simply "ld a, [wTrainerNo]"
 	ld b, a
 ; At this point b contains the trainer number,
 ; and hl points to the trainer class.
@@ -55,7 +55,7 @@ ReadTrainer:
 ; else the first byte is the level of every pokemon on the team
 .IterateTrainer
 
-	; new block of code to handle level scaling
+; new block of code to handle level scaling
 	ld a, [wLevelScaling]
 	and a ; faster, lighter cp 0
 	jr z, .afterHandlingLevelScaling ; if not in level scaling mode, jump to normal routine
@@ -91,28 +91,28 @@ ReadTrainer:
 .lvlScalingImpossible
 	ld a, 100
 	ld [wCurEnemyLVL], a
-;	jr .afterHandlingLevelScaling ; unnecessary line if it's the last subroutine
 .afterHandlingLevelScaling
 
 	ld a, [hli]
 	cp $FF ; is the trainer special?
 	jr z, .SpecialTrainer ; if so, check for special moves
 
-	; new, prolly suboptimal code, but oh well, it'd just be fitting :D
-	ld b, a ; temporarily store a in b
+; new, prolly suboptimal code for level scaling
+	ld b, a ; temporarily store a in b, contains vanilla hard-coded level
 	ld a, [wLevelScaling]
 	and a ; = cp a, 0: if z flag, then no level scaling
 	jr nz, .LoopTrainerData
 	ld a, b ; restore the previous a, which in vanilla code contains the hard-coded levels of the opp's mons
 
+; new code for badge scaling
+	call OmniDetermineGymTrainersLevelsWrapped ; new level in a, if it's modified at all
+
 	ld [wCurEnemyLVL], a
 .LoopTrainerData
-	; new code to handle FLUCT level scaling, which needs to be run mon per mon, rather than once per trainer
+; new code to handle FLUCT level scaling, which needs to be run mon per mon, rather than once per trainer
 	ld a, [wLevelScaling]
 	cp 2 ; is it FLUCT?
 	jr nz, .notFluctuatingLevelScaling ; if not, continue
-;	ld a, [wCurEnemyLVL]
-;	ld d, a ; now d contains the level of max mon of the player's team
 .loopRandom
 	call Random ; now a contains a random number in [0,255]
 	and 7 ; now the random number is in [0,7]
@@ -136,7 +136,7 @@ ReadTrainer:
 	sub 2 ; after all the checks, we can now safely remove the offset and bring [3,102] to [1,100]
 	ld [wCurEnemyLVL], a
 .notFluctuatingLevelScaling
-	; back to vanilla code
+; back to vanilla code
 
 	ld a, [hli]
 	and a ; have we reached the end of the trainer data?
@@ -209,7 +209,7 @@ ReadTrainer:
 ; does the trainer have additional move data?
 	ld a, [wTrainerClass]
 	ld b, a
-	ld a, [wTrainerNo]
+	call LoadTrainerNumber ; edited, was simply "ld a, [wTrainerNo]"
 	ld c, a
 	ld hl, SpecialTrainerMoves
 .loopAdditionalMoveData
@@ -271,7 +271,9 @@ ReadTrainer:
 	jr nz, .LastLoop ; repeat wCurEnemyLVL times
 	ret
 
-; new, function to handle level scaling
+; new ==========================================================================
+
+; function to handle level scaling
 FindMaxLevelPlayersMons:
     ld e, 0 ; which pokemon we're on in the party
     ld hl, wPartyMon1Level
@@ -281,12 +283,10 @@ FindMaxLevelPlayersMons:
     cp d ; a-d, c flag set if a<d
     jr c, .levelNotHigherThanTempMaximum
     ld d, a
-
 .levelNotHigherThanTempMaximum
     inc e
     ld a, e
     cp PARTY_LENGTH
-
     jr z, .done
     ld hl, wPartyMon1Level
     ld bc, wPartyMon2 - wPartyMon1
@@ -326,4 +326,136 @@ ReadTrainer_CopyPlayersTeam::
 	inc de
 	dec b
 	jr nz, .LastLoop ; repeat wCurEnemyLVL times
+	ret
+
+CountHowManyBadgesWrapped: ; a contains the # badges
+	push hl
+	push bc
+	push de
+	callfar CountHowManyBadges ; d=#badges
+	ld a, d
+	pop de
+	pop bc
+	pop hl
+	ret
+
+CheckIfWeAreInAGym: ; z flag if we are, nz otherwise
+	ld a, [wCurMap]
+	cp PEWTER_GYM
+	ret z
+	cp CERULEAN_GYM
+	ret z
+	cp VERMILION_GYM
+	ret z
+	cp CELADON_GYM
+	ret z
+	cp FUCHSIA_GYM
+	ret z
+	cp SAFFRON_GYM
+	ret z
+	cp CINNABAR_GYM
+	ret ; except Viridian, because Giovanni's gym doesn't scale
+
+DetermineGymTrainersLevels: ; returns in a the level of basic gym trainers
+	call CountHowManyBadgesWrapped
+	and 0
+	jr z, .badges0
+	cp 1
+	jr z, .badges1
+	cp 2
+	jr z, .badges2
+	cp 3
+	jr z, .badges3
+	cp 4
+	jr z, .badges4
+	cp 5
+	jr z, .badges5
+	cp 6
+	jr z, .badges6
+;.badges7
+	ld a, 52
+	ret
+.badges6
+	ld a, 51
+	ret
+.badges5
+	ld a, 47
+	ret
+.badges4
+	ld a, 40
+	ret
+.badges3
+	ld a, 29
+	ret
+.badges2
+	ld a, 25
+	ret
+.badges1
+	ld a, 18
+	ret
+.badges0
+	ld a, 8
+	ret
+
+CheckIfOpponentIsAGymLeader: ; z flag if they are
+	ld a, [wTrainerClass]
+	cp BROCK
+	ret z
+	cp MISTY
+	ret z
+	cp LT_SURGE
+	ret z
+	cp ERIKA
+	ret z
+	cp KOGA
+	ret z
+	cp SABRINA
+	ret z
+	cp BLAINE
+	ret
+
+; is called if we are not doing level-scaling
+; input: b and a hold the hard-coded levels
+; output: b and a hold the level, badge-scaled if we are in a gym
+OmniDetermineGymTrainersLevelsWrapped:
+	push af
+	call CheckIfWeAreInAGym ; z flag if we are in a gym, except Viridian's, which doesn't scale
+	jr nz, .popAndConclude
+	call CheckIfOpponentIsAGymLeader ; z flag if they are, and they scale differently
+	jr z, .popAndConclude
+; if we are here: we are in a gym, but not vs the leader
+	pop af ; we need to pop af, but we don't need the value, so here is fine
+	call DetermineGymTrainersLevels ; returns the level of basic trainers in a, needs +1 for COOLTRAINER
+	ld b, a ; save level in b
+	ld a, [wTrainerClass]
+	cp COOLTRAINER
+	ld a, b ; retrieve level from b
+	ret nz
+	inc a ; if a cool trainer, +1 to the levels
+	ret
+.popAndConclude
+	pop af
+	ret
+
+LoadTrainerNumber: ; simply loads [wTrainerNo] in a for normal trainers, and adds the #badges for COOLTRAINERs
+	call CheckIfWeAreInAGym ; z if we're
+	jr nz, .normalLoading
+; we're in a gym, are we facing a cool trainer?
+	ld a, [wTrainerClass]
+	cp COOLTRAINER
+	jr nz, .normalLoading
+; we're facing a cool trainer; are they the right hands of the leader?
+	ld a, [wTrainerNo]
+	cp 58 ; first non-right-hand of the gym leader: trainerNo-58 is <0, so c flag, for all the right hands, and is >=0, so nc, for all the others
+	jr nc, .normalLoading
+; we're facing a right hand of a gym leader
+	call CountHowManyBadgesWrapped ; a contains the # badges
+	push bc
+	ld b, a
+	ld a, [wTrainerNo]
+	add b ; adds b to a
+	pop bc
+	ret
+.normalLoading
+	ld a, [wTrainerNo]
 	ret

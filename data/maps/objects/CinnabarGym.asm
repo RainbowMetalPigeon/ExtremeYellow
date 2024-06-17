@@ -16,7 +16,7 @@ CinnabarGym_Object:
 	object_event 11, 14, SPRITE_SUPER_NERD, STAY, DOWN, 6, OPP_SUPER_NERD, 11
 	object_event  3, 14, SPRITE_SUPER_NERD, STAY, DOWN, 7, OPP_BURGLAR, 6
 ;	object_event  3,  8, SPRITE_SUPER_NERD, STAY, DOWN, 8, OPP_SUPER_NERD, 12
-	object_event  3,  8, SPRITE_COOLTRAINER_F, STAY, DOWN, 8, OPP_COOLTRAINER, 12
+	object_event  3,  8, SPRITE_COOLTRAINER_F, STAY, DOWN, 8, OPP_COOLTRAINER, 49 ; new
 	object_event 16, 13, SPRITE_GYM_GUIDE, STAY, DOWN, 9 ; person
 
 	def_warps_to CINNABAR_GYM
