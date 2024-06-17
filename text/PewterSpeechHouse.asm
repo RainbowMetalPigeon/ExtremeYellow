@@ -17,3 +17,22 @@ _PewterHouse2Text2::
 	para "But, it's not a"
 	line "sure thing!"
 	done
+
+; new 
+
+_PewterHouse2Text3::
+	text "I..."
+	line "See..."
+	cont "Numbers..."
+
+	para "UuHhUuhH..."
+	line "@"
+	text_decimal wPikachuHappiness, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "!!!"
+
+	para "OohHoOHh..."
+	line "@"
+	text_decimal wPikachuMood, 1, 3
+	text "!!!"
+;	xxxx "123456789012345678"
+	done

@@ -9,6 +9,7 @@ PewterCity_Object:
 	warp_event 23, 17, PEWTER_POKECENTER, 3 ; edited due to MERGING
 	warp_event  7, 29, PEWTER_SPEECH_HOUSE, 1
 	warp_event 13, 25, PEWTER_POKECENTER, 1
+	warp_event 29, 21, PEWTER_SPEECH_HOUSE, 3 ; new
 
 	def_bg_events
 	bg_event 19, 29,  8 ; PewterCityText6

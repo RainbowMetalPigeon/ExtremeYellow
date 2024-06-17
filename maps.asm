@@ -92,9 +92,11 @@ MrPsychicsHouse_Blocks:
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
 SaffronPidgeyHouse_Blocks:
-PewterNidoranHouse_Blocks:
-PewterSpeechHouse_Blocks:
-ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk"
+PewterNidoranHouse_Blocks: INCBIN "maps/PewterNidoranHouse.blk" ; edited
+
+ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk" ; edited
+
+PewterSpeechHouse_Blocks: INCBIN "maps/PewterSpeechHouse.blk" ; edited
 
 VermilionHouses_Blocks: ; new, merge of all Vermilion houses
 LavenderHouses_Blocks: INCBIN "maps/LavenderHouses.blk" ; new, merge of all Lavender houses

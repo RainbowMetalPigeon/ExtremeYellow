@@ -26,7 +26,7 @@ SaffronCity_Object:
 	def_object_events
 	object_event  7,  6, SPRITE_ROCKET, STAY, NONE, 1 ; person
 	object_event 20,  8, SPRITE_ROCKET, WALK, LEFT_RIGHT, 2 ; person
-	object_event 34,  4, SPRITE_ROCKET, STAY, NONE, 3 ; person
+	object_event 29, 30, SPRITE_ROCKET, STAY, NONE, 3 ; person, edited, blocks Mx Psychic's house rather than the gym
 	object_event 13, 12, SPRITE_ROCKET, STAY, NONE, 4 ; person
 	object_event 11, 25, SPRITE_ROCKET, WALK, LEFT_RIGHT, 5 ; person
 ;	object_event 32, 13, SPRITE_ROCKET, WALK, LEFT_RIGHT, 6 ; removed

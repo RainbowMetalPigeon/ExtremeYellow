@@ -358,7 +358,7 @@ CheckIfWeAreInAGym: ; z flag if we are, nz otherwise
 
 DetermineGymTrainersLevels: ; returns in a the level of basic gym trainers
 	call CountHowManyBadgesWrapped
-	and 0
+	cp 0
 	jr z, .badges0
 	cp 1
 	jr z, .badges1
