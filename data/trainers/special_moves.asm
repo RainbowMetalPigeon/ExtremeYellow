@@ -126,7 +126,7 @@ SpecialTrainerMoves:
 	db 6, 4, NIGHT_SLASH
 	db $FE
 
-	db COOLTRAINER, 5 ; pseudo-Green
+	db COOLTRAINER, 64 ; pseudo-Green
 	; JIGGLYPUFF
 	db 1, 1, SING
 	db 1, 2, DISABLE
@@ -156,7 +156,7 @@ SpecialTrainerMoves:
 	db 6, 4, EARTHQUAKE
 	db $FE
 
-	db COOLTRAINER, 18 ; pseudo-Red
+	db COOLTRAINER, 65 ; pseudo-Red
 	; POLIWRATH
 	db 1, 1, CLOSE_COMBAT
 	db 1, 2, SCALD
@@ -189,7 +189,7 @@ SpecialTrainerMoves:
 	db 6, 4, HYPER_BEAM
 	db $FE
 
-	db COOLTRAINER, 24 ; pseudo-Blue
+	db COOLTRAINER, 66 ; pseudo-Blue
 	; SCIZOR
 	db 1, 1, SLASH
 	db 1, 2, STEEL_WING
@@ -222,7 +222,7 @@ SpecialTrainerMoves:
 	db 6, 4, HORN_DRILL
 	db $FE
 
-	db COOLTRAINER, 10 ; Vermilion Gym, new
+	db COOLTRAINER, 17 ; Vermilion Gym, new
 	; PICHU
 	db 1, 1, VOLT_TACKLE
 	db 1, 2, FLY
@@ -235,28 +235,30 @@ SpecialTrainerMoves:
 	db 2, 4, CLOSE_COMBAT
 	db $FE
 
-	db COOLTRAINER, 25 ; Cerulean Gym, new
+	db COOLTRAINER, 9 ; Cerulean Gym, new
 	; KRABBY
-	db 4, 1, METAL_CLAW
-	db 4, 2, MUD_SHOT
-	db 4, 3, LEER
-	db 4, 4, CRABHAMMER
+	db 5, 1, METAL_CLAW
+	db 5, 2, MUD_SHOT
+	db 5, 3, LEER
+	db 5, 4, CRABHAMMER
 	db $FE
 
-	db COOLTRAINER, 27 ; Saffron Gym, new
+	db COOLTRAINER, 44 ; Saffron Gym, new
 	; JYNX
-	db 1, 1, PSYCHIC_M
-	db 1, 2, LOVELY_KISS
-	db 1, 3, BLIZZARD
-	db 1, 4, DRAININGKISS
-	db $FE
-
-	db COOLTRAINER, 26 ; Celadon Gym, new
+	db 2, 1, LOVELY_KISS
+;	db 2, 2, LIGHT_SCREEN
+;	db 2, 3, WATER_PULSE
+;	db 2, 4, ICE_PUNCH
 	; EXEGGUTOR
-	db 5, 1, SLEEP_POWDER
-	db 5, 2, PSYCHIC_M
-	db 5, 3, EXPLOSION
-	db 5, 4, ENERGY_BALL
+;	db 3, 1, ENERGY_BALL
+;	db 3, 2, CONFUSION
+	db 3, 3, SLEEP_POWDER
+;	db 3, 4, STOMP
+	; HAUNTER
+	db 2, 1, HYPNOSIS
+;	db 2, 2, INFESTATION
+;	db 2, 3, SHADOW_PUNCH
+;	db 2, 4, NIGHT_SHADE
 	db $FE
 
 ; GYM LEADERS ===================================================

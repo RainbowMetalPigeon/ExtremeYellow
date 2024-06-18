@@ -902,13 +902,13 @@ BattleFacilitySignIntroInverse:
 PrintBattleFacilityRecords:
 	call SaveScreenTilesToBuffer2
 	ld hl, wd730
-	set 6, [hl]
+	set 6, [hl] ; bit 6: print text with no delay between each letter
 	xor a
 	ld [wUpdateSpritesEnabled], a
 	callfar Printer_PrintBattleFacilityRecords ; the beefy function, the rest is to set up the graphic
 	call WaitForTextScrollButtonPress
 	ld hl, wd730
-	res 6, [hl]
+	res 6, [hl] ; bit 6: print text with no delay between each letter
 	call GBPalWhiteOutWithDelay3
 	call ReloadTilesetTilePatterns
 	call RestoreScreenTilesAndReloadTilePatterns
