@@ -107,8 +107,6 @@ INCLUDE "text/Museum1F.asm"
 INCLUDE "text/Museum2F.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterPokecenter.asm"
-INCLUDE "text/CeruleanTrashedHouse.asm"
-INCLUDE "text/CeruleanMelaniesHouse.asm"
 
 
 SECTION "Text 6", ROMX
@@ -298,6 +296,8 @@ INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
+INCLUDE "text/CeruleanTrashedHouse.asm"
+INCLUDE "text/CeruleanMelaniesHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -20,8 +20,12 @@ BluesHouse_TextPointers:
 	dw BluesHouseDaisySittingText
 	dw DaisyMegaStonesCluesText
 	dw BluesHouseTownMapText
+	dw BluesHouseBlueText ; new
+	dw BluesHouseBluesDadText ; new
+	dw BluesHouseBluesMomText ; new
+	dw BluesHouseOakText ; new
 
-BluesHouseDaisySittingText:
+BluesHouseDaisySittingText: ; TBE
 	text_asm
 	CheckEvent EVENT_GOT_TOWN_MAP
 	jr nz, .got_town_map
@@ -30,7 +34,6 @@ BluesHouseDaisySittingText:
 	ld hl, DaisyInitialText
 	call PrintText
 	jr .done
-
 .give_town_map
 	ld hl, DaisyOfferMapText
 	call PrintText
@@ -46,12 +49,10 @@ BluesHouseDaisySittingText:
 	ld hl, DaisyPostGiveMapText ; new
 	call PrintText ; new
 	jr .done
-
 .got_town_map
 	ld hl, DaisyMegaStonesCluesText
 	call PrintText
 	jr .done
-
 .bag_full
 	ld hl, DaisyBagFullText
 	call PrintText
@@ -87,6 +88,9 @@ DaisyPostGiveMapText: ; new
 
 DaisyMegaStonesCluesText:
 	text_asm
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	ld hl, BluesHouseClues_AfterMissingno
+	jr nz, .continueIntro
 	CheckEvent EVENT_ALREADY_SPOKEN_WITH_DAISY_CLUES
 	ld hl, BluesHouseClues_IntroShort
 	jr nz, .continueIntro
@@ -150,7 +154,10 @@ BluesHouseClues_Intro:
 
 BluesHouseClues_IntroShort:
 	text_far _BluesHouseClues_IntroShort
-;	text_far _BluesHouseClues_Intro
+	text_end
+
+BluesHouseClues_AfterMissingno:
+	text_far _BluesHouseClues_AfterMissingno
 	text_end
 
 BluesHouseClues_Question:
@@ -191,4 +198,20 @@ BluesHouseClues_Clue5:
 
 BluesHouseClues_Clue6:
 	text_far _BluesHouseClues_Clue6
+	text_end
+
+BluesHouseBlueText:
+	text_far _BluesHouseBlueText
+	text_end
+
+BluesHouseBluesDadText:
+	text_far _BluesHouseBluesDadText
+	text_end
+
+BluesHouseBluesMomText:
+	text_far _BluesHouseBluesMomText
+	text_end
+
+BluesHouseOakText:
+	text_far _BluesHouseOakText
 	text_end

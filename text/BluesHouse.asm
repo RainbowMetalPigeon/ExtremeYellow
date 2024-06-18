@@ -3,17 +3,31 @@ _DaisyInitialText::
 	line "<RIVAL> is out at"
 	cont "Gramps' lab."
 
-	para "...can you please"
-	line "keep an eye on my"
-	cont "sibling?"
+	para "Since our parents"
+	line "disappeared, they"
+	cont "closed quite a"
+	cont "lot in"
+	cont "themselves..."
 
-	para "Gramps' condition"
-	line "is making them"
-	cont "suffer a lot, but"
-	cont "the more I try to"
-	cont "help them, the"
-	cont "more they push me"
-	cont "away..."
+	para "On top of that,"
+	line "Gramps' condition"
+	cont "is worsening, and"
+	cont "<RIVAL> is"
+	cont "suffering so"
+	cont "much."
+
+	para "...sorry, I didn't"
+	line "mean to be so"
+	cont "gloomy and"
+	cont "depressive."
+
+	para "Though, the more I"
+	line "try to help them,"
+	cont "the more they"
+	cont "push me away..."
+	cont "Maybe you can"
+	cont "support them"
+	cont "somehow?"
 	done
 
 _DaisyOfferMapText::
@@ -47,15 +61,15 @@ _DaisyPostGiveMapText::
 	cont "grumpy."
 
 	para "They... I don't"
-	line "think they under-"
-	cont "stand all that is"
-	cont "going on, and"
-	cont "they hide pain"
-	cont "and confusion"
-	cont "under a mask of"
-	cont "arrogance and"
-	cont "fake self-"
-	cont "confidence..."
+	line "think <RIVAL>"
+	cont "understands all"
+	cont "that is going on,"
+	cont "and they hide"
+	cont "pain and"
+	cont "confusion under a"
+	cont "mask of arrogance"
+	cont "and fake"
+	cont "selfconfidence..."
 	done
 
 _GotMapText::
@@ -69,19 +83,6 @@ _DaisyBagFullText::
 	text "You have too much"
 	line "stuff with you."
 	done
-
-;_DaisyUseMapText:: ; TBE
-;	text "Use the TOWN MAP"
-;	line "to find out where"
-;	cont "you are."
-;	done
-
-;_BluesHouseDaisyWalkingText::
-;	text "Spending time"
-;	line "with your #MON"
-;	cont "makes them more"
-;	cont "friendly to you."
-;	done
 
 _BluesHouseTownMapText::
 	text "It's a big map!"
@@ -147,7 +148,8 @@ _BluesHouseClues_IntroShort::
 	cont "whatever they"
 	cont "are, hinted by"
 	cont "the documents I"
-	cont "found out!"
+	cont "found!"
+;	xxxx "123456789012345678"
 	prompt
 
 _BluesHouseClues_Question::
@@ -208,3 +210,139 @@ _BluesHouseClues_Clue5::
 _BluesHouseClues_Clue6::
 	text "FLY, YOU FOOLS!"
 	prompt
+
+_BluesHouseClues_AfterMissingno::
+	text "<PLAYER>!"
+
+	para "How did you manage"
+	line "to rescue my"
+	cont "parents?!"
+
+	para "You have my"
+	line "eternal"
+	cont "gratitude!"
+
+	para "And not only"
+	line "that..."
+	cont "Look at <RIVAL>"
+	cont "and Gramps! I"
+	cont "haven't seen them"
+	cont "so happy in"
+	cont "years!"
+	done
+
+_BluesHouseBlueText::
+	text "<PLAYER>!"
+
+	para "I... you..."
+
+	para "...thank you."
+	line "Thank you so"
+	cont "much."
+
+	para "I want to thank"
+	line "you more than I'm"
+	cont "able, but also"
+	cont "apologize until"
+	cont "the end of times"
+	cont "for how I treated"
+	cont "you recently."
+
+	para "I told you so many"
+	line "horrible things"
+	cont "that I now regret"
+	cont "so deeply, and"
+	cont "yet you brought"
+	cont "me the best gift"
+	cont "I could have"
+	cont "never hoped for."
+
+	para "You... you're"
+	line "amazing."
+
+	para "Thanks, thanks"
+	line "forever."
+	done
+
+_BluesHouseBluesDadText::
+	text "<PLAYER>!"
+
+	para "I... I have no"
+	line "words to express"
+	cont "my gratitude."
+
+	para "You saved us all"
+	line "from an eternity"
+	cont "of hell."
+
+	para "The years in"
+	line "that... glitched"
+	cont "BOX... are a"
+	cont "fuzzy fog of"
+	cont "horror."
+
+	para "I had no hope"
+	line "whatsoever to"
+	cont "ever be reunited"
+	cont "with my family,"
+	cont "and yet you"
+	cont "rescued us all!"
+
+	para "Thanks, thanks"
+	line "so so so much."
+	done
+
+_BluesHouseBluesMomText::
+	text "<PLAYER>!"
+
+	para "I cannot believe"
+	line "it! You saved me,"
+	cont "my husband, your"
+	cont "dad!"
+
+	para "I... this is so"
+	line "beautiful to feel"
+	cont "unreal."
+
+	para "I never thought"
+	line "I'd ever seen my"
+	cont "old one and my"
+	cont "kids again..."
+
+	para "I owe you my life."
+	line "Literally."
+	done
+
+_BluesHouseOakText::
+	text "<PLAYER>!"
+
+	para "You never cease to"
+	line "amaze me!"
+
+	para "You did the"
+	line "impossible! My"
+	cont "daughter and my"
+	cont "son-in-law, you"
+	cont "brought them back"
+	cont "to me!"
+
+	para "I feel like I am"
+	line "reborn again."
+
+	para "All the research"
+	line "achievements..."
+
+	para "The LEAGUE"
+	line "championship..."
+
+	para "They feel like"
+	line "nothing in"
+	cont "comparison to the"
+	cont "happiness of"
+	cont "being reunited"
+	cont "with my family."
+
+	para "Thank you. From"
+	line "the bottom of my"
+	cont "heart, thank you."
+	done

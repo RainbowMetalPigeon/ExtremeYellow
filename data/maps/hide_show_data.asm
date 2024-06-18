@@ -46,8 +46,8 @@ MapHSPointers:
 	dw Route28HS ; new, Route28
 	dw NoHS ; new, Route29
 	dw NoHS ; new, Route30
-	dw NoHS
-	dw NoHS
+	dw RedsHouse1FHS ; new
+	dw NoHS ; REDS_HOUSE_2F
 	dw BluesHouseHS
 	dw OaksLabHS
 	dw NoHS
@@ -313,10 +313,6 @@ SaffronCityHS:
 	db SAFFRON_CITY, $0C, HIDE
 	db SAFFRON_CITY, $0D, HIDE
 	db SAFFRON_CITY, $0E, SHOW
-;	db SAFFRON_CITY, $0F, HIDE ; does not exist?
-Route2HS:
-	db ROUTE_2, $01, SHOW
-	db ROUTE_2, $02, SHOW
 Route4HS:
 	db ROUTE_4, $02, SHOW ; new, hiker
 	db ROUTE_4, $03, SHOW ; new, hiker
@@ -356,6 +352,10 @@ BluesHouseHS:
 	db BLUES_HOUSE, $01, SHOW
 	db BLUES_HOUSE, $02, HIDE
 	db BLUES_HOUSE, $03, SHOW
+	db BLUES_HOUSE, $04, HIDE ; Blue
+	db BLUES_HOUSE, $05, HIDE ; new, Blue's Dad
+	db BLUES_HOUSE, $06, HIDE ; new, Blue's Mom
+	db BLUES_HOUSE, $07, HIDE ; new, Prof Oak
 OaksLabHS:
 	db OAKS_LAB, $01, SHOW
 	db OAKS_LAB, $02, SHOW
@@ -816,5 +816,10 @@ CeladonHotelRoomsHS: ; new
 	db CELADON_HOTEL_ROOMS, $06, HIDE ; Trophy 4
 	db CELADON_HOTEL_ROOMS, $07, HIDE ; Trophy 5
 	db CELADON_HOTEL_ROOMS, $08, HIDE ; Trophy 6
+RedsHouse1FHS: ; new
+	db REDS_HOUSE_1F, $02, HIDE ; Dad
+Route2HS:
+	db ROUTE_2, $01, SHOW
+	db ROUTE_2, $02, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

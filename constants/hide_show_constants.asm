@@ -45,8 +45,6 @@ DEF SHOW EQU $15
 	const HS_SAFFRON_CITY_C                ; 16
 	const HS_SAFFRON_CITY_D                ; 17
 	const HS_SAFFRON_CITY_E                ; 18
-	const HS_ROUTE_2_ITEM_1                ; 1A
-	const HS_ROUTE_2_ITEM_2                ; 1B
 	const HS_ROUTE_4_HIKER_1               ; new
 	const HS_ROUTE_4_HIKER_2               ; new
 	const HS_ROUTE_4_ITEM_1                ; 1C
@@ -75,6 +73,10 @@ DEF SHOW EQU $15
 	const HS_DAISY_SITTING                 ; 28
 	const HS_DAISY_WALKING                 ; 29
 	const HS_TOWN_MAP                      ; 2A
+	const HS_BLUES_HOUSE_BLUE              ; new
+	const HS_BLUES_HOUSE_BLUES_DAD         ; new
+	const HS_BLUES_HOUSE_BLUES_MOM         ; new
+	const HS_BLUES_HOUSE_PROF_OAK          ; new
 	const HS_OAKS_LAB_RIVAL                ; 2B
 	const HS_STARTER_BALL_1                ; 2C
 	const HS_OAKS_LAB_OAK_1                ; 2D
@@ -106,7 +108,6 @@ DEF SHOW EQU $15
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; 44
 	const HS_CELADON_MANSION_EEVEE_GIFT    ; 45
 	const HS_GAME_CORNER_ROCKET            ; 46
-;	const HS_WARDENS_HOUSE_ITEM            ; 47
 	const HS_WARDENS_ANTIQUITIES_MAP_PIECE ; new
 	const HS_POKEMON_MANSION_1F_ITEM_1     ; 48
 	const HS_POKEMON_MANSION_1F_ITEM_2     ; 49
@@ -427,12 +428,15 @@ DEF SHOW EQU $15
 	const HS_HAUNTED_HOUSE_4_MOM_TORNADO_RIGHT ; new
 	const HS_HAUNTED_HOUSE_4_MOM_TORNADO_DOWN ; new
 	const HS_HAUNTED_HOUSE_4_MOM_TORNADO_LEFT ; new
-	const HS_CELADON_HOTEL_GUARD_BLOCKING ; new
-	const HS_CELADON_HOTEL_GUARD_ALLOWING ; new
-	const HS_CELADON_HOTEL_ROOMS_TRAVELER ; new
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_1 ; new, League
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_2 ; new, Max in BF
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_3 ; new, Pokedex
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_4 ; new, Inverse Rematches
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_5 ; new, Mega Stones
-	const HS_CELADON_HOTEL_ROOMS_TROPHY_6 ; new, Forbidden Merchant
+	const HS_CELADON_HOTEL_GUARD_BLOCKING  ; new
+	const HS_CELADON_HOTEL_GUARD_ALLOWING  ; new
+	const HS_CELADON_HOTEL_ROOMS_TRAVELER  ; new
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_1  ; new, League
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_2  ; new, Max in BF
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_3  ; new, Pokedex
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_4  ; new, Inverse Rematches
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_5  ; new, Mega Stones
+	const HS_CELADON_HOTEL_ROOMS_TROPHY_6  ; new, Forbidden Merchant
+	const HS_REDS_HOUSE_1F_DAD             ; new
+	const HS_ROUTE_2_ITEM_1                ; moved here from the first block
+	const HS_ROUTE_2_ITEM_2                ; moved here from the first block

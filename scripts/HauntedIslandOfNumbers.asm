@@ -86,6 +86,7 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	cp $ff
 	jp z, HauntedIslandOfNumbersScript_ResetAfterDefeat ; TBE
 	call UpdateSprites
+; hide the sprites that need so
 	SetEvent EVENT_DEFEATED_MISSINGNO
 	ld a, HS_HAUNTED_HOUSE_4_MOM_SW
 	ld [wMissableObjectIndex], a
@@ -99,13 +100,39 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	ld a, HS_HAUNTED_HOUSE_4_MOM_NW
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
+	ld a, HS_DAISY_WALKING
+	ld [wMissableObjectIndex], a
+	predef HideObject
+; show the sprites that need so
+	ld a, HS_REDS_HOUSE_1F_DAD
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_BLUES_HOUSE_BLUES_DAD
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_BLUES_HOUSE_BLUES_MOM
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_BLUES_HOUSE_PROF_OAK
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_BLUES_HOUSE_BLUE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_DAISY_SITTING
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+; conclude battle
 	xor a                            ; new, to go beyond 200; unnecessary here?
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200; unnecessary here?
+; print dialogue
 	ld a, 3 ; HauntedIslandOfNumbersText_PostPokemonBattle
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	call HauntedIslandOfNumbersReplaceBlock ; open exit
+; open exit
+	call HauntedIslandOfNumbersReplaceBlock
 	call Delay3
+; script handling
 	ld a, 0
 	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a

@@ -34,11 +34,11 @@ _Route15GateUpstairsText_Articuno_1:: ; new
 	cont "of ROUTE 29!"
 	done
 
-_Route15GateUpstairsText_Articuno_2:: ; moved
+_Route15GateUpstairsText_Articuno_2:: ; moved and edited
 	text "Looked into the"
 	line "binoculars."
 
-	para "A large, shining"
+	para "A big, shining"
 	line "bird is flying"
 	cont "toward the sea."
 	done

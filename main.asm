@@ -288,7 +288,6 @@ SECTION "Hidden Objects 3", ROMX
 INCLUDE "engine/movie/evolution.asm"
 INCLUDE "engine/pokemon/set_types.asm"
 INCLUDE "engine/events/hidden_objects/reds_room.asm"
-INCLUDE "engine/events/hidden_objects/route_15_binoculars.asm"
 INCLUDE "engine/events/hidden_objects/museum_fossils.asm"
 INCLUDE "engine/events/hidden_objects/fanclub_pictures.asm"
 INCLUDE "engine/events/hidden_objects/museum_fossils2.asm"

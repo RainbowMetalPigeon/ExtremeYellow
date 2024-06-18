@@ -54,7 +54,7 @@ RedsHouse1FScript0:
 	ld a, SPRITE_FACING_DOWN
 	ld [wSprite01StateData1FacingDirection], a
 ; actual dialogue
-	ld a, 4
+	ld a, 5 ; RedsHouse1FMomRunningShoes
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; boring technical stuff
@@ -64,6 +64,7 @@ RedsHouse1FScript0:
 
 RedsHouse1F_TextPointers:
 	dw RedsHouse1FMomText
+	dw RedsHouse1FDadText ; new
 	dw RedsHouse1FTVText
 	dw RedsHouse1FPictureText ; new
 	dw RedsHouse1FMomRunningShoes ; new
@@ -73,13 +74,31 @@ RedsHouse1FMomText:
 	callfar Func_f1b73
 	jp TextScriptEnd
 
+RedsHouse1FDadText:
+	text_far _RedsHouse1FDadText
+	text_end
+
 RedsHouse1FTVText:
 	text_asm
 	callfar Func_f1bc4
 	jp TextScriptEnd
 
 RedsHouse1FPictureText: ; new
-	text_far _RedsHouse1FPictureText
+	text_asm
+	ld hl, RedsHouse1FPictureText_AfterMissingno
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	jr nz, .printAndEnd
+	ld hl, RedsHouse1FPictureText_BeforeMissingno
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+RedsHouse1FPictureText_BeforeMissingno: ; new
+	text_far _RedsHouse1FPictureText_BeforeMissingno
+	text_end
+
+RedsHouse1FPictureText_AfterMissingno: ; new
+	text_far _RedsHouse1FPictureText_AfterMissingno
 	text_end
 
 RedsHouse1FMomRunningShoes: ; new

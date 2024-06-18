@@ -1,13 +1,23 @@
-Func_f1b73::
+Func_f1b73:: ; edited
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	jr nz, .postMissingno
 	ld a, [wd72e]
 	bit 3, a ; received a Pokémon from Oak?
 	jp nz, MomHealPokemon
 	ld hl, MomWakeUpText
 	call PrintText
 	ret
+.postMissingno
+	ld hl, MomPostMissingnoText
+	call PrintText
+	ret
 
 MomWakeUpText:
 	text_far _MomWakeUpText
+	text_end
+
+MomPostMissingnoText: ; new
+	text_far _MomPostMissingnoText
 	text_end
 
 MomHealPokemon:

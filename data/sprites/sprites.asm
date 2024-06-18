@@ -100,6 +100,9 @@ SpriteSheetPointerTable:
 	overworld_sprite TrophyPokedexSprite, 12    ; SPRITE_TROPHY_POKEDEX ; new
 	overworld_sprite TrophyMerchantSprite, 12   ; SPRITE_TROPHY_MERCHANT ; new
 	overworld_sprite TrophyBFSprite, 12         ; SPRITE_TROPHY_BF ; new
+	overworld_sprite DadSprite, 12              ; SPRITE_DAD ; new
+	overworld_sprite BluesDadSprite, 12         ; SPRITE_BLUES_DAD ; new
+	overworld_sprite BluesMomSprite, 12         ; SPRITE_BLUES_MOM ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL
