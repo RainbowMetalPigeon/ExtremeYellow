@@ -401,7 +401,7 @@ LoadMonBackPic:
 	ld a, 0
 	jr nc, .noMissingNo
 ; MissingNo is in the team: is the active mon MISSINGNO itself?
-	ld a, [wBattleMonSpecies2]
+	ld a, [wBattleMonSpecies]
 	cp MISSINGNO
 	ld a, 0
 ; if yes, don't scramble its backsprite
@@ -411,7 +411,7 @@ LoadMonBackPic:
 .noMissingNo
 	ld [wSpriteFlipped], a
 ; back to vanilla
-	ld a, [wBattleMonSpecies2]
+	ld a, [wBattleMonSpecies]
 	ld [wcf91], a
 	hlcoord 1, 5
 	lb bc, 7, 8

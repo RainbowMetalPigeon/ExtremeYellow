@@ -3024,6 +3024,9 @@ NoMovesLeftText:
 ShowMoveInfoInMenu: ; new
 	call SaveScreenTilesToBuffer2
 	callfar ShowAttackdexData
+	ld a, [wBattleMonSpecies]
+	ld [wd0b5], a
+	call GetMonHeader
 	predef LoadMonBackPic
 	call LoadScreenTilesFromBuffer2
 	call LoadHudAndHpBarAndStatusTilePatterns

@@ -58,13 +58,24 @@ _SchoolText4::
 	done
 
 _SchoolText5::
-	text "The ATTACKDEX"
-	line "function included"
-	cont "in the #DEX is"
-	cont "so super useful!"
+	text "My friend just"
+	line "told me about the"
+	cont "ATTACKDEX mode"
+	cont "included in the"
+	cont "#DEX!"
 
-	para "My friend just"
-	line "told me about it!"
+	para "Do you know you"
+	line "can see the info"
+	cont "on the attack by"
+	cont "pressing START?"
+
+	para "It works while in"
+	line "battle, and also"
+	cont "when your #MON"
+	cont "is learning a new"
+	cont "attack, so you"
+	cont "can see what the"
+	cont "new move does!"
 	done
 
 _SchoolText6::

@@ -19,7 +19,7 @@ _AttackdexText_PositivePriorityMove::
 	next "increased priority"
 	next "of +@"
 	text_decimal wRelativePriorityForAttackdex, 1, 1
-	line ""
+	text ""
 	dex
 
 _AttackdexText_NegativePriorityMove::
@@ -27,7 +27,7 @@ _AttackdexText_NegativePriorityMove::
 	next "decreased priority"
 	next "of -@"
 	text_decimal wRelativePriorityForAttackdex, 1, 1
-	line ""
+	text ""
 	dex
 
 _AttackdexText_FreezeSideEffect::
@@ -822,7 +822,7 @@ _AttackdexText_FreezeDryEffect::
 	dex
 
 _AttackdexText_GyroBallEffect::
-	text "Stronger aginast"
+	text "Stronger against"
 	next "faster enemies."
 	next "BP is calculated"
 	next "as follows:"

@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, GYRO_BALL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DISABLE
+	ld a, SHADOW_SNEAK
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, BODY_PRESS
