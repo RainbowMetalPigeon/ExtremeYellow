@@ -46,13 +46,21 @@ TM39NoRoomText:
 	text_far _TM39NoRoomText
 	text_end
 
-Route12GateUpstairsText2:
+Route12GateUpstairsText2: ; edited
 	text_asm
-	ld hl, Route12GateUpstairsText_495b8
+	ld hl, Route12GateUpstairsText_LeftBinocular_Before
+	CheckHideShowExtra HS_OBSIDIAN_MINES_LOST_HIKER ; z flag if shown
+	jr z, .conclude
+	ld hl, Route12GateUpstairsText_LeftBinocular_After
+.conclude
 	jp GateUpstairsScript_PrintIfFacingUp
 
-Route12GateUpstairsText_495b8:
-	text_far _Route12GateUpstairsText_495b8
+Route12GateUpstairsText_LeftBinocular_Before:
+	text_far _Route12GateUpstairsText_LeftBinocular_Before
+	text_end
+
+Route12GateUpstairsText_LeftBinocular_After:
+	text_far _Route12GateUpstairsText_LeftBinocular_After
 	text_end
 
 Route12GateUpstairsText3:

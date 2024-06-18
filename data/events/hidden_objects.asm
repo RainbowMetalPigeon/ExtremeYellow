@@ -28,7 +28,7 @@ HiddenObjectMaps:
 	dbw ROUTE_12,                     Route12HiddenObjects
 	dbw ROUTE_13,                     Route13HiddenObjects ; edited
 	dbw ROUTE_14,                     Route14HiddenObjects ; new
-	dbw ROUTE_15_GATE_2F,             Route15Gate2FHiddenObjects
+;	dbw ROUTE_15_GATE_2F,             Route15Gate2FHiddenObjects
 	dbw ROUTE_17,                     Route17HiddenObjects
 	dbw ROUTE_23,                     Route23HiddenObjects
 	dbw VICTORY_ROAD_2F,              VictoryRoad2HiddenObjects
@@ -247,9 +247,9 @@ Route14HiddenObjects: ; new
 	hidden_object 15, 38, ULTRA_BALL, HiddenItems
 	db -1 ; end
 
-Route15Gate2FHiddenObjects:
-	hidden_object  1,  2, SPRITE_FACING_UP, Route15GateLeftBinoculars
-	db -1 ; end
+;Route15Gate2FHiddenObjects:
+;	hidden_object  1,  2, SPRITE_FACING_UP, Route15GateLeftBinoculars
+;	db -1 ; end
 
 Route17HiddenObjects:
 	hidden_object 15,  14, RARE_CANDY, HiddenItems

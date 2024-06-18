@@ -28,7 +28,17 @@ _TM39NoRoomText::
 	line "room for this."
 	done
 
-_Route12GateUpstairsText_495b8::
+_Route12GateUpstairsText_LeftBinocular_Before:: ; new
+	text "Looked into the"
+	line "binoculars."
+
+	para "A tranquil bridge"
+	line "looking perfect"
+	cont "for fishing!"
+;	xxxx "123456789012345678"
+	done
+
+_Route12GateUpstairsText_LeftBinocular_After::
 	text "Looked into the"
 	line "binoculars."
 

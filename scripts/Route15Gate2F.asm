@@ -1,8 +1,35 @@
 Route15Gate2F_Script:
-	jp DisableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, Route15Gate2F_ScriptPointers
+	ld a, [wRoute15Gate2FCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wRoute15Gate2FCurScript], a
+	ret
+
+Route15Gate2F_ScriptPointers:
+	dw Route15Gate2FScript0
+	dw Route15Gate2FScript1
+
+Route15Gate2FScript0:
+	ret
+
+Route15Gate2FScript1:
+	ld a, ARTICUNO
+	ld [wcf91], a
+	call PlayCry
+	callfar DisplayMonFrontSpriteInBox
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call RestoreOverworld
+; script handling
+	xor a
+	ld [wRoute15Gate2FCurScript], a
+	ld [wCurMapScript], a
+	ret
 
 Route15Gate2F_TextPointers:
 	dw Route15GateUpstairsText1
+	dw Route15GateUpstairsTextArticuno ; new
 	dw Route15GateUpstairsText2
 
 Route15GateUpstairsText1:
@@ -42,3 +69,51 @@ Route15GateUpstairsText2:
 Route15GateUpstairsText_49698:
 	text_far _Route15GateUpstairsText_49698
 	text_end
+
+; new ===========================================
+
+Route15GateUpstairsTextArticuno:
+	text_asm
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jr nz, .terminate
+; we do are facing UP
+	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
+	jr nz, .ArticunoSummoned
+; Articuno not summoned yet
+	ld hl, Route15GateUpstairsText_Articuno_1
+	jr .printAndEnd
+.ArticunoSummoned
+	CheckHideShowExtra HS_ARTICUNO ; z flag if is SHOW, nz if is HIDE
+	jr z, .ArticunoNotCaught
+; Articuno summoned and caught
+	ld hl, Route15GateUpstairsText_Articuno_3
+	jr .printAndEnd
+.ArticunoNotCaught
+	ld hl, Route15GateUpstairsText_Articuno_2
+	call PrintText
+; script handling
+	ld a, 1
+	ld [wRoute15Gate2FCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+.terminate
+	jp TextScriptEnd
+
+Route15GateUpstairsText_Articuno_3:
+	text_far _Route15GateUpstairsText_Articuno_3
+	text_end
+
+Route15GateUpstairsText_Articuno_2:
+	text_far _Route15GateUpstairsText_Articuno_2
+	text_end
+
+Route15GateUpstairsText_Articuno_1:
+	text_far _Route15GateUpstairsText_Articuno_1
+	text_end
+
+RestoreOverworld:
+	call LoadCurrentMapView
+	jp UpdateSprites

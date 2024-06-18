@@ -309,13 +309,13 @@ Attackdex_PlaceAttackList:
 	ld d, 7
 	ld a, [wDexMaxSeenAttacks]
 	cp 7
-	jr nc, .printPokemonLoop
+	jr nc, .printAttackLoop
 	ld d, a
 	dec a
 	ld [wMaxMenuItem], a
 ; loop to print attacks' indexes and names
 ; only if the player has seen the attack
-.printPokemonLoop
+.printAttackLoop
 	ld a, [wd11e]
 	inc a
 	ld [wd11e], a
@@ -326,7 +326,7 @@ Attackdex_PlaceAttackList:
 	add hl, de
 	ld de, wd11e
 	lb bc, LEADING_ZEROES | 1, 3
-	call PrintNumber ; print the pokedex number
+	call PrintNumber ; print the attackdex number
 	ld de, SCREEN_WIDTH
 	add hl, de
 	dec hl
@@ -355,7 +355,7 @@ Attackdex_PlaceAttackList:
 	pop af
 	ld [wd11e], a
 	dec d
-	jr nz, .printPokemonLoop
+	jr nz, .printAttackLoop
 	ld a, 01
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3
@@ -375,14 +375,14 @@ IsAttackBitSet:
 	and a
 	ret
 
-; function to display pokedex data from outside the pokedex
+; function to display attackdex data from outside the attackdex
 ShowAttackdexData:
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 ;	call UpdateSprites ; TBV
 	callfar LoadPokedexTilePatterns ; load pokedex tiles
 
-; function to display pokedex data from inside the pokedex
+; function to display attackdex data from inside the attackdex
 ShowAttackdexDataInternal:
 	ld hl, wd72c
 	set 1, [hl]
@@ -421,7 +421,7 @@ ShowAttackdexDataInternal:
 	ret
 
 ; horizontal line that divides the pokedex text description from the rest of the data
-PokedexDataDividerLine2:
+AttackdexDataDividerLine:
 	db $68, $69, $6B, $69, $6B, $69, $6B, $69, $6B, $6B
 	db $6B, $6B, $69, $6B, $69, $6B, $69, $6B, $69, $6A
 	db "@"
@@ -462,16 +462,10 @@ DrawAttackdexEntryOnScreen:
 	ldcoord_a 19, 17
 
 	hlcoord 0, 8
-	ld de, PokedexDataDividerLine2
+	ld de, AttackdexDataDividerLine
 	call PlaceString ; draw horizontal divider line
 
 ; print move name
-
-; TBE: wcd6d points to the move name AFTER GetMoveName has been called
-; moves names are 3 to 12 chars long
-; the screen is 20 chars large
-; get some ugly hard-coded values and choose the right hlcoord values?
-
 	call GetMoveName
 
 	ld hl, wcd6d
@@ -609,6 +603,10 @@ DrawAttackdexEntryOnScreen:
 ; print move type
 	hlcoord 7, 3
 	predef PrintMoveType
+
+; print TM/HM number, if applicable
+	decoord 15, 7
+	callfar DisplayTMItemNameFromMoveName
 
 ; prepare pointer for description printing
 	ld a, [wPlayerMoveNum]
@@ -1199,7 +1197,7 @@ Attackdex_PrintFlavorTextAtRow10:
 Attackdex_PrintFlavorTextAtBC:
 	ld a, %10
 	ldh [hClearLetterPrintingDelayFlags], a
-	call TextCommandProcessor ; print pokedex description text
+	call TextCommandProcessor ; print attackdex description text
 	xor a
 	ldh [hClearLetterPrintingDelayFlags], a
 	ret
@@ -1252,17 +1250,17 @@ DrawTileLineCopy:
 	pop bc
 	ret
 
-PPTextAttackdex:
-	db "PP:@"
+TypeTextAttackdex:
+	db "TYPE:@"
 
 BPTextAttackdex:
 	db "BP:@"
 
-TypeTextAttackdex:
-	db "TYPE:@"
-
 AccuracyTextAttackdex:
 	db "ACC:@"
+
+PPTextAttackdex:
+	db "PP:@"
 
 ; ==============================================================
 

@@ -2383,7 +2383,8 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 wMrPsychicsHouseCurScript:: db ; new
 wCeruleanCaveExtraMiddleCurScript:: db ; new
 wRedsHouse1FCurScript:: db ; new
-	ds 40 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
+wRoute15Gate2FCurScript:: db ; new
+	ds 39 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
 wGameProgressFlagsEnd::
 
 wPlayerGender::

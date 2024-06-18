@@ -13,7 +13,7 @@ TextPredefs::
 	add_tx_pre StrengthsAndWeaknessesText           ; 07
 	add_tx_pre OakLabEmailText                      ; 08
 	add_tx_pre AerodactylFossilText                 ; 09
-	add_tx_pre Route15UpstairsBinocularsText        ; 0A
+;	add_tx_pre Route15UpstairsBinocularsText        ; 0A
 	add_tx_pre KabutopsFossilText                   ; 0B
 	add_tx_pre FanClubPicture1Text                  ; 0C
 	add_tx_pre FanClubPicture2Text                  ; 0D

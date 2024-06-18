@@ -671,15 +671,6 @@ _RedBedroomSNESText:: ; edited
 	cont "great adventure!"
 	done
 
-_Route15UpstairsBinocularsText::
-	text "Looked into the"
-	line "binoculars..."
-
-	para "A large, shining"
-	line "bird is flying"
-	cont "toward the sea."
-	done
-
 _AerodactylFossilText::
 	text "AERODACTYL Fossil"
 	line "A primitive and"
