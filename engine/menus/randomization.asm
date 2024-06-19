@@ -16,6 +16,10 @@ DisplayRandomizationMenu::
 	call DelayFrame
 	jr .randomizationMenuLoop
 .exitRandomizationMenu
+; to inizialite the random address needed for the wild encounters option
+; see commens about the other part for more info
+	call Random
+	ld [wRandomMemoryAddressForWildRandomization+1], a
 	ret
 
 GetRandomizationPointer:
@@ -79,7 +83,7 @@ RandomizationMenu_WildEncounters:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 16, 2
+	hlcoord 15, 2
 	call PlaceString
 	and a
 	ret
@@ -123,7 +127,7 @@ RandomizationMenu_TrainersTeam:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 16, 4
+	hlcoord 15, 4
 	call PlaceString
 	and a
 	ret
@@ -167,7 +171,7 @@ RandomizationMenu_Items:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 6
+	hlcoord 8, 6
 	call PlaceString
 	and a
 	ret
@@ -211,7 +215,7 @@ RandomizationMenu_Warps:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 8
+	hlcoord 8, 8
 	call PlaceString
 	and a
 	ret
@@ -293,6 +297,16 @@ RandomizationMenu_UpdateCursorPosition:
 	ret
 
 InitRandomizationMenu:
+; to inizialite the random address needed for the wild encounters option
+; we do the first here and the second upon exiting the menu to maximize the randomness due to player's inputs
+.loopRandom
+	call Random
+	cp 32
+	jr nc, .loopRandom
+	ld [wRandomMemoryAddressForWildRandomization], a
+; the loop is necessary if wRandomMemoryAddressForWildRandomization is indeed the MOST significant byte
+; in which case we cannot go too high otherwise we go beyond the boundaries of the bank itself
+; back to ordinary code
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder

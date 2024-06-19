@@ -467,28 +467,28 @@ _OnigiriBoxDescription::
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::
-	text "Cuts using claws,"
-	next "scythes, etc."
+	text "CUT"
+	next "Cut little trees"
 	prompt
 
 _HM02Description::
-	text "1st turn: Fly"
-	next "2nd turn: Attack"
+	text "FLY"
+	next "Fly to cities"
 	prompt
 
 _HM03Description::
-	text "A strong water-"
-	next "type attack."
+	text "SURF"
+	next "Surf over water"
 	prompt
 
 _HM04Description::
-	text "A powerful physi-"
-	next "cal attack."
+	text "STRENGTH"
+	next "Move boulders"
 	prompt
 
 _HM05Description::
-	text "Blinds the foe to"
-	next "reduce accuracy."
+	text "FLASH"
+	next "Brigthen caves"
 	prompt
 
 ; TMs --------------------------------------------------------------------------

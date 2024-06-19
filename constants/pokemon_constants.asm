@@ -210,6 +210,7 @@
 	const MMEWTWOY           ; 201
 	const MEW                ; 202
 	const VENUSTOISE         ; 203
+DEF NUM_POKEMON_RANDOMIZABLE EQU const_value - 1
 	const ZYGARDEC           ; 204
 	const UNECROZMA          ; 205
 	const MRAYQUAZA          ; 206

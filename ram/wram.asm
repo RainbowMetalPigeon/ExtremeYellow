@@ -2606,12 +2606,14 @@ wWarpedFromWhichMap:: db
 wCardKeyDoorY:: db
 wCardKeyDoorX:: db
 
-	ds 2 ; UNUSED bytes in "Main Data"
+;	ds 2
+wRandomMemoryAddressForWildRandomization:: ds 2 ; new
 
 wFirstLockTrashCanIndex:: db
 wSecondLockTrashCanIndex:: db
 
-	ds 2 ; UNUSED bytes in "Main Data"
+;	ds 2
+wRandomMemoryAddressForWildRandomization_Current:: ds 2 ; new
 
 wEventFlags:: flag_array NUM_EVENTS
 
