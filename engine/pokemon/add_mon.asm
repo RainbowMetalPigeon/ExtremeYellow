@@ -31,7 +31,16 @@ _AddPartyMon::
 	push de
 	callfar RandomizeTeamForBattleFacilityTrainer
 	pop de
+	jr .vanilla4
 .vanilla3
+; new, to handle Trainers' Teams randomization
+	ld a, [wRandomizationTrainersTeams] ; 0=NO, 1=YES
+	and a
+	jr z, .vanilla4
+	push de
+	callfar RandomizeTeamForRandomizationOption
+	pop de
+.vanilla4
 ; back to vanilla
 	ld a, [wcf91]
 	ld [de], a ; write species of new mon in party list

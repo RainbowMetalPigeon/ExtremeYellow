@@ -163,6 +163,9 @@ IF DEF(_DEBUG)
     ld a, $FF
     ld [wPikachuHappiness], a
     ld [wPikachuMood], a
+    
+	ld a, $1
+	ld [wChampionsRoomCurScript], a
 
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 

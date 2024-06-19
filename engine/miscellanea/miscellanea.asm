@@ -338,6 +338,61 @@ MegaEvolvedMons: ; 0-14
 	db MPINSIR
 	db MGYARADOS
 	db MARODACTYL
+
+; =====================================
+
+RandomizeTeamForRandomizationOption::
+; let's not randomize PIGEON, TRAVELER, MISSINGNO_T, COPYCAT
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_2F
+	ret z
+	ld a, [wCurOpponent]
+	cp OPP_PIGEON
+	ret z
+	cp OPP_TRAVELER
+	ret z
+	cp OPP_MISSINGNO_T
+	ret z
+; and we want to give a broken team to the Champion's "mega team"
+	cp OPP_RIVAL3
+	jr nz, .normalRandomization
+; opponent is Rival3, now we need to check if it's the right number
+	ld a, [wTrainerNo]
+	cp 1
+	jr z, .RNGLoopMega
+	cp 3
+	jr z, .RNGLoopMega
+	cp 5
+	jr z, .RNGLoopMega
+	jr .normalRandomization
+; let's give the champion's "mega team" only megas
+.RNGLoopMega
+	ld hl, MegaEvolvedMons
+; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 16 included
+	call Random
+	cp 17 ; 16+1
+	jr nc, .RNGLoopMega
+; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
+.uglyLoopMega
+	dec a
+	cp $FF
+	jr z, .doneUglyLoopMega
+	inc hl
+	jr .uglyLoopMega
+.doneUglyLoopMega
+	ld a, [hl]
+	jr .conclude
+.normalRandomization ; double label just for clarity
+.sanityLoop
+	call Random
+	cp 0
+	jr z, .sanityLoop ; we don't want the non-pokemon with index 0
+	cp NUM_POKEMON_RANDOMIZABLE+1
+	jr nc, .sanityLoop ; we don't want anything beyond Venustoise
+.conclude
+	ld [wcf91], a
+	ret
+
 ; =====================================
 
 TMMartClerkDialogue::
