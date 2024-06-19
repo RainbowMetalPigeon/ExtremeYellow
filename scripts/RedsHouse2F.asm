@@ -20,5 +20,33 @@ RedsHouse2FScript4:
 	ret
 
 RedsHouse2F_TextPointers:
+	dw RedsHouse2FRandomizationOptions
 
-	text_end ; unused
+RedsHouse2FRandomizationOptions:
+	text_asm
+	call SaveScreenTilesToBuffer2
+	ld hl, RedsHouse2FRandomizationOptions_Intro
+	call PrintText
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call ClearScreen
+	call UpdateSprites
+	callfar DisplayRandomizationMenu ; main function
+	call ClearScreen
+	call LoadScreenTilesFromBuffer2
+	call LoadTextBoxTilePatterns ; testing
+	call ReloadMapData
+	call UpdateSprites
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a ; testing
+	ld hl, RedsHouse2FRandomizationOptions_Outro
+	call PrintText
+	jp TextScriptEnd
+
+RedsHouse2FRandomizationOptions_Intro:
+	text_far _RedsHouse2FRandomizationOptions_Intro
+	text_end
+
+RedsHouse2FRandomizationOptions_Outro:
+	text_far _RedsHouse2FRandomizationOptions_Outro
+	text_end

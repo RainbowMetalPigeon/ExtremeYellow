@@ -240,7 +240,7 @@ DebugItemsList:
 	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
-    db POTION, 99
+    db HM_CUT, 1
     ; 20
     db ICE_ORB, 1
     db THUNDER_ORB, 1

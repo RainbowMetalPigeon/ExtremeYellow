@@ -111,7 +111,7 @@ RandomizeTeamForBattleFacilityTrainer::
 ; hardcore battle mode = we choose out of the bigger list of megas, legendaries, and other fully evo
 .RNGLoopHardcore
 	ld hl, AllFinalStageMons
-; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 105 included
+; generate a random number between 0 and len(AllFinalStageMons)-1, i.e. 0 and 105 included
 	call Random
 	cp 106 ; 105+1
 	jr nc, .RNGLoopHardcore

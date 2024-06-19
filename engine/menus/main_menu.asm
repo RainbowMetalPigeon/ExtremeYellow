@@ -269,7 +269,7 @@ SaveScreenInfoText:
 	next "#DEX    "
 	next "TIME@"
 
-DisplayOptionMenu:
+DisplayOptionMenu:: ; edited, double colon
 	callfar DisplayOptionMenu_
 	ret
 

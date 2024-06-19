@@ -98,6 +98,7 @@ INCLUDE "data/text/text_4.asm"
 SECTION "Text 5", ROMX
 INCLUDE "data/text/text_5.asm"
 INCLUDE "text/RedsHouse1F.asm"
+INCLUDE "text/RedsHouse2F.asm" ; new
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"

@@ -234,8 +234,6 @@ ItemDescriptionPointers:
 	text_end
 	text_far _OnigiriBoxDescription		; ONIGIRI_BOX
 	text_end
-	text_far _AttackDexDescription		; ATTACKDEX
-	text_end
 
 ; HMs
 

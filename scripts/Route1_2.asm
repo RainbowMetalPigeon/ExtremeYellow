@@ -1,11 +1,12 @@
-Func_f1ad2::
-	CheckAndSetEvent EVENT_GOT_POTION_SAMPLE
+Func_f1ad2:: ; edited, the event was set even if the bag was full
+	CheckEvent EVENT_GOT_POTION_SAMPLE
 	jr nz, .got_item
 	ld hl, Route1ViridianMartSampleText
 	call PrintText
 	lb bc, POTION, 1
 	call GiveItem
 	jr nc, .bag_full
+	SetEvent EVENT_GOT_POTION_SAMPLE
 	ld hl, Route1Text_1cae8
 	jr .done
 .bag_full
