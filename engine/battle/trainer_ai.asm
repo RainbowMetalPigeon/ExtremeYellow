@@ -1027,7 +1027,7 @@ ReadMove:
 
 INCLUDE "data/trainers/move_choices.asm"
 
-INCLUDE "data/trainers/pic_pointers_money.asm"
+;INCLUDE "data/trainers/pic_pointers_money.asm" ; edited, not necessary here?
 
 INCLUDE "data/trainers/names.asm"
 

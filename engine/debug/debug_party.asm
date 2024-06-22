@@ -1,4 +1,3 @@
-      ; not IshiharaTeam
 SetDebugTeam:
 	ld de, DebugTeam
 .loop
@@ -14,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 100 ; 255
+	db MBLASTOISE, 100 ; 255
 	db PORYGON, 97
 	db STARTER_PIKACHU, 5
 ;	db SANDSLASH, 19
@@ -163,7 +162,7 @@ IF DEF(_DEBUG)
     ld a, $FF
     ld [wPikachuHappiness], a
     ld [wPikachuMood], a
-    
+
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 

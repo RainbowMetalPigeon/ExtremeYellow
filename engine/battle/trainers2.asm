@@ -3,8 +3,8 @@ GetTrainerInformation::
 	ld a, [wLinkState]
 	and a
 	jr nz, .linkBattle
-	ld a, BANK(TrainerPicAndMoneyPointers)
-	call BankswitchHome
+;	ld a, BANK(TrainerPicAndMoneyPointers) ; edited
+;	call BankswitchHome                    ; edited
 	ld a, [wTrainerClass]
 	dec a
 	ld hl, TrainerPicAndMoneyPointers
@@ -23,7 +23,6 @@ GetTrainerInformation::
 	ld a, [hli]
 	ld [de], a
 	call IsFightingJessieJames
-;	call IsFightingPseudoRed
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -42,9 +41,6 @@ IsFightingJessieJames::
 	ret c
 	cp $33 ; added because of Rocket siblings in Lunar Shrine
 	ret nc
-;	ld de, LancePic ; Rocket executives' pics here, or in init_battle if gotta load another BANK... temp testing with Lance's pic
-;	cp $33 ; edited, for the Rocket executives
-;	jr nc, .executives
 	ld de, JessieJamesPic ; possibly meant to add another pic
 .executives
 	ld hl, wTrainerPicPointer
@@ -53,19 +49,7 @@ IsFightingJessieJames::
 	ld [hl], d
 	ret
 
-;IsFightingPseudoRed::
-;	ld a, [wTrainerClass]
-;	cp COOLTRAINER_M
-;	ret nz
-;	ld a, [wTrainerNo]
-;	cp 5
-;	ret nz
-;	ld de, RedPicFront
-;	ld hl, wTrainerPicPointer
-;	ld a, e
-;	ld [hli], a
-;	ld [hl], d
-;	ret
-
 GetTrainerName::
 	farjp GetTrainerName_
+
+INCLUDE "data/trainers/pic_pointers_money.asm"

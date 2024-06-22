@@ -2,7 +2,24 @@ NamePointers::
 ; entries correspond to *_NAME constants
 	dw MonsterNames
 	dw MoveNames
-;	dw UnusedBadgeNames ; edited, commented out as unused
+	dw ItemNames
+	dw wPartyMonOT ; player's OT names list
+	dw wEnemyMonOT ; enemy's OT names list
+	dw TrainerNames
+
+NamePointersPigeon:: ; new, to personalize names
+; entries correspond to *_NAME constants
+	dw MonsterNamesPigeon
+	dw MoveNames
+	dw ItemNames
+	dw wPartyMonOT ; player's OT names list
+	dw wEnemyMonOT ; enemy's OT names list
+	dw TrainerNames
+
+NamePointersJapanese:: ; new, to personalize names
+; entries correspond to *_NAME constants
+	dw MonsterNamesJapanese
+	dw MoveNames
 	dw ItemNames
 	dw wPartyMonOT ; player's OT names list
 	dw wEnemyMonOT ; enemy's OT names list
@@ -63,7 +80,18 @@ GetName::
 	jr nc, .skip
 	inc d
 .skip
+; new, to personalize names
+	ld a, [wPersonalizationNames] ; 0=ENGLISH, 1=PIGEON, 2=JAPANESE
 	ld hl, NamePointers
+	and a
+	jr z, .continue
+	ld hl, NamePointersPigeon
+	cp 1
+	jr z, .continue
+	ld hl, NamePointersJapanese
+.continue
+; back to vanilla
+;	ld hl, NamePointers
 	add hl, de
 	ld a, [hli]
 	ldh [hSwapTemp + 1], a

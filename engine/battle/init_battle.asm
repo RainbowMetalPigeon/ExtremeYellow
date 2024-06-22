@@ -37,7 +37,7 @@ InitBattleCommon:
 	sub OPP_ID_OFFSET           ; still relevant?
 ;	jp c, InitWildBattle		; commented to go beyond 200
 	ld [wTrainerClass], a
-	call GetTrainerInformation
+	callfar GetTrainerInformation ; edited because moved out of home
 ; new, to handle Copycat's full copy team
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_2F

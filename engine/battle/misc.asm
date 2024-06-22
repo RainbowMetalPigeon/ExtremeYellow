@@ -71,7 +71,17 @@ InitList:
 	cp INIT_MON_LIST
 	jr nz, .notMonster
 	ld hl, wItemList
+; new, to personalize names
+	ld a, [wPersonalizationNames] ; 0=ENGLISH, 1=PIGEON, 2=JAPANESE
 	ld de, MonsterNames
+	and a
+	jr z, .continue
+	ld de, MonsterNamesPigeon
+	cp 1
+	jr z, .continue
+	ld de, MonsterNamesJapanese
+.continue
+; back to vanilla
 	ld a, MONSTER_NAME
 	jr .done
 .notMonster

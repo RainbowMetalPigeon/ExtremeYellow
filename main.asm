@@ -94,6 +94,7 @@ INCLUDE "engine/events/hidden_objects/book_or_sculpture.asm"
 INCLUDE "engine/events/hidden_objects/elevator.asm"
 INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
+INCLUDE "engine/battle/trainers2.asm" ; edited, moved out of HOME
 
 
 SECTION "bank4", ROMX
@@ -225,7 +226,8 @@ INCLUDE "engine/movie/intro.asm"
 INCLUDE "engine/movie/trade2.asm"
 INCLUDE "engine/menus/options.asm"
 INCLUDE "engine/menus/attackdex.asm" ; new
-INCLUDE "engine/menus/randomization.asm" ; new, testing
+INCLUDE "engine/menus/randomization.asm" ; new
+INCLUDE "engine/menus/Personalization.asm" ; new, testing
 
 
 SECTION "Pokédex Rating", ROMX

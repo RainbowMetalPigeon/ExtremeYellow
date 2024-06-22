@@ -7,7 +7,19 @@ GetMonName::
 	ld [MBC1RomBank], a
 	ld a, [wd11e]
 	dec a
+; new, to personalize names
+	push af
+	ld a, [wPersonalizationNames] ; 0=ENGLISH, 1=PIGEON, 2=JAPANESE
 	ld hl, MonsterNames
+	and a
+	jr z, .continue
+	ld hl, MonsterNamesPigeon
+	cp 1
+	jr z, .continue
+	ld hl, MonsterNamesJapanese
+.continue
+	pop af
+; back to vanilla
 	ld c, 10
 	ld b, 0
 	call AddNTimes
