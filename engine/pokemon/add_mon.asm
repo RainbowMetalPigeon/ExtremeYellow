@@ -88,7 +88,7 @@ _AddPartyMon::
 	ldh a, [hNewPartyLength]
 	dec a
 	ld bc, wPartyMon2 - wPartyMon1
-	call AddNTimes
+	call AddNTimes ; add bc to hl a times
 	ld e, l
 	ld d, h
 	push hl
@@ -440,21 +440,21 @@ _MoveMon::
 	ld a, [wMoveMonType]
 	and a
 	ld hl, wBoxMons
-	ld bc, wBoxMon2 - wBoxMon1 ; $21
+	ld bc, wBoxMon2 - wBoxMon1 ; $21=33
 	jr z, .addMonOffset2
 	cp DAYCARE_TO_PARTY
 	ld hl, wDayCareMon
 	jr z, .copyMonData
 	ld hl, wPartyMons
-	ld bc, wPartyMon2 - wPartyMon1 ; $2c
+	ld bc, wPartyMon2 - wPartyMon1 ; $2c=44
 .addMonOffset2
 	ld a, [wWhichPokemon]
-	call AddNTimes
+	call AddNTimes ; add bc to hl a times
 .copyMonData
 	push hl
 	push de
 	ld bc, wBoxMon2 - wBoxMon1
-	call CopyData
+	call CopyData ; copy bc bytes from hl to de
 	pop de
 	pop hl
 	ld a, [wMoveMonType]

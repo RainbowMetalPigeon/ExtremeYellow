@@ -55,12 +55,22 @@ AskName:
 .declinedNickname
 	ld d, h
 	ld e, l
+; new block of code, to handle new names
+	push de
+	ld hl, NoNicknameGiven
+	call PrintText
+	pop de
+; back to vanilla
 	ld hl, wcd6d
 	ld bc, NAME_LENGTH
-	jp CopyData
+	jp CopyData ; copy bc bytes from hl to de
 
 DoYouWantToNicknameText:
 	text_far _DoYouWantToNicknameText
+	text_end
+
+NoNicknameGiven: ; new
+	text_far _NoNicknameGiven
 	text_end
 
 DisplayNameRaterScreen::

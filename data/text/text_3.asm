@@ -510,6 +510,11 @@ _DoYouWantToNicknameText::
 	text "?"
 	done
 
+_NoNicknameGiven:: ; new
+	text "Nickname set to"
+	line "default name."
+	prompt
+
 _YourNameIsText::
 	text "Right! So your"
 	line "name is <PLAYER>!"

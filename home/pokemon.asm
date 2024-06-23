@@ -435,14 +435,6 @@ GetMonHeader::
 	predef IndexToPokedex   ; convert pokemon ID in [wd11e] to pokedex number
 ; edited, let's use the same function used for evos_moves
 	callfar BaseStatsCopying
-;	ld a, [wd11e]
-;	dec a
-;	ld bc, BASE_DATA_SIZE
-;	ld hl, BaseStats
-;	call AddNTimes
-;	ld de, wMonHeader
-;	ld bc, BASE_DATA_SIZE
-;	call CopyData
 ; back to vanilla
 	jr .done
 .specialID
