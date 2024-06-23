@@ -207,6 +207,11 @@ ReadTrainer:
 	jr .SpecialTrainer
 .AddAdditionalMoveData
 ; does the trainer have additional move data?
+; new, to handle randomization of trainers' teams
+	ld a, [wRandomizationTrainersTeams] ; 0=NO, 1=YES
+	and a
+	jr nz, .FinishUp
+; back to vanilla
 	ld a, [wTrainerClass]
 	ld b, a
 	call LoadTrainerNumber ; edited, was simply "ld a, [wTrainerNo]"
@@ -450,8 +455,13 @@ LoadTrainerNumber: ; simply loads [wTrainerNo] in a for normal trainers, and add
 	jr nc, .normalLoading
 ; we're facing a right hand of a gym leader
 	call CountHowManyBadgesWrapped ; a contains the # badges
-	push bc
+	push bc ; why?
+	cp 8 ; do we have 8 badges already? So we're rematching the cooltrainers in the gyms?
+	ld b, 7 ; let's load the last team
+	jr z, .indeed8Badges
+; if not 8 badges, let's load a=#badges in b rather than 8
 	ld b, a
+.indeed8Badges
 	ld a, [wTrainerNo]
 	add b ; adds b to a
 	pop bc
