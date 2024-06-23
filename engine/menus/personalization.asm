@@ -246,13 +246,13 @@ PersonalizationMenuCancelText:
 
 PersonalizationNamesStringsPointerTable:
 	dw EnglishText
-	dw PigeonText
+	dw NeutralText
 	dw JapaneseText
 
 EnglishText:
 	db "ENGLISH @"
-PigeonText:
-	db "PIGEON  @"
+NeutralText:
+	db "NEUTRAL @"
 JapaneseText:
 	db "JAPANESE@"
 

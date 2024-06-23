@@ -90,7 +90,22 @@ RedsHouse2FRandomizationOptions_Outro:
 
 RedsHouse2FLuckOptions:
 	text_asm
+	call SaveScreenTilesToBuffer2
 	ld hl, RedsHouse2FLuckOptions_Intro
+	call PrintText
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call ClearScreen
+	call UpdateSprites
+	callfar DisplayLuckMenu ; main function
+	call ClearScreen
+	call LoadScreenTilesFromBuffer2
+	call LoadTextBoxTilePatterns ; testing
+	call ReloadMapData
+	call UpdateSprites
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a ; testing
+	ld hl, RedsHouse2FLuckOptions_Outro
 	call PrintText
 	jp TextScriptEnd
 

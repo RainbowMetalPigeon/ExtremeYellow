@@ -1931,7 +1931,7 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, WATER_GUN
+	db 1, 1, FISSURE
 	db 1, 2, ROCK_THROW
 	db 1, 3, MAGICAL_LEAF
 	db 1, 4, NO_MOVE

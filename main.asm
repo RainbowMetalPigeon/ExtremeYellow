@@ -227,7 +227,8 @@ INCLUDE "engine/movie/trade2.asm"
 INCLUDE "engine/menus/options.asm"
 INCLUDE "engine/menus/attackdex.asm" ; new
 INCLUDE "engine/menus/randomization.asm" ; new
-INCLUDE "engine/menus/Personalization.asm" ; new, testing
+INCLUDE "engine/menus/personalization.asm" ; new, testing
+INCLUDE "engine/menus/luck.asm" ; new, testing
 
 
 SECTION "Pokédex Rating", ROMX

@@ -2384,7 +2384,7 @@ wMrPsychicsHouseCurScript:: db ; new
 wCeruleanCaveExtraMiddleCurScript:: db ; new
 wRedsHouse1FCurScript:: db ; new
 wRoute15Gate2FCurScript:: db ; new
-	ds 39 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
+	ds 34 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2440,6 +2440,11 @@ wRandomizationTrainersTeams:: db ; new
 wRandomizationItems:: db ; new
 wPersonalizationNames:: db ; new
 wPersonalizationTypes:: db ; new
+wLuckAccuracy:: db ; new
+wLuckRoll:: db ; new
+wLuckCrit:: db ; new
+wLuckSecondaryEffects:: db ; new
+wLuckStatusesAffliction:: db ; new
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS
 

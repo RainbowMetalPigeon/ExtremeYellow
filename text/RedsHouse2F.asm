@@ -19,11 +19,11 @@ _RedsHouse2FRandomizationOptions_Outro::
 	done
 
 _RedsHouse2FLuckOptions_Intro::
-	text "Luck"
+	text "Battle luck"
 	line "options:"
 	prompt
 
 _RedsHouse2FLuckOptions_Outro::
-	text "Luck"
+	text "Battle luck"
 	line "applied."
 	done

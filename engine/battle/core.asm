@@ -3489,7 +3489,6 @@ PlayerCalcMoveDamage:
 	jp c, .moveHitTest ; SetDamageEffects moves (e.g. Seismic Toss and Super Fang) skip damage calculation
 	callfar CriticalHitTest ; edited
 	call HandleCounterLikeMoves		; new
-;	call HandleCounterMove
 	jr z, handleIfPlayerMoveMissed
 	call GetDamageVarsForPlayerAttack
 	call CalculateDamage
@@ -6193,7 +6192,32 @@ MoveHitTest::
 .doAccuracyCheck
 ; if the random number generated is greater than or equal to the scaled accuracy, the move misses
 ; note that this means that even the highest accuracy is still just a 255/256 chance, not 100%
+; new, to handle luck: accuracy
+	ld a, [hWhoseTurn]
+	and a
+	jr z, .playersTurn
+; enemy's turn
+	ld a, [wLuckAccuracy] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 1
+	jr z, .vanillaLuck
+; enemy's turn and their luck is max
+	xor a
+	jr .notVanillaLuck
+.playersTurn
+	ld a, [wLuckCrit]
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is min
+	ld a, 254 ; not 255, we don't want to be TOO evil...
+	jr .notVanillaLuck
+.vanillaLuck
+; back to vanilla
 	call BattleRandom
+.notVanillaLuck ; new label, to handle luck: accuracy
 	cp b
 	jr nc, .moveMissed
 	ret
@@ -6375,7 +6399,6 @@ EnemyCalcMoveDamage:
 	jp c, EnemyMoveHitTest
 	callfar CriticalHitTest ; edited
 	call HandleCounterLikeMoves		; new
-;	call HandleCounterMove
 	jr z, handleIfEnemyMoveMissed
 	call SwapPlayerAndEnemyLevels
 	call GetDamageVarsForEnemyAttack

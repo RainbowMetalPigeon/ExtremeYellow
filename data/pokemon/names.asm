@@ -531,7 +531,6 @@ MonsterNamesJapanese::
 	db "KUSAIHANA@"
 	db "RUFFRESIA@"
 	db "KIREIHANA@"
-
 	db "PARAS@@@@@"
 	db "PARASECT@@"
 	db "KONGPAN@@@"
@@ -570,7 +569,7 @@ MonsterNamesJapanese::
 	db "GALLOP@@@@"
 	db "YADON@@@@@"
 	db "YADORAN@@@"
-	db "<MEGA>YADORAN@@@"
+	db "<MEGA>YADORAN@@"
 	db "YADOKING@@"
 	db "COIL@@@@@@"
 	db "RARECOIL@@"
