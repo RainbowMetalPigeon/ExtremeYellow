@@ -6206,7 +6206,7 @@ MoveHitTest::
 	xor a
 	jr .notVanillaLuck
 .playersTurn
-	ld a, [wLuckCrit]
+	ld a, [wLuckAccuracy]
 	and a
 	jr z, .vanillaLuck
 	cp 2
