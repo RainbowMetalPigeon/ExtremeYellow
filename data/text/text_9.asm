@@ -41,11 +41,11 @@ _ItemUseBallText07::
 	cont "BILL's PC!"
 	prompt
 
-_ItemUseBallText08::
+_ItemUseBallText08:: ; edited
 	text_ram wBoxMonNicks
 	text " was"
 	line "transferred to"
-	cont "someone's PC!"
+	cont "???'s PC!"
 	prompt
 
 _ItemUseBallText06::

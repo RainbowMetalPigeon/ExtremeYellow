@@ -82,7 +82,7 @@ DisplayPCMainMenu::
 	ldh [hAutoBGTransferEnabled], a
 	ret
 
-SomeonesPCText:   db "SOMEONE's PC@"
+SomeonesPCText:   db "???'s PC@" ; edited
 BillsPCText:      db "BILL's PC@"
 PlayersPCText:    db "'s PC@"
 OaksPCText:       db "PROF.OAK's PC@"

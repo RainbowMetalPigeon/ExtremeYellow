@@ -455,6 +455,17 @@ _MoveMon::
 	push de
 	ld bc, wBoxMon2 - wBoxMon1
 	call CopyData ; copy bc bytes from hl to de
+; new, to handle type personalization
+	ld a, [hl] ; a=species?
+	ld d, a
+	callfar ExtractMonsTypesForMovingIntoParty
+	ld bc, wPartyMon1Type - wPartyMon1 ; $5
+	add hl, bc ; hl points to the type1 of the mon we're moving into the party
+	ld a, d
+	ld [hli], a
+	ld a, e
+	ld [hl], a
+; back to vanilla
 	pop de
 	pop hl
 	ld a, [wMoveMonType]

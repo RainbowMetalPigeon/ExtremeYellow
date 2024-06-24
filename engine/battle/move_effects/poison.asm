@@ -1,4 +1,5 @@
 PoisonEffect_:
+	ResetEvent EVENT_OPPONENT_SECONDARY_EFFECT_GUARANTEED ; new, to handle luck: secondary effects
 	ld hl, wEnemyMonStatus
 	ld de, wPlayerMoveEffect
 	ldh a, [hWhoseTurn]
@@ -6,6 +7,29 @@ PoisonEffect_:
 	jr z, .poisonEffect
 	ld hl, wBattleMonStatus
 	ld de, wEnemyMoveEffect
+; new, to handle luck: secondary effects
+	ld a, [hWhoseTurn]
+	and a
+	jr z, .playersTurn
+; enemy's turn
+	ld a, [wLuckSecondaryEffects] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 1
+	jr z, .vanillaLuck
+; enemy's turn, and their luck is max
+	SetEvent EVENT_OPPONENT_SECONDARY_EFFECT_GUARANTEED
+	jr .vanillaLuck
+.playersTurn
+	ld a, [wLuckSecondaryEffects]
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is minimum
+	jp .noEffect
+.vanillaLuck
+; back to vanilla
 .poisonEffect
 	push hl ; new
 	push de ; new
@@ -23,10 +47,10 @@ PoisonEffect_:
 	jr nz, .inverseBattle
 	ld a, [hli]
 	cp STEEL ; can't poison a steel-type target in a normal battle
-	jr z, .noEffect
+	jp z, .noEffect
 	ld a, [hld]
 	cp STEEL ; can't poison a steel-type target in a normal battle
-	jr z, .noEffect
+	jp z, .noEffect
 .inverseBattle ; vanilla bits
 	ld a, [hli]
 	cp POISON ; can't poison a poison-type target
@@ -36,8 +60,7 @@ PoisonEffect_:
 	jr z, .noEffect
 .vanilla
 ; back to vanilla
-	ld a, [de]
-	; changed names to make numbers reflect rate, and added two new rates
+	ld a, [de] ; load move effect; changed names to make numbers reflect rate, and added two new rates
 	cp POISON_SIDE_EFFECT1
 	ld b, 10 percent + 1 ; chance of poisoning
 	jr z, .sideEffectTest
@@ -60,6 +83,12 @@ PoisonEffect_:
 	jr nz, .didntAffect
 	jr .inflictPoison
 .sideEffectTest
+; new, to handle luck: secondary effects
+	push hl
+	CheckAndResetEvent EVENT_OPPONENT_SECONDARY_EFFECT_GUARANTEED
+	pop hl
+	jr nz, .inflictPoison
+; back to vanilla
 	call BattleRandom2 ; edited into the copy
 	cp b ; was side effect successful?
 	ret nc

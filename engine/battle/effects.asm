@@ -55,19 +55,19 @@ FreezeBurnParalyzeEffect:
 	cp b ; do target type 2 and move type match?
 	ret z  ; return if they match
 	ld a, [wPlayerMoveEffect]
-	; block commented away because it's useless stuff
-;	cp UNUSED_EFFECT_23 ; more stadium stuff
-;	jr nz, .asm_3f2c7
-;	ld a, [wUnknownSerialFlag_d499]
-;	and a
-;	ld a, FREEZE_SIDE_EFFECT
-;	ld b, 30 percent + 1
-;	jr z, .regular_effectiveness
-;	ld b, 10 percent + 1
-;	jr .regular_effectiveness
-;.asm_3f2c7
 	cp PARALYZE_SIDE_EFFECT_CERT	; new
 	jr z, .paralyze1				; new
+; new, to handle luck: secondary effects.
+	ld a, [wLuckSecondaryEffects] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is minimum
+	ret ; do nothing
+.vanillaLuck
+	ld a, [wPlayerMoveEffect]
+; back to vanilla
 	cp PARALYZE_SIDE_EFFECT1 + 1
 	ld b, 10 percent + 1
 	jr c, .regular_effectiveness
@@ -120,18 +120,18 @@ FreezeBurnParalyzeEffect:
 	ld a, [wBattleMonType2]
 	cp b
 	ret z
+; new, to handle luck: secondary effects
+	ld a, [wLuckSecondaryEffects] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck2
+	cp 1
+	jr z, .vanillaLuck2
+; enemy's turn, and their luck is max
+	SetEvent EVENT_OPPONENT_SECONDARY_EFFECT_GUARANTEED
+	jr .vanillaLuck2
+.vanillaLuck2
+; back to vanilla
 	ld a, [wEnemyMoveEffect]
-	; block commented away because it's useless stuff
-;	cp UNUSED_EFFECT_23 ; more stadium stuff
-;	jr nz, .asm_3f341
-;	ld a, [wUnknownSerialFlag_d499]
-;	and a
-;	ld a, FREEZE_SIDE_EFFECT
-;	ld b, 30 percent + 1
-;	jr z, .regular_effectiveness2
-;	ld b, 10 percent + 1
-;	jr .regular_effectiveness2
-;.asm_3f341
 	cp PARALYZE_SIDE_EFFECT_CERT	; new
 	jr z, .paralyze2				; new
 	cp PARALYZE_SIDE_EFFECT1 + 1
@@ -141,12 +141,17 @@ FreezeBurnParalyzeEffect:
 	ld b, 30 percent + 1
 	sub BURN_SIDE_EFFECT2 - BURN_SIDE_EFFECT1 ; treat extra effective as regular from now on
 .regular_effectiveness2
+; new, to handle luck: secondary effects
+	CheckAndResetEvent EVENT_OPPONENT_SECONDARY_EFFECT_GUARANTEED
+	jr nz, .opponentLuckMax
+; back to vanilla
 	push af
 	call BattleRandom
 	cp b
 	pop bc
 	ret nc
 	ld a, b
+.opponentLuckMax
 	cp BURN_SIDE_EFFECT1
 	jr z, .burn2
 	cp FREEZE_SIDE_EFFECT
@@ -177,10 +182,6 @@ FreezeBurnParalyzeEffect:
 
 TriAttackEffect:            ; made into a jpfar to save space
 	jpfar TriAttackEffect_  ; made into a jpfar to save space
-
-;PrintBurnText: ; new, testing
-;	ld hl, BurnedText
-;	jp PrintText
 
 BurnedText:
 	text_far _BurnedText
@@ -1211,12 +1212,6 @@ ConfusionSideEffectSuccess:
 	inc a
 	ld [bc], a ; confusion status will last 2-5 turns
 	pop af
-;	cp CONFUSION_SIDE_EFFECT3			; Vortiene's suggestion
-;	jr z, .doneConfusion				; Vortiene's suggestion
-;	cp CONFUSION_SIDE_EFFECT2			; Vortiene's suggestion
-;	jr z, .doneConfusion				; Vortiene's suggestion
-;	cp CONFUSION_SIDE_EFFECT1			; Vortiene's suggestion
-;	jr z, .doneConfusion				; Vortiene's suggestion
 	cp CONFUSION_SIDE_EFFECT1			; simplified version
 	jr nc, .doneConfusion				; skip the animation if EFFECT-CONFUSION_SIDE_EFFECT1 has no carry, i.e. the difference is >=0
 	call PlayCurrentMoveAnimation2		; Vortiene's suggestion

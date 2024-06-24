@@ -188,8 +188,8 @@ _AccessedBillsPCText::
 	line "Storage System."
 	prompt
 
-_AccessedSomeonesPCText::
-	text "Accessed someone's"
+_AccessedSomeonesPCText:: ; edited
+	text "Accessed ???'s"
 	line "PC."
 
 	para "Accessed #MON"

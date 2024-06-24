@@ -985,7 +985,7 @@ ItemUseBallText07:
 	text_far _ItemUseBallText07
 	text_end
 ItemUseBallText08:
-;"X was transferred to someone's PC"
+;"X was transferred to ???'s PC" ; edited
 	text_far _ItemUseBallText08
 	text_end
 

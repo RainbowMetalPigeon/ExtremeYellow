@@ -317,7 +317,7 @@ InitRandomizationMenu:
 	hlcoord 2, 16
 	ld de, RandomizationMenuCancelText
 	call PlaceString
-	hlcoord 3, 2
+	hlcoord 4, 2
 	ld de, RandomizationTitleText
 	call PlaceString
 	xor a

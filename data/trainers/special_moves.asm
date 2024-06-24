@@ -1931,10 +1931,10 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, FISSURE
-	db 1, 2, ROCK_THROW
-	db 1, 3, MAGICAL_LEAF
-	db 1, 4, NO_MOVE
+	db 1, 1, ICE_PUNCH
+	db 1, 2, DRAGONBREATH
+	db 1, 3, FIRE_BLAST
+	db 1, 4, SMOG
 ;	db 1, 1, AQUA_JET
 ;	db 1, 2, REST
 ;	db 1, 3, WATERFALL

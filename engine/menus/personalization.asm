@@ -16,6 +16,7 @@ DisplayPersonalizationMenu::
 	call DelayFrame
 	jr .personalizationMenuLoop
 .exitPersonalizationMenu
+	callfar UpdatePartyMonTypesAfterPersonalization
 	ret
 
 GetPersonalizationPointer:
