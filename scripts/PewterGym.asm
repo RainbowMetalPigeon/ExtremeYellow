@@ -75,7 +75,7 @@ PewterGymScriptReceiveTM34:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 
-	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
+;	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE ; edited, moved to Cerulean entry
 
 	; deactivate gym trainers
 	SetEvents EVENT_BEAT_PEWTER_GYM_TRAINER_0, EVENT_BEAT_PEWTER_GYM_TRAINER_1
