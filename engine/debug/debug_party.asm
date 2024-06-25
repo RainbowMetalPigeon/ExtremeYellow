@@ -41,16 +41,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, ANCESTOR_PWR
+	ld a, AURORA_BEAM
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DRAGONBREATH
+	ld a, DIZZY_PUNCH
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, FIRE_BLAST
+	ld a, LOW_KICK
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, SMOG
+	ld a, CONFUSE_RAY
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

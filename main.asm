@@ -483,18 +483,19 @@ INCLUDE "engine/battle/move_effects/criticalhittest.asm"	; new
 INCLUDE "engine/battle/move_effects/randomizedamage.asm"	; new
 INCLUDE "engine/battle/move_effects/handleplayerblackout.asm"	; new
 INCLUDE "engine/battle/move_effects/sleep.asm"				; new
-INCLUDE "engine/battle/move_effects/extra_core_stuff.asm"	; new, testing
-INCLUDE "engine/battle/move_effects/explode.asm"	        ; new, testing
-INCLUDE "engine/battle/move_effects/poison.asm"	            ; new, testing
-INCLUDE "engine/battle/move_effects/play_animation_copy.asm"	; new, testing
+INCLUDE "engine/battle/move_effects/extra_core_stuff.asm"	; new
+INCLUDE "engine/battle/move_effects/explode.asm"	        ; new
+INCLUDE "engine/battle/move_effects/poison.asm"	            ; new
+INCLUDE "engine/battle/move_effects/play_animation_copy.asm"	; new
 INCLUDE "engine/items/tm_prices.asm"
 INCLUDE "engine/math/multiply_divide.asm"
 INCLUDE "engine/events/give_pokemon.asm"
 INCLUDE "engine/battle/get_trainer_name.asm"
 INCLUDE "engine/math/random.asm"
 INCLUDE "engine/predefs.asm"
-INCLUDE "engine/battle/move_effects/slideplayerenemy.asm"	; new, testing
-INCLUDE "engine/battle/move_effects/triattack.asm"          ; new, testing
+INCLUDE "engine/battle/move_effects/slideplayerenemy.asm"	; new
+INCLUDE "engine/battle/move_effects/triattack.asm"          ; new
+INCLUDE "engine/battle/move_effects/confusion.asm"          ; new
 
 
 SECTION "Surfing Minigame", ROMX
