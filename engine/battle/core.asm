@@ -3808,9 +3808,20 @@ CheckPlayerStatusConditions:
 	ld [wAnimationType], a
 	ld a, CONF_ANIM - 1
 	call PlayMoveAnimation
+; new, to handle luck: statuses affliction
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck2
+	cp 2
+	jr z, .vanillaLuck2
+; player's turn and their luck is minimum
+	jr .monHitItselfInConfusion
+.vanillaLuck2
+; back to vanilla
 	call BattleRandom
 	cp 50 percent + 1 ; chance to hurt itself
 	jr c, .TriedToUseDisabledMoveCheck
+.monHitItselfInConfusion ; new label to handle luck: statuses affliction
 	ld hl, wPlayerBattleStatus1
 	ld a, [hl]
 	and 1 << CONFUSED ; if mon hurts itself, clear every other status from wPlayerBattleStatus1
@@ -3834,9 +3845,21 @@ CheckPlayerStatusConditions:
 	ld hl, wBattleMonStatus
 	bit PAR, [hl]
 	jr z, .BideCheck
+; player is paralyzed
+; new, to handle luck: statuses affliction
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is minimum
+	jr .fullyParalyzed
+.vanillaLuck
+; back to vanilla
 	call BattleRandom
 	cp $3F ; 25% to be fully paralyzed
 	jr nc, .BideCheck
+.fullyParalyzed ; new label, to handle luck: statuses affliction
 	ld hl, FullyParalyzedText
 	call PrintText
 ; new block of code to show paralysis effect when fully paralyzed
@@ -6646,8 +6669,18 @@ CheckEnemyStatusConditions:
 	ld [wAnimationType], a
 	ld a, CONF_ANIM
 	call PlayMoveAnimation
+; new, to handle luck: statuses affliction
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck2
+	cp 1
+	jr z, .vanillaLuck2
+; enemy's turn and their luck is max
+	jr .checkIfTriedToUseDisabledMove
+.vanillaLuck2
+; back to vanilla
 	call BattleRandom
-	cp $80
+	cp $80 ; 50% chance to self-hit
 	jr c, .checkIfTriedToUseDisabledMove
 	ld hl, wEnemyBattleStatus1
 	ld a, [hl]
@@ -6709,6 +6742,17 @@ CheckEnemyStatusConditions:
 	ld hl, wEnemyMonStatus
 	bit PAR, [hl]
 	jr z, .checkIfUsingBide
+; opponent is paralyzed
+; new, to handle luck: statuses affliction
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 1
+	jr z, .vanillaLuck
+; enemy's turn and their luck is max
+	jr .checkIfUsingBide
+.vanillaLuck
+; back to vanilla
 	call BattleRandom
 	cp 25 percent ; chance to be fully paralysed
 	jr nc, .checkIfUsingBide

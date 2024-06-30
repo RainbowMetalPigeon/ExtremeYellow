@@ -37,9 +37,8 @@ GetRandomizationPointer:
 RandomizationMenuJumpTable:
 	dw RandomizationMenu_WildEncounters
 	dw RandomizationMenu_TrainersTeam
+	dw RandomizationMenu_TypeChart
 	dw RandomizationMenu_Items
-;	dw RandomizationMenu_Warps
-	dw RandomizationMenu_Dummy
 	dw RandomizationMenu_Dummy
 	dw RandomizationMenu_Dummy
 	dw RandomizationMenu_Cancel
@@ -171,7 +170,51 @@ RandomizationMenu_Items:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 8, 8
+	hlcoord 8, 10
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
+RandomizationMenu_TypeChart:
+	ld a, [wRandomizationTypeChart]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $2
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wRandomizationTypeChart], a
+.nonePressed
+	ld b, $0
+	ld hl, RandomizationStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 15, 8
 	call PlaceString
 	and a
 	ret
@@ -258,7 +301,7 @@ RandomizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 2 ; number of options - 1
+	cp 3 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -269,7 +312,7 @@ RandomizationControl:
 	ld a, [hl]
 	cp 6 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 2 ; number of options - 1
+	ld [hl], 3 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -322,7 +365,7 @@ InitRandomizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 4 ; the number of options to loop through
 .loop
 	push bc
 	call GetRandomizationPointer ; updates the next option
@@ -341,6 +384,7 @@ InitRandomizationMenu:
 AllRandomizationText:
 	db   "WILD #MON:"
 	next "ENEMY TEAMS :"
+	next "TYPE CHART  :"
 	next "ITEMS:@"
 ;	next "WARPS:@"
 

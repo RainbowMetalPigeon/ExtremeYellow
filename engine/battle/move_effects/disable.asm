@@ -2,7 +2,7 @@ DisableEffect_:
 	callfar MoveHitTest ; edited, made into a callfar
 	ld a, [wMoveMissed]
 	and a
-	jr nz, .moveMissed
+	jp nz, .moveMissed
 	ld de, wEnemyDisabledMove
 	ld hl, wEnemyMonMoves
 	ldh a, [hWhoseTurn]
@@ -14,7 +14,7 @@ DisableEffect_:
 ; no effect if target already has a move disabled
 	ld a, [de]
 	and a
-	jr nz, .moveMissed
+	jp nz, .moveMissed
 .pickMoveToDisable
 	push hl
 	call BattleRandom2 ; edited, new random function
@@ -57,9 +57,34 @@ DisableEffect_:
 	jr z, .pickMoveToDisable ; pick another move if this one had 0 PP
 .playerTurnNotLinkBattle
 ; non-link battle enemies have unlimited PP so the previous checks aren't needed
+; new, to handle luck: statuses affliction
+	ld a, [hWhoseTurn]
+	and a
+	jr z, .playersTurn
+; enemy's turn
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 1
+	jr z, .vanillaLuck
+; enemy's turn, and their luck is max
+	ld a, 8
+	jr .disableTurnsSet
+.playersTurn
+	ld a, [wLuckStatusesAffliction]
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is minimum
+	ld a, 1
+	jr .disableTurnsSet
+.vanillaLuck
+; back to vanilla
 	call BattleRandom2 ; edited, new random function
 	and $7
 	inc a ; 1-8 turns disabled
+.disableTurnsSet ; new label, to handle luck: statuses affliction
 	inc c ; move 1-4 will be disabled
 	swap c
 	add c ; map disabled move to high nibble of wEnemyDisabledMove / wPlayerDisabledMove

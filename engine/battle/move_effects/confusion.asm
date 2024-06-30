@@ -105,10 +105,35 @@ ConfusionSideEffectSuccess:
 	jr nz, ConfusionEffectFailed
 	set CONFUSED, [hl] ; mon is now confused
 	push af
+; new, to handle luck: statuses affliction
+	ld a, [hWhoseTurn]
+	and a
+	jr z, .playersTurn
+; enemy's turn
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 1
+	jr z, .vanillaLuck
+; enemy's turn, and their luck is max
+	ld a, 5
+	jr .confusionTurnsSet
+.playersTurn
+	ld a, [wLuckStatusesAffliction]
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is minimum
+	ld a, 2
+	jr .confusionTurnsSet
+.vanillaLuck
+; back to vanilla
 	call BattleRandom2 ; edited into the copy
 	and $3
 	inc a
 	inc a
+.confusionTurnsSet ; new label, to handle luck: statuses affliction
 	ld [bc], a ; confusion status will last 2-5 turns
 	pop af
 	cp CONFUSION_SIDE_EFFECT1			; simplified version

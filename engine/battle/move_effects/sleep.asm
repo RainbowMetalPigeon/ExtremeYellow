@@ -30,11 +30,36 @@ SleepEffect_:
 	ld a, [wMoveMissed]
 	and a
 	jr nz, .didntAffect
+; new, to handle luck: statuses affliction
+	ld a, [hWhoseTurn]
+	and a
+	jr z, .playersTurn
+; enemy's turn
+	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
+	and a
+	jr z, .vanillaLuck
+	cp 1
+	jr z, .vanillaLuck
+; enemy's turn, and their luck is max
+	ld a, 7
+	jr .sleepTurnsSet
+.playersTurn
+	ld a, [wLuckStatusesAffliction]
+	and a
+	jr z, .vanillaLuck
+	cp 2
+	jr z, .vanillaLuck
+; player's turn and their luck is minimum
+	ld a, 1
+	jr .sleepTurnsSet
+.vanillaLuck
+; back to vanilla
 .setSleepCounter
 ; set target's sleep counter to a random number between 1 and 7
 	call BattleRandom2 ; edited
 	and $7
 	jr z, .setSleepCounter
+.sleepTurnsSet ; new label to handle luck: statuses affliction
 	ld b, a
 	ld a, [wUnknownSerialFlag_d499]
 	and a

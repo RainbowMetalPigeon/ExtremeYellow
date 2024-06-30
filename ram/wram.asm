@@ -2433,11 +2433,12 @@ wObtainedHiddenCoinsFlags:: flag_array 16
 ; $02 = surfing
 wWalkBikeSurfState:: db
 
-	ds 4 ; UNUSED bytes in "Main Data", edited, was 10
+	ds 3 ; UNUSED bytes in "Main Data", edited, was 10
 wIsEvolvingMidBattle:: db ; new
 wRandomizationWildEncounters:: db ; new
 wRandomizationTrainersTeams:: db ; new
 wRandomizationItems:: db ; new
+wRandomizationTypeChart:: db ; new
 wPersonalizationNames:: db ; new
 wPersonalizationTypes:: db ; new
 wLuckAccuracy:: db ; new
