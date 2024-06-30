@@ -127,6 +127,11 @@ ListOfMonsAndTypesToChange:
 	db -1
 
 UpdatePartyMonTypesAfterPersonalization:
+; do nothing if we don't have a party
+	ld a, [wPartyCount]
+	and a
+	ret z
+; do something if we have a party
 	ld a, [wPersonalizationTypes] ; 0=NO, 1=YES
 	and a
 	jr z, .vanillaTypes

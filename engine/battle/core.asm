@@ -5931,6 +5931,7 @@ AdjustDamageForMoveType:
 
 	add b
 	ld [wDamageMultipliers], a
+
 	xor a
 	ldh [hMultiplicand], a
 	ld hl, wDamage

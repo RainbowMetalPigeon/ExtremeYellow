@@ -191,13 +191,13 @@ _KinglerDexEntry::
 	dex
 
 _VoltorbDexEntry::
-	text "It is said to cam-"
-	next "ouflage itself as"
-	next "a #BALL. It will"
+	text "It is said to"
+	next "camouflage itself"
+	next "as a #BALL."
 
-	page "self-destruct with"
-	next "very little stimu-"
-	next "lus"
+	page "It will self-"
+	next "destruct with very"
+	next "little stimulus"
 	dex
 
 _ElectrodeDexEntry::
