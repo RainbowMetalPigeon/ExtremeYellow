@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MBLASTOISE, 90 ; 255
-	db PORYGON, 97
-	db STARTER_PIKACHU, 5
-;	db SANDSLASH, 19
-;	db BLASTOISE, 9
-;	db VENUSAUR, 9
+	db CHARIZARD, 42 ; 255
+	db MEWTWO, 42
+	db STARTER_PIKACHU, 96
+;	db MAGMORTAR, 42
+;	db SLOWKING, 42
+;	db ANNIHILAPE, 42
 	db -1 ; end
 
 DebugStart:
@@ -33,15 +33,15 @@ IF DEF(_DEBUG)
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
-	ld a, %11111111
-;	ld a, %00000100
+;	ld a, %11111111
+	ld a, %00000100
 ;	ld a, %01001100
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, AURORA_BEAM
+	ld a, CLOSE_COMBAT
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, DIZZY_PUNCH
@@ -76,6 +76,16 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
+;	; moves to other members
+;	ld a, WILL_O_WISP
+;	ld hl, wPartyMon4Moves
+;	ld [hl], a
+
+;	; moves to other members
+;	ld a, SCALD
+;	ld hl, wPartyMon5Moves
+;	ld [hl], a
+
 	; Pikachu get transformed into Starter Pikachu
 	ld de, wPartyMon3OT
 	ld hl, SamuelNameForPikachu3
@@ -97,12 +107,12 @@ IF DEF(_DEBUG)
 
     ; define who is shiny
     ld a, 1
-    ld hl, wPartyMon1CatchRate
-    ld [hl], a
-    ld hl, wPartyMon2CatchRate
-    ld [hl], a
-    ld hl, wPartyMon3CatchRate
-    ld [hl], a
+;    ld hl, wPartyMon1CatchRate
+;    ld [hl], a
+;    ld hl, wPartyMon2CatchRate
+;    ld [hl], a
+;    ld hl, wPartyMon3CatchRate
+;    ld [hl], a
 ;    ld hl, wPartyMon4CatchRate
 ;    ld [hl], a
 ;    ld hl, wPartyMon5CatchRate
@@ -148,7 +158,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 2
+	ld a, 1
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -166,7 +176,7 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;   SetEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0
 ;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4

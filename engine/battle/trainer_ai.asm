@@ -305,13 +305,13 @@ AIMoveChoiceModification1:
 	jp .veryHeavilyDiscourage
 
 .lightScreenEffect
-	ld a, [wPlayerBattleStatus3]
+	ld a, [wEnemyBattleStatus3]
 	bit HAS_LIGHT_SCREEN_UP, a
 	jp z, .nextMove
 	jp .veryHeavilyDiscourage
 
 .reflectEffect
-	ld a, [wPlayerBattleStatus3]
+	ld a, [wEnemyBattleStatus3]
 	bit HAS_REFLECT_UP, a
 	jp z, .nextMove
 	jp .veryHeavilyDiscourage
