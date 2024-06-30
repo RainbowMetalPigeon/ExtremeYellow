@@ -2,7 +2,7 @@ PalletTown_Object:
 	db $b ; border block
 
 	def_warp_events
-	warp_event  5,  5, REDS_HOUSE_1F, 1
+;	warp_event  5,  5, REDS_HOUSE_1F, 1
 ;	warp_event  5,  5, HALL_OF_FAME, 1
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 1 ; 1-2 entrance, 3 testing near merchant
@@ -17,7 +17,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, OCHRE_HOUSES, 3
 ;	warp_event  5,  5, OBSIDIAN_HOUSES, 4
 ;	warp_event  5,  5, MT_MOON_1F, 1
-;	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
+	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
 ;	warp_event  5,  5, COPYCATS_HOUSE_2F, 1
 ;	warp_event  5,  5, SILPH_CO_11F, 4
@@ -35,11 +35,11 @@ PalletTown_Object:
 ;	warp_event  5,  5, PEWTER_GYM, 1
 ;	warp_event  5,  5, VIRIDIAN_GYM, 1
 
-;	warp_event 13,  5, BLUES_HOUSE, 1
+	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
 ;	warp_event 13,  5, SECLUDED_ATOLL_SE, 1
 ;	warp_event 13,  5, SILPH_CO_11F, 4
-	warp_event 13,  5, HALL_OF_FAME, 1
+;	warp_event 13,  5, HALL_OF_FAME, 1
 ;	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 ;	warp_event 13,  5, BATTLE_FACILITY, 1
 ;	warp_event 13,  5, HAUNTED_REDS_HOUSE, 5
