@@ -674,6 +674,7 @@ BattleFacilityTextGuide:
 	call PrintText
 	xor a
 	ld [wBattleFacilityBacklogChromogenes], a
+	jr .doneWithPrizes
 .bagFull_Chromogenes
 	ld hl, BattleFacilityTextGuide_Prizes_Chromogenes_Failed
 	call PrintText
