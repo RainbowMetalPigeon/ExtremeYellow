@@ -3,6 +3,9 @@ Kanto at its max (and beyond!)
 
 This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; complex dungeons; restored content; more elaborated, deeper, and darker lore and story; completely new areas and story arcs; virtually infinite post-game content; a plethora of customization and randomization options.
 
+*The project is close to completion, but still work-in-progress.*<br/>
+*You can join Extreme Yellow Discord Server for more updates and discussions: https://discord.gg/QAX4c4xMJY*
+
 ## Summary of changes (without spoilers)
 
 - more than 50 new mons evolutionarily related to the original 151
