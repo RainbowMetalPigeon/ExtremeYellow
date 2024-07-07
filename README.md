@@ -1,5 +1,5 @@
 # Pokémon Extreme Yellow
-Kanto at its max (and beyond!)
+**Kanto at its max (and beyond!)**
 
 This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; complex dungeons; restored content; more elaborated, deeper, and darker lore and story; completely new areas and story arcs; virtually infinite post-game content; a plethora of customization and randomization options.
 
