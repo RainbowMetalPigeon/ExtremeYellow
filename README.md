@@ -3,7 +3,7 @@
 
 This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; complex dungeons; restored content; more elaborated, deeper, and darker lore and story; completely new areas and story arcs; virtually infinite post-game content; a plethora of customization and randomization options.
 
-*The project is close to completion, but still work-in-progress.*<br/>
+*The project is close to completion, but still work-in-progress.* <br/>
 *You can join Extreme Yellow Discord Server for more updates and discussions: https://discord.gg/QAX4c4xMJY*
 
 ## Summary of changes (without spoilers)
@@ -80,9 +80,10 @@ This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; 
 - FrenchOrange, mauvesea, and LJSTAR, for their many many improvements and fixed on the sprites I drew; FrenchOrange drew the Flying Pikachu sprite
 - Xillicis, for their tutorial on how to increase the number of usable Pokémon, as well as many useful exchanges over the months
 - BlueZangoose, Mord, Cram-O-Dev for having helped, supported, motivated me and just being great people during this adventure of mine
-- Mega Evolution, Anomalies*, Venustoise sprites are my own production, bar the aforementioned help
+- Mega Evolution, Eternamax Eternatus, Arceus, and Venustoise sprites are my own production, bar the aforementioned help
+- Mega Rayquaza and Zygarde Complete sprites are from Axel-Comics: https://www.deviantart.com/axel-comics
 - Green sprites are from Ghost-MissingNo: https://www.deviantart.com/ghost-missingno/art/Blue-Sprites-for-R-G-B-Y-339796334
 - Yellow sprites are from LouLilie: https://www.deviantart.com/loulilie/art/PokemonSpecial-Sprites-Yellow-302559354
 - PLEASE CONTACT ME if I forgot to add your name for anything of yours that I have used!!! In which case I first apologize, and then I'll put remedy as soon as possible!
 
-(*) they consist of Zygarde Complete, Ultra Necrozma, Mega Rayquaza, Eternamax Eternatus, and Arceus; the first three do not have a completed sprite at the time of writing
+(*) "Anomalies" refers to Zygarde Complete, Ultra Necrozma, Mega Rayquaza, Eternamax Eternatus, and Arceus.
