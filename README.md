@@ -39,6 +39,7 @@ This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; 
 - cities have been lightly reworked to improve walkability
 - widened the experience with the Starter Pikachu
 
+![bgb00016](https://github.com/RainbowMetalPigeon/ExtremeYellow/assets/118711812/0153c1f1-5952-4625-aa72-2d488218ab16)
 ![bgb00001](https://github.com/RainbowMetalPigeon/ExtremeYellow/assets/118711812/f225e779-1d75-4c54-9abb-3e02e68e07d9)
 ![bgb00005](https://github.com/RainbowMetalPigeon/ExtremeYellow/assets/118711812/8a305170-e4bd-4bde-b810-d4065df01367)
 ![bgb00002](https://github.com/RainbowMetalPigeon/ExtremeYellow/assets/118711812/490981ce-92a6-48fd-82c7-a3d1960996c3)
