@@ -1,10 +1,12 @@
 # Pokémon Extreme Yellow
 **Kanto at its max (and beyond!)**
 
-This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; complex dungeons; restored content; more elaborated, deeper, and darker lore and story; completely new areas and story arcs; virtually infinite post-game content; a plethora of customization and randomization options.
+This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; complex dungeons; restored content; more elaborated, deeper, and darker lore and story; completely new areas and story arcs; virtually infinite post-game content; a plethora of customization and randomization options.
 
 *The project is close to completion, but still work-in-progress.* <br/>
 *You can join Extreme Yellow Discord Server for more updates and discussions: https://discord.gg/QAX4c4xMJY*
+
+*Announcement Trailer: https://youtu.be/HEo0pDJGWoI*
 
 ## Summary of changes (without spoilers)
 
@@ -85,6 +87,7 @@ This is a difficulty hackROM of Pokémon Yellow featuring much tougher battles; 
 - Mega Rayquaza and Zygarde Complete sprites are from Axel-Comics: https://www.deviantart.com/axel-comics
 - Green sprites are from Ghost-MissingNo: https://www.deviantart.com/ghost-missingno/art/Blue-Sprites-for-R-G-B-Y-339796334
 - Yellow sprites are from LouLilie: https://www.deviantart.com/loulilie/art/PokemonSpecial-Sprites-Yellow-302559354
+- Game Freak, Creatures Inc., Nintendo, and TPCI for creating Pokémon
 - PLEASE CONTACT ME if I forgot to add your name for anything of yours that I have used!!! In which case I first apologize, and then I'll put remedy as soon as possible!
 
 (*) "Anomalies" refers to Zygarde Complete, Ultra Necrozma, Mega Rayquaza, Eternamax Eternatus, and Arceus.
