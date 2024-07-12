@@ -1931,9 +1931,9 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, CONFUSE_RAY
-	db 1, 2, NO_MOVE
-	db 1, 3, NO_MOVE
+	db 1, 1, ICE_PUNCH
+	db 1, 2, LICK
+	db 1, 3, EMBER
 	db 1, 4, NO_MOVE
 ;	db 1, 1, AQUA_JET
 ;	db 1, 2, REST

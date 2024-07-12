@@ -2209,7 +2209,7 @@ wCurrentBoxNum:: dw
 ; number of HOF teams
 wNumHoFTeams:: db
 
-wUnusedD5A3:: db
+wMultipurposeTemporaryStorage:: db ; edited, it was wUnusedD5A3
 
 wPlayerCoins:: ds 2 ; BCD
 
@@ -2608,7 +2608,8 @@ wNonShinyEncounters:: dw ; new
 wWarpedFromWhichWarp:: db
 wWarpedFromWhichMap:: db
 
-	ds 2 ; UNUSED bytes in "Main Data"
+;	ds 2
+wRandomMemoryAddressForTypeChartRandomization:: ds 2 ; new
 
 wCardKeyDoorY:: db
 wCardKeyDoorX:: db

@@ -5902,6 +5902,14 @@ AdjustDamageForMoveType:
 	jr .isTheAttackOfGod
 .notTheAttackOfGod
 
+; new, to handle randomization: type chart
+	ld a, [wRandomizationTypeChart]
+	and a
+	jr z, .notRandomizedTypeChart
+	callfar CalculateDamageAndMessageForRandomizatedTypeChart
+	ret
+.notRandomizedTypeChart
+; back to vanilla
 	ld a, [wMoveType]
 	ld b, a
 	ld hl, TypeEffects
@@ -5963,10 +5971,12 @@ AdjustDamageForMoveType:
 	ld a, [hld]
 	ldh [hMultiplicand + 2], a
 	call Multiply
+
 	ld a, 10 ; this is the "normal effectiveness", I edited it in another hackrom, and actually also did a PR
 	ldh [hDivisor], a
 	ld b, $04
 	call Divide
+
 	ldh a, [hQuotient + 2]
 	ld [hli], a
 	ld b, a
@@ -6009,6 +6019,14 @@ AdjustDamageForMoveType:
 ; the result is stored in [wTypeEffectiveness]
 ; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 AIGetTypeEffectiveness:
+	ld a, [wRandomizationTypeChart]
+	and a
+	jr z, .notRandomizedTypeChart
+; type chart is randomized
+	callfar AIGetTypeEffectivenessRandomizedChart
+	ret
+
+.notRandomizedTypeChart
 	ld a, [wEnemyMoveType]
 	ld d, a                    ; d = type of enemy move
 
@@ -7215,7 +7233,7 @@ ApplyBurnAndParalysisPenalties:
 	call QuarterSpeedDueToParalysis
 	jp HalveAttackDueToBurn
 
-QuarterSpeedDueToParalysis:
+QuarterSpeedDueToParalysis:: ; edited, double colon
 	ldh a, [hWhoseTurn]
 	and a
 	jr z, .playerTurn
@@ -7258,7 +7276,7 @@ QuarterSpeedDueToParalysis:
 	ld [hl], b
 	ret
 
-HalveAttackDueToBurn:
+HalveAttackDueToBurn:: ; edited, double colon
 	ldh a, [hWhoseTurn]
 	and a
 	jr z, .playerTurn

@@ -496,6 +496,7 @@ INCLUDE "engine/predefs.asm"
 INCLUDE "engine/battle/move_effects/slideplayerenemy.asm"	; new
 INCLUDE "engine/battle/move_effects/triattack.asm"          ; new
 INCLUDE "engine/battle/move_effects/confusion.asm"          ; new
+INCLUDE "engine/battle/move_effects/freezeburnparalyze.asm" ; new , testing
 
 
 SECTION "Surfing Minigame", ROMX

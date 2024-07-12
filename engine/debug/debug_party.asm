@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db CHARIZARD, 42 ; 255
+	db ARCEUS, 90 ; 255
 	db MEWTWO, 42
 	db STARTER_PIKACHU, 96
 ;	db MAGMORTAR, 42
@@ -41,16 +41,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, THUNDER_WAVE
+	ld a, ENERGY_BALL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DISABLE
+	ld a, ICE_PUNCH
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, CONFUSE_RAY
+	ld a, LICK
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, ANCESTOR_PWR
+	ld a, EMBER
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -176,7 +176,7 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;   SetEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0
 ;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4

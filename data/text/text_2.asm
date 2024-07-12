@@ -1412,6 +1412,16 @@ _NotVeryEffectiveText::
 	line "effective..."
 	prompt
 
+_ReallyNotVeryEffectiveText:: ; new
+	text "It's double not"
+	line "very effective..."
+	prompt
+
+_DoubleSuperEffectiveText:: ; new
+	text "It's double"
+	line "super effective!"
+	prompt
+
 _SafariZoneEatingText::
 	text "Wild @"
 	text_ram wEnemyMonNick
