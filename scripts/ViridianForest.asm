@@ -197,7 +197,7 @@ ViridianForestTextErika:
 	ld a, OPP_ERIKA
 	ld [wCurOpponent], a
 
-	ld a, 2
+	ld a, 9
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200

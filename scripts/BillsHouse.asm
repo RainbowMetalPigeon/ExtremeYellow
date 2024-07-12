@@ -296,7 +296,7 @@ BillsHouseText3: ; completely ridicolous way of printing a text lol; also, edite
 	text_asm
 ; new
 	CheckEvent EVENT_DEFEATED_MISSINGNO
-	jr z, .missingnoDefeated
+	jr nz, .missingnoDefeated
 	CheckEvent EVENT_SHOWN_COMPLETE_MAP_TO_BILL
 	jr z, .mapNotShownYet
 	ld hl, BillsHouseText3_MapAlreadyShown
