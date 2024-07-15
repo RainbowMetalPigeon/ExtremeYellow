@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db CHARIZARD, 42 ; 255
+	db STEELIX, 42 ; 255
 	db MEWTWO, 42
 	db STARTER_PIKACHU, 96
 ;	db MAGMORTAR, 42
@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DISABLE
+	ld a, STONE_EDGE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, CONFUSE_RAY
@@ -107,8 +107,8 @@ IF DEF(_DEBUG)
 
     ; define who is shiny
     ld a, 1
-;    ld hl, wPartyMon1CatchRate
-;    ld [hl], a
+    ld hl, wPartyMon1CatchRate
+    ld [hl], a
 ;    ld hl, wPartyMon2CatchRate
 ;    ld [hl], a
 ;    ld hl, wPartyMon3CatchRate

@@ -13,7 +13,7 @@ _IndigoPlateauLobbyText2::
 	cont "is it! Go for it!"
 	done
 
-_IndigoPlateauLobbyText3::
+_IndigoPlateauLobbyText3:: ; edited
 	text "From here on, you"
 	line "face the ELITE"
 	cont "FOUR one by one!"
@@ -21,5 +21,11 @@ _IndigoPlateauLobbyText3::
 	para "If you win, a"
 	line "door opens to the"
 	cont "next trainer!"
-	cont "Good luck!"
+
+	para "Be aware that you"
+	line "cannot use the"
+	cont "PORTABLE PC after"
+	cont "this door!"
+;	xxxx "123456789012345678"
+	para "Good luck!"
 	done

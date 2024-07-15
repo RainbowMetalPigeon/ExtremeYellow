@@ -102,6 +102,30 @@ _HauntedRedsHousePictureText2::
 	line "disappeared."
 	done
 
+_HauntedRedsHousePersonalizationText::
+    text "No personalization"
+    line "options."
+
+    para "Your whole persona"
+    line "doesn't matter."
+    done
+    
+_HauntedRedsHouseRandomizationText::
+    text "No randomization"
+    line "options."
+
+    para "Your destiny is"
+    line "already decided."
+    done
+    
+_HauntedRedsHouseLuckText::
+    text "No battle luck"
+    line "options."
+
+    para "You ran out of"
+    line "any and all luck."
+    done
+
 ; HAUNTED_ISLAND_OF_NUMBERS ------------------------
 
 _HauntedIslandOfNumbersText_MissingNo_NotFirstTime::
