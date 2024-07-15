@@ -16,8 +16,10 @@ DisplayRandomizationMenu::
 	call DelayFrame
 	jr .randomizationMenuLoop
 .exitRandomizationMenu
-; to inizialite the random address needed for the wild encounters option
+; to inizialite the random address needed for the wild encounters and type chart option
 ; see commens about the other part for more info
+	ldh a, [hRandomAdd]
+	ld [wRandomMemoryAddressForTypeChartRandomization+1], a
 	call Random
 	ld [wRandomMemoryAddressForWildRandomization+1], a
 	ret
@@ -350,6 +352,12 @@ InitRandomizationMenu:
 	ld [wRandomMemoryAddressForWildRandomization], a
 ; the loop is necessary if wRandomMemoryAddressForWildRandomization is indeed the MOST significant byte
 ; in which case we cannot go too high otherwise we go beyond the boundaries of the bank itself
+; let's repeate the same code for the type chart randomization
+.loopRandom2
+	call Random
+	cp 32
+	jr nc, .loopRandom2
+	ld [wRandomMemoryAddressForTypeChartRandomization], a
 ; back to ordinary code
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2

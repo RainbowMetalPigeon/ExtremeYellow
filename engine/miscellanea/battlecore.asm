@@ -25,7 +25,7 @@ CalculateGyroBallBasePower::
 	ld b, 2 ; 2? 4? TBV
 	call Divide
 	ldh a, [hQuotient + 3] ; only this one because it's just 1 byte, right?
-	ld [wUnusedD5A3], a ; store temporarily the divided speed to use it later as a 1-byte divider
+	ld [wMultipurposeTemporaryStorage], a ; store temporarily the divided speed to use it later as a 1-byte divider
 	                    ; let's use any one gabbo wram byte
 	pop hl ; restore hl
 
@@ -47,8 +47,8 @@ CalculateGyroBallBasePower::
 ;	ld a, [hProduct+2]
 ;	ld a, [hProduct+3]
 
-; now we gotta divide this result by the UserSpeed/5, temporarily stored in wUnusedD5A3
-	ld a, [wUnusedD5A3]
+; now we gotta divide this result by the UserSpeed/5, temporarily stored in wMultipurposeTemporaryStorage
+	ld a, [wMultipurposeTemporaryStorage]
 	and a
 	jr nz, .continue1
 	ld a, 1 ; divisor can't be 0
@@ -101,8 +101,8 @@ FlailHPFractionsAndPowers: ; Extreme Yellow custom round fractions
 	db  5, 100
 	db  3,  80
 	db  2,  40
-	db  1,  20 ; TBE?
-	db -1      ; TBE?
+	db  1,  20
+	db -1
 
 CalculateFlailBasePower::
 	ld hl, FlailHPFractionsAndPowers
@@ -194,3 +194,325 @@ WannaSurrenderText:
 AreYouSureText:
 	text_far _AreYouSureText
 	text_end
+
+; to handle randomization: type chart ==========================================
+
+; function to tell how effective the type of an enemy attack is on the player's current pokemon
+; when the type chart is randomized
+; the result is stored in [wTypeEffectiveness]
+; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+AIGetTypeEffectivenessRandomizedChart::
+	ld a, [wEnemyMoveType]
+	ld b, a                    ; b = type of enemy move
+
+	ld a, 10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
+
+; get type effectiveness
+
+	ld a, [wBattleMonType1]
+	ld d, a ; d = type 1 of player's pokemon
+
+	call GetRandomizedTypeMatchup ; b=atk type, d=def type, out=effectiveness in a
+	ld [wTypeEffectiveness], a
+
+	ld a, 5 ; we divide by 5
+	ldh [hDivisor], a
+	ld a, [wTypeEffectiveness]
+	ldh [hDividend], a
+	ld b, 1
+	call Divide ; we divide the type effectivness by 5: 0 for not effective, 1 for not very, 2 for normal, 4 for super
+	; now [hQuotient + 3] contains the scaled-down effectiveness
+
+; testing
+	ldh a, [hQuotient]
+	ldh a, [hQuotient+1]
+	ldh a, [hQuotient+2]
+	ldh a, [hQuotient+3]
+
+	ld a, [wBattleMonType2]
+	ld d, a
+	ld a, [wBattleMonType1]
+	cp d
+	jr nz, .secondTypeCheck
+; we don't check the same type twice for a monotype mon
+	ldh a, [hQuotient+3]
+	add a ; we double the current value, i.e. we multiply by 2, which happens to be the neutral damage of the "copy" of the only one type we have
+	jr .completing
+
+.secondTypeCheck
+	; d = type 2 of player's pokemon
+
+	ld a, 10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness (in case we find no matches)
+
+	call GetRandomizedTypeMatchup ; b=atk type, d=def type, out=effectiveness in a
+	ld [wTypeEffectiveness], a
+
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [wTypeEffectiveness]
+	ldh [hMultiplier], a
+	call Multiply ; we have Effectivness1 / 5 * Effectivness2, which is at most 4*20=80<255, so still 1 byte
+
+; testing
+	ldh a, [hProduct]
+	ldh a, [hProduct+1]
+	ldh a, [hProduct+2]
+	ldh a, [hProduct+3]
+
+	ld a, 5
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+
+; testing
+	ldh a, [hQuotient]
+	ldh a, [hQuotient+1]
+	ldh a, [hQuotient+2]
+	ldh a, [hQuotient+3]
+
+	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:
+						   ; 0 for not effective
+						   ; 1 for 1/4
+						   ; 2 for 1/2
+						   ; 4 for 1
+						   ; 8 for 2
+						   ; 16 for 4
+.completing
+	ld [wTypeEffectiveness], a
+	ret
+
+; -------------------------------------------------------
+
+CalculateDamageAndMessageForRandomizatedTypeChart::
+; values for player turn
+	ld hl, wEnemyMonType
+	ld a, [hli]
+	ld d, a    ; d = type 1 of defender
+	ld e, [hl] ; e = type 2 of defender
+	ld a, [wPlayerMoveType]
+	ld [wMoveType], a
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+; values for enemy turn
+	ld hl, wBattleMonType
+	ld a, [hli]
+	ld d, a    ; d = type 1 of defender
+	ld e, [hl] ; e = type 2 of defender
+	ld a, [wEnemyMoveType]
+	ld [wMoveType], a
+.next
+	ld a, [wMoveType]
+	ld b, a    ; b = type of the move
+
+; here b = type attack, d = type 1 defender, e = type 2 defender
+
+	push bc
+	push de
+
+.doAllTheThings
+	call GetRandomizedTypeMatchup ; b=atk type, d=def type, out=effectiveness in a
+; handle type effectiveness message
+	push af
+	ld a, [wDamageMultipliers]
+	and $80
+	ld b, a
+	pop af
+	ldh [hMultiplier], a
+	and a  ; cp NO_EFFECT
+	jr z, .gotMultiplier
+	cp NOT_VERY_EFFECTIVE
+	jr nz, .nothalf
+	ld a, [wDamageMultipliers]
+	and $7f
+	srl a
+	jr .gotMultiplier
+.nothalf
+	cp SUPER_EFFECTIVE
+	jr nz, .gotMultiplier
+	ld a, [wDamageMultipliers]
+	and $7f
+	sla a
+.gotMultiplier
+	add b
+	ld [wDamageMultipliers], a
+; do the math: multiply
+	xor a
+	ldh [hMultiplicand], a
+	ld hl, wDamage
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hld]
+	ldh [hMultiplicand + 2], a
+	call Multiply
+; do the math: divide by 10
+	ld a, EFFECTIVE
+	ldh [hDivisor], a
+	ld b, $04
+	call Divide
+; check if the damage is 0
+	ldh a, [hQuotient + 2]
+	ld [hli], a
+	ld b, a
+	ldh a, [hQuotient + 3]
+	ld [hl], a
+	or b ; is damage 0?
+	jr nz, .skipTypeImmunity
+.typeImmunity
+; if damage is 0, make the move miss
+; this only occurs if a move that would do 2 or 3 damage is 0.25x effective against the target
+	inc a
+	ld [wMoveMissed], a
+.skipTypeImmunity
+	CheckEvent EVENT_SECOND_HANDLING_RANDOM_CHART
+	jr nz, .defendingMonIsMonoType
+
+	pop de
+	pop bc
+
+	ld a, e
+	cp d
+	jr z, .defendingMonIsMonoType
+
+	ld d, a
+	SetEvent EVENT_SECOND_HANDLING_RANDOM_CHART
+	jr .doAllTheThings ; b=atk type, d=def type, out=effectiveness in a
+
+.defendingMonIsMonoType
+	ResetEvent EVENT_SECOND_HANDLING_RANDOM_CHART
+	ret
+
+; -------------------------------------------------------
+
+; b: attacking type
+; d: defending type (needs to be loaded properly, one defending type at the time)
+; output: effectiveness in a
+GetRandomizedTypeMatchup:
+    ld a, [wRandomMemoryAddressForTypeChartRandomization]
+    ld h, a
+    ld a, [wRandomMemoryAddressForTypeChartRandomization+1]
+    ld l, a
+    ; hl is the random address chosen when we randomized the type chart
+; (scaled) offensive type is multiplied by 19 (BIRD too), (scaled) defensive type by 1
+; both are added to the address
+    ld a, b
+    cp TYPELESS ; TYPELESS is always neutral towards everything
+    jr z, .handleTypeless
+    push bc
+    push de ; preserve the original types for the final "special type check"
+    call RescaleTypes ; a contains the re-scaled offensive type
+    ld bc, 19
+    call AddNTimes ; add bc to hl a times
+    ld a, d
+    call RescaleTypes ; a contains the re-scaled defensive type
+    ld bc, 1
+    call AddNTimes ; add bc to hl a times
+    ; hl points to the memory address, unique for this offensive-defensive type combo
+    ld a, [hl]
+    call ConvertRandomNumberIntoEffectiveness
+    ld [wMultipurposeTemporaryStorage], a
+    pop de
+    pop bc ; restore the original types for the final "special type check"
+    call HandleSpecialTypeCombos ; returns the effectiveness in a
+    ret
+.handleTypeless
+    ld a, EFFECTIVE
+    ret
+
+; -------------------------------------------------------
+
+; re-scale types in a [0;18] range (BIRD too)
+; input: a is the type
+; ouput: a is the rescale type
+RescaleTypes:
+    cp GROUND2
+    jr nz, .notGround2
+    ld a, GROUND
+    jr .continueRescaling
+.notGround2
+    cp ICE2
+    jr nz, .continueRescaling
+    ld a, ICE
+.continueRescaling
+    cp FIRE
+    ret c ; do nothing more if it's a physical move
+          ; GROUND2 handled above, and TYPELESS beforehand
+; special move, needs to be -10ed
+    sub 10
+    ret
+
+; -------------------------------------------------------
+
+; input: a, random value
+; output: a, effectiveness value
+; 25% EFFECTIVE, 35% SUPER_EFFECTIVE, 35% NOT_VERY_EFFECTIVE, 5% NO_EFFECT
+; [0,64] EFFECTIVE, [65,154] SUPER_EFFECTIVE, [154,243] NOT_VERY_EFFECTIVE, [244,255] NO_EFFECT
+; keeps inverse battles into account already
+ConvertRandomNumberIntoEffectiveness:
+    cp 244
+    jr nc, .noEffect
+    cp 154
+    jr nc, .notVeryEffective
+    cp 65
+    jr nc, .superEffective
+; normal effective
+    ld a, EFFECTIVE
+    ret
+.noEffect
+    ld b, NO_EFFECT
+    jr .checkInverse
+.notVeryEffective
+    ld b, NOT_VERY_EFFECTIVE
+    jr .checkInverse
+.superEffective
+    ld b, SUPER_EFFECTIVE
+;    jr .checkInverse
+.checkInverse
+    ld a, [wInverseBattle] ; 0=normal, 1=inverse
+    and a
+    jr z, .normalBattle
+; inverse battle and not normal effectiveness
+    ld a, b
+    cp EFFECTIVE ; it cannot be exactly it, it's either more or less
+    jr c, .littleEffective
+; it's an inverse battle and the base effectiveness would be super effective, let's swap it
+    ld b, NOT_VERY_EFFECTIVE
+    jr .normalBattle
+.littleEffective ; it's an inverse battle and the base effectiveness would be not very effective or no effect, let's swap it
+    ld b, SUPER_EFFECTIVE
+.normalBattle
+    ld a, b
+    ret
+
+; -------------------------------------------------------
+
+; inputs: b=offensive type; d=defensive type, BEFORE rescaling
+HandleSpecialTypeCombos:
+    ld a, b ; a holds the offensive type
+    cp GROUND2
+    jr nz, .notGround2
+; offensive is GROUND2, let's check if defensive is FLYING
+    ld a, d
+    cp FLYING
+    jr nz, .notSpecialCombo
+; offensive GROUND2, defensive FLYING: if random effectivness is less than EFFECTIVE, make it EFFECTIVE
+    ld a, [wMultipurposeTemporaryStorage]
+    cp EFFECTIVE
+    ret nc
+    ld a, EFFECTIVE
+    ret
+.notGround2
+    cp ICE2
+    jr nz, .notSpecialCombo
+; offensive is ICE2, let's check if defensive is WATER
+    ld a, d
+    cp WATER
+    jr nz, .notSpecialCombo
+; offensive ICE2, defensive WATER, make this SUPER_EFFECTIVE
+    ld a, SUPER_EFFECTIVE
+    ret
+.notSpecialCombo
+    ld a, [wMultipurposeTemporaryStorage]
+    ret
