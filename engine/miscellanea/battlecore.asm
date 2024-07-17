@@ -170,10 +170,13 @@ CheckIfHPIsBelowFraction::
 WantToSurrenderFromTrainerBattle::
 	ld a, [wCurMap]
 	cp OAKS_LAB
-	jr nz, .notOaksLab
+	jr z, .cannotSurrender
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	jr nz, .canSurrender
+.cannotSurrender
 	dec a ; to set the nz flag
 	ret
-.notOaksLab
+.canSurrender
 	ld hl, WannaSurrenderText
 	call PrintText
 	call YesNoChoice

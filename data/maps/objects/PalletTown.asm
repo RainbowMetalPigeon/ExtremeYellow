@@ -51,9 +51,9 @@ PalletTown_Object:
 ;	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 12, 11, HAUNTED_PALLET_TOWN, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_3, 9
-;	warp_event 12, 11, HAUNTED_ISLAND_OF_NUMBERS, 1
+	warp_event 12, 11, HAUNTED_ISLAND_OF_NUMBERS, 1
 ;	warp_event 12, 11, BILLS_HOUSE, 1
-	warp_event 12, 11, BATTLE_FACILITY, 1
+;	warp_event 12, 11, BATTLE_FACILITY, 1
 ;	warp_event 12, 11, CHAMPIONS_ROOM, 1
 
 	def_bg_events
