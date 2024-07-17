@@ -270,7 +270,8 @@
 ; Cinnabar Island events
 	const_next $278
 	const EVENT_MANSION_SWITCH_ON
-	const_skip 14 ; edited, was 16
+	const_skip 13 ; edited, was 16
+	const EVENT_LAST_DIALOGUE_CINNABAR_ARCHEOLOGIST ; new
 	const EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT ; new
 	const EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT_FAILED ; new
 	const EVENT_BEAT_MANSION_1_TRAINER_0

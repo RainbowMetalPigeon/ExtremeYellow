@@ -6,8 +6,11 @@ _SaffronMartText2::
 	cont "away!"
 	done
 
-_SaffronMartText3::
+_SaffronMartText3:: ; edited
 	text "REVIVE is costly,"
 	line "but it revives"
 	cont "fainted #MON!"
+
+	para "Who would have"
+	line "guessed that, eh?"
 	done

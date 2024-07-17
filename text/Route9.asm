@@ -119,9 +119,9 @@ _Route9AfterBattleText7::
 	cont "get stronger..."
 	done
 
-_Route9BattleText8::
+_Route9BattleText8:: ; edited
 	text "Hahahaha!"
-	line "Come on, dude!"
+	line "Come on, youth!"
 	done
 
 _Route9EndBattleText8::
@@ -129,8 +129,8 @@ _Route9EndBattleText8::
 	line "You beat me fair!"
 	prompt
 
-_Route9AfterBattleText8::
+_Route9AfterBattleText8:: ; edited
 	text "Hahahaha!"
-	line "Us hearty guys"
+	line "Us hearty folks"
 	cont "always laugh!"
 	done

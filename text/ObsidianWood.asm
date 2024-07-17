@@ -58,7 +58,7 @@ _ObsidianWoodEndBattleText3::
 	line "With that"
 	cont "strength, I'm"
 	cont "sure you can"
-	cont "eradice those"
+	cont "eradicate those"
 	cont "sick ROCKETs"
 	cont "by yourself!"
 	prompt
@@ -100,7 +100,7 @@ _ObsidianWoodEndBattleText4::
 	text "Alas,"
 	line "not even my"
 	cont "medals allowed me"
-	cont "win..."
+	cont "to win..."
 	prompt
 
 _ObsidianWoodAfterBattleText4::

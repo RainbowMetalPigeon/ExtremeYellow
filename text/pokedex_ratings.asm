@@ -78,9 +78,9 @@ _DexRatingText_Own90To99::
 	cont "difficult to do!"
 	done
 
-_DexRatingText_Own100To109::
-	text "You finally got at"
-	line "least 100 species!"
+_DexRatingText_Own100To109:: ; edited
+	text "You got so"
+	line "many species!"
 	cont "I can't believe"
 	cont "how good you are!"
 	done

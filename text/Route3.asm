@@ -125,9 +125,9 @@ _Route3AfterBattleText7::
 	cont "the wild ones!"
 	done
 
-_Route3BattleText8::
-	text "Eek! Did you"
-	line "touch me?"
+_Route3BattleText8:: ; edited
+	text "Oh! Hello! Do you"
+	line "want to fight?"
 	done
 
 _Route3EndBattleText8::

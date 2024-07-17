@@ -29,12 +29,13 @@ _Museum1FText_5c22e::
 	cont "AMBER is?"
 	done
 
-_Museum1FText_5c233::
-	text "There's a lab"
-	line "somewhere trying"
-	cont "to resurrect"
-	cont "ancient #MON"
-	cont "from AMBER."
+_Museum1FText_5c233:: ; edited
+	text "At the lab in"
+	line "CINNABAR they are"
+	cont "trying to"
+	cont "regenerate"
+	cont "#MON from"
+	cont "fossils!"
 	done
 
 _Museum1FText_5c238::

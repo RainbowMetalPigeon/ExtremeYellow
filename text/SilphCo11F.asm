@@ -26,14 +26,14 @@ _ReceivedSilphCoMasterBallText::
 	text "!@"
 	text_end
 
-_SilphCo10Text_6231c::
+_SilphCo10Text_6231c:: ; edited
 	text "PRESIDENT: You"
 	line "can't buy that"
 	cont "anywhere!"
 
 	para "It's our secret"
-	line "prototype MASTER"
-	cont "BALL!"
+	line "prototype, the"
+	cont "MASTER BALL!"
 
 	para "It will catch any"
 	line "#MON without"
@@ -104,10 +104,10 @@ _SilphCo10Text_62335::
 	cont "less expect it!"
 	done
 
-_SilphCo11BattleText2::
+_SilphCo11BattleText2:: ; edited
 	text "Halt! Do you have"
 	line "an appointment"
-	cont "with my BOSS?"
+	cont "with our BOSS?"
 	done
 
 _SilphCo11EndBattleText2::
@@ -115,8 +115,9 @@ _SilphCo11EndBattleText2::
 	line "Demolished!"
 	prompt
 
-_SilphCo11AfterBattleText2::
-	text "Watch your step,"
-	line "my BOSS likes his"
-	cont "#MON tough!"
+_SilphCo11AfterBattleText2:: ; edited
+	text "Watch your steps,"
+	line "the BOSS has"
+	cont "super-tough"
+	cont "#MON!"
 	done

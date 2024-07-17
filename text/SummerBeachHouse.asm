@@ -1,4 +1,4 @@
-_SurfinDudeText1::
+_SurfinDudeText1:: ; edited
 	text "Whoa!"
 
 	para "Your PIKACHU knows"
@@ -7,7 +7,7 @@ _SurfinDudeText1::
 
 	para "Great! You earned"
 	line "the right to SURF"
-	cont "with the DUDE!"
+	cont "with the COOL!"
 
 	para "Give it a go?"
 	done
@@ -30,8 +30,8 @@ _SummerBeachHousePikachuText::
 	text "PIKACHU: Pikaa"
 	done
 
-_SummerBeachHouseSign1Text1::
-	text "SURFIN' DUDE's"
+_SummerBeachHouseSign1Text1:: ; edited
+	text "SURFIN' COOL's"
 	line "scribbles..."
 
 	para "When I shoot the"
@@ -39,9 +39,9 @@ _SummerBeachHouseSign1Text1::
 	cont "hit the groove!"
 	done
 
-_SummerBeachHouseSign1Text2::
+_SummerBeachHouseSign1Text2:: ; edited
 	text "30 years of waves!"
-	line "SURFIN' DUDE"
+	line "SURFIN' COOL"
 	done
 
 _SummerBeachHouseSign2Text1::

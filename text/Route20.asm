@@ -87,8 +87,8 @@ _Route20AfterBattleText6::
 	line "sure looks fun!"
 	done
 
-_Route20BattleText7::
-	text "I rode my bird"
+_Route20BattleText7:: ; edited
+	text "I rode my BIRD"
 	line "#MON here!"
 	done
 
@@ -97,13 +97,13 @@ _Route20EndBattleText7::
 	line "no!"
 	prompt
 
-_Route20AfterBattleText7::
-	text "My birds can't"
+_Route20AfterBattleText7:: ; edited
+	text "My BIRDs can still"
 	line "FLY me back!"
 	done
 
-_Route20BattleText8::
-	text "My boy friend gave"
+_Route20BattleText8:: ; edited
+	text "My partner gave"
 	line "me big pearls!"
 	done
 

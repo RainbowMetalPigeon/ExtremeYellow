@@ -159,8 +159,8 @@ _Route12AfterBattleText4::
 	cont "sea #MON!"
 	done
 
-_Route12BattleText5::
-	text "The FISHING FOOL"
+_Route12BattleText5:: ; edited
+	text "The FISHING GENIUS"
 	line "vs. #MON KID!"
 	done
 
@@ -229,7 +229,7 @@ _Route12TextRival::
 	para "Get your hands off"
 	line "that SNORLAX! I"
 	cont "saw it first, and"
-	cont "it will be who"
+	cont "it will be me who"
 	cont "will catch it!"
 
 	para "And if you don't"

@@ -47,9 +47,12 @@ Lab1Text5:
 
 Lab1Text2_Archeologist:
 	text_asm
-	ld hl, Lab1Text2_Archeologist_PostGift
 	CheckEvent EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT
-	jr nz, .printAndEnd
+	jr z, .notBeenGiftedTreasureYet
+	SetEvent EVENT_LAST_DIALOGUE_CINNABAR_ARCHEOLOGIST
+	ld hl, Lab1Text2_Archeologist_PostGift
+	jr .printAndEnd
+.notBeenGiftedTreasureYet
 ; we have not been gifted the treasure yet
 	ld hl, Lab1Text2_Archeologist_PreReturnRelic
 	CheckEvent EVENT_RETURNED_LUNAR_RELIC

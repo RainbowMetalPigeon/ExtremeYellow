@@ -37,21 +37,21 @@ _SabrinaPostBattleAdviceText::
 	cont "realize it!"
 	done
 
-_KogaMarshBadgeInfoText::
-	text "The MARSHBADGE"
-	line "makes #MON up"
-	cont "to L70 obey you!"
+_KogaMarshBadgeInfoText:: ; edited
+;	text "The MARSHBADGE"
+;	line "makes #MON up"
+;	cont "to L70 obey you!"
 
-	para "Stronger #MON"
-	line "will become wild,"
-	cont "ignoring your"
-	cont "orders in battle!"
+;	para "Stronger #MON"
+;	line "will become wild,"
+;	cont "ignoring your"
+;	cont "orders in battle!"
 
-	para "Just don't raise"
-	line "your #MON too"
-	cont "much!"
+;	para "Just don't raise"
+;	line "your #MON too"
+;	cont "much!"
 
-	para "Wait, please take"
+	text "Wait, please take"
 	line "this TM with you!"
 	done
 
@@ -74,7 +74,7 @@ _TM46NoRoomText::
 	line "of other items!"
 	done
 
-_SaffronGymGuidePreBattleText::
+_SaffronGymGuidePreBattleText:: ; edited
 	text "Yo! Champ in"
 	line "making!"
 
@@ -82,9 +82,9 @@ _SaffronGymGuidePreBattleText::
 	line "use psychic power"
 	cont "instead of force!"
 
-	para "Fighting #MON"
+	para "FIGHTING #MON"
 	line "are weak against"
-	cont "psychic #MON!"
+	cont "PSYCHIC #MON!"
 
 	para "They get creamed"
 	line "before they can"
@@ -100,10 +100,10 @@ _SaffronGymGuidePostBattleText::
 	cont "at the slots!"
 	done
 
-_SaffronGymBattleText1::
+_SaffronGymBattleText1:: ; edited
 	text "SABRINA is younger"
 	line "than I, but I"
-	cont "respect her!"
+	cont "respect them!"
 	done
 
 _SaffronGymEndBattleText1::
@@ -133,11 +133,11 @@ _SaffronGymEndBattleText2::
 	prompt
 
 _SaffronGymAfterBattleText2:: ; edited
-	text "Psychic #MON"
-	line "fear only bugs!"
+	text "PSYCHIC #MON"
+	line "fear only BUGs!"
 
-	para "...and ghosts..."
-	line "and darkness..."
+	para "...and GHOSTs..."
+	line "and DARKness..."
 
 	para "Damn, they fear"
 	line "all scary stuff!"
@@ -197,13 +197,13 @@ _SaffronGymAfterBattleText5::
 	cont "place."
 	done
 
-_SaffronGymBattleText6::
+_SaffronGymBattleText6:: ; edited
 	text "SABRINA is young,"
-	line "but she's also"
+	line "but they're also"
 	cont "our LEADER!"
 
 	para "You won't reach"
-	line "her easily!"
+	line "them easily!"
 	done
 
 _SaffronGymEndBattleText6::
@@ -265,10 +265,10 @@ _SaffronGymEndBattleText8::
 _SaffronGymAfterBattleText8::
 	text "I joined the GYM"
 	line "not because I"
-	cont "have ESP, but be-"
-	cont "cause PSYCHIC and"
-	cont "GHOST #MON are"
-	cont "amazing!"
+	cont "have ESP, but"
+	cont "because PSYCHIC"
+	cont "and GHOST #MON"
+	cont "are amazing!"
 	done
 
 ; new ---------------------

@@ -104,10 +104,6 @@ _FuchsiaCityText4_Post:: ; edited
 	para "Now we can enjoy"
 	line "our lives as we"
 	cont "once did!"
-
-;	text "That item ball in"
-;	line "there is really a"
-;	cont "#MON."
 	done
 
 _FuchsiaCityText5::

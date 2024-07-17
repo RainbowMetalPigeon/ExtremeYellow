@@ -60,7 +60,7 @@ _TM41ExplanationText::
 	cont "move!"
 
 	para "Be careful when"
-	line "using it, tho,"
+	line "using it, though,"
 	cont "because the user"
 	cont "too takes damage!"
 	done

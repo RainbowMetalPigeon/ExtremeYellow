@@ -6,8 +6,9 @@ _CinnabarIslandTextGymDoor::
 _CinnabarIslandText1::
 	text "CINNABAR GYM's"
 	line "BLAINE is an odd"
-	cont "man who has lived"
-	cont "here for decades."
+	cont "individual who has"
+	cont "lived here for"
+	cont "decades."
 	done
 
 _CinnabarIslandText2::
@@ -176,8 +177,6 @@ _CinnabarIslandTextSeismic::
 	done
 
 _CinnabarIslandTextHotSprings::
-	; The water is perfectly warm. It feels exquisite...
-	; <PLAYER> and the #MON were fully refreshed!
 	text "The warm, relaxing"
 	line "waters soothe you"
 	cont "and your team."

@@ -94,7 +94,7 @@ _OchreResearchCenter1Text_Power_Kanto::
 	para "But... to be"
 	line "honest... KANTO's"
 	cont "POWER PLANT is a"
-	cont "disaster..."
+	cont "real disaster..."
 	done
 
 _OchreResearchCenterSign_Hall::

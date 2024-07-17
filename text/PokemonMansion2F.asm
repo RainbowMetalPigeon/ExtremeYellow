@@ -18,7 +18,7 @@ _Mansion2AfterBattleText1::
 _Mansion2Text3::
 	text "Diary: July 5"
 	line "Guyana,"
-	cont "South America"
+	cont "South America."
 
 	para "A new #MON was"
 	line "discovered deep"
@@ -26,10 +26,10 @@ _Mansion2Text3::
 	done
 
 _Mansion2Text4::
-	text "Diary: July 10"
-	line "We christened the"
+	text "Diary: July 10."
+	line "We named the"
 	cont "newly discovered"
-	cont "#MON, MEW."
+	cont "#MON: MEW."
 	done
 
 _Mansion2Text_520c2::

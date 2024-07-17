@@ -2,13 +2,14 @@ _PokemonTowerJessieJamesText1::
 	text "Stop right there!@"
 	text_end
 
-_PokemonTowerJessieJamesText2::
-	text "Gramps here wanted"
-	line "to complain, so"
+_PokemonTowerJessieJamesText2:: ; edited
+	text "This old geezer is"
+	line "not happy about"
+	cont "our methods, so"
 	cont "we're setting"
 	cont "them straight."
 
-	para "So render yourself"
+	para "Render yourself"
 	line "invisible, or"
 	cont "prepare to fight!"
 	done

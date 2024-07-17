@@ -63,9 +63,10 @@ _RockTunnel1AfterBattleText4::
 	done
 
 _RockTunnel1BattleText5::
-	text "Eek! Don't try"
-	line "anything funny in"
-	cont "the dark!"
+	text "Eek! You scared"
+	line "me! I don't see a"
+	cont "thing in this"
+	cont "darkness!"
 	done
 
 _RockTunnel1EndBattleText5::

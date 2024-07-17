@@ -206,7 +206,7 @@ _DarkGuideHints_Hint1_Solution::
 	cont "both of"
 	cont "CHAMPION's teams,"
 	cont "you'll make the"
-	cont "SS ANNE return,"
+	cont "S.S.ANNE return,"
 	cont "which will let"
 	cont "you reach the"
 	cont "famous truck."
@@ -298,7 +298,7 @@ _DarkGuideHints_Hint3_Details::
 	prompt
 
 _DarkGuideHints_Hint3_Solution::
-	text "PROF OAK can be"
+	text "PROF.OAK can be"
 	line "fought on"
 	cont "ROUTE 21, where"
 	cont "they are"

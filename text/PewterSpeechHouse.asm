@@ -5,7 +5,9 @@ _PewterHouse2Text1::
 
 	para "But, some moves"
 	line "must be taught by"
-	cont "the trainer!"
+	cont "the trainer by"
+	cont "using dedicated"
+	cont "tools, the TMs!"
 	done
 
 _PewterHouse2Text2::
@@ -18,7 +20,7 @@ _PewterHouse2Text2::
 	line "sure thing!"
 	done
 
-; new 
+; new
 
 _PewterHouse2Text3::
 	text "I..."

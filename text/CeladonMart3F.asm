@@ -12,7 +12,7 @@ _CeladonMart3Text3::
 	text "All right!"
 
 	para "My buddy's going"
-	line "to trade me his"
+	line "to trade me their"
 	cont "KANGASKHAN for my"
 	cont "GRAVELER!"
 	done
@@ -66,9 +66,24 @@ _CeladonMart3Text14::
 	text "3F: TV GAME SHOP"
 	done
 
-_CeladonMart3Text15::
-	text "Red and Blue!"
-	line "Both are #MON!"
+_CeladonMart3Text15:: ; edited
+	text "RED, BLUE, YELLOW!"
+
+	para "GOLD, SILVER"
+	line "CRYSTAL!"
+
+	para "RUBY, SAPPHIRE,"
+	line "EMERALD!"
+
+	para "DIAMOND, PEARL,"
+	line "PLATINUM!"
+
+	para "BLACK, WHITE,"
+	line "BLACK2, WHITE2!"
+
+	para "...aftewards they"
+	line "become a bit"
+	cont "lame."
 	done
 
 _TM18PreReceiveText::

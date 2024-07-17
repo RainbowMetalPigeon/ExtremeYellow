@@ -52,7 +52,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3, 4 ; GENTLEMAN ; edited
 	move_choices 1, 2, 3, 4 ; RIVAL2 ; edited
 	move_choices 1, 2, 3    ; RIVAL3 ; edited
-	move_choices 1, 2, 3 ; LORELEI ; edited
+	move_choices 1, 2, 3, 4 ; LORELEI ; edited
 	move_choices 1, 2, 3, 4 ; CHANNELER ; edited
 	move_choices 1, 2, 3, 4 ; AGATHA ; edited
 	move_choices 1, 2, 3, 4 ; LANCE ; edited

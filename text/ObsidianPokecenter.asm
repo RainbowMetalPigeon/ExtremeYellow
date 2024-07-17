@@ -39,11 +39,6 @@ _ObsidianMartText3::
 
 	para "As the Italian"
 	line "saying goes:"
-;	cont "'With a full"
-;	cont "belly, one thinks"
-;	cont "better'!"
-;	cont "Full bellies"
-;	cont "sharpen minds!"
 	cont "With full bellies"
 	cont "we think better!"
 ;	xxxx "123456789012345678"

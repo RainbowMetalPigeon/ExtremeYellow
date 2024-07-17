@@ -4,8 +4,8 @@ _RocketHideoutJessieJamesText1::
 	text_end
 
 _RocketHideoutJessieJamesText2::
-	text "How dare you"
-	line "humiliate us at"
+	text "How did you dare"
+	line "humiliating us at"
 	cont "MT.MOON!"
 
 	para "It's payback time,"

@@ -25,7 +25,6 @@ INCLUDE "text/SilphCo3F.asm"
 INCLUDE "text/SilphCo4F.asm"
 INCLUDE "text/SilphCo5F.asm"
 INCLUDE "text/SilphCo6F.asm"
-INCLUDE "text/SilphCo7F.asm"
 
 
 SECTION "Text 2", ROMX
@@ -299,6 +298,7 @@ INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
+INCLUDE "text/SilphCo7F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

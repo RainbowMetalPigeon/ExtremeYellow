@@ -88,17 +88,17 @@ _SSAnne9AfterBattleText4::
 	line "strong #MON!"
 	done
 
-_SSAnne9Text_61c1f::
+_SSAnne9Text_61c1f:: ; edited
 	text "Have you gone to"
 	line "the SAFARI ZONE"
 	cont "in FUCHSIA CITY?"
 
-	para "It had many rare"
+	para "It has many rare"
 	line "kinds of #MON!!"
 	done
 
-_SSAnne9Text_61c2e::
-	text "Me and my Daddy"
+_SSAnne9Text_61c2e:: ; edited
+	text "Me and my old one"
 	line "think the SAFARI"
 	cont "ZONE is awesome!"
 	done

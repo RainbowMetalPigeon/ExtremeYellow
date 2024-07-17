@@ -37,11 +37,12 @@ _KogaPostBattleAdviceText::
 	done
 
 _KogaSoulBadgeInfoText::
-	text "Now that you have"
-	line "the SOULBADGE,"
-	cont "the DEFENSE of"
-	cont "your #MON"
-	cont "increases!"
+	text "With the"
+	line "SOULBADGE, you"
+	cont "may have the"
+	cont "DEFENSE of your"
+	cont "#MON increase,"
+	cont "if you so wish."
 
 	para "It also lets you"
 	line "SURF outside of"
@@ -142,7 +143,7 @@ _FuchsiaGymBattleText4::
 
 _FuchsiaGymEndBattleText4::
 	text "Whoa!"
-	line "He's got it!"
+	line "You got it!"
 	prompt
 
 _FuchsiaGymAfterBattleText4::
@@ -178,7 +179,7 @@ _FuchsiaGymBattleText6::
 	line "from a long line"
 	cont "of ninjas!"
 
-	para "What did you"
+	para "What do you"
 	line "descend from?"
 	done
 
@@ -219,9 +220,9 @@ _FuchsiaGymEndBattleText7::
 _FuchsiaGymAfterBattleText7::
 	text "I am training"
 	line "hard to be able"
-	cont "to one day in-"
-	cont "herit the place"
-	cont "of my pa..."
+	cont "to one day"
+	cont "inherit the place"
+	cont "from my pa..."
 	cont "I mean, KOGA!"
 	done
 

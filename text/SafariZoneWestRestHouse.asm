@@ -6,10 +6,13 @@ _SafariZoneRestHouse2Text1::
 	cont "easier to catch."
 	done
 
-_SafariZoneRestHouse2Text2::
+_SafariZoneRestHouse2Text2:: ; edited
 	text "Using BAIT will"
-	line "make #MON less"	; updated
-	cont "likely to run."	; updated
+	line "make #MON less"
+	cont "likely to run,"
+	cont "but they will also"
+	cont "be more difficult"
+	cont "to catch."
 	done
 
 _SafariZoneRestHouse2Text3::

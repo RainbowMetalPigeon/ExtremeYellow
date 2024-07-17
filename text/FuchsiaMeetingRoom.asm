@@ -2,7 +2,7 @@ _FuchsiaMeetingRoomText1::
 	text "We nicknamed the"
 	line "WARDEN SLOWPOKE."
 
-	para "He and SLOWPOKE"
+	para "They and SLOWPOKE"
 	line "both look vacant!"
 	done
 
@@ -11,7 +11,7 @@ _FuchsiaMeetingRoomText2::
 	line "knowledgeable"
 	cont "about #MON!"
 
-	para "He even has some"
+	para "They even has some"
 	line "fossils of rare,"
 	cont "extinct #MON!"
 	done
@@ -19,9 +19,9 @@ _FuchsiaMeetingRoomText2::
 _FuchsiaMeetingRoomText3::
 	text "SLOWPOKE came in,"
 	line "but I couldn't"
-	cont "understand him."
+	cont "understand them."
 
-	para "I think he's got"
+	para "I think they got"
 	line "a speech problem!"
 	done
 

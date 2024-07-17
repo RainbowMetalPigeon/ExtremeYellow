@@ -99,15 +99,16 @@ _MtMoon3Text_49f8f::
 	cont "No being greedy!"
 	done
 
-_MtMoon3Text_49f94::
-	text "Far away, on"
-	line "CINNABAR ISLAND,"
-	cont "there's a #MON"
-	cont "LAB."
-
-	para "They do research"
-	line "on regenerating"
-	cont "fossils."
+_MtMoon3Text_49f94:: ; edited
+	text "I heard that at"
+	line "the INTERREGIONAL"
+	cont "RESEARCH CENTER"
+	cont "of OCHRE CITY"
+	cont "there is a whole"
+	cont "department"
+	cont "dedicated to"
+	cont "fossil"
+	cont "resurrection!"
 	done
 
 _MtMoon3Text_49f99::

@@ -28,14 +28,15 @@ _LTSurgePostBattleAdviceText::
 	line "sure powerful!"
 
 	para "But, it's useless"
-	line "against ground-"
+	line "against GROUND-"
 	cont "type #MON!"
 	done
 
-_LTSurgeThunderBadgeInfoText::
+_LTSurgeThunderBadgeInfoText:: ; edited
 	text "The THUNDERBADGE"
 	line "cranks up your"
-	cont "#MON's SPEED!"
+	cont "#MON's SPEED,"
+	cont "if you so wish!"
 
 	para "It also lets your"
 	line "#MON FLY any-"
@@ -52,14 +53,13 @@ _ReceivedTM24Text::
 	text "!@"
 	text_end
 
-_TM24ExplanationText::
+_TM24ExplanationText:: ; edited
 	text_start
-
 	para "TM24 contains"
 	line "THUNDERBOLT!"
 
 	para "Teach it to an"
-	line "electric #MON!"
+	line "ELECTRIC #MON!"
 	done
 
 _TM24NoRoomText::
@@ -77,10 +77,11 @@ _ReceivedThunderBadgeText::
 	line "the THUNDERBADGE!"
 	prompt
 
-_VermilionGymBattleText1::
+_VermilionGymBattleText1:: ; edited
 	text "When I was in the"
-	line "Army, LT.SURGE"
-	cont "was my strict CO!"
+	line "army, LT.SURGE"
+	cont "was my commanding"
+	cont "officer."
 	done
 
 _VermilionGymEndBattleText1::
@@ -109,7 +110,7 @@ _VermilionGymEndBattleText2::
 _VermilionGymAfterBattleText2::
 	text "OK, I'll talk!"
 
-	para "LT.SURGE said he"
+	para "LT.SURGE said they"
 	line "hid door switches"
 	cont "inside something!"
 	done
@@ -160,20 +161,20 @@ _VermilionGymAfterBattleText4::
 	line "LT.SURGE."
 	done
 
-_VermilionGymGuidePreBattleText::
+_VermilionGymGuidePreBattleText:: ; edited
 	text "Yo! Champ in"
 	line "making!"
 
 	para "LT.SURGE has a"
 	line "nickname. People"
-	cont "refer to him as"
+	cont "refer to them as"
 	cont "the Lightning"
 	cont "American!"
 
-	para "He's an expert on"
-	line "electric #MON!"
+	para "They're expert in"
+	line "ELECTRIC #MON!"
 
-	para "Birds and water"
+	para "BIRDs and WATER"
 	line "#MON are at"
 	cont "risk! Beware of"
 	cont "paralysis too!"
@@ -183,11 +184,11 @@ _VermilionGymGuidePreBattleText::
 
 	para "You'll have to"
 	line "break a code to"
-	cont "get to him!"
+	cont "get to them!"
 	done
 
-_VermilionGymGuidePostBattleText::
-	text "Whew! That match"
+_VermilionGymGuidePostBattleText:: ; edited
+	text "Wow! That match"
 	line "was electric!"
 	done
 

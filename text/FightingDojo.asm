@@ -28,7 +28,7 @@ _FightingDojoText_5ce98::
 
 	para "In return, I will"
 	line "give you a prized"
-	cont "fighting #MON!"
+	cont "FIGHTING #MON!"
 
 	para "Choose whichever"
 	line "one you like!"
@@ -56,7 +56,7 @@ _FightingDojoAfterBattleText1::
 	line "see our Master!"
 
 	para "I'm a small fry"
-	line "compared to him!"
+	line "compared to them!"
 	done
 
 _FightingDojoBattleText2::
@@ -90,7 +90,7 @@ _FightingDojoEndBattleText3::
 _FightingDojoAfterBattleText3::
 	text "The only thing"
 	line "that frightens us"
-	cont "is psychic power!"
+	cont "is PSYCHIC power!"
 	done
 
 _FightingDojoBattleText4::

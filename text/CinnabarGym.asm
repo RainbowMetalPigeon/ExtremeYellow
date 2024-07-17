@@ -23,20 +23,22 @@ _ReceivedVolcanoBadgeText::
 
 _BlainePostBattleAdviceText::
 	text "FIRE BLAST is the"
-	line "ultimate fire"
+	line "ultimate FIRE"
 	cont "technique!"
 
 	para "Don't waste it on"
-	line "water #MON!"
+	line "WATER #MON!"
 	done
 
 _BlaineVolcanoBadgeInfoText::
 	text "Hah!"
 
-	para "The VOLCANOBADGE"
-	line "heightens the"
-	cont "SPECIAL abilities"
-	cont "of your #MON!"
+	para "With the"
+	line "VOLCANOBADGE you"
+	cont "can increase the"
+	cont "SPECIAL of your"
+	cont "#MON, if you"
+	cont "so wish!"
 
 	para "Here, you can"
 	line "have this too!"
@@ -55,12 +57,12 @@ _TM38ExplanationText::
 	para "TM38 contains"
 	line "FIRE BLAST!"
 
-	para "Teach it to fire-"
+	para "Teach it to FIRE-"
 	line "type #MON!"
 
-	para "CHARMELEON or"
-	line "PONYTA would be"
-	cont "good bets!"
+	para "CHARIZARD or"
+	line "MAGMORTAR would"
+	cont "be good bets!"
 	done
 
 _TM38NoRoomText::
@@ -124,7 +126,7 @@ _CinnabarGymAfterBattleText3::
 
 _CinnabarGymBattleText4::
 	text "I just like using"
-	line "fire #MON!"
+	line "FIRE #MON!"
 	done
 
 _CinnabarGymEndBattleText4::
@@ -155,7 +157,7 @@ _CinnabarGymAfterBattleText5::
 
 	para "Its light enabled"
 	line "BLAINE to find"
-	cont "his way down!"
+	cont "their way down!"
 	done
 
 _CinnabarGymBattleText6::
@@ -170,9 +172,16 @@ _CinnabarGymEndBattleText6::
 	prompt
 
 _CinnabarGymAfterBattleText6::
-	text "Us fire #MON"
-	line "fans like PONYTA"
-	cont "and NINETALES!"
+	text "I'm a hardcore fan"
+	line "of FIRE #MON,"
+	cont "but sadly they"
+	cont "don't have much"
+	cont "variety in their"
+	cont "secondary types!"
+
+	para "I wish there was"
+	line "a way to fix"
+	cont "this..."
 	done
 
 _CinnabarGymBattleText7::
@@ -220,10 +229,10 @@ _CinnabarGymGuidePreBattleText::
 	line "making!"
 
 	para "The hot-headed"
-	line "BLAINE is a fire"
+	line "BLAINE is a FIRE"
 	cont "#MON pro!"
 
-	para "Douse his spirits"
+	para "Douse their spirit"
 	line "with water!"
 
 	para "You better take"

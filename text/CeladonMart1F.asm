@@ -8,7 +8,7 @@ _CeladonMart1Text1::
 	cont "the store layout."
 	done
 
-_CeladonMart1Text2::
+_CeladonMart1Text2:: ; edited
 	text "1F: SERVICE"
 	line "    COUNTER"
 
@@ -17,9 +17,9 @@ _CeladonMart1Text2::
 
 	para "3F: TV GAME SHOP"
 
-	para "4F: WISEMAN GIFTS"
+	para "4F: GIFTS"
 
-	para "5F: DRUG STORE"
+	para "5F: VITAMINS"
 
 	para "ROOFTOP SQUARE:"
 	line "VENDING MACHINES"

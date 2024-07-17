@@ -24,11 +24,11 @@ _SafariZoneNorthText6::
 	cont "flush them out."
 	done
 
-_SafariZoneNorthText7::
+_SafariZoneNorthText7:: ; edited
 	text "TRAINER TIPS"
 
-	para "Win a free HM for"
-	line "finding the"
+	para "Win a super prize"
+	line "for finding the"
 	cont "SECRET HOUSE!"
 	done
 
@@ -95,11 +95,11 @@ _GiovanniSafariAfterBattleText::
 
 	para "I... thought I was"
 	line "done for real"
-	cont "this time. I"
-	cont "already saw my-"
-	cont "self spending the"
-	cont "rest of my days"
-	cont "in jail."
+	cont "this time."
+	cont "I already saw"
+	cont "myself spending"
+	cont "the rest of my"
+	cont "days in jail."
 
 	para "Ma... maybe... I"
 	line "could... I could"

@@ -29,7 +29,7 @@ _Mansion4AfterBattleText2::
 	done
 
 _Mansion4Text7::
-	text "Diary; Sept. 1"
+	text "Diary; Sept. 1."
 	line "MEWTWO is far too"
 	cont "powerful."
 

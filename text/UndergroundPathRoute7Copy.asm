@@ -1,10 +1,12 @@
-_UGPathRoute7EntranceUnusedText_5d773::
+; unused
+
+_UGPathRoute7EntranceUnusedText_5d773:: ; edited
 	text "I want to shop at"
-	line "the dept. store"
+	line "the DEPT. STORE"
 	cont "in CELADON but..."
 
 	para "There are so many"
-	line "rough looking"
+	line "rough-looking"
 	cont "people there."
 	done
 

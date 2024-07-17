@@ -1,4 +1,4 @@
-_VermilionMartText2::
+_VermilionMartText2:: ; edited
 	text "There are evil"
 	line "people who will"
 	cont "use #MON for"
@@ -8,11 +8,11 @@ _VermilionMartText2::
 	line "traffics in rare"
 	cont "#MON."
 
-	para "They also abandon"
-	line "#MON that they"
-	cont "consider not to"
-	cont "be popular or"
-	cont "useful."
+	para "They also dispose"
+	line "of #MON that"
+	cont "they consider not"
+	cont "to be profitable"
+	cont "or useful."
 	done
 
 _VermilionMartText3::

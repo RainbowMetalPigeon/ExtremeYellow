@@ -113,8 +113,8 @@ _Route19EndBattleText8::
 	text "Shocker!"
 	prompt
 
-_Route19AfterBattleText8::
-	text "My boy friend"
+_Route19AfterBattleText8:: ; edited
+	text "My partner"
 	line "wanted to swim to"
 	cont "SEAFOAM ISLANDS."
 	done

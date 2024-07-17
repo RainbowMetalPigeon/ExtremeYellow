@@ -9,7 +9,7 @@ _BrockPreBattleText::
 
 	para "That's why my"
 	line "#MON are all"
-	cont "the rock-type!"
+	cont "ROCK type!"
 
 	para "Do you still want"
 	line "to challenge me?"
@@ -33,8 +33,8 @@ _BrockPostBattleAdviceText::
 	para "If you take your"
 	line "#MON training"
 	cont "seriously, go"
-	cont "visit the GYM in"
-	cont "CERULEAN and test"
+	cont "visit the other"
+	cont "GYMs to test"
 	cont "your abilities!"
 	done
 
@@ -62,6 +62,13 @@ _TM34ExplanationText::
 	cont "a new technique,"
 	cont "pick the #MON"
 	cont "carefully!"
+
+	para "Although, no need" ; new
+	line "to be too"
+	cont "conservative, as"
+	cont "you can buy again"
+	cont "TMs you have"
+	cont "already acquired!"
 
 	para "TM34 contains"
 	line "BIDE!"
@@ -196,7 +203,7 @@ _PewterGymGuidePostBattleText::
 	cont "champ material!"
 	done
 
-_PewterGymGuyText::
+_PewterGymGuyText:: ; edited
 	text "All right! Let's"
 	line "get happening!"
 
@@ -204,10 +211,12 @@ _PewterGymGuyText::
 	line "for your PIKACHU"
 	cont "at this GYM!"
 
-	para "Electric attacks"
-	line "are harmless to"
-	cont "BROCK's ground-"
-	cont "type #MON."
+	para "ELECTRIC attacks"
+	line "are useless"
+	cont "against GROUND"
+	cont "types, and NORMAL"
+	cont "attacks are weak"
+	cont "against ROCK!"
 	done
 
 ; new ---------------------
@@ -227,7 +236,7 @@ _BrockRematchPreBattleText::
 	cont "impenetrable"
 	cont "defense of my"
 	cont "ultimate"
-	cont "rock-type team!"
+	cont "ROCK-type team!"
 	done
 
 _BrockRematchDefeatedText::

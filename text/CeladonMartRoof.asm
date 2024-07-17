@@ -1,5 +1,5 @@
 _CeladonMartRoofText_484ee::
-	text "Give her which"
+	text "Give them which"
 	line "drink?"
 	done
 
@@ -95,13 +95,13 @@ _CeladonMartRoofText_4852c::
 	text_end
 
 _CeladonMartRoofText1::
-	text "My sister is a"
+	text "My sibling is a"
 	line "trainer, believe"
 	cont "it or not."
 
-	para "But, she's so"
-	line "immature, she"
-	cont "drives me nuts!"
+	para "But, they're so"
+	line "immature, they"
+	cont "drive me nuts!"
 	done
 
 _CeladonMartRoofText_48598::
@@ -115,7 +115,7 @@ _CeladonMartRoofText4::
 	line "I want something"
 	cont "to drink!"
 
-	para "Give her a drink?"
+	para "Give them a drink?"
 	done
 
 _CeladonMartRoofText6::

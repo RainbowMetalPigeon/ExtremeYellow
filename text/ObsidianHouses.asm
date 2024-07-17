@@ -160,7 +160,7 @@ _ObsidianHousesTextFlowerNotes::
 	line "notes about a big"
 	cont "project!"
 
-	para "Many drawing of"
+	para "Many drawing of a"
 	line "new building in"
 	cont "the north-east"
 	cont "corner of"
@@ -174,7 +174,7 @@ _ObsidianHousesTextFlowerNotes::
 
 	para "Not a word on what"
 	line "the building is"
-	cont "about, tho."
+	cont "about, though."
 	done
 
 _ObsidianHousesTextFishingBoard::

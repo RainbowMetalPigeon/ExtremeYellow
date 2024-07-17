@@ -25,7 +25,7 @@ _VermilionCityTextSSAnneReturnsSoon::
 	text "Have you heard?"
 
 	para "It seems that the"
-	line "SS ANNE is to"
+	line "S.S.ANNE is to"
 	cont "return somewhen"
 	cont "soon!"
 	done
@@ -35,7 +35,7 @@ _VermilionCityTextSSAnneReturnsVerySoon::
 	line "excited!"
 
 	para "They say that the"
-	line "SS ANNE is going"
+	line "S.S.ANNE is going"
 	cont "to return very"
 	cont "soon!"
 	done
@@ -45,7 +45,7 @@ _VermilionCityTextSSAnneReturnsAnyTimeNow::
 	line "for the"
 	cont "excitement!"
 
-	para "The SS ANNE"
+	para "The S.S.ANNE"
 	line "will be back"
 	cont "any time now!"
 	done

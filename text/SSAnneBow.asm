@@ -44,9 +44,10 @@ _SSAnne5EndBattleText2::
 	line "just careless!"
 	prompt
 
-_SSAnne5AfterBattleText2::
-	text "My Pa said there"
-	line "are 100 kinds of"
-	cont "#MON. I think"
-	cont "there are more."
+_SSAnne5AfterBattleText2:: ; edited
+	text "My old one says"
+	line "there are 100"
+	cont "kinds of #MON."
+	cont "I think there"
+	cont "are more!"
 	done

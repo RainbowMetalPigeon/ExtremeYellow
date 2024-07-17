@@ -52,10 +52,11 @@ _MtMoon1EndBattleText3::
 	line "stinks!"
 	prompt
 
-_MtMoon1AfterBattleText3::
+_MtMoon1AfterBattleText3:: ; edited
 	text "I came down here"
-	line "to show off to"
-	cont "girls."
+	line "to catch some"
+	cont "rare lunar"
+	cont "#MON."
 	done
 
 _MtMoon1BattleText4::

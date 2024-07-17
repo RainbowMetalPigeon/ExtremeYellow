@@ -24,7 +24,7 @@ _Museum2FText4::
 	text "I want a PIKACHU!"
 	line "It's so cute!"
 
-	para "I asked my Daddy"
+	para "I asked my old one"
 	line "to catch me one!"
 	done
 
@@ -37,7 +37,7 @@ _Museum2FPikachuText1::
 	text "Your PIKACHU looks"
 	line "untamed."
 	cont "May I have it for"
-	cont "my daughter?"
+	cont "my kid?"
 	done
 
 _Museum2FPikachuText2::
@@ -47,9 +47,9 @@ _Museum2FPikachuText2::
 	cont "attached to you."
 	done
 
-_Museum2FText6::
+_Museum2FText6:: ; edited
 	text "SPACE SHUTTLE"
-	line "COLUMBIA"
+	line "ENTERPRISE"
 	done
 
 _Museum2FText7::
@@ -58,7 +58,7 @@ _Museum2FText7::
 	cont "(MOON STONE?)"
 	done
 
-_Museum2FText8::
+_Museum2FText8_1:: ; new/edited
 	text "I've become an"
 	line "explorer out of"
 	cont "admiration from"
@@ -82,4 +82,43 @@ _Museum2FText8::
 
 	para "I wanna be like"
 	line "them! Yes!"
+	done
+
+_Museum2FText8_2:: ; new
+	text "...my Gramps just"
+	line "called me."
+
+	para "The discovery that"
+	line "made them rich..."
+	cont "They just found"
+	cont "out they actually"
+	cont "STOLE it."
+
+	para "They thought it"
+	line "was abandoned,"
+	cont "but it wasn't."
+
+	para "A young talented"
+	line "trainer retified"
+	cont "their wrong, but"
+	cont "their theft"
+	cont "ruined the life"
+	cont "of a monk for"
+	cont "half a century."
+
+	para "...I need time to"
+	line "think. I've"
+	cont "always admired my"
+	cont "Gramps so much. I"
+	cont "idealized them, I"
+	cont "think."
+
+	para "But still. They"
+	line "meant no harm,"
+	cont "and they"
+	cont "immediately told"
+	cont "me."
+
+	para "...what would you"
+	line "do?"
 	done

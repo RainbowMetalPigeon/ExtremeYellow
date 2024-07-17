@@ -51,7 +51,7 @@ _AgathaBeforeBattleTextRematch::
 	line "back, CHAMPION."
 
 	para "You and SAMUEL's"
-	line "grankid have been"
+	line "grankid have done"
 	cont "amazing things."
 
 	para "You reignited the"

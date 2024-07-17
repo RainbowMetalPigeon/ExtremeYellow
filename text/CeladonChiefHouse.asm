@@ -29,8 +29,8 @@ _LunarShrineMonkText_RelicNotInBag::
 
 	para "Well, I would"
 	line "invite to leave,"
-	cont "if you please. I"
-	cont "don't enjoy"
+	cont "if you please."
+	cont "I don't enjoy"
 	cont "visitors and"
 	cont "strangers."
 
@@ -61,8 +61,8 @@ _LunarShrineMonkText_RelicInBag_FirstTime::
 	para "MONK: ...?! Wait!"
 ;	xxxx "123456789012345678"
 	para "Wha- what is that"
-	line "that you have"
-	cont "with you?"
+	line "thing that you"
+	cont "have with you?"
 
 	para "I can't believe"
 	line "it!!! It's the"
@@ -221,7 +221,7 @@ _LunarShrineTextRockets4::
 	text "ROCKET 2: We will"
 	line "use it to fund"
 	cont "the rebirth of"
-	cont "TEAM ROCKET."
+	cont "TEAM ROCKET!"
 
 	para "Our BOOS may have"
 	line "given up on us,"
@@ -486,17 +486,48 @@ _LunarShrineTextRockets15::
 ; --------------------------- tourists
 
 _LunarShrineTextTourist1::
-	text "Tourist 1"
+	text "I have wanted to"
+	line "visit the LUNAR"
+	cont "TEMPLE for so"
+	cont "long."
+
+	para "It's so great it's"
+	line "finally open to"
+	cont "the public!"
 	done
 
 _LunarShrineTextTourist2::
-	text "Tourist 2"
+	text "This TEMPLE is"
+	line "beautiful."
+
+	para "So relaxing."
+
+	para "But... it somehow"
+	line "feels like it's"
+	cont "the calm after a"
+	cont "storm, if you"
+	cont "know what I"
+	cont "mean...?"
 	done
 
 _LunarShrineTextTourist3::
-	text "Tourist 3"
+	text "The LUNAR TEMPLE"
+	line "has been closed"
+	cont "for so long!"
+
+	para "I wonder when and"
+	line "why it opened to"
+	cont "tourists."
 	done
 
 _LunarShrineTextTourist4::
-	text "Tourist 4"
+	text "I came to admire"
+	line "the LUNAR RELIC,"
+	cont "from a respectful"
+	cont "distance of"
+	cont "course."
+
+	para "It is just so"
+	line "unbelievably"
+	cont "gorgeous..."
 	done

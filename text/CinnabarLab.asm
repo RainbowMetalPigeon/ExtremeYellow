@@ -20,7 +20,7 @@ _Lab1Text3::
 
 _Lab1Text4::
 	text "#MON LAB"
-	line "R-and-D Room"
+	line "R&D Room"
 	done
 
 _Lab1Text5::
@@ -111,7 +111,7 @@ _Lab1Text2_Archeologist_PostReturnRelic_FirstTime::
 
 _Lab1Text2_Archeologist_PostReturnRelic_NotFirstTime::
 	text "My dear! You're"
-	line "bag! Can you"
+	line "back! Can you"
 	cont "grant me the"
 	cont "honor of"
 	cont "accepting my"

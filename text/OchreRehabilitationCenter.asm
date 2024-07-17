@@ -92,7 +92,7 @@ _OchreRehabilitationCenterText6_TM54PreReceiveText::
 
 	para "That's why I"
 	line "invented this TM!"
-	
+
 	para "FLAIL becomes more"
 	line "powerful the less"
 	cont "HP the user has!"

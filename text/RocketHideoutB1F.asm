@@ -60,7 +60,7 @@ _RocketHideout1EndBattleText5::
 _RocketHideout1AfterBattleTxt5::
 	text "OK, I'll talk!"
 	line "Take the elevator"
-	cont "to see my BOSS!"
+	cont "to see the BOSS!"
 	done
 
 _RocketHideout1BattleText6::

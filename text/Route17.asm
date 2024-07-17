@@ -84,9 +84,9 @@ _Route17EndBattleText6::
 	line "you!"
 	prompt
 
-_Route17AfterBattleText6::
+_Route17AfterBattleText6:: ; edited
 	text "Maybe some #MON"
-	line "need element"
+	line "need elemental"
 	cont "STONEs to evolve."
 	done
 
@@ -142,9 +142,9 @@ _Route17EndBattleText10::
 	line "satisfied?"
 	prompt
 
-_Route17AfterBattleText10::
-	text "I need to catch"
-	line "a few Zs!"
+_Route17AfterBattleText10:: ; edited
+	text "I need to recover"
+	line "some sleep!"
 	done
 
 _Route17Text11::

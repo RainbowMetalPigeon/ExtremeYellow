@@ -34,7 +34,7 @@ _BillsHouseText_1e86a::
 
 _BillsHouseText_1e86f::
 	text "No!? Come on, you"
-	line "gotta help a guy"
+	line "must help someone"
 	cont "in deep trouble!"
 
 	para "What do you say,"
@@ -118,7 +118,7 @@ _BillsHouseText3_YouHaveThatMap::
 	cont "you to stop you,"
 	cont "but... what can I"
 	cont "do against the"
-	cont "CHAMPION?"
+	cont "CHAMPION?!"
 
 	para "...if you insist,"
 	line "I'll open the"

@@ -72,5 +72,20 @@ Museum2FText7:
 	text_end
 
 Museum2FText8:
-	text_far _Museum2FText8
+	text_asm
+	ld hl, Museum2FText8_2
+	CheckEvent EVENT_LAST_DIALOGUE_CINNABAR_ARCHEOLOGIST
+	jr nz, .printAndEnd
+; yet to fully talk with the archeologist
+	ld hl, Museum2FText8_1
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Museum2FText8_1:
+	text_far _Museum2FText8_1
+	text_end
+
+Museum2FText8_2:
+	text_far _Museum2FText8_2
 	text_end

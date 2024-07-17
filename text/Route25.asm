@@ -16,10 +16,10 @@ _Route25AfterBattleText1::
 	cont "different kinds."
 	done
 
-_Route25BattleText2::
-	text "Dad took me to a"
-	line "great party on"
-	cont "S.S.ANNE at"
+_Route25BattleText2:: ; edited
+	text "My parent took me"
+	line "to a great party"
+	cont "on S.S.ANNE at"
 	cont "VERMILION CITY!"
 	done
 

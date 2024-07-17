@@ -8,7 +8,7 @@ _MistyPreBattleText::
 
 	para "My policy is an"
 	line "all-out offensive"
-	cont "with water-type"
+	cont "with WATER-type"
 	cont "#MON!"
 
 	para "MISTY, the world-"
@@ -29,15 +29,9 @@ _TM11ExplanationText::
 
 _MistyCascadeBadgeInfoText::
 	text "The CASCADEBADGE"
-	line "makes all #MON"
-	cont "up to L30 obey!"
-
-	para "That includes"
-	line "even outsiders!"
-
-	para "There's more, you"
-	line "can now use CUT"
-	cont "anytime!"
+	line "allows you to use"
+	cont "CUT outside of"
+	cont "battle!"
 
 	para "You can CUT down"
 	line "small bushes to"
@@ -103,7 +97,7 @@ _CeruleanGymAfterBattleText2::
 	text "MISTY is going to"
 	line "keep improving!"
 
-	para "She won't lose to"
+	para "They won't lose to"
 	line "someone like you!"
 	done
 
@@ -144,7 +138,7 @@ _CeruleanGymGuidePreBattleText::
 
 	para "The LEADER, MISTY,"
 	line "is a pro who uses"
-	cont "water #MON!"
+	cont "WATER #MON!"
 
 	para "You can drain all"
 	line "their water with"

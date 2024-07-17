@@ -24,8 +24,9 @@ _PokemonTower1Text4::
 	line "Why did you die?"
 	done
 
-_PokemonTower1Text5::
+_PokemonTower1Text5:: ; edited
 	text "I am a CHANNELER!"
-	line "There are spirits"
-	cont "up to mischief!"
+	line "There are"
+	cont "restless spirits"
+	cont "wandering around."
 	done

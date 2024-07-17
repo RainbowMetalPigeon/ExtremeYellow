@@ -24,7 +24,6 @@ _VermilionHouse2Text_560b6::
 
 _VermilionHouse2Text_560bb::
 	text_start
-
 	para "Fishing is a way"
 	line "of life!"
 

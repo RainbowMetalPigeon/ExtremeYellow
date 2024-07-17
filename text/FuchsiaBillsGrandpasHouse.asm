@@ -3,25 +3,26 @@ _FuchsiaHouse1Text1::
 	line "WARDEN is old,"
 	cont "but still active!"
 
-	para "All his teeth are"
-	line "false, though."
+	para "Though, all their"
+	line "teeth are false."
 	done
 
 _FuchsiaHouse1Text2::
 	text "Hmm? You've met"
 	line "BILL?"
 
-	para "He's my grandson!"
+	para "They're my grankid!"
 
-	para "He always liked"
+	para "They always liked"
 	line "collecting things"
 	cont "even as a child!"
 	done
 
 _FuchsiaHouse1Text3::
-	text "BILL files his"
+	text "BILL files their"
 	line "own #MON data"
-	cont "on his PC!"
+	cont "on their PC!"
 
-	para "Did he show you?"
+	para "I guess they did"
+	line "show you, right?"
 	done

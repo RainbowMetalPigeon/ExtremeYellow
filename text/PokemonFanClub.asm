@@ -15,9 +15,9 @@ PikachuFanPrintText::
 	line "hobby is taking"
 	cont "#MON photos."
 
-	para "He gave me a nice"
-	line "PRINT of my cute"
-	cont "CLEFAIRY."
+	para "They gave me a"
+	line "nice PRINT of my"
+	cont "cute PONYTA!"
 	done
 
 SeelFanText::
@@ -173,7 +173,7 @@ FanClubChairPrintText4::
 	done
 
 _FanClubText6::
-	text "Our CHAIRMAN is"
+	text "Our CHAIRPERSON is"
 	line "very vocal about"
 	cont "#MON."
 	done

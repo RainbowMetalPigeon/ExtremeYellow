@@ -99,10 +99,10 @@ _SilphCo5EndBattleText3::
 	line "Blast it!"
 	prompt
 
-_SilphCo5AfterBattleText3::
+_SilphCo5AfterBattleText3:: ; edited
 	text "We worked on the"
 	line "ultimate #"
-	cont "BALL which would"
+	cont "BALL which will"
 	cont "catch anything!"
 	done
 
@@ -117,10 +117,10 @@ _SilphCo5EndBattleText4::
 	line "goddess!"
 	prompt
 
-_SilphCo5AfterBattleText4::
+_SilphCo5AfterBattleText4:: ; edited
 	text "You're only on 5F."
 	line "It's a long way"
-	cont "to my BOSS!"
+	cont "to our BOSS!"
 	done
 
 _SilphCo5BattleText5::

@@ -1,11 +1,11 @@
 _CeruleanMartText2::
 	text "Use REPEL to keep"
-	line "bugs and weak"
-	cont "#MON away."
+	line "weak #MON"
+	cont "away."
 
 	para "Put your strongest"
 	line "#MON at the"
-	cont "top of the list"
+	cont "top of the party"
 	cont "for best results!"
 	done
 

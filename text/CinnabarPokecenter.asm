@@ -4,8 +4,13 @@ _CinnabarPokecenterText2::
 
 	para "When a #MON is"
 	line "evolving, you can"
-	cont "stop it and leave"
-	cont "it the way it is."
+	cont "stop it."
+
+	para "This way it will"
+	line "learn moves"
+	cont "earlier, and you"
+	cont "can still let it"
+	cont "evolve later!"
 	done
 
 _CinnabarPokecenterText3::

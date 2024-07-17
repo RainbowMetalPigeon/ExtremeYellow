@@ -182,8 +182,22 @@ Route15EndBattleText7:
 	text_far _Route15EndBattleText7
 	text_end
 
-Route15AfterBattleText7:
-	text_far _Route15AfterBattleText7
+Route15AfterBattleText7: ; edited
+	text_asm
+	ld hl, Route15AfterBattleText7_2
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	jr nz, .printAndEnd
+	ld hl, Route15AfterBattleText7_1
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Route15AfterBattleText7_1: ; new
+	text_far _Route15AfterBattleText7_1
+	text_end
+
+Route15AfterBattleText7_2: ; new
+	text_far _Route15AfterBattleText7_2
 	text_end
 
 Route15BattleText8:

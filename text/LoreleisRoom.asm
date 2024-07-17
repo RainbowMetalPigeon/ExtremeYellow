@@ -7,7 +7,7 @@ _LoreleiBeforeBattleText::
 
 	para "No one can best"
 	line "me when it comes"
-	cont "to icy #MON!"
+	cont "to ICE #MON!"
 
 	para "Freezing moves"
 	line "are powerful!"

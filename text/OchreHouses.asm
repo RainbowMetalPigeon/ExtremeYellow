@@ -75,7 +75,7 @@ _OchreHousesTextReactivater_Done::
 	cont "many times as you"
 	cont "wish!"
 
-	para "Mind, tho, that"
+	para "Mind, though, that"
 	line "there are a"
 	cont "handful of elite"
 	cont "trainers which"
@@ -143,7 +143,7 @@ _OchreHousesTextMagikarpTutor_OhYeah::
 	done
 
 _OchreHousesTextMagikarpTutor_AlreadyKnows::
-	text "But this pokeMON"
+	text "But this #MON"
 	line "already knows"
 	cont "ANCESTOR POWER!!!"
 

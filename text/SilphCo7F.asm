@@ -1,8 +1,8 @@
-_MeetPorygonGuyText::
+_MeetPorygonGuyText:: ; edited
 	text "Oh! Hi! You're"
 	line "not a ROCKET! You"
 	cont "came to save us?"
-	cont "Why, thank you!"
+	cont "Oh, thank you!"
 
 	para "I want you to"
 	line "have this #MON"
@@ -147,19 +147,19 @@ _SilphCo7AfterBattleText2::
 	cont "trainer!"
 	done
 
-_SilphCo7BattleText3::
+_SilphCo7BattleText3:: ; edited
 	text "I am one of the 4"
-	line "ROCKET BROTHERS!"
+	line "ROCKET SIBLINGS!"
 	done
 
-_SilphCo7EndBattleText3::
+_SilphCo7EndBattleText3:: ; edited
 	text "Aack!"
-	line "Brothers, I lost!"
+	line "Siblings, I lost!"
 	prompt
 
-_SilphCo7AfterBattleText3::
+_SilphCo7AfterBattleText3:: ; edited
 	text "Doesn't matter."
-	line "My brothers will"
+	line "My siblings will"
 	cont "repay the favor!"
 	done
 
@@ -275,5 +275,5 @@ _SilphCo7Text_51ed2::
 	para "I will never"
 	line "forgive you for"
 	cont "what you did on"
-	cont "the SS ANNE!"
+	cont "the S.S.ANNE!"
 	done

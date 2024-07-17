@@ -49,12 +49,8 @@ _ErikaPostBattleAdviceText::
 
 _ErikaRainbowBadgeInfoText::
 	text "The RAINBOWBADGE"
-	line "will make #MON"
-	cont "up to L50 obey."
-
-	para "It also allows"
-	line "#MON to use"
-	cont "STRENGTH in and"
+	para "allows #MON to"
+	line "use STRENGTH"
 	cont "out of battle."
 
 	para "Please also take"
@@ -114,13 +110,13 @@ _CeladonGymEndBattleText3::
 	prompt
 
 _CeladonGymAfterBattleText3::
-	text "Grass-type #MON"
+	text "GRASS-type #MON"
 	line "are tough against"
-	cont "the water-type!"
+	cont "the WATER-type!"
 
 	para "They also have an"
-	line "edge on rock and"
-	cont "ground #MON!"
+	line "edge on ROCK and"
+	cont "GROUND #MON!"
 	done
 
 _CeladonGymBattleText4:: ; edited
@@ -142,7 +138,7 @@ _CeladonGymAfterBattleText4:: ; edited
 	done
 
 _CeladonGymBattleText5::
-	text "Look at my grass"
+	text "Look at my GRASS"
 	line "#MON!"
 
 	para "They're so easy"
@@ -154,7 +150,7 @@ _CeladonGymEndBattleText5::
 	prompt
 
 _CeladonGymAfterBattleText5::
-	text "We only use grass-"
+	text "We only use GRASS-"
 	line "type #MON at"
 	cont "our GYM!"
 
@@ -165,7 +161,7 @@ _CeladonGymAfterBattleText5::
 
 _CeladonGymBattleText6::
 	text "Don't bring any"
-	line "bugs or fire"
+	line "BUG or FIRE"
 	cont "#MON in here!"
 	done
 

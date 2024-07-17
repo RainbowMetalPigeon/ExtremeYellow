@@ -16,7 +16,7 @@ _Route15AfterBattleText1::
 	cont "get in a trade."
 
 	para "Only the Original"
-	line "Trainer can."
+	line "Trainer can!"
 	done
 
 _Route15BattleText2::
@@ -36,9 +36,9 @@ _Route15AfterBattleText2::
 	cont "so ugly and mean!"
 	done
 
-_Route15BattleText3::
+_Route15BattleText3:: ; edited
 	text "When I whistle, I"
-	line "can summon bird"
+	line "can summon BIRD"
 	cont "#MON!"
 	done
 
@@ -52,8 +52,8 @@ _Route15AfterBattleText3::
 	line "out for battles."
 	done
 
-_Route15BattleText4::
-	text "Hmm? My birds are"
+_Route15BattleText4:: ; edited
+	text "Hmm? My BIRDs are"
 	line "shivering! You're"
 	cont "good, aren't you?"
 	done
@@ -63,11 +63,11 @@ _Route15EndBattleText4::
 	line "as I thought!"
 	prompt
 
-_Route15AfterBattleText4::
+_Route15AfterBattleText4:: ; edited
 	text "Did you know moves"
 	line "like EARTHQUAKE"
 	cont "don't have any"
-	cont "effect on birds?"
+	cont "effect on BIRDs?"
 	done
 
 _Route15BattleText5::
@@ -112,11 +112,23 @@ _Route15EndBattleText7::
 	line "not?"
 	prompt
 
-_Route15AfterBattleText7::
+_Route15AfterBattleText7_1:: ; edited
 	text "You only live"
 	line "once, so I live"
 	cont "as an outlaw!"
 	cont "TEAM ROCKET RULES!"
+	done
+
+_Route15AfterBattleText7_2:: ; new
+	text "TEAM ROCKET has"
+	line "disbanded?!"
+
+	para "How did it"
+	line "happen?!"
+
+	para "...maybe I need to"
+	line "find another way"
+	cont "of living..."
 	done
 
 _Route15BattleText8::

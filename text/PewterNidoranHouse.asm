@@ -2,24 +2,19 @@ _PewterHouse1Text1::
 	text "NIDORAN: Bowbow!@"
 	text_end
 
-_PewterHouse1Text2::
-	text "NIDORAN sit!"
+_PewterHouse1Text2:: ; edited
+	text "NIDORAN, use"
+	line "HORN DRILL!"
 	done
 
-_PewterHouse1Text3::
-	text "Our #MON's an"
-	line "outsider, so it's"
-	cont "hard to handle."
+_PewterHouse1Text3:: ; edited
+	text "Out #MON is an"
+	line "outsider, which"
+	cont "is a #MON you"
+	cont "got from a trade."
 
-	para "An outsider is a"
-	line "#MON that you"
-	cont "get in a trade."
-
-	para "It grows fast, but"
-	line "it may ignore an"
-	cont "unskilled trainer"
-	cont "in battle!"
-
-	para "If only we had"
-	line "some BADGEs..."
+	para "It grows faster"
+	line "than a #MON"
+	cont "you caught"
+	cont "yourself!"
 	done

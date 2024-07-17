@@ -9,15 +9,20 @@ _Route14EndBattleText1::
 	line "good enough!"
 	prompt
 
-_Route14AfterBattleText1::
+_Route14AfterBattleText1:: ; edited
 	text "You have some HMs,"
 	line "right? #MON"
-	cont "can't ever forget"
-	cont "those moves."
+	cont "can't forget those"
+	cont "moves by"
+	cont "themselves."
+
+	para "But I heard that"
+	line "someone in OCHRE"
+	cont "CITY can help!"
 	done
 
 _Route14BattleText2::
-	text "My bird #MON"
+	text "My BIRD #MON"
 	line "should be ready"
 	cont "for battle."
 	done
@@ -53,7 +58,7 @@ _Route14AfterBattleText3::
 
 _Route14BattleText4::
 	text "Have you taught"
-	line "your bird #MON"
+	line "your BIRD #MON"
 	cont "how to FLY?"
 	done
 
@@ -63,7 +68,7 @@ _Route14EndBattleText4::
 	prompt
 
 _Route14AfterBattleText4::
-	text "Bird #MON are"
+	text "BIRD #MON are"
 	line "my true love!"
 	done
 
@@ -81,7 +86,7 @@ _Route14EndBattleText5::
 _Route14AfterBattleText5::
 	text "The 3 legendary"
 	line "#MON are all"
-	cont "birds of prey."
+	cont "BIRDs of prey."
 	done
 
 _Route14BattleText6::
@@ -170,7 +175,7 @@ _Route14Text11::
 	text "ROUTE 14"
 	line "West to FUCHSIA"
 	cont "CITY"
-	
+
 	para "North to OCHRE"
 	line "CITY"
 	done

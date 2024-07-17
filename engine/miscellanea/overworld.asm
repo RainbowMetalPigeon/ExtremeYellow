@@ -142,9 +142,9 @@ HauntedPalletTownHandlePalettes::
 	ret z
 ; if we haven't ran out of palettes
 	ld a, [wStepCounter]
-	and $3 ; is the counter a multiple of 4?
+	and $7 ; is the counter a multiple of 8?
 	ret nz
-; if the counter is indeed a multiple of 4
+; if the counter is indeed a multiple of 8
 	ld a, [wHauntedPalletTownPaletteCounter]
 	inc a
 	ld [wHauntedPalletTownPaletteCounter], a ; increase the counter, initially 0

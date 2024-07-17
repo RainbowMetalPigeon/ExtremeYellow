@@ -42,7 +42,7 @@ _BrunoBeforeBattleTextRematch::
 	text "Nice to see you"
 	line "again, CHAMPION."
 
-	para "I now you have"
+	para "I know you have"
 	line "been testing your"
 	cont "strength from"
 	cont "scratch."

@@ -100,7 +100,6 @@ _SafariZoneEntranceText_753f0::
 
 _SafariZoneLowCostText1::
 	text_start
-
 	para "Oh, all right, pay"
 	line "me what you have."
 	prompt
@@ -112,7 +111,6 @@ _SafariZoneLowCostText2::
 
 _SafariZoneLowCostText3::
 	text_start
-
 	para "You're persistent,"
 	line "aren't you?"
 

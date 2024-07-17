@@ -38,12 +38,13 @@ _ReceivedHM01Text::
 	text "!@"
 	text_end
 
-_SSAnne7Text_61932::
+_SSAnne7Text_61932:: ; edited
 	text "CAPTAIN: Whew!"
 
-	para "Now that I'm not"
-	line "sick anymore, I"
-	cont "guess it's time."
+	para "Now that I feel a"
+	line "bit better, I"
+	cont "guess it's time"
+	cont "to depart!"
 	done
 
 _HM01NoRoomText::

@@ -11,8 +11,8 @@ _PokemonTower2Text_6062d::
 	para "First you try to"
 	line "steal my Gramps"
 	cont "from me, then"
-	cont "you... steal my"
-	cont "RATICATE..."
+	cont "you... steal..."
+	cont "my RATICATE..."
 
 	para "Don't worry."
 	line "I won't let"
@@ -76,12 +76,14 @@ _PokemonTower2Text_6063c::
 	cont "more from me!"
 	done
 
-_PokemonTower2Text2::
+_PokemonTower2Text2:: ; edited
 	text "Even we could not"
 	line "identify the"
 	cont "wayward GHOSTs!"
 
 	para "A SILPH SCOPE"
-	line "might be able to"
+	line "might be the only"
+	cont "thing able to"
 	cont "unmask them."
+;	xxxx "123456789012345678"
 	done

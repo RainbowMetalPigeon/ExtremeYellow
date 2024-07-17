@@ -1,11 +1,11 @@
 _Route13BattleText2::
-	text "My bird #MON"
+	text "My BIRD #MON"
 	line "want to scrap!"
 	done
 
 _Route13EndBattleText2::
 	text "My"
-	line "bird combo lost?"
+	line "BIRD combo lost?"
 	prompt
 
 _Route13AfterBattleText2::
@@ -143,7 +143,7 @@ _Route13AfterBattleText10::
 
 _Route13BattleText11::
 	text "I always go with"
-	line "bird #MON!"
+	line "BIRD #MON!"
 	done
 
 _Route13EndBattleText11::
@@ -164,18 +164,18 @@ _Route13Text11::
 	line "CITY only"
 	done
 
-_Route13Text12::
+_Route13Text12:: ; edited
 	text "TRAINER TIPS"
 
 	para "Use SELECT to"
 	line "switch items in"
-	cont "the ITEM window!"
+	cont "the ITEM menu!"
 	done
 
 _Route13Text13::
 	text "ROUTE 13"
 	line "North to SILENCE"
 	cont "BRIDGE"
-	
+
 	para "West to OCHRE CITY"
 	done

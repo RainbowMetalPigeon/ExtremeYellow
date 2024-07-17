@@ -104,11 +104,11 @@ _SSAnne10AfterBattleText6::
 	cont "assistant too!"
 	done
 
-_SSAnne10Text7::
+_SSAnne10Text7:: ; edited
 	text "My buddy, MACHOKE,"
 	line "is super strong!"
 
-	para "He has enough"
+	para "It has enough"
 	line "STRENGTH to move"
 	cont "big rocks!"
 	done

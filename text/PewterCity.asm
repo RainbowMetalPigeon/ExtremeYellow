@@ -8,7 +8,7 @@ _PewterCityText1::
 	cont "fell on MT.MOON."
 	done
 
-_PewterCityText2::
+_PewterCityText2:: ; edited
 	text "There aren't many"
 	line "serious #MON"
 	cont "trainers here!"
@@ -16,8 +16,9 @@ _PewterCityText2::
 	para "They're all like"
 	line "BUG CATCHERs,"
 	cont "but PEWTER GYM's"
-	cont "BROCK is totally"
-	cont "into it!"
+	cont "BROCK is on a"
+	cont "whole other"
+	cont "level!"
 	done
 
 _PewterCityText_193f1::
@@ -147,7 +148,7 @@ _PewterCityText11::
 	line "#MON GYM"
 	cont "LEADER: BROCK"
 
-	para "The Rock Solid"
+	para "The Rock-Solid"
 	line "#MON Trainer!"
 	done
 

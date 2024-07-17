@@ -60,8 +60,8 @@ _OaksLabText_1d2f5::
 	cont "fight against it!"
 
 	para "With it at your"
-	line "side, you can ex-"
-	cont "plore the whole"
+	line "side, you can"
+	cont "explore the whole"
 	cont "vast region of"
 	cont "KANTO!"
 	done
@@ -77,13 +77,6 @@ _OaksLabDeliverParcelText1::
 
 	para "How is you"
 	line "PIKACHU doing?"
-
-;	para "Well, it seems to"
-;	line "like you a lot!"
-
-;	para "You must be"
-;	line "talented as a"
-;	cont "#MON trainer!"
 
 	para "What? You have"
 	line "something for me?"
@@ -273,7 +266,7 @@ _OaksLabRivalTakesText1::
 	cont "Gramps' grandkid,"
 	cont "and yet I should"
 	cont "get my #MON"
-	cont "after you?!"
+	cont "AFTER you?!"
 
 	para "Over my dead body!"
 	prompt

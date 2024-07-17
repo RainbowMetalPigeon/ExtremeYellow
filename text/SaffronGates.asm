@@ -7,8 +7,8 @@ _SaffronGateText_1dfe7::
 	line "the road's closed."
 	done
 
-_SaffronGateText_8aaa9::
-	text "Whoa, boy!"
+_SaffronGateText_8aaa9:: ; edited
+	text "Whoa, if!"
 	line "I'm parched!"
 	cont "..."
 	cont "Huh? I can have"

@@ -1,10 +1,10 @@
 _CeruleanPokecenterText2::
 	text "That BILL!"
 
-	para "I heard that"
-	line "he'll do whatever"
-	cont "it takes to get"
-	cont "rare #MON!"
+	para "I heard they will"
+	line "do whatever it"
+	cont "takes to get rare"
+	cont "#MON!"
 	done
 
 _CeruleanPokecenterText3::
@@ -12,7 +12,7 @@ _CeruleanPokecenterText3::
 	line "about BILL?"
 
 	para "Everyone calls"
-	line "him a #MANIAC!"
+	line "'em a #MANIAC!"
 
 	para "I think people"
 	line "are just jealous"

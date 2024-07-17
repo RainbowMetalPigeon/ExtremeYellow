@@ -110,7 +110,7 @@ _ObsidianWarehouseStatueText_Click1Post2::
     cont "compartment of"
     cont "the statue!"
     done
-    
+
 _ObsidianWarehouseStatueText_Click1Not::
     text "Better not to..."
     done
@@ -119,4 +119,4 @@ _ObsidianWarehouseStatueText_Click2::
     text "The button seems"
     line "to not be working"
     cont "anymore..."
-    done
+    done    

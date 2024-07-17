@@ -63,7 +63,6 @@ _LavenderHouse1Text_MegaStone:: ; new
 	line "...that you may"
 	cont "be the right one"
 	cont "to receive this."
-
 	prompt
 
 _ReceivedFluteText::
@@ -75,7 +74,6 @@ _ReceivedFluteText::
 
 _FluteExplanationText::
 	text_start
-
 	para "Upon hearing #"
 	line "FLUTE, sleeping"
 	cont "#MON will"
@@ -87,12 +85,10 @@ _FluteExplanationText::
 
 _MegaStoneXExplanationText::
 	text_start
-
 	para "It will be up to"
 	line "you to discover"
 	cont "how to use it at"
 	cont "its absolute best."
-
 	done
 
 _FluteOrStoneNoRoomText::
@@ -112,7 +108,7 @@ _MrFujiAfterFluteAndStoneText::
 
 _LavenderHouse1Text6:: ; edited
 	text "That's number 25"
-	line "of the GAMR FREAK"
+	line "of the GAME FREAK"
 	cont "magazine!"
 
 	para "There's a kid"

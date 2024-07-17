@@ -16,7 +16,7 @@ _Route18AfterBattleText1::
 _Route18BattleText2::
 	text "Kurukkoo!"
 	line "How do you like"
-	cont "my bird call?"
+	cont "my BIRD call?"
 	done
 
 _Route18EndBattleText2::
@@ -39,10 +39,10 @@ _Route18EndBattleText3::
 	text "Darn!"
 	prompt
 
-_Route18AfterBattleText3::
-	text "This is my fave"
-	line "#MON hunting"
-	cont "area!"
+_Route18AfterBattleText3:: ; edited
+	text "This is my"
+	line "favourite #MON"
+	cont "hunting area!"
 	done
 
 _Route18Text4::

@@ -61,7 +61,20 @@ _LanceAfterBattleText::
 
 	para "They are the real"
 	line "#MON LEAGUE"
-	cont "champion!@"
+	cont "champion!"
+
+	para "And... let me tell"
+	line "you this."
+
+	para "They are"
+	line "absolutely"
+	cont "frightening."
+
+	para "I never saw a"
+	line "trainer battling"
+	cont "with such"
+	cont "overwhelming"
+	cont "fury.@"
 	text_end
 
 ; new -------------------------------

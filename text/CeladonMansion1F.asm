@@ -32,35 +32,35 @@ _CeladonMansion1Text6::
 	cont "with you.@"
 	text_end
 
-_CeladonMansion1Text7::
+_CeladonMansion1Text7:: ; 51
 	text "It seems like it"
 	line "hasn't been tamed"
 	cont "at all."
 	done
 
-_CeladonMansion1Text8::
+_CeladonMansion1Text8:: ; 101
 	text "Why don't you"
 	line "take more care"
 	cont "with PIKACHU?"
 	done
 
-_CeladonMansion1Text9::
+_CeladonMansion1Text9:: ; 131
 	text "You must be happy"
 	line "to have a #MON"
 	cont "that cute."
 	done
 
-_CeladonMansion1Text10::
+_CeladonMansion1Text10:: ; 161
 	text "Your PIKACHU seems"
 	line "tamed."
 	done
 
-_CeladonMansion1Text11::
+_CeladonMansion1Text11:: ; 201
 	text "Your PIKACHU looks"
 	line "happy with you."
 	done
 
-_CeladonMansion1Text12::
+_CeladonMansion1Text12:: ; 255
 	text "You look like a"
 	line "fantastic duo."
 

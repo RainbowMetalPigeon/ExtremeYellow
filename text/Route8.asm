@@ -24,9 +24,10 @@ _Route8EndBattleText2::
 	line "Came up short!"
 	prompt
 
-_Route8AfterBattleText2::
-	text "Lady Luck's not"
-	line "with me today!"
+_Route8AfterBattleText2:: ; edited
+	text "The Seven Lucky"
+	line "Gods are not with"
+	cont "me today!"
 	done
 
 _Route8BattleText3::
@@ -41,8 +42,8 @@ _Route8EndBattleText3::
 
 _Route8AfterBattleText3::
 	text "Go with GRIMER"
-	line "first...and..."
-	cont "...and...then..."
+	line "first... and..."
+	cont "...and... then..."
 	done
 
 _Route8BattleText4::
@@ -103,16 +104,16 @@ _Route8EndBattleText7::
 	line "you did!"
 	prompt
 
-_Route8AfterBattleText7::
+_Route8AfterBattleText7:: ; edited
 	text "SAFFRON's gate-"
 	line "keeper won't let"
 	cont "us through."
-	cont "He's so mean!"
+	cont "They're so mean!"
 	done
 
-_Route8BattleText8::
+_Route8BattleText8:: ; edited
 	text "I'm a rambling,"
-	line "gambling dude!"
+	line "gambling person!"
 	done
 
 _Route8EndBattleText8::

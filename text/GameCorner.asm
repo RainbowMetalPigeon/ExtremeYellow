@@ -113,21 +113,10 @@ _CeladonGameCornerText6::
 	line "wonderful time!"
 	done
 
-_CeladonGameCornerText_48dca::
-	text "Hey!"
-
-	para "You have better"
-	line "things to do,"
-	cont "champ in making!"
-
-	para "CELADON GYM's"
-	line "LEADER is ERIKA!"
-	cont "She uses grass-"
-	cont "type #MON!"
-
-	para "She might appear"
-	line "docile, but don't"
-	cont "be fooled!"
+_CeladonGameCornerText_48dca:: ; edited
+	text "Uh? No, I'm not a"
+	line "GYM GUIDE."
+	cont "Why do you ask?"
 	done
 
 _CeladonGameCornerText_48dcf::

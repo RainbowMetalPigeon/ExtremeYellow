@@ -302,8 +302,8 @@ MonsterNamesPigeon::
 	db "DUGTRIO@@@"
 	db "MEOWTH@@@@"
 	db "PERSIAN@@@"
-	db "GOLDUCK@@@" ; edited
-	db "PSYDUCK@@@" ; edited
+	db "PSYDUCK@@@"
+	db "GOLDUCK@@@"
 	db "MANKEY@@@@"
 	db "PRIMEAPE@@"
 	db "ANNIHILAPE"
@@ -333,7 +333,7 @@ MonsterNamesPigeon::
 	db "SLOWPOKE@@"
 	db "SLOWSIB@@@" ; edited
 	db "<MEGA>SLOWSIB@@" ; edited
-	db "SLOWLER@@@" ; edited
+	db "SLOWNARCH@" ; edited
 	db "MAGNEMITE@"
 	db "MAGNETON@@"
 	db "MAGNEZONE@"

@@ -4,9 +4,10 @@ _Route2GateText_5d616::
 	cont "darkest dungeons."
 	done
 
-_Route2GateText2::
+_Route2GateText2:: ; edited
 	text "Once a #MON"
 	line "learns FLASH, you"
 	cont "can get through"
-	cont "ROCK TUNNEL."
+	cont "ROCK TUNNEL much"
+	cont "more easily."
 	done

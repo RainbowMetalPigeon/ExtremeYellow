@@ -84,12 +84,15 @@ _ReceivedTM28Text2::
 	line "moving! Bye!@"
 	text_end
 
-_TM28NoRoomText::
+_TM28NoRoomText:: ; edited
 	text "Make room for"
 	line "this!"
 
 	para "I can't run until"
 	line "I give it to you!"
+
+	para "...what do you"
+	line "mean 'why?'?"
 	done
 
 _CeruleanCityText_196ee::
@@ -187,13 +190,16 @@ _CeruleanCityText_1977e::
 	line "ignored orders..."
 	done
 
-_CeruleanCityText9::
+_CeruleanCityText9:: ; edited
 	text "I want a bright"
 	line "red BICYCLE!"
 
 	para "I'll keep it at"
 	line "home, so it won't"
 	cont "get dirty!"
+
+	para "Uh? Why that"
+	line "raised eyebrow?!"
 	done
 
 _CeruleanCityText10::
@@ -203,7 +209,7 @@ _CeruleanCityText10::
 	cont "live in there!"
 
 	para "The #MON LEAGUE"
-	line "champions are the"
+	line "CHAMPIONs are the"
 	cont "only people who"
 	cont "are allowed in!"
 	done

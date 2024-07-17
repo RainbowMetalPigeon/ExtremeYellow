@@ -67,7 +67,7 @@ _RedsHouse1FMomRunningShoes:: ; new
 	cont "that you can run"
 	cont "at any time by"
 	cont "holding the B"
-	cont "button."
+	cont "Button."
 	done
 
 _RedsHouse1FDadText:: ; new
