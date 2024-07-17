@@ -93,6 +93,9 @@ HauntedRedsHouse_TextPointers:
 	dw HauntedRedsHouseBookshelvesText
 	dw HauntedRedsHouseBookshelvesText
 	dw HauntedRedsHousePictureText
+	dw HauntedRedsHousePersonalizationText
+	dw HauntedRedsHouseRandomizationText
+	dw HauntedRedsHouseLuckText
 
 ; ------------------------
 
@@ -198,3 +201,16 @@ HauntedRedsHousePictureText1:
 HauntedRedsHousePictureText2:
 	text_far _HauntedRedsHousePictureText2
 	text_end
+
+HauntedRedsHousePersonalizationText:
+	text_far _HauntedRedsHousePersonalizationText
+	text_end
+	
+HauntedRedsHouseRandomizationText:
+	text_far _HauntedRedsHouseRandomizationText
+	text_end
+	
+HauntedRedsHouseLuckText:
+	text_far _HauntedRedsHouseLuckText
+	text_end
+	

@@ -363,6 +363,10 @@ DEF SHOW EQU $15
 	const HS_ROUTE_28_ROCKET_2             ; new
 	const HS_ROUTE_28_ROCKET_3             ; new
 	const HS_ROUTE_28_ROCKET_4             ; new
+	const HS_ROUTE_28_CITIZEN_1            ; new
+	const HS_ROUTE_28_CITIZEN_2            ; new
+	const HS_ROUTE_28_CITIZEN_3            ; new
+	const HS_ROUTE_28_CITIZEN_4            ; new
 	const HS_ONIX_BURROWING_ITEM           ; new
 	const HS_ONIX_BURROWING_SNORLAX_DEN    ; new
 	const HS_FUCHSIA_CITY_ERIK_WAITING     ; new
@@ -440,3 +444,9 @@ DEF SHOW EQU $15
 	const HS_REDS_HOUSE_1F_DAD             ; new
 	const HS_ROUTE_2_ITEM_1                ; moved here from the first block
 	const HS_ROUTE_2_ITEM_2                ; moved here from the first block
+	const HS_ROUTE_27_CITIZEN_1            ; new
+	const HS_ROUTE_27_CITIZEN_2            ; new
+	const HS_ROUTE_27_CITIZEN_3            ; new
+	const HS_ROUTE_27_CITIZEN_4            ; new
+	const HS_ROUTE_27_CITIZEN_5            ; new
+	const HS_ROUTE_27_CITIZEN_6            ; new

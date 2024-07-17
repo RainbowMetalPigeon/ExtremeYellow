@@ -42,7 +42,7 @@ MapHSPointers:
 	dw Route24HS
 	dw Route25HS
 	dw NoHS ; new, Route26
-	dw NoHS ; new, Route27
+	dw Route27HS ; new, Route27
 	dw Route28HS ; new, Route28
 	dw NoHS ; new, Route29
 	dw NoHS ; new, Route30
@@ -719,6 +719,10 @@ Route28HS: ; new
 	db ROUTE_28, $02, SHOW
 	db ROUTE_28, $03, SHOW
 	db ROUTE_28, $04, SHOW
+	db ROUTE_28, $05, HIDE
+	db ROUTE_28, $06, HIDE
+	db ROUTE_28, $07, HIDE
+	db ROUTE_28, $08, HIDE
 OnixBurrowingHS: ; new
 	db ONIX_BURROWING, $01, SHOW
 	db ONIX_BURROWING, $02, SHOW
@@ -821,5 +825,14 @@ RedsHouse1FHS: ; new
 Route2HS:
 	db ROUTE_2, $01, SHOW
 	db ROUTE_2, $02, SHOW
+
+Route27HS : ; new
+	db ROUTE_27, $01, HIDE
+	db ROUTE_27, $02, HIDE
+	db ROUTE_27, $03, HIDE
+	db ROUTE_27, $04, HIDE
+	db ROUTE_27, $05, HIDE
+	db ROUTE_27, $06, HIDE
+
 
 	db $FF, $01, SHOW ; end, list terminator

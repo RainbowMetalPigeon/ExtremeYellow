@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 	ld a, ENERGY_BALL
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ICE_PUNCH
+	ld a, STONE_EDGE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, LICK
@@ -107,8 +107,8 @@ IF DEF(_DEBUG)
 
     ; define who is shiny
     ld a, 1
-;    ld hl, wPartyMon1CatchRate
-;    ld [hl], a
+    ld hl, wPartyMon1CatchRate
+    ld [hl], a
 ;    ld hl, wPartyMon2CatchRate
 ;    ld [hl], a
 ;    ld hl, wPartyMon3CatchRate

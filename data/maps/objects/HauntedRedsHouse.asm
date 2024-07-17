@@ -15,6 +15,9 @@ HauntedRedsHouse_Object:
 	bg_event 14,  1, 5 ; HauntedRedsHouseBookshelvesText
 	bg_event 15,  1, 6 ; HauntedRedsHouseBookshelvesText
 	bg_event 18,  0, 7 ; HauntedRedsHousePictureText
+	bg_event  3,  0, 8 ; HauntedRedsHousePersonalizationText
+	bg_event  4,  0, 9 ; HauntedRedsHouseRandomizationText
+	bg_event  5,  0, 10 ; HauntedRedsHouseLuckText
 
 	def_object_events
 	object_event 19,  4, SPRITE_MOM, STAY, LEFT, 1
