@@ -2384,7 +2384,9 @@ wMrPsychicsHouseCurScript:: db ; new
 wCeruleanCaveExtraMiddleCurScript:: db ; new
 wRedsHouse1FCurScript:: db ; new
 wRoute15Gate2FCurScript:: db ; new
-	ds 34 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
+wRoute28CurScript:: db ; new
+wRoute27CurScript:: db ; new
+	ds 32 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
 wGameProgressFlagsEnd::
 
 wPlayerGender::

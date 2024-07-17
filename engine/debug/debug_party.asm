@@ -13,11 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-<<<<<<< HEAD
-	db STEELIX, 42 ; 255
-=======
 	db ARCEUS, 90 ; 255
->>>>>>> 7112c77a2070d159e697dd67f6aaf634e84b747d
 	db MEWTWO, 42
 	db STARTER_PIKACHU, 96
 ;	db MAGMORTAR, 42
