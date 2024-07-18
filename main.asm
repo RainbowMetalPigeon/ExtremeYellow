@@ -95,6 +95,7 @@ INCLUDE "engine/events/hidden_objects/elevator.asm"
 INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
 INCLUDE "engine/battle/trainers2.asm" ; edited, moved out of HOME
+INCLUDE "engine/menus/print_text_internal.asm" ; new
 
 
 SECTION "bank4", ROMX

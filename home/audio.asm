@@ -155,6 +155,15 @@ PlaySound::
 	push hl
 	push de
 	push bc
+
+	;joenote - if a SFX is already playing while printing text, wait for it to finish first
+	push hl
+	push af
+	CheckAndResetEvent EVENT_SOUND_PLAYING_DURING_TEXT
+	call nz, WaitForSoundToFinish
+	pop af
+	pop hl
+
 	ld b, a
 	ld a, [wNewSoundID]
 	and a
