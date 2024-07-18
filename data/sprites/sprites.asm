@@ -103,6 +103,7 @@ SpriteSheetPointerTable:
 	overworld_sprite DadSprite, 12              ; SPRITE_DAD ; new
 	overworld_sprite BluesDadSprite, 12         ; SPRITE_BLUES_DAD ; new
 	overworld_sprite BluesMomSprite, 12         ; SPRITE_BLUES_MOM ; new
+	overworld_sprite Porygon2Sprite, 12         ; SPRITE_PORYGON2 ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

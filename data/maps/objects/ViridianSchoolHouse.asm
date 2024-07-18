@@ -16,5 +16,6 @@ ViridianSchoolHouse_Object:
 	object_event  8,  2, SPRITE_SUPER_NERD, STAY, UP, 6 ; new
 	object_event  7,  4, SPRITE_LITTLE_BOY, STAY, RIGHT, 7 ; new
 	object_event  8,  4, SPRITE_LITTLE_GIRL, STAY, LEFT, 8 ; new
+	object_event  7,  7, SPRITE_COOLTRAINER_F, STAY, UP, 9 ; new
 
 	def_warps_to VIRIDIAN_SCHOOL_HOUSE

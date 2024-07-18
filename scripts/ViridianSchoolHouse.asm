@@ -11,6 +11,7 @@ ViridianSchoolHouse_TextPointers:
 	dw SchoolText6 ; new
 	dw SchoolText7 ; new
 	dw SchoolText8 ; new
+	dw SchoolText9 ; new
 
 SchoolText1:
 	text_far _SchoolText1
@@ -46,4 +47,8 @@ SchoolText7:
 
 SchoolText8:
 	text_far _SchoolText8
+	text_end
+
+SchoolText9:
+	text_far _SchoolText9
 	text_end

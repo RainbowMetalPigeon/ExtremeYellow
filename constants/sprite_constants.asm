@@ -98,6 +98,7 @@
 	const SPRITE_DAD                     ; new
 	const SPRITE_BLUES_DAD               ; new
 	const SPRITE_BLUES_MOM               ; new
+	const SPRITE_PORYGON2                ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
