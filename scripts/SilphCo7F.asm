@@ -117,6 +117,7 @@ SilphCo7F_ScriptPointers:
 	dw SilphCo7Script3
 	dw SilphCo7Script4
 	dw SilphCo7Script5
+	dw SilphCo7Script6 ; new, post-give Porygon, testing
 
 SilphCo7Script0:
 	CheckEvent EVENT_BEAT_SILPH_CO_RIVAL
@@ -251,6 +252,17 @@ SilphCo7Script5:
 	ld [wJoyIgnore], a
 	jp SilphCo7Text_51c10
 
+SilphCo7Script6: ; new, post-give Porygon
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 0
+	jp SilphCo7Text_51c10
+
+HeresYourPorygonText: ; edited
+	text_far _HeresYourPorygonText
+	text_end
+
 SilphCo7F_TextPointers:
 	dw SilphCo7Text1
 	dw SilphCo7Text2
@@ -267,6 +279,7 @@ SilphCo7F_TextPointers:
 	dw SilphCo7Text13
 	dw SilphCo7Text14
 	dw SilphCo7Text15
+	dw HeresYourPorygonText ; new
 
 SilphCo7TrainerHeaders:
 	def_trainers 5
@@ -297,14 +310,12 @@ SilphCo7Text1:
 	lb bc, PORYGON, 35
 	call GivePokemon
 	jr nc, .done
-	ld a, [wSimulatedJoypadStatesEnd]
-	and a
-	call z, WaitForTextScrollButtonPress
-	call EnableAutoTextBoxDrawing
-	ld hl, .HeresYourPorygonText
-	call PrintText
 	ld hl, wd72e
 	set 0, [hl]
+; new, do this with a script
+	ld a, 6
+	ld [wSilphCo7FCurScript], a
+	ld [wCurMapScript], a
 	jr .done
 .savedsilph
 	ld hl, .PorygonGuySavedText
@@ -314,10 +325,6 @@ SilphCo7Text1:
 
 .MeetPorygonGuyText
 	text_far _MeetPorygonGuyText
-	text_end
-
-.HeresYourPorygonText
-	text_far _HeresYourPorygonText
 	text_end
 
 .PorygonGuyText
