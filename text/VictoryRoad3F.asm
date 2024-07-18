@@ -8,14 +8,14 @@ _VictoryRoad3EndBattleText2::
 	line "rumors were true!"
 	prompt
 
-_VictoryRoad3AfterBattleText2::
+_VictoryRoad3AfterBattleText2:: ; edited
 	text "You beat GIOVANNI"
-	line "of TEAM ROCKET?"
+	line "of TEAM ROCKET?!"
 	done
 
-_VictoryRoad3BattleText3::
+_VictoryRoad3BattleText3:: ; edited
 	text "I'll show you just"
-	line "how good you are!"
+	line "how good I am!"
 	done
 
 _VictoryRoad3EndBattleText3::
@@ -23,9 +23,9 @@ _VictoryRoad3EndBattleText3::
 	line "furious!"
 	prompt
 
-_VictoryRoad3AfterBattleText3::
+_VictoryRoad3AfterBattleText3:: ; edited
 	text "You showed me just"
-	line "how good I was!"
+	line "how good I am!"
 	done
 
 _VictoryRoad3BattleText4::

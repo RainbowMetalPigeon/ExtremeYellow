@@ -18,7 +18,7 @@ _VictoryRoad1AfterBattleText1::
 	text "What? Really?!"
 	line "I am from PALLET"
 	cont "TOWN as well!"
-	cont "And so PROF OAK"
+	cont "And so PROF.OAK"
 	cont "gave a #DEX"
 	cont "to you and one"
 	cont "more trainer..."
@@ -63,7 +63,7 @@ _VictoryRoad1BattleText4::
 	line "training, myself"
 	cont "and my #MON."
 	cont "I will defeat the"
-	cont "League and become"
+	cont "LEAGUE and become"
 	cont "CHAMPION!"
 	done
 

@@ -252,8 +252,6 @@ INCLUDE "text/Route24.asm"
 INCLUDE "text/Route25.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
 INCLUDE "text/VermilionDock.asm"
-INCLUDE "text/CinnabarVolcano.asm"
-INCLUDE "text/CinnabarVolcanoBF.asm"
 INCLUDE "text/OchreResearchCenter1.asm"
 
 
@@ -265,6 +263,8 @@ INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new
 INCLUDE "text/NameRatersHouse.asm"
+INCLUDE "text/CinnabarVolcano.asm" ; new
+INCLUDE "text/CinnabarVolcanoBF.asm" ; new
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones

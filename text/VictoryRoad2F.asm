@@ -25,9 +25,14 @@ _VictoryRoad2EndBattleText2::
 	line "got me!"
 	prompt
 
-_VictoryRoad2AfterBattleText2::
+_VictoryRoad2AfterBattleText2:: ; edited
 	text "<RIVAL> also came"
 	line "through here!"
+
+	para "They wiped the"
+	line "floor with me in"
+	cont "the most brutal"
+	cont "way..."
 	done
 
 _VictoryRoad2BattleText3::
@@ -82,7 +87,7 @@ _VictoryRoad2AfterBattleText5::
 	done
 
 _VictoryRoad2BattleText6::
-	text "Birds are"
+	text "BIRDs are"
 	line "absolutely"
 	cont "majestic, but"
 	cont "they are not the"
@@ -112,12 +117,6 @@ _VictoryRoad2KogaBeforeBattleText::
 	text "KOGA: Look at who"
 	line "else is climbing"
 	cont "VICTORY ROAD!"
-
-;	para "Me? I'm training"
-;	line "hard, my goal is"
-;	cont "to battle beyond"
-;	cont "the end of this"
-;	cont "path."
 
 	para "Me? I'm training"
 	line "hard, I need to"
