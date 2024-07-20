@@ -81,10 +81,13 @@ This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; 
 - Sanqui, for granting usage on the gen1-style sprites used in their Pokémon Red randomizer; all sprites that are not the original 151, Kleavor, Annihilape, Mega Evolutions, Anomalies*, MissingNo, or taken from Gold/Silver, are taken from their project; detailed credits to single artists can be found on their website
 - Plague Von Karma, for some suggestions on speed-ups, providing the move deleter/relearner code (which uses code from jojobear13, based Mateo's code), as well as Kleavor and Annihilape sprites (I modified the latter)
 - FrenchOrange, mauvesea, and LJSTAR, for their many many improvements and fixed on the sprites I drew; FrenchOrange drew the Flying Pikachu sprite
-- Xillicis, for their tutorial on how to increase the number of usable Pokémon, as well as many useful exchanges over the months
+- Xillicis, for their tutorial on how to increase the number of usable Pokémon, as well as many useful exchanges over the months, and for some backsprites: Electivire, Tangrowth, Rhyperior, Lickilicky, Magnezone, Porygon-Z, Magmortar
 - BlueZangoose, Mord, Cram-O-Dev for having helped, supported, motivated me and just being great people during this adventure of mine
 - Mega Evolution, Eternamax Eternatus, Arceus, and Venustoise sprites are my own production, bar the aforementioned help
 - Mega Rayquaza and Zygarde Complete sprites are from Axel-Comics: https://www.deviantart.com/axel-comics
+- Ultra Necrozma sprite is from SageDeoxys: https://www.deviantart.com/sagedeoxys
+- Pokémon overworld sprites that are not from the original Green/Blue/Yellow are from Crystal Clear via the help of FrenchOrange
+- Overworld sprites of the gym leaders are from: Brock: Vortiene; Misty: Vortiene; Lt Surge: Mord; Erika: Mord; Koga: Game Freak (Gold/Silver); Sabrina: Vortiene; Blaine: Game Freak (Gold/Silver) ; Giovanni: Game Freak (Green/Blue)
 - Green sprites are from Ghost-MissingNo: https://www.deviantart.com/ghost-missingno/art/Blue-Sprites-for-R-G-B-Y-339796334
 - Yellow sprites are from LouLilie: https://www.deviantart.com/loulilie/art/PokemonSpecial-Sprites-Yellow-302559354
 - Game Freak, Creatures Inc., Nintendo, and TPCI for creating Pokémon
