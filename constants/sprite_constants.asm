@@ -99,6 +99,13 @@
 	const SPRITE_BLUES_DAD               ; new
 	const SPRITE_BLUES_MOM               ; new
 	const SPRITE_PORYGON2                ; new
+	const SPRITE_BROCK                   ; new
+	const SPRITE_MISTY                   ; new
+	const SPRITE_LT_SURGE                ; new
+	const SPRITE_ERIKA_GL                ; new
+	const SPRITE_KOGA_GL                 ; new
+	const SPRITE_SABRINA                 ; new
+	const SPRITE_BLAINE                  ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48

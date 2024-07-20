@@ -104,6 +104,13 @@ SpriteSheetPointerTable:
 	overworld_sprite BluesDadSprite, 12         ; SPRITE_BLUES_DAD ; new
 	overworld_sprite BluesMomSprite, 12         ; SPRITE_BLUES_MOM ; new
 	overworld_sprite Porygon2Sprite, 12         ; SPRITE_PORYGON2 ; new
+	overworld_sprite BrockSprite, 12            ; SPRITE_BROCK ; new
+	overworld_sprite MistySprite, 12            ; SPRITE_MISTY ; new
+	overworld_sprite LtSurgeSprite, 12          ; SPRITE_LT_SURGE ; new
+	overworld_sprite ErikaGLSprite, 12          ; SPRITE_ERIKA_GL ; new
+	overworld_sprite KogaGLSprite, 12           ; SPRITE_KOGA_GL ; new
+	overworld_sprite SabrinaSprite, 12          ; SPRITE_SABRINA ; new
+	overworld_sprite BlaineSprite, 12           ; SPRITE_BLAINE ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

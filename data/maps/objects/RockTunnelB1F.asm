@@ -10,7 +10,7 @@ RockTunnelB1F_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  3, 26, SPRITE_SUPER_NERD, STAY, ANY_DIR, 1 ; new
+	object_event  3, 26, SPRITE_BROCK, STAY, ANY_DIR, 1 ; new
 	object_event 11, 13, SPRITE_COOLTRAINER_F, STAY, DOWN, 2, OPP_JR_TRAINER, 9
 	object_event  6, 10, SPRITE_HIKER, STAY, DOWN, 3, OPP_HIKER, 9
 	object_event  3,  5, SPRITE_SUPER_NERD, STAY, DOWN, 4, OPP_POKEMANIAC, 3

@@ -225,7 +225,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 ; sprite set $0b ; new, copy of $0a with the addition of Misty
 	table_width 1
 	db SPRITE_PIKACHU
-	db SPRITE_BRUNETTE_GIRL ; for Misty
+	db SPRITE_MISTY ; for Misty
 	db SPRITE_CHANSEY
 	db SPRITE_FISHER
 	db SPRITE_GAMBLER

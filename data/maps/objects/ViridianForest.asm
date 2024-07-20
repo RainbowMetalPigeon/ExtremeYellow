@@ -18,7 +18,7 @@ ViridianForest_Object:
 	bg_event  2,  1, 17 ; ViridianForestText14
 
 	def_object_events
-	object_event  1, 30, SPRITE_ERIKA, STAY, ANY_DIR, 1 ; new
+	object_event  1, 30, SPRITE_ERIKA_GL, STAY, ANY_DIR, 1 ; new
 	object_event 16, 43, SPRITE_YOUNGSTER, STAY, NONE, 2 ; person
 	object_event 30, 33, SPRITE_YOUNGSTER, STAY, LEFT, 3, OPP_BUG_CATCHER, 1
 	object_event 30, 19, SPRITE_YOUNGSTER, STAY, LEFT, 4, OPP_BUG_CATCHER, 2

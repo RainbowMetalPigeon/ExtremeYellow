@@ -9,7 +9,7 @@ PowerPlant_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 33,  6, SPRITE_ROCKER, STAY, ANY_DIR, 1 ; new, Lt Surge rematch
+	object_event 33,  6, SPRITE_LT_SURGE, STAY, ANY_DIR, 1 ; new, Lt Surge rematch
 	object_event  9, 20, SPRITE_POKE_BALL, STAY, NONE, 2, VOLTORB, 40 | OW_POKEMON ; edited, to go beyond 200
 	object_event 32, 18, SPRITE_POKE_BALL, STAY, NONE, 3, VOLTORB, 40 | OW_POKEMON ; edited, to go beyond 200
 	object_event 21, 25, SPRITE_POKE_BALL, STAY, NONE, 4, VOLTORB, 40 | OW_POKEMON ; edited, to go beyond 200

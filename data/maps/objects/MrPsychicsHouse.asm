@@ -9,6 +9,6 @@ MrPsychicsHouse_Object:
 
 	def_object_events
 	object_event  5,  3, SPRITE_FISHING_GURU, STAY, LEFT, 1 ; person
-	object_event  2,  3, SPRITE_COOLTRAINER_F, STAY, RIGHT, 2 ; new, Sabrina 
+	object_event  2,  3, SPRITE_SABRINA, STAY, RIGHT, 2 ; new, Sabrina 
 
 	def_warps_to MR_PSYCHICS_HOUSE

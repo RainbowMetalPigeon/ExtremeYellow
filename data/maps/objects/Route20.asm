@@ -10,7 +10,7 @@ Route20_Object:
 	bg_event 57, 11, 13 ; Route20Text12
 
 	def_object_events
-	object_event 61,  4, SPRITE_BRUNETTE_GIRL, STAY, ANY_DIR, 1 ; new
+	object_event 61,  4, SPRITE_MISTY, STAY, ANY_DIR, 1 ; new, TBE
 	object_event 87,  8, SPRITE_SWIMMER, STAY, UP, 2, OPP_SWIMMER, 9
 	object_event 68, 11, SPRITE_SWIMMER, STAY, UP, 3, OPP_BEAUTY, 15
 	object_event 45, 10, SPRITE_SWIMMER, STAY, DOWN, 4, OPP_BEAUTY, 6
