@@ -8,8 +8,8 @@ _ViridianHouseText1::
 	cont "remember."
 	done
 
-_ViridianHouseText2::
-	text "My Daddy loves"
+_ViridianHouseText2:: ; edited
+	text "My old one loves"
 	line "#MON too."
 	done
 

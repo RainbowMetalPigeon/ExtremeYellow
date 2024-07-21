@@ -16,8 +16,8 @@ _UnveiledGhostText::
 	cont "GHOST's identity!"
 	prompt
 
-_GhostCantBeIDdText::
-	text "Darn! The GHOST"
+_GhostCantBeIDdText:: ; edited
+	text "Damn! The GHOST"
 	line "can't be ID'd!"
 	prompt
 

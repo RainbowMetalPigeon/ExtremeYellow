@@ -33,7 +33,7 @@ _ViridianGymGiovanniPostBattleText::
 	cont "any more."
 
 	para "...what? You don't"
-	line "want to end me?"
+	line "want to kill me?"
 	cont "But it doesn't"
 	cont "make any sense!"
 	cont "Why?!"
@@ -79,74 +79,6 @@ _ViridianGymGiovanniPostBattleText::
 	para "Farewell, <PLAYER>."
 
 	para "And... thank you."
-	done
-
-; -----------------------------
-
-_ReceivedEarthBadgeText::
-	text "Ha!"
-	line "That was a truly"
-	cont "intense fight!"
-	cont "You have won!"
-	cont "As proof, here is"
-	cont "the EARTHBADGE!@"
-	text_end
-
-_GiovanniPostBattleAdviceText::
-	text "Having lost, I"
-	line "cannot face my"
-	cont "underlings!"
-	cont "TEAM ROCKET is"
-	cont "finished forever!"
-
-	para "I will dedicate my"
-	line "life to the study"
-	cont "of #MON!"
-
-	para "Let us meet again"
-	line "someday!"
-	cont "Farewell!@"
-	text_end
-
-_GiovanniEarthBadgeInfoText::
-	text "The EARTHBADGE"
-	line "makes #MON of"
-	cont "any level obey!"
-
-	para "It is evidence of"
-	line "your mastery as a"
-	cont "#MON trainer!"
-
-	para "With it, you can"
-	line "enter the #MON"
-	cont "LEAGUE!"
-
-	para "It is my gift for"
-	line "your #MON"
-	cont "LEAGUE challenge!"
-	done
-
-_ReceivedTM27Text::
-	text "<PLAYER> received"
-	line "TM27!@"
-	text_end
-
-_TM27ExplanationText::
-	text_start
-
-	para "TM27 is FISSURE!"
-	line "It will take out"
-	cont "#MON with just"
-	cont "one hit!"
-
-	para "I made it when I"
-	line "ran the GYM here,"
-	cont "too long ago..."
-	done
-
-_TM27NoRoomText::
-	text "You do not have"
-	line "space for this!"
 	done
 
 ; -----------------------------
@@ -226,9 +158,10 @@ _ViridianGymEndBattleText5::
 	line "lost my grip!"
 	prompt
 
-_ViridianGymAfterBattleText5::
-	text "The LEADER will"
-	line "scold me!"
+_ViridianGymAfterBattleText5:: ; edited
+	text "Oh no, the LEADER"
+	line "will whip me for"
+	cont "my loss..."
 	done
 
 _ViridianGymBattleText6::
@@ -316,7 +249,7 @@ _ViridianGymAfterBattleText9::
 	cont "annihilated them."
 	done
 
-_ViridianGymGuidePreBattleText::
+_ViridianGymGuidePreBattleText:: ; edited
 	text "Yo! Champ in"
 	line "making!"
 
@@ -324,9 +257,9 @@ _ViridianGymGuidePreBattleText::
 	line "VIRIDIAN LEADER's"
 	cont "identity!"
 
-	para "This will be the"
-	line "toughest of all"
-	cont "the GYM LEADERs!"
+;	para "This will be the"
+;	line "toughest of all"
+;	cont "the GYM LEADERs!"
 
 	para "I heard that the"
 	line "trainers here"

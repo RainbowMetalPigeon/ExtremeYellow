@@ -6,16 +6,16 @@ _ViridianForestText1::
 	line "#MON fights!"
 	done
 
-_ViridianForestBattleText1::
+_ViridianForestBattleText1:: ; edited
 	text "Hey! You have"
 	line "#MON! Come on!"
-	cont "Let's battle 'em!"
+	cont "Let's battle!"
 	done
 
-_ViridianForestEndBattleText1::
+_ViridianForestEndBattleText1:: ; edited
 	text "No!"
-	line "CATERPIE can't"
-	cont "cut it!"
+	line "CATERPIE couldn't"
+	cont "do it!"
 	prompt
 
 _ViridianFrstAfterBattleText1::
@@ -23,9 +23,10 @@ _ViridianFrstAfterBattleText1::
 	line "the bugs away!"
 	done
 
-_ViridianForestBattleText2::
-	text "Yo! You can't jam"
-	line "out if you're a"
+_ViridianForestBattleText2:: ; edited
+	text "Yo! You can't"
+	line "refuse a battle"
+	cont "if you're a"
 	cont "#MON trainer!"
 	done
 
@@ -105,13 +106,13 @@ _ViridianForestText8::
 	line "extras!"
 	done
 
-_ViridianForestText9::
+_ViridianForestText9:: ; edited
 	text "TRAINER TIPS"
 
 	para "If you want to"
-	line "avoid battles,"
-	cont "stay away from"
-	cont "grassy areas!"
+	line "avert wild"
+	cont "battles, avoid"
+	cont "tall grass!"
 	done
 
 _ViridianForestText10::

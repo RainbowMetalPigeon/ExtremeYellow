@@ -196,7 +196,7 @@ CeladonMansion2Text5:
 	text_end
 
 CeladonMansion2Text6:
-	text_far _CeladonMansion2TextSatoMew
+	text_far _CeladonMansion2TextPorygondolier
 	text_end
 
 CeladonMansion2Text7:

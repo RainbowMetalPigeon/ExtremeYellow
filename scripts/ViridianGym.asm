@@ -242,32 +242,6 @@ ViridianGymGiovanniPostBattleText:
 	text_far _ViridianGymGiovanniPostBattleText
 	text_end
 
-;ReceivedEarthBadgeText:
-;	text_far _ReceivedEarthBadgeText
-;	sound_level_up ; probably supposed to play SFX_GET_ITEM_1 but the wrong music bank is loaded
-;	text_end
-
-;GiovanniPostBattleAdviceText:
-;	text_far _GiovanniPostBattleAdviceText
-;	text_waitbutton
-;	text_end
-
-;GiovanniEarthBadgeInfoText:
-;	text_far _GiovanniEarthBadgeInfoText
-;	text_end
-
-;ReceivedTM27Text:
-;	text_far _ReceivedTM27Text
-;	sound_get_item_1
-
-;TM27ExplanationText:
-;	text_far _TM27ExplanationText
-;	text_end
-
-;TM27NoRoomText:
-;	text_far _TM27NoRoomText
-;	text_end
-
 ViridianGymTrainerText1:
 	text_asm
 	ld hl, ViridianGymTrainerHeader0

@@ -29,27 +29,27 @@ _BicycleDescription::
 	prompt
 
 _MoonStoneDescription::
-	text "Evolves moon-"
+	text "Evolves Moon-"
 	next "related #MON."
 	prompt
 
 _FireStoneDescription::
-	text "Evolves fire-"
+	text "Evolves FIRE-"
 	next "related #MON."
 	prompt
 
 _ThunderStoneDescription::
-	text "Evolves electric-"
+	text "Evolves ELECTRIC-"
 	next "related #MON."
 	prompt
 
 _WaterStoneDescription::
-	text "Evolves water-"
+	text "Evolves WATER-"
 	next "related #MON."
 	prompt
 
 _LeafStoneDescription::
-	text "Evolves grass-"
+	text "Evolves GRASS-"
 	next "related #MON."
 	prompt
 
@@ -119,7 +119,7 @@ _OldAmberDescription::
 	prompt
 
 _HPUpDescription::
-	text "Raises the HP of"
+	text "Raises HP of"
 	next "one #MON."
 	prompt
 
@@ -353,7 +353,7 @@ _SunStoneDescription::
 	prompt
 
 _IceStoneDescription::
-	text "Evolves ice-"
+	text "Evolves ICE-"
 	next "related #MON."
 	prompt
 
@@ -363,7 +363,7 @@ _KingsRockDescription::
 	prompt
 
 _MetalCoatDescription::
-	text "Evolves steel-"
+	text "Evolves STEEL-"
 	next "related #MON."
 	prompt
 
@@ -404,7 +404,7 @@ _PerfecterDescription::
 
 _LunarRelicDescription::
 	text "A RELIC related"
-	next "to the MOON."
+	next "to the Moon."
 	prompt
 
 _IceOrbDescription::
@@ -456,7 +456,7 @@ _ShinyCharmDescription::
 
 _GutscheinDescription::
 	text "Voucher for a meal"
-	next "at the RESTAURANT." ; TBE
+	next "at RESTAURANT."
 	prompt
 
 _OnigiriBoxDescription::

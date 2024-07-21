@@ -231,26 +231,43 @@ _CeladonMansion2TextDannye::
 	cont "questions."
 	done
 
-_CeladonMansion2TextSatoMew::
-	text "Hi! I am SATOMEW!"
+_CeladonMansion2TextPorygondolier:: ; TBV
+	text "Hi!"
 
-	para "I am a contributor"
-	line "of the pret"
-	cont "project!"
+	para "No, hang on."
 
-	para "Beyond that, I"
-	line "helped PIGEON"
-	cont "with a number of"
-	cont "doubts they have"
-	cont "had, provided"
-	cont "many interesting"
-	cont "insights in the"
-	cont "development of"
-	cont "#MON, and"
-	cont "participated in"
-	cont "many lively"
-	cont "off-topic"
-	cont "discussions too."
+	para "Greetings!"
+	line "Welcome to the"
+	cont "Pret Hybrid"
+	cont "Meeting Room!"
+
+	para "I'm a friend of"
+	line "PIGEON."
+
+	para "We share a common"
+	line "love of the"
+	cont "mighty duck known"
+	cont "as PORYGON!"
+
+	para "We also worked"
+	line "together on"
+	cont "Mid-Battle"
+	cont "Evolution!"
+
+	para "I spend my free"
+	line "time interfering"
+	cont "with the world"
+	cont "of Gen I #MON"
+	cont "through the magic"
+	cont "of ROM Hacking"
+	cont "and posting my"
+	cont "adventures on my"
+	cont "YouTube channel:"
+	cont "PORYGONDOLIER!"
+
+	para "I'd like to wish"
+	line "you a wonderful"
+	cont "day!"
 	done
 
 _CeladonMansion2TextJoJo::
@@ -299,8 +316,8 @@ _CeladonMansion2TextJoJo::
 	cont "#MON!"
 	done
 
-_CeladonMansion2TextOrange::
-	text "Hi! I am"
+_CeladonMansion2TextOrange:: ; TBV
+	text "Howdy! The name's"
 	line "FRENCHORANGE!"
 
 	para "I helped PIGEON"
@@ -429,6 +446,18 @@ _CeladonMansion2TextSign3::
 	cont "all of this on"
 	cont "valuable"
 	cont "tutorials!"
+
+	para "SATOMEW is a"
+	line "contributor of"
+	cont "the pret project,"
+	cont "helped PIGEON on"
+	cont "a number of"
+	cont "doubts, and"
+	cont "provided many"
+	cont "interesting"
+	cont "insights in the"
+	cont "development of"
+	cont "#MON!"
 
 	para "PLAGUE VON KARMA"
 	line "directly and"

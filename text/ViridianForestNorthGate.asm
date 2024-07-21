@@ -8,12 +8,12 @@ _ViridianForestExitText1::
 	cont "different kinds!"
 	done
 
-_ViridianForestExitText2::
+_ViridianForestExitText2:: ; edited
 	text "Have you noticed"
 	line "the bushes on the"
 	cont "roadside?"
 
-	para "They can be cut"
+	para "They can be CUT"
 	line "down by a special"
 	cont "#MON move."
 	done

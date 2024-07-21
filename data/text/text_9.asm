@@ -11,8 +11,8 @@ _ItemUseBallText01::
 	line "#MON!"
 	prompt
 
-_ItemUseBallText02::
-	text "Darn! The #MON"
+_ItemUseBallText02:: ; edited
+	text "Damn! The #MON"
 	line "broke free!"
 	prompt
 
@@ -21,8 +21,8 @@ _ItemUseBallText03::
 	line "to be caught! "
 	prompt
 
-_ItemUseBallText04::
-	text "Shoot! It was so"
+_ItemUseBallText04:: ; edited
+	text "Shit! It was so"
 	line "close too!"
 	prompt
 

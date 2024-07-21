@@ -25,11 +25,10 @@ _WardenTeethText1::
 	cont "WARDEN!@"
 	text_end
 
-_WardenTeethText2::
+_WardenTeethText2:: ; edited
 	text_start
-
 	para "The WARDEN popped"
-	line "in his teeth!"
+	line "in their teeth!"
 	prompt
 
 _WardenThankYouText::

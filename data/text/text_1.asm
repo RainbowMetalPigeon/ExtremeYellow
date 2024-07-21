@@ -8,8 +8,8 @@ _CardKeySuccessText2::
 	cont "opened the door!"
 	done
 
-_CardKeyFailText::
-	text "Darn! It needs a"
+_CardKeyFailText:: ; edited
+	text "Damn! It needs a"
 	line "CARD KEY!"
 	done
 

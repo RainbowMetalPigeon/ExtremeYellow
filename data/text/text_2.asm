@@ -88,8 +88,8 @@ _PlaySlotMachineText::
 	line "Want to play?"
 	done
 
-_OutOfCoinsSlotMachineText::
-	text "Darn!"
+_OutOfCoinsSlotMachineText:: ; edited
+	text "Damn!"
 	line "Ran out of coins!"
 	done
 
@@ -182,11 +182,11 @@ _PewterCityPokecenterGuyText::
 	line "Snore..."
 	done
 
-_CeruleanPokecenterGuyText::
+_CeruleanPokecenterGuyText:: ; edited
 	text "BILL has lots of"
 	line "#MON!"
 
-	para "He collects rare"
+	para "They collects rare"
 	line "ones too!"
 	done
 
@@ -517,14 +517,14 @@ _JustAMomentText::
 	text "Just a moment."
 	done
 
-TMNotebookText::
+TMNotebookText:: ; edited
 	text "It's a pamphlet"
 	line "on TMs."
 
 	para "..."
 
-	para "There are 55 TMs" ; edited
-	line "in all."
+	para "There are 55 TMs"
+	line "in total."
 
 	para "There are also 5"
 	line "HMs that can be"
@@ -756,7 +756,7 @@ _ViridianBlackboardSleepText::
 
 _ViridianBlackboardPoisonText::
 	text "When poisoned, a" ; edited
-	line "pokeMON loses 1/8"
+	line "#MON loses 1/8"
 	cont "of its max HP at"
 	cont "the end of every"
 	cont "of its turns."

@@ -192,9 +192,10 @@ _ForgotAndText::
 	para "And..."
 	prompt
 
-_HMCantDeleteText::
+_HMCantDeleteText:: ; edited
 	text "HM techniques"
-	line "can't be deleted!"
+	line "can't be deleted"
+	cont "just like this!"
 	prompt
 
 _PokemonCenterWelcomeText:: ; edited
@@ -218,7 +219,7 @@ _PokemonFightingFitText:: ; edited
 ;	text "Thank you!"
 ;	line "Your #MON are"
 ;	cont "fighting fit!"
-	text "Your pokemon are"
+	text "Your #MON are"
 	line "now fully healed!"
 	prompt
 
