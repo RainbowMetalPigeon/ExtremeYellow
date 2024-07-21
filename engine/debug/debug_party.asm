@@ -13,11 +13,11 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ARCEUS, 90 ; 255
+	db PORYGON, 90 ; 255
 	db MEWTWO, 42
 	db STARTER_PIKACHU, 96
-;	db MAGMORTAR, 42
-;	db SLOWKING, 42
+	db PORYGON2, 42
+	db PORYGONZ, 42
 ;	db ANNIHILAPE, 42
 	db -1 ; end
 

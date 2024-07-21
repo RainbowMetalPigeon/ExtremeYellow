@@ -19,7 +19,7 @@ CeladonMansion2F_Object:
 	object_event  0,  5, SPRITE_CARROT, WALK, ANY_DIR, 3 ; Vimescarrot = BlueZangoose
 	object_event  1,  7, SPRITE_MORD, WALK, ANY_DIR, 4 ; Mord
 	object_event  2,  8, SPRITE_CUBONE, WALK, ANY_DIR, 5 ; Dannye
-	object_event  4,  8, SPRITE_MEW, WALK, ANY_DIR, 6 ; SatoMew
+	object_event  4,  8, SPRITE_PORYGON2, WALK, ANY_DIR, 6 ; Porygondolier (was SatoMew)
 	object_event  3,  6, SPRITE_SNORLAX, STAY, DOWN, 7 ; JoJo
 	object_event  6,  5, SPRITE_FRENCHORANGE, STAY, ANY_DIR, 8 ; Orange
 

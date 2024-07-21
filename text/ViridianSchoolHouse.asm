@@ -154,3 +154,17 @@ _SchoolText8::
 	line "LOT of numbers to"
 	cont "remember!!!"
 	done
+
+_SchoolText9::
+	text "If a #MON uses"
+	line "a move of its own"
+	cont "type, it will"
+	cont "benefit from the"
+	cont "so-called Same"
+	cont "Type Attack Bonus"
+	cont "or STAB in short."
+
+	para "STAB grants a"
+	line "whopping 50%"
+	cont "extra damage!"
+	done

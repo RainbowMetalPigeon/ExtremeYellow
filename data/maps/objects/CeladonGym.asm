@@ -8,7 +8,7 @@ CeladonGym_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  4,  3, SPRITE_ERIKA, STAY, DOWN, 1, OPP_ERIKA, 1
+	object_event  4,  3, SPRITE_ERIKA_GL, STAY, DOWN, 1, OPP_ERIKA, 1 ; edited
 	object_event  2, 11, SPRITE_COOLTRAINER_F, STAY, RIGHT, 2, OPP_LASS, 17
 	object_event  7, 10, SPRITE_BEAUTY, STAY, LEFT, 3, OPP_BEAUTY, 1
 	object_event  9,  5, SPRITE_COOLTRAINER_F, STAY, DOWN, 4, OPP_JR_TRAINER, 11

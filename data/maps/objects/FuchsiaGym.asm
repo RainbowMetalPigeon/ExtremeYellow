@@ -8,7 +8,7 @@ FuchsiaGym_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  4, 10, SPRITE_SILPH_WORKER, STAY, DOWN, 1, OPP_KOGA, 1
+	object_event  4, 10, SPRITE_KOGA_GL, STAY, DOWN, 1, OPP_KOGA, 1 ; edited
 	object_event  8, 13, SPRITE_ROCKER, STAY, DOWN, 2, OPP_JUGGLER, 7
 	object_event  7,  8, SPRITE_ROCKER, STAY, RIGHT, 3, OPP_JUGGLER, 3
 	object_event  1, 12, SPRITE_ROCKER, STAY, DOWN, 4, OPP_JUGGLER, 8

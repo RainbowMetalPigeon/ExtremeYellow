@@ -16,7 +16,7 @@ OchreGym_Object:
 	bg_event  9, 31, 14 ; trash bin
 
 	def_object_events
-	object_event 13, 12, SPRITE_COOLTRAINER_F, STAY, DOWN, 1, OPP_ORAGE, 1 ; TBE: OW sprite
+	object_event 13, 12, SPRITE_ORAGE, STAY, DOWN, 1, OPP_ORAGE, 1
 	object_event 18,  6, SPRITE_SUPER_NERD, STAY, DOWN, 2, OPP_ENGINEER, 1
 	object_event 17, 10, SPRITE_COOLTRAINER_M, STAY, RIGHT, 3, OPP_BIRD_KEEPER, 18
 	object_event 15, 13, SPRITE_CHANNELER, STAY, DOWN, 4, OPP_CHANNELER, 25
