@@ -106,6 +106,7 @@
 	const SPRITE_KOGA_GL                 ; new
 	const SPRITE_SABRINA                 ; new
 	const SPRITE_BLAINE                  ; new
+	const SPRITE_ORAGE                   ; new
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
 	const SPRITE_FOSSIL                  ; $48
