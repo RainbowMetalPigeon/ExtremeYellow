@@ -48,35 +48,70 @@ _Route28Text5::
 ; Trainers ----------------------------
 
 _Route28BattleText0::
-    text "Before 0"
+    text "The water here is"
+    line "quite polluted by"
+    cont "all the ships"
+    cont "going back and"
+    cont "forth!"
     done
+
 _Route28EndBattleText0::
-    text "End 0"
+    text "Now I'm"
+    line "even more salty!"
     prompt
+
 _Route28AfterBattleText0::
-    text "After 0"
+    text "There's so much"
+    line "pollution that"
+    cont "there are"
+    cont "literally more"
+    cont "POISON #MON"
+    cont "than WATER"
+    cont "ones..."
     done
 
 ; ---------
 
 _Route28BattleText1::
-    text "Before 1"
+    text "BIRDs are the"
+    line "best!"
     done
+
 _Route28EndBattleText1::
-    text "End 1"
+    text "BIRDs"
+    line "are amazing even"
+    cont "when they lose!"
     prompt
+
 _Route28AfterBattleText1::
-    text "After 1"
+    text "I love the"
+    line "BIRD FAN CLUB of"
+    cont "OCHRE CITY!"
+
+    para "To become I"
+    line "member, I just"
+    cont "had to show them"
+    cont "one of my beloved"
+    cont "feathery friends!"
     done
 
 ; ---------
 
 _Route28BattleText2::
-    text "Before 2"
+    text "I hate these"
+    line "ships!"
     done
+
 _Route28EndBattleText2::
-    text "End 2"
+    text "I'm"
+    line "livid!"
     prompt
+
 _Route28AfterBattleText2::
-    text "After 2"
+    text "Between the"
+    line "engines and the"
+    cont "pollution, these"
+    cont "ship make it"
+    cont "impossible to"
+    cont "swim here!"
     done

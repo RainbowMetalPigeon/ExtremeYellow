@@ -179,7 +179,6 @@ INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/PokemonMansion3F.asm"
-INCLUDE "data/text/text_9.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -205,10 +204,7 @@ INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
-INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/VermilionMart.asm"
-INCLUDE "text/PokemonMansionB1F.asm"
-INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -234,6 +230,7 @@ INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/BikeShop.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
+INCLUDE "text/PokemonMansionB1F.asm"
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -278,6 +275,7 @@ INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/Route9.asm"
 INCLUDE "text/SilphCo8F.asm"
+INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 8", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -299,6 +297,11 @@ INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/SilphCo7F.asm"
+
+
+SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "data/text/text_9.asm"
+INCLUDE "text/PokemonFanClub.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -25,29 +25,29 @@ Route28_TextPointers:
 Route28TrainerHeaders:
 	def_trainers 6
 Route28TrainerHeader0:
-	trainer EVENT_BEAT_ROUTE_28_TRAINER_0, 0, Route28BattleText0, Route28EndBattleText0, Route28AfterBattleText0
+	trainer EVENT_BEAT_ROUTE_28_TRAINER_0, 1, Route28BattleText0, Route28EndBattleText0, Route28AfterBattleText0
 Route28TrainerHeader1:
-	trainer EVENT_BEAT_ROUTE_28_TRAINER_1, 0, Route28BattleText1, Route28EndBattleText1, Route28AfterBattleText1
+	trainer EVENT_BEAT_ROUTE_28_TRAINER_1, 1, Route28BattleText1, Route28EndBattleText1, Route28AfterBattleText1
 Route28TrainerHeader2:
-	trainer EVENT_BEAT_ROUTE_28_TRAINER_2, 0, Route28BattleText2, Route28EndBattleText2, Route28AfterBattleText2
+	trainer EVENT_BEAT_ROUTE_28_TRAINER_2, 1, Route28BattleText2, Route28EndBattleText2, Route28AfterBattleText2
 	db -1
 
 Route28Text1:
 	text_far _Route28Text1
 	text_end
-	
+
 Route28Text2:
 	text_far _Route28Text2
 	text_end
-	
+
 Route28Text3:
 	text_far _Route28Text3
 	text_end
-	
+
 Route28Text4:
 	text_far _Route28Text4
 	text_end
-	
+
 Route28Text5:
 	text_far _Route28Text5
 	text_end
@@ -107,4 +107,3 @@ Route28EndBattleText2:
 Route28AfterBattleText2:
 	text_far _Route28AfterBattleText2
 	text_end
-	
