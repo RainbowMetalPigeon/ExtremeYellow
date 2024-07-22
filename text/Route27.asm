@@ -27,6 +27,7 @@ _Route27Text2::
     done
 
 _Route27Text3::
+    text "I'm from OBSIDIAN."
     line "I was forced by"
     cont "TEAM ROCKET to"
     cont "build this bridge"
@@ -38,7 +39,7 @@ _Route27Text3::
     para "I hate this"
     line "structure, but I"
     cont "cannot deny that"
-    cont "it makes it much"
+    cont "makes it much"
     cont "easier to reach"
     cont "the mainland..."
 ;   xxxx "123456789012345678"
