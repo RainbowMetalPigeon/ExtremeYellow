@@ -27,21 +27,26 @@ _Route27Text2::
     done
 
 _Route27Text3::
-    text "I'm from OBSIDIAN."
-    line "I was forced by"
-    cont "TEAM ROCKET to"
-    cont "build this bridge"
-    cont "for them, or they"
-    cont "would have"
-    cont "retaliated on my"
-    cont "family."
+    text "ELECTRIC #MON"
+    line "are my favourite."
 
-    para "I hate this"
-    line "structure, but I"
-    cont "cannot deny that"
-    cont "makes it much"
-    cont "easier to reach"
-    cont "the mainland..."
+    para "One of my partners"
+    line "likes FIRE ones"
+    cont "the most, and"
+    cont "their partner is"
+    cont "a huge fan of"
+    cont "FIRE types."
+
+    para "My other partner,"
+    line "instead, is"
+    cont "really into"
+    cont "GRASS."
+
+    para "None of us would"
+    line "stand a chance"
+    cont "against LANCE and"
+    cont "their mighty"
+    cont "DRAGONs!"
 ;   xxxx "123456789012345678"
     done
 
