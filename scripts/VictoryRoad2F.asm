@@ -91,17 +91,17 @@ VictoryRoad2F_TextPointers:
 VictoryRoad2TrainerHeaders:
 	def_trainers
 VictoryRoad2TrainerHeader0:
-	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_0, 4, VictoryRoad2BattleText1, VictoryRoad2EndBattleText1, VictoryRoad2AfterBattleText1
+	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_0, 1, VictoryRoad2BattleText1, VictoryRoad2EndBattleText1, VictoryRoad2AfterBattleText1
 VictoryRoad2TrainerHeader1:
-	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_1, 3, VictoryRoad2BattleText2, VictoryRoad2EndBattleText2, VictoryRoad2AfterBattleText2
+	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_1, 1, VictoryRoad2BattleText2, VictoryRoad2EndBattleText2, VictoryRoad2AfterBattleText2
 VictoryRoad2TrainerHeader2:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_2, 3, VictoryRoad2BattleText3, VictoryRoad2EndBattleText3, VictoryRoad2AfterBattleText3
 VictoryRoad2TrainerHeader3:
-	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_3, 1, VictoryRoad2BattleText4, VictoryRoad2EndBattleText4, VictoryRoad2AfterBattleText4
+	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_3, 2, VictoryRoad2BattleText4, VictoryRoad2EndBattleText4, VictoryRoad2AfterBattleText4
 VictoryRoad2TrainerHeader4:
 	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_4, 3, VictoryRoad2BattleText5, VictoryRoad2EndBattleText5, VictoryRoad2AfterBattleText5
 VictoryRoad2TrainerHeader5: ; new
-	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_5, 3, VictoryRoad2BattleText6, VictoryRoad2EndBattleText6, VictoryRoad2AfterBattleText6
+	trainer EVENT_BEAT_VICTORY_ROAD_2_TRAINER_5, 2, VictoryRoad2BattleText6, VictoryRoad2EndBattleText6, VictoryRoad2AfterBattleText6
 ;MoltresTrainerHeader:
 ;	trainer EVENT_BEAT_MOLTRES, 0, MoltresBattleText, MoltresBattleText, MoltresBattleText
 	db -1 ; end

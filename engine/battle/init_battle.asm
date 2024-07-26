@@ -314,13 +314,13 @@ _LoadTrainerPic:
 	cp COOLTRAINER
 	jr nz, .notPseudoMangaProtagonists
 	ld a, [wTrainerNo]
-	cp 5 ; pseudo-green
+	cp 64 ; pseudo-Green
 	jr z, .pseudoGreen
-	cp 18 ; pseudo-red
+	cp 65 ; pseudo-Red
 	jr z, .pseudoRed
-	cp 29 ; pseudo-yellow
+	cp 67 ; pseudo-Yellow
 	jr z, .pseudoYellow
-	cp 24 ; pseudo-blue
+	cp 66 ; pseudo-Blue
 	jr z, .pseudoBlue
 	jr .notPseudoMangaProtagonists
 .pseudoGreen

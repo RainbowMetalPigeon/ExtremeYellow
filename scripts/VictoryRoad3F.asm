@@ -98,20 +98,20 @@ VictoryRoad3TrainerHeaders:
 VictoryRoad3TrainerHeader0:
 	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_0, 1, VictoryRoad3BattleText2, VictoryRoad3EndBattleText2, VictoryRoad3AfterBattleText2
 VictoryRoad3TrainerHeader1:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_1, 4, VictoryRoad3BattleText3, VictoryRoad3EndBattleText3, VictoryRoad3AfterBattleText3
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_1, 2, VictoryRoad3BattleText3, VictoryRoad3EndBattleText3, VictoryRoad3AfterBattleText3
 VictoryRoad3TrainerHeader2:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_2, 4, VictoryRoad3BattleText4, VictoryRoad3EndBattleText4, VictoryRoad3AfterBattleText4
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_2, 3, VictoryRoad3BattleText4, VictoryRoad3EndBattleText4, VictoryRoad3AfterBattleText4
 VictoryRoad3TrainerHeader3:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_3, 4, VictoryRoad3BattleText5, VictoryRoad3EndBattleText5, VictoryRoad3AfterBattleText5
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_3, 1, VictoryRoad3BattleText5, VictoryRoad3EndBattleText5, VictoryRoad3AfterBattleText5
 ; new ones
 VictoryRoad3TrainerHeader4:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_4, 4, VictoryRoad3BattleText6, VictoryRoad3EndBattleText6, VictoryRoad3AfterBattleText6
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_4, 3, VictoryRoad3BattleText6, VictoryRoad3EndBattleText6, VictoryRoad3AfterBattleText6
 VictoryRoad3TrainerHeader5:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_5, 4, VictoryRoad3BattleText7, VictoryRoad3EndBattleText7, VictoryRoad3AfterBattleText7
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_5, 1, VictoryRoad3BattleText7, VictoryRoad3EndBattleText7, VictoryRoad3AfterBattleText7
 VictoryRoad3TrainerHeader6:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_6, 4, VictoryRoad3BattleText8, VictoryRoad3EndBattleText8, VictoryRoad3AfterBattleText8
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_6, 3, VictoryRoad3BattleText8, VictoryRoad3EndBattleText8, VictoryRoad3AfterBattleText8
 VictoryRoad3TrainerHeader7:
-	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_7, 4, VictoryRoad3BattleText9, VictoryRoad3EndBattleText9, VictoryRoad3AfterBattleText9
+	trainer EVENT_BEAT_VICTORY_ROAD_3_TRAINER_7, 3, VictoryRoad3BattleText9, VictoryRoad3EndBattleText9, VictoryRoad3AfterBattleText9
 	db -1 ; end
 
 VictoryRoad3Text1:
