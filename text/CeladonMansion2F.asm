@@ -163,7 +163,7 @@ _CeladonMansion2TextCarrot::
 	cont "than my ZANGOOSE"
 	cont "side. Go figure!"
 
-	para "I am the author"
+	para "I'm the author of"
 	line "the Redcurrant"
 	cont "hackROM! It has"
 	cont "gorgeous wholly"
@@ -232,9 +232,12 @@ _CeladonMansion2TextDannye::
 	done
 
 _CeladonMansion2TextPorygondolier:: ; TBV
-	text "Hi!"
+	text "Hi! I am a"
+	line "PORYGON!"
 
-	para "No, hang on."
+	para "No; hang on,"
+	line "that's not right!"
+;	xxxx "123456789012345678"
 
 	para "Greetings!"
 	line "Welcome to the"
@@ -257,7 +260,7 @@ _CeladonMansion2TextPorygondolier:: ; TBV
 	para "I spend my free"
 	line "time interfering"
 	cont "with the world"
-	cont "of Gen I #MON"
+	cont "of Gen 1 #MON"
 	cont "through the magic"
 	cont "of ROM Hacking"
 	cont "and posting my"
@@ -317,7 +320,7 @@ _CeladonMansion2TextJoJo::
 	done
 
 _CeladonMansion2TextOrange:: ; TBV
-	text "Howdy! The name's"
+	text "Hi! I am"
 	line "FRENCHORANGE!"
 
 	para "I helped PIGEON"
