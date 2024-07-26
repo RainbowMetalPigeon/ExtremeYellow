@@ -16,8 +16,8 @@ DebugTeam:
 	db PORYGON, 90 ; 255
 	db MEWTWO, 42
 	db STARTER_PIKACHU, 96
-	db PORYGON2, 42
-	db PORYGONZ, 42
+;	db PORYGON2, 42
+;	db PORYGONZ, 42
 ;	db ANNIHILAPE, 42
 	db -1 ; end
 
@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, ENERGY_BALL
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, STONE_EDGE
@@ -202,15 +202,34 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SW
 
 ;; BATTLE_FACILITY testing
-;	ld a, 254
-;	ld [wBattleFacilityStandardRecordNormal], a
-;	ld a, 42
-;	ld [wBattleFacilityHardcoreRecordNormal], a
-;	ld a, 5
-;	ld [wBattleFacilityStandardRecordInverse], a
-;	ld a, 255
-;	ld [wBattleFacilityHardcoreRecordInverse], a
-    ld a, 35
+	ld a, 1
+	ld [wBattleFacilityStandardRecordNormalLC], a
+	ld a, 0
+	ld [wBattleFacilityHardcoreRecordNormalLC], a
+	ld a, 3
+	ld [wBattleFacilityStandardRecordInverseLC], a
+	ld a, 4
+	ld [wBattleFacilityHardcoreRecordInverseLC], a
+;   ---
+	ld a, 10
+	ld [wBattleFacilityStandardRecordNormalNFE], a
+	ld a, 20
+	ld [wBattleFacilityHardcoreRecordNormalNFE], a
+	ld a, 30
+	ld [wBattleFacilityStandardRecordInverseNFE], a
+	ld a, 40
+	ld [wBattleFacilityHardcoreRecordInverseNFE], a
+;   ---
+	ld a, 254
+	ld [wBattleFacilityStandardRecordNormalAG], a
+	ld a, 42
+	ld [wBattleFacilityHardcoreRecordNormalAG], a
+	ld a, 5
+	ld [wBattleFacilityStandardRecordInverseAG], a
+	ld a, 255
+	ld [wBattleFacilityHardcoreRecordInverseAG], a
+;   ---
+	ld a, 35
     ld [wBattleFacilityBacklogPPUPs], a
     ld a, 25
     ld [wBattleFacilityBacklogPerfecters], a

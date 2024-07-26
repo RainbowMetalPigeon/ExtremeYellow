@@ -108,10 +108,28 @@ RandomizeTeamForBattleFacilityTrainer::
 	ld a, [wBattleFacilityBattleMode] ; 0 = standard, 1 = hardcore
 	and a
 	jr z, .standardBattleMode
+
 ; hardcore battle mode = we choose out of the bigger list of megas, legendaries, and other fully evo
 .RNGLoopHardcore
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .poolAGHardcore
+	cp 1
+	jr z, .poolNFEHardcore
+.poolLCHardcore
+	ld hl, LittleCupPokemon
+	call Random
+	cp 66
+	jr nc, .poolLCHardcore
+	jr .uglyLoopHardcore
+.poolNFEHardcore
+	ld hl, NonFullyEvolvedPokemon
+	call Random
+	cp 28
+	jr nc, .poolNFEHardcore
+	jr .uglyLoopHardcore
+.poolAGHardcore ; generate a random number between 0 and len(AllFinalStageMons)-1, i.e. 0 and 105 included
 	ld hl, AllFinalStageMons
-; generate a random number between 0 and len(AllFinalStageMons)-1, i.e. 0 and 105 included
 	call Random
 	cp 106 ; 105+1
 	jr nc, .RNGLoopHardcore
@@ -139,9 +157,28 @@ RandomizeTeamForBattleFacilityTrainer::
 	ld a, [wBattleFacilityMonNumber5]
 	cp [hl] ; hl points to the mon we are trying to generate
 	jr z, .RNGLoopHardcore
-	jr .doneOffset
+	jp .doneOffset
 
 .standardBattleMode ; depending on winning streak and which mon number, choose normal list or Megas' one
+; but first let's check what pool to draw from, as only AG will have Megas
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .poolAGStandard
+	cp 1
+	jr z, .poolNFEStandard
+.poolLCStandard
+	ld hl, LittleCupPokemon
+	call Random
+	cp 66
+	jr nc, .poolLCStandard
+	jr .uglyLoopStandard
+.poolNFEStandard
+	ld hl, NonFullyEvolvedPokemon
+	call Random
+	cp 28
+	jr nc, .poolNFEStandard
+	jr .uglyLoopStandard
+.poolAGStandard
 	ld a, [wBattleFacilityWhichMonIsRandomized]
 	ld hl, wBattleFacilityWinningStreak
 	ld b, [hl] ; how many consecutive victories do we have in this session?
@@ -150,36 +187,36 @@ RandomizeTeamForBattleFacilityTrainer::
 	jr nc, .RNGLoopMega ; if yes, load the list of megas; if not, load the list of non-mega mons
 
 ; loopS for non-Mega
-.RNGLoop
+.RNGLoop ; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 84 included
 	ld hl, FullyEvolvedMons
-; generate a random number between 0 and len(FullyEvolvedMons)-1, i.e. 0 and 84 included
 	call Random
 	cp 85 ; 84+1
 	jr nc, .RNGLoop
+
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
-.uglyLoop
+.uglyLoopStandard
 	dec a
 	cp $FF
-	jr z, .doneUglyLoop
+	jr z, .doneUglyLoopStandard
 	inc hl
-	jr .uglyLoop
-.doneUglyLoop
+	jr .uglyLoopStandard
+.doneUglyLoopStandard
 ; finally, we need to check if the mon we just generated is the same as any of the previously generated ones
 	ld a, [wBattleFacilityMonNumber1]
 	cp [hl] ; hl points to the mon we are trying to generate
-	jr z, .RNGLoop
+	jr z, .standardBattleMode
 	ld a, [wBattleFacilityMonNumber2]
 	cp [hl] ; hl points to the mon we are trying to generate
-	jr z, .RNGLoop
+	jr z, .standardBattleMode
 	ld a, [wBattleFacilityMonNumber3]
 	cp [hl] ; hl points to the mon we are trying to generate
-	jr z, .RNGLoop
+	jr z, .standardBattleMode
 	ld a, [wBattleFacilityMonNumber4]
 	cp [hl] ; hl points to the mon we are trying to generate
-	jr z, .RNGLoop
+	jr z, .standardBattleMode
 	ld a, [wBattleFacilityMonNumber5]
 	cp [hl] ; hl points to the mon we are trying to generate
-	jr z, .RNGLoop
+	jr z, .standardBattleMode
 	jr .doneOffset
 
 ; loopS for Mega
@@ -225,15 +262,23 @@ RandomizeTeamForBattleFacilityTrainer::
 	ld [de], a ; saves Mon in wBattleFacilityMonNumberN
 	ret
 
-AllFinalStageMons: ; 0-105
-;	db MEW ; no, to make it more unique, only you and Rival can have it
+AllAnythingGoesPokemon: ; 114: [0,113]
+	db MEW ; only rival
+	db VENUSTOISE ; only Oak
+	db MISSINGNO ; only you
+	db ZYGARDEC ; only Traveler
+	db UNECROZMA ; only Traveler
+	db MRAYQUAZA ; only Traveler
+	db EETERNATUS ; only Traveler
+	db ARCEUS ; only Traveler
+AllFinalStageMons: ; 106: [0,105]
 	db MEWTWO
 	db ARTICUNO
 	db ZAPDOS
 	db MOLTRES
 	db MMEWTWOX
 	db MMEWTWOY
-FullyEvolvedMons: ; 0-84
+FullyEvolvedMons: ; 85: [0,84]
 	; weaks
 	db BUTTERFREE
 	db BEEDRILL
@@ -322,7 +367,7 @@ FullyEvolvedMons: ; 0-84
 	db SYLVEON
 	db PORYGONZ
 	db MACHAMP
-MegaEvolvedMons: ; 0-14
+MegaEvolvedMons: ; 15: [0,14]
 	db MVENUSAUR
 	db MCHARZARDX
 	db MCHARZARDY
@@ -338,6 +383,154 @@ MegaEvolvedMons: ; 0-14
 	db MPINSIR
 	db MGYARADOS
 	db MARODACTYL
+	db -1 ; ender for the pools checks
+
+LittleCupPokemon: ; 66: [0,65]
+	db BULBASAUR
+	db CHARMANDER
+	db SQUIRTLE
+	db CATERPIE
+	db WEEDLE
+	db PIDGEY
+	db RATTATA
+	db SPEAROW
+	db EKANS
+	db PICHU
+	db SANDSHREW
+	db NIDORAN_F
+	db NIDORAN_M
+	db CLEFFA
+	db VULPIX
+	db IGGLYBUFF
+	db ZUBAT
+	db ODDISH
+	db PARAS
+	db VENONAT
+	db DIGLETT
+	db MEOWTH
+	db PSYDUCK
+	db MANKEY
+	db GROWLITHE
+	db POLIWAG
+	db ABRA
+	db MACHOP
+	db BELLSPROUT
+	db TENTACOOL
+	db GEODUDE
+	db PONYTA
+	db SLOWPOKE
+	db MAGNEMITE
+	db DODUO
+	db SEEL
+	db GRIMER
+	db SHELLDER
+	db GASTLY
+	db ONIX
+	db DROWZEE
+	db KRABBY
+	db VOLTORB
+	db EXEGGCUTE
+	db CUBONE
+	db TYROGUE
+	db LICKITUNG
+	db KOFFING
+	db RHYHORN
+	db HAPPINY
+	db TANGELA
+	db HORSEA
+	db GOLDEEN
+	db STARYU
+	db MIME_JR
+	db SCYTHER
+	db SMOOCHUM
+	db ELEKID
+	db MAGBY
+	db MAGIKARP
+	db EEVEE
+	db PORYGON
+	db OMANYTE
+	db KABUTO
+	db MUNCHLAX
+	db DRATINI
+	db -1
+
+NonFullyEvolvedPokemon: ; 28: [0,27]
+	db IVYSAUR
+	db CHARMELEON
+	db WARTORTLE
+	db METAPOD
+	db KAKUNA
+	db PIDGEOTTO
+	db PIKACHU
+	db NIDORINA
+	db NIDORINO
+	db CLEFAIRY
+	db JIGGLYPUFF
+	db GOLBAT
+	db GLOOM
+	db PRIMEAPE
+	db POLIWHIRL
+	db KADABRA
+	db MACHOKE
+	db WEEPINBELL
+	db GRAVELER
+	db MAGNETON
+	db HAUNTER
+	db RHYDON
+	db CHANSEY
+	db SEADRA
+	db ELECTABUZZ
+	db MAGMAR
+	db PORYGON2
+	db DRAGONAIR
+	db -1
+
+; =====================================
+
+; c flag if the team has a non-allowed mon
+CheckIfTeamIsValidForSelectedBFPool::
+	ld de, wPartyCount
+	ld a, [de]
+	inc de
+	ld c, a ; c holds the number of mons in player's team
+
+.loopCheckForAG
+	ld hl, AllAnythingGoesPokemon
+	ld a, [de]
+	inc de
+	push de
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	pop de
+	ret c
+	dec c
+	jr nz, .loopCheckForAG
+
+; match AG not found, check if we need to look for NFE mons
+	ld a, [wBattleFacilityPokemonPool] ; 1 for NFE, 2 for LC
+	cp 1
+	jr z, .matchNotFound
+
+; we need to check for NFE too
+	ld de, wPartyCount
+	ld a, [de]
+	inc de
+	ld c, a ; c holds the number of mons in player's team
+.loopCheckForNFE
+	ld hl, NonFullyEvolvedPokemon
+	ld a, [de]
+	inc de
+	push de
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	pop de
+	ret c
+	dec c
+	jr nz, .loopCheckForNFE
+
+.matchNotFound
+	and a ; to reset the c flag
+	ret
 
 ; =====================================
 

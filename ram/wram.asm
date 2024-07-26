@@ -2386,7 +2386,7 @@ wRedsHouse1FCurScript:: db ; new
 wRoute15Gate2FCurScript:: db ; new
 wRoute28CurScript:: db ; new
 wRoute27CurScript:: db ; new
-	ds 32 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
+	ds 20 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2399,25 +2399,37 @@ wTyrogueEvolutions::
 	; stores directly the number/name of the chosen Hitmon
 	ds 1
 
-wBattleFacilityBattleMode:: db ; new: 0 is standard (blocks of 7 battles), 1 is for hardcore
+wBattleFacilityPokemonPool:: db ; new: 0 for AG, 1 for NFE, 2 for LC, 3 for exit
+wBattleFacilityBattleMode:: db ; new: 0 is standard (blocks of 7 battles), 1 is for hardcore, 2 is for exit
 wBattleFacilityInverseBattle:: db ; new: if 0, Normal battle; if 1, Inverse Battle
 
-wBattleFacilityStandardCurrentStreakNormal:: db ; new
-wBattleFacilityStandardCurrentStreakInverse:: db ; new
+wBattleFacilityStandardCurrentStreakNormalAG:: db ; new
+wBattleFacilityStandardCurrentStreakNormalNFE:: db ; new
+wBattleFacilityStandardCurrentStreakNormalLC:: db ; new
+wBattleFacilityStandardCurrentStreakInverseAG:: db ; new
+wBattleFacilityStandardCurrentStreakInverseNFE:: db ; new
+wBattleFacilityStandardCurrentStreakInverseLC:: db ; new
 wBattleFacilityHardcoreCurrentStreak:: db ; new
 
-wBattleFacilityHardcoreRecordNormal:: db ; new
-wBattleFacilityHardcoreRecordInverse:: db ; new
+wBattleFacilityStandardRecordNormalAG:: db ; new
+wBattleFacilityStandardRecordNormalNFE:: db ; new
+wBattleFacilityStandardRecordNormalLC:: db ; new
+wBattleFacilityStandardRecordInverseAG:: db ; new
+wBattleFacilityStandardRecordInverseNFE:: db ; new
+wBattleFacilityStandardRecordInverseLC:: db ; new
 
-wBattleFacilityStandardRecordNormal:: db ; new
-wBattleFacilityStandardRecordInverse:: db ; new
+wBattleFacilityHardcoreRecordNormalAG:: db ; new
+wBattleFacilityHardcoreRecordNormalNFE:: db ; new
+wBattleFacilityHardcoreRecordNormalLC:: db ; new
+wBattleFacilityHardcoreRecordInverseAG:: db ; new
+wBattleFacilityHardcoreRecordInverseNFE:: db ; new
+wBattleFacilityHardcoreRecordInverseLC:: db ; new
 
 wBattleFacilityBacklogPPUPs:: db ; new
 wBattleFacilityBacklogPerfecters:: db ; new
 wBattleFacilityBacklogChromogenes:: db ; new
 
-; UNUSED bytes in "Main Data"
-	ds  1 ; edited, originally 56
+; edited, originally was ds 56
 	      ; reduced by 3 for gender, tyrogue, and accuracypercent
 		  ; by 16 for increasing max warps from 32 to 36
 		  ; by 8 for new HS variables

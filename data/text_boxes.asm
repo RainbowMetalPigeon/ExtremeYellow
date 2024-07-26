@@ -8,8 +8,8 @@ TextBoxFunctionTable:
 TextBoxCoordTable:
 	; text box ID, upper-left X, upper-left Y, lower-right X, lower-right Y
 	db MESSAGE_BOX,       0, 12, 19, 17
-	db MENU_TEMPLATE_03,  0,  0, 19, 14
-	db MENU_TEMPLATE_07,  0,  0, 11,  6
+;	db MENU_TEMPLATE_03,  0,  0, 19, 14 ; edited, removed as it was not used
+;	db MENU_TEMPLATE_07,  0,  0, 11,  6 ; edited, removed as it was not used
 	db LIST_MENU_BOX,     4,  2, 19, 12
 ;	db MENU_TEMPLATE_10,  7,  0, 19, 17 ; edited, removed as it was not used
 	db MON_SPRITE_POPUP,  6,  4, 14, 13
@@ -39,6 +39,8 @@ TextBoxTextAndCoordTable:
 	text_box_text BF_MENU_INFO_BATTLE_EXIT,          11,  6, 19, 12, BFInfoBattleExit,        13,  7 ; new
 	text_box_text BF_MENU_INFO_BATTLE_PRIZES_EXIT,   11,  4, 19, 12, BFInfoBattlePrizesExit,  13,  5 ; new, TBV
 	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,    11,  6, 19, 12, BFStandardHardcoreExit,  13,  7 ; new
+	text_box_text BF_MENU_AG_NFE_LC_EXIT,            11,  4, 19, 12, BFAgNfeLcExit,           13,  5 ; new
+	text_box_text BF_MENU_NORMAL_INVERSE_EXIT,       10,  6, 19, 12, BFNormalInverseExit,     12,  7 ; new
 	text_box_text MENU_POKEMON_ATTACKS_EXIT,         10,  6, 19, 12, MenuPokemonAttacksExit,  12,  7 ; new
 
 BuySellQuitText:
@@ -108,6 +110,17 @@ BFInfoBattlePrizesExit: ; new
 BFStandardHardcoreExit: ; new
 	db   "STAND."
 	next "HARDC."
+	next "EXIT@"
+
+BFAgNfeLcExit: ; new
+	db   "A.G."
+	next "N.F.E."
+	next "L.C."
+	next "EXIT@"
+
+BFNormalInverseExit: ; new
+	db   "NORMAL"
+	next "INVERSE"
 	next "EXIT@"
 
 MenuPokemonAttacksExit: ; new

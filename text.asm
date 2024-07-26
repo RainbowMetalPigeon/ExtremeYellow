@@ -259,9 +259,6 @@ INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new
-INCLUDE "text/NameRatersHouse.asm"
-INCLUDE "text/CinnabarVolcano.asm" ; new
-INCLUDE "text/CinnabarVolcanoBF.asm" ; new
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -302,6 +299,9 @@ INCLUDE "text/SilphCo7F.asm"
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "data/text/text_9.asm"
 INCLUDE "text/PokemonFanClub.asm"
+INCLUDE "text/CinnabarVolcano.asm" ; new
+INCLUDE "text/CinnabarVolcanoBF.asm" ; new
+INCLUDE "text/NameRatersHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

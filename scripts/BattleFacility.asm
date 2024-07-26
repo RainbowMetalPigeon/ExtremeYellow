@@ -1,6 +1,5 @@
 BattleFacility_Script:
 	call EnableAutoTextBoxDrawing
-;	ld hl, BattleFacilityTrainerHeaders
 	ld de, BattleFacility_ScriptPointers
 	ld a, [wBattleFacilityCurScript]
 	call ExecuteCurMapScriptInTable
@@ -459,24 +458,71 @@ BattleFacilityScript12_AfterWarpVictory:
 	and a
 	jr nz, .standard_inverse
 ; standard_normal
-	ld a, [wBattleFacilityStandardCurrentStreakNormal]
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .standard_normal_AG
+	cp 1
+	jr z, .standard_normal_NFE
+; standard_normal_LC
+	ld a, [wBattleFacilityStandardCurrentStreakNormalLC]
 	inc a
-	ld [wBattleFacilityStandardCurrentStreakNormal], a
-	ld hl, wBattleFacilityStandardRecordNormal
+	ld [wBattleFacilityStandardCurrentStreakNormalLC], a
+	ld hl, wBattleFacilityStandardRecordNormalLC
 	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
 	jr c, .givePrizes
-	ld [wBattleFacilityStandardRecordNormal], a ; "useless" in case we achieve the same record as last time
-												; otherwise it updates the record
+	ld [wBattleFacilityStandardRecordNormalLC], a ; "useless" in case we achieve the same record as last time, otherwise it updates the record
 	jr .givePrizes
-.standard_inverse
-	ld a, [wBattleFacilityStandardCurrentStreakInverse]
+.standard_normal_NFE
+	ld a, [wBattleFacilityStandardCurrentStreakNormalNFE]
 	inc a
-	ld [wBattleFacilityStandardCurrentStreakInverse], a
-	ld hl, wBattleFacilityStandardRecordInverse
+	ld [wBattleFacilityStandardCurrentStreakNormalNFE], a
+	ld hl, wBattleFacilityStandardRecordNormalNFE
 	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
 	jr c, .givePrizes
-	ld [wBattleFacilityStandardRecordInverse], a ; "useless" in case we achieve the same record as last time
-												 ; otherwise it updates the record
+	ld [wBattleFacilityStandardRecordNormalNFE], a ; "useless" in case we achieve the same record as last time, otherwise it updates the record
+	jr .givePrizes
+.standard_normal_AG
+	ld a, [wBattleFacilityStandardCurrentStreakNormalAG]
+	inc a
+	ld [wBattleFacilityStandardCurrentStreakNormalAG], a
+	ld hl, wBattleFacilityStandardRecordNormalAG
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .givePrizes
+	ld [wBattleFacilityStandardRecordNormalAG], a ; "useless" in case we achieve the same record as last time, otherwise it updates the record
+	jr .givePrizes
+
+.standard_inverse
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .standard_inverse_AG
+	cp 1
+	jr z, .standard_inverse_NFE
+; standard_inverse_LC
+	ld a, [wBattleFacilityStandardCurrentStreakInverseLC]
+	inc a
+	ld [wBattleFacilityStandardCurrentStreakInverseLC], a
+	ld hl, wBattleFacilityStandardRecordInverseLC
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .givePrizes
+	ld [wBattleFacilityStandardRecordInverseLC], a ; "useless" in case we achieve the same record as last time, otherwise it updates the record
+	jr .givePrizes
+.standard_inverse_NFE
+	ld a, [wBattleFacilityStandardCurrentStreakInverseNFE]
+	inc a
+	ld [wBattleFacilityStandardCurrentStreakInverseNFE], a
+	ld hl, wBattleFacilityStandardRecordInverseNFE
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .givePrizes
+	ld [wBattleFacilityStandardRecordInverseNFE], a ; "useless" in case we achieve the same record as last time, otherwise it updates the record
+	jr .givePrizes
+.standard_inverse_AG
+	ld a, [wBattleFacilityStandardCurrentStreakInverseAG]
+	inc a
+	ld [wBattleFacilityStandardCurrentStreakInverseAG], a
+	ld hl, wBattleFacilityStandardRecordInverseAG
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .givePrizes
+	ld [wBattleFacilityStandardRecordInverseAG], a ; "useless" in case we achieve the same record as last time, otherwise it updates the record
 .givePrizes ; a still holds wBattleFacilityStandardCurrentStreakX (normal or inverse, doesn't matter)
 ; check which prize to give: PERFECTER normally, CHROMOGENE if streak is multiple of 7 (some weirdnesses when we go beyond 255 but oh well)
 	call CheckIfMultipleOf7 ; z flag if multiple
@@ -543,30 +589,98 @@ BattleFacilityScript13_AfterWarpDefeat:
 	and a
 	jr nz, .standard_inverse
 ; standard_normal
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .standard_normal_AG
+	cp 1
+	jr z, .standard_normal_NFE
+; standard_normal_LC
 	xor a
-	ld [wBattleFacilityStandardCurrentStreakNormal], a
-	jr .scriptHandling
+	ld [wBattleFacilityStandardCurrentStreakNormalLC], a
+	jp .scriptHandling
+.standard_normal_NFE
+	xor a
+	ld [wBattleFacilityStandardCurrentStreakNormalNFE], a
+	jp .scriptHandling
+.standard_normal_AG
+	xor a
+	ld [wBattleFacilityStandardCurrentStreakNormalAG], a
+	jp .scriptHandling
 .standard_inverse
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .standard_invese_AG
+	cp 1
+	jr z, .standard_invese_NFE
+; standard_invese_LC
 	xor a
-	ld [wBattleFacilityStandardCurrentStreakInverse], a
+	ld [wBattleFacilityStandardCurrentStreakInverseLC], a
+	jr .scriptHandling
+.standard_invese_NFE
+	xor a
+	ld [wBattleFacilityStandardCurrentStreakInverseNFE], a
+	jr .scriptHandling
+.standard_invese_AG
+	xor a
+	ld [wBattleFacilityStandardCurrentStreakInverseAG], a
 	jr .scriptHandling
 .hardcore
 	ld a, [wBattleFacilityInverseBattle] ; 0 for Normal battle, 1 for Inverse Battle
 	and a
 	jr nz, .hardcore_inverse
 ; hardcore_normal
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .hardcore_normal_AG
+	cp 1
+	jr z, .hardcore_normal_NFE
+; hardcore_normal_LC
 	ld a, [wBattleFacilityHardcoreCurrentStreak]
-	ld hl, wBattleFacilityHardcoreRecordNormal
+	ld hl, wBattleFacilityHardcoreRecordNormalLC
 	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
 	jr c, .scriptHandling
-	ld [wBattleFacilityHardcoreRecordNormal], a
+	ld [wBattleFacilityHardcoreRecordNormalLC], a
+	jr .scriptHandling
+.hardcore_normal_NFE
+	ld a, [wBattleFacilityHardcoreCurrentStreak]
+	ld hl, wBattleFacilityHardcoreRecordNormalNFE
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityHardcoreRecordNormalNFE], a
+	jr .scriptHandling
+.hardcore_normal_AG
+	ld a, [wBattleFacilityHardcoreCurrentStreak]
+	ld hl, wBattleFacilityHardcoreRecordNormalAG
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityHardcoreRecordNormalAG], a
 	jr .scriptHandling
 .hardcore_inverse
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .hardcore_inverse_AG
+	cp 1
+	jr z, .hardcore_inverse_NFE
+; hardcore_inverse_LC
 	ld a, [wBattleFacilityHardcoreCurrentStreak]
-	ld hl, wBattleFacilityHardcoreRecordInverse
+	ld hl, wBattleFacilityHardcoreRecordInverseLC
 	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
 	jr c, .scriptHandling
-	ld [wBattleFacilityHardcoreRecordInverse], a
+	ld [wBattleFacilityHardcoreRecordInverseLC], a
+	jr .scriptHandling
+.hardcore_inverse_NFE
+	ld a, [wBattleFacilityHardcoreCurrentStreak]
+	ld hl, wBattleFacilityHardcoreRecordInverseNFE
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityHardcoreRecordInverseNFE], a
+	jr .scriptHandling
+.hardcore_inverse_AG
+	ld a, [wBattleFacilityHardcoreCurrentStreak]
+	ld hl, wBattleFacilityHardcoreRecordInverseAG
+	cp [hl] ; = a-[hl] = current vs record streak; if <0 (aka c flag), we do nothing, otherwise we update
+	jr c, .scriptHandling
+	ld [wBattleFacilityHardcoreRecordInverseAG], a
 .scriptHandling
 	ld a, 0
 	ld [wBattleFacilityCurScript], a
@@ -686,10 +800,28 @@ BattleFacilityTextGuide:
 	ld hl, BattleFacilityTextGuide_Exit
 	call PrintText
 	jp TextScriptEnd
+.teamNotValid
+	ld hl, BattleFacilityTextGuide_TeamNotValid
+	call PrintText
+	jp TextScriptEnd
 .battle
+; ask what pokemon pool
+	ld hl, BattleFacilityTextGuide_Battle0
+	call PrintText
+	call WhatBattleFacilityPool
+	ld a, [wCurrentMenuItem] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC, 3 for EXIT
+	cp 3 ; EXIT
+	jr z, .exit
+	ld [wBattleFacilityPokemonPool], a ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+; check if our team is valid
+	and a
+	jr z, .postPoolChecks
+	callfar CheckIfTeamIsValidForSelectedBFPool ; c flag if team has a non-allowed mon
+	jr c, .teamNotValid
+.postPoolChecks
+; ask what battle mode
 	ld hl, BattleFacilityTextGuide_Battle1
 	call PrintText
-; ask what battle mode
 	call WhatBattleFacilityMode
 	ld a, [wCurrentMenuItem] ; 0 for STANDARD, 1 for HARDCORE, 2 for EXIT
 	cp 2 ; EXIT
@@ -698,12 +830,14 @@ BattleFacilityTextGuide:
 ; ask if normal or inverse battle
 	ld hl, BattleFacilityTextGuide_Battle2
 	call PrintText
-	callfar NormalInverseChoice
+	call WhatBattleFacilityStyleNormalInverse
 	ld a, [wCurrentMenuItem]
+	cp 2 ; EXIT
+	jr z, .exit
 	ld [wBattleFacilityInverseBattle], a ; 0 for Normal battle, 1 for Inverse Battle
 	ld hl, BattleFacilityTextGuide_Battle3
 	call PrintText
-; reset the "internal" winning streak for standard mode, here is good enough
+; reset the "internal" winning streak, here is good enough
 	xor a
 	ld [wBattleFacilityWinningStreak], a
 ; set the battle style as Set (not Shift)
@@ -767,6 +901,14 @@ BattleFacilityTextGuide_Prizes_Ender:
 
 BattleFacilityTextGuide_Exit:
 	text_far _BattleFacilityTextGuide_Exit
+	text_end
+
+BattleFacilityTextGuide_TeamNotValid:
+	text_far _BattleFacilityTextGuide_TeamNotValid
+	text_end
+
+BattleFacilityTextGuide_Battle0:
+	text_far _BattleFacilityTextGuide_Battle0
 	text_end
 
 BattleFacilityTextGuide_Battle1:
@@ -878,7 +1020,13 @@ BattleFacilityTextSignRecordsNormal:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a ; ? what does this do?
 	ld hl, BattleFacilitySignIntroNormal
 	call PrintText
-	call PrintBattleFacilityRecords ; the wrapper for the main function
+	call WhatBattleFacilityPool
+	ld a, [wCurrentMenuItem] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC, 3 for EXIT
+	cp 3
+	jr z, .terminate
+	ld [wBattleFacilityPokemonPool], a ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	call PrintBattleFacilityRecords_Standard ; the wrapper for the main function
+.terminate
 	jp TextScriptEnd
 
 BattleFacilitySignIntroNormal:
@@ -892,7 +1040,13 @@ BattleFacilityTextSignRecordsInverse:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a ; ? what does this do?
 	ld hl, BattleFacilitySignIntroInverse
 	call PrintText
-	call PrintBattleFacilityRecords ; the wrapper for the main function
+	call WhatBattleFacilityPool
+	ld a, [wCurrentMenuItem] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC, 3 for EXIT
+	cp 3
+	jr z, .terminate
+	ld [wBattleFacilityPokemonPool], a ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	call PrintBattleFacilityRecords_Hardcore ; the wrapper for the main function
+.terminate
 	jp TextScriptEnd
 
 BattleFacilitySignIntroInverse:
@@ -900,13 +1054,33 @@ BattleFacilitySignIntroInverse:
 	text_waitbutton
 	text_end
 
-PrintBattleFacilityRecords:
+PrintBattleFacilityRecords_Standard:
 	call SaveScreenTilesToBuffer2
 	ld hl, wd730
 	set 6, [hl] ; bit 6: print text with no delay between each letter
 	xor a
 	ld [wUpdateSpritesEnabled], a
-	callfar Printer_PrintBattleFacilityRecords ; the beefy function, the rest is to set up the graphic
+	callfar Printer_PrintBattleFacilityRecords_Standard ; the beefy function, the rest is to set up the graphic
+	call WaitForTextScrollButtonPress
+	ld hl, wd730
+	res 6, [hl] ; bit 6: print text with no delay between each letter
+	call GBPalWhiteOutWithDelay3
+	call ReloadTilesetTilePatterns
+	call RestoreScreenTilesAndReloadTilePatterns
+	call LoadScreenTilesFromBuffer2
+	call Delay3
+	call GBPalNormal
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
+	ret
+
+PrintBattleFacilityRecords_Hardcore:
+	call SaveScreenTilesToBuffer2
+	ld hl, wd730
+	set 6, [hl] ; bit 6: print text with no delay between each letter
+	xor a
+	ld [wUpdateSpritesEnabled], a
+	callfar Printer_PrintBattleFacilityRecords_Hardcore ; the beefy function, the rest is to set up the graphic
 	call WaitForTextScrollButtonPress
 	ld hl, wd730
 	res 6, [hl] ; bit 6: print text with no delay between each letter
@@ -936,6 +1110,7 @@ BattleFacilityText_HealAndSmolPrize:
 
 BattleFacilityText_ReceivedItem:
 	text_far _BattleFacilityText_ReceivedItem
+	sound_get_item_1
 	text_end
 
 BattleFacilityText_BagFull:
@@ -1031,6 +1206,39 @@ AskHowTheyCanHelp:
 
 ; -------------------------------------
 
+WhatBattleFacilityPool:
+	call SaveScreenTilesToBuffer1
+	ld a, BF_MENU_AG_NFE_LC_EXIT
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 5 ; AAA
+	ld [hli], a ; top menu item Y
+	ld a, 12 ; AAA
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, $3
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .defaultOption ; if B was pressed, exit
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.defaultOption
+	ld a, $03
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1
+
+; -------------------------------------
+
 WhatBattleFacilityMode:
 	call SaveScreenTilesToBuffer1
 	ld a, BF_MENU_STANDARD_HARDCORE_EXIT
@@ -1052,7 +1260,40 @@ WhatBattleFacilityMode:
 	ld [hl], a ; wLastMenuItem
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
-	jr nz, .defaultOption ; if B was pressed, assign enby
+	jr nz, .defaultOption ; if B was pressed, exit
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.defaultOption
+	ld a, $02
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1
+
+; -------------------------------------
+
+WhatBattleFacilityStyleNormalInverse:
+	call SaveScreenTilesToBuffer1
+	ld a, BF_MENU_NORMAL_INVERSE_EXIT
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 7
+	ld [hli], a ; top menu item Y
+	ld a, 11 ; AAA
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, $2
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .defaultOption ; if B was pressed, exit
 ; A was pressed
 	call PlaceUnfilledArrowMenuCursor
 	ld a, [wCurrentMenuItem]

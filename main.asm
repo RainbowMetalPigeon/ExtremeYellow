@@ -407,13 +407,17 @@ SECTION "bank30", ROMX
 
 SECTION "bank3A", ROMX
 
-INCLUDE "data/pokemon/names.asm"
+;INCLUDE "data/pokemon/names.asm"
 INCLUDE "engine/overworld/is_player_just_outside_map.asm"
 INCLUDE "engine/printer/serial.asm"
 INCLUDE "engine/printer/printer.asm"
 INCLUDE "engine/events/diploma2.asm"
 INCLUDE "engine/printer/printer2.asm"
 INCLUDE "engine/overworld/npc_movement_2.asm"
+
+SECTION "bank3Abis", ROMX ; new
+
+INCLUDE "data/pokemon/names.asm"
 
 
 SECTION "Pikachu PCM", ROMX

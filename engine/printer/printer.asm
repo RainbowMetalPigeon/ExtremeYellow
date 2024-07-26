@@ -996,7 +996,7 @@ PrintPCBox_PlaceHorizontalLines:
 
 ; new, for Battle Facility =============================================
 
-Printer_PrintBattleFacilityRecords::
+Printer_PrintBattleFacilityRecords_Standard::
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 	ld de, SurfingPikachu2Graphics ; TBE, may change it for something more tailored?
@@ -1025,20 +1025,37 @@ Printer_PrintBattleFacilityRecords::
 	hlcoord 19, 17
 	ld [hl], a
 
-; draw string for BF
-	ld de, .BattleFacilityString
-	hlcoord 3, 2
+;; draw string for BF
+;	ld de, .BattleFacilityString
+;	hlcoord 3, 2
+;	call PlaceString
+
+; draw string for STANDARD MODE
+	ld de, .StandardModeString
+	hlcoord 4, 2
 	call PlaceString
 
-; draw string for NORMAL/INVERSE battle(s)
-	ld de, .NormalBattleString
-	ld a, [wXCoord]
+; draw string for the selected pool
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .loadStringAG
 	cp 1
-	jr z, .continue3
-	ld de, .InverseBattleString
-.continue3
+	jr z, .loadStringNFE
+;.loadStringLC
+	ld de, .LittleCupString
+	hlcoord 6, 4
+	call PlaceString
+	jr .endStringPool
+.loadStringNFE
+	ld de, .NotFullyEvolvedString
+	hlcoord 2, 4
+	call PlaceString
+	jr .endStringPool
+.loadStringAG
+	ld de, .AnythingGoesString
 	hlcoord 4, 4
 	call PlaceString
+.endStringPool
 
 ; draw string for player's name
 	ld de, wPlayerName
@@ -1064,8 +1081,8 @@ Printer_PrintBattleFacilityRecords::
 	hlcoord 9, 6
 	call PlaceString
 
-; draw string for STANDARD
-	ld de, .StandardModeString
+; draw string for NORMAL (STYLE)
+	ld de, .NormalBattleString
 	hlcoord 1, 10
 	call PlaceString
 
@@ -1074,61 +1091,77 @@ Printer_PrintBattleFacilityRecords::
 	hlcoord 10, 12
 	call PlaceString
 
-; draw string for HARDCORE
-	ld de, .HardcoreModeString
+; draw string for INVERSE (STYLE)
+	ld de, .InverseBattleString
 	hlcoord 1, 14
 	call PlaceString
 
-; draw string for battles
-	ld de, .BattlesString
+; draw string for sessions
+	ld de, .SessionsString
 	hlcoord 10, 16
 	call PlaceString
 
-; draw record for STANDARD
-	hlcoord 10, 10
-	ld de, wBattleFacilityStandardRecordNormal
-	ld a, [wXCoord] ; horrible horrible solution lol
+; draw record for STANDARD-NORMAL
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .loadRecordsForAG_Normal
 	cp 1
-	jr z, .continue1
-	ld de, wBattleFacilityStandardRecordInverse
-.continue1
+	jr z, .loadRecordsForNFE_Normal
+;.loadRecordsForLC_Normal
+	ld de, wBattleFacilityStandardRecordNormalLC
+	jr .doneLoadingRecords_Normal
+.loadRecordsForNFE_Normal
+	ld de, wBattleFacilityStandardRecordNormalNFE
+	jr .doneLoadingRecords_Normal
+.loadRecordsForAG_Normal
+	ld de, wBattleFacilityStandardRecordNormalAG
+.doneLoadingRecords_Normal
+	hlcoord 10, 10
 ; check to see if we maxed out
 	ld a, [de]
 	cp 255
-	jr z, .standardMAX
+	jr z, .normalMAX
 ; no maxed out
 	lb bc, 1, 3
 	call PrintNumber
-	jr .standardContinue
+	jr .normalContinue
 
-.standardMAX
+.normalMAX
 	ld de, .MAXString
 	hlcoord 10, 10
 	call PlaceString
-.standardContinue
+.normalContinue
 
-; draw record for HARDCORE
-	hlcoord 10, 14
-	ld de, wBattleFacilityHardcoreRecordNormal
-	ld a, [wXCoord]
+; draw record for STANDARD-INVERSE
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .loadRecordsForAG_Inverse
 	cp 1
-	jr z, .continue2
-	ld de, wBattleFacilityHardcoreRecordInverse
-.continue2
+	jr z, .loadRecordsForNFE_Inverse
+;.loadRecordsForLC_Inverse
+	ld de, wBattleFacilityStandardRecordInverseLC
+	jr .doneLoadingRecords_Inverse
+.loadRecordsForNFE_Inverse
+	ld de, wBattleFacilityStandardRecordInverseNFE
+	jr .doneLoadingRecords_Inverse
+.loadRecordsForAG_Inverse
+	ld de, wBattleFacilityStandardRecordInverseAG
+.doneLoadingRecords_Inverse
+	hlcoord 10, 14
 ; check to see if we maxed out
 	ld a, [de]
 	cp 255
-	jr z, .hardcoreMAX
+	jr z, .inverseMAX
 ; no maxed out
 	lb bc, 1, 3
 	call PrintNumber
-	jr .hardcoreContinue
+	jr .inverseContinue
 
-.hardcoreMAX
+.inverseMAX
 	ld de, .MAXString
 	hlcoord 10, 14
 	call PlaceString
-.hardcoreContinue
+.inverseContinue
 
 ; set color and conclude
 	ld b, SET_PAL_TOWN_MAP
@@ -1164,19 +1197,243 @@ Printer_PrintBattleFacilityRecords::
 
 .BattleFacilityString:
 	db "BATTLE FACILITY@"
+.AnythingGoesString:
+	db "ANYTHING GOES@"
+.NotFullyEvolvedString:
+	db "NOT FULLY EVOLVED@"
+.LittleCupString:
+	db "LITTLE CUP@"
 .NormalBattleString:
-	db "NORMAL BATTLE@"
+	db "NORMAL :@"
 .InverseBattleString:
-	db "INVERSE BATTLE@"
+	db "INVERSE:@"
 .StandardModeString:
-	db "STANDARD:@"
-.HardcoreModeString:
-	db "HARDCORE:@"
+	db "STANDARD MODE@"
 .RecordsString:
 	db "'s RECORDs@"
 .SessionsString:
 	db "SESSIONs@"
+.MAXString:
+	db "MAX@"
+
+; ---------------------------------------------------
+
+Printer_PrintBattleFacilityRecords_Hardcore::
+	call GBPalWhiteOutWithDelay3
+	call ClearScreen
+	ld de, SurfingPikachu2Graphics ; TBE, may change it for something more tailored?
+	ld hl, vChars2
+	lb bc, BANK(SurfingPikachu2Graphics), (SurfingPikachu2GraphicsEnd - SurfingPikachu2Graphics) / $10 ; TBE
+	call CopyVideoData
+
+; draws external columns and rows
+	hlcoord 0, 0
+	call .PlaceRowAlternatingTiles
+	hlcoord 0, 17
+	call .PlaceRowAlternatingTiles
+	hlcoord 0, 0
+	call .PlaceColumnAlternatingTiles
+	hlcoord 19, 0
+	call .PlaceColumnAlternatingTiles
+
+; draws corners
+	ld a, $4
+	hlcoord 0, 0
+	ld [hl], a
+	hlcoord 0, 17
+	ld [hl], a
+	hlcoord 19, 0
+	ld [hl], a
+	hlcoord 19, 17
+	ld [hl], a
+
+;; draw string for BF
+;	ld de, .BattleFacilityString
+;	hlcoord 3, 2
+;	call PlaceString
+
+; draw string for HARDCORE MODE
+	ld de, .HardcoreModeString
+	hlcoord 4, 2
+	call PlaceString
+
+; draw string for the selected pool
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .loadStringAG
+	cp 1
+	jr z, .loadStringNFE
+;.loadStringLC
+	ld de, .LittleCupString
+	hlcoord 6, 4
+	call PlaceString
+	jr .endStringPool
+.loadStringNFE
+	ld de, .NotFullyEvolvedString
+	hlcoord 2, 4
+	call PlaceString
+	jr .endStringPool
+.loadStringAG
+	ld de, .AnythingGoesString
+	hlcoord 4, 4
+	call PlaceString
+.endStringPool
+
+; draw string for player's name
+	ld de, wPlayerName
+	ld hl, wPlayerName
+	ld bc, 0
+.find_end_of_name
+	ld a, [hli]
+	inc c
+	cp "@"
+	jr nz, .find_end_of_name
+	ld a, 8
+	sub c
+	jr nc, .got_name_length
+	xor a
+.got_name_length
+	ld c, a
+	hlcoord 2, 6
+	add hl, bc
+	call PlaceString
+
+; draw string for RECORDs
+	ld de, .RecordsString
+	hlcoord 9, 6
+	call PlaceString
+
+; draw string for NORMAL (STYLE)
+	ld de, .NormalBattleString
+	hlcoord 1, 10
+	call PlaceString
+
+; draw string for battles
+	ld de, .BattlesString
+	hlcoord 10, 12
+	call PlaceString
+
+; draw string for INVERSE (STYLE)
+	ld de, .InverseBattleString
+	hlcoord 1, 14
+	call PlaceString
+
+; draw string for battles
+	ld de, .BattlesString
+	hlcoord 10, 16
+	call PlaceString
+
+; draw record for HARDCORE-NORMAL
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .loadRecordsForAG_Normal
+	cp 1
+	jr z, .loadRecordsForNFE_Normal
+;.loadRecordsForLC_Normal
+	ld de, wBattleFacilityHardcoreRecordNormalLC
+	jr .doneLoadingRecords_Normal
+.loadRecordsForNFE_Normal
+	ld de, wBattleFacilityHardcoreRecordNormalNFE
+	jr .doneLoadingRecords_Normal
+.loadRecordsForAG_Normal
+	ld de, wBattleFacilityHardcoreRecordNormalAG
+.doneLoadingRecords_Normal
+	hlcoord 10, 10
+; check to see if we maxed out
+	ld a, [de]
+	cp 255
+	jr z, .normalMAX
+; no maxed out
+	lb bc, 1, 3
+	call PrintNumber
+	jr .normalContinue
+
+.normalMAX
+	ld de, .MAXString
+	hlcoord 10, 10
+	call PlaceString
+.normalContinue
+
+; draw record for HARDCORE-INVERSE
+	ld a, [wBattleFacilityPokemonPool] ; 0 for ANYTHING GOES, 1 for NFE, 2 for LC
+	and a
+	jr z, .loadRecordsForAG_Inverse
+	cp 1
+	jr z, .loadRecordsForNFE_Inverse
+;.loadRecordsForLC_Inverse
+	ld de, wBattleFacilityHardcoreRecordInverseLC
+	jr .doneLoadingRecords_Inverse
+.loadRecordsForNFE_Inverse
+	ld de, wBattleFacilityHardcoreRecordInverseNFE
+	jr .doneLoadingRecords_Inverse
+.loadRecordsForAG_Inverse
+	ld de, wBattleFacilityHardcoreRecordInverseAG
+.doneLoadingRecords_Inverse
+	hlcoord 10, 14
+; check to see if we maxed out
+	ld a, [de]
+	cp 255
+	jr z, .inverseMAX
+; no maxed out
+	lb bc, 1, 3
+	call PrintNumber
+	jr .inverseContinue
+
+.inverseMAX
+	ld de, .MAXString
+	hlcoord 10, 14
+	call PlaceString
+.inverseContinue
+
+; set color and conclude
+	ld b, SET_PAL_TOWN_MAP
+	call RunPaletteCommand
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a
+	call Delay3
+	call GBPalNormal
+	ret
+
+.PlaceRowAlternatingTiles:
+	ld c, SCREEN_WIDTH / 2
+.row_loop
+	ld [hl], $0
+	inc hl
+	ld [hl], $1
+	inc hl
+	dec c
+	jr nz, .row_loop
+	ret
+
+.PlaceColumnAlternatingTiles:
+	ld c, SCREEN_HEIGHT / 2
+	ld de, SCREEN_WIDTH
+.col_loop
+	ld [hl], $2
+	add hl, de
+	ld [hl], $3
+	add hl, de
+	dec c
+	jr nz, .col_loop
+	ret
+
+.BattleFacilityString:
+	db "BATTLE FACILITY@"
+.AnythingGoesString:
+	db "ANYTHING GOES@"
+.NotFullyEvolvedString:
+	db "NOT FULLY EVOLVED@"
+.LittleCupString:
+	db "LITTLE CUP@"
+.NormalBattleString:
+	db "NORMAL :@"
+.InverseBattleString:
+	db "INVERSE:@"
+.HardcoreModeString:
+	db "HARDCORE MODE@"
+.RecordsString:
+	db "'s RECORDs@"
 .BattlesString:
-	db "BATTLEs@"
+	db "BATTLES@"
 .MAXString:
 	db "MAX@"

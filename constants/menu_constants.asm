@@ -5,11 +5,11 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const_def 1
 	const MESSAGE_BOX                       ; $01
 	const_skip                              ; $02
-	const MENU_TEMPLATE_03                  ; $03 unused
+	const BF_MENU_AG_NFE_LC_EXIT            ; $03 new for Battle Facility, was MENU_TEMPLATE_03
 	const FIELD_MOVE_MON_MENU               ; $04
 	const JP_MOCHIMONO_MENU_TEMPLATE        ; $05
 	const USE_INFO_TOSS_MENU_TEMPLATE       ; $06 ; edited, was USE_TOSS_MENU_TEMPLATE
-	const MENU_TEMPLATE_07                  ; $07 unused
+	const BF_MENU_NORMAL_INVERSE_EXIT       ; $07 new for Battle Facility, was MENU_TEMPLATE_07
 	const JP_SAVE_MESSAGE_MENU_TEMPLATE     ; $08
 	const JP_SPEED_OPTIONS_MENU_TEMPLATE    ; $09
 	const MENU_POKEMON_ATTACKS_EXIT         ; $0a ; new, for attackdex

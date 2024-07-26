@@ -38,16 +38,40 @@ CeladonHotelRoomsSpawns:
 	CheckEvent EVENT_MAXED_BATTLE_FACILITY
 	jr nz, .checkInverseBattles
 ; event not set yet, check if to be set
-	ld a, [wBattleFacilityStandardRecordNormal]
+	ld a, [wBattleFacilityStandardRecordNormalLC]
 	cp 255
 	jr z, .BFMaxed
-	ld a, [wBattleFacilityHardcoreRecordNormal]
+	ld a, [wBattleFacilityStandardRecordNormalNFE]
 	cp 255
 	jr z, .BFMaxed
-	ld a, [wBattleFacilityStandardRecordInverse]
+	ld a, [wBattleFacilityStandardRecordNormalAG]
 	cp 255
 	jr z, .BFMaxed
-	ld a, [wBattleFacilityHardcoreRecordInverse]
+	ld a, [wBattleFacilityHardcoreRecordNormalLC]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityHardcoreRecordNormalNFE]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityHardcoreRecordNormalAG]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityStandardRecordInverseLC]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityStandardRecordInverseNFE]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityStandardRecordInverseAG]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityHardcoreRecordInverseLC]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityHardcoreRecordInverseNFE]
+	cp 255
+	jr z, .BFMaxed
+	ld a, [wBattleFacilityHardcoreRecordInverseAG]
 	cp 255
 	jr z, .BFMaxed
 	jr .checkInverseBattles
