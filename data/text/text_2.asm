@@ -616,7 +616,7 @@ _ViridianSchoolNotebookText5:: ; new
 	text "Fifth page..."
 
 	para "INVERSE BATTLES"
-	line "are a new flavor"
+	line "are a new style"
 	cont "of #MON"
 	cont "battles, recently"
 	cont "arrived from a"

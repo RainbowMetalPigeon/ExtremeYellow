@@ -450,3 +450,4 @@ DEF SHOW EQU $15
 	const HS_ROUTE_27_CITIZEN_4            ; new
 	const HS_ROUTE_27_CITIZEN_5            ; new
 	const HS_ROUTE_27_CITIZEN_6            ; new
+	const HS_ROUTE_19_DROWNING_SWIMMER     ; new

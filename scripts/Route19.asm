@@ -206,6 +206,15 @@ Route19EndBattleText9:
 	text_end
 
 Route19AfterBattleText9:
+	text_asm
+	ld hl, Route19AfterBattleText9_Internal
+	call PrintText
+	ld a, HS_ROUTE_19_DROWNING_SWIMMER
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+Route19AfterBattleText9_Internal:
 	text_far _Route19AfterBattleText9
 	text_end
 

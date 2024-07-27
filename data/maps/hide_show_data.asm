@@ -34,7 +34,7 @@ MapHSPointers:
 	dw Route16HS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw Route19HS ; new
 	dw Route20HS ; new because of Misty
 	dw Route21HS ; new because of Oak
 	dw Route22HS
@@ -825,7 +825,6 @@ RedsHouse1FHS: ; new
 Route2HS:
 	db ROUTE_2, $01, SHOW
 	db ROUTE_2, $02, SHOW
-
 Route27HS : ; new
 	db ROUTE_27, $01, HIDE
 	db ROUTE_27, $02, HIDE
@@ -833,6 +832,7 @@ Route27HS : ; new
 	db ROUTE_27, $04, HIDE
 	db ROUTE_27, $05, HIDE
 	db ROUTE_27, $06, HIDE
-
+Route19HS: ; new
+	db ROUTE_19, $09, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
