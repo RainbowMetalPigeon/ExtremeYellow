@@ -8,8 +8,12 @@ SafariZoneNorth_Script:
 	ret
 
 ResetSafariZoneNorthScript:
+	ResetEvent EVENT_IN_SAFARI_ZONE
 	xor a
+	ld [wNumSafariBalls], a
+	ld [wSafariSteps], a
 	ld [wSafariZoneNorthCurScript], a
+	ld [wSafariZoneGateCurScript], a
 	ld [wCurMapScript], a ; new, TBV
 	ret
 
