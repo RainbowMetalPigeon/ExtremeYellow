@@ -244,11 +244,11 @@ Credits: ; Roll credits
 
 .fadeInTextAndShowMon
 	call FadeInCreditsText
-	ld c, 102
+	ld c, 68 ; edited, was 102
 	jr .next1
 
 .showTextAndShowMon
-	ld c, 122
+	ld c, 82 ; edited, was 122
 .next1
 	call DelayFrames
 	call DisplayCreditsMon
@@ -256,11 +256,11 @@ Credits: ; Roll credits
 
 .fadeInText
 	call FadeInCreditsText
-	ld c, 132
+	ld c, 88 ; edited, was 132
 	jr .next2
 
 .showText
-	ld c, 152
+	ld c, 102 ; edited, was 152
 .next2
 	call DelayFrames
 	jr .nextCreditsScreen

@@ -5,7 +5,7 @@ CreditsMons:
 	db CROBAT
 	db TYROGUE
 	db MSLOWBRO
-	db CHARIZARD
+	db MCHARZARDX
 	db ANNIHILAPE
 	db TAUROS
 	db PORYGONZ
@@ -14,8 +14,11 @@ CreditsMons:
 	db KINGDRA
 	db STEELIX
 	db MALAKAZAM
-	db MAGIKARP
+	db GENGAR
+	db MEWTWO
+	db MPIDGEOT
+	db HAUNTER
 
 REPT 9
-	db GENGAR
+	db MAGIKARP
 ENDR

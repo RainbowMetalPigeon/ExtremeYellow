@@ -87,6 +87,29 @@ CreditsTextPointers:
 	dw CreditsText_Nakamichi
 	dw CreditsText_Yoshimura
 	dw CreditsText_Yamazaki
+; new
+	dw CreditsText_Pret
+	dw CreditsText_Dannye
+	dw CreditsText_Issotm
+	dw CreditsText_Ax6
+	dw CreditsText_Rangi42
+	dw CreditsText_LuckyTyphlosion
+	dw CreditsText_Crystal
+	dw CreditsText_CramODev
+	dw CreditsText_Porygondolier
+	dw CreditsText_Vortiene
+	dw CreditsText_Jojo
+	dw CreditsText_Mord
+	dw CreditsText_BlueZangoose
+	dw CreditsText_Xillicis
+	dw CreditsText_SatoMew
+	dw CreditsText_PlagueVonKarma
+	dw CreditsText_Sanqui
+	dw CreditsText_FrenchOrange
+	dw CreditsText_MauveSea
+	dw CreditsText_LJStar
+	dw CreditsText_ExtremeYellow
+	dw CreditsText_RainbowMetalPigeon
 	assert_table_length NUM_CRED_STRINGS
 
 CreditsText_Version:
@@ -265,3 +288,50 @@ CreditsText_Yoshimura:
 	db -6, "KAMON YOSHIMURA@"
 CreditsText_Yamazaki:
 	db -6, "SAKAE YAMAZAKI@"
+
+; new
+
+CreditsText_Pret:
+	db -4, "PRET FOLKS@"
+CreditsText_Dannye:
+	db -2, "DANNYE@"
+CreditsText_Issotm:
+	db -2, "ISSOtm@"
+CreditsText_Ax6:
+	db -2, " AX6@"
+CreditsText_LuckyTyphlosion:
+	db -7, "LUCKY TYPHLOSION@"
+CreditsText_Rangi42:
+	db -3, "RANGI42@"
+CreditsText_Crystal:
+	db -3, "CRYSTAL@"
+CreditsText_CramODev:
+	db -4, "CRAM-O-DEV@"
+CreditsText_Porygondolier:
+	db -6, "PORYGONDOLIER's@"
+CreditsText_Vortiene:
+	db -3, "VORTIENE@"
+CreditsText_Jojo:
+	db -1, "JOJO@"
+CreditsText_Mord:
+	db -1, "MORD@"
+CreditsText_BlueZangoose:
+	db -5, "BLUE ZANGOOSE@"
+CreditsText_Xillicis:
+	db -3, "XILLICIS@"
+CreditsText_SatoMew:
+	db -2, "SATOMEW@"
+CreditsText_PlagueVonKarma:
+	db -7, "PLAGUE VON KARMA@"
+CreditsText_Sanqui:
+	db -2, "SANQUI@"
+CreditsText_FrenchOrange:
+	db -5, "FRENCHORANGE@"
+CreditsText_MauveSea:
+	db -3, "MAUVESEA@"
+CreditsText_LJStar:
+	db -2, "LJSTAR@"
+CreditsText_ExtremeYellow:
+	db -6, "EXTREME YELLOW@"
+CreditsText_RainbowMetalPigeon:
+	db -9, "RAINBOW METAL PIGEON@"

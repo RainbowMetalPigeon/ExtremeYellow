@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db PORYGON, 90 ; 255
-	db MEWTWO, 42
+	db MRAYQUAZA, 42
 	db STARTER_PIKACHU, 96
 ;	db PORYGON2, 42
 ;	db PORYGONZ, 42

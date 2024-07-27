@@ -86,6 +86,29 @@
 	const CRED_NAKAMICHI             ; 53
 	const CRED_YOSHIMURA             ; 54
 	const CRED_YAMAZAKI              ; 55
+; new
+	const CRED_PRET
+	const CRED_DANNYE
+	const CRED_ISSOTM
+	const CRED_AX6
+	const CRED_RANGI42
+	const CRED_LUCKYTYPHLOSION
+	const CRED_CRYSTAL
+	const CRED_CRAMODEV
+	const CRED_PORYGONDOLIER
+	const CRED_VORTIENE
+	const CRED_JOJO
+	const CRED_MORD
+	const CRED_BLUEZANGOOSE
+	const CRED_XILLICIS
+	const CRED_SATOMEW
+	const CRED_PLAGUEVONKARMA
+	const CRED_SANQUI
+	const CRED_FRENCHORANGE
+	const CRED_MAUVESEA
+	const CRED_LJSTAR
+	const CRED_EXTREMEYELLOW
+	const CRED_RAINBOWMETALPIGEON
 DEF NUM_CRED_STRINGS EQU const_value
 
 	const_def -1, -1

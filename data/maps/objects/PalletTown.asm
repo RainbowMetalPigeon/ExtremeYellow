@@ -3,7 +3,7 @@ PalletTown_Object:
 
 	def_warp_events
 ;	warp_event  5,  5, REDS_HOUSE_1F, 1
-;	warp_event  5,  5, HALL_OF_FAME, 1
+	warp_event  5,  5, HALL_OF_FAME, 1
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 1 ; 1-2 entrance, 3 testing near merchant
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 7 ; 23 entrance, 4 exit, 7 Lance
@@ -35,7 +35,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, PEWTER_GYM, 1
 ;	warp_event  5,  5, VIRIDIAN_GYM, 1
 ;	warp_event  5,  5, SILPH_CO_7F, 4
-	warp_event  5,  5, VICTORY_ROAD_1F, 1
+;	warp_event  5,  5, VICTORY_ROAD_1F, 1
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
