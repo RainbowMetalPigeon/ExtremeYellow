@@ -94,6 +94,7 @@ HiddenObjectMaps:
 	dbw POKEMON_TOWER_6F,             Pokemontower6HiddenObjects ; new
 	dbw BATTLE_FACILITY,              BattleFacilityHiddenObjects ; new
 	dbw CELADON_HOTEL_ROOMS,          CeladonHotelRoomsHiddenObjects ; new
+	dbw ROUTE_2,                      Route2HiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -642,4 +643,8 @@ BattleFacilityHiddenObjects: ; new
 
 CeladonHotelRoomsHiddenObjects: ; new
 	hidden_object  0,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+Route2HiddenObjects: ; new
+	hidden_object 19,  2, RARE_CANDY, HiddenItems
 	db -1 ; end
