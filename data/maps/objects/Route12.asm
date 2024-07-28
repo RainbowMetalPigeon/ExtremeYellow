@@ -8,8 +8,8 @@ Route12_Object:
 	warp_event 11, 77, ROUTE_12_SUPER_ROD_HOUSE, 1
 
 	def_bg_events
-	bg_event 13, 13, 14 ; Route12Text11
-	bg_event 11, 63, 15 ; Route12Text12
+	bg_event 13, 13, 15 ; Route12Text11
+	bg_event 11, 63, 16 ; Route12Text12
 
 	def_object_events
 	object_event 10, 62, SPRITE_SNORLAX, STAY, DOWN, 1 ; ronfo
@@ -23,7 +23,8 @@ Route12_Object:
 	object_event  6, 87, SPRITE_FISHER, STAY, DOWN, 9, OPP_FISHER, 11
 	object_event 14, 35, SPRITE_POKE_BALL, STAY, NONE, 10, TM_MIRROR_COAT
 	object_event  5, 89, SPRITE_POKE_BALL, STAY, NONE, 11, IRON
-	object_event  4, 62, SPRITE_BLUE, STAY, RIGHT, 12 ; new, rival left
-	object_event 10, 56, SPRITE_BLUE, STAY, DOWN, 13 ; new, rival right
+	object_event  4, 107, SPRITE_POKE_BALL, STAY, NONE, 12, LINK_CABLE ; new
+	object_event  4, 62, SPRITE_BLUE, STAY, RIGHT, 13 ; new, rival left
+	object_event 10, 56, SPRITE_BLUE, STAY, DOWN, 14 ; new, rival right
 
 	def_warps_to ROUTE_12

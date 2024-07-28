@@ -22,7 +22,7 @@ MapHSPointers:
 	dw Route4HS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw Route7HS ; new
 	dw NoHS
 	dw Route9HS
 	dw NoHS
@@ -329,8 +329,9 @@ Route12HS:
 	db ROUTE_12, $02, HIDE ; new
 	db ROUTE_12, $0A, SHOW ; edited
 	db ROUTE_12, $0B, SHOW ; edited
-	db ROUTE_12, $0C, HIDE ; new, rival left
-	db ROUTE_12, $0D, HIDE ; new, rival right
+	db ROUTE_12, $0C, SHOW ; new, LINK_CABLE
+	db ROUTE_12, $0D, HIDE ; new, rival left
+	db ROUTE_12, $0E, HIDE ; new, rival right
 Route15HS:
 	db ROUTE_15, $0B, SHOW
 Route16HS:
@@ -346,6 +347,7 @@ Route22HS:
 Route24HS:
 	db ROUTE_24, $01, SHOW
 	db ROUTE_24, $08, SHOW
+	db ROUTE_24, $09, SHOW ; new, LINK_CABLE
 Route25HS:
 	db ROUTE_25, $0A, SHOW
 BluesHouseHS:
@@ -569,11 +571,6 @@ SilphCo11FHS:
 	db SILPH_CO_11F, $06, SHOW
 MtMoonPokecenterHS: ; new
 	db MT_MOON_POKECENTER, $08, SHOW ; Magikarp for sale
-ObsidianWoodHS: ; new
-	db OBSIDIAN_WOOD, $05, HIDE
-	db OBSIDIAN_WOOD, $06, SHOW
-	db OBSIDIAN_WOOD, $07, SHOW
-	db OBSIDIAN_WOOD, $08, SHOW
 ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $01, SHOW
 	db OBSIDIAN_WAREHOUSE, $02, SHOW
@@ -825,6 +822,7 @@ RedsHouse1FHS: ; new
 Route2HS:
 	db ROUTE_2, $01, SHOW
 	db ROUTE_2, $02, SHOW
+	db ROUTE_2, $03, SHOW ; new, LINK_CABLE
 Route27HS : ; new
 	db ROUTE_27, $01, HIDE
 	db ROUTE_27, $02, HIDE
@@ -834,5 +832,12 @@ Route27HS : ; new
 	db ROUTE_27, $06, HIDE
 Route19HS: ; new
 	db ROUTE_19, $09, SHOW
+ObsidianWoodHS: ; new
+	db OBSIDIAN_WOOD, $05, HIDE
+	db OBSIDIAN_WOOD, $06, SHOW
+	db OBSIDIAN_WOOD, $07, SHOW
+	db OBSIDIAN_WOOD, $08, SHOW
+Route7HS: ; new
+	db ROUTE_7, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

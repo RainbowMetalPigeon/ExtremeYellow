@@ -89,6 +89,7 @@ Route24_TextPointers:
 	dw Route24Text6
 	dw Route24Text7
 	dw PickUpItemText
+	dw PickUpItemText ; new, LINK_CABLE
 	dw Route24Text8
 
 Route24TrainerHeaders:

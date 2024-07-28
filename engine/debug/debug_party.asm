@@ -16,9 +16,9 @@ DebugTeam:
 	db PORYGON, 90 ; 255
 	db HAUNTER, 42
 	db STARTER_PIKACHU, 96
-	db SEAKING, 42
-	db PORYGONZ, 42
-	db ANNIHILAPE, 42
+;	db SEAKING, 42
+;	db PORYGONZ, 42
+;	db ANNIHILAPE, 42
 	db -1 ; end
 
 DebugStart:

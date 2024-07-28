@@ -888,7 +888,7 @@ TMMartClerkDialogue::
 .checkTM33
 
 	; TM33
-	CheckHideShow HS_ROUTE_24_ITEM
+	CheckHideShow HS_ROUTE_24_ITEM_1
 	jr z, .checkTM34
 	ld a, TM_REFLECT
 	ld [de], a

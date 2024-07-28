@@ -50,7 +50,7 @@ Route12Script0:
 	jr z, .walking
 	call StopAllMusic
 .walking
-	ld a, 21
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pikachu scared and hide
@@ -82,7 +82,7 @@ Route12Script0:
 	ld a, PLAYER_DIR_UP ; TBC
 	ld [wPlayerMovingDirection], a
 	ld de, Route12FMovements1_Right
-	ld a, 13 ; index of Rival's sprite right
+	ld a, 14 ; index of Rival's sprite right
 	ldh [hSpriteIndex], a
 	jr .continue
 .playerLeftOfSnorlax
@@ -92,7 +92,7 @@ Route12Script0:
 	ld a, PLAYER_DIR_LEFT ; TBC
 	ld [wPlayerMovingDirection], a
 	ld de, Route12FMovements1_Left
-	ld a, 12 ; index of Rival's sprite left
+	ld a, 13 ; index of Rival's sprite left
 	ldh [hSpriteIndex], a
 	jr .continue
 .playerAboveOfSnorlax
@@ -102,7 +102,7 @@ Route12Script0:
 	ld a, PLAYER_DIR_UP ; TBC
 	ld [wPlayerMovingDirection], a
 	ld de, Route12FMovements1_Above
-	ld a, 13 ; index of Rival's sprite right
+	ld a, 14 ; index of Rival's sprite right
 	ldh [hSpriteIndex], a
 .continue
 	call MoveSprite
@@ -117,7 +117,7 @@ Route12Script0:
 	CheckEventReuseHL EVENT_FIGHT_ROUTE12_SNORLAX
 	ResetEventReuseHL EVENT_FIGHT_ROUTE12_SNORLAX
 	jp z, CheckFightingMapTrainers
-	ld a, $10 ; edited, +1 for new Hiker, +2 for rival
+	ld a, 17 ; edited, +1 for new Hiker, +2 for rival
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SNORLAX
@@ -160,7 +160,7 @@ Route12Script3:
 	ld a, [wBattleResult]
 	cp $2
 	jr z, .asm_59664
-	ld a, $11 ; edited, +1 for new Hiker, +2 for rival
+	ld a, 18 ; edited, +1 for new Hiker, +2 for rival
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .asm_59664
@@ -179,7 +179,7 @@ Route12Script4: ; new
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 12 ; Rival's text ID, pre-battle
+	ld a, 13 ; Rival's text ID, pre-battle
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -213,7 +213,7 @@ Route12Script5: ; new
 	call Route12Script_RivalFacingRightOrDown
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 18 ; Rival's text ID
+	ld a, 19 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff ; testing
@@ -230,13 +230,13 @@ Route12Script6: ; new
 	ld a, [wXCoord]
 	cp 9
 	jr z, .playerIsLeftOfSnorlax
-	ld a, 13 ; Rival's sprite ID
+	ld a, 14 ; Rival's sprite ID
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, Route12FMovements2_Right
 	jr .continue
 .playerIsLeftOfSnorlax
-	ld a, 12 ; Rival's sprite ID
+	ld a, 13 ; Rival's sprite ID
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, Route12FMovements2_Left
@@ -254,7 +254,7 @@ Route12Script7: ; new
 	call Route12Script_RivalFacingLeftOrUp
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 19 ; Rival's text ID
+	ld a, 20 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Route12Script_RivalFacingLeftOrUp
@@ -266,19 +266,19 @@ Route12Script7: ; new
 Route12Script8: ; new
 	call Route12Script_RivalFacingLeftOrUp
 	call Route12Script_RivalFacingRightOrDown
-	ld a, 20 ; Rival's text ID
+	ld a, 21 ; Rival's text ID
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, [wXCoord]
 	cp 9
 	jr z, .playerIsLeftOfSnorlax
-	ld a, 13 ; Rival's sprite ID
+	ld a, 14 ; Rival's sprite ID
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, Route12FMovements3_Right
 	jr .continue
 .playerIsLeftOfSnorlax
-	ld a, 12 ; Rival's sprite ID
+	ld a, 13 ; Rival's sprite ID
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld de, Route12FMovements3_Left
@@ -353,12 +353,12 @@ Route12Script_RivalFacingRightOrDown:
 	ld a, [wXCoord]
 	cp 9 ; where is the player standing?
 	jr z, .playerLeftOfSnorlax ; handles it differently, because loads another sprite
-	ld a, 13
+	ld a, 14
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_DOWN
 	jr .continue
 .playerLeftOfSnorlax
-	ld a, 12
+	ld a, 13
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_RIGHT
 .continue
@@ -370,12 +370,12 @@ Route12Script_RivalFacingLeftOrUp:
 	ld a, [wXCoord]
 	cp 9 ; where is the player standing?
 	jr z, .playerLeftOfSnorlax ; handles it differently, because loads another sprite
-	ld a, 13
+	ld a, 14
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_UP
 	jr .continue
 .playerLeftOfSnorlax
-	ld a, 12
+	ld a, 13
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_LEFT
 .continue
@@ -397,16 +397,17 @@ Route12_TextPointers:
 	dw Route12Text8
 	dw PickUpItemText
 	dw PickUpItemText
-	dw Route12TextRival ; new, rival left; ID=12
-	dw Route12TextRival ; new, rival right; ID=13
-	dw Route12Text11 ; sign
-	dw Route12Text12 ; sign
-	dw Route12Text13
-	dw Route12Text14
-	dw Route12TextRivalPostBattle1 ; new, 18
-	dw Route12TextRivalPostBattle2 ; new, 19
-	dw Route12TextRivalPostBattle3 ; new, 20
-	dw Route12TextRivalStop ; new, 21
+	dw PickUpItemText ; new, LINK_CABLE
+	dw Route12TextRival ; new, rival left; ID=13
+	dw Route12TextRival ; new, rival right; ID=14
+	dw Route12Text11 ; sign, 15
+	dw Route12Text12 ; sign, 16
+	dw Route12Text13 ; 17 ?
+	dw Route12Text14 ; 18 ?
+	dw Route12TextRivalPostBattle1 ; new, 19
+	dw Route12TextRivalPostBattle2 ; new, 20
+	dw Route12TextRivalPostBattle3 ; new, 21
+	dw Route12TextRivalStop ; new, 22
 
 Route12TrainerHeaders:
 	def_trainers 3 ; edited, +1 for new Hiker

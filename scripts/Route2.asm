@@ -4,6 +4,7 @@ Route2_Script:
 Route2_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
+	dw PickUpItemText ; new, LINK_CABLE
 	dw Route2Text3
 	dw Route2Text4
 

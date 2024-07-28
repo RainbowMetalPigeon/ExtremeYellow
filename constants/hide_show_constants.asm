@@ -58,6 +58,7 @@ DEF SHOW EQU $15
 	const HS_ROUTE_12_HIKER	               ; new
 	const HS_ROUTE_12_ITEM_1               ; 1F
 	const HS_ROUTE_12_ITEM_2               ; 20
+	const HS_ROUTE_12_ITEM_3               ; new, LINK_CABLE
 	const HS_ROUTE_12_RIVAL_LEFT		   ; new
 	const HS_ROUTE_12_RIVAL_RIGHT		   ; new
 	const HS_ROUTE_15_ITEM                 ; 21
@@ -68,7 +69,8 @@ DEF SHOW EQU $15
 	const HS_ROUTE_22_RIVAL_1              ; 23
 	const HS_ROUTE_22_RIVAL_2              ; 24
 	const HS_NUGGET_BRIDGE_GUY             ; 25
-	const HS_ROUTE_24_ITEM                 ; 26
+	const HS_ROUTE_24_ITEM_1               ; 26, edited
+	const HS_ROUTE_24_ITEM_2               ; new, LINK_CABLE
 	const HS_ROUTE_25_ITEM                 ; 27
 	const HS_DAISY_SITTING                 ; 28
 	const HS_DAISY_WALKING                 ; 29
@@ -243,10 +245,6 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_11F_2                ; BD Rocket grunt
 	const HS_SILPH_CO_11F_JESSIE           ; BE
 	const HS_MT_MOON_POKECENTER_MAGIKARP   ; new
-	const HS_OBSIDIAN_WOOD_ORAGE           ; new
-	const HS_OBSIDIAN_WOOD_ITEM_1          ; new
-	const HS_OBSIDIAN_WOOD_ITEM_2          ; new
-	const HS_OBSIDIAN_WOOD_ITEM_3          ; new
 	const HS_OBSIDIAN_WAREHOUSE_TRAINER_1  ; new
 	const HS_OBSIDIAN_WAREHOUSE_TRAINER_2  ; new
 	const HS_OBSIDIAN_WAREHOUSE_TRAINER_3  ; new
@@ -444,6 +442,7 @@ DEF SHOW EQU $15
 	const HS_REDS_HOUSE_1F_DAD             ; new
 	const HS_ROUTE_2_ITEM_1                ; moved here from the first block
 	const HS_ROUTE_2_ITEM_2                ; moved here from the first block
+	const HS_ROUTE_2_ITEM_3                ; new, LINK_CABLE
 	const HS_ROUTE_27_CITIZEN_1            ; new
 	const HS_ROUTE_27_CITIZEN_2            ; new
 	const HS_ROUTE_27_CITIZEN_3            ; new
@@ -451,3 +450,8 @@ DEF SHOW EQU $15
 	const HS_ROUTE_27_CITIZEN_5            ; new
 	const HS_ROUTE_27_CITIZEN_6            ; new
 	const HS_ROUTE_19_DROWNING_SWIMMER     ; new
+	const HS_OBSIDIAN_WOOD_ORAGE           ; new
+	const HS_OBSIDIAN_WOOD_ITEM_1          ; new
+	const HS_OBSIDIAN_WOOD_ITEM_2          ; new
+	const HS_OBSIDIAN_WOOD_ITEM_3          ; new
+	const HS_ROUTE_7_ITEM                  ; new, LINK_CABLE
