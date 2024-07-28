@@ -80,4 +80,5 @@ HiddenItemCoords:
 	hidden_item ROUTE_3,                       20,   9 ; new
 	hidden_item ROUTE_4,                        6,  24 ; new
 	hidden_item POKEMON_TOWER_6F,              12,  16 ; new
+	hidden_item ROUTE_2,                       19,   2 ; new
 	db -1 ; end

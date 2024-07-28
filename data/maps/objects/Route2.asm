@@ -20,9 +20,9 @@ Route2_Object:
 
 	def_warps_to ROUTE_2
 
-	; unused
-	warp_to 2, 7, 4
-	db $12, $c7, $9, $7
-	warp_to 2, 7, 4
-	warp_to 2, 7, 4
-	warp_to 2, 7, 4
+	; unused; edited, commented out
+;	warp_to 2, 7, 4
+;	db $12, $c7, $9, $7
+;	warp_to 2, 7, 4
+;	warp_to 2, 7, 4
+;	warp_to 2, 7, 4
