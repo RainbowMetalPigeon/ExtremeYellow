@@ -14,11 +14,11 @@ SetDebugTeam:
 
 DebugTeam:
 	db PORYGON, 90 ; 255
-	db MRAYQUAZA, 42
+	db HAUNTER, 42
 	db STARTER_PIKACHU, 96
-;	db PORYGON2, 42
-;	db PORYGONZ, 42
-;	db ANNIHILAPE, 42
+	db SEAKING, 42
+	db PORYGONZ, 42
+	db ANNIHILAPE, 42
 	db -1 ; end
 
 DebugStart:
@@ -251,11 +251,13 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db RARE_CANDY, 42
+	db LINK_CABLE, 3
+    db UPGRADE, 3
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
 	db SUPER_ROD, 1
-	db TM_CLOSE_COMBAT, 3
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
@@ -268,10 +270,8 @@ DebugItemsList:
 	db POKE_FLUTE, 1
 	db ESCAPE_ROPE, 99
 	db LEGEND_CANDY, 42
-	db RARE_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
-    db HM_CUT, 1
     ; 20
     db ICE_ORB, 1
     db THUNDER_ORB, 1
@@ -281,7 +281,7 @@ DebugItemsList:
 	db LUNAR_RELIC, 1
 	db POTION, 99 ; PP_UP, 42
 	db MEGA_STONE_X, 99
-	db POKE_DOLL, 99
+	db MEGA_STONE_Y, 99
 	db LAVA_STONE, 1
 	db MAGMA_STONE, 1
 	db MOLTEN_STONE, 1

@@ -464,6 +464,11 @@ _OnigiriBoxDescription::
 	next "the whole team."
 	prompt
 
+_LinkCableDescription::
+	text "Evolves pokeMON"
+	next "as if traded."
+	prompt
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::

@@ -234,6 +234,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _OnigiriBoxDescription		; ONIGIRI_BOX
 	text_end
+	text_far _LinkCableDescription		; LINK_CABLE
+	text_end
 
 ; HMs
 

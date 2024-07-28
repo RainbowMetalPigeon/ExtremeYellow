@@ -2151,6 +2151,7 @@ AbraEvosMoves:
 KadabraEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, ALAKAZAM
+	db EV_ITEM, LINK_CABLE, 1, ALAKAZAM
 	db EV_LEVEL, 42, ALAKAZAM
 	db 0
 ; Learnset
@@ -2267,6 +2268,7 @@ MachopEvosMoves:
 MachokeEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, MACHAMP
+	db EV_ITEM, LINK_CABLE, 1, MACHAMP
 	db EV_LEVEL, 42, MACHAMP
 	db 0
 ; Learnset
@@ -2471,6 +2473,7 @@ GeodudeEvosMoves:
 GravelerEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, GOLEM
+	db EV_ITEM, LINK_CABLE, 1, GOLEM
 	db EV_LEVEL, 42, GOLEM
 	db 0
 ; Learnset
@@ -3025,6 +3028,7 @@ GastlyEvosMoves:
 HaunterEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, GENGAR
+	db EV_ITEM, LINK_CABLE, 1, GENGAR
 	db EV_LEVEL, 42, GENGAR
 	db 0
 ; Learnset

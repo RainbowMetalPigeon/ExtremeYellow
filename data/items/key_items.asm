@@ -110,4 +110,5 @@ KeyItemFlags:
 	dbit TRUE  ; SHINY_CHARM    - new
 	dbit FALSE ; GUTSCHEIN      - new
 	dbit FALSE ; ONIGIRI_BOX    - new
+	dbit FALSE ; LINK_CABLE     - new
 	end_bit_array NUM_ITEMS

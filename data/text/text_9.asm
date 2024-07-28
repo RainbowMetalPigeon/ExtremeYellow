@@ -48,6 +48,11 @@ _ItemUseBallText08:: ; edited
 	cont "???'s PC!"
 	prompt
 
+_TheBoxIsNowFull:: ; new
+	text "Careful! This BOX"
+	line "is now full!"
+	prompt
+
 _ItemUseBallText06::
 	text "New #DEX data"
 	line "will be added for"

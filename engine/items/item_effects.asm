@@ -127,6 +127,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; SHINY_CHARM, new
 	dw UnusableItem      ; GUTSCHEIN, new
 	dw ItemUseOnigiri    ; ONIGIRI_BOX, new
+	dw ItemUseEvoStone   ; LINK_CABLE, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -304,7 +305,7 @@ ItemUseBall:
 	dec a
 	jp nz, ThrowBallAtTrainerMon
 
-; new, to handle Mewtwo and Master Ball
+; new, to handle MissingNo and Master Ball
 	ld a, [wCurMap]
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr nz, .notMissingnoWithMaster
@@ -873,7 +874,7 @@ ItemUseBall:
 	cp BATTLE_TYPE_OLD_MAN ; is this the old man battle?
 	jp z, .oldManCaughtMon ; if so, don't give the player the caught Pokémon
 	cp BATTLE_TYPE_PIKACHU
-	jr z, .oldManCaughtMon ; same with Pikachu battle
+	jp z, .oldManCaughtMon ; same with Pikachu battle
 	ld hl, ItemUseBallText05
 	call PrintText
 
@@ -929,6 +930,14 @@ ItemUseBall:
 	ld hl, ItemUseBallText08
 .printTransferredToPCText
 	call PrintText
+; new, print a warning message if the box is now full
+	ld a, [wBoxCount]
+	cp MONS_PER_BOX
+	jr nz, .vanilla
+	ld hl, TheBoxIsNowFull
+	call PrintText
+.vanilla
+; back to vanilla
 	jr .done
 
 .oldManCaughtMon
@@ -987,6 +996,10 @@ ItemUseBallText07:
 ItemUseBallText08:
 ;"X was transferred to ???'s PC" ; edited
 	text_far _ItemUseBallText08
+	text_end
+
+TheBoxIsNowFull: ; new
+	text_far _TheBoxIsNowFull
 	text_end
 
 ItemUseBallText06:

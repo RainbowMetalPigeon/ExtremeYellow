@@ -46,5 +46,6 @@ UsableItems_PartyMenu:
 	db DUBIOUS_DISK	; new
 	db LEGEND_CANDY ; new
 	db PERFECTER    ; new
-	db CHROMOGENE   ; new, testing
+	db CHROMOGENE   ; new
+	db LINK_CABLE   ; new
 	db -1 ; end
