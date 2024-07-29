@@ -1788,7 +1788,7 @@ SpecialTrainerMoves:
 	db 5, 4, RECOVER
 	; MALAKAZAM
 	db 6, 1, ICE_PUNCH
-	db 6, 2, THUNDER_PUNCH
+	db 6, 2, THUNDERPUNCH
 	db 6, 3, FIRE_PUNCH
 	db 6, 4, PSYCHO_CUT
 	db $FE
