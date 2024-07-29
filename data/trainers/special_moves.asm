@@ -529,6 +529,39 @@ SpecialTrainerMoves:
 	db 6, 4, EARTHQUAKE
 	db $FE
 
+	db BROCK, 9
+	; GOLEM
+	db 1, 1, EARTHQUAKE
+	db 1, 2, GYRO_BALL
+	db 1, 3, BODY_PRESS
+	db 1, 4, STONE_EDGE
+	; OMASTAR
+	db 2, 1, HYDRO_PUMP
+	db 2, 2, BLIZZARD
+	db 2, 3, HYPER_BEAM
+	db 2, 4, STONE_EDGE
+	; KABUTOPS
+	db 3, 1, LEECH_LIFE
+	db 3, 2, SLASH
+	db 3, 3, STONE_EDGE
+	db 3, 4, PSYCHO_CUT
+	; RHYPERIOR
+	db 4, 1, EARTHQUAKE
+	db 4, 2, STONE_EDGE
+	db 4, 3, HYPER_BEAM
+	db 4, 4, BODY_PRESS
+	; KLEAVOR
+	db 6, 1, AIR_SLASH
+	db 6, 2, STONE_EDGE
+	db 6, 3, CLOSE_COMBAT
+	db 6, 4, X_SCISSOR
+	; MAERODACTYL
+	db 6, 1, AIR_CUTTER
+	db 6, 2, ROOST
+	db 6, 3, STONE_EDGE
+	db 6, 4, EARTHQUAKE
+	db $FE
+
 ; MISTY's teams -------------------------------------------------
 
 	db MISTY, 1
@@ -628,6 +661,39 @@ SpecialTrainerMoves:
 	db 6, 2, BUBBLEBEAM
 	db 6, 3, MINIMIZE
 	db 6, 4, LIGHT_SCREEN
+	db $FE
+
+	db MISTY, 9
+	; GYARADOS
+	db 1, 1, DRAGON_DANCE
+	db 1, 2, HURRICANE
+	db 1, 3, STONE_EDGE
+	db 1, 4, HYDRO_PUMP
+	; LAPRAS
+	db 2, 1, HYDRO_PUMP
+	db 2, 2, FREEZE_DRY
+	db 2, 3, CONFUSE_RAY
+	db 2, 4, THUNDERBOLT
+	; POLITOED
+	db 3, 1, AMNESIA
+	db 3, 2, LOVELY_KISS
+	db 3, 3, SCALD
+	db 3, 4, PSYCHIC_M
+	; VAPOREON
+	db 4, 1, SAND_ATTACK
+	db 4, 2, ACID_ARMOR
+	db 4, 3, HYDRO_PUMP
+	db 4, 4, REST
+	; STARMIE
+	db 5, 1, PSYCHO_CUT
+	db 5, 2, MINIMIZE
+	db 5, 3, HYDRO_PUMP
+	db 5, 4, RECOVER
+	; MBLASTOISE
+	db 6, 1, FLASH_CANNON
+	db 6, 2, BULLET_SEED
+	db 6, 3, HYDRO_CANNON
+	db 6, 4, OUTRAGE
 	db $FE
 
 ; LT_SURGE's teams -------------------------------------------------
@@ -896,6 +962,39 @@ SpecialTrainerMoves:
 	db 6, 4, PSYCHIC_M
 	db $FE
 
+	db LT_SURGE, 9
+	; ELECTRODE
+	db 1, 1, HYPER_BEAM
+	db 1, 2, THUNDER_WAVE
+	db 1, 3, EXPLOSION
+	db 1, 4, THUNDER
+	; MAGNEZONE
+	db 2, 1, THUNDER_WAVE
+	db 2, 2, FLASH_CANNON
+	db 2, 3, EXPLOSION
+	db 2, 4, THUNDER
+	; ELECTIVIRE
+	db 3, 1, EARTHQUAKE
+	db 3, 2, THUNDER
+	db 3, 3, ICE_PUNCH
+	db 3, 4, CLOSE_COMBAT
+	; TANGROWTH
+	db 4, 1, EARTHQUAKE
+	db 4, 2, HYPER_BEAM
+	db 4, 3, LEAF_STORM
+	db 4, 4, ROCK_SLIDE
+	; JOLTEON
+	db 5, 1, THUNDER
+	db 5, 2, DOUBLE_KICK
+	db 5, 3, HYPER_BEAM
+	db 5, 4, SHADOW_BALL
+	; RAICHU
+	db 6, 1, VOLT_TACKLE
+	db 6, 2, SURF
+	db 6, 3, MEGA_PUNCH
+	db 6, 4, PSYCHIC_M
+	db $FE
+
 ; ERIKA's teams -------------------------------------------------
 
 	db ERIKA, 2
@@ -1127,6 +1226,39 @@ SpecialTrainerMoves:
 	db 6, 2, CURSE
 	db 6, 3, GIGA_DRAIN
 	db 6, 4, REST
+	db $FE
+
+	db ERIKA, 9
+	; VICTREEBEL
+	db 1, 1, WRAP
+	db 1, 2, GUNK_SHOT
+	db 1, 3, STUN_SPORE
+	db 1, 4, RAZOR_LEAF
+	; VILEPLUME
+	db 2, 1, STUN_SPORE
+	db 2, 2, MOONBLAST
+	db 2, 3, GUNK_SHOT
+	db 2, 4, ENERGY_BALL
+	; EXEGGUTOR
+	db 3, 1, PSYCHO_CUT
+	db 3, 2, SLEEP_POWDER
+	db 3, 3, OUTRAGE
+	db 3, 4, EXPLOSION
+	; LEAFEON
+	db 4, 1, LEAF_STORM
+	db 4, 2, HYPER_BEAM
+	db 4, 3, SHADOW_BALL
+	db 4, 4, X_SCISSOR
+	; TANGROWTH
+	db 6, 1, AMNESIA
+	db 6, 2, CURSE
+	db 6, 3, GIGA_DRAIN
+	db 6, 4, REST
+	; MVENUSAUR
+	db 6, 1, EARTHQUAKE
+	db 6, 2, AMNESIA
+	db 6, 3, GUNK_SHOT
+	db 6, 4, FRENZY_PLANT
 	db $FE
 
 ; KOGA's teams -------------------------------------------------
@@ -1362,6 +1494,39 @@ SpecialTrainerMoves:
 	db 6, 4, EXPLOSION
 	db $FE
 
+	db KOGA, 9
+	; MUK
+	db 1, 1, SHADOW_SNEAK
+	db 1, 2, MINIMIZE
+	db 1, 3, REST
+	db 1, 4, GUNK_SHOT
+	; GENGAR
+	db 2, 1, PSYCHIC_M
+	db 2, 2, HYPNOSIS
+	db 2, 3, DARK_PULSE
+	db 2, 4, ENERGY_BALL
+	; TENTACRUEL
+	db 3, 1, HYPER_BEAM
+	db 3, 2, BLIZZARD
+	db 3, 3, HYDRO_PUMP
+	db 3, 4, TOXIC
+	; CROBAT
+	db 4, 1, CONFUSE_RAY
+	db 4, 2, SUPER_FANG
+	db 4, 3, DOUBLE_TEAM
+	db 4, 4, BRAVE_BIRD
+	; WEEZING
+	db 5, 1, GUNK_SHOT
+	db 5, 2, SHADOW_BALL
+	db 5, 3, FIRE_BLAST
+	db 5, 4, EXPLOSION
+	; MBEEDRILL
+	db 6, 1, HYPER_BEAM
+	db 6, 2, MEGAHORN
+	db 6, 3, GUNK_SHOT
+	db 6, 4, STEEL_WING
+	db $FE
+
 ; SABRINA's teams -------------------------------------------------
 
 	db SABRINA, 2
@@ -1595,6 +1760,39 @@ SpecialTrainerMoves:
 	db 6, 4, PSYCHO_CUT
 	db $FE
 
+	db SABRINA, 9
+	; JYNX
+	db 1, 1, BLIZZARD
+	db 1, 2, PSYCHO_CUT
+	db 1, 3, LOVELY_KISS
+	db 1, 4, DRAININGKISS
+	; ESPEON
+	db 2, 1, ZAP_CANNON
+	db 2, 2, PSYCHO_CUT
+	db 2, 3, SAND_ATTACK
+	db 2, 4, REFLECT
+	; SLOWKING
+	db 3, 1, THUNDER_WAVE
+	db 3, 2, AMNESIA
+	db 3, 3, REST
+	db 3, 4, HYDRO_PUMP
+	; EXEGGUTOR
+	db 4, 1, LEAF_STORM
+	db 4, 2, PSYCHO_CUT
+	db 4, 3, SLEEP_POWDER
+	db 4, 4, EXPLOSION
+	; STARMIE
+	db 5, 1, PSYCHO_CUT
+	db 5, 2, HYDRO_PUMP
+	db 5, 3, BLIZZARD
+	db 5, 4, RECOVER
+	; MALAKAZAM
+	db 6, 1, ICE_PUNCH
+	db 6, 2, THUNDER_PUNCH
+	db 6, 3, FIRE_PUNCH
+	db 6, 4, PSYCHO_CUT
+	db $FE
+
 ; BLAINE's teams -------------------------------------------------
 
 	db BLAINE, 3
@@ -1795,24 +1993,57 @@ SpecialTrainerMoves:
 	db 6, 4, HYPER_BEAM
 	db $FE
 
+	db BLAINE, 9
+	; NINETALES
+	db 1, 1, CONFUSE_RAY
+	db 1, 2, ENERGY_BALL
+	db 1, 3, HYPNOSIS
+	db 1, 4, FIRE_BLAST
+	; MAGMORTAR
+	db 2, 1, THUNDERBOLT
+	db 2, 2, PSYCHIC_M
+	db 2, 3, FIRE_BLAST
+	db 2, 4, EARTHQUAKE
+	; RAPIDASH
+	db 3, 1, WILL_O_WISP
+	db 3, 2, FIRE_SPIN
+	db 3, 3, MEGAHORN
+	db 3, 4, FLARE_BLITZ
+	; FLAREON
+	db 4, 1, IRON_TAIL
+	db 4, 2, FIRE_BLAST
+	db 4, 3, SUPERPOWER
+	db 4, 4, SHADOW_BALL
+	; ARCANINE
+	db 5, 1, EXTREMESPEED
+	db 5, 2, FLARE_BLITZ
+	db 5, 3, CLOSE_COMBAT
+	db 5, 4, HYPER_BEAM
+	; MCHARZARDY
+	db 6, 1, DRAGON_CLAW
+	db 6, 2, ROOST
+	db 6, 3, BLAST_BURN
+	db 6, 4, BRAVE_BIRD
+	db $FE
+
 ; ===============================================================
 
 	db GIOVANNI, 1
 	; ONIX
-;	db 1, 1, ROCK_SLIDE
+	db 1, 1, ROCK_SLIDE
 	db 1, 2, DIG
 	db 1, 3, WRAP
 	db 1, 4, TWISTER
 	; RHYHORN
-;	db 2, 1, FURY_ATTACK
+	db 2, 1, FURY_ATTACK
 	db 2, 2, ROCK_TOMB
 	db 2, 3, MUD_SLAP
-;	db 2, 4, IRON_TAIL
+	db 2, 4, IRON_TAIL
 	; DUGTRIO
-;	db 3, 1, DIG
+	db 3, 1, DIG
 	db 3, 2, SLASH
-;	db 3, 3, SCREECH
-;	db 3, 4, SAND_ATTACK
+	db 3, 3, SCREECH
+	db 3, 4, SAND_ATTACK
 	; KANGASKHAN
 	db 4, 1, THUNDERBOLT
 	db 4, 2, AERIAL_ACE
@@ -1835,17 +2066,17 @@ SpecialTrainerMoves:
 	db 1, 1, IRON_TAIL
 	db 1, 2, EARTHQUAKE
 	db 1, 3, DRAGONBREATH
-;	db 1, 4, HEADBUTT
+	db 1, 4, HEADBUTT
 	; NIDOKING
-;	db 2, 1, ICE_PUNCH
+	db 2, 1, ICE_PUNCH
 	db 2, 2, EARTHQUAKE
-;	db 2, 3, THRASH
-;	db 2, 4, TOXIC
+	db 2, 3, THRASH
+	db 2, 4, TOXIC
 	; RHYDON
 	db 3, 1, BODY_SLAM
 	db 3, 2, STONE_EDGE
-;	db 3, 3, EARTHQUAKE
-;	db 3, 4, IRON_TAIL
+	db 3, 3, EARTHQUAKE
+	db 3, 4, IRON_TAIL
 	; NIDOQUEEN
 	db 4, 1, THUNDERBOLT
 	db 4, 2, ICE_BEAM
@@ -1853,27 +2084,27 @@ SpecialTrainerMoves:
 	db 4, 4, SUPER_FANG
 	; GOLEM
 	db 5, 1, SELFDESTRUCT
-;	db 5, 2, EARTHQUAKE
-;	db 5, 3, ROCK_TOMB
+	db 5, 2, EARTHQUAKE
+	db 5, 3, ROCK_TOMB
 	db 5, 4, SEISMIC_TOSS
 	; PERSIAN
 	db 6, 1, SLASH
-;	db 6, 2, PAY_DAY
+	db 6, 2, PAY_DAY
 	db 6, 3, DREAM_EATER
 	db 6, 4, HYPNOSIS
 	db $FE
 
 	db GIOVANNI, 3
 	; SANDSLASH
-;	db 1, 1, ROCK_TOMB
+	db 1, 1, ROCK_TOMB
 	db 1, 2, EARTHQUAKE
 	db 1, 3, SLASH
-;	db 1, 4, SHADOW_CLAW
+	db 1, 4, SHADOW_CLAW
 	; DUGTRIO
 	db 2, 1, EARTHQUAKE
-;	db 2, 2, SLUDGE_WAVE
+	db 2, 2, SLUDGE_WAVE
 	db 2, 3, FISSURE
-;	db 2, 4, STONE_EDGE
+	db 2, 4, STONE_EDGE
 	; NIDOKING
 	db 3, 1, THUNDERBOLT
 	db 3, 2, ICE_BEAM
@@ -1881,13 +2112,13 @@ SpecialTrainerMoves:
 	db 3, 4, SUPER_FANG
 	; NIDOQUEEN
 	db 4, 1, EARTHQUAKE
-;	db 4, 2, SHADOW_CLAW
-;	db 4, 3, TOXIC
+	db 4, 2, SHADOW_CLAW
+	db 4, 3, TOXIC
 	db 4, 4, FIRE_BLAST
 	; KANGASKHAN
-;	db 5, 1, DRAIN_PUNCH
+	db 5, 1, DRAIN_PUNCH
 	db 5, 2, SHADOW_CLAW
-;	db 5, 3, DIZZY_PUNCH
+	db 5, 3, DIZZY_PUNCH
 	db 5, 4, AERIAL_ACE
 	; PERSIAN
 	db 6, 1, SLASH
@@ -1898,22 +2129,22 @@ SpecialTrainerMoves:
 
 	db GIOVANNI, 4
 	; DUGTRIO
-;	db 1, 1, EARTHQUAKE
+	db 1, 1, EARTHQUAKE
 	db 1, 2, SLUDGE_WAVE
 	db 1, 3, FISSURE
 	db 1, 4, STONE_EDGE
 	; GOLEM
 	db 2, 1, SUPERPOWER
-;	db 2, 2, EXPLOSION
+	db 2, 2, EXPLOSION
 	db 2, 3, EARTHQUAKE
-;	db 2, 4, STONE_EDGE
+	db 2, 4, STONE_EDGE
 	; NIDOQUEEN
 	db 3, 1, THUNDER
 	db 3, 2, BLIZZARD
 	db 3, 3, LOVELY_KISS
 	db 3, 4, SUPER_FANG
 	; NIDOKING
-;	db 4, 1, MEGAHORN
+	db 4, 1, MEGAHORN
 	db 4, 2, OUTRAGE
 	db 4, 3, EARTHQUAKE
 	db 4, 4, GUNK_SHOT
@@ -1928,6 +2159,8 @@ SpecialTrainerMoves:
 	db 6, 3, SHADOW_CLAW ; THUNDERBOLT?
 	db 6, 4, SLASH ; TOXIC? PAY_DAY?
 	db $FE
+
+; ===============================================================
 
 	db LORELEI, 1
 	; DEWGONG
@@ -1962,6 +2195,8 @@ SpecialTrainerMoves:
 	db 6, 4, SCALD ; THUNDER_WAVE?
 	db $FE
 
+; ===============================================================
+
 	db BRUNO, 1
 	; HITMONTOP
 	db 1, 1, FOCUS_ENERGY
@@ -1994,6 +2229,8 @@ SpecialTrainerMoves:
 	db 6, 3, EXPLOSION
 	db 6, 4, DRAGON_DANCE
 	db $FE
+
+; ===============================================================
 
 	db AGATHA, 1
 	; GENGAR 1
@@ -2028,6 +2265,8 @@ SpecialTrainerMoves:
 	db 6, 4, ENERGY_BALL
 	db $FE
 
+; ===============================================================
+
 	db LANCE, 1
 	; GYARADOS
 	db 1, 1, HURRICANE
@@ -2061,6 +2300,8 @@ SpecialTrainerMoves:
 	db 6, 4, STEEL_WING
 	db $FE
 
+; ===============================================================
+
 	db RIVAL1, 3
 	; PIDGEOTTO
 	db 1, 1, SAND_ATTACK ; old move
@@ -2093,6 +2334,8 @@ SpecialTrainerMoves:
 	db 6, 3, BIDE ; TM!
 ;	db 6, 4, MUD_SLAP
 	db $FE
+
+; ===============================================================
 
 	db RIVAL2, 1 ; SS Anne
 	; NIDOKING
@@ -2325,6 +2568,8 @@ SpecialTrainerMoves:
 	db 6, 4, TOXIC
 	db $FE
 
+; ===============================================================
+
 	db RIVAL3, 1
 	; MPIDGEOT
 	db 1, 1, THUNDER
@@ -2492,6 +2737,8 @@ SpecialTrainerMoves:
 	db 6, 3, TOXIC
 	db 6, 4, REST
 	db $FE
+
+; ===============================================================
 
 	db ROCKET, 46
 	; EKANS
@@ -2758,6 +3005,8 @@ SpecialTrainerMoves:
 	db 5, 4, DARK_PULSE
 	db $FE
 
+; ===============================================================
+
 	db PROF_OAK, 1
 	; TAUROS
 	db 1, 1, HYPER_BEAM
@@ -2791,6 +3040,8 @@ SpecialTrainerMoves:
 	db 6, 4, ZEN_HEADBUTT
 	db $FE
 
+; ===============================================================
+
 	db ORAGE, 1
 	; BLISSEY
 	db 1, 1, SOFTBOILED
@@ -2799,30 +3050,32 @@ SpecialTrainerMoves:
 	db 1, 4, THUNDER_WAVE
 	; DODRIO
 	db 2, 1, BRAVE_BIRD
-;	db 2, 2, SWORDS_DANCE
+	db 2, 2, SWORDS_DANCE
 	db 2, 3, ROOST
 	db 2, 4, STEEL_WING
 	; PINSIR
 	db 3, 1, EARTHQUAKE
 	db 3, 2, STONE_EDGE
-;	db 3, 3, SWORDS_DANCE
+	db 3, 3, SWORDS_DANCE
 	db 3, 4, X_SCISSOR
 	; SCIZOR
-;	db 4, 1, BULLET_PUNCH
+	db 4, 1, BULLET_PUNCH
 	db 4, 2, ROOST ; ?
-;	db 4, 3, X_SCISSOR
+	db 4, 3, X_SCISSOR
 	db 4, 4, SWORDS_DANCE ; ?
 	; UMBREON
 	db 5, 1, PSYCHIC_M
 	db 5, 2, CONFUSE_RAY
-;	db 5, 3, DARK_PULSE
+	db 5, 3, DARK_PULSE
 	db 5, 4, REST
 	; SYLVEON
 	db 6, 1, REFLECT
-;	db 6, 2, DRAININGKISS
+	db 6, 2, DRAININGKISS
 	db 6, 3, MAGICAL_LEAF
 	db 6, 4, DIG ; ? weakness coverage, but Sylveon has poor attack
 	db $FE
+
+; ===============================================================
 
 	db PIGEON, 1
 	; MPIDGEOT
