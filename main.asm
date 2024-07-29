@@ -190,15 +190,15 @@ INCLUDE "engine/slots/game_corner_slots.asm"
 
 SECTION "Battle Engine 6", ROMX
 
-INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
-INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
 
 
 SECTION "Battle Engine 6b", ROMX ; new, to save space in the previous Section
 
 INCLUDE "gfx/trade.asm" ; moved from "Battle Engine 6"
 INCLUDE "data/pokemon/cries.asm" ; moved from "Battle Engine 6"
+INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm" ; moved from "Battle Engine 6"
+INCLUDE "data/moves/moves.asm" ; moved from "Battle Engine 6"
 
 
 SECTION "Evos Moves 1", ROMX ; new, from Vortiene's pureRGB, moved from "Battle Engine 6"

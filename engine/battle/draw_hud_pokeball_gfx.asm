@@ -1,4 +1,4 @@
-DrawAllPokeballs:
+DrawAllPokeballs:: ; edited, double colon, just to be safe because I moved it elsewhere
 	call LoadPartyPokeballGfx
 	call SetupOwnPartyPokeballs
 	ld a, [wIsInBattle]
@@ -6,7 +6,7 @@ DrawAllPokeballs:
 	ret z ; return if wild pokémon
 	jp SetupEnemyPartyPokeballs
 
-DrawEnemyPokeballs:
+DrawEnemyPokeballs:: ; edited, double colon, just to be safe because I moved it elsewhere
 	call LoadPartyPokeballGfx
 	jp SetupEnemyPartyPokeballs
 
