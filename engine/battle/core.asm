@@ -5898,6 +5898,9 @@ AdjustDamageForMoveType:
 	cp ANCESTOR_PWR
 	jr nz, .notTheAttackOfGod
 .isDivine
+	ld a, [wDamageMultipliers]
+	and $80
+	ld b, a ; to store a piece of info necessary for effectiveness displaying
 	ld a, SUPER_EFFECTIVE
 	jr .isTheAttackOfGod
 .notTheAttackOfGod
@@ -5944,7 +5947,7 @@ AdjustDamageForMoveType:
 	ldh [hMultiplier], a
 
 ; new block of code, bugfix for super-not-very effective moves effectiveness display bug
-	and a  ; cp NO_EFFECT
+	and a ; cp NO_EFFECT
 	jr z, .gotMultiplier
 	cp NOT_VERY_EFFECTIVE
 	jr nz, .nothalf

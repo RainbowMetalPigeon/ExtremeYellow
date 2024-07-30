@@ -136,8 +136,8 @@ AIMoveChoiceModification1:
 	jp z, .debuff_Speed
 ; if it is not the move above, check if it deals damage
 	ld a, [wEnemyMovePower]
-	and a
-	jr nz, .nextMove ; we only care about non-damaging moves right now
+	cp 5 ; this is here to include OHKO moves
+	jr nc, .nextMove ; we only care about non-damaging and OHKO moves right now
 ; read the effect and start comparing with a list of to-be-checked ones --------
 	ld a, [wEnemyMoveEffect]
 	cp DREAM_EATER_EFFECT
@@ -160,6 +160,8 @@ AIMoveChoiceModification1:
 	jp z, .lightScreenEffect
 	cp REFLECT_EFFECT
 	jp z, .reflectEffect
+	cp OHKO_EFFECT
+	jp z, .ohkoEffect
 ; check for permanent-status-inflicting effects
 	cp SLEEP_EFFECT
 	jp z, .permaStatusEffect
@@ -315,6 +317,27 @@ AIMoveChoiceModification1:
 	bit HAS_REFLECT_UP, a
 	jp z, .nextMove
 	jp .veryHeavilyDiscourage
+
+.ohkoEffect ; compare speeds
+	push hl
+	push de
+	push bc
+	ld hl, wEnemyMonSpeed + 1
+	ld de, wBattleMonSpeed + 1
+	ld a, [de]
+	dec de
+	ld b, a
+	ld a, [hld]
+	sub b
+	ld a, [de]
+	ld b, a
+	ld a, [hl]
+	sbc b
+	pop bc
+	pop de
+	pop hl
+	jp c, .veryHeavilyDiscourage
+	jp .nextMove
 
 .permaStatusEffect
 	ld a, [wBattleMonStatus]
@@ -648,6 +671,9 @@ AIMoveChoiceModification3:
 	jp z, .handleCounter
 	cp MIRROR_COAT
 	jp z, .nextMove
+; handle JUDGMENT, treat it as always super effective
+	cp JUDGMENT
+	jr z, .superEffective
 ; handle special moves that are unaffected by type match-up
 	ld a, [wEnemyMoveEffect]
 	cp SUPER_FANG_EFFECT
@@ -1237,10 +1263,13 @@ LoreleiAI:
 	ret nc
 	jp AIUseFullRestore ; updated
 
-BrunoAI:
-	cp 15 percent + 1 ; edited
+BrunoAI: ; edited
+	cp 50 percent + 1
 	ret nc
-	jp AIUseXAttack ; updated
+	ld a, 5
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseFullRestore ; updated
 
 AgathaAI: ; edited, no switching
 ;	cp 8 percent

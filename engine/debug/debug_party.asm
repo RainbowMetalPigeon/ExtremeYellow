@@ -47,7 +47,7 @@ IF DEF(_DEBUG)
 	ld a, STONE_EDGE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, LICK
+	ld a, JUDGMENT
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, EMBER
