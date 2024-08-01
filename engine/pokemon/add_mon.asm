@@ -27,7 +27,7 @@ _AddPartyMon::
 	jr nz, .vanilla3
 	ld a, [wMonDataLocation]
 	and $f
-	jr z, .vanilla3
+	jr z, .vanilla3 ; added to the player's party
 	push de
 	callfar RandomizeTeamForBattleFacilityTrainer
 	pop de
@@ -37,6 +37,9 @@ _AddPartyMon::
 	ld a, [wRandomizationTrainersTeams] ; 0=NO, 1=YES
 	and a
 	jr z, .vanilla4
+	ld a, [wMonDataLocation]
+	and $f
+	jr z, .vanilla4 ; added to the player's party
 	push de
 	callfar RandomizeTeamForRandomizationOption
 	pop de

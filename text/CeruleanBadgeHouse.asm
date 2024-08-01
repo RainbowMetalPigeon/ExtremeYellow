@@ -14,12 +14,16 @@ _CeruleanHouse2Text_74e77::
 	cont "will follow your"
 	cont "orders!"
 
-	para "With 1 BADGE, only"
-	line "#MON up to L25"
+	para "With no BADGEs,"
+;	xxxx "123456789012345678"
+	line "only #MON"
+	cont "up to L15"
 	cont "will obey you."
 
-	para "With 2 BADGEs,"
-	line "up to L30."
+	para "With 1 BADGE,"
+	line "up to L25."
+
+	para "With 2, up to L30."
 
 	para "With 3, up to L35."
 
