@@ -155,7 +155,7 @@ _CeruleanHouse1Text11::
 	cont "but they have no"
 	cont "interest in"
 	cont "joining our show."
-	
+
 	text "Too bad for them!"
 	line "We'll soon be"
 	cont "even more famous"
@@ -191,8 +191,8 @@ _CeruleanHouse1Sign2::
 	cont "unique one!"
 
 	para "Also, for some"
-	line "reason, they learn"
-	cont "no TM moves."
+	line "reason, they can't"
+	cont "learn TM moves."
 	cont "Maybe they want"
 	cont "to grow their own"
 	cont "way? Adorable!!!"

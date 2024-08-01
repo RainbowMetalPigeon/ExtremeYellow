@@ -9,6 +9,7 @@ UsedCut:
 	cp ISLAND						; new
 	jr z, .island					; new
 	cp CAVERN						; new
+	jr nz, .nothingToCut			; new
 	ld a, [wTileInFrontOfPlayer]	; new
 	cp $54 ; cavern cut tree		; new
 	jr nz, .nothingToCut			; new

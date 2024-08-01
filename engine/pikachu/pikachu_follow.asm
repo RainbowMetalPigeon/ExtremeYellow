@@ -256,8 +256,8 @@ Pointer_fc653::
 SetPikachuSpawnWarpPad::
 	ld a, [wCurMap]
 	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
-	jr z, .viridian_forest_exit
-	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
+;	jr z, .viridian_forest_exit
+;	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
 	jr z, .viridian_forest_entrance
 	ld a, [wCurMap]
 	ld hl, Pointer_fc68e
@@ -304,26 +304,29 @@ SetPikachuSpawnBackOutside::
 	jr z, .asm_fc6a7
 	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates
 	jr z, .asm_fc6b0
-	jr .asm_fc6bd
+	jr .pikachuHidden
 
 .asm_fc6a7
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
-	jr z, .asm_fc6b9
-	jr .asm_fc6bd
+	jr z, .pikachuBySide
+	jr .pikachuHidden
 
 .asm_fc6b0
+	ld a, [wXCoord]
+	cp 10
+	jr nc, .pikachuHidden
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
-	jr z, .asm_fc6b9
-	jr .asm_fc6bd
+	jr z, .pikachuBySide
+	jr .pikachuHidden
 
-.asm_fc6b9
-	ld a, $1
+.pikachuBySide
+	ld a, $1 ; side by side Pikachu
 	jr .asm_fc6c1
 
-.asm_fc6bd
-	ld a, $3
+.pikachuHidden
+	ld a, $3 ; hidden Pikachu
 	jr .asm_fc6c1
 
 .asm_fc6c1

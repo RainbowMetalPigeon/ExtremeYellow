@@ -65,6 +65,7 @@ CheckIfCanSurfOrCutFromOverworld::
     cp ISLAND
     jr z, .island
     cp CAVERN
+	jp nz, .done
     ld a, [wTileInFrontOfPlayer]
     cp $54 ; cavern cut tree
     jp nz, .done

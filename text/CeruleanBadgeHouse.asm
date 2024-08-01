@@ -26,16 +26,16 @@ _CeruleanHouse2Text_74e77::
 	para "With 4, up to L45."
 
 	para "With 5, up to L55."
-	
+
 	para "With 6, up to L60."
 
 	para "With 7, up to L65."
 
 	para "With 8, up to L70."
-	
+
 	para "You need to be"
 	line "crowned CHAMPION"
-	cont "of the INDICO"
+	cont "of the INDIGO"
 	cont "LEAGUE to have"
 	cont "any and all"
 	cont "#MON obey you!"

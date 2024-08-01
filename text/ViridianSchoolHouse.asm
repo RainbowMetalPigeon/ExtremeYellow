@@ -79,7 +79,7 @@ _SchoolText5::
 	done
 
 _SchoolText6::
-	text "I'm studtying about"
+	text "I'm studying about"
 	line "the volatile"
 	cont "STATUSes."
 

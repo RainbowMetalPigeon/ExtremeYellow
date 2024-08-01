@@ -382,10 +382,7 @@ wMenuCursorLocation:: dw
 ; if 0, normal battle; if 1, Inverse Battle
 wInverseBattle:: db ; new
 
-; if 0, no level scaling; if 1, yes
-wLevelScaling:: db ; new
-
-;	ds 2 ; edited, commented out because I added the two wram variables above
+	ds 1 ; edited because of the inverse battle variable
 
 ; how many times should HandleMenuInput poll the joypad state before it returns?
 wMenuJoypadPollCount:: db
@@ -405,8 +402,7 @@ wMenuWatchMovingOutOfBounds:: db
 
 wTradeCenterPointerTableIndex:: db
 
-;	ds 1 ; edited, commented out to add the var below
-wExpGainOption:: db ; new
+	ds 1
 
 ; destination pointer for text output
 ; this variable is written to, but is never read from
@@ -460,8 +456,7 @@ wMenuWrappingEnabled:: db
 ; whether to check for 180-degree turn (0 = don't, 1 = do)
 wCheckFor180DegreeTurn:: db
 
-wBadgeBoostOption:: db ; new
-;	ds 1 ; edited, commented out for new var above
+	ds 1
 
 wMissableObjectIndex:: db
 
@@ -2123,16 +2118,19 @@ wd473:: db
 wHoFMonShiny:: db ; new, 0 if the mon is not shiny, 1 if it is
 ;	ds 1 ; edited, used for the above
 wd475:: db
-	ds 1 ; UNUSED bytes in "Main Data"; edited, it was 4
+wBadgeBoostOption:: db ; new
+;	ds 4 ; edited, all used
 wWeAreTrading:: db ; new, used for the shiny
 wOpponentMonShiny:: db ; new
 wPlayerMonShiny:: db ; new, ugly-ly used only in the HoF PC?
 wd47a:: db
 ;	ds 4 ; edited to increase bag capacity
 wd492:: db
-	ds 1 ; UNUSED bytes in "Main Data"
+wLevelScaling:: db ; new: if 0, no level scaling; if 1, yes
+;	ds 1 ; edited, commented out for var above
 wSurfingMinigameHiScore:: dw ; little-endian BCD
-	ds 1 ; UNUSED bytes in "Main Data"
+wExpGainOption:: db ; new
+;	ds 1 ; edited, commented out for var above
 wPrinterSettings:: db
 wUnknownSerialFlag_d499:: db
 wPrinterConnectionOpen:: db

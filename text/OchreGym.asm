@@ -390,7 +390,7 @@ _OrageRematchPreBattleText::
 	cont "VIRIDIAN GYM is"
 	cont "currently"
 	cont "leaderless, and"
-	cont "yet the INDICO HQ"
+	cont "yet the INDIGO HQ"
 	cont "still doesn't"
 	cont "acknowledge us..."
 
