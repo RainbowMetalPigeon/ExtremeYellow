@@ -587,7 +587,7 @@ _TM18Description::
 
 _TM19Description::
 	text "SEISMIC TOSS"
-	next "dmg = user lvl"
+	next "dmg is user lvl"
 	prompt
 
 _TM20Description::

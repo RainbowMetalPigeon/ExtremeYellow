@@ -562,9 +562,8 @@ ButterfreeEvosMoves:
 	db 16, PSYBEAM
 	db 17, SWIFT
 	db 18, GUST
-	db 21, AIR_SLASH
-	db 23, MEGA_DRAIN
-	db 25, GUST
+	db 22, AIR_SLASH
+	db 25, MEGA_DRAIN
 	db 28, TWISTER
 	db 31, DREAM_EATER
 	db 33, INFESTATION

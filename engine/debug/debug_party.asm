@@ -257,7 +257,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
-	db SUPER_ROD, 1
+	db TM_SEISMIC_TOSS, 3
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1

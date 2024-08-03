@@ -342,28 +342,28 @@ _CeladonUniversity2SignBook01::
     text "#MON, ALL TOO"
     line "#MON"
     done
-    
+
 _CeladonUniversity2SignBook02::
     text "WHO WAS THE FIRST"
     line "#MON?"
     done
-    
+
 _CeladonUniversity2SignBook03::
     text "DINING WITH"
     line "#MON"
     done
-    
+
 _CeladonUniversity2SignBook04::
     text "MARRYING #MON?"
     line "A HISTORICAL"
     cont "OVERVIEW"
     done
-    
+
 _CeladonUniversity2SignBook05::
     text "ASSEMBLY FOR"
     line "BEGINNERS"
     done
-    
+
 _CeladonUniversity2SignBook06::
     text "THE DARKEST OF"
     line "ALL LEGENDS"
@@ -372,7 +372,7 @@ _CeladonUniversity2SignBook06::
     line "RAINBOW METAL"
     cont "PIGEON!"
     done
-    
+
 _CeladonUniversity2SignBook07::
     text "GAME FREAK"
     line "NUMBER 13"
@@ -382,41 +382,41 @@ _CeladonUniversity2SignBook07::
     cont "some bugs."
     cont "Relatable..."
     done
-    
+
 _CeladonUniversity2SignBook08::
     text "HOW DO #MON"
     line "REPRODUCE?"
     done
-    
+
 _CeladonUniversity2SignBook09::
     text "INVESTIGATION ON"
     line "USAGE OF"
     cont "#BALLS ON"
     cont "HUMANS"
     done
-    
+
 _CeladonUniversity2SignBook10::
     text "DO WE LIVE IN"
     line "A SIMULATION?"
     done
-    
+
 _CeladonUniversity2SignBook11::
     text "THEORY OF THE"
     line "MULTIDIMENSIONAL"
     cont "MODEL"
     done
-    
+
 _CeladonUniversity2SignBook12::
     text "WHO CAME FIRST:"
     line "THE EXEGGCUTE OR"
     cont "THE FARFETCH'D?"
     done
-    
+
 _CeladonUniversity2SignBook13::
     text "GEOLOGICAL HISTORY"
     line "OF KANTO"
     done
-    
+
 _CeladonUniversity2SignBook14::
     text "SURVEY ON CINNABAR"
     line "VOLCANIC"
@@ -424,61 +424,61 @@ _CeladonUniversity2SignBook14::
     cont "RISKS FOR"
     cont "SETTLEMENTS"
     done
-    
+
 _CeladonUniversity2SignBook15::
     text "HOW CAN ALL"
     line "FARFETCH'D ALWAYS"
     cont "HAVE A LEEK WITH"
     cont "THEM?"
     done
-    
+
 _CeladonUniversity2SignBook16::
     text "SMOGON SINGLES"
     line "OR VGC?"
     done
-    
+
 _CeladonUniversity2SignBook17::
     text "INTRODUCTION TO"
     line "QUANTUM"
     cont "#DYNAMIC"
     done
-    
+
 _CeladonUniversity2SignBook18::
     text "ONE, NONE, AND"
     line "100'000 #MON"
     done
-    
+
 _CeladonUniversity2SignBook19::
     text "DAMAGE CALCULATION"
     line "BREAKDOWN"
     done
-    
+
 _CeladonUniversity2SignBook20::
     text "HOW CAN #MON BE"
     line "CONFUSED WHILE"
     cont "ASLEEP?"
     done
-    
+
 _CeladonUniversity2SignBook21::
     text "WHY CANNOT #MON"
     line "BE PARALYZED AND"
     cont "BURNED?"
     done
-    
+
 _CeladonUniversity2SignBook22::
     text "#BALL MECHANIC:"
     line "FORGOTTEN"
     cont "TRANQUILLIZER"
     done
-    
+
 _CeladonUniversity2SignBook23::
     text "2042"
     done
-    
+
 _CeladonUniversity2SignBook24::
     text "#MON FARM"
     done
-    
+
 _CeladonUniversity2SignBook25::
     text "SURVEY ON THE"
     line "ATTEMPTS AT"
@@ -486,27 +486,27 @@ _CeladonUniversity2SignBook25::
     cont "APRICORNS"
     cont "IN KANTO"
     done
-    
+
 _CeladonUniversity2SignBook26::
     text "ARE KANGASKHAN"
     line "BORN WITH AN"
     cont "INFANT IN THEIR"
     cont "POCKET?"
     done
-    
+
 _CeladonUniversity2SignBook27::
     text "HOW TO CATCH TWO"
     line "PIDGEY WITH ONE"
     cont "#BALL"
     done
-    
+
 _CeladonUniversity2SignBook28::
     text "TECHNICAL OVERVIEW"
     line "ON THE STRUCTURAL"
     cont "STABILITY OF"
     line "CINNABAR MANSION"
     done
-    
+
 _CeladonUniversity2SignBook29::
     text "OVERVIEW ON THE"
     line "SIGHTINGS OF"
@@ -515,7 +515,7 @@ _CeladonUniversity2SignBook29::
     cont "CHROMATIC"
     cont "ANOMALIES"
     done
-    
+
 _CeladonUniversity2SignBook30::
     text "USING ELECTRIC"
     line "#MON TO"
@@ -525,28 +525,28 @@ _CeladonUniversity2SignBook30::
     cont "FEASIBILITY AND"
     cont "MORALITY"
     done
-    
+
 _CeladonUniversity2SignBook31::
     text "MORAL DILEMMA ON"
     line "#MON BATTLES"
     done
-    
+
 _CeladonUniversity2SignBook32::
     text "INTRODUCTION ON"
     line "DIGITALIZATION OF"
     cont "BIOLOGICAL"
     cont "INFORMATION"
 
-    para "This if from BILL!"
+    para "This is from BILL!"
     done
-    
+
 _CeladonUniversity2SignBook33::
     text "#MON: THREAT,"
     line "FRIENDS, PETS,"
     cont "FIGHTERS,"
     cont "OR ALLIES?"
     done
-    
+
 _CeladonUniversity2SignBook34::
     text "#MON MASS"
     line "DENSITY AND ITS"
@@ -559,102 +559,102 @@ _CeladonUniversity2SignBook34::
     cont "floating in"
     cont "the air..."
     done
-    
+
 _CeladonUniversity2SignBook35::
     text "ARCEUS IS DEAD"
     done
-    
+
 _CeladonUniversity2SignBook36::
     text "HISTORY OF THE"
     line "USAGE OF WHIPS"
     cont "IN BATTLE"
     done
-    
+
 _CeladonUniversity2SignBook37::
     text "MEMORY LOSS IN"
     line "SENILE POPULATION"
     cont "AND ITS"
     cont "TREATMENTS"
     done
-    
+
 _CeladonUniversity2SignBook38::
     text "ARE MOONSTONES"
     line "METEORITES?"
     done
-    
+
 _CeladonUniversity2SignBook39::
     text "#MON FROM SPACE"
     line "FROM MYTHS TO THE"
     cont "SCIENTIFIC"
     cont "ANALYSIS"
     done
-    
+
 _CeladonUniversity2SignBook40::
     text "HISTORY OF THE"
     line "LUNAR TEMPLE"
     done
-    
+
 _CeladonUniversity2SignBook41::
     text "COULD #MON HOLD"
     line "ITEMS WHILE"
     cont "BATTLING?"
     done
-    
+
 _CeladonUniversity2SignBook42::
     text "EFFECT OF POACHING"
     line "ON WILDLIFE"
     done
-    
+
 _CeladonUniversity2SignBook43::
-    text "CAN GHASTLY AND"
+    text "CAN GASTLY AND"
     line "PORYGON BE"
     cont "CONSIDERED ALIVE?"
     done
-    
+
 _CeladonUniversity2SignBook44::
     text "COULD WILD #MON"
     line "EVOLVE WITHOUT"
     cont "LEVELING UP?"
     done
-    
+
 _CeladonUniversity2SignBook45::
     text "#BALL AND THE"
     line "VIOLATION OF"
     cont "ENERGY"
     cont "CONSERVATION"
     done
-    
+
 _CeladonUniversity2SignBook46::
     text "ON ROCK TYPING OF"
     line "RESURRECTED"
     cont "FOSSILS"
     done
-    
+
 _CeladonUniversity2SignBook47::
     text "HUMAN LANGUAGE"
     line "IN POKEMON:"
     cont "MERE IMITATION"
     cont "OR MORE?"
     done
-    
+
 _CeladonUniversity2SignBook48::
     text "THUS SPOKE ZERAORA"
     done
-    
+
 _CeladonUniversity2SignBook49::
     text "POKEMON CLONING:"
     line "HOPELESS ILLUSION"
     cont "OR A GLITCH"
     cont "IN REALITY?"
     done
-    
+
 _CeladonUniversity2SignBook50::
     text "ON THE DAY-NIGHT,"
     line "SEASONS, AND"
     cont "WEATHER CYCLES,"
     cont "AND LACK THEREOF"
     done
-    
+
 _CeladonUniversity2SignLibraryPC::
     text "With this, one"
     line "can search and"

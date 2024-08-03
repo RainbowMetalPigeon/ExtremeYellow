@@ -8,12 +8,6 @@ Route12_Script:
 	ret
 
 Route12Script_59606:
-	ld a, HS_ROUTE_12_RIVAL_RIGHT
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld a, HS_ROUTE_12_RIVAL_LEFT
-	ld [wMissableObjectIndex], a
-	predef HideObject
 	xor a
 	ld [wJoyIgnore], a
 	ld [wRoute12CurScript], a
@@ -351,6 +345,12 @@ Route12Script_ResetIfLoseVsRival: ; new
 	ld [wJoyIgnore], a
 	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
+	ld a, HS_ROUTE_12_RIVAL_RIGHT
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_12_RIVAL_LEFT
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	ld a, HS_ROUTE_12_SNORLAX
 	ld [wMissableObjectIndex], a
 	predef_jump HideObject
