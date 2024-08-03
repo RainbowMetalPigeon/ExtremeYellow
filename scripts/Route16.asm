@@ -8,6 +8,9 @@ Route16_Script:
 	ret
 
 Route16Script_59946:
+	ld a, HS_ROUTE_16_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	xor a
 	ld [wJoyIgnore], a
 	ld [wRoute16CurScript], a
