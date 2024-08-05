@@ -156,7 +156,7 @@ _CeruleanHouse1Text11::
 	cont "interest in"
 	cont "joining our show."
 
-	text "Too bad for them!"
+	para "Too bad for them!"
 	line "We'll soon be"
 	cont "even more famous"
 	cont "than the KIMONO"

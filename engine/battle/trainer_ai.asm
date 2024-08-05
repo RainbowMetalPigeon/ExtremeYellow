@@ -175,17 +175,9 @@ AIMoveChoiceModification1:
 	cp PARALYZE_EFFECT
 	jp z, .paralyzeEffect
 ; check for useless-against-substitute effects
-	ld a, [wEnemyMoveEffect] ; unnecessary?
-	push hl
-	push de
-	push bc
-	ld hl, UselessAgainstSubstituteMoveEffects
-	ld de, 1
-	call IsInArray ; returns count b and carry if found
-	pop bc
-	pop de
-	pop hl
-	jp c, .uselessVsSubstituteEffect
+	ld a, [wPlayerBattleStatus2]
+	bit HAS_SUBSTITUTE_UP, a
+	jp nz, .uselessVsSubstituteEffect
 ; check for self-buffing moves
 	ld a, [wEnemyMoveEffect]
 	cp SPEED_UP2_EFFECT
@@ -400,10 +392,18 @@ AIMoveChoiceModification1:
 	jp .veryHeavilyDiscourage
 
 .uselessVsSubstituteEffect
-	ld a, [wPlayerBattleStatus2]
-	bit HAS_SUBSTITUTE_UP, a
+	ld a, [wEnemyMoveEffect]
+	push hl
+	push de
+	push bc
+	ld hl, UselessAgainstSubstituteMoveEffects
+	ld de, 1
+	call IsInArray ; returns count b and carry if found
+	pop bc
+	pop de
+	pop hl
+	jp c, .veryHeavilyDiscourage
 	jp z, .nextMove
-	jp .veryHeavilyDiscourage
 
 ; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
 .selfBoost_Speed
