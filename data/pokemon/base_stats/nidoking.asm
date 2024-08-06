@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/nidoking.pic", 0, 1 ; sprite dimensions
 	dw NidokingPicFront, NidokingPicBack
 
-	db TACKLE, HORN_ATTACK, POISON_STING, THRASH ; level 1 learnset
+	db SCRATCH, HORN_ATTACK, POISON_STING, THRASH ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -20,7 +20,7 @@
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   \
 	     SHADOW_BALL,  SUBSTITUTE,   BODY_PRESS,   CUT,          SURF,         \
-	     STRENGTH,     GUNK_SHOT,    CURSE         
+	     STRENGTH,     GUNK_SHOT,    CURSE
 	; end
 
 	db BANK(NidokingPicFront)

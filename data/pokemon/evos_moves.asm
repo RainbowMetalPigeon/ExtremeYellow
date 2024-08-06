@@ -1003,7 +1003,7 @@ NidoranFEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1031,7 +1031,7 @@ NidorinaEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1058,7 +1058,7 @@ NidoqueenEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1094,7 +1094,7 @@ NidoranMEvosMoves:
 	db 0
 ; Learnset
 	db 7, GROWL
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 11, PECK
@@ -1124,7 +1124,7 @@ NidorinoEvosMoves:
 	db 0
 ; Learnset
 	db 7, GROWL
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 11, PECK
@@ -1153,7 +1153,7 @@ NidokingEvosMoves:
 	db 0
 ; Learnset
 	db 7, GROWL
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
