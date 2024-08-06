@@ -301,7 +301,7 @@ Route24Text8:
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	lb bc, CHARMANDER, 10
+	lb bc, CHARMANDER, 15 ; edited
 	call GivePokemon
 	jp nc, TextScriptEnd
 	ld a, [wAddedToParty]

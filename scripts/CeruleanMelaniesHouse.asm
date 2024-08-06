@@ -47,7 +47,7 @@ CeruleanHouse1Text1:
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	lb bc, BULBASAUR, 10
+	lb bc, BULBASAUR, 15 ; edited
 	call GivePokemon
 	jr nc, .asm_1cfb3
 	ld a, [wAddedToParty]
@@ -131,36 +131,35 @@ CeruleanHouse1Text5:
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
 	jp TextScriptEnd
-	
+
 CeruleanHouse1Text6:
 	text_far _CeruleanHouse1Text6
 	text_end
-	
+
 CeruleanHouse1Text7:
 	text_far _CeruleanHouse1Text7
 	text_end
-	
+
 CeruleanHouse1Text8:
 	text_far _CeruleanHouse1Text8
 	text_end
-	
+
 CeruleanHouse1Text9:
 	text_far _CeruleanHouse1Text9
 	text_end
-	
+
 CeruleanHouse1Text10:
 	text_far _CeruleanHouse1Text10
 	text_end
-	
+
 CeruleanHouse1Text11:
 	text_far _CeruleanHouse1Text11
 	text_end
-	
+
 CeruleanHouse1Sign1:
 	text_far _CeruleanHouse1Sign1
 	text_end
-	
+
 CeruleanHouse1Sign2:
 	text_far _CeruleanHouse1Sign2
 	text_end
-	
