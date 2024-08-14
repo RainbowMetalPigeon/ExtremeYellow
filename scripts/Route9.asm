@@ -30,7 +30,7 @@ Route9TrainerHeaders:
 Route9TrainerHeader0:
 	trainer EVENT_BEAT_ROUTE_9_TRAINER_0, 3, Route9BattleText1, Route9EndBattleText1, Route9AfterBattleText1
 Route9TrainerHeader1:
-	trainer EVENT_BEAT_ROUTE_9_TRAINER_1, 2, Route9BattleTextAJ, Route9EndBattleTextAJ, Route9AfterBattleTextAJ
+	trainer EVENT_BEAT_ROUTE_9_TRAINER_1, 4, Route9BattleTextAJ, Route9EndBattleTextAJ, Route9AfterBattleTextAJ ; edited
 Route9TrainerHeader2:
 	trainer EVENT_BEAT_ROUTE_9_TRAINER_2, 4, Route9BattleText3, Route9EndBattleText3, Route9AfterBattleText3
 Route9TrainerHeader3:
