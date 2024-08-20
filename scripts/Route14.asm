@@ -38,7 +38,7 @@ Route14TrainerHeader3:
 Route14TrainerHeader4:
 	trainer EVENT_BEAT_ROUTE_14_TRAINER_4, 3, Route14BattleText5, Route14EndBattleText5, Route14AfterBattleText5
 Route14TrainerHeader5:
-	trainer EVENT_BEAT_ROUTE_14_TRAINER_5, 3, Route14BattleText6, Route14EndBattleText6, Route14AfterBattleText6
+	trainer EVENT_BEAT_ROUTE_14_TRAINER_5, 2, Route14BattleText6, Route14EndBattleText6, Route14AfterBattleText6 ; edited
 Route14TrainerHeader6:
 	trainer EVENT_BEAT_ROUTE_14_TRAINER_6, 4, Route14BattleText7, Route14EndBattleText7, Route14AfterBattleText7
 Route14TrainerHeader7:

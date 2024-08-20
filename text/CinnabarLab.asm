@@ -283,7 +283,7 @@ _Lab1SeismologySign1::
 	line "that stands out"
 	cont "is a line"
 	cont "steadily rising"
-	cont "over time an"
+	cont "over time and"
 	cont "approaching a red"
 	cont "area labelled"
 	cont "with 'DANGER!'..."
