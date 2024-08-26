@@ -213,7 +213,7 @@ Moves:
 	move BLAST_BURN,   HYPER_BEAM_EFFECT,	       150,	FIRE,	       90, 5  ; done
 	move HEAT_WAVE,    BURN_SIDE_EFFECT1,          100, FIRE,          90, 10 ; done
 
-	move ROOST,	       HEAL_EFFECT,	                 0,	FLYING,	      100, 5  ; done
+	move ROOST,	       HEAL_EFFECT,	                 0,	FLYING,	      100, 10 ; done
 	move AIR_CUTTER,   NO_ADDITIONAL_EFFECT,	    60,	FLYING,	       95, 25 ; high crit rate ; done
 	move AERIAL_ACE,   SWIFT_EFFECT,	            60,	FLYING,	      100, 20 ; done
 	move AIR_SLASH,	   FLINCH_SIDE_EFFECT3,	        75,	FLYING,	       95, 15 ; done

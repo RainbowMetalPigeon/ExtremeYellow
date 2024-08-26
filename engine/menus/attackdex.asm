@@ -1164,12 +1164,12 @@ DrawAttackdexEntryOnScreen:
 	ld hl, AttackdexText_SeismicTossNightShadeEffect
 	jp .done
 
-.handleRecoilEffect
+.handleRecoilEffect ; TBE, handle VOLT_TACKLE
 	ld a, [wPlayerMoveNum]
 	ld hl, AttackdexText_Recoil1o2Effect
 	cp HEAD_SMASH
 	jp z, .done
-	ld hl, AttackdexText_Recoil1o3Effect
+	ld hl, AttackdexText_Recoil1o4Effect
 	jp .done
 
 .handleHealEffect
@@ -1752,8 +1752,12 @@ AttackdexText_Recoil1o2Effect:
 	text_far _AttackdexText_Recoil1o2Effect
 	text_end
 
-AttackdexText_Recoil1o3Effect:
+AttackdexText_Recoil1o3Effect: ; TBE, for VOLT_TACKLE
 	text_far _AttackdexText_Recoil1o3Effect
+	text_end
+
+AttackdexText_Recoil1o4Effect:
+	text_far _AttackdexText_Recoil1o4Effect
 	text_end
 
 AttackdexText_RestEffect:

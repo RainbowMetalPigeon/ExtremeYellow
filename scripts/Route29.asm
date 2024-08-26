@@ -354,11 +354,11 @@ Route29TextSlowking:
 .continue3
 	ld a, [wUniQuizAnswer] ; now a contains the number of ORBs obtained
 	and a
-	jr .orbs0
+	jr z, .orbs0
 	cp 1
-	jr .orbs1
+	jr z, .orbs1
 	cp 2
-	jr .orbs2
+	jr z, .orbs2
 ; 3 orbs
 	ld hl, Route29TextSlowking_3OrbsObtained
 	jr .printAndEnd

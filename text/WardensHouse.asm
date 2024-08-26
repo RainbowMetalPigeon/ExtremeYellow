@@ -150,7 +150,8 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_PreObsidianGiovanniDefeat::
 _FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoArtifact::
 	text "You're interested"
 	line "in something? But"
-	cont "you don't enough"
+	cont "don't have enough"
+;	xxxx "123456789012345678"
 	cont "money? I'm sorry,"
 	cont "I cannot apply"
 	cont "any discount"

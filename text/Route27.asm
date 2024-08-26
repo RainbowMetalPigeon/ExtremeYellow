@@ -35,7 +35,7 @@ _Route27Text3::
     cont "the most, and"
     cont "their partner is"
     cont "a huge fan of"
-    cont "FIRE types."
+    cont "WATER types."
 
     para "My other partner,"
     line "instead, is"
