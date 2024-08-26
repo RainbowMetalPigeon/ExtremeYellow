@@ -26,7 +26,7 @@ _SaffronHouse1Text3:: ; edited
 	line "cute! I'm getting"
 	cont "them a # DOLL!"
 
-	text "My partner will"
+	para "My partner will"
 	line "help me choosing!"
 	done
 
