@@ -7,14 +7,11 @@ ViridianCityText_f18c2:
 	text_far _ViridianCityText1
 	text_end
 
-Func_f18c7::
-	ld hl, ViridianCityText_19127
-	ld a, [wObtainedBadges]
-	cp ~(1 << BIT_EARTHBADGE)
-	jr z, .done
-	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
+Func_f18c7:: ; edited
+	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	ld hl, ViridianCityText_19127 ; post-Obsidian
 	jr nz, .done
-	ld hl, ViridianCityText_19122
+	ld hl, ViridianCityText_19122 ; pre-Obsidian
 .done
 	call PrintText
 	ret
