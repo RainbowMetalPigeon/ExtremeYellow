@@ -245,7 +245,7 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesTrade::
 	para "You made this old"
 	line "antique dealer so"
 	cont "really happy!"
-	done
+	prompt
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PostGivingMap::
 	text "Hello there!"

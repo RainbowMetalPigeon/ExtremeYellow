@@ -99,7 +99,7 @@ _Museum2FText8_2:: ; new
 	cont "but it wasn't."
 
 	para "A young talented"
-	line "trainer retified"
+	line "trainer rectified"
 	cont "their wrong, but"
 	cont "their theft"
 	cont "ruined the life"
