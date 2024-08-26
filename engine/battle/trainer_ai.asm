@@ -231,8 +231,8 @@ AIMoveChoiceModification1:
 .dreamEaterEffect
 	ld a, [wBattleMonStatus]
 	and SLP_MASK
-	jp z, .nextMove
-	jp .veryHeavilyDiscourage
+	jp z, .veryHeavilyDiscourage
+	jp .nextMove
 
 .curseEffect
 	ld a, [wPlayerBattleStatus2]
