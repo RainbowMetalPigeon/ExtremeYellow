@@ -35,9 +35,9 @@ ObsidianWoodTrainerHeader0:
 ObsidianWoodTrainerHeader1:
 	trainer EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_1, 3, ObsidianWoodBattleText2, ObsidianWoodEndBattleText2, ObsidianWoodAfterBattleText2
 ObsidianWoodTrainerHeader2:
-	trainer EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_2, 3, ObsidianWoodBattleText3, ObsidianWoodEndBattleText3, ObsidianWoodAfterBattleText3
+	trainer EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_2, 2, ObsidianWoodBattleText3, ObsidianWoodEndBattleText3, ObsidianWoodAfterBattleText3
 ObsidianWoodTrainerHeader3:
-	trainer EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_3, 3, ObsidianWoodBattleText4, ObsidianWoodEndBattleText4, ObsidianWoodAfterBattleText4
+	trainer EVENT_BEAT_OBSIDIAN_WOOD_TRAINER_3, 2, ObsidianWoodBattleText4, ObsidianWoodEndBattleText4, ObsidianWoodAfterBattleText4
 	db -1 ; end
 
 ; ====================== texts ======================
