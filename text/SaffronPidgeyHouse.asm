@@ -27,7 +27,7 @@ _SaffronHouse1Text3:: ; edited
 	cont "them a # DOLL!"
 
 	para "My partner will"
-	line "help me choosing!"
+	line "help me choose!"
 	done
 
 _SaffronHouse1Text4:: ; edited
