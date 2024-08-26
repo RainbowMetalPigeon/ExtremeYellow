@@ -1390,6 +1390,7 @@ OutrageAnim:
 DragonBreathAnim:
 	battle_anim DRAGON_RAGE, SUBANIM_56, 1, 10
 	battle_anim FLAMETHROWER, SUBANIM_1F, 1, 6
+	battle_anim FLAMETHROWER, SUBANIM_1A, 1, 6
 	db -1 ; end
 
 DragonClawAnim:
