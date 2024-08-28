@@ -351,6 +351,11 @@ Route22Script5:
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
+; new
+	ld a, HS_LUNAR_SHRINE_TOURIST_1
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+; back to vanilla
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
