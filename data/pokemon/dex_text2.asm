@@ -356,8 +356,8 @@ _RhyperiorDexEntry::
 	next "out rocks and"
 
 	page "GEODUDE. Its cara-"
-	next "pace can withstand"
-	next "volcanic eruptions"
+	next "pace can resist a"
+	next "volcanic eruption"
 	dex
 
 _HappinyDexEntry::
