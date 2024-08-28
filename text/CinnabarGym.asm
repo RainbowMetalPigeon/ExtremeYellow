@@ -311,7 +311,7 @@ _BlaineRematchPreBattleText::
 	done
 
 _BlaineRematchDefeatedText::
-	text "BLAINE: Whoo-hoo!"
+	text "Whoo-hoo!"
 	line "You're burning"
 	cont "hotter than the"
 	cont "sun in the middle"

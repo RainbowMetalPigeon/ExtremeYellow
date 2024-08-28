@@ -95,7 +95,7 @@ _LanceBeforeBattleTextRematch::
 	cont "people more than"
 	cont "you can imagine."
 
-	para "I am thrilling to"
+	para "I am thrilled to"
 	line "measure myself"
 	cont "with you again."
 	cont "I, LANCE,"

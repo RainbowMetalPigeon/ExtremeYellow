@@ -83,8 +83,8 @@ _GaryText_OWPostDefeat_BG::
 	line "to win against 6"
 	cont "MEGA EVOLVED"
 	cont "#MON, AND the"
-	cont "3 birds of"
-	cont "legends?"
+	cont "3 BIRDs of"
+	cont "Legend?"
 
 	para "I did my best..."
 
@@ -587,7 +587,7 @@ _GaryText2ndBattle_BG::
 
 	para "You're saying that"
 	line "I cannot use more"
-	cont "than 6 Pokémon in"
+	cont "than 6 #MON in"
 	cont "a battle?"
 
 	para "Too bad for you,"
