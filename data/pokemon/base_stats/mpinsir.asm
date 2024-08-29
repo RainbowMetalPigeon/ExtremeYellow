@@ -3,7 +3,7 @@
 	db  65, 155, 120, 105,  78
 	;   hp  atk  def  spd  spc
 
-	db BUG, BUG ; type
+	db BUG, FLYING ; type
 	db 45 ; catch rate
 	db 233 ; base exp
 
@@ -18,7 +18,7 @@
 	     SEISMIC_TOSS, FEINT_ATTACK, STONE_EDGE,   EARTHQUAKE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, OUTRAGE,      \
 	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        \
-	     CUT,          STRENGTH,     MEGAHORN,     EXPLOSION,    CURSE         
+	     CUT,          STRENGTH,     MEGAHORN,     EXPLOSION,    CURSE
 	; end
 
 	db BANK(MPinsirPicFront)
