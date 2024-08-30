@@ -9,6 +9,7 @@ Route23_Object:
 
 	def_bg_events
 	bg_event  3, 33, 8 ; Route23Text8
+	bg_event 17, 34, 9 ; Route23Text9 ; new
 
 	def_object_events
 	object_event  4, 35, SPRITE_GUARD, STAY, DOWN, 1 ; person

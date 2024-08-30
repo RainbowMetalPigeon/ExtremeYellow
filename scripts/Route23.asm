@@ -147,6 +147,7 @@ Route23_TextPointers:
 	dw Route23Text6
 	dw Route23Text7
 	dw Route23Text8
+	dw Route23Text9 ; new
 
 Route23Text1:
 	text_asm
@@ -240,4 +241,8 @@ VictoryRoadGuardText2:
 
 Route23Text8:
 	text_far _Route23Text8
+	text_end
+
+Route23Text9: ; new
+	text_far _Route23Text9
 	text_end

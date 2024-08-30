@@ -39,3 +39,10 @@ _Route23Text8::
 	text "VICTORY ROAD GATE"
 	line "- #MON LEAGUE"
 	done
+
+_Route23Text9::
+	text "To interact with"
+	line "people and signs,"
+	cont "press the"
+	cont "A button!"
+	done
