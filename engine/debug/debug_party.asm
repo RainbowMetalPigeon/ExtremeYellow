@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEW, 100 ; 255
-	db HAUNTER, 42
+	db VENUSTOISE, 35
 	db STARTER_PIKACHU, 96
 ;	db SEAKING, 42
 ;	db PORYGONZ, 42

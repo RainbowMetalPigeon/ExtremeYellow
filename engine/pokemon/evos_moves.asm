@@ -405,6 +405,7 @@ LearnMoveFromLevelUp:
 	ld a, d
 	ld [wMoveNum], a
 	ld [wd11e], a
+	ld [wUniQuizAnswer], a ; new, testing
 	call GetMoveName
 	call CopyToStringBuffer
 	predef LearnMove

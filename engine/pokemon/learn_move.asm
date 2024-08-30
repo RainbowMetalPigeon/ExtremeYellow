@@ -90,6 +90,10 @@ AbandonLearning:
 	ret
 
 PrintLearnedMove:
+	ld a, [wUniQuizAnswer]  ; new, testing
+	ld [wd11e], a           ; new, testing
+	call GetMoveName        ; new, testing
+	call CopyToStringBuffer ; new, testing
 	ld hl, LearnedMove1Text
 	call PrintText
 	ld b, 1
