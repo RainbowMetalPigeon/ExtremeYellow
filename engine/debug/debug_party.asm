@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MMEWTWOY, 100 ; 255
+	db MEW, 100 ; 255
 	db HAUNTER, 42
 	db STARTER_PIKACHU, 96
 ;	db SEAKING, 42
@@ -257,7 +257,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
-	db TM_SEISMIC_TOSS, 3
+	db TM_CURSE, 3
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
@@ -276,7 +276,7 @@ DebugItemsList:
     db ICE_ORB, 1
     db THUNDER_ORB, 1
     db FIRE_ORB, 1
-	db TM_SWORDS_DANCE, 3
+	db TM_MEGA_PUNCH, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 	db POTION, 99 ; PP_UP, 42
@@ -291,7 +291,8 @@ DebugItemsList:
     db PERFECTER, 99
     db ULTRA_BALL, 99
     db GREAT_BALL, 99
-    db POKE_BALL, 99
+    db HM_CUT, 1
+    db HM_FLASH, 1
     ; 39
 	db -1 ; end
 

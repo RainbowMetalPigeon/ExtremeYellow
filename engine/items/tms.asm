@@ -69,15 +69,15 @@ DisplayTMItemNameFromMoveName::
     jr .findTMloop2
 .TMfound
     ld a, c
-    ld b, NUM_TMS ; 50 TMs
+    ld b, NUM_TMS + 1 ; 55 TMs + 1
     sub b
     jr c, .isTM
     ; isHM
-    ld b, HM01 - 1 ; HM Item IDs start at 196
+    ld b, HM01 ; HM Item IDs start at 196
     add b
     jr .getItemName
 .isTM
-    ld b, TM01 - 1 + NUM_TMS ; TM Item IDs start at 201 (also adding the subtracted 50)
+    ld b, TM01 + NUM_TMS ; TM Item IDs start at 201 (or whatever) (also adding the subtracted 55)
     add b
 .getItemName
     ld [wd11e], a
