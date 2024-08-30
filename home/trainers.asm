@@ -103,6 +103,19 @@ TalkToTrainer::
 ; --- beginning new block to reactivate trainers ---
 	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS
 	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+; no rematches vs specific trainers
+	ld a, [wTrainerClass]
+	cp GIOVANNI
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	cp LORELEI
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	cp BRUNO
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	cp AGATHA
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	cp LANCE
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+; back to normal rematch code
 	ld hl, TextAskRematch
 	call PrintText
 	call YesNoChoice

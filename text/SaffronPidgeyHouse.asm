@@ -26,8 +26,8 @@ _SaffronHouse1Text3:: ; edited
 	line "cute! I'm getting"
 	cont "them a # DOLL!"
 
-	text "My partner will"
-	line "help me choosing!"
+	para "My partner will"
+	line "help me choose!"
 	done
 
 _SaffronHouse1Text4:: ; edited

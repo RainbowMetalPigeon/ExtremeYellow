@@ -318,10 +318,10 @@ _ObsidianIslandText7_Scientist1_WowAlreadyCollected::
 	cont "energy source!"
 
 	para "Here, please have"
-	line "the reward you I"
+	line "the reward I"
 	cont "promised you,"
-	cont "together with my"
-	cont "thanks!"
+	cont "together with"
+	cont "my thanks!"
 	prompt
 
 _ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt::

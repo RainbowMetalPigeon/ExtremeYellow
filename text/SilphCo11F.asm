@@ -101,7 +101,7 @@ _SilphCo10Text_62335::
 	cont "We will get you"
 	cont "and your beloved"
 	cont "ones when you"
-	cont "less expect it!"
+	cont "least expect it!"
 	done
 
 _SilphCo11BattleText2:: ; edited

@@ -154,8 +154,8 @@ _TextTraveler_Compliments::
 	cont "existence."
 
 	para "I have collected"
-	line "5 out 6 #MON,"
-	cont "and my"
+	line "5 out of 6"
+	cont "#MON, and my"
 	cont "instruments"
 	cont "suggested me to"
 	cont "land in this"

@@ -18,7 +18,7 @@ ObsidianWood_Object:
 	object_event 40,  2, SPRITE_YOUNGSTER, STAY, ANY_DIR, 2, OPP_BUG_CATCHER, 12 ; cool bugs in this forest. what do you mean outside?
 	object_event  9, 31, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 73 ; came here for unusual mons, found rocket
 	object_event 45, 37, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 4, OPP_JR_TRAINER, 36 ; Junior Woodchucks, i'm a ten-star general
-	object_event 33, 10, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 5 ; to be edited: OW sprite
+	object_event 33, 10, SPRITE_ORAGE, STAY, ANY_DIR, 5 ; inverse rematch Orage
 
 	object_event  1, 46, SPRITE_POKE_BALL, STAY, NONE, 6, MAX_ETHER
 	object_event 32, 46, SPRITE_POKE_BALL, STAY, NONE, 7, MAX_ELIXER

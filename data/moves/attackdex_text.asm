@@ -696,7 +696,7 @@ _AttackdexText_SubstituteEffect::
 	text "Makes a SUBSTITUTE"
 	next "using 25% max HP."
 	next "Takes damage for"
-	next "the user, and also"
+	next "the user, and"
 
 	atpg "protects from"
 	next "STAT changes,"
@@ -793,9 +793,15 @@ _AttackdexText_Recoil1o2Effect::
 	next "damage inflicted"
 	dex
 
-_AttackdexText_Recoil1o3Effect::
+_AttackdexText_Recoil1o3Effect:: ; TBE, for VOLT_TACKLE
 	text "Users takes recoil"
 	next "equal to 33% of"
+	next "damage inflicted"
+	dex
+
+_AttackdexText_Recoil1o4Effect::
+	text "Users takes recoil"
+	next "equal to 25% of"
 	next "damage inflicted"
 	dex
 
@@ -879,11 +885,11 @@ _AttackdexText_StruggleEffect::
 	text "Can and must be"
 	next "used only when"
 	next "all attacks have"
-	next "their PP depleted."
+	next "no more PPs."
 
 	atpg "Users takes recoil"
 	next "equal to 50% of"
-	next "damage inflicted."
+	next "damage inflicted"
 	dex
 
 _AttackdexText_AncestorPowerEffect::

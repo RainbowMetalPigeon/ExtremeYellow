@@ -126,8 +126,8 @@ _ObsidianHousesTextFamily3::
 	text "I was so scared"
 	line "for my family..."
 
-	para "TEAM ROCKET"
-	line "threated to hurt"
+	para "TEAM ROCKET did"
+	line "threat to hurt"
 	cont "them if I didn't"
 	cont "work hard enough."
 	done

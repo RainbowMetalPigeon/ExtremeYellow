@@ -140,9 +140,8 @@ _OchreGymBattleText5::
 
 _OchreGymEndBattleText5::
 	text "Well,"
-
-	para "maybe you are"
-	line "synchronized with"
+	line "maybe you are"
+	cont "synchronized with"
 	cont "the world even"
 	cont "without the power"
 	cont "of FAIRY..."

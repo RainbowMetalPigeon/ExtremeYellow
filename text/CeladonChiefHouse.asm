@@ -223,7 +223,7 @@ _LunarShrineTextRockets4::
 	cont "the rebirth of"
 	cont "TEAM ROCKET!"
 
-	para "Our BOOS may have"
+	para "Our BOSS may have"
 	line "given up on us,"
 	cont "but we didn't"
 	cont "give up on them."

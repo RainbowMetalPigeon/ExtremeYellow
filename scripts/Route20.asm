@@ -50,11 +50,11 @@ Route20Script_50cc6:
 
 Route20Script_50d0c:
 	ld [wMissableObjectIndex], a
-	predef_jump ShowObject
+	predef_jump ShowObjectExtra ; edited, because of HS expansion
 
 Route20Script_50d14:
 	ld [wMissableObjectIndex], a
-	predef_jump HideObject
+	predef_jump HideObjectExtra ; edited, because of HS expansion
 
 Route20_ScriptPointers:
 	dw CheckFightingMapTrainers
