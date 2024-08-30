@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db PORYGON, 90 ; 255
+	db MMEWTWOY, 100 ; 255
 	db HAUNTER, 42
 	db STARTER_PIKACHU, 96
 ;	db SEAKING, 42

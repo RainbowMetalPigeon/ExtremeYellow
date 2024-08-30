@@ -100,7 +100,9 @@ BattleFacilityScript1_PostBattle:
 	ld a, [wBattleFacilityWinningStreak]
 	cp 7 ; 2 for testing
 	jr nz, .notFinishedBlock
-; we finished a block in standard mode
+; we finished a block=session in standard mode
+	ld a, [wLevelScalingBackup] ; reset level scaling as chosen by the player, TBV
+	ld [wLevelScaling], a
 	ld a, 15 ; BattleFacilityText_FinishedBlock
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -843,6 +845,11 @@ BattleFacilityTextGuide:
 ; set the battle style as Set (not Shift)
 	ld hl, wOptions ; bit 6 = battle style: 0 Shift, 1 Set
 	set 6, [hl]
+; backup the current Level Scaling option choice to restore it after the battle, and set up the level scaling
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 1 ; 0 for testing
+	ld [wLevelScaling], a
 ; script handling
 	ld a, 2 ; BattleFacilityScript_MoveGuide
 	ld [wBattleFacilityCurScript], a
@@ -853,7 +860,7 @@ BattleFacilityTextGuide:
 	call AskHowTheyCanHelp
 	ld a, [wCurrentMenuItem] ; 0 for INFO, 1 for BATTLE, 2 for PRIZES, 3 for EXIT
 	cp 3 ; EXIT
-	jr z, .exit
+	jp z, .exit
 	cp 2 ; PRIZES
 	jp z, .prizes
 	cp 1 ; BATTLE
@@ -960,11 +967,6 @@ BattleFacilityTextOpponent:
 	ld [wBattleFacilityMonNumber5], a
 ; randomize the shiny-ness of opp's mons
 	callfar AssignShinyToBattleFacilityTrainers
-; backup the current Level Scaling option choice to restore it after the battle, and set up the level scaling
-	ld a, [wLevelScaling]
-	ld [wLevelScalingBackup], a
-	ld a, 1 ; 0 for testing
-	ld [wLevelScaling], a
 ; set up normal or inverse battle
 	ld a, [wBattleFacilityInverseBattle] ; loaded when talking with the guide at the entrance
 	ld [wInverseBattle], a ; necessary because this wram variable gets reset at the end of every battle
