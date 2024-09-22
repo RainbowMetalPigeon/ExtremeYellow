@@ -555,9 +555,20 @@ _MoveMon::
 	srl a
 	add $2
 	ld [wMonDataLocation], a
+; new, to fix MISSINGNO/LVL255 withdraw bug
 	call LoadMonData
+	ld a, [wcf91] ; written by LoadMonData
+	cp MISSINGNO
+	jr nz, .vanillaCalcLevel
+; don't calculate level, just assign 255
+	ld a, 255
+	jr .endOfLevelCalculation
+.vanillaCalcLevel
+; back to vanilla
+;	call LoadMonData ; not needed anymore now, done above
 	farcall CalcLevelFromExperience
 	ld a, d
+.endOfLevelCalculation ; new label
 	ld [wCurEnemyLVL], a
 	pop hl
 	ld bc, wBoxMon2 - wBoxMon1

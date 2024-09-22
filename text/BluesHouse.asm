@@ -229,7 +229,7 @@ _BluesHouseClues_AfterMissingno::
 	cont "haven't seen them"
 	cont "so happy in"
 	cont "years!"
-	done
+	done ; prompt? TBE?
 
 _BluesHouseBlueText::
 	text "<PLAYER>!"

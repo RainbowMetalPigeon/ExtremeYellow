@@ -50,7 +50,7 @@ IF DEF(_DEBUG)
 	ld a, JUDGMENT
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, EMBER
+	ld a, DISABLE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
