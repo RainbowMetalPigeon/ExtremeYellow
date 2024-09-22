@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEW, 100 ; 255
+	db MEW, 255 ; 255
 	db VENUSTOISE, 35
-	db STARTER_PIKACHU, 96
+	db STARTER_PIKACHU, 235
 ;	db SEAKING, 42
 ;	db PORYGONZ, 42
-;	db ANNIHILAPE, 42
+	db MISSINGNO, 255
 	db -1 ; end
 
 DebugStart:
