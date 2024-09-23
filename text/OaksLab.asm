@@ -29,7 +29,7 @@ _OaksLabText41::
 	cont "lot stronger"
 	cont "than yours."
 
-	para "Serves you well"
+	para "Serves you right"
 	line "for trying to"
 	cont "steal my #MON"
 	cont "and my Gramps'"
@@ -498,7 +498,7 @@ _OaksLabText27::
 	line "whatsoever for"
 	cont "the ridiculous"
 	cont "help of <PLAYER>!"
-	cont "I will handle of"
+	cont "I'll handle all of"
 	cont "this by myself!"
 
 	para "I'll grab a TOWN"

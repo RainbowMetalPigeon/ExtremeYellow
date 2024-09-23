@@ -8,7 +8,7 @@ _PewterHouse1Text2:: ; edited
 	done
 
 _PewterHouse1Text3:: ; edited
-	text "Out #MON is an"
+	text "Our #MON is an"
 	line "outsider, which"
 	cont "is a #MON you"
 	cont "got from a trade."

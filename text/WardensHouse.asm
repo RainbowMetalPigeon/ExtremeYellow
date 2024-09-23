@@ -135,7 +135,7 @@ _HM03NoRoomText::
 ; new ---
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_PreObsidianGiovanniDefeat::
-	text "We're close!"
+	text "We're closed!"
 	line "No business!"
 
 	para "...the elder"

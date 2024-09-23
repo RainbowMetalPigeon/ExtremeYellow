@@ -53,7 +53,7 @@ _SSAnneRivalWonText::
 
 	para "Never get in my"
 	line "way again, or"
-	cont "this will seems"
+	cont "this will seem"
 	cont "like a gentle"
 	cont "caress!"
 	prompt

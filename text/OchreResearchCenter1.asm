@@ -27,7 +27,7 @@ _OchreResearchCenter1Text_Ball_Kalos::
 _OchreResearchCenter1Text_Ball_Kurtz::
 	text "KURT: I'm an"
 	line "artisan from"
-	cont "JOTHO."
+	cont "JOHTO."
 
 	para "I craft my special"
 	line "BALLs from"

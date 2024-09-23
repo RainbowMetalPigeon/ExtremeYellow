@@ -185,7 +185,7 @@ _MtMoon1FRivalText_Win::
 
 _MtMoon1FRivalText_Lose::
 	text "YES!"
-	line "Serves you well!"
+	line "Serves you right!"
 	cont "Whine and cry in"
 	cont "desperation!"
 

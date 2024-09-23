@@ -13,7 +13,7 @@ _Route4TextHiker1:: ; new
 	para "We are waiting"
 	line "for a team of"
 	cont "MACHAMPs to"
-	cont "arrived and help."
+	cont "arrive and help."
 
 	para "Until then, the"
 	line "only path is"

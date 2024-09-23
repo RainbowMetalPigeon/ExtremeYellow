@@ -4,7 +4,7 @@ _CeruleanCityText_19668::
 
 	para "Are you still"
 	line "chasing me? Give"
-	cont "in, you'll always"
+	cont "up, you'll always"
 	cont "be late."
 
 	para "Stop living in my"
@@ -46,7 +46,7 @@ _CeruleanCityText_19677::
 	para "It was just a"
 	line "fluke. It can't"
 	cont "be in a million"
-	cont "year that you are"
+	cont "years that you're"
 	cont "stronger than me."
 
 	para "Don't you try to"
@@ -120,7 +120,7 @@ _CeruleanCityText4:: ; edited
 	para "It looks so much"
 	line "more open now!"
 	cont "Maybe a tad less"
-	cont "cozy, although."
+	cont "cozy, though."
 	done
 
 _CeruleanCityText5::
