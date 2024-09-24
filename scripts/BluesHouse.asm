@@ -90,7 +90,8 @@ DaisyMegaStonesCluesText:
 	text_asm
 	CheckEvent EVENT_DEFEATED_MISSINGNO
 	ld hl, BluesHouseClues_AfterMissingno
-	jr nz, .continueIntro
+	call PrintText
+	jp TextScriptEnd
 	CheckEvent EVENT_ALREADY_SPOKEN_WITH_DAISY_CLUES
 	ld hl, BluesHouseClues_IntroShort
 	jr nz, .continueIntro
