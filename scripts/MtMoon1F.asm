@@ -89,12 +89,22 @@ MtMoon1Script3: ; new
 	ld hl, wd72d ; nobody knows what it does lol
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, MtMoon1FRivalText_Win ; text if player wins
-	ld de, MtMoon1FRivalText_Lose ; text if player loses
-	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
+; to setup the appropriate end-of-battle text and team
+	CheckEvent EVENT_BEAT_MANSION_RIVAL
+	jr nz, .bothBattles
+	ld hl, MtMoon1FRivalText_Win_FirstBattle ; text if player wins
+	ld de, MtMoon1FRivalText_Lose_FirstBattle ; text if player loses
+	call SaveEndBattleTextPointers
 	ld a, 6
+	jr .postSetupEndBattleTexts
+.bothBattles
+	ld hl, MtMoon1FRivalText_Win_BothBattles ; text if player wins
+	ld de, MtMoon1FRivalText_Lose_BothBattles ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, 7
+.postSetupEndBattleTexts
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
@@ -106,12 +116,20 @@ MtMoon1Script3: ; new
 	ld [wCurMapScript], a
 	ret
 
-MtMoon1FRivalText_Win:
-	text_far _MtMoon1FRivalText_Win
+MtMoon1FRivalText_Win_FirstBattle:
+	text_far _MtMoon1FRivalText_Win_FirstBattle
 	text_end
 
-MtMoon1FRivalText_Lose:
-	text_far _MtMoon1FRivalText_Lose
+MtMoon1FRivalText_Win_BothBattles:
+	text_far _MtMoon1FRivalText_Win_BothBattles
+	text_end
+
+MtMoon1FRivalText_Lose_FirstBattle:
+	text_far _MtMoon1FRivalText_Lose_FirstBattle
+	text_end
+
+MtMoon1FRivalText_Lose_BothBattles:
+	text_far _MtMoon1FRivalText_Lose_BothBattles
 	text_end
 
 MtMoon1FScript_RivalFacingDown:
@@ -228,21 +246,43 @@ MtMoon1TextRival: ; new
 	text_asm
 	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
 	jr z, .PreBattleText
-	ld hl, MtMoon1FRivalText_PostBattle
+; check which text to print
+	CheckEvent EVENT_BEAT_MANSION_RIVAL
+	jr nz, .postBattle_BothBattles
+	ld hl, MtMoon1FRivalText_PostBattle_FirstBattle
+	call PrintText
+	jr .end
+.postBattle_BothBattles
+	ld hl, MtMoon1FRivalText_PostBattle_BothBattles
 	call PrintText
 	jr .end
 .PreBattleText
-	ld hl, MtMoon1FRivalText_PreBattle
+; check which text to print
+	CheckEvent EVENT_BEAT_MANSION_RIVAL
+	jr nz, .preBattle_BothBattles
+	ld hl, MtMoon1FRivalText_PreBattle_FirstBattle
+	call PrintText
+	jr .end
+.preBattle_BothBattles
+	ld hl, MtMoon1FRivalText_PreBattle_BothBattles
 	call PrintText
 .end
 	jp TextScriptEnd
 
-MtMoon1FRivalText_PreBattle:
-	text_far _MtMoon1FRivalText_PreBattle
+MtMoon1FRivalText_PreBattle_FirstBattle:
+	text_far _MtMoon1FRivalText_PreBattle_FirstBattle
 	text_end
 
-MtMoon1FRivalText_PostBattle:
-	text_far _MtMoon1FRivalText_PostBattle
+MtMoon1FRivalText_PreBattle_BothBattles:
+	text_far _MtMoon1FRivalText_PreBattle_BothBattles
+	text_end
+
+MtMoon1FRivalText_PostBattle_FirstBattle:
+	text_far _MtMoon1FRivalText_PostBattle_FirstBattle
+	text_end
+
+MtMoon1FRivalText_PostBattle_BothBattles:
+	text_far _MtMoon1FRivalText_PostBattle_BothBattles
 	text_end
 
 ; -------------------------------
