@@ -82,6 +82,7 @@ This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; 
 - Plague Von Karma, for some suggestions on speed-ups, providing the move deleter/relearner code (which uses code from jojobear13, based Mateo's code), as well as Kleavor and Annihilape sprites (I modified the latter)
 - FrenchOrange, mauvesea, and LJSTAR, for their many many improvements and fixed on the sprites I drew; FrenchOrange drew the Flying Pikachu sprite
 - Xillicis, for their tutorial on how to increase the number of usable Pokémon, as well as many useful exchanges over the months, and for some backsprites: Electivire, Tangrowth, Rhyperior, Lickilicky, Magnezone, Porygon-Z, Magmortar
+- ZetaPhoenix, for the TM name displayer code
 - BlueZangoose, Mord, Cram-O-Dev for having helped, supported, motivated me and just being great people during this adventure of mine
 - Mega Evolution, Eternamax Eternatus, Arceus, and Venustoise sprites are my own production, bar the aforementioned help
 - Mega Rayquaza and Zygarde Complete sprites are from Axel-Comics: https://www.deviantart.com/axel-comics
@@ -90,6 +91,7 @@ This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; 
 - Overworld sprites of the gym leaders are from: Brock: Vortiene; Misty: Vortiene; Lt Surge: Mord; Erika: Mord; Koga: Game Freak (Gold/Silver); Sabrina: Vortiene; Blaine: Game Freak (Gold/Silver) ; Giovanni: Game Freak (Green/Blue)
 - Green sprites are from Ghost-MissingNo: https://www.deviantart.com/ghost-missingno/art/Blue-Sprites-for-R-G-B-Y-339796334
 - Yellow sprites are from LouLilie: https://www.deviantart.com/loulilie/art/PokemonSpecial-Sprites-Yellow-302559354
+- overworld non-vanilla sprites (legendary birds, Slowking, etc) are from Crystal Clear
 - Game Freak, Creatures Inc., Nintendo, and TPCI for creating Pokémon
 - PLEASE CONTACT ME if I forgot to add your name for anything of yours that I have used!!! In which case I first apologize, and then I'll put remedy as soon as possible!
 

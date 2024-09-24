@@ -102,7 +102,7 @@ _CeruleanGymAfterBattleText2::
 	done
 
 _CeruleanGymBattleText3::
-	text "Don't you think"
+	text "Don't even think"
 	line "about challenging"
 	cont "MISTY before"
 	cont "defeating me!"

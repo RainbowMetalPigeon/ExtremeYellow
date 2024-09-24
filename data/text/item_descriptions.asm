@@ -465,7 +465,7 @@ _OnigiriBoxDescription::
 	prompt
 
 _LinkCableDescription::
-	text "Evolves pokeMON"
+	text "Evolves #MON"
 	next "as if traded."
 	prompt
 

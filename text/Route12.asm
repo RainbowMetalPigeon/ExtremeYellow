@@ -250,7 +250,7 @@ _Route12RivalText_Win::
 _Route12RivalText_Lose::
 	text "AH!"
 
-	para "Serves you well"
+	para "Serves you right"
 	line "for trying to"
 	cont "steal my #MON!"
 

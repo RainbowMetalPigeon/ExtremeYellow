@@ -7,7 +7,7 @@ _SaffronHouse1Text1:: ; edited
 
 	para "This is for my"
 	line "date. They live"
-	cont "in JOTHO. I wish"
+	cont "in JOHTO. I wish"
 	cont "there was a quick"
 	cont "way to get there!"
 

@@ -148,7 +148,22 @@ _MtMoon1Text14::
 
 ; new ------------------------------
 
-_MtMoon1FRivalText_PreBattle::
+_MtMoon1FRivalText_PreBattle_FirstBattle::
+	text "1st pre"
+	done
+_MtMoon1FRivalText_Win_FirstBattle::
+	text "1st win"
+	prompt
+_MtMoon1FRivalText_Lose_FirstBattle::
+	text "1st lose"
+	prompt
+_MtMoon1FRivalText_PostBattle_FirstBattle::
+	text "1st post"
+	done
+
+; ---
+
+_MtMoon1FRivalText_PreBattle_BothBattles::
 	text "<RIVAL>: What are"
 	line "YOU doing HERE?!"
 
@@ -177,15 +192,15 @@ _MtMoon1FRivalText_PreBattle::
 	cont "brand-new team!"
 	done
 
-_MtMoon1FRivalText_Win::
+_MtMoon1FRivalText_Win_BothBattles::
 	text "Not"
 	line "again!!!"
 	cont "This is absurd!"
 	prompt
 
-_MtMoon1FRivalText_Lose::
+_MtMoon1FRivalText_Lose_BothBattles::
 	text "YES!"
-	line "Serves you well!"
+	line "Serves you right!"
 	cont "Whine and cry in"
 	cont "desperation!"
 
@@ -196,7 +211,7 @@ _MtMoon1FRivalText_Lose::
 	cont "nearby..."
 	prompt
 
-_MtMoon1FRivalText_PostBattle::
+_MtMoon1FRivalText_PostBattle_BothBattles::
 	text "<RIVAL>: You..."
 	line "damn... filthy..."
 	cont "piece of crap..."

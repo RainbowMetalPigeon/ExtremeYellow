@@ -36,7 +36,7 @@ _SSAnne9AfterBattleText1:: ; edited
 	text "15 years ago, I"
 	line "would have won!"
 	cont "Ah, how beautiful"
-	cont "is to be young!"
+	cont "it's to be young!"
 	done
 
 _SSAnne9BattleText2::

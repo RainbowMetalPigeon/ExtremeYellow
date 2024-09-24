@@ -1,6 +1,6 @@
 _Route29BattleText1::
     text "At the end of this"
-    line "ROUTE it lives a"
+    line "ROUTE lives a"
     cont "talking SLOWKING!"
 
     para "I tried to catch"

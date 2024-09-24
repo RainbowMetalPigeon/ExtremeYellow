@@ -38,9 +38,23 @@ _Mansion4Text7::
 	cont "tendencies..."
 	done
 
-; ----
+; -----------------------------------
 
-_Mansion4RivalText_PreBattle::
+_Mansion4RivalText_PreBattle_FirstBattle::
+	text "1st pre"
+	done
+_Mansion4RivalText_Win_FirstBattle::
+	text "1st win"
+	prompt
+_Mansion4RivalText_Lose_FirstBattle::
+	text "1st lose"
+	prompt
+_Mansion4RivalText_PostBattle_FirstBattle::
+	text "1st post"
+	done
+
+; ---
+_Mansion4RivalText_PreBattle_BothBattles::
 	text "<RIVAL>: <PLAYER>!"
 	line "You again! Will"
 	cont "you ever let me"
@@ -67,7 +81,7 @@ _Mansion4RivalText_PreBattle::
 	cont "time!"
 	done
 
-_Mansion4RivalText_Win::
+_Mansion4RivalText_Win_BothBattles::
 	text "WHAT?!"
 
 	para "If not even THIS"
@@ -75,7 +89,7 @@ _Mansion4RivalText_Win::
 	cont "How can I...?"
 	prompt
 
-_Mansion4RivalText_Lose::
+_Mansion4RivalText_Lose_BothBattles::
 	text "Ahahah!!!"
 
 	para "I knew! I knew! I"
@@ -86,7 +100,7 @@ _Mansion4RivalText_Lose::
 	cont "you! Ahahah!!!"
 	prompt
 
-_Mansion4RivalText_PostBattle::
+_Mansion4RivalText_PostBattle_BothBattles::
 	text "<RIVAL>: Just HOW?"
 
 	para "How did you defeat"

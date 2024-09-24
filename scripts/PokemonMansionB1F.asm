@@ -111,12 +111,22 @@ Mansion4Script3: ; new
 	ld hl, wd72d ; nobody knows what it does lol
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, Mansion4RivalText_Win ; text if player wins
-	ld de, Mansion4RivalText_Lose ; text if player loses
-	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
+; to setup the appropriate end-of-battle text and team
+	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
+	jr nz, .bothBattles
+	ld hl, Mansion4RivalText_Win_FirstBattle ; text if player wins
+	ld de, Mansion4RivalText_Lose_FirstBattle ; text if player loses
+	call SaveEndBattleTextPointers
+	ld a, 6
+	jr .postSetupEndBattleTexts
+.bothBattles
+	ld hl, Mansion4RivalText_Win_BothBattles ; text if player wins
+	ld de, Mansion4RivalText_Lose_BothBattles ; text if player loses
+	call SaveEndBattleTextPointers
 	ld a, 7
+.postSetupEndBattleTexts
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
@@ -300,27 +310,57 @@ Mansion4TextRival: ; new
 	text_asm
 	CheckEvent EVENT_BEAT_MANSION_RIVAL
 	jr z, .PreBattleText
-	ld hl, Mansion4RivalText_PostBattle
+; check which text to print
+	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
+	jr nz, .postBattle_BothBattles
+	ld hl, Mansion4RivalText_PostBattle_FirstBattle
+	call PrintText
+	jr .end
+.postBattle_BothBattles
+	ld hl, Mansion4RivalText_PostBattle_BothBattles
 	call PrintText
 	jr .end
 .PreBattleText
-	ld hl, Mansion4RivalText_PreBattle
+; check which text to print
+	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
+	jr nz, .preBattle_BothBattles
+	ld hl, Mansion4RivalText_PreBattle_FirstBattle
+	call PrintText
+	jr .end
+.preBattle_BothBattles
+	ld hl, Mansion4RivalText_PreBattle_BothBattles
 	call PrintText
 .end
 	jp TextScriptEnd
 
-Mansion4RivalText_PreBattle:
-	text_far _Mansion4RivalText_PreBattle
+Mansion4RivalText_PreBattle_FirstBattle:
+	text_far _Mansion4RivalText_PreBattle_FirstBattle
 	text_end
 
-Mansion4RivalText_PostBattle:
-	text_far _Mansion4RivalText_PostBattle
+Mansion4RivalText_PreBattle_BothBattles:
+	text_far _Mansion4RivalText_PreBattle_BothBattles
 	text_end
 
-Mansion4RivalText_Win:
-	text_far _Mansion4RivalText_Win
+Mansion4RivalText_PostBattle_FirstBattle:
+	text_far _Mansion4RivalText_PostBattle_FirstBattle
 	text_end
 
-Mansion4RivalText_Lose:
-	text_far _Mansion4RivalText_Lose
+Mansion4RivalText_PostBattle_BothBattles:
+	text_far _Mansion4RivalText_PostBattle_BothBattles
+	text_end
+
+Mansion4RivalText_Win_FirstBattle:
+	text_far _Mansion4RivalText_Win_FirstBattle
+	text_end
+
+Mansion4RivalText_Win_BothBattles:
+	text_far _Mansion4RivalText_Win_BothBattles
+	text_end
+
+Mansion4RivalText_Lose_FirstBattle:
+	text_far _Mansion4RivalText_Lose_FirstBattle
+	text_end
+
+Mansion4RivalText_Lose_BothBattles:
+	text_far _Mansion4RivalText_Lose_BothBattles
 	text_end

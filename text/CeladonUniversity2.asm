@@ -60,7 +60,7 @@ _CeladonUniversity2Text5:: ; student
 ; --- library & study room ---
 
 _CeladonUniversity2Text6:: ; researcher
-    text "I'm searching a"
+    text "I'm searching for a"
     line "specific book on"
     cont "microprocessor"
     cont "architecture, but"
@@ -293,7 +293,7 @@ _CeladonUniversity2Text10:: ; student
     done
 
 _CeladonUniversity2Text11:: ; student
-    text "I'm searching a"
+    text "I'm searching for a"
     line "book about the"
     cont "LIGHT BALL. It"
     cont "should be around"
@@ -504,7 +504,7 @@ _CeladonUniversity2SignBook28::
     text "TECHNICAL OVERVIEW"
     line "ON THE STRUCTURAL"
     cont "STABILITY OF"
-    line "CINNABAR MANSION"
+    cont "CINNABAR MANSION"
     done
 
 _CeladonUniversity2SignBook29::
