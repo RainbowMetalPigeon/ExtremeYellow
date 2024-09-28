@@ -12,17 +12,35 @@ RedsHouse2F_ScriptPointers:
 	dw RedsHouse2FScript3
 	dw RedsHouse2FScript4
 
-RedsHouse2FScript0:
+RedsHouse2FScript0: ; edited, to tell us about the options
+	CheckEvent EVENT_INFORMED_ABOUT_OPTIONS
+	ret nz
+; if we have not been told already, check if we are near the stairs
+	ld hl, CoordsData_NearStairs
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	ret nc
+; we are near the stairs
+	ld a, 4 ; RedsHouse2FInfoAboutOptions
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; boring technical stuff
+	SetEvent EVENT_INFORMED_ABOUT_OPTIONS
+	ret
 RedsHouse2FScript1:
 RedsHouse2FScript2:
 RedsHouse2FScript3:
 RedsHouse2FScript4:
 	ret
 
+CoordsData_NearStairs:
+	dbmapcoord  6,  1
+	dbmapcoord  7,  2
+	db -1 ; end
 RedsHouse2F_TextPointers:
 	dw RedsHouse2FPersonalizationOptions
 	dw RedsHouse2FRandomizationOptions
 	dw RedsHouse2FLuckOptions
+	dw RedsHouse2FInfoAboutOptions
 
 ; -------------------------------------------------------------
 
@@ -116,3 +134,10 @@ RedsHouse2FLuckOptions_Intro:
 RedsHouse2FLuckOptions_Outro:
 	text_far _RedsHouse2FLuckOptions_Outro
 	text_end
+
+; -------------------------------------------------------------
+
+RedsHouse2FInfoAboutOptions:
+	text_far _RedsHouse2FInfoAboutOptions
+	text_end
+	

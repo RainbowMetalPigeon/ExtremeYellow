@@ -27,3 +27,13 @@ _RedsHouse2FLuckOptions_Outro::
 	text "Battle luck"
 	line "applied."
 	done
+
+_RedsHouse2FInfoAboutOptions::
+	text "Before venturing"
+	line "into your grand"
+	cont "adventure, check"
+	cont "out the plethora"
+	cont "of options in the"
+	cont "START menu and on"
+	cont "the walls here!"
+	done
