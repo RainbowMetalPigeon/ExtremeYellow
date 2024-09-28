@@ -222,14 +222,14 @@ _BluesHouseClues_AfterMissingno::
 	line "eternal"
 	cont "gratitude!"
 
-	para "And not only"
-	line "that..."
+	para "And not"
+	line "just that!"
 	cont "Look at <RIVAL>"
-	cont "and Gramps! I"
-	cont "haven't seen them"
-	cont "so happy in"
-	cont "years!"
-	done ; prompt? TBE?
+	cont "and Gramps!"
+	cont "I haven't seen"
+	cont "them so happy"
+	cont "in years!"
+	done
 
 _BluesHouseBlueText::
 	text "<PLAYER>!"
