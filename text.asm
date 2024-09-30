@@ -227,8 +227,6 @@ INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
-INCLUDE "text/BikeShop.asm"
-INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
 INCLUDE "text/PokemonMansionB1F.asm"
 
@@ -249,7 +247,6 @@ INCLUDE "text/Route24.asm"
 INCLUDE "text/Route25.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
 INCLUDE "text/VermilionDock.asm"
-INCLUDE "text/OchreResearchCenter1.asm"
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -302,6 +299,9 @@ INCLUDE "text/PokemonFanClub.asm"
 INCLUDE "text/CinnabarVolcano.asm" ; new
 INCLUDE "text/CinnabarVolcanoBF.asm" ; new
 INCLUDE "text/NameRatersHouse.asm"
+INCLUDE "text/OchreResearchCenter1.asm"
+INCLUDE "text/BikeShop.asm"
+INCLUDE "text/PewterSpeechHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

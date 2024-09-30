@@ -41,19 +41,83 @@ _Mansion4Text7::
 ; -----------------------------------
 
 _Mansion4RivalText_PreBattle_FirstBattle::
-	text "1st pre"
+	text "<RIVAL>: <PLAYER>!"
+	line "You again! Will"
+	cont "you ever let me"
+	cont "alone?!"
+
+	para "I'm already in a"
+	line "bad mood, I spent"
+	cont "ages searching"
+	cont "every corner of"
+	cont "this place for"
+	cont "info about the"
+	cont "rumored MEWTWO"
+	cont "and found nothing"
+	cont "but useless crap."
+
+	para "I will not"
+	line "forgive you for"
+	cont "following me like"
+	cont "a shadow and try"
+	cont "stealing my"
+	cont "hard-gained"
+	cont "results!"
+
+	para "I will demolish"
+	line "you with my"
+	cont "brand-new team!"
 	done
+
 _Mansion4RivalText_Win_FirstBattle::
-	text "1st win"
+	text "Not"
+	line "again!!!"
+	cont "This is absurd!"
 	prompt
+
 _Mansion4RivalText_Lose_FirstBattle::
-	text "1st lose"
+	text "YES!"
+	line "Serves you right!"
+	cont "Whine and cry in"
+	cont "desperation!"
+
+	para "The only thing I'm"
+	line "sorry for, is"
+	cont "that there is a"
+	cont "#MON CENTER"
+	cont "nearby..."
 	prompt
+
 _Mansion4RivalText_PostBattle_FirstBattle::
-	text "1st post"
+	text "<RIVAL>: You..."
+	line "damn... filthy..."
+	cont "piece of crap..."
+
+	para "How can you keep"
+	line "defeating my"
+	cont "formidable"
+	cont "teams?!"
+	cont "It doesn't make"
+	cont "any sense!"
+
+	para "I'm a genius!"
+	line "I have the"
+	cont "strongest"
+	cont "#MON! I train"
+	cont "the hardest!"
+	cont "And yet you"
+	cont "keep winning!"
+
+	para "...tsk. Your"
+	line "fucked luck will"
+	cont "end one day, and"
+	cont "that's when I"
+	cont "will exact my"
+	cont "revenge."
 	done
 
 ; ---
+
 _Mansion4RivalText_PreBattle_BothBattles::
 	text "<RIVAL>: <PLAYER>!"
 	line "You again! Will"
