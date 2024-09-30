@@ -34,11 +34,13 @@ OptionMenuJumpTable:
 	dw OptionsMenu_TextSpeed
 	dw OptionsMenu_BattleAnimations
 	dw OptionsMenu_BattleStyle
-	dw OptionsMenu_SpeakerSettings
+	dw OptionsMenu_LevelCap ; new, it was OptionsMenu_SpeakerSettings, moved into the Personalization options
 	dw OptionsMenu_BadgeBoost ; new, it was OptionsMenu_GBPrinterBrightness
 	dw OptionsMenu_LevelScaling
 	dw OptionsMenu_ExpGain
 	dw OptionsMenu_Cancel
+
+; ---------------------------------------------
 
 OptionsMenu_TextSpeed:
 	call GetTextSpeed
@@ -116,6 +118,8 @@ GetTextSpeed:
 	lb de, 5, 3
 	ret
 
+; ---------------------------------------------
+
 OptionsMenu_BattleAnimations:
 	ldh a, [hJoy5]
 	and D_RIGHT | D_LEFT
@@ -150,6 +154,8 @@ AnimationOnText:
 	db "ON @"
 AnimationOffText:
 	db "OFF@"
+
+; ---------------------------------------------
 
 OptionsMenu_BattleStyle:
 	ldh a, [hJoy5]
@@ -187,63 +193,7 @@ BattleStyleShiftText:
 BattleStyleSetText:
 	db "SET  @"
 
-OptionsMenu_SpeakerSettings:
-	ld a, [wOptions]
-	and $30
-	swap a
-	ld c, a
-	ldh a, [hJoy5]
-	bit 4, a
-	jr nz, .pressedRight
-	bit 5, a
-	jr nz, .pressedLeft
-	jr .asm_41dca
-.pressedRight
-	ld a, c
-	inc a
-	and $3
-	jr .asm_41dba
-.pressedLeft
-	ld a, c
-	dec a
-	and $3
-.asm_41dba
-	ld c, a
-	swap a
-	ld b, a
-	xor a
-	ldh [rNR51], a
-	ld a, [wOptions]
-	and $cf
-	or b
-	ld [wOptions], a
-.asm_41dca
-	ld b, $0
-	ld hl, SpeakerOptionStringsPointerTable
-	add hl, bc
-	add hl, bc
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	hlcoord 8, 8
-	call PlaceString
-	and a
-	ret
-
-SpeakerOptionStringsPointerTable:
-	dw MonoSoundText
-	dw Earphone1SoundText
-	dw Earphone2SoundText
-	dw Earphone3SoundText
-
-MonoSoundText:
-	db "MONO     @"
-Earphone1SoundText:
-	db "EARPHONE1@"
-Earphone2SoundText:
-	db "EARPHONE2@"
-Earphone3SoundText:
-	db "EARPHONE3@"
+; ---------------------------------------------
 
 OptionsMenu_GBPrinterBrightness:
 	call Func_41e7b
@@ -304,8 +254,7 @@ DarkerPrintText:
 DarkestPrintText:
 	db "DARKEST @"
 
-; ----- new, beginning -----
-
+; ----- new, beginning ------------------------
 OptionsMenu_BadgeBoost:
 	ld a, [wBadgeBoostOption]
 	ld c, a
@@ -357,7 +306,7 @@ BadgeBoostNone:
 BadgeBoostClassic:
 	db "CLASSIC@"
 
-; ---
+; ---------------------------------------------
 
 OptionsMenu_LevelScaling:
 	ld a, [wLevelScaling]
@@ -419,7 +368,7 @@ HardcoreScaling:
 ImpossibleScaling:
 	db "IMPOS@"
 
-; ---
+; ---------------------------------------------
 
 OptionsMenu_ExpGain:
 	ld a, [wExpGainOption]
@@ -475,7 +424,69 @@ LimitedGain:
 NothingGain:
 	db "NOTHING@"
 
-; ----- new, end -----
+; ---------------------------------------------
+
+OptionsMenu_LevelCap:
+	ld a, [wLevelCapOption]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp 4
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, 5
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wLevelCapOption], a
+.nonePressed
+	ld b, $0
+	ld hl, LevelCapStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 6, 8
+	call PlaceString
+	and a
+	ret
+
+LevelCapStringsPointerTable:
+	dw ObedienceLooseCap
+	dw ObedienceTightCap
+	dw LevelLooseCap
+	dw LevelTightCap
+	dw NoCap
+
+ObedienceLooseCap:
+	db "OBEDIE. LOOSE@"
+ObedienceTightCap:
+	db "OBEDIE. TIGHT@"
+LevelLooseCap:
+	db "LEVEL LOOSE  @"
+LevelTightCap:
+	db "LEVEL TIGHT  @"
+NoCap:
+	db "NONE         @"
+
+; ----- new, end ------------------------------
 
 Func_41e7b:
 	ld a, [wPrinterSettings]
@@ -609,7 +620,7 @@ AllOptionsText:
 	db "TXT SPEED:" ; edited
 	next "ANIMATION:" ; edited
 	next "BATTLESTYLE:"
-	next "SOUND:"
+	next "CAP:" ; new, it was SOUND
 	next "BADGE BST:" ; new, it was PRINT
 	next "LVL SCALE:" ; new
 	next "EXP GAIN:@" ; new

@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEW, 255 ; 255
-	db VENUSTOISE, 35
-	db STARTER_PIKACHU, 235
+	db MEW, 59 ; 255
+	db VENUSTOISE, 53
+	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
-;	db PORYGONZ, 42
-	db MISSINGNO, 255
+;	db PORYGONZ, 99
+;	db MISSINGNO, 255
 	db -1 ; end
 
 DebugStart:
@@ -35,7 +35,7 @@ IF DEF(_DEBUG)
 	ld a, ~(1 << BIT_EARTHBADGE)
 	ld a, %11111111
 ;	ld a, %00000100
-;	ld a, %01001100
+	ld a, %11111100
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
@@ -176,7 +176,7 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 	SetEvent EVENT_DEFEATED_MISSINGNO
 

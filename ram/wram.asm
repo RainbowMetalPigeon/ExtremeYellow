@@ -2384,7 +2384,7 @@ wRedsHouse1FCurScript:: db ; new
 wRoute15Gate2FCurScript:: db ; new
 wRoute28CurScript:: db ; new
 wRoute27CurScript:: db ; new
-	ds 20 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
+	ds 19 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2434,6 +2434,7 @@ wBattleFacilityBacklogChromogenes:: db ; new
 		  ; by 16 to increase bag capacity
 		  ; by 12 for battle facility
 
+wLevelCapOption:: db ; new: 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
 wPlayerMoveAccuracyPercent:: db ; new, to host the accuracy in [0,100] rather than [0,255]
 
 wObtainedHiddenItemsFlags:: flag_array 112

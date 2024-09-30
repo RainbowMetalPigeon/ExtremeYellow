@@ -4432,55 +4432,27 @@ CheckForDisobedience:
 ; back to non-pikachu code
 .notStarterPikachu
 ; what level might disobey? - modified, added threshold at every badge and for post-League
-	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+; modified further to add CAP options
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; having this check here before wLevelCapOption makes so that MissignNo will disobey regardless
 	ld a, 101
 	jr nz, .next
 ; now we check how many badges we have and set the cap accordingly
-	callfar CountHowManyBadges ; returns in d the number of badges we own
-	ld a, d
-	cp 8
-	jr z, .numberBadges8
-	cp 7
-	jr z, .numberBadges7
-	cp 6
-	jr z, .numberBadges6
-	cp 5
-	jr z, .numberBadges5
-	cp 4
-	jr z, .numberBadges4
-	cp 3
-	jr z, .numberBadges3
+	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
 	cp 2
-	jr z, .numberBadges2
-	cp 1
-	jr z, .numberBadges1
-;.numberBadges0
-	ld a, 15
+	jr c, .obedienceMechanicInPlace
+; we have no obedience mechanic in place
+	ld a, $1
+	and a
+	ret
+.obedienceMechanicInPlace
+	and a
+	jr z, .looseObedience
+	callfar ConvertNumberOfBadgesIntoCapTight ; returns in d the tight level/obedience cap
+	ld a, d
 	jr .next
-.numberBadges1
-	ld a, 25
-	jr .next
-.numberBadges2
-	ld a, 30
-	jr .next
-.numberBadges3
-	ld a, 35
-	jr .next
-.numberBadges4
-	ld a, 45
-	jr .next
-.numberBadges5
-	ld a, 55
-	jr .next
-.numberBadges6
-	ld a, 60
-	jr .next
-.numberBadges7
-	ld a, 65
-	jr .next
-.numberBadges8
-	ld a, 70
-;	jr .next
+.looseObedience
+	callfar ConvertNumberOfBadgesIntoCapLoose ; returns in d the loose level/obedience cap
+	ld a, d
 ; back to vanilla
 .next
 	ld b, a

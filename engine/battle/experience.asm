@@ -39,6 +39,41 @@ GainExperience:
 	and a ; is mon's gain exp flag set?
 	pop hl
 	jp z, .nextMon ; if mon's gain exp flag not set, go to next mon
+; new, for level cap
+	; first let's check if we need to do anything at all or not
+	push hl ; the only one that needs to be preserved: de, a, b, c are rewritten right afterward in vanilla code
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	pop hl
+	jr nz, .CapLess
+	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
+	cp 4 ; "NONE"
+	jr z, .CapLess
+	cp 2 ; obedience cap in place
+	jr c, .CapLess
+; the level cap is indeed in place
+	push hl ; the only one that needs to be preserved: de, a, b, c are rewritten right afterward in vanilla code
+	cp 2
+	jr z, .looseLevelCap
+;.tightLevelCap
+	callfar ConvertNumberOfBadgesIntoCapTight ; returns in d the tight level/obedience cap
+	jr .levelCapObtained
+.looseLevelCap
+	callfar ConvertNumberOfBadgesIntoCapLoose ; returns in d the loose level/obedience cap
+.levelCapObtained ; level cap is in d
+	pop hl
+	ld a, d
+	ld b, a ; level cap is in b register
+; retrieve the level of current mon
+	ld de, (wPartyMon1Level) - (wPartyMon1HP + 1)
+	push hl
+	add hl, de
+	ld a, [hl] ; a contains the level of the current mon
+	pop hl
+	cp b ; a-b = level current mon - level cap => nc flag if we are at or above the level cap
+	jp nc, .nextMon
+; otherwise we give EXP
+.CapLess
+; back to vanilla
 	ld de, (wPartyMon1HPExp + 1) - (wPartyMon1HP + 1)
 	add hl, de
 	ld d, h

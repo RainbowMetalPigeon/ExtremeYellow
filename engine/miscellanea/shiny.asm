@@ -164,7 +164,101 @@ CountHowManyBadges:: ; returns in d the number of badges we own
 .next8
     ret
 
-ConvertNumberOfBadgesIntoUpperLimit: ; returns in a the upper limit for the second random number
+ConvertNumberOfBadgesIntoCapLoose: ; returns in d the loose level/obedience cap
+    call CountHowManyBadges ; d holds the number of badges
+    ld a, d ; a holds the number of badges
+    cp 0
+    jr z, .badges0
+    cp 1
+    jr z, .badges1
+    cp 2
+    jr z, .badges2
+    cp 3
+    jr z, .badges3
+    cp 4
+    jr z, .badges4
+    cp 5
+    jr z, .badges5
+    cp 6
+    jr z, .badges6
+    cp 7
+    jr z, .badges7
+; badges8
+    ld d, 70
+    ret
+.badges7
+    ld d, 65
+    ret
+.badges6
+    ld d, 60
+    ret
+.badges5
+    ld d, 55
+    ret
+.badges4
+    ld d, 45
+    ret
+.badges3
+    ld d, 35
+    ret
+.badges2
+    ld d, 30
+    ret
+.badges1
+    ld d, 25
+    ret
+.badges0
+    ld d, 15
+    ret
+
+ConvertNumberOfBadgesIntoCapTight: ; returns in d the tight level/obedience cap
+    call CountHowManyBadges ; d holds the number of badges
+    ld a, d ; a holds the number of badges
+    cp 0
+    jr z, .badges0
+    cp 1
+    jr z, .badges1
+    cp 2
+    jr z, .badges2
+    cp 3
+    jr z, .badges3
+    cp 4
+    jr z, .badges4
+    cp 5
+    jr z, .badges5
+    cp 6
+    jr z, .badges6
+    cp 7
+    jr z, .badges7
+; badges8
+    ld d, 65
+    ret
+.badges7
+    ld d, 55
+    ret
+.badges6
+    ld d, 54
+    ret
+.badges5
+    ld d, 50
+    ret
+.badges4
+    ld d, 43
+    ret
+.badges3
+    ld d, 32
+    ret
+.badges2
+    ld d, 28
+    ret
+.badges1
+    ld d, 21
+    ret
+.badges0
+    ld d, 11
+    ret
+
+ConvertNumberOfBadgesIntoUpperLimit: ; returns in a the upper limit for the second random number; used for shiny probabilities
     cp 0
     jr z, .badges0
     cp 1

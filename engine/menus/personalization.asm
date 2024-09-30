@@ -34,7 +34,7 @@ GetPersonalizationPointer:
 PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_Names
 	dw PersonalizationMenu_Types
-	dw PersonalizationMenu_Dummy
+	dw PersonalizationMenu_SpeakerSettings ; from the option menu
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Dummy
@@ -130,6 +130,66 @@ PersonalizationMenu_Types:
 
 ; ---------------------------------------------
 
+PersonalizationMenu_SpeakerSettings:
+	ld a, [wOptions]
+	and $30
+	swap a
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .asm_41dca
+.pressedRight
+	ld a, c
+	inc a
+	and $3
+	jr .asm_41dba
+.pressedLeft
+	ld a, c
+	dec a
+	and $3
+.asm_41dba
+	ld c, a
+	swap a
+	ld b, a
+	xor a
+	ldh [rNR51], a
+	ld a, [wOptions]
+	and $cf
+	or b
+	ld [wOptions], a
+.asm_41dca
+	ld b, $0
+	ld hl, SpeakerOptionStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 8, 8
+	call PlaceString
+	and a
+	ret
+
+SpeakerOptionStringsPointerTable:
+	dw MonoSoundText
+	dw Earphone1SoundText
+	dw Earphone2SoundText
+	dw Earphone3SoundText
+
+MonoSoundText:
+	db "MONO     @"
+Earphone1SoundText:
+	db "EARPHONE1@"
+Earphone2SoundText:
+	db "EARPHONE2@"
+Earphone3SoundText:
+	db "EARPHONE3@"
+
+; ---------------------------------------------
+
 PersonalizationMenu_Dummy:
 	and a
 	ret
@@ -165,7 +225,7 @@ PersonalizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 1 ; number of options - 1
+	cp 2 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -176,7 +236,7 @@ PersonalizationControl:
 	ld a, [hl]
 	cp 6 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 1 ; number of options - 1
+	ld [hl], 2 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -219,7 +279,7 @@ InitPersonalizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 2 ; the number of options to loop through
+	ld c, 3 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -237,7 +297,8 @@ InitPersonalizationMenu:
 
 AllPersonalizationText:
 	db   "NAMES:"
-	next "TYPES:@"
+	next "TYPES:"
+	next "SOUND:@"
 
 PersonalizationTitleText:
 	db "PERSONALIZATION@"
