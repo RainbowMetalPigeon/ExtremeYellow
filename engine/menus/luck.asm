@@ -286,6 +286,12 @@ LuckControl:
 	jr z, .pressedDown
 	cp D_UP
 	jr z, .pressedUp
+; new, to handle info printer
+	cp SELECT
+	jr z, .pressedSelectOrA
+	cp A_BUTTON
+	jr z, .pressedSelectOrA
+; back to default
 	and a
 	ret
 .pressedDown
@@ -317,6 +323,23 @@ LuckControl:
 .regularDecrement
 	dec [hl]
 	scf
+	ret
+; new, to handle info printer
+.pressedSelectOrA
+	ld a, [hl]
+	ld [wUniQuizAnswer], a
+	cp 5 ; number of options
+	ret nc
+	add a ; doubles a
+	ld e, a
+	ld d, 0
+	ld hl, LuckInfoTexts
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call PrintText
+	call InitLuckMenu_Redo
 	ret
 
 LuckMenu_UpdateCursorPosition:
@@ -366,6 +389,36 @@ InitLuckMenu:
 	call Delay3
 	ret
 
+InitLuckMenu_Redo:
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+	hlcoord 2, 4
+	ld de, AllLuckText
+	call PlaceString
+	hlcoord 2, 16
+	ld de, LuckMenuCancelText
+	call PlaceString
+	hlcoord 5, 2
+	ld de, LuckTitleText
+	call PlaceString
+	xor a
+	ld [wOptionsCursorLocation], a
+	ld c, 5 ; the number of options to loop through
+.loop
+	push bc
+	call GetLuckPointer ; updates the next option
+	pop bc
+	ld hl, wOptionsCursorLocation
+	inc [hl] ; moves the cursor for the highlighted option
+	dec c
+	jr nz, .loop
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	ld a, [wUniQuizAnswer] ; to restore the previous curson position
+	ld [wOptionsCursorLocation], a
+	ret
+
 AllLuckText:
 	db   "ACC:"
 	next "ROLL:"
@@ -393,3 +446,32 @@ OpponentMaxText:
 	db "ENEMY MAX @"
 BothText:
 	db "BOTH      @"
+
+; new, for info
+
+LuckInfoTexts:
+	dw LuckInfoTextAccuracy
+	dw LuckInfoTextRoll
+	dw LuckInfoTextCrits
+	dw LuckInfoTextEffects
+	dw LuckInfoTextStatus
+
+LuckInfoTextAccuracy:
+	text_far _LuckInfoTextAccuracy
+	text_end
+
+LuckInfoTextRoll:
+	text_far _LuckInfoTextRoll
+	text_end
+
+LuckInfoTextCrits:
+	text_far _LuckInfoTextCrits
+	text_end
+
+LuckInfoTextEffects:
+	text_far _LuckInfoTextEffects
+	text_end
+
+LuckInfoTextStatus:
+	text_far _LuckInfoTextStatus
+	text_end

@@ -293,6 +293,12 @@ RandomizationControl:
 	jr z, .pressedDown
 	cp D_UP
 	jr z, .pressedUp
+; new, to handle info printer
+	cp SELECT
+	jr z, .pressedSelectOrA
+	cp A_BUTTON
+	jr z, .pressedSelectOrA
+; back to default
 	and a
 	ret
 .pressedDown
@@ -324,6 +330,23 @@ RandomizationControl:
 .regularDecrement
 	dec [hl]
 	scf
+	ret
+; new, to handle info printer
+.pressedSelectOrA
+	ld a, [hl]
+	ld [wUniQuizAnswer], a
+	cp 4 ; number of options
+	ret nc
+	add a ; doubles a
+	ld e, a
+	ld d, 0
+	ld hl, RandomizationInfoTexts
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call PrintText
+	call InitRandomizationMenu_Redo
 	ret
 
 RandomizationMenu_UpdateCursorPosition:
@@ -389,6 +412,36 @@ InitRandomizationMenu:
 	call Delay3
 	ret
 
+InitRandomizationMenu_Redo:
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+	hlcoord 2, 4
+	ld de, AllRandomizationText
+	call PlaceString
+	hlcoord 2, 16
+	ld de, RandomizationMenuCancelText
+	call PlaceString
+	hlcoord 4, 2
+	ld de, RandomizationTitleText
+	call PlaceString
+	xor a
+	ld [wOptionsCursorLocation], a
+	ld c, 4 ; the number of options to loop through
+.loop
+	push bc
+	call GetRandomizationPointer ; updates the next option
+	pop bc
+	ld hl, wOptionsCursorLocation
+	inc [hl] ; moves the cursor for the highlighted option
+	dec c
+	jr nz, .loop
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	ld a, [wUniQuizAnswer] ; to restore the previous curson position
+	ld [wOptionsCursorLocation], a
+	ret
+
 AllRandomizationText:
 	db   "WILD #MON:"
 	next "ENEMY TEAMS :"
@@ -410,3 +463,27 @@ NoText:
 	db "NO @"
 YesText:
 	db "YES@"
+
+; new, for info
+
+RandomizationInfoTexts:
+	dw RandomizationInfoTextWildMons
+	dw RandomizationInfoTextEnemyTeams
+	dw RandomizationInfoTextTypeChart
+	dw RandomizationInfoTextItems
+
+RandomizationInfoTextWildMons:
+	text_far _RandomizationInfoTextWildMons
+	text_end
+
+RandomizationInfoTextEnemyTeams:
+	text_far _RandomizationInfoTextEnemyTeams
+	text_end
+
+RandomizationInfoTextTypeChart:
+	text_far _RandomizationInfoTextTypeChart
+	text_end
+
+RandomizationInfoTextItems:
+	text_far _RandomizationInfoTextItems
+	text_end

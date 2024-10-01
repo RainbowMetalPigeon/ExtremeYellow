@@ -215,6 +215,12 @@ PersonalizationControl:
 	jr z, .pressedDown
 	cp D_UP
 	jr z, .pressedUp
+; new, to handle info printer
+	cp SELECT
+	jr z, .pressedSelectOrA
+	cp A_BUTTON
+	jr z, .pressedSelectOrA
+; back to default
 	and a
 	ret
 .pressedDown
@@ -246,6 +252,23 @@ PersonalizationControl:
 .regularDecrement
 	dec [hl]
 	scf
+	ret
+; new, to handle info printer
+.pressedSelectOrA
+	ld a, [hl]
+	ld [wUniQuizAnswer], a
+	cp 3 ; number of options
+	ret nc
+	add a ; doubles a
+	ld e, a
+	ld d, 0
+	ld hl, PersonalizationInfoTexts
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call PrintText
+	call InitPersonalizationMenu_Redo
 	ret
 
 PersonalizationMenu_UpdateCursorPosition:
@@ -295,6 +318,36 @@ InitPersonalizationMenu:
 	call Delay3
 	ret
 
+InitPersonalizationMenu_Redo:
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+	hlcoord 2, 4
+	ld de, AllPersonalizationText
+	call PlaceString
+	hlcoord 2, 16
+	ld de, PersonalizationMenuCancelText
+	call PlaceString
+	hlcoord 3, 2
+	ld de, PersonalizationTitleText
+	call PlaceString
+	xor a
+	ld [wOptionsCursorLocation], a
+	ld c, 3 ; the number of options to loop through
+.loop
+	push bc
+	call GetPersonalizationPointer ; updates the next option
+	pop bc
+	ld hl, wOptionsCursorLocation
+	inc [hl] ; moves the cursor for the highlighted option
+	dec c
+	jr nz, .loop
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	ld a, [wUniQuizAnswer] ; to restore the previous curson position
+	ld [wOptionsCursorLocation], a
+	ret
+
 AllPersonalizationText:
 	db   "NAMES:"
 	next "TYPES:"
@@ -326,3 +379,22 @@ ClassicText:
 	db "CLASSIC@"
 NewText:
 	db "NEW    @"
+
+; new, for info
+
+PersonalizationInfoTexts:
+	dw PersonalizationInfoTextNames
+	dw PersonalizationInfoTextTypes
+	dw PersonalizationInfoTextSound
+
+PersonalizationInfoTextNames:
+	text_far _PersonalizationInfoTextNames
+	text_end
+
+PersonalizationInfoTextTypes:
+	text_far _PersonalizationInfoTextTypes
+	text_end
+
+PersonalizationInfoTextSound:
+	text_far _PersonalizationInfoTextSound
+	text_end

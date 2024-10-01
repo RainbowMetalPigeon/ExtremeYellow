@@ -539,6 +539,12 @@ OptionsControl:
 	jr z, .pressedDown
 	cp D_UP
 	jr z, .pressedUp
+; new, to handle info printer
+	cp SELECT
+	jr z, .pressedSelectOrA
+	cp A_BUTTON
+	jr z, .pressedSelectOrA
+; back to default
 	and a
 	ret
 .pressedDown
@@ -570,6 +576,23 @@ OptionsControl:
 .regularDecrement
 	dec [hl]
 	scf
+	ret
+; new, to handle info printer
+.pressedSelectOrA
+	ld a, [hl]
+	ld [wUniQuizAnswer], a
+	cp 7 ; number of options
+	ret nc
+	add a ; doubles a
+	ld e, a
+	ld d, 0
+	ld hl, OptionsInfoTexts
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call PrintText
+	call InitOptionsMenu_Redo
 	ret
 
 OptionsMenu_UpdateCursorPosition:
@@ -616,6 +639,33 @@ InitOptionsMenu:
 	call Delay3
 	ret
 
+InitOptionsMenu_Redo:
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+	hlcoord 2, 2
+	ld de, AllOptionsText
+	call PlaceString
+	hlcoord 2, 16
+	ld de, OptionMenuCancelText
+	call PlaceString
+	xor a
+	ld [wOptionsCursorLocation], a
+	ld c, 7 ; the number of options to loop through
+.loop
+	push bc
+	call GetOptionPointer ; updates the next option
+	pop bc
+	ld hl, wOptionsCursorLocation
+	inc [hl] ; moves the cursor for the highlighted option
+	dec c
+	jr nz, .loop
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	ld a, [wUniQuizAnswer] ; to restore the previous curson position
+	ld [wOptionsCursorLocation], a
+	ret
+
 AllOptionsText:
 	db "TXT SPEED:" ; edited
 	next "ANIMATION:" ; edited
@@ -627,3 +677,42 @@ AllOptionsText:
 
 OptionMenuCancelText:
 	db "CANCEL@"
+
+; new, for info
+
+OptionsInfoTexts:
+	dw OptionsInfoTextTextSpeed
+	dw OptionsInfoTextAnimation
+	dw OptionsInfoTextBattleStyle
+	dw OptionsInfoTextCap
+	dw OptionsInfoTextBadgeBoost
+	dw OptionsInfoTextLevelScale
+	dw OptionsInfoTextExpGain
+
+OptionsInfoTextTextSpeed:
+	text_far _OptionsInfoTextTextSpeed
+	text_end
+
+OptionsInfoTextAnimation:
+	text_far _OptionsInfoTextAnimation
+	text_end
+
+OptionsInfoTextBattleStyle:
+	text_far _OptionsInfoTextBattleStyle
+	text_end
+
+OptionsInfoTextCap:
+	text_far _OptionsInfoTextCap
+	text_end
+
+OptionsInfoTextBadgeBoost:
+	text_far _OptionsInfoTextBadgeBoost
+	text_end
+
+OptionsInfoTextLevelScale:
+	text_far _OptionsInfoTextLevelScale
+	text_end
+
+OptionsInfoTextExpGain:
+	text_far _OptionsInfoTextExpGain
+	text_end
