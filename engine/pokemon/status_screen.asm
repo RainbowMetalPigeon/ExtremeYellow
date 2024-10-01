@@ -165,7 +165,7 @@ StatusScreen:
 	lb bc, LEADING_ZEROES | 2, 5
 	call PrintNumber ; ID Number
 	ld d, $0
-	call PrintStatsBox_Base
+	call PrintStatsBox_StatExp ; TBE
 	call Delay3
 	call GBPalNormal
 	hlcoord 1, 0
@@ -336,6 +336,172 @@ PrintStatsBox_Base: ; new, testing
 	ld de, wMonHBaseSpeed
 	call PrintStat
 	ld de, wMonHBaseSpecial
+	call PrintNumber
+; clean CurHP/MaxHP
+	ld a, " "
+	hlcoord 12, 4
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+; print Base HP
+	hlcoord 13, 4
+	ld de, wMonHBaseHP
+	lb bc, 1, 3
+	jp PrintNumber
+
+PrintStatsBox_DVs: ; new, testing
+	ld a, d
+	and a ; a is 0 from the status screen
+	jr nz, .DifferentBox
+	hlcoord 0, 8
+	lb bc, 8, 8
+	call TextBoxBorder ; Draws the box
+	hlcoord 1, 9 ; Start printing stats from here
+	ld bc, $19 ; Number offset
+	jr .PrintStats
+.DifferentBox
+	hlcoord 9, 2
+	lb bc, 8, 9
+	call TextBoxBorder
+	hlcoord 11, 3
+	ld bc, $18
+.PrintStats
+	push bc
+	push hl
+	ld de, StatsText
+	call PlaceString
+	pop hl
+	pop bc
+	add hl, bc
+	lb bc, 1, 2
+; ATK DV
+	ld de, wLoadedMonDVs
+	ld a, [de]
+	swap a
+	and $f
+	ld [wUniQuizAnswer], a
+	ld de, wUniQuizAnswer
+	call PrintStat
+; DEF DV
+	ld de, wLoadedMonDVs
+	ld a, [de]
+	and $f
+	ld [wUniQuizAnswer], a
+	ld de, wUniQuizAnswer
+	call PrintStat
+; SPEED DV
+	ld de, wLoadedMonDVs
+	inc de
+	ld a, [de]
+	swap a
+	and $f
+	ld [wUniQuizAnswer], a
+	ld de, wUniQuizAnswer
+	call PrintStat
+; SPECIAL DV
+	ld de, wLoadedMonDVs
+	inc de
+	ld a, [de]
+	and $f
+	ld [wUniQuizAnswer], a
+	ld de, wUniQuizAnswer
+	call PrintNumber
+; clean CurHP/MaxHP
+	ld a, " "
+	hlcoord 12, 4
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+; HP DV
+	ld de, wLoadedMonDVs
+	ld a, [de]  ; Atk IV
+	swap a
+	and $1
+	sla a
+	sla a
+	sla a
+	ld b, a
+	ld a, [de] ; Def IV
+	inc de
+	and $1
+	sla a
+	sla a
+	add b
+	ld b, a
+	ld a, [de] ; Spd IV
+	swap a
+	and $1
+	sla a
+	add b
+	ld b, a
+	ld a, [de] ; Spc IV
+	and $1
+	add b      ; HP IV: LSB of the other 4 IVs
+	ld [wUniQuizAnswer], a
+	ld de, wUniQuizAnswer
+	hlcoord 13, 4
+	lb bc, 1, 2
+	jp PrintNumber
+
+PrintStatsBox_StatExp: ; new, testing
+	ld a, d
+	and a ; a is 0 from the status screen
+	jr nz, .DifferentBox
+	hlcoord 0, 8
+	lb bc, 8, 8
+	call TextBoxBorder ; Draws the box
+	hlcoord 1, 9 ; Start printing stats from here
+	ld bc, $19 ; Number offset
+	jr .PrintStats
+.DifferentBox
+	hlcoord 9, 2
+	lb bc, 8, 9
+	call TextBoxBorder
+	hlcoord 11, 3
+	ld bc, $18
+.PrintStats
+	push bc
+	push hl
+	ld de, StatsText
+	call PlaceString
+	pop hl
+	pop bc
+	add hl, bc
+	lb bc, 1, 3
+
+	ld de, wMonHBaseAttack
+	call PrintStat
+
+	ld de, wMonHBaseDefense
+	call PrintStat
+
+	ld de, wMonHBaseSpeed
+	call PrintStat
+	
+	ld de, wMonHBaseSpecial
+	call PrintNumber
+; clean CurHP/MaxHP
+	ld a, " "
+	hlcoord 12, 4
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+; print Base HP
+	hlcoord 13, 4
+	ld de, wMonHBaseHP
+	lb bc, 1, 3
 	jp PrintNumber
 
 StatsText:
