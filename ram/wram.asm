@@ -1654,7 +1654,7 @@ wPartyMenuAnimMonEnabled::
 ; non-zero when enabled. causes nest locations to blink on and off.
 ; the town selection cursor will blink regardless of what this value is
 wTownMapSpriteBlinkingEnabled::
-wUnusedD09B:: db
+wUnusedD09B:: db ; edited: now used to track which set of stats to show in the status screen
 
 ; current destination address in OAM for frame blocks (big endian)
 wFBDestAddr:: dw

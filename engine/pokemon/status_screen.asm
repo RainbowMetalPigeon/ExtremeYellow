@@ -61,7 +61,6 @@ DrawHP_:
 	pop de
 	ret
 
-
 ; Predef 0x37
 StatusScreen:
 	call LoadMonData
@@ -105,6 +104,7 @@ StatusScreen:
 	push af
 	xor a
 	ldh [hTileAnimations], a
+	ld [wUnusedD09B], a ; new, to cycle through the different stat printers
 	hlcoord 19, 1
 	lb bc, 6, 10
 	call DrawLineBox ; Draws the box around name, HP and status
@@ -146,6 +146,15 @@ StatusScreen:
 	ld de, wd11e
 	lb bc, LEADING_ZEROES | 1, 3
 	call PrintNumber ; Pokémon no.
+; new, for the shiny symbol
+	ld a, [wLoadedMonCatchRate]
+	and a
+	jr z, .notShiny
+; print shiny symbol
+	hlcoord 6, 7
+	ld [hl], "<SHINY>"
+.notShiny
+; back to vanilla
 	hlcoord 11, 10
 	predef PrintMonType
 	ld hl, NamePointers2
@@ -165,7 +174,7 @@ StatusScreen:
 	lb bc, LEADING_ZEROES | 2, 5
 	call PrintNumber ; ID Number
 	ld d, $0
-	call PrintStatsBox_StatExp ; TBE
+	call PrintStatsBox
 	call Delay3
 	call GBPalNormal
 	hlcoord 1, 0
@@ -189,6 +198,48 @@ StatusScreen:
 	ld a, [wcf91]
 	call PlayCry ; play Pokémon cry
 .continue
+; new, to cycle through the different stat printers
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON | SELECT
+	jr z, .continue
+	bit BIT_SELECT, a
+	jr z, .vanilla
+; we call the next stat printer
+.test
+	ld a, [wUnusedD09B]
+	and a
+	jr z, .advanceTo1
+	cp 1
+	jr z, .advanceTo2
+	cp 2
+	jr z, .advanceTo3
+; return to 0
+	call ClearStatsValues
+	hlcoord 11, 3
+	predef DrawHP
+	xor a
+	ld [wUnusedD09B], a
+	ld d, a
+	call PrintStatsBox
+	jr .continue
+.advanceTo1
+	inc a
+	ld [wUnusedD09B], a
+	call PrintStatsBox_Base
+	jr .continue
+.advanceTo2
+	inc a
+	ld [wUnusedD09B], a
+	call PrintStatsBox_DVs
+	jr .continue
+.advanceTo3
+	inc a
+	ld [wUnusedD09B], a
+	call PrintStatsBox_StatExp
+	jr .continue
+.vanilla
+; back to vanilla
 	call WaitForTextScrollButtonPress ; wait for button
 	pop af
 	ldh [hTileAnimations], a
@@ -304,22 +355,10 @@ PrintStat:
 	add hl, de
 	ret
 
-PrintStatsBox_Base: ; new, testing
-	ld a, d
-	and a ; a is 0 from the status screen
-	jr nz, .DifferentBox
-	hlcoord 0, 8
-	lb bc, 8, 8
-	call TextBoxBorder ; Draws the box
+PrintStatsBox_Base: ; new
+	call ClearStatsValues
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
-	jr .PrintStats
-.DifferentBox
-	hlcoord 9, 2
-	lb bc, 8, 9
-	call TextBoxBorder
-	hlcoord 11, 3
-	ld bc, $18
 .PrintStats
 	push bc
 	push hl
@@ -337,38 +376,18 @@ PrintStatsBox_Base: ; new, testing
 	call PrintStat
 	ld de, wMonHBaseSpecial
 	call PrintNumber
-; clean CurHP/MaxHP
-	ld a, " "
-	hlcoord 12, 4
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+; clear CurHP/MaxHP
+	call ClearCurHpMaxHP
 ; print Base HP
 	hlcoord 13, 4
 	ld de, wMonHBaseHP
 	lb bc, 1, 3
 	jp PrintNumber
 
-PrintStatsBox_DVs: ; new, testing
-	ld a, d
-	and a ; a is 0 from the status screen
-	jr nz, .DifferentBox
-	hlcoord 0, 8
-	lb bc, 8, 8
-	call TextBoxBorder ; Draws the box
+PrintStatsBox_DVs: ; new
+	call ClearStatsValues
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
-	jr .PrintStats
-.DifferentBox
-	hlcoord 9, 2
-	lb bc, 8, 9
-	call TextBoxBorder
-	hlcoord 11, 3
-	ld bc, $18
 .PrintStats
 	push bc
 	push hl
@@ -410,16 +429,8 @@ PrintStatsBox_DVs: ; new, testing
 	ld [wUniQuizAnswer], a
 	ld de, wUniQuizAnswer
 	call PrintNumber
-; clean CurHP/MaxHP
-	ld a, " "
-	hlcoord 12, 4
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+; clear CurHP/MaxHP
+	call ClearCurHpMaxHP
 ; HP DV
 	ld de, wLoadedMonDVs
 	ld a, [de]  ; Atk IV
@@ -451,22 +462,10 @@ PrintStatsBox_DVs: ; new, testing
 	lb bc, 1, 2
 	jp PrintNumber
 
-PrintStatsBox_StatExp: ; new, testing
-	ld a, d
-	and a ; a is 0 from the status screen
-	jr nz, .DifferentBox
-	hlcoord 0, 8
-	lb bc, 8, 8
-	call TextBoxBorder ; Draws the box
+PrintStatsBox_StatExp: ; new
+	call ClearStatsValues
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
-	jr .PrintStats
-.DifferentBox
-	hlcoord 9, 2
-	lb bc, 8, 9
-	call TextBoxBorder
-	hlcoord 11, 3
-	ld bc, $18
 .PrintStats
 	push bc
 	push hl
@@ -475,20 +474,51 @@ PrintStatsBox_StatExp: ; new, testing
 	pop hl
 	pop bc
 	add hl, bc
-	lb bc, 1, 3
-
-	ld de, wMonHBaseAttack
+; print ATK stat exp
+	push hl
+	ld hl, wLoadedMonAttackExp
+	call CalculateHumanReadableStatExp
+	pop hl
+	lb bc, 1, 2
 	call PrintStat
-
-	ld de, wMonHBaseDefense
+; print DEF stat exp
+	push hl
+	ld hl, wLoadedMonDefenseExp
+	call CalculateHumanReadableStatExp
+	pop hl
+	lb bc, 1, 2
 	call PrintStat
-
-	ld de, wMonHBaseSpeed
+; print SPEED stat exp
+	push hl
+	ld hl, wLoadedMonSpeedExp
+	call CalculateHumanReadableStatExp
+	pop hl
+	lb bc, 1, 2
 	call PrintStat
-	
-	ld de, wMonHBaseSpecial
+; print SPECIAL stat exp
+	push hl
+	ld hl, wLoadedMonSpecialExp
+	call CalculateHumanReadableStatExp
+	pop hl
+	lb bc, 1, 2
 	call PrintNumber
-; clean CurHP/MaxHP
+; clear CurHP/MaxHP
+	call ClearCurHpMaxHP
+; print HP stat exp
+	ld hl, wLoadedMonHPExp
+	ld hl, wLoadedMonSpecialExp
+	call CalculateHumanReadableStatExp
+	hlcoord 13, 4
+	lb bc, 1, 2
+	jp PrintNumber
+
+StatsText:
+	db   "ATTACK"
+	next "DEFENSE"
+	next "SPEED"
+	next "SPECIAL@"
+
+ClearCurHpMaxHP: ; new
 	ld a, " "
 	hlcoord 12, 4
 	ld [hli], a
@@ -498,17 +528,60 @@ PrintStatsBox_StatExp: ; new, testing
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-; print Base HP
-	hlcoord 13, 4
-	ld de, wMonHBaseHP
-	lb bc, 1, 3
-	jp PrintNumber
+	ret
 
-StatsText:
-	db   "ATTACK"
-	next "DEFENSE"
-	next "SPEED"
-	next "SPECIAL@"
+ClearStatsValues: ; new
+	ld a, " "
+	hlcoord 6, 10
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	hlcoord 6, 12
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	hlcoord 6, 14
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	hlcoord 6, 16
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ret
+
+; input: wLoadedMonSTATExp in hl
+; output: human-readable value of stat exp loaded in de via wUniQuizAnswer
+CalculateHumanReadableStatExp: ; new
+; calculates ceil(Sqrt(stat exp)) in b
+	ld b, 0
+.startLoop
+	xor a
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand+1], a
+	inc b               ; increment current stat exp bonus
+	ld a, b
+	cp $ff
+	jr z, .statExpDone
+	ldh [hMultiplicand+2], a
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hld]
+	ld d, a
+	ldh a, [hProduct + 3]
+	sub d
+	ld a, [hli]
+	ld d, a
+	ldh a, [hProduct + 2]
+	sbc d               ; test if (current stat exp bonus)^2 < stat exp
+	jr c, .startLoop
+.statExpDone
+	ld a, b
+	srl a
+	srl a ; divide by 4 with the operation above
+	ld [wUniQuizAnswer], a
+	ld de, wUniQuizAnswer
+	ret
 
 StatusScreen2:
 	ldh a, [hTileAnimations]

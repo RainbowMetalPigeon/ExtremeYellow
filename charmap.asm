@@ -169,6 +169,7 @@
 	; huge random gap
 
 	; new characters
+	charmap "<SHINY>",         $dd
 	charmap "+",         $de
 	charmap "<MEGA>",    $df
 
