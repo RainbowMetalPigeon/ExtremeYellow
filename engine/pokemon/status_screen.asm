@@ -165,7 +165,7 @@ StatusScreen:
 	lb bc, LEADING_ZEROES | 2, 5
 	call PrintNumber ; ID Number
 	ld d, $0
-	call PrintStatsBox
+	call PrintStatsBox_Base
 	call Delay3
 	call GBPalNormal
 	hlcoord 1, 0
@@ -303,6 +303,40 @@ PrintStat:
 	ld de, SCREEN_WIDTH * 2
 	add hl, de
 	ret
+
+PrintStatsBox_Base: ; new, testing
+	ld a, d
+	and a ; a is 0 from the status screen
+	jr nz, .DifferentBox
+	hlcoord 0, 8
+	lb bc, 8, 8
+	call TextBoxBorder ; Draws the box
+	hlcoord 1, 9 ; Start printing stats from here
+	ld bc, $19 ; Number offset
+	jr .PrintStats
+.DifferentBox
+	hlcoord 9, 2
+	lb bc, 8, 9
+	call TextBoxBorder
+	hlcoord 11, 3
+	ld bc, $18
+.PrintStats
+	push bc
+	push hl
+	ld de, StatsText
+	call PlaceString
+	pop hl
+	pop bc
+	add hl, bc
+	ld de, wMonHBaseAttack
+	lb bc, 1, 3
+	call PrintStat
+	ld de, wMonHBaseDefense
+	call PrintStat
+	ld de, wMonHBaseSpeed
+	call PrintStat
+	ld de, wMonHBaseSpecial
+	jp PrintNumber
 
 StatsText:
 	db   "ATTACK"
