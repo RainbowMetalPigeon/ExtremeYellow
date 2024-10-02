@@ -104,7 +104,7 @@ StatusScreen:
 	push af
 	xor a
 	ldh [hTileAnimations], a
-	ld [wUnusedD09B], a ; new, to cycle through the different stat printers
+	ld [wDumbByteToToggleStatusScreen], a ; new, to cycle through the different stat printers
 	hlcoord 19, 1
 	lb bc, 6, 10
 	call DrawLineBox ; Draws the box around name, HP and status
@@ -154,6 +154,17 @@ StatusScreen:
 	hlcoord 6, 7
 	ld [hl], "<SHINY>"
 .notShiny
+; back to vanilla
+; new, print label that suggests to click SELECT for more info
+	hlcoord 16, 17
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
 ; back to vanilla
 	hlcoord 11, 10
 	predef PrintMonType
@@ -207,7 +218,7 @@ StatusScreen:
 	jr z, .vanilla
 ; we call the next stat printer
 .test
-	ld a, [wUnusedD09B]
+	ld a, [wDumbByteToToggleStatusScreen]
 	and a
 	jr z, .advanceTo1
 	cp 1
@@ -219,23 +230,23 @@ StatusScreen:
 	hlcoord 11, 3
 	predef DrawHP
 	xor a
-	ld [wUnusedD09B], a
+	ld [wDumbByteToToggleStatusScreen], a
 	ld d, a
 	call PrintStatsBox
 	jr .continue
 .advanceTo1
 	inc a
-	ld [wUnusedD09B], a
+	ld [wDumbByteToToggleStatusScreen], a
 	call PrintStatsBox_Base
 	jr .continue
 .advanceTo2
 	inc a
-	ld [wUnusedD09B], a
+	ld [wDumbByteToToggleStatusScreen], a
 	call PrintStatsBox_DVs
 	jr .continue
 .advanceTo3
 	inc a
-	ld [wUnusedD09B], a
+	ld [wDumbByteToToggleStatusScreen], a
 	call PrintStatsBox_StatExp
 	jr .continue
 .vanilla
@@ -321,6 +332,13 @@ PrintStatsBox:
 	hlcoord 0, 8
 	lb bc, 8, 8
 	call TextBoxBorder ; Draws the box
+; new, print label that these are the CURRENT stats
+	hlcoord 1, 17
+	ld a, "<CUR1>"
+	ld [hli], a
+	ld a, "<CUR2>"
+	ld [hl], a
+; back to vanilla
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
 	jr .PrintStats
@@ -338,8 +356,8 @@ PrintStatsBox:
 	pop hl
 	pop bc
 	add hl, bc
-	ld de, wLoadedMonAttack
 	lb bc, 2, 3
+	ld de, wLoadedMonAttack
 	call PrintStat
 	ld de, wLoadedMonDefense
 	call PrintStat
@@ -357,18 +375,25 @@ PrintStat:
 
 PrintStatsBox_Base: ; new
 	call ClearStatsValues
+; print label that these are the BASE stats
+	hlcoord 1, 17
+	ld a, "<BASE1>"
+	ld [hli], a
+	ld a, "<BASE2>"
+	ld [hl], a
+; vanilla-like stuff
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
 .PrintStats
-	push bc
-	push hl
-	ld de, StatsText
-	call PlaceString
-	pop hl
-	pop bc
+;	push bc
+;	push hl
+;	ld de, StatsText
+;	call PlaceString
+;	pop hl
+;	pop bc
 	add hl, bc
-	ld de, wMonHBaseAttack
 	lb bc, 1, 3
+	ld de, wMonHBaseAttack
 	call PrintStat
 	ld de, wMonHBaseDefense
 	call PrintStat
@@ -386,15 +411,22 @@ PrintStatsBox_Base: ; new
 
 PrintStatsBox_DVs: ; new
 	call ClearStatsValues
+; print label that these are the IV stats
+	hlcoord 1, 17
+	ld a, "<IV1>"
+	ld [hli], a
+	ld a, "<IV2>"
+	ld [hl], a
+; vanilla-like stuff
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
 .PrintStats
-	push bc
-	push hl
-	ld de, StatsText
-	call PlaceString
-	pop hl
-	pop bc
+;	push bc
+;	push hl
+;	ld de, StatsText
+;	call PlaceString
+;	pop hl
+;	pop bc
 	add hl, bc
 	lb bc, 1, 2
 ; ATK DV
@@ -464,41 +496,60 @@ PrintStatsBox_DVs: ; new
 
 PrintStatsBox_StatExp: ; new
 	call ClearStatsValues
+; print label that these are the EV stats
+	hlcoord 1, 17
+	ld a, "<EV1>"
+	ld [hli], a
+	ld a, "<EV2>"
+	ld [hl], a
+; vanilla-like stuff
 	hlcoord 1, 9 ; Start printing stats from here
 	ld bc, $19 ; Number offset
 .PrintStats
-	push bc
-	push hl
-	ld de, StatsText
-	call PlaceString
-	pop hl
-	pop bc
+;	push bc
+;	push hl
+;	ld de, StatsText
+;	call PlaceString
+;	pop hl
+;	pop bc
 	add hl, bc
 ; print ATK stat exp
 	push hl
 	ld hl, wLoadedMonAttackExp
+	ld a, [hld]
+	ld a, [hli]
 	call CalculateHumanReadableStatExp
+	ld a, [de]
 	pop hl
 	lb bc, 1, 2
 	call PrintStat
 ; print DEF stat exp
 	push hl
 	ld hl, wLoadedMonDefenseExp
+	ld a, [hld]
+	ld a, [hli]
 	call CalculateHumanReadableStatExp
+	ld a, [de]
 	pop hl
 	lb bc, 1, 2
 	call PrintStat
 ; print SPEED stat exp
 	push hl
 	ld hl, wLoadedMonSpeedExp
+	ld a, [hld]
+	ld a, [hli]
 	call CalculateHumanReadableStatExp
+	ld a, [de]
 	pop hl
 	lb bc, 1, 2
 	call PrintStat
 ; print SPECIAL stat exp
 	push hl
 	ld hl, wLoadedMonSpecialExp
+	ld a, [hld]
+	ld a, [hli]
 	call CalculateHumanReadableStatExp
+	ld a, [de]
 	pop hl
 	lb bc, 1, 2
 	call PrintNumber
@@ -506,8 +557,10 @@ PrintStatsBox_StatExp: ; new
 	call ClearCurHpMaxHP
 ; print HP stat exp
 	ld hl, wLoadedMonHPExp
-	ld hl, wLoadedMonSpecialExp
+	ld a, [hld]
+	ld a, [hli]
 	call CalculateHumanReadableStatExp
+	ld a, [de]
 	hlcoord 13, 4
 	lb bc, 1, 2
 	jp PrintNumber
@@ -555,6 +608,8 @@ ClearStatsValues: ; new
 CalculateHumanReadableStatExp: ; new
 ; calculates ceil(Sqrt(stat exp)) in b
 	ld b, 0
+	ld a, [hld]
+	ld a, [hli]
 .startLoop
 	xor a
 	ldh [hMultiplicand], a
@@ -566,15 +621,29 @@ CalculateHumanReadableStatExp: ; new
 	ldh [hMultiplicand+2], a
 	ldh [hMultiplier], a
 	call Multiply
-	ld a, [hld]
+
+	ld a, [hl] ; MSB of stat exp
 	ld d, a
-	ldh a, [hProduct + 3]
-	sub d
-	ld a, [hli]
-	ld d, a
-	ldh a, [hProduct + 2]
-	sbc d               ; test if (current stat exp bonus)^2 < stat exp
+	ldh a, [hProduct + 2] ; MSB
+	cp d ; a-d = MSB of b^2 - MSB of StatExp
 	jr c, .startLoop
+	inc hl
+	ld a, [hld] ; LSB of stat exp, and returns hl to the previous value
+	ld d, a
+	ldh a, [hProduct + 3] ; LSB
+	cp d ; a-d = MSB of b^2 - MSB of StatExp
+	jr c, .startLoop
+
+;	ld a, [hli]
+;	ld d, a
+;	ldh a, [hProduct + 3] ; LSB
+;	sub d
+;	ld a, [hld]
+;	ld d, a
+;	ldh a, [hProduct + 2] ; MSB
+;	sbc d               ; test if (current stat exp bonus)^2 < stat exp
+;	jr c, .startLoop
+
 .statExpDone
 	ld a, b
 	srl a

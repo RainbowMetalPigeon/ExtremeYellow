@@ -615,6 +615,7 @@ InitOptionsMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
+	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 2
 	ld de, AllOptionsText
 	call PlaceString
@@ -643,6 +644,7 @@ InitOptionsMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
+	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 2
 	ld de, AllOptionsText
 	call PlaceString
@@ -716,3 +718,17 @@ OptionsInfoTextLevelScale:
 OptionsInfoTextExpGain:
 	text_far _OptionsInfoTextExpGain
 	text_end
+
+PrintLabelAboutInfo::
+	hlcoord 14, 0
+	ld a, "<ABAR>"
+	ld [hli], a
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+	ret

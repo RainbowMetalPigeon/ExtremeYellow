@@ -169,7 +169,20 @@
 	; huge random gap
 
 	; new characters
-	charmap "<SHINY>",         $dd
+	charmap "<ABAR>",      $d0
+	charmap "<SELINFO1>",  $d1
+	charmap "<SELINFO2>",  $d2
+	charmap "<SELINFO3>",  $d3
+	charmap "<SELINFO4>",  $d4
+	charmap "<CUR1>",    $d5
+	charmap "<CUR2>",    $d6
+	charmap "<BASE1>",   $d7
+	charmap "<BASE2>",   $d8
+	charmap "<IV1>",     $d9
+	charmap "<IV2>",     $da
+	charmap "<EV1>",     $db
+	charmap "<EV2>",     $dc
+	charmap "<SHINY>",   $dd
 	charmap "+",         $de
 	charmap "<MEGA>",    $df
 
