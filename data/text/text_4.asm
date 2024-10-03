@@ -64,86 +64,219 @@ _RepelUseAnotherText:: ; new, from Vortiene
 ; personalization ----
 
 _PersonalizationInfoTextNames::
-	text "names"
+	text "Change #MON"
+	line "names between"
+	cont "English,"
+	cont "gender-neutral,"
+	cont "and Japanese."
 	prompt
+
 _PersonalizationInfoTextTypes::
-	text "types"
+	text "Some selected"
+	line "#MON have"
+	cont "their typing"
+	cont "altered."
 	prompt
+
 _PersonalizationInfoTextSound::
-	text "sound"
+	text "EARPHONE1 is"
+	line "stereo, 2 focuses"
+	cont "on left side, 3"
+	cont "on right side."
 	prompt
 
 ; randomization ------
 
 _RandomizationInfoTextWildMons::
-	text "wild mons"
+	text "Wild encounters"
+	line "are randomized."
+
+	para "After"
+	line "randomization,"
+	cont "encounters in a"
+	cont "given area are"
+	cont "fixed."
+
+	para "Re-randomized"
+	line "every time this"
+	cont "menu is opened."
+
+	para "Not applied to"
+	line "fishing."
 	prompt
 
 _RandomizationInfoTextEnemyTeams::
-	text "enemy teams"
-	line "test 1"
-	cont "test 2"
-	cont "test 3"
+	text "Enemy teams are"
+	line "randomized."
+
+	para "Upon rematch,"
+	line "teams change."
+
+	para "Re-randomized"
+	line "every time this"
+	cont "menu is opened."
 	prompt
 
 _RandomizationInfoTextTypeChart::
-	text "type chart"
+	text "Type chart"
+	line "(effectivenesses)"
+	cont "is randomized."
+
+	para "Re-randomized"
+	line "every time this"
+	cont "menu is opened."
 	prompt
 
 _RandomizationInfoTextItems::
-	text "items"
-	prompt
+	text "Ground items are"
+	line "randomized."
 
+	para "Upon reloading,"
+	line "items change."
+
+	para "Re-randomized"
+	line "every time this"
+	cont "menu is opened."
+
+	para "Not applied to"
+	line "hidden items."
+	prompt
 
 ; battle luck --------
 
 _LuckInfoTextAccuracy::
-	text "accuracy"
+	text "PLAYER MIN: all"
+	line "moves with"
+	cont "accuracy below"
+	cont "100% always miss."
+
+	para "ENEMY MAX: enemies"
+	line "never miss."
 	prompt
 
 _LuckInfoTextRoll::
-	text "roll"
+	text "PLAYER MIN: moves"
+	line "deal minimum"
+	cont "damage (85%)."
+
+	para "ENEMY MAX: enemy"
+	line "moves deal"
+	cont "maximum damage."
 	prompt
 
 _LuckInfoTextCrits::
-	text "crits"
+	text "PLAYER MIN: moves"
+	line "are never"
+	cont "critical hits."
+
+	para "ENEMY MAX: enemy"
+	line "moves are always"
+	cont "critical hits."
 	prompt
 
 _LuckInfoTextEffects::
-	text "effects"
+	text "PLAYER MIN: moves"
+	line "never trigger"
+	cont "additional"
+	cont "effects"
+;	xxxx "123456789012345678"
+	cont "(e.g. flinch)."
+
+	para "ENEMY MAX: enemy"
+	line "moves always deal"
+	cont "additional"
+	cont "effects."
 	prompt
 
 _LuckInfoTextStatus::
-	text "status"
-	prompt
+	text "PLAYER MIN: max"
+	line "SLEEP / DISABLE /"
+	cont "CONFUSION"
+	cont "duration, always"
+	cont "fully PAR, always"
+	cont "self-hit in"
+	cont "CONFUSION."
 
+	para "ENEMY MAX: enemies"
+	line "min SLEEP /"
+	cont "DISABLE /"
+	cont "CONFUSION"
+	cont "duration, never"
+	cont "fully PAR, never"
+	cont "self-hit in"
+	cont "CONFUSION."
+	prompt
 
 ; start options ------
 
 _OptionsInfoTextTextSpeed::
-	text "text speed"
+	text "Adjust text speed."
 	prompt
 
 _OptionsInfoTextAnimation::
-	text "animation"
+	text "Moves animations."
 	prompt
 
 _OptionsInfoTextBattleStyle::
-	text "style"
+	text "SHIFT: you're"
+	line "prompted to"
+	cont "switch #MON"
+	cont "before opponent"
+	cont "sends a new one."
 	prompt
 
 _OptionsInfoTextCap::
-	text "cap"
+	text "Handles caps:"
+
+	para "OBEDIENCE CAP:"
+	line "#MON above the"
+	cont "cap disobey."
+
+	para "LEVEL CAP: #MON"
+	line "that reach the"
+	cont "cap earn no EXP."
+
+	para "TIGHT: exactly at"
+	line "the next GYM"
+	cont "LEADER's ace."
+
+	para "LOOSE: slightly"
+	line "above next GYM"
+	cont "LEADER's ace."
 	prompt
 
 _OptionsInfoTextBadgeBoost::
-	text "badge boost"
+	text "CLASSIC: as in the"
+	line "original games,"
+	cont "including badge"
+	cont "boost glitch."
 	prompt
 
 _OptionsInfoTextLevelScale::
-	text "level scale"
+	text "EXACT: trainers'"
+	line "level is equal to"
+	cont "your max."
+
+	para "FLUCTUATING:"
+	line "trainers' level"
+	cont "is equal to your"
+	cont "max +- 2."
+
+	para "HARD: trainers'"
+	line "level is equal to"
+	cont "your max + 10%."
+
+	para "IMPOSSIBLE:"
+	line "trainers' level"
+	cont "is always 100."
 	prompt
 
 _OptionsInfoTextExpGain::
-	text "exp gain"
+	text "LIMITED: wild"
+	line "#MON and"
+	cont "trainer rematches"
+	cont "earn no EXP."
+
+	para "NOTHING: no battle"
+	line "earn any EXP."
 	prompt

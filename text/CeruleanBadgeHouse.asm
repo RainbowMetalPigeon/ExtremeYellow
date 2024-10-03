@@ -37,12 +37,24 @@ _CeruleanHouse2Text_74e77::
 
 	para "With 8, up to L70."
 
+	para "Keep in mind that"
+	line "all of this is"
+	cont "true with default"
+	cont "cap setting,"
+	cont "OBEDIE. LOOSE!"
+
 	para "You need to be"
 	line "crowned CHAMPION"
 	cont "of the INDIGO"
 	cont "LEAGUE to have"
 	cont "any and all"
 	cont "#MON obey you!"
+
+	para "Finally, the more"
+	line "BADGEs you have,"
+	cont "the more likely"
+	cont "you're to find a"
+	cont "shiny #MON!"
 	prompt
 
 _CeruleanHouse2Text_74e7c::

@@ -36,4 +36,10 @@ _RedsHouse2FInfoAboutOptions::
 	cont "of options in the"
 	cont "START menu and on"
 	cont "the walls here!"
+
+	para "In the menus, you"
+	line "can press SELECT"
+	cont "or A to have more"
+	cont "info about the"
+	cont "current option."
 	done

@@ -48,26 +48,41 @@ _SchoolText2:: ; edited
 
 _SchoolText4::
 	text "My friend just"
-	line "told me that if"
-	cont "you press SELECT"
-	cont "while looking at"
-	cont "a #MON page in"
+	line "told me how"
+	cont "powerful the"
+	cont "SELECT Button is!"
+
+	para "If you press it at"
+	line "the end of a"
+	cont "#MON page in"
 	cont "the #DEX, it"
-	cont "shows the shiny"
-	cont "colors! How cool!"
+	cont "shows you its"
+	cont "shiny form!"
+
+	para "In the options"
+	line "menus, it gives"
+	cont "you extra infos!"
+
+	para "And in the STATS"
+	line "screen of the"
+	cont "#MON party, it"
+	cont "toggles between"
+	cont "current stats,"
+	cont "base stats, DVs,"
+	cont "and EVs!"
 	done
 
 _SchoolText5::
 	text "My friend just"
-	line "told me about the"
+	line "told me how"
+	cont "powerful the"
+	cont "START Button is!"
+
+	para "It allows you to"
+	line "access the"
 	cont "ATTACKDEX mode"
 	cont "included in the"
 	cont "#DEX!"
-
-	para "Do you know you"
-	line "can see the info"
-	cont "on the attack by"
-	cont "pressing START?"
 
 	para "It works while in"
 	line "battle, and also"
