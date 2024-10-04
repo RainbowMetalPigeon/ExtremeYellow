@@ -36,5 +36,39 @@ _PewterHouse2Text3::
 	line "@"
 	text_decimal wPikachuMood, 1, 3
 	text "!!!"
-;	xxxx "123456789012345678"
+	done
+
+_PewterHouse2Text4::
+	text "It's full of"
+	line "scribbles that"
+	cont "look like they're"
+	cont "straight out of a"
+	cont "fever dream..."
+
+	para "50: until such,"
+	line "3 in 10 partner"
+	cont "won't be such."
+
+	para "100: before this,"
+	line "2 in 10 companion"
+	cont "won't follow."
+
+	para "130: below it,"
+	line "1 in 10 bestie"
+	cont "won't have ears."
+
+	para "160: above limit,"
+	line "limit of rolling"
+	cont "will be reached."
+
+	para "200: beyond here,"
+	line "1 in 4 to shrug"
+	cont "off all evils."
+
+	para "250: trascend that"
+	line "four critical"
+	cont "ascension."
+	
+	para "...the hell is"
+	line "this gibberish?!"
 	done

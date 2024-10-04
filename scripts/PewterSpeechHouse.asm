@@ -6,6 +6,7 @@ PewterSpeechHouse_TextPointers:
 	dw PewterHouse2Text2
 	; new
 	dw PewterHouse2Text3
+	dw PewterHouse2Text4
 
 PewterHouse2Text1:
 	text_far _PewterHouse2Text1
@@ -21,3 +22,6 @@ PewterHouse2Text3:
 	text_far _PewterHouse2Text3
 	text_end
 	
+PewterHouse2Text4:
+	text_far _PewterHouse2Text4
+	text_end

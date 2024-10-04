@@ -14,5 +14,6 @@ PewterSpeechHouse_Object:
 	object_event  4,  5, SPRITE_YOUNGSTER, STAY, NONE, 2 ; person
 	; new
 	object_event 19,  3, SPRITE_CHANNELER, STAY, LEFT, 3
+	object_event 17,  3, SPRITE_CLIPBOARD, STAY, NONE, 4
 
 	def_warps_to PEWTER_SPEECH_HOUSE
