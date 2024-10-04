@@ -70,6 +70,13 @@ _SchoolText4::
 	cont "current stats,"
 	cont "base stats, DVs,"
 	cont "and EVs!"
+
+	para "Oh, and about the"
+	line "EVs: it shows you"
+	cont "directly the stat"
+	cont "increase at"
+	cont "LV100, which"
+	cont "maxes out at 63."
 	done
 
 _SchoolText5::
