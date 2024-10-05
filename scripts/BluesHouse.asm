@@ -89,9 +89,11 @@ DaisyPostGiveMapText: ; new
 DaisyMegaStonesCluesText:
 	text_asm
 	CheckEvent EVENT_DEFEATED_MISSINGNO
+	jr z, .beforeMissingno
 	ld hl, BluesHouseClues_AfterMissingno
 	call PrintText
 	jp TextScriptEnd
+.beforeMissingno
 	CheckEvent EVENT_ALREADY_SPOKEN_WITH_DAISY_CLUES
 	ld hl, BluesHouseClues_IntroShort
 	jr nz, .continueIntro
