@@ -48,7 +48,7 @@ DontAbandonLearning:
 	call AddNTimes
 	ld de, wBuffer
 	ld a, BANK(Moves)
-	call FarCopyData
+	call FarCopyData ; copy bc bytes from a:hl to de
 	ld a, [wBuffer + 5] ; a = move's max PP
 	pop de
 	pop hl

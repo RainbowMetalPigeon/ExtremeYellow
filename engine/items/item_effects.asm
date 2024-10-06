@@ -2988,6 +2988,7 @@ ItemUseTMHM:
 	ld [wd11e], a
 	predef TMToMove ; get move ID from TM/HM ID
 	ld a, [wd11e]
+	ld [wUniQuizAnswer], a ; new, testing
 	ld [wMoveNum], a
 	call GetMoveName
 	ld a, ITEM_NAME			; new, if you decide not to use the machine, change the list type back to item list. FIXES THE TM CRASH BUG! Thanks Zangoose! + Pigeon edit, it was on another line, still had some edge cases of crash
