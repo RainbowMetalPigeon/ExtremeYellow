@@ -61,7 +61,7 @@ This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; 
 - Mega Evolution appears as permanent evolution in Extreme Yellow
 - the Legendary Birds are unlocked after completing three special subquests
 - an NPC that appears randomly in any city after besting the League, and is in search of the final member of their ultimate interdimensional team
-- the Author themeselves (yes, me!) makes an appearance as a fightable post-League boss
+- the Author themselves (yes, me!) makes an appearance as a fightable post-League boss
 - the so-long-sought super fusion Venustoise is finally catchable
 - Celadon Hotel has available rooms
 - a whole-new location, the Lunar Temple, will play a key role in the main plot
