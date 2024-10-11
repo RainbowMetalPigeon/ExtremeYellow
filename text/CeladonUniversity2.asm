@@ -658,7 +658,7 @@ _CeladonUniversity2SignBook50::
 _CeladonUniversity2SignLibraryPC::
     text "With this, one"
     line "can search and"
-    cont "and reserve any"
+    cont "reserve any"
     cont "book of the"
     cont "library!"
     done
