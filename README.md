@@ -3,9 +3,10 @@
 
 This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; complex dungeons; restored content; more elaborated, deeper, and darker lore and story; completely new areas and story arcs; virtually infinite post-game content; a plethora of customization and randomization options.
 
-*The project is close to completion, but still work-in-progress.* <br/>
+*The project is now completed and released! See the Releases tab of Github to download your patch!* <br/>
 *You can join Extreme Yellow Discord Server for more updates and discussions: https://discord.gg/QAX4c4xMJY*
 
+*Release Trailer: https://youtu.be/mpJMsHOmtlQ*
 *Announcement Trailer: https://youtu.be/HEo0pDJGWoI*
 
 ## Summary of changes (without spoilers)
@@ -61,12 +62,12 @@ This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; 
 - Mega Evolution appears as permanent evolution in Extreme Yellow
 - the Legendary Birds are unlocked after completing three special subquests
 - an NPC that appears randomly in any city after besting the League, and is in search of the final member of their ultimate interdimensional team
-- the Author themeselves (yes, me!) makes an appearance as a fightable post-League boss
+- the Author themselves (yes, me!) makes an appearance as a fightable post-League boss
 - the so-long-sought super fusion Venustoise is finally catchable
 - Celadon Hotel has available rooms
 - a whole-new location, the Lunar Temple, will play a key role in the main plot
 - Mt Moon has been expanded to be part again of the main plot with a new, much harder maze
-- Stater Pikachu obedience is based on happiness rather than level and number of badges, and at high happiness it will gain extra power
+- Starter Pikachu obedience is based on happiness rather than level and number of badges, and at high happiness it will gain extra power
 - a Light Ball is hidden in the region, doubling the damage of the Starter Pikachu
 - Pikachu can Surf and Fly, and it has custom animations and sprites
 - possibility to surrender in trainer battles
