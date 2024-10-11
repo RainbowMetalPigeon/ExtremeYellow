@@ -4,6 +4,7 @@
 _HandlePlayerBlackOut:
 	xor a                    ; new, to go beyond 200
 	ld [wIsTrainerBattle], a ; new, to go beyond 200
+	ld [wInverseBattle], a   ; new, to reset battle style to normal after losing
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .noLossText
