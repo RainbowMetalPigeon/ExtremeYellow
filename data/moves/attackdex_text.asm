@@ -904,7 +904,7 @@ _AttackdexText_AncestorPowerEffect::
 	next "of +3."
 
 	atpg "50% chance to"
-	next "FLICH the"
+	next "FLINCH the"
 	next "opponent."
 
 	atpg "Completely broken."

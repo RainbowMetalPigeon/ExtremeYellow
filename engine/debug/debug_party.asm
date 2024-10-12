@@ -35,7 +35,7 @@ IF DEF(_DEBUG)
 	ld a, ~(1 << BIT_EARTHBADGE)
 	ld a, %11111111
 ;	ld a, %00000100
-	ld a, %11111100
+;	ld a, %11111100
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
@@ -158,7 +158,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 2
+	ld a, 0
 	ld [wPlayerGender], a
 
 	; Give max money.

@@ -18,8 +18,8 @@ _TM39ExplanationText::
 	line "SHADOW SNEAK."
 
 	para "It allows the user"
-	cont "to move before"
-	line "its opponent."
+	line "to move before"
+	cont "its opponent."
 	done
 
 _TM39NoRoomText::
