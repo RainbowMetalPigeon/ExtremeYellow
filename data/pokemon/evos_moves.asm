@@ -2575,8 +2575,8 @@ RapidashEvosMoves:
 
 SlowpokeEvosMoves:
 ; Evolutions
-	db EV_LEVEL, 37, SLOWBRO
 	db EV_ITEM, KINGS_ROCK, 1, SLOWKING
+	db EV_LEVEL, 37, SLOWBRO
 	db 0
 ; Learnset
 	db 3, GROWL

@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEW, 59 ; 255
-	db VENUSTOISE, 53
+	db SLOWPOKE, 53
 	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
 ;	db PORYGONZ, 99
@@ -281,7 +281,7 @@ DebugItemsList:
 	db TM_MEGA_PUNCH, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
-	db POTION, 99 ; PP_UP, 42
+	db KINGS_ROCK, 99 ; PP_UP, 42
 	db MEGA_STONE_X, 99
 	db MEGA_STONE_Y, 99
 	db LAVA_STONE, 1
