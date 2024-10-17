@@ -16,6 +16,6 @@ FuchsiaMeetingRoom_Object:
 	object_event  9,  2, SPRITE_SAFARI_ZONE_WORKER, STAY, RIGHT, 4 ; person
 	object_event 11,  1, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, 5 ; person
 	object_event 12,  3, SPRITE_SAFARI_ZONE_WORKER, STAY, LEFT, 6 ; person
-	object_event 10,  4, SPRITE_SILPH_WORKER, STAY, UP, 7 ; Koga
+	object_event 10,  4, SPRITE_KOGA_GL, STAY, UP, 7 ; Koga
 
 	def_warps_to FUCHSIA_MEETING_ROOM
