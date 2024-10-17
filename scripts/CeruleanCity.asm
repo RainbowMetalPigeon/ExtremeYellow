@@ -20,8 +20,12 @@ CeruleanCity_Script:
 	ld a, HS_ROUTE_4_HIKER_2
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE ; moved from Pewter Gym
 	SetEvent EVENT_FREED_ROUTE_4
+	; moved from Pewter Gym
+	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
+	ld a, HS_ROUTE_22_RIVAL_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
 .continue
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
