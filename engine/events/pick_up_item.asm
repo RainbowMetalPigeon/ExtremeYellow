@@ -37,9 +37,9 @@ PickUpItem:
 ; item is not locked: can be randomized
 .loopRandom
 	call Random
-	cp 69 ; length of the RandomizableItems list
+	cp 65 ; length of the RandomizableItems list
 	jr nc, .loopRandom
-; now a contains a random number in [0,68]
+; now a contains a random number in [0,64]
 	ld hl, RandomizableItems
 .accessLoop
 	dec a
@@ -103,7 +103,7 @@ CheckIfItemIsLocked: ; returns c flag if item loaded in a is locked
 	pop hl
 	ret
 
-RandomizableItems: ; 69 items, so it's ok if indexes are between 0 and 68
+RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db MASTER_BALL
 	db ULTRA_BALL
 	db GREAT_BALL
@@ -141,9 +141,9 @@ RandomizableItems: ; 69 items, so it's ok if indexes are between 0 and 68
 	db SUPER_REPEL
 	db MAX_REPEL
 	db DIRE_HIT
-	db FRESH_WATER
-	db SODA_POP
-	db LEMONADE
+;	db FRESH_WATER 	; removed to avoid plot skippings
+;	db SODA_POP 	; removed to avoid plot skippings
+;	db LEMONADE 	; removed to avoid plot skippings
 	db X_ATTACK
 	db X_DEFEND
 	db X_SPEED
@@ -166,7 +166,7 @@ RandomizableItems: ; 69 items, so it's ok if indexes are between 0 and 68
 	db LEGEND_CANDY
 	db BIG_NUGGET
 	db PERFECTER
-	db LIGHT_BALL
+;	db LIGHT_BALL	; removed to preserve specialness
 	db CHROMOGENE
 	db GUTSCHEIN
 	db ONIGIRI_BOX
@@ -181,4 +181,5 @@ LockedItems:
 	db GOLD_TEETH
 	db SILPH_SCOPE
 	db LIFT_KEY
+	db LIGHT_BALL	; added to preserve specialness
 	db -1
