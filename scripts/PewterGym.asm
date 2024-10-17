@@ -68,12 +68,13 @@ PewterGymScriptReceiveTM34:
 	set BIT_BOULDERBADGE, [hl]
 
 ; edited, commented out, don't hide the gym guy anymore
+; edited, commented out, don't hide the rival either anymore, this caused a bug if one wanted to fight Rival R22 AFTER beating Brock
 ;	ld a, HS_GYM_GUY
 ;	ld [wMissableObjectIndex], a
 ;	predef HideObject
-	ld a, HS_ROUTE_22_RIVAL_1
-	ld [wMissableObjectIndex], a
-	predef HideObject
+;	ld a, HS_ROUTE_22_RIVAL_1
+;	ld [wMissableObjectIndex], a
+;	predef HideObject
 
 ;	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE ; edited, moved to Cerulean entry
 
