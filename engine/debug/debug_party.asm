@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEW, 59 ; 255
-	db SLOWPOKE, 53
+	db UMBREON, 53
 	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
 ;	db PORYGONZ, 99
@@ -259,7 +259,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
-	db TM_CURSE, 3
+	db TM_FEINT_ATTACK, 3
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1
