@@ -3,6 +3,10 @@ SecludedAtollSW_Script:
 	bit 5, [hl]
 	res 5, [hl]
 	call nz, SecludedAtollSWHideShowCaveEntrance
+	ld hl, wCurrentMapScriptFlags ; from Vortiene
+	bit 4, [hl]
+	res 4, [hl]
+	call nz, SecludedAtollSWHideShowCaveEntrance
 	call EnableAutoTextBoxDrawing
 	ret
 

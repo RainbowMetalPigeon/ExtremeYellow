@@ -261,7 +261,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
-	db TM_CURSE, 3
+	db TM_FEINT_ATTACK, 3
 	db MASTER_BALL, 99
 	db TOWN_MAP, 1
 	db BICYCLE, 1

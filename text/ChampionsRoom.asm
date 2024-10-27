@@ -383,7 +383,7 @@ _GaryText6_OakAmaze::
 	line "talk down on you?"
 
 	para "Not only you're my"
-	line "grankid, and I'll"
+	line "grandkid, and I'll"
 	cont "always love you"
 	cont "no matter what,"
 	cont "but you achieved"
