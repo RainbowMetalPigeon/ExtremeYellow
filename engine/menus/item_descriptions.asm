@@ -97,7 +97,7 @@ ItemDescriptionPointers:
 	text_end
 	text_far _SecretKeyDescription		; SECRET_KEY
 	text_end
-	text_far _UnusedItemDescription		; UNUSED_ITEM
+	text_far _CheatCandyDescription		; CHEAT_CANDY, new
 	text_end
 	text_far _BikeVoucherDescription	; BIKE_VOUCHER
 	text_end

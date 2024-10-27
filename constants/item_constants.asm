@@ -53,7 +53,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const DOME_FOSSIL   ; $29
 	const HELIX_FOSSIL  ; $2A
 	const SECRET_KEY    ; $2B
-	const UNUSED_ITEM   ; $2C "?????"
+	const CHEAT_CANDY   ; $2C ; new
 	const BIKE_VOUCHER  ; $2D
 	const X_ACCURACY    ; $2E
 	const LEAF_STONE    ; $2F
@@ -103,9 +103,9 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const DUBIOUS_DISK	; new
 	const FAST_BALL		; new, testing
 	const HEAVY_BALL	; new, testing
-	const LEGEND_CANDY  ; new, testing
+	const LEGEND_CANDY  ; new
 	const BIG_NUGGET	; new
-	const PERFECTER     ; new, testing
+	const PERFECTER     ; new
 	const LUNAR_RELIC   ; new
 	const ICE_ORB       ; new
 	const THUNDER_ORB   ; new

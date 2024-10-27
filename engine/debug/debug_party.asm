@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEW, 59 ; 255
-	db SLOWPOKE, 53
+	db CHARMELEON, 68
 	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
 ;	db PORYGONZ, 99
@@ -254,6 +254,8 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db RARE_CANDY, 42
+	db LEGEND_CANDY, 42
+	db CHEAT_CANDY, 1
 	db LINK_CABLE, 3
     db UPGRADE, 3
 	db MYSTERY_MAP, 1
@@ -271,22 +273,19 @@ DebugItemsList:
 	db LIFT_KEY, 1
 	db POKE_FLUTE, 1
 	db ESCAPE_ROPE, 99
-	db LEGEND_CANDY, 42
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
     ; 20
     db ICE_ORB, 1
     db THUNDER_ORB, 1
     db FIRE_ORB, 1
-	db TM_MEGA_PUNCH, 3
+	db TM_OUTRAGE, 3
+	db TM_WILL_O_WISP, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 	db KINGS_ROCK, 99 ; PP_UP, 42
 	db MEGA_STONE_X, 99
 	db MEGA_STONE_Y, 99
-	db LAVA_STONE, 1
-	db MAGMA_STONE, 1
-	db MOLTEN_STONE, 1
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
     db LIGHT_BALL, 1
@@ -295,7 +294,6 @@ DebugItemsList:
     db GREAT_BALL, 99
     db HM_CUT, 1
     db HM_FLASH, 1
-    ; 39
 	db -1 ; end
 
 DebugUnusedList:

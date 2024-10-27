@@ -43,7 +43,7 @@ ItemNames::
 	li "DOME FOSSIL"
 	li "HELIX FOSSIL"
 	li "SECRET KEY"
-	li "?????"
+	li "CHEAT CANDY" ; new
 	li "BIKE VOUCHER"
 	li "X ACCURACY"
 	li "LEAF STONE"

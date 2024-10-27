@@ -107,6 +107,8 @@ TalkToTrainer::
 	ld a, [wTrainerClass]
 	cp GIOVANNI
 	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	cp ORAGE ; prolly unnecessary, but just to be safe
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
 	cp LORELEI
 	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
 	cp BRUNO

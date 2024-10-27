@@ -89,7 +89,7 @@ _SilphCo6EndBattleText3::
 _SilphCo6AfterBattleText3::
 	text "TUNGUSKA BRANCH?"
 	line "It's in Russian"
-	cont "no man's land!"
+	cont "no one's land!" ; edited
 	done
 
 _SilphCo6BattleText4::

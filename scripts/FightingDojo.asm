@@ -97,13 +97,13 @@ FightingDojo_TextPointers:
 FightingDojoTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Bruno
 FightingDojoTrainerHeader0:
-	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_0, 4, FightingDojoBattleText1, FightingDojoEndBattleText1, FightingDojoAfterBattleText1
+	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_0, 2, FightingDojoBattleText1, FightingDojoEndBattleText1, FightingDojoAfterBattleText1
 FightingDojoTrainerHeader1:
-	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_1, 4, FightingDojoBattleText2, FightingDojoEndBattleText2, FightingDojoAfterBattleText2
+	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_1, 2, FightingDojoBattleText2, FightingDojoEndBattleText2, FightingDojoAfterBattleText2
 FightingDojoTrainerHeader2:
-	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_2, 3, FightingDojoBattleText3, FightingDojoEndBattleText3, FightingDojoAfterBattleText3
+	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_2, 2, FightingDojoBattleText3, FightingDojoEndBattleText3, FightingDojoAfterBattleText3
 FightingDojoTrainerHeader3:
-	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_3, 3, FightingDojoBattleText4, FightingDojoEndBattleText4, FightingDojoAfterBattleText4
+	trainer EVENT_BEAT_FIGHTING_DOJO_TRAINER_3, 2, FightingDojoBattleText4, FightingDojoEndBattleText4, FightingDojoAfterBattleText4
 	db -1 ; end
 
 FightingDojoText1:

@@ -36,7 +36,7 @@ CeruleanCity_Object:
 	object_event 33, 27, SPRITE_POKE_BALL, STAY, DOWN, 8 ; person, edited
 	object_event  9, 27, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 9 ; person
 	object_event  4, 12, SPRITE_SUPER_NERD, STAY, DOWN, 10 ; person
-	object_event 27, 12, SPRITE_OFFICER_JENNY, STAY, DOWN, 11 ; person
+	object_event 28, 12, SPRITE_OFFICER_JENNY, STAY, DOWN, 11 ; person ; edited to avoid softlocks, completely redundant now
 	object_event 23, 12, SPRITE_TRAVELER, STAY, ANY_DIR, 12 ; new, traveler
 
 	def_warps_to CERULEAN_CITY

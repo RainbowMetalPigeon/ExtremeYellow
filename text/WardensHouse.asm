@@ -270,7 +270,7 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_PostGivingMap::
 
 ; ---
 
-_FuchsiaHouse2AntiquitiesText2::
+_FuchsiaHouse2AntiquitiesText4::
 	text "NAUTILUS FOSSIL"
 
 	para "Price: ¥100000000"
@@ -283,7 +283,7 @@ _FuchsiaHouse2AntiquitiesText3::
 	para "Price: ¥300000000"
 	done
 
-_FuchsiaHouse2AntiquitiesText4::
+_FuchsiaHouse2AntiquitiesText2::
 	text "OPAL FROM"
 	line "DREAMTALE CAVE"
 

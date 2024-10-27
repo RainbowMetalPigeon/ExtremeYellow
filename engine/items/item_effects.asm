@@ -60,7 +60,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; DOME_FOSSIL
 	dw UnusableItem      ; HELIX_FOSSIL
 	dw UnusableItem      ; SECRET_KEY
-	dw UnusableItem
+	dw ItemUseVitamin    ; CHEAT_CANDY, new
 	dw UnusableItem      ; BIKE_VOUCHER
 	dw ItemUseXAccuracy  ; X_ACCURACY
 	dw ItemUseEvoStone   ; LEAF_STONE
@@ -1328,6 +1328,8 @@ ItemUseMedicine:
 	; new, custom ugly code cause i don't feel like reordering items
 	cp LEGEND_CANDY
 	jp z, .useVitamin
+	cp CHEAT_CANDY
+	jp z, .useVitamin
 	cp PERFECTER
 	jp z, .useVitamin
 	cp CHROMOGENE
@@ -1775,6 +1777,8 @@ ItemUseMedicine:
 	jp z, .useRareCandy
 	cp LEGEND_CANDY     ; new
 	jp z, .useRareCandy ; new
+	cp CHEAT_CANDY      ; new
+	jp z, .useRareCandy ; new
 	push hl
 
 ; PERFECTER code, beginning ----------------------------------------------------
@@ -1981,7 +1985,7 @@ ItemUseMedicine:
 	jr z, .vitaminNoEffect ; new
 
 	; new code for LEGEND_CANDY
-	ld a, [wcf91] ; a contains the item ID, and if we are here, should be only a RARE or a LEGEND candy
+	ld a, [wcf91] ; a contains the item ID, and if we are here, should be only a RARE or a LEGEND or a CHEAT candy
 	cp LEGEND_CANDY
 	jr z, .legendaryCandyCode
 	ld a, [hl] ; a = level
@@ -2079,6 +2083,13 @@ ItemUseMedicine:
 	ld [wcf91], a
 	pop af
 	ld [wWhichPokemon], a
+
+	ret
+; new code for CHEAT_CANDY
+	ld a, [wcf91] ; a contains the item ID
+	cp CHEAT_CANDY
+	ret z
+; back to vanilla
 	jp RemoveUsedItem
 
 VitaminStatRoseText:

@@ -172,7 +172,7 @@ _Route20MistyBeforeBattleText::
 	cont "to build up an"
 	cont "impenetrable"
 	cont "defense with my"
-	cont "water-type in an"
+	cont "WATER-type in an"
 	cont "INVERSE BATTLE!"
 	done
 

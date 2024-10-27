@@ -131,7 +131,7 @@ _Route22RivalAfterBattleText2::
 	cont "than you!"
 
 	para "And... I may just"
-	line "know want is"
+	line "know what it's"
 	cont "needed..."
 	done
 

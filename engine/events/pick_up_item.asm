@@ -182,4 +182,5 @@ LockedItems:
 	db SILPH_SCOPE
 	db LIFT_KEY
 	db LIGHT_BALL	; added to preserve specialness
+	db CHEAT_CANDY
 	db -1

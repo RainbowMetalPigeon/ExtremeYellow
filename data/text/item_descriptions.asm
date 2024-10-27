@@ -389,7 +389,7 @@ _HeavyBallDescription::
 
 _LegendCandyDescription::
 	text "Raises level of a"
-	next "#MON to the max."
+	next "#MON to max."
 	prompt
 
 _BigNuggetDescription::
@@ -467,6 +467,11 @@ _OnigiriBoxDescription::
 _LinkCableDescription::
 	text "Evolves #MON"
 	next "as if traded."
+	prompt
+
+_CheatCandyDescription::
+	text "Raises LVL by one."
+	next "Not consumed."
 	prompt
 
 ; HMs --------------------------------------------------------------------------

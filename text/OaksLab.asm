@@ -75,7 +75,7 @@ _OaksLabText_1d2fa::
 _OaksLabDeliverParcelText1::
 	text "OAK: Oh, <PLAYER>!"
 
-	para "How is you"
+	para "How is your"
 	line "PIKACHU doing?"
 
 	para "What? You have"

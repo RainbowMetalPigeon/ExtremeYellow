@@ -3599,7 +3599,7 @@ MirrorMoveCheck:
 	ld a, [hli]
 	ld b, [hl]
 	or b
-	ret z ; don't do anything else if the enemy fainted
+	ret z ; don't do anything else if the enemy fainted ; TBE
 ;	call HandleBuildingRage ; modified to get rid of RAGE
 
 	ld hl, wPlayerBattleStatus1

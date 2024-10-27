@@ -1019,11 +1019,11 @@ AIMoveChoiceModification4:
 	ld b, NUM_MOVES + 1
 .nextMove
 	dec b
-	jp z, .setSwitchingAndEnd ; processed all 4 moves, if here, AI switches
+	jp z, .rollForEncouragementBasedSwitch ; processed all 4 moves, if here, AI may switches
 	inc hl
 	ld a, [de]
 	and a
-	jp z, .setSwitchingAndEnd ; no more moves in move set, if here, AI switches
+	jp z, .rollForEncouragementBasedSwitch ; no more moves in move set, if here, AI may switches
 ; let's check how dis/en-couraged the move is
 	inc de ; for next loop
 	ld a, [hl]
@@ -1032,6 +1032,10 @@ AIMoveChoiceModification4:
 	jr .nextMove
 .checkNext ; -------------------------------------------------------------------
 	ret
+.rollForEncouragementBasedSwitch ; fix for V1.3: 20% to switch if all moves are discouraged; ugly but will do for now
+	call Random
+	cp 20 percent
+	ret nc
 .setSwitchingAndEnd ; ==========================================================
 	SetEvent EVENT_AI_SWITCH_MON
 	ret

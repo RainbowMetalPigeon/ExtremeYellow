@@ -14,7 +14,7 @@ _ErikaPreBattleText::
 	para "I teach the art of"
 	line "flower arranging."
 	cont "My #MON are of"
-	cont "the grass-type."
+	cont "the GRASS-type."
 
 	para "Oh, I'm sorry, I"
 	line "had no idea that"
@@ -303,7 +303,7 @@ _ErikaRematchPreBattleText::
 	line "challenging the"
 	cont "ultimate"
 	cont "composition of my"
-	cont "grass-types."
+	cont "GRASS-types."
 	cont "Marvelous: shall"
 	cont "we start?"
 	done

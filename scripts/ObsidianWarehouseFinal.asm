@@ -52,6 +52,7 @@ EndTrainerBattle_Custom:
 	call HideExtraNPCsAfterObsidianGiovanni
 ;	call ShowNPCsAfterObsidianGiovanni ; unnecessary right now, so not written
 	call ShowExtraNPCsAfterObsidianGiovanni
+	SetEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM ; just in case we cleared Obsidian before speaking with Koga
 
 	call UpdateSprites
 	call Delay3
@@ -347,6 +348,7 @@ NPCsToHideExtra:
 	db HS_FUCHSIA_MEETING_ROOM_BEFORE_1
 	db HS_FUCHSIA_MEETING_ROOM_BEFORE_2
 	db HS_FUCHSIA_MEETING_ROOM_BEFORE_3
+	db HS_FUCHSIA_MEETING_ROOM_BEFORE_KOGA ; just in case we cleared Obsidian before speaking with Koga
 	db $ff
 
 ShowExtraNPCsAfterObsidianGiovanni:
@@ -374,6 +376,7 @@ NPCsToShowExtra:
 	db HS_FUCHSIA_MEETING_ROOM_AFTER_1
 	db HS_FUCHSIA_MEETING_ROOM_AFTER_2
 	db HS_FUCHSIA_MEETING_ROOM_AFTER_3
+	db HS_FUCHSIA_GYM_KOGA ; just in case we cleared Obsidian before speaking with Koga
 	db HS_ROUTE_28_CITIZEN_1
 	db HS_ROUTE_28_CITIZEN_2
 	db HS_ROUTE_28_CITIZEN_3

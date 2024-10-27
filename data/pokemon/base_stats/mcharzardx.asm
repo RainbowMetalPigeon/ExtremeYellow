@@ -18,7 +18,8 @@
 	     DOUBLE_EDGE,  HYPER_BEAM,   COUNTER,      SEISMIC_TOSS, EARTHQUAKE,   \
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   CUT,          FLY,          STRENGTH,     CURSE         
+	     SUBSTITUTE,   CUT,          FLY,          STRENGTH,     CURSE,        \
+		 WILL_O_WISP,  OUTRAGE
 	; end
 
 	db BANK(MCharzardXPicFront)
