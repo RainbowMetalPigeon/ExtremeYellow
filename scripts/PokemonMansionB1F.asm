@@ -178,7 +178,7 @@ Mansion4Script5: ; new
 	ret nz
 	ld a, HS_POKEMON_MANSION_B1F_RIVAL
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra
 	xor a
 	ld [wJoyIgnore], a
 	call PlayDefaultMusic
