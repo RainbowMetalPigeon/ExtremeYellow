@@ -259,6 +259,8 @@ PersonalizationControl:
 	ld [wUniQuizAnswer], a
 	cp 3 ; number of options
 	ret nc
+	cp 1 ; second option is special as it doesn't just print one dialogue
+	jr z, .alteredTypes
 	add a ; doubles a
 	ld e, a
 	ld d, 0
@@ -268,8 +270,21 @@ PersonalizationControl:
 	ld h, [hl]
 	ld l, a
 	call PrintText
+.conclude
 	call InitPersonalizationMenu_Redo
 	ret
+.alteredTypes ; hard-coded exception
+	ld hl, PersonalizationInfoTextTypes
+	call PrintText
+	ld hl, PersonalizationInfoTextTypes_WannaKnowThemAll
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem] ; YES=0, NO=1
+	and a ; equivalent to cp 0
+	jr nz, .conclude
+	ld hl, PersonalizationInfoTextTypes_Details
+	call PrintText
+	jr .conclude
 
 PersonalizationMenu_UpdateCursorPosition:
 	hlcoord 1, 4
@@ -375,12 +390,12 @@ JapaneseText:
 
 PersonalizationTypesStringsPointerTable:
 	dw ClassicText
-	dw NewText
+	dw AlteredText
 
 ClassicText:
 	db "CLASSIC@"
-NewText:
-	db "NEW    @"
+AlteredText:
+	db "ALTERED@"
 
 ; new, for info
 
@@ -399,4 +414,12 @@ PersonalizationInfoTextTypes:
 
 PersonalizationInfoTextSound:
 	text_far _PersonalizationInfoTextSound
+	text_end
+
+PersonalizationInfoTextTypes_WannaKnowThemAll:
+	text_far _PersonalizationInfoTextTypes_WannaKnowThemAll
+	text_end
+
+PersonalizationInfoTextTypes_Details:
+	text_far _PersonalizationInfoTextTypes_Details
 	text_end

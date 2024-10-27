@@ -33,6 +33,7 @@ TilePairCollisionsLand::
 	db OVERWORLD, $30, $11 ; new
 ;	db OVERWORLD, $58, $11 ; new, should be unnecessary in all cases? it's between a cavern entrance and the rock plateau, but you should just warp
 	db OVERWORLD, $20, $11 ; new
+	db OVERWORLD, $21, $11 ; new
 	db OVERWORLD, $5B, $11 ; new
 	db OVERWORLD, $62, $2C ; new, between new rock plateau and route grassy ground ; $39
 	db OVERWORLD, $6C, $58 ; cannot go from 4th copy of rock tile, which is always walkable, into the bottomleft corner of the cavern entrance

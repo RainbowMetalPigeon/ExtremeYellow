@@ -2083,8 +2083,6 @@ ItemUseMedicine:
 	ld [wcf91], a
 	pop af
 	ld [wWhichPokemon], a
-
-	ret
 ; new code for CHEAT_CANDY
 	ld a, [wcf91] ; a contains the item ID
 	cp CHEAT_CANDY

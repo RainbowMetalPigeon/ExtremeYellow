@@ -48,4 +48,5 @@ UsableItems_PartyMenu:
 	db PERFECTER    ; new
 	db CHROMOGENE   ; new
 	db LINK_CABLE   ; new
+	db CHEAT_CANDY  ; new
 	db -1 ; end
