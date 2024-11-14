@@ -292,7 +292,7 @@ BillsHouseText2:
 	farcall Func_f244a
 	jp TextScriptEnd
 
-BillsHouseText3: ; completely ridicolous way of printing a text lol; also, edited for Secret Garden
+BillsHouseText3: ; completely ridiculous way of printing a text lol; also, edited for Secret Garden
 	text_asm
 ; new
 	CheckEvent EVENT_DEFEATED_MISSINGNO

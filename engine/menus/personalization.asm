@@ -34,8 +34,8 @@ GetPersonalizationPointer:
 PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_Names
 	dw PersonalizationMenu_Types
-	dw PersonalizationMenu_SpeakerSettings ; from the option menu
-	dw PersonalizationMenu_Dummy
+	dw PersonalizationMenu_PhySpeSplit
+	dw PersonalizationMenu_SpeakerSettings ; from the vanilla option menu
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Cancel
@@ -168,7 +168,7 @@ PersonalizationMenu_SpeakerSettings:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 8, 8
+	hlcoord 8, 10
 	call PlaceString
 	and a
 	ret
@@ -187,6 +187,50 @@ Earphone2SoundText:
 	db "EARPHONE2@"
 Earphone3SoundText:
 	db "EARPHONE3@"
+
+; ---------------------------------------------
+
+PersonalizationMenu_PhySpeSplit:
+	ld a, [wPersonalizationPhySpeSplit]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $2
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationPhySpeSplit], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationPhySpeSplitStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 16, 8
+	call PlaceString
+	and a
+	ret
 
 ; ---------------------------------------------
 
@@ -231,7 +275,7 @@ PersonalizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 2 ; number of options - 1
+	cp 3 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -242,7 +286,7 @@ PersonalizationControl:
 	ld a, [hl]
 	cp 6 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 2 ; number of options - 1
+	ld [hl], 3 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -257,7 +301,7 @@ PersonalizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wUniQuizAnswer], a
-	cp 3 ; number of options
+	cp 4 ; number of options
 	ret nc
 	cp 1 ; second option is special as it doesn't just print one dialogue
 	jr z, .alteredTypes
@@ -318,7 +362,7 @@ InitPersonalizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 4 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -350,7 +394,7 @@ InitPersonalizationMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 4 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -368,6 +412,7 @@ InitPersonalizationMenu_Redo:
 AllPersonalizationText:
 	db   "NAMES:"
 	next "TYPES:"
+	next "PHY/SPE SPLIT:"
 	next "SOUND:@"
 
 PersonalizationTitleText:
@@ -397,11 +442,21 @@ ClassicText:
 AlteredText:
 	db "ALTERED@"
 
+PersonalizationPhySpeSplitStringsPointerTable:
+	dw NoText
+	dw YesText
+
+;NoText:
+;	db "NO @"
+;YesText:
+;	db "YES@"
+
 ; new, for info
 
 PersonalizationInfoTexts:
 	dw PersonalizationInfoTextNames
 	dw PersonalizationInfoTextTypes
+	dw PersonalizationInfoTextPhySpeSplit
 	dw PersonalizationInfoTextSound
 
 PersonalizationInfoTextNames:
@@ -410,6 +465,10 @@ PersonalizationInfoTextNames:
 
 PersonalizationInfoTextTypes:
 	text_far _PersonalizationInfoTextTypes
+	text_end
+
+PersonalizationInfoTextPhySpeSplit:
+	text_far _PersonalizationInfoTextPhySpeSplit
 	text_end
 
 PersonalizationInfoTextSound:

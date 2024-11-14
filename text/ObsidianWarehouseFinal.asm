@@ -175,7 +175,7 @@ _ObsidianWarehouseFinalBattleText4::
 _ObsidianWarehouseFinalEndBattleText4::
 	text "WHAT?"
 	line "This is"
-	cont "ridicolous!!!"
+	cont "ridiculous!!!"
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText4::

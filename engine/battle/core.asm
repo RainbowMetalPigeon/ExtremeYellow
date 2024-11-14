@@ -4643,9 +4643,40 @@ GetDamageVarsForPlayerAttack:
 	pop hl
 ; back to vanilla
 
+; new and edited, for physical/special split
+	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
+	and a
+	jr nz, .PhysicalSpecialSplit
+; no physical/special split applied
 	ld a, [hl] ; a = [wPlayerMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack
+	jr nc, .specialAttack ; commented for physical/special split
+	jr .physicalAttack
+.PhysicalSpecialSplit
+	ld a, [hl] ; a = [wPlayerMoveType]
+	cp SPECIAL ; types >= SPECIAL are normally special
+	ld a, [wPlayerMoveNum]
+    ld b, a
+    jr nc, .isSpecialActuallyPhysical
+    jr .isPhysicalActuallySpecial
+.isSpecialActuallyPhysical
+    ld hl, SpecialToPhysicalMoves
+.specialPhysicalLoop
+    ld a, [hli]
+    cp b
+    jr z, .physicalAttack
+    cp $ff ; end of list
+    jr nz, .specialPhysicalLoop ; keep checking list
+    jr .specialAttack ; Not actually a physical move
+.isPhysicalActuallySpecial
+    ld hl, PhysicalToSpecialMoves
+.physicalSpecialLoop
+    ld a, [hli]
+    cp b
+    jr z, .specialAttack ; the physical move is actually special
+    cp $ff ; end of list
+    jr nz, .physicalSpecialLoop ; keep checking list
+; back to vanilla
 .physicalAttack
 	ld hl, wEnemyMonDefense
 	ld a, [hli]
@@ -4799,9 +4830,40 @@ GetDamageVarsForEnemyAttack:
 	pop hl
 ; back to vanilla
 
-	ld a, [hl] ; a = [wEnemyMoveType]
+; new and edited, for physical/special split
+	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
+	and a
+	jr nz, .PhysicalSpecialSplit
+; no physical/special split applied
+	ld a, [hl] ; a = [wPlayerMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack
+	jr nc, .specialAttack ; commented for physical/special split
+	jr .physicalAttack
+.PhysicalSpecialSplit
+	ld a, [hl] ; a = [wPlayerMoveType]
+	cp SPECIAL ; types >= SPECIAL are normally special
+	ld a, [wEnemyMoveNum]
+    ld b, a
+    jr nc, .isSpecialActuallyPhysical
+    jr .isPhysicalActuallySpecial
+.isSpecialActuallyPhysical
+    ld hl, SpecialToPhysicalMoves
+.specialPhysicalLoop
+    ld a, [hli]
+    cp b
+    jr z, .physicalAttack
+    cp $ff ; end of list
+    jr nz, .specialPhysicalLoop ; keep checking list
+    jr .specialAttack ; Not actually a physical move
+.isPhysicalActuallySpecial
+    ld hl, PhysicalToSpecialMoves
+.physicalSpecialLoop
+    ld a, [hli]
+    cp b
+    jr z, .specialAttack ; the physical move is actually special
+    cp $ff ; end of list
+    jr nz, .physicalSpecialLoop ; keep checking list
+; back to vanilla
 .physicalAttack
 	ld hl, wBattleMonDefense
 	ld a, [hli]
@@ -4928,6 +4990,8 @@ GetDamageVarsForEnemyAttack:
 	and a
 	and a
 	ret
+
+INCLUDE "data/battle/physical_special_split.asm" ; new, for physical/special split
 
 ; get stat c of enemy mon
 ; c: stat to get (HP=1,Attack=2,Defense=3,Speed=4,Special=5)

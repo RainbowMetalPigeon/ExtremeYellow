@@ -12,9 +12,9 @@ _CeruleanCityText_19668::
 	cont "out of my way!"
 
 	para "You'll never be"
-	line "able complete the"
-	cont "#DEX or beat"
-	cont "the #MON"
+	line "able to complete"
+	cont "the #DEX or"
+	cont "beat the #MON"
 	cont "LEAGUE!"
 	done
 

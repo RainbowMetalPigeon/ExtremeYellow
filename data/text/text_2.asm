@@ -538,7 +538,7 @@ _TurnPageText::
 	done
 
 _ViridianSchoolNotebookText6::
-	text "GIRL: Hey! Don't"
+	text "KID: Hey! Don't"
 	line "look at my notes!@"
 	text_end
 

@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, DRAGONBREATH
+	ld a, HURRICANE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, JUDGMENT

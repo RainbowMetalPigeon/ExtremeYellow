@@ -269,7 +269,7 @@ _Route29TextSlowking_SummoningHappened::
 
     para "You fulfilled the"
     line "prophecy, and"
-    cont "awaekened the"
+    cont "awakened the"
     cont "Legendary Birds."
 
     para "Go now, Chosen"

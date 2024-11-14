@@ -218,7 +218,7 @@ Moves:
 	move AERIAL_ACE,   SWIFT_EFFECT,	            60,	FLYING,	      100, 20 ; done
 	move AIR_SLASH,	   FLINCH_SIDE_EFFECT3,	        75,	FLYING,	       95, 15 ; done
 	move BRAVE_BIRD,   RECOIL_EFFECT,	           120,	FLYING,	      100, 15 ; [TM41] done
-	move HURRICANE,	   CONFUSION_SIDE_EFFECT3,	   110,	FLYING,	       70, 10 ; done (thanks to Vortiene)
+	move HURRICANE,	   CONFUSION_SIDE_EFFECT3,	   120,	FLYING,	       70, 10 ; done (thanks to Vortiene)
 
 	move SHADOW_BALL,  SPECIAL_DOWN_SIDE_EFFECT2,   80,	GHOST,	      100, 15 ; [TM49], done, to be further tested
 	move SHADOW_PUNCH, SWIFT_EFFECT,	            60,	GHOST,	      100, 20 ; done

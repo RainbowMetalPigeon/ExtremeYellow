@@ -434,15 +434,15 @@ PrintStatsBox_DVs: ; new
 	ld a, [de]
 	swap a
 	and $f
-	ld [wUniQuizAnswer], a
-	ld de, wUniQuizAnswer
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
 	call PrintStat
 ; DEF DV
 	ld de, wLoadedMonDVs
 	ld a, [de]
 	and $f
-	ld [wUniQuizAnswer], a
-	ld de, wUniQuizAnswer
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
 	call PrintStat
 ; SPEED DV
 	ld de, wLoadedMonDVs
@@ -450,16 +450,16 @@ PrintStatsBox_DVs: ; new
 	ld a, [de]
 	swap a
 	and $f
-	ld [wUniQuizAnswer], a
-	ld de, wUniQuizAnswer
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
 	call PrintStat
 ; SPECIAL DV
 	ld de, wLoadedMonDVs
 	inc de
 	ld a, [de]
 	and $f
-	ld [wUniQuizAnswer], a
-	ld de, wUniQuizAnswer
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
 	call PrintNumber
 ; clear CurHP/MaxHP
 	call ClearCurHpMaxHP
@@ -488,8 +488,8 @@ PrintStatsBox_DVs: ; new
 	ld a, [de] ; Spc IV
 	and $1
 	add b      ; HP IV: LSB of the other 4 IVs
-	ld [wUniQuizAnswer], a
-	ld de, wUniQuizAnswer
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
 	hlcoord 13, 4
 	lb bc, 1, 2
 	jp PrintNumber
@@ -604,7 +604,7 @@ ClearStatsValues: ; new
 	ret
 
 ; input: wLoadedMonSTATExp in hl
-; output: human-readable value of stat exp loaded in de via wUniQuizAnswer
+; output: human-readable value of stat exp loaded in de via wMultiUseBuffer
 CalculateHumanReadableStatExp: ; new
 ; calculates ceil(Sqrt(stat exp)) in b
 	ld b, 0
@@ -648,8 +648,8 @@ CalculateHumanReadableStatExp: ; new
 	ld a, b
 	srl a
 	srl a ; divide by 4 with the operation above
-	ld [wUniQuizAnswer], a
-	ld de, wUniQuizAnswer
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
 	ret
 
 StatusScreen2:

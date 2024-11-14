@@ -78,6 +78,13 @@ _PersonalizationInfoTextTypes::
 	cont "altered."
 	prompt
 
+_PersonalizationInfoTextPhySpeSplit::
+	text "If selected, the"
+	line "physical/special"
+	cont "split of gen4+"
+	cont "is applied."
+	prompt
+
 _PersonalizationInfoTextSound::
 	text "EARPHONE1 is"
 	line "stereo, 2 focuses"
@@ -291,247 +298,247 @@ _PersonalizationInfoTextTypes_WannaKnowThemAll::
 _PersonalizationInfoTextTypes_Details::
 	text "VENUSAUR:"
 	line "GRASS/GROUND"
-	
+
 	para "CHARIZARD:"
 	line "FIRE/DRAGON"
-	
+
 	para "BLASTOISE:"
 	line "WATER/STEEL"
-	
+
 	para "BUTTERFREE:"
 	line "BUG/PSYCHIC"
-	
+
 	para "PIDGEY:"
 	line "FLYING/FLYING"
-	
+
 	para "PIDGEOTTO:"
 	line "FLYING/FLYING"
-	
+
 	para "PIDGEOT:"
 	line "FLYING/FLYING"
-	
+
 	para "RATTATA:"
 	line "NORMAL/GROUND"
-	
+
 	para "RATICATE:"
 	line "NORMAL/GROUND"
-	
+
 	para "SPEAROW:"
 	line "FLYING/FIGHTING"
-	
+
 	para "FEAROW:"
 	line "FLYING/FIGHTING"
-	
+
 	para "ARBOK:"
 	line "POISON/DARK"
-	
+
 	para "NIDOQUEEN:"
 	line "POISON/FAIRY"
-	
+
 	para "NIDOKING:"
 	line "POISON/FIGHTING"
-	
+
 	para "VULPIX:"
 	line "FIRE/GHOST"
-	
+
 	para "NINETALES:"
 	line "FIRE/GHOST"
-	
+
 	para "BELLOSSOM:"
 	line "GRASS/FIRE"
-	
+
 	para "PARAS:"
 	line "BUG/GHOST"
-	
+
 	para "PARASECT:"
 	line "BUG/GHOST"
-	
+
 	para "VENOMOTH:"
 	line "POISON/PSYCHIC"
-	
+
 	para "PSYDUCK:"
 	line "WATER/PSYCHIC"
-	
+
 	para "GOLDUCK:"
 	line "WATER/PSYCHIC"
-	
+
 	para "PRIMEAPE:"
 	line "FIGHTING/DARK"
-	
+
 	para "ARCANINE:"
 	line "FIRE/DRAGON"
-	
+
 	para "GEODUDE:"
 	line "ROCK/ROCK"
-	
+
 	para "GRAVELER:"
 	line "ROCK/ROCK"
-	
+
 	para "GOLEM:"
 	line "ROCK/ROCK"
-	
+
 	para "PONYTA:"
 	line "FIRE/GROUND"
-	
+
 	para "RAPIDASH:"
 	line "FIRE/GROUND"
-	
+
 	para "DODUO:"
 	line "FLYING/GROUND"
-	
+
 	para "DODRIO:"
 	line "FLYING/GROUND"
-	
+
 	para "DEWGONG:"
 	line "ICE/FAIRY"
-	
+
 	para "GRIMER:"
 	line "POISON/GROUND"
-	
+
 	para "MUK:"
 	line "POISON/GROUND"
-	
+
 	para "SHELLDER:"
 	line "WATER/ROCK"
-	
+
 	para "CLOYSTER:"
 	line "ICE/ROCK"
-	
+
 	para "GASTLY:"
 	line "GHOST/DARK"
-	
+
 	para "HAUNTER:"
 	line "GHOST/DARK"
-	
+
 	para "GENGAR:"
 	line "GHOST/DARK"
-	
+
 	para "DROWZEE:"
 	line "PSYCHIC/DARK"
-	
+
 	para "HYPNO:"
 	line "PSYCHIC/DARK"
-	
+
 	para "KRABBY:"
 	line "WATER/BUG"
-	
+
 	para "KINGLER:"
 	line "WATER/BUG"
-	
+
 	para "VOLTORB:"
 	line "ELECTRIC/FIRE"
-	
+
 	para "ELECTRODE:"
 	line "ELECTRIC/FIRE"
-	
+
 	para "CUBONE:"
 	line "GROUND/GHOST"
-	
+
 	para "MAROWAK:"
 	line "GROUND/GHOST"
-	
+
 	para "HITMONLEE:"
 	line "FIGHTING/GROUND"
-	
+
 	para "HITMONCHAN:"
 	line "FIGHTING/NORMAL"
-	
+
 	para "HITMONTOP:"
 	line "FIGHTING/FLYING"
-	
+
 	para "KOFFING:"
 	line "POISON/FIRE"
-	
+
 	para "WEEZING:"
 	line "POISON/FIRE"
-	
+
 	para "RHYDON:"
 	line "ROCK/FIGHTING"
-	
+
 	para "RHYPERIOR:"
 	line "ROCK/FIGHTING"
-	
+
 	para "HAPPINY:"
 	line "FAIRY/FAIRY"
-	
+
 	para "CHANSEY:"
 	line "FAIRY/FAIRY"
-	
+
 	para "BLISSEY:"
 	line "FAIRY/FAIRY"
-	
+
 	para "TANGELA:"
 	line "GRASS/DARK"
-	
+
 	para "TANGROWTH:"
 	line "GRASS/DARK"
-	
+
 	para "SEADRA:"
 	line "WATER/POISON"
-	
+
 	para "KINGDRA:"
 	line "DRAGON/POISON"
-	
+
 	para "GOLDEEN:"
 	line "WATER/NORMAL"
-	
+
 	para "SEAKING:"
 	line "WATER/NORMAL"
-	
+
 	para "STARYU:"
 	line "WATER/FAIRY"
-	
+
 	para "STARMIE:"
 	line "WATER/FAIRY"
-	
+
 	para "ELEKID:"
 	line "ELECTRIC/FIGHTING"
-	
+
 	para "ELECTABUZZ:"
 	line "ELECTRIC/FIGHTING"
-	
+
 	para "ELECTIVIRE:"
 	line "ELECTRIC/FIGHTING"
-	
+
 	para "MAGBY:"
 	line "FIRE/DARK"
-	
+
 	para "MAGMAR:"
 	line "FIRE/DARK"
-	
+
 	para "MAGMORTAR:"
 	line "FIRE/DARK"
-	
+
 	para "TAUROS:"
 	line "NORMAL/GROUND"
-	
+
 	para "GYARADOS:"
 	line "WATER/DRAGON"
-	
+
 	para "PORYGON:"
 	line "ELECTRIC/GHOST"
-	
+
 	para "PORYGON2:"
 	line "ELECTRIC/GHOST"
-	
+
 	para "PORYGON-Z:"
 	line "ELECTRIC/GHOST"
-	
+
 	para "KABUTO:"
 	line "ROCK/BUG"
-	
+
 	para "KABUTOPS:"
 	line "ROCK/BUG"
-	
+
 	para "AERODACTYL:"
 	line "ROCK/DRAGON"
-	
+
 	para "DRATINI:"
 	line "DRAGON/FAIRY"
-	
+
 	para "DRAGONAIR:"
 	line "DRAGON/FAIRY"
-	
+
 	para "DRAGONITE:"
 	line "DRAGON/FAIRY"
 	prompt

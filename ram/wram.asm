@@ -2446,7 +2446,7 @@ wObtainedHiddenCoinsFlags:: flag_array 16
 ; $02 = surfing
 wWalkBikeSurfState:: db
 
-	ds 2 ; UNUSED bytes in "Main Data", edited, was 10
+	ds 1 ; UNUSED bytes in "Main Data", edited, was 10
 
 wDumbByteToToggleStatusScreen:: db ; new
 wIsEvolvingMidBattle:: db ; new
@@ -2456,6 +2456,7 @@ wRandomizationItems:: db ; new
 wRandomizationTypeChart:: db ; new
 wPersonalizationNames:: db ; new
 wPersonalizationTypes:: db ; new
+wPersonalizationPhySpeSplit:: db ; new
 wLuckAccuracy:: db ; new
 wLuckRoll:: db ; new
 wLuckCrit:: db ; new
@@ -2686,7 +2687,8 @@ ENDU
 
 wTrainerHeaderPtr:: dw
 
-	ds 4 ; UNUSED bytes in "Main Data"; edited, was 6
+	ds 3 ; UNUSED bytes in "Main Data"; edited, was 6
+wMultiUseBuffer:: db ; new, for various buffer purposes
 
 ; the trainer the player must face after getting a wrong answer in the Cinnabar
 ; gym quiz

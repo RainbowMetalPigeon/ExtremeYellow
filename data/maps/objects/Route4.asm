@@ -43,9 +43,9 @@ Route4_Object:
 	warp_event 77,  5, MT_MOON_B2F, 12 ; 36 (9)
 
 	def_bg_events
-	bg_event 12, 25, 10 ; PokeCenterSignText
-	bg_event 17, 27, 11 ; Route4Text5
-	bg_event 27, 27, 12 ; Route4Text6
+	bg_event 12, 25, 11 ; PokeCenterSignText
+	bg_event 17, 27, 12 ; Route4Text5
+	bg_event 27, 27, 13 ; Route4Text6
 
 	def_object_events
 	object_event  9, 28, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 1 ; person
@@ -53,10 +53,10 @@ Route4_Object:
 	object_event 23, 31, SPRITE_HIKER, STAY, LEFT, 3 ; new
 	object_event 63, 23, SPRITE_COOLTRAINER_F, STAY, RIGHT, 4, OPP_COOLTRAINER, 72 ; edited
 	object_event 57, 23, SPRITE_POKE_BALL, STAY, NONE, 5, TM_COUNTER
-	object_event 41,  4, SPRITE_POKE_BALL, STAY, NONE, 5, TM_CURSE ; new
-	object_event 21, 30, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 6 ; new
-	object_event 21, 31, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 7 ; new
-	object_event 22, 30, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 8 ; new
-	object_event 22, 31, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 9 ; new
+	object_event 41,  4, SPRITE_POKE_BALL, STAY, NONE, 6, TM_CURSE ; new
+	object_event 21, 30, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 7 ; new
+	object_event 21, 31, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 8 ; new
+	object_event 22, 30, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 9 ; new
+	object_event 22, 31, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 10 ; new
 
 	def_warps_to ROUTE_4
