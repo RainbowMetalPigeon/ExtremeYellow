@@ -10,9 +10,9 @@ MoveRelearnerText1:
 	xor a
 	;charge 100 money
 	ld [hMoney], a
-	ld [hMoney + 2], a	
+	ld [hMoney + 2], a
 	ld a, $1
-	ld [hMoney + 1], a  
+	ld [hMoney + 1], a
 	call HasEnoughMoney
 	jr nc, .enoughMoney
 	; not enough money
@@ -71,7 +71,8 @@ MoveRelearnerText1:
 	; Save the selected move id.
 	ld a, [wcf91]
 	ld [wMoveNum], a
-	ld [wd11e],a
+	ld [wd11e], a
+	ld [wUniQuizAnswer], a ; testing
 	call GetMoveName
 	call CopyToStringBuffer ; copy name to wcf4b
 	pop bc
@@ -90,9 +91,9 @@ MoveRelearnerText1:
 	; Charge 100 money
 	xor a
 	ld [wPriceTemp], a
-	ld [wPriceTemp + 2], a	
+	ld [wPriceTemp + 2], a
 	ld a, $1
-	ld [wPriceTemp + 1], a	
+	ld [wPriceTemp + 1], a
 	ld hl, wPriceTemp + 2
 	ld de, wPlayerMoney + 2
 	ld c, $3

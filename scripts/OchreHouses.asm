@@ -22,27 +22,50 @@ OchreHouses_TextPointers:
 
 OchreHousesTextReactivater:
 	text_asm
-	ld hl, OchreHousesTextReactivater_EnjoyRebattles
 	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS
-	jr nz, .done
-    ld hl, OchreHousesTextReactivater_Intro
+	jr nz, .rematchesActive
+    ld hl, OchreHousesTextReactivater_IntroShort
+	CheckEvent EVENT_ALREADY_TALKED_WITH_TRAINER_REACTIVATER
+	jr nz, .alreadySpokenOnce
+	ld hl, OchreHousesTextReactivater_Intro
+.alreadySpokenOnce
     call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem] ; YES=0, NO=1
 	and a ; equivalent to cp 0
 	ld hl, OchreHousesTextReactivater_Refused
-	jr nz, .done
+	jr nz, .printAndEnd
 	ld hl, OchreHousesTextReactivater_Accepted
 	call PrintText
 	SetEvent EVENT_REACTIVATE_ALL_TRAINERS
 	call GBFadeOutToBlack
-	ld a, SFX_LEVEL_UP ; TBC
+	ld a, SFX_LEVEL_UP
 	call PlaySound
 	ld c, 75
 	call DelayFrames
 	call GBFadeInFromBlack
+	SetEvent EVENT_ALREADY_TALKED_WITH_TRAINER_REACTIVATER
 	ld hl, OchreHousesTextReactivater_Done
-.done
+	jr .printAndEnd
+.rematchesActive
+	ld hl, OchreHousesTextReactivater_EnjoyRebattles
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem] ; YES=0, NO=1
+	and a ; equivalent to cp 0
+	ld hl, OchreHousesTextReactivater_DontUndoSpell
+	jr nz, .printAndEnd
+	ld hl, OchreHousesTextReactivater_UndoSpell
+	call PrintText
+	ResetEvent EVENT_REACTIVATE_ALL_TRAINERS
+	call GBFadeOutToBlack
+	ld a, SFX_LEVEL_UP
+	call PlaySound
+	ld c, 75
+	call DelayFrames
+	call GBFadeInFromBlack
+	ld hl, OchreHousesTextReactivater_SpellUndone
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
@@ -52,6 +75,10 @@ OchreHousesTextReactivater_EnjoyRebattles:
 
 OchreHousesTextReactivater_Intro:
 	text_far _OchreHousesTextReactivater_Intro
+	text_end
+
+OchreHousesTextReactivater_IntroShort:
+	text_far _OchreHousesTextReactivater_IntroShort
 	text_end
 
 OchreHousesTextReactivater_Refused:
@@ -64,6 +91,18 @@ OchreHousesTextReactivater_Accepted:
 
 OchreHousesTextReactivater_Done:
 	text_far _OchreHousesTextReactivater_Done
+	text_end
+
+OchreHousesTextReactivater_DontUndoSpell:
+	text_far _OchreHousesTextReactivater_DontUndoSpell
+	text_end
+
+OchreHousesTextReactivater_UndoSpell:
+	text_far _OchreHousesTextReactivater_UndoSpell
+	text_end
+
+OchreHousesTextReactivater_SpellUndone:
+	text_far _OchreHousesTextReactivater_SpellUndone
 	text_end
 
 ; ------------------------

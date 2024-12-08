@@ -507,7 +507,7 @@ MonsterNamesJapanese::
 	db "ARBOK@@@@@"
 	db "PICHU@@@@@"
 	db "PIKACHU@@@"
-	db "SAND@@@@@@"
+	db "RAICHU@@@@"
 	db "SANDPAN@@@"
 	db "SANDSLASH@"
 	db "NIDORAN♀@@"

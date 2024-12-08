@@ -37,13 +37,33 @@ _OchreHousesTextReactivater_Intro::
 	cont "get to see more"
 	cont "battles!"
 	cont "It's a win-win!"
+
+	para "And if you change"
+	line "your mind, I can"
+	cont "undo it any time!"
 	cont "Whaddya think?"
 	done
 
+_OchreHousesTextReactivater_IntroShort::
+	text "Have you changed"
+	line "your mind?"
+
+	para "Do you want me to"
+	line "cast my spell to"
+	cont "allow you to face"
+	cont "again any and"
+	cont "every opponent?"
+	done
+
 _OchreHousesTextReactivater_EnjoyRebattles::
-	text "Are you enjoying"
-	line "your renewed wave"
-	cont "of battles?"
+	text "I hope you are"
+	line "enjoying your"
+	cont "renewed wave of"
+	cont "battles!"
+
+	para "Are you maybe here"
+	line "to ask me to undo"
+	cont "my spell?"
 	done
 
 _OchreHousesTextReactivater_Refused::
@@ -87,6 +107,30 @@ _OchreHousesTextReactivater_Done::
 	line "LEADERS, and"
 	cont "possibly someone"
 	cont "else too..."
+	done
+
+_OchreHousesTextReactivater_DontUndoSpell::
+	text "Better this way!"
+	done
+
+_OchreHousesTextReactivater_UndoSpell::
+	text "Oh... it's a pity,"
+	line "but I'll do as you"
+	cont "wish."
+
+	para "Feel free to come"
+	line "back anytime if"
+	cont "you changed your"
+	cont "mind again!"
+	done
+
+_OchreHousesTextReactivater_SpellUndone::
+	text "All done!"
+	line "Now trainer will"
+	cont "not be willing to"
+	cont "rematch you."
+
+	para "Alas..."
 	done
 
 ; ------------------------------

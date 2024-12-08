@@ -121,17 +121,22 @@ HallofFameRoomScript1:
 	call LoopHide
 	call LoopShow
 	call LoopShowExtra
+	ResetEvent EVENT_BEAT_MEWTWO
+; re-spawn the birds only if we spawn them the first time
 	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
 	jr z, .dontShowLegendaryBirbs
 	ld a, HS_ARTICUNO
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
+	ResetEvent EVENT_BEAT_ARTICUNO
 	ld a, HS_ZAPDOS
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	ResetEvent EVENT_BEAT_ZAPDOS
 	ld a, HS_MOLTRES
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
+	ResetEvent EVENT_BEAT_MOLTRES
 .dontShowLegendaryBirbs
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 ; let's also heal the party, why not
