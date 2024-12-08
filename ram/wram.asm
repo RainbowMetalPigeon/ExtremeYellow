@@ -2446,8 +2446,10 @@ wObtainedHiddenCoinsFlags:: flag_array 16
 ; $02 = surfing
 wWalkBikeSurfState:: db
 
-	ds 1 ; UNUSED bytes in "Main Data", edited, was 10
+;	ds 10 ; edited, was 10
 
+wPersonalizationPhySpeSplit:: db ; new
+wPersonalizationLevelStatus:: db ; new
 wDumbByteToToggleStatusScreen:: db ; new
 wIsEvolvingMidBattle:: db ; new
 wRandomizationWildEncounters:: db ; new
@@ -2456,7 +2458,6 @@ wRandomizationItems:: db ; new
 wRandomizationTypeChart:: db ; new
 wPersonalizationNames:: db ; new
 wPersonalizationTypes:: db ; new
-wPersonalizationPhySpeSplit:: db ; new
 wLuckAccuracy:: db ; new
 wLuckRoll:: db ; new
 wLuckCrit:: db ; new

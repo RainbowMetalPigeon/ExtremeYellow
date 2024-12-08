@@ -44,13 +44,13 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, HURRICANE
+	ld a, POISONPOWDER
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, JUDGMENT
+	ld a, TOXIC
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, DISABLE
+	ld a, SPORE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

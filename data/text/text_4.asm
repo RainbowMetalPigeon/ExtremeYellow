@@ -85,6 +85,12 @@ _PersonalizationInfoTextPhySpeSplit::
 	cont "is applied."
 	prompt
 
+_PersonalizationInfoTextLevelStatus::
+	text "With OLD layout,"
+	line "the STATUS covers"
+	cont "the LEVEL."
+	prompt
+
 _PersonalizationInfoTextSound::
 	text "EARPHONE1 is"
 	line "stereo, 2 focuses"

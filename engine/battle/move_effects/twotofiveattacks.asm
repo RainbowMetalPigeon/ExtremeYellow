@@ -37,6 +37,7 @@ TwoToFiveAttacksEffect_:
 	inc a
 .saveNumberOfHits
 	ld [de], a
+	xor a ; new, to better handle multi-hit moves
 	ld [bc], a
 	ret
 .twineedle

@@ -15,6 +15,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call CheckForTilePairCollisions
 	jp c, .cannotSurf ; we are too high above water
 ; we have water in front of us
+	call IsSurfingAllowed2
+	ld hl, wd728
+	bit 1, [hl]
+	res 1, [hl]
+	jp z, .done
+; surfing is allowed
     ld d, SURF
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notSurfInTeam
@@ -23,12 +29,6 @@ CheckIfCanSurfOrCutFromOverworld::
     bit BIT_SOULBADGE, a
 	jp z, .newBadgeRequired
 ; we have the right badge
-	call IsSurfingAllowed2
-	ld hl, wd728
-	bit 1, [hl]
-	res 1, [hl]
-	jp z, .done
-; surfing is allowed
     callfar IsSurfingPikachuInThePlayersParty ; nc if it's not
     jr c, .surfingPikachu
     ld a, $1

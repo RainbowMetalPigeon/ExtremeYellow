@@ -1,4 +1,4 @@
-PrintStatusAilment::
+PrintStatusAilment:: ; edited: b and c contain wEnemyBattleStatus3/wPlayerBattleStatus3
 	ld a, [de]
 	bit PSN, a
 	jr nz, .psn
@@ -16,7 +16,22 @@ PrintStatusAilment::
 	ld [hli], a
 	ld [hl], "P"
 	ret
-.psn
+.psn ; edited, to print TOX if Toxic poison rather than normal one
+	push hl
+	ld a, b
+	ld h, a
+	ld a, c
+	ld l, a ; now hl is wEnemyBattleStatus3/wPlayerBattleStatus3
+	bit BADLY_POISONED, [hl]
+	pop hl
+	jr z, .noToxic
+	ld a, "T"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld [hl], "X"
+	ret
+.noToxic
 	ld a, "P"
 	ld [hli], a
 	ld a, "S"
@@ -44,3 +59,9 @@ PrintStatusAilment::
 	ld [hli], a
 	ld [hl], "R"
 	ret
+
+
+
+
+;	ld hl, wEnemyBattleStatus3
+;	bit BADLY_POISONED, [hl]

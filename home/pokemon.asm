@@ -343,7 +343,7 @@ PrintStatusCondition::
 	ld a, [de]
 	or b ; is the pokemon's HP zero?
 	pop de
-	jr nz, PrintStatusConditionNotFainted
+	jr nz, .WrapperForPrintStatusConditionNotFainted ; edited
 ; if the pokemon's HP is 0, print "FNT"
 	ld a, "F"
 	ld [hli], a
@@ -352,6 +352,13 @@ PrintStatusCondition::
 	ld [hl], "T"
 	and a
 	ret
+.WrapperForPrintStatusConditionNotFainted ; new
+	push hl
+	ld hl, wPlayerBattleStatus3
+	ld b, h
+	ld c, l
+	pop hl
+	jr PrintStatusConditionNotFainted
 
 PrintStatusConditionNotFainted::
 	homejp_sf PrintStatusAilment

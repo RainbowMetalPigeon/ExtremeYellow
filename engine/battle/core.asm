@@ -1995,15 +1995,29 @@ DrawPlayerHUDAndHPBar:
 	ld de, wLoadedMonLevel
 	ld bc, wBattleMonPP - wBattleMonLevel
 	call CopyData
-	hlcoord 14, 8
-	push hl
-	inc hl
+; new block, to choose what style of level/status printing we want
+	ld a, [wPersonalizationLevelStatus] ; 0=NEW, 1=OLD
+	and a
+	jr nz, .oldLevelStatusPrinting
+; new level/status printing
+	hlcoord 11, 8
+	call PrintLevel
+	ld de, wLoadedMonStatus
+	ld hl, wPlayerBattleStatus3
+	ld b, h
+	ld c, l
+	hlcoord 15, 8
+	call PrintStatusConditionNotFainted
+	jr .doNotPrintLevel
+.oldLevelStatusPrinting
+	hlcoord 15, 8
 	ld de, wLoadedMonStatus
 	call PrintStatusConditionNotFainted
-	pop hl
 	jr nz, .doNotPrintLevel
+	hlcoord 14, 8
 	call PrintLevel
 .doNotPrintLevel
+; back to vanilla
 	ld a, [wLoadedMonSpecies]
 	ld [wcf91], a
 	hlcoord 10, 9
@@ -2067,17 +2081,29 @@ DrawEnemyHUDAndHPBar:
 	hlcoord 1, 0
 	call CenterMonName
 	call PlaceString
-	hlcoord 4, 1
-	push hl
-	inc hl
-	ld de, wEnemyMonStatus
-	call PrintStatusConditionNotFainted
-	pop hl
-	jr nz, .skipPrintLevel ; if the mon has a status condition, skip printing the level
+; new level/status printing
+	hlcoord 3, 1
 	ld a, [wEnemyMonLevel]
 	ld [wLoadedMonLevel], a
 	call PrintLevel
+	ld de, wEnemyMonStatus
+	ld hl, wEnemyBattleStatus3
+	ld b, h
+	ld c, l
+	hlcoord 7, 1
+	call PrintStatusConditionNotFainted
+	jr .skipPrintLevel
+.oldLevelStatusPrinting
+	hlcoord 5, 1
+	ld de, wEnemyMonStatus
+	call PrintStatusConditionNotFainted
+	jr nz, .skipPrintLevel ; if the mon has a status condition, skip printing the level
+	ld a, [wEnemyMonLevel]
+	ld [wLoadedMonLevel], a
+	hlcoord 4, 1
+	call PrintLevel
 .skipPrintLevel
+; back to vanilla
 	ld hl, wEnemyMonHP
 	ld a, [hli]
 	ldh [hMultiplicand + 1], a
@@ -3599,23 +3625,52 @@ MirrorMoveCheck:
 	ld a, [hli]
 	ld b, [hl]
 	or b
-	ret z ; don't do anything else if the enemy fainted ; TBE
+
+; new, to display properly messages if we KO something with a multi-hit move
+	jr nz, .notKOed
+	ld a, [wPlayerMoveEffect]
+	cp TWO_TO_FIVE_ATTACKS_EFFECT
+	jr z, .concludeMultiHitMove
+	cp ATTACK_TWICE_EFFECT
+	jr z, .concludeMultiHitMove
+	cp TWINEEDLE_EFFECT
+	jr z, .concludeMultiHitMove
+	ret
+.concludeMultiHitMove
+	ld a, [wPlayerNumHits]
+	inc a
+	ld [wPlayerNumHits], a
+	push bc
+	ld hl, MultiHitText
+	call PrintText
+	callfar DisplayEffectiveness ; new, added here to display effectiveness only once for multi-hit moves
+	pop bc
+	ret
+.notKOed
+; back to vanilla
+
+;	ret z ; don't do anything else if the enemy fainted ; edited
 ;	call HandleBuildingRage ; modified to get rid of RAGE
 
 	ld hl, wPlayerBattleStatus1
 	bit ATTACKING_MULTIPLE_TIMES, [hl]
 	jr z, .executeOtherEffects
+; new, to better handle multi-hit moves
+	ld a, [wPlayerNumHits]
+	inc a
+	ld [wPlayerNumHits], a
+; back to vanilla
 	ld a, [wPlayerNumAttacksLeft]
 	dec a
 	ld [wPlayerNumAttacksLeft], a
-	jp nz, getPlayerAnimationType ; for multi-hit moves, apply attack until PlayerNumAttacksLeft hits 0 or the enemy faints.
+	jp nz, getPlayerAnimationType ; for multi-hit moves, apply attack until wPlayerNumAttacksLeft hits 0 or the enemy faints.
 	                             ; damage calculation and accuracy tests only happen for the first hit
 	res ATTACKING_MULTIPLE_TIMES, [hl] ; clear attacking multiple times status when all attacks are over
 	ld hl, MultiHitText
 	call PrintText
 	callfar DisplayEffectiveness ; new, added here to display effectiveness only once for multi-hit moves
-	xor a
-	ld [wPlayerNumHits], a
+;	xor a
+;	ld [wPlayerNumHits], a
 .executeOtherEffects
 	ld a, [wPlayerMoveEffect]
 	and a
@@ -6599,11 +6654,41 @@ EnemyCheckIfMirrorMoveEffect:
 	ld a, [hli]
 	ld b, [hl]
 	or b
-	ret z
+
+; new, to display properly messages if we KO something with a multi-hit move
+	jr nz, .notKOed
+	ld a, [wEnemyMoveEffect]
+	cp TWO_TO_FIVE_ATTACKS_EFFECT
+	jr z, .concludeMultiHitMove
+	cp ATTACK_TWICE_EFFECT
+	jr z, .concludeMultiHitMove
+	cp TWINEEDLE_EFFECT
+	jr z, .concludeMultiHitMove
+	ret
+.concludeMultiHitMove
+	ld a, [wEnemyNumHits]
+	inc a
+	ld [wEnemyNumHits], a
+	push bc
+	ld hl, HitXTimesText
+	call PrintText
+	callfar DisplayEffectiveness ; new, added here to display effectiveness only once for multi-hit moves
+	pop bc
+	ret
+.notKOed
+; back to vanilla
+
+;	ret z ; don't do anything else if the enemy fainted ; TBE
 ;	call HandleBuildingRage
+
 	ld hl, wEnemyBattleStatus1
 	bit ATTACKING_MULTIPLE_TIMES, [hl] ; is mon hitting multiple times? (example: double kick)
 	jr z, .notMultiHitMove
+; new, to better handle multi-hit moves
+	ld a, [wEnemyNumHits]
+	inc a
+	ld [wEnemyNumHits], a
+; back to vanilla
 	push hl
 	ld hl, wEnemyNumAttacksLeft
 	dec [hl]
@@ -6613,8 +6698,8 @@ EnemyCheckIfMirrorMoveEffect:
 	ld hl, HitXTimesText
 	call PrintText
 	callfar DisplayEffectiveness ; new, added here to display effectiveness only once for multi-hit moves
-	xor a
-	ld [wEnemyNumHits], a
+;	xor a
+;	ld [wEnemyNumHits], a
 .notMultiHitMove
 	ld a, [wEnemyMoveEffect]
 	and a

@@ -440,14 +440,26 @@ DisplayWildLocations:
 	jr z, .exitLoop
 	and a
 	jr z, .nextEntry
+; new, to skip Haunted House
+	cp HAUNTED_HOUSE_1
+	jr z, .nextEntry
+	cp HAUNTED_HOUSE_2
+	jr z, .nextEntry
+	cp HAUNTED_HOUSE_3
+	jr z, .nextEntry
+	cp HAUNTED_HOUSE_4
+	jr z, .nextEntry
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	jr z, .nextEntry
+; back to vanilla
 	push hl
 	call LoadTownMapEntry
 	pop hl
 	ld a, [de]
 	cp $19 ; Cerulean Cave's coordinates
 	jr z, .nextEntry ; skip Cerulean Cave
-	cp $FF ; new, Secluded Island apparently? testing
-	jr z, .nextEntry ; new, testing
+	cp $FF ; new, Secluded Island
+	jr z, .nextEntry ; new
 	call TownMapCoordsToOAMCoords
 	ld a, $4 ; nest icon tile no.
 	ld [hli], a
