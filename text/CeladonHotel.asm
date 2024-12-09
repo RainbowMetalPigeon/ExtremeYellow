@@ -259,7 +259,7 @@ _CeladonHotelRoomsSign5::
 
 _CeladonHotelRoomsSign6::
 	text "The TV is on the"
-	cont "news channel."
+	line "news channel."
 	done
 
 _CeladonHotelRoomsSign7::
