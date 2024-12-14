@@ -2,8 +2,8 @@ PalletTown_Object:
 	db $b ; border block
 
 	def_warp_events
-;	warp_event  5,  5, REDS_HOUSE_1F, 1
-	warp_event  5,  5, HALL_OF_FAME, 1
+	warp_event  5,  5, REDS_HOUSE_1F, 1
+;	warp_event  5,  5, HALL_OF_FAME, 1
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 1 ; 1-2 entrance, 3 testing near merchant
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 7 ; 23 entrance, 4 exit, 7 Lance
@@ -21,7 +21,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
 ;	warp_event  5,  5, COPYCATS_HOUSE_2F, 1
 ;	warp_event  5,  5, SILPH_CO_11F, 4
-;	warp_event  5,  5, BILLS_HOUSE, 1
+; 	warp_event  5,  5, BILLS_HOUSE, 1
 ;	warp_event  5,  5, VICTORY_ROAD_1F, 1
 ;	warp_event  5,  5, OBSIDIAN_MINES, 1
 ;	warp_event  5,  5, LORELEIS_ROOM, 1

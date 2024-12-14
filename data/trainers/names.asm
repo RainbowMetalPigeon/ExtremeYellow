@@ -1,7 +1,7 @@
 TrainerNames::
 	db "YOUNGSTER@"
 	db "BUG CATCHER@"
-	db "LASS@"
+	db "SCHOOLER@" ; formerly LASS
 	db "SAILOR@"
 ;	db "JR.TRAINER♂@"
 	db "JR.TRAINER@"
@@ -50,5 +50,5 @@ TrainerNames::
 	db "ORAGE@"
 	db "PIGEON@"
 	db "TRAVELER@"
-	db "B.F. TRAINER@" ; to be decided
+	db "B.F. TRAINER@"
 	db "MISSINGNO.@"
