@@ -9,8 +9,9 @@ InitPlayerData2:
 	ldh a, [hRandomAdd]
 	ld [wPlayerID + 1], a
 
-	ld a, $ff
-	ld [wUnusedD71B], a
+; edited, unused
+;	ld a, $ff
+;	ld [wUnusedD71B], a
 
 	xor a ; edited, initialize happiness to 0
 ;	ld a, $FF

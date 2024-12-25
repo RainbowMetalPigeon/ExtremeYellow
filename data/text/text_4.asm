@@ -155,6 +155,13 @@ _RandomizationInfoTextItems::
 	line "hidden items."
 	prompt
 
+_RandomizationInfoTextEvolutions::
+	text "Every #MON"
+	line "evolves randomly"
+	cont "in any other one"
+	cont "at every level."
+	prompt
+
 ; battle luck --------
 
 _LuckInfoTextAccuracy::

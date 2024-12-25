@@ -41,7 +41,7 @@ RandomizationMenuJumpTable:
 	dw RandomizationMenu_TrainersTeam
 	dw RandomizationMenu_TypeChart
 	dw RandomizationMenu_Items
-	dw RandomizationMenu_Dummy
+	dw RandomizationMenu_Evolutions
 	dw RandomizationMenu_Dummy
 	dw RandomizationMenu_Cancel
 
@@ -223,6 +223,50 @@ RandomizationMenu_TypeChart:
 
 ; ---------------------------------------------
 
+RandomizationMenu_Evolutions:
+	ld a, [wRandomizationEvolutions]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $2
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wRandomizationEvolutions], a
+.nonePressed
+	ld b, $0
+	ld hl, RandomizationStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 13, 12
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
 ; unused
 RandomizationMenu_Warps:
 	ld a, [wOptions] ; TBE
@@ -309,7 +353,7 @@ RandomizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 3 ; number of options - 1
+	cp 4 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -320,7 +364,7 @@ RandomizationControl:
 	ld a, [hl]
 	cp 6 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 3 ; number of options - 1
+	ld [hl], 4 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -335,7 +379,7 @@ RandomizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wUniQuizAnswer], a
-	cp 4 ; number of options
+	cp 5 ; number of options
 	ret nc
 	add a ; doubles a
 	ld e, a
@@ -397,7 +441,7 @@ InitRandomizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 4 ; the number of options to loop through
+	ld c, 5 ; the number of options to loop through
 .loop
 	push bc
 	call GetRandomizationPointer ; updates the next option
@@ -429,7 +473,7 @@ InitRandomizationMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 4 ; the number of options to loop through
+	ld c, 5 ; the number of options to loop through
 .loop
 	push bc
 	call GetRandomizationPointer ; updates the next option
@@ -448,8 +492,8 @@ AllRandomizationText:
 	db   "WILD #MON:"
 	next "ENEMY TEAMS :"
 	next "TYPE CHART  :"
-	next "ITEMS:@"
-;	next "WARPS:@"
+	next "ITEMS:"
+	next "EVOLUTIONS:@"
 
 RandomizationTitleText:
 	db "RANDOMIZATION@"
@@ -473,6 +517,7 @@ RandomizationInfoTexts:
 	dw RandomizationInfoTextEnemyTeams
 	dw RandomizationInfoTextTypeChart
 	dw RandomizationInfoTextItems
+	dw RandomizationInfoTextEvolutions
 
 RandomizationInfoTextWildMons:
 	text_far _RandomizationInfoTextWildMons
@@ -488,4 +533,8 @@ RandomizationInfoTextTypeChart:
 
 RandomizationInfoTextItems:
 	text_far _RandomizationInfoTextItems
+	text_end
+
+RandomizationInfoTextEvolutions:
+	text_far _RandomizationInfoTextEvolutions
 	text_end

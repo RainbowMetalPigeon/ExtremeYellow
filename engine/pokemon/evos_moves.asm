@@ -26,13 +26,15 @@ EvolutionAfterBattle:
 Evolution_PartyMonLoop: ; loop over party mons
 	ld hl, wWhichPokemon
 	inc [hl]
-	pop hl
+	pop hl ; wPartyCount
 	inc hl
 	ld a, [hl]
 	cp $ff ; have we reached the end of the party?
 	jp z, .done
 	ld [wEvoOldSpecies], a
-	push hl
+	push hl ; wPartyCount
+
+; vanilla check to verify if a mon leveled up during this battle
 	ld a, [wWhichPokemon]
 	ld c, a
 	ld hl, wCanEvolveFlags
@@ -41,6 +43,30 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld a, c
 	and a ; is the mon's bit set?
 	jp z, Evolution_PartyMonLoop ; if not, go to the next mon
+; new, for random evolutions
+	ld a, [wRandomizationEvolutions] ; 0=NO, 1=YES
+	and a
+	jr z, .noRandomEvolution
+; evolution is randomized
+; set some necessary registers
+	ld a, 1
+	ld [wEvolutionOccurred], a
+	ld [wForceEvolution], a ; testing
+	ld a, [wEvoOldSpecies]
+	ld b, a
+; randomize the evolution
+.sanityLoop
+	call Random
+	cp 0
+	jr z, .sanityLoop ; we don't want the non-pokemon with index 0
+	cp NUM_POKEMON_RANDOMIZABLE+1
+	jr nc, .sanityLoop ; we don't want anything beyond Venustoise
+	cp b ; previous stage
+	jr z, .sanityLoop ; we don't want to evolve X into X
+	ld [wEvoNewSpecies], a
+	jp .continueRandomEvolutions
+.noRandomEvolution
+; continue with vanilla evolution
 	ld a, [wEvoOldSpecies]
 	dec a
 	ld b, 0
@@ -63,6 +89,11 @@ Evolution_PartyMonLoop: ; loop over party mons
 	pop hl
 
 .evoEntryLoop ; loop over evolution entries
+; new, for random evolutions
+	ld a, [wRandomizationEvolutions]
+	and a
+	jr nz, Evolution_PartyMonLoop
+; back to vanilla
 	ld a, [hli]
 	and a ; have we reached the end of the evolution data?
 	jr z, Evolution_PartyMonLoop
@@ -78,7 +109,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	jr z, .checkItemEvo
 	ld a, [wForceEvolution]
 	and a
-	jr nz, Evolution_PartyMonLoop
+	jp nz, Evolution_PartyMonLoop
 	ld a, b
 	cp EV_LEVEL
 	jr z, .checkLevel
@@ -115,6 +146,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	push hl
 	ld a, [hl]
 	ld [wEvoNewSpecies], a
+.continueRandomEvolutions ; new
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
@@ -176,6 +208,12 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld hl, EvolvedText
 	call PrintText
 
+	ld a, [wRandomizationEvolutions]
+	and a
+	jr z, .noRandomEvolution2
+	ld a, [wEvoNewSpecies]
+	jr .continueRandomEvolutions2
+.noRandomEvolution2
 	pop hl
 
 	ld a, [wEvoOldSpecies]
@@ -185,10 +223,11 @@ Evolution_PartyMonLoop: ; loop over party mons
 	jr .continueVanilla3
 .nonTyrogue
 	ld a, [hl]
+.continueRandomEvolutions2 ; redundant, for clarity
 .continueVanilla3
 	ld [wd0b5], a
 	ld [wLoadedMonSpecies], a
-	ld [wEvoNewSpecies], a
+	ld [wEvoNewSpecies], a ; useless?
 	ld a, MONSTER_NAME
 	ld [wNameListType], a
 	ld a, BANK(MonsterNames) ; bank is not used for monster names
@@ -815,7 +854,7 @@ PrepareRelearnableMoveList::
 	pop de
 	pop bc
 	jr .loop
-.done	
+.done
 
 ;joenote - start checking for level-0 moves
 	xor a
@@ -829,7 +868,7 @@ PrepareRelearnableMoveList::
 	ld a, [hl]	;load move
 	and a
 	jr z, .done2	;if move has id 0, list has reached the end early. move to done2.
-	
+
 	;check if the move is already in the learnable move list
 	push bc
 	push hl
@@ -857,7 +896,7 @@ PrepareRelearnableMoveList::
 .end_buffer_loop
 	pop hl
 	pop bc
-	
+
 	;Check if move is already known by our mon.
 	push bc
 	ld a, [hl] ; move id
@@ -894,14 +933,14 @@ PrepareRelearnableMoveList::
 	inc hl	;increment to the next level-0 move
 	inc b	;increment the loop counter
 	jr .loop2
-	
+
 .knowsMove2
 	pop de
 	pop bc
 	inc hl	;increment to the next level-0 move
 	inc b	;increment the loop counter
 	jr .loop2
-	
+
 .done2
 	ld b, 0
 	ld hl, wMoveBuffer + 1
