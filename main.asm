@@ -196,6 +196,8 @@ INCLUDE "gfx/trade.asm" ; moved from "Battle Engine 6"
 INCLUDE "data/pokemon/cries.asm" ; moved from "Battle Engine 6"
 INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm" ; moved from "Battle Engine 6"
 INCLUDE "data/moves/moves.asm" ; moved from "Battle Engine 6"
+INCLUDE "engine/battle/misc.asm" ; moved form "Battle Engine 6"
+INCLUDE "data/trainers/names.asm" ; moved form "Battle Engine 6"
 
 
 SECTION "Evos Moves 1", ROMX ; new, from Vortiene's pureRGB, moved from "Battle Engine 6"

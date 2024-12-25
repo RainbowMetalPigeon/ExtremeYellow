@@ -1065,15 +1065,17 @@ ReadMove:
 
 INCLUDE "data/trainers/move_choices.asm"
 
-;INCLUDE "data/trainers/pic_pointers_money.asm" ; edited, not necessary here?
+;INCLUDE "data/trainers/pic_pointers_money.asm" ; edited, not necessary here
 
-INCLUDE "data/trainers/names.asm"
+;INCLUDE "data/trainers/names.asm" ; edited, not necessary here
 
-INCLUDE "engine/battle/misc.asm"
+;INCLUDE "engine/battle/misc.asm" ; edited, not necessary here
 
 INCLUDE "engine/battle/read_trainer_party.asm"
 
 INCLUDE "data/trainers/special_moves.asm"
+
+INCLUDE "data/trainers/special_moves_physicalspecialsplit.asm" ; new, testing
 
 INCLUDE "data/trainers/parties.asm"
 

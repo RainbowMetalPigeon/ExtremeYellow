@@ -3,1261 +3,155 @@
 ;	repeat { db partymon location, partymon move, move id }
 ;	db $FE
 
-SpecialTrainerMoves:
-	db BUG_CATCHER, 15 ; updated
-	db 1, 1, TACKLE
-	db 1, 2, WRAP
-	db $FE
-
-	db BUG_CATCHER, 3 ; new
-	; BUTTERFREE
-	db 1, 2, TACKLE
-	db 1, 3, STRING_SHOT
-	db 1, 4, HARDEN
-	; BEEDRILL
-	db 2, 2, POISON_STING
-	db 2, 3, STRING_SHOT
-	db 2, 4, HARDEN
-	db $FE
-
-	db YOUNGSTER, 14
-	db 6, 1, SLASH
-	db 6, 2, DIG
-	db 6, 3, DEFENSE_CURL
-	db 6, 4, FISSURE
-	db $FE
-
-	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')
-	; WEEZING
-	db 1, 1, EXPLOSION
-	db 1, 2, NO_MOVE
-	db 1, 3, NO_MOVE
-	db 1, 4, NO_MOVE
-	; ELECTRODE
-	db 2, 1, EXPLOSION
-	db 2, 2, NO_MOVE
-	db 2, 3, NO_MOVE
-	db 2, 4, NO_MOVE
-	; GOLEM
-	db 3, 1, EXPLOSION
-	db 3, 2, NO_MOVE
-	db 3, 3, NO_MOVE
-	db 3, 4, NO_MOVE
-	; CLOYSTER
-	db 4, 1, EXPLOSION
-	db 4, 2, NO_MOVE
-	db 4, 3, NO_MOVE
-	db 4, 4, NO_MOVE
-	; LICKILICKY
-	db 5, 1, EXPLOSION
-	db 5, 2, NO_MOVE
-	db 5, 3, NO_MOVE
-	db 5, 4, NO_MOVE
-	; SNORLAX
-	db 6, 1, SELFDESTRUCT
-	db 6, 2, NO_MOVE
-	db 6, 3, NO_MOVE
-	db 6, 4, NO_MOVE
-	db $FE
-
-	db JUGGLER, 9 ; new
-	; HYPNO
-	db 1, 1, METRONOME
-	db 1, 2, NO_MOVE
-	db 1, 3, NO_MOVE
-	db 1, 4, NO_MOVE
-	; CLEFAIRY
-	db 2, 1, METRONOME
-	db 2, 2, NO_MOVE
-	db 2, 3, NO_MOVE
-	db 2, 4, NO_MOVE
-	; ALAKAZAM
-	db 3, 1, METRONOME
-	db 3, 2, NO_MOVE
-	db 3, 3, NO_MOVE
-	db 3, 4, NO_MOVE
-	; WIGGLYTUFF
-	db 4, 1, METRONOME
-	db 4, 2, NO_MOVE
-	db 4, 3, NO_MOVE
-	db 4, 4, NO_MOVE
-	; MR_MIME
-	db 5, 1, METRONOME
-	db 5, 2, NO_MOVE
-	db 5, 3, NO_MOVE
-	db 5, 4, NO_MOVE
-	; GENGAR
-	db 6, 1, METRONOME
-	db 6, 2, NO_MOVE
-	db 6, 3, NO_MOVE
-	db 6, 4, NO_MOVE
-	db $FE
-
-	db GENTLEMAN, 6 ; new, SS Anne Captain
-	; SCYTHER
-	db 1, 1, CUT
-	db 1, 2, AIR_SLASH
-	db 1, 3, X_SCISSOR
-	db 1, 4, AIR_CUTTER
-	; KABUTOPS
-	db 2, 1, CUT
-	db 2, 2, SLASH
-	db 2, 3, STONE_EDGE
-	db 2, 4, SWORDS_DANCE
-	; SCIZOR
-	db 3, 1, CUT
-	db 3, 2, SLASH
-	db 3, 3, X_SCISSOR
-	db 3, 4, PSYCHO_CUT
-	; SANDSLASH
-	db 4, 1, CUT
-	db 4, 2, SLASH
-	db 4, 3, STONE_EDGE
-	db 4, 4, NIGHT_SLASH
-	; KLEAVOR
-	db 5, 1, CUT
-	db 5, 2, SLASH
-	db 5, 3, STONE_EDGE
-	db 5, 4, X_SCISSOR
-	; FARFETCHD
-	db 6, 1, CUT
-	db 6, 2, SLASH
-	db 6, 3, SWORDS_DANCE
-	db 6, 4, NIGHT_SLASH
-	db $FE
-
+SpecialTrainerMoves_PhysicalSpecialSplit:
 	db COOLTRAINER, 64 ; pseudo-Green
-	; JIGGLYPUFF
-	db 1, 1, SING
-	db 1, 2, DISABLE
-	db 1, 3, DOUBLE_EDGE
-	db 1, 4, DEFENSE_CURL
 	; ALAKAZAM
-	db 2, 1, THUNDERPUNCH
-	db 2, 2, ICE_PUNCH
-	db 2, 3, FIRE_PUNCH
+	db 2, 1, RECOVER
+	db 2, 2, REFLECT
+	db 2, 3, THUNDER_WAVE
 	db 2, 4, PSYCHIC_M
-	; DITTO
-	; lol
-	; CLEFABLE
-	db 4, 1, MOONBLAST
-	db 4, 2, LIGHT_SCREEN
-	db 4, 3, REFLECT
-	db 4, 4, METRONOME
-	; NIDOQUEEN
-	db 5, 1, CRUNCH
-	db 5, 2, DOUBLE_KICK
-	db 5, 3, ROCK_TOMB
-	db 5, 4, SLUDGE_WAVE
-	; BLASTOISE
-	db 6, 1, HYDRO_CANNON
-	db 6, 2, FLASH_CANNON
-	db 6, 3, ICE_BEAM
-	db 6, 4, EARTHQUAKE
 	db $FE
 
 	db COOLTRAINER, 65 ; pseudo-Red
-	; POLIWRATH
-	db 1, 1, CLOSE_COMBAT
-	db 1, 2, SCALD
-	db 1, 3, ICE_BEAM
-	db 1, 4, HYPNOSIS
-	; VENUSAUR
-	db 2, 1, SLUDGE_WAVE
-	db 2, 2, FRENZY_PLANT
-	db 2, 3, SLEEP_POWDER
-	db 2, 4, LEECH_SEED
-	; PIKACHU
-	db 3, 1, TOXIC
-	db 3, 2, IRON_TAIL
-	db 3, 3, SURF
-	db 3, 4, VOLT_TACKLE
-	; SNORLAX
-	db 4, 1, AMNESIA
-	db 4, 2, CRUNCH
-	db 4, 3, REST
-	db 4, 4, BODY_SLAM
 	; GYARADOS
-	db 5, 1, HYDRO_PUMP
-	db 5, 2, HYPER_BEAM
+	db 5, 1, WATERFALL
+	db 5, 2, AERIAL_ACE
 	db 5, 3, DRAGON_DANCE
 	db 5, 4, CRUNCH
 	; AERODACTYL
 	db 6, 1, FLY
 	db 6, 2, HEAD_SMASH
 	db 6, 3, DRAGON_CLAW
-	db 6, 4, HYPER_BEAM
-	db $FE
-
-	db COOLTRAINER, 66 ; pseudo-Blue
-	; SCIZOR
-	db 1, 1, SLASH
-	db 1, 2, STEEL_WING
-	db 1, 3, X_SCISSOR
-	db 1, 4, ROOST
-	; CHARIZARD
-	db 2, 1, BLAST_BURN
-	db 2, 2, FLY
-	db 2, 3, REFLECT
-	db 2, 4, FIRE_SPIN
-	; GOLDUCK
-	db 3, 1, HYDRO_PUMP
-	db 3, 2, CONFUSION
-	db 3, 3, DIG
-	db 3, 4, IRON_TAIL
-	; MACHAMP
-	db 4, 1, KARATE_CHOP
-	db 4, 2, HYPER_BEAM
-	db 4, 3, FOCUS_ENERGY
-	db 4, 4, EARTHQUAKE
-	; PORYGON2
-	db 5, 1, TRI_ATTACK
-	db 5, 2, CONVERSION
-	db 5, 3, ZAP_CANNON
-	db 5, 4, PSYBEAM
-	; RHYPERIOR
-	db 6, 1, EARTHQUAKE
-	db 6, 2, HEAD_SMASH
-	db 6, 3, MEGAHORN
-	db 6, 4, HORN_DRILL
-	db $FE
-
-	db COOLTRAINER, 17 ; Vermilion Gym, new
-	; PICHU
-	db 1, 1, VOLT_TACKLE
-	db 1, 2, FLY
-	db 1, 3, SURF
-	db 1, 4, PSYCHIC_M
-	; ELEKID
-	db 2, 1, IRON_TAIL
-	db 2, 2, THUNDERBOLT
-	db 2, 3, KARATE_CHOP
-	db 2, 4, CLOSE_COMBAT
-	db $FE
-
-	db COOLTRAINER, 9 ; Cerulean Gym, new
-	; KRABBY
-	db 5, 1, METAL_CLAW
-	db 5, 2, MUD_SHOT
-	db 5, 3, LEER
-	db 5, 4, CRABHAMMER
-	db $FE
-
-	db COOLTRAINER, 44 ; Saffron Gym, new
-	; JYNX
-	db 2, 1, LOVELY_KISS
-;	db 2, 2, LIGHT_SCREEN
-;	db 2, 3, WATER_PULSE
-;	db 2, 4, ICE_PUNCH
-	; EXEGGUTOR
-;	db 3, 1, ENERGY_BALL
-;	db 3, 2, CONFUSION
-	db 3, 3, SLEEP_POWDER
-;	db 3, 4, STOMP
-	; HAUNTER
-	db 2, 1, HYPNOSIS
-;	db 2, 2, INFESTATION
-;	db 2, 3, SHADOW_PUNCH
-;	db 2, 4, NIGHT_SHADE
+	db 6, 4, EARTHQUAKE
 	db $FE
 
 ; GYM LEADERS ===================================================
 
-; BROCK's teams -------------------------------------------------
-
-	db BROCK, 1
-	; GEODUDE
-	db 1, 1, TACKLE
-	db 1, 2, DEFENSE_CURL
-	db 1, 3, MUD_SLAP
-	db 1, 4, ROCK_THROW
-	; OMANYTE
-	db 2, 1, WATER_GUN
-	db 2, 2, DEFENSE_CURL
-	db 2, 3, WRAP
-	db 2, 4, SAND_ATTACK
-	; KABUTO
-	db 3, 1, SCRATCH
-	db 3, 2, HARDEN
-	db 3, 3, WATER_GUN
-	db 3, 4, ABSORB
-	; RHYHORN
-	db 4, 1, HORN_ATTACK
-	db 4, 2, BIDE
-	db 4, 3, MUD_SLAP
-	db 4, 4, LEER
-	; VULPIX
-	db 5, 1, EMBER
-	db 5, 2, LEER
-	db 5, 3, DISABLE
-	db 5, 4, QUICK_ATTACK
-	; ONIX
-	db 6, 1, WRAP
-	db 6, 2, SCREECH
-	db 6, 3, BIDE
-	db 6, 4, MUD_SLAP
-	db $FE
-
-	db BROCK, 2
-	; GEODUDE
-	db 1, 1, MUD_SLAP
-	db 1, 2, ROCK_THROW
-	db 1, 3, SELFDESTRUCT
-	db 1, 4, CURSE
-	; OMANYTE
-	db 2, 1, WRAP
-	db 2, 2, SAND_ATTACK
-	db 2, 3, WATER_GUN
-	db 2, 4, SUPERSONIC
-	; KABUTO
-	db 3, 1, AQUA_JET
-	db 3, 2, ROCK_THROW
-	db 3, 3, CONFUSE_RAY
-	db 3, 4, MEGA_DRAIN
-	; RHYHORN
-	db 4, 1, HORN_ATTACK
-	db 4, 2, MUD_SLAP
-	db 4, 3, SAND_ATTACK
-	db 4, 4, ROCK_THROW
-	; VULPIX
-	db 5, 1, EMBER
-	db 5, 2, DISABLE
-	db 5, 3, CONFUSE_RAY
-	db 5, 4, WILL_O_WISP
-	; ONIX
-	db 6, 1, MUD_SLAP
-	db 6, 2, BODY_PRESS
-	db 6, 3, WRAP
-	db 6, 4, ROCK_SLIDE
-	db $FE
-
-	db BROCK, 3
-	; GRAVELER
-	db 1, 1, ROCK_SLIDE
-	db 1, 2, MUD_SLAP
-	db 1, 3, FIRE_BLAST
-	db 1, 4, SELFDESTRUCT
-	; OMANYTE
-	db 2, 1, BUBBLEBEAM
-	db 2, 2, SUPERSONIC
-	db 2, 3, MUD_SHOT
-	db 2, 4, ROCK_TOMB
-	; KABUTO
-	db 3, 1, GIGA_DRAIN
-	db 3, 2, BUBBLEBEAM
-	db 3, 3, ROCK_THROW
-	db 3, 4, CONFUSE_RAY
-	; RHYHORN
-	db 4, 1, ROCK_THROW
-	db 4, 2, IRON_TAIL
-	db 4, 3, DIG
-	db 4, 4, BODY_SLAM
-	; NINETALES
-	db 5, 1, CONFUSE_RAY
-	db 5, 2, HYPNOSIS
-	db 5, 3, FLAMETHROWER
-	db 5, 4, DARK_PULSE
-	; ONIX
-	db 6, 1, DIG
-	db 6, 2, BODY_PRESS
-	db 6, 3, BODY_SLAM
-	db 6, 4, ROCK_SLIDE
-	db $FE
-
-	db BROCK, 4
-	; GRAVELER
-	db 1, 1, ROCK_SLIDE
-	db 1, 2, EARTHQUAKE
-	db 1, 3, FIRE_BLAST
-	db 1, 4, SELFDESTRUCT
-	; OMASTAR
-	db 2, 1, BUBBLEBEAM
-	db 2, 2, ICE_BEAM
-	db 2, 3, BITE
-	db 2, 4, ROCK_SLIDE
-	; KABUTOPS
-	db 3, 1, GIGA_DRAIN
-	db 3, 2, BODY_SLAM
-	db 3, 3, ROCK_SLIDE
-	db 3, 4, CONFUSE_RAY
-	; RHYDON
-	db 4, 1, MEGA_PUNCH
-	db 4, 2, MEGAHORN
-	db 4, 3, DIG
-	db 4, 4, ROCK_SLIDE
-	; NINETALES
-	db 5, 1, CONFUSE_RAY
-	db 5, 2, HYPNOSIS
-	db 5, 3, FLAMETHROWER
-	db 5, 4, DARK_PULSE
-	; ONIX
-	db 6, 1, EARTHBADGE
-	db 6, 2, BODY_PRESS
-	db 6, 3, EXPLOSION
-	db 6, 4, ROCK_SLIDE
-	db $FE
-
-	db BROCK, 5
-	; GOLEM
-	db 1, 1, EARTHQUAKE
-	db 1, 2, EXPLOSION
-	db 1, 3, BODY_PRESS
-	db 1, 4, GYRO_BALL
-	; OMASTAR
-	db 2, 1, SURF
-	db 2, 2, ICE_BEAM
-	db 2, 3, SUPERSONIC
-	db 2, 4, ROCK_SLIDE
-	; KABUTOPS
-	db 3, 1, LEECH_LIFE
-	db 3, 2, SLASH
-	db 3, 3, ROCK_SLIDE
-	db 3, 4, CONFUSE_RAY
-	; RHYDON
-	db 4, 1, EARTHQUAKE
-	db 4, 2, MEGAHORN
-	db 4, 3, IRON_TAIL
-	db 4, 4, ROCK_SLIDE
-	; NINETALES
-	db 5, 1, CONFUSE_RAY
-	db 5, 2, WILL_O_WISP
-	db 5, 3, DARK_PULSE
-	db 5, 4, SUBSTITUTE
-	; KLEAVOR
-	db 6, 1, AIR_SLASH
-	db 6, 2, SLASH
-	db 6, 3, SWORDS_DANCE
-	db 6, 4, X_SCISSOR
-	db $FE
-
-	db BROCK, 6
-	; GOLEM
-	db 1, 1, EARTHQUAKE
-	db 1, 2, CURSE
-	db 1, 3, BODY_PRESS
-	db 1, 4, GYRO_BALL
-	; OMASTAR
-	db 2, 1, SURF
-	db 2, 2, ICE_BEAM
-	db 2, 3, HYPER_BEAM
-	db 2, 4, ROCK_SLIDE
-	; KABUTOPS
-	db 3, 1, LEECH_LIFE
-	db 3, 2, SLASH
-	db 3, 3, ROCK_SLIDE
-	db 3, 4, CONFUSE_RAY
-	; RHYDON
-	db 4, 1, EARTHQUAKE
-	db 4, 2, MEGAHORN
-	db 4, 3, IRON_TAIL
-	db 4, 4, STONE_EDGE
-	; NINETALES
-	db 5, 1, CONFUSE_RAY
-	db 5, 2, WILL_O_WISP
-	db 5, 3, FIRE_BLAST
-	db 5, 4, DOUBLE_TEAM
-	; KLEAVOR
-	db 6, 1, AIR_SLASH
-	db 6, 2, ROOST
-	db 6, 3, CLOSE_COMBAT
-	db 6, 4, X_SCISSOR
-	db $FE
-
-	db BROCK, 7
-	; GOLEM
-	db 1, 1, EARTHQUAKE
-	db 1, 2, EXPLOSION
-	db 1, 3, SUPERPOWER
-	db 1, 4, GYRO_BALL
-	; OMASTAR
-	db 2, 1, HYDRO_PUMP
-	db 2, 2, BLIZZARD
-	db 2, 3, HYPER_BEAM
-	db 2, 4, STONE_EDGE
-	; KABUTOPS
-	db 3, 1, LEECH_LIFE
-	db 3, 2, SLASH
-	db 3, 3, STONE_EDGE
-	db 3, 4, PSYCHO_CUT
-	; RHYPERIOR
-	db 4, 1, EARTHQUAKE
-	db 4, 2, STONE_EDGE
-	db 4, 3, SHADOW_CLAW
-	db 4, 4, BODY_PRESS
-	; KLEAVOR
-	db 6, 1, AIR_SLASH
-	db 6, 2, STONE_EDGE
-	db 6, 3, CLOSE_COMBAT
-	db 6, 4, X_SCISSOR
-	; AERODACTYL
-	db 6, 1, AIR_CUTTER
-	db 6, 2, ROOST
-	db 6, 3, STONE_EDGE
-	db 6, 4, EARTHQUAKE
-	db $FE
-
-	db BROCK, 8
-	; GOLEM
-	db 1, 1, EARTHQUAKE
-	db 1, 2, EXPLOSION
-	db 1, 3, BODY_PRESS
-	db 1, 4, STONE_EDGE
-	; OMASTAR
-	db 2, 1, HYDRO_PUMP
-	db 2, 2, BLIZZARD
-	db 2, 3, HYPER_BEAM
-	db 2, 4, STONE_EDGE
-	; KABUTOPS
-	db 3, 1, LEECH_LIFE
-	db 3, 2, SLASH
-	db 3, 3, STONE_EDGE
-	db 3, 4, PSYCHO_CUT
-	; RHYPERIOR
-	db 4, 1, EARTHQUAKE
-	db 4, 2, STONE_EDGE
-	db 4, 3, HYPER_BEAM
-	db 4, 4, BODY_PRESS
-	; KLEAVOR
-	db 6, 1, AIR_SLASH
-	db 6, 2, STONE_EDGE
-	db 6, 3, CLOSE_COMBAT
-	db 6, 4, X_SCISSOR
-	; AERODACTYL
-	db 6, 1, AIR_CUTTER
-	db 6, 2, ROOST
-	db 6, 3, STONE_EDGE
-	db 6, 4, EARTHQUAKE
-	db $FE
-
-	db BROCK, 9
-	; GOLEM
-	db 1, 1, EARTHQUAKE
-	db 1, 2, GYRO_BALL
-	db 1, 3, BODY_PRESS
-	db 1, 4, STONE_EDGE
-	; OMASTAR
-	db 2, 1, HYDRO_PUMP
-	db 2, 2, BLIZZARD
-	db 2, 3, HYPER_BEAM
-	db 2, 4, STONE_EDGE
-	; KABUTOPS
-	db 3, 1, LEECH_LIFE
-	db 3, 2, SLASH
-	db 3, 3, STONE_EDGE
-	db 3, 4, PSYCHO_CUT
-	; RHYPERIOR
-	db 4, 1, EARTHQUAKE
-	db 4, 2, STONE_EDGE
-	db 4, 3, HYPER_BEAM
-	db 4, 4, BODY_PRESS
-	; KLEAVOR
-	db 6, 1, AIR_SLASH
-	db 6, 2, STONE_EDGE
-	db 6, 3, CLOSE_COMBAT
-	db 6, 4, X_SCISSOR
-	; MAERODACTYL
-	db 6, 1, AIR_CUTTER
-	db 6, 2, ROOST
-	db 6, 3, STONE_EDGE
-	db 6, 4, EARTHQUAKE
-	db $FE
-
-; MISTY's teams -------------------------------------------------
-
-	db MISTY, 1
-	; GOLDEEN
-	db 1, 1, PECK
-	db 1, 2, SUPERSONIC
-	db 1, 3, LEER
-	db 1, 4, WATER_PULSE
-	; HORSEA
-	db 2, 1, BUBBLE
-	db 2, 2, SMOKESCREEN
-	db 2, 3, TWISTER
-	db 2, 4, NO_MOVE
-	; PSYDUCK
-	db 3, 1, LEER
-	db 3, 2, WATER_GUN
-	db 3, 3, CONFUSION
-	db 3, 4, FURY_SWIPES
-	; POLIWAG
-	db 4, 1, BUBBLE
-	db 4, 2, POUND
-	db 4, 3, DEFENSE_CURL
-	db 4, 4, MUD_SHOT
-	; SQUIRTLE
-	db 5, 1, TACKLE
-	db 5, 2, LEER
-	db 5, 3, BUBBLE
-	db 5, 4, BITE
-	; STARYU
-	db 6, 1, TACKLE
-	db 6, 2, WATER_GUN
-	db 6, 3, CONFUSE_RAY
-	db 6, 4, MINIMIZE
-	db $FE
-
-	db MISTY, 2
-	; STARYU
-	db 1, 1, CONFUSE_RAY
-	db 1, 2, BUBBLEBEAM
-	db 1, 3, MINIMIZE
-	db 1, 4, SWIFT
-	; PSYDUCK
-	db 2, 1, AMNESIA
-	db 2, 2, DISABLE
-	db 2, 3, ZEN_HEADBUTT
-	db 2, 4, HEADBUTT
-	; POLIWHIRL
-	db 3, 1, MUD_SHOT
-	db 3, 2, HYPNOSIS
-	db 3, 3, LOW_KICK
-	db 3, 4, BUBBLEBEAM
-	; GYARADOS
-	db 4, 1, BITE
-	db 4, 2, TWISTER
-	db 4, 3, BUBBLEBEAM
-	db 4, 4, LEER
-	; VAPOREON
-	db 5, 1, ACID_ARMOR
-	db 5, 2, REST ; AMNESIA?
-	db 5, 3, WATER_PULSE
-	db 5, 4, AURORA_BEAM
-	; STARMIE
-	db 6, 1, RECOVER
-	db 6, 2, BUBBLEBEAM
-	db 6, 3, MINIMIZE
-	db 6, 4, PSYBEAM
-	db $FE
-
-	db MISTY, 3
-	; WARTORTLE
-	db 1, 1, HEADBUTT
-	db 1, 2, MUD_SLAP
-	db 1, 3, WATER_PULSE
-	db 1, 4, CRUNCH
-	; GOLDUCK
-	db 2, 1, AMNESIA
-	db 2, 2, DISABLE
-	db 2, 3, ZEN_HEADBUTT
-	db 2, 4, HEADBUTT
-	; POLIWRATH
-	db 3, 1, BODY_SLAM
-	db 3, 2, HYPNOSIS
-	db 3, 3, SUBMISSION
-	db 3, 4, BUBBLEBEAM
-	; GYARADOS
-	db 4, 1, FOCUS_ENERGY
-	db 4, 2, FLAIL
-	db 4, 3, BUBBLEBEAM
-	db 4, 4, WRAP
-	; VAPOREON
-	db 5, 1, AMNESIA
-	db 5, 2, REST
-	db 5, 3, WATER_PULSE
-	db 5, 4, AURORA_BEAM
-	; STARMIE
-	db 6, 1, RECOVER
-	db 6, 2, BUBBLEBEAM
-	db 6, 3, MINIMIZE
-	db 6, 4, LIGHT_SCREEN
-	db $FE
-
 	db MISTY, 9
 	; GYARADOS
 	db 1, 1, DRAGON_DANCE
-	db 1, 2, HURRICANE
+	db 1, 2, AERIAL_ACE
 	db 1, 3, STONE_EDGE
 	db 1, 4, HYDRO_PUMP
-	; LAPRAS
-	db 2, 1, HYDRO_PUMP
-	db 2, 2, FREEZE_DRY
-	db 2, 3, CONFUSE_RAY
-	db 2, 4, THUNDERBOLT
-	; POLITOED
-	db 3, 1, AMNESIA
-	db 3, 2, LOVELY_KISS
-	db 3, 3, SCALD
-	db 3, 4, PSYCHIC_M
-	; VAPOREON
-	db 4, 1, SAND_ATTACK
-	db 4, 2, ACID_ARMOR
-	db 4, 3, HYDRO_PUMP
-	db 4, 4, REST
-	; STARMIE
-	db 5, 1, PSYCHO_CUT
-	db 5, 2, MINIMIZE
-	db 5, 3, HYDRO_PUMP
-	db 5, 4, RECOVER
-	; MBLASTOISE
-	db 6, 1, FLASH_CANNON
-	db 6, 2, BULLET_SEED
-	db 6, 3, HYDRO_CANNON
-	db 6, 4, OUTRAGE
-	db $FE
-
-; LT_SURGE's teams -------------------------------------------------
-
-	db LT_SURGE, 1
-	; VOLTORB
-	db 2, 1, THUNDERSHOCK
-	db 2, 2, TACKLE
-	db 2, 3, SCREECH
-	db 2, 4, NO_MOVE
-	; MAGNEMITE
-	db 2, 1, THUNDERSHOCK
-	db 2, 2, TACKLE
-	db 2, 3, THUNDER_WAVE
-	db 2, 4, NO_MOVE
-	; ELEKID
-	db 3, 1, CHARM
-	db 3, 2, SWIFT
-	db 3, 3, MUD_SLAP
-	db 3, 4, SHOCK_WAVE
-	; POLIWAG
-	db 4, 1, BUBBLE
-	db 4, 2, POUND
-	db 4, 3, DEFENSE_CURL
-	db 4, 4, MUD_SHOT
-	; PICHU
-	db 5, 1, CHARM
-	db 5, 2, THUNDER_WAVE
-	db 5, 3, DOUBLE_TEAM
-	db 5, 4, LEER
-	; PIKACHU
-	db 6, 1, CHARM
-	db 6, 2, THUNDER_WAVE
-	db 6, 3, DOUBLE_TEAM
-	db 6, 4, QUICK_ATTACK
-	db $FE
-
-	db LT_SURGE, 2
-	; VOLTORB
-	db 2, 1, SONICBOOM
-	db 2, 2, THUNDER_WAVE
-	db 2, 3, SELFDESTRUCT
-	db 2, 4, THUNDERSHOCK
-	; MAGNEMITE
-	db 2, 1, THUNDERSHOCK
-	db 2, 2, THUNDER_WAVE
-	db 2, 3, LIGHT_SCREEN
-	db 2, 4, SONICBOOM
-	; ELECTABUZZ
-	db 3, 1, FIRE_PUNCH
-	db 3, 2, ICE_PUNCH
-	db 3, 3, ROCK_TOMB
-	db 3, 4, THUNDERSHOCK
-	; POLIWHIRL
-	db 4, 1, MUD_SHOT
-	db 4, 2, HYPNOSIS
-	db 4, 3, BUBBLEBEAM
-	db 4, 4, LOW_KICK
-	; JOLTEON
-	db 5, 1, THUNDERSHOCK
-	db 5, 2, THUNDER_WAVE
-	db 5, 3, DIG
-	db 5, 4, BITE
-	; PIKACHU
-	db 6, 1, FLY
-	db 6, 2, SURF
-	db 6, 3, SING
-	db 6, 4, VOLT_TACKLE
-	db $FE
-
-	db LT_SURGE, 3
-	; ELECTRODE
-	db 1, 1, SONICBOOM
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, SELFDESTRUCT
-	db 1, 4, THUNDERBOLT
-	; MAGNETON
-	db 2, 1, SONICBOOM
-	db 2, 2, FLASH_CANNON
-	db 2, 3, SUPERSONIC
-	db 2, 4, THUNDERBOLT
-	; ELECTABUZZ
-	db 3, 1, THUNDER_WAVE
-	db 3, 2, BARRIER
-	db 3, 3, THUNDERPUNCH
-	db 3, 4, SEISMIC_TOSS
-	; TANGELA
-	db 4, 1, LEECH_SEED
-	db 4, 2, INFESTATION
-	db 4, 3, GIGA_DRAIN
-	db 4, 4, POISONPOWDER
-	; JOLTEON
-	db 5, 1, THUNDERBOLT
-	db 5, 2, THUNDER_WAVE
-	db 5, 3, DIG
-	db 5, 4, BITE
-	; RAICHU
-	db 6, 1, ZAP_CANNON
-	db 6, 2, MEGA_PUNCH
-	db 6, 3, IRON_TAIL
-	db 6, 4, SUBMISSION
-	db $FE
 
 	db LT_SURGE, 4
-	; ELECTRODE
-	db 1, 1, SONICBOOM
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, EXPLOSION
-	db 1, 4, THUNDERBOLT
-	; MAGNETON
-	db 2, 1, REFLECT
-	db 2, 2, FLASH_CANNON
-	db 2, 3, SUPERSONIC
-	db 2, 4, THUNDERBOLT
-	; ELECTABUZZ
-	db 3, 1, IRON_TAIL
-	db 3, 2, THUNDERBOLT
-	db 3, 3, KARATE_CHOP
-	db 3, 4, FLAMETHROWER
-	; TANGELA
-	db 4, 1, LEECH_SEED
-	db 4, 2, INFESTATION
-	db 4, 3, GIGA_DRAIN
-	db 4, 4, TOXIC
 	; JOLTEON
 	db 5, 1, THUNDERBOLT
 	db 5, 2, THUNDER_WAVE
 	db 5, 3, DIG
-	db 5, 4, BITE
-	; RAICHU
-	db 6, 1, THUNDERBOLT
-	db 6, 2, SURF
-	db 6, 3, EXTREMESPEED
-	db 6, 4, SUBMISSION
+	db 5, 4, SHADOW_BALL
 	db $FE
 
 	db LT_SURGE, 5
-	; ELECTRODE
-	db 1, 1, TAKE_DOWN
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, EXPLOSION
-	db 1, 4, THUNDERBOLT
-	; MAGNEZONE
-	db 2, 1, REFLECT
-	db 2, 2, FLASH_CANNON
-	db 2, 3, SUBSTITUTE
-	db 2, 4, THUNDERBOLT
-	; ELECTABUZZ
-	db 3, 1, ROCK_TOMB
-	db 3, 2, THUNDER
-	db 3, 3, FLAMETHROWER
-	db 3, 4, CLOSE_COMBAT
-	; TANGROWTH
-	db 4, 1, LEECH_SEED
-	db 4, 2, INFESTATION
-	db 4, 3, GIGA_DRAIN
-	db 4, 4, SLEEP_POWDER
-	; JOLTEON
-	db 5, 1, THUNDERBOLT
-	db 5, 2, DOUBLE_KICK
-	db 5, 3, PIN_MISSILE
-	db 5, 4, IRON_TAIL
-	; RAICHU
-	db 6, 1, VOLT_TACKLE
-	db 6, 2, SURF
-	db 6, 3, PETAL_DANCE
-	db 6, 4, PSYCHIC_M
-	db $FE
-
-	db LT_SURGE, 6
-	; ELECTRODE
-	db 1, 1, HYPER_BEAM
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, EXPLOSION
-	db 1, 4, THUNDERBOLT
-	; MAGNEZONE
-	db 2, 1, TOXIC
-	db 2, 2, FLASH_CANNON
-	db 2, 3, SUBSTITUTE
-	db 2, 4, THUNDERBOLT
-	; ELECTIVIRE
-	db 3, 1, ROCK_SLIDE
-	db 3, 2, THUNDERBOLT
-	db 3, 3, ICE_PUNCH
-	db 3, 4, PSYCHIC_M
-	; TANGROWTH
-	db 4, 1, LEECH_SEED
-	db 4, 2, INFESTATION
-	db 4, 3, ENERGY_BALL
-	db 4, 4, SLEEP_POWDER
 	; JOLTEON
 	db 5, 1, THUNDERBOLT
 	db 5, 2, DOUBLE_KICK
 	db 5, 3, PIN_MISSILE
 	db 5, 4, SHADOW_BALL
-	; RAICHU
-	db 6, 1, VOLT_TACKLE
-	db 6, 2, SURF
-	db 6, 3, PLAY_ROUGH
-	db 6, 4, PSYCHIC_M
-	db $FE
-
-	db LT_SURGE, 7
-	; ELECTRODE
-	db 1, 1, HYPER_BEAM
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, EXPLOSION
-	db 1, 4, THUNDERBOLT
-	; MAGNEZONE
-	db 2, 1, THUNDER_WAVE
-	db 2, 2, FLASH_CANNON
-	db 2, 3, EXPLOSION
-	db 2, 4, THUNDERBOLT
-	; ELECTIVIRE
-	db 3, 1, EARTHQUAKE
-	db 3, 2, THUNDERBOLT
-	db 3, 3, ICE_PUNCH
-	db 3, 4, PSYCHIC_M
-	; TANGROWTH
-	db 4, 1, CURSE
-	db 4, 2, INFESTATION
-	db 4, 3, ENERGY_BALL
-	db 4, 4, SLEEP_POWDER
-	; JOLTEON
-	db 5, 1, THUNDERBOLT
-	db 5, 2, DOUBLE_KICK
-	db 5, 3, HYPER_BEAM
-	db 5, 4, SHADOW_BALL
-	; RAICHU
-	db 6, 1, VOLT_TACKLE
-	db 6, 2, SURF
-	db 6, 3, PLAY_ROUGH
-	db 6, 4, PSYCHIC_M
-	db $FE
-
-	db LT_SURGE, 8
-	; ELECTRODE
-	db 1, 1, HYPER_BEAM
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, EXPLOSION
-	db 1, 4, THUNDER
-	; MAGNEZONE
-	db 2, 1, THUNDER_WAVE
-	db 2, 2, FLASH_CANNON
-	db 2, 3, EXPLOSION
-	db 2, 4, THUNDER
-	; ELECTIVIRE
-	db 3, 1, EARTHQUAKE
-	db 3, 2, THUNDER
-	db 3, 3, ICE_PUNCH
-	db 3, 4, CLOSE_COMBAT
-	; TANGROWTH
-	db 4, 1, EARTHQUAKE
-	db 4, 2, HYPER_BEAM
-	db 4, 3, LEAF_STORM
-	db 4, 4, ROCK_SLIDE
-	; JOLTEON
-	db 5, 1, THUNDER
-	db 5, 2, DOUBLE_KICK
-	db 5, 3, HYPER_BEAM
-	db 5, 4, SHADOW_BALL
-	; RAICHU
-	db 6, 1, VOLT_TACKLE
-	db 6, 2, SURF
-	db 6, 3, MEGA_PUNCH
-	db 6, 4, PSYCHIC_M
-	db $FE
-
-	db LT_SURGE, 9
-	; ELECTRODE
-	db 1, 1, HYPER_BEAM
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, EXPLOSION
-	db 1, 4, THUNDER
-	; MAGNEZONE
-	db 2, 1, THUNDER_WAVE
-	db 2, 2, FLASH_CANNON
-	db 2, 3, EXPLOSION
-	db 2, 4, THUNDER
-	; ELECTIVIRE
-	db 3, 1, EARTHQUAKE
-	db 3, 2, THUNDER
-	db 3, 3, ICE_PUNCH
-	db 3, 4, CLOSE_COMBAT
-	; TANGROWTH
-	db 4, 1, EARTHQUAKE
-	db 4, 2, HYPER_BEAM
-	db 4, 3, LEAF_STORM
-	db 4, 4, ROCK_SLIDE
-	; JOLTEON
-	db 5, 1, THUNDER
-	db 5, 2, DOUBLE_KICK
-	db 5, 3, HYPER_BEAM
-	db 5, 4, SHADOW_BALL
-	; RAICHU
-	db 6, 1, VOLT_TACKLE
-	db 6, 2, SURF
-	db 6, 3, MEGA_PUNCH
-	db 6, 4, PSYCHIC_M
 	db $FE
 
 ; ERIKA's teams -------------------------------------------------
 
-	db ERIKA, 2
-	; PARAS
-	db 1, 1, MEGA_DRAIN
-	db 1, 2, LEECH_SEED
-	db 1, 3, INFESTATION
-	db 1, 4, SPORE
-	; GLOOM
-	db 2, 1, LEECH_SEED
-	db 2, 2, POISONPOWDER
-	db 2, 3, STUN_SPORE
-	db 2, 4, GIGA_DRAIN
-	; EXEGGCUTE
-	db 3, 1, PSYWAVE
-	db 3, 2, LEECH_SEED
-	db 3, 3, LIGHT_SCREEN
-	db 3, 4, ENERGY_BALL
-	; WEEPINBELL
-	db 4, 1, WRAP
-	db 4, 2, STUN_SPORE
-	db 4, 3, GIGA_DRAIN
-	db 4, 4, ACID
-	; LEAFEON
-	db 5, 1, SAND_ATTACK
-	db 5, 2, QUICK_ATTACK
-	db 5, 3, FOCUS_ENERGY
-	db 5, 4, DOUBLE_KICK
-	; TANGELA
-	db 6, 1, LEECH_SEED
-	db 6, 2, POISONPOWDER
-	db 6, 3, WRAP
-	db 6, 4, GIGA_DRAIN
-	db $FE
-
-	db ERIKA, 3
-	; PARASECT
-	db 1, 1, GIGA_DRAIN
-	db 1, 2, LEECH_SEED
-	db 1, 3, INFESTATION
-	db 1, 4, SPORE
+	db ERIKA, 4
 	; VILEPLUME
 	db 2, 1, STUN_SPORE
 	db 2, 2, MOONBLAST
 	db 2, 3, SLUDGE_WAVE
-	db 2, 4, ENERGY_BALL
-	; EXEGGUTOR
-	db 3, 1, CONFUSION
-	db 3, 2, LEECH_SEED
-	db 3, 3, BULLET_SEED
-	db 3, 4, STUN_SPORE
-	; VICTREEBEL
-	db 4, 1, WRAP
-	db 4, 2, STUN_SPORE
-	db 4, 3, MAGICAL_LEAF
-	db 4, 4, LEECH_LIFE
-	; LEAFEON
-	db 5, 1, DOUBLE_EDGE
-	db 5, 2, X_SCISSOR
-	db 5, 3, SHADOW_BALL
-	db 5, 4, RAZOR_LEAF
-	; TANGELA
-	db 6, 1, LEECH_SEED
-	db 6, 2, LIGHT_SCREEN
-	db 6, 3, WRAP
-	db 6, 4, GIGA_DRAIN
-	db $FE
-
-	db ERIKA, 4
-	; PARASECT
-	db 1, 1, SPORE
-	db 1, 2, INFESTATION
-	db 1, 3, LEECH_LIFE
-	db 1, 4, SLASH
-	; VILEPLUME
-	db 2, 1, STUN_SPORE
-	db 2, 2, MOONBLAST
-	db 2, 3, GUNK_SHOT
 	db 2, 4, PETAL_DANCE
-	; BELLOSSOM
-	db 3, 1, STUN_SPORE
-	db 3, 2, MOONBLAST
-	db 3, 3, DRAIN_PUNCH
-	db 3, 4, PETAL_DANCE
-	; VICTREEBEL
-	db 4, 1, WRAP
-	db 4, 2, HYPER_BEAM
-	db 4, 3, SLEEP_POWDER
-	db 4, 4, RAZOR_LEAF
 	; LEAFEON
 	db 5, 1, SWORDS_DANCE
-	db 5, 2, HYPER_BEAM
+	db 5, 2, BODY_SLAM
 	db 5, 3, SAND_ATTACK
-	db 5, 4, LEAF_STORM
-	; TANGROWTH
-	db 6, 1, LIGHT_SCREEN
-	db 6, 2, REFLECT
-	db 6, 3, LEECH_SEED
-	db 6, 4, ROCK_SLIDE
+	db 5, 4, RAZOR_LEAF
 	db $FE
 
 	db ERIKA, 5
 	; VILEPLUME
 	db 1, 1, STUN_SPORE
 	db 1, 2, MOONBLAST
-	db 1, 3, GUNK_SHOT
+	db 1, 3, SLUDGE_WAVE
 	db 1, 4, PETAL_DANCE
-	; BELLOSSOM
-	db 2, 1, STUN_SPORE
-	db 2, 2, MOONBLAST
-	db 2, 3, DRAIN_PUNCH
-	db 2, 4, PETAL_DANCE
-	; VICTREEBEL
-	db 3, 1, WRAP
-	db 3, 2, HYPER_BEAM
-	db 3, 3, SLEEP_POWDER
-	db 3, 4, RAZOR_LEAF
 	; LEAFEON
 	db 4, 1, SWORDS_DANCE
-	db 4, 2, HYPER_BEAM
-	db 4, 3, SHADOW_BALL
+	db 4, 2, BODY_SLAM
+	db 4, 3, IRON_TAIL
 	db 4, 4, RAZOR_LEAF
 	; VENUSAUR
-	db 5, 1, GUNK_SHOT
-	db 5, 2, LEECH_SEED
-	db 5, 3, RAZOR_LEAF
-	db 5, 4, EARTHQUAKE
-	; TANGROWTH
-	db 6, 1, AMNESIA
-	db 6, 2, CURSE
-	db 6, 3, GIGA_DRAIN
-	db 6, 4, ROCK_SLIDE
+	db 6, 1, SLUDGE_WAVE
+	db 6, 2, LEECH_SEED
+	db 6, 3, RAZOR_LEAF
+	db 6, 4, EARTHQUAKE
 	db $FE
 
 	db ERIKA, 6
 	; VILEPLUME
 	db 1, 1, STUN_SPORE
 	db 1, 2, MOONBLAST
-	db 1, 3, GUNK_SHOT
+	db 1, 3, SLUDGE_WAVE
 	db 1, 4, PETAL_DANCE
-	; EXEGGUTOR
-	db 2, 1, PSYCHIC_M
-	db 2, 2, SLEEP_POWDER
-	db 2, 3, OUTRAGE
-	db 2, 4, EXPLOSION
-	; VICTREEBEL
-	db 3, 1, WRAP
-	db 3, 2, HYPER_BEAM
-	db 3, 3, LOVELY_KISS
-	db 3, 4, RAZOR_LEAF
 	; LEAFEON
 	db 4, 1, SWORDS_DANCE
-	db 4, 2, HYPER_BEAM
-	db 4, 3, SHADOW_BALL
+	db 4, 2, BODY_SLAM
+	db 4, 3, CRUNCH
 	db 4, 4, X_SCISSOR
 	; VENUSAUR
-	db 5, 1, GUNK_SHOT
-	db 5, 2, LEECH_SEED
-	db 5, 3, RAZOR_LEAF
-	db 5, 4, EARTHQUAKE
-	; TANGROWTH
-	db 6, 1, AMNESIA
-	db 6, 2, CURSE
-	db 6, 3, GIGA_DRAIN
-	db 6, 4, REST
+	db 6, 1, SLUDGE_WAVE
+	db 6, 2, LEECH_SEED
+	db 6, 3, RAZOR_LEAF
+	db 6, 4, EARTHQUAKE
 	db $FE
 
 	db ERIKA, 7
 	; VILEPLUME
 	db 1, 1, STUN_SPORE
 	db 1, 2, MOONBLAST
-	db 1, 3, GUNK_SHOT
+	db 1, 3, SLUDGE_WAVE
 	db 1, 4, PETAL_DANCE
-	; EXEGGUTOR
-	db 2, 1, ZEN_HEADBUTT
-	db 2, 2, SLEEP_POWDER
-	db 2, 3, OUTRAGE
-	db 2, 4, EXPLOSION
-	; VICTREEBEL
-	db 3, 1, WRAP
-	db 3, 2, GUNK_SHOT
-	db 3, 3, STUN_SPORE
-	db 3, 4, RAZOR_LEAF
 	; LEAFEON
-	db 4, 1, LEAF_STORM
-	db 4, 2, HYPER_BEAM
-	db 4, 3, SHADOW_BALL
+	db 4, 1, RAZOR_LEAF
+	db 4, 2, BODY_SLAM
+	db 4, 3, CRUNCH
 	db 4, 4, X_SCISSOR
 	; VENUSAUR
-	db 5, 1, GUNK_SHOT
-	db 5, 2, LEECH_SEED
-	db 5, 3, LEAF_STORM
-	db 5, 4, EARTHQUAKE
-	; TANGROWTH
-	db 6, 1, AMNESIA
-	db 6, 2, CURSE
-	db 6, 3, GIGA_DRAIN
-	db 6, 4, REST
+	db 6, 1, SLUDGE_WAVE
+	db 6, 2, LEECH_SEED
+	db 6, 3, LEAF_STORM
+	db 6, 4, EARTHQUAKE
 	db $FE
 
 	db ERIKA, 8
 	; VILEPLUME
 	db 1, 1, STUN_SPORE
 	db 1, 2, MOONBLAST
-	db 1, 3, GUNK_SHOT
+	db 1, 3, SLUDGE_WAVE
 	db 1, 4, ENERGY_BALL
-	; EXEGGUTOR
-	db 2, 1, PSYCHO_CUT
-	db 2, 2, SLEEP_POWDER
-	db 2, 3, OUTRAGE
-	db 2, 4, EXPLOSION
-	; VICTREEBEL
-	db 3, 1, WRAP
-	db 3, 2, GUNK_SHOT
-	db 3, 3, STUN_SPORE
-	db 3, 4, RAZOR_LEAF
 	; LEAFEON
-	db 4, 1, LEAF_STORM
-	db 4, 2, HYPER_BEAM
-	db 4, 3, SHADOW_BALL
+	db 4, 1, RAZOR_LEAF
+	db 4, 2, BODY_SLAM
+	db 4, 3, CRUNCH
 	db 4, 4, X_SCISSOR
 	; VENUSAUR
-	db 5, 1, GUNK_SHOT
-	db 5, 2, LEECH_SEED
-	db 5, 3, LEAF_STORM
-	db 5, 4, EARTHQUAKE
-	; TANGROWTH
-	db 6, 1, AMNESIA
-	db 6, 2, CURSE
-	db 6, 3, GIGA_DRAIN
-	db 6, 4, REST
+	db 6, 1, SLUDGE_WAVE
+	db 6, 2, LEECH_SEED
+	db 6, 3, LEAF_STORM
+	db 6, 4, EARTHQUAKE
 	db $FE
 
 	db ERIKA, 9
-	; VICTREEBEL
-	db 1, 1, WRAP
-	db 1, 2, GUNK_SHOT
-	db 1, 3, STUN_SPORE
-	db 1, 4, RAZOR_LEAF
 	; VILEPLUME
 	db 2, 1, STUN_SPORE
 	db 2, 2, MOONBLAST
-	db 2, 3, GUNK_SHOT
+	db 2, 3, SLUDGE_WAVE
 	db 2, 4, ENERGY_BALL
-	; EXEGGUTOR
-	db 3, 1, PSYCHO_CUT
-	db 3, 2, SLEEP_POWDER
-	db 3, 3, OUTRAGE
-	db 3, 4, EXPLOSION
 	; LEAFEON
 	db 4, 1, LEAF_STORM
 	db 4, 2, HYPER_BEAM
 	db 4, 3, SHADOW_BALL
 	db 4, 4, X_SCISSOR
-	; TANGROWTH
-	db 5, 1, AMNESIA
-	db 5, 2, CURSE
-	db 5, 3, GIGA_DRAIN
-	db 5, 4, REST
 	; MVENUSAUR
 	db 6, 1, EARTHQUAKE
 	db 6, 2, AMNESIA
-	db 6, 3, GUNK_SHOT
+	db 6, 3, SLUDGE_WAVE
 	db 6, 4, FRENZY_PLANT
 	db $FE
 
