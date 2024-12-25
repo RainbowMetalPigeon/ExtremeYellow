@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEW, 59 ; 255
+	db CHANSEY, 59 ; 255
 	db CHARMANDER, 68
 	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, POISONPOWDER
+	ld a, HYPER_BEAM
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, TOXIC

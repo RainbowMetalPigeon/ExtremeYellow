@@ -1299,7 +1299,7 @@ SpecialTrainerMoves:
 	db KOGA, 3
 	; MUK
 	db 1, 1, TOXIC
-	db 1, 2, SLUDGE_WAVE
+	db 1, 2, SLUDGE
 	db 1, 3, MINIMIZE
 	db 1, 4, SHADOW_SNEAK
 	; BEEDRILL
@@ -1321,12 +1321,12 @@ SpecialTrainerMoves:
 	db 5, 1, CONFUSE_RAY
 	db 5, 2, AIR_CUTTER
 	db 5, 3, SUPER_FANG
-	db 5, 4, SLUDGE_WAVE
+	db 5, 4, SLUDGE
 	; WEEZING
 	db 6, 1, SHADOW_BALL
 	db 6, 2, SUBSTITUTE
 	db 6, 3, TOXIC
-	db 6, 4, SLUDGE_WAVE
+	db 6, 4, SLUDGE
 	db $FE
 
 	db KOGA, 4
@@ -1663,7 +1663,7 @@ SpecialTrainerMoves:
 
 	db SABRINA, 6
 	; MR_MIME
-	db 1, 1, BARRIER ; SUBSTITUTE?
+	db 1, 1, SUBSTITUTE
 	db 1, 2, PLAY_ROUGH
 	db 1, 3, MIMIC
 	db 1, 4, METRONOME ; PSYCHIC_M?

@@ -21,7 +21,7 @@ PhysicalToSpecialMoves:
 ; Ground
 	db MUD_SLAP
 	db MUD_SHOT
-; Ice
+; Steel
 	db FLASH_CANNON
     db -1 ; end
 
