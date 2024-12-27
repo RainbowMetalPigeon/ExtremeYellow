@@ -129,19 +129,20 @@ AIMoveChoiceModification1:
 ; check if it is one of the debuffing AND damaging moves, otherwise ignore all damaging moves here
 ; treat the accuracy one, i.e. Mud Slap, differently from the other two,
 ; Mud Shot and Rock Tomb, which are stronger but reduce less useful stats in Speed
+; Dream Eater goes here too as it does deal damage
 	ld a, [wEnemyMoveEffect]
 	cp ACCURACY_DOWN_SIDE_EFFECT_CERT
 	jp z, .debuff_Accuracy
 	cp SPEED_DOWN_SIDE_EFFECT_CERT
 	jp z, .debuff_Speed
-; if it is not the move above, check if it deals damage
+	cp DREAM_EATER_EFFECT
+	jp z, .dreamEaterEffect
+; if it is not the move above, check if it deals damage; if yes, don't process to save time
 	ld a, [wEnemyMovePower]
 	cp 5 ; this is here to include OHKO moves
 	jr nc, .nextMove ; we only care about non-damaging and OHKO moves right now
 ; read the effect and start comparing with a list of to-be-checked ones --------
 	ld a, [wEnemyMoveEffect]
-	cp DREAM_EATER_EFFECT
-	jp z, .dreamEaterEffect
 	cp CURSE_EFFECT
 	jp z, .curseEffect
 	cp LEECH_SEED_EFFECT
