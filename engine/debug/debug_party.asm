@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db CHANSEY, 59 ; 255
-	db CHARMANDER, 68
+	db MEW, 59 ; 255
+	db CHARIZARD, 68
 	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
 ;	db PORYGONZ, 99
