@@ -1890,7 +1890,7 @@ wPrize1Price:: dw
 wPrize2Price:: dw
 wPrize3Price:: dw
 
-	ds 1
+wNoSprintSteps:: db
 
 ; shared list of 9 random numbers, indexed by wLinkBattleRandomNumberListIndex
 wLinkBattleRandomNumberList:: ds 10
