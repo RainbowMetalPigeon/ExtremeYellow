@@ -183,4 +183,7 @@ LockedItems:
 	db LIFT_KEY
 	db LIGHT_BALL	; added to preserve specialness
 	db CHEAT_CANDY
+	db FIRE_ORB     ; to ensure birbs can be unlocked
+	db ICE_ORB      ; to ensure birbs can be unlocked
+	db THUNDER_ORB  ; to ensure birbs can be unlocked
 	db -1
