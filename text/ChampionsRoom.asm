@@ -611,7 +611,7 @@ _GaryVictoryText2ndBattle_BG::
 	line "I won, yes..."
 
 	para "But it is a some-"
-	line "how unsatisfaying"
+	line "how unsatisfying"
 	cont "victory..."
 
 	para "Anyway! Get lost,"
