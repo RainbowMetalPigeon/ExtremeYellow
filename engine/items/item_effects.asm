@@ -3749,6 +3749,12 @@ ItemUseReloadOverworldData:
 ; this is used by the pokedex to display locations the mon can be found on the map.
 FindWildLocationsOfMon:
 	ld hl, WildDataPointers
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue
+	ld hl, WildDataPointers_Sevii
+.continue
+; back to vanilla
 	ld de, wBuffer
 	ld c, $0
 .loop

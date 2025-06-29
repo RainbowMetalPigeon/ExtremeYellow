@@ -61,3 +61,14 @@ PowerPlantName:      db "POWER PLANT@"
 SecludedAtollName:   db "SECLUDED ATOLL@" ; new
 PikachuGrottoName:   db "PIKACHU GROTTO@" ; new
 HauntedHouseName:    db "@" ; new
+
+; new, for Sevii
+
+OneIslandName:       db "ONE ISLAND@"
+TwoIslandName:       db "TWO ISLAND@"
+ThreeIslandName:     db "THREE ISLAND@"
+FourIslandName:      db "FOUR ISLAND@"
+FiveIslandName:      db "FIVE ISLAND@"
+SixIslandName:       db "SIX ISLAND@"
+SevenIslandName:     db "SEVEN ISLAND@"
+Route31Name:         db "ROUTE 31@"

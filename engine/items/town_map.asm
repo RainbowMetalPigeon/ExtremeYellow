@@ -2,6 +2,8 @@ DEF NOT_VISITED EQU $fe
 
 DisplayTownMap:
 	call LoadTownMap
+	CheckEvent EVENT_IN_SEVII ; new for sevii
+	jr nz, .notHauntedHouse ; new for sevii
 ; new, to handle Haunted House
 	push hl
 	push de
@@ -68,7 +70,11 @@ DisplayTownMap:
 	hlcoord 0, 0
 	lb bc, 1, 20
 	call ClearScreenArea
+	ld hl, TownMapOrder_Sevii ; new, for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii1
 	ld hl, TownMapOrder
+.sevii1
 	ld a, [wWhichTownMapLocation]
 	ld c, a
 	ld b, 0
@@ -124,7 +130,20 @@ DisplayTownMap:
 .pressedUp
 	ld a, [wWhichTownMapLocation]
 	inc a
+; new for sevii
+	push af
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii2
+; Kanto
+	pop af
 	cp TownMapOrderEnd - TownMapOrder ; number of list items + 1
+	jr nz, .noOverflow
+	xor a
+	jr .noOverflow
+.sevii2
+	pop af
+	cp TownMapOrderEnd_Sevii - TownMapOrder_Sevii ; number of list items + 1
+; back to vanilla
 	jr nz, .noOverflow
 	xor a
 .noOverflow
@@ -135,19 +154,27 @@ DisplayTownMap:
 	dec a
 	cp -1
 	jr nz, .noUnderflow
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii3
 	ld a, TownMapOrderEnd - TownMapOrder - 1 ; number of list items
+	jr .noUnderflow
+.sevii3
+	ld a, TownMapOrderEnd_Sevii - TownMapOrder_Sevii - 1 ; number of list items
+; back to vanilla
 .noUnderflow
 	ld [wWhichTownMapLocation], a
 	jp .townMapLoop
 
-Func_70f87: ; unreferenced
-	ldh a, [hJoy5]
-	and D_DOWN | D_UP
-	ret z
-	callfar PlayPikachuSoundClip
-	ret
+;Func_70f87: ; unreferenced
+;	ldh a, [hJoy5]
+;	and D_DOWN | D_UP
+;	ret z
+;	callfar PlayPikachuSoundClip
+;	ret
 
 INCLUDE "data/maps/town_map_order.asm"
+INCLUDE "data/maps/town_map_order_sevii.asm" ; new, for sevii
 
 TownMapCursor:
 	INCBIN "gfx/town_map/town_map_cursor.1bpp"
@@ -205,7 +232,7 @@ LoadTownMap_Fly::
 	ld hl, vChars1 tile $6d
 	lb bc, BANK(TownMapUpArrow), (TownMapUpArrowEnd - TownMapUpArrow) / $8
 	call CopyVideoDataDouble
-	call BuildFlyLocationsList
+	call BuildFlyLocationsList_Wrapper ; edited for Sevii
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
@@ -216,8 +243,12 @@ LoadTownMap_Fly::
 	call PlaceString
 	ld a, [wCurMap]
 	ld b, $0
-	call DrawPlayerOrBirdSprite
+	call DrawPlayerOrBirdSprite	
+	ld hl, wFlyLocationsList_Sevii ; new, for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii1
 	ld hl, wFlyLocationsList
+.sevii1
 	decoord 18, 0
 .townMapFlyLoop
 	ld a, " "
@@ -287,7 +318,11 @@ LoadTownMap_Fly::
 	jr z, .pressedUp ; skip past unvisited towns
 	jp .townMapFlyLoop
 .wrapToStartOfList
+	ld hl, wFlyLocationsList_Sevii ; new, for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii2
 	ld hl, wFlyLocationsList
+.sevii2
 	jp .townMapFlyLoop
 .pressedDown
 	decoord 19, 0
@@ -299,7 +334,11 @@ LoadTownMap_Fly::
 	jr z, .pressedDown ; skip past unvisited towns
 	jp .townMapFlyLoop
 .wrapToEndOfList
+	ld hl, wFlyLocationsList_Sevii + NUM_CITY_MAPS_SEVII ; new, for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii3
 	ld hl, wFlyLocationsList + NUM_CITY_MAPS
+.sevii3
 	jr .pressedDown
 
 ToText:
@@ -329,6 +368,39 @@ BuildFlyLocationsList:
 	ld [hl], $ff
 	ret
 
+BuildFlyLocationsList_Sevii: ; new, for Sevii
+	ld hl, wFlyAnimUsingCoordList
+	ld [hl], $ff
+	ld hl, wFlyLocationsList_Sevii ; edited
+	ld a, [wTownVisitedFlag_Sevii]
+	ld e, a
+	ld a, [wTownVisitedFlag_Sevii + 1]
+	ld d, a
+	lb bc, 0, NUM_CITY_MAPS_SEVII
+.loop
+	srl d
+	rr e
+	ld a, NOT_VISITED
+	jr nc, .notVisited
+	ld a, b ; store the map number of the town if it has been visited
+.notVisited
+	ld [hl], a
+	inc hl
+	inc b
+	dec c
+	jr nz, .loop
+	ld [hl], $ff
+	ret
+
+BuildFlyLocationsList_Wrapper: ; new for Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .Sevii
+	call BuildFlyLocationsList
+	ret
+.Sevii
+	call BuildFlyLocationsList_Sevii
+	ret
+
 TownMapUpArrow:
 	INCBIN "gfx/town_map/up_arrow.1bpp"
 TownMapUpArrowEnd:
@@ -352,6 +424,11 @@ LoadTownMap:
 	ld a, BANK(MonNestIcon)
 	call FarCopyDataDouble
 	hlcoord 0, 0
+; new, for sevii
+	ld de, CompressedMap_Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .nextTile ; just skip the Kanto map
+; back to vanilla
 	ld de, CompressedMap
 .nextTile
 	ld a, [de]
@@ -384,6 +461,9 @@ LoadTownMap:
 
 CompressedMap:
 	INCBIN "gfx/town_map/town_map.rle"
+
+CompressedMap_Sevii: ; new, for sevii
+	INCBIN "gfx/town_map/town_map_sevii.rle"
 
 ExitTownMap:
 ; clear town map graphics data and load usual graphics data
@@ -440,6 +520,11 @@ DisplayWildLocations:
 	jr z, .exitLoop
 	and a
 	jr z, .nextEntry
+; new, for sevii
+	push af
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .inSevii
+	pop af
 ; new, to skip Haunted House
 	cp HAUNTED_HOUSE_1
 	jr z, .nextEntry
@@ -451,15 +536,26 @@ DisplayWildLocations:
 	jr z, .nextEntry
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr z, .nextEntry
+	jr .postSevii ; new, for sevii
+; back to vanilla
+; new for sevii
+.inSevii
+	pop af
+.postSevii
 ; back to vanilla
 	push hl
 	call LoadTownMapEntry
 	pop hl
-	ld a, [de]
-	cp $19 ; Cerulean Cave's coordinates
+	CheckEvent EVENT_IN_SEVII ; new for sevii
+	ld a, [de] ; from vanilla
+	jr nz, .SeviiNoSkipDexNest ; new for sevii
+; code that hides nests in certain area
+	cp $19 ; Cerulean Cave's YX (not XY!!!) coordinates
 	jr z, .nextEntry ; skip Cerulean Cave
 	cp $FF ; new, Secluded Island
 	jr z, .nextEntry ; new
+.SeviiNoSkipDexNest
+; back to vanilla
 	call TownMapCoordsToOAMCoords
 	ld a, $4 ; nest icon tile no.
 	ld [hli], a
@@ -509,7 +605,7 @@ AreaExtinctText:				; new
 	db "    EXTINCT@"			; new
 
 AreaQuestionMarksText:          ; new
-	db " ?????????????@"       ; new
+	db " ?????????????@"        ; new
 
 TownMapCoordsToOAMCoords:
 ; in: lower nybble of a = x, upper nybble of a = y
@@ -648,11 +744,25 @@ ZeroOutDuplicatesInList:
 
 LoadTownMapEntry:
 ; in: a = map number
-; out: lower nybble of [de] = x, upper nybble of [de] = y, hl = address of name
+; out: lower nybble of [de] = x, upper nybble of [de] = y (i.e.: [de]=YX coorindates); hl = address of name
+; edited for Sevii
+	push af
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; Kanto
+	pop af
 	cp FIRST_INDOOR_MAP
-	jr c, .external
+	jr c, .externalKanto
 	ld bc, 4
 	ld hl, InternalMapEntries
+	jr .loop
+.sevii
+	pop af
+	cp FIRST_INDOOR_MAP_SEVII
+	jr c, .externalSevii
+	ld bc, 4
+	ld hl, InternalMapEntries_Sevii
+; back to vanilla
 .loop
 	cp [hl]
 	jr c, .foundEntry
@@ -661,8 +771,12 @@ LoadTownMapEntry:
 .foundEntry
 	inc hl
 	jr .readEntry
-.external
+.externalKanto ; new
 	ld hl, ExternalMapEntries
+	jr .continue ; new
+.externalSevii ; new
+	ld hl, ExternalMapEntries_Sevii ; new
+.continue ; new
 	ld c, a
 	ld b, 0
 	add hl, bc
@@ -677,6 +791,7 @@ LoadTownMapEntry:
 	ret
 
 INCLUDE "data/maps/town_map_entries.asm"
+INCLUDE "data/maps/town_map_entries_sevii.asm" ; new, for sevii
 
 INCLUDE "data/maps/names.asm"
 

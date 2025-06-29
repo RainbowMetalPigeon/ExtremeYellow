@@ -25,6 +25,7 @@ INCLUDE "constants/sprite_data_constants.asm"
 INCLUDE "constants/palette_constants.asm"
 INCLUDE "constants/list_constants.asm"
 INCLUDE "constants/map_constants.asm"
+INCLUDE "constants/map_constants_sevii.asm" ; new
 INCLUDE "constants/map_data_constants.asm"
 INCLUDE "constants/map_object_constants.asm"
 INCLUDE "constants/hide_show_constants.asm"

@@ -365,5 +365,6 @@ GetSplitMapSpriteSetID:
 	ret
 
 INCLUDE "data/maps/sprite_sets.asm"
+INCLUDE "data/maps/sprite_sets_sevii.asm" ; new, for sevii
 
 INCLUDE "data/sprites/sprites.asm"

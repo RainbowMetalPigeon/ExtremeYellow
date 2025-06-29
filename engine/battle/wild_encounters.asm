@@ -39,13 +39,23 @@ TryDoWildEncounter:
 ; even if not in grass/water, standing anywhere we can encounter pokemon
 ; so long as the map is "indoor" and has wild pokemon defined.
 ; ...as long as it's not Viridian Forest or Safari Zone.
+; new, edited for sevii
+	CheckEvent EVENT_IN_SEVII
 	ld a, [wCurMap]
+	jr nz, .sevii
+; Kanto
 	cp FIRST_INDOOR_MAP ; is this an indoor map?
 	jr c, .CantEncounter2
+	jr .continue
+.sevii
+	cp FIRST_INDOOR_MAP_SEVII
+	jr c, .CantEncounter2
+.continue
+; back to vanilla
 	ld a, [wCurMapTileset]
-	cp FOREST ; Viridian Forest/Safari Zone
+	cp FOREST ; Viridian Forest/Safari Zone and forest(s) of Sevii
 	jr z, .CantEncounter2
-	cp ISLAND ; new, Secluded Island
+	cp ISLAND ; new, Secluded Island, also prolly stuff for Sevii
 	jr z, .CantEncounter2 ; new
 	ld a, [wGrassRate]
 .CanEncounter

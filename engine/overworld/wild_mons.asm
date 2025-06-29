@@ -1,6 +1,12 @@
 LoadWildData::
 	ResetEvent EVENT_RANDOM_WILD_BOTH_GRASS_AND_WATER ; new, for randomization
 	ld hl, WildDataPointers
+; new, for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .noSevii
+	ld hl, WildDataPointers_Sevii
+.noSevii
+; back to vanilla
 	ld a, [wCurMap]
 
 ; get wild data for current map
@@ -55,6 +61,7 @@ LoadWildData::
 	jp CopyData ; Copy bc bytes from hl to de.
 
 INCLUDE "data/wild/grass_water.asm"
+INCLUDE "data/wild/grass_water_sevii.asm" ; new, for sevii
 
 ; new, for wild encounter randomization ----------------------------------------
 

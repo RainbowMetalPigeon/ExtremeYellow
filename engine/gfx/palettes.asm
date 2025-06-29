@@ -261,6 +261,50 @@ SetPal_GameFreakIntro:
 ; uses PalPacket_Empty to build a packet based on the current map
 SetPal_Overworld:
 
+; new, for Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .notSevii
+; yes Sevii
+	ld hl, PalPacket_Empty
+	ld de, wPalPacket
+	ld bc, $10
+	call CopyData
+; check by tileset
+	ld a, [wCurMapTileset]
+	cp CEMETERY
+	jr z, .cemetery
+	cp CAVERN
+	jr z, .cave
+; check by map
+	ld a, [wCurMap]
+	cp FIRST_INDOOR_MAP_SEVII
+	jr c, .townOrRouteSevii
+	cp CERULEAN_CAVE_2F ; TBE
+	jr c, .normalDungeonOrBuildingSevii
+	cp CERULEAN_CAVE_1F + 1 ; TBE
+	jr c, .cave
+.normalDungeonOrBuildingSevii
+	ld a, [wLastMap] ; town or route that current dungeon or building is located
+.townOrRouteSevii
+	cp NUM_CITY_MAPS_SEVII
+	jr c, .town
+	ld a, PAL_ROUTE - 1
+;.town
+;	inc a ; a town's palette ID is its map ID + 1
+;	ld hl, wPalPacket + 1
+;	ld [hld], a
+;	ld de, BlkPacket_WholeScreen
+;	ld a, SET_PAL_OVERWORLD
+;	ld [wDefaultPaletteCommand], a
+;	ret
+.cemetery
+	ld a, PAL_GREYMON - 1
+	jr .town
+.cave
+	ld a, PAL_CAVE - 1
+	jr .town
+.notSevii
+
 ; new, code for rainbow palette
     ld a, [wCurMap]
     cp HAUNTED_ISLAND_OF_NUMBERS

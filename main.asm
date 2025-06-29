@@ -41,9 +41,9 @@ SECTION "bank3", ROMX
 INCLUDE "engine/joypad.asm"
 INCLUDE "engine/overworld/clear_variables.asm"
 INCLUDE "engine/overworld/player_state.asm"
-INCLUDE "engine/events/poison.asm"
+;INCLUDE "engine/events/poison.asm" ; moved to bankGarage2
+;INCLUDE "engine/overworld/daycare_exp.asm" ; moved to bankGarage2
 INCLUDE "engine/overworld/tilesets.asm"
-INCLUDE "engine/overworld/daycare_exp.asm"
 INCLUDE "data/maps/hide_show_data.asm"
 INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
@@ -87,7 +87,7 @@ SECTION "bankGarage2", ROMX ; new
 
 INCLUDE "engine/menus/item_descriptions.asm"
 INCLUDE "audio/fade_audio.asm" ; moved from home bank
-; moved all from bank3
+; moved all from bank3 (?)
 INCLUDE "engine/events/hidden_objects/bookshelves.asm"
 INCLUDE "engine/events/hidden_objects/indigo_plateau_statues.asm"
 INCLUDE "engine/events/hidden_objects/book_or_sculpture.asm"
@@ -96,6 +96,8 @@ INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
 INCLUDE "engine/battle/trainers2.asm" ; edited, moved out of HOME
 INCLUDE "engine/menus/print_text_internal.asm" ; new
+INCLUDE "engine/events/poison.asm" ; from bank3
+INCLUDE "engine/overworld/daycare_exp.asm" ; from bank3
 
 
 SECTION "bank4", ROMX

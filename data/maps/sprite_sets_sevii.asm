@@ -1,0 +1,344 @@
+MapSpriteSets_Sevii:
+	table_width 1, MapSpriteSets_Sevii
+	db $01 ; SEVII_ONE_ISLAND_CITY
+	db $02 ; SEVII_TWO_ISLAND_CITY
+	db $03 ; SEVII_THREE_ISLAND_CITY
+	db $04 ; SEVII_FOUR_ISLAND_CITY
+	db $05 ; SEVII_FIVE_ISLAND_CITY
+	db $06 ; SEVII_SIX_ISLAND_CITY
+	db $07 ; SEVII_SEVEN_ISLAND_CITY
+	
+	db $01 ; SEVII_ROUTE_31
+	assert_table_length FIRST_INDOOR_MAP_SEVII
+
+;DEF EAST_WEST   EQU 1
+;DEF NORTH_SOUTH EQU 2
+
+; TBE, USELSS?
+; Format:
+; 00: determines whether the map is split EAST_WEST or NORTH_SOUTH
+; 01: coordinate of dividing line
+; 02: sprite set ID if in the West or North side
+; 03: sprite set ID if in the East or South side
+SplitMapSpriteSets_Sevii: ; they must begin with $F1
+	db NORTH_SOUTH, 42, $10, $10 ; $f1
+
+SpriteSets_Sevii:
+
+; each sprite set has 9 walking sprites and 2 still sprites
+;DEF SPRITE_SET_LENGTH EQU 9 + 2
+
+; sprite set $01
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_BLUE
+	db SPRITE_YOUNGSTER
+	db SPRITE_GIRL
+	db SPRITE_FISHER
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_GAMBLER
+	db SPRITE_OAK
+	db SPRITE_SWIMMER
+	db SPRITE_POKE_BALL
+	db SPRITE_GAMBLER_ASLEEP
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $02
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_YOUNGSTER
+	db SPRITE_ROCKET
+	db SPRITE_SUPER_NERD
+	db SPRITE_HIKER
+	db SPRITE_BLUE
+	db SPRITE_OFFICER_JENNY
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_BOULDER
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $03
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_LITTLE_GIRL
+	db SPRITE_GIRL
+	db SPRITE_SUPER_NERD
+	db SPRITE_HIKER
+	db SPRITE_GAMBLER
+	db SPRITE_MONSTER
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_BOULDER
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $04
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_OFFICER_JENNY
+	db SPRITE_SUPER_NERD
+	db SPRITE_YOUNGSTER
+	db SPRITE_GAMBLER
+	db SPRITE_MONSTER
+	db SPRITE_SAILOR
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $05
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_LITTLE_GIRL
+	db SPRITE_BLUE
+	db SPRITE_GIRL
+	db SPRITE_FISHER
+	db SPRITE_TRAVELER
+	db SPRITE_GRAMPS
+	db SPRITE_MONSTER
+	db SPRITE_ROCKET
+	db SPRITE_POKE_BALL
+	db SPRITE_SNORLAX
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $06
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_GYM_GUIDE
+	db SPRITE_MONSTER
+	db SPRITE_BLUE
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_SWIMMER
+	db SPRITE_GUARD
+	db SPRITE_GAMBLER
+	db SPRITE_POKE_BALL
+	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $07
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_ROCKET
+	db SPRITE_SCIENTIST
+	db SPRITE_SILPH_WORKER
+	db SPRITE_ERIKA
+	db SPRITE_GENTLEMAN
+	db SPRITE_BIRD
+	db SPRITE_TRAVELER
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_POKE_BALL
+	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+	assert_table_length SPRITE_SET_LENGTH
+
+;; sprite set $08
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_BIKER
+;	db SPRITE_SUPER_NERD
+;	db SPRITE_BIRD
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_BEAUTY
+;	db SPRITE_FISHER
+;	db SPRITE_TRAVELER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_SNORLAX
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $09
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_BIKER
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_SILPH_WORKER
+;	db SPRITE_FISHER
+;	db SPRITE_ROCKER
+;	db SPRITE_HIKER
+;	db SPRITE_GAMBLER
+;	db SPRITE_MIDDLE_AGED_MAN
+;	db SPRITE_POKE_BALL
+;	db SPRITE_SNORLAX
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $0a
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_CHANSEY
+;	db SPRITE_FISHER
+;	db SPRITE_GAMBLER
+;	db SPRITE_MONSTER
+;	db SPRITE_SEEL
+;	db SPRITE_SWIMMER
+;	db SPRITE_YOUNGSTER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_FOSSIL
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $0b ; new, copy of $0a with the addition of Misty
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_MISTY ; for Misty
+;	db SPRITE_CHANSEY
+;	db SPRITE_FISHER
+;	db SPRITE_GAMBLER
+;	db SPRITE_MONSTER
+;	db SPRITE_SEEL
+;	db SPRITE_SWIMMER
+;	db SPRITE_YOUNGSTER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_FOSSIL
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $0c ; new, copy of $0a for Fuchsia
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_ROCKET ; for guarding the Safari Zone
+;	db SPRITE_CHANSEY
+;	db SPRITE_FISHER
+;	db SPRITE_GAMBLER
+;	db SPRITE_MONSTER
+;	db SPRITE_SEEL
+;	db SPRITE_TRAVELER ; edited, was SPRITE_SWIMMER
+;	db SPRITE_GIRL ; edited, was SPRITE_YOUNGSTER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_FOSSIL
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $0d ; new, for Obsidian
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_YOUNGSTER
+;	db SPRITE_ROCKET
+;	db SPRITE_TRAVELER
+;	db SPRITE_FISHER
+;	db SPRITE_SCIENTIST
+;	db SPRITE_OFFICER_JENNY
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_POKE_BALL
+;	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $0e ; new, copy of $01 for Pallet Town
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_BLUE
+;	db SPRITE_YOUNGSTER
+;	db SPRITE_GIRL
+;	db SPRITE_FISHER
+;	db SPRITE_DARK_GUIDE ; it was SPRITE_COOLTRAINER_M
+;	db SPRITE_GAMBLER
+;	db SPRITE_OAK
+;	db SPRITE_SWIMMER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_GAMBLER_ASLEEP
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $0f ; copy of $03 for Lavender
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_LITTLE_GIRL
+;	db SPRITE_GIRL
+;	db SPRITE_SUPER_NERD
+;	db SPRITE_HIKER
+;	db SPRITE_GAMBLER
+;	db SPRITE_TRAVELER ; edited, was SPRITE_MONSTER
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_POKE_BALL
+;	db SPRITE_BOULDER ; edited, was SPRITE_UNUSED_GAMBLER_ASLEEP_2
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $10 ; copy of $01 for Viridian
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_BLUE
+;	db SPRITE_YOUNGSTER
+;	db SPRITE_GIRL
+;	db SPRITE_FISHER
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_GAMBLER
+;	db SPRITE_OAK
+;	db SPRITE_TRAVELER ; edited, was SPRITE_SWIMMER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_GAMBLER_ASLEEP
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $11, copy of $04 for Vermilion
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_OFFICER_JENNY
+;	db SPRITE_TRAVELER ; edited, was SPRITE_SUPER_NERD
+;	db SPRITE_YOUNGSTER
+;	db SPRITE_GAMBLER
+;	db SPRITE_MONSTER
+;	db SPRITE_SAILOR
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_POKE_BALL
+;	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $12, copy of $02 for Pewtwer and Cerulean
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_TRAVELER ; edited, was SPRITE_YOUNGSTER
+;	db SPRITE_ROCKET
+;	db SPRITE_SUPER_NERD
+;	db SPRITE_HIKER
+;	db SPRITE_BLUE
+;	db SPRITE_OFFICER_JENNY
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_POKE_BALL
+;	db SPRITE_BOULDER ; edited, was SPRITE_UNUSED_GAMBLER_ASLEEP_2
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $13, copy of $01 for Cinnabar, R21, R22
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_BLUE
+;	db SPRITE_TRAVELER ; was SPRITE_YOUNGSTER
+;	db SPRITE_GIRL
+;	db SPRITE_FISHER
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_GAMBLER
+;	db SPRITE_OAK
+;	db SPRITE_SWIMMER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_GAMBLER_ASLEEP
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $14, copy of $08, for South part of R12
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_BIKER
+;	db SPRITE_SUPER_NERD
+;	db SPRITE_BLUE ; this is the difference wrt $08
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_BEAUTY
+;	db SPRITE_FISHER
+;	db SPRITE_TRAVELER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_SNORLAX
+;	assert_table_length SPRITE_SET_LENGTH
+;
+;; sprite set $15, copy of $08, for Route 29
+;	table_width 1
+;	db SPRITE_PIKACHU
+;	db SPRITE_SWIMMER ; edited, was SPRITE_BIKER
+;	db SPRITE_HIKER ; edited, was SPRITE_SUPER_NERD
+;	db SPRITE_SLOWKING ; edited, was SPRITE_MIDDLE_AGED_MAN / SPRITE_BIRD
+;	db SPRITE_COOLTRAINER_F
+;	db SPRITE_COOLTRAINER_M
+;	db SPRITE_BEAUTY
+;	db SPRITE_FISHER
+;	db SPRITE_TRAVELER ; edited, was a SPRITE_ROCKER
+;	db SPRITE_POKE_BALL
+;	db SPRITE_SNORLAX
+;	assert_table_length SPRITE_SET_LENGTH

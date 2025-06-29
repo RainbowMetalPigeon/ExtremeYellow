@@ -847,6 +847,7 @@ wHoFTeamNo:: db
 NEXTU
 wRivalStarterTemp:: db
 wRivalStarterBallSpriteIndex:: db
+wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 2 ; new, for Sevii
 
 NEXTU
 wFlyAnimUsingCoordList:: db
@@ -2533,7 +2534,8 @@ wBattleFacilityWinningStreakNext:: db ; edited, it was wUnusedD71F
 ; bit 7: set by ItemUseCardKey, which is leftover code from a previous implementation of the Card Key
 wd728:: db
 
-	ds 1 ; UNUSED bytes in "Main Data"
+;	ds 1
+wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII ; new, for Sevii
 
 ; redundant because it matches wObtainedBadges
 ; used to determine whether to show name on statue and in two NPC text scripts
