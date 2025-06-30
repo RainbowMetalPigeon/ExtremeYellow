@@ -1,4 +1,8 @@
 MarkTownVisitedAndLoadMissableObjects::
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; back to vanilla / Kanto
 	ld a, [wCurMap]
 	cp FIRST_ROUTE_MAP
 	jr nc, .notInTown
@@ -45,14 +49,37 @@ MarkTownVisitedAndLoadMissableObjects::
 	ld a, h
 	sbc HIGH(MissableObjectsExtra)
 .addressSelected
+	jr .continueWithCommonStuff
 
-; commented away for splitting the HS
-;	ld a, l
-;	sub LOW(MissableObjects)   ; calculate difference between out pointer and the base pointer
-;	ld l, a
-;	ld a, h
-;	sbc HIGH(MissableObjects)
+; new, for sevii
+.sevii
+	ld a, [wCurMap]
+	cp FIRST_ROUTE_MAP_SEVII
+	jr nc, .notInTownSevii
+	ld c, a
+	ld b, FLAG_SET
+	ld hl, wTownVisitedFlag_Sevii   ; mark town as visited (for flying)
+	predef FlagActionPredef
+.notInTownSevii
+	ld hl, MapHSPointers_Sevii
+	ld a, [wCurMap]
+	ld b, $0
+	ld c, a
+	add hl, bc
+	add hl, bc
+	ld a, [hli]                ; load missable objects pointer in hl
+	ld h, [hl]
+	ld l, a
+	push hl
+; previously commented away for splitting the HS, now retrieved for Sevii
+	ld a, l
+	sub LOW(MissableObjects_Sevii)   ; calculate difference between out pointer and the base pointer
+	ld l, a
+	ld a, h
+	sbc HIGH(MissableObjects_Sevii)
 
+.continueWithCommonStuff ; new
+; back to vanilla
 	ld h, a
 	ld a, h
 	ldh [hDividend], a
@@ -152,6 +179,37 @@ InitializeMissableObjectsFlagsExtra:
 	inc hl
 	inc hl
 	jr .missableObjectsLoop
+
+;; new for sevii
+;InitializeMissableObjectsFlags_Sevii:
+;	ld hl, wMissableObjectFlags
+;	ld bc, wMissableObjectFlagsEnd - wMissableObjectFlags
+;	xor a
+;	call FillMemory ; clear missable objects flags
+;	ld hl, MissableObjects
+;	xor a
+;	ld [wMissableObjectCounter], a
+;.missableObjectsLoop
+;	ld a, [hli]
+;	cp -1           ; end of list
+;	ret z
+;	push hl
+;	inc hl
+;	ld a, [hl]
+;	cp HIDE
+;	jr nz, .skip
+;	ld hl, wMissableObjectFlags
+;	ld a, [wMissableObjectCounter]
+;	ld c, a
+;	ld b, FLAG_SET
+;	call MissableObjectFlagAction ; set flag if Item is hidden
+;.skip
+;	ld hl, wMissableObjectCounter
+;	inc [hl]
+;	pop hl
+;	inc hl
+;	inc hl
+;	jr .missableObjectsLoop
 
 ; tests if current sprite is a missable object that is hidden/has been removed
 IsObjectHidden:

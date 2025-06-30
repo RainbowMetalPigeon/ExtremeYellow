@@ -29,6 +29,7 @@ INCLUDE "constants/map_constants_sevii.asm" ; new
 INCLUDE "constants/map_data_constants.asm"
 INCLUDE "constants/map_object_constants.asm"
 INCLUDE "constants/hide_show_constants.asm"
+INCLUDE "constants/hide_show_constants_sevii.asm" ; new
 INCLUDE "constants/credits_constants.asm"
 INCLUDE "constants/audio_constants.asm"
 INCLUDE "constants/music_constants.asm"

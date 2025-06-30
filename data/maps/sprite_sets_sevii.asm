@@ -20,8 +20,8 @@ MapSpriteSets_Sevii:
 ; 01: coordinate of dividing line
 ; 02: sprite set ID if in the West or North side
 ; 03: sprite set ID if in the East or South side
-SplitMapSpriteSets_Sevii: ; they must begin with $F1
-	db NORTH_SOUTH, 42, $10, $10 ; $f1
+;SplitMapSpriteSets_Sevii: ; they must begin with $F1
+;	db NORTH_SOUTH, 42, $10, $10 ; $f1
 
 SpriteSets_Sevii:
 

@@ -20,9 +20,19 @@ _InitMapSprites::
 ; Loads sprite set for outside maps (cities and routes) and sets VRAM slots.
 ; sets carry if the map is a city or route, unsets carry if not
 InitOutsideMapSprites:
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
 	ld a, [wCurMap]
+	jr nz, .sevii1
+; kanto
 	cp FIRST_INDOOR_MAP ; is the map a city or a route?
 	ret nc ; if not, return
+	jr .continue1
+.sevii1
+	cp FIRST_INDOOR_MAP_SEVII
+	ret nc
+.continue1
+; back to vanilla
 	call GetSplitMapSpriteSetID
 ; if so, choose the appropriate one
 	ld b, a ; b = spriteSetID
@@ -39,8 +49,20 @@ InitOutsideMapSprites:
 	ld c, a
 	ld b, 0
 	ld a, (wSpriteSetID - wSpriteSet)
+; new for sevii
+	push af
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii2
+; kanto
+	pop af
 	ld hl, SpriteSets
-	call AddNTimes ; get sprite set offset
+	jr .continue2
+.sevii2
+	pop af
+	ld hl, SpriteSets_Sevii
+.continue2
+; back to vanilla
+	call AddNTimes ; get sprite set offset (add bc to hl a times)
 	ld de, wSpriteSet
 	ld bc, (wSpriteSetID - wSpriteSet)
 	call CopyData ; copy it to wSpriteSet
@@ -301,7 +323,14 @@ Func_14179:
 GetSplitMapSpriteSetID:
 	ld e, a
 	ld d, 0
+; new for sevii
 	ld hl, MapSpriteSets
+	CheckEvent EVENT_IN_SEVII
+	jr z, .noSevii
+; sevii
+	ld hl, MapSpriteSets_Sevii
+.noSevii
+; back to vanilla
 	add hl, de
 	ld a, [hl] ; a = spriteSetID
 	cp $f0 ; does the map have 2 sprite sets?
@@ -310,7 +339,7 @@ GetSplitMapSpriteSetID:
 ; the map for maps with two sprite sets.
 	cp $f8
 	jr z, .route20
-	ld hl, SplitMapSpriteSets
+	ld hl, SplitMapSpriteSets ; this should never be relevant for Sevii if I'm careful about it
 	and $0f
 	dec a
 	add a

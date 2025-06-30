@@ -45,6 +45,7 @@ INCLUDE "engine/overworld/player_state.asm"
 ;INCLUDE "engine/overworld/daycare_exp.asm" ; moved to bankGarage2
 INCLUDE "engine/overworld/tilesets.asm"
 INCLUDE "data/maps/hide_show_data.asm"
+INCLUDE "data/maps/hide_show_data_sevii.asm" ; new
 INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
 ;INCLUDE "engine/menus/draw_badges.asm" ; moved to bankGarage

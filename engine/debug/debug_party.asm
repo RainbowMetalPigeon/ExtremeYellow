@@ -177,7 +177,7 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
-	SetEvent EVENT_IN_SEVII
+;	SetEvent EVENT_IN_SEVII
 
 ;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
