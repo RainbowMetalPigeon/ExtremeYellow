@@ -1,13 +1,13 @@
 HallOfFame_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, HallOfFame_ScriptPointers
-	ld a, [wHallOfFameCurScript]
+	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
 ;HallofFameRoomScript_5a4aa: ; is this even for anything?
 ;	xor a
 ;	ld [wJoyIgnore], a
-;	ld [wHallOfFameCurScript], a
+;	ld [wCurMapScript], a
 ;	ret
 
 HallOfFame_ScriptPointers:
@@ -44,7 +44,7 @@ HallofFameRoomScript0: ; makes player walk up to Rival and Oak
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 	ld a, $1
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 RLEMovement5a528:
@@ -143,7 +143,7 @@ HallofFameRoomScript1:
 	predef HealParty
 ; load next script
 	ld a, $2
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 ; ==================================
@@ -164,7 +164,7 @@ HallofFameRoomScript2:
 	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; load next script
 	ld a, $3
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 ; ==================================
@@ -181,7 +181,7 @@ HallofFameRoomScript3:
 	call MoveSprite
 ; load next script
 	ld a, $4
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 RivalLeavesYouSpaceMovement:
@@ -233,7 +233,7 @@ HallofFameRoomScript4:
 	call StartSimulatingJoypadStates
 ; load next script
 	ld a, $5
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 WalkToHallOfFameConsole_RLEMovment:
@@ -262,7 +262,7 @@ HallofFameRoomScript5:
 	ld [wPlayerMovingDirection], a
 ; load next script
 	ld a, $6
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 ; ==================================
@@ -283,16 +283,16 @@ HallofFameRoomScript6:
 	inc hl
 	set 0, [hl]
 	xor a
-	ld hl, wLoreleisRoomCurScript
+	ld hl, wLoreleisRoomCurScript ; TBE
 	ld [hli], a ; wLoreleisRoomCurScript
 	ld [hli], a ; wBrunosRoomCurScript
 	ld [hl], a ; wAgathasRoomCurScript
 	ld [wLancesRoomCurScript], a
-	ld [wHallOfFameCurScript], a
+	ld [wCurMapScript], a
 	; Elite 4 events
 	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END, 1
-	xor a
-	ld [wHallOfFameCurScript], a
+;	xor a ; useless
+;	ld [wCurMapScript], a ; useless, done above
 	ld a, PALLET_TOWN
 	ld [wLastBlackoutMap], a
 	farcall SaveSAVtoSRAM

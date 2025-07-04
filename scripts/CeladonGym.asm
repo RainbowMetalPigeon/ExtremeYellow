@@ -6,9 +6,9 @@ CeladonGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonGymTrainerHeaders
 	ld de, CeladonGym_ScriptPointers
-	ld a, [wCeladonGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCeladonGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .LoadNames:
@@ -25,7 +25,6 @@ CeladonGym_Script:
 CeladonGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wCeladonGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -173,7 +172,6 @@ ErikaText:
 	ld de, ErikaRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wCeladonGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -204,7 +202,6 @@ ErikaText:
 	ld a, $4
 	ld [wGymLeaderNo], a
 	ld a, $3
-	ld [wCeladonGymCurScript], a
 	ld [wCurMapScript], a
 .done
 	jp TextScriptEnd

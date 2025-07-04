@@ -2,9 +2,9 @@ RocketHideoutB4F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout4TrainerHeaders
 	ld de, RocketHideoutB4F_ScriptPointers
-	ld a, [wRocketHideoutB4FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRocketHideoutB4FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 RocketHideout4Script_45510:
@@ -13,7 +13,6 @@ RocketHideout4Script_45510:
 	xor a
 	ld [wJoyIgnore], a
 RocketHideout4Script_4551e:
-	ld [wRocketHideoutB4FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -66,7 +65,6 @@ RocketHideout4Script3:
 	ld hl, wCurrentMapScriptFlags
 	set 5, [hl]
 	ld a, $0
-	ld [wRocketHideoutB4FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -368,7 +366,6 @@ RocketHideout4Text0:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3
-	ld [wRocketHideoutB4FCurScript], a
 	ld [wCurMapScript], a
 	jr .asm_45801
 

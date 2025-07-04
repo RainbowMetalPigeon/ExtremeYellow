@@ -2,7 +2,7 @@ CinnabarGym_Script:
 	call CinnabarGymSetMapAndTiles
 	call EnableAutoTextBoxDrawing
 	ld hl, CinnabarGym_ScriptPointers
-	ld a, [wCinnabarGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 CinnabarGymSetMapAndTiles:
@@ -32,7 +32,6 @@ CinnabarGymSetMapAndTiles:
 CinnabarGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wCinnabarGymCurScript], a
 	ld [wCurMapScript], a
 	ld [wOpponentAfterWrongAnswer], a
 	ret
@@ -76,7 +75,6 @@ CinnabarGymScript0:
 .MoveSprite
 	call MoveSprite
 	ld a, $1
-	ld [wCinnabarGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -163,7 +161,6 @@ CinnabarGymScript2:
 	ld [wJoyIgnore], a
 	ld [wOpponentAfterWrongAnswer], a
 	ld a, $0
-	ld [wCinnabarGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -302,7 +299,6 @@ CinnabarGymScript_750c3:
 ; back to vanilla
 	ld a, $3
 .asm_758d6
-	ld [wCinnabarGymCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -338,7 +334,6 @@ BlaineText:
 	ld de, BlaineRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wCinnabarGymCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd ; slightly different from other gyms' rematches and from the rest of Cinnabar Gym, but should do
 ; back to vanilla code

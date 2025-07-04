@@ -5,7 +5,7 @@ RedsHouse1F_Script: ; edited
 	call nz, RedsHouse1FSetExitTile
 	call EnableAutoTextBoxDrawing
 	ld hl, RedsHouse1F_ScriptPointers
-	ld a, [wRedsHouse1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 

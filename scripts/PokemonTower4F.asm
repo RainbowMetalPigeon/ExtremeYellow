@@ -2,9 +2,9 @@ PokemonTower4F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower4TrainerHeaders
 	ld de, PokemonTower4F_ScriptPointers
-	ld a, [wPokemonTower4FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonTower4FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 PokemonTower4F_ScriptPointers:

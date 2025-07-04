@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEW, 59 ; 255
-	db CHARIZARD, 68
+	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
 ;	db SEAKING, 42
 ;	db PORYGONZ, 99
@@ -149,10 +149,11 @@ IF DEF(_DEBUG)
     ld a, %11001101
     ld [hli], a
 
-	; Rival chose Jolteon.
-	ld hl, wRivalStarter
-	ld a, RIVAL_STARTER_JOLTEON
-	ld [hli], a
+	; Rival chose Jolteon. ; edited, unused
+;	ld hl, wRivalStarter
+;	ld a, RIVAL_STARTER_JOLTEON
+;	ld [hli], a
+	ld hl, wUnknownDebugByte
 	ld a, NUM_POKEMON
 	ld [hli], a ; hl = wUnknownDebugByte
 	ld a, STARTER_PIKACHU
@@ -257,8 +258,9 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db TOWN_MAP, 1
-	db RARE_CANDY, 42
+    db PERFECTER, 99
 	db LEGEND_CANDY, 42
+	db RARE_CANDY, 42
 	db CHEAT_CANDY, 1
 	db LINK_CABLE, 3
     db UPGRADE, 3
@@ -292,7 +294,6 @@ DebugItemsList:
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
     db LIGHT_BALL, 1
-    db PERFECTER, 99
     db ULTRA_BALL, 99
     db GREAT_BALL, 99
     db HM_CUT, 1

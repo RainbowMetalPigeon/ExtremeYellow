@@ -250,7 +250,7 @@ wYellowIntroAnimatedObjectStructPointer:: db
 wSurfingMinigameDataEnd::
 ENDU
 
-	ds 80
+	ds 80 ; AAA!!! this is actually used for bgmap stuff!!! can't freely use it :'(
 
 
 SECTION "Overworld Map", WRAM0
@@ -845,8 +845,8 @@ wHoFTeamIndex2:: db
 wHoFTeamNo:: db
 
 NEXTU
-wRivalStarterTemp:: db
-wRivalStarterBallSpriteIndex:: db
+wRivalStarterTemp:: db ; leftovers from pokered?
+wRivalStarterBallSpriteIndex:: db ; leftovers from pokered?
 wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 2 ; new, for Sevii
 
 NEXTU
@@ -2238,154 +2238,178 @@ wAreWeUsingTheHoFPC:: db ; new, for the shiny
 wGameProgressFlags::
 wOaksLabCurScript:: db
 wPalletTownCurScript:: db
-wLavenderTownCurScript:: db ; new
+;wLavenderTownCurScript:: db ; new
 ;	ds 1
-wBluesHouseCurScript:: db
+;wBluesHouseCurScript:: db
+	ds 2 ; new, from optimizing the scripts, UNUSED
+	
 wViridianCityCurScript:: db
-wObsidianIslandCurScript:: db
-wOchreCityCurScript:: db ; new
+;wObsidianIslandCurScript:: db
+;wOchreCityCurScript:: db ; new
 ;	ds 2
-wPewterCityCurScript:: db
-wRoute3CurScript:: db
-wRoute4CurScript:: db
+;wPewterCityCurScript:: db
+;wRoute3CurScript:: db
+;wRoute4CurScript:: db
+	ds 5 ; new, from optimizing the scripts, UNUSED
+	
 wFanClubCurScript:: db
-wViridianGymCurScript:: db
-wPewterGymCurScript:: db
-wCeruleanGymCurScript:: db
-wVermilionGymCurScript:: db
-wCeladonGymCurScript:: db
-wRoute6CurScript:: db
-wRoute8CurScript:: db
-wRoute24CurScript:: db
-wRoute25CurScript:: db
-wRoute9CurScript:: db
-wRoute10CurScript:: db
-wMtMoon1FCurScript:: db
-wMtMoonB2FCurScript:: db
-wSSAnne1FRoomsCurScript:: db
-wSSAnne2FRoomsCurScript:: db
-wRoute22CurScript:: db
+;wViridianGymCurScript:: db
+;wPewterGymCurScript:: db
+;wCeruleanGymCurScript:: db
+;wVermilionGymCurScript:: db
+;wCeladonGymCurScript:: db
+;wRoute6CurScript:: db
+;wRoute8CurScript:: db
+;wRoute24CurScript:: db
+;wRoute25CurScript:: db
+;wRoute9CurScript:: db
+;wRoute10CurScript:: db
+;wMtMoon1FCurScript:: db
+;wMtMoonB2FCurScript:: db
+;wSSAnne1FRoomsCurScript:: db
+;wSSAnne2FRoomsCurScript:: db
+;wRoute22CurScript:: db
 ;	ds 1
-wOchreGymCurScript:: db ; new
-wRedsHouse2FCurScript:: db
+;wOchreGymCurScript:: db ; new
+;wRedsHouse2FCurScript:: db
+	ds 18 ; new, from optimizing the scripts, UNUSED
+
 wViridianMartCurScript:: db
 wRoute22GateCurScript:: db
 wCeruleanCityCurScript:: db
-wRoute26CurScript:: db ; new
-wSafariZoneNorthCurScript:: db ; new
-wObsidianWoodCurScript:: db ; new
-wObsidianWarehouseCurScript:: db ; new
-wObsidianWarehouseFinalCurScript:: db ; new
-wOnixBurrowingCurScript:: db ; new
-wSecludedCavesCurScript:: db ; new
+;wRoute26CurScript:: db ; new
+;wSafariZoneNorthCurScript:: db ; new
+;wObsidianWoodCurScript:: db ; new
+;wObsidianWarehouseCurScript:: db ; new
+;wObsidianWarehouseFinalCurScript:: db ; new
+;wOnixBurrowingCurScript:: db ; new
+;wSecludedCavesCurScript:: db ; new
 ;   db 7
-wSSAnneBowCurScript:: db
-wViridianForestCurScript:: db
+;wSSAnneBowCurScript:: db
+;wViridianForestCurScript:: db
+	ds 9 ; new, from optimizing the scripts, UNUSED
+	
 wMuseum1FCurScript:: db
-wRoute13CurScript:: db
-wRoute14CurScript:: db
-wRoute17CurScript:: db
-wRoute19CurScript:: db
-wRoute21CurScript:: db
+;wRoute13CurScript:: db
+;wRoute14CurScript:: db
+;wRoute17CurScript:: db
+;wRoute19CurScript:: db
+;wRoute21CurScript:: db
+	ds 5 ; new, from optimizing the scripts, UNUSED
+	
 wSafariZoneGateCurScript:: db
-wRockTunnelB1FCurScript:: db
-wRockTunnel1FCurScript:: db
-wObsidianMinesCurScript:: db ; new
+;wRockTunnelB1FCurScript:: db
+;wRockTunnel1FCurScript:: db
+;wObsidianMinesCurScript:: db ; new
 ;	ds 1
-wRoute11CurScript:: db
-wRoute12CurScript:: db
-wRoute15CurScript:: db
-wRoute16CurScript:: db
-wRoute18CurScript:: db
-wRoute20CurScript:: db
-wSSAnneB1FRoomsCurScript:: db
-wVermilionCityCurScript:: db
-wPokemonTower2FCurScript:: db
-wPokemonTower3FCurScript:: db
-wPokemonTower4FCurScript:: db
-wPokemonTower5FCurScript:: db
-wPokemonTower6FCurScript:: db
-wPokemonTower7FCurScript:: db
-wRocketHideoutB1FCurScript:: db
-wRocketHideoutB2FCurScript:: db
-wRocketHideoutB3FCurScript:: db
-wRocketHideoutB4FCurScript:: db
-wFuchsiaCityCurScript:: db ; new
+;wRoute11CurScript:: db
+;wRoute12CurScript:: db
+;wRoute15CurScript:: db
+;wRoute16CurScript:: db
+;wRoute18CurScript:: db
+;wRoute20CurScript:: db
+;wSSAnneB1FRoomsCurScript:: db
+;wVermilionCityCurScript:: db
+;wPokemonTower2FCurScript:: db
+;wPokemonTower3FCurScript:: db
+;wPokemonTower4FCurScript:: db
+;wPokemonTower5FCurScript:: db
+;wPokemonTower6FCurScript:: db
+;wPokemonTower7FCurScript:: db
+;wRocketHideoutB1FCurScript:: db
+;wRocketHideoutB2FCurScript:: db
+;wRocketHideoutB3FCurScript:: db
+;wRocketHideoutB4FCurScript:: db
+;wFuchsiaCityCurScript:: db ; new
 ;	ds 1
-wRoute6GateCurScript:: db
-wRoute8GateCurScript:: db
-wSaffronCityCurScript:: db ; new
+;wRoute6GateCurScript:: db
+;wRoute8GateCurScript:: db
+;wSaffronCityCurScript:: db ; new
 ;	ds 1
-wCinnabarIslandCurScript:: db
-wPokemonMansion1FCurScript:: db
-wSSAnneCaptainsRoomCurScript:: db ; new
+;wCinnabarIslandCurScript:: db
+;wPokemonMansion1FCurScript:: db
+;wSSAnneCaptainsRoomCurScript:: db ; new
 ;	ds 1
-wPokemonMansion2FCurScript:: db
-wPokemonMansion3FCurScript:: db
-wPokemonMansionB1FCurScript:: db
-wVictoryRoad2FCurScript:: db
-wVictoryRoad3FCurScript:: db
-wCeladonCityCurScript:: db
-wFightingDojoCurScript:: db
-wSilphCo2FCurScript:: db
-wSilphCo3FCurScript:: db
-wSilphCo4FCurScript:: db
-wSilphCo5FCurScript:: db
-wSilphCo6FCurScript:: db
-wSilphCo7FCurScript:: db
-wSilphCo8FCurScript:: db
-wSilphCo9FCurScript:: db
-wHallOfFameCurScript:: db
+;wPokemonMansion2FCurScript:: db
+;wPokemonMansion3FCurScript:: db
+;wPokemonMansionB1FCurScript:: db
+;wVictoryRoad2FCurScript:: db
+;wVictoryRoad3FCurScript:: db
+;wCeladonCityCurScript:: db
+;wFightingDojoCurScript:: db
+;wSilphCo2FCurScript:: db
+;wSilphCo3FCurScript:: db
+;wSilphCo4FCurScript:: db
+;wSilphCo5FCurScript:: db
+;wSilphCo6FCurScript:: db
+;wSilphCo7FCurScript:: db
+;wSilphCo8FCurScript:: db
+;wSilphCo9FCurScript:: db
+;wHallOfFameCurScript:: db
+	ds 44 ; new, from optimizing the scripts, UNUSED
+	
 wChampionsRoomCurScript:: db
 wLoreleisRoomCurScript:: db
 wBrunosRoomCurScript:: db
 wAgathasRoomCurScript:: db
-wCeruleanCaveB1FCurScript:: db
-wVictoryRoad1FCurScript:: db
-wCeladonChiefHouseCurScript:: db ; new
+;wCeruleanCaveB1FCurScript:: db
+;wVictoryRoad1FCurScript:: db
+;wCeladonChiefHouseCurScript:: db ; new
 ;	ds 1
+	ds 3 ; new, from optimizing the scripts, UNUSED
+	
 wLancesRoomCurScript:: db
-wCopycatsHouse2FCurScript:: db ; new
-wSafariZoneRestHouseCurScript:: db ; new
-wCinnabarVolcanoBFCurScript:: db ; new
+;wCopycatsHouse2FCurScript:: db ; new
+;wSafariZoneRestHouseCurScript:: db ; new
+;wCinnabarVolcanoBFCurScript:: db ; new
+	ds 3 ; new, from optimizing the scripts, UNUSED
+	
 wOchreRehabilitationCenterCurScript:: db ; new
 ;	ds 4
-wSilphCo10FCurScript:: db
-wSilphCo11FCurScript:: db
-wRoute29CurScript:: db ; new
+;wSilphCo10FCurScript:: db
+;wSilphCo11FCurScript:: db
+;wRoute29CurScript:: db ; new
 ;	ds 1
-wFuchsiaGymCurScript:: db
-wSaffronGymCurScript:: db
-wCeladonMansion2FCurScript:: db ; new
+;wFuchsiaGymCurScript:: db
+;wSaffronGymCurScript:: db
+;wCeladonMansion2FCurScript:: db ; new
 ;	ds 1
-wCinnabarGymCurScript:: db
-wGameCornerCurScript:: db
-wRoute16Gate1FCurScript:: db
+;wCinnabarGymCurScript:: db
+;wGameCornerCurScript:: db
+;wRoute16Gate1FCurScript:: db
+	ds 9 ; new, from optimizing the scripts, UNUSED
+	
 wBillsHouseCurScript:: db
-wRoute5GateCurScript:: db
-wPowerPlantCurScript:: ; overload
-wRoute7GateCurScript:: db
-wCeladonUniversity2CurScript:: db ; new
+;wRoute5GateCurScript:: db
+;wPowerPlantCurScript:: ; overload
+;wRoute7GateCurScript:: db
+;wCeladonUniversity2CurScript:: db ; new
 ;	ds 1
-wSSAnne2FCurScript:: db
+;wSSAnne2FCurScript:: db
+	ds 4 ; new, from optimizing the scripts, UNUSED
+	
 wSeafoamIslandsB3FCurScript:: db
-wRoute23CurScript:: db
+;wRoute23CurScript:: db
+	ds 1 ; new, from optimizing the scripts, UNUSED
+
 wSeafoamIslandsB4FCurScript:: db
-wRoute18Gate1FCurScript:: db
-wHauntedHouse3CurScript:: db ; new
-wBattleFacilityCurScript:: db ; new
-wHauntedRedsHouseCurScript:: db ; new
-wHauntedPalletTownCurScript:: db ; new
-wHauntedIslandOfNumbersCurScript:: db ; new
-wHauntedHouse4CurScript:: db ; new
+;wRoute18Gate1FCurScript:: db
+;wHauntedHouse3CurScript:: db ; new
+;wBattleFacilityCurScript:: db ; new
+;wHauntedRedsHouseCurScript:: db ; new
+;wHauntedPalletTownCurScript:: db ; new
+;wHauntedIslandOfNumbersCurScript:: db ; new
+;wHauntedHouse4CurScript:: db ; new
+	ds 7 ; new, from optimizing the scripts, UNUSED
+	
 wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok
-wMrPsychicsHouseCurScript:: db ; new
-wCeruleanCaveExtraMiddleCurScript:: db ; new
-wRedsHouse1FCurScript:: db ; new
-wRoute15Gate2FCurScript:: db ; new
-wRoute28CurScript:: db ; new
-wRoute27CurScript:: db ; new
-	ds 19 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen
+;wMrPsychicsHouseCurScript:: db ; new
+;wCeruleanCaveExtraMiddleCurScript:: db ; new
+;wRedsHouse1FCurScript:: db ; new
+;wRoute15Gate2FCurScript:: db ; new
+;wRoute28CurScript:: db ; new
+;wRoute27CurScript:: db ; new
+	ds 24 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts, UNUSED
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2483,7 +2507,8 @@ wEnemyMonOrTrainerClass:: db
 
 wPlayerJumpingYScreenCoordsIndex:: db
 
-wRivalStarter:: db
+;wRivalStarter:: db ; edited, unused
+	ds 1
 
 IF DEF(_DEBUG)
 ; this byte gets set to NUM_POKEMON by DebugStart

@@ -2,9 +2,9 @@ Route14_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route14TrainerHeaders
 	ld de, Route14_ScriptPointers
-	ld a, [wRoute14CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute14CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route14_ScriptPointers:

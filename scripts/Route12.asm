@@ -2,15 +2,14 @@ Route12_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route12TrainerHeaders
 	ld de, Route12_ScriptPointers
-	ld a, [wRoute12CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute12CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route12Script_59606:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -107,7 +106,6 @@ Route12Script0:
 .continue
 	call MoveSprite
 	ld a, $4 ; testing
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 .vanillaCode
@@ -131,7 +129,6 @@ Route12Script0:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	ld a, $3
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -167,7 +164,6 @@ Route12Script3:
 	SetEvent EVENT_BEAT_ROUTE12_SNORLAX
 	call Delay3
 	ld a, $0
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -199,7 +195,6 @@ Route12Script4: ; new
 	call Route12Script_RivalFacingRightOrDown
 	SetEvent EVENT_FACED_SNORLAX_RIVAL
 	ld a, 5
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -220,7 +215,6 @@ Route12Script5: ; new
 	ld [wJoyIgnore], a
 	call Route12Script_RivalFacingLeftOrUp
 	ld a, $6
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -243,7 +237,6 @@ Route12Script6: ; new
 .continue
 	call MoveSprite
 	ld a, $7
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -259,7 +252,6 @@ Route12Script7: ; new
 	call DisplayTextID
 	call Route12Script_RivalFacingLeftOrUp
 	ld a, $8
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -285,7 +277,6 @@ Route12Script8: ; new
 .continue
 	call MoveSprite
 	ld a, $9
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -314,7 +305,6 @@ Route12Script9: ; new
 	predef HideObject
 	SetEvent EVENT_BEAT_ROUTE16_SNORLAX ; necessary only to avoid using pokeflute in front of "nowhere"
 	ld a, $0
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -343,7 +333,6 @@ Route12FMovements3_Left: ; new
 Route12Script_ResetIfLoseVsRival: ; new
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute12CurScript], a
 	ld [wCurMapScript], a
 	ld a, HS_ROUTE_12_RIVAL_RIGHT
 	ld [wMissableObjectIndex], a

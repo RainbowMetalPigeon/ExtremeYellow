@@ -6,9 +6,9 @@ VictoryRoad1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, VictoryRoad1TrainerHeaders
 	ld de, VictoryRoad1F_ScriptPointers
-	ld a, [wVictoryRoad1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wVictoryRoad1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 .next
 	CheckEvent EVENT_VICTORY_ROAD_1_BOULDER_ON_SWITCH

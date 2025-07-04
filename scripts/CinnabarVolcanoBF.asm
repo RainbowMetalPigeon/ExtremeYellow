@@ -2,9 +2,9 @@ CinnabarVolcanoBF_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, CinnabarVolcanoBFTrainerHeaders
 	ld de, CinnabarVolcanoBF_ScriptPointers
-	ld a, [wCinnabarVolcanoBFCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCinnabarVolcanoBFCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CinnabarVolcanoBF_ScriptPointers:

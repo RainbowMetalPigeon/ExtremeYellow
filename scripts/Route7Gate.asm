@@ -1,6 +1,6 @@
 Route7Gate_Script:
 	call EnableAutoTextBoxDrawing
-	ld a, [wRoute7GateCurScript]
+	ld a, [wCurMapScript] ; edited
 	ld hl, Route7Gate_ScriptPointers
 	call CallFunctionInTable
 	ret
@@ -41,7 +41,7 @@ Route7GateScript0:
 	call DisplayTextID
 	call Route7GateScript_1e111
 	ld a, $1
-	ld [wRoute7GateCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 .asm_1e15a
 	ld a, $3
@@ -63,7 +63,6 @@ Route7GateScript1:
 	call Delay3
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute7GateCurScript], a
 	ld [wCurMapScript], a
 	ret
 

@@ -6,9 +6,9 @@ PewterGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PewterGymTrainerHeaders
 	ld de, PewterGym_ScriptPointers
-	ld a, [wPewterGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPewterGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .LoadNames:
@@ -26,7 +26,6 @@ PewterGym_Script:
 PewterGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPewterGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -164,7 +163,6 @@ BrockText:
 	ld de, BrockRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wPewterGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -197,7 +195,6 @@ BrockText:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3
-	ld [wPewterGymCurScript], a
 	ld [wCurMapScript], a
 .done
 	jp TextScriptEnd

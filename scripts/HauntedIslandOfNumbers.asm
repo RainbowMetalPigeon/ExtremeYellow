@@ -5,7 +5,7 @@ HauntedIslandOfNumbers_Script:
 	call nz, HauntedIslandOfNumbersReplaceBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedIslandOfNumbers_ScriptPointers
-	ld a, [wHauntedIslandOfNumbersCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
@@ -46,7 +46,6 @@ HauntedIslandOfNumbersScript_StartMissingNoTrainerBattle:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, 2
-	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -77,7 +76,6 @@ HauntedIslandOfNumbersScript_PostTrainerBattle:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 	ld a, 3
-	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -134,7 +132,6 @@ HauntedIslandOfNumbersScript_PostPokemonBattle:
 	call Delay3
 ; script handling
 	ld a, 0
-	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -150,7 +147,6 @@ CleanHumanPokedexEntries: ; oh-so horribly hard coded xD
 HauntedIslandOfNumbersScript_ResetAfterDefeat:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
 
 	; print a dialogue?
@@ -223,7 +219,6 @@ HauntedIslandOfNumbersText_MissingNo:
 .continue
 ; script handling
 	ld a, 1
-	ld [wHauntedIslandOfNumbersCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 

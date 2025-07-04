@@ -2,7 +2,7 @@ ObsidianIsland_Script:
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianIsland_ScriptPointers
-	ld a, [wObsidianIslandCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
@@ -32,7 +32,7 @@ ObsidianIslandScript0:
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
 	ld a, $1
-	ld [wObsidianIslandCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 ObsidianIslandScript1:
@@ -41,7 +41,7 @@ ObsidianIslandScript1:
 	ret nz
 	call Delay3
 	ld a, $0
-	ld [wObsidianIslandCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 CoordsData_ObsidianHouses:
@@ -312,7 +312,6 @@ TextPreBattle_ObsidianTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 2 ; city-specific
-	ld [wObsidianIslandCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -339,7 +338,6 @@ TextPostBattle_ObsidianTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wObsidianIslandCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -350,7 +348,6 @@ ObsidianScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wObsidianIslandCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

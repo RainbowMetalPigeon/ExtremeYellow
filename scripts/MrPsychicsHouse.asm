@@ -1,9 +1,9 @@
 MrPsychicsHouse_Script: ; edited
 	call EnableAutoTextBoxDrawing
 	ld de, MrPsychicsHouse_ScriptPointers
-	ld a, [wMrPsychicsHouseCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wMrPsychicsHouseCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 MrPsychicsHouse_ScriptPointers: ; new
@@ -91,7 +91,6 @@ SaffronHouse2TextSabrina:
 
 ; script handling
 	ld a, $1 ; new script, map-dependent
-	ld [wMrPsychicsHouseCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -120,7 +119,6 @@ MrPsychicsHouseSabrinaPostBattleRematch: ; script, map-dependent
 MrPsychicsHouseResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wMrPsychicsHouseCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

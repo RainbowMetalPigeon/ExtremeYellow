@@ -5,7 +5,7 @@ HauntedHouse4_Script:
 	call nz, HauntedHouse4HandleRandomGlitchyBehaviours
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedHouse4_ScriptPointers
-	ld a, [wHauntedHouse4CurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
@@ -308,7 +308,6 @@ HauntedHouse4Script0:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, 1
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 .inSE
@@ -319,7 +318,6 @@ HauntedHouse4Script0:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, 2
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 .inNE
@@ -330,7 +328,6 @@ HauntedHouse4Script0:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, 3
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 .inNW
@@ -341,7 +338,6 @@ HauntedHouse4Script0:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, 4
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -360,7 +356,6 @@ HauntedHouse4Script1_SW:
 	predef ShowObjectExtra
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SE
 	xor a
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -379,7 +374,6 @@ HauntedHouse4Script2_SE:
 	predef ShowObjectExtra
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_NE
 	xor a
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -398,7 +392,6 @@ HauntedHouse4Script3_NE:
 	predef ShowObjectExtra
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_NW
 	xor a
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -417,7 +410,6 @@ HauntedHouse4Script4_NW:
 	predef ShowObjectExtra
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SW
 	xor a
-	ld [wHauntedHouse4CurScript], a
 	ld [wCurMapScript], a
 	ret
 

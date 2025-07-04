@@ -1,7 +1,7 @@
 CeladonUniversity2_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonUniversity2_ScriptPointers
-	ld a, [wCeladonUniversity2CurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 

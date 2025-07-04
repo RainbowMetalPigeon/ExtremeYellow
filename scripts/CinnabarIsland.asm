@@ -6,7 +6,7 @@ CinnabarIsland_Script:
 	ResetEvent EVENT_MANSION_SWITCH_ON
 	ResetEvent EVENT_LAB_STILL_REVIVING_FOSSIL
 	ld hl, CinnabarIsland_ScriptPointers
-	ld a, [wCinnabarIslandCurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 CinnabarIsland_ScriptPointers:
@@ -74,7 +74,7 @@ CinnabarIslandScript0: ; edited
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld [wJoyIgnore], a
 	ld a, $1
-	ld [wCinnabarIslandCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CinnabarIslandScript1:
@@ -83,7 +83,7 @@ CinnabarIslandScript1:
 	ret nz
 	call Delay3
 	ld a, $0
-	ld [wCinnabarIslandCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CinnabarIsland_TextPointers:
@@ -213,7 +213,6 @@ TextPreBattle_CinnabarTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 2 ; city-specific
-	ld [wCinnabarIslandCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -240,7 +239,6 @@ TextPostBattle_CinnabarTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wCinnabarIslandCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -251,7 +249,6 @@ CinnabarScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wCinnabarIslandCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

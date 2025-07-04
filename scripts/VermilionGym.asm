@@ -11,9 +11,9 @@ VermilionGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, VermilionGymTrainerHeaders
 	ld de, VermilionGym_ScriptPointers
-	ld a, [wVermilionGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wVermilionGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .LoadNames:
@@ -44,7 +44,6 @@ VermilionGymSetDoorTile:
 VermilionGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wVermilionGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -177,7 +176,6 @@ LTSurgeText:
 	ld de, LtSurgeRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wVermilionGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -209,7 +207,6 @@ LTSurgeText:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3 ; set script index to LT Surge post-battle script
-	ld [wVermilionGymCurScript], a
 	ld [wCurMapScript], a
 .done
 	jp TextScriptEnd

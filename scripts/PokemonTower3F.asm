@@ -2,9 +2,9 @@ PokemonTower3F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower3TrainerHeaders
 	ld de, PokemonTower3F_ScriptPointers
-	ld a, [wPokemonTower3FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonTower3FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 PokemonTower3F_ScriptPointers:

@@ -2,15 +2,14 @@ PokemonTower6F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower6TrainerHeaders
 	ld de, PokemonTower6F_ScriptPointers
-	ld a, [wPokemonTower6FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonTower6FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 PokemonTower6Script_60b02:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPokemonTower6FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -38,7 +37,6 @@ PokemonTower6Script0:
 	ld a, 30
 	ld [wCurEnemyLVL], a
 	ld a, $4
-	ld [wPokemonTower6FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -68,7 +66,6 @@ PokemonTower6Script4:
 	xor a
 	ld [wJoyIgnore], a
 	ld a, $0
-	ld [wPokemonTower6FCurScript], a
 	ld [wCurMapScript], a
 	ret
 .asm_60b82
@@ -82,7 +79,6 @@ PokemonTower6Script4:
 	ld hl, wd730
 	set 7, [hl]
 	ld a, $3
-	ld [wPokemonTower6FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -92,7 +88,6 @@ PokemonTower6Script3:
 	ret nz
 	call Delay3
 	xor a
-	ld [wPokemonTower6FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -229,7 +224,6 @@ PokemonTower6TextAgatha:
 
 ; script handling
 	ld a, $5 ; new script, map-dependent
-	ld [wPokemonTower6FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -258,7 +252,6 @@ PokemonTower6FAgathaPostBattleRematch: ; script, map-dependent
 PokemonTower6FResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPokemonTower6FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

@@ -5,15 +5,11 @@ BluesHouse_Script:
 	call CallFunctionInTable
 	ret
 
-BluesHouse_ScriptPointers:
+BluesHouse_ScriptPointers: ; edited
 	dw BluesHouseScript0
-	dw BluesHouseScript1
 
-BluesHouseScript0:
+BluesHouseScript0: ; edited
 	SetEvent EVENT_ENTERED_BLUES_HOUSE
-	ld a, $1
-	ld [wBluesHouseCurScript], a
-BluesHouseScript1:
 	ret
 
 BluesHouse_TextPointers:

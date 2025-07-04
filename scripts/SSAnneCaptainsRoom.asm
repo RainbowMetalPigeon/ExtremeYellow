@@ -2,9 +2,9 @@ SSAnneCaptainsRoom_Script:
 	call SSAnne7Script_6189b
 	call EnableAutoTextBoxDrawing
 	ld de, SSAnneCaptainsRoom_ScriptPointers
-	ld a, [wSSAnneCaptainsRoomCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSSAnneCaptainsRoomCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SSAnneCaptainsRoom_ScriptPointers: ; new, for battle vs Captain
@@ -19,7 +19,6 @@ SSAnneCaptainsRoomScript1: ; new
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wSSAnneCaptainsRoomCurScript], a
 	ld [wCurMapScript], a
 	ret
 .notDefeated
@@ -68,7 +67,6 @@ SSAnneCaptainsRoomScript1: ; new
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
-	ld [wSSAnneCaptainsRoomCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -119,7 +117,6 @@ SSAnne7Text1:
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1
-	ld [wSSAnneCaptainsRoomCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .preExtraBattle ; back to vanilla

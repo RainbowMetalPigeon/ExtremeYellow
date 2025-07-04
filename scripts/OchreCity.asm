@@ -10,9 +10,9 @@ OchreCity_Script:
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, OchreCity_ScriptPointers
-	ld a, [wOchreCityCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wOchreCityCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 OchreCityHideShowRehabilitationFence:
@@ -245,7 +245,6 @@ TextPreBattle_OchreTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; city-specific
-	ld [wOchreCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -272,7 +271,6 @@ TextPostBattle_OchreTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wOchreCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -283,7 +281,6 @@ OchreScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wOchreCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

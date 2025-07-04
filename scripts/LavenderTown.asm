@@ -2,9 +2,9 @@ LavenderTown_Script:
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, LavenderTown_ScriptPointers
-	ld a, [wLavenderTownCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wLavenderTownCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 LavenderTown_ScriptPointers: ; new, for traveler
@@ -21,7 +21,6 @@ LavenderScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wLavenderTownCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated
@@ -95,7 +94,6 @@ TextPreBattle_LavenderTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; city-specific
-	ld [wLavenderTownCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -122,7 +120,6 @@ TextPostBattle_LavenderTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wLavenderTownCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 

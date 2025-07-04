@@ -11,7 +11,7 @@ Route22_Script:
 ; back to vanilla
 	call EnableAutoTextBoxDrawing
 	ld hl, Route22_ScriptPointers
-	ld a, [wRoute22CurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 Handle2ndRivalBattle: ; new
@@ -40,7 +40,7 @@ Route22_ScriptPointers:
 Route22Script_50ece:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 Route22Script7:
 	ret
 
@@ -124,7 +124,7 @@ Route22Script0:
 	ldh [hSpriteIndex], a
 	call Route22MoveRivalSprite
 	ld a, $1
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22Script1:
@@ -158,7 +158,7 @@ Route22Script1:
 	call SaveEndBattleTextPointers
 	call Route22Script_50ed6
 	ld a, $2
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22RivalDefeatedText1:
@@ -175,12 +175,12 @@ Route22Script2:
 	jp z, Route22Script_50ece
 	xor a							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
-	ld a, [wRivalStarter]
-	cp RIVAL_STARTER_FLAREON
-	jr nz, .keep_rival_starter
-	ld a, RIVAL_STARTER_JOLTEON
-	ld [wRivalStarter], a
-.keep_rival_starter
+;	ld a, [wRivalStarter]
+;	cp RIVAL_STARTER_FLAREON
+;	jr nz, .keep_rival_starter
+;	ld a, RIVAL_STARTER_JOLTEON
+;	ld [wRivalStarter], a
+;.keep_rival_starter
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
 	jr nz, .notDown
@@ -210,7 +210,7 @@ Route22Script2:
 	call Route22Script_5100d
 .asm_51002
 	ld a, $3
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22Script_51008:
@@ -259,7 +259,7 @@ Route22Script3:
 	call PlayDefaultMusic
 	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 	ld a, $0
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22Script_5104e:
@@ -279,7 +279,7 @@ Route22Script_5104e:
 	ldh [hSpriteIndex], a
 	call Route22MoveRivalSprite
 	ld a, $4
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22Script4:
@@ -315,7 +315,7 @@ Route22Script4:
 	call SaveEndBattleTextPointers
 	call Route22Script_50ee1
 	ld a, $5
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22RivalDefeatedText2:
@@ -370,7 +370,7 @@ Route22Script5:
 	call Route22Script_51142
 .asm_51137
 	ld a, $6
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22Script_5113d:
@@ -405,7 +405,7 @@ Route22Script6:
 	ResetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 	SetEvent EVENT_2ND_ROUTE22_RIVAL_BATTLE_BEATEN ; new
 	ld a, $7
-	ld [wRoute22CurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route22_TextPointers:

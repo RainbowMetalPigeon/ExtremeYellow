@@ -2,9 +2,9 @@ RockTunnel1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, RockTunnel1TrainerHeaders
 	ld de, RockTunnel1F_ScriptPointers
-	ld a, [wRockTunnel1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRockTunnel1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 RockTunnel1F_ScriptPointers:

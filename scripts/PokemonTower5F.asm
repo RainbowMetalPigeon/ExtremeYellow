@@ -2,9 +2,9 @@ PokemonTower5F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower5TrainerHeaders
 	ld de, PokemonTower5F_ScriptPointers
-	ld a, [wPokemonTower5FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonTower5FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 PokemonTower5F_ScriptPointers:

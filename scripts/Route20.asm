@@ -4,9 +4,9 @@ Route20_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route20TrainerHeaders
 	ld de, Route20_ScriptPointers
-	ld a, [wRoute20CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute20CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route20Script_50cc6:
@@ -320,7 +320,6 @@ Route20TextMisty:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wRoute20CurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -349,7 +348,6 @@ Route20MistyPostBattleRematch: ; script, map-dependent
 Route20ResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute20CurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

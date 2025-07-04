@@ -7,9 +7,9 @@ OchreGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, OchreGymTrainerHeaders
 	ld de, OchreGym_ScriptPointers
-	ld a, [wOchreGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wOchreGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 OchreGymSetDoorTile:
@@ -27,7 +27,6 @@ OchreGymSetDoorTile:
 OchreGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wOchreGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -258,7 +257,6 @@ OrageText:
 	ld de, OrageRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $5 ; new script
-	ld [wOchreGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -281,7 +279,7 @@ OrageText:
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
 	ld a, $3
-	ld [wOchreGymCurScript], a
+	ld [wCurMapScript], a ; edited
 .done
 	jp TextScriptEnd
 

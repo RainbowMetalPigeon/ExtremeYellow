@@ -3,9 +3,9 @@ PokemonMansion3F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion3TrainerHeaders
 	ld de, PokemonMansion3F_ScriptPointers
-	ld a, [wPokemonMansion3FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonMansion3FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Mansion3Script_52204:

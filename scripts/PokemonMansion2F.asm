@@ -3,9 +3,9 @@ PokemonMansion2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion2TrainerHeaders
 	ld de, PokemonMansion2F_ScriptPointers
-	ld a, [wPokemonMansion2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonMansion2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Mansion2Script_51fee:
@@ -170,7 +170,6 @@ Mansion2TextBlaine:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wPokemonMansion2FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -199,7 +198,6 @@ PokemonMansion2FBlainePostBattleRematch: ; script, map-dependent
 PokemonMansion2FResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPokemonMansion2FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

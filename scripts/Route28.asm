@@ -2,9 +2,9 @@ Route28_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route28TrainerHeaders
 	ld de, Route28_ScriptPointers
-	ld a, [wRoute28CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute28CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route28_ScriptPointers:

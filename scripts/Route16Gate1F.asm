@@ -2,7 +2,7 @@ Route16Gate1F_Script:
 	ld hl, wd732
 	res 5, [hl]
 	call EnableAutoTextBoxDrawing
-	ld a, [wRoute16Gate1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	ld hl, Route16Gate1F_ScriptPointers
 	jp CallFunctionInTable
 
@@ -36,11 +36,11 @@ Route16GateScript0:
 	call FillMemory
 	call StartSimulatingJoypadStates
 	ld a, $1
-	ld [wRoute16Gate1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 .asm_4970e
 	ld a, $2
-	ld [wRoute16Gate1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CoordsData_49714:
@@ -67,7 +67,7 @@ Route16GateScript2:
 	ld [wSimulatedJoypadStatesEnd], a
 	call StartSimulatingJoypadStates
 	ld a, $3
-	ld [wRoute16Gate1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route16GateScript3:
@@ -79,7 +79,7 @@ Route16GateScript3:
 	ld hl, wd730
 	res 7, [hl]
 	ld a, $0
-	ld [wRoute16Gate1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route16GateScript_49755:

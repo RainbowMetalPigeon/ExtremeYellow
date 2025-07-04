@@ -3,9 +3,9 @@ FuchsiaGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, FuchsiaGymTrainerHeaders
 	ld de, FuchsiaGym_ScriptPointers
-	ld a, [wFuchsiaGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wFuchsiaGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .LoadNames:
@@ -27,7 +27,6 @@ FuchsiaGym_Script:
 FuchsiaGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wFuchsiaGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -169,7 +168,6 @@ KogaText:
 	ld de, KogaRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wFuchsiaGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -202,7 +200,7 @@ KogaText:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3
-	ld [wFuchsiaGymCurScript], a
+	ld [wCurMapScript], a ; edited
 .done
 	jp TextScriptEnd
 

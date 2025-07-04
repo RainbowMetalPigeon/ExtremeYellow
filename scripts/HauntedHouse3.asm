@@ -5,7 +5,7 @@ HauntedHouse3_Script:
 	call nz, HauntedHouse3HandleRandomGlitchyBehaviours
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedHouse3_ScriptPointers
-	ld a, [wHauntedHouse3CurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 

@@ -10,9 +10,9 @@ VictoryRoad2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, VictoryRoad2TrainerHeaders
 	ld de, VictoryRoad2F_ScriptPointers
-	ld a, [wVictoryRoad2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wVictoryRoad2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 VictoryRoad2Script_517c4:
@@ -261,7 +261,6 @@ VictoryRoad2TextKoga:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wVictoryRoad2FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -290,7 +289,6 @@ VictoryRoad2FKogaPostBattleRematch: ; script, map-dependent
 VictoryRoad2FResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wVictoryRoad2FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

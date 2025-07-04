@@ -6,9 +6,9 @@ SaffronGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SaffronGymTrainerHeaders
 	ld de, SaffronGym_ScriptPointers
-	ld a, [wSaffronGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSaffronGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .LoadNames:
@@ -25,7 +25,6 @@ SaffronGym_Script:
 SaffronGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wSaffronGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -170,7 +169,6 @@ SabrinaText:
 	ld de, SabrinaRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wSaffronGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -201,7 +199,7 @@ SabrinaText:
 	ld a, $6
 	ld [wGymLeaderNo], a
 	ld a, $3
-	ld [wSaffronGymCurScript], a
+	ld [wCurMapScript], a ; edited
 .done
 	jp TextScriptEnd
 

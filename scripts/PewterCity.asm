@@ -4,7 +4,7 @@ PewterCity_Script:
 	ld hl, wd492
 	res 7, [hl]
 	ld hl, PewterCity_ScriptPointers
-	ld a, [wPewterCityCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
@@ -228,7 +228,6 @@ TextPreBattle_PewterTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; city-specific
-	ld [wPewterCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -255,7 +254,6 @@ TextPostBattle_PewterTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wPewterCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -266,7 +264,6 @@ PewterScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wPewterCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

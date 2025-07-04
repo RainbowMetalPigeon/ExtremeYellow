@@ -2,9 +2,9 @@ Route29_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route29TrainerHeaders
 	ld de, Route29_ScriptPointers
-	ld a, [wRoute29CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute29CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route29_ScriptPointers:
@@ -41,7 +41,6 @@ Route29Script_PlacedAllOrbs1:
 	call Delay3
 	call GBFadeInFromWhite
 	ld a, 4 ; Route29Script_PlacedAllOrbs2
-	ld [wRoute29CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -50,7 +49,6 @@ Route29Script_PlacedAllOrbs2:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 0
-	ld [wRoute29CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -421,7 +419,6 @@ Route29TextIceOrbRecess:
 	jr z, .done
 	SetEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
 	ld a, 3 ; Route29Script_PlacedAllOrbs1
-	ld [wRoute29CurScript], a
 	ld [wCurMapScript], a
 	jr .done
 .alreadyPlacedThisOrb
@@ -477,7 +474,6 @@ Route29TextThunderOrbRecess:
 	jr z, .done
 	SetEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
 	ld a, 3 ; Route29Script_PlacedAllOrbs1
-	ld [wRoute29CurScript], a
 	ld [wCurMapScript], a
 	jr .done
 .alreadyPlacedThisOrb
@@ -533,7 +529,6 @@ Route29TextFireOrbRecess:
 	jr z, .done
 	SetEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
 	ld a, 3 ; Route29Script_PlacedAllOrbs1
-	ld [wRoute29CurScript], a
 	ld [wCurMapScript], a
 	jr .done
 .alreadyPlacedThisOrb

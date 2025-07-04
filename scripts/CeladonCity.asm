@@ -8,7 +8,7 @@ CeladonCity_Script:
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonCity_ScriptPointers
-	ld a, [wCeladonCityCurScript]
+	ld a, [wCurMapScript]
 	call CallFunctionInTable
 	ret
 
@@ -41,7 +41,6 @@ CeladonCityScript2:
 	call Delay3
 	call GBFadeInFromBlack
 	xor a
-	ld [wCeladonCityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -139,7 +138,6 @@ CeladonCityText2: ; edited
 	call PrintText
 ; script handling
 	ld a, 2
-	ld [wCeladonCityCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .wrongAnswer
@@ -317,7 +315,6 @@ TextPreBattle_CeladonTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; city-specific
-	ld [wCeladonCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -344,7 +341,6 @@ TextPostBattle_CeladonTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wCeladonCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -355,7 +351,6 @@ CeladonScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wCeladonCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

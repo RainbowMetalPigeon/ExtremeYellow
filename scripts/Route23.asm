@@ -2,7 +2,7 @@ Route23_Script:
 	call Route23Script_511e9
 	call EnableAutoTextBoxDrawing
 	ld hl, Route23_ScriptPointers
-	ld a, [wRoute23CurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 Route23Script_511e9:
@@ -135,7 +135,7 @@ Route23Script1:
 	ret nz
 Route23Script2:
 	ld a, $0
-	ld [wRoute23CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route23_TextPointers:
@@ -207,7 +207,7 @@ Route23Script_51346:
 	call PrintText
 	call Route23Script_512d8
 	ld a, $1
-	ld [wRoute23CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 .asm_5136e
 	ld hl, VictoryRoadGuardText2
@@ -218,7 +218,7 @@ Route23Script_51346:
 	EventFlagAddress hl, EVENT_PASSED_CASCADEBADGE_CHECK
 	predef FlagActionPredef
 	ld a, $2
-	ld [wRoute23CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route23Script_51388:

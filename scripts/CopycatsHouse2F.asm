@@ -1,9 +1,9 @@
 CopycatsHouse2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, CopycatsHouse2F_ScriptPointers
-	ld a, [wCopycatsHouse2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCopycatsHouse2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ; ===============================
@@ -19,7 +19,6 @@ CopycatsHouse2FScriptPostBattle:
 	ld a, [wLevelScalingBackup]
 	ld [wLevelScaling], a
 	xor a
-	ld [wCopycatsHouse2FCurScript], a
 	ld [wCurMapScript], a
 ; check battle result
 	ld a, [wIsInBattle]
@@ -82,7 +81,6 @@ CopycatsHouse2FText1: ; edited
 	xor a
 	ldh [hJoyHeld], a
 	ld a, 1
-	ld [wCopycatsHouse2FCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .defatedCopycatButNotGotTMYet

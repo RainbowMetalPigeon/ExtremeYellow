@@ -3,9 +3,9 @@ SilphCo7F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo7TrainerHeaders
 	ld de, SilphCo7F_ScriptPointers
-	ld a, [wSilphCo7FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSilphCo7FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SilphCo7Script_51b77:
@@ -106,7 +106,6 @@ SilphCo7Text_51c0c:
 	ld [wJoyIgnore], a
 
 SilphCo7Text_51c10:
-	ld [wSilphCo7FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -314,7 +313,6 @@ SilphCo7Text1:
 	set 0, [hl]
 ; new, do this with a script
 	ld a, 6
-	ld [wSilphCo7FCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 .savedsilph

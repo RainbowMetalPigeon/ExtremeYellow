@@ -2,9 +2,9 @@ Route17_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route17TrainerHeaders
 	ld de, Route17_ScriptPointers
-	ld a, [wRoute17CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute17CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route17_ScriptPointers:

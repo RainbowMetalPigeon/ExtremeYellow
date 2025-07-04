@@ -1,9 +1,9 @@
 SecludedCaves_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, SecludedCaves_ScriptPointers
-	ld a, [wSecludedCavesCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSecludedCavesCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SecludedCaves_ScriptPointers:
@@ -44,8 +44,8 @@ ArceusTrainerHeader:
 
 InitStaticEncounterBattle:
 	call TalkToTrainer
-	ld a, [wCurMapScript]
-	ld [wSecludedCavesCurScript], a
+;	ld a, [wCurMapScript]
+;	ld [wSecludedCavesCurScript], a
 	jp TextScriptEnd
 
 ZygardeCText:

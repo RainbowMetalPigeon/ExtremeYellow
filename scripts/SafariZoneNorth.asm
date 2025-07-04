@@ -2,9 +2,9 @@ SafariZoneNorth_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SafariZoneNorthTrainerHeaders
 	ld de, SafariZoneNorth_ScriptPointers
-	ld a, [wSafariZoneNorthCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSafariZoneNorthCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ResetSafariZoneNorthScript:
@@ -12,7 +12,6 @@ ResetSafariZoneNorthScript:
 	xor a
 	ld [wNumSafariBalls], a
 	ld [wSafariSteps], a
-	ld [wSafariZoneNorthCurScript], a
 	ld [wSafariZoneGateCurScript], a
 	ld [wCurMapScript], a ; new, TBV
 	ret
@@ -30,18 +29,16 @@ SafariZoneNorthScript4:
 SafariZoneNorthScript0:
 	jp nc, CheckFightingMapTrainers
 	ld a, $3
-	ld [wSafariZoneNorthCurScript], a
 	ld [wCurMapScript], a
 	ret
 
 SafariZoneNorthScript3:
 	xor a
-	ld [wSafariZoneNorthCurScript], a
 	ld [wCurMapScript], a
 	ret
 
 SafariZoneNorthScript2:
-	call EndTrainerBattle ; any need to to any shenanigans with the beyond 200?
+	call EndTrainerBattle ; any need to do any shenanigans with the beyond 200?
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetSafariZoneNorthScript

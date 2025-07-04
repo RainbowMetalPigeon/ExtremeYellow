@@ -2,9 +2,9 @@ ObsidianMines_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianMinesTrainerHeaders
 	ld de, ObsidianMines_ScriptPointers
-	ld a, [wObsidianMinesCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wObsidianMinesCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ObsidianMines_ScriptPointers:
@@ -27,7 +27,6 @@ ScriptTest:
 	call Delay3
 	call GBFadeInFromBlack
 	xor a
-	ld [wObsidianMinesCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -109,7 +108,6 @@ ObsidianMinesText3: ; panic, escape rope
 	ld hl, ObsidianMinesText3_ThanksATon
 	call PrintText
 	ld a, 3
-	ld [wObsidianMinesCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .noEscapeRope

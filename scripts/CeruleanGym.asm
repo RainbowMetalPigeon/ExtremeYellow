@@ -6,9 +6,9 @@ CeruleanGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, CeruleanGymTrainerHeaders
 	ld de, CeruleanGym_ScriptPointers
-	ld a, [wCeruleanGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCeruleanGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .LoadNames:
@@ -25,7 +25,6 @@ CeruleanGym_Script:
 CeruleanGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wCeruleanGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -155,7 +154,6 @@ MistyText:
 	ld de, MistyRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ld a, $4 ; new script
-	ld [wCeruleanGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
 ; back to vanilla code
@@ -188,7 +186,7 @@ MistyText:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3
-	ld [wCeruleanGymCurScript], a
+	ld [wCurMapScript], a ; edited
 .done
 	jp TextScriptEnd
 

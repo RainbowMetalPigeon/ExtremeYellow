@@ -5,9 +5,9 @@ ViridianGym_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, ViridianGymTrainerHeaders
 	ld de, ViridianGym_ScriptPointers
-	ld a, [wViridianGymCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wViridianGymCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 .CityName:
@@ -19,7 +19,6 @@ ViridianGym_Script:
 ViridianGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wViridianGymCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -222,7 +221,6 @@ GiovanniText: ; edited
 	ld a, $8
 	ld [wGymLeaderNo], a
 	ld a, $3
-	ld [wViridianGymCurScript], a
 	jp TextScriptEnd
 
 GiovanniPreBattleText:

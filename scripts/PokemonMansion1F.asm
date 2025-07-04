@@ -3,9 +3,9 @@ PokemonMansion1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion1TrainerHeaders
 	ld de, PokemonMansion1F_ScriptPointers
-	ld a, [wPokemonMansion1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonMansion1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Mansion1Subscript1:

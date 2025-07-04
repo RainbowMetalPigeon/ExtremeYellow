@@ -2,9 +2,9 @@ FuchsiaCity_Script:
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, FuchsiaCity_ScriptPointers
-	ld a, [wFuchsiaCityCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wFuchsiaCityCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 FuchsiaCity_ScriptPointers: ; new, for traveler
@@ -103,7 +103,6 @@ FuchsiaCityText3: ; edited
 	CheckEvent EVENT_SPOKEN_WITH_SARA
 	jr z, .notSpokenWithSara
 	ld a, 2
-	ld [wFuchsiaCityCurScript], a
 	ld [wCurMapScript], a
 	jr .conclude
 .notSpokenWithSara
@@ -135,7 +134,6 @@ FuchsiaScript_MoveErik: ; new
 	call MoveSprite
 ; script handling
 	ld a, 3
-	ld [wFuchsiaCityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -158,7 +156,6 @@ FuchsiaScript_HideAndShowErikAndSara:
 ; script handling and return control to players
 	xor a
 	ld [wJoyIgnore], a
-	ld [wFuchsiaCityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -379,7 +376,6 @@ TextPreBattle_FuchsiaTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; city-specific
-	ld [wFuchsiaCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -406,7 +402,6 @@ TextPostBattle_FuchsiaTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wFuchsiaCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -417,7 +412,6 @@ FuchsiaScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wFuchsiaCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

@@ -1,9 +1,9 @@
 OnixBurrowing_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, OnixBurrowing_ScriptPointers
-	ld a, [wOnixBurrowingCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wOnixBurrowingCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 OnixBurrowing_ScriptPointers:
@@ -55,8 +55,8 @@ SnorlaxDenText:
 	text_asm
 	ld hl, SnorlaxDenTrainerHeader
 	call TalkToTrainer
-	ld a, [wCurMapScript]
-	ld [wOnixBurrowingCurScript], a
+;	ld a, [wCurMapScript]
+;	ld [wOnixBurrowingCurScript], a
 	jp TextScriptEnd
 
 SnorlaxDenBattleText:

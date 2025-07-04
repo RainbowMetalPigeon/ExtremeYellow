@@ -2,9 +2,9 @@ SSAnne1FRooms_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SSAnne8TrainerHeaders
 	ld de, SSAnne1FRooms_ScriptPointers
-	ld a, [wSSAnne1FRoomsCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSSAnne1FRoomsCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SSAnne1FRooms_ScriptPointers:

@@ -3,9 +3,9 @@ RocketHideoutB1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout1TrainerHeaders
 	ld de, RocketHideoutB1F_ScriptPointers
-	ld a, [wRocketHideoutB1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRocketHideoutB1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 RocketHideout1Script_44be0:

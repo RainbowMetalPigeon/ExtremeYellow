@@ -2,9 +2,9 @@ ObsidianWarehouseFinal_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianWarehouseFinalTrainerHeaders
 	ld de, ObsidianWarehouseFinal_ScriptPointers
-	ld a, [wObsidianWarehouseFinalCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wObsidianWarehouseFinalCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ObsidianWarehouseFinal_ScriptPointers:
@@ -63,7 +63,6 @@ ObsidianWarehouseFinalScript_ResetScript:
 	xor a
 	ld [wJoyIgnore], a
 ObsidianWarehouseFinalScript_ChangeScript:
-	ld [wObsidianWarehouseFinalCurScript], a
 	ld [wCurMapScript], a
 	ret
 

@@ -2,9 +2,9 @@ ViridianForest_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, ViridianForestTrainerHeaders
 	ld de, ViridianForest_ScriptPointers
-	ld a, [wViridianForestCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wViridianForestCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ViridianForest_ScriptPointers:
@@ -208,7 +208,6 @@ ViridianForestTextErika:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wViridianForestCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -237,7 +236,6 @@ ViridianForestErikaPostBattleRematch: ; script, map-dependent
 ViridianForestResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wViridianForestCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

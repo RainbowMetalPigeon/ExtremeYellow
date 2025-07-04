@@ -2,9 +2,9 @@ MtMoonB2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, MtMoon3TrainerHeaders
 	ld de, MtMoonB2F_ScriptPointers
-	ld a, [wMtMoonB2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wMtMoonB2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	CheckEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
 	ret z
 	ld hl, CoordsData_49d37
@@ -43,7 +43,6 @@ MtMoon3Script_49cd7:
 	xor a
 	ld [wJoyIgnore], a
 MtMoon3Script_49ce5:
-	ld [wMtMoonB2FCurScript], a
 	ld [wCurMapScript], a
 	ret
 

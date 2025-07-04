@@ -4,9 +4,9 @@ Route26_Script:
 	res 4, [hl]		; ugly fix for the non-encounter thingy of the Onix Burrowing
 	ld hl, Route26TrainerHeaders
 	ld de, Route26_ScriptPointers
-	ld a, [wRoute26CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute26CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route26_ScriptPointers:

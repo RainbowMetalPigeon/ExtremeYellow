@@ -1,9 +1,9 @@
 CeruleanCaveExtraMiddle_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, CeruleanCaveExtraMiddle_ScriptPointers
-	ld a, [wCeruleanCaveExtraMiddleCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wMrPsychicsHouseCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CeruleanCaveExtraMiddle_ScriptPointers:
@@ -58,7 +58,6 @@ CeruleanCaveExtraMiddleTextLance:
 
 ; script handling
 	ld a, $1 ; new script, map-dependent
-	ld [wCeruleanCaveExtraMiddleCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -87,7 +86,6 @@ CeruleanCaveExtraMiddleLancePostBattleRematch: ; script, map-dependent
 CeruleanCaveExtraMiddleResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wCeruleanCaveExtraMiddleCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

@@ -2,9 +2,9 @@ ObsidianWood_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianWoodTrainerHeaders
 	ld de, ObsidianWood_ScriptPointers
-	ld a, [wObsidianWoodCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wObsidianWoodCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ObsidianWood_ScriptPointers:
@@ -173,7 +173,6 @@ ObsidianWoodTextOrage:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wObsidianWoodCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -202,7 +201,6 @@ ObsidianWoodOragePostBattleRematch: ; script, map-dependent
 ObsidianWoodResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wObsidianWoodCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

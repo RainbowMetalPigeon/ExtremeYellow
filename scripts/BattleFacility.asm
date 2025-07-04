@@ -1,9 +1,9 @@
 BattleFacility_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, BattleFacility_ScriptPointers
-	ld a, [wBattleFacilityCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wBattleFacilityCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ; =====================================
@@ -36,7 +36,6 @@ BattleFacilityScript0:
 	ret nz
 ; if yes, load the script that moves them up
 	ld a, 6
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -58,7 +57,6 @@ BattleFacilityScript1_PostBattle:
 	ld a, [wLevelScalingBackup] ; reset level scaling as chosen by the player, TBV
 	ld [wLevelScaling], a
 	ld a, 13
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 ; do all the other things we need to do if we lost, like reset the streak
 	ld a, [wBattleFacilityBattleMode] ; 0 for STANDARD, 1 for HARDCORE
@@ -107,7 +105,6 @@ BattleFacilityScript1_PostBattle:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 12 ; we finished the session
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	jr .warpToEntrance
 .notFinishedBlock
@@ -140,7 +137,6 @@ BattleFacilityScript1_PostBattle:
 	call DisplayTextID
 .scriptHandling ; continue with the next battle
 	ld a, 10
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -158,7 +154,6 @@ BattleFacilityScript2_MoveGuide:
 	call MoveSprite
 ; script handling
 	ld a, 3
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -186,7 +181,6 @@ BattleFacilityScript3_PostMoveGuide:
 	ld [wSprite01StateData1FacingDirection], a
 ; script handling
 	ld a, 4
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -203,7 +197,6 @@ BattleFacilityScript4_MovePlayer1:
 	call StartSimulatingJoypadStates
 ; script handling
 	ld a, 0
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -221,7 +214,6 @@ BattleFacilityScript5_PostMovePlayer1:
 	ld a, 0 ; unusual, for whatever reason I can't move after a warp
 	        ; so I do the trick of moving to script 0 and checking there where I am
 			; "morally" (functionally) we are going to script 6
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -238,7 +230,6 @@ BattleFacilityScript6_MovePlayer2:
 	call StartSimulatingJoypadStates
 ; script handling
 	ld a, 7
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -255,7 +246,6 @@ BattleFacilityScript7_PostMovePlayer2:
 	ret nz
 ; script handling
 	ld a, 8
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -301,7 +291,6 @@ BattleFacilityScript8_MoveOpponent:
 	call MoveSprite
 ; script handling
 	ld a, 9
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -378,7 +367,6 @@ BattleFacilityScript10_MoveOpponentOut:
 	call MoveSprite
 ; script handling
 	ld a, 11
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -431,7 +419,6 @@ BattleFacilityScript11_PostMoveOpponentOut:
 ;	call DisplayTextID
 ; script handling
 	ld a, 8 ; TBV
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -559,7 +546,6 @@ BattleFacilityScript12_AfterWarpVictory:
 	pop hl ; to preserve the push-pops in case we gave the prize right away
 .scriptHandling
 	ld a, 0
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -685,7 +671,6 @@ BattleFacilityScript13_AfterWarpDefeat:
 	ld [wBattleFacilityHardcoreRecordInverseAG], a
 .scriptHandling
 	ld a, 0
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -852,7 +837,6 @@ BattleFacilityTextGuide:
 	ld [wLevelScaling], a
 ; script handling
 	ld a, 2 ; BattleFacilityScript_MoveGuide
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 ; if we have a backlog of unclaimed prizes
@@ -984,7 +968,6 @@ BattleFacilityTextOpponent:
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; BattleFacilityScript1_PostBattle, number TBV
-	ld [wBattleFacilityCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 

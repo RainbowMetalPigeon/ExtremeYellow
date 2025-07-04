@@ -3,9 +3,9 @@ PokemonMansionB1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion4TrainerHeaders
 	ld de, PokemonMansionB1F_ScriptPointers
-	ld a, [wPokemonMansionB1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPokemonMansionB1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Mansion4Script_523cf:
@@ -95,7 +95,6 @@ Mansion4Script0: ; new
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $3 ; testing
-	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -134,7 +133,6 @@ Mansion4Script3: ; new
 	ldh [hJoyHeld], a
 	call Mansion4Script_RivalFacingRight
 	ld a, 4
-	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -168,7 +166,6 @@ Mansion4Script4: ; new
 .continue
 	call MoveSprite
 	ld a, $5
-	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -183,7 +180,6 @@ Mansion4Script5: ; new
 	ld [wJoyIgnore], a
 	call PlayDefaultMusic
 	ld a, $0
-	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -206,7 +202,6 @@ MansionB1FMovements1:
 Mansion4Script_ResetIfLoseVsRival:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPokemonMansionB1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 ;	ld a, HS_MT_MOON_1F_RIVAL

@@ -2,15 +2,14 @@ Route16_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route16TrainerHeaders
 	ld de, Route16_ScriptPointers
-	ld a, [wRoute16CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute16CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route16Script_59946:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -78,7 +77,6 @@ Route16Script0:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $4 ; TBC
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 .vanillaCode
@@ -103,7 +101,6 @@ Route16Script0:
 	predef HideObject
 	call UpdateSprites
 	ld a, $3
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -130,7 +127,6 @@ Route16Script3:
 	SetEvent EVENT_BEAT_ROUTE16_SNORLAX
 	call Delay3
 	ld a, $0
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -162,7 +158,6 @@ Route16Script4: ; new
 	call Route16Script_RivalFacingLeft
 	SetEvent EVENT_FACED_SNORLAX_RIVAL
 	ld a, 5
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -183,7 +178,6 @@ Route16Script5: ; new
 	ld [wJoyIgnore], a
 	call Route16Script_RivalFacingRight
 	ld a, $6
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -196,7 +190,6 @@ Route16Script6: ; new
 	ld de, Route16FMovements2
 	call MoveSprite
 	ld a, $7
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -212,7 +205,6 @@ Route16Script7: ; new
 	call DisplayTextID
 	call Route16Script_RivalFacingRight
 	ld a, $8
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -230,7 +222,6 @@ Route16Script8: ; new
 	ld de, Route16FMovements3
 	call MoveSprite
 	ld a, $9
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -256,7 +247,6 @@ Route16Script9: ; new
 	call EnablePikachuOverworldSpriteDrawing
 .notFollowingPikachu
 	ld a, $0
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -274,7 +264,6 @@ Route16FMovements3: ; new
 Route16Script_ResetIfLoseVsRival: ; new
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute16CurScript], a
 	ld [wCurMapScript], a
 	ld a, HS_ROUTE_16_RIVAL
 	ld [wMissableObjectIndex], a

@@ -1,7 +1,7 @@
 PokemonTower7F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower7F_ScriptPointers
-	ld a, [wPokemonTower7FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
@@ -9,7 +9,7 @@ PokemonTower7Script_60d01:
 	xor a
 	ld [wJoyIgnore], a
 PokemonTower7Script_60d05:
-	ld [wPokemonTower7FCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 PokemonTower7F_ScriptPointers:
@@ -253,7 +253,7 @@ PokemonTower7Script11:
 	ld hl, wd72d
 	set 3, [hl] ; do scripted warp
 	ld a, $0
-	ld [wPokemonTower7FCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 PokemonTower7F_TextPointers:
@@ -315,7 +315,7 @@ PokemonTower7Text3:
 ;	ld [wMissableObjectIndex], a	; does not exist?
 ;	predef ShowObject				; does not exist?
 	ld a, $b
-	ld [wPokemonTower7FCurScript], a
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 PokemonTower7Text_60f75:

@@ -1,13 +1,13 @@
 SSAnne2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SSAnne2F_ScriptPointers
-	ld a, [wSSAnne2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 SSAnne2Script_613ab:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wSSAnne2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SSAnne2F_ScriptPointers:
@@ -51,7 +51,7 @@ SSAnne2Script0:
 .asm_61403
 	call MoveSprite
 	ld a, $1
-	ld [wSSAnne2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 MovementData_6140c:
@@ -102,7 +102,7 @@ SSAnne2Script1:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call SSAnne2Script_61416
 	ld a, $2
-	ld [wSSAnne2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SSAnne2Script2:
@@ -134,7 +134,7 @@ SSAnne2Script2:
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
 	ld a, $3
-	ld [wSSAnne2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 MovementData_614b7:
@@ -158,7 +158,7 @@ SSAnne2Script3:
 	predef HideObject
 	call PlayDefaultMusic
 	ld a, $4
-	ld [wSSAnne2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SSAnne2F_TextPointers:

@@ -5,7 +5,7 @@ HauntedPalletTown_Script:
 	call nz, HauntedPalletTownStopMusic
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedPalletTown_ScriptPointers
-	ld a, [wHauntedPalletTownCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 

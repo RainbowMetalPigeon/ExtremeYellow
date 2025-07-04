@@ -2,15 +2,14 @@ Route24_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route24TrainerHeaders
 	ld de, Route24_ScriptPointers
-	ld a, [wRoute24CurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute24CurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route24Script_513c0:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -44,7 +43,6 @@ ENDC
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 	ld a, $4
-	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -58,7 +56,6 @@ Route24Script4:
 	ret nz
 	call Delay3
 	ld a, $0
-	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -76,7 +73,6 @@ Route24Script3:
 	xor a
 	ld [wJoyIgnore], a
 	ld a, $0
-	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -136,7 +132,6 @@ Route24Text1:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3
-	ld [wRoute24CurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .got_item

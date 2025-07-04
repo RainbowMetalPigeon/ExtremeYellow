@@ -1,13 +1,12 @@
 PokemonTower2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower2F_ScriptPointers
-	ld a, [wPokemonTower2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 PokemonTower2Script_604fe:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPokemonTower2FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -84,7 +83,6 @@ PokemonTower2Script1:
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
 	ld a, $2
-	ld [wPokemonTower2FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -121,7 +119,6 @@ PokemonTower2Script2:
 	ld [wJoyIgnore], a
 	call PlayDefaultMusic
 	ld a, $0
-	ld [wPokemonTower2FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -153,7 +150,6 @@ PokemonTower2Text1:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
 	ld a, $1
-	ld [wPokemonTower2FCurScript], a
 	ld [wCurMapScript], a
 .asm_41852
 	jp TextScriptEnd

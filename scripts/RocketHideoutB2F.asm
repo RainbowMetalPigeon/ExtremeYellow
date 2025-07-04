@@ -2,9 +2,9 @@ RocketHideoutB2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout2TrainerHeaders
 	ld de, RocketHideoutB2F_ScriptPointers
-	ld a, [wRocketHideoutB2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRocketHideoutB2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 RocketHideoutB2F_ScriptPointers:

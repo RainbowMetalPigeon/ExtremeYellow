@@ -2,9 +2,9 @@ MtMoon1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, MtMoon1TrainerHeaders
 	ld de, MtMoon1F_ScriptPointers
-	ld a, [wMtMoon1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wMtMoon1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 MtMoon1F_ScriptPointers:
@@ -57,7 +57,6 @@ ENDC
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $3 ; testing
-	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -112,7 +111,6 @@ MtMoon1Script3: ; new
 	ldh [hJoyHeld], a
 	call MtMoon1FScript_RivalFacingDown
 	ld a, 4
-	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -166,14 +164,12 @@ MtMoon1Script4: ; new
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $5
-	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
 MtMoon1FScript_ResetIfLoseVsRival:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ld a, HS_MT_MOON_1F_RIVAL
 	ld [wMissableObjectIndex], a
@@ -199,7 +195,6 @@ MtMoon1Script5: ; new
 	ld [wJoyIgnore], a
 	call PlayDefaultMusic
 	ld a, $0
-	ld [wMtMoon1FCurScript], a
 	ld [wCurMapScript], a
 	ret
 

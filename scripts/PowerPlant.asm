@@ -2,9 +2,9 @@ PowerPlant_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, PowerPlantTrainerHeaders
 	ld de, PowerPlant_ScriptPointers
-	ld a, [wPowerPlantCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wPowerPlantCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 PowerPlant_ScriptPointers:
@@ -54,8 +54,8 @@ ZapdosTrainerHeader:
 
 InitVoltorbBattle:
 	call TalkToTrainer
-	ld a, [wCurMapScript]
-	ld [wPowerPlantCurScript], a
+;	ld a, [wCurMapScript] ; useless now, right?
+;	ld [wCurMapScript], a ; useless now, right?
 	jp TextScriptEnd
 
 Voltorb0Text:
@@ -148,7 +148,6 @@ PowerPlantTextLtSurge:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wPowerPlantCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -177,7 +176,6 @@ PowerPlantLtSurgePostBattleRematch: ; script, map-dependent
 PowerPlantResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wPowerPlantCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

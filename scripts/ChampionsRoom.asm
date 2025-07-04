@@ -23,7 +23,7 @@ ChampionsRoom_ScriptPointers:
 	dw GaryScript8
 	dw GaryScript9
 	dw GaryScript10
-	dw GaryScript2ndBattle ; $b
+	dw GaryScript2ndBattle ; 11
 
 ; ==================================
 
@@ -104,7 +104,7 @@ GaryScript2:
 
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $b ; edited, to be changed if I rearrange all the scripts
+	ld a, 11 ; edited, to be changed if I rearrange all the scripts
 	ld [wChampionsRoomCurScript], a
 	ret
 
@@ -378,7 +378,7 @@ GaryScript9:
 	dec a
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
-	ld a, $a
+	ld a, 10
 	ld [wChampionsRoomCurScript], a
 	ret
 

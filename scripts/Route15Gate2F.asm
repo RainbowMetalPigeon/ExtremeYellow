@@ -1,9 +1,9 @@
 Route15Gate2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, Route15Gate2F_ScriptPointers
-	ld a, [wRoute15Gate2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRoute15Gate2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 Route15Gate2F_ScriptPointers:
@@ -23,7 +23,6 @@ Route15Gate2FScript1:
 	call RestoreOverworld
 ; script handling
 	xor a
-	ld [wRoute15Gate2FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -94,7 +93,6 @@ Route15GateUpstairsTextArticuno:
 	call PrintText
 ; script handling
 	ld a, 1
-	ld [wRoute15Gate2FCurScript], a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .printAndEnd

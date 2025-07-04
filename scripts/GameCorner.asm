@@ -3,7 +3,7 @@ GameCorner_Script:
 	call CeladonGameCornerScript_48bec
 	call EnableAutoTextBoxDrawing
 	ld hl, GameCorner_ScriptPointers
-	ld a, [wGameCornerCurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 CeladonGameCornerScript_48bcf:
@@ -38,7 +38,6 @@ CeladonGameCornerScript_48bec:
 CeladonGameCornerScript_48c07:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wGameCornerCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -82,7 +81,7 @@ CeladonGameCornerScript1:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $2
-	ld [wGameCornerCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 MovementData_48c5a:
@@ -117,7 +116,7 @@ CeladonGameCornerScript2:
 	set 5, [hl]
 	set 6, [hl]
 	ld a, $0
-	ld [wGameCornerCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 GameCorner_TextPointers:
@@ -532,7 +531,7 @@ CeladonGameCornerText11:
 	ldh [hJoyPressed], a
 	ldh [hJoyReleased], a
 	ld a, $1
-	ld [wGameCornerCurScript], a
+	ld [wCurMapScript], a ; edited
 	jp TextScriptEnd
 
 CeladonGameCornerText_48ece:

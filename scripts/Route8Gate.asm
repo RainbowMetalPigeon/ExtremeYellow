@@ -1,7 +1,7 @@
 Route8Gate_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, Route8Gate_ScriptPointers
-	ld a, [wRoute8GateCurScript]
+	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
 
 Route8Gate_ScriptPointers:
@@ -40,7 +40,7 @@ Route8GateScript0:
 	call DisplayTextID
 	call Route8GateScript_1e1d7
 	ld a, $1
-	ld [wRoute8GateCurScript], a
+	ld [wCurMapScript], a
 	ret
 .asm_1e220
 	ld hl, wd728
@@ -61,7 +61,7 @@ Route8GateScript1:
 	call Delay3
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRoute8GateCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 Route8Gate_TextPointers:

@@ -5,7 +5,7 @@ HauntedRedsHouse_Script:
 	call nz, HauntedRedsHouseSetExitTile
 	call EnableAutoTextBoxDrawing
 	ld hl, HauntedRedsHouse_ScriptPointers
-	ld a, [wHauntedRedsHouseCurScript]
+	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
@@ -62,7 +62,7 @@ HauntedRedsHouseScript0:
 	ld [wSpritePlayerStateData1FacingDirection], a ; SPRITE_FACING_UP
 	ld [wJoyIgnore], a
 	ld a, $1
-	ld [wHauntedRedsHouseCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 HauntedRedsHouseEntranceCoords:
@@ -79,8 +79,7 @@ HauntedRedsHouseScript1:
 	ld c, 10
 	call DelayFrames
 	xor a
-	ld [wHauntedRedsHouseCurScript], a
-;	ld [wCurMapScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ; =================================

@@ -2,9 +2,9 @@ RockTunnelB1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, RockTunnel2TrainerHeaders
 	ld de, RockTunnelB1F_ScriptPointers
-	ld a, [wRockTunnelB1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wRockTunnelB1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 RockTunnelB1F_ScriptPointers:
@@ -222,7 +222,6 @@ RockTunnel2TextBrock:
 
 ; script handling
 	ld a, $3 ; new script, map-dependent
-	ld [wRockTunnelB1FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -251,7 +250,6 @@ RockTunnel2BrockPostBattleRematch: ; script, map-dependent
 RockTunnel2ResetScripts: ; map-dependent
 	xor a
 	ld [wJoyIgnore], a
-	ld [wRockTunnelB1FCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

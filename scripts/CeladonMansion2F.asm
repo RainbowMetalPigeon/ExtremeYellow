@@ -1,9 +1,9 @@
 CeladonMansion2F_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, CeladonMansion2F_ScriptPointers
-	ld a, [wCeladonMansion2FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCeladonMansion2FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CeladonMansion2F_ScriptPointers:
@@ -54,7 +54,6 @@ CeladonMansion2FScript1:
 	call DisplayTextID
 .endScript
 	xor a
-	ld [wCeladonMansion2FCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -152,7 +151,7 @@ CeladonMansion2Text1:
 
 	; handle scripts
 	ld a, 1
-	ld [wCeladonMansion2FCurScript], a
+	ld [wCurMapScript], a ; edited
 
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd

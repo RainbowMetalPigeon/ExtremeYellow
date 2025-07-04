@@ -6,9 +6,9 @@ ObsidianWarehouse_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianWarehouseTrainerHeaders
 	ld de, ObsidianWarehouse_ScriptPointers
-	ld a, [wObsidianWarehouseCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wObsidianWarehouseCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 ObsidianWarehouseSetDoorBlock:
@@ -26,7 +26,6 @@ ObsidianWarehouseSetDoorBlock:
 ObsidianWarehouseResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-	ld [wObsidianWarehouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 

@@ -2,9 +2,9 @@ CeruleanCaveB1F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, CeruleanCaveB1FTrainerHeaders
 	ld de, CeruleanCaveB1F_ScriptPointers
-	ld a, [wCeruleanCaveB1FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCeruleanCaveB1FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CeruleanCaveB1F_ScriptPointers:

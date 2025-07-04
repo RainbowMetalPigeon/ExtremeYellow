@@ -1,9 +1,9 @@
 CeladonChiefHouse_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, CeladonChiefHouse_ScriptPointers
-	ld a, [wCeladonChiefHouseCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wCeladonChiefHouseCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 CeladonChiefHouse_ScriptPointers: ; new
@@ -95,7 +95,6 @@ LunarShrineScript1:
 	call MonkFacesDown
 ; script handling
 	ld a, $2
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -112,7 +111,6 @@ LunarShrineScript2:
 	call Rocket4FaceUp
 ; script handling
 	ld a, $3
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -131,7 +129,6 @@ LunarShrineScript3:
 	call DisplayTextID
 ; script handling
 	ld a, $4
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -157,7 +154,6 @@ LunarShrineScript4:
 	call DisplayTextID
 ; script handling
 	ld a, $5
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -179,7 +175,6 @@ LunarShrineScript5:
 	call MoveSprite
 ; script handling
 	ld a, $6
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -195,7 +190,6 @@ LunarShrineScript6:
 	call Rocket2FaceLeft
 ; script handling
 	ld a, $7
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -225,7 +219,6 @@ LunarShrineScript7:
 	ldh [hJoyHeld], a
 ; script handling
 	ld a, $8
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -266,7 +259,6 @@ LunarShrineScript8:
 	ldh [hJoyHeld], a
 ; script handling
 	ld a, $9
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -307,7 +299,6 @@ LunarShrineScript9:
 	ldh [hJoyHeld], a
 ; script handling
 	ld a, 10
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -348,7 +339,6 @@ LunarShrineScript10:
 	ldh [hJoyHeld], a
 ; script handling
 	ld a, 11
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -394,7 +384,6 @@ LunarShrineScript11:
 	call GBFadeInFromBlack
 ; script handling
 	ld a, 12
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -414,7 +403,6 @@ LunarShrineScript12:
 	call DisplayTextID
 ; script handling
 	ld a, 13
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -437,7 +425,6 @@ LunarShrineScript13:
 	SetEvent EVENT_RETURNED_LUNAR_RELIC
 ; script handling
 	ld a, 14
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -463,13 +450,11 @@ LunarShrineScript14:
 ; end stuff
 	ld a, $0 ; return controls to the player?
 	ld [wJoyIgnore], a
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
 HandleDefeat:
 	xor a
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ld a, HS_LUNAR_SHRINE_2
 	ld [wMissableObjectIndex], a
@@ -659,7 +644,6 @@ LunarShrineTextTemple:
 	jp nz, .printAndEnd
 ; try to place the relic, handle the scripts and print corresponding text
 	ld a, 1
-	ld [wCeladonChiefHouseCurScript], a
 	ld [wCurMapScript], a
 	ld hl, LunarShrineTempleText_PlaceRelic
 .printAndEnd

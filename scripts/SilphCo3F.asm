@@ -3,9 +3,9 @@ SilphCo3F_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo3TrainerHeaders
 	ld de, SilphCo3F_ScriptPointers
-	ld a, [wSilphCo3FCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSilphCo3FCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SilphCo3Script_59f71:

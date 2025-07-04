@@ -2,17 +2,16 @@ FightingDojo_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, FightingDojoTrainerHeaders
 	ld de, FightingDojo_ScriptPointers
-	ld a, [wFightingDojoCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wFightingDojoCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
-FightingDojoScript_5cd70:
-	xor a
-	ld [wJoyIgnore], a
-	ld [wFightingDojoCurScript], a
-	ld [wCurMapScript], a
-	ret
+;FightingDojoScript_5cd70: ; redundant, removed
+;	xor a
+;	ld [wJoyIgnore], a
+;	ld [wCurMapScript], a
+;	ret
 
 FightingDojo_ScriptPointers:
 	dw FightingDojoScript1
@@ -56,7 +55,7 @@ FightingDojoScript1:
 FightingDojoScript3:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, FightingDojoScript_5cd70
+	jp z, FightingDojoResetScripts ; edited
 	ld a, [wcf0d]
 	and a
 	jr z, .asm_5cde4
@@ -75,10 +74,12 @@ FightingDojoScript3:
 	ld a, $A
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	xor a
-	ld [wJoyIgnore], a
-	ld [wFightingDojoCurScript], a
-	ld [wCurMapScript], a
+; edited to optimize
+;	xor a
+;	ld [wJoyIgnore], a
+;	ld [wCurMapScript], a
+;	ret
+	call FightingDojoResetScripts ; prolly can do with a jp but whatever
 	ret
 
 FightingDojo_TextPointers:
@@ -125,7 +126,6 @@ FightingDojoText1:
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
 	ld a, $3
-	ld [wFightingDojoCurScript], a
 	ld [wCurMapScript], a
 	jr .asm_9dba4
 .continue1
@@ -368,7 +368,6 @@ FightingDojoTextBruno:
 
 ; script handling
 	ld a, $4 ; new script, map-dependent
-	ld [wFightingDojoCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -394,10 +393,9 @@ FightingDojoBrunoPostBattleRematch: ; script, map-dependent
 	SetEvent EVENT_BEAT_BRUNO_REMATCH_INVERSE ; map-dependent
 	jp FightingDojoResetScripts
 
-FightingDojoResetScripts: ; map-dependent
+FightingDojoResetScripts: ; map-dependent ; redundant
 	xor a
 	ld [wJoyIgnore], a
-	ld [wFightingDojoCurScript], a ; map-dependent
 	ld [wCurMapScript], a
 	ret
 

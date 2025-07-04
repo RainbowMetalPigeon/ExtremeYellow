@@ -2,9 +2,9 @@ SSAnne2FRooms_Script:
 	call DisableAutoTextBoxDrawing
 	ld hl, SSAnne9TrainerHeaders
 	ld de, SSAnne2FRooms_ScriptPointers
-	ld a, [wSSAnne2FRoomsCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSSAnne2FRoomsCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SSAnne2FRooms_ScriptPointers:

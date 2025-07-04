@@ -2,9 +2,9 @@ SaffronCity_Script:
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, SaffronCity_ScriptPointers
-	ld a, [wSaffronCityCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSaffronCityCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SaffronCity_ScriptPointers: ; new, for traveler
@@ -169,7 +169,6 @@ TextPreBattle_SaffronTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 1 ; city-specific
-	ld [wSaffronCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -196,7 +195,6 @@ TextPostBattle_SaffronTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wSaffronCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -207,7 +205,6 @@ SaffronScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wSaffronCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	ret
 .notDefeated

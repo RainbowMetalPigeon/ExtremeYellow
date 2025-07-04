@@ -226,8 +226,8 @@ OaksLabScript9:
 	ld a, SPRITE_FACING_UP
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
-	ld a, RIVAL_STARTER_JOLTEON
-	ld [wRivalStarter], a
+;	ld a, RIVAL_STARTER_JOLTEON
+;	ld [wRivalStarter], a
 	ld a, EEVEE
 	ld [wd11e], a
 	call GetMonName

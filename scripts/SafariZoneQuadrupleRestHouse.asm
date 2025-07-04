@@ -1,9 +1,9 @@
 SafariZoneQuadrupleRestHouse_Script:
 	call EnableAutoTextBoxDrawing
 	ld de, SafariZoneRestHouse_ScriptPointers
-	ld a, [wSafariZoneRestHouseCurScript]
+	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
-	ld [wSafariZoneRestHouseCurScript], a
+	ld [wCurMapScript], a ; edited
 	ret
 
 SafariZoneRestHouse_ScriptPointers: ; new
@@ -43,7 +43,6 @@ SafariZoneRestHouse1Text1:
 	CheckEvent EVENT_SPOKEN_WITH_ERIK
 	jr z, .notSpokenWithErik
 	ld a, 1
-	ld [wSafariZoneRestHouseCurScript], a
 	ld [wCurMapScript], a
 	jr .conclude
 .notSpokenWithErik
@@ -75,7 +74,6 @@ SafariZoneRestHouseScript_MoveSara:
 	call MoveSprite
 ; script handling
 	ld a, 2
-	ld [wSafariZoneRestHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
@@ -98,7 +96,6 @@ SafariZoneRestHouseScript_HideAndShowErikAndSara:
 ; script handling and return control to players
 	xor a
 	ld [wJoyIgnore], a
-	ld [wSafariZoneRestHouseCurScript], a
 	ld [wCurMapScript], a
 	ret
 
