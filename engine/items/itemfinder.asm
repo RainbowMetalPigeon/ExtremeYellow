@@ -1,5 +1,11 @@
 HiddenItemNear:
 	ld hl, HiddenItemCoords
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue
+	ld hl, HiddenItemCoords_Sevii
+.continue
+; back to vanilla
 	ld b, 0
 .loop
 	ld de, 3

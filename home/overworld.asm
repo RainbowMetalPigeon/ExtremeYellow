@@ -1936,9 +1936,20 @@ asm_0dbd:
 	ld b, $00
 	ldh a, [hLoadedROMBank]
 	push af
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; kanto
 	ld a, BANK(MapSongBanks)
 	call BankswitchCommon
 	ld hl, MapSongBanks
+	jr .continue
+.sevii
+	ld a, BANK(MapSongBanks_Sevii)
+	call BankswitchCommon
+	ld hl, MapSongBanks_Sevii
+.continue
+; back to vanilla
 	add hl, bc
 	add hl, bc
 	ld a, [hli]
@@ -2090,9 +2101,20 @@ SwitchToMapRomBank::
 	push bc
 	ld c, a
 	ld b, $00
+; new for sevii
+    CheckEvent EVENT_IN_SEVII
+    jr nz, .sevii
+; kanto
 	ld a, BANK(MapHeaderBanks)
 	call BankswitchHome
 	ld hl, MapHeaderBanks
+    jr .continue
+.sevii
+	ld a, BANK(MapHeaderBanks_Sevii)
+	call BankswitchHome
+	ld hl, MapHeaderBanks_Sevii
+.continue
+; back to vanilla
 	add hl, bc
 	ld a, [hl]
 	ldh [hMapROMBank], a
@@ -2106,13 +2128,28 @@ SwitchToMapRomBank::
 GetMapHeaderPointer::
 	ldh a, [hLoadedROMBank]
 	push af
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; kanto
 	ld a, BANK(MapHeaderPointers)
+	jr .continue
+.sevii
+	ld a, BANK(MapHeaderPointers_Sevii)
+.continue
+; back to vanilla
 	call BankswitchCommon
 	push de
 	ld a, [wCurMap]
 	ld e, a
 	ld d, $0
 	ld hl, MapHeaderPointers
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .notSevii
+	ld hl, MapHeaderPointers_Sevii
+.notSevii
+; back to vanilla
 	add hl, de
 	add hl, de
 	ld a, [hli]

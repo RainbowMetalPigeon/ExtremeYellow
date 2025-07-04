@@ -180,36 +180,36 @@ InitializeMissableObjectsFlagsExtra:
 	inc hl
 	jr .missableObjectsLoop
 
-;; new for sevii
-;InitializeMissableObjectsFlags_Sevii:
-;	ld hl, wMissableObjectFlags
-;	ld bc, wMissableObjectFlagsEnd - wMissableObjectFlags
-;	xor a
-;	call FillMemory ; clear missable objects flags
-;	ld hl, MissableObjects
-;	xor a
-;	ld [wMissableObjectCounter], a
-;.missableObjectsLoop
-;	ld a, [hli]
-;	cp -1           ; end of list
-;	ret z
-;	push hl
-;	inc hl
-;	ld a, [hl]
-;	cp HIDE
-;	jr nz, .skip
-;	ld hl, wMissableObjectFlags
-;	ld a, [wMissableObjectCounter]
-;	ld c, a
-;	ld b, FLAG_SET
-;	call MissableObjectFlagAction ; set flag if Item is hidden
-;.skip
-;	ld hl, wMissableObjectCounter
-;	inc [hl]
-;	pop hl
-;	inc hl
-;	inc hl
-;	jr .missableObjectsLoop
+; new for sevii
+InitializeMissableObjectsFlags_Sevii:
+	ld hl, wMissableObjectFlagsSevii
+	ld bc, wMissableObjectFlagsSeviiEnd - wMissableObjectFlagsSevii
+	xor a
+	call FillMemory ; clear missable objects flags
+	ld hl, MissableObjects_Sevii
+	xor a
+	ld [wMissableObjectCounter], a
+.missableObjectsLoop
+	ld a, [hli]
+	cp -1           ; end of list
+	ret z
+	push hl
+	inc hl
+	ld a, [hl]
+	cp HIDE
+	jr nz, .skip
+	ld hl, wMissableObjectFlagsSevii
+	ld a, [wMissableObjectCounter]
+	ld c, a
+	ld b, FLAG_SET
+	call MissableObjectFlagAction ; set flag if Item is hidden
+.skip
+	ld hl, wMissableObjectCounter
+	inc [hl]
+	pop hl
+	inc hl
+	inc hl
+	jr .missableObjectsLoop
 
 ; tests if current sprite is a missable object that is hidden/has been removed
 IsObjectHidden:
@@ -226,6 +226,9 @@ IsObjectHidden:
 	jr nz, .loop
 	ld c, a
 	ld b, FLAG_TEST
+	CheckEvent EVENT_IN_SEVII ; new for sevii
+	ld hl, wMissableObjectFlagsSevii ; new for sevii
+	jr nz, .callAction ; new for sevii
 	CheckEvent EVENT_USE_EXTRA_HIDESHOW		; new for splitting HS
 	ld hl, wMissableObjectFlags
 	jr z, .callAction						; new for splitting HS
@@ -252,6 +255,10 @@ ShowObjectExtra: ; new for splitting HS
 	ld hl, wMissableObjectFlagsExtra
 	jr ShowObjectCommon
 
+ShowObjectSevii: ; new for sevii
+	ld hl, wMissableObjectFlagsSevii
+	jr ShowObjectCommon
+
 ShowObjectCommon: ; new for splitting HS
 	ld a, [wMissableObjectIndex]
 	ld c, a
@@ -267,6 +274,10 @@ HideObject: ; edited for splitting HS
 
 HideObjectExtra: ; new for splitting HS
 	ld hl, wMissableObjectFlagsExtra
+	jr HideObjectCommon
+
+HideObjectSevii: ; new for sevii
+	ld hl, wMissableObjectFlagsSevii
 	jr HideObjectCommon
 
 HideObjectCommon: ; new for splitting HS

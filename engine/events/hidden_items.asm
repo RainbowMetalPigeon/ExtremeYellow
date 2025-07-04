@@ -1,5 +1,11 @@
 HiddenItems:
 	ld hl, HiddenItemCoords
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue
+	ld hl, HiddenItemCoords_Sevii
+.continue
+; back to vanilla
 	call FindHiddenItemOrCoinsIndex
 	ld [wHiddenItemOrCoinsIndex], a
 	ld hl, wObtainedHiddenItemsFlags
@@ -24,6 +30,7 @@ HiddenItems:
 	ret
 
 INCLUDE "data/events/hidden_item_coords.asm"
+INCLUDE "data/events/hidden_item_coords_sevii.asm"
 
 FoundHiddenItemText::
 	text_far _FoundHiddenItemText
@@ -217,6 +224,12 @@ CheckIfSpecificHiddenItemHasBeenFound:: ; new
 ; inputs: d: Y, e: X, b: MAP
 ; output: nz flag if found, z if not
 	ld hl, HiddenItemCoords ; MAP, Y, X (but they are written as X, Y, as hidden_item loads \1, \3, \2, trickster!)
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue
+	ld hl, HiddenItemCoords_Sevii
+.continue
+; back to non-sevii stuff
 	ld c, -1
 .loop ; results: a: index; c flag not in list
 	inc c

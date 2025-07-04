@@ -2346,7 +2346,8 @@ wSafariZoneGateCurScript:: db
 ;wSilphCo8FCurScript:: db
 ;wSilphCo9FCurScript:: db
 ;wHallOfFameCurScript:: db
-	ds 44 ; new, from optimizing the scripts, UNUSED
+	ds 12 ; new, from optimizing the scripts, UNUSED
+		  ; it was 44, but -32 for the wMissableObjectFlagsSevii added below
 	
 wChampionsRoomCurScript:: db
 wLoreleisRoomCurScript:: db
@@ -2411,6 +2412,11 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 ;wRoute27CurScript:: db ; new
 	ds 24 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts, UNUSED
 wGameProgressFlagsEnd::
+
+; new for sevii
+; bit array of missable objects. set = removed
+wMissableObjectFlagsSevii:: flag_array $100 ; it's $100=256 (bits = 32 bytes) new HS variables
+wMissableObjectFlagsSeviiEnd::
 
 wPlayerGender::
 	; $00 = male

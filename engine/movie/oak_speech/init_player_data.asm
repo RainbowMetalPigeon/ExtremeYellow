@@ -52,6 +52,7 @@ DEF START_MONEY EQU $3000
 	call FillMemory ; clear all game progress flags
 
 	call InitializeMissableObjectsFlagsExtra ; new for splitting HS
+	call InitializeMissableObjectsFlags_Sevii ; new for sevii
 	jp InitializeMissableObjectsFlags
 
 InitializeEmptyList:

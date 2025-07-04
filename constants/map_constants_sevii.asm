@@ -9,10 +9,10 @@
 ; - MapHeaderBanks (see data/maps/map_header_banks.asm)
 ; - MapHeaderPointers (see data/maps/map_header_pointers.asm)
 ; - MapSongBanks (see data/maps/songs.asm)
-; - MapHSPointers (see data/maps/hide_show_data.asm) - DONE
-; - MapSpriteSets (see data/maps/sprite_sets_sevii.asm) - DONE
-; - ExternalMapEntries (see data/maps/town_map_entries_sevii.asm) - DONE
-; - WildDataPointers (see data/wild/grass_water_sevii.asm) - DONE
+; - MapHSPointers (see data/maps/hide_show_data.asm)
+; - MapSpriteSets (see data/maps/sprite_sets_sevii.asm)
+; - ExternalMapEntries (see data/maps/town_map_entries_sevii.asm)
+; - WildDataPointers (see data/wild/grass_water_sevii.asm)
 ; Each map also has associated data in maps.asm.
 ; Order: towns/cities, then routes, then indoor/dungeon maps
 	const_def

@@ -1414,3 +1414,54 @@ INCLUDE "data/maps/headers/Route27.asm"
 INCLUDE "data/maps/objects/Route27.asm"
 Route27_Blocks: INCBIN "maps/Route27.blk"
 INCLUDE "scripts/Route27.asm"
+
+
+; --------------------- NEW FOR SEVII ----------------------------
+
+
+SECTION "Maps Sevii 1", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiOneIslandCity.asm"
+INCLUDE "scripts/SeviiOneIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiOneIslandCity.asm"
+SeviiOneIslandCity_Blocks: INCBIN "maps/SeviiOneIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIslandCity.asm"
+INCLUDE "scripts/SeviiTwoIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslandCity.asm"
+SeviiTwoIslandCity_Blocks: INCBIN "maps/SeviiTwoIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiThreeIslandCity.asm"
+INCLUDE "scripts/SeviiThreeIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandCity.asm"
+SeviiThreeIslandCity_Blocks: INCBIN "maps/SeviiThreeIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandCity.asm"
+INCLUDE "scripts/SeviiFourIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandCity.asm"
+SeviiFourIslandCity_Blocks: INCBIN "maps/SeviiFourIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandCity.asm"
+INCLUDE "scripts/SeviiFiveIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandCity.asm"
+SeviiFiveIslandCity_Blocks: INCBIN "maps/SeviiFiveIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiSixIslandCity.asm"
+INCLUDE "scripts/SeviiSixIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiSixIslandCity.asm"
+SeviiSixIslandCity_Blocks: INCBIN "maps/SeviiSixIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiSevenIslandCity.asm"
+INCLUDE "scripts/SeviiSevenIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiSevenIslandCity.asm"
+SeviiSevenIslandCity_Blocks: INCBIN "maps/SeviiSevenIslandCity.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute31.asm"
+INCLUDE "scripts/SeviiRoute31.asm"
+INCLUDE "data/maps/objects/SeviiRoute31.asm"
+SeviiRoute31_Blocks: INCBIN "maps/SeviiRoute31.blk"
+
+INCLUDE "data/maps/headers/SeviiOneIslandDock.asm"
+INCLUDE "scripts/SeviiOneIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiOneIslandDock.asm"
+SeviiOneIslandDock_Blocks: INCBIN "maps/SeviiOneIslandDock.blk"

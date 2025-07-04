@@ -7,6 +7,12 @@ CheckForHiddenObject::
 	ld [hli], a ; [hSavedMapTextPtr + 1]
 	ld [hl], a  ; [hDidntFindAnyHiddenObject]
 	ld hl, HiddenObjectMaps
+; new, for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue
+	ld hl, HiddenObjectMaps_Sevii
+.continue
+; back to vanilla
 	ld de, 3
 	ld a, [wCurMap]
 	call IsInArray
@@ -105,3 +111,4 @@ CheckIfCoordsInFrontOfPlayerMatch:
 	ret
 
 INCLUDE "data/events/hidden_objects.asm"
+INCLUDE "data/events/hidden_objects_sevii.asm"

@@ -216,7 +216,7 @@ ROMX $3C
 	"Tilesets 4"
 	"Try Pikachu Movement"
 	"Pikachu Graphics 2"
-	"Credits"
+;	"Credits" ; edited, doesn't need to stay specifically anywhere
 	"Maps 22"
 	"Hidden Objects Core"
 ROMX $3D
