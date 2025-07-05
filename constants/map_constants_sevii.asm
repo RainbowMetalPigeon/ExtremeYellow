@@ -16,7 +16,7 @@
 ; Each map also has associated data in maps.asm.
 ; Order: towns/cities, then routes, then indoor/dungeon maps
 	const_def
-	map_const SEVII_ONE_ISLAND_CITY,         10,  9 ; $00
+	map_const SEVII_ONE_ISLAND_CITY,         20, 20 ; $00
 	map_const SEVII_TWO_ISLAND_CITY,         10,  9 ; $01
 	map_const SEVII_THREE_ISLAND_CITY,       10,  9 ; $02
 	map_const SEVII_FOUR_ISLAND_CITY,        10,  9 ; $03
@@ -25,9 +25,9 @@
 	map_const SEVII_SEVEN_ISLAND_CITY,       10,  9 ; $06
 DEF NUM_CITY_MAPS_SEVII EQU const_value
 DEF FIRST_ROUTE_MAP_SEVII EQU const_value
-	map_const SEVII_ROUTE_31,                20,  8 ; $07
+	map_const SEVII_ROUTE_31,                15, 55 ; $07
 DEF FIRST_INDOOR_MAP_SEVII EQU const_value
-	map_const SEVII_ONE_ISLAND_DOCK,          4,  5 ; $xx
+	map_const SEVII_ONE_ISLAND_DOCK,          4,  3 ; $08
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

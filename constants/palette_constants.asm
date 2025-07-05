@@ -121,3 +121,18 @@ DEF NUM_SGB_PALS_HAUNTEDLESS EQU const_value ; new, used only to select palettes
 	const PAL_PALLET_14 ; new
 	const PAL_PALLET_15 ; new
 DEF NUM_SGB_PALS EQU const_value
+
+; new for sevii
+	const_def
+	const PAL_SEVII_ROUTE        ; $00
+	const PAL_SEVII_ONE_ISLAND   ; $01
+	const PAL_SEVII_TWO_ISLAND   ; $02
+	const PAL_SEVII_THREE_ISLAND ; $03
+	const PAL_SEVII_FOUR_ISLAND  ; $04
+	const PAL_SEVII_FIVE_ISLAND  ; $05
+	const PAL_SEVII_SIX_ISLAND   ; $06
+	const PAL_SEVII_SEVEN_ISLAND ; $07
+	const PAL_SEVII_GREY         ; $08
+	const PAL_SEVII_CAVE         ; $09
+DEF NUM_SGB_PALS_SEVII EQU const_value
+	

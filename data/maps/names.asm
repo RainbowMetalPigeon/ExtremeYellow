@@ -64,11 +64,11 @@ HauntedHouseName:    db "@" ; new
 
 ; new, for Sevii
 
-OneIslandName:       db "ONE ISLAND@"
-TwoIslandName:       db "TWO ISLAND@"
-ThreeIslandName:     db "THREE ISLAND@"
-FourIslandName:      db "FOUR ISLAND@"
-FiveIslandName:      db "FIVE ISLAND@"
-SixIslandName:       db "SIX ISLAND@"
-SevenIslandName:     db "SEVEN ISLAND@"
+OneIslandName:       db "BOND ISLAND@"
+TwoIslandName:       db "FRIENDSHIP ISLAND@"
+ThreeIslandName:     db "FAMILY ISLAND@"
+FourIslandName:      db "FLOE ISLAND@"
+FiveIslandName:      db "CHRONO ISLAND@"
+SixIslandName:       db "FORTUNE ISLAND@"
+SevenIslandName:     db "QUEST ISLAND@"
 Route31Name:         db "ROUTE 31@"

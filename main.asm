@@ -519,11 +519,11 @@ INCLUDE "engine/gfx/animated_objects.asm"
 SECTION "Overworld Pikachu", ROMX
 
 INCLUDE "data/maps/songs.asm"
-INCLUDE "data/maps/songs_sevii.asm"
+INCLUDE "data/maps/songs_sevii.asm" ; new for sevii
 INCLUDE "data/maps/map_header_pointers.asm"
-INCLUDE "data/maps/map_header_pointers_sevii.asm"
+INCLUDE "data/maps/map_header_pointers_sevii.asm" ; new for sevii
 INCLUDE "data/maps/map_header_banks.asm"
-INCLUDE "data/maps/map_header_banks_sevii.asm"
+INCLUDE "data/maps/map_header_banks_sevii.asm" ; new for sevii
 INCLUDE "engine/pikachu/pikachu_follow.asm"
 INCLUDE "engine/pikachu/pikachu_status.asm"
 INCLUDE "engine/pikachu/pikachu_emotions.asm"

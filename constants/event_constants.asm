@@ -979,7 +979,8 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const_skip 6
 	const EVENT_SEAFOAM4_BOULDER1_DOWN_HOLE
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
-	const_skip 8
+	const_skip 7
+	const EVENT_CURRENTLY_USING_SEVII_PALETTES ; new for sevii
 	const EVENT_BEAT_ARTICUNO
 
 ; Ochre City events ; new, and then scattered around

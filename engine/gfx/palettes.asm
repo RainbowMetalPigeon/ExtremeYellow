@@ -265,6 +265,7 @@ SetPal_Overworld:
 	CheckEvent EVENT_IN_SEVII
 	jr z, .notSevii
 ; yes Sevii
+	SetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
@@ -279,30 +280,30 @@ SetPal_Overworld:
 	ld a, [wCurMap]
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
-	cp CERULEAN_CAVE_2F ; TBE
-	jr c, .normalDungeonOrBuildingSevii
-	cp CERULEAN_CAVE_1F + 1 ; TBE
-	jr c, .cave
+;	cp CERULEAN_CAVE_2F ; TBE
+;	jr c, .normalDungeonOrBuildingSevii
+;	cp CERULEAN_CAVE_1F + 1 ; TBE
+;	jr c, .cave
 .normalDungeonOrBuildingSevii
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
 	cp NUM_CITY_MAPS_SEVII
-	jr c, .town
-	ld a, PAL_ROUTE - 1
-;.town
-;	inc a ; a town's palette ID is its map ID + 1
-;	ld hl, wPalPacket + 1
-;	ld [hld], a
-;	ld de, BlkPacket_WholeScreen
-;	ld a, SET_PAL_OVERWORLD
-;	ld [wDefaultPaletteCommand], a
-;	ret
+	jr c, .townSevii
+	ld a, PAL_SEVII_ROUTE - 1
+.townSevii
+	inc a ; a town's palette ID is its map ID + 1
+	ld hl, wPalPacket + 1
+	ld [hld], a
+	ld de, BlkPacket_WholeScreen
+	ld a, SET_PAL_OVERWORLD
+	ld [wDefaultPaletteCommand], a
+	ret
 .cemetery
-	ld a, PAL_GREYMON - 1
-	jr .town
+	ld a, PAL_SEVII_GREY - 1
+	jr .townSevii
 .cave
-	ld a, PAL_CAVE - 1
-	jr .town
+	ld a, PAL_SEVII_CAVE - 1
+	jr .townSevii
 .notSevii
 
 ; new, code for rainbow palette
@@ -650,6 +651,42 @@ LoadOverworldPikachuFrontpicPalettes::
 
 GetPal_Pikachu::
 ; similar to SetPal_Overworld
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .notSevii
+; yes Sevii
+	SetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
+; check by tileset
+	ld a, [wCurMapTileset]
+	cp CEMETERY
+	jr z, .cemetery
+	cp CAVERN
+	jr z, .cave
+; check by map
+	ld a, [wCurMap]
+	cp FIRST_INDOOR_MAP_SEVII
+	jr c, .townOrRouteSevii
+;	cp CERULEAN_CAVE_2F ; TBE
+;	jr c, .normalDungeonOrBuildingSevii
+;	cp CERULEAN_CAVE_1F + 1 ; TBE
+;	jr c, .cave
+.normalDungeonOrBuildingSevii
+	ld a, [wLastMap] ; town or route that current dungeon or building is located
+.townOrRouteSevii
+	cp NUM_CITY_MAPS_SEVII
+	jr c, .townSevii
+	ld a, PAL_SEVII_ROUTE - 1
+.townSevii
+	inc a ; a town's palette ID is its map ID + 1
+	ret
+.cemetery
+	ld a, PAL_SEVII_GREY - 1
+	jr .townSevii
+.cave
+	ld a, PAL_SEVII_CAVE - 1
+	jr .townSevii
+.notSevii
+; back to vanilla
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
@@ -679,19 +716,15 @@ GetPal_Pikachu::
 .town
 	inc a ; a town's pallete ID is its map ID + 1
 	ret
-
 .PokemonTowerOrAgatha
 	ld a, PAL_GREYMON - 1
 	jr .town
-
 .caveOrBruno
 	ld a, PAL_CAVE - 1
 	jr .town
-
 .Lorelei
 	xor a ; PAL_PALLET - 1
 	jr .town
-
 .battleOrTradeCenter
 	ld a, PAL_GREYMON - 1
 	jr .town
@@ -829,7 +862,13 @@ LoadSGB:
 	xor a
 	ld [wCopyingSGBTileData], a
 	ld de, PalTrnPacket
+; new for sevii
+	CheckAndResetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
 	ld hl, SuperPalettes
+	jr z, .notSevii
+	ld hl, SuperPalettes_Sevii
+.notSevii
+; back to vanilla
 	call CopyGfxToSuperNintendoVRAM
 	call ClearVram
 	ld hl, MaskEnCancelPacket
@@ -1046,6 +1085,14 @@ GetGBCBasePalAddress::
 	add hl, hl
 	add hl, hl
 	ld de, GBCBasePalettes
+; new for sevii	
+	push hl
+	CheckAndResetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
+	pop hl
+	jr z, .nonSevii
+	ld de, GBCBasePalettes_Sevii
+.nonSevii
+; back to vanilla
 	add hl, de
 	ld a, l
 	ld e, a

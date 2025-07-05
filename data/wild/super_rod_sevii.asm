@@ -1,0 +1,7 @@
+SuperRodFishingSlots_Sevii::
+	db SEVII_ONE_ISLAND_CITY, MPINSIR, 10, MPINSIR, 10, MPINSIR, 5, MPINSIR, 20, MPINSIR, 100
+	db -1 ; end
+
+SuperRodFishingSlots_Sevii_Enhanced::
+	db SEVII_ONE_ISLAND_CITY, STARMIE, 40, TENTACRUEL, 40, STARMIE, 45, TENTACRUEL, 45, MAGIKARP, 100
+	db -1 ; end

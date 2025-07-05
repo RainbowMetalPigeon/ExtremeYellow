@@ -29,36 +29,12 @@ HiddenObjectMaps_Sevii:
 ; from interacting with them in any direction.
 ;DEF ANY_FACING EQU $d0
 
-SeviiOneIslandDockHiddenObjects:
-	hidden_object 12,  3, ELIXER, HiddenItems
-	db -1 ; end
-
-SeviiRoute31HiddenObjects:
-	hidden_object 12,  3, ELIXER, HiddenItems
-	db -1 ; end
-
-SeviiSevenIslandCityHiddenObjects:
-	hidden_object 12,  3, ELIXER, HiddenItems
-	db -1 ; end
-
-SeviiSixeIslandCityHiddenObjects:
-	hidden_object 13,  5, SPRITE_FACING_DOWN, PrintTrashText
-	hidden_object 13,  7, SPRITE_FACING_DOWN, PrintTrashText
-	hidden_object 13,  9, GREAT_BALL, HiddenItems
-	db -1 ; end
-
-SeviiFiveIslandCityHiddenObjects:
-	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
-	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
-	db -1 ; end
-
-SeviiFourIslandCityHiddenObjects:
-	hidden_object  1,  4, SPRITE_FACING_UP, BillsHousePC
-	db -1 ; end
-
-SeviiThreeIslandCityHiddenObjects:
-	hidden_object  0,  1, SPRITE_FACING_UP, OpenRedsPC
-	hidden_object  3,  5, ANY_FACING, PrintRedSNESText
+SeviiOneIslandCityHiddenObjects:
+	hidden_object 15, 15, ELIXER, HiddenItems
+	hidden_object  4,  0, SPRITE_FACING_UP, DisplayOakLabLeftPoster
+	hidden_object  5,  0, SPRITE_FACING_UP, DisplayOakLabRightPoster
+	hidden_object  0,  1, SPRITE_FACING_UP, DisplayOakLabEmailText
+	hidden_object  1,  1, SPRITE_FACING_UP, DisplayOakLabEmailText
 	db -1 ; end
 
 SeviiTwoIslandCityHiddenObjects:
@@ -67,9 +43,34 @@ SeviiTwoIslandCityHiddenObjects:
 	hidden_object  7,  1, SPRITE_FACING_UP, PrintBookcaseText
 	db -1 ; end
 
-SeviiOneIslandCityHiddenObjects:
-	hidden_object  4,  0, SPRITE_FACING_UP, DisplayOakLabLeftPoster
-	hidden_object  5,  0, SPRITE_FACING_UP, DisplayOakLabRightPoster
-	hidden_object  0,  1, SPRITE_FACING_UP, DisplayOakLabEmailText
-	hidden_object  1,  1, SPRITE_FACING_UP, DisplayOakLabEmailText
+SeviiThreeIslandCityHiddenObjects:
+	hidden_object  0,  1, SPRITE_FACING_UP, OpenRedsPC
+	hidden_object  3,  5, ANY_FACING, PrintRedSNESText
+	db -1 ; end
+
+SeviiFourIslandCityHiddenObjects:
+	hidden_object  1,  4, SPRITE_FACING_UP, BillsHousePC
+	db -1 ; end
+
+SeviiFiveIslandCityHiddenObjects:
+	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
+	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+SeviiSixeIslandCityHiddenObjects:
+	hidden_object 13,  5, SPRITE_FACING_DOWN, PrintTrashText
+	hidden_object 13,  7, SPRITE_FACING_DOWN, PrintTrashText
+	hidden_object 13,  9, GREAT_BALL, HiddenItems
+	db -1 ; end
+
+SeviiSevenIslandCityHiddenObjects:
+	hidden_object 12,  3, ELIXER, HiddenItems
+	db -1 ; end
+
+SeviiRoute31HiddenObjects:
+	hidden_object 12,  3, ELIXER, HiddenItems
+	db -1 ; end
+
+SeviiOneIslandDockHiddenObjects:
+	hidden_object 15, 15, ELIXER, HiddenItems
 	db -1 ; end

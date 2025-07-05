@@ -2,9 +2,9 @@ HiddenItemNear:
 	ld hl, HiddenItemCoords
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
-	jr z, .continue
+	jr z, .continue1
 	ld hl, HiddenItemCoords_Sevii
-.continue
+.continue1
 ; back to vanilla
 	ld b, 0
 .loop
@@ -15,6 +15,12 @@ HiddenItemNear:
 	push bc
 	push hl
 	ld hl, wObtainedHiddenItemsFlags
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue2
+	ld hl, wObtainedHiddenItemsFlagsSevii
+.continue2
+; back to vanilla
 	ld c, b
 	ld b, FLAG_TEST
 	predef FlagActionPredef

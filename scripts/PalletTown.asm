@@ -19,6 +19,7 @@ PalletTown_ScriptPointers:
 	dw PalletTownScript7
 	dw PalletTownScript8
 	dw PalletTownScript9
+	dw PalletTownScript10 ; testing
 
 PalletTownScript0:
 	CheckEvent EVENT_FOLLOWED_OAK_INTO_LAB
@@ -282,9 +283,41 @@ PalletTownText8:
 	text_far _OakGrassText
 	text_end
 
-PalletTownText2: ; girl
+PalletTownText2: ; girl ; testing
+	text_asm
+	ld hl, PalletTownText2b
+	call PrintText
+	ld a, 10
+	ld [wPalletTownCurScript], a
+	jp TextScriptEnd
+	
+PalletTownText2b: ; testing
 	text_far _PalletTownText2
 	text_end
+
+PalletTownScript10: ; testing
+	ld a, SEVII_ONE_ISLAND_DOCK
+	ld [wd72d], a
+	ld c, 20
+	call DelayFrames
+;	ld hl, wd732
+;	res 1, [hl]
+	ld a, [wDefaultMap]
+	ld [wDestinationMap], a
+	ld a, SEVII_ONE_ISLAND_CITY
+	ld [wLastMap], a
+	call GBFadeOutToBlack
+;	ld a, SPRITE_FACING_UP
+;	ld [wSpritePlayerStateData1FacingDirection], a
+	callfar SpecialWarpIn
+	ld c, 20
+	call DelayFrames
+	SetEvent EVENT_IN_SEVII
+	callfar SpecialEnterMap
+	call GBFadeInFromBlack
+	ld a, 0
+	ld [wPalletTownCurScript], a
+	ret
 
 PalletTownText3: ; fat man
 	text_far _PalletTownText3

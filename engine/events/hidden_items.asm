@@ -2,13 +2,19 @@ HiddenItems:
 	ld hl, HiddenItemCoords
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
-	jr z, .continue
+	jr z, .continue1
 	ld hl, HiddenItemCoords_Sevii
-.continue
+.continue1
 ; back to vanilla
 	call FindHiddenItemOrCoinsIndex
 	ld [wHiddenItemOrCoinsIndex], a
 	ld hl, wObtainedHiddenItemsFlags
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue2
+	ld hl, wObtainedHiddenItemsFlagsSevii
+.continue2
+; back to vanilla
 	ld a, [wHiddenItemOrCoinsIndex]
 	ld c, a
 	ld b, FLAG_TEST
@@ -41,6 +47,12 @@ FoundHiddenItemText::
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, wObtainedHiddenItemsFlags
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue
+	ld hl, wObtainedHiddenItemsFlagsSevii
+.continue
+; back to vanilla
 	ld a, [wHiddenItemOrCoinsIndex]
 	ld c, a
 	ld b, FLAG_SET
@@ -226,9 +238,9 @@ CheckIfSpecificHiddenItemHasBeenFound:: ; new
 	ld hl, HiddenItemCoords ; MAP, Y, X (but they are written as X, Y, as hidden_item loads \1, \3, \2, trickster!)
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
-	jr z, .continue
+	jr z, .continue1
 	ld hl, HiddenItemCoords_Sevii
-.continue
+.continue1
 ; back to non-sevii stuff
 	ld c, -1
 .loop ; results: a: index; c flag not in list
@@ -257,6 +269,12 @@ CheckIfSpecificHiddenItemHasBeenFound:: ; new
 ; check if the item, which we now know exists, has been found already or not
 	ld [wHiddenItemOrCoinsIndex], a
 	ld hl, wObtainedHiddenItemsFlags
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .continue2
+	ld hl, wObtainedHiddenItemsFlagsSevii
+.continue2
+; back to vanilla
 	ld a, [wHiddenItemOrCoinsIndex]
 	ld c, a
 	ld b, FLAG_TEST

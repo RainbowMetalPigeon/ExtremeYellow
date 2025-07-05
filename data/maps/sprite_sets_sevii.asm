@@ -1,5 +1,6 @@
 MapSpriteSets_Sevii:
 	table_width 1, MapSpriteSets_Sevii
+; CITIES	
 	db $01 ; SEVII_ONE_ISLAND_CITY
 	db $02 ; SEVII_TWO_ISLAND_CITY
 	db $03 ; SEVII_THREE_ISLAND_CITY
@@ -7,7 +8,7 @@ MapSpriteSets_Sevii:
 	db $05 ; SEVII_FIVE_ISLAND_CITY
 	db $06 ; SEVII_SIX_ISLAND_CITY
 	db $07 ; SEVII_SEVEN_ISLAND_CITY
-	
+; ROUTES
 	db $01 ; SEVII_ROUTE_31
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 

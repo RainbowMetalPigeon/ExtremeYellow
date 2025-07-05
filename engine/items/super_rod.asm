@@ -1,6 +1,15 @@
 ReadSuperRodData:
 	ld a, [wCurMap]
 	ld c, a
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .noSevii
+	ld hl, SuperRodFishingSlots_Sevii
+	CheckEvent EVENT_ENHANCED_RODS
+	jr z, .loop
+	ld hl, SuperRodFishingSlots_Sevii_Enhanced
+.noSevii
+; back to vanilla
 	ld hl, SuperRodFishingSlots
 	CheckEvent EVENT_ENHANCED_RODS			; new, to improve rods (Obsidian Fishing Guru)
 	jr z, .loop								; new, to improve rods (Obsidian Fishing Guru)
@@ -46,3 +55,4 @@ GenerateRandomFishingEncounter:
 	ret
 
 INCLUDE "data/wild/super_rod.asm"
+INCLUDE "data/wild/super_rod_sevii.asm"

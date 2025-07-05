@@ -58,6 +58,8 @@ ENDM
 
 FirstMapSpec:
 	special_warp_spec REDS_HOUSE_2F, 3, 6, REDS_HOUSE_2
+;	special_warp_spec SEVII_ONE_ISLAND_DOCK, 4, 3, GATE
+;	special_warp_spec SEVII_ONE_ISLAND_CITY, 22, 23, OVERWORLD
 TradeCenterSpec1:
 	special_warp_spec TRADE_CENTER,  3, 4, CLUB
 TradeCenterSpec2:
@@ -66,6 +68,8 @@ ColosseumSpec1:
 	special_warp_spec COLOSSEUM,     3, 4, CLUB
 ColosseumSpec2:
 	special_warp_spec COLOSSEUM,     6, 4, CLUB
+SeviiSpec: ; new for sevii
+	special_warp_spec SEVII_ONE_ISLAND_DOCK, 4, 3, GATE ; new for sevii
 
 
 MACRO fly_warp_spec

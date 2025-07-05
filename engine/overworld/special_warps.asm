@@ -31,6 +31,10 @@ SpecialWarpIn::
 ; gets the map ID, tile block map view pointer, tileset, and coordinates
 LoadSpecialWarpData:
 	ld a, [wd72d]
+; new for sevii
+	cp SEVII_ONE_ISLAND_DOCK
+	jr z, .sevii
+; back to vanilla
 	cp TRADE_CENTER
 	jr nz, .notTradeCenter
 	ld hl, TradeCenterSpec1
@@ -55,6 +59,11 @@ LoadSpecialWarpData:
 	bit 2, a
 	jr nz, .notFirstMap
 	ld hl, FirstMapSpec
+; new for sevii
+	jr .copyWarpData
+.sevii
+	ld hl, SeviiSpec
+; back to vanilla	
 .copyWarpData
 	ld de, wCurMap
 	ld c, $7
