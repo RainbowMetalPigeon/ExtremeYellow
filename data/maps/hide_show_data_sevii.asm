@@ -38,7 +38,7 @@ SeviiSevenIslandCityHS:
 SeviiSixIslandCityHS:
 	db SEVII_SEVEN_ISLAND_CITY, $01, SHOW
 SeviiRoute31HS:
-	db SEVII_ROUTE_31, $01, SHOW ; new, hiker
+	db SEVII_ROUTE_31, $01, SHOW ; rock
 
 	db $FF, $01, SHOW ; end, list terminator
 	assert_table_length NUM_HS_OBJECTS_SEVII + 1

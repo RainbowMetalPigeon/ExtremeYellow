@@ -1,5 +1,5 @@
 SuperRodFishingSlots_Sevii::
-	db SEVII_ONE_ISLAND_CITY, MPINSIR, 10, MPINSIR, 10, MPINSIR, 5, MPINSIR, 20, MPINSIR, 100
+	db SEVII_ONE_ISLAND_CITY, MPINSIR, 96, MPINSIR, 97, MPINSIR, 98, MPINSIR, 99, MPINSIR, 100
 	db -1 ; end
 
 SuperRodFishingSlots_Sevii_Enhanced::

@@ -9,9 +9,9 @@ ExclamationText::
 	text_far _ExclamationText
 	text_end
 
-GroundRoseText::
-	text_far _GroundRoseText
-	text_end
+;GroundRoseText::
+;	text_far _GroundRoseText
+;	text_end
 
 BoulderText:: ; edited
 	text_asm
@@ -60,3 +60,9 @@ PickUpItemText::
 	text_asm
 	predef PickUpItem
 	jp TextScriptEnd
+
+RockSmashText:: ; new
+	text_asm
+	callfar RockSmash
+	jp TextScriptEnd
+	

@@ -41,7 +41,7 @@ SpriteSets_Sevii:
 	db SPRITE_OAK
 	db SPRITE_SWIMMER
 	db SPRITE_POKE_BALL
-	db SPRITE_GAMBLER_ASLEEP
+	db SPRITE_ROCKSMASHABLE_ROCK
 	assert_table_length SPRITE_SET_LENGTH
 
 ; sprite set $02

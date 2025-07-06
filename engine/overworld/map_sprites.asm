@@ -15,6 +15,7 @@ _InitMapSprites::
 	call LoadSpriteSetFromMapHeader
 	call LoadMapSpriteTilePatterns
 	call Func_14150
+	callfar RespawnAllRockSmashableRocks ; new
 	ret
 
 ; Loads sprite set for outside maps (cities and routes) and sets VRAM slots.

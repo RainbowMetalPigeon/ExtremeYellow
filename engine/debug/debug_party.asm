@@ -31,6 +31,7 @@ IF DEF(_DEBUG)
 	ld [wTownVisitedFlag], a
 	ld [wTownVisitedFlag + 1], a
 	ld [wTownVisitedFlag_Sevii], a ; new, for sevii
+	ld [wTownVisitedFlag_Sevii + 1], a ; new, for sevii
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
@@ -178,6 +179,8 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
+	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
+
 ;	SetEvent EVENT_IN_SEVII
 
 ;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
@@ -257,6 +260,7 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db SUPER_ROD, 1
 	db TOWN_MAP, 1
     db PERFECTER, 99
 	db LEGEND_CANDY, 42
@@ -295,7 +299,7 @@ DebugItemsList:
     db SHINY_CHARM, 1
     db LIGHT_BALL, 1
     db ULTRA_BALL, 99
-    db GREAT_BALL, 99
+;    db GREAT_BALL, 99
     db HM_CUT, 1
     db HM_FLASH, 1
 	db -1 ; end

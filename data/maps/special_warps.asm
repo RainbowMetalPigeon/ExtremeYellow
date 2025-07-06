@@ -22,7 +22,6 @@ DungeonWarpList:
 	db CERULEAN_CAVE_EXTRA_MIDDLE,  4 ; new
 	db -1 ; end
 
-
 MACRO fly_warp
 	event_displacement \1_WIDTH, \2, \3
 	db ((\3) & $01) ;sub-block Y
@@ -109,3 +108,29 @@ FlyWarpDataPtr:
 .SaffronCity:    fly_warp SAFFRON_CITY,     9, 30
 .Route4:         fly_warp ROUTE_4,         11, 26       ; edited
 .Route10:        fly_warp ROUTE_10,        11, 20
+
+; --------------------------- new for sevii ----------------------------
+
+DungeonWarpList_Sevii:
+	db -1 ; end
+
+DungeonWarpData_Sevii:
+	db -1 ; end
+	
+FlyWarpDataPtr_Sevii:
+	fly_warp_spec SEVII_ONE_ISLAND_CITY,     .SeviiOneIslandCity
+	fly_warp_spec SEVII_TWO_ISLAND_CITY,     .SeviiTwoIslandCity
+	fly_warp_spec SEVII_THREE_ISLAND_CITY,   .SeviiThreeIslandCity
+	fly_warp_spec SEVII_FOUR_ISLAND_CITY,    .SeviiFourIslandCity
+	fly_warp_spec SEVII_FIVE_ISLAND_CITY,    .SeviiFiveIslandCity
+	fly_warp_spec SEVII_SIX_ISLAND_CITY,     .SeviiSixIslandCity
+	fly_warp_spec SEVII_SEVEN_ISLAND_CITY,   .SeviiSevenIslandCity
+
+.SeviiOneIslandCity:    fly_warp SEVII_ONE_ISLAND_CITY,    21, 22
+.SeviiTwoIslandCity:    fly_warp SEVII_TWO_ISLAND_CITY,     9, 10
+.SeviiThreeIslandCity:  fly_warp SEVII_THREE_ISLAND_CITY,   9, 10
+.SeviiFourIslandCity:   fly_warp SEVII_FOUR_ISLAND_CITY,    9, 10
+.SeviiFiveIslandCity:   fly_warp SEVII_FIVE_ISLAND_CITY,    9, 10
+.SeviiSixIslandCity:    fly_warp SEVII_SIX_ISLAND_CITY,     9, 10
+.SeviiSevenIslandCity:  fly_warp SEVII_SEVEN_ISLAND_CITY,   9, 10
+ 

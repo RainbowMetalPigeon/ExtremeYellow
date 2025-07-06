@@ -126,4 +126,5 @@ SpriteSheetPointerTable:
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	overworld_sprite GamblerAsleepSprite, 4     ; SPRITE_GAMBLER_ASLEEP
 	overworld_sprite MissingNoSprite, 4         ; SPRITE_MISSINGNO ; new
+	overworld_sprite RockSmashableRockSprite, 4 ; SPRITE_ROCKSMASHABLE_ROCK ; new
 	assert_table_length NUM_SPRITES

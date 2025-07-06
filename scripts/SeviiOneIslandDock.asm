@@ -2,10 +2,12 @@ SeviiOneIslandDock_Script:
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
-	call nz, ReactivateDebugBUffs
+	call nz, ActionsOnEntry
 	jp EnableAutoTextBoxDrawing
 
-ReactivateDebugBUffs:
+ActionsOnEntry:
+	ld a, SEVII_ONE_ISLAND_CITY
+	ld [wLastBlackoutMap], a
 	IF DEF(_DEBUG)
 		ld hl, wd732
 		set 1, [hl]

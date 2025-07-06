@@ -347,7 +347,7 @@ ToText:
 BuildFlyLocationsList:
 	ld hl, wFlyAnimUsingCoordList
 	ld [hl], $ff
-	inc hl
+	inc hl ; it's wFlyLocationsList
 	ld a, [wTownVisitedFlag]
 	ld e, a
 	ld a, [wTownVisitedFlag + 1]
@@ -369,9 +369,9 @@ BuildFlyLocationsList:
 	ret
 
 BuildFlyLocationsList_Sevii: ; new, for Sevii
-	ld hl, wFlyAnimUsingCoordList
+	ld hl, wFlyAnimUsingCoordList_Sevii
 	ld [hl], $ff
-	ld hl, wFlyLocationsList_Sevii ; edited
+	inc hl
 	ld a, [wTownVisitedFlag_Sevii]
 	ld e, a
 	ld a, [wTownVisitedFlag_Sevii + 1]

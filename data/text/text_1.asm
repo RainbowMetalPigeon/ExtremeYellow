@@ -36,10 +36,10 @@ _ExclamationText::
 	text "!"
 	done
 
-_GroundRoseText::
-	text "Ground rose up"
-	line "somewhere!"
-	done
+;_GroundRoseText::
+;	text "Ground rose up"
+;	line "somewhere!"
+;	done
 
 _BoulderText::
 	text "This requires"
@@ -159,3 +159,19 @@ _GymLeaderPostRematchText:: ; new
 	cont "battle again any"
 	cont "time you want!"
 	done
+
+_RockSmashedText:: ; new for Rock Smash
+	text "<PLAYER>'s #MON"
+	line "smashes the rock!"
+	done
+
+_CannotUseRockSmashText::
+	text "No! You can't SMASH"
+	line "rocks just yet!"
+	done
+	
+_APokemonCouldSmashThisText::
+	text "A #MON could"
+	line "SMASH this rock!"
+	done
+	

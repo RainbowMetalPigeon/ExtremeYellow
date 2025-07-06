@@ -845,8 +845,8 @@ wHoFTeamIndex2:: db
 wHoFTeamNo:: db
 
 NEXTU
-wRivalStarterTemp:: db ; leftovers from pokered?
-wRivalStarterBallSpriteIndex:: db ; leftovers from pokered?
+	ds 1 ; wRivalStarterTemp:: db ; leftovers from pokered? ; edited, unused
+wFlyAnimUsingCoordList_Sevii:: db ; wRivalStarterBallSpriteIndex:: db ; leftovers from pokered? ; edited, unused
 wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 2 ; new, for Sevii
 
 NEXTU
@@ -2569,12 +2569,11 @@ wd728:: db
 
 ;	ds 1
 wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII ; new, for Sevii
+	ds 1 ; UNUSED bytes in "Main Data"; moved up from below the wBeatGymFlags
 
 ; redundant because it matches wObtainedBadges
 ; used to determine whether to show name on statue and in two NPC text scripts
 wBeatGymFlags:: db
-
-	ds 1 ; UNUSED bytes in "Main Data"
 
 ; bit 0: if not set, the 3 minimum steps between random battles have passed
 ; bit 1: prevent audio fade out

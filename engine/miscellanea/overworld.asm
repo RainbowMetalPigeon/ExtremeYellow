@@ -647,3 +647,49 @@ RandomizeWarpsForHauntedHouse::
 	jr .loop
 
 ; ===========================================================
+
+RespawnAllRockSmashableRocks::
+	ld hl, RockSmashableRocks_Sevii
+.showLoopSevii
+	ld a, [hli]
+	cp $ff ; have we run out of citizens to show?
+	jr z, .kantoBase ; ret z ; if so, we're done here
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	pop hl
+	jr .showLoopSevii
+	
+.kantoBase
+	ld hl, RockSmashableRocks_KantoBase
+.showLoopKantoBase
+	ld a, [hli]
+	cp $ff ; have we run out of citizens to show?
+	jr z, .kantoExtra ; ret z ; if so, we're done here
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	pop hl
+	jr .showLoopKantoBase
+	
+.kantoExtra
+	ld hl, RockSmashableRocks_KantoExtra
+.showLoopKantoExtra
+	ld a, [hli]
+	cp $ff ; have we run out of citizens to show?
+	ret z ; if so, we're done here
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	pop hl
+	jr .showLoopKantoExtra
+	
+RockSmashableRocks_Sevii:
+	db HS_SEVII_ROUTE_31_ROCK_1
+	db $FF
+
+RockSmashableRocks_KantoBase:
+	db $FF
+
+RockSmashableRocks_KantoExtra:
+	db $FF

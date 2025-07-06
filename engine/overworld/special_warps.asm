@@ -76,7 +76,7 @@ LoadSpecialWarpData:
 	ld a, [hli]
 	ld [wCurMapTileset], a
 	xor a
-	jr .done
+	jp .done ; edited jr into jp
 .notFirstMap
 	ld a, [wLastMap] ; this value is overwritten before it's ever read
 	ld hl, wd732
@@ -97,9 +97,15 @@ LoadSpecialWarpData:
 	ld a, [wWhichDungeonWarp]
 	ld c, a
 	ld hl, DungeonWarpList
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .notSevii1
+	ld hl, DungeonWarpList_Sevii
+.notSevii1
+; back to vanilla
 	ld de, 0
 	ld a, 6
-	ld [wDungeonWarpDataEntrySize], a
+	ld [wDungeonWarpDataEntrySize], a ; useless, it's always 6
 .dungeonWarpListLoop
 	ld a, [hli]
 	cp b
@@ -111,7 +117,7 @@ LoadSpecialWarpData:
 	cp c
 	jr z, .matchedDungeonWarpID
 .nextDungeonWarp
-	ld a, [wDungeonWarpDataEntrySize]
+	ld a, [wDungeonWarpDataEntrySize] ; useless, it's always 6
 	add e
 	ld e, a
 	jr .dungeonWarpListLoop
@@ -125,6 +131,12 @@ LoadSpecialWarpData:
 	ld b, a
 	ld [wCurMap], a
 	ld hl, FlyWarpDataPtr
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .notSevii2
+	ld hl, FlyWarpDataPtr_Sevii
+.notSevii2
+; back to vanilla
 .flyWarpDataPtrLoop
 	ld a, [hli]
 	inc hl

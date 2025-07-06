@@ -12,5 +12,6 @@
 	const HS_SEVII_FIVE_ISLAND_CITY_1      ; x
 	const HS_SEVII_SIX_ISLAND_CITY_1       ; x
 	const HS_SEVII_SEVEN_ISLAND_CITY_1     ; x
-	const HS_SEVII_ROUTE_31_1              ; x
+	
+	const HS_SEVII_ROUTE_31_ROCK_1         ; x
 DEF NUM_HS_OBJECTS_SEVII EQU const_value

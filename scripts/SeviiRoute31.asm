@@ -2,7 +2,7 @@ SeviiRoute31_Script:
 	jp EnableAutoTextBoxDrawing
 
 SeviiRoute31_TextPointers:
-;	dw PickUpItemText
+	dw RockSmashText
 ;	dw PickUpItemText
 ;	dw PickUpItemText
 ;	dw SeviiRoute31Text3

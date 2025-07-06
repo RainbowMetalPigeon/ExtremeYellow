@@ -13,6 +13,7 @@ INCLUDE "data/items/names.asm"
 INCLUDE "engine/gfx/sprite_oam.asm"
 INCLUDE "engine/overworld/sprite_collisions.asm"
 INCLUDE "engine/events/pick_up_item.asm"
+INCLUDE "engine/events/rock_smash.asm" ; new
 INCLUDE "engine/overworld/movement.asm"
 INCLUDE "engine/menus/main_menu.asm"
 INCLUDE "engine/movie/oak_speech/oak_speech.asm"
