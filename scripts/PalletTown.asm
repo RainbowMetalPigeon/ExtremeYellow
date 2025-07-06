@@ -283,15 +283,7 @@ PalletTownText8:
 	text_far _OakGrassText
 	text_end
 
-PalletTownText2: ; girl ; testing
-	text_asm
-	ld hl, PalletTownText2b
-	call PrintText
-	ld a, 10
-	ld [wPalletTownCurScript], a
-	jp TextScriptEnd
-	
-PalletTownText2b: ; testing
+PalletTownText2: ; girl
 	text_far _PalletTownText2
 	text_end
 
@@ -313,15 +305,10 @@ PalletTownScript10: ; testing
 	ld c, 20
 	call DelayFrames
 	SetEvent EVENT_IN_SEVII
-	callfar SpecialEnterMap
-	call GBFadeInFromBlack
-	IF DEF(_DEBUG)
-		ld hl, wd732
-		set 1, [hl]
-	ENDC
 	ld a, 0
 	ld [wPalletTownCurScript], a
-	ret
+	jpfar SpecialEnterMap
+;	call GBFadeInFromBlack
 
 PalletTownText3: ; fat man
 	text_far _PalletTownText3
@@ -351,6 +338,14 @@ ELSE
 ENDC
 
 PalletTownText6: ; sign by Red's house
+	text_asm ; testing
+	ld hl, PalletTownText6b
+	call PrintText
+	ld a, 10
+	ld [wPalletTownCurScript], a
+	jp TextScriptEnd
+
+PalletTownText6b: ; testing
 	text_far _PalletTownText6
 	text_end
 
