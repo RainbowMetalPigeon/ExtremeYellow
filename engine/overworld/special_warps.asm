@@ -9,11 +9,11 @@ SpecialWarpIn::
 	ld a, [wDestinationMap]
 	jr .next2
 .next
-	bit 1, [hl]
+	bit 1, [hl] ; debug bit
 	jr z, .next3
 	call DebugStart
 .next3
-	ld a, 0
+	ld a, 0 ; Pallet Town?
 .next2
 	ld b, a
 	ld a, [wd72d]

@@ -65,20 +65,6 @@ OakSpeech:
 	ld [wItemQuantity], a
 	call AddItemToInventory  ; give one CHEAT_CANDY
 
-; testing
-	ld a, TOWN_MAP
-	ld [wcf91], a
-	ld a, 1
-	ld [wItemQuantity], a
-	call AddItemToInventory
-
-; testing
-	ld a, SUPER_ROD
-	ld [wcf91], a
-	ld a, 1
-	ld [wItemQuantity], a
-	call AddItemToInventory
-
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	call SpecialWarpIn

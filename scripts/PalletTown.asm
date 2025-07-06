@@ -300,8 +300,8 @@ PalletTownScript10: ; testing
 	ld [wd72d], a
 	ld c, 20
 	call DelayFrames
-;	ld hl, wd732
-;	res 1, [hl]
+	ld hl, wd732
+	res 1, [hl]
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	ld a, SEVII_ONE_ISLAND_CITY
@@ -315,6 +315,10 @@ PalletTownScript10: ; testing
 	SetEvent EVENT_IN_SEVII
 	callfar SpecialEnterMap
 	call GBFadeInFromBlack
+	IF DEF(_DEBUG)
+		ld hl, wd732
+		set 1, [hl]
+	ENDC
 	ld a, 0
 	ld [wPalletTownCurScript], a
 	ret

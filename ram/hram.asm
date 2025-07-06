@@ -9,7 +9,7 @@ hSoftReset:: db
 UNION
 hBaseTileID:: ; base tile ID to which offsets are added
 hDexWeight::
-hWarpDestinationMap::
+;hWarpDestinationMap:: ; edited
 hOAMTile::
 hROMBankTemp::
 hPreviousTileset::
@@ -407,7 +407,8 @@ hFieldMoveMonMenuTopMenuItemX:: db
 
 hPikachuSpriteVRAMOffset:: db
 
-	ds 1
+;	ds 1
+hWarpDestinationMap:: db ; edited, moved because it was shared with other bytes and could cause bugs
 
 ; 0 if DMG, != 0 if GBC
 hGBC:: db
