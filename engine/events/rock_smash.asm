@@ -59,6 +59,65 @@ RockSmash::
 	call DelayFrames
 	call ProperHide
 
+; generate encounter 25% of the times
+	call Random
+	ldh a, [hRandomAdd]
+	cp 25 percent
+	jr nc, .tryItem
+; random encounter, let's see who we get
+	ldh a, [hRandomSub]
+	ld b, a ; b holds the random number
+	ld hl, RockSmashEncounters
+.determineEncounterSlot
+	ld a, [hli]
+	cp b
+	jr nc, .gotEncounterSlot
+	inc hl
+	inc hl
+	jr .determineEncounterSlot
+.gotEncounterSlot
+
+	xor a ; a=0
+	ld [wMoveMissed], a ; if 1, it consider the encounter to be fished ("hooked")
+	ld a, [hli]
+	ld [wCurOpponent], a
+	ld a, [hl]
+	ld [wCurEnemyLVL], a
+	callfar RollForShiny ; new, for the shiny
+	ret
+	
+.tryItem
+	cp 50 percent ; 25% chance of getting an item
+	ret nc ; do thing otherwise
+; random item, let's see what we get
+	ldh a, [hRandomSub]
+	ld b, a ; b holds the random number
+	ld hl, RockSmashItems
+.determineItemSlot
+	ld a, [hli]
+	cp b
+	jr nc, .gotItemSlot
+	inc hl
+	jr .determineItemSlot
+.gotItemSlot
+	
+	ld a, [hl]
+	ld b, a
+	ld c, 1
+	push bc
+	
+	ld [wd11e], a
+	call GetItemName
+	
+	ld hl, FoundItemInRockText
+	call PrintText
+	
+	pop bc
+	call GiveItem
+	ret c
+
+	ld hl, BagFullText
+	call PrintText
 	ret
 
 RockSmashedText:
@@ -71,6 +130,15 @@ CannotUseRockSmashText:
 	
 APokemonCouldSmashThisText:
 	text_far _APokemonCouldSmashThisText
+	text_end
+
+FoundItemInRockText:
+	text_far _FoundHiddenItemText
+	sound_get_item_1
+	text_end
+	
+BagFullText:
+	text_far _BagFullText
 	text_end
 
 ProperHide:
@@ -100,3 +168,37 @@ ProperShow:
 .sevii
 	predef ShowObjectSevii
 	ret
+
+RockSmashEncounters:
+	db 40, GEODUDE, 20
+	db 60, GEODUDE, 30
+	db 80, GRAVELER, 25
+	db 100, GRAVELER, 35
+	db 130, GOLEM, 30
+	db 140, GOLEM, 40
+	db 150, KRABBY, 20
+	db 205, KRABBY, 30
+	db 225, KINGLER, 30
+	db 255, KINGLER, 40
+	
+RockSmashItems:
+	db 27, KINGS_ROCK
+	db 54, THUNDER_STONE
+	db 81, WATER_STONE
+	db 108, LEAF_STONE
+	db 135, SUN_STONE
+	db 162, ICE_STONE
+	db 189, FIRE_STONE
+	db 216, METAL_COAT
+	db 240, MOON_STONE
+	db 250, NUGGET
+	db 252, BIG_NUGGET
+	db 253, DOME_FOSSIL
+	db 254, HELIX_FOSSIL
+	db 255, OLD_AMBER
+	
+_BagFullText::
+	text "But, <PLAYER> has"
+	line "no more room for"
+	cont "other items!"
+	prompt
