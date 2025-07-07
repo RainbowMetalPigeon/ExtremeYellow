@@ -17,7 +17,7 @@
 ; Order: towns/cities, then routes, then indoor/dungeon maps
 	const_def
 	map_const SEVII_ONE_ISLAND_CITY,         20, 20 ; $00
-	map_const SEVII_TWO_ISLAND_CITY,         10,  9 ; $01
+	map_const SEVII_TWO_ISLAND_CITY,         20, 20 ; $01
 	map_const SEVII_THREE_ISLAND_CITY,       10,  9 ; $02
 	map_const SEVII_FOUR_ISLAND_CITY,        10,  9 ; $03
 	map_const SEVII_FIVE_ISLAND_CITY,        10,  9 ; $04

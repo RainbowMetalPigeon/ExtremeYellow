@@ -127,7 +127,7 @@ FlyWarpDataPtr_Sevii:
 	fly_warp_spec SEVII_SEVEN_ISLAND_CITY,   .SeviiSevenIslandCity
 
 .SeviiOneIslandCity:    fly_warp SEVII_ONE_ISLAND_CITY,    21, 22
-.SeviiTwoIslandCity:    fly_warp SEVII_TWO_ISLAND_CITY,     9, 10
+.SeviiTwoIslandCity:    fly_warp SEVII_TWO_ISLAND_CITY,    15, 28
 .SeviiThreeIslandCity:  fly_warp SEVII_THREE_ISLAND_CITY,   9, 10
 .SeviiFourIslandCity:   fly_warp SEVII_FOUR_ISLAND_CITY,    9, 10
 .SeviiFiveIslandCity:   fly_warp SEVII_FIVE_ISLAND_CITY,    9, 10

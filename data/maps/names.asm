@@ -64,8 +64,8 @@ HauntedHouseName:    db "@" ; new
 
 ; new, for Sevii
 
-OneIslandName:       db "BOND ISLAND@"
-TwoIslandName:       db "FRIENDSHIP ISLAND@"
+OneIslandName:       db "KNOT ISLAND@" ; BOND
+TwoIslandName:       db "BOON ISLAND@" ; FRIENDSHIP
 ThreeIslandName:     db "FAMILY ISLAND@"
 FourIslandName:      db "FLOE ISLAND@"
 FiveIslandName:      db "CHRONO ISLAND@"
