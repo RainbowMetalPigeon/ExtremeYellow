@@ -7,6 +7,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_SIX_ISLAND_CITY,        SeviiSixeIslandCityHiddenObjects
 	dbw SEVII_SEVEN_ISLAND_CITY,      SeviiSevenIslandCityHiddenObjects
 	dbw SEVII_ROUTE_31,               SeviiRoute31HiddenObjects
+	dbw SEVII_ROUTE_32,               SeviiRoute32HiddenObjects
 	dbw SEVII_ONE_ISLAND_DOCK,        SeviiOneIslandDockHiddenObjects
 	db -1 ; end
 
@@ -69,6 +70,12 @@ SeviiSevenIslandCityHiddenObjects:
 
 SeviiRoute31HiddenObjects:
 	hidden_object 12,  3, ELIXER, HiddenItems
+	db -1 ; end
+
+SeviiRoute32HiddenObjects:
+	hidden_object 16, 33, POKE_BALL, HiddenItems
+	hidden_object 10, 34, POTION, HiddenItems
+	hidden_object 14, 32, FIRE_STONE, HiddenItems
 	db -1 ; end
 
 SeviiOneIslandDockHiddenObjects:

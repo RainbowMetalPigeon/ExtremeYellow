@@ -6,7 +6,7 @@ SeviiRoute32_Object:
 ;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
+	bg_event 15, 35, 1 ; SeviiRoute32Text1
 ;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
