@@ -8,5 +8,6 @@ MapSongBanks_Sevii::
 	db MUSIC_VERMILION, BANK(Music_Vermilion) ; SEVII_SIX_ISLAND_CITY
 	db MUSIC_CELADON, BANK(Music_Celadon) ; SEVII_SEVEN_ISLAND_CITY
 	db MUSIC_CELADON, BANK(Music_Celadon) ; SEVII_ROUTE_31
+	db MUSIC_CELADON, BANK(Music_Celadon) ; SEVII_ROUTE_32
 	db MUSIC_GYM, BANK(Music_Gym) ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII

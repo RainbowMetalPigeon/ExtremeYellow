@@ -11,6 +11,7 @@ MapHSPointers_Sevii:
 	dw SeviiSixIslandCityHS ; SEVII_SIX_ISLAND_CITY
 	dw SeviiSevenIslandCityHS ; SEVII_SEVEN_ISLAND_CITY
 	dw SeviiRoute31HS ; SEVII_ROUTE_31
+	dw NoHS ; SEVII_ROUTE_32
 	dw NoHS ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end

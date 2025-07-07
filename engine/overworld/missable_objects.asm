@@ -118,7 +118,7 @@ MarkTownVisitedAndLoadMissableObjects::
 	ld [de], a                 ; write sentinel
 	ret
 
-InitializeMissableObjectsFlags:
+InitializeMissableObjectsFlags::
 	ld hl, wMissableObjectFlags
 	ld bc, wMissableObjectFlagsEnd - wMissableObjectFlags
 	xor a
@@ -129,8 +129,8 @@ InitializeMissableObjectsFlags:
 .missableObjectsLoop
 	ld a, [hli]
 	cp -1           ; end of list
-;	ret z ; commented for splitting the HS
-	jr z, InitializeMissableObjectsFlagsExtra ; new for splitting the HS
+	ret z ; commented for splitting the HS
+;	jr z, InitializeMissableObjectsFlagsExtra ; new for splitting the HS ; unneded if I call it again, right?
 	push hl
 	inc hl
 	ld a, [hl]
@@ -150,7 +150,7 @@ InitializeMissableObjectsFlags:
 	jr .missableObjectsLoop
 
 ; new function for splitting the HS
-InitializeMissableObjectsFlagsExtra:
+InitializeMissableObjectsFlagsExtra::
 	ld hl, wMissableObjectFlagsExtra
 	ld bc, wMissableObjectFlagsExtraEnd - wMissableObjectFlagsExtra
 	xor a
@@ -181,7 +181,7 @@ InitializeMissableObjectsFlagsExtra:
 	jr .missableObjectsLoop
 
 ; new for sevii
-InitializeMissableObjectsFlags_Sevii:
+InitializeMissableObjectsFlags_Sevii::
 	ld hl, wMissableObjectFlagsSevii
 	ld bc, wMissableObjectFlagsSeviiEnd - wMissableObjectFlagsSevii
 	xor a

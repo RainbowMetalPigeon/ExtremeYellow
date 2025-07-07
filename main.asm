@@ -58,7 +58,7 @@ INCLUDE "engine/pokemon/add_mon.asm"
 INCLUDE "engine/flag_action.asm"
 ;INCLUDE "engine/events/heal_party.asm" ; moved to bankGarage
 ;INCLUDE "engine/math/bcd.asm" ; moved to bankGarage
-INCLUDE "engine/movie/oak_speech/init_player_data.asm"
+;INCLUDE "engine/movie/oak_speech/init_player_data.asm" ; moved
 INCLUDE "engine/items/get_bag_item_quantity.asm"
 INCLUDE "engine/overworld/pathfinding.asm"
 ;INCLUDE "engine/gfx/hp_bar.asm" ; moved to bankGarage
@@ -100,6 +100,7 @@ INCLUDE "engine/battle/trainers2.asm" ; edited, moved out of HOME
 INCLUDE "engine/menus/print_text_internal.asm" ; new
 INCLUDE "engine/events/poison.asm" ; from bank3
 INCLUDE "engine/overworld/daycare_exp.asm" ; from bank3
+INCLUDE "engine/movie/oak_speech/init_player_data.asm" ; from bank3
 
 
 SECTION "bank4", ROMX

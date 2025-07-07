@@ -51,9 +51,9 @@ DEF START_MONEY EQU $3000
 	ld bc, wGameProgressFlagsEnd - wGameProgressFlags
 	call FillMemory ; clear all game progress flags
 
-	call InitializeMissableObjectsFlagsExtra ; new for splitting HS
-	call InitializeMissableObjectsFlags_Sevii ; new for sevii
-	jp InitializeMissableObjectsFlags
+	callfar InitializeMissableObjectsFlagsExtra ; new for splitting HS
+	callfar InitializeMissableObjectsFlags_Sevii ; new for sevii
+	jpfar InitializeMissableObjectsFlags
 
 InitializeEmptyList:
 	xor a ; count

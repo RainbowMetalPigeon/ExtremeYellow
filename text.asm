@@ -327,3 +327,10 @@ INCLUDE "data/moves/attackdex_text.asm"
 
 SECTION "Item Descriptions", ROMX ; new
 INCLUDE "data/text/item_descriptions.asm"
+
+
+; ------------------ new for sevi ---------------------------
+
+SECTION "Text Sevii 1", ROMX
+INCLUDE "text/SeviiOneIsland.asm"
+

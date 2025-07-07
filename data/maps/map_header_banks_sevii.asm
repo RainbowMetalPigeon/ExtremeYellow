@@ -9,5 +9,6 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiSixIslandCity_h)
 	db BANK(SeviiSevenIslandCity_h)
 	db BANK(SeviiRoute31_h)
+	db BANK(SeviiRoute32_h)
 	db BANK(SeviiOneIslandDock_h)
 	assert_table_length NUM_MAPS_SEVII

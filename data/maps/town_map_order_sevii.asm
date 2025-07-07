@@ -1,6 +1,7 @@
 TownMapOrder_Sevii:
 	db SEVII_ONE_ISLAND_CITY
 	db SEVII_ROUTE_31
+	db SEVII_ROUTE_32
 	
 	db SEVII_TWO_ISLAND_CITY
 	

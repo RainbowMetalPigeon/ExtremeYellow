@@ -9,5 +9,6 @@ MapHeaderPointers_Sevii::
 	dw SeviiSixIslandCity_h
 	dw SeviiSevenIslandCity_h
 	dw SeviiRoute31_h
+	dw SeviiRoute32_h
 	dw SeviiOneIslandDock_h
 	assert_table_length NUM_MAPS_SEVII

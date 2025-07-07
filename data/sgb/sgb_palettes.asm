@@ -87,12 +87,12 @@ SuperPalettes: ; RED-GREEN-BLUE
 	RGB 00,00,00, 00,00,00, 00,00,00, 00,00,00 ; PAL_PALLET_15
 	assert_table_length NUM_SGB_PALS
 
-GBCBasePalettes:
+GBCBasePalettes: ; RED-GREEN-BLUE
 ; entries correspond to PAL_* constants
 	table_width 2 * 4, GBCBasePalettes
 	RGB 31,31,31, 16,31,04, 11,23,31, 03,03,03 ; PAL_ROUTE
 	RGB 31,31,31, 23,17,31, 11,23,31, 03,03,03 ; PAL_PALLET
-	RGB 31,31,31, 19,31,00, 11,23,31, 03,03,03 ; PAL_VIRIDIAN
+	RGB 31,31,31, 05,31,15, 11,23,31, 03,03,03 ; PAL_VIRIDIAN
 	RGB 31,31,31, 18,18,15, 11,23,31, 03,03,03 ; PAL_PEWTER
 	RGB 31,31,31, 05,08,31, 11,23,31, 03,03,03 ; PAL_CERULEAN
 	RGB 31,31,31, 25,04,31, 11,23,31, 03,03,03 ; PAL_LAVENDER
@@ -193,7 +193,7 @@ SuperPalettes_Sevii: ; RED-GREEN-BLUE
 	RGB 31,31,30, 20,15,11, 21,22,20, 06,06,06 ; PAL_SEVII_CAVE
 	assert_table_length NUM_SGB_PALS_SEVII
 
-GBCBasePalettes_Sevii:
+GBCBasePalettes_Sevii: ; RED-GREEN-BLUE
 ; entries correspond to PAL_* constants
 	table_width 2 * 4, GBCBasePalettes_Sevii
 	RGB 31,31,31, 16,31,04, 11,31,23, 03,03,03 ; PAL_SEVII_ROUTE
