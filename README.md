@@ -22,6 +22,7 @@ This is a difficulty romhack of Pokémon Yellow featuring much tougher battles; 
 - two whole new cities
 - two new main game arcs
 - secret and post-game new areas, including a Battle Facility with a never-seen-before challenge mode
+- new field move: Rock Smash
 - multiple optional subquests
 - various improvements to existing buildings and areas
 - multiple final secret bosses and extended post-game experience
