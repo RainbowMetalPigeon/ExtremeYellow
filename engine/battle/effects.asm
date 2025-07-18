@@ -938,13 +938,13 @@ ChargeEffect:
 	ld a, b
 ;	call PlayBattleAnimation ; edited
 	call PlayAlternativeAnimation ; edited
-.doneWithAnimations ; edited
 	ld a, [hl]
 	bit HAS_SUBSTITUTE_UP, a
 	ld hl, ReshowSubstituteAnim
 	ld b, BANK(ReshowSubstituteAnim)
 	call nz, Bankswitch
 	pop de
+.doneWithAnimations ; edited
 	ld a, [de]
 	ld [wChargeMoveNum], a
 	ld hl, ChargeMoveEffectText

@@ -123,7 +123,7 @@ PoisonEffect_:
 	cp POISON_EFFECT
 	jr z, .regularPoisonEffect
 	ld a, b
-	call PlayBattleAnimation2Copy
+	call PlayAlternativeAnimation2Copy ; edited
 	jp PrintText
 .regularPoisonEffect
 	call PlayCurrentMoveAnimation2Copy
