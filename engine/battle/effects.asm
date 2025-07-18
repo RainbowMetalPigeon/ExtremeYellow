@@ -261,6 +261,11 @@ UpdateStatDone:
 	cp ATTACK_UP_SIDE_EFF1
 	jr nc, .skipAnimation
 ;;;;;;;;;;
+; new
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, .notMinimize
+; BTV
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .notMinimize
@@ -842,7 +847,7 @@ BideEffect:
 	ld [bc], a ; set Bide counter to 2 or 3 at random
 	ldh a, [hWhoseTurn]
 	add XSTATITEM_ANIM
-	jp PlayBattleAnimation2
+	jp PlayAlternativeAnimation2 ; edited
 
 ThrashPetalDanceEffect:
 	ld hl, wPlayerBattleStatus1
@@ -872,7 +877,7 @@ ThrashPetalDanceEffect:
 	ldh a, [hWhoseTurn]	; vanilla code
 	add ANIM_B0			; vanilla code
 .skipExtraAnimation
-	jp PlayBattleAnimation2
+	jp PlayAlternativeAnimation2 ; edited
 
 SwitchAndTeleportEffect:			; made into a jpfar to save space
 	jpfar SwitchAndTeleportEffect_	; made into a jpfar to save space
@@ -903,6 +908,13 @@ ChargeEffect:
 	jr nz, .notFly
 	set INVULNERABLE, [hl] ; mon is now invulnerable to typical attacks (fly/dig)
 	ld b, TELEPORT ; load Teleport's animation
+; new: teleport is the only battle move animation so we handle it separately
+	xor a
+	ld [wAnimationType], a
+	ld a, b
+	call PlayBattleAnimation
+	jr .doneWithAnimations
+; BTV
 .notFly
 	ld a, [de]
 	cp DIG
@@ -924,7 +936,9 @@ ChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, b
-	call PlayBattleAnimation
+;	call PlayBattleAnimation ; edited
+	call PlayAlternativeAnimation ; edited
+.doneWithAnimations ; edited
 	ld a, [hl]
 	bit HAS_SUBSTITUTE_UP, a
 	ld hl, ReshowSubstituteAnim
@@ -1147,6 +1161,11 @@ PlayCurrentMoveAnimation2:
 PlayBattleAnimation2:
 ; play animation ID at a and animation type 6 or 3
 	ld [wAnimationID], a
+; new: zero out the alternative animation
+	xor a 
+	ld [wAltAnimationID], a
+GotAnimationID:
+; BTV
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, $6
@@ -1156,11 +1175,21 @@ PlayBattleAnimation2:
 	ld [wAnimationType], a
 	jp PlayBattleAnimationGotID
 
+; new
+PlayAlternativeAnimation2:
+	ld [wAltAnimationID], a
+	jr GotAnimationID
+
 PlayCurrentMoveAnimation:
 ; animation at MOVENUM will be played unless MOVENUM is 0
 ; resets wAnimationType
 	xor a
 	ld [wAnimationType], a
+; new: check for which type of animation to play
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, PlayAlternativeAnimation
+; BTV
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPlayerMoveNum]
@@ -1169,10 +1198,15 @@ PlayCurrentMoveAnimation:
 .notEnemyTurn
 	and a
 	ret z
+; fallthrough
 
 PlayBattleAnimation:
 ; play animation ID at a and predefined animation type
 	ld [wAnimationID], a
+; new: zero out the alternative animation
+	xor a 
+	ld [wAltAnimationID], a
+; BTV
 
 PlayBattleAnimationGotID:
 ; play animation at wAnimationID
@@ -1185,3 +1219,8 @@ PlayBattleAnimationGotID:
 	pop de
 	pop hl
 	ret
+
+; new
+PlayAlternativeAnimation:
+	ld [wAltAnimationID], a
+	jr PlayBattleAnimationGotID

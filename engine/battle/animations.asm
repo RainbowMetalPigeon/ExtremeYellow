@@ -169,9 +169,15 @@ DrawFrameBlock:
 	jr z, .advanceFrameBlockDestAddr ; skip cleaning OAM buffer
 	cp FRAMEBLOCKMODE_04
 	jr z, .done ; skip cleaning OAM buffer and don't advance the frame block destination address
+; new: need to "CleanOAM" if using an alternative animation
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, .skipGrowlCheck
+; back to vanilla
 	ld a, [wAnimationID]
 	cp GROWL
 	jr z, .resetFrameBlockDestAddr
+.skipGrowlCheck ; new
 	call AnimationCleanOAM
 .resetFrameBlockDestAddr
 	ld hl, wShadowOAM
@@ -192,12 +198,20 @@ PlayAnimation:
 	xor a
 	ldh [hROMBankTemp], a ; it looks like nothing reads this
 	ld [wSubAnimTransform], a
+; new: if [wAltAnimationID] = 0, then we play an attack animation
+	ld a, [wAltAnimationID]
+	and a
+	ld de, AlternativeAnimationPointers
+	jr nz, .gotAnimationType
+; back to vanilla
 	ld a, [wAnimationID] ; get animation number
-	dec a
+	ld de, AttackAnimationPointers  ; animation command stream pointers ; new
+.gotAnimationType ; new
+	dec a	
 	ld l, a
 	ld h, 0
 	add hl, hl
-	ld de, AttackAnimationPointers  ; animation command stream pointers
+;	ld de, AttackAnimationPointers  ; animation command stream pointers ; edited
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -290,6 +304,10 @@ PlayAnimation:
 	jr .animationLoop
 .AnimationOver
 	vc_hook Stop_reducing_move_anim_flashing_Blizzard
+; new: make sure we zero out the alt animation ID after we're finished with the animation
+    xor a
+    ld [wAltAnimationID], a
+; back to vanilla
 	ret
 
 LoadSubanimation:
@@ -423,11 +441,18 @@ MoveAnimation:
 	push af
 	call WaitForSoundToFinish
 	call SetAnimationPalette
+; new: check alt animation first
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, .checkTossAnimation
+; back to vanilla
 	ld a, [wAnimationID]
 	and a
 	jr z, .animationFinished
+	jr .moveAnimation ; new
 
 	; if throwing a Poké Ball, skip the regular animation code
+.checkTossAnimation ; new
 	cp TOSS_ANIM
 	jr nz, .moveAnimation
 	ld de, .animationFinished
@@ -702,8 +727,15 @@ DoSpecialEffectByAnimationId:
 	push hl
 	push de
 	push bc
+; new
+	ld a, [wAltAnimationID]
+	and a
+	ld hl, AltAnimationIdSpecialEffects
+	jr nz, .usingAltAnimation
+; back to vanilla
 	ld a, [wAnimationID]
 	ld hl, AnimationIdSpecialEffects
+.usingAltAnimation ; new
 	ld de, 3
 	call IsInArray
 	jr nc, .done
@@ -2444,6 +2476,11 @@ GetMoveSound:
 
 IsCryMove:
 ; set carry if the move animation involves playing a monster cry
+; new
+	ld a, [wAltAnimationID]
+	and a
+	ret nz
+; BTV
 	ld a, [wAnimationID]
 	cp GROWL
 	jr z, .CryMove
@@ -2861,7 +2898,7 @@ TossBallAnimation:
 .done
 	ld a, b
 .PlayNextAnimation
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; edited, was wAnimationID
 	push bc
 	push hl
 	call PlayAnimation
@@ -2878,22 +2915,22 @@ TossBallAnimation:
 
 .BlockBall
 	ld a, TOSS_ANIM
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; edited, was wAnimationID
 	call PlayAnimation
 	ld a, SFX_FAINT_THUD
 	call PlaySound
 	ld a, BLOCKBALL_ANIM
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; edited, was wAnimationID
 	jp PlayAnimation
 
 .MissingNo ; new
 	ld a, TOSS_ANIM
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; edited, was wAnimationID
 	call PlayAnimation
 	ld a, SFX_FAINT_THUD
 	call PlaySound
 	ld a, VANISHBALL_ANIM
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; edited, was wAnimationID
 	jp PlayAnimation
 
 PlayApplyingAttackSound:

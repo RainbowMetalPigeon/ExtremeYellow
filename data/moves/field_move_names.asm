@@ -2,7 +2,7 @@
 FieldMoveNames:
 	db "CUT@"
 	db "FLY@"
-	db "@"
+;	db "@" ; edited
 	db "SURF@"
 	db "STRENGTH@"
 	db "FLASH@"

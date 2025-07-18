@@ -53,14 +53,14 @@ FreezeBurnParalyzeEffect_::
 	ld [wEnemyMonStatus], a
 	callfar QuarterSpeedDueToParalysis ; quarter speed of affected mon ; edited into a callfar
 	ld a, ANIM_A9
-	call PlayBattleAnimationCopy ; edited into the copy
+	call PlayAlternativeAnimationCopy ; edited ; edited into the copy
 	jp PrintMayNotAttackText ; print paralysis text
 .burn1
 	ld a, 1 << BRN
 	ld [wEnemyMonStatus], a
 	callfar HalveAttackDueToBurn ; halve attack of affected mon ; edited into a callfar
 	ld a, ANIM_A9
-	call PlayBattleAnimationCopy ; edited into the copy
+	call PlayAlternativeAnimationCopy ; edited ; edited into the copy
 	ld hl, BurnedText
 	jp PrintText
 .freeze1
@@ -68,7 +68,7 @@ FreezeBurnParalyzeEffect_::
 	ld a, 1 << FRZ
 	ld [wEnemyMonStatus], a
 	ld a, ANIM_A9
-	call PlayBattleAnimationCopy ; edited into the copy
+	call PlayAlternativeAnimationCopy ; edited ; edited into the copy
 	ld hl, FrozenText
 	jp PrintText
 .opponentAttacker

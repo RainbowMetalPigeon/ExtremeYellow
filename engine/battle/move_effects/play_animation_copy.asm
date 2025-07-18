@@ -13,6 +13,11 @@ PlayCurrentMoveAnimation2Copy::
 PlayBattleAnimation2Copy::
 ; play animation ID at a and animation type 6 or 3
 	ld [wAnimationID], a
+; new: zero out the alternative animation
+	xor a 
+	ld [wAltAnimationID], a
+GotAnimationIDCopy:
+; BTV
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, $6
@@ -22,11 +27,21 @@ PlayBattleAnimation2Copy::
 	ld [wAnimationType], a
 	jp PlayBattleAnimationGotIDCopy
 
+; new
+PlayAlternativeAnimation2Copy:
+	ld [wAltAnimationID], a
+	jr GotAnimationIDCopy
+
 PlayCurrentMoveAnimationCopy::
 ; animation at MOVENUM will be played unless MOVENUM is 0
 ; resets wAnimationType
 	xor a
 	ld [wAnimationType], a
+; new: check for which type of animation to play
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, PlayAlternativeAnimationCopy
+; BTV
 	ldh a, [hWhoseTurn]
 	and a
 	ld a, [wPlayerMoveNum]
@@ -35,10 +50,15 @@ PlayCurrentMoveAnimationCopy::
 .notEnemyTurn
 	and a
 	ret z
+; fallthrough
 
 PlayBattleAnimationCopy::
 ; play animation ID at a and predefined animation type
 	ld [wAnimationID], a
+; new: zero out the alternative animation
+	xor a 
+	ld [wAltAnimationID], a
+; BTV
 
 PlayBattleAnimationGotIDCopy::
 ; play animation at wAnimationID
@@ -51,3 +71,8 @@ PlayBattleAnimationGotIDCopy::
 	pop de
 	pop hl
 	ret
+
+; new
+PlayAlternativeAnimationCopy:
+	ld [wAltAnimationID], a
+	jp PlayBattleAnimationGotID

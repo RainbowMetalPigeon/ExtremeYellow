@@ -461,7 +461,7 @@ HandlePoisonBurnLeechSeed:
 	xor a
 	ld [wAnimationType], a
 	ld a, BURN_PSN_ANIM
-	call PlayMoveAnimation   ; play burn/poison animation
+	call PlayAltAnimation ; edited ; play burn/poison animation
 	pop hl
 	call HandlePoisonBurnLeechSeed_DecreaseOwnHP
 .notBurnedOrPoisoned
@@ -486,7 +486,7 @@ HandlePoisonBurnLeechSeed:
 	xor a
 	ld [wAnimationType], a
 	ld a, BURN_PSN_ANIM
-	call PlayMoveAnimation   ; play burn/poison animation ; TBE?
+	call PlayAltAnimation ; edited ; play burn/poison animation ; TBE?
 	pop hl
 	push hl ; ?
 	call HandleCurse_DecreaseOwnHP
@@ -1886,7 +1886,7 @@ SendOutMon:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	ld a, POOF_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 	hlcoord 4, 11
 	predef AnimateSendingOutMon
 	callfar PlayShinyAnimationIfShinyPlayerMon ; new, for shiny
@@ -3777,8 +3777,8 @@ CheckPlayerStatusConditions:
 ; fast asleep
 	xor a
 	ld [wAnimationType], a
-	ld a, SLP_ANIM - 1
-	call PlayMoveAnimation
+	ld a, SLP_ANIM - 1 ; SLP_PLAYER_ANIM
+	call PlayAltAnimation ; edited
 	ld hl, FastAsleepText
 	call PrintText
 	jr .sleepDone
@@ -3861,8 +3861,8 @@ CheckPlayerStatusConditions:
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, CONF_ANIM - 1
-	call PlayMoveAnimation
+	ld a, CONF_ANIM - 1 ; CONF_PLAYER_ANIM
+	call PlayAltAnimation ; edited
 ; new, to handle luck: statuses affliction
 	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
 	and a
@@ -3921,7 +3921,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, PARALYSIS_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; new/edited
 
 .MonHurtItselfOrFullyParalysed
 	ld hl, wPlayerBattleStatus1
@@ -3940,7 +3940,7 @@ CheckPlayerStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 .NotFlyOrChargeEffect
 	ld hl, ExecutePlayerMoveDone
 	jp .returnToHL ; if using a two-turn move, we need to recharge the first turn
@@ -6601,7 +6601,7 @@ EnemyCheckIfFlyOrChargeEffect:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 EnemyCheckIfMirrorMoveEffect:
 	ld a, [wEnemyMoveEffect]
 	cp MIRROR_MOVE_EFFECT
@@ -6734,7 +6734,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, SLP_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 	jr .sleepDone
 .wokeUp
 	ld hl, WokeUpText
@@ -6810,7 +6810,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, CONF_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 ; new, to handle luck: statuses affliction
 	ld a, [wLuckStatusesAffliction] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
 	and a
@@ -6904,7 +6904,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, PARALYSIS_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 .monHurtItselfOrFullyParalysed
 	ld hl, wEnemyBattleStatus1
 	ld a, [hl]
@@ -6921,7 +6921,7 @@ CheckEnemyStatusConditions:
 	xor a
 	ld [wAnimationType], a
 	ld a, STATUS_AFFECTED_ANIM
-	call PlayMoveAnimation
+	call PlayAltAnimation ; edited
 .notFlyOrChargeEffect
 	ld hl, ExecuteEnemyMoveDone
 	jp .enemyReturnToHL ; if using a two-turn move, enemy needs to recharge the first turn
@@ -7710,9 +7710,21 @@ HandleExplodingAnimation:
 PlayMoveAnimation:
 	ld [wAnimationID], a
 	call Delay3
+; set alternative animation ID to be zero so that we use the move animations.
+	xor a
+	ld [wAltAnimationID], a
+; back to vanilla
 	predef MoveAnimation
 	callfar Func_78e98
 	ret
+
+; new: call this subroutine if we are playing an alternative animation. 
+PlayAltAnimation: ; TBV
+	ld [wAltAnimationID], a
+	predef_jump MoveAnimation
+;	predef MoveAnimation
+;	callfar Func_78e98
+;	ret
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;shinpokerednote: ADDED: custom functions for determining which trainerAI pkmn have already been sent out before

@@ -1576,6 +1576,7 @@ AIIncreaseStat:
 	push af
 	push hl
 	ld a, XSTATITEM_ANIM ; edited
+	ld [wAltAnimationID], a ; new
 	ld [hli], a
 	ld [hl], b
 	callfar StatModifierUpEffect

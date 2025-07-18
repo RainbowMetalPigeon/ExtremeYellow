@@ -269,6 +269,9 @@ AttackAnimationPointers:
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
+
+AlternativeAnimationPointers: ; new
+	table_width 2, AlternativeAnimationPointers ; new
 	dw ShowPicAnim ; SHOWPIC_ANIM
 	dw EnemyFlashAnim ; STATUS_AFFECTED_ANIM
 	dw PlayerFlashAnim ; ANIM_A8
@@ -307,7 +310,8 @@ AttackAnimationPointers:
 	dw VanishBallAnim ; VANISHBALL_ANIM ; new, for Haunted House
 	dw ShinyPlayerAnim ; SHINY_PLAYER_ANIM ; new, for the shiny
 	dw ShinyEnemyAnim ;  SHINY_ENEMY_ANIM ; new, for the shiny
-	assert_table_length NUM_ATTACK_ANIMS
+;	assert_table_length NUM_ATTACK_ANIMS
+	assert_table_length NUM_ALTERNATIVE_ANIMS ; edited
 
 ; each animation is a list of subanimations
 ; and/or special effects, terminated by -1

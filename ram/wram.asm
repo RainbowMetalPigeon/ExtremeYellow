@@ -1564,7 +1564,8 @@ wTempTilesetNumTiles:: db
 ; so that it can be restored when the player is done with the pokemart NPC
 wSavedListScrollOffset:: db
 
-	ds 2
+wAltAnimationID:: db ; new
+	ds 1 ; edited, was ds 2
 
 ; base coordinates of frame block
 wBaseCoordX:: db

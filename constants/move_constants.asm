@@ -277,7 +277,9 @@
 	const STRUGGLE     ; formerly a5
 DEF NUM_ATTACKS EQU const_value - 1
 
-	; Moves do double duty as animation identifiers.
+	; edited: moves NOT LONGER do double duty as animation identifiers: NOW separate other battle animations
+	const_def
+	const NO_ANIM
 
 	const SHOWPIC_ANIM
 	const STATUS_AFFECTED_ANIM
@@ -318,4 +320,5 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const SHINY_PLAYER_ANIM ; new, for the shiny
 	const SHINY_ENEMY_ANIM ; new, for the shiny
 
-DEF NUM_ATTACK_ANIMS EQU const_value - 1
+;DEF NUM_ATTACK_ANIMS EQU const_value - 1
+DEF NUM_ALTERNATIVE_ANIMS EQU const_value - 1 ; edited

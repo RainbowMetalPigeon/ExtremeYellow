@@ -16,7 +16,7 @@ DebugTeam:
 	db MEW, 59 ; 255
 	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
-;	db SEAKING, 42
+	db SEAKING, 13
 ;	db PORYGONZ, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
@@ -79,9 +79,15 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 ;	; moves to other members
-;	ld a, WILL_O_WISP
-;	ld hl, wPartyMon4Moves
-;	ld [hl], a
+	ld a, WILL_O_WISP
+	ld hl, wPartyMon4Moves
+	ld [hli], a
+	ld a, POISON_STING
+	ld [hli], a
+	ld a, THUNDER_WAVE
+	ld [hli], a
+	ld a, CONFUSE_RAY
+	ld [hl], a
 
 ;	; moves to other members
 ;	ld a, SCALD
