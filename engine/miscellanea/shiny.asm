@@ -338,12 +338,8 @@ PlayShinyAnimationIfShinyEnemyMon:
     ret
 
 PlayMoveAnimationCopy:
-	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; edited
 	call Delay3
-; set alternative animation ID to be zero so that we use the move animations.
-	xor a
-	ld [wAltAnimationID], a
-; back to vanilla
 	predef MoveAnimation
 	callfar Func_78e98
 	ret
