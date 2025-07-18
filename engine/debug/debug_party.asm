@@ -29,7 +29,7 @@ IF DEF(_DEBUG)
 	; Fly anywhere.
 	dec a ; $ff
 	ld [wTownVisitedFlag], a
-	ld [wTownVisitedFlag + 1], a
+;	ld [wTownVisitedFlag + 1], a
 	ld [wTownVisitedFlag_Sevii], a ; new, for sevii
 	ld [wTownVisitedFlag_Sevii + 1], a ; new, for sevii
 

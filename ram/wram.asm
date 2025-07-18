@@ -852,7 +852,7 @@ wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 2 ; new, for Sevii
 NEXTU
 wFlyAnimUsingCoordList:: db
 ; $ff sentinel values at each end
-wFlyLocationsList:: ds NUM_CITY_MAPS + 2
+wFlyLocationsList:: ds NUM_CITY_MAPS + 4 ; edited, to allow fly to Route 4 and Route 10
 
 NEXTU
 wWhichTownMapLocation:: db
@@ -2497,7 +2497,7 @@ wLuckCrit:: db ; new
 wLuckSecondaryEffects:: db ; new
 wLuckStatusesAffliction:: db ; new
 
-wTownVisitedFlag:: flag_array NUM_CITY_MAPS
+wTownVisitedFlag:: flag_array NUM_CITY_MAPS + 2
 
 ; starts at 502
 wSafariSteps:: dw

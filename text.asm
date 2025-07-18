@@ -333,4 +333,5 @@ INCLUDE "data/text/item_descriptions.asm"
 
 SECTION "Text Sevii 1", ROMX
 INCLUDE "text/SeviiOneIsland.asm"
-
+INCLUDE "text/SeviiTwoIsland.asm"
+INCLUDE "text/SeviiThreeIsland.asm"

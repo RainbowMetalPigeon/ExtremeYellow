@@ -9,6 +9,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_ROUTE_31,               SeviiRoute31HiddenObjects
 	dbw SEVII_ROUTE_32,               SeviiRoute32HiddenObjects
 	dbw SEVII_ONE_ISLAND_DOCK,        SeviiOneIslandDockHiddenObjects
+	
 	db -1 ; end
 
 ;MACRO hidden_object

@@ -337,7 +337,7 @@ LoadTownMap_Fly::
 	ld hl, wFlyLocationsList_Sevii + NUM_CITY_MAPS_SEVII ; new, for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .sevii3
-	ld hl, wFlyLocationsList + NUM_CITY_MAPS
+	ld hl, wFlyLocationsList + NUM_CITY_MAPS + 2
 .sevii3
 	jr .pressedDown
 
@@ -352,13 +352,24 @@ BuildFlyLocationsList:
 	ld e, a
 	ld a, [wTownVisitedFlag + 1]
 	ld d, a
-	lb bc, 0, NUM_CITY_MAPS
+	ld b, 0
+	ld c, NUM_CITY_MAPS + 2
 .loop
 	srl d
 	rr e
 	ld a, NOT_VISITED
 	jr nc, .notVisited
 	ld a, b ; store the map number of the town if it has been visited
+; new for Route 4 and Route 10
+	cp 13
+	jr nz, .notRoute4
+	ld a, ROUTE_4
+.notRoute4
+	cp 14
+	jr nz, .notRoute10
+	ld a, ROUTE_10
+; back to vanilla
+.notRoute10
 .notVisited
 	ld [hl], a
 	inc hl
@@ -371,7 +382,7 @@ BuildFlyLocationsList:
 BuildFlyLocationsList_Sevii: ; new, for Sevii
 	ld hl, wFlyAnimUsingCoordList_Sevii
 	ld [hl], $ff
-	inc hl
+	inc hl ; it's wFlyLocationsList_Sevii
 	ld a, [wTownVisitedFlag_Sevii]
 	ld e, a
 	ld a, [wTownVisitedFlag_Sevii + 1]

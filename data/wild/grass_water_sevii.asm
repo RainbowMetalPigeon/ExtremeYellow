@@ -1,18 +1,18 @@
 WildDataPointers_Sevii:
 	table_width 2, WildDataPointers_Sevii
 ; cities
-	dw NothingWildMons         ; SEVII_ONE_ISLAND_CITY
-	dw NothingWildMons         ; SEVII_TWO_ISLAND_CITY
-	dw NothingWildMons         ; SEVII_THREE_ISLAND_CITY
-	dw NothingWildMons         ; SEVII_FOUR_ISLAND_CITY
-	dw NothingWildMons         ; SEVII_FIVE_ISLAND_CITY
-	dw NothingWildMons         ; SEVII_SIX_ISLAND_CITY
-	dw NothingWildMons         ; SEVII_SEVEN_ISLAND_CITY
+	dw NothingWildMons               ; SEVII_ONE_ISLAND_CITY
+	dw NothingWildMons               ; SEVII_TWO_ISLAND_CITY
+	dw SeviiThreeIslandCityWildMons  ; SEVII_THREE_ISLAND_CITY
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_CITY
+	dw NothingWildMons               ; SEVII_FIVE_ISLAND_CITY
+	dw NothingWildMons               ; SEVII_SIX_ISLAND_CITY
+	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_CITY
 ; routes
-	dw SeviiRoute31WildMons     ; SEVII_ROUTE_31
-	dw SeviiRoute32WildMons     ; SEVII_ROUTE_31
+	dw SeviiRoute31WildMons          ; SEVII_ROUTE_31
+	dw SeviiRoute32WildMons          ; SEVII_ROUTE_31
 ; indoors
-	dw NothingWildMons         ; SEVII_ONE_ISLAND_DOCK
+	dw NothingWildMons               ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
 
@@ -30,3 +30,4 @@ WildDataPointers_Sevii:
 ;INCLUDE "data/wild/maps/nothing.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute31.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute32.asm"
+INCLUDE "data/wild/maps/sevii/SeviiThreeIslandCity.asm"
