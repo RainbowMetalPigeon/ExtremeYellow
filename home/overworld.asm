@@ -254,6 +254,8 @@ OverworldLoopLessDelay::
 	and a
 	jp nz, WarpFound2
 .notSafariZone
+; new to respawn items in Route 32
+	callfar Route32RespawnItemsCheckSteps
 ; new, to handle Route 25 for Haunted House
 	CheckEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
 	jr z, .checkHauntedPallet

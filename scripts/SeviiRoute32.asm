@@ -12,7 +12,7 @@ SeviiRoute32Text1:
 	text_asm
 	ld hl, TreasureBeachSignText
 	call PrintText
-	callfar ResetSeviiRoute32HiddenItems
+;	callfar ResetSeviiRoute32HiddenItems
 	jp TextScriptEnd
 
 TreasureBeachSignText:

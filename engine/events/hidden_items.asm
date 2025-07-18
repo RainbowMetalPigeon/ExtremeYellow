@@ -19,8 +19,6 @@ HiddenItems:
 	ld c, a
 	ld b, FLAG_TEST
 	predef FlagActionPredef
-;	ld hl, wObtainedHiddenItemsFlagsSevii+1 ; testing
-;	ld a, [hl] ; testing
 	ld a, c
 	and a
 	jr nz, .itemAlreadyFound
@@ -292,8 +290,6 @@ CheckIfSpecificHiddenItemHasBeenFound:: ; new
 ; -------------------
 
 ResetSeviiRoute32HiddenItems:: ; new
-;	ld hl, wObtainedHiddenItemsFlagsSevii+1 ; testing
-;	ld a, [hl] ; testing
 	ld hl, HiddenItemCoords_Sevii
 	ld c, -1
 .loop ; results: a: index; c flag not in list
@@ -312,8 +308,6 @@ ResetSeviiRoute32HiddenItems:: ; new
 	jr .loop
 .rightMap
 ; we're in the right map: set the item as found
-;	ld hl, wObtainedHiddenItemsFlagsSevii+1 ; testing
-;	ld a, [hl] ; testing
 	ld a, c ; index
 	ld [wHiddenItemOrCoinsIndex], a
 	ld hl, wObtainedHiddenItemsFlagsSevii
@@ -321,8 +315,6 @@ ResetSeviiRoute32HiddenItems:: ; new
 	push bc
 	ld b, FLAG_RESET
 	predef FlagActionPredef
-;	ld hl, wObtainedHiddenItemsFlagsSevii+1 ; testing
-;	ld a, [hl] ; testing
 	pop bc
 	pop hl
 	jr .loop

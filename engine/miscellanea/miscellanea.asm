@@ -88,6 +88,31 @@ TallGrassBillsSecretGardenCheckSteps::
 
 ; =====================================
 
+Route32RespawnItemsCheckSteps::
+	ld a, [wRoute32RespawnItemsSteps]
+	ld b, a
+	ld a, [wRoute32RespawnItemsSteps + 1]
+	ld c, a
+	or b
+	jr z, .stepsOver
+; decrease step counter by 1
+	dec bc
+	ld a, b
+	ld [wRoute32RespawnItemsSteps], a
+	ld a, c
+	ld [wRoute32RespawnItemsSteps + 1], a
+	ret
+.stepsOver
+	callfar ResetSeviiRoute32HiddenItems
+	ld hl, 1000 ; e.g. 20 for testing purposes
+	ld a, h
+	ld [wRoute32RespawnItemsSteps], a
+	ld a, l
+	ld [wRoute32RespawnItemsSteps + 1], a
+	ret
+
+; =====================================
+
 RandomizeTeamForBattleFacilityTrainer::
 	ld de, wBattleFacilityMonNumber1
 	ld a, [wBattleFacilityWhichMonIsRandomized]

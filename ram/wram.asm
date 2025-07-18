@@ -2601,7 +2601,8 @@ wd72d:: db
 ; bit 7: set if scripted NPC movement has been initialised
 wd72e:: db
 
-	ds 1 ; UNUSED bytes in "Main Data"
+;	it was ds 1
+wRoute32RespawnItemsSteps:: dw ; new, will start at 1000; made using the ds 1 above and the ds 1 below
 
 ; bit 0: NPC sprite being moved by script
 ; bit 5: ignore joypad input
@@ -2609,7 +2610,7 @@ wd72e:: db
 ; bit 7: set if joypad states are being simulated in the overworld or an NPC's movement is being scripted
 wd730:: db
 
-	ds 1 ; UNUSED bytes in "Main Data"
+;	it was ds 1 ; moved up with the other ds 1 to make the Route 32 steps counter
 
 ; bit 0: play time being counted
 ; bit 1: remnant of debug mode; only set by the debug build.

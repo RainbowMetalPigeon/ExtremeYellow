@@ -51,6 +51,14 @@ DEF START_MONEY EQU $3000
 	ld bc, wGameProgressFlagsEnd - wGameProgressFlags
 	call FillMemory ; clear all game progress flags
 
+; new, to respawn items in Route 32
+	ld hl, 1000 ; e.g. 20 for testing purposes
+	ld a, h
+	ld [wRoute32RespawnItemsSteps], a
+	ld a, l
+	ld [wRoute32RespawnItemsSteps + 1], a
+; back to vanilla
+
 	callfar InitializeMissableObjectsFlagsExtra ; new for splitting HS
 	callfar InitializeMissableObjectsFlags_Sevii ; new for sevii
 	jpfar InitializeMissableObjectsFlags
