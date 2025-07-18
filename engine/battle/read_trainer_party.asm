@@ -317,12 +317,13 @@ ReadTrainer:
 .LastLoop
 ; update wAmountMoneyWon addresses (money to win) based on enemy's level
 	ld hl, wTrainerBaseMoney + 1
-	ld c, 2 ; wAmountMoneyWon is a 3-byte number
+	ld c, 3 ; wAmountMoneyWon is a 3-byte number ; edited, there was a 2 instead of a 3
 	push bc
 	predef AddBCDPredef
 	pop bc
 	inc de
 	inc de
+	inc de ; new, for bigger money
 	dec b
 	jr nz, .LastLoop ; repeat wCurEnemyLVL times
 	ret

@@ -17,7 +17,7 @@ TrainerPicAndMoneyPointers::
 	pic_money SuperNerdPic,    2500
 	pic_money HikerPic,        3500
 	pic_money BikerPic,        2000
-	pic_money BurglarPic,      9000
+	pic_money BurglarPic,      49000 ; edited
 	pic_money EngineerPic,     5000
 ;	pic_money JugglerPic,      3500
 	pic_money FisherPic,       3500
@@ -32,7 +32,7 @@ TrainerPicAndMoneyPointers::
 	pic_money BirdKeeperPic,   2500
 	pic_money BlackbeltPic,    2500
 	pic_money Rival1Pic,       3500
-	pic_money ProfOakPic,      9900
+	pic_money ProfOakPic,      25000 ; edited
 ;	pic_money ChiefPic,        3000
 	pic_money ScientistPic,    5000
 	pic_money GiovanniPic,     9900
@@ -49,14 +49,14 @@ TrainerPicAndMoneyPointers::
 	pic_money SabrinaPic,      9900
 	pic_money GentlemanPic,    7000
 	pic_money Rival2Pic,       6500
-	pic_money Rival3Pic,       9900
+	pic_money Rival3Pic,       20000 ; edited
 	pic_money LoreleiPic,      9900
 	pic_money ChannelerPic,    3000
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
 ; new classes
 	pic_money OragePic,        9900
-	pic_money PigeonPic,       15000
+	pic_money PigeonPic,       42000
 	pic_money TravelerPic,     50000
 	pic_money BFTrainerPic,    0 ; TBE, same as online battle
 	pic_money MissingNoTPic,   0 ; TBE?
