@@ -297,7 +297,7 @@ MainInBattleLoop:
 	and a
 	jp z, HandlePlayerMonFainted
 .AIActionUsedEnemyFirst
-	call HandlePoisonBurnLeechSeed
+	call HandlePoisonBurnLeechSeed ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
 	call ExecutePlayerMove
@@ -307,7 +307,7 @@ MainInBattleLoop:
 	ld a, b
 	and a
 	jp z, HandleEnemyMonFainted
-	call HandlePoisonBurnLeechSeed
+	call HandlePoisonBurnLeechSeed ; for player
 	jp z, HandlePlayerMonFainted
 	call DrawHUDsAndHPBars
 	call CheckNumAttacksLeft
@@ -320,7 +320,7 @@ MainInBattleLoop:
 	ld a, b
 	and a
 	jp z, HandleEnemyMonFainted
-	call HandlePoisonBurnLeechSeed
+	call HandlePoisonBurnLeechSeed ; for player
 	jp z, HandlePlayerMonFainted
 	call DrawHUDsAndHPBars
 	ld a, $1
@@ -335,7 +335,7 @@ MainInBattleLoop:
 	and a
 	jp z, HandlePlayerMonFainted
 .AIActionUsedPlayerFirst
-	call HandlePoisonBurnLeechSeed
+	call HandlePoisonBurnLeechSeed ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
 	call CheckNumAttacksLeft
