@@ -251,13 +251,13 @@ SaveSAVtoSRAM2:
 	ld de, sMainData
 	ld bc, wPokedexSeenEnd - wPokedexOwned
 	call CopyData
-	ld hl, wPikachuHappiness
-	ld de, sMainData + $179
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hl]
-	ld [de], a
+;	ld hl, wPikachuHappiness
+;	ld de, sMainData + $179
+;	ld a, [hli]
+;	ld [de], a
+;	inc de
+;	ld a, [hl]
+;	ld [de], a
 	ld hl, sGameData
 	ld bc, sGameDataEnd - sGameData
 	call SAVCheckSum

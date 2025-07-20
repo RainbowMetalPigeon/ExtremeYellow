@@ -258,14 +258,14 @@ AttackAnimationPointers:
 	dw CurseAnim
 
 	; KAAARP!
-	dw  AncestorPwrAnim
+	dw AncestorPwrAnim
 
 	; anomalies' signature moves
-	dw  EternabeamAnim
-	dw  DragonAscentAnim
-	dw  ThousandArrowsAnim
-	dw  PhotonGeyserAnim
-	dw  JudgmentAnim
+	dw EternabeamAnim
+	dw DragonAscentAnim
+	dw ThousandArrowsAnim
+	dw PhotonGeyserAnim
+	dw JudgmentAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
