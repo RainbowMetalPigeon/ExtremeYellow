@@ -69,6 +69,8 @@ ColosseumSpec2:
 	special_warp_spec COLOSSEUM,     6, 4, CLUB
 SeviiSpec: ; new for sevii
 	special_warp_spec SEVII_ONE_ISLAND_DOCK, 4, 3, GATE ; new for sevii
+KantoSpec: ; new for sevii
+	special_warp_spec VERMILION_DOCK, 14, 1, SHIP_PORT ; new for sevii, TBE
 
 
 MACRO fly_warp_spec

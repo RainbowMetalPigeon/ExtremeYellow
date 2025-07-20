@@ -34,6 +34,8 @@ LoadSpecialWarpData:
 ; new for sevii
 	cp SEVII_ONE_ISLAND_DOCK
 	jr z, .sevii
+	cp VERMILION_DOCK
+	jr z, .kanto
 ; back to vanilla
 	cp TRADE_CENTER
 	jr nz, .notTradeCenter
@@ -63,6 +65,9 @@ LoadSpecialWarpData:
 	jr .copyWarpData
 .sevii
 	ld hl, SeviiSpec
+	jr .copyWarpData
+.kanto
+	ld hl, KantoSpec
 ; back to vanilla	
 .copyWarpData
 	ld de, wCurMap
