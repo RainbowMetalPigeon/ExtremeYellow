@@ -1,6 +1,9 @@
 DisplayOptionMenu_:
 	call InitOptionsMenu
+	ld a, 10 ; new
+	ldh [hDownArrowBlinkCount1], a ; new
 .optionMenuLoop
+	call HandleInfoBlinkTiming ; new
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	and START | B_BUTTON
@@ -592,6 +595,7 @@ OptionsControl:
 	ld h, [hl]
 	ld l, a
 	call PrintText
+	SetEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
 	call InitOptionsMenu_Redo
 	ret
 
@@ -615,7 +619,7 @@ InitOptionsMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-	call PrintLabelAboutInfo ; new, testing
+;	call PrintLabelAboutInfo
 	hlcoord 2, 2
 	ld de, AllOptionsText
 	call PlaceString
@@ -644,7 +648,7 @@ InitOptionsMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-	call PrintLabelAboutInfo ; new, testing
+;	call PrintLabelAboutInfo ; TBV
 	hlcoord 2, 2
 	ld de, AllOptionsText
 	call PlaceString
@@ -731,4 +735,46 @@ PrintLabelAboutInfo::
 	ld [hli], a
 	ld a, "<SELINFO4>"
 	ld [hl], a
+	ret
+
+PrintLabelAboutInfoEmpty::
+	hlcoord 14, 0
+	ld a, $7A ; border tile
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ret
+
+HandleInfoBlinkTiming::
+	CheckEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
+	jr nz, .staticPrinting
+; blinking
+	hlcoord 14, 0
+	ld a, [hl]
+	ld b, a
+	ld a, $7A ; border tile
+	cp b
+	jr z, .labelForInfoOff
+.labelForInfoOn
+	ldh a, [hDownArrowBlinkCount1]
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ret nz
+	ld a, 9
+	ldh [hDownArrowBlinkCount1], a
+	call PrintLabelAboutInfoEmpty
+	ret
+.labelForInfoOff
+	ldh a, [hDownArrowBlinkCount1]
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ret nz
+	ld a, 9
+	ldh [hDownArrowBlinkCount1], a
+	call PrintLabelAboutInfo
+	ret
+.staticPrinting
+	call PrintLabelAboutInfo
 	ret

@@ -1,6 +1,9 @@
 DisplayLuckMenu::
 	call InitLuckMenu
+	ld a, 10 ; new
+	ldh [hDownArrowBlinkCount1], a ; new
 .luckMenuLoop
+	call HandleInfoBlinkTiming ; new
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	and START | B_BUTTON
@@ -339,6 +342,7 @@ LuckControl:
 	ld h, [hl]
 	ld l, a
 	call PrintText
+	SetEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
 	call InitLuckMenu_Redo
 	ret
 
@@ -362,7 +366,7 @@ InitLuckMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-	call PrintLabelAboutInfo ; new, testing
+;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 4
 	ld de, AllLuckText
 	call PlaceString
@@ -394,7 +398,7 @@ InitLuckMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-	call PrintLabelAboutInfo ; new, testing
+;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 4
 	ld de, AllLuckText
 	call PlaceString

@@ -1,6 +1,9 @@
 DisplayPersonalizationMenu::
 	call InitPersonalizationMenu
+	ld a, 10 ; new
+	ldh [hDownArrowBlinkCount1], a ; new
 .personalizationMenuLoop
+	call HandleInfoBlinkTiming ; new
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	and START | B_BUTTON
@@ -359,6 +362,7 @@ PersonalizationControl:
 	ld l, a
 	call PrintText
 .conclude
+	SetEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
 	call InitPersonalizationMenu_Redo
 	ret
 .alteredTypes ; hard-coded exception
@@ -394,7 +398,7 @@ InitPersonalizationMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-	call PrintLabelAboutInfo ; new, testing
+;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 4
 	ld de, AllPersonalizationText
 	call PlaceString
@@ -426,7 +430,7 @@ InitPersonalizationMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-	call PrintLabelAboutInfo ; new, testing
+;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 4
 	ld de, AllPersonalizationText
 	call PlaceString

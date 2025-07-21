@@ -3,7 +3,8 @@
 ; Pallet Town events
 	const_def
 	const EVENT_FOLLOWED_OAK_INTO_LAB
-	const_skip 2
+	const EVENT_PRESSED_FOR_INFO_IN_STATUS_SCREEN ; new
+	const EVENT_PRESSED_FOR_INFO_IN_OPTIONS ; new
 	const EVENT_HALL_OF_FAME_DEX_RATING
 	const EVENT_INFORMED_ABOUT_OPTIONS ; new, was const_skip
 	const EVENT_PLAYER_AT_RIGHT_EXIT_TO_PALLET_TOWN

@@ -115,7 +115,6 @@ INCLUDE "engine/items/tms.asm"
 
 SECTION "Battle Engine 1", ROMX
 
-INCLUDE "engine/battle/end_of_battle.asm"
 INCLUDE "engine/battle/wild_encounters.asm"
 
 
@@ -509,6 +508,7 @@ INCLUDE "engine/battle/move_effects/freezeburnparalyze.asm" ; new , testing
 INCLUDE "engine/battle/move_effects/recoil.asm"				; moved from Battle Engine 1
 INCLUDE "engine/battle/move_effects/conversion.asm"			; moved from Battle Engine 1
 INCLUDE "engine/battle/move_effects/haze.asm"				; moved from Battle Engine 1
+INCLUDE "engine/battle/end_of_battle.asm"                   ; moved from Battle Engine 1
 
 
 SECTION "Surfing Minigame", ROMX

@@ -63,6 +63,12 @@ DrawHP_:
 
 ; Predef 0x37
 StatusScreen:
+; new
+	xor a
+	ldh [hDownArrowBlinkCount1], a ; blinking down arrow timing value 1
+	ld a, 6
+	ldh [hDownArrowBlinkCount2], a ; blinking down arrow timing value 2
+; BTV
 	call LoadMonData
 	ld a, [wMonDataLocation]
 	cp BOX_DATA
@@ -156,15 +162,7 @@ StatusScreen:
 .notShiny
 ; back to vanilla
 ; new, print label that suggests to click SELECT for more info
-	hlcoord 16, 17
-	ld a, "<SELINFO1>"
-	ld [hli], a
-	ld a, "<SELINFO2>"
-	ld [hli], a
-	ld a, "<SELINFO3>"
-	ld [hli], a
-	ld a, "<SELINFO4>"
-	ld [hl], a
+	call PrintSelectForInfo
 ; back to vanilla
 	hlcoord 11, 10
 	predef PrintMonType
@@ -210,6 +208,7 @@ StatusScreen:
 	call PlayCry ; play Pokémon cry
 .continue
 ; new, to cycle through the different stat printers
+	call HandleStatusInfoBlinkTiming ; testing
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	and A_BUTTON | B_BUTTON | SELECT
@@ -218,6 +217,7 @@ StatusScreen:
 	jr z, .vanilla
 ; we call the next stat printer
 .test
+	SetEvent EVENT_PRESSED_FOR_INFO_IN_STATUS_SCREEN
 	ld a, [wDumbByteToToggleStatusScreen]
 	and a
 	jr z, .advanceTo1
@@ -251,7 +251,7 @@ StatusScreen:
 	jr .continue
 .vanilla
 ; back to vanilla
-	call WaitForTextScrollButtonPress ; wait for button
+;	call WaitForTextScrollButtonPress ; wait for button
 	pop af
 	ldh [hTileAnimations], a
 	ret
@@ -516,8 +516,8 @@ PrintStatsBox_StatExp: ; new
 ; print ATK stat exp
 	push hl
 	ld hl, wLoadedMonAttackExp
-	ld a, [hld]
 	ld a, [hli]
+	ld a, [hld]
 	call CalculateHumanReadableStatExp
 	ld a, [de]
 	pop hl
@@ -526,8 +526,8 @@ PrintStatsBox_StatExp: ; new
 ; print DEF stat exp
 	push hl
 	ld hl, wLoadedMonDefenseExp
-	ld a, [hld]
 	ld a, [hli]
+	ld a, [hld]
 	call CalculateHumanReadableStatExp
 	ld a, [de]
 	pop hl
@@ -536,8 +536,8 @@ PrintStatsBox_StatExp: ; new
 ; print SPEED stat exp
 	push hl
 	ld hl, wLoadedMonSpeedExp
-	ld a, [hld]
 	ld a, [hli]
+	ld a, [hld]
 	call CalculateHumanReadableStatExp
 	ld a, [de]
 	pop hl
@@ -546,8 +546,8 @@ PrintStatsBox_StatExp: ; new
 ; print SPECIAL stat exp
 	push hl
 	ld hl, wLoadedMonSpecialExp
-	ld a, [hld]
 	ld a, [hli]
+	ld a, [hld]
 	call CalculateHumanReadableStatExp
 	ld a, [de]
 	pop hl
@@ -557,8 +557,8 @@ PrintStatsBox_StatExp: ; new
 	call ClearCurHpMaxHP
 ; print HP stat exp
 	ld hl, wLoadedMonHPExp
-	ld a, [hld]
 	ld a, [hli]
+	ld a, [hld]
 	call CalculateHumanReadableStatExp
 	ld a, [de]
 	hlcoord 13, 4
@@ -608,8 +608,8 @@ ClearStatsValues: ; new
 CalculateHumanReadableStatExp: ; new
 ; calculates ceil(Sqrt(stat exp)) in b
 	ld b, 0
-	ld a, [hld]
-	ld a, [hli]
+	ld a, [hli] ; for debugging
+	ld a, [hld] ; for debugging
 .startLoop
 	xor a
 	ldh [hMultiplicand], a
@@ -627,22 +627,18 @@ CalculateHumanReadableStatExp: ; new
 	ldh a, [hProduct + 2] ; MSB
 	cp d ; a-d = MSB of b^2 - MSB of StatExp
 	jr c, .startLoop
+	jr nz, .MSBBigger ; no need to check the LSB and no need to preserve hl, will be overwritten soon
+; MSBs are equals 
 	inc hl
 	ld a, [hld] ; LSB of stat exp, and returns hl to the previous value
 	ld d, a
 	ldh a, [hProduct + 3] ; LSB
 	cp d ; a-d = MSB of b^2 - MSB of StatExp
 	jr c, .startLoop
+	jr z, .statExpDone ; exact match, no need to reduce b by 1
 
-;	ld a, [hli]
-;	ld d, a
-;	ldh a, [hProduct + 3] ; LSB
-;	sub d
-;	ld a, [hld]
-;	ld d, a
-;	ldh a, [hProduct + 2] ; MSB
-;	sbc d               ; test if (current stat exp bonus)^2 < stat exp
-;	jr c, .startLoop
+.MSBBigger
+	dec b
 
 .statExpDone
 	ld a, b
@@ -839,4 +835,74 @@ StatusScreen_PrintPP:
 	add hl, de
 	dec c
 	jr nz, StatusScreen_PrintPP
+	ret
+
+ ; ---------------- new ------------------
+
+PrintSelectForInfo:
+	hlcoord 16, 17
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+	ret
+
+PrintSelectForInfoEmpty:
+	hlcoord 16, 17
+	ld a, $76 ; border tile
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld a, $77 ; border tile
+	ld [hl], a
+	ret
+
+HandleStatusInfoBlinkTiming::
+	CheckEvent EVENT_PRESSED_FOR_INFO_IN_STATUS_SCREEN
+	jr nz, .staticPrinting
+; blinking
+	hlcoord 16, 17
+	ld a, [hl]
+	ld b, a
+	ld a, $76 ; border tile
+	cp b
+	jr z, .labelForInfoOff
+.labelForInfoOn
+	ldh a, [hDownArrowBlinkCount1]
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ret nz
+	ldh a, [hDownArrowBlinkCount2]
+	dec a
+	ldh [hDownArrowBlinkCount2], a
+	ret nz
+	ld a, $ff
+	ldh [hDownArrowBlinkCount1], a
+	ld a, $06
+	ldh [hDownArrowBlinkCount2], a
+	call PrintSelectForInfoEmpty
+	ret
+.labelForInfoOff
+	ldh a, [hDownArrowBlinkCount1]
+	and a
+	ret z
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ret nz
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ldh a, [hDownArrowBlinkCount2]
+	dec a
+	ldh [hDownArrowBlinkCount2], a
+	ret nz
+	ld a, $06
+	ldh [hDownArrowBlinkCount2], a
+	call PrintSelectForInfo
+	ret
+.staticPrinting
+	call PrintSelectForInfo
 	ret
