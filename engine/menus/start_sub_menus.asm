@@ -891,10 +891,7 @@ StartMenu_PortablePC:: ; new
 
 ; next piece is to preserve the map text pointers
 	ld hl, wMapTextPtr
-	ld a, [hli]
-	ld [wUniQuizAnswer], a
-	ld a, [hl]
-	ld [wUniQuizAnswer+1], a
+	call SetMapTextPointer
 ; some maps don't allow the portable PC
 	ld a, [wCurMap] ; we don't want to cheese the Elite4, do we?
 	cp LORELEIS_ROOM
@@ -919,11 +916,7 @@ StartMenu_PortablePC:: ; new
 .done
 ; next piece is to preserve the map text pointers
 	push hl
-	ld hl, wUniQuizAnswer
-	ld a, [hli]
-	ld [wMapTextPtr], a
-	ld a, [hl]
-	ld [wMapTextPtr+1], a
+	call RestoreMapTextPointer
 	pop hl
 ; normal stuff
 	call LoadScreenTilesFromBuffer2 ; restore saved screen
