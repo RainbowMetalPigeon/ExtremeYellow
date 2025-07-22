@@ -121,10 +121,11 @@
 	const_skip 5 ; edited, was 14
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
-	const_skip 12 ; edited, was 17
-	const EVENT_WEATHER_SET_BY_PLAYER ; new
-	const EVENT_WEATHER_SET_BY_ENEMY ; new
+	const_skip 11 ; edited, was 17
 	const EVENT_WEATHER_SUNNY_DAY ; new
+	const EVENT_WEATHER_RAIN_DANCE ; new
+	const EVENT_WEATHER_SANDSTORM ; new
+	const EVENT_WEATHER_HAIL ; new
 	const EVENT_FREED_ROUTE_4 ; new
 	const EVENT_BEAT_MISTY_REMATCH ; new
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_0

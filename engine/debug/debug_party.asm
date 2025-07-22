@@ -43,16 +43,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, ANCESTOR_PWR
+	ld a, SUNNY_DAY ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, HYPER_BEAM
+	ld a, GROWTH
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, TOXIC
+	ld a, THUNDER
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, SUNNY_DAY
+	ld a, SOLARBEAM
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -84,7 +84,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, POISON_STING
 	ld [hli], a
-	ld a, THUNDER_WAVE
+	ld a, FREEZE_DRY
 	ld [hli], a
 	ld a, CONFUSE_RAY
 	ld [hl], a

@@ -1,38 +1,3 @@
-
-HandleWeatherCounter: ; new, testing
-	ld hl, wWeatherCounterPlayer
-	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
-	and a
-	jr z, .playersTurn
-	ld hl, wWeatherCounterEnemy
-.playersTurn
-	ld a, [hl]
-	and a
-	ret z
-	dec a
-	ld [hl], a
-.anyTurnLeft
-	jr z, .noTurnsLeft
-	ld hl, WeatherSunnyDayStillText
-	call PrintText
-	ret
-.noTurnsLeft
-	ResetEvent EVENT_WEATHER_SUNNY_DAY
-;	ResetEvent EVENT_WEATHER_RAINDANCE
-;	ResetEvent EVENT_WEATHER_SANDSTORM
-;	ResetEvent EVENT_WEATHER_HAIL
-	ld hl, WeatherBackToNormalText
-	call PrintText
-	ret
-
-WeatherSunnyDayStillText: ; new
-	text_far _WeatherSunnyDayStillText
-	text_end
-
-WeatherBackToNormalText: ; new
-	text_far _WeatherBackToNormalText
-	text_end
-
 HandlePoisonBurnLeechSeed::
 	call HandleWeatherCounter ; new, to handle weather counter
 	                          ; but only if the current mon did not KO its opponent
@@ -153,7 +118,7 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hli]
 	or [hl]
 	ret nz          ; test if fainted
-	call DrawHUDsAndHPBars
+	callfar DrawHUDsAndHPBars ; edited into a callfar for moving this into its own file
 	ld c, 20
 	call DelayFrames
 	xor a
@@ -360,7 +325,68 @@ UpdateCurMonHPBar::
 	pop bc
 	ret
 
-; ugly copies of functions for moving this into its own file -----------------------
+; ========== new functions ====================================================================
+
+HandleWeatherCounter: ; new, testing
+	ld hl, wWeatherCounterPlayer
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurn
+	ld hl, wWeatherCounterEnemy
+.playersTurn
+	ld a, [hl]
+	and a
+	ret z
+	dec a
+	ld [hl], a
+; check if there are turns left, and print a message accordingly
+	jr z, .noTurnsLeft
+; but don't print it the first turn
+	cp 4
+	ret z
+	ld hl, WeatherSunnyDayStillText
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr nz, .printAndEnd
+	ld hl, WeatherRainDanceStillText
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr nz, .printAndEnd
+	ld hl, WeatherSandstormStillText
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr nz, .printAndEnd
+	ld hl, WeatherHailStillText
+.printAndEnd
+	call PrintText
+	ret
+.noTurnsLeft
+	ResetEvent EVENT_WEATHER_SUNNY_DAY
+	ResetEvent EVENT_WEATHER_RAIN_DANCE
+	ResetEvent EVENT_WEATHER_SANDSTORM
+	ResetEvent EVENT_WEATHER_HAIL
+	ld hl, WeatherBackToNormalText
+	call PrintText
+	ret
+
+WeatherSunnyDayStillText: ; new
+	text_far _WeatherSunnyDayStillText
+	text_end
+
+WeatherRainDanceStillText: ; new
+	text_far _WeatherRainDanceStillText
+	text_end
+
+WeatherSandstormStillText: ; new
+	text_far _WeatherSandstormStillText
+	text_end
+
+WeatherHailStillText: ; new
+	text_far _WeatherHailStillText
+	text_end
+
+WeatherBackToNormalText: ; new
+	text_far _WeatherBackToNormalText
+	text_end
+
+; ---------- ugly copies of functions for moving this into its own file -----------------------
 
 PlayMoveAnimationCopyCopy:
 	ld [wAltAnimationID], a ; edited

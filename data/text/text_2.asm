@@ -1475,8 +1475,23 @@ _MapMessageComplete:: ; new
 	done
 
 _WeatherSunnyDayStillText:: ; new
-	text "The sunlight still"
-	line "shines bright!"
+	text "The sunlight is"
+	line "strong!"
+	prompt
+
+_WeatherRainDanceStillText:: ; new
+	text "Rain continues to"
+	line "fall!"
+	prompt
+
+_WeatherSandstormStillText:: ; new
+	text "The sandstorm"
+	line "rages!"
+	prompt
+
+_WeatherHailStillText:: ; new
+	text "Hail continues to"
+	line "fall!"
 	prompt
 
 _WeatherBackToNormalText:: ; new

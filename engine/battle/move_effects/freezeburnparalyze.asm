@@ -64,6 +64,10 @@ FreezeBurnParalyzeEffect_::
 	ld hl, BurnedText
 	jp PrintText
 .freeze1
+; new
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ret nz ; can't freeze under sun
+; TBV
 	callfar ClearHyperBeam ; resets hyper beam (recharge) condition from target ; edited into a callfar
 	ld a, 1 << FRZ
 	ld [wEnemyMonStatus], a
@@ -135,6 +139,10 @@ FreezeBurnParalyzeEffect_::
 	ld hl, BurnedText
 	jp PrintText
 .freeze2
+; new
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ret nz ; can't freeze under sun
+; TBV
 ; hyper beam bits aren't reseted for opponent's side
 	ld a, 1 << FRZ
 	ld [wBattleMonStatus], a

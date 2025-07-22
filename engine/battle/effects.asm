@@ -1176,7 +1176,7 @@ GotAnimationID:
 	jp PlayBattleAnimationGotID
 
 ; new
-PlayAlternativeAnimation2:
+PlayAlternativeAnimation2::
 	ld [wAltAnimationID], a
 	jr GotAnimationID
 
@@ -1221,7 +1221,7 @@ PlayBattleAnimationGotID:
 	ret
 
 ; new
-PlayAlternativeAnimation:
+PlayAlternativeAnimation::
 	ld [wAltAnimationID], a
 	jr PlayBattleAnimationGotID
 

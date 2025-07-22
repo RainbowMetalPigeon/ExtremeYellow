@@ -16,6 +16,12 @@ SlidePlayerAndEnemySilhouettesOnScreen:           ; edited into a jpfar to save 
                                     ; because called only by SlidePlayerAndEnemySilhouettesOnScreen which is there
 
 StartBattle:
+; new
+	ResetEvent EVENT_WEATHER_SUNNY_DAY
+	ResetEvent EVENT_WEATHER_RAIN_DANCE
+	ResetEvent EVENT_WEATHER_SANDSTORM
+	ResetEvent EVENT_WEATHER_HAIL
+; BTV
 	xor a
 	ld [wPartyGainExpFlags], a
 	ld [wPartyFoughtCurrentEnemyFlags], a
@@ -407,11 +413,11 @@ AIGetPriority:: ; new
 HandlePoisonBurnLeechSeed_Wrapper: ; TBV
 ;	push hl
 ;	push de
-	push af
+;	push af
 ;	push bc
 	callfar HandlePoisonBurnLeechSeed
 ;	pop bc
-	pop af
+;	pop af
 ;	pop de
 ;	pop hl
 	ret
@@ -3159,6 +3165,20 @@ ExecutePlayerMove:
 	jp z, ExecutePlayerMoveDone
 
 CheckIfPlayerNeedsToChargeUp:
+; new, for Solarbeam under Sun
+	ld a, [wPlayerMoveNum]
+	cp SOLARBEAM
+	jr nz, .notSolarBeam 
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr z, .notSolarBeam
+; Solarbeam under Sunny Day
+	xor a
+	ld [wAnimationType], a
+	ld a, XSTATITEM_ANIM
+	call PlayAltAnimation
+	jr PlayerCanExecuteMove
+.notSolarBeam
+; BTV
 	ld a, [wPlayerMoveEffect]
 	cp CHARGE_EFFECT
 	jp z, JumpMoveEffect
@@ -3278,6 +3298,17 @@ MirrorMoveCheck:
 	jp CheckIfPlayerNeedsToChargeUp ; Go back to damage calculation for the move picked by Metronome
 .next
 	ld a, [wPlayerMoveEffect]
+; new
+	cp SPECIAL_UP1_EFFECT
+	jr nz, .noGrowthInSun
+	ld d, a ; d temporarily holds the move effect
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ld a, d ; restored value from d
+	jr z, .noGrowthInSun
+	ld a, SPECIAL_UP2_EFFECT
+	ld [wPlayerMoveEffect], a
+.noGrowthInSun
+; BTV
 	ld hl, ResidualEffects2
 	ld de, 1
 	call IsInArray
@@ -4374,6 +4405,9 @@ GetDamageVarsForPlayerAttack:
 	ld d, a ; d = move power
 	ret z ; return if move power is zero
 
+; new, to check for weathers and terrains
+	call BasePowerModifierWeatherTerrain_Player
+
 ; new, to handle gyro ball and flail
 	push hl
 	ld a, [wPlayerMoveNum]
@@ -4561,6 +4595,9 @@ GetDamageVarsForEnemyAttack:
 	and a
 	ret z ; return if move power is zero
 
+; new, to check for weathers and terrains
+	call BasePowerModifierWeatherTerrain_Enemy
+
 ; new, to handle gyro ball and flail
 	push hl
 	ld a, [wEnemyMoveNum]
@@ -4735,6 +4772,79 @@ GetDamageVarsForEnemyAttack:
 	ld a, $1
 	and a
 	and a
+	ret
+
+; input: d holds the current base power
+; output: d holds the modifier base power
+BasePowerModifierWeatherTerrain_Player: ; new ; TBE
+	ld hl, wPlayerMoveType
+	jr PerformChecks
+BasePowerModifierWeatherTerrain_Enemy:
+	ld hl, wEnemyMoveType
+PerformChecks:
+	ld a, [hl] ; a = move type
+	cp FIRE
+	jr z, .fire
+	cp WATER
+	jr z, .water
+	cp ELECTRIC
+	jr z, .electric
+	cp GRASS
+	jr z, .grass
+	cp PSYCHIC_TYPE
+	jr z, .psychic
+	cp DRAGON
+	jr z, .dragon
+	ret
+
+.fire
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr z, .fire_CheckRainDance
+	ld a, d
+	srl a
+	add d
+	ld d, a
+	ret
+.fire_CheckRainDance
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	ret z
+	srl d
+	ret
+
+.water
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr z, .water_checkSunnyDay
+	ld a, d
+	srl a
+	add d
+	ld d, a
+	ret
+.water_checkSunnyDay
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ret z
+	srl d
+	ret
+
+.electric
+.grass
+	ld hl, wPlayerMoveNum
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .grassPlayersTurn
+	ld hl, wEnemyMoveNum
+.grassPlayersTurn
+	ld a, [hl]
+	cp SOLARBEAM
+	jr nz, .grass_notSolarBeam
+; solar beam, let's check also for Rain Dance
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr z, .grass_notSolarBeam
+	srl d ; halve Solarbeam's power
+; then check if there's terrain or not
+.grass_notSolarBeam
+.psychic
+.dragon
+	; TBE, when I'll have terrains
 	ret
 
 INCLUDE "data/battle/physical_special_split.asm" ; new, for physical/special split
@@ -6013,9 +6123,33 @@ MoveHitTest::
 	ld b, a
 	ldh a, [hWhoseTurn]
 	and a
-	jr z, .doAccuracyCheck
+	jr z, .weatherAccuracyModifiers ; edited, it was to .doAccuracyCheck
 	ld a, [wEnemyMoveAccuracy]
 	ld b, a
+; new block of code to handle weathers
+.weatherAccuracyModifiers
+	ld hl, wPlayerMoveNum
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurnWeather
+	ld hl, wEnemyMoveNum
+.playersTurnWeather
+	ld a, [hl] ; a is the move number
+	cp THUNDER
+	jr z, .thunderOrHurricane
+	cp HURRICANE
+	jr nz, .doAccuracyCheck
+.thunderOrHurricane
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr z, .checkForRainDance
+	ld a, 50 percent
+	ld b, a
+	jr .doAccuracyCheck
+.checkForRainDance
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr z, .doAccuracyCheck
+	ret ; skip accuracy check if it's raining and we're using Thunder/Hurricane
+; BTV from weathers
 .doAccuracyCheck
 ; if the random number generated is greater than or equal to the scaled accuracy, the move misses
 ; note that this means that even the highest accuracy is still just a 255/256 chance, not 100%
@@ -6176,6 +6310,20 @@ ExecuteEnemyMove:
 	call GetCurrentMove
 
 CheckIfEnemyNeedsToChargeUp:
+; new, for Solarbeam under Sun
+	ld a, [wEnemyMoveNum]
+	cp SOLARBEAM
+	jr nz, .notSolarBeam 
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr z, .notSolarBeam
+; Solarbeam under Sunny Day
+	xor a
+	ld [wAnimationType], a
+	ld a, XSTATITEM_ANIM
+	call PlayAltAnimation
+	jr EnemyCanExecuteMove
+.notSolarBeam
+; BTV
 	ld a, [wEnemyMoveEffect]
 	cp CHARGE_EFFECT
 	jp z, JumpMoveEffect
@@ -6307,8 +6455,19 @@ EnemyCheckIfMirrorMoveEffect:
 	jp CheckIfEnemyNeedsToChargeUp
 .notMetronomeEffect
 	ld a, [wEnemyMoveEffect]
+; new
+	cp SPECIAL_UP1_EFFECT
+	jr nz, .noGrowthInSun
+	ld d, a ; d temporarily holds the move effect
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ld a, d ; restored value from d
+	jr z, .noGrowthInSun
+	ld a, SPECIAL_UP2_EFFECT
+	ld [wEnemyMoveEffect], a
+.noGrowthInSun
+; BTV
 	ld hl, ResidualEffects2
-	ld de, $1
+	ld de, 1
 	call IsInArray
 	jp c, JumpMoveEffect
 	ld a, [wMoveMissed]
