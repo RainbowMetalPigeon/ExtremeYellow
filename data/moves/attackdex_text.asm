@@ -882,7 +882,31 @@ _AttackdexText_JudgmentEffect::
 	dex
 
 _AttackdexText_SunnyDayEffect::
-	text "Sets the Sun"
+	text "Sets the sun up:"
+	next "FIRE moves +50%,"
+	next "WATER moves -50%,"
+	next "no FREEZING,"
+
+	atpg "SOLARBEAM doesn't"
+	next "need to charge,"
+	next "GROWTH increases"
+	next "SPECIAL by 2,"
+
+	atpg "HURRICANE and"
+	next "THUNDER ACCURACY"
+	next "down to 50%"
+	dex
+
+_AttackdexText_RainDanceEffect::
+	text "Summons a deluge:"
+	next "WATER moves +50%,"
+	next "FIRE moves -50%,"
+	next "no FREEZING,"
+
+	atpg "SOLARBEAM -50%",
+;	xxxx "123456789012345678"
+	next "HURRICANE and"
+	next "THUNDER can't miss"
 	dex
 
 _AttackdexText_StruggleEffect::

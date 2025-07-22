@@ -509,7 +509,7 @@ INCLUDE "engine/battle/end_of_battle.asm"                   ; moved from Battle 
 INCLUDE "engine/gfx/screen_effects.asm"
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 INCLUDE "engine/battle/move_effects/curse.asm" ; new
-INCLUDE "engine/battle/move_effects/sunnyday.asm" ; new
+INCLUDE "engine/battle/move_effects/weathers.asm" ; new
 INCLUDE "engine/battle/move_effects/handlepoisonburnleechseed.asm" ; new
 
 

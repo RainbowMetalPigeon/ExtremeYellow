@@ -308,4 +308,9 @@ _TheSunlightGotBrighText::
 	line "bright!"
 	prompt
 
+_ADownpourStartedText::
+	text "A downpour"
+	line "started!"
+	prompt
+
 ;	xxxx "123456789012345678"

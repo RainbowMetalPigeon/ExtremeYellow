@@ -269,6 +269,7 @@ AttackAnimationPointers:
 
 	; V2.0 moves
 	dw SunnyDayAnim
+	dw RainDanceAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
@@ -1914,6 +1915,12 @@ SunnyDayAnim:
 	battle_anim FLAMETHROWER, SE_WAVY_SCREEN
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; new
+
+RainDanceAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
 
 ; ------------------------------------------------------------------------------
 

@@ -60,7 +60,7 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon2Moves
 	ld a, EXPLOSION
 	ld [hli], a
-	ld a, FLY
+	ld a, RAIN_DANCE
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a

@@ -1229,3 +1229,6 @@ PlayAlternativeAnimation::
 
 SunnyDayEffect:
 	jpfar SunnyDayEffect_
+
+RainDanceEffect:
+	jpfar RainDanceEffect_

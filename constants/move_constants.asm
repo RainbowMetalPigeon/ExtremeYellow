@@ -276,6 +276,7 @@
 
 	; V2.0 moves
 	const SUNNY_DAY
+	const RAIN_DANCE
 
 	const STRUGGLE     ; formerly a5
 DEF NUM_ATTACKS EQU const_value - 1

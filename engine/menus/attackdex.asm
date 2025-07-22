@@ -651,6 +651,10 @@ DrawAttackdexEntryOnScreen:
 	cp SUNNY_DAY
 	jp z, .done
 
+	ld hl, AttackdexText_SunnyDayEffect
+	cp RAIN_DANCE
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -1802,6 +1806,10 @@ AttackdexText_JudgmentEffect:
 
 AttackdexText_SunnyDayEffect:
 	text_far _AttackdexText_SunnyDayEffect
+	text_end
+
+AttackdexText_RainDanceEffect:
+	text_far _AttackdexText_RainDanceEffect
 	text_end
 
 AttackdexText_StruggleEffect:

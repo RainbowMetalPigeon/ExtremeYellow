@@ -270,6 +270,7 @@ MoveNames::
 
 	; V2.0 moves
 	li "SUNNY DAY"
+	li "RAIN DANCE"
 
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

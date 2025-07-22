@@ -283,8 +283,8 @@ Moves:
 	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; done
 
 	; V2.0 moves
-	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100, 5 ; TBE
-
+	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100, 5 ; done
+	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100, 5 ; TBE
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS
