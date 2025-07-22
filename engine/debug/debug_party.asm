@@ -189,7 +189,7 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_IN_SEVII
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_DEFEATED_MISSINGNO
 
@@ -290,15 +290,13 @@ DebugItemsList:
 	db ESCAPE_ROPE, 99
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
-    ; 20
-    db ICE_ORB, 1
-    db THUNDER_ORB, 1
-    db FIRE_ORB, 1
+;    db ICE_ORB, 1
+;    db THUNDER_ORB, 1
+;    db FIRE_ORB, 1
 	db TM_OUTRAGE, 3
 	db TM_WILL_O_WISP, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
-	db KINGS_ROCK, 99 ; PP_UP, 42
 	db MEGA_STONE_X, 99
 	db MEGA_STONE_Y, 99
 ;	db EXP_ALL, 1
@@ -306,8 +304,8 @@ DebugItemsList:
     db LIGHT_BALL, 1
     db ULTRA_BALL, 99
 ;    db GREAT_BALL, 99
-    db HM_CUT, 1
     db HM_FLASH, 1
+	db AMULET_COIN, 1
 	db -1 ; end
 
 DebugUnusedList:

@@ -741,7 +741,7 @@ TrainerBattleVictory:
 	ret z ; does ret work?
 ; win money
 ; new, to implement Amulet Coin
-	ld b, GUTSCHEIN
+	ld b, AMULET_COIN
 	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr z, .noAmuletCoin
 	ld de, wAmountMoneyWon + 2
