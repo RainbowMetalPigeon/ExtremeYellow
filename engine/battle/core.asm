@@ -740,6 +740,16 @@ TrainerBattleVictory:
 	cp BATTLE_FACILITY
 	ret z ; does ret work?
 ; win money
+; new, to implement Amulet Coin
+	ld b, GUTSCHEIN
+	call IsItemInBag ; set zero flag if item isn't in player's bag
+	jr z, .noAmuletCoin
+	ld de, wAmountMoneyWon + 2
+	ld hl, wAmountMoneyWon + 2
+	ld c, $3
+	predef AddBCDPredef
+.noAmuletCoin
+; BTV
 	ld hl, MoneyForWinningText
 	call PrintText
 	ld de, wPlayerMoney + 2

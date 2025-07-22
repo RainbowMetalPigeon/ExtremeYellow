@@ -20,4 +20,6 @@ ResidualEffects1:
 ; new, V2.0
 	db SUNNY_DAY_EFFECT
 	db RAIN_DANCE_EFFECT
+	db SANDSTORM_EFFECT
+	db HAIL_EFFECT
 	db -1 ; end

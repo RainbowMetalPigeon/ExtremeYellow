@@ -1232,3 +1232,9 @@ SunnyDayEffect:
 
 RainDanceEffect:
 	jpfar RainDanceEffect_
+
+SandstormEffect:
+	jpfar SandstormEffect_
+
+HailEffect:
+	jpfar HailEffect_

@@ -16,7 +16,7 @@ DebugTeam:
 	db MEW, 59 ; 255
 	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
-	db SEAKING, 13
+	db CLOYSTER, 100
 ;	db PORYGONZ, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
@@ -84,7 +84,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, POISON_STING
 	ld [hli], a
-	ld a, FREEZE_DRY
+	ld a, DEFENSE_CURL
 	ld [hli], a
 	ld a, CONFUSE_RAY
 	ld [hl], a
@@ -189,7 +189,7 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_IN_SEVII
 
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_DEFEATED_MISSINGNO
 

@@ -137,7 +137,9 @@ MoveEffectPointerTable:
 
 ; new effects -------------------------------
 
-	dw SunnyDayEffect ; SUNNY_DAY_EFFECT
+	dw SunnyDayEffect  ; SUNNY_DAY_EFFECT
 	dw RainDanceEffect ; RAIN_DANCE_EFFECT
+	dw SandstormEffect ; SANDSTORM_EFFECT
+	dw HailEffect      ; HAIL_EFFECT
 
 	assert_table_length NUM_MOVE_EFFECTS

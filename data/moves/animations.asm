@@ -270,6 +270,8 @@ AttackAnimationPointers:
 	; V2.0 moves
 	dw SunnyDayAnim
 	dw RainDanceAnim
+	dw SandstormAnim
+	dw HailAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
@@ -1911,6 +1913,8 @@ JudgmentAnim:
 	db -1 ; end
 
 SunnyDayAnim:
+SandstormAnim:
+HailAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim FLAMETHROWER, SE_WAVY_SCREEN
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE

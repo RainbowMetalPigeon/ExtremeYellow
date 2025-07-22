@@ -111,6 +111,7 @@ ItemPrices::
 	bcd3 10000 ; GUTSCHEIN
 	bcd3 10000 ; ONIGIRI_BOX
 	bcd3 0     ; LINK_CABLE
+	bcd3 0     ; AMULET COIN
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

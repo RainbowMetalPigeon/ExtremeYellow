@@ -111,6 +111,7 @@ ItemNames::
 	li "GUTSCHEIN" ; new
 	li "ONIGIRI BOX" ; new
 	li "LINK CABLE" ; new
+	li "AMULET COIN" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

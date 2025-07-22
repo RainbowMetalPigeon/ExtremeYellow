@@ -128,6 +128,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; GUTSCHEIN, new
 	dw ItemUseOnigiri    ; ONIGIRI_BOX, new
 	dw ItemUseEvoStone   ; LINK_CABLE, new
+	dw UnusableItem      ; AMULET_COIN, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 

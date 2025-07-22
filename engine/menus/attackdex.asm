@@ -655,6 +655,14 @@ DrawAttackdexEntryOnScreen:
 	cp RAIN_DANCE
 	jp z, .done
 
+	ld hl, AttackdexText_SandstormEffect
+	cp SANDSTORM
+	jp z, .done
+
+	ld hl, AttackdexText_HailEffect
+	cp HAIL
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -1810,6 +1818,14 @@ AttackdexText_SunnyDayEffect:
 
 AttackdexText_RainDanceEffect:
 	text_far _AttackdexText_RainDanceEffect
+	text_end
+
+AttackdexText_SandstormEffect:
+	text_far _AttackdexText_SandstormEffect
+	text_end
+
+AttackdexText_HailEffect:
+	text_far _AttackdexText_HailEffect
 	text_end
 
 AttackdexText_StruggleEffect:

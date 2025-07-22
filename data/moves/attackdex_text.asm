@@ -904,11 +904,20 @@ _AttackdexText_RainDanceEffect::
 	next "no FREEZING,"
 
 	atpg "SOLARBEAM -50%",
-;	xxxx "123456789012345678"
 	next "HURRICANE and"
 	next "THUNDER can't miss"
 	dex
 
+_AttackdexText_SandstormEffect::
+	text "A sandstorm rages:"
+;	xxxx "123456789012345678"
+	dex
+	
+_AttackdexText_HailEffect::
+	text "Haily snow falls:"
+;	xxxx "123456789012345678"
+	dex
+	
 _AttackdexText_StruggleEffect::
 	text "Can and must be"
 	next "used only when"

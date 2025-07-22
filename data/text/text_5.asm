@@ -313,4 +313,14 @@ _ADownpourStartedText::
 	line "started!"
 	prompt
 
+_ASandstormBrewedText::
+	text "A sandstorm"
+	line "brewed!"
+	prompt
+
+_ItStartedToHailText::
+	text "It started to"
+	line "hail!"
+	prompt
+
 ;	xxxx "123456789012345678"

@@ -121,6 +121,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const GUTSCHEIN     ; new
 	const ONIGIRI_BOX   ; new
 	const LINK_CABLE    ; new
+	const AMULET_COIN   ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs
