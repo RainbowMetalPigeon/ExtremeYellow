@@ -135,4 +135,8 @@ MoveEffectPointerTable:
 	dw StatModifierSelfDownEffect ; SPEED_SELFDOWN2, new
 	dw StatModifierSelfDownEffect ; SPECIAL_SELFDOWN2, new
 
+; new effects ; TBV -------------------------------
+
+	dw SunnyDayEffect ; SUNNY_DAY_EFFECT
+
 	assert_table_length NUM_MOVE_EFFECTS

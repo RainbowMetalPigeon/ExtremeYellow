@@ -52,7 +52,7 @@ IF DEF(_DEBUG)
 	ld a, TOXIC
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, SPORE
+	ld a, SUNNY_DAY
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

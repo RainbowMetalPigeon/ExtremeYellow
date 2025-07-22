@@ -268,5 +268,8 @@ MoveNames::
 	li "PHOTONGEYSER"
 	li "JUDGMENT"
 
+	; V2.0 moves
+	li "SUNNY DAY"
+
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

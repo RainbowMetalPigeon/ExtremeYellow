@@ -139,4 +139,8 @@
 	const SPEED_SELFDOWN2			 ; new, testing - unnecessary as unused
 	const SPECIAL_SELFDOWN2			 ; new, testing
 
+; new effects ; TBV -------------------------------
+
+	const SUNNY_DAY_EFFECT
+
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

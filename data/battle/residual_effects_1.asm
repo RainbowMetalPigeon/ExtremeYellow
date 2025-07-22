@@ -17,4 +17,5 @@ ResidualEffects1:
 	db MIMIC_EFFECT
 	db LEECH_SEED_EFFECT
 	db SPLASH_EFFECT
+	db SUNNY_DAY_EFFECT ; new
 	db -1 ; end

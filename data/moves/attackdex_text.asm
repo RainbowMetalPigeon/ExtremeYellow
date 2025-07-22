@@ -881,6 +881,10 @@ _AttackdexText_JudgmentEffect::
 	next "damage"
 	dex
 
+_AttackdexText_SunnyDayEffect::
+	text "Sets the Sun"
+	dex
+
 _AttackdexText_StruggleEffect::
 	text "Can and must be"
 	next "used only when"

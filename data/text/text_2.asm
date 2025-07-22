@@ -1473,3 +1473,15 @@ _MapMessageComplete:: ; new
 	text "The complete map!"
 	line "It looks eerie..."
 	done
+
+_WeatherSunnyDayStillText:: ; new
+	text "The sunlight still"
+	line "shines bright!"
+	prompt
+
+_WeatherBackToNormalText:: ; new
+	text "The weather is"
+	line "back to normal!"
+	prompt
+
+;	xxxx "123456789012345678"

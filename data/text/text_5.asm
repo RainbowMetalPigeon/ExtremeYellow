@@ -300,3 +300,12 @@ _TradeCenterText1::
 _ColosseumText1::
 	text "!"
 	done
+
+; new -------------------
+
+_TheSunlightGotBrighText::
+	text "The sunlight got"
+	line "bright!"
+	prompt
+
+;	xxxx "123456789012345678"

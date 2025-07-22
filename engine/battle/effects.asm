@@ -1224,3 +1224,8 @@ PlayBattleAnimationGotID:
 PlayAlternativeAnimation:
 	ld [wAltAnimationID], a
 	jr PlayBattleAnimationGotID
+
+; new ----------------------------------
+
+SunnyDayEffect:
+	jpfar SunnyDayEffect_

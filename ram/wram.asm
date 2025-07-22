@@ -1260,7 +1260,15 @@ NEXTU
 wPartyHPBarAttributes:: ds PARTY_LENGTH
 ENDU
 
+UNION ; new, made into a union
 wGymCityName:: ds 17
+
+NEXTU ; new, 17 free juicy bytes
+	wWeatherCounterPlayer:: db
+	wWeatherCounterEnemy:: db
+	ds 15
+
+ENDU
 
 wGymLeaderName:: ds NAME_LENGTH
 

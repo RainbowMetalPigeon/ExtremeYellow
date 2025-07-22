@@ -165,89 +165,89 @@ AttackAnimationPointers:
 	dw SlashAnim
 	dw SubstituteAnim
 
-	dw	MegahornAnim
-	dw	XScissorAnim
-	dw	InfestationAnim
+	dw MegahornAnim
+	dw XScissorAnim
+	dw InfestationAnim
 
-	dw	FeintAttackAnim
-	dw	CrunchAnim
-	dw	NightSlashAnim
-	dw	DarkPulseAnim
+	dw FeintAttackAnim
+	dw CrunchAnim
+	dw NightSlashAnim
+	dw DarkPulseAnim
 
-	dw	TwisterAnim
-	dw	DragonBreathAnim
-	dw	OutrageAnim
-	dw	DragonClawAnim
-	dw  DragonDanceAnim
+	dw TwisterAnim
+	dw DragonBreathAnim
+	dw OutrageAnim
+	dw DragonClawAnim
+	dw DragonDanceAnim
 
-	dw	ZapCannonAnim
-	dw	ShockWaveAnim
-	dw	VoltTackleAnim
+	dw ZapCannonAnim
+	dw ShockWaveAnim
+	dw VoltTackleAnim
 
-	dw	CharmAnim
-	dw	DrainingKissAnim
-	dw	PlayRoughAnim
-	dw	MoonBlastAnim
+	dw CharmAnim
+	dw DrainingKissAnim
+	dw PlayRoughAnim
+	dw MoonBlastAnim
 
-	dw	MachPunch
-	dw	SuperPowerAnim
-	dw	CloseCombatAnim
-	dw 	DrainPunchAnim
+	dw MachPunch
+	dw SuperPowerAnim
+	dw CloseCombatAnim
+	dw DrainPunchAnim
 
-	dw	WillOWispAnim
-	dw	FlareBlitzAnim
-	dw	BlastBurnAnim
-	dw	HeatWaveAnim
+	dw WillOWispAnim
+	dw FlareBlitzAnim
+	dw BlastBurnAnim
+	dw HeatWaveAnim
 
-	dw	RoostAnim
-	dw	AirCutterAnim
-	dw	AerialAceAnim
-	dw	AirSlashAnim
-	dw	BraveBirdAnim
-	dw	HurricaneAnim
+	dw RoostAnim
+	dw AirCutterAnim
+	dw AerialAceAnim
+	dw AirSlashAnim
+	dw BraveBirdAnim
+	dw HurricaneAnim
 
-	dw	ShadowBallAnim
-	dw	ShadowPunch
-	dw	ShadowSneakAnim
-	dw	ShadowClawAnim
+	dw ShadowBallAnim
+	dw ShadowPunch
+	dw ShadowSneakAnim
+	dw ShadowClawAnim
 
-	dw	GigaDrainAnim
-	dw	MagicaLeafAnim
-	dw	BulletSeedAnim
-	dw	LeafStormAnim
-	dw	EnergyBallAnim
-	dw	FrenzyPlantAnim
+	dw GigaDrainAnim
+	dw MagicaLeafAnim
+	dw BulletSeedAnim
+	dw LeafStormAnim
+	dw EnergyBallAnim
+	dw FrenzyPlantAnim
 
-	dw	MudSlapAnim
-	dw	MudShotAnim
+	dw MudSlapAnim
+	dw MudShotAnim
 
-	dw	IcicleSpearAnim
-	dw	IcicleCrashAnim
+	dw IcicleSpearAnim
+	dw IcicleCrashAnim
 
 	dw ExtremespeedAnim
 
-	dw	GunkShotAnim
-	dw	SludgeWaveAnim
+	dw GunkShotAnim
+	dw SludgeWaveAnim
 
-	dw	MirrorCoatAnim
-	dw	ZenHeadbuttAnim
-	dw	PsychoCutAnim
+	dw MirrorCoatAnim
+	dw ZenHeadbuttAnim
+	dw PsychoCutAnim
 
-	dw	RockTombAnim
-	dw	HeadSmashAnim
-	dw	StoneEdgeAnim
+	dw RockTombAnim
+	dw HeadSmashAnim
+	dw StoneEdgeAnim
 
-	dw	IronTailAnim
-	dw	SteelWingAnim
-	dw	MetalClawAnim
-	dw	MeteorMashAnim
-	dw	BulletPunchAnim
-	dw  FlashCannonAnim
+	dw IronTailAnim
+	dw SteelWingAnim
+	dw MetalClawAnim
+	dw MeteorMashAnim
+	dw BulletPunchAnim
+	dw FlashCannonAnim
 
-	dw	WaterPulseAnim
-	dw	AquaJetAnim
-	dw	ScaldAnim
-	dw	HydroCannonAnim
+	dw WaterPulseAnim
+	dw AquaJetAnim
+	dw ScaldAnim
+	dw HydroCannonAnim
 
 	; peculiar new moves
 	dw FreezeDryAnim
@@ -266,6 +266,9 @@ AttackAnimationPointers:
 	dw ThousandArrowsAnim
 	dw PhotonGeyserAnim
 	dw JudgmentAnim
+
+	; V2.0 moves
+	dw SunnyDayAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
@@ -1870,7 +1873,6 @@ JudgmentAnim:
 	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
 	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-
 	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 6			; NORMAL / GRASS
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
@@ -1884,10 +1886,8 @@ JudgmentAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim CONFUSE_RAY, SUBANIM_1fcircles, 1, 6	; DRAGON / GHOST / FAIRY
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-
 	battle_anim PSYCHIC_M, SE_WAVY_SCREEN				; PSYCHIC_TYPE
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-
 	battle_anim EARTHQUAKE, SE_SHAKE_SCREEN				; GROUND
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE		; STEEL
@@ -1909,19 +1909,10 @@ JudgmentAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	db -1 ; end
 
-;	battle_anim EARTHQUAKE, SE_DARK_SCREEN_PALETTE
-;	battle_anim NO_MOVE, SE_SHAKE_SCREEN
-;	battle_anim LEECH_SEED, SE_SPIRAL_BALLS_INWARD
-;	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-;	battle_anim DRAGON_RAGE, SUBANIM_StaticCircles, 1, 8
-;	battle_anim NO_MOVE, SE_DELAY_ANIMATION_10
-;	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
-;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-;	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
-;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-;	battle_anim HYPER_BEAM, SUBANIM_2E, 0, 2
-;	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-;	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+SunnyDayAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim FLAMETHROWER, SE_WAVY_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; new
 
 ; ------------------------------------------------------------------------------

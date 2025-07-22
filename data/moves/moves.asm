@@ -265,12 +265,12 @@ Moves:
 	move HYDRO_CANNON, HYPER_BEAM_EFFECT,          150,	WATER,	       90, 5  ; done
 
 	; peculiar new moves
-	move FREEZE_DRY,   FREEZE_SIDE_EFFECT,          70,	ICE2,	      100, 20 ; testing
-	move GYRO_BALL,    NO_ADDITIONAL_EFFECT,         1,	STEEL,	      100,  5 ; testing
-	move PSYSTRIKE,    NO_ADDITIONAL_EFFECT,       100,	PSYCHIC_TYPE, 100, 10 ; testing
-	move BODY_PRESS,   NO_ADDITIONAL_EFFECT,        80,	FIGHTING,     100, 10 ; testing
-	move FLAIL,        NO_ADDITIONAL_EFFECT,         1,	NORMAL,       100, 15 ; testing
-	move CURSE,        CURSE_EFFECT,                 0,	TYPELESS,     100, 15 ; testing
+	move FREEZE_DRY,   FREEZE_SIDE_EFFECT,          70,	ICE2,	      100, 20 ; done
+	move GYRO_BALL,    NO_ADDITIONAL_EFFECT,         1,	STEEL,	      100,  5 ; done
+	move PSYSTRIKE,    NO_ADDITIONAL_EFFECT,       100,	PSYCHIC_TYPE, 100, 10 ; done
+	move BODY_PRESS,   NO_ADDITIONAL_EFFECT,        80,	FIGHTING,     100, 10 ; done
+	move FLAIL,        NO_ADDITIONAL_EFFECT,         1,	NORMAL,       100, 15 ; done
+	move CURSE,        CURSE_EFFECT,                 0,	TYPELESS,     100, 15 ; done
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)
@@ -281,6 +281,10 @@ Moves:
 	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100, 5 ; done
 	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TBV: no effects indeed?
 	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; done
+
+	; V2.0 moves
+	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100, 5 ; TBE
+
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS
