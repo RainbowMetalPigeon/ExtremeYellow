@@ -53,7 +53,7 @@ SandstormEffect_:
 	ret
 
 ASandstormBrewedText:
-	text_far _ADownpourStartedText
+	text_far _ASandstormBrewedText
 	text_end
 
 ; --------------------------------------------------------------------------

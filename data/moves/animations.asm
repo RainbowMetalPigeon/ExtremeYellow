@@ -1913,12 +1913,23 @@ JudgmentAnim:
 	db -1 ; end
 
 SunnyDayAnim:
-SandstormAnim:
-HailAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim FLAMETHROWER, SE_WAVY_SCREEN
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; new
+
+SandstormAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim SAND_ATTACK, SE_WAVY_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; new
+
+HailAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim BLIZZARD, SUBANIM_38, 0, 4
+	battle_anim NO_MOVE, SUBANIM_38, 0, 4
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
 
 RainDanceAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE

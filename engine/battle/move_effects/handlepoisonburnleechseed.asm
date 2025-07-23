@@ -41,7 +41,7 @@ HandlePoisonBurnLeechSeed::
 ; back to vanilla
 	ld hl, wBattleMonHP
 	ld de, wBattleMonStatus
-	ldh a, [hWhoseTurn]
+	ldh a, [hWhoseTurn] ; 0=player, 1=enemy
 	and a
 	jr z, .playersTurn
 	ld hl, wEnemyMonHP
@@ -93,6 +93,107 @@ HandlePoisonBurnLeechSeed::
 	pop hl ; ?
 .notCursed
 	pop af
+; end of the CURSE block
+
+; new, to handle weathers
+; we need to check if we are at the very end of the turn
+	push af
+	CheckEvent EVENT_ENABLE_WEATHER_DAMAGE
+	jp z, .dontHandleWeatherDamage
+
+	push hl
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr z, .checkHail
+
+; Sandstorm, player
+	ld hl, wBattleMonType1
+	ld a, [hli] ; a=type1, hl->type2
+	cp ROCK
+	jr z, .sandstormCheckEnemy
+	ld a, [hl]
+	cp ROCK
+	jr z, .sandstormCheckEnemy
+; player damaged by Sandstorm
+	call MakeTurnIntoPlayersTurn
+	ld hl, HurtBySandstormText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, BURN_PSN_ANIM ; TBE
+	call PlayAltAnimationCopy
+	call HandleWeather_DecreasePlayerHP
+	call RestoreRealTurn
+; Sandstorm, enemy
+.sandstormCheckEnemy
+	ld hl, wEnemyMonType1
+	ld a, [hli] ; a=type1, hl->type2
+	cp ROCK
+	jr z, .noDamagingWeathers
+	ld a, [hl]
+	cp ROCK
+	jr z, .noDamagingWeathers
+; enemy damaged by Sandstorm
+	call MakeTurnIntoEnemysTurn
+	ld hl, HurtBySandstormText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, BURN_PSN_ANIM ; TBE
+	call PlayAltAnimationCopy
+	call HandleWeather_DecreaseEnemyHP
+	call RestoreRealTurn
+	jr .noDamagingWeathers
+
+.checkHail
+	CheckEvent EVENT_WEATHER_HAIL
+	jr z, .noDamagingWeathers
+; Hail, player
+	ld hl, wBattleMonType1
+	ld a, [hli] ; a=type1, hl->type2
+	cp ICE
+	jr z, .hailCheckEnemy
+	ld a, [hl]
+	cp ICE
+	jr z, .hailCheckEnemy
+; player damaged by Hail
+	call MakeTurnIntoPlayersTurn
+	ld hl, HurtByHailText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, BURN_PSN_ANIM ; TBE
+	call PlayAltAnimationCopy
+	call HandleWeather_DecreasePlayerHP
+	call RestoreRealTurn
+; Hail, enemy
+.hailCheckEnemy
+	ld hl, wEnemyMonType1
+	ld a, [hli] ; a=type1, hl->type2
+	cp ROCK
+	jr z, .noDamagingWeathers
+	ld a, [hl]
+	cp ROCK
+	jr z, .noDamagingWeathers
+; enemy damaged by Hail
+	call MakeTurnIntoEnemysTurn
+	ld hl, HurtByHailText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, BURN_PSN_ANIM ; TBE
+	call PlayAltAnimationCopy
+	call HandleWeather_DecreaseEnemyHP
+	call RestoreRealTurn
+
+.noDamagingWeathers
+	ResetEvent EVENT_ENABLE_WEATHER_DAMAGE
+	pop hl
+.dontHandleWeatherDamage
+	pop af
+
+
+; BTV
+
 ; back to vanilla
 	add a
 	jr nc, .notLeechSeeded
@@ -327,7 +428,7 @@ UpdateCurMonHPBar::
 
 ; ========== new functions ====================================================================
 
-HandleWeatherCounter: ; new, testing
+HandleWeatherCounter:
 	ld hl, wWeatherCounterPlayer
 	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
 	and a
@@ -366,25 +467,112 @@ HandleWeatherCounter: ; new, testing
 	call PrintText
 	ret
 
-WeatherSunnyDayStillText: ; new
+WeatherSunnyDayStillText:
 	text_far _WeatherSunnyDayStillText
 	text_end
 
-WeatherRainDanceStillText: ; new
+WeatherRainDanceStillText:
 	text_far _WeatherRainDanceStillText
 	text_end
 
-WeatherSandstormStillText: ; new
+WeatherSandstormStillText:
 	text_far _WeatherSandstormStillText
 	text_end
 
-WeatherHailStillText: ; new
+WeatherHailStillText:
 	text_far _WeatherHailStillText
 	text_end
 
-WeatherBackToNormalText: ; new
+WeatherBackToNormalText:
 	text_far _WeatherBackToNormalText
 	text_end
+
+HandleWeather_DecreasePlayerHP:
+	ld hl, wBattleMonHP
+	jr HandleWeather_DecreaseEnemyHP.mainStuff
+HandleWeather_DecreaseEnemyHP:
+	ld hl, wEnemyMonHP
+.mainStuff
+	push hl
+	ld bc, $e      ; skip to max HP
+	add hl, bc
+	ld a, [hli]    ; load max HP
+	ld [wHPBarMaxHP+1], a
+	ld b, a
+	ld a, [hl]
+	ld [wHPBarMaxHP], a
+	ld c, a
+	srl b
+	rr c
+	srl b
+	rr c          ; bc = max HP/4 (assumption: HP < 1024)
+	srl c         ; c = max HP/8 (assumption: HP < 1024)
+	ld a, c
+	and a
+	jr nz, .nonZeroDamage
+	inc c         ; damage is at least 1
+.nonZeroDamage
+	pop hl
+	inc hl
+	ld a, [hl]    ; subtract total damage from current HP
+	ld [wHPBarOldHP], a
+	sub c
+	ld [hld], a
+	ld [wHPBarNewHP], a
+	ld a, [hl]
+	ld [wHPBarOldHP+1], a
+	sbc b
+	ld [hl], a
+	ld [wHPBarNewHP+1], a
+	jr nc, .noOverkill
+	xor a         ; overkill: zero HP
+	ld [hli], a
+	ld [hl], a
+	ld [wHPBarNewHP], a
+	ld [wHPBarNewHP+1], a
+.noOverkill
+	call UpdateCurMonHPBar
+	ret
+
+HurtBySandstormText:
+	text_far _HurtBySandstormText
+	text_end
+
+HurtByHailText:
+	text_far _HurtByHailText
+	text_end
+
+;SwapTurns: ; has always to be used twice
+;	ldh a, [hWhoseTurn]
+;	and a
+;	jr z, .currentlyPlayersTurn
+;; currently enemy's turn
+;	dec a
+;	jr .conclude
+;.currentlyPlayersTurn
+;	inc a
+;.conclude
+;	ldh [hWhoseTurn], a
+;	ret
+
+MakeTurnIntoPlayersTurn:
+	ldh a, [hWhoseTurn]
+	ld [wStoreRealhWhoseTurn], a
+	xor a
+	ldh [hWhoseTurn], a
+	ret
+
+MakeTurnIntoEnemysTurn:
+	ldh a, [hWhoseTurn]
+	ld [wStoreRealhWhoseTurn], a
+	ld a, 1
+	ldh [hWhoseTurn], a
+	ret
+	
+RestoreRealTurn:
+	ld a, [wStoreRealhWhoseTurn]
+	ldh [hWhoseTurn], a
+	ret
 
 ; ---------- ugly copies of functions for moving this into its own file -----------------------
 

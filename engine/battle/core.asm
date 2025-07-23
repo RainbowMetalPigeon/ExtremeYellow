@@ -292,6 +292,7 @@ MainInBattleLoop:
 	cp 50 percent + 1
 	jr c, .enemyMovesFirst
 	jr .playerMovesFirst
+
 .enemyMovesFirst
 	ld a, $1
 	ldh [hWhoseTurn], a
@@ -304,10 +305,12 @@ MainInBattleLoop:
 	ld a, b
 	and a
 	jp z, HandlePlayerMonFainted
+; we don't do the following if the enemy KOed the player
 .AIActionUsedEnemyFirst
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
+; player's turn when enemy moves first
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -315,11 +318,14 @@ MainInBattleLoop:
 	ld a, b
 	and a
 	jp z, HandleEnemyMonFainted
+	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for player
 	jp z, HandlePlayerMonFainted
 	call DrawHUDsAndHPBars
+; ender
 	call CheckNumAttacksLeft
 	jp MainInBattleLoop
+
 .playerMovesFirst
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
@@ -328,9 +334,11 @@ MainInBattleLoop:
 	ld a, b
 	and a
 	jp z, HandleEnemyMonFainted
+; we don't do the following if the player KOed the enemy
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for player
 	jp z, HandlePlayerMonFainted
 	call DrawHUDsAndHPBars
+; enemy's turn when player moves first
 	ld a, $1
 	ldh [hWhoseTurn], a
 	callfar TrainerAI
@@ -343,9 +351,11 @@ MainInBattleLoop:
 	and a
 	jp z, HandlePlayerMonFainted
 .AIActionUsedPlayerFirst
+	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
+; ender
 	call CheckNumAttacksLeft
 	jp MainInBattleLoop
 
@@ -4440,7 +4450,7 @@ GetDamageVarsForPlayerAttack:
 ; no physical/special split applied
 	ld a, [hl] ; a = [wPlayerMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack ; commented for physical/special split
+	jp nc, .specialAttack ; commented for physical/special split
 	jr .physicalAttack
 .PhysicalSpecialSplit
 	ld a, [hl] ; a = [wPlayerMoveType]
@@ -4474,10 +4484,29 @@ GetDamageVarsForPlayerAttack:
 	ld c, [hl] ; bc = enemy defense
 	ld a, [wEnemyBattleStatus3]
 	bit HAS_REFLECT_UP, a ; check for Reflect
-	jr z, .physicalAttackCritCheck
+	jr z, .checkHail ; edited, was .physicalAttackCritCheck
 ; if the enemy has used Reflect, double the enemy's defense
 	sla c
 	rl b
+; new, for Hail buff
+.checkHail
+	CheckEvent EVENT_WEATHER_HAIL
+	jr z, .physicalAttackCritCheck
+	ld a, [wEnemyMonType1]
+	cp ICE
+	jr z, .targetIsIce
+	ld a, [wEnemyMonType2]
+	cp ICE
+	jr nz, .physicalAttackCritCheck
+.targetIsIce
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+; BTV
 .physicalAttackCritCheck
 
 ; new, to handle body press
@@ -4491,7 +4520,7 @@ GetDamageVarsForPlayerAttack:
 
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
-	jr z, .scaleStats
+	jp z, .scaleStats
 ; in the case of a critical hit, reset the player's attack and the enemy's defense to their base values
 	ld c, 3 ; defense stat
 	call GetEnemyMonStat
@@ -4531,12 +4560,31 @@ GetDamageVarsForPlayerAttack:
 	ld c, [hl] ; bc = enemy special
 	ld a, [wEnemyBattleStatus3]
 	bit HAS_LIGHT_SCREEN_UP, a ; check for Light Screen
-	jr z, .specialAttackCritCheck
+	jr z, .checkSandstorm ; edited, it was .specialAttackCritCheck
 ; if the enemy has used Light Screen, double the enemy's special
 	sla c
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
 ; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+; new, for Sandstorm buff
+.checkSandstorm
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr z, .specialAttackCritCheck
+	ld a, [wEnemyMonType1]
+	cp ROCK
+	jr z, .targetIsRock
+	ld a, [wEnemyMonType2]
+	cp ROCK
+	jr nz, .specialAttackCritCheck
+.targetIsRock
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+; BTV
 .specialAttackCritCheck
 	ld hl, wBattleMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4630,7 +4678,7 @@ GetDamageVarsForEnemyAttack:
 ; no physical/special split applied
 	ld a, [hl] ; a = [wPlayerMoveType]
 	cp SPECIAL ; types >= SPECIAL are all special
-	jr nc, .specialAttack ; commented for physical/special split
+	jp nc, .specialAttack ; commented for physical/special split
 	jr .physicalAttack
 .PhysicalSpecialSplit
 	ld a, [hl] ; a = [wPlayerMoveType]
@@ -4664,10 +4712,29 @@ GetDamageVarsForEnemyAttack:
 	ld c, [hl] ; bc = player defense
 	ld a, [wPlayerBattleStatus3]
 	bit HAS_REFLECT_UP, a ; check for Reflect
-	jr z, .physicalAttackCritCheck
+	jr z, .checkHail ; edited, was .physicalAttackCritCheck
 ; if the player has used Reflect, double the player's defense
 	sla c
 	rl b
+; new, for Hail buff
+.checkHail
+	CheckEvent EVENT_WEATHER_HAIL
+	jr z, .physicalAttackCritCheck
+	ld a, [wBattleMonType1]
+	cp ICE
+	jr z, .targetIsIce
+	ld a, [wBattleMonType2]
+	cp ICE
+	jr nz, .physicalAttackCritCheck
+.targetIsIce
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+; BTV
 .physicalAttackCritCheck
 
 ; new, to handle body press
@@ -4721,12 +4788,31 @@ GetDamageVarsForEnemyAttack:
 	ld c, [hl]
 	ld a, [wPlayerBattleStatus3]
 	bit HAS_LIGHT_SCREEN_UP, a ; check for Light Screen
-	jr z, .specialAttackCritCheck
+	jr z, .checkSandstorm ; edited, it was .specialAttackCritCheck
 ; if the player has used Light Screen, double the player's special
 	sla c
 	rl b
 ; reflect and light screen boosts do not cap the stat at MAX_STAT_VALUE, so weird things will happen during stats scaling
 ; if a Pokemon with 512 or more Defense has used Reflect, or if a Pokemon with 512 or more Special has used Light Screen
+; new, for Sandstorm buff
+.checkSandstorm
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr z, .specialAttackCritCheck
+	ld a, [wBattleMonType1]
+	cp ROCK
+	jr z, .targetIsRock
+	ld a, [wBattleMonType2]
+	cp ROCK
+	jr nz, .specialAttackCritCheck
+.targetIsRock
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+; BTV
 .specialAttackCritCheck
 	ld hl, wEnemyMonSpecial
 	ld a, [wCriticalHitOrOHKO]
@@ -4846,9 +4932,14 @@ PerformChecks:
 	ld a, [hl]
 	cp SOLARBEAM
 	jr nz, .grass_notSolarBeam
-; solar beam, let's check also for Rain Dance
+; solar beam, let's check also for Rain Dance and Sandstorm and Hail
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr nz, .grass_halveSolarBeam
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr nz, .grass_halveSolarBeam
+	CheckEvent EVENT_WEATHER_HAIL
 	jr z, .grass_notSolarBeam
+.grass_halveSolarBeam
 	srl d ; halve Solarbeam's power
 ; then check if there's terrain or not
 .grass_notSolarBeam
@@ -6148,7 +6239,10 @@ MoveHitTest::
 	cp THUNDER
 	jr z, .thunderOrHurricane
 	cp HURRICANE
-	jr nz, .doAccuracyCheck
+	jr z, .thunderOrHurricane
+	cp BLIZZARD
+	jr z, .blizzard
+	jr .doAccuracyCheck
 .thunderOrHurricane
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
 	jr z, .checkForRainDance
@@ -6159,6 +6253,10 @@ MoveHitTest::
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
 	jr z, .doAccuracyCheck
 	ret ; skip accuracy check if it's raining and we're using Thunder/Hurricane
+.blizzard
+	CheckEvent EVENT_WEATHER_HAIL
+	jr z, .doAccuracyCheck
+	ret ; skip accuracy check if it's hailing and we're using Blizzard
 ; BTV from weathers
 .doAccuracyCheck
 ; if the random number generated is greater than or equal to the scaled accuracy, the move misses

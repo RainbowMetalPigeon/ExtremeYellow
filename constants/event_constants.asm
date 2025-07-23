@@ -121,7 +121,8 @@
 	const_skip 5 ; edited, was 14
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
-	const_skip 11 ; edited, was 17
+	const_skip 10 ; edited, was 17
+	const EVENT_ENABLE_WEATHER_DAMAGE ; new
 	const EVENT_WEATHER_SUNNY_DAY ; new
 	const EVENT_WEATHER_RAIN_DANCE ; new
 	const EVENT_WEATHER_SANDSTORM ; new

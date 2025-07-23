@@ -1480,8 +1480,8 @@ _WeatherSunnyDayStillText:: ; new
 	prompt
 
 _WeatherRainDanceStillText:: ; new
-	text "Rain continues to"
-	line "fall!"
+	text "Rain continues"
+	line "to fall!"
 	prompt
 
 _WeatherSandstormStillText:: ; new
@@ -1490,13 +1490,23 @@ _WeatherSandstormStillText:: ; new
 	prompt
 
 _WeatherHailStillText:: ; new
-	text "Hail continues to"
-	line "fall!"
+	text "Hail continues"
+	line "to fall!"
 	prompt
 
 _WeatherBackToNormalText:: ; new
 	text "The weather is"
 	line "back to normal!"
+	prompt
+
+_HurtBySandstormText::
+	text "<USER>'s"
+	line "hurt by the sand!"
+	prompt
+
+_HurtByHailText::
+	text "<USER>'s"
+	line "hurt by the hail!"
 	prompt
 
 ;	xxxx "123456789012345678"
