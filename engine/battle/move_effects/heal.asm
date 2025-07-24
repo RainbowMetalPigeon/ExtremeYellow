@@ -21,9 +21,28 @@ HealEffect_:
 	ld a, b
 	cp REST
 	jr nz, .healHP
+; it is indeed rest
 	push hl
 	push de
 	push af
+; new to check terrains
+	call CheckIfTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .ignoreTerrain
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	jr nz, .terrainPrevents
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr z, .ignoreTerrain
+.terrainPrevents
+	ld c, 50
+	call DelayFrames
+	ld hl, TheTerrainPreventsText
+	call PrintText
+	pop af
+	pop de
+	pop hl
+	ret
+.ignoreTerrain
+; BTV
 	ld c, 50
 	call DelayFrames
 	ld hl, wBattleMonStatus
