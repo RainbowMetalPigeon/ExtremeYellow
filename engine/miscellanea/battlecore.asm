@@ -573,6 +573,7 @@ PerformChecks:
 ; check if the user is part Flying: if so, let's skip the next checks
 ; terrains only affect grounded pokemon, and we don't consider Levitating ones
 	push hl
+	push af
 	ldh a, [hWhoseTurn]
 	and a
 	ld hl, wBattleMonType1
@@ -586,9 +587,11 @@ PerformChecks:
 	cp FLYING
 	jr nz, .checkTerrains
 .popAndReturn
+	pop af
 	pop hl
 	ret
 .checkTerrains
+	pop af
 	pop hl
 	cp ELECTRIC
 	jr z, .electric

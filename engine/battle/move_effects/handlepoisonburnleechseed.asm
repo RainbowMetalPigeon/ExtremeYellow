@@ -98,14 +98,10 @@ HandlePoisonBurnLeechSeed::
 	pop af
 ; end of the CURSE block
 
-
-
-
 ; new, to handle grassy terrain
 	push af
 	CheckEvent EVENT_ENABLE_TERRAIN_HEALING
 	jr z, .dontHandleTerrainHealing
-
 	push hl
 	CheckEvent EVENT_TERRAIN_GRASSY
 	jr z, .noGrassyTerrainHealing
@@ -117,6 +113,18 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hl]
 	cp FLYING
 	jr z, .grassyTerrainCheckEnemy
+; player, check if full HP
+	ld hl, wBattleMonMaxHP
+	ld de, wBattleMonHP
+	ld a, [de]
+	cp [hl]
+	jr nz, .healPlayer
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl]
+	jr z, .grassyTerrainCheckEnemy
+.healPlayer
 ; player healed by terrain
 	call MakeTurnIntoPlayersTurn
 	ld hl, HealedByGrassyTerrainText
@@ -136,6 +144,18 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hl]
 	cp FLYING
 	jr z, .noGrassyTerrainHealing
+; enemy, check if full HP
+	ld hl, wEnemyMonMaxHP
+	ld de, wEnemyMonHP
+	ld a, [de]
+	cp [hl]
+	jr nz, .healEnemy
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl]
+	jr z, .noGrassyTerrainHealing
+.healEnemy
 ; enemy damaged by Hail
 	call MakeTurnIntoEnemysTurn
 	ld hl, HealedByGrassyTerrainText
@@ -146,19 +166,12 @@ HandlePoisonBurnLeechSeed::
 	call PlayAltAnimationCopy
 	call HandleTerrain_IncreaseEnemyHP
 	call RestoreRealTurn
-
 .noGrassyTerrainHealing
 	ResetEvent EVENT_ENABLE_TERRAIN_HEALING
 	pop hl
-
 .dontHandleTerrainHealing
 	pop af
 ; end of the grassy terrain block
-
-
-
-
-
 
 ; new, to handle weathers
 ; we need to check if we are at the very end of the turn
