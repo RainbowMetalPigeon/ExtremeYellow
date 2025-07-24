@@ -693,14 +693,12 @@ TerrainBackToNormalText:
 	text_end
 
 HandleTerrain_IncreasePlayerHP:
-	ld hl, wBattleMonHP
+	ld hl, wBattleMonMaxHP
 	jr HandleTerrain_IncreaseEnemyHP.mainStuff
 HandleTerrain_IncreaseEnemyHP:
-	ld hl, wEnemyMonHP
+	ld hl, wEnemyMonMaxHP
 .mainStuff
 	push hl
-	ld bc, $e      ; skip to max HP
-	add hl, bc
 	ld a, [hli]    ; load max HP
 	ld [wHPBarMaxHP+1], a
 	ld b, a
@@ -718,7 +716,7 @@ HandleTerrain_IncreaseEnemyHP:
 	jr nz, .nonZeroHealing
 	inc c         ; healing is at least 1
 ; now bc should hold 1/16th of the active mon's max HP
-; unnecessary to consider c as it will surely be 0 but whatever
+; unnecessary to consider b as it will surely be 0 but whatever
 .nonZeroHealing
 	pop hl
 	ld a, [hli]
@@ -727,6 +725,7 @@ HandleTerrain_IncreaseEnemyHP:
 	ld [wHPBarMaxHP], a
 	ld de, wBattleMonHP - wBattleMonMaxHP
 	add hl, de           ; skip back from max hp to current hp
+; add the healed amount to the current HP (and the current HP bar)
 	ld a, [hl]
 	ld [wHPBarOldHP], a ; add bc to current HP
 	add c
@@ -737,6 +736,7 @@ HandleTerrain_IncreaseEnemyHP:
 	adc b
 	ld [hli], a
 	ld [wHPBarNewHP+1], a
+; check if we overhealed
 	ld a, [wHPBarMaxHP]
 	ld c, a
 	ld a, [hld]
@@ -746,6 +746,7 @@ HandleTerrain_IncreaseEnemyHP:
 	ld a, [hl]
 	sbc b
 	jr c, .noOverfullHeal
+; we overhealed
 	ld a, b                ; overfull heal, set HP to max HP
 	ld [hli], a
 	ld [wHPBarNewHP+1], a
@@ -753,14 +754,7 @@ HandleTerrain_IncreaseEnemyHP:
 	ld [hl], a
 	ld [wHPBarNewHP], a
 .noOverfullHeal
-	ldh a, [hWhoseTurn]
-	xor $1
-	ldh [hWhoseTurn], a
 	call UpdateCurMonHPBar
-	ldh a, [hWhoseTurn]
-	xor $1
-	ldh [hWhoseTurn], a
-	pop hl
 	ret
 
 HealedByGrassyTerrainText::

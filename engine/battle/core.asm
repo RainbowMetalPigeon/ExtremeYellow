@@ -6928,6 +6928,13 @@ GetCurrentMove:
 	ld a, BANK(Moves)
 	call FarCopyData
 
+	ld a, [wPlayerMoveNum]
+	ld a, [wPlayerMoveEffect]
+	ld a, [wPlayerMovePower]
+	ld a, [wPlayerMoveType]
+	ld a, [wPlayerMoveAccuracy]
+	ld a, [wPlayerMoveMaxPP]
+
 	ld a, BANK(MoveNames)
 	ld [wPredefBank], a
 	ld a, MOVE_NAME

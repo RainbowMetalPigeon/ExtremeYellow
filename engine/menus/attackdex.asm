@@ -663,6 +663,22 @@ DrawAttackdexEntryOnScreen:
 	cp HAIL
 	jp z, .done
 
+	ld hl, AttackdexText_GrassyTerrainEffect
+	cp GRASSY_TERRAIN
+	jp z, .done
+
+	ld hl, AttackdexText_ElectricTerrainEffect
+	cp ELECTRIC_TERRAIN
+	jp z, .done
+
+	ld hl, AttackdexText_MistyTerrainEffect
+	cp MISTY_TERRAIN
+	jp z, .done
+
+	ld hl, AttackdexText_PsychicTerrainEffect
+	cp PSYCHIC_TERRAIN
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -1834,4 +1850,20 @@ AttackdexText_StruggleEffect:
 
 AttackdexText_AncestorPowerEffect:
 	text_far _AttackdexText_AncestorPowerEffect
+	text_end
+
+AttackdexText_GrassyTerrainEffect:
+	text_far _AttackdexText_GrassyTerrainEffect
+	text_end
+
+AttackdexText_ElectricTerrainEffect:
+	text_far _AttackdexText_ElectricTerrainEffect
+	text_end
+
+AttackdexText_MistyTerrainEffect:
+	text_far _AttackdexText_MistyTerrainEffect
+	text_end
+
+AttackdexText_PsychicTerrainEffect:
+	text_far _AttackdexText_PsychicTerrainEffect
 	text_end

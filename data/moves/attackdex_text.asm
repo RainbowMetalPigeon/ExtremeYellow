@@ -918,6 +918,30 @@ _AttackdexText_HailEffect::
 ;	xxxx "123456789012345678"
 	dex
 	
+_AttackdexText_GrassyTerrainEffect::
+	text "The terrain turns"
+	next "grassy:"
+;	xxxx "123456789012345678"
+	dex
+
+_AttackdexText_ElectricTerrainEffect::
+	text "The terrain turns"
+	next "electric:"
+;	xxxx "123456789012345678"
+	dex
+
+_AttackdexText_MistyTerrainEffect::
+	text "The terrain turns"
+	next "misty:"
+;	xxxx "123456789012345678"
+	dex
+
+_AttackdexText_PsychicTerrainEffect::
+	text "The terrain turns"
+	next "psychic:"
+;	xxxx "123456789012345678"
+	dex
+
 _AttackdexText_StruggleEffect::
 	text "Can and must be"
 	next "used only when"
