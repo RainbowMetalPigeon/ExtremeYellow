@@ -131,7 +131,7 @@ HandlePoisonBurnLeechSeed::
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, XSTATITEM_ANIM ; TBE
+	ld a, XSTATITEM_ANIM
 	call PlayAltAnimationCopy
 	call HandleTerrain_IncreasePlayerHP
 	call RestoreRealTurn
@@ -162,7 +162,7 @@ HandlePoisonBurnLeechSeed::
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, XSTATITEM_ANIM ; TBE
+	ld a, XSTATITEM_ANIM
 	call PlayAltAnimationCopy
 	call HandleTerrain_IncreaseEnemyHP
 	call RestoreRealTurn
@@ -195,7 +195,7 @@ HandlePoisonBurnLeechSeed::
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, BURN_PSN_ANIM ; TBE
+	ld a, BLINK_POKEMON
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreasePlayerHP
 	call RestoreRealTurn
@@ -214,7 +214,7 @@ HandlePoisonBurnLeechSeed::
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, BURN_PSN_ANIM ; TBE
+	ld a, BLINK_POKEMON
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn
@@ -236,7 +236,7 @@ HandlePoisonBurnLeechSeed::
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, BURN_PSN_ANIM ; TBE
+	ld a, BLINK_POKEMON
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreasePlayerHP
 	call RestoreRealTurn
@@ -255,7 +255,7 @@ HandlePoisonBurnLeechSeed::
 	call PrintText
 	xor a
 	ld [wAnimationType], a
-	ld a, BURN_PSN_ANIM ; TBE
+	ld a, BLINK_POKEMON
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn

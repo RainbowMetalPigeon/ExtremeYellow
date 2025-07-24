@@ -329,6 +329,7 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const VANISHBALL_ANIM ; new, for Haunted House
 	const SHINY_PLAYER_ANIM ; new, for the shiny
 	const SHINY_ENEMY_ANIM ; new, for the shiny
+	const BLINK_POKEMON ; new, for the damaging weathers
 
 ;DEF NUM_ATTACK_ANIMS EQU const_value - 1
 DEF NUM_ALTERNATIVE_ANIMS EQU const_value - 1 ; edited

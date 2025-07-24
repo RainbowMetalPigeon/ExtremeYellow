@@ -46,7 +46,7 @@ IF DEF(_DEBUG)
 	ld a, HAIL ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, SANDSTORM
+	ld a, TACKLE
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, GRASSY_TERRAIN

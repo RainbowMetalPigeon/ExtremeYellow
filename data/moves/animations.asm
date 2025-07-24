@@ -321,6 +321,7 @@ AlternativeAnimationPointers: ; new
 	dw VanishBallAnim ; VANISHBALL_ANIM ; new, for Haunted House
 	dw ShinyPlayerAnim ; SHINY_PLAYER_ANIM ; new, for the shiny
 	dw ShinyEnemyAnim ;  SHINY_ENEMY_ANIM ; new, for the shiny
+	dw BlinkPokemon ; BLINK_POKEMON ; new
 ;	assert_table_length NUM_ATTACK_ANIMS
 	assert_table_length NUM_ALTERNATIVE_ANIMS ; edited
 
@@ -2091,3 +2092,7 @@ ShinyEnemyAnim: ; new
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SUBANIM_SHINY_ENEMY, 1, 3
 	db -1 ; end
+
+BlinkPokemon: ; new
+	battle_anim LEECH_SEED, SE_BLINK_MON
+	db -1
