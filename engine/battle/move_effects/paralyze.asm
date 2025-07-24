@@ -10,6 +10,19 @@ ParalyzeEffect_:
 	ld a, [hl]
 	and a ; does the target already have a status ailment?
 	jr nz, .didntAffect
+; new to check terrain
+	push hl
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	pop hl
+	jr z, .noMistyTerrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr z, .noMistyTerrain
+	ld c, 50
+	call DelayFrames
+	ld hl, TheTerrainPreventsText
+	jp PrintText
+.noMistyTerrain
+; BTV
 ; check if the target is immune due to types
 ; new, during an inverse battle ELECTRIC is not non-effective vs GROUND
 	ld a, [wInverseBattle]

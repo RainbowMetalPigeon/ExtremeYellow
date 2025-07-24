@@ -9,6 +9,13 @@ FreezeBurnParalyzeEffect_::
 	ld a, [wEnemyMonStatus]
 	and a
 	jp nz, CheckDefrost ; can't inflict status if opponent is already statused
+; new to check terrain
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .ignoreTerrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	ret nz
+.ignoreTerrain
+; BTV
 	ld a, [wPlayerMoveType]
 	ld b, a
 	ld a, [wEnemyMonType1]
@@ -79,6 +86,13 @@ FreezeBurnParalyzeEffect_::
 	ld a, [wBattleMonStatus] ; mostly same as above with addresses swapped for opponent
 	and a
 	jp nz, CheckDefrost
+; new to check terrain
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .ignoreTerrain2
+	CheckEvent EVENT_TERRAIN_MISTY
+	ret nz
+.ignoreTerrain2
+; BTV
 	ld a, [wEnemyMoveType]
 	ld b, a
 	ld a, [wBattleMonType1]

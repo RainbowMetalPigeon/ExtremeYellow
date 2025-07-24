@@ -651,3 +651,37 @@ PerformChecks:
 	add d
 	ld d, a
 	ret
+
+; ===========================================================================
+
+; inputs: none
+; output: z if the mon is FLYING, nz if it's not
+; modifies: z flag, a, hl
+CheckIfTurnPokemonIsFlying:: ; z flag = FLYING
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wBattleMonType1
+	jr z, .playersVariables
+	ld hl, wEnemyMonType1
+.playersVariables
+	ld a, [hli] ; a is the first type of the attacking mon, hl+=1
+	cp FLYING
+	ret z
+	ld a, [hl] ; a is the second type of the attacking mon
+	cp FLYING
+	ret
+
+; same as above
+CheckIfNonTurnPokemonIsFlying:: ; z flag = FLYING
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wEnemyMonType1
+	jr z, .playersVariables
+	ld hl, wBattleMonType1
+.playersVariables
+	ld a, [hli] ; a is the first type of the attacking mon, hl+=1
+	cp FLYING
+	ret z
+	ld a, [hl] ; a is the second type of the attacking mon
+	cp FLYING
+	ret

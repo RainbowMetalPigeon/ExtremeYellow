@@ -81,7 +81,6 @@ INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
 INCLUDE "engine/miscellanea/overworld.asm" ; new
 INCLUDE "engine/math/bcd.asm" ; moved from bank3
 INCLUDE "engine/miscellanea/shiny.asm" ; new
-INCLUDE "engine/miscellanea/battlecore.asm" ; new
 INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
 
 
@@ -460,11 +459,6 @@ INCLUDE "engine/events/pikachu_happiness.asm"
 
 SECTION "Battle Engine 9", ROMX
 
-INCLUDE "engine/menus/unused_input.asm"
-INCLUDE "engine/overworld/field_move_messages.asm"
-INCLUDE "engine/items/inventory.asm"
-INCLUDE "gfx/trainer_card.asm"
-INCLUDE "engine/items/super_rod.asm"
 INCLUDE "engine/battle/init_battle.asm"
 INCLUDE "engine/battle/init_battle_variables.asm"
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
@@ -505,6 +499,7 @@ INCLUDE "engine/battle/move_effects/recoil.asm"				; moved from Battle Engine 1
 INCLUDE "engine/battle/move_effects/conversion.asm"			; moved from Battle Engine 1
 INCLUDE "engine/battle/move_effects/haze.asm"				; moved from Battle Engine 1
 INCLUDE "engine/battle/end_of_battle.asm"                   ; moved from Battle Engine 1
+INCLUDE "engine/miscellanea/battlecore.asm"                 ; new
 ; from Battle Engine 4
 INCLUDE "engine/gfx/screen_effects.asm"
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
@@ -512,6 +507,12 @@ INCLUDE "engine/battle/move_effects/curse.asm" ; new
 INCLUDE "engine/battle/move_effects/weathers.asm" ; new
 INCLUDE "engine/battle/move_effects/terrains.asm" ; new
 INCLUDE "engine/battle/move_effects/handlepoisonburnleechseed.asm" ; new
+; these can prolly be moved away
+INCLUDE "engine/menus/unused_input.asm"
+INCLUDE "engine/overworld/field_move_messages.asm"
+INCLUDE "engine/items/inventory.asm"
+INCLUDE "gfx/trainer_card.asm"
+INCLUDE "engine/items/super_rod.asm"
 
 
 SECTION "Surfing Minigame", ROMX

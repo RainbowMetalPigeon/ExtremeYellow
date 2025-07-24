@@ -1,7 +1,8 @@
 HandlePoisonBurnLeechSeed::
-	call HandleWeatherCounter ; new, to handle weather counter
-	                          ; but only if the current mon did not KO its opponent
-	                          ; that's why it's here
+	call HandleWeatherCounter  ; new, to handle weather counter
+	                           ; but only if the current mon did not KO its opponent
+	                           ; that's why it's here
+	call HandleTerrainCounter  ; same for terrains
 
 ; new, give a chance to Starter Pikachu to heal itself
 	callfar IsThisPartymonStarterPikachu ; edited, was the other version

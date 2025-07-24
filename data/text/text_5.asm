@@ -343,4 +343,9 @@ _TheTerrainTurnedPsychicText::
 	line "turned psychic!"
 	prompt
 
+_TheTerrainPreventsText::
+	text "No such status"
+	line "due to terrain!"
+	prompt
+
 ;	xxxx "123456789012345678"

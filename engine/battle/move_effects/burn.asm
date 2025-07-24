@@ -8,6 +8,19 @@ BurnEffect_:
 	ld a, [hl]
 	and a
 	jr nz, .didntAffect ; miss if target is already statused
+; new to check terrain
+	push hl
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	pop hl
+	jr z, .noMistyTerrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr z, .noMistyTerrain
+	ld c, 50
+	call DelayFrames
+	ld hl, TheTerrainPreventsText
+	jp PrintText
+.noMistyTerrain
+; BTV
 ; type check, can't burn a FIRE target; ugly done, but whatever
 	ldh a, [hWhoseTurn]
 	and a

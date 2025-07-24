@@ -24,6 +24,15 @@ SleepEffect_:
 	ld a, b
 	and a
 	jr nz, .didntAffect ; can't affect a mon that is already statused
+; new to check terrains
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .ignoreTerrain
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	jr nz, .terrainPrevents
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr nz, .terrainPrevents
+.ignoreTerrain
+; BTV
 	push de
 	callfar MoveHitTest ; apply accuracy tests ; edited, made into a callfar
 	pop de
@@ -76,6 +85,9 @@ SleepEffect_:
 	jp PrintText
 .didntAffect
 	jpfar PrintDidntAffectText ; edited, made into a jpfar
+.terrainPrevents ; new
+	ld hl, TheTerrainPreventsText
+	jp PrintText
 
 FellAsleepText:
 	text_far _FellAsleepText
@@ -83,4 +95,8 @@ FellAsleepText:
 
 AlreadyAsleepText:
 	text_far _AlreadyAsleepText
+	text_end
+
+TheTerrainPreventsText:
+	text_far _TheTerrainPreventsText
 	text_end

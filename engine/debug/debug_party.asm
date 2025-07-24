@@ -16,7 +16,7 @@ DebugTeam:
 	db MEW, 59 ; 255
 	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
-	db CLOYSTER, 100
+	db CLOYSTER, 59
 ;	db PORYGONZ, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
@@ -43,16 +43,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, HAIL ; ANCESTOR_PWR
+	ld a, POISONPOWDER ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TACKLE
+	ld a, TOXIC
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, GRASSY_TERRAIN
+	ld a, MISTY_TERRAIN
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, SOLARBEAM
+	ld a, THUNDER_WAVE
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

@@ -1,60 +1,20 @@
+; edited for better code hygene
 Confusion10SideEffect_::
-; new, to handle luck: secondary effects
-	ld a, [hWhoseTurn]
-	and a
-	jr z, .playersTurn
-; enemy's turn
-	ld a, [wLuckSecondaryEffects] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
-	and a
-	jr z, .vanillaLuck
-	cp 1
-	jr z, .vanillaLuck
-; enemy's turn, and their luck is max
-	jr ConfusionSideEffectSuccess
-.playersTurn
-	ld a, [wLuckSecondaryEffects]
-	and a
-	jr z, .vanillaLuck
-	cp 2
-	jr z, .vanillaLuck
-; player's turn and their luck is minimum
-	ret
-.vanillaLuck
-; back to vanilla
-	call BattleRandom2 ; edited into the copy
-	cp 10 percent ; chance of confusion
-	ret nc
-	jr ConfusionSideEffectSuccess
-
+	ld b, 10 percent
+	jr ConfusioneSharedCore
 Confusion20SideEffect_::
-; new, to handle luck: secondary effects
-	ld a, [hWhoseTurn]
-	and a
-	jr z, .playersTurn
-; enemy's turn
-	ld a, [wLuckSecondaryEffects] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
-	and a
-	jr z, .vanillaLuck
-	cp 1
-	jr z, .vanillaLuck
-; enemy's turn, and their luck is max
-	jr ConfusionSideEffectSuccess
-.playersTurn
-	ld a, [wLuckSecondaryEffects]
-	and a
-	jr z, .vanillaLuck
-	cp 2
-	jr z, .vanillaLuck
-; player's turn and their luck is minimum
-	ret
-.vanillaLuck
-; back to vanilla
-	call BattleRandom2 ; edited into the copy
-	cp 20 percent ; chance of confusion
-	ret nc
-	jr ConfusionSideEffectSuccess
-
+	ld b, 20 percent
+	jr ConfusioneSharedCore
 Confusion30SideEffect_::
+	ld b, 30 percent
+ConfusioneSharedCore::
+; new to check terrain
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .ignoreTerrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	ret nz
+.ignoreTerrain
+; BTV
 ; new, to handle luck: secondary effects
 	ld a, [hWhoseTurn]
 	and a
@@ -78,11 +38,22 @@ Confusion30SideEffect_::
 .vanillaLuck
 ; back to vanilla
 	call BattleRandom2 ; edited into the copy
-	cp 30 percent ; chance of confusion
+	cp b ; the "b" value stored at the beginning
 	ret nc
 	jr ConfusionSideEffectSuccess
 
 ConfusionEffect_::
+; new to check terrain
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .noMistyTerrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr z, .noMistyTerrain
+	ld c, 50
+	call DelayFrames
+	ld hl, TheTerrainPreventsText
+	jp PrintText
+.noMistyTerrain
+; BTV
 	callfar CheckTargetSubstitute ; edited into a callfar
 	jr nz, ConfusionEffectFailed
 	callfar MoveHitTest ; apply accuracy tests, edited into a callfar
@@ -147,7 +118,13 @@ BecameConfusedText:
 	text_far _BecameConfusedText
 	text_end
 
-ConfusionEffectFailed: 				; this seems like I've modified it ok?
+ConfusionEffectFailed: ; edited
+	ld a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveEffect]
+	jr z, .playersTurn
+	ld a, [wEnemyMoveEffect]
+.playersTurn
 	cp CONFUSION_SIDE_EFFECT1
 	ret z
 	cp CONFUSION_SIDE_EFFECT2

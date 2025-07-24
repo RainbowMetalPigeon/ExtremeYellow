@@ -54,12 +54,28 @@ PoisonEffect_:
 .inverseBattle ; vanilla bits
 	ld a, [hli]
 	cp POISON ; can't poison a poison-type target
-	jr z, .noEffect
+	jp z, .noEffect
 	ld a, [hld]
 	cp POISON ; can't poison a poison-type target
-	jr z, .noEffect
+	jp z, .noEffect
 .vanilla
 ; back to vanilla
+; new to check terrain
+	push hl
+	call CheckIfNonTurnPokemonIsFlying ; z flag = FLYING
+	pop hl
+	jr z, .noMistyTerrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr z, .noMistyTerrain
+	; Misty terrain: check if side effect or not
+	ld a, [de]
+	cp POISON_EFFECT
+	ret nz
+	; if non-side effect, print the message
+	ld hl, TheTerrainPreventsText
+	jp PrintText
+.noMistyTerrain
+; BTV
 	ld a, [de] ; load move effect; changed names to make numbers reflect rate, and added two new rates
 	cp POISON_SIDE_EFFECT1
 	ld b, 10 percent + 1 ; chance of poisoning
