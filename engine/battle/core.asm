@@ -28,6 +28,8 @@ StartBattle:
 	ld [wActionResultOrTookBattleTurn], a
 	ld [wWeatherCounterPlayer], a ; new
 	ld [wWeatherCounterEnemy], a ; new
+	ld [wTerrainCounterPlayer], a ; new
+	ld [wTerrainCounterEnemy], a ; new
 	inc a
 	ld [wFirstMonsNotOutYet], a
 	ld hl, wEnemyMon1HP
@@ -319,6 +321,7 @@ MainInBattleLoop:
 	and a
 	jp z, HandleEnemyMonFainted
 	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
+	SetEvent EVENT_ENABLE_TERRAIN_HEALING ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for player
 	jp z, HandlePlayerMonFainted
 	call DrawHUDsAndHPBars
@@ -352,6 +355,7 @@ MainInBattleLoop:
 	jp z, HandlePlayerMonFainted
 .AIActionUsedPlayerFirst
 	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
+	SetEvent EVENT_ENABLE_TERRAIN_HEALING ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
@@ -4426,7 +4430,9 @@ GetDamageVarsForPlayerAttack:
 	ret z ; return if move power is zero
 
 ; new, to check for weathers and terrains
-	call BasePowerModifierWeatherTerrain_Player
+	push hl
+	callfar BasePowerModifierWeatherTerrain_Player
+	pop hl
 
 ; new, to handle gyro ball and flail
 	push hl
@@ -4654,7 +4660,9 @@ GetDamageVarsForEnemyAttack:
 	ret z ; return if move power is zero
 
 ; new, to check for weathers and terrains
-	call BasePowerModifierWeatherTerrain_Enemy
+	push hl
+	callfar BasePowerModifierWeatherTerrain_Enemy
+	pop hl
 
 ; new, to handle gyro ball and flail
 	push hl
@@ -4868,84 +4876,6 @@ GetDamageVarsForEnemyAttack:
 	ld a, $1
 	and a
 	and a
-	ret
-
-; input: d holds the current base power
-; output: d holds the modifier base power
-BasePowerModifierWeatherTerrain_Player: ; new ; TBE
-	ld hl, wPlayerMoveType
-	jr PerformChecks
-BasePowerModifierWeatherTerrain_Enemy:
-	ld hl, wEnemyMoveType
-PerformChecks:
-	ld a, [hl] ; a = move type
-	cp FIRE
-	jr z, .fire
-	cp WATER
-	jr z, .water
-	cp ELECTRIC
-	jr z, .electric
-	cp GRASS
-	jr z, .grass
-	cp PSYCHIC_TYPE
-	jr z, .psychic
-	cp DRAGON
-	jr z, .dragon
-	ret
-
-.fire
-	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	jr z, .fire_CheckRainDance
-	ld a, d
-	srl a
-	add d
-	ld d, a
-	ret
-.fire_CheckRainDance
-	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	ret z
-	srl d
-	ret
-
-.water
-	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	jr z, .water_checkSunnyDay
-	ld a, d
-	srl a
-	add d
-	ld d, a
-	ret
-.water_checkSunnyDay
-	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	ret z
-	srl d
-	ret
-
-.electric
-.grass
-	ld hl, wPlayerMoveNum
-	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
-	and a
-	jr z, .grassPlayersTurn
-	ld hl, wEnemyMoveNum
-.grassPlayersTurn
-	ld a, [hl]
-	cp SOLARBEAM
-	jr nz, .grass_notSolarBeam
-; solar beam, let's check also for Rain Dance and Sandstorm and Hail
-	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	jr nz, .grass_halveSolarBeam
-	CheckEvent EVENT_WEATHER_SANDSTORM
-	jr nz, .grass_halveSolarBeam
-	CheckEvent EVENT_WEATHER_HAIL
-	jr z, .grass_notSolarBeam
-.grass_halveSolarBeam
-	srl d ; halve Solarbeam's power
-; then check if there's terrain or not
-.grass_notSolarBeam
-.psychic
-.dragon
-	; TBE, when I'll have terrains
 	ret
 
 INCLUDE "data/battle/physical_special_split.asm" ; new, for physical/special split

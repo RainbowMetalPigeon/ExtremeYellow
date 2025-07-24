@@ -257,6 +257,17 @@ AttackAnimationPointers:
 	dw FlailAnim
 	dw CurseAnim
 
+	; V2.0 moves
+	dw SunnyDayAnim
+	dw RainDanceAnim
+	dw SandstormAnim
+	dw HailAnim
+
+	dw GrassyTerrainAnim
+	dw ElectricTerrainAnim
+	dw MistyTerrainAnim
+	dw PsychicTerrainAnim
+
 	; KAAARP!
 	dw AncestorPwrAnim
 
@@ -266,12 +277,6 @@ AttackAnimationPointers:
 	dw ThousandArrowsAnim
 	dw PhotonGeyserAnim
 	dw JudgmentAnim
-
-	; V2.0 moves
-	dw SunnyDayAnim
-	dw RainDanceAnim
-	dw SandstormAnim
-	dw HailAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
@@ -1925,6 +1930,10 @@ SandstormAnim:
 	db -1 ; new
 
 HailAnim:
+GrassyTerrainAnim:
+ElectricTerrainAnim:
+MistyTerrainAnim:
+PsychicTerrainAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
 	battle_anim BLIZZARD, SUBANIM_38, 0, 4
 	battle_anim NO_MOVE, SUBANIM_38, 0, 4

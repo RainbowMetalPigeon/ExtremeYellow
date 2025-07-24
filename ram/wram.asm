@@ -1265,9 +1265,11 @@ UNION ; new, made into a union
 wGymCityName:: ds 17
 
 NEXTU ; new, 17 free juicy bytes
-	wWeatherCounterPlayer:: db
-	wWeatherCounterEnemy:: db
-	ds 15
+	wWeatherCounterPlayer:: db ; new
+	wWeatherCounterEnemy:: db ; new
+	wTerrainCounterPlayer:: db ; new
+	wTerrainCounterEnemy:: db ; new
+	ds 13
 
 ENDU
 

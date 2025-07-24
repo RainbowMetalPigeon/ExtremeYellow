@@ -258,6 +258,16 @@ MoveNames::
 	li "FLAIL"
 	li "CURSE"
 
+	; V2.0 moves
+	li "SUNNY DAY"
+	li "RAIN DANCE"
+	li "SANDSTORM"
+	li "HAIL"
+	li "GRA. TERRAIN"
+	li "ELE. TERRAIN"
+	li "MIS. TERRAIN"
+	li "PSY. TERRAIN"
+
 	; KAAARP!
 	li "ANCESTOR PWR"
 
@@ -267,12 +277,6 @@ MoveNames::
 	li "1000 ARROWS"
 	li "PHOTONGEYSER"
 	li "JUDGMENT"
-
-	; V2.0 moves
-	li "SUNNY DAY"
-	li "RAIN DANCE"
-	li "SANDSTORM"
-	li "HAIL"
 
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

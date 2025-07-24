@@ -510,6 +510,7 @@ INCLUDE "engine/gfx/screen_effects.asm"
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 INCLUDE "engine/battle/move_effects/curse.asm" ; new
 INCLUDE "engine/battle/move_effects/weathers.asm" ; new
+INCLUDE "engine/battle/move_effects/terrains.asm" ; new
 INCLUDE "engine/battle/move_effects/handlepoisonburnleechseed.asm" ; new
 
 

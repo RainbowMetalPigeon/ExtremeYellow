@@ -142,4 +142,9 @@ MoveEffectPointerTable:
 	dw SandstormEffect ; SANDSTORM_EFFECT
 	dw HailEffect      ; HAIL_EFFECT
 
+	dw GrassyTerrainEffect   ; GRASSY_TERRAIN_EFFECT
+	dw ElectricTerrainEffect ; ELECTRIC_TERRAIN_EFFECT
+	dw MistyTerrainEffect    ; MISTY_TERRAIN_EFFECT
+	dw PsychicTerrainEffect  ; PSYCHIC_TERRAIN_EFFECT
+
 	assert_table_length NUM_MOVE_EFFECTS

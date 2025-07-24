@@ -272,6 +272,16 @@ Moves:
 	move FLAIL,        NO_ADDITIONAL_EFFECT,         1,	NORMAL,       100, 15 ; done
 	move CURSE,        CURSE_EFFECT,                 0,	TYPELESS,     100, 15 ; done
 
+	; V2.0 moves
+	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100, 5 ; done
+	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100, 5 ; done
+	move SANDSTORM,    SANDSTORM_EFFECT,             0, ROCK,         100, 5 ; done
+	move HAIL,         HAIL_EFFECT,                  0, ICE,          100, 5 ; done
+	move GRASSY_TERRAIN,    GRASSY_TERRAIN_EFFECT,    0, GRASS,         100, 5 ; TBE
+	move ELECTRIC_TERRAIN,  ELECTRIC_TERRAIN_EFFECT,  0, ELECTRIC,      100, 5 ; TBE
+	move MISTY_TERRAIN,     MISTY_TERRAIN_EFFECT,     0, FAIRY,         100, 5 ; TBE
+	move PSYCHIC_TERRAIN,   PSYCHIC_TERRAIN_EFFECT,   0, PSYCHIC_TYPE,  100, 5 ; TBE
+
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)
 
@@ -281,12 +291,6 @@ Moves:
 	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100, 5 ; done
 	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TBV: no effects indeed?
 	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; done
-
-	; V2.0 moves
-	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100, 5 ; done
-	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100, 5 ; done
-	move SANDSTORM,    SANDSTORM_EFFECT,             0, ROCK,         100, 5 ; TBE
-	move HAIL,         HAIL_EFFECT,                  0, ICE,          100, 5 ; TBE
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS

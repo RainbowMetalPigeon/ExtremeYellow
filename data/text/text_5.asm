@@ -323,4 +323,24 @@ _ItStartedToHailText::
 	line "hail!"
 	prompt
 
+_TheTerrainTurnedGrassyText::
+	text "The terrain"
+	line "turned grassy!"
+	prompt
+
+_TheTerrainTurnedElectricText::
+	text "The terrain"
+	line "turned electric!"
+	prompt
+
+_TheTerrainTurnedMistyText::
+	text "The terrain"
+	line "turned misty!"
+	prompt
+
+_TheTerrainTurnedPsychicText::
+	text "The terrain"
+	line "turned psychic!"
+	prompt
+
 ;	xxxx "123456789012345678"

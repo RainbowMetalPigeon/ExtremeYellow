@@ -2,6 +2,7 @@ HandlePoisonBurnLeechSeed::
 	call HandleWeatherCounter ; new, to handle weather counter
 	                          ; but only if the current mon did not KO its opponent
 	                          ; that's why it's here
+
 ; new, give a chance to Starter Pikachu to heal itself
 	callfar IsThisPartymonStarterPikachu ; edited, was the other version
 	jr nc, .vanilla ; no starter Pikachu
@@ -38,6 +39,7 @@ HandlePoisonBurnLeechSeed::
 	ld hl, PikachuHealItself
 	call PrintText
 .vanilla
+
 ; back to vanilla
 	ld hl, wBattleMonHP
 	ld de, wBattleMonStatus
@@ -72,6 +74,7 @@ HandlePoisonBurnLeechSeed::
 	ld de, wEnemyBattleStatus2
 .playersTurn2
 	ld a, [de]
+
 ; new, to handle CURSE
 	push af
 	push hl
@@ -95,16 +98,76 @@ HandlePoisonBurnLeechSeed::
 	pop af
 ; end of the CURSE block
 
+
+
+
+; new, to handle grassy terrain
+	push af
+	CheckEvent EVENT_ENABLE_TERRAIN_HEALING
+	jr z, .dontHandleTerrainHealing
+
+	push hl
+	CheckEvent EVENT_TERRAIN_GRASSY
+	jr z, .noGrassyTerrainHealing
+; player, check if grounded
+	ld hl, wBattleMonType1
+	ld a, [hli] ; a=type1, hl->type2
+	cp FLYING
+	jr z, .grassyTerrainCheckEnemy
+	ld a, [hl]
+	cp FLYING
+	jr z, .grassyTerrainCheckEnemy
+; player healed by terrain
+	call MakeTurnIntoPlayersTurn
+	ld hl, HealedByGrassyTerrainText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, XSTATITEM_ANIM ; TBE
+	call PlayAltAnimationCopy
+	call HandleTerrain_IncreasePlayerHP
+	call RestoreRealTurn
+; enemy, check if grounded
+.grassyTerrainCheckEnemy
+	ld hl, wEnemyMonType1
+	ld a, [hli] ; a=type1, hl->type2
+	cp FLYING
+	jr z, .noGrassyTerrainHealing
+	ld a, [hl]
+	cp FLYING
+	jr z, .noGrassyTerrainHealing
+; enemy damaged by Hail
+	call MakeTurnIntoEnemysTurn
+	ld hl, HealedByGrassyTerrainText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, XSTATITEM_ANIM ; TBE
+	call PlayAltAnimationCopy
+	call HandleTerrain_IncreaseEnemyHP
+	call RestoreRealTurn
+
+.noGrassyTerrainHealing
+	ResetEvent EVENT_ENABLE_TERRAIN_HEALING
+	pop hl
+
+.dontHandleTerrainHealing
+	pop af
+; end of the grassy terrain block
+
+
+
+
+
+
 ; new, to handle weathers
 ; we need to check if we are at the very end of the turn
 	push af
 	CheckEvent EVENT_ENABLE_WEATHER_DAMAGE
 	jp z, .dontHandleWeatherDamage
-
 	push hl
 	CheckEvent EVENT_WEATHER_SANDSTORM
 	jr z, .checkHail
-
 ; Sandstorm, player
 	ld hl, wBattleMonType1
 	ld a, [hli] ; a=type1, hl->type2
@@ -143,7 +206,6 @@ HandlePoisonBurnLeechSeed::
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn
 	jr .noDamagingWeathers
-
 .checkHail
 	CheckEvent EVENT_WEATHER_HAIL
 	jr z, .noDamagingWeathers
@@ -184,14 +246,11 @@ HandlePoisonBurnLeechSeed::
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn
-
 .noDamagingWeathers
 	ResetEvent EVENT_ENABLE_WEATHER_DAMAGE
 	pop hl
 .dontHandleWeatherDamage
 	pop af
-
-
 ; BTV
 
 ; back to vanilla
@@ -573,6 +632,140 @@ RestoreRealTurn:
 	ld a, [wStoreRealhWhoseTurn]
 	ldh [hWhoseTurn], a
 	ret
+
+HandleTerrainCounter:
+	ld hl, wTerrainCounterPlayer
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurn
+	ld hl, wTerrainCounterEnemy
+.playersTurn
+	ld a, [hl]
+	and a
+	ret z
+	dec a
+	ld [hl], a
+; check if there are turns left, and print a message accordingly
+	jr z, .noTurnsLeft
+; but don't print it the first turn
+	cp 4
+	ret z
+	ld hl, TerrainGrassyStillText
+	CheckEvent EVENT_TERRAIN_GRASSY
+	jr nz, .printAndEnd
+	ld hl, TerrainElectricStillText
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	jr nz, .printAndEnd
+	ld hl, TerrainMistyStillText
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr nz, .printAndEnd
+	ld hl, TerrainPsychichStillText
+.printAndEnd
+	call PrintText
+	ret
+.noTurnsLeft
+	ResetEvent EVENT_TERRAIN_GRASSY
+	ResetEvent EVENT_TERRAIN_ELECTRIC
+	ResetEvent EVENT_TERRAIN_MISTY
+	ResetEvent EVENT_TERRAIN_PSYCHIC
+	ld hl, TerrainBackToNormalText
+	call PrintText
+	ret
+
+TerrainGrassyStillText:
+	text_far _TerrainGrassyStillText
+	text_end
+
+TerrainElectricStillText:
+	text_far _TerrainElectricStillText
+	text_end
+
+TerrainMistyStillText:
+	text_far _TerrainMistyStillText
+	text_end
+
+TerrainPsychichStillText:
+	text_far _TerrainPsychichStillText
+	text_end
+
+TerrainBackToNormalText:
+	text_far _TerrainBackToNormalText
+	text_end
+
+HandleTerrain_IncreasePlayerHP:
+	ld hl, wBattleMonHP
+	jr HandleTerrain_IncreaseEnemyHP.mainStuff
+HandleTerrain_IncreaseEnemyHP:
+	ld hl, wEnemyMonHP
+.mainStuff
+	push hl
+	ld bc, $e      ; skip to max HP
+	add hl, bc
+	ld a, [hli]    ; load max HP
+	ld [wHPBarMaxHP+1], a
+	ld b, a
+	ld a, [hl]
+	ld [wHPBarMaxHP], a
+	ld c, a
+	srl b
+	rr c
+	srl b
+	rr c          ; bc = max HP/4 (assumption: HP < 1024)
+	srl c         ; c = max HP/8 (assumption: HP < 1024)
+	srl c         ; c = max HP/16 (assumption: HP < 1024)
+	ld a, c
+	and a
+	jr nz, .nonZeroHealing
+	inc c         ; healing is at least 1
+; now bc should hold 1/16th of the active mon's max HP
+; unnecessary to consider c as it will surely be 0 but whatever
+.nonZeroHealing
+	pop hl
+	ld a, [hli]
+	ld [wHPBarMaxHP+1], a
+	ld a, [hl]
+	ld [wHPBarMaxHP], a
+	ld de, wBattleMonHP - wBattleMonMaxHP
+	add hl, de           ; skip back from max hp to current hp
+	ld a, [hl]
+	ld [wHPBarOldHP], a ; add bc to current HP
+	add c
+	ld [hld], a
+	ld [wHPBarNewHP], a
+	ld a, [hl]
+	ld [wHPBarOldHP+1], a
+	adc b
+	ld [hli], a
+	ld [wHPBarNewHP+1], a
+	ld a, [wHPBarMaxHP]
+	ld c, a
+	ld a, [hld]
+	sub c
+	ld a, [wHPBarMaxHP+1]
+	ld b, a
+	ld a, [hl]
+	sbc b
+	jr c, .noOverfullHeal
+	ld a, b                ; overfull heal, set HP to max HP
+	ld [hli], a
+	ld [wHPBarNewHP+1], a
+	ld a, c
+	ld [hl], a
+	ld [wHPBarNewHP], a
+.noOverfullHeal
+	ldh a, [hWhoseTurn]
+	xor $1
+	ldh [hWhoseTurn], a
+	call UpdateCurMonHPBar
+	ldh a, [hWhoseTurn]
+	xor $1
+	ldh [hWhoseTurn], a
+	pop hl
+	ret
+
+HealedByGrassyTerrainText::
+	text_far _HealedByGrassyTerrainText
+	text_end
 
 ; ---------- ugly copies of functions for moving this into its own file -----------------------
 

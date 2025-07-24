@@ -519,3 +519,132 @@ HandleSpecialTypeCombos:
 .notSpecialCombo
     ld a, [wMultipurposeTemporaryStorage]
     ret
+
+; ===========================================================================
+
+; input: d holds the current base power
+; output: d holds the modifier base power
+BasePowerModifierWeatherTerrain_Player:
+	ld hl, wPlayerMoveNum
+	jr PerformChecks
+BasePowerModifierWeatherTerrain_Enemy:
+	ld hl, wEnemyMoveNum
+PerformChecks:
+
+; Solarbeam check
+	ld a, [hl]
+	cp SOLARBEAM
+	jr nz, .notSolarBeam
+; Solarbeam, let's check for Rain Dance and Sandstorm and Hail
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr nz, .halveSolarBeam
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr nz, .halveSolarBeam
+	CheckEvent EVENT_WEATHER_HAIL
+	jr z, .generalTypesChecks
+.halveSolarBeam
+	srl d ; halve Solarbeam's power
+	jr .generalTypesChecks ; here we need to continue because there may be a Grassy Terrain on
+.notSolarBeam
+
+; Earthquake check
+	ld a, [hl]
+	cp EARTHQUAKE
+	jr nz, .generalTypesChecks
+; Earthquake, let's check for Grassy Terrain
+	CheckEvent EVENT_TERRAIN_GRASSY
+	ret z ; doesn't make sense to continue, because if it's Earthquake it's not modified by any other weather or terrain
+	srl d ; halve Earthquake's power
+	ret ; see two lines above
+
+; general types checks
+.generalTypesChecks
+	push de
+	ld de, wPlayerMoveType - wPlayerMoveNum
+	add hl, de
+	pop de
+; with the above, we moved the hl to point to the move type rather than its number
+	ld a, [hl] ; a = move type
+	cp FIRE
+	jr z, .fire
+	cp WATER
+	jr z, .water
+
+; check if the user is part Flying: if so, let's skip the next checks
+; terrains only affect grounded pokemon, and we don't consider Levitating ones
+	push hl
+	ldh a, [hWhoseTurn]
+	and a
+	ld hl, wBattleMonType1
+	jr z, .playersVariables
+	ld hl, wEnemyMonType1
+.playersVariables
+	ld a, [hli] ; a is the first type of the attacking mon, hl+=1
+	cp FLYING
+	jr z, .popAndReturn
+	ld a, [hl] ; a is the second type of the attacking mon
+	cp FLYING
+	jr nz, .checkTerrains
+.popAndReturn
+	pop hl
+	ret
+.checkTerrains
+	pop hl
+	cp ELECTRIC
+	jr z, .electric
+	cp GRASS
+	jr z, .grass
+	cp PSYCHIC_TYPE
+	jr z, .psychic
+	cp DRAGON
+	jr z, .dragon
+	ret
+
+.fire
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr z, .fire_CheckRainDance
+	jr .addHalfToBasePowerInD
+.fire_CheckRainDance
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	ret z
+	jr .subtractHalfFromBasePowerInD
+
+.water
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr z, .water_checkSunnyDay
+	jr .addHalfToBasePowerInD
+.water_checkSunnyDay
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ret z
+	jr .subtractHalfFromBasePowerInD
+
+.electric
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	ret z
+	jr .addHalfToBasePowerInD
+
+.grass
+	CheckEvent EVENT_TERRAIN_GRASSY
+	ret z
+	jr .addHalfToBasePowerInD
+
+.psychic
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	ret z
+	jr .addHalfToBasePowerInD
+
+.dragon
+	CheckEvent EVENT_TERRAIN_MISTY
+	ret z
+	jr .subtractHalfFromBasePowerInD
+
+.subtractHalfFromBasePowerInD
+	srl d
+	ret
+
+.addHalfToBasePowerInD
+	ld a, d
+	srl a
+	add d
+	ld d, a
+	ret

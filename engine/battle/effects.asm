@@ -1238,3 +1238,15 @@ SandstormEffect:
 
 HailEffect:
 	jpfar HailEffect_
+
+GrassyTerrainEffect:
+	jpfar GrassyTerrainEffect_
+
+ElectricTerrainEffect:
+	jpfar ElectricTerrainEffect_
+
+MistyTerrainEffect:
+	jpfar MistyTerrainEffect_
+
+PsychicTerrainEffect:
+	jpfar PsychicTerrainEffect_

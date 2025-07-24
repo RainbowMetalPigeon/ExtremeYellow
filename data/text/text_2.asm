@@ -1499,14 +1499,44 @@ _WeatherBackToNormalText:: ; new
 	line "back to normal!"
 	prompt
 
-_HurtBySandstormText::
+_HurtBySandstormText:: ; new
 	text "<USER>'s"
 	line "hurt by the sand!"
 	prompt
 
-_HurtByHailText::
+_HurtByHailText:: ; new
 	text "<USER>'s"
 	line "hurt by the hail!"
+	prompt
+
+_TerrainGrassyStillText:: ; new
+	text "The terrain is"
+	line "still grassy!"
+	prompt
+
+_TerrainElectricStillText:: ; new
+	text "The terrain is"
+	line "still electric!"
+	prompt
+
+_TerrainMistyStillText:: ; new
+	text "The terrain is"
+	line "still misty!"
+	prompt
+
+_TerrainPsychichStillText:: ; new
+	text "The terrain is"
+	line "still psychic!"
+	prompt
+
+_TerrainBackToNormalText:: ; new
+	text "The terrain is"
+	line "back to normal!"
+	prompt
+
+_HealedByGrassyTerrainText:: ; new
+	text "<USER>'s"
+	line "healed by grass!"
 	prompt
 
 ;	xxxx "123456789012345678"

@@ -49,7 +49,7 @@ IF DEF(_DEBUG)
 	ld a, SANDSTORM
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, BLIZZARD
+	ld a, GRASSY_TERRAIN
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, SOLARBEAM
@@ -58,13 +58,13 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, EXPLOSION
+	ld a, MISTY_TERRAIN
 	ld [hli], a
-	ld a, RAIN_DANCE
+	ld a, ELECTRIC_TERRAIN
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a
-	ld a, STRENGTH
+	ld a, PSYCHIC_TERRAIN
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash

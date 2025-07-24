@@ -264,6 +264,16 @@
 	const   FLAIL
 	const   CURSE
 
+	; V2.0 moves
+	const SUNNY_DAY
+	const RAIN_DANCE
+	const SANDSTORM
+	const HAIL
+	const GRASSY_TERRAIN
+	const ELECTRIC_TERRAIN
+	const MISTY_TERRAIN
+	const PSYCHIC_TERRAIN
+
 	; KAAARP!
 	const	ANCESTOR_PWR
 
@@ -273,12 +283,6 @@
 	const	THOUSANDARROWS
 	const	PHOTONGEYSER
 	const	JUDGMENT
-
-	; V2.0 moves
-	const SUNNY_DAY
-	const RAIN_DANCE
-	const SANDSTORM
-	const HAIL
 
 	const STRUGGLE     ; formerly a5
 DEF NUM_ATTACKS EQU const_value - 1
