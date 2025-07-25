@@ -48,7 +48,7 @@ ConfusionEffect_::
 	jr z, .noMistyTerrain
 	CheckEvent EVENT_TERRAIN_MISTY
 	jr z, .noMistyTerrain
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 	ld hl, TheTerrainPreventsText
 	jp PrintText
@@ -131,6 +131,6 @@ ConfusionEffectFailed: ; edited
 	ret z
 	cp CONFUSION_SIDE_EFFECT3
 	ret z
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 	jpfar ConditionalPrintButItFailed ; edited into a jpfar

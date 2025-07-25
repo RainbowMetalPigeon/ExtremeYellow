@@ -72,6 +72,8 @@ PoisonEffect_:
 	cp POISON_EFFECT
 	ret nz
 	; if non-side effect, print the message
+	ld c, 30
+	call DelayFrames
 	ld hl, TheTerrainPreventsText
 	jp PrintText
 .noMistyTerrain

@@ -151,6 +151,8 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_1fgunkshot
 	const SUBANIM_30reverse
 	const SUBANIM_StaticCircles
+	const SUBANIM_38enemy
+	const SUBANIM_2Benemy
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations

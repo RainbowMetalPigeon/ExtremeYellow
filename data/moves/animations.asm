@@ -1922,29 +1922,46 @@ SunnyDayAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim FLAMETHROWER, SE_WAVY_SCREEN
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; new
-
-SandstormAnim:
-	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
-	battle_anim SAND_ATTACK, SE_WAVY_SCREEN
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; new
-
-HailAnim:
-GrassyTerrainAnim:
-ElectricTerrainAnim:
-MistyTerrainAnim:
-PsychicTerrainAnim:
-	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
-	battle_anim BLIZZARD, SUBANIM_38, 0, 4
-	battle_anim NO_MOVE, SUBANIM_38, 0, 4
-	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
-	db -1 ; end
+	db -1
 
 RainDanceAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
 	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+SandstormAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim SAND_ATTACK, SE_WAVY_SCREEN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1
+
+HailAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim BLIZZARD, SUBANIM_38, 0, 4
+	battle_anim NO_MOVE, SUBANIM_38enemy, 0, 4
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+GrassyTerrainAnim:
+	battle_anim PETAL_DANCE, SE_PETALS_FALLING
+	db -1 ; end
+
+ElectricTerrainAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim THUNDERBOLT, SUBANIM_2B, 1, 6
+	battle_anim NO_MOVE, SUBANIM_2Benemy, 1, 6
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1
+
+	battle_anim THUNDERBOLT, SUBANIM_2B, 1, 6
+
+MistyTerrainAnim:
+	battle_anim HYPNOSIS, SE_WAVY_SCREEN
+	db -1 ; end
+
+PsychicTerrainAnim:
+	battle_anim PSYCHIC_M, SE_FLASH_SCREEN_LONG
 	db -1 ; end
 
 ; ------------------------------------------------------------------------------

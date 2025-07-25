@@ -15,7 +15,7 @@ BurnEffect_:
 	jr z, .noMistyTerrain
 	CheckEvent EVENT_TERRAIN_MISTY
 	jr z, .noMistyTerrain
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 	ld hl, TheTerrainPreventsText
 	jp PrintText
