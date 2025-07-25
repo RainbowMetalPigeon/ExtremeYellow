@@ -262,11 +262,12 @@ AttackAnimationPointers:
 	dw RainDanceAnim
 	dw SandstormAnim
 	dw HailAnim
-
+	dw WeatherBallAnim
 	dw GrassyTerrainAnim
 	dw ElectricTerrainAnim
 	dw MistyTerrainAnim
 	dw PsychicTerrainAnim
+	dw TerrainPulseAnim
 
 	; KAAARP!
 	dw AncestorPwrAnim
@@ -1943,6 +1944,10 @@ HailAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
+WeatherBallAnim:
+	battle_anim CONFUSE_RAY, SUBANIM_1fcircles, 1, 6
+	db -1 ; end
+
 GrassyTerrainAnim:
 	battle_anim PETAL_DANCE, SE_PETALS_FALLING
 	db -1 ; end
@@ -1954,14 +1959,16 @@ ElectricTerrainAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1
 
-	battle_anim THUNDERBOLT, SUBANIM_2B, 1, 6
-
 MistyTerrainAnim:
 	battle_anim HYPNOSIS, SE_WAVY_SCREEN
 	db -1 ; end
 
 PsychicTerrainAnim:
 	battle_anim PSYCHIC_M, SE_FLASH_SCREEN_LONG
+	db -1 ; end
+
+TerrainPulseAnim:
+	battle_anim CONFUSE_RAY, SE_WAVY_SCREEN
 	db -1 ; end
 
 ; ------------------------------------------------------------------------------

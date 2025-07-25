@@ -46,13 +46,13 @@ IF DEF(_DEBUG)
 	ld a, HAIL ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, EXTREMESPEED
+	ld a, SUNNY_DAY
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, MISTY_TERRAIN
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, THUNDER_WAVE
+	ld a, WEATHER_BALL
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -62,7 +62,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, ELECTRIC_TERRAIN
 	ld [hli], a
-	ld a, CUT
+	ld a, TERRAIN_PULSE
 	ld [hli], a
 	ld a, PSYCHIC_TERRAIN
 	ld [hl], a
@@ -71,20 +71,23 @@ IF DEF(_DEBUG)
 	ld a, FLY
 	ld hl, wPartyMon3Moves
 	ld [hl], a
-	ld a, FLASH
-	ld hl, wPartyMon3Moves + 2
+	ld a, SANDSTORM
+	ld hl, wPartyMon3Moves + 1
 	ld [hl], a
 	ld a, SURF
+	ld hl, wPartyMon3Moves + 2
+	ld [hl], a
+	ld a, RAIN_DANCE
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
-;	; moves to other members
+	; moves to other members
 	ld a, WILL_O_WISP
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, POISON_STING
+	ld a, EXPLOSION
 	ld [hli], a
-	ld a, SPORE
+	ld a, LEECH_SEED
 	ld [hli], a
 	ld a, CONFUSE_RAY
 	ld [hl], a

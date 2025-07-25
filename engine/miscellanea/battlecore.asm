@@ -685,3 +685,64 @@ CheckIfNonTurnPokemonIsFlying:: ; z flag = FLYING
 	ld a, [hl] ; a is the second type of the attacking mon
 	cp FLYING
 	ret
+
+; ===========================================================================
+
+HandleWeatherBallAndTerrainPulseAnimation::
+	xor a
+	ld [wAnimationType], a
+	ldh a, [hWhoseTurn]
+	and a
+	ld de, wEnemyBattleStatus1
+	ld hl, wPlayerMoveNum
+	jr z, .player
+	ld de, wEnemyBattleStatus1
+	ld hl, wEnemyMoveNum
+.player
+	ld a, [de]
+	bit INVULNERABLE, a ; fly/dig
+	ret nz
+	ld a, [wMoveMissed]
+	and a
+	ret nz
+
+; let's check if it's one of the two moves of interest
+	ld a, [hl]
+	cp WEATHER_BALL
+	jr z, .isWeatherBall
+	cp TERRAIN_PULSE
+	ret nz
+
+; it's Terrain Pulse; let's check if there's a terrain active
+	CheckEvent EVENT_TERRAIN_GRASSY
+	ld a, PETAL_DANCE
+	jr nz, .playExtraAnimation
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	ld a, THUNDERBOLT
+	jr nz, .playExtraAnimation
+	CheckEvent EVENT_TERRAIN_MISTY
+	ld a, PLAY_ROUGH
+	jr nz, .playExtraAnimation
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	ld a, CONFUSION
+	jr nz, .playExtraAnimation
+	ret ; no active terrain
+
+.isWeatherBall
+; let's check if there's a weather active
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ld a, FIRE_PUNCH
+	jr nz, .playExtraAnimation
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	ld a, WATER_GUN
+	jr nz, .playExtraAnimation
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	ld a, ROCK_THROW
+	jr nz, .playExtraAnimation
+	CheckEvent EVENT_WEATHER_HAIL
+	ld a, ICE_PUNCH
+	ret z ; no active weather
+.playExtraAnimation
+	jp PlayMoveAnimationCopyCopy ; in handlepoisonburnleechseed file, same bank
+
+; ===========================================================================

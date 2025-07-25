@@ -263,10 +263,13 @@ MoveNames::
 	li "RAIN DANCE"
 	li "SANDSTORM"
 	li "HAIL"
-	li "GRA. TERRAIN"
-	li "ELE. TERRAIN"
-	li "MIS. TERRAIN"
-	li "PSY. TERRAIN"
+	li "WEATHER BALL"
+	li "GRASSY TERR."
+	li "ELECT. TERR."
+	li "MISTY TERR."
+	li "PSYCH. TERR."
+	li "TERR. PULSE"
+;	li "123456789012"
 
 	; KAAARP!
 	li "ANCESTOR PWR"

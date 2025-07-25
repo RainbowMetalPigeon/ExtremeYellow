@@ -273,14 +273,16 @@ Moves:
 	move CURSE,        CURSE_EFFECT,                 0,	TYPELESS,     100, 15 ; done
 
 	; V2.0 moves
-	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100, 5 ; done
-	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100, 5 ; done
-	move SANDSTORM,    SANDSTORM_EFFECT,             0, ROCK,         100, 5 ; done
-	move HAIL,         HAIL_EFFECT,                  0, ICE,          100, 5 ; done
-	move GRASSY_TERRAIN,    GRASSY_TERRAIN_EFFECT,    0, GRASS,         100, 5 ; TBE
-	move ELECTRIC_TERRAIN,  ELECTRIC_TERRAIN_EFFECT,  0, ELECTRIC,      100, 5 ; TBE
-	move MISTY_TERRAIN,     MISTY_TERRAIN_EFFECT,     0, FAIRY,         100, 5 ; TBE
-	move PSYCHIC_TERRAIN,   PSYCHIC_TERRAIN_EFFECT,   0, PSYCHIC_TYPE,  100, 5 ; TBE
+	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100,  5 ; done
+	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100,  5 ; done
+	move SANDSTORM,    SANDSTORM_EFFECT,             0, ROCK,         100,  5 ; done
+	move HAIL,         HAIL_EFFECT,                  0, ICE,          100,  5 ; done
+	move WEATHER_BALL, NO_ADDITIONAL_EFFECT,        50, NORMAL,       100, 10 ; TBE
+	move GRASSY_TERRAIN,    GRASSY_TERRAIN_EFFECT,    0, GRASS,         100,  5 ; done
+	move ELECTRIC_TERRAIN,  ELECTRIC_TERRAIN_EFFECT,  0, ELECTRIC,      100,  5 ; done
+	move MISTY_TERRAIN,     MISTY_TERRAIN_EFFECT,     0, FAIRY,         100,  5 ; done
+	move PSYCHIC_TERRAIN,   PSYCHIC_TERRAIN_EFFECT,   0, PSYCHIC_TYPE,  100,  5 ; done
+	move TERRAIN_PULSE,     NO_ADDITIONAL_EFFECT,    50, NORMAL,        100, 10 ; TBE
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)

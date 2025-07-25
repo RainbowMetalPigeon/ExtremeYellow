@@ -3299,6 +3299,7 @@ playPlayerMoveAnimation:
 	ld a, [wPlayerMoveNum]
 	call PlayMoveAnimation
 	call HandleExplodingAnimation
+	callfar HandleWeatherBallAndTerrainPulseAnimation ; new, testing
 	call DrawPlayerHUDAndHPBar
 	ld a, [wPlayerBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a
@@ -5611,6 +5612,7 @@ ReloadMoveData:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call FarCopyData ; copy the move's stats
+	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
 	call IncrementMovePP
 ; the follow two function calls are used to reload the move name
 	call GetMoveName
@@ -6402,6 +6404,7 @@ playEnemyMoveAnimation:
 	ld a, [wEnemyMoveNum]
 	call PlayMoveAnimation
 	call HandleExplodingAnimation
+	callfar HandleWeatherBallAndTerrainPulseAnimation ; new, testing
 	call DrawEnemyHUDAndHPBar
 	ld a, [wEnemyBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a ; does mon have a substitute?
@@ -6873,14 +6876,7 @@ GetCurrentMove:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call FarCopyData
-
-	ld a, [wPlayerMoveNum]
-	ld a, [wPlayerMoveEffect]
-	ld a, [wPlayerMovePower]
-	ld a, [wPlayerMoveType]
-	ld a, [wPlayerMoveAccuracy]
-	ld a, [wPlayerMoveMaxPP]
-
+	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
 	ld a, BANK(MoveNames)
 	ld [wPredefBank], a
 	ld a, MOVE_NAME
@@ -7545,8 +7541,9 @@ HandleExplodingAnimation:
 	ld a, [wMoveMissed]
 	and a
 	ret nz
+	ld a, 5
+	ld [wAnimationType], a ; edit: this vanilla line is a GF bullshit, which works in vanilla only out of sheer coincidence of the value of mega punch
 	ld a, MEGA_PUNCH
-	ld [wAnimationType], a
 
 PlayMoveAnimation:
 	ld [wAnimationID], a

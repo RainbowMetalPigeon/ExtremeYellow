@@ -777,13 +777,15 @@ HealedByGrassyTerrainText::
 
 ; ---------- ugly copies of functions for moving this into its own file -----------------------
 
-PlayMoveAnimationCopyCopy:
-	ld [wAltAnimationID], a ; edited
+PlayMoveAnimationCopyCopy::
+	ld [wAnimationID], a ; edited
 	call Delay3
+;	xor a
+;	ld [wAltAnimationID], a
 	predef MoveAnimation
 	callfar Func_78e98
 	ret
 
-PlayAltAnimationCopy:
+PlayAltAnimationCopy::
 	ld [wAltAnimationID], a
 	predef_jump MoveAnimation
