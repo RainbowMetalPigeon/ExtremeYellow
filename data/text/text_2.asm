@@ -1248,11 +1248,6 @@ _Used1Text::
 	line "used @"
 	text_end
 
-_Used2Text::
-	text_start
-	line "used @"
-	text_end
-
 _InsteadText::
 	text "instead,"
 	cont "@"
@@ -1262,23 +1257,7 @@ _MoveNameText::
 	text_ram wStringBuffer
 	text "@"
 
-_ExclamationPoint1Text::
-	text "!"
-	done
-
-_ExclamationPoint2Text::
-	text "!"
-	done
-
-_ExclamationPoint3Text::
-	text "!"
-	done
-
-_ExclamationPoint4Text::
-	text "!"
-	done
-
-_ExclamationPoint5Text::
+_ExclamationPoint1Text:: ; removed the other copies
 	text "!"
 	done
 
@@ -1450,93 +1429,100 @@ _HookedMonAttackedText:: ; edited, 2-liner
 	line "appeared!"
 	prompt
 
+; new ----------------------------------------
+
 _BoyGirlText::
     text "Are you a boy"
     line "or a girl?"
     done
 
-_CantUsePCHere:: ; new, for portablePC
+_CantUsePCHere:: ; for portablePC
 	text "You cannot use"
 	line "this here!"
 	prompt
 
-_TextAskRematch:: ; new, to reactivate trainers
+_TextAskRematch:: ; to reactivate trainers
 	text "Rematch?"
 	done
 
-_MapMessage:: ; new
+_MapMessage::
 	text "Some parts of an"
 	line "uncanny map..."
 	done
 
-_MapMessageComplete:: ; new
+_MapMessageComplete::
 	text "The complete map!"
 	line "It looks eerie..."
 	done
 
-_WeatherSunnyDayStillText:: ; new
+_WeatherSunnyDayStillText::
 	text "The sunlight is"
 	line "strong!"
 	prompt
 
-_WeatherRainDanceStillText:: ; new
+_WeatherRainDanceStillText::
 	text "Rain continues"
 	line "to fall!"
 	prompt
 
-_WeatherSandstormStillText:: ; new
+_WeatherSandstormStillText::
 	text "The sandstorm"
 	line "rages!"
 	prompt
 
-_WeatherHailStillText:: ; new
+_WeatherHailStillText::
 	text "Hail continues"
 	line "to fall!"
 	prompt
 
-_WeatherBackToNormalText:: ; new
+_WeatherBackToNormalText::
 	text "The weather is"
 	line "back to normal!"
 	prompt
 
-_HurtBySandstormText:: ; new
+_HurtBySandstormText::
 	text "<USER>'s"
 	line "hurt by the sand!"
 	prompt
 
-_HurtByHailText:: ; new
+_HurtByHailText::
 	text "<USER>'s"
 	line "hurt by the hail!"
 	prompt
 
-_TerrainGrassyStillText:: ; new
+_TerrainGrassyStillText::
 	text "The terrain is"
 	line "still grassy!"
 	prompt
 
-_TerrainElectricStillText:: ; new
+_TerrainElectricStillText::
 	text "The terrain is"
 	line "still electric!"
 	prompt
 
-_TerrainMistyStillText:: ; new
+_TerrainMistyStillText::
 	text "The terrain is"
 	line "still misty!"
 	prompt
 
-_TerrainPsychichStillText:: ; new
+_TerrainPsychichStillText::
 	text "The terrain is"
 	line "still psychic!"
 	prompt
 
-_TerrainBackToNormalText:: ; new
+_TerrainBackToNormalText::
 	text "The terrain is"
 	line "back to normal!"
 	prompt
 
-_HealedByGrassyTerrainText:: ; new
+_HealedByGrassyTerrainText::
 	text "<USER>'s"
 	line "healed by grass!"
+	prompt
+
+_NoPrioritiesDueToTerrainText::
+	text "No priority moves"
+	line "due to terrain!"
 	prompt
 
 ;	xxxx "123456789012345678"

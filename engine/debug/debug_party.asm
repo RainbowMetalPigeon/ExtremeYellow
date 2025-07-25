@@ -46,10 +46,10 @@ IF DEF(_DEBUG)
 	ld a, REST ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TOXIC
+	ld a, EXTREMESPEED
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, MISTY_TERRAIN
+	ld a, PSYCHIC_TERRAIN
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, THUNDER_WAVE
@@ -58,7 +58,7 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, MISTY_TERRAIN
+	ld a, GRASSY_TERRAIN
 	ld [hli], a
 	ld a, ELECTRIC_TERRAIN
 	ld [hli], a

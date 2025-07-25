@@ -155,31 +155,8 @@ StartBattle:
 	jr MainInBattleLoop
 
 ; wild mon or link battle enemy ran from battle
-EnemyRan:
-	call LoadScreenTilesFromBuffer1
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	ld hl, WildRanText
-	jr nz, .printText
-; link battle
-	xor a
-	ld [wBattleResult], a
-	ld hl, EnemyRanText
-.printText
-	call PrintText
-	ld a, SFX_RUN
-	call PlaySoundWaitForCurrent
-	xor a
-	ldh [hWhoseTurn], a
-	jpfar AnimationSlideEnemyMonOff
-
-WildRanText:
-	text_far _WildRanText
-	text_end
-
-EnemyRanText:
-	text_far _EnemyRanText
-	text_end
+EnemyRan: ; edited into a jpfar to save space
+	jpfar _EnemyRan
 
 MainInBattleLoop:
 	call ReadPlayerMonCurHPAndStatus
@@ -272,11 +249,25 @@ MainInBattleLoop:
 	callfar SwitchEnemyMon
 .noLinkBattle
 	call HandleMovePriority	; c = player priority, e = enemy priority - Xillicis' tutorial
+; new, handle Psychic Terrain
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	jr z, .noPsychicTerrain
+	ld a, c
+	cp 8 ; priority +1
+	jr c, .playerNoHighPriority
+	SetEvent EVENT_PLAYER_CANNOT_ATTACK_PSYCHIC_TERRAIN
+.playerNoHighPriority
+	ld a, e
+	cp 8 ; priority +1
+	jr c, .noPsychicTerrain
+	SetEvent EVENT_ENEMY_CANNOT_ATTACK_PSYCHIC_TERRAIN
+.noPsychicTerrain
+; end of Block for Psychic Terrain
 	ld a, c
 	cp e
 	jr z, .compareSpeed ; if both used same-priority moves
 	jr c, .enemyMovesFirst
-	jr .playerMovesFirst
+	jp .playerMovesFirst
 .compareSpeed
 	ld de, wBattleMonSpeed ; player speed value
 	ld hl, wEnemyMonSpeed ; enemy speed value
@@ -316,7 +307,7 @@ MainInBattleLoop:
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
-; player's turn when enemy moves first
+.playersTurnWhenEnemyMovesFirst ; player's turn when enemy moves first
 	call ExecutePlayerMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -345,7 +336,7 @@ MainInBattleLoop:
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for player
 	jp z, HandlePlayerMonFainted
 	call DrawHUDsAndHPBars
-; enemy's turn when player moves first
+.enemysTurnWhenPlayerMovesFirst; enemy's turn when player moves first
 	ld a, $1
 	ldh [hWhoseTurn], a
 	callfar TrainerAI
@@ -428,7 +419,7 @@ AIGetPriority:: ; new
 	ret
 
 ; all HandlePoisonBurnLeechSeed has been moved to a separate file
-HandlePoisonBurnLeechSeed_Wrapper: ; TBV
+HandlePoisonBurnLeechSeed_Wrapper: ; new
 ;	push hl
 ;	push de
 ;	push af
@@ -3164,6 +3155,16 @@ ENDC
 	vc_hook Wireless_end_send_zero_bytes
 	ret
 
+NoPrioritiesDueToTerrainPrint:
+	ld c, 40
+	call DelayFrames
+	ld hl, NoPrioritiesDueToTerrainText
+	jp PrintText
+
+NoPrioritiesDueToTerrainText:
+	text_far _NoPrioritiesDueToTerrainText
+	text_end
+
 ExecutePlayerMove:
 	xor a
 	ldh [hWhoseTurn], a ; set player's turn
@@ -3231,6 +3232,15 @@ PlayerCanExecuteMove:
 	predef FlagActionPredef ; mark this mon as seen in the attackdex
 ; back to vanilla
 	call PrintMonName1Text
+; new for terrain
+	callfar CheckIfTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .priorityAndTerrainOk
+	CheckAndResetEvent EVENT_PLAYER_CANNOT_ATTACK_PSYCHIC_TERRAIN
+	jp z, .priorityAndTerrainOk
+	call NoPrioritiesDueToTerrainPrint
+	jp ExecutePlayerMoveDone
+.priorityAndTerrainOk
+; BTV
 	ld hl, DecrementPP
 	ld de, wPlayerSelectedMove ; pointer to the move just used
 	ld b, BANK(DecrementPP)
@@ -3925,6 +3935,7 @@ PrintMonName1Text:
 ; those text strings are identical and both continue at PrintInsteadText
 ; this likely had to do with Japanese grammar that got translated,
 ; but the functionality didn't get removed
+; edited, removed useless stuff
 MonName1Text:
 	text_far _MonName1Text
 	text_asm
@@ -3938,25 +3949,11 @@ MonName1Text:
 .playerTurn
 	ld [hl], a
 	ld [wd11e], a
-	call DetermineExclamationPointTextNum
-	ld a, [wMonIsDisobedient]
-	and a
-	ld hl, Used2Text
-	ret nz
-	ld a, [wd11e]
-	cp 3
-	ld hl, Used2Text
-	ret c
 	ld hl, Used1Text
 	ret
 
 Used1Text:
 	text_far _Used1Text
-	text_asm
-	jr PrintInsteadText
-
-Used2Text:
-	text_far _Used2Text
 	text_asm
 	; fall through
 
@@ -3979,76 +3976,12 @@ PrintMoveName:
 _PrintMoveName:
 	text_far _MoveNameText
 	text_asm
-	ld hl, ExclamationPointPointerTable
-	ld a, [wd11e] ; exclamation point num
-	add a
-	push bc
-	ld b, $0
-	ld c, a
-	add hl, bc
-	pop bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld hl, ExclamationPoint1Text
 	ret
-
-ExclamationPointPointerTable:
-	dw ExclamationPoint1Text
-	dw ExclamationPoint2Text
-	dw ExclamationPoint3Text
-	dw ExclamationPoint4Text
-	dw ExclamationPoint5Text
 
 ExclamationPoint1Text:
 	text_far _ExclamationPoint1Text
 	text_end
-
-ExclamationPoint2Text:
-	text_far _ExclamationPoint2Text
-	text_end
-
-ExclamationPoint3Text:
-	text_far _ExclamationPoint3Text
-	text_end
-
-ExclamationPoint4Text:
-	text_far _ExclamationPoint4Text
-	text_end
-
-ExclamationPoint5Text:
-	text_far _ExclamationPoint5Text
-	text_end
-
-; this function does nothing useful
-; if the move being used is in set [1-4] from ExclamationPointMoveSets,
-; use ExclamationPoint[1-4]Text
-; otherwise, use ExclamationPoint5Text
-; but all five text strings are identical
-; this likely had to do with Japanese grammar that got translated,
-; but the functionality didn't get removed
-DetermineExclamationPointTextNum:
-	push bc
-	ld a, [wd11e] ; move ID
-	ld c, a
-	ld b, $0
-	ld hl, ExclamationPointMoveSets
-.loop
-	ld a, [hli]
-	cp $ff
-	jr z, .done
-	cp c
-	jr z, .done
-	and a
-	jr nz, .loop
-	inc b
-	jr .loop
-.done
-	ld a, b
-	ld [wd11e], a ; exclamation point num
-	pop bc
-	ret
-
-INCLUDE "data/moves/grammar.asm"
 
 PrintMoveFailureText:
 	ld de, wPlayerMoveEffect
@@ -6397,6 +6330,15 @@ EnemyCanExecuteMove:
 	predef FlagActionPredef ; mark this mon as seen in the attackdex
 ; back to vanilla
 	call PrintMonName1Text
+; new for terrain
+	callfar CheckIfTurnPokemonIsFlying ; z flag = FLYING
+	jr z, .priorityAndTerrainOk
+	CheckAndResetEvent EVENT_ENEMY_CANNOT_ATTACK_PSYCHIC_TERRAIN
+	jp z, .priorityAndTerrainOk
+	call NoPrioritiesDueToTerrainPrint
+	jp ExecuteEnemyMoveDone
+.priorityAndTerrainOk
+; BTV
 	ld a, [wEnemyMoveEffect]
 	ld hl, ResidualEffects1
 	ld de, $1

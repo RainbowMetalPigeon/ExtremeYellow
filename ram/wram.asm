@@ -1969,7 +1969,7 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
-wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 223 moves=bits / 8 bits/byte = 28 bytes needed
+wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 231 moves=bits / 8 bits/byte = 29 bytes needed
 wAttackdexSeenEnd::
 
 wNumBagItems:: db
@@ -2253,7 +2253,7 @@ wPalletTownCurScript:: db
 ;wLavenderTownCurScript:: db ; new
 ;	ds 1
 ;wBluesHouseCurScript:: db
-	ds 2 ; new, from optimizing the scripts, UNUSED
+	ds 1 ; new, from optimizing the scripts, UNUSED ; -1 for the new moves, require space in attackdex
 	
 wViridianCityCurScript:: db
 ;wObsidianIslandCurScript:: db
