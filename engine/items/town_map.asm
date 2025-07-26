@@ -346,6 +346,8 @@ LoadTownMap_Fly::
 	jp .townMapFlyLoop
 ; new for sevii
 .pressedSelect
+	CheckEvent EVENT_UNLOCKED_SEVII
+	jr z, .inputLoop
 	SetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII
 	CheckEvent EVENT_IN_SEVII
 	jr z, .seeminglyInKanto

@@ -992,7 +992,8 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const_skip 6
 	const EVENT_SEAFOAM4_BOULDER1_DOWN_HOLE
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
-	const_skip 6 ; edited
+	const_skip 5 ; edited
+	const EVENT_UNLOCKED_SEVII ; new for sevii
 	const EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii
 	const EVENT_CURRENTLY_USING_SEVII_PALETTES ; new for sevii
 	const EVENT_BEAT_ARTICUNO

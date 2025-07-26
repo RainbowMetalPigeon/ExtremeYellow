@@ -13,6 +13,7 @@ SeviiOneIslandDock_ScriptPointers: ; testing
 	dw WarpScriptToKanto
 
 ActionsOnEntry:
+	SetEvent EVENT_UNLOCKED_SEVII
 	ld a, SEVII_ONE_ISLAND_CITY
 	ld [wLastBlackoutMap], a
 	IF DEF(_DEBUG)
