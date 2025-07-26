@@ -570,29 +570,6 @@ PerformChecks:
 	cp WATER
 	jr z, .water
 
-; check if the user is part Flying: if so, let's skip the next checks
-; terrains only affect grounded pokemon, and we don't consider Levitating ones
-	push hl
-	push af
-	ldh a, [hWhoseTurn]
-	and a
-	ld hl, wBattleMonType1
-	jr z, .playersVariables
-	ld hl, wEnemyMonType1
-.playersVariables
-	ld a, [hli] ; a is the first type of the attacking mon, hl+=1
-	cp FLYING
-	jr z, .popAndReturn
-	ld a, [hl] ; a is the second type of the attacking mon
-	cp FLYING
-	jr nz, .checkTerrains
-.popAndReturn
-	pop af
-	pop hl
-	ret
-.checkTerrains
-	pop af
-	pop hl
 	cp ELECTRIC
 	jr z, .electric
 	cp GRASS
@@ -621,23 +598,35 @@ PerformChecks:
 	ret z
 	jr .subtractHalfFromBasePowerInD
 
+; for the terrains: check if the user is part Flying: if so, let's skip the next checks
+; except for Misty Terrains, which affects the defender, so we swap the check
+; terrains only affect grounded pokemon, and we don't consider Levitating ones
+
 .electric
 	CheckEvent EVENT_TERRAIN_ELECTRIC
+	ret z
+	call CheckIfTurnPokemonIsFlying ; z flag = FLYING
 	ret z
 	jr .addHalfToBasePowerInD
 
 .grass
 	CheckEvent EVENT_TERRAIN_GRASSY
 	ret z
+	call CheckIfTurnPokemonIsFlying
+	ret z
 	jr .addHalfToBasePowerInD
 
 .psychic
 	CheckEvent EVENT_TERRAIN_PSYCHIC
 	ret z
+	call CheckIfTurnPokemonIsFlying
+	ret z
 	jr .addHalfToBasePowerInD
 
 .dragon
 	CheckEvent EVENT_TERRAIN_MISTY
+	ret z
+	call CheckIfNonTurnPokemonIsFlying ; this is the opposite of the three other terrains
 	ret z
 	jr .subtractHalfFromBasePowerInD
 
