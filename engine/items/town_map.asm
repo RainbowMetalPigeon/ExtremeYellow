@@ -206,6 +206,18 @@ MonsNestText:
 	db "'s NEST@"
 
 LoadTownMap_Fly::
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .currentlyInKanto
+; currently in Sevii
+	ld a, 1
+	ld [wOriginallyInKantoOrSeviiForFly], a
+	jr .coreOfFlyMap
+.currentlyInKanto
+	xor a
+	ld [wOriginallyInKantoOrSeviiForFly], a
+.coreOfFlyMap
+; BTV
 	call ClearSprites
 	call LoadTownMap
 	ld a, $1
@@ -279,16 +291,18 @@ LoadTownMap_Fly::
 	ldh a, [hJoy5]
 	ld b, a
 	pop hl
-	and A_BUTTON | B_BUTTON | D_UP | D_DOWN
+	and A_BUTTON | B_BUTTON | D_UP | D_DOWN | SELECT ; edited for sevii
 	jr z, .inputLoop
-	bit 0, b
+	bit BIT_A_BUTTON, b
 	jr nz, .pressedA
 	ld a, SFX_TINK
 	call PlaySound
-	bit 6, b
+	bit BIT_D_UP, b
 	jr nz, .pressedUp
-	bit 7, b
-	jr nz, .pressedDown
+	bit BIT_D_DOWN, b
+	jp nz, .pressedDown
+	bit BIT_SELECT, b     ; new for sevii
+	jr nz, .pressedSelect ; new for sevii
 	jr .pressedB
 .pressedA
 	ld a, SFX_HEAL_AILMENT
@@ -299,7 +313,20 @@ LoadTownMap_Fly::
 	set 3, [hl]
 	inc hl
 	set 7, [hl]
+	jr .continueWithB ; new for sevii
 .pressedB
+; new for sevii
+	ResetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII
+	ld a, [wOriginallyInKantoOrSeviiForFly]
+	and a ; z flag sets only if a=0 -> in Kanto
+	jr z, .originallyInKanto
+	; originally in Sevii
+	SetEvent EVENT_IN_SEVII
+	jr .continueWithB
+.originallyInKanto
+	ResetEvent EVENT_IN_SEVII 
+.continueWithB
+; BTV
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
 	ldh [hJoy7], a
@@ -317,6 +344,21 @@ LoadTownMap_Fly::
 	cp NOT_VISITED
 	jr z, .pressedUp ; skip past unvisited towns
 	jp .townMapFlyLoop
+; new for sevii
+.pressedSelect
+	SetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII
+	CheckEvent EVENT_IN_SEVII
+	jr z, .seeminglyInKanto
+; seemingly in Sevii
+	ResetEvent EVENT_IN_SEVII
+	jr .loadOtherMap
+.seeminglyInKanto
+	SetEvent EVENT_IN_SEVII
+.loadOtherMap
+	pop hl
+	pop af
+	jp .coreOfFlyMap
+; BTV
 .wrapToStartOfList
 	ld hl, wFlyLocationsList_Sevii ; new, for sevii
 	CheckEvent EVENT_IN_SEVII
@@ -489,10 +531,29 @@ ExitTownMap:
 	call UpdateSprites
 	jp RunDefaultPaletteCommand
 
-DrawPlayerOrBirdSprite:
 ; a = map number
-; b = OAM base tile
+; b = OAM base tile: 0=player, 4=bird/pikachu?
+DrawPlayerOrBirdSprite:
+; new for sevii
 	push af
+	ld a, b
+	and a
+	jr nz, .vanilla
+	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSeviiForFly] ; 0=Kanto, 1=Sevii
+	jr nz, .inSevii
+; in Kanto
+	and a
+	jr z, .vanilla
+	jr .popAndRet
+.inSevii
+	and a
+	jr nz, .vanilla
+.popAndRet
+	pop af
+	ret
+.vanilla
+; BTV
 	ld a, b
 	ld [wOAMBaseTile], a
 	pop af

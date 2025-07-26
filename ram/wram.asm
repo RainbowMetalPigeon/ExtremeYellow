@@ -1265,11 +1265,12 @@ UNION ; new, made into a union
 wGymCityName:: ds 17
 
 NEXTU ; new, 17 free juicy bytes
+	wOriginallyInKantoOrSeviiForFly:: db ; new: 0=Kanto, 1=Sevii
 	wWeatherCounterPlayer:: db ; new
 	wWeatherCounterEnemy:: db ; new
 	wTerrainCounterPlayer:: db ; new
 	wTerrainCounterEnemy:: db ; new
-	ds 13
+	ds 12
 
 ENDU
 
@@ -1969,7 +1970,7 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
-wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 231 moves=bits / 8 bits/byte = 29 bytes needed
+wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 233 moves=bits / 8 bits/byte = 30 bytes needed
 wAttackdexSeenEnd::
 
 wNumBagItems:: db
@@ -2253,7 +2254,7 @@ wPalletTownCurScript:: db
 ;wLavenderTownCurScript:: db ; new
 ;	ds 1
 ;wBluesHouseCurScript:: db
-	ds 1 ; new, from optimizing the scripts, UNUSED ; -1 for the new moves, require space in attackdex
+;	ds 2
 	
 wViridianCityCurScript:: db
 ;wObsidianIslandCurScript:: db

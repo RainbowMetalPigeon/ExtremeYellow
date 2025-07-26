@@ -610,7 +610,7 @@ FaintEnemyPokemon:
 ;	jpfar GainExperience
 	callfar GainExperience ; new, for mid-battle evolution
 
-TryMidBattleEvolution: ; new, testing
+TryMidBattleEvolution: ; new
 	call AnyEnemyPokemonAliveCheck ; if enemy is completely defeated, do normal after battle evolution instead of mid battle evolution
 	ret z
 	ld a, [wIsInBattle]
@@ -2561,7 +2561,7 @@ SelectMenuItem:
 	bit BIT_SELECT, a
 	jp nz, SwapMovesInMenu
 	bit BIT_START, a          ; new
-	jp nz, ShowMoveInfoInMenu ; new, testing
+	jp nz, ShowMoveInfoInMenu ; new
 IF DEF(_DEBUG)
 	bit BIT_START, a
 	jp nz, Func_3d4f5
@@ -2935,7 +2935,7 @@ PrintMenuItem:
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
 	hlcoord 1, 10
-	ld de, wPlayerMovePower ; testing
+	ld de, wPlayerMovePower
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 	jr .afterDamagePrinting
@@ -3299,7 +3299,7 @@ playPlayerMoveAnimation:
 	ld a, [wPlayerMoveNum]
 	call PlayMoveAnimation
 	call HandleExplodingAnimation
-	callfar HandleWeatherBallAndTerrainPulseAnimation ; new, testing
+	callfar HandleWeatherBallAndTerrainPulseAnimation ; new
 	call DrawPlayerHUDAndHPBar
 	ld a, [wPlayerBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a
@@ -3466,7 +3466,7 @@ PrintGhostText:
 	and (1 << FRZ) | SLP_MASK
 	ret nz
 ; new, to handle Haunted House
-	callfar IsCurrentMapHauntedHouse ; testing
+	callfar IsCurrentMapHauntedHouse
 	ld hl, FrozenInTerrorText
 	jr z, .printAndEnd
 	ld hl, ScaredText
@@ -3476,7 +3476,7 @@ PrintGhostText:
 	ret
 .Ghost ; ghost's turn
 ; new, to handle Haunted House
-	callfar IsCurrentMapHauntedHouse ; testing
+	callfar IsCurrentMapHauntedHouse
 	ld hl, HauntedHouseMonsText
 	jr z, .printAndEnd
 	ld hl, GetOutText
@@ -3507,7 +3507,7 @@ IsGhostBattle: ; this can be easily moved outside of this file, as we care only 
 	dec a
 	ret nz
 ; new, to handle Haunted House
-	callfar IsCurrentMapHauntedHouse ; testing
+	callfar IsCurrentMapHauntedHouse
 	ret z
 ; back to vanilla
 	ld a, [wCurMap]
@@ -5938,12 +5938,6 @@ AIGetTypeEffectiveness:
 	call Divide ; we divide the type effectivness by 5: 0 for not effective, 1 for not very, 2 for normal, 4 for super
 	; now [hQuotient + 3] contains the scaled-down effectiveness
 
-; testing
-	ldh a, [hQuotient]
-	ldh a, [hQuotient+1]
-	ldh a, [hQuotient+2]
-	ldh a, [hQuotient+3]
-
 	pop bc ; to restore the type 1
 	pop hl ; restore the pointer to the effectiveness chart
 
@@ -5986,22 +5980,10 @@ AIGetTypeEffectiveness:
 	ldh [hMultiplier], a
 	call Multiply ; we have Effectivness1 / 5 * Effectivness2, which is at most 4*20=80<255, so still 1 byte
 
-; testing
-	ldh a, [hProduct]
-	ldh a, [hProduct+1]
-	ldh a, [hProduct+2]
-	ldh a, [hProduct+3]
-
 	ld a, 5
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
-
-; testing
-	ldh a, [hQuotient]
-	ldh a, [hQuotient+1]
-	ldh a, [hQuotient+2]
-	ldh a, [hQuotient+3]
 
 	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:
 						   ; 0 for not effective
@@ -6404,7 +6386,7 @@ playEnemyMoveAnimation:
 	ld a, [wEnemyMoveNum]
 	call PlayMoveAnimation
 	call HandleExplodingAnimation
-	callfar HandleWeatherBallAndTerrainPulseAnimation ; new, testing
+	callfar HandleWeatherBallAndTerrainPulseAnimation ; new
 	call DrawEnemyHUDAndHPBar
 	ld a, [wEnemyBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a ; does mon have a substitute?

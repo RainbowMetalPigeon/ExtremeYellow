@@ -1,5 +1,6 @@
 EnterMap::
 ; Load a new map.
+	ResetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii
 	ld a, $ff
 	ld [wJoyIgnore], a
 	call LoadMapData
@@ -1573,7 +1574,10 @@ JoypadOverworld::
 	xor a
 	ld [wSpritePlayerStateData1YStepVector], a
 	ld [wSpritePlayerStateData1XStepVector], a
+	CheckEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii
+	jr nz, .skipRunMapScript ; new for sevii
 	call RunMapScript
+.skipRunMapScript ; new for sevii
 	call Joypad
 	call ForceBikeDown
 	callfar ForceMovementsHauntedHouse ; new, to handle Haunted House, testing, TBE

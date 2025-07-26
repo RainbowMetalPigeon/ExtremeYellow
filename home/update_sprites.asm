@@ -1,4 +1,6 @@
 UpdateSprites::
+	CheckEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii
+	ret nz ; new for sevii
 	ld a, [wUpdateSpritesEnabled]
 	dec a
 	ret nz
