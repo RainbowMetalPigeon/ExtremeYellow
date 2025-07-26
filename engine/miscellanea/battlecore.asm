@@ -702,7 +702,10 @@ HandleWeatherBallAndTerrainPulseAnimation::
 	cp TERRAIN_PULSE
 	ret nz
 
-; it's Terrain Pulse; let's check if there's a terrain active
+; it's Terrain Pulse: check if user is FLYING
+	call CheckIfTurnPokemonIsFlying
+	ret z
+; let's check if there's a terrain active
 	CheckEvent EVENT_TERRAIN_GRASSY
 	ld a, PETAL_DANCE
 	jr nz, .playExtraAnimation

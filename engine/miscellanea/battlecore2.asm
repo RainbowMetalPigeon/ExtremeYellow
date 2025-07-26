@@ -62,7 +62,12 @@ CheckWeathersAndTerrainsForBallAndPulse:
 .checkTerrainPulse
 	cp TERRAIN_PULSE
 	ret nz
-; it's Terrain Pulse; check if there's an active terrain
+; it's Terrain Pulse: check if the user is FLYING
+	push hl
+	callfar CheckIfTurnPokemonIsFlying ; z flag = FLYING
+	pop hl
+	ret z
+; user is grounder: check if there's an active terrain
 	inc hl
 	inc hl ; now hl points to the move power
 	CheckEvent EVENT_TERRAIN_GRASSY
