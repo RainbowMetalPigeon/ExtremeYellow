@@ -1265,6 +1265,7 @@ UNION ; new, made into a union
 wGymCityName:: ds 17
 
 NEXTU ; new, 17 free juicy bytes
+;	wMapPaletteBeforeKantoSeviiFly:: db ; testing
 	wOriginallyInKantoOrSeviiForFly:: db ; new: 0=Kanto, 1=Sevii
 	wWeatherCounterPlayer:: db ; new
 	wWeatherCounterEnemy:: db ; new

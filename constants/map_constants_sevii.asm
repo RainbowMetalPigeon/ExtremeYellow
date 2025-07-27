@@ -19,10 +19,10 @@
 	map_const SEVII_ONE_ISLAND_CITY,         20, 20 ; $00
 	map_const SEVII_TWO_ISLAND_CITY,         20, 20 ; $01
 	map_const SEVII_THREE_ISLAND_CITY,       15, 25 ; $02
-	map_const SEVII_FOUR_ISLAND_CITY,        10,  9 ; $03
-	map_const SEVII_FIVE_ISLAND_CITY,        10,  9 ; $04
-	map_const SEVII_SIX_ISLAND_CITY,         10,  9 ; $05
-	map_const SEVII_SEVEN_ISLAND_CITY,       10,  9 ; $06
+	map_const SEVII_FOUR_ISLAND_CITY,        20, 20 ; $03
+	map_const SEVII_FIVE_ISLAND_CITY,        20, 20 ; $04
+	map_const SEVII_SIX_ISLAND_CITY,         10, 10 ; $05
+	map_const SEVII_SEVEN_ISLAND_CITY,       12, 10 ; $06
 DEF NUM_CITY_MAPS_SEVII EQU const_value
 DEF FIRST_ROUTE_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_31,                15, 55 ; $07
