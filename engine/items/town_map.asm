@@ -211,11 +211,11 @@ LoadTownMap_Fly::
 	jr z, .currentlyInKanto
 ; currently in Sevii
 	ld a, 1
-	ld [wOriginallyInKantoOrSeviiForFly], a
+	ld [wOriginallyInKantoOrSevii], a
 	jr .coreOfFlyMap
 .currentlyInKanto
 	xor a
-	ld [wOriginallyInKantoOrSeviiForFly], a
+	ld [wOriginallyInKantoOrSevii], a
 .coreOfFlyMap
 ; BTV
 	call ClearSprites
@@ -317,7 +317,7 @@ LoadTownMap_Fly::
 .pressedB
 ; new for sevii
 	ResetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII
-	ld a, [wOriginallyInKantoOrSeviiForFly]
+	ld a, [wOriginallyInKantoOrSevii]
 	and a ; z flag sets only if a=0 -> in Kanto
 	jr z, .originallyInKanto
 	; originally in Sevii
@@ -334,6 +334,15 @@ LoadTownMap_Fly::
 	pop hl
 	pop af
 	ld [hl], a
+; new for sevii testing
+	CheckEvent EVENT_IN_SEVII
+	ld a, 1
+	jr nz, .flyingToSevii
+; flying to Kanto
+	xor a
+.flyingToSevii
+	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
+; BTV
 	ret
 .pressedUp
 	decoord 18, 0
@@ -347,7 +356,7 @@ LoadTownMap_Fly::
 ; new for sevii
 .pressedSelect
 	CheckEvent EVENT_UNLOCKED_SEVII
-	jr z, .inputLoop
+	jp z, .inputLoop
 	SetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII
 	CheckEvent EVENT_IN_SEVII
 	jr z, .seeminglyInKanto
@@ -542,7 +551,7 @@ DrawPlayerOrBirdSprite:
 	and a
 	jr nz, .vanilla
 	CheckEvent EVENT_IN_SEVII
-	ld a, [wOriginallyInKantoOrSeviiForFly] ; 0=Kanto, 1=Sevii
+	ld a, [wOriginallyInKantoOrSevii] ; 0=Kanto, 1=Sevii
 	jr nz, .inSevii
 ; in Kanto
 	and a
@@ -555,7 +564,9 @@ DrawPlayerOrBirdSprite:
 	pop af
 	ret
 .vanilla
+	pop af
 ; BTV
+	push af
 	ld a, b
 	ld [wOAMBaseTile], a
 	pop af

@@ -66,6 +66,8 @@ WarpScriptToKanto: ; testing
 	ld c, 20
 	call DelayFrames
 	ResetEvent EVENT_IN_SEVII
+	xor a
+	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
 ;	ld a, 0
 ;	ld [wCurMapScript], a
 	jpfar SpecialEnterMap

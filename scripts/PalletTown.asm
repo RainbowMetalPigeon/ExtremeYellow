@@ -305,6 +305,8 @@ PalletTownScript10: ; testing
 	ld c, 20
 	call DelayFrames
 	SetEvent EVENT_IN_SEVII
+	ld a, 1
+	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
 	ld a, 0
 	ld [wPalletTownCurScript], a
 	jpfar SpecialEnterMap
