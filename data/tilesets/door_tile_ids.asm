@@ -16,7 +16,8 @@ DoorTileIDPointers:
 	dbw RESEARCH_CENTER, .ResearchCenterDoorTileIDs ; new
 	dbw ISLAND,      .IslandDoorTileIDs ; new
 	dbw CLUB,        .ClubDoorTileIDs ; new
-	dbw OVERWORLD_HAUNTED, .OverworldHauntedDoorTileIDs
+	dbw OVERWORLD_HAUNTED, .OverworldHauntedDoorTileIDs ; new
+	dbw OVERWORLD_SEVII,   .OverworldSeviiDoorTileIDs ; new
 	db -1 ; end
 
 MACRO door_tiles
@@ -72,4 +73,7 @@ ENDM
 	door_tiles $4D
 
 .OverworldHauntedDoorTileIDs: ; new, TBE
+	door_tiles $1B, $58
+
+.OverworldSeviiDoorTileIDs: ; new
 	door_tiles $1B, $58

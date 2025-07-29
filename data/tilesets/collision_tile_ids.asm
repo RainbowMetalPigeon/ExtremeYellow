@@ -87,3 +87,6 @@ OverworldHaunted_Coll:: ; new, TBE
 
 IslandOfNumbers_Coll:: ; new
 	coll_tiles $00, $12, $60, $61, $62, $6A, $6B, $6C, $6D, $6E, $6F, $23 ; all the numbers are walkable, and also the white tile and the black one
+
+OverworldSevii_Coll:: ; new
+	coll_tiles $10, $1b, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b, $11, $60, $62, $6C

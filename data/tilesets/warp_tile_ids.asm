@@ -29,6 +29,7 @@ WarpTileIDPointers:
 	dw .IslandWarpTileIDs ; new
 	dw .OverworldHauntedWarpTileIDs ; new
 	dw .IslandOfNumbersdWarpTileIDs ; new
+	dw .OverworldSeviiWarpTileIDs ; new
 	assert_table_length NUM_TILESETS
 
 MACRO warp_tiles
@@ -115,3 +116,5 @@ ENDM
 .IslandOfNumbersdWarpTileIDs: ; new
 	warp_tiles $00 ; only warp is the black one that appears after missingno is defeated
 	
+.OverworldSeviiWarpTileIDs: ; new
+	warp_tiles $1B, $58

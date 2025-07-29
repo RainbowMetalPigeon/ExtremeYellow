@@ -6,6 +6,8 @@ HandleLedges::
 	jr z, .doTheChecks ; new, to handle Haunted House
 	ld a, [wCurMapTileset]
 	and a ; OVERWORLD
+	jr z, .doTheChecks ; new
+	cp OVERWORLD_SEVII ; new
 	ret nz
 .doTheChecks ; new, to handle Haunted House
 	predef GetTileAndCoordsInFrontOfPlayer

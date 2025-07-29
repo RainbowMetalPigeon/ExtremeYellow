@@ -54,8 +54,8 @@ INCLUDE "engine/overworld/update_map.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/missable_objects.asm"
 INCLUDE "engine/overworld/push_boulder.asm"
-INCLUDE "engine/pokemon/add_mon.asm"
-INCLUDE "engine/flag_action.asm"
+;INCLUDE "engine/pokemon/add_mon.asm" ; moved
+;INCLUDE "engine/flag_action.asm" ; moved
 ;INCLUDE "engine/events/heal_party.asm" ; moved to bankGarage
 ;INCLUDE "engine/math/bcd.asm" ; moved to bankGarage
 ;INCLUDE "engine/movie/oak_speech/init_player_data.asm" ; moved
@@ -104,6 +104,10 @@ INCLUDE "engine/movie/title_yellow.asm" ; from Battle Engine 9
 INCLUDE "engine/menus/link_menu.asm" ; from Battle Engine 9
 INCLUDE "engine/miscellanea/battlecore2.asm" ; new
 
+
+SECTION "bankGarage3", ROMX ; new
+INCLUDE "engine/pokemon/add_mon.asm" ; from bank3
+INCLUDE "engine/flag_action.asm" ; from bank3
 
 SECTION "bank4", ROMX
 

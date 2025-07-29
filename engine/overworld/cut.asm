@@ -4,6 +4,8 @@ UsedCut:
 	ld a, [wCurMapTileset]
 	and a ; OVERWORLD
 	jr z, .overworld
+	cp OVERWORLD_SEVII ; new for sevii
+	jr z, .overworld   ; new for sevii
 	cp GYM
 	jr z, .gym						; new
 	cp ISLAND						; new

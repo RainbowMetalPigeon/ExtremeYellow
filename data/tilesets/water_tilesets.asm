@@ -11,4 +11,5 @@ WaterTilesets:
 	db PLATEAU
 	db RESEARCH_CENTER ; new
 	db ISLAND ; new
+	db OVERWORLD_SEVII ; new
 	db -1 ; end

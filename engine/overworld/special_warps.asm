@@ -163,7 +163,13 @@ LoadSpecialWarpData:
 	inc de
 	dec c
 	jr nz, .copyWarpDataLoop2
+; new for sevii
+	CheckEvent EVENT_IN_SEVII
+	ld a, OVERWORLD_SEVII
+	jr nz, .almostDone
 	xor a ; OVERWORLD
+.almostDone
+; BTV
 	ld [wCurMapTileset], a
 .done
 	ld [wYOffsetSinceLastSpecialWarp], a

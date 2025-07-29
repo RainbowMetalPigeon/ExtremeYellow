@@ -98,3 +98,9 @@ OverworldHaunted_Block::   INCBIN "gfx/blocksets/overworld_haunted.bst" ; new
 
 IslandOfNumbers_GFX::   INCBIN "gfx/tilesets/island_of_numbers.2bpp" ; new
 IslandOfNumbers_Block:: INCBIN "gfx/blocksets/island_of_numbers.bst" ; new
+
+
+SECTION "Tilesets 7", ROMX ; new
+
+OverworldSevii_GFX::     INCBIN "gfx/tilesets/overworld_sevii.2bpp"
+OverworldSevii_Block::   INCBIN "gfx/blocksets/overworld_sevii.bst"

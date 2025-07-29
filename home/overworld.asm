@@ -649,6 +649,8 @@ CheckIfInOutsideMap::
 	ld a, [wCurMapTileset]
 	and a ; most towns/routes have tileset 0 (OVERWORLD)
 	ret z
+	cp OVERWORLD_SEVII ; new for sevii
+	ret z ; new for sevii
 	cp PLATEAU ; Route 23 / Indigo Plateau
 	ret z ; new
 	cp ISLAND ; new
@@ -697,6 +699,8 @@ ExtraWarpCheck::
 	ld a, [wCurMapTileset]
 	and a ; outside tileset (OVERWORLD)
 	jr z, .useFunction2
+	cp OVERWORLD_SEVII ; new for sevii
+	jr z, .useFunction2 ; new for sevii
 	cp SHIP ; S.S. Anne tileset
 	jr z, .useFunction2
 	cp SHIP_PORT ; Vermilion Port tileset
@@ -1827,10 +1831,9 @@ LoadPlayerSpriteGraphicsCommon::
 ; function to load data from the map header
 LoadMapHeader::
 	farcall MarkTownVisitedAndLoadMissableObjects
-	jr asm_0dbd
-
-Func_0db5:: ; XXX
-	farcall LoadMissableObjectData
+;	jr asm_0dbd ; edited
+;Func_0db5:: ; XXX ; edited
+;	farcall LoadMissableObjectData ; edited
 asm_0dbd:
 	ld a, [wCurMapTileset]
 ;	ld [wUnusedD119], a

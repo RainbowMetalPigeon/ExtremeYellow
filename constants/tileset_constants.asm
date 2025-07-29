@@ -30,4 +30,5 @@
 	const ISLAND       ; 26, new
 	const OVERWORLD_HAUNTED ; 27, new
 	const ISLAND_OF_NUMBERS ; 28, new
+	const OVERWORLD_SEVII   ; 29, new
 DEF NUM_TILESETS EQU const_value
