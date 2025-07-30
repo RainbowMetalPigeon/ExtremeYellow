@@ -10,7 +10,8 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_CITY
 ; routes
 	dw SeviiRoute31WildMons          ; SEVII_ROUTE_31
-	dw SeviiRoute32WildMons          ; SEVII_ROUTE_31
+	dw SeviiMtEmberWildMons          ; SEVII_MT_EMBER
+	dw SeviiRoute32WildMons          ; SEVII_ROUTE_32
 ; indoors
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
@@ -29,5 +30,6 @@ WildDataPointers_Sevii:
 
 ;INCLUDE "data/wild/maps/nothing.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute31.asm"
+INCLUDE "data/wild/maps/sevii/SeviiMtEmber.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute32.asm"
 INCLUDE "data/wild/maps/sevii/SeviiThreeIslandCity.asm"

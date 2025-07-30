@@ -1461,6 +1461,11 @@ INCLUDE "scripts/SeviiRoute31.asm"
 INCLUDE "data/maps/objects/SeviiRoute31.asm"
 SeviiRoute31_Blocks: INCBIN "maps/SeviiRoute31.blk"
 
+INCLUDE "data/maps/headers/SeviiMtEmber.asm"
+INCLUDE "scripts/SeviiMtEmber.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber.asm"
+SeviiMtEmber_Blocks: INCBIN "maps/SeviiMtEmber.blk"
+
 INCLUDE "data/maps/headers/SeviiRoute32.asm"
 INCLUDE "scripts/SeviiRoute32.asm"
 INCLUDE "data/maps/objects/SeviiRoute32.asm"

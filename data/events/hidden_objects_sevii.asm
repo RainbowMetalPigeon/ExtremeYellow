@@ -1,4 +1,5 @@
 HiddenObjectMaps_Sevii:
+; cities
 	dbw SEVII_ONE_ISLAND_CITY,        SeviiOneIslandCityHiddenObjects
 	dbw SEVII_TWO_ISLAND_CITY,        SeviiTwoIslandCityHiddenObjects
 	dbw SEVII_THREE_ISLAND_CITY,      SeviiThreeIslandCityHiddenObjects
@@ -6,8 +7,10 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_FIVE_ISLAND_CITY,       SeviiFiveIslandCityHiddenObjects
 	dbw SEVII_SIX_ISLAND_CITY,        SeviiSixeIslandCityHiddenObjects
 	dbw SEVII_SEVEN_ISLAND_CITY,      SeviiSevenIslandCityHiddenObjects
+; routes
 	dbw SEVII_ROUTE_31,               SeviiRoute31HiddenObjects
 	dbw SEVII_ROUTE_32,               SeviiRoute32HiddenObjects
+; indoors
 	dbw SEVII_ONE_ISLAND_DOCK,        SeviiOneIslandDockHiddenObjects
 	
 	db -1 ; end

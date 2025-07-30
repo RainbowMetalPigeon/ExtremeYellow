@@ -10,6 +10,7 @@ MapSpriteSets_Sevii:
 	db $07 ; SEVII_SEVEN_ISLAND_CITY
 ; ROUTES
 	db $01 ; SEVII_ROUTE_31
+	db $01 ; SEVII_MT_EMBER
 	db $01 ; SEVII_ROUTE_31
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 

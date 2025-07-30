@@ -38,6 +38,20 @@ TilePairCollisionsLand::
 	db OVERWORLD, $62, $2C ; new, between new rock plateau and route grassy ground ; $39
 	db OVERWORLD, $6C, $58 ; cannot go from 4th copy of rock tile, which is always walkable, into the bottomleft corner of the cavern entrance
 	                       ; this 4th copy has been placed only NORTH of the entrances, and never SOUTH
+						   
+	db OVERWORLD_SEVII, $39, $11
+	db OVERWORLD_SEVII, $11, $62
+	db OVERWORLD_SEVII, $2C, $11
+	db OVERWORLD_SEVII, $23, $11
+	db OVERWORLD_SEVII, $52, $11
+	db OVERWORLD_SEVII, $39, $11
+	db OVERWORLD_SEVII, $30, $11
+	db OVERWORLD_SEVII, $20, $11
+	db OVERWORLD_SEVII, $21, $11
+	db OVERWORLD_SEVII, $5B, $11
+	db OVERWORLD_SEVII, $62, $2C
+	db OVERWORLD_SEVII, $6C, $58
+
 	db -1 ; end
 
 TilePairCollisionsWater::
@@ -46,4 +60,5 @@ TilePairCollisionsWater::
 	db CAVERN, $14, $05
 	; to prevent landing onto rock plateau from above, now that is walkable
 	db OVERWORLD, $14, $11 ; new
+	db OVERWORLD_SEVII, $14, $11 ; new
 	db -1 ; end

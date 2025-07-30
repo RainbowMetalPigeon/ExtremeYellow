@@ -62,13 +62,20 @@ PickUpItem:
 
 	ldh a, [hMissableObjectIndex]
 	ld [wMissableObjectIndex], a
-	CheckEvent EVENT_USE_EXTRA_HIDESHOW ; new
-	jr nz, .hideExtra 					; new
+; new and edited, for second block of HideShow variables and for sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .inSevii
+	CheckEvent EVENT_USE_EXTRA_HIDESHOW
+	jr nz, .hideExtra
 	predef HideObject
-	jr .hidden							; new
-.hideExtra								; new
-	predef HideObjectExtra				; new
-.hidden									; new
+	jr .hidden
+.hideExtra
+	predef HideObjectExtra
+	jr .hidden
+.inSevii
+	predef HideObjectSevii
+.hidden
+; BTV
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, FoundItemText
