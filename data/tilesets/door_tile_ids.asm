@@ -76,4 +76,4 @@ ENDM
 	door_tiles $1B, $58
 
 .OverworldSeviiDoorTileIDs: ; new
-	door_tiles $1B, $58
+	door_tiles $1B, $58, $6F, $73

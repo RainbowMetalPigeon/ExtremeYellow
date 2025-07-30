@@ -117,4 +117,4 @@ ENDM
 	warp_tiles $00 ; only warp is the black one that appears after missingno is defeated
 	
 .OverworldSeviiWarpTileIDs: ; new
-	warp_tiles $1B, $58
+	warp_tiles $1B, $58, $6F, $73

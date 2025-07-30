@@ -51,6 +51,8 @@ TilePairCollisionsLand::
 	db OVERWORLD_SEVII, $5B, $11
 	db OVERWORLD_SEVII, $62, $2C
 	db OVERWORLD_SEVII, $6C, $58
+	db OVERWORLD_SEVII, $6C, $6F
+	db OVERWORLD_SEVII, $6C, $73
 
 	db -1 ; end
 
