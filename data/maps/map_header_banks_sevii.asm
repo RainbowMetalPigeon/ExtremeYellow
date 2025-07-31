@@ -10,6 +10,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiSixIslandCity_h)
 	db BANK(SeviiSevenIslandCity_h)
 ; routes
+	db BANK(SeviiEightIslandCity_h)
 	db BANK(SeviiRoute31_h)
 	db BANK(SeviiMtEmber_h)
 	db BANK(SeviiRoute32_h)

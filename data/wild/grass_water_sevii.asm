@@ -9,6 +9,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_CITY
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_CITY
 ; routes
+	dw NothingWildMons               ; SEVII_EIGHT_ISLAND_CITY
 	dw SeviiRoute31WildMons          ; SEVII_ROUTE_31
 	dw SeviiMtEmberWildMons          ; SEVII_MT_EMBER
 	dw SeviiRoute32WildMons          ; SEVII_ROUTE_32

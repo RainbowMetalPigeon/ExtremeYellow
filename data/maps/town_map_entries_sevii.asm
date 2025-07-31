@@ -14,6 +14,7 @@ ExternalMapEntries_Sevii:
 	external_map  8,  9, FiveIslandName
 	external_map 14, 11, SixIslandName
 	external_map  4, 12, SevenIslandName
+	external_map 11, 15, EightIslandName
 	external_map  1,  3, Route31Name
 	external_map  1,  1, MtEmberName
 	external_map  0,  5, Route32Name

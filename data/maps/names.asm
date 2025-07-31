@@ -71,6 +71,7 @@ FourIslandName:      db "FLOE ISLAND@"
 FiveIslandName:      db "CHRONO ISLAND@"
 SixIslandName:       db "FORTUNE ISLAND@"
 SevenIslandName:     db "QUEST ISLAND@"
+EightIslandName:     db "GENESIS ISLAND@" ; BIRTH-NAVEL
 Route31Name:         db "ROUTE 31@"
 MtEmberName:         db "MT. EMBER@"
 Route32Name:         db "ROUTE 32@"

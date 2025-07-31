@@ -15,5 +15,7 @@ TownMapOrder_Sevii:
 	db SEVII_SIX_ISLAND_CITY
 	
 	db SEVII_SEVEN_ISLAND_CITY
+
+	db SEVII_EIGHT_ISLAND_CITY
 	
 TownMapOrderEnd_Sevii:

@@ -12,16 +12,17 @@ MapHSPointers_Sevii:
 	dw SeviiSixIslandCityHS ; SEVII_SIX_ISLAND_CITY
 	dw SeviiSevenIslandCityHS ; SEVII_SEVEN_ISLAND_CITY
 ; routes
+	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CITY
 	dw SeviiRoute31HS ; SEVII_ROUTE_31
 	dw SeviiMtEmberHS ; SEVII_MT_EMBER
-	dw NoHS ; SEVII_ROUTE_32
+	dw NoHSSevii ; SEVII_ROUTE_32
 ; indoors
-	dw NoHS ; SEVII_ONE_ISLAND_DOCK
+	dw NoHSSevii ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
 
-;NoHS:
-;	db $FF, $FF, $FF
+NoHSSevii:
+	db $FF, $FF, $FF
 
 MissableObjects_Sevii:
 ; entries correspond to HS_* constants (see constants/hide_show_constants_sevii)

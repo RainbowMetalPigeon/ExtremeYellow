@@ -10,6 +10,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiSixIslandCity_h
 	dw SeviiSevenIslandCity_h
 ; routes
+	dw SeviiEightIslandCity_h
 	dw SeviiRoute31_h
 	dw SeviiMtEmber_h
 	dw SeviiRoute32_h

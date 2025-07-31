@@ -1456,6 +1456,11 @@ INCLUDE "scripts/SeviiSevenIslandCity.asm"
 INCLUDE "data/maps/objects/SeviiSevenIslandCity.asm"
 SeviiSevenIslandCity_Blocks: INCBIN "maps/SeviiSevenIslandCity.blk"
 
+INCLUDE "data/maps/headers/SeviiEightIslandCity.asm"
+INCLUDE "scripts/SeviiEightIslandCity.asm"
+INCLUDE "data/maps/objects/SeviiEightIslandCity.asm"
+SeviiEightIslandCity_Blocks: INCBIN "maps/SeviiEightIslandCity.blk"
+
 INCLUDE "data/maps/headers/SeviiRoute31.asm"
 INCLUDE "scripts/SeviiRoute31.asm"
 INCLUDE "data/maps/objects/SeviiRoute31.asm"
