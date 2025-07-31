@@ -1265,12 +1265,13 @@ UNION ; new, made into a union
 wGymCityName:: ds 17
 
 NEXTU ; new, 17 free juicy bytes
-;	wMapPaletteBeforeKantoSeviiFly:: db ; testing
 	wWeatherCounterPlayer:: db ; new
 	wWeatherCounterEnemy:: db ; new
 	wTerrainCounterPlayer:: db ; new
 	wTerrainCounterEnemy:: db ; new
-	ds 13
+	wTrickRoomCounterPlayer:: db ; new
+	wTrickRoomCounterEnemy:: db ; new
+	ds 11
 
 ENDU
 
@@ -2255,7 +2256,7 @@ wPalletTownCurScript:: db
 ;	ds 1
 ;wBluesHouseCurScript:: db
 ;	ds 2
-	
+
 wViridianCityCurScript:: db
 ;wObsidianIslandCurScript:: db
 ;wOchreCityCurScript:: db ; new
@@ -2264,7 +2265,7 @@ wViridianCityCurScript:: db
 ;wRoute3CurScript:: db
 ;wRoute4CurScript:: db
 	ds 5 ; new, from optimizing the scripts, UNUSED
-	
+
 wFanClubCurScript:: db
 ;wViridianGymCurScript:: db
 ;wPewterGymCurScript:: db
@@ -2301,7 +2302,7 @@ wCeruleanCityCurScript:: db
 ;wSSAnneBowCurScript:: db
 ;wViridianForestCurScript:: db
 	ds 9 ; new, from optimizing the scripts, UNUSED
-	
+
 wMuseum1FCurScript:: db
 ;wRoute13CurScript:: db
 ;wRoute14CurScript:: db
@@ -2309,7 +2310,7 @@ wMuseum1FCurScript:: db
 ;wRoute19CurScript:: db
 ;wRoute21CurScript:: db
 	ds 5 ; new, from optimizing the scripts, UNUSED
-	
+
 wSafariZoneGateCurScript:: db
 ;wRockTunnelB1FCurScript:: db
 ;wRockTunnel1FCurScript:: db
@@ -2361,7 +2362,7 @@ wSafariZoneGateCurScript:: db
 ;wHallOfFameCurScript:: db
 	ds 12 ; new, from optimizing the scripts, UNUSED
 		  ; it was 44, but -32 for the wMissableObjectFlagsSevii added below
-	
+
 wChampionsRoomCurScript:: db
 wLoreleisRoomCurScript:: db
 wBrunosRoomCurScript:: db
@@ -2371,13 +2372,13 @@ wAgathasRoomCurScript:: db
 ;wCeladonChiefHouseCurScript:: db ; new
 ;	ds 1
 	ds 3 ; new, from optimizing the scripts, UNUSED
-	
+
 wLancesRoomCurScript:: db
 ;wCopycatsHouse2FCurScript:: db ; new
 ;wSafariZoneRestHouseCurScript:: db ; new
 ;wCinnabarVolcanoBFCurScript:: db ; new
 	ds 3 ; new, from optimizing the scripts, UNUSED
-	
+
 wOchreRehabilitationCenterCurScript:: db ; new
 ;	ds 4
 ;wSilphCo10FCurScript:: db
@@ -2392,7 +2393,7 @@ wOchreRehabilitationCenterCurScript:: db ; new
 ;wGameCornerCurScript:: db
 ;wRoute16Gate1FCurScript:: db
 	ds 9 ; new, from optimizing the scripts, UNUSED
-	
+
 wBillsHouseCurScript:: db
 ;wRoute5GateCurScript:: db
 ;wPowerPlantCurScript:: ; overload
@@ -2401,7 +2402,7 @@ wBillsHouseCurScript:: db
 ;	ds 1
 ;wSSAnne2FCurScript:: db
 	ds 4 ; new, from optimizing the scripts, UNUSED
-	
+
 wSeafoamIslandsB3FCurScript:: db
 ;wRoute23CurScript:: db
 	ds 1 ; new, from optimizing the scripts, UNUSED
@@ -2415,7 +2416,7 @@ wSeafoamIslandsB4FCurScript:: db
 ;wHauntedIslandOfNumbersCurScript:: db ; new
 ;wHauntedHouse4CurScript:: db ; new
 	ds 7 ; new, from optimizing the scripts, UNUSED
-	
+
 wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok
 ;wMrPsychicsHouseCurScript:: db ; new
 ;wCeruleanCaveExtraMiddleCurScript:: db ; new

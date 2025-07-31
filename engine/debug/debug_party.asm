@@ -16,7 +16,7 @@ DebugTeam:
 	db MEW, 59 ; 255
 	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
-	db JIGGLYPUFF, 59
+	db SLOWPOKE, 5
 ;	db PORYGONZ, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
@@ -46,7 +46,7 @@ IF DEF(_DEBUG)
 	ld a, HAIL ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, SUNNY_DAY
+	ld a, TRICK_ROOM
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, MISTY_TERRAIN
@@ -71,7 +71,7 @@ IF DEF(_DEBUG)
 	ld a, FLY
 	ld hl, wPartyMon3Moves
 	ld [hl], a
-	ld a, SANDSTORM
+	ld a, CUT
 	ld hl, wPartyMon3Moves + 1
 	ld [hl], a
 	ld a, SURF

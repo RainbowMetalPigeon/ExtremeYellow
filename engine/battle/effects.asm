@@ -1163,7 +1163,7 @@ PlayBattleAnimation2:
 ; play animation ID at a and animation type 6 or 3
 	ld [wAnimationID], a
 ; new: zero out the alternative animation
-	xor a 
+	xor a
 	ld [wAltAnimationID], a
 GotAnimationID:
 ; BTV
@@ -1205,7 +1205,7 @@ PlayBattleAnimation:
 ; play animation ID at a and predefined animation type
 	ld [wAnimationID], a
 ; new: zero out the alternative animation
-	xor a 
+	xor a
 	ld [wAltAnimationID], a
 ; BTV
 
@@ -1251,3 +1251,6 @@ MistyTerrainEffect:
 
 PsychicTerrainEffect:
 	jpfar PsychicTerrainEffect_
+
+TrickRoomEffect:
+	jpfar TrickRoomEffect_

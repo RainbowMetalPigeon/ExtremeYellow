@@ -207,7 +207,7 @@ PlayAnimation:
 	ld a, [wAnimationID] ; get animation number
 	ld de, AttackAnimationPointers  ; animation command stream pointers ; new
 .gotAnimationType ; new
-	dec a	
+	dec a
 	ld l, a
 	ld h, 0
 	add hl, hl

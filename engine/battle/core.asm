@@ -25,6 +25,7 @@ StartBattle:
 	ResetEvent EVENT_TERRAIN_GRASSY
 	ResetEvent EVENT_TERRAIN_MISTY
 	ResetEvent EVENT_TERRAIN_PSYCHIC
+	ResetEvent EVENT_TRICK_ROOM
 ; BTV
 	xor a
 	ld [wPartyGainExpFlags], a
@@ -34,6 +35,8 @@ StartBattle:
 	ld [wWeatherCounterEnemy], a ; new
 	ld [wTerrainCounterPlayer], a ; new
 	ld [wTerrainCounterEnemy], a ; new
+	ld [wTrickRoomCounterPlayer], a ; new
+	ld [wTrickRoomCounterEnemy], a ; new
 	inc a
 	ld [wFirstMonsNotOutYet], a
 	ld hl, wEnemyMon1HP
@@ -271,6 +274,14 @@ MainInBattleLoop:
 .compareSpeed
 	ld de, wBattleMonSpeed ; player speed value
 	ld hl, wEnemyMonSpeed ; enemy speed value
+; new for Trick Room
+	CheckEvent EVENT_TRICK_ROOM
+	jr z, .trickRoomCheckDone
+	; load values swapped
+	ld hl, wBattleMonSpeed ; player speed value
+	ld de, wEnemyMonSpeed ; enemy speed value
+.trickRoomCheckDone
+; BTV
 	ld c, $2
 	call StringCmp ; compare speed values
 	jr z, .speedEqual
@@ -3197,7 +3208,7 @@ CheckIfPlayerNeedsToChargeUp:
 ; new, for Solarbeam under Sun
 	ld a, [wPlayerMoveNum]
 	cp SOLARBEAM
-	jr nz, .notSolarBeam 
+	jr nz, .notSolarBeam
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
 	jr z, .notSolarBeam
 ; Solarbeam under Sunny Day
@@ -6272,7 +6283,7 @@ CheckIfEnemyNeedsToChargeUp:
 ; new, for Solarbeam under Sun
 	ld a, [wEnemyMoveNum]
 	cp SOLARBEAM
-	jr nz, .notSolarBeam 
+	jr nz, .notSolarBeam
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
 	jr z, .notSolarBeam
 ; Solarbeam under Sunny Day
@@ -7538,7 +7549,7 @@ PlayMoveAnimation:
 	callfar Func_78e98
 	ret
 
-; new: call this subroutine if we are playing an alternative animation. 
+; new: call this subroutine if we are playing an alternative animation.
 PlayAltAnimation: ; TBV
 	ld [wAltAnimationID], a
 	predef_jump MoveAnimation

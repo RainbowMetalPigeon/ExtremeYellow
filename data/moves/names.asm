@@ -269,6 +269,7 @@ MoveNames::
 	li "MISTY TERR."
 	li "PSYCH. TERR."
 	li "TERR. PULSE"
+	li "TRICK ROOM"
 ;	li "123456789012"
 
 	; KAAARP!

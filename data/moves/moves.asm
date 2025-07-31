@@ -277,12 +277,13 @@ Moves:
 	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100,  5 ; done
 	move SANDSTORM,    SANDSTORM_EFFECT,             0, ROCK,         100,  5 ; done
 	move HAIL,         HAIL_EFFECT,                  0, ICE,          100,  5 ; done
-	move WEATHER_BALL, NO_ADDITIONAL_EFFECT,        50, NORMAL,       100, 10 ; TBE
+	move WEATHER_BALL, NO_ADDITIONAL_EFFECT,        50, NORMAL,       100, 10 ; done
 	move GRASSY_TERRAIN,    GRASSY_TERRAIN_EFFECT,    0, GRASS,         100,  5 ; done
 	move ELECTRIC_TERRAIN,  ELECTRIC_TERRAIN_EFFECT,  0, ELECTRIC,      100,  5 ; done
 	move MISTY_TERRAIN,     MISTY_TERRAIN_EFFECT,     0, FAIRY,         100,  5 ; done
 	move PSYCHIC_TERRAIN,   PSYCHIC_TERRAIN_EFFECT,   0, PSYCHIC_TYPE,  100,  5 ; done
-	move TERRAIN_PULSE,     NO_ADDITIONAL_EFFECT,    50, NORMAL,        100, 10 ; TBE
+	move TERRAIN_PULSE,     NO_ADDITIONAL_EFFECT,    50, NORMAL,        100, 10 ; done
+	move TRICK_ROOM,   TRICK_ROOM_EFFECT,             0, PSYCHIC_TYPE,  100,  5 ; TBE
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)

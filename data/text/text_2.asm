@@ -1429,7 +1429,7 @@ _HookedMonAttackedText:: ; edited, 2-liner
 	line "appeared!"
 	prompt
 
-; new ----------------------------------------
+; new ----------------------------------------------------------
 
 _BoyGirlText::
     text "Are you a boy"
@@ -1523,6 +1523,26 @@ _HealedByGrassyTerrainText::
 _NoPrioritiesDueToTerrainText::
 	text "No priority moves"
 	line "due to terrain!"
+	prompt
+
+_TrickRoomGotSetText::
+	text "The trick room"
+	line "got set!"
+	prompt
+
+_TrickRoomGotRemovedText::
+	text "The trick room"
+	line "got removed!"
+	prompt
+
+_TrickRoomStillActiveText::
+	text "The trick room"
+	line "is still active!"
+	prompt
+
+_TrickRoomExpiredText::
+	text "The trick room"
+	line "has expired!"
 	prompt
 
 ;	xxxx "123456789012345678"

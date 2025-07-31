@@ -147,4 +147,6 @@ MoveEffectPointerTable:
 	dw MistyTerrainEffect    ; MISTY_TERRAIN_EFFECT
 	dw PsychicTerrainEffect  ; PSYCHIC_TERRAIN_EFFECT
 
+	dw TrickRoomEffect  ; TRICK_ROOM_EFFECT
+
 	assert_table_length NUM_MOVE_EFFECTS

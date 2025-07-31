@@ -123,7 +123,7 @@
 	const_skip 3 ; edited, was 14
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
-	const_skip 5 ; edited, was 17
+	const_skip 4 ; edited, was 17
 	const EVENT_WEATHER_SUNNY_DAY ; new
 	const EVENT_WEATHER_RAIN_DANCE ; new
 	const EVENT_WEATHER_SANDSTORM ; new
@@ -134,6 +134,7 @@
 	const EVENT_TERRAIN_MISTY ; new
 	const EVENT_TERRAIN_PSYCHIC ; new
 	const EVENT_ENABLE_TERRAIN_HEALING ; new
+	const EVENT_TRICK_ROOM ; new
 	const EVENT_FREED_ROUTE_4 ; new
 	const EVENT_BEAT_MISTY_REMATCH ; new
 	const EVENT_BEAT_CERULEAN_GYM_TRAINER_0

@@ -1,8 +1,9 @@
 HandlePoisonBurnLeechSeed::
-	call HandleWeatherCounter  ; new, to handle weather counter
-	                           ; but only if the current mon did not KO its opponent
-	                           ; that's why it's here
-	call HandleTerrainCounter  ; same for terrains
+	call HandleWeatherCounter   ; new, to handle weather counter
+	                            ; but only if the current mon did not KO its opponent
+	                            ; that's why it's here
+	call HandleTerrainCounter   ; same for terrains
+	call HandleTrickRoomCounter ; same for trick room
 
 ; new, give a chance to Starter Pikachu to heal itself
 	callfar IsThisPartymonStarterPikachu ; edited, was the other version
@@ -641,7 +642,7 @@ MakeTurnIntoEnemysTurn:
 	ld a, 1
 	ldh [hWhoseTurn], a
 	ret
-	
+
 RestoreRealTurn:
 	ld a, [wStoreRealhWhoseTurn]
 	ldh [hWhoseTurn], a
@@ -773,6 +774,40 @@ HandleTerrain_IncreaseEnemyHP:
 
 HealedByGrassyTerrainText::
 	text_far _HealedByGrassyTerrainText
+	text_end
+
+HandleTrickRoomCounter:
+	ld hl, wTrickRoomCounterPlayer
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurn
+	ld hl, wTrickRoomCounterEnemy
+.playersTurn
+	ld a, [hl]
+	and a
+	ret z
+	dec a
+	ld [hl], a
+; check if there are turns left, and print a message accordingly
+	jr z, .noTurnsLeft
+; but don't print it the first turn
+	cp 4
+	ret z
+	ld hl, TrickRoomStillActiveText
+	call PrintText
+	ret
+.noTurnsLeft
+	ResetEvent EVENT_TRICK_ROOM
+	ld hl, TrickRoomExpiredText
+	call PrintText
+	ret
+
+TrickRoomStillActiveText:
+	text_far _TrickRoomStillActiveText
+	text_end
+
+TrickRoomExpiredText:
+	text_far _TrickRoomExpiredText
 	text_end
 
 ; ---------- ugly copies of functions for moving this into its own file -----------------------
