@@ -16,7 +16,7 @@ DebugTeam:
 	db MEW, 59 ; 255
 	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
-	db CLOYSTER, 59
+	db JIGGLYPUFF, 59
 ;	db PORYGONZ, 99
 ;	db MISSINGNO, 255
 	db -1 ; end

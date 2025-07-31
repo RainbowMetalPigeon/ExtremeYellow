@@ -334,15 +334,15 @@ LoadTownMap_Fly::
 	pop hl
 	pop af
 	ld [hl], a
-; new for sevii testing
-	CheckEvent EVENT_IN_SEVII
-	ld a, 1
-	jr nz, .flyingToSevii
-; flying to Kanto
-	xor a
-.flyingToSevii
-	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
-; BTV
+;; new for sevii testing
+;	CheckEvent EVENT_IN_SEVII
+;	ld a, 1
+;	jr nz, .flyingToSevii
+;; flying to Kanto
+;	xor a
+;.flyingToSevii
+;	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
+;; BTV
 	ret
 .pressedUp
 	decoord 18, 0

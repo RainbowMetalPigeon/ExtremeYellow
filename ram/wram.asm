@@ -1266,12 +1266,11 @@ wGymCityName:: ds 17
 
 NEXTU ; new, 17 free juicy bytes
 ;	wMapPaletteBeforeKantoSeviiFly:: db ; testing
-	wOriginallyInKantoOrSevii:: db ; new: 0=Kanto, 1=Sevii
 	wWeatherCounterPlayer:: db ; new
 	wWeatherCounterEnemy:: db ; new
 	wTerrainCounterPlayer:: db ; new
 	wTerrainCounterEnemy:: db ; new
-	ds 12
+	ds 13
 
 ENDU
 
@@ -2530,7 +2529,7 @@ wEnemyMonOrTrainerClass:: db
 wPlayerJumpingYScreenCoordsIndex:: db
 
 ;wRivalStarter:: db ; edited, unused
-	ds 1
+wOriginallyInKantoOrSevii:: db ; new: 0=Kanto, 1=Sevii
 
 IF DEF(_DEBUG)
 ; this byte gets set to NUM_POKEMON by DebugStart

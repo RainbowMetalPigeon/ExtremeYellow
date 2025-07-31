@@ -262,10 +262,11 @@ SetPal_GameFreakIntro:
 SetPal_Overworld:
 
 ; new, for Sevii
-	CheckEvent EVENT_IN_SEVII
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	jr z, .notSevii
 ; yes Sevii
-	SetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
@@ -301,7 +302,7 @@ SetPal_Overworld:
 	ld [wDefaultPaletteCommand], a
 	ret
 .cemetery
-	ld a, PAL_SEVII_GREY - 1
+	ld a, PAL_SEVII_GREYMON - 1
 	jr .townSevii
 .cave
 	ld a, PAL_SEVII_CAVE - 1
@@ -657,10 +658,11 @@ LoadOverworldPikachuFrontpicPalettes::
 GetPal_Pikachu::
 ; similar to SetPal_Overworld
 ; new for sevii
-	CheckEvent EVENT_IN_SEVII
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	jr z, .notSevii
 ; yes Sevii
-	SetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
 ; check by tileset
 	ld a, [wCurMapTileset]
 	cp CEMETERY
@@ -685,7 +687,7 @@ GetPal_Pikachu::
 	inc a ; a town's palette ID is its map ID + 1
 	ret
 .cemetery
-	ld a, PAL_SEVII_GREY - 1
+	ld a, PAL_SEVII_GREYMON - 1
 	jr .townSevii
 .cave
 	ld a, PAL_SEVII_CAVE - 1
@@ -868,7 +870,9 @@ LoadSGB:
 	ld [wCopyingSGBTileData], a
 	ld de, PalTrnPacket
 ; new for sevii
-	CheckAndResetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	ld hl, SuperPalettes
 	jr z, .notSevii
 	ld hl, SuperPalettes_Sevii
@@ -1091,9 +1095,11 @@ GetGBCBasePalAddress::
 	add hl, hl
 	ld de, GBCBasePalettes
 ; new for sevii	
-	push hl
-	CheckAndResetEvent EVENT_CURRENTLY_USING_SEVII_PALETTES
-	pop hl
+;	push hl
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
+;	pop hl
 	jr z, .nonSevii
 	ld de, GBCBasePalettes_Sevii
 .nonSevii

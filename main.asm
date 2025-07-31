@@ -334,7 +334,7 @@ INCLUDE "engine/overworld/player_animations.asm"
 INCLUDE "engine/battle/battle_transitions.asm"
 INCLUDE "engine/items/town_map.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
-INCLUDE "engine/events/in_game_trades.asm"
+;INCLUDE "engine/events/in_game_trades.asm" ; moved to next bank
 INCLUDE "engine/gfx/palettes.asm"
 ;INCLUDE "engine/menus/save.asm" ; moved away to the next bank
 
@@ -346,6 +346,7 @@ INCLUDE "engine/battle/ghost_marowak_anim.asm" ; only by common_text.asm with a 
 INCLUDE "engine/overworld/healing_machine.asm" ; needed for the marowak animation, and only farcalled?
 INCLUDE "engine/movie/hall_of_fame.asm" ; only referenced via farcalling, and calling nothing away?
 INCLUDE "engine/menus/save.asm" ; only used as a predef?
+INCLUDE "engine/events/in_game_trades.asm" ; only used as a predef?
 
 
 SECTION "Itemfinder 1", ROMX

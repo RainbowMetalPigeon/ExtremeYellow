@@ -133,13 +133,13 @@ DEF NUM_SGB_PALS EQU const_value
 	const PAL_SEVII_SIX_ISLAND   ; $06
 	const PAL_SEVII_SEVEN_ISLAND ; $07
 	const PAL_SEVII_EIGHT_ISLAND ; $08
-
+; paddings
 	const PAL_SEVII_PADDING_1
 	const PAL_SEVII_PADDING_2
 	const PAL_SEVII_PADDING_3
 	const PAL_SEVII_PADDING_4
 	const PAL_SEVII_PADDING_5
-	
+; copies of kanto stuff
 	const PAL_SEVII_TOWNMAP
 	const PAL_SEVII_LOGO1
 	const PAL_SEVII_LOGO2

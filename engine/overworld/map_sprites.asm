@@ -22,7 +22,9 @@ _InitMapSprites::
 ; sets carry if the map is a city or route, unsets carry if not
 InitOutsideMapSprites:
 ; new for sevii
-	CheckEvent EVENT_IN_SEVII
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	ld a, [wCurMap]
 	jr nz, .sevii1
 ; kanto
@@ -52,7 +54,9 @@ InitOutsideMapSprites:
 	ld a, (wSpriteSetID - wSpriteSet)
 ; new for sevii
 	push af
-	CheckEvent EVENT_IN_SEVII
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	jr nz, .sevii2
 ; kanto
 	pop af
@@ -326,7 +330,9 @@ GetSplitMapSpriteSetID:
 	ld d, 0
 ; new for sevii
 	ld hl, MapSpriteSets
-	CheckEvent EVENT_IN_SEVII
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	jr z, .noSevii
 ; sevii
 	ld hl, MapSpriteSets_Sevii

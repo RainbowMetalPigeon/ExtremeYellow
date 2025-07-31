@@ -1,6 +1,18 @@
 EnterMap::
 ; Load a new map.
-	ResetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii
+; new for sevii
+	ResetEvent EVENT_FLYING_BETWEEN_KANTO_AND_SEVII
+	CheckEvent EVENT_IN_SEVII
+	jr z, .nowInKanto
+; now in Sevii
+	ld a, 1
+	ld [wOriginallyInKantoOrSevii], a
+	jr .coreOfFlyMap
+.nowInKanto
+	xor a
+	ld [wOriginallyInKantoOrSevii], a
+.coreOfFlyMap
+; BTV
 	ld a, $ff
 	ld [wJoyIgnore], a
 	call LoadMapData
