@@ -5,19 +5,22 @@
 HiddenItemCoords_Sevii:
 	; map id, x, y
 ; cities
-	hidden_item SEVII_ONE_ISLAND_CITY,         15, 15
-	hidden_item SEVII_TWO_ISLAND_CITY,         12,  3
-	hidden_item SEVII_THREE_ISLAND_CITY,       12,  3
-	hidden_item SEVII_FOUR_ISLAND_CITY,        12,  3
-	hidden_item SEVII_FIVE_ISLAND_CITY,        12,  3
-	hidden_item SEVII_SIX_ISLAND_CITY,         12,  3
-	hidden_item SEVII_SEVEN_ISLAND_CITY,       12,  3
+	hidden_item SEVII_ONE_ISLAND_CITY,         15, 15 ; TBE
+	hidden_item SEVII_TWO_ISLAND_CITY,         12,  3 ; TBE
+	hidden_item SEVII_THREE_ISLAND_CITY,       12,  3 ; TBE
+	hidden_item SEVII_FOUR_ISLAND_CITY,        12,  3 ; TBE
+	hidden_item SEVII_FIVE_ISLAND_CITY,        12,  3 ; TBE
+	hidden_item SEVII_SIX_ISLAND_CITY,         12,  3 ; TBE
+	hidden_item SEVII_SEVEN_ISLAND_CITY,       12,  3 ; TBE
 ; routes
-	hidden_item SEVII_ROUTE_31,                12,  3
-	hidden_item SEVII_ROUTE_32,                16, 33
-	hidden_item SEVII_ROUTE_32,                10, 34
-	hidden_item SEVII_ROUTE_32,                14, 32
+	hidden_item SEVII_ROUTE_31,                12,  3 ; TBE
+	hidden_item SEVII_ROUTE_32,                16, 33 ; TBE
+	hidden_item SEVII_ROUTE_32,                10, 34 ; TBE
+	hidden_item SEVII_ROUTE_32,                14, 32 ; TBE
+	hidden_item SEVII_ROUTE_33,                80, 10 ; IRON
+	hidden_item SEVII_ROUTE_33,                69,  6 ; ETHER
+	hidden_item SEVII_ROUTE_33,                56,  5 ; RARE_CANDY
+	hidden_item SEVII_ROUTE_33,                99, 23 ; NUGGET
 ; indoors
-	hidden_item SEVII_ONE_ISLAND_DOCK,         12,  3
-	hidden_item SILPH_CO_5F,                   12,  3
+	hidden_item SEVII_ONE_ISLAND_DOCK,         12,  3 ; TBE
 	db -1 ; end

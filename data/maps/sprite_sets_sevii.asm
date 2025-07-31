@@ -12,7 +12,8 @@ MapSpriteSets_Sevii:
 	db $08 ; SEVII_EIGHT_ISLAND_CITY
 	db $01 ; SEVII_ROUTE_31
 	db $01 ; SEVII_MT_EMBER
-	db $01 ; SEVII_ROUTE_31
+	db $01 ; SEVII_ROUTE_32
+	db $03 ; SEVII_ROUTE_33
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 
 ;DEF EAST_WEST   EQU 1
@@ -74,7 +75,7 @@ SpriteSets_Sevii:
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
-	db SPRITE_BOULDER
+	db SPRITE_ROCKSMASHABLE_ROCK
 	assert_table_length SPRITE_SET_LENGTH
 
 ; sprite set $04

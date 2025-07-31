@@ -16,6 +16,7 @@ MapHSPointers_Sevii:
 	dw SeviiRoute31HS ; SEVII_ROUTE_31
 	dw SeviiMtEmberHS ; SEVII_MT_EMBER
 	dw NoHSSevii ; SEVII_ROUTE_32
+	dw SeviiRoute33HS ; SEVII_ROUTE_33
 ; indoors
 	dw NoHSSevii ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
@@ -53,6 +54,12 @@ SeviiRoute31HS:
 SeviiMtEmberHS:
 	db SEVII_MT_EMBER, 1, SHOW ; MEGA_STONE_X
 	db SEVII_MT_EMBER, 2, SHOW ; MEGA_STONE_Y
+SeviiRoute33HS:
+	db SEVII_ROUTE_33, 1, SHOW ; rock
+	db SEVII_ROUTE_33, 2, SHOW ; rock
+	db SEVII_ROUTE_33, 3, SHOW ; RARE_CANDY
+	db SEVII_ROUTE_33, 4, SHOW ; ULTRA_BALL
+	db SEVII_ROUTE_33, 5, SHOW ; PP_UP
 
 ; indoors ----------------------------------
 

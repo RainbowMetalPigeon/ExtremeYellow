@@ -1,17 +1,18 @@
 HiddenObjectMaps_Sevii:
 ; cities
-	dbw SEVII_ONE_ISLAND_CITY,        SeviiOneIslandCityHiddenObjects
-	dbw SEVII_TWO_ISLAND_CITY,        SeviiTwoIslandCityHiddenObjects
-	dbw SEVII_THREE_ISLAND_CITY,      SeviiThreeIslandCityHiddenObjects
-	dbw SEVII_FOUR_ISLAND_CITY,       SeviiFourIslandCityHiddenObjects
-	dbw SEVII_FIVE_ISLAND_CITY,       SeviiFiveIslandCityHiddenObjects
-	dbw SEVII_SIX_ISLAND_CITY,        SeviiSixeIslandCityHiddenObjects
-	dbw SEVII_SEVEN_ISLAND_CITY,      SeviiSevenIslandCityHiddenObjects
+	dbw SEVII_ONE_ISLAND_CITY,        SeviiOneIslandCityHiddenObjects ; TBE
+	dbw SEVII_TWO_ISLAND_CITY,        SeviiTwoIslandCityHiddenObjects ; TBE
+	dbw SEVII_THREE_ISLAND_CITY,      SeviiThreeIslandCityHiddenObjects ; TBE
+	dbw SEVII_FOUR_ISLAND_CITY,       SeviiFourIslandCityHiddenObjects ; TBE
+	dbw SEVII_FIVE_ISLAND_CITY,       SeviiFiveIslandCityHiddenObjects ; TBE
+	dbw SEVII_SIX_ISLAND_CITY,        SeviiSixeIslandCityHiddenObjects ; TBE
+	dbw SEVII_SEVEN_ISLAND_CITY,      SeviiSevenIslandCityHiddenObjects ; TBE
 ; routes
-	dbw SEVII_ROUTE_31,               SeviiRoute31HiddenObjects
-	dbw SEVII_ROUTE_32,               SeviiRoute32HiddenObjects
+	dbw SEVII_ROUTE_31,               SeviiRoute31HiddenObjects ; TBE
+	dbw SEVII_ROUTE_32,               SeviiRoute32HiddenObjects ; TBE
+	dbw SEVII_ROUTE_33,               SeviiRoute33HiddenObjects
 ; indoors
-	dbw SEVII_ONE_ISLAND_DOCK,        SeviiOneIslandDockHiddenObjects
+	dbw SEVII_ONE_ISLAND_DOCK,        SeviiOneIslandDockHiddenObjects ; TBE
 	
 	db -1 ; end
 
@@ -33,6 +34,15 @@ HiddenObjectMaps_Sevii:
 ; but these do not actually prevent the player
 ; from interacting with them in any direction.
 ;DEF ANY_FACING EQU $d0
+
+SeviiRoute33HiddenObjects:
+	hidden_object 80, 10, IRON, HiddenItems
+	hidden_object 69,  6, ETHER, HiddenItems
+	hidden_object 56,  5, RARE_CANDY, HiddenItems
+	hidden_object 99, 23, NUGGET, HiddenItems
+	db -1 ; end
+
+; TBE --------------------------------------------------------------------
 
 SeviiOneIslandCityHiddenObjects:
 	hidden_object 15, 15, ELIXER, HiddenItems

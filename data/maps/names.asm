@@ -75,3 +75,4 @@ EightIslandName:     db "GENESIS ISLAND@" ; BIRTH-NAVEL
 Route31Name:         db "ROUTE 31@"
 MtEmberName:         db "MT. EMBER@"
 Route32Name:         db "ROUTE 32@"
+Route33Name:         db "ROUTE 33@"

@@ -17,5 +17,10 @@
 	const HS_SEVII_ROUTE_31_ROCK_1         ; x
 	const HS_SEVII_MT_EMBER_MEGA_STONE_1   ; x
 	const HS_SEVII_MT_EMBER_MEGA_STONE_2   ; x
+	const HS_SEVII_ROUTE_33_ROCK_1         ; x
+	const HS_SEVII_ROUTE_33_ROCK_2         ; x
+	const HS_SEVII_ROUTE_33_ITEM_1         ; x
+	const HS_SEVII_ROUTE_33_ITEM_2         ; x
+	const HS_SEVII_ROUTE_33_ITEM_3         ; x
 ; indoors
 DEF NUM_HS_OBJECTS_SEVII EQU const_value

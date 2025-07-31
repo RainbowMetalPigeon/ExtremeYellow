@@ -13,6 +13,7 @@ MapSongBanks_Sevii::
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; SEVII_ROUTE_31
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; SEVII_MT_EMBER
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; SEVII_ROUTE_32
+	db MUSIC_ROUTES4, BANK(Music_Routes4) ; SEVII_ROUTE_33
 ; indoors
 	db MUSIC_VERMILION, BANK(Music_Vermilion) ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
