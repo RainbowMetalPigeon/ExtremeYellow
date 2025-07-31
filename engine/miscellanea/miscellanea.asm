@@ -1190,6 +1190,22 @@ PrintBattleInfoCore::
 	ld de, BattleInfoNullText
 .printWeather
 	call PlaceString
+; print number of turns and caster
+	ld a, [wWeatherCounterPlayer]
+	and a
+	ld de, BattleInfoPlayerText
+	jr nz, .printTurnsWeather
+	ld a, [wWeatherCounterEnemy]
+	and a
+	ld de, BattleInfoEnemyText
+	jr nz, .printTurnsWeather
+	jr .doneWithWeather
+.printTurnsWeather
+	hlcoord 10, 4
+	call PrintOneDigitNumber
+	hlcoord 11, 4
+	call PlaceString
+.doneWithWeather
 
 ; terrain
 	hlcoord 1, 5
@@ -1212,6 +1228,22 @@ PrintBattleInfoCore::
 	ld de, BattleInfoNullText
 .printTerrain
 	call PlaceString
+; print number of turns and caster
+	ld a, [wTerrainCounterPlayer]
+	and a
+	ld de, BattleInfoPlayerText
+	jr nz, .printTurnsTerrain
+	ld a, [wTerrainCounterEnemy]
+	and a
+	ld de, BattleInfoEnemyText
+	jr nz, .printTurnsTerrain
+	jr .doneWithTerrain
+.printTurnsTerrain
+	hlcoord 10, 6
+	call PrintOneDigitNumber
+	hlcoord 11, 6
+	call PlaceString
+.doneWithTerrain
 
 ; trick room
 	hlcoord 1, 7
@@ -1225,6 +1257,22 @@ PrintBattleInfoCore::
 	ld de, BattleInfoNullText
 .printTrickRoom
 	call PlaceString
+; print number of turns and caster
+	ld a, [wTrickRoomCounterPlayer]
+	and a
+	ld de, BattleInfoPlayerText
+	jr nz, .printTurnsTrickRoom
+	ld a, [wTrickRoomCounterEnemy]
+	and a
+	ld de, BattleInfoEnemyText
+	jr nz, .printTurnsTrickRoom
+	jr .doneWithTrickRoom
+.printTurnsTrickRoom
+	hlcoord 13, 8
+	call PrintOneDigitNumber
+	hlcoord 14, 8
+	call PlaceString
+.doneWithTrickRoom
 
 ; entry hazards
 	hlcoord 1, 9
@@ -1364,11 +1412,11 @@ BattleInfoBuffs1Text:
 BattleInfoBuffs2Text:
 	db "AT DF SP SD AC EV@"
 
-;BattleInfoPlayerText:
-;	db "PLAYER@"
+BattleInfoPlayerText:
+	db "-PLA@"
 
-;BattleInfoEnemyText:
-;	db "ENEMY@"
+BattleInfoEnemyText:
+	db "-ENE@"
 
 ; ------------------------
 
