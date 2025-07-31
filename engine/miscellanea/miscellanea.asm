@@ -1157,3 +1157,300 @@ TMPokemartGreetingTextFoundNone:
 TMPokemartGreetingText:
     text_far _TMPokemartGreetingText
     text_end
+
+; =====================================
+
+PrintBattleInfoCore::
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+
+	hlcoord 4, 1
+	ld de, BattleInfoTitleText
+	call PlaceString
+
+; weather
+	hlcoord 1, 3
+	ld de, BattleInfoWeatherText
+	call PlaceString
+; choose which weather to print
+	hlcoord 10, 3
+	ld de, BattleInfoWeatherRainyText
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr nz, .printWeather
+	ld de, BattleInfoWeatherSunnyText
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr nz, .printWeather
+	ld de, BattleInfoWeatherSandstormText
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	jr nz, .printWeather
+	ld de, BattleInfoWeatherHailText
+	CheckEvent EVENT_WEATHER_HAIL
+	jr nz, .printWeather
+	ld de, BattleInfoNullText
+.printWeather
+	call PlaceString
+
+; terrain
+	hlcoord 1, 5
+	ld de, BattleInfoTerrainText
+	call PlaceString
+; choose which terrain to print
+	hlcoord 10, 5
+	ld de, BattleInfoTerrainMistyText
+	CheckEvent EVENT_TERRAIN_MISTY
+	jr nz, .printTerrain
+	ld de, BattleInfoTerrainGrassyText
+	CheckEvent EVENT_TERRAIN_GRASSY
+	jr nz, .printTerrain
+	ld de, BattleInfoTerrainPsychicText
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	jr nz, .printTerrain
+	ld de, BattleInfoTerrainElectricText
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	jr nz, .printTerrain
+	ld de, BattleInfoNullText
+.printTerrain
+	call PlaceString
+
+; trick room
+	hlcoord 1, 7
+	ld de, BattleInfoTrickRoomText
+	call PlaceString
+; check whether trick room is active or not
+	hlcoord 13, 7
+	ld de, BattleInfoTrickRoomActiveText
+	CheckEvent EVENT_TRICK_ROOM
+	jr nz, .printTrickRoom
+	ld de, BattleInfoNullText
+.printTrickRoom
+	call PlaceString
+
+; entry hazards
+	hlcoord 1, 9
+	ld de, BattleInfoEntryHazards1Text
+	call PlaceString
+	hlcoord 1, 10
+	ld de, BattleInfoEntryHazards2Text
+	call PlaceString
+; entry hazards: player side
+	hlcoord 1, 11
+	ld a, [wHazardsSpikesPlayerSide]
+	call PrintOneDigitNumber
+	hlcoord 5, 11
+	ld a, [wHazardsToxicSpikesPlayerSide]
+	call PrintOneDigitNumber
+	hlcoord 9, 11
+	ld a, [wHazardsStealthRockPlayerSide]
+	call PrintOneDigitNumber
+	hlcoord 13, 11
+	ld a, [wHazardsStickyWebPlayerSide]
+	call PrintOneDigitNumber
+; entry hazards: bars in between
+	hlcoord 2, 11
+	ld [hl], "/"
+	hlcoord 6, 11
+	ld [hl], "/"
+	hlcoord 10, 11
+	ld [hl], "/"
+	hlcoord 14, 11
+	ld [hl], "/"
+; entry hazards: enemy side
+	hlcoord 3, 11
+	ld a, [wHazardsSpikesEnemySide]
+	call PrintOneDigitNumber
+	hlcoord 7, 11
+	ld a, [wHazardsToxicSpikesEnemySide]
+	call PrintOneDigitNumber
+	hlcoord 11, 11
+	ld a, [wHazardsStealthRockEnemySide]
+	call PrintOneDigitNumber
+	hlcoord 15, 11
+	ld a, [wHazardsStickyWebEnemySide]
+	call PrintOneDigitNumber
+
+; stat modifiers
+	hlcoord 1, 13
+	ld de, BattleInfoBuffs1Text
+	call PlaceString
+	hlcoord 1, 14
+	ld de, BattleInfoBuffs2Text
+	call PlaceString
+; stat modifiers: player
+	hlcoord 1, 15
+	ld a, [wPlayerMonAttackMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 4, 15
+	ld a, [wPlayerMonDefenseMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 7, 15
+	ld a, [wPlayerMonSpeedMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 10, 15
+	ld a, [wPlayerMonSpecialMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 13, 15
+	ld a, [wPlayerMonAccuracyMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 16, 15
+	ld a, [wPlayerMonEvasionMod]
+	call PrintHumanStringFromStatModifier
+; stat modifiers: enemy
+	hlcoord 1, 16
+	ld a, [wEnemyMonAttackMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 4, 16
+	ld a, [wEnemyMonDefenseMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 7, 16
+	ld a, [wEnemyMonSpeedMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 10, 16
+	ld a, [wEnemyMonSpecialMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 13, 16
+	ld a, [wEnemyMonAccuracyMod]
+	call PrintHumanStringFromStatModifier
+	hlcoord 16, 16
+	ld a, [wEnemyMonEvasionMod]
+	call PrintHumanStringFromStatModifier
+
+	ret
+
+; ------------------------
+
+BattleInfoTitleText:
+	db "BATTLE INFO:@"
+
+BattleInfoNullText:
+	db "/@"
+
+BattleInfoWeatherText:
+	db "WEATHER:@"
+BattleInfoWeatherRainyText:
+	db "RAINY@"
+BattleInfoWeatherSunnyText:
+	db "SUNNY@"
+BattleInfoWeatherSandstormText:
+	db "SANDSTORM@"
+BattleInfoWeatherHailText:
+	db "HAIL@"
+
+BattleInfoTerrainText:
+	db "TERRAIN:@"
+BattleInfoTerrainMistyText:
+	db "MISTY@"
+BattleInfoTerrainGrassyText:
+	db "GRASSY@"
+BattleInfoTerrainPsychicText:
+	db "PSYCHIC@"
+BattleInfoTerrainElectricText:
+	db "ELECTRIC@"
+
+BattleInfoTrickRoomText:
+	db "TRICK ROOM:@"
+BattleInfoTrickRoomActiveText:
+	db "ACTIVE@"
+
+BattleInfoEntryHazards1Text:
+	db "HAZARDS (PLA/ENE):@"
+
+BattleInfoEntryHazards2Text:
+	db "SPK TOX ROK WEB@"
+
+BattleInfoBuffs1Text:
+	db "STATS (PLA/ENE):@"
+
+BattleInfoBuffs2Text:
+	db "AT DF SP SD AC EV@"
+
+;BattleInfoPlayerText:
+;	db "PLAYER@"
+
+;BattleInfoEnemyText:
+;	db "ENEMY@"
+
+; ------------------------
+
+; inputs:
+; a = stat modifier (1 to 13, 7=neutral)
+; hl = coordinates (already provided in hlcoord format)
+PrintHumanStringFromStatModifier:
+	ld de, StatModifier13String
+	cp 13
+	jr z, .end
+	ld de, StatModifier12String
+	cp 12
+	jr z, .end
+	ld de, StatModifier11String
+	cp 11
+	jr z, .end
+	ld de, StatModifier10String
+	cp 10
+	jr z, .end
+	ld de, StatModifier9String
+	cp 9
+	jr z, .end
+	ld de, StatModifier8String
+	cp 8
+	jr z, .end
+	ld de, StatModifier7String
+	cp 7
+	jr z, .end
+	ld de, StatModifier6String
+	cp 6
+	jr z, .end
+	ld de, StatModifier5String
+	cp 5
+	jr z, .end
+	ld de, StatModifier4String
+	cp 4
+	jr z, .end
+	ld de, StatModifier3String
+	cp 3
+	jr z, .end
+	ld de, StatModifier2String
+	cp 2
+	jr z, .end
+	ld de, StatModifier1String
+.end
+	call PlaceString
+	ret
+
+StatModifier13String:
+	db "+6@"
+StatModifier12String:
+	db "+5@"
+StatModifier11String:
+	db "+4@"
+StatModifier10String:
+	db "+3@"
+StatModifier9String:
+	db "+2@"
+StatModifier8String:
+	db "+1@"
+StatModifier7String:
+	db " 0@"
+StatModifier6String:
+	db "-1@"
+StatModifier5String:
+	db "-2@"
+StatModifier4String:
+	db "-3@"
+StatModifier3String:
+	db "-4@"
+StatModifier2String:
+	db "-5@"
+StatModifier1String:
+	db "-6@"
+
+; ------------------------
+
+; inputs:
+; a = 1-digit number we want to print
+; hl = coordinates
+PrintOneDigitNumber:
+	ld b, "0"
+	add b
+	ld [hl], a
+	ret

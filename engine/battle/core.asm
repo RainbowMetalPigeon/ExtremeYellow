@@ -2035,10 +2035,12 @@ DisplayBattleMenu::
 	inc hl
 	ld a, $1
 	ld [hli], a ; wMaxMenuItem
-	ld [hl], D_RIGHT | A_BUTTON ; wMenuWatchedKeys
+	ld [hl], D_RIGHT | A_BUTTON | SELECT ; wMenuWatchedKeys ; edited
 	call HandleMenuInput
 	bit BIT_D_RIGHT, a
 	jr nz, .rightColumn
+	bit BIT_SELECT, a ; new
+	jp nz, PrintBattleInfo ; new, testing
 	jr .AButtonPressed ; the A button was pressed
 .rightColumn ; put cursor in right column of menu
 	ld a, [wBattleType]
@@ -2068,11 +2070,13 @@ DisplayBattleMenu::
 	inc hl
 	ld a, $1
 	ld [hli], a ; wMaxMenuItem
-	ld a, D_LEFT | A_BUTTON
+	ld a, D_LEFT | A_BUTTON | SELECT ; edited
 	ld [hli], a ; wMenuWatchedKeys
 	call HandleMenuInput
-	bit 5, a ; check if left was pressed
-	jr nz, .leftColumn ; if left was pressed, jump
+	bit BIT_D_LEFT, a ; check if left was pressed ; edited, no longer hard-coded number
+	jp nz, .leftColumn ; if left was pressed, jump
+	bit BIT_SELECT, a ; new
+	jp nz, PrintBattleInfo ; new, testing
 	ld a, [wCurrentMenuItem]
 	add $2 ; if we're in the right column, the actual id is +2
 	ld [wCurrentMenuItem], a
@@ -2784,6 +2788,18 @@ ShowMoveInfoInMenu: ; new
 	call LoadScreenTilesFromBuffer2
 	call LoadHudAndHpBarAndStatusTilePatterns
 	jp MoveSelectionMenu
+
+PrintBattleInfo: ; new
+	call SaveScreenTilesToBuffer2
+	callfar PrintBattleInfoCore
+	call WaitForTextScrollButtonPress
+;	ld a, [wBattleMonSpecies]
+;	ld [wd0b5], a
+;	call GetMonHeader
+;	predef LoadMonBackPic
+	call LoadScreenTilesFromBuffer2
+	call LoadHudAndHpBarAndStatusTilePatterns
+	jp DisplayBattleMenu
 
 SwapMovesInMenu:
 IF DEF(_DEBUG)

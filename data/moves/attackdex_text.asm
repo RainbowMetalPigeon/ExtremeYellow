@@ -912,12 +912,22 @@ _AttackdexText_SandstormEffect::
 	text "A sandstorm rages:"
 ;	xxxx "123456789012345678"
 	dex
-	
+
 _AttackdexText_HailEffect::
 	text "Haily snow falls:"
 ;	xxxx "123456789012345678"
 	dex
-	
+
+_AttackdexText_WeatherBallEffect::
+	text "BP=100 if weather."
+	next "Type changes too:"
+	next "Sunny = FIRE;"
+	next "Rainy = WATER;"
+
+	atpg "Sandstorm = ROCK;"
+	next "Hail = ICE."
+	dex
+
 _AttackdexText_GrassyTerrainEffect::
 	text "The terrain turns"
 	next "grassy:"
@@ -940,6 +950,25 @@ _AttackdexText_PsychicTerrainEffect::
 	text "The terrain turns"
 	next "psychic:"
 ;	xxxx "123456789012345678"
+	dex
+
+_AttackdexText_TerrainPulseEffect::
+	text "BP=100 if terrain."
+	next "Type changes too:"
+	next "Grassy = GRASS;"
+	next "Misty = FAIRY;"
+
+	atpg "Psychic = PSYCHIC;"
+	next "Electric=ELECTRIC."
+	next "Changes only if"
+	next "user is grounded."
+	dex
+
+_AttackdexText_TrickRoomEffect::
+	text "Slower #MON"
+	next "move first."
+	next "Ends if used when"
+	next "already active."
 	dex
 
 _AttackdexText_StruggleEffect::

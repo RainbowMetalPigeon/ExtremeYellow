@@ -663,6 +663,10 @@ DrawAttackdexEntryOnScreen:
 	cp HAIL
 	jp z, .done
 
+	ld hl, AttackdexText_WeatherBallEffect
+	cp WEATHER_BALL
+	jp z, .done
+
 	ld hl, AttackdexText_GrassyTerrainEffect
 	cp GRASSY_TERRAIN
 	jp z, .done
@@ -677,6 +681,14 @@ DrawAttackdexEntryOnScreen:
 
 	ld hl, AttackdexText_PsychicTerrainEffect
 	cp PSYCHIC_TERRAIN
+	jp z, .done
+
+	ld hl, AttackdexText_TerrainPulseEffect
+	cp TERRAIN_PULSE
+	jp z, .done
+
+	ld hl, AttackdexText_TrickRoomEffect
+	cp TRICK_ROOM
 	jp z, .done
 
 	ld a, [wPlayerMoveEffect]
@@ -1866,4 +1878,16 @@ AttackdexText_MistyTerrainEffect:
 
 AttackdexText_PsychicTerrainEffect:
 	text_far _AttackdexText_PsychicTerrainEffect
+	text_end
+
+AttackdexText_WeatherBallEffect:
+	text_far _AttackdexText_WeatherBallEffect
+	text_end
+
+AttackdexText_TerrainPulseEffect:
+	text_far _AttackdexText_TerrainPulseEffect
+	text_end
+
+AttackdexText_TrickRoomEffect:
+	text_far _AttackdexText_TrickRoomEffect
 	text_end

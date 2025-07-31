@@ -16,7 +16,7 @@ DebugTeam:
 	db MEW, 59 ; 255
 	db MMEWTWOY, 68
 	db STARTER_PIKACHU, 100
-	db SLOWPOKE, 5
+;	db SLOWPOKE, 5
 ;	db PORYGONZ, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
@@ -81,16 +81,16 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
-	; moves to other members
-	ld a, WILL_O_WISP
-	ld hl, wPartyMon4Moves
-	ld [hli], a
-	ld a, EXPLOSION
-	ld [hli], a
-	ld a, LEECH_SEED
-	ld [hli], a
-	ld a, CONFUSE_RAY
-	ld [hl], a
+;	; moves to other members
+;	ld a, WILL_O_WISP
+;	ld hl, wPartyMon4Moves
+;	ld [hli], a
+;	ld a, EXPLOSION
+;	ld [hli], a
+;	ld a, LEECH_SEED
+;	ld [hli], a
+;	ld a, CONFUSE_RAY
+;	ld [hl], a
 
 ;	; moves to other members
 ;	ld a, SCALD

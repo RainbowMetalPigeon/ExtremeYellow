@@ -1271,7 +1271,15 @@ NEXTU ; new, 17 free juicy bytes
 	wTerrainCounterEnemy:: db ; new
 	wTrickRoomCounterPlayer:: db ; new
 	wTrickRoomCounterEnemy:: db ; new
-	ds 11
+	wHazardsSpikesEnemySide:: db ; new
+	wHazardsToxicSpikesEnemySide:: db ; new
+	wHazardsStealthRockEnemySide:: db ; new
+	wHazardsStickyWebEnemySide:: db ; new
+	wHazardsSpikesPlayerSide:: db ; new
+	wHazardsToxicSpikesPlayerSide:: db ; new
+	wHazardsStealthRockPlayerSide:: db ; new
+	wHazardsStickyWebPlayerSide:: db ; new
+	ds 3
 
 ENDU
 
