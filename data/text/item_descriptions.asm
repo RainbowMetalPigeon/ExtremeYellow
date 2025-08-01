@@ -469,9 +469,15 @@ _LinkCableDescription::
 	next "as if traded."
 	prompt
 
+_AmuletCoinDescription::
+	text "Doubles the money"
+	next "won in battles."
+	prompt
+
 _CheatCandyDescription::
 	text "Raises LVL by one."
 	next "Not consumed."
+;	xxxx "123456789012345678"
 	prompt
 
 ; HMs --------------------------------------------------------------------------
@@ -499,6 +505,11 @@ _HM04Description::
 _HM05Description::
 	text "FLASH"
 	next "Brigthen caves"
+	prompt
+
+_HM06Description::
+	text "ROCK SMASH"
+	next "Smashes rocks"
 	prompt
 
 ; TMs --------------------------------------------------------------------------

@@ -265,6 +265,7 @@
 	const   CURSE
 
 	; V2.0 moves
+	const ROCK_SMASH
 	const SUNNY_DAY
 	const RAIN_DANCE
 	const SANDSTORM

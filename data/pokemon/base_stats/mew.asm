@@ -25,7 +25,8 @@
 	     BRAVE_BIRD,   REST,         GUNK_SHOT,    X_SCISSOR,    THUNDER_WAVE, \
 	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
 	     FREEZE_DRY,   GYRO_BALL,    BODY_PRESS,   FLAIL,        CURSE,        \
-	     CUT,          FLY,          SURF,         STRENGTH,     FLASH         
+	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
+		 ROCK_SMASH         
 	; end
 
 	db BANK(MewPicFront)

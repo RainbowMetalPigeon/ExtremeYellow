@@ -258,6 +258,7 @@ AttackAnimationPointers:
 	dw CurseAnim
 
 	; V2.0 moves
+	dw RockSmashAnim
 	dw SunnyDayAnim
 	dw RainDanceAnim
 	dw SandstormAnim
@@ -1919,6 +1920,11 @@ JudgmentAnim:
 	battle_anim KARATE_CHOP, SUBANIM_03, 0, 4			; FIGHTING
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	db -1 ; end
+
+RockSmashAnim:
+	battle_anim KARATE_CHOP, SUBANIM_03, 0, 8
+	battle_anim ROCK_THROW, SUBANIM_30, 0, 4
+	db -1
 
 SunnyDayAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE

@@ -925,7 +925,7 @@ _AttackdexText_WeatherBallEffect::
 	next "Rainy = WATER;"
 
 	atpg "Sandstorm = ROCK;"
-	next "Hail = ICE."
+	next "Hail = ICE"
 	dex
 
 _AttackdexText_GrassyTerrainEffect::
@@ -961,14 +961,14 @@ _AttackdexText_TerrainPulseEffect::
 	atpg "Psychic = PSYCHIC;"
 	next "Electric=ELECTRIC."
 	next "Changes only if"
-	next "user is grounded."
+	next "user is grounded"
 	dex
 
 _AttackdexText_TrickRoomEffect::
 	text "Slower #MON"
 	next "move first."
 	next "Ends if used when"
-	next "already active."
+	next "already active"
 	dex
 
 _AttackdexText_StruggleEffect::

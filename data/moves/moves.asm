@@ -273,6 +273,7 @@ Moves:
 	move CURSE,        CURSE_EFFECT,                 0,	TYPELESS,     100, 15 ; done
 
 	; V2.0 moves
+	move ROCK_SMASH,   DEFENSE_DOWN_SIDE_EFFECT3,   40, FIGHTING,     100, 15 ; TBE, needs a new DEFENSE_DOWN_SIDE_EFFECT5
 	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100,  5 ; done
 	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100,  5 ; done
 	move SANDSTORM,    SANDSTORM_EFFECT,             0, ROCK,         100,  5 ; done
@@ -283,7 +284,7 @@ Moves:
 	move MISTY_TERRAIN,     MISTY_TERRAIN_EFFECT,     0, FAIRY,         100,  5 ; done
 	move PSYCHIC_TERRAIN,   PSYCHIC_TERRAIN_EFFECT,   0, PSYCHIC_TYPE,  100,  5 ; done
 	move TERRAIN_PULSE,     NO_ADDITIONAL_EFFECT,    50, NORMAL,        100, 10 ; done
-	move TRICK_ROOM,   TRICK_ROOM_EFFECT,             0, PSYCHIC_TYPE,  100,  5 ; TBE
+	move TRICK_ROOM,   TRICK_ROOM_EFFECT,             0, PSYCHIC_TYPE,  100,  5 ; done
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)

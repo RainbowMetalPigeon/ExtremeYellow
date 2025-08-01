@@ -196,6 +196,7 @@ DEF HM01 EQU const_value ; edited, the numbers below are now wrong
 	add_hm SURF         ; $C6
 	add_hm STRENGTH     ; $C7
 	add_hm FLASH        ; $C8
+	add_hm ROCK_SMASH   ; new
 DEF NUM_HMS EQU const_value - HM01
 
 DEF __tmhm_value__ = 1

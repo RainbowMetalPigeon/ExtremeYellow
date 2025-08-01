@@ -307,7 +307,7 @@ DebugItemsList:
     db LIGHT_BALL, 1
     db ULTRA_BALL, 99
 ;    db GREAT_BALL, 99
-    db HM_FLASH, 1
+    db HM_ROCK_SMASH, 1
 	db AMULET_COIN, 1
 	db -1 ; end
 

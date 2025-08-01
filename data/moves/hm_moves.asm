@@ -7,4 +7,5 @@
 	db SURF
 	db STRENGTH
 	db FLASH
+	db ROCK_SMASH ; new
 	db -1 ; end

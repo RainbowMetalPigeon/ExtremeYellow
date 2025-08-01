@@ -1,6 +1,6 @@
 RockSmash::
 	call EnableAutoTextBoxDrawing
-	
+
 	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 	jr nz, .canUseRockSmash
 ; we haven't beaten Orage yet
@@ -10,7 +10,7 @@ RockSmash::
 
 .canUseRockSmash
 ; check if a Pokemon has the move
-	ld d, SPLASH ; will be ROCK_SMASH
+	ld d, ROCK_SMASH
     callfar IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr nz, .RockSmashInTeam
 ; we don't have the move
@@ -41,7 +41,7 @@ RockSmash::
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, RockSmashedText
 	call PrintText
-	
+
 ; artificial blinking
 	ld a, SFX_CUT ; SFX_PUSH_BOULDER
 	call PlaySound
@@ -85,7 +85,7 @@ RockSmash::
 	ld [wCurEnemyLVL], a
 	callfar RollForShiny ; new, for the shiny
 	ret
-	
+
 .tryItem
 	cp 50 percent ; 25% chance of getting an item
 	ret nc ; do thing otherwise
@@ -100,18 +100,18 @@ RockSmash::
 	inc hl
 	jr .determineItemSlot
 .gotItemSlot
-	
+
 	ld a, [hl]
 	ld b, a
 	ld c, 1
 	push bc
-	
+
 	ld [wd11e], a
 	call GetItemName
-	
+
 	ld hl, FoundItemInRockText
 	call PrintText
-	
+
 	pop bc
 	call GiveItem
 	ret c
@@ -127,7 +127,7 @@ RockSmashedText:
 CannotUseRockSmashText:
 	text_far _CannotUseRockSmashText
 	text_end
-	
+
 APokemonCouldSmashThisText:
 	text_far _APokemonCouldSmashThisText
 	text_end
@@ -136,7 +136,7 @@ FoundItemInRockText:
 	text_far _FoundHiddenItemText
 	sound_get_item_1
 	text_end
-	
+
 BagFullText:
 	text_far _BagFullText
 	text_end
@@ -180,7 +180,7 @@ RockSmashEncounters:
 	db 205, KRABBY, 30
 	db 225, KINGLER, 30
 	db 255, KINGLER, 40
-	
+
 RockSmashItems:
 	db 27, KINGS_ROCK
 	db 54, THUNDER_STONE
@@ -196,7 +196,7 @@ RockSmashItems:
 	db 249, DOME_FOSSIL
 	db 252, HELIX_FOSSIL
 	db 255, OLD_AMBER
-	
+
 _BagFullText::
 	text "But, <PLAYER> has"
 	line "no more room for"

@@ -259,6 +259,7 @@ MoveNames::
 	li "CURSE"
 
 	; V2.0 moves
+	li "ROCK SMASH"
 	li "SUNNY DAY"
 	li "RAIN DANCE"
 	li "SANDSTORM"

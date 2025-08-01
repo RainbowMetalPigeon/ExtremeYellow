@@ -236,6 +236,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _LinkCableDescription		; LINK_CABLE
 	text_end
+	text_far _AmuletCoinDescription		; AMULET_COIN
+	text_end
 
 ; HMs
 
@@ -248,6 +250,8 @@ ItemDescriptionPointers:
 	text_far _HM04Description
 	text_end
 	text_far _HM05Description
+	text_end
+	text_far _HM06Description
 	text_end
 
 ; TMs
