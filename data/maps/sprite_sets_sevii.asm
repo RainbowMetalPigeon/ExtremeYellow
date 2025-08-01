@@ -14,6 +14,9 @@ MapSpriteSets_Sevii:
 	db $01 ; SEVII_MT_EMBER
 	db $01 ; SEVII_ROUTE_32
 	db $03 ; SEVII_ROUTE_33
+	db $05 ; SEVII_ROUTE_34
+	db $05 ; SEVII_ROUTE_35
+	db $05 ; SEVII_ROUTE_36
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 
 ;DEF EAST_WEST   EQU 1

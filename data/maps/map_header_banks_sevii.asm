@@ -15,6 +15,9 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiMtEmber_h)
 	db BANK(SeviiRoute32_h)
 	db BANK(SeviiRoute33_h)
+	db BANK(SeviiRoute34_h)
+	db BANK(SeviiRoute35_h)
+	db BANK(SeviiRoute36_h)
 ; indoors
 	db BANK(SeviiOneIslandDock_h)
 	assert_table_length NUM_MAPS_SEVII

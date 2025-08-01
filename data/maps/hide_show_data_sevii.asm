@@ -17,6 +17,9 @@ MapHSPointers_Sevii:
 	dw SeviiMtEmberHS ; SEVII_MT_EMBER
 	dw NoHSSevii ; SEVII_ROUTE_32
 	dw SeviiRoute33HS ; SEVII_ROUTE_33
+	dw NoHSSevii ; SEVII_ROUTE_34
+	dw NoHSSevii ; SEVII_ROUTE_35
+	dw NoHSSevii ; SEVII_ROUTE_36
 ; indoors
 	dw NoHSSevii ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII

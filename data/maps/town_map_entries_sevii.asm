@@ -19,6 +19,9 @@ ExternalMapEntries_Sevii:
 	external_map  1,  1, MtEmberName
 	external_map  0,  5, Route32Name
 	external_map 13,  3, Route33Name
+	external_map  7,  8, Route34Name
+	external_map  9,  7, Route35Name
+	external_map 10, 11, Route36Name
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 
 
