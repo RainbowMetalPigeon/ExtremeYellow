@@ -10,7 +10,7 @@ ExternalMapEntries_Sevii:
 	external_map  0,  4, OneIslandName
 	external_map  7,  5, TwoIslandName
 	external_map 14,  3, ThreeIslandName
-	external_map  3,  8, FourIslandName
+	external_map  2,  8, FourIslandName
 	external_map  8,  9, FiveIslandName
 	external_map 14, 11, SixIslandName
 	external_map  4, 12, SevenIslandName
