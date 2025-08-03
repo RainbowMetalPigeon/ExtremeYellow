@@ -17,6 +17,14 @@ WildDataPointers_Sevii:
 	dw SeviiRoute34WildMons          ; SEVII_ROUTE_34
 	dw SeviiRoute35WildMons          ; SEVII_ROUTE_35
 	dw SeviiRoute36WildMons          ; SEVII_ROUTE_36
+	dw SeviiRoute37WildMons          ; SEVII_ROUTE_37
+	dw SeviiRoute38WildMons          ; SEVII_ROUTE_38
+	dw SeviiRoute39WildMons          ; SEVII_ROUTE_39
+	dw SeviiRoute40WildMons          ; SEVII_ROUTE_40
+	dw SeviiRoute41WildMons          ; SEVII_ROUTE_41
+	dw SeviiRoute42WildMons          ; SEVII_ROUTE_42
+	dw SeviiRoute43WildMons          ; SEVII_ROUTE_43
+	dw SeviiRoute44WildMons          ; SEVII_ROUTE_44
 ; indoors
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
@@ -46,3 +54,11 @@ INCLUDE "data/wild/maps/sevii/SeviiRoute33.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute34.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute35.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute36.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute37.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute38.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute39.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute40.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute41.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute42.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute43.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute44.asm"

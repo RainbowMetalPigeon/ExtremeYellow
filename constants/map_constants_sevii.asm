@@ -33,8 +33,16 @@ DEF FIRST_ROUTE_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_34,                25, 10 ; $0C
 	map_const SEVII_ROUTE_35,                25, 10 ; $0D
 	map_const SEVII_ROUTE_36,                10, 25 ; $0E
+	map_const SEVII_ROUTE_37,                10, 26 ; $0F
+	map_const SEVII_ROUTE_38,                14, 15 ; $10
+	map_const SEVII_ROUTE_39,                15, 30 ; $11
+	map_const SEVII_ROUTE_40,                30, 23 ; $12
+	map_const SEVII_ROUTE_41,                17, 26 ; $13
+	map_const SEVII_ROUTE_42,                12, 30 ; $14
+	map_const SEVII_ROUTE_43,                19, 46 ; $15
+	map_const SEVII_ROUTE_44,                50, 15 ; $16
 DEF FIRST_INDOOR_MAP_SEVII EQU const_value
-	map_const SEVII_ONE_ISLAND_DOCK,          4,  3 ; $0F
+	map_const SEVII_ONE_ISLAND_DOCK,          4,  3 ; $17
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

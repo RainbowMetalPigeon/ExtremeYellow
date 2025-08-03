@@ -22,6 +22,14 @@ ExternalMapEntries_Sevii:
 	external_map  7,  8, Route34Name
 	external_map  9,  7, Route35Name
 	external_map 10, 11, Route36Name
+	external_map 15, 11, Route37Name
+	external_map 15,  9, Route38Name
+	external_map 13,  8, Route39Name
+	external_map 15, 13, Route40Name
+	external_map  4, 11, Route41Name
+	external_map  4, 13, Route42Name
+	external_map  5, 14, Route43Name
+	external_map  4, 15, Route44Name
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 
 

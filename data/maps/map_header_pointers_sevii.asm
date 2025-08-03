@@ -18,6 +18,14 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute34_h
 	dw SeviiRoute35_h
 	dw SeviiRoute36_h
+	dw SeviiRoute37_h
+	dw SeviiRoute38_h
+	dw SeviiRoute39_h
+	dw SeviiRoute40_h
+	dw SeviiRoute41_h
+	dw SeviiRoute42_h
+	dw SeviiRoute43_h
+	dw SeviiRoute44_h
 ; indoors
 	dw SeviiOneIslandDock_h
 	assert_table_length NUM_MAPS_SEVII

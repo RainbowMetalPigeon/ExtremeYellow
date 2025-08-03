@@ -1500,3 +1500,43 @@ INCLUDE "data/maps/headers/SeviiRoute36.asm"
 INCLUDE "scripts/SeviiRoute36.asm"
 INCLUDE "data/maps/objects/SeviiRoute36.asm"
 SeviiRoute36_Blocks: INCBIN "maps/SeviiRoute36.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute37.asm"
+INCLUDE "scripts/SeviiRoute37.asm"
+INCLUDE "data/maps/objects/SeviiRoute37.asm"
+SeviiRoute37_Blocks: INCBIN "maps/SeviiRoute37.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute38.asm"
+INCLUDE "scripts/SeviiRoute38.asm"
+INCLUDE "data/maps/objects/SeviiRoute38.asm"
+SeviiRoute38_Blocks: INCBIN "maps/SeviiRoute38.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute39.asm"
+INCLUDE "scripts/SeviiRoute39.asm"
+INCLUDE "data/maps/objects/SeviiRoute39.asm"
+SeviiRoute39_Blocks: INCBIN "maps/SeviiRoute39.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute40.asm"
+INCLUDE "scripts/SeviiRoute40.asm"
+INCLUDE "data/maps/objects/SeviiRoute40.asm"
+SeviiRoute40_Blocks: INCBIN "maps/SeviiRoute40.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute41.asm"
+INCLUDE "scripts/SeviiRoute41.asm"
+INCLUDE "data/maps/objects/SeviiRoute41.asm"
+SeviiRoute41_Blocks: INCBIN "maps/SeviiRoute41.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute42.asm"
+INCLUDE "scripts/SeviiRoute42.asm"
+INCLUDE "data/maps/objects/SeviiRoute42.asm"
+SeviiRoute42_Blocks: INCBIN "maps/SeviiRoute42.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute43.asm"
+INCLUDE "scripts/SeviiRoute43.asm"
+INCLUDE "data/maps/objects/SeviiRoute43.asm"
+SeviiRoute43_Blocks: INCBIN "maps/SeviiRoute43.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute44.asm"
+INCLUDE "scripts/SeviiRoute44.asm"
+INCLUDE "data/maps/objects/SeviiRoute44.asm"
+SeviiRoute44_Blocks: INCBIN "maps/SeviiRoute44.blk"
