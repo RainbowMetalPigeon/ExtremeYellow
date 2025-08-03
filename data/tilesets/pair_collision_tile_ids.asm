@@ -29,7 +29,7 @@ TilePairCollisionsLand::
 	db OVERWORLD, $2C, $11 ; new
 	db OVERWORLD, $23, $11 ; new
 	db OVERWORLD, $52, $11 ; new
-	db OVERWORLD, $39, $11 ; new
+	db OVERWORLD, $39, $62 ; new
 	db OVERWORLD, $30, $11 ; new
 ;	db OVERWORLD, $58, $11 ; new, should be unnecessary in all cases? it's between a cavern entrance and the rock plateau, but you should just warp
 	db OVERWORLD, $20, $11 ; new
@@ -45,7 +45,7 @@ TilePairCollisionsLand::
 	db OVERWORLD_SEVII, $2C, $11
 	db OVERWORLD_SEVII, $23, $11
 	db OVERWORLD_SEVII, $52, $11
-	db OVERWORLD_SEVII, $39, $11
+	db OVERWORLD_SEVII, $39, $62
 	db OVERWORLD_SEVII, $30, $11
 	db OVERWORLD_SEVII, $20, $11
 	db OVERWORLD_SEVII, $21, $11

@@ -3736,7 +3736,8 @@ INCLUDE "data/tilesets/water_tilesets.asm"
 
 ; shore tiles
 ShoreTiles:
-	db $48, $32, $66 ; last one is new, custom for Cinnabar Volcano
+;	db $48, $32, $66 ; last one is new, custom for Cinnabar Volcano
+	db $33, $32, $66 ; edited, the first one above was a bug
 WaterTile:
 	db $14
 	db $ff ; terminator
