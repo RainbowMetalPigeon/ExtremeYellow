@@ -1268,11 +1268,16 @@ CollisionCheckOnLand::
 	call CheckTilePassable
 	jr nc, .noCollision
 .collision
+	CheckEvent EVENT_PLAYED_COLLISION_SOUND_WHILE_SLIDING_ALREADY_ONCE ; new
+	jr nz, .setCarry ; new
 	ld a, [wChannelSoundIDs + CHAN5]
 	cp SFX_COLLISION ; check if collision sound is already playing
 	jr z, .setCarry
 	ld a, SFX_COLLISION
 	call PlaySound ; play collision sound (if it's not already playing)
+	callfar AreWeOnSlidingIce ; z if yes ; new
+	jr nz, .setCarry ; new
+	SetEvent EVENT_PLAYED_COLLISION_SOUND_WHILE_SLIDING_ALREADY_ONCE ; new
 .setCarry
 	scf
 	ret

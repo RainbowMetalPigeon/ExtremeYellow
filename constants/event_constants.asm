@@ -47,7 +47,8 @@
 	const_next $28
 	const EVENT_VIRIDIAN_GYM_OPEN
 	const EVENT_GOT_TM42
-	const_skip 2
+	const_skip 1 ; edited, was 1
+	const EVENT_PLAYED_COLLISION_SOUND_WHILE_SLIDING_ALREADY_ONCE ; new
 	const EVENT_02C
 	const EVENT_02D
 	const EVENT_02E

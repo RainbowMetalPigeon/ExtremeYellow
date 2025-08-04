@@ -720,6 +720,7 @@ ForceSlidingOnIce::
 
 .doTheSliding
 	SetEvent EVENT_SLIDING_ON_ICE
+	ResetEvent EVENT_PLAYED_COLLISION_SOUND_WHILE_SLIDING_ALREADY_ONCE
 
 ; check which direction we're facing, and fake the movement accordingly
 	ld a, [wPlayerDirection]

@@ -10,9 +10,9 @@ Route13WildMons:
 	db 31, FEAROW
 	db 33, PIDGEOT
 	db 37, FARFETCHD
-	db 34, PORYGON
-	db 35, PORYGON2
-	db 36, PORYGONZ
+	db 35, PORYGON
+	db 35, PORYGON
+	db 35, PORYGON
 	db  1, MEW
 	end_grass_wildmons
 
