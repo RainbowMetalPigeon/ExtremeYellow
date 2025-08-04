@@ -1,6 +1,10 @@
 DEF MAP_TILESET_SIZE EQU $76 ; new, to expand tileset
 
 UpdatePlayerSprite:
+; new for sliding ice
+	CheckEvent EVENT_SLIDING_ON_ICE
+	ret nz
+; BTV
 	ld a, [wSpritePlayerStateData2WalkAnimationCounter]
 	and a
 	jr z, .checkIfTextBoxInFrontOfSprite

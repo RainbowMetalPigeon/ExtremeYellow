@@ -2,7 +2,6 @@ CheckIfDirectionalButtonIsPressed::
 ;	jr .vanilla ; countercomment this line when created ready
 	ld a, [wCurMap]
 	call IsCurrentMapHauntedHouse_AlsoIsland
-;	jr z, .anomalousMovements ; redundant?
 	jr nz, .vanilla
 
 .anomalousMovements
@@ -693,3 +692,66 @@ RockSmashableRocks_KantoBase:
 
 RockSmashableRocks_KantoExtra:
 	db $FF
+
+; ===========================================================
+
+ForceSlidingOnIce::
+	call AreWeOnSlidingIce ; z if we are on ice
+	jr z, .weAreOnIce
+	ResetEvent EVENT_SLIDING_ON_ICE
+	ret
+
+; we're in a cave and we're standing on ice
+.weAreOnIce
+
+;; for testing
+;	ldh a, [hJoyHeld]
+;	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
+;	ret nz
+
+; stop simulating inputs if there's a barrier in front of us
+;	predef GetTileAndCoordsInFrontOfPlayer
+;	ld a, [wTileInFrontOfPlayer]
+	call CollisionCheckOnLand ; sets the carry flag if there is a collision, and unsets it if there isn't a collision
+	jr nc, .doTheSliding
+; we bumped or exit the ice
+	ResetEvent EVENT_SLIDING_ON_ICE
+	ret
+
+.doTheSliding
+	SetEvent EVENT_SLIDING_ON_ICE
+
+; check which direction we're facing, and fake the movement accordingly
+	ld a, [wPlayerDirection]
+	cp PLAYER_DIR_RIGHT
+	jr z, .right
+	cp PLAYER_DIR_LEFT
+	jr z, .left
+	cp PLAYER_DIR_DOWN
+	jr z, .down
+; up
+	ld a, D_UP
+	jr .end
+.right
+	ld a, D_RIGHT
+	jr .end
+.left
+	ld a, D_LEFT
+	jr .end
+.down
+	ld a, D_DOWN
+.end
+	ldh [hJoyHeld], a
+	ret
+
+; inputs: none
+; outputs: z flag if we are on sliding ice
+AreWeOnSlidingIce::
+	ld a, [wCurMapTileset]
+	cp CAVERN
+	ret nz
+; we're in a cave, let's check the tile we're standing on
+	lda_coord 8, 9 ; tile the player is on
+	ld [wTilePlayerStandingOn], a
+	cp $56 ; bottom-left ice tile
+	ret

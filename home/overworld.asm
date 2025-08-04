@@ -86,6 +86,15 @@ OverworldLoopLessDelay::
 .notSimulating
 	ldh a, [hJoyPressed]
 .checkIfStartIsPressed
+; new for sliding ice
+	push af
+	CheckEvent EVENT_SLIDING_ON_ICE
+	jr z, .vanillaIce
+	pop af
+	jr .startButtonNotPressed
+.vanillaIce
+	pop af
+; BTV
 	bit BIT_START, a
 	jr z, .startButtonNotPressed
 ; if START is pressed
@@ -1596,7 +1605,8 @@ JoypadOverworld::
 .skipRunMapScript ; new for sevii
 	call Joypad
 	call ForceBikeDown
-	callfar ForceMovementsHauntedHouse ; new, to handle Haunted House, testing, TBE
+	callfar ForceMovementsHauntedHouse ; new, to handle Haunted House
+	callfar ForceSlidingOnIce ; new
 	call AreInputsSimulated
 	ret
 

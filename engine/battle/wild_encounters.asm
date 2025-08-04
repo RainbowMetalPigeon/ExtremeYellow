@@ -13,7 +13,11 @@ TryDoWildEncounter:
 	ld a, $1
 	and a
 	ret
+; new for sliding ice
 .notStandingOnDoorOrWarpTile
+	callfar AreWeOnSlidingIce
+	jr z, .CantEncounter
+; BTV
 	callfar IsPlayerJustOutsideMap
 	jr z, .CantEncounter
 	ld a, [wRepelRemainingSteps]

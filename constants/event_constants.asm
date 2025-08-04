@@ -29,7 +29,7 @@
 	const EVENT_GOT_TOWN_MAP
 	const EVENT_ENTERED_BLUES_HOUSE
 	const EVENT_DAISY_WALKING
-	const_skip 1 ; edited, was 5
+	const EVENT_SLIDING_ON_ICE ; new ; there were 5 empty events
 	const EVENT_SOUND_PLAYING_DURING_TEXT ; new
 	const EVENT_AI_SWITCH_MON ; new
 	const EVENT_OAK_GIFTED_SHINY_CHARM ; new

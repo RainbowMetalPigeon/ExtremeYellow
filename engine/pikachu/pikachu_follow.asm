@@ -984,6 +984,10 @@ GetPikachuWalkingAnimationSpeed:
 	ret
 
 UpdatePikachuWalkingSprite:
+; new for sliding ice
+	CheckEvent EVENT_SLIDING_ON_ICE
+	ret nz
+; BTV
 	ld a, [wPikachuOverworldStateFlags]
 	bit 3, a
 	jr nz, .uninitialized
