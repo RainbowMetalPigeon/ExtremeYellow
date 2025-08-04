@@ -1,6 +1,8 @@
 MarkTownVisitedAndLoadMissableObjects::
 ; new for sevii
-	CheckEvent EVENT_IN_SEVII
+;	CheckEvent EVENT_IN_SEVII
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	jr nz, .sevii
 ; back to vanilla / Kanto
 	ld a, [wCurMap]
@@ -226,7 +228,9 @@ IsObjectHidden:
 	jr nz, .loop
 	ld c, a
 	ld b, FLAG_TEST
-	CheckEvent EVENT_IN_SEVII ; new for sevii
+;	CheckEvent EVENT_IN_SEVII ; new for sevii
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
 	ld hl, wMissableObjectFlagsSevii ; new for sevii
 	jr nz, .callAction ; new for sevii
 	CheckEvent EVENT_USE_EXTRA_HIDESHOW		; new for splitting HS
