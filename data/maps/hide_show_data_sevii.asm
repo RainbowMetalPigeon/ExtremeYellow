@@ -30,6 +30,8 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_44
 ; indoors
 	dw NoHSSevii ; SEVII_ONE_ISLAND_DOCK
+	dw NoHSSevii ; SEVII_ICEFALL_CAVE_1F
+; end
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
 

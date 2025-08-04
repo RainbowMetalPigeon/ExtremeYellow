@@ -283,10 +283,11 @@ SetPal_Overworld:
 	jr z, .oneIslandDock
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
-;	cp CERULEAN_CAVE_2F ; TBE
-;	jr c, .normalDungeonOrBuildingSevii
-;	cp CERULEAN_CAVE_1F + 1 ; TBE
-;	jr c, .cave
+;; check by map in array
+;	ld hl, SeviiMaps_FrozenPalette
+;	ld de, 1
+;	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+;	jr c, .frozen
 .normalDungeonOrBuildingSevii
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
@@ -305,7 +306,17 @@ SetPal_Overworld:
 	ld a, PAL_SEVII_GREYMON - 1
 	jr .townSevii
 .cave
+; check by map in array for special palettes (frozen for icefall cave)
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_FrozenPalette
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .frozen
+; normal cave
 	ld a, PAL_SEVII_CAVE - 1
+	jr .townSevii
+.frozen
+	ld a, PAL_SEVII_CYANMON - 1
 	jr .townSevii
 .oneIslandDock
 	ld a, PAL_SEVII_ONE_ISLAND - 1
@@ -397,6 +408,12 @@ SetPal_Overworld:
 	cp NUM_SGB_PALS_HAUNTEDLESS + 1 ; edited to avoid the dark Pallett Town palettes
 	jr nc, .hauntedHouse
 	jr .town
+
+; new
+SeviiMaps_FrozenPalette:
+	db SEVII_ICEFALL_CAVE_1F
+	db -1
+; BTV
 
 ; used when a Pokemon is the only thing on the screen
 ; such as evolution, trading and the Hall of Fame

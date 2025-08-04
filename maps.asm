@@ -1540,3 +1540,8 @@ INCLUDE "data/maps/headers/SeviiRoute44.asm"
 INCLUDE "scripts/SeviiRoute44.asm"
 INCLUDE "data/maps/objects/SeviiRoute44.asm"
 SeviiRoute44_Blocks: INCBIN "maps/SeviiRoute44.blk"
+
+INCLUDE "data/maps/headers/SeviiIcefallCave1F.asm"
+INCLUDE "scripts/SeviiIcefallCave1F.asm"
+INCLUDE "data/maps/objects/SeviiIcefallCave1F.asm"
+SeviiIcefallCave1F_Blocks: INCBIN "maps/SeviiIcefallCave1F.blk"

@@ -27,4 +27,5 @@ MapSongBanks_Sevii::
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone) ; SEVII_ROUTE_44
 ; indoors
 	db MUSIC_VERMILION, BANK(Music_Vermilion) ; SEVII_ONE_ISLAND_DOCK
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2) ; SEVII_ICEFALL_CAVE_1F
 	assert_table_length NUM_MAPS_SEVII

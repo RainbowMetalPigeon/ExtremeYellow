@@ -43,4 +43,5 @@ ExternalMapEntries_Sevii:
 InternalMapEntries_Sevii:
 	; maximum map id subject to this rule, x, y, name
 	internal_map SEVII_ONE_ISLAND_DOCK,          0,  4, OneIslandName
+	internal_map SEVII_ICEFALL_CAVE_1F,          3,  7, IcefallCaveName
 	db -1 ; end

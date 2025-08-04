@@ -28,4 +28,5 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute44_h
 ; indoors
 	dw SeviiOneIslandDock_h
+	dw SeviiIcefallCave1F_h
 	assert_table_length NUM_MAPS_SEVII
