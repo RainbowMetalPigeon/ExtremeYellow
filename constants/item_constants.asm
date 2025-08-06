@@ -163,6 +163,15 @@ DEF NUM_ITEMS EQU const_value - 1
 	const BILLSPC_EEVOLUTION_LEAFEON
 	const BILLSPC_EEVOLUTION_GLACEON
 	const BILLSPC_EEVOLUTION_SYLVEON
+	const FERRY_VERMILION
+	const FERRY_SEVII_ONE
+	const FERRY_SEVII_TWO
+	const FERRY_SEVII_THREE
+	const FERRY_SEVII_FOUR
+	const FERRY_SEVII_FIVE
+	const FERRY_SEVII_SIX
+	const FERRY_SEVII_SEVEN
+	const FERRY_SEVII_EIGHT
 DEF NUM_FLOORS EQU const_value - 1 - NUM_ITEMS
 
 ;	const_next $C4 ; should be totally unnecessary, and damaging if we want to add a ton of items & TMs

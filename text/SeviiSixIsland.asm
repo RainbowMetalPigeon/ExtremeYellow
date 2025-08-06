@@ -1,8 +1,7 @@
-_Test2Text::
-	text "TREASURE BEACH"
-;	xxxx "123456789012345678"
 
-	para "Be mindful of"
-	line "items washed"
-	cont "ashore!"
+; dock ------------------------------------
+
+_SeviiSixIslandDockBgText1::
+	text "CHRONO ISLAND"
+	line "SHIP PORT"
 	done

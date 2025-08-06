@@ -28,5 +28,12 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiRoute44_h)
 ; indoors
 	db BANK(SeviiOneIslandDock_h)
+	db BANK(SeviiTwoIslandDock_h)
+	db BANK(SeviiThreeIslandDock_h)
+	db BANK(SeviiFourIslandDock_h)
 	db BANK(SeviiIcefallCave1F_h)
+	db BANK(SeviiFiveIslandDock_h)
+	db BANK(SeviiSixIslandDock_h)
+	db BANK(SeviiSevenIslandDock_h)
+	db BANK(SeviiEightIslandDock_h)
 	assert_table_length NUM_MAPS_SEVII

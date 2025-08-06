@@ -1479,7 +1479,35 @@ SeviiRoute32_Blocks: INCBIN "maps/SeviiRoute32.blk"
 INCLUDE "data/maps/headers/SeviiOneIslandDock.asm"
 INCLUDE "scripts/SeviiOneIslandDock.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandDock.asm"
-SeviiOneIslandDock_Blocks: INCBIN "maps/SeviiOneIslandDock.blk"
+INCLUDE "data/maps/headers/SeviiTwoIslandDock.asm"
+INCLUDE "scripts/SeviiTwoIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslandDock.asm"
+INCLUDE "data/maps/headers/SeviiThreeIslandDock.asm"
+INCLUDE "scripts/SeviiThreeIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandDock.asm"
+INCLUDE "data/maps/headers/SeviiFourIslandDock.asm"
+INCLUDE "scripts/SeviiFourIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandDock.asm"
+INCLUDE "data/maps/headers/SeviiFiveIslandDock.asm"
+INCLUDE "scripts/SeviiFiveIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandDock.asm"
+INCLUDE "data/maps/headers/SeviiSixIslandDock.asm"
+INCLUDE "scripts/SeviiSixIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiSixIslandDock.asm"
+INCLUDE "data/maps/headers/SeviiSevenIslandDock.asm"
+INCLUDE "scripts/SeviiSevenIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiSevenIslandDock.asm"
+INCLUDE "data/maps/headers/SeviiEightIslandDock.asm"
+INCLUDE "scripts/SeviiEightIslandDock.asm"
+INCLUDE "data/maps/objects/SeviiEightIslandDock.asm"
+SeviiEightIslandDock_Blocks:
+SeviiSevenIslandDock_Blocks:
+SeviiSixIslandDock_Blocks:
+SeviiFiveIslandDock_Blocks:
+SeviiFourIslandDock_Blocks:
+SeviiThreeIslandDock_Blocks:
+SeviiTwoIslandDock_Blocks:
+SeviiOneIslandDock_Blocks: INCBIN "maps/SeviiShipDock.blk"
 
 INCLUDE "data/maps/headers/SeviiRoute33.asm"
 INCLUDE "scripts/SeviiRoute33.asm"

@@ -2390,6 +2390,8 @@ ItemUsePokeflute:
 	jp nz, .inBattle
 ; if not in battle
 	call ItemUseReloadOverworldData
+	CheckEvent EVENT_IN_SEVII ; new
+	jp nz, .sevii ; new
 	ld a, [wCurMap]
 	cp ROUTE_12
 	jr nz, .notRoute12
@@ -2449,6 +2451,11 @@ ItemUsePokeflute:
 .noSnorlaxOrPikachuOrMachampToWakeUp ; edited label name
 	ld hl, PlayedFluteNoEffectText
 	jp PrintText
+
+; new
+.sevii
+	jr .noSnorlaxOrPikachuOrMachampToWakeUp ; TBE if I add sleeping mons in Sevii
+; BTV
 
 .inBattle
 	xor a

@@ -2,17 +2,23 @@ SeviiOneIslandDock_Script:
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
-	call nz, ActionsOnEntry
+	call nz, ActionsOnEntry1
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiOneIslandDock_ScriptPointers
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
-SeviiOneIslandDock_ScriptPointers: ; testing
-	dw NullScript
-	dw WarpScriptToKanto
+SeviiOneIslandDock_ScriptPointers:
+	dw SeviiOneIslandDockScritp_NullScript
+	dw SeviiOneIslandDockScritp_FerryWarpScript
 
-ActionsOnEntry:
+SeviiOneIslandDockScritp_NullScript:
+	ret
+
+SeviiOneIslandDockScritp_FerryWarpScript:
+	jpfar WarpScriptToKanto
+
+ActionsOnEntry1:
 	SetEvent EVENT_UNLOCKED_SEVII
 	ld a, SEVII_ONE_ISLAND_CITY
 	ld [wLastBlackoutMap], a
@@ -23,51 +29,29 @@ ActionsOnEntry:
 	ret
 	
 SeviiOneIslandDock_TextPointers:
-	dw SeviiOneIslandDockText1
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw PickUpItemText
+	dw SeviiOneIslandDockSpriteText1
+	dw SeviiOneIslandDockBgText1
+	dw SeviiOneIslandDockBgText2
+	dw SeviiOneIslandDockBgText3
 	text_end
 
-;SeviiOneIslandDockText3:
-;	text_far _SeviiOneIslandDockText3
-;	text_end
-
-SeviiOneIslandDockText1: ; testing
+SeviiOneIslandDockSpriteText1: ; testing
 	text_asm
-	ld hl, SeviiOneIslandDockText1_test
+	ld hl, SeviiOneIslandDockSpriteText1_inner
 	call PrintText
 	ld a, 1
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
-SeviiOneIslandDockText1_test: ; testing
-	text_far _PalletTownText2
+SeviiOneIslandDockSpriteText1_inner: ; testing
+	text_far _SeviiIslandsDockSailorText1
 	text_end
 
-NullScript: ; testing
-	ret
+SeviiOneIslandDockBgText1: ; TBE
+	text_far _SeviiOneIslandDockBgText1
+	text_end
 
-WarpScriptToKanto: ; testing
-	ld a, VERMILION_DOCK
-	ld [wd72d], a
-	ld c, 20
-	call DelayFrames
-	ld hl, wd732
-	res 1, [hl]
-	ld a, [wDefaultMap]
-	ld [wDestinationMap], a
-	ld a, VERMILION_CITY
-	ld [wLastMap], a
-	call GBFadeOutToBlack
-;	ld a, SPRITE_FACING_UP
-;	ld [wSpritePlayerStateData1FacingDirection], a
-	callfar SpecialWarpIn
-	ld c, 20
-	call DelayFrames
-	ResetEvent EVENT_IN_SEVII
-	xor a
-	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
-;	ld a, 0
-;	ld [wCurMapScript], a
-	jpfar SpecialEnterMap
+SeviiOneIslandDockBgText2:
+SeviiOneIslandDockBgText3:
+	text_far _SeviiIslandsDockTheresNothingText
+	text_end

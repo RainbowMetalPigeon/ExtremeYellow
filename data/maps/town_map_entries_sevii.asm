@@ -43,5 +43,12 @@ ExternalMapEntries_Sevii:
 InternalMapEntries_Sevii:
 	; maximum map id subject to this rule, x, y, name
 	internal_map SEVII_ONE_ISLAND_DOCK,          0,  4, OneIslandName
+	internal_map SEVII_TWO_ISLAND_DOCK,          7,  5, TwoIslandName
+	internal_map SEVII_THREE_ISLAND_DOCK,       14,  3, ThreeIslandName
+	internal_map SEVII_FOUR_ISLAND_DOCK,         2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,          3,  7, IcefallCaveName
+	internal_map SEVII_FIVE_ISLAND_DOCK,         8,  9, FiveIslandName
+	internal_map SEVII_SIX_ISLAND_DOCK,         14, 11, SixIslandName
+	internal_map SEVII_SEVEN_ISLAND_DOCK,        4, 12, SevenIslandName
+	internal_map SEVII_EIGHT_ISLAND_DOCK,       11, 15, EightIslandName
 	db -1 ; end

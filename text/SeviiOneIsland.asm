@@ -1,6 +1,14 @@
+; dock ------------------------------------
+
+_SeviiOneIslandDockBgText1::
+	text "KNOT ISLAND"
+	line "SHIP PORT"
+	done
+
+; route 32 ------------------------------------
+
 _TreasureBeachSignText::
 	text "TREASURE BEACH"
-;	xxxx "123456789012345678"
 
 	para "Be mindful of"
 	line "items washed"

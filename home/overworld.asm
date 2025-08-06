@@ -1619,6 +1619,8 @@ ForceBikeDown::
 	ld a, [wFlags_D733]
 	bit 3, a ; check if a trainer wants a challenge
 	ret nz
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
 	ld a, [wCurMap]
 	cp ROUTE_17 ; Cycling Road
 	ret nz

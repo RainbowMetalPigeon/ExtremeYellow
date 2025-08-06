@@ -151,4 +151,13 @@ ItemNames::
 	li "LEAFEON"
 	li "GLACEON"
 	li "SYLVEON"
+	li "VERMILION"
+	li "KNOT ISLAND"
+	li "BOON ISLAND"
+	li "FAMILY ISLAND"
+	li "FLOE ISLAND"
+	li "CHRONO ISLAND"
+	li "FORTUNE ISLAND"
+	li "QUEST ISLAND"
+	li "GENESIS ISLAND"
 	assert_list_length NUM_ITEMS + NUM_FLOORS
