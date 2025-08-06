@@ -647,6 +647,24 @@ RandomizeWarpsForHauntedHouse::
 
 ; ===========================================================
 
+ForceBikeDown:: ; moved from home/overworld
+	ld a, [wFlags_D733]
+	bit 3, a ; check if a trainer wants a challenge
+	ret nz
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
+	ld a, [wCurMap]
+	cp ROUTE_17 ; Cycling Road
+	ret nz
+	ldh a, [hJoyHeld]
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
+	ret nz
+	ld a, D_DOWN
+	ldh [hJoyHeld], a ; on the cycling road, if there isn't a trainer and the player isn't pressing buttons, simulate a down press
+	ret
+
+; ===========================================================
+
 RespawnAllRockSmashableRocks::
 	ld hl, RockSmashableRocks_Sevii
 .showLoopSevii
