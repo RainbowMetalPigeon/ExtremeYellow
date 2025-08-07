@@ -360,12 +360,6 @@ SetPal_Overworld:
 	ld a, [wCurMap]
 	cp HAUNTED_PALLET_TOWN ; new
 	jr z, .HauntedPalletTown ; new
-	cp FIRST_INDOOR_MAP
-	jr c, .townOrRoute
-	cp CERULEAN_CAVE_2F
-	jr c, .normalDungeonOrBuilding
-	cp CERULEAN_CAVE_1F + 1
-	jr c, .caveOrBruno
 	cp LORELEIS_ROOM
 	jr z, .Lorelei
 	cp BRUNOS_ROOM
@@ -376,6 +370,14 @@ SetPal_Overworld:
 	jr z, .trade_center_colosseum
 	cp HAUNTED_REDS_HOUSE ; new
 	jr z, .Lorelei ; new
+	cp VERMILION_DOCK ; new
+	jr z, .vermilion ; new
+	cp FIRST_INDOOR_MAP
+	jr c, .townOrRoute
+	cp CERULEAN_CAVE_2F
+	jr c, .normalDungeonOrBuilding
+	cp CERULEAN_CAVE_1F + 1
+	jr c, .caveOrBruno
 .normalDungeonOrBuilding
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
@@ -407,6 +409,9 @@ SetPal_Overworld:
 	jr .town
 .trade_center_colosseum
 	ld a, PAL_GREYMON - 1
+	jr .town
+.vermilion ; new
+	ld a, PAL_VERMILION - 1
 	jr .town
 .hauntedHouse ; new
 	call Random

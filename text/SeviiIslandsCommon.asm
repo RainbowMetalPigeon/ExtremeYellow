@@ -12,9 +12,19 @@ _SeviiIslandsDockSailorText_Intro::
 	prompt
 
 _SeviiIslandsDockSailorText_LetsGo::
-	text "Let's go!"
+	text "Excellent! Let's"
+	line "get on board!"
 	done
 
 _SeviiIslandsDockSailorText_Canceled::
-	text "Ciao!"
+	text "We hope to see"
+	line "you soon."
+	done
+
+_SeviiIslandsDockSailorText_NoTicket::
+	text "Oh... you don't"
+	line "have a TICKET."
+
+	para "I'm sorry, you"
+	line "cannot sail."
 	done

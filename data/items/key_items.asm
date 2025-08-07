@@ -112,4 +112,5 @@ KeyItemFlags:
 	dbit FALSE ; ONIGIRI_BOX    - new
 	dbit FALSE ; LINK_CABLE     - new
 	dbit TRUE  ; AMULET_COIN    - new
+	dbit TRUE  ; SEVII_TICKET   - new
 	end_bit_array NUM_ITEMS

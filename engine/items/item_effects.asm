@@ -129,6 +129,7 @@ ItemUsePtrTable:
 	dw ItemUseOnigiri    ; ONIGIRI_BOX, new
 	dw ItemUseEvoStone   ; LINK_CABLE, new
 	dw UnusableItem      ; AMULET_COIN, new
+	dw ItemReadSeviiTicket ; SEVII_TICKET, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -257,6 +258,36 @@ MapMessageComplete::
 	text_end
 
 ; new: code for MYSTERY_MAP, end ------------------------
+
+ItemReadSeviiTicket: ; new
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseNotTime
+	call ItemUseReloadOverworldData
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	jr nz, .upTo8
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+	jr nz, .upTo5
+	ld hl, SeviiTicketUpTo3
+	jp PrintText
+.upTo5
+	ld hl, SeviiTicketUpTo5
+	jp PrintText
+.upTo8
+	ld hl, SeviiTicketUpTo8
+	jp PrintText
+
+SeviiTicketUpTo3::
+	text_far _SeviiTicketUpTo3
+	text_end
+
+SeviiTicketUpTo5::
+	text_far _SeviiTicketUpTo5
+	text_end
+
+SeviiTicketUpTo8::
+	text_far _SeviiTicketUpTo8
+	text_end
 
 ItemUseOnigiri: ; new
 	ld a, [wIsInBattle]

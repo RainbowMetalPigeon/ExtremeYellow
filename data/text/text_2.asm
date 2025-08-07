@@ -1545,4 +1545,22 @@ _TrickRoomExpiredText::
 	line "has expired!"
 	prompt
 
+_SeviiTicketUpTo3::
+	text "Allows to travel"
+	line "to the first 3 of"
+	cont "SEVII ISLANDS!"
+	prompt
+
+_SeviiTicketUpTo5::
+	text "Allows to travel"
+	line "to the first 5 of"
+	cont "SEVII ISLANDS!"
+	prompt
+
+_SeviiTicketUpTo8::
+	text "Allows to travel"
+	line "to all of the"
+	cont "SEVII ISLANDS!"
+	prompt
+	
 ;	xxxx "123456789012345678"

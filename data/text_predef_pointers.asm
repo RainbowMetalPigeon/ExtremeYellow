@@ -77,5 +77,8 @@ TextPredefs::
 	add_tx_pre UsedCutText2                         ; new
 	add_tx_pre MapMessage                           ; new
 	add_tx_pre MapMessageComplete                   ; new
-	add_tx_pre CurrentTooFastText2                  ; new, testing
-	add_tx_pre CyclingIsFunText2                    ; new, testing
+	add_tx_pre CurrentTooFastText2                  ; new
+	add_tx_pre CyclingIsFunText2                    ; new
+	add_tx_pre SeviiTicketUpTo3                     ; new
+	add_tx_pre SeviiTicketUpTo5                     ; new
+	add_tx_pre SeviiTicketUpTo8                     ; new

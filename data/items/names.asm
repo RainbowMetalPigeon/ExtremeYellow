@@ -112,6 +112,7 @@ ItemNames::
 	li "ONIGIRI BOX" ; new
 	li "LINK CABLE" ; new
 	li "AMULET COIN" ; new
+	li "SEVII TICKET" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"
@@ -152,12 +153,12 @@ ItemNames::
 	li "GLACEON"
 	li "SYLVEON"
 	li "VERMILION"
-	li "KNOT ISLAND"
-	li "BOON ISLAND"
-	li "FAMILY ISLAND"
-	li "FLOE ISLAND"
-	li "CHRONO ISLAND"
-	li "FORTUNE ISLAND"
-	li "QUEST ISLAND"
-	li "GENESIS ISLAND"
+	li "KNOT ISL."
+	li "BOON ISL."
+	li "FAMILY ISL."
+	li "FLOE ISL."
+	li "CHRONO ISL."
+	li "FORTUNE ISL."
+	li "QUEST ISL."
+	li "GENESIS ISL."
 	assert_list_length NUM_ITEMS + NUM_FLOORS

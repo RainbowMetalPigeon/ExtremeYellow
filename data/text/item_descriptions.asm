@@ -474,6 +474,11 @@ _AmuletCoinDescription::
 	next "won in battles."
 	prompt
 
+_SeviiTicketDescription::
+	text "Allows to travel"
+	next "to SEVII ISLANDS."
+	prompt
+
 _CheatCandyDescription::
 	text "Raises LVL by one."
 	next "Not consumed."

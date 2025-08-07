@@ -16,8 +16,7 @@ SeviiOneIslandDockScritp_NullScript:
 	ret
 
 SeviiOneIslandDockScritp_FerryWarpScript:
-	jpfar PerformFerryWarp ; TBE
-;	jpfar WarpScriptToKanto
+	jpfar PerformFerryWarp
 
 ActionsOnEntry1:
 	SetEvent EVENT_UNLOCKED_SEVII
@@ -41,13 +40,24 @@ SeviiOneIslandDock_TextPointers:
 SeviiOneIslandDockSpriteText1:
 	text_asm
 ; print intro
-	ld hl, SeviiIslandsDockSailorText_Intro
+	ld hl, SeviiOneIslandDockSailorText_Intro
 	call PrintText
+	ld b, SEVII_TICKET
+	call IsItemInBag ; set zero flag if item isn't in player's bag
+	ld hl, SeviiOneIslandDockSailorText_NoTicket
+	jr z, .doNotHaveTicket
 ; print the list of destinations
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wListScrollOffset], a
-	ld hl, FerryDesinationsList
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, FerryDesinationsList_OneIsland_UpTo8
+	jr nz, .loadDestinations
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+	ld hl, FerryDesinationsList_OneIsland_UpTo5
+	jr nz, .loadDestinations
+	ld hl, FerryDesinationsList_OneIsland_UpTo3
+.loadDestinations
 	call LoadItemList
 	ld hl, wItemList
 	ld a, l
@@ -64,7 +74,7 @@ SeviiOneIslandDockSpriteText1:
 ; we chose a destination
 	ld a, [wcf91]
 	ld [wUniQuizAnswer], a
-	ld hl, SeviiIslandsDockSailorText_LetsGo
+	ld hl, SeviiOneIslandDockSailorText_LetsGo
 	call PrintText
 	ld a, 1
 	ld [wCurMapScript], a
@@ -73,14 +83,33 @@ SeviiOneIslandDockSpriteText1:
 .exit
 	xor a
 	ld [wListScrollOffset], a
-	ld hl, SeviiIslandsDockSailorText_Canceled
+	ld hl, SeviiOneIslandDockSailorText_Canceled
+.doNotHaveTicket
 	call PrintText
 	jp TextScriptEnd
 
-FerryDesinationsList:
-	db 9 ; #
+FerryDesinationsList_OneIsland_UpTo3:
+	db 3 ; #
 	db FERRY_VERMILION
-	db FERRY_SEVII_ONE
+;	db FERRY_SEVII_ONE
+	db FERRY_SEVII_TWO
+	db FERRY_SEVII_THREE
+	db -1 ; end
+
+FerryDesinationsList_OneIsland_UpTo5:
+	db 5 ; #
+	db FERRY_VERMILION
+;	db FERRY_SEVII_ONE
+	db FERRY_SEVII_TWO
+	db FERRY_SEVII_THREE
+	db FERRY_SEVII_FOUR
+	db FERRY_SEVII_FIVE
+	db -1 ; end
+
+FerryDesinationsList_OneIsland_UpTo8:
+	db 8 ; #
+	db FERRY_VERMILION
+;	db FERRY_SEVII_ONE
 	db FERRY_SEVII_TWO
 	db FERRY_SEVII_THREE
 	db FERRY_SEVII_FOUR
@@ -90,16 +119,20 @@ FerryDesinationsList:
 	db FERRY_SEVII_EIGHT
 	db -1 ; end
 
-SeviiIslandsDockSailorText_Intro:
+SeviiOneIslandDockSailorText_Intro:
 	text_far _SeviiIslandsDockSailorText_Intro
 	text_end
 
-SeviiIslandsDockSailorText_LetsGo:
+SeviiOneIslandDockSailorText_LetsGo:
 	text_far _SeviiIslandsDockSailorText_LetsGo
 	text_end
 
-SeviiIslandsDockSailorText_Canceled:
+SeviiOneIslandDockSailorText_Canceled:
 	text_far _SeviiIslandsDockSailorText_Canceled
+	text_end
+
+SeviiOneIslandDockSailorText_NoTicket:
+	text_far _SeviiIslandsDockSailorText_NoTicket
 	text_end
 
 ; ----------------------------------------------

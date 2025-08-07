@@ -55,7 +55,9 @@
 	const EVENT_02F
 	const_skip 1 ; split from below
 	const EVENT_BEAT_OBSIDIAN_MINES_TRAINER_0 ; new
-	const_skip 2 ; edited, was 8
+;	const_skip 8
+	const EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5 ; new
+	const EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8 ; new
 	const EVENT_BEAT_ROUTE_27_TRAINER_0 ; new
 	const EVENT_BEAT_ROUTE_27_TRAINER_1 ; new
 	const EVENT_BEAT_ROUTE_27_TRAINER_2 ; new

@@ -238,7 +238,7 @@ VermilionCityText3:
 	cp SPRITE_FACING_RIGHT
 	jr z, .greetPlayer
 	ld hl, .inFrontOfOrBehindGuardCoords
-	call ArePlayerCoordsInArray
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	jr nc, .greetPlayerAndCheckTicket
 .greetPlayer
 	ld hl, SSAnneWelcomeText4
