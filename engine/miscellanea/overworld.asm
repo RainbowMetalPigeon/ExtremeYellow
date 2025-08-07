@@ -722,14 +722,7 @@ ForceSlidingOnIce::
 ; we're in a cave and we're standing on ice
 .weAreOnIce
 
-;; for testing
-;	ldh a, [hJoyHeld]
-;	and D_DOWN | D_UP | D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
-;	ret nz
-
 ; stop simulating inputs if there's a barrier in front of us
-;	predef GetTileAndCoordsInFrontOfPlayer
-;	ld a, [wTileInFrontOfPlayer]
 	call CollisionCheckOnLand ; sets the carry flag if there is a collision, and unsets it if there isn't a collision
 	jr nc, .doTheSliding
 ; we bumped or exit the ice

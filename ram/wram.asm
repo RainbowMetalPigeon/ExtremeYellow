@@ -2331,7 +2331,7 @@ wSafariZoneGateCurScript:: db
 ;wRoute18CurScript:: db
 ;wRoute20CurScript:: db
 ;wSSAnneB1FRoomsCurScript:: db
-;wVermilionCityCurScript:: db
+wVermilionCityCurScript:: db
 ;wPokemonTower2FCurScript:: db
 ;wPokemonTower3FCurScript:: db
 ;wPokemonTower4FCurScript:: db
@@ -2368,7 +2368,7 @@ wSafariZoneGateCurScript:: db
 ;wSilphCo8FCurScript:: db
 ;wSilphCo9FCurScript:: db
 ;wHallOfFameCurScript:: db
-	ds 12 ; new, from optimizing the scripts, UNUSED
+	ds 11 ; new, from optimizing the scripts, UNUSED
 		  ; it was 44, but -32 for the wMissableObjectFlagsSevii added below
 
 wChampionsRoomCurScript:: db

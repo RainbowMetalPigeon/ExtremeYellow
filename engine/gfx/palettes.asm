@@ -278,16 +278,18 @@ SetPal_Overworld:
 	cp CAVERN
 	jr z, .cave
 ; check by map
+; check by map in array
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_EightIslandsMaps
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .eightIsland
+; normal checks
 	ld a, [wCurMap]
 	cp SEVII_ONE_ISLAND_DOCK
 	jr z, .oneIslandDock
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
-;; check by map in array
-;	ld hl, SeviiMaps_FrozenPalette
-;	ld de, 1
-;	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-;	jr c, .frozen
 .normalDungeonOrBuildingSevii
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
@@ -320,6 +322,9 @@ SetPal_Overworld:
 	jr .townSevii
 .oneIslandDock
 	ld a, PAL_SEVII_ONE_ISLAND - 1
+	jr .townSevii
+.eightIsland
+	ld a, PAL_SEVII_EIGHT_ISLAND - 1
 	jr .townSevii
 .notSevii
 
@@ -412,6 +417,11 @@ SetPal_Overworld:
 ; new
 SeviiMaps_FrozenPalette:
 	db SEVII_ICEFALL_CAVE_1F
+	db -1
+
+SeviiMaps_EightIslandsMaps:
+	db SEVII_EIGHT_ISLAND_CITY
+	db SEVII_EIGHT_ISLAND_DOCK
 	db -1
 ; BTV
 

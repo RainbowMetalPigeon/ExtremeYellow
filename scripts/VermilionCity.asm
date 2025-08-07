@@ -13,7 +13,7 @@ VermilionCity_Script:
 	res 5, [hl]
 	call nz, .setFirstLockTrashCanIndex
 	ld hl, VermilionCity_ScriptPointers
-	ld a, [wCurMapScript] ; edited
+	ld a, [wVermilionCityCurScript] ; edited
 	call CallFunctionInTable
 	call .vermilionCityScript_19869
 	ret
@@ -45,7 +45,7 @@ VermilionCity_Script:
 	SetEventReuseHL EVENT_WALKED_PAST_GUARD_AFTER_SS_ANNE_LEFT
 	ret nz
 	ld a, $2
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 
 VermilionCity_ScriptPointers:
@@ -85,7 +85,7 @@ VermilionCityScript0:
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 	ld a, $1
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 
 .return
@@ -100,7 +100,7 @@ VermilionCityScript4:
 	call ArePlayerCoordsInArray
 	ret c
 	ld a, $0
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 
 VermilionCityScript2:
@@ -113,7 +113,7 @@ VermilionCityScript2:
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 	ld a, $3
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 
 VermilionCityScript3:
@@ -124,7 +124,7 @@ VermilionCityScript3:
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
 	ld a, $0
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 
 VermilionCityScript1:
@@ -134,7 +134,7 @@ VermilionCityScript1:
 	ld c, 10
 	call DelayFrames
 	ld a, $0
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 
 VermilionCity_TextPointers:
@@ -259,7 +259,7 @@ VermilionCityText3:
 	ld hl, SSAnneFlashedTicketText
 	call PrintText
 	ld a, $4
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	jr .end
 .shipHasDeparted
 	ld hl, SSAnneNotHereText
@@ -400,7 +400,7 @@ TextPreBattle_VermilionTraveler: ; new
 	call SaveEndBattleTextPointers
 ; script handling
 	ld a, 5 ; city-specific
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	jp TextScriptEnd
 
 TextPostBattle_VermilionTraveler:
@@ -426,7 +426,7 @@ TextPostBattle_VermilionTraveler:
 	call PrintText
 	; script handling
 	xor a
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	jp TextScriptEnd
 
 ; --------------------------------
@@ -436,7 +436,7 @@ VermilionScript_Traveler:
 	cp $ff
 	jr nz, .notDefeated
 	xor a
-	ld [wCurMapScript], a
+	ld [wVermilionCityCurScript], a
 	ret
 .notDefeated
 	xor a                            ; new, to go beyond 200

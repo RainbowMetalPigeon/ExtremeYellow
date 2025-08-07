@@ -156,15 +156,22 @@ StartMenu_Pokemon::
 	call CheckIfInOutsideMap
 	jr z, .canFly
 ; new block to make "open-air" maps flyable
+	ld a, [wCurMapTileset]
+	cp SHIP_PORT
+	jr z, .canFly
+	CheckEvent EVENT_IN_SEVII
 	ld a, [wCurMap]
+	jr nz, .sevii
 	cp CELADON_MART_ROOF
 	jr z, .canFly
 	cp CELADON_MANSION_ROOF
 	jr z, .canFly
-	cp VERMILION_DOCK
-	jr z, .canFly
 	cp SS_ANNE_BOW
 	jr z, .canFly
+	jr .cannotFlyHere
+.sevii
+	; TBE if I add some special can-fly-from maps in Sevii
+.cannotFlyHere
 ; end of new block to make "open-air" maps flyable
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
