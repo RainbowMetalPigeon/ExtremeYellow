@@ -363,6 +363,7 @@ UpdateMovingBgTiles::
 
 ; water
 
+;	callfar AnimateDeepWaterTile ; new
 	jpfar AnimateWaterTile ; new, to save space in home, see engine/gfx/animated_tiles_code.asm
 
 .flower

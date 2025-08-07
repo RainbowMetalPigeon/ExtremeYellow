@@ -36,7 +36,7 @@ Tilesets:
 	tileset BeachHouse,   -1, -1, -1,  -1, TILEANIM_NONE
 	tileset ResearchCenter, $22, -1, -1,  -1, TILEANIM_WATER ; new
 	tileset Island,       -1, -1, -1, $52, TILEANIM_WATER_FLOWER ; new
-	tileset OverworldHaunted, -1, -1, -1, $52, TILEANIM_NONE ; new, testing
-	tileset IslandOfNumbers, -1, -1, -1, -1, TILEANIM_WATER_FLOWER ; new, testing, no grass? how do water and flowers work?
+	tileset OverworldHaunted, -1, -1, -1, $52, TILEANIM_NONE ; new
+	tileset IslandOfNumbers, -1, -1, -1, -1, TILEANIM_WATER_FLOWER ; new, no grass? how do water and flowers work?
 	tileset OverworldSevii,  -1, -1, -1, $52, TILEANIM_WATER_FLOWER
 	assert_table_length NUM_TILESETS

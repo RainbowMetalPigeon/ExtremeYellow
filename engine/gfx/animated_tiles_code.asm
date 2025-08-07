@@ -56,6 +56,39 @@ AnimateFlowerTile::
 	jr nz, .loop
 	ret
 
+AnimateDeepWaterTile::
+	ld hl, vTileset tile $6A
+	ld c, $10
+
+	ld a, [wMovingBGTilesCounter2]
+	inc a
+	and 7
+	ld [wMovingBGTilesCounter2], a
+
+	and 4
+	jr nz, .left
+.right
+	ld a, [hl]
+	rrca
+	ld [hli], a
+	dec c
+	jr nz, .right
+	jr .done
+.left
+	ld a, [hl]
+	rlca
+	ld [hli], a
+	dec c
+	jr nz, .left
+.done
+	ldh a, [hTileAnimations]
+	rrca
+	ret nc
+
+	xor a
+	ldh [hMovingBGTilesCounter1], a
+	ret
+
 FlowerTile1: INCBIN "gfx/tilesets/flower/flower1.2bpp"
 FlowerTile2: INCBIN "gfx/tilesets/flower/flower2.2bpp"
 FlowerTile3: INCBIN "gfx/tilesets/flower/flower3.2bpp"
