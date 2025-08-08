@@ -514,7 +514,7 @@ _HurtBySpikesText::
 	prompt
 
 _PoisonedByToxicSpikesText::
-	text "The #MON is"
+	text "The #MON"
 	line "got poisoned by"
 	cont "the toxic spikes!"
 	prompt

@@ -91,9 +91,11 @@ CheckWeathersAndTerrainsForBallAndPulse:
 ; ==========================================================
 
 ApplyEntryHazardsPlayer::
+	SetEvent EVENT_HAZARDS_DAMAGING_PLAYER
+
 	ld b, FLYING
 	call CheckIfPlayerPokemonIsCertainType ; z = FLYING
-	jr z, .checkStealthRock ; skip grounded hazards
+	jp z, .checkStealthRock ; skip grounded hazards
 	; fallthrough
 
 .entryHazardsCore
@@ -109,13 +111,13 @@ ApplyEntryHazardsPlayer::
 	cp 2
 	jr z, .spikes2Layers
 ; 1 layer of spikes
-	call HandleHazards_DecreasePlayerHP_1o8
+	call HandleHazards_DecreaseHP_1o8
 	jr .checkToxicSpikes
 .spikes2Layers
-	call HandleHazards_DecreasePlayerHP_1o8 ; TBE = 1o6
+	call HandleHazards_DecreaseHP_1o8 ; TBE = 1o6
 	jr .checkToxicSpikes
 .spikes3Layers
-	call HandleHazards_DecreasePlayerHP_1o8 ; TBE = 1o4
+	call HandleHazards_DecreaseHP_1o4
 	; fallthrough
 
 .checkToxicSpikes
@@ -194,19 +196,19 @@ ApplyEntryHazardsPlayer::
 	cp 2
 	jr z, .effNotVery
 ; double not very effective
-	call HandleHazards_DecreasePlayerHP_1o8 ; TBE 1o32
+	call HandleHazards_DecreaseHP_1o32
 	ret
 .effNotVery
-	call HandleHazards_DecreasePlayerHP_1o8 ; TBE 1o16
+	call HandleHazards_DecreaseHP_1o16
 	ret
 .effNormal
-	call HandleHazards_DecreasePlayerHP_1o8
+	call HandleHazards_DecreaseHP_1o8
 	ret
 .effSuper
-	call HandleHazards_DecreasePlayerHP_1o8 ; TBE 1o4
+	call HandleHazards_DecreaseHP_1o4
 	ret
 .effDoubleSuper
-	call HandleHazards_DecreasePlayerHP_1o8 ; TBE 1o2
+	call HandleHazards_DecreaseHP_1o2
 	ret
 
 HurtBySpikesText::
@@ -232,9 +234,11 @@ HurtByRocksText::
 ; ----------------------------------------------------------
 
 ApplyEntryHazardsEnemy::
+	ResetEvent EVENT_HAZARDS_DAMAGING_PLAYER
+
 	ld b, FLYING
 	call CheckIfEnemyPokemonIsCertainType ; z = FLYING
-	jr z, .checkStealthRock ; skip grounded hazards
+	jp z, .checkStealthRock ; skip grounded hazards
 	; fallthrough
 
 .entryHazardsCore
@@ -250,13 +254,13 @@ ApplyEntryHazardsEnemy::
 	cp 2
 	jr z, .spikes2Layers
 ; 1 layer of spikes
-	call HandleHazards_DecreaseEnemyHP_1o8
+	call HandleHazards_DecreaseHP_1o8
 	jr .checkToxicSpikes
 .spikes2Layers
-	call HandleHazards_DecreaseEnemyHP_1o8 ; TBE = 1o6
+	call HandleHazards_DecreaseHP_1o8 ; TBE = 1o6
 	jr .checkToxicSpikes
 .spikes3Layers
-	call HandleHazards_DecreaseEnemyHP_1o8 ; TBE = 1o4
+	call HandleHazards_DecreaseHP_1o4
 	; fallthrough
 
 .checkToxicSpikes
@@ -323,8 +327,24 @@ ApplyEntryHazardsEnemy::
 	call PrintText
 	ld a, ROCK
 	ld [wEnemyMoveType], a
+; we need to fake the types of battle/enemy mon for the AI function to work as intended
+	ld a, [wBattleMonType1]
+	ld [wUniQuizAnswer], a
+	ld a, [wEnemyMonType1]
+	ld [wBattleMonType1], a
+	ld a, [wBattleMonType2]
+	ld [wUniQuizAnswer+1], a
+	ld a, [wEnemyMonType2]
+	ld [wBattleMonType2], a
+; let's call the bastardized function
 	callfar AIGetTypeEffectiveness ; abused, but if it works it works
 	                               ; result stored in [wTypeEffectiveness]
+; restore the real types of battle/enemy mon
+	ld a, [wUniQuizAnswer]
+	ld [wBattleMonType1], a
+	ld a, [wUniQuizAnswer+1]
+	ld [wBattleMonType2], a
+; back on track
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 	cp 16
 	jr z, .effDoubleSuper
@@ -335,19 +355,19 @@ ApplyEntryHazardsEnemy::
 	cp 2
 	jr z, .effNotVery
 ; double not very effective
-	call HandleHazards_DecreaseEnemyHP_1o8 ; TBE 1o32
+	call HandleHazards_DecreaseHP_1o32
 	ret
 .effNotVery
-	call HandleHazards_DecreaseEnemyHP_1o8 ; TBE 1o16
+	call HandleHazards_DecreaseHP_1o16
 	ret
 .effNormal
-	call HandleHazards_DecreaseEnemyHP_1o8
+	call HandleHazards_DecreaseHP_1o8
 	ret
 .effSuper
-	call HandleHazards_DecreaseEnemyHP_1o8 ; TBE 1o4
+	call HandleHazards_DecreaseHP_1o4
 	ret
 .effDoubleSuper
-	call HandleHazards_DecreaseEnemyHP_1o8 ; TBE 1o2
+	call HandleHazards_DecreaseHP_1o2
 	ret
 
 ; ----------------------------------------------------------
@@ -375,12 +395,27 @@ CheckIfEnemyPokemonIsCertainType:: ; z flag = FLYING
 
 ; ----------------------------------------------------------
 
-HandleHazards_DecreasePlayerHP_1o8:
+; expects EVENT_HAZARDS_DAMAGING_PLAYER to be properly set or reset
+HandleHazards_DecreaseHP_1o2:
+	ld d, 1
+	jr HandleHazards_DecreaseHP_Core
+HandleHazards_DecreaseHP_1o4:
+	ld d, 2
+	jr HandleHazards_DecreaseHP_Core
+HandleHazards_DecreaseHP_1o8:
+	ld d, 3
+	jr HandleHazards_DecreaseHP_Core
+HandleHazards_DecreaseHP_1o16:
+	ld d, 4
+	jr HandleHazards_DecreaseHP_Core
+HandleHazards_DecreaseHP_1o32:
+	ld d, 5
+HandleHazards_DecreaseHP_Core:
+	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
 	ld hl, wBattleMonHP
-	jr HandleHazards_DecreaseEnemyHP_1o8.mainStuff
-HandleHazards_DecreaseEnemyHP_1o8:
+	jr nz, .victimIsPlayer1
 	ld hl, wEnemyMonHP
-.mainStuff
+.victimIsPlayer1
 	push hl
 	ld bc, $e      ; skip to max HP
 	add hl, bc
@@ -390,11 +425,12 @@ HandleHazards_DecreaseEnemyHP_1o8:
 	ld a, [hl]
 	ld [wHPBarMaxHP], a
 	ld c, a
+.loopOfHalving ; expects max HP < 1024, and anyway is less than 999, and 721 in pratice
 	srl b
-	rr c          ; bc = max HP/2
-	srl b
-	rr c          ; bc = max HP/4 (assumption: HP < 1024)
-	srl c         ; c = max HP/8 (assumption: HP < 1024)
+	rr c
+	dec d
+	jr nz, .loopOfHalving
+; out of the loopino of halving
 	ld a, c
 	and a
 	jr nz, .nonZeroDamage
@@ -419,7 +455,12 @@ HandleHazards_DecreaseEnemyHP_1o8:
 	ld [wHPBarNewHP], a
 	ld [wHPBarNewHP+1], a
 .noOverkill
-	call UpdateBattleMonHPBar ; TBE
+	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
+	jr nz, .victimIsPlayer2
+	call UpdateEnemyMonHPBar
+	ret
+.victimIsPlayer2
+	call UpdateBattleMonHPBar
 	ret
 
 UpdateBattleMonHPBar::
