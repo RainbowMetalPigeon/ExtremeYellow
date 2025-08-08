@@ -218,12 +218,6 @@ MonsNestText:
 	db "'s NEST@"
 
 LoadTownMap_Fly::
-; new for deep water
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
-; BTV
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr z, .currentlyInKanto
@@ -237,10 +231,16 @@ LoadTownMap_Fly::
 .coreOfFlyMap
 ; BTV
 	call ClearSprites
+	call LoadPlayerSpriteGraphics
+; new for deep water
+	ldh a, [hTileAnimations]
+	ld [wSavedTileAnimations], a
+	xor a
+	ldh [hTileAnimations], a
+; BTV
 	call LoadTownMap
 	ld a, $1
 	ldh [hJoy7], a
-	call LoadPlayerSpriteGraphics
 	call LoadFontTilePatterns
 ;	call ReloadTilesetTilePatterns ; new, to expand tileset?
 ; new, to load the Flying Pikachu sprite

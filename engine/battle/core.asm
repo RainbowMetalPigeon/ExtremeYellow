@@ -1242,6 +1242,7 @@ EnemySendOutFirstMon:
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry
 	call DrawEnemyHUDAndHPBar
+	; TBE hazards
 	ld a, [wCurrentMenuItem]
 	and a
 	ret nz
@@ -1636,6 +1637,7 @@ SendOutMon:
 	ld a, [wcf91]
 	call PlayCry
 .done
+	; TBE hazards
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
 
