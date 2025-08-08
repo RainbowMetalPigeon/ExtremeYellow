@@ -142,14 +142,14 @@ FreezeBurnParalyzeEffect_::
 	ld [wBattleMonStatus], a
 	callfar QuarterSpeedDueToParalysis ; edited into a callfar
 	ld a, ANIM_C7
-	call PlayBattleAnimation2Copy ; edited into the copy
+	call PlayAlternativeAnimationCopy ; edited into the copy
 	jp PrintMayNotAttackText
 .burn2
 	ld a, 1 << BRN
 	ld [wBattleMonStatus], a
 	callfar HalveAttackDueToBurn ; edited into a callfar
 	ld a, ANIM_C7
-	call PlayBattleAnimation2Copy ; edited into the copy
+	call PlayAlternativeAnimationCopy ; edited into the copy
 	ld hl, BurnedText
 	jp PrintText
 .freeze2

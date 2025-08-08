@@ -49,7 +49,7 @@ IF DEF(_DEBUG)
 	ld a, TRICK_ROOM
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, MISTY_TERRAIN
+	ld a, THUNDERSHOCK
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, WEATHER_BALL
@@ -60,7 +60,7 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon2Moves
 	ld a, GRASSY_TERRAIN
 	ld [hli], a
-	ld a, ELECTRIC_TERRAIN
+	ld a, ZAP_CANNON
 	ld [hli], a
 	ld a, TERRAIN_PULSE
 	ld [hli], a
@@ -77,7 +77,7 @@ IF DEF(_DEBUG)
 	ld a, SURF
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
-	ld a, RAIN_DANCE
+	ld a, THUNDER_WAVE
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 

@@ -509,6 +509,7 @@ ShareMoveAnimations:
 .replaceAnim
 	ld a, b
 	ld [wAnimationID], a
+	ld [wAltAnimationID], a ; new
 	ret
 
 PlayApplyingAttackAnimation:

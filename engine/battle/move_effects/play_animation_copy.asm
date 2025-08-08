@@ -14,7 +14,7 @@ PlayBattleAnimation2Copy::
 ; play animation ID at a and animation type 6 or 3
 	ld [wAnimationID], a
 ; new: zero out the alternative animation
-	xor a 
+	xor a
 	ld [wAltAnimationID], a
 GotAnimationIDCopy:
 ; BTV
@@ -56,7 +56,7 @@ PlayBattleAnimationCopy::
 ; play animation ID at a and predefined animation type
 	ld [wAnimationID], a
 ; new: zero out the alternative animation
-	xor a 
+	xor a
 	ld [wAltAnimationID], a
 ; BTV
 
@@ -73,6 +73,6 @@ PlayBattleAnimationGotIDCopy::
 	ret
 
 ; new
-PlayAlternativeAnimationCopy:
+PlayAlternativeAnimationCopy::
 	ld [wAltAnimationID], a
-	jp PlayBattleAnimationGotID
+	jp PlayBattleAnimationGotIDCopy
