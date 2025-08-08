@@ -3755,8 +3755,11 @@ IsNextTileShoreOrWater::
 	ld de, 1
 	call IsInArray ; does the current map allow surfing?
 	ret nc ; if not, return
+	ld hl, DeepWaterTile ; new
+	ld a, [wCurMapTileset] ; edited
+	cp OVERWORLD ; new
+	jr z, .skipShoreTiles ; new
 	ld hl, WaterTile
-	ld a, [wCurMapTileset]
 	cp SHIP_PORT ; Vermilion Dock tileset
 	jr z, .skipShoreTiles ; if it's the Vermilion Dock tileset
 	cp GYM ; eastern shore tile in Safari Zone
@@ -3772,6 +3775,9 @@ IsNextTileShoreOrWater::
 
 INCLUDE "data/tilesets/water_tilesets.asm"
 
+; deep-water tiles ; new
+DeepWaterTile: ; new
+	db $6A ; new
 ; shore tiles
 ShoreTiles:
 ;	db $48, $32, $66 ; last one is new, custom for Cinnabar Volcano

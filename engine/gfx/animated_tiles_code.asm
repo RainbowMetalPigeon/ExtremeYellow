@@ -2,6 +2,7 @@
 ; thanks Vortiene
 AnimateWaterTile::
 	ld hl, vTileset tile $14
+    ld de, vTileset tile $6A ; new, deep water
 	ld c, $10
 
 	ld a, [wMovingBGTilesCounter2]
@@ -15,6 +16,12 @@ AnimateWaterTile::
 	ld a, [hl]
 	rrca
 	ld [hli], a
+; new, deep water
+    ld a, [de]
+    rrca
+    ld [de], a
+    inc de
+; BTV
 	dec c
 	jr nz, .right
 	jr .done
@@ -22,6 +29,12 @@ AnimateWaterTile::
 	ld a, [hl]
 	rlca
 	ld [hli], a
+; new, deep water
+    ld a, [de]
+    rlca
+    ld [de], a
+    inc de
+; BTV
 	dec c
 	jr nz, .left
 .done

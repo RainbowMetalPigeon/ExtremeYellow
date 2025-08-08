@@ -1,6 +1,12 @@
 DEF NOT_VISITED EQU $fe
 
 DisplayTownMap:
+; new for deep water
+	ldh a, [hTileAnimations]
+	ld [wSavedTileAnimations], a
+	xor a
+	ldh [hTileAnimations], a
+; BTV
 	call LoadTownMap
 	CheckEvent EVENT_IN_SEVII ; new for sevii
 	jr nz, .notHauntedHouse ; new for sevii
@@ -181,6 +187,12 @@ TownMapCursor:
 TownMapCursorEnd:
 
 LoadTownMap_Nest:
+; new for deep water
+	ldh a, [hTileAnimations]
+	ld [wSavedTileAnimations], a
+	xor a
+	ldh [hTileAnimations], a
+; BTV
 	call LoadTownMap
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
@@ -206,6 +218,12 @@ MonsNestText:
 	db "'s NEST@"
 
 LoadTownMap_Fly::
+; new for deep water
+	ldh a, [hTileAnimations]
+	ld [wSavedTileAnimations], a
+	xor a
+	ldh [hTileAnimations], a
+; BTV
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr z, .currentlyInKanto
@@ -255,7 +273,7 @@ LoadTownMap_Fly::
 	call PlaceString
 	ld a, [wCurMap]
 	ld b, $0
-	call DrawPlayerOrBirdSprite	
+	call DrawPlayerOrBirdSprite
 	ld hl, wFlyLocationsList_Sevii ; new, for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .sevii1
@@ -324,8 +342,12 @@ LoadTownMap_Fly::
 	SetEvent EVENT_IN_SEVII
 	jr .continueWithB
 .originallyInKanto
-	ResetEvent EVENT_IN_SEVII 
+	ResetEvent EVENT_IN_SEVII
 .continueWithB
+; BTV
+; new for deep water
+	ld a, [wSavedTileAnimations]
+	ldh [hTileAnimations], a
 ; BTV
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
@@ -530,6 +552,10 @@ CompressedMap_Sevii: ; new, for sevii
 	INCBIN "gfx/town_map/town_map_sevii.rle"
 
 ExitTownMap:
+; new for deep water
+	ld a, [wSavedTileAnimations]
+	ldh [hTileAnimations], a
+; BTV
 ; clear town map graphics data and load usual graphics data
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a

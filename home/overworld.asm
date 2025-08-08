@@ -809,16 +809,17 @@ LoadPlayerSpriteGraphics::
 	; 1: biking
 	; 2: surfing
 
-	ld a, [wWalkBikeSurfState]
-	dec a
-	jr z, .ridingBike
+; edited: removed as they are not really necessary and just mess up the code in other places (deep water and fly map)
+;	ld a, [wWalkBikeSurfState]
+;	dec a
+;	jr z, .ridingBike
 
-	ldh a, [hTileAnimations]
-	and a
-	jr nz, .determineGraphics
-	jr .startWalking
+;	ldh a, [hTileAnimations]
+;	and a
+;	jr nz, .determineGraphics
+;	jr .startWalking
 
-.ridingBike
+;.ridingBike
 	; If the bike can't be used,
 	; start walking instead.
 	call IsBikeRidingAllowed
@@ -2175,7 +2176,7 @@ GetMapHeaderPointer::
 .sevii2
 	ld hl, MapHeaderPointers_Sevii
 .continue2
-; back to vanilla	
+; back to vanilla
 	add hl, de
 	add hl, de
 	ld a, [hli]
