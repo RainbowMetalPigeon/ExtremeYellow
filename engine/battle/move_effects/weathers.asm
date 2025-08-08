@@ -1,4 +1,4 @@
-SunnyDayEffect_:
+SunnyDayEffect_::
 
 	SetEvent EVENT_WEATHER_SUNNY_DAY
 	ResetEvent EVENT_WEATHER_RAIN_DANCE
@@ -10,7 +10,6 @@ SunnyDayEffect_:
 	callfar PlayCurrentMoveAnimation
 	ld hl, TheSunlightGotBrighText
 	jp PrintText
-	ret
 
 TheSunlightGotBrighText:
 	text_far _TheSunlightGotBrighText
@@ -18,7 +17,7 @@ TheSunlightGotBrighText:
 
 ; --------------------------------------------------------------------------
 
-RainDanceEffect_:
+RainDanceEffect_::
 
 	ResetEvent EVENT_WEATHER_SUNNY_DAY
 	SetEvent EVENT_WEATHER_RAIN_DANCE
@@ -30,7 +29,6 @@ RainDanceEffect_:
 	callfar PlayCurrentMoveAnimation
 	ld hl, ADownpourStartedText
 	jp PrintText
-	ret
 
 ADownpourStartedText:
 	text_far _ADownpourStartedText
@@ -38,7 +36,7 @@ ADownpourStartedText:
 
 ; --------------------------------------------------------------------------
 
-SandstormEffect_:
+SandstormEffect_::
 
 	ResetEvent EVENT_WEATHER_SUNNY_DAY
 	ResetEvent EVENT_WEATHER_RAIN_DANCE
@@ -50,7 +48,6 @@ SandstormEffect_:
 	callfar PlayCurrentMoveAnimation
 	ld hl, ASandstormBrewedText
 	jp PrintText
-	ret
 
 ASandstormBrewedText:
 	text_far _ASandstormBrewedText
@@ -58,7 +55,7 @@ ASandstormBrewedText:
 
 ; --------------------------------------------------------------------------
 
-HailEffect_:
+HailEffect_::
 
 	ResetEvent EVENT_WEATHER_SUNNY_DAY
 	ResetEvent EVENT_WEATHER_RAIN_DANCE
@@ -70,7 +67,6 @@ HailEffect_:
 	callfar PlayCurrentMoveAnimation
 	ld hl, ItStartedToHailText
 	jp PrintText
-	ret
 
 ItStartedToHailText:
 	text_far _ItStartedToHailText

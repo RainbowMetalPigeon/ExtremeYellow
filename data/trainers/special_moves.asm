@@ -2164,10 +2164,10 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, AQUA_JET
-	db 1, 2, WATERFALL
-	db 1, 3, BLIZZARD
-	db 1, 4, REST
+	db 1, 1, TOXIC_SPIKES
+	db 1, 2, SPIKES
+	db 1, 3, STICKY_WEB
+	db 1, 4, STEALTH_ROCK
 	; CLOYSTER
 	db 2, 1, EXPLOSION
 	db 2, 2, PIN_MISSILE

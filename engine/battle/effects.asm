@@ -1254,3 +1254,16 @@ PsychicTerrainEffect:
 
 TrickRoomEffect:
 	jpfar TrickRoomEffect_
+
+SpikesEffect:
+	jpfar SpikesEffect_
+	
+ToxicSpikesEffect:
+	jpfar ToxicSpikesEffect_
+	
+StickyWebEffect:
+	jpfar StickyWebEffect_
+	
+StealthRockEffect:
+	jpfar StealthRockEffect_
+	

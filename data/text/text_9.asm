@@ -506,5 +506,33 @@ _GymLeaderElite4PostRematchInverseText:: ; new
 
 	para "Come back any time"
 	line "for a rematch!"
-;	xxxx "123456789012345678
 	done
+
+_HurtBySpikesText::
+	text "The #MON's hurt"
+	line "by the spikes!"
+	prompt
+
+_PoisonedByToxicSpikesText::
+	text "The #MON is"
+	line "got poisoned by"
+	cont "the toxic spikes!"
+	prompt
+
+_AbsorbsTheToxicSpikesText::
+	text "The #MON"
+	line "absorbed all"
+	cont "the toxic spikes!"
+	prompt
+
+_StuckInWebText::
+	text "The #MON got"
+	line "stuck in the web!"
+	prompt
+
+_HurtByRocksText::
+	text "The #MON's hurt"
+	line "by the rocks!"
+	prompt
+
+;	xxxx "123456789012345678

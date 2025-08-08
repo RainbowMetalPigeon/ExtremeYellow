@@ -271,6 +271,10 @@ MoveNames::
 	li "PSYCH. TERR."
 	li "TERR. PULSE"
 	li "TRICK ROOM"
+	li "SPIKES"
+	li "TOXIC SPIKES"
+	li "STICKY WEB"
+	li "STEALTH ROCK"
 ;	li "123456789012"
 
 	; KAAARP!

@@ -1267,18 +1267,23 @@ wGymCityName:: ds 17
 NEXTU ; new, 17 free juicy bytes
 	wWeatherCounterPlayer:: db ; new
 	wWeatherCounterEnemy:: db ; new
+
 	wTerrainCounterPlayer:: db ; new
 	wTerrainCounterEnemy:: db ; new
+
 	wTrickRoomCounterPlayer:: db ; new
 	wTrickRoomCounterEnemy:: db ; new
+
 	wHazardsSpikesEnemySide:: db ; new
 	wHazardsToxicSpikesEnemySide:: db ; new
-	wHazardsStealthRockEnemySide:: db ; new
 	wHazardsStickyWebEnemySide:: db ; new
+	wHazardsStealthRockEnemySide:: db ; new
+
 	wHazardsSpikesPlayerSide:: db ; new
 	wHazardsToxicSpikesPlayerSide:: db ; new
-	wHazardsStealthRockPlayerSide:: db ; new
 	wHazardsStickyWebPlayerSide:: db ; new
+	wHazardsStealthRockPlayerSide:: db ; new
+
 	ds 3
 
 ENDU
@@ -1979,7 +1984,7 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
-wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 233 moves=bits / 8 bits/byte = 30 bytes needed
+wAttackdexSeen:: flag_array NUM_ATTACKS ; new, 243 moves=bits / 8 bits/byte = 31 bytes needed
 wAttackdexSeenEnd::
 
 wNumBagItems:: db
@@ -2037,7 +2042,7 @@ wXBlockCoord:: db
 
 wLastMap:: db
 
-wUnusedD366:: db
+;wUnusedD366:: db ; edited, commented away, never used
 
 wCurMapTileset:: db
 

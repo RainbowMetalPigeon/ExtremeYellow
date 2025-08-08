@@ -494,10 +494,10 @@ UpdateCurMonHPBar::
 	hlcoord 2, 2    ; tile pointer to enemy HP bar
 	xor a
 .playersTurn
-	push bc
+	push bc ; really necessary now?
 	ld [wHPBarType], a
 	predef UpdateHPBar2
-	pop bc
+	pop bc ; really necessary now?
 	ret
 
 ; ========== new functions ====================================================================

@@ -691,6 +691,22 @@ DrawAttackdexEntryOnScreen:
 	cp TRICK_ROOM
 	jp z, .done
 
+	ld hl, AttackdexText_SpikesEffect
+	cp SPIKES
+	jp z, .done
+
+	ld hl, AttackdexText_ToxicSpikesEffect
+	cp TOXIC_SPIKES
+	jp z, .done
+
+	ld hl, AttackdexText_StickyWebEffect
+	cp STICKY_WEB
+	jp z, .done
+
+	ld hl, AttackdexText_StealthRockEffect
+	cp STEALTH_ROCK
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -1891,3 +1907,20 @@ AttackdexText_TerrainPulseEffect:
 AttackdexText_TrickRoomEffect:
 	text_far _AttackdexText_TrickRoomEffect
 	text_end
+
+AttackdexText_SpikesEffect:
+	text_far _AttackdexText_SpikesEffect
+	text_end
+	
+AttackdexText_ToxicSpikesEffect:
+	text_far _AttackdexText_ToxicSpikesEffect
+	text_end
+	
+AttackdexText_StickyWebEffect:
+	text_far _AttackdexText_StickyWebEffect
+	text_end
+	
+AttackdexText_StealthRockEffect:
+	text_far _AttackdexText_StealthRockEffect
+	text_end
+	

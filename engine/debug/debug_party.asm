@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEW, 59 ; 255
-	db MMEWTWOY, 68
+	db MGENGAR, 59 ; 255
+	db MARODACTYL, 68
 	db STARTER_PIKACHU, 100
 ;	db SLOWPOKE, 5
 ;	db PORYGONZ, 99
@@ -43,16 +43,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, HAIL ; ANCESTOR_PWR
+	ld a, TOXIC_SPIKES ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TRICK_ROOM
+	ld a, SPIKES
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, THUNDERSHOCK
+	ld a, SANDSTORM
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, WEATHER_BALL
+	ld a, STEALTH_ROCK
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

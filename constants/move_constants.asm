@@ -277,6 +277,10 @@
 	const PSYCHIC_TERRAIN
 	const TERRAIN_PULSE
 	const TRICK_ROOM
+	const SPIKES
+	const TOXIC_SPIKES
+	const STICKY_WEB
+	const STEALTH_ROCK
 
 	; KAAARP!
 	const	ANCESTOR_PWR

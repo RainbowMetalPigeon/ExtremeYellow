@@ -1562,5 +1562,33 @@ _SeviiTicketUpTo8::
 	line "to all of the"
 	cont "SEVII ISLANDS!"
 	prompt
-	
+
+_SpikesScatteredOnFieldText::
+	text "<TARGET>'s"
+	line "field is full of"
+	cont "pointy spikes!"
+	prompt
+
+_ToxicSpikesScatteredOnFieldText::
+	text "<TARGET>'s"
+	line "field is full of"
+	cont "toxic spikes!"
+	prompt
+
+_StickyWebOnFieldText::
+	text "<TARGET>'s"
+	line "field got sticky!"
+	prompt
+
+_FloatingRocksOnFieldText::
+	text "<TARGET>'s"
+	line "field is full of"
+	cont "floating rocks!"
+	prompt
+
+_CannotAddMoreOfThisText::
+	text "Can't add any more"
+	line "of this!"
+	prompt
+
 ;	xxxx "123456789012345678"

@@ -147,6 +147,11 @@ MoveEffectPointerTable:
 	dw MistyTerrainEffect    ; MISTY_TERRAIN_EFFECT
 	dw PsychicTerrainEffect  ; PSYCHIC_TERRAIN_EFFECT
 
-	dw TrickRoomEffect  ; TRICK_ROOM_EFFECT
+	dw TrickRoomEffect ; TRICK_ROOM_EFFECT
+
+	dw SpikesEffect      ; SPIKES_EFFECT
+	dw ToxicSpikesEffect ; TOXIC_SPIKES_EFFECT
+	dw StickyWebEffect   ; STICKY_WEB_EFFECT
+	dw StealthRockEffect ; STEALTH_ROCK_EFFECT
 
 	assert_table_length NUM_MOVE_EFFECTS

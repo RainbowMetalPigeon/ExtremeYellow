@@ -270,6 +270,10 @@ AttackAnimationPointers:
 	dw PsychicTerrainAnim
 	dw TerrainPulseAnim
 	dw TrickRoomAnim
+	dw SpikesAnim
+	dw ToxicSpikesAnim
+	dw StickyWebAnim
+	dw StealthRockAnim
 
 	; KAAARP!
 	dw AncestorPwrAnim
@@ -1978,6 +1982,10 @@ TerrainPulseAnim:
 	battle_anim CONFUSE_RAY, SE_WAVY_SCREEN
 	db -1 ; end
 
+SpikesAnim: ; TBE
+ToxicSpikesAnim: ; TBE
+StickyWebAnim: ; TBE
+StealthRockAnim: ; TBE
 TrickRoomAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim PSYCHIC_M, SE_LIGHT_SCREEN_PALETTE

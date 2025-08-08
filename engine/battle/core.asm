@@ -31,12 +31,22 @@ StartBattle:
 	ld [wPartyGainExpFlags], a
 	ld [wPartyFoughtCurrentEnemyFlags], a
 	ld [wActionResultOrTookBattleTurn], a
-	ld [wWeatherCounterPlayer], a ; new
-	ld [wWeatherCounterEnemy], a ; new
-	ld [wTerrainCounterPlayer], a ; new
-	ld [wTerrainCounterEnemy], a ; new
-	ld [wTrickRoomCounterPlayer], a ; new
-	ld [wTrickRoomCounterEnemy], a ; new
+; new
+	ld [wWeatherCounterPlayer], a
+	ld [wWeatherCounterEnemy], a
+	ld [wTerrainCounterPlayer], a
+	ld [wTerrainCounterEnemy], a
+	ld [wTrickRoomCounterPlayer], a
+	ld [wTrickRoomCounterEnemy], a
+	ld [wHazardsSpikesEnemySide], a
+	ld [wHazardsToxicSpikesEnemySide], a
+	ld [wHazardsStickyWebEnemySide], a
+	ld [wHazardsStealthRockEnemySide], a
+	ld [wHazardsSpikesPlayerSide], a
+	ld [wHazardsToxicSpikesPlayerSide], a
+	ld [wHazardsStickyWebPlayerSide], a
+	ld [wHazardsStealthRockPlayerSide], a
+; BTV
 	inc a
 	ld [wFirstMonsNotOutYet], a
 	ld hl, wEnemyMon1HP
@@ -1242,7 +1252,7 @@ EnemySendOutFirstMon:
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry
 	call DrawEnemyHUDAndHPBar
-	; TBE hazards
+	callfar ApplyEntryHazardsEnemy ; new
 	ld a, [wCurrentMenuItem]
 	and a
 	ret nz
@@ -1637,7 +1647,7 @@ SendOutMon:
 	ld a, [wcf91]
 	call PlayCry
 .done
-	; TBE hazards
+	callfar ApplyEntryHazardsPlayer ; new
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
 
@@ -5912,7 +5922,8 @@ AdjustDamageForMoveType:
 ; edited: it will now take into account various levels of effectiveness
 ; the result is stored in [wTypeEffectiveness]
 ; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
-AIGetTypeEffectiveness:
+; edited: it's (ab)used by ApplyEntryHazardsPlayer and ApplyEntryHazardsEnemy by loading ROCK in [wEnemyMoveType]
+AIGetTypeEffectiveness::
 	ld a, [wRandomizationTypeChart]
 	and a
 	jr z, .notRandomizedTypeChart

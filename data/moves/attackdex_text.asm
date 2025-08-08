@@ -971,6 +971,27 @@ _AttackdexText_TrickRoomEffect::
 	next "already active"
 	dex
 
+_AttackdexText_SpikesEffect::
+	text "Sets"
+	next "spikes"
+	dex
+
+_AttackdexText_ToxicSpikesEffect::
+	text "Sets"
+	next "toxic spikes"
+	dex
+
+_AttackdexText_StickyWebEffect::
+	text "Sets"
+	next "web"
+	dex
+
+_AttackdexText_StealthRockEffect::
+	text "Sets"
+	next "rocks"
+	dex
+
+
 _AttackdexText_StruggleEffect::
 	text "Can and must be"
 	next "used only when"
