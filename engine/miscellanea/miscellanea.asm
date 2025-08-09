@@ -1174,7 +1174,7 @@ PrintBattleInfoCore::
 	ld de, BattleInfoWeatherText
 	call PlaceString
 ; choose which weather to print
-	hlcoord 10, 3
+	hlcoord 9, 3
 	ld de, BattleInfoWeatherRainyText
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
 	jr nz, .printWeather
@@ -1193,17 +1193,19 @@ PrintBattleInfoCore::
 ; print number of turns and caster
 	ld a, [wWeatherCounterPlayer]
 	and a
-	ld de, BattleInfoPlayerText
 	jr nz, .printTurnsWeather
 	ld a, [wWeatherCounterEnemy]
 	and a
-	ld de, BattleInfoEnemyText
 	jr nz, .printTurnsWeather
 	jr .doneWithWeather
 .printTurnsWeather
-	hlcoord 10, 4
+	hlcoord 17, 3
 	call PrintOneDigitNumber
-	hlcoord 11, 4
+	ld de, LeftParenthesisString
+	hlcoord 16, 3
+	call PlaceString
+	ld de, RightParenthesisString
+	hlcoord 18, 3
 	call PlaceString
 .doneWithWeather
 
@@ -1212,7 +1214,7 @@ PrintBattleInfoCore::
 	ld de, BattleInfoTerrainText
 	call PlaceString
 ; choose which terrain to print
-	hlcoord 10, 5
+	hlcoord 8, 5
 	ld de, BattleInfoTerrainMistyText
 	CheckEvent EVENT_TERRAIN_MISTY
 	jr nz, .printTerrain
@@ -1231,17 +1233,19 @@ PrintBattleInfoCore::
 ; print number of turns and caster
 	ld a, [wTerrainCounterPlayer]
 	and a
-	ld de, BattleInfoPlayerText
 	jr nz, .printTurnsTerrain
 	ld a, [wTerrainCounterEnemy]
 	and a
-	ld de, BattleInfoEnemyText
 	jr nz, .printTurnsTerrain
 	jr .doneWithTerrain
 .printTurnsTerrain
-	hlcoord 10, 6
+	hlcoord 17, 5
 	call PrintOneDigitNumber
-	hlcoord 11, 6
+	ld de, LeftParenthesisString
+	hlcoord 16, 5
+	call PlaceString
+	ld de, RightParenthesisString
+	hlcoord 18, 5
 	call PlaceString
 .doneWithTerrain
 
@@ -1250,7 +1254,7 @@ PrintBattleInfoCore::
 	ld de, BattleInfoTrickRoomText
 	call PlaceString
 ; check whether trick room is active or not
-	hlcoord 13, 7
+	hlcoord 11, 7
 	ld de, BattleInfoTrickRoomActiveText
 	CheckEvent EVENT_TRICK_ROOM
 	jr nz, .printTrickRoom
@@ -1260,106 +1264,165 @@ PrintBattleInfoCore::
 ; print number of turns and caster
 	ld a, [wTrickRoomCounterPlayer]
 	and a
-	ld de, BattleInfoPlayerText
 	jr nz, .printTurnsTrickRoom
 	ld a, [wTrickRoomCounterEnemy]
 	and a
-	ld de, BattleInfoEnemyText
 	jr nz, .printTurnsTrickRoom
 	jr .doneWithTrickRoom
 .printTurnsTrickRoom
-	hlcoord 13, 8
+	hlcoord 17, 7
 	call PrintOneDigitNumber
-	hlcoord 14, 8
+	ld de, LeftParenthesisString
+	hlcoord 16, 7
+	call PlaceString
+	ld de, RightParenthesisString
+	hlcoord 18, 7
 	call PlaceString
 .doneWithTrickRoom
 
-; entry hazards
-	hlcoord 1, 9
-	ld de, BattleInfoEntryHazards1Text
+; player and enemy headers
+	hlcoord 2, 9
+	ld de, BattleInfoPlayerText
 	call PlaceString
-	hlcoord 1, 10
-	ld de, BattleInfoEntryHazards2Text
+	hlcoord 10, 9
+	ld de, BattleInfoSlashText
 	call PlaceString
-; entry hazards: player side
-	hlcoord 1, 11
-	ld a, [wHazardsSpikesPlayerSide]
-	call PrintOneDigitNumber
-	hlcoord 5, 11
-	ld a, [wHazardsToxicSpikesPlayerSide]
-	call PrintOneDigitNumber
-	hlcoord 9, 11
-	ld a, [wHazardsStealthRockPlayerSide]
-	call PrintOneDigitNumber
-	hlcoord 13, 11
-	ld a, [wHazardsStickyWebPlayerSide]
-	call PrintOneDigitNumber
-; entry hazards: bars in between
-	hlcoord 2, 11
-	ld [hl], "/"
-	hlcoord 6, 11
-	ld [hl], "/"
-	hlcoord 10, 11
-	ld [hl], "/"
-	hlcoord 14, 11
-	ld [hl], "/"
-; entry hazards: enemy side
-	hlcoord 3, 11
-	ld a, [wHazardsSpikesEnemySide]
-	call PrintOneDigitNumber
-	hlcoord 7, 11
-	ld a, [wHazardsToxicSpikesEnemySide]
-	call PrintOneDigitNumber
-	hlcoord 11, 11
-	ld a, [wHazardsStealthRockEnemySide]
-	call PrintOneDigitNumber
-	hlcoord 15, 11
-	ld a, [wHazardsStickyWebEnemySide]
-	call PrintOneDigitNumber
+	hlcoord 13, 9
+	ld de, BattleInfoEnemyText
+	call PlaceString
 
-; stat modifiers
+; entry hazards names, player side
+	hlcoord 1, 11
+	ld de, BattleInfoEntryHazardAndScreensText_Spk
+	call PlaceString
+	hlcoord 1, 12
+	ld de, BattleInfoEntryHazardAndScreensText_Tox
+	call PlaceString
 	hlcoord 1, 13
-	ld de, BattleInfoBuffs1Text
+	ld de, BattleInfoEntryHazardAndScreensText_Rok
 	call PlaceString
 	hlcoord 1, 14
-	ld de, BattleInfoBuffs2Text
+	ld de, BattleInfoEntryHazardAndScreensText_Web
 	call PlaceString
-; stat modifiers: player
 	hlcoord 1, 15
+	ld de, BattleInfoEntryHazardAndScreensText_Ref
+	call PlaceString
+	hlcoord 1, 16
+	ld de, BattleInfoEntryHazardAndScreensText_Lig
+	call PlaceString
+; entry hazards names, enemy side
+	hlcoord 14, 11
+	ld de, BattleInfoEntryHazardAndScreensText_Spk
+	call PlaceString
+	hlcoord 14, 12
+	ld de, BattleInfoEntryHazardAndScreensText_Tox
+	call PlaceString
+	hlcoord 14, 13
+	ld de, BattleInfoEntryHazardAndScreensText_Rok
+	call PlaceString
+	hlcoord 14, 14
+	ld de, BattleInfoEntryHazardAndScreensText_Web
+	call PlaceString
+	hlcoord 14, 15
+	ld de, BattleInfoEntryHazardAndScreensText_Ref
+	call PlaceString
+	hlcoord 14, 16
+	ld de, BattleInfoEntryHazardAndScreensText_Lig
+	call PlaceString
+; entry hazards values, player side
+	hlcoord 4, 11
+	ld a, [wHazardsSpikesPlayerSide]
+	call PrintOneDigitNumber
+	hlcoord 4, 12
+	ld a, [wHazardsToxicSpikesPlayerSide]
+	call PrintOneDigitNumber
+	hlcoord 4, 13
+	ld a, [wHazardsStealthRockPlayerSide]
+	call PrintOneDigitNumber
+	hlcoord 4, 14
+	ld a, [wHazardsStickyWebPlayerSide]
+	call PrintOneDigitNumber
+	ld de, wPlayerBattleStatus3
+	hlcoord 4, 15
+	call PrintReflectStatus
+	ld de, wPlayerBattleStatus3
+	hlcoord 4, 16
+	call PrintLightScreenStatus
+; entry hazards values, enemy side
+	hlcoord 17, 11
+	ld a, [wHazardsSpikesEnemySide]
+	call PrintOneDigitNumber
+	hlcoord 17, 12
+	ld a, [wHazardsToxicSpikesEnemySide]
+	call PrintOneDigitNumber
+	hlcoord 17, 13
+	ld a, [wHazardsStealthRockEnemySide]
+	call PrintOneDigitNumber
+	hlcoord 17, 14
+	ld a, [wHazardsStickyWebEnemySide]
+	call PrintOneDigitNumber
+	ld de, wEnemyBattleStatus3
+	hlcoord 17, 15
+	call PrintReflectStatus
+	ld de, wEnemyBattleStatus3
+	hlcoord 17, 16
+	call PrintLightScreenStatus
+
+; stat modifiers names
+	hlcoord 8, 11
+	ld de, BattleInfoBuffsText_Atk
+	call PlaceString
+	hlcoord 8, 12
+	ld de, BattleInfoBuffsText_Def
+	call PlaceString
+	hlcoord 8, 13
+	ld de, BattleInfoBuffsText_Spd
+	call PlaceString
+	hlcoord 8, 14
+	ld de, BattleInfoBuffsText_Spc
+	call PlaceString
+	hlcoord 8, 15
+	ld de, BattleInfoBuffsText_Acc
+	call PlaceString
+	hlcoord 8, 16
+	ld de, BattleInfoBuffsText_Eva
+	call PlaceString
+; stat modifiers values, player side
+	hlcoord 6, 11
 	ld a, [wPlayerMonAttackMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 4, 15
+	hlcoord 6, 12
 	ld a, [wPlayerMonDefenseMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 7, 15
+	hlcoord 6, 13
 	ld a, [wPlayerMonSpeedMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 10, 15
+	hlcoord 6, 14
 	ld a, [wPlayerMonSpecialMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 13, 15
+	hlcoord 6, 15
 	ld a, [wPlayerMonAccuracyMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 16, 15
+	hlcoord 6, 16
 	ld a, [wPlayerMonEvasionMod]
 	call PrintHumanStringFromStatModifier
-; stat modifiers: enemy
-	hlcoord 1, 16
+; stat modifiers values, enemy side
+	hlcoord 11, 11
 	ld a, [wEnemyMonAttackMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 4, 16
+	hlcoord 11, 12
 	ld a, [wEnemyMonDefenseMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 7, 16
+	hlcoord 11, 13
 	ld a, [wEnemyMonSpeedMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 10, 16
+	hlcoord 11, 14
 	ld a, [wEnemyMonSpecialMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 13, 16
+	hlcoord 11, 15
 	ld a, [wEnemyMonAccuracyMod]
 	call PrintHumanStringFromStatModifier
-	hlcoord 16, 16
+	hlcoord 11, 16
 	ld a, [wEnemyMonEvasionMod]
 	call PrintHumanStringFromStatModifier
 
@@ -1371,21 +1434,24 @@ BattleInfoTitleText:
 	db "BATTLE INFO:@"
 
 BattleInfoNullText:
+	db "--@"
+
+BattleInfoSlashText:
 	db "/@"
 
 BattleInfoWeatherText:
-	db "WEATHER:@"
+	db "WEATH.:@"
 BattleInfoWeatherRainyText:
 	db "RAINY@"
 BattleInfoWeatherSunnyText:
 	db "SUNNY@"
 BattleInfoWeatherSandstormText:
-	db "SANDSTORM@"
+	db "SANDY@"
 BattleInfoWeatherHailText:
 	db "HAIL@"
 
 BattleInfoTerrainText:
-	db "TERRAIN:@"
+	db "TERR.:@"
 BattleInfoTerrainMistyText:
 	db "MISTY@"
 BattleInfoTerrainGrassyText:
@@ -1396,27 +1462,73 @@ BattleInfoTerrainElectricText:
 	db "ELECTRIC@"
 
 BattleInfoTrickRoomText:
-	db "TRICK ROOM:@"
+	db "TRICK R.:@"
 BattleInfoTrickRoomActiveText:
-	db "ACTIVE@"
+	db "ON@"
 
-BattleInfoEntryHazards1Text:
-	db "HAZARDS (PLA/ENE):@"
+BattleInfoEntryHazardAndScreensText_Spk:
+	db "SPK@"
+BattleInfoEntryHazardAndScreensText_Tox:
+	db "TOX@"
+BattleInfoEntryHazardAndScreensText_Rok:
+	db "ROK@"
+BattleInfoEntryHazardAndScreensText_Web:
+	db "WEB@"
+BattleInfoEntryHazardAndScreensText_Ref:
+	db "REF@"
+BattleInfoEntryHazardAndScreensText_Lig:
+	db "LIG@"
 
-BattleInfoEntryHazards2Text:
-	db "SPK TOX ROK WEB@"
-
-BattleInfoBuffs1Text:
-	db "STATS (PLA/ENE):@"
-
-BattleInfoBuffs2Text:
-	db "AT DF SP SD AC EV@"
+BattleInfoBuffsText_Atk:
+	db "ATK@"
+BattleInfoBuffsText_Def:
+	db "DEF@"
+BattleInfoBuffsText_Spd:
+	db "SPD@"
+BattleInfoBuffsText_Spc:
+	db "SPC@"
+BattleInfoBuffsText_Acc:
+	db "ACC@"
+BattleInfoBuffsText_Eva:
+	db "EVA@"
 
 BattleInfoPlayerText:
-	db "-PLA@"
-
+	db "PLAYER@"
 BattleInfoEnemyText:
-	db "-ENE@"
+	db "ENEMY@"
+
+LeftParenthesisString:
+	db "(@"
+RightParenthesisString:
+	db ")@"
+
+; ------------------------
+
+; inputs:
+; de = wXBattleStatus3
+; hl = coordinates (already provided in hlcoord format)
+PrintReflectStatus:
+	ld a, [de]
+	bit HAS_REFLECT_UP, a
+	jr nz, PrintLightScreenStatus.bitSet
+	jr PrintLightScreenStatus.bitNotSet
+PrintLightScreenStatus:
+	ld a, [de]
+	bit HAS_LIGHT_SCREEN_UP, a
+	jr nz, .bitSet
+.bitNotSet
+	ld de, BitNotSetString
+	jr .end
+.bitSet
+	ld de, BitSetString
+.end
+	call PlaceString
+	ret
+
+BitSetString:
+	db "1@"
+BitNotSetString:
+	db "0@"
 
 ; ------------------------
 
@@ -1478,7 +1590,8 @@ StatModifier9String:
 StatModifier8String:
 	db "+1@"
 StatModifier7String:
-	db " 0@"
+;	db "+0@"
+	db "--@"
 StatModifier6String:
 	db "-1@"
 StatModifier5String:

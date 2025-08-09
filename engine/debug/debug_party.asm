@@ -43,7 +43,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, TOXIC_SPIKES ; ANCESTOR_PWR
+	ld a, REFLECT ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, SPIKES
@@ -52,19 +52,19 @@ IF DEF(_DEBUG)
 	ld a, SANDSTORM
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, STEALTH_ROCK
+	ld a, TRICK_ROOM
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, GRASSY_TERRAIN
+	ld a, LIGHT_SCREEN
 	ld [hli], a
 	ld a, ZAP_CANNON
 	ld [hli], a
 	ld a, TERRAIN_PULSE
 	ld [hli], a
-	ld a, PSYCHIC_TERRAIN
+	ld a, ELECTRIC_TERRAIN
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash

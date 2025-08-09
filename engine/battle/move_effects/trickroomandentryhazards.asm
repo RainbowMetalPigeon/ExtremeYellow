@@ -60,6 +60,8 @@ SpikesEffect_::
 	ld hl, SpikesScatteredOnFieldText
 	jp PrintText
 .cantStackMoreLayers
+	ld c, 30
+	call DelayFrames
 	ld hl, CannotAddMoreOfThisText
 	jp PrintText
 
@@ -91,6 +93,8 @@ ToxicSpikesEffect_::
 	ld hl, ToxicSpikesScatteredOnFieldText
 	jp PrintText
 .cantStackMoreLayers
+	ld c, 30
+	call DelayFrames
 	ld hl, CannotAddMoreOfThisText
 	jp PrintText
 
@@ -118,6 +122,8 @@ StickyWebEffect_::
 	ld hl, StickyWebOnFieldText
 	jp PrintText
 .cantStackMoreLayers
+	ld c, 30
+	call DelayFrames
 	ld hl, CannotAddMoreOfThisText
 	jp PrintText
 
@@ -145,6 +151,8 @@ StealthRockEffect_::
 	ld hl, FloatingRocksOnFieldText
 	jp PrintText
 .cantStackMoreLayers
+	ld c, 30
+	call DelayFrames
 	ld hl, CannotAddMoreOfThisText
 	jp PrintText
 

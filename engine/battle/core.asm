@@ -1953,6 +1953,7 @@ DisplayBattleMenu::
 	jr nz, .nonstandardbattle
 	call DrawHUDsAndHPBars
 	call PrintEmptyString
+	call PrintSelectForBattleInfoScreen ; new
 	call SaveScreenTilesToBuffer1
 .nonstandardbattle
 	ld a, [wBattleType]
@@ -2052,7 +2053,7 @@ DisplayBattleMenu::
 	bit BIT_D_RIGHT, a
 	jr nz, .rightColumn
 	bit BIT_SELECT, a ; new
-	jp nz, PrintBattleInfo ; new, testing
+	jp nz, PrintBattleInfo ; new
 	jr .AButtonPressed ; the A button was pressed
 .rightColumn ; put cursor in right column of menu
 	ld a, [wBattleType]
@@ -2088,7 +2089,7 @@ DisplayBattleMenu::
 	bit BIT_D_LEFT, a ; check if left was pressed ; edited, no longer hard-coded number
 	jp nz, .leftColumn ; if left was pressed, jump
 	bit BIT_SELECT, a ; new
-	jp nz, PrintBattleInfo ; new, testing
+	jp nz, PrintBattleInfo ; new
 	ld a, [wCurrentMenuItem]
 	add $2 ; if we're in the right column, the actual id is +2
 	ld [wCurrentMenuItem], a
@@ -2172,6 +2173,7 @@ BagWasSelected:
 
 ; normal battle
 	call DrawHUDsAndHPBars
+	call PrintSelectForBattleInfoScreenEmpty ; new
 .next
 	ld a, [wBattleType]
 	cp BATTLE_TYPE_OLD_MAN ; is it the old man tutorial?
@@ -2275,6 +2277,27 @@ UseBagItem:
 ItemsCantBeUsedHereText:
 	text_far _ItemsCantBeUsedHereText
 	text_end
+
+PrintSelectForBattleInfoScreen: ; new
+	hlcoord 4, 17
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+	ret
+
+PrintSelectForBattleInfoScreenEmpty: ; new
+	hlcoord 4, 17
+	ld a, $7A ; border tile
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ret
 
 PartyMenuOrRockOrRun:
 	dec a ; was Run selected?

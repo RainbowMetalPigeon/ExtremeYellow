@@ -114,7 +114,7 @@ ApplyEntryHazardsPlayer::
 	call HandleHazards_DecreaseHP_1o8
 	jr .checkToxicSpikes
 .spikes2Layers
-	call HandleHazards_DecreaseHP_1o8 ; TBE = 1o6
+	call HandleHazards_DecreaseHP_1o6
 	jr .checkToxicSpikes
 .spikes3Layers
 	call HandleHazards_DecreaseHP_1o4
@@ -180,13 +180,17 @@ ApplyEntryHazardsPlayer::
 	and a
 	ret z
 ; apply STEALTH_ROCK
-	ld hl, HurtByRocksText
-	call PrintText
 	ld a, ROCK
 	ld [wEnemyMoveType], a
 	callfar AIGetTypeEffectiveness ; abused, but if it works it works
 	                               ; result stored in [wTypeEffectiveness]
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+	and a
+	ret z ; effectiveness = 0, possible only with randomizer, do nothing, we're done here
+	push af
+	ld hl, HurtByRocksText
+	call PrintText
+	pop af
 	cp 16
 	jr z, .effDoubleSuper
 	cp 8
@@ -257,7 +261,7 @@ ApplyEntryHazardsEnemy::
 	call HandleHazards_DecreaseHP_1o8
 	jr .checkToxicSpikes
 .spikes2Layers
-	call HandleHazards_DecreaseHP_1o8 ; TBE = 1o6
+	call HandleHazards_DecreaseHP_1o6
 	jr .checkToxicSpikes
 .spikes3Layers
 	call HandleHazards_DecreaseHP_1o4
@@ -323,8 +327,6 @@ ApplyEntryHazardsEnemy::
 	and a
 	ret z
 ; apply STEALTH_ROCK
-	ld hl, HurtByRocksText
-	call PrintText
 	ld a, ROCK
 	ld [wEnemyMoveType], a
 ; we need to fake the types of battle/enemy mon for the AI function to work as intended
@@ -346,6 +348,12 @@ ApplyEntryHazardsEnemy::
 	ld [wBattleMonType2], a
 ; back on track
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+	and a
+	ret z ; effectiveness = 0, possible only with randomizer, do nothing, we're done here
+	push af
+	ld hl, HurtByRocksText
+	call PrintText
+	pop af
 	cp 16
 	jr z, .effDoubleSuper
 	cp 8
@@ -413,9 +421,9 @@ HandleHazards_DecreaseHP_1o32:
 HandleHazards_DecreaseHP_Core:
 	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
 	ld hl, wBattleMonHP
-	jr nz, .victimIsPlayer1
+	jr nz, .victimIsPlayer
 	ld hl, wEnemyMonHP
-.victimIsPlayer1
+.victimIsPlayer
 	push hl
 	ld bc, $e      ; skip to max HP
 	add hl, bc
@@ -455,12 +463,65 @@ HandleHazards_DecreaseHP_Core:
 	ld [wHPBarNewHP], a
 	ld [wHPBarNewHP+1], a
 .noOverkill
-	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
-	jr nz, .victimIsPlayer2
-	call UpdateEnemyMonHPBar
+	call UpdateAppropriateMonHPBar
 	ret
-.victimIsPlayer2
-	call UpdateBattleMonHPBar
+
+HandleHazards_DecreaseHP_1o6:
+	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
+	ld hl, wBattleMonHP
+	jr nz, .victimIsPlayer
+	ld hl, wEnemyMonHP
+.victimIsPlayer
+	push hl
+	ld bc, $e      ; skip to max HP
+	add hl, bc
+	ld a, [hli]    ; load max HP
+	ld [wHPBarMaxHP+1], a
+	ld b, a
+	ld a, [hl]
+	ld [wHPBarMaxHP], a
+	ld c, a
+; divide MaxHP by 4
+	srl b
+	rr c
+	srl b
+	rr c ; MaxHP/4, now it's all in c
+	push bc ; basically just to preserve b=0
+; now divide them by 3 and multiply by 2
+	ld a, c
+	ld c, 3
+	call SimpleDivide ; Divide a by c. Return quotient b and remainder a
+; now b contains MaxHP/12
+	ld a, b
+	ld c, 2
+	call SimpleMultiply ; Return a * c in a
+; now a contains MaxHP/6
+	pop bc ; basically just to preserve b=0
+	ld c, a ; reversed
+	and a
+	jr nz, .nonZeroDamage
+	inc c         ; damage is at least 1
+.nonZeroDamage
+	pop hl
+	inc hl
+	ld a, [hl]    ; subtract total damage from current HP
+	ld [wHPBarOldHP], a
+	sub c
+	ld [hld], a
+	ld [wHPBarNewHP], a
+	ld a, [hl]
+	ld [wHPBarOldHP+1], a
+	sbc b
+	ld [hl], a
+	ld [wHPBarNewHP+1], a
+	jr nc, .noOverkill
+	xor a         ; overkill: zero HP
+	ld [hli], a
+	ld [hl], a
+	ld [wHPBarNewHP], a
+	ld [wHPBarNewHP+1], a
+.noOverkill
+	call UpdateAppropriateMonHPBar
 	ret
 
 UpdateBattleMonHPBar::
@@ -473,6 +534,62 @@ UpdateEnemyMonHPBar::
 UpdateHPBarCommon:
 	ld [wHPBarType], a
 	predef UpdateHPBar2
+	ret
+
+UpdateAppropriateMonHPBar:
+	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
+	jr nz, .victimIsPlayer
+	call UpdateEnemyMonHPBar
+	ret
+.victimIsPlayer
+	call UpdateBattleMonHPBar
+	ret
+
+; ----------------------------------------------------------
+
+; simple multiply and divide from crystal
+; added call-far-able versions
+
+; Return a * c.
+SimpleMultiply:
+	and a
+	ret z
+	push bc
+	ld b, a
+	xor a
+.loop
+	add c
+	dec b
+	jr nz, .loop
+	pop bc
+	ret
+
+; Divide a by c. Return quotient b and remainder a.
+SimpleDivide:
+	ld b, 0
+.loop
+	inc b
+	sub c
+	jr nc, .loop
+	dec b
+	add c
+	ret
+
+; Return d * e in d.
+SimpleMultiplyCallfarable::
+	ld a, d
+	ld c, e
+	call SimpleMultiply
+	ld d, a
+	ret
+
+; Divide d by e. Return quotient d and remainder e.
+SimpleDivideCallfarable::
+	ld a, d
+	ld c, e
+	call SimpleDivide
+	ld d, b
+	ld e, a
 	ret
 
 ; ----------------------------------------------------------
