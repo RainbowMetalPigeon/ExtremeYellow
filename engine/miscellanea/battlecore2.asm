@@ -548,7 +548,7 @@ UpdateAppropriateMonHPBar:
 ; ----------------------------------------------------------
 
 ; simple multiply and divide from crystal
-; added call-far-able versions
+; added call-far-able versions, just uncomment them if needed
 
 ; Return a * c.
 SimpleMultiply:
@@ -575,21 +575,21 @@ SimpleDivide:
 	add c
 	ret
 
-; Return d * e in d.
-SimpleMultiplyCallfarable::
-	ld a, d
-	ld c, e
-	call SimpleMultiply
-	ld d, a
-	ret
-
-; Divide d by e. Return quotient d and remainder e.
-SimpleDivideCallfarable::
-	ld a, d
-	ld c, e
-	call SimpleDivide
-	ld d, b
-	ld e, a
-	ret
+;; Return d * e in d.
+;SimpleMultiplyCallfarable::
+;	ld a, d
+;	ld c, e
+;	call SimpleMultiply
+;	ld d, a
+;	ret
+;
+;; Divide d by e. Return quotient d and remainder e.
+;SimpleDivideCallfarable::
+;	ld a, d
+;	ld c, e
+;	call SimpleDivide
+;	ld d, b
+;	ld e, a
+;	ret
 
 ; ----------------------------------------------------------

@@ -43,7 +43,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, REFLECT ; ANCESTOR_PWR
+	ld a, REST ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, SPIKES
