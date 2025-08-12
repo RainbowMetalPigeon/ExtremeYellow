@@ -259,7 +259,11 @@ MoveNames::
 	li "CURSE"
 
 	; V2.0 moves
+	li "DRILL RUN"
 	li "ROCK SMASH"
+	li "DIVE"
+	li "WHIRLPOOL"
+	li "ROCK CLIMB"
 	li "SUNNY DAY"
 	li "RAIN DANCE"
 	li "SANDSTORM"
@@ -275,6 +279,7 @@ MoveNames::
 	li "TOXIC SPIKES"
 	li "STICKY WEB"
 	li "STEALTH ROCK"
+	li "RAPID SPIN"
 ;	li "123456789012"
 
 	; KAAARP!

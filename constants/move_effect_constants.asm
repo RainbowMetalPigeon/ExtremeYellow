@@ -94,6 +94,13 @@
 	const_skip                       ;
 	const_skip                       ;
 
+	const ATTACK_DOWN_SIDE_EFFECT5   ; - the position of this one is important for statModifierDownEffect!!!
+	const DEFENSE_DOWN_SIDE_EFFECT5
+	const_skip
+	const_skip
+	const_skip
+	const_skip
+
 	const ATTACK_DOWN_SIDE_EFFECT_CERT
 	const DEFENSE_DOWN_SIDE_EFFECT_CERT
 	const SPEED_DOWN_SIDE_EFFECT_CERT
@@ -122,22 +129,23 @@
 
 	const ATTACK_SPEED_UP1_EFFECT	 ; - new, to be further tested, for DRAGON_DANCE
 
-	const ATTACK_UP_SIDE_EFF1		 ; new, to be further tested
-	const DEFENSE_UP_SIDE_EFF1		 ; new, to be further tested
-	const ATTACK_UP_SIDE_EFF2		 ; new, to be further tested
+	const ATTACK_UP_SIDE_EFF1		 ; new
+	const DEFENSE_UP_SIDE_EFF1		 ; new
+	const SPEED_UP_SIDE_EFF1		 ; new
+	const ATTACK_UP_SIDE_EFF2		 ; new
 
-	const ATTACK_DEFENSE_SELFDOWN1	 ; new, testing
-	const DEFENSE_SPECIAL_SELFDOWN1  ; new, testing
+	const ATTACK_DEFENSE_SELFDOWN1	 ; new
+	const DEFENSE_SPECIAL_SELFDOWN1  ; new
 	const ATTACK_UP_DEFENSE_UP_SPEED_DOWN_EFFECT ; new, testing - for curse
 
-	const ATTACK_SELFDOWN1			 ; new, testing
-	const DEFENSE_SELFDOWN1			 ; new, testing
-	const SPEED_SELFDOWN1			 ; new, testing - unnecessary as unused
-	const SPECIAL_SELFDOWN1			 ; new, testing
-	const ATTACK_SELFDOWN2			 ; new, testing - unnecessary as unused
-	const DEFENSE_SELFDOWN2			 ; new, testing - unnecessary as unused
-	const SPEED_SELFDOWN2			 ; new, testing - unnecessary as unused
-	const SPECIAL_SELFDOWN2			 ; new, testing
+	const ATTACK_SELFDOWN1			 ; new
+	const DEFENSE_SELFDOWN1			 ; new
+	const SPEED_SELFDOWN1			 ; new - unnecessary as unused
+	const SPECIAL_SELFDOWN1			 ; new
+	const ATTACK_SELFDOWN2			 ; new - unnecessary as unused
+	const DEFENSE_SELFDOWN2			 ; new - unnecessary as unused
+	const SPEED_SELFDOWN2			 ; new - unnecessary as unused
+	const SPECIAL_SELFDOWN2			 ; new
 
 ; new effects -------------------------------
 
@@ -157,5 +165,6 @@
 	const TOXIC_SPIKES_EFFECT
 	const STICKY_WEB_EFFECT
 	const STEALTH_ROCK_EFFECT
+	const RAPID_SPIN_EFFECT
 
 DEF NUM_MOVE_EFFECTS EQU const_value - 1

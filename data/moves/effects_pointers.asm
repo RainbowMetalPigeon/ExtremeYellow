@@ -90,6 +90,13 @@ MoveEffectPointerTable:
 	dw StatModifierDownEffect    ; unused effect - would this be accuracy?
 	dw StatModifierDownEffect    ; unused effect - would this be evasion?
 
+	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT5 ; unused actually
+	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT5
+	dw StatModifierDownEffect    ; unused
+	dw StatModifierDownEffect    ; unused
+	dw StatModifierDownEffect    ; unused
+	dw StatModifierDownEffect    ; unused
+
 	dw StatModifierDownEffect    ; ATTACK_DOWN_SIDE_EFFECT_CERT
 	dw StatModifierDownEffect    ; DEFENSE_DOWN_SIDE_EFFECT_CERT
 	dw StatModifierDownEffect    ; SPEED_DOWN_SIDE_EFFECT_CERT
@@ -120,6 +127,7 @@ MoveEffectPointerTable:
 
 	dw SelfBuff10Percent		 ; ATTACK_UP_SIDE_EFF1, new
 	dw SelfBuff10Percent		 ; DEFENSE_UP_SIDE_EFF1, new
+	dw SelfBuff10Percent		 ; SPEED_UP_SIDE_EFF1, new
 	dw SelfBuff20Percent		 ; ATTACK_UP_SIDE_EFF2, new
 
 	dw AttackDefenseSelfDownEffect  ; ATTACK_DEFENSE_SELFDOWN1 - new for SUPERPOWER
@@ -153,5 +161,6 @@ MoveEffectPointerTable:
 	dw ToxicSpikesEffect ; TOXIC_SPIKES_EFFECT
 	dw StickyWebEffect   ; STICKY_WEB_EFFECT
 	dw StealthRockEffect ; STEALTH_ROCK_EFFECT
+	dw RapidSpinEffect   ; RAPID_SPIN_EFFECT
 
 	assert_table_length NUM_MOVE_EFFECTS

@@ -159,3 +159,58 @@ StealthRockEffect_::
 FloatingRocksOnFieldText:
 	text_far _FloatingRocksOnFieldText
 	text_end
+
+; --------------------------------------------------------------------------
+
+RapidSpinEffect_::
+; similar to dragon dance
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+	ld de, wEnemyMoveEffect
+.next
+	ld a, SPEED_UP_SIDE_EFF1 ; TBV
+	ld [de], a
+	push de
+	callfar StatModifierUpEffect ; stat modifier raising function
+	call HazardsRemovalEffect ; wholly new part
+	pop de
+	ld a, RAPID_SPIN_EFFECT
+	ld [de], a
+	ret
+
+HazardsRemovalEffect::
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	ld hl, wHazardsSpikesPlayerSide
+	jr z, .playersTurn
+; opponent's turn
+	ld hl, wHazardsSpikesEnemySide
+.playersTurn
+	push hl
+	ld a, [hli]
+	ld b, [hl]
+	inc hl
+	or b
+	ld b, [hl]
+	inc hl
+	or b
+	ld b, [hl]
+	or b
+	pop hl
+	ret z
+; removed hazards
+	xor a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ld c, 30
+	call DelayFrames
+	ld hl, AllHazardsRemovedText
+	jp PrintText
+
+AllHazardsRemovedText:
+	text_far _AllHazardsRemovedText
+	text_end

@@ -1591,4 +1591,10 @@ _CannotAddMoreOfThisText::
 	line "of this!"
 	prompt
 
+_AllHazardsRemovedText::
+	text "<USER>"
+	line "cleared its field"
+	cont "from all hazards!"
+	prompt
+
 ;	xxxx "123456789012345678"

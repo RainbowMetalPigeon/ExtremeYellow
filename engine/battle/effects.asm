@@ -122,19 +122,25 @@ StatModifierUpEffect:
 	ld de, wEnemyMoveEffect
 .statModifierUpEffect
 	ld a, [de]
-	cp ATTACK_UP_SIDE_EFF1 		; new, testing
+	cp ATTACK_UP_SIDE_EFF1 		; new
 	jr c, .vanillaCode
-	cp ATTACK_UP_SIDE_EFF1
+;	cp ATTACK_UP_SIDE_EFF1 ; unnecessary
 	jr z, .mapNewToAtk
 	cp ATTACK_UP_SIDE_EFF2
 	jr z, .mapNewToAtk
 	cp DEFENSE_UP_SIDE_EFF1
 	jr z, .mapNewToDef
+	cp SPEED_UP_SIDE_EFF1
+	jr z, .mapNewToSpeed
+	; fallthrough?
 .mapNewToAtk
 	ld a, 0
 	jr .incrementStatMod
 .mapNewToDef
 	ld a, 1
+	jr .incrementStatMod
+.mapNewToSpeed
+	ld a, 2
 	jr .incrementStatMod
 .vanillaCode
 	sub ATTACK_UP1_EFFECT
@@ -385,6 +391,8 @@ StatModifierDownEffect:
 .vanillaLuck
 	ld a, [de] ; necessary to be reloaded
 ; back to vanilla
+	cp ATTACK_DOWN_SIDE_EFFECT5		; new
+	jr nc, .goTo50ishChance			; new
 	cp ATTACK_DOWN_SIDE_EFFECT3		; new
 	jr nc, .goTo30ishChance			; new
 	cp ATTACK_DOWN_SIDE_EFFECT2		; new
@@ -398,10 +406,15 @@ StatModifierDownEffect:
 	call BattleRandom
 	cp 20 percent + 1 ; chance for side effects
 	jp nc, CantLowerAnymore
-	jp c, .canLowerFurther
+	jr .canLowerFurther ; otherwise
 .goTo30ishChance
 	call BattleRandom
 	cp 33 percent + 1 ; chance for side effects
+	jp nc, CantLowerAnymore
+	jr .canLowerFurther ; otherwise
+.goTo50ishChance
+	call BattleRandom
+	cp 50 percent + 1 ; chance for side effects
 	jp nc, CantLowerAnymore
 .canLowerFurther 			; new
 	ld a, [de]
@@ -823,62 +836,11 @@ StatModifierSelfDownEffect:
 INCLUDE "data/battle/stat_mod_names.asm"
 INCLUDE "data/battle/stat_modifiers.asm"
 
-BideEffect:
-	ld hl, wPlayerBattleStatus1
-	ld de, wPlayerBideAccumulatedDamage
-	ld bc, wPlayerNumAttacksLeft
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .bideEffect
-	ld hl, wEnemyBattleStatus1
-	ld de, wEnemyBideAccumulatedDamage
-	ld bc, wEnemyNumAttacksLeft
-.bideEffect
-	set STORING_ENERGY, [hl] ; mon is now using bide
-	xor a
-	ld [de], a
-	inc de
-	ld [de], a
-	ld [wPlayerMoveEffect], a
-	ld [wEnemyMoveEffect], a
-	call BattleRandom
-	and $1
-	inc a
-	inc a
-	ld [bc], a ; set Bide counter to 2 or 3 at random
-	ldh a, [hWhoseTurn]
-	add XSTATITEM_ANIM
-	jp PlayAlternativeAnimation2 ; edited
+BideEffect:                         ; made into a jpfar to save space
+	jpfar BideEffect_               ; made into a jpfar to save space
 
-ThrashPetalDanceEffect:
-	ld hl, wPlayerBattleStatus1
-	ld de, wPlayerNumAttacksLeft
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .thrashPetalDanceEffect
-	ld hl, wEnemyBattleStatus1
-	ld de, wEnemyNumAttacksLeft
-.thrashPetalDanceEffect
-	set THRASHING_ABOUT, [hl] ; mon is now using thrash/petal dance
-	call BattleRandom
-	and $1
-	inc a
-	inc a
-	ld [de], a ; set thrash/petal dance counter to 2 or 3 at random
-	; edited to avoid the squares for OUTRAGE
-	ldh a, [hWhoseTurn]
-	and a
-	ld a, [wPlayerMoveNum]
-	jr z, .continue
-	ld a, [wEnemyMoveNum]
-.continue
-	cp OUTRAGE
-	ld a, 0
-	jr z, .skipExtraAnimation
-	ldh a, [hWhoseTurn]	; vanilla code
-	add ANIM_B0			; vanilla code
-.skipExtraAnimation
-	jp PlayAlternativeAnimation2 ; edited
+ThrashPetalDanceEffect:             ; made into a jpfar to save space
+	jpfar ThrashPetalDanceEffect_   ; made into a jpfar to save space
 
 SwitchAndTeleportEffect:			; made into a jpfar to save space
 	jpfar SwitchAndTeleportEffect_	; made into a jpfar to save space
@@ -1257,13 +1219,15 @@ TrickRoomEffect:
 
 SpikesEffect:
 	jpfar SpikesEffect_
-	
+
 ToxicSpikesEffect:
 	jpfar ToxicSpikesEffect_
-	
+
 StickyWebEffect:
 	jpfar StickyWebEffect_
-	
+
 StealthRockEffect:
 	jpfar StealthRockEffect_
-	
+
+RapidSpinEffect:
+	jpfar RapidSpinEffect_

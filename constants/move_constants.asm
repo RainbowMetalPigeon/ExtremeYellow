@@ -265,7 +265,11 @@
 	const   CURSE
 
 	; V2.0 moves
+	const DRILL_RUN
 	const ROCK_SMASH
+	const DIVE
+	const WHIRLPOOL
+	const ROCK_CLIMB
 	const SUNNY_DAY
 	const RAIN_DANCE
 	const SANDSTORM
@@ -281,6 +285,7 @@
 	const TOXIC_SPIKES
 	const STICKY_WEB
 	const STEALTH_ROCK
+	const RAPID_SPIN
 
 	; KAAARP!
 	const	ANCESTOR_PWR

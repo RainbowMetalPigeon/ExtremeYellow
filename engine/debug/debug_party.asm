@@ -46,19 +46,19 @@ IF DEF(_DEBUG)
 	ld a, REST ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, SPIKES
+	ld a, RAPID_SPIN
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, SANDSTORM
+	ld a, BIDE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, TRICK_ROOM
+	ld a, THRASH
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, LIGHT_SCREEN
+	ld a, SPIKES
 	ld [hli], a
 	ld a, ZAP_CANNON
 	ld [hli], a

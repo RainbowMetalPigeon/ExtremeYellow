@@ -502,7 +502,9 @@ INCLUDE "engine/predefs.asm"
 INCLUDE "engine/battle/move_effects/slideplayerenemy.asm"	; new
 INCLUDE "engine/battle/move_effects/triattack.asm"          ; new
 INCLUDE "engine/battle/move_effects/confusion.asm"          ; new
-INCLUDE "engine/battle/move_effects/freezeburnparalyze.asm" ; new , testing
+INCLUDE "engine/battle/move_effects/freezeburnparalyze.asm" ; new
+INCLUDE "engine/battle/move_effects/bide.asm"               ; new
+INCLUDE "engine/battle/move_effects/thrashpetaldance.asm"   ; new
 INCLUDE "engine/battle/move_effects/recoil.asm"				; moved from Battle Engine 1
 INCLUDE "engine/battle/move_effects/conversion.asm"			; moved from Battle Engine 1
 INCLUDE "engine/battle/move_effects/haze.asm"				; moved from Battle Engine 1
@@ -550,4 +552,3 @@ INCLUDE "data/maps/songs_sevii.asm"
 INCLUDE "data/maps/map_header_pointers_sevii.asm"
 INCLUDE "data/maps/map_header_banks_sevii.asm"
 INCLUDE "scripts/SeviiIslandsCommon.asm"
-

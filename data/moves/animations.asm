@@ -258,7 +258,11 @@ AttackAnimationPointers:
 	dw CurseAnim
 
 	; V2.0 moves
+	dw DrillRunAnim
 	dw RockSmashAnim
+	dw DiveAnim
+	dw WhirlpoolAnim
+	dw RockClimbAnim
 	dw SunnyDayAnim
 	dw RainDanceAnim
 	dw SandstormAnim
@@ -274,6 +278,7 @@ AttackAnimationPointers:
 	dw ToxicSpikesAnim
 	dw StickyWebAnim
 	dw StealthRockAnim
+	dw RapidSpinAnim
 
 	; KAAARP!
 	dw AncestorPwrAnim
@@ -1986,6 +1991,11 @@ SpikesAnim: ; TBE
 ToxicSpikesAnim: ; TBE
 StickyWebAnim: ; TBE
 StealthRockAnim: ; TBE
+DrillRunAnim: ; TBE
+DiveAnim: ; TBE
+WhirlpoolAnim: ; TBE
+RockClimbAnim: ; TBE
+RapidSpinAnim: ; TBE
 TrickRoomAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim PSYCHIC_M, SE_LIGHT_SCREEN_PALETTE

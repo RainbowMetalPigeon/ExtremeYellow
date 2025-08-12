@@ -9,4 +9,5 @@ HighCriticalMoves:
 	db PSYCHO_CUT ; new
 	db STONE_EDGE ; new
 	db ANCESTOR_PWR ; new
+	db DRILL_RUN ; new
 	db -1 ; end
