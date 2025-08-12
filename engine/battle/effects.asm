@@ -881,10 +881,16 @@ ChargeEffect:
 .notFly
 	ld a, [de]
 	cp DIG
-	jr nz, .notDigOrFly
-	set INVULNERABLE, [hl] ; mon is now invulnerable to typical attacks (fly/dig)
+	jr z, .yesDig ; new
+	cp DIVE ; new
+	jr nz, .notDigOrFlyOrDive ; edited
+	set INVULNERABLE, [hl] ; new
+	ld b, PRE_DIVE_ANIM ; new
+	jr .notDigOrFlyOrDive ; new
+.yesDig ; new
+	set INVULNERABLE, [hl] ; mon is now invulnerable to typical attacks (fly/dig/dive)
 	ld b, ANIM_C0
-.notDigOrFly
+.notDigOrFlyOrDive ; edited
 	push de
 	push bc
 	inc hl ; battle status 2

@@ -320,6 +320,7 @@ AlternativeAnimationPointers: ; new
 	dw ConfusedPlayerAnim ; ANIM_BE
 	dw ConfusedEnemyAnim ; CONF_ANIM
 	dw FaintAnim ; ANIM_C0
+	dw DivePreAnim ; PRE_DIVE_ANIM ; new
 	dw BallTossAnim ; TOSS_ANIM
 	dw BallShakeAnim ; SHAKE_ANIM
 	dw BallPoofAnim ; POOF_ANIM
@@ -483,7 +484,7 @@ RollingKickAnim:
 	battle_anim NO_MOVE, SUBANIM_04, 1, 6
 	db -1 ; end
 
-MudSlapAnim:		; improve if space
+MudSlapAnim:		; TBE, improve if space
 SandAttackAnim:
 	battle_anim SAND_ATTACK, SUBANIM_28, 1, 6
 	db -1 ; end
@@ -849,7 +850,7 @@ DigAnim:
 	battle_anim NO_MOVE, SE_SLIDE_MON_UP
 	db -1 ; end
 
-MudShotAnim:		; improve if space
+MudShotAnim:		; TBE, improve if space
 ToxicAnim:
 	battle_anim SURF, SE_WATER_DROPLETS_EVERYWHERE
 	battle_anim TOXIC, SUBANIM_14, 1, 6
@@ -1137,7 +1138,7 @@ PoisonGasAnim:
 	battle_anim POISON_GAS, SUBANIM_19, 1, 6
 	db -1 ; end
 
-BulletSeedAnim:		; improve if space and will
+BulletSeedAnim:		; TBE, improve if space and will
 ;BarrageAnim:
 	battle_anim X_SCISSOR, SUBANIM_41, 1, 3
 	battle_anim NO_MOVE, SUBANIM_55, 0, 5
@@ -1930,6 +1931,28 @@ JudgmentAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	db -1 ; end
 
+DrillRunAnim:
+	battle_anim FURY_ATTACK, SUBANIM_46, 0, 2
+	battle_anim EARTHQUAKE, SE_SHAKE_SCREEN
+	db -1
+
+RockClimbAnim:
+	battle_anim ROCK_SLIDE, SUBANIM_30reverse, 0, 2
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 6
+	db -1
+
+WhirlpoolAnim:
+	battle_anim SURF, SUBANIM_0C, 0, 6
+	battle_anim NO_MOVE, SUBANIM_0D, 0, 6
+	battle_anim NO_MOVE, SUBANIM_0E, 0, 6
+	db -1 ; end
+
+DiveAnim:
+	battle_anim SURF, SUBANIM_04, 1, 6
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
 RockSmashAnim:
 	battle_anim KARATE_CHOP, SUBANIM_03, 0, 8
 	battle_anim ROCK_THROW, SUBANIM_30, 0, 4
@@ -1987,15 +2010,6 @@ TerrainPulseAnim:
 	battle_anim CONFUSE_RAY, SE_WAVY_SCREEN
 	db -1 ; end
 
-SpikesAnim: ; TBE
-ToxicSpikesAnim: ; TBE
-StickyWebAnim: ; TBE
-StealthRockAnim: ; TBE
-DrillRunAnim: ; TBE
-DiveAnim: ; TBE
-WhirlpoolAnim: ; TBE
-RockClimbAnim: ; TBE
-RapidSpinAnim: ; TBE
 TrickRoomAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim PSYCHIC_M, SE_LIGHT_SCREEN_PALETTE
@@ -2016,6 +2030,35 @@ TrickRoomAnim:
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	db -1
+
+SpikesAnim:
+	battle_anim TWINEEDLE, SUBANIM_1_SPIKES, 1, 4
+	db -1
+
+ToxicSpikesAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim ACID, SUBANIM_1_SPIKES, 1, 4
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1
+
+StickyWebAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim STRING_SHOT, SUBANIM_37, 0, 8
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+StealthRockAnim:
+	battle_anim ROCK_THROW, SUBANIM_1D, 0, 4
+	battle_anim NO_MOVE, SUBANIM_1E, 0, 3
+	battle_anim ROCK_SLIDE, SUBANIM_30reverse, 0, 5
+	db -1
+
+RapidSpinAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim QUICK_ATTACK, SE_SQUISH_MON_PIC
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
 
 ; ------------------------------------------------------------------------------
 
@@ -2139,6 +2182,10 @@ VanishBallAnim: ; new
 
 FaintAnim:
 	battle_anim DIG, SE_SLIDE_MON_DOWN
+	db -1 ; end
+
+DivePreAnim: ; new
+	battle_anim WATER_GUN, SE_SLIDE_MON_DOWN
 	db -1 ; end
 
 ShakeScreenAnim:

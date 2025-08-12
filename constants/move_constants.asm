@@ -329,6 +329,7 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ANIM_BE
 	const CONF_ANIM ; confused monster
 	const ANIM_C0
+	const PRE_DIVE_ANIM ; new
 	const TOSS_ANIM ; toss Poké Ball
 	const SHAKE_ANIM ; shaking Poké Ball when catching monster
 	const POOF_ANIM ; puff of smoke

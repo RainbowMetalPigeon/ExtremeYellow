@@ -105,6 +105,7 @@ SubanimationPointers:
 	dw SubanimationStaticCircles
 	dw Subanimation38Enemy
 	dw Subanimation2benemy
+	dw Subanimation1Spikes
 	assert_table_length NUM_SUBANIMS
 
 ; format:
@@ -116,6 +117,24 @@ SubanimationPointers:
 MACRO subanim
 	db (\1 << 5) | \2
 ENDM
+
+Subanimation1Spikes: ; from Porygondolier
+    subanim SUBANIMTYPE_REVERSE, 15 ; it goes right, mid, left when throwing self to opponent
+    db FRAMEBLOCK_36, BASECOORD_45, FRAMEBLOCKMODE_00 ; right start point ; throwing the RIGHT, LEFT and MID WAITING
+    db FRAMEBLOCK_36, BASECOORD_76, FRAMEBLOCKMODE_00 ; right point 2
+    db FRAMEBLOCK_36, BASECOORD_2E, FRAMEBLOCKMODE_00 ; right point 3
+    db FRAMEBLOCK_36, BASECOORD_1C, FRAMEBLOCKMODE_00 ; right point 4
+    db FRAMEBLOCK_36, BASECOORD_B1, FRAMEBLOCKMODE_00 ; right end point 38, 90
+    db FRAMEBLOCK_36, BASECOORD_66, FRAMEBLOCKMODE_00 ; start point mid 50, 24 ; throwing the mid, RIGHT AT END LEFT AT START
+    db FRAMEBLOCK_36, BASECOORD_43, FRAMEBLOCKMODE_00 ; mid point 2
+    db FRAMEBLOCK_36, BASECOORD_8D, FRAMEBLOCKMODE_00 ; mid point 3
+    db FRAMEBLOCK_36, BASECOORD_9E, FRAMEBLOCKMODE_00 ; mid point 4
+    db FRAMEBLOCK_36, BASECOORD_B2, FRAMEBLOCKMODE_00 ; mid end point   38, 7C
+    db FRAMEBLOCK_36, BASECOORD_7E, FRAMEBLOCKMODE_00 ; left start point ; throwing the left, RIGHT and MID AT END
+    db FRAMEBLOCK_36, BASECOORD_81, FRAMEBLOCKMODE_00 ; left point 2
+    db FRAMEBLOCK_36, BASECOORD_89, FRAMEBLOCKMODE_00 ; left point 3 2D, 50
+    db FRAMEBLOCK_36, BASECOORD_A4, FRAMEBLOCKMODE_00 ; left point 4 2D, 50
+    db FRAMEBLOCK_36, BASECOORD_20, FRAMEBLOCKMODE_00 ; left end point  38, 68
 
 SubanimationIcicleSpear: ; new
 	subanim SUBANIMTYPE_REVERSE, 9

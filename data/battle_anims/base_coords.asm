@@ -179,7 +179,7 @@ FrameBlockBaseCoords:
 	db $1C, $48 ; BASECOORD_AF
 	db $48, $28 ; BASECOORD_B0
 	db $40, $90 ; BASECOORD_B1
-	; new ones, currently unused
+	; new ones
 	db $60, $10 ; BASECOORD_B2
 	db $60, $20 ; BASECOORD_B3
 	db $60, $30 ; BASECOORD_B4
@@ -196,5 +196,7 @@ FrameBlockBaseCoords:
 	db $68, $18 ; BASECOORD_BF
 	db $58, $38 ; BASECOORD_C0
 	db $30, $88 ; BASECOORD_C1
+	db $38, $90 ; BASECOORD_C2
+	db $38, $7C ; BASECOORD_C3
 
 	assert_table_length NUM_BASECOORDS
