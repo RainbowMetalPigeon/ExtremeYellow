@@ -85,11 +85,11 @@ CanLearnTutorMove:
 	push bc
 	ld bc, 2 ;bytes to copy
 	ld a, BANK(TutorMoveData)
-	ld de, wMoveBuffer ; edited, any 2-byte buffer variable would do?
+	ld de, wMultipurposeBuffer ; edited, any 2-byte buffer variable would do?
 	call FarCopyData ; Copy bc bytes from a:hl to de. THis also takes care of incrementing hl twice ready for the next loop
 	pop bc
 
-	ld de, wMoveBuffer ; edited, any 2-byte buffer variable would do?
+	ld de, wMultipurposeBuffer ; edited, any 2-byte buffer variable would do?
     ld a, [de]
     cp $ff
     jr z, .not_found

@@ -1234,16 +1234,16 @@ wPartyMenuHPBarColors:: ds PARTY_LENGTH
 
 wStatusScreenHPBarColor:: db
 
-;	ds 7		; new - commented to try to save space to be able to add all new mons
+;	ds 7		; new - commented to try to save space to be able to add all new mons ; TBE: wrong bank?
 
 wCopyingSGBTileData::
 wWhichPartyMenuHPBar::
 wPalPacket::
 	db
 
-; This union spans 49 bytes.
+; This union spans 49 bytes. ; so 1 byte is wasted?
 UNION
-wPartyMenuBlkPacket:: ds $30
+wPartyMenuBlkPacket:: ds $30 ; = 48 bytes
 
 NEXTU
 	ds 29
@@ -1263,6 +1263,10 @@ ENDU
 
 UNION ; new, made into a union
 wGymCityName:: ds 17
+
+NEXTU ; new, other shared buffer bytes
+wMultipurposeBuffer:: db ; new
+	ds 16
 
 NEXTU ; new, 17 free juicy bytes
 	wWeatherCounterPlayer:: db ; new
