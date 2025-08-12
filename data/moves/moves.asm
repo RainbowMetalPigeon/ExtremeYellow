@@ -293,7 +293,7 @@ Moves:
 	move TOXIC_SPIKES, TOXIC_SPIKES_EFFECT,          0, POISON,       100, 20 ; done
 	move STICKY_WEB,   STICKY_WEB_EFFECT,            0, BUG,          100, 20 ; done
 	move STEALTH_ROCK, STEALTH_ROCK_EFFECT,          0, ROCK,         100, 20 ; done
-	move RAPID_SPIN,   RAPID_SPIN_EFFECT,           50, NORMAL,       100, 20 ; TBE
+	move RAPID_SPIN,   RAPID_SPIN_EFFECT,           50, NORMAL,       100, 20 ; done
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)

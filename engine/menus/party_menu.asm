@@ -67,6 +67,8 @@ RedrawPartyMenu_::
 	ld a, [wPartyMenuTypeOrMessageID] ; menu type
 	cp TMHM_PARTY_MENU
 	jr z, .teachMoveMenu
+	cp TUTOR_PARTY_MENU  ; new
+	jr z, .tutorMoveMenu ; new
 	cp EVO_STONE_PARTY_MENU
 	jr z, .evolutionStoneMenu
 	push hl
@@ -78,20 +80,26 @@ RedrawPartyMenu_::
 	push hl
 	ld bc, SCREEN_WIDTH + 1 ; down 1 row and right 1 column
 	ldh a, [hUILayoutFlags]
-	set 0, a
+	set 0, a ; 0 should be BIT_PARTY_MENU_HP_BAR
 	ldh [hUILayoutFlags], a
 	add hl, bc
 	predef DrawHP2 ; draw HP bar and prints current / max HP
 	ldh a, [hUILayoutFlags]
-	res 0, a
+	res 0, a ; 0 should be BIT_PARTY_MENU_HP_BAR
 	ldh [hUILayoutFlags], a
 	call SetPartyMenuHPBarColor ; color the HP bar (on SGB)
 	pop hl
 	jr .printLevel
+; new
+.tutorMoveMenu
+	call CanLearnTutorMoveWrapper ; edited
+	jr .display
+; BTV
 .teachMoveMenu
 	push hl
 	predef CanLearnTM ; check if the pokemon can learn the move
 	pop hl
+.display ; new
 	ld de, .ableToLearnMoveText
 	ld a, c
 	and a
@@ -249,6 +257,7 @@ PartyMenuMessagePointers:
 	dw PartyMenuUseTMText
 	dw PartyMenuSwapMonText
 	dw PartyMenuItemUseText
+	dw PartyMenuTutorText ; new
 
 PartyMenuNormalText:
 	text_far _PartyMenuNormalText
@@ -256,6 +265,10 @@ PartyMenuNormalText:
 
 PartyMenuItemUseText:
 	text_far _PartyMenuItemUseText
+	text_end
+
+PartyMenuTutorText: ; new
+	text_far _PartyMenuTutorText
 	text_end
 
 PartyMenuBattleText:
@@ -319,4 +332,12 @@ SetPartyMenuHPBarColor:: ; edited, double colon
 	call RunPaletteCommand
 	ld hl, wWhichPartyMenuHPBar
 	inc [hl]
+	ret
+
+CanLearnTutorMoveWrapper: ; new
+	push hl
+	callfar CanLearnTutorMove
+	pop hl
+	ld a, d
+	ld c, a
 	ret

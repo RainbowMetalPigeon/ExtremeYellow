@@ -1431,6 +1431,11 @@ _HookedMonAttackedText:: ; edited, 2-liner
 
 ; new ----------------------------------------------------------
 
+_PartyMenuTutorText::
+	text "Teach move to"
+	line "which #MON?"
+	done
+
 _BoyGirlText::
     text "Are you a boy"
     line "or a girl?"

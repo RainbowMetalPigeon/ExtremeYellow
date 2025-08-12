@@ -103,11 +103,14 @@ INCLUDE "engine/movie/oak_speech/init_player_data.asm" ; from bank3
 INCLUDE "engine/movie/title_yellow.asm" ; from Battle Engine 9
 INCLUDE "engine/menus/link_menu.asm" ; from Battle Engine 9
 INCLUDE "engine/miscellanea/battlecore2.asm" ; new
+INCLUDE "engine/miscellanea/tutor.asm" ; new
+INCLUDE "data/moves/tutor_table.asm" ; new
 
 
 SECTION "bankGarage3", ROMX ; new
 INCLUDE "engine/pokemon/add_mon.asm" ; from bank3
 INCLUDE "engine/flag_action.asm" ; from bank3
+
 
 SECTION "bank4", ROMX
 
