@@ -555,7 +555,7 @@ SpecialTrainerMoves:
 	db 6, 2, STONE_EDGE
 	db 6, 3, CLOSE_COMBAT
 	db 6, 4, X_SCISSOR
-	; MAERODACTYL
+	; MARODACTYL
 	db 6, 1, AIR_CUTTER
 	db 6, 2, ROOST
 	db 6, 3, STONE_EDGE
