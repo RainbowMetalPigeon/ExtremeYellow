@@ -42,23 +42,30 @@ DEF FIRST_ROUTE_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_43,                19, 46 ; $15
 	map_const SEVII_ROUTE_44,                50, 15 ; $16
 DEF FIRST_INDOOR_MAP_SEVII EQU const_value
-; one
-	map_const SEVII_ONE_ISLAND_DOCK,         10,  6 ; $17
-; two
-	map_const SEVII_TWO_ISLAND_DOCK,         10,  6 ; $18
-; three
-	map_const SEVII_THREE_ISLAND_DOCK,       10,  6 ; $19
-; four
-	map_const SEVII_FOUR_ISLAND_DOCK,        10,  6 ; $1A
-	map_const SEVII_ICEFALL_CAVE_1F,         15, 15 ; $1B
-; five
-	map_const SEVII_FIVE_ISLAND_DOCK,        10,  6 ; $1C
-; six
-	map_const SEVII_SIX_ISLAND_DOCK,         10,  6 ; $1D
-; seven
-	map_const SEVII_SEVEN_ISLAND_DOCK,       10,  6 ; $1E
-; eight
-	map_const SEVII_EIGHT_ISLAND_DOCK,       10,  6 ; $1F
+; 1-island-related maps
+	map_const SEVII_ONE_ISLAND_DOCK,                         10,  6 ; $17
+	map_const SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $18
+; 2-island-related maps
+	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $19
+	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $1A
+; 3-island-related maps
+	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $1B
+	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $1C
+; 4-island-related maps
+	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $1D
+	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $1E
+	map_const SEVII_ICEFALL_CAVE_1F,                         15, 15 ; $1F
+; 5-island-related maps
+	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $20
+	map_const SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $21
+; 6-island-related maps
+	map_const SEVII_SIX_ISLAND_DOCK,                         10,  6 ; $22
+	map_const SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $23
+; 7-island-related maps
+	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $24
+	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $25
+; 8-island-related maps
+	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $26
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

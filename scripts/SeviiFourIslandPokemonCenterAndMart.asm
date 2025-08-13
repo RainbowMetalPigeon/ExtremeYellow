@@ -1,0 +1,50 @@
+SeviiFourIslandPokemonCenterAndMart_Script:
+	call Serial_TryEstablishingExternallyClockedConnection
+	jp EnableAutoTextBoxDrawing
+
+SeviiFourIslandPokemonCenterAndMart_TextPointers:
+	dw SeviiFourIslandPokemonCenterAndMart_HealNurseText
+	dw SeviiFourIslandPokemonCenterAndMart_ChanseyText
+	dw SeviiFourIslandPokemonCenterAndMart_Text1
+	dw SeviiFourIslandPokemonCenterAndMart_Text2
+	; from Mart
+	dw SeviiFourIslandPokemonCenterAndMart_CashierText
+	dw SeviiFourIslandPokemonCenterAndMart_CashierTMText
+	dw SeviiFourIslandPokemonCenterAndMart_Text3
+	dw SeviiFourIslandPokemonCenterAndMart_Text4
+
+; Center
+
+SeviiFourIslandPokemonCenterAndMart_HealNurseText:
+	script_pokecenter_nurse
+
+SeviiFourIslandPokemonCenterAndMart_ChanseyText:
+	text_asm
+	callfar PokecenterChanseyText
+	jp TextScriptEnd
+
+SeviiFourIslandPokemonCenterAndMart_Text1:
+	text_far _SeviiFourIslandPokemonCenterAndMart_Text1
+	text_end
+
+SeviiFourIslandPokemonCenterAndMart_Text2:
+	text_far _SeviiFourIslandPokemonCenterAndMart_Text2
+	text_end
+
+; Mart
+
+SeviiFourIslandPokemonCenterAndMart_CashierText:
+	script_mart GREAT_BALL, SUPER_POTION, ESCAPE_ROPE, REPEL, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL
+
+SeviiFourIslandPokemonCenterAndMart_CashierTMText:
+    text_asm
+	callfar TMMartClerkDialogue
+    jp TextScriptEnd
+
+SeviiFourIslandPokemonCenterAndMart_Text3:
+	text_far _SeviiFourIslandPokemonCenterAndMart_Text3
+	text_end
+
+SeviiFourIslandPokemonCenterAndMart_Text4:
+	text_far _SeviiFourIslandPokemonCenterAndMart_Text4
+	text_end

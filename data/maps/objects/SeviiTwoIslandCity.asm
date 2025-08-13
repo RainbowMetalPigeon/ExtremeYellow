@@ -4,6 +4,7 @@ SeviiTwoIslandCity_Object:
 	def_warp_events
 	warp_event  6, 33, SEVII_TWO_ISLAND_DOCK, 1
 	warp_event  7, 33, SEVII_TWO_ISLAND_DOCK, 1
+	warp_event 15, 29, SEVII_TWO_ISLAND_POKEMON_CENTER, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

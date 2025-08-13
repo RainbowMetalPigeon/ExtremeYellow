@@ -20,8 +20,8 @@ RedsHouse2_Coll::
 	coll_tiles $01, $02, $03, $11, $12, $13, $14, $1c, $1a
 
 Mart_Coll::
-Pokecenter_Coll::
-	coll_tiles $11, $1a, $1c, $3c, $5e
+Pokecenter_Coll:: ; edited, last one is new
+	coll_tiles $11, $1a, $1c, $3c, $5e, $67
 
 Dojo_Coll::
 Gym_Coll::

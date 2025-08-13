@@ -28,12 +28,19 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute44_h
 ; indoors
 	dw SeviiOneIslandDock_h
+	dw SeviiOneIslandPokemonCenterAndMart_h
 	dw SeviiTwoIslandDock_h
+	dw SeviiTwoIslandPokemonCenter_h
 	dw SeviiThreeIslandDock_h
+	dw SeviiThreeIslandPokemonCenterAndMart_h
 	dw SeviiFourIslandDock_h
+	dw SeviiFourIslandPokemonCenterAndMart_h
 	dw SeviiIcefallCave1F_h
 	dw SeviiFiveIslandDock_h
+	dw SeviiFiveIslandPokemonCenterAndMart_h
 	dw SeviiSixIslandDock_h
+	dw SeviiSixIslandPokemonCenterAndMart_h
 	dw SeviiSevenIslandDock_h
+	dw SeviiSevenIslandPokemonCenterAndMart_h
 	dw SeviiEightIslandDock_h
 	assert_table_length NUM_MAPS_SEVII

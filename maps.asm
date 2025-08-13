@@ -1573,3 +1573,33 @@ INCLUDE "data/maps/headers/SeviiIcefallCave1F.asm"
 INCLUDE "scripts/SeviiIcefallCave1F.asm"
 INCLUDE "data/maps/objects/SeviiIcefallCave1F.asm"
 SeviiIcefallCave1F_Blocks: INCBIN "maps/SeviiIcefallCave1F.blk"
+
+INCLUDE "data/maps/headers/SeviiOneIslandPokemonCenterAndMart.asm"
+INCLUDE "scripts/SeviiOneIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/objects/SeviiOneIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/headers/SeviiThreeIslandPokemonCenterAndMart.asm"
+INCLUDE "scripts/SeviiThreeIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/headers/SeviiFourIslandPokemonCenterAndMart.asm"
+INCLUDE "scripts/SeviiFourIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/headers/SeviiFiveIslandPokemonCenterAndMart.asm"
+INCLUDE "scripts/SeviiFiveIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/headers/SeviiSixIslandPokemonCenterAndMart.asm"
+INCLUDE "scripts/SeviiSixIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/objects/SeviiSixIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/headers/SeviiSevenIslandPokemonCenterAndMart.asm"
+INCLUDE "scripts/SeviiSevenIslandPokemonCenterAndMart.asm"
+INCLUDE "data/maps/objects/SeviiSevenIslandPokemonCenterAndMart.asm"
+SeviiSevenIslandPokemonCenterAndMart_Blocks:
+SeviiSixIslandPokemonCenterAndMart_Blocks:
+SeviiFiveIslandPokemonCenterAndMart_Blocks:
+SeviiFourIslandPokemonCenterAndMart_Blocks:
+SeviiThreeIslandPokemonCenterAndMart_Blocks:
+SeviiOneIslandPokemonCenterAndMart_Blocks: INCBIN "maps/SeviiPokemonCenterAndMart.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIslandPokemonCenter.asm"
+INCLUDE "scripts/SeviiTwoIslandPokemonCenter.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslandPokemonCenter.asm"
+SeviiTwoIslandPokemonCenter_Blocks: INCBIN "maps/SeviiPokemonCenter.blk"

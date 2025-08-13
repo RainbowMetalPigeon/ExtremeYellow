@@ -14,6 +14,22 @@ _SeviiOneIslandCityText1_Done::
 	text "Done!"
 	done
 
+_SeviiOneIslandPokemonCenterAndMart_Text1::
+	text "test 1-1"
+	done
+
+_SeviiOneIslandPokemonCenterAndMart_Text2::
+	text "test 1-2"
+	done
+
+_SeviiOneIslandPokemonCenterAndMart_Text3::
+	text "test 1-3"
+	done
+
+_SeviiOneIslandPokemonCenterAndMart_Text4::
+	text "test 1-4"
+	done
+
 ; dock ------------------------------------
 
 _SeviiOneIslandDockBgText1::

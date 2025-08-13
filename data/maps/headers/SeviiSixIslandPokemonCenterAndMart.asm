@@ -1,0 +1,2 @@
+	map_header SeviiSixIslandPokemonCenterAndMart, SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART, POKECENTER, 0
+	end_map_header
