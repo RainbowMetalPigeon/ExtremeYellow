@@ -352,6 +352,13 @@ _AttackdexText_SpecialDownSide3Effect::
 	next "by 1"
 	dex
 
+_AttackdexText_DefenseDownSide5Effect::
+	text "50% chance to"
+	next "reduce enemy's"
+	next "DEFENSE modifier"
+	next "by 1"
+	dex
+
 _AttackdexText_AttackDownSideCertEffect::
 	text "100% chance to"
 	next "reduce enemy's"
@@ -910,56 +917,89 @@ _AttackdexText_RainDanceEffect::
 
 _AttackdexText_SandstormEffect::
 	text "A sandstorm rages:"
-;	xxxx "123456789012345678"
+	next "every non-GROUND,"
+	next "-ROCK, or -STEEL"
+	next "is damaged by 1/8"
+
+	atpg "max HP every turn."
+	next "ROCK's SPC +50%"
+	next "when defending."
+	next "SOLARBEAM -50%"
 	dex
 
 _AttackdexText_HailEffect::
 	text "Haily snow falls:"
-;	xxxx "123456789012345678"
+	next "every non-ICE is"
+ 	next "damaged by 1/8"
+	next "max HP per turn."
+
+	atpg "ICE's DEF +50%."
+	next "BLIZZARD cannot"
+	next "miss."
+	next "SOLARBEAM -50%"
 	dex
 
 _AttackdexText_WeatherBallEffect::
-	text "BP=100 if weather."
+	text "BP 100 if weather."
 	next "Type changes too:"
-	next "Sunny = FIRE;"
-	next "Rainy = WATER;"
+	next "Sunny: FIRE;"
+	next "Rainy: WATER;"
 
-	atpg "Sandstorm = ROCK;"
-	next "Hail = ICE"
+	atpg "Sandstorm: ROCK;"
+	next "Hail: ICE"
 	dex
 
 _AttackdexText_GrassyTerrainEffect::
 	text "The terrain turns"
-	next "grassy:"
-;	xxxx "123456789012345678"
+	next "grassy: grounded"
+	next "#MON + 1/16 max"
+	next "HP every turn,"
+
+	atpg "and their GRASS"
+	next "moves +50%."
+	next "EARTHQUAKE -50%"
 	dex
 
 _AttackdexText_ElectricTerrainEffect::
 	text "The terrain turns"
-	next "electric:"
-;	xxxx "123456789012345678"
+	next "electric: grounded"
+	next "#MON can't sleep"
+	next "and their"
+
+	atpg "ELECTRIC moves"
+	next "deal +50% damage"
 	dex
 
 _AttackdexText_MistyTerrainEffect::
 	text "The terrain turns"
-	next "misty:"
-;	xxxx "123456789012345678"
+	next "misty: grounded"
+	next "#MON are immune"
+	next "to STATUSes and"
+
+	atpg "CONFUSION, and"
+	next "take -50% from"
+	next "DRAGON moves"
 	dex
 
 _AttackdexText_PsychicTerrainEffect::
 	text "The terrain turns"
-	next "psychic:"
-;	xxxx "123456789012345678"
+	next "psychic: grounded"
+	next "#MON cannot be"
+	next "hit by priority"
+
+	atpg "moves, and their"
+	next "PSYCHIC moves deal"
+	next "+50% damage"
 	dex
 
 _AttackdexText_TerrainPulseEffect::
-	text "BP=100 if terrain."
+	text "BP 100 if terrain."
 	next "Type changes too:"
-	next "Grassy = GRASS;"
-	next "Misty = FAIRY;"
+	next "Grassy: GRASS;"
+	next "Misty: FAIRY;"
 
-	atpg "Psychic = PSYCHIC;"
-	next "Electric=ELECTRIC."
+	atpg "Psychic: PSYCHIC;"
+	next "Electric:ELECTRIC."
 	next "Changes only if"
 	next "user is grounded"
 	dex
@@ -972,25 +1012,58 @@ _AttackdexText_TrickRoomEffect::
 	dex
 
 _AttackdexText_SpikesEffect::
-	text "Sets"
-	next "spikes"
+	text "Sets pointy spikes"
+	next "in up to 3 layers"
+	next "to damage grounded"
+	next "switching enemies"
+
+	atpg "1: 1/8 max HP"
+	next "2: 1/6 max HP"
+	next "3: 1/4 max HP"
 	dex
 
 _AttackdexText_ToxicSpikesEffect::
-	text "Sets"
-	next "toxic spikes"
+	text "Sets toxic spikes"
+	next "in up to 2 layers"
+	next "to poison grounded"
+	next "switching enemies"
+
+	atpg "1: normal poison"
+	next "2: toxic poison."
+	next "Get absorbed by"
+	next "POISON #MON"
 	dex
 
 _AttackdexText_StickyWebEffect::
-	text "Sets"
-	next "web"
+	text "Sets a sticky web:"
+	next "grounded switching"
+	next "enemies' speed"
+	next "modifier -1"
 	dex
 
 _AttackdexText_StealthRockEffect::
-	text "Sets"
-	next "rocks"
+	text "Sets floating"
+	next "rocks to damage"
+	next "switching enemies"
+	next "as weak to ROCK:"
+
+	atpg "double res:  1/32"
+	next "single res:  1/16"
+	next "neutral:     1/ 8"
+	next "single weak: 1/ 4"
+
+	atpg "double weak: 1/ 2"
+	next "Can deal no damage"
+	next "with randomized"
+	next "type chart"
 	dex
 
+_AttackdexText_RapidSpinEffect::
+	text "Increases user's"
+	next "SPEED by 1 stage"
+	next "and frees it from"
+	next "SEEDS and hazards"
+	dex
 
 _AttackdexText_StruggleEffect::
 	text "Can and must be"

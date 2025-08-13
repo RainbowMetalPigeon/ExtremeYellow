@@ -420,6 +420,8 @@ StatModifierDownEffect:
 	ld a, [de]
 	cp ATTACK_DOWN_SIDE_EFFECT_CERT	; new
 	jr nc, .mappingCert				; new
+	cp ATTACK_DOWN_SIDE_EFFECT5		; new
+	jr nc, .mapping50				; new
 	cp ATTACK_DOWN_SIDE_EFFECT3		; new
 	jr nc, .mapping30				; new
 	cp ATTACK_DOWN_SIDE_EFFECT2		; new
@@ -428,6 +430,9 @@ StatModifierDownEffect:
 	jr .decrementStatMod			; new, bug fix!
 .mappingCert						; new
 	sub ATTACK_DOWN_SIDE_EFFECT_CERT 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
+	jr .decrementStatMod
+.mapping50							; new
+	sub ATTACK_DOWN_SIDE_EFFECT5 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
 	jr .decrementStatMod
 .mapping30							; new
 	sub ATTACK_DOWN_SIDE_EFFECT3 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)

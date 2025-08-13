@@ -274,7 +274,7 @@ Moves:
 
 	; V2.0 moves
 	move DRILL_RUN,    NO_ADDITIONAL_EFFECT,        80, GROUND,        95, 10 ; done - high crit rate
-	move ROCK_SMASH,   DEFENSE_DOWN_SIDE_EFFECT3,   40, FIGHTING,     100, 15 ; done
+	move ROCK_SMASH,   DEFENSE_DOWN_SIDE_EFFECT5,   40, FIGHTING,     100, 15 ; done
 	move DIVE,         CHARGE_EFFECT,               80, WATER,        100, 10 ; done
 	move WHIRLPOOL,    TRAPPING_EFFECT,             15, WATER,         70, 15 ; TBE, maybe pow=35 and acc=85?
 	move ROCK_CLIMB,   CONFUSION_SIDE_EFFECT2,      90, NORMAL,        85, 20 ; done

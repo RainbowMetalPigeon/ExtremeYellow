@@ -707,6 +707,10 @@ DrawAttackdexEntryOnScreen:
 	cp STEALTH_ROCK
 	jp z, .done
 
+	ld hl, AttackdexText_RapidSpinEffect
+	cp RAPID_SPIN
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -932,6 +936,10 @@ DrawAttackdexEntryOnScreen:
 
 	ld hl, AttackdexText_SpecialDownSide3Effect
 	cp SPECIAL_DOWN_SIDE_EFFECT3
+	jp z, .done
+
+	ld hl, AttackdexText_DefenseDownSide5Effect
+	cp DEFENSE_DOWN_SIDE_EFFECT5
 	jp z, .done
 
 	ld hl, AttackdexText_AttackDownSideCertEffect
@@ -1556,6 +1564,10 @@ AttackdexText_SpecialDownSide3Effect:
 	text_far _AttackdexText_SpecialDownSide3Effect
 	text_end
 
+AttackdexText_DefenseDownSide5Effect:
+	text_far _AttackdexText_DefenseDownSide5Effect
+	text_end
+
 AttackdexText_AttackDownSideCertEffect:
 	text_far _AttackdexText_AttackDownSideCertEffect
 	text_end
@@ -1911,16 +1923,19 @@ AttackdexText_TrickRoomEffect:
 AttackdexText_SpikesEffect:
 	text_far _AttackdexText_SpikesEffect
 	text_end
-	
+
 AttackdexText_ToxicSpikesEffect:
 	text_far _AttackdexText_ToxicSpikesEffect
 	text_end
-	
+
 AttackdexText_StickyWebEffect:
 	text_far _AttackdexText_StickyWebEffect
 	text_end
-	
+
 AttackdexText_StealthRockEffect:
 	text_far _AttackdexText_StealthRockEffect
 	text_end
-	
+
+AttackdexText_RapidSpinEffect:
+	text_far _AttackdexText_RapidSpinEffect
+	text_end

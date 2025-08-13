@@ -1284,10 +1284,10 @@ PrintBattleInfoCore::
 	hlcoord 2, 9
 	ld de, BattleInfoPlayerText
 	call PlaceString
-	hlcoord 10, 9
+	hlcoord 9, 9
 	ld de, BattleInfoSlashText
 	call PlaceString
-	hlcoord 13, 9
+	hlcoord 12, 9
 	ld de, BattleInfoEnemyText
 	call PlaceString
 
@@ -1332,16 +1332,16 @@ PrintBattleInfoCore::
 ; entry hazards values, player side
 	hlcoord 4, 11
 	ld a, [wHazardsSpikesPlayerSide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	hlcoord 4, 12
 	ld a, [wHazardsToxicSpikesPlayerSide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	hlcoord 4, 13
 	ld a, [wHazardsStealthRockPlayerSide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	hlcoord 4, 14
 	ld a, [wHazardsStickyWebPlayerSide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	ld de, wPlayerBattleStatus3
 	hlcoord 4, 15
 	call PrintReflectStatus
@@ -1351,16 +1351,16 @@ PrintBattleInfoCore::
 ; entry hazards values, enemy side
 	hlcoord 17, 11
 	ld a, [wHazardsSpikesEnemySide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	hlcoord 17, 12
 	ld a, [wHazardsToxicSpikesEnemySide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	hlcoord 17, 13
 	ld a, [wHazardsStealthRockEnemySide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	hlcoord 17, 14
 	ld a, [wHazardsStickyWebEnemySide]
-	call PrintOneDigitNumber
+	call PrintOneDigitNumber_SpecialZero
 	ld de, wEnemyBattleStatus3
 	hlcoord 17, 15
 	call PrintReflectStatus
@@ -1369,22 +1369,22 @@ PrintBattleInfoCore::
 	call PrintLightScreenStatus
 
 ; stat modifiers names
-	hlcoord 8, 11
+	hlcoord 7, 11
 	ld de, BattleInfoBuffsText_Atk
 	call PlaceString
-	hlcoord 8, 12
+	hlcoord 7, 12
 	ld de, BattleInfoBuffsText_Def
 	call PlaceString
-	hlcoord 8, 13
+	hlcoord 7, 13
 	ld de, BattleInfoBuffsText_Spd
 	call PlaceString
-	hlcoord 8, 14
+	hlcoord 7, 14
 	ld de, BattleInfoBuffsText_Spc
 	call PlaceString
-	hlcoord 8, 15
+	hlcoord 7, 15
 	ld de, BattleInfoBuffsText_Acc
 	call PlaceString
-	hlcoord 8, 16
+	hlcoord 7, 16
 	ld de, BattleInfoBuffsText_Eva
 	call PlaceString
 ; stat modifiers values, player side
@@ -1480,17 +1480,17 @@ BattleInfoEntryHazardAndScreensText_Lig:
 	db "LIG@"
 
 BattleInfoBuffsText_Atk:
-	db "ATK@"
+	db "-ATK-@"
 BattleInfoBuffsText_Def:
-	db "DEF@"
+	db "-DEF-@"
 BattleInfoBuffsText_Spd:
-	db "SPD@"
+	db "-SPD-@"
 BattleInfoBuffsText_Spc:
-	db "SPC@"
+	db "-SPC-@"
 BattleInfoBuffsText_Acc:
-	db "ACC@"
+	db "-ACC-@"
 BattleInfoBuffsText_Eva:
-	db "EVA@"
+	db "-EVA-@"
 
 BattleInfoPlayerText:
 	db "PLAYER@"
@@ -1528,7 +1528,7 @@ PrintLightScreenStatus:
 BitSetString:
 	db "1@"
 BitNotSetString:
-	db "0@"
+	db "-@"
 
 ; ------------------------
 
@@ -1536,6 +1536,8 @@ BitNotSetString:
 ; a = stat modifier (1 to 13, 7=neutral)
 ; hl = coordinates (already provided in hlcoord format)
 PrintHumanStringFromStatModifier:
+	cp 7
+	ret z ; do nothing if it's default
 	ld de, StatModifier13String
 	cp 13
 	jr z, .end
@@ -1553,9 +1555,6 @@ PrintHumanStringFromStatModifier:
 	jr z, .end
 	ld de, StatModifier8String
 	cp 8
-	jr z, .end
-	ld de, StatModifier7String
-	cp 7
 	jr z, .end
 	ld de, StatModifier6String
 	cp 6
@@ -1589,9 +1588,7 @@ StatModifier9String:
 	db "+2@"
 StatModifier8String:
 	db "+1@"
-StatModifier7String:
-;	db "+0@"
-	db "--@"
+; missing 7, default
 StatModifier6String:
 	db "-1@"
 StatModifier5String:
@@ -1614,4 +1611,10 @@ PrintOneDigitNumber:
 	ld b, "0"
 	add b
 	ld [hl], a
+	ret
+
+PrintOneDigitNumber_SpecialZero:
+	and a
+	jr nz, PrintOneDigitNumber
+	ld [hl], "-"
 	ret

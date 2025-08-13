@@ -184,10 +184,16 @@ HazardsRemovalEffect::
 	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
 	and a
 	ld hl, wHazardsSpikesPlayerSide
+	ld de, wPlayerBattleStatus2
 	jr z, .playersTurn
 ; opponent's turn
 	ld hl, wHazardsSpikesEnemySide
+	ld de, wEnemyBattleStatus2
 .playersTurn
+	ld a, [de]
+	bit SEEDED, a
+	jr nz, .removeHazardsAndSeeds
+; check the hazards
 	push hl
 	ld a, [hli]
 	ld b, [hl]
@@ -200,7 +206,10 @@ HazardsRemovalEffect::
 	or b
 	pop hl
 	ret z
-; removed hazards
+.removeHazardsAndSeeds
+	ld a, [de]
+	res SEEDED, a
+	ld [de], a
 	xor a
 	ld [hli], a
 	ld [hli], a

@@ -1598,7 +1598,7 @@ _CannotAddMoreOfThisText::
 
 _AllHazardsRemovedText::
 	text "<USER>"
-	line "cleared its field"
+	line "cleared its side"
 	cont "from all hazards!"
 	prompt
 
