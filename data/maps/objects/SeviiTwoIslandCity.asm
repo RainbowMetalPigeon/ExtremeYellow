@@ -7,7 +7,8 @@ SeviiTwoIslandCity_Object:
 	warp_event 15, 29, SEVII_TWO_ISLAND_POKEMON_CENTER, 1
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
+	bg_event 16, 23, 1 ; SeviiTwoIslandCity_RockClimb1Up
+	bg_event 16, 22, 2 ; SeviiTwoIslandCity_RockClimb1Down
 ;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events

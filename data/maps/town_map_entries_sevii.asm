@@ -43,6 +43,7 @@ ExternalMapEntries_Sevii:
 InternalMapEntries_Sevii:
 	; maximum map id subject to this rule, x, y, name
 	internal_map SEVII_ONE_ISLAND_HOUSES,                           0,  4, OneIslandName
+	internal_map SEVII_EMBER_SPA,                                   2,  3, EmberSpaName
 	internal_map SEVII_TWO_ISLAND_POKEMON_CENTER,                   7,  5, TwoIslandName
 	internal_map SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,       14,  3, ThreeIslandName
 	internal_map SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,         2,  8, FourIslandName

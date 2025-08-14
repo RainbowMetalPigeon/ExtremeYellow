@@ -3759,6 +3759,8 @@ IsNextTileShoreOrWater::
 	ld a, [wCurMapTileset] ; edited
 	cp OVERWORLD ; new
 	jr z, .skipShoreTiles ; new
+	cp OVERWORLD_SEVII ; new
+	jr z, .skipShoreTiles ; new
 	ld hl, WaterTile
 	cp SHIP_PORT ; Vermilion Dock tileset
 	jr z, .skipShoreTiles ; if it's the Vermilion Dock tileset

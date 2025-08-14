@@ -31,6 +31,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_GYM
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_HOUSES
+	dw NothingWildMons               ; SEVII_EMBER_SPA ; TBE?
 ; 2-island
 	dw SeviiShipDockWildMons         ; SEVII_TWO_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_TWO_ISLAND_POKEMON_CENTER

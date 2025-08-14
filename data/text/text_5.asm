@@ -348,4 +348,19 @@ _TheTerrainPreventsText::
 	line "due to terrain!"
 	prompt
 
+_PokemonClimbsTheWall::
+	text "<PLAYER>'s #MON"
+	line "climbs the wall!"
+	done
+
+_CannotUseRockClimbText::
+	text "No! You can't CLIMB"
+	line "walls just yet!"
+	done
+	
+_APokemonCouldClimbThisText::
+	text "A #MON could"
+	line "CLIMB this wall!"
+	done
+
 ;	xxxx "123456789012345678"

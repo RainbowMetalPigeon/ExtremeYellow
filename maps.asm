@@ -1613,3 +1613,8 @@ INCLUDE "data/maps/headers/SeviiOneIslandGym.asm"
 INCLUDE "scripts/SeviiOneIslandGym.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandGym.asm"
 SeviiOneIslandGym_Blocks: INCBIN "maps/SeviiOneIslandGym.blk"
+
+INCLUDE "data/maps/headers/SeviiEmberSpa.asm"
+INCLUDE "scripts/SeviiEmberSpa.asm"
+INCLUDE "data/maps/objects/SeviiEmberSpa.asm"
+SeviiEmberSpa_Blocks: INCBIN "maps/SeviiEmberSpa.blk"

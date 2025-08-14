@@ -767,3 +767,71 @@ AreWeOnSlidingIce::
 	ld [wTilePlayerStandingOn], a
 	cp $56 ; bottom-left ice tile
 	ret
+
+; ===========================================================
+
+TryToClimbWall::
+; check for badge
+	; TBE
+; check fo move
+	ld d, ROCK_CLIMB
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
+    jr nz, ClimbWallUp
+	ld hl, APokemonCouldClimbThisText
+	call PrintText
+	ret
+
+ClimbWallUp::
+	ld hl, PokemonClimbsTheWall
+	call PrintText
+;	ld a, $ff
+;	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+; decide where to go, and how much
+	ld a, [wMultipurposeBuffer+1]
+	and a
+	jr nz, .goingUp
+; going down
+	ld de, ClimbWallDown1_RLEMovement
+	ld a, [wMultipurposeBuffer]
+	cp 1
+	jr z, .doTheSteps
+	; add other checks here if I'll have more than 1 or 2 "floors" to climb
+	ld de, ClimbWallDown2_RLEMovement
+	jr .doTheSteps
+.goingUp
+	ld de, ClimbWallUp1_RLEMovement
+	ld a, [wMultipurposeBuffer]
+	cp 1
+	jr z, .doTheSteps
+	; add other checks here if I'll have more than 1 or 2 "floors" to climb
+	ld de, ClimbWallUp2_RLEMovement
+.doTheSteps
+	call DecodeRLEList
+	dec a ; or ld a, 1 ?
+	ld [wSimulatedJoypadStatesIndex], a
+	jp StartSimulatingJoypadStates
+
+ClimbWallDown2_RLEMovement:
+	db D_DOWN, 1
+ClimbWallDown1_RLEMovement:
+	db D_DOWN, 2
+	db -1 ; end
+
+ClimbWallUp2_RLEMovement:
+	db D_UP, 1
+ClimbWallUp1_RLEMovement:
+	db D_UP, 2
+	db -1 ; end
+
+CannotUseRockClimbText:
+	text_far _CannotUseRockClimbText
+	text_end
+
+APokemonCouldClimbThisText:
+	text_far _APokemonCouldClimbThisText
+	text_end
+	
+PokemonClimbsTheWall:
+	text_far _PokemonClimbsTheWall
+	text_end
