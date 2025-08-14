@@ -1603,3 +1603,13 @@ INCLUDE "data/maps/headers/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "scripts/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandPokemonCenter.asm"
 SeviiTwoIslandPokemonCenter_Blocks: INCBIN "maps/SeviiPokemonCenter.blk"
+
+INCLUDE "data/maps/headers/SeviiOneIslandHouses.asm"
+INCLUDE "scripts/SeviiOneIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiOneIslandHouses.asm"
+SeviiOneIslandHouses_Blocks: INCBIN "maps/SeviiOneIslandHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiOneIslandGym.asm"
+INCLUDE "scripts/SeviiOneIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiOneIslandGym.asm"
+SeviiOneIslandGym_Blocks: INCBIN "maps/SeviiOneIslandGym.blk"

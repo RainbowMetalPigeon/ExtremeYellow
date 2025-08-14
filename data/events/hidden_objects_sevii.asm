@@ -1,18 +1,25 @@
 HiddenObjectMaps_Sevii:
 ; cities
-	dbw SEVII_ONE_ISLAND_CITY,        SeviiOneIslandCityHiddenObjects ; TBE
-	dbw SEVII_TWO_ISLAND_CITY,        SeviiTwoIslandCityHiddenObjects ; TBE
-	dbw SEVII_THREE_ISLAND_CITY,      SeviiThreeIslandCityHiddenObjects ; TBE
-	dbw SEVII_FOUR_ISLAND_CITY,       SeviiFourIslandCityHiddenObjects ; TBE
-	dbw SEVII_FIVE_ISLAND_CITY,       SeviiFiveIslandCityHiddenObjects ; TBE
-	dbw SEVII_SIX_ISLAND_CITY,        SeviiSixeIslandCityHiddenObjects ; TBE
-	dbw SEVII_SEVEN_ISLAND_CITY,      SeviiSevenIslandCityHiddenObjects ; TBE
+	dbw SEVII_ONE_ISLAND_CITY,                           SeviiOneIslandCityHiddenObjects ; TBE
+	dbw SEVII_TWO_ISLAND_CITY,                           SeviiTwoIslandCityHiddenObjects ; TBE
+	dbw SEVII_THREE_ISLAND_CITY,                         SeviiThreeIslandCityHiddenObjects ; TBE
+	dbw SEVII_FOUR_ISLAND_CITY,                          SeviiFourIslandCityHiddenObjects ; TBE
+	dbw SEVII_FIVE_ISLAND_CITY,                          SeviiFiveIslandCityHiddenObjects ; TBE
+	dbw SEVII_SIX_ISLAND_CITY,                           SeviiSixeIslandCityHiddenObjects ; TBE
+	dbw SEVII_SEVEN_ISLAND_CITY,                         SeviiSevenIslandCityHiddenObjects ; TBE
 ; routes
-	dbw SEVII_ROUTE_31,               SeviiRoute31HiddenObjects ; TBE
-	dbw SEVII_ROUTE_32,               SeviiRoute32HiddenObjects ; TBE
-	dbw SEVII_ROUTE_33,               SeviiRoute33HiddenObjects
+	dbw SEVII_ROUTE_31,                                  SeviiRoute31HiddenObjects ; TBE
+	dbw SEVII_ROUTE_32,                                  SeviiRoute32HiddenObjects ; TBE
+	dbw SEVII_ROUTE_33,                                  SeviiRoute33HiddenObjects
 ; indoors
-	dbw SEVII_ONE_ISLAND_DOCK,        SeviiOneIslandDockHiddenObjects ; TBE
+	dbw SEVII_ONE_ISLAND_DOCK,                           SeviiOneIslandDockHiddenObjects ; TBE
+	dbw SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART,        SeviiOneIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_TWO_ISLAND_POKEMON_CENTER,                 SeviiTwoIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,      SeviiThreeIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFourIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,      SeviiSevenIslandPokemonCenterAndMartHiddenObjects
 	
 	db -1 ; end
 
@@ -41,6 +48,34 @@ SeviiRoute33HiddenObjects:
 	hidden_object 56,  5, RARE_CANDY, HiddenItems
 	hidden_object 99, 23, NUGGET, HiddenItems
 	db -1 ; end
+
+SeviiOneIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiTwoIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiThreeIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiFourIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiFiveIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiSixIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiSevenIslandPokemonCenterAndMartHiddenObjects:
+	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
 
 ; TBE --------------------------------------------------------------------
 

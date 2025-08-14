@@ -26,21 +26,31 @@ WildDataPointers_Sevii:
 	dw SeviiRoute43WildMons          ; SEVII_ROUTE_43
 	dw SeviiRoute44WildMons          ; SEVII_ROUTE_44
 ; indoors
+; 1-island
 	dw SeviiShipDockWildMons         ; SEVII_ONE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
+	dw NothingWildMons               ; SEVII_ONE_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_ONE_ISLAND_HOUSES
+; 2-island
 	dw SeviiShipDockWildMons         ; SEVII_TWO_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_TWO_ISLAND_POKEMON_CENTER
+; 3-island
 	dw SeviiShipDockWildMons         ; SEVII_THREE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+; 4-island
 	dw SeviiShipDockWildMons         ; SEVII_FOUR_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	dw SeviiIcefallCave1FWildMons    ; SEVII_ICEFALL_CAVE_1F
+; 5-island
 	dw SeviiShipDockWildMons         ; SEVII_FIVE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+; 6-island
 	dw SeviiShipDockWildMons         ; SEVII_SIX_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+; 7-island
 	dw SeviiShipDockWildMons         ; SEVII_SEVEN_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+; 8-island
 	dw SeviiShipDockWildMons         ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
