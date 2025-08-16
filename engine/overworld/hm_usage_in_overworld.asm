@@ -3,11 +3,11 @@
 CheckIfCanSurfOrCutFromOverworld::
 	ldh a, [hJoyHeld]
 	bit BIT_A_BUTTON, a
-	jp z, .done
+	ret z
 ; A button is pressed
     ld a, [wWalkBikeSurfState]
     cp 2 ; is the player already surfing?
-    jp z, .done
+    jp z, .checkForDive
 ; if we are not already surfing
     callfar IsNextTileShoreOrWater
     jp nc, .cannotSurf ; in front of us we don't have water
@@ -19,7 +19,7 @@ CheckIfCanSurfOrCutFromOverworld::
 	ld hl, wd728
 	bit 1, [hl]
 	res 1, [hl]
-	jp z, .done
+	ret z
 ; surfing is allowed
     ld d, SURF
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
@@ -46,15 +46,15 @@ CheckIfCanSurfOrCutFromOverworld::
     call PlayDefaultMusic ; play surfing music
     call EnableAutoTextBoxDrawing
     tx_pre_jump PlayerStartedSurfingText
-    jp .done
+    ret
 .notSurfInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisWaterIsSurfableText
-    jp .done
+    ret
 .newBadgeRequired
     call EnableAutoTextBoxDrawing
     tx_pre_jump NewBadgeRequiredText2
-    jp .done
+    ret
 .cannotSurf
 ; check if we have a tree in front of us
     ld a, [wCurMapTileset]
@@ -67,26 +67,26 @@ CheckIfCanSurfOrCutFromOverworld::
     cp ISLAND
     jr z, .island
     cp CAVERN
-	jp nz, .done
+	ret nz
     ld a, [wTileInFrontOfPlayer]
     cp $54 ; cavern cut tree
-    jp nz, .done
+    ret nz
     jr .cuttableTile
 .island
     ld a, [wTileInFrontOfPlayer]
     cp $3d ; island cut tree
-    jp nz, .done
+    ret nz
     jr .cuttableTile
 .gym
     ld a, [wTileInFrontOfPlayer]
     cp $50 ; gym cut tree
-    jp nz, .done
+    ret nz
     jr .cuttableTile
 .overworld
     dec a
     ld a, [wTileInFrontOfPlayer]
     cp $3d ; cut tree
-    jp nz, .done ; we don't check for grass, differently from vanilla
+    ret nz ; we don't check for grass, differently from vanilla
 .cuttableTile
     ld [wCutTile], a
 ; we are in front of a tree
@@ -124,11 +124,16 @@ CheckIfCanSurfOrCutFromOverworld::
     ldh [hWY], a
     call UpdateSprites
     callfar RedrawMapView ; should this be simply a jp RedrawMapView?
-    jr .done
+    ret
 .notCutInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisTreeIsCuttableText
-.done
+.checkForDive
+	lda_coord 8, 9 ; tile the player is on
+	ld [wTilePlayerStandingOn], a
+	cp $6A
+	ret nz ; we're not standing on a dive-able spot
+	tx_pre DiveMessageTestText
 	ret
 
 ; ============================================
@@ -177,6 +182,14 @@ _UsedCutText2::
     text "<PLAYER>'s #MON"
     line "cuts the tree!"
     done
+
+DiveMessageTestText::
+	text_far _DiveMessageTestText
+	text_end
+
+_DiveMessageTestText::
+	text "Dive test"
+	done
 
 ; --------------------------------------------
 
