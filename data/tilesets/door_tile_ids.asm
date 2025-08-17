@@ -18,6 +18,7 @@ DoorTileIDPointers:
 	dbw CLUB,        .ClubDoorTileIDs ; new
 	dbw OVERWORLD_HAUNTED, .OverworldHauntedDoorTileIDs ; new
 	dbw OVERWORLD_SEVII,   .OverworldSeviiDoorTileIDs ; new
+	dbw UNDERWATER,  .UnderwaterDoorTileIDs ; new
 	db -1 ; end
 
 MACRO door_tiles
@@ -77,3 +78,6 @@ ENDM
 
 .OverworldSeviiDoorTileIDs: ; new
 	door_tiles $1B, $58, $6F, $73
+
+.UnderwaterDoorTileIDs: ; new
+	door_tiles $2A

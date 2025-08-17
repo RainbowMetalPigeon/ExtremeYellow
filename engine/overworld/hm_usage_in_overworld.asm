@@ -6,6 +6,8 @@ CheckIfCanSurfOrCutFromOverworld::
 	ret z
 ; A button is pressed
     ld a, [wWalkBikeSurfState]
+    cp 3 ; is the player diving?
+    jp z, .checkForReemerging
     cp 2 ; is the player already surfing?
     jp z, .checkForDive
 ; if we are not already surfing
@@ -134,7 +136,22 @@ CheckIfCanSurfOrCutFromOverworld::
 	cp $6A
 	ret nz ; we're not standing on a dive-able spot
 	tx_pre DiveMessageTestText
-	ret
+    SetEvent EVENT_DIVE_GO_UNDER
+    ld a, $FE
+    ld [wDestinationWarpID], a
+    call FindDiveDestinationMap_FromAboveToSub
+    jp WarpFound2
+.checkForReemerging
+	lda_coord 8, 9 ; tile the player is on
+	ld [wTilePlayerStandingOn], a
+	cp $32
+	ret nz ; we're not standing on a re-emerge-able spot
+	tx_pre DiveMessageTestText
+    SetEvent EVENT_DIVE_GO_ABOVE
+    ld a, $FE
+    ld [wDestinationWarpID], a
+    call FindDiveDestinationMap_FromSubToAbove
+    jp WarpFound2
 
 ; ============================================
 
@@ -190,6 +207,60 @@ DiveMessageTestText::
 _DiveMessageTestText::
 	text "Dive test"
 	done
+
+; --------------------------------------------
+
+FindDiveDestinationMap_FromAboveToSub:
+    CheckEvent EVENT_IN_SEVII
+    ld a, [wCurMap]
+    ld b, a
+    ld hl, DivePairedMaps_Sevii
+    jr nz, .loop
+    ld hl, DivePairedMaps
+.loop
+    ld a, [hli]
+    cp b
+    jr nz, .noMatch
+; match found
+    ld a, [hl]
+    ld [hWarpDestinationMap], a
+    ret
+.noMatch
+    inc hl
+    jr .loop
+
+FindDiveDestinationMap_FromSubToAbove:
+    CheckEvent EVENT_IN_SEVII
+    ld a, [wCurMap]
+    ld b, a
+    ld hl, DivePairedMaps_Sevii + 1
+    jr nz, .loop
+    ld hl, DivePairedMaps + 1
+.loop
+    ld a, [hli]
+    cp b
+    jr nz, .noMatch
+; match found
+    dec hl
+    dec hl
+    ld a, [hl]
+    ld [hWarpDestinationMap], a
+    ret
+.noMatch
+    inc hl
+    jr .loop
+
+; no terminator, relies on me having worked properly and no mismatched maps
+DivePairedMaps: ; TBE
+;    db ROUTE_19, ROUTE_19_DIVE
+;    db ROUTE_20, ROUTE_20_DIVE
+;    db CINNABAR_ISLAND, CINNABAR_DIVE
+;    db ROUTE_21, ROUTE_21_DIVE
+;    db ROUTE_28, ROUTE_28_DIVE
+
+; no terminator, relies on me having worked properly and no mismatched maps
+DivePairedMaps_Sevii: ; TBE
+    db SEVII_ROUTE_32, SEVII_ROUTE_32_DIVE
 
 ; --------------------------------------------
 

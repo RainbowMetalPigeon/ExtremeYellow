@@ -32,7 +32,19 @@ IsPlayerStandingOnWarp::
 	jr nz, .loop
 	ret
 
-CheckForceBikeOrSurf::
+CheckForceBikeOrSurfOrDive:: ; edited
+; new for Dive
+	CheckAndResetEvent EVENT_DIVE_GO_UNDER
+	jr z, .checkReemerging
+    ld a, 3
+    ld [wWalkBikeSurfState], a
+	ld [wWalkBikeSurfStateCopy], a ; ?
+	ret
+.checkReemerging
+	CheckAndResetEvent EVENT_DIVE_GO_ABOVE
+	jr nz, .forceSurfing
+.vanilla
+; BTV
 	ld hl, wd732
 	bit 5, [hl]
 	ret nz

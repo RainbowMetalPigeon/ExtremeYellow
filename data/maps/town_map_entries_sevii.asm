@@ -42,14 +42,23 @@ ExternalMapEntries_Sevii:
 ; the appearance of buildings and dungeons in the town map
 InternalMapEntries_Sevii:
 	; maximum map id subject to this rule, x, y, name
+; 1-island
 	internal_map SEVII_ONE_ISLAND_HOUSES,                           0,  4, OneIslandName
 	internal_map SEVII_EMBER_SPA,                                   2,  3, EmberSpaName
+	internal_map SEVII_ROUTE_32_DIVE,                               0,  5, Route32DiveName
+; 2-island
 	internal_map SEVII_TWO_ISLAND_POKEMON_CENTER,                   7,  5, TwoIslandName
+; 3-island
 	internal_map SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,       14,  3, ThreeIslandName
+; 4-island
 	internal_map SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,         2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
+; 5-island
 	internal_map SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,         8,  9, FiveIslandName
+; 6-island
 	internal_map SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,         14, 11, SixIslandName
+; 7-island
 	internal_map SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,        4, 12, SevenIslandName
+; 8-island
 	internal_map SEVII_EIGHT_ISLAND_DOCK,                          11, 15, EightIslandName
 	db -1 ; end

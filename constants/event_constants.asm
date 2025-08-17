@@ -65,7 +65,9 @@
 	const EVENT_PROPOSED_CATCHING_TUTORIAL ; new
 	const EVENT_OAK_GOT_PARCEL
 	const EVENT_GOT_OAKS_PARCEL
-	const_skip 4 ; edited, split to below, was 7
+	const_skip 2 ; edited, split to below, was 7
+	const EVENT_DIVE_GO_UNDER ; new
+	const EVENT_DIVE_GO_ABOVE ; new
 	const EVENT_BEAT_ROUTE_28_TRAINER_0 ; new
 	const EVENT_BEAT_ROUTE_28_TRAINER_1 ; new
 	const EVENT_BEAT_ROUTE_28_TRAINER_2 ; new

@@ -40,7 +40,7 @@ EnterMap::
 	res 4, [hl]
 .didNotEnterUsingFlyWarpOrDungeonWarp
 	call IsSurfingPikachuInParty
-	farcall CheckForceBikeOrSurf ; handle currents in SF islands and forced bike riding in cycling road
+	farcall CheckForceBikeOrSurfOrDive ; handle currents in SF islands and forced bike riding in cycling road ; edited label
 	ld hl, wd732
 	bit 4, [hl]
 	res 4, [hl]
@@ -808,8 +808,11 @@ LoadPlayerSpriteGraphics::
 	; 0: standing
 	; 1: biking
 	; 2: surfing
+	; 3: diving
 
 	ld a, [wWalkBikeSurfState]
+	cp 3 ; new for dive
+	jp z, LoadSurfingPlayerSpriteGraphics ; new for Dive
 	dec a
 	jr z, .ridingBike
 

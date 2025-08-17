@@ -104,3 +104,6 @@ SECTION "Tilesets 7", ROMX ; new
 
 OverworldSevii_GFX::     INCBIN "gfx/tilesets/overworld_sevii.2bpp"
 OverworldSevii_Block::   INCBIN "gfx/blocksets/overworld_sevii.bst"
+
+Underwater_GFX::         INCBIN "gfx/tilesets/underwater.2bpp"
+Underwater_Block::       INCBIN "gfx/blocksets/underwater.bst"

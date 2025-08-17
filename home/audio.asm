@@ -22,6 +22,8 @@ PlayDefaultMusicCommon::
 	ld a, [wWalkBikeSurfState]
 	and a
 	jr z, .walking
+	cp 3 ; new for Dive
+	jr z, .walking ; new for Dive
 	cp $2
 	jr z, .surfing
 	call CheckForNoBikingMusicMap

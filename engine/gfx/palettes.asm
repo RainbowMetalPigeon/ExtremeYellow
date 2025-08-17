@@ -277,6 +277,8 @@ SetPal_Overworld:
 	jr z, .cemetery
 	cp CAVERN
 	jr z, .cave
+	cp UNDERWATER
+	jr z, .underwatersevii
 ; check by map
 ; check by map in array
 	ld a, [wCurMap]
@@ -306,6 +308,9 @@ SetPal_Overworld:
 	ret
 .cemetery
 	ld a, PAL_SEVII_GREYMON - 1
+	jr .townSevii
+.underwatersevii
+	ld a, PAL_SEVII_UNDERWATER - 1
 	jr .townSevii
 .cave
 ; check by map in array for special palettes (frozen for icefall cave)
@@ -350,6 +355,8 @@ SetPal_Overworld:
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
+	cp UNDERWATER
+	jr z, .underwater
 	cp CAVERN
 	jr z, .caveOrBruno
 ; new, to handle Haunted House
@@ -394,6 +401,9 @@ SetPal_Overworld:
 	ret
 .PokemonTowerOrAgatha
 	ld a, PAL_GREYMON - 1
+	jr .town
+.underwater
+	ld a, PAL_UNDERWATER - 1
 	jr .town
 .caveOrBruno
 	ld a, PAL_CAVE - 1
@@ -699,6 +709,8 @@ GetPal_Pikachu::
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .cemetery
+	cp UNDERWATER
+	jr z, .underwatersevii
 	cp CAVERN
 	jr z, .cave
 ; check by map
@@ -721,6 +733,9 @@ GetPal_Pikachu::
 .cemetery
 	ld a, PAL_SEVII_GREYMON - 1
 	jr .townSevii
+.underwatersevii
+	ld a, PAL_SEVII_UNDERWATER - 1
+	jr .townSevii
 .cave
 	ld a, PAL_SEVII_CAVE - 1
 	jr .townSevii
@@ -729,6 +744,8 @@ GetPal_Pikachu::
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
+	cp UNDERWATER
+	jr z, .underwater
 	cp CAVERN
 	jr z, .caveOrBruno
 	ld a, [wCurMap]
@@ -757,6 +774,9 @@ GetPal_Pikachu::
 	ret
 .PokemonTowerOrAgatha
 	ld a, PAL_GREYMON - 1
+	jr .town
+.underwater
+	ld a, PAL_UNDERWATER - 1
 	jr .town
 .caveOrBruno
 	ld a, PAL_CAVE - 1

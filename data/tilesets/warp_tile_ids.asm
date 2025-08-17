@@ -30,6 +30,7 @@ WarpTileIDPointers:
 	dw .OverworldHauntedWarpTileIDs ; new
 	dw .IslandOfNumbersdWarpTileIDs ; new
 	dw .OverworldSeviiWarpTileIDs ; new
+	dw .UnderwaterWarpTileIDs ; new
 	assert_table_length NUM_TILESETS
 
 MACRO warp_tiles
@@ -118,3 +119,6 @@ ENDM
 	
 .OverworldSeviiWarpTileIDs: ; new
 	warp_tiles $1B, $58, $6F, $73
+
+.UnderwaterWarpTileIDs: ; new
+	warp_tiles $2A, $70

@@ -807,6 +807,8 @@ ClimbWallUp::
 	; add other checks here if I'll have more than 1 or 2 "floors" to climb
 	ld de, ClimbWallUp2_RLEMovement
 .doTheSteps
+    ld a, SFX_PUSH_BOULDER
+    call PlaySound
 	call DecodeRLEList
 	dec a ; or ld a, 1 ?
 	ld [wSimulatedJoypadStatesIndex], a

@@ -2508,6 +2508,7 @@ wObtainedHiddenItemsFlagsSevii:: flag_array 112 ; 112 bits / 8 = 14 bytes
 ; $00 = walking
 ; $01 = biking
 ; $02 = surfing
+; $03 = diving, new
 wWalkBikeSurfState:: db
 
 ;	ds 10 ; edited, was 10

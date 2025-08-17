@@ -18,7 +18,7 @@ SeviiTwoIslandCity_WaitForSimulatedInputsScript:
 	call Delay3
 	xor a
 	ld [wJoyIgnore], a
-	ld [wCurMapScript], a ; edited
+	ld [wCurMapScript], a
 	ret
 
 SeviiTwoIslandCity_TextPointers:

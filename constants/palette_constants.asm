@@ -83,8 +83,9 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_25        ; $25
 	const PAL_26        ; $26
 	const PAL_27        ; $27
-	const PAL_VENUSTOISE ; $28 - new
-	const PAL_PORYMON	; $29 - new
+	const PAL_UNDERWATER ; new
+	const PAL_VENUSTOISE ; new
+	const PAL_PORYMON	 ; new
 	const PAL_ZYGARDEC   ; new
 	const PAL_UNECROZMA  ; new
 	const PAL_MRAYQUAZA  ; new
@@ -172,6 +173,7 @@ DEF NUM_SGB_PALS EQU const_value
 	const PAL_SEVII_25
 	const PAL_SEVII_26
 	const PAL_SEVII_27
+	const PAL_SEVII_UNDERWATER
 	const PAL_SEVII_VENUSTOISE
 	const PAL_SEVII_PORYMON
 	const PAL_SEVII_ZYGARDEC

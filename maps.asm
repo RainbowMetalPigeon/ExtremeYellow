@@ -1476,6 +1476,11 @@ INCLUDE "scripts/SeviiRoute32.asm"
 INCLUDE "data/maps/objects/SeviiRoute32.asm"
 SeviiRoute32_Blocks: INCBIN "maps/SeviiRoute32.blk"
 
+INCLUDE "data/maps/headers/SeviiRoute32Dive.asm"
+INCLUDE "scripts/SeviiRoute32Dive.asm"
+INCLUDE "data/maps/objects/SeviiRoute32Dive.asm"
+SeviiRoute32Dive_Blocks: INCBIN "maps/SeviiRoute32Dive.blk"
+
 INCLUDE "data/maps/headers/SeviiOneIslandDock.asm"
 INCLUDE "scripts/SeviiOneIslandDock.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandDock.asm"
