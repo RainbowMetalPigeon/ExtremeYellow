@@ -771,8 +771,6 @@ AreWeOnSlidingIce::
 ; ===========================================================
 
 TryToClimbWall::
-; check for badge
-	; TBE
 ; check fo move
 	ld d, ROCK_CLIMB
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
@@ -797,9 +795,9 @@ ClimbWallUp::
 ;	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
 ; decide where to go, and how much
-	ld a, [wMultipurposeBuffer+1]
-	and a
-	jr nz, .goingUp
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jr z, .goingUp
 ; going down
 	ld de, ClimbWallDown1_RLEMovement
 	ld a, [wMultipurposeBuffer]

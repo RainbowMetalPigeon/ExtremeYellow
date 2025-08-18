@@ -36,8 +36,6 @@ SeviiTwoIslandCity_RockClimb1Down:
 	text_asm
 	ld a, 2
 	ld [wMultipurposeBuffer], a ; how many "floors" to climb
-	xor a
-	ld [wMultipurposeBuffer+1], a ; 1=up, 0=down
 	callfar TryToClimbWall
 	ld a, 1
 	ld [wCurMapScript], a
@@ -47,8 +45,6 @@ SeviiTwoIslandCity_RockClimb1Up:
 	text_asm
 	ld a, 2
 	ld [wMultipurposeBuffer], a ; how many "floors" to climb
-	ld a, 1
-	ld [wMultipurposeBuffer+1], a ; 1=up, 0=down
 	callfar TryToClimbWall
 	ld a, 1
 	ld [wCurMapScript], a
