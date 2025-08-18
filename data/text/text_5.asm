@@ -353,14 +353,14 @@ _PokemonClimbsTheWall::
 	line "climbs the wall!"
 	done
 
-_CannotUseRockClimbText::
-	text "No! You can't CLIMB"
-	line "walls just yet!"
-	done
-	
 _APokemonCouldClimbThisText::
 	text "A #MON could"
 	line "CLIMB this wall!"
+	done
+
+_OxygenIsOverText::
+	text "Oxygen is over!"
+	line "Must re-emerge!"
 	done
 
 ;	xxxx "123456789012345678"

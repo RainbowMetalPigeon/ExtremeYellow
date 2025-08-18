@@ -135,10 +135,32 @@ CheckIfCanSurfOrCutFromOverworld::
 	ld [wTilePlayerStandingOn], a
 	cp $6A
 	ret nz ; we're not standing on a dive-able spot
-	tx_pre DiveMessageTestText
+; we're on deep water, check if we have Dive
+    ld d, DIVE
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
+    jr z, .notDiveInTeam
+; we have a Pokemon with DIVE in the team
+    ld a, [wObtainedBadges]
+    bit BIT_VOLCANOBADGE, a
+	jp z, .newBadgeRequired
+; we have the right badge
+; we can actually dive
+    ; how many underwater steps we can take
+	ld hl, 200 ; TBE
+	ld a, h
+	ld [wDiveSteps], a
+	ld a, l
+	ld [wDiveSteps + 1], a
+    ; used only for forced re-emerging when oxygen is depleted
+    ld a, [wCurMap]
+    ld [wDiveFromWhichMap], a
+    ld a, [wXCoord]
+    ld [wDiveFromWhichX], a
+    ld a, [wYCoord]
+    ld [wDiveFromWhichY], a
+    ; print message and setup the warp
+	tx_pre DiveMessageGoUnderText
     SetEvent EVENT_DIVE_GO_UNDER
-    ld a, $FE
-    ld [wDestinationWarpID], a
     call FindDiveDestinationMap_FromAboveToSub
     jp WarpFound2
 .checkForReemerging
@@ -146,12 +168,14 @@ CheckIfCanSurfOrCutFromOverworld::
 	ld [wTilePlayerStandingOn], a
 	cp $32
 	ret nz ; we're not standing on a re-emerge-able spot
-	tx_pre DiveMessageTestText
+	tx_pre DiveMessageGoAboveText
     SetEvent EVENT_DIVE_GO_ABOVE
-    ld a, $FE
-    ld [wDestinationWarpID], a
     call FindDiveDestinationMap_FromSubToAbove
     jp WarpFound2
+.notDiveInTeam
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump ThisWaterIsDiveableText
+    ret
 
 ; ============================================
 
@@ -200,12 +224,32 @@ _UsedCutText2::
     line "cuts the tree!"
     done
 
-DiveMessageTestText::
-	text_far _DiveMessageTestText
+ThisWaterIsDiveableText::
+    text_far _ThisWaterIsDiveableText
+    text_end
+
+_ThisWaterIsDiveableText::
+    text "The water is deep."
+    line "You could DIVE"
+    cont "with a #MON!"
+    done
+
+DiveMessageGoUnderText::
+	text_far _DiveMessageGoUnderText
 	text_end
 
-_DiveMessageTestText::
-	text "Dive test"
+_DiveMessageGoUnderText::
+	text "You DIVE into the"
+    line "deep water!"
+	done
+
+DiveMessageGoAboveText::
+	text_far _DiveMessageGoAboveText
+	text_end
+
+_DiveMessageGoAboveText::
+	text "You re-emerge from"
+    line "the deep water!"
 	done
 
 ; --------------------------------------------

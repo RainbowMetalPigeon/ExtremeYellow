@@ -2281,7 +2281,7 @@ wViridianCityCurScript:: db
 ;wPewterCityCurScript:: db
 ;wRoute3CurScript:: db
 ;wRoute4CurScript:: db
-	ds 5 ; new, from optimizing the scripts, UNUSED
+	ds 2 ; new, from optimizing the scripts, it was 5, UNUSED
 
 wFanClubCurScript:: db
 ;wViridianGymCurScript:: db
@@ -2489,6 +2489,10 @@ wBattleFacilityBacklogPPUPs:: db ; new
 wBattleFacilityBacklogPerfecters:: db ; new
 wBattleFacilityBacklogChromogenes:: db ; new
 
+wDiveFromWhichMap:: db ; new
+wDiveFromWhichX:: db ; new
+wDiveFromWhichY:: db ; new
+
 ; edited, originally was ds 56
 	      ; reduced by 3 for gender, tyrogue, and accuracypercent
 		  ; by 16 for increasing max warps from 32 to 36
@@ -2540,6 +2544,7 @@ wFossilItem:: db
 wFossilMon:: db
 
 ;	ds 2
+wDiveSteps:: ; new, shares the address with the Bill's Garden one, can't ever happen together
 wTallGrassBillsSecretGardenSteps:: dw ; new, will start at 666
 
 ; trainer classes start at OPP_ID_OFFSET

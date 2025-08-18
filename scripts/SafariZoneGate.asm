@@ -87,7 +87,7 @@ SafariZoneGate_ScriptPointers:
 	xor a
 	ld [wNumSafariBalls], a
 	ld [wSafariSteps], a
-	ld [wSafariSteps], a ; ?????
+;	ld [wSafariSteps], a ; ????? ; edited, unnecessary
 	ld a, D_DOWN
 	ld c, $3
 	call SafariZoneEntranceAutoWalk

@@ -151,8 +151,9 @@ StartMenu_Pokemon::
 	dw .teleport
 	dw .softboiled
 .fly
-	bit BIT_THUNDERBADGE, a
-	jp z, .newBadgeRequired
+; edited, now FLY can be used without the need for a badge
+;	bit BIT_THUNDERBADGE, a
+;	jp z, .newBadgeRequired
 	call CheckIfInOutsideMap
 	jr z, .canFly
 ; new block to make "open-air" maps flyable
@@ -230,7 +231,7 @@ StartMenu_Pokemon::
 	ld [wd473], a
 	jp .loop
 .strength
-	bit BIT_RAINBOWBADGE, a
+	bit BIT_EARTHBADGE, a ; edited, was the BIT_RAINBOWBADGE
 	jp z, .newBadgeRequired
 	predef PrintStrengthTxt
 	call GBPalWhiteOutWithDelay3
@@ -900,6 +901,11 @@ StartMenu_PortablePC:: ; new
 	ld hl, wMapTextPtr
 	call SetMapTextPointer
 ; some maps don't allow the portable PC
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr z, .cantUseItHere
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .inSevii
 	ld a, [wCurMap] ; we don't want to cheese the Elite4, do we?
 	cp LORELEIS_ROOM
 	jr z, .cantUseItHere
@@ -911,6 +917,8 @@ StartMenu_PortablePC:: ; new
 	jr z, .cantUseItHere
 	callfar IsCurrentMapHauntedHouse_AlsoIslandAndPallet ; new
 	jr z, .cantUseItHere
+.inSevii
+	; add any Sevii map where PC is forbidden
 ; if none of the above cp is met, let's open the pc and do the things
 ; normal stuff
 	callfar ActivatePC ; main part

@@ -278,12 +278,14 @@ OverworldLoopLessDelay::
 .notSafariZone
 ; new to respawn items in Route 32
 	callfar Route32RespawnItemsCheckSteps
+; new to countdown steps while diving
+	callfar DiveCheckSteps
 ; new, to handle Route 25 for Haunted House
 	CheckEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
 	jr z, .checkHauntedPallet
 	farcall TallGrassBillsSecretGardenCheckSteps
 .checkHauntedPallet
-; new, to handle darkening HAUNTED_PALLET_TOWN palette(s), testing
+; new, to handle darkening HAUNTED_PALLET_TOWN palette(s)
 	ld a, [wCurMap]
 	cp HAUNTED_PALLET_TOWN
 	jr nz, .vanilla
@@ -295,8 +297,8 @@ OverworldLoopLessDelay::
 	jp nz, CheckWarpsNoCollision
 	predef ApplyOutOfBattlePoisonDamage ; also increment daycare mon exp
 	predef ApplyHeatDamage ; new
-	predef HauntedHouseFakeOutOfBattlePoisonDamage ; new, testing
-	predef HauntedHouseFakePikachuFaintingAndRandomMessages ; new, testing
+	predef HauntedHouseFakeOutOfBattlePoisonDamage ; new
+	predef HauntedHouseFakePikachuFaintingAndRandomMessages ; new
 	ld a, [wOutOfBattleBlackout]
 	and a
 	jp nz, HandleBlackOut ; if all pokemon fainted

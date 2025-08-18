@@ -36,23 +36,23 @@ IF DEF(_DEBUG)
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
 	ld a, %11111111
-;	ld a, %00000100
+;	ld a, %00010000
 ;	ld a, %11111100
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, SPIKES ; ANCESTOR_PWR
+	ld a, ROCK_SMASH ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, DRILL_RUN
+	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, RAPID_SPIN
+	ld a, STRENGTH
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

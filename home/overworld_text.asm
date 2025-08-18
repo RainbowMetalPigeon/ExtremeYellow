@@ -20,7 +20,7 @@ BoulderText:: ; edited
     jr z, .notStrengthInTeam
 ; we have a Pokemon with STRENGTH in the team
 	ld a, [wObtainedBadges]
-	bit BIT_RAINBOWBADGE, a
+	bit BIT_EARTHBADGE, a ; edited, was BIT_RAINBOWBADGE
 	jp z, .newBadgeRequired
 ; we have the necessary badge
 	ld hl, wd728

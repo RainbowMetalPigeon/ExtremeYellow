@@ -31,7 +31,8 @@ DisplayTextID::
 	dict TEXT_MON_FAINTED,      DisplayPokemonFaintedText
 	dict TEXT_BLACKED_OUT,      DisplayPlayerBlackedOutText
 	dict TEXT_REPEL_WORE_OFF,   DisplayRepelWoreOffText
-	dict TEXT_RANDOM_MESSAGE_HAUNTED_HOUSE, DisplayRandomMessageHauntedHouseText ; new, testing
+	dict TEXT_RANDOM_MESSAGE_HAUNTED_HOUSE, DisplayRandomMessageHauntedHouseText ; new
+	dict TEXT_DIVE_STEPS_OVER,  DisplayDiveStepsOverText ; new
 
 	ld a, [wNumSprites]
 	ld e, a
@@ -193,6 +194,10 @@ DisplayPokemonCenterDialogue::
 
 DisplaySafariGameOverText::
 	callfar PrintSafariGameOverText
+	jp AfterDisplayingTextID
+
+DisplayDiveStepsOverText:: ; new
+	callfar PrintDiveStepsOverText
 	jp AfterDisplayingTextID
 
 DisplayPokemonFaintedText::

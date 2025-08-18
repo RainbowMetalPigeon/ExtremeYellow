@@ -10,6 +10,7 @@ RedisplayStartMenu::
 	farcall DrawStartMenu
 RedisplayStartMenu_DoNotDrawStartMenu::
 	farcall PrintSafariZoneSteps ; print Safari Zone info, if in Safari Zone
+	callfar PrintDiveSteps ; new for dive ; TBE if will add a Diveable area in the Safari Zone, as they print in the same part of the screen
 	call UpdateSprites
 .loop
 	call HandleMenuInput

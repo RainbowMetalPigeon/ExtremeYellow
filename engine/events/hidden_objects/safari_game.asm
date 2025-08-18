@@ -17,13 +17,13 @@ ENDC
 	ld c, a
 	or b
 	jr z, SafariZoneGameOver
-	;--- beginning new: step counters doesn't go down in hubs ---
+;--- beginning new: step counters doesn't go down in hubs ---
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_QUADRUPLE_REST_HOUSE
 	jr z, SafariZoneGameStillGoing
 	cp SAFARI_ZONE_SECRET_HOUSE
 	jr z, SafariZoneGameStillGoing
-	;--- end new ---
+;--- end new ---
 	dec bc
 	ld a, b
 	ld [wSafariSteps], a

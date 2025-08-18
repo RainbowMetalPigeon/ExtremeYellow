@@ -775,8 +775,17 @@ TryToClimbWall::
 	; TBE
 ; check fo move
 	ld d, ROCK_CLIMB
-    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
-    jr nz, ClimbWallUp
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
+    jr z, .noRockClimbInTeam
+; we have the move, check if we have the badge
+    ld a, [wObtainedBadges]
+    bit BIT_RAINBOWBADGE, a
+	jp nz, ClimbWallUp
+; no badge
+	ld hl, NewBadgeRequiredText4
+	call PrintText
+    ret
+.noRockClimbInTeam
 	ld hl, APokemonCouldClimbThisText
 	call PrintText
 	ret
@@ -826,9 +835,9 @@ ClimbWallUp1_RLEMovement:
 	db D_UP, 2
 	db -1 ; end
 
-CannotUseRockClimbText:
-	text_far _CannotUseRockClimbText
-	text_end
+NewBadgeRequiredText4::
+    text_far _NewBadgeRequiredText2
+    text_end
 
 APokemonCouldClimbThisText:
 	text_far _APokemonCouldClimbThisText
@@ -837,3 +846,80 @@ APokemonCouldClimbThisText:
 PokemonClimbsTheWall:
 	text_far _PokemonClimbsTheWall
 	text_end
+
+; ===========================================================
+
+DiveCheckSteps::
+	ld a, [wWalkBikeSurfState]
+	cp 3
+	ret nz
+; we're diving
+	ld a, [wDiveSteps]
+	ld b, a
+	ld a, [wDiveSteps + 1]
+	ld c, a
+	or b
+	jr z, DiveStepsOver
+	dec bc
+	ld a, b
+	ld [wDiveSteps], a
+	ld a, c
+	ld [wDiveSteps + 1], a
+	ret
+
+DiveStepsOver:
+	ld a, TEXT_DIVE_STEPS_OVER
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.postPrinting
+    SetEvent EVENT_DIVE_GO_ABOVE
+    ld a, $FE ; TBE
+    ld [wDestinationWarpID], a ; TBE
+
+	ld a, [wDiveFromWhichMap]
+	ld [hWarpDestinationMap], a
+
+	ld a, [wDiveFromWhichX]
+	ld [wXCoord], a
+
+	ld a, [wDiveFromWhichY]
+	ld [wYCoord], a
+	
+    jp WarpFound2
+
+PrintDiveStepsOverText::
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, OxygenIsOverText
+	jp PrintText
+
+OxygenIsOverText:
+	text_far _OxygenIsOverText
+	text_end
+
+; ===========================================================
+
+PrintDiveSteps::
+	ld a, [wWalkBikeSurfState]
+	cp 3
+	ret nz
+; we're diving
+	hlcoord 0, 0
+	lb bc, 2, 7 ; height, width
+	call TextBoxBorder
+	hlcoord 1, 2
+	ld de, wDiveSteps
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 1, 1
+	ld de, OxygenTitle
+	call PlaceString
+	hlcoord 4, 2
+	ld de, DiveSteps
+	jp PlaceString
+
+OxygenTitle: ; new
+	db "OXYGEN:@"
+
+DiveSteps: ; new
+	db "/200@"

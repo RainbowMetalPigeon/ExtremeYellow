@@ -33,17 +33,19 @@ LoadTilesetHeader:
 	cp b
 	jr z, .done
 .dungeon
-	ld a, [wDestinationWarpID]
-	cp $ff
-	jr z, .done
 ; new for Dive
-	cp $FE
-	jr nz, .vanilla
-; Dive
+	CheckEvent EVENT_DIVE_GO_UNDER
+	jr nz, .dive
+	CheckEvent EVENT_DIVE_GO_ABOVE
+	jr z, .vanilla
+.dive
 	call LoadDestinationWarpPosition_SpecialForDive
 	jr .postLoading
 .vanilla
 ; BTV
+	ld a, [wDestinationWarpID]
+	cp $ff
+	jr z, .done
 	call LoadDestinationWarpPosition
 .postLoading ; new
 	ld a, [wYCoord]
@@ -64,7 +66,13 @@ LoadDestinationWarpPosition_SpecialForDive::
 	ldh a, [hLoadedROMBank]
 	ld [MBC1RomBank], a
 
+	ld hl, wOverworldMap ; hl=start+7
 	ld hl, wOverworldMap + 7 ; hl=start+7
+	ld de, wCurrentTileBlockMapViewPointer
+	ld a, [de]
+	inc de
+	ld a, [de]
+
 	ld a, [wCurMapWidth]
 	ld b, 0
 	ld c, a
@@ -72,23 +80,32 @@ LoadDestinationWarpPosition_SpecialForDive::
 	add 6 ; a=width+6
 	ld c, a ; bc=W+6, as long as width<249
 	ld a, [wYCoord]
-	rrc a ; a=Y/2
+	srl a ; a=Y/2
 	call AddNTimes ; adds bc to hl a times ; hl=start+7+W+(W+6)x(Y/2)
 	ld a, [wXCoord]
-	rrc a ; a=X/2
+	srl a ; a=X/2
 	ld c, a ; bc=X/2
 	add hl, bc ; hl=start+7+W+(W+6)x(Y/2)+X/2
 
 	ld de, wCurrentTileBlockMapViewPointer
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
+	ld a, l
+	ld [de], a
+	inc de
+	ld a, h
+	ld [de], a
 
 	; X and Y coordinates stay the same
 
-    ld a, 3
-    ld [wWalkBikeSurfState], a
-	
+	CheckEvent EVENT_DIVE_GO_UNDER
+	jr z, .reemerge
+	ld a, 3
+	ld [wWalkBikeSurfState], a
+	ld [wWalkBikeSurfStateCopy], a
+	ret
+.reemerge
+	ld a, 2
+	ld [wWalkBikeSurfState], a
+	ld [wWalkBikeSurfStateCopy], a
 	ret
 
 

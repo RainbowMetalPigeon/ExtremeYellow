@@ -82,4 +82,6 @@ TextPredefs::
 	add_tx_pre SeviiTicketUpTo3                     ; new
 	add_tx_pre SeviiTicketUpTo5                     ; new
 	add_tx_pre SeviiTicketUpTo8                     ; new
-	add_tx_pre DiveMessageTestText                  ; new
+	add_tx_pre ThisWaterIsDiveableText              ; new
+	add_tx_pre DiveMessageGoUnderText               ; new
+	add_tx_pre DiveMessageGoAboveText               ; new
