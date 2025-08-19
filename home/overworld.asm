@@ -1231,6 +1231,10 @@ SignLoop::
 ; function to check if the player will jump down a ledge and check if the tile ahead is passable (when not surfing)
 ; sets the carry flag if there is a collision, and unsets it if there isn't a collision
 CollisionCheckOnLand::
+; new for Rock Climb
+	CheckEvent EVENT_DOING_ROCK_CLIMB
+	jr nz, .noCollision
+; BTV
 	ld a, [wd736]
 	bit 6, a ; is the player jumping?
 	jr nz, .noCollision
@@ -1617,6 +1621,7 @@ JoypadOverworld::
 	callfar ForceBikeDown ; edited into a callfar
 	callfar ForceMovementsHauntedHouse ; new, to handle Haunted House
 	callfar ForceSlidingOnIce ; new
+	callfar ForceContinueRockClimb ; new
 	call AreInputsSimulated
 	ret
 

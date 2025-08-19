@@ -22,8 +22,8 @@ SeviiTwoIslandCity_WaitForSimulatedInputsScript:
 	ret
 
 SeviiTwoIslandCity_TextPointers:
-	dw SeviiTwoIslandCity_RockClimb1Up
-	dw SeviiTwoIslandCity_RockClimb1Down
+;	dw SeviiTwoIslandCity_RockClimb1Up
+;	dw SeviiTwoIslandCity_RockClimb1Down
 ;	dw PickUpItemText
 ;	dw SeviiTwoIslandCityText3
 	text_end
@@ -31,7 +31,7 @@ SeviiTwoIslandCity_TextPointers:
 ;SeviiTwoIslandCityText3:
 ;	text_far _SeviiTwoIslandCityText3
 ;	text_end
-
+/*
 SeviiTwoIslandCity_RockClimb1Down:
 	text_asm
 	ld a, 2
@@ -49,3 +49,4 @@ SeviiTwoIslandCity_RockClimb1Up:
 	ld a, 1
 	ld [wCurMapScript], a
 	jp TextScriptEnd
+*/

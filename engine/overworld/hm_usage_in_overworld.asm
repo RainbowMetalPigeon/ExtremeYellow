@@ -11,6 +11,15 @@ CheckIfCanSurfOrCutFromOverworld::
     cp 2 ; is the player already surfing?
     jp z, .checkForDive
 ; if we are not already surfing
+; check for climbable rocks
+    ld a, [wTileInFrontOfPlayer]
+    cp $63
+    jr nz, .checkForSurfability
+; there's a rock tile in front of us
+    call TryToClimbWall
+    ret
+.checkForSurfability
+; check if we are in front of water
     callfar IsNextTileShoreOrWater
     jp nc, .cannotSurf ; in front of us we don't have water
     ld hl, TilePairCollisionsWater
@@ -48,15 +57,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call PlayDefaultMusic ; play surfing music
     call EnableAutoTextBoxDrawing
     tx_pre_jump PlayerStartedSurfingText
-    ret
 .notSurfInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisWaterIsSurfableText
-    ret
 .newBadgeRequired
     call EnableAutoTextBoxDrawing
     tx_pre_jump NewBadgeRequiredText2
-    ret
 .cannotSurf
 ; check if we have a tree in front of us
     ld a, [wCurMapTileset]
@@ -175,7 +181,6 @@ CheckIfCanSurfOrCutFromOverworld::
 .notDiveInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisWaterIsDiveableText
-    ret
 
 ; ============================================
 
@@ -394,3 +399,84 @@ _CyclingIsFunText2::
 	text "Cycling is fun!"
 	line "Forget SURFing!"
 	done
+
+; --------------------------------------------
+
+TryToClimbWall:
+; check fo move
+	ld d, ROCK_CLIMB
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
+    jr z, .noRockClimbInTeam
+; we have the move, check if we have the badge
+    ld a, [wObtainedBadges]
+    bit BIT_RAINBOWBADGE, a
+	jp nz, ClimbWallUp
+; no badge
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump NewBadgeRequiredText2
+.noRockClimbInTeam
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump APokemonCouldClimbThisText
+
+ClimbWallUp:
+    SetEvent EVENT_DOING_ROCK_CLIMB
+    call EnableAutoTextBoxDrawing
+    tx_pre PokemonClimbsTheWall
+; decide where to go, and how much
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jr z, .goingUp
+; going down
+	ld a, D_DOWN
+	jr .doTheSteps
+.goingUp
+	ld a, D_UP
+.doTheSteps
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+    ld a, SFX_PUSH_BOULDER
+    call PlaySound
+	jp StartSimulatingJoypadStates
+
+APokemonCouldClimbThisText::
+	text_far _APokemonCouldClimbThisText
+	text_end
+
+_APokemonCouldClimbThisText::
+	text "A #MON could"
+	line "CLIMB this wall!"
+	done
+
+PokemonClimbsTheWall::
+	text_far _PokemonClimbsTheWall
+	text_end
+
+_PokemonClimbsTheWall::
+	text "<PLAYER>'s #MON"
+	line "climbs the wall!"
+	done
+
+ForceContinueRockClimb::
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	lda_coord 8, 9 ; tile the player is on
+	ld [wTilePlayerStandingOn], a
+	cp $63
+	jr z, .weAreOnClimbableWall
+	ResetEvent EVENT_DOING_ROCK_CLIMB
+	ret
+.weAreOnClimbableWall
+; check which direction we're facing, and force the movement accordingly
+	ld a, [wPlayerDirection]
+	cp PLAYER_DIR_DOWN
+	jr z, .down
+; up
+	ld a, D_UP
+	jr .end
+.down
+	ld a, D_DOWN
+.end
+	ldh [hJoyHeld], a
+	ret

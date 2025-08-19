@@ -85,3 +85,6 @@ TextPredefs::
 	add_tx_pre ThisWaterIsDiveableText              ; new
 	add_tx_pre DiveMessageGoUnderText               ; new
 	add_tx_pre DiveMessageGoAboveText               ; new
+	add_tx_pre APokemonCouldClimbThisText           ; new
+	add_tx_pre PokemonClimbsTheWall                 ; new
+	

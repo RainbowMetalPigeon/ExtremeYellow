@@ -348,16 +348,6 @@ _TheTerrainPreventsText::
 	line "due to terrain!"
 	prompt
 
-_PokemonClimbsTheWall::
-	text "<PLAYER>'s #MON"
-	line "climbs the wall!"
-	done
-
-_APokemonCouldClimbThisText::
-	text "A #MON could"
-	line "CLIMB this wall!"
-	done
-
 _OxygenIsOverText::
 	text "Oxygen is over!"
 	line "Must re-emerge!"
