@@ -87,4 +87,5 @@ TextPredefs::
 	add_tx_pre DiveMessageGoAboveText               ; new
 	add_tx_pre APokemonCouldClimbThisText           ; new
 	add_tx_pre PokemonClimbsTheWall                 ; new
-	
+	add_tx_pre ThisWhirlpoolCanBeStoppedText        ; new
+	add_tx_pre UsedWhirlpoolText                    ; new

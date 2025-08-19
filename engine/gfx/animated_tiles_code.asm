@@ -78,209 +78,92 @@ FlowerTile3: INCBIN "gfx/tilesets/flower/flower3.2bpp"
 ; ==================================================================
 
 AnimateWhirlpoolTiles::
-	CheckEvent EVENT_IN_SEVII
-	ret z
+	ld a, [wCurMapTileset]
+	cp OVERWORLD_SEVII
+	ret nz
 
 	ld a, [wMovingBGTilesCounter2]
 	and 3
 
-	and a
-	jp z, .step1
-	cp 1
-	jr z, .step2
-	cp 2
-	jr z, .step3
+	swap a ; multiply by 16, the amount of byte per tiles
+    add a
+    add a ; multiply by 4, the amount of tiles per whirlpool state
 
-;.step4
+; add a to the starting address of the whirlpool tiles
+	add LOW(WhirlpoolTiles)
+	ld l, a
+	adc HIGH(WhirlpoolTiles)
+	sub l
+	ld h, a
+
+; mess with the stack pointer
+	ld [hSPTemp], sp
+    ld sp, hl
+
 ; NW
-	ld hl, WhirlpoolTileNW4
-	ld de, vTileset tile $10 ; NW corner
-	ld c, $10
-.loopNW4
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNW4
+	ld hl, vTileset tile $10
+REPT (16 / 2) - 1
+    pop de
+    ld a, e
+    ld [hli], a
+    ld a, d
+    ld [hli], a
+ENDR
+    pop de
+    ld a, e
+    ld [hli], a
+    ld [hl], d
 ; NE
-	ld hl, WhirlpoolTileNE4
-	ld de, vTileset tile $5E ; NE corner
-	ld c, $10
-.loopNE4
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNE4
+	ld hl, vTileset tile $5E
+REPT (16 / 2) - 1
+    pop de
+    ld a, e
+    ld [hli], a
+    ld a, d
+    ld [hli], a
+ENDR
+    pop de
+    ld a, e
+    ld [hli], a
+    ld [hl], d
 ; SW
-	ld hl, WhirlpoolTileSW4
-	ld de, vTileset tile $20 ; SW corner
-	ld c, $10
-.loopSW4
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSW4
+	ld hl, vTileset tile $20
+REPT (16 / 2) - 1
+    pop de
+    ld a, e
+    ld [hli], a
+    ld a, d
+    ld [hli], a
+ENDR
+    pop de
+    ld a, e
+    ld [hli], a
+    ld [hl], d
 ; SE
-	ld hl, WhirlpoolTileSE4
-	ld de, vTileset tile $21 ; SE corner
-	ld c, $10
-.loopSE4
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSE4
+	ld hl, vTileset tile $21
+REPT (16 / 2) - 1
+    pop de
+    ld a, e
+    ld [hli], a
+    ld a, d
+    ld [hli], a
+ENDR
+    pop de
+    ld a, e
+    ld [hli], a
+    ld [hl], d
+
+; restore the stack pointer
+	ld sp, hSPTemp
+    pop hl
+    ld sp, hl
+
 	ret
 
-.step3
-; NW
-	ld hl, WhirlpoolTileNW3
-	ld de, vTileset tile $10 ; NW corner
-	ld c, $10
-.loopNW3
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNW3
-; NE
-	ld hl, WhirlpoolTileNE3
-	ld de, vTileset tile $5E ; NE corner
-	ld c, $10
-.loopNE3
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNE3
-; SW
-	ld hl, WhirlpoolTileSW3
-	ld de, vTileset tile $20 ; SW corner
-	ld c, $10
-.loopSW3
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSW3
-; SE
-	ld hl, WhirlpoolTileSE3
-	ld de, vTileset tile $21 ; SE corner
-	ld c, $10
-.loopSE3
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSE3
-	ret
-
-.step2
-; NW
-	ld hl, WhirlpoolTileNW2
-	ld de, vTileset tile $10 ; NW corner
-	ld c, $10
-.loopNW2
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNW2
-; NE
-	ld hl, WhirlpoolTileNE2
-	ld de, vTileset tile $5E ; NE corner
-	ld c, $10
-.loopNE2
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNE2
-; SW
-	ld hl, WhirlpoolTileSW2
-	ld de, vTileset tile $20 ; SW corner
-	ld c, $10
-.loopSW2
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSW2
-; SE
-	ld hl, WhirlpoolTileSE2
-	ld de, vTileset tile $21 ; SE corner
-	ld c, $10
-.loopSE2
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSE2
-	ret
-
-.step1
-; NW
-	ld hl, WhirlpoolTileNW1
-	ld de, vTileset tile $10 ; NW corner
-	ld c, $10
-.loopNW1
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNW1
-; NE
-	ld hl, WhirlpoolTileNE1
-	ld de, vTileset tile $5E ; NE corner
-	ld c, $10
-.loopNE1
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopNE1
-; SW
-	ld hl, WhirlpoolTileSW1
-	ld de, vTileset tile $20 ; SW corner
-	ld c, $10
-.loopSW1
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSW1
-; SE
-	ld hl, WhirlpoolTileSE1
-	ld de, vTileset tile $21 ; SE corner
-	ld c, $10
-.loopSE1
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loopSE1
-	ret
-
-WhirlpoolTileNW1: INCBIN "gfx/tilesets/whirlpool/whirlpoolNW1.2bpp"
-WhirlpoolTileNW2: INCBIN "gfx/tilesets/whirlpool/whirlpoolNW2.2bpp"
-WhirlpoolTileNW3: INCBIN "gfx/tilesets/whirlpool/whirlpoolNW3.2bpp"
-WhirlpoolTileNW4: INCBIN "gfx/tilesets/whirlpool/whirlpoolNW4.2bpp"
-
-WhirlpoolTileNE1: INCBIN "gfx/tilesets/whirlpool/whirlpoolNE1.2bpp"
-WhirlpoolTileNE2: INCBIN "gfx/tilesets/whirlpool/whirlpoolNE2.2bpp"
-WhirlpoolTileNE3: INCBIN "gfx/tilesets/whirlpool/whirlpoolNE3.2bpp"
-WhirlpoolTileNE4: INCBIN "gfx/tilesets/whirlpool/whirlpoolNE4.2bpp"
-
-WhirlpoolTileSW1: INCBIN "gfx/tilesets/whirlpool/whirlpoolSW1.2bpp"
-WhirlpoolTileSW2: INCBIN "gfx/tilesets/whirlpool/whirlpoolSW2.2bpp"
-WhirlpoolTileSW3: INCBIN "gfx/tilesets/whirlpool/whirlpoolSW3.2bpp"
-WhirlpoolTileSW4: INCBIN "gfx/tilesets/whirlpool/whirlpoolSW4.2bpp"
-
-WhirlpoolTileSE1: INCBIN "gfx/tilesets/whirlpool/whirlpoolSE1.2bpp"
-WhirlpoolTileSE2: INCBIN "gfx/tilesets/whirlpool/whirlpoolSE2.2bpp"
-WhirlpoolTileSE3: INCBIN "gfx/tilesets/whirlpool/whirlpoolSE3.2bpp"
-WhirlpoolTileSE4: INCBIN "gfx/tilesets/whirlpool/whirlpoolSE4.2bpp"
+WhirlpoolTiles::
+INCBIN "gfx/tilesets/whirlpool/whirlpool1.2bpp"
+INCBIN "gfx/tilesets/whirlpool/whirlpool2.2bpp"
+INCBIN "gfx/tilesets/whirlpool/whirlpool3.2bpp"
+INCBIN "gfx/tilesets/whirlpool/whirlpool4.2bpp"
 
 ; ==================================================================

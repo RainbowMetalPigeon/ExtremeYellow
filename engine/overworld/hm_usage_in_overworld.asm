@@ -154,7 +154,7 @@ CheckIfCanSurfOrCutFromOverworld::
     ld d, WHIRLPOOL
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notWhirlpoolInTeam
-; we have a Pokemon with CUT in the team
+; we have a Pokemon with WHIRLPOOL in the team
     ld a, [wObtainedBadges]
     bit BIT_MARSHBADGE, a
 	jp z, .newBadgeRequired
@@ -166,20 +166,18 @@ CheckIfCanSurfOrCutFromOverworld::
     ld hl, wd730
     set 6, [hl]
     call EnableAutoTextBoxDrawing
-    tx_pre UsedCutText2 ; TBE
+    tx_pre UsedWhirlpoolText
     ld hl, wd730
     res 6, [hl]
-; actual cutting stuff
+; actual whirlpool undoing stuff
     ld a, $ff
     ld [wUpdateSpritesEnabled], a
-;    callfar InitCutAnimOAM ; TBE
     ld de, UndoWhirlpoolBlockSwaps
-    callfar ReplaceTreeTileBlock ; TBE?
+    callfar ReplaceTreeTileBlock
     callfar RedrawMapView
-;    farcall AnimCut ; TBE
     ld a, $1
     ld [wUpdateSpritesEnabled], a
-    ld a, SFX_CUT ; TBE
+    ld a, SFX_SHRINK ; TBE
     call PlaySound
     ld a, $90
     ldh [hWY], a
@@ -188,7 +186,7 @@ CheckIfCanSurfOrCutFromOverworld::
     ret
 .notWhirlpoolInTeam
     call EnableAutoTextBoxDrawing
-    tx_pre_jump ThisTreeIsCuttableText ; TBE
+    tx_pre_jump ThisWhirlpoolCanBeStoppedText
 
 .checkForWaterfall
     jr .checkForDive ; TBE
@@ -275,6 +273,24 @@ ThisTreeIsCuttableText::
 _ThisTreeIsCuttableText::
     text "A #MON could"
     line "CUT this tree!"
+    done
+
+ThisWhirlpoolCanBeStoppedText::
+	text_far _ThisWhirlpoolCanBeStoppedText
+	text_end
+
+_ThisWhirlpoolCanBeStoppedText::
+	text "A #MON can stop"
+	line "this WHIRLPOOL!"
+	done
+
+UsedWhirlpoolText::
+    text_far _UsedWhirlpoolText
+    text_end
+
+_UsedWhirlpoolText::
+    text "Your #MON stops"
+    line "the WHIRLPOOL!"
     done
 
 UsedCutText2::

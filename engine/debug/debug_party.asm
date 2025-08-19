@@ -58,7 +58,7 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, TOXIC_SPIKES
+	ld a, WHIRLPOOL
 	ld [hli], a
 	ld a, ZAP_CANNON
 	ld [hli], a
