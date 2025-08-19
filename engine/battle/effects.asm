@@ -945,6 +945,8 @@ ChargeMoveEffectText:
 	jr z, .gotText
 	cp DIG
 	ld hl, DugAHoleText
+	jr z, .gotText
+	ld hl, DoveUnderwaterText ; new
 .gotText
 	ret
 
@@ -970,6 +972,10 @@ FlewUpHighText:
 
 DugAHoleText:
 	text_far _DugAHoleText
+	text_end
+
+DoveUnderwaterText:
+	text_far _DoveUnderwaterText
 	text_end
 
 TrappingEffect:				; made into a jpfar to save space

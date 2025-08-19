@@ -134,6 +134,11 @@ _DugAHoleText::
 	line "dug a hole!"
 	prompt
 
+_DoveUnderwaterText::
+	text_start
+	line "dove underwater!"
+	prompt
+
 _BecameConfusedText::
 	text "<TARGET>"
 	line "became confused!"
