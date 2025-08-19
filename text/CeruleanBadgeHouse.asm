@@ -93,7 +93,6 @@ _CeruleanHouse2Text_74ea0:: ; THUNDERBADGE
 	line "#MON increases"
 	cont "a little bit,"
 	cont "if you so wish."
-;	xxxx "123456789012345678"
 
 	para "Weird, right? It'd"
 	line "make more sense"
@@ -102,13 +101,12 @@ _CeruleanHouse2Text_74ea0:: ; THUNDERBADGE
 	cont "SPEED, and yet!"
 
 	para "It also lets you"
-	line "use FLY outside"
-	cont "of battle."
+	line "use WATERFALL out-"
+	cont "side of battle."
 	prompt
 
 _CeruleanHouse2Text_74ea5:: ; RAINBOWBADGE
-	text "It lets you"
-	line "use STRENGTH out-"
+	text "It lets you use"
 	cont "side of battle."
 	prompt
 

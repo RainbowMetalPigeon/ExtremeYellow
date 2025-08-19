@@ -356,12 +356,20 @@ UpdateMovingBgTiles::
 	ldh a, [hMovingBGTilesCounter1]
 	inc a
 	ldh [hMovingBGTilesCounter1], a
-	cp 20
-	ret c
+; vanilla: 0-19: nothing; 20: water; 21: flowers, which then 0-ifyes the counter
+; edited: 19: water; 20: whirlpool; 21: flowers
+; I think water needs to be first as it is the one advancing wMovingBGTilesCounter2
+; and flowers need to be last as they reset hMovingBGTilesCounter1
+; unless there are no flowers animated, in which case it's the water to reset it
+	cp 19 ; edited, was 20
+	ret c ; do nothing if 0-18
+	jr z, .water ; new
 	cp 21
 	jr z, .flower
 
-; water
+	jpfar AnimateWhirlpoolTiles ; new
+
+.water ; new
 
 	jpfar AnimateWaterTile ; new, to save space in home, see engine/gfx/animated_tiles_code.asm
 
