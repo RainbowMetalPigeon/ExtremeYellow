@@ -11,7 +11,7 @@ SeviiOneIslandCity_TextPointers:
 
 SeviiOneIslandCityText1:
 	text_asm
-	call SaveScreenTilesToBuffer2 ;this must always be here before calling Tutor, and should always be at a point when text is not on the screen
+	call SaveScreenTilesToBuffer2 ; this must always be here before calling Tutor, and should always be at a point when text is not on the screen
 	ld hl, SeviiOneIslandCityText1_Question
 	call PrintText
 	call YesNoChoice

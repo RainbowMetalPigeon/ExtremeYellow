@@ -289,11 +289,14 @@ Evolution_PartyMonLoop: ; loop over party mons
 	dec hl
 	pop bc
 	call CopyData
-	ld a, [wd0b5]
-	ld [wd11e], a
+	ld a, [wd0b5] ; current species
+	ld [wd11e], a ; pokedex number
+;	push af ; new to bug fix from ZetaPhoenix
 	xor a
 	ld [wMonDataLocation], a
 	call LearnMoveFromLevelUp
+;	pop af ; new to bug fix from ZetaPhoenix
+;	ld [wd11e], a ; new to bug fix from ZetaPhoenix
 	pop hl
 	predef SetPartyMonTypes
 	ld a, [wIsInBattle]

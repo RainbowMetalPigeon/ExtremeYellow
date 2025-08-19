@@ -2164,10 +2164,10 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, TOXIC_SPIKES ; HAIL
-	db 1, 2, SPIKES ; AQUA_JET
-	db 1, 3, STICKY_WEB ; REST
-	db 1, 4, STEALTH_ROCK ; BLIZZARD
+	db 1, 1, HAIL
+	db 1, 2, AQUA_JET
+	db 1, 3, REST
+	db 1, 4, BLIZZARD
 	; CLOYSTER
 	db 2, 1, EXPLOSION
 	db 2, 2, PIN_MISSILE
@@ -2180,7 +2180,7 @@ SpecialTrainerMoves:
 	db 3, 4, PSYCHO_CUT
 	; GLACEON
 	db 4, 1, BLIZZARD
-	db 4, 2, MIRROR_COAT
+	db 4, 2, HAIL ; MIRROR_COAT?
 	db 4, 3, WATER_PULSE
 	db 4, 4, BARRIER
 	; LAPRAS
