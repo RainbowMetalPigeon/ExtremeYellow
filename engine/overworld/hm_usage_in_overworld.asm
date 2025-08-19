@@ -9,8 +9,9 @@ CheckIfCanSurfOrCutFromOverworld::
     cp 3 ; is the player diving?
     jp z, .checkForReemerging
     cp 2 ; is the player already surfing?
-    jp z, .checkForDive
+    jp z, .checkForWhirlpoolDiveWaterfall
 ; if we are not already surfing
+
 ; check for climbable rocks
     ld a, [wTileInFrontOfPlayer]
     cp $63
@@ -18,6 +19,7 @@ CheckIfCanSurfOrCutFromOverworld::
 ; there's a rock tile in front of us
     call TryToClimbWall
     ret
+
 .checkForSurfability
 ; check if we are in front of water
     callfar IsNextTileShoreOrWater
@@ -63,6 +65,7 @@ CheckIfCanSurfOrCutFromOverworld::
 .newBadgeRequired
     call EnableAutoTextBoxDrawing
     tx_pre_jump NewBadgeRequiredText2
+
 .cannotSurf
 ; check if we have a tree in front of us
     ld a, [wCurMapTileset]
@@ -120,7 +123,7 @@ CheckIfCanSurfOrCutFromOverworld::
     ld a, $ff
     ld [wUpdateSpritesEnabled], a
     callfar InitCutAnimOAM
-    ld de, CutTreeBlockSwaps
+    ld de, CutTreeBlockSwaps ; how does this even work if it's in another bank???
     callfar ReplaceTreeTileBlock
     callfar RedrawMapView
     farcall AnimCut
@@ -136,6 +139,60 @@ CheckIfCanSurfOrCutFromOverworld::
 .notCutInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisTreeIsCuttableText
+
+.checkForWhirlpoolDiveWaterfall
+; check if we have a whirlpool in front of us
+    ld a, [wCurMapTileset]
+    cp OVERWORLD_SEVII
+    jr nz, .checkForWaterfall
+; we're in a (the?) tileset with whirlpools
+    dec a
+    ld a, [wTileInFrontOfPlayer]
+    cp $20 ; SW whirlpool tile
+    jr nz, .checkForWaterfall
+; we are in front of a whirlpool
+    ld d, WHIRLPOOL
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
+    jr z, .notWhirlpoolInTeam
+; we have a Pokemon with CUT in the team
+    ld a, [wObtainedBadges]
+    bit BIT_MARSHBADGE, a
+	jp z, .newBadgeRequired
+; we have the badge to undo the whirlpool
+; is this even necessary?
+    ld a, 1
+    ld [wActionResultOrTookBattleTurn], a ; used cut?
+; insta printing
+    ld hl, wd730
+    set 6, [hl]
+    call EnableAutoTextBoxDrawing
+    tx_pre UsedCutText2 ; TBE
+    ld hl, wd730
+    res 6, [hl]
+; actual cutting stuff
+    ld a, $ff
+    ld [wUpdateSpritesEnabled], a
+;    callfar InitCutAnimOAM ; TBE
+    ld de, UndoWhirlpoolBlockSwaps
+    callfar ReplaceTreeTileBlock ; TBE?
+    callfar RedrawMapView
+;    farcall AnimCut ; TBE
+    ld a, $1
+    ld [wUpdateSpritesEnabled], a
+    ld a, SFX_CUT ; TBE
+    call PlaySound
+    ld a, $90
+    ldh [hWY], a
+    call UpdateSprites
+    callfar RedrawMapView ; should this be simply a jp RedrawMapView?
+    ret
+.notWhirlpoolInTeam
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump ThisTreeIsCuttableText ; TBE
+
+.checkForWaterfall
+    jr .checkForDive ; TBE
+
 .checkForDive
 	lda_coord 8, 9 ; tile the player is on
 	ld [wTilePlayerStandingOn], a

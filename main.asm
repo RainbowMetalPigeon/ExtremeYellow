@@ -46,7 +46,6 @@ INCLUDE "data/maps/hide_show_data.asm"
 INCLUDE "data/maps/hide_show_data_sevii.asm" ; new
 INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/overworld/update_map.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/missable_objects.asm"
 INCLUDE "engine/overworld/push_boulder.asm"
@@ -62,6 +61,7 @@ INCLUDE "engine/overworld/pathfinding.asm"
 ;INCLUDE "engine/movie/oak_speech/init_player_data.asm" ; moved
 ;INCLUDE "engine/gfx/hp_bar.asm" ; moved to bankGarage
 ;INCLUDE "engine/overworld/clear_variables.asm" ; moved to bankGarage2
+;INCLUDE "engine/overworld/update_map.asm" ; moved to bankGarage2
 
 
 SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks
@@ -106,6 +106,7 @@ INCLUDE "engine/miscellanea/battlecore2.asm" ; new
 INCLUDE "engine/miscellanea/tutor.asm" ; new
 INCLUDE "data/moves/tutor_table.asm" ; new
 INCLUDE "engine/overworld/clear_variables.asm" ; from bank3
+INCLUDE "engine/overworld/update_map.asm" ; from bank3
 
 
 SECTION "bankGarage3", ROMX ; new

@@ -190,7 +190,7 @@ BoulderDustAnimationOffsets:
 	db -24, 20 ; player is facing left
 	db 40,  20 ; player is facing right
 
-ReplaceTreeTileBlock:
+ReplaceTreeTileBlock:: ; how could this be callfar-ed if it didn't have two colons???
 ; Determine the address of the tile block that contains the tile in front of the
 ; player (i.e. where the tree is) and replace it with the corresponding tile
 ; block that doesn't have the tree.
@@ -267,3 +267,10 @@ ReplaceTreeTileBlock:
 	ret
 
 INCLUDE "data/tilesets/cut_tree_blocks.asm"
+
+UndoWhirlpoolBlockSwaps:: ; new, for whirlpool
+	; first byte = tileset block containing the whirlpool
+	; second byte = corresponding tileset block after the undo whirlpool animation happens
+	db $23, $19
+	db $26, $18
+	db -1 ; end
