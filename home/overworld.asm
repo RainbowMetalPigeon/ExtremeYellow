@@ -648,6 +648,12 @@ CheckMapConnections::
 
 ; function to play a sound when changing maps
 PlayMapChangeSound::
+; new for Dive
+	CheckEvent EVENT_DIVE_GO_UNDER
+	jr nz, .diving
+	CheckEvent EVENT_DIVE_GO_ABOVE
+	jr nz, .diving
+; BTV
 	ld a, [wCurMapTileset]
 	cp FACILITY
 	jr z, .didNotGoThroughDoor
@@ -658,6 +664,14 @@ PlayMapChangeSound::
 	jr nz, .didNotGoThroughDoor
 	ld a, SFX_GO_INSIDE
 	jr .playSound
+; new for Dive
+.diving
+	ld a, SFX_SURFING_FLIP
+	call PlaySound
+	call WaitForSoundToFinish
+	ld a, SFX_SURFING_FLIP
+	jr .playSound
+; BTV
 .didNotGoThroughDoor
 	ld a, SFX_GO_OUTSIDE
 .playSound

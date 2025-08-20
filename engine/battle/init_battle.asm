@@ -364,9 +364,9 @@ _LoadTrainerPic:
 .notCopycat
 
 ; now check if it's one of the trainers that need bank "Pics 6b" but is otherwise normally handled
-; this means ORAGE, PIGEON, TRAVELER (but it requires a double check), MISSINGNO_T
+; this means DIVER, ORAGE, PIGEON, TRAVELER (but it requires a double check), MISSINGNO_T
 	ld a, [wTrainerClass]
-	cp ORAGE
+	cp DIVER
 	jr c, .notNewNormalClasses
 ; now check if it's rematch vs Traveler
 	cp TRAVELER

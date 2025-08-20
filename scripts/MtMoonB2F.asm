@@ -330,9 +330,9 @@ MtMoon3Script12:
 	ld hl, MtMoon3JessieJamesEndBattleText
 	ld de, MtMoon3JessieJamesEndBattleText
 	call SaveEndBattleTextPointers
-	ld a, OPP_ROCKET
+	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
-	ld a, $2e ; edited
+	ld a, 1 ; edited
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200

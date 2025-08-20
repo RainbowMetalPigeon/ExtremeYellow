@@ -153,9 +153,9 @@ PokemonTower7Script7:
 	ld hl, PokemonTower7JessieJamesEndBattleText
 	ld de, PokemonTower7JessieJamesEndBattleText
 	call SaveEndBattleTextPointers
-	ld a, OPP_ROCKET
+	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
-	ld a, $30 ; edited
+	ld a, 3 ; edited
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200

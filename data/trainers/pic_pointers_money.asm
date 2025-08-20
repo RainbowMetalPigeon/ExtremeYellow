@@ -55,6 +55,8 @@ TrainerPicAndMoneyPointers::
 	pic_money AgathaPic,       9900
 	pic_money LancePic,        9900
 ; new classes
+	pic_money DiverPic,        1000
+	pic_money JessieJamesPic,  4000
 	pic_money OragePic,        9900
 	pic_money PigeonPic,       42000
 	pic_money TravelerPic,     50000

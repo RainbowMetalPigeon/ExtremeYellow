@@ -205,7 +205,9 @@
 	const_skip 3
 	const EVENT_SEEL_FAN_BOAST
 	const EVENT_PIKACHU_FAN_BOAST
-	const_skip 6 ; edited, was 8
+	const_skip ; new
+	const EVENT_BEAT_SEVII_ROUTE_32_DIVE_TRAINER_1 ; new
+	const_skip 4 ; edited, was 8
 	const EVENT_ALREADY_GOT_INFO_BATTLE_FACILITY ; new
 	const EVENT_BEAT_LT_SURGE_REMATCH ; new
 	const EVENT_2ND_LOCK_OPENED

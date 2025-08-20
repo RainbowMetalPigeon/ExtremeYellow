@@ -176,7 +176,7 @@ CheckIfCanSurfOrCutFromOverworld::
     callfar RedrawMapView
     ld a, $1
     ld [wUpdateSpritesEnabled], a
-    ld a, SFX_SHRINK ; TBE
+    ld a, SFX_SHRINK
     call PlaySound
     ld a, $90
     ldh [hWY], a

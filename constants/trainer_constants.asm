@@ -63,6 +63,8 @@ ENDM
 	trainer_const AGATHA         ; $2E
 	trainer_const LANCE          ; $2F
 ; new classes
+	trainer_const DIVER          ; self-explanatory
+	trainer_const JESSIEJAMES    ; self-explanatory
 	trainer_const ORAGE			 ; Ochre "gym" leader
 	trainer_const PIGEON		 ; Self-cameo
 	trainer_const TRAVELER		 ; Interdimensional traveler

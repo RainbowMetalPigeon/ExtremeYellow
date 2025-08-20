@@ -386,9 +386,9 @@ SilphCo11Script11:
 	ld hl, SilphCo11Text_624c2
 	ld de, SilphCo11Text_624c2
 	call SaveEndBattleTextPointers
-	ld a, OPP_ROCKET
+	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
-	ld a, $31 ; edited
+	ld a, 4 ; edited
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200

@@ -207,9 +207,9 @@ RocketHideout4Script10:
 	ld hl, RocketHideout4JessieJamesEndBattleText
 	ld de, RocketHideout4JessieJamesEndBattleText
 	call SaveEndBattleTextPointers
-	ld a, OPP_ROCKET
+	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
-	ld a, $2f ; edited
+	ld a, 2 ; edited
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200

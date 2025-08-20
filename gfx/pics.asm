@@ -354,6 +354,7 @@ JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 SECTION "Pics 6b", ROMX ; new
 
 ; new trainer classes, "init_battle" has been modified to handle this bank too
+DiverPic::         INCBIN "gfx/trainers/diver.pic"
 OragePic::         INCBIN "gfx/trainers/orage.pic"
 PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
 BFTrainerPic::

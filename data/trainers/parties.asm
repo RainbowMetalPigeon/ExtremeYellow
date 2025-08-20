@@ -47,6 +47,8 @@ TrainerDataPointers:
 	dw AgathaData
 	dw LanceData
 ; new classes
+	dw DiverData
+	dw JessieJamesData
 	dw OrageData
 	dw PigeonData
 	dw TravelerData
@@ -686,7 +688,7 @@ RocketData:
 	db 37, RATICATE, HYPNO, GOLBAT, 0
 	db 37, MUK, SANDSLASH, ARBOK, 0
 	db 38, MACHOKE, WEEZING, 0
-; Jessie & James ; updated
+; Jessie & James ; updated ; TBE
 	db 14, EKANS, KOFFING, MEOWTH, 0 ; Mt Moon ; $2e=46
 	db 25, ARBOK, WEEZING, MEOWTH, 0 ; Rocket Hideout ; $2f=47
 	db 32, ARBOK, LICKITUNG, WEEZING, WEEPINBELL, MEOWTH, 0 ; Pokemon Tower ; $30=48
@@ -993,6 +995,16 @@ Rival3Data:
 
 ProfOakData:
 	db $FF, 83, TAUROS, 84, MGYARADOS, 85, MEWTWO, 86, MMEWTWOX, 87, MMEWTWOY, 88, VENUSTOISE, 0 ; updated
+
+DiverData: ; new
+	db 42, MAGIKARP, 0
+
+JessieJamesData: ; new, TBE
+	db 14, EKANS, KOFFING, MEOWTH, 0 ; Mt Moon ; 1
+	db 25, ARBOK, WEEZING, MEOWTH, 0 ; Rocket Hideout ; 2
+	db 32, ARBOK, LICKITUNG, WEEZING, WEEPINBELL, MEOWTH, 0 ; Pokemon Tower ; 3
+	db 36, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MEOWTH, 0 ; Silph Co ; 4
+	db 39, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MEOWTH, 0 ; Obsidian Warehouse ; 5
 
 OrageData:
 	db $FF, 46, BLISSEY, 46, DODRIO, 46, PINSIR, 46, SCIZOR, 46, UMBREON, 47, SYLVEON, 0 ; new

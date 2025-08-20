@@ -12,4 +12,5 @@ EvilTrainerList::
 	db OPP_SCIENTIST
 	db OPP_GIOVANNI
 	db OPP_ROCKET
+	DB OPP_JESSIEJAMES ; new
 	db -1 ; end

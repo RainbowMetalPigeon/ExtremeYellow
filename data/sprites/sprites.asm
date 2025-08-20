@@ -112,6 +112,7 @@ SpriteSheetPointerTable:
 	overworld_sprite SabrinaSprite, 12          ; SPRITE_SABRINA ; new
 	overworld_sprite BlaineSprite, 12           ; SPRITE_BLAINE ; new
 	overworld_sprite OrageSprite, 12            ; SPRITE_ORAGE ; new
+	overworld_sprite DiverSprite, 12            ; SPRITE_DIVER ; new
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL

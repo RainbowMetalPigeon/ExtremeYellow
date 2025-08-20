@@ -57,6 +57,8 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3, 4 ; AGATHA ; edited
 	move_choices 1, 2, 3, 4 ; LANCE ; edited
 ; new classes
+	move_choices 1, 2, 3    ; DIVER
+	move_choices 1, 2, 3    ; JESSIEJAMES
 	move_choices 1, 2, 3, 4 ; ORAGE
 	move_choices 1, 2, 3    ; PIGEON
 	move_choices 1, 2, 3, 4 ; TRAVELER

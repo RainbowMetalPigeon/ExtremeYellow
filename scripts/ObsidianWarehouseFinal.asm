@@ -228,9 +228,9 @@ ObsidianWarehouseFinalScript_JessieJamesFight:
 	ld hl, ObsidianWarehouseFinalText10_JessieJames3
 	ld de, ObsidianWarehouseFinalText10_JessieJames3
 	call SaveEndBattleTextPointers
-	ld a, OPP_ROCKET
+	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
-	ld a, $32
+	ld a, 5
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
