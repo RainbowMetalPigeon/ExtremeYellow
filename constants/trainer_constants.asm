@@ -1,4 +1,4 @@
-DEF OPP_ID_OFFSET EQU 200 ; unnecessary after the whole go beyond 200???
+DEF OPP_ID_OFFSET EQU 1 ; unnecessary after the whole go beyond 200???
 
 MACRO trainer_const
 	const \1
@@ -64,6 +64,24 @@ ENDM
 	trainer_const LANCE          ; $2F
 ; new classes
 	trainer_const DIVER          ; self-explanatory
+
+	trainer_const PROTON         ; rocket executive/admin
+	trainer_const PETREL         ; rocket executive/admin
+	trainer_const ARIANA         ; rocket executive/admin
+	trainer_const ARCHER         ; rocket executive/admin
+	trainer_const CARR           ; rocket beast
+	trainer_const ORM            ; rocket beast
+	trainer_const SIRD           ; rocket beast
+	trainer_const ICHINO         ; sevii sage
+	trainer_const NIUE           ; sevii sage
+	trainer_const SANTRE         ; sevii sage
+	trainer_const YOTTRO         ; sevii sage
+	trainer_const GONQUE         ; sevii sage
+	trainer_const ROKUSEI        ; sevii sage
+	trainer_const NANETTE        ; sevii sage
+	trainer_const SUUJERO        ; sevii sage
+	trainer_const PINK           ; new rival
+
 	trainer_const JESSIEJAMES    ; self-explanatory
 	trainer_const ORAGE			 ; Ochre "gym" leader
 	trainer_const PIGEON		 ; Self-cameo

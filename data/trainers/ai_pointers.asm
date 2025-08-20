@@ -53,6 +53,25 @@ TrainerAIPointers:
 	dbw 1, LanceAI ; LANCE
 ; new classes
 	dbw 3, GenericAI ; DIVER
+
+; TBE
+	dbw 3, GenericAI ; PROTON
+	dbw 3, GenericAI ; PETREL
+	dbw 3, GenericAI ; ARIANA
+	dbw 3, GenericAI ; ARCHER
+	dbw 3, GenericAI ; CARR
+	dbw 3, GenericAI ; ORM
+	dbw 3, GenericAI ; SIRD
+	dbw 3, GenericAI ; ICHINO
+	dbw 3, GenericAI ; NIUE
+	dbw 3, GenericAI ; SANTRE
+	dbw 3, GenericAI ; YOTTRO
+	dbw 3, GenericAI ; GONQUE
+	dbw 3, GenericAI ; ROKUSEI
+	dbw 3, GenericAI ; NANETTE
+	dbw 3, GenericAI ; SUUJERO
+	dbw 3, GenericAI ; PINK
+
 	dbw 3, GenericAI ; JESSIEJAMES
 	dbw 3, OrageAI   ; ORAGE
 	dbw 3, GenericAI ; PIGEON

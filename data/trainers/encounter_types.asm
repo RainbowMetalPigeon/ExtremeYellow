@@ -13,4 +13,11 @@ EvilTrainerList::
 	db OPP_GIOVANNI
 	db OPP_ROCKET
 	DB OPP_JESSIEJAMES ; new
+	DB PROTON ; new
+	DB PETREL ; new
+	DB ARIANA ; new
+	DB ARCHER ; new
+	DB CARR ; new
+	DB ORM ; new
+	DB SIRD ; new
 	db -1 ; end

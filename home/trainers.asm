@@ -427,7 +427,8 @@ PrintEndBattleText::
 	ld hl, TrainerEndBattleTextNameless
 	jr .continue
 .notCopycatBattle
-	farcall SaveTrainerName
+;	farcall SaveTrainerName ; removed
+	callfar GetTrainerName_ ; edited, let's use this instead of the above useless function
 	ld hl, TrainerEndBattleText
 .continue
 ; back to vanilla

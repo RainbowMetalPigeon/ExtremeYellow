@@ -48,6 +48,25 @@ TrainerDataPointers:
 	dw LanceData
 ; new classes
 	dw DiverData
+
+; TBE
+	dw ProtonData
+	dw PetrelData
+	dw ArianaData
+	dw ArcherData
+	dw CarrData
+	dw OrmData
+	dw SirdData
+	dw IchinoData
+	dw NiueData
+	dw SantreData
+	dw YottroData
+	dw GonqueData
+	dw RokuseiData
+	dw NanetteData
+	dw SuujeroData
+	dw PinkData
+
 	dw JessieJamesData
 	dw OrageData
 	dw PigeonData
@@ -996,10 +1015,30 @@ Rival3Data:
 ProfOakData:
 	db $FF, 83, TAUROS, 84, MGYARADOS, 85, MEWTWO, 86, MMEWTWOX, 87, MMEWTWOY, 88, VENUSTOISE, 0 ; updated
 
-DiverData: ; new
+; new ones
+
+DiverData:
 	db 42, MAGIKARP, 0
 
-JessieJamesData: ; new, TBE
+ProtonData:
+PetrelData:
+ArianaData:
+ArcherData:
+CarrData:
+OrmData:
+SirdData:
+IchinoData:
+NiueData:
+SantreData:
+YottroData:
+GonqueData:
+RokuseiData:
+NanetteData:
+SuujeroData:
+PinkData:
+	db 99, DITTO, 0 ; TBE
+
+JessieJamesData: ; new
 	db 14, EKANS, KOFFING, MEOWTH, 0 ; Mt Moon ; 1
 	db 25, ARBOK, WEEZING, MEOWTH, 0 ; Rocket Hideout ; 2
 	db 32, ARBOK, LICKITUNG, WEEZING, WEEPINBELL, MEOWTH, 0 ; Pokemon Tower ; 3

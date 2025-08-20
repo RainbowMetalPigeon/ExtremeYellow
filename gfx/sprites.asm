@@ -126,6 +126,24 @@ TrophyBFSprite::         INCBIN "gfx/sprites/trophy_bf.2bpp"
 DadSprite::              INCBIN "gfx/sprites/dad.2bpp"
 BluesDadSprite::         INCBIN "gfx/sprites/bluesdad.2bpp"
 BluesMomSprite::         INCBIN "gfx/sprites/bluesmom.2bpp"
+
+; TBE
+ProtonSprite::
+PetrelSprite::
+ArianaSprite::
+ArcherSprite::
+CarrSprite::
+OrmSprite::
+SirdSprite::
+IchinoSprite::
+NiueSprite::
+SantreSprite::
+YottroSprite::
+GonqueSprite::
+RokuseiSprite::
+NanetteSprite::
+SuujeroSprite::
+PinkSprite::
 Porygon2Sprite::         INCBIN "gfx/sprites/porygon2.2bpp"
 BrockSprite::            INCBIN "gfx/sprites/brock.2bpp"
 MistySprite::            INCBIN "gfx/sprites/misty.2bpp"

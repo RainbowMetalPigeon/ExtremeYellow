@@ -58,6 +58,25 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3, 4 ; LANCE ; edited
 ; new classes
 	move_choices 1, 2, 3    ; DIVER
+
+; TBE
+	move_choices 1, 2, 3, 4 ; PROTON
+	move_choices 1, 2, 3, 4 ; PETREL
+	move_choices 1, 2, 3, 4 ; ARIANA
+	move_choices 1, 2, 3, 4 ; ARCHER
+	move_choices 1, 2, 3, 4 ; CARR
+	move_choices 1, 2, 3, 4 ; ORM
+	move_choices 1, 2, 3, 4 ; SIRD
+	move_choices 1, 2, 3, 4 ; ICHINO
+	move_choices 1, 2, 3, 4 ; NIUE
+	move_choices 1, 2, 3, 4 ; SANTRE
+	move_choices 1, 2, 3, 4 ; YOTTRO
+	move_choices 1, 2, 3, 4 ; GONQUE
+	move_choices 1, 2, 3, 4 ; ROKUSEI
+	move_choices 1, 2, 3, 4 ; NANETTE
+	move_choices 1, 2, 3, 4 ; SUUJERO
+	move_choices 1, 2, 3, 4 ; PINK
+
 	move_choices 1, 2, 3    ; JESSIEJAMES
 	move_choices 1, 2, 3, 4 ; ORAGE
 	move_choices 1, 2, 3    ; PIGEON

@@ -356,6 +356,24 @@ SECTION "Pics 6b", ROMX ; new
 ; new trainer classes, "init_battle" has been modified to handle this bank too
 DiverPic::         INCBIN "gfx/trainers/diver.pic"
 OragePic::         INCBIN "gfx/trainers/orage.pic"
+
+; TBE
+ProtonPic::
+PetrelPic::
+ArianaPic::
+ArcherPic::
+CarrPic::
+OrmPic::
+SirdPic::
+IchinoPic::
+NiuePic::
+SantrePic::
+YottroPic::
+GonquePic::
+RokuseiPic::
+NanettePic::
+SuujeroPic::
+PinkPic::
 PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
 BFTrainerPic::
 TravelerPic::      INCBIN "gfx/trainers/traveler.pic" ; testing

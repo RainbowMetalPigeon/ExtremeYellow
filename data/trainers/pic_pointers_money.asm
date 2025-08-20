@@ -39,7 +39,7 @@ TrainerPicAndMoneyPointers::
 	pic_money RocketPic,       3000
 ;	pic_money CooltrainerMPic, 3500
 	pic_money CooltrainerFPic, 3500
-	pic_money BrunoPic,        9900
+	pic_money BrunoPic,        15000 ; edited
 	pic_money BrockPic,        9900
 	pic_money MistyPic,        9900
 	pic_money LtSurgePic,      9900
@@ -50,12 +50,28 @@ TrainerPicAndMoneyPointers::
 	pic_money GentlemanPic,    7000
 	pic_money Rival2Pic,       6500
 	pic_money Rival3Pic,       20000 ; edited
-	pic_money LoreleiPic,      9900
+	pic_money LoreleiPic,      15000 ; edited
 	pic_money ChannelerPic,    3000
-	pic_money AgathaPic,       9900
-	pic_money LancePic,        9900
+	pic_money AgathaPic,       15000 ; edited
+	pic_money LancePic,        15000 ; edited
 ; new classes
 	pic_money DiverPic,        1000
+	pic_money ProtonPic,       8000
+	pic_money PetrelPic,       8000
+	pic_money ArianaPic,       8000
+	pic_money ArcherPic,       8000
+	pic_money CarrPic,         7000
+	pic_money OrmPic,          7000
+	pic_money SirdPic,         7000
+	pic_money IchinoPic,       25000
+	pic_money NiuePic,         25000
+	pic_money SantrePic,       25000
+	pic_money YottroPic,       25000
+	pic_money GonquePic,       25000
+	pic_money RokuseiPic,      25000
+	pic_money NanettePic,      25000
+	pic_money SuujeroPic,      25000
+	pic_money PinkPic,          100
 	pic_money JessieJamesPic,  4000
 	pic_money OragePic,        9900
 	pic_money PigeonPic,       42000

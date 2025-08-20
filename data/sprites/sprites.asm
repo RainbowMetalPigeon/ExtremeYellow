@@ -113,6 +113,25 @@ SpriteSheetPointerTable:
 	overworld_sprite BlaineSprite, 12           ; SPRITE_BLAINE ; new
 	overworld_sprite OrageSprite, 12            ; SPRITE_ORAGE ; new
 	overworld_sprite DiverSprite, 12            ; SPRITE_DIVER ; new
+
+; TBE
+	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON ; new
+	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL ; new
+	overworld_sprite ArianaSprite, 12           ; SPRITE_ARIANA ; new
+	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER ; new
+	overworld_sprite CarrSprite, 12             ; SPRITE_CARR ; new
+	overworld_sprite OrmSprite, 12              ; SPRITE_ORM ; new
+	overworld_sprite SirdSprite, 12             ; SPRITE_SIRD ; new
+	overworld_sprite IchinoSprite, 12           ; SPRITE_ICHINO ; new
+	overworld_sprite NiueSprite, 12             ; SPRITE_NIUE ; new
+	overworld_sprite SantreSprite, 12           ; SPRITE_SANTRE ; new
+	overworld_sprite YottroSprite, 12           ; SPRITE_YOTTRO ; new
+	overworld_sprite GonqueSprite, 12           ; SPRITE_GONQUE ; new
+	overworld_sprite RokuseiSprite, 12          ; SPRITE_ROKUSEI ; new
+	overworld_sprite NanetteSprite, 12          ; SPRITE_NANETTE ; new
+	overworld_sprite SuujeroSprite, 12          ; SPRITE_SUUJERO ; new
+	overworld_sprite PinkSprite, 12             ; SPRITE_PINK ; new
+
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
 	overworld_sprite FossilSprite, 4            ; SPRITE_FOSSIL
