@@ -17,6 +17,8 @@ TryDoWildEncounter:
 .notStandingOnDoorOrWarpTile
 	callfar AreWeOnSlidingIce
 	jr z, .CantEncounter
+	CheckEvent EVENT_DOING_WATERFALL
+	jr nz, .CantEncounter
 ; BTV
 	callfar IsPlayerJustOutsideMap
 	jr z, .CantEncounter

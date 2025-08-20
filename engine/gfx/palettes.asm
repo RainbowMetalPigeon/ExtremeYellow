@@ -737,7 +737,17 @@ GetPal_Pikachu::
 	ld a, PAL_SEVII_UNDERWATER - 1
 	jr .townSevii
 .cave
+; check by map in array for special palettes (frozen for icefall cave)
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_FrozenPalette
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .frozen
+; normal cave
 	ld a, PAL_SEVII_CAVE - 1
+	jr .townSevii
+.frozen
+	ld a, PAL_SEVII_CYANMON - 1
 	jr .townSevii
 .notSevii
 ; back to vanilla

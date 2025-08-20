@@ -77,7 +77,7 @@ FlowerTile3: INCBIN "gfx/tilesets/flower/flower3.2bpp"
 
 ; ==================================================================
 
-AnimateWhirlpoolTiles::
+AnimateWhirlpoolTiles:: ; new
 	ld a, [wCurMapTileset]
 	cp OVERWORLD_SEVII
 	ret nz
@@ -167,3 +167,40 @@ INCBIN "gfx/tilesets/whirlpool/whirlpool3.2bpp"
 INCBIN "gfx/tilesets/whirlpool/whirlpool4.2bpp"
 
 ; ==================================================================
+
+AnimateWaterfallTile:: ; new
+	ld a, [wCurMapTileset]
+	cp CAVERN
+	ret nz
+
+    ld [hSPTemp], sp
+    ld sp, vTileset tile $50
+    ld hl, (vTileset tile $50) + 2
+
+    pop bc
+    pop de
+    ld a, c
+    ld [hli], a
+    ld a, b
+    ld [hli], a
+REPT 3
+    pop bc
+    ld a, e
+    ld [hli], a
+    ld a, d
+    ld [hli], a
+    pop de
+    ld a, c
+    ld [hli], a
+    ld a, b
+    ld [hli], a
+ENDR
+    ld hl, vTileset tile $50
+    ld a, e
+    ld [hli], a
+    ld [hl], d
+
+    ld sp, hSPTemp
+    pop hl
+    ld sp, hl
+	ret

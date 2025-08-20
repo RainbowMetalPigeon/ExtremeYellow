@@ -1622,6 +1622,7 @@ JoypadOverworld::
 	callfar ForceMovementsHauntedHouse ; new, to handle Haunted House
 	callfar ForceSlidingOnIce ; new
 	callfar ForceContinueRockClimb ; new
+	callfar ForceContinueWaterfall ; new
 	call AreInputsSimulated
 	ret
 
@@ -1685,6 +1686,10 @@ GetSimulatedInput::
 ; sets carry if there is a collision and clears carry otherwise
 ; This function had a bug in Red/Blue, but it was fixed in Yellow.
 CollisionCheckOnWater::
+; new for waterfall
+	CheckEvent EVENT_DOING_WATERFALL
+	jr nz, .noCollision
+; BTV
 	ld a, [wd730]
 	bit 7, a
 	jp nz, .noCollision ; return and clear carry if button presses are being simulated

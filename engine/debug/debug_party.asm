@@ -60,7 +60,7 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon2Moves
 	ld a, WHIRLPOOL
 	ld [hli], a
-	ld a, ZAP_CANNON
+	ld a, WATERFALL
 	ld [hli], a
 	ld a, TERRAIN_PULSE
 	ld [hli], a

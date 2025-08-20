@@ -89,3 +89,5 @@ TextPredefs::
 	add_tx_pre PokemonClimbsTheWall                 ; new
 	add_tx_pre ThisWhirlpoolCanBeStoppedText        ; new
 	add_tx_pre UsedWhirlpoolText                    ; new
+	add_tx_pre APokemonCouldRideThisText            ; new
+	add_tx_pre PokemonRidesTheWaterfall             ; new

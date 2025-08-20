@@ -9,6 +9,7 @@ TilePairCollisionsLand::
 	db CAVERN, $2A, $05
 	db CAVERN, $05, $21
 	db CAVERN, $05, $56 ; new
+	db CAVERN, $41, $20 ; new, re-purposed unused plateau tile and ground tile, used in Icefall for water plateau
 ;	; new, between stairs and short rocks
 ;	db CAVERN, $18, $05
 ;	db CAVERN, $1A, $05

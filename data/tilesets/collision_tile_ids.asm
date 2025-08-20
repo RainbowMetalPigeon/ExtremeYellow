@@ -51,7 +51,7 @@ Interior_Coll::
 	coll_tiles $04, $0f, $15, $1f, $3b, $45, $47, $55, $56, $5f ; edited, last one is new
 
 Cavern_Coll::
-	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $42, $43, $56 ; edited, added last three, new tiles
+	coll_tiles $05, $15, $18, $1a, $20, $21, $22, $2a, $2d, $30, $41, $42, $43, $56 ; edited, added last four, new tiles
 
 	coll_tiles ; unused
 

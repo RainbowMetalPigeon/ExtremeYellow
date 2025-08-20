@@ -17,8 +17,7 @@ CheckIfCanSurfOrCutFromOverworld::
     cp $63
     jr nz, .checkForSurfability
 ; there's a rock tile in front of us
-    call TryToClimbWall
-    ret
+    jp TryToClimbWall
 
 .checkForSurfability
 ; check if we are in front of water
@@ -189,7 +188,13 @@ CheckIfCanSurfOrCutFromOverworld::
     tx_pre_jump ThisWhirlpoolCanBeStoppedText
 
 .checkForWaterfall
-    jr .checkForDive ; TBE
+
+; check for waterfall
+    ld a, [wTileInFrontOfPlayer]
+    cp $50
+    jr nz, .checkForDive
+; there's a waterfall tile in front of us
+    jp TryToRideWaterfall
 
 .checkForDive
 	lda_coord 8, 9 ; tile the player is on
@@ -541,6 +546,89 @@ ForceContinueRockClimb::
 	ResetEvent EVENT_DOING_ROCK_CLIMB
 	ret
 .weAreOnClimbableWall
+; check which direction we're facing, and force the movement accordingly
+	ld a, [wPlayerDirection]
+	cp PLAYER_DIR_DOWN
+	jr z, .down
+; up
+	ld a, D_UP
+	jr .end
+.down
+	ld a, D_DOWN
+.end
+	ldh [hJoyHeld], a
+	ret
+
+; --------------------------------------------
+
+TryToRideWaterfall:
+; check fo move
+	ld d, WATERFALL
+    call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
+    jr z, .noWaterfallInTeam
+; we have the move, check if we have the badge
+    ld a, [wObtainedBadges]
+    bit BIT_RAINBOWBADGE, a
+	jp nz, RideWaterfall
+; no badge
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump NewBadgeRequiredText2
+.noWaterfallInTeam
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump APokemonCouldRideThisText
+
+RideWaterfall:
+    SetEvent EVENT_DOING_WATERFALL
+    call EnableAutoTextBoxDrawing
+    tx_pre PokemonRidesTheWaterfall
+; decide where to go, and how much
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jr z, .goingUp
+; going down
+	ld a, D_DOWN
+	jr .doTheSteps
+.goingUp
+	ld a, D_UP
+.doTheSteps
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+    ld a, SFX_SURFING_JUMP
+    call PlaySound
+	jp StartSimulatingJoypadStates
+
+APokemonCouldRideThisText::
+	text_far _APokemonCouldRideThisText
+	text_end
+
+_APokemonCouldRideThisText::
+	text "A #MON could"
+	line "ride this"
+    cont "WATERFALL!"
+	done
+
+PokemonRidesTheWaterfall::
+	text_far _PokemonRidesTheWaterfall
+	text_end
+
+_PokemonRidesTheWaterfall::
+	text "<PLAYER>'s #MON"
+	line "rides the"
+    cont "WATERFALL!"
+	done
+
+ForceContinueWaterfall::
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	lda_coord 8, 9 ; tile the player is on
+	ld [wTilePlayerStandingOn], a
+	cp $50
+	jr z, .weAreOnWaterfall
+	ResetEvent EVENT_DOING_WATERFALL
+	ret
+.weAreOnWaterfall
 ; check which direction we're facing, and force the movement accordingly
 	ld a, [wPlayerDirection]
 	cp PLAYER_DIR_DOWN
