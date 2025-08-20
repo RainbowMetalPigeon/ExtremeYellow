@@ -9,6 +9,13 @@ CinnabarLab_TextPointers:
 	dw Lab1Text3_Seismologist ; new
 	dw Lab1Text4_PlantEnthusiast ; new
 	dw Lab1Text5_Treasure ; new
+	dw Lab2Text1
+	dw Lab2Text2
+	dw Lab2Text3
+	dw Lab3Text1
+	dw Lab3Text2
+	dw Lab4Text1
+	dw Lab4Text2
 	; signs
 	dw Lab1Text2
 	dw Lab1Text3
@@ -20,6 +27,9 @@ CinnabarLab_TextPointers:
 	dw Lab1ArcheologistSign4 ; new
 	dw Lab1ArcheologistSign5 ; new
 	dw Lab1SeismologySign1 ; new
+	dw Lab3Text3
+	dw Lab3Text4
+	dw Lab3Text5
 
 Lab1Text1:
 	text_far _Lab1Text1
@@ -151,3 +161,183 @@ Lab1ArcheologistSign5:
 Lab1SeismologySign1:
 	text_far _Lab1SeismologySign1
 	text_end
+
+; Lab 2 ----------------------------------
+
+Lab2Text1:
+	text_far _Lab2Text1
+	text_end
+
+Lab2Text2:
+	text_asm
+	ld a, TRADE_FOR_SPOONY ; edited
+	ld [wWhichTrade], a
+	jr Lab2DoTrade
+
+Lab2Text3:
+	text_asm
+	ld a, TRADE_FOR_MUSKY ; edited
+	ld [wWhichTrade], a
+Lab2DoTrade:
+	predef DoInGameTradeDialogue
+	jp TextScriptEnd
+
+; Lab 3 ----------------------------------
+
+Lab3Text1:
+	text_asm
+	CheckEvent EVENT_GOT_TM35
+	jr nz, .got_item
+	ld hl, TM35PreReceiveText
+	call PrintText
+	lb bc, TM_HYDRO_PUMP, 1
+	call GiveItem
+	jr nc, .bag_full
+	ld hl, ReceivedTM35Text
+	call PrintText
+	SetEvent EVENT_GOT_TM35
+	jr .done
+.bag_full
+	ld hl, TM35NoRoomText
+	call PrintText
+	jr .done
+.got_item
+	ld hl, TM35ExplanationText
+	call PrintText
+.done
+	jp TextScriptEnd
+
+TM35PreReceiveText:
+	text_far _TM35PreReceiveText
+	text_end
+
+ReceivedTM35Text:
+	text_far _ReceivedTM35Text
+	sound_get_item_1
+	text_end
+
+TM35ExplanationText:
+	text_far _TM35ExplanationText
+	text_end
+
+TM35NoRoomText:
+	text_far _TM35NoRoomText
+	text_end
+
+Lab3Text2:
+	text_far _Lab3Text2
+	text_end
+
+Lab3Text4:
+Lab3Text3:
+	text_far _Lab3Text3
+	text_end
+
+Lab3Text5:
+	text_far _Lab3Text5
+	text_end
+
+; Lab 4 ----------------------------------
+
+Lab4Script_GetFossilsInBag:
+; construct a list of all fossils in the player's bag
+	xor a
+	ld [wFilteredBagItemsCount], a
+	ld de, wFilteredBagItems
+	ld hl, FossilsList
+.loop
+	ld a, [hli]
+	and a
+	jr z, .done
+	push hl
+	push de
+	ld [wd11e], a
+	ld b, a
+	predef GetQuantityOfItemInBag
+	pop de
+	pop hl
+	ld a, b
+	and a
+	jr z, .loop
+
+	; A fossil's in the bag
+	ld a, [wd11e]
+	ld [de], a
+	inc de
+	push hl
+	ld hl, wFilteredBagItemsCount
+	inc [hl]
+	pop hl
+	jr .loop
+.done
+	ld a, $ff
+	ld [de], a
+	ret
+
+FossilsList:
+	db DOME_FOSSIL
+	db HELIX_FOSSIL
+	db OLD_AMBER
+	db 0 ; end
+
+Lab4Text1:
+	text_asm
+	CheckEvent EVENT_GAVE_FOSSIL_TO_LAB
+	jr nz, .asm_75d96
+	ld hl, Lab4Text_75dc6
+	call PrintText
+	call Lab4Script_GetFossilsInBag
+	ld a, [wFilteredBagItemsCount]
+	and a
+	jr z, .asm_75d8d
+	farcall GiveFossilToCinnabarLab
+	jr .asm_75d93
+.asm_75d8d
+	ld hl, Lab4Text_75dcb
+	call PrintText
+.asm_75d93
+	jp TextScriptEnd
+.asm_75d96
+	CheckEventAfterBranchReuseA EVENT_LAB_STILL_REVIVING_FOSSIL, EVENT_GAVE_FOSSIL_TO_LAB
+	jr z, .asm_75da2
+	ld hl, Lab4Text_75dd0
+	call PrintText
+	jr .asm_75d93
+.asm_75da2
+	call LoadFossilItemAndMonNameBank1D
+	ld hl, Lab4Text_75dd5
+	call PrintText
+	SetEvent EVENT_LAB_HANDING_OVER_FOSSIL_MON
+	ld a, [wFossilMon]
+	ld b, a
+	ld c, 45 ; edited, was 30
+	call GivePokemon
+	jr nc, .asm_75d93
+	ResetEvents EVENT_GAVE_FOSSIL_TO_LAB, EVENT_LAB_STILL_REVIVING_FOSSIL, EVENT_LAB_HANDING_OVER_FOSSIL_MON
+	jr .asm_75d93
+
+Lab4Text_75dc6:
+	text_far _Lab4Text_75dc6
+	text_end
+
+Lab4Text_75dcb:
+	text_far _Lab4Text_75dcb
+	text_end
+
+Lab4Text_75dd0:
+	text_far _Lab4Text_75dd0
+	text_end
+
+Lab4Text_75dd5:
+	text_far _Lab4Text_75dd5
+	text_end
+
+Lab4Text2:
+	text_asm
+	ld a, TRADE_FOR_PEBBLE ; edited
+	ld [wWhichTrade], a
+	predef DoInGameTradeDialogue
+	jp TextScriptEnd
+
+LoadFossilItemAndMonNameBank1D:
+	farjp LoadFossilItemAndMonName
