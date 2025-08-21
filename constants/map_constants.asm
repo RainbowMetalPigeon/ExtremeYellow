@@ -80,14 +80,14 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MUSEUM_1F,                     10,  4 ; $34
 	map_const MUSEUM_2F,                      7,  4 ; $35
 	map_const PEWTER_GYM,                     5,  7 ; $36
-	map_const PEWTER_NIDORAN_HOUSE,           4,  4 ; $37
-	map_const PEWTER_SPEECH_HOUSE,           11,  4 ; $39 ; edited
+	map_const PEWTER_NIDORAN_HOUSE,           4,  4 ; $37 ; UNUSED
+	map_const PEWTER_HOUSES,                 18,  4 ; $39 ; edited
 	map_const PEWTER_POKECENTER,             14,  4 ; $3A ; edited, Center+Mart
 	map_const MT_MOON_1F,                    30, 30 ; $3B ; edited
 	map_const MT_MOON_B1F,                   30, 30 ; $3C ; edited
 	map_const MT_MOON_B2F,                   30, 30 ; $3D ; edited
-	map_const CERULEAN_TRASHED_HOUSE,         4,  4 ; $3E
-	map_const CERULEAN_MELANIES_HOUSE,       32,  4 ; $3F ; edited, enlarged for more houses
+	map_const CERULEAN_TRASHED_HOUSE,         4,  4 ; $3E ; UNUSED
+	map_const CERULEAN_MELANIES_HOUSE,       39,  4 ; $3F ; edited, enlarged for more houses
 	map_const CERULEAN_POKECENTER,           14,  4 ; $40 ; edited, Center+Mart
 	map_const CERULEAN_GYM,                   5,  7 ; $41
 	map_const BIKE_SHOP,                      4,  4 ; $42
@@ -108,10 +108,10 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROCK_TUNNEL_POKECENTER,         7,  4 ; $51
 	map_const ROCK_TUNNEL_1F,                20, 18 ; $52
 	map_const POWER_PLANT,                   20, 18 ; $53
-	map_const ROUTE_11_GATE_1F,               4,  5 ; $54
+	map_const ROUTE_11_GATE_1F,               4, 11 ; $54 ; edited because of MERGING
 	map_const DIGLETTS_CAVE_ROUTE_11,         4,  4 ; $55
-	map_const ROUTE_11_GATE_2F,               4,  4 ; $56
-	map_const ROUTE_12_GATE_1F,               5,  4 ; $57
+	map_const ROUTE_11_GATE_2F,               4,  4 ; $56 ; UNUSED
+	map_const ROUTE_12_GATE_1F,              12,  4 ; $57 ; edited
 	map_const BILLS_HOUSE,                    4,  4 ; $58
 	map_const VERMILION_POKECENTER,          14,  4 ; $59 ; edited, Center+Mart
 	map_const POKEMON_FAN_CLUB,               4,  4 ; $5A
@@ -152,9 +152,9 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CELADON_MART_4F,               10,  4 ; $7D
 	map_const CELADON_MART_ROOF,             10,  4 ; $7E
 	map_const CELADON_MART_ELEVATOR,          2,  2 ; $7F
-	map_const CELADON_MANSION_1F,             4,  6 ; $80
+	map_const CELADON_MANSION_1F,            11,  6 ; $80 ; edited for MERGING
 	map_const CELADON_MANSION_2F,             5,  6 ; $81 ; edited, enlarged to host the pret meetup
-	map_const CELADON_MANSION_3F,             4,  6 ; $82
+	map_const CELADON_MANSION_3F,             4,  6 ; $82 ; UNUSED
 	map_const CELADON_MANSION_ROOF,           4,  6 ; $83
 	map_const CELADON_MANSION_ROOF_HOUSE,     4,  4 ; $84
 	map_const CELADON_POKECENTER,             7,  4 ; $85
@@ -191,35 +191,35 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const FUCHSIA_GOOD_ROD_HOUSE,         4,  4 ; $A4
 	map_const POKEMON_MANSION_1F,            15, 14 ; $A5
 	map_const CINNABAR_GYM,                  10,  9 ; $A6
-	map_const CINNABAR_LAB,                  51,  4 ; $A7 ; edited
-	map_const CINNABAR_LAB_TRADE_ROOM,        4,  4 ; $A8 ; UNUSED
-	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9 ; UNUSED
-	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA ; UNUSED
+	map_const CINNABAR_LAB,                  51,  4 ; $A7 ; edited because of MERGING
+	map_const CINNABAR_LAB_TRADE_ROOM,        4,  4 ; $A8 ; edited, made UNUSED because of map MERGING
+	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9 ; edited, made UNUSED because of map MERGING
+	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA ; edited, made UNUSED because of map MERGING
 	map_const CINNABAR_POKECENTER,           14,  4 ; $AB ; edited, Center+Mart
 	map_const HAUNTED_ISLAND_OF_NUMBERS,     30, 30 ; $AC ; new, was CINNABAR_MART
 	map_const OBSIDIAN_HOUSES,               18,  4 ; $AD, new
 	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $AE
-	map_const COPYCATS_HOUSE_1F,              4,  4 ; $AF
-	map_const COPYCATS_HOUSE_2F,              4,  4 ; $B0
+	map_const COPYCATS_HOUSE_1F,             11,  4 ; $AF ; edited because of MERGING
+	map_const COPYCATS_HOUSE_2F,              4,  4 ; $B0 ; UNUSED
 	map_const FIGHTING_DOJO,                  7,  8 ; $B1
 	map_const SAFFRON_GYM,                   10,  9 ; $B2
-	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B3
+	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B3 ; UNUSED
 	map_const CELADON_HOTEL_HALL,            10,  2 ; $B4 ; new, was SAFFRON_MART
 	map_const SILPH_CO_1F,                   15,  9 ; $B5
 	map_const SAFFRON_POKECENTER,            14,  4 ; $B6 ; edited, Center+Mart
-	map_const MR_PSYCHICS_HOUSE,              4,  4 ; $B7
-	map_const ROUTE_15_GATE_1F,               4,  5 ; $B8
-	map_const ROUTE_15_GATE_2F,               4,  4 ; $B9
-	map_const ROUTE_16_GATE_1F,               4,  7 ; $BA
-	map_const ROUTE_16_GATE_2F,               4,  4 ; $BB
+	map_const MR_PSYCHICS_HOUSE,             11,  4 ; $B7 ; edited for MERGING
+	map_const ROUTE_15_GATE_1F,               4, 11 ; $B8 ; edited because of MERGING
+	map_const ROUTE_15_GATE_2F,               4,  4 ; $B9 ; edited, made UNUSED because of map MERGING
+	map_const ROUTE_16_GATE_1F,               4, 13 ; $BA ; edited
+	map_const ROUTE_16_GATE_2F,               4,  4 ; $BB ; UNUSED
 	map_const ROUTE_16_FLY_HOUSE,             4,  4 ; $BC
 	map_const ROUTE_12_SUPER_ROD_HOUSE,       4,  4 ; $BD
-	map_const ROUTE_18_GATE_1F,               4,  5 ; $BE
-	map_const ROUTE_18_GATE_2F,               4,  4 ; $BF
+	map_const ROUTE_18_GATE_1F,               4, 11 ; $BE ; edited because of MERGING
+	map_const ROUTE_18_GATE_2F,               4,  4 ; $BF ; UNUSED
 	map_const SEAFOAM_ISLANDS_1F,            15,  9 ; $C0
 	map_const ROUTE_22_GATE,                  5,  4 ; $C1
 	map_const VICTORY_ROAD_2F,               15,  9 ; $C2
-	map_const ROUTE_12_GATE_2F,               4,  4 ; $C3
+	map_const ROUTE_12_GATE_2F,               4,  4 ; $C3 ; UNUSED
 	map_const CELADON_HOTEL_ROOMS,           29,  4 ; $C4 ; new, was VERMILION_TRADE_HOUSE
 	map_const DIGLETTS_CAVE,                 20, 18 ; $C5
 	map_const VICTORY_ROAD_3F,               15,  9 ; $C6

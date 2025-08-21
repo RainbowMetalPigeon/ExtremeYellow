@@ -64,13 +64,13 @@ MapHSPointers:
 	dw Museum1FHS
 	dw NoHS ; MUSEUM_2F
 	dw NoHS ; PEWTER_GYM
-	dw NoHS ; PEWTER_NIDORAN_HOUSE
-	dw NoHS ; PEWTER_SPEECH_HOUSE
+	dw NoHS ; PEWTER_NIDORAN_HOUSE ; UNUSED
+	dw NoHS ; PEWTER_HOUSES
 	dw NoHS ; PEWTER_POKECENTER
 	dw MtMoon1FHS
 	dw NoHS
 	dw MtMoonB2FHS
-	dw NoHS
+	dw NoHS ; UNUSED
 	dw CeruleanMelaniesHouseHS
 	dw NoHS
 	dw NoHS
@@ -192,14 +192,14 @@ MapHSPointers:
 	dw SilphCo1FHS
 	dw NoHS ; SAFFRON_POKECENTER
 	dw MrPsychicsHouseHS ; new
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; ROUTE_15_GATE_1F
+	dw NoHS ; ROUTE_15_GATE_2F ; UNUSED
+	dw NoHS ; ROUTE_16_GATE_1F
+	dw NoHS ; ROUTE_16_GATE_2F
+	dw NoHS ; ROUTE_16_FLY_HOUSE
+	dw NoHS ; ROUTE_12_SUPER_ROD_HOUSE
+	dw NoHS ; ROUTE_18_GATE_1F
+	dw NoHS ; ROUTE_18_GATE_2F ; UNUSED
 	dw SeafoamIslands1FHS
 	dw NoHS ; ROUTE_22_GATE
 	dw VictoryRoad2FHS

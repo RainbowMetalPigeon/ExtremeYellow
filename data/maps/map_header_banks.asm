@@ -62,13 +62,13 @@ MapHeaderBanks::
 	db BANK(Museum1F_h)
 	db BANK(Museum2F_h)
 	db BANK(PewterGym_h)
-	db BANK(PewterNidoranHouse_h)
-	db BANK(PewterSpeechHouse_h)
+	db BANK(PewterNidoranHouse_h) ; UNUSED
+	db BANK(PewterHouses_h)
 	db BANK(PewterPokecenter_h)
 	db BANK(MtMoon1F_h)
 	db BANK(MtMoonB1F_h)
 	db BANK(MtMoonB2F_h)
-	db BANK(CeruleanTrashedHouse_h)
+	db BANK(CeruleanTrashedHouse_h) ; UNUSED
 	db BANK(CeruleanMelaniesHouse_h)
 	db BANK(CeruleanPokecenter_h)
 	db BANK(CeruleanGym_h)
@@ -92,7 +92,7 @@ MapHeaderBanks::
 	db BANK(PowerPlant_h)
 	db BANK(Route11Gate1F_h)
 	db BANK(DiglettsCaveRoute11_h)
-	db BANK(Route11Gate2F_h)
+	db BANK(Route11Gate2F_h) ; UNUSED
 	db BANK(Route12Gate1F_h)
 	db BANK(BillsHouse_h)
 	db BANK(VermilionPokecenter_h)
@@ -174,9 +174,9 @@ MapHeaderBanks::
 	db BANK(PokemonMansion1F_h)
 	db BANK(CinnabarGym_h)
 	db BANK(CinnabarLab_h)
-	db BANK(CinnabarLabTradeRoom_h)
-	db BANK(CinnabarLabMetronomeRoom_h)
-	db BANK(CinnabarLabFossilRoom_h)
+	db BANK(CinnabarLabTradeRoom_h) ; edited, made UNUSED because of map MERGING
+	db BANK(CinnabarLabMetronomeRoom_h) ; edited, made UNUSED because of map MERGING
+	db BANK(CinnabarLabFossilRoom_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CinnabarPokecenter_h)
 	db BANK(HauntedIslandOfNumbers_h) ; new
 	db BANK(ObsidianHouses_h) ; new
@@ -191,13 +191,13 @@ MapHeaderBanks::
 	db BANK(SaffronPokecenter_h)
 	db BANK(MrPsychicsHouse_h)
 	db BANK(Route15Gate1F_h)
-	db BANK(Route15Gate2F_h)
+	db BANK(Route15Gate2F_h) ; UNUSED
 	db BANK(Route16Gate1F_h)
 	db BANK(Route16Gate2F_h)
 	db BANK(Route16FlyHouse_h)
 	db BANK(Route12SuperRodHouse_h)
 	db BANK(Route18Gate1F_h)
-	db BANK(Route18Gate2F_h)
+	db BANK(Route18Gate2F_h) ; UNUSED
 	db BANK(SeafoamIslands1F_h)
 	db BANK(Route22Gate_h)
 	db BANK(VictoryRoad2F_h)

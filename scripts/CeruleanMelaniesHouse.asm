@@ -18,9 +18,13 @@ CeruleanMelaniesHouse_TextPointers:
 	dw CeruleanHouse1Text9
 	dw CeruleanHouse1Text10
 	dw CeruleanHouse1Text11
-	; new, signs
+	; trashed
+	dw CeruleanHouseTrashedText1
+	dw CeruleanHouseTrashedText2
+	; signs
 	dw CeruleanHouse1Sign1
 	dw CeruleanHouse1Sign2
+	dw CeruleanHouseTrashedText3
 
 CeruleanHouse1Text1:
 	text_asm
@@ -162,4 +166,37 @@ CeruleanHouse1Sign1:
 
 CeruleanHouse1Sign2:
 	text_far _CeruleanHouse1Sign2
+	text_end
+
+; trashed --------------------------------------
+
+CeruleanHouseTrashedText1:
+	text_asm
+	ld b, TM_DIG
+	predef GetQuantityOfItemInBag
+	and b
+	jr z, .no_dig_tm
+	ld hl, CeruleanHouseTrashedText_1d6b0
+	call PrintText
+	jr .done
+.no_dig_tm
+	ld hl, CeruleanHouseTrashedText_1d6ab
+	call PrintText
+.done
+	jp TextScriptEnd
+
+CeruleanHouseTrashedText_1d6ab:
+	text_far _CeruleanTrashedText_1d6ab
+	text_end
+
+CeruleanHouseTrashedText_1d6b0:
+	text_far _CeruleanTrashedText_1d6b0
+	text_end
+
+CeruleanHouseTrashedText2:
+	text_far _CeruleanHouseTrashedText2
+	text_end
+
+CeruleanHouseTrashedText3:
+	text_far _CeruleanHouseTrashedText3
 	text_end

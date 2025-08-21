@@ -62,13 +62,13 @@ MapHeaderPointers::
 	dw Museum1F_h
 	dw Museum2F_h
 	dw PewterGym_h
-	dw PewterNidoranHouse_h
-	dw PewterSpeechHouse_h
+	dw PewterNidoranHouse_h ; UNUSED
+	dw PewterHouses_h
 	dw PewterPokecenter_h
 	dw MtMoon1F_h
 	dw MtMoonB1F_h
 	dw MtMoonB2F_h
-	dw CeruleanTrashedHouse_h
+	dw CeruleanTrashedHouse_h ; UNUSED
 	dw CeruleanMelaniesHouse_h
 	dw CeruleanPokecenter_h
 	dw CeruleanGym_h
@@ -92,7 +92,7 @@ MapHeaderPointers::
 	dw PowerPlant_h
 	dw Route11Gate1F_h
 	dw DiglettsCaveRoute11_h
-	dw Route11Gate2F_h
+	dw Route11Gate2F_h ; UNUSED
 	dw Route12Gate1F_h
 	dw BillsHouse_h
 	dw VermilionPokecenter_h
@@ -174,9 +174,9 @@ MapHeaderPointers::
 	dw PokemonMansion1F_h
 	dw CinnabarGym_h
 	dw CinnabarLab_h
-	dw CinnabarLabTradeRoom_h
-	dw CinnabarLabMetronomeRoom_h
-	dw CinnabarLabFossilRoom_h
+	dw CinnabarLabTradeRoom_h ; edited, made UNUSED because of map MERGING
+	dw CinnabarLabMetronomeRoom_h ; edited, made UNUSED because of map MERGING
+	dw CinnabarLabFossilRoom_h ; edited, made UNUSED because of map MERGING
 	dw CinnabarPokecenter_h
 	dw HauntedIslandOfNumbers_h ; new
 	dw ObsidianHouses_h ; new
@@ -191,13 +191,13 @@ MapHeaderPointers::
 	dw SaffronPokecenter_h
 	dw MrPsychicsHouse_h
 	dw Route15Gate1F_h
-	dw Route15Gate2F_h
+	dw Route15Gate2F_h ; UNUSED
 	dw Route16Gate1F_h
 	dw Route16Gate2F_h
 	dw Route16FlyHouse_h
 	dw Route12SuperRodHouse_h
 	dw Route18Gate1F_h
-	dw Route18Gate2F_h
+	dw Route18Gate2F_h ; UNUSED
 	dw SeafoamIslands1F_h
 	dw Route22Gate_h
 	dw VictoryRoad2F_h

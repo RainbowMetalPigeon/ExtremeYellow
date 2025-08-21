@@ -55,7 +55,7 @@ HiddenItemCoords:
 	hidden_item ROUTE_25,                      10,  35 ; edited, +34 in y
 	hidden_item ROUTE_4,                       38,  23 ; edited
 	hidden_item ROUTE_9,                       14,   7
-	hidden_item COPYCATS_HOUSE_2F,              1,   1
+	hidden_item COPYCATS_HOUSE_1F,              1,   1
 	hidden_item CERULEAN_CITY,                 15,   8
 	hidden_item CERULEAN_CAVE_1F,              18,   7
 	hidden_item POKEMON_TOWER_5F,               4,  12

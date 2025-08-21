@@ -5,11 +5,11 @@ PewterCity_Object:
 	warp_event 14,  7, MUSEUM_1F, 1
 	warp_event 19,  5, MUSEUM_1F, 3
 	warp_event 16, 17, PEWTER_GYM, 1
-	warp_event 29, 13, PEWTER_NIDORAN_HOUSE, 1
+	warp_event 29, 13, PEWTER_HOUSES, 5 ; edited
 	warp_event 23, 17, PEWTER_POKECENTER, 3 ; edited due to MERGING
-	warp_event  7, 29, PEWTER_SPEECH_HOUSE, 1
+	warp_event  7, 29, PEWTER_HOUSES, 1
 	warp_event 13, 25, PEWTER_POKECENTER, 1
-	warp_event 29, 21, PEWTER_SPEECH_HOUSE, 3 ; new
+	warp_event 29, 21, PEWTER_HOUSES, 3 ; new
 
 	def_bg_events
 	bg_event 19, 29,  8 ; PewterCityText6

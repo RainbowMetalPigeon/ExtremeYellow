@@ -5,7 +5,7 @@ SaffronCity_Object:
 	warp_event  7,  5, COPYCATS_HOUSE_1F, 1
 	warp_event 26,  3, FIGHTING_DOJO, 1
 	warp_event 34,  3, SAFFRON_GYM, 1
-	warp_event 13, 11, SAFFRON_PIDGEY_HOUSE, 1
+	warp_event 13, 11, MR_PSYCHICS_HOUSE, 3 ; edited due to MERGING
 	warp_event 25, 11, SAFFRON_POKECENTER, 3 ; edited due to MERGING
 	warp_event 18, 21, SILPH_CO_1F, 1
 	warp_event  9, 29, SAFFRON_POKECENTER, 1

@@ -88,15 +88,16 @@ UndergroundPathRoute8_Blocks: INCBIN "maps/UndergroundPathRoute8.blk"
 
 OaksLab_Blocks: INCBIN "maps/OaksLab.blk"
 
-MrPsychicsHouse_Blocks:
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
 SaffronPidgeyHouse_Blocks:
 PewterNidoranHouse_Blocks: INCBIN "maps/PewterNidoranHouse.blk" ; edited
 
+MrPsychicsHouse_Blocks: INCBIN "maps/MrPsychicsHouse.blk" ; new
+
 ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk" ; edited
 
-PewterSpeechHouse_Blocks: INCBIN "maps/PewterSpeechHouse.blk" ; edited
+PewterHouses_Blocks: INCBIN "maps/PewterHouses.blk" ; edited, was SpeechHouse
 
 VermilionHouses_Blocks: ; new, merge of all Vermilion houses
 LavenderHouses_Blocks: INCBIN "maps/LavenderHouses.blk" ; new, merge of all Lavender houses
@@ -139,9 +140,9 @@ INCLUDE "data/maps/headers/PewterNidoranHouse.asm"
 INCLUDE "scripts/PewterNidoranHouse.asm"
 INCLUDE "data/maps/objects/PewterNidoranHouse.asm"
 
-INCLUDE "data/maps/headers/PewterSpeechHouse.asm"
-INCLUDE "scripts/PewterSpeechHouse.asm"
-INCLUDE "data/maps/objects/PewterSpeechHouse.asm"
+INCLUDE "data/maps/headers/PewterHouses.asm"
+INCLUDE "scripts/PewterHouses.asm"
+INCLUDE "data/maps/objects/PewterHouses.asm"
 
 INCLUDE "data/maps/headers/CeruleanTrashedHouse.asm"
 INCLUDE "scripts/CeruleanTrashedHouse.asm"
@@ -388,16 +389,15 @@ CeladonPokecenter_Blocks:
 RockTunnelPokecenter_Blocks: INCBIN "maps/RockTunnelPokecenter.blk" ; testing
 MtMoonPokecenter_Blocks: INCBIN "maps/MtMoonPokecenter.blk"
 
+Route11Gate2F_Blocks: ; UNUSED
+Route18Gate2F_Blocks: ; UNUSED
+Route16Gate2F_Blocks: ; UNUSED
+Route15Gate2F_Blocks: ; UNUSED
+Route12Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
+
+Route11Gate1F_Blocks:
 Route18Gate1F_Blocks:
-Route15Gate1F_Blocks:
-Route11Gate1F_Blocks: INCBIN "maps/Route11Gate1F.blk"
-
-Route18Gate2F_Blocks:
-Route16Gate2F_Blocks:
-Route15Gate2F_Blocks:
-Route12Gate2F_Blocks:
-Route11Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
-
+Route15Gate1F_Blocks: INCBIN "maps/EastWestGate2Floors.blk"
 
 SECTION "Maps 8", ROMX
 
@@ -438,6 +438,7 @@ INCLUDE "scripts/CeladonMansion2F.asm"
 INCLUDE "data/maps/objects/CeladonMansion2F.asm"
 CeladonMansion2F_Blocks: INCBIN "maps/CeladonMansion2F.blk"
 
+; UNUSED
 INCLUDE "data/maps/headers/CeladonMansion3F.asm"
 INCLUDE "scripts/CeladonMansion3F.asm"
 INCLUDE "data/maps/objects/CeladonMansion3F.asm"
@@ -806,7 +807,7 @@ HallOfFame_Blocks: INCBIN "maps/HallOfFame.blk"
 
 SECTION "Maps 15", ROMX
 
-CopycatsHouse2F_Blocks:
+CopycatsHouse2F_Blocks: ; UNUSED
 RedsHouse2F_Blocks: INCBIN "maps/RedsHouse2F.blk"
 
 Museum1F_Blocks: INCBIN "maps/Museum1F.blk"
@@ -1129,16 +1130,19 @@ INCLUDE "scripts/CinnabarLab.asm"
 INCLUDE "data/maps/objects/CinnabarLab.asm"
 CinnabarLab_Blocks: INCBIN "maps/CinnabarLab.blk"
 
+; UNUSED
 INCLUDE "data/maps/headers/CinnabarLabTradeRoom.asm"
 INCLUDE "scripts/CinnabarLabTradeRoom.asm"
 INCLUDE "data/maps/objects/CinnabarLabTradeRoom.asm"
 CinnabarLabTradeRoom_Blocks: INCBIN "maps/CinnabarLabTradeRoom.blk"
 
+; UNUSED
 INCLUDE "data/maps/headers/CinnabarLabMetronomeRoom.asm"
 INCLUDE "scripts/CinnabarLabMetronomeRoom.asm"
 INCLUDE "data/maps/objects/CinnabarLabMetronomeRoom.asm"
 CinnabarLabMetronomeRoom_Blocks: INCBIN "maps/CinnabarLabMetronomeRoom.blk"
 
+; UNUSED
 INCLUDE "data/maps/headers/CinnabarLabFossilRoom.asm"
 INCLUDE "scripts/CinnabarLabFossilRoom.asm"
 INCLUDE "data/maps/objects/CinnabarLabFossilRoom.asm"
@@ -1194,7 +1198,7 @@ INCLUDE "scripts/PewterPokecenter2.asm"
 INCLUDE "scripts/PokemonTower2F_2.asm"
 INCLUDE "scripts/CeladonMart3F_2.asm"
 INCLUDE "scripts/CeladonMansion1F_2.asm"
-INCLUDE "scripts/CeladonMansion3F_2.asm"
+;INCLUDE "scripts/CeladonMansion3F_2.asm" ; useless
 INCLUDE "scripts/GameCorner2.asm"
 INCLUDE "scripts/CeladonDiner2.asm"
 INCLUDE "scripts/SafariZoneGate2.asm"

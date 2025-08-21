@@ -311,6 +311,7 @@ DebugItemsList:
 ;    db GREAT_BALL, 99
     db HM_ROCK_SMASH, 1
 	db AMULET_COIN, 1
+	db POKE_DOLL, 1
 	db -1 ; end
 
 DebugUnusedList:

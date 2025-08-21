@@ -18,7 +18,7 @@ Route18GateScript0:
 	ld hl, CoordsData_498cc
 	call ArePlayerCoordsInArray
 	ret nc
-	ld a, $2
+	ld a, 5 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -84,6 +84,11 @@ Route18GateScript3:
 
 Route18Gate1F_TextPointers:
 	dw Route18GateText1
+	; 2F
+	dw Route18GateUpstairsText1
+	dw Route18GateUpstairsText2
+	dw Route18GateUpstairsText3
+	; scripts texts
 	dw Route18GateText2
 
 Route18GateText1:
@@ -109,4 +114,31 @@ Route18GateText_4992d:
 
 Route18GateText2:
 	text_far _Route18GateText_49932
+	text_end
+
+; 2F ------------------------------------
+
+Route18GateUpstairsText1:
+	text_asm
+	ld a, TRADE_FOR_PHANTA ; edited
+	ld [wWhichTrade], a
+	predef DoInGameTradeDialogue
+	jp TextScriptEnd
+
+Route18GateUpstairsText2:
+	text_asm
+	ld hl, Route18GateUpstairsText_49993
+	jp GateUpstairsScript_PrintIfFacingUp
+
+Route18GateUpstairsText_49993:
+	text_far _Route18GateUpstairsText_49993
+	text_end
+
+Route18GateUpstairsText3:
+	text_asm
+	ld hl, Route18GateUpstairsText_4999f
+	jp GateUpstairsScript_PrintIfFacingUp
+
+Route18GateUpstairsText_4999f:
+	text_far _Route18GateUpstairsText_4999f
 	text_end

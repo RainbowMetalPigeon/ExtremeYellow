@@ -562,7 +562,7 @@ CheckIfTeamIsValidForSelectedBFPool::
 RandomizeTeamForRandomizationOption::
 ; let's not randomize PIGEON, TRAVELER, MISSINGNO_T, COPYCAT
 	ld a, [wCurMap]
-	cp COPYCATS_HOUSE_2F
+	cp COPYCATS_HOUSE_1F
 	ret z
 	ld a, [wCurOpponent]
 	cp OPP_PIGEON

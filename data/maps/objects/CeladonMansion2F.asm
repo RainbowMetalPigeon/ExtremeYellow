@@ -2,10 +2,10 @@ CeladonMansion2F_Object:
 	db $f ; border block
 
 	def_warp_events
-	warp_event  8,  1, CELADON_MANSION_3F, 1
+	warp_event  8,  1, CELADON_MANSION_1F, 6 ; edited for merging
 	warp_event  9,  1, CELADON_MANSION_1F, 4
 	warp_event  4,  1, CELADON_MANSION_1F, 5
-	warp_event  6,  1, CELADON_MANSION_3F, 4
+	warp_event  6,  1, CELADON_MANSION_1F, 9 ; edited for merging
 
 	def_bg_events
 	bg_event  6,  9, 9 ; CeladonMansion2TextSign1

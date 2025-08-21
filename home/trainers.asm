@@ -422,7 +422,7 @@ PrintEndBattleText::
 	push hl
 ; new, don't load trainer's name if we are vs Copycat
 	ld a, [wCurMap]
-	cp COPYCATS_HOUSE_2F
+	cp COPYCATS_HOUSE_1F
 	jr nz, .notCopycatBattle
 	ld hl, TrainerEndBattleTextNameless
 	jr .continue

@@ -41,7 +41,7 @@ HiddenObjectMaps:
 	dbw COLOSSEUM,                    ColosseumHiddenObjects
 	dbw INDIGO_PLATEAU,               IndigoPlateauHiddenObjects
 	dbw INDIGO_PLATEAU_LOBBY,         IndigoPlateauLobbyHiddenObjects
-	dbw COPYCATS_HOUSE_2F,            CopycatsHouse2FHiddenObjects
+	dbw COPYCATS_HOUSE_1F,            CopycatsHouse1FHiddenObjects
 	dbw FIGHTING_DOJO,                FightingDojoHiddenObjects
 	dbw SAFFRON_GYM,                  SaffronGymHiddenObjects
 	dbw SAFFRON_POKECENTER,           SaffronPokecenterHiddenObjects
@@ -356,7 +356,7 @@ IndigoPlateauLobbyHiddenObjects:
 	hidden_object 15,  7, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
-CopycatsHouse2FHiddenObjects:
+CopycatsHouse1FHiddenObjects:
 	hidden_object  1,  1, NUGGET, HiddenItems
 	db -1 ; end
 

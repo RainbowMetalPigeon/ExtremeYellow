@@ -40,7 +40,7 @@ InitBattleCommon:
 	callfar GetTrainerInformation ; edited because moved out of home
 ; new, to handle Copycat's full copy team
 	ld a, [wCurMap]
-	cp COPYCATS_HOUSE_2F
+	cp COPYCATS_HOUSE_1F
 	jr nz, .normalReading
 	CheckEvent EVENT_GOT_TM31
 	jr z, .normalReading
@@ -343,7 +343,7 @@ _LoadTrainerPic:
 
 ; now check if it's Copycat battle
 	ld a, [wCurMap]
-	cp COPYCATS_HOUSE_2F
+	cp COPYCATS_HOUSE_1F
 	jr nz, .notCopycat
 	ld a, [wPlayerGender] ; 00 = male, 01 = female, 02 = enby
 	and a ; = cp 0

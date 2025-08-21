@@ -20,7 +20,7 @@ GetTrainerName_::
 	ld hl, CaptainText
 	jr .foundName
 .continue1
-	cp COPYCATS_HOUSE_2F ; a already contains [wCurMap]
+	cp COPYCATS_HOUSE_1F ; a already contains [wCurMap]
 	jr nz, .continue2
 	ld hl, wPlayerName ; testing
 	jr .foundName ; testing

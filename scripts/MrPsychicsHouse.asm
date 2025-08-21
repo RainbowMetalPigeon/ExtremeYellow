@@ -16,7 +16,13 @@ MrPsychicsHouseScript0: ; new
 MrPsychicsHouse_TextPointers:
 	dw SaffronHouse2Text1
 	dw SaffronHouse2TextSabrina ; new
-	dw MrPsychicsHouseTextSabrinaPostBattle ; 10, new, map-dependent
+	; poly pidgey house
+	dw SaffronHouse1Text1
+	dw SaffronHouse1Text2
+	dw SaffronHouse1Text3
+	dw SaffronHouse1Text4
+	; scripts texts
+	dw MrPsychicsHouseTextSabrinaPostBattle ; 7, new, map-dependent
 
 SaffronHouse2Text1:
 	text_asm
@@ -110,7 +116,7 @@ MrPsychicsHouseSabrinaPostBattleRematch: ; script, map-dependent
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 3 ; map-dependent
+	ld a, 7 ; map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA_REMATCH_INVERSE ; map-dependent
@@ -124,4 +130,25 @@ MrPsychicsHouseResetScripts: ; map-dependent
 
 MrPsychicsHouseTextSabrinaPostBattle:
 	text_far _GymLeaderElite4PostRematchInverseText
+	text_end
+
+; poly pidgey house -----------------------------------
+
+SaffronHouse1Text1:
+	text_far _SaffronHouse1Text1
+	text_end
+
+SaffronHouse1Text2:
+	text_far _SaffronHouse1Text2
+	text_asm
+	ld a, PIDGEY
+	call PlayCry
+	jp TextScriptEnd
+
+SaffronHouse1Text3:
+	text_far _SaffronHouse1Text3
+	text_end
+
+SaffronHouse1Text4:
+	text_far _SaffronHouse1Text4
 	text_end
