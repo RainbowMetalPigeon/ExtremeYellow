@@ -13,8 +13,8 @@ SeviiRoute44WildMons:
 	db 50, VAPOREON		;  3.9%
 	db 50, VAPOREON		;  3.9%
 	db 55, VAPOREON		;  1.2%
-	db 55, BLASTOISE	;  0.4%
-	db 55, BLASTOISE	;  0.4%
-	db 55, BLASTOISE	;  0.4%
+	db 60, BLASTOISE	;  0.4%
+	db 60, BLASTOISE	;  0.4%
+	db 60, BLASTOISE	;  0.4%
 	db	1, MEW			;  0.4%
 	end_water_wildmons

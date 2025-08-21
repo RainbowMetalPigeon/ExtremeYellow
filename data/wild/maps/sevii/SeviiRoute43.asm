@@ -9,10 +9,10 @@ SeviiRoute43WildMons:
 	db 55, ALAKAZAM		;  5.1%
 	db 55, GENGAR		;  3.9%
 	db 55, GENGAR		;  3.9%
-	db 55, VENUSAUR		;  1.2%
-	db 55, CHARIZARD	;  0.4%
-	db 55, CHARIZARD	;  0.4%
-	db 55, CHARIZARD	;  0.4%
+	db 60, VENUSAUR		;  1.2%
+	db 60, CHARIZARD	;  0.4%
+	db 60, CHARIZARD	;  0.4%
+	db 60, CHARIZARD	;  0.4%
 	db	1, MEW			;  0.4%
 	end_grass_wildmons
 
