@@ -255,6 +255,14 @@ ItemDescriptionPointers:
 	text_end
 	text_far _HM06Description
 	text_end
+	text_far _HM07Description
+	text_end
+	text_far _HM08Description
+	text_end
+	text_far _HM09Description
+	text_end
+	text_far _HM10Description
+	text_end
 
 ; TMs
 

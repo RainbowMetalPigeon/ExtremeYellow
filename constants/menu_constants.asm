@@ -30,6 +30,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const_skip                              ; $19
 	const JP_POKEDEX_MENU_TEMPLATE          ; $1a
 	const SAFARI_BATTLE_MENU_TEMPLATE       ; $1b
+	const MOVE_TUTOR_WEATHER_MENU           ; new
 
 ; two option menu constants
 ; TwoOptionMenuStrings indexes (see data/yes_no_menu_strings.asm)

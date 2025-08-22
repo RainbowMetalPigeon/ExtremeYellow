@@ -326,7 +326,7 @@ BoyGirlChoice::
 	xor a
 	ld [hli], a ; current menu item ID
 	inc hl
-	ld a, $2
+	ld a, $2 ; number of options - 1?
 	ld [hli], a ; wMaxMenuItem
 	ld a, B_BUTTON | A_BUTTON
 	ld [hli], a ; wMenuWatchedKeys

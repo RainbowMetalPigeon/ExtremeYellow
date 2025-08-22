@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MGENGAR, 59 ; 255
-	db MARODACTYL, 68
+	db MEW, 68
 	db STARTER_PIKACHU, 100
 ;	db SLOWPOKE, 5
 ;	db PORYGONZ, 99
@@ -58,9 +58,9 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, WHIRLPOOL
+	ld a, SPLASH ; WHIRLPOOL
 	ld [hli], a
-	ld a, WATERFALL
+	ld a, TACKLE ; WATERFALL
 	ld [hli], a
 	ld a, TERRAIN_PULSE
 	ld [hli], a
@@ -299,19 +299,22 @@ DebugItemsList:
 ;    db THUNDER_ORB, 1
 ;    db FIRE_ORB, 1
 	db SEVII_TICKET, 1
-	db TM_WILL_O_WISP, 3
+;	db TM_WILL_O_WISP, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 	db MEGA_STONE_X, 99
 	db MEGA_STONE_Y, 99
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
-    db LIGHT_BALL, 1
+;    db LIGHT_BALL, 1
     db ULTRA_BALL, 99
 ;    db GREAT_BALL, 99
-    db HM_ROCK_SMASH, 1
-	db AMULET_COIN, 1
-	db POKE_DOLL, 1
+	db HM_ROCK_SMASH, 1
+	db HM_ROCK_CLIMB, 1
+    db HM_WATERFALL, 1
+    db HM_DIVE, 1
+    db HM_WHIRLPOOL, 1
+;	db AMULET_COIN, 1
 	db -1 ; end
 
 DebugUnusedList:

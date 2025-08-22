@@ -207,6 +207,10 @@ DEF HM01 EQU const_value ; edited, the numbers below are now wrong
 	add_hm STRENGTH     ; $C7
 	add_hm FLASH        ; $C8
 	add_hm ROCK_SMASH   ; new
+	add_hm ROCK_CLIMB   ; new
+	add_hm WATERFALL    ; new
+	add_hm DIVE         ; new
+	add_hm WHIRLPOOL    ; new
 DEF NUM_HMS EQU const_value - HM01
 
 DEF __tmhm_value__ = 1

@@ -517,6 +517,26 @@ _HM06Description::
 	next "Smashes rocks"
 	prompt
 
+_HM07Description::
+	text "ROCK CLIMB"
+	next "Climbs rocks"
+	prompt
+
+_HM08Description::
+	text "WATERFALL"
+	next "Rides waterfalls"
+	prompt
+
+_HM09Description::
+	text "DIVE"
+	next "Dives underwater"
+	prompt
+
+_HM10Description::
+	text "WHIRLPOOL"
+	next "Summons whirlpool"
+	prompt
+
 ; TMs --------------------------------------------------------------------------
 
 _TM01Description::

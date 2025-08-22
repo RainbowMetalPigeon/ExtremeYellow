@@ -8,4 +8,8 @@
 	db STRENGTH
 	db FLASH
 	db ROCK_SMASH ; new
+	db ROCK_CLIMB ; new
+	db WATERFALL ; new
+	db DIVE ; new
+	db WHIRLPOOL ; new
 	db -1 ; end
