@@ -18,7 +18,6 @@ SeviiOneIslandCityText1:
 ;	ld a, [wCurrentMenuItem]
 ;	and a
 ;	jr z, .learnMove
-
 	call MoveTutorWeatherChoice
 	ld a, [wCurrentMenuItem]
 	and a

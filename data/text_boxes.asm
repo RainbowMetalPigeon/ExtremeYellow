@@ -43,6 +43,8 @@ TextBoxTextAndCoordTable:
 	text_box_text BF_MENU_NORMAL_INVERSE_EXIT,       10,  6, 19, 12, BFNormalInverseExit,     12,  7 ; new
 	text_box_text MENU_POKEMON_ATTACKS_EXIT,         10,  6, 19, 12, MenuPokemonAttacksExit,  12,  7 ; new
 	text_box_text MOVE_TUTOR_WEATHER_MENU,            7,  4, 19, 12, MoveTutorWeatherText,     9,  5 ; new
+	text_box_text MOVE_TUTOR_TERRAIN_MENU,            4,  4, 19, 12, MoveTutorTerrainText,     6,  5 ; new
+	text_box_text MOVE_TUTOR_HAZARD_MENU,             6,  4, 19, 12, MoveTutorHazardText,      8,  5 ; new
 
 BuySellQuitText:
 	db   "BUY"
@@ -97,6 +99,18 @@ MoveTutorWeatherText: ; new
 	next "RAIN DANCE"
 	next "SANDSTORM"
 	next "HAIL@"
+
+MoveTutorTerrainText: ; new
+	db   "GRASSY TERR."
+	next "ELECTRIC TERR."
+	next "MISTY TERR."
+	next "PSYCHIC TERR.@"
+
+MoveTutorHazardText: ; new
+	db   "SPIKES"
+	next "TOXIC SPIKES"
+	next "STICKY WEB"
+	next "STEALTH ROCK@"
 
 TyrogueEvolutions: ; new
 	db   "GLOVES"
