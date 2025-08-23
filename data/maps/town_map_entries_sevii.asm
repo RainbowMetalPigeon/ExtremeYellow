@@ -47,18 +47,19 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_EMBER_SPA,                                   2,  3, EmberSpaName
 	internal_map SEVII_ROUTE_32_DIVE,                               0,  5, Route32DiveName
 ; 2-island
-	internal_map SEVII_TWO_ISLAND_POKEMON_CENTER,                   7,  5, TwoIslandName
+	internal_map SEVII_TWO_ISLAND_HOUSES,                           7,  5, TwoIslandName
 ; 3-island
-	internal_map SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,       14,  3, ThreeIslandName
+	internal_map SEVII_THREE_ISLAND_HOUSES,                        14,  3, ThreeIslandName
 ; 4-island
-	internal_map SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,         2,  8, FourIslandName
+	internal_map SEVII_FOUR_ISLAND_HOUSES,                          2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
 ; 5-island
-	internal_map SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,         8,  9, FiveIslandName
+	internal_map SEVII_FIVE_ISLAND_HOUSES,                          8,  9, FiveIslandName
+	internal_map SEVII_FIVE_ISLAND_WAREHOUSE,                       9, 10, FiveIslandWarehouseName
 ; 6-island
-	internal_map SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,         14, 11, SixIslandName
+	internal_map SEVII_SIX_ISLAND_GYM,                             14, 11, SixIslandName
 ; 7-island
-	internal_map SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,        4, 12, SevenIslandName
+	internal_map SEVII_SEVEN_ISLAND_HOUSES,                         4, 12, SevenIslandName
 ; 8-island
 	internal_map SEVII_EIGHT_ISLAND_DOCK,                          11, 15, EightIslandName
 	db -1 ; end

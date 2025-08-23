@@ -6,6 +6,7 @@ SeviiSixIslandCity_Object:
 	warp_event  9, 15, SEVII_SIX_ISLAND_DOCK, 1
 	warp_event  5,  5, SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART, 1
 	warp_event 11,  5, SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART, 3
+	warp_event 16, 11, SEVII_SIX_ISLAND_GYM, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

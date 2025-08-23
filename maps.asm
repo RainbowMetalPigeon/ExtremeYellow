@@ -1618,12 +1618,75 @@ INCLUDE "scripts/SeviiOneIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandHouses.asm"
 SeviiOneIslandHouses_Blocks: INCBIN "maps/SeviiOneIslandHouses.blk"
 
+INCLUDE "data/maps/headers/SeviiTwoIslandHouses.asm"
+INCLUDE "scripts/SeviiTwoIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslandHouses.asm"
+SeviiTwoIslandHouses_Blocks: INCBIN "maps/SeviiTwoIslandHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiThreeIslandHouses.asm"
+INCLUDE "scripts/SeviiThreeIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandHouses.asm"
+SeviiThreeIslandHouses_Blocks: INCBIN "maps/SeviiThreeIslandHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandHouses.asm"
+INCLUDE "scripts/SeviiFourIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandHouses.asm"
+SeviiFourIslandHouses_Blocks: INCBIN "maps/SeviiFourIslandHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandHouses.asm"
+INCLUDE "scripts/SeviiFiveIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandHouses.asm"
+SeviiFiveIslandHouses_Blocks: INCBIN "maps/SeviiFiveIslandHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiSevenIslandHouses.asm"
+INCLUDE "scripts/SeviiSevenIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiSevenIslandHouses.asm"
+SeviiSevenIslandHouses_Blocks: INCBIN "maps/SeviiSevenIslandHouses.blk"
+
+
+SECTION "Maps Sevii 2", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiOneIslandGym.asm"
 INCLUDE "scripts/SeviiOneIslandGym.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandGym.asm"
 SeviiOneIslandGym_Blocks: INCBIN "maps/SeviiOneIslandGym.blk"
 
+INCLUDE "data/maps/headers/SeviiTwoIslandGym.asm"
+INCLUDE "scripts/SeviiTwoIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslandGym.asm"
+SeviiTwoIslandGym_Blocks: INCBIN "maps/SeviiTwoIslandGym.blk"
+
+INCLUDE "data/maps/headers/SeviiThreeIslandGym.asm"
+INCLUDE "scripts/SeviiThreeIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandGym.asm"
+SeviiThreeIslandGym_Blocks: INCBIN "maps/SeviiThreeIslandGym.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandGym.asm"
+INCLUDE "scripts/SeviiFourIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandGym.asm"
+SeviiFourIslandGym_Blocks: INCBIN "maps/SeviiFourIslandGym.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandGym.asm"
+INCLUDE "scripts/SeviiFiveIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandGym.asm"
+SeviiFiveIslandGym_Blocks: INCBIN "maps/SeviiFiveIslandGym.blk"
+
+INCLUDE "data/maps/headers/SeviiSixIslandGym.asm"
+INCLUDE "scripts/SeviiSixIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiSixIslandGym.asm"
+SeviiSixIslandGym_Blocks: INCBIN "maps/SeviiSixIslandGym.blk"
+
+INCLUDE "data/maps/headers/SeviiSevenIslandGym.asm"
+INCLUDE "scripts/SeviiSevenIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiSevenIslandGym.asm"
+SeviiSevenIslandGym_Blocks: INCBIN "maps/SeviiSevenIslandGym.blk"
+
 INCLUDE "data/maps/headers/SeviiEmberSpa.asm"
 INCLUDE "scripts/SeviiEmberSpa.asm"
 INCLUDE "data/maps/objects/SeviiEmberSpa.asm"
 SeviiEmberSpa_Blocks: INCBIN "maps/SeviiEmberSpa.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandWarehouse.asm"
+INCLUDE "scripts/SeviiFiveIslandWarehouse.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandWarehouse.asm"
+SeviiFiveIslandWarehouse_Blocks: INCBIN "maps/SeviiFiveIslandWarehouse.blk"

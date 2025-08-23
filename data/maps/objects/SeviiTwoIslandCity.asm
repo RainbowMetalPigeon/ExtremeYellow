@@ -5,6 +5,10 @@ SeviiTwoIslandCity_Object:
 	warp_event  6, 33, SEVII_TWO_ISLAND_DOCK, 1
 	warp_event  7, 33, SEVII_TWO_ISLAND_DOCK, 1
 	warp_event 15, 29, SEVII_TWO_ISLAND_POKEMON_CENTER, 1
+	warp_event 30,  7, SEVII_TWO_ISLAND_GYM, 1
+	warp_event 11, 27, SEVII_TWO_ISLAND_HOUSES, 1
+	warp_event 29, 33, SEVII_TWO_ISLAND_HOUSES, 3
+	warp_event 33, 33, SEVII_TWO_ISLAND_HOUSES, 5
 
 	def_bg_events
 ;	bg_event 16, 23, 1 ; SeviiTwoIslandCity_RockClimb1Up

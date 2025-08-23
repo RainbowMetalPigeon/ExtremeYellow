@@ -37,22 +37,34 @@ MapHeaderPointers_Sevii::
 ; 2-island
 	dw SeviiTwoIslandDock_h
 	dw SeviiTwoIslandPokemonCenter_h
+	dw SeviiTwoIslandGym_h
+	dw SeviiTwoIslandHouses_h
 ; 3-island
 	dw SeviiThreeIslandDock_h
 	dw SeviiThreeIslandPokemonCenterAndMart_h
+	dw SeviiThreeIslandGym_h
+	dw SeviiThreeIslandHouses_h
 ; 4-island
 	dw SeviiFourIslandDock_h
 	dw SeviiFourIslandPokemonCenterAndMart_h
+	dw SeviiFourIslandGym_h
+	dw SeviiFourIslandHouses_h
 	dw SeviiIcefallCave1F_h
 ; 5-island
 	dw SeviiFiveIslandDock_h
 	dw SeviiFiveIslandPokemonCenterAndMart_h
+	dw SeviiFiveIslandGym_h
+	dw SeviiFiveIslandHouses_h
+	dw SeviiFiveIslandWarehouse_h
 ; 6-island
 	dw SeviiSixIslandDock_h
 	dw SeviiSixIslandPokemonCenterAndMart_h
+	dw SeviiSixIslandGym_h
 ; 7-island
 	dw SeviiSevenIslandDock_h
 	dw SeviiSevenIslandPokemonCenterAndMart_h
+	dw SeviiSevenIslandGym_h
+	dw SeviiSevenIslandHouses_h
 ; 8-island
 	dw SeviiEightIslandDock_h
 	assert_table_length NUM_MAPS_SEVII

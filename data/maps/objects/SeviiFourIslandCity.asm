@@ -6,6 +6,10 @@ SeviiFourIslandCity_Object:
 	warp_event  7, 33, SEVII_FOUR_ISLAND_DOCK, 1
 	warp_event 13, 17, SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART, 1
 	warp_event 19, 23, SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART, 3
+	warp_event 14,  7, SEVII_FOUR_ISLAND_GYM, 1
+	warp_event 27, 21, SEVII_FOUR_ISLAND_HOUSES, 1
+	warp_event 21, 13, SEVII_FOUR_ISLAND_HOUSES, 5
+	warp_event 23, 25, SEVII_FOUR_ISLAND_HOUSES, 7
 	warp_event 29, 11, SEVII_ICEFALL_CAVE_1F, 1
 
 	def_bg_events

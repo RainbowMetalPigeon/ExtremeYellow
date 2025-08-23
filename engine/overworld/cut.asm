@@ -268,9 +268,4 @@ ReplaceTreeTileBlock:: ; how could this be callfar-ed if it didn't have two colo
 
 INCLUDE "data/tilesets/cut_tree_blocks.asm"
 
-UndoWhirlpoolBlockSwaps:: ; new, for whirlpool
-	; first byte = tileset block containing the whirlpool
-	; second byte = corresponding tileset block after the undo whirlpool animation happens
-	db $23, $19
-	db $26, $18
-	db -1 ; end
+INCLUDE "data/tilesets/whirlpool_blocks.asm" ; new

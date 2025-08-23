@@ -36,22 +36,34 @@ MapSongBanks_Sevii::
 ; 2-island
 	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_TWO_ISLAND_POKEMON_CENTER
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_TWO_ISLAND_GYM
+	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLAND_HOUSES
 ; 3-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_THREE_ISLAND_GYM
+	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_HOUSES
 ; 4-island
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_FOUR_ISLAND_GYM
+	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_HOUSES
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_ICEFALL_CAVE_1F
 ; 5-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_FIVE_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_FIVE_ISLAND_GYM
+	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_FIVE_ISLAND_HOUSES
+	db MUSIC_SILPH_CO, BANK(Music_SilphCo)             ; SEVII_FIVE_ISLAND_WAREHOUSE
 ; 6-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_SIX_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM
 ; 7-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SEVEN_ISLAND_GYM
+	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_HOUSES
 ; 8-island
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_EIGHT_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII

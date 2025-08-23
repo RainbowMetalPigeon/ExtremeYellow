@@ -36,22 +36,34 @@ WildDataPointers_Sevii:
 ; 2-island
 	dw SeviiShipDockWildMons         ; SEVII_TWO_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_TWO_ISLAND_POKEMON_CENTER
+	dw NothingWildMons               ; SEVII_TWO_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_TWO_ISLAND_HOUSES
 ; 3-island
 	dw SeviiShipDockWildMons         ; SEVII_THREE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+	dw NothingWildMons               ; SEVII_THREE_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_THREE_ISLAND_HOUSES
 ; 4-island
 	dw SeviiShipDockWildMons         ; SEVII_FOUR_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_HOUSES
 	dw SeviiIcefallCave1FWildMons    ; SEVII_ICEFALL_CAVE_1F
 ; 5-island
 	dw SeviiShipDockWildMons         ; SEVII_FIVE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+	dw NothingWildMons               ; SEVII_FIVE_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_FIVE_ISLAND_HOUSES
+	dw NothingWildMons               ; SEVII_FIVE_ISLAND_WAREHOUSE
 ; 6-island
 	dw SeviiShipDockWildMons         ; SEVII_SIX_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM
 ; 7-island
 	dw SeviiShipDockWildMons         ; SEVII_SEVEN_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_HOUSES
 ; 8-island
 	dw SeviiShipDockWildMons         ; SEVII_ONE_ISLAND_DOCK
 	assert_table_length NUM_MAPS_SEVII
