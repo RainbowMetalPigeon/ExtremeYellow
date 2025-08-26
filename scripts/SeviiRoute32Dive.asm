@@ -2,9 +2,9 @@ SeviiRoute32Dive_Script:
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute32DiveTrainerHeaders
 	ld de, SeviiRoute32Dive_ScriptPointers
-	ld a, [wCurMapScript] ; edited
+	ld a, [wCurMapScript]
 	call ExecuteCurMapScriptInTable
-	ld [wCurMapScript], a ; edited
+	ld [wCurMapScript], a
 	ret
 
 SeviiRoute32Dive_ScriptPointers:

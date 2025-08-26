@@ -113,6 +113,7 @@ ItemNames::
 	li "LINK CABLE" ; new
 	li "AMULET COIN" ; new
 	li "SEVII TICKET" ; new
+	li "PEARL" ; new
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

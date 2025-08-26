@@ -309,6 +309,8 @@ HikerData:
 ; Route 29 ; new
 	db 41, STEELIX, GOLEM, RHYPERIOR, MACHAMP, 0 ; 17
 	db 41, KLEAVOR, ANNIHILAPE, SNORLAX, GOLEM, 0 ; 18
+; Sevii Route 35 ; new
+	db 43, DUGTRIO, MACHAMP, STEELIX, SANDSLASH, 0 ; 19
 
 BikerData:
 ; Route 13

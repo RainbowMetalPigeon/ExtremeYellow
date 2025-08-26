@@ -240,6 +240,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _SeviiTicketDescription	; SEVII_TICKET
 	text_end
+	text_far _PearlDescription			; PEARL
+	text_end
 
 ; HMs
 

@@ -130,6 +130,7 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone   ; LINK_CABLE, new
 	dw UnusableItem      ; AMULET_COIN, new
 	dw ItemReadSeviiTicket ; SEVII_TICKET, new
+	dw UnusableItem      ; PEARL, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 

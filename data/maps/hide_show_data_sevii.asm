@@ -18,7 +18,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_32
 	dw SeviiRoute33HS ; SEVII_ROUTE_33
 	dw NoHSSevii ; SEVII_ROUTE_34
-	dw NoHSSevii ; SEVII_ROUTE_35
+	dw SeviiRoute35HS ; SEVII_ROUTE_35
 	dw NoHSSevii ; SEVII_ROUTE_36
 	dw NoHSSevii ; SEVII_ROUTE_37
 	dw NoHSSevii ; SEVII_ROUTE_38
@@ -125,11 +125,13 @@ SeviiRoute33HS:
 	db SEVII_ROUTE_33, 3, SHOW ; RARE_CANDY
 	db SEVII_ROUTE_33, 4, SHOW ; ULTRA_BALL
 	db SEVII_ROUTE_33, 5, SHOW ; PP_UP
+SeviiRoute35HS:
+	db SEVII_ROUTE_35, 2, SHOW ; ULTRA_BALL
 
 ; indoors ----------------------------------
 
 SeviiResortGorgeousHS:
-	db SEVII_LOST_CAVE_2, 1, HIDE ; person
+	db SEVII_RESORT_GORGEOUS, 1, HIDE ; person
 SeviiLostCave2HS:
 	db SEVII_LOST_CAVE_2, 1, SHOW ; person
 SeviiLostCave3HS:

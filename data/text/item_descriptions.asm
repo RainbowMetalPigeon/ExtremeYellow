@@ -479,10 +479,15 @@ _SeviiTicketDescription::
 	next "to SEVII ISLANDS."
 	prompt
 
+_PearlDescription::
+	text "Fabolous pearl."
+;	xxxx "123456789012345678"
+	next "Sought by some."
+	prompt
+
 _CheatCandyDescription::
 	text "Raises LVL by one."
 	next "Not consumed."
-;	xxxx "123456789012345678"
 	prompt
 
 ; HMs --------------------------------------------------------------------------

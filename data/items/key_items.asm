@@ -113,4 +113,5 @@ KeyItemFlags:
 	dbit FALSE ; LINK_CABLE     - new
 	dbit TRUE  ; AMULET_COIN    - new
 	dbit TRUE  ; SEVII_TICKET   - new
+	dbit TRUE  ; PEARL   - new
 	end_bit_array NUM_ITEMS

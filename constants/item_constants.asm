@@ -101,8 +101,8 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const METAL_COAT	; new
 	const UPGRADE		; new
 	const DUBIOUS_DISK	; new
-	const FAST_BALL		; new, testing
-	const HEAVY_BALL	; new, testing
+	const FAST_BALL		; new
+	const HEAVY_BALL	; new
 	const LEGEND_CANDY  ; new
 	const BIG_NUGGET	; new
 	const PERFECTER     ; new
@@ -123,6 +123,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const LINK_CABLE    ; new
 	const AMULET_COIN   ; new
 	const SEVII_TICKET  ; new
+	const PEARL         ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

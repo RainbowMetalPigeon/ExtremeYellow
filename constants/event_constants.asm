@@ -46,8 +46,9 @@
 ; Viridian City events
 	const_next $28
 	const EVENT_VIRIDIAN_GYM_OPEN
-	const EVENT_GOT_TM42
-	const_skip 1 ; edited, was 1
+	const EVENT_BEAT_SEVII_ROUTE_35_TRAINER_1 ; new
+;	const_skip 2
+	const EVENT_RESCUED_SELPHY ; new
 	const EVENT_PLAYED_COLLISION_SOUND_WHILE_SLIDING_ALREADY_ONCE ; new
 	const EVENT_02C
 	const EVENT_02D
@@ -65,7 +66,9 @@
 	const EVENT_PROPOSED_CATCHING_TUTORIAL ; new
 	const EVENT_OAK_GOT_PARCEL
 	const EVENT_GOT_OAKS_PARCEL
-	const_skip 2 ; edited, split to below, was 7
+	const EVENT_GOT_TM42
+;	const_skip 7
+	const EVENT_GOT_PEARL_FROM_SELPHY ; new
 	const EVENT_DIVE_GO_UNDER ; new
 	const EVENT_DIVE_GO_ABOVE ; new
 	const EVENT_BEAT_ROUTE_28_TRAINER_0 ; new
