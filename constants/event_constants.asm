@@ -88,7 +88,8 @@
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_TRAINER_1 ; new
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_TRAINER_2 ; new
 	const EVENT_BEAT_OBSIDIAN_WAREHOUSE_TRAINER_3 ; new
-	const_skip 1 ; edited
+;	const_skip 1
+	const EVENT_GOT_AMULET_COIN ; new
 	const EVENT_DOING_WATERFALL ; new
 	const EVENT_DOING_ROCK_CLIMB ; new
 	const EVENT_GOT_TM27 ; now useless
@@ -107,8 +108,12 @@
 	const_next $68
 	const EVENT_BOUGHT_MUSEUM_TICKET
 	const EVENT_GOT_OLD_AMBER
+	const EVENT_BEAT_SEVII_ROUTE_34_TRAINER_1 ; new
+	const EVENT_BEAT_SEVII_ROUTE_34_TRAINER_2 ; new
+	const EVENT_BEAT_SEVII_ROUTE_34_TRAINER_3 ; new
+	const EVENT_BEAT_SEVII_ROUTE_34_TRAINER_4 ; new
 	const EVENT_GOT_PEWTER_REPELS ; new
-	const_skip 6 ; edited, was 8
+	const_skip 2 ; edited, was 8
 	const EVENT_BEAT_BROCK_REMATCH ; new
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_0
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_1

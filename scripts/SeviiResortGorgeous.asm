@@ -14,7 +14,9 @@ SeviiResortGorgeous_TextPointers:
 	dw SeviiResortGorgeousText9
 	dw SeviiResortGorgeousText10
 	dw SeviiResortGorgeousText11
-	text_end
+	dw SeviiResortGorgeousText12
+	dw SeviiResortGorgeousText13
+	dw SeviiResortGorgeousText14
 
 SeviiResortGorgeousText1: ; Selphy
 	text_asm
@@ -104,3 +106,16 @@ SeviiResortGorgeousText10:
 SeviiResortGorgeousText11:
 	text_far _SeviiResortGorgeousText11
 	text_end
+
+SeviiResortGorgeousText12:
+	text_far _SeviiResortGorgeousText12
+	text_end
+
+SeviiResortGorgeousText13:
+	text_far _SeviiResortGorgeousText13
+	text_end
+
+SeviiResortGorgeousText14:
+	text_far _SeviiResortGorgeousText14
+	text_end
+	

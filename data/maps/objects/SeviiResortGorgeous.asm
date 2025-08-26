@@ -15,6 +15,9 @@ SeviiResortGorgeous_Object:
 	bg_event  9,  5,  9 ; SeviiResortGorgeousText9
 	bg_event  0, 11, 10 ; SeviiResortGorgeousText10
 	bg_event  9,  9, 11 ; SeviiResortGorgeousText11
+	bg_event 11,  1, 12 ; SeviiResortGorgeousText12
+	bg_event 11, 10, 13 ; SeviiResortGorgeousText13
+	bg_event 11, 11, 14 ; SeviiResortGorgeousText14
 
 	def_object_events
 	object_event  8,  5, SPRITE_BEAUTY, STAY, RIGHT, 1 ; Selphy

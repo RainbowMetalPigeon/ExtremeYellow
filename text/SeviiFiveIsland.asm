@@ -23,6 +23,143 @@ _SeviiFiveIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+; Route 34 ------------------------------------
+
+_SeviiRoute34BattleText1::
+	text "I'm the best"
+	line "swimmer of"
+	cont "CHRONO ISLAND!"
+	done
+
+_SeviiRoute34EndBattleText1::
+	text "I didn't"
+	line "say I'm good at"
+	cont "#MON battles."
+	prompt
+
+_SeviiRoute34AfterBattleText1::
+	text "Back at training!"
+	done
+
+_SeviiRoute34BattleText2::
+	text "Ahead is a creepy"
+	line "cave. Are ya here"
+	cont "to explore it, or"
+	cont "to swim?"
+	done
+
+_SeviiRoute34EndBattleText2::
+	text "I see."
+	line "You're here for"
+	cont "#MON battles!"
+	prompt
+
+_SeviiRoute34AfterBattleText2::
+	text "I think that weird"
+	line "place is called"
+	cont "LOST CAVE."
+	done
+
+_SeviiRoute34BattleText3::
+	text "This watery maze"
+	line "is nothing"
+	cont "compared to that"
+	cont "nightmare there!"
+	done
+
+_SeviiRoute34EndBattleText3::
+	text "And I'm"
+	line "nothing compared"
+	cont "to you!"
+	prompt
+
+_SeviiRoute34AfterBattleText3::
+	text "LOST CAVE sure"
+	line "is scary."
+	
+	para "You walk and"
+	cont "walk, and yet you"
+	cont "keep coming back"
+	cont "at the entrance."
+	done
+
+_SeviiRoute34BattleText4::
+	text "That person there"
+	line "there looks quite"
+	cont "lonely."
+
+	para "Let's give them"
+	line "a good show!"
+	done
+
+_SeviiRoute34EndBattleText4::
+	text "That was"
+	line "indeed a show!"
+	prompt
+
+_SeviiRoute34AfterBattleText4::
+	text "I often swim here"
+	line "just to say hi to"
+	cont "that old guy."
+	done
+
+_SeviiRoute34Text1_AfterAmuletCoin::
+	text "I spent all of my"
+	line "life after money."
+
+	para "One day, I"
+	line "suddenly realized"
+	cont "I was old."
+
+	para "Old and alone."
+
+	para "I had neglected"
+	line "all relationships"
+	cont "that didn't bring"
+	cont "any profit."
+
+	para "I regret it."
+	line "Deeply."
+	done
+
+_SeviiRoute34Text1_BeforeAmuletCoin::
+	text "Friends. Are the"
+	line "most important"
+	cont "thing in life."
+
+	para "Do you nurture"
+	line "your friedships?"
+	prompt
+
+_SeviiRoute34Text1_NotMaxHappiness::
+	text "...not enough."
+	done
+
+_SeviiRoute34Text1_YesMaxHappiness::
+	text "...oh."
+
+	para "Oh, yes, you do."
+
+	para "This is really"
+	line "marvelous."
+
+	para "Please, have this."
+	line "I have seen the"
+	cont "light of a grand"
+	cont "bond. I care not"
+	cont "about money."
+	prompt
+
+_SeviiRoute34Text1_GotAmuletCoin::
+	text "<PLAYER> received"
+	line "AMULET COIN!"
+	done
+
+_SeviiRoute34Text1_BagFull::
+	text "You have no space"
+	line "for my gift."
+	done
+
 ; Route 35 ------------------------------------
 
 _SeviiRoute35BattleText1::
@@ -237,4 +374,31 @@ _SeviiResortGorgeousText11::
 	line "with a vast"
 	cont "library of never-"
 	cont "began games."
+	done
+
+_SeviiResortGorgeousText12::
+	text "It's a plastic"
+	line "plant."
+
+	para "You can tell"
+	line "because it's the"
+	cont "only healthy one"
+	cont "in the house."
+	done
+
+_SeviiResortGorgeousText13::
+	text "Leftovers of"
+	line "instant ramen"
+	cont "fill the sink."
+	done
+
+_SeviiResortGorgeousText14::
+	text "The stoves are"
+	line "surprisingly"
+	cont "clean."
+
+	para "Or maybe not so"
+	line "surprisingly,"
+	cont "given how little"
+	cont "they are used."
 	done
