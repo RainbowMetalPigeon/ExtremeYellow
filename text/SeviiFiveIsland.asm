@@ -21,3 +21,17 @@ _SeviiFiveIslandDockBgText1::
 	text "CHRONO ISLAND"
 	line "SHIP PORT"
 	done
+
+; Route 35 ------------------------------------
+
+_SeviiResortGorgeousText1::
+	text "Thanks!!!"
+	done
+
+_SeviiResortGorgeousText2::
+	text "Where is Selphy?!"
+	done
+
+_SeviiLostCave2Text1::
+	text "You found me!!!"
+	done

@@ -59,9 +59,9 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $20
 	map_const SEVII_THREE_ISLAND_GYM,                        20, 20 ; $19
 	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $1A
-	map_const SEVII_THREE_ISLAND_CAVES,                      15, 10 ; $1A ; new
-	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,              10, 10 ; $1A ; new
-	map_const SEVII_BERRY_FOREST,                            20, 20 ; $1A ; new
+	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $1A
+	map_const SEVII_THREE_ISLAND_CAVES,                      15, 10 ; $1A
+	map_const SEVII_BERRY_FOREST,                            20, 20 ; $1A
 ; 4-island-related maps
 	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $21
 	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $22
@@ -74,26 +74,28 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_FIVE_ISLAND_GYM,                         20, 20 ; $19
 	map_const SEVII_FIVE_ISLAND_HOUSES,                       4,  4 ; $1A
 	map_const SEVII_FIVE_ISLAND_WAREHOUSE,                   10,  6 ; $1A
-	map_const SEVII_RESORT_GORGEOUS,                          6,  6 ; $1A ; new
-	map_const SEVII_LOST_CAVE,                               29, 19 ; $1A ; new
+	map_const SEVII_RESORT_GORGEOUS,                          6,  6 ; $1A
+	map_const SEVII_LOST_CAVE_1,                             29,  5 ; $1A
+	map_const SEVII_LOST_CAVE_2,                             29,  5 ; $1A
+	map_const SEVII_LOST_CAVE_3,                             29,  5 ; $1A
 ; 6-island-related maps
 	map_const SEVII_SIX_ISLAND_DOCK,                         10,  6 ; $26
 	map_const SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $27
 	map_const SEVII_SIX_ISLAND_GYM,                          20, 20 ; $19
-	map_const SEVII_ROUTE_38_HOUSES,                         11,  4 ; $19 ; new
-	map_const SEVII_PATTERN_BUSH,                            20, 15 ; $19 ; new
-	map_const SEVII_ALTERING_CAVE,                           12, 12 ; $19 ; new
-	map_const SEVII_DOTTED_HOLE,                              7,  7 ; $19 ; new
+	map_const SEVII_ROUTE_38_HOUSES,                         11,  4 ; $19
+	map_const SEVII_PATTERN_BUSH,                            20, 15 ; $19
+	map_const SEVII_ALTERING_CAVE,                           12, 12 ; $19
+	map_const SEVII_DOTTED_HOLE,                              7,  7 ; $19
 ; 7-island-related maps
 	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $28
 	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $29
 	map_const SEVII_SEVEN_ISLAND_GYM,                        20, 20 ; $19
 	map_const SEVII_SEVEN_ISLAND_HOUSES,                      4,  4 ; $1A
-	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $1A ; new
-	map_const SEVII_TANOBY_CHAMBERS,                         43,  7 ; $1A ; new
+	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $1A
+	map_const SEVII_TANOBY_CHAMBERS,                         43,  7 ; $1A
 ; 8-island-related maps
 	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $2A
-	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $2A ; new
+	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $2A
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

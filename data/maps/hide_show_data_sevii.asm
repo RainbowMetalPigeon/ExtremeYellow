@@ -46,8 +46,8 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_THREE_ISLAND_GYM
 	dw NoHSSevii ; SEVII_THREE_ISLAND_HOUSES
-	dw NoHSSevii ; SEVII_THREE_ISLAND_CAVES
 	dw NoHSSevii ; SEVII_THREE_ISLAND_SECRET_GARDEN
+	dw NoHSSevii ; SEVII_THREE_ISLAND_CAVES
 	dw NoHSSevii ; SEVII_BERRY_FOREST
 ; 4-island
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_DOCK
@@ -61,8 +61,10 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_GYM
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_WAREHOUSE
-	dw NoHSSevii ; SEVII_RESORT_GORGEOUS
-	dw NoHSSevii ; SEVII_LOST_CAVE
+	dw SeviiResortGorgeousHS ; SEVII_RESORT_GORGEOUS
+	dw NoHSSevii ; SEVII_LOST_CAVE_1
+	dw SeviiLostCave2HS ; SEVII_LOST_CAVE_2
+	dw SeviiLostCave3HS ; SEVII_LOST_CAVE_3
 ; 6-island
 	dw NoHSSevii ; SEVII_SIX_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
@@ -125,6 +127,17 @@ SeviiRoute33HS:
 	db SEVII_ROUTE_33, 5, SHOW ; PP_UP
 
 ; indoors ----------------------------------
+
+SeviiResortGorgeousHS:
+	db SEVII_LOST_CAVE_2, 1, HIDE ; person
+SeviiLostCave2HS:
+	db SEVII_LOST_CAVE_2, 1, SHOW ; person
+SeviiLostCave3HS:
+	db SEVII_LOST_CAVE_3, 1, SHOW ; RARE_CANDY
+	db SEVII_LOST_CAVE_3, 2, SHOW ; NUGGET
+	db SEVII_LOST_CAVE_3, 3, SHOW ; MAX_ELIXER
+	db SEVII_LOST_CAVE_3, 4, SHOW ; PP_UP
+
 
 	db $FF, $01, SHOW ; end, list terminator
 	assert_table_length NUM_HS_OBJECTS_SEVII + 1

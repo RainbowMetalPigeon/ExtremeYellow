@@ -6,7 +6,7 @@ SeviiThreeIslandHouses_Object:
 	warp_event  3,  7, SEVII_THREE_ISLAND_CITY, 6
 	warp_event 16,  7, SEVII_THREE_ISLAND_CITY, 7
 	warp_event 17,  7, SEVII_THREE_ISLAND_CITY, 7
-;	warp_event 16,  0, SEVII_THREE_ISLAND_SECRET_FOREST, 1
+	warp_event 16,  0, SEVII_THREE_ISLAND_SECRET_GARDEN, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

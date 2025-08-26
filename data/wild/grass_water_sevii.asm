@@ -43,8 +43,8 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_GYM
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_HOUSES
-	dw NothingWildMons               ; SEVII_THREE_ISLAND_CAVES ; TBE
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_SECRET_GARDEN ; TBE?
+	dw NothingWildMons               ; SEVII_THREE_ISLAND_CAVES ; TBE
 	dw NothingWildMons               ; SEVII_BERRY_FOREST ; TBE
 ; 4-island
 	dw SeviiShipDockWildMons         ; SEVII_FOUR_ISLAND_DOCK
@@ -59,7 +59,9 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_FIVE_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_FIVE_ISLAND_WAREHOUSE
 	dw NothingWildMons               ; SEVII_RESORT_GORGEOUS
-	dw NothingWildMons               ; SEVII_LOST_CAVE ; TBE
+	dw NothingWildMons               ; SEVII_LOST_CAVE_1 ; TBE
+	dw NothingWildMons               ; SEVII_LOST_CAVE_2 ; TBE
+	dw NothingWildMons               ; SEVII_LOST_CAVE_3 ; TBE
 ; 6-island
 	dw SeviiShipDockWildMons         ; SEVII_SIX_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART

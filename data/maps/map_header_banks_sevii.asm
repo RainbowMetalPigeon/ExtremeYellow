@@ -44,8 +44,8 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiThreeIslandPokemonCenterAndMart_h)
 	db BANK(SeviiThreeIslandGym_h)
 	db BANK(SeviiThreeIslandHouses_h)
-	db BANK(SeviiThreeIslandCaves_h)
 	db BANK(SeviiThreeIslandSecretGarden_h)
+	db BANK(SeviiThreeIslandCaves_h)
 	db BANK(SeviiBerryForest_h)
 ; 4-island
 	db BANK(SeviiFourIslandDock_h)
@@ -60,7 +60,9 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiFiveIslandHouses_h)
 	db BANK(SeviiFiveIslandWarehouse_h)
 	db BANK(SeviiResortGorgeous_h)
-	db BANK(SeviiLostCave_h)
+	db BANK(SeviiLostCave1_h)
+	db BANK(SeviiLostCave2_h)
+	db BANK(SeviiLostCave3_h)
 ; 6-island
 	db BANK(SeviiSixIslandDock_h)
 	db BANK(SeviiSixIslandPokemonCenterAndMart_h)

@@ -170,23 +170,27 @@ IsWarpTileInFrontOfPlayer::
 	push de
 	push bc
 	call _GetTileAndCoordsInFrontOfPlayer
+; new for Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; BTV
 	callfar IsCurrentMapHauntedHouse                    ; new
 	jp z, IsHauntedHouseExtraWarpTileInFrontOfPlayer    ; new
 	ld a, [wCurMap]
 	cp SS_ANNE_BOW
 	jr z, IsSSAnneBowWarpTileInFrontOfPlayer
 	cp CERULEAN_CAVE_EXTRA_TOP							; new
-	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
+	jp z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CERULEAN_CAVE_EXTRA_MIDDLE						; new
 	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CERULEAN_CAVE_EXTRA_BOTTOM						; new
 	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CELADON_UNIVERSITY_1 							; new
-	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
+	jp z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	cp CELADON_UNIVERSITY_2								; new
 	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	cp OBSIDIAN_WAREHOUSE								; new
-	jr z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new
+	jp z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new
 	cp SECLUDED_CAVES									; new
 	jr z, IsSecludedCavesWarpTileInFrontOfPlayer		; new
 	cp ONIX_BURROWING									; new
@@ -195,6 +199,19 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsRedsHouseWarpTileInFrontOfPlayer			; new
 	cp REDS_HOUSE_1F									; new
 	jp z, IsRedsHouseWarpTileInFrontOfPlayer			; new
+; new for Sevii
+	jr .postMapChecks
+.sevii
+	ld a, [wCurMap]
+	cp SEVII_LOST_CAVE_1
+	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
+	cp SEVII_LOST_CAVE_2
+	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
+	cp SEVII_LOST_CAVE_3
+	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
+	cp SEVII_ROUTE_43_CAVES
+	jr z, IsSeviiRoute43CavesWarpTileInFrontOfPlayer
+.postMapChecks ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
 	ld c, a
@@ -225,6 +242,8 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
+IsSeviiRoute43CavesWarpTileInFrontOfPlayer: ; new
+IsSeviiLostCaveWarpTileInFrontOfPlayer: ; new
 IsSecludedCavesWarpTileInFrontOfPlayer: ; new
 IsCeruleanCaveExtraWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
@@ -537,3 +556,79 @@ CheckForBoulderCollisionWithSprites:
 .success
 	xor a
 	ret
+
+; moved from home ---------------------------------------
+
+; this function is an extra check that sometimes has to pass in order to warp, beyond just standing on a warp
+; the "sometimes" qualification is necessary because of CheckWarpsNoCollision's behavior
+; depending on the map, either "function 1" or "function 2" is used for the check
+; "function 1" passes when the player is at the edge of the map and is facing towards the outside of the map
+; "function 2" passes when the the tile in front of the player is among a certain set
+; sets carry if the check passes, otherwise clears carry
+ExtraWarpCheck::
+; new for Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; BTV
+	callfar IsCurrentMapHauntedHouse ; new
+	jr z, .useFunction2				 ; new
+	ld a, [wCurMap]
+	cp SS_ANNE_3F
+	jr z, .useFunction1
+	cp ROCKET_HIDEOUT_B1F
+	jr z, .useFunction2
+	cp ROCKET_HIDEOUT_B2F
+	jr z, .useFunction2
+	cp ROCKET_HIDEOUT_B4F
+	jr z, .useFunction2
+	cp ROCK_TUNNEL_1F
+	jr z, .useFunction2
+	cp CERULEAN_CAVE_EXTRA_TOP		; new
+	jr z, .useFunction2				; new
+	cp CERULEAN_CAVE_EXTRA_MIDDLE	; new
+	jr z, .useFunction2				; new
+	cp CERULEAN_CAVE_EXTRA_BOTTOM	; new
+	jr z, .useFunction2				; new
+	cp CELADON_UNIVERSITY_1     	; new
+	jr z, .useFunction2				; new
+	cp CELADON_UNIVERSITY_2 		; new
+	jr z, .useFunction2				; new
+	cp OBSIDIAN_WAREHOUSE			; new
+	jr z, .useFunction2				; new
+	cp SECLUDED_CAVES				; new
+	jr z, .useFunction2				; new
+	cp ONIX_BURROWING				; new
+	jr z, .useFunction2				; new
+	cp HAUNTED_REDS_HOUSE			; new
+	jr z, .useFunction2				; new
+	cp REDS_HOUSE_1F				; new
+	jr z, .useFunction2				; new
+; new for Sevii
+	jr .checkByTileset ; new
+.sevii
+	ld a, [wCurMap]
+	cp SEVII_LOST_CAVE_1
+	jr z, .useFunction2
+	cp SEVII_LOST_CAVE_2
+	jr z, .useFunction2
+	cp SEVII_LOST_CAVE_3
+	jr z, .useFunction2
+	cp SEVII_ROUTE_43_CAVES
+	jr z, .useFunction2
+.checkByTileset ; new
+; BTV	
+	ld a, [wCurMapTileset]
+	and a ; outside tileset (OVERWORLD)
+	jr z, .useFunction2
+	cp OVERWORLD_SEVII ; new for sevii
+	jr z, .useFunction2 ; new for sevii
+	cp SHIP ; S.S. Anne tileset
+	jr z, .useFunction2
+	cp SHIP_PORT ; Vermilion Port tileset
+	jr z, .useFunction2
+	cp PLATEAU ; Indigo Plateau tileset
+	jr z, .useFunction2
+.useFunction1
+	jp IsPlayerFacingEdgeOfMap
+.useFunction2
+	jp IsWarpTileInFrontOfPlayer

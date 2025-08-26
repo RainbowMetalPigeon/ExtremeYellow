@@ -44,13 +44,12 @@ INCLUDE "engine/overworld/player_state.asm"
 INCLUDE "engine/overworld/tilesets.asm"
 INCLUDE "data/maps/hide_show_data.asm"
 INCLUDE "data/maps/hide_show_data_sevii.asm" ; new
-INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/missable_objects.asm"
 INCLUDE "engine/overworld/push_boulder.asm"
-INCLUDE "engine/items/get_bag_item_quantity.asm"
 INCLUDE "engine/overworld/pathfinding.asm"
+;INCLUDE "engine/items/get_bag_item_quantity.asm" ; moved to bankGarage2
 ;INCLUDE "engine/events/poison.asm" ; moved to bankGarage2
 ;INCLUDE "engine/overworld/daycare_exp.asm" ; moved to bankGarage2
 ;INCLUDE "engine/menus/draw_badges.asm" ; moved to bankGarage
@@ -62,6 +61,7 @@ INCLUDE "engine/overworld/pathfinding.asm"
 ;INCLUDE "engine/gfx/hp_bar.asm" ; moved to bankGarage
 ;INCLUDE "engine/overworld/clear_variables.asm" ; moved to bankGarage2
 ;INCLUDE "engine/overworld/update_map.asm" ; moved to bankGarage2
+;INCLUDE "engine/overworld/wild_mons.asm" ; moved to bankGarage2
 
 
 SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks
@@ -107,6 +107,8 @@ INCLUDE "engine/miscellanea/tutor.asm" ; new
 INCLUDE "data/moves/tutor_table.asm" ; new
 INCLUDE "engine/overworld/clear_variables.asm" ; from bank3
 INCLUDE "engine/overworld/update_map.asm" ; from bank3
+INCLUDE "engine/items/get_bag_item_quantity.asm" ; from bank3
+INCLUDE "engine/overworld/wild_mons.asm" ; from bank3
 
 
 SECTION "bankGarage3", ROMX ; new

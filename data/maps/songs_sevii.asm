@@ -43,8 +43,8 @@ MapSongBanks_Sevii::
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_THREE_ISLAND_GYM
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_HOUSES
+	db MUSIC_GAME_CORNER, BANK(Music_GameCorner)       ; SEVII_THREE_ISLAND_SECRET_GARDEN
 	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_THREE_ISLAND_CAVES
-	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_SECRET_GARDEN
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_BERRY_FOREST
 ; 4-island
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_DOCK
@@ -59,7 +59,9 @@ MapSongBanks_Sevii::
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_FIVE_ISLAND_HOUSES
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo)             ; SEVII_FIVE_ISLAND_WAREHOUSE
 	db MUSIC_SS_ANNE, BANK(Music_SSAnne)               ; SEVII_RESORT_GORGEOUS
-	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE_1
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE_2
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE_3
 ; 6-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_SIX_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART

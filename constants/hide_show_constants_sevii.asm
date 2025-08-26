@@ -23,4 +23,11 @@
 	const HS_SEVII_ROUTE_33_ITEM_2         ; x
 	const HS_SEVII_ROUTE_33_ITEM_3         ; x
 ; indoors
+	const HS_RESORT_GORGEOUS_SELPHY        ; x
+	const HS_SEVII_LOST_CAVE_2_SELPHY      ; x
+	const HS_SEVII_LOST_CAVE_3_ITEM_1      ; x
+	const HS_SEVII_LOST_CAVE_3_ITEM_2      ; x
+	const HS_SEVII_LOST_CAVE_3_ITEM_3      ; x
+	const HS_SEVII_LOST_CAVE_3_ITEM_4      ; x
+
 DEF NUM_HS_OBJECTS_SEVII EQU const_value

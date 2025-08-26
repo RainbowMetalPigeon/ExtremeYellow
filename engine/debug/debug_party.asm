@@ -58,9 +58,9 @@ IF DEF(_DEBUG)
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, SPLASH ; WHIRLPOOL
+	ld a, WHIRLPOOL
 	ld [hli], a
-	ld a, TACKLE ; WATERFALL
+	ld a, WATERFALL
 	ld [hli], a
 	ld a, TERRAIN_PULSE
 	ld [hli], a

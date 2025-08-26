@@ -2,8 +2,11 @@ SeviiRoute43_Object:
 	db $2c ; border block
 
 	def_warp_events
-;	warp_event 28, 33, SEVII_ONE_ISLAND_DOCK, 1
-;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
+	warp_event  5, 13, SEVII_ROUTE_43_CAVES, 1
+	warp_event 21, 77, SEVII_ROUTE_43_CAVES, 3
+	warp_event 18, 69, SEVII_ROUTE_43_CAVES, 5
+	warp_event 18, 61, SEVII_ROUTE_43_CAVES, 7
+	warp_event 18, 49, SEVII_ROUTE_43_CAVES, 9
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

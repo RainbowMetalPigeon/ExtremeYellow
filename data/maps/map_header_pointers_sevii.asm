@@ -44,8 +44,8 @@ MapHeaderPointers_Sevii::
 	dw SeviiThreeIslandPokemonCenterAndMart_h
 	dw SeviiThreeIslandGym_h
 	dw SeviiThreeIslandHouses_h
-	dw SeviiThreeIslandCaves_h
 	dw SeviiThreeIslandSecretGarden_h
+	dw SeviiThreeIslandCaves_h
 	dw SeviiBerryForest_h
 ; 4-island
 	dw SeviiFourIslandDock_h
@@ -60,7 +60,9 @@ MapHeaderPointers_Sevii::
 	dw SeviiFiveIslandHouses_h
 	dw SeviiFiveIslandWarehouse_h
 	dw SeviiResortGorgeous_h
-	dw SeviiLostCave_h
+	dw SeviiLostCave1_h
+	dw SeviiLostCave2_h
+	dw SeviiLostCave3_h
 ; 6-island
 	dw SeviiSixIslandDock_h
 	dw SeviiSixIslandPokemonCenterAndMart_h

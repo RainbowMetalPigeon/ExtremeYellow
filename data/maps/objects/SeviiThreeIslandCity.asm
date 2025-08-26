@@ -9,6 +9,8 @@ SeviiThreeIslandCity_Object:
 	warp_event 12,  7, SEVII_THREE_ISLAND_GYM, 1
 	warp_event 15, 15, SEVII_THREE_ISLAND_HOUSES, 1
 	warp_event  5, 25, SEVII_THREE_ISLAND_HOUSES, 3
+	warp_event 14, 35, SEVII_THREE_ISLAND_CAVES, 1
+	warp_event 22, 35, SEVII_THREE_ISLAND_CAVES, 3
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

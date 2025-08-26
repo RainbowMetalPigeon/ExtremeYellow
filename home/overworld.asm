@@ -215,7 +215,7 @@ OverworldLoopLessDelay::
 	jp z, OverworldLoop
 ; collision occurred while standing on a warp
 	push hl
-	call ExtraWarpCheck ; sets carry if there is a potential to warp
+	callfar ExtraWarpCheck ; sets carry if there is a potential to warp ; edited into a callfar
 	pop hl
 	jp c, CheckWarpsCollision
 	jp OverworldLoop
@@ -455,7 +455,7 @@ CheckWarpsNoCollisionLoop::
 	jr c, WarpFound1 ; jump if standing on door or warp
 	push hl
 	push bc
-	call ExtraWarpCheck
+	callfar ExtraWarpCheck ; edited into a callfar
 	pop bc
 	pop hl
 	jr nc, CheckWarpsNoCollisionRetry2
@@ -692,66 +692,6 @@ CheckIfInOutsideMap::
 	ret z ; new
 	cp ISLAND ; new
 	ret
-
-; this function is an extra check that sometimes has to pass in order to warp, beyond just standing on a warp
-; the "sometimes" qualification is necessary because of CheckWarpsNoCollision's behavior
-; depending on the map, either "function 1" or "function 2" is used for the check
-; "function 1" passes when the player is at the edge of the map and is facing towards the outside of the map
-; "function 2" passes when the the tile in front of the player is among a certain set
-; sets carry if the check passes, otherwise clears carry
-ExtraWarpCheck::
-	callfar IsCurrentMapHauntedHouse ; new
-	jr z, .useFunction2				 ; new
-	ld a, [wCurMap]
-	cp SS_ANNE_3F
-	jr z, .useFunction1
-	cp ROCKET_HIDEOUT_B1F
-	jr z, .useFunction2
-	cp ROCKET_HIDEOUT_B2F
-	jr z, .useFunction2
-	cp ROCKET_HIDEOUT_B4F
-	jr z, .useFunction2
-	cp ROCK_TUNNEL_1F
-	jr z, .useFunction2
-	cp CERULEAN_CAVE_EXTRA_TOP		; new
-	jr z, .useFunction2				; new
-	cp CERULEAN_CAVE_EXTRA_MIDDLE	; new
-	jr z, .useFunction2				; new
-	cp CERULEAN_CAVE_EXTRA_BOTTOM	; new
-	jr z, .useFunction2				; new
-	cp CELADON_UNIVERSITY_1     	; new
-	jr z, .useFunction2				; new
-	cp CELADON_UNIVERSITY_2 		; new
-	jr z, .useFunction2				; new
-	cp OBSIDIAN_WAREHOUSE			; new
-	jr z, .useFunction2				; new
-	cp SECLUDED_CAVES				; new
-	jr z, .useFunction2				; new
-	cp ONIX_BURROWING				; new
-	jr z, .useFunction2				; new
-	cp HAUNTED_REDS_HOUSE			; new
-	jr z, .useFunction2				; new
-	cp REDS_HOUSE_1F				; new
-	jr z, .useFunction2				; new
-	ld a, [wCurMapTileset]
-	and a ; outside tileset (OVERWORLD)
-	jr z, .useFunction2
-	cp OVERWORLD_SEVII ; new for sevii
-	jr z, .useFunction2 ; new for sevii
-	cp SHIP ; S.S. Anne tileset
-	jr z, .useFunction2
-	cp SHIP_PORT ; Vermilion Port tileset
-	jr z, .useFunction2
-	cp PLATEAU ; Indigo Plateau tileset
-	jr z, .useFunction2
-.useFunction1
-	ld hl, IsPlayerFacingEdgeOfMap
-	jr .doBankswitch
-.useFunction2
-	ld hl, IsWarpTileInFrontOfPlayer
-.doBankswitch
-	ld b, BANK(IsWarpTileInFrontOfPlayer)
-	jp Bankswitch
 
 MapEntryAfterBattle::
 	farcall IsPlayerStandingOnWarp ; for enabling warp testing after collisions
