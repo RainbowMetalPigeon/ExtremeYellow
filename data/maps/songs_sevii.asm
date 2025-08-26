@@ -43,6 +43,9 @@ MapSongBanks_Sevii::
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_THREE_ISLAND_GYM
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_HOUSES
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_THREE_ISLAND_CAVES
+	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_SECRET_GARDEN
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_BERRY_FOREST
 ; 4-island
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
@@ -55,15 +58,24 @@ MapSongBanks_Sevii::
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_FIVE_ISLAND_GYM
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_FIVE_ISLAND_HOUSES
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo)             ; SEVII_FIVE_ISLAND_WAREHOUSE
+	db MUSIC_SS_ANNE, BANK(Music_SSAnne)               ; SEVII_RESORT_GORGEOUS
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE
 ; 6-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_SIX_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM
+	db MUSIC_ROUTES3, BANK(Music_Routes3)              ; SEVII_ROUTE_38_HOUSES
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_PATTERN_BUSH
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE
+	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; SEVII_DOTTED_HOLE ; TBV
 ; 7-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SEVEN_ISLAND_GYM
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_HOUSES
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_ROUTE_43_CAVES
+	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; SEVII_TANOBY_CHAMBERS ; TBV
 ; 8-island
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_EIGHT_ISLAND_DOCK
+	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_EIGHT_ISLAND_CAVE
 	assert_table_length NUM_MAPS_SEVII

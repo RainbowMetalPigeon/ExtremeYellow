@@ -44,6 +44,9 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiThreeIslandPokemonCenterAndMart_h)
 	db BANK(SeviiThreeIslandGym_h)
 	db BANK(SeviiThreeIslandHouses_h)
+	db BANK(SeviiThreeIslandCaves_h)
+	db BANK(SeviiThreeIslandSecretGarden_h)
+	db BANK(SeviiBerryForest_h)
 ; 4-island
 	db BANK(SeviiFourIslandDock_h)
 	db BANK(SeviiFourIslandPokemonCenterAndMart_h)
@@ -56,15 +59,24 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiFiveIslandGym_h)
 	db BANK(SeviiFiveIslandHouses_h)
 	db BANK(SeviiFiveIslandWarehouse_h)
+	db BANK(SeviiResortGorgeous_h)
+	db BANK(SeviiLostCave_h)
 ; 6-island
 	db BANK(SeviiSixIslandDock_h)
 	db BANK(SeviiSixIslandPokemonCenterAndMart_h)
 	db BANK(SeviiSixIslandGym_h)
+	db BANK(SeviiRoute38Houses_h)
+	db BANK(SeviiPatternBush_h)
+	db BANK(SeviiAlteringCave_h)
+	db BANK(SeviiDottedHole_h)
 ; 7-island
 	db BANK(SeviiSevenIslandDock_h)
 	db BANK(SeviiSevenIslandPokemonCenterAndMart_h)
 	db BANK(SeviiSevenIslandGym_h)
 	db BANK(SeviiSevenIslandHouses_h)
+	db BANK(SeviiRoute43Caves_h)
+	db BANK(SeviiTanobyChambers_h)
 ; 8-island
 	db BANK(SeviiEightIslandDock_h)
+	db BANK(SeviiEightIslandCave_h)
 	assert_table_length NUM_MAPS_SEVII

@@ -1690,3 +1690,63 @@ INCLUDE "data/maps/headers/SeviiFiveIslandWarehouse.asm"
 INCLUDE "scripts/SeviiFiveIslandWarehouse.asm"
 INCLUDE "data/maps/objects/SeviiFiveIslandWarehouse.asm"
 SeviiFiveIslandWarehouse_Blocks: INCBIN "maps/SeviiFiveIslandWarehouse.blk"
+
+INCLUDE "data/maps/headers/SeviiThreeIslandCaves.asm"
+INCLUDE "scripts/SeviiThreeIslandCaves.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandCaves.asm"
+SeviiThreeIslandCaves_Blocks: INCBIN "maps/SeviiThreeIslandCaves.blk"
+
+INCLUDE "data/maps/headers/SeviiThreeIslandSecretGarden.asm"
+INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
+SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
+
+INCLUDE "data/maps/headers/SeviiBerryForest.asm"
+INCLUDE "scripts/SeviiBerryForest.asm"
+INCLUDE "data/maps/objects/SeviiBerryForest.asm"
+SeviiBerryForest_Blocks: INCBIN "maps/SeviiBerryForest.blk"
+
+INCLUDE "data/maps/headers/SeviiResortGorgeous.asm"
+INCLUDE "scripts/SeviiResortGorgeous.asm"
+INCLUDE "data/maps/objects/SeviiResortGorgeous.asm"
+SeviiResortGorgeous_Blocks: INCBIN "maps/SeviiResortGorgeous.blk"
+
+INCLUDE "data/maps/headers/SeviiLostCave.asm"
+INCLUDE "scripts/SeviiLostCave.asm"
+INCLUDE "data/maps/objects/SeviiLostCave.asm"
+SeviiLostCave_Blocks: INCBIN "maps/SeviiLostCave.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute38Houses.asm"
+INCLUDE "scripts/SeviiRoute38Houses.asm"
+INCLUDE "data/maps/objects/SeviiRoute38Houses.asm"
+SeviiRoute38Houses_Blocks: INCBIN "maps/SeviiRoute38Houses.blk"
+
+INCLUDE "data/maps/headers/SeviiPatternBush.asm"
+INCLUDE "scripts/SeviiPatternBush.asm"
+INCLUDE "data/maps/objects/SeviiPatternBush.asm"
+SeviiPatternBush_Blocks: INCBIN "maps/SeviiPatternBush.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave.asm"
+INCLUDE "scripts/SeviiAlteringCave.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave.asm"
+SeviiAlteringCave_Blocks: INCBIN "maps/SeviiAlteringCave.blk"
+
+INCLUDE "data/maps/headers/SeviiDottedHole.asm"
+INCLUDE "scripts/SeviiDottedHole.asm"
+INCLUDE "data/maps/objects/SeviiDottedHole.asm"
+SeviiDottedHole_Blocks: INCBIN "maps/SeviiDottedHole.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute43Caves.asm"
+INCLUDE "scripts/SeviiRoute43Caves.asm"
+INCLUDE "data/maps/objects/SeviiRoute43Caves.asm"
+SeviiRoute43Caves_Blocks: INCBIN "maps/SeviiRoute43Caves.blk"
+
+INCLUDE "data/maps/headers/SeviiTanobyChambers.asm"
+INCLUDE "scripts/SeviiTanobyChambers.asm"
+INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
+SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
+
+INCLUDE "data/maps/headers/SeviiEightIslandCave.asm"
+INCLUDE "scripts/SeviiEightIslandCave.asm"
+INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
+SeviiEightIslandCave_Blocks: INCBIN "maps/SeviiEightIslandCave.blk"

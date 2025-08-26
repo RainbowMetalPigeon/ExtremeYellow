@@ -49,17 +49,28 @@ InternalMapEntries_Sevii:
 ; 2-island
 	internal_map SEVII_TWO_ISLAND_HOUSES,                           7,  5, TwoIslandName
 ; 3-island
-	internal_map SEVII_THREE_ISLAND_HOUSES,                        14,  3, ThreeIslandName
+	internal_map SEVII_THREE_ISLAND_SECRET_GARDEN,                 14,  3, ThreeIslandName
+	internal_map SEVII_THREE_ISLAND_CAVES,                         15,  4, ThreeIslandCavesName
+	internal_map SEVII_BERRY_FOREST,                               12,  3, BerryForestName
 ; 4-island
 	internal_map SEVII_FOUR_ISLAND_HOUSES,                          2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
 ; 5-island
 	internal_map SEVII_FIVE_ISLAND_HOUSES,                          8,  9, FiveIslandName
 	internal_map SEVII_FIVE_ISLAND_WAREHOUSE,                       9, 10, FiveIslandWarehouseName
+	internal_map SEVII_RESORT_GORGEOUS,                             9,  7, Route35Name
+	internal_map SEVII_LOST_CAVE,                                  10,  7, LostCaveName
 ; 6-island
 	internal_map SEVII_SIX_ISLAND_GYM,                             14, 11, SixIslandName
+	internal_map SEVII_ROUTE_38_HOUSES,                            15,  9, Route38Name
+	internal_map SEVII_PATTERN_BUSH,                               14,  9, PatternBushName
+	internal_map SEVII_ALTERING_CAVE,                              15,  7, AlteringCaveName
 ; 7-island
+	internal_map SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,        4, 12, SevenIslandName
+	internal_map SEVII_SEVEN_ISLAND_GYM,                            4, 11, Route41Name
 	internal_map SEVII_SEVEN_ISLAND_HOUSES,                         4, 12, SevenIslandName
+	internal_map SEVII_ROUTE_43_CAVES,                              5, 14, Route43Name
+	internal_map SEVII_TANOBY_CHAMBERS,                             7, 15, TanobyChambersName
 ; 8-island
-	internal_map SEVII_EIGHT_ISLAND_DOCK,                          11, 15, EightIslandName
+	internal_map SEVII_EIGHT_ISLAND_CAVE,                          11, 15, EightIslandName
 	db -1 ; end
