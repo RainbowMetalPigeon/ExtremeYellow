@@ -6,7 +6,10 @@
 
 	const_def							   ; equivalent to "const_value=0"
 ; cities
-	const HS_SEVII_ONE_ISLAND_CITY_1       ; TBE
+	const HS_SEVII_ONE_ISLAND_CITY_CELIO
+	const HS_SEVII_ONE_ISLAND_CITY_JENNY
+	const HS_SEVII_ONE_ISLAND_CITY_ITEM_1
+	const HS_SEVII_ONE_ISLAND_CITY_ITEM_2
 	const HS_SEVII_TWO_ISLAND_CITY_1       ; TBE
 	const HS_SEVII_THREE_ISLAND_CITY_1     ; TBE
 	const HS_SEVII_FOUR_ISLAND_CITY_1      ; TBE

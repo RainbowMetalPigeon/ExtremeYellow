@@ -138,9 +138,9 @@ _ObsidianIslandText13_Citizen4::
 
 _ObsidianIslandTextWelcome::
 	text "OBSIDIAN ISLAND"
-	line "The crossroad"
-	cont "between progress"
-	cont "and respect"
+	line "The Crossroad"
+	cont "Between Progress"
+	cont "and Respect"
 	done
 
 _ObsidianIslandTextPier::

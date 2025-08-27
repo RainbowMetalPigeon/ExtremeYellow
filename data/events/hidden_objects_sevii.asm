@@ -1,6 +1,6 @@
 HiddenObjectMaps_Sevii:
 ; cities
-	dbw SEVII_ONE_ISLAND_CITY,                           SeviiOneIslandCityHiddenObjects ; TBE
+	dbw SEVII_ONE_ISLAND_CITY,                           SeviiOneIslandCityHiddenObjects
 	dbw SEVII_TWO_ISLAND_CITY,                           SeviiTwoIslandCityHiddenObjects ; TBE
 	dbw SEVII_THREE_ISLAND_CITY,                         SeviiThreeIslandCityHiddenObjects ; TBE
 	dbw SEVII_FOUR_ISLAND_CITY,                          SeviiFourIslandCityHiddenObjects ; TBE
@@ -80,11 +80,9 @@ SeviiSevenIslandPokemonCenterAndMartHiddenObjects:
 ; TBE --------------------------------------------------------------------
 
 SeviiOneIslandCityHiddenObjects:
-	hidden_object 15, 15, ELIXER, HiddenItems
-	hidden_object  4,  0, SPRITE_FACING_UP, DisplayOakLabLeftPoster
-	hidden_object  5,  0, SPRITE_FACING_UP, DisplayOakLabRightPoster
-	hidden_object  0,  1, SPRITE_FACING_UP, DisplayOakLabEmailText
-	hidden_object  1,  1, SPRITE_FACING_UP, DisplayOakLabEmailText
+	hidden_object  6,  6, MAX_ELIXER, HiddenItems
+	hidden_object 19,  5, FULL_RESTORE, HiddenItems
+	hidden_object  3, 32, IRON, HiddenItems
 	db -1 ; end
 
 SeviiTwoIslandCityHiddenObjects:

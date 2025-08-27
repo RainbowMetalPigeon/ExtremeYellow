@@ -12,13 +12,21 @@ SeviiOneIslandCity_Object:
 	warp_event 37, 11, SEVII_ONE_ISLAND_HOUSES, 5
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event 29, 23, 11 ; SeviiOneIslandCitySignText1
+	bg_event 20, 24, 12 ; SeviiOneIslandCitySignText2
+	bg_event 29, 14, 13 ; SeviiOneIslandCitySignText3
+	bg_event 35, 19, 14 ; SeviiOneIslandCitySignText4
 
 	def_object_events
-	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 27, 21, SPRITE_SUPER_NERD, STAY, LEFT, 1 ; Celio
+	object_event 26, 21, SPRITE_OFFICER_JENNY, STAY, RIGHT, 2
+	object_event 20, 23, SPRITE_ERIKA, WALK, ANY_DIR, 3
+	object_event 14, 18, SPRITE_YOUNGSTER, WALK, UP_DOWN, 4
+	object_event 19, 15, SPRITE_GIRL, WALK, UP_DOWN, 5
+	object_event 27, 15, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 6
+	object_event 32, 17, SPRITE_ERIKA, WALK, ANY_DIR, 7
+	object_event 17, 32, SPRITE_SWIMMER, WALK, ANY_DIR, 8
+	object_event 16,  6, SPRITE_POKE_BALL, STAY, NONE, 9, RARE_CANDY
+	object_event 36,  4, SPRITE_POKE_BALL, STAY, NONE, 10, ETHER
 
 	def_warps_to SEVII_ONE_ISLAND_CITY

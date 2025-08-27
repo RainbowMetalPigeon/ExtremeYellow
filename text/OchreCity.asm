@@ -207,9 +207,9 @@ _OchreCity_Scolded::
 
 _OchreCity_SignCity::
 	text "OCHRE CITY"
-	line "The place where"
-	cont "both nature and"
-	cont "desires flourish!"
+	line "The Place Where"
+	cont "Both Nature and"
+	cont "Desires Flourish!"
 	done
 
 _OchreCity_SignGym::

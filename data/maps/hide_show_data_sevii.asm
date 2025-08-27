@@ -98,7 +98,10 @@ MissableObjects_Sevii:
 ; cities ----------------------------------
 
 SeviiOneIslandCityHS:
-	db SEVII_ONE_ISLAND_CITY, 1, SHOW
+	db SEVII_ONE_ISLAND_CITY,  1, SHOW
+	db SEVII_ONE_ISLAND_CITY,  2, SHOW
+	db SEVII_ONE_ISLAND_CITY,  9, SHOW
+	db SEVII_ONE_ISLAND_CITY, 10, SHOW
 SeviiTwoIslandCityHS:
 	db SEVII_TWO_ISLAND_CITY, 1, SHOW
 SeviiThreeIslandCityHS:

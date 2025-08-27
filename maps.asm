@@ -1618,6 +1618,9 @@ INCLUDE "scripts/SeviiOneIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandHouses.asm"
 SeviiOneIslandHouses_Blocks: INCBIN "maps/SeviiOneIslandHouses.blk"
 
+
+SECTION "Maps Sevii 2", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiTwoIslandHouses.asm"
 INCLUDE "scripts/SeviiTwoIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandHouses.asm"
@@ -1627,9 +1630,6 @@ INCLUDE "data/maps/headers/SeviiThreeIslandHouses.asm"
 INCLUDE "scripts/SeviiThreeIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandHouses.asm"
 SeviiThreeIslandHouses_Blocks: INCBIN "maps/SeviiThreeIslandHouses.blk"
-
-
-SECTION "Maps Sevii 2", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiFourIslandHouses.asm"
 INCLUDE "scripts/SeviiFourIslandHouses.asm"
