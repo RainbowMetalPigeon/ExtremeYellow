@@ -106,7 +106,8 @@
 	const EVENT_BEAT_SEVII_ROUTE_34_TRAINER_3 ; new
 	const EVENT_BEAT_SEVII_ROUTE_34_TRAINER_4 ; new
 	const EVENT_GOT_PEWTER_REPELS ; new
-	const_skip 2 ; edited, was 8
+	const_skip 1 ; edited, was 8
+	const EVENT_GAVE_DRINK_TO_WEATHER_TUTOR ; new
 	const EVENT_BEAT_BROCK_REMATCH ; new
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_0
 	const EVENT_BEAT_PEWTER_GYM_TRAINER_1

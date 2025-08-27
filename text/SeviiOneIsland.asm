@@ -50,7 +50,6 @@ _SeviiOneIslandCitySignText1::
 _SeviiOneIslandCitySignText2::
 	text "South: ROUTE 32,"
 	line "TREASURE BEACH"
-;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandCitySignText3::
@@ -68,16 +67,41 @@ _SeviiOneIslandCitySignText4::
 	cont "MT EMBER"
 	done
 
+_SeviiOneIslandHousesText1_RequestDrink::
+	text "Rain or shine, a"
+	line "good drink makes"
+	cont "any weather nice."
+
+	para "I've heard of some"
+	line "special drinks"
+	cont "only sold in"
+	cont "KANTO. I'd really"
+	cont "like to try one!"
+	done
+
+_SeviiOneIslandHousesText1_ThanksForTheDrink::
+	text "Oh! Is it for me?"
+	line "Cheers!"
+
+	para "I know! To thank"
+	line "you, I can teach"
+	cont "your #MON a"
+	cont "weather move!"
+	done
+
 _SeviiOneIslandHousesText1_Question::
-	text "Wanna learn?"
+	text "Which weather move"
+	line "interests you?"
 	done
 
 _SeviiOneIslandHousesText1_Refused::
-	text "Too bad..."
+	text "Come back anytime!"
 	done
 
 _SeviiOneIslandHousesText1_Done::
-	text "Done!"
+	text "Here we are."
+	line "Feel free to"
+	cont "visit whenever!"
 	done
 
 _SeviiOneIslandPokemonCenterAndMart_Text1::

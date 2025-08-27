@@ -12,6 +12,23 @@ SeviiOneIslandHouses_TextPointers:
 SeviiOneIslandHousesText1:
 	text_asm
 	call SaveScreenTilesToBuffer2 ; this must always be here before calling Tutor, and should always be at a point when text is not on the screen
+	CheckEvent EVENT_GAVE_DRINK_TO_WEATHER_TUTOR
+	jr nz, .alreadyGaveDrink
+; still haven't given drink
+	ld hl, SeviiOneIslandHousesText1_RequestDrink
+	call PrintText
+; check if we have the drink
+	call RemoveWeatherTutorDrink
+	ldh a, [hItemToRemoveID]
+	and a
+	jr z, .done ; we have no drink
+; we have the drink and we gave one
+	SetEvent EVENT_GAVE_DRINK_TO_WEATHER_TUTOR
+	call WaitForTextScrollButtonPress
+	ld hl, SeviiOneIslandHousesText1_ThanksForTheDrink
+	call PrintText
+	call WaitForTextScrollButtonPress
+.alreadyGaveDrink
 	ld hl, SeviiOneIslandHousesText1_Question
 	call PrintText
 ;	call YesNoChoice
@@ -50,6 +67,14 @@ SeviiOneIslandHousesText1:
 	call PrintText
 .done
 	jp TextScriptEnd
+
+SeviiOneIslandHousesText1_RequestDrink:
+	text_far _SeviiOneIslandHousesText1_RequestDrink
+	text_end
+
+SeviiOneIslandHousesText1_ThanksForTheDrink:
+	text_far _SeviiOneIslandHousesText1_ThanksForTheDrink
+	text_end
 
 SeviiOneIslandHousesText1_Question:
 	text_far _SeviiOneIslandHousesText1_Question
@@ -94,3 +119,22 @@ MoveTutorWeatherChoice:
 	ld a, 4
 	ld [wCurrentMenuItem], a
 	jp LoadScreenTilesFromBuffer1
+
+RemoveWeatherTutorDrink::
+	ld hl, WeatherTutorDrinkList
+.drinkLoop
+	ld a, [hli]
+	ldh [hItemToRemoveID], a
+	and a
+	ret z
+	push hl
+	ld b, a
+	call IsItemInBag
+	pop hl
+	jr z, .drinkLoop
+	farjp RemoveItemByID
+
+WeatherTutorDrinkList:
+	db COFFEE
+	db BEER
+	db 0 ; end
