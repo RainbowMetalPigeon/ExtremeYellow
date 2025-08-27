@@ -114,6 +114,9 @@ ItemNames::
 	li "AMULET COIN" ; new
 	li "SEVII TICKET" ; new
 	li "PEARL" ; new
+	li "COFFEE" ; new
+	li "BEER" ; new
+
 	assert_list_length NUM_ITEMS
 	li "B2F"
 	li "B1F"

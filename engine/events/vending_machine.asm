@@ -9,22 +9,22 @@ VendingMachineMenu::
 	ld [wLastMenuItem], a
 	ld a, A_BUTTON | B_BUTTON
 	ld [wMenuWatchedKeys], a
-	ld a, 3
+	ld a, 5 ; edited
 	ld [wMaxMenuItem], a
-	ld a, 5
+	ld a, 6 ; edited
 	ld [wTopMenuItemY], a
 	ld a, 1
 	ld [wTopMenuItemX], a
 	ld hl, wd730
 	set 6, [hl]
-	hlcoord 0, 3
-	lb bc, 8, 12
-	call TextBoxBorder
+	hlcoord 0, 4 ; edited
+	lb bc, 12, 12 ; edited
+	call TextBoxBorder ; Draw a c×b text box at hl
 	call UpdateSprites
-	hlcoord 2, 5
+	hlcoord 2, 6 ; edited
 	ld de, DrinkText
 	call PlaceString
-	hlcoord 9, 6
+	hlcoord 9, 7 ; edited
 	ld de, DrinkPriceText
 	call PlaceString
 	ld hl, wd730
@@ -33,7 +33,7 @@ VendingMachineMenu::
 	bit BIT_B_BUTTON, a
 	jr nz, .notThirsty
 	ld a, [wCurrentMenuItem]
-	cp 3 ; chose Cancel?
+	cp 5 ; chose Cancel? ; edited
 	jr z, .notThirsty
 	xor a
 	ldh [hMoney], a
@@ -87,12 +87,16 @@ DrinkText:
 	db   "FRESH WATER"
 	next "SODA POP"
 	next "LEMONADE"
+	next "COFFEE" ; new
+	next "BEER" ; new
 	next "CANCEL@"
 
 DrinkPriceText:
 	db   "¥200"
 	next "¥300"
 	next "¥350"
+	next "¥450" ; new
+	next "¥600" ; new
 	next "@"
 
 VendingMachineText4:

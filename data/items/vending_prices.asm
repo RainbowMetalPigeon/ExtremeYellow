@@ -8,3 +8,5 @@ VendingPrices:
 	vend_item FRESH_WATER, 200
 	vend_item SODA_POP,    300
 	vend_item LEMONADE,    350
+	vend_item COFFEE,      450 ; new
+	vend_item BEER,        600 ; new

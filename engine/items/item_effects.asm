@@ -131,6 +131,8 @@ ItemUsePtrTable:
 	dw UnusableItem      ; AMULET_COIN, new
 	dw ItemReadSeviiTicket ; SEVII_TICKET, new
 	dw UnusableItem      ; PEARL, new
+	dw ItemUseMedicine   ; COFFEE, new ; ItemUseXStat
+	dw ItemUseMedicine   ; BEER, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -1608,11 +1610,20 @@ ItemUseMedicine:
 	cp SODA_POP
 	ld b, 60 ; Soda Pop heal amount
 	jr z, .addHealAmount
+	cp LEMONADE ; new
 	ld b, 80 ; Lemonade heal amount
-	jr nc, .addHealAmount
+	jr z, .addHealAmount ; edited
 	cp FRESH_WATER
 	ld b, 50 ; Fresh Water heal amount
 	jr z, .addHealAmount
+; new
+	cp COFFEE
+	ld b, 70
+	jr z, .addHealAmount
+	cp BEER
+	ld b, 40
+	jr z, .addHealAmount
+; BTV
 	cp SUPER_POTION
 	ld b, 200 ; Hyper Potion heal amount
 	jr c, .addHealAmount
@@ -1704,7 +1715,56 @@ ItemUseMedicine:
 	ld [wBattleMonHP + 1], a
 	ld a, [wcf91]
 	cp FULL_RESTORE
+; new
+	jr z, .handleFullRestore
+	cp COFFEE
+	jr z, .handleCoffe
+	cp BEER
+	jr z, .handleBeer
+; BTV
 	jr nz, .calculateHPBarCoords
+; new
+.handleCoffe ; confuse and rise speed if it's the active mon and wakes up
+	; wake up
+	ld hl, wBattleMonStatus
+	ld a, [hl]
+	and %11111000 ; anti-SLP_MASK
+	ld [hl], a
+	; confuse
+	ld hl, wPlayerBattleStatus1
+	set CONFUSED, [hl]
+	; raise speed
+	ld hl, wPlayerMonSpeedMod
+	ld a, [hl]
+	cp 13 ; max modifier
+	jr nc, .calculateHPBarCoords ; do nothing in this case
+	inc a
+	ld [hl], a
+	jr .calculateHPBarCoords
+.handleBeer ; poison and rise evasione if it's the active mon
+	; poison
+	ld hl, wBattleMonStatus
+	bit PSN, [hl]
+	jr nz, .applyToxic ; worsen the poison if already poisoned
+	ld a, [hl]
+	and a
+	jr nz, .increaseEvasion ; don't poison if already statused
+	set PSN, [hl]
+	jr .increaseEvasion
+.applyToxic
+	ld hl, wPlayerBattleStatus3
+	set BADLY_POISONED, [hl]
+.increaseEvasion
+	; increase evasion
+	ld hl, wPlayerMonEvasionMod
+	ld a, [hl]
+	cp 13 ; max modifier
+	jr nc, .calculateHPBarCoords ; do nothing in this case
+	inc a
+	ld [hl], a
+	jr .calculateHPBarCoords
+.handleFullRestore
+; BTV
 	xor a
 	ld [wBattleMonStatus], a ; remove the status ailment in the in-battle pokemon data
 .calculateHPBarCoords

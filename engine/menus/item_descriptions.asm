@@ -242,6 +242,10 @@ ItemDescriptionPointers:
 	text_end
 	text_far _PearlDescription			; PEARL
 	text_end
+	text_far _CoffeeDescription			; COFFEE
+	text_end
+	text_far _BeerDescription			; BEER
+	text_end
 
 ; HMs
 

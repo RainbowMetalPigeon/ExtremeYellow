@@ -49,4 +49,6 @@ UsableItems_PartyMenu:
 	db CHROMOGENE   ; new
 	db LINK_CABLE   ; new
 	db CHEAT_CANDY  ; new
+	db COFFEE       ; new
+	db BEER         ; new
 	db -1 ; end

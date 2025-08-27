@@ -481,8 +481,18 @@ _SeviiTicketDescription::
 
 _PearlDescription::
 	text "Fabolous pearl."
-;	xxxx "123456789012345678"
 	next "Sought by some."
+	prompt
+
+_CoffeeDescription::
+	text "HP +70. Speed +1."
+	next "Confuses user."
+	prompt
+
+_BeerDescription::
+	text "HP +40. Evasion"
+;	xxxx "123456789012345678"
+	next "+1. Poisons user."
 	prompt
 
 _CheatCandyDescription::

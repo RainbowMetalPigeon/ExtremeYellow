@@ -114,6 +114,9 @@ ItemPrices::
 	bcd3 0     ; AMULET_COIN
 	bcd3 0     ; SEVII_TICKET
 	bcd3 0     ; PEARL
+	bcd3 450   ; COFFEE
+	bcd3 600   ; BEER
+
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
 	bcd3 0     ; FLOOR_B1F

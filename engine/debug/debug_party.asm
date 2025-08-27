@@ -271,6 +271,8 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db BEER, 5
+	db COFFEE, 5
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1
     db PERFECTER, 99
