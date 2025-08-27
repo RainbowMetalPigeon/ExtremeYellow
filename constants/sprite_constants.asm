@@ -108,6 +108,7 @@
 	const SPRITE_BLAINE                  ; new
 	const SPRITE_ORAGE                   ; new
 	const SPRITE_DIVER                   ; new
+	const SPRITE_TAUROS                  ; new
 
 ; TBE
 	const SPRITE_PROTON                  ; new

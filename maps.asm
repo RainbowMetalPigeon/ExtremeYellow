@@ -1613,13 +1613,13 @@ INCLUDE "scripts/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandPokemonCenter.asm"
 SeviiTwoIslandPokemonCenter_Blocks: INCBIN "maps/SeviiPokemonCenter.blk"
 
+
+SECTION "Maps Sevii 2", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiOneIslandHouses.asm"
 INCLUDE "scripts/SeviiOneIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiOneIslandHouses.asm"
 SeviiOneIslandHouses_Blocks: INCBIN "maps/SeviiOneIslandHouses.blk"
-
-
-SECTION "Maps Sevii 2", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiTwoIslandHouses.asm"
 INCLUDE "scripts/SeviiTwoIslandHouses.asm"

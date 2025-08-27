@@ -1,6 +1,9 @@
 # Mac stuff
 *DS_Store
 
+# Windows-WSL stuff
+*:Zone.Identifier
+
 # python stuff
 tools/__pycache__/*
 tools/__pycache__/png.cpython-310.pyc

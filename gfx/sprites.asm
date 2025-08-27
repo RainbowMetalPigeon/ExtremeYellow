@@ -126,6 +126,7 @@ TrophyBFSprite::         INCBIN "gfx/sprites/trophy_bf.2bpp"
 DadSprite::              INCBIN "gfx/sprites/dad.2bpp"
 BluesDadSprite::         INCBIN "gfx/sprites/bluesdad.2bpp"
 BluesMomSprite::         INCBIN "gfx/sprites/bluesmom.2bpp"
+TaurosSprite::           INCBIN "gfx/sprites/tauros.2bpp"
 
 ; TBE
 ProtonSprite::

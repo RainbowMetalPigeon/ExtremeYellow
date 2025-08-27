@@ -18,8 +18,8 @@ SeviiOneIslandCity_Object:
 	bg_event 35, 19, 14 ; SeviiOneIslandCitySignText4
 
 	def_object_events
-	object_event 27, 21, SPRITE_SUPER_NERD, STAY, LEFT, 1 ; Celio
-	object_event 26, 21, SPRITE_OFFICER_JENNY, STAY, RIGHT, 2
+	object_event 27, 22, SPRITE_SUPER_NERD, STAY, LEFT, 1 ; Celio
+	object_event 26, 22, SPRITE_OFFICER_JENNY, STAY, RIGHT, 2
 	object_event 20, 23, SPRITE_ERIKA, WALK, ANY_DIR, 3
 	object_event 14, 18, SPRITE_YOUNGSTER, WALK, UP_DOWN, 4
 	object_event 19, 15, SPRITE_GIRL, WALK, UP_DOWN, 5

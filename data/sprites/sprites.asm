@@ -113,6 +113,7 @@ SpriteSheetPointerTable:
 	overworld_sprite BlaineSprite, 12           ; SPRITE_BLAINE ; new
 	overworld_sprite OrageSprite, 12            ; SPRITE_ORAGE ; new
 	overworld_sprite DiverSprite, 12            ; SPRITE_DIVER ; new
+	overworld_sprite TaurosSprite, 12           ; SPRITE_TAUROS ; new
 
 ; TBE
 	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON ; new
