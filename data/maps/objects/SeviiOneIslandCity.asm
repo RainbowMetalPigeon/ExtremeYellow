@@ -14,8 +14,9 @@ SeviiOneIslandCity_Object:
 	def_bg_events
 	bg_event 29, 23, 11 ; SeviiOneIslandCitySignText1
 	bg_event 20, 24, 12 ; SeviiOneIslandCitySignText2
-	bg_event 29, 14, 13 ; SeviiOneIslandCitySignText3
+	bg_event 29, 15, 13 ; SeviiOneIslandCitySignText3
 	bg_event 35, 19, 14 ; SeviiOneIslandCitySignText4
+	bg_event 35, 15, 15 ; SeviiOneIslandCitySignText5
 
 	def_object_events
 	object_event 27, 22, SPRITE_SUPER_NERD, STAY, LEFT, 1 ; Celio

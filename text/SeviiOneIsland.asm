@@ -67,6 +67,30 @@ _SeviiOneIslandCitySignText4::
 	cont "MT EMBER"
 	done
 
+_SeviiOneIslandCitySignText5::
+	text "CELIO's house"
+	done
+
+_SeviiOneIslandCityScriptText1::
+	text "CELIO: nani"
+
+	para "JENNY: nana"
+
+	para "CELIO: nanu"
+
+	para "JENNY: nano"
+	done
+
+_SeviiOneIslandCityScriptText2::
+	text "I'm desperate"
+	done
+
+_SeviiOneIslandCityScriptText3::
+	text "Plz help"
+	done
+
+; city's indoor ------------------------------------
+
 _SeviiOneIslandHousesText1_RequestDrink::
 	text "Rain or shine, a"
 	line "good drink makes"

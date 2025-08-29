@@ -1608,13 +1608,13 @@ SeviiFourIslandPokemonCenterAndMart_Blocks:
 SeviiThreeIslandPokemonCenterAndMart_Blocks:
 SeviiOneIslandPokemonCenterAndMart_Blocks: INCBIN "maps/SeviiPokemonCenterAndMart.blk"
 
+
+SECTION "Maps Sevii 2", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "scripts/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandPokemonCenter.asm"
 SeviiTwoIslandPokemonCenter_Blocks: INCBIN "maps/SeviiPokemonCenter.blk"
-
-
-SECTION "Maps Sevii 2", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiOneIslandHouses.asm"
 INCLUDE "scripts/SeviiOneIslandHouses.asm"
