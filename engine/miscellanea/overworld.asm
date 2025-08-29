@@ -666,22 +666,27 @@ ForceBikeDown:: ; moved from home/overworld
 ; ===========================================================
 
 RespawnAllRockSmashableRocks::
+	CheckEvent EVENT_IN_SEVII
+	jr z, .handleKanto
+
 	ld hl, RockSmashableRocks_Sevii
 .showLoopSevii
 	ld a, [hli]
-	cp $ff ; have we run out of citizens to show?
-	jr z, .kantoBase ; ret z ; if so, we're done here
+	cp $ff ; have we run out of rocks to respawn?
+	ret z ; if so, we're done here
 	push hl
 	ld [wMissableObjectIndex], a
 	predef ShowObjectSevii
 	pop hl
 	jr .showLoopSevii
 	
+.handleKanto
+
 .kantoBase
 	ld hl, RockSmashableRocks_KantoBase
 .showLoopKantoBase
 	ld a, [hli]
-	cp $ff ; have we run out of citizens to show?
+	cp $ff ; have we run out of rocks to respawn?
 	jr z, .kantoExtra ; ret z ; if so, we're done here
 	push hl
 	ld [wMissableObjectIndex], a
@@ -693,7 +698,7 @@ RespawnAllRockSmashableRocks::
 	ld hl, RockSmashableRocks_KantoExtra
 .showLoopKantoExtra
 	ld a, [hli]
-	cp $ff ; have we run out of citizens to show?
+	cp $ff ; have we run out of rocks to respawn?
 	ret z ; if so, we're done here
 	push hl
 	ld [wMissableObjectIndex], a

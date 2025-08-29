@@ -630,7 +630,6 @@ CheckMapConnections::
 	farcall CheckWestMap ; edited, from Vortiene, moved away this check to another bank to save a lot of space in home
 	jr nz, .didNotEnterConnectedMap ; new
 .loadNewMap ; load the connected map that was entered
-	callfar RespawnAllRockSmashableRocks ; new
 	ld hl, wCurrentMapScriptFlags ; new, from Vortiene
 	set 4, [hl] ; new, from PureRGBnote: ADDED: flag to indicate we crossed between maps by walking in the overworld
 	ld hl, wPikachuOverworldStateFlags
@@ -643,6 +642,7 @@ CheckMapConnections::
 	call RunPaletteCommand
 ; Since the sprite set shouldn't change, this will just update VRAM slots at
 ; x#SPRITESTATEDATA2_IMAGEBASEOFFSET without loading any tile patterns.
+	callfar RespawnAllRockSmashableRocks ; new
 	call InitMapSprites
 	call LoadTileBlockMap
 	jp OverworldLoopLessDelay
