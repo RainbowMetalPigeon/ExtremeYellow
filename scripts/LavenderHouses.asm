@@ -78,7 +78,7 @@ LavenderHouse1Text5:
 	text_asm
 	CheckEvent EVENT_GOT_POKE_FLUTE
 	jr nz, .got_item_flute
-	ld hl, LavenderHouse1Text_1d94c
+	ld hl, LavenderHouse1Text_BeforeGivingFlute
 	call PrintText
 	lb bc, POKE_FLUTE, 1
 	call GiveItem
@@ -109,8 +109,8 @@ LavenderHouse1Text5:
 .done
 	jp TextScriptEnd
 
-LavenderHouse1Text_1d94c:
-	text_far _LavenderHouse1Text_1d94c
+LavenderHouse1Text_BeforeGivingFlute:
+	text_far _LavenderHouse1Text_BeforeGivingFlute
 	text_end
 
 LavenderHouse1Text_MegaStone: ; new

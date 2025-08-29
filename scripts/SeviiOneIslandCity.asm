@@ -49,7 +49,6 @@ SeviiOneIslandCityScript0:
 ; prepare for and apply movement for Jenny
 	ld a, 2
 	ldh [hSpriteIndex], a
-	call SetSpriteMovementBytesToFF
 ; determine which movement to apply depending on player's position
 	ld a, [wXCoord]
 	cp 26 ; left side
@@ -69,9 +68,9 @@ SeviiOneIslandCity_Coordinates_CelioJennyDialogue:
 	db -1 ; end
 
 JennyLeavesIfPlayerOnLeftMovements:
-	db NPC_FAST_MOVEMENT_DOWN
-	db NPC_FAST_MOVEMENT_RIGHT
-	db NPC_FAST_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_DOWN
 	db NPC_FAST_MOVEMENT_DOWN
 	db NPC_FAST_MOVEMENT_DOWN
 	db NPC_FAST_MOVEMENT_DOWN
@@ -80,8 +79,8 @@ JennyLeavesIfPlayerOnLeftMovements:
 	db -1 ; end
 
 JennyLeavesIfPlayerOnRightMovements:
-	db NPC_FAST_MOVEMENT_DOWN
-	db NPC_FAST_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
 	db NPC_FAST_MOVEMENT_DOWN
 	db NPC_FAST_MOVEMENT_DOWN
 	db NPC_FAST_MOVEMENT_DOWN
@@ -98,11 +97,14 @@ SeviiOneIslandCityScript1:
 	jr z, .jennyMovementsOver
 ; turn player accordingly to follow Jenny
 	ld a, [wNPCNumScriptedSteps]
-	cp 7
+	cp 6
 	jr z, .turnCelio
 	cp 5
 	ld a, SPRITE_FACING_DOWN
 	jr c, .applyPlayerFacing
+	jr z, .lookSide
+	ld a, SPRITE_FACING_UP
+	jr .applyPlayerFacing
 .lookSide
 	ld a, [wXCoord]
 	cp 26 ; left side
@@ -115,10 +117,8 @@ SeviiOneIslandCityScript1:
 .turnCelio
 	ld a, 1
 	ldh [hSpriteIndex], a
-	ld a, SPRITE_FACING_DOWN
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirection
-	call SetSpriteMovementBytesToFF
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new fancy approach from Engeze
 	ret
 .jennyMovementsOver
 ; hide Jenny
@@ -133,7 +133,6 @@ SeviiOneIslandCityScript1:
 	call SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore ; call DisplayTextID
 	ld a, 1
 	ldh [hSpriteIndex], a
-	call SetSpriteMovementBytesToFF
 ; determine which movement to apply depending on player's position
 	ld a, [wXCoord]
 	cp 26 ; left side
@@ -183,7 +182,6 @@ SeviiOneIslandCityScript2:
 	call SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore ; call DisplayTextID
 	ld a, 1
 	ldh [hSpriteIndex], a
-	call SetSpriteMovementBytesToFF
 	ld de, CelioLeavesMovements
 	call MoveSprite ; hSpriteIndex already set
 ; load next script

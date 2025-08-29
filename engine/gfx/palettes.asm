@@ -715,6 +715,8 @@ GetPal_Pikachu::
 	jr z, .cave
 ; check by map
 	ld a, [wCurMap]
+	cp SEVII_ONE_ISLAND_DOCK
+	jr z, .oneIslandDock
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
 ;	cp CERULEAN_CAVE_2F ; TBE
@@ -745,6 +747,9 @@ GetPal_Pikachu::
 	jr c, .frozen
 ; normal cave
 	ld a, PAL_SEVII_CAVE - 1
+	jr .townSevii
+.oneIslandDock
+	ld a, PAL_SEVII_ONE_ISLAND - 1
 	jr .townSevii
 .frozen
 	ld a, PAL_SEVII_CYANMON - 1

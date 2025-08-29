@@ -72,14 +72,44 @@ _SeviiOneIslandCitySignText5::
 	done
 
 _SeviiOneIslandCityScriptText1::
-	text "CELIO: nani"
-
-	para "JENNY: nana"
-
-	para "CELIO: nanu"
-
-	para "JENNY: nano"
+	text "TBE"
 	done
+
+;	text "JENNY: CELIO, I"
+;	line "must ask you to"
+;	cont "stay calm."
+;
+;	para "CELIO: Calm?!"
+;	line "My kid has been"
+;	cont "kidnapped, and"
+;	cont "you ask me to"
+;	cont "stay calm?!"
+;
+;	para "JENNY: Rage will"
+;	line "not bring MAYOI"
+;	cont "back any faster."
+;	cont "Leave this to us"
+;	cont "professionals,"
+;	cont "I assure you we'll"
+;	cont "find your kid"
+;	cont "in no time."
+;
+;	para "CELIO: You've been"
+;	line "saying this for"
+;	cont "who know how"
+;	cont "long now, and"
+;	cont "MAYOI is still"
+;	cont "in TEAM ROCKET's"
+;	cont "hands!"
+;
+;	para "JENNY: Don't worry."
+;	line "We're working hard"
+;	cont "on this case."
+;
+;	para "Now, if you excuse"
+;	line "me, I have to go"
+;	cont "back to work."
+;	done
 
 _SeviiOneIslandCityScriptText2::
 	text "I'm desperate"
@@ -128,6 +158,72 @@ _SeviiOneIslandHousesText1_Done::
 	cont "visit whenever!"
 	done
 
+_SeviiOneIslandHousesText2_BeforeRescue::
+	text "ROCKETS want me"
+	line "to work for them"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText2_AfterRescueBeforeFlute::
+	text "Thanks so so so"
+	line "much! Flute"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText2_NoRoom::
+	text "Oh, you have no"
+	line "room for this."
+	
+	para "Please make space,"
+	line "I must thank you!"
+	done
+
+_SeviiOneIslandHousesText2_AfterFlute::
+	text "bill my friend"
+	done
+
+_SeviiOneIslandHousesText3::
+	text "MAYOI: thansk!"
+	line "backyard"
+;	xxxx "123456789012345678"
+	done
+
+_FluteExplanationText::
+	text_start
+	para "Upon hearing #"
+	line "FLUTE, sleeping"
+	cont "#MON will"
+	cont "spring awake."
+
+	para "It works on all"
+	line "sleeping #MON."
+	done
+
+_SeviiOneIslandHousesSignText1::
+	text "Crumpled forecasts"
+	line "from yesterday."
+	done
+
+_SeviiOneIslandHousesSignText2::
+	text "A manual about"
+	line "networks."
+
+	para "Looks really"
+	line "complicated!"
+	done
+
+_SeviiOneIslandHousesSignText3::
+	text "Green tea."
+	
+	para "It turned cold."
+	done
+
+_SeviiOneIslandHousesSignText4::
+	text "A histogram, a"
+	line "graph, and tons"
+	cont "of lines of code!"
+	done
+
 _SeviiOneIslandPokemonCenterAndMart_Text1::
 	text "test 1-1"
 	done
@@ -149,6 +245,16 @@ _SeviiOneIslandPokemonCenterAndMart_Text4::
 _SeviiOneIslandDockBgText1::
 	text "KNOT ISLAND"
 	line "SHIP PORT"
+	done
+
+_SeviiOneIslandDockSailorText_NeedAMoment::
+	text "Sorry, the need to"
+	line "refuel the ferry,"
+	cont "we can't set sail"
+	cont "just yet."
+
+	para "Come back in"
+	line "a moment!"
 	done
 
 ; route 32 ------------------------------------

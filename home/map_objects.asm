@@ -279,24 +279,30 @@ DecodeRLEList::
 	ret
 
 ; sets movement byte 1 for sprite [hSpriteIndex] to $FE and byte 2 to [hSpriteMovementByte2]
-SetSpriteMovementBytesToFE::
-	push hl
-	call GetSpriteMovementByte1Pointer
-	ld [hl], $fe
-	call GetSpriteMovementByte2Pointer
+SetSpriteMovementBytesToFE:: ; edited, suggestion from Engeze
+	push bc
+	ld b, $fe
 	ldh a, [hSpriteMovementByte2]
-	ld [hl], a
-	pop hl
-	ret
+	ld c, a
+	jr SetSpriteMovementBytes
 
 ; sets both movement bytes for sprite [hSpriteIndex] to $FF
-SetSpriteMovementBytesToFF::
+SetSpriteMovementBytesToFF:: ; eidted, suggestion from Engeze
+	push bc
+	lb bc, STAY, NONE
+	jr SetSpriteMovementBytes
+
+ChangeSpriteMovementBytes:: ; new, suggestion from Engeze
+	push bc
+	; fallthrough
+SetSpriteMovementBytes:: ; new, suggestion from Engeze
 	push hl
 	call GetSpriteMovementByte1Pointer
-	ld [hl], $FF
+	ld [hl], b ; with the FF function, it's STAY
 	call GetSpriteMovementByte2Pointer
-	ld [hl], $FF ; prevent person from walking?
+	ld [hl], c ; with the FF function, it's NONE
 	pop hl
+	pop bc
 	ret
 
 ; returns the sprite movement byte 1 pointer for sprite [hSpriteIndex] in hl

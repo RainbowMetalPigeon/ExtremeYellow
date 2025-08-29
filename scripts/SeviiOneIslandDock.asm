@@ -39,6 +39,12 @@ SeviiOneIslandDock_TextPointers:
 
 SeviiOneIslandDockSpriteText1:
 	text_asm
+; disallow embarking if we didn't witness to the Celio-Jenny scene	
+	CheckEvent EVENT_SEVII_ONE_ISLAND_CELIO_JENNY_DIALOGUE
+	jr nz, .normalDialogue
+	ld hl, SeviiOneIslandDockSailorText_NeedAMoment
+	jr .doNotHaveTicket
+.normalDialogue
 ; print intro
 	ld hl, SeviiOneIslandDockSailorText_Intro
 	call PrintText
@@ -118,6 +124,10 @@ FerryDesinationsList_OneIsland_UpTo8:
 	db FERRY_SEVII_SEVEN
 	db FERRY_SEVII_EIGHT
 	db -1 ; end
+
+SeviiOneIslandDockSailorText_NeedAMoment:
+	text_far _SeviiOneIslandDockSailorText_NeedAMoment
+	text_end
 
 SeviiOneIslandDockSailorText_Intro:
 	text_far _SeviiIslandsDockSailorText_Intro

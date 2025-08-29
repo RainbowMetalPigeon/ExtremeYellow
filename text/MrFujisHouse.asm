@@ -36,7 +36,7 @@ _LavenderHouse1Text4::
 	text "NIDORINO: Gaoo!@"
 	text_end
 
-_LavenderHouse1Text_1d94c::
+_LavenderHouse1Text_BeforeGivingFlute::
 	text "MX.FUJI: <PLAYER>."
 
 	para "Your #DEX quest"
@@ -72,7 +72,7 @@ _ReceivedFluteText::
 	text "!@"
 	text_end
 
-_FluteExplanationText::
+_SeviiTicketExplanationText:: ; TBE
 	text_start
 	para "Upon hearing #"
 	line "FLUTE, sleeping"

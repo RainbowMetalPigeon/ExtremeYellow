@@ -414,6 +414,10 @@ DoBikeSpeedup::
 	ld a, [wNPCMovementScriptPointerTableNum]
 	and a
 	ret nz
+; new for Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .goFaster
+; BTV
 	ld a, [wCurMap]
 	cp ROUTE_17 ; Cycling Road
 	jr nz, .goFaster

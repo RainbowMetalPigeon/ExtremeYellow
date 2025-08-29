@@ -52,20 +52,20 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 ; 2-island-related maps
 	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $1D
 	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $1E
-	map_const SEVII_TWO_ISLAND_GYM,                          20, 20 ; $19<
-	map_const SEVII_TWO_ISLAND_HOUSES,                       18,  4 ; $1A
+	map_const SEVII_TWO_ISLAND_GYM,                          20, 20 ; $1F
+	map_const SEVII_TWO_ISLAND_HOUSES,                       18,  4 ; $20
 ; 3-island-related maps
-	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $1F
-	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $20
-	map_const SEVII_THREE_ISLAND_GYM,                        20, 20 ; $19
-	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $1A
-	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $1A
-	map_const SEVII_THREE_ISLAND_CAVES,                      15, 10 ; $1A
-	map_const SEVII_BERRY_FOREST,                            20, 20 ; $1A
+	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $21
+	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $22
+	map_const SEVII_THREE_ISLAND_GYM,                        20, 20 ; $23
+	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $24
+	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $25
+	map_const SEVII_THREE_ISLAND_CAVES,                      15, 10 ; $26
+	map_const SEVII_BERRY_FOREST,                            20, 20 ; $27
 ; 4-island-related maps
-	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $21
-	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $22
-	map_const SEVII_FOUR_ISLAND_GYM,                         20, 20 ; $19
+	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $28
+	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $29
+	map_const SEVII_FOUR_ISLAND_GYM,                         20, 20 ; $2A
 	map_const SEVII_FOUR_ISLAND_HOUSES,                      25,  4 ; $1A
 	map_const SEVII_ICEFALL_CAVE_1F,                         15, 15 ; $23
 ; 5-island-related maps

@@ -129,7 +129,8 @@
 	const EVENT_BEAT_ROUTE_29_TRAINER_8 ; new
 	const EVENT_PLAYER_CANNOT_ATTACK_PSYCHIC_TERRAIN ; new
 	const EVENT_ENEMY_CANNOT_ATTACK_PSYCHIC_TERRAIN ; new
-	const_skip 3 ; edited, was 14
+	const_skip 2 ; edited, was 14
+	const EVENT_SEVII_RESCUED_MAYOI ; new
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
 	const_skip 3 ; edited, was 17

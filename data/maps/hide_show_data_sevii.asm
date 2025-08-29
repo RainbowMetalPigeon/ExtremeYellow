@@ -33,7 +33,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ONE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM
-	dw NoHSSevii ; SEVII_ONE_ISLAND_HOUSES
+	dw SeviiOneIslandHousesHS ; SEVII_ONE_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_EMBER_SPA
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE
 ; 2-island
@@ -133,10 +133,12 @@ SeviiRoute35HS:
 
 ; indoors ----------------------------------
 
+SeviiOneIslandHousesHS:
+	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Mayoi
 SeviiResortGorgeousHS:
-	db SEVII_RESORT_GORGEOUS, 1, HIDE ; person
+	db SEVII_RESORT_GORGEOUS, 1, HIDE ; Selphy
 SeviiLostCave2HS:
-	db SEVII_LOST_CAVE_2, 1, SHOW ; person
+	db SEVII_LOST_CAVE_2, 1, SHOW ; Selphy
 SeviiLostCave3HS:
 	db SEVII_LOST_CAVE_3, 1, SHOW ; RARE_CANDY
 	db SEVII_LOST_CAVE_3, 2, SHOW ; NUGGET
