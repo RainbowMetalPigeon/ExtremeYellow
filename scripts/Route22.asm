@@ -38,10 +38,11 @@ Route22_ScriptPointers:
 	dw Route22Script7
 
 Route22Script_50ece:
+Route22Script7:
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
-Route22Script7:
+;Route22Script7:
 	ret
 
 Route22Script_50ed6:

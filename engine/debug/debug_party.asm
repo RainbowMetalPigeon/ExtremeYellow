@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MGENGAR, 59 ; 255
+	db MPINSIR, 59 ; 255
 	db MEW, 68
 	db STARTER_PIKACHU, 100
 ;	db SLOWPOKE, 5
@@ -43,7 +43,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, ROCK_SMASH ; ANCESTOR_PWR
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, ROCK_CLIMB
@@ -271,8 +271,6 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
-	db BEER, 5
-	db COFFEE, 5
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1
     db PERFECTER, 99
