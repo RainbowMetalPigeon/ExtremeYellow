@@ -34,6 +34,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiOneIslandHouses_h
 	dw SeviiEmberSpa_h
 	dw SeviiRoute32Dive_h
+	dw SeviiRoute32DiveCavern1F1_h
 ; 2-island
 	dw SeviiTwoIslandDock_h
 	dw SeviiTwoIslandPokemonCenter_h

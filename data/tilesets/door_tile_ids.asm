@@ -19,6 +19,7 @@ DoorTileIDPointers:
 	dbw OVERWORLD_HAUNTED, .OverworldHauntedDoorTileIDs ; new
 	dbw OVERWORLD_SEVII,   .OverworldSeviiDoorTileIDs ; new
 	dbw UNDERWATER,  .UnderwaterDoorTileIDs ; new
+	dbw SUNKEN_SHIP, .SunkenShipDoorTileIDs
 	db -1 ; end
 
 MACRO door_tiles
@@ -81,3 +82,6 @@ ENDM
 
 .UnderwaterDoorTileIDs: ; new
 	door_tiles $2A
+
+.SunkenShipDoorTileIDs: ; new
+	door_tiles $1e

@@ -61,13 +61,13 @@ WildDataPointers:
 	dw NothingWildMons ; MUSEUM_1F
 	dw NothingWildMons ; MUSEUM_2F
 	dw NothingWildMons ; PEWTER_GYM
-	dw NothingWildMons ; PEWTER_NIDORAN_HOUSE
+	dw NothingWildMons ; ROUTE_21_DIVE ; new, TBE
 	dw NothingWildMons ; PEWTER_SPEECH_HOUSE
 	dw NothingWildMons ; PEWTER_POKECENTER
 	dw MtMoon1FWildMons ; MT_MOON_1F
 	dw MtMoonB1FWildMons ; MT_MOON_B1F
 	dw MtMoonB2FWildMons ; MT_MOON_B2F
-	dw NothingWildMons ; CERULEAN_TRASHED_HOUSE
+	dw NothingWildMons ; SUNKEN_SHIP_1F ; new
 	dw NothingWildMons ; CERULEAN_MELANIES_HOUSE
 	dw NothingWildMons ; CERULEAN_POKECENTER
 	dw NothingWildMons ; CERULEAN_GYM

@@ -32,4 +32,5 @@
 	const ISLAND_OF_NUMBERS ; 28, new
 	const OVERWORLD_SEVII   ; 29, new
 	const UNDERWATER   ; 30, new
+	const SUNKEN_SHIP  ; 31, new
 DEF NUM_TILESETS EQU const_value

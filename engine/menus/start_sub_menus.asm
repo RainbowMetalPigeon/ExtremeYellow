@@ -904,6 +904,8 @@ StartMenu_PortablePC:: ; new
 	ld a, [wCurMapTileset]
 	cp UNDERWATER
 	jr z, .cantUseItHere
+	cp SUNKEN_SHIP
+	jr z, .cantUseItHere
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .inSevii
 	ld a, [wCurMap] ; we don't want to cheese the Elite4, do we?

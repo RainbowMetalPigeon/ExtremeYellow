@@ -62,7 +62,7 @@ SecludedAtollName:   db "SECLUDED ATOLL@" ; new
 PikachuGrottoName:   db "PIKACHU GROTTO@" ; new
 HauntedHouseName:    db "@" ; new
 
-; new, for Sevii
+; new, for Sevii and new Kanto areas
 
 OneIslandName:       db "KNOT ISLAND@" ; BOND
 TwoIslandName:       db "BOON ISLAND@" ; FRIENDSHIP
@@ -98,3 +98,6 @@ PatternBushName:     db "PATTERN BUSH@"
 AlteringCaveName:    db "ALTERING CAVE@"
 DottedHoleName:      db "DOTTED HOLE@"
 TanobyChambersName:  db "TANOBY CHAMBERS@"
+
+Route21DiveName:     db "SUB ROUTE 21@"
+SunkenShipName:      db "SUNKEN SHIP@"

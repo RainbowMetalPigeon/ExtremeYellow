@@ -62,13 +62,13 @@ MapHeaderPointers::
 	dw Museum1F_h
 	dw Museum2F_h
 	dw PewterGym_h
-	dw PewterNidoranHouse_h ; UNUSED
+	dw Route21Dive_h ; new
 	dw PewterHouses_h
 	dw PewterPokecenter_h
 	dw MtMoon1F_h
 	dw MtMoonB1F_h
 	dw MtMoonB2F_h
-	dw CeruleanTrashedHouse_h ; UNUSED
+	dw SunkenShip1F_h ; new
 	dw CeruleanMelaniesHouse_h
 	dw CeruleanPokecenter_h
 	dw CeruleanGym_h

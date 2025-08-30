@@ -279,6 +279,8 @@ SetPal_Overworld:
 	jr z, .cave
 	cp UNDERWATER
 	jr z, .underwatersevii
+	cp SUNKEN_SHIP
+	jr z, .underwatersevii
 ; check by map
 ; check by map in array
 	ld a, [wCurMap]
@@ -356,6 +358,8 @@ SetPal_Overworld:
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
 	cp UNDERWATER
+	jr z, .underwater
+	cp SUNKEN_SHIP
 	jr z, .underwater
 	cp CAVERN
 	jr z, .caveOrBruno
@@ -711,6 +715,8 @@ GetPal_Pikachu::
 	jr z, .cemetery
 	cp UNDERWATER
 	jr z, .underwatersevii
+	cp SUNKEN_SHIP
+	jr z, .underwatersevii
 	cp CAVERN
 	jr z, .cave
 ; check by map
@@ -760,6 +766,8 @@ GetPal_Pikachu::
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
 	cp UNDERWATER
+	jr z, .underwater
+	cp SUNKEN_SHIP
 	jr z, .underwater
 	cp CAVERN
 	jr z, .caveOrBruno

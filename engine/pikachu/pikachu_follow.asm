@@ -246,7 +246,6 @@ Pointer_fc64b::
 
 Pointer_fc653::
 	db CERULEAN_BADGE_HOUSE
-	db CERULEAN_TRASHED_HOUSE
 	db VERMILION_DOCK
 	db CELADON_MANSION_1F
 	db ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates

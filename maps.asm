@@ -106,7 +106,7 @@ CeladonMansionRoofHouse_Blocks: INCBIN "maps/CeladonMansionRoofHouse.blk" ; edit
 
 ViridianSchoolHouse_Blocks: INCBIN "maps/ViridianSchoolHouse.blk"
 
-CeruleanTrashedHouse_Blocks: INCBIN "maps/CeruleanTrashedHouse.blk"
+CeruleanTrashedHouse_Blocks: INCBIN "maps/CeruleanTrashedHouse.blk" ; unused?
 
 DiglettsCaveRoute11_Blocks:
 DiglettsCaveRoute2_Blocks: INCBIN "maps/DiglettsCaveRoute2.blk"
@@ -136,17 +136,9 @@ INCLUDE "data/maps/headers/ViridianNicknameHouse.asm"
 INCLUDE "scripts/ViridianNicknameHouse.asm"
 INCLUDE "data/maps/objects/ViridianNicknameHouse.asm"
 
-INCLUDE "data/maps/headers/PewterNidoranHouse.asm"
-INCLUDE "scripts/PewterNidoranHouse.asm"
-INCLUDE "data/maps/objects/PewterNidoranHouse.asm"
-
 INCLUDE "data/maps/headers/PewterHouses.asm"
 INCLUDE "scripts/PewterHouses.asm"
 INCLUDE "data/maps/objects/PewterHouses.asm"
-
-INCLUDE "data/maps/headers/CeruleanTrashedHouse.asm"
-INCLUDE "scripts/CeruleanTrashedHouse.asm"
-INCLUDE "data/maps/objects/CeruleanTrashedHouse.asm"
 
 INCLUDE "data/maps/headers/CeruleanMelaniesHouse.asm"
 INCLUDE "scripts/CeruleanMelaniesHouse.asm"
@@ -688,6 +680,16 @@ Route12SuperRodHouse_Blocks:
 Daycare_Blocks: INCBIN "maps/Daycare.blk"
 
 FuchsiaGoodRodHouse_Blocks: INCBIN "maps/FuchsiaGoodRodHouse.blk"
+
+INCLUDE "data/maps/headers/Route21Dive.asm"
+INCLUDE "scripts/Route21Dive.asm"
+INCLUDE "data/maps/objects/Route21Dive.asm"
+Route21Dive_Blocks: INCBIN "maps/Route21Dive.blk"
+
+INCLUDE "data/maps/headers/SunkenShip1F.asm"
+INCLUDE "scripts/SunkenShip1F.asm"
+INCLUDE "data/maps/objects/SunkenShip1F.asm"
+SunkenShip1F_Blocks: INCBIN "maps/SunkenShip1F.blk"
 
 
 SECTION "Maps 12", ROMX
@@ -1760,3 +1762,8 @@ INCLUDE "data/maps/headers/SeviiEightIslandCave.asm"
 INCLUDE "scripts/SeviiEightIslandCave.asm"
 INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
 SeviiEightIslandCave_Blocks: INCBIN "maps/SeviiEightIslandCave.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
+INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
+INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
+SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"

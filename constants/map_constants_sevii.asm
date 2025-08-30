@@ -49,6 +49,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ONE_ISLAND_HOUSES,                       11,  4 ; $1A
 	map_const SEVII_EMBER_SPA,                               10, 10 ; $1B
 	map_const SEVII_ROUTE_32_DIVE,                           15, 30 ; $1C
+	map_const SEVII_ROUTE_32_DIVE_CAVERN_1_F1,               10, 10 ; $1C
 ; 2-island-related maps
 	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $1D
 	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $1E

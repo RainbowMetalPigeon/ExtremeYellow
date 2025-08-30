@@ -80,13 +80,13 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MUSEUM_1F,                     10,  4 ; $34
 	map_const MUSEUM_2F,                      7,  4 ; $35
 	map_const PEWTER_GYM,                     5,  7 ; $36
-	map_const PEWTER_NIDORAN_HOUSE,           4,  4 ; $37 ; UNUSED
+	map_const ROUTE_21_DIVE,                 10, 45 ; $37 ; new
 	map_const PEWTER_HOUSES,                 18,  4 ; $39 ; edited
 	map_const PEWTER_POKECENTER,             14,  4 ; $3A ; edited, Center+Mart
 	map_const MT_MOON_1F,                    30, 30 ; $3B ; edited
 	map_const MT_MOON_B1F,                   30, 30 ; $3C ; edited
 	map_const MT_MOON_B2F,                   30, 30 ; $3D ; edited
-	map_const CERULEAN_TRASHED_HOUSE,         4,  4 ; $3E ; UNUSED
+	map_const SUNKEN_SHIP_1F,                19, 14 ; $3E ; new
 	map_const CERULEAN_MELANIES_HOUSE,       39,  4 ; $3F ; edited, enlarged for more houses
 	map_const CERULEAN_POKECENTER,           14,  4 ; $40 ; edited, Center+Mart
 	map_const CERULEAN_GYM,                   5,  7 ; $41

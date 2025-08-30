@@ -93,4 +93,7 @@ OverworldSevii_Coll:: ; new
 	; last two are different from Kanto overworld as they are the side entrances to caves
 
 Underwater_Coll:: ; new
-	coll_tiles $01, $08, $0A, $32, $2A, $70
+	coll_tiles $01, $08, $0A, $32, $2A, $70, $54
+
+SunkenShip_Coll::
+	coll_tiles $04, $0d, $17, $1d, $1e, $23, $34, $37, $39, $4a

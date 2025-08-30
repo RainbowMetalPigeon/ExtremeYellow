@@ -45,7 +45,7 @@ InternalMapEntries_Sevii:
 ; 1-island
 	internal_map SEVII_ONE_ISLAND_HOUSES,                           0,  4, OneIslandName
 	internal_map SEVII_EMBER_SPA,                                   2,  3, EmberSpaName
-	internal_map SEVII_ROUTE_32_DIVE,                               0,  5, Route32DiveName
+	internal_map SEVII_ROUTE_32_DIVE_CAVERN_1_F1,                   0,  5, Route32DiveName
 ; 2-island
 	internal_map SEVII_TWO_ISLAND_HOUSES,                           7,  5, TwoIslandName
 ; 3-island

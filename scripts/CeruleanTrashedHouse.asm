@@ -1,6 +1,0 @@
-CeruleanTrashedHouse_Script:
-	call EnableAutoTextBoxDrawing
-	ret
-
-CeruleanTrashedHouse_TextPointers:
-	text_end

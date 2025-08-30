@@ -107,3 +107,6 @@ OverworldSevii_Block::   INCBIN "gfx/blocksets/overworld_sevii.bst"
 
 Underwater_GFX::         INCBIN "gfx/tilesets/underwater.2bpp"
 Underwater_Block::       INCBIN "gfx/blocksets/underwater.bst"
+
+SunkenShip_GFX::          INCBIN "gfx/tilesets/sunken_ship.2bpp"
+SunkenShip_Block::        INCBIN "gfx/blocksets/sunken_ship.bst"

@@ -379,10 +379,10 @@ FindDiveDestinationMap_FromSubToAbove:
 
 ; no terminator, relies on me having worked properly and no mismatched maps
 DivePairedMaps: ; TBE
+    db ROUTE_21, ROUTE_21_DIVE
 ;    db ROUTE_19, ROUTE_19_DIVE
 ;    db ROUTE_20, ROUTE_20_DIVE
 ;    db CINNABAR_ISLAND, CINNABAR_DIVE
-;    db ROUTE_21, ROUTE_21_DIVE
 ;    db ROUTE_28, ROUTE_28_DIVE
 
 ; no terminator, relies on me having worked properly and no mismatched maps

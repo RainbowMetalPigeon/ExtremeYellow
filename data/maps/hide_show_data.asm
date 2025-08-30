@@ -64,13 +64,13 @@ MapHSPointers:
 	dw Museum1FHS
 	dw NoHS ; MUSEUM_2F
 	dw NoHS ; PEWTER_GYM
-	dw NoHS ; PEWTER_NIDORAN_HOUSE ; UNUSED
+	dw NoHS ; ROUTE_21_DIVE, new ; TBE
 	dw NoHS ; PEWTER_HOUSES
 	dw NoHS ; PEWTER_POKECENTER
 	dw MtMoon1FHS
 	dw NoHS
 	dw MtMoonB2FHS
-	dw NoHS ; UNUSED
+	dw NoHS ; SUNKEN_SHIP_1F, new ; TBE
 	dw CeruleanMelaniesHouseHS
 	dw NoHS
 	dw NoHS

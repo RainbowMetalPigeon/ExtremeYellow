@@ -62,13 +62,13 @@ MapHeaderBanks::
 	db BANK(Museum1F_h)
 	db BANK(Museum2F_h)
 	db BANK(PewterGym_h)
-	db BANK(PewterNidoranHouse_h) ; UNUSED
+	db BANK(Route21Dive_h) ; new
 	db BANK(PewterHouses_h)
 	db BANK(PewterPokecenter_h)
 	db BANK(MtMoon1F_h)
 	db BANK(MtMoonB1F_h)
 	db BANK(MtMoonB2F_h)
-	db BANK(CeruleanTrashedHouse_h) ; UNUSED
+	db BANK(SunkenShip1F_h) ; new
 	db BANK(CeruleanMelaniesHouse_h)
 	db BANK(CeruleanPokecenter_h)
 	db BANK(CeruleanGym_h)
