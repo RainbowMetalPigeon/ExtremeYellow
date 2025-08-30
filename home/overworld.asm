@@ -640,9 +640,9 @@ CheckMapConnections::
 	call PlayDefaultMusicFadeOutCurrent
 	ld b, SET_PAL_OVERWORLD
 	call RunPaletteCommand
+	callfar RespawnAllRockSmashableRocks ; new
 ; Since the sprite set shouldn't change, this will just update VRAM slots at
 ; x#SPRITESTATEDATA2_IMAGEBASEOFFSET without loading any tile patterns.
-	callfar RespawnAllRockSmashableRocks ; new
 	call InitMapSprites
 	call LoadTileBlockMap
 	jp OverworldLoopLessDelay
