@@ -2,13 +2,36 @@ SeviiThreeIslandHouses_Script:
 	jp EnableAutoTextBoxDrawing
 
 SeviiThreeIslandHouses_TextPointers:
-;	dw SeviiThreeIslandHousesText1
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw SeviiThreeIslandHousesText3
+	dw SeviiThreeIslandHousesText1
+	dw SeviiThreeIslandHousesText2
+	dw SeviiThreeIslandHousesText3
+	; signs
+	dw SeviiThreeIslandHousesSignText1
+	dw SeviiThreeIslandHousesSignText2
+	dw SeviiThreeIslandHousesBookshelfText1
 	text_end
 
-;SeviiThreeIslandHousesText1:
-;	text_far _SeviiThreeIslandHousesText1
-;	text_end
+SeviiThreeIslandHousesText1:
+	text_far _SeviiThreeIslandHousesText1
+	text_end
+
+SeviiThreeIslandHousesText2:
+	text_far _SeviiThreeIslandHousesText2
+	text_end
+
+SeviiThreeIslandHousesText3:
+	text_far _SeviiThreeIslandHousesText3
+	text_end
+
+SeviiThreeIslandHousesSignText1:
+	text_far _SeviiThreeIslandHousesSignText1
+	text_end
+
+SeviiThreeIslandHousesSignText2:
+	text_far _SeviiThreeIslandHousesSignText2
+	text_end
+
+SeviiThreeIslandHousesBookshelfText1:
+	text_far _SeviiThreeIslandHousesBookshelfText1
+	text_end
+	

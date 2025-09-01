@@ -1,7 +1,7 @@
 HiddenObjectMaps_Sevii:
 ; cities
 	dbw SEVII_ONE_ISLAND_CITY,                           SeviiOneIslandCityHiddenObjects
-	dbw SEVII_TWO_ISLAND_CITY,                           SeviiTwoIslandCityHiddenObjects ; TBE
+	dbw SEVII_TWO_ISLAND_CITY,                           SeviiTwoIslandCityHiddenObjects
 	dbw SEVII_THREE_ISLAND_CITY,                         SeviiThreeIslandCityHiddenObjects ; TBE
 	dbw SEVII_FOUR_ISLAND_CITY,                          SeviiFourIslandCityHiddenObjects ; TBE
 	dbw SEVII_FIVE_ISLAND_CITY,                          SeviiFiveIslandCityHiddenObjects ; TBE
@@ -86,9 +86,8 @@ SeviiOneIslandCityHiddenObjects:
 	db -1 ; end
 
 SeviiTwoIslandCityHiddenObjects:
-	hidden_object  0,  1, SPRITE_FACING_UP, PrintBookcaseText
-	hidden_object  1,  1, SPRITE_FACING_UP, PrintBookcaseText
-	hidden_object  7,  1, SPRITE_FACING_UP, PrintBookcaseText
+	hidden_object 31, 16, MAX_ETHER, HiddenItems
+	hidden_object 36,  8, PP_UP, HiddenItems
 	db -1 ; end
 
 SeviiThreeIslandCityHiddenObjects:

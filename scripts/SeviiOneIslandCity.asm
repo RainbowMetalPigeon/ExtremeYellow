@@ -29,10 +29,12 @@ SeviiOneIslandCity_TextPointers:
 	dw SeviiOneIslandCitySignText3 ; 13
 	dw SeviiOneIslandCitySignText4 ; 14
 	dw SeviiOneIslandCitySignText5 ; 15
+	dw PokeCenterSignText ; 16
+	dw MartSignText ; 17
 	; scripts
-	dw SeviiOneIslandCityScriptText1 ; 16 ; Celio and Jenny
-	dw SeviiOneIslandCityScriptText2 ; 17 ; Celio 1
-	dw SeviiOneIslandCityScriptText3 ; 18 ; Celio 2
+	dw SeviiOneIslandCityScriptText1 ; 18 ; Celio and Jenny
+	dw SeviiOneIslandCityScriptText2 ; 19 ; Celio 1
+	dw SeviiOneIslandCityScriptText3 ; 20 ; Celio 2
 
 ; scripts =========================================
 
@@ -42,7 +44,7 @@ SeviiOneIslandCityScript0:
 	ld hl, SeviiOneIslandCity_Coordinates_CelioJennyDialogue
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	ret nc
-	ld a, 16
+	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_SEVII_ONE_ISLAND_CELIO_JENNY_DIALOGUE
@@ -128,7 +130,7 @@ SeviiOneIslandCityScript1:
 ; Celio dialogue 1 and movements
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, 17
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore ; call DisplayTextID
 	ld a, 1
@@ -177,7 +179,7 @@ SeviiOneIslandCityScript2:
 	ld [wSpritePlayerStateData1FacingDirection], a
 .noTurning
 ; Celio dialogue 2 and movements
-	ld a, 18
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore ; call DisplayTextID
 	ld a, 1

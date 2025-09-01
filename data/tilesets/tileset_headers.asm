@@ -14,7 +14,7 @@ Tilesets:
 	tileset Mart,        $18,$19,$1E,  -1, TILEANIM_NONE
 	tileset Forest,       -1, -1, -1, $20, TILEANIM_WATER
 	tileset RedsHouse2,   -1, -1, -1,  -1, TILEANIM_NONE
-	tileset Dojo,        $3A, -1, -1,  -1, TILEANIM_WATER_FLOWER
+	tileset Dojo,        $3A, -1, -1,  -1, TILEANIM_WATER_FLOWER ; secretly identical to Gym; used only for FightingDojo, OaksLab, LancesRoom, but they could use gym
 	tileset Pokecenter,  $18,$19,$1E,  -1, TILEANIM_NONE
 	tileset Gym,         $3A, -1, -1,  -1, TILEANIM_WATER_FLOWER
 	tileset House,        -1, -1, -1,  -1, TILEANIM_NONE
@@ -37,8 +37,8 @@ Tilesets:
 	tileset ResearchCenter, $22, -1, -1,  -1, TILEANIM_WATER ; new
 	tileset Island,       -1, -1, -1, $52, TILEANIM_WATER_FLOWER ; new
 	tileset OverworldHaunted, -1, -1, -1, $52, TILEANIM_NONE ; new
-	tileset IslandOfNumbers, -1, -1, -1, -1, TILEANIM_WATER_FLOWER ; new, no grass? how do water and flowers work?
-	tileset OverworldSevii,  -1, -1, -1, $52, TILEANIM_WATER_FLOWER
-	tileset Underwater,    -1, -1, -1,  $1, TILEANIM_NONE
-	tileset SunkenShip,    -1, -1, -1,  -1, TILEANIM_NONE
+	tileset IslandOfNumbers, -1, -1, -1, -1, TILEANIM_WATER_FLOWER ; new
+	tileset OverworldSevii,  -1, -1, -1, $52, TILEANIM_WATER_FLOWER ; new
+	tileset Underwater,    -1, -1, -1,  $1, TILEANIM_NONE ; new
+	tileset SunkenShip,    -1, -1, -1,  -1, TILEANIM_NONE ; new
 	assert_table_length NUM_TILESETS

@@ -17,6 +17,8 @@ SeviiOneIslandCity_Object:
 	bg_event 29, 15, 13 ; SeviiOneIslandCitySignText3
 	bg_event 35, 19, 14 ; SeviiOneIslandCitySignText4
 	bg_event 35, 15, 15 ; SeviiOneIslandCitySignText5
+	bg_event 22, 21, 16 ; PokeCenterSignText
+	bg_event 18, 21, 17 ; MartSignText
 
 	def_object_events
 	object_event 27, 22, SPRITE_SUPER_NERD, STAY, LEFT, 1 ; Celio

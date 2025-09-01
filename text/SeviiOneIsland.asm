@@ -43,8 +43,8 @@ _SeviiOneIslandCitySignText1::
 	line "Where Friends"
 	cont "Gather"
 
-	para "Previously known"
-	line "as ONE ISLAND"
+	para "(Also known"
+	line "as ONE ISLAND)"
 	done
 
 _SeviiOneIslandCitySignText2::
@@ -72,7 +72,7 @@ _SeviiOneIslandCitySignText5::
 	done
 
 _SeviiOneIslandCityScriptText1::
-	text "TBE"
+	text "placeholder"
 	done
 
 ;	text "JENNY: CELIO, I"
@@ -240,6 +240,16 @@ _SeviiOneIslandPokemonCenterAndMart_Text4::
 	text "test 1-4"
 	done
 
+; gym -------------------------------------
+
+_SeviiOneIslandGymText1::
+	text "ICHINO: ciao"
+	done
+
+_SeviiOneIslandGymText2::
+	text "guide for you"
+	done
+	
 ; dock ------------------------------------
 
 _SeviiOneIslandDockBgText1::

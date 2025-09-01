@@ -708,6 +708,7 @@ RespawnAllRockSmashableRocks::
 	
 RockSmashableRocks_Sevii:
 	db HS_SEVII_ROUTE_31_ROCK_1
+	db HS_SEVII_TWO_ISLAND_CITY_ROCK_1
 	db $FF
 
 RockSmashableRocks_KantoBase:

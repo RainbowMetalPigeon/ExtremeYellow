@@ -13,12 +13,24 @@ SeviiThreeIslandCity_Object:
 	warp_event 22, 35, SEVII_THREE_ISLAND_CAVES, 3
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event 15, 37, 12 ; SeviiThreeIslandCitySignText1
+	bg_event 11, 27, 13 ; SeviiThreeIslandCitySignText2
+	bg_event 11,  9, 14 ; SeviiThreeIslandCitySignText3
+	bg_event  1,  9, 15 ; SeviiThreeIslandCitySignText4
+	bg_event 16, 23, 16 ; PokeCenterSignText
+	bg_event 20,  9, 17 ; MartSignText
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event  6, 39, SPRITE_FISHER, STAY, DOWN, 1
+	object_event  9, 31, SPRITE_GIRL, WALK, UP_DOWN, 2
+	object_event 10, 25, SPRITE_GIRL, WALK, ANY_DIR, 3
+	object_event 12, 18, SPRITE_GIRL, WALK, LEFT_RIGHT, 4
+	object_event 20, 13, SPRITE_GIRL, WALK, UP_DOWN, 5
+	object_event 14, 11, SPRITE_GIRL, WALK, ANY_DIR, 6
+	object_event  5,  8, SPRITE_GIRL, STAY, LEFT, 7
+	object_event 22,  7, SPRITE_GIRL, STAY, DOWN, 8 ; playing hide-and-seek
+	object_event 26,  4, SPRITE_GIRL, STAY, RIGHT, 9
+	object_event 24, 38, SPRITE_POKE_BALL, STAY, NONE, 10, ULTRA_BALL
+	object_event 24, 27, SPRITE_POKE_BALL, STAY, NONE, 11, CARBOS
 
 	def_warps_to SEVII_THREE_ISLAND_CITY

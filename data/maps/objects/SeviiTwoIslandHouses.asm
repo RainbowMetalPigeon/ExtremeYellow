@@ -10,13 +10,15 @@ SeviiTwoIslandHouses_Object:
 	warp_event 31,  7, SEVII_TWO_ISLAND_CITY, 7
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
+	bg_event 31,  4, 6 ; SeviiTwoIslandHousesSignText1
 ;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
+	object_event  2,  3, SPRITE_YOUNGSTER, WALK, UP_DOWN, 1
+	object_event 19,  3, SPRITE_YOUNGSTER, STAY, LEFT, 2
+	object_event 19,  4, SPRITE_YOUNGSTER, STAY, LEFT, 3
+	object_event 30,  4, SPRITE_YOUNGSTER, STAY, RIGHT, 4
+	object_event 34,  2, SPRITE_YOUNGSTER, WALK, LEFT_RIGHT, 5
 ;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
 
 	def_warps_to SEVII_TWO_ISLAND_HOUSES

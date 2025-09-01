@@ -11,15 +11,25 @@ SeviiTwoIslandCity_Object:
 	warp_event 33, 33, SEVII_TWO_ISLAND_HOUSES, 5
 
 	def_bg_events
-;	bg_event 16, 23, 1 ; SeviiTwoIslandCity_RockClimb1Up
-;	bg_event 16, 22, 2 ; SeviiTwoIslandCity_RockClimb1Down
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event  5, 27, 14 ; SeviiOneIslandCitySignText1
+	bg_event 23, 31, 15 ; SeviiOneIslandCitySignText2
+	bg_event 33, 35, 16 ; SeviiOneIslandCitySignText3
+	bg_event 32, 12, 17 ; SeviiOneIslandCitySignText4
+	bg_event 16, 29, 18 ; PokeCenterSignText
 
 	def_object_events
-	object_event 36, 28, SPRITE_TAUROS, WALK, ANY_DIR, 1
-	object_event 37, 33, SPRITE_TAUROS, WALK, ANY_DIR, 2
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event  7, 27, SPRITE_YOUNGSTER, WALK, ANY_DIR, 1
+	object_event 18, 32, SPRITE_YOUNGSTER, WALK, ANY_DIR, 2
+	object_event 30, 28, SPRITE_YOUNGSTER, WALK, LEFT_RIGHT, 3
+	object_event 20, 17, SPRITE_YOUNGSTER, STAY, ANY_DIR, 4
+	object_event 22, 28, SPRITE_YOUNGSTER, STAY, DOWN, 5
+	object_event 23, 28, SPRITE_YOUNGSTER, STAY, DOWN, 6
+	object_event 24, 34, SPRITE_YOUNGSTER, WALK, LEFT_RIGHT, 7
+	object_event  8, 10, SPRITE_BIKER, STAY, LEFT, 8
+	object_event 36, 28, SPRITE_TAUROS, WALK, ANY_DIR, 9
+	object_event 37, 33, SPRITE_TAUROS, WALK, ANY_DIR, 10
+	object_event 15,  8, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 11
+	object_event 18,  3, SPRITE_POKE_BALL, STAY, NONE, 12, PROTEIN
+	object_event 16, 19, SPRITE_POKE_BALL, STAY, NONE, 13, NUGGET
 
 	def_warps_to SEVII_TWO_ISLAND_CITY
