@@ -1,4 +1,5 @@
 ; d contains the Pokemon you want to check
+; sets carry flag if found
 CheckIfOneGivenMonIsInParty::
 	ld hl, wPartyCount
 	ld a, [hli]
@@ -13,6 +14,64 @@ CheckIfOneGivenMonIsInParty::
 	ret
 .targetInParty
 	scf ; set carry flag
+	ret
+
+; =====================================
+
+; output: d and/or e contain the shared type, otherwise, $FF
+CheckIfAllMonsShareAType::
+	ld hl, wPartyCount
+	ld a, [hli]
+
+; save TYPE1 and TYPE2 of Mon1 of the team in d and e
+; in wMultipurposeBuffer (+1) ?
+	ld a, [hli] ; pokemon ID
+	push hl
+	push bc
+	ld [wd0b5], a
+	call GetMonHeader
+	ld a, [wMonHType1]
+	ld d, a
+	ld a, [wMonHType2]
+	ld e, a
+
+	ld b, a ; b has the number of Mons in the party
+	cp 1
+	ret z ; if there's only 1 mon, of course it's ok
+
+; check if TYPE1 of the Mon1 is shared by all other Mons
+.loop1
+	dec b
+	jr z, .checkAlsoSecondType ; we checked them all
+	ld a, [hli] ; pokemon ID
+	ld [wd0b5], a
+	call GetMonHeader ; does not alter bc, hl, de
+	ld a, [wMonHType1]
+	cp d ; TYPE1-MonN vs TYPE1-Mon1
+	jr z, .loop1 ; if it's shared we continue, otherwise we check the other type
+	ld a, [wMonHType2]
+	cp d ; TYPE2-MonN vs TYPE1-Mon1
+	jr z, .loop1
+
+	ld d, $FF ; load failure value in d if we found no match
+.checkAlsoSecondType
+; check if TYPE2 of the Mon1 is shared by all other Mons
+	pop bc ; restore number of mons
+	pop hl ; restore pointer to 2nd Mon
+.loop2
+	dec b
+	ret z ; we checked them all
+	ld a, [hli] ; pokemon ID
+	ld [wd0b5], a
+	call GetMonHeader ; does not alter bc, hl, de
+	ld a, [wMonHType1]
+	cp e ; TYPE1-MonN vs TYPE2-Mon1
+	jr z, .loop2 ; if it's shared we continue, otherwise we check the other type
+	ld a, [wMonHType2]
+	cp e ; TYPE2-MonN vs TYPE2-Mon1
+	jr z, .loop2
+
+	ld e, $FF ; load failure value in e if we found no match
 	ret
 
 ; =====================================

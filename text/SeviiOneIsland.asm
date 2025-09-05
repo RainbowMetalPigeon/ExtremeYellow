@@ -173,7 +173,7 @@ _SeviiOneIslandHousesText2_AfterRescueBeforeFlute::
 _SeviiOneIslandHousesText2_NoRoom::
 	text "Oh, you have no"
 	line "room for this."
-	
+
 	para "Please make space,"
 	line "I must thank you!"
 	done
@@ -214,7 +214,7 @@ _SeviiOneIslandHousesSignText2::
 
 _SeviiOneIslandHousesSignText3::
 	text "Green tea."
-	
+
 	para "It turned cold."
 	done
 
@@ -242,14 +242,31 @@ _SeviiOneIslandPokemonCenterAndMart_Text4::
 
 ; gym -------------------------------------
 
-_SeviiOneIslandGymText1::
+_SeviiOneIslandGymText1_Intro::
 	text "ICHINO: ciao"
+	prompt
+
+_SeviiOneIslandGymText1_SharedTypes::
+	text "Shared types"
+
+	para "First: @"
+	text_decimal wUniQuizAnswer, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "!"
+
+	para "Second: @"
+	text_decimal wMultipurposeTemporaryStorage, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "!"
+
+	done
+
+_SeviiOneIslandGymText1_NoSharedTypes::
+	text "No shared types"
 	done
 
 _SeviiOneIslandGymText2::
 	text "guide for you"
 	done
-	
+
 ; dock ------------------------------------
 
 _SeviiOneIslandDockBgText1::

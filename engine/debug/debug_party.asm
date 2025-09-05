@@ -16,8 +16,8 @@ DebugTeam:
 	db MPINSIR, 59 ; 255
 	db MEW, 68
 	db STARTER_PIKACHU, 100
-;	db SLOWPOKE, 5
-;	db PORYGONZ, 99
+	db ZAPDOS, 5
+	db MPIDGEOT, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
 
