@@ -22,12 +22,12 @@ CheckIfOneGivenMonIsInParty::
 CheckIfAllMonsShareAType::
 	ld hl, wPartyCount
 	ld a, [hli]
+	ld b, a ; b has the number of Mons in the party
 
 ; save TYPE1 and TYPE2 of Mon1 of the team in d and e
 ; in wMultipurposeBuffer (+1) ?
-	ld a, [hli] ; pokemon ID
-	push hl
-	push bc
+	ld a, [hli] ; Mon1 ID
+
 	ld [wd0b5], a
 	call GetMonHeader
 	ld a, [wMonHType1]
@@ -35,15 +35,17 @@ CheckIfAllMonsShareAType::
 	ld a, [wMonHType2]
 	ld e, a
 
-	ld b, a ; b has the number of Mons in the party
+	ld a, b
 	cp 1
 	ret z ; if there's only 1 mon, of course it's ok
+	push hl
+	push bc
 
 ; check if TYPE1 of the Mon1 is shared by all other Mons
 .loop1
 	dec b
 	jr z, .checkAlsoSecondType ; we checked them all
-	ld a, [hli] ; pokemon ID
+	ld a, [hli] ; (next) pokemon ID
 	ld [wd0b5], a
 	call GetMonHeader ; does not alter bc, hl, de
 	ld a, [wMonHType1]
@@ -61,7 +63,7 @@ CheckIfAllMonsShareAType::
 .loop2
 	dec b
 	ret z ; we checked them all
-	ld a, [hli] ; pokemon ID
+	ld a, [hli] ; (next) pokemon ID
 	ld [wd0b5], a
 	call GetMonHeader ; does not alter bc, hl, de
 	ld a, [wMonHType1]

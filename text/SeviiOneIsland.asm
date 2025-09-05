@@ -242,29 +242,12 @@ _SeviiOneIslandPokemonCenterAndMart_Text4::
 
 ; gym -------------------------------------
 
-_SeviiOneIslandGymText1_Intro::
+_SeviiOneIslandGymText1::
 	text "ICHINO: ciao"
-	prompt
-
-_SeviiOneIslandGymText1_SharedTypes::
-	text "Shared types"
-
-	para "First: @"
-	text_decimal wUniQuizAnswer, 1, 3 ; address to read from, number of bytes to read, number of digits to display
-	text "!"
-
-	para "Second: @"
-	text_decimal wMultipurposeTemporaryStorage, 1, 3 ; address to read from, number of bytes to read, number of digits to display
-	text "!"
-
-	done
-
-_SeviiOneIslandGymText1_NoSharedTypes::
-	text "No shared types"
 	done
 
 _SeviiOneIslandGymText2::
-	text "guide for you"
+	text "guide for you 1"
 	done
 
 ; dock ------------------------------------

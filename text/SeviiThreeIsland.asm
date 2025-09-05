@@ -114,6 +114,33 @@ _SeviiThreeIslandHousesBookshelfText1::
 
 ; gym -------------------------------------
 
+_SeviiThreeIslandGymText1_Intro::
+	text "SANTRE: ciao"
+	done
+
+_SeviiThreeIslandGymText1_Temp::
+	text "First: @"
+	text_decimal wMultipurposeBuffer, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "!"
+	para "Second: @"
+	text_decimal wMultipurposeBuffer+1, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "!"
+	done
+
+_SeviiThreeIslandGymText1_SharedTypes::
+	text "Found: @"
+	text_decimal wMultipurposeBuffer, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "!"
+	done
+
+_SeviiThreeIslandGymText1_NoSharedTypes::
+	text "No shared types"
+	done
+
+_SeviiThreeIslandGymText2::
+	text "guide for you 3"
+	done
+
 ; dock ------------------------------------
 
 _SeviiThreeIslandDockBgText1::
