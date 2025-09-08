@@ -221,3 +221,13 @@ _SeviiRoute33AfterBattleText5::
 _SeviiRoute33SignText1::
 	text "DREAM FOREST"
 	done
+
+; Dream Forest ------------------------------------
+
+_SeviiBerryForestText1::
+	text "CARR: xxx"
+	done
+
+_SeviiBerryForestText2::
+	text "MAYOI: yyy"
+	done
