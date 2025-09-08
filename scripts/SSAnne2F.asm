@@ -18,9 +18,12 @@ SSAnne2F_ScriptPointers:
 	dw SSAnne2Script4
 
 SSAnne2Script4:
+	call SSAnne2Script_613ab ; new
 	ret
 
 SSAnne2Script0:
+	CheckEvent EVENT_BEAT_RIVAL_SS_ANNE ; new
+	ret nz ; new
 	ld hl, CoordsData_61411
 	call ArePlayerCoordsInArray
 	ret nc
@@ -133,6 +136,7 @@ SSAnne2Script2:
 	call MoveSprite
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
+	SetEvent EVENT_BEAT_RIVAL_SS_ANNE ; new
 	ld a, $3
 	ld [wCurMapScript], a ; edited
 	ret
