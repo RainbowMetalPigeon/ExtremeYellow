@@ -6,7 +6,8 @@ SeviiRoute33_Object:
 	warp_event 98, 23, SEVII_THREE_ISLAND_SECRET_GARDEN, 3
 
 	def_bg_events
-	bg_event  9,  9, 15 ; SeviiRoute33Text1
+	bg_event  9,  9, 15 ; SeviiRoute33SignText1
+	bg_event 99, 23, 16 ; SeviiRoute33SignText2
 
 	def_object_events
 	object_event 34, 12, SPRITE_BIKER, STAY, RIGHT, 1
@@ -23,7 +24,7 @@ SeviiRoute33_Object:
 	object_event 89, 22, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 10
 	object_event 18,  6, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 11
 	object_event 18,  4, SPRITE_POKE_BALL, STAY, NONE, 12, RARE_CANDY
-	object_event 48,  2, SPRITE_POKE_BALL, STAY, NONE, 13, ULTRA_BALL
+	object_event 50,  2, SPRITE_POKE_BALL, STAY, NONE, 13, ULTRA_BALL
 	object_event 64, 10, SPRITE_POKE_BALL, STAY, NONE, 14, PP_UP
 
 	def_warps_to SEVII_ROUTE_33

@@ -222,6 +222,11 @@ _SeviiRoute33SignText1::
 	text "DREAM FOREST"
 	done
 
+_SeviiRoute33SignText2::
+	text "This tree's weird."
+	line "It looks ruffled."
+	done
+
 ; Dream Forest ------------------------------------
 
 _SeviiBerryForestText1::

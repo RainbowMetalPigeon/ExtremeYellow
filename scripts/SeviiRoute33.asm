@@ -29,6 +29,7 @@ SeviiRoute33_TextPointers:
 	dw PickUpItemText ; 14
 	; signs
 	dw SeviiRoute33SignText1 ; 15
+	dw SeviiRoute33SignText2 ; 16
 	text_end
 
 SeviiRoute33TrainerHeaders:
@@ -162,4 +163,7 @@ SeviiRoute33SignText1:
 	text_far _SeviiRoute33SignText1
 	text_end
 	
+SeviiRoute33SignText2:
+	text_far _SeviiRoute33SignText2
+	text_end
 	

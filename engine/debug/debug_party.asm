@@ -62,7 +62,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, WATERFALL
 	ld [hli], a
-	ld a, TERRAIN_PULSE
+	ld a, ROCK_SMASH
 	ld [hli], a
 	ld a, ELECTRIC_TERRAIN
 	ld [hl], a
