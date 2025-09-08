@@ -3843,8 +3843,7 @@ DeepWaterTile: ; new
 	db $6A ; new
 ; shore tiles
 ShoreTiles:
-;	db $48, $32, $66 ; last one is new, custom for Cinnabar Volcano
-	db $33, $32, $66 ; edited, the first one above was a bug
+	db $48, $33, $32, $66 ; last one is new, custom for Cinnabar Volcano
 WaterTile:
 	db $14
 	db $ff ; terminator

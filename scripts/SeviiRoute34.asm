@@ -14,19 +14,19 @@ SeviiRoute34_ScriptPointers:
 
 SeviiRoute34_TextPointers:
 	dw SeviiRoute34Text1 ; Amulet Coin gifter
-	dw SeviiRoute34Text2
-	dw SeviiRoute34Text3
-	dw SeviiRoute34Text4
-	dw SeviiRoute34Text5
+	dw SeviiRoute34Text2 ; trainer
+	dw SeviiRoute34Text3 ; trainer
+	dw SeviiRoute34Text4 ; trainer
+	dw SeviiRoute34Text5 ; trainer
 
 SeviiRoute34TrainerHeaders:
 	def_trainers 2
 SeviiRoute34TrainerHeader1:
-	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_1, 4, SeviiRoute34BattleText1, SeviiRoute34EndBattleText1, SeviiRoute34AfterBattleText1
+	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_1, 5, SeviiRoute34BattleText1, SeviiRoute34EndBattleText1, SeviiRoute34AfterBattleText1
 SeviiRoute34TrainerHeader2:
-	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_2, 4, SeviiRoute34BattleText2, SeviiRoute34EndBattleText2, SeviiRoute34AfterBattleText2
+	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_2, 5, SeviiRoute34BattleText2, SeviiRoute34EndBattleText2, SeviiRoute34AfterBattleText2
 SeviiRoute34TrainerHeader3:
-	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_3, 3, SeviiRoute34BattleText3, SeviiRoute34EndBattleText3, SeviiRoute34AfterBattleText3
+	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_3, 5, SeviiRoute34BattleText3, SeviiRoute34EndBattleText3, SeviiRoute34AfterBattleText3
 SeviiRoute34TrainerHeader4:
 	trainer EVENT_BEAT_SEVII_ROUTE_34_TRAINER_4, 1, SeviiRoute34BattleText4, SeviiRoute34EndBattleText4, SeviiRoute34AfterBattleText4
 	db -1 ; end

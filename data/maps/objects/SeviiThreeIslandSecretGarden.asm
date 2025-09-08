@@ -4,6 +4,8 @@ SeviiThreeIslandSecretGarden_Object:
 	def_warp_events
 	warp_event  8, 17, SEVII_THREE_ISLAND_HOUSES, 5
 	warp_event  9, 17, SEVII_THREE_ISLAND_HOUSES, 5
+	warp_event  0,  6, SEVII_ROUTE_33, 2
+	warp_event  0,  7, SEVII_ROUTE_33, 2
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

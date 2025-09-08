@@ -46,7 +46,7 @@ SeviiRoute33HiddenObjects:
 	hidden_object 80, 10, IRON, HiddenItems
 	hidden_object 69,  6, ETHER, HiddenItems
 	hidden_object 56,  5, RARE_CANDY, HiddenItems
-	hidden_object 99, 23, NUGGET, HiddenItems
+	hidden_object 95, 22, NUGGET, HiddenItems
 	db -1 ; end
 
 SeviiOneIslandPokemonCenterAndMartHiddenObjects:

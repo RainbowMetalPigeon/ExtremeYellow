@@ -23,7 +23,7 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_ROUTE_33,                80, 10 ; IRON
 	hidden_item SEVII_ROUTE_33,                69,  6 ; ETHER
 	hidden_item SEVII_ROUTE_33,                56,  5 ; RARE_CANDY
-	hidden_item SEVII_ROUTE_33,                99, 23 ; NUGGET
+	hidden_item SEVII_ROUTE_33,                95, 22 ; NUGGET
 ; indoors
 	hidden_item SEVII_ONE_ISLAND_DOCK,         12,  3 ; TBE
 	db -1 ; end

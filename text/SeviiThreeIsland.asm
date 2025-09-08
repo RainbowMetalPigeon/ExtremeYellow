@@ -151,5 +151,73 @@ _SeviiThreeIslandDockBgText1::
 ; route 33 ------------------------------------
 
 _SeviiRoute33Text1::
+	text "Shoo 1!"
+	done
+	
+_SeviiRoute33Text2::
+	text "Shoo 2!"
+	done
+
+_SeviiRoute33BattleText1::
+	text "33-1-pre"
+	done
+
+_SeviiRoute33EndBattleText1::
+	text "33-1-end"
+	prompt
+	
+_SeviiRoute33AfterBattleText1::
+	text "33-1-after"
+	done
+	
+_SeviiRoute33BattleText2::
+	text "33-2-pre"
+	done
+
+_SeviiRoute33EndBattleText2::
+	text "33-2-end"
+	prompt
+	
+_SeviiRoute33AfterBattleText2::
+	text "33-2-after"
+	done
+	
+_SeviiRoute33BattleText3::
+	text "33-3-pre"
+	done
+
+_SeviiRoute33EndBattleText3::
+	text "33-3-end"
+	prompt
+	
+_SeviiRoute33AfterBattleText3::
+	text "33-3-after"
+	done
+	
+_SeviiRoute33BattleText4::
+	text "33-4-pre"
+	done
+
+_SeviiRoute33EndBattleText4::
+	text "33-4-end"
+	prompt
+	
+_SeviiRoute33AfterBattleText4::
+	text "33-4-after"
+	done
+	
+_SeviiRoute33BattleText5::
+	text "33-5-pre"
+	done
+
+_SeviiRoute33EndBattleText5::
+	text "33-5-end"
+	prompt
+	
+_SeviiRoute33AfterBattleText5::
+	text "33-5-after"
+	done
+	
+_SeviiRoute33SignText1::
 	text "DREAM FOREST"
 	done
