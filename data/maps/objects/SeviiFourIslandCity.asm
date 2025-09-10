@@ -17,8 +17,15 @@ SeviiFourIslandCity_Object:
 ;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event  7, 25, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 1
+	object_event 18, 29, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 2
+	object_event 29, 26, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3
+	object_event  4, 16, SPRITE_COOLTRAINER_F, STAY, LEFT, 4
+	object_event 12, 21, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 5
+	object_event  9, 11, SPRITE_COOLTRAINER_F, WALK, UP_DOWN, 6
+	object_event 18, 15, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 7
+
+	object_event 32, 33,  SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 8
+	object_event 33, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 9
 
 	def_warps_to SEVII_FOUR_ISLAND_CITY
