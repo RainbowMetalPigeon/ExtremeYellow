@@ -50,3 +50,22 @@ PrintType_:
 	jp PlaceString
 
 INCLUDE "data/types/names.asm"
+
+; new
+; input: d=Type
+; output: string loaded in wTrainerName
+StoreTypeInwTrainerName::
+	ld a, d
+	add a
+	ld hl, TypeNames
+	ld e, a
+	ld d, $0
+	add hl, de
+	ld a, [hli]
+	ld e, a
+	ld d, [hl]
+	ld h, d
+	ld l, e
+	ld de, wTrainerName
+	ld bc, $d
+	jp CopyData ; copies bc bytes from hl to de

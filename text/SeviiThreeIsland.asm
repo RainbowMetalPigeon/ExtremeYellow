@@ -128,9 +128,16 @@ _SeviiThreeIslandGymText1_Temp::
 	done
 
 _SeviiThreeIslandGymText1_SharedTypes::
-	text "Found: @"
-	text_decimal wMultipurposeBuffer, 1, 3 ; address to read from, number of bytes to read, number of digits to display
-	text "!"
+	text "I see. You decided"
+	line "to challenge me"
+	cont "with a team of"
+	cont "only @"
+	text_ram wTrainerName
+	text "."
+
+	para "Excellent."
+	line "Let us begin!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandGymText1_NoSharedTypes::
@@ -139,6 +146,14 @@ _SeviiThreeIslandGymText1_NoSharedTypes::
 
 _SeviiThreeIslandGymText2::
 	text "guide for you 3"
+	done
+
+_SantreText_PostBattleText::
+	text "Well done."
+	prompt
+
+_SeviiThreeIslandGymText3_Victory::
+	text "GG"
 	done
 
 ; dock ------------------------------------
@@ -153,7 +168,7 @@ _SeviiThreeIslandDockBgText1::
 _SeviiRoute33Text1::
 	text "Shoo 1!"
 	done
-	
+
 _SeviiRoute33Text2::
 	text "Shoo 2!"
 	done
@@ -165,11 +180,11 @@ _SeviiRoute33BattleText1::
 _SeviiRoute33EndBattleText1::
 	text "33-1-end"
 	prompt
-	
+
 _SeviiRoute33AfterBattleText1::
 	text "33-1-after"
 	done
-	
+
 _SeviiRoute33BattleText2::
 	text "33-2-pre"
 	done
@@ -177,11 +192,11 @@ _SeviiRoute33BattleText2::
 _SeviiRoute33EndBattleText2::
 	text "33-2-end"
 	prompt
-	
+
 _SeviiRoute33AfterBattleText2::
 	text "33-2-after"
 	done
-	
+
 _SeviiRoute33BattleText3::
 	text "33-3-pre"
 	done
@@ -189,11 +204,11 @@ _SeviiRoute33BattleText3::
 _SeviiRoute33EndBattleText3::
 	text "33-3-end"
 	prompt
-	
+
 _SeviiRoute33AfterBattleText3::
 	text "33-3-after"
 	done
-	
+
 _SeviiRoute33BattleText4::
 	text "33-4-pre"
 	done
@@ -201,11 +216,11 @@ _SeviiRoute33BattleText4::
 _SeviiRoute33EndBattleText4::
 	text "33-4-end"
 	prompt
-	
+
 _SeviiRoute33AfterBattleText4::
 	text "33-4-after"
 	done
-	
+
 _SeviiRoute33BattleText5::
 	text "33-5-pre"
 	done
@@ -213,11 +228,11 @@ _SeviiRoute33BattleText5::
 _SeviiRoute33EndBattleText5::
 	text "33-5-end"
 	prompt
-	
+
 _SeviiRoute33AfterBattleText5::
 	text "33-5-after"
 	done
-	
+
 _SeviiRoute33SignText1::
 	text "DREAM FOREST"
 	done

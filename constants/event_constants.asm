@@ -53,7 +53,7 @@
 	const EVENT_02D
 	const EVENT_02E
 	const EVENT_02F
-	const_skip 1 ; split from below
+	const EVENT_DEFEATED_SEVII_SAGE_SANTRE ; new
 	const EVENT_BEAT_OBSIDIAN_MINES_TRAINER_0 ; new
 	const EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5 ; new
 	const EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8 ; new
@@ -202,7 +202,7 @@
 	const EVENT_BEAT_SEVII_ROUTE_33_TRAINER_3 ; new
 	const EVENT_BEAT_SEVII_ROUTE_33_TRAINER_4 ; new
 	const EVENT_BEAT_SEVII_ROUTE_33_TRAINER_5 ; new
-	
+
 	const EVENT_GOT_POKE_FLUTE
 	const_skip 30 ; temporarily edited wrongly for Fuji mega stone, gotta check if all still works
 	const EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY

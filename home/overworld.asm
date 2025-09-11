@@ -317,12 +317,6 @@ OverworldLoopLessDelay::
 	set 6, [hl]
 	xor a
 	ldh [hJoyHeld], a
-; edited because useless?
-;	ld a, [wCurMap]
-;	cp CINNABAR_GYM
-;	jr nz, .notCinnabarGym
-;	SetEvent EVENT_2A7 ; never used?
-;.notCinnabarGym
 	ld hl, wd72e
 	set 5, [hl]
 	ld a, [wCurMap]

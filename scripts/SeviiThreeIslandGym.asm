@@ -1,10 +1,44 @@
 SeviiThreeIslandGym_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, SeviiThreeIslandGym_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
+
+; ===============================
+
+SeviiThreeIslandGym_ScriptPointers:
+	dw SeviiThreeIslandGymScript0
+	dw SeviiThreeIslandGymScriptPostBattle
+
+SeviiThreeIslandGymScript0:
+	ret
+
+SeviiThreeIslandGymScriptPostBattle:
+	xor a
+	ld [wCurMapScript], a
+; check battle result
+	ld a, [wIsInBattle]
+	cp $ff
+	jr z, .gotDefeated
+; if you won
+	xor a
+	ld [wIsTrainerBattle], a
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE
+	ld a, 3
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.gotDefeated ; TBE, modify defeat system to make this an "ok-to-lose battle"
+	ret
+
+; ===============================
 
 SeviiThreeIslandGym_TextPointers:
 	dw SeviiThreeIslandGymText1
 	dw SeviiThreeIslandGymText2
-	text_end
+	; scripts
+	dw SeviiThreeIslandGymText3_Victory
 
 SeviiThreeIslandGymText1:
 	text_asm
@@ -12,15 +46,6 @@ SeviiThreeIslandGymText1:
 	call PrintText
 	call WaitForTextScrollButtonPress
 	callfar CheckIfAllMonsShareAType ; d and/or e contain the shared type, otherwise, $FF
-	ld hl, SeviiThreeIslandGymText1_Temp
-	ld a, d
-	ld [wMultipurposeBuffer], a
-	ld a, e
-	ld [wMultipurposeBuffer+1], a
-	push de
-	call PrintText
-	call WaitForTextScrollButtonPress
-	pop de
 
 ; find if and which type is shared, and if both are, choose at random
 	ld a, d
@@ -34,8 +59,37 @@ SeviiThreeIslandGymText1:
 ; type 1 null, type 2 valid
 .oneMatchFound ; the (possibly chosen out of the 2 different valid ones) type is in a
 	ld [wMultipurposeBuffer], a
+	ld d, a
+	callfar StoreTypeInwTrainerName
 	ld hl, SeviiThreeIslandGymText1_SharedTypes
-	jr .printAndEnd
+	call PrintText
+; set up the battle against SANTRE
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, SantreText_PostBattleText
+	ld de, SantreText_PostBattleText
+	call SaveEndBattleTextPointers
+	ld a, OPP_SANTRE
+	ld [wCurOpponent], a
+
+	ld a, [wMultipurposeBuffer]
+	cp 13 ; between physical and special types
+	jr c, .physical
+; special type
+	sub 10
+.physical
+	inc a
+	ld [wTrainerNo], a
+
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
 .type1NotNull
 	cp e
 	jr z, .oneMatchFound ; type1=type2
@@ -73,4 +127,12 @@ SeviiThreeIslandGymText1_NoSharedTypes:
 
 SeviiThreeIslandGymText2:
 	text_far _SeviiThreeIslandGymText2
+	text_end
+
+SantreText_PostBattleText:
+	text_far _SantreText_PostBattleText
+	text_end
+
+SeviiThreeIslandGymText3_Victory:
+	text_far _SeviiThreeIslandGymText3_Victory
 	text_end
