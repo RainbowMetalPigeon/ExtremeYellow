@@ -148,7 +148,21 @@ SeviiThreeIslandGymText1_NoSharedTypes:
 	text_end
 
 SeviiThreeIslandGymText2:
-	text_far _SeviiThreeIslandGymText2
+	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ld hl, SeviiThreeIslandGymText2_PreLeague
+	jr z, .printAndEnd
+	ld hl, SeviiThreeIslandGymText2_PostLeague
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiThreeIslandGymText2_PreLeague:
+	text_far _SeviiThreeIslandGymText2_PreLeague
+	text_end
+
+SeviiThreeIslandGymText2_PostLeague:
+	text_far _SeviiThreeIslandGymText2_PostLeague
 	text_end
 
 SeviiThreeIslandGymText1_NoRewardWannaFight:

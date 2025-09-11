@@ -139,8 +139,14 @@ _SeviiThreeIslandGymText1_NoSharedTypes::
 	text "No shared types"
 	done
 
-_SeviiThreeIslandGymText2::
+_SeviiThreeIslandGymText2_PreLeague::
 	text "guide for you 3"
+	line "pre-league"
+	done
+
+_SeviiThreeIslandGymText2_PostLeague::
+	text "guide for you 3"
+	line "post-league"
 	done
 
 _SantreText_PostBattleText::

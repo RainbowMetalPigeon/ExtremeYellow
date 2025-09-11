@@ -1058,6 +1058,8 @@ SantreData:
 	db 100, MUK, DITTO, DITTO, DITTO, DITTO, DITTO, 0 ; id=19, for type=FAIRY=28
 
 YottroData:
+	db 100, MVENUSAUR, STARMIE, SNORLAX, DRAGONITE, MALAKAZAM, MGENGAR, 0 ; id=1
+
 GonqueData:
 RokuseiData:
 NanetteData:

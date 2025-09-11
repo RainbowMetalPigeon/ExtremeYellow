@@ -15,6 +15,49 @@ _SeviiFourIslandPokemonCenterAndMart_Text4::
 	text "test 4-4"
 	done
 
+; gym ------------------------------------
+
+_SeviiFourIslandGymText1_NoChampionYet::
+	text "No champ yet"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText1_Intro::
+	text "YOTTRO: hi"
+	line "only status moves"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText1_OnlyStatusMoves::
+	text "Goot let's fight"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText1_DamagingMoves::
+	text "Damaging moves"
+	line "too bad"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText2_PreLeague::
+	text "guide for you 4"
+	line "pre-league"
+	done
+
+_SeviiFourIslandGymText2_PostLeague::
+	text "guide for you 4"
+	line "post-league"
+	done
+
+_YottroText_PostBattleText::
+	text "Well done"
+	done
+
+_SeviiFourIslandGymText3_Victory::
+	text "GG!"
+;	xxxx "123456789012345678"
+	done
+
 ; dock ------------------------------------
 
 _SeviiFourIslandDockBgText1::
