@@ -398,10 +398,10 @@ DivePairedMaps_Sevii: ; TBE
 ; output:
 ; d = how many matches
 ; z flag = whether a match was found (z = not found; nz = found)
-IsMoveInParty:: ; maybe unnecessary to use double colon?
+IsMoveInParty::
 	ld c, d ; which move to check
 	ld hl, wPartyMon1Moves
-	lb de, 0, 0 ; d = how many matches were found e = which pokemon we're on
+	lb de, 0, 0 ; d = how many matches were found, e = which pokemon we're on
 	push bc
 .nextPoke
 	pop bc

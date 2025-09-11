@@ -118,13 +118,8 @@ _SeviiThreeIslandGymText1_Intro::
 	text "SANTRE: ciao"
 	done
 
-_SeviiThreeIslandGymText1_Temp::
-	text "First: @"
-	text_decimal wMultipurposeBuffer, 1, 3 ; address to read from, number of bytes to read, number of digits to display
-	text "!"
-	para "Second: @"
-	text_decimal wMultipurposeBuffer+1, 1, 3 ; address to read from, number of bytes to read, number of digits to display
-	text "!"
+_SeviiThreeIslandGymText1_NoChampionYet::
+	text "No CHAMPION yet."
 	done
 
 _SeviiThreeIslandGymText1_SharedTypes::

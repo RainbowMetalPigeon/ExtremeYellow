@@ -42,6 +42,10 @@ SeviiThreeIslandGym_TextPointers:
 
 SeviiThreeIslandGymText1:
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ld hl, SeviiThreeIslandGymText1_NoChampionYet
+	jp z, .printAndEnd
+
 	ld hl, SeviiThreeIslandGymText1_Intro
 	call PrintText
 	call WaitForTextScrollButtonPress
@@ -63,7 +67,25 @@ SeviiThreeIslandGymText1:
 	callfar StoreTypeInwTrainerName
 	ld hl, SeviiThreeIslandGymText1_SharedTypes
 	call PrintText
-; set up the battle against SANTRE
+; check if team is valid for reward
+	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
+	jr nc, .setUpBattle
+; ask the player if they actually wanna fight
+	call WaitForTextScrollButtonPress
+	ld hl, SeviiThreeIslandGymText1_NoRewardWannaFight
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .yesBattle
+; player refuses to battle
+	ld hl, SeviiThreeIslandGymText1_NoRewardNoFight
+	jr .printAndEnd
+.yesBattle
+	ld hl, SeviiThreeIslandGymText1_NoRewardYesFight
+	call PrintText
+; fallthrough
+.setUpBattle
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -109,8 +131,8 @@ SeviiThreeIslandGymText1:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandGymText1_Temp:
-	text_far _SeviiThreeIslandGymText1_Temp
+SeviiThreeIslandGymText1_NoChampionYet:
+	text_far _SeviiThreeIslandGymText1_NoChampionYet
 	text_end
 
 SeviiThreeIslandGymText1_Intro:
@@ -127,6 +149,18 @@ SeviiThreeIslandGymText1_NoSharedTypes:
 
 SeviiThreeIslandGymText2:
 	text_far _SeviiThreeIslandGymText2
+	text_end
+
+SeviiThreeIslandGymText1_NoRewardWannaFight:
+	text_far _SeviiIslandGymText_NoRewardWannaFight
+	text_end
+
+SeviiThreeIslandGymText1_NoRewardNoFight:
+	text_far _SeviiIslandGymText_NoRewardNoFight
+	text_end
+
+SeviiThreeIslandGymText1_NoRewardYesFight:
+	text_far _SeviiIslandGymText_NoRewardYesFight
 	text_end
 
 SantreText_PostBattleText:

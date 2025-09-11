@@ -28,3 +28,25 @@ _SeviiIslandsDockSailorText_NoTicket::
 	para "I'm sorry, you"
 	line "cannot sail."
 	done
+
+_SeviiIslandGymText_NoRewardWannaFight::
+	text "Oh. Wait. You have"
+	line "some exceptional"
+	cont "#MON."
+
+	para "I will gladly face"
+	line "you, but alas, I"
+	cont "cannot reward you"
+	cont "if you won."
+
+	para "Do you want to"
+	line "proceed anyhow?"
+	done
+
+_SeviiIslandGymText_NoRewardNoFight::
+	text "Understandable."
+	done
+
+_SeviiIslandGymText_NoRewardYesFight::
+	text "Marvelous!"
+	done

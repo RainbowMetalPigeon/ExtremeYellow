@@ -78,6 +78,87 @@ CheckIfAllMonsShareAType::
 
 ; =====================================
 
+; output: nz flag if team contains a non-status move
+CheckIfAllMovesAreStatusMoves::
+	ld hl, wPartyMon1Moves
+	ld c, 0 ; c = which pokemon we're on
+.monLoop
+	ld b, NUM_MOVES
+.moveLoop
+	ld a, [hl]
+	and a
+	jr z, .checkNextMon ; it's NO_MOVE=0
+
+	dec a
+	push hl
+	push bc
+	ld hl, Moves
+	ld bc, MOVE_LENGTH
+	call AddNTimes ; adds bc to hl a times
+	ld a, BANK(Moves)
+	ld de, wPlayerMoveNum
+	call FarCopyData ; copies bc bytes from a:hl to de
+	pop bc
+	pop hl
+
+	ld a, [wPlayerMovePower]
+	and a
+	ret nz ; exit if the move has BP!=0
+
+; check next move
+	inc hl
+	dec b
+	jr nz, .moveLoop
+; we checked all moves for the current mon
+.checkNextMon
+	ld a, [wPartyCount]
+	inc c
+	cp c
+	jr nz, .continue
+; exit with the z flag
+	xor a
+	and a ; to ensure z flag is set
+	ret
+.continue
+	ld hl, wPartyMon1Moves
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes
+	jr .monLoop
+
+; =====================================
+
+; output: c flag if "invalid"
+CheckIfTeamValidForSeviiSagesRewards::
+
+; TBE: add a check for levels: no above 100
+
+	ld d, ANCESTOR_PWR
+	callfar IsMoveInParty ; z flag = whether a match was found (z = not found; nz = found)
+	scf
+	ret nz
+	ld hl, ListOfSeviiSagesInvalidMons
+.loop
+	ld a, [hli]
+	cp -1
+	ret z
+	ld d, a
+	push hl
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	pop hl
+	ret c
+	jr .loop
+
+ListOfSeviiSagesInvalidMons:
+	db ZYGARDEC
+	db UNECROZMA
+	db MRAYQUAZA
+	db EETERNATUS
+	db ARCEUS
+	db MISSINGNO
+	db -1
+
+; =====================================
+
 ; INPUT: d contains the Map Piece ID
 ; OUTPUT: de is the pointes to the corresponding pic
 ConvertMapIDToMapPicID::
