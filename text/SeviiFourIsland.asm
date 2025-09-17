@@ -50,11 +50,11 @@ _SeviiFourIslandGymText2_PostLeague::
 	done
 
 _YottroText_PostBattleText::
-	text "Well done"
+	text "GG 4"
 	done
 
 _SeviiFourIslandGymText3_Victory::
-	text "GG!"
+	text "congrats 4"
 ;	xxxx "123456789012345678"
 	done
 

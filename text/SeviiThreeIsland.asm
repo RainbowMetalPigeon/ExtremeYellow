@@ -150,11 +150,11 @@ _SeviiThreeIslandGymText2_PostLeague::
 	done
 
 _SantreText_PostBattleText::
-	text "Well done."
+	text "GG 3"
 	prompt
 
 _SeviiThreeIslandGymText3_Victory::
-	text "GG"
+	text "Congrats 3"
 	done
 
 ; dock ------------------------------------

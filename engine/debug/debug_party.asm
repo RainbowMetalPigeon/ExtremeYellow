@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MPINSIR, 59 ; 255
-	db MEW, 68
+	db MPINSIR, 100 ; 255
+	db MEW, 100
 	db STARTER_PIKACHU, 100
 ;	db ARCEUS, 5
 ;	db MAROWAK, 99
@@ -64,7 +64,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, ROCK_SMASH
 	ld [hli], a
-	ld a, ELECTRIC_TERRAIN
+	ld a, DOUBLE_EDGE
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash

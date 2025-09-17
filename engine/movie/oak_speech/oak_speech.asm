@@ -153,6 +153,8 @@ OakSpeech:
 .ContinueWithOakIntro2:					; previously "NotGreen2"
 	call IntroDisplayPicCenteredOrUpperRight
 
+	call Random ; new
+	ld [wRandomMemoryAddressForGonqueChartRandomization], a ; new
 	call GBFadeInFromWhite
 	ld a, [wd72d]
 	and a
@@ -222,6 +224,8 @@ OakSpeech:
 	call DelayFrames
 	call GBFadeOutToWhite
 	call ClearScreen ; rip more tail-end optimizations
+	call Random ; new
+	ld [wRandomMemoryAddressForGonqueChartRandomization+1], a ; new
 	ret
 
 OakSpeechText1:

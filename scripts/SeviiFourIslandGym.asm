@@ -54,7 +54,7 @@ SeviiFourIslandGymText1:
 ; team not ok
 	ld hl, SeviiFourIslandGymText1_DamagingMoves
 	jr .printAndEnd
-.allowedTeam ; the (possibly chosen out of the 2 different valid ones) type is in a
+.allowedTeam
 	ld hl, SeviiFourIslandGymText1_OnlyStatusMoves ; TBE
 	call PrintText
 ; check if team is valid for reward

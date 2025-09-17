@@ -242,12 +242,32 @@ _SeviiOneIslandPokemonCenterAndMart_Text4::
 
 ; gym -------------------------------------
 
-_SeviiOneIslandGymText1::
-	text "ICHINO: ciao"
+_SeviiOneIslandGymText1_NoChampionYet::
+	text "ICHINO: come"
+	line "back when CHAMP"
 	done
 
-_SeviiOneIslandGymText2::
+_SeviiOneIslandGymText1_Intro::
+	text "ICHINO: ciao"
+	line "mystery fight"
+	done
+
+_IchinoText_PostBattleText::
+	text "GG 1!"
+	prompt
+
+_SeviiOneIslandGymText3_Victory::
+	text "Congrats 1"
+	done
+
+_SeviiOneIslandGymText2_PreLeague::
 	text "guide for you 1"
+	line "before"
+	done
+
+_SeviiOneIslandGymText2_PostLeague::
+	text "guide for you 1"
+	line "after"
 	done
 
 ; dock ------------------------------------

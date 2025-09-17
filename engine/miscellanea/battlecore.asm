@@ -393,6 +393,15 @@ CalculateDamageAndMessageForRandomizatedTypeChart::
 ; d: defending type (needs to be loaded properly, one defending type at the time)
 ; output: effectiveness in a
 GetRandomizedTypeMatchup:
+	ld a, [wCurOpponent]
+	cp OPP_GONQUE
+	jr nz, .nonGonqueRandomization
+    ld a, [wRandomMemoryAddressForGonqueChartRandomization]
+    ld h, a
+    ld a, [wRandomMemoryAddressForGonqueChartRandomization+1]
+    ld l, a
+	jr .addressFound
+.nonGonqueRandomization
     ld a, [wRandomMemoryAddressForTypeChartRandomization]
     ld h, a
     ld a, [wRandomMemoryAddressForTypeChartRandomization+1]
@@ -400,6 +409,7 @@ GetRandomizedTypeMatchup:
     ; hl is the random address chosen when we randomized the type chart
 ; (scaled) offensive type is multiplied by 19 (BIRD too), (scaled) defensive type by 1
 ; both are added to the address
+.addressFound
     ld a, b
     cp TYPELESS ; TYPELESS is always neutral towards everything
     jr z, .handleTypeless

@@ -1229,6 +1229,14 @@ EnemySendOutFirstMon:
 	call LoadHudTilePatterns
 	call LoadScreenTilesFromBuffer1
 .next4
+; new
+	ld a, [wCurOpponent]
+	cp OPP_ICHINO
+	jr nz, .vanillaNext4
+	callfar LoadHiddenMonNickAndSprite
+	jr .postVanillaNext4
+.vanillaNext4
+; BTV
 	call ClearSprites
 	hlcoord 0, 0
 	lb bc, 4, 11
@@ -1244,6 +1252,7 @@ EnemySendOutFirstMon:
 	call GetMonHeader
 	ld de, vFrontPic
 	call LoadMonFrontSprite
+.postVanillaNext4 ; new
 	ld a, -$31
 	ldh [hStartTileID], a
 	hlcoord 15, 6
@@ -5830,12 +5839,16 @@ AdjustDamageForMoveType:
 .notTheAttackOfGod
 
 ; new, to handle randomization: type chart
+	ld a, [wCurOpponent]
+	cp OPP_GONQUE
+	jr nz, .noGonque
+.randomizeTheChart
+	jpfar CalculateDamageAndMessageForRandomizatedTypeChart
+.noGonque
 	ld a, [wRandomizationTypeChart]
 	and a
-	jr z, .notRandomizedTypeChart
-	callfar CalculateDamageAndMessageForRandomizatedTypeChart
-	ret
-.notRandomizedTypeChart
+	jr nz, .randomizeTheChart
+;.notRandomizedTypeChart
 ; back to vanilla
 	ld a, [wMoveType]
 	ld b, a
@@ -5947,14 +5960,17 @@ AdjustDamageForMoveType:
 ; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 ; edited: it's (ab)used by ApplyEntryHazardsPlayer and ApplyEntryHazardsEnemy by loading ROCK in [wEnemyMoveType]
 AIGetTypeEffectiveness::
+	ld a, [wCurOpponent]
+	cp OPP_GONQUE
+	jr nz, .noGonque
+.randomizeTheChart
+	jpfar AIGetTypeEffectivenessRandomizedChart
+.noGonque
 	ld a, [wRandomizationTypeChart]
 	and a
-	jr z, .notRandomizedTypeChart
-; type chart is randomized
-	callfar AIGetTypeEffectivenessRandomizedChart
-	ret
+	jr nz, .randomizeTheChart
 
-.notRandomizedTypeChart
+;.notRandomizedTypeChart
 	ld a, [wEnemyMoveType]
 	ld d, a                    ; d = type of enemy move
 

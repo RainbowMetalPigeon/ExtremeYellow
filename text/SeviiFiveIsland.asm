@@ -16,6 +16,36 @@ _SeviiFiveIslandPokemonCenterAndMart_Text4::
 	text "test 5-4"
 	done
 
+; gym -------------------------------------
+
+_SeviiFiveIslandGymText1_NoChampionYet::
+	text "GONQUE: come"
+	line "back when CHAMP"
+	done
+
+_SeviiFiveIslandGymText1_Intro::
+	text "GONQUE: ciao"
+	line "random chart"
+	done
+
+_GonqueText_PostBattleText::
+	text "GG5!"
+	prompt
+
+_SeviiFiveIslandGymText3_Victory::
+	text "Congrats 5"
+	done
+
+_SeviiFiveIslandGymText2_PreLeague::
+	text "guide for you 5"
+	line "before"
+	done
+
+_SeviiFiveIslandGymText2_PostLeague::
+	text "guide for you 5"
+	line "after"
+	done
+
 ; dock ------------------------------------
 
 _SeviiFiveIslandDockBgText1::
@@ -76,7 +106,7 @@ _SeviiRoute34EndBattleText3::
 _SeviiRoute34AfterBattleText3::
 	text "LOST CAVE sure"
 	line "is scary."
-	
+
 	para "You walk and"
 	cont "walk, and yet you"
 	cont "keep coming back"
@@ -239,7 +269,7 @@ _SeviiResortGorgeousText1_AfterPearl::
 	cont "I heard it holds"
 	cont "untold treasures!"
 	done
-	
+
 _SeviiResortGorgeousText2_BeforeRescue::
 	text "Oh my gracious,"
 	line "master SELPHY has"

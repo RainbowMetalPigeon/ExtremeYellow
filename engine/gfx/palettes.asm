@@ -588,6 +588,14 @@ BadgeBlkDataLengths:
 	db 6     ; Earth Badge
 
 DeterminePaletteID:
+; new
+	ld a, [wCurOpponent]
+	cp OPP_ICHINO
+	jr nz, .vanilla
+	ld a, PAL_PURPLEMON
+	ret
+.vanilla
+; BTV
 	ld a, [hl]
 DeterminePaletteIDOutOfBattle:
 	ld [wd11e], a
@@ -606,6 +614,14 @@ DeterminePaletteIDOutOfBattle:
 	ret
 
 DetermineShinyPaletteID: ; new
+; new
+	ld a, [wCurOpponent]
+	cp OPP_ICHINO
+	jr nz, .vanilla
+	ld a, PAL_PURPLEMON
+	ret
+.vanilla
+; BTV
 	ld a, [hl]
 DetermineShinyPaletteIDOutOfBattle: ; new
 	ld [wd11e], a
@@ -1169,7 +1185,7 @@ GetGBCBasePalAddress::
 	add hl, hl
 	add hl, hl
 	ld de, GBCBasePalettes
-; new for sevii	
+; new for sevii
 ;	push hl
 ;	CheckEvent EVENT_IN_SEVII
 	ld a, [wOriginallyInKantoOrSevii]

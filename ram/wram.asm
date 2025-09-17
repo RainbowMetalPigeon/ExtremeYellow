@@ -2760,7 +2760,8 @@ ENDU
 
 wTrainerHeaderPtr:: dw
 
-	ds 3 ; UNUSED bytes in "Main Data"; edited, was 6
+	ds 1 ; UNUSED bytes in "Main Data"; edited, was 6
+wRandomMemoryAddressForGonqueChartRandomization:: dw ; new
 wMultiUseBuffer:: db ; new, for various buffer purposes
 
 ; the trainer the player must face after getting a wrong answer in the Cinnabar

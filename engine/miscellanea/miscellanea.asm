@@ -1760,3 +1760,58 @@ PrintOneDigitNumber_SpecialZero:
 	jr nz, PrintOneDigitNumber
 	ld [hl], "-"
 	ret
+
+; =====================================
+
+LoadHiddenMonNickAndSprite::
+	ld hl, wEnemyMonNick  ; set name to "?????"
+	ld a, "?"
+	ld [hli], a
+	ld a, "?"
+	ld [hli], a
+	ld a, "?"
+	ld [hli], a
+	ld a, "?"
+	ld [hli], a
+	ld a, "?"
+	ld [hli], a
+	ld [hl], "@"
+
+	call ClearSprites
+	hlcoord 0, 0
+	lb bc, 4, 11
+	call ClearScreenArea
+	ld b, SET_PAL_BATTLE
+	call RunPaletteCommand
+	call GBPalNormal
+	ld hl, TrainerSentOutText2
+	call PrintText
+	ld a, [wEnemyMonSpecies2]
+	ld [wcf91], a
+	push af ; new
+	ld [wd0b5], a
+
+	ld hl, wMonHSpriteDim
+	ld a, $66
+	ld [hli], a   ; write sprite dimensions
+	ld bc, GhostPic
+	ld a, c
+	ld [hli], a   ; write front sprite pointer
+	ld [hl], b
+	ld a, MON_GHOST
+	ld [wcf91], a
+
+;	call GetMonHeader
+	ld de, vFrontPic
+	call LoadMonFrontSprite
+
+	pop af
+	ld [wcf91], a
+
+	ret
+
+TrainerSentOutText2:
+	text_far _TrainerSentOutText
+	text_end
+
+; =====================================
