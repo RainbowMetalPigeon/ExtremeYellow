@@ -617,6 +617,7 @@ WarpFound2::
 	ld hl, wd736
 	set 0, [hl] ; have the player's sprite step out from the door (if there is one)
 	call IgnoreInputForHalfSecond
+	callfar RespawnAllRockSmashableRocks ; new
 	jp EnterMap
 
 ; if no matching warp was found

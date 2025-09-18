@@ -2,6 +2,10 @@ TryPushingBoulder::
 	ld a, [wd728]
 	bit 0, a ; using Strength?
 	ret z
+; new
+	callfar AreWeOnSlidingIce ; z flag if we are on sliding ice
+	ret z
+; BTV
 	ld a, [wFlags_0xcd60]
 	bit 1, a ; has boulder dust animation from previous push played yet?
 	ret nz

@@ -19,7 +19,7 @@ SeviiLostCave2_Script1:
 	ld a, HS_SEVII_LOST_CAVE_2_SELPHY
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
-	ld a, HS_RESORT_GORGEOUS_SELPHY
+	ld a, HS_SEVII_RESORT_GORGEOUS_SELPHY
 	ld [wMissableObjectIndex], a
 	predef ShowObjectSevii
 	call UpdateSprites

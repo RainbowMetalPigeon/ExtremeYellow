@@ -55,7 +55,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_GYM
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_HOUSES
-	dw NoHSSevii ; SEVII_ICEFALL_CAVE_1F
+	dw SeviiIcefallCave1FHS ; SEVII_ICEFALL_CAVE_1F
 ; 5-island
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
@@ -144,6 +144,8 @@ SeviiRoute35HS:
 
 SeviiOneIslandHousesHS:
 	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Mayoi
+SeviiIcefallCave1FHS:
+	db SEVII_ICEFALL_CAVE_1F, 3, SHOW ; Rock
 SeviiResortGorgeousHS:
 	db SEVII_RESORT_GORGEOUS, 1, HIDE ; Selphy
 SeviiLostCave2HS:

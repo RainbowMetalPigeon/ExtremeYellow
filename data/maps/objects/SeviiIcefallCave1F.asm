@@ -9,6 +9,8 @@ SeviiIcefallCave1F_Object:
 ;	bg_event  5, 65, 4 ; Route2Text3
 
 	def_object_events
-;	object_event 12, 25, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 1
+	object_event 18, 23, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 1
+	object_event 17, 16, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 2
+	object_event 15, 18, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 3
 
 	def_warps_to SEVII_ICEFALL_CAVE_1F

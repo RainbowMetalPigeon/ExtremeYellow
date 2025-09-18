@@ -711,6 +711,7 @@ RockSmashableRocks_Sevii:
 	db HS_SEVII_TWO_ISLAND_CITY_ROCK_1
 	db HS_SEVII_ROUTE_33_ROCK_1
 	db HS_SEVII_ROUTE_33_ROCK_2
+	db HS_SEVII_ICEFALL_CAVE_1F_ROCK_1
 	db $FF
 
 RockSmashableRocks_KantoBase:
