@@ -1764,7 +1764,9 @@ PrintOneDigitNumber_SpecialZero:
 ; =====================================
 
 LoadHiddenMonNickAndSprite::
-	ld hl, wEnemyMonNick  ; set name to "?????"
+	ld hl, wEnemyMonNick  ; set name to "??????"
+	ld a, "?"
+	ld [hli], a
 	ld a, "?"
 	ld [hli], a
 	ld a, "?"
