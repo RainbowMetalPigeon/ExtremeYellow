@@ -7,12 +7,9 @@ SeviiTwoIslandGym_Object:
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 18, 35, SPRITE_NIUE, STAY, DOWN, 1 ; Niue
+	object_event 23, 37, SPRITE_GYM_GUIDE, STAY, DOWN, 2 ; Guide
 
 	def_warps_to SEVII_TWO_ISLAND_GYM

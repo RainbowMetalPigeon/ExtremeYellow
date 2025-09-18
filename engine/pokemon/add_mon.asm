@@ -585,3 +585,200 @@ _MoveMon::
 	ret
 
 SamuelNameForPikachu: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
+
+; =======================================================================
+
+AddPartyMonRental::
+; Adds a new mon to the player's party.
+	ld de, wPartyCount
+
+	ld a, [de]
+	inc a
+	cp PARTY_LENGTH + 1
+	ret nc ; return if the party is already full
+	ld [de], a
+	ld a, [de]
+	ldh [hNewPartyLength], a
+	add e
+	ld e, a
+	jr nc, .noCarry
+	inc d
+.noCarry
+
+	push de
+	callfar RandomizePlayersTeamForNiueBattle
+	pop de
+;	ld a, STARMIE ; TBE
+;	ld [wcf91], a ; TBE
+
+	ld a, [wcf91]
+	ld [de], a ; write species of new mon in party list
+	inc de
+	ld a, $ff ; terminator
+	ld [de], a
+	ld hl, wPartyMonOT
+	ldh a, [hNewPartyLength]
+	dec a
+	call SkipFixedLengthTextEntries
+	ld d, h
+	ld e, l
+	ld hl, NiueNameForRentedMon
+	ld bc, NAME_LENGTH
+	call CopyData ; copies bc bytes from hl to de
+
+	ld hl, wPartyMons
+	ldh a, [hNewPartyLength]
+	dec a
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes ; add bc to hl a times
+
+	ld e, l
+	ld d, h
+	push hl
+	ld a, [wcf91]
+	ld [wd0b5], a
+	call GetMonHeader
+	ld hl, wMonHeader
+	ld a, [hli]
+	ld [de], a ; species
+	inc de
+	pop hl
+	push hl
+
+	ld a, $00  ; set mon IVs to fixed values
+	ld b, $00
+
+	push bc
+	ld bc, wPartyMon1DVs - wPartyMon1
+	add hl, bc
+	pop bc
+	ld [hli], a
+	ld [hl], b         ; write IVs
+	ld bc, (wPartyMon1HPExp - 1) - (wPartyMon1DVs + 1) ; TBE: 0 StatExp?
+	add hl, bc
+	ld a, 1
+	ld c, a
+	xor a
+	ld b, a
+	call CalcStat      ; calc HP stat (set cur Hp to max HP)
+	ldh a, [hMultiplicand+1]
+	ld [de], a
+	inc de
+	ldh a, [hMultiplicand+2]
+	ld [de], a
+	inc de
+	xor a
+	ld [de], a         ; box level
+	inc de
+	ld [de], a         ; status ailments
+	inc de
+
+; copy Mon types and moves
+	ld hl, wMonHTypes
+	ld a, [hli]       ; type 1
+	ld [de], a
+	inc de
+	ld a, [hli]       ; type 2
+	ld [de], a
+
+	inc de
+	ld a, [wOpponentMonShiny] ; TBE: no shiny? Random?
+	ld [de], a
+
+	ld hl, wMonHMoves
+	ld a, [hli]
+	inc de
+	push de
+	ld [de], a
+	ld a, [hli]
+	inc de
+	ld [de], a
+	ld a, [hli]
+	inc de
+	ld [de], a
+	ld a, [hli]
+	inc de
+	ld [de], a
+	push de
+	dec de
+	dec de
+	dec de
+	xor a
+	ld [wLearningMovesFromDayCare], a
+	predef WriteMonMoves
+	pop de
+	
+; to give the mon the ID of 00003
+; Oak=0, 8th sage=1, Ichino=2, Niue=3, etc
+	inc de
+	xor a
+	ld [de], a
+	inc de
+	inc a
+	inc a
+	inc a
+	ld [de], a
+
+	push de
+	ld a, [wCurEnemyLVL]
+	ld d, a
+	callfar CalcExperience
+	pop de
+	inc de
+	ldh a, [hExperience] ; write experience
+	ld [de], a
+	inc de
+	ldh a, [hExperience + 1]
+	ld [de], a
+	inc de
+	ldh a, [hExperience + 2]
+	ld [de], a
+	xor a
+	ld b, NUM_STATS * 2
+.writeEVsLoop              ; set all EVs to 0
+	inc de
+	ld [de], a
+	dec b
+	jr nz, .writeEVsLoop
+	inc de
+	inc de
+	pop hl
+	call AddPartyMon_WriteMovePP
+	inc de
+	ld a, [wCurEnemyLVL]
+	ld [de], a
+	inc de
+	ld a, [wIsInBattle]
+	dec a
+	jr nz, .calcFreshStats
+	ld hl, wEnemyMonMaxHP
+	ld bc, $a
+	call CopyData          ; copy stats of cur enemy mon
+	pop hl
+	jr .done
+.calcFreshStats
+	pop hl
+	ld bc, wPartyMon1HPExp - 1 - wPartyMon1
+	add hl, bc
+	ld b, $0
+	call CalcStats         ; calculate fresh set of stats
+.done
+
+; "nickname"
+	ld a, [wcf91]
+	ld [wd11e], a
+	call GetMonName
+	ld hl, wPartyMonNicks
+	ldh a, [hNewPartyLength]
+	dec a
+	call SkipFixedLengthTextEntries
+	ld d, h
+	ld e, l
+	ld hl, wcd6d
+	ld bc, NAME_LENGTH
+	call CopyData ; copy bc bytes from hl to de
+
+	scf
+	ret
+
+NiueNameForRentedMon: db "NIUE@"

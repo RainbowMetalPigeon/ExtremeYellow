@@ -94,6 +94,36 @@ _SeviiTwoIslandHousesSignText1::
 	text "Biology book"
 	done
 
+; gym -------------------------------------
+
+_SeviiTwoIslandGymText1_NoChampionYet::
+	text "NIUE: come"
+	line "back when CHAMP"
+	done
+
+_SeviiTwoIslandGymText1_Intro::
+	text "NIUE: ciao"
+	line "rental fight"
+	done
+
+_NiueText_PostBattleText::
+	text "GG 2!"
+	prompt
+
+_SeviiTwoIslandGymText3_Victory::
+	text "Congrats 2"
+	done
+
+_SeviiTwoIslandGymText2_PreLeague::
+	text "guide for you 2"
+	line "before"
+	done
+
+_SeviiTwoIslandGymText2_PostLeague::
+	text "guide for you 2"
+	line "after"
+	done
+
 ; dock ------------------------------------
 
 _SeviiTwoIslandDockBgText1::

@@ -11,6 +11,7 @@ sHallOfFame:: ds HOF_TEAM * HOF_TEAM_CAPACITY
 
 SECTION "Save Data", SRAM
 
+sTemporarySaveForSeviiSages:: ; new
 	ds $598
 
 sGameData::
