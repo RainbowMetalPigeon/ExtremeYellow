@@ -66,7 +66,9 @@ WildDataPointers_Sevii:
 ; 6-island
 	dw SeviiShipDockWildMons         ; SEVII_SIX_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
-	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_1
+	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_2
+	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_3
 	dw NothingWildMons               ; SEVII_ROUTE_38_HOUSES
 	dw NothingWildMons               ; SEVII_PATTERN_BUSH ; TBE
 	dw NothingWildMons               ; SEVII_ALTERING_CAVE ; TBE

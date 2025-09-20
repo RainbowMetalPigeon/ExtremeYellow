@@ -82,7 +82,9 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 ; 6-island-related maps
 	map_const SEVII_SIX_ISLAND_DOCK,                         10,  6 ; $26
 	map_const SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $27
-	map_const SEVII_SIX_ISLAND_GYM,                          20, 20 ; $19
+	map_const SEVII_SIX_ISLAND_GYM_1,                        32,  4 ; $19
+	map_const SEVII_SIX_ISLAND_GYM_2,                        39,  4 ; $19
+	map_const SEVII_SIX_ISLAND_GYM_3,                        25,  4 ; $19
 	map_const SEVII_ROUTE_38_HOUSES,                         11,  4 ; $19
 	map_const SEVII_PATTERN_BUSH,                            20, 15 ; $19
 	map_const SEVII_ALTERING_CAVE,                           12, 12 ; $19

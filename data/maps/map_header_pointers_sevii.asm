@@ -67,7 +67,9 @@ MapHeaderPointers_Sevii::
 ; 6-island
 	dw SeviiSixIslandDock_h
 	dw SeviiSixIslandPokemonCenterAndMart_h
-	dw SeviiSixIslandGym_h
+	dw SeviiSixIslandGym1_h
+	dw SeviiSixIslandGym2_h
+	dw SeviiSixIslandGym3_h
 	dw SeviiRoute38Houses_h
 	dw SeviiPatternBush_h
 	dw SeviiAlteringCave_h

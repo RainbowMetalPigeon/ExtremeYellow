@@ -67,7 +67,9 @@ MapHeaderBanks_Sevii::
 ; 6-island
 	db BANK(SeviiSixIslandDock_h)
 	db BANK(SeviiSixIslandPokemonCenterAndMart_h)
-	db BANK(SeviiSixIslandGym_h)
+	db BANK(SeviiSixIslandGym1_h)
+	db BANK(SeviiSixIslandGym2_h)
+	db BANK(SeviiSixIslandGym3_h)
 	db BANK(SeviiRoute38Houses_h)
 	db BANK(SeviiPatternBush_h)
 	db BANK(SeviiAlteringCave_h)

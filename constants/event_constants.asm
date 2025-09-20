@@ -135,7 +135,8 @@
 	const EVENT_SEVII_RESCUED_MAYOI ; new
 	const EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	const EVENT_GOT_BULBASAUR_IN_CERULEAN
-	const_skip 3 ; edited, was 17
+	const_skip 2 ; edited, was 17
+	const EVENT_DEFEATED_SEVII_SAGE_ROKUSEI ; new
 	const EVENT_WEATHER_SUNNY_DAY ; new
 	const EVENT_WEATHER_RAIN_DANCE ; new
 	const EVENT_WEATHER_SANDSTORM ; new

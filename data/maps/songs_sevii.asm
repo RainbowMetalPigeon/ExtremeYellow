@@ -66,7 +66,9 @@ MapSongBanks_Sevii::
 ; 6-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_SIX_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
-	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM_1
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM_2
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM_3
 	db MUSIC_ROUTES3, BANK(Music_Routes3)              ; SEVII_ROUTE_38_HOUSES
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_PATTERN_BUSH
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE

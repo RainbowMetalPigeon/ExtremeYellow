@@ -61,7 +61,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_RESORT_GORGEOUS,                             9,  7, Route35Name
 	internal_map SEVII_LOST_CAVE_3,                                10,  7, LostCaveName
 ; 6-island
-	internal_map SEVII_SIX_ISLAND_GYM,                             14, 11, SixIslandName
+	internal_map SEVII_SIX_ISLAND_GYM_3,                           14, 11, SixIslandName
 	internal_map SEVII_ROUTE_38_HOUSES,                            15,  9, Route38Name
 	internal_map SEVII_PATTERN_BUSH,                               14,  9, PatternBushName
 	internal_map SEVII_ALTERING_CAVE,                              13,  6, AlteringCaveName
