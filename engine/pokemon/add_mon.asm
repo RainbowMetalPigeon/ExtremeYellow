@@ -645,8 +645,8 @@ AddPartyMonRental::
 	pop hl
 	push hl
 
-	ld a, $00  ; set mon IVs to fixed values
-	ld b, $00
+	ld a, $FF  ; set mon IVs to fixed values
+	ld b, $FF
 
 	push bc
 	ld bc, wPartyMon1DVs - wPartyMon1
@@ -733,9 +733,9 @@ AddPartyMonRental::
 	inc de
 	ldh a, [hExperience + 2]
 	ld [de], a
-	xor a
+	ld a, $FF
 	ld b, NUM_STATS * 2
-.writeEVsLoop              ; set all EVs to 0
+.writeEVsLoop              ; set all EVs to $FFFF
 	inc de
 	ld [de], a
 	dec b
@@ -745,22 +745,22 @@ AddPartyMonRental::
 	pop hl
 	call AddPartyMon_WriteMovePP
 	inc de
-	ld a, [wCurEnemyLVL]
+	ld a, 100 ; level
 	ld [de], a
 	inc de
-	ld a, [wIsInBattle]
-	dec a
-	jr nz, .calcFreshStats
-	ld hl, wEnemyMonMaxHP
-	ld bc, $a
-	call CopyData          ; copy stats of cur enemy mon
-	pop hl
-	jr .done
-.calcFreshStats
+;	ld a, [wIsInBattle]
+;	dec a
+;	jr nz, .calcFreshStats
+;	ld hl, wEnemyMonMaxHP
+;	ld bc, $a
+;	call CopyData          ; copy stats of cur enemy mon
+;	pop hl
+;	jr .done
+;.calcFreshStats
 	pop hl
 	ld bc, wPartyMon1HPExp - 1 - wPartyMon1
 	add hl, bc
-	ld b, $0
+	ld b, $1 ; consider StatExp when calculating the stats
 	call CalcStats         ; calculate fresh set of stats
 .done
 

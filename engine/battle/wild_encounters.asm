@@ -26,7 +26,7 @@ TryDoWildEncounter:
 	and a
 	jr z, .next
 	dec a
-	jr z, .lastRepelStep
+	jp z, .lastRepelStep
 	ld [wRepelRemainingSteps], a
 .next
 ; determine if wild pokemon can appear in the half-block we're standing in
@@ -61,8 +61,14 @@ TryDoWildEncounter:
 	ld a, [wCurMapTileset]
 	cp FOREST ; Viridian Forest/Safari Zone and forest(s) of Sevii
 	jr z, .CantEncounter2
-	cp ISLAND ; new, Secluded Island, also prolly stuff for Sevii
-	jr z, .CantEncounter2 ; new
+; new
+	cp ISLAND ; Secluded Island
+	jr z, .CantEncounter2
+	cp OVERWORLD_SEVII ; for Seven Island Gym
+	jr z, .CantEncounter2
+	cp UNDERWATER
+	jr z, .CantEncounter2
+; BTV
 	ld a, [wGrassRate]
 .CanEncounter
 ; compare encounter chance with a random number to determine if there will be an encounter

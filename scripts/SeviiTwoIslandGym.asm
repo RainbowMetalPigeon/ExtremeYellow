@@ -85,6 +85,8 @@ SeviiTwoIslandGymText1:
 	callfar AddPartyMonRental
 	callfar AddPartyMonRental
 
+	predef HealParty ; because of the HPs
+
 ; set up battle
 	ld hl, wd72d
 	set 6, [hl]

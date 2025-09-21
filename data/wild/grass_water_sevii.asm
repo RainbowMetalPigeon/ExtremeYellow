@@ -77,10 +77,10 @@ WildDataPointers_Sevii:
 	dw SeviiShipDockWildMons         ; SEVII_SEVEN_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_GYM_1
-	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_GYM_2
-	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_GYM_2_DIVE
+	dw SeviiSevenIslandGym2WildMons  ; SEVII_SEVEN_ISLAND_GYM_2
+	dw SeviiSevenIslandGym2DiveWildMons ; SEVII_SEVEN_ISLAND_GYM_2_DIVE
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN
-	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_GYM_3
+	dw SeviiSevenIslandGym3WildMons  ; SEVII_SEVEN_ISLAND_GYM_3
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_ROUTE_43_CAVES ; TBE?
 	dw NothingWildMons               ; SEVII_TANOBY_CHAMBERS
@@ -125,3 +125,6 @@ INCLUDE "data/wild/maps/sevii/SeviiRoute44.asm"
 
 INCLUDE "data/wild/maps/sevii/SeviiShipDock.asm"
 INCLUDE "data/wild/maps/sevii/SeviiIcefallCave1F.asm"
+INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym2.asm"
+INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym2Dive.asm"
+INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym3.asm"
