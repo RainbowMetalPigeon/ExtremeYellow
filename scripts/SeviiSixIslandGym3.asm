@@ -1,4 +1,5 @@
 SeviiSixIslandGym3_Script:
+	call ApplyMalusOnEntry3
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSixIslandGym3_ScriptPointers
 	ld a, [wCurMapScript]
@@ -7,6 +8,48 @@ SeviiSixIslandGym3_Script:
 	ret
 
 ; ===============================
+
+ApplyMalusOnEntry3:
+	ld hl, wCurrentMapScriptFlags ; new
+	bit 5, [hl]
+	res 5, [hl]
+	ret z
+	ld a, [wXCoord]
+; Web room?
+	cp 10 ; between Web room and FRZ room
+	jr nc, .checkFRZRoom
+	ld a, [wUniQuizAnswer+9]
+	and a
+	ret nz
+	inc a
+	ld [wUniQuizAnswer+9], a
+	ld a, 6
+	ldh [hSpriteIndexOrTextID], a
+	jp DisplayTextID
+.checkFRZRoom
+; preliminary check
+	call CheckIfAllMonsAreStatused ; z flag if at least 1 mon is NOT statused
+	ret nz
+; now, normal checks
+	ld a, [wXCoord] ; need to be reloaded because was overwritten above
+	cp 24
+	jr nc, .checkSLPRoom
+	call FindARandomNonStatusedPokemon ; hl now points to a non-statused mon
+	set FRZ, [hl]
+	ld a, 7
+	ldh [hSpriteIndexOrTextID], a
+	jp DisplayTextID
+.checkSLPRoom
+	ld a, [wXCoord] ; need to be reloaded because was overwritten above
+	cp 38
+	ret nc ; Rokusei room
+	call FindARandomNonStatusedPokemon ; hl now points to a non-statused mon
+	call Random
+	and %00000111
+	ld [hl], a ; apply SLP, which is different from the other statuses as the value itself is the number of turns it'll last
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	jp DisplayTextID
 
 SeviiSixIslandGym3_ScriptPointers:
 	dw SeviiSixIslandGym3Script0
@@ -41,8 +84,10 @@ SeviiSixIslandGym3_TextPointers:
 	dw SeviiSixIslandGym3SignText2
 	dw SeviiSixIslandGym3SignText3
 	; scripts
-	dw SeviiSixIslandGym3Text5_Victory
-	text_end
+	dw SeviiSixIslandGym3Text5_Victory ; 5
+	dw SeviiSixIslandGym3PopUpMessageWeb ; 6
+	dw SeviiSixIslandGym3PopUpMessageFrozen ; 7
+	dw SeviiSixIslandGym3PopUpMessageSleep ; 8
 
 SeviiSixIslandGym3Text1:
 	text_asm
@@ -67,6 +112,7 @@ SeviiSixIslandGym3Text1:
 	call PrintText
 ; fallthrough
 .setUpBattle
+	SetEvent EVENT_ENGAGED_ROKUSEI
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -124,3 +170,22 @@ SeviiSixIslandGym3SignText3:
 	text_far _SeviiSixIslandGym3SignText3
 	text_end
 
+SeviiSixIslandGym3PopUpMessageWeb:
+	text_far _SeviiSixIslandGym3PopUpMessageWeb
+	text_end
+
+SeviiSixIslandGym3PopUpMessageFrozen:
+	text_far _SeviiSixIslandGym3PopUpMessageFrozen
+	text_end
+
+SeviiSixIslandGym3PopUpMessageSleep:
+	text_far _SeviiSixIslandGym3PopUpMessageSleep
+	text_end
+
+; ----------------------------------
+
+LoadStatModifiersForRokusei::
+	ld hl, wUniQuizAnswer
+	ld de, wPlayerMonAttackMod ; = wPlayerMonStatMods
+	ld bc, 6
+	jp CopyData ; copies bc bytes from hl to de

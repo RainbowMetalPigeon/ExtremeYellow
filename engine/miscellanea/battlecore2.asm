@@ -235,7 +235,7 @@ HurtByRocksText::
 	text_far _HurtByRocksText
 	text_end
 
-; ----------------------------------------------------------
+; ==========================================================
 
 ApplyEntryHazardsEnemy::
 	ResetEvent EVENT_HAZARDS_DAMAGING_PLAYER
@@ -378,7 +378,7 @@ ApplyEntryHazardsEnemy::
 	call HandleHazards_DecreaseHP_1o2
 	ret
 
-; ----------------------------------------------------------
+; ==========================================================
 
 ; inputs: b = the type we want to check
 ; output: z if the mon is FLYING, nz if it's not
@@ -401,7 +401,7 @@ CheckIfEnemyPokemonIsCertainType:: ; z flag = FLYING
 	cp b
 	ret
 
-; ----------------------------------------------------------
+; ==========================================================
 
 ; expects EVENT_HAZARDS_DAMAGING_PLAYER to be properly set or reset
 HandleHazards_DecreaseHP_1o2:
@@ -545,7 +545,7 @@ UpdateAppropriateMonHPBar:
 	call UpdateBattleMonHPBar
 	ret
 
-; ----------------------------------------------------------
+; ==========================================================
 
 ; simple multiply and divide from crystal
 ; added call-far-able versions, just uncomment them if needed
@@ -592,4 +592,136 @@ SimpleDivide:
 ;	ld e, a
 ;	ret
 
-; ----------------------------------------------------------
+; ==========================================================
+
+; moved from core
+AnimateRetreatingPlayerMon::
+; show 2 stages of the player mon getting smaller before disappearing
+	ld a, [wWhichPokemon]
+	push af
+	ld a, [wPlayerMonNumber]
+	ld [wWhichPokemon], a
+	callfar IsThisPartymonStarterPikachu
+	pop bc
+	ld a, b
+	ld [wWhichPokemon], a
+	jr c, .starterPikachu
+	hlcoord 1, 5
+	lb bc, 7, 7
+	call ClearScreenArea
+	hlcoord 3, 7
+	lb bc, 5, 5
+	xor a
+	ld [wDownscaledMonSize], a
+	ldh [hBaseTileID], a
+	predef CopyDownscaledMonTiles
+	ld c, 4
+	call DelayFrames
+	call .clearScreenArea
+	hlcoord 4, 9
+	lb bc, 3, 3
+	ld a, 1
+	ld [wDownscaledMonSize], a
+	xor a
+	ldh [hBaseTileID], a
+	predef CopyDownscaledMonTiles
+	call Delay3
+	call .clearScreenArea
+	ld a, $4c
+	ldcoord_a 5, 11
+	jr .clearScreenArea
+.starterPikachu
+	xor a
+	ldh [hWhoseTurn], a
+	callfar AnimationSlideMonOff
+	ret
+.clearScreenArea
+	hlcoord 1, 5
+	lb bc, 7, 7
+	call ClearScreenArea
+	ret
+
+; ==========================================================
+
+; moved from core
+; calls BattleTransition to show the battle transition animation and initializes some battle variables
+DoBattleTransitionAndInitBattleVariables:
+	ld a, [wLinkState]
+	cp LINK_STATE_BATTLING
+	jr nz, .next
+; link battle
+	xor a
+	ld [wMenuJoypadPollCount], a
+	callfar DisplayLinkBattleVersusTextBox
+	ld a, $1
+	ld [wUpdateSpritesEnabled], a
+	call ClearScreen
+.next
+	call DelayFrame
+	predef BattleTransition
+	callfar LoadHudAndHpBarAndStatusTilePatterns
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a
+	ld a, $ff
+	ld [wUpdateSpritesEnabled], a
+	call ClearSprites
+	call ClearScreen
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	ldh [hWY], a
+	ldh [rWY], a
+	ldh [hTileAnimations], a
+; completely useless because it gets initialized again by SendOutMon later...
+;	ld hl, wPlayerStatsToDouble
+;	ld [hli], a
+;	ld [hli], a ; wPlayerStatsToHalve
+;	ld [hli], a ; wPlayerBattleStatus1
+;	ld [hli], a ; wPlayerBattleStatus2
+;	ld [hl], a  ; wPlayerBattleStatus3
+;	ld [wPlayerDisabledMove], a
+	ret
+
+; ==========================================================
+
+; moved and adapted from core
+InitializeBattleVariablesAndEvents::
+	ResetEvent EVENT_WEATHER_SUNNY_DAY
+	ResetEvent EVENT_WEATHER_RAIN_DANCE
+	ResetEvent EVENT_WEATHER_SANDSTORM
+	ResetEvent EVENT_WEATHER_HAIL
+	ResetEvent EVENT_TERRAIN_ELECTRIC
+	ResetEvent EVENT_TERRAIN_GRASSY
+	ResetEvent EVENT_TERRAIN_MISTY
+	ResetEvent EVENT_TERRAIN_PSYCHIC
+	ResetEvent EVENT_TRICK_ROOM
+	xor a
+	ld [wPartyGainExpFlags], a
+	ld [wPartyFoughtCurrentEnemyFlags], a
+	ld [wActionResultOrTookBattleTurn], a
+	ld [wWeatherCounterPlayer], a
+	ld [wWeatherCounterEnemy], a
+	ld [wTerrainCounterPlayer], a
+	ld [wTerrainCounterEnemy], a
+	ld [wTrickRoomCounterPlayer], a
+	ld [wTrickRoomCounterEnemy], a
+	ld [wHazardsSpikesEnemySide], a
+	ld [wHazardsToxicSpikesEnemySide], a
+	ld [wHazardsStickyWebEnemySide], a
+	ld [wHazardsStealthRockEnemySide], a
+	ld [wHazardsSpikesPlayerSide], a
+	ld [wHazardsToxicSpikesPlayerSide], a
+	ld [wHazardsStickyWebPlayerSide], a
+	ld [wHazardsStealthRockPlayerSide], a
+; new part for Rokusei
+	ld a, [wCurOpponent]
+	cp OPP_ROKUSEI
+	ret nz
+	ld a, [wUniQuizAnswer+6]
+	ld [wHazardsStealthRockPlayerSide], a
+	ld a, [wUniQuizAnswer+7]
+	ld [wHazardsSpikesPlayerSide], a
+	ld a, [wUniQuizAnswer+8]
+	ld [wHazardsToxicSpikesPlayerSide], a
+	ld a, [wUniQuizAnswer+9]
+	ld [wHazardsStickyWebPlayerSide], a
+	ret

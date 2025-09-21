@@ -16,38 +16,8 @@ SlidePlayerAndEnemySilhouettesOnScreen:           ; edited into a jpfar to save 
                                     ; because called only by SlidePlayerAndEnemySilhouettesOnScreen which is there
 
 StartBattle:
-; new
-	ResetEvent EVENT_WEATHER_SUNNY_DAY
-	ResetEvent EVENT_WEATHER_RAIN_DANCE
-	ResetEvent EVENT_WEATHER_SANDSTORM
-	ResetEvent EVENT_WEATHER_HAIL
-	ResetEvent EVENT_TERRAIN_ELECTRIC
-	ResetEvent EVENT_TERRAIN_GRASSY
-	ResetEvent EVENT_TERRAIN_MISTY
-	ResetEvent EVENT_TERRAIN_PSYCHIC
-	ResetEvent EVENT_TRICK_ROOM
-; BTV
-	xor a
-	ld [wPartyGainExpFlags], a
-	ld [wPartyFoughtCurrentEnemyFlags], a
-	ld [wActionResultOrTookBattleTurn], a
-; new
-	ld [wWeatherCounterPlayer], a
-	ld [wWeatherCounterEnemy], a
-	ld [wTerrainCounterPlayer], a
-	ld [wTerrainCounterEnemy], a
-	ld [wTrickRoomCounterPlayer], a
-	ld [wTrickRoomCounterEnemy], a
-	ld [wHazardsSpikesEnemySide], a
-	ld [wHazardsToxicSpikesEnemySide], a
-	ld [wHazardsStickyWebEnemySide], a
-	ld [wHazardsStealthRockEnemySide], a
-	ld [wHazardsSpikesPlayerSide], a
-	ld [wHazardsToxicSpikesPlayerSide], a
-	ld [wHazardsStickyWebPlayerSide], a
-	ld [wHazardsStealthRockPlayerSide], a
-; BTV
-	inc a
+	callfar InitializeBattleVariablesAndEvents ; new
+	ld a, 1 ; edited
 	ld [wFirstMonsNotOutYet], a
 	ld hl, wEnemyMon1HP
 	ld bc, wEnemyMon2 - wEnemyMon1 - 1
@@ -1531,6 +1501,13 @@ LoadBattleMonFromParty:
 	jr z, .noBadgeBoost			; new code to handle the badge boost option
 	call ApplyBadgeStatBoosts
 .noBadgeBoost					; new code to handle the badge boost option
+; new
+	ld a, [wCurOpponent]
+	cp OPP_ROKUSEI
+	jr nz, .vanilla
+	jpfar LoadStatModifiersForRokusei
+.vanilla
+; BTV
 	ld a, $7 ; default stat modifier
 	ld b, NUM_STAT_MODS
 	ld hl, wPlayerMonAttackMod
@@ -1617,10 +1594,21 @@ SendOutMon:
 	ld [hl], a
 	ld hl, wPlayerStatsToDouble
 	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+	ld [hli], a ; wPlayerStatsToHalve
+; new
+	push hl
+	CheckAndResetEvent EVENT_ENGAGED_ROKUSEI
+	pop hl
+	ld a, 0
+	jr z, .vanilla
+; Rokusei engaged
+	jr .rokuseiFirstMon
+.vanilla
+; BTV
+	ld [hli], a ; wPlayerBattleStatus1
+	ld [hli], a ; wPlayerBattleStatus2
+	ld [hl], a  ; wPlayerBattleStatus3
+.rokuseiFirstMon ; new
 	ld [wPlayerDisabledMove], a
 	ld [wPlayerDisabledMoveNumber], a
 	ld [wPlayerMonMinimized], a
@@ -1659,52 +1647,6 @@ SendOutMon:
 	callfar ApplyEntryHazardsPlayer ; new
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
-
-; show 2 stages of the player mon getting smaller before disappearing
-AnimateRetreatingPlayerMon:
-	ld a, [wWhichPokemon]
-	push af
-	ld a, [wPlayerMonNumber]
-	ld [wWhichPokemon], a
-	callfar IsThisPartymonStarterPikachu
-	pop bc
-	ld a, b
-	ld [wWhichPokemon], a
-	jr c, .starterPikachu
-	hlcoord 1, 5
-	lb bc, 7, 7
-	call ClearScreenArea
-	hlcoord 3, 7
-	lb bc, 5, 5
-	xor a
-	ld [wDownscaledMonSize], a
-	ldh [hBaseTileID], a
-	predef CopyDownscaledMonTiles
-	ld c, 4
-	call DelayFrames
-	call .clearScreenArea
-	hlcoord 4, 9
-	lb bc, 3, 3
-	ld a, 1
-	ld [wDownscaledMonSize], a
-	xor a
-	ldh [hBaseTileID], a
-	predef CopyDownscaledMonTiles
-	call Delay3
-	call .clearScreenArea
-	ld a, $4c
-	ldcoord_a 5, 11
-	jr .clearScreenArea
-.starterPikachu
-	xor a
-	ldh [hWhoseTurn], a
-	callfar AnimationSlideMonOff
-	ret
-.clearScreenArea
-	hlcoord 1, 5
-	lb bc, 7, 7
-	call ClearScreenArea
-	ret
 
 ; reads player's current mon's HP into wBattleMonHP
 ReadPlayerMonCurHPAndStatus:
@@ -2432,7 +2374,7 @@ SwitchPlayerMon:
 	callfar RetreatMon
 	ld c, 50
 	call DelayFrames
-	call AnimateRetreatingPlayerMon
+	callfar AnimateRetreatingPlayerMon ; edited into a callfar
 	ld a, [wWhichPokemon]
 	ld [wPlayerMonNumber], a
 	ld c, a
@@ -7182,42 +7124,6 @@ LoadEnemyMonData:
 .end_set_sendout
 	pop af
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-	ret
-
-; calls BattleTransition to show the battle transition animation and initializes some battle variables
-DoBattleTransitionAndInitBattleVariables:
-	ld a, [wLinkState]
-	cp LINK_STATE_BATTLING
-	jr nz, .next
-; link battle
-	xor a
-	ld [wMenuJoypadPollCount], a
-	callfar DisplayLinkBattleVersusTextBox
-	ld a, $1
-	ld [wUpdateSpritesEnabled], a
-	call ClearScreen
-.next
-	call DelayFrame
-	predef BattleTransition
-	callfar LoadHudAndHpBarAndStatusTilePatterns
-	ld a, $1
-	ldh [hAutoBGTransferEnabled], a
-	ld a, $ff
-	ld [wUpdateSpritesEnabled], a
-	call ClearSprites
-	call ClearScreen
-	xor a
-	ldh [hAutoBGTransferEnabled], a
-	ldh [hWY], a
-	ldh [rWY], a
-	ldh [hTileAnimations], a
-	ld hl, wPlayerStatsToDouble
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
-	ld [wPlayerDisabledMove], a
 	ret
 
 ; swaps the level values of the BattleMon and EnemyMon structs

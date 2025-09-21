@@ -40,7 +40,7 @@ _SeviiSixIslandGym1SignText4::
 
 _SeviiSixIslandGym1PopUpMessageStatDebuff::
 	text "Lowered a stat of"
-	line "your 1st #MON!"
+	line "all your #MON!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -86,6 +86,37 @@ _SeviiSixIslandGym2SignText6::
 	text "Curse"
 	done
 
+_SeviiSixIslandGym2PopUpMessageRock::
+	text "STEALTH ROCKS will"
+	line "haunt your team!"
+	done
+
+_SeviiSixIslandGym2PopUpMessageSpikes::
+	text "SPIKES will"
+	line "haunt your team!"
+	done
+
+_SeviiSixIslandGym2PopUpMessageToxicSpikes::
+	text "TOXIC SPIKES will"
+	line "haunt your team!"
+	done
+
+_SeviiSixIslandGym2PopUpMessageConfusion::
+	text "Your 1st #MON"
+	line "will be CONFUSED!"
+	done
+
+_SeviiSixIslandGym2PopUpMessageSeeds::
+	text "Your 1st #MON'll"
+	line "have LEECH SEEDS!"
+	done
+
+_SeviiSixIslandGym2PopUpMessageCurse::
+	text "Your 1st #MON"
+	line "will be CURSED!"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiSixIslandGym3SignText1::
 	text "Web"
 	done
@@ -109,6 +140,21 @@ _RokuseiText_PostBattleText::
 
 _SeviiSixIslandGym3Text5_Victory::
 	text "Congrats 6"
+	done
+
+_SeviiSixIslandGym3PopUpMessageWeb::
+	text "STICKY WEB will"
+	line "haunt your team!"
+	done
+
+_SeviiSixIslandGym3PopUpMessageFrozen::
+	text "A #MON of yours"
+	line "got FROZEN!"
+	done
+
+_SeviiSixIslandGym3PopUpMessageSleep::
+	text "A #MON of yours"
+	line "fell ASLEEP!"
 	done
 
 ; dock ------------------------------------

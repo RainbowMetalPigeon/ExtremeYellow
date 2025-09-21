@@ -10,10 +10,30 @@ ApplyMalusOnEntry1:
 	ld a, [wXCoord]
 ; Intro room?
 	cp 10 ; between Intro room and Stat-Debuff room
-	ret c
-; Stat Debuff room?
+	jr nc, .checkStatDebuffRoom
+; initialize the special modifiers
+	ld a, $7 ; default stat modifier
+	ld b, 6 ; effective number of stat modifiers, two were allocated but never used
+	ld hl, wUniQuizAnswer ; temporary storage
+.statModLoop
+	ld [hli], a
+	dec b
+	jr nz, .statModLoop
+	xor a
+	ld [hli], a ; Rocks: wUniQuizAnswer+6
+	ld [hli], a ; Spikes
+	ld [hli], a ; Toxic Spikes
+	ld [hl], a ; Web
+	ld [wPlayerBattleStatus1], a
+	ld [wPlayerBattleStatus2], a
+	ld [wPlayerBattleStatus3], a
+	ret
+.checkStatDebuffRoom
 	cp 24
 	jr nc, .checkPSNRoom
+	call CheckIfAStatModifierCanBeLowered ; z flag if all stats have been minimized
+	ret z
+	call ApplyRandomStatDebuff
 	ld a, 6
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
@@ -96,6 +116,23 @@ SeviiSixIslandGym1PopUpMessageParalysis:
 	
 ; ------------------------------------------------------------
 
+; z flag if at least 1 mon is NOT statused
+CheckIfAllMonsAreStatused:
+	ld a, [wPartyCount]
+	ld b, a ; d has the number of Mons in the party
+	ld de, wPartyMon2Status - wPartyMon1Status
+	ld hl, wPartyMon1Status - (wPartyMon2Status - wPartyMon1Status)
+.loop
+	add hl, de
+	ld a, [hl]
+	and a
+	ret z
+	dec b
+	jr nz, .loop
+	ld a, 1
+	and a ; to ensure nz flag is set
+	ret
+
 ; returns hl as the pointer to a status-izable mon
 FindARandomNonStatusedPokemon:
 	ld a, [wPartyCount]
@@ -119,26 +156,46 @@ FindARandomNonStatusedPokemon:
 ; we can status-ize the mon
 	ret
 
-; z flag if at least 1 mon is NOT statused
-CheckIfAllMonsAreStatused:
-	ld a, [wPartyCount]
-	ld b, a ; d has the number of Mons in the party
-	ld de, wPartyMon2Status - wPartyMon1Status
-	ld hl, wPartyMon1Status - (wPartyMon2Status - wPartyMon1Status)
-.loop
-	add hl, de
-	ld a, [hl]
-	and a
-	ret z
-	dec b
-	jr nz, .loop
-	ld a, 1
-	and a ; to ensure nz flag is set
-	ret
-
 ;DEF SLP_MASK EQU %111 ; 0-7 turns
 ;	const_def 3
 ;	const PSN ; 3
 ;	const BRN ; 4
 ;	const FRZ ; 5
 ;	const PAR ; 6
+
+; ------------------------------------------------------------
+
+; returns z flag if all stat modifiers are at 1
+CheckIfAStatModifierCanBeLowered:
+	ld hl, wUniQuizAnswer
+	ld b, 6
+.loop
+	ld a, [hli]
+	cp 1
+	ret nz
+	dec b
+	ret z
+	jr .loop
+
+ApplyRandomStatDebuff:
+.RNGLoop
+	call Random
+	and 7 ; bit-wise and with %0000111
+	cp 6
+	jr nc, .RNGLoop
+; here we have a random number between 0 and 5
+	ld hl, wUniQuizAnswer
+.increaseLoop
+	and a
+	jr z, .doneIncrease
+	inc hl
+	dec a
+	jr .increaseLoop
+.doneIncrease ; now hl points to the n-th stat we want to debuff
+	ld a, [hl]
+	cp 1
+	jr z, .RNGLoop ; back to RNG if the mon is already statused
+; we can reduce this stat
+	dec a
+	ld [hl], a
+	ret
