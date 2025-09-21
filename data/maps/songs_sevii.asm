@@ -76,7 +76,11 @@ MapSongBanks_Sevii::
 ; 7-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
-	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SEVEN_ISLAND_GYM
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SEVEN_ISLAND_GYM_1
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SEVEN_ISLAND_GYM_2
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_SEVEN_ISLAND_GYM_2_DIVE
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SEVEN_ISLAND_GYM_3
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_HOUSES
 	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_ROUTE_43_CAVES
 	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; SEVII_TANOBY_CHAMBERS ; TBV

@@ -13,6 +13,14 @@ CheckIfCanSurfOrCutFromOverworld::
 ; if we are not already surfing
 
 ; check for climbable rocks
+    ld a, [wCurMapTileset]
+    cp OVERWORLD
+    jr z, .checkIfClimbableTile
+    cp OVERWORLD_SEVII
+    jr z, .checkIfClimbableTile
+    cp CAVERN
+    jr nz, .checkForSurfability
+.checkIfClimbableTile
     ld a, [wTileInFrontOfPlayer]
     cp $63
     jr nz, .checkForSurfability
@@ -388,6 +396,7 @@ DivePairedMaps: ; TBE
 ; no terminator, relies on me having worked properly and no mismatched maps
 DivePairedMaps_Sevii: ; TBE
     db SEVII_ROUTE_32, SEVII_ROUTE_32_DIVE
+    db SEVII_SEVEN_ISLAND_GYM_2, SEVII_SEVEN_ISLAND_GYM_2_DIVE
 
 ; --------------------------------------------
 

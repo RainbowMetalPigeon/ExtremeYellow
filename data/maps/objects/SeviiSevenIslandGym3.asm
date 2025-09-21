@@ -1,9 +1,9 @@
-SeviiSevenIslandGym_Object:
-	db $2e ; border block
+SeviiSevenIslandGym3_Object:
+	db $03 ; border block
 
 	def_warp_events
-	warp_event 20, 39, SEVII_ROUTE_41, 1
-	warp_event 21, 39, SEVII_ROUTE_41, 1
+	warp_event 22, 43, SEVII_SEVEN_ISLAND_GYM_2, 2
+	warp_event 23, 43, SEVII_SEVEN_ISLAND_GYM_2, 2
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
@@ -15,4 +15,4 @@ SeviiSevenIslandGym_Object:
 ;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
 ;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
 
-	def_warps_to SEVII_SEVEN_ISLAND_GYM
+	def_warps_to SEVII_SEVEN_ISLAND_GYM_3

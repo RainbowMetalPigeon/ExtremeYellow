@@ -68,7 +68,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_DOTTED_HOLE,                                14, 13, DottedHoleName
 ; 7-island
 	internal_map SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,        4, 12, SevenIslandName
-	internal_map SEVII_SEVEN_ISLAND_GYM,                            4, 11, Route41Name
+	internal_map SEVII_SEVEN_ISLAND_GYM_3,                          4, 11, Route41Name
 	internal_map SEVII_SEVEN_ISLAND_HOUSES,                         4, 12, SevenIslandName
 	internal_map SEVII_ROUTE_43_CAVES,                              5, 14, Route43Name
 	internal_map SEVII_TANOBY_CHAMBERS,                             7, 15, TanobyChambersName

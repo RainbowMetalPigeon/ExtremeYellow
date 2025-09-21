@@ -77,7 +77,11 @@ MapHeaderPointers_Sevii::
 ; 7-island
 	dw SeviiSevenIslandDock_h
 	dw SeviiSevenIslandPokemonCenterAndMart_h
-	dw SeviiSevenIslandGym_h
+	dw SeviiSevenIslandGym1_h
+	dw SeviiSevenIslandGym2_h
+	dw SeviiSevenIslandGym2Dive_h
+	dw SeviiSevenIslandGym2DiveCavern_h
+	dw SeviiSevenIslandGym3_h
 	dw SeviiSevenIslandHouses_h
 	dw SeviiRoute43Caves_h
 	dw SeviiTanobyChambers_h

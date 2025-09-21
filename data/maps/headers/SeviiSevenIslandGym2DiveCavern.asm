@@ -1,0 +1,2 @@
+	map_header SeviiSevenIslandGym2DiveCavern, SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN, UNDERWATER, 0
+	end_map_header

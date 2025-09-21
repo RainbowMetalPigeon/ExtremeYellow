@@ -77,7 +77,11 @@ MapHeaderBanks_Sevii::
 ; 7-island
 	db BANK(SeviiSevenIslandDock_h)
 	db BANK(SeviiSevenIslandPokemonCenterAndMart_h)
-	db BANK(SeviiSevenIslandGym_h)
+	db BANK(SeviiSevenIslandGym1_h)
+	db BANK(SeviiSevenIslandGym2_h)
+	db BANK(SeviiSevenIslandGym2Dive_h)
+	db BANK(SeviiSevenIslandGym2DiveCavern_h)
+	db BANK(SeviiSevenIslandGym3_h)
 	db BANK(SeviiSevenIslandHouses_h)
 	db BANK(SeviiRoute43Caves_h)
 	db BANK(SeviiTanobyChambers_h)
