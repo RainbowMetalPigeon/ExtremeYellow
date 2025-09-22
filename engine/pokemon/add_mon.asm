@@ -590,6 +590,10 @@ SamuelNameForPikachu: db "SAMUEL @" ; new, with a space to make it harder for pl
 
 AddPartyMonRental::
 ; Adds a new mon to the player's party.
+	ld a, 100
+	ld [wCurEnemyLVL], a
+
+
 	ld de, wPartyCount
 
 	ld a, [de]
@@ -745,7 +749,7 @@ AddPartyMonRental::
 	pop hl
 	call AddPartyMon_WriteMovePP
 	inc de
-	ld a, 100 ; level
+	ld a, [wCurEnemyLVL]
 	ld [de], a
 	inc de
 ;	ld a, [wIsInBattle]
