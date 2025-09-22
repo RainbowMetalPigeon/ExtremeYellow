@@ -64,6 +64,10 @@ SeviiTwoIslandGymText1:
 ; save party, clear it, and load a random one
 	call SavePartyIntoSpecialSRAM
 	call ClearPlayersParty
+	
+	ld hl, SeviiTwoIslandGymText1_Intro1
+	call PrintText
+
 ; handle all wram variables needed for randomization
 	xor a
 	ld [wBattleFacilityWhichMonIsRandomized], a
@@ -77,7 +81,7 @@ SeviiTwoIslandGymText1:
 	callfar AddPartyMonRental
 	callfar AddPartyMonRental
 
-	ld hl, SeviiTwoIslandGymText1_Intro
+	ld hl, SeviiTwoIslandGymText1_Intro2
 	call PrintText
 
 ; and randomize another 3 mons now
@@ -112,8 +116,12 @@ SeviiTwoIslandGymText1_NoChampionYet:
 	text_far _SeviiTwoIslandGymText1_NoChampionYet
 	text_end
 
-SeviiTwoIslandGymText1_Intro:
-	text_far _SeviiTwoIslandGymText1_Intro
+SeviiTwoIslandGymText1_Intro1:
+	text_far _SeviiTwoIslandGymText1_Intro1
+	text_end
+
+SeviiTwoIslandGymText1_Intro2:
+	text_far _SeviiTwoIslandGymText1_Intro2
 	text_end
 
 SeviiTwoIslandGymText2:

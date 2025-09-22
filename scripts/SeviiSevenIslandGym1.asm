@@ -1,14 +1,64 @@
 SeviiSevenIslandGym1_Script:
+	call ResetGymDungeon
 	jp EnableAutoTextBoxDrawing
 
 SeviiSevenIslandGym1_TextPointers:
-;	dw SeviiSevenIslandGym1Text1
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw SeviiSevenIslandGym1Text3
+	dw SeviiSevenIslandGym1Text1
+
+SeviiSevenIslandGym1Text1:
+	text_far _SeviiSevenIslandGym1Text1
 	text_end
 
-;SeviiSevenIslandGym1Text1:
-;	text_far _SeviiSevenIslandGym1Text1
-;	text_end
+ResetGymDungeon:
+    ld hl, wCurrentMapScriptFlags
+    bit 5, [hl]
+    res 5, [hl]
+    ret z
+
+	ResetEvent EVENT_SEVII_SEVEN_ISLAND_GYM_3_BOULDER_ON_SWITCH
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_1
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_2
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_3
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_4
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_5
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_6
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_7
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_DIVE_TRAINER_1
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_DIVE_TRAINER_2
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_DIVE_TRAINER_3
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_DIVE_TRAINER_4
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_DIVE_TRAINER_5
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_3_TRAINER_1
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_3_TRAINER_2
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_3_TRAINER_3
+	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_3_TRAINER_4
+
+	ld hl, SeviiSevenIslandGymStuffToRespawn
+.showLoop
+	ld a, [hli]
+	cp $ff ; have we run out of stuff to show?
+	ret z ; if so, we're done here
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	pop hl
+	jr .showLoop
+
+SeviiSevenIslandGymStuffToRespawn:
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_ITEM_1
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_ITEM_2
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_ITEM_3
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_ITEM_4
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_ITEM_5
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_ITEM_1
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_ITEM_2
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_ITEM_3
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_ITEM_4
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_ITEM_5
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_ITEM_6
+	db HS_SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN_ITEM_1
+	db HS_SEVII_SEVEN_ISLAND_GYM_3_ITEM_1
+	db HS_SEVII_SEVEN_ISLAND_GYM_3_ITEM_2
+	db HS_SEVII_SEVEN_ISLAND_GYM_3_ITEM_3
+	db HS_SEVII_SEVEN_ISLAND_GYM_3_ITEM_4
+	db $FF

@@ -101,9 +101,15 @@ _SeviiTwoIslandGymText1_NoChampionYet::
 	line "back when CHAMP"
 	done
 
-_SeviiTwoIslandGymText1_Intro::
+_SeviiTwoIslandGymText1_Intro1::
 	text "NIUE: ciao"
 	line "rental fight"
+	cont "gimme few secs"
+	done
+
+_SeviiTwoIslandGymText1_Intro2::
+	text "NIUE: ok"
+	line "almost there"
 	done
 
 _NiueText_PostBattleText::

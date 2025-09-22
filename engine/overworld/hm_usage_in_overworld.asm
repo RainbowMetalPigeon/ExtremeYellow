@@ -198,6 +198,9 @@ CheckIfCanSurfOrCutFromOverworld::
 .checkForWaterfall
 
 ; check for waterfall
+    ld a, [wCurMapTileset]
+    cp CAVERN ; waterfalls exists only in caverns
+    jr nz, .checkForDive
     ld a, [wTileInFrontOfPlayer]
     cp $50
     jr nz, .checkForDive

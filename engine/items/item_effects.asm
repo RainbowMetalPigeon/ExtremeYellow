@@ -2261,13 +2261,23 @@ ItemUseEscapeRope:
 	ld a, [wIsInBattle]
 	and a
 	jr nz, .notUsable
+; new
+	CheckEvent EVENT_IN_SEVII
 	ld a, [wCurMap]
+	jr z, .kanto
+	cp SEVII_SEVEN_ISLAND_GYM_3
+	jr z, .notUsable
+	jr .postRegionalFork
+.kanto
+; BTV
+;	ld a, [wCurMap]
 	cp AGATHAS_ROOM
 	jr z, .notUsable
 	cp BILLS_HOUSE
 	jr z, .notUsable
 	cp POKEMON_FAN_CLUB
 	jr z, .notUsable
+.postRegionalFork ; new
 	ld a, [wCurMapTileset]
 	ld b, a
 	ld hl, EscapeRopeTilesets

@@ -6,13 +6,23 @@ SeviiSevenIslandGym3_Object:
 	warp_event 23, 43, SEVII_SEVEN_ISLAND_GYM_2, 2
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 23,  6, SPRITE_NANETTE, STAY, DOWN, 1
+	object_event 17, 30, SPRITE_COOLTRAINER_F, STAY, DOWN, 2, OPP_COOLTRAINER, 80
+	object_event 40, 25, SPRITE_GAMBLER, STAY, RIGHT, 3, OPP_GAMBLER, 8
+	object_event 38,  4, SPRITE_COOLTRAINER_F, STAY, DOWN, 4, OPP_COOLTRAINER, 81
+	object_event 31, 24, SPRITE_SWIMMER, STAY, LEFT, 5, OPP_SWIMMER, 24
+	; boulders
+	object_event 40,  6, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 6
+	object_event 33, 10, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 7
+	object_event 33, 11, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 8
+	object_event 34, 11, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 9
+	object_event 32, 14, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 10
+	; items
+	object_event 38, 30, SPRITE_POKE_BALL, STAY, NONE, 11, MAX_REPEL
+	object_event 33, 32, SPRITE_POKE_BALL, STAY, NONE, 12, X_SPECIAL
+	object_event  2, 41, SPRITE_POKE_BALL, STAY, NONE, 13, ELIXER
+	object_event 11, 23, SPRITE_POKE_BALL, STAY, NONE, 14, X_ACCURACY
 
 	def_warps_to SEVII_SEVEN_ISLAND_GYM_3

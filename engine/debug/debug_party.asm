@@ -16,7 +16,7 @@ DebugTeam:
 	db MPINSIR, 100 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 100
-;	db ARCEUS, 5
+	db ARCEUS, 5
 ;	db MAROWAK, 99
 ;	db MISSINGNO, 255
 	db -1 ; end
@@ -81,16 +81,16 @@ IF DEF(_DEBUG)
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
-;	; moves to other members
-;	ld a, WILL_O_WISP
-;	ld hl, wPartyMon4Moves
-;	ld [hli], a
-;	ld a, EXPLOSION
-;	ld [hli], a
-;	ld a, LEECH_SEED
-;	ld [hli], a
-;	ld a, CONFUSE_RAY
-;	ld [hl], a
+	; moves to other members
+	ld a, DIG
+	ld hl, wPartyMon4Moves
+	ld [hli], a
+	ld a, TELEPORT
+	ld [hli], a
+	ld a, SOFTBOILED
+	ld [hli], a
+	ld a, FLASH
+	ld [hl], a
 
 ;	; moves to other members
 ;	ld a, SCALD

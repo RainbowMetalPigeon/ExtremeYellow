@@ -543,10 +543,13 @@ WarpFound2::
 ; this is for handling "outside" maps that can't have the 0xFF destination map
 	ld a, [wCurMap]
 	ld [wLastMap], a
-	ld a, [wCurMapWidth]
-;	ld [wUnusedD366], a ; not read
 	ldh a, [hWarpDestinationMap]
 	ld [wCurMap], a
+; new
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .notRockTunnel
+	ld a, [wCurMap]
+; BTV
 	cp ROCK_TUNNEL_1F
 	jr nz, .notRockTunnel
 	ld a, $06
@@ -565,9 +568,17 @@ WarpFound2::
 	jr z, .goBackOutside
 ; if not going back to the previous map
 
-	; new block of code to darken the final labyrinth and make it need FLASH
+; new block of code to darken the final labyrinth and make it need FLASH
+	CheckEvent EVENT_IN_SEVII
 	ldh a, [hWarpDestinationMap]
-;	ld [wCurMap], a
+	jr z, .kanto
+	cp SEVII_SEVEN_ISLAND_GYM_3
+	jr nz, .notFinalLabyrinthHandling
+	ld a, $06
+	ld [wMapPalOffset], a
+	call GBFadeOutToBlack
+	jr .notFinalLabyrinthHandling
+.kanto
 	cp CERULEAN_CAVE_EXTRA_FINAL
 	jr nz, .notFinalLabyrinth
 	ld a, $06
@@ -583,7 +594,6 @@ WarpFound2::
 	jr nz, .notFinalLabyrinthHandling
 	xor a
 	ld [wMapPalOffset], a
-;	ldh a, [hWarpDestinationMap] ; destination map, unnecessary?
 .notFinalLabyrinthHandling
 	ldh a, [hWarpDestinationMap] ; fixing glitchy stairs?
 
@@ -685,11 +695,22 @@ CheckIfInOutsideMap::
 	ld a, [wCurMapTileset]
 	and a ; most towns/routes have tileset 0 (OVERWORLD)
 	ret z
-	cp OVERWORLD_SEVII ; new for sevii
-	ret z ; new for sevii
 	cp PLATEAU ; Route 23 / Indigo Plateau
 	ret z ; new
 	cp ISLAND ; new
+	ret z
+	cp OVERWORLD_SEVII ; new for sevii
+	ret nz
+; if it's Overworld Sevii, need to check if it's the 7th Shrine
+	ld a, [wCurMap]
+	cp SEVII_SEVEN_ISLAND_GYM_2
+	jr z, .setNZFlag
+	xor a
+	and a
+	ret
+.setNZFlag
+	ld a, 1
+	and a
 	ret
 
 MapEntryAfterBattle::

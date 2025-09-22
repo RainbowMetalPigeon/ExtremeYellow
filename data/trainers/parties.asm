@@ -259,7 +259,7 @@ PokemaniacData:
 ; Ochre Gym
 	db 44, CLEFABLE, WIGGLYTUFF, MR_MIME, SYLVEON, 0 ; new
 ; Victory Road 3F
-	db $FF, 60, CHARIZARD, 50, PIKACHU, 25, VAPOREON, 42, BLISSEY, 47, DRAGONITE, 33, DITTO ; new, 9
+	db $FF, 60, CHARIZARD, 50, PIKACHU, 25, VAPOREON, 42, BLISSEY, 47, DRAGONITE, 33, DITTO, 0 ; new, 9
 ; Sevii Seven Island Gym 2
 	db 100, VENUSAUR, CHARIZARD, BLASTOISE, 0 ; 10
 
@@ -410,6 +410,8 @@ SwimmerData:
 	db 42, PSYDUCK, GOLDUCK, GOLDEEN, SEAKING, 0 ; 22
 ; Sevii Seven Island Gym 2
 	db 100, LAPRAS, SLOWBRO, STARMIE, 0 ; 23
+; Sevii Seven Island Gym 3
+	db 100, TAUROS, NIDOKING, BLISSEY, 0 ; 24
 
 CueBallData:
 ; Route 16
@@ -427,16 +429,18 @@ CueBallData:
 
 GamblerData:
 ; Route 11
-	db 18, POLIWAG, HORSEA, 0
-	db 18, BELLSPROUT, ODDISH, 0
-	db 18, VOLTORB, MAGNEMITE, 0
-	db 18, GROWLITHE, VULPIX, 0
+	db 18, POLIWAG, HORSEA, 0 ; 1
+	db 18, BELLSPROUT, ODDISH, 0 ; 2
+	db 18, VOLTORB, MAGNEMITE, 0 ; 3
+	db 18, GROWLITHE, VULPIX, 0 ; 4
 ; Route 8
-	db 22, POLIWAG, POLIWAG, POLIWHIRL, 0
+	db 22, POLIWAG, POLIWAG, POLIWHIRL, 0 ; 5
 ; Unused
-	db 22, ONIX, GEODUDE, GRAVELER, 0
+	db 22, ONIX, GEODUDE, GRAVELER, 0 ; 6
 ; Route 8
-	db 24, GROWLITHE, VULPIX, 0
+	db 24, GROWLITHE, VULPIX, 0 ; 7
+; Sevii Seven Island Gym 3
+	db 100, RAPIDASH, DUGTRIO, SCIZOR, 0 ; 8
 
 BeautyData:
 ; Celadon Gym
@@ -839,6 +843,9 @@ CooltrainerData:
 ; Sevii Seven Island Gym 2
 	db 100, PORYGONZ, MAGMORTAR, STARMIE, 0 ; 78
 	db 100, BLISSEY, KANGASKHAN, DRAGONITE, 0 ; 79
+; Sevii Seven Island Gym 3
+	db 100, JYNX, MAGMORTAR, ELECTIVIRE, 0 ; 80
+	db 100, ALAKAZAM, MACHAMP, SNORLAX, 0 ; 81
 
 
 ;PORYGON2	3
@@ -1038,7 +1045,14 @@ ProfOakData:
 ; new ones
 
 DiverData:
-	db 42, MAGIKARP, 0
+; Sevii Route 32
+	db 42, MAGIKARP, 0 ; 1 ; TBE
+; Sevii Seven Island Gym 2
+	db 100, KINGLER, SEAKING, KINGDRA, 0 ; 2
+	db 100, GYARADOS, LAPRAS, DRAGONITE, 0 ; 3
+	db 100, DEWGONG, GOLDUCK, POLITOED, 0 ; 4
+	db 100, POLIWRATH, VAPOREON, TENTACRUEL, 0 ; 5
+	db 100, BLASTOISE, OMASTAR, KABUTOPS, 0 ; 6
 
 ProtonData:
 PetrelData:
@@ -1092,6 +1106,8 @@ RokuseiData:
 	db 100, MGENGAR, ANNIHILAPE, BLISSEY, MSTEELIX, DRAGONITE, STARMIE, 0 ; id=1
 
 NanetteData:
+	db 100, ARTICUNO, ZAPDOS, MOLTRES, MVENUSAUR, MCHARZARDX, MBLASTOISE, 0 ; id=1
+
 SuujeroData:
 
 PinkData:

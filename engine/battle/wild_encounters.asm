@@ -19,6 +19,8 @@ TryDoWildEncounter:
 	jr z, .CantEncounter
 	CheckEvent EVENT_DOING_WATERFALL
 	jr nz, .CantEncounter
+	CheckEvent EVENT_DOING_ROCK_CLIMB
+	jr nz, .CantEncounter
 ; BTV
 	callfar IsPlayerJustOutsideMap
 	jr z, .CantEncounter

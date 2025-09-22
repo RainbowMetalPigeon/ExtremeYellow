@@ -82,6 +82,41 @@ SeviiSixIslandGym1Text1:
 	text_far _SeviiSixIslandGym1Text1
 	text_end
 
+/*
+; check if team is valid for reward
+	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
+	jr nc, .setUpBattle
+; ask the player if they actually wanna fight
+	call WaitForTextScrollButtonPress
+	ld hl, SeviiSixIslandGym3Text1_NoRewardWannaFight
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .yesBattle
+; player refuses to battle
+	ld hl, SeviiSixIslandGym3Text1_NoRewardNoFight
+	jr .printAndEnd
+.yesBattle
+	ld hl, SeviiSixIslandGym3Text1_NoRewardYesFight
+	call PrintText
+; fallthrough
+.setUpBattle
+
+SeviiSixIslandGym3Text1_NoRewardWannaFight:
+	text_far _SeviiIslandGymText_NoRewardWannaFight
+	text_end
+
+SeviiSixIslandGym3Text1_NoRewardNoFight:
+	text_far _SeviiIslandGymText_NoRewardNoFight
+	text_end
+
+SeviiSixIslandGym3Text1_NoRewardYesFight:
+	text_far _SeviiIslandGymText_NoRewardYesFight
+	text_end
+
+*/
+
 SeviiSixIslandGym1SignText1:
 	text_far _SeviiSixIslandGym1SignText1
 	text_end

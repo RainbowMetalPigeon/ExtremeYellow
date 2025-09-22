@@ -397,6 +397,8 @@ CountHowManyBadgesWrapped: ; a contains the # badges
 	ret
 
 CheckIfWeAreInAGym: ; z flag if we are, nz otherwise
+	CheckEvent EVENT_IN_SEVII
+	ret nz ; no gyms in Sevii
 	ld a, [wCurMap]
 	cp PEWTER_GYM
 	ret z

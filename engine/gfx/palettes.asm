@@ -265,12 +265,27 @@ SetPal_Overworld:
 ;	CheckEvent EVENT_IN_SEVII
 	ld a, [wOriginallyInKantoOrSevii]
 	and a
-	jr z, .notSevii
+	jp z, .notSevii
 ; yes Sevii
 	ld hl, PalPacket_Empty
 	ld de, wPalPacket
 	ld bc, $10
 	call CopyData
+; check by map in array
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_EightIslandsMaps
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .eightIsland
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_SevenIslandsMaps
+	call IsInArray
+	jr c, .sevenIsland
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_FrozenPalette
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .frozen
+; normal checks
 ; check by tileset
 	ld a, [wCurMapTileset]
 	cp CEMETERY
@@ -282,13 +297,6 @@ SetPal_Overworld:
 	cp SUNKEN_SHIP
 	jr z, .underwatersevii
 ; check by map
-; check by map in array
-	ld a, [wCurMap]
-	ld hl, SeviiMaps_EightIslandsMaps
-	ld de, 1
-	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .eightIsland
-; normal checks
 	ld a, [wCurMap]
 	cp SEVII_ONE_ISLAND_DOCK
 	jr z, .oneIslandDock
@@ -315,13 +323,6 @@ SetPal_Overworld:
 	ld a, PAL_SEVII_UNDERWATER - 1
 	jr .townSevii
 .cave
-; check by map in array for special palettes (frozen for icefall cave)
-	ld a, [wCurMap]
-	ld hl, SeviiMaps_FrozenPalette
-	ld de, 1
-	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .frozen
-; normal cave
 	ld a, PAL_SEVII_CAVE - 1
 	jr .townSevii
 .frozen
@@ -332,6 +333,9 @@ SetPal_Overworld:
 	jr .townSevii
 .eightIsland
 	ld a, PAL_SEVII_EIGHT_ISLAND - 1
+	jr .townSevii
+.sevenIsland
+	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii
 .notSevii
 
@@ -441,6 +445,12 @@ SeviiMaps_FrozenPalette:
 SeviiMaps_EightIslandsMaps:
 	db SEVII_EIGHT_ISLAND_CITY
 	db SEVII_EIGHT_ISLAND_DOCK
+	db -1
+
+SeviiMaps_SevenIslandsMaps:
+	db SEVII_SEVEN_ISLAND_GYM_1
+	db SEVII_SEVEN_ISLAND_GYM_2
+	db SEVII_SEVEN_ISLAND_GYM_3
 	db -1
 ; BTV
 
@@ -725,6 +735,21 @@ GetPal_Pikachu::
 	and a
 	jr z, .notSevii
 ; yes Sevii
+; check by map in array
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_EightIslandsMaps
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .eightIsland
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_SevenIslandsMaps
+	call IsInArray
+	jr c, .sevenIsland
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_FrozenPalette
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .frozen
+; normal checks
 ; check by tileset
 	ld a, [wCurMapTileset]
 	cp CEMETERY
@@ -761,13 +786,6 @@ GetPal_Pikachu::
 	ld a, PAL_SEVII_UNDERWATER - 1
 	jr .townSevii
 .cave
-; check by map in array for special palettes (frozen for icefall cave)
-	ld a, [wCurMap]
-	ld hl, SeviiMaps_FrozenPalette
-	ld de, 1
-	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .frozen
-; normal cave
 	ld a, PAL_SEVII_CAVE - 1
 	jr .townSevii
 .oneIslandDock
@@ -775,6 +793,12 @@ GetPal_Pikachu::
 	jr .townSevii
 .frozen
 	ld a, PAL_SEVII_CYANMON - 1
+	jr .townSevii
+.eightIsland
+	ld a, PAL_SEVII_EIGHT_ISLAND - 1
+	jr .townSevii
+.sevenIsland
+	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii
 .notSevii
 ; back to vanilla
