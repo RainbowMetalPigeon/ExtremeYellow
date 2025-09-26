@@ -8,8 +8,8 @@ SeviiSevenIslandGym2_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  5, 26, SPRITE_COOLTRAINER_F, STAY, LEFT, 1, OPP_COOLTRAINER, 78
-	object_event  5, 30, SPRITE_ROCKER, STAY, RIGHT, 2, OPP_ROCKER, 4
+	object_event  5, 26, SPRITE_COOLTRAINER_F, STAY, RIGHT, 1, OPP_COOLTRAINER, 78
+	object_event  5, 30, SPRITE_ROCKER, STAY, LEFT, 2, OPP_ROCKER, 4
 	object_event 24, 22, SPRITE_SAILOR, STAY, RIGHT, 3, OPP_SAILOR, 9
 	object_event 24, 23, SPRITE_SUPER_NERD, STAY, RIGHT, 4, OPP_ENGINEER, 5
 	object_event 34,  4, SPRITE_SWIMMER, STAY, DOWN, 5, OPP_SWIMMER, 23

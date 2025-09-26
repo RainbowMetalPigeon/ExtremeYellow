@@ -15,6 +15,17 @@ ResetGymDungeon:
     res 5, [hl]
     ret z
 
+.test
+	ld a, [wWarpedFromWhichMap]
+	cp SEVII_ROUTE_41
+	jr z, .skipBagHandling
+; save bag in SRAM
+	call ReloadBagFromSpecialSRAM
+
+.skipBagHandling
+
+	SetEvent EVENT_SEVII_JUST_ENTERED_SEVEN_GYM
+
 	ResetEvent EVENT_SEVII_SEVEN_ISLAND_GYM_3_BOULDER_ON_SWITCH
 	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_1
 	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_2
@@ -62,3 +73,53 @@ SeviiSevenIslandGymStuffToRespawn:
 	db HS_SEVII_SEVEN_ISLAND_GYM_3_ITEM_3
 	db HS_SEVII_SEVEN_ISLAND_GYM_3_ITEM_4
 	db $FF
+
+; =====================================
+
+SaveBagIntoSpecialSRAM:
+; enable sram saving
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	ld a, $1
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamBank], a
+; copy data
+	ld hl, wNumBagItems ; origin
+	ld de, sTemporarySaveForSeviiSages ; destination
+	ld bc, BAG_ITEM_CAPACITY * 2 + 2
+;	ld bc, wPlayerMoney - wNumBagItems
+	call CopyData ; Copy bc bytes from hl to de.
+; disable sram saving
+	ld a, SRAM_DISABLE
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
+	ret
+	
+ReloadBagFromSpecialSRAM:
+; enable sram saving
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	ld a, $1
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamBank], a
+; copy data
+	ld hl, sTemporarySaveForSeviiSages ; origin
+	ld de, wNumBagItems ; destination
+	ld bc, BAG_ITEM_CAPACITY * 2 + 2
+;	ld bc, wPlayerMoney - wNumBagItems
+	call CopyData ; Copy bc bytes from hl to de.
+; disable sram saving
+	ld a, SRAM_DISABLE
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
+	ret
+	
+ClearPlayersBag:
+	ld hl, wNumBagItems
+	xor a ; count
+	ld [hli], a
+	dec a ; terminator
+	ld [hl], a
+	ret
+	
+; -------------------------------------

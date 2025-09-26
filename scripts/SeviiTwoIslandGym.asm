@@ -195,7 +195,7 @@ ClearPlayersParty::
 	jp FillMemory
 	
 ; -------------------------------------
-	
+
 RandomizePlayersTeamForNiueBattle::
 	ld de, wBattleFacilityMonNumber1
 	ld a, [wBattleFacilityWhichMonIsRandomized]

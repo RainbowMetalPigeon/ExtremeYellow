@@ -1,10 +1,22 @@
 SeviiSevenIslandGym2_Script:
+	call HandleBag
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiSevenIslandGym2TrainerHeaders
 	ld de, SeviiSevenIslandGym2_ScriptPointers
 	ld a, [wCurMapScript]
 	call ExecuteCurMapScriptInTable
 	ld [wCurMapScript], a
+	ret
+
+HandleBag:
+    ld hl, wCurrentMapScriptFlags
+    bit 5, [hl]
+    res 5, [hl]
+    ret z
+	CheckAndResetEvent EVENT_SEVII_JUST_ENTERED_SEVEN_GYM
+	ret z
+	call SaveBagIntoSpecialSRAM
+	call ClearPlayersBag
 	ret
 
 SeviiSevenIslandGym2_ScriptPointers:
@@ -32,7 +44,7 @@ SeviiSevenIslandGym2_TextPointers:
 SeviiSevenIslandGym2TrainerHeaders:
 	def_trainers 1
 SeviiSevenIslandGym2TrainerHeader1:
-	trainer EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_1, 1, SeviiSevenIslandGym2BattleText1, SeviiSevenIslandGym2EndBattleText1, SeviiSevenIslandGym2AfterBattleText1
+	trainer EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_1, 2, SeviiSevenIslandGym2BattleText1, SeviiSevenIslandGym2EndBattleText1, SeviiSevenIslandGym2AfterBattleText1
 SeviiSevenIslandGym2TrainerHeader2:
 	trainer EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_2, 1, SeviiSevenIslandGym2BattleText2, SeviiSevenIslandGym2EndBattleText2, SeviiSevenIslandGym2AfterBattleText2
 SeviiSevenIslandGym2TrainerHeader3:
