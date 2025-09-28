@@ -319,11 +319,14 @@ OverworldLoopLessDelay::
 	ldh [hJoyHeld], a
 	ld hl, wd72e
 	set 5, [hl]
+	CheckEvent EVENT_IN_SEVII
+	jr z, .noSevii
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jp z, .noFaintCheck ; no blacking out if the player lost to the rival in Oak's lab
-	cp BATTLE_FACILITY ; new: don't black out in Battle Facility
-	jp z, .specialFaintCheck ; new
+.noSevii
+	CheckAndResetEvent EVENT_BATTLE_CAN_BE_LOST ; new: don't black out in Battle Facility nor vs Sevii Sages
+	jp nz, .specialFaintCheck ; new
 	callfar AnyPartyAlive
 	ld a, d
 	and a
@@ -337,7 +340,7 @@ OverworldLoopLessDelay::
 	ld c, 10
 	call DelayFrames
 	jp EnterMap
-.specialFaintCheck ; new, just for battle facility
+.specialFaintCheck ; new, just for battle facility and Sevii Sages
 ; we need to NOT black out BUT to mark ourselves as defeated if that's the case
 ; new, to handle surrender from trainers
 	ld a, [wSurrenderedFromTrainerBattle]
@@ -723,6 +726,16 @@ MapEntryAfterBattle::
 HandleBlackOut::
 ; For when all the player's pokemon faint.
 ; Does not print the "blacked out" message.
+; new
+	CheckEvent EVENT_BATTLE_CAN_BE_LOST
+	jr z, .vanilla
+	ld a, $ff ; mark us as defeated if no more mons are alive
+	ld [wIsInBattle], a
+	ld hl, wd72e
+	res 5, [hl]
+	jp OverworldLoop
+.vanilla
+; BTV
 	call GBFadeOutToBlack
 	ld a, $08
 	call StopMusic

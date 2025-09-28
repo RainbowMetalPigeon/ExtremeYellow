@@ -22,6 +22,10 @@ _SeviiSevenIslandGym1Text1::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiSevenIslandGymTextBlackout::
+	text "GG come back"
+	done
+
 ; gym 2 ------------------------------------
 
 _SeviiSevenIslandGym2BattleText1::

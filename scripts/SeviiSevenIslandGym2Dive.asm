@@ -1,4 +1,5 @@
 SeviiSevenIslandGym2Dive_Script:
+	call HandleFlags_SSIG2D
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiSevenIslandGym2DiveTrainerHeaders
 	ld de, SeviiSevenIslandGym2Dive_ScriptPointers
@@ -7,10 +8,41 @@ SeviiSevenIslandGym2Dive_Script:
 	ld [wCurMapScript], a
 	ret
 
+HandleFlags_SSIG2D:
+    ld hl, wCurrentMapScriptFlags
+    bit 5, [hl]
+    res 5, [hl]
+    ret z
+	SetEvent EVENT_BATTLE_CAN_BE_LOST
+	ret
+
 SeviiSevenIslandGym2Dive_ScriptPointers:
-	dw CheckFightingMapTrainers
+	dw SeviiSevenIslandGym2DiveScript0
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+
+SeviiSevenIslandGym2DiveScript0:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp nz, CheckFightingMapTrainers
+; we have been defeated
+	ld a, 12 ; SeviiSevenIslandGym2DiveText12_PostBlackOut
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SEVEN_ISLAND_GYM_1
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	xor a
+    ld [wWalkBikeSurfState], a
+	ld [wWalkBikeSurfStateCopy], a
+	ld [wIsInBattle], a
+	ret
 
 SeviiSevenIslandGym2Dive_TextPointers:
 	dw SeviiSevenIslandGym2DiveText1
@@ -24,7 +56,7 @@ SeviiSevenIslandGym2Dive_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	text_end
+	dw SeviiSevenIslandGym2DiveText12_PostBlackOut
 
 SeviiSevenIslandGym2DiveTrainerHeaders:
 	def_trainers 1
@@ -141,6 +173,6 @@ SeviiSevenIslandGym2DiveAfterBattleText5:
 
 ; ---------------------------------------
 
-;SeviiSevenIslandGym2DiveText1:
-;	text_far _SeviiSevenIslandGym2DiveText1
-;	text_end
+SeviiSevenIslandGym2DiveText12_PostBlackOut:
+	text_far _SeviiSevenIslandGymTextBlackout
+	text_end

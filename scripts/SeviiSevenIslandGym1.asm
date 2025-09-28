@@ -19,12 +19,13 @@ ResetGymDungeon:
 	ld a, [wWarpedFromWhichMap]
 	cp SEVII_ROUTE_41
 	jr z, .skipBagHandling
-; save bag in SRAM
+; load bag from SRAM if we're coming from anywhere but outside (so any of the internal dungeon maps)
 	call ReloadBagFromSpecialSRAM
-
 .skipBagHandling
 
 	SetEvent EVENT_SEVII_JUST_ENTERED_SEVEN_GYM
+
+	ResetEvent EVENT_BATTLE_CAN_BE_LOST
 
 	ResetEvent EVENT_SEVII_SEVEN_ISLAND_GYM_3_BOULDER_ON_SWITCH
 	ResetEvent EVENT_BEAT_SEVII_SEVEN_ISLAND_GYM_2_TRAINER_1
@@ -94,7 +95,7 @@ SaveBagIntoSpecialSRAM:
 	ld [MBC1SRamBankingMode], a
 	ld [MBC1SRamEnable], a
 	ret
-	
+
 ReloadBagFromSpecialSRAM:
 ; enable sram saving
 	ld a, SRAM_ENABLE
@@ -113,7 +114,7 @@ ReloadBagFromSpecialSRAM:
 	ld [MBC1SRamBankingMode], a
 	ld [MBC1SRamEnable], a
 	ret
-	
+
 ClearPlayersBag:
 	ld hl, wNumBagItems
 	xor a ; count
@@ -121,5 +122,5 @@ ClearPlayersBag:
 	dec a ; terminator
 	ld [hl], a
 	ret
-	
+
 ; -------------------------------------

@@ -107,14 +107,12 @@ IF DEF(_DEBUG)
 	ld [de], a
 	inc de
 	ld [de], a
-; this adds a status (SLP, PSN, etc) to the 3rd mon
-; still not clear which number corresponds to which status
-; bit-wise system?
-; 1, 2 = SLP
-; 10 = PSN but is also SLP
-;	ld a, 10
-;	ld de, wPartyMon3Status
-;	ld [de], a
+
+; this adds a status (SLP, PSN, etc) to the n-th mon
+	ld hl, wPartyMon3Status
+	set PSN, [hl]
+	ld hl, wPartyMon4Status
+	set PSN, [hl]
 
     ; define who is shiny
     ld a, 1

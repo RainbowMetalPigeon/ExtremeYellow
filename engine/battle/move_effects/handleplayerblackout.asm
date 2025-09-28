@@ -1,5 +1,5 @@
 ; called when player is out of usable mons.
-; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight)
+; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight) -> useless?
 ; trying updates from Vortiene
 _HandlePlayerBlackOut:
 	xor a                    ; new, to go beyond 200
@@ -33,28 +33,31 @@ _HandlePlayerBlackOut:
 .lossText ; battle that has loss text
 	lb bc, 8, 21
 .surrendered
-	hlcoord 0, 0 
+	hlcoord 0, 0
 	call ClearScreenArea
 	callfar ScrollTrainerPicAfterBattle ; this should do?
 	ld c, 40
 	call DelayFrames
 	call PrintEndBattleText ; in this case the end battle text is the "loss" text
+	CheckEvent EVENT_IN_SEVII ; new
+	jr z, .noSevii ; new
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            		; starter battle in oak's lab: don't black out
-	cp BATTLE_FACILITY      ; new: don't black out in Battle Facility
-	jr nz, .noLossText      ; new and edited
-; handling battle facility loss, including surrendering
+.noSevii ; new
+	CheckEvent EVENT_BATTLE_CAN_BE_LOST      ; new: don't black out in Battle Facility nor vs Sevii Sages
+	jr z, .noLossText      ; new and edited
+; handling battle facility & Sages loss, including surrendering
 	ld a, [wSurrenderedFromTrainerBattle]
 	and a
 	jr z, .notSurrenderInBF
-; we did surrender in BF
+; we did surrender (or got defeated) in BF (or vs Sages)
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
 	ld hl, PlayerGaveUpText
 	call PrintText
 	call ClearScreen
-	scf
+	scf ; useless?
 .notSurrenderInBF
 	ret
 .noLossText
@@ -77,7 +80,7 @@ _HandlePlayerBlackOut:
 	res 5, a
 	ld [wd732], a
 	call ClearScreen
-	scf
+	scf ; useless?
 	ret
 
 Rival1WinText:

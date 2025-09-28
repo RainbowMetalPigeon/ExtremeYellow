@@ -956,6 +956,7 @@ BattleFacilityTextOpponent:
 	ld [wInverseBattle], a ; necessary because this wram variable gets reset at the end of every battle
 ; set opponent
 	call Delay3
+	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	ld a, OPP_BF_TRAINER
 	ld [wCurOpponent], a
 	ld a, 1

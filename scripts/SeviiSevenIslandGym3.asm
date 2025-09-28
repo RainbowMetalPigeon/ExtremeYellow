@@ -1,8 +1,5 @@
 SeviiSevenIslandGym3_Script:
-	ld hl, wCurrentMapScriptFlags
-	bit 5, [hl]
-	res 5, [hl]
-	call nz, .next
+	call HandleBoulderAndFlags_SSIG3
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiSevenIslandGym3TrainerHeaders
 	ld de, SeviiSevenIslandGym3_ScriptPointers
@@ -10,7 +7,13 @@ SeviiSevenIslandGym3_Script:
 	call ExecuteCurMapScriptInTable
 	ld [wCurMapScript], a
 	ret
-.next
+
+HandleBoulderAndFlags_SSIG3:
+    ld hl, wCurrentMapScriptFlags
+    bit 5, [hl]
+    res 5, [hl]
+    ret z
+	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	CheckEvent EVENT_SEVII_SEVEN_ISLAND_GYM_3_BOULDER_ON_SWITCH
 	ret z
 	ld a, $1d
@@ -27,6 +30,26 @@ SeviiSevenIslandGym3_ScriptPointers:
 ; =========================================
 
 SeviiSevenIslandGym3Script0:
+	ld a, [wIsInBattle]
+	cp $ff
+	jr nz, .nonDefeated
+; we have been defeated
+	ld a, 16 ; SeviiSevenIslandGym3Text16_PostBlackOut
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SEVEN_ISLAND_GYM_1
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	ret
+.nonDefeated
 	CheckEvent EVENT_SEVII_SEVEN_ISLAND_GYM_3_BOULDER_ON_SWITCH
 	jp nz, CheckFightingMapTrainers
 	ld hl, CoordsData_BoulderySwitch
@@ -80,6 +103,7 @@ SeviiSevenIslandGym3_TextPointers:
 	dw PickUpItemText
 	; scripts
 	dw SeviiSevenIslandGym3Text5_Victory ; 15
+	dw SeviiSevenIslandGym3Text16_PostBlackOut ; 16
 
 SeviiSevenIslandGym3TrainerHeaders:
 	def_trainers 2
@@ -182,6 +206,7 @@ SeviiSevenIslandGym3Text1:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
+	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	ld hl, RokuseiText_PostBattleText
 	ld de, RokuseiText_PostBattleText
 	call SaveEndBattleTextPointers
@@ -210,4 +235,10 @@ NanetteText_PostBattleText:
 
 SeviiSevenIslandGym3Text5_Victory:
 	text_far _SeviiSevenIslandGym3Text5_Victory
+	text_end
+
+; ---------------------------------------
+
+SeviiSevenIslandGym3Text16_PostBlackOut:
+	text_far _SeviiSevenIslandGymTextBlackout
 	text_end
