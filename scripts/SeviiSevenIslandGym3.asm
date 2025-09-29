@@ -75,11 +75,11 @@ SeviiSevenIslandGym3ScriptPostBattle:
 	cp $ff
 	jr nz, .playerWon
 ; if we lost
-	ld a, 16 ; if we lost
+	ld a, 16 ; if we lost ; map-specific
 	jr .commonPart
 .playerWon
-	SetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE
-	ld a, 15
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE ; map-specific
+	ld a, 15 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -90,7 +90,7 @@ SeviiSevenIslandGym3ScriptPostBattle:
 	predef HealParty
 	ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, SEVII_SEVEN_ISLAND_GYM_1
+	ld a, SEVII_SEVEN_ISLAND_GYM_1 ; map-specific
 	ldh [hWarpDestinationMap], a
 	ld a, 2 ; -1 wrt the normal numbering
 	ld [wDestinationWarpID], a

@@ -15,7 +15,7 @@ _SeviiSixIslandPokemonCenterAndMart_Text4::
 	text "test 6-4"
 	done
 
-; gym ------------------------------------
+; gym 1 ------------------------------------
 
 _SeviiSixIslandGym1Text1::
 	text "guide for you 6"
@@ -61,6 +61,12 @@ _SeviiSixIslandGym1PopUpMessageParalysis::
 	line "got PARALYZED!"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiSixIslandGymTextBlackout::
+	text "GG come back 6"
+	done
+
+; gym 2 ------------------------------------
 
 _SeviiSixIslandGym2SignText1::
 	text "Rocks"
@@ -117,6 +123,8 @@ _SeviiSixIslandGym2PopUpMessageCurse::
 ;	xxxx "123456789012345678"
 	done
 
+; gym 3 ------------------------------------
+
 _SeviiSixIslandGym3SignText1::
 	text "Web"
 	done
@@ -140,6 +148,10 @@ _RokuseiText_PostBattleText::
 
 _SeviiSixIslandGym3Text5_Victory::
 	text "Congrats 6"
+	done
+
+_SeviiSixIslandGym3Text9_Defeat::
+	text "Try again 6"
 	done
 
 _SeviiSixIslandGym3PopUpMessageWeb::

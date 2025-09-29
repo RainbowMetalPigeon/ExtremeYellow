@@ -30,7 +30,7 @@ SeviiSevenIslandGym2Script0:
 	cp $ff
 	jp nz, CheckFightingMapTrainers
 ; we have been defeated
-	ld a, 15 ; SeviiSevenIslandGym2Text15
+	ld a, 15 ; SeviiSevenIslandGym2Text15_PostBlackOut
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	predef HealParty

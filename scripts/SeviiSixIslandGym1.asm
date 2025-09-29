@@ -11,6 +11,24 @@ SeviiSixIslandGym1_ScriptPointers:
 	dw SeviiSixIslandGym1Script0
 
 SeviiSixIslandGym1Script0:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp nz, .warningMessage
+; we have been defeated (all mons fainted, due to poison)
+	ld a, 11 ; SeviiSixIslandGym1Text11_PostBlackout
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SIX_ISLAND_GYM_1
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	ret
+.warningMessage
 ; already warned?
 	CheckEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
 	ret nz
@@ -116,45 +134,11 @@ SeviiSixIslandGym1_TextPointers:
 	dw SeviiSixIslandGym1PopUpMessageBurn ; 8
 	dw SeviiSixIslandGym1PopUpMessageParalysis ; 9
 	dw SeviiSixIslandGym1Text10 ; 10
+	dw SeviiSixIslandGym1Text11_PostBlackout ; 11
 
 SeviiSixIslandGym1Text1:
 	text_far _SeviiSixIslandGym1Text1
 	text_end
-
-/*
-; check if team is valid for reward
-	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
-	jr nc, .setUpBattle
-; ask the player if they actually wanna fight
-	call WaitForTextScrollButtonPress
-	ld hl, SeviiSixIslandGym3Text1_NoRewardWannaFight
-	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr z, .yesBattle
-; player refuses to battle
-	ld hl, SeviiSixIslandGym3Text1_NoRewardNoFight
-	jr .printAndEnd
-.yesBattle
-	ld hl, SeviiSixIslandGym3Text1_NoRewardYesFight
-	call PrintText
-; fallthrough
-.setUpBattle
-
-SeviiSixIslandGym3Text1_NoRewardWannaFight:
-	text_far _SeviiIslandGymText_NoRewardWannaFight
-	text_end
-
-SeviiSixIslandGym3Text1_NoRewardNoFight:
-	text_far _SeviiIslandGymText_NoRewardNoFight
-	text_end
-
-SeviiSixIslandGym3Text1_NoRewardYesFight:
-	text_far _SeviiIslandGymText_NoRewardYesFight
-	text_end
-
-*/
 
 SeviiSixIslandGym1SignText1:
 	text_far _SeviiSixIslandGym1SignText1
@@ -190,6 +174,10 @@ SeviiSixIslandGym1PopUpMessageParalysis:
 	
 SeviiSixIslandGym1Text10:
 	text_far _SeviiNoRewardsIfAnomalies
+	text_end
+
+SeviiSixIslandGym1Text11_PostBlackout:
+	text_far _SeviiSixIslandGymTextBlackout
 	text_end
 
 ; ------------------------------------------------------------

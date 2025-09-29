@@ -57,6 +57,22 @@ SeviiSixIslandGym3_ScriptPointers:
 	dw SeviiSixIslandGym3ScriptPostBattle
 
 SeviiSixIslandGym3Script0:
+	ld a, [wIsInBattle]
+	cp $ff
+	ret nz
+; we have been defeated (all mons fainted, due to poison)
+	ld a, 10 ; SeviiSixIslandGym3Text10_PostBlackout
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SIX_ISLAND_GYM_1
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
 	ret
 
 SeviiSixIslandGym3ScriptPostBattle:
@@ -65,15 +81,31 @@ SeviiSixIslandGym3ScriptPostBattle:
 ; check battle result
 	ld a, [wIsInBattle]
 	cp $ff
-	jr z, .gotDefeated
-; if you won
-	xor a
-	ld [wIsTrainerBattle], a
-	SetEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI
-	ld a, 5
+	jr nz, .playerWon
+; if we lost
+	ld a, 9 ; if we lost ; map-specific
+	jr .commonPart
+.playerWon
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI ; map-specific
+	ld a, 5 ; map-specific
+.commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-.gotDefeated ; TBE, modify defeat system to make this an "ok-to-lose battle"
+	xor a
+	ld [wIsTrainerBattle], a
+	ld [wCurMapScript], a
+; warp player back to entrance
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SIX_ISLAND_GYM_1 ; map-specific
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
 	ret
 
 ; ===============================
@@ -89,6 +121,8 @@ SeviiSixIslandGym3_TextPointers:
 	dw SeviiSixIslandGym3PopUpMessageWeb ; 6
 	dw SeviiSixIslandGym3PopUpMessageFrozen ; 7
 	dw SeviiSixIslandGym3PopUpMessageSleep ; 8
+	dw SeviiSixIslandGym3Text9_Defeat ; 9
+	dw SeviiSixIslandGym3Text10_PostBlackout ; 10
 
 SeviiSixIslandGym3Text1:
 	text_asm
@@ -129,6 +163,10 @@ SeviiSixIslandGym3Text5_Victory:
 	text_far _SeviiSixIslandGym3Text5_Victory
 	text_end
 
+SeviiSixIslandGym3Text9_Defeat:
+	text_far _SeviiSixIslandGym3Text9_Defeat
+	text_end
+
 SeviiSixIslandGym3SignText1:
 	text_far _SeviiSixIslandGym3SignText1
 	text_end
@@ -151,6 +189,10 @@ SeviiSixIslandGym3PopUpMessageFrozen:
 
 SeviiSixIslandGym3PopUpMessageSleep:
 	text_far _SeviiSixIslandGym3PopUpMessageSleep
+	text_end
+
+SeviiSixIslandGym3Text10_PostBlackout:
+	text_far _SeviiSixIslandGymTextBlackout
 	text_end
 
 ; ----------------------------------

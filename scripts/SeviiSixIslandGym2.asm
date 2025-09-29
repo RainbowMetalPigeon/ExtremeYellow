@@ -1,6 +1,33 @@
 SeviiSixIslandGym2_Script:
 	call ApplyMalusOnEntry2
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, SeviiSixIslandGym2_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
+
+SeviiSixIslandGym2_ScriptPointers:
+	dw SeviiSixIslandGym2Script0
+
+SeviiSixIslandGym2Script0:
+	ld a, [wIsInBattle]
+	cp $ff
+	ret nz
+; we have been defeated (all mons fainted, due to poison)
+	ld a, 13 ; SeviiSixIslandGym2Text13_PostBlackout
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SIX_ISLAND_GYM_1
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	ret
 
 ApplyMalusOnEntry2:
 	ld hl, wCurrentMapScriptFlags ; new
@@ -92,6 +119,7 @@ SeviiSixIslandGym2_TextPointers:
 	dw SeviiSixIslandGym2PopUpMessageConfusion ; 10
 	dw SeviiSixIslandGym2PopUpMessageSeeds ; 11
 	dw SeviiSixIslandGym2PopUpMessageCurse ; 12
+	dw SeviiSixIslandGym2Text13_PostBlackout ; 13
 
 SeviiSixIslandGym2SignText1:
 	text_far _SeviiSixIslandGym2SignText1
@@ -139,4 +167,8 @@ SeviiSixIslandGym2PopUpMessageSeeds:
 
 SeviiSixIslandGym2PopUpMessageCurse:
 	text_far _SeviiSixIslandGym2PopUpMessageCurse
+	text_end
+
+SeviiSixIslandGym2Text13_PostBlackout:
+	text_far _SeviiSixIslandGymTextBlackout
 	text_end
