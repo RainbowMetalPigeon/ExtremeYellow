@@ -361,10 +361,21 @@ StartMenu_Item::
 	ld a, [wLinkState]
 	dec a ; is the player in the Colosseum or Trade Centre?
 	jr nz, .notInCableClubRoom
+.cannotUseItemsHere ; new
 	ld hl, CannotUseItemsHereText
 	call PrintText
 	jr .exitMenu
 .notInCableClubRoom
+; new
+	CheckEvent EVENT_IN_SEVII
+	jr z, .canUseItems
+	ld a, [wCurMap]
+	ld hl, MapsForbiddenBag_Sevii
+	ld de, 1
+	call IsInArray
+	jr c, .cannotUseItemsHere
+; BTV
+.canUseItems
 	; store item bag pointer in wListPointer (for DisplayListMenuID)
 	ld hl, wListPointer
 	ld [hl], LOW(wNumBagItems)
@@ -517,6 +528,12 @@ CannotUseItemsHereText:
 CannotGetOffHereText:
 	text_far _CannotGetOffHereText
 	text_end
+
+MapsForbiddenBag_Sevii: ; new
+	db SEVII_SIX_ISLAND_GYM_1
+	db SEVII_SIX_ISLAND_GYM_2
+	db SEVII_SIX_ISLAND_GYM_3
+	db -1
 
 INCLUDE "data/items/use_party.asm"
 
@@ -909,25 +926,27 @@ StartMenu_PortablePC:: ; new
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .inSevii
 	ld a, [wCurMap] ; we don't want to cheese the Elite4, do we?
-	cp LORELEIS_ROOM
-	jr z, .cantUseItHere
-	cp BRUNOS_ROOM
-	jr z, .cantUseItHere
-	cp AGATHAS_ROOM
-	jr z, .cantUseItHere
-	cp LANCES_ROOM
-	jr z, .cantUseItHere
+	ld hl, MapsForbiddenPC_Kanto
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .cantUseItHere
 	callfar IsCurrentMapHauntedHouse_AlsoIslandAndPallet ; new
 	jr z, .cantUseItHere
+	jr .canUsePcHere
 .inSevii
-	; add any Sevii map where PC is forbidden
-; if none of the above cp is met, let's open the pc and do the things
+	ld a, [wCurMap] ; we don't want to cheese the Elite4, do we?
+	ld hl, MapsForbiddenPC_Sevii
+	ld de, 1
+	call IsInArray
+	jr c, .cantUseItHere
+; if none of the above is met, let's open the pc and do the things
 ; normal stuff
+.canUsePcHere
 	callfar ActivatePC ; main part
 	jr .done
 
 .cantUseItHere ; no cheese!
-	ld hl, CantUsePCHere
+	ld hl, CantUseThisHere
 	call PrintText
 
 .done
@@ -941,9 +960,27 @@ StartMenu_PortablePC:: ; new
 	call UpdateSprites
 	jp RedisplayStartMenu
 
-CantUsePCHere:
+CantUseThisHere:
 	text_far _CantUsePCHere
 	text_end
+
+MapsForbiddenPC_Kanto:
+	db LORELEIS_ROOM
+	db BRUNOS_ROOM
+	db AGATHAS_ROOM
+	db LANCES_ROOM
+	db -1
+
+MapsForbiddenPC_Sevii:
+	db SEVII_SIX_ISLAND_GYM_1
+	db SEVII_SIX_ISLAND_GYM_2
+	db SEVII_SIX_ISLAND_GYM_3
+	db SEVII_SEVEN_ISLAND_GYM_1
+	db SEVII_SEVEN_ISLAND_GYM_2
+	db SEVII_SEVEN_ISLAND_GYM_2_DIVE
+	db SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN
+	db SEVII_SEVEN_ISLAND_GYM_3
+	db -1
 
 ; displays pokedex/attackdex choice
 PokedexAttackdexChoice:
