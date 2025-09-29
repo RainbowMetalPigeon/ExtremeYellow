@@ -18,13 +18,13 @@ SeviiTwoIslandCity_Object:
 	bg_event 16, 29, 18 ; PokeCenterSignText
 
 	def_object_events
-	object_event  7, 27, SPRITE_YOUNGSTER, WALK, ANY_DIR, 1
-	object_event 18, 32, SPRITE_YOUNGSTER, WALK, ANY_DIR, 2
-	object_event 30, 28, SPRITE_YOUNGSTER, WALK, LEFT_RIGHT, 3
-	object_event 20, 17, SPRITE_YOUNGSTER, STAY, ANY_DIR, 4
-	object_event 22, 28, SPRITE_YOUNGSTER, STAY, DOWN, 5
-	object_event 23, 28, SPRITE_YOUNGSTER, STAY, DOWN, 6
-	object_event 24, 34, SPRITE_YOUNGSTER, WALK, LEFT_RIGHT, 7
+	object_event  7, 27, SPRITE_GRANNY, STAY, ANY_DIR, 1
+	object_event 18, 32, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 2
+	object_event 30, 28, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3
+	object_event 20, 17, SPRITE_HIKER, STAY, ANY_DIR, 4
+	object_event 22, 28, SPRITE_GRANNY, STAY, DOWN, 5
+	object_event 23, 28, SPRITE_GRAMPS, STAY, DOWN, 6
+	object_event 24, 34, SPRITE_SUPER_NERD, WALK, LEFT_RIGHT, 7
 	object_event  8, 10, SPRITE_BIKER, STAY, LEFT, 8
 	object_event 36, 28, SPRITE_TAUROS, WALK, ANY_DIR, 9
 	object_event 37, 33, SPRITE_TAUROS, WALK, ANY_DIR, 10
