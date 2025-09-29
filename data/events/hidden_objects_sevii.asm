@@ -19,7 +19,9 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFourIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_SIX_ISLAND_GYM_1,                          SeviiSixIslandGym1HiddenObjects
 	dbw SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,      SeviiSevenIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_SEVEN_ISLAND_GYM_1,                        SeviiSevenIslandGym1HiddenObjects
 	
 	db -1 ; end
 
@@ -75,6 +77,14 @@ SeviiSixIslandPokemonCenterAndMartHiddenObjects:
 
 SeviiSevenIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiSixIslandGym1HiddenObjects:
+	hidden_object  0,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiSevenIslandGym1HiddenObjects:
+	hidden_object  0,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
 
 ; TBE --------------------------------------------------------------------
