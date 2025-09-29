@@ -194,11 +194,15 @@ _SeviiSevenIslandGym3Text1_Intro::
 	done
 
 _NanetteText_PostBattleText::
-	text "GG 2!"
+	text "GG 7!"
 	prompt
 
 _SeviiSevenIslandGym3Text5_Victory::
-	text "Congrats 2"
+	text "Congrats 7"
+	done
+
+_SeviiSevenIslandGym3Text5_Defeat::
+	text "Try again 7"
 	done
 
 _SeviiSevenIslandGym3Text1::

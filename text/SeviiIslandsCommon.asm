@@ -50,3 +50,8 @@ _SeviiIslandGymText_NoRewardNoFight::
 _SeviiIslandGymText_NoRewardYesFight::
 	text "Marvelous!"
 	done
+
+_SeviiNoRewardsIfAnomalies::
+	text "Warning anomalies"
+	line "No rewards"
+	done

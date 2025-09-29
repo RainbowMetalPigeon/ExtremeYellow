@@ -108,11 +108,11 @@ IF DEF(_DEBUG)
 	inc de
 	ld [de], a
 
-; this adds a status (SLP, PSN, etc) to the n-th mon
-	ld hl, wPartyMon3Status
-	set PSN, [hl]
-	ld hl, wPartyMon4Status
-	set PSN, [hl]
+;; this adds a status (SLP, PSN, etc) to the n-th mon
+;	ld hl, wPartyMon3Status
+;	set PSN, [hl]
+;	ld hl, wPartyMon4Status
+;	set PSN, [hl]
 
     ; define who is shiny
     ld a, 1

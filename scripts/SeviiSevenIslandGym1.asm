@@ -1,12 +1,48 @@
 SeviiSevenIslandGym1_Script:
 	call ResetGymDungeon
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, SeviiSevenIslandGym1_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
+
+SeviiSevenIslandGym1_ScriptPointers:
+	dw SeviiSevenIslandGym1Script0
+
+SeviiSevenIslandGym1Script0:
+; already warned?
+	CheckEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
+	ret nz
+; front of the door?
+	ld hl, SeviiSevenIslandGym1InFrontOfDoorCoords
+	call ArePlayerCoordsInArray
+	ret nc
+; do we have "forbidden" stuff?
+	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
+	ret nc
+; warn the player
+	ld a, 2
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
+	ret
+
+SeviiSevenIslandGym1InFrontOfDoorCoords:
+	dbmapcoord  4,  1
+	db -1 ; end
 
 SeviiSevenIslandGym1_TextPointers:
 	dw SeviiSevenIslandGym1Text1
+	; scripts
+	dw SeviiSevenIslandGym1Text2
 
 SeviiSevenIslandGym1Text1:
 	text_far _SeviiSevenIslandGym1Text1
+	text_end
+
+SeviiSevenIslandGym1Text2:
+	text_far _SeviiNoRewardsIfAnomalies
 	text_end
 
 ResetGymDungeon:
@@ -14,8 +50,6 @@ ResetGymDungeon:
     bit 5, [hl]
     res 5, [hl]
     ret z
-
-.test
 	ld a, [wWarpedFromWhichMap]
 	cp SEVII_ROUTE_41
 	jr z, .skipBagHandling

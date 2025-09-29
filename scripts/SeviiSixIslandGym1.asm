@@ -1,6 +1,36 @@
 SeviiSixIslandGym1_Script:
 	call ApplyMalusOnEntry1
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, SeviiSixIslandGym1_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
+
+SeviiSixIslandGym1_ScriptPointers:
+	dw SeviiSixIslandGym1Script0
+
+SeviiSixIslandGym1Script0:
+; already warned?
+	CheckEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
+	ret nz
+; front of the door?
+	ld hl, SeviiSixIslandGym1InFrontOfDoorCoords
+	call ArePlayerCoordsInArray
+	ret nc
+; do we have "forbidden" stuff?
+	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
+	ret nc
+; warn the player
+	ld a, 10
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
+	ret
+
+SeviiSixIslandGym1InFrontOfDoorCoords:
+	dbmapcoord  4,  3
+	db -1 ; end
 
 ApplyMalusOnEntry1:
 	ld hl, wCurrentMapScriptFlags ; new
@@ -27,8 +57,16 @@ ApplyMalusOnEntry1:
 	ld [wPlayerBattleStatus1], a
 	ld [wPlayerBattleStatus2], a
 	ld [wPlayerBattleStatus3], a
+	ResetEvent EVENT_BATTLE_CAN_BE_LOST
+	SetEvent EVENT_SEVII_JUST_ENTERED_SIX_GYM
 	ret
 .checkStatDebuffRoom
+	SetEvent EVENT_BATTLE_CAN_BE_LOST ; for overworld death to poison
+	CheckAndResetEvent EVENT_SEVII_JUST_ENTERED_SIX_GYM
+	jr z, .notJustEntered
+	predef HealParty
+.notJustEntered
+	ld a, [wXCoord] ; reload it because the above overwrote it
 	cp 24
 	jr nc, .checkPSNRoom
 	call CheckIfAStatModifierCanBeLowered ; z flag if all stats have been minimized
@@ -77,6 +115,7 @@ SeviiSixIslandGym1_TextPointers:
 	dw SeviiSixIslandGym1PopUpMessagePoison ; 7
 	dw SeviiSixIslandGym1PopUpMessageBurn ; 8
 	dw SeviiSixIslandGym1PopUpMessageParalysis ; 9
+	dw SeviiSixIslandGym1Text10 ; 10
 
 SeviiSixIslandGym1Text1:
 	text_far _SeviiSixIslandGym1Text1
@@ -149,6 +188,10 @@ SeviiSixIslandGym1PopUpMessageParalysis:
 	text_far _SeviiSixIslandGym1PopUpMessageParalysis
 	text_end
 	
+SeviiSixIslandGym1Text10:
+	text_far _SeviiNoRewardsIfAnomalies
+	text_end
+
 ; ------------------------------------------------------------
 
 ; z flag if at least 1 mon is NOT statused

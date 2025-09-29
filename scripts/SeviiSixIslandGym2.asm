@@ -7,6 +7,7 @@ ApplyMalusOnEntry2:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+	SetEvent EVENT_BATTLE_CAN_BE_LOST ; for overworld death to poison
 	ld a, [wXCoord]
 ; Rock room?
 	cp 10 ; between Rock room and Spikes room

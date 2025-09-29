@@ -2088,12 +2088,18 @@ DisplayBattleMenu::
 	cp $2
 	jp nz, PartyMenuOrRockOrRun
 
-; new: can't use bag items against Traveler nor Batle Facility Trainers
+; new: can't use bag items against Traveler nor Battle Facility Trainers nor Sevii Sages
+;	ld a, [wCurOpponent]
+;	cp OPP_TRAVELER
+;	jr z, .cannotUseItemsInBattle
+;	cp OPP_BF_TRAINER
+;	jr z, .cannotUseItemsInBattle
 	ld a, [wCurOpponent]
-	cp OPP_TRAVELER
-	jr z, .cannotUseItemsInBattle
-	cp OPP_BF_TRAINER
-	jr z, .cannotUseItemsInBattle
+	ld hl, TrainersAgainstWhomBagIsForbidden
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .cannotUseItemsInBattle
+
 ; either the bag (normal battle) or bait (safari battle) was selected
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
@@ -2115,6 +2121,19 @@ DisplayBattleMenu::
 	ld a, SAFARI_BAIT
 	ld [wcf91], a
 	jr UseBagItem
+
+TrainersAgainstWhomBagIsForbidden: ; new
+	db OPP_TRAVELER
+	db OPP_BF_TRAINER
+	db OPP_ICHINO
+	db OPP_NIUE
+	db OPP_SANTRE
+	db OPP_YOTTRO
+	db OPP_SANTRE
+	db OPP_ROKUSEI
+	db OPP_NANETTE
+	db OPP_SUUJERO
+	db -1
 
 BagWasSelected:
 	call LoadScreenTilesFromBuffer1

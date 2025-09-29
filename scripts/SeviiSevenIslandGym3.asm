@@ -34,7 +34,7 @@ SeviiSevenIslandGym3Script0:
 	cp $ff
 	jr nz, .nonDefeated
 ; we have been defeated
-	ld a, 16 ; SeviiSevenIslandGym3Text16_PostBlackOut
+	ld a, 17 ; SeviiSevenIslandGym3Text16_PostBlackOut
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	predef HealParty
@@ -73,15 +73,31 @@ SeviiSevenIslandGym3ScriptPostBattle:
 ; check battle result
 	ld a, [wIsInBattle]
 	cp $ff
-	jr z, .gotDefeated
-; if you won
-	xor a
-	ld [wIsTrainerBattle], a
+	jr nz, .playerWon
+; if we lost
+	ld a, 16 ; if we lost
+	jr .commonPart
+.playerWon
 	SetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE
 	ld a, 15
+.commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-.gotDefeated ; TBE, modify defeat system to make this an "ok-to-lose battle"
+	xor a
+	ld [wIsTrainerBattle], a
+	ld [wCurMapScript], a
+; warp player back to entrance
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_SEVEN_ISLAND_GYM_1
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
 	ret
 
 ; =========================================
@@ -103,7 +119,8 @@ SeviiSevenIslandGym3_TextPointers:
 	dw PickUpItemText
 	; scripts
 	dw SeviiSevenIslandGym3Text5_Victory ; 15
-	dw SeviiSevenIslandGym3Text16_PostBlackOut ; 16
+	dw SeviiSevenIslandGym3Text5_Defeat ; 16
+	dw SeviiSevenIslandGym3Text16_PostBlackOut ; 17
 
 SeviiSevenIslandGym3TrainerHeaders:
 	def_trainers 2
@@ -206,9 +223,12 @@ SeviiSevenIslandGym3Text1:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl] ; turn on battle animations
+	set 6, [hl] ; battle style set
 	SetEvent EVENT_BATTLE_CAN_BE_LOST
-	ld hl, RokuseiText_PostBattleText
-	ld de, RokuseiText_PostBattleText
+	ld hl, NanetteText_PostBattleText
+	ld de, NanetteText_PostBattleText
 	call SaveEndBattleTextPointers
 	ld a, OPP_NANETTE
 	ld [wCurOpponent], a
@@ -235,6 +255,10 @@ NanetteText_PostBattleText:
 
 SeviiSevenIslandGym3Text5_Victory:
 	text_far _SeviiSevenIslandGym3Text5_Victory
+	text_end
+
+SeviiSevenIslandGym3Text5_Defeat:
+	text_far _SeviiSevenIslandGym3Text5_Defeat
 	text_end
 
 ; ---------------------------------------

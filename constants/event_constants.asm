@@ -161,10 +161,10 @@
 	const EVENT_GOT_BICYCLE
 
 ; Lavender Town events
-	const_next $F0 - 2
+	const_next $F0 - 2 ; TBE?
 	const EVENT_POKEMON_TOWER_RIVAL_ON_LEFT
 	const EVENT_BEAT_POKEMON_TOWER_RIVAL
-	const_skip
+	const EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES ; new
 	const EVENT_BEAT_POKEMONTOWER_3_TRAINER_0
 	const EVENT_BEAT_POKEMONTOWER_3_TRAINER_1
 	const EVENT_BEAT_POKEMONTOWER_3_TRAINER_2
@@ -179,7 +179,8 @@
 	const EVENT_BEAT_POKEMONTOWER_5_TRAINER_3
 	const EVENT_GOT_FUJI_MEGA_STONE_X ; new
 	const EVENT_IN_PURIFIED_ZONE
-	const_skip 2 ; edited from / to 2 because of rematch Agatha
+	const EVENT_SEVII_JUST_ENTERED_SIX_GYM ; new
+	const_skip 1 ; edited from / to 2 because of rematch Agatha
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_0
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_1
 	const EVENT_BEAT_POKEMONTOWER_6_TRAINER_2
