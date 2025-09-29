@@ -40,6 +40,10 @@ SeviiSixIslandGym1Script0:
 	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
 	ret nc
 ; warn the player
+	ld a, 1
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new fancy approach from Engeze
 	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
