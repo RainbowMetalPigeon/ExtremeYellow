@@ -44,13 +44,13 @@ _SeviiThreeIslandCityText9::
 	done
 
 _SeviiThreeIslandCitySignText1::
-	text "KIN CAVES"
+	text "FAMILY CAVES"
 	done
 
 _SeviiThreeIslandCitySignText2::
-	text "KIN ISLAND"
+	text "FAMILY ISLAND"
 	line "Unwavering as"
-	cont "Family Bonds"
+	cont "Familiar Bonds"
 
 	para "(Also known"
 	line "as THREE ISLAND)"
@@ -58,7 +58,7 @@ _SeviiThreeIslandCitySignText2::
 
 _SeviiThreeIslandCitySignText3::
 	text "SEVII TRIAL SHRINE"
-	line "of KNOT ISLAND"
+	line "of FAMILY ISLAND"
 	cont "SAGE: SANTRE"
 
 	para "(TBE)"

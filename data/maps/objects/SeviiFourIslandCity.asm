@@ -13,9 +13,13 @@ SeviiFourIslandCity_Object:
 	warp_event 29, 11, SEVII_ICEFALL_CAVE_1F, 1
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
-
+	bg_event 10, 22, 12 ; SeviiFourIslandCitySignText1
+	bg_event 13,  9, 13 ; SeviiFourIslandCitySignText2
+	bg_event 25, 21, 14 ; SeviiFourIslandCitySignText3
+	bg_event 32, 12, 15 ; SeviiFourIslandCitySignText4
+	bg_event 14, 17, 16 ; PokeCenterSignText
+	bg_event 20, 23, 17 ; MartSignText
+	
 	def_object_events
 	object_event  7, 25, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 1
 	object_event 18, 29, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 2
@@ -24,8 +28,10 @@ SeviiFourIslandCity_Object:
 	object_event 12, 21, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 5
 	object_event  9, 11, SPRITE_COOLTRAINER_F, WALK, UP_DOWN, 6
 	object_event 18, 15, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 7
-
-	object_event 32, 33, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 8
-	object_event 33, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 9
+	; non-persons
+	object_event 31, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 8
+	object_event 32, 34, SPRITE_POKE_BALL, STAY, NONE, 9, IRON
+	object_event  5,  4, SPRITE_POKE_BALL, STAY, NONE, 10, RARE_CANDY
+	object_event 27,  4, SPRITE_POKE_BALL, STAY, NONE, 11, PP_UP
 
 	def_warps_to SEVII_FOUR_ISLAND_CITY

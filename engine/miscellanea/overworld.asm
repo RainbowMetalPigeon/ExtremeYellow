@@ -707,11 +707,19 @@ RespawnAllRockSmashableRocks::
 	jr .showLoopKantoExtra
 	
 RockSmashableRocks_Sevii:
+; 1-island
 	db HS_SEVII_ROUTE_31_ROCK_1
+; 2-island
 	db HS_SEVII_TWO_ISLAND_CITY_ROCK_1
 	db HS_SEVII_ROUTE_33_ROCK_1
 	db HS_SEVII_ROUTE_33_ROCK_2
+; 3-island
+; 4-island
+	db HS_SEVII_FOUR_ISLAND_CITY_ROCK_1
 	db HS_SEVII_ICEFALL_CAVE_1F_ROCK_1
+; 5-island
+; 6-island
+; 7-island
 	db HS_SEVII_SEVEN_ISLAND_GYM_2_ROCK_1
 	db HS_SEVII_SEVEN_ISLAND_GYM_2_ROCK_2
 	db $FF
