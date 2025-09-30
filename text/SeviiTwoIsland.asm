@@ -120,6 +120,10 @@ _SeviiTwoIslandGymText3_Victory::
 	text "Congrats 2"
 	done
 
+_SeviiTwoIslandGymText4_Defeat::
+	text "Try again 2"
+	done
+
 _SeviiTwoIslandGymText2_PreLeague::
 	text "guide for you 2"
 	line "before"

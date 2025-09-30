@@ -36,15 +36,31 @@ SeviiTwoIslandGymScriptPostBattle:
 ; check battle result
 	ld a, [wIsInBattle]
 	cp $ff
-	jr z, .gotDefeated
-; if you won
-	xor a
-	ld [wIsTrainerBattle], a
-	SetEvent EVENT_DEFEATED_SEVII_SAGE_NIUE
-	ld a, 3
+	jr nz, .playerWon
+; if we lost
+	ld a, 4 ; if we lost ; map-specific
+	jr .commonPart
+.playerWon
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO ; map-specific
+	ld a, 3 ; map-specific
+.commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-.gotDefeated ; TBE, modify defeat system to make this an "ok-to-lose battle"
+	xor a
+	ld [wIsTrainerBattle], a
+	ld [wCurMapScript], a
+; warp player back to entrance
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_TWO_ISLAND_GYM ; map-specific
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
 	ret
 
 ; ===============================
@@ -53,7 +69,8 @@ SeviiTwoIslandGym_TextPointers:
 	dw SeviiTwoIslandGymText1
 	dw SeviiTwoIslandGymText2
 	; scripts
-	dw SeviiTwoIslandGymText3_Victory
+	dw SeviiTwoIslandGymText3_Victory ; 3
+	dw SeviiTwoIslandGymText4_Defeat ; 4
 
 SeviiTwoIslandGymText1:
 	text_asm
@@ -92,9 +109,13 @@ SeviiTwoIslandGymText1:
 	predef HealParty ; because of the HPs
 
 ; set up battle
+	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl] ; turn on battle animations
+	set 6, [hl] ; battle style set
 	ld hl, NiueText_PostBattleText
 	ld de, NiueText_PostBattleText
 	call SaveEndBattleTextPointers
@@ -148,6 +169,10 @@ NiueText_PostBattleText:
 
 SeviiTwoIslandGymText3_Victory:
 	text_far _SeviiTwoIslandGymText3_Victory
+	text_end
+
+SeviiTwoIslandGymText4_Defeat:
+	text_far _SeviiTwoIslandGymText4_Defeat
 	text_end
 
 ; =====================================
