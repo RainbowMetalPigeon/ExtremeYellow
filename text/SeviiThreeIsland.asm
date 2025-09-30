@@ -157,6 +157,10 @@ _SeviiThreeIslandGymText3_Victory::
 	text "Congrats 3"
 	done
 
+_SeviiThreeIslandGymText4_Defeat::
+	text "Try again 3"
+	done
+
 ; dock ------------------------------------
 
 _SeviiThreeIslandDockBgText1::

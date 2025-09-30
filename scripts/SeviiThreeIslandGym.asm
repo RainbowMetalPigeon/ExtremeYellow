@@ -21,15 +21,31 @@ SeviiThreeIslandGymScriptPostBattle:
 ; check battle result
 	ld a, [wIsInBattle]
 	cp $ff
-	jr z, .gotDefeated
-; if you won
-	xor a
-	ld [wIsTrainerBattle], a
-	SetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE
-	ld a, 3
+	jr nz, .playerWon
+; if we lost
+	ld a, 4 ; if we lost ; map-specific
+	jr .commonPart
+.playerWon
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE ; map-specific
+	ld a, 3 ; map-specific
+.commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-.gotDefeated ; TBE, modify defeat system to make this an "ok-to-lose battle"
+	xor a
+	ld [wIsTrainerBattle], a
+	ld [wCurMapScript], a
+; warp player back to entrance
+	predef HealParty
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, SEVII_THREE_ISLAND_GYM ; map-specific
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
 	ret
 
 ; ===============================
@@ -38,7 +54,8 @@ SeviiThreeIslandGym_TextPointers:
 	dw SeviiThreeIslandGymText1
 	dw SeviiThreeIslandGymText2
 	; scripts
-	dw SeviiThreeIslandGymText3_Victory
+	dw SeviiThreeIslandGymText3_Victory ; 3
+	dw SeviiThreeIslandGymText4_Defeat ; 4
 
 SeviiThreeIslandGymText1:
 	text_asm
@@ -59,7 +76,7 @@ SeviiThreeIslandGymText1:
 	ld a, e
 	cp $FF
 	ld hl, SeviiThreeIslandGymText1_NoSharedTypes
-	jr z, .printAndEnd
+	jp z, .printAndEnd
 ; type 1 null, type 2 valid
 .oneMatchFound ; the (possibly chosen out of the 2 different valid ones) type is in a
 	ld [wMultipurposeBuffer], a
@@ -86,9 +103,13 @@ SeviiThreeIslandGymText1:
 	call PrintText
 ; fallthrough
 .setUpBattle
+	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl] ; turn on battle animations
+	set 6, [hl] ; battle style set
 	ld hl, SantreText_PostBattleText
 	ld de, SantreText_PostBattleText
 	call SaveEndBattleTextPointers
@@ -123,9 +144,9 @@ SeviiThreeIslandGymText1:
 	call Random
 	cp 50 percent
 	ld a, d
-	jr c, .oneMatchFound
+	jp c, .oneMatchFound
 	ld a, e
-	jr .oneMatchFound
+	jp .oneMatchFound
 
 .printAndEnd
 	call PrintText
@@ -183,4 +204,8 @@ SantreText_PostBattleText:
 
 SeviiThreeIslandGymText3_Victory:
 	text_far _SeviiThreeIslandGymText3_Victory
+	text_end
+
+SeviiThreeIslandGymText4_Defeat:
+	text_far _SeviiThreeIslandGymText4_Defeat
 	text_end
