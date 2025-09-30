@@ -58,6 +58,11 @@ _SeviiFourIslandGymText3_Victory::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiFourIslandGymText4_Defeat::
+	text "try again 4"
+;	xxxx "123456789012345678"
+	done
+
 ; dock ------------------------------------
 
 _SeviiFourIslandDockBgText1::
