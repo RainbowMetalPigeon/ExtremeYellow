@@ -27,6 +27,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_FOUR_ISLAND_GYM,                           SeviiFourIslandGymHiddenObjects
 ; 5-island
 	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_FIVE_ISLAND_GYM,                           SeviiFiveIslandGymHiddenObjects
 ; 6-island
 	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SIX_ISLAND_GYM_1,                          SeviiSixIslandGym1HiddenObjects
@@ -104,6 +105,10 @@ SeviiThreeIslandGymHiddenObjects:
 
 SeviiFourIslandGymHiddenObjects:
 	hidden_object  0, 13, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiFiveIslandGymHiddenObjects:
+	hidden_object  0, 19, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
 
 SeviiSixIslandGym1HiddenObjects:

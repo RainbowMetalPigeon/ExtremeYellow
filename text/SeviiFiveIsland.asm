@@ -36,6 +36,10 @@ _SeviiFiveIslandGymText3_Victory::
 	text "Congrats 5"
 	done
 
+_SeviiFiveIslandGymText4_Defeat::
+	text "Try again 5"
+	done
+
 _SeviiFiveIslandGymText2_PreLeague::
 	text "guide for you 5"
 	line "before"
