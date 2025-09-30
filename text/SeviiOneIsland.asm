@@ -242,12 +242,27 @@ _SeviiOneIslandPokemonCenterAndMart_Text4::
 
 ; gym -------------------------------------
 
-_SeviiOneIslandGymText1_NoChampionYet::
+_CantDissipateMistText::
+	text "Can't dissipate the"
+	line "mysterious mist!"
+	prompt
+
+_SeviiOneIslandGym1Text1_PreLeague::
+	text "guide for you 1"
+	line "before"
+	done
+
+_SeviiOneIslandGym1Text1_PostLeague::
+	text "guide for you 1"
+	line "after"
+	done
+
+_SeviiOneIslandGym2Text1_NoChampionYet::
 	text "ICHINO: come"
 	line "back when CHAMP"
 	done
 
-_SeviiOneIslandGymText1_Intro::
+_SeviiOneIslandGym2Text1_Intro::
 	text "ICHINO: ciao"
 	line "mystery fight"
 	done
@@ -256,18 +271,12 @@ _IchinoText_PostBattleText::
 	text "GG 1!"
 	prompt
 
-_SeviiOneIslandGymText3_Victory::
+_SeviiOneIslandGym2Text3_Victory::
 	text "Congrats 1"
 	done
 
-_SeviiOneIslandGymText2_PreLeague::
-	text "guide for you 1"
-	line "before"
-	done
-
-_SeviiOneIslandGymText2_PostLeague::
-	text "guide for you 1"
-	line "after"
+_SeviiOneIslandGym2Text3_Defeat::
+	text "Try again 1"
 	done
 
 ; dock ------------------------------------

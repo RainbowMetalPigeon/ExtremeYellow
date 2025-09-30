@@ -29,7 +29,8 @@ MapSongBanks_Sevii::
 ; 1-island
 	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_ONE_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
-	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_ONE_ISLAND_GYM
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_ONE_ISLAND_GYM_1
+	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_ONE_ISLAND_GYM_2
 	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_ONE_ISLAND_HOUSES
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_EMBER_SPA
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_32_DIVE

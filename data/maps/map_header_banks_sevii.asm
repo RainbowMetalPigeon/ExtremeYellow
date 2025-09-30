@@ -30,7 +30,8 @@ MapHeaderBanks_Sevii::
 ; 1-island
 	db BANK(SeviiOneIslandDock_h)
 	db BANK(SeviiOneIslandPokemonCenterAndMart_h)
-	db BANK(SeviiOneIslandGym_h)
+	db BANK(SeviiOneIslandGym1_h)
+	db BANK(SeviiOneIslandGym2_h)
 	db BANK(SeviiOneIslandHouses_h)
 	db BANK(SeviiEmberSpa_h)
 	db BANK(SeviiRoute32Dive_h)

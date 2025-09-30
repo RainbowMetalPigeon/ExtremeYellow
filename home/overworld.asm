@@ -571,35 +571,61 @@ WarpFound2::
 	jr z, .goBackOutside
 ; if not going back to the previous map
 
-; new block of code to darken the final labyrinth and make it need FLASH
+; new block of code to darken new indoor maps
 	CheckEvent EVENT_IN_SEVII
 	ldh a, [hWarpDestinationMap]
 	jr z, .kanto
+; sevii
 	cp SEVII_SEVEN_ISLAND_GYM_3
-	jr nz, .notFinalLabyrinthHandling
-	ld a, $06
-	ld [wMapPalOffset], a
-	call GBFadeOutToBlack
-	jr .notFinalLabyrinthHandling
-.kanto
-	cp CERULEAN_CAVE_EXTRA_FINAL
-	jr nz, .notFinalLabyrinth
-	ld a, $06
-	ld [wMapPalOffset], a
-	call GBFadeOutToBlack
-.notFinalLabyrinth
-	ldh a, [hWarpDestinationMap] ; destination map
-	; are we exiting the final labyrinth back into the 3D one?
-	cp CERULEAN_CAVE_EXTRA_MIDDLE
-	jr nz, .notFinalLabyrinthHandling
-	ld a, [wCurMap]
-	cp CERULEAN_CAVE_EXTRA_FINAL
-	jr nz, .notFinalLabyrinthHandling
+	jr z, .darkenMap
+	cp SEVII_ONE_ISLAND_GYM_2
+	jr z, .darkenMap
+	cp SEVII_ONE_ISLAND_GYM_1
+	jr z, .lightenMap
+	cp SEVII_SEVEN_ISLAND_GYM_2
+	jr nz, .postFlashStuff
+.lightenMap
 	xor a
 	ld [wMapPalOffset], a
-.notFinalLabyrinthHandling
-	ldh a, [hWarpDestinationMap] ; fixing glitchy stairs?
-
+	jr .postFlashStuff
+.kanto
+	cp CERULEAN_CAVE_EXTRA_MIDDLE
+	jr z, .lightenMap
+	cp CERULEAN_CAVE_EXTRA_FINAL
+	jr nz, .postFlashStuff
+.darkenMap
+	ld a, $06
+	ld [wMapPalOffset], a
+	call GBFadeOutToBlack
+.postFlashStuff
+	ldh a, [hWarpDestinationMap]
+;	CheckEvent EVENT_IN_SEVII
+;	ldh a, [hWarpDestinationMap]
+;	jr z, .kanto
+;	cp SEVII_SEVEN_ISLAND_GYM_3
+;	jr nz, .notFinalLabyrinthHandling
+;	ld a, $06
+;	ld [wMapPalOffset], a
+;	call GBFadeOutToBlack
+;	jr .notFinalLabyrinthHandling
+;.kanto
+;	cp CERULEAN_CAVE_EXTRA_FINAL
+;	jr nz, .notFinalLabyrinth
+;	ld a, $06
+;	ld [wMapPalOffset], a
+;	call GBFadeOutToBlack
+;.notFinalLabyrinth
+;	ldh a, [hWarpDestinationMap] ; destination map
+;	; are we exiting the final labyrinth back into the 3D one?
+;	cp CERULEAN_CAVE_EXTRA_MIDDLE
+;	jr nz, .notFinalLabyrinthHandling
+;	ld a, [wCurMap]
+;	cp CERULEAN_CAVE_EXTRA_FINAL
+;	jr nz, .notFinalLabyrinthHandling
+;	xor a
+;	ld [wMapPalOffset], a
+;.notFinalLabyrinthHandling
+;	ldh a, [hWarpDestinationMap] ; fixing glitchy stairs?
 	ld [wCurMap], a
 	farcall IsPlayerStandingOnWarpPadOrHole
 	ld a, [wStandingOnWarpPadOrHole]

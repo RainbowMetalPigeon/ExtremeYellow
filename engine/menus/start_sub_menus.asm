@@ -239,6 +239,14 @@ StartMenu_Pokemon::
 .flash
 	bit BIT_BOULDERBADGE, a
 	jp z, .newBadgeRequired
+; new
+	CheckEvent EVENT_IN_SEVII
+	jr z, .vanilla
+	ld a, [wCurMap]
+	cp SEVII_ONE_ISLAND_GYM_2
+	jp z, .cantDissipateMist
+.vanilla
+; BTV
 	xor a
 	ld [wMapPalOffset], a
 	ld hl, .flashLightsAreaText
@@ -340,6 +348,16 @@ StartMenu_Pokemon::
 .newBadgeRequiredText
 	text_far _NewBadgeRequiredText
 	text_end
+; new
+.cantDissipateMist
+	ld hl, CantDissipateMistText
+	call PrintText
+	jp .loop
+
+CantDissipateMistText:
+	text_far _CantDissipateMistText
+	text_end
+; BTV
 
 ; writes a blank tile to all possible menu cursor positions on the party menu
 ErasePartyMenuCursors::

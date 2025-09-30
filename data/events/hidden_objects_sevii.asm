@@ -12,14 +12,23 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_ROUTE_32,                                  SeviiRoute32HiddenObjects ; TBE
 	dbw SEVII_ROUTE_33,                                  SeviiRoute33HiddenObjects
 ; indoors
+; 1-island
 	dbw SEVII_ONE_ISLAND_DOCK,                           SeviiOneIslandDockHiddenObjects ; TBE
 	dbw SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART,        SeviiOneIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_ONE_ISLAND_GYM_1,                          SeviiOneIslandGym1HiddenObjects
+; 2-island
 	dbw SEVII_TWO_ISLAND_POKEMON_CENTER,                 SeviiTwoIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_TWO_ISLAND_GYM,                            SeviiTwoIslandGymHiddenObjects
+; 3-island
 	dbw SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,      SeviiThreeIslandPokemonCenterAndMartHiddenObjects
+; 4-island
 	dbw SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFourIslandPokemonCenterAndMartHiddenObjects
+; 5-island
 	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
+; 6-island
 	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SIX_ISLAND_GYM_1,                          SeviiSixIslandGym1HiddenObjects
+; 7-island
 	dbw SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,      SeviiSevenIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SEVEN_ISLAND_GYM_1,                        SeviiSevenIslandGym1HiddenObjects
 	
@@ -77,6 +86,14 @@ SeviiSixIslandPokemonCenterAndMartHiddenObjects:
 
 SeviiSevenIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiOneIslandGym1HiddenObjects:
+	hidden_object  0,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiTwoIslandGymHiddenObjects:
+	hidden_object  0, 13, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
 
 SeviiSixIslandGym1HiddenObjects:

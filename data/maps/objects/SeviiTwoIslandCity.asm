@@ -20,7 +20,7 @@ SeviiTwoIslandCity_Object:
 	def_object_events
 	object_event  7, 27, SPRITE_GRANNY, STAY, ANY_DIR, 1
 	object_event 18, 32, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 2
-	object_event 30, 28, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3
+	object_event 30, 28, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3 ; TBE?
 	object_event 20, 17, SPRITE_HIKER, STAY, ANY_DIR, 4
 	object_event 22, 28, SPRITE_GRANNY, STAY, DOWN, 5
 	object_event 23, 28, SPRITE_GRAMPS, STAY, DOWN, 6
@@ -31,5 +31,6 @@ SeviiTwoIslandCity_Object:
 	object_event 15,  8, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 11
 	object_event 18,  3, SPRITE_POKE_BALL, STAY, NONE, 12, PROTEIN
 	object_event 16, 19, SPRITE_POKE_BALL, STAY, NONE, 13, NUGGET
+	; TBE? One more sprite?
 
 	def_warps_to SEVII_TWO_ISLAND_CITY

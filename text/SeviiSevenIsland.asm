@@ -23,7 +23,7 @@ _SeviiSevenIslandGym1Text1::
 	done
 
 _SeviiSevenIslandGymTextBlackout::
-	text "GG come back"
+	text "GG come back 7"
 	done
 
 ; gym 2 ------------------------------------

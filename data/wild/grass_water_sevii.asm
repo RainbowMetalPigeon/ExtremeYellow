@@ -29,7 +29,8 @@ WildDataPointers_Sevii:
 ; 1-island
 	dw SeviiShipDockWildMons         ; SEVII_ONE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
-	dw NothingWildMons               ; SEVII_ONE_ISLAND_GYM
+	dw NothingWildMons               ; SEVII_ONE_ISLAND_GYM_1
+	dw NothingWildMons               ; SEVII_ONE_ISLAND_GYM_2
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_EMBER_SPA ; TBE?
 	dw NothingWildMons               ; SEVII_ROUTE_32_DIVE ; TBE
