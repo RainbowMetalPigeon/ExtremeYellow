@@ -704,16 +704,26 @@ PlayMapChangeSound::
 	jr .playSound
 ; new for Dive
 .diving
-	ld a, SFX_SURFING_FLIP
-	call PlaySound
+	call StopAllMusic
+	ld c, BANK(SFX_Intro_Hip)
+	ld a, SFX_INTRO_HIP
+	call PlayMusic
 	call WaitForSoundToFinish
-	ld a, SFX_SURFING_FLIP
-	jr .playSound
+	ld c, BANK(SFX_Intro_Hip)
+	ld a, SFX_INTRO_HIP
+	call PlayMusic
+	jr .postPlayDiveSound
+;	ld a, SFX_SURFING_FLIP
+;	call PlaySound
+;	call WaitForSoundToFinish
+;	ld a, SFX_SURFING_FLIP
+;	jr .playSound
 ; BTV
 .didNotGoThroughDoor
 	ld a, SFX_GO_OUTSIDE
 .playSound
 	call PlaySound
+.postPlayDiveSound
 	ld a, [wMapPalOffset]
 	and a
 	ret nz
