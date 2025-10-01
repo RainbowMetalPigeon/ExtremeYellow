@@ -1,3 +1,163 @@
+_SeviiFiveIslandCityText1::
+	text "1"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityText2::
+	text "2"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityText3::
+	text "3"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityText4::
+	text "4 - Rocket"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityText5::
+	text "5 - Pink"
+;	xxxx "123456789012345678"
+	done
+
+; trainers
+
+_SeviiFiveIslandCityBattleText1::
+	text "Times a beast, in-"
+	line "adherent to rein."
+
+	para "Trapped in its"
+	line "hounding, un-"
+	cont "breakable frame."
+	done
+
+_SeviiFiveIslandCityEndBattleText1::
+	text "ROCKER: Few, few"
+	line "are we... impos-"
+	cont "sible the odds."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiFiveIslandCityAfterBattleText1::
+	text "To witness as"
+	line "mortals the fab-"
+	cont "ric of the gods!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityBattleText2::
+	text "It's you who said"
+	line "there's no"
+	cont "tomorrow!"
+
+	para "I don't know but"
+	line "who I am!"
+
+	para "I won't sit back"
+	line "any longer!"
+	done
+
+_SeviiFiveIslandCityEndBattleText2::
+	text "It's surely"
+	line "built in sadness"
+	cont "but the sadness"
+	cont "surely'll go by!"
+	prompt
+
+_SeviiFiveIslandCityAfterBattleText2::
+	text "So we'll all know"
+	line "the answer:"
+
+	para "The answer's within"
+	line "it's in your mind!"
+	done
+
+_SeviiFiveIslandCityBattleText3::
+	text "They will"
+	line "never survive,"
+	cont "they'll die!"
+
+	para "Oh, they will die!"
+	done
+
+_SeviiFiveIslandCityEndBattleText3::
+	text "I"
+	line "sacrifice every-"
+	cont "thing, just for"
+	cont "one moment!"
+	prompt
+
+_SeviiFiveIslandCityAfterBattleText3::
+	text "I throw away"
+	line "everything that"
+	cont "matters to me"
+	cont "the most!"
+	done
+
+_SeviiFiveIslandCityBattleText4::
+	text "The Sun, the Moon,"
+	line "the Stars, shine"
+	cont "less brightly"
+	cont "with you so far."
+
+	para "I never knew"
+	line "sorrow 'till you"
+	cont "asked me to"
+	cont "follow my heart!"
+	done
+
+_SeviiFiveIslandCityEndBattleText4::
+	text "ROCKER: For all"
+	line "the tales I've"
+	cont "told, and these"
+	cont "whispers of"
+	cont "silver and gold!"
+	prompt
+
+_SeviiFiveIslandCityAfterBattleText4::
+	text "I'd throw them all"
+	line "away to gaze on"
+	cont "you face"
+	cont "once more..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCitySignText1::
+	text "CHRONO ISLAND"
+	line "Where Time Flows"
+	cont "Back and Forth"
+
+	para "(Also known"
+	line "as FIVE ISLAND)"
+	done
+
+_SeviiFiveIslandCitySignText2::
+	text "North: ROUTE 34,"
+	line "ROUTE 35"
+	done
+
+_SeviiFiveIslandCitySignText3::
+	text "East: ROUTE 36,"
+	line "CHRONO WAREHOUSE"
+	done
+
+_SeviiFiveIslandCitySignText4::
+	text "CHRONO WAREHOUSE"
+	done
+
+_SeviiFiveIslandCitySignText5::
+	text "SEVII TRIAL SHRINE"
+	line "of CHRONO ISLAND"
+	cont "SAGE: GONQUE"
+
+	para "(TBE)"
+;	xxxx "123456789012345678"
+	done
+
+; city's indoor ------------------------------------
 
 _SeviiFiveIslandPokemonCenterAndMart_Text1::
 	text "test 5-1"

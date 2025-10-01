@@ -207,9 +207,13 @@
 	const EVENT_BEAT_SEVII_ROUTE_33_TRAINER_3 ; new
 	const EVENT_BEAT_SEVII_ROUTE_33_TRAINER_4 ; new
 	const EVENT_BEAT_SEVII_ROUTE_33_TRAINER_5 ; new
-
+	const_skip 4
+	const EVENT_BEAT_SEVII_FIVE_ISLAND_CITY_TRAINER_1 ; new
+	const EVENT_BEAT_SEVII_FIVE_ISLAND_CITY_TRAINER_2 ; new
+	const EVENT_BEAT_SEVII_FIVE_ISLAND_CITY_TRAINER_3 ; new
+	const EVENT_BEAT_SEVII_FIVE_ISLAND_CITY_TRAINER_4 ; new
 	const EVENT_GOT_POKE_FLUTE
-	const_skip 30 ; temporarily edited wrongly for Fuji mega stone, gotta check if all still works
+	const_skip 22 ; was 30
 	const EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 
 ; Vermilion City events

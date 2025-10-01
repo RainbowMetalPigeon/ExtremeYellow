@@ -30,7 +30,6 @@ SeviiRoute33_TextPointers:
 	; signs
 	dw SeviiRoute33SignText1 ; 15
 	dw SeviiRoute33SignText2 ; 16
-	text_end
 
 SeviiRoute33TrainerHeaders:
 	def_trainers 5
