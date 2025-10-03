@@ -24,6 +24,13 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_ROUTE_33,                69,  6 ; ETHER
 	hidden_item SEVII_ROUTE_33,                56,  5 ; RARE_CANDY
 	hidden_item SEVII_ROUTE_33,                95, 22 ; NUGGET
+	hidden_item SEVII_ROUTE_36,                18,  2 ; NUGGET
+	hidden_item SEVII_ROUTE_36,                15, 20 ; ULTRA_BALL
+	hidden_item SEVII_ROUTE_36,                17, 41 ; MAX_REVIVE
+	hidden_item SEVII_ROUTE_36,                 3, 31 ; FULL_RESTORE
+	hidden_item SEVII_ROUTE_36,                16,  5 ; PP_UP
+	hidden_item SEVII_ROUTE_36,                12, 21 ; CALCIUM
+	hidden_item SEVII_ROUTE_36,                14, 27 ; PROTEIN
 ; indoors
 	hidden_item SEVII_ONE_ISLAND_DOCK,         12,  3 ; TBE
 	db -1 ; end

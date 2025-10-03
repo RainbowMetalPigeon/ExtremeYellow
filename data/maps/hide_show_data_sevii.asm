@@ -19,7 +19,7 @@ MapHSPointers_Sevii:
 	dw SeviiRoute33HS ; SEVII_ROUTE_33
 	dw NoHSSevii ; SEVII_ROUTE_34
 	dw SeviiRoute35HS ; SEVII_ROUTE_35
-	dw NoHSSevii ; SEVII_ROUTE_36
+	dw SeviiRoute36HS ; SEVII_ROUTE_36
 	dw NoHSSevii ; SEVII_ROUTE_37
 	dw NoHSSevii ; SEVII_ROUTE_38
 	dw NoHSSevii ; SEVII_ROUTE_39
@@ -124,12 +124,14 @@ SeviiFourIslandCityHS:
 	db SEVII_FOUR_ISLAND_CITY, 10, SHOW ; ball
 	db SEVII_FOUR_ISLAND_CITY, 11, SHOW ; ball
 SeviiFiveIslandCityHS:
-	db SEVII_FIVE_ISLAND_CITY,  4, SHOW ; Rocket
-	db SEVII_FIVE_ISLAND_CITY,  4, SHOW ; Pink
-	db SEVII_FIVE_ISLAND_CITY, 10, SHOW ; Rock
-	db SEVII_FIVE_ISLAND_CITY, 11, SHOW ; ball
+	db SEVII_FIVE_ISLAND_CITY,  3, SHOW ; Monster Rocket
+	db SEVII_FIVE_ISLAND_CITY,  4, SHOW ; Monster Pink
+	db SEVII_FIVE_ISLAND_CITY,  5, SHOW ; Rocket
+	db SEVII_FIVE_ISLAND_CITY,  6, SHOW ; Pink
+	db SEVII_FIVE_ISLAND_CITY, 11, SHOW ; Rock
 	db SEVII_FIVE_ISLAND_CITY, 12, SHOW ; ball
 	db SEVII_FIVE_ISLAND_CITY, 13, SHOW ; ball
+	db SEVII_FIVE_ISLAND_CITY, 14, SHOW ; ball
 SeviiSevenIslandCityHS:
 	db SEVII_SIX_ISLAND_CITY,  1, SHOW ; TBE
 SeviiSixIslandCityHS:
@@ -154,6 +156,8 @@ SeviiRoute33HS:
 	db SEVII_ROUTE_33, 14, SHOW ; PP_UP
 SeviiRoute35HS:
 	db SEVII_ROUTE_35,  2, SHOW ; ULTRA_BALL
+SeviiRoute36HS:
+	db SEVII_ROUTE_36, 14, SHOW ; METAL_COAT
 
 ; indoors ----------------------------------
 

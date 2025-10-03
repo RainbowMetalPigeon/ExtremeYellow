@@ -13,31 +13,32 @@ SeviiFiveIslandCity_ScriptPointers:
 	dw EndTrainerBattle
 
 SeviiFiveIslandCity_TextPointers:
-	dw SeviiFiveIslandCityText1 ; 1 person
-	dw SeviiFiveIslandCityText2 ; 2 person
-	dw SeviiFiveIslandCityText3 ; 3 person
-	dw SeviiFiveIslandCityText4 ; 4 Rocket
-	dw SeviiFiveIslandCityText5 ; 5 Pink
-	dw SeviiFiveIslandCityText6 ; 6 trainer
-	dw SeviiFiveIslandCityText7 ; 7 trainer
-	dw SeviiFiveIslandCityText8 ; 8 trainer
-	dw SeviiFiveIslandCityText9 ; 9 trainer
-	dw RockSmashText ; 10
-	dw PickUpItemText ; 11
+	dw SeviiFiveIslandCityText1  ;  1 person
+	dw SeviiFiveIslandCityText2  ;  2 person
+	dw SeviiFiveIslandCityText3  ;  3 Monster Rocket
+	dw SeviiFiveIslandCityText4  ;  4 Monster Pink
+	dw SeviiFiveIslandCityText5  ;  5 Rocket
+	dw SeviiFiveIslandCityText6  ;  6 Pink
+	dw SeviiFiveIslandCityText7  ;  7 trainer
+	dw SeviiFiveIslandCityText8  ;  8 trainer
+	dw SeviiFiveIslandCityText9  ;  9 trainer
+	dw SeviiFiveIslandCityText10 ; 10 trainer
+	dw RockSmashText ; 11
 	dw PickUpItemText ; 12
 	dw PickUpItemText ; 13
+	dw PickUpItemText ; 14
 	; signs
-	dw SeviiFiveIslandCitySignText1 ; 14
-	dw SeviiFiveIslandCitySignText2 ; 15
-	dw SeviiFiveIslandCitySignText3 ; 16
-	dw SeviiFiveIslandCitySignText4 ; 17
-	dw SeviiFiveIslandCitySignText5 ; 18
-	dw PokeCenterSignText ; 19
-	dw MartSignText ; 20
+	dw SeviiFiveIslandCitySignText1 ; 15
+	dw SeviiFiveIslandCitySignText2 ; 16
+	dw SeviiFiveIslandCitySignText3 ; 17
+	dw SeviiFiveIslandCitySignText4 ; 18
+	dw SeviiFiveIslandCitySignText5 ; 19
+	dw PokeCenterSignText ; 20
+	dw MartSignText ; 21
 	; scripts
 
 SeviiFiveIslandCityTrainerHeaders:
-	def_trainers 6
+	def_trainers 7
 SeviiFiveIslandCityTrainerHeader1:
 	trainer EVENT_BEAT_SEVII_FIVE_ISLAND_CITY_TRAINER_1, 1, SeviiFiveIslandCityBattleText1, SeviiFiveIslandCityEndBattleText1, SeviiFiveIslandCityAfterBattleText1
 SeviiFiveIslandCityTrainerHeader2:
@@ -54,7 +55,7 @@ SeviiFiveIslandCity_TalkToTrainer:
 
 ; ---------------------------------------
 
-SeviiFiveIslandCityText6:
+SeviiFiveIslandCityText7:
 	text_asm
 	ld hl, SeviiFiveIslandCityTrainerHeader1
 	jr SeviiFiveIslandCity_TalkToTrainer
@@ -73,7 +74,7 @@ SeviiFiveIslandCityAfterBattleText1:
 
 ; ---------------------------------------
 
-SeviiFiveIslandCityText7:
+SeviiFiveIslandCityText8:
 	text_asm
 	ld hl, SeviiFiveIslandCityTrainerHeader2
 	jr SeviiFiveIslandCity_TalkToTrainer
@@ -92,7 +93,7 @@ SeviiFiveIslandCityAfterBattleText2:
 
 ; ---------------------------------------
 
-SeviiFiveIslandCityText8:
+SeviiFiveIslandCityText9:
 	text_asm
 	ld hl, SeviiFiveIslandCityTrainerHeader3
 	jr SeviiFiveIslandCity_TalkToTrainer
@@ -111,7 +112,7 @@ SeviiFiveIslandCityAfterBattleText3:
 
 ; ---------------------------------------
 
-SeviiFiveIslandCityText9:
+SeviiFiveIslandCityText10:
 	text_asm
 	ld hl, SeviiFiveIslandCityTrainerHeader4
 	jr SeviiFiveIslandCity_TalkToTrainer
@@ -148,6 +149,10 @@ SeviiFiveIslandCityText4:
 
 SeviiFiveIslandCityText5:
 	text_far _SeviiFiveIslandCityText5
+	text_end
+
+SeviiFiveIslandCityText6:
+	text_far _SeviiFiveIslandCityText6
 	text_end
 
 ; ---------------------------------------

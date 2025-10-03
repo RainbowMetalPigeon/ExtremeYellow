@@ -11,6 +11,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_ROUTE_31,                                  SeviiRoute31HiddenObjects ; TBE
 	dbw SEVII_ROUTE_32,                                  SeviiRoute32HiddenObjects ; TBE
 	dbw SEVII_ROUTE_33,                                  SeviiRoute33HiddenObjects
+	dbw SEVII_ROUTE_36,                                  SeviiRoute36HiddenObjects
 ; indoors
 ; 1-island
 	dbw SEVII_ONE_ISLAND_DOCK,                           SeviiOneIslandDockHiddenObjects ; TBE
@@ -61,6 +62,16 @@ SeviiRoute33HiddenObjects:
 	hidden_object 69,  6, ETHER, HiddenItems
 	hidden_object 56,  5, RARE_CANDY, HiddenItems
 	hidden_object 95, 22, NUGGET, HiddenItems
+	db -1 ; end
+
+SeviiRoute36HiddenObjects:
+	hidden_object 18,  2, NUGGET, HiddenItems
+	hidden_object 15, 20, ULTRA_BALL, HiddenItems
+	hidden_object 17, 41, MAX_REVIVE, HiddenItems
+	hidden_object  3, 31, FULL_RESTORE, HiddenItems
+	hidden_object 16,  5, PP_UP, HiddenItems
+	hidden_object 12, 21, CALCIUM, HiddenItems
+	hidden_object 14, 27, PROTEIN, HiddenItems
 	db -1 ; end
 
 SeviiOneIslandPokemonCenterAndMartHiddenObjects:

@@ -9,24 +9,29 @@ _SeviiFiveIslandCityText2::
 	done
 
 _SeviiFiveIslandCityText3::
-	text "3"
+	text "3- Monster Rocket"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityText4::
-	text "4 - Rocket"
+	text "4- Monster Pink"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityText5::
-	text "5 - Pink"
+	text "5 - Rocket"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityText6::
+	text "6 - Pink"
 ;	xxxx "123456789012345678"
 	done
 
 ; trainers
 
 _SeviiFiveIslandCityBattleText1::
-	text "Times a beast, in-"
+	text "Time's a beast, in-"
 	line "adherent to rein."
 
 	para "Trapped in its"
@@ -35,17 +40,15 @@ _SeviiFiveIslandCityBattleText1::
 	done
 
 _SeviiFiveIslandCityEndBattleText1::
-	text "ROCKER: Few, few"
+	text "Few, few"
 	line "are we... impos-"
 	cont "sible the odds."
-;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandCityAfterBattleText1::
 	text "To witness as"
 	line "mortals the fab-"
 	cont "ric of the gods!"
-;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityBattleText2::
@@ -110,7 +113,7 @@ _SeviiFiveIslandCityBattleText4::
 	done
 
 _SeviiFiveIslandCityEndBattleText4::
-	text "ROCKER: For all"
+	text "For all"
 	line "the tales I've"
 	cont "told, and these"
 	cont "whispers of"
@@ -122,7 +125,6 @@ _SeviiFiveIslandCityAfterBattleText4::
 	line "away to gaze on"
 	cont "you face"
 	cont "once more..."
-;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCitySignText1::
@@ -595,4 +597,185 @@ _SeviiResortGorgeousText14::
 	line "surprisingly,"
 	cont "given how little"
 	cont "they are used."
+	done
+
+; Route 36 ------------------------------------
+
+_SeviiRoute36Text1::
+	text "Sigh"
+	line "poor onix"
+	done
+
+; -----------------------------
+
+_SeviiRoute36BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute36EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute36AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute36EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute36AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute36EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute36AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute36EndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute36AfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute36EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute36AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute36EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute36AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute36EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute36AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute36EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute36AfterBattleText8::
+	text "8-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText9::
+	text "9-pre"
+	done
+
+_SeviiRoute36EndBattleText9::
+	text "9-post"
+	prompt
+
+_SeviiRoute36AfterBattleText9::
+	text "9-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText10::
+	text "10-pre"
+	done
+
+_SeviiRoute36EndBattleText10::
+	text "10-post"
+	prompt
+
+_SeviiRoute36AfterBattleText10::
+	text "10-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText11::
+	text "11-pre"
+	done
+
+_SeviiRoute36EndBattleText11::
+	text "11-post"
+	prompt
+
+_SeviiRoute36AfterBattleText11::
+	text "11-after"
+	done
+
+; -----
+
+_SeviiRoute36BattleText12::
+	text "12-pre"
+	done
+
+_SeviiRoute36EndBattleText12::
+	text "12-post"
+	prompt
+
+_SeviiRoute36AfterBattleText12::
+	text "12-after"
+	done
+
+; -----------------------------
+
+_SeviiRoute36SignText1::
+	text "Tomb"
 	done
