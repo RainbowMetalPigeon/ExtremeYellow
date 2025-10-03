@@ -1,3 +1,46 @@
+_SeviiSixIslandCityText1::
+	text "6-1"
+	done
+
+_SeviiSixIslandCityText2::
+	text "6-2"
+	done
+
+_SeviiSixIslandCityText3::
+	text "6-3"
+	done
+
+_SeviiSixIslandCitySignText1::
+	text "FORTUNE ISLAND"
+	line "Where Wisdom and"
+	cont "Fate Entangle"
+
+	para "(Also known"
+	line "as SIX ISLAND)"
+	done
+
+_SeviiSixIslandCitySignText2::
+	text "SEVII TRIAL SHRINE"
+	line "of FORTUNE ISLAND"
+	cont "SAGE: ROKUSEI"
+
+	para "(TBE)"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandCitySignText3::
+	text "East: ROUTE 37"
+
+	para "North: ROUTE 38,"
+	line "ROUTE 39,"
+	cont "PATTERN BUSH,"
+	cont "ALTERING CAVE"
+
+	para "South: ROUTE 40,"
+	line "DOTTED HOLE"
+	done
+
+; city's indoor ------------------------------------
 
 _SeviiSixIslandPokemonCenterAndMart_Text1::
 	text "test 6-1"

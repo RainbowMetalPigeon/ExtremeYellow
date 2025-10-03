@@ -127,6 +127,8 @@ _SeviiFiveIslandCityAfterBattleText4::
 	cont "once more..."
 	done
 
+; signs
+
 _SeviiFiveIslandCitySignText1::
 	text "CHRONO ISLAND"
 	line "Where Time Flows"

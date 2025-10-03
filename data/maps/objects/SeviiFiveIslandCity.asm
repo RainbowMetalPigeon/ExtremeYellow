@@ -25,7 +25,7 @@ SeviiFiveIslandCity_Object:
 	object_event 30, 27, SPRITE_MONSTER, STAY, DOWN, 3
 	object_event 30, 28, SPRITE_MONSTER, STAY, UP, 4
 	object_event 30, 26, SPRITE_ROCKET, STAY, DOWN, 5
-	object_event 30, 29, SPRITE_PINK, STAY, UP,6
+	object_event 30, 29, SPRITE_PINK, STAY, UP, 6
 	; trainers
 	object_event 36, 16, SPRITE_SUPER_NERD, STAY, LEFT, 7, OPP_ROCKER, 5
 	object_event 27, 18, SPRITE_SUPER_NERD, STAY, LEFT, 8, OPP_ROCKER, 7  ; mandatory
