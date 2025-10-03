@@ -611,57 +611,101 @@ _SeviiRoute36Text1::
 ; -----------------------------
 
 _SeviiRoute36BattleText1::
-	text "1-pre"
+	text "The road's burned"
+	line "my world away."
+
+	para "Did I think to"
+	line "come this far"
+	cont "unchanged?"
+
+	para "But I feel a"
+	line "sense of clarity"
+	cont "I've never known"
+	cont "before."
 	done
 
 _SeviiRoute36EndBattleText1::
-	text "1-post"
+	text "That with"
+	line "death so close"
+	cont "behind me I can"
+	cont "see the bitter"
+	cont "dawn into the"
+	cont "plains of ash."
 	prompt
 
 _SeviiRoute36AfterBattleText1::
-	text "1-after"
+	text "I'll leave the"
+	line "world that was"
+	cont "behind."
+
+	para "Though I walk into"
+	line "the dark, I walk"
+	cont "at last with"
+	cont "open eyes!"
 	done
 
 ; -----
 
 _SeviiRoute36BattleText2::
-	text "2-pre"
+	text "Birds singing like"
+	line "it's spring..."
+	
+	para "Frozen by the"
+	line "winter wind..."
 	done
 
 _SeviiRoute36EndBattleText2::
-	text "2-post"
+	text "ROCKER: Have you"
+	line "chosen to be"
+	cont "moonblind?"
 	prompt
 
 _SeviiRoute36AfterBattleText2::
-	text "2-after"
+	text "God I'm ready for"
+	line "the change!"
 	done
 
 ; -----
 
 _SeviiRoute36BattleText3::
-	text "3-pre"
+	text "I remember a time"
+	line "when elves and"
+	cont "fairies're alive."
+
+	para "I remember a time"
+	line "when magic played"
+	cont "a role in life!"
 	done
 
 _SeviiRoute36EndBattleText3::
-	text "3-post"
+	text "Concealed"
+	line "from our view,"
+	cont "the Trows kind"
+	cont "live amidst"
+	cont "old trees!"
 	prompt
 
 _SeviiRoute36AfterBattleText3::
-	text "3-after"
+	text "But mankind lost"
+	line "all capacities"
+	cont "and will to see."
 	done
 
 ; -----
 
 _SeviiRoute36BattleText4::
 	text "4-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute36EndBattleText4::
 	text "4-post"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute36AfterBattleText4::
 	text "4-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
