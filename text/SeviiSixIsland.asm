@@ -218,3 +218,171 @@ _SeviiSixIslandDockBgText1::
 	text "CHRONO ISLAND"
 	line "SHIP PORT"
 	done
+
+; Route 36 ------------------------------------
+
+_SeviiRoute37BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute37EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute37AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute37EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute37AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute37EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute37AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute37EndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute37AfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute37EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute37AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute37EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute37AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute37EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute37AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute37EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute37AfterBattleText8::
+	text "8-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText9::
+	text "9-pre"
+	done
+
+_SeviiRoute37EndBattleText9::
+	text "9-post"
+	prompt
+
+_SeviiRoute37AfterBattleText9::
+	text "9-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText10::
+	text "10-pre"
+	done
+
+_SeviiRoute37EndBattleText10::
+	text "10-post"
+	prompt
+
+_SeviiRoute37AfterBattleText10::
+	text "10-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText11::
+	text "11-pre"
+	done
+
+_SeviiRoute37EndBattleText11::
+	text "11-post"
+	prompt
+
+_SeviiRoute37AfterBattleText11::
+	text "11-after"
+	done
+
+; -----
+
+_SeviiRoute37BattleText12::
+	text "12-pre"
+	done
+
+_SeviiRoute37EndBattleText12::
+	text "12-post"
+	prompt
+
+_SeviiRoute37AfterBattleText12::
+	text "12-after"
+	done

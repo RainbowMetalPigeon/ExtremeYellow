@@ -40,11 +40,11 @@ _HandlePlayerBlackOut:
 	call DelayFrames
 	call PrintEndBattleText ; in this case the end battle text is the "loss" text
 	CheckEvent EVENT_IN_SEVII ; new
-	jr z, .noSevii ; new
+	jr nz, .inSevii ; new
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            		; starter battle in oak's lab: don't black out
-.noSevii ; new
+.inSevii ; new
 	CheckEvent EVENT_BATTLE_CAN_BE_LOST      ; new: don't black out in Battle Facility nor vs Sevii Sages
 	jr z, .noLossText      ; new and edited
 ; handling battle facility & Sages loss, including surrendering

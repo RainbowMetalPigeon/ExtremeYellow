@@ -123,6 +123,50 @@ BlkPacket_TrainerCard:
 	ATTR_BLK_DATA %010, 1,1,0, 15,15, 16,16 ; Earth Badge
 	ds 2, 0
 
+/*
+BlkPacket_TrainerCardRed: ; new/edited
+	ATTR_BLK 10
+	ATTR_BLK_DATA %010, 1,1,0, 03,12, 04,13 ; Boulder Badge
+	ATTR_BLK_DATA %010, 2,2,0, 07,12, 08,13 ; Cascade Badge
+	ATTR_BLK_DATA %010, 3,3,0, 11,12, 12,13 ; Thunder Badge
+	ATTR_BLK_DATA %010, 1,1,0, 16,11, 17,12 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 2,2,0, 14,13, 15,13 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 3,3,0, 16,13, 17,13 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 0,0,0, 03,15, 04,16 ; Soul Badge
+	ATTR_BLK_DATA %010, 2,2,0, 07,15, 08,16 ; Marsh Badge
+	ATTR_BLK_DATA %010, 0,0,0, 11,15, 12,16 ; Volcano Badge
+	ATTR_BLK_DATA %010, 1,1,0, 15,15, 16,16 ; Earth Badge
+	ds 2, 0
+
+BlkPacket_TrainerCardGreen: ; new/edited
+	ATTR_BLK 10
+	ATTR_BLK_DATA %010, 0,0,0, 03,12, 04,13 ; Boulder Badge
+	ATTR_BLK_DATA %010, 2,2,0, 07,12, 08,13 ; Cascade Badge
+	ATTR_BLK_DATA %010, 3,3,0, 11,12, 12,13 ; Thunder Badge
+	ATTR_BLK_DATA %010, 0,0,0, 16,11, 17,12 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 2,2,0, 14,13, 15,13 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 3,3,0, 16,13, 17,13 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 1,1,0, 03,15, 04,16 ; Soul Badge
+	ATTR_BLK_DATA %010, 2,2,0, 07,15, 08,16 ; Marsh Badge
+	ATTR_BLK_DATA %010, 1,1,0, 11,15, 12,16 ; Volcano Badge
+	ATTR_BLK_DATA %010, 0,0,0, 15,15, 16,16 ; Earth Badge
+	ds 2, 0
+
+BlkPacket_TrainerCardYellow: ; new/edited
+	ATTR_BLK 10
+	ATTR_BLK_DATA %010, 1,1,0, 03,12, 04,13 ; Boulder Badge
+	ATTR_BLK_DATA %010, 2,2,0, 07,12, 08,13 ; Cascade Badge
+	ATTR_BLK_DATA %010, 0,0,0, 11,12, 12,13 ; Thunder Badge
+	ATTR_BLK_DATA %010, 1,1,0, 16,11, 17,12 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 2,2,0, 14,13, 15,13 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 0,0,0, 16,13, 17,13 ; Rainbow Badge
+	ATTR_BLK_DATA %010, 3,3,0, 03,15, 04,16 ; Soul Badge
+	ATTR_BLK_DATA %010, 2,2,0, 07,15, 08,16 ; Marsh Badge
+	ATTR_BLK_DATA %010, 3,3,0, 11,15, 12,16 ; Volcano Badge
+	ATTR_BLK_DATA %010, 1,1,0, 15,15, 16,16 ; Earth Badge
+	ds 2, 0
+*/
+
 BlkPacket_GameFreakIntro:
 	ATTR_BLK 3
 	ATTR_BLK_DATA %111, 1,1,0, 05,11, 07,13 ; falling stars (left): pal 1, GameFreak logo: pal 0
@@ -157,6 +201,11 @@ PalPacket_GameFreakIntro: PAL_SET PAL_GAMEFREAK, PAL_REDMON, PAL_VIRIDIAN, PAL_B
 UnknownPalPacket_72811:   PAL_SET PAL_25, PAL_25, PAL_25, PAL_25
 UnknownPalPacket_72821:   PAL_SET PAL_25, PAL_27, PAL_25, PAL_25
 PalPacket_Rainbow:        PAL_SET PAL_YELLOWMON, PAL_REDMON, PAL_ROUTE, PAL_BLUEMON ; new, testing
+/*
+PalPacket_TrainerCardRed:    PAL_SET PAL_PLAYER_RED,    PAL_GREENMON, PAL_BLUEMON, PAL_YELLOWMON
+PalPacket_TrainerCardGreen:  PAL_SET PAL_PLAYER_GREEN,  PAL_REDMON,   PAL_BLUEMON, PAL_YELLOWMON
+PalPacket_TrainerCardYellow: PAL_SET PAL_PLAYER_YELLOW, PAL_GREENMON, PAL_BLUEMON, PAL_REDMON
+*/
 
 PalTrnPacket:  PAL_TRN
 MltReq1Packet: MLT_REQ 1

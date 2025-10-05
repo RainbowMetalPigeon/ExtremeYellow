@@ -320,11 +320,11 @@ OverworldLoopLessDelay::
 	ld hl, wd72e
 	set 5, [hl]
 	CheckEvent EVENT_IN_SEVII
-	jr z, .noSevii
+	jr nz, .inSevii
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jp z, .noFaintCheck ; no blacking out if the player lost to the rival in Oak's lab
-.noSevii
+.inSevii
 	CheckAndResetEvent EVENT_BATTLE_CAN_BE_LOST ; new: don't black out in Battle Facility nor vs Sevii Sages
 	jp nz, .specialFaintCheck ; new
 	callfar AnyPartyAlive

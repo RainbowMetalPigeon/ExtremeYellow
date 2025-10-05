@@ -125,7 +125,7 @@ PrepareOAMData::
 ;	bit OAM_OBP_NUM, a
 ; Engeze edit
 	ld c, a
-	and OAM_Y_FLIP | OAM_X_FLIP ; keep x/y flip attribute bits
+	and OAM_HFLIP | OAM_VFLIP ; keep x/y flip attribute bits
 	or b
 	and c
 	pop bc

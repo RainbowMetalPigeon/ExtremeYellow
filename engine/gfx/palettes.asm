@@ -313,7 +313,7 @@ SetPal_Overworld:
 	ld hl, wPalPacket + 1
 	ld [hld], a
 ; edit from Engeze to give color to the player
-	ld a, PAL_CINNABAR
+	call ChoosePlayerPalette
 	ld [wPalPacket + 3], a
 ; BTV
 	ld de, BlkPacket_WholeScreen
@@ -408,7 +408,7 @@ SetPal_Overworld:
 	ld hl, wPalPacket + 1
 	ld [hld], a
 ; edit from Engeze to give color to the player
-	ld a, PAL_CINNABAR
+	call ChoosePlayerPalette
 	ld [wPalPacket + 3], a
 ; BTV
 	ld de, BlkPacket_WholeScreen
@@ -523,6 +523,21 @@ SetPal_PokemonWholeScreen:
 	ret
 
 SetPal_TrainerCard:
+;; new
+;	ld a, [wPlayerGender]
+;	and a
+;	jr z, .malePalette1
+;	cp 1
+;	jr z, .femalePalette1
+;	ld hl, BlkPacket_TrainerCardYellow
+;	jr .playerBLKChosen
+;.femalePalette1
+;	ld hl, BlkPacket_TrainerCardGreen
+;	jr .playerBLKChosen
+;.malePalette1
+;	ld hl, BlkPacket_TrainerCardRed
+;.playerBLKChosen
+;; BTV
 	ld hl, BlkPacket_TrainerCard
 	ld de, wTrainerCardBlkPacket
 	ld bc, $40
@@ -558,6 +573,21 @@ SetPal_TrainerCard:
 	inc de
 	dec c
 	jr nz, .badgeLoop
+;; new
+;	ld a, [wPlayerGender]
+;	and a
+;	jr z, .malePalette2
+;	cp 1
+;	jr z, .femalePalette2
+;	ld hl, PalPacket_TrainerCardYellow
+;	jr .playerPALChosen
+;.femalePalette2
+;	ld hl, PalPacket_TrainerCardGreen
+;	jr .playerPALChosen
+;.malePalette2
+;	ld hl, PalPacket_TrainerCardRed
+;.playerPALChosen
+;; BTV
 	ld hl, PalPacket_TrainerCard
 	ld de, wTrainerCardBlkPacket
 	ret
@@ -618,12 +648,12 @@ DeterminePaletteID:
 DeterminePaletteIDOutOfBattle:
 	ld [wd11e], a
 	and a ; is the mon index 0?
-	jr z, .skipDexNumConversion
+	jp z, ChoosePlayerPalette ; jr z, .skipDexNumConversion
 	push bc
 	predef IndexToPokedex
 	pop bc
 	ld a, [wd11e]
-.skipDexNumConversion
+;.skipDexNumConversion
 	ld e, a
 	ld d, 0
 	ld hl, MonsterPalettes ; not just for Pokemon, Trainers use it too
@@ -1529,6 +1559,21 @@ CopySGBBorderTiles:
 
 	dec b
 	jr nz, .tileLoop
+	ret
+
+ChoosePlayerPalette: ; new
+	ld a, [wPlayerGender]
+	and a
+	jr z, .malePalette
+	cp 1
+	jr z, .femalePalette
+	ld a, PAL_PLAYER_YELLOW
+	ret
+.femalePalette
+	ld a, PAL_PLAYER_GREEN
+	ret
+.malePalette
+	ld a, PAL_PLAYER_RED
 	ret
 
 INCLUDE "data/sgb/sgb_packets.asm"

@@ -1555,26 +1555,6 @@ INCLUDE "scripts/SeviiRoute39.asm"
 INCLUDE "data/maps/objects/SeviiRoute39.asm"
 SeviiRoute39_Blocks: INCBIN "maps/SeviiRoute39.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute40.asm"
-INCLUDE "scripts/SeviiRoute40.asm"
-INCLUDE "data/maps/objects/SeviiRoute40.asm"
-SeviiRoute40_Blocks: INCBIN "maps/SeviiRoute40.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute41.asm"
-INCLUDE "scripts/SeviiRoute41.asm"
-INCLUDE "data/maps/objects/SeviiRoute41.asm"
-SeviiRoute41_Blocks: INCBIN "maps/SeviiRoute41.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute42.asm"
-INCLUDE "scripts/SeviiRoute42.asm"
-INCLUDE "data/maps/objects/SeviiRoute42.asm"
-SeviiRoute42_Blocks: INCBIN "maps/SeviiRoute42.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute43.asm"
-INCLUDE "scripts/SeviiRoute43.asm"
-INCLUDE "data/maps/objects/SeviiRoute43.asm"
-SeviiRoute43_Blocks: INCBIN "maps/SeviiRoute43.blk"
-
 
 SECTION "Maps Sevii 2", ROMX ; new
 
@@ -1797,6 +1777,29 @@ INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
 INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
 INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
 SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"
+
+
+SECTION "Maps Sevii 3", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiRoute40.asm"
+INCLUDE "scripts/SeviiRoute40.asm"
+INCLUDE "data/maps/objects/SeviiRoute40.asm"
+SeviiRoute40_Blocks: INCBIN "maps/SeviiRoute40.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute41.asm"
+INCLUDE "scripts/SeviiRoute41.asm"
+INCLUDE "data/maps/objects/SeviiRoute41.asm"
+SeviiRoute41_Blocks: INCBIN "maps/SeviiRoute41.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute42.asm"
+INCLUDE "scripts/SeviiRoute42.asm"
+INCLUDE "data/maps/objects/SeviiRoute42.asm"
+SeviiRoute42_Blocks: INCBIN "maps/SeviiRoute42.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute43.asm"
+INCLUDE "scripts/SeviiRoute43.asm"
+INCLUDE "data/maps/objects/SeviiRoute43.asm"
+SeviiRoute43_Blocks: INCBIN "maps/SeviiRoute43.blk"
 
 INCLUDE "data/maps/headers/SeviiRoute44.asm"
 INCLUDE "scripts/SeviiRoute44.asm"
