@@ -747,13 +747,13 @@ RocketData:
 	db 37, RATICATE, HYPNO, GOLBAT, 0
 	db 37, MUK, SANDSLASH, ARBOK, 0
 	db 38, MACHOKE, WEEZING, 0
-; Jessie & James ; updated ; TBE
-	db 14, EKANS, KOFFING, MEOWTH, 0 ; Mt Moon ; $2e=46
-	db 25, ARBOK, WEEZING, MEOWTH, 0 ; Rocket Hideout ; $2f=47
-	db 32, ARBOK, LICKITUNG, WEEZING, WEEPINBELL, MEOWTH, 0 ; Pokemon Tower ; $30=48
-	db 36, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MEOWTH, 0 ; Silph Co ; $31=49
-	db 39, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MEOWTH, 0 ; Obsidian Warehouse ; $32=50
-; Obsidian Warehouse, executives
+; they were JessieJames, but now I've moved them in their own trainer class
+	db  1, DITTO, 0 ; Mt Moon ; $2e=46
+	db  1, DITTO, 0 ; Rocket Hideout ; $2f=47
+	db  1, DITTO, 0 ; Pokemon Tower ; $30=48
+	db  1, DITTO, 0 ; Silph Co ; $31=49
+	db  1, DITTO, 0 ; Obsidian Warehouse ; $32=50
+; Obsidian Warehouse, executives/admins, now moved into their own trainer classes
 	db 40, CROBAT, WEEZING, 0 ; Proton, $33=51
 	db $FF, 39, KOFFING, 39, KOFFING, 39, KOFFING, 39, KOFFING, 39, KOFFING, 41, WEEZING, 0 ; Petrel, $34=52
 	db 42, ARBOK, VILEPLUME, UMBREON, 0 ; Ariana, $35=53
@@ -1075,9 +1075,17 @@ DiverData:
 	db 100, BLASTOISE, OMASTAR, KABUTOPS, 0 ; 6
 
 ProtonData:
+	db 40, CROBAT, WEEZING, 0
+
 PetrelData:
+	db $FF, 39, KOFFING, 39, KOFFING, 39, KOFFING, 39, KOFFING, 39, KOFFING, 41, WEEZING, 0
+
 ArianaData:
+	db 42, ARBOK, VILEPLUME, UMBREON, 0
+
 ArcherData:
+	db 43, WEEZING, ELECTRODE, CROBAT, MAGMORTAR, UMBREON, 0
+
 CarrData:
 OrmData:
 SirdData:

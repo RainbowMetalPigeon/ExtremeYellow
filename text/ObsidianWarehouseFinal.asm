@@ -27,7 +27,7 @@ _ObsidianWarehouseFinalJessieJamesText2::
 	done
 
 _ObsidianWarehouseFinalJessieJamesText3::
-	text "Oh no!"
+	text "No!
 
 	para "Not again! We"
 	line "cannot show our"

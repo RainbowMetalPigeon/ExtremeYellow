@@ -22,7 +22,6 @@ GetTrainerInformation::
 	inc de
 	ld a, [hli]
 	ld [de], a
-;	call IsFightingJessieJames
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -31,25 +30,6 @@ GetTrainerInformation::
 	inc hl
 	ld [hl], d
 	ret
-
-/*
-IsFightingJessieJames::
-	ld a, [wTrainerClass]
-	cp ROCKET
-	ret nz
-	ld a, [wTrainerNo]
-	cp $2e ; edited because I added more Rockets (Obsidian Warehouse)
-	ret c
-	cp $33 ; added because of Rocket siblings in Lunar Shrine
-	ret nc
-	ld de, JessieJamesPic ; possibly meant to add another pic
-.executives
-	ld hl, wTrainerPicPointer
-	ld a, e
-	ld [hli], a
-	ld [hl], d
-	ret
-*/
 
 GetTrainerName::
 	farjp GetTrainerName_

@@ -12,10 +12,10 @@ ObsidianWarehouseFinal_Object:
 	object_event  4, 12, SPRITE_JAMES, STAY, DOWN, 1 ; opp 50
 	object_event  5, 12, SPRITE_JESSIE, STAY, DOWN, 2
 	; Executives
-	object_event  4,  9, SPRITE_ROCKET, STAY, RIGHT, 3, OPP_ROCKET, 51
-	object_event  7,  9, SPRITE_ROCKET, STAY, LEFT, 4, OPP_ROCKET, 52
-	object_event  6,  7, SPRITE_ROCKET, STAY, DOWN, 5, OPP_ROCKET, 53
-	object_event  8,  5, SPRITE_ROCKET, STAY, LEFT, 6, OPP_ROCKET, 54 ; =$36
+	object_event  4,  9, SPRITE_PROTON, STAY, RIGHT, 3, OPP_PROTON, 1
+	object_event  7,  9, SPRITE_PETREL, STAY, LEFT, 4, OPP_PETREL, 1
+	object_event  6,  7, SPRITE_ARIANA, STAY, DOWN, 5, OPP_ARIANA, 1
+	object_event  8,  5, SPRITE_ARCHER, STAY, LEFT, 6, OPP_ARCHER, 1
 	; Giovanni
 	object_event  6,  1, SPRITE_GIOVANNI, STAY, DOWN, 7, OPP_GIOVANNI, 3
 

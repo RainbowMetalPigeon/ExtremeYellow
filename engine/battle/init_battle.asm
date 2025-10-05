@@ -289,6 +289,7 @@ _LoadTrainerPic:
 	jp .loadSprite
 .notMultiSpriteTrainer ; new
 
+/*
 ; now check if it's one of the Rocket Admins
 	ld a, [wTrainerClass]
 	cp ROCKET
@@ -308,6 +309,7 @@ _LoadTrainerPic:
 	ld de, RocketAdminFPic
 	jr .loadSprite
 .notAdmin
+*/
 
 ; now check if it's one of the special COOLTRAINER (pseudo manga protagonists)
 	ld a, [wTrainerClass] ; this is unnecessary, isn't it?
