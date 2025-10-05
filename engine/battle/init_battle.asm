@@ -289,28 +289,6 @@ _LoadTrainerPic:
 	jp .loadSprite
 .notMultiSpriteTrainer ; new
 
-/*
-; now check if it's one of the Rocket Admins
-	ld a, [wTrainerClass]
-	cp ROCKET
-	jr nz, .notAdmin
-	ld a, [wTrainerNo]
-	cp $33 ; edited, for the Rocket executives
-	jr c, .notAdmin
-	cp $37 ; for the Rocket siblings in Lunar Shrine
-	jr nc, .notAdmin
-	cp $35
-	ld a, BANK(RocketAdminFPic) ; M and F are in the same bank
-	jr z, .Ariana
-	; not Ariana
-	ld de, RocketAdminMPic
-	jp .loadSprite
-.Ariana
-	ld de, RocketAdminFPic
-	jr .loadSprite
-.notAdmin
-*/
-
 ; now check if it's one of the special COOLTRAINER (pseudo manga protagonists)
 	ld a, [wTrainerClass] ; this is unnecessary, isn't it?
 	cp COOLTRAINER

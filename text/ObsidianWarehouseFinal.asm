@@ -13,7 +13,7 @@ _ObsidianWarehouseFinalJessieJamesText1::
 	done
 
 _ObsidianWarehouseFinalJessieJamesText2::
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	text "This is our last"
 	line "chance to redeem"
 	cont "ourselves in"
@@ -27,7 +27,7 @@ _ObsidianWarehouseFinalJessieJamesText2::
 	done
 
 _ObsidianWarehouseFinalJessieJamesText3::
-	text "No!
+	text "No!"
 
 	para "Not again! We"
 	line "cannot show our"
