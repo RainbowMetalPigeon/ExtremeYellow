@@ -312,6 +312,10 @@ SetPal_Overworld:
 	inc a ; a town's palette ID is its map ID + 1
 	ld hl, wPalPacket + 1
 	ld [hld], a
+; edit from Engeze to give color to the player
+	ld a, PAL_CINNABAR
+	ld [wPalPacket + 3], a
+; BTV
 	ld de, BlkPacket_WholeScreen
 	ld a, SET_PAL_OVERWORLD
 	ld [wDefaultPaletteCommand], a
@@ -403,6 +407,10 @@ SetPal_Overworld:
 	inc a ; a town's palette ID is its map ID + 1
 	ld hl, wPalPacket + 1
 	ld [hld], a
+; edit from Engeze to give color to the player
+	ld a, PAL_CINNABAR
+	ld [wPalPacket + 3], a
+; BTV
 	ld de, BlkPacket_WholeScreen
 	ld a, SET_PAL_OVERWORLD
 	ld [wDefaultPaletteCommand], a

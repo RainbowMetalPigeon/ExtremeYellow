@@ -9,6 +9,10 @@
 ; If there is an inner loop, Y is the inner loop index, i.e. y#SPRITESTATEDATA1_* and
 ; y#SPRITESTATEDATA2_* denote fields of the sprite slots iterated over in the inner loop.
 _InitMapSprites::
+; edit from Engeze to give color to the player
+	ld hl, wSpritePlayerStateData2GrassPriority
+	set 0, [hl] ; give player sprite the palette OBJ1
+; BTV
 	call InitOutsideMapSprites
 	ret c ; return if the map is an outside map (already handled by above call)
 ; if the map is an inside map (i.e. mapID >= $25)

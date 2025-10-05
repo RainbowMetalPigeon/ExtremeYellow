@@ -1,6 +1,22 @@
-; OAM flags used by this game
-DEF OAMFLAG_ENDOFDATA   EQU %00000001 ; pseudo OAM flag, only used by game logic
-DEF OAMFLAG_CANBEMASKED EQU %00000010 ; pseudo OAM flag, only used by game logic
+; old definition -----
+;; OAM flags used by this game
+;DEF OAMFLAG_ENDOFDATA   EQU %00000001 ; pseudo OAM flag, only used by game logic ; FACING_END   ->  DEF FACING_END  EQU 1 << BIT_END_OF_OAM_DATA
+;DEF OAMFLAG_CANBEMASKED EQU %00000010 ; pseudo OAM flag, only used by game logic ; UNDER_GRASS  ->  DEF UNDER_GRASS EQU 1 << BIT_SPRITE_UNDER_GRASS
+
+; new definition -----
+
+; Pseudo-OAM flags used by game logic
+; edit from Engeze to give color to the player
+	const_def 3
+	const BIT_END_OF_OAM_DATA    ; 3
+	const_next 7
+	const BIT_SPRITE_UNDER_GRASS ; 7
+
+; Used in SpriteFacingAndAnimationTable (see data/sprites/facings.asm)
+DEF OAMFLAG_ENDOFDATA   EQU 1 << BIT_END_OF_OAM_DATA    ; FACING_END in the newer pokeyellow
+DEF OAMFLAG_CANBEMASKED EQU 1 << BIT_SPRITE_UNDER_GRASS ; UNDER_GRASS in the newer pokeyellow
+
+; other constants, not present in the newer pokeyellow versions -----
 
 ; OAM attribute flags
 DEF OAM_PALETTE   EQU %111

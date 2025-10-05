@@ -85,9 +85,9 @@ UpdatePlayerSprite:
 	ld c, a
 	ld a, [wGrassTile]
 	cp c
-	ld a, 0
+	ld a, 1 ; Engeze edit
 	jr nz, .next2
-	ld a, OAM_BEHIND_BG
+	ld a, OAM_BEHIND_BG | 1 ; Engeze edit
 .next2
 	ld [wSpritePlayerStateData2GrassPriority], a
 	ret

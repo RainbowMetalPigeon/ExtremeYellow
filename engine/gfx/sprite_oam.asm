@@ -65,7 +65,7 @@ PrepareOAMData::
 	add $5
 	ld e, a
 	ld a, [de] ; [x#SPRITESTATEDATA2_GRASSPRIORITY]
-	and $80
+	and OAM_BEHIND_BG | OAM_PALETTE ; edit from Engeze to give color to the player
 	ldh [hSpritePriority], a ; temp store sprite priority
 	pop de
 
@@ -112,14 +112,25 @@ PrepareOAMData::
 	ld [de], a ; tile id
 	inc hl
 	inc e
-	ld a, [hl]
-	bit 1, a ; is the tile allowed to set the sprite priority bit?
-	jr z, .skipPriority
+;	ld a, [hl]
+;	bit 1, a ; is the tile allowed to set the sprite priority bit?
+;	jr z, .skipPriority
+	push bc ; Engeze edit
 	ldh a, [hSpritePriority]
+	ld b, a ; Engeze edit
+	and OAM_PALETTE ; keep palette attribute bits ; Engeze edit
 	or [hl]
-.skipPriority
-	and $f0
-	bit OAM_OBP_NUM, a
+;.skipPriority
+;	and $f0
+;	bit OAM_OBP_NUM, a
+; Engeze edit
+	ld c, a
+	and OAM_Y_FLIP | OAM_X_FLIP ; keep x/y flip attribute bits
+	or b
+	and c
+	pop bc
+	bit OAM_OBP_NUM, [hl]
+; BTV
 	jr z, .spriteusesOBP0
 	or OAM_HIGH_PALS
 .spriteusesOBP0
