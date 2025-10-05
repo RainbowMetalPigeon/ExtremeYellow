@@ -1,5 +1,16 @@
 SeviiRoute37_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld hl, SeviiRoute37TrainerHeaders
+	ld de, SeviiRoute37_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute37_ScriptPointers:
+	dw CheckFightingMapTrainers
+	dw DisplayEnemyTrainerTextAndStartBattle
+	dw EndTrainerBattle
 
 SeviiRoute37_TextPointers:
 	dw SeviiRoute37Text1
@@ -15,32 +26,31 @@ SeviiRoute37_TextPointers:
 	dw SeviiRoute37Text11
 	dw SeviiRoute37Text12
 	dw RockSmashText
-	text_end
 
 SeviiRoute37TrainerHeaders:
 	def_trainers 1
 SeviiRoute37TrainerHeader1:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_1, 2, SeviiRoute37BattleText1, SeviiRoute37EndBattleText1, SeviiRoute37AfterBattleText1
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_1, 4, SeviiRoute37BattleText1, SeviiRoute37EndBattleText1, SeviiRoute37AfterBattleText1
 SeviiRoute37TrainerHeader2:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_2, 2, SeviiRoute37BattleText2, SeviiRoute37EndBattleText2, SeviiRoute37AfterBattleText2
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_2, 4, SeviiRoute37BattleText2, SeviiRoute37EndBattleText2, SeviiRoute37AfterBattleText2
 SeviiRoute37TrainerHeader3:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_3, 2, SeviiRoute37BattleText3, SeviiRoute37EndBattleText3, SeviiRoute37AfterBattleText3
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_3, 4, SeviiRoute37BattleText3, SeviiRoute37EndBattleText3, SeviiRoute37AfterBattleText3
 SeviiRoute37TrainerHeader4:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_4, 2, SeviiRoute37BattleText4, SeviiRoute37EndBattleText4, SeviiRoute37AfterBattleText4
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_4, 4, SeviiRoute37BattleText4, SeviiRoute37EndBattleText4, SeviiRoute37AfterBattleText4
 SeviiRoute37TrainerHeader5:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_5, 2, SeviiRoute37BattleText5, SeviiRoute37EndBattleText5, SeviiRoute37AfterBattleText5
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_5, 4, SeviiRoute37BattleText5, SeviiRoute37EndBattleText5, SeviiRoute37AfterBattleText5
 SeviiRoute37TrainerHeader6:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_6, 2, SeviiRoute37BattleText6, SeviiRoute37EndBattleText6, SeviiRoute37AfterBattleText6
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_6, 4, SeviiRoute37BattleText6, SeviiRoute37EndBattleText6, SeviiRoute37AfterBattleText6
 SeviiRoute37TrainerHeader7:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_7, 2, SeviiRoute37BattleText7, SeviiRoute37EndBattleText7, SeviiRoute37AfterBattleText7
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_7, 4, SeviiRoute37BattleText7, SeviiRoute37EndBattleText7, SeviiRoute37AfterBattleText7
 SeviiRoute37TrainerHeader8:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_8, 2, SeviiRoute37BattleText8, SeviiRoute37EndBattleText8, SeviiRoute37AfterBattleText8
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_8, 4, SeviiRoute37BattleText8, SeviiRoute37EndBattleText8, SeviiRoute37AfterBattleText8
 SeviiRoute37TrainerHeader9:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_9, 2, SeviiRoute37BattleText9, SeviiRoute37EndBattleText9, SeviiRoute37AfterBattleText9
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_9, 4, SeviiRoute37BattleText9, SeviiRoute37EndBattleText9, SeviiRoute37AfterBattleText9
 SeviiRoute37TrainerHeader10:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_10, 2, SeviiRoute37BattleText10, SeviiRoute37EndBattleText10, SeviiRoute37AfterBattleText10
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_10, 4, SeviiRoute37BattleText10, SeviiRoute37EndBattleText10, SeviiRoute37AfterBattleText10
 SeviiRoute37TrainerHeader11:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_11, 3, SeviiRoute37BattleText11, SeviiRoute37EndBattleText11, SeviiRoute37AfterBattleText11
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_11, 4, SeviiRoute37BattleText11, SeviiRoute37EndBattleText11, SeviiRoute37AfterBattleText11
 SeviiRoute37TrainerHeader12:
 	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_12, 4, SeviiRoute37BattleText12, SeviiRoute37EndBattleText12, SeviiRoute37AfterBattleText12
 	db -1 ; end
