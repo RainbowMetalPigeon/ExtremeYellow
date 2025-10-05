@@ -22,7 +22,7 @@ GetTrainerInformation::
 	inc de
 	ld a, [hli]
 	ld [de], a
-	call IsFightingJessieJames
+;	call IsFightingJessieJames
 	jp BankswitchBack
 .linkBattle
 	ld hl, wTrainerPicPointer
@@ -32,6 +32,7 @@ GetTrainerInformation::
 	ld [hl], d
 	ret
 
+/*
 IsFightingJessieJames::
 	ld a, [wTrainerClass]
 	cp ROCKET
@@ -48,6 +49,7 @@ IsFightingJessieJames::
 	ld [hli], a
 	ld [hl], d
 	ret
+*/
 
 GetTrainerName::
 	farjp GetTrainerName_

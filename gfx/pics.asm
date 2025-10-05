@@ -348,7 +348,6 @@ LoreleiPic::       INCBIN "gfx/trainers/lorelei.pic"
 ChannelerPic::     INCBIN "gfx/trainers/channeler.pic"
 AgathaPic::        INCBIN "gfx/trainers/agatha.pic"
 LancePic::         INCBIN "gfx/trainers/lance.pic"
-JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 
 
 SECTION "Pics 6b", ROMX ; new
@@ -375,12 +374,13 @@ NanettePic::
 SuujeroPic::
 PinkPic::
 PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
+JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 BFTrainerPic::
-TravelerPic::      INCBIN "gfx/trainers/traveler.pic" ; testing
+TravelerPic::      INCBIN "gfx/trainers/traveler.pic"
 RocketAdminMPic::  INCBIN "gfx/trainers/rocketadminm.pic"
 RocketAdminFPic::  INCBIN "gfx/trainers/rocketadminf.pic"
-Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic" ; testing
-MissingNoTPic::    INCBIN "gfx/trainers/missingno.pic" ; testing
+Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic"
+MissingNoTPic::    INCBIN "gfx/trainers/missingno.pic"
 
 SECTION "Pics 7", ROMX
 
