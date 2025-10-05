@@ -694,18 +694,22 @@ _SeviiRoute36AfterBattleText3::
 ; -----
 
 _SeviiRoute36BattleText4::
-	text "4-pre"
-;	xxxx "123456789012345678"
+	text "First, do no harm."
+
+	para "Never be ashamed"
+	line "of having a"
+	cont "kind heart!"
 	done
 
 _SeviiRoute36EndBattleText4::
-	text "4-post"
-;	xxxx "123456789012345678"
+	text "Then,"
+	line "rise to height."
 	prompt
 
 _SeviiRoute36AfterBattleText4::
-	text "4-after"
-;	xxxx "123456789012345678"
+	text "Take a view from"
+	line "above where the"
+	cont "prospect's bright!"
 	done
 
 ; -----

@@ -6,12 +6,21 @@ SeviiRoute37_Object:
 ;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+;	bg_event  4, 37, 15 ; SeviiRoute36SignText1
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+;	object_event  5, 38, SPRITE_SUPER_NERD, STAY, UP, 1 ;
+	; trainers
+
+	object_event  9, 30, SPRITE_COOLTRAINER_F, STAY, LEFT, 6, OPP_COOLTRAINER, 82 ; 3
+	object_event  8, 35, SPRITE_COOLTRAINER_F, STAY, UP, 6, OPP_COOLTRAINER, 82 ; 4
+	object_event 10, 32, SPRITE_COOLTRAINER_F, STAY, UP, 6, OPP_COOLTRAINER, 82 ; 4
+	object_event  8, 40, SPRITE_COOLTRAINER_F, STAY, RIGHT, 6, OPP_COOLTRAINER, 82 ; 4
+
+	object_event  7, 42, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 6, OPP_COOLTRAINER, 82 ; 4
+
+	; non-persons
+	object_event 11, 46, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 11
+;	object_event  2, 47, SPRITE_POKE_BALL, STAY, NONE, 14, METAL_COAT
 
 	def_warps_to SEVII_ROUTE_37
