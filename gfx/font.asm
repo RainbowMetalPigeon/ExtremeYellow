@@ -2,6 +2,10 @@ PokemonLogoJapanGraphics: INCBIN "gfx/title/pokemon_logo_japan.2bpp"
 FontGraphics:: INCBIN "gfx/font/font.1bpp"
 FontGraphicsEnd::
 
+; new
+FontGraphicsBraille:: INCBIN "gfx/font/font_braille.1bpp"
+FontGraphicsBrailleEnd::
+
 ABTiles: INCBIN "gfx/font/AB.2bpp"
 
 HpBarAndStatusGraphics:: INCBIN "gfx/font/font_battle_extra.2bpp"

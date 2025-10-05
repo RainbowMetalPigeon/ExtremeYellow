@@ -45,11 +45,11 @@ ROMX $3
 	"bank3"
 ROMX $4
 	"bank4"
-	"NPC Sprites 1"
+;	"NPC Sprites 1"
 	"Battle Engine 1"
 ROMX $5
 	"bank5"
-	"NPC Sprites 2"
+;	"NPC Sprites 2"
 	"Battle Engine 2"
 ROMX $6
 	"Maps 1"
