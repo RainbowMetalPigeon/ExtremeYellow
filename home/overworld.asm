@@ -110,18 +110,18 @@ OverworldLoopLessDelay::
 	jp nz, .noDirectionButtonsPressed
 	call IsPlayerCharacterBeingControlledByGame
 	jr nz, .checkForOpponent
-	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
-	ldh a, [hItemAlreadyFound]
-	and a
-	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
-	xor a
-	ld [wd436], a ; new yellow address
 	call IsSpriteOrSignInFrontOfPlayer
 	call FuncIsPlayerTalkingToPikachu
 	ldh a, [hSpriteIndexOrTextID]
 	and a
 	jr nz, .displayDialogue ; edited, testing
 	callfar CheckIfCanSurfOrCutFromOverworld ; new, testing
+	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
+	ldh a, [hItemAlreadyFound]
+	and a
+	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
+	xor a
+	ld [wd436], a ; new yellow address
 	jp OverworldLoop
 .displayDialogue
 	predef GetTileAndCoordsInFrontOfPlayer
