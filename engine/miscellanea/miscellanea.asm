@@ -702,16 +702,37 @@ CheckIfTeamIsValidForSelectedBFPool::
 ; =====================================
 
 RandomizeTeamForRandomizationOption::
-; let's not randomize PIGEON, TRAVELER, MISSINGNO_T, COPYCAT
+; let's not randomize PIGEON, TRAVELER, MISSINGNO_T, COPYCAT, OAK, and SAGES
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .checkByTrainer
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_1F
 	ret z
+.checkByTrainer
 	ld a, [wCurOpponent]
 	cp OPP_PIGEON
 	ret z
 	cp OPP_TRAVELER
 	ret z
 	cp OPP_MISSINGNO_T
+	ret z
+	cp OPP_PROF_OAK
+	ret z
+	cp OPP_ICHINO
+	ret z
+	cp OPP_NIUE
+	ret z
+	cp OPP_SANTRE
+	ret z
+	cp OPP_YOTTRO
+	ret z
+	cp OPP_GONQUE
+	ret z
+	cp OPP_ROKUSEI
+	ret z
+	cp OPP_NANETTE
+	ret z
+	cp OPP_SUUJERO
 	ret z
 ; and we want to give a broken team to the Champion's "mega team"
 	cp OPP_RIVAL3

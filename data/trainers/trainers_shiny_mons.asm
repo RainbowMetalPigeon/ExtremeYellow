@@ -107,4 +107,207 @@ TrainersShinyMons:
 	db 1
 	db $FE
 
+; --- Sages -------------
+
+	db ICHINO, 1
+	db 2
+	db 4
+	db 6
+	db $FE
+
+	db NIUE, 1
+	db 1
+	db 2
+	db 3
+	db $FE
+
+	db NIUE, 2
+	db 4
+	db 5
+	db 6
+	db $FE
+
+	db NIUE, 3
+	db 1
+	db 3
+	db 5
+	db $FE
+
+	db NIUE, 4
+	db 2
+	db 4
+	db 6
+	db $FE
+
+	db NIUE, 5
+	db 1
+	db 4
+	db 5
+	db $FE
+
+	db NIUE, 6
+	db 2
+	db 3
+	db 5
+	db $FE
+
+	db NIUE, 7
+	db 1
+	db 3
+	db 6
+	db $FE
+
+	db NIUE, 8
+	db 3
+	db 4
+	db 5
+	db $FE
+
+	db SANTRE, 1
+	db 1
+	db 2
+	db 3
+	db $FE
+
+	db SANTRE, 2
+	db 1
+	db 2
+	db 4
+	db $FE
+
+	db SANTRE, 3
+	db 1
+	db 2
+	db 5
+	db $FE
+
+	db SANTRE, 4
+	db 1
+	db 2
+	db 6
+	db $FE
+
+	db SANTRE, 5
+	db 2
+	db 3
+	db 4
+	db $FE
+
+	db SANTRE, 6
+	db 2
+	db 3
+	db 5
+	db $FE
+
+	db SANTRE, 7
+	db 2
+	db 3
+	db 6
+	db $FE
+
+	db SANTRE, 8
+	db 3
+	db 4
+	db 5
+	db $FE
+
+	db SANTRE, 9
+	db 3
+	db 4
+	db 6
+	db $FE
+
+	db SANTRE, 10
+	db 4
+	db 5
+	db 6
+	db $FE
+
+	db SANTRE, 11
+	db 1
+	db 3
+	db 4
+	db $FE
+
+	db SANTRE, 12
+	db 1
+	db 3
+	db 5
+	db $FE
+
+	db SANTRE, 13
+	db 1
+	db 3
+	db 6
+	db $FE
+
+	db SANTRE, 14
+	db 1
+	db 4
+	db 5
+	db $FE
+
+	db SANTRE, 15
+	db 1
+	db 4
+	db 6
+	db $FE
+
+	db SANTRE, 16
+	db 1
+	db 5
+	db 6
+	db $FE
+
+	db SANTRE, 17
+	db 2
+	db 4
+	db 5
+	db $FE
+
+	db SANTRE, 18
+	db 2
+	db 4
+	db 6
+	db $FE
+
+	db SANTRE, 19
+	db 2
+	db 5
+	db 6
+	db $FE
+
+	db YOTTRO, 1
+	db 1
+	db 4
+	db 5
+	db $FE
+
+	db GONQUE, 1
+	db 3
+	db 5
+	db 6
+	db $FE
+
+	db ROKUSEI, 1
+	db 2
+	db 3
+	db 6
+	db $FE
+
+	db NANETTE, 1
+	db 1
+	db 2
+	db 3
+	db $FE
+
+	db SUUJERO, 1
+	db 1
+	db 2
+	db 3
+	db 4
+	db 5
+	db 6
+	db $FE
+
 	db -1 ; end

@@ -12,7 +12,7 @@ PlayBattleMusic::
 	jr z, .wildBattle
 	ld a, [wCurOpponent]
 
-	; Rival3, Oak, Pigeon, and Traveler are the most epic
+	; Rival3, Oak, Pigeon, the Sages, and Traveler are the most epic
 	cp OPP_RIVAL3
 	jr z, .finalBattle
 	cp OPP_PROF_OAK
@@ -20,6 +20,22 @@ PlayBattleMusic::
 	cp OPP_TRAVELER
 	jr z, .finalBattle
 	cp OPP_PIGEON
+	jr z, .finalBattle
+	cp OPP_ICHINO
+	jr z, .finalBattle
+	cp OPP_NIUE
+	jr z, .finalBattle
+	cp OPP_SANTRE
+	jr z, .finalBattle
+	cp OPP_YOTTRO
+	jr z, .finalBattle
+	cp OPP_GONQUE
+	jr z, .finalBattle
+	cp OPP_ROKUSEI
+	jr z, .finalBattle
+	cp OPP_NANETTE
+	jr z, .finalBattle
+	cp OPP_SUUJERO
 	jr z, .finalBattle
 
 	; the whole E4 now play the gym leader battle theme, even during the rematches

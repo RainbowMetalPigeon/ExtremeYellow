@@ -593,7 +593,6 @@ AddPartyMonRental::
 	ld a, 100
 	ld [wCurEnemyLVL], a
 
-
 	ld de, wPartyCount
 
 	ld a, [de]
@@ -612,8 +611,6 @@ AddPartyMonRental::
 	push de
 	callfar RandomizePlayersTeamForNiueBattle
 	pop de
-;	ld a, STARMIE ; TBE
-;	ld [wcf91], a ; TBE
 
 	ld a, [wcf91]
 	ld [de], a ; write species of new mon in party list
@@ -658,7 +655,7 @@ AddPartyMonRental::
 	pop bc
 	ld [hli], a
 	ld [hl], b         ; write IVs
-	ld bc, (wPartyMon1HPExp - 1) - (wPartyMon1DVs + 1) ; TBE: 0 StatExp?
+	ld bc, (wPartyMon1HPExp - 1) - (wPartyMon1DVs + 1)
 	add hl, bc
 	ld a, 1
 	ld c, a
@@ -685,8 +682,16 @@ AddPartyMonRental::
 	ld a, [hli]       ; type 2
 	ld [de], a
 
+; randomize shinyness
 	inc de
-	ld a, [wOpponentMonShiny] ; TBE: no shiny? Random?
+	call Random
+	cp 39
+	jr nc, .noShiny
+	ld a, 1
+	jr .loadShinyness
+.noShiny
+	xor a
+.loadShinyness
 	ld [de], a
 
 	ld hl, wMonHMoves
@@ -711,7 +716,7 @@ AddPartyMonRental::
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves
 	pop de
-	
+
 ; to give the mon the ID of 00003
 ; Oak=0, 8th sage=1, Ichino=2, Niue=3, etc
 	inc de

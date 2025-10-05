@@ -754,10 +754,10 @@ RocketData:
 	db  1, DITTO, 0 ; Silph Co ; $31=49
 	db  1, DITTO, 0 ; Obsidian Warehouse ; $32=50
 ; Obsidian Warehouse, executives/admins, now moved into their own trainer classes
-	db 40, CROBAT, WEEZING, 0 ; Proton, $33=51
-	db $FF, 39, KOFFING, 39, KOFFING, 39, KOFFING, 39, KOFFING, 39, KOFFING, 41, WEEZING, 0 ; Petrel, $34=52
-	db 42, ARBOK, VILEPLUME, UMBREON, 0 ; Ariana, $35=53
-	db 43, WEEZING, ELECTRODE, CROBAT, MAGMORTAR, UMBREON, 0 ; Archer, $36=54
+	db  1, DITTO, 0 ; $33=51
+	db  1, DITTO, 0 ; $34=52
+	db  1, DITTO, 0 ; $35=53
+	db  1, DITTO, 0 ; $36=54
 ; Lunar Shrine, Rocket siblings ambush
 	db 45, PARASECT, VENOMOTH, ARBOK, CLOYSTER, WEEZING, 0 ; $37=55
 	db 45, DUGTRIO, PERSIAN, CROBAT, ALAKAZAM, TAUROS, 0 ; $38=56
