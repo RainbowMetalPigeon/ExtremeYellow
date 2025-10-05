@@ -24,8 +24,12 @@ SeviiTanobyChambers_Object:
 	warp_event 79, 13, SEVII_ROUTE_44, 7
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event  2,  8, 1 ; SeviiTanobyChambersSignText1
+	bg_event 14,  8, 2 ; SeviiTanobyChambersSignText2
+	bg_event 26,  8, 3 ; SeviiTanobyChambersSignText3
+	bg_event 38,  8, 4 ; SeviiTanobyChambersSignText4
+	bg_event 50,  8, 5 ; SeviiTanobyChambersSignText5
+	bg_event 62,  8, 6 ; SeviiTanobyChambersSignText6
 
 	def_object_events
 ;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person

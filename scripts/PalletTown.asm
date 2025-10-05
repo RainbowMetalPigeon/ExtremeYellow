@@ -351,15 +351,7 @@ PalletTownText6b: ; testing
 	text_far _PalletTownText6
 	text_end
 
-PalletTownText7: ; sign by Blue's house ; testing
-	text_asm
-	call LoadFontTilePatternsBraille
-	ld hl, PalletTownText7Original
-	call PrintText
-;	call LoadFontTilePatterns ; why don't I need to reload the original font??
-	jp TextScriptEnd
-
-PalletTownText7Original: ; testing
+PalletTownText7: ; sign by Blue's house
 	text_far _PalletTownText7
 	text_end
 
@@ -707,19 +699,3 @@ DarkGuideHints_Hint8_Details:
 DarkGuideHints_Hint8_Solution:
 	text_far _DarkGuideHints_Hint8_Solution
 	text_end
-
-LoadFontTilePatternsBraille:: ; new
-	ldh a, [rLCDC]
-	bit 7, a ; is the LCD enabled?
-	jr nz, .on
-.off
-	ld hl, FontGraphicsBraille
-	ld de, vFont
-	ld bc, FontGraphicsBrailleEnd - FontGraphicsBraille
-	ld a, BANK(FontGraphics)
-	jp FarCopyDataDouble ; if LCD is off, transfer all at once
-.on
-	ld de, FontGraphicsBraille
-	ld hl, vFont
-	lb bc, BANK(FontGraphicsBraille), (FontGraphicsBrailleEnd - FontGraphicsBraille) / $8
-	jp CopyVideoDataDouble ; if LCD is on, transfer during V-blank

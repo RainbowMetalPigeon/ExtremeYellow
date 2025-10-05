@@ -864,3 +864,21 @@ OxygenTitle: ; new
 
 DiveSteps: ; new
 	db "/200@"
+
+; ===========================================================
+
+LoadFontTilePatternsBraille:: ; new
+	ldh a, [rLCDC]
+	bit 7, a ; is the LCD enabled?
+	jr nz, .on
+.off
+	ld hl, FontGraphicsBraille
+	ld de, vFont
+	ld bc, FontGraphicsBrailleEnd - FontGraphicsBraille
+	ld a, BANK(FontGraphics)
+	jp FarCopyDataDouble ; if LCD is off, transfer all at once
+.on
+	ld de, FontGraphicsBraille
+	ld hl, vFont
+	lb bc, BANK(FontGraphicsBraille), (FontGraphicsBrailleEnd - FontGraphicsBraille) / $8
+	jp CopyVideoDataDouble ; if LCD is on, transfer during V-blank

@@ -267,3 +267,29 @@ _SeviiSevenIslandDockBgText1::
 	text "QUEST ISLAND"
 	line "SHIP PORT"
 	done
+
+; Tanoby Chambers -------------------------
+
+_SeviiTanobyChambersSignText1::
+	text "Tanoby %1"
+	done
+
+_SeviiTanobyChambersSignText2::
+	text "Tanoby %2"
+	done
+
+_SeviiTanobyChambersSignText3::
+	text "Tanoby %3"
+	done
+
+_SeviiTanobyChambersSignText4::
+	text "Tanoby %4"
+	done
+
+_SeviiTanobyChambersSignText5::
+	text "Tanoby %5"
+	done
+
+_SeviiTanobyChambersSignText6::
+	text "Tanoby %6"
+	done
