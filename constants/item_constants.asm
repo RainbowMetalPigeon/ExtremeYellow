@@ -93,7 +93,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const MAX_ETHER     ; $51
 	const ELIXER        ; $52
 	const MAX_ELIXER    ; $53
-	const MEGA_STONE_X  ; new
+	const MEGA_STONE_X  ; new, V1
 	const MEGA_STONE_Y  ; new
 	const SUN_STONE     ; new
 	const ICE_STONE     ; new
@@ -121,7 +121,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const GUTSCHEIN     ; new
 	const ONIGIRI_BOX   ; new
 	const LINK_CABLE    ; new
-	const AMULET_COIN   ; new
+	const AMULET_COIN   ; new, V2
 	const SEVII_TICKET  ; new
 	const PEARL         ; new
 	const COFFEE        ; new
