@@ -14,6 +14,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_ROUTE_36,                                  SeviiRoute36HiddenObjects
 	dbw SEVII_ROUTE_37,                                  SeviiRoute37HiddenObjects
 	dbw SEVII_ROUTE_38,                                  SeviiRoute38HiddenObjects
+	dbw SEVII_ROUTE_39,                                  SeviiRoute39HiddenObjects
 ; indoors
 ; 1-island
 	dbw SEVII_ONE_ISLAND_DOCK,                           SeviiOneIslandDockHiddenObjects ; TBE
@@ -31,6 +32,7 @@ HiddenObjectMaps_Sevii:
 ; 5-island
 	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_FIVE_ISLAND_GYM,                           SeviiFiveIslandGymHiddenObjects
+	dbw SEVII_PATTERN_BUSH,                              SeviiPatternBushHiddenObjects
 ; 6-island
 	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SIX_ISLAND_GYM_1,                          SeviiSixIslandGym1HiddenObjects
@@ -85,6 +87,11 @@ SeviiRoute38HiddenObjects:
 	hidden_object 11, 12, MAX_ELIXER, HiddenItems
 	db -1 ; end
 
+SeviiRoute39HiddenObjects:
+	hidden_object 19, 50, MAX_REVIVE, HiddenItems
+	hidden_object 18, 17, BIG_NUGGET, HiddenItems
+	db -1 ; end
+
 SeviiOneIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
@@ -136,6 +143,13 @@ SeviiFiveIslandGymHiddenObjects:
 SeviiSixIslandGym1HiddenObjects:
 	hidden_object  0,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
+
+SeviiPatternBushHiddenObjects:
+	hidden_object 35,  6, MAX_ELIXER, HiddenItems
+	hidden_object 19, 23, MAX_ETHER, HiddenItems
+	hidden_object 14,  7, MAX_POTION, HiddenItems
+	hidden_object  4,  6, MAX_REPEL, HiddenItems
+	db -1 ; end
 
 SeviiSevenIslandGym1HiddenObjects:
 	hidden_object  0,  1, SPRITE_FACING_UP, OpenPokemonCenterPC

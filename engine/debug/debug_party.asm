@@ -168,7 +168,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 2
+	ld a, 0
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -271,6 +271,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 DebugItemsList:
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1
+	db ITEMFINDER, 1
     db PERFECTER, 99
 	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
@@ -280,7 +281,7 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
-	db TM_FEINT_ATTACK, 3
+;	db TM_FEINT_ATTACK, 3
 	db MASTER_BALL, 99
 	db BICYCLE, 1
 	db FULL_RESTORE, 99

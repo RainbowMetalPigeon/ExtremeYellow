@@ -34,6 +34,12 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_ROUTE_37,                 7, 34 ; PP_UP
 	hidden_item SEVII_ROUTE_38,                26, 24 ; NUGGET
 	hidden_item SEVII_ROUTE_38,                11, 12 ; MAX_ELIXER
+	hidden_item SEVII_ROUTE_39,                19, 50 ; MAX_REVIVE
+	hidden_item SEVII_ROUTE_39,                18, 17 ; BIG_NUGGET
+	hidden_item SEVII_PATTERN_BUSH,            35,  6 ; MAX_ELIXER
+	hidden_item SEVII_PATTERN_BUSH,            19, 23 ; MAX_ETHER
+	hidden_item SEVII_PATTERN_BUSH,            14,  7 ; MAX_POTION
+	hidden_item SEVII_PATTERN_BUSH,            18, 22 ; MAX_REPEL
 ; indoors
 	hidden_item SEVII_ONE_ISLAND_DOCK,         12,  3 ; TBE
 	db -1 ; end

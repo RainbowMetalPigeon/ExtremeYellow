@@ -501,3 +501,136 @@ _SeviiPatternBushEndBattleText4::
 _SeviiPatternBushAfterBattleText4::
 	text "4-after"
 	done
+
+; Route 39 ------------------------------------
+
+_SeviiRoute39Text1::
+	text "Damn mystery"
+	done
+
+_SeviiRoute39Text2::
+	text "I like this"
+	done
+
+_SeviiRoute39SignText1::
+	text "PATTER BUSH"
+	line "ROUTE 38 AHEAD"
+	done
+
+; -----
+
+_SeviiRoute39BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute39EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute39AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText2::
+	text "Halt yourself!"
+	line "I am the Ultimate"
+	cont "Guardian of the"
+	cont "paramount pivotal"
+	cont "Treasure that is"
+	cont "the foundational"
+	cont "pillar of our own"
+	cont "very reality, the"
+	cont "Alpha & the Omega"
+	cont "of the world as"
+	cont "we know it!"
+
+	para "I cannot allow you"
+	line "to lay your"
+	cont "unworhty hands on"
+	cont "It, as only I am"
+	cont "High and Mighty"
+	cont "enough to"
+	cont "contemplate It!"
+	done
+
+_SeviiRoute39EndBattleText2::
+	text "No!!!"
+	line "What will happen"
+	cont "now?!"
+
+	para "Has we reached"
+	line "the Midnight?!"
+	prompt
+
+_SeviiRoute39AfterBattleText2::
+	text "The Horror!"
+	line "The Horror!"
+
+	para "The Guardian fell!"
+	line "The Treasure is"
+	cont "unguarded!"
+
+	para "Who can know what"
+	line "awaits in our"
+	cont "treacherous,"
+	cont "feeble future?"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute39BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute39EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute39AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute39EndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute39AfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute39EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute39AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute39EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute39AfterBattleText6::
+	text "6-after"
+	done
