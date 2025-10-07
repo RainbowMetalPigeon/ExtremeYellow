@@ -61,8 +61,8 @@ _Route26AfterBattleText1::
 
 _Route26Text2::
 	text "ROUTE 26"
-	line "Proceed ahead for"
-	cont "ONIX BURROWING"
+	line "ONIX BURROWING"
+	cont "AHEAD"
 	done
 
 _Route26Text3::

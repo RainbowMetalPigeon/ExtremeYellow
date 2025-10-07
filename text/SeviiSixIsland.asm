@@ -219,7 +219,7 @@ _SeviiSixIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
-; Route 36 ------------------------------------
+; Route 37 ------------------------------------
 
 _SeviiRoute37BattleText1::
 	text "1-pre"
@@ -385,4 +385,45 @@ _SeviiRoute37EndBattleText12::
 
 _SeviiRoute37AfterBattleText12::
 	text "12-after"
+	done
+
+; Route 38 ------------------------------------
+
+_SeviiRoute38Text1::
+	text "1"
+	done
+
+_SeviiRoute38Text2::
+	text "2"
+	done
+
+_SeviiRoute38SignText1::
+	text "PATTERN BUSH"
+	line "ROUTE 39 AHEAD"
+	done
+
+; Route 38 House-------------------------------
+
+_SeviiRoute38HousesText1::
+	text "Dive Expert"
+	done
+
+_SeviiRoute38HousesText2::
+	text "Thoughtful dad"
+	done
+
+_SeviiRoute38HousesText3::
+	text "Active kid"
+	done
+
+_SeviiRoute38HousesSignText1::
+	text "Stuff"
+	done
+
+_SeviiRoute38HousesSignText2::
+	text "Other stuff"
+	done
+
+_SeviiRoute38HousesSignText3::
+	text "Further stuff"
 	done

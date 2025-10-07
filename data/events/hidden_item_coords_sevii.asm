@@ -31,6 +31,9 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_ROUTE_36,                16,  5 ; PP_UP
 	hidden_item SEVII_ROUTE_36,                12, 21 ; CALCIUM
 	hidden_item SEVII_ROUTE_36,                14, 27 ; PROTEIN
+	hidden_item SEVII_ROUTE_37,                 7, 34 ; PP_UP
+	hidden_item SEVII_ROUTE_38,                26, 24 ; NUGGET
+	hidden_item SEVII_ROUTE_38,                11, 12 ; MAX_ELIXER
 ; indoors
 	hidden_item SEVII_ONE_ISLAND_DOCK,         12,  3 ; TBE
 	db -1 ; end

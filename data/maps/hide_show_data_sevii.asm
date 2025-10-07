@@ -20,8 +20,8 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_34
 	dw SeviiRoute35HS ; SEVII_ROUTE_35
 	dw SeviiRoute36HS ; SEVII_ROUTE_36
-	dw NoHSSevii ; SEVII_ROUTE_37
-	dw NoHSSevii ; SEVII_ROUTE_38
+	dw SeviiRoute37HS ; SEVII_ROUTE_37
+	dw SeviiRoute38HS ; SEVII_ROUTE_38
 	dw NoHSSevii ; SEVII_ROUTE_39
 	dw NoHSSevii ; SEVII_ROUTE_40
 	dw NoHSSevii ; SEVII_ROUTE_41
@@ -158,6 +158,14 @@ SeviiRoute35HS:
 	db SEVII_ROUTE_35,  2, SHOW ; ULTRA_BALL
 SeviiRoute36HS:
 	db SEVII_ROUTE_36, 14, SHOW ; METAL_COAT
+SeviiRoute37HS:
+	db SEVII_ROUTE_37, 13, SHOW ; rock
+SeviiRoute38HS:
+	db SEVII_ROUTE_38,  3, SHOW ; ball
+	db SEVII_ROUTE_38,  4, SHOW ; rock
+	db SEVII_ROUTE_38,  5, SHOW ; rock
+	db SEVII_ROUTE_38,  6, SHOW ; rock
+	db SEVII_ROUTE_38,  7, SHOW ; rock
 
 ; indoors ----------------------------------
 

@@ -8,13 +8,13 @@ SeviiRoute38Houses_Object:
 	warp_event 17,  7, SEVII_ROUTE_38, 2
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event  2,  0, 4 ; SeviiRoute38HousesSignText1
+	bg_event  3,  0, 5 ; SeviiRoute38HousesSignText2
+	bg_event  3,  4, 6 ; SeviiRoute38HousesSignText3
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event  3,  5, SPRITE_GAMBLER, STAY, UP, 1 ; Dive Expert
+	object_event 16,  4, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 2
+	object_event 19,  2, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 3
 
 	def_warps_to SEVII_ROUTE_38_HOUSES
