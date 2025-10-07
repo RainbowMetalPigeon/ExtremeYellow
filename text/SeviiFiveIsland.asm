@@ -649,13 +649,13 @@ _SeviiRoute36AfterBattleText1::
 _SeviiRoute36BattleText2::
 	text "Birds singing like"
 	line "it's spring..."
-	
+
 	para "Frozen by the"
 	line "winter wind..."
 	done
 
 _SeviiRoute36EndBattleText2::
-	text "ROCKER: Have you"
+	text "Have you"
 	line "chosen to be"
 	cont "moonblind?"
 	prompt
