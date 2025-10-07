@@ -402,7 +402,7 @@ _SeviiRoute38SignText1::
 	line "ROUTE 39 AHEAD"
 	done
 
-; Route 38 House-------------------------------
+; Route 38 House -------------------------------
 
 _SeviiRoute38HousesText1::
 	text "Dive Expert"
@@ -426,4 +426,78 @@ _SeviiRoute38HousesSignText2::
 
 _SeviiRoute38HousesSignText3::
 	text "Further stuff"
+	done
+
+; Pattern Bush -------------------------------
+
+_SeviiPatternBushText1::
+	text "Bush 1"
+	done
+
+_SeviiPatternBushText2::
+	text "Bush 2"
+	done
+
+_SeviiPatternBushText3::
+	text "Bush 3"
+	done
+
+_SeviiPatternBushText4::
+	text "Bush 4"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText1::
+	text "1-pre"
+	done
+
+_SeviiPatternBushEndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText2::
+	text "2-pre"
+	done
+
+_SeviiPatternBushEndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText3::
+	text "3-pre"
+	done
+
+_SeviiPatternBushEndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText4::
+	text "4-pre"
+	done
+
+_SeviiPatternBushEndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText4::
+	text "4-after"
 	done

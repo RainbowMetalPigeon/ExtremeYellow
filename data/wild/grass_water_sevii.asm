@@ -71,7 +71,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_2
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_3
 	dw NothingWildMons               ; SEVII_ROUTE_38_HOUSES
-	dw NothingWildMons               ; SEVII_PATTERN_BUSH ; TBE
+	dw SeviiPatternBushWildMons      ; SEVII_PATTERN_BUSH
 	dw NothingWildMons               ; SEVII_ALTERING_CAVE ; TBE
 	dw NothingWildMons               ; SEVII_DOTTED_HOLE
 ; 7-island
@@ -124,6 +124,7 @@ INCLUDE "data/wild/maps/sevii/SeviiRoute42.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute43.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute44.asm"
 
+INCLUDE "data/wild/maps/sevii/SeviiPatternBush.asm"
 INCLUDE "data/wild/maps/sevii/SeviiShipDock.asm"
 INCLUDE "data/wild/maps/sevii/SeviiIcefallCave1F.asm"
 INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym2.asm"

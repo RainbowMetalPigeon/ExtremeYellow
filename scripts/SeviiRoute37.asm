@@ -30,7 +30,7 @@ SeviiRoute37_TextPointers:
 SeviiRoute37TrainerHeaders:
 	def_trainers 1
 SeviiRoute37TrainerHeader1:
-	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_1, 4, SeviiRoute37BattleText1, SeviiRoute37EndBattleText1, SeviiRoute37AfterBattleText1
+	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_1, 3, SeviiRoute37BattleText1, SeviiRoute37EndBattleText1, SeviiRoute37AfterBattleText1
 SeviiRoute37TrainerHeader2:
 	trainer EVENT_BEAT_SEVII_ROUTE_37_TRAINER_2, 4, SeviiRoute37BattleText2, SeviiRoute37EndBattleText2, SeviiRoute37AfterBattleText2
 SeviiRoute37TrainerHeader3:

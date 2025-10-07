@@ -183,6 +183,8 @@ SailorData:
 	db 23, ELEKID, PIKACHU, PIKACHU, RAICHU, 0 ; updated ; 8
 ; Sevii Seven Island Gym 2
 	db 100, MACHAMP, TENTACRUEL, RAICHU, 0 ; 9
+; Sevii Pattern Bush
+	db 85, TENTACRUEL, MACHAMP, CLOYSTER, RAICHU, KINGDRA, STARMIE, 0 ; 10
 
 JrTrainerFData:
 ; Cerulean Gym
@@ -340,6 +342,8 @@ BikerData:
 	db 26, KOFFING, KOFFING, GRIMER, KOFFING, 0
 	db 28, GRIMER, GRIMER, KOFFING, 0
 	db 29, KOFFING, MUK, 0
+; Sevii Pattern Bush
+	db 85, WEEZING, ELECTRODE, MUK, CROBAT, VENOMOTH, GENGAR, 0 ; 16
 
 BurglarData:
 ; Unused
@@ -454,6 +458,8 @@ GamblerData:
 	db 24, GROWLITHE, VULPIX, 0 ; 7
 ; Sevii Seven Island Gym 3
 	db 100, RAPIDASH, DUGTRIO, SCIZOR, 0 ; 8
+; Sevii Pattern Bush
+	db 85, POLITOED, BELLOSSOM, MAGNEZONE, KINGDRA, NINETALES, GOLEM, 0 ; 9
 
 BeautyData:
 ; Celadon Gym
@@ -646,6 +652,8 @@ GentlemanData:
 	db 17, GROWLITHE, PONYTA, 0
 ; new, SS Anne Captain
 	db 75, SCYTHER, KABUTOPS, SCIZOR, SANDSLASH, KLEAVOR, FARFETCHD, 0 ; 6
+; Sevii Pattern Bush
+	db 85, NIDOKING, MAGNEZONE, RAPIDASH, NIDOQUEEN, ELECTIVIRE, ARCANINE, 0 ; 7
 
 ChannelerData:
 ; Unused
