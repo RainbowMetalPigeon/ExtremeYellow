@@ -40,6 +40,113 @@ _SeviiSevenIslandPokemonCenterAndMart_Text4::
 	text "test 7-4"
 	done
 
+_SeviiSevenIslandHousesText1::
+	text "It's a letter:"
+
+	para "'We did it!"
+	line "After years and"
+	cont "years, we finally"
+	cont "found a PEARL!"
+
+	para "Now we can sell it"
+	line "and fulfill all"
+	cont "our dreams!"
+
+	para "One of these is"
+	line "visiting you in"
+	cont "KALOS. Can't wait!"
+
+	para "Kisses, and see"
+	line "you soon!'"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandHousesSignText1::
+	text "No LEFTOVERS."
+	done
+	
+_SeviiSevenIslandHousesSignText2::
+	text "There's no right"
+	line "or wrong side:"
+	cont "it's off."
+	done
+	
+_SeviiSevenIslandHousesSignText3::
+	text "'PC password:"
+	line "ABCDE'"
+
+	para "...doesn't look"
+	line "super safe..."
+	done
+	
+_SeviiSevenIslandHousesSignText4::
+	text "Oh! It's a cool"
+	line "Monster Collector"
+	cont "game!"
+
+	para "Free exploring,"
+	line "tough challenges,"
+	cont "care to details."
+
+	para "Makes one want to"
+	line "play more!"
+	done
+	
+_SeviiSevenIslandHousesSignText5::
+	text "...guess someone"
+	line "never heard of"
+	cont "'recycling', uh?"
+	done
+	
+_SeviiSevenIslandHousesSignText6::
+	text "A pillow."
+	done
+	
+_SeviiSevenIslandHousesSignText7::
+	text "A mattress."
+
+	para "Ehy! It's a water"
+	line "one! Cool!"
+	done
+	
+_SeviiSevenIslandHousesSignText8_Question::
+	text "Insert password"
+	line "to withdraw PEARL."
+	done
+
+_SeviiSevenIslandHousesSignText8_Wrong::
+	text "Wrong password."
+	done
+
+_SeviiSevenIslandHousesSignText8_Right::
+	text "PEARL can be"
+	line "withdrawn."
+	prompt
+
+_SeviiSevenIslandHousesSignText8_GotPearl::
+	text "<PLAYER> withdrew"
+	line "the PEARL!"
+	done
+
+_SeviiSevenIslandHousesSignText8_BagFull::
+	text "Bag full. Cannot"
+	line "withdraw PEARL."
+	done
+
+_SeviiSevenIslandHousesSignText8_Empty::
+	text "The PC is empty."
+
+	para "There is nothing"
+	line "inside."
+	
+	para "You already took"
+	line "everything it"
+	cont "contained."
+
+	para "A barren void is"
+	line "all that's left."
+	done
+
 ; gym 1 ------------------------------------
 
 _SeviiSevenIslandGym1Text1::
