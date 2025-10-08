@@ -449,9 +449,154 @@ _SeviiRoute42AfterBattleText9::
 	text "9-after"
 	done
 
-
-
 ; Route 43 ------------------------------------
+
+_SeviiRoute43Text1::
+	text "I think this is"
+    line "NOT the right"
+    cont "way..."
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute43BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute43EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute43AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute43EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute43AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute43EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute43AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute43EndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute43AfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute43EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute43AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute43EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute43AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute43EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute43AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute43EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute43AfterBattleText8::
+	text "8-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText9::
+	text "9-pre"
+	done
+
+_SeviiRoute43EndBattleText9::
+	text "9-post"
+	prompt
+
+_SeviiRoute43AfterBattleText9::
+	text "9-after"
+	done
+
+; -----
+
+_SeviiRoute43BattleText10::
+	text "10-pre"
+	done
+
+_SeviiRoute43EndBattleText10::
+	text "10-post"
+	prompt
+
+_SeviiRoute43AfterBattleText10::
+	text "10-after"
+	done
 
 ; Route 44 ------------------------------------
 
