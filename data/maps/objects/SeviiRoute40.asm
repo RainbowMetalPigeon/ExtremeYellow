@@ -21,8 +21,8 @@ SeviiRoute40_Object:
 	; non-persons
 	object_event 21, 14, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 10
 	object_event 48, 24, SPRITE_POKE_BALL, STAY, NONE, 11, PP_UP
-	object_event 49, 24, SPRITE_POKE_BALL, STAY, NONE, 12, PP_UP
-	object_event 48, 25, SPRITE_POKE_BALL, STAY, NONE, 13, PP_UP
-	object_event 49, 25, SPRITE_POKE_BALL, STAY, NONE, 14, PP_UP
+	object_event 49, 24, SPRITE_POKE_BALL, STAY, NONE, 12, BIG_NUGGET
+	object_event 48, 25, SPRITE_POKE_BALL, STAY, NONE, 13, METAL_COAT
+	object_event 49, 25, SPRITE_POKE_BALL, STAY, NONE, 14, RARE_CANDY
 
 	def_warps_to SEVII_ROUTE_40

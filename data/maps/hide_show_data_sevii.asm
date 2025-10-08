@@ -172,6 +172,7 @@ SeviiRoute39HS:
 	db SEVII_ROUTE_39, 11, SHOW ; ball
 	db SEVII_ROUTE_39, 12, SHOW ; ball
 SeviiRoute40HS:
+	db SEVII_ROUTE_40, 10, SHOW ; rock
 	db SEVII_ROUTE_40, 11, SHOW ; ball
 	db SEVII_ROUTE_40, 12, SHOW ; ball
 	db SEVII_ROUTE_40, 13, SHOW ; ball
