@@ -708,7 +708,11 @@ _SeviiRoute43AfterBattleText10::
 ; Route 43 Caves ------------------------------
 
 _SeviiRoute43CavesScriptText1::
-	text "All placed"
+	text "It seems like an"
+	line "ancient mechanism"
+	cont "opened some doors"
+	cont "somewhere near..."
+;	xxxx "123456789012345678"
 	done
 
 ; Route 44 ------------------------------------

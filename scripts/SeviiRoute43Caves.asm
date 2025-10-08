@@ -149,9 +149,13 @@ SeviiRoute43CavesScript1:
 	bit 0, a
 	ret nz
 ; display message
+	call ShakeScreen
+;	ld a, SFX_PUSH_BOULDER
+;	call PlaySound
 	ld a, 8
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	call PlayDefaultMusic
 ; load 0 script
 	xor a
 	ld [wCurMapScript], a
@@ -199,3 +203,43 @@ SeviiRoute43Caves_TextPointers:
 SeviiRoute43CavesScriptText1:
 	text_far _SeviiRoute43CavesScriptText1
 	text_end
+
+ShakeScreen:
+	ld de, -$20
+;	call ShakeElevatorRedrawRow
+	ld de, SCREEN_HEIGHT * $20
+;	call ShakeElevatorRedrawRow
+	call Delay3
+	call StopAllMusic
+	ldh a, [hSCY]
+	ld d, a
+	ld e, $1
+	ld b, 100
+.shakeLoop ; scroll the BG up and down and play a sound effect
+	ld a, e
+	xor $fe
+	ld e, a
+	add d
+	ldh [hSCY], a
+	push bc
+	ld c, BANK(SFX_Push_Boulder_1) ; SFX_Push_Boulder_1 ; SFX_Collision_1
+	ld a, SFX_PUSH_BOULDER ; SFX_PUSH_BOULDER ; SFX_COLLISION
+	call PlayMusic
+	pop bc
+	ld c, 2
+	call DelayFrames
+	dec b
+	jr nz, .shakeLoop
+	ld a, d
+	ldh [hSCY], a
+;	call StopAllMusic
+;	ld c, BANK(SFX_Safari_Zone_PA)
+;	ld a, SFX_SAFARI_ZONE_PA
+;	call PlayMusic
+;musicLoop
+;	ld a, [wChannelSoundIDs + CHAN5]
+;	cp SFX_SAFARI_ZONE_PA
+;	jr z, .musicLoop
+	call UpdateSprites
+	ret
+;	jp PlayDefaultMusic
