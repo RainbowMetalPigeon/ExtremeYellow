@@ -600,6 +600,10 @@ _SeviiRoute43AfterBattleText10::
 
 ; Route 44 ------------------------------------
 
+_SeviiRoute44Text1::
+	text "Basically noone"
+	done
+
 ; Tanoby Chambers -------------------------
 
 _SeviiTanobyChambersSignText1::
