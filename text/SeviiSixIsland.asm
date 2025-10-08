@@ -634,3 +634,123 @@ _SeviiRoute39EndBattleText6::
 _SeviiRoute39AfterBattleText6::
 	text "6-after"
 	done
+	
+; Route 40 ------------------------------------
+
+_SeviiRoute40Text1::
+	text "Mysterious mystery"
+	done
+
+; -----------------------------
+
+_SeviiRoute40BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute40EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute40AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute40EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute40AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute40EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute40AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText4::
+	text "4-pre-metal"
+	done
+
+_SeviiRoute40EndBattleText4::
+	text "4-post-metal"
+	prompt
+
+_SeviiRoute40AfterBattleText4::
+	text "4-after-metal"
+	done
+
+; -----
+
+_SeviiRoute40BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute40EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute40AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute40EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute40AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute40EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute40AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute40EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute40AfterBattleText8::
+	text "8-after"
+	done
+
+; -----
