@@ -15,6 +15,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_ROUTE_37,                                  SeviiRoute37HiddenObjects
 	dbw SEVII_ROUTE_38,                                  SeviiRoute38HiddenObjects
 	dbw SEVII_ROUTE_39,                                  SeviiRoute39HiddenObjects
+	dbw SEVII_ROUTE_41,                                  SeviiRoute41HiddenObjects
 ; indoors
 ; 1-island
 	dbw SEVII_ONE_ISLAND_DOCK,                           SeviiOneIslandDockHiddenObjects ; TBE
@@ -90,6 +91,12 @@ SeviiRoute38HiddenObjects:
 SeviiRoute39HiddenObjects:
 	hidden_object 19, 50, MAX_REVIVE, HiddenItems
 	hidden_object 18, 17, BIG_NUGGET, HiddenItems
+	db -1 ; end
+
+SeviiRoute41HiddenObjects:
+	hidden_object 30, 13, HELIX_FOSSIL, HiddenItems
+	hidden_object 17,  3, OLD_AMBER, HiddenItems
+	hidden_object  3, 12, DOME_FOSSIL, HiddenItems
 	db -1 ; end
 
 SeviiOneIslandPokemonCenterAndMartHiddenObjects:

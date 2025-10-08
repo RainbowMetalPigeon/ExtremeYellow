@@ -11,14 +11,15 @@ ResetAnomaliesWarning_SevenIsland:
 	ret
 
 SeviiRoute41_TextPointers:
-;	dw RockSmashText
-;	dw RockSmashText
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw SeviiRoute41Text1
+	dw PickUpItemText
+	dw SeviiRoute41SignText1
+	dw SeviiRoute41SignText2
 	text_end
 
-;SeviiRoute41Text1:
-;	text_far _SeviiRoute41Text1
-;	text_end
+SeviiRoute41SignText1:
+	text_far _SeviiRoute41SignText1
+	text_end
+
+SeviiRoute41SignText2:
+	text_far _SeviiRoute41SignText2
+	text_end

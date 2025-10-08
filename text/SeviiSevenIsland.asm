@@ -268,6 +268,27 @@ _SeviiSevenIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+; Route 41 ------------------------------------
+
+_SeviiRoute41SignText1::
+	text "ROUTE 41"
+	done
+
+_SeviiRoute41SignText2::
+	text "SEVII TRIAL SHRINE"
+	line "of QUEST ISLAND"
+	cont "SAGE: NANETTE"
+
+	para "(TBE)"
+;	xxxx "123456789012345678"
+	done
+
+; Route 42 ------------------------------------
+
+; Route 43 ------------------------------------
+
+; Route 44 ------------------------------------
+
 ; Tanoby Chambers -------------------------
 
 _SeviiTanobyChambersSignText1::
