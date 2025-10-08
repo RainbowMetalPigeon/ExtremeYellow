@@ -75,9 +75,12 @@ SeviiSevenIslandHousesSignText8:
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+5]
 	cp "@"
+	jr z, .rightAnswer
 .wrongAnswer
+	ld a, SFX_DENIED
+	call PlaySound
 	ld hl, SeviiSevenIslandHousesSignText8_Wrong
-	jr nz, .printAndEnd ; wrong answer
+	jr .printAndEnd
 .rightAnswer
 	SetEvent EVENT_SEVII_UNLOCKED_PEARL_PC
 	ld hl, SeviiSevenIslandHousesSignText8_Right
@@ -87,6 +90,8 @@ SeviiSevenIslandHousesSignText8:
 	call GiveItem
 	jr nc, .bagFull
 	SetEvent EVENT_SEVII_STOLEN_PEARL
+	ld a, SFX_GET_ITEM_2
+	call PlaySound
 	ld hl, SeviiSevenIslandHousesSignText8_GotPearl
 	jr .printAndEnd
 .bagFull
