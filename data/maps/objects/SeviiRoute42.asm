@@ -7,11 +7,22 @@ SeviiRoute42_Object:
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 12, 25, SPRITE_ERIKA, STAY, ANY_DIR, 1
+	; trainers
+	object_event  8, 12, SPRITE_HIKER, STAY, LEFT, 2, OPP_HIKER, 22
+	object_event  9,  8, SPRITE_COOLTRAINER_F, STAY, DOWN, 3, OPP_COOLTRAINER, 90
+	object_event  4, 15, SPRITE_GENTLEMAN, STAY, RIGHT, 4, OPP_GENTLEMAN, 8
+	object_event  9, 19, SPRITE_HIKER, STAY, UP, 5, OPP_HIKER, 23
+	object_event 16, 26, SPRITE_COOLTRAINER_F, STAY, RIGHT, 6, OPP_COOLTRAINER, 91
+	object_event  8, 34, SPRITE_COOLTRAINER_M, STAY, LEFT, 7, OPP_POKEMANIAC, 15
+	object_event 18, 38, SPRITE_SCIENTIST, STAY, LEFT, 8, OPP_SCIENTIST, 14
+	object_event 14, 43, SPRITE_COOLTRAINER_M, STAY, DOWN, 9, OPP_POKEMANIAC, 16
+	object_event 16, 56, SPRITE_HIKER, STAY, LEFT, 10, OPP_HIKER, 24
+	; non-persons
+;	object_event  5, 29, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 11
+	object_event  7, 55, SPRITE_POKE_BALL, STAY, NONE, 11, RARE_CANDY
+	object_event 10, 23, SPRITE_POKE_BALL, STAY, NONE, 12, NUGGET
 
 	def_warps_to SEVII_ROUTE_42

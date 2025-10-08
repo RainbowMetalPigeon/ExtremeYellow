@@ -25,7 +25,7 @@ MapHSPointers_Sevii:
 	dw SeviiRoute39HS ; SEVII_ROUTE_39
 	dw SeviiRoute40HS ; SEVII_ROUTE_40
 	dw SeviiRoute41HS ; SEVII_ROUTE_41
-	dw NoHSSevii ; SEVII_ROUTE_42
+	dw SeviiRoute42HS ; SEVII_ROUTE_42
 	dw NoHSSevii ; SEVII_ROUTE_43
 	dw NoHSSevii ; SEVII_ROUTE_44
 ; indoors
@@ -179,6 +179,9 @@ SeviiRoute40HS:
 	db SEVII_ROUTE_40, 14, SHOW ; ball
 SeviiRoute41HS:
 	db SEVII_ROUTE_41,  1, SHOW ; ball
+SeviiRoute42HS:
+	db SEVII_ROUTE_42, 11, SHOW ; ball
+	db SEVII_ROUTE_42, 12, SHOW ; ball
 
 ; indoors ----------------------------------
 

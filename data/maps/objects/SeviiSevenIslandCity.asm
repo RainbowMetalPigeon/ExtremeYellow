@@ -9,12 +9,13 @@ SeviiSevenIslandCity_Object:
 	warp_event 13,  7, SEVII_SEVEN_ISLAND_HOUSES, 1
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event 11, 10, 3 ; SeviiSevenIslandCitySignText1
+	bg_event  5, 13, 4 ; SeviiSevenIslandCitySignText2
+	bg_event 14,  3, 5 ; PokeCenterSignText
+	bg_event  6,  7, 6 ; MartSignText
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 10,  7, SPRITE_GENTLEMAN, WALK, UP_DOWN, 1
+	object_event  8,  9, SPRITE_ERIKA, WALK, LEFT_RIGHT, 2
 
 	def_warps_to SEVII_SEVEN_ISLAND_CITY

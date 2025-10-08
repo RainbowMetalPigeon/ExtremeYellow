@@ -1,3 +1,28 @@
+_SeviiSevenIslandCityText1::
+	text "1"
+	done
+
+_SeviiSevenIslandCityText2::
+	text "2"
+	done
+
+_SeviiSevenIslandCitySignText1::
+	text "QUEST ISLAND"
+	line "The Land of the"
+	cont "Endless Adventure"
+
+	para "(Also known"
+	line "as SEVEN ISLAND)"
+	done
+
+_SeviiSevenIslandCitySignText2::
+	text "SOUTH: ROUTE 42,"
+	line "ROUTE 43,"
+	cont "ROUTE 44,"
+	cont "TANOBY CHAMBERS"
+	done
+
+; city's indoor ------------------------------------
 
 _SeviiSevenIslandPokemonCenterAndMart_Text1::
 	text "test 7-1"
@@ -284,6 +309,147 @@ _SeviiRoute41SignText2::
 	done
 
 ; Route 42 ------------------------------------
+
+_SeviiRoute42Text1::
+	text "I have NO idea how"
+	line "I got up here..."
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute42BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute42EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute42AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute42BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute42EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute42AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute42BattleText3::
+	text "Let's have a"
+	line "lovely battle!"
+	done
+
+_SeviiRoute42EndBattleText3::
+	text "Oh"
+	line "dear..."
+	prompt
+
+_SeviiRoute42AfterBattleText3::
+	text "I can live myself"
+	line "at my fullest"
+	cont "thanks to my"
+	cont "beloved #MON!"
+	done
+
+; -----
+
+_SeviiRoute42BattleText4::
+	text "Diggy diggy hole!"
+	done
+
+_SeviiRoute42EndBattleText4::
+	text "Digging"
+	line "a hole!"
+	prompt
+
+_SeviiRoute42AfterBattleText4::
+	text "I am a HIKER and"
+	line "I'm diggin' a hole!"
+	done
+
+; -----
+
+_SeviiRoute42BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute42EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute42AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute42BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute42EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute42AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute42BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute42EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute42AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute42BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute42EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute42AfterBattleText8::
+	text "8-after"
+	done
+
+; -----
+
+_SeviiRoute42BattleText9::
+	text "9-pre"
+	done
+
+_SeviiRoute42EndBattleText9::
+	text "9-post"
+	prompt
+
+_SeviiRoute42AfterBattleText9::
+	text "9-after"
+	done
+
+
 
 ; Route 43 ------------------------------------
 
