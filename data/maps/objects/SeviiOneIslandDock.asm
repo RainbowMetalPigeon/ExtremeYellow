@@ -5,7 +5,8 @@ SeviiOneIslandDock_Object:
 ;	warp_event 10,  0, SEVII_ONE_ISLAND_CITY, 1
 ;	warp_event 10,  0, SEVII_TANOBY_CHAMBERS, 1
 ;	warp_event 10,  0, SEVII_PATTERN_BUSH, 1
-	warp_event 10,  0, SEVII_SEVEN_ISLAND_HOUSES, 4
+;	warp_event 10,  0, SEVII_SEVEN_ISLAND_HOUSES, 4
+	warp_event 10,  0, SEVII_ROUTE_43_CAVES, 1
 
 	def_bg_events
 	bg_event  9,  0, 2 ; SeviiOneIslandDockBgText1

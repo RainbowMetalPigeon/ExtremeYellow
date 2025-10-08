@@ -705,6 +705,12 @@ _SeviiRoute43AfterBattleText10::
 	text "10-after"
 	done
 
+; Route 43 Caves ------------------------------
+
+_SeviiRoute43CavesScriptText1::
+	text "All placed"
+	done
+
 ; Route 44 ------------------------------------
 
 _SeviiRoute44Text1::
