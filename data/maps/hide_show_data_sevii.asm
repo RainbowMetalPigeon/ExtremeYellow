@@ -140,7 +140,9 @@ SeviiSixIslandCityHS:
 ; routes ----------------------------------
 
 SeviiRoute31HS:
-	db SEVII_ROUTE_31,  1, SHOW ; rock
+	db SEVII_ROUTE_31, 12, SHOW ; rock
+	db SEVII_ROUTE_31, 13, SHOW ; ball
+	db SEVII_ROUTE_31, 14, SHOW ; ball
 SeviiMtEmberHS:
 	db SEVII_MT_EMBER,  1, SHOW ; MEGA_STONE_X
 	db SEVII_MT_EMBER,  2, SHOW ; MEGA_STONE_Y

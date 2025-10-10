@@ -296,6 +296,162 @@ _SeviiOneIslandDockSailorText_NeedAMoment::
 	line "a moment!"
 	done
 
+; Route 31 ------------------------------------
+
+_SeviiRoute31Text1::
+	text "Damn too hard"
+	done
+
+; -----------------------------
+
+_SeviiRoute31BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute31EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute31AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute31EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute31AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute31EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute31AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute31EndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute31AfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute31EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute31AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute31EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute31AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute31EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute31AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute31EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute31AfterBattleText8::
+	text "8-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText9::
+	text "9-pre"
+	done
+
+_SeviiRoute31EndBattleText9::
+	text "9-post"
+	prompt
+
+_SeviiRoute31AfterBattleText9::
+	text "9-after"
+	done
+
+; -----
+
+_SeviiRoute31BattleText10::
+	text "I am the king"
+	line "of the water!"
+	done
+
+_SeviiRoute31EndBattleText10::
+	text "The"
+	line "royalty's fallen!"
+	prompt
+
+_SeviiRoute31AfterBattleText10::
+	text "My dominion's over."
+	line "The new ruler of"
+	cont "the water is you!"
+	done
+
+; -----------------------------
+
+_SeviiRoute31SignText1::
+	text "EMBER SPA"
+	done
+
 ; route 32 ------------------------------------
 
 _TreasureBeachSignText::
