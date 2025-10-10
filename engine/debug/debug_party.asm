@@ -186,6 +186,9 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
+	SetEvent EVENT_GOT_HM01
+	ResetEvent EVENT_SS_ANNE_LEFT
+
 	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 
 	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8

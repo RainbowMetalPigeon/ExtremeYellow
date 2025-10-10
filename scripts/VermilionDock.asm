@@ -1,7 +1,7 @@
 VermilionDock_Script:
 	call EnableAutoTextBoxDrawing
 	CheckEventHL EVENT_STARTED_WALKING_OUT_OF_DOCK
-	jr nz, .asm_1db8d
+	jr nz, .walking_out_of_dock
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
 	ret nz ; new, testing
 	CheckEventReuseHL EVENT_GOT_HM01
@@ -10,7 +10,7 @@ VermilionDock_Script:
 	cp $1
 	ret nz
 	CheckEventReuseHL EVENT_SS_ANNE_LEFT
-	jp z, VermilionDock_1db9b
+	jp z, VermilionDockSSAnneLeavesScript
 	SetEventReuseHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	call Delay3
 	ld hl, wd730
@@ -28,7 +28,7 @@ VermilionDock_Script:
 	dec a
 	ld [wJoyIgnore], a
 	ret
-.asm_1db8d
+.walking_out_of_dock
 	CheckEventAfterBranchReuseHL EVENT_WALKED_OUT_OF_DOCK, EVENT_STARTED_WALKING_OUT_OF_DOCK
 	ret nz
 	ld a, [wSimulatedJoypadStatesIndex]
@@ -38,7 +38,7 @@ VermilionDock_Script:
 	SetEventReuseHL EVENT_WALKED_OUT_OF_DOCK
 	ret
 
-VermilionDock_1db9b:
+VermilionDockSSAnneLeavesScript:
 	SetEventForceReuseHL EVENT_SS_ANNE_LEFT
 	ld a, $ff
 	ld [wJoyIgnore], a
@@ -49,7 +49,7 @@ VermilionDock_1db9b:
 	farcall LoadSmokeTileFourTimes
 	xor a
 	ld [wSpritePlayerStateData1ImageIndex], a
-	ld c, 120
+	ld c, 120 ; reduce this to speedup departure
 	call DelayFrames
 	ld b, $9c
 	call CopyScreenTileBufferToVRAM
@@ -79,7 +79,7 @@ VermilionDock_1db9b:
 	ld [wUpdateSpritesEnabled], a
 	ld d, $0
 	ld e, $8
-.asm_1dbfa
+.shift_columns_up
 	ld hl, $2
 	add hl, bc
 	ld a, l
@@ -92,19 +92,19 @@ VermilionDock_1db9b:
 	call VermilionDock_EmitSmokePuff
 	pop de
 	ld b, $10
-.asm_1dc11
+.smoke_puff_drift_loop
 	call VermilionDock_AnimSmokePuffDriftRight
 	ld c, $8
-.asm_1dc16
-	call VermilionDock_1dc7c
-	dec c
-	jr nz, .asm_1dc16
-	inc d
-	dec b
-	jr nz, .asm_1dc11
+.delay_between_drifts
+	call VermilionDock_SyncScrollWithLY
+	dec c ; double this and the other two to speed up the departure
+	jr nz, .delay_between_drifts
+	inc d ; double this and the other two to speed up the departure
+	dec b ; double this and the other two to speed up the departure
+	jr nz, .smoke_puff_drift_loop
 	pop bc
 	dec e
-	jr nz, .asm_1dbfa
+	jr nz, .shift_columns_up
 	xor a
 	ldh [rWY], a
 	ldh [hWY], a
@@ -163,22 +163,22 @@ VermilionDockOAMBlock:
 	db $fe, $10
 	db $ff, $10
 
-VermilionDock_1dc7c:
+VermilionDock_SyncScrollWithLY:
 	ld h, d
 	ld l, $50
-	call .asm_1dc86
+	call .sync_scroll_ly
 	ld h, $0
 	ld l, $80
-.asm_1dc86
+.sync_scroll_ly
 	ldh a, [rLY]
 	cp l
-	jr nz, .asm_1dc86
+	jr nz, .sync_scroll_ly
 	ld a, h
 	ldh [rSCX], a
-.asm_1dc8e
+.wait_for_ly_match
 	ldh a, [rLY]
 	cp h
-	jr z, .asm_1dc8e
+	jr z, .wait_for_ly_match
 	ret
 
 VermilionDock_EraseSSAnne:
@@ -206,7 +206,7 @@ VermilionDock_EraseSSAnne:
 
 	ld a, SFX_SS_ANNE_HORN
 	call PlaySound
-	ld c, 120
+	ld c, 120 ; reduce this to speedup departure
 	call DelayFrames
 	ret
 
