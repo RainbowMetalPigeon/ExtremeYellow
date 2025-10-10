@@ -5,12 +5,10 @@ SeviiRoute41_Object:
 	warp_event 18, 11, SEVII_SEVEN_ISLAND_GYM_1, 1
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event 11, 49, 2
+	bg_event 17, 23, 3
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 22, 44, SPRITE_POKE_BALL, STAY, NONE, 1, ESCAPE_ROPE
 
 	def_warps_to SEVII_ROUTE_41

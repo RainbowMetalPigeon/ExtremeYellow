@@ -402,7 +402,7 @@ _SeviiRoute38SignText1::
 	line "ROUTE 39 AHEAD"
 	done
 
-; Route 38 House-------------------------------
+; Route 38 House -------------------------------
 
 _SeviiRoute38HousesText1::
 	text "Dive Expert"
@@ -427,3 +427,330 @@ _SeviiRoute38HousesSignText2::
 _SeviiRoute38HousesSignText3::
 	text "Further stuff"
 	done
+
+; Pattern Bush -------------------------------
+
+_SeviiPatternBushText1::
+	text "Bush 1"
+	done
+
+_SeviiPatternBushText2::
+	text "Bush 2"
+	done
+
+_SeviiPatternBushText3::
+	text "Bush 3"
+	done
+
+_SeviiPatternBushText4::
+	text "Bush 4"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText1::
+	text "1-pre"
+	done
+
+_SeviiPatternBushEndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText2::
+	text "2-pre"
+	done
+
+_SeviiPatternBushEndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText3::
+	text "3-pre"
+	done
+
+_SeviiPatternBushEndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiPatternBushBattleText4::
+	text "4-pre"
+	done
+
+_SeviiPatternBushEndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiPatternBushAfterBattleText4::
+	text "4-after"
+	done
+
+; Route 39 ------------------------------------
+
+_SeviiRoute39Text1::
+	text "Damn mystery"
+	done
+
+_SeviiRoute39Text2::
+	text "I like this"
+	done
+
+_SeviiRoute39SignText1::
+	text "PATTER BUSH"
+	line "ROUTE 38 AHEAD"
+	done
+
+; -----
+
+_SeviiRoute39BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute39EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute39AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText2::
+	text "Halt yourself!"
+	line "I am the Ultimate"
+	cont "Guardian of the"
+	cont "paramount pivotal"
+	cont "Treasure that is"
+	cont "the foundational"
+	cont "pillar of our own"
+	cont "very reality, the"
+	cont "Alpha & the Omega"
+	cont "of the world as"
+	cont "we know it!"
+
+	para "I cannot allow you"
+	line "to lay your"
+	cont "unworhty hands on"
+	cont "It, as only I am"
+	cont "High and Mighty"
+	cont "enough to"
+	cont "contemplate It!"
+	done
+
+_SeviiRoute39EndBattleText2::
+	text "No!!!"
+	line "What will happen"
+	cont "now?!"
+
+	para "Has we reached"
+	line "the Midnight?!"
+	prompt
+
+_SeviiRoute39AfterBattleText2::
+	text "The Horror!"
+	line "The Horror!"
+
+	para "The Guardian fell!"
+	line "The Treasure is"
+	cont "unguarded!"
+
+	para "Who can know what"
+	line "awaits in our"
+	cont "treacherous,"
+	cont "feeble future?"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute39BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute39EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute39AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute39EndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute39AfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute39EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute39AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute39BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute39EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute39AfterBattleText6::
+	text "6-after"
+	done
+	
+; Route 40 ------------------------------------
+
+_SeviiRoute40Text1::
+	text "Mysterious mystery"
+	done
+
+; -----------------------------
+
+_SeviiRoute40BattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute40EndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute40AfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute40EndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute40AfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute40EndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute40AfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText4::
+	text "4-pre-metal"
+	done
+
+_SeviiRoute40EndBattleText4::
+	text "4-post-metal"
+	prompt
+
+_SeviiRoute40AfterBattleText4::
+	text "4-after-metal"
+	done
+
+; -----
+
+_SeviiRoute40BattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute40EndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute40AfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute40EndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute40AfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute40EndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute40AfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute40BattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute40EndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute40AfterBattleText8::
+	text "8-after"
+	done
+
+; -----

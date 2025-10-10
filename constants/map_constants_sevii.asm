@@ -98,7 +98,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE,                 20, 20 ; $19
 	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN,          13, 13 ; $19
 	map_const SEVII_SEVEN_ISLAND_GYM_3,                      22, 22 ; $19
-	map_const SEVII_SEVEN_ISLAND_HOUSES,                      4,  4 ; $1A
+	map_const SEVII_SEVEN_ISLAND_HOUSES,                     11,  4 ; $1A
 	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $1A
 	map_const SEVII_TANOBY_CHAMBERS,                         43,  7 ; $1A
 ; 8-island-related maps

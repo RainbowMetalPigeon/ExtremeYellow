@@ -8,13 +8,19 @@ SeviiPatternBush_Object:
 	warp_event  0, 15, SEVII_ROUTE_39, 1
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+;	bg_event  4, 37, 15
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 34, 11, SPRITE_WAITER, WALK, UP_DOWN, 1
+	object_event 21, 15, SPRITE_CHANNELER, WALK, LEFT_RIGHT, 2
+	object_event 14, 10, SPRITE_GYM_GUIDE, WALK, UP_DOWN, 3
+	object_event  4, 13, SPRITE_COOK, WALK, UP_DOWN, 4
+	; trainers
+	object_event 29, 18, SPRITE_GENTLEMAN, STAY, ANY_DIR, 5, OPP_GENTLEMAN, 7
+	object_event 24, 10, SPRITE_SAILOR, STAY, ANY_DIR, 6, OPP_SAILOR, 10
+	object_event 15, 16, SPRITE_BIKER, STAY, ANY_DIR, 7, OPP_BIKER, 16
+	object_event  7, 22, SPRITE_GAMBLER, STAY, ANY_DIR, 8, OPP_GAMBLER, 9
+	; non-persons
+;	object_event  2, 47, SPRITE_POKE_BALL, WALK, NONE, 14, METAL_COAT
 
 	def_warps_to SEVII_PATTERN_BUSH
