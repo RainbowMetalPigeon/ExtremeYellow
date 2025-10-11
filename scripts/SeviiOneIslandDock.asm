@@ -8,16 +8,6 @@ SeviiOneIslandDock_Script:
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
-SeviiOneIslandDock_ScriptPointers:
-	dw SeviiOneIslandDockScritp_NullScript
-	dw SeviiOneIslandDockScritp_FerryWarpScript
-
-SeviiOneIslandDockScritp_NullScript:
-	ret
-
-SeviiOneIslandDockScritp_FerryWarpScript:
-	jpfar PerformFerryWarp
-
 ActionsOnEntry1:
 	SetEvent EVENT_UNLOCKED_SEVII
 	ld a, SEVII_ONE_ISLAND_CITY
@@ -27,7 +17,108 @@ ActionsOnEntry1:
 		set 1, [hl]
 	ENDC
 	ret
-	
+
+SeviiOneIslandDock_ScriptPointers:
+	dw SeviiOneIslandDockScritp_NullScript
+	dw SeviiOneIslandDockScritp_TurnSailorAndMovePlayerScript
+	dw SeviiOneIslandDockScritp_FerryWarpScript
+	dw SeviiOneIslandDockScritp_PostPlayerMovementAndShowSailors
+
+SeviiOneIslandDockScritp_NullScript:
+ 	CheckAndResetEvent EVENT_TRAVELING_WITH_FERRY
+	ret z
+	ld a, SFX_GO_OUTSIDE
+	call PlaySound
+; move player
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, SeviiTOneDockPlayerUpMovement
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; load next script
+	ld a, 3
+	ld [wCurMapScript], a
+	ret
+
+SeviiTOneDockPlayerUpMovement:
+	db D_UP, 1
+	db -1 ; end
+
+SeviiOneIslandDockScritp_TurnSailorAndMovePlayerScript:
+; turn sailor
+	ld a, 1
+	ldh [hSpriteIndex], a
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new fancy approach from Engeze
+	call Delay3
+; hide sailors
+	callfar HideSeviiDockSailors
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+; move player
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, SeviiOneDockPlayerDownMovement
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; load next script
+	ld a, 2
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneDockPlayerDownMovement:
+	db D_DOWN, 1
+	db -1 ; end
+
+SeviiOneIslandDockScritp_FerryWarpScript:
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+; hide player and Pikachu
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+	call LoadTransparentPlayerSpriteGraphics
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+	call WaitForSoundToFinish
+; load next script
+	ld a, 0
+	ld [wCurMapScript], a
+	jpfar PerformFerryWarp
+
+SeviiOneIslandDockScritp_PostPlayerMovementAndShowSailors:
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+; show Pikachu, if present
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+; load next script
+	ld a, 0
+	ld [wCurMapScript], a
+	callfar ShowSeviiDockSailors
+	ret
+
 SeviiOneIslandDock_TextPointers:
 	dw SeviiOneIslandDockSpriteText1
 	dw SeviiOneIslandDockBgText1
@@ -39,7 +130,7 @@ SeviiOneIslandDock_TextPointers:
 
 SeviiOneIslandDockSpriteText1:
 	text_asm
-; disallow embarking if we didn't witness to the Celio-Jenny scene	
+; disallow embarking if we didn't witness to the Celio-Jenny scene
 	CheckEvent EVENT_SEVII_ONE_ISLAND_CELIO_JENNY_DIALOGUE
 	jr nz, .normalDialogue
 	ld hl, SeviiOneIslandDockSailorText_NeedAMoment

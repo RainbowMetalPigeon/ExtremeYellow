@@ -91,10 +91,10 @@ VermilionDockSSAnneLeavesScript:
 	call ScheduleEastColumnRedraw
 	call VermilionDock_EmitSmokePuff
 	pop de
-	ld b, $10
+	ld b, 16
 .smoke_puff_drift_loop
 	call VermilionDock_AnimSmokePuffDriftRight
-	ld c, $8
+	ld c, 8
 .delay_between_drifts
 	call VermilionDock_SyncScrollWithLY
 	dec c ; double this and the other two to speed up the departure
