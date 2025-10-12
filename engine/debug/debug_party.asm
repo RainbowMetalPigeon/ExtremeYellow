@@ -16,7 +16,7 @@ DebugTeam:
 	db MPINSIR, 100 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 100
-	db ARCEUS, 5
+;	db ARCEUS, 5
 ;	db MAROWAK, 99
 ;	db MISSINGNO, 255
 	db -1 ; end

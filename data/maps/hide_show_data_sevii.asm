@@ -30,7 +30,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_44
 ; indoors
 ; 1-island
-	dw NoHSSevii ; SEVII_ONE_ISLAND_DOCK
+	dw SeviiOneIslandDockHS ; SEVII_ONE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM_1
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM_2
@@ -39,12 +39,12 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1
 ; 2-island
-	dw NoHSSevii ; SEVII_TWO_ISLAND_DOCK
+	dw SeviiTwoIslandDockHS ; SEVII_TWO_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_TWO_ISLAND_POKEMON_CENTER
 	dw NoHSSevii ; SEVII_TWO_ISLAND_GYM
 	dw NoHSSevii ; SEVII_TWO_ISLAND_HOUSES
 ; 3-island
-	dw NoHSSevii ; SEVII_THREE_ISLAND_DOCK
+	dw SeviiThreeIslandDockHS ; SEVII_THREE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_THREE_ISLAND_GYM
 	dw NoHSSevii ; SEVII_THREE_ISLAND_HOUSES
@@ -52,13 +52,13 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_THREE_ISLAND_CAVES
 	dw NoHSSevii ; SEVII_BERRY_FOREST
 ; 4-island
-	dw NoHSSevii ; SEVII_FOUR_ISLAND_DOCK
+	dw SeviiFourIslandDockHS ; SEVII_FOUR_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_GYM
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_HOUSES
 	dw SeviiIcefallCave1FHS ; SEVII_ICEFALL_CAVE_1F
 ; 5-island
-	dw NoHSSevii ; SEVII_FIVE_ISLAND_DOCK
+	dw SeviiFiveIslandDockHS ; SEVII_FIVE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_GYM
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_HOUSES
@@ -68,7 +68,7 @@ MapHSPointers_Sevii:
 	dw SeviiLostCave2HS ; SEVII_LOST_CAVE_2
 	dw SeviiLostCave3HS ; SEVII_LOST_CAVE_3
 ; 6-island
-	dw NoHSSevii ; SEVII_SIX_ISLAND_DOCK
+	dw SeviiSixIslandDockHS ; SEVII_SIX_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_1
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_2
@@ -78,7 +78,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ALTERING_CAVE
 	dw NoHSSevii ; SEVII_DOTTED_HOLE
 ; 7-island
-	dw NoHSSevii ; SEVII_SEVEN_ISLAND_DOCK
+	dw SeviiSevenIslandDockHS ; SEVII_SEVEN_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_GYM_1
 	dw SeviiSevenIslandGym2HS ; SEVII_SEVEN_ISLAND_GYM_2
@@ -89,7 +89,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_43_CAVES
 	dw NoHSSevii ; SEVII_TANOBY_CHAMBERS
 ; 8-island
-	dw NoHSSevii ; SEVII_EIGHT_ISLAND_DOCK
+	dw SeviiEightIslandDockHS ; SEVII_EIGHT_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CAVE
 ; end
 	assert_table_length NUM_MAPS_SEVII
@@ -191,13 +191,23 @@ SeviiRoute43HS:
 
 ; indoors ----------------------------------
 
+SeviiOneIslandDockHS:
+	db SEVII_ONE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiOneIslandHousesHS:
 	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Mayoi
 SeviiEmberSpaHS:
 	db SEVII_EMBER_SPA, 5, SHOW ; ball
 	db SEVII_EMBER_SPA, 6, SHOW ; ball
+SeviiTwoIslandDockHS:
+	db SEVII_TWO_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiThreeIslandDockHS:
+	db SEVII_THREE_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiFourIslandDockHS:
+	db SEVII_FOUR_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiIcefallCave1FHS:
 	db SEVII_ICEFALL_CAVE_1F, 3, SHOW ; Rock
+SeviiFiveIslandDockHS:
+	db SEVII_FIVE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiResortGorgeousHS:
 	db SEVII_RESORT_GORGEOUS, 1, HIDE ; Selphy
 SeviiLostCave2HS:
@@ -207,6 +217,10 @@ SeviiLostCave3HS:
 	db SEVII_LOST_CAVE_3, 2, SHOW ; NUGGET
 	db SEVII_LOST_CAVE_3, 3, SHOW ; MAX_ELIXER
 	db SEVII_LOST_CAVE_3, 4, SHOW ; PP_UP
+SeviiSixIslandDockHS:
+	db SEVII_SIX_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiSevenIslandDockHS:
+	db SEVII_SEVEN_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiSevenIslandGym2HS:
 	db SEVII_SEVEN_ISLAND_GYM_2,  8, SHOW ; Rock
 	db SEVII_SEVEN_ISLAND_GYM_2,  9, SHOW ; Rock
@@ -229,6 +243,8 @@ SeviiSevenIslandGym3HS:
 	db SEVII_SEVEN_ISLAND_GYM_3, 12, SHOW ; X_SPECIAL
 	db SEVII_SEVEN_ISLAND_GYM_3, 13, SHOW ; ELIXER
 	db SEVII_SEVEN_ISLAND_GYM_3, 14, SHOW ; X_ACCURACY
+SeviiEightIslandDockHS:
+	db SEVII_EIGHT_ISLAND_DOCK, 1, SHOW ; sailor
 
 
 	db $FF, $01, SHOW ; end, list terminator

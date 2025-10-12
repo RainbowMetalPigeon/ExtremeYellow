@@ -8,19 +8,110 @@ SeviiSevenIslandDock_Script:
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
-SeviiSevenIslandDock_ScriptPointers:
-	dw SeviiSevenIslandDockScritp_NullScript
-	dw SeviiSevenIslandDockScritp_FerryWarpScript
-
-SeviiSevenIslandDockScritp_NullScript:
-	ret
-
-SeviiSevenIslandDockScritp_FerryWarpScript:
-	jpfar PerformFerryWarp
-
 ActionsOnEntry7:
 	ld a, SEVII_SEVEN_ISLAND_CITY
 	ld [wLastBlackoutMap], a
+	ret
+
+SeviiSevenIslandDock_ScriptPointers:
+	dw SeviiSevenIslandDockScritp_NullScript
+	dw SeviiSevenIslandDockScritp_TurnSailorAndMovePlayerScript
+	dw SeviiSevenIslandDockScritp_FerryWarpScript
+	dw SeviiSevenIslandDockScritp_PostPlayerMovementAndShowSailors
+
+SeviiSevenIslandDockScritp_NullScript:
+ 	CheckAndResetEvent EVENT_TRAVELING_WITH_FERRY
+	ret z
+	ld a, SFX_GO_OUTSIDE
+	call PlaySound
+; move player
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, SeviiSevenDockPlayerUpMovement
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; load next script
+	ld a, 3
+	ld [wCurMapScript], a
+	ret
+
+SeviiSevenDockPlayerUpMovement:
+	db D_UP, 1
+	db -1 ; end
+
+SeviiSevenIslandDockScritp_TurnSailorAndMovePlayerScript:
+; turn sailor
+	ld a, 1
+	ldh [hSpriteIndex], a
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new fancy approach from Engeze
+	call Delay3
+; hide sailors
+	callfar HideSeviiDockSailors
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+; move player
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, SeviiSevenDockPlayerDownMovement
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; load next script
+	ld a, 2
+	ld [wCurMapScript], a
+	ret
+
+SeviiSevenDockPlayerDownMovement:
+	db D_DOWN, 1
+	db -1 ; end
+
+SeviiSevenIslandDockScritp_FerryWarpScript:
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+; hide player and Pikachu
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+	call LoadTransparentPlayerSpriteGraphics
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+	call WaitForSoundToFinish
+; load next script
+	ld a, 0
+	ld [wCurMapScript], a
+	jpfar PerformFerryWarp
+
+SeviiSevenIslandDockScritp_PostPlayerMovementAndShowSailors:
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+; show Pikachu, if present
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+; load next script
+	ld a, 0
+	ld [wCurMapScript], a
+	callfar ShowSeviiDockSailors
 	ret
 
 SeviiSevenIslandDock_TextPointers:
