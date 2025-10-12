@@ -119,10 +119,11 @@ SeviiThreeIslandCityHS:
 	db SEVII_THREE_ISLAND_CITY, 10, SHOW ; ball
 	db SEVII_THREE_ISLAND_CITY, 11, SHOW ; ball
 SeviiFourIslandCityHS:
-	db SEVII_FOUR_ISLAND_CITY,  8, SHOW ; rock
-	db SEVII_FOUR_ISLAND_CITY,  9, SHOW ; ball
+	db SEVII_FOUR_ISLAND_CITY,  1, HIDE ; Pink
+	db SEVII_FOUR_ISLAND_CITY,  9, SHOW ; rock
 	db SEVII_FOUR_ISLAND_CITY, 10, SHOW ; ball
 	db SEVII_FOUR_ISLAND_CITY, 11, SHOW ; ball
+	db SEVII_FOUR_ISLAND_CITY, 12, SHOW ; ball
 SeviiFiveIslandCityHS:
 	db SEVII_FIVE_ISLAND_CITY,  3, SHOW ; Monster Rocket
 	db SEVII_FIVE_ISLAND_CITY,  4, SHOW ; Monster Pink

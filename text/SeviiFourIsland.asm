@@ -1,5 +1,5 @@
 _SeviiFourIslandCityText1::
-	text "1"
+	text "1 - PL Pink"
 ;	xxxx "123456789012345678"
 	done
 
@@ -30,6 +30,11 @@ _SeviiFourIslandCityText6::
 
 _SeviiFourIslandCityText7::
 	text "7"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandCityText8::
+	text "8"
 ;	xxxx "123456789012345678"
 	done
 

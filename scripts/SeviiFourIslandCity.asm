@@ -2,24 +2,26 @@ SeviiFourIslandCity_Script:
 	jp EnableAutoTextBoxDrawing
 
 SeviiFourIslandCity_TextPointers:
-	dw SeviiFourIslandCityText1 ; 1
+	dw SeviiFourIslandCityText1 ; 1, post-Leauge Pink
 	dw SeviiFourIslandCityText2 ; 2
 	dw SeviiFourIslandCityText3 ; 3
 	dw SeviiFourIslandCityText4 ; 4
 	dw SeviiFourIslandCityText5 ; 5
 	dw SeviiFourIslandCityText6 ; 6
 	dw SeviiFourIslandCityText7 ; 7
-	dw RockSmashText ; 8
-	dw PickUpItemText ; 9
+	dw SeviiFourIslandCityText8 ; 8
+	dw RockSmashText ; 9
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
+	dw PickUpItemText ; 12
 	; signs
-	dw SeviiFourIslandCitySignText1 ; 12
-	dw SeviiFourIslandCitySignText2 ; 13
-	dw SeviiFourIslandCitySignText3 ; 14
-	dw SeviiFourIslandCitySignText4 ; 15
-	dw PokeCenterSignText ; 16
-	dw MartSignText ; 17
+	dw SeviiFourIslandCitySignText1 ; 13
+	dw SeviiFourIslandCitySignText2 ; 14
+	dw SeviiFourIslandCitySignText3 ; 15
+	dw SeviiFourIslandCitySignText4 ; 16
+	dw PokeCenterSignText ; 17
+	dw MartSignText ; 18
+	; scripts
 
 ; scripts =========================================
 
@@ -51,6 +53,10 @@ SeviiFourIslandCityText6:
 
 SeviiFourIslandCityText7:
 	text_far _SeviiFourIslandCityText7
+	text_end
+
+SeviiFourIslandCityText8:
+	text_far _SeviiFourIslandCityText8
 	text_end
 
 SeviiFourIslandCitySignText1:
