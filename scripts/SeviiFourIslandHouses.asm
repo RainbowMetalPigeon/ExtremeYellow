@@ -17,6 +17,8 @@ SeviiFourIslandHouses_TextPointers:
 	dw SeviiFourIslandHousesSignText6_Switch
 	dw SeviiFourIslandHousesSignText7_PC
 	dw SeviiFourIslandHousesSignText8_Cheater ; 14
+	dw SeviiFourIslandHousesSignText9_FakeBooks ; 15
+	dw SeviiFourIslandHousesSignText10_FakeBooks ; 16
 	; scripts
 
 ; scripts =========================
@@ -94,6 +96,11 @@ SeviiFourIslandHousesSignText7_PC:
 
 SeviiFourIslandHousesSignText8_Cheater:
 	text_far _SeviiFourIslandHousesSignText8_Cheater
+	text_end
+
+SeviiFourIslandHousesSignText9_FakeBooks:
+SeviiFourIslandHousesSignText10_FakeBooks:
+	text_far _SeviiFourIslandHousesSignText_FakeBooks
 	text_end
 
 ; scripts ------

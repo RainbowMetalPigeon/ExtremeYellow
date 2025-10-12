@@ -196,10 +196,18 @@ _SeviiFourIslandHousesSignText7_PC::
 	done
 
 _SeviiFourIslandHousesSignText8_Cheater::
-	text "CHEATER!!! >:C"
+	text "CHEATER!!! :C"
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiFourIslandHousesSignText_FakeBooks::
+	text "Ehy! These are not"
+	line "real books!"
+
+	para "They are still the"
+	line "fake ones from"
+	cont "the shop display!"
+	done
 
 ; gym ------------------------------------
 

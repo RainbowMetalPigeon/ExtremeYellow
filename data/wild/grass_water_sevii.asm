@@ -47,7 +47,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_SECRET_GARDEN ; TBE?
 	dw NothingWildMons               ; SEVII_THREE_ISLAND_CAVES ; TBE
-	dw NothingWildMons               ; SEVII_BERRY_FOREST ; TBE
+	dw SeviiBerryForestWildMons      ; SEVII_BERRY_FOREST
 ; 4-island
 	dw SeviiShipDockWildMons         ; SEVII_FOUR_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
@@ -130,3 +130,4 @@ INCLUDE "data/wild/maps/sevii/SeviiIcefallCave1F.asm"
 INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym2.asm"
 INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym2Dive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym3.asm"
+INCLUDE "data/wild/maps/sevii/SeviiBerryForest.asm"

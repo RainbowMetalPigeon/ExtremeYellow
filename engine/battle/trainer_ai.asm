@@ -1072,15 +1072,15 @@ INCLUDE "data/trainers/move_choices.asm"
 
 ;INCLUDE "engine/battle/misc.asm" ; edited, not necessary here
 
-INCLUDE "data/trainers/special_moves.asm"
-
 INCLUDE "data/trainers/special_moves_physicalspecialsplit.asm" ; new, testing
 
-; the next two need to be together, but don't need to be here 
+; the next three need to be together, but don't need to be here 
 
 ;INCLUDE "data/trainers/parties.asm"
 
 ;INCLUDE "engine/battle/read_trainer_party.asm"
+
+;INCLUDE "data/trainers/special_moves.asm" ; now directly inside the above one
 
 TrainerAI:
 	ld a, [wIsInBattle]

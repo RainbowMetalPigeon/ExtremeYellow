@@ -527,3 +527,5 @@ LoadTrainerNumber: ; simply loads [wTrainerNo] in a for normal trainers, and add
 .normalLoading
 	ld a, [wTrainerNo]
 	ret
+
+INCLUDE "data/trainers/special_moves.asm" ; new

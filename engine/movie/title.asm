@@ -361,8 +361,8 @@ CopyFixedLengthText:
 	ld bc, NAME_LENGTH
 	jp CopyData
 
-NintenText: db "NINTEN@"
-SonyText:   db "SONY@"
+NintenText: db "PIGEON@" ; edited
+SonyText:   db "BOREDOM@" ; edited
 
 IncrementResetCounter:
 	ld hl, wTitleScreenScene + 2

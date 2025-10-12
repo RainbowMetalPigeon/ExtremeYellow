@@ -211,6 +211,10 @@ INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm" ; moved from "Battle Engine 6"
 INCLUDE "data/moves/moves.asm" ; moved from "Battle Engine 6"
 INCLUDE "engine/battle/misc.asm" ; moved from "Battle Engine 6"
 INCLUDE "data/trainers/names.asm" ; moved from "Battle Engine 6"
+
+
+SECTION "Battle Engine 6c", ROMX ; new, to save space in the previous Sections
+
 INCLUDE "data/trainers/parties.asm" ; moved from "Battle Engine 6"
 INCLUDE "engine/battle/read_trainer_party.asm" ; moved from "Battle Engine 6"
 

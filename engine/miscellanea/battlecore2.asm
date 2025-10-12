@@ -126,6 +126,16 @@ ApplyEntryHazardsPlayer::
 	jr z, .checkStickyWeb
 ; apply TOXIC_SPIKES
 ; check if the grounded entrying mon is steel (only in inverse) or poison (always)
+	ld b, POISON
+	call CheckIfPlayerPokemonIsCertainType ; z = yes
+	jr nz, .entryingMonIsNotPoisonType
+; it absorbs the toxic spikes
+	xor a
+	ld [wHazardsToxicSpikesPlayerSide], a
+	ld hl, AbsorbsTheToxicSpikesText
+	call PrintText
+	jr .checkStickyWeb
+.entryingMonIsNotPoisonType ; not poison: check if steel, but only in non-inverse battles
 	ld a, [wInverseBattle]
 	and a
 	jr nz, .inverseBattle
@@ -133,19 +143,9 @@ ApplyEntryHazardsPlayer::
 	call CheckIfPlayerPokemonIsCertainType ; z = yes
 	jr z, .checkStickyWeb
 .inverseBattle
-	ld b, POISON
-	call CheckIfPlayerPokemonIsCertainType ; z = yes
-	jr nz, .entryingMonNotPoison
-; entrying grounded mon is poison: it absorbs the toxic spikes
-	xor a
-	ld [wHazardsToxicSpikesPlayerSide], a
-	ld hl, AbsorbsTheToxicSpikesText
-	call PrintText
-	jr .checkStickyWeb
-.entryingMonNotPoison
 ; check if already poisoned; if yes, skip this
-	ld hl, wBattleMonStatus
-	bit PSN, [hl]
+	ld a, [wBattleMonStatus]
+	and a
 	jr nz, .checkStickyWeb
 ; not already poisoned
 	ld hl, PoisonedByToxicSpikesText
@@ -273,6 +273,16 @@ ApplyEntryHazardsEnemy::
 	jr z, .checkStickyWeb
 ; apply TOXIC_SPIKES
 ; check if the grounded entrying mon is steel (only in inverse) or poison (always)
+	ld b, POISON
+	call CheckIfEnemyPokemonIsCertainType ; z = yes
+	jr nz, .entryingMonIsNotPoisonType
+; it absorbs the toxic spikes
+	xor a
+	ld [wHazardsToxicSpikesEnemySide], a
+	ld hl, AbsorbsTheToxicSpikesText
+	call PrintText
+	jr .checkStickyWeb
+.entryingMonIsNotPoisonType ; not poison: check if steel, but only in non-inverse battles
 	ld a, [wInverseBattle]
 	and a
 	jr nz, .inverseBattle
@@ -280,19 +290,9 @@ ApplyEntryHazardsEnemy::
 	call CheckIfEnemyPokemonIsCertainType ; z = yes
 	jr z, .checkStickyWeb
 .inverseBattle
-	ld b, POISON
-	call CheckIfEnemyPokemonIsCertainType ; z = yes
-	jr nz, .entryingMonNotPoison
-; entrying grounded mon is poison: it absorbs the toxic spikes
-	xor a
-	ld [wHazardsToxicSpikesEnemySide], a
-	ld hl, AbsorbsTheToxicSpikesText
-	call PrintText
-	jr .checkStickyWeb
-.entryingMonNotPoison
 ; check if already poisoned; if yes, skip this
-	ld hl, wEnemyMonStatus
-	bit PSN, [hl]
+	ld a, [wEnemyMonStatus]
+	and a
 	jr nz, .checkStickyWeb
 ; not already poisoned
 	ld hl, PoisonedByToxicSpikesText
