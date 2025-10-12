@@ -452,6 +452,28 @@ _SeviiRoute31SignText1::
 	text "EMBER SPA"
 	done
 
+; Ember spa ------------------------------------
+
+_SeviiEmberSpaText1::
+	text "Here HM"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText2::
+	text "Relaxo"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText3::
+	text "Relaxone"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText4::
+	text "Relaxissimo"
+;	xxxx "123456789012345678"
+	done
+
 ; route 32 ------------------------------------
 
 _TreasureBeachSignText::

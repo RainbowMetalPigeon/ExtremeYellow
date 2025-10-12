@@ -35,7 +35,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM_1
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM_2
 	dw SeviiOneIslandHousesHS ; SEVII_ONE_ISLAND_HOUSES
-	dw NoHSSevii ; SEVII_EMBER_SPA
+	dw SeviiEmberSpaHS ; SEVII_EMBER_SPA
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1
 ; 2-island
@@ -193,6 +193,9 @@ SeviiRoute43HS:
 
 SeviiOneIslandHousesHS:
 	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Mayoi
+SeviiEmberSpaHS:
+	db SEVII_EMBER_SPA, 5, SHOW ; ball
+	db SEVII_EMBER_SPA, 6, SHOW ; ball
 SeviiIcefallCave1FHS:
 	db SEVII_ICEFALL_CAVE_1F, 3, SHOW ; Rock
 SeviiResortGorgeousHS:
