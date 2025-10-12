@@ -109,7 +109,35 @@ _SeviiThreeIslandHousesSignText2::
 	done
 
 _SeviiThreeIslandHousesBookshelfText1::
-	text "Test failed" ; TBE
+	text "Bookshelf 1"
+	done
+
+_SeviiThreeIslandHousesBookshelfText2::
+	text "Bookshelf 2"
+	done
+
+_SeviiThreeIslandHousesBookshelfText3::
+	text "Bookshelf 3"
+	done
+
+_SeviiThreeIslandHousesBookshelfText4::
+	text "Bookshelf 4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText5::
+	text "Bookshelf 5"
+	done
+
+_SeviiThreeIslandHousesBookshelfText6::
+	text "Bookshelf 6"
+	done
+
+_SeviiThreeIslandHousesBookshelfText7::
+	text "Bookshelf 7"
+	done
+
+_SeviiThreeIslandHousesBookshelfText8::
+	text "Bookshelf 8"
 	done
 
 ; gym -------------------------------------

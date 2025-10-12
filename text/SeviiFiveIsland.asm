@@ -180,6 +180,50 @@ _SeviiFiveIslandPokemonCenterAndMart_Text4::
 	text "test 5-4"
 	done
 
+; Houses ---------------------------------
+
+_SeviiFiveIslandHousesText1::
+	text "Trick Room Tutor"
+	line "I am an elder"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesSignText1::
+	text "Uhm, it seems that"
+	line "this General"
+	cont "Relativity field"
+	cont "equation assigns"
+	cont "complex values to"
+	cont "the scalar"
+	cont "curvarture within"
+	cont "the tensor..."
+
+	para "What an unorthodox"
+	line "approach! One can"
+	cont "only wonder what"
+	cont "consequences it"
+	cont "may lead to!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesSignText2::
+	text "This looks like"
+	line "the fundamental"
+	cont "Quantum Field"
+	cont "equation, but the"
+	cont "space derivative"
+	cont "and the time one"
+	cont "swapped places!"
+
+	para "What could happen"
+	line "to the wave"
+	cont "function under"
+	cont "these unheard"
+	cont "hypothesis?"
+	cont "Fascinating!" 
+;	xxxx "123456789012345678"
+	done
+
 ; gym -------------------------------------
 
 _SeviiFiveIslandGymText1_NoChampionYet::

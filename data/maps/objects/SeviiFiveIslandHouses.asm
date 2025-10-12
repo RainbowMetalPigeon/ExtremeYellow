@@ -6,13 +6,10 @@ SeviiFiveIslandHouses_Object:
 	warp_event  3,  7, SEVII_FIVE_ISLAND_CITY, 6
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event  2,  0,  2 ; SeviiFiveIslandHousesSignText1
+	bg_event  3,  0,  3 ; SeviiFiveIslandHousesSignText2
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event  2,  4, SPRITE_LITTLE_GIRL, STAY, RIGHT, 1 ; Trick Room Tutor
 
 	def_warps_to SEVII_FIVE_ISLAND_HOUSES

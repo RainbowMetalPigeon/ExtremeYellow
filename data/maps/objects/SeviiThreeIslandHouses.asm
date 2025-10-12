@@ -9,9 +9,16 @@ SeviiThreeIslandHouses_Object:
 	warp_event 20,  0, SEVII_THREE_ISLAND_SECRET_GARDEN, 1
 
 	def_bg_events
-	bg_event 19,  4, 4 ; SeviiThreeIslandHousesSignText1
-	bg_event  0,  7, 5 ; SeviiThreeIslandHousesSignText2
-	bg_event 14,  1, 6 ; SeviiThreeIslandHousesBookshelfText1
+	bg_event 19,  4,  4 ; SeviiThreeIslandHousesSignText1
+	bg_event  0,  7,  5 ; SeviiThreeIslandHousesSignText2
+	bg_event 14,  1,  6 ; SeviiThreeIslandHousesBookshelfText1
+	bg_event 15,  1,  7 ; SeviiThreeIslandHousesBookshelfText2
+	bg_event 16,  1,  8 ; SeviiThreeIslandHousesBookshelfText3
+	bg_event 17,  1,  9 ; SeviiThreeIslandHousesBookshelfText4
+	bg_event 18,  1, 10 ; SeviiThreeIslandHousesBookshelfText5
+	bg_event 19,  1, 11 ; SeviiThreeIslandHousesBookshelfText6
+	bg_event 20,  1, 12 ; SeviiThreeIslandHousesBookshelfText7
+	bg_event 21,  1, 13 ; SeviiThreeIslandHousesBookshelfText8
 
 	def_object_events
 	object_event  5,  3, SPRITE_BRUNETTE_GIRL, STAY, RIGHT, 1 ; move tutor terrains

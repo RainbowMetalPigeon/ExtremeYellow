@@ -26,7 +26,7 @@ SeviiFourIslandHouses_Object:
 	object_event  2,  4, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 2 ; Dad
 	object_event  5,  4, SPRITE_GAMBLER, STAY, LEFT, 3 ; Papa
 	object_event  5,  5, SPRITE_MIDDLE_AGED_WOMAN, STAY, LEFT, 4 ; Mama
-	object_event 33,  4, SPRITE_ERIKA, STAY, LEFT, 5 ; move tutor
+	object_event 33,  4, SPRITE_ERIKA, STAY, LEFT, 5 ; entry hazards tutor
 	object_event 43,  5, SPRITE_GENTLEMAN, STAY, ANY_DIR, 6 ; furniture obsessed
 
 	def_warps_to SEVII_FOUR_ISLAND_HOUSES

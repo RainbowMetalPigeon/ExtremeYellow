@@ -1648,20 +1648,22 @@ INCLUDE "scripts/SeviiFiveIslandGym.asm"
 INCLUDE "data/maps/objects/SeviiFiveIslandGym.asm"
 SeviiFiveIslandGym_Blocks: INCBIN "maps/SeviiFiveIslandGym.blk"
 
+; --- these three need to be together
 INCLUDE "data/maps/headers/SeviiSixIslandGym1.asm"
 INCLUDE "scripts/SeviiSixIslandGym1.asm"
 INCLUDE "data/maps/objects/SeviiSixIslandGym1.asm"
 SeviiSixIslandGym1_Blocks: INCBIN "maps/SeviiSixIslandGym1.blk"
-
+;
 INCLUDE "data/maps/headers/SeviiSixIslandGym2.asm"
 INCLUDE "scripts/SeviiSixIslandGym2.asm"
 INCLUDE "data/maps/objects/SeviiSixIslandGym2.asm"
 SeviiSixIslandGym2_Blocks: INCBIN "maps/SeviiSixIslandGym2.blk"
-
+;
 INCLUDE "data/maps/headers/SeviiSixIslandGym3.asm"
 INCLUDE "scripts/SeviiSixIslandGym3.asm"
 INCLUDE "data/maps/objects/SeviiSixIslandGym3.asm"
 SeviiSixIslandGym3_Blocks: INCBIN "maps/SeviiSixIslandGym3.blk"
+; -----------------------------------
 
 INCLUDE "data/maps/headers/SeviiSevenIslandGym1.asm"
 INCLUDE "scripts/SeviiSevenIslandGym1.asm"
@@ -1763,11 +1765,6 @@ INCLUDE "scripts/SeviiTanobyChambers.asm"
 INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
 SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
 
-INCLUDE "data/maps/headers/SeviiEightIslandCave.asm"
-INCLUDE "scripts/SeviiEightIslandCave.asm"
-INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
-SeviiEightIslandCave_Blocks: INCBIN "maps/SeviiEightIslandCave.blk"
-
 
 SECTION "Maps Sevii 3", ROMX ; new
 
@@ -1805,3 +1802,8 @@ INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
 INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
 INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
 SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"
+
+INCLUDE "data/maps/headers/SeviiEightIslandCave.asm"
+INCLUDE "scripts/SeviiEightIslandCave.asm"
+INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
+SeviiEightIslandCave_Blocks: INCBIN "maps/SeviiEightIslandCave.blk"

@@ -39,7 +39,7 @@ SeviiFourIslandHousesText4: ; Mama
 	text_far _SeviiFourIslandHousesText4
 	text_end
 
-SeviiFourIslandHousesText5: ; Tutor
+SeviiFourIslandHousesText5: ; Entry Hazards Tutor
 	text_far _SeviiFourIslandHousesText5
 	text_end
 
