@@ -22,14 +22,14 @@ SeviiThreeIslandCity_Object:
 
 	def_object_events
 	object_event  6, 39, SPRITE_FISHER, STAY, DOWN, 1
-	object_event  9, 31, SPRITE_GIRL, WALK, UP_DOWN, 2
-	object_event 10, 25, SPRITE_GIRL, WALK, ANY_DIR, 3
-	object_event 12, 18, SPRITE_GIRL, WALK, LEFT_RIGHT, 4
-	object_event 20, 13, SPRITE_GIRL, WALK, UP_DOWN, 5
-	object_event 14, 11, SPRITE_GIRL, WALK, ANY_DIR, 6
-	object_event  5,  8, SPRITE_GIRL, STAY, LEFT, 7
-	object_event 22,  7, SPRITE_GIRL, STAY, DOWN, 8 ; playing hide-and-seek
-	object_event 26,  4, SPRITE_GIRL, STAY, RIGHT, 9
+	object_event  9, 31, SPRITE_BRUNETTE_GIRL, WALK, UP_DOWN, 2
+	object_event 10, 25, SPRITE_SUPER_NERD, WALK, ANY_DIR, 3
+	object_event 12, 18, SPRITE_MIDDLE_AGED_WOMAN, WALK, LEFT_RIGHT, 4
+	object_event 20, 13, SPRITE_GAMBLER, WALK, UP_DOWN, 5
+	object_event 14, 11, SPRITE_BRUNETTE_GIRL, WALK, ANY_DIR, 6
+	object_event  5,  8, SPRITE_COOLTRAINER_F, STAY, LEFT, 7
+	object_event 21,  5, SPRITE_LITTLE_GIRL, WALK, LEFT_RIGHT, 8 ; playing seek
+	object_event 26,  4, SPRITE_LITTLE_GIRL, STAY, RIGHT, 9 ; playing hide
 	object_event 24, 38, SPRITE_POKE_BALL, STAY, NONE, 10, ULTRA_BALL
 	object_event 24, 27, SPRITE_POKE_BALL, STAY, NONE, 11, CARBOS
 
