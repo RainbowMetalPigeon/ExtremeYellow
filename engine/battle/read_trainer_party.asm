@@ -408,6 +408,8 @@ CheckIfWeAreInAGym: ; z flag if we are, nz otherwise
 	ret z
 	cp CELADON_GYM
 	ret z
+	cp OCHRE_GYM
+	ret z
 	cp FUCHSIA_GYM
 	ret z
 	cp SAFFRON_GYM
@@ -465,6 +467,8 @@ CheckIfOpponentIsAGymLeader: ; z flag if they are
 	cp LT_SURGE
 	ret z
 	cp ERIKA
+	ret z
+	cp ORAGE
 	ret z
 	cp KOGA
 	ret z
