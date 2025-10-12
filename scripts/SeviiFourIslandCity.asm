@@ -27,7 +27,7 @@ SeviiFourIslandCity_TextPointers:
 
 ; texts =========================================
 
-SeviiFourIslandCityText1:
+SeviiFourIslandCityText1: ; post-Leauge Pink
 	text_far _SeviiFourIslandCityText1
 	text_end
 

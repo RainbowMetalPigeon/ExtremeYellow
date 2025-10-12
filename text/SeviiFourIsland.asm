@@ -83,6 +83,124 @@ _SeviiFourIslandPokemonCenterAndMart_Text4::
 	text "test 4-4"
 	done
 
+; houses ------------------------------------
+
+; people
+
+_SeviiFourIslandHousesText1::
+	text "PINK"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText2::
+	text "Dad"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText3::
+	text "Papa"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText4::
+	text "Mama"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText5::
+	text "Tutor"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText6::
+	text "Help..."
+
+	para "Whenever I go to"
+	line "YCHOU, I cannot"
+	cont "help myself but"
+	cont "buy more and more"
+	cont "furniture..."
+	done
+
+; signs
+
+_SeviiFourIslandHousesSignText1_TV_Right::
+	text "A musician has"
+	line "composed their"
+	cont "masterpiece"
+	cont "of a lifetime,"
+	cont "and now they're"
+	cont "writing a letter."
+
+	para "I better make my"
+	line "masterpiece too!"
+	done
+
+_SeviiFourIslandHousesSignText1_TV_Wrong::
+	text "Oops, wrong side."
+	done
+
+_SeviiFourIslandHousesSignText2_Picture::
+	text "A picture of three"
+	line "adults and a kid,"
+	cont "all smiling."
+
+	para "Looks like a"
+	line "happy family."
+	done
+
+_SeviiFourIslandHousesSignText3_Paper1::
+	text "'Remember to be"
+	line "yourself, always."
+
+	para "Inspiration is an"
+	line "opportunity for"
+	cont "growth, but never"
+	cont "lose yourself.'"
+	done
+
+_SeviiFourIslandHousesSignText4_Paper2::
+	text "'Leave nothing"
+	line "to chance."
+
+	para "Prepare for any"
+	line "event. Foresee"
+	cont "and plan ahead.'"
+	done
+
+_SeviiFourIslandHousesSignText5_Paper3::
+	text "'Study how to"
+	line "battle."
+
+	para "Don't let luck get"
+	line "in your way."
+	cont "Learn everything"
+	cont "about fighting.'"
+	done
+
+_SeviiFourIslandHousesSignText6_Switch::
+	text "PINK's Switch!"
+
+	para "The protagonist is"
+	line "a hunter wielding"
+	cont "an oversized"
+	cont "weapon to fight"
+	cont "gigantic, cool"
+	cont "monsters."
+	done
+
+_SeviiFourIslandHousesSignText7_PC::
+	text "PINK's PC."
+
+	para "Better not to pry!"
+	done
+
+_SeviiFourIslandHousesSignText8_Cheater::
+	text "CHEATER!!! >:C"
+;	xxxx "123456789012345678"
+	done
+
+
 ; gym ------------------------------------
 
 _SeviiFourIslandGymText1_NoChampionYet::

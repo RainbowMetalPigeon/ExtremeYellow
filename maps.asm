@@ -1768,11 +1768,6 @@ INCLUDE "scripts/SeviiEightIslandCave.asm"
 INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
 SeviiEightIslandCave_Blocks: INCBIN "maps/SeviiEightIslandCave.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
-INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
-INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
-SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"
-
 
 SECTION "Maps Sevii 3", ROMX ; new
 
@@ -1805,3 +1800,8 @@ INCLUDE "data/maps/headers/SeviiRoute39.asm"
 INCLUDE "scripts/SeviiRoute39.asm"
 INCLUDE "data/maps/objects/SeviiRoute39.asm"
 SeviiRoute39_Blocks: INCBIN "maps/SeviiRoute39.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
+INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
+INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
+SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"

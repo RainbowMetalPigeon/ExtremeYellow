@@ -12,13 +12,21 @@ SeviiFourIslandHouses_Object:
 	warp_event 45,  7, SEVII_FOUR_ISLAND_CITY, 8
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event  3,  1,  7 ; SeviiFourIslandHousesSignText1_TV
+	bg_event  4,  0,  8 ; SeviiFourIslandHousesSignText2_Picture
+	bg_event 17,  0,  9 ; SeviiFourIslandHousesSignText3_Paper1
+	bg_event 18,  0, 10 ; SeviiFourIslandHousesSignText4_Paper2
+	bg_event 19,  0, 11 ; SeviiFourIslandHousesSignText5_Paper3
+	bg_event 17,  5, 12 ; SeviiFourIslandHousesSignText6_Switch
+	bg_event 14,  1, 13 ; SeviiFourIslandHousesSignText7_PC
+	bg_event 49,  0, 14 ; SeviiFourIslandHousesSignText8_Cheater
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event  2,  6, SPRITE_PINK, STAY, DOWN, 1 ; challenge right after 5-Island
+	object_event  2,  4, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 2 ; Dad
+	object_event  5,  4, SPRITE_GAMBLER, STAY, LEFT, 3 ; Papa
+	object_event  5,  5, SPRITE_MIDDLE_AGED_WOMAN, STAY, LEFT, 4 ; Mama
+	object_event 33,  4, SPRITE_ERIKA, STAY, LEFT, 5 ; move tutor
+	object_event 43,  5, SPRITE_GENTLEMAN, STAY, ANY_DIR, 6 ; furniture obsessed
 
 	def_warps_to SEVII_FOUR_ISLAND_HOUSES
