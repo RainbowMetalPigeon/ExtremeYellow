@@ -62,7 +62,7 @@ SplitMapSpriteSets:
 	db EAST_WEST,   24, $09, $05 ; $f6
 	db EAST_WEST,   34, $09, $0A ; $f7
 	db EAST_WEST,   53, $13, $0B ; $f8, edited, $0B was $0A, and $13 was $01
-	db NORTH_SOUTH, 33, $02, $07 ; $f9
+	db NORTH_SOUTH, 33, $12, $07 ; $f9, edited, $12 was $02
 	db NORTH_SOUTH,  2, $07, $11 ; $fa, edited, $11 was $04
 	db EAST_WEST,   17, $05, $07 ; $fb
 	db EAST_WEST,    3, $07, $0f ; $fc, edited, $0f was $03
