@@ -2,7 +2,7 @@ SeviiRoute33_Object:
 	db $0f ; border block
 
 	def_warp_events
-	warp_event  7,  5, SEVII_BERRY_FOREST, 1
+	warp_event  7,  5, SEVII_BERRY_FOREST, 2
 	warp_event 98, 23, SEVII_THREE_ISLAND_SECRET_GARDEN, 3
 
 	def_bg_events

@@ -50,7 +50,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_THREE_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_THREE_ISLAND_SECRET_GARDEN
 	dw NoHSSevii ; SEVII_THREE_ISLAND_CAVES
-	dw NoHSSevii ; SEVII_BERRY_FOREST
+	dw SeviiBerryForestHS ; SEVII_BERRY_FOREST
 ; 4-island
 	dw SeviiFourIslandDockHS ; SEVII_FOUR_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
@@ -203,6 +203,12 @@ SeviiTwoIslandDockHS:
 	db SEVII_TWO_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiThreeIslandDockHS:
 	db SEVII_THREE_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiBerryForestHS:
+	db SEVII_BERRY_FOREST, 1, SHOW ; Orm
+	db SEVII_BERRY_FOREST, 2, SHOW ; Mayoi
+	db SEVII_BERRY_FOREST, 3, SHOW ; ball
+	db SEVII_BERRY_FOREST, 4, SHOW ; ball
+	db SEVII_BERRY_FOREST, 5, SHOW ; ball
 SeviiFourIslandDockHS:
 	db SEVII_FOUR_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiIcefallCave1FHS:

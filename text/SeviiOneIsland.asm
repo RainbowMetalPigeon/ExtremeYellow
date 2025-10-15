@@ -168,7 +168,7 @@ _SeviiOneIslandHousesText2_AfterRescueBeforeFlute::
 	text "Thanks so so so"
 	line "much! Flute"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiOneIslandHousesText2_NoRoom::
 	text "Oh, you have no"

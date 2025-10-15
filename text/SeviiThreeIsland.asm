@@ -201,9 +201,12 @@ _SeviiThreeIslandDockBgText1::
 _SeviiRoute33Text1_Core::
 	text "Go 'way 'ight now!"
 	line "No stick yar nose"
-	cont "here, or our boss"
-	cont "will beat ya to"
-	cont "a bloodin' pulp!"
+	cont "here! Boss made a"
+	cont "pact with those"
+	cont "ROCKETs, and now"
+	cont "we guard this"
+	cont "bridge, yes!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute33Text2_Core::
@@ -291,9 +294,37 @@ _SeviiRoute33SignText2::
 ; Dream Forest ------------------------------------
 
 _SeviiBerryForestText1::
-	text "CARR: xxx"
+	text "ORM: proxy"
 	done
 
 _SeviiBerryForestText2::
-	text "MAYOI: yyy"
+	text "MAYOI: proxy"
+	done
+
+_SeviiBerryForestScriptText1::
+	text "ORM: I'm bad"
+
+	para "MAYOI: I'm scared"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText2::
+	text "ORM: Oh guest"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText3::
+	text "ORM: smash ya"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestOrmDefeatText::
+	text "Damn ya"
+	line "smashed me"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiBerryForestScriptText4::
+	text "Ok ciao"
+;	xxxx "123456789012345678"
 	done

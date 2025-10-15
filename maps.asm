@@ -1760,11 +1760,6 @@ INCLUDE "scripts/SeviiRoute43Caves.asm"
 INCLUDE "data/maps/objects/SeviiRoute43Caves.asm"
 SeviiRoute43Caves_Blocks: INCBIN "maps/SeviiRoute43Caves.blk"
 
-INCLUDE "data/maps/headers/SeviiTanobyChambers.asm"
-INCLUDE "scripts/SeviiTanobyChambers.asm"
-INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
-SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
-
 
 SECTION "Maps Sevii 3", ROMX ; new
 
@@ -1807,3 +1802,8 @@ INCLUDE "data/maps/headers/SeviiEightIslandCave.asm"
 INCLUDE "scripts/SeviiEightIslandCave.asm"
 INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
 SeviiEightIslandCave_Blocks: INCBIN "maps/SeviiEightIslandCave.blk"
+
+INCLUDE "data/maps/headers/SeviiTanobyChambers.asm"
+INCLUDE "scripts/SeviiTanobyChambers.asm"
+INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
+SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"

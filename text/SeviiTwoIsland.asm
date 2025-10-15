@@ -37,7 +37,7 @@ _SeviiTwoIslandCityText8_AfterRiders::
 	line "ya who and where"
 	cont "I am?"
 
-	para "I'll whipe them"
+	para "I'll whip them"
 	line "to the bones for"
 	cont "this, but first"
 	cont "lemme smash ya."
