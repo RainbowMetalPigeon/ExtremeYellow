@@ -674,12 +674,12 @@ DetermineShinyPaletteID: ; new
 DetermineShinyPaletteIDOutOfBattle: ; new
 	ld [wd11e], a
 	and a ; is the mon index 0?
-	jr z, .skipDexNumConversion
+	jp z, ChoosePlayerPalette ; jr z, .skipDexNumConversion
 	push bc
 	predef IndexToPokedex
 	pop bc
 	ld a, [wd11e]
-.skipDexNumConversion
+;.skipDexNumConversion
 	ld e, a
 	ld d, 0
 	ld hl, MonsterPalettesShiny

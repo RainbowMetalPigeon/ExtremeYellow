@@ -97,7 +97,7 @@ SeviiBerryForest_2:
 	ret
 
 SeviiBerryForest_3:
-	ld a, $f0
+	ld a, $0
 	ld [wJoyIgnore], a
 ; Orm last pre-battle dialogue and start battle
 	ld a, 8
