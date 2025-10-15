@@ -198,11 +198,24 @@ _SeviiThreeIslandDockBgText1::
 
 ; route 33 ------------------------------------
 
-_SeviiRoute33Text1::
-	text "Shoo 1!"
+_SeviiRoute33Text1_Core::
+	text "Go 'way 'ight now!"
+	line "No stick yar nose"
+	cont "here, or our boss"
+	cont "will beat ya to"
+	cont "a bloodin' pulp!"
 	done
 
-_SeviiRoute33Text2::
+_SeviiRoute33Text2_Core::
+	text "Don't ya try and"
+	line "mess with us kid,"
+	cont "or our boss'll"
+	cont "will storm here"
+	cont "from BOON to"
+	cont "destroy ya!"
+	done
+
+_SeviiRoute33Text3And4::
 	text "Shoo 2!"
 	done
 

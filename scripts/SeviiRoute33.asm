@@ -147,13 +147,30 @@ SeviiRoute33AfterBattleText5:
 ; ---------------------------------------
 
 SeviiRoute33Text1:
-	text_far _SeviiRoute33Text1
-	text_end
-	
+	text_asm
+	SetEvent EVENT_SEVII_SPOKEN_WITH_RIDERS
+	ld hl, SeviiRoute33Text1_Core
+	call PrintText
+	jp TextScriptEnd
+
 SeviiRoute33Text2:
+	text_asm
+	SetEvent EVENT_SEVII_SPOKEN_WITH_RIDERS
+	ld hl, SeviiRoute33Text2_Core
+	call PrintText
+	jp TextScriptEnd
+
+SeviiRoute33Text1_Core:
+	text_far _SeviiRoute33Text1_Core
+	text_end
+
+SeviiRoute33Text2_Core:
+	text_far _SeviiRoute33Text2_Core
+	text_end
+
 SeviiRoute33Text3:
 SeviiRoute33Text4:
-	text_far _SeviiRoute33Text2
+	text_far _SeviiRoute33Text3And4
 	text_end
 
 ; ---------------------------------------
@@ -161,8 +178,7 @@ SeviiRoute33Text4:
 SeviiRoute33SignText1:
 	text_far _SeviiRoute33SignText1
 	text_end
-	
+
 SeviiRoute33SignText2:
 	text_far _SeviiRoute33SignText2
 	text_end
-	

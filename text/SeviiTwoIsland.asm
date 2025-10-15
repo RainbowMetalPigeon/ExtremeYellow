@@ -26,9 +26,30 @@ _SeviiTwoIslandCityText7::
 	text "7"
 	done
 
-_SeviiTwoIslandCityText8::
-	text "8"
+_SeviiTwoIslandCityText8_BeforeRiders::
+	text "Scram right now,"
+	line "or I'll smash yar"
+	cont "shitty face."
 	done
+
+_SeviiTwoIslandCityText8_AfterRiders::
+	text "Uh? My goons told"
+	line "ya who and where"
+	cont "I am?"
+
+	para "I'll whipe them"
+	line "to the bones for"
+	cont "this, but first"
+	cont "lemme smash ya."
+	done
+
+_SeviiTwoIslandBikersBoosDefeatedText::
+	text "What"
+	line "the fuck?!"
+
+	para "This should've been"
+	line "an easy job!"
+	prompt
 
 _SeviiTwoIslandCityText10::
 	text "MOO!"
@@ -58,6 +79,22 @@ _SeviiTwoIslandCitySignText4::
 
 	para "(TBE)"
 ;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityScriptText1::
+	text "Oh, screw to all."
+	line "I should've not"
+	cont "accepted to work"
+	cont "with TEAM ROCKET."
+
+	para "We're our own band,"
+	line "and those are too"
+	cont "bad for us."
+
+	para "Grr. Ya won."
+	line "We'll leave."
+	cont "See ya never,"
+	cont "shitface kid."
 	done
 
 ; city's indoor ------------------------------------

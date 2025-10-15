@@ -482,6 +482,8 @@ CueBallData:
 	db 29, PRIMEAPE, MACHOKE, 0
 ; Route 21 ; updated
 	db 40, TENTACRUEL, TENTACRUEL, TENTACRUEL, 0
+; Sevii Two Island
+	db 34, MACHOKE, MUK, TENTACRUEL, WEEZING, PRIMEAPE, 0 ; 10
 
 GamblerData:
 ; Route 11
