@@ -48,6 +48,8 @@ SeviiSevenIslandGym3Script0:
 	ld [wIsInBattle], a
 	ld hl, wd72d
 	set 3, [hl] ; do scripted warp
+	xor a
+	ld [wMapPalOffset], a
 	ret
 .nonDefeated
 	CheckEvent EVENT_SEVII_SEVEN_ISLAND_GYM_3_BOULDER_ON_SWITCH

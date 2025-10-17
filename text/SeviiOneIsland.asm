@@ -57,8 +57,8 @@ _SeviiOneIslandCitySignText3::
 	line "of KNOT ISLAND"
 	cont "SAGE: ICHINO"
 
-	para "(TBE)"
-;	xxxx "123456789012345678"
+	para "Close Your Eyes to"
+	line "Open Your Mind"
 	done
 
 _SeviiOneIslandCitySignText4::
@@ -159,19 +159,75 @@ _SeviiOneIslandHousesText1_Done::
 	done
 
 _SeviiOneIslandHousesText2::
-	text "ROCKETS want me"
-	line "to work for them"
-;	xxxx "123456789012345678"
+	text "CELIO: TEAM ROCKET"
+	line "wants me to build"
+	cont "a special storage"
+	cont "system, like BILL"
+	cont "did, but just for"
+	cont "them."
+
+	para "Their goal is to"
+	line "hack the data of"
+	cont "their #MON to"
+	cont "artificially"
+	cont "raise their LVL!"
+	cont "That's blasphemous"
+	cont "and impossible!"
+
+	para "To force me to"
+	line "work for them,"
+	cont "they kidnapped"
+	cont "MAYOI, my kid..."
+
+	para "And the police is"
+	line "totally useless!"
+
+	para "I know you already"
+	line "helped BILL..."
+	cont "I know it's a lot"
+	cont "to ask, but could"
+	cont "you help me too?"
+	done
+
+_SeviiOneIslandHousesText3_CelioBeforePink::
+	text "CELIO: You did it!"
+	line "Oh my goddess,"
+	cont "you've no idea how"
+	cont "happy I am."
+
+	para "Words, money, nor"
+	line "gifts'll ever be"
+	cont "enough to express"
+	cont "my gratitude, but"
+	cont "please, accept t-"
 	done
 
 _SeviiOneIslandHousesText3_RightAfterPink::
-	text "CELIO: PINK is..."
+	text "CELIO: As you must"
+	line "have guessed,"
+	cont "PINK's my nephew."
+
+	para "They live in FLOE"
+	line "ISLAND with their"
+	cont "parents, and..."
+	cont "They can be quite"
+	cont "intense at times,"
+	cont "even too much,"
+	cont "but it's because"
+	cont "they care a lot."
+
+	para "Well, anyway, we"
+	line "got interrupted"
+	cont "halfway along"
+	cont "something!"
 	done
 
 _SeviiOneIslandHousesText3_TryToGiftFlute::
-	text "Thanks so so so" ; as i was saying
-	line "much! Flute"
-;	xxxx "123456789012345678"
+	text "CELIO: As I was"
+	line "saying, please"
+	cont "accept this is a"
+	cont "humble token of"
+	cont "my gratitude!"
 	prompt
 
 _SeviiOneIslandHousesText3_NoRoom::
@@ -183,32 +239,53 @@ _SeviiOneIslandHousesText3_NoRoom::
 	done
 
 _SeviiOneIslandHousesText3_AfterFlute::
-	text "bill my friend"
-	done
+	text "CELIO: MAYOI..."
+	line "I was so worried."
 
-_SeviiOneIslandHousesText3_CelioBeforePink::
-	text "CELIO: Thanks!"
-	line "Here take th-"
-;	xxxx "123456789012345678"
+	para "But now everything"
+	line "is over."
 	done
 
 _SeviiOneIslandHousesText4::
-	text "4"
-;	xxxx "123456789012345678"
+	text "CELIO: I'll take a"
+	line "break from work"
+	cont "to spend some"
+	cont "quality time with"
+	cont "my family."
+
+	para "And this is"
+	line "possible only"
+	cont "thanks to you."
+	cont "You're a saviour!"
 	done
 
 _SeviiOneIslandHousesText5::
-	text "5"
-;	xxxx "123456789012345678"
+	text "MAYOI: I was so"
+	line "scared..."
+	cont "That baddy was so"
+	cont "big, that forest"
+	cont "so dark..."
+
+	para "But you came and"
+	line "saved me!"
+	cont "You're my"
+	cont "princessuper!"
 	done
 
 _SeviiOneIslandHousesText6::
-	text "6"
-;	xxxx "123456789012345678"
+	text "MAYOI: We're going"
+	line "on a vacation!!!"
+
+	para "I wanna go to a"
+	line "lake on top of a"
+	cont "mountain in the"
+	cont "countryside in"
+	cont "the middle of"
+	cont "the sea!!!"
 	done
 
 _SeviiOneIslandHousesText7::
-	text "7"
+	text "PINK: proxy"
 ;	xxxx "123456789012345678"
 	done
 

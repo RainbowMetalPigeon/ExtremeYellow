@@ -77,7 +77,8 @@ _SeviiTwoIslandCitySignText4::
 	line "of BOON ISLAND"
 	cont "SAGE: NIUE"
 
-	para "(TBE)"
+	para "Accept Your Fate"
+	line "and Then Mold It"
 ;	xxxx "123456789012345678"
 	done
 

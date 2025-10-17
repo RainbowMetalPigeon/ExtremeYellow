@@ -157,7 +157,8 @@ _SeviiFiveIslandCitySignText5::
 	line "of CHRONO ISLAND"
 	cont "SAGE: GONQUE"
 
-	para "(TBE)"
+	para "Observation Leads"
+	line "to the Truth"
 ;	xxxx "123456789012345678"
 	done
 

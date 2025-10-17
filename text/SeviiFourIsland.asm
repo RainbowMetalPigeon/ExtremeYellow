@@ -53,7 +53,8 @@ _SeviiFourIslandCitySignText2::
 	line "of FLOE ISLAND"
 	cont "SAGE: YOTTRO"
 
-	para "(TBE)"
+	para "Embrace Your Enemy"
+	line "to Understand Them"
 ;	xxxx "123456789012345678"
 	done
 

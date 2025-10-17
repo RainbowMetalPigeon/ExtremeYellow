@@ -24,8 +24,8 @@ _SeviiSixIslandCitySignText2::
 	line "of FORTUNE ISLAND"
 	cont "SAGE: ROKUSEI"
 
-	para "(TBE)"
-;	xxxx "123456789012345678"
+	para "Weave the Path to"
+	line "Your Own Destiny"
 	done
 
 _SeviiSixIslandCitySignText3::

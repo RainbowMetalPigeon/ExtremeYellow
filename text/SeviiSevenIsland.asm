@@ -411,8 +411,8 @@ _SeviiRoute41SignText2::
 	line "of QUEST ISLAND"
 	cont "SAGE: NANETTE"
 
-	para "(TBE)"
-;	xxxx "123456789012345678"
+	para "Act When You Need"
+	line "Not When Ready"
 	done
 
 ; Route 42 ------------------------------------

@@ -61,7 +61,8 @@ _SeviiThreeIslandCitySignText3::
 	line "of FAMILY ISLAND"
 	cont "SAGE: SANTRE"
 
-	para "(TBE)"
+	para "Power in Trust"
+	line "Strength in Unity"
 ;	xxxx "123456789012345678"
 	done
 
