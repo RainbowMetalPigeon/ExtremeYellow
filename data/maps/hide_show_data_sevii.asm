@@ -195,7 +195,12 @@ SeviiRoute43HS:
 SeviiOneIslandDockHS:
 	db SEVII_ONE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiOneIslandHousesHS:
-	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Mayoi
+	db SEVII_ONE_ISLAND_HOUSES, 2, SHOW ; Celio before rescue
+	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Celio right after rescue
+	db SEVII_ONE_ISLAND_HOUSES, 4, HIDE ; Celio after rescue
+	db SEVII_ONE_ISLAND_HOUSES, 5, HIDE ; Mayoi right after rescue
+	db SEVII_ONE_ISLAND_HOUSES, 6, HIDE ; Mayoi after rescue
+	db SEVII_ONE_ISLAND_HOUSES, 7, HIDE ; Pink
 SeviiEmberSpaHS:
 	db SEVII_EMBER_SPA, 5, SHOW ; ball
 	db SEVII_EMBER_SPA, 6, SHOW ; ball

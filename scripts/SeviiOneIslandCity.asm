@@ -1,9 +1,34 @@
 SeviiOneIslandCity_Script:
+	call CheckForCeliosHouseHideShow
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiOneIslandCity_ScriptPointers
 	ld a, [wCurMapScript]
 	call ExecuteCurMapScriptInTable
 	ld [wCurMapScript], a
+	ret
+
+CheckForCeliosHouseHideShow:
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	ret z
+	CheckEvent EVENT_GOT_POKE_FLUTE
+	ret z
+	CheckEvent EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE
+	ret nz
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_MAYOI_RIGHT_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_RIGHT_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_MAYOI_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	SetEvent EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE
 	ret
 
 SeviiOneIslandCity_ScriptPointers:

@@ -145,19 +145,26 @@ SeviiBerryForest_4:
 	ld hl, wd72d
 	set 3, [hl] ; do scripted warp
 ; hide/show sprites
-;	call GBFadeOutToBlack
 	ld a, HS_SEVII_BERRY_FOREST_ORM
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
+
 	ld a, HS_SEVII_BERRY_FOREST_MAYOI
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
-	ld a, HS_SEVII_ONE_ISLAND_HOUSES_MAYOI
+
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_BEFORE_RESCUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_MAYOI_RIGHT_AFTER_RESCUE
 	ld [wMissableObjectIndex], a
 	predef ShowObjectSevii
-;	call UpdateSprites
-;	call Delay3
-;	call GBFadeInFromBlack
+
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_RIGHT_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+
 	SetEvent EVENT_SEVII_RESCUED_MAYOI
 	call SeviiBerryForestResetScripts
 	ret

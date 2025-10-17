@@ -158,19 +158,23 @@ _SeviiOneIslandHousesText1_Done::
 	cont "visit whenever!"
 	done
 
-_SeviiOneIslandHousesText2_BeforeRescue::
+_SeviiOneIslandHousesText2::
 	text "ROCKETS want me"
 	line "to work for them"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText2_AfterRescueBeforeFlute::
-	text "Thanks so so so"
+_SeviiOneIslandHousesText3_RightAfterPink::
+	text "CELIO: PINK is..."
+	done
+
+_SeviiOneIslandHousesText3_TryToGiftFlute::
+	text "Thanks so so so" ; as i was saying
 	line "much! Flute"
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiOneIslandHousesText2_NoRoom::
+_SeviiOneIslandHousesText3_NoRoom::
 	text "Oh, you have no"
 	line "room for this."
 
@@ -178,13 +182,40 @@ _SeviiOneIslandHousesText2_NoRoom::
 	line "I must thank you!"
 	done
 
-_SeviiOneIslandHousesText2_AfterFlute::
+_SeviiOneIslandHousesText3_AfterFlute::
 	text "bill my friend"
 	done
 
-_SeviiOneIslandHousesText3::
-	text "MAYOI: thansk!"
-	line "backyard"
+_SeviiOneIslandHousesText3_CelioBeforePink::
+	text "CELIO: Thanks!"
+	line "Here take th-"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4::
+	text "4"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText5::
+	text "5"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText6::
+	text "6"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText7::
+	text "7"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText8::
+	text "It's an adorable"
+	line "giant plushie of"
+	cont "a smiling GENGAR."
 ;	xxxx "123456789012345678"
 	done
 
@@ -222,6 +253,36 @@ _SeviiOneIslandHousesSignText4::
 	text "A histogram, a"
 	line "graph, and tons"
 	cont "of lines of code!"
+	done
+
+_SeviiOneIslandHousesScriptText1::
+	text "PINK: MAYOI!"
+	line "Auncle CELIO!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText2::
+	text "PINK: Let's fight!"
+;	xxxx "123456789012345678"
+	done
+
+_CeliosHousePinkDefeatedText::
+	text "I see."
+	line "So this is the"
+	cont "minimum strenght"
+	cont "I must acquire."
+	prompt
+
+_CeliosHousePinkBeatYouText::
+	text "...you didn't"
+	line "have to go easy"
+	cont "on me. I know I'm"
+	cont "weak right now."
+	prompt
+
+_SeviiOneIslandHousesScriptText3::
+	text "PINK: Tnx go train"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandPokemonCenterAndMart_Text1::

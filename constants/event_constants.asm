@@ -259,7 +259,8 @@
 ; Celadon City events
 	const_next $180
 	const EVENT_GOT_TM41
-	const_skip 2 ; edited, was 11
+	const EVENT_TRIED_TO_GIFT_POKE_FLUTE ; new
+	const EVENT_SEVII_FACE_PINK_CELIOS_HOUSE ; new
 	const EVENT_OBTAINED_PRIZE_TM_1 ; new
 	const EVENT_OBTAINED_PRIZE_TM_2 ; new
 	const EVENT_OBTAINED_PRIZE_TM_3 ; new
@@ -320,7 +321,7 @@
 	const EVENT_GOT_20_COINS_2
 	const_skip 2
 	const EVENT_1BF ; ???
-	const_skip 1
+	const EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE ; new
 	const EVENT_BEAT_SEVII_ROUTE_37_TRAINER_1 ; new
 	const EVENT_BEAT_SEVII_ROUTE_37_TRAINER_2 ; new
 	const EVENT_BEAT_SEVII_ROUTE_37_TRAINER_3 ; new

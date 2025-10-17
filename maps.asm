@@ -1755,13 +1755,13 @@ INCLUDE "scripts/SeviiDottedHole.asm"
 INCLUDE "data/maps/objects/SeviiDottedHole.asm"
 SeviiDottedHole_Blocks: INCBIN "maps/SeviiDottedHole.blk"
 
+
+SECTION "Maps Sevii 3", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiRoute43Caves.asm"
 INCLUDE "scripts/SeviiRoute43Caves.asm"
 INCLUDE "data/maps/objects/SeviiRoute43Caves.asm"
 SeviiRoute43Caves_Blocks: INCBIN "maps/SeviiRoute43Caves.blk"
-
-
-SECTION "Maps Sevii 3", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiRoute40.asm"
 INCLUDE "scripts/SeviiRoute40.asm"
