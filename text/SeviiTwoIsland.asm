@@ -112,12 +112,59 @@ _SeviiTwoIslandHousesText1::
 	text "Dunno"
 	done
 
-_SeviiTwoIslandHousesText2::
-	text "Tutor ball"
+_SeviiTwoIslandHousesText2_Question::
+	text "I'm from KNOT, but"
+	line "I moved here with"
+	cont "my partner."
+
+	para "My sibling and I"
+	line "are both expert"
+	cont "in meteorology."
+
+	para "I can teach one of"
+	line "your #MON"
+	cont "WEATHER BALL."
+;	xxxx "123456789012345678"
+	cont "Interested?"
 	done
 
-_SeviiTwoIslandHousesText3::
-	text "Tutor pulse"
+_SeviiTwoIslandHousesText2_Refused::
+	text "As you prefer."
+	line "Come back if"
+	cont "you change mind!"
+	done
+
+_SeviiTwoIslandHousesText2_Done::
+	text "All done!"
+	line "Come back anytime."
+	done
+
+_SeviiTwoIslandHousesText3_Question::
+	text "My sibling and I"
+	line "are interested"
+	cont "in the soil."
+
+	para "They stayed in"
+	line "FAMILY, while I"
+	cont "moved here with"
+	cont "my partner."
+
+	para "I can teach one of"
+	line "your #MON"
+	cont "TERRAIN PULSE."
+	cont "Should I?"
+	done
+
+_SeviiTwoIslandHousesText3_Refused::
+	text "As you wish."
+	line "I'm here if you"
+	cont "change your mind."
+	done
+
+_SeviiTwoIslandHousesText3_Done::
+	text "We're done!"
+	line "Come back anytime."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandHousesText4::
