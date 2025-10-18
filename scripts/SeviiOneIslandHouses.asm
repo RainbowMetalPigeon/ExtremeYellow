@@ -103,10 +103,6 @@ SeviiOneIslandHouses_PinkLeaves:
 	callfar ChangeSpriteFacing
 	SetEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
 	predef HealParty
-	ld a, 7
-	ldh [hSpriteIndex], a
-	lb bc, STAY, UP
-	call ChangeSpriteMovementBytes ; new from Engeze
 ; load next script
 	ld a, 4
 	ld [wCurMapScript], a
@@ -152,10 +148,6 @@ SeviiOneIslandHouses_PostPinkBattle:
 	xor a
 	ld [wJoyIgnore], a
 ; turn towards Celio and be gifted the Flute
-	ld a, 3
-	ldh [hSpriteIndex], a
-	lb bc, STAY, DOWN
-	call ChangeSpriteMovementBytes ; new from Engeze
 	lb de, 3, SPRITE_FACING_DOWN
 	callfar ChangeSpriteFacing
 	ld a, SPRITE_FACING_UP
