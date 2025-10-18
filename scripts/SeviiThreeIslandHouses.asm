@@ -8,14 +8,15 @@ SeviiThreeIslandHouses_TextPointers:
 	; signs
 	dw SeviiThreeIslandHousesSignText1 ; 4
 	dw SeviiThreeIslandHousesSignText2 ; 5
-	dw SeviiThreeIslandHousesBookshelfText1 ;  6
-	dw SeviiThreeIslandHousesBookshelfText2 ;  7
-	dw SeviiThreeIslandHousesBookshelfText3 ;  8
-	dw SeviiThreeIslandHousesBookshelfText4 ;  9
-	dw SeviiThreeIslandHousesBookshelfText5 ; 10
-	dw SeviiThreeIslandHousesBookshelfText6 ; 11
-	dw SeviiThreeIslandHousesBookshelfText7 ; 12
-	dw SeviiThreeIslandHousesBookshelfText8 ; 13
+	dw SeviiThreeIslandHousesSignText3 ; 6
+	dw SeviiThreeIslandHousesBookshelfText1 ;  7
+	dw SeviiThreeIslandHousesBookshelfText2 ;  8
+	dw SeviiThreeIslandHousesBookshelfText3 ;  9
+	dw SeviiThreeIslandHousesBookshelfText4 ; 10
+	dw SeviiThreeIslandHousesBookshelfText5 ; 11
+	dw SeviiThreeIslandHousesBookshelfText6 ; 12
+	dw SeviiThreeIslandHousesBookshelfText7 ; 13
+	dw SeviiThreeIslandHousesBookshelfText8 ; 14
 	; scripts
 
 ; scripts ============================
@@ -42,6 +43,10 @@ SeviiThreeIslandHousesSignText1:
 
 SeviiThreeIslandHousesSignText2:
 	text_far _SeviiThreeIslandHousesSignText2
+	text_end
+
+SeviiThreeIslandHousesSignText3:
+	text_far _SeviiThreeIslandHousesSignText3
 	text_end
 
 SeviiThreeIslandHousesBookshelfText1:

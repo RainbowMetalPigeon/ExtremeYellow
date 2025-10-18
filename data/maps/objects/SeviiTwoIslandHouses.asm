@@ -15,7 +15,7 @@ SeviiTwoIslandHouses_Object:
 
 	def_object_events
 	object_event  2,  3, SPRITE_GAMBLER, WALK, UP_DOWN, 1
-	object_event 19,  3, SPRITE_COOLTRAINER_M, STAY, LEFT, 2 ; tutor ball
+	object_event 19,  3, SPRITE_GIRL, STAY, LEFT, 2 ; tutor ball
 	object_event 19,  4, SPRITE_COOLTRAINER_F, STAY, LEFT, 3 ; tutor field
 	object_event 30,  4, SPRITE_BRUNETTE_GIRL, STAY, RIGHT, 4 ; Tauros farmer
 	object_event 34,  2, SPRITE_GIRL, WALK, LEFT_RIGHT, 5 ; Tauros farmer

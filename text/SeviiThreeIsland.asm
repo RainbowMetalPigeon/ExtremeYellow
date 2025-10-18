@@ -109,6 +109,10 @@ _SeviiThreeIslandHousesSignText2::
 	text "Seeds in bin"
 	done
 
+_SeviiThreeIslandHousesSignText3::
+	text "Hints"
+	done
+
 _SeviiThreeIslandHousesBookshelfText1::
 	text "Bookshelf 1"
 	done
