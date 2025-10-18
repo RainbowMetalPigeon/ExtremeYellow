@@ -321,3 +321,13 @@ SeviiDocksSailorsToHideOrShow:
 	db HS_SEVII_SEVEN_ISLAND_DOCK_SAILOR
 	db HS_SEVII_EIGHT_ISLAND_DOCK_SAILOR
 	db $FF
+
+; ----------------------------------------------
+
+; input: d = sprite index, e = sprite facing
+ChangeSpriteFacing::
+	ld a, d
+	ldh [hSpriteIndex], a
+	ld a, e
+	ldh [hSpriteFacingDirection], a
+	jp SetSpriteFacingDirectionAndDelay

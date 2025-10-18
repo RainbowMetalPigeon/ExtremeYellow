@@ -230,16 +230,16 @@ _SeviiOneIslandHousesText3_RightAfterPink::
 	line "ISLAND with their"
 	cont "parents, and..."
 	cont "they can be quite"
-	cont "intense at times,"
-	cont "even too much,"
-	cont "but it's because"
+	cont "intense at times."
+	cont "Even too much."
+	cont "But it's because"
 	cont "they care a lot."
 
 	para "Well, anyway, we"
 	line "got interrupted"
 	cont "halfway along"
 	cont "something!"
-	done
+	prompt
 
 _SeviiOneIslandHousesText3_TryToGiftFlute::
 	text "CELIO: As I was"
@@ -301,6 +301,11 @@ _SeviiOneIslandHousesText6::
 	cont "countryside in"
 	cont "the middle of"
 	cont "the sea!!!"
+
+	para "And my dear"
+	line "SirLady GENGOTTU"
+	cont "will come too!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesText7::
@@ -392,7 +397,7 @@ _SeviiOneIslandHousesScriptText2::
 
 	para "PINK: <PLAYER>!"
 	line "Fight me! I must"
-	cont "know ho strong I"
+	cont "know how strong I"
 	cont "have to become!"
 ;	xxxx "123456789012345678"
 	done

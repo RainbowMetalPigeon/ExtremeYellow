@@ -32,8 +32,9 @@ SeviiBerryForest_0:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, 1
 	ldh [hSpriteIndex], a
-	lb bc, STAY, RIGHT
-	call ChangeSpriteMovementBytes ; new from Engeze
+	ld a, SPRITE_FACING_RIGHT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
 ; load next script
 	ld a, 1
 	ld [wCurMapScript], a
@@ -48,6 +49,8 @@ SeviiBerryForest_1:
 	ld c, BANK(Music_MeetEvilTrainer)
 	ld a, MUSIC_MEET_EVIL_TRAINER
 	call PlayMusic
+	lb de, 1, SPRITE_FACING_RIGHT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 	ld a, 7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID

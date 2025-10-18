@@ -24,12 +24,18 @@ SeviiOneIslandHouses_PinkAppears:
 	ld a, HS_SEVII_ONE_ISLAND_HOUSES_PINK
 	ld [wMissableObjectIndex], a
 	predef ShowObjectSevii
-; Pikachu hides and player turns
+	lb de, 7, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing
+; Pikachu hides and player, Mayoi, and Celio turn
 	call CheckPikachuFollowingPlayer
 	jr nz, .notFollowingPikachu
 	call DisablePikachuOverworldSpriteDrawing
 	ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+	lb de, 5, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
 .notFollowingPikachu
 ; Pink dialogue
 	ld c, 30
@@ -57,6 +63,11 @@ SeviiOneIslandHouses_PinkMovementsAndBattle:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
+; turn Mayoi and Celio again
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+	lb de, 5, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
 ; Pink dialogue and battle
 	ld a, $0
 	ld [wJoyIgnore], a
@@ -84,6 +95,12 @@ SeviiOneIslandHouses_PinkMovementsAndBattle:
 	ret
 
 SeviiOneIslandHouses_PinkLeaves:
+	lb de, 7, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+	lb de, 5, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
 	SetEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
 	predef HealParty
 	ld a, 7
@@ -139,6 +156,8 @@ SeviiOneIslandHouses_PostPinkBattle:
 	ldh [hSpriteIndex], a
 	lb bc, STAY, DOWN
 	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
 ; load next script
@@ -147,6 +166,8 @@ SeviiOneIslandHouses_PostPinkBattle:
 	ret
 	
 SeviiOneIslandHouses_PostPinkBattle2:
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
 ; dialogue
 	ld a, 3
 	ldh [hSpriteIndexOrTextID], a

@@ -356,7 +356,7 @@ _SeviiBerryForestScriptText3::
 	done
 
 _SeviiBerryForestOrmDefeatText::
-	text "ORM: How's it"
+	text "How's it"
 	line "possible?! I"
 	cont "wanted to break"
 	cont "all your bones,"
@@ -364,7 +364,7 @@ _SeviiBerryForestOrmDefeatText::
 
 	para "GIOVANNI will be"
 	line "furious..."
-	cont "May you be damned!"
+	cont "Damned brat!"
 	cont "How do you dare"
 	cont "upset our BOSS?!"
 ;	xxxx "123456789012345678"
