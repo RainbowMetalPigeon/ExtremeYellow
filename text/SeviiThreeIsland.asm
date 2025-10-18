@@ -303,29 +303,77 @@ _SeviiBerryForestText2::
 	done
 
 _SeviiBerryForestScriptText1::
-	text "ORM: I'm bad"
+	text "ORM: Now, kiddo,"
+	line "we stay here all"
+	cont "nice and calm"
+	cont "until our dear"
+	cont "CELIO doesn't"
+	cont "turn reasonable"
+	cont "and work with us."
 
-	para "MAYOI: I'm scared"
+	para "MAYOI: Sniff..."
+	line "I don't like it"
+	cont "here. And I don't"
+	cont "like you. I wanna"
+	cont "go home..."
+
+	para "ORM: I really"
+	line "don't want to hurt"
+	cont "you. Don't force"
+	cont "me. Stay good."
+	cont "Or else."
+
+	para "MAYOI: Waaaahhaa!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiBerryForestScriptText2::
-	text "ORM: Oh guest"
+	text "ORM: Oh. It seems"
+	line "we have a guest."
+
+	para "Those idiots let"
+	line "you pass? I knew"
+	cont "we couldn't trust"
+	cont "them. I'll be sure"
+	cont "to punish them."
+
+	para "...actually I look"
+	line "forward to beat'"
+	cont "'em to a pulp."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiBerryForestScriptText3::
-	text "ORM: smash ya"
+	text "ORM: And here, a"
+	line "tasty appetizer!"
+	cont "Come on kid, let"
+	cont "me massacre you!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiBerryForestOrmDefeatText::
-	text "Damn ya"
-	line "smashed me"
+	text "ORM: How's it"
+	line "possible?! I"
+	cont "wanted to break"
+	cont "all your bones,"
+	cont "and yet!"
+
+	para "GIOVANNI will be"
+	line "furious..."
+	cont "May you be damned!"
+	cont "How do you dare"
+	cont "upset our BOSS?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiBerryForestScriptText4::
-	text "Ok ciao"
+	text "ORM: Tsk. It can't"
+	line "be helped. I must"
+	cont "leave now."
+
+	para "Take that brat,"
+	line "if you want it so"
+	cont "badly. This won't"
+	cont "stop TEAM ROCKET."
 ;	xxxx "123456789012345678"
 	done

@@ -72,51 +72,70 @@ _SeviiOneIslandCitySignText5::
 	done
 
 _SeviiOneIslandCityScriptText1::
-	text "placeholder"
+;	text "placeholder"
+;	done
+	text "JENNY: CELIO, I"
+	line "must ask you to"
+	cont "stay calm."
+
+	para "CELIO: Calm?!"
+	line "My kid has been"
+	cont "kidnapped, and"
+	cont "you ask me to"
+	cont "stay calm?!"
+
+	para "JENNY: Rage will"
+	line "not bring MAYOI"
+	cont "back any faster."
+	cont "Leave this to us"
+	cont "professionals,"
+	cont "I assure you we'll"
+	cont "find your kid"
+	cont "in no time."
+
+	para "CELIO: You've been"
+	line "saying this for"
+	cont "who knows how"
+	cont "long now, and"
+	cont "MAYOI is still"
+	cont "in TEAM ROCKET's"
+	cont "hands!"
+
+	para "JENNY: Don't worry."
+	line "We're working hard"
+	cont "on this case."
+
+	para "Now, if you excuse"
+	line "me, I have to go"
+	cont "back to work."
 	done
 
-;	text "JENNY: CELIO, I"
-;	line "must ask you to"
-;	cont "stay calm."
-;
-;	para "CELIO: Calm?!"
-;	line "My kid has been"
-;	cont "kidnapped, and"
-;	cont "you ask me to"
-;	cont "stay calm?!"
-;
-;	para "JENNY: Rage will"
-;	line "not bring MAYOI"
-;	cont "back any faster."
-;	cont "Leave this to us"
-;	cont "professionals,"
-;	cont "I assure you we'll"
-;	cont "find your kid"
-;	cont "in no time."
-;
-;	para "CELIO: You've been"
-;	line "saying this for"
-;	cont "who know how"
-;	cont "long now, and"
-;	cont "MAYOI is still"
-;	cont "in TEAM ROCKET's"
-;	cont "hands!"
-;
-;	para "JENNY: Don't worry."
-;	line "We're working hard"
-;	cont "on this case."
-;
-;	para "Now, if you excuse"
-;	line "me, I have to go"
-;	cont "back to work."
-;	done
-
 _SeviiOneIslandCityScriptText2::
-	text "I'm desperate"
+	text "CELIO: This is"
+	line "horrible..."
+	cont "I'm so desperate."
+
+	para "Do I have to kneel"
+	line "to TEAM ROCKET?"
 	done
 
 _SeviiOneIslandCityScriptText3::
-	text "Plz help"
+	text "CELIO: That look!"
+	line "That #DEX!"
+
+	para "Are you <PLAYER>?"
+	line "My friend BILL"
+	cont "told me of you!"
+
+	para "I know it's a lot"
+	line "and sudden, but"
+	cont "can I ask for"
+	cont "your help?"
+
+	para "Come to my house"
+	line "and I'll tell you"
+	cont "all the details."
+;	xxxx "123456789012345678"
 	done
 
 ; city's indoor ------------------------------------
@@ -210,7 +229,7 @@ _SeviiOneIslandHousesText3_RightAfterPink::
 	para "They live in FLOE"
 	line "ISLAND with their"
 	cont "parents, and..."
-	cont "They can be quite"
+	cont "they can be quite"
 	cont "intense at times,"
 	cont "even too much,"
 	cont "but it's because"
@@ -335,11 +354,46 @@ _SeviiOneIslandHousesSignText4::
 _SeviiOneIslandHousesScriptText1::
 	text "PINK: MAYOI!"
 	line "Auncle CELIO!"
+	cont "You're fine!"
+	cont "Thank goddess!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText2::
-	text "PINK: Let's fight!"
+	text "PINK: I ran here"
+	line "as soon as I"
+	cont "heard what"
+	cont "happened, but I"
+	cont "see all is good!"
+
+	para "CELIO: PINK! Yes!"
+	line "<PLAYER> rescued"
+	cont "MAYOI from TEAM"
+	cont "ROCKET and they"
+	cont "just returned!"
+
+	para "MAYOI: It was"
+	line "super scary, but"
+	cont "<PLAYER> was mega"
+	cont "cool and saved"
+	cont "me! They're my"
+	cont "princessuper!"
+
+	para "PINK: I see..."
+	line "I am relieved."
+	cont "And frustrated."
+	cont "I was too slow to"
+	cont "be of any help,"
+	cont "and regardless,"
+	cont "I'd been too weak."
+	cont "This is a wake-up"
+	cont "call. I'll train!"
+	cont "I'll be strong!"
+
+	para "PINK: <PLAYER>!"
+	line "Fight me! I must"
+	cont "know ho strong I"
+	cont "have to become!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -358,7 +412,16 @@ _CeliosHousePinkBeatYouText::
 	prompt
 
 _SeviiOneIslandHousesScriptText3::
-	text "PINK: Tnx go train"
+	text "PINK: Thank you"
+	line "for the battle."
+	cont "Now I know what I"
+	cont "must aim for."
+
+	para "<PLAYER>! I hope"
+	line "to meet you again"
+	cont "soon. I'll be so"
+	cont "much stronger,"
+	cont "and I'll win!"
 ;	xxxx "123456789012345678"
 	done
 
