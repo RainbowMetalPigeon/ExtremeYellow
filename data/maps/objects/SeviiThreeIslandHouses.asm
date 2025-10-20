@@ -22,7 +22,7 @@ SeviiThreeIslandHouses_Object:
 	bg_event 21,  1, 14 ; SeviiThreeIslandHousesBookshelfText8
 
 	def_object_events
-	object_event  5,  3, SPRITE_BRUNETTE_GIRL, STAY, RIGHT, 1 ; move tutor terrains
+	object_event  5,  3, SPRITE_SUPER_NERD, STAY, RIGHT, 1 ; move tutor terrains
 	object_event 19,  6, SPRITE_BEAUTY, STAY, UP, 2
 	object_event 15,  5, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 3
 

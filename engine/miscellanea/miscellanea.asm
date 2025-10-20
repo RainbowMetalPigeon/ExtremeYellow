@@ -18,6 +18,33 @@ CheckIfOneGivenMonIsInParty::
 
 ; =====================================
 
+; input: d contains the type to check
+; sets z flag if found
+CheckIfACertainTypeIsInParty::
+	ld hl, wPartyCount
+	ld a, [hli]
+	ld b, a ; b has the number of Mons in the party
+
+.loop
+	ld a, [hli] ; Mon ID
+	ld [wd0b5], a
+	call GetMonHeader
+	ld a, [wMonHType1]
+	cp d
+	ret z
+	ld a, [wMonHType2]
+	cp d
+	ret z
+; if we're here, neither type1 or type2 match the type we're searching
+; in which case, we go to the next mon
+	dec b
+	jr nz, .loop
+; if we're here, we ran out of mons to check
+	inc b ; this returns b to 1, and un-sets the z flag
+	ret
+
+; =====================================
+
 ; output: d and/or e contain the shared type, otherwise, $FF
 CheckIfAllMonsShareAType::
 	ld hl, wPartyCount

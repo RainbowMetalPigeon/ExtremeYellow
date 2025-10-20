@@ -319,7 +319,8 @@
 	const EVENT_GOT_10_COINS
 	const EVENT_GOT_20_COINS
 	const EVENT_GOT_20_COINS_2
-	const_skip 2
+	const_skip 1
+	const EVENT_SEVII_BEAT_TERRAIN_TUTOR ; new
 	const EVENT_1BF ; ???
 	const EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE ; new
 	const EVENT_BEAT_SEVII_ROUTE_37_TRAINER_1 ; new

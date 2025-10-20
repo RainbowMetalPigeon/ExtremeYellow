@@ -309,6 +309,8 @@ SuperNerdData:
 	db 32, CHARMELEON, ELECTRODE, MUK, MAGMAR, 0 ; 15
 ; Sevii Route 33
 	db 33, ELECTRODE, KOFFING, MUK, MAGBY, 0 ; 16
+; Sevii Three Island Houses - Terrain Tutor
+	db 32, ELECTABUZZ, TANGELA, EXEGGUTOR, HYPNO, MR_MIME, WIGGLYTUFF, 0 ; 17
 
 HikerData:
 ; Mt. Moon 1F

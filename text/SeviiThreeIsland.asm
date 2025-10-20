@@ -89,8 +89,65 @@ _SeviiThreeIslandPokemonCenterAndMart_Text4::
 	text "test 3-4"
 	done
 
-_SeviiThreeIslandHousesText1::
-	text "Terrain tutor"
+_SeviiThreeIslandHousesText1_Intro::
+	text "I lllooovvveee"
+	line "the soils!"
+	cont "And certain types"
+	cont "of #MON too:"
+	cont "ELECTRIC, GRASS,"
+	cont "PSYCHIC, FAIRY!"
+	prompt
+
+_SeviiThreeIslandHousesText1_NoRightTypes::
+	text "I'd be rrreeeally"
+	line "happy if you had"
+	cont "all of them!"
+	done
+
+_SeviiThreeIslandHousesText1_YesRightTypes::
+	text "Oh, you have all"
+	line "of them with you!"
+	cont "That's really"
+	cont "greeeaaat!"
+	done
+
+_TerrainTutorDefeatText::
+	text "Ah!"
+	line "What a marvelous"
+	cont "sight! Thanks!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiThreeIslandHousesScriptText1::
+	text "Please, indulge me"
+	line "in a baaattleee!"
+	done
+
+_SeviiThreeIslandHousesScriptText2::
+	text "Oh, that was a"
+	line "faaantaaastic"
+	cont "fight! I'm very"
+	cont "grateful!"
+
+	para "I know how I can"
+	line "thank you!"
+	done
+
+_SeviiThreeIslandHousesText1_Question::
+	text "Can I interest"
+	line "you with a"
+	cont "beeeaaautiful"
+	cont "TERRAIN move?"
+	done
+
+_SeviiThreeIslandHousesText1_Refused::
+	text "Oh, that's"
+	line "tooo baaad!"
+	done
+
+_SeviiThreeIslandHousesText1_Done::
+	text "Here we aaaareee!"
+	line "See you next time!"
 	done
 
 _SeviiThreeIslandHousesText2::

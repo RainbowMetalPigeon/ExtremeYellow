@@ -27,6 +27,23 @@ SpecialTrainerMoves:
 	db 6, 4, FISSURE
 	db $FE
 
+	db SUPER_NERD, 17
+	; ELECTABUZZ
+	db 1, 1, ELECTRIC_TERRAIN
+	; TANGELA
+	db 2, 1, GRASSY_TERRAIN
+	; EXEGGUTOR
+	db 3, 1, GRASSY_TERRAIN
+	db 3, 1, PSYCHIC_TERRAIN
+	; HYPNO
+	db 4, 1, PSYCHIC_TERRAIN
+	; MR_MIME
+	db 5, 1, PSYCHIC_TERRAIN
+	db 5, 1, MISTY_TERRAIN
+	; WIGGLYTUFF
+	db 6, 1, MISTY_TERRAIN
+	db $FE
+
 	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')
 	; WEEZING
 	db 1, 1, EXPLOSION
