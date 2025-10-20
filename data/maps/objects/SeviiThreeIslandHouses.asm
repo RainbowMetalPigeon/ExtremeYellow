@@ -14,7 +14,7 @@ SeviiThreeIslandHouses_Object:
 	bg_event 14,  7,  6 ; SeviiThreeIslandHousesSignText3
 	bg_event 14,  1,  8 ; SeviiThreeIslandHousesBookshelfText1
 	bg_event 15,  1,  9 ; SeviiThreeIslandHousesBookshelfText2
-	bg_event 16,  1,  9; SeviiThreeIslandHousesBookshelfText3
+	bg_event 16,  1,  9 ; SeviiThreeIslandHousesBookshelfText3
 	bg_event 17,  1, 10 ; SeviiThreeIslandHousesBookshelfText4
 	bg_event 18,  1, 11 ; SeviiThreeIslandHousesBookshelfText5
 	bg_event 19,  1, 12 ; SeviiThreeIslandHousesBookshelfText6

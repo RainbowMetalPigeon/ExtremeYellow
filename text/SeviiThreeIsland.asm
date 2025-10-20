@@ -170,9 +170,16 @@ _SeviiThreeIslandHousesSignText3::
 	text "Hints"
 	done
 
-_SeviiThreeIslandHousesBookshelfText1::
-	text "Bookshelf 1"
+_SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf::
+	text "Which shelf do you"
+	line "want to look at?"
 	done
+
+_SeviiThreeIslandHousesBookshelfText1_ItsAboutCard::
+	text "Books about card"
+;	xxxx "123456789012345678"
+	line "magic tricks."
+	prompt
 
 _SeviiThreeIslandHousesBookshelfText2::
 	text "Bookshelf 2"

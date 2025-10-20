@@ -46,6 +46,17 @@ TextBoxTextAndCoordTable:
 	text_box_text MOVE_TUTOR_TERRAIN_MENU,            3,  4, 19, 12, MoveTutorTerrainText,     5,  5 ; new
 	text_box_text MOVE_TUTOR_HAZARD_MENU,             5,  4, 19, 12, MoveTutorHazardText,      7,  5 ; new
 
+	text_box_text BOOKSHELF_MAGIC_CARD_MENU,          5,  6, 19, 12, BookshelfMagicCardText,        7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_COIN_MENU,          5,  6, 19, 12, BookshelfMagicCoinText,        7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_ROPE_MENU,          5,  6, 19, 12, BookshelfMagicRopeText,        7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_RING_MENU,          5,  6, 19, 12, BookshelfMagicRingText,        7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_LEVITATION_MENU,    5,  6, 19, 12, BookshelfMagicLevitationText,  7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_VANISH_MENU,        5,  6, 19, 12, BookshelfMagicVanishText,      7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_MENTALISM_MENU,     5,  6, 19, 12, BookshelfMagicMentalismText,   7,  7 ; new
+	text_box_text BOOKSHELF_MAGIC_MISCELLANEA_MENU,   5,  6, 19, 12, BookshelfMagicMiscellaneaText, 7,  7 ; new
+
+	text_box_text BOOKSHELF_BOOK_1_2_3_4_MENU,       10,  4, 19, 12, BookshelfBooks1234Text,  12,  5 ; new
+
 BuySellQuitText:
 	db   "BUY"
 	next "SELL"
@@ -154,3 +165,49 @@ JapanesePokedexMenu:
 	next "なきごえ"
 	next "ぶんぷをみる"
 	next "キャンセル@"
+
+BookshelfMagicCardText:
+	db   "CONTROL"
+	next "FORCE"
+	next "SHUFFLE@"
+
+BookshelfMagicCoinText:
+	db   "TELEPORT"
+	next "LEVITATION"
+	next "VANISH@"
+
+BookshelfMagicRopeText:
+	db   "KNOTS"
+	next "RESTORE"
+	next "GO-THROUGH@"
+
+BookshelfMagicRingText:
+	db   "ON RING"
+	next "ON STICK"
+	next "ON STRING@"
+
+BookshelfMagicLevitationText:
+	db   "ITEMS"
+	next "PEOPLE"
+	next "TOOLS@"
+
+BookshelfMagicVanishText:
+	db   "BALLS"
+	next "PEOPLE"
+	next "WALLETS@"
+
+BookshelfMagicMentalismText:
+	db   "TWINS"
+	next "CODES"
+	next "FUTURE@"
+
+BookshelfMagicMiscellaneaText:
+	db   "LIQUIDS"
+	next "DIGITAL"
+	next "OTHER@"
+
+BookshelfBooks1234Text: ; new
+	db   "BOOK 1"
+	next "BOOK 2"
+	next "BOOK 3"
+	next "BOOK 4@"

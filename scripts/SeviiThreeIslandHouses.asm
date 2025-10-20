@@ -234,39 +234,105 @@ SeviiThreeIslandHousesSignText3:
 	text_far _SeviiThreeIslandHousesSignText3
 	text_end
 
-SeviiThreeIslandHousesBookshelfText1:
-	text_far _SeviiThreeIslandHousesBookshelfText1
+; ============================================
+
+; inputs: d = wTextBoxID type, e = top menu item X
+; number of options is always 4-1
+BookshelfShelfChoiceCommon:
+	call SaveScreenTilesToBuffer1
+	ld a, d ; inputs
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 5
+	ld [hli], a ; top menu item Y
+	ld a, e ; inputs
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, 3 ; number of options - 1?
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .decline ; if B was pressed
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.decline
+	ld a, 4
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1
+
+SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf:
+	text_far _SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	text_end
+
+SeviiThreeIslandHousesBookshelfText1:
+	text_asm
+	ld hl, SeviiThreeIslandHousesBookshelfText1_ItsAboutCard
+	call PrintText
+;	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
+;	call PrintText
+;	ld d, BOOKSHELF_MAGIC_CARD_MENU
+;	ld e, 6
+;	call BookshelfShelfChoiceCommon
+	jp TextScriptEnd
+
+SeviiThreeIslandHousesBookshelfText1_ItsAboutCard:
+	text_far _SeviiThreeIslandHousesBookshelfText1_ItsAboutCard
+	text_end
+
+; --------------------------------------
 
 SeviiThreeIslandHousesBookshelfText2:
 	text_far _SeviiThreeIslandHousesBookshelfText2
 	text_end
 
+; --------------------------------------
+
 SeviiThreeIslandHousesBookshelfText3:
 	text_far _SeviiThreeIslandHousesBookshelfText3
 	text_end
+
+; --------------------------------------
 
 SeviiThreeIslandHousesBookshelfText4:
 	text_far _SeviiThreeIslandHousesBookshelfText4
 	text_end
 
+; --------------------------------------
+
 SeviiThreeIslandHousesBookshelfText5:
 	text_far _SeviiThreeIslandHousesBookshelfText5
 	text_end
+
+; --------------------------------------
 
 SeviiThreeIslandHousesBookshelfText6:
 	text_far _SeviiThreeIslandHousesBookshelfText6
 	text_end
 
+; --------------------------------------
+
 SeviiThreeIslandHousesBookshelfText7:
 	text_far _SeviiThreeIslandHousesBookshelfText7
 	text_end
+
+; --------------------------------------
 
 SeviiThreeIslandHousesBookshelfText8:
 	text_far _SeviiThreeIslandHousesBookshelfText8
 	text_end
 
-; scripts
+; --------------------------------------
+
+; scripts ============================================
 
 SeviiThreeIslandHousesScriptText1:
 	text_far _SeviiThreeIslandHousesScriptText1

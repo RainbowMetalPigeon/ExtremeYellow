@@ -34,6 +34,16 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const MOVE_TUTOR_TERRAIN_MENU           ; new
 	const MOVE_TUTOR_HAZARD_MENU            ; new
 
+	const BOOKSHELF_MAGIC_CARD_MENU         ; new
+	const BOOKSHELF_MAGIC_COIN_MENU         ; new
+	const BOOKSHELF_MAGIC_ROPE_MENU         ; new
+	const BOOKSHELF_MAGIC_RING_MENU         ; new
+	const BOOKSHELF_MAGIC_LEVITATION_MENU   ; new
+	const BOOKSHELF_MAGIC_VANISH_MENU       ; new
+	const BOOKSHELF_MAGIC_MENTALISM_MENU    ; new
+	const BOOKSHELF_MAGIC_MISCELLANEA_MENU  ; new
+	const BOOKSHELF_BOOK_1_2_3_4_MENU       ; new
+
 ; two option menu constants
 ; TwoOptionMenuStrings indexes (see data/yes_no_menu_strings.asm)
 	const_def
