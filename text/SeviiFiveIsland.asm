@@ -183,9 +183,67 @@ _SeviiFiveIslandPokemonCenterAndMart_Text4::
 
 ; Houses ---------------------------------
 
-_SeviiFiveIslandHousesText1::
-	text "Trick Room Tutor"
-	line "I am an elder"
+_SeviiFiveIslandHousesText1_CanShowMe::
+	text "I have researched"
+	line "time itself for"
+	cont "decades."
+
+	para "I am untangling"
+	line "its paradoxes."
+
+	para "I need to see a"
+	line "#MON tied to"
+	cont "the past and one"
+	cont "to the future."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiFiveIslandHousesText1_Thanks::
+	text "Ohthatsperfectyouh"
+	line "avebothofthemokIne"
+	cont "edtostudythemforju"
+	cont "stafewmomentspleas"
+	cont "eholdyesImalmostdo"
+	cont "neohyesthisisveryi"
+	cont "nterestingohIdidnt"
+	cont "thinksouhmyeahnowI"
+	cont "understandokthanky"
+	cont "ousomuchallowmetor"
+	cont "eciprocate!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiFiveIslandHousesText1_MissingSomething::
+	text "Ahdammityoudonthav"
+	line "eeverythingIneedwe"
+	cont "lltoobadpleasecome"
+	cont "backifyougetalltha"
+	cont "tIneed!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText1_Question::
+	text "Would you like me"
+	line "me to teach to"
+	cont "your #MON the"
+	cont "move TRICK ROOM?" 
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText1_Refused::
+	text "Okasyouwishifyouch"
+	line "changeyourmindcome"
+	cont "backnowImusthurryI"
+	cont "donthavetimetowast"
+	cont "e!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText1_Done::
+	text "Greatweredoneheren"
+	line "owletshurrybacktob"
+	cont "usinesswebothhaves"
+	cont "omuchtodo!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -196,7 +254,7 @@ _SeviiFiveIslandHousesSignText1::
 	cont "equation assigns"
 	cont "complex values to"
 	cont "the scalar"
-	cont "curvarture within"
+	cont "curvature within"
 	cont "the tensor..."
 
 	para "What an unorthodox"
@@ -222,6 +280,26 @@ _SeviiFiveIslandHousesSignText2::
 	cont "these unheard"
 	cont "hypothesis?"
 	cont "Fascinating!" 
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesSignText3::
+	text "Crammed full of"
+	line "Quantum Chromo-"
+	cont "dynamic books!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesSignText4::
+	text "Crammed full of"
+	line "Special & General"
+	cont "Relativity books!"
+
+	para "Also a couple on"
+	line "String Theory and"
+	cont "Supersymmetry?"
+	cont "..."
+	cont "Nobody's perfect."
 ;	xxxx "123456789012345678"
 	done
 

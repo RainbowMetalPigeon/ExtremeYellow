@@ -8,6 +8,8 @@ SeviiFiveIslandHouses_Object:
 	def_bg_events
 	bg_event  2,  0,  2 ; SeviiFiveIslandHousesSignText1
 	bg_event  3,  0,  3 ; SeviiFiveIslandHousesSignText2
+	bg_event  0,  1,  4 ; SeviiFiveIslandHousesSignText3
+	bg_event  1,  1,  5 ; SeviiFiveIslandHousesSignText4
 
 	def_object_events
 	object_event  2,  4, SPRITE_LITTLE_GIRL, STAY, RIGHT, 1 ; Trick Room Tutor

@@ -1740,13 +1740,13 @@ INCLUDE "scripts/SeviiRoute38Houses.asm"
 INCLUDE "data/maps/objects/SeviiRoute38Houses.asm"
 SeviiRoute38Houses_Blocks: INCBIN "maps/SeviiRoute38Houses.blk"
 
+
+SECTION "Maps Sevii 3", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiPatternBush.asm"
 INCLUDE "scripts/SeviiPatternBush.asm"
 INCLUDE "data/maps/objects/SeviiPatternBush.asm"
 SeviiPatternBush_Blocks: INCBIN "maps/SeviiPatternBush.blk"
-
-
-SECTION "Maps Sevii 3", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiRoute43Caves.asm"
 INCLUDE "scripts/SeviiRoute43Caves.asm"

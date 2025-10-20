@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db VICTREEBEL, 100 ; 255
-	db MR_MIME, 100
+	db PORYGONZ, 100 ; 255
+	db MARODACTYL, 100
 	db STARTER_PIKACHU, 100
 ;	db ARCEUS, 5
 ;	db MAROWAK, 99
