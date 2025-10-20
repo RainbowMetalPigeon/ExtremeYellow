@@ -19,7 +19,6 @@ SeviiFourIslandHazardRoom_ScriptPointers:
 ; scripts =========================
 
 SeviiFourIslandHazardRoom_Null:
-	ret
 ; check for return-to-square-one tiles
 	ld hl, SeviiFourIslandHazardRoom_Coordinates_BackToSquareOne
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
