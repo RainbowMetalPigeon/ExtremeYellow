@@ -53,6 +53,7 @@ MapSongBanks_Sevii::
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_FOUR_ISLAND_GYM
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_HOUSES
+	db MUSIC_GAME_CORNER, BANK(Music_GameCorner)       ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_ICEFALL_CAVE_1F
 ; 5-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_FIVE_ISLAND_DOCK

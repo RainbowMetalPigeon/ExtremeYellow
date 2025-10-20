@@ -69,6 +69,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $29
 	map_const SEVII_FOUR_ISLAND_GYM,                         16,  9 ; $2A
 	map_const SEVII_FOUR_ISLAND_HOUSES,                      25,  4 ; $1A
+	map_const SEVII_FOUR_ISLAND_HAZARD_ROOM,                  9, 12 ; $1A
 	map_const SEVII_ICEFALL_CAVE_1F,                         15, 15 ; $23
 ; 5-island-related maps
 	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $24

@@ -159,11 +159,11 @@ _SeviiOneIslandHousesText1_ThanksForTheDrink::
 	para "I know! To thank"
 	line "you, I can teach"
 	cont "your #MON a"
-	cont "weather move!"
+	cont "special move!"
 	done
 
 _SeviiOneIslandHousesText1_Question::
-	text "Which weather move"
+	text "Which WEATHER move"
 	line "interests you?"
 	done
 

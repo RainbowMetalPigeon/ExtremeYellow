@@ -68,7 +68,7 @@ Club_Coll::
 	coll_tiles $0f, $1a, $1f, $26, $28, $29, $2c, $2d, $2e, $2f, $41, $4D ; edited, last 1 is new
 
 Facility_Coll::
-	coll_tiles $01, $10, $11, $13, $1b, $20, $21, $22, $30, $31, $32, $42, $43, $48, $52, $55, $58, $5e
+	coll_tiles $01, $10, $11, $13, $1b, $20, $21, $22, $30, $31, $32, $42, $43, $48, $52, $55, $58, $5e, $60 ; edited, last 1 is new
 
 Plateau_Coll::
 	coll_tiles $1b, $23, $2c, $2d, $3b, $45

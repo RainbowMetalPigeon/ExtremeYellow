@@ -1,5 +1,15 @@
 CheckIfDirectionalButtonIsPressed::
 ;	jr .vanilla ; countercomment this line when created ready
+	CheckEvent EVENT_IN_SEVII
+	jr z, .kanto
+; in Sevii
+	ld a, [wCurMap]
+	cp SEVII_FOUR_ISLAND_HAZARD_ROOM
+	jr nz, .vanilla
+	CheckEvent EVENT_SCRAMBLE_INPUTS
+	jr nz, .anomalousMovements
+	jr .vanilla
+.kanto
 	ld a, [wCurMap]
 	call IsCurrentMapHauntedHouse_AlsoIsland
 	jr nz, .vanilla

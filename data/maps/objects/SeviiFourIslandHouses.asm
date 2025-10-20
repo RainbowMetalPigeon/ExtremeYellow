@@ -10,6 +10,7 @@ SeviiFourIslandHouses_Object:
 	warp_event 31,  7, SEVII_FOUR_ISLAND_CITY, 7
 	warp_event 44,  7, SEVII_FOUR_ISLAND_CITY, 8
 	warp_event 45,  7, SEVII_FOUR_ISLAND_CITY, 8
+	warp_event 35,  1, SEVII_FOUR_ISLAND_HAZARD_ROOM, 1
 
 	def_bg_events
 	bg_event  3,  1,  7 ; SeviiFourIslandHousesSignText1_TV

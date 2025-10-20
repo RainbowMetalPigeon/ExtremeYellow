@@ -54,6 +54,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiFourIslandPokemonCenterAndMart_h
 	dw SeviiFourIslandGym_h
 	dw SeviiFourIslandHouses_h
+	dw SeviiFourIslandHazardRoom_h
 	dw SeviiIcefallCave1F_h
 ; 5-island
 	dw SeviiFiveIslandDock_h

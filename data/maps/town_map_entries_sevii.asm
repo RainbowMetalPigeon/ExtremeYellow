@@ -53,7 +53,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_THREE_ISLAND_CAVES,                         15,  4, ThreeIslandCavesName
 	internal_map SEVII_BERRY_FOREST,                               12,  3, BerryForestName
 ; 4-island
-	internal_map SEVII_FOUR_ISLAND_HOUSES,                          2,  8, FourIslandName
+	internal_map SEVII_FOUR_ISLAND_HAZARD_ROOM,                     2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
 ; 5-island
 	internal_map SEVII_FIVE_ISLAND_HOUSES,                          8,  9, FiveIslandName

@@ -53,6 +53,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_GYM
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_HOUSES
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	dw SeviiIcefallCave1FWildMons    ; SEVII_ICEFALL_CAVE_1F
 ; 5-island
 	dw SeviiShipDockWildMons         ; SEVII_FIVE_ISLAND_DOCK

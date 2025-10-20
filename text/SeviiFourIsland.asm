@@ -108,8 +108,36 @@ _SeviiFourIslandHousesText4::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiFourIslandHousesText5::
-	text "Tutor"
+_SeviiFourIslandHousesText5_ProposeGame::
+	text "Hihihi!"
+	line "Do you want to"
+	cont "play a game?"
+
+	para "Then go downstairs"
+	line "and try to reach"
+	cont "the end!"
+
+	para "...if you can,"
+	line "hehehe!"
+	done
+
+_SeviiFourIslandHousesText5_Question::
+	text "Hahaha, you beat"
+	line "my game!"
+
+	para "Excellent! Let me"
+	line "teach you an"
+	cont "ENTRY HAZARD!"
+	done
+
+_SeviiFourIslandHousesText5_Refused::
+	text "Hohoho... so sad."
+	line "Traps are cool."
+	done
+
+_SeviiFourIslandHousesText5_Done::
+	text "We're done here!"
+	line "Enjoy! Huhuhu!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -208,6 +236,27 @@ _SeviiFourIslandHousesSignText_FakeBooks::
 	para "They are still the"
 	line "fake ones from"
 	cont "the shop display!"
+	done
+
+; scripts
+
+_SeviiFourIslandHazardRoomScriptText1_BackToSquareOne::
+	text "Back to square 1!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHazardRoomScriptText2_DarkenMap::
+	text "And darkness fell!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHazardRoomScriptText3_ScrambleInputs::
+	text "Scrambling chaos!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHazardRoomSignText1_Won::
+	text "GG! You won!"
 	done
 
 ; gym ------------------------------------

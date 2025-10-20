@@ -54,6 +54,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiFourIslandPokemonCenterAndMart_h)
 	db BANK(SeviiFourIslandGym_h)
 	db BANK(SeviiFourIslandHouses_h)
+	db BANK(SeviiFourIslandHazardRoom_h)
 	db BANK(SeviiIcefallCave1F_h)
 ; 5-island
 	db BANK(SeviiFiveIslandDock_h)

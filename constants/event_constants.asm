@@ -319,7 +319,7 @@
 	const EVENT_GOT_10_COINS
 	const EVENT_GOT_20_COINS
 	const EVENT_GOT_20_COINS_2
-	const_skip 1
+	const EVENT_SCRAMBLE_INPUTS ; new
 	const EVENT_SEVII_BEAT_TERRAIN_TUTOR ; new
 	const EVENT_1BF ; ???
 	const EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE ; new
@@ -358,7 +358,7 @@
 	const EVENT_SPOKEN_WITH_SARA ; new
 	const EVENT_SAFARI_GAME_OVER
 	const EVENT_IN_SAFARI_ZONE
-	const_skip 1 ; edited, was 8
+	const EVENT_SEVII_HAZARD_ROOM_PRESSED_TILE ; new
 	const EVENT_BEAT_KOGA_REMATCH ; new
 	const EVENT_GOT_TM06
 	const EVENT_BEAT_SEVII_ROUTE_39_TRAINER_1 ; new
@@ -379,7 +379,7 @@
 ; Cinnabar Island events
 	const_next $278
 	const EVENT_MANSION_SWITCH_ON
-	const_skip 1
+	const EVENT_SEVII_HAZARD_ROOM_WON ; new
 	const EVENT_BEAT_SEVII_ROUTE_40_TRAINER_1 ; new
 	const EVENT_BEAT_SEVII_ROUTE_40_TRAINER_2 ; new
 	const EVENT_BEAT_SEVII_ROUTE_40_TRAINER_3 ; new
