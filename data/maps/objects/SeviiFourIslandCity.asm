@@ -30,8 +30,8 @@ SeviiFourIslandCity_Object:
 	object_event  9, 11, SPRITE_COOLTRAINER_F, WALK, UP_DOWN, 7
 	object_event 18, 15, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 8
 	; non-persons
-	object_event 31, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 9
-	object_event 32, 34, SPRITE_POKE_BALL, STAY, NONE, 10, IRON
+	object_event 27, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 9
+	object_event 28, 34, SPRITE_POKE_BALL, STAY, NONE, 10, IRON
 	object_event  5,  4, SPRITE_POKE_BALL, STAY, NONE, 11, RARE_CANDY
 	object_event 27,  4, SPRITE_POKE_BALL, STAY, NONE, 12, PP_UP
 
