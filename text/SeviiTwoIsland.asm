@@ -14,13 +14,54 @@ _SeviiTwoIslandCityText4::
 	text "4"
 	done
 
-;_SeviiTwoIslandCityText5::
-;	text "Market"
-;	done
-
-_SeviiTwoIslandCityText6::
-	text "Lottery"
+_SeviiTwoIslandCityText6_Intro::
+	text "Salut, young one."
+	line "We run a lottery."
+	cont "You can win"
+	cont "amazing prizes!"
+	
+	para "It's only 5000¥."
+	line "Want to play?"
 	done
+
+_SeviiTwoIslandCityText6_NotEnoughMoney::
+	text "Oh, what a pity."
+	line "You don't have"
+	cont "enough money."
+	done
+
+_SeviiTwoIslandCityText6_LetsGamble::
+	text "Amazing! I wish"
+	line "best of luck!"
+
+	para "I'll roll the"
+	line "numbers...!"
+
+	para "And you won...!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityText6_BagFull::
+	text "Oooh, your bag is"
+	line "full... too bad."
+	done
+
+_SeviiTwoIslandCityText6_ComeBack::
+	text "Thanks for playing"
+	line "with us!"
+	cont "Come back anytime!"
+	done
+
+_SeviiTwoIslandCityText6_AsYouPrefer::
+	text "As you prefer."
+	done
+
+_SeviiTwoIslandCityText6_ObtainedX::
+	text "<PLAYER> received"
+	line "a @"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
 
 _SeviiTwoIslandCityText7::
 	text "7"

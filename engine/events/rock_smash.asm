@@ -182,9 +182,9 @@ RockSmashEncounters:
 	db 255, KINGLER, 40
 
 RockSmashItems:
-	db 27, KINGS_ROCK
-	db 54, THUNDER_STONE
-	db 81, WATER_STONE
+	db  27, KINGS_ROCK
+	db  54, THUNDER_STONE
+	db  81, WATER_STONE
 	db 108, LEAF_STONE
 	db 135, SUN_STONE
 	db 162, ICE_STONE
