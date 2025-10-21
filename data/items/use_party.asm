@@ -51,4 +51,5 @@ UsableItems_PartyMenu:
 	db CHEAT_CANDY  ; new
 	db COFFEE       ; new
 	db BEER         ; new
+	db SEVII_COOKIE ; new
 	db -1 ; end

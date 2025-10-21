@@ -133,6 +133,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; PEARL, new
 	dw ItemUseMedicine   ; COFFEE, new ; ItemUseXStat
 	dw ItemUseMedicine   ; BEER, new
+	dw ItemUseMedicine   ; SEVII_COOKIE, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -1622,6 +1623,9 @@ ItemUseMedicine:
 	jr z, .addHealAmount
 	cp BEER
 	ld b, 40
+	jr z, .addHealAmount
+	cp SEVII_COOKIE
+	ld b, 77
 	jr z, .addHealAmount
 ; BTV
 	cp SUPER_POTION

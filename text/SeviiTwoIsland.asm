@@ -14,9 +14,9 @@ _SeviiTwoIslandCityText4::
 	text "4"
 	done
 
-_SeviiTwoIslandCityText5::
-	text "Market"
-	done
+;_SeviiTwoIslandCityText5::
+;	text "Market"
+;	done
 
 _SeviiTwoIslandCityText6::
 	text "Lottery"

@@ -136,19 +136,7 @@ CloseTextDisplay::
 
 DisplayPokemartDialogue::
 	push hl
-	ld hl, PokemartGreetingText
-; new, for the taboo / forbidden merchant
-	ld a, [wCurMap]
-	cp CERULEAN_CAVE_EXTRA_FINAL
-	jr nz, .notForbiddenMerchant
-; we are talking to the forbidden merchant
-	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_6
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ld hl, ForbiddenMerchantGreetingText
-.notForbiddenMerchant
-; back to vanilla
-	call PrintText
+	callfar DisplayPokemartDialogue_Far
 	pop hl
 	inc hl
 	call LoadItemList
@@ -156,14 +144,6 @@ DisplayPokemartDialogue::
 	ld [wListMenuID], a
 	homecall DisplayPokemartDialogue_
 	jp AfterDisplayingTextID
-
-PokemartGreetingText::
-	text_far _PokemartGreetingText
-	text_end
-
-ForbiddenMerchantGreetingText:: ; new
-	text_far _ForbiddenMerchantGreetingText
-	text_end
 
 LoadItemList::
 	ld a, 1

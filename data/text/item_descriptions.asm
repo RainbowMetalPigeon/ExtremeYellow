@@ -491,8 +491,13 @@ _CoffeeDescription::
 
 _BeerDescription::
 	text "HP +40. Evasion"
-;	xxxx "123456789012345678"
 	next "+1. Poisons user."
+	prompt
+
+_SeviiCookieDescription::
+	text "HP +77. Only sold"
+	next "in SEVII ISLANDS."
+;	xxxx "123456789012345678"
 	prompt
 
 _CheatCandyDescription::

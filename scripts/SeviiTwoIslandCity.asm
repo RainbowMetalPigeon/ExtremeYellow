@@ -92,11 +92,10 @@ SeviiTwoIslandCityText4:
 	text_far _SeviiTwoIslandCityText4
 	text_end
 
-SeviiTwoIslandCityText5:
-	text_far _SeviiTwoIslandCityText5
-	text_end
+SeviiTwoIslandCityText5: ; Market
+	script_mart GREAT_BALL, SUPER_POTION, ESCAPE_ROPE, SUPER_REPEL, FRESH_WATER, SODA_POP, LEMONADE, SEVII_COOKIE
 
-SeviiTwoIslandCityText6:
+SeviiTwoIslandCityText6: ; Lottery
 	text_far _SeviiTwoIslandCityText6
 	text_end
 

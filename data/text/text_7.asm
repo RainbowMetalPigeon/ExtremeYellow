@@ -17,8 +17,6 @@ _TMPokemartGreetingTextFoundNone:: ; new
 	done
 
 _TMPokemartGreetingText:: ; new
-;	text "Hi! Are you"
-;	line "looking for TMs?"
 	text "Hi! I sell TMs you"
 	line "already found!"
 ;	xxxx "123456789012345678"
@@ -35,6 +33,16 @@ _ForbiddenMerchantGreetingText:: ; new
 	cont "bought anywhere"
 	cont "else in KANTO!"
 	prompt
+
+_SeviiTwoIslandMerchantGreetingText:: ; new
+	text "Salut, young one."
+	line "Would you like to"
+	cont "shop with us?"
+
+	para "We offer a unique"
+	line "specialty!"
+;	xxxx "123456789012345678"
+	done
 
 _PokemonFaintedText::
 	text_ram wcd6d

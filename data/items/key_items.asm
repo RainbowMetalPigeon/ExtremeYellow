@@ -116,4 +116,5 @@ KeyItemFlags:
 	dbit TRUE  ; PEARL          - new
 	dbit FALSE ; COFFEE         - new
 	dbit FALSE ; BEER           - new
+	dbit FALSE ; SEVII_COOKIE   - new
 	end_bit_array NUM_ITEMS

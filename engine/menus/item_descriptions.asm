@@ -246,6 +246,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _BeerDescription			; BEER
 	text_end
+	text_far _SeviiCookieDescription    ; SEVII_COOKIE
+	text_end
 
 ; HMs
 

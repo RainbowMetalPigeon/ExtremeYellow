@@ -1865,3 +1865,42 @@ TrainerSentOutText2:
 	text_end
 
 ; =====================================
+
+DisplayPokemartDialogue_Far::
+	ld hl, PokemartGreetingText
+; new, for the taboo/forbidden merchant and Sevii Two Island Market
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .sevii
+	ld a, [wCurMap]
+	cp CERULEAN_CAVE_EXTRA_FINAL
+	jr nz, .noSpecialMerchant
+; we are talking to the forbidden merchant
+	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_6
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld hl, ForbiddenMerchantGreetingText
+	jr .noSpecialMerchant
+.sevii
+	ld a, [wCurMap]
+	cp SEVII_TWO_ISLAND_CITY
+	jr nz, .noSpecialMerchant
+; we are talking to the 2-Island merchant
+	ld hl, SeviiTwoIslandMerchantGreetingText
+.noSpecialMerchant
+; back to vanilla
+	call PrintText
+	ret
+
+PokemartGreetingText::
+	text_far _PokemartGreetingText
+	text_end
+
+ForbiddenMerchantGreetingText:: ; new
+	text_far _ForbiddenMerchantGreetingText
+	text_end
+
+SeviiTwoIslandMerchantGreetingText:: ; new
+	text_far _SeviiTwoIslandMerchantGreetingText
+	text_end
