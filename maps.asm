@@ -1710,6 +1710,9 @@ INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
 SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
 
+
+SECTION "Maps Sevii 3", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiBerryForest.asm"
 INCLUDE "scripts/SeviiBerryForest.asm"
 INCLUDE "data/maps/objects/SeviiBerryForest.asm"
@@ -1739,9 +1742,6 @@ INCLUDE "data/maps/headers/SeviiRoute38Houses.asm"
 INCLUDE "scripts/SeviiRoute38Houses.asm"
 INCLUDE "data/maps/objects/SeviiRoute38Houses.asm"
 SeviiRoute38Houses_Blocks: INCBIN "maps/SeviiRoute38Houses.blk"
-
-
-SECTION "Maps Sevii 3", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiPatternBush.asm"
 INCLUDE "scripts/SeviiPatternBush.asm"

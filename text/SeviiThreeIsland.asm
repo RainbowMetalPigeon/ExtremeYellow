@@ -150,16 +150,37 @@ _SeviiThreeIslandHousesText1_Done::
 	line "See you next time!"
 	done
 
-_SeviiThreeIslandHousesText2::
-	text "Tricks"
+_SeviiThreeIslandHousesText2_Before::
+	text "I ADORE magic!"
+	line "The awe in the"
+	cont "spectators' eyes,"
+	cont "the marvel!"
+
+	para "Out of all of it,"
+	line "though, can you"
+	cont "guess my favorite?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText2_After::
+	text "Well done, my"
+	line "dear, well done!"
+
+	para "May magic always"
+	line "shine your smile!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesText3::
-	text "My mapa likes..."
+	text "My mapa likes to"
+	line "hide stuff!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesSignText1::
-	text "Book!"
+	text "This book looks..."
+	line "out of place?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesSignText2::
@@ -167,7 +188,10 @@ _SeviiThreeIslandHousesSignText2::
 	done
 
 _SeviiThreeIslandHousesSignText3::
-	text "Hints"
+	text "A broken model"
+	line "of the Statue"
+	cont "of Liberty."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf::
@@ -175,39 +199,397 @@ _SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf::
 	line "want to look at?"
 	done
 
+_SeviiThreeIslandHousesBookshelfTextCommon_Nah::
+	text "Nah, too much"
+	line "to read!"
+	done
+
+_SeviiThreeIslandHousesBookshelfTextCommon_WhichBook::
+	text "Which book do you"
+	line "want to look at?"
+	done
+
+; -----
+
 _SeviiThreeIslandHousesBookshelfText1_ItsAboutCard::
 	text "Books about card"
 ;	xxxx "123456789012345678"
 	line "magic tricks."
 	prompt
 
-_SeviiThreeIslandHousesBookshelfText2::
-	text "Bookshelf 2"
+_SeviiThreeIslandHousesBookshelfText1_Shelf1_Book1::
+	text "SB1 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf1_Book2::
+	text "SB1 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf1_Book3::
+	text "SB1 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf1_Book4::
+	text "SB1 - S1 - B4"
 	done
 
-_SeviiThreeIslandHousesBookshelfText3::
-	text "Bookshelf 3"
+_SeviiThreeIslandHousesBookshelfText1_Shelf2_Book1::
+	text "SB1 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf2_Book2::
+	text "SB1 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf2_Book3::
+	text "SB1 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf2_Book4::
+	text "SB1 - S2 - B4"
 	done
 
-_SeviiThreeIslandHousesBookshelfText4::
-	text "Bookshelf 4"
+_SeviiThreeIslandHousesBookshelfText1_Shelf3_Book1::
+	text "SB1 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf3_Book2::
+	text "SB1 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf3_Book3::
+	text "SB1 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText1_Shelf3_Book4::
+	text "SB1 - S3 - B4"
 	done
 
-_SeviiThreeIslandHousesBookshelfText5::
-	text "Bookshelf 5"
+; -----
+
+_SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins::
+	text "Books about coin"
+;	xxxx "123456789012345678"
+	line "magic tricks."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText2_Shelf1_Book1::
+	text "SB2 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf1_Book2::
+	text "SB2 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf1_Book3::
+	text "SB2 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf1_Book4::
+	text "SB2 - S1 - B4"
 	done
 
-_SeviiThreeIslandHousesBookshelfText6::
-	text "Bookshelf 6"
+_SeviiThreeIslandHousesBookshelfText2_Shelf2_Book1::
+	text "SB2 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf2_Book2::
+	text "SB2 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf2_Book3::
+	text "SB2 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf2_Book4::
+	text "SB2 - S2 - B4"
 	done
 
-_SeviiThreeIslandHousesBookshelfText7::
-	text "Bookshelf 7"
+_SeviiThreeIslandHousesBookshelfText2_Shelf3_Book1::
+	text "SB2 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf3_Book2::
+	text "SB2 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf3_Book3::
+	text "SB2 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText2_Shelf3_Book4::
+	text "SB2 - S3 - B4"
 	done
 
-_SeviiThreeIslandHousesBookshelfText8::
-	text "Bookshelf 8"
+; -----
+
+_SeviiThreeIslandHousesBookshelfText3_ItsAboutRope::
+	text "Books about rope"
+;	xxxx "123456789012345678"
+	line "magic tricks."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText3_Shelf1_Book1::
+	text "SB3 - S1 - B1"
 	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf1_Book2::
+	text "SB3 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf1_Book3::
+	text "SB3 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf1_Book4::
+	text "SB3 - S1 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText3_Shelf2_Book1::
+	text "SB3 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf2_Book2::
+	text "SB3 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf2_Book3::
+	text "SB3 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf2_Book4::
+	text "SB3 - S2 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText3_Shelf3_Book1::
+	text "SB3 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf3_Book2::
+	text "SB3 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf3_Book3::
+	text "SB3 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText3_Shelf3_Book4::
+	text "SB3 - S3 - B4"
+	done
+
+; -----
+
+_SeviiThreeIslandHousesBookshelfText4_ItsAboutRing::
+	text "Books about ring"
+;	xxxx "123456789012345678"
+	line "magic tricks."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText4_Shelf1_Book1::
+	text "SB4 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf1_Book2::
+	text "SB4 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf1_Book3::
+	text "SB4 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf1_Book4::
+	text "SB4 - S1 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText4_Shelf2_Book1::
+	text "SB4 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf2_Book2::
+	text "SB4 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf2_Book3::
+	text "SB4 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf2_Book4::
+	text "SB4 - S2 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText4_Shelf3_Book1::
+	text "SB4 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf3_Book2::
+	text "SB4 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf3_Book3::
+	text "SB4 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText4_Shelf3_Book4::
+	text "SB4 - S3 - B4"
+	done
+
+; -----
+
+_SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation::
+	text "Books about"
+;	xxxx "123456789012345678"
+	line "levitation magic."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText5_Shelf1_Book1::
+	text "SB5 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf1_Book2::
+	text "SB5 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf1_Book3::
+	text "SB5 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf1_Book4::
+	text "SB5 - S1 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText5_Shelf2_Book1::
+	text "SB5 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf2_Book2::
+	text "SB5 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf2_Book3::
+	text "SB5 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf2_Book4::
+	text "SB5 - S2 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText5_Shelf3_Book1::
+	text "SB5 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf3_Book2::
+	text "SB5 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf3_Book3::
+	text "SB5 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText5_Shelf3_Book4::
+	text "SB5 - S3 - B4"
+	done
+
+; -----
+
+_SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish::
+	text "Books about"
+;	xxxx "123456789012345678"
+	line "vanish magic."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText6_Shelf1_Book1::
+	text "SB6 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf1_Book2::
+	text "SB6 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf1_Book3::
+	text "SB6 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf1_Book4::
+	text "SB6 - S1 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText6_Shelf2_Book1::
+	text "SB6 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf2_Book2::
+	text "SB6 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf2_Book3::
+	text "SB6 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf2_Book4::
+	text "SB6 - S2 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText6_Shelf3_Book1::
+	text "SB6 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf3_Book2:: ; !
+	text "Ehy! This book is"
+	line "fake! It seems"
+	cont "connected to some"
+	cont "mechanism...!@"
+;	xxxx "123456789012345678"
+	text_end
+_SeviiThreeIslandHousesBookshelfText6_Shelf3_Book3::
+	text "SB6 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText6_Shelf3_Book4::
+	text "SB6 - S3 - B4"
+	done
+
+; -----
+
+_SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism::
+	text "Books about"
+;	xxxx "123456789012345678"
+	line "mentalism magic."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText7_Shelf1_Book1::
+	text "SB7 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf1_Book2::
+	text "SB7 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf1_Book3::
+	text "SB7 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf1_Book4::
+	text "SB7 - S1 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText7_Shelf2_Book1::
+	text "SB7 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf2_Book2::
+	text "SB7 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf2_Book3::
+	text "SB7 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf2_Book4::
+	text "SB7 - S2 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText7_Shelf3_Book1::
+	text "SB7 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf3_Book2::
+	text "SB7 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf3_Book3::
+	text "SB7 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText7_Shelf3_Book4::
+	text "SB7 - S3 - B4"
+	done
+
+; -----
+
+_SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea::
+	text "Books about mis-"
+;	xxxx "123456789012345678"
+	line "cellanea magic."
+	prompt
+
+_SeviiThreeIslandHousesBookshelfText8_Shelf1_Book1::
+	text "SB8 - S1 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf1_Book2::
+	text "SB8 - S1 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf1_Book3::
+	text "SB8 - S1 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf1_Book4::
+	text "SB8 - S1 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText8_Shelf2_Book1::
+	text "SB8 - S2 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf2_Book2::
+	text "SB8 - S2 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf2_Book3::
+	text "SB8 - S2 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf2_Book4::
+	text "SB8 - S2 - B4"
+	done
+
+_SeviiThreeIslandHousesBookshelfText8_Shelf3_Book1::
+	text "SB8 - S3 - B1"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf3_Book2::
+	text "SB8 - S3 - B2"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf3_Book3::
+	text "SB8 - S3 - B3"
+	done
+_SeviiThreeIslandHousesBookshelfText8_Shelf3_Book4::
+	text "SB8 - S3 - B4"
+	done
+
+; -----
 
 ; gym -------------------------------------
 
