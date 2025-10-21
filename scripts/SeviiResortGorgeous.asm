@@ -20,7 +20,7 @@ SeviiResortGorgeous_TextPointers:
 
 SeviiResortGorgeousText1: ; Selphy
 	text_asm
-	CheckEvent EVENT_GOT_PEARL_FROM_SELPHY
+	CheckEvent EVENT_GOT_WATERFALL_FROM_SELPHY
 	jr z, .beforePearl
 ; after Pearl
 	ld hl, SeviiResortGorgeousText1_AfterPearl
@@ -28,10 +28,10 @@ SeviiResortGorgeousText1: ; Selphy
 .beforePearl
 	ld hl, SeviiResortGorgeousText1_BeforePearl
 	call PrintText
-	lb bc, PEARL, 1
+	lb bc, HM_WATERFALL, 1
 	call GiveItem
 	jr nc, .bagFull
-	SetEvent EVENT_GOT_PEARL_FROM_SELPHY
+	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY
 	ld hl, SeviiResortGorgeousText1_GotPearl
 	jr .printAndEnd
 .bagFull

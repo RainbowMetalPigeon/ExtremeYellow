@@ -546,7 +546,7 @@ _SeviiResortGorgeousText1_BagFull::
 
 _SeviiResortGorgeousText1_GotPearl::
 	text "<PLAYER> received"
-	line "a PEARL!"
+	line "HM08!"
 	done
 
 _SeviiResortGorgeousText1_AfterPearl::
