@@ -159,6 +159,73 @@ _SeviiFiveIslandCitySignText5::
 
 	para "Observation Leads"
 	line "to the Truth"
+	done
+
+; scripts
+
+_SeviiFiveIslandCityScriptText1::
+	text "PINK: Go, now!"
+	line "CLOSE COMBAT!"
+	cont "Finish that"
+	cont "damned ROCKET!"
+
+	para "ROCKET: AAAHHH!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityScriptText2::
+	text "ROCKET: You"
+	line "little shitty...!"
+
+	para "You may have beat"
+	line "me, but wait for"
+	cont "the BOSS, they'll"
+	cont "rip your ass!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityScriptText3::
+	text "PINK: Good"
+	line "riddance!"
+
+	para "You talk big, but"
+	line "but you're only a"
+	cont "pathetic weakling."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityScriptText4::
+	text "PINK: <PLAYER>!"
+	line "You are here?!"
+	cont "What a timing!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandCityScriptText5::
+	text "PINK: TEAM ROCKET"
+	line "is again down to"
+	cont "no good."
+
+	para "By what I got,"
+	line "they took possess"
+	cont "of this WAREHOUSE"
+	cont "as a base for"
+	cont "their traffics."
+
+	para "Regardless, they"
+	line "must be stopped."
+
+	para "<PLAYER>."
+	line "I am going in."
+	cont "I grew incredibly"
+	cont "more powerful"
+	cont "since last time,"
+	cont "but I don't want"
+	cont "to take any risk"
+	cont "when it comes to"
+	cont "protect my home."
+
+	para "Will you help me?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -226,7 +293,7 @@ _SeviiFiveIslandHousesText1_Question::
 	text "Would you like me"
 	line "me to teach to"
 	cont "your #MON the"
-	cont "move TRICK ROOM?" 
+	cont "move TRICK ROOM?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -279,7 +346,7 @@ _SeviiFiveIslandHousesSignText2::
 	cont "function under"
 	cont "these unheard"
 	cont "hypothesis?"
-	cont "Fascinating!" 
+	cont "Fascinating!"
 ;	xxxx "123456789012345678"
 	done
 

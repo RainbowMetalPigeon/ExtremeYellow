@@ -1545,11 +1545,6 @@ INCLUDE "scripts/SeviiRoute37.asm"
 INCLUDE "data/maps/objects/SeviiRoute37.asm"
 SeviiRoute37_Blocks: INCBIN "maps/SeviiRoute37.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute38.asm"
-INCLUDE "scripts/SeviiRoute38.asm"
-INCLUDE "data/maps/objects/SeviiRoute38.asm"
-SeviiRoute38_Blocks: INCBIN "maps/SeviiRoute38.blk"
-
 
 SECTION "Maps Sevii 2", ROMX ; new
 
@@ -1577,6 +1572,11 @@ SeviiFiveIslandPokemonCenterAndMart_Blocks:
 SeviiFourIslandPokemonCenterAndMart_Blocks:
 SeviiThreeIslandPokemonCenterAndMart_Blocks:
 SeviiOneIslandPokemonCenterAndMart_Blocks: INCBIN "maps/SeviiPokemonCenterAndMart.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute38.asm"
+INCLUDE "scripts/SeviiRoute38.asm"
+INCLUDE "data/maps/objects/SeviiRoute38.asm"
+SeviiRoute38_Blocks: INCBIN "maps/SeviiRoute38.blk"
 
 INCLUDE "data/maps/headers/SeviiIcefallCave1F.asm"
 INCLUDE "scripts/SeviiIcefallCave1F.asm"

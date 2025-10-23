@@ -862,7 +862,6 @@
 	const EVENT_BEAT_ARCEUS
 	const_skip 3 ; edited for anomalies and Snorlax Den
 	const EVENT_BEAT_SNORLAX_DEN ; new, testing
-;	const_skip 1 ; edited all out for anomalies and Snorlax Den and Haunted House
 	const EVENT_HAUNTED_HOUSE_BETWEEN_BEDS ; new
 	const EVENT_INTERACTED_WITH_DAD_PICTURE ; new
 	const EVENT_SPOKEN_WITH_HAUNTED_MOM_1 ; new
@@ -977,7 +976,7 @@
 	const EVENT_BEAT_SILPH_CO_5F_TRAINER_1
 	const EVENT_BEAT_SILPH_CO_5F_TRAINER_2
 	const EVENT_BEAT_SILPH_CO_5F_TRAINER_3
-	const_skip 1
+	const EVENT_SEVII_FIVE_ISLAND_PINK_ROCKET_FIGHT_OVER ; new
 	const EVENT_SILPH_CO_5_UNLOCKED_DOOR1
 	const EVENT_SILPH_CO_5_UNLOCKED_DOOR2
 	const EVENT_SILPH_CO_5_UNLOCKED_DOOR3
