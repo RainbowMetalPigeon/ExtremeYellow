@@ -86,7 +86,7 @@ ENDM
 	warp_tiles $34
 
 .FacilityWarpTileIDs:
-	db $43, $58, $20
+	db $43, $58, $20, $48 ; edited, last 1 is new
 	; fallthrough
 .CemeteryWarpTileIDs:
 	db $1B

@@ -57,7 +57,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
 ; 5-island
 	internal_map SEVII_FIVE_ISLAND_HOUSES,                          8,  9, FiveIslandName
-	internal_map SEVII_FIVE_ISLAND_WAREHOUSE,                       9, 10, FiveIslandWarehouseName
+	internal_map SEVII_FIVE_ISLAND_WAREHOUSE_2F,                    9, 10, FiveIslandWarehouseName
 	internal_map SEVII_RESORT_GORGEOUS,                             9,  7, Route35Name
 	internal_map SEVII_LOST_CAVE_3,                                10,  7, LostCaveName
 ; 6-island

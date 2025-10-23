@@ -1695,10 +1695,23 @@ INCLUDE "scripts/SeviiEmberSpa.asm"
 INCLUDE "data/maps/objects/SeviiEmberSpa.asm"
 SeviiEmberSpa_Blocks: INCBIN "maps/SeviiEmberSpa.blk"
 
-INCLUDE "data/maps/headers/SeviiFiveIslandWarehouse.asm"
-INCLUDE "scripts/SeviiFiveIslandWarehouse.asm"
-INCLUDE "data/maps/objects/SeviiFiveIslandWarehouse.asm"
-SeviiFiveIslandWarehouse_Blocks: INCBIN "maps/SeviiFiveIslandWarehouse.blk"
+INCLUDE "data/maps/headers/SeviiFiveIslandWarehouseBF.asm"
+INCLUDE "scripts/SeviiFiveIslandWarehouseBF.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandWarehouseBF.asm"
+SeviiFiveIslandWarehouseBF_Blocks: INCBIN "maps/SeviiFiveIslandWarehouseBF.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandWarehouse1F.asm"
+INCLUDE "scripts/SeviiFiveIslandWarehouse1F.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandWarehouse1F.asm"
+SeviiFiveIslandWarehouse1F_Blocks: INCBIN "maps/SeviiFiveIslandWarehouse1F.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandWarehouse2F.asm"
+INCLUDE "scripts/SeviiFiveIslandWarehouse2F.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandWarehouse2F.asm"
+SeviiFiveIslandWarehouse2F_Blocks: INCBIN "maps/SeviiFiveIslandWarehouse2F.blk"
+
+
+SECTION "Maps Sevii 3", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiThreeIslandCaves.asm"
 INCLUDE "scripts/SeviiThreeIslandCaves.asm"
@@ -1709,9 +1722,6 @@ INCLUDE "data/maps/headers/SeviiThreeIslandSecretGarden.asm"
 INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
 SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
-
-
-SECTION "Maps Sevii 3", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiBerryForest.asm"
 INCLUDE "scripts/SeviiBerryForest.asm"

@@ -61,7 +61,9 @@ MapHeaderPointers_Sevii::
 	dw SeviiFiveIslandPokemonCenterAndMart_h
 	dw SeviiFiveIslandGym_h
 	dw SeviiFiveIslandHouses_h
-	dw SeviiFiveIslandWarehouse_h
+	dw SeviiFiveIslandWarehouseBF_h
+	dw SeviiFiveIslandWarehouse1F_h
+	dw SeviiFiveIslandWarehouse2F_h
 	dw SeviiResortGorgeous_h
 	dw SeviiLostCave1_h
 	dw SeviiLostCave2_h
