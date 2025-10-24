@@ -1,8 +1,5 @@
 SeviiFiveIslandWarehouse1F_Script:
-	ld hl, wCurrentMapScriptFlags
-	bit 5, [hl]
-	res 5, [hl]
-	call nz, SeviiFiveIslandWarehouse1FSetDoorBlock
+	call SeviiFiveIslandWarehouse1FSetDoorBlock
 	call EnableAutoTextBoxDrawing
 ;	ld hl, SeviiFiveIslandWarehouse1FTrainerHeaders
 	ld de, SeviiFiveIslandWarehouse1F_ScriptPointers
@@ -11,8 +8,12 @@ SeviiFiveIslandWarehouse1F_Script:
 	ld [wCurMapScript], a
 	ret
 
-SeviiFiveIslandWarehouse1FSetDoorBlock: ; TBE
-	ret
+SeviiFiveIslandWarehouse1FSetDoorBlock:
+	ret ; TBE
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	ret z
 	CheckEvent EVENT_OBSIDIAN_WAREHOUSE_SWITCH_CLICKED
 	jr nz, .doorsOpen
 	ld a, $54 ; double door block ID
