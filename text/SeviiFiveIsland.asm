@@ -463,7 +463,7 @@ _SeviiFiveIslandWarehouse1FText1::
 	line "but if I don't"
 	cont "betray them,"
 	cont "the BOSS'll make"
-	cont "sleep with"
+	cont "me sleep with"
 	cont "the fish."
 
 	para "I hope they won't"
@@ -475,11 +475,35 @@ _SeviiFiveIslandWarehouse1FText1::
 ; 2F ---
 
 _SeviiFiveIslandWarehouse2FText1_Inner::
-	text "CARR: die"
+	text "CARR: So you're one"
+	line "of those brats"
+	cont "that infiltrated!"
+
+	para "I won't let you"
+	line "in the ways of"
+	cont "my goal."
+
+	para "GIOVANNI's falling,"
+	line "and I can't miss"
+	cont "the chance to"
+	cont "fill this"
+	cont "power vacuum"
+	cont "they're leaving."
+
+	para "I took possess of"
+	line "this place as the"
+	cont "next base of MY"
+	cont "band: TEAM CARR!"
+
+	para "And you, you're"
+	line "just a nuisance."
+	cont "DIE! HAHAHAHA!!!"
 	done
 
 _SeviiFiveIslandWarehouse2FCarrDefeatText::
-	text "Damn!"
+	text "Wh-what?!"
+	line "Damned kid!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandWarehouse2FText2::
@@ -551,7 +575,21 @@ _SeviiFiveIslandWarehouse2FSignTextDoor_HaveKey::
 	done
 
 _SeviiFiveIslandWarehouse2FScriptText1::
-	text "CARR: ciao"
+	text "CARR: I-I can't"
+	line "believe it..."
+
+	para "So YOU are the"
+	line "pain in the ass"
+	cont "that has been"
+	cont "fucking with TEAM"
+	cont "ROCKET lately!"
+
+	para "Shitty brat..."
+	line "Don't believe"
+	cont "this is over!"
+	cont "I won't let"
+	cont "GIOVANNI's empire"
+	cont "go to waste!"
 ;	xxxx "123456789012345678"
 	done
 	
@@ -561,7 +599,44 @@ _SeviiFiveIslandWarehouse2FScriptText2::
 	done
 	
 _SeviiFiveIslandWarehouse2FScriptText3::
-	text "PINK: gg ciao"
+	text "PINK: You've been"
+	line "faster than me."
+	cont "You already"
+	cont "took care of"
+	cont "TEAM ROCKET!"
+;	xxxx "123456789012345678"
+
+	para "...what?! THAT is"
+	line "why they came?!"
+
+	para "It's a real"
+	line "dog-eat-dog world"
+	cont "out here, uh?"
+
+	para "Regardless, I'd"
+	line "like to thank you"
+	cont "for your help,"
+	cont "but..."
+
+	para "..."
+
+	para "...I didn't have"
+	line "the chance to"
+	cont "face CARR myself."
+	cont "I felt I relied"
+	cont "again on you to"
+	cont "solve our mess."
+
+	para "The SEVII ISLANDS"
+	line "are my home, and"
+	cont "I want to protect"
+	cont "them. I need to."
+	cont "And to do so,"
+	cont "I must be strong."
+
+	para "...<PLAYER>."
+	line "I'll wait for you"
+	cont "at my place."
 ;	xxxx "123456789012345678"
 	done
 
