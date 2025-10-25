@@ -134,6 +134,7 @@ ItemUsePtrTable:
 	dw ItemUseMedicine   ; COFFEE, new ; ItemUseXStat
 	dw ItemUseMedicine   ; BEER, new
 	dw ItemUseMedicine   ; SEVII_COOKIE, new
+	dw UnusableItem      ; PASSEPARTOUT, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 

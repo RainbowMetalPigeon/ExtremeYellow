@@ -117,6 +117,7 @@ ItemNames::
 	li "COFFEE" ; new
 	li "BEER" ; new
 	li "SEVII COOKIE" ; new
+	li "PASSEPARTOUT" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

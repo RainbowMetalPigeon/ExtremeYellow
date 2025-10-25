@@ -211,9 +211,8 @@ _SeviiFiveIslandCityScriptText5::
 	cont "of this WAREHOUSE"
 	cont "as a base for"
 	cont "their traffics."
-
-	para "Regardless, they"
-	line "must be stopped."
+	cont "Regardless, they"
+	cont "must be stopped."
 
 	para "<PLAYER>."
 	line "I am going in."

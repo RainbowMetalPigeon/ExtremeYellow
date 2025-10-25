@@ -500,6 +500,11 @@ _SeviiCookieDescription::
 ;	xxxx "123456789012345678"
 	prompt
 
+_PassepartoutDescription::
+	text "Opens WAREHOUSE"
+	next "keyhole doors."
+	prompt
+
 _CheatCandyDescription::
 	text "Raises LVL by one."
 	next "Not consumed."

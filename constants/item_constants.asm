@@ -127,6 +127,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const COFFEE        ; new
 	const BEER          ; new
 	const SEVII_COOKIE  ; new
+	const PASSEPARTOUT  ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

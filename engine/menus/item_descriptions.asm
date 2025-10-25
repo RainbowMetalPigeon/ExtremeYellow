@@ -248,6 +248,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _SeviiCookieDescription    ; SEVII_COOKIE
 	text_end
+	text_far _PassepartoutDescription   ; PASSEPARTOUT
+	text_end
 
 ; HMs
 
