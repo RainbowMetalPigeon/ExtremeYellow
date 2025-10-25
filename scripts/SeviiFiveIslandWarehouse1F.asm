@@ -1,7 +1,6 @@
 SeviiFiveIslandWarehouse1F_Script:
 	call SeviiFiveIslandWarehouse1FSetDoorBlock
 	call EnableAutoTextBoxDrawing
-;	ld hl, SeviiFiveIslandWarehouse1FTrainerHeaders
 	ld de, SeviiFiveIslandWarehouse1F_ScriptPointers
 	ld a, [wCurMapScript]
 	call ExecuteCurMapScriptInTable
@@ -9,27 +8,24 @@ SeviiFiveIslandWarehouse1F_Script:
 	ret
 
 SeviiFiveIslandWarehouse1FSetDoorBlock:
-	ret ; TBE
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEvent EVENT_OBSIDIAN_WAREHOUSE_SWITCH_CLICKED
+	CheckEvent EVENT_SEVII_FIVE_ISLAND_WAREHOUSE_BF_OPENED_DOOR_2
 	jr nz, .doorsOpen
-	ld a, $54 ; double door block ID
+	ld a, $2D ; door block ID
 	jr .replaceBlock
 .doorsOpen
 	ld a, $0E ; clear floor block ID
 .replaceBlock
 	ld [wNewTileBlockID], a
-	lb bc, 3, 24
+	lb bc,  2,  5
 	predef_jump ReplaceTileBlock
 
 SeviiFiveIslandWarehouse1F_ScriptPointers:
 	dw SeviiFiveIslandWarehouse1FScript0
-	dw DisplayEnemyTrainerTextAndStartBattle
-	dw EndTrainerBattle
-	dw SeviiFiveIslandWarehouse1FScript3
+	dw SeviiFiveIslandWarehouse1FScript1
 
 SeviiFiveIslandWarehouse1FScript0:
 	ld a, [wYCoord]
@@ -39,7 +35,7 @@ SeviiFiveIslandWarehouse1FScript0:
 	ld hl, SeviiFiveIslandWarehouse1FArrowTilePlayerMovement
 	call DecodeArrowMovementRLE
 	cp $ff
-	jp z, CheckFightingMapTrainers
+	ret z
 	call StartSimulatingJoypadStates
 	ld hl, wd736
 	set 7, [hl]
@@ -47,11 +43,11 @@ SeviiFiveIslandWarehouse1FScript0:
 	call PlaySound
 	ld a, $ff
 	ld [wJoyIgnore], a
-	ld a, $3
+	ld a, 1
 	ld [wCurMapScript], a
 	ret
 
-SeviiFiveIslandWarehouse1FScript3:
+SeviiFiveIslandWarehouse1FScript1:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	jr nz, .SeviiFiveIslandWarehouse1FLoadSpinnerArrow
@@ -269,13 +265,77 @@ Sevii_Spinner_RIGHT_8:
 ; ================ spinners - end ================
 
 SeviiFiveIslandWarehouse1F_TextPointers:
-;	dw SeviiFiveIslandWarehouse1FText1
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw PickUpItemText
-;	dw SeviiFiveIslandWarehouse1FText3
+	dw SeviiFiveIslandWarehouse1FText1
+	dw SeviiFiveIslandWarehouse1FText2
+	dw PickUpItemText
+	dw PickUpItemText
+	dw SeviiFiveIslandWarehouse1FSignText1
+	dw SeviiFiveIslandWarehouse1FSignText2
+
+SeviiFiveIslandWarehouse1FText1:
+	text_far _SeviiFiveIslandWarehouse1FText1
 	text_end
 
-;SeviiFiveIslandWarehouse1FText1:
-;	text_far _SeviiFiveIslandWarehouse1FText1
-;	text_end
+SeviiFiveIslandWarehouse1FText2:
+	text_far _SeviiFiveIslandWarehouse1FText2
+	text_end
+
+SeviiFiveIslandWarehouse1FSignText1:
+SeviiFiveIslandWarehouse1FSignText2:
+	text_asm
+	CheckEvent EVENT_SEVII_FIVE_ISLAND_WAREHOUSE_BF_OPENED_DOOR_2
+	ld hl, SeviiFiveIslandWarehouse1FSignText1_DoorIsOpen
+	jr nz, .printAndEnd
+; require password
+	call SaveScreenTilesToBuffer2
+	ld hl, SeviiFiveIslandWarehouse1FSignText1_RequiresPassword
+	call PrintText
+	call WaitForTextScrollButtonPress
+	farcall DisplayUniQuizScreen
+.checkTheAnswer
+	ld a, [wUniQuizAnswer]
+	cp "A"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+1]
+	cp "L"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+2]
+	cp "L"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+3]
+	cp "@"
+	jr z, .rightAnswer
+.wrongAnswer
+	ld a, SFX_DENIED
+	call PlaySound
+	ld hl, SeviiFiveIslandWarehouse1FSignText1_Wrong
+	jr .printAndEnd
+.rightAnswer
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+	SetEvent EVENT_SEVII_FIVE_ISLAND_WAREHOUSE_BF_OPENED_DOOR_2
+	ld a, $0E ; clear floor block ID
+	ld [wNewTileBlockID], a
+	lb bc,  2,  5
+	predef ReplaceTileBlock
+	ld hl, SeviiFiveIslandWarehouse1FSignText1_Right
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SeviiFiveIslandWarehouse1FSignText1_RequiresPassword:
+	text_far _SeviiFiveIslandWarehouse_InsertPassword
+	text_end
+
+SeviiFiveIslandWarehouse1FSignText1_Wrong:
+	text_far _SeviiFiveIslandWarehouse_WrongPassword
+	text_end
+
+SeviiFiveIslandWarehouse1FSignText1_Right:
+	text_far _SeviiFiveIslandWarehouse_CorrectPassword
+	text_end
+
+SeviiFiveIslandWarehouse1FSignText1_DoorIsOpen:
+	text_far _SeviiFiveIslandWarehouse_DoorIsOpen
+	text_end

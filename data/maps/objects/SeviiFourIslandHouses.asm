@@ -25,7 +25,7 @@ SeviiFourIslandHouses_Object:
 	bg_event 43,  3, 16 ; SeviiFourIslandHousesSignText10_FakeBooks
 
 	def_object_events
-	object_event  2,  6, SPRITE_PINK, STAY, DOWN, 1 ; challenge right after 5-Island
+	object_event  2,  5, SPRITE_PINK, STAY, RIGHT, 1 ; challenge right after 5-Island
 	object_event  2,  4, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 2 ; Dad
 	object_event  5,  4, SPRITE_GAMBLER, STAY, LEFT, 3 ; Papa
 	object_event  5,  5, SPRITE_MIDDLE_AGED_WOMAN, STAY, LEFT, 4 ; Mama

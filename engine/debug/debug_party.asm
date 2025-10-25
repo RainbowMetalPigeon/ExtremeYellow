@@ -169,7 +169,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 1
+	ld a, 2
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -281,7 +281,7 @@ DebugItemsList:
 	db RARE_CANDY, 42
 	db CHEAT_CANDY, 1
 	db LINK_CABLE, 3
-    db UPGRADE, 3
+    db PASSEPARTOUT, 1
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99

@@ -32,11 +32,14 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_FOUR_ISLAND_GYM,                           SeviiFourIslandGymHiddenObjects
 ; 5-island
 	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_FIVE_ISLAND_WAREHOUSE_BF,                  SeviiFiveIslandWarehouseBFHiddenObjects
+	dbw SEVII_FIVE_ISLAND_WAREHOUSE_1F,                  SeviiFiveIslandWarehouse1FHiddenObjects
+	dbw SEVII_FIVE_ISLAND_WAREHOUSE_2F,                  SeviiFiveIslandWarehouse2FHiddenObjects
 	dbw SEVII_FIVE_ISLAND_GYM,                           SeviiFiveIslandGymHiddenObjects
-	dbw SEVII_PATTERN_BUSH,                              SeviiPatternBushHiddenObjects
 ; 6-island
 	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SIX_ISLAND_GYM_1,                          SeviiSixIslandGym1HiddenObjects
+	dbw SEVII_PATTERN_BUSH,                              SeviiPatternBushHiddenObjects
 ; 7-island
 	dbw SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,      SeviiSevenIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SEVEN_ISLAND_GYM_1,                        SeviiSevenIslandGym1HiddenObjects
@@ -117,6 +120,21 @@ SeviiFourIslandPokemonCenterAndMartHiddenObjects:
 
 SeviiFiveIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1
+
+SeviiFiveIslandWarehouseBFHiddenObjects:
+	hidden_object 27, 18, NUGGET, HiddenItems
+	hidden_object  7,  4, ETHER, HiddenItems
+	db -1
+
+SeviiFiveIslandWarehouse1FHiddenObjects:
+	hidden_object  0, 20, RARE_CANDY, HiddenItems
+	hidden_object 30, 12, ELIXER, HiddenItems
+	db -1
+
+SeviiFiveIslandWarehouse2FHiddenObjects:
+	hidden_object 19, 12, MAX_ETHER, HiddenItems
+	hidden_object 28, 17, MAX_ELIXER, HiddenItems
 	db -1
 
 SeviiSixIslandPokemonCenterAndMartHiddenObjects:

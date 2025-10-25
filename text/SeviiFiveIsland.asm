@@ -403,6 +403,168 @@ _SeviiFiveIslandGymText2_PostLeague::
 	line "after"
 	done
 
+; Warehouse ----------------------------------
+
+_SeviiFiveIslandWarehouse_InsertPassword::
+	text "INSERT PASSWORD:"
+	done
+
+_SeviiFiveIslandWarehouse_WrongPassword::
+	text "WRONG PASSWORD."
+	done
+
+_SeviiFiveIslandWarehouse_CorrectPassword::
+	text "CORRECT PASSWORD."
+	done
+
+_SeviiFiveIslandWarehouse_DoorIsOpen::
+	text "The door is open."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouseBFText2::
+	text "They're out cold."
+
+	para "A note pokes from"
+	line "a pocket:"
+	cont "PASSWORD: 'GRASP'."
+	done
+
+_SeviiFiveIslandWarehouse1FText2::
+_SeviiFiveIslandWarehouse2FText6::
+	text "They're out cold."
+	done
+
+; BF ---
+
+_SeviiFiveIslandWarehouseBFText1::
+	text "GO AWAY!"
+	line "I'd enough being"
+	cont "beaten by brats"
+	cont "for today!"
+
+	para "...fine!"
+	line "As I told to that"
+	cont "fury, the only"
+	cont "password I know"
+	cont "is 'ALL'."
+
+	para "Happy?! Now leave"
+	line "me alone!"
+	done
+
+; 1F ---
+
+_SeviiFiveIslandWarehouse1FText1::
+	text "The BOSS's crazy..."
+	line "They're so scary."
+
+	para "I admire GIOVANNI,"
+	line "but if I don't"
+	cont "betray them,"
+	cont "the BOSS'll make"
+	cont "sleep with"
+	cont "the fish."
+
+	para "I hope they won't"
+	line "gift me concret"
+	cont "shoes for losing"
+	cont "to that kid..."
+	done
+
+; 2F ---
+
+_SeviiFiveIslandWarehouse2FText1_Inner::
+	text "CARR: die"
+	done
+
+_SeviiFiveIslandWarehouse2FCarrDefeatText::
+	text "Damn!"
+	prompt
+
+_SeviiFiveIslandWarehouse2FText2::
+	text "PINK: <PLAYER>!"
+	line "This place is"
+	cont "a damned maze."
+	cont "Whoever designed"
+	cont "it must be sick"
+	cont "in the head."
+
+	para "...anyhow, aren't"
+	line "these statues sus?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouse2FText3::
+	text "Proxy"
+	done
+
+_SeviiFiveIslandWarehouse2FBattleText1::
+	text "Argh! Another kid"
+	line "rampaging around?"
+
+	para "At least you look"
+	line "weaker than the"
+	cont "other one. I'll"
+	cont "beat you and the"
+	cont "BOSS'll give me"
+	cont "a promotion!"
+	done
+
+_SeviiFiveIslandWarehouse2FEndBattleText1::
+	text "Urk..."
+	line "You're strong..."
+	prompt
+
+_SeviiFiveIslandWarehouse2FAfterBattleText1::
+	text "Don't hurt me!"
+	line "I'll tell you all!"
+
+	para "...not that I know"
+	line "much... only that"
+	cont "one of the pass-"
+	cont "words is 'POWER'."
+
+	para "Happy? Now scram!"
+	done
+
+_SeviiFiveIslandWarehouse2FSignText1::
+	text "It looks even more"
+	line "suspicious than"
+	cont "the other one..."
+	done
+
+_SeviiFiveIslandWarehouse2FSignText2::
+	text "It's even more"
+	line "suspect than the"
+	cont "other statue..."
+	done
+
+_SeviiFiveIslandWarehouse2FSignTextDoor_NeedsKey::
+	text "It needs a key."
+	done
+
+_SeviiFiveIslandWarehouse2FSignTextDoor_HaveKey::
+	text "The PASSEPARTOUT"
+	line "fits the keyhole!"
+	cont "The door opens!"
+	done
+
+_SeviiFiveIslandWarehouse2FScriptText1::
+	text "CARR: ciao"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiFiveIslandWarehouse2FScriptText2::
+	text "PINK: <PLAYER>!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiFiveIslandWarehouse2FScriptText3::
+	text "PINK: gg ciao"
+;	xxxx "123456789012345678"
+	done
+
 ; dock ------------------------------------
 
 _SeviiFiveIslandDockBgText1::

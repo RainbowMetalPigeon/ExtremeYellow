@@ -12,10 +12,15 @@ SeviiFiveIslandWarehouseBF_Object:
 	warp_event 30, 18, SEVII_FIVE_ISLAND_WAREHOUSE_2F,  2 ; id=8
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
+	bg_event 28, 14, 7 ; SeviiFiveIslandWarehouseBFSignText1
+	bg_event 29, 14, 8 ; SeviiFiveIslandWarehouseBFSignText2
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
+	object_event 14,  5, SPRITE_ROCKET, STAY, DOWN, 1
+	object_event  5, 16, SPRITE_ROCKET_FAINTED, STAY, NONE, 2
+	object_event 13, 18, SPRITE_POKE_BALL, STAY, NONE, 3, PASSEPARTOUT
+	object_event  1,  8, SPRITE_POKE_BALL, STAY, NONE, 4, ULTRA_BALL
+	object_event 26,  8, SPRITE_POKE_BALL, STAY, NONE, 5, REVIVE
+	object_event  8, 17, SPRITE_POKE_BALL, STAY, NONE, 6, PROTEIN
 
 	def_warps_to SEVII_FIVE_ISLAND_WAREHOUSE_BF

@@ -142,5 +142,6 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_UNUSED_GAMBLER_ASLEEP_2 ; $51
 	const SPRITE_GAMBLER_ASLEEP          ; $52
 	const SPRITE_MISSINGNO               ; new
-	const SPRITE_ROCKSMASHABLE_ROCK       ; new
+	const SPRITE_ROCKSMASHABLE_ROCK      ; new
+	const SPRITE_ROCKET_FAINTED          ; new
 DEF NUM_SPRITES EQU const_value - 1
