@@ -82,15 +82,24 @@ _ReceivedHM03Text::
 	text "!@"
 	text_end
 
-_HM03ExplanationText::
-	text "WARDEN: HM03"
-	line "teaches SURF!"
+_WardenUpgradeTicket::
+	text "<PLAYER>'s"
+	line "SEVII TICKET"
+	cont "got upgraded!@"
+;	xxxx "123456789012345678"
+	text_end
 
-	para "#MON will be"
-	line "able to ferry you"
-	cont "across water!"
+_TicketUpgradeExplanationText::
+	text_start
+	para "WARDEN: With this"
+	line "upgrade, you'll be"
+	cont "able to travel up"
+	cont "to CHRONO ISLAND!"
+	prompt
+;	xxxx "123456789012345678"
 
-	para "Oh yes, did you"
+_SecretHouseHint::
+	text "Oh yes, did you"
 	line "find SECRET HOUSE"
 	cont "in SAFARI ZONE?"
 
@@ -125,11 +134,6 @@ _BeatGiovanniAmazementText::
 
 	para "Thank you so"
 	line "immensely much!!!"
-	done
-
-_HM03NoRoomText::
-	text "Your pack is"
-	line "stuffed full!"
 	done
 
 ; new ---

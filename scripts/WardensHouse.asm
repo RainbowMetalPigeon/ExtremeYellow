@@ -29,7 +29,7 @@ WardensHouse_TextPointers:
 
 FuchsiaHouse2Text1:
 	text_asm
-	CheckEvent EVENT_GOT_HM03 ; edited
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5 ; edited
 	jr nz, .got_item
 	ld b, GOLD_TEETH
 	call IsItemInBag
@@ -57,26 +57,24 @@ FuchsiaHouse2Text1:
 .gave_gold_teeth
 	ld hl, WardenThankYouText
 	call PrintText
-	lb bc, HM_SURF, 1 ; edited
-	call GiveItem
-	jr nc, .bag_full
-	ld hl, ReceivedHM03Text
+	ld hl, WardenUpgradeTicket
 	call PrintText
-	SetEvent EVENT_GOT_HM03 ; edited
+	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+;	ld hl, TicketUpgradeExplanationText
+;	call PrintText
+	ld hl, SecretHouseHint
+	call PrintText
 	jr .done
 .got_item
 	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4 ; new
 	jr nz, .beatObsidianGiovanni ; new
-	ld hl, HM03ExplanationText
+	ld hl, SecretHouseHint
 	call PrintText
 	jr .done
 .beatObsidianGiovanni ; new
 	ld hl, BeatGiovanniAmazementText ; new
 	call PrintText ; new
 	jr .done ; new
-.bag_full
-	ld hl, HM03NoRoomText
-	call PrintText
 .done
 	jp TextScriptEnd
 
@@ -94,7 +92,8 @@ WardenGibberishText3:
 
 WardenTeethText1:
 	text_far _WardenTeethText1
-	sound_get_key_item ; edited, was just sound_get_item_1
+	sound_get_item_1 ; edited, was just sound_get_item_1
+;	text_end ; unnecessary?
 
 WardenTeethText2:
 	text_far _WardenTeethText2
@@ -104,21 +103,21 @@ WardenThankYouText:
 	text_far _WardenThankYouText
 	text_end
 
-ReceivedHM03Text:
-	text_far _ReceivedHM03Text
-	sound_get_key_item ; edited, was just sound_get_item_1
+WardenUpgradeTicket:
+	text_far _WardenUpgradeTicket
+	sound_get_key_item
+;	text_end ; unnecessary
+
+TicketUpgradeExplanationText:
+	text_far _TicketUpgradeExplanationText
 	text_end
 
-HM03ExplanationText:
-	text_far _HM03ExplanationText
+SecretHouseHint:
+	text_far _SecretHouseHint
 	text_end
 
 BeatGiovanniAmazementText: ; new
 	text_far _BeatGiovanniAmazementText
-	text_end
-
-HM03NoRoomText:
-	text_far _HM03NoRoomText
 	text_end
 
 ; new ---

@@ -89,22 +89,102 @@ _SeviiFourIslandPokemonCenterAndMart_Text4::
 ; people
 
 _SeviiFourIslandHousesText1::
-	text "PINK"
+	text "PINK: proxy"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiFourIslandHousesText2::
-	text "Dad"
+_SeviiFourIslandHousesText2_Pre::
+	text "PINK's DAD: First"
+	line "my sibling's kid"
+	cont "gets kidnapped,"
+	cont "now this..."
+
+	para "PINK is furious."
+	line "And I'm worried."
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiFourIslandHousesText3::
-	text "Papa"
+_SeviiFourIslandHousesText2_Post::
+	text "PINK's DAD: Thanks"
+	line "again for saving"
+	cont "MAYOI!"
+
+	para "And don't worry,"
+	line "PINK is not mad"
+	cont "at you. On the"
+	cont "contrary! You"
+	cont "motivate them."
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiFourIslandHousesText4::
-	text "Mama"
+_SeviiFourIslandHousesText3_Pre::
+	text "PINK's PAPA: I'm"
+	line "so worried."
+	cont "PINK blasted out"
+	cont "as soon as they"
+	cont "heard about TEAM"
+	cont "ROCKET being in"
+	cont "CHRONO."
+
+	para "They want to prove"
+	line "to everyone that"
+	cont "they grew."
+	cont "But they don't"
+	cont "need to prove"
+	cont "anything to us."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText3_Post::
+	text "PINK's PAPA: I hope"
+	line "you and PINK can"
+	cont "get along well."
+	cont "Their strong"
+	cont "character made it"
+	cont "difficult for"
+	cont "them to get"
+	cont "many friends."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText4_PreChrono::
+	text "PINK's MAMA: Why"
+	line "is the police up"
+	cont "to nothing?"
+
+	para "It's unconceivable"
+	line "that little kids"
+	cont "exert justice"
+	cont "more efficiently"
+	cont "than the police!"
+
+	para "First the hero"
+	line "that saved MAYOI,"
+	cont "now our child"
+	cont "went to CHRONO!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText4_TryGiveHM::
+	text "PINK's MAMA: So..."
+	line "as I was saying,"
+	cont "please have this."
+	prompt
+
+_SeviiFourIslandHousesText4_NoRoom::
+	text "PINK's MAMA: Oh,"
+	line "your bag is full."
+	done
+
+_SeviiFourIslandHousesText4_PostHM::
+	text "PINK's MAMA: Lately"
+	line "our kid's so much"
+	cont "more motivated."
+
+	para "It's wonderful to"
+	line "see them being"
+	cont "fired up by"
+	cont "ambition."
 ;	xxxx "123456789012345678"
 	done
 
@@ -258,6 +338,97 @@ _SeviiFourIslandHazardRoomScriptText3_ScrambleInputs::
 _SeviiFourIslandHazardRoomSignText1_Won::
 	text "GG! You won!"
 	done
+
+_SeviiFourIslandHousesScriptText1::
+	text "<PLAYER>!"
+	line "You're here!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesScriptText2::
+	text "PINK's DAD: PINK"
+	line "told us every-"
+	cont "thing: you're the"
+	cont "saviour of my"
+	cont "nephew!"
+	
+	para "PINK's PAPA: And"
+	line "now you helped"
+	cont "PINK chasing away"
+	cont "TEAM ROCKET from"
+	cont "CHRONO!"
+
+	para "PINK's MAMA: You've"
+	line "helped PINK, us,"
+	cont "and the whole"
+	cont "SEVII ISLANDS so"
+	cont "much! We must"
+	cont "thank you somehow."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesScriptText3::
+	text "PINK's MAMA: Here,"
+	line "please, have this"
+	cont "HM03 as our gift."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesScriptText4::
+	text "PINK: DAD! PAPA!"
+	line "MAMA! Wait."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesScriptText5::
+	text "PINK: <PLAYER>. I'm"
+	line "grateful for your"
+	cont "help. Really."
+
+	para "But I can't accept"
+	line "to not know if I'm"
+	cont "now strong enough"
+	cont "to protect our"
+	cont "land myself."
+	cont "I must know!"
+
+	para "<PLAYER>! Fight"
+	line "me, here and now!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesScriptText6::
+	text "PINK: ..."
+	
+	para "...I see."
+	line "I'm still weak."
+
+	para "All of my effort,"
+	line "it wasn't enough."
+
+	para "...good to know."
+	line "I'll train more!"
+	cont "<PLAYER>! We will"
+	cont "meet again, and"
+	cont "next time I will"
+	cont "be the strongest!"
+;	xxxx "123456789012345678"
+	done
+
+_PinksHousePinkDefeatedText::
+	text "...damn."
+;	xxxx "123456789012345678"
+	prompt
+
+_PinksHousePinkBeatYouText::
+	text "...really?"
+	line "Is this all?"
+	cont "Am I already"
+	cont "arrived? No more"
+	cont "need for me to"
+	cont "improve any more?"
+;	xxxx "123456789012345678"
+	prompt
 
 ; gym ------------------------------------
 

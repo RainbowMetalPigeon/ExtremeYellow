@@ -490,14 +490,15 @@ _SeviiFiveIslandWarehouse2FText1_Inner::
 	cont "power vacuum"
 	cont "they're leaving."
 
-	para "I took possess of"
-	line "this place as the"
-	cont "next base of MY"
+	para "I took possession"
+	line "of this place as"
+	cont "the base for MY"
 	cont "band: TEAM CARR!"
 
 	para "And you, you're"
 	line "just a nuisance."
-	cont "DIE! HAHAHAHA!!!"
+
+	para "DIE! HAHAHAHA!!!"
 	done
 
 _SeviiFiveIslandWarehouse2FCarrDefeatText::

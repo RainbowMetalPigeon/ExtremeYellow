@@ -4,14 +4,14 @@ SeviiBerryForest_Script:
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
+; scripts =========================================
+
 SeviiBerryForest_ScriptPointers:
 	dw SeviiBerryForest_0 ; 0
 	dw SeviiBerryForest_1 ; 1
 	dw SeviiBerryForest_2 ; 2
 	dw SeviiBerryForest_3 ; 3
 	dw SeviiBerryForest_4 ; 4
-
-; scripts =========================================
 
 SeviiBerryForest_0:
 	CheckEvent EVENT_SEVII_RESCUED_MAYOI

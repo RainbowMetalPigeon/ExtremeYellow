@@ -14,13 +14,14 @@ SeviiFourIslandCity_TextPointers:
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
 	dw PickUpItemText ; 12
+	dw PickUpItemText ; 13
 	; signs
-	dw SeviiFourIslandCitySignText1 ; 13
-	dw SeviiFourIslandCitySignText2 ; 14
-	dw SeviiFourIslandCitySignText3 ; 15
-	dw SeviiFourIslandCitySignText4 ; 16
-	dw PokeCenterSignText ; 17
-	dw MartSignText ; 18
+	dw SeviiFourIslandCitySignText1 ; 14
+	dw SeviiFourIslandCitySignText2 ; 15
+	dw SeviiFourIslandCitySignText3 ; 16
+	dw SeviiFourIslandCitySignText4 ; 17
+	dw PokeCenterSignText ; 18
+	dw MartSignText ; 19
 	; scripts
 
 ; scripts =========================================

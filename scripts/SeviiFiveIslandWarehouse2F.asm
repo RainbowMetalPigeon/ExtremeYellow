@@ -197,6 +197,7 @@ SeviiFiveIslandWarehouse2F_Script4:
 	ld [wPikachuSpawnState], a
 	call EnablePikachuOverworldSpriteDrawing
 .notFollowingPikachu
+	SetEvent EVENT_SEVII_CLEARED_CHRONO_WAREHOUSE
 ; load next script
 ; fallthrough only for last script
 SeviiFiveIslandWarehouse2FResetScripts:
@@ -390,7 +391,7 @@ SeviiFiveIslandWarehouse2FSignText6:
 ; let's open the door and remove the PASSEPARTOUT
 	ld a, SFX_GO_INSIDE
 	call PlaySound
-	ld a, GUTSCHEIN
+	ld a, PASSEPARTOUT
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
 	SetEvent EVENT_SEVII_FIVE_ISLAND_WAREHOUSE_BF_OPENED_DOOR_4

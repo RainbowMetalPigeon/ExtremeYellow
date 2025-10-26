@@ -273,6 +273,7 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db ESCAPE_ROPE, 99
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1
 	db ITEMFINDER, 1
@@ -281,7 +282,6 @@ DebugItemsList:
 	db RARE_CANDY, 42
 	db CHEAT_CANDY, 1
 	db LINK_CABLE, 3
-    db PASSEPARTOUT, 1
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
@@ -295,7 +295,6 @@ DebugItemsList:
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
 	db POKE_FLUTE, 1
-	db ESCAPE_ROPE, 99
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
 ;    db ICE_ORB, 1
@@ -318,6 +317,7 @@ DebugItemsList:
     db HM_DIVE, 1
     db HM_WHIRLPOOL, 1
 ;	db AMULET_COIN, 1
+    db PASSEPARTOUT, 1
 	db -1 ; end
 
 DebugUnusedList:

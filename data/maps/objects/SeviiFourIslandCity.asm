@@ -13,12 +13,12 @@ SeviiFourIslandCity_Object:
 	warp_event 29, 11, SEVII_ICEFALL_CAVE_1F, 1
 
 	def_bg_events
-	bg_event 10, 22, 13 ; SeviiFourIslandCitySignText1
-	bg_event 13,  9, 14 ; SeviiFourIslandCitySignText2
-	bg_event 25, 21, 15 ; SeviiFourIslandCitySignText3
-	bg_event 32, 12, 16 ; SeviiFourIslandCitySignText4
-	bg_event 14, 17, 17 ; PokeCenterSignText
-	bg_event 20, 23, 18 ; MartSignText
+	bg_event 10, 22, 14 ; SeviiFourIslandCitySignText1
+	bg_event 13,  9, 15 ; SeviiFourIslandCitySignText2
+	bg_event 25, 21, 16 ; SeviiFourIslandCitySignText3
+	bg_event 32, 12, 17 ; SeviiFourIslandCitySignText4
+	bg_event 14, 17, 18 ; PokeCenterSignText
+	bg_event 20, 23, 19 ; MartSignText
 	
 	def_object_events
 	object_event 14,  8, SPRITE_PINK, STAY, DOWN, 1
@@ -34,5 +34,6 @@ SeviiFourIslandCity_Object:
 	object_event 28, 34, SPRITE_POKE_BALL, STAY, NONE, 10, IRON
 	object_event  5,  4, SPRITE_POKE_BALL, STAY, NONE, 11, RARE_CANDY
 	object_event 27,  4, SPRITE_POKE_BALL, STAY, NONE, 12, PP_UP
+	object_event  5,  8, SPRITE_POKE_BALL, STAY, NONE, 13, MAX_ELIXER
 
 	def_warps_to SEVII_FOUR_ISLAND_CITY

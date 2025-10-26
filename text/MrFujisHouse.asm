@@ -36,7 +36,7 @@ _LavenderHouse1Text4::
 	text "NIDORINO: Gaoo!@"
 	text_end
 
-_LavenderHouse1Text_BeforeGivingFlute::
+_LavenderHouse1Text_BeforeGivingTicket::
 	text "MX.FUJI: <PLAYER>."
 
 	para "Your #DEX quest"
@@ -72,15 +72,20 @@ _ReceivedFluteText::
 	text "!@"
 	text_end
 
-_SeviiTicketExplanationText:: ; TBE
+_TicketExplanationText::
 	text_start
-	para "Upon hearing #"
-	line "FLUTE, sleeping"
-	cont "#MON will"
-	cont "spring awake."
+	para "This TICKET allows"
+	line "you to travel to"
+	cont "the first three"
+	cont "of the SEVII"
+	cont "ISLANDS."
 
-	para "It works on all"
-	line "sleeping #MON."
+	para "It can be upgraded"
+	line "so that you can"
+	cont "reach them all."
+
+	para "You can board from"
+	line "VERMILION CITY."
 	done
 
 _MegaStoneXExplanationText::
@@ -91,18 +96,19 @@ _MegaStoneXExplanationText::
 	cont "its absolute best."
 	done
 
-_FluteOrStoneNoRoomText::
+_TicketOrStoneNoRoomText::
 	text "You must make"
 	line "room for this!"
 	done
 
-_MrFujiAfterFluteAndStoneText::
-	text "MX.FUJI: Has my"
-	line "FLUTE helped you?"
+_MrFujiAfterTicketAndStoneText::
+	text "MX.FUJI: Have you"
+	line "used my TICKET?"
+;	xxxx "123456789012345678"
 
 	; new
 	para "And have you found"
-	line "a way to use that"
+	line "a goal for that"
 	cont "mysterious stone?"
 	done
 

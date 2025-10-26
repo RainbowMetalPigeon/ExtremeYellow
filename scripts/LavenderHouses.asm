@@ -76,18 +76,18 @@ LavenderHouse1Text4:
 
 LavenderHouse1Text5:
 	text_asm
-	CheckEvent EVENT_GOT_POKE_FLUTE
-	jr nz, .got_item_flute
-	ld hl, LavenderHouse1Text_BeforeGivingFlute
+	CheckEvent EVENT_GOT_SEVII_TICKET
+	jr nz, .got_item_ticket
+	ld hl, LavenderHouse1Text_BeforeGivingTicket
 	call PrintText
-	lb bc, POKE_FLUTE, 1
+	lb bc, SEVII_TICKET, 1
 	call GiveItem
 	jr nc, .bag_full
-	ld hl, ReceivedFluteText
+	ld hl, ReceivedTicketText
 	call PrintText
-	SetEvent EVENT_GOT_POKE_FLUTE
+	SetEvent EVENT_GOT_SEVII_TICKET
 	jr .done
-.got_item_flute
+.got_item_ticket
 	CheckEvent EVENT_GOT_FUJI_MEGA_STONE_X
 	jr nz, .got_item_mstonex
 	ld hl, LavenderHouse1Text_MegaStone
@@ -100,27 +100,27 @@ LavenderHouse1Text5:
 	SetEvent EVENT_GOT_FUJI_MEGA_STONE_X
 	jr .done
 .bag_full
-	ld hl, FluteOrStoneNoRoomText
+	ld hl, TicketOrStoneNoRoomText
 	call PrintText
 	jr .done
 .got_item_mstonex
-	ld hl, MrFujiAfterFluteAndStoneText
+	ld hl, MrFujiAfterTicketAndStoneText
 	call PrintText
 .done
 	jp TextScriptEnd
 
-LavenderHouse1Text_BeforeGivingFlute:
-	text_far _LavenderHouse1Text_BeforeGivingFlute
+LavenderHouse1Text_BeforeGivingTicket:
+	text_far _LavenderHouse1Text_BeforeGivingTicket
 	text_end
 
 LavenderHouse1Text_MegaStone: ; new
 	text_far _LavenderHouse1Text_MegaStone
 	text_end
 
-ReceivedFluteText:
+ReceivedTicketText:
 	text_far _ReceivedFluteText
 	sound_get_key_item
-	text_far _FluteExplanationText
+	text_far _TicketExplanationText
 	text_end
 
 ReceivedMegaStoneXText:
@@ -129,12 +129,12 @@ ReceivedMegaStoneXText:
 	text_far _MegaStoneXExplanationText
 	text_end
 
-FluteOrStoneNoRoomText:
-	text_far _FluteOrStoneNoRoomText
+TicketOrStoneNoRoomText:
+	text_far _TicketOrStoneNoRoomText
 	text_end
 
-MrFujiAfterFluteAndStoneText:
-	text_far _MrFujiAfterFluteAndStoneText
+MrFujiAfterTicketAndStoneText:
+	text_far _MrFujiAfterTicketAndStoneText
 	text_end
 
 LavenderHouse1Text6:
