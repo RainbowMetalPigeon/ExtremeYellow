@@ -825,7 +825,7 @@ _SeviiRoute35Text4::
 	cont "alphabet!"
 	done
 
-_SeviiResortGorgeousText1_BeforePearl::
+_SeviiResortGorgeousText1_BeforeWaterfall::
 	text "Oh my hero!"
 	line "You faced untold"
 	cont "ordeals to rescue"
@@ -848,12 +848,12 @@ _SeviiResortGorgeousText1_BagFull::
 	cont "back for my gift."
 	done
 
-_SeviiResortGorgeousText1_GotPearl::
+_SeviiResortGorgeousText1_GotWaterfall::
 	text "<PLAYER> received"
 	line "HM08!"
 	done
 
-_SeviiResortGorgeousText1_AfterPearl::
+_SeviiResortGorgeousText1_AfterWaterfall::
 	text "Where should I"
 	line "venture next to"
 	cont "satiate my thirst"
@@ -1029,13 +1029,6 @@ _SeviiResortGorgeousText14::
 	done
 
 ; Route 36 ------------------------------------
-
-_SeviiRoute36Text1::
-	text "Sigh"
-	line "poor onix"
-	done
-
-; -----------------------------
 
 _SeviiRoute36BattleText1::
 	text "The road's burned"
@@ -1253,6 +1246,104 @@ _SeviiRoute36AfterBattleText12::
 
 ; -----------------------------
 
-_SeviiRoute36SignText1::
-	text "Tomb"
+_SeviiRoute36Text1_TryGiveHM::
+	text "LEMONADE was"
+	line "TECTONIX's"
+	cont "favourite drink!"
+
+	para "..."
+
+	para "This brings back"
+	line "sweet memories..."
+
+	para "You brightened my"
+	line "day. Thank you."
+	cont "I hope I can do"
+	cont "the same to you."
+;   xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute36Text1_NoRoom::
+	text "Oh, you have no"
+	line "space for this."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36Text1_PreLemonade::
+	text "...my beloved"
+	line "TECTONIX rests"
+	cont "here."
+
+	para "...days feel so"
+	line "empty without it."
+
+	para "...sniff. Sorry."
+	done
+
+_SeviiRoute36Text1_PostHM::
+	text "I miss TECTONIX"
+	line "so much."
+
+	para "Yes, life goes on,"
+	line "but grieving is"
+	cont "a proof that it"
+	cont "lived, and still"
+	cont "lives in me."
+
+	para "I don't want to"
+	line "feel ashamed for"
+	cont "showing my"
+	cont "suffering."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36Text1_ReceivedHM09::
+	text "<PLAYER> received"
+	line "HM09!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36SignText1_YesOffer::
+	text "<PLAYER> leaves a"
+	line "LEMONADE as an"
+	cont "offering."
+	done
+
+_SeviiRoute36SignText1_NoOffer::
+	text "Not just now."
+	done
+
+_SeviiRoute36SignText1_WannaOffer::
+	text "Would you like to"
+	line "offer another"
+	cont "LEMONADE?"
+	done
+
+_SeviiRoute36SignText1_PreOffer::
+	text "There is an"
+	line "epitaph: 'Here"
+	cont "lies TECTONIX'."
+
+	para "A LEMONADE lies"
+	line "at the base of"
+	cont "the grave."
+	done
+
+_SeviiRoute36SignText1_PostOffer::
+	text "There is an"
+	line "epitaph: 'Here"
+	cont "lies TECTONIX'."
+
+	para "Two LEMONADEs lie"
+	line "at the base of"
+	cont "the grave."
+
+	para "The atmosphere is"
+	line "a bit more serene."
+	done
+
+_SeviiRoute36SignText1_WrongSide::
+	text "There is an"
+	line "inscription on"
+	cont "the other side."
 	done

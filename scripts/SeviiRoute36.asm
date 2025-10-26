@@ -7,10 +7,40 @@ SeviiRoute36_Script:
 	ld [wCurMapScript], a
 	ret
 
+; scripts ====================================
+
 SeviiRoute36_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw SeviiRoute36Script3
+
+SeviiRoute36Script3:
+; exclamatin bubble
+	ld a, 1
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+; turn person and player
+	lb bc, STAY, LEFT
+	ld a, 1
+	ldh [hSpriteIndex], a
+	call ChangeSpriteMovementBytes ; Engeze approach
+	lb de, 1, SPRITE_FACING_LEFT
+	callfar ChangeSpriteFacing ; new Pigeon approach
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSpritePlayerStateData1FacingDirection], a
+; dialogue
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; end
+	xor a
+	ld [wCurMapScript], a
+	ret
+
+; texts ====================================
 
 SeviiRoute36_TextPointers:
 	dw SeviiRoute36Text1  ;  1 person
@@ -29,7 +59,6 @@ SeviiRoute36_TextPointers:
 	dw PickUpItemText ; 14
 	; signs
 	dw SeviiRoute36SignText1 ; 15
-	; scripts
 
 SeviiRoute36TrainerHeaders:
 	def_trainers 2
@@ -295,15 +324,114 @@ SeviiRoute36AfterBattleText12:
 	text_far _SeviiRoute36AfterBattleText12
 	text_end
 
-; ==============================================
+; Dive HM ==============================================
 
 SeviiRoute36Text1:
-	text_far _SeviiRoute36Text1
+	text_asm
+	CheckEvent EVENT_GOT_HM09
+	ld hl, SeviiRoute36Text1_PostHM
+	jr nz, .printAndEnd
+; we didn't get Dive, check if we already offered Lemonad to grave
+	CheckEvent EVENT_SEVII_OFFERED_LEMONADE_TO_GRAVE
+	ld hl, SeviiRoute36Text1_PreLemonade
+	jr z, .printAndEnd
+; we offered lemonade but didn't get HM yet (just did or bag full)
+	ld hl, SeviiRoute36Text1_TryGiveHM
+	call PrintText
+	lb bc, HM_DIVE, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_GOT_HM09
+	ld hl, SeviiRoute36Text1_ReceivedHM09
+	jr .printAndEnd
+.bagFull
+	ld hl, SeviiRoute36Text1_NoRoom
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiRoute36Text1_ReceivedHM09:
+	text_far _SeviiRoute36Text1_ReceivedHM09
+	sound_get_key_item
+	text_end
+
+SeviiRoute36Text1_TryGiveHM:
+	text_far _SeviiRoute36Text1_TryGiveHM
+	text_end
+
+SeviiRoute36Text1_NoRoom:
+	text_far _SeviiRoute36Text1_NoRoom
+	text_end
+
+SeviiRoute36Text1_PreLemonade:
+	text_far _SeviiRoute36Text1_PreLemonade
+	text_end
+
+SeviiRoute36Text1_PostHM:
+	text_far _SeviiRoute36Text1_PostHM
 	text_end
 	
 ; ---------------------------------------
 
 SeviiRoute36SignText1:
-	text_far _SeviiRoute36SignText1
+	text_asm
+	ld hl, SeviiRoute36SignText1_WrongSide
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jp nz, .printAndEnd
+; right direction
+	CheckEvent EVENT_SEVII_OFFERED_LEMONADE_TO_GRAVE
+	ld hl, SeviiRoute36SignText1_PostOffer
+	jr nz, .printAndEnd
+; not offered lemonade yet
+	ld hl, SeviiRoute36SignText1_PreOffer
+	call PrintText
+	ld b, LEMONADE
+	call IsItemInBag ; set zero flag if item isn't in player's bag	
+	jr z, .done
+; we have lemonade in bag
+	call WaitForTextScrollButtonPress
+	ld hl, SeviiRoute36SignText1_WannaOffer
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SeviiRoute36SignText1_NoOffer
+	jr nz, .printAndEnd
+; we offer a lemonade
+	ld a, LEMONADE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_SEVII_OFFERED_LEMONADE_TO_GRAVE
+; load script
+	ld a, 3
+	ld [wCurMapScript], a
+	ld hl, SeviiRoute36SignText1_YesOffer
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SeviiRoute36SignText1_YesOffer:
+	text_far _SeviiRoute36SignText1_YesOffer
 	text_end
-	
+
+SeviiRoute36SignText1_NoOffer:
+	text_far _SeviiRoute36SignText1_NoOffer
+	text_end
+
+SeviiRoute36SignText1_WannaOffer:
+	text_far _SeviiRoute36SignText1_WannaOffer
+	text_end
+
+SeviiRoute36SignText1_PreOffer:
+	text_far _SeviiRoute36SignText1_PreOffer
+	text_end
+
+SeviiRoute36SignText1_PostOffer:
+	text_far _SeviiRoute36SignText1_PostOffer
+	text_end
+
+SeviiRoute36SignText1_WrongSide:
+	text_far _SeviiRoute36SignText1_WrongSide
+	text_end

@@ -21,18 +21,18 @@ SeviiResortGorgeous_TextPointers:
 SeviiResortGorgeousText1: ; Selphy
 	text_asm
 	CheckEvent EVENT_GOT_WATERFALL_FROM_SELPHY
-	jr z, .beforePearl
-; after Pearl
-	ld hl, SeviiResortGorgeousText1_AfterPearl
+	jr z, .beforeWaterfall
+; after Waterfall
+	ld hl, SeviiResortGorgeousText1_AfterWaterfall
 	jr .printAndEnd
-.beforePearl
-	ld hl, SeviiResortGorgeousText1_BeforePearl
+.beforeWaterfall
+	ld hl, SeviiResortGorgeousText1_BeforeWaterfall
 	call PrintText
 	lb bc, HM_WATERFALL, 1
 	call GiveItem
 	jr nc, .bagFull
 	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY
-	ld hl, SeviiResortGorgeousText1_GotPearl
+	ld hl, SeviiResortGorgeousText1_GotWaterfall
 	jr .printAndEnd
 .bagFull
 	ld hl, SeviiResortGorgeousText1_BagFull
@@ -40,20 +40,20 @@ SeviiResortGorgeousText1: ; Selphy
 	call PrintText
 	jp TextScriptEnd
 
-SeviiResortGorgeousText1_BeforePearl:
-	text_far _SeviiResortGorgeousText1_BeforePearl
+SeviiResortGorgeousText1_BeforeWaterfall:
+	text_far _SeviiResortGorgeousText1_BeforeWaterfall
 	text_end
 
 SeviiResortGorgeousText1_BagFull:
 	text_far _SeviiResortGorgeousText1_BagFull
 	text_end
 
-SeviiResortGorgeousText1_GotPearl:
-	text_far _SeviiResortGorgeousText1_GotPearl
+SeviiResortGorgeousText1_GotWaterfall:
+	text_far _SeviiResortGorgeousText1_GotWaterfall
 	text_end
 
-SeviiResortGorgeousText1_AfterPearl:
-	text_far _SeviiResortGorgeousText1_AfterPearl
+SeviiResortGorgeousText1_AfterWaterfall:
+	text_far _SeviiResortGorgeousText1_AfterWaterfall
 	text_end
 
 SeviiResortGorgeousText2: ; butler
