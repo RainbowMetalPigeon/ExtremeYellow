@@ -408,12 +408,112 @@ _SeviiRoute38HousesText1::
 	text "Dive Expert"
 	done
 
-_SeviiRoute38HousesText2::
-	text "Thoughtful dad"
+_SeviiRoute38HousesText2_Intro::
+	text "D-d-do you know"
+	line "COPYPCAT from"
+	cont "SAFFRON? I'm their"
+	cont "biggest fan ever!"
+
+	para "I really want to"
+	line "e-e-emulate them!"
+
+	para "If you show me the"
+	line "best #MON and"
+	cont "t-t-the best move,"
+	cont "I'll teach you"
+	cont "something cool!"
+	done
+
+_SeviiRoute38HousesText2_HaveDitto::
+	text "You have a DITTO!"
+	line "I-i-it is without"
+	cont "a doubt the best"
+	cont "#MON ever!"
+	done
+
+_SeviiRoute38HousesText2_WannaGiveTM::
+	text "You have the TM"
+	line "f-f-for MIMIC!"
+	cont "That's undoubtedly"
+	cont "the single best"
+	cont "move ever!"
+
+	para "C-c-can I have it?"
+	line "Pretty please?!"
+	done
+
+_SeviiRoute38HousesText2_NoGiveTM::
+	text "This is the worst"
+	line "d-d-day ever..."
+
+	para "Seeing COPYCAT's"
+	line "favourite TM and"
+	cont "being d-d-denied"
+	cont "it is super"
+	cont "tantalizing..."
+	done
+
+_SeviiRoute38HousesText2_ThanksATon::
+	text "T-t-thanks a ton!"
+	line "This is the best"
+	cont "day ever!"
+
+	para "I'll keep my"
+	line "p-p-promise!"
+	prompt
+
+_SeviiRoute38HousesText2_WannaEnableImposter::
+	text "Do you want to"
+	line "b-b-be blessed by"
+	cont "the best"
+	cont "technique ever:"
+	cont "IMPOSTER?"
+
+	para "The best #MON'll"
+	line "a-a-awaken all of"
+	cont "its potential!"
+	done
+
+_SeviiRoute38HousesText2_NoEnableImposter::
+	text "Oh... that's the"
+	line "w-w-worst choice"
+	cont "ever..."
+	done
+
+_SeviiRoute38HousesText2_PerfectLetsGo::
+	text "P-p-perfect! That's"
+	line "the best decision"
+	cont "ever! Let's go!"
+	done
+
+_SeviiRoute38HousesText2_WannaDisableImposter::
+	text "Do you actually"
+	line "want to u-u-undo"
+	cont "the best art"
+	cont "ever: IMPOSTER?"
+	done
+
+_SeviiRoute38HousesText2_NoDisableImposter::
+	text "Phew! You g-g-gave"
+	line "me the biggest"
+	cont "scare ever!"
+	done
+
+_SeviiRoute38HousesText2_TooBadLetsGo::
+	text "T-t-that's the"
+	line "saddest decision"
+	cont "ever. As you wish."
 	done
 
 _SeviiRoute38HousesText3::
-	text "Active kid"
+	text "My big sib"
+	line "REEEAAALLLYYY"
+	cont "like imitations!"
+
+	para "They're SSSOOO"
+	line "annoying!"
+	cont "That's why they"
+	cont "have no friends!"
 	done
 
 _SeviiRoute38HousesSignText1::

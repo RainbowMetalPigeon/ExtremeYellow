@@ -629,21 +629,21 @@ HurtByHailText:
 ;	ldh [hWhoseTurn], a
 ;	ret
 
-MakeTurnIntoPlayersTurn:
+MakeTurnIntoPlayersTurn::
 	ldh a, [hWhoseTurn]
 	ld [wStoreRealhWhoseTurn], a
 	xor a
 	ldh [hWhoseTurn], a
 	ret
 
-MakeTurnIntoEnemysTurn:
+MakeTurnIntoEnemysTurn::
 	ldh a, [hWhoseTurn]
 	ld [wStoreRealhWhoseTurn], a
 	ld a, 1
 	ldh [hWhoseTurn], a
 	ret
 
-RestoreRealTurn:
+RestoreRealTurn::
 	ld a, [wStoreRealhWhoseTurn]
 	ldh [hWhoseTurn], a
 	ret

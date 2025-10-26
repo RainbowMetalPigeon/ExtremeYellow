@@ -1645,6 +1645,7 @@ SendOutMon:
 	call PlayCry
 .done
 	callfar ApplyEntryHazardsPlayer ; new
+	callfar ImposterEffect_Player ; new
 	call PrintEmptyString
 	jp SaveScreenTilesToBuffer1
 

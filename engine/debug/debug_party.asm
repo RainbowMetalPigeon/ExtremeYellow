@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db PORYGONZ, 100 ; 255
-	db MARODACTYL, 100
+	db DITTO, 100 ; 255
+	db MRAYQUAZA, 100
 	db STARTER_PIKACHU, 100
 ;	db ARCEUS, 5
 ;	db MAROWAK, 99
@@ -65,7 +65,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, ROCK_SMASH
 	ld [hli], a
-	ld a, DOUBLE_EDGE
+	ld a, TRANSFORM
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash
@@ -189,6 +189,8 @@ IF DEF(_DEBUG)
 
 	SetEvent EVENT_GOT_HM01
 	ResetEvent EVENT_SS_ANNE_LEFT
+
+;	SetEvent EVENT_ENABLED_IMPOSTER
 
 	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 
@@ -317,7 +319,7 @@ DebugItemsList:
     db HM_DIVE, 1
     db HM_WHIRLPOOL, 1
 ;	db AMULET_COIN, 1
-    db PASSEPARTOUT, 1
+    db TM_MIMIC, 2
 	db -1 ; end
 
 DebugUnusedList:

@@ -1,3 +1,22 @@
+ImposterEffect_Player:: ; new
+	CheckEvent EVENT_ENABLED_IMPOSTER
+	ret z
+	ld a, [wBattleMonSpecies]
+	cp DITTO
+	ret nz
+	callfar MakeTurnIntoPlayersTurn
+    xor a
+	ld [wAnimationType], a
+	ld a, TRANSFORM
+	ld [wAnimationID], a
+	call Delay3
+	xor a
+	ld [wAltAnimationID], a
+	predef MoveAnimation
+	callfar Func_78e98
+	call TransformEffect_
+	jpfar RestoreRealTurn
+
 TransformEffect_:
 	ld hl, wBattleMonSpecies
 	ld de, wEnemyMonSpecies

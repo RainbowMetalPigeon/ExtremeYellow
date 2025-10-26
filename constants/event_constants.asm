@@ -550,7 +550,7 @@
 
 ; Route 8 events
 	const_next $430
-	const_skip
+	const EVENT_SEVII_GAVE_TM_MIMIC_TO_IMPOSTER_TUTOR ; new
 	const EVENT_BEAT_ROUTE_8_TRAINER_0
 	const EVENT_BEAT_ROUTE_8_TRAINER_1
 	const EVENT_BEAT_ROUTE_8_TRAINER_2
@@ -592,7 +592,7 @@
 	const EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_4
 	const EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_5
 	const EVENT_BEAT_ROCK_TUNNEL_1_TRAINER_6
-	const_skip ; it would 2 because of rematch LtSurge, but it's unnecessary, as it is for Articuno and Lorelei, as they have sight=0 (see Articuno comments)
+	const EVENT_ENABLED_IMPOSTER ; new
 	const EVENT_BEAT_POWER_PLANT_VOLTORB_0
 	const EVENT_BEAT_POWER_PLANT_VOLTORB_1
 	const EVENT_BEAT_POWER_PLANT_VOLTORB_2

@@ -14,7 +14,7 @@ SeviiRoute38Houses_Object:
 
 	def_object_events
 	object_event  3,  5, SPRITE_GAMBLER, STAY, UP, 1 ; Dive Expert
-	object_event 16,  4, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 2
+	object_event 16,  4, SPRITE_COOLTRAINER_M, STAY, RIGHT, 2
 	object_event 19,  2, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 3
 
 	def_warps_to SEVII_ROUTE_38_HOUSES
