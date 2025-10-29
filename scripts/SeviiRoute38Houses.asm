@@ -11,7 +11,67 @@ SeviiRoute38Houses_TextPointers:
 	dw SeviiRoute38HousesSignText3
 
 SeviiRoute38HousesText1: ; Dive Expert
-	text_far _SeviiRoute38HousesText1
+	text_asm
+	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	ld hl, SeviiRoute38HousesText1_PostTank
+	jr nz, .printAndEnd
+; before obtaining the tank
+	ld hl, SeviiRoute38HousesText1_ILikeDivingAndPearls
+	call PrintText
+	ld b, PEARL
+	predef GetQuantityOfItemInBag ; input: b=item; output: b=how many
+	ld a, b
+	cp 7
+	jr c, .notEnoughPearls
+; have enough pearls
+	ld b, 7
+.loopGivePearls
+	push bc
+	call RemoveOnePearl
+	pop bc
+	dec b
+	jr nz, .loopGivePearls
+	SetEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	ld hl, SeviiRoute38HousesText1_HavePearlsLetsTrade
+	call PrintText
+	ld hl, SeviiRoute38HousesText1_GetsTank
+	call PrintText
+	ld hl, SeviiRoute38HousesText1_TankExplanation
+	jr .printAndEnd
+.notEnoughPearls
+	ld hl, SeviiRoute38HousesText1_ComeIfHavePearls
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+RemoveOnePearl:
+	ld a, PEARL
+	ldh [hItemToRemoveID], a
+	jpfar RemoveItemByID
+
+SeviiRoute38HousesText1_HavePearlsLetsTrade:
+	text_far _SeviiRoute38HousesText1_HavePearlsLetsTrade
+	text_end
+
+SeviiRoute38HousesText1_GetsTank:
+	text_far _SeviiRoute38HousesText1_GetsTank
+	sound_get_item_2
+	text_end
+
+SeviiRoute38HousesText1_TankExplanation:
+	text_far _SeviiRoute38HousesText1_TankExplanation
+	text_end
+
+SeviiRoute38HousesText1_ComeIfHavePearls:
+	text_far _SeviiRoute38HousesText1_ComeIfHavePearls
+	text_end
+
+SeviiRoute38HousesText1_ILikeDivingAndPearls:
+	text_far _SeviiRoute38HousesText1_ILikeDivingAndPearls
+	text_end
+
+SeviiRoute38HousesText1_PostTank:
+	text_far _SeviiRoute38HousesText1_PostTank
 	text_end
 
 SeviiRoute38HousesText2: ; Imposter "tutor"
@@ -46,7 +106,7 @@ SeviiRoute38HousesText2: ; Imposter "tutor"
 	call PrintText
 ; check if have TM for Mimic
 	ld b, TM_MIMIC
-	call IsItemInBag ; set zero flag if item isn't in player's bag	
+	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr z, .done
 ; we have it in bag
 	call WaitForTextScrollButtonPress

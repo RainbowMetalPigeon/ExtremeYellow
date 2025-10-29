@@ -540,7 +540,7 @@
 
 ; Route 6 events
 	const_next $410
-	const_skip
+	const EVENT_DIVE_GOT_OXYGEN_TANK
 	const EVENT_BEAT_ROUTE_6_TRAINER_0
 	const EVENT_BEAT_ROUTE_6_TRAINER_1
 	const EVENT_BEAT_ROUTE_6_TRAINER_2

@@ -404,8 +404,55 @@ _SeviiRoute38SignText1::
 
 ; Route 38 House -------------------------------
 
-_SeviiRoute38HousesText1::
-	text "Dive Expert"
+
+_SeviiRoute38HousesText1_ILikeDivingAndPearls::
+	text "I love diving!"
+	line "When you DIVE,"
+	cont "you can find awe-"
+	cont "some treasures."
+
+	para "I have a passion"
+	line "especially for"
+	cont "PEARLs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute38HousesText1_ComeIfHavePearls::
+	text "If you collect"
+	line "7 BALLs - I mean,"
+	cont "PEARLs, I will"
+	cont "grant you a wish!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_HavePearlsLetsTrade::
+	text "You have 7 PEARLs!"
+	line "Amazing!"
+
+	para "You've always"
+	line "wanted to DIVE"
+	cont "longer, right?"
+	cont "I'll grant your"
+	cont "wish right away!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute38HousesText1_GetsTank::
+	text "<PLAYER> obtains"
+	line "OXYGEN TANK!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_TankExplanation::
+	text "Now you can DIVE"
+	line "double as long!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_PostTank::
+	text "Are you enjoying"
+	line "your longer DIVEs?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38HousesText2_Intro::
@@ -734,7 +781,7 @@ _SeviiRoute39EndBattleText6::
 _SeviiRoute39AfterBattleText6::
 	text "6-after"
 	done
-	
+
 ; Route 40 ------------------------------------
 
 _SeviiRoute40Text1::

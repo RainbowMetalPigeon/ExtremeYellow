@@ -689,7 +689,7 @@ RespawnAllRockSmashableRocks::
 	predef ShowObjectSevii
 	pop hl
 	jr .showLoopSevii
-	
+
 .handleKanto
 
 .kantoBase
@@ -703,7 +703,7 @@ RespawnAllRockSmashableRocks::
 	predef ShowObject
 	pop hl
 	jr .showLoopKantoBase
-	
+
 .kantoExtra
 	ld hl, RockSmashableRocks_KantoExtra
 .showLoopKantoExtra
@@ -715,7 +715,7 @@ RespawnAllRockSmashableRocks::
 	predef ShowObjectExtra
 	pop hl
 	jr .showLoopKantoExtra
-	
+
 RockSmashableRocks_Sevii:
 ; 1-island
 	db HS_SEVII_ROUTE_31_ROCK_1
@@ -843,7 +843,7 @@ DiveStepsOver:
 
 	ld a, [wDiveFromWhichY]
 	ld [wYCoord], a
-	
+
     jp WarpFound2
 
 PrintDiveStepsOverText::
@@ -874,14 +874,20 @@ PrintDiveSteps::
 	ld de, OxygenTitle
 	call PlaceString
 	hlcoord 4, 2
-	ld de, DiveSteps
+	ld de, DiveStepsLabel
+	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	jp z, PlaceString
+	ld de, DiveStepsEnhancedLabel
 	jp PlaceString
 
 OxygenTitle: ; new
 	db "OXYGEN:@"
 
-DiveSteps: ; new
-	db "/200@"
+DiveStepsLabel: ; new
+	db "/150@"
+
+DiveStepsEnhancedLabel: ; new
+	db "/300@"
 
 ; ===========================================================
 

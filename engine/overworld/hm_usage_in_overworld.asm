@@ -223,7 +223,11 @@ CheckIfCanSurfOrCutFromOverworld::
 ; we have the right badge
 ; we can actually dive
     ; how many underwater steps we can take
-	ld hl, 200 ; TBE
+	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	ld hl, 300 ; TBE
+	jr nz, .gotDiveSteps
+	ld hl, 150 ; TBE
+.gotDiveSteps
 	ld a, h
 	ld [wDiveSteps], a
 	ld a, l
