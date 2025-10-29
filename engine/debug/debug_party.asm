@@ -276,6 +276,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db ESCAPE_ROPE, 99
+	db PEARL, 3
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1
 	db ITEMFINDER, 1

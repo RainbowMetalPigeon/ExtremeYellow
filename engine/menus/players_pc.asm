@@ -106,6 +106,11 @@ PlayerPCDeposit:
 	ld [wListMenuID], a
 	call DisplayListMenuID
 	jp c, PlayerPCMenu
+; new for Pearl
+	ld a, [wcf91]
+	cp PEARL
+	jr z, .depositHowMany
+; BTV
 	call IsKeyItem
 	ld a, 1
 	ld [wItemQuantity], a
@@ -113,6 +118,7 @@ PlayerPCDeposit:
 	and a
 	jr nz, .next
 ; if it's not a key item, there can be more than one of the item
+.depositHowMany ; new label
 	ld hl, DepositHowManyText
 	call PrintText
 	call DisplayChooseQuantityMenu
@@ -160,6 +166,11 @@ PlayerPCWithdraw:
 	ld [wListMenuID], a
 	call DisplayListMenuID
 	jp c, PlayerPCMenu
+; new for Pearl
+	ld a, [wcf91]
+	cp PEARL
+	jr z, .withdrawHowMany
+; BTV
 	call IsKeyItem
 	ld a, 1
 	ld [wItemQuantity], a
@@ -167,6 +178,7 @@ PlayerPCWithdraw:
 	and a
 	jr nz, .next
 ; if it's not a key item, there can be more than one of the item
+.withdrawHowMany ; new label
 	ld hl, WithdrawHowManyText
 	call PrintText
 	call DisplayChooseQuantityMenu

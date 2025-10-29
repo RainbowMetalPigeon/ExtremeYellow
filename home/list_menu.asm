@@ -490,9 +490,14 @@ PrintListMenuEntries::
 .printItemQuantity
 	ld a, [wd11e]
 	ld [wcf91], a
+; new for Pearl
+	cp PEARL
+	jr z, .printQuantity
+; BTV
 	call IsKeyItem ; check if item is unsellable
 	ld a, [wIsKeyItem]
 	and a ; is the item unsellable?
+.printQuantity ; new label
 	jr nz, .skipPrintingItemQuantity ; if so, don't print the quantity
 	push hl
 	ld bc, SCREEN_WIDTH + 8 ; 1 row down and 8 columns right
