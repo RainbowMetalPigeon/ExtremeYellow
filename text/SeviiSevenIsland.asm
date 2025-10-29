@@ -22,6 +22,10 @@ _SeviiSevenIslandCitySignText2::
 	cont "TANOBY CHAMBERS"
 	done
 
+_SeviiSevenIslandCitySignText3::
+	text "SUB FAMILY"
+	done
+
 ; city's indoor ------------------------------------
 
 _SeviiSevenIslandPokemonCenterAndMart_Text1::

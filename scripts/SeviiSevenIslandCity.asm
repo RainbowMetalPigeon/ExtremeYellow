@@ -7,8 +7,9 @@ SeviiSevenIslandCity_TextPointers:
 	; signs
 	dw SeviiSevenIslandCitySignText1 ; 3
 	dw SeviiSevenIslandCitySignText2 ; 4
-	dw PokeCenterSignText ; 5
-	dw MartSignText ; 6
+	dw SeviiSevenIslandCitySignText3 ; 5
+	dw PokeCenterSignText ; 6
+	dw MartSignText ; 7
 
 SeviiSevenIslandCityText1:
 	text_far _SeviiSevenIslandCityText1
@@ -24,4 +25,8 @@ SeviiSevenIslandCitySignText1:
 
 SeviiSevenIslandCitySignText2:
 	text_far _SeviiSevenIslandCitySignText2
+	text_end
+
+SeviiSevenIslandCitySignText3:
+	text_far _SeviiSevenIslandCitySignText3
 	text_end

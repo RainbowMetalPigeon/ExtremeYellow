@@ -11,11 +11,12 @@ SeviiSevenIslandCity_Object:
 	def_bg_events
 	bg_event 11, 10, 3 ; SeviiSevenIslandCitySignText1
 	bg_event  5, 13, 4 ; SeviiSevenIslandCitySignText2
-	bg_event 14,  3, 5 ; PokeCenterSignText
-	bg_event  6,  7, 6 ; MartSignText
+	bg_event 11,  7, 5 ; SeviiSevenIslandCitySignText3
+	bg_event 14,  3, 6 ; PokeCenterSignText
+	bg_event  6,  7, 7 ; MartSignText
 
 	def_object_events
-	object_event 10,  7, SPRITE_GENTLEMAN, WALK, UP_DOWN, 1
+	object_event 10,  4, SPRITE_GENTLEMAN, WALK, UP_DOWN, 1
 	object_event  8,  9, SPRITE_ERIKA, WALK, LEFT_RIGHT, 2
 
 	def_warps_to SEVII_SEVEN_ISLAND_CITY

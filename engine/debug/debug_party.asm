@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db DITTO, 100 ; 255
-	db MRAYQUAZA, 100
+	db MRAYQUAZA, 100 ; 255
+	db VENUSTOISE, 255
 	db STARTER_PIKACHU, 100
 ;	db ARCEUS, 5
 ;	db MAROWAK, 99
