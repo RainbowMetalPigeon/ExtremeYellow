@@ -15,7 +15,7 @@ SetDebugTeam:
 DebugTeam:
 	db MRAYQUAZA, 100 ; 255
 	db VENUSTOISE, 255
-	db STARTER_PIKACHU, 100
+	db STARTER_PIKACHU, 1
 ;	db ARCEUS, 5
 ;	db MAROWAK, 99
 ;	db MISSINGNO, 255
@@ -276,7 +276,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db ESCAPE_ROPE, 99
-	db PEARL, 7
+	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1
 	db ITEMFINDER, 1
@@ -297,7 +297,6 @@ DebugItemsList:
 	db REVIVE, 99
 	db S_S_TICKET, 1
 	db LIFT_KEY, 1
-	db POKE_FLUTE, 1
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
 ;    db ICE_ORB, 1

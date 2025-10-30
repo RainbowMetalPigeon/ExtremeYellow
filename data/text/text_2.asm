@@ -1602,4 +1602,9 @@ _AllHazardsRemovedText::
 	cont "from all hazards!"
 	prompt
 
+_PikachuResisted::
+	text "It's not over yet!"
+	line "<TARGET> holds!"
+	prompt
+
 ;	xxxx "123456789012345678"

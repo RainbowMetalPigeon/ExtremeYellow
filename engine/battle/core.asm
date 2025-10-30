@@ -5495,36 +5495,7 @@ ApplyDamageToPlayerPokemon:
 	ld a, [wPlayerBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a ; does the player have a substitute?
 	jp nz, AttackSubstitute
-; subtract the damage from the pokemon's current HP
-; also, save the current HP at wHPBarOldHP and the new HP at wHPBarNewHP
-	ld a, [hld]
-	ld b, a
-	ld a, [wBattleMonHP + 1]
-	ld [wHPBarOldHP], a
-	sub b
-	ld [wBattleMonHP + 1], a
-	ld [wHPBarNewHP], a
-	ld b, [hl]
-	ld a, [wBattleMonHP]
-	ld [wHPBarOldHP+1], a
-	sbc b
-	ld [wBattleMonHP], a
-	ld [wHPBarNewHP+1], a
-	jr nc, .animateHpBar
-; if more damage was done than the current HP, zero the HP and set the damage (wDamage)
-; equal to how much HP the pokemon had before the attack
-	ld a, [wHPBarOldHP+1]
-	ld [hli], a
-	ld a, [wHPBarOldHP]
-	ld [hl], a
-	xor a
-	ld hl, wBattleMonHP
-	ld [hli], a
-	ld [hl], a
-	ld hl, wHPBarNewHP
-	ld [hli], a
-	ld [hl], a
-.animateHpBar
+	callfar HandleSubtractingDamageFromPlayerPokemonHP ; edited
 	ld hl, wBattleMonMaxHP
 	ld a, [hli]
 	ld [wHPBarMaxHP+1], a

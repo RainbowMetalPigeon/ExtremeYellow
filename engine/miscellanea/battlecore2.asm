@@ -725,3 +725,83 @@ InitializeBattleVariablesAndEvents::
 	ld a, [wUniQuizAnswer+9]
 	ld [wHazardsStickyWebPlayerSide], a
 	ret
+
+; ==========================================================
+
+HandleSubtractingDamageFromPlayerPokemonHP::
+; check if the conditions for the Sash triggering are met
+	ResetEvent EVENT_PIKACHU_SASH_TRIGGERS
+	callfar IsThisPartymonStarterPikachu  ; check if it's player Pikachu
+	jr nc, .pikachuSashCantTrigger
+;	CheckEvent EVENT_PIKACHU_SASH_ENABLED ; check if the enabling event is set
+;	jr z, .pikachuSashCantTrigger
+	ld a, [wBattleMonHP]                  ; check if CurHP = MaxHP
+	ld b, a
+	ld a, [wBattleMonMaxHP]
+	cp b
+	jr nz, .pikachuSashCantTrigger
+	ld a, [wBattleMonHP+1]
+	ld b, a
+	ld a, [wBattleMonMaxHP+1]
+	cp b
+	jr nz, .pikachuSashCantTrigger
+	SetEvent EVENT_PIKACHU_SASH_TRIGGERS
+.pikachuSashCantTrigger
+	ld hl, wDamage+1
+; subtract the damage from the pokemon's current HP
+; also, save the current HP at wHPBarOldHP and the new HP at wHPBarNewHP
+	ld a, [hld]
+	ld b, a
+	ld a, [wBattleMonHP + 1] ; LSB
+	ld [wHPBarOldHP], a
+	sub b
+	ld [wBattleMonHP + 1], a ; LSB
+	ld [wHPBarNewHP], a
+	ld b, [hl]
+	ld a, [wBattleMonHP]
+	ld [wHPBarOldHP+1], a
+	sbc b
+	ld [wBattleMonHP], a
+	ld [wHPBarNewHP+1], a
+	ret nc
+; if more damage was done than the current HP, zero the HP and set the damage (wDamage)
+; equal to how much HP the pokemon had before the attack
+; new, for Pikachu Sash
+	CheckEvent EVENT_PIKACHU_SASH_TRIGGERS
+	jr z, .postPikachuSash
+	ld a, [wHPBarOldHP+1] ; set damage equal to CurHP-1
+	ld [hli], a
+	ld a, [wHPBarOldHP]
+	dec a
+	ld [hl], a
+	xor a                 ; set remaining HP to 1
+	ld [wBattleMonHP], a
+	ld [wHPBarNewHP+1], a
+	ld a, 1
+	ld [wBattleMonHP+1], a ; LSB
+	ld [wHPBarNewHP], a
+	ret
+.postPikachuSash
+; BTV
+	ld a, [wHPBarOldHP+1]
+	ld [hli], a
+	ld a, [wHPBarOldHP]
+	ld [hl], a
+	xor a
+	ld hl, wBattleMonHP
+	ld [hli], a
+	ld [hl], a
+	ld hl, wHPBarNewHP
+	ld [hli], a
+	ld [hl], a
+	ret
+
+DisplayPikachuSash::
+	CheckAndResetEvent EVENT_PIKACHU_SASH_TRIGGERS
+	ret z
+	ld hl, PikachuResisted
+	jp PrintText
+
+PikachuResisted:
+	text_far _PikachuResisted
+	text_end

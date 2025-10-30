@@ -2,7 +2,7 @@ DisplayEffectiveness: ; edited to write more detailed info about double resistan
 	ld a, [wDamageMultipliers]
 	and $7F
 	cp 10 ; is was $0A, aka 10 just written even less readable, and it's meant to be the "normal effectiveness"
-	ret z
+	jr z, .printPikachuResisted ; edited
 	cp 40
 	jr z, .doubleSuperEffective
 	cp 20
@@ -20,7 +20,9 @@ DisplayEffectiveness: ; edited to write more detailed info about double resistan
 .notVeryEffective
 	ld hl, NotVeryEffectiveText
 .done
-	jp PrintText
+	call PrintText ; edited
+.printPikachuResisted
+	jpfar DisplayPikachuSash ; new
 
 ReallyNotVeryEffectiveText: ; new
 	text_far _ReallyNotVeryEffectiveText

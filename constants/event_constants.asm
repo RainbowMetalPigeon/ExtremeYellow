@@ -622,7 +622,8 @@
 ; Route 12 events
 	const_next $480
 	const EVENT_GOT_TM39
-	const_skip 2 ; edited, +1 due to Hiker
+	const EVENT_PIKACHU_SASH_TRIGGERS ; new
+	const EVENT_PIKACHU_SASH_ENABLED ; new
 	const EVENT_BEAT_ROUTE_12_TRAINER_0
 	const EVENT_BEAT_ROUTE_12_TRAINER_1
 	const EVENT_BEAT_ROUTE_12_TRAINER_2
