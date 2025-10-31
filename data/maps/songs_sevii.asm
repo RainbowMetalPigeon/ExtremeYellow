@@ -35,6 +35,21 @@ MapSongBanks_Sevii::
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_EMBER_SPA
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_32_DIVE
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_3BF
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_2BF
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_1BF
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_1F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_2F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_3F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_4F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_5F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_6F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_7F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_8F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_9F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_10F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_11F
+	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_12F
 ; 2-island
 	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_TWO_ISLAND_POKEMON_CENTER
