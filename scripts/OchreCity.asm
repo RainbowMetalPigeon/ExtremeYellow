@@ -233,6 +233,7 @@ TextPreBattle_OchreTraveler: ; new
 	set 7, [hl]
 	ld hl, wOptions
 	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
+	set 6, [hl] ; battle style set
 	call Delay3
 	ld a, OPP_TRAVELER
 	ld [wCurOpponent], a
