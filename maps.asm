@@ -1826,6 +1826,11 @@ SeviiAlteringCave_Blocks: INCBIN "maps/SeviiAlteringCave.blk"
 
 SECTION "Maps Sevii 4", ROMX ; new
 
+INCLUDE "data/maps/headers/SeviiMtEmber4BF.asm"
+INCLUDE "scripts/SeviiMtEmber4BF.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber4BF.asm"
+SeviiMtEmber4BF_Blocks: INCBIN "maps/SeviiMtEmber4BF.blk"
+
 INCLUDE "data/maps/headers/SeviiMtEmber3BF.asm"
 INCLUDE "scripts/SeviiMtEmber3BF.asm"
 INCLUDE "data/maps/objects/SeviiMtEmber3BF.asm"
@@ -1895,8 +1900,3 @@ INCLUDE "data/maps/headers/SeviiMtEmber11F.asm"
 INCLUDE "scripts/SeviiMtEmber11F.asm"
 INCLUDE "data/maps/objects/SeviiMtEmber11F.asm"
 SeviiMtEmber11F_Blocks: INCBIN "maps/SeviiMtEmber11F.blk"
-
-INCLUDE "data/maps/headers/SeviiMtEmber12F.asm"
-INCLUDE "scripts/SeviiMtEmber12F.asm"
-INCLUDE "data/maps/objects/SeviiMtEmber12F.asm"
-SeviiMtEmber12F_Blocks: INCBIN "maps/SeviiMtEmber12F.blk"

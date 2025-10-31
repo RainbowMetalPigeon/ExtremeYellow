@@ -38,6 +38,7 @@ MapHSPointers_Sevii:
 	dw SeviiEmberSpaHS ; SEVII_EMBER_SPA
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1
+	dw NoHSSevii ; SEVII_MT_EMBER_4BF
 	dw NoHSSevii ; SEVII_MT_EMBER_3BF
 	dw NoHSSevii ; SEVII_MT_EMBER_2BF
 	dw NoHSSevii ; SEVII_MT_EMBER_1BF
@@ -52,7 +53,6 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_MT_EMBER_9F
 	dw NoHSSevii ; SEVII_MT_EMBER_10F
 	dw NoHSSevii ; SEVII_MT_EMBER_11F
-	dw NoHSSevii ; SEVII_MT_EMBER_12F
 ; 2-island
 	dw SeviiTwoIslandDockHS ; SEVII_TWO_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_TWO_ISLAND_POKEMON_CENTER

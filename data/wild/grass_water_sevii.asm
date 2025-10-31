@@ -35,6 +35,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_EMBER_SPA ; TBE?
 	dw NothingWildMons               ; SEVII_ROUTE_32_DIVE ; TBE
 	dw NothingWildMons               ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1 ; TBE
+	dw SeviiMtEmber4BFWildMons       ; SEVII_MT_EMBER_4BF
 	dw SeviiMtEmber3BFWildMons       ; SEVII_MT_EMBER_3BF
 	dw SeviiMtEmber2BFWildMons       ; SEVII_MT_EMBER_2BF
 	dw SeviiMtEmber1BFWildMons       ; SEVII_MT_EMBER_1BF
@@ -49,7 +50,6 @@ WildDataPointers_Sevii:
 	dw SeviiMtEmber9FWildMons        ; SEVII_MT_EMBER_9F
 	dw SeviiMtEmber10FWildMons       ; SEVII_MT_EMBER_10F
 	dw SeviiMtEmber11FWildMons       ; SEVII_MT_EMBER_11F
-	dw SeviiMtEmber12FWildMons       ; SEVII_MT_EMBER_12F
 ; 2-island
 	dw SeviiShipDockWildMons         ; SEVII_TWO_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_TWO_ISLAND_POKEMON_CENTER
@@ -151,6 +151,7 @@ INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym3.asm"
 INCLUDE "data/wild/maps/sevii/SeviiBerryForest.asm"
 INCLUDE "data/wild/maps/sevii/SeviiFiveIslandWarehouseBF.asm"
 
+INCLUDE "data/wild/maps/sevii/SeviiMtEmber4BF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber3BF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber2BF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber1BF.asm"
@@ -165,4 +166,3 @@ INCLUDE "data/wild/maps/sevii/SeviiMtEmber8F.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber9F.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber10F.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber11F.asm"
-INCLUDE "data/wild/maps/sevii/SeviiMtEmber12F.asm"

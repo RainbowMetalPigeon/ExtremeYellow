@@ -36,6 +36,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiEmberSpa_h)
 	db BANK(SeviiRoute32Dive_h)
 	db BANK(SeviiRoute32DiveCavern1F1_h)
+	db BANK(SeviiMtEmber4BF_h)
 	db BANK(SeviiMtEmber3BF_h)
 	db BANK(SeviiMtEmber2BF_h)
 	db BANK(SeviiMtEmber1BF_h)
@@ -50,7 +51,6 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiMtEmber9F_h)
 	db BANK(SeviiMtEmber10F_h)
 	db BANK(SeviiMtEmber11F_h)
-	db BANK(SeviiMtEmber12F_h)
 ; 2-island
 	db BANK(SeviiTwoIslandDock_h)
 	db BANK(SeviiTwoIslandPokemonCenter_h)
