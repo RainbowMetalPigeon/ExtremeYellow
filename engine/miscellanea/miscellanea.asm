@@ -1670,17 +1670,17 @@ BattleInfoEntryHazardAndScreensText_Lig:
 	db "LIG@"
 
 BattleInfoBuffsText_Atk:
-	db "-ATK-@"
+	db " ATK @"
 BattleInfoBuffsText_Def:
-	db "-DEF-@"
+	db " DEF @"
 BattleInfoBuffsText_Spd:
-	db "-SPD-@"
+	db " SPD @"
 BattleInfoBuffsText_Spc:
-	db "-SPC-@"
+	db " SPC @"
 BattleInfoBuffsText_Acc:
-	db "-ACC-@"
+	db " ACC @"
 BattleInfoBuffsText_Eva:
-	db "-EVA-@"
+	db " EVA @"
 
 BattleInfoPlayerText:
 	db "PLAYER@"
