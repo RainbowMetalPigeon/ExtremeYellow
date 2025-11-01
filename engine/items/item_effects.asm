@@ -2562,7 +2562,23 @@ ItemUsePokeflute:
 
 ; new
 .sevii
-	jr .noSnorlaxOrPikachuOrMachampToWakeUp ; TBE if I add sleeping mons in Sevii
+	CheckEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_4
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
+	ld a, [wCurMap]
+	cp SEVII_TANOBY_CHAMBERS
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
+	ld a, [wXCoord]
+	cp 38
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
+	ld a, [wYCoord]
+	cp 9
+	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
+	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_4
+	ld a, 1
+	ld [wCurMapScript], a
+	ret
+
+;	jr .noSnorlaxOrPikachuOrMachampToWakeUp ; TBE if I add sleeping mons in Sevii
 ; BTV
 
 .inBattle

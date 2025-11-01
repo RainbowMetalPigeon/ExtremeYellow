@@ -729,7 +729,7 @@ _SeviiRoute44Text1::
 
 _SeviiTanobyChambersSignText1::
 	text "IMMOVABLE FOR"
-	line "%2 CYCLES"
+	line "TWO CYCLES"
 ;	xxxx "123456789012345678"
 	done
 
@@ -746,7 +746,9 @@ _SeviiTanobyChambersSignText3::
 	done
 
 _SeviiTanobyChambersSignText4::
-	text "Tanoby %4"
+	text "TERMINATE EVERY"
+	line "SLUMBER"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText5::
