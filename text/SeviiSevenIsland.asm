@@ -740,7 +740,9 @@ _SeviiTanobyChambersSignText2::
 	done
 
 _SeviiTanobyChambersSignText3::
-	text "Tanoby %3"
+	text "SHARE YOUR LIFE"
+	line "WITH YOUR ALLIES"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText4::

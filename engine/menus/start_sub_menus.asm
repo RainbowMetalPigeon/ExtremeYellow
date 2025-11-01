@@ -299,6 +299,28 @@ StartMenu_Pokemon::
 	text_far _CannotFlyHereText
 	text_end
 .softboiled
+; new
+	CheckEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_3
+	jr nz, .vanillaEgg
+	CheckEvent EVENT_IN_SEVII
+	jr z, .vanillaEgg
+	ld a, [wCurMap]
+	cp SEVII_TANOBY_CHAMBERS
+	jr nz, .vanillaEgg
+	ld a, [wXCoord]
+	cp 26
+	jr nz, .vanillaEgg
+	ld a, [wYCoord]
+	cp 9
+	jr nz, .vanillaEgg
+; trigger Chamber 3 event
+	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_3
+	ld a, 1
+	ld [wCurMapScript], a
+	call GBPalWhiteOutWithDelay3
+	jp .goBackToMap
+.vanillaEgg
+; BTV
 	ld hl, wPartyMon1MaxHP
 	ld a, [wWhichPokemon]
 	ld bc, wPartyMon2 - wPartyMon1
@@ -357,6 +379,7 @@ StartMenu_Pokemon::
 CantDissipateMistText:
 	text_far _CantDissipateMistText
 	text_end
+
 ; BTV
 
 ; writes a blank tile to all possible menu cursor positions on the party menu

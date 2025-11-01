@@ -17,8 +17,8 @@ DebugTeam:
 	db MBLASTOISE, 255
 	db STARTER_PIKACHU, 1
 	db MVENUSAUR, 5
-	db EEVEE, 99
-	db CHARMELEON, 255
+;	db EEVEE, 99
+;	db CHARMELEON, 255
 	db -1 ; end
 
 DebugStart:
