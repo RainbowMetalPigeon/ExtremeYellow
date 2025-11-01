@@ -734,7 +734,9 @@ _SeviiTanobyChambersSignText1::
 	done
 
 _SeviiTanobyChambersSignText2::
-	text "Tanoby %2"
+	text "ALL WHO START AND"
+	line "THE ENDING APEX"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText3::

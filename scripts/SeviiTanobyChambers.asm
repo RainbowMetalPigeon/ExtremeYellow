@@ -8,6 +8,7 @@ SeviiTanobyChambers_Script:
 
 SeviiTanobyChambers_ScriptPointers:
 	dw SeviiTanobyChambers_Base ; 0
+	dw SeviiTanobyChambers_PrintSuccessOneChamber ; 1
 	
 SeviiTanobyChambers_Base:
 	CheckEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_1
@@ -40,6 +41,15 @@ SeviiTanobyChambers_Base:
 SeviiTanobyChambers_Chamber1_Coordinates:
 	dbmapcoord  2,  9
 	db -1 ; end
+
+SeviiTanobyChambers_PrintSuccessOneChamber:
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+	ld a, 7
+	ldh [hSpriteIndexOrTextID], a
+	xor a
+	ld [wCurMapScript], a
+	jp DisplayTextID
 
 ; texts =========================================
 
@@ -77,6 +87,16 @@ SeviiTanobyChambersSignText2:
 	callfar LoadFontTilePatternsBraille
 	ld hl, SeviiTanobyChambersSignText2_Inner
 	call PrintText
+	CheckEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_2
+	jr nz, .done
+; we haven't solved this room yet, check party
+	call CheckIfStartersPlusMewtwoInParty
+	jr nc, .done
+; we have a proper team
+	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_2
+	ld a, 1
+	ld [wCurMapScript], a
+.done
 	jp TextScriptEnd
 
 SeviiTanobyChambersSignText2_Inner:
@@ -136,6 +156,80 @@ SeviiTanobyChambersSignText6_Inner:
 	text_end
 
 ; =========================================
+
+; c flag if proper team
+CheckIfStartersPlusMewtwoInParty:
+; Bulba
+	ld d, BULBASAUR
+	callfar CheckIfOneGivenMonIsInParty ; d contains the Pokemon you want to check ; sets carry flag if found
+	jr c, .checkChar
+	ld d, IVYSAUR
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkChar
+	ld d, VENUSAUR
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkChar
+	ld d, MVENUSAUR
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkChar
+	ld d, VENUSTOISE
+	callfar CheckIfOneGivenMonIsInParty
+	ret nc
+; Char
+.checkChar
+	ld d, CHARMANDER
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkSqui
+	ld d, CHARMELEON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkSqui
+	ld d, CHARIZARD
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkSqui
+	ld d, MCHARZARDX
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkSqui
+	ld d, MCHARZARDY
+	callfar CheckIfOneGivenMonIsInParty
+	ret nc
+; Squi
+.checkSqui
+	ld d, SQUIRTLE
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkPika
+	ld d, WARTORTLE
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkPika
+	ld d, BLASTOISE
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkPika
+	ld d, MBLASTOISE
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkPika
+	ld d, VENUSTOISE
+	callfar CheckIfOneGivenMonIsInParty
+	ret nc
+; Pikachu
+.checkPika
+	ld d, PIKACHU
+	callfar CheckIfOneGivenMonIsInParty
+	ret nc
+; Eevee
+	ld d, EEVEE
+	callfar CheckIfOneGivenMonIsInParty
+	ret nc
+; Mewtwo
+	ld d, MEWTWO
+	callfar CheckIfOneGivenMonIsInParty
+	ret c
+	ld d, MMEWTWOX
+	callfar CheckIfOneGivenMonIsInParty
+	ret c
+	ld d, MMEWTWOY
+	callfar CheckIfOneGivenMonIsInParty
+	ret
+
+; --------------------------------------------
 
 SeviiTanobyChambersScriptText1:
 	text_far _SeviiTanobyChambersScriptText1
