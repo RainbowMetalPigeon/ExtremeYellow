@@ -748,11 +748,12 @@ _SeviiTanobyChambersSignText3::
 _SeviiTanobyChambersSignText4::
 	text "TERMINATE EVERY"
 	line "SLUMBER"
-;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText5::
-	text "Tanoby %5"
+	text "RELINQUISH THE"
+	line "ROOT OF THE WORLD"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText6::

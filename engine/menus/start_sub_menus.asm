@@ -542,6 +542,30 @@ StartMenu_Item::
 	ld [wUpdateSpritesEnabled], a
 	jp ItemMenuLoop
 .tossItem
+; new
+	ld a, [wcf91]
+	cp POKE_BALL
+	jr nz, .vanillaToss
+	CheckEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_5
+	jr nz, .vanillaToss
+	CheckEvent EVENT_IN_SEVII
+	jr z, .vanillaToss
+	ld a, [wCurMap]
+	cp SEVII_TANOBY_CHAMBERS
+	jr nz, .vanillaToss
+	ld a, [wXCoord]
+	cp 50
+	jr nz, .vanillaToss
+	ld a, [wYCoord]
+	cp 9
+	jr nz, .vanillaToss
+; trigger Chamber 3 event
+	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_5
+	ld a, 1
+	ld [wCurMapScript], a	
+	jp CloseStartMenu
+.vanillaToss
+; BTV
 	call IsKeyItem
 	ld a, [wIsKeyItem]
 	and a
