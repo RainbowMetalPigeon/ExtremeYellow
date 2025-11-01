@@ -69,3 +69,6 @@ CountDownIgnoreInputBitReset:
 	ldh [hJoyPressed], a
 	ldh [hJoyHeld], a
 	ret
+
+TrackPlayTime_Tanoby:: ; new
+	jpfar _TrackPlayTime_Tanoby

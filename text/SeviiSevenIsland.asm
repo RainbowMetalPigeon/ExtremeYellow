@@ -728,7 +728,9 @@ _SeviiRoute44Text1::
 ; Tanoby Chambers -------------------------
 
 _SeviiTanobyChambersSignText1::
-	text "Tanoby %1"
+	text "IMMOVABLE FOR"
+	line "%2 CYCLES"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText2::
@@ -749,4 +751,10 @@ _SeviiTanobyChambersSignText5::
 
 _SeviiTanobyChambersSignText6::
 	text "Tanoby %6"
+	done
+
+_SeviiTanobyChambersScriptText1::
+	text "Nearby, a gear"
+	line "moved into place."
+;	xxxx "123456789012345678"
 	done

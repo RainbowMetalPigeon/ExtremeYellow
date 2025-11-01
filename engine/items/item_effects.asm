@@ -2299,6 +2299,7 @@ ItemUseEscapeRope:
 	ld hl, wd72e
 	res 4, [hl]
 	ResetEvent EVENT_IN_SAFARI_ZONE
+	ResetEvent EVENT_SEVII_TANOBY_TRACK_TIME ; new
 	xor a
 	ld [wNumSafariBalls], a
 	ld [wSafariZoneGateCurScript], a
