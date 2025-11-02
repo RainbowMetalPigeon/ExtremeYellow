@@ -1472,11 +1472,6 @@ INCLUDE "scripts/SeviiRoute31.asm"
 INCLUDE "data/maps/objects/SeviiRoute31.asm"
 SeviiRoute31_Blocks: INCBIN "maps/SeviiRoute31.blk"
 
-INCLUDE "data/maps/headers/SeviiMtEmber.asm"
-INCLUDE "scripts/SeviiMtEmber.asm"
-INCLUDE "data/maps/objects/SeviiMtEmber.asm"
-SeviiMtEmber_Blocks: INCBIN "maps/SeviiMtEmber.blk"
-
 INCLUDE "data/maps/headers/SeviiRoute32.asm"
 INCLUDE "scripts/SeviiRoute32.asm"
 INCLUDE "data/maps/objects/SeviiRoute32.asm"
@@ -1822,3 +1817,86 @@ INCLUDE "data/maps/headers/SeviiAlteringCave.asm"
 INCLUDE "scripts/SeviiAlteringCave.asm"
 INCLUDE "data/maps/objects/SeviiAlteringCave.asm"
 SeviiAlteringCave_Blocks: INCBIN "maps/SeviiAlteringCave.blk"
+
+
+SECTION "Maps Sevii 4", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiMtEmber.asm"
+INCLUDE "scripts/SeviiMtEmber.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber.asm"
+SeviiMtEmber_Blocks: INCBIN "maps/SeviiMtEmber.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber4BF.asm"
+INCLUDE "scripts/SeviiMtEmber4BF.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber4BF.asm"
+SeviiMtEmber4BF_Blocks: INCBIN "maps/SeviiMtEmber4BF.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber3BF.asm"
+INCLUDE "scripts/SeviiMtEmber3BF.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber3BF.asm"
+SeviiMtEmber3BF_Blocks: INCBIN "maps/SeviiMtEmber3BF.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber2BF.asm"
+INCLUDE "scripts/SeviiMtEmber2BF.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber2BF.asm"
+SeviiMtEmber2BF_Blocks: INCBIN "maps/SeviiMtEmber2BF.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber1BF.asm"
+INCLUDE "scripts/SeviiMtEmber1BF.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber1BF.asm"
+SeviiMtEmber1BF_Blocks: INCBIN "maps/SeviiMtEmber1BF.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber1F.asm"
+INCLUDE "scripts/SeviiMtEmber1F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber1F.asm"
+SeviiMtEmber1F_Blocks: INCBIN "maps/SeviiMtEmber1F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber2F.asm"
+INCLUDE "scripts/SeviiMtEmber2F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber2F.asm"
+SeviiMtEmber2F_Blocks: INCBIN "maps/SeviiMtEmber2F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber3F.asm"
+INCLUDE "scripts/SeviiMtEmber3F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber3F.asm"
+SeviiMtEmber3F_Blocks: INCBIN "maps/SeviiMtEmber3F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber4F.asm"
+INCLUDE "scripts/SeviiMtEmber4F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber4F.asm"
+SeviiMtEmber4F_Blocks: INCBIN "maps/SeviiMtEmber4F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber5F.asm"
+INCLUDE "scripts/SeviiMtEmber5F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber5F.asm"
+SeviiMtEmber5F_Blocks: INCBIN "maps/SeviiMtEmber5F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber6F.asm"
+INCLUDE "scripts/SeviiMtEmber6F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber6F.asm"
+SeviiMtEmber6F_Blocks: INCBIN "maps/SeviiMtEmber6F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber7F.asm"
+INCLUDE "scripts/SeviiMtEmber7F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber7F.asm"
+SeviiMtEmber7F_Blocks: INCBIN "maps/SeviiMtEmber7F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber8F.asm"
+INCLUDE "scripts/SeviiMtEmber8F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber8F.asm"
+SeviiMtEmber8F_Blocks: INCBIN "maps/SeviiMtEmber8F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber9F.asm"
+INCLUDE "scripts/SeviiMtEmber9F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber9F.asm"
+SeviiMtEmber9F_Blocks: INCBIN "maps/SeviiMtEmber9F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber10F.asm"
+INCLUDE "scripts/SeviiMtEmber10F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber10F.asm"
+SeviiMtEmber10F_Blocks: INCBIN "maps/SeviiMtEmber10F.blk"
+
+INCLUDE "data/maps/headers/SeviiMtEmber11F.asm"
+INCLUDE "scripts/SeviiMtEmber11F.asm"
+INCLUDE "data/maps/objects/SeviiMtEmber11F.asm"
+SeviiMtEmber11F_Blocks: INCBIN "maps/SeviiMtEmber11F.blk"

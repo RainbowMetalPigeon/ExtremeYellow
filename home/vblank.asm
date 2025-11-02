@@ -39,6 +39,7 @@ VBlank::
 
 	; VBlank-sensitive operations end.
 	call TrackPlayTime ; keep track of time played
+	call TrackPlayTime_Tanoby ; new
 
 	call Random
 	call ReadJoypad

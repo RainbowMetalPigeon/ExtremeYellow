@@ -204,7 +204,7 @@ SeviiRoute43CavesScriptText1:
 	text_far _SeviiRoute43CavesScriptText1
 	text_end
 
-ShakeScreen:
+ShakeScreen::
 	ld de, -$20
 ;	call ShakeElevatorRedrawRow
 	ld de, SCREEN_HEIGHT * $20

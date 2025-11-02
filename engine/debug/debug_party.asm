@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MRAYQUAZA, 100 ; 255
-	db VENUSTOISE, 255
+	db MMEWTWOY, 100 ; 255
+	db MBLASTOISE, 255
 	db STARTER_PIKACHU, 1
-;	db ARCEUS, 5
-;	db MAROWAK, 99
-;	db MISSINGNO, 255
+	db MVENUSAUR, 5
+	db EEVEE, 99
+	db CHARMELEON, 255
 	db -1 ; end
 
 DebugStart:
@@ -190,6 +190,8 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_GOT_HM01
 	ResetEvent EVENT_SS_ANNE_LEFT
 
+	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBERS
+
 ;	SetEvent EVENT_ENABLED_IMPOSTER
 
 	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
@@ -276,6 +278,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db ESCAPE_ROPE, 99
+	db POKE_BALL, 11
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1

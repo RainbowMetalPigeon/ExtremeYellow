@@ -51,6 +51,21 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_EMBER_SPA,                               10, 10 ; $1B
 	map_const SEVII_ROUTE_32_DIVE,                           15, 30 ; $1C
 	map_const SEVII_ROUTE_32_DIVE_CAVERN_1_F1,               10, 10 ; $1C
+	map_const SEVII_MT_EMBER_4BF,                            30, 30 ; $09
+	map_const SEVII_MT_EMBER_3BF,                            28, 28 ; $09
+	map_const SEVII_MT_EMBER_2BF,                            26, 26 ; $09
+	map_const SEVII_MT_EMBER_1BF,                            24, 24 ; $09
+	map_const SEVII_MT_EMBER_1F,                             22, 22 ; $09
+	map_const SEVII_MT_EMBER_2F,                             20, 20 ; $09
+	map_const SEVII_MT_EMBER_3F,                             18, 18 ; $09
+	map_const SEVII_MT_EMBER_4F,                             16, 16 ; $09
+	map_const SEVII_MT_EMBER_5F,                             14, 14 ; $09
+	map_const SEVII_MT_EMBER_6F,                             12, 12 ; $09
+	map_const SEVII_MT_EMBER_7F,                             10, 10 ; $09
+	map_const SEVII_MT_EMBER_8F,                              8,  8 ; $09
+	map_const SEVII_MT_EMBER_9F,                              6,  6 ; $09
+	map_const SEVII_MT_EMBER_10F,                             4,  4 ; $09
+	map_const SEVII_MT_EMBER_11F,                             2,  2 ; $09
 ; 2-island-related maps
 	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $1D
 	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $1E

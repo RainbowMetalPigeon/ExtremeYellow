@@ -728,25 +728,51 @@ _SeviiRoute44Text1::
 ; Tanoby Chambers -------------------------
 
 _SeviiTanobyChambersSignText1::
-	text "Tanoby %1"
+	text "IMMOVABLE FOR"
+	line "TWO CYCLES"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText2::
-	text "Tanoby %2"
+	text "ALL WHO START AND"
+	line "THE ENDING APEX"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText3::
-	text "Tanoby %3"
+	text "SHARE YOUR LIFE"
+	line "WITH YOUR ALLIES"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText4::
-	text "Tanoby %4"
+	text "TERMINATE EVERY"
+	line "SLUMBER"
 	done
 
 _SeviiTanobyChambersSignText5::
-	text "Tanoby %5"
+	text "RELINQUISH THE"
+	line "ROOT OF THE WORLD"
 	done
 
 _SeviiTanobyChambersSignText6::
-	text "Tanoby %6"
+	text "%3 EAST, %2 SOUTH,"
+	line "%3 WEST"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText1::
+	text "Nearby, a gear"
+	line "moved into place."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText2::
+	text "A massive, ancient"
+	line "contraption got"
+	cont "into motion."
+
+	para "Something happened"
+	line "nearby..."
+;	xxxx "123456789012345678"
 	done

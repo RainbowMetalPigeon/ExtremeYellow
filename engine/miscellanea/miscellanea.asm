@@ -1670,17 +1670,17 @@ BattleInfoEntryHazardAndScreensText_Lig:
 	db "LIG@"
 
 BattleInfoBuffsText_Atk:
-	db "-ATK-@"
+	db " ATK @"
 BattleInfoBuffsText_Def:
-	db "-DEF-@"
+	db " DEF @"
 BattleInfoBuffsText_Spd:
-	db "-SPD-@"
+	db " SPD @"
 BattleInfoBuffsText_Spc:
-	db "-SPC-@"
+	db " SPC @"
 BattleInfoBuffsText_Acc:
-	db "-ACC-@"
+	db " ACC @"
 BattleInfoBuffsText_Eva:
-	db "-EVA-@"
+	db " EVA @"
 
 BattleInfoPlayerText:
 	db "PLAYER@"
@@ -1904,3 +1904,24 @@ ForbiddenMerchantGreetingText:: ; new
 SeviiTwoIslandMerchantGreetingText:: ; new
 	text_far _SeviiTwoIslandMerchantGreetingText
 	text_end
+
+; =====================================
+
+_TrackPlayTime_Tanoby::
+	CheckEvent EVENT_SEVII_TANOBY_TRACK_TIME
+	ret z
+; the event was triggered
+	ld a, [wPlayTimeFrames]
+	and a
+	ret nz
+; if frames=0, then 60 are passed, ergo 1 second
+; increase the Tanoby second counter: wUniQuizAnswer abused for this instead of the vanilla wPlayTimeSeconds
+	ld a, [wUniQuizAnswer]
+	inc a
+	ld [wUniQuizAnswer], a
+	cp 120
+	ret nz
+; if we are here: 120 Tanoby seconds passed
+	SetEvent EVENT_SEVII_TANOBY_TIME_PASSED
+	ret
+
