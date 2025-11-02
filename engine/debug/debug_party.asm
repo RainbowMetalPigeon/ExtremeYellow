@@ -16,9 +16,9 @@ DebugTeam:
 	db MMEWTWOY, 100 ; 255
 	db MBLASTOISE, 255
 	db STARTER_PIKACHU, 1
-	db MVENUSAUR, 5
-	db EEVEE, 99
-	db CHARMELEON, 255
+;	db MVENUSAUR, 5
+;	db EEVEE, 99
+;	db CHARMELEON, 255
 	db -1 ; end
 
 DebugStart:
@@ -190,7 +190,9 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_GOT_HM01
 	ResetEvent EVENT_SS_ANNE_LEFT
 
-	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBERS
+;	SetEvent EVENT_SEVII_DOTTED_HOLE_OPENED
+
+;	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBERS
 
 ;	SetEvent EVENT_ENABLED_IMPOSTER
 
@@ -316,13 +318,14 @@ DebugItemsList:
 ;    db LIGHT_BALL, 1
     db ULTRA_BALL, 99
 ;    db GREAT_BALL, 99
-	db HM_ROCK_SMASH, 1
-	db HM_ROCK_CLIMB, 1
-    db HM_WATERFALL, 1
-    db HM_DIVE, 1
-    db HM_WHIRLPOOL, 1
+;	db HM_ROCK_SMASH, 1
+;	db HM_ROCK_CLIMB, 1
+;   db HM_WATERFALL, 1
+;    db HM_DIVE, 1
+;    db HM_WHIRLPOOL, 1
 ;	db AMULET_COIN, 1
-    db TM_MIMIC, 2
+    db TOPAZ, 1
+	db TIGERS_EYE, 1
 	db -1 ; end
 
 DebugUnusedList:

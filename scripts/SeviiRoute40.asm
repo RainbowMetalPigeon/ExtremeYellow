@@ -1,4 +1,5 @@
 SeviiRoute40_Script:
+	call HideOrShowDottedHoleDoor
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute40TrainerHeaders
 	ld de, SeviiRoute40_ScriptPointers
@@ -7,10 +8,81 @@ SeviiRoute40_Script:
 	ld [wCurMapScript], a
 	ret
 
+; scripts =========================================
+
+HideOrShowDottedHoleDoor:
+	ld hl, wCurrentMapScriptFlags
+	bit 6, [hl]
+	res 6, [hl]
+	call nz, .changeBlock
+	ld hl, wCurrentMapScriptFlags
+	bit 4, [hl]
+	res 4, [hl]
+	ret z
+.changeBlock:
+	CheckEvent EVENT_SEVII_DOTTED_HOLE_OPENED
+	ret nz
+; replace block
+	ld a, $25 ; no-entrance block
+	ld [wNewTileBlockID], a
+	lb bc, 10, 12
+	predef_jump ReplaceTileBlock
+
 SeviiRoute40_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw SeviiRoute40Script_CheckDoor ; 3
+
+SeviiRoute40Script_CheckDoor:
+; check if have Topaz and/or Tiger's Eye
+	ld b, TOPAZ
+	call IsItemInBag ; nz if in bag
+	jr z, .checkTigersEye
+; insert Topaz
+	ld a, TOPAZ
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_SEVII_DOTTED_HOLE_INSERTED_TOPAZ
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	CheckEvent EVENT_SEVII_DOTTED_HOLE_INSERTED_TIGERS_EYE
+	jr nz, .openDoor
+	; TBE
+.checkTigersEye
+	ld b, TIGERS_EYE
+	call IsItemInBag ; nz if in bag
+	jr z, .scriptHandling
+; insert Tiger's Eye
+	ld a, TIGERS_EYE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_SEVII_DOTTED_HOLE_INSERTED_TIGERS_EYE
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	CheckEvent EVENT_SEVII_DOTTED_HOLE_INSERTED_TOPAZ
+	jr z, .scriptHandling
+.openDoor
+	SetEvent EVENT_SEVII_DOTTED_HOLE_OPENED
+	callfar ShakeScreen
+	call PlayDefaultMusic
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, $70 ; yes-entrance block
+	ld [wNewTileBlockID], a
+	lb bc, 10, 12
+	predef ReplaceTileBlock
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+.scriptHandling
+	xor a
+	ld [wCurMapScript], a
+	ret
+
+; texts =========================================
 
 SeviiRoute40_TextPointers:
 	dw SeviiRoute40Text1  ;  1 person
@@ -27,6 +99,13 @@ SeviiRoute40_TextPointers:
 	dw PickUpItemText ; 12
 	dw PickUpItemText ; 13
 	dw PickUpItemText ; 14
+	; signs
+	dw SeviiRoute40SignText1 ; 15
+	dw SeviiRoute40SignText2 ; 16
+	; scripts
+	dw SeviiRoute40SignText2_InsertTopaz ; 17
+	dw SeviiRoute40SignText2_InsertTigersEye ; 18
+	dw SeviiRoute40SignText2_DoorOpens ; 19
 
 SeviiRoute40Text1:
 	text_far _SeviiRoute40Text1
@@ -207,3 +286,45 @@ SeviiRoute40EndBattleText8:
 SeviiRoute40AfterBattleText8:
 	text_far _SeviiRoute40AfterBattleText8
 	text_end
+
+; signs =================================
+
+SeviiRoute40SignText1:
+SeviiRoute40SignText2:
+	text_asm
+	CheckEvent EVENT_SEVII_DOTTED_HOLE_OPENED
+	ld hl, SeviiRoute40SignText2_After_Inner
+	jr nz, .printAndEnd
+; before opening the door
+	ld a, 3
+	ld [wCurMapScript], a
+	callfar LoadFontTilePatternsBraille
+	ld hl, SeviiRoute40SignText2_Before_Inner
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiRoute40SignText2_Before_Inner:
+	text_far _SeviiRoute40SignText2_Before
+	text_end
+
+SeviiRoute40SignText2_After_Inner:
+	text_far _SeviiRoute40SignText2_After
+	text_end
+
+; scripts =================================
+
+SeviiRoute40SignText2_InsertTopaz:
+	text_far _SeviiRoute40SignText2_InsertTopaz
+	sound_get_item_1
+	text_end
+
+SeviiRoute40SignText2_InsertTigersEye:
+	text_far _SeviiRoute40SignText2_InsertTigersEye
+	sound_get_item_1
+	text_end
+
+SeviiRoute40SignText2_DoorOpens:
+	text_far _SeviiRoute40SignText2_DoorOpens
+	text_end
+	

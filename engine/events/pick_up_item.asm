@@ -195,7 +195,6 @@ LockedItems:
 	db MAGMA_STONE   ; to ensure birbs can be unlocked
 	db MOLTEN_STONE  ; to ensure birbs can be unlocked
 	; V2
-	db SEVII_TICKET
 	db PEARL
 	db PASSEPARTOUT
 	db TOPAZ
