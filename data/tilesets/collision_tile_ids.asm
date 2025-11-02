@@ -80,7 +80,7 @@ ResearchCenter_Coll:: ; new
 	coll_tiles $0c, $16, $1e, $20, $26, $30, $34, $37 ; new
 
 Island_Coll:: ; new
-	coll_tiles $00, $10, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b
+	coll_tiles $00, $10, $11, $20, $21, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $52, $54, $58, $5b
 
 OverworldHaunted_Coll:: ; new, TBE
 	coll_tiles $10, $1b, $20, $23, $2c, $2d, $2e, $30, $31, $33, $39, $3c, $3e, $54, $58, $5b, $11, $60, $62, $6C

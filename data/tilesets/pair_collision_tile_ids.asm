@@ -59,6 +59,17 @@ TilePairCollisionsLand::
 	db OVERWORLD_SEVII, $6C, $73
 	db OVERWORLD_SEVII, $62, $52
 
+	db ISLAND, $39, $11
+;	db ISLAND, $62, $11
+	db ISLAND, $2C, $11
+;	db ISLAND, $23, $11
+;	db ISLAND, $52, $11
+;	db ISLAND, $30, $11
+;	db ISLAND, $20, $11
+;	db ISLAND, $21, $11
+;	db ISLAND, $5B, $11
+;	db ISLAND, $3C, $11
+
 	db -1 ; end
 
 TilePairCollisionsWater::

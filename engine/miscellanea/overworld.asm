@@ -747,6 +747,7 @@ RockSmashableRocks_KantoBase:
 	db $FF
 
 RockSmashableRocks_KantoExtra:
+	db HS_SECLUDED_ATOLL_SW_ROCK_1
 	db $FF
 
 ; ===========================================================

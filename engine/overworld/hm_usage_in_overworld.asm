@@ -18,6 +18,8 @@ CheckIfCanSurfOrCutFromOverworld::
     jr z, .checkIfClimbableTile
     cp OVERWORLD_SEVII
     jr z, .checkIfClimbableTile
+    cp ISLAND
+    jr z, .checkIfClimbableTile
     cp CAVERN
     jr nz, .checkForSurfability
 .checkIfClimbableTile

@@ -306,6 +306,7 @@ DEF SHOW EQU $15
 	const HS_CERULEAN_CAVE_B1F_TRAVELER    ; new
 	const HS_VICTORY_ROAD_1F_ITEM_1        ; DC
 	const HS_VICTORY_ROAD_1F_ITEM_2        ; DD
+	const HS_SECLUDED_ATOLL_SW_ROCK_1      ; new
 	const HS_CHAMPIONS_ROOM_RIVAL          ; new
 	const HS_CHAMPIONS_ROOM_OAK            ; DE
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_1  ; DF
