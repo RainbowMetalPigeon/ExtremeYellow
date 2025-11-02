@@ -118,6 +118,8 @@ ItemNames::
 	li "BEER" ; new
 	li "SEVII COOKIE" ; new
 	li "PASSEPARTOUT" ; new
+	li "TOPAZ" ; new
+	li "TIGER's EYE" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

@@ -180,6 +180,7 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db OLD_AMBER
 	db DOME_FOSSIL
 	db HELIX_FOSSIL
+;	db SEVII_COOKIE ; no, to avoid plot skippings
 	db -1
 
 LockedItems:
@@ -193,4 +194,10 @@ LockedItems:
 	db LAVA_STONE    ; to ensure birbs can be unlocked
 	db MAGMA_STONE   ; to ensure birbs can be unlocked
 	db MOLTEN_STONE  ; to ensure birbs can be unlocked
+	; V2
+	db SEVII_TICKET
+	db PEARL
+	db PASSEPARTOUT
+	db TOPAZ
+	db TIGERS_EYE
 	db -1

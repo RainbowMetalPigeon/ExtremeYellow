@@ -497,7 +497,6 @@ _BeerDescription::
 _SeviiCookieDescription::
 	text "HP +77. Only sold"
 	next "in SEVII ISLANDS."
-;	xxxx "123456789012345678"
 	prompt
 
 _PassepartoutDescription::
@@ -508,6 +507,18 @@ _PassepartoutDescription::
 _CheatCandyDescription::
 	text "Raises LVL by one."
 	next "Not consumed."
+	prompt
+
+_TopazDescription::
+	text "Uniquely rare gem."
+	next "Beautiful yellow."
+;	xxxx "123456789012345678"
+	prompt
+
+_TigersEyeDescription::
+	text "Uniquely rare gem."
+	next "Beautiful brown."
+;	xxxx "123456789012345678"
 	prompt
 
 ; HMs --------------------------------------------------------------------------

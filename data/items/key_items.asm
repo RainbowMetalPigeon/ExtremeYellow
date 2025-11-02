@@ -118,4 +118,6 @@ KeyItemFlags:
 	dbit FALSE ; BEER           - new
 	dbit FALSE ; SEVII_COOKIE   - new
 	dbit TRUE  ; PASSEPARTOUT   - new
+	dbit TRUE  ; TOPAZ   - new
+	dbit TRUE  ; TIGERS_EYE   - new
 	end_bit_array NUM_ITEMS

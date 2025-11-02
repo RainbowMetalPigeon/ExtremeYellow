@@ -118,6 +118,8 @@ ItemPrices::
 	bcd3 600   ; BEER
 	bcd3 777   ; SEVII_COOKIE
 	bcd3 0     ; PASSEPARTOUT
+	bcd3 0     ; TOPAZ
+	bcd3 0     ; TIGERS_EYE
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F

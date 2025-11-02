@@ -250,6 +250,10 @@ ItemDescriptionPointers:
 	text_end
 	text_far _PassepartoutDescription   ; PASSEPARTOUT
 	text_end
+	text_far _TopazDescription          ; TOPAZ
+	text_end
+	text_far _TigersEyeDescription      ; TIGERS_EYE
+	text_end
 
 ; HMs
 
