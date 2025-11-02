@@ -753,15 +753,26 @@ _SeviiTanobyChambersSignText4::
 _SeviiTanobyChambersSignText5::
 	text "RELINQUISH THE"
 	line "ROOT OF THE WORLD"
-;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSignText6::
-	text "Tanoby %6"
+	text "%3 EAST, %2 SOUTH,"
+	line "%3 WEST"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersScriptText1::
 	text "Nearby, a gear"
 	line "moved into place."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText2::
+	text "A massive, ancient"
+	line "contraption got"
+	cont "into motion."
+
+	para "Something happened"
+	line "nearby..."
 ;	xxxx "123456789012345678"
 	done
