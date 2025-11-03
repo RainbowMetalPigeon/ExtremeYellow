@@ -200,4 +200,5 @@ LockedItems:
 	db PASSEPARTOUT
 	db TOPAZ
 	db TIGERS_EYE
+	db CC_INVITE
 	db -1

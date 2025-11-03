@@ -91,11 +91,11 @@ KeyItemFlags:
 	dbit FALSE ; METAL_COAT		- new
 	dbit FALSE ; UPGRADE		- new
 	dbit FALSE ; DUBIOUS_DISK	- new
-	dbit FALSE ; FAST_BALL		- new, testing
-	dbit FALSE ; HEAVY_BALL		- new, testing
-	dbit FALSE ; LEGEND_CANDY	- new, testing
+	dbit FALSE ; FAST_BALL		- new
+	dbit FALSE ; HEAVY_BALL		- new
+	dbit FALSE ; LEGEND_CANDY	- new
 	dbit FALSE ; BIG_NUGGET		- new
-	dbit FALSE ; PERFECTER      - new, testing
+	dbit FALSE ; PERFECTER      - new
 	dbit TRUE  ; LUNAR_RELIC    - new
 	dbit TRUE  ; ICE_ORB        - new
 	dbit TRUE  ; THUNDER_ORB    - new
@@ -118,6 +118,7 @@ KeyItemFlags:
 	dbit FALSE ; BEER           - new
 	dbit FALSE ; SEVII_COOKIE   - new
 	dbit TRUE  ; PASSEPARTOUT   - new
-	dbit TRUE  ; TOPAZ   - new
-	dbit TRUE  ; TIGERS_EYE   - new
+	dbit TRUE  ; TOPAZ          - new
+	dbit TRUE  ; TIGERS_EYE     - new
+	dbit TRUE  ; CC_INVITE      - new
 	end_bit_array NUM_ITEMS

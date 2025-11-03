@@ -120,6 +120,7 @@ ItemPrices::
 	bcd3 0     ; PASSEPARTOUT
 	bcd3 0     ; TOPAZ
 	bcd3 0     ; TIGERS_EYE
+	bcd3 0     ; CC_INVITE
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F

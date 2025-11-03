@@ -137,6 +137,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; PASSEPARTOUT, new
 	dw UnusableItem      ; TOPAZ, new
 	dw UnusableItem      ; TIGERS_EYE, new
+	dw UnusableItem      ; CC_INVITE, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 

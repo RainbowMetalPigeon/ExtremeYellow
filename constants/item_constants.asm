@@ -130,6 +130,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const PASSEPARTOUT  ; new
 	const TOPAZ         ; new
 	const TIGERS_EYE    ; new
+	const CC_INVITE     ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

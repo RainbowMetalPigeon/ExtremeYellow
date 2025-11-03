@@ -512,12 +512,16 @@ _CheatCandyDescription::
 _TopazDescription::
 	text "Uniquely rare gem."
 	next "Beautiful yellow."
-;	xxxx "123456789012345678"
 	prompt
 
 _TigersEyeDescription::
 	text "Uniquely rare gem."
 	next "Beautiful brown."
+	prompt
+
+_CCInviteDescription::
+	text "Invite for SAFFRON"
+	line "CLIMB CLUB."
 ;	xxxx "123456789012345678"
 	prompt
 

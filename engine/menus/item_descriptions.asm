@@ -254,6 +254,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _TigersEyeDescription      ; TIGERS_EYE
 	text_end
+	text_far _CCInviteDescription       ; CC_INVITE
+	text_end
 
 ; HMs
 

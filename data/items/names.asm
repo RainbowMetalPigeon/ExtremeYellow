@@ -120,6 +120,7 @@ ItemNames::
 	li "PASSEPARTOUT" ; new
 	li "TOPAZ" ; new
 	li "TIGER's EYE" ; new
+	li "C.C. INVITE" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"
