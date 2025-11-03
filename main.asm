@@ -3,14 +3,13 @@ INCLUDE "constants.asm"
 
 SECTION "bank1", ROMX
 
-INCLUDE "data/sprites/facings.asm"
-INCLUDE "engine/battle/safari_zone.asm"
+INCLUDE "data/sprites/facings.asm" ; this and the next need to be together
+INCLUDE "engine/gfx/sprite_oam.asm" ; this and the previous need to be together
 INCLUDE "engine/movie/title.asm"
 INCLUDE "engine/pokemon/load_mon_data.asm"
 INCLUDE "data/items/prices.asm"
 INCLUDE "data/items/names.asm"
 ;INCLUDE "data/text/unused_names.asm" ; edited, commented out as unused
-INCLUDE "engine/gfx/sprite_oam.asm"
 INCLUDE "engine/overworld/sprite_collisions.asm"
 INCLUDE "engine/events/pick_up_item.asm"
 INCLUDE "engine/events/rock_smash.asm" ; new
@@ -114,6 +113,7 @@ INCLUDE "engine/overworld/wild_mons.asm" ; from bank3
 SECTION "bankGarage3", ROMX ; new
 INCLUDE "engine/pokemon/add_mon.asm" ; from bank3
 INCLUDE "engine/flag_action.asm" ; from bank3
+INCLUDE "engine/battle/safari_zone.asm" ; from bank1
 
 
 SECTION "bank4", ROMX

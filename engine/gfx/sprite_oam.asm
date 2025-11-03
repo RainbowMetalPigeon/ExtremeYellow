@@ -225,10 +225,22 @@ INCLUDE "engine/gfx/oam_dma.asm"
 
 _IsTilePassable::
 ; new, ugly workaround to make caverns non entrable in R29 because I ran out of tiles
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .vanilla
 	ld a, [wCurMap]
 	cp ROUTE_29
-	jr nz, .vanilla
+	jr nz, .checkRoute25
 	ld a, $58
+	cp c
+	jr z, .tileNotPassable
+	jr .vanilla
+.checkRoute25
+	cp ROUTE_25
+	jr nz, .vanilla
+	ld a, [wXCoord]
+	cp 35
+	jr nc, .vanilla
+	ld a, $1B
 	cp c
 	jr z, .tileNotPassable
 .vanilla

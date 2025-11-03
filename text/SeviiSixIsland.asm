@@ -900,4 +900,40 @@ _SeviiRoute40AfterBattleText8::
 	text "8-after"
 	done
 
-; -----
+; signs -----
+
+_SeviiRoute40SignText2_Before::
+	text "PRESENT TWO GEMS"
+	line "THAT CONNECT TO"
+	cont "THE REALITY THAT"
+	cont "ISN'T OURS"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute40SignText2_After::
+	text "The door is open."
+
+	para "The gems are gone."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute40SignText2_InsertTopaz::
+	text "<PLAYER> inserts"
+	line "the TOPAZ"
+	cont "into a hole."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute40SignText2_InsertTigersEye::
+	text "<PLAYER> inserts"
+	line "the TIGER'S EYE"
+	cont "into a hole."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute40SignText2_DoorOpens::
+	text "A mysterious"
+	line "mechanism opens"
+	cont "a secret door!"
+;	xxxx "123456789012345678"
+	done

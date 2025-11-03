@@ -12,7 +12,7 @@ TrainerNames::
 	db "BURGLAR@"
 	db "ENGINEER@"
 ;	db "JUGGLER@"
-	db "FISHERMAN@"
+	db "FISHER@" ; formerly FISHERMAN
 	db "SWIMMER@"
 	db "CUE BALL@"
 	db "GAMBLER@"

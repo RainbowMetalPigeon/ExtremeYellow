@@ -71,7 +71,6 @@ DEF SHOW EQU $15
 	const HS_NUGGET_BRIDGE_GUY             ; 25
 	const HS_ROUTE_24_ITEM_1               ; 26, edited
 	const HS_ROUTE_24_ITEM_2               ; new, LINK_CABLE
-	const HS_ROUTE_25_ITEM                 ; 27
 	const HS_DAISY_SITTING                 ; 28
 	const HS_DAISY_WALKING                 ; 29
 	const HS_TOWN_MAP                      ; 2A
@@ -306,6 +305,7 @@ DEF SHOW EQU $15
 	const HS_CERULEAN_CAVE_B1F_TRAVELER    ; new
 	const HS_VICTORY_ROAD_1F_ITEM_1        ; DC
 	const HS_VICTORY_ROAD_1F_ITEM_2        ; DD
+	const HS_SECLUDED_ATOLL_SW_ROCK_1      ; new
 	const HS_CHAMPIONS_ROOM_RIVAL          ; new
 	const HS_CHAMPIONS_ROOM_OAK            ; DE
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_1  ; DF
@@ -455,3 +455,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WOOD_ITEM_2          ; new
 	const HS_OBSIDIAN_WOOD_ITEM_3          ; new
 	const HS_ROUTE_7_ITEM                  ; new, LINK_CABLE
+	const HS_ROUTE_25_ITEM_1               ; 27
+	const HS_ROUTE_25_ITEM_2               ; new
+	const HS_ROUTE_25_ITEM_3               ; new
+	const HS_ROUTE_25_ITEM_4               ; new

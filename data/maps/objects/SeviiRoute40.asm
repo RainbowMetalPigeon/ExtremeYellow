@@ -5,7 +5,8 @@ SeviiRoute40_Object:
 	warp_event 24, 21, SEVII_DOTTED_HOLE, 1
 
 	def_bg_events
-;	bg_event  5, 65, 4 ; Route2Text3
+	bg_event 23, 21, 15
+	bg_event 24, 21, 16
 
 	def_object_events
 	object_event 51,  5, SPRITE_HIKER, STAY, LEFT, 1
