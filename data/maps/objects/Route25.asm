@@ -7,7 +7,12 @@ Route25_Object:
 	warp_event 43,  5, HAUNTED_HOUSE_1, 1 ; new
 
 	def_bg_events
-	bg_event 43, 37, 11 ; Route25Text11
+	bg_event 43, 37, 15 ; Route25Text11
+	; new
+	bg_event 31, 29, 16 ; Route25TextLockedAndAbandoned
+	bg_event 27, 17, 17 ; Route25TextLockedAndAbandoned
+	bg_event 21,  5, 18 ; Route25TextLockedAndAbandoned
+	bg_event  7, 23, 19 ; Route25TextLockedAndAbandoned
 
 	def_object_events
 	object_event 14, 36, SPRITE_YOUNGSTER, STAY, DOWN, 1, OPP_YOUNGSTER, 5
@@ -20,5 +25,10 @@ Route25_Object:
 	object_event 23, 43, SPRITE_HIKER, STAY, UP, 8, OPP_HIKER, 3
 	object_event 13, 41, SPRITE_HIKER, STAY, RIGHT, 9, OPP_HIKER, 4
 	object_event 22, 36, SPRITE_POKE_BALL, STAY, NONE, 10, TM_SEISMIC_TOSS
+	; new
+	object_event 33, 31, SPRITE_POKE_BALL, STAY, NONE, 11, SUPER_POTION
+	object_event 25, 17, SPRITE_POKE_BALL, STAY, NONE, 12, ULTRA_BALL
+	object_event  7, 25, SPRITE_POKE_BALL, STAY, NONE, 13, REVIVE
+	object_event 29, 36, SPRITE_HIKER, STAY, UP, 14
 
 	def_warps_to ROUTE_25

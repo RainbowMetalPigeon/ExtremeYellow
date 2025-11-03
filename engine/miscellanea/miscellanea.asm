@@ -977,7 +977,7 @@ TMMartClerkDialogue::
 .checkTM19
 
 	; TM19
-	CheckHideShow HS_ROUTE_25_ITEM
+	CheckHideShowExtra HS_ROUTE_25_ITEM_1
 	jr z, .checkTM20
 	ld a, TM_SEISMIC_TOSS
 	ld [de], a

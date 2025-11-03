@@ -96,7 +96,7 @@ Route25Script0: ; new
 	ld hl, Route25ToHauntedHouse_CoordinatesMessage1
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	jr nc, .checkMessage2
-	ld a, 13
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_1
@@ -107,7 +107,7 @@ Route25Script0: ; new
 	ld hl, Route25ToHauntedHouse_CoordinatesMessage2
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	jr nc, .checkMessage3
-	ld a, 14
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_2
@@ -118,7 +118,7 @@ Route25Script0: ; new
 	ld hl, Route25ToHauntedHouse_CoordinatesMessage3
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	jr nc, .checkIfInTallGrass
-	ld a, 15
+	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_ROUTE_25_DISPLAY_HAUNTED_HOUSE_MESSAGE_3
@@ -149,7 +149,7 @@ Route25Script0: ; new
 	CheckEvent EVENT_WALKED_ALL_STEPS_SECRET_GARDEN
 	ret z ; we still have to walk all steps
 ; print message (and then do more things) if walked all the steps
-	ld a, 12
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_UNLOCKED_PATH_TO_HAUNTED_HOUSE
@@ -196,12 +196,21 @@ Route25_TextPointers:
 	dw Route25Text8
 	dw Route25Text9
 	dw PickUpItemText
-	dw Route25Text11
+	dw PickUpItemText ; new
+	dw PickUpItemText ; new
+	dw PickUpItemText ; new
+	dw Route25Text14 ; new
+	; signs
+	dw Route25Text11 ; 15
+	dw Route25TextLockedAndAbandoned1 ; 16
+	dw Route25TextLockedAndAbandoned2 ; 17
+	dw Route25TextLockedAndAbandoned3 ; 18
+	dw Route25TextLockedAndAbandoned4 ; 19
 	; new, not NPCs or signs
-	dw Route25TextCompleted666Steps ; 12
-	dw Route25TextToHauntedHouseMessage1 ; 13
-	dw Route25TextToHauntedHouseMessage2 ; 14
-	dw Route25TextToHauntedHouseMessage3 ; 15
+	dw Route25TextCompleted666Steps ; 20
+	dw Route25TextToHauntedHouseMessage1 ; 21
+	dw Route25TextToHauntedHouseMessage2 ; 22
+	dw Route25TextToHauntedHouseMessage3 ; 23
 
 Route25TrainerHeaders:
 	def_trainers
@@ -409,3 +418,13 @@ Route25TextToHauntedHouseMessage3:
 	text_far _Route25TextToHauntedHouseMessage3
 	text_end
 	
+Route25Text14:
+	text_far _Route25Text14
+	text_end
+
+Route25TextLockedAndAbandoned1:
+Route25TextLockedAndAbandoned2:
+Route25TextLockedAndAbandoned3:
+Route25TextLockedAndAbandoned4:
+	text_far _Route25TextLockedAndAbandoned
+	text_end

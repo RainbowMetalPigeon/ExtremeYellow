@@ -183,3 +183,39 @@ _Route25TextToHauntedHouseMessage3::
 	line "chance ever:"
 	cont "GO. BACK. NOW."
 	done
+
+_Route25Text14::
+	text "Have you heard the"
+	line "rumors about"
+	cont "BRICK TOWN?"
+
+	para "They say it was"
+	line "a mining town,"
+	cont "now abandoned,"
+	cont "and that it's just"
+	cont "beyond here!"
+
+	para "But I can't climb"
+	line "this wall!"
+
+	para "And the CLIMB CLUB"
+	line "in SAFFRON only"
+	cont "accepts members"
+	cont "on invitation..."
+
+	para "Not to mention"
+	line "that it seems it's"
+	cont "tough to get in"
+	cont "the city lately."
+
+	para "Ugh, everything's"
+	line "against me!"
+	done
+
+_Route25TextLockedAndAbandoned::
+	text "The door's locked."
+
+	para "The house looks"
+	line "long abandoned..."
+;	xxxx "123456789012345678"
+	done
