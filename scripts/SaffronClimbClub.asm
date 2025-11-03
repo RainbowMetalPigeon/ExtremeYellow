@@ -10,169 +10,68 @@ SaffronClimbClub_ScriptPointers:
 	dw SaffronClimbClub_0 ; 0
 	dw SaffronClimbClub_1 ; 1
 	dw SaffronClimbClub_2 ; 2
-	dw SaffronClimbClub_3 ; 3
-	dw SaffronClimbClub_4 ; 4
 
 SaffronClimbClub_0:
-	ret
-	CheckEvent EVENT_SEVII_RESCUED_MAYOI
+	CheckEvent EVENT_GOT_HM07
 	ret nz
-	ld hl, SaffronClimbClub_Coordinates_OrmMayoiScene
+	ld hl, SaffronClimbClub_GuideBlockage_Coordinates
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	ret nc
-	ld a, 6
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-; exclamation bubble, turn Orm, change music, second dialogue
-	ld a, 1
-	ld [wEmotionBubbleSpriteIndex], a
-	ld a, EXCLAMATION_BUBBLE
-	ld [wWhichEmotionBubble], a
-	predef EmotionBubble
+; turn guard and player and display dialogue
 	ld a, SPRITE_FACING_LEFT
 	ld [wSpritePlayerStateData1FacingDirection], a
+	lb bc, STAY, RIGHT
 	ld a, 1
 	ldh [hSpriteIndex], a
-	ld a, SPRITE_FACING_RIGHT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
+	call ChangeSpriteMovementBytes
+	lb de, 1, SPRITE_FACING_RIGHT
+	callfar ChangeSpriteFacing ; new Pigeon approach
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
 ; load next script
 	ld a, 1
 	ld [wCurMapScript], a
 	ret
 
-SaffronClimbClub_Coordinates_OrmMayoiScene:
-	dbmapcoord  9,  6
-	dbmapcoord  9,  7
+SaffronClimbClub_GuideBlockage_Coordinates:
+	dbmapcoord  9, 17
 	db -1 ; end
 
 SaffronClimbClub_1:
-	ld c, BANK(Music_MeetEvilTrainer)
-	ld a, MUSIC_MEET_EVIL_TRAINER
-	call PlayMusic
-	lb de, 1, SPRITE_FACING_RIGHT
-	callfar ChangeSpriteFacing ; new Pigeon approach
-	ld a, 7
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-; determine which movement to apply depending on player's position
-	ld a, [wYCoord]
-	cp 6 ; upper tile
-	ld de, XXXUpMovements
-	jr z, .playerOnLeftSide
-	ld de, XXXDownMovements
-.playerOnLeftSide
-	ld a, 1
-	ldh [hSpriteIndex], a
-	call MoveSprite ; hSpriteIndex already set
+; check if we set the event in the dialogue
+	CheckEvent EVENT_GOT_HM07
+	jr z, .noHM
+; if yes, we're good -> script=0
+	jp SaffronClimbClubResetScripts
+.noHM
+; if not, walk the player down by 1
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, SaffronClimbClubPushAway_RLEMovement
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
 ; load next script
 	ld a, 2
 	ld [wCurMapScript], a
 	ret
 
-XXXDownMovements:
-	db NPC_MOVEMENT_RIGHT
-XXXUpMovements:
-	db NPC_MOVEMENT_RIGHT
-	db NPC_MOVEMENT_RIGHT
+SaffronClimbClubPushAway_RLEMovement:
+	db D_DOWN, 1
 	db -1 ; end
 
 SaffronClimbClub_2:
-; wait for Orm to have moved
-	ld a, [wd730]
-	bit 0, a
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
 	ret nz
-; turn Orm if needed
-	ld a, [wYCoord]
-	cp 7 ; lower tile
-	lb bc, STAY, RIGHT
-	ld a, 1
-	ldh [hSpriteIndex], a
-	jr nz, .noTurnOrm
-; turn player and Orm
-	ld a, SPRITE_FACING_UP
-	ld [wSpritePlayerStateData1FacingDirection], a
-	lb bc, STAY, DOWN
-.noTurnOrm
-	call ChangeSpriteMovementBytes ; new from Engeze
-; load next script
-	ld a, 3
-	ld [wCurMapScript], a
-	ret
-
-SaffronClimbClub_3:
-	ld a, $0
-	ld [wJoyIgnore], a
-; Orm last pre-battle dialogue and start battle
-	ld a, 8
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID ; SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
 	call Delay3
-	ld a, OPP_ORM
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1
-	ld [wIsTrainerBattle], a
-	ld hl, SaffronClimbClubOrmDefeatText
-	ld de, SaffronClimbClubOrmDefeatText
-	call SaveEndBattleTextPointers
-; load next script
-	ld a, 4
-	ld [wCurMapScript], a
-	ret
-
-SaffronClimbClub_4:
-	ld a, [wIsInBattle]
-	cp $ff
-	jp z, SaffronClimbClubResetScripts
-	ld a, $f0
-	ld [wJoyIgnore], a
-; we won
-	ld a, 9
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-; warp player back to Celio's house
-	ld a, SPRITE_FACING_UP
-	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, SEVII_ONE_ISLAND_HOUSES ; map-specific
-	ldh [hWarpDestinationMap], a
-	ld a, 2 ; -1 wrt the normal numbering
-	ld [wDestinationWarpID], a
-	ld a, SEVII_ONE_ISLAND_CITY
-	ld [wLastMap], a
 	xor a
-	ld [wIsInBattle], a
-	ld hl, wd72d
-	set 3, [hl] ; do scripted warp
-; hide/show sprites
-	ld a, HS_SEVII_BERRY_FOREST_ORM
-	ld [wMissableObjectIndex], a
-	predef HideObjectSevii
-
-	ld a, HS_SEVII_BERRY_FOREST_MAYOI
-	ld [wMissableObjectIndex], a
-	predef HideObjectSevii
-
-	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_BEFORE_RESCUE
-	ld [wMissableObjectIndex], a
-	predef HideObjectSevii
-
-	ld a, HS_SEVII_ONE_ISLAND_HOUSES_MAYOI_RIGHT_AFTER_RESCUE
-	ld [wMissableObjectIndex], a
-	predef ShowObjectSevii
-
-	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_RIGHT_AFTER_RESCUE
-	ld [wMissableObjectIndex], a
-	predef ShowObjectSevii
-
-	SetEvent EVENT_SEVII_RESCUED_MAYOI
-	call SaffronClimbClubResetScripts
-	ret
-
+	ld [wJoyIgnore], a
+; player finished moving
+	; fallthrough
 SaffronClimbClubResetScripts:
 	xor a
 	ld [wJoyIgnore], a
@@ -193,9 +92,52 @@ SaffronClimbClub_TextPointers:
 	; scripts
 ;	dw SaffronClimbClubScriptText1 ; 9
 
-SaffronClimbClubOrmDefeatText: ; TBE
-SaffronClimbClubText1: ; TBE
-	text_far _SaffronClimbClubText1
+SaffronClimbClubText1:
+	text_asm
+	CheckEvent EVENT_GOT_HM07
+	ld hl, SaffronClimbClubText1_After
+	jr nz, .printAndEnd
+; not got HM yet
+	ld hl, SaffronClimbClubText1_Before
+	call PrintText
+; do we have the invitation?
+	ld b, CC_INVITE
+	call IsItemInBag ; set zero flag if item isn't in player's bag
+	ld hl, SaffronClimbClubText1_NoInviteSorryCiao
+	jr z, .printAndEnd
+; we have it in bag
+	ld hl, SaffronClimbClubText1_OhWelcomeHaveThis
+	call PrintText
+	ld a, CC_INVITE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	lb bc, HM_ROCK_CLIMB, 1
+	call GiveItem
+	SetEvent EVENT_GOT_HM07
+	ld hl, SaffronClimbClubText1_GotHM07
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SaffronClimbClubText1_OhWelcomeHaveThis:
+	text_far _SaffronClimbClubText1_OhWelcomeHaveThis
+	text_end
+
+SaffronClimbClubText1_GotHM07:
+	text_far _SaffronClimbClubText1_GotHM07
+	sound_get_key_item
+	text_end
+
+SaffronClimbClubText1_NoInviteSorryCiao:
+	text_far _SaffronClimbClubText1_NoInviteSorryCiao
+	text_end
+
+SaffronClimbClubText1_Before:
+	text_far _SaffronClimbClubText1_Before
+	text_end
+
+SaffronClimbClubText1_After:
+	text_far _SaffronClimbClubText1_After
 	text_end
 
 SaffronClimbClubText2:

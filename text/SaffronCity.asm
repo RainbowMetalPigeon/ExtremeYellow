@@ -161,11 +161,73 @@ _SaffronCityText26::
 
 ; CLIMB CLUB =========================
 
+_SaffronClimbClubText1_OhWelcomeHaveThis::
+	text "Oh! I see you have"
+	line "an invitation!"
 
-_SaffronClimbClubText1::
+	para "You are most"
+	line "welcome in our"
+	cont "CLIMB CLUB!"
+
+	para "Please, have this"
+	line "as welcome gift."
+	prompt
+
+_SaffronClimbClubText1_GotHM07::
+	text "<PLAYER> received"
+	line "HM07!"
+	done
+
+_SaffronClimbClubText1_NoInviteSorryCiao::
+	text "Please don't come"
+	line "back without an"
+	cont "invitation."
+	done
+
+_SaffronClimbClubText1_Before::
+	text "This premise is"
+	line "only for members."
+
+	para "You can become a"
+	line "member only via"
+	cont "invitation."
+	prompt
+
+_SaffronClimbClubText1_After::
+	text "Enjoy our climbing"
+	line "facilities as"
+	cont "much as you wish."
+	done
+
 _SaffronClimbClubText2::
+	text "I got in this club"
+	line "only because of a"
+	cont "friend of mine."
+
+	para "But I'm not good"
+	line "at climbing!"
+	cont "I'll start with"
+	cont "the easiest route."
+	done
+
 _SaffronClimbClubText3::
+	text "I thought this"
+	line "club was very"
+	cont "exclusive."
+
+	para "Then why did they"
+	line "let in a brat?"
+	done
+
 _SaffronClimbClubText4::
+	text "Uhuh, I'm excited"
+	line "to challenge the"
+	cont "toughest route!"
+	done
+
 _SaffronClimbClubText5::
-	text "Proxy"
+	text "Zzz..."
+
+	para "Uh? Resting is"
+	line "important too!"
 	done
