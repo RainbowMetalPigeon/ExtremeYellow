@@ -92,7 +92,7 @@ MapHeaderPointers::
 	dw PowerPlant_h
 	dw Route11Gate1F_h
 	dw DiglettsCaveRoute11_h
-	dw Route11Gate2F_h ; UNUSED
+	dw SaffronClimbClub_h ; new
 	dw Route12Gate1F_h
 	dw BillsHouse_h
 	dw VermilionPokecenter_h

@@ -150,3 +150,22 @@ _SaffronCityText25::
 	para "Release to be"
 	line "determined..."
 	done
+
+_SaffronCityText26::
+	text "CLIMB CLUB"
+	
+	para "Access allowed"
+	line "only to members"
+;	xxxx "123456789012345678"
+	done
+
+; CLIMB CLUB =========================
+
+
+_SaffronClimbClubText1::
+_SaffronClimbClubText2::
+_SaffronClimbClubText3::
+_SaffronClimbClubText4::
+_SaffronClimbClubText5::
+	text "Proxy"
+	done

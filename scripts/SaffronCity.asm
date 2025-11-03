@@ -40,6 +40,7 @@ SaffronCity_TextPointers:
 	dw PokeCenterSignText
 	dw SaffronCityText24
 	dw SaffronCityText25
+	dw SaffronCityText26 ; new sign for Climb Club
 	dw TextPostBattle_SaffronTraveler ; new, for traveler
 
 SaffronCityText1:
@@ -135,6 +136,10 @@ SaffronCityText25:
 	text_far _SaffronCityText25
 	text_end
 
+SaffronCityText26:
+	text_far _SaffronCityText26
+	text_end
+
 ; ================================
 
 TextPreBattle_SaffronTraveler: ; new
@@ -215,7 +220,7 @@ SaffronScript_Traveler:
     ld a, HS_SAFFRON_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, 25 ; city-specific
+	ld a, 26 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

@@ -459,3 +459,6 @@ DEF SHOW EQU $15
 	const HS_ROUTE_25_ITEM_2               ; new
 	const HS_ROUTE_25_ITEM_3               ; new
 	const HS_ROUTE_25_ITEM_4               ; new
+	const HS_SAFFRON_CLIMB_CLUB_ITEM_1     ; new ; TBE
+	const HS_SAFFRON_CLIMB_CLUB_ITEM_2     ; new ; TBE
+	const HS_SAFFRON_CLIMB_CLUB_ITEM_3     ; new ; TBE

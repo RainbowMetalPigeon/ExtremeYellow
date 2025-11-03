@@ -91,7 +91,7 @@ WildDataPointers:
 	dw PowerPlantWildMons ; POWER_PLANT
 	dw NothingWildMons ; ROUTE_11_GATE_1F
 	dw NothingWildMons ; DIGLETTS_CAVE_ROUTE_11
-	dw NothingWildMons ; ROUTE_11_GATE_2F
+	dw NothingWildMons ; SAFFRON_CLIMB_CLUB ; new
 	dw NothingWildMons ; ROUTE_12_GATE_1F
 	dw NothingWildMons ; BILLS_HOUSE
 	dw NothingWildMons ; VERMILION_POKECENTER

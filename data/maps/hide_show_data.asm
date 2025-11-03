@@ -92,10 +92,10 @@ MapHSPointers:
 	dw NoHS ; ROCK_TUNNEL_POKECENTER
 	dw NoHS ; ROCK_TUNNEL_1F
 	dw PowerPlantHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; ROUTE_11_GATE_1F
+	dw NoHS ; DIGLETTS_CAVE_ROUTE_11
+	dw SaffronClimbClubHS ; SAFFRON_CLIMB_CLUB
+	dw NoHS ; ROUTE_12_GATE_1F
 	dw BillsHouseHS
 	dw NoHS ; VERMILION_POKECENTER
 	dw NoHS ; POKEMON_FAN_CLUB
@@ -844,5 +844,9 @@ Route25HS:
 	db ROUTE_25, 11, SHOW ; new
 	db ROUTE_25, 12, SHOW ; new
 	db ROUTE_25, 13, SHOW ; new
+SaffronClimbClubHS: ; new
+	db SAFFRON_CLIMB_CLUB,  6, SHOW ; ball
+	db SAFFRON_CLIMB_CLUB,  7, SHOW ; ball
+	db SAFFRON_CLIMB_CLUB,  8, SHOW ; ball
 
 	db $FF, $01, SHOW ; end, list terminator

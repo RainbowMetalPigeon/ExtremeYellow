@@ -3652,8 +3652,8 @@ IsKeyItem_::
 	push af
 	ld hl, KeyItemFlags
 	ld de, wBuffer
-	ld bc, 15 ; only 11 bytes are actually used ; this needs to be edited if I end up with more than 120 items?
-	ASSERT 15 >= (NUM_ITEMS + 7) / 8
+	ld bc, 16 ; only 11 bytes are actually used ; this needs to be edited if I end up with more than 120 items?
+	ASSERT 16 >= (NUM_ITEMS + 7) / 8
 	call CopyData
 	pop af
 	dec a

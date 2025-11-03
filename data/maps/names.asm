@@ -101,3 +101,4 @@ TanobyChambersName:  db "TANOBY CHAMBERS@"
 
 Route21DiveName:     db "SUB ROUTE 21@"
 SunkenShipName:      db "SUNKEN SHIP@"
+SaffronClimbClubName: db "CLIMB CLUB@"

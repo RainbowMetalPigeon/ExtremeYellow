@@ -92,7 +92,7 @@ MapHeaderBanks::
 	db BANK(PowerPlant_h)
 	db BANK(Route11Gate1F_h)
 	db BANK(DiglettsCaveRoute11_h)
-	db BANK(Route11Gate2F_h) ; UNUSED
+	db BANK(SaffronClimbClub_h) ; new
 	db BANK(Route12Gate1F_h)
 	db BANK(BillsHouse_h)
 	db BANK(VermilionPokecenter_h)

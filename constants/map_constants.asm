@@ -35,7 +35,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_2,                       10, 36 ; $0D
 	map_const ROUTE_3,                       35,  9 ; $0E
 	map_const ROUTE_4,                       45, 19 ; $0F ; edited
-	map_const ROUTE_5,                       10, 18 ; $10
+	map_const ROUTE_5,                       20, 18 ; $10 ; edited
 	map_const ROUTE_6,                       10, 18 ; $11
 	map_const ROUTE_7,                       10,  9 ; $12
 	map_const ROUTE_8,                       30,  9 ; $13
@@ -110,7 +110,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POWER_PLANT,                   20, 18 ; $53
 	map_const ROUTE_11_GATE_1F,               4, 11 ; $54 ; edited because of MERGING
 	map_const DIGLETTS_CAVE_ROUTE_11,         4,  4 ; $55
-	map_const ROUTE_11_GATE_2F,               4,  4 ; $56 ; UNUSED
+	map_const SAFFRON_CLIMB_CLUB,            18, 10 ; $56 ; new
 	map_const ROUTE_12_GATE_1F,              12,  4 ; $57 ; edited
 	map_const BILLS_HOUSE,                    4,  4 ; $58
 	map_const VERMILION_POKECENTER,          14,  4 ; $59 ; edited, Center+Mart

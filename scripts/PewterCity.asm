@@ -114,12 +114,13 @@ PewterCityText4: ; edited
 	lb bc, REPEL, 5
 	call GiveItem
 	jr nc, .bag_full
+	SetEvent EVENT_GOT_PEWTER_REPELS
 	ld hl, PewterCityText_GotRepel
 	call PrintText
-	SetEvent EVENT_GOT_PEWTER_REPELS
+	jr .done
 .bag_full
 	ld hl, PewterCityText_BagFull
-	jr .done
+	call PrintText
 .done
 	jp TextScriptEnd
 

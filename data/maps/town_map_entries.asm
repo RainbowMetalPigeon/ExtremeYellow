@@ -87,6 +87,7 @@ InternalMapEntries:
 	internal_map ROCK_TUNNEL_1F,                14,  3, RockTunnelName
 	internal_map POWER_PLANT,                   15,  4, PowerPlantName
 	internal_map DIGLETTS_CAVE_ROUTE_11,        13,  9, Route11Name ; edited because of MERGING
+	internal_map SAFFRON_CLIMB_CLUB,            10,  5, SaffronClimbClubName ; new
 	internal_map ROUTE_12_GATE_1F,              14,  7, Route12Name
 	internal_map BILLS_HOUSE,                   12,  0, SeaCottageName
 	internal_map VERMILION_DOCK,                10,  9, VermilionCityName

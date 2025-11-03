@@ -10,6 +10,7 @@ SaffronCity_Object:
 	warp_event 18, 21, SILPH_CO_1F, 1
 	warp_event  9, 29, SAFFRON_POKECENTER, 1
 	warp_event 29, 29, MR_PSYCHICS_HOUSE, 1
+	warp_event 31, 21, SAFFRON_CLIMB_CLUB, 1 ; 9
 
 	def_bg_events
 	bg_event 17,  5, 15 ; SaffronCityText16
@@ -22,6 +23,7 @@ SaffronCity_Object:
 	bg_event 10, 29, 22 ; PokeCenterSignText
 	bg_event 27, 29, 23 ; SaffronCityText24
 	bg_event  1, 19, 24 ; SaffronCityText25
+	bg_event 29, 21, 25 ; SaffronCityText26
 
 	def_object_events
 	object_event  7,  6, SPRITE_ROCKET, STAY, NONE, 1 ; person
