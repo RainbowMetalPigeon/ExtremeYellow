@@ -660,24 +660,52 @@ _SeviiRoute31SignText1::
 
 ; Ember spa ------------------------------------
 
-_SeviiEmberSpaText1::
-	text "Here HM"
-;	xxxx "123456789012345678"
+_SeviiEmberSpaText1_After::
+	text "You can smash"
+	line "rocks with the HM"
+	cont "I gave you..."
+
+	para "Or... you can stay"
+	line "here and relax..."
+	done
+
+_SeviiEmberSpaText1_HaveThis::
+	text "Here..."
+	line "Have this..."
+
+	para "I don't need it"
+	line "anymore..."
+
+	para "I just want to"
+	line "relax..."
+	done
+
+_SeviiEmberSpaText1_GotHM::
+	text "<PLAYER> received"
+	line "HM06!"
+	done
+
+_SeviiEmberSpaText1_BagFull::
+	text "Oh... you've too"
+	line "much stuff..."
 	done
 
 _SeviiEmberSpaText2::
-	text "Relaxo"
-;	xxxx "123456789012345678"
+	text "This is sooo"
+	line "relaaaxiiing..."
 	done
 
 _SeviiEmberSpaText3::
-	text "Relaxone"
-;	xxxx "123456789012345678"
+	text "Bathing in these"
+	line "spa is the most"
+	cont "relaxing thing..."
 	done
 
 _SeviiEmberSpaText4::
-	text "Relaxissimo"
-;	xxxx "123456789012345678"
+	text "I'm... so..."
+	line "..."
+
+	para "...relaxed..."
 	done
 
 ; route 32 ------------------------------------
