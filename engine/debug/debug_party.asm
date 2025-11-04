@@ -47,10 +47,10 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ROCK_CLIMB
+	ld a, STEALTH_ROCK ; ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, DIVE
+	ld a, TOXIC_SPIKES ; DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, ROAR

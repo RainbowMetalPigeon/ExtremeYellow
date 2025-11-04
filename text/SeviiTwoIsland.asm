@@ -1,17 +1,44 @@
 _SeviiTwoIslandCityText1::
-	text "1"
+	text "Welcome to"
+	line "BOON ISLAND."
+
+	para "I like to welcome"
+	line "the travelers."
+	cont "Back in my days,"
+	cont "I used to travel"
+	cont "a lot."
+	cont "Now this is all"
+	cont "I have left."
 	done
 
 _SeviiTwoIslandCityText2::
-	text "2"
+	text "Have you tried the"
+	line "lottery held at"
+	cont "the market?"
+
+	para "AGATHA of the"
+	line "ELITE FOUR plays"
+	cont "it regularly!"
 	done
 
 _SeviiTwoIslandCityText3::
-	text "3"
+	text "BOON is prolly the"
+	line "smallest of the"
+	cont "SEVII ISLANDS."
+
+	para "Yet, it a special"
+	line "charm you can't"
+	cont "find anywher'else!"
 	done
 
 _SeviiTwoIslandCityText4::
-	text "4"
+	text "This mountain path"
+	line "is short but very"
+	cont "variegated!"
+
+	para "Have you been to"
+	line "the building at"
+	cont "the end of it?"
 	done
 
 _SeviiTwoIslandCityText6_Intro::
@@ -64,7 +91,10 @@ _SeviiTwoIslandCityText6_ObtainedX::
 	text_end
 
 _SeviiTwoIslandCityText7::
-	text "7"
+	text "The farm near here"
+	line "opened recently,"
+	cont "but it's not going"
+	cont "too well."
 	done
 
 _SeviiTwoIslandCityText8_BeforeRiders::
@@ -142,15 +172,33 @@ _SeviiTwoIslandCityScriptText1::
 ; city's indoor ------------------------------------
 
 _SeviiTwoIslandPokemonCenter_Text1::
-	text "test 2-1"
+	text "We may not have a"
+	line "#MART, but a"
+	cont "#CENTER has to"
+	cont "be in every place!"
 	done
 
 _SeviiTwoIslandPokemonCenter_Text2::
-	text "test 2-2"
+	text "What's your"
+	line "favourite type?"
+	cont "Me, I'm a fan of"
+	cont "ROCK and GHOST."
+
+	para "If only there was"
+	line "a #MON with"
+	cont "both these types!"
 	done
 
 _SeviiTwoIslandHousesText1::
-	text "Dunno"
+	text "Life here is too"
+	line "tranquil."
+	cont "I'm considering"
+	cont "moving."
+
+	para "Maybe a metropolis"
+	line "like OCHRE, in"
+	cont "KANTO. Have you"
+	cont "been there?"
 	done
 
 _SeviiTwoIslandHousesText2_Question::
@@ -209,15 +257,32 @@ _SeviiTwoIslandHousesText3_Done::
 	done
 
 _SeviiTwoIslandHousesText4::
-	text "No milk?"
+	text "We heard about the"
+	line "MOOMOO FARM in"
+	cont "JOHTO, so we set"
+	cont "our own farm up."
+
+	para "Still, our TAUROS"
+	line "are yielding no"
+	cont "milk at all! Why?!"
 	done
 
 _SeviiTwoIslandHousesText5::
-	text "Why no milk?"
+	text "We're treating our"
+	line "#MON with the"
+	cont "utmost care."
+
+	para "But we're getting"
+	line "no milk at all!"
+
+	para "Our TAUROS will"
+	line "ruin us!"
 	done
 
 _SeviiTwoIslandHousesSignText1::
-	text "Biology book"
+	text "A book on #MON"
+	line "biology."
+;	xxxx "123456789012345678"
 	done
 
 ; gym -------------------------------------
@@ -236,6 +301,11 @@ _SeviiTwoIslandGymText1_Intro1::
 _SeviiTwoIslandGymText1_Intro2::
 	text "NIUE: ok"
 	line "almost there"
+	done
+
+_SeviiTwoIslandGymText1_Intro3::
+	text "NIUE: ok"
+	line "we're ready!"
 	done
 
 _NiueText_PostBattleText::

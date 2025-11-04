@@ -108,6 +108,9 @@ SeviiTwoIslandGymText1:
 
 	predef HealParty ; because of the HPs
 
+	ld hl, SeviiTwoIslandGymText1_Intro3
+	call PrintText
+
 ; set up battle
 	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	ld hl, wd72d
@@ -143,6 +146,10 @@ SeviiTwoIslandGymText1_Intro1:
 
 SeviiTwoIslandGymText1_Intro2:
 	text_far _SeviiTwoIslandGymText1_Intro2
+	text_end
+
+SeviiTwoIslandGymText1_Intro3:
+	text_far _SeviiTwoIslandGymText1_Intro3
 	text_end
 
 SeviiTwoIslandGymText2:
