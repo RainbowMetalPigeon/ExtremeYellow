@@ -4,7 +4,8 @@ SeviiResortGorgeous_Script:
 SeviiResortGorgeous_TextPointers:
 	dw SeviiResortGorgeousText1
 	dw SeviiResortGorgeousText2
-	; signs
+	dw SeviiResortGorgeousText15 ; numbering is off but whatever
+	; signs (numbering in names is off by 1)
 	dw SeviiResortGorgeousText3
 	dw SeviiResortGorgeousText4
 	dw SeviiResortGorgeousText5
@@ -119,3 +120,6 @@ SeviiResortGorgeousText14:
 	text_far _SeviiResortGorgeousText14
 	text_end
 	
+SeviiResortGorgeousText15:
+	text_far _SeviiResortGorgeousText15
+	text_end

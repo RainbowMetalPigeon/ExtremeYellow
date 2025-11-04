@@ -1028,6 +1028,26 @@ _SeviiResortGorgeousText14::
 	cont "they are used."
 	done
 
+_SeviiResortGorgeousText15::
+	text "They are notes"
+	line "about LOST CAVE:"
+
+	para "'0 at right'"
+	
+	para "There's the drawing"
+	line "of a clock with a"
+	cont "huge 'NO!' in red"
+	cont "and a curved"
+	cont "arrow going"
+	cont "counterclockwise."
+
+	para "'Add one kind"
+	line "Remove the other'"
+
+	para "...crystal clear."
+;   xxxx "123456789012345678"
+	done
+
 ; Route 36 ------------------------------------
 
 _SeviiRoute36BattleText1::
