@@ -90,9 +90,8 @@ _CeladonUniversity2Text8_Intro_NoPrompt::
     cont "important one of"
     cont "them all, LAPRAS."
 
-    para "My thesis can't be"
-    line "considered"
-    cont "complete without"
+    para "I can't complete"
+    line "my thesis without"
     cont "info on it, but"
     cont "it lives only in"
     cont "the deepest depth"
@@ -111,10 +110,13 @@ _CeladonUniversity2Text8_Intro_NoPrompt::
     cont "venture very"
     cont "deep..."
 
-    para "You, although,"
-    line "seem quite"
-    cont "strong! May I ask"
-    cont "you to catch a"
+    para "I heard it dwells"
+    line "also somewhere in"
+    cont "SEVII, but I've no"
+    cont "mean to go there."
+
+    para "You seem strong!"
+    line "Could you catch a"
     cont "LAPRAS and show"
     cont "it to me?"
 
