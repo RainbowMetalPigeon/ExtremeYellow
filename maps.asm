@@ -90,7 +90,8 @@ OaksLab_Blocks: INCBIN "maps/OaksLab.blk"
 
 Route16FlyHouse_Blocks:
 Route2TradeHouse_Blocks:
-SaffronPidgeyHouse_Blocks:
+SaffronPidgeyHouse_Blocks: INCBIN "maps/BirdTradeHouse.blk" ; edited
+
 PewterNidoranHouse_Blocks: INCBIN "maps/PewterNidoranHouse.blk" ; edited
 
 MrPsychicsHouse_Blocks: INCBIN "maps/MrPsychicsHouse.blk" ; new

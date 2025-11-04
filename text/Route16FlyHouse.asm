@@ -2,10 +2,35 @@ _Route16HouseText3::
 	text "Oh, you found my"
 	line "secret retreat!"
 
-	para "Please don't tell"
-	line "anyone I'm here."
-	cont "I'll make it up"
-	cont "to you with this!"
+	para "It seems you like"
+	line "exploring."
+	cont "I really like"
+	cont "traveling. I even"
+	cont "made a HM just"
+	cont "for that!"
+
+	para "I'll be happy to"
+	line "share it with you"
+	cont "if you bring me a"
+	cont "travel proof."
+	cont "A sweet from a"
+	cont "faraway place"
+	cont "will do!"
+	done
+
+_Route16HouseText_YesCookie::
+	text "Oh! You have an"
+	line "exotic goodie"
+	cont "for me!"
+
+	para "Thanks! You can"
+	line "have this!"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route16HouseText_NoCookie::
+	text "Proxy"
+;	xxxx "123456789012345678"
 	prompt
 
 _ReceivedHM02Text::
