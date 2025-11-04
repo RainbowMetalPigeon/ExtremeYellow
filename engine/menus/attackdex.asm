@@ -711,6 +711,10 @@ DrawAttackdexEntryOnScreen:
 	cp RAPID_SPIN
 	jp z, .done
 
+	ld hl, AttackdexText_TeleportEffect
+	cp TELEPORT
+	jp z, .done
+
 	ld a, [wPlayerMoveEffect]
 
 	cp NO_ADDITIONAL_EFFECT
@@ -1718,6 +1722,10 @@ AttackdexText_ThrashPetalDanceEffect:
 
 AttackdexText_SwitchAndTeleportEffect:
 	text_far _AttackdexText_SwitchAndTeleportEffect
+	text_end
+
+AttackdexText_TeleportEffect:
+	text_far _AttackdexText_TeleportEffect
 	text_end
 
 AttackdexText_DigEffect:

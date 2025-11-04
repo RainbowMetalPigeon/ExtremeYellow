@@ -610,14 +610,15 @@ _AttackdexText_ThrashPetalDanceEffect::
 	dex
 
 _AttackdexText_SwitchAndTeleportEffect::
-	text "Allows to escape"
-	next "from wild battles."
-	next "It has no effects"
-	next "VS trainers."
+	atpg "Escapes from wild"
+	next "battles. Forces"
+	next "switch VS trainer."
+	next "Priority -6"
+	dex
 
-	atpg "Out of battle:"
-	next "warps back to last"
-	next "#CENTER used."
+_AttackdexText_TeleportEffect::
+	atpg "Allows to escape"
+	next "from wild battles"
 	dex
 
 _AttackdexText_DigEffect::

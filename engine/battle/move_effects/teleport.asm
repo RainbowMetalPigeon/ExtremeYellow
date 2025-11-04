@@ -23,7 +23,7 @@ SwitchAndTeleportEffect_:
 	srl b  ; b = enemyLevel / 4
 	cp b ; is rand[0, playerLevel + enemyLevel] >= (enemyLevel / 4)?
 	jr nc, .playerMoveWasSuccessful ; if so, allow teleporting
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 	ld a, [wPlayerMoveNum]
 	cp TELEPORT
@@ -38,7 +38,7 @@ SwitchAndTeleportEffect_:
 	ld a, [wPlayerMoveNum]
 	jp PlayAnimAndPrintText
 .notWildBattle1
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 ; new
 	ld a, [wPlayerMoveNum]
@@ -73,7 +73,7 @@ SwitchAndTeleportEffect_:
 	srl b
 	cp b
 	jr nc, .enemyMoveWasSuccessful
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 	ld a, [wEnemyMoveNum]
 	cp TELEPORT
@@ -88,7 +88,7 @@ SwitchAndTeleportEffect_:
 	ld a, [wEnemyMoveNum]
 	jr PlayAnimAndPrintText
 .notWildBattle2
-	ld c, 50
+	ld c, 30
 	call DelayFrames
 ; new
 	ld a, [wEnemyMoveNum]
@@ -187,46 +187,11 @@ CountUnfaintedPokemonInParty_Enemy:
 	ld a, d ; how many available monsters are there?
 	ret
 
-;ForcePlayerSwitchIfEnoughMons:
 ForcePlayerSwitch:
-/*
-; player switches if there are 2 or more unfainted mons in party
-	ld a, [wPartyCount]
-	ld c, a
-	ld hl, wPartyMon1HP
-
-	ld d, 0 ; keep count of unfainted monsters
-
-; count how many monsters haven't fainted yet
-.loop
-	ld a, [hli]
-	ld b, a
-	ld a, [hld]
-	or b
-	jr z, .fainted ; has monster fainted?
-	inc d
-.fainted
-	push bc
-	ld bc, wPartyMon2 - wPartyMon1
-	add hl, bc
-	pop bc
-	dec c
-	jr nz, .loop
-
-	ld a, d ; how many available monsters are there?
-	cp 2    ; don't bother if only 1
-	jr nc, .switchPlayerMon
-	and a
-	ret
-
-.switchPlayerMon
-; run another loop to choose the next non-fainted mon
-*/
 	ld a, [wPartyCount]
 	ld d, a
 	ld hl, wPartyMon1HP
 	ld e, $FF ; index counter, will be increased next step
-
 .loop2
 	inc e
 	ld a, [hli]
@@ -243,11 +208,9 @@ ForcePlayerSwitch:
 	add hl, bc
 	dec d
 	jr nz, .loop2
-
 .actuallySwitch
 	ld a, e
 	ld [wWhichPokemon], a
-
 	ld [wPlayerMonNumber], a
 	inc a
 	ld hl, wPartySpecies - 1
@@ -260,5 +223,4 @@ ForcePlayerSwitch:
 	ld a, [wBattleMonSpecies]
 	ld [wd0b5], a
 	call GetMonHeader
-
 	jpfar SwitchPlayerMon
