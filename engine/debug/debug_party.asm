@@ -53,7 +53,7 @@ IF DEF(_DEBUG)
 	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, STRENGTH
+	ld a, ROAR
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -65,7 +65,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, ROCK_SMASH
 	ld [hli], a
-	ld a, TRANSFORM
+	ld a, STRENGTH
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash

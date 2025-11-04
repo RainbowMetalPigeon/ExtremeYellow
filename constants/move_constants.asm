@@ -23,7 +23,7 @@
 	const CUT          ; 0f
 	const GUST         ; 10
 	const WING_ATTACK  ; 11
-;	const WHIRLWIND    ; 12
+	const WHIRLWIND    ; 12
 	const FLY          ; 13-4
 ;	const BIND         ; 14 - REMOVED
 	const SLAM         ; 15
@@ -51,7 +51,7 @@
 	const LEER         ; 2b
 	const BITE         ; 2c
 	const GROWL        ; 2d
-;	const ROAR         ; 2e
+	const ROAR         ; 2e
 	const SING         ; 2f-6
 	const SUPERSONIC   ; 30
 	const SONICBOOM    ; 31

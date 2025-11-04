@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         BRAVE_BIRD,   REST,         SUBSTITUTE,   FLY,          \
-	     CURSE         
+	     CURSE
 	; end
 
 	db BANK(PidgeyPicFront)

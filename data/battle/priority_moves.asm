@@ -2,6 +2,8 @@
 ; To avoid working with negative numbers, we shift the priority
 ; range to be from 0 to 12.
 PriorityMovesList:
+	db ROAR,			1
+	db WHIRLWIND,		1
 	db COUNTER,			1
 	db MIRROR_COAT,		1
 	db MACH_PUNCH,		8

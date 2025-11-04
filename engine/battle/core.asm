@@ -2390,7 +2390,7 @@ PartyMenuOrRockOrRun:
 	call GBPalNormal
 ; fall through to SwitchPlayerMon
 
-SwitchPlayerMon:
+SwitchPlayerMon:: ; edited, 2 colons
 	callfar RetreatMon
 	ld c, 50
 	call DelayFrames

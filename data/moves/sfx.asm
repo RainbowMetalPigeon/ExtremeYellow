@@ -18,7 +18,7 @@ MoveSoundTable:
 	db SFX_NOT_VERY_EFFECTIVE, $00, $a0 ; CUT
 	db SFX_BATTLE_12,          $00, $c0 ; GUST
 	db SFX_BATTLE_12,          $10, $a0 ; WING_ATTACK
-;	db SFX_BATTLE_13,          $00, $e0 ; WHIRLWIND
+	db SFX_BATTLE_13,          $00, $e0 ; WHIRLWIND
 	db SFX_NOT_VERY_EFFECTIVE, $20, $c0 ; FLY
 ;	db SFX_BATTLE_14,          $00, $80 ; BIND - sound moved to MEGAHORN
 	db SFX_BATTLE_22,          $00, $80 ; SLAM
@@ -46,7 +46,7 @@ MoveSoundTable:
 	db SFX_BATTLE_31,          $ff, $40 ; LEER
 	db SFX_BATTLE_1E,          $00, $80 ; BITE
 	db SFX_BATTLE_0B,          $00, $c0 ; GROWL
-;	db SFX_BATTLE_0B,          $00, $40 ; ROAR
+	db SFX_BATTLE_0B,          $00, $40 ; ROAR
 	db SFX_BATTLE_35,          $00, $80 ; SING
 	db SFX_BATTLE_27,          $40, $60 ; SUPERSONIC
 	db SFX_BATTLE_27,          $00, $80 ; SONICBOOM - if it was really meant to play ROAR sound twice at the beginning I can substitute it with db SFX_BATTLE_0B,          $00, $40...

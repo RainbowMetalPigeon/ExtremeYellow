@@ -1074,7 +1074,7 @@ INCLUDE "data/trainers/move_choices.asm"
 
 INCLUDE "data/trainers/special_moves_physicalspecialsplit.asm" ; new, testing
 
-; the next three need to be together, but don't need to be here 
+; the next three need to be together, but don't need to be here
 
 ;INCLUDE "data/trainers/parties.asm"
 
@@ -1405,7 +1405,7 @@ AIPrintItemUseAndUpdateHPBar:
 	predef UpdateHPBar2
 	jp DecrementAICount
 
-AISwitchIfEnoughMons:
+AISwitchIfEnoughMons:: ; edited, 2 colons
 ; enemy trainer switches if there are 2 or more unfainted mons in party
 	ld a, [wEnemyPartyCount]
 	ld c, a

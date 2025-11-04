@@ -90,15 +90,15 @@ _RanFromBattleText::
 	line "ran from battle!"
 	prompt
 
-;_RanAwayScaredText::
-;	text "<TARGET>"
-;	line "ran away scared!"
-;	prompt
+_RanAwayScaredText::
+	text "<TARGET>"
+	line "ran away scared!"
+	prompt
 
-;_WasBlownAwayText::
-;	text "<TARGET>"
-;	line "was blown away!"
-;	prompt
+_WasBlownAwayText::
+	text "<TARGET>"
+	line "was blown away!"
+	prompt
 
 _ChargeMoveEffectText::
 	text "<USER>@"

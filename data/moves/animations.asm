@@ -17,7 +17,7 @@ AttackAnimationPointers:
 	dw CutAnim
 	dw GustAnim
 	dw WingAttackAnim
-;	dw WhirlwindAnim
+	dw WhirlwindAnim
 	dw FlyAnim
 ;	dw BindAnim
 	dw SlamAnim
@@ -45,7 +45,7 @@ AttackAnimationPointers:
 	dw LeerAnim
 	dw BiteAnim
 	dw GrowlAnim
-;	dw RoarAnim
+	dw RoarAnim
 	dw SingAnim
 	dw SupersonicAnim
 	dw SonicBoomAnim
@@ -438,10 +438,10 @@ WingAttackAnim:
 	battle_anim WING_ATTACK, SUBANIM_04, 1, 6
 	db -1 ; end
 
-;WhirlwindAnim:
-;	battle_anim WHIRLWIND, SUBANIM_10, 1, 6
-;	battle_anim NO_MOVE, SE_SLIDE_ENEMY_MON_OFF
-;	db -1 ; end
+WhirlwindAnim:
+	battle_anim WHIRLWIND, SUBANIM_10, 1, 6
+	battle_anim NO_MOVE, SE_SLIDE_ENEMY_MON_OFF
+	db -1 ; end
 
 FlyAnim:
 	battle_anim FLY, SUBANIM_04, 1, 6
@@ -586,11 +586,11 @@ GrowlAnim:
 	battle_anim GROWL, SUBANIM_12, 1, 6
 	db -1 ; end
 
-;RoarAnim:
-;	battle_anim ROAR, SUBANIM_15, 1, 6
-;	battle_anim ROAR, SUBANIM_15, 1, 6
-;	battle_anim ROAR, SUBANIM_15, 1, 6
-;	db -1 ; end
+RoarAnim:
+	battle_anim ROAR, SUBANIM_15, 1, 6
+	battle_anim ROAR, SUBANIM_15, 1, 6
+	battle_anim ROAR, SUBANIM_15, 1, 6
+	db -1 ; end
 
 SingAnim:
 	battle_anim SING, SUBANIM_12, 1, 6

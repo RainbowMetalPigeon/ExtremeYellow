@@ -31,7 +31,7 @@ Moves:
 	move CUT,          NO_ADDITIONAL_EFFECT,        50, NORMAL,        95, 30
 	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,       100, 35 ; TYPE CHANGED
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,       100, 35 ; power 35->60
-;	move WHIRLWIND,    SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,        85, 20 ; - REMOVED
+	move WHIRLWIND,    SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,        85, 20 ; - REMOVED
 	move FLY,          FLY_EFFECT,                  90, FLYING,        95, 15 ; power 70->90
 ;	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        85, 20 ; accuracy 75->85 - REMOVED
 	move SLAM,         NO_ADDITIONAL_EFFECT,        80, NORMAL,        75, 20
@@ -59,7 +59,7 @@ Moves:
 	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 30
 	move BITE,         FLINCH_SIDE_EFFECT3,         60, DARK,         100, 25 ; TYPE CHANGED, 10%->30% flinch chance
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,       100, 40
-;	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,       100, 20 ; - REMOVED
+	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,       100, 20 ; - REMOVED
 	move SING,         SLEEP_EFFECT,                 0, NORMAL,        55, 15
 	move SUPERSONIC,   CONFUSION_EFFECT,             0, NORMAL,        55, 20
 	move SONICBOOM,    SPECIAL_DAMAGE_EFFECT,        1, NORMAL,        90, 20

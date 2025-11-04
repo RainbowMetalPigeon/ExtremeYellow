@@ -2,6 +2,8 @@ SwitchAndTeleportEffect_:
 	ldh a, [hWhoseTurn]
 	and a
 	jr nz, .handleEnemy
+
+; handlePlayer
 	ld a, [wIsInBattle]
 	dec a
 	jr nz, .notWildBattle1
@@ -23,9 +25,9 @@ SwitchAndTeleportEffect_:
 	jr nc, .playerMoveWasSuccessful ; if so, allow teleporting
 	ld c, 50
 	call DelayFrames
-;	ld a, [wPlayerMoveNum]			; edited, there's only teleport here now, no more roar or whirlwind
-;	cp TELEPORT						; edited, there's only teleport here now, no more roar or whirlwind
-;	jp nz, PrintDidntAffectText		; edited, there's only teleport here now, no more roar or whirlwind
+	ld a, [wPlayerMoveNum]
+	cp TELEPORT
+	jp nz, PrintDidntAffectText
 	jp PrintButItFailedText2_
 .playerMoveWasSuccessful
 	callfar ReadPlayerMonCurHPAndStatus	; edited
@@ -34,15 +36,23 @@ SwitchAndTeleportEffect_:
 	inc a
 	ld [wEscapedFromBattle], a
 	ld a, [wPlayerMoveNum]
-	jr .playAnimAndPrintText
+	jp PlayAnimAndPrintText
 .notWildBattle1
 	ld c, 50
 	call DelayFrames
-;	ld hl, IsUnaffectedText
-;	ld a, [wPlayerMoveNum]			; edited, there's only teleport here now, no more roar or whirlwind
-;	cp TELEPORT						; edited, there's only teleport here now, no more roar or whirlwind
-;	jp nz, PrintText				; edited, there's only teleport here now, no more roar or whirlwind
-	jp PrintButItFailedText2_
+; new
+	ld a, [wPlayerMoveNum]
+	cp TELEPORT
+	jp z, PrintButItFailedText2_
+; not teleport: roar/whirlwind
+	call CountUnfaintedPokemonInParty_Enemy
+	cp 2
+	jp c, PrintButItFailedText2_
+	ld a, [wPlayerMoveNum]
+	call PlayAnimAndPrintText
+	jpfar AISwitchIfEnoughMons
+; BTV
+
 .handleEnemy
 	ld a, [wIsInBattle]
 	dec a
@@ -65,9 +75,9 @@ SwitchAndTeleportEffect_:
 	jr nc, .enemyMoveWasSuccessful
 	ld c, 50
 	call DelayFrames
-;	ld a, [wEnemyMoveNum]			; edited, there's only teleport here now, no more roar or whirlwind
-;	cp TELEPORT						; edited, there's only teleport here now, no more roar or whirlwind
-;	jp nz, PrintDidntAffectText		; edited, there's only teleport here now, no more roar or whirlwind
+	ld a, [wEnemyMoveNum]
+	cp TELEPORT
+	jp nz, PrintDidntAffectText
 	jp PrintButItFailedText2_
 .enemyMoveWasSuccessful
 	callfar ReadPlayerMonCurHPAndStatus	; edited
@@ -76,17 +86,24 @@ SwitchAndTeleportEffect_:
 	inc a
 	ld [wEscapedFromBattle], a
 	ld a, [wEnemyMoveNum]
-	jr .playAnimAndPrintText
+	jr PlayAnimAndPrintText
 .notWildBattle2
 	ld c, 50
 	call DelayFrames
-;	ld hl, IsUnaffectedText			; edited, there's only teleport here now, no more roar or whirlwind
-;	ld a, [wEnemyMoveNum]			; edited, there's only teleport here now, no more roar or whirlwind
-;	cp TELEPORT						; edited, there's only teleport here now, no more roar or whirlwind
-;	jp nz, PrintText				; edited, there's only teleport here now, no more roar or whirlwind
-;	jp ConditionalPrintButItFailed	; edited, commented, seems very unnecessary, substituted with the line below, much safer?
-	jp PrintButItFailedText2_
-.playAnimAndPrintText
+; new
+	ld a, [wEnemyMoveNum]
+	cp TELEPORT
+	jp z, PrintButItFailedText2_
+; not teleport: roar/whirlwind
+	call CountUnfaintedPokemonInParty_Player
+	cp 2
+	jr c, PrintButItFailedText2_
+	ld a, [wEnemyMoveNum]
+	call PlayAnimAndPrintText
+	jp ForcePlayerSwitch
+; BTV
+
+PlayAnimAndPrintText: ; standalone function
 	push af
 ;	call PlayBattleAnimation			; edited
 	ld [wAnimationID], a				; edited
@@ -95,26 +112,26 @@ SwitchAndTeleportEffect_:
 	call DelayFrames
 	pop af
 	ld hl, RanFromBattleText
-;	cp TELEPORT
-;	jr z, .printText
-;	ld hl, RanAwayScaredText
-;	cp ROAR ; modified, removed ROAR
-;	jr z, .printText
-;	ld hl, WasBlownAwayText
-;.printText
+	cp TELEPORT
+	jr z, .printText
+	ld hl, RanAwayScaredText
+	cp ROAR
+	jr z, .printText
+	ld hl, WasBlownAwayText
+.printText
 	jp PrintText
 
 RanFromBattleText:
 	text_far _RanFromBattleText
 	text_end
 
-;RanAwayScaredText:
-;	text_far _RanAwayScaredText
-;	text_end
+RanAwayScaredText:
+	text_far _RanAwayScaredText
+	text_end
 
-;WasBlownAwayText:
-;	text_far _WasBlownAwayText
-;	text_end
+WasBlownAwayText:
+	text_far _WasBlownAwayText
+	text_end
 
 PrintButItFailedText2_:
 	ld hl, ButItFailedText2
@@ -123,3 +140,125 @@ PrintButItFailedText2_:
 ButItFailedText2:
 	text_far _ButItFailedText
 	text_end
+
+; new ================================
+
+CountUnfaintedPokemonInParty_Player:
+	ld a, [wPartyCount]
+	ld c, a
+	ld hl, wPartyMon1HP
+	ld d, 0 ; keep count of unfainted monsters
+.loop ; count how many monsters haven't fainted yet
+	ld a, [hli]
+	ld b, a
+	ld a, [hld]
+	or b
+	jr z, .fainted ; has monster fainted?
+	inc d
+.fainted
+	push bc
+	ld bc, wPartyMon2 - wPartyMon1
+	add hl, bc
+	pop bc
+	dec c
+	jr nz, .loop
+	ld a, d ; how many available monsters are there?
+	ret
+
+CountUnfaintedPokemonInParty_Enemy:
+	ld a, [wEnemyPartyCount]
+	ld c, a
+	ld hl, wEnemyMon1HP
+	ld d, 0 ; keep count of unfainted monsters
+.loop ; count how many monsters haven't fainted yet
+	ld a, [hli]
+	ld b, a
+	ld a, [hld]
+	or b
+	jr z, .fainted ; has monster fainted?
+	inc d
+.fainted
+	push bc
+	ld bc, wEnemyMon2 - wEnemyMon1
+	add hl, bc
+	pop bc
+	dec c
+	jr nz, .loop
+	ld a, d ; how many available monsters are there?
+	ret
+
+;ForcePlayerSwitchIfEnoughMons:
+ForcePlayerSwitch:
+/*
+; player switches if there are 2 or more unfainted mons in party
+	ld a, [wPartyCount]
+	ld c, a
+	ld hl, wPartyMon1HP
+
+	ld d, 0 ; keep count of unfainted monsters
+
+; count how many monsters haven't fainted yet
+.loop
+	ld a, [hli]
+	ld b, a
+	ld a, [hld]
+	or b
+	jr z, .fainted ; has monster fainted?
+	inc d
+.fainted
+	push bc
+	ld bc, wPartyMon2 - wPartyMon1
+	add hl, bc
+	pop bc
+	dec c
+	jr nz, .loop
+
+	ld a, d ; how many available monsters are there?
+	cp 2    ; don't bother if only 1
+	jr nc, .switchPlayerMon
+	and a
+	ret
+
+.switchPlayerMon
+; run another loop to choose the next non-fainted mon
+*/
+	ld a, [wPartyCount]
+	ld d, a
+	ld hl, wPartyMon1HP
+	ld e, $FF ; index counter, will be increased next step
+
+.loop2
+	inc e
+	ld a, [hli]
+	ld b, a
+	ld a, [hld]
+	or b
+	jr z, .fainted2 ; has monster fainted?
+; not fainted: check if it's the same one that's already out
+	ld a, [wPlayerMonNumber]
+	cp e
+	jr nz, .actuallySwitch
+.fainted2
+	ld bc, wPartyMon2 - wPartyMon1
+	add hl, bc
+	dec d
+	jr nz, .loop2
+
+.actuallySwitch
+	ld a, e
+	ld [wWhichPokemon], a
+
+	ld [wPlayerMonNumber], a
+	inc a
+	ld hl, wPartySpecies - 1
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl] ; species
+	ld [wcf91], a
+	ld [wBattleMonSpecies2], a
+	ld a, [wBattleMonSpecies]
+	ld [wd0b5], a
+	call GetMonHeader
+
+	jpfar SwitchPlayerMon
