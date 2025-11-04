@@ -7,10 +7,43 @@ Route21_Script:
 	ld [wCurMapScript], a ; edited
 	ret
 
+; scripts =======================================
+
 Route21_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw Route21Script_PostOakBattle ; 3
+
+Route21Script_PostOakBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route21ResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won: gift last expansion of Sevii Ticket
+	ld a, 11 ; Route21ScriptText1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld a, SFX_GET_KEY_ITEM
+	call PlaySound
+	ld a, 12 ; Route21ScriptText2
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 13 ; Route21ScriptText3
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Route21ResetScripts
+	ret
+
+Route21ResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+; texts =========================================
 
 Route21_TextPointers:
 	dw Route21TextOak
@@ -23,6 +56,10 @@ Route21_TextPointers:
 	dw Route21Text7
 	dw Route21Text8
 	dw Route21Text9
+	; scripts
+	dw Route21ScriptText1 ; 11
+	dw Route21ScriptText2 ; 12
+	dw Route21ScriptText3 ; 13
 
 Route21TrainerHeaders:
 	def_trainers 2 ; edited because of Oak
@@ -247,8 +284,11 @@ Route21TextOak:
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 
-;	ld a, $1
-;	ld [wRoute21CurScript], a
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	jr nz, .dontSetScript
+	ld a, 3
+	ld [wCurMapScript], a
+.dontSetScript
 
 	ld hl, OakPostBattleTextVictory
 	ld de, OakPostBattleTextDefeat
@@ -285,3 +325,16 @@ NormalInverseChoice:: ; how did it even work with just one column?!
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	jp LoadScreenTilesFromBuffer1
+
+Route21ScriptText1:
+	text_far _Route21ScriptText1
+	text_end
+
+Route21ScriptText2:
+	text_far _Route21ScriptText2
+	text_end
+
+Route21ScriptText3:
+	text_far _Route21ScriptText3
+	text_end
+

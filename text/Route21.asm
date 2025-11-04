@@ -231,6 +231,37 @@ _OakPostBattleTextDefeat::
 	line "greatest battle"
 	cont "I've ever had!"
 
-	para "<PLAYER>!"
-	line "Thank you!"
+	para "Yet I know you can"
+	line "grow even more!"
 	prompt
+
+_Route21ScriptText1::
+	text "Marvelous!"
+	line "This was a battle"
+	cont "for the ages!"
+
+	para "I want to gift you"
+	line "something to"
+	cont "thank you."
+	done
+
+_Route21ScriptText2::
+	text "<PLAYER>'s"
+	line "SEVII TICKET"
+	cont "got upgraded!"
+	done
+
+_Route21ScriptText3::
+	text "With this, you can"
+	line "now explore all"
+	cont "the SEVII ISLANDS"
+	cont "without limits!"
+
+	para "<PLAYER>! Go and"
+	line "keep traveling"
+	cont "and exploring."
+
+	para "Reach new heights"
+	line "and never stop!"
+	done
+
