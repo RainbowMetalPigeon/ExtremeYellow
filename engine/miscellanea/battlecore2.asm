@@ -733,8 +733,8 @@ HandleSubtractingDamageFromPlayerPokemonHP::
 	ResetEvent EVENT_PIKACHU_SASH_TRIGGERS
 	callfar IsThisPartymonStarterPikachu  ; check if it's player Pikachu
 	jr nc, .pikachuSashCantTrigger
-;	CheckEvent EVENT_PIKACHU_SASH_ENABLED ; check if the enabling event is set
-;	jr z, .pikachuSashCantTrigger
+	CheckEvent EVENT_PIKACHU_SASH_ENABLED ; check if the enabling event is set
+	jr z, .pikachuSashCantTrigger
 	ld a, [wBattleMonHP]                  ; check if CurHP = MaxHP
 	ld b, a
 	ld a, [wBattleMonMaxHP]

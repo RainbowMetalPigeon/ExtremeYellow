@@ -9,6 +9,7 @@ ObsidianHouses_TextPointers:
 	dw ObsidianHousesTextFamily2
 	dw ObsidianHousesTextFamily3
 	dw ObsidianHousesTextFamily4
+	dw ObsidianHousesTextFamily5
 	; signs
 	dw ObsidianHousesTextFlowerNotes
 	dw ObsidianHousesTextFishingBoard
@@ -85,6 +86,50 @@ ObsidianHousesTextFamily3:
 ObsidianHousesTextFamily4:
 	text_far _ObsidianHousesTextFamily4
 	text_end
+
+ObsidianHousesTextFamily5:
+	text_asm
+	CheckEvent EVENT_PIKACHU_SASH_ENABLED
+	ld hl, ObsidianHousesTextFamily5_After
+	jr nz, .printAndEnd
+; not enabled Sash yet
+	ld hl, ObsidianHousesTextFamily5_Intro
+	call PrintText
+	ld a, [wPikachuHappiness]
+	cp 255
+	ld hl, ObsidianHousesTextFamily5_NotMaxHappiness
+	jr nz, .printAndEnd
+; max happiness
+	ld hl, ObsidianHousesTextFamily5_MaxHappiness
+	call PrintText
+	SetEvent EVENT_PIKACHU_SASH_ENABLED
+	ld hl, ObsidianHousesTextFamily5_SashEnabled
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianHousesTextFamily5_SashEnabled:
+	text_far _ObsidianHousesTextFamily5_SashEnabled
+	sound_get_item_2
+	text_end
+
+ObsidianHousesTextFamily5_MaxHappiness:
+	text_far _ObsidianHousesTextFamily5_MaxHappiness
+	text_end
+
+ObsidianHousesTextFamily5_NotMaxHappiness:
+	text_far _ObsidianHousesTextFamily5_NotMaxHappiness
+	text_end
+
+ObsidianHousesTextFamily5_After:
+	text_far _ObsidianHousesTextFamily5_After
+	text_end
+
+ObsidianHousesTextFamily5_Intro:
+	text_far _ObsidianHousesTextFamily5_Intro
+	text_end
+
+; ------------------------
 
 ObsidianHousesTextFlowerNotes:
 	text_far _ObsidianHousesTextFlowerNotes

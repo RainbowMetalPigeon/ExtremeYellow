@@ -285,7 +285,6 @@ INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
-INCLUDE "text/SilphCo7F.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -302,6 +301,10 @@ INCLUDE "text/Route23.asm"
 INCLUDE "text/Route21.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/Route8.asm"
+
+
+SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/SilphCo7F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

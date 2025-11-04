@@ -153,6 +153,51 @@ _ObsidianHousesTextFamily4::
 	cont "my loved ones."
 	done
 
+_ObsidianHousesTextFamily5_SashEnabled::
+	text "<PLAYER> shares a"
+	line "bottle of KETCHUP!"
+	done
+
+_ObsidianHousesTextFamily5_MaxHappiness::
+	text "Oh! Your PIKACHU"
+	line "loves KETCHUP,"
+	cont "but loves you"
+	cont "even more!"
+
+	para "A beautiful view!"
+	line "Here, have some!"
+	prompt
+
+_ObsidianHousesTextFamily5_NotMaxHappiness::
+	text "Uhm. Your PIKACHU"
+	line "seems fond of"
+	cont "KETCHUP, but not"
+	cont "as much of you."
+	done
+
+_ObsidianHousesTextFamily5_After::
+	text "My KETCHUP does"
+	line "wonders. Now,"
+	cont "your PIKACHU will"
+	cont "be able to stand"
+	cont "any hit if it's"
+	cont "at full health!"
+	done
+
+_ObsidianHousesTextFamily5_Intro::
+	text "I pride myself in"
+	line "making the best"
+	cont "KETCHUP in KANTO."
+
+	para "Everyone in my"
+	line "family loves it!"
+
+	para "I'd gladly share it"
+	line "with a #MON"
+	cont "that likes it and"
+	cont "is well treated."
+	prompt
+
 ; signs ---------------------------
 
 _ObsidianHousesTextFlowerNotes::
