@@ -166,7 +166,7 @@ SilphCo11Script3:
 	call SilphCo11Script_621ff
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $7
+	ld a, 8 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call GBFadeOutToBlack
@@ -241,7 +241,7 @@ SilphCo11Script_6229c:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, $8
+	ld a, 9 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -376,7 +376,7 @@ SilphCo11Script10:
 	ld [hl], SPRITE_FACING_LEFT
 .asm_623b1
 	call Delay3
-	ld a, $9
+	ld a, 10 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 SilphCo11Script11:
@@ -417,7 +417,7 @@ SilphCo11Script12:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, $a
+	ld a, 11 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -477,6 +477,9 @@ SilphCo11F_TextPointers:
 	dw SilphCo11Text4
 	dw SilphCo11Text5
 	dw SilphCo11Text6
+	; signs
+	dw SilphCo11TextBadgeMachine ; new
+	; scripts
 	dw SilphCo11Text7
 	dw SilphCo11Text8
 	dw SilphCo11Text9
@@ -593,4 +596,10 @@ SilphCo11Trainer1EndBattleText:
 
 SilphCo11Trainer1AfterBattleText:
 	text_far _SilphCo11AfterBattleText2
+	text_end
+
+; new -------------------------------------
+
+SilphCo11TextBadgeMachine:
+	text_far _SilphCo11TextBadgeMachine
 	text_end

@@ -121,3 +121,10 @@ _SilphCo11AfterBattleText2:: ; edited
 	cont "super-tough"
 	cont "#MON!"
 	done
+
+; new -------------------------------------
+
+_SilphCo11TextBadgeMachine::
+	text "Badge machine"
+;	xxxx "123456789012345678"
+	done

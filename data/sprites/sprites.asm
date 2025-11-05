@@ -149,4 +149,5 @@ SpriteSheetPointerTable:
 	overworld_sprite MissingNoSprite, 4         ; SPRITE_MISSINGNO ; new
 	overworld_sprite RockSmashableRockSprite, 4 ; SPRITE_ROCKSMASHABLE_ROCK ; new
 	overworld_sprite RocketFaintedSprite, 4     ; SPRITE_ROCKET_FAINTED ; new
+	overworld_sprite BadgeMachineSprite, 4      ; SPRITE_BADGE_MACHINE ; new
 	assert_table_length NUM_SPRITES

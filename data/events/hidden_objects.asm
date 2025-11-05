@@ -1,5 +1,5 @@
 HiddenObjectMaps:
-	dbw SILPH_CO_11F,                 SilphCo11FHiddenObjects
+;	dbw SILPH_CO_11F,                 SilphCo11FHiddenObjects
 	dbw SILPH_CO_5F,                  SilphCo5FHiddenObjects
 	dbw SILPH_CO_9F,                  SilphCo9FHiddenObjects
 	dbw POKEMON_MANSION_2F,           Mansion2HiddenObjects
@@ -116,9 +116,9 @@ ENDM
 ; from interacting with them in any direction.
 DEF ANY_FACING EQU $d0
 
-SilphCo11FHiddenObjects:
-	hidden_object 10, 12, SPRITE_FACING_UP, OpenPokemonCenterPC
-	db -1 ; end
+;SilphCo11FHiddenObjects:
+;	hidden_object 10, 12, SPRITE_FACING_UP, OpenPokemonCenterPC
+;	db -1 ; end
 
 SilphCo5FHiddenObjects:
 	hidden_object 12,  3, ELIXER, HiddenItems

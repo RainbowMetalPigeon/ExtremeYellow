@@ -171,15 +171,15 @@ SilphCo7Script3:
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
-	ld a, $d
+	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, SilphCo7Text14
-	ld de, SilphCo7Text_51ecd
+	ld hl, SilphCo7Text_WonVsRivalText
+	ld de, SilphCo7Text_LostVsRivalText
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
@@ -207,7 +207,7 @@ SilphCo7Script4:
 	ld a, SPRITE_FACING_UP
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
-	ld a, $f
+	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call StopAllMusic
@@ -276,7 +276,7 @@ SilphCo7F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw SilphCo7Text13
-	dw SilphCo7Text14
+	dw SilphCo7Text14 ; useless
 	dw SilphCo7Text15
 	dw HeresYourPorygonText ; new
 
@@ -482,12 +482,13 @@ SilphCo7Text13:
 	text_far _SilphCo7Text_51ec3
 	text_end
 
-SilphCo7Text14:
-	text_far _SilphCo7Text_51ec8
+SilphCo7Text14: ; useless
+SilphCo7Text_WonVsRivalText:
+	text_far _SilphCo7Text_WonVsRivalText
 	text_end
 
-SilphCo7Text_51ecd:
-	text_far _SilphCo7Text_51ecd
+SilphCo7Text_LostVsRivalText:
+	text_far _SilphCo7Text_LostVsRivalText
 	text_end
 
 SilphCo7Text15:
