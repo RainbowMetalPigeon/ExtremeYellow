@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MMEWTWOY, 100 ; 255
-	db MBLASTOISE, 255
+	db ZAPDOS, 100 ; 255
+	db BLASTOISE, 100
 	db STARTER_PIKACHU, 1
-;	db MVENUSAUR, 5
-;	db EEVEE, 99
-;	db CHARMELEON, 255
+;	db VENUSAUR, 5
+;	db ARTICUNO, 99
+;	db MOLTRES, 68
 	db -1 ; end
 
 DebugStart:
@@ -47,10 +47,10 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, STEALTH_ROCK ; ROCK_CLIMB
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, TOXIC_SPIKES ; DIVE
+	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, ROAR

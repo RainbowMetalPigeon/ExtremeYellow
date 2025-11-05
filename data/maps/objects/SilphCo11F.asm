@@ -17,6 +17,6 @@ SilphCo11F_Object:
 	object_event 15,  9, SPRITE_ROCKET, STAY, UP, 5, OPP_ROCKET, 40
 	object_event  3,  8, SPRITE_JESSIE, STAY, UP, 6
 ;	object_event 10, 12, SPRITE_BADGE_MACHINE, STAY, NONE, 7
-	object_event  9,  7, SPRITE_BADGE_MACHINE, STAY, NONE, 7
+	object_event 11, 13, SPRITE_BADGE_MACHINE, STAY, NONE, 7
 
 	def_warps_to SILPH_CO_11F
