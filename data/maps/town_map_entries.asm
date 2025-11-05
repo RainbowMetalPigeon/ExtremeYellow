@@ -101,6 +101,8 @@ InternalMapEntries:
 	internal_map UNDERGROUND_PATH_NORTH_SOUTH,  10,  5, UndergroundPathName
 	internal_map CHAMPIONS_ROOM,                 0,  2, PokemonLeagueName
 	internal_map UNDERGROUND_PATH_WEST_EAST,    10,  5, UndergroundPathName
+	internal_map CELADON_MANSION_2F,             7,  5, CeladonCityName ; edited
+	internal_map ROUTE_19_DIVE,                  7, 15, Route19DiveName ; new
 	internal_map CELADON_HOTEL,                  7,  5, CeladonCityName
 	internal_map LAVENDER_POKECENTER,           14,  5, LavenderTownName
 	internal_map POKEMON_TOWER_7F,              15,  5, PokemonTowerName
@@ -112,6 +114,8 @@ InternalMapEntries:
 	internal_map SEAFOAM_ISLANDS_B4F,            5, 15, SeafoamIslandsName
 	internal_map FUCHSIA_GOOD_ROD_HOUSE,         8, 13, FuchsiaCityName
 	internal_map POKEMON_MANSION_1F,             2, 15, PokemonMansionName
+	internal_map CINNABAR_LAB,                   2, 15, CinnabarIslandName ; edited
+	internal_map ROUTE_20_DIVE,                  4, 15, Route20DiveName ; new
 	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
 	internal_map OBSIDIAN_HOUSES,                7,  9, ObsidianIslandName ; new
 	internal_map INDIGO_PLATEAU_LOBBY,           0,  2, IndigoPlateauName

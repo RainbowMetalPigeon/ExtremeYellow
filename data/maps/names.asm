@@ -99,6 +99,8 @@ AlteringCaveName:    db "ALTERING CAVE@"
 DottedHoleName:      db "DOTTED HOLE@"
 TanobyChambersName:  db "TANOBY CHAMBERS@"
 
+Route19DiveName:     db "SUB ROUTE 19@"
+Route20DiveName:     db "SUB ROUTE 20@"
 Route21DiveName:     db "SUB ROUTE 21@"
 SunkenShipName:      db "SUNKEN SHIP@"
 SaffronClimbClubName: db "CLIMB CLUB@"

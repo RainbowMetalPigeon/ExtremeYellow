@@ -832,9 +832,9 @@ DiveStepsOver:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .postPrinting
-    SetEvent EVENT_DIVE_GO_ABOVE
-    ld a, $FE ; TBE
-    ld [wDestinationWarpID], a ; TBE
+	SetEvent EVENT_DIVE_GO_ABOVE
+;	ld a, $FE ; TBE
+;	ld [wDestinationWarpID], a ; TBE
 
 	ld a, [wDiveFromWhichMap]
 	ld [hWarpDestinationMap], a
@@ -845,7 +845,7 @@ DiveStepsOver:
 	ld a, [wDiveFromWhichY]
 	ld [wYCoord], a
 
-    jp WarpFound2
+	jp WarpFound2
 
 PrintDiveStepsOverText::
 	xor a

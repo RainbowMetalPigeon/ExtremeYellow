@@ -432,10 +432,10 @@ INCLUDE "data/maps/objects/CeladonMansion2F.asm"
 CeladonMansion2F_Blocks: INCBIN "maps/CeladonMansion2F.blk"
 
 ; UNUSED
-INCLUDE "data/maps/headers/CeladonMansion3F.asm"
-INCLUDE "scripts/CeladonMansion3F.asm"
-INCLUDE "data/maps/objects/CeladonMansion3F.asm"
-CeladonMansion3F_Blocks: INCBIN "maps/CeladonMansion3F.blk"
+;INCLUDE "data/maps/headers/CeladonMansion3F.asm"
+;INCLUDE "scripts/CeladonMansion3F.asm"
+;INCLUDE "data/maps/objects/CeladonMansion3F.asm"
+;CeladonMansion3F_Blocks: INCBIN "maps/CeladonMansion3F.blk"
 
 INCLUDE "data/maps/headers/CeladonMansionRoof.asm"
 INCLUDE "scripts/CeladonMansionRoof.asm"
@@ -1134,10 +1134,10 @@ INCLUDE "data/maps/objects/CinnabarLab.asm"
 CinnabarLab_Blocks: INCBIN "maps/CinnabarLab.blk"
 
 ; UNUSED
-INCLUDE "data/maps/headers/CinnabarLabTradeRoom.asm"
-INCLUDE "scripts/CinnabarLabTradeRoom.asm"
-INCLUDE "data/maps/objects/CinnabarLabTradeRoom.asm"
-CinnabarLabTradeRoom_Blocks: INCBIN "maps/CinnabarLabTradeRoom.blk"
+;INCLUDE "data/maps/headers/CinnabarLabTradeRoom.asm"
+;INCLUDE "scripts/CinnabarLabTradeRoom.asm"
+;INCLUDE "data/maps/objects/CinnabarLabTradeRoom.asm"
+;CinnabarLabTradeRoom_Blocks: INCBIN "maps/CinnabarLabTradeRoom.blk"
 
 ; UNUSED
 INCLUDE "data/maps/headers/CinnabarLabMetronomeRoom.asm"
@@ -1426,6 +1426,16 @@ INCLUDE "data/maps/headers/SaffronClimbClub.asm"
 INCLUDE "scripts/SaffronClimbClub.asm"
 INCLUDE "data/maps/objects/SaffronClimbClub.asm"
 SaffronClimbClub_Blocks: INCBIN "maps/SaffronClimbClub.blk"
+
+INCLUDE "data/maps/headers/Route19Dive.asm"
+INCLUDE "scripts/Route19Dive.asm"
+INCLUDE "data/maps/objects/Route19Dive.asm"
+Route19Dive_Blocks: INCBIN "maps/Route19Dive.blk"
+
+INCLUDE "data/maps/headers/Route20Dive.asm"
+INCLUDE "scripts/Route20Dive.asm"
+INCLUDE "data/maps/objects/Route20Dive.asm"
+Route20Dive_Blocks: INCBIN "maps/Route20Dive.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

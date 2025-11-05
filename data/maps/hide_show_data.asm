@@ -138,7 +138,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS ; CELADON_MANSION_1F
 	dw CeladonMansion2FHS ; new, CELADON_MANSION_2F
-	dw NoHS ; CELADON_MANSION_3F
+	dw NoHS ; new, ROUTE_19_DIVE
 	dw NoHS ; CELADON_MANSION_ROOF
 	dw CeladonMansionRoofHouseHS ; CELADON_MANSION_ROOF_HOUSE
 	dw NoHS
@@ -176,7 +176,7 @@ MapHSPointers:
 	dw PokemonMansion1FHS
 	dw NoHS ; CINNABAR_GYM
 	dw CinnabarLabHS ; new
-	dw NoHS ; CINNABAR_LAB_TRADE_ROOM
+	dw NoHS ; new, ROUTE_20_DIVE
 	dw NoHS ; CINNABAR_LAB_METRONOME_ROOM
 	dw NoHS ; CINNABAR_LAB_FOSSIL_ROOM
 	dw NoHS ; CINNABAR_POKECENTER

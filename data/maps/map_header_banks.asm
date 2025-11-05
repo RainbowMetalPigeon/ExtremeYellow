@@ -136,7 +136,7 @@ MapHeaderBanks::
 	db BANK(CeladonMartElevator_h)
 	db BANK(CeladonMansion1F_h)
 	db BANK(CeladonMansion2F_h)
-	db BANK(CeladonMansion3F_h)
+	db BANK(Route19Dive_h) ; new
 	db BANK(CeladonMansionRoof_h)
 	db BANK(CeladonMansionRoofHouse_h)
 	db BANK(CeladonPokecenter_h)
@@ -174,7 +174,7 @@ MapHeaderBanks::
 	db BANK(PokemonMansion1F_h)
 	db BANK(CinnabarGym_h)
 	db BANK(CinnabarLab_h)
-	db BANK(CinnabarLabTradeRoom_h) ; edited, made UNUSED because of map MERGING
+	db BANK(Route20Dive_h) ; new
 	db BANK(CinnabarLabMetronomeRoom_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CinnabarLabFossilRoom_h) ; edited, made UNUSED because of map MERGING
 	db BANK(CinnabarPokecenter_h)

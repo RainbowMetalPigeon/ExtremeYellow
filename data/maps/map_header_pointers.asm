@@ -136,7 +136,7 @@ MapHeaderPointers::
 	dw CeladonMartElevator_h
 	dw CeladonMansion1F_h
 	dw CeladonMansion2F_h
-	dw CeladonMansion3F_h
+	dw Route19Dive_h ; new
 	dw CeladonMansionRoof_h
 	dw CeladonMansionRoofHouse_h
 	dw CeladonPokecenter_h
@@ -174,7 +174,7 @@ MapHeaderPointers::
 	dw PokemonMansion1F_h
 	dw CinnabarGym_h
 	dw CinnabarLab_h
-	dw CinnabarLabTradeRoom_h ; edited, made UNUSED because of map MERGING
+	dw Route20Dive_h ; new
 	dw CinnabarLabMetronomeRoom_h ; edited, made UNUSED because of map MERGING
 	dw CinnabarLabFossilRoom_h ; edited, made UNUSED because of map MERGING
 	dw CinnabarPokecenter_h

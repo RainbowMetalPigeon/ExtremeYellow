@@ -154,7 +154,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CELADON_MART_ELEVATOR,          2,  2 ; $7F
 	map_const CELADON_MANSION_1F,            11,  6 ; $80 ; edited for MERGING
 	map_const CELADON_MANSION_2F,             5,  6 ; $81 ; edited, enlarged to host the pret meetup
-	map_const CELADON_MANSION_3F,             4,  6 ; $82 ; UNUSED
+	map_const ROUTE_19_DIVE,                 10, 27 ; $82 ; new
 	map_const CELADON_MANSION_ROOF,           4,  6 ; $83
 	map_const CELADON_MANSION_ROOF_HOUSE,     4,  4 ; $84
 	map_const CELADON_POKECENTER,             7,  4 ; $85
@@ -192,7 +192,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_MANSION_1F,            15, 14 ; $A5
 	map_const CINNABAR_GYM,                  10,  9 ; $A6
 	map_const CINNABAR_LAB,                  51,  4 ; $A7 ; edited because of MERGING
-	map_const CINNABAR_LAB_TRADE_ROOM,        4,  4 ; $A8 ; edited, made UNUSED because of map MERGING
+	map_const ROUTE_20_DIVE,                 50,  9 ; $A8 ; new
 	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9 ; edited, made UNUSED because of map MERGING
 	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA ; edited, made UNUSED because of map MERGING
 	map_const CINNABAR_POKECENTER,           14,  4 ; $AB ; edited, Center+Mart

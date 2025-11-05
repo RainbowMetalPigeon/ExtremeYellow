@@ -61,7 +61,7 @@ WildDataPointers:
 	dw NothingWildMons ; MUSEUM_1F
 	dw NothingWildMons ; MUSEUM_2F
 	dw NothingWildMons ; PEWTER_GYM
-	dw NothingWildMons ; ROUTE_21_DIVE ; new, TBE
+	dw Route21DiveWildMons ; ROUTE_21_DIVE ; new
 	dw NothingWildMons ; PEWTER_SPEECH_HOUSE
 	dw NothingWildMons ; PEWTER_POKECENTER
 	dw MtMoon1FWildMons ; MT_MOON_1F
@@ -129,7 +129,7 @@ WildDataPointers:
 	dw NothingWildMons ; UNDERGROUND_PATH_WEST_EAST
 	dw NothingWildMons ; CELADON_MART_1F
 	dw NothingWildMons ; CELADON_MART_2F
-	dw NothingWildMons ; CELADON_MART_3F
+	dw Route19DiveWildMons ; ROUTE_19_DIVE
 	dw NothingWildMons ; CELADON_MART_4F
 	dw NothingWildMons ; CELADON_MART_ROOF
 	dw NothingWildMons ; CELADON_MART_ELEVATOR
@@ -173,7 +173,7 @@ WildDataPointers:
 	dw PokemonMansion1FWildMons
 	dw NothingWildMons ; CINNABAR_GYM
 	dw NothingWildMons ; CINNABAR_LAB
-	dw NothingWildMons ; CINNABAR_LAB_TRADE_ROOM
+	dw Route20DiveWildMons ; ROUTE_20_DIVE
 	dw NothingWildMons ; CINNABAR_LAB_METRONOME_ROOM
 	dw NothingWildMons ; CINNABAR_LAB_FOSSIL_ROOM
 	dw NothingWildMons ; CINNABAR_POKECENTER
@@ -346,3 +346,6 @@ INCLUDE "data/wild/maps/Route28.asm" ; new
 INCLUDE "data/wild/maps/Route29.asm" ; new
 INCLUDE "data/wild/maps/Route30.asm" ; new
 INCLUDE "data/wild/maps/HauntedHouse.asm" ; new
+INCLUDE "data/wild/maps/Route19Dive.asm" ; new
+INCLUDE "data/wild/maps/Route20Dive.asm" ; new
+INCLUDE "data/wild/maps/Route21Dive.asm" ; new
