@@ -18,6 +18,31 @@ CheckIfOneGivenMonIsInParty::
 
 ; =====================================
 
+; d contains the Pokemon you want to check
+; sets carry flag if found
+; load party index in [wWhichPokemon]
+CheckIfOneGivenMonIsInPartyAndLoadIndex::
+	ld hl, wPartyCount
+	ld a, [hli]
+	ld b, a ; b has the number of Mons in the party
+	ld e, $FF ; index counter
+.loop
+	inc e
+	ld a, [hli]
+	cp d
+	jp z, .targetInParty
+	dec b
+	jr nz, .loop
+	cp 0 ; a is always >=1, so when we do cp 0 the carry flag is never set (a-0)
+	ret
+.targetInParty
+	ld a, e
+	ld [wWhichPokemon], a
+	scf ; set carry flag
+	ret
+
+; =====================================
+
 ; input: d contains the type to check
 ; sets z flag if found
 CheckIfACertainTypeIsInParty::

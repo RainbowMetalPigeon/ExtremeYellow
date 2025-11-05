@@ -39,7 +39,7 @@ SeviiFiveIslandCity_Script0:
 	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; battle effects (sound? shake? flash?) TBE
+; battle effects (sound? shake? flash?)
 	call GBFadeOutToBlack
 	ld a, SFX_PUSH_BOULDER
 	call PlaySound

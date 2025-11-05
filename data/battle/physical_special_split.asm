@@ -14,6 +14,8 @@ PhysicalToSpecialMoves:
     db HYPER_BEAM
     db SWIFT
     db TRI_ATTACK
+	db WEATHER_BALL
+	db TERRAIN_PULSE
 ; Bug
 	db INFESTATION
 ; Ghost
@@ -34,6 +36,7 @@ SpecialToPhysicalMoves:
     db CRABHAMMER
     db WATERFALL
 	db AQUA_JET
+	db DIVE
 ; Grass
     db RAZOR_LEAF
     db VINE_WHIP

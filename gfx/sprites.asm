@@ -128,6 +128,7 @@ BluesDadSprite::         INCBIN "gfx/sprites/bluesdad.2bpp"
 BluesMomSprite::         INCBIN "gfx/sprites/bluesmom.2bpp"
 TaurosSprite::           INCBIN "gfx/sprites/tauros.2bpp"
 RocketFaintedSprite::    INCBIN "gfx/sprites/rocket_fainted.2bpp"
+BadgeMachineSprite::     INCBIN "gfx/sprites/badge_machine.2bpp"
 
 ; TBE
 ProtonSprite::

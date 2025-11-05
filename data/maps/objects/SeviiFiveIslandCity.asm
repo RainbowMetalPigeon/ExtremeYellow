@@ -20,7 +20,7 @@ SeviiFiveIslandCity_Object:
 	bg_event 18, 15, 21 ; MartSignText
 
 	def_object_events
-	object_event  7, 13, SPRITE_GIRL, WALK, ANY_DIR, 1
+	object_event  7, 13, SPRITE_HIKER, WALK, ANY_DIR, 1
 	object_event 22, 15, SPRITE_COOLTRAINER_F, STAY, ANY_DIR, 2
 	object_event 30, 27, SPRITE_MONSTER, STAY, DOWN, 3
 	object_event 30, 28, SPRITE_MONSTER, STAY, UP, 4

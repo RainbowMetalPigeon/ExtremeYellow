@@ -226,8 +226,18 @@ GainExperience:
 	jp z, .nextMon
 .vanilla2
 ; back to vanilla
+; new
+	pop hl
+	push hl
+	ld bc, wPartyMon1Level - wPartyMon1Exp
+	add hl, bc
+	ld a, [hl] ; current level
+	cp 100
+	jr z, .skipPrintText
 	ld hl, GainedText
 	call PrintText
+.skipPrintText
+; BTV
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData

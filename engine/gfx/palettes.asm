@@ -284,7 +284,7 @@ SetPal_Overworld:
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .frozen
+	jr c, .frozenSevii
 ; normal checks
 ; check by tileset
 	ld a, [wCurMapTileset]
@@ -329,7 +329,7 @@ SetPal_Overworld:
 .cave
 	ld a, PAL_SEVII_CAVE - 1
 	jr .townSevii
-.frozen
+.frozenSevii
 	ld a, PAL_SEVII_CYANMON - 1
 	jr .townSevii
 .oneIslandDock
@@ -362,6 +362,13 @@ SetPal_Overworld:
 	ld de, wPalPacket
 	ld bc, $10
 	call CopyData
+; check by map in array
+	ld de, 1
+	ld a, [wCurMap]
+	ld hl, KantoMaps_FrozenPalette
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jp c, .frozenKanto
+; check by tileset
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
@@ -439,6 +446,9 @@ SetPal_Overworld:
 .vermilion ; new
 	ld a, PAL_VERMILION - 1
 	jr .town
+.frozenKanto ; new
+	ld a, PAL_CYANMON - 1
+	jr .town
 .hauntedHouse ; new
 	call Random
 	cp NUM_SGB_PALS_HAUNTEDLESS + 1 ; edited to avoid the dark Pallett Town palettes
@@ -446,6 +456,14 @@ SetPal_Overworld:
 	jr .town
 
 ; new
+KantoMaps_FrozenPalette:
+	db SEAFOAM_ISLANDS_1F
+	db SEAFOAM_ISLANDS_B1F
+	db SEAFOAM_ISLANDS_B2F
+	db SEAFOAM_ISLANDS_B3F
+	db SEAFOAM_ISLANDS_B4F
+	db -1
+
 SeviiMaps_FrozenPalette:
 	db SEVII_ICEFALL_CAVE_1F
 	db -1
@@ -786,7 +804,7 @@ GetPal_Pikachu::
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .frozen
+	jr c, .frozenSevii
 ; normal checks
 ; check by tileset
 	ld a, [wCurMapTileset]
@@ -829,7 +847,7 @@ GetPal_Pikachu::
 .oneIslandDock
 	ld a, PAL_SEVII_ONE_ISLAND - 1
 	jr .townSevii
-.frozen
+.frozenSevii
 	ld a, PAL_SEVII_CYANMON - 1
 	jr .townSevii
 .eightIsland
@@ -838,7 +856,15 @@ GetPal_Pikachu::
 .sevenIsland
 	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii
+	
 .notSevii
+; check by map in array
+	ld de, 1
+	ld a, [wCurMap]
+	ld hl, KantoMaps_FrozenPalette
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .frozenKanto
+; check by tileset
 ; back to vanilla
 	ld a, [wCurMapTileset]
 	cp CEMETERY
@@ -884,6 +910,9 @@ GetPal_Pikachu::
 	jr .town
 .Lorelei
 	xor a ; PAL_PALLET - 1
+	jr .town
+.frozenKanto
+	ld a, PAL_CYANMON - 1
 	jr .town
 .battleOrTradeCenter
 	ld a, PAL_GREYMON - 1

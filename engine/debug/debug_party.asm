@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MMEWTWOY, 100 ; 255
-	db MBLASTOISE, 255
+	db ZAPDOS, 100 ; 255
+	db BLASTOISE, 100
 	db STARTER_PIKACHU, 1
-;	db MVENUSAUR, 5
-;	db EEVEE, 99
-;	db CHARMELEON, 255
+;	db VENUSAUR, 5
+;	db ARTICUNO, 99
+;	db MOLTRES, 68
 	db -1 ; end
 
 DebugStart:

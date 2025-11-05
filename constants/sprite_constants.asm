@@ -144,4 +144,5 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_MISSINGNO               ; new
 	const SPRITE_ROCKSMASHABLE_ROCK      ; new
 	const SPRITE_ROCKET_FAINTED          ; new
+	const SPRITE_BADGE_MACHINE           ; new
 DEF NUM_SPRITES EQU const_value - 1

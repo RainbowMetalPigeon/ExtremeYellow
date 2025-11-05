@@ -166,7 +166,7 @@ SilphCo11Script3:
 	call SilphCo11Script_621ff
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $7
+	ld a, 8 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call GBFadeOutToBlack
@@ -241,7 +241,7 @@ SilphCo11Script_6229c:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, $8
+	ld a, 9 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -376,7 +376,7 @@ SilphCo11Script10:
 	ld [hl], SPRITE_FACING_LEFT
 .asm_623b1
 	call Delay3
-	ld a, $9
+	ld a, 10 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 SilphCo11Script11:
@@ -417,7 +417,7 @@ SilphCo11Script12:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, $a
+	ld a, 11 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -477,6 +477,9 @@ SilphCo11F_TextPointers:
 	dw SilphCo11Text4
 	dw SilphCo11Text5
 	dw SilphCo11Text6
+	; signs
+	dw SilphCo11TextBadgeMachine ; new
+	; scripts
 	dw SilphCo11Text7
 	dw SilphCo11Text8
 	dw SilphCo11Text9
@@ -594,3 +597,160 @@ SilphCo11Trainer1EndBattleText:
 SilphCo11Trainer1AfterBattleText:
 	text_far _SilphCo11AfterBattleText2
 	text_end
+
+; new -------------------------------------
+
+SilphCo11TextBadgeMachine:
+	text_asm
+; count badges
+	callfar CountHowManyBadges ; d contains the number of badges
+	ld a, d
+	cp 8
+	ld hl, SilphCo11TextBadgeMachine_NotEnoughBadges
+	jp nz, .printAndEnd
+; we have all the badges
+	ld hl, SilphCo11TextBadgeMachine_EnoughBadges
+	call PrintText
+
+; check if we have the right mons for Venustoise
+	ld d, VENUSAUR
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextBadgeMachine_Nope
+	jr nc, .checkForThuFiZer
+	ld d, BLASTOISE
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextBadgeMachine_Nope
+	jr nc, .checkForThuFiZer
+	jr .mergeVenustoise
+
+; check if we have the right mons for Thu-Fi-Zer
+.checkForThuFiZer
+	ld d, ARTICUNO
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextBadgeMachine_Nope
+	jp nc, .printAndEnd
+	ld d, ZAPDOS
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextBadgeMachine_Nope
+	jp nc, .printAndEnd
+	ld d, MOLTRES
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextBadgeMachine_Nope
+	jp nc, .printAndEnd
+
+; merge Thu-Fi-Zer
+	ld hl, SilphCo11TextBadgeMachine_WantThuFiZer
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SilphCo11TextBadgeMachine_NotNow
+	jp nz, .printAndEnd
+; remove and give
+	call PlayFusionEffects
+	xor a
+	ld [wUniQuizAnswer], a
+	ld [wRemoveMonFromBox], a
+	ld d, ARTICUNO
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call StoreHighestLevel
+	call RemovePokemon
+	ld d, ZAPDOS
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call StoreHighestLevel
+	call RemovePokemon
+	ld d, MOLTRES
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call StoreHighestLevel
+	call RemovePokemon
+	ld a, [wUniQuizAnswer]
+	ld c, a
+	ld b, MAGIKARP
+	call GivePokemon
+	jr .done
+
+; we have VENUSAUR and BLASTOISE, ask if we want to merge them
+.mergeVenustoise
+	ld hl, SilphCo11TextBadgeMachine_WantVenustoise
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SilphCo11TextBadgeMachine_NotNow
+	jr nz, .printAndEnd
+; remove and give
+	call PlayFusionEffects
+	xor a
+	ld [wUniQuizAnswer], a
+	ld [wRemoveMonFromBox], a
+	ld d, VENUSAUR
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call StoreHighestLevel
+	call RemovePokemon
+	ld d, BLASTOISE
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call StoreHighestLevel
+	call RemovePokemon
+	ld a, [wUniQuizAnswer]
+	ld c, a
+	ld b, VENUSTOISE
+	call GivePokemon
+	jr .done
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SilphCo11TextBadgeMachine_WantThuFiZer:
+	text_far _SilphCo11TextBadgeMachine_WantThuFiZer
+	text_end
+
+SilphCo11TextBadgeMachine_WantVenustoise:
+	text_far _SilphCo11TextBadgeMachine_WantVenustoise
+	text_end
+
+SilphCo11TextBadgeMachine_NotNow:
+	text_far _SilphCo11TextBadgeMachine_NotNow
+	text_end
+
+SilphCo11TextBadgeMachine_NotEnoughBadges:
+	text_far _SilphCo11TextBadgeMachine_NotEnoughBadges
+	text_end
+
+SilphCo11TextBadgeMachine_EnoughBadges:
+	text_far _SilphCo11TextBadgeMachine_EnoughBadges
+	text_end
+
+SilphCo11TextBadgeMachine_Nope:
+	text_far _SilphCo11TextBadgeMachine_Nope
+	text_end
+
+; input: [wWhichPokemon]
+; output: store highest level in [wUniQuizAnswer]
+StoreHighestLevel:
+    ld a, [wWhichPokemon]
+    ld hl, wPartyMon1Level
+    ld bc, wPartyMon2 - wPartyMon1
+    call AddNTimes
+	ld a, [wUniQuizAnswer]
+	ld b, a
+    ld a, [hl]
+	cp b
+	ret c
+	ld [wUniQuizAnswer], a
+	ret
+
+PlayFusionEffects:
+	call GBFadeOutToBlack
+	ld a, SFX_TELEPORT_EXIT_1
+	call PlaySound
+	call GBFadeOutToWhite
+	ld a, SFX_TELEPORT_ENTER_1
+	call PlaySound
+	call GBFadeInFromBlack
+	ld a, SFX_TELEPORT_EXIT_2
+	call PlaySound
+	call GBFadeInFromWhite
+	ld a, SFX_TELEPORT_ENTER_2
+	call PlaySound
+	ret

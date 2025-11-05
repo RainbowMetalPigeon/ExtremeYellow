@@ -224,14 +224,14 @@ _SilphCo7Text_51ec3::
 	cont "humiliated!"
 	done
 
-_SilphCo7Text_51ec8::
+_SilphCo7Text_WonVsRivalText::
 	text "I cannot"
 	line "believe it!"
 	cont "Not again! How is"
 	cont "it possible?!"
 	prompt
 
-_SilphCo7Text_51ecd::
+_SilphCo7Text_LostVsRivalText::
 	text "Ah! Yes!"
 	line "Yes! Yes!"
 

@@ -39,9 +39,10 @@ _SilphCo10Text_6231c:: ; edited
 	line "#MON without"
 	cont "fail!"
 
-	para "You should be"
-	line "quiet about using"
-	cont "it, though."
+	para "TEAM ROCKET was"
+	line "after this, as"
+	cont "well as our other"
+	cont "prototype."
 	done
 
 _SilphCoMasterBallNoRoomText::
@@ -49,13 +50,22 @@ _SilphCoMasterBallNoRoomText::
 	line "room for this."
 	done
 
-_SilphCo11Text2::
+_SilphCo11Text2:: ; edited
 	text "SECRETARY: Thank"
 	line "you for rescuing"
 	cont "all of us!"
 
 	para "We admire your"
 	line "courage."
+
+	para "TEAM ROCKET was"
+	line "trying to get"
+	cont "their hands on"
+	cont "our latest tech:"
+	cont "the MASTER BALL"
+	cont "and the #MON"
+	cont "BADGE ENERGY"
+	cont "AMPLIFIER machine."
 	done
 
 _SilphCo11Text3::
@@ -120,4 +130,54 @@ _SilphCo11AfterBattleText2:: ; edited
 	line "the BOSS has"
 	cont "super-tough"
 	cont "#MON!"
+	done
+
+; new -------------------------------------
+
+_SilphCo11TextBadgeMachine_WantThuFiZer::
+	text "The machine reacts"
+	line "to the presence"
+	cont "of your #MON!"
+
+	para "Do you want to"
+	line "fuse ARTICUNO,"
+	cont "ZAPDOS, and"
+	cont "MOLTRES into"
+	cont "THU-FI-ZER?"
+	done
+
+_SilphCo11TextBadgeMachine_WantVenustoise::
+	text "The machine reacts"
+	line "to the presence"
+	cont "of your #MON!"
+
+	para "Do you want to"
+	line "fuse VENUSAUR and"
+	cont "BLASTOISE into"
+	cont "VENUSTOISE?"
+	done
+
+_SilphCo11TextBadgeMachine_NotNow::
+	text "Not just now."
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextBadgeMachine_NotEnoughBadges::
+	text "A weird machine."
+	line "It has 8 slots,"
+	cont "shaped like the"
+	cont "KANTO BADGEs."
+	done
+
+_SilphCo11TextBadgeMachine_EnoughBadges::
+	text "You temporarily"
+	line "place your BADGEs"
+	cont "into the machine."
+
+	para "It turns on!"
+	prompt
+
+_SilphCo11TextBadgeMachine_Nope::
+	text "It seems something"
+	line "is still missing."
 	done
