@@ -182,3 +182,58 @@ _Route20MistyPostBattleText::
 	cont "a pleasure"
 	cont "battling you!"
 	prompt
+
+
+
+_Route20DiveBattleText1::
+	text "Glublugblub!"
+	line "(Finally! A"
+	cont "challenger!)"
+	done
+
+_Route20DiveEndBattleText1::
+	text "Glblgub!"
+	line "(Damn!)"
+	prompt
+
+_Route20DiveAfterBattleText1::
+	text "Blu blu blu!"
+	line "(It's so boring"
+	cont "down here!)"
+	done
+
+_Route20DiveBattleText2::
+	text "Blug?"
+	line "(How long can you"
+	cont "hold your breath?)"
+	done
+
+_Route20DiveEndBattleText2::
+	text "Bglb?"
+	line "(Uh?)"
+	prompt
+
+_Route20DiveAfterBattleText2::
+	text "Bgblbuuu?"
+	line "(What do you mean"
+	cont "with 'Steps'?)"
+	done
+
+_Route20DiveBattleText3::
+	text "B!"
+	line "(I was a SWIMMER!)"
+;	xxxx "123456789012345678"
+	done
+
+_Route20DiveEndBattleText3::
+	text "G."
+	line "(Now I'm a DIVER.)"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route20DiveAfterBattleText3::
+	text "L..."
+	line "(SWIMMER or DIVER,"
+	cont "I keep losing...)"
+;	xxxx "123456789012345678"
+	done

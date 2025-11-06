@@ -212,6 +212,9 @@ Route19AfterBattleText9:
 	ld a, HS_ROUTE_19_DROWNING_SWIMMER
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
+	ld a, HS_ROUTE_19_DIVE_DROWNING_SWIMMER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 	jp TextScriptEnd
 
 Route19AfterBattleText9_Internal:

@@ -9,6 +9,8 @@ Route20Dive_Object:
 
 	def_object_events
 ;	object_event 61,  4, SPRITE_MISTY, STAY, ANY_DIR, 1 ; new, TBE
-;	object_event 87,  8, SPRITE_SWIMMER, STAY, UP, 2, OPP_SWIMMER, 9;
+	object_event 43, 12, SPRITE_DIVER, STAY, UP, 1, OPP_DIVER,  8
+	object_event 74,  8, SPRITE_DIVER, STAY, UP, 2, OPP_DIVER,  9
+	object_event 24,  9, SPRITE_DIVER, STAY, RIGHT, 3, OPP_DIVER, 10
 
 	def_warps_to ROUTE_20_DIVE

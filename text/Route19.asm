@@ -155,3 +155,25 @@ _Route19Text11::
 	line "FUCHSIA CITY -"
 	cont "SEAFOAM ISLANDS"
 	done
+
+; DIVE ================================
+
+_Route19DiveBattleText1::
+	text "Blug glu blu!"
+	line "(Cramps are so"
+	cont "painful!)"
+	done
+
+_Route19DiveEndBattleText1::
+	text "Blu? Glub!"
+	line "(Losing too is"
+	cont "painful!)"
+	prompt
+
+_Route19DiveAfterBattleText1::
+	text "Glu blu gblu!"
+	line "(I found a diving"
+	cont "equipment laying"
+	cont "down here! Lucky!)"
+;	xxxx "123456789012345678"
+	done

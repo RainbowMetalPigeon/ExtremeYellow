@@ -8,6 +8,6 @@ Route21DiveCavern_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 28, 53, SPRITE_POKE_BALL, STAY, NONE, 1, PEARL
+	object_event  3, 19, SPRITE_POKE_BALL, STAY, NONE, 1, PEARL
 
 	def_warps_to ROUTE_21_DIVE_CAVERN

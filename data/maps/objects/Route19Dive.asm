@@ -7,6 +7,6 @@ Route19Dive_Object:
 	def_bg_events
 
 	def_object_events
-;	object_event  9, 42, SPRITE_SWIMMER, STAY, UP, 9, OPP_SWIMMER, 8
+	object_event  9, 42, SPRITE_DIVER, STAY, UP, 1, OPP_DIVER, 7
 
 	def_warps_to ROUTE_19_DIVE

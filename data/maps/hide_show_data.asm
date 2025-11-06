@@ -138,7 +138,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS ; CELADON_MANSION_1F
 	dw CeladonMansion2FHS ; new, CELADON_MANSION_2F
-	dw NoHS ; new, ROUTE_19_DIVE
+	dw Route19DiveHS ; new, ROUTE_19_DIVE
 	dw NoHS ; CELADON_MANSION_ROOF
 	dw CeladonMansionRoofHouseHS ; CELADON_MANSION_ROOF_HOUSE
 	dw NoHS
@@ -852,5 +852,7 @@ Route19DiveCavernHS: ; new
 	db ROUTE_19_DIVE_CAVERN,  1, SHOW ; pearl
 Route21DiveCavernHS: ; new
 	db ROUTE_21_DIVE_CAVERN,  1, SHOW ; pearl
+Route19DiveHS: ; new
+	db ROUTE_19_DIVE,  1, HIDE ; sunken swimmer
 
 	db $FF, $01, SHOW ; end, list terminator
