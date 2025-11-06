@@ -193,8 +193,8 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CINNABAR_GYM,                  10,  9 ; $A6
 	map_const CINNABAR_LAB,                  51,  4 ; $A7 ; edited because of MERGING
 	map_const ROUTE_20_DIVE,                 50,  9 ; $A8 ; new
-	map_const CINNABAR_LAB_METRONOME_ROOM,    4,  4 ; $A9 ; edited, made UNUSED because of map MERGING
-	map_const CINNABAR_LAB_FOSSIL_ROOM,       4,  4 ; $AA ; edited, made UNUSED because of map MERGING
+	map_const ROUTE_19_DIVE_CAVERN,          11, 10 ; $A9 ; new
+	map_const ROUTE_21_DIVE_CAVERN,          30, 30 ; $AA ; new
 	map_const CINNABAR_POKECENTER,           14,  4 ; $AB ; edited, Center+Mart
 	map_const HAUNTED_ISLAND_OF_NUMBERS,     30, 30 ; $AC ; new, was CINNABAR_MART
 	map_const OBSIDIAN_HOUSES,               18,  4 ; $AD, new

@@ -175,8 +175,8 @@ MapHeaderPointers::
 	dw CinnabarGym_h
 	dw CinnabarLab_h
 	dw Route20Dive_h ; new
-	dw CinnabarLabMetronomeRoom_h ; edited, made UNUSED because of map MERGING
-	dw CinnabarLabFossilRoom_h ; edited, made UNUSED because of map MERGING
+	dw Route19DiveCavern_h ; new
+	dw Route21DiveCavern_h ; new
 	dw CinnabarPokecenter_h
 	dw HauntedIslandOfNumbers_h ; new
 	dw ObsidianHouses_h ; new

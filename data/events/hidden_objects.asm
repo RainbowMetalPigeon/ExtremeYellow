@@ -79,7 +79,7 @@ HiddenObjectMaps:
 	dbw FUCHSIA_GYM,                  FuchsiaGymHiddenObjects
 	dbw POKEMON_MANSION_1F,           Mansion1HiddenObjects
 	dbw CINNABAR_GYM,                 CinnabarGymHiddenObjects
-	dbw CINNABAR_LAB_FOSSIL_ROOM,     CinnabarLab4HiddenObjects
+	dbw CINNABAR_LAB,                 CinnabarLab4HiddenObjects
 	dbw CINNABAR_POKECENTER,          CinnabarPokecenterHiddenObjects
 	dbw OBSIDIAN_WAREHOUSE,           ObsidianWarehouseHiddenObjects ; new
 	dbw OBSIDIAN_MINES,               ObsidianMinesHiddenObjects ; new
@@ -618,8 +618,8 @@ CinnabarGymHiddenObjects:
 	db -1 ; end
 
 CinnabarLab4HiddenObjects:
-	hidden_object  0,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
-	hidden_object  2,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 94,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 96,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
 CinnabarPokecenterHiddenObjects:

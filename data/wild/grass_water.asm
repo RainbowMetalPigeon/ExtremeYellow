@@ -174,8 +174,8 @@ WildDataPointers:
 	dw NothingWildMons ; CINNABAR_GYM
 	dw NothingWildMons ; CINNABAR_LAB
 	dw Route20DiveWildMons ; ROUTE_20_DIVE
-	dw NothingWildMons ; CINNABAR_LAB_METRONOME_ROOM
-	dw NothingWildMons ; CINNABAR_LAB_FOSSIL_ROOM
+	dw NothingWildMons ; ROUTE_19_DIVE_CAVERN
+	dw NothingWildMons ; ROUTE_21_DIVE_CAVERN
 	dw NothingWildMons ; CINNABAR_POKECENTER
 	dw NothingWildMons ; HAUNTED_ISLAND_OF_NUMBERS
 	dw NothingWildMons ; OBSIDIAN_HOUSES

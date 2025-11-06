@@ -1140,16 +1140,16 @@ CinnabarLab_Blocks: INCBIN "maps/CinnabarLab.blk"
 ;CinnabarLabTradeRoom_Blocks: INCBIN "maps/CinnabarLabTradeRoom.blk"
 
 ; UNUSED
-INCLUDE "data/maps/headers/CinnabarLabMetronomeRoom.asm"
-INCLUDE "scripts/CinnabarLabMetronomeRoom.asm"
-INCLUDE "data/maps/objects/CinnabarLabMetronomeRoom.asm"
-CinnabarLabMetronomeRoom_Blocks: INCBIN "maps/CinnabarLabMetronomeRoom.blk"
+;INCLUDE "data/maps/headers/CinnabarLabMetronomeRoom.asm"
+;INCLUDE "scripts/CinnabarLabMetronomeRoom.asm"
+;INCLUDE "data/maps/objects/CinnabarLabMetronomeRoom.asm"
+;CinnabarLabMetronomeRoom_Blocks: INCBIN "maps/CinnabarLabMetronomeRoom.blk"
 
 ; UNUSED
-INCLUDE "data/maps/headers/CinnabarLabFossilRoom.asm"
-INCLUDE "scripts/CinnabarLabFossilRoom.asm"
-INCLUDE "data/maps/objects/CinnabarLabFossilRoom.asm"
-CinnabarLabFossilRoom_Blocks: INCBIN "maps/CinnabarLabFossilRoom.blk"
+;INCLUDE "data/maps/headers/CinnabarLabFossilRoom.asm"
+;INCLUDE "scripts/CinnabarLabFossilRoom.asm"
+;INCLUDE "data/maps/objects/CinnabarLabFossilRoom.asm"
+;CinnabarLabFossilRoom_Blocks: INCBIN "maps/CinnabarLabFossilRoom.blk"
 
 INCLUDE "data/maps/headers/CopycatsHouse1F.asm"
 INCLUDE "scripts/CopycatsHouse1F.asm"
@@ -1437,6 +1437,15 @@ INCLUDE "scripts/Route20Dive.asm"
 INCLUDE "data/maps/objects/Route20Dive.asm"
 Route20Dive_Blocks: INCBIN "maps/Route20Dive.blk"
 
+INCLUDE "data/maps/headers/Route19DiveCavern.asm"
+INCLUDE "scripts/Route19DiveCavern.asm"
+INCLUDE "data/maps/objects/Route19DiveCavern.asm"
+Route19DiveCavern_Blocks: INCBIN "maps/Route19DiveCavern.blk"
+
+INCLUDE "data/maps/headers/Route21DiveCavern.asm"
+INCLUDE "scripts/Route21DiveCavern.asm"
+INCLUDE "data/maps/objects/Route21DiveCavern.asm"
+Route21DiveCavern_Blocks: INCBIN "maps/Route21DiveCavern.blk"
 
 ; --------------------- NEW FOR SEVII ----------------------------
 

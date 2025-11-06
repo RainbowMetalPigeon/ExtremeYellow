@@ -177,8 +177,8 @@ MapHSPointers:
 	dw NoHS ; CINNABAR_GYM
 	dw CinnabarLabHS ; new
 	dw NoHS ; new, ROUTE_20_DIVE
-	dw NoHS ; CINNABAR_LAB_METRONOME_ROOM
-	dw NoHS ; CINNABAR_LAB_FOSSIL_ROOM
+	dw Route19DiveCavernHS ; ROUTE_19_DIVE_CAVERN
+	dw Route21DiveCavernHS ; ROUTE_21_DIVE_CAVERN
 	dw NoHS ; CINNABAR_POKECENTER
 	dw HauntedIslandOfNumbersHS ; new
 	dw NoHS ; OBSIDIAN_HOUSES
@@ -848,5 +848,9 @@ SaffronClimbClubHS: ; new
 	db SAFFRON_CLIMB_CLUB,  6, SHOW ; ball
 	db SAFFRON_CLIMB_CLUB,  7, SHOW ; ball
 	db SAFFRON_CLIMB_CLUB,  8, SHOW ; ball
+Route19DiveCavernHS: ; new
+	db ROUTE_19_DIVE_CAVERN,  1, SHOW ; pearl
+Route21DiveCavernHS: ; new
+	db ROUTE_21_DIVE_CAVERN,  1, SHOW ; pearl
 
 	db $FF, $01, SHOW ; end, list terminator

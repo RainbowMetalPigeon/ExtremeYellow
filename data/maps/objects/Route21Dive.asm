@@ -3,6 +3,7 @@ Route21Dive_Object:
 
 	def_warp_events
 	warp_event  8, 29, SUNKEN_SHIP_1F, 1
+	warp_event  4, 85, ROUTE_21_DIVE_CAVERN, 1
 
 	def_bg_events
 

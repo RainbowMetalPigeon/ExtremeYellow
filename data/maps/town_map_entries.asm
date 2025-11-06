@@ -116,6 +116,8 @@ InternalMapEntries:
 	internal_map POKEMON_MANSION_1F,             2, 15, PokemonMansionName
 	internal_map CINNABAR_LAB,                   2, 15, CinnabarIslandName ; edited
 	internal_map ROUTE_20_DIVE,                  4, 15, Route20DiveName ; new
+	internal_map ROUTE_19_DIVE_CAVERN,           7, 15, Route19DiveName ; new
+	internal_map ROUTE_21_DIVE_CAVERN,           2, 13, Route21DiveName ; new
 	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
 	internal_map OBSIDIAN_HOUSES,                7,  9, ObsidianIslandName ; new
 	internal_map INDIGO_PLATEAU_LOBBY,           0,  2, IndigoPlateauName

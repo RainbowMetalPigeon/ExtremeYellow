@@ -175,8 +175,8 @@ MapHeaderBanks::
 	db BANK(CinnabarGym_h)
 	db BANK(CinnabarLab_h)
 	db BANK(Route20Dive_h) ; new
-	db BANK(CinnabarLabMetronomeRoom_h) ; edited, made UNUSED because of map MERGING
-	db BANK(CinnabarLabFossilRoom_h) ; edited, made UNUSED because of map MERGING
+	db BANK(Route19DiveCavern_h) ; new
+	db BANK(Route21DiveCavern_h) ; new
 	db BANK(CinnabarPokecenter_h)
 	db BANK(HauntedIslandOfNumbers_h) ; new
 	db BANK(ObsidianHouses_h) ; new
