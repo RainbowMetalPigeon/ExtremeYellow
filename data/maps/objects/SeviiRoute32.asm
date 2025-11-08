@@ -6,12 +6,14 @@ SeviiRoute32_Object:
 ;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
 
 	def_bg_events
-	bg_event 15, 35, 1 ; SeviiRoute32Text1
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event 15, 35, 7 ; SeviiRoute32SignText1
 
 	def_object_events
-;	object_event  4, 92, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 1
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 17, 38, SPRITE_YOUNGSTER, WALK, ANY_DIR, 1
+	object_event 15, 12, SPRITE_SWIMMER, STAY, LEFT, 2, OPP_SWIMMER, 39
+	object_event  7, 28, SPRITE_SWIMMER, STAY, RIGHT, 3, OPP_SWIMMER, 40
+	object_event 21, 28, SPRITE_SWIMMER, STAY, LEFT, 4, OPP_POKEMANIAC, 18
+	object_event 14, 25, SPRITE_POKE_BALL, STAY, NONE, 5, RARE_CANDY
+	object_event 27, 35, SPRITE_POKE_BALL, STAY, NONE, 6, PP_UP
 
 	def_warps_to SEVII_ROUTE_32

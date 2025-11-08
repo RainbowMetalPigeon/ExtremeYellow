@@ -107,13 +107,13 @@ INCLUDE "data/moves/tutor_table.asm" ; new
 INCLUDE "engine/overworld/clear_variables.asm" ; from bank3
 INCLUDE "engine/overworld/update_map.asm" ; from bank3
 INCLUDE "engine/items/get_bag_item_quantity.asm" ; from bank3
-INCLUDE "engine/overworld/wild_mons.asm" ; from bank3
 
 
 SECTION "bankGarage3", ROMX ; new
 INCLUDE "engine/pokemon/add_mon.asm" ; from bank3
 INCLUDE "engine/flag_action.asm" ; from bank3
 INCLUDE "engine/battle/safari_zone.asm" ; from bank1
+INCLUDE "engine/overworld/wild_mons.asm" ; from bank3
 
 
 SECTION "bank4", ROMX

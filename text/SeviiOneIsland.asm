@@ -710,12 +710,75 @@ _SeviiEmberSpaText4::
 
 ; route 32 ------------------------------------
 
+_SeviiRoute32Text0::
+	text "My ITEMFINDER"
+	line "is beeping like"
+	cont "crazy here!"
+;	xxxx "123456789012345678"
+	done
+
 _TreasureBeachSignText::
 	text "TREASURE BEACH"
 
 	para "Be mindful of"
 	line "items washed"
 	cont "ashore!"
+	done
+
+_SeviiRoute32BattleText1::
+	text "You look tough!"
+	line "Let's fight!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute32EndBattleText1::
+	text "Tough!"
+	prompt
+
+_SeviiRoute32AfterBattleText1::
+	text "Yes, I like tough"
+	line "#MON! How did"
+	cont "you know?"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute32BattleText2::
+	text "Uh, please go easy"
+	line "on me..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute32EndBattleText2::
+	text "Ugh..."
+	prompt
+
+_SeviiRoute32AfterBattleText2::
+	text "I keep losing my"
+	line "water battles!"
+	cont "I don't understand"
+	cont "why..."
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute32BattleText3::
+	text "Yay! Show me what"
+	line "you've got!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute32EndBattleText3::
+	text "Cool!"
+	prompt
+
+_SeviiRoute32AfterBattleText3::
+	text "Your #MON are"
+	line "strong, but mine"
+	cont "are cooler!"
+;	xxxx "123456789012345678"
 	done
 
 ; route 32 dive ------------------------------------
@@ -736,5 +799,58 @@ _SeviiRoute32DiveAfterBattleText1::
 	text "Blu blu blug!"
 	line "(Exploring the"
 	cont "depths? Cold!)"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute32DiveBattleText2::
+	text "Glub blu glubblub"
+	line "glublbub gluglu!"
+	cont "Blug blub? Glub!"
+	cont "Blglbluuuub!"
+
+	para "Blblblblglub!"
+	line "Glub glub glub."
+	cont "Bluglublugbglb!"
+	cont "(Hi!)"
+	done
+
+_SeviiRoute32DiveEndBattleText2::
+	text "Glub glub!"
+	line "Blu blu blu!"
+	cont "Glu glu glu!"
+	
+	para "Glubluglubluuub!"
+	line "(Oh.)"
+	prompt
+
+_SeviiRoute32DiveAfterBattleText2::
+	text "Blug glub... Blu"
+	line "glub glglgubbubg."
+	cont "Glublub? Glu! Blb."
+
+	para "Glublub. Blu!"
+	line "Blubglub. Bluglu!"
+	cont "(Bye!)"
+	done
+
+; -----
+
+_SeviiRoute32DiveBattleText3::
+	text "Glub blub..."
+	line "(Wait a moment...)"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute32DiveEndBattleText3::
+	text "Glublub."
+	line "(I'm so confused.)"
+	prompt
+
+_SeviiRoute32DiveAfterBattleText3::
+	text "Glublub gblu?"
+	line "(Where's your"
+	cont "diving equipment?)"
 ;	xxxx "123456789012345678"
 	done

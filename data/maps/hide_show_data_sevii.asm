@@ -15,7 +15,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CITY
 	dw SeviiRoute31HS ; SEVII_ROUTE_31
 	dw SeviiMtEmberHS ; SEVII_MT_EMBER
-	dw NoHSSevii ; SEVII_ROUTE_32
+	dw SeviiRoute32HS ; SEVII_ROUTE_32
 	dw SeviiRoute33HS ; SEVII_ROUTE_33
 	dw NoHSSevii ; SEVII_ROUTE_34
 	dw SeviiRoute35HS ; SEVII_ROUTE_35
@@ -166,6 +166,9 @@ SeviiRoute31HS:
 SeviiMtEmberHS:
 	db SEVII_MT_EMBER,  1, SHOW ; MEGA_STONE_X
 	db SEVII_MT_EMBER,  2, SHOW ; MEGA_STONE_Y
+SeviiRoute32HS:
+	db SEVII_ROUTE_32,  5, SHOW ; ball
+	db SEVII_ROUTE_32,  6, SHOW ; ball
 SeviiRoute33HS:
 	db SEVII_ROUTE_33,  1, SHOW ; biker
 	db SEVII_ROUTE_33,  2, SHOW ; biker

@@ -33,7 +33,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_GYM_2
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_EMBER_SPA ; TBE?
-	dw NothingWildMons               ; SEVII_ROUTE_32_DIVE ; TBE
+	dw SeviiRoute32DiveWildMons      ; SEVII_ROUTE_32_DIVE
 	dw NothingWildMons               ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1 ; TBE
 	dw SeviiMtEmber4BFWildMons       ; SEVII_MT_EMBER_4BF
 	dw SeviiMtEmber3BFWildMons       ; SEVII_MT_EMBER_3BF
@@ -150,6 +150,7 @@ INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym2Dive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiSevenIslandGym3.asm"
 INCLUDE "data/wild/maps/sevii/SeviiBerryForest.asm"
 INCLUDE "data/wild/maps/sevii/SeviiFiveIslandWarehouseBF.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute32Dive.asm"
 
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber4BF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber3BF.asm"

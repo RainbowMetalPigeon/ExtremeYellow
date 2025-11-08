@@ -224,7 +224,13 @@ SeviiRoute31HiddenObjects:
 SeviiRoute32HiddenObjects:
 	hidden_object 16, 33, POKE_BALL, HiddenItems
 	hidden_object 10, 34, POTION, HiddenItems
-	hidden_object 14, 32, FIRE_STONE, HiddenItems
+	hidden_object 14, 32, ESCAPE_ROPE, HiddenItems
+	hidden_object 18, 36, REVIVE, HiddenItems
+	hidden_object 13, 37, PROTEIN, HiddenItems
+	hidden_object  8, 38, NUGGET, HiddenItems
+	hidden_object 22, 39, FULL_RESTORE, HiddenItems
+	hidden_object 11, 44, ETHER, HiddenItems
+	hidden_object 18, 49, KINGS_ROCK, HiddenItems
 	db -1 ; end
 
 SeviiOneIslandDockHiddenObjects:

@@ -17,9 +17,15 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_SEVEN_ISLAND_CITY,            12,  3 ; TBE
 ; routes
 	hidden_item SEVII_ROUTE_31,                     12,  3 ; TBE
-	hidden_item SEVII_ROUTE_32,                     16, 33 ; TBE
-	hidden_item SEVII_ROUTE_32,                     10, 34 ; TBE
-	hidden_item SEVII_ROUTE_32,                     14, 32 ; TBE
+	hidden_item SEVII_ROUTE_32,                     16, 33 ; POKE_BALL
+	hidden_item SEVII_ROUTE_32,                     10, 34 ; POTION
+	hidden_item SEVII_ROUTE_32,                     14, 32 ; ESCAPE_ROPE
+	hidden_item SEVII_ROUTE_32,                     18, 36 ; REVIVE
+	hidden_item SEVII_ROUTE_32,                     13, 37 ; PROTEIN
+	hidden_item SEVII_ROUTE_32,                      8, 38 ; NUGGET
+	hidden_item SEVII_ROUTE_32,                     22, 39 ; FULL_RESTORE
+	hidden_item SEVII_ROUTE_32,                     11, 44 ; ETHER
+	hidden_item SEVII_ROUTE_32,                     18, 49 ; KINGS_ROCK
 	hidden_item SEVII_ROUTE_33,                     80, 10 ; IRON
 	hidden_item SEVII_ROUTE_33,                     69,  6 ; ETHER
 	hidden_item SEVII_ROUTE_33,                     56,  5 ; RARE_CANDY

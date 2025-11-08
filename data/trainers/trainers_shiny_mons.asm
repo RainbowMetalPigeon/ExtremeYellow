@@ -127,6 +127,12 @@ TrainersShinyMons:
 	db 6
 	db $FE
 
+	db POKEMANIAC, 18
+	db 1
+	db 2
+	db 3
+	db $FE
+
 ; --- PIGEON -------------
 
 	db PIGEON, 1
