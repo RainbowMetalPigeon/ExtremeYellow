@@ -183,57 +183,66 @@ _Route20MistyPostBattleText::
 	cont "battling you!"
 	prompt
 
-
+; dive ----------------------------------
 
 _Route20DiveBattleText1::
 	text "Glublugblub!"
-	line "(Finally! A"
-	cont "challenger!)"
+
+	para "(Finally! A"
+	line "challenger!)"
 	done
 
 _Route20DiveEndBattleText1::
 	text "Glblgub!"
-	line "(Damn!)"
+
+	para "(Damn!)"
 	prompt
 
 _Route20DiveAfterBattleText1::
 	text "Blu blu blu!"
-	line "(It's so boring"
-	cont "down here!)"
+
+	para "(It's so boring"
+	line "down here!)"
 	done
 
 _Route20DiveBattleText2::
 	text "Blug?"
-	line "(How long can you"
-	cont "hold your breath?)"
+
+	para "(How long can you"
+	line "hold your breath?)"
 	done
 
 _Route20DiveEndBattleText2::
 	text "Bglb?"
-	line "(Uh?)"
+
+	para "(Uh?)"
 	prompt
 
 _Route20DiveAfterBattleText2::
 	text "Bgblbuuu?"
-	line "(What do you mean"
-	cont "with 'Steps'?)"
+
+	para "(What do you mean"
+	line "with 'Steps'?)"
 	done
 
 _Route20DiveBattleText3::
 	text "B!"
-	line "(I was a SWIMMER!)"
+
+	para "(I was a SWIMMER!)"
 ;	xxxx "123456789012345678"
 	done
 
 _Route20DiveEndBattleText3::
 	text "G."
-	line "(Now I'm a DIVER.)"
+
+	para "(Now I'm a DIVER.)"
 ;	xxxx "123456789012345678"
 	prompt
 
 _Route20DiveAfterBattleText3::
 	text "L..."
-	line "(SWIMMER or DIVER,"
-	cont "I keep losing...)"
+
+	para "(SWIMMER or DIVER,"
+	line "I keep losing...)"
 ;	xxxx "123456789012345678"
 	done

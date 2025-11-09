@@ -160,20 +160,23 @@ _Route19Text11::
 
 _Route19DiveBattleText1::
 	text "Blug glu blu!"
-	line "(Cramps are so"
-	cont "painful!)"
+
+	para "(Cramps are so"
+	line "painful!)"
 	done
 
 _Route19DiveEndBattleText1::
 	text "Blu? Glub!"
-	line "(Losing too is"
-	cont "painful!)"
+
+	para "(Losing too is"
+	line "painful!)"
 	prompt
 
 _Route19DiveAfterBattleText1::
 	text "Glu blu gblu!"
-	line "(I found a diving"
-	cont "equipment laying"
+
+	para "(I found a diving"
+	line "equipment laying"
 	cont "down here! Lucky!)"
 ;	xxxx "123456789012345678"
 	done

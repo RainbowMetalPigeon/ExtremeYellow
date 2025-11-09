@@ -745,20 +745,18 @@ _SeviiRoute32AfterBattleText1::
 ; -----
 
 _SeviiRoute32BattleText2::
-	text "Uh, please go easy"
-	line "on me..."
+	text "Something wrong?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute32EndBattleText2::
-	text "Ugh..."
+	text "So what?"
 	prompt
 
 _SeviiRoute32AfterBattleText2::
-	text "I keep losing my"
-	line "water battles!"
-	cont "I don't understand"
-	cont "why..."
+	text "I like water, but"
+	line "I don't like WATER"
+	cont "#MON. Problems?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -785,20 +783,23 @@ _SeviiRoute32AfterBattleText3::
 
 _SeviiRoute32DiveBattleText1::
 	text "Glub glub blub!"
-	line "(Diving with a"
-	cont "#MON? Cool!)"
+
+	para "(Diving with a"
+	line "#MON? Cool!)"
 	done
 
 _SeviiRoute32DiveEndBattleText1::
 	text "Glu gluuub!"
-	line "(Losing a #MON"
-	cont "battle? No cool!)"
+
+	para "(Losing a #MON"
+	line "battle? No cool!)"
 	prompt
 
 _SeviiRoute32DiveAfterBattleText1::
 	text "Blu blu blug!"
-	line "(Exploring the"
-	cont "depths? Cold!)"
+
+	para "(Exploring the"
+	line "depths? Cold!)"
 ;	xxxx "123456789012345678"
 	done
 
@@ -813,7 +814,8 @@ _SeviiRoute32DiveBattleText2::
 	para "Blblblblglub!"
 	line "Glub glub glub."
 	cont "Bluglublugbglb!"
-	cont "(Hi!)"
+
+	para "(Hi!)"
 	done
 
 _SeviiRoute32DiveEndBattleText2::
@@ -822,7 +824,8 @@ _SeviiRoute32DiveEndBattleText2::
 	cont "Glu glu glu!"
 	
 	para "Glubluglubluuub!"
-	line "(Oh.)"
+
+	para "(Oh.)"
 	prompt
 
 _SeviiRoute32DiveAfterBattleText2::
@@ -832,25 +835,29 @@ _SeviiRoute32DiveAfterBattleText2::
 
 	para "Glublub. Blu!"
 	line "Blubglub. Bluglu!"
-	cont "(Bye!)"
+
+	para "(Bye!)"
 	done
 
 ; -----
 
 _SeviiRoute32DiveBattleText3::
 	text "Glub blub..."
-	line "(Wait a moment...)"
+
+	para "(Wait a moment...)"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute32DiveEndBattleText3::
 	text "Glublub."
-	line "(I'm so confused.)"
+
+	para "(I'm so confused.)"
 	prompt
 
 _SeviiRoute32DiveAfterBattleText3::
 	text "Glublub gblu?"
-	line "(Where's your"
+
+	para "(Where's your"
 	cont "diving equipment?)"
 ;	xxxx "123456789012345678"
 	done

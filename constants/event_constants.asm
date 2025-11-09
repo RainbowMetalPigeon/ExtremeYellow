@@ -355,8 +355,12 @@
 ; Fuchsia City events
 	const_next $238
 	const EVENT_GOT_LUNAR_RELIC ; edited
+	const EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_1 ; new
+	const EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_2 ; new
+	const EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_3 ; new
+	const EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_4 ; new
 	const EVENT_GAVE_GOLD_TEETH
-	const_skip 7 ; edited, was 20
+	const_skip 3
 	const EVENT_GOT_TM51 ; new
 	const EVENT_GOT_TM54 ; new
 	const EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM ; new

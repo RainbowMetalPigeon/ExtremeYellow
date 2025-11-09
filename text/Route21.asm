@@ -64,7 +64,7 @@ _Route21BattleText5::
 	done
 
 _Route21EndBattleText5::
-	text "Diver!!"
+	text "DIVER!!"
 	line "Down!!"
 	prompt
 

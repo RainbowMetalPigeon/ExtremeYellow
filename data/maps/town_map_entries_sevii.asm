@@ -49,6 +49,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_MT_EMBER_11F,                                1,  1, MtEmberName
 ; 2-island
 	internal_map SEVII_TWO_ISLAND_HOUSES,                           7,  5, TwoIslandName
+	internal_map SEVII_TWO_ISLAND_CITY_DIVE,                        7,  5, TwoIslandDiveName
 ; 3-island
 	internal_map SEVII_THREE_ISLAND_SECRET_GARDEN,                 14,  3, ThreeIslandName
 	internal_map SEVII_THREE_ISLAND_CAVES,                         15,  4, ThreeIslandCavesName

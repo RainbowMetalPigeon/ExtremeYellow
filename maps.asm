@@ -1813,11 +1813,6 @@ INCLUDE "scripts/SeviiRoute39.asm"
 INCLUDE "data/maps/objects/SeviiRoute39.asm"
 SeviiRoute39_Blocks: INCBIN "maps/SeviiRoute39.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
-INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
-INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
-SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"
-
 INCLUDE "data/maps/headers/SeviiEightIslandCave.asm"
 INCLUDE "scripts/SeviiEightIslandCave.asm"
 INCLUDE "data/maps/objects/SeviiEightIslandCave.asm"
@@ -1925,3 +1920,19 @@ INCLUDE "data/maps/headers/SeviiMtEmber11F.asm"
 INCLUDE "scripts/SeviiMtEmber11F.asm"
 INCLUDE "data/maps/objects/SeviiMtEmber11F.asm"
 SeviiMtEmber11F_Blocks: INCBIN "maps/SeviiMtEmber11F.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIslandCityDive.asm"
+INCLUDE "scripts/SeviiTwoIslandCityDive.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslandCityDive.asm"
+SeviiTwoIslandCityDive_Blocks: INCBIN "maps/SeviiTwoIslandCityDive.blk"
+
+
+
+
+
+
+
+INCLUDE "data/maps/headers/SeviiRoute32DiveCavern1F1.asm"
+INCLUDE "scripts/SeviiRoute32DiveCavern1F1.asm"
+INCLUDE "data/maps/objects/SeviiRoute32DiveCavern1F1.asm"
+SeviiRoute32DiveCavern1F1_Blocks: INCBIN "maps/SeviiRoute32DiveCavern1F1.blk"

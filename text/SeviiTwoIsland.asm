@@ -336,3 +336,97 @@ _SeviiTwoIslandDockBgText1::
 	text "BOON ISLAND"
 	line "SHIP PORT"
 	done
+
+; dive ------------------------------------
+
+_SeviiTwoIslandCityDiveBattleText1::
+	text "Glublug glgb!"
+
+	para "(A new face."
+	line "Let's fight!)"
+	done
+
+_SeviiTwoIslandCityDiveEndBattleText1::
+	text "Glubglub!"
+
+	para "(Damn!)"
+	prompt
+
+_SeviiTwoIslandCityDiveAfterBattleText1::
+	text "Gllll!"
+
+	para "(How could I lose"
+	line "to a newbie?!)"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiTwoIslandCityDiveBattleText2::
+	text "Glub blug!"
+
+	para "(Ready? Steady?"
+	line "Go!)"
+	done
+
+_SeviiTwoIslandCityDiveEndBattleText2::
+	text "Glublub."
+	
+	para "(Urgh...)"
+	prompt
+
+_SeviiTwoIslandCityDiveAfterBattleText2::
+	text "Blblbl!"
+
+	para "(I wasn't ready!)"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiTwoIslandCityDiveBattleText3::
+	text "Bluglub?"
+
+	para "(Is it your first"
+	line "time diving?)"
+	done
+
+_SeviiTwoIslandCityDiveEndBattleText3::
+	text "Glub!"
+	
+	para "(Well!)"
+	prompt
+
+_SeviiTwoIslandCityDiveAfterBattleText3::
+	text "Glu glub."
+
+	para "(Definitely it's"
+	line "not your first"
+	cont "time battling.)"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiTwoIslandCityDiveBattleText4::
+	text "Glu glu..."
+	
+	para "(Please go easy"
+	line "on me...)"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityDiveEndBattleText4::
+	text "Gluuu..."
+
+	para "(As usual...)"
+	prompt
+
+_SeviiTwoIslandCityDiveAfterBattleText4::
+	text "Bluuub..."
+
+	para "(I don't get it!"
+	line "Why do I keep"
+	cont "losing...?)"
+;	xxxx "123456789012345678"
+	done

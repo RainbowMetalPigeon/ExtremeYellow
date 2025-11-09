@@ -56,6 +56,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiTwoIslandPokemonCenter_h
 	dw SeviiTwoIslandGym_h
 	dw SeviiTwoIslandHouses_h
+	dw SeviiTwoIslandCityDive_h
 ; 3-island
 	dw SeviiThreeIslandDock_h
 	dw SeviiThreeIslandPokemonCenterAndMart_h

@@ -58,6 +58,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_TWO_ISLAND_POKEMON_CENTER
 	dw NoHSSevii ; SEVII_TWO_ISLAND_GYM
 	dw NoHSSevii ; SEVII_TWO_ISLAND_HOUSES
+	dw SeviiTwoIslandCityDiveHS ; SEVII_TWO_ISLAND_CITY_DIVE
 ; 3-island
 	dw SeviiThreeIslandDockHS ; SEVII_THREE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
@@ -228,6 +229,11 @@ SeviiEmberSpaHS:
 	db SEVII_EMBER_SPA, 6, SHOW ; ball
 SeviiTwoIslandDockHS:
 	db SEVII_TWO_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiTwoIslandCityDiveHS:
+	db SEVII_TWO_ISLAND_CITY_DIVE,  5, SHOW ; ball
+	db SEVII_TWO_ISLAND_CITY_DIVE,  6, SHOW ; ball
+	db SEVII_TWO_ISLAND_CITY_DIVE,  7, SHOW ; ball
+	db SEVII_TWO_ISLAND_CITY_DIVE,  8, SHOW ; ball
 SeviiThreeIslandDockHS:
 	db SEVII_THREE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiThreeIslandSecretGardenHS:

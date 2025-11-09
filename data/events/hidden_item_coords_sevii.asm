@@ -57,4 +57,7 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_ROUTE_41,                      3, 12 ; DOME_FOSSIL
 ; indoors
 	hidden_item SEVII_ONE_ISLAND_DOCK,              12,  3 ; TBE
+	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         37, 26 ; RARE_CANDY
+	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 39 ; HP_UP
+	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 35 ; PP_UP
 	db -1 ; end

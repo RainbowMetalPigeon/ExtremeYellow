@@ -405,6 +405,13 @@ DivePairedMaps: ; TBE
 ; no terminator, relies on me having worked properly and no mismatched maps
 DivePairedMaps_Sevii: ; TBE
     db SEVII_ROUTE_32, SEVII_ROUTE_32_DIVE
+    db SEVII_TWO_ISLAND_CITY, SEVII_TWO_ISLAND_CITY_DIVE
+    ; 3
+    ; 4
+    ; 5
+    ; R36
+    ; R38
+    ; R39
     db SEVII_SEVEN_ISLAND_GYM_2, SEVII_SEVEN_ISLAND_GYM_2_DIVE
 
 ; --------------------------------------------

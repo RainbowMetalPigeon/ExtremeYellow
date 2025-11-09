@@ -1,0 +1,115 @@
+SeviiTwoIslandCityDive_Script:
+	call EnableAutoTextBoxDrawing
+	ld hl, SeviiTwoIslandCityDiveTrainerHeaders
+	ld de, SeviiTwoIslandCityDive_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
+
+SeviiTwoIslandCityDive_ScriptPointers:
+	dw CheckFightingMapTrainers
+	dw DisplayEnemyTrainerTextAndStartBattle
+	dw EndTrainerBattle
+
+SeviiTwoIslandCityDive_TextPointers:
+	dw SeviiTwoIslandCityDiveText1
+	dw SeviiTwoIslandCityDiveText2
+	dw SeviiTwoIslandCityDiveText3
+	dw SeviiTwoIslandCityDiveText4
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+
+SeviiTwoIslandCityDiveTrainerHeaders:
+	def_trainers
+SeviiTwoIslandCityDiveTrainerHeader1:
+	trainer EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_1, 4, SeviiTwoIslandCityDiveBattleText1, SeviiTwoIslandCityDiveEndBattleText1, SeviiTwoIslandCityDiveAfterBattleText1
+SeviiTwoIslandCityDiveTrainerHeader2:
+	trainer EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_2, 4, SeviiTwoIslandCityDiveBattleText2, SeviiTwoIslandCityDiveEndBattleText2, SeviiTwoIslandCityDiveAfterBattleText2
+SeviiTwoIslandCityDiveTrainerHeader3:
+	trainer EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_3, 4, SeviiTwoIslandCityDiveBattleText3, SeviiTwoIslandCityDiveEndBattleText3, SeviiTwoIslandCityDiveAfterBattleText3
+SeviiTwoIslandCityDiveTrainerHeader4:
+	trainer EVENT_BEAT_SEVII_TWO_ISLAND_CITY_DIVE_TRAINER_4, 4, SeviiTwoIslandCityDiveBattleText4, SeviiTwoIslandCityDiveEndBattleText4, SeviiTwoIslandCityDiveAfterBattleText4
+	db -1 ; end
+
+SeviiTwoIslandCityDiveText1:
+	text_asm
+	ld hl, SeviiTwoIslandCityDiveTrainerHeader1
+	jr SeviiTwoIslandCityDive_TalkToTrainer
+
+SeviiTwoIslandCityDiveText2:
+	text_asm
+	ld hl, SeviiTwoIslandCityDiveTrainerHeader2
+	jr SeviiTwoIslandCityDive_TalkToTrainer
+
+SeviiTwoIslandCityDiveText3:
+	text_asm
+	ld hl, SeviiTwoIslandCityDiveTrainerHeader3
+	jr SeviiTwoIslandCityDive_TalkToTrainer
+
+SeviiTwoIslandCityDiveText4:
+	text_asm
+	ld hl, SeviiTwoIslandCityDiveTrainerHeader4
+	jr SeviiTwoIslandCityDive_TalkToTrainer
+
+SeviiTwoIslandCityDive_TalkToTrainer:
+	call TalkToTrainer
+	jp TextScriptEnd
+
+; ---
+
+SeviiTwoIslandCityDiveBattleText1:
+	text_far _SeviiTwoIslandCityDiveBattleText1
+	text_end
+
+SeviiTwoIslandCityDiveEndBattleText1:
+	text_far _SeviiTwoIslandCityDiveEndBattleText1
+	text_end
+
+SeviiTwoIslandCityDiveAfterBattleText1:
+	text_far _SeviiTwoIslandCityDiveAfterBattleText1
+	text_end
+
+; ---
+
+SeviiTwoIslandCityDiveBattleText2:
+	text_far _SeviiTwoIslandCityDiveBattleText2
+	text_end
+
+SeviiTwoIslandCityDiveEndBattleText2:
+	text_far _SeviiTwoIslandCityDiveEndBattleText2
+	text_end
+
+SeviiTwoIslandCityDiveAfterBattleText2:
+	text_far _SeviiTwoIslandCityDiveAfterBattleText2
+	text_end
+
+; ---
+
+SeviiTwoIslandCityDiveBattleText3:
+	text_far _SeviiTwoIslandCityDiveBattleText3
+	text_end
+
+SeviiTwoIslandCityDiveEndBattleText3:
+	text_far _SeviiTwoIslandCityDiveEndBattleText3
+	text_end
+
+SeviiTwoIslandCityDiveAfterBattleText3:
+	text_far _SeviiTwoIslandCityDiveAfterBattleText3
+	text_end
+
+; ---
+
+SeviiTwoIslandCityDiveBattleText4:
+	text_far _SeviiTwoIslandCityDiveBattleText4
+	text_end
+
+SeviiTwoIslandCityDiveEndBattleText4:
+	text_far _SeviiTwoIslandCityDiveEndBattleText4
+	text_end
+
+SeviiTwoIslandCityDiveAfterBattleText4:
+	text_far _SeviiTwoIslandCityDiveAfterBattleText4
+	text_end
