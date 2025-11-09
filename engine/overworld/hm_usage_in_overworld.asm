@@ -406,7 +406,7 @@ DivePairedMaps: ; TBE
 DivePairedMaps_Sevii: ; TBE
     db SEVII_ROUTE_32, SEVII_ROUTE_32_DIVE
     db SEVII_TWO_ISLAND_CITY, SEVII_TWO_ISLAND_CITY_DIVE
-    ; 3
+    db SEVII_ROUTE_33, SEVII_ROUTE_33_DIVE
     ; 4
     ; 5
     ; R36

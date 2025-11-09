@@ -827,3 +827,127 @@ _SeviiBerryForestScriptText4::
 	cont "stop TEAM ROCKET."
 ;	xxxx "123456789012345678"
 	done
+
+; route 33 dive ------------------------------------
+
+_SeviiRoute33DiveText0::
+	text "Glub."
+
+	para "(Trainer? No, I'm"
+	line "not a trainer. I"
+	cont "just like diving."
+
+	para "This area is quite"
+	line "secluded, and I'm"
+	cont "fascinated by"
+	cont "this vast empty"
+	cont "submarine plain"
+	cont "of seaweeds in"
+	cont "the middle of a"
+	cont "rocky scenario!"
+
+	para "Uh? How do I deal"
+	line "with wild #MON"
+	cont "if I don't have"
+	cont "#MON myself?"
+
+	para "It's quite simple"
+	line "actually! I jus-"
+	cont "Oh damn, my air"
+	cont "is running low,"
+	cont "I must go, sorry!)"
+	done
+
+_SeviiRoute33DiveBattleText1::
+	text "Bluglub!"
+
+	para "(Diving is a full"
+	line "sport!)"
+	done
+
+_SeviiRoute33DiveEndBattleText1::
+	text "Glll."
+
+	para "(Not enough...)"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute33DiveAfterBattleText1::
+	text "Bluglub."
+
+	para "(Diving may be"
+	line "good for the"
+	cont "body, but doesn't"
+	cont "help with #MON"
+	cont "battles.)"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute33DiveBattleText2::
+	text "Bluggglub!"
+
+	para "(Are you ready?)"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute33DiveEndBattleText2::
+	text "Gllubb!"
+	
+	para "(Unfair!)"
+	prompt
+
+_SeviiRoute33DiveAfterBattleText2::
+	text "Blblblubg..."
+
+	para "(You didn't ask me"
+	line "if I was ready...)"
+	done
+
+; -----
+
+_SeviiRoute33DiveBattleText3::
+	text "Blublu!"
+
+	para "(This is such a"
+	line "nice diving spot!)"
+	done
+
+_SeviiRoute33DiveEndBattleText3::
+	text "Blubbblu!"
+	
+	para "(And this was such"
+	line "a nice battle!)"
+	prompt
+
+_SeviiRoute33DiveAfterBattleText3::
+	text "Bluglub, glublub."
+
+	para "(It's important to"
+	line "focus on what's"
+	cont "good in life.)"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute33DiveBattleText4::
+	text "Glub."
+	
+	para "(Fight.)"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute33DiveEndBattleText4::
+	text "Glub."
+
+	para "(Lost.)"
+	prompt
+
+_SeviiRoute33DiveAfterBattleText4::
+	text "Glub."
+
+	para "(Bye. Save air.)"
+;	xxxx "123456789012345678"
+	done

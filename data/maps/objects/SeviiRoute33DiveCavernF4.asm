@@ -1,0 +1,64 @@
+SeviiRoute33DiveCavernF4_Object:
+	db $20 ; border block
+
+	def_warp_events
+	warp_event   2,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  3
+	warp_event   3,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  3
+
+	warp_event  14,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  4
+	warp_event  15,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  4
+	
+	warp_event  26,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  7
+	warp_event  27,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  7
+	
+	warp_event  38,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  8
+	warp_event  39,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3,  8
+
+	warp_event  50,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 11
+	warp_event  51,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 11
+	
+	warp_event  62,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 12
+	warp_event  63,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 12
+	
+	warp_event  74,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 15
+	warp_event  75,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 15
+
+	warp_event  86,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 16
+	warp_event  87,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 16
+	
+	warp_event  98,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 19
+	warp_event  99,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 19
+	
+	warp_event 110,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 20
+	warp_event 111,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 20
+
+	warp_event 122,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 23
+	warp_event 123,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 23
+	
+	warp_event 134,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 24
+	warp_event 135,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 24
+	
+	warp_event 146,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 27
+	warp_event 147,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 27
+
+	warp_event 158,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 28
+	warp_event 159,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 28
+	
+	warp_event 170,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 31
+	warp_event 171,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 31
+	
+	warp_event 182,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 32
+	warp_event 183,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 32
+
+	warp_event 194,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 35
+	warp_event 195,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 35
+	
+	warp_event 206,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 36
+	warp_event 207,  5, SEVII_ROUTE_33_DIVE_CAVERN_F3, 36
+	
+	def_bg_events
+
+	def_object_events
+	object_event 207,  2, SPRITE_POKE_BALL, STAY, NONE, 1, PEARL
+
+	def_warps_to SEVII_ROUTE_33_DIVE_CAVERN_F4

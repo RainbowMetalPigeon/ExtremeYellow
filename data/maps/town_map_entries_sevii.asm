@@ -45,7 +45,7 @@ InternalMapEntries_Sevii:
 ; 1-island
 	internal_map SEVII_ONE_ISLAND_HOUSES,                           0,  4, OneIslandName
 	internal_map SEVII_EMBER_SPA,                                   2,  3, EmberSpaName
-	internal_map SEVII_ROUTE_32_DIVE_CAVERN_1_F1,                   0,  5, Route32DiveName
+	internal_map SEVII_ROUTE_32_DIVE,                               0,  5, Route32DiveName
 	internal_map SEVII_MT_EMBER_11F,                                1,  1, MtEmberName
 ; 2-island
 	internal_map SEVII_TWO_ISLAND_HOUSES,                           7,  5, TwoIslandName
@@ -54,6 +54,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_THREE_ISLAND_SECRET_GARDEN,                 14,  3, ThreeIslandName
 	internal_map SEVII_THREE_ISLAND_CAVES,                         15,  4, ThreeIslandCavesName
 	internal_map SEVII_BERRY_FOREST,                               12,  3, BerryForestName
+	internal_map SEVII_ROUTE_33_DIVE_CAVERN_F4,                    13,  3, Route33DiveName
 ; 4-island
 	internal_map SEVII_FOUR_ISLAND_HAZARD_ROOM,                     2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName

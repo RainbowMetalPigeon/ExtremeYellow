@@ -37,7 +37,6 @@ MapHSPointers_Sevii:
 	dw SeviiOneIslandHousesHS ; SEVII_ONE_ISLAND_HOUSES
 	dw SeviiEmberSpaHS ; SEVII_EMBER_SPA
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE
-	dw NoHSSevii ; SEVII_ROUTE_32_DIVE_CAVERN_1_F1
 	dw NoHSSevii ; SEVII_MT_EMBER_4BF
 	dw NoHSSevii ; SEVII_MT_EMBER_3BF
 	dw NoHSSevii ; SEVII_MT_EMBER_2BF
@@ -67,6 +66,11 @@ MapHSPointers_Sevii:
 	dw SeviiThreeIslandSecretGardenHS ; SEVII_THREE_ISLAND_SECRET_GARDEN
 	dw NoHSSevii ; SEVII_THREE_ISLAND_CAVES
 	dw SeviiBerryForestHS ; SEVII_BERRY_FOREST
+	dw SeviiRoute33DiveHS ; SEVII_ROUTE_33_DIVE
+	dw NoHSSevii ; SEVII_ROUTE_33_DIVE_CAVERN_F1
+	dw NoHSSevii ; SEVII_ROUTE_33_DIVE_CAVERN_F2
+	dw NoHSSevii ; SEVII_ROUTE_33_DIVE_CAVERN_F3
+	dw SeviiRoute33DiveCavernF4HS ; SEVII_ROUTE_33_DIVE_CAVERN_F4
 ; 4-island
 	dw SeviiFourIslandDockHS ; SEVII_FOUR_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
@@ -244,6 +248,12 @@ SeviiBerryForestHS:
 	db SEVII_BERRY_FOREST, 3, SHOW ; ball
 	db SEVII_BERRY_FOREST, 4, SHOW ; ball
 	db SEVII_BERRY_FOREST, 5, SHOW ; ball
+SeviiRoute33DiveHS:
+	db SEVII_ROUTE_33_DIVE, 1, SHOW ; verbose diver
+	db SEVII_ROUTE_33_DIVE, 6, SHOW ; ball
+	db SEVII_ROUTE_33_DIVE, 7, SHOW ; ball
+SeviiRoute33DiveCavernF4HS:
+	db SEVII_ROUTE_33_DIVE_CAVERN_F4,  1, SHOW ; ball
 SeviiFourIslandDockHS:
 	db SEVII_FOUR_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiFourIslandHousesHS:

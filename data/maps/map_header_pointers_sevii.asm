@@ -35,7 +35,6 @@ MapHeaderPointers_Sevii::
 	dw SeviiOneIslandHouses_h
 	dw SeviiEmberSpa_h
 	dw SeviiRoute32Dive_h
-	dw SeviiRoute32DiveCavern1F1_h
 	dw SeviiMtEmber4BF_h
 	dw SeviiMtEmber3BF_h
 	dw SeviiMtEmber2BF_h
@@ -65,6 +64,11 @@ MapHeaderPointers_Sevii::
 	dw SeviiThreeIslandSecretGarden_h
 	dw SeviiThreeIslandCaves_h
 	dw SeviiBerryForest_h
+	dw SeviiRoute33Dive_h
+	dw SeviiRoute33DiveCavernF1_h
+	dw SeviiRoute33DiveCavernF2_h
+	dw SeviiRoute33DiveCavernF3_h
+	dw SeviiRoute33DiveCavernF4_h
 ; 4-island
 	dw SeviiFourIslandDock_h
 	dw SeviiFourIslandPokemonCenterAndMart_h

@@ -99,6 +99,7 @@ AlteringCaveName:    db "ALTERING CAVE@"
 DottedHoleName:      db "DOTTED HOLE@"
 TanobyChambersName:  db "TANOBY CHAMBERS@"
 TwoIslandDiveName:   db "SUB BOON ISLAND@"
+Route33DiveName:     db "SUB ROUTE 33@"
 
 Route19DiveName:     db "SUB ROUTE 19@"
 Route20DiveName:     db "SUB ROUTE 20@"
