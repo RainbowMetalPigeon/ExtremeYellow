@@ -75,6 +75,8 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	dw SeviiIcefallCave1FWildMons    ; SEVII_ICEFALL_CAVE_1F
+	dw SeviiFourIslandCityDiveWildMons ; SEVII_FOUR_ISLAND_CITY_DIVE
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
 ; 5-island
 	dw SeviiShipDockWildMons         ; SEVII_FIVE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
@@ -87,6 +89,8 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_LOST_CAVE_1 ; TBE
 	dw NothingWildMons               ; SEVII_LOST_CAVE_2 ; TBE
 	dw NothingWildMons               ; SEVII_LOST_CAVE_3 ; TBE
+	dw SeviiFiveIslandCityDiveWildMons               ; SEVII_FIVE_ISLAND_CITY_DIVE
+	dw NothingWildMons               ; SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN
 ; 6-island
 	dw SeviiShipDockWildMons         ; SEVII_SIX_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
@@ -97,6 +101,9 @@ WildDataPointers_Sevii:
 	dw SeviiPatternBushWildMons      ; SEVII_PATTERN_BUSH
 	dw NothingWildMons               ; SEVII_ALTERING_CAVE ; TBE
 	dw NothingWildMons               ; SEVII_DOTTED_HOLE
+	dw SeviiRoute38DiveWildMons      ; SEVII_ROUTE_38_DIVE
+	dw NothingWildMons               ; SEVII_ROUTE_38_DIVE_CAVERN
+	dw SeviiRoute39DiveWildMons      ; SEVII_ROUTE_39_DIVE
 ; 7-island
 	dw SeviiShipDockWildMons         ; SEVII_SEVEN_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
@@ -158,6 +165,10 @@ INCLUDE "data/wild/maps/sevii/SeviiFiveIslandWarehouseBF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute32Dive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiTwoIslandCityDive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute33Dive.asm"
+INCLUDE "data/wild/maps/sevii/SeviiFourIslandCityDive.asm"
+INCLUDE "data/wild/maps/sevii/SeviiFiveIslandCityDive.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute38Dive.asm"
+INCLUDE "data/wild/maps/sevii/SeviiRoute39Dive.asm"
 
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber4BF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber3BF.asm"

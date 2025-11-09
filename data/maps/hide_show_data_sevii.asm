@@ -78,6 +78,8 @@ MapHSPointers_Sevii:
 	dw SeviiFourIslandHousesHS ; SEVII_FOUR_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	dw SeviiIcefallCave1FHS ; SEVII_ICEFALL_CAVE_1F
+	dw NoHSSevii ; SEVII_FOUR_ISLAND_CITY_DIVE
+	dw SeviiFourIslandCityDiveCavernHS ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
 ; 5-island
 	dw SeviiFiveIslandDockHS ; SEVII_FIVE_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
@@ -90,6 +92,8 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_LOST_CAVE_1
 	dw SeviiLostCave2HS ; SEVII_LOST_CAVE_2
 	dw SeviiLostCave3HS ; SEVII_LOST_CAVE_3
+	dw NoHSSevii ; SEVII_FIVE_ISLAND_CITY_DIVE
+	dw SeviiFiveIslandCityDiveCavernHS ; SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN
 ; 6-island
 	dw SeviiSixIslandDockHS ; SEVII_SIX_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
@@ -100,6 +104,9 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_PATTERN_BUSH
 	dw NoHSSevii ; SEVII_ALTERING_CAVE
 	dw NoHSSevii ; SEVII_DOTTED_HOLE
+	dw NoHSSevii ; SEVII_ROUTE_38_DIVE
+	dw SeviiRoute38DiveCavernHS ; SEVII_ROUTE_38_DIVE_CAVERN
+	dw NoHSSevii ; SEVII_ROUTE_39_DIVE
 ; 7-island
 	dw SeviiSevenIslandDockHS ; SEVII_SEVEN_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
@@ -260,9 +267,10 @@ SeviiFourIslandHousesHS:
 	db SEVII_FOUR_ISLAND_HOUSES, 1, HIDE ; Pink
 SeviiIcefallCave1FHS:
 	db SEVII_ICEFALL_CAVE_1F, 3, SHOW ; Rock
+SeviiFourIslandCityDiveCavernHS:
+	db SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN, 1, SHOW ; pearl
 SeviiFiveIslandDockHS:
 	db SEVII_FIVE_ISLAND_DOCK, 1, SHOW ; sailor
-
 SeviiFiveIslandWarehouseBFHS:
 	db SEVII_FIVE_ISLAND_WAREHOUSE_BF, 1, SHOW ; rocket
 	db SEVII_FIVE_ISLAND_WAREHOUSE_BF, 2, SHOW ; rocket
@@ -270,13 +278,11 @@ SeviiFiveIslandWarehouseBFHS:
 	db SEVII_FIVE_ISLAND_WAREHOUSE_BF, 4, SHOW ; ball
 	db SEVII_FIVE_ISLAND_WAREHOUSE_BF, 5, SHOW ; ball
 	db SEVII_FIVE_ISLAND_WAREHOUSE_BF, 6, SHOW ; ball
-
 SeviiFiveIslandWarehouse1FHS:
 	db SEVII_FIVE_ISLAND_WAREHOUSE_1F, 1, SHOW ; rocket
 	db SEVII_FIVE_ISLAND_WAREHOUSE_1F, 2, SHOW ; rocket
 	db SEVII_FIVE_ISLAND_WAREHOUSE_1F, 3, SHOW ; ball
 	db SEVII_FIVE_ISLAND_WAREHOUSE_1F, 4, SHOW ; ball
-
 SeviiFiveIslandWarehouse2FHS:
 	db SEVII_FIVE_ISLAND_WAREHOUSE_2F,  1, SHOW ; Carr
 	db SEVII_FIVE_ISLAND_WAREHOUSE_2F,  2, SHOW ; Pink pre
@@ -288,7 +294,6 @@ SeviiFiveIslandWarehouse2FHS:
 	db SEVII_FIVE_ISLAND_WAREHOUSE_2F,  8, SHOW ; ball
 	db SEVII_FIVE_ISLAND_WAREHOUSE_2F,  9, SHOW ; ball
 	db SEVII_FIVE_ISLAND_WAREHOUSE_2F, 10, SHOW ; ball
-
 SeviiResortGorgeousHS:
 	db SEVII_RESORT_GORGEOUS, 1, HIDE ; Selphy
 SeviiLostCave2HS:
@@ -298,8 +303,12 @@ SeviiLostCave3HS:
 	db SEVII_LOST_CAVE_3, 2, SHOW ; NUGGET
 	db SEVII_LOST_CAVE_3, 3, SHOW ; MAX_ELIXER
 	db SEVII_LOST_CAVE_3, 4, SHOW ; PP_UP
+SeviiFiveIslandCityDiveCavernHS:
+	db SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 1, SHOW ; pearl
 SeviiSixIslandDockHS:
 	db SEVII_SIX_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiRoute38DiveCavernHS:
+	db SEVII_ROUTE_38_DIVE_CAVERN, 11, SHOW ; pearl
 SeviiSevenIslandDockHS:
 	db SEVII_SEVEN_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiSevenIslandGym2HS:

@@ -76,6 +76,8 @@ MapHeaderPointers_Sevii::
 	dw SeviiFourIslandHouses_h
 	dw SeviiFourIslandHazardRoom_h
 	dw SeviiIcefallCave1F_h
+	dw SeviiFourIslandCityDive_h
+	dw SeviiFourIslandCityDiveCavern_h
 ; 5-island
 	dw SeviiFiveIslandDock_h
 	dw SeviiFiveIslandPokemonCenterAndMart_h
@@ -88,6 +90,8 @@ MapHeaderPointers_Sevii::
 	dw SeviiLostCave1_h
 	dw SeviiLostCave2_h
 	dw SeviiLostCave3_h
+	dw SeviiFiveIslandCityDive_h
+	dw SeviiFiveIslandCityDiveCavern_h
 ; 6-island
 	dw SeviiSixIslandDock_h
 	dw SeviiSixIslandPokemonCenterAndMart_h
@@ -98,6 +102,9 @@ MapHeaderPointers_Sevii::
 	dw SeviiPatternBush_h
 	dw SeviiAlteringCave_h
 	dw SeviiDottedHole_h
+	dw SeviiRoute38Dive_h
+	dw SeviiRoute38DiveCavern_h
+	dw SeviiRoute39Dive_h
 ; 7-island
 	dw SeviiSevenIslandDock_h
 	dw SeviiSevenIslandPokemonCenterAndMart_h

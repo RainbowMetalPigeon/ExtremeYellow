@@ -76,6 +76,8 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiFourIslandHouses_h)
 	db BANK(SeviiFourIslandHazardRoom_h)
 	db BANK(SeviiIcefallCave1F_h)
+	db BANK(SeviiFourIslandCityDive_h)
+	db BANK(SeviiFourIslandCityDiveCavern_h)
 ; 5-island
 	db BANK(SeviiFiveIslandDock_h)
 	db BANK(SeviiFiveIslandPokemonCenterAndMart_h)
@@ -88,6 +90,8 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiLostCave1_h)
 	db BANK(SeviiLostCave2_h)
 	db BANK(SeviiLostCave3_h)
+	db BANK(SeviiFiveIslandCityDive_h)
+	db BANK(SeviiFiveIslandCityDiveCavern_h)
 ; 6-island
 	db BANK(SeviiSixIslandDock_h)
 	db BANK(SeviiSixIslandPokemonCenterAndMart_h)
@@ -98,6 +102,9 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiPatternBush_h)
 	db BANK(SeviiAlteringCave_h)
 	db BANK(SeviiDottedHole_h)
+	db BANK(SeviiRoute38Dive_h)
+	db BANK(SeviiRoute38DiveCavern_h)
+	db BANK(SeviiRoute39Dive_h)
 ; 7-island
 	db BANK(SeviiSevenIslandDock_h)
 	db BANK(SeviiSevenIslandPokemonCenterAndMart_h)

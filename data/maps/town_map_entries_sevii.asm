@@ -58,17 +58,21 @@ InternalMapEntries_Sevii:
 ; 4-island
 	internal_map SEVII_FOUR_ISLAND_HAZARD_ROOM,                     2,  8, FourIslandName
 	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
+	internal_map SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,                2,  8, FourIslandDiveName
 ; 5-island
 	internal_map SEVII_FIVE_ISLAND_HOUSES,                          8,  9, FiveIslandName
 	internal_map SEVII_FIVE_ISLAND_WAREHOUSE_2F,                    9, 10, FiveIslandWarehouseName
 	internal_map SEVII_RESORT_GORGEOUS,                             9,  7, Route35Name
 	internal_map SEVII_LOST_CAVE_3,                                10,  7, LostCaveName
+	internal_map SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN,                8,  9, FiveIslandDiveName
 ; 6-island
 	internal_map SEVII_SIX_ISLAND_GYM_3,                           14, 11, SixIslandName
 	internal_map SEVII_ROUTE_38_HOUSES,                            15,  9, Route38Name
 	internal_map SEVII_PATTERN_BUSH,                               14,  9, PatternBushName
 	internal_map SEVII_ALTERING_CAVE,                              13,  6, AlteringCaveName
 	internal_map SEVII_DOTTED_HOLE,                                14, 13, DottedHoleName
+	internal_map SEVII_ROUTE_38_DIVE_CAVERN,                       15,  9, Route38DiveName
+	internal_map SEVII_ROUTE_39_DIVE,                              13,  8, Route39DiveName
 ; 7-island
 	internal_map SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,        4, 12, SevenIslandName
 	internal_map SEVII_SEVEN_ISLAND_GYM_3,                          4, 11, Route41Name

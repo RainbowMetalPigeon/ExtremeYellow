@@ -75,6 +75,8 @@ MapSongBanks_Sevii::
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_HOUSES
 	db MUSIC_GAME_CORNER, BANK(Music_GameCorner)       ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_ICEFALL_CAVE_1F
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FOUR_ISLAND_CITY_DIVE
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
 ; 5-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_FIVE_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
@@ -87,6 +89,8 @@ MapSongBanks_Sevii::
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE_1
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE_2
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_LOST_CAVE_3
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FIVE_ISLAND_CITY_DIVE
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN
 ; 6-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_SIX_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
@@ -97,6 +101,9 @@ MapSongBanks_Sevii::
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_PATTERN_BUSH
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE
 	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; SEVII_DOTTED_HOLE ; TBV
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_38_DIVE
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_38_DIVE_CAVERN
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_39_DIVE
 ; 7-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART

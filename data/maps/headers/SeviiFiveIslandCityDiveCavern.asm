@@ -1,0 +1,2 @@
+	map_header SeviiFiveIslandCityDiveCavern, SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, UNDERWATER, 0
+	end_map_header

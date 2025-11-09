@@ -156,9 +156,15 @@ _SeviiThreeIslandHousesText2_Before::
 	cont "spectators' eyes,"
 	cont "the marvel!"
 
-	para "Out of all of it,"
-	line "though, can you"
-	cont "guess my favorite?"
+	para "Out of all of its"
+	line "forms, can you"
+	cont "guess which one"
+	cont "is my favourite?"
+
+	para "Completely"
+	line "unrelated, my"
+	cont "favourite number"
+	cont "is 2."
 ;	xxxx "123456789012345678"
 	done
 
