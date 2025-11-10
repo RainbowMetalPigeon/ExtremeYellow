@@ -656,3 +656,10 @@ _NoPokemonText::
 	text "There are no"
 	line "#MON here!"
 	prompt
+
+_HurtByUnderwaterText::
+	text "<USER>"
+	line "suffers for being"
+	cont "underwater!"
+;	xxxx "123456789012345678"
+	prompt

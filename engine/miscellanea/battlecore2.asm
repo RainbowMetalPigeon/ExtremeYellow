@@ -404,7 +404,7 @@ CheckIfEnemyPokemonIsCertainType:: ; z flag = FLYING
 ; ==========================================================
 
 ; expects EVENT_HAZARDS_DAMAGING_PLAYER to be properly set or reset
-HandleHazards_DecreaseHP_1o2:
+HandleHazards_DecreaseHP_1o2::
 	ld d, 1
 	jr HandleHazards_DecreaseHP_Core
 HandleHazards_DecreaseHP_1o4:

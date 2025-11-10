@@ -176,11 +176,13 @@ HandlePoisonBurnLeechSeed::
 ; end of the grassy terrain block
 
 ; new, to handle weathers
+; and being underwater
 ; we need to check if we are at the very end of the turn
 	push af
 	CheckEvent EVENT_ENABLE_WEATHER_DAMAGE
 	jp z, .dontHandleWeatherDamage
 	push hl
+; check Sandstorm
 	CheckEvent EVENT_WEATHER_SANDSTORM
 	jr z, .checkHail
 ; Sandstorm, player
@@ -206,10 +208,10 @@ HandlePoisonBurnLeechSeed::
 	ld hl, wEnemyMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp ROCK
-	jr z, .noDamagingWeathers
+	jr z, .checkUnderwater ; noDamagingWeathers
 	ld a, [hl]
 	cp ROCK
-	jr z, .noDamagingWeathers
+	jr z, .checkUnderwater ; noDamagingWeathers
 ; enemy damaged by Sandstorm
 	call MakeTurnIntoEnemysTurn
 	ld hl, HurtBySandstormText
@@ -220,10 +222,10 @@ HandlePoisonBurnLeechSeed::
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn
-	jr .noDamagingWeathers
+	jr .checkUnderwater ; noDamagingWeathers
 .checkHail
 	CheckEvent EVENT_WEATHER_HAIL
-	jr z, .noDamagingWeathers
+	jr z, .checkUnderwater ; noDamagingWeathers
 ; Hail, player
 	ld hl, wBattleMonType1
 	ld a, [hli] ; a=type1, hl->type2
@@ -246,11 +248,11 @@ HandlePoisonBurnLeechSeed::
 .hailCheckEnemy
 	ld hl, wEnemyMonType1
 	ld a, [hli] ; a=type1, hl->type2
-	cp ROCK
-	jr z, .noDamagingWeathers
+	cp ICE
+	jr z, .checkUnderwater ; noDamagingWeathers
 	ld a, [hl]
-	cp ROCK
-	jr z, .noDamagingWeathers
+	cp ICE
+	jr z, .checkUnderwater ; noDamagingWeathers
 ; enemy damaged by Hail
 	call MakeTurnIntoEnemysTurn
 	ld hl, HurtByHailText
@@ -261,6 +263,45 @@ HandlePoisonBurnLeechSeed::
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn
+.checkUnderwater
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .noDamagingWeathers
+; Underwater, player
+	call CheckWaterEffectiveness_AgainstPlayer
+	cp 3
+	jr c, .underwaterCheckEnemy
+; player damaged by Underwater
+	push af
+	call MakeTurnIntoPlayersTurn
+	ld hl, HurtByUnderwaterText
+	call PrintText
+	xor a
+	ld [wAnimationType], a
+	ld a, BLINK_POKEMON
+	call PlayAltAnimationCopy
+	call RestoreRealTurn
+	SetEvent EVENT_HAZARDS_DAMAGING_PLAYER
+	pop af
+	call ApplyUnderwaterDamageDependingOnEffectiveness
+; Underwater, enemy
+.underwaterCheckEnemy
+	call CheckWaterEffectiveness_AgainstEnemy
+	cp 3
+	jr c, .noDamagingWeathers
+; enemy damaged by Underwater
+	push af
+	call MakeTurnIntoEnemysTurn
+	ld hl, HurtByUnderwaterText
+	call PrintText
+	call RestoreRealTurn
+	xor a
+	ld [wAnimationType], a
+	ld a, BLINK_POKEMON
+	call PlayAltAnimationCopy
+	ResetEvent EVENT_HAZARDS_DAMAGING_PLAYER
+	pop af
+	call ApplyUnderwaterDamageDependingOnEffectiveness
 .noDamagingWeathers
 	ResetEvent EVENT_ENABLE_WEATHER_DAMAGE
 	pop hl
@@ -616,6 +657,10 @@ HurtByHailText:
 	text_far _HurtByHailText
 	text_end
 
+HurtByUnderwaterText:
+	text_far _HurtByUnderwaterText
+	text_end
+
 ;SwapTurns: ; has always to be used twice
 ;	ldh a, [hWhoseTurn]
 ;	and a
@@ -809,6 +854,54 @@ TrickRoomStillActiveText:
 TrickRoomExpiredText:
 	text_far _TrickRoomExpiredText
 	text_end
+
+; ----------
+
+CheckWaterEffectiveness_AgainstPlayer:
+	ld a, WATER
+	ld [wEnemyMoveType], a
+	callfar AIGetTypeEffectiveness ; abused, but if it works it works
+								   ; result stored in [wTypeEffectiveness]
+	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+	ret
+
+CheckWaterEffectiveness_AgainstEnemy:
+	ld a, WATER
+	ld [wEnemyMoveType], a
+; we need to fake the types of battle/enemy mon for the AI function to work as intended
+	ld a, [wBattleMonType1]
+	ld [wUniQuizAnswer], a
+	ld a, [wEnemyMonType1]
+	ld [wBattleMonType1], a
+	ld a, [wBattleMonType2]
+	ld [wUniQuizAnswer+1], a
+	ld a, [wEnemyMonType2]
+	ld [wBattleMonType2], a
+; let's call the bastardized function
+	callfar AIGetTypeEffectiveness ; abused, but if it works it works
+								   ; result stored in [wTypeEffectiveness]
+; restore the real types of battle/enemy mon
+	ld a, [wUniQuizAnswer]
+	ld [wBattleMonType1], a
+	ld a, [wUniQuizAnswer+1]
+	ld [wBattleMonType2], a
+; back on track
+	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+	ret
+
+ApplyUnderwaterDamageDependingOnEffectiveness:
+	cp 3
+	ret c ; no damage if it damage is below-neutral
+	cp 4
+	jr z, .damage1o8
+	cp 8
+	jr z, .damage1o4
+; if here, a=16, double super effective
+	jpfar HandleHazards_DecreaseHP_1o2
+.damage1o4
+	jpfar HandleHazards_DecreaseHP_1o4
+.damage1o8
+	jpfar HandleHazards_DecreaseHP_1o8
 
 ; ---------- ugly copies of functions for moving this into its own file -----------------------
 
