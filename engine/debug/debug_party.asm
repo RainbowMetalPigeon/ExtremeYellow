@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db ZAPDOS, 100 ; 255
-	db BLASTOISE, 100
+	db STARMIE, 100
 	db STARTER_PIKACHU, 1
 ;	db VENUSAUR, 5
 ;	db ARTICUNO, 99
@@ -53,7 +53,7 @@ IF DEF(_DEBUG)
 	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, ROAR
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -328,39 +328,6 @@ DebugItemsList:
 	db TIGERS_EYE, 1
 	db -1 ; end
 
-DebugUnusedList:
-	db OLD_AMBER, 1
-	db DOME_FOSSIL, 1
-	db HELIX_FOSSIL, 1
-	db X_ACCURACY, 99
-	db DIRE_HIT, 99
-	db FRESH_WATER, 1
-	db S_S_TICKET, 1
-	db GOLD_TEETH, 1
-	db COIN_CASE, 1
-	db POKE_FLUTE, 1
-	db LIFT_KEY, 1
-	db ETHER, 99
-	db MAX_ETHER, 99
-	db ELIXER, 99
-	db MAX_ELIXER, 99
-;	db TM_RAZOR_WIND, 10
-	db TM_HYDRO_PUMP, 10
-	db TM_METEOR_MASH, 10
-	db TM_BLIZZARD, 10
-	db TM_HYPER_BEAM, 10
-	db TM_STONE_EDGE, 10
-;	db TM_DRAGON_RAGE, 10
-	db TM_MIMIC, 10
-	db TM_BIDE, 10
-	db TM_METRONOME, 10
-	db TM_SELFDESTRUCT, 10
-	db TM_DARK_PULSE, 10
-	db TM_BRAVE_BIRD, 10
-	db TM_CLOSE_COMBAT, 10
-	db TM_REST, 10
-	db TM_SUBSTITUTE, 10
-	db -1 ; end
 ELSE
 	ret
 ENDC

@@ -172,9 +172,12 @@ CheckIfAllMovesAreStatusMoves::
 	and a ; to ensure z flag is set
 	ret
 .continue
+	push bc
+	ld a, 1
 	ld hl, wPartyMon1Moves
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
+	pop bc
 	jr .monLoop
 
 ; =====================================
