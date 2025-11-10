@@ -423,7 +423,7 @@ _SeviiRoute41SignText2::
 
 _SeviiRoute42Text1::
 	text "I have NO idea how"
-	line "I got up here..."
+	line "I ended up here..."
 ;	xxxx "123456789012345678"
 	done
 

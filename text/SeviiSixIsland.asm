@@ -559,8 +559,11 @@ _SeviiRoute38HousesText3::
 
 	para "They're SSSOOO"
 	line "annoying!"
-	cont "That's why they"
-	cont "have no friends!"
+	cont "And they're also"
+	cont "so bad at them!"
+
+	para "That's why they"
+	line "have no friends!"
 	done
 
 _SeviiRoute38HousesSignText1::
@@ -573,6 +576,148 @@ _SeviiRoute38HousesSignText2::
 
 _SeviiRoute38HousesSignText3::
 	text "Further stuff"
+	done
+
+; Route 38 Dive -----------------------------
+
+; Route 38 Dive Cavern ----------------------
+
+_SeviiRoute38DiveCavernBattleText1::
+	text "1-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText1::
+	text "1-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText1::
+	text "1-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText2::
+	text "2-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText2::
+	text "2-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText2::
+	text "2-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText3::
+	text "3-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText3::
+	text "3-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText3::
+	text "3-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText4::
+	text "4-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText4::
+	text "4-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText4::
+	text "4-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText5::
+	text "5-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText5::
+	text "5-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText5::
+	text "5-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText6::
+	text "6-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText6::
+	text "6-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText6::
+	text "6-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText7::
+	text "7-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText7::
+	text "7-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText7::
+	text "7-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText8::
+	text "8-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText8::
+	text "8-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText8::
+	text "8-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText9::
+	text "9-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText9::
+	text "9-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText9::
+	text "9-after"
+	done
+
+; -----
+
+_SeviiRoute38DiveCavernBattleText10::
+	text "10-pre"
+	done
+
+_SeviiRoute38DiveCavernEndBattleText10::
+	text "10-post"
+	prompt
+
+_SeviiRoute38DiveCavernAfterBattleText10::
+	text "10-after"
 	done
 
 ; Pattern Bush -------------------------------
