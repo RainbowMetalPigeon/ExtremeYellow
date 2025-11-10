@@ -9,32 +9,55 @@ _SeviiOneIslandCityText2::
 	done
 
 _SeviiOneIslandCityText3::
-	text "3"
-;	xxxx "123456789012345678"
+	text "You're from KANTO?"
+	line "Welcome to KNOT"
+	cont "ISLAND, the"
+	cont "closest to the"
+	cont "mainland!"
 	done
 
 _SeviiOneIslandCityText4::
-	text "4"
-;	xxxx "123456789012345678"
+	text "They say that the"
+	line "geezer that lives"
+	cont "up there can"
+	cont "teach ya some"
+	cont "cool moves, if"
+	cont "they like ya."
+
+	para "Why didn't teach me"
+	line "anything?! That"
+	cont "old dumb fool!"
 	done
 
 _SeviiOneIslandCityText5::
-	text "5"
-;	xxxx "123456789012345678"
+	text "I enjoy the"
+	line "weather here."
+
+	para "I couldn't bear to"
+	line "live in the cold!"
 	done
 
 _SeviiOneIslandCityText6::
-	text "6"
-;	xxxx "123456789012345678"
+	text "My dream's to try"
+	line "the SEVII TRIAL."
+
+	para "But I'm too green"
+	line "for that yet."
+	cont "I gotta train!"
 	done
 
 _SeviiOneIslandCityText7::
-	text "7"
-;	xxxx "123456789012345678"
+	text "Have you heard"
+	line "about CELIO?"
+
+	para "They're a super"
+	line "smart tech genius."
 	done
 
 _SeviiOneIslandCityText8::
-	text "8"
+	text "Heya! Are you"
+	line "going treasure"
+	cont "hunting too?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -72,8 +95,6 @@ _SeviiOneIslandCitySignText5::
 	done
 
 _SeviiOneIslandCityScriptText1::
-;	text "placeholder"
-;	done
 	text "JENNY: CELIO, I"
 	line "must ask you to"
 	cont "stay calm."
@@ -431,19 +452,42 @@ _SeviiOneIslandHousesScriptText3::
 	done
 
 _SeviiOneIslandPokemonCenterAndMart_Text1::
-	text "test 1-1"
+	text "#MON CENTERs"
+	line "here are a bit"
+	cont "different from"
+	cont "the KANTO ones,"
+	cont "right?"
+
+	para "But the service"
+	line "is the same!"
 	done
 
 _SeviiOneIslandPokemonCenterAndMart_Text2::
-	text "test 1-2"
+	text "Here we don't have"
+	line "good connection."
+	cont "CELIO is working"
+	cont "on that!"
+
+	para "But I heard KANTO"
+	line "too had issues"
+	cont "with it?"
 	done
 
 _SeviiOneIslandPokemonCenterAndMart_Text3::
-	text "test 1-3"
+	text "SILPH restocks"
+	line "the MARTs twice"
+	cont "per day."
+
+	para "They have not"
+	line "forgotten about"
+	cont "SEVII customers!"
 	done
 
 _SeviiOneIslandPokemonCenterAndMart_Text4::
-	text "test 1-4"
+	text "I need REPELs and"
+	line "POTIONs to go to"
+	cont "MT EMBER."
+;	xxxx "123456789012345678"
 	done
 
 ; gym -------------------------------------
@@ -454,35 +498,103 @@ _CantDissipateMistText::
 	prompt
 
 _SeviiOneIslandGym1Text1_PreLeague::
-	text "guide for you 1"
-	line "before"
+	text "I'm sorry, but the"
+	line "SAGE ICHINO"
+	cont "accepts only"
+	cont "challengers of a"
+	cont "certain caliber."
+
+	para "You're not ready."
+
+	para "At this moment, I"
+	line "can only tell you"
+	cont "that this TRIAL"
+	cont "is about"
+	cont "unveiling mystery"
+	cont "with knowledge."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandGym1Text1_PostLeague::
-	text "guide for you 1"
-	line "after"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "Now, SAGE ICHINO"
+	line "will accept your"
+	cont "challenge with"
+	cont "pleasure."
+
+	para "For this TRIAL,"
+	line "the field will be"
+	cont "shrouded in a"
+	cont "mysterious veil."
+	cont "You won't see what"
+	cont "#MON you're"
+	cont "facing!"
+	cont "You'll have to"
+	cont "deduce that from"
+	cont "secondary info."
+
+	para "Good luck!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandGym2Text1_NoChampionYet::
-	text "ICHINO: come"
-	line "back when CHAMP"
+	text "ICHINO: ..."
+
+	para "You still have to"
+	line "prove your worth."
+
+	para "Come back when"
+	line "you've grown"
+	cont "adequately."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandGym2Text1_Intro::
-	text "ICHINO: ciao"
-	line "mystery fight"
+	text "ICHINO: Welcome,"
+	line "KANTO CHAMPION."
+
+	para "Your achievements"
+	line "are now fitting"
+	cont "to take on the"
+	cont "SEVII TRIAL."
+
+	para "In my SHRINE,"
+	line "you'll have to"
+	cont "pierce darkness"
+	cont "with knownledge."
+	cont "Are you up to"
+	cont "the challenge?"
+;	xxxx "123456789012345678"
 	done
 
 _IchinoText_PostBattleText::
-	text "GG 1!"
+	text "ICHINO: Well done!"
+	line "Well done indeed."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiOneIslandGym2Text3_Victory::
-	text "Congrats 1"
+	text "ICHINO: Congra-"
+	line "tulations."
+	cont "You conquered"
+	cont "the SHRINE of"
+	cont "KNOT ISLAND."
+
+	para "TBE" ; reward
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandGym2Text3_Defeat::
-	text "Try again 1"
+	text "ICHINO: Don't let"
+	line "this defeat"
+	cont "define you."
+
+	para "Train, and come"
+	line "back stronger."
+;	xxxx "123456789012345678"
 	done
 
 ; dock ------------------------------------
@@ -822,7 +934,7 @@ _SeviiRoute32DiveEndBattleText2::
 	text "Glub glub!"
 	line "Blu blu blu!"
 	cont "Glu glu glu!"
-	
+
 	para "Glubluglubluuub!"
 
 	para "(Oh.)"

@@ -82,7 +82,10 @@ _SeviiThreeIslandPokemonCenterAndMart_Text2::
 	done
 
 _SeviiThreeIslandPokemonCenterAndMart_Text3::
-	text "test 3-3"
+	text "Prices here in the"
+	line "SEVII ISLANDS are"
+	cont "the same as in"
+	cont "KANTO."
 	done
 
 _SeviiThreeIslandPokemonCenterAndMart_Text4::
@@ -900,7 +903,7 @@ _SeviiRoute33DiveBattleText2::
 
 _SeviiRoute33DiveEndBattleText2::
 	text "Gllubb!"
-	
+
 	para "(Unfair!)"
 	prompt
 
@@ -922,7 +925,7 @@ _SeviiRoute33DiveBattleText3::
 
 _SeviiRoute33DiveEndBattleText3::
 	text "Blubbblu!"
-	
+
 	para "(And this was such"
 	line "a nice battle!)"
 	prompt
@@ -940,7 +943,7 @@ _SeviiRoute33DiveAfterBattleText3::
 
 _SeviiRoute33DiveBattleText4::
 	text "Glub."
-	
+
 	para "(Fight.)"
 ;	xxxx "123456789012345678"
 	done
