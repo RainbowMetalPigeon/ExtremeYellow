@@ -41,13 +41,14 @@ SECTION "bank3", ROMX
 INCLUDE "engine/joypad.asm"
 INCLUDE "engine/overworld/player_state.asm"
 INCLUDE "engine/overworld/tilesets.asm"
-INCLUDE "data/maps/hide_show_data.asm"
-INCLUDE "data/maps/hide_show_data_sevii.asm" ; new
-INCLUDE "engine/items/item_effects.asm"
+INCLUDE "engine/items/item_effects.asm" ; need to stay with the below one
+INCLUDE "engine/overworld/wild_mons.asm" ; need to stay with the above one
 INCLUDE "engine/overworld/cut.asm"
-INCLUDE "engine/overworld/missable_objects.asm"
 INCLUDE "engine/overworld/push_boulder.asm"
 INCLUDE "engine/overworld/pathfinding.asm"
+;INCLUDE "engine/overworld/missable_objects.asm" ; moved to bankGarage3
+;INCLUDE "data/maps/hide_show_data.asm" ; moved to bankGarage3
+;INCLUDE "data/maps/hide_show_data_sevii.asm" ; moved to bankGarage3
 ;INCLUDE "engine/items/get_bag_item_quantity.asm" ; moved to bankGarage2
 ;INCLUDE "engine/events/poison.asm" ; moved to bankGarage2
 ;INCLUDE "engine/overworld/daycare_exp.asm" ; moved to bankGarage2
@@ -60,7 +61,6 @@ INCLUDE "engine/overworld/pathfinding.asm"
 ;INCLUDE "engine/gfx/hp_bar.asm" ; moved to bankGarage
 ;INCLUDE "engine/overworld/clear_variables.asm" ; moved to bankGarage2
 ;INCLUDE "engine/overworld/update_map.asm" ; moved to bankGarage2
-;INCLUDE "engine/overworld/wild_mons.asm" ; moved to bankGarage2
 
 
 SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks
@@ -113,7 +113,9 @@ SECTION "bankGarage3", ROMX ; new
 INCLUDE "engine/pokemon/add_mon.asm" ; from bank3
 INCLUDE "engine/flag_action.asm" ; from bank3
 INCLUDE "engine/battle/safari_zone.asm" ; from bank1
-INCLUDE "engine/overworld/wild_mons.asm" ; from bank3
+INCLUDE "engine/overworld/missable_objects.asm" ; these 3 together ; from bank3
+INCLUDE "data/maps/hide_show_data.asm" ; these 3 together ; from bank3
+INCLUDE "data/maps/hide_show_data_sevii.asm" ; new ; these 3 together ; from bank3
 
 
 SECTION "bank4", ROMX
