@@ -8,13 +8,9 @@ SeviiFiveIslandCityDive_Object:
 ;	bg_event  5, 27, 14 ; SeviiTwoIslandCitySignText1
 
 	def_object_events
-;	object_event  6, 20, SPRITE_DIVER, STAY, LEFT, 1, OPP_DIVER, 13
-;	object_event 24,  6, SPRITE_DIVER, STAY, UP, 2, OPP_DIVER, 14
-;	object_event  7,  4, SPRITE_DIVER, STAY, DOWN, 3, OPP_DIVER, 15
-;	object_event 22, 21, SPRITE_DIVER, STAY, RIGHT, 4, OPP_DIVER, 16
-;	object_event 36, 38, SPRITE_POKE_BALL, STAY, NONE, 5, PROTEIN
-;	object_event 36, 39, SPRITE_POKE_BALL, STAY, NONE, 6, IRON
-;	object_event 37, 38, SPRITE_POKE_BALL, STAY, NONE, 7, CALCIUM
-;	object_event 37, 39, SPRITE_POKE_BALL, STAY, NONE, 8, CARBOS
+	object_event 36,  3, SPRITE_DIVER, STAY, ANY_DIR, 1, OPP_DIVER, 33
+	object_event 32, 32, SPRITE_DIVER, STAY, ANY_DIR, 2, OPP_DIVER, 34
+	object_event 11, 28, SPRITE_DIVER, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 101
+	object_event 15, 15, SPRITE_DIVER, STAY, ANY_DIR, 4, OPP_DIVER, 35
 
 	def_warps_to SEVII_FIVE_ISLAND_CITY_DIVE

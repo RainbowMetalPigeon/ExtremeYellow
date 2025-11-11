@@ -1367,3 +1367,53 @@ _SeviiRoute36SignText1_WrongSide::
 	line "inscription on"
 	cont "the other side."
 	done
+
+; dive ---------------------------------
+
+_SeviiFiveIslandCityDiveBattleText1::
+	text "1-pre"
+	done
+
+_SeviiFiveIslandCityDiveEndBattleText1::
+	text "1-end"
+	prompt
+
+_SeviiFiveIslandCityDiveAfterBattleText1::
+	text "1-after"
+	done
+
+_SeviiFiveIslandCityDiveBattleText2::
+	text "2-pre"
+	done
+
+_SeviiFiveIslandCityDiveEndBattleText2::
+	text "2-end"
+	prompt
+
+_SeviiFiveIslandCityDiveAfterBattleText2::
+	text "2-after"
+	done
+
+_SeviiFiveIslandCityDiveBattleText3::
+	text "3-pre"
+	done
+
+_SeviiFiveIslandCityDiveEndBattleText3::
+	text "3-end"
+	prompt
+
+_SeviiFiveIslandCityDiveAfterBattleText3::
+	text "3-after"
+	done
+
+_SeviiFiveIslandCityDiveBattleText4::
+	text "4-pre"
+	done
+
+_SeviiFiveIslandCityDiveEndBattleText4::
+	text "4-end"
+	prompt
+
+_SeviiFiveIslandCityDiveAfterBattleText4::
+	text "4-after"
+	done

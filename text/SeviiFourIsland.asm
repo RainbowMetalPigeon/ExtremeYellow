@@ -484,3 +484,53 @@ _SeviiFourIslandDockBgText1::
 	text "FLOE ISLAND"
 	line "SHIP PORT"
 	done
+
+; dive ------------------------------------
+
+_SeviiFourIslandCityDiveBattleText1::
+	text "1-pre"
+	done
+
+_SeviiFourIslandCityDiveEndBattleText1::
+	text "1-end"
+	prompt
+
+_SeviiFourIslandCityDiveAfterBattleText1::
+	text "1-after"
+	done
+
+_SeviiFourIslandCityDiveBattleText2::
+	text "2-pre"
+	done
+
+_SeviiFourIslandCityDiveEndBattleText2::
+	text "2-end"
+	prompt
+
+_SeviiFourIslandCityDiveAfterBattleText2::
+	text "2-after"
+	done
+
+_SeviiFourIslandCityDiveBattleText3::
+	text "3-pre"
+	done
+
+_SeviiFourIslandCityDiveEndBattleText3::
+	text "3-end"
+	prompt
+
+_SeviiFourIslandCityDiveAfterBattleText3::
+	text "3-after"
+	done
+
+_SeviiFourIslandCityDiveBattleText4::
+	text "4-pre"
+	done
+
+_SeviiFourIslandCityDiveEndBattleText4::
+	text "4-end"
+	prompt
+
+_SeviiFourIslandCityDiveAfterBattleText4::
+	text "4-after"
+	done
