@@ -617,133 +617,200 @@ _SeviiOneIslandDockSailorText_NeedAMoment::
 ; Route 31 ------------------------------------
 
 _SeviiRoute31Text1::
-	text "Damn too hard"
+	text "I tried for days"
+	line "solving the maze"
+	cont "of MT EMBER."
+
+	para "Still no results."
+	line "So I'm taking a"
+	cont "look from a"
+	cont "distance: maybe"
+	cont "a new perspective"
+	cont "will help?"
 	done
 
 ; -----------------------------
 
 _SeviiRoute31BattleText1::
-	text "1-pre"
+	text "Hey, we already"
+	line "met in VIRIDIAN"
+	cont "FOREST and on"
+	cont "ROUTE 3!"
 	done
 
 _SeviiRoute31EndBattleText1::
-	text "1-post"
+	text "Same"
+	line "result!"
 	prompt
 
 _SeviiRoute31AfterBattleText1::
-	text "1-after"
+	text "Maybe here I'll"
+	line "find rare and"
+	cont "strong BUGs!"
 	done
 
 ; -----
 
 _SeviiRoute31BattleText2::
-	text "2-pre"
+	text "I like hats!"
+	line "They're comfy"
+	cont "and easy to wear!"
 	done
 
 _SeviiRoute31EndBattleText2::
-	text "2-post"
+	text "Damn!"
 	prompt
 
 _SeviiRoute31AfterBattleText2::
-	text "2-after"
+	text "Battling is harder"
+	line "than clothing..."
 	done
 
 ; -----
 
 _SeviiRoute31BattleText3::
-	text "3-pre"
+	text "Ready to go down?"
 	done
 
 _SeviiRoute31EndBattleText3::
-	text "3-post"
+	text "Ouch!"
 	prompt
 
 _SeviiRoute31AfterBattleText3::
-	text "3-after"
+	text "It was me who went"
+	line "down! But a loss"
+	cont "can fortify you."
 	done
 
 ; -----
 
 _SeviiRoute31BattleText4::
-	text "4-pre"
+	text "My team is scien-"
+	line "tifically tested!"
 	done
 
 _SeviiRoute31EndBattleText4::
-	text "4-post"
+	text "I did"
+	line "not account for"
+	cont "that variable!"
 	prompt
 
 _SeviiRoute31AfterBattleText4::
-	text "4-after"
+	text "Statistical"
+	line "fluctuations can"
+	cont "happen any time!"
 	done
 
 ; -----
 
 _SeviiRoute31BattleText5::
-	text "5-pre"
+	text "Ah! Finally what"
+	line "looks like a"
+	cont "worthy opponent!"
 	done
 
 _SeviiRoute31EndBattleText5::
-	text "5-post"
+	text "Very"
+	line "worthy indeed!"
 	prompt
 
 _SeviiRoute31AfterBattleText5::
-	text "5-after"
+	text "Ahead from here"
+	line "there's MT EMBER."
+
+	para "It's said to be a"
+	line "crazy maze hiding"
+	cont "untold treasures."
 	done
 
 ; -----
 
 _SeviiRoute31BattleText6::
-	text "6-pre"
+	text "Statements without"
+	line "proofs are just"
+	cont "myths!"
 	done
 
 _SeviiRoute31EndBattleText6::
-	text "6-post"
+	text "Here's"
+	line "a proven fact:"
+	cont "you're strong!"
 	prompt
 
 _SeviiRoute31AfterBattleText6::
-	text "6-after"
+	text "Always base your"
+	line "ideas on facts,"
+	cont "not your guts."
 	done
 
 ; -----
 
 _SeviiRoute31BattleText7::
-	text "7-pre"
+	text "This is such a"
+	line "nice area to"
+	cont "go camping."
 	done
 
 _SeviiRoute31EndBattleText7::
-	text "7-post"
+	text "JR.TRAINER: Wow!"
+	line "Better camping"
+	cont "than battling."
 	prompt
 
 _SeviiRoute31AfterBattleText7::
-	text "7-after"
+	text "MT EMBER view,"
+	line "EMBER SPA nearby,"
+	cont "the sound of the"
+	cont "waves, the"
+	cont "greenery."
+
+	para "This area is"
+	line "really bucolic!" ; TBE
 	done
 
 ; -----
 
 _SeviiRoute31BattleText8::
-	text "8-pre"
+	text "Observation,"
+	line "hypothesis,"
+	cont "experiments,"
+	cont "conclusions!"
 	done
 
 _SeviiRoute31EndBattleText8::
-	text "8-post"
+	text "SUPER NERD: I can"
+	line "formulate a"
+	cont "theory: you're"
+	cont "strong!"
 	prompt
 
 _SeviiRoute31AfterBattleText8::
-	text "8-after"
+	text "The scientific"
+	line "method's the basis"
+	cont "of all of Science"
+	cont "and thus by"
+	cont "extension of all"
+	cont "modern life!"
 	done
 
 ; -----
 
 _SeviiRoute31BattleText9::
-	text "9-pre"
+	text "Show me what you"
+	line "can do!"
 	done
 
 _SeviiRoute31EndBattleText9::
-	text "9-post"
+	text "You"
+	line "can do a lot!"
 	prompt
 
 _SeviiRoute31AfterBattleText9::
-	text "9-after"
+	text "Have you already"
+	line "visited FAMILY?"
+
+	para "It has a great"
+	line "training ground!"
 	done
 
 ; -----

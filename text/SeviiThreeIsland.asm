@@ -1,21 +1,56 @@
-_SeviiThreeIslandCityText1::
-	text "1"
-;	xxxx "123456789012345678"
+_SeviiThreeIslandCityText1_Before::
+	text "I like ROUTE 33"
+	line "better for"
+	cont "fishing, but"
+	cont "those noisy"
+	cont "bikers are really"
+	cont "bothersome."
+	done
+
+_SeviiThreeIslandCityText1_After::
+	text "Now that those"
+	line "noisty bikers"
+	cont "left ROUTE 33,"
+	cont "I could return"
+	cont "there..."
+
+	para "...but I'm too"
+	line "lazy. Here is"
+	cont "good enough."
 	done
 
 _SeviiThreeIslandCityText2::
-	text "2"
-;	xxxx "123456789012345678"
+	text "Near here it lives"
+	line "a famous"
+	cont "magician."
+
+	para "They developed"
+	line "novel tricks, and"
+	cont "also a new"
+	cont "#MON move!"
 	done
 
 _SeviiThreeIslandCityText3::
-	text "3"
-;	xxxx "123456789012345678"
+	text "FAMILY ISLAND has"
+	line "such a cozy"
+	cont "atmosphere, yet"
+	cont "the CAVES in the"
+	cont "south and the"
+	cont "DREAM FOREST on"
+	cont "the west're kinda"
+	cont "creepy places."
 	done
 
 _SeviiThreeIslandCityText4::
-	text "4"
-;	xxxx "123456789012345678"
+	text "Have you visited"
+	line "our magician?"
+
+	para "They are as"
+	line "skilled in magic"
+	cont "as in #MON,"
+	cont "to the point that"
+	cont "it seems they"
+	cont "created a new HM!"
 	done
 
 _SeviiThreeIslandCityText5::
@@ -34,13 +69,17 @@ _SeviiThreeIslandCityText7::
 	done
 
 _SeviiThreeIslandCityText8::
-	text "8"
-;	xxxx "123456789012345678"
+	text "We're playing"
+	line "hide-and-seek!"
+
+	para "I'm seeking."
 	done
 
 _SeviiThreeIslandCityText9::
-	text "9"
-;	xxxx "123456789012345678"
+	text "We're playing"
+	line "hide-and-seek!"
+
+	para "I'm hiding."
 	done
 
 _SeviiThreeIslandCitySignText1::

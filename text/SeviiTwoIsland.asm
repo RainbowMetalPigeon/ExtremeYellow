@@ -46,7 +46,7 @@ _SeviiTwoIslandCityText6_Intro::
 	line "We run a lottery."
 	cont "You can win"
 	cont "amazing prizes!"
-	
+
 	para "It's only 5000¥."
 	line "Want to play?"
 	done
@@ -288,46 +288,118 @@ _SeviiTwoIslandHousesSignText1::
 ; gym -------------------------------------
 
 _SeviiTwoIslandGymText1_NoChampionYet::
-	text "NIUE: come"
-	line "back when CHAMP"
+	text "NIUE: ..."
+
+	para "You've not proven"
+	line "your worth yet."
+
+	para "Come back when"
+	line "you're ready."
+	cont "You'll know."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandGymText1_Intro1::
-	text "NIUE: ciao"
-	line "rental fight"
-	cont "gimme few secs"
+	text "NIUE: Welcome,"
+	line "young CHAMPION!"
+
+	para "Now you're ready"
+	line "to take on the"
+	cont "SEVII TRIAL!"
+;	xxxx "123456789012345678"
+
+	para "In this SHRINE,"
+	line "you'll have to"
+	cont "battle using a"
+	cont "brand-new team!"
+
+	para "Will you be able"
+	line "to draw out the"
+	cont "best out of what"
+	cont "Fate'll offer you?"
+
+	para "Give me just a"
+	line "few seconds to"
+	cont "ready your team."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandGymText1_Intro2::
-	text "NIUE: ok"
-	line "almost there"
+	text "NIUE: Almost done!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandGymText1_Intro3::
-	text "NIUE: ok"
-	line "we're ready!"
+	text "NIUE: Perfect!"
+	line "We're now ready"
+	cont "for our fight."
+
+	para "Good luck!"
+;	xxxx "123456789012345678"
 	done
 
 _NiueText_PostBattleText::
-	text "GG 2!"
+	text "NIUE: Grand!"
+	line "That was great!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiTwoIslandGymText3_Victory::
-	text "Congrats 2"
+	text "NIUE: Congrats!"
+	line "You beat the"
+	cont "SHRINE of"
+	cont "BOON ISLAND."
+
+	para "TBE" ; reward
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandGymText4_Defeat::
-	text "Try again 2"
+	text "NIUE: Too bad!"
+	line "But don't get"
+	cont "discouraged."
+	cont "I'm down for a"
+	cont "rematch anytime!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandGymText2_PreLeague::
-	text "guide for you 2"
-	line "before"
+	text "I'm sorry, but the"
+	line "SAGE NIUE"
+	cont "accepts only"
+	cont "challengers of a"
+	cont "certain caliber."
+
+	para "You're not ready."
+
+	para "At this moment, I"
+	line "can only tell you"
+	cont "that this TRIAL"
+	cont "is about coming"
+	cont "up with the best"
+	cont "tactic on the fly."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandGymText2_PostLeague::
-	text "guide for you 2"
-	line "after"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "Now, SAGE NIUE"
+	line "will accept your"
+	cont "challenge with"
+	cont "pleasure."
+
+	para "For this TRIAL,"
+	line "you won't battle"
+	cont "with your team,"
+	cont "but you'll use one"
+	cont "assembled at"
+	cont "random for you."
+
+	para "Good luck!"
+;	xxxx "123456789012345678"
 	done
 
 ; dock ------------------------------------
@@ -371,7 +443,7 @@ _SeviiTwoIslandCityDiveBattleText2::
 
 _SeviiTwoIslandCityDiveEndBattleText2::
 	text "Glublub."
-	
+
 	para "(Urgh...)"
 	prompt
 
@@ -393,7 +465,7 @@ _SeviiTwoIslandCityDiveBattleText3::
 
 _SeviiTwoIslandCityDiveEndBattleText3::
 	text "Glub!"
-	
+
 	para "(Well!)"
 	prompt
 
@@ -410,7 +482,7 @@ _SeviiTwoIslandCityDiveAfterBattleText3::
 
 _SeviiTwoIslandCityDiveBattleText4::
 	text "Glu glu..."
-	
+
 	para "(Please go easy"
 	line "on me...)"
 ;	xxxx "123456789012345678"

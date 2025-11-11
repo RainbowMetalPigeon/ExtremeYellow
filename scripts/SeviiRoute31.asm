@@ -42,7 +42,7 @@ SeviiRoute31TrainerHeader3:
 SeviiRoute31TrainerHeader4:
 	trainer EVENT_BEAT_SEVII_ROUTE_31_TRAINER_4, 4, SeviiRoute31BattleText4, SeviiRoute31EndBattleText4, SeviiRoute31AfterBattleText4
 SeviiRoute31TrainerHeader5:
-	trainer EVENT_BEAT_SEVII_ROUTE_31_TRAINER_5, 4, SeviiRoute31BattleText5, SeviiRoute31EndBattleText5, SeviiRoute31AfterBattleText5
+	trainer EVENT_BEAT_SEVII_ROUTE_31_TRAINER_5, 2, SeviiRoute31BattleText5, SeviiRoute31EndBattleText5, SeviiRoute31AfterBattleText5
 SeviiRoute31TrainerHeader6:
 	trainer EVENT_BEAT_SEVII_ROUTE_31_TRAINER_6, 4, SeviiRoute31BattleText6, SeviiRoute31EndBattleText6, SeviiRoute31AfterBattleText6
 SeviiRoute31TrainerHeader7:
@@ -254,10 +254,9 @@ SeviiRoute31AfterBattleText10:
 SeviiRoute31Text1:
 	text_far _SeviiRoute31Text1
 	text_end
-	
+
 ; ---------------------------------------
 
 SeviiRoute31SignText1:
 	text_far _SeviiRoute31SignText1
 	text_end
-	

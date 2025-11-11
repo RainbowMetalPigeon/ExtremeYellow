@@ -48,6 +48,7 @@ SeviiTwoIslandCity_PostVictoryVsBikerBoss:
 	call DisplayTextID
 ; hide all the bikers
 	call GBFadeOutToBlack
+	SetEvent EVENT_SEVII_CLEARED_ROUTE_33
 	ld a, HS_SEVII_ROUTE_33_BIKER_1
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
