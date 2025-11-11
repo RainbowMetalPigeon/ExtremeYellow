@@ -305,6 +305,7 @@ SeviiLostCave3HS:
 	db SEVII_LOST_CAVE_3, 4, SHOW ; PP_UP
 SeviiFiveIslandCityDiveCavernHS:
 	db SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 1, SHOW ; pearl
+	db SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 2, SHOW ; ball
 SeviiSixIslandDockHS:
 	db SEVII_SIX_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiRoute38DiveCavernHS:

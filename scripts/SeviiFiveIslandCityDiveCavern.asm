@@ -10,6 +10,7 @@ SeviiFiveIslandCityDiveCavern_Script:
 
 SeviiFiveIslandCityDiveCavern_TextPointers:
 	dw PickUpItemText
+	dw PickUpItemText
 
 ;SeviiFiveIslandCityDiveCavern_ScriptPointers:
 ;	dw CheckFightingMapTrainers

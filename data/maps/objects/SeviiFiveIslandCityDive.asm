@@ -2,7 +2,7 @@ SeviiFiveIslandCityDive_Object:
 	db $08 ; border block
 
 	def_warp_events
-	warp_event 20, 25, SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 1
+	warp_event 20, 23, SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 1
 
 	def_bg_events
 ;	bg_event  5, 27, 14 ; SeviiTwoIslandCitySignText1
