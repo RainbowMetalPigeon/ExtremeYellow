@@ -652,6 +652,14 @@ DisplayWildLocations:
 ; new for sevii
 .inSevii
 	pop af
+	cp SEVII_SEVEN_ISLAND_GYM_1
+	jr z, .nextEntry
+	cp SEVII_SEVEN_ISLAND_GYM_2
+	jr z, .nextEntry
+	cp SEVII_SEVEN_ISLAND_GYM_2_DIVE
+	jr z, .nextEntry
+	cp SEVII_SEVEN_ISLAND_GYM_3
+	jr z, .nextEntry
 .postSevii
 ; back to vanilla
 	push hl
