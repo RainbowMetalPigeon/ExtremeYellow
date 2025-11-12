@@ -222,6 +222,21 @@ _SeviiThreeIslandHousesText2_After::
 _SeviiThreeIslandHousesText3::
 	text "My mapa likes to"
 	line "hide stuff!"
+
+	para "They do like:"
+
+	para "SWIRL SWIRL!"
+	
+	para "and then:"
+	
+	para "PUFF!"
+	line "It's gone!"
+
+	para "I like the SWIRL"
+	line "SWIRL a lot!"
+	cont "Mapa even made an"
+	cont "HM so #MON can"
+	cont "do SWIRL SWIRL!"
 ;	xxxx "123456789012345678"
 	done
 

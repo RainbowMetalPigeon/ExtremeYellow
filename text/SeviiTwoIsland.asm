@@ -339,7 +339,7 @@ _SeviiTwoIslandGymText1_Intro3::
 	done
 
 _NiueText_PostBattleText::
-	text "NIUE: Grand!"
+	text "Grand!"
 	line "That was great!"
 ;	xxxx "123456789012345678"
 	prompt

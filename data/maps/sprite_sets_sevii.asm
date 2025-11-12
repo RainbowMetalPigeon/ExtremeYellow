@@ -137,7 +137,7 @@ SpriteSets_Sevii:
 ; sprite set $07
 	table_width 1
 	db SPRITE_PIKACHU
-	db SPRITE_SWIMMER
+	db SPRITE_SIRD
 	db SPRITE_SCIENTIST
 	db SPRITE_YOUNGSTER
 	db SPRITE_ERIKA
