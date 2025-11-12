@@ -14,6 +14,6 @@ SeviiRoute44_Object:
 ;	bg_event  5, 65, 4 ; Route2Text3
 
 	def_object_events
-	object_event 41, 14, SPRITE_SWIMMER, STAY, ANY_DIR, 1
+	object_event 42, 11, SPRITE_HIKER, STAY, ANY_DIR, 1
 
 	def_warps_to SEVII_ROUTE_44

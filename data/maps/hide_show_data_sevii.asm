@@ -221,8 +221,8 @@ SeviiRoute42HS:
 	db SEVII_ROUTE_42, 12, SHOW ; ball
 SeviiRoute43HS:
 	db SEVII_ROUTE_43, 12, SHOW ; rock
-	db SEVII_ROUTE_43, 13, SHOW ; rock
-	db SEVII_ROUTE_43, 14, SHOW ; ball
+	db SEVII_ROUTE_43, 13, SHOW ; ball
+	db SEVII_ROUTE_43, 14, HIDE ; Sird
 
 ; indoors ----------------------------------
 

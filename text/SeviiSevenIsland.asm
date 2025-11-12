@@ -709,6 +709,13 @@ _SeviiRoute43AfterBattleText10::
 	text "10-after"
 	done
 
+; -----
+
+_SeviiRoute43TextSird::
+	text "SIRD proxy"
+;	xxxx "123456789012345678"
+	done
+
 ; Route 43 Caves ------------------------------
 
 _SeviiRoute43CavesScriptText1::

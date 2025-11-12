@@ -25,8 +25,8 @@ SeviiRoute43_TextPointers:
 	dw SeviiRoute43Text10 ; 10 trainer
 	dw SeviiRoute43Text11 ; 11 trainer
 	dw RockSmashText ; 12
-	dw RockSmashText ; 13
-	dw PickUpItemText ; 14
+	dw PickUpItemText ; 13
+	dw SeviiRoute43TextSird ; 14 Sird
 
 SeviiRoute43Text1:
 	text_far _SeviiRoute43Text1
@@ -249,3 +249,11 @@ SeviiRoute43EndBattleText10:
 SeviiRoute43AfterBattleText10:
 	text_far _SeviiRoute43AfterBattleText10
 	text_end
+
+; -----------------------------------------
+
+SeviiRoute43TextSird:
+	text_far _SeviiRoute43TextSird
+	text_end
+
+;HS_SEVII_ROUTE_43_SIRD

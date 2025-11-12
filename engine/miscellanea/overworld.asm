@@ -740,7 +740,6 @@ RockSmashableRocks_Sevii:
 	db HS_SEVII_SEVEN_ISLAND_GYM_2_ROCK_1
 	db HS_SEVII_SEVEN_ISLAND_GYM_2_ROCK_2
 	db HS_SEVII_ROUTE_43_ROCK_1
-	db HS_SEVII_ROUTE_43_ROCK_2
 	db $FF
 
 RockSmashableRocks_KantoBase:
