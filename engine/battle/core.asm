@@ -16,6 +16,7 @@ SlidePlayerAndEnemySilhouettesOnScreen:           ; edited into a jpfar to save 
                                     ; because called only by SlidePlayerAndEnemySilhouettesOnScreen which is there
 
 StartBattle:
+;	callfar SaveEnemyPartyIntoSpecialSRAM ; testing
 	callfar InitializeBattleVariablesAndEvents ; new
 	ld a, 1 ; edited
 	ld [wFirstMonsNotOutYet], a
@@ -750,6 +751,8 @@ TrainerBattleVictory:
 	predef AddBCDPredef
 .noAmuletCoin
 ; BTV
+;	callfar ReloadPartyFromSpecialSRAM ; testing
+;	callfar RenameTradedTeamWithDefaultNicks ; testing
 	ld hl, MoneyForWinningText
 	call PrintText
 	ld de, wPlayerMoney + 2

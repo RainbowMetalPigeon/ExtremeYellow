@@ -805,3 +805,62 @@ DisplayPikachuSash::
 PikachuResisted:
 	text_far _PikachuResisted
 	text_end
+
+; ==========================================================
+
+SaveEnemyPartyIntoSpecialSRAM::
+; enable sram saving
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	ld a, $1
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamBank], a
+; copy data
+	ld hl, wEnemyPartyCount ; origin
+	ld de, sTemporarySaveForSeviiSages ; destination
+	ld bc, wTrainerHeaderPtr - wEnemyPartyCount ; length
+	call CopyData ; Copy bc bytes from hl to de.
+; disable sram saving
+	ld a, SRAM_DISABLE
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
+	ret
+
+RenameTradedTeamWithDefaultNicks::
+	ld a, [wPartyCount]
+	ld b, a ; party counter
+	ld de, wPartyMonNicks
+	ld hl, wPartySpecies
+.loop
+; copy the default name into the nick
+	push bc
+	ld a, [hli]
+	push hl
+	push de
+	ld [wd11e], a
+	call GetMonName
+	ld hl, wcd6d
+	ld bc, NAME_LENGTH
+	pop de
+	push de
+	call CopyData
+	pop de
+	pop hl
+	pop bc
+; are we done?
+	dec b
+	ret z
+; not done: advance de by 10
+	push bc
+	push hl
+	ld h, d
+	ld l, e
+	ld a, NAME_LENGTH
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl
+	pop bc
+	jr .loop
