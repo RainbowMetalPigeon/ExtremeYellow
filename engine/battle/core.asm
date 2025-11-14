@@ -751,7 +751,7 @@ TrainerBattleVictory:
 	predef AddBCDPredef
 .noAmuletCoin
 ; BTV
-;	callfar ReloadPartyFromSpecialSRAM ; testing
+;	callfar ReloadTradedPartyFromSpecialSRAM ; testing
 ;	callfar RenameTradedTeamWithDefaultNicks ; testing
 	ld hl, MoneyForWinningText
 	call PrintText

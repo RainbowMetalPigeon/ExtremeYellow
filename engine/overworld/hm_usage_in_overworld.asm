@@ -525,6 +525,10 @@ ClimbWallUp:
     call EnableAutoTextBoxDrawing
     tx_pre PokemonClimbsTheWall
 ; decide where to go, and how much
+    xor a
+	ld [wWalkBikeSurfState], a
+	ld [wWalkBikeSurfStateCopy], a
+	call LoadPlayerSpriteGraphics
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
 	jr z, .goingUp

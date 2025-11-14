@@ -201,7 +201,9 @@ SavePartyIntoSpecialSRAM::
 	ld [MBC1SRamBankingMode], a
 	ld [MBC1SRamEnable], a
 	ret
-	
+
+ReloadTradedPartyFromSpecialSRAM::
+	; TBE: check wram var
 ReloadPartyFromSpecialSRAM::
 ; enable sram saving
 	ld a, SRAM_ENABLE

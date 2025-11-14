@@ -716,6 +716,58 @@ _SeviiRoute43TextSird::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiRoute43ScriptText1::
+	text "NOT A STEP MORE!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute43ScriptText2::
+	text "SIRD: You... you"
+	line "are the brat that"
+	cont "beat GIOVANNI!"
+
+	para "...not that I care"
+	line "much, actually."
+
+	para "What's important is"
+	line "that you don't get"
+	cont "in my BOSS' way."
+
+	para "I bet you don't"
+	line "even know what"
+	cont "lies in that cave"
+	cont "or how to draw"
+	cont "out its true"
+	cont "hidden power."
+
+	para "But you don't need"
+	line "to know, because"
+	cont "you'll die now."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute43SirdDefeatText::
+	text "W-what?!"
+	line "I see how you"
+	cont "could defeat all"
+	cont "of TEAM ROCKET!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute43ScriptText3::
+	text "SIRD: Grrr..."
+	line "I failed CYRUS."
+	cont "You shamed me!"
+	cont "How can I show my"
+	cont "face to them ever"
+	cont "again now?!"
+
+	para "Mark my words:"
+	line "I'll have my"
+	cont "revenge!"
+;	xxxx "123456789012345678"
+	done
+
 ; Route 43 Caves ------------------------------
 
 _SeviiRoute43CavesScriptText1::

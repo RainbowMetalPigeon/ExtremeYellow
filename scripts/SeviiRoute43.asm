@@ -7,10 +7,148 @@ SeviiRoute43_Script:
 	ld [wCurMapScript], a
 	ret
 
+; scripts =============================================
+
 SeviiRoute43_ScriptPointers:
-	dw CheckFightingMapTrainers
+	dw SeviiRoute43Script0
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw SeviiRoute43Script3
+	dw SeviiRoute43Script4
+	dw SeviiRoute43Script5
+
+SeviiRoute43Script0:
+; check if sird event completed
+	CheckEvent EVENT_SEVII_BEAT_SIRD
+	jp nz, CheckFightingMapTrainers
+; if not, check if in coordinates
+	ld hl, SeviiRoute43_Coordinates_SirdScene
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jp nc, CheckFightingMapTrainers
+; play music
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+; if yes, dialogue
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; player one step back
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, SeviiRoute43_SirdScenePlayerWalksBack_RLEMovement
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; script handling
+	ld a, 3
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute43_Coordinates_SirdScene:
+	dbmapcoord  3, 15
+	db -1 ; end
+
+SeviiRoute43_SirdScenePlayerWalksBack_RLEMovement:
+	db D_DOWN, 1
+	db -1 ; end
+
+SeviiRoute43Script3:
+; wait for player to have walked
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+; spawn Sird
+	ld a, HS_SEVII_ROUTE_43_SIRD
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+; sird walks forward n steps
+	ld de, SeviiRoute43SirdMovements
+.playerOnLeftSide
+	ld a, 14
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 4
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute43SirdMovements:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+SeviiRoute43Script4:
+; wait for Sird to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; another dialogue
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; setup battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_SIRD
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiRoute43SirdDefeatText
+	ld de, SeviiRoute43SirdDefeatText
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 5
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute43Script5:
+; if lost, reset scripts
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiRoute43ResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; if won, change Sird facing
+	lb de, 14, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing ; new Pigeon approach
+	ld a, 14
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new from Engeze
+; dialogue
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set event
+	SetEvent EVENT_SEVII_BEAT_SIRD
+; hide Sird
+	call GBFadeOutToBlack
+	ld a, HS_SEVII_ROUTE_43_SIRD
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; reset scripts
+	; fallthrough
+SeviiRoute43ResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+; texts =============================================
 
 SeviiRoute43_TextPointers:
 	dw SeviiRoute43Text1  ;  1 person
@@ -27,6 +165,10 @@ SeviiRoute43_TextPointers:
 	dw RockSmashText ; 12
 	dw PickUpItemText ; 13
 	dw SeviiRoute43TextSird ; 14 Sird
+	; scripts
+	dw SeviiRoute43ScriptText1 ; 15
+	dw SeviiRoute43ScriptText2 ; 16
+	dw SeviiRoute43ScriptText3 ; 17
 
 SeviiRoute43Text1:
 	text_far _SeviiRoute43Text1
@@ -256,4 +398,18 @@ SeviiRoute43TextSird:
 	text_far _SeviiRoute43TextSird
 	text_end
 
-;HS_SEVII_ROUTE_43_SIRD
+SeviiRoute43ScriptText1: ; 15 Stop
+	text_far _SeviiRoute43ScriptText1
+	text_end
+
+SeviiRoute43ScriptText2: ; 16 I kill ya
+	text_far _SeviiRoute43ScriptText2
+	text_end
+
+SeviiRoute43SirdDefeatText: ; nani
+	text_far _SeviiRoute43SirdDefeatText
+	text_end
+
+SeviiRoute43ScriptText3: ; 17 I'll get my revenge ciao
+	text_far _SeviiRoute43ScriptText3
+	text_end
