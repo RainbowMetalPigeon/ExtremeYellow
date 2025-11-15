@@ -494,12 +494,22 @@ CheckForBoulderCollisionWithSprites:
 	ldh [hPlayerXCoord], a
 	ld a, [wNumSprites]
 	ld c, a
-	ld de, $f
+;	ld de, $f ; edited
+	ld de, wSprite01StateData1ImageIndex ; new
 	ld hl, wSprite01StateData2MapY
 	ldh a, [hPlayerFacing]
 	and $3 ; facing up or down?
 	jr z, .pushingHorizontallyLoop
 .pushingVerticallyLoop
+; new
+	ld a, [de]
+	cp $FF
+	jr nz, .notHidden1
+	; hidden
+	inc hl
+	jr .nextSprite1
+.notHidden1
+; BTV
 	inc hl
 	ldh a, [hPlayerXCoord]
 	cp [hl]
@@ -523,9 +533,31 @@ CheckForBoulderCollisionWithSprites:
 .nextSprite1
 	dec c
 	jr z, .success
+; edited/new
+	push de
+	ld de, $f
 	add hl, de
+	pop de
+	push hl
+	ld h, d
+	ld l, e
+	ld de, wSprite02StateData1ImageIndex - wSprite01StateData1ImageIndex
+	add hl, de
+	ld d, h
+	ld e, l
+	pop hl
+; BTV
 	jr .pushingVerticallyLoop
 .pushingHorizontallyLoop
+; new
+	ld a, [de]
+	cp $FF
+	jr nz, .notHidden2
+	; hidden
+	inc hl
+	jr .nextSprite2
+.notHidden2
+; BTV
 	ld a, [hli]
 	ld b, a
 	ldh a, [hPlayerYCoord]
@@ -548,7 +580,20 @@ CheckForBoulderCollisionWithSprites:
 .nextSprite2
 	dec c
 	jr z, .success
+; edited/new
+	push de
+	ld de, $f
 	add hl, de
+	pop de
+	push hl
+	ld h, d
+	ld l, e
+	ld de, wSprite02StateData1ImageIndex - wSprite01StateData1ImageIndex
+	add hl, de
+	ld d, h
+	ld e, l
+	pop hl
+; BTV
 	jr .pushingHorizontallyLoop
 .failure
 	ld a, $ff
