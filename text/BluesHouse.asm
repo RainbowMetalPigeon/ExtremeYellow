@@ -346,3 +346,48 @@ _BluesHouseOakText::
 	line "the bottom of my"
 	cont "heart, thank you."
 	done
+
+; signs ---------------------
+
+_BluesHouseSignText1::
+	text "Two adults and"
+	line "two kids."
+
+	para "It looks like a"
+	line "happy family, but"
+	cont "for some reasons"
+	cont "it has a sad"
+	cont "feeling on it."
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseSignText2::
+	text "There are two open"
+	line "broswer tabs."
+
+	para "One is about how"
+	line "to treat a"
+	cont "certain medical"
+	cont "condition."
+
+	para "The other is an"
+	line "article from"
+	cont "years ago about"
+	cont "three friends"
+	cont "gone missing."
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseSignText3::
+	text "Is the pillow wet?"
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseSignText4::
+	text "It's a Switch."
+
+	para "It's covered by a"
+	line "thick layer of"
+	cont "dust."
+;	xxxx "123456789012345678"
+	done

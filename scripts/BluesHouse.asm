@@ -20,6 +20,11 @@ BluesHouse_TextPointers:
 	dw BluesHouseBluesDadText ; new
 	dw BluesHouseBluesMomText ; new
 	dw BluesHouseOakText ; new
+	; signs, new
+	dw BluesHouseSignText1
+	dw BluesHouseSignText2
+	dw BluesHouseSignText3
+	dw BluesHouseSignText4
 
 BluesHouseDaisySittingText: ; TBE
 	text_asm
@@ -214,3 +219,20 @@ BluesHouseBluesMomText:
 BluesHouseOakText:
 	text_far _BluesHouseOakText
 	text_end
+
+BluesHouseSignText1:
+	text_far _BluesHouseSignText1
+	text_end
+	
+BluesHouseSignText2:
+	text_far _BluesHouseSignText2
+	text_end
+	
+BluesHouseSignText3:
+	text_far _BluesHouseSignText3
+	text_end
+	
+BluesHouseSignText4:
+	text_far _BluesHouseSignText4
+	text_end
+	

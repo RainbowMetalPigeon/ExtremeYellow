@@ -4,8 +4,14 @@ BluesHouse_Object:
 	def_warp_events
 	warp_event  2,  7, LAST_MAP, 2
 	warp_event  3,  7, LAST_MAP, 2
+	warp_event  7,  1, BLUES_HOUSE, 4 ; new
+	warp_event 21,  1, BLUES_HOUSE, 3 ; new
 
-	def_bg_events
+	def_bg_events ; new
+	bg_event 18,  0,  8 ; BluesHouseSignText1
+	bg_event 14,  1,  9 ; BluesHouseSignText2
+	bg_event 14,  6, 10 ; BluesHouseSignText3
+	bg_event 21,  7, 11 ; BluesHouseSignText4
 
 	def_object_events
 	object_event  2,  3, SPRITE_DAISY, STAY, RIGHT, 1
