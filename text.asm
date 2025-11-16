@@ -150,7 +150,6 @@ INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's so
 
 
 SECTION "Text 8", ROMX
-INCLUDE "data/text/text_8.asm"
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/CeruleanCity.asm"
@@ -305,6 +304,7 @@ INCLUDE "text/Route8.asm"
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/SilphCo7F.asm"
+INCLUDE "data/text/text_8.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

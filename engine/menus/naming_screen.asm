@@ -293,12 +293,12 @@ DisplayNamingScreen:
 	ld [wNamingScreenLetter], a
 	call CalcStringLength
 	ld a, [wNamingScreenLetter]
-	cp "ﾞ"
-	ld de, Dakutens
-	jr z, .dakutensAndHandakutens
-	cp "ﾟ"
-	ld de, Handakutens
-	jr z, .dakutensAndHandakutens
+;	cp "ﾞ"
+;	ld de, Dakutens
+;	jr z, .dakutensAndHandakutens
+;	cp "ﾟ"
+;	ld de, Handakutens
+;	jr z, .dakutensAndHandakutens
 	ld a, [wNamingScreenType]
 	cp NAME_UNI_QUIZ ; new
 	jr z, .checkPlayerRivalUniAnswerNameLength ; new
@@ -315,12 +315,12 @@ DisplayNamingScreen:
 	jr c, .addLetter
 	ret
 
-.dakutensAndHandakutens
-	push hl
-	call DakutensAndHandakutens
-	pop hl
-	ret nc
-	dec hl
+;.dakutensAndHandakutens
+;	push hl
+;	call DakutensAndHandakutens
+;	pop hl
+;	ret nc
+;	dec hl
 .addLetter
 	ld a, [wNamingScreenLetter]
 	ld [hli], a
@@ -505,21 +505,20 @@ PrintNicknameAndUnderscores:
 	ld [hl], $77 ; raised underscore tile id
 	ret
 
-DakutensAndHandakutens:
-	push de
-	call CalcStringLength
-	dec hl
-	ld a, [hl]
-	pop hl
-	ld de, $2
-	call IsInArray
-	ret nc
-	inc hl
-	ld a, [hl]
-	ld [wNamingScreenLetter], a
-	ret
-
-INCLUDE "data/text/dakutens.asm"
+;DakutensAndHandakutens:
+;	push de
+;	call CalcStringLength
+;	dec hl
+;	ld a, [hl]
+;	pop hl
+;	ld de, $2
+;	call IsInArray
+;	ret nc
+;	inc hl
+;	ld a, [hl]
+;	ld [wNamingScreenLetter], a
+;	ret
+;INCLUDE "data/text/dakutens.asm"
 
 ; calculates the length of the string at wStringBuffer and stores it in c
 CalcStringLength:

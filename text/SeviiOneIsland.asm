@@ -605,7 +605,7 @@ _SeviiOneIslandDockBgText1::
 	done
 
 _SeviiOneIslandDockSailorText_NeedAMoment::
-	text "Sorry, the need to"
+	text "Sorry, we need to"
 	line "refuel the ferry,"
 	cont "we can't set sail"
 	cont "just yet."

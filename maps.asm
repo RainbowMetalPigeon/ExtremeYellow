@@ -53,11 +53,6 @@ INCLUDE "scripts/FuchsiaCity.asm"
 INCLUDE "scripts/OchreCity.asm"					; new
 INCLUDE "scripts/ObsidianIsland.asm"			; new
 
-INCLUDE "data/maps/headers/BluesHouse.asm"
-INCLUDE "scripts/BluesHouse.asm"
-INCLUDE "data/maps/objects/BluesHouse.asm"
-BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
-
 INCLUDE "data/maps/headers/SilphCo4F.asm"
 INCLUDE "scripts/SilphCo4F.asm"
 INCLUDE "data/maps/objects/SilphCo4F.asm"
@@ -1446,6 +1441,11 @@ INCLUDE "data/maps/headers/Route21DiveCavern.asm"
 INCLUDE "scripts/Route21DiveCavern.asm"
 INCLUDE "data/maps/objects/Route21DiveCavern.asm"
 Route21DiveCavern_Blocks: INCBIN "maps/Route21DiveCavern.blk"
+
+INCLUDE "data/maps/headers/BluesHouse.asm"
+INCLUDE "scripts/BluesHouse.asm"
+INCLUDE "data/maps/objects/BluesHouse.asm"
+BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
 
 ; --------------------- NEW FOR SEVII ----------------------------
 

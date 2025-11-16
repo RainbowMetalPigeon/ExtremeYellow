@@ -1,10 +1,10 @@
 MapSongBanks_Sevii::
 	table_width 2, MapSongBanks_Sevii
 ; cities
-	db MUSIC_VERMILION, BANK(Music_Vermilion) ; SEVII_ONE_ISLAND_CITY
+	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; SEVII_ONE_ISLAND_CITY
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; SEVII_TWO_ISLAND_CITY
 	db MUSIC_CITIES2, BANK(Music_Cities2) ; SEVII_THREE_ISLAND_CITY
-	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; SEVII_FOUR_ISLAND_CITY
+	db MUSIC_VERMILION, BANK(Music_Vermilion) ; SEVII_FOUR_ISLAND_CITY
 	db MUSIC_CELADON, BANK(Music_Celadon) ; SEVII_FIVE_ISLAND_CITY
 	db MUSIC_CITIES2, BANK(Music_Cities2) ; SEVII_SIX_ISLAND_CITY
 	db MUSIC_CELADON, BANK(Music_Celadon) ; SEVII_SEVEN_ISLAND_CITY
@@ -27,11 +27,11 @@ MapSongBanks_Sevii::
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone) ; SEVII_ROUTE_44
 ; indoors
 ; 1-island
-	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_ONE_ISLAND_DOCK
+	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_ONE_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_ONE_ISLAND_GYM_1
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_ONE_ISLAND_GYM_2
-	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_ONE_ISLAND_HOUSES
+	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_ONE_ISLAND_HOUSES
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_EMBER_SPA
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_32_DIVE
 	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_MT_EMBER_4BF
@@ -69,10 +69,10 @@ MapSongBanks_Sevii::
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_33_DIVE_CAVERN_F3
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_33_DIVE_CAVERN_F4
 ; 4-island
-	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_DOCK
+	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_FOUR_ISLAND_DOCK
 	db MUSIC_POKECENTER, BANK(Music_Pokecenter)        ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_FOUR_ISLAND_GYM
-	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_FOUR_ISLAND_HOUSES
+	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_FOUR_ISLAND_HOUSES
 	db MUSIC_GAME_CORNER, BANK(Music_GameCorner)       ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_ICEFALL_CAVE_1F
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FOUR_ISLAND_CITY_DIVE

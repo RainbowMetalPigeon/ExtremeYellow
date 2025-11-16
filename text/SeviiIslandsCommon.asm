@@ -21,14 +21,6 @@ _SeviiIslandsDockSailorText_Canceled::
 	line "you soon."
 	done
 
-_SeviiIslandsDockSailorText_NoTicket::
-	text "Oh... you don't"
-	line "have a TICKET."
-
-	para "I'm sorry, you"
-	line "cannot sail."
-	done
-
 _SeviiIslandGymText_NoRewardWannaFight::
 	text "Oh. Wait. You have"
 	line "some exceptional"

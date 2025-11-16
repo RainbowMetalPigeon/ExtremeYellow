@@ -13,7 +13,7 @@ VermilionCity_Script:
 	res 5, [hl]
 	call nz, .setFirstLockTrashCanIndex
 	ld hl, VermilionCity_ScriptPointers
-	ld a, [wVermilionCityCurScript] ; edited
+	ld a, [wVermilionCityCurScript]
 	call CallFunctionInTable
 	call .vermilionCityScript_19869
 	ret
@@ -37,6 +37,8 @@ VermilionCity_Script:
 	ret
 
 .initCityScript
+	CheckEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY ; new
+	ret nz ; new
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
 	ret nz ; new, testing
 	CheckEventHL EVENT_SS_ANNE_LEFT
@@ -55,40 +57,46 @@ VermilionCity_ScriptPointers:
 	dw VermilionCityScript3
 	dw VermilionCityScript4
 	dw VermilionScript_Traveler ; new, for traveler
+	dw VermilionCityScript6 ; new, for Sevii ferry
+	dw VermilionCityScript7 ; new, for Sevii ferry
 
 VermilionCityScript0:
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
-	ret nz ; new, testing
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
+	ret nz ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
-	jr nz, .return
+	ret nz
 	ld hl, SSAnneTicketCheckCoords
 	call ArePlayerCoordsInArray
-	jr nc, .return
+	ret nc
+; we are by side of the dock sailor
+	CheckEvent EVENT_SS_ANNE_LEFT
+	jr nz, .vanillaCode
+	CheckEvent EVENT_FLASHED_SS_TICKET
+	ret nz
+.vanillaCode
 	xor a
 	ldh [hJoyHeld], a
 	ld [wcf0d], a
-	ld a, $3
+	ld a, $3 ; VermilionCityText3
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	CheckEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY ; new
+	ret nz ; new
 	CheckEvent EVENT_SS_ANNE_LEFT
-	jr nz, .shipHasDeparted
-	ld b, S_S_TICKET
-	predef GetQuantityOfItemInBag
-	ld a, b
-	and a
+	jr nz, .accessDenied
+;	ld b, S_S_TICKET
+;	call IsItemInBag ; set zero flag if item isn't in player's bag
+	CheckEvent EVENT_FLASHED_SS_TICKET
 	ret nz
-.shipHasDeparted
-	ld a, D_UP | B_BUTTON ; edited to fix Pikachu blocker, testing
+.accessDenied
+	ld a, D_UP | B_BUTTON ; edited to fix Pikachu blocker
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 	ld a, $1
 	ld [wVermilionCityCurScript], a
-	ret
-
-.return
 	ret
 
 SSAnneTicketCheckCoords:
@@ -106,7 +114,7 @@ VermilionCityScript4:
 VermilionCityScript2:
 	ld a, $ff
 	ld [wJoyIgnore], a
-	ld a, D_UP | B_BUTTON ; edited to fix Pikachu blocker, testing
+	ld a, D_UP | B_BUTTON ; edited to fix Pikachu blocker
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
 	ld a, 2
@@ -137,6 +145,53 @@ VermilionCityScript1:
 	ld [wVermilionCityCurScript], a
 	ret
 
+VermilionCityScript6: ; new, TBE
+	ld a, $ff
+	ld [wJoyIgnore], a
+; choose player movement depending on Y
+	ld a, [wYCoord]
+	cp 29
+	ld de, VermilionDockY29_RLEMovement
+	jr z, .gotMovements
+	cp 30
+	ld de, VermilionDockY30_RLEMovement
+	jr z, .gotMovements
+	ld de, VermilionDockY31_RLEMovement
+.gotMovements
+	ld hl, wSimulatedJoypadStatesEnd
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; script handling
+	ld a, 7
+	ld [wVermilionCityCurScript], a
+	ret
+
+VermilionDockY29_RLEMovement:
+	db D_DOWN, 3
+	db D_LEFT, 1
+	db -1 ; end
+
+VermilionDockY30_RLEMovement:
+	db D_DOWN, 2
+	db -1 ; end
+
+VermilionDockY31_RLEMovement:
+	db D_DOWN, 1
+	db -1 ; end
+
+VermilionCityScript7: ; new
+; check if player movement is over
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; script handling
+	xor a
+	ld [wJoyIgnore], a
+	ld [wVermilionCityCurScript], a
+	ret
+
 VermilionCity_TextPointers:
 	dw VermilionCityText1
 	dw VermilionCityText2
@@ -164,6 +219,7 @@ VermilionCityText1:
 
 VermilionCityText2: ; edited
 	text_asm
+	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; for debugging
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 	jr z, .beforeShipReturn
 	ld hl, VermilionCityTextAnneReturned
@@ -222,18 +278,95 @@ VermilionCityTextAnneReturned: ; new
 	text_far _VermilionCityTextAnneReturned
 	text_end
 
-VermilionCityText3:
+VermilionCityText3: ; edited
 	text_asm
-; new code to handle the ship return
+; post-League: SS returned
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
-	jr z, .beforeShipReturn
+	jr z, .beforePostLeague
+; post-League: choose between SS and Sevii
 	ld hl, SSAnneWelcomeTextPostReturn
 	call PrintText
-	jr .end
-.beforeShipReturn
-; back to vanilla code
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SSAnneWelcomeEnjoyFreelyText
+	jp nz, .printAndEnd
+; we want to travel to the Sevii
+	jr .normalSeviiDestinations
+; SS Anne has not returned yet
+.beforePostLeague
+; have we already traveled to Sevii?
+	CheckEvent EVENT_TRAVELED_TO_SEVII_AT_LEAST_ONCE
+	jr nz, .normalSeviiDestinations
+; try to travel for the first time, check if we have ticket
+	ld b, SEVII_TICKET
+	call IsItemInBag ; set zero flag if item isn't in player's bag
+	jp z, .noSeviiTicket
+; we have the Sevii Ticket, propose special first trip to Sevii
+	ld hl, SeviiOnlyOneIslandText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .exit
+; traveling to One Island
+	SetEvent EVENT_TRAVELED_TO_SEVII_AT_LEAST_ONCE
+	ld a, SEVII_TICKET
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld hl, VermilionSailorRegisterSeviiTravelerText
+	call PrintText
+	ld a, FERRY_SEVII_ONE
+	jr .destinationChosen
+; print the list of destinations
+.normalSeviiDestinations
+	ld hl, SeviiWhichDestinationText
+	call PrintText
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, FerryDesinationsList_Vermilion_UpTo8
+	jr nz, .loadDestinations
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+	ld hl, FerryDesinationsList_Vermilion_UpTo5
+	jr nz, .loadDestinations
+	ld hl, FerryDesinationsList_Vermilion_UpTo3
+.loadDestinations
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .exit
+; we chose a destination
+	ld a, [wcf91]
+.destinationChosen
+	ld [wUniQuizAnswer], a
+	ld hl, VermilionSailorLetsGoText
+	call PrintText
+	SetEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY
+	ld a, 6 ; VermilionCityScript6
+	ld [wVermilionCityCurScript], a
+	jp .end
+; we canceled with B
+.exit
+	xor a
+	ld [wListScrollOffset], a
+	ld hl, VermilionSailorCanceledText
+	jr .printAndEnd
+; has the SS already departed?
+.noSeviiTicket
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .shipHasDeparted
+; SS anne not departed
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_RIGHT
 	jr z, .greetPlayer
@@ -242,27 +375,33 @@ VermilionCityText3:
 	jr nc, .greetPlayerAndCheckTicket
 .greetPlayer
 	ld hl, SSAnneWelcomeText4
-	call PrintText
-	jr .end
+	jp .printAndEnd
 .greetPlayerAndCheckTicket
+; did we flash the SS ticket?
+	CheckEvent EVENT_FLASHED_SS_TICKET
+	jr nz, .end
+; first time?
 	ld hl, SSAnneWelcomeText9
 	call PrintText
 	ld b, S_S_TICKET
-	predef GetQuantityOfItemInBag
-	ld a, b
-	and a
+	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr nz, .playerHasTicket
 	ld hl, SSAnneNoTicketText
-	call PrintText
-	jr .end
+	jp .printAndEnd
 .playerHasTicket
+	SetEvent EVENT_FLASHED_SS_TICKET
+	ld a, S_S_TICKET
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
 	ld hl, SSAnneFlashedTicketText
 	call PrintText
 	ld a, $4
 	ld [wVermilionCityCurScript], a
-	jr .end
+	jp .end
+; ship has departed
 .shipHasDeparted
 	ld hl, SSAnneNotHereText
+.printAndEnd
 	call PrintText
 .end
 	jp TextScriptEnd
@@ -270,6 +409,37 @@ VermilionCityText3:
 .inFrontOfOrBehindGuardCoords
 	dbmapcoord 19, 29 ; in front of guard
 	dbmapcoord 19, 31 ; behind guard
+	db -1 ; end
+
+FerryDesinationsList_Vermilion_UpTo3:
+	db 3 ; #
+;	db FERRY_VERMILION
+	db FERRY_SEVII_ONE
+	db FERRY_SEVII_TWO
+	db FERRY_SEVII_THREE
+	db -1 ; end
+
+FerryDesinationsList_Vermilion_UpTo5:
+	db 5 ; #
+;	db FERRY_VERMILION
+	db FERRY_SEVII_ONE
+	db FERRY_SEVII_TWO
+	db FERRY_SEVII_THREE
+	db FERRY_SEVII_FOUR
+	db FERRY_SEVII_FIVE
+	db -1 ; end
+
+FerryDesinationsList_Vermilion_UpTo8:
+	db 8 ; #
+;	db FERRY_VERMILION
+	db FERRY_SEVII_ONE
+	db FERRY_SEVII_TWO
+	db FERRY_SEVII_THREE
+	db FERRY_SEVII_FOUR
+	db FERRY_SEVII_FIVE
+	db FERRY_SEVII_SIX
+	db FERRY_SEVII_SEVEN
+	db FERRY_SEVII_EIGHT
 	db -1 ; end
 
 SSAnneWelcomeText4:
@@ -294,6 +464,30 @@ SSAnneNoTicketText:
 
 SSAnneNotHereText:
 	text_far _SSAnneNotHereText
+	text_end
+
+SeviiWhichDestinationText:
+	text_far _SeviiWhichDestinationText
+	text_end
+
+SeviiOnlyOneIslandText:
+	text_far _SeviiOnlyOneIslandText
+	text_end
+
+VermilionSailorLetsGoText:
+	text_far _VermilionSailorLetsGoText
+	text_end
+
+VermilionSailorCanceledText:
+	text_far _VermilionSailorCanceledText
+	text_end
+
+SSAnneWelcomeEnjoyFreelyText:
+	text_far _SSAnneWelcomeEnjoyFreelyText
+	text_end
+
+VermilionSailorRegisterSeviiTravelerText:
+	text_far _VermilionSailorRegisterSeviiTravelerText
 	text_end
 
 VermilionCityText4:

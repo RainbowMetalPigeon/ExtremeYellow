@@ -302,14 +302,12 @@ DebugItemsList:
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db REVIVE, 99
-	db S_S_TICKET, 1
 	db LIFT_KEY, 1
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
 ;    db ICE_ORB, 1
 ;    db THUNDER_ORB, 1
 ;    db FIRE_ORB, 1
-	db SEVII_TICKET, 1
 ;	db TM_WILL_O_WISP, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
@@ -328,6 +326,8 @@ DebugItemsList:
 ;	db AMULET_COIN, 1
     db TOPAZ, 1
 	db TIGERS_EYE, 1
+	db S_S_TICKET, 1
+	db SEVII_TICKET, 1
 	db -1 ; end
 
 ELSE

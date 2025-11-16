@@ -16,6 +16,9 @@ WarpScriptToKanto:: ; testing
 	ld c, 20
 	call DelayFrames
 	ResetEvent EVENT_IN_SEVII
+	SetEvent EVENT_MARK_TO_WALK_OUTSIDE_VERMILION_DOCK ; testing
+	ld a, $2 ; testing
+	ld [wVermilionCityCurScript], a ; testing
 	xor a
 	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
 	ld a, 0
@@ -180,31 +183,8 @@ SeviiDockFerryLeavesScript::
 	xor a
 	ldh [rWY], a
 	ldh [hWY], a
-
 	pop hl
 	pop bc
-
-/*
-	call ShowSeviiDockSailors
-	call SeviiDock_EraseFerry
-	ld a, $90
-	ldh [hWY], a
-	ld a, $1
-	ld [wUpdateSpritesEnabled], a
-	ld [hl], b
-	dec hl
-	ld [hl], c
-	call LoadPlayerSpriteGraphics
-; show Pikachu, if present
-	call CheckPikachuFollowingPlayer
-	jr nz, .notFollowingPikachu
-	ld a, $1
-	ld [wPikachuSpawnState], a
-	call EnablePikachuOverworldSpriteDrawing
-.notFollowingPikachu
-	ld hl, wNumberOfWarps
-	dec [hl]
-*/
 	ret
 
 SeviiDock_AnimSmokePuffDriftRight:

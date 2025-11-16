@@ -19,12 +19,13 @@ ActionsOnEntry1:
 	ret
 
 SeviiOneIslandDock_ScriptPointers:
-	dw SeviiOneIslandDockScritp_NullScript
-	dw SeviiOneIslandDockScritp_TurnSailorAndMovePlayerScript
-	dw SeviiOneIslandDockScritp_FerryWarpScript
-	dw SeviiOneIslandDockScritp_PostPlayerMovementAndShowSailors
+	dw SeviiOneIslandDockScript_NullScript
+	dw SeviiOneIslandDockScript_TurnSailorAndMovePlayerScript
+	dw SeviiOneIslandDockScript_FerryWarpScript
+	dw SeviiOneIslandDockScript_PostPlayerMovementAndShowSailors
+	dw SeviiOneIslandDockScript_PostWarpFromKanto
 
-SeviiOneIslandDockScritp_NullScript:
+SeviiOneIslandDockScript_NullScript:
  	CheckAndResetEvent EVENT_TRAVELING_WITH_FERRY
 	ret z
 	ld a, SFX_GO_OUTSIDE
@@ -47,7 +48,7 @@ SeviiTOneDockPlayerUpMovement:
 	db D_UP, 1
 	db -1 ; end
 
-SeviiOneIslandDockScritp_TurnSailorAndMovePlayerScript:
+SeviiOneIslandDockScript_TurnSailorAndMovePlayerScript:
 ; turn sailor
 	ld a, 1
 	ldh [hSpriteIndex], a
@@ -76,7 +77,7 @@ SeviiOneDockPlayerDownMovement:
 	db D_DOWN, 1
 	db -1 ; end
 
-SeviiOneIslandDockScritp_FerryWarpScript:
+SeviiOneIslandDockScript_FerryWarpScript:
 ; wait for player to have moved
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
@@ -98,7 +99,7 @@ SeviiOneIslandDockScritp_FerryWarpScript:
 	ld [wCurMapScript], a
 	jpfar PerformFerryWarp
 
-SeviiOneIslandDockScritp_PostPlayerMovementAndShowSailors:
+SeviiOneIslandDockScript_PostPlayerMovementAndShowSailors:
 ; wait for player to have moved
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
@@ -117,6 +118,25 @@ SeviiOneIslandDockScritp_PostPlayerMovementAndShowSailors:
 	ld a, 0
 	ld [wCurMapScript], a
 	callfar ShowSeviiDockSailors
+	ret
+
+SeviiOneIslandDockScript_PostWarpFromKanto:
+; move player
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld a, D_UP
+	ld [hl], a
+	ld a, 1
+	ld [wSimulatedJoypadStatesIndex], a
+	xor a
+	ld [wSpritePlayerStateData2MovementByte1], a
+	ld [wOverrideSimulatedJoypadStatesMask], a
+	dec a
+	ld [wJoyIgnore], a
+; load next script
+	ld a, 3
+	ld [wCurMapScript], a
 	ret
 
 SeviiOneIslandDock_TextPointers:
@@ -139,10 +159,6 @@ SeviiOneIslandDockSpriteText1:
 ; print intro
 	ld hl, SeviiOneIslandDockSailorText_Intro
 	call PrintText
-	ld b, SEVII_TICKET
-	call IsItemInBag ; set zero flag if item isn't in player's bag
-	ld hl, SeviiOneIslandDockSailorText_NoTicket
-	jr z, .doNotHaveTicket
 ; print the list of destinations
 	xor a
 	ld [wCurrentMenuItem], a
@@ -230,10 +246,6 @@ SeviiOneIslandDockSailorText_LetsGo:
 
 SeviiOneIslandDockSailorText_Canceled:
 	text_far _SeviiIslandsDockSailorText_Canceled
-	text_end
-
-SeviiOneIslandDockSailorText_NoTicket:
-	text_far _SeviiIslandsDockSailorText_NoTicket
 	text_end
 
 ; ----------------------------------------------

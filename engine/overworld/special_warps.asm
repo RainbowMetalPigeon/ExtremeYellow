@@ -33,7 +33,21 @@ LoadSpecialWarpData:
 	ld a, [wd72d]
 ; new for sevii
 	cp SEVII_ONE_ISLAND_DOCK
-	jr z, .sevii
+	jr z, .sevii1
+	cp SEVII_TWO_ISLAND_DOCK
+	jr z, .sevii2
+	cp SEVII_THREE_ISLAND_DOCK
+	jr z, .sevii3
+	cp SEVII_FOUR_ISLAND_DOCK
+	jr z, .sevii4
+	cp SEVII_FIVE_ISLAND_DOCK
+	jr z, .sevii5
+	cp SEVII_SIX_ISLAND_DOCK
+	jr z, .sevii6
+	cp SEVII_SEVEN_ISLAND_DOCK
+	jr z, .sevii7
+	cp SEVII_EIGHT_ISLAND_DOCK
+	jr z, .sevii8
 	cp VERMILION_DOCK
 	jr z, .kanto
 ; back to vanilla
@@ -63,8 +77,29 @@ LoadSpecialWarpData:
 	ld hl, FirstMapSpec
 ; new for sevii
 	jr .copyWarpData
-.sevii
-	ld hl, SeviiSpec
+.sevii1
+	ld hl, SeviiSpec1
+	jr .copyWarpData
+.sevii2
+	ld hl, SeviiSpec2
+	jr .copyWarpData
+.sevii3
+	ld hl, SeviiSpec3
+	jr .copyWarpData
+.sevii4
+	ld hl, SeviiSpec4
+	jr .copyWarpData
+.sevii5
+	ld hl, SeviiSpec5
+	jr .copyWarpData
+.sevii6
+	ld hl, SeviiSpec6
+	jr .copyWarpData
+.sevii7
+	ld hl, SeviiSpec7
+	jr .copyWarpData
+.sevii8
+	ld hl, SeviiSpec8
 	jr .copyWarpData
 .kanto
 	ld hl, KantoSpec

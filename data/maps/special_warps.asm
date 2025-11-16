@@ -57,8 +57,6 @@ ENDM
 
 FirstMapSpec:
 	special_warp_spec REDS_HOUSE_2F, 3, 6, REDS_HOUSE_2
-;	special_warp_spec SEVII_ONE_ISLAND_DOCK, 4, 3, GATE
-;	special_warp_spec SEVII_ONE_ISLAND_CITY, 22, 23, OVERWORLD
 TradeCenterSpec1:
 	special_warp_spec TRADE_CENTER,  3, 4, CLUB
 TradeCenterSpec2:
@@ -67,10 +65,25 @@ ColosseumSpec1:
 	special_warp_spec COLOSSEUM,     3, 4, CLUB
 ColosseumSpec2:
 	special_warp_spec COLOSSEUM,     6, 4, CLUB
-SeviiSpec: ; new for sevii
-	special_warp_spec SEVII_ONE_ISLAND_DOCK, 10, 3, SHIP_PORT ; new for sevii
-KantoSpec: ; new for sevii
-	special_warp_spec VERMILION_DOCK, 14, 1, SHIP_PORT ; new for sevii, TBE
+; new for sevii
+SeviiSpec1:
+	special_warp_spec SEVII_ONE_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec2:
+	special_warp_spec SEVII_TWO_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec3:
+	special_warp_spec SEVII_THREE_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec4:
+	special_warp_spec SEVII_FOUR_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec5:
+	special_warp_spec SEVII_FIVE_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec6:
+	special_warp_spec SEVII_SIX_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec7:
+	special_warp_spec SEVII_SEVEN_ISLAND_DOCK, 10, 4, SHIP_PORT
+SeviiSpec8:
+	special_warp_spec SEVII_EIGHT_ISLAND_DOCK, 10, 4, SHIP_PORT
+KantoSpec:
+	special_warp_spec VERMILION_DOCK, 14, 2, SHIP_PORT
 
 
 MACRO fly_warp_spec

@@ -1,9 +1,35 @@
 VermilionDock_Script:
 	call EnableAutoTextBoxDrawing
+; new
+	CheckAndResetEvent EVENT_MARK_TO_WALK_OUTSIDE_VERMILION_DOCK
+	jr nz, .walkOutOfVermilionDock
+	CheckEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY_IN_DOCK
+	jp nz, .walkingTowardsSeviiFerry
+	CheckAndResetEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY
+	jr z, .noSeviiFerry
+; we just entered the map and we are walking towards the Sevii Ferry
+	SetEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY_IN_DOCK
+	call Delay3
+	ld hl, wd730
+	set 7, [hl]
+	ld hl, wSimulatedJoypadStatesEnd
+	ld a, D_DOWN
+	ld [hli], a
+	ld [hl], a
+	ld a, 2
+	ld [wSimulatedJoypadStatesIndex], a
+	xor a
+	ld [wSpritePlayerStateData2MovementByte1], a
+	ld [wOverrideSimulatedJoypadStatesMask], a
+	dec a
+	ld [wJoyIgnore], a
+	ret
+.noSeviiFerry
+; BTV
 	CheckEventHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	jr nz, .walking_out_of_dock
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
-	ret nz ; new, testing
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
+	ret nz ; new
 	CheckEventReuseHL EVENT_GOT_HM01
 	ret z
 	ld a, [wDestinationWarpID]
@@ -11,6 +37,14 @@ VermilionDock_Script:
 	ret nz
 	CheckEventReuseHL EVENT_SS_ANNE_LEFT
 	jp z, VermilionDockSSAnneLeavesScript
+.walkOutOfVermilionDock ; new
+; show Pikachu, if present
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu0
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu0
 	SetEventReuseHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	call Delay3
 	ld hl, wd730
@@ -37,6 +71,21 @@ VermilionDock_Script:
 	ld [wJoyIgnore], a
 	SetEventReuseHL EVENT_WALKED_OUT_OF_DOCK
 	ret
+.walkingTowardsSeviiFerry ; new
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	ld [wJoyIgnore], a
+; hide player and Pikachu
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
+	call LoadTransparentPlayerSpriteGraphics
+	ld a, SFX_GO_INSIDE
+	call PlaySound ; somehow it doesn't work???
+	call WaitForSoundToFinish
+	jp PerformFerryWarpFromVermilion
 
 VermilionDockSSAnneLeavesScript:
 	SetEventForceReuseHL EVENT_SS_ANNE_LEFT
@@ -226,3 +275,79 @@ VermilionDockText1:
 VermilionDockNoteText: ; new
 	text_far _VermilionDockNoteText
 	text_end
+
+; special ferry warp to sevii ---------------------------------
+
+PerformFerryWarpFromVermilion::
+	callfar SeviiDockFerryLeavesScript
+; determine destination
+	ld a, [wUniQuizAnswer]
+	cp FERRY_SEVII_TWO
+	jr z, .two
+	cp FERRY_SEVII_THREE
+	jr z, .three
+	cp FERRY_SEVII_FOUR
+	jr z, .four
+	cp FERRY_SEVII_FIVE
+	jr z, .five
+	cp FERRY_SEVII_SIX
+	jr z, .six
+	cp FERRY_SEVII_SEVEN
+	jr z, .seven
+	cp FERRY_SEVII_EIGHT
+	jr z, .eight
+;.one
+	ld d, SEVII_ONE_ISLAND_DOCK
+	ld e, SEVII_ONE_ISLAND_CITY
+	jr VermilionWarpToSevii
+.two
+	ld d, SEVII_TWO_ISLAND_DOCK
+	ld e, SEVII_TWO_ISLAND_CITY
+	jr VermilionWarpToSevii
+.three
+	ld d, SEVII_THREE_ISLAND_DOCK
+	ld e, SEVII_THREE_ISLAND_CITY
+	jr VermilionWarpToSevii
+.four
+	ld d, SEVII_FOUR_ISLAND_DOCK
+	ld e, SEVII_FOUR_ISLAND_CITY
+	jr VermilionWarpToSevii
+.five
+	ld d, SEVII_FIVE_ISLAND_DOCK
+	ld e, SEVII_FIVE_ISLAND_CITY
+	jr VermilionWarpToSevii
+.six
+	ld d, SEVII_SIX_ISLAND_DOCK
+	ld e, SEVII_SIX_ISLAND_CITY
+	jr VermilionWarpToSevii
+.seven
+	ld d, SEVII_SEVEN_ISLAND_DOCK
+	ld e, SEVII_SEVEN_ISLAND_CITY
+	jr VermilionWarpToSevii
+.eight
+	ld d, SEVII_EIGHT_ISLAND_DOCK
+	ld e, SEVII_EIGHT_ISLAND_CITY
+	; fallthrough
+VermilionWarpToSevii::
+	ld a, d
+	ld [wd72d], a
+	ld a, e
+	ld [wLastMap], a
+	ld c, 20
+	call DelayFrames
+	ld hl, wd732
+	res 1, [hl]
+	ld a, [wDefaultMap]
+	ld [wDestinationMap], a
+	call GBFadeOutToBlack
+	callfar SpecialWarpIn
+	ld c, 20
+	call DelayFrames
+	SetEvent EVENT_IN_SEVII
+	ld a, 1
+	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
+	ld a, 4
+	ld [wCurMapScript], a
+	ResetEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY
+	ResetEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY_IN_DOCK
+	jpfar SpecialEnterMap

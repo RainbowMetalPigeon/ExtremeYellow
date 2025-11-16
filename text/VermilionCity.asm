@@ -74,12 +74,22 @@ _SSAnneWelcomeText9::
 	line "have a ticket?"
 	prompt
 
-_SSAnneFlashedTicketText::
+_SSAnneFlashedTicketText:: ; edited
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET!"
 
 	para "Great! Welcome to"
 	line "S.S.ANNE!"
+
+	para "I'll take your"
+	line "S.S. TICKET and"
+	cont "register you as"
+	cont "an allowed guest."
+
+	para "Done! Now you"
+	line "can board the"
+	cont "S.S.ANNE anytime."
+;	xxxx "123456789012345678"
 	done
 
 _SSAnneNoTicketText::
@@ -255,12 +265,17 @@ _SSAnneWelcomeTextPostReturn::
 	text "The S.S.ANNE is"
 	line "back in the port!"
 
-	para "We changed policy:"
-	line "now the entrance"
-	cont "is free for"
-	cont "everyone, you"
-	cont "don't need to"
-	cont "have a TICKET."
+	para "Do you wish to"
+	line "travel to the"
+	cont "SEVII ISLANDS?"
+;	xxxx "123456789012345678"
+
+;	para "We changed policy:"
+;	line "now the entrance"
+;	cont "is free for"
+;	cont "everyone, you"
+;	cont "don't need to"
+;	cont "have a TICKET."
 	done
 
 _MachampAnnoyedText::
@@ -271,4 +286,60 @@ _MachampAnnoyedText::
 	para "It goes back"
 	line "napping with an"
 	cont "annoyed grunt..."
+	prompt
+
+; new for sevii ferry
+
+_SeviiWhichDestinationText::
+	text "What's your"
+	line "destination today?"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiOnlyOneIslandText::
+	text "Oh, you have a"
+	line "SEVII TICKET!"
+
+	para "You're most"
+	line "welcome on board."
+;	xxxx "123456789012345678"
+
+	para "Unfortunately, the"
+	line "ferry is low on"
+	cont "fuel, so right"
+	cont "now we can only"
+	cont "reach ONE ISLAND."
+
+	para "Do you want to"
+	line "depart now?"
+;	xxxx "123456789012345678"
+	done
+	
+_VermilionSailorLetsGoText::
+	text "Let's set sail!"
+;	xxxx "123456789012345678"
+	done
+	
+_VermilionSailorCanceledText::
+	text "Come back when-"
+	line "ever you're ready."
+;	xxxx "123456789012345678"
+	done
+	
+_SSAnneWelcomeEnjoyFreelyText::
+	text "Feel free to enjoy"
+	line "the atmosphere of"
+	cont "the S.S.ANNE at"
+	cont "your heart's"
+	cont "content!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionSailorRegisterSeviiTravelerText::
+	text "Great! Let me"
+	line "take your TICKET"
+	line "and register you"
+	cont "as an allowed"
+	cont "traveler."
+;	xxxx "123456789012345678"
 	prompt

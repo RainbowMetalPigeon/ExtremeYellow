@@ -2,8 +2,8 @@ BluesHouse_Object:
 	db $a ; border block
 
 	def_warp_events
-	warp_event  2,  7, LAST_MAP, 2
-	warp_event  3,  7, LAST_MAP, 2
+	warp_event  2,  7, PALLET_TOWN, 2
+	warp_event  3,  7, PALLET_TOWN, 2
 	warp_event  7,  1, BLUES_HOUSE, 4 ; new
 	warp_event 21,  1, BLUES_HOUSE, 3 ; new
 
