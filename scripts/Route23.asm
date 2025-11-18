@@ -23,8 +23,37 @@ Route23_ScriptPointers:
 	dw Route23Script0
 	dw Route23Script1
 	dw Route23Script2
+	; new, for Pink
+	dw Route23Script3
+	dw Route23Script4
+	dw Route23Script5
+	dw Route23Script6
 
 Route23Script0:
+; new
+	CheckEvent EVENT_SEVII_BEAT_PINK_ROUTE_23
+	ret nz
+	ld a, [wYCoord]
+	cp 5
+	jr nz, .badgeChecks
+; Pink Dialogue
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Player moves down
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld a, D_DOWN | B_BUTTON ; edited to fix Pikachu blocker
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, 1
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; script handling
+	ld a, 3
+	ld [wCurMapScript], a
+	ret
+.badgeChecks
+; BTV
 	ld hl, YCoordsData_51255
 	ld a, [wYCoord]
 	ld b, a
@@ -138,6 +167,119 @@ Route23Script2:
 	ld [wCurMapScript], a ; edited
 	ret
 
+Route23Script3: ; new for Pink
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; show Pink
+	ld a, HS_ROUTE_23_PINK
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+; move Pink depending on player's X position
+	ld a, [wXCoord]
+	cp 10
+	ld de, PinkIfPlayerRightMovements
+	jr z, .movementsGotten
+	ld de, PinkIfPlayerLeftMovements
+.movementsGotten
+	ld a, 8
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 4
+	ld [wCurMapScript], a
+	ret
+
+PinkIfPlayerLeftMovements:
+	db NPC_MOVEMENT_LEFT
+PinkIfPlayerRightMovements:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+Route23Script4: ; new for Pink
+; wait for Pink movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; Pink dialogue
+	ld a, 11
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; trigger battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_PINK
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, Route23PinkDefeatedText
+	ld de, Route23PinkBeatYouText
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 5
+	ld [wCurMapScript], a
+	ret
+
+Route23Script5: ; new for Pink
+; if lost, reset scripts
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route23ResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; if won, Pink facing and dialogue and set event
+	lb bc, STAY, UP
+	ld a, 8
+	ldh [hSpriteIndex], a
+	call ChangeSpriteMovementBytes ; Engeze approach
+	lb de, 8, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing ; Pigeon approach
+	SetEvent EVENT_SEVII_BEAT_PINK_ROUTE_23
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Pink movements
+	ld de, PinkLeavingMovements
+	ld a, 8
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 6
+	ld [wCurMapScript], a
+	ret
+
+Route23Script6: ; new for Pink
+; wait for Pink movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; hide Pink
+	ld a, HS_ROUTE_23_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+; reset scripts
+	; fallthrough
+Route23ResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+PinkLeavingMovements:
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
 Route23_TextPointers:
 	dw Route23Text1
 	dw Route23Text2
@@ -146,8 +288,12 @@ Route23_TextPointers:
 	dw Route23Text5
 	dw Route23Text6
 	dw Route23Text7
+	dw Route23TextPink ; new
 	dw Route23Text8
 	dw Route23Text9 ; new
+	; scripts
+	dw Route23ScriptText1 ; 11
+	dw Route23ScriptText2 ; 12
 
 Route23Text1:
 	text_asm
@@ -243,6 +389,29 @@ Route23Text8:
 	text_far _Route23Text8
 	text_end
 
-Route23Text9: ; new
+; new -------------------
+
+Route23Text9:
 	text_far _Route23Text9
 	text_end
+
+Route23TextPink:
+	text_far _Route23TextPink
+	text_end
+
+Route23ScriptText1:
+	text_far _Route23ScriptText1
+	text_end
+
+Route23PinkDefeatedText:
+	text_far _Route23PinkDefeatedText
+	text_end
+
+Route23PinkBeatYouText:
+	text_far _Route23PinkBeatYouText
+	text_end
+
+Route23ScriptText2:
+	text_far _Route23ScriptText2
+	text_end
+

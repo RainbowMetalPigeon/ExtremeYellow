@@ -245,7 +245,6 @@ SeviiFourIslandHouses_Script5:
 	ld [wCurMapScript], a
 	ret
 
-
 SeviiFourIslandHousesResetScripts:
 	xor a
 	ld [wJoyIgnore], a

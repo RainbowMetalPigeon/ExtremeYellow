@@ -1101,7 +1101,7 @@
 
 ; Pokémon Mansion events
 	const_next $800
-	const_skip 1
+	const EVENT_SEVII_BEAT_PINK_ROUTE_23 ; new
 	const EVENT_SEVII_BEAT_PINK_PINKS_HOUSE ; new
 	const EVENT_BEAT_MANSION_2_TRAINER_0
 	const_skip 14 ; edited for rematch Blaine

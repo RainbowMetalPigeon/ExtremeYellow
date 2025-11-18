@@ -38,7 +38,7 @@ MapHSPointers:
 	dw Route20HS ; new because of Misty
 	dw Route21HS ; new because of Oak
 	dw Route22HS
-	dw NoHS
+	dw Route23HS ; new
 	dw Route24HS
 	dw Route25HS
 	dw NoHS ; new, Route26
@@ -854,5 +854,7 @@ Route21DiveCavernHS: ; new
 	db ROUTE_21_DIVE_CAVERN,  1, SHOW ; pearl
 Route19DiveHS: ; new
 	db ROUTE_19_DIVE,  1, HIDE ; sunken swimmer
+Route23HS: ; new
+	db ROUTE_23,  8, HIDE ; Pink
 
 	db $FF, $01, SHOW ; end, list terminator
