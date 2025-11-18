@@ -276,11 +276,11 @@ SetPal_Overworld:
 	ld hl, SeviiMaps_EightIslandsMaps
 	ld de, 1
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .eightIsland
+	jp c, .eightIsland
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_SevenIslandsMaps
 	call IsInArray
-	jr c, .sevenIsland
+	jp c, .sevenIsland
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
@@ -300,6 +300,18 @@ SetPal_Overworld:
 	ld a, [wCurMap]
 	cp SEVII_ONE_ISLAND_DOCK
 	jr z, .oneIslandDock
+	cp SEVII_TWO_ISLAND_DOCK
+	jr z, .twoIslandDock
+	cp SEVII_THREE_ISLAND_DOCK
+	jr z, .threeIslandDock
+	cp SEVII_FOUR_ISLAND_DOCK
+	jr z, .fourIslandDock
+	cp SEVII_FIVE_ISLAND_DOCK
+	jr z, .fiveIslandDock
+	cp SEVII_SIX_ISLAND_DOCK
+	jr z, .sixIslandDock
+	cp SEVII_SEVEN_ISLAND_DOCK
+	jr z, .sevenIslandDock
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
 .normalDungeonOrBuildingSevii
@@ -334,6 +346,24 @@ SetPal_Overworld:
 	jr .townSevii
 .oneIslandDock
 	ld a, PAL_SEVII_ONE_ISLAND - 1
+	jr .townSevii
+.twoIslandDock
+	ld a, PAL_SEVII_TWO_ISLAND - 1
+	jr .townSevii
+.threeIslandDock
+	ld a, PAL_SEVII_THREE_ISLAND - 1
+	jr .townSevii
+.fourIslandDock
+	ld a, PAL_SEVII_FOUR_ISLAND - 1
+	jr .townSevii
+.fiveIslandDock
+	ld a, PAL_SEVII_FIVE_ISLAND - 1
+	jr .townSevii
+.sixIslandDock
+	ld a, PAL_SEVII_SIX_ISLAND - 1
+	jr .townSevii
+.sevenIslandDock
+	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii
 .eightIsland
 	ld a, PAL_SEVII_EIGHT_ISLAND - 1
@@ -789,14 +819,14 @@ GetPal_Pikachu::
 ;	CheckEvent EVENT_IN_SEVII
 	ld a, [wOriginallyInKantoOrSevii]
 	and a
-	jr z, .notSevii
+	jp z, .notSevii
 ; yes Sevii
 ; check by map in array
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_EightIslandsMaps
 	ld de, 1
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
-	jr c, .eightIsland
+	jp c, .eightIsland
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_SevenIslandsMaps
 	call IsInArray
@@ -820,6 +850,18 @@ GetPal_Pikachu::
 	ld a, [wCurMap]
 	cp SEVII_ONE_ISLAND_DOCK
 	jr z, .oneIslandDock
+	cp SEVII_TWO_ISLAND_DOCK
+	jr z, .twoIslandDock
+	cp SEVII_THREE_ISLAND_DOCK
+	jr z, .threeIslandDock
+	cp SEVII_FOUR_ISLAND_DOCK
+	jr z, .fourIslandDock
+	cp SEVII_FIVE_ISLAND_DOCK
+	jr z, .fiveIslandDock
+	cp SEVII_SIX_ISLAND_DOCK
+	jr z, .sixIslandDock
+	cp SEVII_SEVEN_ISLAND_DOCK
+	jr z, .sevenIslandDock
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
 ;	cp CERULEAN_CAVE_2F ; TBE
@@ -847,6 +889,24 @@ GetPal_Pikachu::
 .oneIslandDock
 	ld a, PAL_SEVII_ONE_ISLAND - 1
 	jr .townSevii
+.twoIslandDock
+	ld a, PAL_SEVII_TWO_ISLAND - 1
+	jr .townSevii
+.threeIslandDock
+	ld a, PAL_SEVII_THREE_ISLAND - 1
+	jr .townSevii
+.fourIslandDock
+	ld a, PAL_SEVII_FOUR_ISLAND - 1
+	jr .townSevii
+.fiveIslandDock
+	ld a, PAL_SEVII_FIVE_ISLAND - 1
+	jr .townSevii
+.sixIslandDock
+	ld a, PAL_SEVII_SIX_ISLAND - 1
+	jr .townSevii
+.sevenIslandDock
+	ld a, PAL_SEVII_SEVEN_ISLAND - 1
+	jr .townSevii
 .frozenSevii
 	ld a, PAL_SEVII_CYANMON - 1
 	jr .townSevii
@@ -856,7 +916,7 @@ GetPal_Pikachu::
 .sevenIsland
 	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii
-	
+
 .notSevii
 ; check by map in array
 	ld de, 1

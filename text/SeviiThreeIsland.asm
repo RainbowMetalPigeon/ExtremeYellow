@@ -20,9 +20,8 @@ _SeviiThreeIslandCityText1_After::
 	done
 
 _SeviiThreeIslandCityText2::
-	text "Near here it lives"
-	line "a famous"
-	cont "magician."
+	text "Near here lives a"
+	line "famous magician."
 
 	para "They developed"
 	line "novel tricks, and"
@@ -54,17 +53,36 @@ _SeviiThreeIslandCityText4::
 	done
 
 _SeviiThreeIslandCityText5::
-	text "5"
+	text "The open sea"
+	line "around the SEVII"
+	cont "ISLANDS is too"
+	cont "rough to be"
+	cont "traveled by SURF."
+
+	para "That's why we have"
+	line "such an efficient"
+	cont "ferry line!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandCityText6::
-	text "6"
+	text "Do you know the"
+	line "SEVII TRIAL?"
+
+	para "I'd really like to"
+	line "try it, but I've"
+	cont "been deemed not"
+	cont "yet worthy."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandCityText7::
-	text "7"
+	text "ROUTE 33 is a good"
+	line "place for train-"
+	cont "ing, but lately"
+	cont "a band of bikers"
+	cont "is running around"
+	cont "causing a ruckus."
 ;	xxxx "123456789012345678"
 	done
 
@@ -113,11 +131,27 @@ _SeviiThreeIslandCitySignText4::
 ; city's indoor ------------------------------------
 
 _SeviiThreeIslandPokemonCenterAndMart_Text1::
-	text "test 3-1"
+	text "I've never seen"
+	line "anyone sitting on"
+	cont "the couch in a"
+	cont "SEVII #CENTER."
+
+	para "I'd like to use it,"
+	line "but I'm worried..."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandPokemonCenterAndMart_Text2::
-	text "test 3-2"
+	text "There's a running"
+	line "debate about"
+	cont "whether the SEVII"
+	cont "ISLANDS are part"
+	cont "of KANTO or not."
+
+	para "I think it's just"
+	line "semantic, it does"
+	cont "not matter at all."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandPokemonCenterAndMart_Text3::
@@ -125,10 +159,18 @@ _SeviiThreeIslandPokemonCenterAndMart_Text3::
 	line "SEVII ISLANDS are"
 	cont "the same as in"
 	cont "KANTO."
+
+	para "Good thing they"
+	line "care about us too!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandPokemonCenterAndMart_Text4::
-	text "test 3-4"
+	text "DREAM FOREST? I"
+	line "would avoid it if"
+	cont "I were you. It's"
+	cont "creepy and scary."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesText1_Intro::
@@ -226,9 +268,9 @@ _SeviiThreeIslandHousesText3::
 	para "They do like:"
 
 	para "SWIRL SWIRL!"
-	
+
 	para "and then:"
-	
+
 	para "PUFF!"
 	line "It's gone!"
 
@@ -247,7 +289,9 @@ _SeviiThreeIslandHousesSignText1::
 	done
 
 _SeviiThreeIslandHousesSignText2::
-	text "Seeds in bin"
+	text "There are some"
+	line "seeds."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesSignText3::
