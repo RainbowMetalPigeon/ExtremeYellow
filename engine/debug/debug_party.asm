@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db ZAPDOS, 100 ; 255
-	db STARMIE, 100
+	db KADABRA, 30
 	db STARTER_PIKACHU, 1
 ;	db VENUSAUR, 5
 ;	db ARTICUNO, 99
@@ -328,6 +328,7 @@ DebugItemsList:
 	db TIGERS_EYE, 1
 	db S_S_TICKET, 1
 	db SEVII_TICKET, 1
+;	db PEARL, 6
 	db -1 ; end
 
 ELSE
