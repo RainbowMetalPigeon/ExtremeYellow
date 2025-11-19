@@ -47,10 +47,10 @@ _ErikaPostBattleAdviceText::
 	cont "unattractive."
 	done
 
-_ErikaRainbowBadgeInfoText::
+_ErikaRainbowBadgeInfoText:: ; edited
 	text "The RAINBOWBADGE"
 	para "allows #MON to"
-	line "use STRENGTH"
+	line "use DIVE"
 	cont "out of battle."
 
 	para "Please also take"

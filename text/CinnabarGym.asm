@@ -30,15 +30,20 @@ _BlainePostBattleAdviceText::
 	line "WATER #MON!"
 	done
 
-_BlaineVolcanoBadgeInfoText::
+_BlaineVolcanoBadgeInfoText:: ; edited
 	text "Hah!"
 
 	para "With the"
 	line "VOLCANOBADGE you"
 	cont "can increase the"
 	cont "SPECIAL of your"
-	cont "#MON, if you"
-	cont "so wish!"
+	cont "#MON, if you feel"
+	cont "like you need it!"
+
+	para "Also, you can now"
+	line "use WATERFALL"
+	cont "at any time."
+;	xxxx "123456789012345678"
 
 	para "Here, you can"
 	line "have this too!"

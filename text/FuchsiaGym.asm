@@ -42,7 +42,8 @@ _KogaSoulBadgeInfoText::
 	cont "may have the"
 	cont "DEFENSE of your"
 	cont "#MON increase,"
-	cont "if you so wish."
+	cont "if you desire so."
+;	xxxx "123456789012345678"
 
 	para "It also lets you"
 	line "SURF outside of"

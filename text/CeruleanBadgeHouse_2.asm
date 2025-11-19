@@ -43,7 +43,7 @@ _CeruleanHouse2Text_74eb4:: ; VOLCANOBADGE
 	cont "if you so wish."
 
 	para "It also lets you"
-	line "use DIVE outside"
+	line "use WATERFALL out"
 	cont "of battle."
 	prompt
 

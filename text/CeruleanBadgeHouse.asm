@@ -101,13 +101,14 @@ _CeruleanHouse2Text_74ea0:: ; THUNDERBADGE
 	cont "SPEED, and yet!"
 
 	para "It also lets you"
-	line "use WATERFALL out-"
-	cont "side of battle."
+	line "use ROCK CLIMB"
+	cont "out of battle."
 	prompt
 
 _CeruleanHouse2Text_74ea5:: ; RAINBOWBADGE
 	text "It lets you use"
-	cont "side of battle."
+	line "DIVE outside"
+	cont "of battle."
 	prompt
 
 _CeruleanHouse2Text1:: ; new
@@ -120,4 +121,5 @@ _CeruleanHouse2Text1:: ; new
 	cont "them when they"
 	cont "come playing in"
 	cont "my backyard."
+;	xxxx "123456789012345678"
 	done

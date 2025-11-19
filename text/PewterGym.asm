@@ -105,7 +105,9 @@ _BrockBoulerBadgeInfoText::
 
 	para "Its bearer's"
 	line "#MON become"
-	cont "more powerful!"
+;	xxxx "123456789012345678"
+	cont "more powerful,"
+	cont "if you so wish!"
 
 	para "The technique"
 	line "FLASH can now be"

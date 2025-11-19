@@ -10,6 +10,7 @@ SeviiRoute38Dive_Script:
 
 SeviiRoute38Dive_TextPointers:
 ;	dw SeviiRoute38DiveText1
+;	dw PickUpItemText
 	text_end
 
 ;SeviiRoute38Dive_ScriptPointers:

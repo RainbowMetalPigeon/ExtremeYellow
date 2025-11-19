@@ -36,11 +36,11 @@ _LTSurgeThunderBadgeInfoText:: ; edited
 	text "The THUNDERBADGE"
 	line "cranks up your"
 	cont "#MON's SPEED,"
-	cont "if you so wish!"
+	cont "if you wanna!"
 
 	para "It also lets your"
-	line "#MON FLY any-"
-	cont "time, kid!"
+	line "#MON ROCK CLIMB"
+	cont "anytime, kid!"
 
 	para "You're special,"
 	line "kid! Take this!"

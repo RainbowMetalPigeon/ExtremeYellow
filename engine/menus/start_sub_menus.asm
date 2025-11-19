@@ -193,7 +193,7 @@ StartMenu_Pokemon::
 	call Func_1510
 	jp .goBackToMap
 .cut
-	bit BIT_CASCADEBADGE, a
+	bit BIT_CASCADEBADGE, a ; MISTY
 	jp z, .newBadgeRequired
 	predef UsedCut
 	ld a, [wActionResultOrTookBattleTurn]
@@ -201,7 +201,7 @@ StartMenu_Pokemon::
 	jp z, .loop
 	jp CloseTextDisplay
 .surf
-	bit BIT_SOULBADGE, a
+	bit BIT_SOULBADGE, a ; KOGA
 	jp z, .newBadgeRequired
 	farcall IsSurfingAllowed
 	ld hl, wd728
@@ -231,13 +231,13 @@ StartMenu_Pokemon::
 	ld [wd473], a
 	jp .loop
 .strength
-	bit BIT_EARTHBADGE, a ; edited, was the BIT_RAINBOWBADGE
+	bit BIT_EARTHBADGE, a ; GIOVANNI; edited, was the BIT_RAINBOWBADGE
 	jp z, .newBadgeRequired
 	predef PrintStrengthTxt
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .flash
-	bit BIT_BOULDERBADGE, a
+	bit BIT_BOULDERBADGE, a ; BROCK
 	jp z, .newBadgeRequired
 ; new
 	CheckEvent EVENT_IN_SEVII

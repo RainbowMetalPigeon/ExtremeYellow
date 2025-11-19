@@ -620,6 +620,7 @@ TamerData:
 	db 42, RHYHORN, PRIMEAPE, ARBOK, TAUROS, 0
 ; Sevii Route 43
 	db 85, TAUROS, ARBOK, KANGASKHAN, DRAGONITE, RHYPERIOR, ANNIHILAPE; 7
+
 BirdKeeperData:
 ; Route 13
 	db 29, PIDGEOTTO, PIDGEOTTO, 0
@@ -763,8 +764,8 @@ ChannelerData:
 	db 45, GASTLY, HAUNTER, GENGAR, ANNIHILAPE, 0 ; updated
 	db 47, GENGAR, ANNIHILAPE, 0 ; updated
 	db 44, GASTLY, GASTLY, GASTLY, HAUNTER, HAUNTER, GENGAR, 0 ; updated
-; Ochre Gym
-	db 47, UMBREON, 0 ; new
+; Ochre Gym, new
+	db 47, UMBREON, 0 ; 25
 
 RocketData:
 ; Mt. Moon B2F

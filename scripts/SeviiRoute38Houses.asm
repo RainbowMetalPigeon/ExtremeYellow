@@ -12,6 +12,8 @@ SeviiRoute38Houses_TextPointers:
 
 SeviiRoute38HousesText1: ; Dive Expert
 	text_asm
+	ld a, [wCurMap] ; for debugging
+	ld [wCurMap], a ; for debugging
 	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
 	ld hl, SeviiRoute38HousesText1_PostTank
 	jr nz, .printAndEnd

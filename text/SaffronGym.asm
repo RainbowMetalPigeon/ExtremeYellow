@@ -38,18 +38,11 @@ _SabrinaPostBattleAdviceText::
 	done
 
 _KogaMarshBadgeInfoText:: ; edited
-;	text "The MARSHBADGE"
-;	line "makes #MON up"
-;	cont "to L70 obey you!"
-
-;	para "Stronger #MON"
-;	line "will become wild,"
-;	cont "ignoring your"
-;	cont "orders in battle!"
-
-;	para "Just don't raise"
-;	line "your #MON too"
-;	cont "much!"
+	text "The MARSHBADGE"
+	line "allows you to use"
+	cont "WHIRLPOOL outside"
+	cont "of battle."
+;	xxxx "123456789012345678"
 
 	text "Wait, please take"
 	line "this TM with you!"

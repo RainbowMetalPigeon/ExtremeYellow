@@ -48,7 +48,7 @@ CheckIfCanSurfOrCutFromOverworld::
     jr z, .notSurfInTeam
 ; we have a Pokemon with SURF in the team
     ld a, [wObtainedBadges]
-    bit BIT_SOULBADGE, a
+    bit BIT_SOULBADGE, a ; KOGA
 	jp z, .newBadgeRequired
 ; we have the right badge
     callfar IsSurfingPikachuInThePlayersParty ; nc if it's not
@@ -115,7 +115,7 @@ CheckIfCanSurfOrCutFromOverworld::
     jr z, .notCutInTeam
 ; we have a Pokemon with CUT in the team
     ld a, [wObtainedBadges]
-    bit BIT_CASCADEBADGE, a
+    bit BIT_CASCADEBADGE, a ; MISTY
 	jp z, .newBadgeRequired ; backjump actually, no reasons not to share the same text and code
 ; we have the badge to cut it
 ; is this even necessary?
@@ -165,7 +165,7 @@ CheckIfCanSurfOrCutFromOverworld::
     jr z, .notWhirlpoolInTeam
 ; we have a Pokemon with WHIRLPOOL in the team
     ld a, [wObtainedBadges]
-    bit BIT_MARSHBADGE, a
+    bit BIT_MARSHBADGE, a ; SABRINA
 	jp z, .newBadgeRequired
 ; we have the badge to undo the whirlpool
 ; is this even necessary?
@@ -220,7 +220,7 @@ CheckIfCanSurfOrCutFromOverworld::
     jr z, .notDiveInTeam
 ; we have a Pokemon with DIVE in the team
     ld a, [wObtainedBadges]
-    bit BIT_VOLCANOBADGE, a
+    bit BIT_RAINBOWBADGE, a ; ERIKA
 	jp z, .newBadgeRequired
 ; we have the right badge
 ; we can actually dive
@@ -511,7 +511,7 @@ TryToClimbWall:
     jr z, .noRockClimbInTeam
 ; we have the move, check if we have the badge
     ld a, [wObtainedBadges]
-    bit BIT_RAINBOWBADGE, a
+    bit BIT_THUNDERBADGE, a ; SURGE
 	jp nz, ClimbWallUp
 ; no badge
     call EnableAutoTextBoxDrawing
@@ -596,7 +596,7 @@ TryToRideWaterfall:
     jr z, .noWaterfallInTeam
 ; we have the move, check if we have the badge
     ld a, [wObtainedBadges]
-    bit BIT_RAINBOWBADGE, a
+    bit BIT_VOLCANOBADGE, a ; BLAINE
 	jp nz, RideWaterfall
 ; no badge
     call EnableAutoTextBoxDrawing

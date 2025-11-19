@@ -274,9 +274,18 @@ _ReceivedNoBadgeText::
 	cont "GYM, so I have"
 	cont "no BADGE for you."
 
-	para "Regardless, I did"
-	line "prepare myself a"
-	cont "valuable prize."
+	para "Despite so, I can"
+	line "grant you the"
+	cont "ability to use"
+	cont "ROCK SMASH out"
+	cont "of battle."
+	cont "Not really some-"
+	cont "thing you need,"
+	cont "but can be handy."
+
+	para "Also, I prepared a"
+	line "prize for you."
+;	xxxx "123456789012345678"
 	prompt
 
 _OragePostBattleAdviceText::
