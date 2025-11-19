@@ -13,5 +13,5 @@ DungeonTilesets:
 	db RESEARCH_CENTER ; new
 	db REDS_HOUSE_1 ; new
 	db CLUB ; new
-	db UNDERWATER ; new, testing
+;	db UNDERWATER ; new, testing
 	db -1 ; end

@@ -17,13 +17,22 @@ LoadTilesetHeader:
 	ldh [hTileAnimations], a
 	xor a
 	ldh [hMovingBGTilesCounter1], a
-	pop hl
-	ld a, [wCurMapTileset]
-	push hl
+;	pop hl ; edited
+;	ld a, [wCurMapTileset] ; edited
+;	push hl ; edited
 	push de
+; new
+	CheckAndResetEvent EVENT_DIVE_FORCE_CONSIDERING_DUNGEON_TILESET ; new, testing
+	jr z, .notStuff
+	scf
+	jr .postStuff
+; BTV
+.notStuff ; new label
 	ld hl, DungeonTilesets
 	ld de, $1
+	ld a, [wCurMapTileset]
 	call IsInArray
+.postStuff ; new label
 	pop de
 	pop hl
 	jr c, .dungeon

@@ -657,6 +657,13 @@ WarpFound2::
 	set 0, [hl] ; have the player's sprite step out from the door (if there is one)
 	call IgnoreInputForHalfSecond
 	callfar RespawnAllRockSmashableRocks ; new
+; new
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .donePostDiveCheck
+	SetEvent EVENT_DIVE_FORCE_CONSIDERING_DUNGEON_TILESET
+.donePostDiveCheck
+; BTV
 	jp EnterMap
 
 ; if no matching warp was found
@@ -745,7 +752,6 @@ CheckIfInOutsideMap::
 	cp SEVII_SEVEN_ISLAND_GYM_2
 	jr z, .setNZFlag
 	xor a
-	and a
 	ret
 .setNZFlag
 	ld a, 1
