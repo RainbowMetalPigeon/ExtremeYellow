@@ -26,7 +26,7 @@ _SeviiTwoIslandCityText3::
 	line "smallest of the"
 	cont "SEVII ISLANDS."
 
-	para "Yet, it a special"
+	para "Yet, it's a special"
 	line "charm you can't"
 	cont "find anywher'else!"
 	done

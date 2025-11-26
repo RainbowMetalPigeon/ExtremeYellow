@@ -77,7 +77,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_THREE_ISLAND_GYM,                        18, 11 ; $34
 	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $35
 	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $36
-	map_const SEVII_THREE_ISLAND_CAVES,                      15, 10 ; $37
+	map_const SEVII_THREE_ISLAND_CAVES,                      17, 10 ; $37
 	map_const SEVII_BERRY_FOREST,                            20, 20 ; $38
 	map_const SEVII_ROUTE_33_DIVE,                           50, 12 ; $39
 	map_const SEVII_ROUTE_33_DIVE_CAVERN_F1,                 11, 10 ; $3A

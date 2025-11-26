@@ -328,7 +328,7 @@ DebugItemsList:
 	db TIGERS_EYE, 1
 	db S_S_TICKET, 1
 	db SEVII_TICKET, 1
-;	db PEARL, 6
+;	db PEARL, 7
 	db -1 ; end
 
 ELSE
