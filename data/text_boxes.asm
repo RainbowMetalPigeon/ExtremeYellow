@@ -169,7 +169,7 @@ JapanesePokedexMenu:
 
 BookshelfMagicCardText:
 	db   "CONTROL"
-	next "FORCE"
+	next "ROUTINE"
 	next "SHUFFLE@"
 
 BookshelfMagicCoinText:
@@ -198,14 +198,14 @@ BookshelfMagicVanishText:
 	next "WALLETS@"
 
 BookshelfMagicMentalismText:
-	db   "TWINS"
-	next "CODES"
-	next "FUTURE@"
+	db   "CODES"
+	next "FUTURE"
+	next "TRICKS@"
 
 BookshelfMagicMiscellaneaText:
-	db   "LIQUIDS"
-	next "DIGITAL"
-	next "OTHER@"
+	db   "MISCEL1"
+	next "MISCEL2"
+	next "MISCEL3@"
 
 BookshelfBooks1234Text: ; new
 	db   "BOOK 1"

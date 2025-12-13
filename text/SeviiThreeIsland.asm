@@ -325,42 +325,54 @@ _SeviiThreeIslandHousesBookshelfText1_ItsAboutCard::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText1_Shelf1_Book1::
-	text "SB1 - S1 - B1"
+	text "The Art of Palming"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf1_Book2::
-	text "SB1 - S1 - B2"
+	text "Second and Bottom"
+	line "Deal"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf1_Book3::
-	text "SB1 - S1 - B3"
+	text "False Shuffles &"
+	line "False Cuts"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf1_Book4::
-	text "SB1 - S1 - B4"
+	text "100 and 1 Forces"
 	done
 
 _SeviiThreeIslandHousesBookshelfText1_Shelf2_Book1::
-	text "SB1 - S2 - B1"
+	text "The Classic:"
+	line "Find Your Card"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf2_Book2::
-	text "SB1 - S2 - B2"
+	text "Color Change"
+	line "(Disclaimer: does"
+	cont "not help if you're"
+	cont "in the red)"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf2_Book3::
-	text "SB1 - S2 - B3"
+	text "Triumph"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf2_Book4::
-	text "SB1 - S2 - B4"
+	text "The Holy Grail:"
+	line "Any Card at Any"
+	cont "Number (ACAAN)"
 	done
 
 _SeviiThreeIslandHousesBookshelfText1_Shelf3_Book1::
-	text "SB1 - S3 - B1"
+	text "All About the"
+	line "Hindu Shuffle"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf3_Book2::
-	text "SB1 - S3 - B2"
+	text "All About the"
+	line "Pharo Shuffle"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf3_Book3::
-	text "SB1 - S3 - B3"
+	text "All About the"
+	line "Overhand Shuffle"
 	done
 _SeviiThreeIslandHousesBookshelfText1_Shelf3_Book4::
-	text "SB1 - S3 - B4"
+	text "All About the"
+	line "Riffle Shuffle"
 	done
 
 ; -----
@@ -372,42 +384,67 @@ _SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book1::
-	text "SB2 - S1 - B1"
+	text "How to Hide Coins"
+	line "Under Cards"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book2::
-	text "SB2 - S1 - B2"
+	text "How to Handle"
+	line "Coins"
+	cont "(Does not work"
+	cont "with banknotes)"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book3::
-	text "SB2 - S1 - B3"
+	text "Trasfer Coins"
+	line "From Spectators'"
+	cont "Pockets to Yours"
+	para "...ehy, wait!"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book4::
-	text "SB2 - S1 - B4"
+	text "Palming Coins"
 	done
 
 _SeviiThreeIslandHousesBookshelfText2_Shelf2_Book1::
-	text "SB2 - S2 - B1"
+	text "Coin Levitation"
+	line "101"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf2_Book2::
-	text "SB2 - S2 - B2"
+	text "Magnets: Classic,"
+	line "Superconductive,"
+	cont "Electromagnets."
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf2_Book3::
-	text "SB2 - S2 - B3"
+	text "This book is an"
+	line "unreadable"
+	cont "language."
+	para "At least the"
+	line "pictures are nice!"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf2_Book4::
-	text "SB2 - S2 - B4"
+	text "How to String Your"
+	line "Coin Better Than"
+	cont "Scrooge McDuck"
 	done
 
 _SeviiThreeIslandHousesBookshelfText2_Shelf3_Book1::
-	text "SB2 - S3 - B1"
+	text "Palming Coins"
+	para "It's another one"
+	line "with the same"
+	cont "title!"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf3_Book2::
-	text "SB2 - S3 - B2"
+	text "Hollow Coins"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf3_Book3::
-	text "SB2 - S3 - B3"
+	text "Exploit the"
+	line "Environment:"
+	cont "Hide in Plain"
+	cont "Sight"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf3_Book4::
-	text "SB2 - S3 - B4"
+	text "Vanish Every"
+	line "Spectators' Coin"
+	para "...why did it need"
+	line "to specify that?!"
 	done
 
 ; -----
@@ -419,42 +456,60 @@ _SeviiThreeIslandHousesBookshelfText3_ItsAboutRope::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText3_Shelf1_Book1::
-	text "SB3 - S1 - B1"
+	text "False Knots"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf1_Book2::
-	text "SB3 - S1 - B2"
+	text "Impossible Knots"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf1_Book3::
-	text "SB3 - S1 - B3"
+	text "How to Tie Your"
+	line "Partner Safely"
+	para "...uh...?"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf1_Book4::
-	text "SB3 - S1 - B4"
+	text "Three-Dimensional"
+	line "Topology of a"
+	cont "Closed Loop:"
+	cont "Advanced Lessons"
 	done
 
 _SeviiThreeIslandHousesBookshelfText3_Shelf2_Book1::
-	text "SB3 - S2 - B1"
+	text "How to Fake"
+	line "Cutting a Rope"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf2_Book2::
-	text "SB3 - S2 - B2"
+	text "Palming Ropes"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf2_Book3::
-	text "SB3 - S2 - B3"
+	text "Monarchy"
+	line "Restoration and"
+	cont "Its Feasibility"
+	cont "in Current World"
+	para "...just what now?!"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf2_Book4::
-	text "SB3 - S2 - B4"
+	text "Overview on Latest"
+	line "Advances in Self-"
+	cont "Repairing Ropes"
 	done
 
 _SeviiThreeIslandHousesBookshelfText3_Shelf3_Book1::
-	text "SB3 - S3 - B1"
+	text "Knots, but Only"
+	line "in Apparence"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf3_Book2::
-	text "SB3 - S3 - B2"
+	text "Rope Through Rope"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf3_Book3::
-	text "SB3 - S3 - B3"
+	text "Rope Through Stick"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf3_Book4::
-	text "SB3 - S3 - B4"
+	text "Another book"
+	line "written in an"
+	cont "unknown language."
+	para "Even the alphabet"
+	line "is a never-before"
+	cont "seen one!"
 	done
 
 ; -----
@@ -466,42 +521,68 @@ _SeviiThreeIslandHousesBookshelfText4_ItsAboutRing::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText4_Shelf1_Book1::
-	text "SB4 - S1 - B1"
+	text "Ring-Through-Ring:"
+	line "The Ultimate"
+	cont "Encyclopedia"
+	para "Volume 1"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf1_Book2::
-	text "SB4 - S1 - B2"
+	text "Ring-Through-Ring:"
+	line "The Ultimate"
+	cont "Encyclopedia"
+	para "Volume 2"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf1_Book3::
-	text "SB4 - S1 - B3"
+	text "Ring-Through-Ring:"
+	line "The Ultimate"
+	cont "Encyclopedia"
+	para "Volume 3"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf1_Book4::
-	text "SB4 - S1 - B4"
+	text "How to Let the"
+	line "Spectator Check"
+	cont "the Ring"
 	done
 
 _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book1::
-	text "SB4 - S2 - B1"
+	text "Ehy, a dog ate"
+	line "this!"
+	para "...nobody will"
+	line "believe it."
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book2::
-	text "SB4 - S2 - B2"
+	text "On Ring Switching"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book3::
-	text "SB4 - S2 - B3"
+	text "Magnetic Sticks"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book4::
-	text "SB4 - S2 - B4"
+	text "Routines With and"
+	line "Without Cloack"
 	done
 
 _SeviiThreeIslandHousesBookshelfText4_Shelf3_Book1::
-	text "SB4 - S3 - B1"
+	text "Topology of Closed"
+	line "Loops and of"
+	cont "Open Spaces."
+	para "Just glimpsing at"
+	line "at the images is"
+	cont "enough to send"
+	cont "the head spinning!"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf3_Book2::
-	text "SB4 - S3 - B2"
+	text "This one looks"
+	line "very much like a"
+	cont "volume from the"
+	cont "rope section."
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf3_Book3::
-	text "SB4 - S3 - B3"
+	text "A Ring for You,"
+	line "a String for Them"
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf3_Book4::
-	text "SB4 - S3 - B4"
+	text "Double And Triple"
+	line "Passes"
 	done
 
 ; -----
@@ -513,42 +594,70 @@ _SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText5_Shelf1_Book1::
-	text "SB5 - S1 - B1"
+	text "Everything on"
+	line "Item Levitation"
+	para "Volume 1"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf1_Book2::
-	text "SB5 - S1 - B2"
+	text "Everything on"
+	line "Item Levitation"
+	para "Volume 2"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf1_Book3::
-	text "SB5 - S1 - B3"
+	text "Everything on"
+	line "Item Levitation"
+	para "Volume 3"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf1_Book4::
-	text "SB5 - S1 - B4"
+	text "How to Rise Your"
+	line "Bread Perfectly"
+	para "Maaaybe this does"
+	line "not fit here..."
 	done
 
 _SeviiThreeIslandHousesBookshelfText5_Shelf2_Book1::
-	text "SB5 - S2 - B1"
+	text "Rise and Let a"
+	line "Ring Be Passed"
+	cont "Around You"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf2_Book2::
-	text "SB5 - S2 - B2"
+	text "Walk While Rising"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf2_Book3::
-	text "SB5 - S2 - B3"
+	text "Social Elevator"
+	line "and How to Rise"
+	cont "Your Personal"
+	cont "Status"
+	para "Just how many"
+	line "out-of-place"
+	cont "books are here?!"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf2_Book4::
-	text "SB5 - S2 - B4"
+	text "Two-People"
+	line "Levitation Dance"
 	done
 
 _SeviiThreeIslandHousesBookshelfText5_Shelf3_Book1::
-	text "SB5 - S3 - B1"
+	text "On Nanometric"
+	line "Transparent"
+	cont "Strings and Tape"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf3_Book2::
-	text "SB5 - S3 - B2"
+	text "Mirror Mirror"
+	line "on the Wall:"
+	cont "Usage of Mirrors"
+	cont "for Levitation"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf3_Book3::
-	text "SB5 - S3 - B3"
+	text "On Magnetic"
+	line "Equilibrium to"
+	cont "Suspend Small"
+	cont "Metallic Objects"
 	done
 _SeviiThreeIslandHousesBookshelfText5_Shelf3_Book4::
-	text "SB5 - S3 - B4"
+	text "Stage Big Tools:"
+	line "Elevators"
+	cont "and the So"
 	done
 
 ; -----
@@ -560,33 +669,50 @@ _SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText6_Shelf1_Book1::
-	text "SB6 - S1 - B1"
+	text "The Ultimate Final"
+	line "Anthology on"
+	cont "Cups and Balls"
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf1_Book2::
-	text "SB6 - S1 - B2"
+	text "The Classic Monte"
+	line "But With Balls"
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf1_Book3::
-	text "SB6 - S1 - B3"
+	text "Spongy Balls and"
+	line "Other Gimmicks"
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf1_Book4::
-	text "SB6 - S1 - B4"
+	text "Hide Balls Under"
+	line "Everyone's Eyes"
+	cont "While Juggling"
 	done
 
 _SeviiThreeIslandHousesBookshelfText6_Shelf2_Book1::
-	text "SB6 - S2 - B1"
+	text "Trapdoors, My Love"
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf2_Book2::
-	text "SB6 - S2 - B2"
+	text "Dissertation on"
+	line "Chromatic Theory"
+	cont "and Applications"
+	cont "for Concealing"
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf2_Book3::
-	text "SB6 - S2 - B3"
+	text "What Would Be of"
+	line "Us Without Our"
+	cont "Assistants?"
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf2_Book4::
-	text "SB6 - S2 - B4"
+	text "Not Suitable for"
+	line "Kidnapping nor"
+	cont "Fugitives:"
+	cont "How to Hide Your-"
+	cont "Self Perfectly"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book1::
-	text "SB6 - S3 - B1"
+	text "This book has a"
+	line "lock on it."
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book2:: ; !
 	text "Ehy! This book is"
@@ -596,10 +722,20 @@ _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book2:: ; !
 ;	xxxx "123456789012345678"
 	text_end
 _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book3::
-	text "SB6 - S3 - B3"
+	text "There's the picture"
+	line "of three adult"
+	cont "and one old"
+	cont "humanoid beagles"
+	cont "with red shirts"
+	cont "and numbers on"
+	cont "yellow signs."
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book4::
-	text "SB6 - S3 - B4"
+	text "It's written in a"
+	line "foreign language,"
+	cont "but the pictures"
+	cont "don't leave much"
+	cont "to imagination."
 	done
 
 ; -----
@@ -611,42 +747,70 @@ _SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText7_Shelf1_Book1::
-	text "SB7 - S1 - B1"
+	text "100 and 1 Codes"
+	line "to Communicate"
+	cont "In Plain Earing"
+	cont "With Your Partner"
+	para "Volume 1"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf1_Book2::
-	text "SB7 - S1 - B2"
+	text "100 and 1 Codes"
+	line "to Communicate"
+	cont "In Plain Earing"
+	cont "With Your Partner"
+	para "Volume 2"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf1_Book3::
-	text "SB7 - S1 - B3"
+	text "All the Technolo-"
+	line "gical Gimmicks"
+	cont "You Need to"
+	cont "Transmit Secret"
+	cont "Information"
+	para "...is this for"
+	line "magicians or"
+	cont "for spies?"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf1_Book4::
-	text "SB7 - S1 - B4"
+	text "This is a book"
+	line "about coding"
+	cont "languages."
+	para "Geez, just how"
+	line "messy is this"
+	cont "book collection?!"
 	done
 
 _SeviiThreeIslandHousesBookshelfText7_Shelf2_Book1::
-	text "SB7 - S2 - B1"
+	text "The Mirage of"
+	line "Choice"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf2_Book2::
-	text "SB7 - S2 - B2"
+	text "Stage Stooges, oh"
+	line "Underrated Friends"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf2_Book3::
-	text "SB7 - S2 - B3"
+	text "A book about"
+	line "astrology."
+	para "Uuugh..."
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf2_Book4::
-	text "SB7 - S2 - B4"
+	text "Ultimate Insight"
+	line "on Multiple Outs"
 	done
 
 _SeviiThreeIslandHousesBookshelfText7_Shelf3_Book1::
-	text "SB7 - S3 - B1"
+	text "Guess Any Thought-"
+	line "Of Word"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf3_Book2::
-	text "SB7 - S3 - B2"
+	text "Grey Elephant in"
+	line "Denmark"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf3_Book3::
-	text "SB7 - S3 - B3"
+	text "Red Hammer"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf3_Book4::
-	text "SB7 - S3 - B4"
+	text "PATEO: Pick Any"
+	line "Two, Eliminate One"
 	done
 
 ; -----
@@ -658,42 +822,95 @@ _SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea::
 	prompt
 
 _SeviiThreeIslandHousesBookshelfText8_Shelf1_Book1::
-	text "SB8 - S1 - B1"
+	text "The Fundamental"
+	line "Pillar of Magic:"
+	cont "Misdirection"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf1_Book2::
-	text "SB8 - S1 - B2"
+	text "Instant Stooges"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf1_Book3::
-	text "SB8 - S1 - B3"
+	text "Passing Through"
+	line "a Steel Slab"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf1_Book4::
-	text "SB8 - S1 - B4"
+	text "The Most Classic"
+	line "of Classics:"
+	cont "How to Saw Your"
+	cont "Assistant"
 	done
 
 _SeviiThreeIslandHousesBookshelfText8_Shelf2_Book1::
-	text "SB8 - S2 - B1"
+	text "Teleportation Made"
+	line "Easy: Just Find"
+	cont "A Dopplegaenger"
+	para "...the book is"
+	line "one page long."
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf2_Book2::
-	text "SB8 - S2 - B2"
+	text "How to Pour Mul-"
+	line "tiple Different"
+	cont "Liquids From One"
+	cont "Single Container"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf2_Book3::
-	text "SB8 - S2 - B3"
+	text "How to Pierce a"
+	line "Barrel With Many"
+	cont "Swords Without"
+	cont "Slaughtering the"
+	cont "Assistant in It"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf2_Book4::
-	text "SB8 - S2 - B4"
+	text "Marvels and Risks"
+	line "of Using Digital"
+	cont "Devices in Your"
+	cont "Routines"
 	done
 
 _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book1::
-	text "SB8 - S3 - B1"
+	text "Marked Decks"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book2::
-	text "SB8 - S3 - B2"
+	text "This is a manga."
+	para "Ehy, it's actually"
+	line "amazing!"
+	cont "The protagonist"
+	cont "gets kidnapped"
+	cont "every other arc,"
+	cont "but the main"
+	cont "theme of figthing"
+	cont "for Knowledge and"
+	cont "Freedom is so"
+	cont "well delivered,"
+	cont "the characters're"
+	cont "awesome, and the"
+	cont "plot captivating"
+	cont "as nothing else."
+	para "Damn, how does"
+	line "it continue?!"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book3::
-	text "SB8 - S3 - B3"
+	text "Cubes in a Tube:"
+	line "How to Sort Them"
+	cont "and Make Them"
+	cont "Vanish"
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book4::
-	text "SB8 - S3 - B4"
+	text "The Ultimate Trick"
+	line "of Final Amazing"
+	cont "and Awe-Inspiring"
+	cont "Marvel of Immense"
+	cont "Splendor and"
+	cont "Shocking Surprise"
+	para "...the book goes"
+	line "goes on for"
+	cont "hundreds of pages"
+	cont "before saying it's"
+	cont "all just about"
+	cont "'Find Your Card'."
+	para "Seems straight out"
+	line "of a clickbaity"
+	cont "online video!"
 	done
 
 ; -----
