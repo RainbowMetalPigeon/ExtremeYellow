@@ -144,3 +144,22 @@ _GiovanniSafariAfterBattleText::
 	line "again soon."
 	cont "I really do."
 	done
+
+_SafariZoneNorthGuardText:: ; new
+	text "The area ahead is"
+	line "still under"
+	cont "development."
+
+	para "Please come"
+	line "back later!"
+	done
+
+_SafariZoneExtraText1::
+	text "AREA EXTRA"
+	done
+
+_SafariZoneExtraText2::
+	text "Fulfill your"
+	line "collector's"
+	cont "wildest dreams!"
+	done

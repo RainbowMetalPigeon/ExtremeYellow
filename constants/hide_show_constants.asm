@@ -288,6 +288,8 @@ DEF SHOW EQU $15
 	const HS_SAFARI_ZONE_NORTH_GIOVANNI    ; new, Safari Giovanni
 	const HS_SAFARI_ZONE_NORTH_ITEM_1      ; CC
 	const HS_SAFARI_ZONE_NORTH_ITEM_2      ; CD
+	const HS_SAFARI_ZONE_NORTH_GUARD_1     ; new
+	const HS_SAFARI_ZONE_NORTH_GUARD_2     ; new
 	const HS_SAFARI_ZONE_WEST_ITEM_1       ; CE
 	const HS_SAFARI_ZONE_WEST_ITEM_2       ; CF
 	const HS_SAFARI_ZONE_WEST_ITEM_3       ; D0
@@ -466,3 +468,7 @@ DEF SHOW EQU $15
 	const HS_ROUTE_21_DIVE_CAVERN_ITEM_1   ; new
 	const HS_ROUTE_19_DIVE_DROWNING_SWIMMER ; new
 	const HS_ROUTE_23_PINK ; new
+	const HS_SAFARI_ZONE_EXTRA_ITEM_1               ; new
+	const HS_SAFARI_ZONE_EXTRA_ITEM_2               ; new
+	const HS_SAFARI_ZONE_EXTRA_ITEM_3               ; new
+	const HS_SAFARI_ZONE_EXTRA_ITEM_4               ; new

@@ -13,7 +13,7 @@ ResetSafariZoneNorthScript:
 	ld [wNumSafariBalls], a
 	ld [wSafariSteps], a
 	ld [wSafariZoneGateCurScript], a
-	ld [wCurMapScript], a ; new, TBV
+	ld [wCurMapScript], a ; new
 	ret
 
 SafariZoneNorth_ScriptPointers:
@@ -45,16 +45,16 @@ SafariZoneNorthScript2:
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	; hide Safari Giovanni after having defeat them
+; hide Safari Giovanni after having defeat them
 	call GBFadeOutToBlack
 	ld a, HS_SAFARI_ZONE_NORTH_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra ; edited, new HS function
-	; and show them in Oaks Lab
+; and show them in Oaks Lab
 	ld a, HS_OAKS_LAB_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-	; also spawn another tourist
+; also spawn another tourist
 	ld a, HS_LUNAR_SHRINE_TOURIST_3
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
@@ -67,6 +67,8 @@ SafariZoneNorth_TextPointers:
 	dw GiovanniSafariText1
 	dw PickUpItemText
 	dw PickUpItemText
+	dw SafariZoneNorthGuardText ; new
+	dw SafariZoneNorthGuardText ; new
 	dw SafariZoneNorthText3
 	dw SafariZoneNorthText4
 	dw SafariZoneNorthText5
@@ -117,4 +119,10 @@ GiovanniSafariEndBattleText:
 
 GiovanniSafariAfterBattleText:
 	text_far _GiovanniSafariAfterBattleText
+	text_end
+
+; --------------------------------
+
+SafariZoneNorthGuardText:
+	text_far _SafariZoneNorthGuardText
 	text_end

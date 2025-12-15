@@ -119,6 +119,7 @@ HallofFameRoomScript1:
 	ld [wSprite01StateData1FacingDirection], a
 ; new code for HS and to re/set the event that we beat the game at least once
 	call LoopHide
+	call LoopHideExtra
 	call LoopShow
 	call LoopShowExtra
 	ResetEvent EVENT_BEAT_MEWTWO
@@ -379,6 +380,26 @@ ObjectsToHide:
 	db $ff
 
 ; ---------------
+
+LoopHideExtra:
+	ld hl, ObjectsToHideExtra
+.hideExtraLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	pop hl
+	jr .hideExtraLoop
+
+ObjectsToHideExtra:
+	db HS_SAFARI_ZONE_NORTH_GUARD_1
+	db HS_SAFARI_ZONE_NORTH_GUARD_2
+	db $ff
+
+; ---------------
+
 
 LoopShow:
 	ld hl, ObjectsToShow

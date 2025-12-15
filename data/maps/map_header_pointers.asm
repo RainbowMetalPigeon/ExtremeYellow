@@ -185,7 +185,7 @@ MapHeaderPointers::
 	dw CopycatsHouse1F_h
 	dw FightingDojo_h
 	dw SaffronGym_h
-	dw SaffronPidgeyHouse_h
+	dw SafariZoneExtra_h ; new
 	dw CeladonHotelHall_h ; new
 	dw SilphCo1F_h
 	dw SaffronPokecenter_h

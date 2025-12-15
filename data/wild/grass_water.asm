@@ -184,7 +184,7 @@ WildDataPointers:
 	dw NothingWildMons ; COPYCATS_HOUSE_1F
 	dw NothingWildMons ; FIGHTING_DOJO
 	dw NothingWildMons ; SAFFRON_GYM
-	dw NothingWildMons ; SAFFRON_PIDGEY_HOUSE
+	dw SafariZoneExtraWildMons ; SAFARI_ZONE_EXTRA
 	dw NothingWildMons ; CELADON_HOTEL_HALL
 	dw NothingWildMons ; SILPH_CO_1F
 	dw NothingWildMons ; SAFFRON_POKECENTER
@@ -350,3 +350,4 @@ INCLUDE "data/wild/maps/Route19Dive.asm" ; new
 INCLUDE "data/wild/maps/Route20Dive.asm" ; new
 INCLUDE "data/wild/maps/Route21Dive.asm" ; new
 INCLUDE "data/wild/maps/LakeOfMist.asm" ; new
+INCLUDE "data/wild/maps/SafariZoneExtra.asm" ; new

@@ -102,7 +102,7 @@ MapHSPointers:
 	dw NoHS ; POKEMON_FAN_CLUB
 	dw BattleFacilityHS ; new
 	dw NoHS ; VERMILION_GYM
-	dw NoHS ; VERMILION_PIDGEY_HOUSE
+	dw NoHS ; VERMILION_HOUSES ; edited due to merging
 	dw NoHS ; VERMILION_DOCK
 	dw NoHS ; SS_ANNE_1F
 	dw SSAnne2FHS
@@ -187,7 +187,7 @@ MapHSPointers:
 	dw NoHS ; COPYCATS_HOUSE_1F
 	dw FightingDojoHS
 	dw NoHS ; SAFFRON_GYM
-	dw NoHS ; SAFFRON_PIDGEY_HOUSE
+	dw SafariZoneExtraHS ; SAFARI_ZONE_EXTRA ; new
 	dw NoHS ; CELADON_HOTEL_HALL
 	dw SilphCo1FHS
 	dw NoHS ; SAFFRON_POKECENTER
@@ -624,6 +624,8 @@ SafariZoneNorthHS: ; edited because of rematch Giovanni
 	db SAFARI_ZONE_NORTH, $01, HIDE ; new, Giovanni, which starts hidden, then shown, then hidden again
 	db SAFARI_ZONE_NORTH, $02, SHOW
 	db SAFARI_ZONE_NORTH, $03, SHOW
+	db SAFARI_ZONE_NORTH, $04, SHOW ; new, guard to block access to Extra Zone
+	db SAFARI_ZONE_NORTH, $05, SHOW ; new, guard to block access to Extra Zone
 SafariZoneWestHS:
 	db SAFARI_ZONE_WEST, $01, SHOW
 	db SAFARI_ZONE_WEST, $02, SHOW
@@ -856,5 +858,10 @@ Route19DiveHS: ; new
 	db ROUTE_19_DIVE,  1, HIDE ; sunken swimmer
 Route23HS: ; new
 	db ROUTE_23,  8, HIDE ; Pink
+SafariZoneExtraHS: ; new
+	db SAFARI_ZONE_EXTRA,  1, SHOW ; ball
+	db SAFARI_ZONE_EXTRA,  2, SHOW ; ball
+	db SAFARI_ZONE_EXTRA,  3, SHOW ; ball
+	db SAFARI_ZONE_EXTRA,  4, SHOW ; ball
 
 	db $FF, $01, SHOW ; end, list terminator

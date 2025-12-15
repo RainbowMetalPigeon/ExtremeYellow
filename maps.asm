@@ -165,9 +165,10 @@ INCLUDE "data/maps/headers/CeladonMansionRoofHouse.asm"
 INCLUDE "scripts/CeladonMansionRoofHouse.asm"
 INCLUDE "data/maps/objects/CeladonMansionRoofHouse.asm"
 
-INCLUDE "data/maps/headers/SaffronPidgeyHouse.asm"
-INCLUDE "scripts/SaffronPidgeyHouse.asm"
-INCLUDE "data/maps/objects/SaffronPidgeyHouse.asm"
+; UNUSED
+;INCLUDE "data/maps/headers/SaffronPidgeyHouse.asm"
+;INCLUDE "scripts/SaffronPidgeyHouse.asm"
+;INCLUDE "data/maps/objects/SaffronPidgeyHouse.asm"
 
 INCLUDE "data/maps/headers/MrPsychicsHouse.asm"
 INCLUDE "scripts/MrPsychicsHouse.asm"
@@ -1455,6 +1456,11 @@ INCLUDE "data/maps/headers/LakeOfMist.asm"
 INCLUDE "scripts/LakeOfMist.asm"
 INCLUDE "data/maps/objects/LakeOfMist.asm"
 LakeOfMist_Blocks: INCBIN "maps/LakeOfMist.blk"
+
+INCLUDE "data/maps/headers/SafariZoneExtra.asm"
+INCLUDE "scripts/SafariZoneExtra.asm"
+INCLUDE "data/maps/objects/SafariZoneExtra.asm"
+SafariZoneExtra_Blocks: INCBIN "maps/SafariZoneExtra.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

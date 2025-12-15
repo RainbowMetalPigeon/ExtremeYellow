@@ -44,6 +44,8 @@ InitBattleVariables:
 	inc a ; POUND
 	ld [wTestBattlePlayerSelectedMove], a
 	ld a, [wCurMap]
+	cp SAFARI_ZONE_EXTRA ; new
+	jr z, .yesSafariBattle ; new
 	cp SAFARI_ZONE_EAST
 	jr c, .notSafariBattle
 	cp SAFARI_ZONE_QUADRUPLE_REST_HOUSE ; edited because of MERGING

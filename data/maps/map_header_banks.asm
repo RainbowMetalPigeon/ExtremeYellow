@@ -185,7 +185,7 @@ MapHeaderBanks::
 	db BANK(CopycatsHouse1F_h)
 	db BANK(FightingDojo_h)
 	db BANK(SaffronGym_h)
-	db BANK(SaffronPidgeyHouse_h)
+	db BANK(SafariZoneExtra_h) ; new
 	db BANK(CeladonHotelHall_h) ; new
 	db BANK(SilphCo1F_h)
 	db BANK(SaffronPokecenter_h)

@@ -203,7 +203,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const COPYCATS_HOUSE_1F,             11,  4 ; $B5 ; edited because of MERGING
 	map_const FIGHTING_DOJO,                  7,  8 ; $B6
 	map_const SAFFRON_GYM,                   10,  9 ; $B7
-	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B8 ; UNUSED
+	map_const SAFARI_ZONE_EXTRA,             20, 18 ; $B8 ; UNUSED
 	map_const CELADON_HOTEL_HALL,            10,  2 ; $B9 ; new, was SAFFRON_MART
 	map_const SILPH_CO_1F,                   15,  9 ; $BA
 	map_const SAFFRON_POKECENTER,            14,  4 ; $BB ; edited, Center+Mart
