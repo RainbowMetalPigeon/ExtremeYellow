@@ -46,6 +46,7 @@ MapHSPointers:
 	dw Route28HS ; new, Route28
 	dw NoHS ; new, Route29
 	dw NoHS ; new, Route30
+	dw NoHS ; LAKE_OF_MIST ; new
 	dw RedsHouse1FHS ; new
 	dw NoHS ; REDS_HOUSE_2F
 	dw BluesHouseHS
@@ -184,7 +185,6 @@ MapHSPointers:
 	dw NoHS ; OBSIDIAN_HOUSES
 	dw NoHS ; INDIGO_PLATEAU_LOBBY
 	dw NoHS ; COPYCATS_HOUSE_1F
-	dw NoHS ; COPYCATS_HOUSE_2F
 	dw FightingDojoHS
 	dw NoHS ; SAFFRON_GYM
 	dw NoHS ; SAFFRON_PIDGEY_HOUSE

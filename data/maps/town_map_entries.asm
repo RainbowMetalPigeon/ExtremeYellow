@@ -50,6 +50,7 @@ ExternalMapEntries:
 	external_map  8,  9, Route28Name ; new
 	external_map 11, 15, Route29Name ; new
 	external_map  3,  7, Route30Name ; new
+	external_map 15,  5, LakeOfMistName ; new
 	assert_table_length FIRST_INDOOR_MAP
 
 
@@ -85,7 +86,7 @@ InternalMapEntries:
 	internal_map OCHRE_HOUSES,                  11, 11, OchreCityName ; new
 	internal_map UNDERGROUND_PATH_ROUTE_8,      11,  5, Route8Name
 	internal_map ROCK_TUNNEL_1F,                14,  3, RockTunnelName
-	internal_map POWER_PLANT,                   15,  4, PowerPlantName
+	internal_map POWER_PLANT,                   15,  3, PowerPlantName
 	internal_map DIGLETTS_CAVE_ROUTE_11,        13,  9, Route11Name ; edited because of MERGING
 	internal_map SAFFRON_CLIMB_CLUB,            10,  5, SaffronClimbClubName ; new
 	internal_map ROUTE_12_GATE_1F,              14,  7, Route12Name
@@ -105,7 +106,7 @@ InternalMapEntries:
 	internal_map ROUTE_19_DIVE,                  7, 15, Route19DiveName ; new
 	internal_map CELADON_HOTEL,                  7,  5, CeladonCityName
 	internal_map LAVENDER_POKECENTER,           14,  5, LavenderTownName
-	internal_map POKEMON_TOWER_7F,              15,  5, PokemonTowerName
+	internal_map POKEMON_TOWER_7F,              15,  4, PokemonTowerName
 	internal_map LAVENDER_HOUSES,               14,  5, LavenderTownName ; edited
 	internal_map OCHRE_RESEARCH_CENTER_2,       11, 11, OchreCityName ; new
 	internal_map WARDENS_HOUSE,                  8, 13, FuchsiaCityName

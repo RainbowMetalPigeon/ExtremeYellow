@@ -61,146 +61,146 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_28,                      12,  9 ; $28
 	map_const ROUTE_29,                      14, 32 ; $29
 	map_const ROUTE_30,                      20,  8 ; $2A
+	map_const LAKE_OF_MIST,                  25, 25 ; $2B ; new
 DEF FIRST_INDOOR_MAP EQU const_value
-	map_const REDS_HOUSE_1F,                  4,  5 ; $2B ; edited
-	map_const REDS_HOUSE_2F,                  4,  4 ; $2C
-	map_const BLUES_HOUSE,                   11,  4 ; $2D ; edited
-	map_const OAKS_LAB,                       5,  6 ; $2E
-	map_const VIRIDIAN_POKECENTER,            7,  4 ; $2F
-	map_const VIRIDIAN_MART,                  4,  4 ; $30
-	map_const VIRIDIAN_SCHOOL_HOUSE,          5,  4 ; $31
-	map_const VIRIDIAN_NICKNAME_HOUSE,       11,  4 ; $32 ; edited
-	map_const VIRIDIAN_GYM,                  10,  9 ; $33
-	map_const DIGLETTS_CAVE_ROUTE_2,          4,  4 ; $34
-	map_const HAUNTED_REDS_HOUSE,            11,  5 ; $35 ; new
-	map_const ROUTE_2_TRADE_HOUSE,            4,  4 ; $36
-	map_const ROUTE_2_ALL_GATES,             21,  4 ; $37 ; new, merge of all Route 2 gates
-	map_const HAUNTED_PALLET_TOWN,           14, 13 ; $38 ; new
-	map_const VIRIDIAN_FOREST,               17, 24 ; $39
-	map_const MUSEUM_1F,                     10,  4 ; $3A
-	map_const MUSEUM_2F,                      7,  4 ; $3B
-	map_const PEWTER_GYM,                     5,  7 ; $3C
-	map_const ROUTE_21_DIVE,                 10, 45 ; $3D ; new
-	map_const PEWTER_HOUSES,                 18,  4 ; $3E ; edited
-	map_const PEWTER_POKECENTER,             14,  4 ; $3F ; edited, Center+Mart
-	map_const MT_MOON_1F,                    30, 30 ; $40 ; edited
-	map_const MT_MOON_B1F,                   30, 30 ; $41 ; edited
-	map_const MT_MOON_B2F,                   30, 30 ; $42 ; edited
-	map_const SUNKEN_SHIP_1F,                19, 14 ; $43 ; new
-	map_const CERULEAN_MELANIES_HOUSE,       39,  4 ; $44 ; edited, enlarged for more houses
-	map_const CERULEAN_POKECENTER,           14,  4 ; $45 ; edited, Center+Mart
-	map_const CERULEAN_GYM,                   5,  7 ; $46
-	map_const BIKE_SHOP,                      4,  4 ; $47
-	map_const PIKACHU_GROTTO,                11, 11 ; $48 ; new
-	map_const MT_MOON_POKECENTER,             7,  4 ; $49
-	map_const ONIX_BURROWING,                26, 26 ; $4A ; new, was a copy of the trashed house
-	map_const ROUTE_5_GATE,                   4,  3 ; $4B
-	map_const UNDERGROUND_PATH_ROUTE_5,       4,  4 ; $4C
-	map_const DAYCARE,                        4,  4 ; $4D
-	map_const ROUTE_6_GATE,                   4,  3 ; $4E
-	map_const UNDERGROUND_PATH_ROUTE_6,       4,  4 ; $4F
-	map_const SECLUDED_CAVES,                19, 18 ; $50 ; new, was a copy of the underground path route 6
-	map_const ROUTE_7_GATE,                   3,  4 ; $51
-	map_const UNDERGROUND_PATH_ROUTE_7,       4,  4 ; $52
-	map_const OCHRE_HOUSES,                  27,  6 ; $53 ; new, was a copy of the underground path route 7
-	map_const ROUTE_8_GATE,                   3,  4 ; $54
-	map_const UNDERGROUND_PATH_ROUTE_8,       4,  4 ; $55
-	map_const ROCK_TUNNEL_POKECENTER,         7,  4 ; $56
-	map_const ROCK_TUNNEL_1F,                20, 18 ; $57
-	map_const POWER_PLANT,                   20, 18 ; $58
-	map_const ROUTE_11_GATE_1F,               4, 11 ; $59 ; edited because of MERGING
-	map_const DIGLETTS_CAVE_ROUTE_11,         4,  4 ; $5A
-	map_const SAFFRON_CLIMB_CLUB,            18, 10 ; $5B ; new
-	map_const ROUTE_12_GATE_1F,              12,  4 ; $5C ; edited
-	map_const BILLS_HOUSE,                    4,  4 ; $5D
-	map_const VERMILION_POKECENTER,          14,  4 ; $5E ; edited, Center+Mart
-	map_const POKEMON_FAN_CLUB,               4,  4 ; $5F
-	map_const BATTLE_FACILITY,               15,  4 ; $60 ; mew
-	map_const VERMILION_GYM,                  5,  9 ; $61
-	map_const VERMILION_HOUSES,              18,  4 ; $62 ; new, merge of all Vermilion houses
-	map_const VERMILION_DOCK,                14,  6 ; $63
-	map_const SS_ANNE_1F,                    20,  9 ; $64
-	map_const SS_ANNE_2F,                    20,  9 ; $65
-	map_const SS_ANNE_3F,                    10,  3 ; $66
-	map_const SS_ANNE_B1F,                   15,  4 ; $67
-	map_const SS_ANNE_BOW,                   10,  7 ; $68
-	map_const SS_ANNE_KITCHEN,                7,  8 ; $69
-	map_const SS_ANNE_CAPTAINS_ROOM,          3,  4 ; $6A
-	map_const SS_ANNE_1F_ROOMS,              12,  8 ; $6B
-	map_const SS_ANNE_2F_ROOMS,              12,  8 ; $6C
-	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $6D
-	map_const OCHRE_GYM,                     15, 17 ; $6E ; new
-	map_const OCHRE_WONDERLAND,              30, 30 ; $6F ; new
-	map_const OCHRE_RESEARCH_CENTER_1,        6, 16 ; $70 ; new
-	map_const VICTORY_ROAD_1F,               10,  9 ; $71
-	map_const SECLUDED_ATOLL_NW,             27, 15 ; $72 ; new
-	map_const SECLUDED_ATOLL_NE,             15, 15 ; $73 ; new
-	map_const SECLUDED_ATOLL_SE,             15, 24 ; $74 ; new
-	map_const SECLUDED_ATOLL_SW,             27, 24 ; $75 ; new
-	map_const LANCES_ROOM,                   13, 13 ; $76
-	map_const OBSIDIAN_WOOD,                 24, 24 ; $77 ; new
-	map_const OBSIDIAN_WAREHOUSE,            30, 22 ; $78 ; new
-	map_const OBSIDIAN_WAREHOUSE_FINAL,       6, 11 ; $79 ; new
-	map_const OBSIDIAN_MINES,                30, 30 ; $7A ; new
-	map_const HALL_OF_FAME,                   5,  4 ; $7B
-	map_const UNDERGROUND_PATH_NORTH_SOUTH,   4, 24 ; $7C ; UndergroundPathNorthSouth.blk is actually 4x23
-	map_const CHAMPIONS_ROOM,                 4,  4 ; $7D
-	map_const UNDERGROUND_PATH_WEST_EAST,    25,  4 ; $7E
-	map_const CELADON_MART_1F,               10,  4 ; $7F
-	map_const CELADON_MART_2F,               10,  4 ; $80
-	map_const CELADON_MART_3F,               10,  4 ; $81
-	map_const CELADON_MART_4F,               10,  4 ; $82
-	map_const CELADON_MART_ROOF,             10,  4 ; $83
-	map_const CELADON_MART_ELEVATOR,          2,  2 ; $84
-	map_const CELADON_MANSION_1F,            11,  6 ; $85 ; edited for MERGING
-	map_const CELADON_MANSION_2F,             5,  6 ; $86 ; edited, enlarged to host the pret meetup
-	map_const ROUTE_19_DIVE,                 10, 27 ; $87 ; new
-	map_const CELADON_MANSION_ROOF,           4,  6 ; $88
-	map_const CELADON_MANSION_ROOF_HOUSE,     4,  4 ; $89
-	map_const CELADON_POKECENTER,             7,  4 ; $8A
-	map_const CELADON_GYM,                    5,  9 ; $8B
-	map_const GAME_CORNER,                   10,  9 ; $8C
-	map_const CELADON_MART_5F,               10,  4 ; $8D
-	map_const GAME_CORNER_PRIZE_ROOM,         5,  4 ; $8E
-	map_const CELADON_DINER,                  5,  4 ; $8F
-	map_const CELADON_CHIEF_HOUSE,           14,  7 ; $90 ; edited
-	map_const CELADON_HOTEL,                  7,  4 ; $91
-	map_const LAVENDER_POKECENTER,           14,  4 ; $92 ; edited, Center+Mart
-	map_const POKEMON_TOWER_1F,              10,  9 ; $93
-	map_const POKEMON_TOWER_2F,              10,  9 ; $94
-	map_const POKEMON_TOWER_3F,              10,  9 ; $95
-	map_const POKEMON_TOWER_4F,              10,  9 ; $96
-	map_const POKEMON_TOWER_5F,              10,  9 ; $97
-	map_const POKEMON_TOWER_6F,              10,  9 ; $98
-	map_const POKEMON_TOWER_7F,              10,  9 ; $99
-	map_const LAVENDER_HOUSES,               18,  4 ; $9A ; new, merge of all Lavender houses
-	map_const HAUNTED_HOUSE_2,               15, 18 ; $9B ; new
-	map_const HAUNTED_HOUSE_3,               30, 30 ; $9C ; new, was LAVENDER_CUBONE_HOUSE
-	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $9D ; new
-	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $9E
-	map_const FUCHSIA_POKECENTER,            14,  4 ; $9F ; edited, Center+Mart
-	map_const WARDENS_HOUSE,                 13,  4 ; $A0 ; edited
-	map_const SAFARI_ZONE_GATE,               4,  3 ; $A1
-	map_const FUCHSIA_GYM,                    5,  9 ; $A2
-	map_const FUCHSIA_MEETING_ROOM,           7,  4 ; $A3
-	map_const SEAFOAM_ISLANDS_B1F,           15,  9 ; $A4
-	map_const SEAFOAM_ISLANDS_B2F,           15,  9 ; $A5
-	map_const SEAFOAM_ISLANDS_B3F,           15,  9 ; $A6
-	map_const SEAFOAM_ISLANDS_B4F,           15,  9 ; $A7
-	map_const HAUNTED_HOUSE_4,               30, 30 ; $A8 ; new, was VERMILION_OLD_ROD_HOUSE
-	map_const FUCHSIA_GOOD_ROD_HOUSE,         4,  4 ; $A9
-	map_const POKEMON_MANSION_1F,            15, 14 ; $AA
-	map_const CINNABAR_GYM,                  10,  9 ; $AB
-	map_const CINNABAR_LAB,                  51,  4 ; $AC ; edited because of MERGING
-	map_const ROUTE_20_DIVE,                 50,  9 ; $AD ; new
-	map_const ROUTE_19_DIVE_CAVERN,          11, 10 ; $AE ; new
-	map_const ROUTE_21_DIVE_CAVERN,          30, 30 ; $AF ; new
-	map_const CINNABAR_POKECENTER,           14,  4 ; $B0 ; edited, Center+Mart
-	map_const HAUNTED_ISLAND_OF_NUMBERS,     30, 30 ; $B1 ; new, was CINNABAR_MART
-	map_const OBSIDIAN_HOUSES,               18,  4 ; $B2, new
-	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $B3
-	map_const COPYCATS_HOUSE_1F,             11,  4 ; $B4 ; edited because of MERGING
-	map_const COPYCATS_HOUSE_2F,              4,  4 ; $B5 ; UNUSED
+	map_const REDS_HOUSE_1F,                  4,  5 ; $2C ; edited
+	map_const REDS_HOUSE_2F,                  4,  4 ; $2D
+	map_const BLUES_HOUSE,                   11,  4 ; $2E ; edited
+	map_const OAKS_LAB,                       5,  6 ; $2F
+	map_const VIRIDIAN_POKECENTER,            7,  4 ; $30
+	map_const VIRIDIAN_MART,                  4,  4 ; $31
+	map_const VIRIDIAN_SCHOOL_HOUSE,          5,  4 ; $32
+	map_const VIRIDIAN_NICKNAME_HOUSE,       11,  4 ; $33 ; edited
+	map_const VIRIDIAN_GYM,                  10,  9 ; $34
+	map_const DIGLETTS_CAVE_ROUTE_2,          4,  4 ; $35
+	map_const HAUNTED_REDS_HOUSE,            11,  5 ; $36 ; new
+	map_const ROUTE_2_TRADE_HOUSE,            4,  4 ; $37
+	map_const ROUTE_2_ALL_GATES,             21,  4 ; $38 ; new, merge of all Route 2 gates
+	map_const HAUNTED_PALLET_TOWN,           14, 13 ; $39 ; new
+	map_const VIRIDIAN_FOREST,               17, 24 ; $3A
+	map_const MUSEUM_1F,                     10,  4 ; $3B
+	map_const MUSEUM_2F,                      7,  4 ; $3C
+	map_const PEWTER_GYM,                     5,  7 ; $3D
+	map_const ROUTE_21_DIVE,                 10, 45 ; $3E ; new
+	map_const PEWTER_HOUSES,                 18,  4 ; $3F ; edited
+	map_const PEWTER_POKECENTER,             14,  4 ; $40 ; edited, Center+Mart
+	map_const MT_MOON_1F,                    30, 30 ; $41 ; edited
+	map_const MT_MOON_B1F,                   30, 30 ; $42 ; edited
+	map_const MT_MOON_B2F,                   30, 30 ; $43 ; edited
+	map_const SUNKEN_SHIP_1F,                19, 14 ; $44 ; new
+	map_const CERULEAN_MELANIES_HOUSE,       39,  4 ; $45 ; edited, enlarged for more houses
+	map_const CERULEAN_POKECENTER,           14,  4 ; $46 ; edited, Center+Mart
+	map_const CERULEAN_GYM,                   5,  7 ; $47
+	map_const BIKE_SHOP,                      4,  4 ; $48
+	map_const PIKACHU_GROTTO,                11, 11 ; $49 ; new
+	map_const MT_MOON_POKECENTER,             7,  4 ; $4A
+	map_const ONIX_BURROWING,                26, 26 ; $4B ; new, was a copy of the trashed house
+	map_const ROUTE_5_GATE,                   4,  3 ; $4C
+	map_const UNDERGROUND_PATH_ROUTE_5,       4,  4 ; $4D
+	map_const DAYCARE,                        4,  4 ; $4E
+	map_const ROUTE_6_GATE,                   4,  3 ; $4F
+	map_const UNDERGROUND_PATH_ROUTE_6,       4,  4 ; $50
+	map_const SECLUDED_CAVES,                19, 18 ; $51 ; new, was a copy of the underground path route 6
+	map_const ROUTE_7_GATE,                   3,  4 ; $52
+	map_const UNDERGROUND_PATH_ROUTE_7,       4,  4 ; $53
+	map_const OCHRE_HOUSES,                  27,  6 ; $54 ; new, was a copy of the underground path route 7
+	map_const ROUTE_8_GATE,                   3,  4 ; $55
+	map_const UNDERGROUND_PATH_ROUTE_8,       4,  4 ; $56
+	map_const ROCK_TUNNEL_POKECENTER,         7,  4 ; $57
+	map_const ROCK_TUNNEL_1F,                20, 18 ; $58
+	map_const POWER_PLANT,                   20, 18 ; $59
+	map_const ROUTE_11_GATE_1F,               4, 11 ; $5A ; edited because of MERGING
+	map_const DIGLETTS_CAVE_ROUTE_11,         4,  4 ; $5B
+	map_const SAFFRON_CLIMB_CLUB,            18, 10 ; $5C ; new
+	map_const ROUTE_12_GATE_1F,              12,  4 ; $5D ; edited
+	map_const BILLS_HOUSE,                    4,  4 ; $5E
+	map_const VERMILION_POKECENTER,          14,  4 ; $5F ; edited, Center+Mart
+	map_const POKEMON_FAN_CLUB,               4,  4 ; $60
+	map_const BATTLE_FACILITY,               15,  4 ; $61 ; mew
+	map_const VERMILION_GYM,                  5,  9 ; $62
+	map_const VERMILION_HOUSES,              18,  4 ; $63 ; new, merge of all Vermilion houses
+	map_const VERMILION_DOCK,                14,  6 ; $64
+	map_const SS_ANNE_1F,                    20,  9 ; $65
+	map_const SS_ANNE_2F,                    20,  9 ; $66
+	map_const SS_ANNE_3F,                    10,  3 ; $67
+	map_const SS_ANNE_B1F,                   15,  4 ; $68
+	map_const SS_ANNE_BOW,                   10,  7 ; $69
+	map_const SS_ANNE_KITCHEN,                7,  8 ; $6A
+	map_const SS_ANNE_CAPTAINS_ROOM,          3,  4 ; $6B
+	map_const SS_ANNE_1F_ROOMS,              12,  8 ; $6C
+	map_const SS_ANNE_2F_ROOMS,              12,  8 ; $6D
+	map_const SS_ANNE_B1F_ROOMS,             12,  8 ; $6E
+	map_const OCHRE_GYM,                     15, 17 ; $6F ; new
+	map_const OCHRE_WONDERLAND,              30, 30 ; $70 ; new
+	map_const OCHRE_RESEARCH_CENTER_1,        6, 16 ; $71 ; new
+	map_const VICTORY_ROAD_1F,               10,  9 ; $72
+	map_const SECLUDED_ATOLL_NW,             27, 15 ; $73 ; new
+	map_const SECLUDED_ATOLL_NE,             15, 15 ; $74 ; new
+	map_const SECLUDED_ATOLL_SE,             15, 24 ; $75 ; new
+	map_const SECLUDED_ATOLL_SW,             27, 24 ; $76 ; new
+	map_const LANCES_ROOM,                   13, 13 ; $77
+	map_const OBSIDIAN_WOOD,                 24, 24 ; $78 ; new
+	map_const OBSIDIAN_WAREHOUSE,            30, 22 ; $79 ; new
+	map_const OBSIDIAN_WAREHOUSE_FINAL,       6, 11 ; $7A ; new
+	map_const OBSIDIAN_MINES,                30, 30 ; $7B ; new
+	map_const HALL_OF_FAME,                   5,  4 ; $7C
+	map_const UNDERGROUND_PATH_NORTH_SOUTH,   4, 24 ; $7D ; UndergroundPathNorthSouth.blk is actually 4x23
+	map_const CHAMPIONS_ROOM,                 4,  4 ; $7E
+	map_const UNDERGROUND_PATH_WEST_EAST,    25,  4 ; $7F
+	map_const CELADON_MART_1F,               10,  4 ; $80
+	map_const CELADON_MART_2F,               10,  4 ; $81
+	map_const CELADON_MART_3F,               10,  4 ; $82
+	map_const CELADON_MART_4F,               10,  4 ; $83
+	map_const CELADON_MART_ROOF,             10,  4 ; $84
+	map_const CELADON_MART_ELEVATOR,          2,  2 ; $85
+	map_const CELADON_MANSION_1F,            11,  6 ; $86 ; edited for MERGING
+	map_const CELADON_MANSION_2F,             5,  6 ; $87 ; edited, enlarged to host the pret meetup
+	map_const ROUTE_19_DIVE,                 10, 27 ; $88 ; new
+	map_const CELADON_MANSION_ROOF,           4,  6 ; $89
+	map_const CELADON_MANSION_ROOF_HOUSE,     4,  4 ; $8A
+	map_const CELADON_POKECENTER,             7,  4 ; $8B
+	map_const CELADON_GYM,                    5,  9 ; $8C
+	map_const GAME_CORNER,                   10,  9 ; $8D
+	map_const CELADON_MART_5F,               10,  4 ; $8E
+	map_const GAME_CORNER_PRIZE_ROOM,         5,  4 ; $8F
+	map_const CELADON_DINER,                  5,  4 ; $90
+	map_const CELADON_CHIEF_HOUSE,           14,  7 ; $91 ; edited
+	map_const CELADON_HOTEL,                  7,  4 ; $92
+	map_const LAVENDER_POKECENTER,           14,  4 ; $93 ; edited, Center+Mart
+	map_const POKEMON_TOWER_1F,              10,  9 ; $94
+	map_const POKEMON_TOWER_2F,              10,  9 ; $95
+	map_const POKEMON_TOWER_3F,              10,  9 ; $96
+	map_const POKEMON_TOWER_4F,              10,  9 ; $97
+	map_const POKEMON_TOWER_5F,              10,  9 ; $98
+	map_const POKEMON_TOWER_6F,              10,  9 ; $99
+	map_const POKEMON_TOWER_7F,              10,  9 ; $9A
+	map_const LAVENDER_HOUSES,               18,  4 ; $9B ; new, merge of all Lavender houses
+	map_const HAUNTED_HOUSE_2,               15, 18 ; $9C ; new
+	map_const HAUNTED_HOUSE_3,               30, 30 ; $9D ; new, was LAVENDER_CUBONE_HOUSE
+	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $9E ; new
+	map_const FUCHSIA_BILLS_GRANDPAS_HOUSE,   4,  4 ; $9F
+	map_const FUCHSIA_POKECENTER,            14,  4 ; $A0 ; edited, Center+Mart
+	map_const WARDENS_HOUSE,                 13,  4 ; $A1 ; edited
+	map_const SAFARI_ZONE_GATE,               4,  3 ; $A2
+	map_const FUCHSIA_GYM,                    5,  9 ; $A3
+	map_const FUCHSIA_MEETING_ROOM,           7,  4 ; $A4
+	map_const SEAFOAM_ISLANDS_B1F,           15,  9 ; $A5
+	map_const SEAFOAM_ISLANDS_B2F,           15,  9 ; $A6
+	map_const SEAFOAM_ISLANDS_B3F,           15,  9 ; $A7
+	map_const SEAFOAM_ISLANDS_B4F,           15,  9 ; $A8
+	map_const HAUNTED_HOUSE_4,               30, 30 ; $A9 ; new, was VERMILION_OLD_ROD_HOUSE
+	map_const FUCHSIA_GOOD_ROD_HOUSE,         4,  4 ; $AA
+	map_const POKEMON_MANSION_1F,            15, 14 ; $AB
+	map_const CINNABAR_GYM,                  10,  9 ; $AC
+	map_const CINNABAR_LAB,                  51,  4 ; $AD ; edited because of MERGING
+	map_const ROUTE_20_DIVE,                 50,  9 ; $AE ; new
+	map_const ROUTE_19_DIVE_CAVERN,          11, 10 ; $AF ; new
+	map_const ROUTE_21_DIVE_CAVERN,          30, 30 ; $B0 ; new
+	map_const CINNABAR_POKECENTER,           14,  4 ; $B1 ; edited, Center+Mart
+	map_const HAUNTED_ISLAND_OF_NUMBERS,     30, 30 ; $B2 ; new, was CINNABAR_MART
+	map_const OBSIDIAN_HOUSES,               18,  4 ; $B3, new
+	map_const INDIGO_PLATEAU_LOBBY,           8,  6 ; $B4
+	map_const COPYCATS_HOUSE_1F,             11,  4 ; $B5 ; edited because of MERGING
 	map_const FIGHTING_DOJO,                  7,  8 ; $B6
 	map_const SAFFRON_GYM,                   10,  9 ; $B7
 	map_const SAFFRON_PIDGEY_HOUSE,           4,  4 ; $B8 ; UNUSED

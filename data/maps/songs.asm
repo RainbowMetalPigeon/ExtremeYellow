@@ -43,6 +43,7 @@ MapSongBanks::
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_28, new, testing, to be modified?
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_29, new, testing, to be modified?
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_30, new, testing, to be modified?
+	db MUSIC_ROUTES3, BANK(Music_Routes3) ; LAKE_OF_MIST
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_1F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_2F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; BLUES_HOUSE
@@ -181,7 +182,6 @@ MapSongBanks::
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar) ; OBSIDIAN_HOUSES, new
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; INDIGO_PLATEAU_LOBBY
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; COPYCATS_HOUSE_1F
-	db MUSIC_CITIES1, BANK(Music_Cities1) ; COPYCATS_HOUSE_2F
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; FIGHTING_DOJO
 	db MUSIC_GYM, BANK(Music_Gym) ; SAFFRON_GYM
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; SAFFRON_PIDGEY_HOUSE

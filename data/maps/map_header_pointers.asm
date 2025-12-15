@@ -44,6 +44,7 @@ MapHeaderPointers::
 	dw Route28_h
 	dw Route29_h
 	dw Route30_h
+	dw LakeOfMist_h ; new
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h
@@ -182,7 +183,6 @@ MapHeaderPointers::
 	dw ObsidianHouses_h ; new
 	dw IndigoPlateauLobby_h
 	dw CopycatsHouse1F_h
-	dw CopycatsHouse2F_h
 	dw FightingDojo_h
 	dw SaffronGym_h
 	dw SaffronPidgeyHouse_h
