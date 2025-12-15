@@ -805,7 +805,7 @@ HallOfFame_Blocks: INCBIN "maps/HallOfFame.blk"
 
 SECTION "Maps 15", ROMX
 
-CopycatsHouse2F_Blocks: ; UNUSED
+;CopycatsHouse2F_Blocks: ; UNUSED
 RedsHouse2F_Blocks: INCBIN "maps/RedsHouse2F.blk"
 
 Museum1F_Blocks: INCBIN "maps/Museum1F.blk"
@@ -865,9 +865,10 @@ INCLUDE "scripts/VermilionGym.asm"
 INCLUDE "data/maps/objects/VermilionGym.asm"
 VermilionGym_Blocks: INCBIN "maps/VermilionGym.blk"
 
-INCLUDE "data/maps/headers/CopycatsHouse2F.asm"
-INCLUDE "scripts/CopycatsHouse2F.asm"
-INCLUDE "data/maps/objects/CopycatsHouse2F.asm"
+; UNUSED
+;INCLUDE "data/maps/headers/CopycatsHouse2F.asm"
+;INCLUDE "scripts/CopycatsHouse2F.asm"
+;INCLUDE "data/maps/objects/CopycatsHouse2F.asm"
 
 INCLUDE "data/maps/headers/FightingDojo.asm"
 INCLUDE "scripts/FightingDojo.asm"
@@ -1446,6 +1447,15 @@ INCLUDE "data/maps/headers/BluesHouse.asm"
 INCLUDE "scripts/BluesHouse.asm"
 INCLUDE "data/maps/objects/BluesHouse.asm"
 BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
+
+
+SECTION "Maps New 3", ROMX ; new
+
+INCLUDE "data/maps/headers/LakeOfMist.asm"
+INCLUDE "scripts/LakeOfMist.asm"
+INCLUDE "data/maps/objects/LakeOfMist.asm"
+LakeOfMist_Blocks: INCBIN "maps/LakeOfMist.blk"
+
 
 ; --------------------- NEW FOR SEVII ----------------------------
 

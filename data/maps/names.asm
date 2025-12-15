@@ -61,6 +61,7 @@ PowerPlantName:      db "POWER PLANT@"
 SecludedAtollName:   db "SECLUDED ATOLL@" ; new
 PikachuGrottoName:   db "PIKACHU GROTTO@" ; new
 HauntedHouseName:    db "@" ; new
+LakeOfMistName:      db "LAKE OF MIST@" ; new
 
 ; new, for Sevii and new Kanto areas
 

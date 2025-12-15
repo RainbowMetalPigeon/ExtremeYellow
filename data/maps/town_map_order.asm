@@ -23,6 +23,7 @@ TownMapOrder:
 	db ROUTE_10
 	db LAVENDER_TOWN
 	db POKEMON_TOWER_2F
+	db LAKE_OF_MIST ; new
 	db ROUTE_8
 	db ROUTE_7
 	db CELADON_CITY

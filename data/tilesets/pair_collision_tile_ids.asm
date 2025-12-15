@@ -78,6 +78,7 @@ TilePairCollisionsWater::
 	db CAVERN, $14, $05
 	; to prevent landing onto rock plateau from above, now that is walkable
 	db OVERWORLD, $14, $11 ; new
+	db OVERWORLD, $32, $11 ; new, for shore to plateau
 	db OVERWORLD, $6A, $11 ; new, for deep water
 	db OVERWORLD_SEVII, $14, $11 ; new
 	db -1 ; end

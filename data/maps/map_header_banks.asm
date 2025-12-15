@@ -44,6 +44,7 @@ MapHeaderBanks::
 	db BANK(Route28_h)
 	db BANK(Route29_h)
 	db BANK(Route30_h)
+	db BANK(LakeOfMist_h) ; new
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
 	db BANK(BluesHouse_h)
@@ -182,7 +183,6 @@ MapHeaderBanks::
 	db BANK(ObsidianHouses_h) ; new
 	db BANK(IndigoPlateauLobby_h)
 	db BANK(CopycatsHouse1F_h)
-	db BANK(CopycatsHouse2F_h)
 	db BANK(FightingDojo_h)
 	db BANK(SaffronGym_h)
 	db BANK(SaffronPidgeyHouse_h)

@@ -305,6 +305,7 @@ INCLUDE "text/Route8.asm"
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/SilphCo7F.asm"
 INCLUDE "data/text/text_8.asm"
+INCLUDE "text/LakeOfMist.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

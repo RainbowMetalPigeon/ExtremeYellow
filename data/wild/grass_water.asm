@@ -39,10 +39,11 @@ WildDataPointers:
 	dw Route24WildMons         ; ROUTE_24
 	dw Route25WildMons         ; ROUTE_25
 	dw Route26WildMons		   ; ROUTE_26, new
-	dw Route27WildMons		   ; ROUTE_27, new, TBE
-	dw Route28WildMons		   ; ROUTE_28, new, TBE
-	dw Route29WildMons		   ; ROUTE_29, new, TBE
-	dw Route30WildMons		   ; ROUTE_30, new, TBE
+	dw Route27WildMons		   ; ROUTE_27, new
+	dw Route28WildMons		   ; ROUTE_28, new
+	dw Route29WildMons		   ; ROUTE_29, new
+	dw Route30WildMons		   ; ROUTE_30, new
+	dw LakeOfMistWildMons ; LAKE_OF_MIST ; new
 	dw NothingWildMons         ; REDS_HOUSE_1F
 	dw NothingWildMons ; REDS_HOUSE_2F
 	dw NothingWildMons ; BLUES_HOUSE
@@ -181,7 +182,6 @@ WildDataPointers:
 	dw NothingWildMons ; OBSIDIAN_HOUSES
 	dw NothingWildMons ; INDIGO_PLATEAU_LOBBY
 	dw NothingWildMons ; COPYCATS_HOUSE_1F
-	dw NothingWildMons ; COPYCATS_HOUSE_2F
 	dw NothingWildMons ; FIGHTING_DOJO
 	dw NothingWildMons ; SAFFRON_GYM
 	dw NothingWildMons ; SAFFRON_PIDGEY_HOUSE
@@ -349,3 +349,4 @@ INCLUDE "data/wild/maps/HauntedHouse.asm" ; new
 INCLUDE "data/wild/maps/Route19Dive.asm" ; new
 INCLUDE "data/wild/maps/Route20Dive.asm" ; new
 INCLUDE "data/wild/maps/Route21Dive.asm" ; new
+INCLUDE "data/wild/maps/LakeOfMist.asm" ; new
