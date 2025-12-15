@@ -397,9 +397,13 @@ _SeviiTwoIslandGymText2_PostLeague::
 	cont "but you'll use one"
 	cont "assembled at"
 	cont "random for you."
+	cont "NIUE's team'll be"
+	cont "chosen at random"
+	cont "out of a few"
+	cont "possible ones."
+;	xxxx "123456789012345678"
 
 	para "Good luck!"
-;	xxxx "123456789012345678"
 	done
 
 ; dock ------------------------------------

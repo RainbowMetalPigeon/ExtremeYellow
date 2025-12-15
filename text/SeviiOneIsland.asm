@@ -535,9 +535,12 @@ _SeviiOneIslandGym1Text1_PostLeague::
 	cont "You'll have to"
 	cont "deduce that from"
 	cont "secondary info."
+	cont "Mind that ICHINO's"
+	cont "team won't always"
+	cont "be the same."
+;	xxxx "123456789012345678"
 
 	para "Good luck!"
-;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandGym2Text1_NoChampionYet::

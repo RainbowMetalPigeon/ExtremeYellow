@@ -918,50 +918,103 @@ _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book4::
 ; gym -------------------------------------
 
 _SeviiThreeIslandGymText1_Intro::
-	text "SANTRE: ciao"
+	text "SANTRE: Welcome,"
+	line "CHAMPION."
+
+	para "In this SHRINE,"
+	line "all your #MON"
+	cont "must share at"
+	cont "least one type."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandGymText1_NoChampionYet::
-	text "No CHAMPION yet."
+	text "SANTRE: ..."
+
+	para "Not worth yet."
+
+	para "Return when ready."
+	line "Need great feat."
 	done
 
 _SeviiThreeIslandGymText1_SharedTypes::
-	text "I see. You decided"
-	line "to challenge me"
-	cont "with a team of"
+	text "So you challenge"
+	line "me with a team of"
 	cont "only @"
 	text_ram wTrainerName
 	text "."
 
-	para "Excellent."
-	line "Let us begin!"
-;	xxxx "123456789012345678"
+	para "Let us begin."
 	done
 
 _SeviiThreeIslandGymText1_NoSharedTypes::
-	text "No shared types"
+	text "SANTRE: No shared"
+	line "type."
+
+	para "You must be"
+	line "monolithic."
 	done
 
 _SeviiThreeIslandGymText2_PreLeague::
-	text "guide for you 3"
-	line "pre-league"
+	text "I'm sorry, but the"
+	line "SAGE SANTRE"
+	cont "accepts only"
+	cont "challengers of a"
+	cont "certain caliber."
+
+	para "You're not ready."
+
+	para "At this moment, I"
+	line "can only tell you"
+	cont "that this TRIAL"
+	cont "is about"
+	cont "deploying a"
+	cont "unified power."
 	done
 
 _SeviiThreeIslandGymText2_PostLeague::
-	text "guide for you 3"
-	line "post-league"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "Now, SAGE SANTRE"
+	line "will accept your"
+	cont "challenge with"
+	cont "pleasure."
+
+	para "For this TRIAL,"
+	line "you need to use"
+	cont "a monotype team,"
+	cont "meaning that all"
+	cont "all of your #-"
+	cont "MON need to have"
+	cont "at least one type"
+	cont "in common."
+	cont "SANTRE's team will"
+	cont "depend on your"
+	cont "choice."
+;	xxxx "123456789012345678"
+
+	para "Good luck!"
 	done
 
 _SantreText_PostBattleText::
-	text "GG 3"
+	text "You won."
 	prompt
 
 _SeviiThreeIslandGymText3_Victory::
-	text "Congrats 3"
+	text "SANTRE: Good."
+	line "You defeated"
+	cont "the SHRINE of"
+	cont "FAMILY ISLAND."
+
+	para "TBE."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandGymText4_Defeat::
-	text "Try again 3"
+	text "SANTRE: You lost."
+	line "Try again."
 	done
 
 ; dock ------------------------------------
@@ -994,67 +1047,115 @@ _SeviiRoute33Text2_Core::
 	done
 
 _SeviiRoute33Text3And4::
-	text "Shoo 2!"
+	text "Shoo!"
 	done
 
 _SeviiRoute33BattleText1::
-	text "33-1-pre"
+	text "You look strong!"
+	line "I'll never let"
+	cont "slip a training"
+	cont "opportunity!"
 	done
 
 _SeviiRoute33EndBattleText1::
-	text "33-1-end"
+	text "You"
+	line "do be strong!"
 	prompt
 
 _SeviiRoute33AfterBattleText1::
-	text "33-1-after"
+	text "For all that I"
+	line "train, I can't"
+	cont "take that gang"
+	cont "all by myself."
+
+	para "Maybe if I beat"
+	line "their boss, they"
+	cont "will run away?"
 	done
 
 _SeviiRoute33BattleText2::
-	text "33-2-pre"
+	text "This doesn't make"
+	line "any sense!"
 	done
 
 _SeviiRoute33EndBattleText2::
-	text "33-2-end"
+	text "Not"
+	line "even my loss"
+	cont "makes sense!"
 	prompt
 
 _SeviiRoute33AfterBattleText2::
-	text "33-2-after"
+	text "DREAM FOREST used"
+	line "to be called"
+	cont "BERRY FOREST."
+
+	para "No-one knows why."
+	line "What even is"
+	cont "a berry?"
+
+	para "So its name got"
+	line "changed. Good."
 	done
 
 _SeviiRoute33BattleText3::
-	text "33-3-pre"
+	text "Ready, steady..."
+	line "roll!"
 	done
 
 _SeviiRoute33EndBattleText3::
-	text "33-3-end"
+	text "I ran"
+	line "out of luck!"
 	prompt
 
 _SeviiRoute33AfterBattleText3::
-	text "33-3-after"
+	text "Us gamblers rely"
+	line "on probability."
+	cont "Magicians use"
+	cont "tricks."
+
+	para "If you're"
+	line "interested, ask"
+	cont "the one in city."
 	done
 
 _SeviiRoute33BattleText4::
-	text "33-4-pre"
+	text "I'm in vacation."
+	line "Let's battle!"
 	done
 
 _SeviiRoute33EndBattleText4::
-	text "33-4-end"
+	text "You"
+	line "could have gone"
+	cont "easier on me!"
 	prompt
 
 _SeviiRoute33AfterBattleText4::
-	text "33-4-after"
+	text "I'm a trainer just"
+	line "for hobby."
 	done
 
 _SeviiRoute33BattleText5::
-	text "33-5-pre"
+	text "I got lost..."
+	line "A good fight will"
+	cont "clear my mind!"
 	done
 
 _SeviiRoute33EndBattleText5::
-	text "33-5-end"
+	text "My"
+	line "mind is clearer!"
 	prompt
 
 _SeviiRoute33AfterBattleText5::
-	text "33-5-after"
+	text "Jump down the"
+	line "first ledge you"
+	cont "find South-East"
+	cont "if you're going to"
+	cont "DREAM FOREST."
+
+	para "But you'll hardly"
+	line "find anyone"
+	cont "there, it's too"
+	cont "creepy of a place."
 	done
 
 _SeviiRoute33SignText1::
