@@ -36,10 +36,9 @@ SeviiRoute43Script0:
 ; player one step back
 	ld a, $ff
 	ld [wJoyIgnore], a
-	ld hl, wSimulatedJoypadStatesEnd
-	ld de, SeviiRoute43_SirdScenePlayerWalksBack_RLEMovement
-	call DecodeRLEList
-	dec a
+	ld a, D_DOWN | B_BUTTON ; edited to fix Pikachu blocker
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 ; script handling
@@ -49,10 +48,6 @@ SeviiRoute43Script0:
 
 SeviiRoute43_Coordinates_SirdScene:
 	dbmapcoord  3, 15
-	db -1 ; end
-
-SeviiRoute43_SirdScenePlayerWalksBack_RLEMovement:
-	db D_DOWN, 1
 	db -1 ; end
 
 SeviiRoute43Script3:
@@ -143,6 +138,9 @@ SeviiRoute43Script5:
 ; reset scripts
 	; fallthrough
 SeviiRoute43ResetScripts:
+	ld a, HS_SEVII_ROUTE_43_SIRD
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
