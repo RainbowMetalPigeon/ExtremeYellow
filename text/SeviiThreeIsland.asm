@@ -970,6 +970,7 @@ _SeviiThreeIslandGymText2_PreLeague::
 	cont "is about"
 	cont "deploying a"
 	cont "unified power."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandGymText2_PostLeague::

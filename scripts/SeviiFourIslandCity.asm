@@ -33,7 +33,29 @@ SeviiFourIslandCityText1: ; post-Leauge Pink
 	text_end
 
 SeviiFourIslandCityText2:
-	text_far _SeviiFourIslandCityText2
+	text_asm
+	ld hl, SeviiFourIslandCityText2_1
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SeviiFourIslandCityText2_No
+	jr nz, .printAndEnd
+	ld hl, SeviiFourIslandCityText2_Yes
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFourIslandCityText2_1:
+	text_far _SeviiFourIslandCityText2_1
+	text_end
+
+SeviiFourIslandCityText2_Yes:
+	text_far _SeviiFourIslandCityText2_Yes
+	text_end
+
+SeviiFourIslandCityText2_No:
+	text_far _SeviiFourIslandCityText2_No
 	text_end
 
 SeviiFourIslandCityText3:

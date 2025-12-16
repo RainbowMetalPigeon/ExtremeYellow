@@ -3,39 +3,96 @@ _SeviiFourIslandCityText1::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiFourIslandCityText2::
-	text "2"
-;	xxxx "123456789012345678"
+_SeviiFourIslandCityText2_1::
+	text "Is it your first"
+	line "time in FLOE?"
+	done
+
+_SeviiFourIslandCityText2_Yes::
+	text "Welcome!"
+	line "Are you tackling"
+	cont "the SEVII TRIAL?"
+	cont "Or are you here"
+	cont "to visit"
+	cont "ICEFALL CAVE?"
+	done
+
+_SeviiFourIslandCityText2_No::
+	text "Welcome back!"
+	line "What's your"
+	cont "favourite spot?"
 	done
 
 _SeviiFourIslandCityText3::
-	text "3"
-;	xxxx "123456789012345678"
+	text "Urgh. Nothing ever"
+	line "happens here!"
+
+	para "I wanna move to"
+	line "KANTO! SAFFRON,"
+	cont "or maybe CELADON."
+	cont "Anywhere more"
+	cont "alive than here!"
 	done
 
 _SeviiFourIslandCityText4::
-	text "4"
-;	xxxx "123456789012345678"
+	text "The ice melting"
+	line "from ICEFALL CAVE"
+	cont "flows outside and"
+	cont "makes it tough"
+	cont "to reach the cave."
 	done
 
 _SeviiFourIslandCityText5::
-	text "5"
-;	xxxx "123456789012345678"
+	text "I work on a cargo"
+	line "ship. I'm on break"
+	cont "now, but I can't"
+	cont "stop thinking"
+	cont "'bout the sea!"
+
+	para "Alas, the sea is"
+	line "too wild here to"
+	cont "swim. Gotta wait."
 	done
 
 _SeviiFourIslandCityText6::
-	text "6"
-;	xxxx "123456789012345678"
+	text "I heard a kid"
+	line "around here, PINK"
+	cont "if I'm not wrong,"
+	cont "started training"
+	cont "incredibly hard."
+
+	para "Do they intend on"
+	line "taking on the"
+	cont "SEVII TRIAL?"
+	cont "I know no-one"
+	cont "that succeeded."
 	done
 
 _SeviiFourIslandCityText7::
-	text "7"
-;	xxxx "123456789012345678"
+	text "My goal is to"
+	line "be the first in"
+	cont "years to beat"
+	cont "the SEVII TRIAL!"
+
+	para "But even trying it"
+	line "isn't easy: the"
+	cont "SAGEs accept only"
+	cont "challengers who"
+	cont "achieved awesome"
+	cont "feats."
+
+	para "What could be one"
+	line "such feat? Uhm."
 	done
 
 _SeviiFourIslandCityText8::
-	text "8"
-;	xxxx "123456789012345678"
+	text "You're from KANTO?"
+	line "It's not easy to"
+	cont "get a ferry pass"
+	cont "for non-SEVII"
+	cont "residents!"
+
+	para "How did you do?"
 	done
 
 _SeviiFourIslandCitySignText1::
@@ -69,19 +126,54 @@ _SeviiFourIslandCitySignText4::
 ; city's indoor ------------------------------------
 
 _SeviiFourIslandPokemonCenterAndMart_Text1::
-	text "test 4-1"
+	text "Have you heard?"
+	line "It seems there"
+	cont "are troubles at"
+	cont "CHRONO ISLAND."
+
+	para "Someone says it's"
+	line "TEAM ROCKET's"
+	cont "doing!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandPokemonCenterAndMart_Text2::
-	text "test 4-2"
+	text "The SEVII ISLANDS"
+	line "are under KANTO's"
+	cont "legislation, but"
+	cont "they are given"
+	cont "much freedom."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandPokemonCenterAndMart_Text3::
-	text "test 4-3"
+	text "Do you know of"
+	line "DOTTED HOLE in"
+	cont "FORTUNE ISLAND?"
+
+	para "I set sail there"
+	line "only a few times,"
+	cont "but I enjoy"
+	cont "visiting it every"
+	cont "time I go!"
+
+	para "It's so mysterious."
+	line "I can't even read"
+	cont "what's written"
+	cont "on the ruins!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandPokemonCenterAndMart_Text4::
-	text "test 4-4"
+	text "BOON doesn't have"
+	line "a traditional"
+	cont "#MON MART, but"
+	cont "the MARKET ran by"
+	cont "those two"
+	cont "adorable grampies"
+	cont "sells stuff found"
+	cont "nowhere else!"
+;	xxxx "123456789012345678"
 	done
 
 ; houses ------------------------------------
@@ -351,7 +443,7 @@ _SeviiFourIslandHousesScriptText2::
 	cont "thing: you're the"
 	cont "saviour of my"
 	cont "nephew!"
-	
+
 	para "PINK's PAPA: And"
 	line "now you helped"
 	cont "PINK chasing away"
@@ -399,7 +491,7 @@ _SeviiFourIslandHousesScriptText5::
 
 _SeviiFourIslandHousesScriptText6::
 	text "PINK: ..."
-	
+
 	para "...I see."
 	line "I'm still weak."
 
@@ -433,48 +525,119 @@ _PinksHousePinkBeatYouText::
 ; gym ------------------------------------
 
 _SeviiFourIslandGymText1_NoChampionYet::
-	text "No champ yet"
+	text "YOTTRO: ..."
+
+	para "Yo, I'm sorry,"
+	line "but y'an't worth"
+	cont "yet, ya know."
+
+	para "C'me back wh'n y're!"
+	line "I like yor vibes,"
+	cont "I wanna fight ya!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText1_Intro::
-	text "YOTTRO: hi"
-	line "only status moves"
+	text "YOTTRO: Yo!!!"
+	line "CHAMPION!"
+	cont "So happy to see"
+	cont "ya! Let's have a"
+	cont "cool alternative"
+	cont "fight, shall we?!"
+
+	para "In ma' SHRINE,"
+	line "ya can't use any"
+	cont "damaging move!"
+	cont "Gotta think outta"
+	cont "box, understand?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText1_OnlyStatusMoves::
-	text "Goot let's fight"
+	text "Yooo yeaaah, yar"
+	line "MONs know no"
+	cont "damaging moves!"
+	cont "Let's vibe and"
+	cont "dance together!!!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText1_DamagingMoves::
-	text "Damaging moves"
-	line "too bad"
+	text "YOTTRO: Oh dang,"
+	line "that's too bad,"
+	cont "but yar MONs know"
+	cont "damaging moves."
+
+	para "So sorry CHAMP,"
+	line "but can't fight"
+	cont "ya right now!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText2_PreLeague::
-	text "guide for you 4"
-	line "pre-league"
+	text "I'm sorry, but the"
+	line "SAGE YOTTRO"
+	cont "accepts only"
+	cont "challengers of a"
+	cont "certain caliber."
+
+	para "You're not ready."
+
+	para "At this moment, I"
+	line "can only tell you"
+	cont "that this TRIAL"
+	cont "is about pacifism."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText2_PostLeague::
-	text "guide for you 4"
-	line "post-league"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "Now, SAGE YOTTRO"
+	line "will accept your"
+	cont "challenge with"
+	cont "pleasure."
+
+	para "For this TRIAL,"
+	line "none of your"
+	cont "#MON can know"
+	cont "damaging moves."
+	cont "You'll have to"
+	cont "devise unusual"
+	cont "strategies to win"
+	cont "without dealing"
+	cont "direct damage."
+;	xxxx "123456789012345678"
+
+	para "Good luck!"
 	done
 
 _YottroText_PostBattleText::
-	text "GG 4"
+	text "YOTTRO: Yooo!!!"
+	line "I knew you had it!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText3_Victory::
-	text "congrats 4"
+	text "YOTTRO: That was"
+	line "grand pal, such a"
+	cont "cool battle!"
+	cont "Ya beat ma SHRINE"
+	cont "of FLOE ISLAND!"
+
+	para "TBE."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText4_Defeat::
-	text "try again 4"
+	text "YOTTRO: Daaamn,"
+	line "ya didn't make it!"
+
+	para "But worry not pal,"
+	line "come back and try"
+	cont "again, will ya?!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -488,49 +651,98 @@ _SeviiFourIslandDockBgText1::
 ; dive ------------------------------------
 
 _SeviiFourIslandCityDiveBattleText1::
-	text "1-pre"
+	text "Glublub!"
+
+	para "(What's your"
+	line "favourite swim-"
+	cont "ming style?)"
 	done
 
 _SeviiFourIslandCityDiveEndBattleText1::
-	text "1-end"
+	text "Glllub!"
+
+	para "(It seems my style"
+	line "is the rock one!)"
 	prompt
 
 _SeviiFourIslandCityDiveAfterBattleText1::
-	text "1-after"
+	text "Blubglug."
+
+	para "(Everyone has"
+	line "their style, be"
+	cont "it for battles,"
+	cont "swimming, or"
+	cont "clothing.)"
 	done
 
 _SeviiFourIslandCityDiveBattleText2::
-	text "2-pre"
+	text "Blublublu!"
+
+	para "(How long can you"
+	line "hold your breath?)"
 	done
 
 _SeviiFourIslandCityDiveEndBattleText2::
-	text "2-end"
+	text "Gllgb!"
+
+	para "(Enough to beat"
+	line "me well!)"
 	prompt
 
 _SeviiFourIslandCityDiveAfterBattleText2::
-	text "2-after"
+	text "Lllgblubglb."
+
+	para "(Without equipment"
+	line "you can only dive"
+	cont "so long.)"
 	done
 
 _SeviiFourIslandCityDiveBattleText3::
-	text "3-pre"
+	text "Gl gl glub!"
+
+	para "(Eheh! Are you"
+	line "REALLY prepared"
+	cont "for an under-"
+	cont "water battle?)"
 	done
 
 _SeviiFourIslandCityDiveEndBattleText3::
-	text "3-end"
+	text "Blg!"
+
+	para "(You sure are!)"
 	prompt
 
 _SeviiFourIslandCityDiveAfterBattleText3::
-	text "3-after"
+	text "Bbluuuglubbu."
+
+	para "(Underwater, #-"
+	line "MON take damage"
+	cont "proportionally to"
+	cont "how weak they are"
+	cont "to WATER.)"
 	done
 
 _SeviiFourIslandCityDiveBattleText4::
-	text "4-pre"
+	text "Gblbluu?!"
+
+	para "(Are you planning"
+	line "on exploring that"
+	cont "cave?!)"
 	done
 
 _SeviiFourIslandCityDiveEndBattleText4::
-	text "4-end"
+	text "Luglub!"
+
+	para "(You're strong, but"
+	line "it's not enough!)"
 	prompt
 
 _SeviiFourIslandCityDiveAfterBattleText4::
-	text "4-after"
+	text "Bluglubblub!"
+
+	para "(Diving? Sure."
+	line "Speleology?"
+	cont "Maybe. But"
+	cont "speleodiving? It's"
+	cont "super dangerous!)"
 	done
