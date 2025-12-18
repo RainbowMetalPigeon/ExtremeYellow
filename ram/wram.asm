@@ -853,7 +853,7 @@ wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 2 ; new, for Sevii
 NEXTU
 wFlyAnimUsingCoordList:: db
 ; $ff sentinel values at each end
-wFlyLocationsList:: ds NUM_CITY_MAPS + 4 ; edited, to allow fly to Route 4 and Route 10
+wFlyLocationsList:: ds NUM_CITY_MAPS + 5 ; edited, to allow fly to Route 4 and Route 10 and Forlorn Valley
 
 NEXTU
 wWhichTownMapLocation:: db
@@ -2533,7 +2533,7 @@ wLuckCrit:: db ; new
 wLuckSecondaryEffects:: db ; new
 wLuckStatusesAffliction:: db ; new
 
-wTownVisitedFlag:: flag_array NUM_CITY_MAPS + 2
+wTownVisitedFlag:: flag_array NUM_CITY_MAPS + 3
 
 ; starts at 502
 wSafariSteps:: dw
@@ -2606,7 +2606,7 @@ wd728:: db
 
 ;	ds 1
 wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII ; new, for Sevii
-	ds 1 ; UNUSED bytes in "Main Data"; moved up from below the wBeatGymFlags
+;	ds 1
 
 ; redundant because it matches wObtainedBadges
 ; used to determine whether to show name on statue and in two NPC text scripts

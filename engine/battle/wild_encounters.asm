@@ -47,6 +47,7 @@ TryDoWildEncounter:
 ; even if not in grass/water, standing anywhere we can encounter pokemon
 ; so long as the map is "indoor" and has wild pokemon defined.
 ; ...as long as it's not Viridian Forest or Safari Zone.
+; edited: added condition for Forlorn Valley
 ; new, edited for sevii
 	CheckEvent EVENT_IN_SEVII
 	ld a, [wCurMap]
@@ -59,6 +60,8 @@ TryDoWildEncounter:
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .CantEncounter2
 .continue
+	cp FORLORN_VALLEY
+	jr z, .CantEncounter2
 ; back to vanilla
 	ld a, [wCurMapTileset]
 	cp FOREST ; Viridian Forest/Safari Zone and forest(s) of Sevii

@@ -381,7 +381,7 @@ MtMoonPokecenter_Blocks: INCBIN "maps/MtMoonPokecenter.blk"
 Route11Gate2F_Blocks: ; UNUSED
 Route18Gate2F_Blocks: ; UNUSED
 Route16Gate2F_Blocks: ; UNUSED
-Route15Gate2F_Blocks: ; UNUSED
+;Route15Gate2F_Blocks: ; UNUSED
 Route12Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
 
 Route11Gate1F_Blocks:
@@ -506,9 +506,10 @@ INCLUDE "data/maps/headers/Route15Gate1F.asm"
 INCLUDE "scripts/Route15Gate1F.asm"
 INCLUDE "data/maps/objects/Route15Gate1F.asm"
 
-INCLUDE "data/maps/headers/Route15Gate2F.asm"
-INCLUDE "scripts/Route15Gate2F.asm"
-INCLUDE "data/maps/objects/Route15Gate2F.asm"
+; UNUSED
+;INCLUDE "data/maps/headers/Route15Gate2F.asm"
+;INCLUDE "scripts/Route15Gate2F.asm"
+;INCLUDE "data/maps/objects/Route15Gate2F.asm"
 
 INCLUDE "data/maps/headers/Route16Gate1F.asm"
 INCLUDE "scripts/Route16Gate1F.asm"
@@ -1461,6 +1462,11 @@ INCLUDE "data/maps/headers/SafariZoneExtra.asm"
 INCLUDE "scripts/SafariZoneExtra.asm"
 INCLUDE "data/maps/objects/SafariZoneExtra.asm"
 SafariZoneExtra_Blocks: INCBIN "maps/SafariZoneExtra.blk"
+
+INCLUDE "data/maps/headers/ForlornValley.asm"
+INCLUDE "scripts/ForlornValley.asm"
+INCLUDE "data/maps/objects/ForlornValley.asm"
+ForlornValley_Blocks: INCBIN "maps/ForlornValley.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

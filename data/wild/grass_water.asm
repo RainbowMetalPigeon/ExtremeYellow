@@ -190,7 +190,7 @@ WildDataPointers:
 	dw NothingWildMons ; SAFFRON_POKECENTER
 	dw NothingWildMons ; MR_PSYCHICS_HOUSE
 	dw NothingWildMons ; ROUTE_15_GATE_1F
-	dw NothingWildMons ; ROUTE_15_GATE_2F
+	dw ForlornValleyWildMons ; FORLORN_VALLEY, new
 	dw NothingWildMons ; ROUTE_16_GATE_1F
 	dw NothingWildMons ; ROUTE_16_GATE_2F
 	dw NothingWildMons ; ROUTE_16_FLY_HOUSE
@@ -351,3 +351,4 @@ INCLUDE "data/wild/maps/Route20Dive.asm" ; new
 INCLUDE "data/wild/maps/Route21Dive.asm" ; new
 INCLUDE "data/wild/maps/LakeOfMist.asm" ; new
 INCLUDE "data/wild/maps/SafariZoneExtra.asm" ; new
+INCLUDE "data/wild/maps/ForlornValley.asm" ; new

@@ -87,7 +87,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MT_MOON_1F,                    30, 30 ; $41 ; edited
 	map_const MT_MOON_B1F,                   30, 30 ; $42 ; edited
 	map_const MT_MOON_B2F,                   30, 30 ; $43 ; edited
-	map_const SUNKEN_SHIP_1F,                19, 14 ; $44 ; new
+	map_const SUNKEN_SHIP_1F,                20, 12 ; $44 ; new
 	map_const CERULEAN_MELANIES_HOUSE,       39,  4 ; $45 ; edited, enlarged for more houses
 	map_const CERULEAN_POKECENTER,           14,  4 ; $46 ; edited, Center+Mart
 	map_const CERULEAN_GYM,                   5,  7 ; $47
@@ -203,13 +203,13 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const COPYCATS_HOUSE_1F,             11,  4 ; $B5 ; edited because of MERGING
 	map_const FIGHTING_DOJO,                  7,  8 ; $B6
 	map_const SAFFRON_GYM,                   10,  9 ; $B7
-	map_const SAFARI_ZONE_EXTRA,             20, 18 ; $B8 ; UNUSED
+	map_const SAFARI_ZONE_EXTRA,             20, 18 ; $B8 ; new
 	map_const CELADON_HOTEL_HALL,            10,  2 ; $B9 ; new, was SAFFRON_MART
 	map_const SILPH_CO_1F,                   15,  9 ; $BA
 	map_const SAFFRON_POKECENTER,            14,  4 ; $BB ; edited, Center+Mart
 	map_const MR_PSYCHICS_HOUSE,             11,  4 ; $BC ; edited for MERGING
 	map_const ROUTE_15_GATE_1F,               4, 11 ; $BD ; edited because of MERGING
-	map_const ROUTE_15_GATE_2F,               4,  4 ; $BE ; edited, made UNUSED because of map MERGING
+	map_const FORLORN_VALLEY,                30, 30 ; $BE ; new
 	map_const ROUTE_16_GATE_1F,               4, 13 ; $BF ; edited
 	map_const ROUTE_16_GATE_2F,               4,  4 ; $C0 ; UNUSED
 	map_const ROUTE_16_FLY_HOUSE,             4,  4 ; $C1

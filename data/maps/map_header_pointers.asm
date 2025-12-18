@@ -191,7 +191,7 @@ MapHeaderPointers::
 	dw SaffronPokecenter_h
 	dw MrPsychicsHouse_h
 	dw Route15Gate1F_h
-	dw Route15Gate2F_h ; UNUSED
+	dw ForlornValley_h ; new
 	dw Route16Gate1F_h
 	dw Route16Gate2F_h
 	dw Route16FlyHouse_h

@@ -126,13 +126,13 @@ InternalMapEntries:
 	internal_map CELADON_HOTEL_HALL,             7,  5, CeladonCityName ; new
 	internal_map MR_PSYCHICS_HOUSE,             10,  5, SaffronCityName
 	internal_map ROUTE_15_GATE_1F,               9, 13, Route15Name ; edited due to MERGING
+	internal_map FORLORN_VALLEY,                12,  7, ForlornValleyName ; new
 	internal_map ROUTE_16_FLY_HOUSE,             4,  5, Route16Name
 	internal_map ROUTE_12_SUPER_ROD_HOUSE,      14, 10, Route12Name
 	internal_map ROUTE_18_GATE_1F,               7, 13, Route18Name ; edited due to MERGING
 	internal_map SEAFOAM_ISLANDS_1F,             5, 15, SeafoamIslandsName
 	internal_map ROUTE_22_GATE,                  0,  7, Route22Name
 	internal_map VICTORY_ROAD_2F,                0,  4, VictoryRoadName
-;	internal_map ROUTE_12_GATE_2F,              14,  7, Route12Name ; removed because MERGING
 	internal_map CELADON_HOTEL_ROOMS,            7,  5, CeladonCityName ; new
 	internal_map DIGLETTS_CAVE,                  3,  4, DiglettsCaveName
 	internal_map VICTORY_ROAD_3F,                0,  4, VictoryRoadName

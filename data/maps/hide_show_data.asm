@@ -193,7 +193,7 @@ MapHSPointers:
 	dw NoHS ; SAFFRON_POKECENTER
 	dw MrPsychicsHouseHS ; new
 	dw NoHS ; ROUTE_15_GATE_1F
-	dw NoHS ; ROUTE_15_GATE_2F ; UNUSED
+	dw ForlornValleyHS ; FORLORN_VALLEY ; new
 	dw NoHS ; ROUTE_16_GATE_1F
 	dw NoHS ; ROUTE_16_GATE_2F
 	dw NoHS ; ROUTE_16_FLY_HOUSE
@@ -584,6 +584,8 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
 	db OBSIDIAN_WAREHOUSE, $0E, HIDE
+ForlornValleyHS: ; new
+	db FORLORN_VALLEY, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it

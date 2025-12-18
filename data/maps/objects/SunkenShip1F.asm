@@ -2,8 +2,8 @@ SunkenShip1F_Object:
 	db $0C ; border block
 
 	def_warp_events
-	warp_event 12, 27, ROUTE_21_DIVE, 1
-	warp_event 13, 27, ROUTE_21_DIVE, 1
+	warp_event 20, 23, ROUTE_21_DIVE, 1
+	warp_event 21, 23, ROUTE_21_DIVE, 1
 
 	def_bg_events
 

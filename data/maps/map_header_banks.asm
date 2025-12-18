@@ -191,7 +191,7 @@ MapHeaderBanks::
 	db BANK(SaffronPokecenter_h)
 	db BANK(MrPsychicsHouse_h)
 	db BANK(Route15Gate1F_h)
-	db BANK(Route15Gate2F_h) ; UNUSED
+	db BANK(ForlornValley_h) ; new
 	db BANK(Route16Gate1F_h)
 	db BANK(Route16Gate2F_h)
 	db BANK(Route16FlyHouse_h)

@@ -258,6 +258,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
+	const HS_FORLORN_VALLEY_ITEM_1         ; new
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---

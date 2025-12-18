@@ -412,7 +412,7 @@ LoadTownMap_Fly::
 	ld hl, wFlyLocationsList_Sevii + NUM_CITY_MAPS_SEVII ; new, for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .sevii3
-	ld hl, wFlyLocationsList + NUM_CITY_MAPS + 2
+	ld hl, wFlyLocationsList + NUM_CITY_MAPS + 3
 .sevii3
 	jr .pressedDown
 
@@ -428,7 +428,7 @@ BuildFlyLocationsList:
 	ld a, [wTownVisitedFlag + 1]
 	ld d, a
 	ld b, 0
-	ld c, NUM_CITY_MAPS + 2
+	ld c, NUM_CITY_MAPS + 3
 .loop
 	srl d
 	rr e
@@ -443,8 +443,11 @@ BuildFlyLocationsList:
 	cp 14
 	jr nz, .notRoute10
 	ld a, ROUTE_10
-; back to vanilla
 .notRoute10
+	cp 15
+	jr nz, .notVisited
+	ld a, FORLORN_VALLEY
+; back to vanilla
 .notVisited
 	ld [hl], a
 	inc hl
@@ -636,7 +639,9 @@ DisplayWildLocations:
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .inSevii
 	pop af
-; new, to skip Haunted House
+; new, to skip Haunted House and Forlorn Valley
+	cp FORLORN_VALLEY
+	jr z, .nextEntry
 	cp HAUNTED_HOUSE_1
 	jr z, .nextEntry
 	cp HAUNTED_HOUSE_2

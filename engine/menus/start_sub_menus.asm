@@ -167,6 +167,8 @@ StartMenu_Pokemon::
 	jr z, .canFly
 	cp CELADON_MANSION_ROOF
 	jr z, .canFly
+	cp FORLORN_VALLEY
+	jr z, .canFly
 	cp SS_ANNE_BOW
 	jr z, .canFly
 	jr .cannotFlyHere
