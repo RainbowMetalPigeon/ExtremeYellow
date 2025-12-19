@@ -398,6 +398,10 @@ SetPal_Overworld:
 	ld hl, KantoMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jp c, .frozenKanto
+	ld a, [wCurMap]
+	ld hl, KantoMaps_SaffronPalette
+	call IsInArray
+	jp c, .Saffron
 ; check by tileset
 	ld a, [wCurMapTileset]
 	cp CEMETERY
@@ -464,6 +468,9 @@ SetPal_Overworld:
 .Lorelei
 	xor a ; PAL_PALLET - 1
 	jr .town
+.Saffron ; new
+	ld a, PAL_SAFFRON - 1
+	jr .town
 .HauntedPalletTown ; new, testing
 	ld a, [wHauntedPalletTownPaletteCounter]
 	ld b, PAL_PALLET_00
@@ -492,6 +499,10 @@ KantoMaps_FrozenPalette:
 	db SEAFOAM_ISLANDS_B2F
 	db SEAFOAM_ISLANDS_B3F
 	db SEAFOAM_ISLANDS_B4F
+	db -1
+
+KantoMaps_SaffronPalette:
+	db SAFFRON_CLIMB_CLUB
 	db -1
 
 SeviiMaps_FrozenPalette:
@@ -924,8 +935,13 @@ GetPal_Pikachu::
 	ld hl, KantoMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenKanto
+	ld a, [wCurMap]
+	ld hl, KantoMaps_SaffronPalette
+	call IsInArray
+	jr c, .Saffron
 ; check by tileset
 ; back to vanilla
+; check by tileset
 	ld a, [wCurMapTileset]
 	cp CEMETERY
 	jr z, .PokemonTowerOrAgatha
@@ -935,6 +951,7 @@ GetPal_Pikachu::
 	jr z, .underwater
 	cp CAVERN
 	jr z, .caveOrBruno
+; check by map
 	ld a, [wCurMap]
 	cp REDS_HOUSE_1F
 	jr c, .townOrRoute
@@ -946,6 +963,8 @@ GetPal_Pikachu::
 	jr z, .Lorelei
 	cp BRUNOS_ROOM
 	jr z, .caveOrBruno
+	cp SAFFRON_CLIMB_CLUB ; new
+	jr z, .Saffron ; new
 	cp TRADE_CENTER
 	jr z, .battleOrTradeCenter
 	cp COLOSSEUM
@@ -970,6 +989,9 @@ GetPal_Pikachu::
 	jr .town
 .Lorelei
 	xor a ; PAL_PALLET - 1
+	jr .town
+.Saffron ; new
+	ld a, PAL_SAFFRON - 1
 	jr .town
 .frozenKanto
 	ld a, PAL_CYANMON - 1
