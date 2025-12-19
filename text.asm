@@ -306,6 +306,7 @@ SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that beca
 INCLUDE "text/SilphCo7F.asm"
 INCLUDE "data/text/text_8.asm"
 INCLUDE "text/LakeOfMist.asm"
+INCLUDE "text/SunkenShip.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

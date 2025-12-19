@@ -193,7 +193,7 @@ MapHeaderPointers::
 	dw Route15Gate1F_h
 	dw ForlornValley_h ; new
 	dw Route16Gate1F_h
-	dw Route16Gate2F_h
+	dw SunkenShipRooms_h ; new
 	dw Route16FlyHouse_h
 	dw Route12SuperRodHouse_h
 	dw Route18Gate1F_h

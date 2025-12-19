@@ -660,7 +660,10 @@ WarpFound2::
 ; new
 	ld a, [wCurMapTileset]
 	cp UNDERWATER
+	jr z, .setUnderwaterWeirdEvent
+	cp SUNKEN_SHIP
 	jr nz, .donePostDiveCheck
+.setUnderwaterWeirdEvent
 	SetEvent EVENT_DIVE_FORCE_CONSIDERING_DUNGEON_TILESET
 .donePostDiveCheck
 ; BTV

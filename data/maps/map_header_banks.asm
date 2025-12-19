@@ -193,7 +193,7 @@ MapHeaderBanks::
 	db BANK(Route15Gate1F_h)
 	db BANK(ForlornValley_h) ; new
 	db BANK(Route16Gate1F_h)
-	db BANK(Route16Gate2F_h)
+	db BANK(SunkenShipRooms_h) ; new
 	db BANK(Route16FlyHouse_h)
 	db BANK(Route12SuperRodHouse_h)
 	db BANK(Route18Gate1F_h)

@@ -192,7 +192,7 @@ WildDataPointers:
 	dw NothingWildMons ; ROUTE_15_GATE_1F
 	dw ForlornValleyWildMons ; FORLORN_VALLEY, new
 	dw NothingWildMons ; ROUTE_16_GATE_1F
-	dw NothingWildMons ; ROUTE_16_GATE_2F
+	dw NothingWildMons ; SUNKEN_SHIP_ROOMS, new
 	dw NothingWildMons ; ROUTE_16_FLY_HOUSE
 	dw NothingWildMons ; ROUTE_12_SUPER_ROD_HOUSE
 	dw NothingWildMons ; ROUTE_18_GATE_1F

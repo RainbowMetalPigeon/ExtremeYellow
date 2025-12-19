@@ -87,7 +87,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MT_MOON_1F,                    30, 30 ; $41 ; edited
 	map_const MT_MOON_B1F,                   30, 30 ; $42 ; edited
 	map_const MT_MOON_B2F,                   30, 30 ; $43 ; edited
-	map_const SUNKEN_SHIP_1F,                20, 12 ; $44 ; new
+	map_const SUNKEN_SHIP_1F,                20, 40 ; $44 ; new
 	map_const CERULEAN_MELANIES_HOUSE,       39,  4 ; $45 ; edited, enlarged for more houses
 	map_const CERULEAN_POKECENTER,           14,  4 ; $46 ; edited, Center+Mart
 	map_const CERULEAN_GYM,                   5,  7 ; $47
@@ -211,7 +211,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROUTE_15_GATE_1F,               4, 11 ; $BD ; edited because of MERGING
 	map_const FORLORN_VALLEY,                30, 30 ; $BE ; new
 	map_const ROUTE_16_GATE_1F,               4, 13 ; $BF ; edited
-	map_const ROUTE_16_GATE_2F,               4,  4 ; $C0 ; UNUSED
+	map_const SUNKEN_SHIP_ROOMS,             21, 40 ; $C0 ; new
 	map_const ROUTE_16_FLY_HOUSE,             4,  4 ; $C1
 	map_const ROUTE_12_SUPER_ROD_HOUSE,       4,  4 ; $C2
 	map_const ROUTE_18_GATE_1F,               4, 11 ; $C3 ; edited because of MERGING

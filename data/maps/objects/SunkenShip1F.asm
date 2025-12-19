@@ -2,8 +2,17 @@ SunkenShip1F_Object:
 	db $0C ; border block
 
 	def_warp_events
-	warp_event 20, 23, ROUTE_21_DIVE, 1
-	warp_event 21, 23, ROUTE_21_DIVE, 1
+; top floor
+
+; mid floor
+	warp_event 20, 51, ROUTE_21_DIVE, 1 ;  1 entrance
+	warp_event 21, 51, ROUTE_21_DIVE, 1 ;  2 entrance
+;	warp_event  0, 39, SUNKEN_SHIP_ROOMS, nn ; xx captain's room
+	; rooms
+	warp_event 27, 47, SUNKEN_SHIP_ROOMS, 1 ;  3
+	; stairs
+
+; bottom floor
 
 	def_bg_events
 

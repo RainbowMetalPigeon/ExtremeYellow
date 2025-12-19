@@ -380,7 +380,7 @@ MtMoonPokecenter_Blocks: INCBIN "maps/MtMoonPokecenter.blk"
 
 Route11Gate2F_Blocks: ; UNUSED
 Route18Gate2F_Blocks: ; UNUSED
-Route16Gate2F_Blocks: ; UNUSED
+;Route16Gate2F_Blocks: ; UNUSED
 ;Route15Gate2F_Blocks: ; UNUSED
 Route12Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
 
@@ -516,9 +516,10 @@ INCLUDE "scripts/Route16Gate1F.asm"
 INCLUDE "data/maps/objects/Route16Gate1F.asm"
 Route16Gate1F_Blocks: INCBIN "maps/Route16Gate1F.blk"
 
-INCLUDE "data/maps/headers/Route16Gate2F.asm"
-INCLUDE "scripts/Route16Gate2F.asm"
-INCLUDE "data/maps/objects/Route16Gate2F.asm"
+; UNUSED
+;INCLUDE "data/maps/headers/Route16Gate2F.asm"
+;INCLUDE "scripts/Route16Gate2F.asm"
+;INCLUDE "data/maps/objects/Route16Gate2F.asm"
 
 INCLUDE "data/maps/headers/Route18Gate1F.asm"
 INCLUDE "scripts/Route18Gate1F.asm"
@@ -688,6 +689,11 @@ INCLUDE "data/maps/headers/SunkenShip1F.asm"
 INCLUDE "scripts/SunkenShip1F.asm"
 INCLUDE "data/maps/objects/SunkenShip1F.asm"
 SunkenShip1F_Blocks: INCBIN "maps/SunkenShip1F.blk"
+
+INCLUDE "data/maps/headers/SunkenShipRooms.asm"
+INCLUDE "scripts/SunkenShipRooms.asm"
+INCLUDE "data/maps/objects/SunkenShipRooms.asm"
+SunkenShipRooms_Blocks: INCBIN "maps/SunkenShipRooms.blk"
 
 
 SECTION "Maps 12", ROMX

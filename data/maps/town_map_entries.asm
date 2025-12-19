@@ -127,6 +127,8 @@ InternalMapEntries:
 	internal_map MR_PSYCHICS_HOUSE,             10,  5, SaffronCityName
 	internal_map ROUTE_15_GATE_1F,               9, 13, Route15Name ; edited due to MERGING
 	internal_map FORLORN_VALLEY,                12,  7, ForlornValleyName ; new
+	internal_map ROUTE_16_GATE_1F,               4,  5, Route16Name ; edited
+	internal_map SUNKEN_SHIP_ROOMS,              2, 13, SunkenShipName ; new
 	internal_map ROUTE_16_FLY_HOUSE,             4,  5, Route16Name
 	internal_map ROUTE_12_SUPER_ROD_HOUSE,      14, 10, Route12Name
 	internal_map ROUTE_18_GATE_1F,               7, 13, Route18Name ; edited due to MERGING

@@ -178,17 +178,17 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsHauntedHouseExtraWarpTileInFrontOfPlayer    ; new
 	ld a, [wCurMap]
 	cp SS_ANNE_BOW
-	jr z, IsSSAnneBowWarpTileInFrontOfPlayer
+	jp z, IsSSAnneBowWarpTileInFrontOfPlayer
 	cp CERULEAN_CAVE_EXTRA_TOP							; new
 	jp z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CERULEAN_CAVE_EXTRA_MIDDLE						; new
-	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
+	jp z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CERULEAN_CAVE_EXTRA_BOTTOM						; new
-	jr z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
+	jp z, IsCeruleanCaveExtraWarpTileInFrontOfPlayer	; new
 	cp CELADON_UNIVERSITY_1 							; new
 	jp z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	cp CELADON_UNIVERSITY_2								; new
-	jr z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
+	jp z, IsCeladonUniversityWarpTileInFrontOfPlayer	; new
 	cp OBSIDIAN_WAREHOUSE								; new
 	jp z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new
 	cp SECLUDED_CAVES									; new
@@ -199,6 +199,10 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsRedsHouseWarpTileInFrontOfPlayer			; new
 	cp REDS_HOUSE_1F									; new
 	jp z, IsRedsHouseWarpTileInFrontOfPlayer			; new
+	cp SUNKEN_SHIP_1F									; new
+	jp z, IsSunkenShipWarpTileInFrontOfPlayer			; new
+	cp SUNKEN_SHIP_ROOMS								; new
+	jp z, IsSunkenShipWarpTileInFrontOfPlayer			; new
 ; new for Sevii
 	jr .postMapChecks
 .sevii
@@ -307,6 +311,16 @@ IsRedsHouseWarpTileInFrontOfPlayer: ; new
 .notHauntedHouseWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
+
+IsSunkenShipWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $01
+	jr nz, .notSunkenShipWarp
+	scf
+	jp IsWarpTileInFrontOfPlayer.done
+.notSunkenShipWarp
+	and a
+	jp IsWarpTileInFrontOfPlayer.done
 
 IsPlayerStandingOnDoorTileOrWarpTile::
 	push hl
@@ -650,6 +664,10 @@ ExtraWarpCheck::
 	cp HAUNTED_REDS_HOUSE			; new
 	jr z, .useFunction2				; new
 	cp REDS_HOUSE_1F				; new
+	jr z, .useFunction2				; new
+	cp SUNKEN_SHIP_1F				; new
+	jr z, .useFunction2				; new
+	cp SUNKEN_SHIP_ROOMS			; new
 	jr z, .useFunction2				; new
 ; new for Sevii
 	jr .checkByTileset ; new
