@@ -226,9 +226,9 @@ CheckIfCanSurfOrCutFromOverworld::
 ; we can actually dive
     ; how many underwater steps we can take
 	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
-	ld hl, 300 ; TBE
+	ld hl, 300
 	jr nz, .gotDiveSteps
-	ld hl, 150 ; TBE
+	ld hl, 999 ; 150 TBE
 .gotDiveSteps
 	ld a, h
 	ld [wDiveSteps], a
