@@ -9,7 +9,7 @@ SunkenShip1F_Object:
 	warp_event 21, 51, ROUTE_21_DIVE, 1 ;  2 entrance
 ;	warp_event  0, 39, SUNKEN_SHIP_ROOMS, nn ; xx captain's room
 	; rooms
-	warp_event 27, 47, SUNKEN_SHIP_ROOMS, 1 ;  3
+	warp_event  9, 47, SUNKEN_SHIP_ROOMS, 1 ;  3, room 5
 	; stairs
 
 ; bottom floor

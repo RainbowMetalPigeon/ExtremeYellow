@@ -5,8 +5,8 @@ SunkenShipRooms_Object:
 ; top floor
 
 ; mid floor
-	warp_event 26, 79, SUNKEN_SHIP_1F,  3 ; 1 room 7
-	warp_event 27, 79, SUNKEN_SHIP_1F,  3 ; 2 room 7
+	warp_event  2, 55, SUNKEN_SHIP_1F,  3 ;  1, room 5
+	warp_event  3, 55, SUNKEN_SHIP_1F,  3 ;  2, room 5
 
 ; bottom floor
 
