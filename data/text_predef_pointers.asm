@@ -91,3 +91,4 @@ TextPredefs::
 	add_tx_pre UsedWhirlpoolText                    ; new
 	add_tx_pre APokemonCouldRideThisText            ; new
 	add_tx_pre PokemonRidesTheWaterfall             ; new
+	add_tx_pre ObstructedStairsText                 ; new

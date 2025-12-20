@@ -48,6 +48,22 @@ SunkenShip1F_Object:
 	warp_event 34, 68, SUNKEN_SHIP_1F,    21 ; 32
 
 	def_bg_events
+	; top floor
+	bg_event 33,  5,  1 ; locked door
+	bg_event  9, 19,  2 ; broken door
+	bg_event 15, 19,  3 ; broken door
+	bg_event 27, 19,  4 ; locked door
+	; mid floor
+	bg_event 15, 33,  5 ; locked door
+	bg_event 33, 33,  6 ; broken door
+	bg_event  9, 47,  7 ; locked door
+	bg_event 27, 47,  8 ; broken door
+	; bottom floor
+	bg_event  9, 61,  9 ; broken door
+	bg_event 15, 61, 10 ; locked door
+	bg_event 27, 61, 11 ; broken door
+	bg_event  9, 75, 12 ; broken door
+	bg_event 33, 75, 13 ; locked door
 
 	def_object_events
 ;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE

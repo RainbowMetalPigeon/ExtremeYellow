@@ -1,5 +1,20 @@
 ; prints text for bookshelves in buildings without sign events
+; edited for obstructed stairs in Sunken Ship
 PrintBookshelfText::
+; new
+	ld a, [wCurMapTileset]
+	cp SUNKEN_SHIP
+	jr nz, .vanilla
+	ld a, [wTileInFrontOfPlayer]
+	cp $62
+	jr z, .sunkenShipMatch
+	cp $66
+	jr nz, .noMatch
+.sunkenShipMatch
+	tx_pre_id ObstructedStairsText
+	jr .doThePrinting
+; BTV
+.vanilla
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
 	jr nz, .noMatch
@@ -22,6 +37,7 @@ PrintBookshelfText::
 	push af
 	call EnableAutoTextBoxDrawing
 	pop af
+.doThePrinting ; new label
 	call PrintPredefTextID
 	xor a
 	ldh [hFFDB], a
