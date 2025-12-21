@@ -14,6 +14,35 @@ _SunkenShipLockedDoorTopFloorText::
 ;   xxxx "123456789012345678"
     done
 
+_GiveRoomKey34Text_FoundItem::
+    text "Found KEY 34"
+;   xxxx "123456789012345678"
+    prompt
+
+_GiveRoomKey37Text_FoundItem::
+    text "Found KEY 37"
+;   xxxx "123456789012345678"
+    prompt
+
+_GiveRoomKey3XText_BagFull::
+    text "Bag full"
+;   xxxx "123456789012345678"
+    done
+
+_GiveRoomKey3XText_GotItem::
+	text "<PLAYER> obtained"
+	line "@"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
+;   xxxx "123456789012345678"
+    done
+
+_GiveRoomKey3XText_PostItem::
+    text "Empty"
+;   xxxx "123456789012345678"
+    done
+
 ; mid floor --------------
 
 _SunkenShipLockedDoorMidFloorText::

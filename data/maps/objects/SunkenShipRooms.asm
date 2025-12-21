@@ -38,6 +38,8 @@ SunkenShipRooms_Object:
 	warp_event 41,  5, SUNKEN_SHIP_1F, 16 ; 27
 
 	def_bg_events
+	bg_event 24, 25,  1 ; GiveRoomKey34Text
+	bg_event  0, 49,  2 ; GiveRoomKey37Text
 
 	def_object_events
 ;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE

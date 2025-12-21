@@ -2171,11 +2171,11 @@ wd49c:: db
 
 ;	ds 10 ; commented out to save space for the new HS variables
 
-; number of signs in the current map (up to 16)
+; number of signs in the current map (up to 16) ; edited, up to 18
 wNumSigns:: db
 
-wSignCoords:: ds 16 * 2 ; Y, X
-wSignTextIDs:: ds 16
+wSignCoords:: ds 18 * 2 ; Y, X ; edited, from 16 to 18
+wSignTextIDs:: ds 18 ; edited, from 16 to 18
 
 ; number of sprites on the current map (up to 16)
 wNumSprites:: db
@@ -2281,7 +2281,7 @@ wViridianCityCurScript:: db
 ;wPewterCityCurScript:: db
 ;wRoute3CurScript:: db
 ;wRoute4CurScript:: db
-	ds 2 ; new, from optimizing the scripts, it was 5, UNUSED
+;	ds 2
 
 wFanClubCurScript:: db
 ;wViridianGymCurScript:: db
@@ -2318,7 +2318,7 @@ wCeruleanCityCurScript:: db
 ;   db 7
 ;wSSAnneBowCurScript:: db
 ;wViridianForestCurScript:: db
-	ds 9 ; new, from optimizing the scripts, UNUSED
+	ds 5 ; new, from optimizing the scripts, UNUSED
 
 wMuseum1FCurScript:: db
 ;wRoute13CurScript:: db
