@@ -4,10 +4,32 @@ SunkenShipRooms_Script:
 
 SunkenShipRooms_TextPointers:
 	; top floor
+	dw GiveCombination12Text
 	dw GiveRoomKey34Text
 	; mid floor
+	dw GiveCombination18Text
 	dw GiveRoomKey37Text
 	; bottom floor
+	dw GivePassword25Text
+	dw GivePassword22Text
+
+; plot-relevant ----------------------------------
+
+GiveCombination12Text:
+	text_far _GiveCombination12Text
+	text_end
+
+GiveCombination18Text:
+	text_far _GiveCombination18Text
+	text_end
+
+GivePassword25Text:
+	text_far _GivePassword25Text
+	text_end
+
+GivePassword22Text:
+	text_far _GivePassword22Text
+	text_end
 
 GiveRoomKey34Text:
 	text_asm
@@ -74,5 +96,4 @@ GiveRoomKey3XText_PostItem:
 	text_far _GiveRoomKey3XText_PostItem
 	text_end
 
-
-
+; world-building ----------------------------------
