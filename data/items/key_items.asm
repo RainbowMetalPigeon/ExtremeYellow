@@ -121,4 +121,7 @@ KeyItemFlags:
 	dbit TRUE  ; TOPAZ          - new
 	dbit TRUE  ; TIGERS_EYE     - new
 	dbit TRUE  ; CC_INVITE      - new
+	dbit TRUE  ; FLAME_PLUME      - new
+	dbit TRUE  ; ROOM_KEY_34      - new
+	dbit TRUE  ; ROOM_KEY_37      - new
 	end_bit_array NUM_ITEMS

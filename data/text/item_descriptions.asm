@@ -522,7 +522,21 @@ _TigersEyeDescription::
 _CCInviteDescription::
 	text "Invite for SAFFRON"
 	line "CLIMB CLUB."
-;	xxxx "123456789012345678"
+	prompt
+
+_FlamePlumeDescription::
+	text "A glorious plume"
+	line "burning divine."
+	prompt
+
+_RoomKey34Description::
+	text "A key card. Reads"
+	line "'ROOM 3-4'."
+	prompt
+
+_RoomKey37Description::
+	text "A key card. Reads"
+	line "'ROOM 3-7'."
 	prompt
 
 ; HMs --------------------------------------------------------------------------

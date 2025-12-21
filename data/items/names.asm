@@ -121,6 +121,9 @@ ItemNames::
 	li "TOPAZ" ; new
 	li "TIGER's EYE" ; new
 	li "C.C. INVITE" ; new
+	li "FLAME PLUME" ; new
+	li "ROOM KEY 34" ; new
+	li "ROOM KEY 37" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

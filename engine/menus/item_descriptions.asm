@@ -256,6 +256,12 @@ ItemDescriptionPointers:
 	text_end
 	text_far _CCInviteDescription       ; CC_INVITE
 	text_end
+	text_far _FlamePlumeDescription     ; FLAME_PLUME
+	text_end
+	text_far _RoomKey34Description      ; ROOM_KEY_34
+	text_end
+	text_far _RoomKey37Description      ; ROOM_KEY_37
+	text_end
 
 ; HMs
 

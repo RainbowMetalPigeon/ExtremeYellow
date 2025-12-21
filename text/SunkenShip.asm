@@ -2,29 +2,23 @@
 
 ; top floor --------------
 
-_LockedDoorText_TopFloorRoom4::
-    text "It's locked. It"
-    line "needs a card key.4"
+_SunkenShipTheKeyWorksText::
+    text "<PLAYER> inserts"
+    line "the card key."
 ;   xxxx "123456789012345678"
-    done
+    prompt
 
-_LockedDoorText_TopFloorRoom7::
+_SunkenShipLockedDoorTopFloorText::
     text "It's locked. It"
-    line "needs a card key.7"
+    line "needs a card key."
 ;   xxxx "123456789012345678"
     done
 
 ; mid floor --------------
 
-_LockedDoorText_MidFloorRoom2::
+_SunkenShipLockedDoorMidFloorText::
     text "It's locked. It"
-    line "needs a password.2"
-;   xxxx "123456789012345678"
-    done
-
-_LockedDoorText_MidFloorRoom5::
-    text "It's locked. It"
-    line "needs a password.5"
+    line "needs a password."
 ;   xxxx "123456789012345678"
     done
 
