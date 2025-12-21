@@ -128,8 +128,7 @@ SunkenShipTheLockOpenedText:
 
 ; top floor --------------------
 
-LockedDoorText_TopFloorRoom4: ; TBE
-LockedDoorText_TopFloorRoom7: ; TBE
+LockedDoorText_TopFloorRoom4:
 	text_asm
 	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_TOP_ROOM_4
 	ld hl, DoorIsAlreadyUnlockedText
@@ -152,6 +151,35 @@ LockedDoorText_TopFloorRoom7: ; TBE
 	ld a, $14 ; openable door block ID (door-dependent) ; 14/19
 	ld [wNewTileBlockID], a
 	lb bc,  2, 16 ; (door-dependent)
+	predef ReplaceTileBlock
+	ld hl, SunkenShipTheLockOpenedText
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+LockedDoorText_TopFloorRoom7:
+	text_asm
+	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_TOP_ROOM_7
+	ld hl, DoorIsAlreadyUnlockedText
+	jr nz, .printAndEnd
+; require key
+	ld b, ROOM_KEY_37 ; (door-dependent)
+	call IsItemInBag ; set zero flag if item isn't in player's bag
+	ld hl, SunkenShipLockedDoorTopFloorText
+	jr z, .printAndEnd
+.haveKey
+; let's open the door and remove the key
+	ld hl, SunkenShipTheKeyWorksText
+	call PrintText
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+	ld a, ROOM_KEY_37 ; (door-dependent)
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_TOP_ROOM_7
+	ld a, $19 ; openable door block ID (door-dependent) ; 14/19
+	ld [wNewTileBlockID], a
+	lb bc,  9, 13 ; (door-dependent)
 	predef ReplaceTileBlock
 	ld hl, SunkenShipTheLockOpenedText
 .printAndEnd
