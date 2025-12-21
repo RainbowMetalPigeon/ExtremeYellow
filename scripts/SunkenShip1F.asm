@@ -11,9 +11,27 @@ SunkenShipHandleUnlockedDoors:
 	res 5, [hl]
 	ret z
 ; top floor, room 4
-
+	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_TOP_ROOM_4
+	jr nz, .doorsOpenT4
+	ld a, $5B ; not openable door block ID
+	jr .replaceBlockT4
+.doorsOpenT4
+	ld a, $14 ; openable door block ID
+.replaceBlockT4
+	ld [wNewTileBlockID], a
+	lb bc,  2, 16 ; y-x block coordinates
+	predef ReplaceTileBlock
 ; top floor, room 7
-
+	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_TOP_ROOM_7
+	jr nz, .doorsOpenT7
+	ld a, $5A ; not openable door block ID
+	jr .replaceBlockT7
+.doorsOpenT7
+	ld a, $19 ; openable door block ID
+.replaceBlockT7
+	ld [wNewTileBlockID], a
+	lb bc,  9, 13 ; y-x block coordinates
+	predef ReplaceTileBlock
 ; mid floor, room 2
 	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_MID_ROOM_2
 	jr nz, .doorsOpenM2
@@ -25,7 +43,6 @@ SunkenShipHandleUnlockedDoors:
 	ld [wNewTileBlockID], a
 	lb bc, 16,  7 ; y-x block coordinates
 	predef ReplaceTileBlock
-
 ; mid floor, room 5
 	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_MID_ROOM_5
 	jr nz, .doorsOpenM5
@@ -37,7 +54,6 @@ SunkenShipHandleUnlockedDoors:
 	ld [wNewTileBlockID], a
 	lb bc, 23,  4 ; y-x block coordinates
 	predef ReplaceTileBlock
-
 ; bottom floor, room 2
 	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_BOTTOM_ROOM_2
 	jr nz, .doorsOpenB2
@@ -49,7 +65,6 @@ SunkenShipHandleUnlockedDoors:
 	ld [wNewTileBlockID], a
 	lb bc, 30,  7 ; y-x block coordinates
 	predef ReplaceTileBlock
-
 ; bottom floor, room 8
 	CheckEvent EVENT_SUNKEN_SHIP_OPENED_DOOR_BOTTOM_ROOM_8
 	jr nz, .doorsOpenB8

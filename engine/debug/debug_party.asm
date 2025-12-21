@@ -305,9 +305,9 @@ DebugItemsList:
 	db LIFT_KEY, 1
 	db GOLD_TEETH, 1
 	db SILPH_SCOPE, 1
-;    db ICE_ORB, 1
-;    db THUNDER_ORB, 1
-;    db FIRE_ORB, 1
+;	db ICE_ORB, 1
+;	db THUNDER_ORB, 1
+;	db FIRE_ORB, 1
 ;	db TM_WILL_O_WISP, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
@@ -315,20 +315,22 @@ DebugItemsList:
 	db MEGA_STONE_Y, 99
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
-;    db LIGHT_BALL, 1
+;	db LIGHT_BALL, 1
     db ULTRA_BALL, 99
-;    db GREAT_BALL, 99
+;	db GREAT_BALL, 99
 ;	db HM_ROCK_SMASH, 1
 ;	db HM_ROCK_CLIMB, 1
 ;   db HM_WATERFALL, 1
-;    db HM_DIVE, 1
-;    db HM_WHIRLPOOL, 1
+;	db HM_DIVE, 1
+;	db HM_WHIRLPOOL, 1
 ;	db AMULET_COIN, 1
-    db TOPAZ, 1
-	db TIGERS_EYE, 1
+;	db TOPAZ, 1
+;	db TIGERS_EYE, 1
 	db S_S_TICKET, 1
 	db SEVII_TICKET, 1
 ;	db PEARL, 7
+	db ROOM_KEY_34, 1
+	db ROOM_KEY_37, 1
 	db -1 ; end
 
 ELSE
