@@ -41,7 +41,7 @@ SunkenShip1F_Object:
 	warp_event 33, 60, SUNKEN_SHIP_ROOMS, 19 ; 26, room 4
 	warp_event 15, 75, SUNKEN_SHIP_ROOMS, 20 ; 27, room 6
 	warp_event 27, 75, SUNKEN_SHIP_ROOMS, 22 ; 28, room 7
-	warp_event 33, 75, SUNKEN_SHIP_ROOMS, 24 ; 29, room 8
+	warp_event 33, 75, SUNKEN_SHIP_ROOMS, 24 ; 29, room 8 (blocked)
 	; stairs
 	warp_event 23, 61, SUNKEN_SHIP_1F,    18 ; 30
 	warp_event  7, 67, SUNKEN_SHIP_1F,    20 ; 31

@@ -28,18 +28,26 @@ _LockedDoorText_MidFloorRoom5::
 ;   xxxx "123456789012345678"
     done
 
-; bottom floor --------------
-
-_LockedDoorText_BottomFloorRoom2::
-    text "It's locked. Needs"
-    line "a combination.2"
+_SunkenShipWrongPasswordText::
+    text "Wrong password."
 ;   xxxx "123456789012345678"
     done
 
-_LockedDoorText_BottomFloorRoom8::
+; bottom floor --------------
+
+_SunkenShipLockedDoorBottomFloorText::
     text "It's locked. Needs"
-    line "a combination.8"
+    line "a combination."
 ;   xxxx "123456789012345678"
+    prompt
+
+_SunkenShipWrongCombinationText::
+    text "Wrong combination."
+;   xxxx "123456789012345678"
+    done
+
+_SunkenShipWhatToDoText::
+    text "What to do?"
     done
 
 ; shared -------------------------
@@ -53,5 +61,15 @@ _ObstructedStairsText::
 _DoorCantBeOpenedText::
     text "The door's stuck."
     line "It can't be opened."
+;   xxxx "123456789012345678"
+    done
+
+_DoorIsAlreadyUnlockedText::
+    text "The door is open."
+;   xxxx "123456789012345678"
+    done
+
+_SunkenShipTheLockOpenedText::
+    text "The lock opened!"
 ;   xxxx "123456789012345678"
     done

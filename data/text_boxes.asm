@@ -45,18 +45,16 @@ TextBoxTextAndCoordTable:
 	text_box_text MOVE_TUTOR_WEATHER_MENU,            7,  4, 19, 12, MoveTutorWeatherText,     9,  5 ; new
 	text_box_text MOVE_TUTOR_TERRAIN_MENU,            3,  4, 19, 12, MoveTutorTerrainText,     5,  5 ; new
 	text_box_text MOVE_TUTOR_HAZARD_MENU,             5,  4, 19, 12, MoveTutorHazardText,      7,  5 ; new
-
 	text_box_text BOOKSHELF_MAGIC_CARD_MENU,         10,  6, 19, 12, BookshelfMagicCardText,        12,  7 ; new
 	text_box_text BOOKSHELF_MAGIC_COIN_MENU,          7,  6, 19, 12, BookshelfMagicCoinText,         9,  7 ; new
 	text_box_text BOOKSHELF_MAGIC_ROPE_MENU,          7,  6, 19, 12, BookshelfMagicRopeText,         9,  7 ; new
 	text_box_text BOOKSHELF_MAGIC_RING_MENU,          8,  6, 19, 12, BookshelfMagicRingText,        10,  7 ; new
-
 	text_box_text BOOKSHELF_MAGIC_LEVITATION_MENU,   11,  6, 19, 12, BookshelfMagicLevitationText,  13,  7 ; new
 	text_box_text BOOKSHELF_MAGIC_VANISH_MENU,       10,  6, 19, 12, BookshelfMagicVanishText,      12,  7 ; new
 	text_box_text BOOKSHELF_MAGIC_MENTALISM_MENU,    11,  6, 19, 12, BookshelfMagicMentalismText,   13,  7 ; new
 	text_box_text BOOKSHELF_MAGIC_MISCELLANEA_MENU,  10,  6, 19, 12, BookshelfMagicMiscellaneaText, 12,  7 ; new
-
 	text_box_text BOOKSHELF_BOOK_1_2_3_4_MENU,       10,  4, 19, 12, BookshelfBooks1234Text,  12,  5 ; new
+	text_box_text COMBINATION_LOCK_MENU,              7,  6, 19, 12, CombinationLockMenuText,  9,  7 ; new
 
 BuySellQuitText:
 	db   "BUY"
@@ -212,3 +210,8 @@ BookshelfBooks1234Text: ; new
 	next "BOOK 2"
 	next "BOOK 3"
 	next "BOOK 4@"
+
+CombinationLockMenuText: ; new
+	db   "TURN RIGHT"
+	next "TURN LEFT"
+	next "PULL@"
