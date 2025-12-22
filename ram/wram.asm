@@ -2318,7 +2318,7 @@ wCeruleanCityCurScript:: db
 ;   db 7
 ;wSSAnneBowCurScript:: db
 ;wViridianForestCurScript:: db
-	ds 5 ; new, from optimizing the scripts, UNUSED
+	ds 2 ; new, from optimizing the scripts, UNUSED
 
 wMuseum1FCurScript:: db
 ;wRoute13CurScript:: db
