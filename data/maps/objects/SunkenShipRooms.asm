@@ -37,7 +37,43 @@ SunkenShipRooms_Object:
 	warp_event 41,  4, SUNKEN_SHIP_1F, 16 ; 26
 	warp_event 41,  5, SUNKEN_SHIP_1F, 16 ; 27
 
+; inter-room warps
+	warp_event 29, 16, SUNKEN_SHIP_ROOMS, 29 ; 28
+	warp_event 36, 16, SUNKEN_SHIP_ROOMS, 28 ; 29
+	warp_event  5, 40, SUNKEN_SHIP_ROOMS, 31 ; 30
+	warp_event 12, 40, SUNKEN_SHIP_ROOMS, 30 ; 31
+	warp_event 17, 64, SUNKEN_SHIP_ROOMS, 33 ; 32
+	warp_event 24, 64, SUNKEN_SHIP_ROOMS, 32 ; 33
+	warp_event 27, 67, SUNKEN_SHIP_ROOMS, 35 ; 34
+	warp_event 27, 72, SUNKEN_SHIP_ROOMS, 34 ; 35
+
 	def_bg_events
+; top floor
+	bg_event  0, 19,  1 ; GiveCombination12Text
+	bg_event 12, 19,  2 ; SunkenShipLoreText_12
+	bg_event 24, 19,  3 ; SunkenShipLoreText_13
+;	bg_event 36, 19, nn ; SunkenShipLoreText_14 ; x
+	bg_event 24, 25,  4 ; GiveRoomKey34Text
+	bg_event 36, 25,  5 ; SunkenShipLoreText_18
+; mid floor
+	bg_event  0, 43,  6 ; SunkenShipLoreText_21
+	bg_event 12, 43,  7 ; SunkenShipLoreText_22
+	bg_event 24, 43,  8 ; GiveCombination18Text
+	bg_event  0, 49,  9 ; GiveRoomKey37Text
+	bg_event 12, 49, 10 ; SunkenShipLoreText_26
+	bg_event 36, 49, 11 ; SunkenShipLoreText_28
+; bottom floor
+;	bg_event 12, 67, nn ; SunkenShipLoreText_32 ; x
+	bg_event 24, 67, 12 ; SunkenShipLoreText_33
+	bg_event 36, 67, 13 ; SunkenShipLoreText_34
+	bg_event 12, 73, 14 ; GivePassword25Text
+	bg_event 24, 73, 15 ; SunkenShipLoreText_37
+	bg_event 36, 73, 16 ; GivePassword22Text
+; captain's room
+	bg_event 41,  1, 17 ; GiveSunkenShipTreasureText
+	bg_event 35,  3, 18 ; SunkenShipCaptainsLogText
+; broken door
+	bg_event 26, 60, 19 ; DoorCantBeOpenedText
 
 	def_object_events
 ;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE

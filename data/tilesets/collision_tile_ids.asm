@@ -96,4 +96,4 @@ Underwater_Coll:: ; new
 	coll_tiles $01, $08, $0A, $32, $2A, $70, $54
 
 SunkenShip_Coll::
-	coll_tiles $04, $0d, $17, $1d, $1e, $23, $34, $37, $39, $4a, $52
+	coll_tiles $04, $17, $1d, $1e, $23, $34, $37, $39, $4a, $50, $52, $5b
