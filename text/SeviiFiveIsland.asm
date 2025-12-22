@@ -1,10 +1,36 @@
 _SeviiFiveIslandCityText1::
-	text "1"
+	text "North of CHRONO"
+	line "there are some"
+	cont "mysterious ruins"
+	cont "and a weird cave."
+
+	para "They say wherever"
+	line "you go you always"
+	cont "come back at the"
+	cont "entrance!"
+
+	para "I don't believe it,"
+	line "and I want to"
+	cont "prove them wrong!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityText2::
-	text "2"
+	text "CHRONO WAREHOUSE"
+	line "was abandoned"
+	cont "long ago, and"
+	cont "then repurposed"
+	cont "as concert hall."
+
+	para "Many metalheads"
+	line "gather around for"
+	cont "that, you're sure"
+	cont "to meet some!"
+
+	para "They can be..."
+	line "peculiar, but"
+	cont "they're all very"
+	cont "nice and cool."
 ;	xxxx "123456789012345678"
 	done
 
@@ -165,7 +191,7 @@ _SeviiFiveIslandCitySignText5::
 
 _SeviiFiveIslandCityScriptText1::
 	text "PINK: Go, now!"
-	line "CLOSE COMBAT!"
+	line "PLAY ROUGH!"
 	cont "Finish that"
 	cont "damned ROCKET!"
 
@@ -231,20 +257,56 @@ _SeviiFiveIslandCityScriptText5::
 ; city's indoor ------------------------------------
 
 _SeviiFiveIslandPokemonCenterAndMart_Text1::
-	text "test 5-1"
-;	xxxx "123456789012345678"
+	text "South of the city"
+	line "there is a"
+	cont "MEMORIAL PILLAR."
+
+	para "It was built to"
+	line "remember a be-"
+	cont "loved #MON,"
+	cont "long passed."
+
+	para "The trainer is"
+	line "often there."
+	cont "They're happy if"
+	cont "we pay a visit."
 	done
 
 _SeviiFiveIslandPokemonCenterAndMart_Text2::
-	text "test 5-2"
+	text "CHRONO ISLAND"
+	line "was actually"
+	cont "uninhabited until"
+	cont "recently."
+
+	para "Still now, it's one"
+	line "of the least"
+	cont "populous of the"
+	cont "SEVII ISLANDS."
 	done
 
 _SeviiFiveIslandPokemonCenterAndMart_Text3::
-	text "test 5-3"
+	text "The sea around"
+	line "here is less wild"
+	cont "than most of the"
+	cont "other islands."
+
+	para "If you're careful"
+	line "and stay near the"
+	cont "shore, you can"
+	cont "actually SURF."
 	done
 
 _SeviiFiveIslandPokemonCenterAndMart_Text4::
-	text "test 5-4"
+	text "I heard there are"
+	line "troubles at the"
+	cont "WAREHOUSE..."
+
+	para "What may be going"
+	line "on? I'd check"
+	cont "myself, but..."
+	cont "Well, the path"
+	cont "is too long, yeah."
+;	xxxx "123456789012345678"
 	done
 
 ; Houses ---------------------------------
@@ -266,25 +328,26 @@ _SeviiFiveIslandHousesText1_CanShowMe::
 
 _SeviiFiveIslandHousesText1_Thanks::
 	text "Ohthatsperfectyouh"
-	line "avebothofthemokIne"
-	cont "edtostudythemforju"
-	cont "stafewmomentspleas"
-	cont "eholdyesImalmostdo"
-	cont "neohyesthisisveryi"
-	cont "nterestingohIdidnt"
-	cont "thinksouhmyeahnowI"
-	cont "understandokthanky"
-	cont "ousomuchallowmetor"
-	cont "eciprocate!"
+	line "avebothofthemokIn"
+	cont "eedtostudythemfor"
+	cont "justafewmomentspl"
+	cont "easeholdyesImalmo"
+	cont "stdoneohyesthisis"
+	cont "veryinterestingoh"
+	cont "Ididntthinksouhmy"
+	cont "eahnowIunderstand"
+	cont "okthankyousomucha"
+	cont "llowmetoreciproca"
+	cont "te!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandHousesText1_MissingSomething::
 	text "Ahdammityoudonthav"
-	line "eeverythingIneedwe"
-	cont "lltoobadpleasecome"
-	cont "backifyougetalltha"
-	cont "tIneed!"
+	line "eeverythingIneedw"
+	cont "elltoobadpleaseco"
+	cont "mebackifyougetall"
+	cont "thatIneed!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -298,18 +361,18 @@ _SeviiFiveIslandHousesText1_Question::
 
 _SeviiFiveIslandHousesText1_Refused::
 	text "Okasyouwishifyouch"
-	line "changeyourmindcome"
-	cont "backnowImusthurryI"
-	cont "donthavetimetowast"
-	cont "e!"
+	line "changeyourmindcom"
+	cont "ebacknowImusthurr"
+	cont "yIdonthavetimetow"
+	cont "aste!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandHousesText1_Done::
 	text "Greatweredoneheren"
-	line "owletshurrybacktob"
-	cont "usinesswebothhaves"
-	cont "omuchtodo!"
+	line "owletshurrybackto"
+	cont "businesswebothhav"
+	cont "esomuchtodo!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -372,35 +435,99 @@ _SeviiFiveIslandHousesSignText4::
 ; gym -------------------------------------
 
 _SeviiFiveIslandGymText1_NoChampionYet::
-	text "GONQUE: come"
-	line "back when CHAMP"
+	text "GONQUE: ..."
+
+	para "Worthy, are you?"
+	line "Yet not, I fear."
+
+	para "When ready?"
+	line "Return, please."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandGymText1_Intro::
-	text "GONQUE: ciao"
-	line "random chart"
+	text "GONQUE: Now"
+	line "CHAMPION? News"
+	cont "good indeed."
+
+	para "SEVII TRIAL ready?"
+	line "Very much so."
+
+	para "How does this"
+	line "SHRINE work?"
+	cont "Type match-ups"
+	cont "different are."
+	cont "By trial and"
+	cont "error deduce them"
+	cont "you'll have to."
+;	xxxx "123456789012345678"
 	done
 
 _GonqueText_PostBattleText::
-	text "GG5!"
+	text "Won you?"
+	line "Excellent really."
 	prompt
 
 _SeviiFiveIslandGymText3_Victory::
-	text "Congrats 5"
+	text "GONQUE: Skilled"
+	line "how much are you?"
+	cont "Very much so, to"
+	cont "win the SHRINE of"
+	cont "CHRONO ISLAND."
+
+	para "TBE."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandGymText4_Defeat::
-	text "Try again 5"
+	text "GONQUE: Worry are"
+	line "you for losing?"
+	cont "No need to. Next"
+	cont "time better'll go."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandGymText2_PreLeague::
-	text "guide for you 5"
-	line "before"
+	text "I'm sorry, but the"
+	line "SAGE GONQUE"
+	cont "accepts only"
+	cont "challengers of a"
+	cont "certain caliber."
+
+	para "You're not ready."
+
+	para "At this moment, I"
+	line "can only tell you"
+	cont "that this TRIAL"
+	cont "is about deducing"
+	cont "truth from data."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandGymText2_PostLeague::
-	text "guide for you 5"
-	line "after"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "Now, SAGE GONQUE"
+	line "will accept your"
+	cont "challenge with"
+	cont "pleasure."
+
+	para "For this TRIAL the"
+	line "type chart is not"
+	cont "the usual one."
+	cont "You will have to"
+	cont "deduce basic"
+	cont "weaknesses and"
+	cont "resistances by"
+	cont "how effective"
+	cont "attacks will be"
+	cont "on #MON of"
+	cont "different types."
+;	xxxx "123456789012345678"
+
+	para "Good luck!"
 	done
 
 ; Warehouse ----------------------------------
@@ -593,12 +720,12 @@ _SeviiFiveIslandWarehouse2FScriptText1::
 	cont "go to waste!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiFiveIslandWarehouse2FScriptText2::
 	text "PINK: <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiFiveIslandWarehouse2FScriptText3::
 	text "PINK: You've been"
 	line "faster than me."
@@ -826,7 +953,7 @@ _SeviiRoute35Text4::
 	done
 
 _SeviiResortGorgeousText1_BeforeWaterfall::
-	text "Oh my hero!"
+	text "SELPHY: My hero!"
 	line "You faced untold"
 	cont "ordeals to rescue"
 	cont "me, just me!"
@@ -854,10 +981,11 @@ _SeviiResortGorgeousText1_GotWaterfall::
 	done
 
 _SeviiResortGorgeousText1_AfterWaterfall::
-	text "Where should I"
+	text "SELPHY: Where should I"
 	line "venture next to"
 	cont "satiate my thirst"
 	cont "for exploration?"
+;   xxxx "123456789012345678"
 
 	para "What do you think"
 	line "of MT EMBER?"
@@ -1033,7 +1161,7 @@ _SeviiResortGorgeousText15::
 	line "about LOST CAVE:"
 
 	para "'0 at right'"
-	
+
 	para "There's the drawing"
 	line "of a clock with a"
 	cont "huge 'NO!' in red"
@@ -1155,113 +1283,177 @@ _SeviiRoute36AfterBattleText4::
 ; -----
 
 _SeviiRoute36BattleText5::
-	text "5-pre"
+	text "These metalheads're"
+	line "fun and all, but"
+	cont "they are no"
+	cont "challenge to me."
+
+	para "Will you be up to"
+	line "the task?"
 	done
 
 _SeviiRoute36EndBattleText5::
-	text "5-post"
+	text "Well"
+	line "yes! Up to the"
+	cont "task and more!"
 	prompt
 
 _SeviiRoute36AfterBattleText5::
-	text "5-after"
+	text "Further down this"
+	line "ROUTE there's a"
+	cont "lonely trainer."
+
+	para "They lost their"
+	line "dear #MON."
+
+	para "I cannot phatom"
+	line "how I'd feel if I"
+	cont "lost my beloved"
+	cont "friends..."
 	done
 
 ; -----
 
 _SeviiRoute36BattleText6::
-	text "6-pre"
+	text "These metalheads!"
+	line "They're so noisy,"
+	cont "they scare the"
+	cont "BIRDs away!"
 	done
 
 _SeviiRoute36EndBattleText6::
-	text "6-post"
+	text "Oh,"
+	line "we've been loud"
+	cont "too..."
 	prompt
 
 _SeviiRoute36AfterBattleText6::
-	text "6-after"
+	text "Music fans gather"
+	line "in CHRONO because"
+	cont "of that WAREHOUSE"
+	cont "converted to"
+	cont "concert hall."
+
+	text "That's cool and"
+	line "all, but they"
+	cont "scare the BIRDs!"
 	done
 
 ; -----
 
 _SeviiRoute36BattleText7::
-	text "7-pre"
+	text "Look at my BIRDs!"
 	done
 
 _SeviiRoute36EndBattleText7::
-	text "7-post"
+	text "My"
+	line "BIRDs're amazing!"
 	prompt
 
 _SeviiRoute36AfterBattleText7::
-	text "7-after"
+	text "You're strong, but"
+	line "my BIRDs are the"
+	cont "best!"
 	done
 
 ; -----
 
 _SeviiRoute36BattleText8::
-	text "8-pre"
+	text "Water or air?"
+	line "Swimming or"
+	cont "flying? Which one"
+	cont "do you prefer?"
 	done
 
 _SeviiRoute36EndBattleText8::
-	text "8-post"
+	text "I"
+	line "guess you prefer"
+	cont "winning!"
 	prompt
 
 _SeviiRoute36AfterBattleText8::
-	text "8-after"
+	text "I love traveling"
+	line "with my BIRDs."
+	cont "It strengthens"
+	cont "our bond."
 	done
 
 ; -----
 
 _SeviiRoute36BattleText9::
-	text "9-pre"
+	text "Careful!"
 	done
 
 _SeviiRoute36EndBattleText9::
-	text "9-post"
+	text "I warn"
+	line "you and you thank"
+	cont "me by beating me?"
 	prompt
 
 _SeviiRoute36AfterBattleText9::
-	text "9-after"
+	text "This ROUTE's waters"
+	line "are tricky. Pay"
+	cont "attention to"
+	cont "the rocks and the"
+	cont "WHIRLPOOLs."
 	done
 
 ; -----
 
 _SeviiRoute36BattleText10::
-	text "10-pre"
+	text ""
+	xxxx "123456789012345678"
 	done
 
 _SeviiRoute36EndBattleText10::
 	text "10-post"
+	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute36AfterBattleText10::
 	text "10-after"
+	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute36BattleText11::
-	text "11-pre"
+	text "Isn't SURFing on"
+	line "a #MON boring?"
 	done
 
 _SeviiRoute36EndBattleText11::
-	text "11-post"
+	text "Losing is"
+	line "boring too!"
 	prompt
 
 _SeviiRoute36AfterBattleText11::
-	text "11-after"
+	text "Regardless if you"
+	line "swim or SURF,"
+	cont "those WHIRLPOOLs"
+	cont "are a problem."
 	done
 
 ; -----
 
 _SeviiRoute36BattleText12::
-	text "12-pre"
+	text "Water or air?"
+	line "Swimming or"
+	cont "flying? Which one"
+	cont "do you prefer?"
 	done
 
 _SeviiRoute36EndBattleText12::
-	text "12-post"
+	text "I guess"
+	line "you prefer to win!"
 	prompt
 
 _SeviiRoute36AfterBattleText12::
-	text "12-after"
+	text "I love swimming"
+	line "with my WATER"
+	cont "#MON. It's the"
+	cont "best wat to enjoy"
+	cont "a trip!"
 	done
 
 ; -----------------------------
