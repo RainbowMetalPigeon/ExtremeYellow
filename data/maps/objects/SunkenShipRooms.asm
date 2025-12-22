@@ -37,6 +37,16 @@ SunkenShipRooms_Object:
 	warp_event 41,  4, SUNKEN_SHIP_1F, 16 ; 26
 	warp_event 41,  5, SUNKEN_SHIP_1F, 16 ; 27
 
+; inter-room warps
+	warp_event 29, 16, SUNKEN_SHIP_ROOMS, 29 ; 28
+	warp_event 36, 16, SUNKEN_SHIP_ROOMS, 28 ; 29
+	warp_event  5, 40, SUNKEN_SHIP_ROOMS, 31 ; 30
+	warp_event 12, 40, SUNKEN_SHIP_ROOMS, 30 ; 31
+	warp_event 17, 64, SUNKEN_SHIP_ROOMS, 33 ; 32
+	warp_event 24, 64, SUNKEN_SHIP_ROOMS, 32 ; 33
+	warp_event 27, 67, SUNKEN_SHIP_ROOMS, 35 ; 34
+	warp_event 27, 72, SUNKEN_SHIP_ROOMS, 34 ; 35
+
 	def_bg_events
 	; top floor
 	bg_event  0, 19,  1 ; GiveCombination12Text
