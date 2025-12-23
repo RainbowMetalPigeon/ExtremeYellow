@@ -981,11 +981,11 @@ _SeviiResortGorgeousText1_GotWaterfall::
 	done
 
 _SeviiResortGorgeousText1_AfterWaterfall::
-	text "SELPHY: Where should I"
-	line "venture next to"
-	cont "satiate my thirst"
-	cont "for exploration?"
-;   xxxx "123456789012345678"
+	text "SELPHY: Where"
+	line "should I venture"
+	cont "next to satiate"
+	cont "my thirst for"
+	cont "exploration?"
 
 	para "What do you think"
 	line "of MT EMBER?"
@@ -1026,7 +1026,8 @@ _SeviiResortGorgeousText2_AfterRescue::
 	done
 
 _SeviiLostCave2Text1::
-	text "Oh my goddess!"
+	text "SELPHY: Oh my"
+	line "goddess!"
 	line "Someone found me!"
 
 	para "I'm finally rescued"
@@ -1286,16 +1287,16 @@ _SeviiRoute36BattleText5::
 	text "These metalheads're"
 	line "fun and all, but"
 	cont "they are no"
-	cont "challenge to me."
+	cont "match to me."
 
 	para "Will you be up to"
-	line "the task?"
+	line "the challenge?"
 	done
 
 _SeviiRoute36EndBattleText5::
-	text "Well"
-	line "yes! Up to the"
-	cont "task and more!"
+	text "Well!"
+	line "Up to the chal-"
+	cont "lenge and more!"
 	prompt
 
 _SeviiRoute36AfterBattleText5::
@@ -1334,7 +1335,7 @@ _SeviiRoute36AfterBattleText6::
 	cont "converted to"
 	cont "concert hall."
 
-	text "That's cool and"
+	para "That's cool and"
 	line "all, but they"
 	cont "scare the BIRDs!"
 	done
@@ -1401,18 +1402,25 @@ _SeviiRoute36AfterBattleText9::
 ; -----
 
 _SeviiRoute36BattleText10::
-	text ""
-	xxxx "123456789012345678"
+	text "Have you been"
+	line "north of CHRONO?"
 	done
 
 _SeviiRoute36EndBattleText10::
-	text "10-post"
-	xxxx "123456789012345678"
+	text "To be"
+	line "this strong, you"
+	cont "surely have been"
+	cont "in many places!"
 	prompt
 
 _SeviiRoute36AfterBattleText10::
-	text "10-after"
-	xxxx "123456789012345678"
+	text "On ROUTE 35 there's"
+	line "a lonely house."
+
+	para "They say a weirdo"
+	line "obsessed with"
+	cont "adventures lives"
+	cont "there."
 	done
 
 ; -----
@@ -1445,7 +1453,8 @@ _SeviiRoute36BattleText12::
 
 _SeviiRoute36EndBattleText12::
 	text "I guess"
-	line "you prefer to win!"
+	line "you prefer"
+	cont "winning!"
 	prompt
 
 _SeviiRoute36AfterBattleText12::
