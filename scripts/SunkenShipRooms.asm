@@ -26,7 +26,7 @@ SunkenShipRooms_TextPointers:
 	dw GiveSunkenShipTreasureText
 	dw SunkenShipCaptainsLogText
 	; broken door
-	dw DoorCantBeOpenedText2
+;	dw DoorCantBeOpenedText2
 
 ; plot-relevant ----------------------------------
 

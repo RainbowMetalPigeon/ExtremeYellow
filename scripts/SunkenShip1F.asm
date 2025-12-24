@@ -233,18 +233,15 @@ LockedDoorText_MidFloorRoom2:
 	cp "]"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+3]
-	cp "."
-	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+4]
 	cp ","
 	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+5]
+	ld a, [wUniQuizAnswer+4]
 	cp "O"
 	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+6]
+	ld a, [wUniQuizAnswer+5]
 	cp "-"
 	jr nz, .wrongAnswer
-	ld a, [wUniQuizAnswer+7]
+	ld a, [wUniQuizAnswer+6]
 	cp "@"
 	jr z, .rightAnswer
 .wrongAnswer

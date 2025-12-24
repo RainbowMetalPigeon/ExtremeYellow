@@ -90,7 +90,7 @@ _GiveCombination18Text::
     line "Clockwise"
     cont "Clockwise"
 ;   xxxx "123456789012345678"
-    text "R R L"
+;   text "R R L"
     done
 
 _SunkenShipLockedDoorMidFloorText::
@@ -239,7 +239,7 @@ _GivePassword22Text::
     cont "paper shines in"
     cont "its red writings:"
 
-    para "'-O,.]eA"
+    para "'-O,]eA"
     line "Reverse Truth'"
     done
 
