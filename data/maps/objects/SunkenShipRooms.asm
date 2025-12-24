@@ -71,9 +71,9 @@ SunkenShipRooms_Object:
 	bg_event 36, 73, 16 ; GivePassword22Text
 ; captain's room
 	bg_event 41,  1, 17 ; GiveSunkenShipTreasureText
-	bg_event 35,  3, 18 ; SunkenShipCaptainsLogText
+	bg_event 35,  2, 18 ; SunkenShipCaptainsLogText
 ; broken door
-	bg_event 26, 60, 19 ; DoorCantBeOpenedText
+	bg_event 26, 60, 19 ; DoorCantBeOpenedText2
 
 	def_object_events
 ;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE

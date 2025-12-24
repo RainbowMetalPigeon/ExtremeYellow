@@ -227,18 +227,30 @@ LockedDoorText_MidFloorRoom2:
 	cp "A"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+1]
-	cp "L"
+	cp "e"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+2]
-	cp "L"
+	cp "]"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+3]
+	cp "."
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+4]
+	cp ","
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+5]
+	cp "O"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+6]
+	cp "-"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+7]
 	cp "@"
 	jr z, .rightAnswer
 .wrongAnswer
-	ld c, BANK(SFX_Denied_1)
+;	ld c, BANK(SFX_Denied_1)
 	ld a, SFX_DENIED
-	call PlayMusic
+	call PlaySound ; PlayMusic
 	ld hl, SunkenShipWrongPasswordText
 	jr .printAndEnd
 .rightAnswer
@@ -267,21 +279,30 @@ LockedDoorText_MidFloorRoom5:
 	farcall DisplayUniQuizScreen
 .checkTheAnswer ; (door-dependent)
 	ld a, [wUniQuizAnswer]
-	cp "H"
+	cp "p"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+1]
-	cp "E"
+	cp "Q"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+2]
-	cp "L"
+	cp "/"
 	jr nz, .wrongAnswer
 	ld a, [wUniQuizAnswer+3]
+	cp "("
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+4]
+	cp "x"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+5]
+	cp "H"
+	jr nz, .wrongAnswer
+	ld a, [wUniQuizAnswer+6]
 	cp "@"
 	jr z, .rightAnswer
 .wrongAnswer
-	ld c, BANK(SFX_Denied_1)
+;	ld c, BANK(SFX_Denied_1)
 	ld a, SFX_DENIED
-	call PlayMusic
+	call PlaySound ; PlayMusic
 	ld hl, SunkenShipWrongPasswordText
 	jr .printAndEnd
 .rightAnswer
@@ -334,9 +355,9 @@ LockedDoorText_BottomFloorRoom2:
 	cp 2 ; PULL
 	jr z, .rightAnswer
 .wrongAnswer
-	ld c, BANK(SFX_Denied_1)
+;	ld c, BANK(SFX_Denied_1)
 	ld a, SFX_DENIED
-	call PlayMusic
+	call PlaySound ; PlayMusic
 	ld hl, SunkenShipWrongCombinationText
 	jr .printAndEnd
 .rightAnswer
@@ -373,9 +394,9 @@ LockedDoorText_BottomFloorRoom8:
 	cp 2 ; PULL
 	jr z, .rightAnswer
 .wrongAnswer
-	ld c, BANK(SFX_Denied_1)
+;	ld c, BANK(SFX_Denied_1)
 	ld a, SFX_DENIED
-	call PlayMusic
+	call PlaySound ; PlayMusic
 	ld hl, SunkenShipWrongCombinationText
 	jr .printAndEnd
 .rightAnswer
