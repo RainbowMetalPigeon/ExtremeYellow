@@ -1,32 +1,95 @@
 SunkenShipRooms_Script:
 	call EnableAutoTextBoxDrawing
+	ld hl, SunkenShipRooms_ScriptPointers
+	ld a, [wCurMapScript] ; edited
+	call CallFunctionInTable
 	ret
+
+; scripts =========================================
+
+SunkenShipRooms_ScriptPointers:
+	dw SunkenShipRoomsScript0
+
+SunkenShipRoomsScript0:
+; check if A button is pressed
+	ldh a, [hJoyHeld]
+	bit BIT_A_BUTTON, a
+	ret z
+; check if facing up
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN ; TBE
+	ret nz
+	call CheckIfCoordinateWithlore ; carry flag set if match found, and a contains textID
+	ret nc
+	add 9 ; starting point of the IDs of the lores texts IDs
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ret
+
+CheckIfCoordinateWithlore:
+; scf if match is found
+; output: textID OFFSET in register a
+	ld a, [wXCoord]
+	ld b, a ; b holds current X coordinate
+	ld a, [wYCoord]
+	ld c, a ; c holds current Y coordinate
+	ld hl, CoordinatesForLoreTextsIDs
+	ld d, $FF ; initial offset, loaded in a at the end
+.loop
+	inc d ; it's now 0 at the first iteration of the loop
+	ld a, [hli] ; a = lore X, hl points to lore Y
+	cp $FF ; terminator
+	jr z, .noMatches
+	cp b ; are we at a X with a lore?
+	jr nz, .next1
+	ld a, [hli] ; a = lore Y, hl points at the NEXT lore X
+	cp c ; are we (also) at a Y with a lore?
+	jr nz, .loop ; it was a .next2 but unnecessary now
+	ld a, d ; now it's a that contains the lore textIDs OFFSET
+	scf
+	ret
+.next1
+	inc hl
+;.next2
+	jr .loop
+.noMatches
+	xor a
+	ret
+
+CoordinatesForLoreTextsIDs:
+; x, y
+    db 12, 18
+	db $FF ; end
+
+; texts =========================================
 
 SunkenShipRooms_TextPointers:
 	; top floor
-	dw GiveCombination12Text
-	dw SunkenShipLoreText_12
-	dw SunkenShipLoreText_13
-	dw GiveRoomKey34Text
-	dw SunkenShipLoreText_18
+	dw GiveCombination12Text      ;  1
+	dw GiveRoomKey34Text          ;  2
 	; mid floor
-	dw SunkenShipLoreText_21
-	dw SunkenShipLoreText_22
-	dw GiveCombination18Text
-	dw GiveRoomKey37Text
-	dw SunkenShipLoreText_26
-	dw SunkenShipLoreText_28
+	dw GiveCombination18Text      ;  3
+	dw GiveRoomKey37Text          ;  4
 	; bottom floor
-	dw SunkenShipLoreText_33
-	dw SunkenShipLoreText_34
-	dw GivePassword25Text
-	dw SunkenShipLoreText_37
-	dw GivePassword22Text
+	dw GivePassword25Text         ;  5
+	dw GivePassword22Text         ;  6
 	; captain's room
-	dw GiveSunkenShipTreasureText
-	dw SunkenShipCaptainsLogText
-	; broken door
+	dw GiveSunkenShipTreasureText ;  7
+	dw SunkenShipCaptainsLogText  ;  8
+
+	; lore
+	dw SunkenShipLoreText_12      ;  9, starting point of the lores texts IDs <-> OFFSET = 0
+;	dw SunkenShipLoreText_13
+;	dw SunkenShipLoreText_18
+;	dw SunkenShipLoreText_21
+;	dw SunkenShipLoreText_22
+;	dw SunkenShipLoreText_26
+;	dw SunkenShipLoreText_28
+;	dw SunkenShipLoreText_33
+;	dw SunkenShipLoreText_34
+;	dw SunkenShipLoreText_37
 ;	dw DoorCantBeOpenedText2
+
 
 ; plot-relevant ----------------------------------
 
