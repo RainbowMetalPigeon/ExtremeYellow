@@ -38,8 +38,10 @@ VBlank::
 	call PrepareOAMData
 
 	; VBlank-sensitive operations end.
-	call TrackPlayTime ; keep track of time played
-	call TrackPlayTime_Tanoby ; new
+
+	; moved these two into non-home files
+	callfar TrackPlayTime ; keep track of time played
+	callfar TrackPlayTime_Tanoby ; new
 
 	call Random
 	call ReadJoypad

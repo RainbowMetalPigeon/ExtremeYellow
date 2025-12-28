@@ -9,11 +9,13 @@ TrackPlayTime::
 	ld a, [wPlayTimeMaxed]
 	and a
 	ret nz
+; handle frames
 	ld a, [wPlayTimeFrames]
 	inc a
 	ld [wPlayTimeFrames], a
 	cp 60
 	ret nz
+; handle seconds
 	xor a
 	ld [wPlayTimeFrames], a
 	ld a, [wPlayTimeSeconds]
@@ -21,6 +23,7 @@ TrackPlayTime::
 	ld [wPlayTimeSeconds], a
 	cp 60
 	ret nz
+; handle minutes
 	xor a
 	ld [wPlayTimeSeconds], a
 	ld a, [wPlayTimeMinutes]
@@ -28,6 +31,7 @@ TrackPlayTime::
 	ld [wPlayTimeMinutes], a
 	cp 60
 	ret nz
+; handle hours
 	xor a
 	ld [wPlayTimeMinutes], a
 	ld a, [wPlayTimeHours]
@@ -35,6 +39,7 @@ TrackPlayTime::
 	ld [wPlayTimeHours], a
 	cp $ff
 	ret nz
+; handle max time
 	ld hl, wd47a
 	set 0, [hl]
 .maxIGT

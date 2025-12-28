@@ -116,6 +116,7 @@ INCLUDE "engine/battle/safari_zone.asm" ; from bank1
 INCLUDE "engine/overworld/missable_objects.asm" ; these 3 together ; from bank3
 INCLUDE "data/maps/hide_show_data.asm" ; these 3 together ; from bank3
 INCLUDE "data/maps/hide_show_data_sevii.asm" ; new ; these 3 together ; from bank3
+INCLUDE "home/play_time.asm" ; edited, moved from home
 
 
 SECTION "bank4", ROMX
