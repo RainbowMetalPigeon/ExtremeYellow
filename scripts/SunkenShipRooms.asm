@@ -15,10 +15,7 @@ SunkenShipRoomsScript0:
 	ldh a, [hJoyHeld]
 	bit BIT_A_BUTTON, a
 	ret z
-; check if facing up
-	ld a, [wSpritePlayerStateData1FacingDirection]
-	cp SPRITE_FACING_DOWN ; TBE
-	ret nz
+; check coordinates and facings
 	call CheckIfCoordinateWithlore ; carry flag set if match found, and a contains textID
 	ret nc
 	add 9 ; starting point of the IDs of the lores texts IDs
@@ -33,6 +30,8 @@ CheckIfCoordinateWithlore:
 	ld b, a ; b holds current X coordinate
 	ld a, [wYCoord]
 	ld c, a ; c holds current Y coordinate
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	ld e, a ; e holds current facing
 	ld hl, CoordinatesForLoreTextsIDs
 	ld d, $FF ; initial offset, loaded in a at the end
 .loop
@@ -42,23 +41,47 @@ CheckIfCoordinateWithlore:
 	jr z, .noMatches
 	cp b ; are we at a X with a lore?
 	jr nz, .next1
-	ld a, [hli] ; a = lore Y, hl points at the NEXT lore X
+	ld a, [hli] ; a = lore Y, hl points to lore facing
 	cp c ; are we (also) at a Y with a lore?
-	jr nz, .loop ; it was a .next2 but unnecessary now
+	jr nz, .next2
+	ld a, [hli] ; a = lore facing, hl points to the NEXT lore X
+	cp e ; are we (also also) facing correctly?
+	jr nz, .loop
 	ld a, d ; now it's a that contains the lore textIDs OFFSET
 	scf
 	ret
 .next1
 	inc hl
-;.next2
+.next2
+	inc hl
 	jr .loop
 .noMatches
 	xor a
 	ret
 
 CoordinatesForLoreTextsIDs:
-; x, y
-    db 12, 18
+; x, y, facing
+    db 12, 18, SPRITE_FACING_DOWN ; room 1-2
+    db 13, 19, SPRITE_FACING_LEFT ; room 1-2
+    db 24, 18, SPRITE_FACING_DOWN ; room 1-3
+    db 25, 19, SPRITE_FACING_LEFT ; room 1-3
+    db 37, 25, SPRITE_FACING_LEFT ; room 1-8
+    db 36, 26, SPRITE_FACING_UP   ; room 1-8
+    db  0, 42, SPRITE_FACING_DOWN ; room 2-1
+    db  1, 43, SPRITE_FACING_LEFT ; room 2-1
+    db 12, 42, SPRITE_FACING_DOWN ; room 2-2
+    db 13, 43, SPRITE_FACING_LEFT ; room 2-2
+    db 13, 49, SPRITE_FACING_LEFT ; room 2-6
+    db 12, 50, SPRITE_FACING_UP   ; room 2-6
+    db 37, 49, SPRITE_FACING_LEFT ; room 2-8
+    db 36, 50, SPRITE_FACING_UP   ; room 2-8
+    db 24, 66, SPRITE_FACING_DOWN ; room 3-3
+    db 25, 67, SPRITE_FACING_LEFT ; room 3-3
+    db 36, 66, SPRITE_FACING_DOWN ; room 3-4
+    db 37, 67, SPRITE_FACING_LEFT ; room 3-4
+    db 25, 73, SPRITE_FACING_LEFT ; room 3-7
+    db 24, 74, SPRITE_FACING_UP   ; room 3-7
+    db 26, 61, SPRITE_FACING_UP   ; broken door
 	db $FF ; end
 
 ; texts =========================================
@@ -77,18 +100,28 @@ SunkenShipRooms_TextPointers:
 	dw GiveSunkenShipTreasureText ;  7
 	dw SunkenShipCaptainsLogText  ;  8
 
-	; lore
+	; lore, most if not all will be duplicated
 	dw SunkenShipLoreText_12      ;  9, starting point of the lores texts IDs <-> OFFSET = 0
-;	dw SunkenShipLoreText_13
-;	dw SunkenShipLoreText_18
-;	dw SunkenShipLoreText_21
-;	dw SunkenShipLoreText_22
-;	dw SunkenShipLoreText_26
-;	dw SunkenShipLoreText_28
-;	dw SunkenShipLoreText_33
-;	dw SunkenShipLoreText_34
-;	dw SunkenShipLoreText_37
-;	dw DoorCantBeOpenedText2
+	dw SunkenShipLoreText_12      ; 10
+	dw SunkenShipLoreText_13      ; 11
+	dw SunkenShipLoreText_13      ; 12
+	dw SunkenShipLoreText_18      ; 13
+	dw SunkenShipLoreText_18      ; 14
+	dw SunkenShipLoreText_21      ; 15
+	dw SunkenShipLoreText_21      ; 16
+	dw SunkenShipLoreText_22      ; 17
+	dw SunkenShipLoreText_22      ; 18
+	dw SunkenShipLoreText_26      ; 19
+	dw SunkenShipLoreText_26      ; 20
+	dw SunkenShipLoreText_28      ; 21
+	dw SunkenShipLoreText_28      ; 22
+	dw SunkenShipLoreText_33      ; 23
+	dw SunkenShipLoreText_33      ; 24
+	dw SunkenShipLoreText_34      ; 25
+	dw SunkenShipLoreText_34      ; 26
+	dw SunkenShipLoreText_37      ; 27
+	dw SunkenShipLoreText_37      ; 28
+	dw DoorCantBeOpenedText2      ; 29
 
 
 ; plot-relevant ----------------------------------

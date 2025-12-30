@@ -105,32 +105,101 @@ _SunkenShipWrongPasswordText::
     done
 
 _SunkenShipCaptainsLogText_Page0::
-    text "Page 0"
+    text "It's the captain's"
+    line "log. Made to be"
+    cont "readable even"
+    cont "after a long time"
+    cont "underwater."
+
+    para "April 27"
+    line "Passengers got on"
+    cont "board smoothly."
+    cont "Forecasts're good."
+    cont "I foresee a"
+    cont "relaxed trip."
 ;   xxxx "123456789012345678"
     prompt
 
 _SunkenShipCaptainsLogText_Page1::
-    text "Page 1"
+    text "April 29"
+    line "I noticed some"
+    cont "movements between"
+    cont "rooms. Company"
+    cont "policy forbids"
+    cont "staying in other's"
+    cont "cabins, but I'll"
+    cont "not get in the"
+    cont "way of friends"
+    cont "and lovers."
 ;   xxxx "123456789012345678"
     prompt
 
 _SunkenShipCaptainsLogText_Page2::
-    text "Page 2"
+    text "April 30"
+    line "Updated forecasts"
+    cont "mention the"
+    cont "possibility of"
+    cont "bad weather along"
+    cont "our route and"
+    cont "during our trip."
+    cont "Should not be a"
+    cont "problem."
 ;   xxxx "123456789012345678"
     prompt
 
 _SunkenShipCaptainsLogText_Page3::
-    text "Page 3"
+    text "May 1"
+    line "Passengers are"
+    cont "getting nervous"
+    cont "about the"
+    cont "incoming storm."
+    cont "They're worried"
+    cont "we'll be late,"
+    cont "especially those"
+    cont "having work"
+    cont "interviews."
+    cont "I reassured them"
+    cont "there won't be"
+    cont "any delay."
 ;   xxxx "123456789012345678"
     prompt
 
 _SunkenShipCaptainsLogText_Page4::
-    text "Page 4"
+    text "May 2"
+    line "I've been reported"
+    cont "two thefts, as"
+    cont "well as some"
+    cont "suspicious night"
+    cont "activities. The"
+    cont "thief or thieves"
+    cont "waited till the"
+    cont "very last day to"
+    cont "operate."
 ;   xxxx "123456789012345678"
     prompt
 
 _SunkenShipCaptainsLogText_Page5::
-    text "Page 5"
+    text "May 2"
+    line "Extra entry: the"
+    cont "storm is much"
+    cont "wilder than we"
+    cont "anticipated. All"
+    cont "should still go"
+    cont "well, as long as"
+    cont "it doesn't push us"
+    cont "out of path and"
+    cont "into the rocks."
+    cont "I'll make an"
+    cont "announcement to"
+    cont "reassure the pa-"
+
+    para "...a long ink"
+    line "scratch starts"
+    cont "from the last"
+    cont "letter."
+
+    para "It's the last"
+    line "entry of the log."
 ;   xxxx "123456789012345678"
     done
 
@@ -152,7 +221,7 @@ _SunkenShipLoreText_21::
     para "They will never"
     line "live the"
     cont "adventures they"
-    cont "were tought for."
+    cont "were meant for."
 ;   xxxx "123456789012345678"
     done
 
