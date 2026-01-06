@@ -30,13 +30,14 @@ InitBattleVariables:
 	ld a, [wAIWhichPokemonSentOutAlready]
 	and $81	; clear bits 1 to 6 only by ANDing with 1000 0001
 	ld [wAIWhichPokemonSentOutAlready], a
-	xor a
+	ld a, 2 ; edited, was xor a
 ;;;;;;;;;;
 	ld hl, wPlayerHPBarColor
 	ld [hli], a ; wPlayerHPBarColor
 	ld [hl], a ; wEnemyHPBarColor
 	ld hl, wCanEvolveFlags
 	ld b, $3c
+	xor a ; new
 .loop
 	ld [hli], a
 	dec b

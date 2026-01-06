@@ -1681,6 +1681,7 @@ DrawPlayerHUDAndHPBar:
 	hlcoord 10, 7
 	call CenterMonName
 	call PlaceString
+	callfar PrintEXPBar ; new
 	ld hl, wBattleMonSpecies
 	ld de, wLoadedMon
 	ld bc, wBattleMonDVs - wBattleMonSpecies
@@ -1768,7 +1769,7 @@ DrawEnemyHUDAndHPBar:
 	jr z, .notOwned
 	coord hl, 1, 1 ; horizontal/vertical
 	ld [hl], $72
-	.notOwned
+.notOwned
 	pop hl
 ; ============================== end
 	ld de, wEnemyMonNick

@@ -172,7 +172,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 2
+	ld a, 0
 	ld [wPlayerGender], a
 
 	; Give max money.

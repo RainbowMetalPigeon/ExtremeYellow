@@ -39,3 +39,6 @@ PlayerCharacterTitleGraphicsEnd:
 ; new
 RainbowMetalPigeonLogoGraphics: INCBIN "gfx/title/rainbowmetalpigeon_logo.2bpp"
 RainbowMetalPigeonLogoGraphicsEnd:
+
+EXPBarGraphics::  INCBIN "gfx/battle/exp_bar.2bpp"
+EXPBarGraphicsEnd::

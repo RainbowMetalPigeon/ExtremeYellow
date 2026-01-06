@@ -107,8 +107,8 @@ ROMX $15
 	"Maps 11"
 	"Battle Engine 7"
 	"Maps 12"
-	"Diploma"
-	"Trainer Sight"
+;	"Diploma" ; edited
+;	"Trainer Sight" ; edited
 ROMX $16
 	"Maps 13"
 	"bank16"
