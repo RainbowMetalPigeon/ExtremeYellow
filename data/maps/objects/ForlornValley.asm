@@ -8,6 +8,6 @@ ForlornValley_Object:
 ;	bg_event  1,  0,  9
 
 	def_object_events
-	object_event  2, 55, SPRITE_POKE_BALL, STAY, NONE, 1, POKE_BALL ; TBE
+	object_event  2, 55, SPRITE_POKE_BALL, STAY, NONE, 1 ; give fly coordinates
 
 	def_warps_to FORLORN_VALLEY

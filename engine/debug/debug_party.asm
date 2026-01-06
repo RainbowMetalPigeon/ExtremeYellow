@@ -27,9 +27,12 @@ IF DEF(_DEBUG)
 	ld [wMonDataLocation], a
 
 	; Fly anywhere.
-	dec a ; $ff
+	ld a, %11111111
 	ld [wTownVisitedFlag], a
+	ld a, %01111111 ; this to NOT enable Forlorn Valley
 	ld [wTownVisitedFlag + 1], a
+	ld a, %11111111
+	ld a, %00000111
 	ld [wTownVisitedFlag_Sevii], a ; new, for sevii
 	ld [wTownVisitedFlag_Sevii + 1], a ; new, for sevii
 
@@ -304,7 +307,8 @@ DebugItemsList:
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
-	db SEVII_COOKIE, 3
+;	db SEVII_COOKIE, 3
+	db FLAME_PLUME, 1
 	db MASTER_BALL, 99
 	db BICYCLE, 1
 	db FULL_RESTORE, 99

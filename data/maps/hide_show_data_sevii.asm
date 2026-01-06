@@ -121,6 +121,8 @@ MapHSPointers_Sevii:
 ; 8-island
 	dw SeviiEightIslandDockHS ; SEVII_EIGHT_ISLAND_DOCK
 	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CAVE
+; extra
+	dw SeviiDesolatedRockHS ; SEVII_DESOLATED_ROCK
 ; end
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
@@ -336,7 +338,9 @@ SeviiSevenIslandGym3HS:
 	db SEVII_SEVEN_ISLAND_GYM_3, 13, SHOW ; ELIXER
 	db SEVII_SEVEN_ISLAND_GYM_3, 14, SHOW ; X_ACCURACY
 SeviiEightIslandDockHS:
-	db SEVII_EIGHT_ISLAND_DOCK, 1, SHOW ; sailor
+	db SEVII_EIGHT_ISLAND_DOCK,  1, SHOW ; sailor
+SeviiDesolatedRockHS:
+	db SEVII_DESOLATED_ROCK,  1, SHOW ; TIGERS_EYE
 
 
 	db $FF, $01, SHOW ; end, list terminator

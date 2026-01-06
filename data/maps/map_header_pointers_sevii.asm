@@ -119,4 +119,6 @@ MapHeaderPointers_Sevii::
 ; 8-island
 	dw SeviiEightIslandDock_h
 	dw SeviiEightIslandCave_h
+; extra
+	dw SeviiDesolatedRock_h
 	assert_table_length NUM_MAPS_SEVII

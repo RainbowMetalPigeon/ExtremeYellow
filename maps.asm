@@ -2013,3 +2013,8 @@ INCLUDE "data/maps/headers/SeviiRoute38DiveCavern.asm"
 INCLUDE "scripts/SeviiRoute38DiveCavern.asm"
 INCLUDE "data/maps/objects/SeviiRoute38DiveCavern.asm"
 SeviiRoute38DiveCavern_Blocks: INCBIN "maps/SeviiRoute38DiveCavern.blk"
+
+INCLUDE "data/maps/headers/SeviiDesolatedRock.asm"
+INCLUDE "scripts/SeviiDesolatedRock.asm"
+INCLUDE "data/maps/objects/SeviiDesolatedRock.asm"
+SeviiDesolatedRock_Blocks: INCBIN "maps/SeviiDesolatedRock.blk"

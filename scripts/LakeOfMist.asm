@@ -13,7 +13,7 @@ LakeOfMist_ScriptPointers:
 	dw EndTrainerBattle
 */
 LakeOfMist_TextPointers:
-	text_end
+	dw LakeOfMistText1
 
 /*
 	dw LakeOfMistText1
@@ -199,3 +199,61 @@ LakeOfMistText10:
 	text_far _LakeOfMistText10
 	text_end
 */
+
+LakeOfMistText1:
+	text_asm
+	CheckEvent EVENT_LAKE_OF_MIST_GAVE_FLAME_PLUME
+	ld hl, LakeOfMistText1_PostForlornCoordinates
+	jr nz, .printAndEnd
+; not received Forlorn coordinates yet
+	ld hl, LakeOfMistText1_Intro
+	call PrintText
+; check if we have the plume
+	ld b, FLAME_PLUME
+	call IsItemInBag
+	jr nz, .havePlume
+; check if we have Moltres in team
+	ld d, MOLTRES
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	jr nc, .done
+; we have Moltres
+	ld hl, LakeOfMistText1_HaveMoltres
+	jr .printAndEnd
+.havePlume
+	call WaitForTextScrollButtonPress
+	ld hl, LakeOfMistText1_HavePlume
+	call PrintText
+	ld a, FLAME_PLUME
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_LAKE_OF_MIST_GAVE_FLAME_PLUME
+	ld c, 15
+	ld b, FLAG_SET
+	ld hl, wTownVisitedFlag ; mark Forlorn Valley as visited (for flying)
+	predef FlagActionPredef
+	ld hl, LakeOfMistText1_ReceiveForlornCoordinates
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+LakeOfMistText1_Intro:
+	text_far _LakeOfMistText1_Intro
+	text_end
+
+LakeOfMistText1_HaveMoltres:
+	text_far _LakeOfMistText1_HaveMoltres
+	text_end
+
+LakeOfMistText1_HavePlume:
+	text_far _LakeOfMistText1_HavePlume
+	text_end
+
+LakeOfMistText1_ReceiveForlornCoordinates:
+	text_far _LakeOfMistText1_ReceiveForlornCoordinates
+	sound_get_key_item
+	text_end
+
+LakeOfMistText1_PostForlornCoordinates:
+	text_far _LakeOfMistText1_PostForlornCoordinates
+	text_end

@@ -1,0 +1,5 @@
+SeviiDesolatedRock_Script:
+	jp EnableAutoTextBoxDrawing
+
+SeviiDesolatedRock_TextPointers:
+	dw PickUpItemText

@@ -118,6 +118,8 @@ WildDataPointers_Sevii:
 ; 8-island
 	dw SeviiShipDockWildMons         ; SEVII_ONE_ISLAND_DOCK
 	dw NothingWildMons               ; SEVII_ONE_ISLAND_CAVE
+; extra
+	dw NothingWildMons               ; SEVII_DESOLATED_ROCK
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
 

@@ -409,7 +409,7 @@ LoadTownMap_Fly::
 	jr z, .pressedDown ; skip past unvisited towns
 	jp .townMapFlyLoop
 .wrapToEndOfList
-	ld hl, wFlyLocationsList_Sevii + NUM_CITY_MAPS_SEVII ; new, for sevii
+	ld hl, wFlyLocationsList_Sevii + NUM_CITY_MAPS_SEVII + 1 ; new, for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .sevii3
 	ld hl, wFlyLocationsList + NUM_CITY_MAPS + 3
@@ -435,7 +435,7 @@ BuildFlyLocationsList:
 	ld a, NOT_VISITED
 	jr nc, .notVisited
 	ld a, b ; store the map number of the town if it has been visited
-; new for Route 4 and Route 10
+; new for Route 4 and Route 10 and Forlorn Valley
 	cp 13
 	jr nz, .notRoute4
 	ld a, ROUTE_4
@@ -465,13 +465,17 @@ BuildFlyLocationsList_Sevii: ; new, for Sevii
 	ld e, a
 	ld a, [wTownVisitedFlag_Sevii + 1]
 	ld d, a
-	lb bc, 0, NUM_CITY_MAPS_SEVII
+	lb bc, 0, NUM_CITY_MAPS_SEVII + 1
 .loop
 	srl d
 	rr e
 	ld a, NOT_VISITED
 	jr nc, .notVisited
 	ld a, b ; store the map number of the town if it has been visited
+; for Desolated Rock
+	cp 7
+	jr nz, .notVisited
+	ld a, SEVII_DESOLATED_ROCK
 .notVisited
 	ld [hl], a
 	inc hl

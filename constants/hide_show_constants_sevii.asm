@@ -164,5 +164,7 @@
 	; back to non-respawnable ones
 ; 8-island
 	const HS_SEVII_EIGHT_ISLAND_DOCK_SAILOR
+; extra
+	const HS_SEVII_DESOLATE_ROCK_TIGERS_EYE
 
 DEF NUM_HS_OBJECTS_SEVII EQU const_value

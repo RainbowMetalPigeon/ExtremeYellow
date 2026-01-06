@@ -119,4 +119,6 @@ MapHeaderBanks_Sevii::
 ; 8-island
 	db BANK(SeviiEightIslandDock_h)
 	db BANK(SeviiEightIslandCave_h)
+; extra
+	db BANK(SeviiDesolatedRock_h)
 	assert_table_length NUM_MAPS_SEVII

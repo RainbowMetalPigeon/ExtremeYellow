@@ -848,7 +848,7 @@ wHoFTeamNo:: db
 NEXTU
 	ds 1 ; wRivalStarterTemp:: db ; leftovers from pokered? ; edited, unused
 wFlyAnimUsingCoordList_Sevii:: db ; wRivalStarterBallSpriteIndex:: db ; leftovers from pokered? ; edited, unused
-wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 2 ; new, for Sevii
+wFlyLocationsList_Sevii:: ds NUM_CITY_MAPS_SEVII + 3 ; new, for Sevii, also Desolated Rocks
 
 NEXTU
 wFlyAnimUsingCoordList:: db
@@ -2605,7 +2605,7 @@ wBattleFacilityWinningStreakNext:: db ; edited, it was wUnusedD71F
 wd728:: db
 
 ;	ds 1
-wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII ; new, for Sevii
+wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII + 1 ; new, for Sevii
 ;	ds 1
 
 ; redundant because it matches wObtainedBadges

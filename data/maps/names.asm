@@ -102,6 +102,7 @@ DottedHoleName:      db "DOTTED HOLE@"
 TanobyChambersName:  db "TANOBY CHAMBERS@"
 TwoIslandDiveName:   db "SUB BOON ISLAND@"
 Route33DiveName:     db "SUB ROUTE 33@"
+DesolatedRockName:   db "DESOLATED ROCK@"
 
 FourIslandDiveName:  db "SUB FLOE ISLAND@"
 FiveIslandDiveName:  db "SUB CHRONO ISLAND@"

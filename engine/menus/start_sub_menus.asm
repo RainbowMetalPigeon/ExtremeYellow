@@ -173,7 +173,8 @@ StartMenu_Pokemon::
 	jr z, .canFly
 	jr .cannotFlyHere
 .sevii
-	; TBE if I add some special can-fly-from maps in Sevii
+	cp SEVII_DESOLATED_ROCK
+	jr z, .canFly
 .cannotFlyHere
 ; end of new block to make "open-air" maps flyable
 	ld a, [wWhichPokemon]

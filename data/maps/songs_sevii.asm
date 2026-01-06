@@ -118,4 +118,6 @@ MapSongBanks_Sevii::
 ; 8-island
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_EIGHT_ISLAND_DOCK
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_EIGHT_ISLAND_CAVE
+; extra
+	db MUSIC_SILPH_CO, BANK(Music_SilphCo)             ; SEVII_DESOLATED_ROCK
 	assert_table_length NUM_MAPS_SEVII
