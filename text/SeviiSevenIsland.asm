@@ -794,7 +794,7 @@ _SeviiTanobyChambersSignText1::
 
 _SeviiTanobyChambersSignText2::
 	text "ALL WHO START AND"
-	line "THE ENDING APEX"
+	line "THE GENETIC APEX"
 ;	xxxx "123456789012345678"
 	done
 
