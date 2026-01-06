@@ -439,6 +439,11 @@ SetPal_Overworld:
 	cp CERULEAN_CAVE_1F + 1
 	jr c, .caveOrBruno
 .normalDungeonOrBuilding
+; new
+	push af
+	SetEvent EVENT_INDOOR_PALETTE
+	pop af
+; BTV
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
 	cp NUM_CITY_MAPS
@@ -976,7 +981,7 @@ GetPal_Pikachu::
 	jr c, .town
 	ld a, PAL_ROUTE - 1
 .town
-	inc a ; a town's pallete ID is its map ID + 1
+	inc a ; a town's palette ID is its map ID + 1
 	ret
 .PokemonTowerOrAgatha
 	ld a, PAL_GREYMON - 1
@@ -1137,7 +1142,7 @@ LoadSGB:
 ;	CheckEvent EVENT_IN_SEVII
 	ld a, [wOriginallyInKantoOrSevii]
 	and a
-	ld hl, SuperPalettes
+	ld hl, SuperPalettes ; TBE
 	jr z, .notSevii
 	ld hl, SuperPalettes_Sevii
 .notSevii
@@ -1357,22 +1362,36 @@ GetGBCBasePalAddress::
 	add hl, hl
 	add hl, hl
 	add hl, hl
-	ld de, GBCBasePalettes
-; new for sevii
-;	push hl
-;	CheckEvent EVENT_IN_SEVII
-	ld a, [wOriginallyInKantoOrSevii]
-	and a
-;	pop hl
-	jr z, .nonSevii
-	ld de, GBCBasePalettes_Sevii
-.nonSevii
-; back to vanilla
+	call GetGBCBasePalAddress_SelectDE ; new
 	add hl, de
 	ld a, l
 	ld e, a
 	ld a, h
 	ld d, a
+	pop hl
+	ret
+
+GetGBCBasePalAddress_SelectDE: ; new
+	push hl
+
+; for sevii
+	ld a, [wOriginallyInKantoOrSevii]
+	and a
+	jr z, .nonSevii
+	ld de, GBCBasePalettes_Sevii
+
+.nonSevii
+	CheckAndResetEvent EVENT_INDOOR_PALETTE
+	ld de, GBCBasePalettes
+	jr nz, .conclude
+; non Sevii, overworld
+	ld a, [wPlayTimeMinutes] ; TBE
+	and %00000001
+	ld de, GBCBasePalettes ; day Kanto
+	jr z, .conclude
+	ld de, GBCBasePalettesNight ; night Kanto
+
+.conclude
 	pop hl
 	ret
 

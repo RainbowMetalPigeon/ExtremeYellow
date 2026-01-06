@@ -187,12 +187,12 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
-	ld a, $FE
-	ld [wPlayTimeHours], a
-	ld a, $FF
-	ld [wPlayTimeHours+1], a
-	ld a, 59
-	ld [wPlayTimeMinutes], a
+;	ld a, $FE
+;	ld [wPlayTimeHours], a
+;	ld a, $FF
+;	ld [wPlayTimeHours+1], a
+;	ld a, 59
+;	ld [wPlayTimeMinutes], a
 
 	SetEvent EVENT_GOT_HM01
 	ResetEvent EVENT_SS_ANNE_LEFT
