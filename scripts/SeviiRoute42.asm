@@ -23,8 +23,9 @@ SeviiRoute42_TextPointers:
 	dw SeviiRoute42Text8  ;  8 trainer
 	dw SeviiRoute42Text9  ;  9 trainer
 	dw SeviiRoute42Text10 ; 10 trainer
-	dw PickUpItemText ; 11
-	dw PickUpItemText ; 12
+	dw RockSmashText      ; 11 rock
+	dw PickUpItemText     ; 12
+	dw PickUpItemText     ; 13
 
 SeviiRoute42Text1:
 	text_far _SeviiRoute42Text1
