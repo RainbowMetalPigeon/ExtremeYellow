@@ -2776,8 +2776,8 @@ wCurMapScript:: db
 ;	ds 7
 wUniQuizAnswer:: ds NAME_LENGTH ; new, apparently it's 11 and not 7 as I thought, same length as Mons' names + terminator
 
-wPlayTimeHours:: db
-wPlayTimeMaxed:: db
+wPlayTimeHours:: dw ; edited, was db
+;wPlayTimeMaxed:: db ; edited
 wPlayTimeMinutes:: db
 wPlayTimeSeconds:: db
 wPlayTimeFrames:: db

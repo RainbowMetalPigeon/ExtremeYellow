@@ -3,16 +3,16 @@ TrackPlayTime::
 ; check wram variable: if set, go to max time
 	ld hl, wd47a
 	bit 0, [hl]
-	jr nz, .maxIGT
+	ret nz ; edited, was jr nz, .maxIGT
 ; check another wram variable: do nothing (don't count time) if set
 	ld a, [wd732]
 	bit 0, a
 	ret z
-; if wram variable for play time maxed is set: return and do nothing
-; this is redundant with the first variable above
-	ld a, [wPlayTimeMaxed]
-	and a
-	ret nz
+;; if wram variable for play time maxed is set: return and do nothing
+;; this is redundant with the first variable above
+;	ld a, [wPlayTimeMaxed]
+;	and a
+;	ret nz
 ; handle frames
 	ld a, [wPlayTimeFrames]
 	inc a
@@ -35,9 +35,18 @@ TrackPlayTime::
 	ld [wPlayTimeMinutes], a
 	cp 60
 	ret nz
-; handle hours
+; handle hours (edited to be 2-byte)
+.hours
 	xor a
 	ld [wPlayTimeMinutes], a
+	ld a, [wPlayTimeHours+1]
+	inc a
+	ld [wPlayTimeHours+1], a
+	cp 0
+	ret nz
+; MSB of hours
+	xor a
+	ld [wPlayTimeHours+1], a
 	ld a, [wPlayTimeHours]
 	inc a
 	ld [wPlayTimeHours], a
@@ -52,7 +61,8 @@ TrackPlayTime::
 	ld [wPlayTimeMinutes], a
 	ld a, $ff
 	ld [wPlayTimeHours], a
-	ld [wPlayTimeMaxed], a ; redundant
+	ld [wPlayTimeHours+1], a
+;	ld [wPlayTimeMaxed], a ; redundant
 	ret
 
 CountDownIgnoreInputBitReset:

@@ -726,10 +726,10 @@ DrawTrainerInfo:
 	ld de, wPlayerMoney
 	ld c, $e3
 	call PrintBCDNumber
-	hlcoord 9, 6
+	hlcoord 7, 6 ; edited, was 9, 6
 	ld de, wPlayTimeHours ; hours
-	lb bc, LEFT_ALIGN | 1, 3
-	call PrintNumber
+	lb bc, LEFT_ALIGN | 2, 5 ; edited, was 1, 3
+	call PrintNumber ; Print the c-digit, b-byte value at de.
 	ld [hl], ":" ; edited, to expand tileset
 	inc hl
 	ld de, wPlayTimeMinutes ; minutes

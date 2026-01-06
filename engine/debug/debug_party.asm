@@ -187,6 +187,13 @@ IF DEF(_DEBUG)
 	ld a, $1
 	ld [wChampionsRoomCurScript], a
 
+	ld a, $FE
+	ld [wPlayTimeHours], a
+	ld a, $FF
+	ld [wPlayTimeHours+1], a
+	ld a, 59
+	ld [wPlayTimeMinutes], a
+
 	SetEvent EVENT_GOT_HM01
 	ResetEvent EVENT_SS_ANNE_LEFT
 
@@ -231,6 +238,7 @@ IF DEF(_DEBUG)
 
 	SetEvent EVENT_HAUNTED_HOUSE_4_MOM_IN_ROOM_SW
 
+/*
 ;; BATTLE_FACILITY testing
 	ld a, 1
 	ld [wBattleFacilityStandardRecordNormalLC], a
@@ -265,6 +273,7 @@ IF DEF(_DEBUG)
     ld [wBattleFacilityBacklogPerfecters], a
     ld a, 15
     ld [wBattleFacilityBacklogChromogenes], a
+*/
 
 	ret
 
