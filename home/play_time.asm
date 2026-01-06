@@ -90,4 +90,19 @@ CountDownIgnoreInputBitReset:
 	ret
 
 TrackPlayTime_Tanoby:: ; new
-	jpfar _TrackPlayTime_Tanoby
+	CheckEvent EVENT_SEVII_TANOBY_TRACK_TIME
+	ret z
+; the event was triggered
+	ld a, [wPlayTimeFrames]
+	and a
+	ret nz
+; if frames=0, then 60 are passed, ergo 1 second
+; increase the Tanoby second counter: wUniQuizAnswer abused for this instead of the vanilla wPlayTimeSeconds
+	ld a, [wUniQuizAnswer]
+	inc a
+	ld [wUniQuizAnswer], a
+	cp 120
+	ret nz
+; if we are here: 120 Tanoby seconds passed
+	SetEvent EVENT_SEVII_TANOBY_TIME_PASSED
+	ret
