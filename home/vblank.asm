@@ -40,8 +40,16 @@ VBlank::
 	; VBlank-sensitive operations end.
 
 	; moved these two into non-home files
-	callfar TrackPlayTime ; keep track of time played
-	callfar TrackPlayTime_Tanoby ; new
+;	callfar TrackPlayTime ; keep track of time played
+;	callfar TrackPlayTime_Tanoby ; new
+	ld a, BANK(TrackPlayTime)
+	ldh [hLoadedROMBank], a
+	ld [MBC1RomBank], a
+	call TrackPlayTime ; keep track of time played
+;	ld a, BANK(TrackPlayTime_Tanoby)
+;	ldh [hLoadedROMBank], a
+;	ld [MBC1RomBank], a
+	call TrackPlayTime_Tanoby ; new
 
 	call Random
 	call ReadJoypad
