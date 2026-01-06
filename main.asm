@@ -347,7 +347,7 @@ SECTION "bank1C", ROMX
 
 INCLUDE "engine/items/town_map.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
-INCLUDE "engine/gfx/palettes.asm"
+;INCLUDE "engine/gfx/palettes.asm" ; moved to its own bank
 ;INCLUDE "engine/overworld/player_animations.asm" ; moved to the next bank
 ;INCLUDE "engine/movie/splash.asm" ; moved to the next bank
 ;INCLUDE "engine/movie/hall_of_fame.asm" ; moved to the next bank
@@ -368,6 +368,11 @@ INCLUDE "engine/menus/save.asm" ; only used as a predef?
 INCLUDE "engine/events/in_game_trades.asm" ; only used as a predef?
 INCLUDE "engine/battle/battle_transitions.asm" ; only as a predef?
 INCLUDE "engine/overworld/player_animations.asm" ; only predef
+
+
+SECTION "bank1C tris", ROMX ; new, just for palette stuff
+
+INCLUDE "engine/gfx/palettes.asm"
 
 
 SECTION "Itemfinder 1", ROMX

@@ -315,6 +315,7 @@ SetPal_Overworld:
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
 .normalDungeonOrBuildingSevii
+	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
 	cp NUM_CITY_MAPS_SEVII
@@ -439,11 +440,7 @@ SetPal_Overworld:
 	cp CERULEAN_CAVE_1F + 1
 	jr c, .caveOrBruno
 .normalDungeonOrBuilding
-; new
-	push af
-	SetEvent EVENT_INDOOR_PALETTE
-	pop af
-; BTV
+	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
 	cp NUM_CITY_MAPS
@@ -846,7 +843,7 @@ GetPal_Pikachu::
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_SevenIslandsMaps
 	call IsInArray
-	jr c, .sevenIsland
+	jp c, .sevenIsland
 	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
@@ -885,6 +882,7 @@ GetPal_Pikachu::
 ;	cp CERULEAN_CAVE_1F + 1 ; TBE
 ;	jr c, .cave
 .normalDungeonOrBuildingSevii
+	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
 	cp NUM_CITY_MAPS_SEVII
@@ -975,6 +973,7 @@ GetPal_Pikachu::
 	cp COLOSSEUM
 	jr z, .battleOrTradeCenter
 .normalDungeonOrBuilding
+	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
 	cp SAFFRON_CITY + 1
@@ -1378,7 +1377,17 @@ GetGBCBasePalAddress_SelectDE: ; new
 	ld a, [wOriginallyInKantoOrSevii]
 	and a
 	jr z, .nonSevii
+; Sevii
+	CheckAndResetEvent EVENT_INDOOR_PALETTE
 	ld de, GBCBasePalettes_Sevii
+	jr nz, .conclude
+; Sevii, overworld
+	ld a, [wPlayTimeMinutes] ; TBE
+	and %00000001
+	ld de, GBCBasePalettes_Sevii ; day Sevii
+	jr z, .conclude
+	ld de, GBCBasePalettes_SeviiNight ; night Sevii
+	jr .conclude
 
 .nonSevii
 	CheckAndResetEvent EVENT_INDOOR_PALETTE
