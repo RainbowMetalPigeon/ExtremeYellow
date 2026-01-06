@@ -12,6 +12,26 @@ CheckIfCanSurfOrCutFromOverworld::
     jp z, .checkForWhirlpoolDiveWaterfall
 ; if we are not already surfing
 
+; check if area is dark
+    ld a, [wMapPalOffset]
+    and a
+    jr z, .areaNotDark
+; area is dark
+    ld a, [wObtainedBadges] ; badges obtained
+    bit BIT_BOULDERBADGE, a ; BROCK
+	jp z, .newBadgeRequired
+	CheckEvent EVENT_IN_SEVII
+	jr z, .kantoFlash
+	ld a, [wCurMap]
+	cp SEVII_ONE_ISLAND_GYM_2
+	jr nz, .kantoFlash
+    tx_pre_jump CantDissipateMistText2
+.kantoFlash
+	xor a
+	ld [wMapPalOffset], a
+	tx_pre_jump FlashLightsAreaText2
+
+.areaNotDark
 ; check for climbable rocks
     ld a, [wCurMapTileset]
     cp OVERWORLD
@@ -350,6 +370,24 @@ DiveMessageGoAboveText::
 _DiveMessageGoAboveText::
 	text "You re-emerge from"
     line "the deep water!"
+	done
+
+CantDissipateMistText2::
+	text_far _CantDissipateMistText2
+	text_end
+
+_CantDissipateMistText2::
+	text "Can't dissipate the"
+	line "mysterious mist!"
+	done
+
+FlashLightsAreaText2::
+	text_far _FlashLightsAreaText2
+	text_end
+
+_FlashLightsAreaText2::
+	text "A blinding FLASH"
+	line "lights the area!"
 	done
 
 ; --------------------------------------------

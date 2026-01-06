@@ -81,7 +81,7 @@ IF DEF(_DEBUG)
 	ld a, SURF
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
-	ld a, THUNDER_WAVE
+	ld a, FLASH
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
