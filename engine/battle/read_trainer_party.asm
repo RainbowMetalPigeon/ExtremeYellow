@@ -529,3 +529,5 @@ LoadTrainerNumber: ; simply loads [wTrainerNo] in a for normal trainers, and add
 	ret
 
 INCLUDE "data/trainers/special_moves.asm" ; new
+
+INCLUDE "data/trainers/special_moves_physicalspecialsplit.asm" ; new, testing

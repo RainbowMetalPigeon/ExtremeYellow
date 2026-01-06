@@ -1072,8 +1072,6 @@ INCLUDE "data/trainers/move_choices.asm"
 
 ;INCLUDE "engine/battle/misc.asm" ; edited, not necessary here
 
-INCLUDE "data/trainers/special_moves_physicalspecialsplit.asm" ; new, testing
-
 ; the next three need to be together, but don't need to be here
 
 ;INCLUDE "data/trainers/parties.asm"
