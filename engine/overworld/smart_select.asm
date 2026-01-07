@@ -5,8 +5,8 @@ SmartSelectButton::
     callfar FishingInit ; c=cannot fish; nc=can fish
     jr c, .cannotFish
 	lb bc, 5, MAGIKARP
-	ld a, $1 ; set bite
-	jpfar RodResponse
+	ld d, $1 ; set bite
+	jpfar PreRodResponse
 
 .cannotFish
 ; bike

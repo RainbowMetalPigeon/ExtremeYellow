@@ -2803,6 +2803,8 @@ ItemUseSuperRod:
 	ld [wRodResponse], a
 	jr DoNotGenerateFishingEncounter
 
+PreRodResponse::
+	ld a, d
 RodResponse:
 	ld [wRodResponse], a
 
@@ -2853,7 +2855,7 @@ FishingInit:
 	ld [wd49c], a
 	ld a, $81
 	ld [wPikachuMood], a
-	ld c, 80
+	ld c, 10 ; edited, was 80
 	call DelayFrames
 	and a
 	ret
