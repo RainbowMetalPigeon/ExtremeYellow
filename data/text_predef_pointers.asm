@@ -95,3 +95,4 @@ TextPredefs::
 	add_tx_pre CantDissipateMistText2               ; new
 	add_tx_pre FlashLightsAreaText2                 ; new
 	add_tx_pre PlayerStartsFishing                  ; new
+	add_tx_pre CoinCaseNumCoinsText2                ; new

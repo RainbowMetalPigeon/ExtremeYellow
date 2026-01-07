@@ -1,5 +1,18 @@
 SmartSelectButton:: ; SELECT was pressed
 
+; open Coin Case only if we're in the casino
+    CheckEvent EVENT_IN_SEVII
+    jr nz, .cannotCoinCase
+    ld a, [wCurMap]
+    cp GAME_CORNER
+    jr nz, .cannotCoinCase
+	ld b, COIN_CASE
+	call IsItemInBag
+    jr z, .cannotCoinCase
+    call EnableAutoTextBoxDrawing
+    tx_pre_jump CoinCaseNumCoinsText2
+
+.cannotCoinCase
 ; rod: super -> good -> old
 	callfar IsNextTileShoreOrWater
 	jr nc, .cannotFish
@@ -101,3 +114,14 @@ _PlayerStartsFishing::
     line "fishing!"
 ;   xxxx "123456789012345678"
     done
+
+CoinCaseNumCoinsText2::
+	text_far _CoinCaseNumCoinsText2
+	text_end
+
+_CoinCaseNumCoinsText2::
+	text "Coins"
+	line "@"
+	text_bcd wPlayerCoins, 2 | LEADING_ZEROES | LEFT_ALIGN
+	text " "
+	done

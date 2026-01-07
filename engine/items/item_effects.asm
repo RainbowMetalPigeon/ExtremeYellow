@@ -2711,7 +2711,7 @@ PlayedFluteHadEffectText:
 .done
 	jp TextScriptEnd ; end text
 
-ItemUseCoinCase:
+ItemUseCoinCase::
 	ld a, [wIsInBattle]
 	and a
 	jp nz, ItemUseNotTime
