@@ -1,12 +1,50 @@
-SmartSelectButton::
-; SELECT was pressed
+SmartSelectButton:: ; SELECT was pressed
 
 ; rod: super -> good -> old
-    callfar FishingInit ; c=cannot fish; nc=can fish
-    jr c, .cannotFish
-	lb bc, 5, MAGIKARP
-	ld d, $1 ; set bite
-	jpfar PreRodResponse
+	callfar IsNextTileShoreOrWater
+	jr nc, .cannotFish
+	ld a, [wWalkBikeSurfState]
+	cp 2 ; Surfing?
+	jr z, .cannotFish
+; do we have a rod?
+	ld b, OLD_ROD
+	call IsItemInBag
+    jr nz, .canFish
+	ld b, GOOD_ROD
+	call IsItemInBag
+    jr nz, .canFish
+	ld b, SUPER_ROD
+	call IsItemInBag
+    jr z, .cannotFish
+.canFish
+    call EnableAutoTextBoxDrawing
+    tx_pre PlayerStartsFishing
+	ld a, SFX_HEAL_AILMENT
+	call PlaySound
+	ld a, $2
+	ld [wd49c], a
+	ld a, $81
+	ld [wPikachuMood], a
+	ld c, 10 ; edited, was 80
+	call DelayFrames
+    SetEvent EVENT_SKIP_PRINTING_WHEN_FISHING
+; determine what we fished, if anything
+	ld b, SUPER_ROD
+	call IsItemInBag
+    jr nz, .useRodSuper
+	ld b, GOOD_ROD
+	call IsItemInBag
+    jr nz, .useRodGood
+; use Rod Old
+    callfar ItemUseOldRodFar
+    jr .reloadPlayerGraphic
+.useRodGood
+    callfar ItemUseGoodRod.RandomLoop
+    jr .reloadPlayerGraphic
+.useRodSuper
+    callfar ItemUseSuperRodFar
+.reloadPlayerGraphic
+    jp LoadPlayerSpriteGraphics
 
 .cannotFish
 ; bike
@@ -41,10 +79,10 @@ SmartSelectButton::
 
 .cannotBike
 ; town map
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld hl, wd730
-	set 6, [hl]
+	ld b, TOWN_MAP
+	call IsItemInBag
+    ret z
+; we have the map
 	call GBPalWhiteOutWithDelay3
 	xor a
 	ldh [hWY], a
@@ -52,13 +90,14 @@ SmartSelectButton::
 	ldh [hAutoBGTransferEnabled], a
 	call LoadFontTilePatterns
 	farcall DisplayTownMap
-	ld hl, wd730
-	res 6, [hl]
-	ld de, TextScriptEnd
-	push de
-	ldh a, [hLoadedROMBank]
-	push af
     jp EnterMap
 
-; else?
-    ret
+PlayerStartsFishing::
+    text_far _PlayerStartsFishing
+    text_end
+
+_PlayerStartsFishing::
+    text "<PLAYER> starts"
+    line "fishing!"
+;   xxxx "123456789012345678"
+    done

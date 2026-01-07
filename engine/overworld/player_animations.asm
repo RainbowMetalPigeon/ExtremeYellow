@@ -648,7 +648,7 @@ FishingAnim::
 	ld de, wShadowOAMSprite39
 	ld bc, $4
 	call CopyData
-	ld c, 100
+	ld c, 30 ; edited, was 100
 	call DelayFrames
 	ld a, [wRodResponse]
 	and a
@@ -697,10 +697,17 @@ FishingAnim::
 	ld hl, ItsABiteText
 
 .done
+; new
+	push hl
+	CheckAndResetEvent EVENT_SKIP_PRINTING_WHEN_FISHING
+	pop hl
+	jr nz, .dontPrint
+; BTV
 	call PrintText
+.dontPrint
 	ld hl, wd736
 	res 6, [hl] ; unreserve the last 4 OAM entries
-	call LoadFontTilePatterns
+;	call LoadFontTilePatterns ; useless?
 	ret
 
 .ShakePlayerSprite

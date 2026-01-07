@@ -2725,6 +2725,7 @@ CoinCaseNumCoinsText:
 ItemUseOldRod:
 	call FishingInit
 	jp c, ItemUseNotTime
+ItemUseOldRodFar:: ; new
 	lb bc, 5, MAGIKARP
 	; new, to improve rods (Obsidian Fishing Guru) - begin
 	CheckEvent EVENT_ENHANCED_RODS
@@ -2735,7 +2736,7 @@ ItemUseOldRod:
 	ld a, $1 ; set bite
 	jr RodResponse
 
-ItemUseGoodRod:
+ItemUseGoodRod::
 	call FishingInit
 	jp c, ItemUseNotTime
 .RandomLoop
@@ -2776,6 +2777,7 @@ INCLUDE "data/wild/good_rod.asm"
 ItemUseSuperRod:
 	call FishingInit
 	jp c, ItemUseNotTime
+ItemUseSuperRodFar:: ; new
 	callfar ReadSuperRodData
 	ld c, e
 	ld b, d
@@ -2803,8 +2805,6 @@ ItemUseSuperRod:
 	ld [wRodResponse], a
 	jr DoNotGenerateFishingEncounter
 
-PreRodResponse::
-	ld a, d
 RodResponse:
 	ld [wRodResponse], a
 
