@@ -72,8 +72,8 @@ INCLUDE "engine/events/heal_party.asm" ; moved from bank3, after modifying one c
 INCLUDE "engine/overworld/use_another_repel.asm" ; new, from Vortiene
 INCLUDE "engine/overworld/check_map_connections.asm" ; new, from Vortiene
 INCLUDE "engine/miscellanea/miscellanea.asm" ; new
-INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new, testing
-INCLUDE "engine/events/heat_damage.asm" ; new, testing
+INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new
+INCLUDE "engine/events/heat_damage.asm" ; new
 INCLUDE "engine/link/print_waiting_text.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
@@ -117,6 +117,7 @@ INCLUDE "engine/overworld/missable_objects.asm" ; these 3 together ; from bank3
 INCLUDE "data/maps/hide_show_data.asm" ; these 3 together ; from bank3
 INCLUDE "data/maps/hide_show_data_sevii.asm" ; new ; these 3 together ; from bank3
 INCLUDE "home/play_time.asm" ; edited, moved from home
+INCLUDE "engine/overworld/smart_select.asm" ; new
 
 
 SECTION "bank4", ROMX

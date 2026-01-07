@@ -172,7 +172,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 0
+	ld a, 1
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -297,10 +297,12 @@ DebugItemsList:
 	db POKE_BALL, 11
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
+	db GOOD_ROD, 1
+	db OLD_ROD, 1
 	db TOWN_MAP, 1
 	db ITEMFINDER, 1
-    db PERFECTER, 99
-	db LEGEND_CANDY, 42
+;	db PERFECTER, 99
+;	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
 	db CHEAT_CANDY, 1
 	db LINK_CABLE, 3

@@ -102,6 +102,13 @@ OverworldLoopLessDelay::
 	ldh [hSpriteIndexOrTextID], a
 	jp .displayDialogue
 .startButtonNotPressed
+; new, check if SELECT was pressed
+	bit BIT_SELECT, a
+	jr z, .checkIfAButtonIsPressed
+	callfar SmartSelectButton
+	jp OverworldLoop
+.checkIfAButtonIsPressed
+; BTV
 	bit BIT_A_BUTTON, a
 	jp z, .checkIfDirectionalButtonIsPressed ; edited, was checkIfDownButtonIsPressed
 ; if A is pressed
@@ -121,7 +128,7 @@ OverworldLoopLessDelay::
 	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
 	ldh a, [hItemAlreadyFound]
 	and a
-	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found
+	jp z, OverworldLoop ; jump if a hidden object or bookshelf was found, but not if a card key door was found ; useless?
 	jp OverworldLoop
 .displayDialogue
 	predef GetTileAndCoordsInFrontOfPlayer

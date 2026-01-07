@@ -2,7 +2,7 @@ PalletTown_Object:
 	db $b ; border block
 
 	def_warp_events
-	warp_event  5,  5, REDS_HOUSE_1F, 1
+;	warp_event  5,  5, REDS_HOUSE_1F, 1
 ;	warp_event  5,  5, HALL_OF_FAME, 1
 ;	warp_event  5,  5, SILPH_CO_11F, 4
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
@@ -34,7 +34,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, SEAFOAM_ISLANDS_B4F, 3
 ;	warp_event  5,  5, PEWTER_GYM, 1
 ;	warp_event  5,  5, VIRIDIAN_GYM, 1
-;	warp_event  5,  5, SILPH_CO_7F, 4
+	warp_event  5,  5, SILPH_CO_7F, 4
 ;	warp_event  5,  5, VICTORY_ROAD_1F, 1
 ;	warp_event  5,  5, CELADON_MART_ROOF, 1
 ;	warp_event  5,  5, SS_ANNE_1F, 2

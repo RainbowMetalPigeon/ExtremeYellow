@@ -1,6 +1,6 @@
 DEF NOT_VISITED EQU $fe
 
-DisplayTownMap:
+DisplayTownMap::
 ; new for deep water
 	ldh a, [hTileAnimations]
 	ld [wSavedTileAnimations], a
