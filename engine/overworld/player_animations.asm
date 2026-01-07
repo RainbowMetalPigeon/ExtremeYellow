@@ -588,7 +588,7 @@ IsPlayerStandingOnWarpPadOrHole::
 
 INCLUDE "data/tilesets/warp_pad_hole_tile_ids.asm"
 
-FishingAnim:
+FishingAnim::
 	ld c, 10
 	call DelayFrames
 	ld hl, wd736
