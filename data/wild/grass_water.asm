@@ -130,13 +130,13 @@ WildDataPointers:
 	dw NothingWildMons ; UNDERGROUND_PATH_WEST_EAST
 	dw NothingWildMons ; CELADON_MART_1F
 	dw NothingWildMons ; CELADON_MART_2F
-	dw Route19DiveWildMons ; ROUTE_19_DIVE
+	dw NothingWildMons ; CELADON_MART_3F
 	dw NothingWildMons ; CELADON_MART_4F
 	dw NothingWildMons ; CELADON_MART_ROOF
 	dw NothingWildMons ; CELADON_MART_ELEVATOR
 	dw NothingWildMons ; CELADON_MANSION_1F
 	dw NothingWildMons ; CELADON_MANSION_2F
-	dw NothingWildMons ; CELADON_MANSION_3F
+	dw Route19DiveWildMons ; ROUTE_19_DIVE
 	dw NothingWildMons ; CELADON_MANSION_ROOF
 	dw NothingWildMons ; CELADON_MANSION_ROOF_HOUSE
 	dw NothingWildMons ; CELADON_POKECENTER

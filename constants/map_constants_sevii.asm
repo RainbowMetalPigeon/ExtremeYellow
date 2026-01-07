@@ -135,7 +135,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $79
 	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $7A
 ; extra
-	map_const SEVII_DESOLATED_ROCK,                                12, 12 ; $7B
+	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $7B
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

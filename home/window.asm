@@ -61,6 +61,11 @@ HandleMenuInput_::
 .notAtTop
 	dec a
 	ld [wCurrentMenuItem], a ; move selected menu item up one space
+; new, for TM printing from Marcel
+;	push bc
+;	call PrintBagInfoText
+;	pop bc
+; BTV
 	jr .checkOtherKeys
 .alreadyAtTop
 	ld a, [wMenuWrappingEnabled]
@@ -87,6 +92,11 @@ HandleMenuInput_::
 .notAtBottom
 	ld a, c
 	ld [wCurrentMenuItem], a
+; new, for TM printing from Marcel
+;	push bc
+;	call PrintBagInfoText
+;	pop bc
+; BTV
 .checkOtherKeys
 	ld a, [wMenuWatchedKeys]
 	and b ; does the menu care about any of the pressed keys?
