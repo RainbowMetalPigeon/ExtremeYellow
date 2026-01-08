@@ -75,7 +75,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const DIGLETTS_CAVE_ROUTE_2,          4,  4 ; $35
 	map_const HAUNTED_REDS_HOUSE,            11,  5 ; $36 ; new
 	map_const ROUTE_2_TRADE_HOUSE,            4,  4 ; $37
-	map_const ROUTE_2_ALL_GATES,             21,  4 ; $38 ; new, merge of all Route 2 gates
+	map_const ROUTE_2_ALL_GATES,             28,  4 ; $38 ; new, merge of all Route 2 gates
 	map_const HAUNTED_PALLET_TOWN,           14, 13 ; $39 ; new
 	map_const VIRIDIAN_FOREST,               17, 24 ; $3A
 	map_const MUSEUM_1F,                     10,  4 ; $3B

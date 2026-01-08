@@ -7,3 +7,8 @@ _Route2Text3::
 _Route2Text4::
 	text "DIGLETT's CAVE"
 	done
+
+_Route2SupremeFisherText::
+	text "Ssshhh."
+;	xxxx "123456789012345678"
+	done

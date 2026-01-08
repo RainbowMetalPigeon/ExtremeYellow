@@ -17,6 +17,11 @@ Route2AllGates_Object:
 	warp_event 37,  0, LAST_MAP, 2
 	warp_event 36,  7, VIRIDIAN_FOREST, 1
 	warp_event 37,  7, VIRIDIAN_FOREST, 1
+	; hidden house
+	warp_event 52,  7, VIRIDIAN_FOREST, 7
+	warp_event 53,  7, VIRIDIAN_FOREST, 7
+	warp_event 48,  7, ROUTE_2, 8
+	warp_event 49,  7, ROUTE_2, 8
 
 	def_bg_events
 

@@ -744,6 +744,7 @@ RockSmashableRocks_Sevii:
 	db $FF
 
 RockSmashableRocks_KantoBase:
+	db HS_VIRIDIAN_FOREST_ROCK_1
 	db $FF
 
 RockSmashableRocks_KantoExtra:

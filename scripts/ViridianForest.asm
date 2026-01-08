@@ -25,26 +25,27 @@ ViridianForest_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw ViridianForestText10
+	dw RockSmashText ; new
 	dw ViridianForestText11
 	dw ViridianForestText12
 	dw ViridianForestText13
 	dw ViridianForestText14
 	dw ViridianForestText15
 	dw ViridianForestText16
-	dw ViridianForestTextErikaPostBattle ; 18, new, map-dependent
+	dw ViridianForestTextErikaPostBattle ; 19, new, map-dependent
 
 ViridianForestTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Erika
 ViridianForestTrainerHeader0:
 	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_0, 4, ViridianForestBattleText1, ViridianForestEndBattleText1, ViridianForestAfterBattleText1
 ViridianForestTrainerHeader1:
-	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_1, 4, ViridianForestBattleText2, ViridianForestEndBattleText2, ViridianForestAfterBattleText2
+	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_1, 5, ViridianForestBattleText2, ViridianForestEndBattleText2, ViridianForestAfterBattleText2
 ViridianForestTrainerHeader2:
 	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_2, 1, ViridianForestBattleText3, ViridianForestEndBattleText3, ViridianForestAfterBattleText3
 ViridianForestTrainerHeader3:
 	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_3, 0, ViridianForestBattleText4, ViridianForestEndBattleText4, ViridianForestAfterBattleText4
 ViridianForestTrainerHeader4:
-	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_4, 4, ViridianForestBattleText5, ViridianForestEndBattleText5, ViridianForestAfterBattleText5
+	trainer EVENT_BEAT_VIRIDIAN_FOREST_TRAINER_4, 5, ViridianForestBattleText5, ViridianForestEndBattleText5, ViridianForestAfterBattleText5
 	db -1 ; end
 
 ViridianForestText1:
@@ -227,7 +228,7 @@ ViridianForestErikaPostBattleRematch: ; script, map-dependent
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 18 ; map-dependent
+	ld a, 19 ; map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA_REMATCH_INVERSE ; map-dependent

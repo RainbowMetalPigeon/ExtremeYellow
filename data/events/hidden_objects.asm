@@ -176,6 +176,8 @@ SeafoamIslands5HiddenObjects:
 ViridianForestHiddenObjects:
 	hidden_object  1, 18, POTION, HiddenItems
 	hidden_object 16, 42, ANTIDOTE, HiddenItems
+	hidden_object 18, 24, GREAT_BALL, HiddenItems
+	hidden_object 19, 24, SUPER_POTION, HiddenItems
 	db -1 ; end
 
 MtMoon3HiddenObjects: ; edited, +24 on the y coordinate
@@ -658,4 +660,5 @@ CeladonHotelRoomsHiddenObjects: ; new
 
 Route2HiddenObjects: ; new
 	hidden_object 19,  2, RARE_CANDY, HiddenItems
+	hidden_object  1, 30, PP_UP, HiddenItems
 	db -1 ; end

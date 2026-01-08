@@ -328,7 +328,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	assert_table_length SPRITE_SET_LENGTH
 
-; sprite set $12, copy of $02 for Pewtwer and Cerulean
+; sprite set $12, copy of $02 for Pewter and Cerulean
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_TRAVELER ; edited, was SPRITE_YOUNGSTER

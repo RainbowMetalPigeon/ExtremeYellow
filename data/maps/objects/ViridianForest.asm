@@ -8,14 +8,16 @@ ViridianForest_Object:
 	warp_event 16, 47, ROUTE_2_ALL_GATES, 6
 	warp_event 17, 47, ROUTE_2_ALL_GATES, 6
 	warp_event 18, 47, ROUTE_2_ALL_GATES, 6
+	warp_event 24,  0, ROUTE_2_ALL_GATES, 13 ; new
+	warp_event 25,  0, ROUTE_2_ALL_GATES, 13 ; new
 
 	def_bg_events
-	bg_event 24, 40, 12 ; ViridianForestText9
-	bg_event 16, 32, 13 ; ViridianForestText10
-	bg_event 26, 17, 14 ; ViridianForestText11
-	bg_event  4, 24, 15 ; ViridianForestText12
-	bg_event 18, 45, 16 ; ViridianForestText13
-	bg_event  2,  1, 17 ; ViridianForestText14
+	bg_event 24, 40, 13 ; ViridianForestText11
+	bg_event 16, 32, 14 ; ViridianForestText12
+	bg_event 26, 17, 15 ; ViridianForestText13
+	bg_event  4, 24, 16 ; ViridianForestText14
+	bg_event 18, 45, 17 ; ViridianForestText15
+	bg_event  2,  1, 18 ; ViridianForestText16
 
 	def_object_events
 	object_event  1, 30, SPRITE_ERIKA_GL, STAY, ANY_DIR, 1 ; new
@@ -26,8 +28,9 @@ ViridianForest_Object:
 	object_event  2, 41, SPRITE_COOLTRAINER_F, STAY, NONE, 6, OPP_LASS, 19
 	object_event 13, 17, SPRITE_YOUNGSTER, STAY, RIGHT, 7, OPP_BUG_CATCHER, 15
 	object_event 25, 11, SPRITE_POKE_BALL, STAY, NONE, 8, POTION
-	object_event 12, 29, SPRITE_POKE_BALL, STAY, NONE, 9, POTION
+	object_event 12, 25, SPRITE_POKE_BALL, STAY, NONE, 9, POTION
 	object_event  1, 31, SPRITE_POKE_BALL, STAY, NONE, 10, POKE_BALL
 	object_event 27, 40, SPRITE_YOUNGSTER, STAY, NONE, 11 ; person
+	object_event 26,  2, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 12 ; new
 
 	def_warps_to VIRIDIAN_FOREST

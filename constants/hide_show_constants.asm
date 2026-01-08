@@ -144,6 +144,7 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_FOREST_ITEM_1        ; 64
 	const HS_VIRIDIAN_FOREST_ITEM_2        ; 65
 	const HS_VIRIDIAN_FOREST_ITEM_3        ; 66
+	const HS_VIRIDIAN_FOREST_ROCK_1        ; new
 	const HS_MT_MOON_1F_ITEM_1             ; 67
 	const HS_MT_MOON_1F_ITEM_2             ; 68
 	const HS_MT_MOON_1F_ITEM_3             ; 69
