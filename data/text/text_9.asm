@@ -172,12 +172,13 @@ _BootedUpHMText::
 	text "Booted up an HM!"
 	prompt
 
-_TeachMachineMoveText:: ; edited
-;	text "It contained"
-;	line "@"
-;	text_ram wStringBuffer
-;	text "!"
-	text "Teach @"
+_TeachMachineMoveText::
+	text "It contained"
+	line "@"
+	text_ram wStringBuffer
+	text "!"
+
+	para "Teach @"
 	text_ram wStringBuffer
 	text_start
 	line "to a #MON?"

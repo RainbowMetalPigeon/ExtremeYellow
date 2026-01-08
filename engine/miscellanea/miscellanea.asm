@@ -1932,5 +1932,3 @@ ForbiddenMerchantGreetingText:: ; new
 SeviiTwoIslandMerchantGreetingText:: ; new
 	text_far _SeviiTwoIslandMerchantGreetingText
 	text_end
-
-; =====================================
