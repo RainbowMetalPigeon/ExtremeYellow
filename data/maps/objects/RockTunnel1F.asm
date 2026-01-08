@@ -10,6 +10,8 @@ RockTunnel1F_Object:
 	warp_event  5,  3, ROCK_TUNNEL_B1F, 2
 	warp_event 17, 11, ROCK_TUNNEL_B1F, 3
 	warp_event 37, 17, ROCK_TUNNEL_B1F, 4
+	warp_event 23, 15, ROUTE_10, 5 ; new
+	warp_event 23, 29, ROCK_TUNNEL_B1F, 5 ; new
 
 	def_bg_events
 	bg_event 11, 29, 8 ; RockTunnel1Text8

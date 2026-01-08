@@ -95,6 +95,8 @@ HiddenObjectMaps:
 	dbw BATTLE_FACILITY,              BattleFacilityHiddenObjects ; new
 	dbw CELADON_HOTEL_ROOMS,          CeladonHotelRoomsHiddenObjects ; new
 	dbw ROUTE_2,                      Route2HiddenObjects ; new
+	dbw ROCK_TUNNEL_1F,               RockTunnel1FiddenObjects ; new
+	dbw ROCK_TUNNEL_B1F,              RockTunnelB1FiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -216,6 +218,15 @@ RocketHideout4HiddenObjects:
 Route10HiddenObjects:
 	hidden_object  9, 17, SUPER_POTION, HiddenItems
 	hidden_object 16, 53, MAX_ETHER, HiddenItems
+	hidden_object 15, 59, MAX_REVIVE, HiddenItems ; new
+	db -1 ; end
+
+RockTunnel1FiddenObjects: ; new
+	hidden_object  5, 31, RARE_CANDY, HiddenItems
+	db -1 ; end
+
+RockTunnelB1FiddenObjects: ; new
+	hidden_object  6, 32, NUGGET, HiddenItems
 	db -1 ; end
 
 RockTunnelPokecenterHiddenObjects:
