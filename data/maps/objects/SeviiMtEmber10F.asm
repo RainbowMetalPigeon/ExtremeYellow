@@ -2,10 +2,14 @@ SeviiMtEmber10F_Object:
 	db $03 ; border block
 
 	def_warp_events
-	warp_event  2,  7, SEVII_MT_EMBER,    12
-	warp_event  3,  7, SEVII_MT_EMBER,    12
+	warp_event  2,  7, SEVII_MT_EMBER,     19 ;  1
+	warp_event  3,  7, SEVII_MT_EMBER,     19 ;  2
 
-	warp_event  0,  7, SEVII_MT_EMBER_9F,  3
+	warp_event  0,  7, SEVII_MT_EMBER_9F,   5 ;  3
+
+	warp_event  0,  0, SEVII_MT_EMBER_9F,   6 ;  4
+
+	warp_event  2,  2, SEVII_MT_EMBER_11F,  1 ;  5
 
 	def_bg_events
 
