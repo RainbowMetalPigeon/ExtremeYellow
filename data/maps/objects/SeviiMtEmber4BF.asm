@@ -18,6 +18,6 @@ SeviiMtEmber4BF_Object:
 	def_bg_events
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
+	object_event 45, 29, SPRITE_POKE_BALL, STAY, NONE, 1, FLAME_PLUME
 
 	def_warps_to SEVII_MT_EMBER_4BF

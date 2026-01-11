@@ -37,7 +37,7 @@ MapHSPointers_Sevii:
 	dw SeviiOneIslandHousesHS ; SEVII_ONE_ISLAND_HOUSES
 	dw SeviiEmberSpaHS ; SEVII_EMBER_SPA
 	dw NoHSSevii ; SEVII_ROUTE_32_DIVE
-	dw NoHSSevii ; SEVII_MT_EMBER_4BF
+	dw SeviiMtEmber4BFHS ; SEVII_MT_EMBER_4BF
 	dw NoHSSevii ; SEVII_MT_EMBER_3BF
 	dw NoHSSevii ; SEVII_MT_EMBER_2BF
 	dw NoHSSevii ; SEVII_MT_EMBER_1BF
@@ -241,6 +241,8 @@ SeviiOneIslandHousesHS:
 SeviiEmberSpaHS:
 	db SEVII_EMBER_SPA, 5, SHOW ; ball
 	db SEVII_EMBER_SPA, 6, SHOW ; ball
+SeviiMtEmber4BFHS:
+	db SEVII_MT_EMBER_4BF, 1, SHOW ; ball
 SeviiTwoIslandDockHS:
 	db SEVII_TWO_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiTwoIslandCityDiveHS:
