@@ -21,6 +21,10 @@ SeviiMtEmber1F_Object:
 
 	warp_event 31, 18, SEVII_MT_EMBER_2F,   4 ; 12
 
+	warp_event 26,  3, SEVII_MT_EMBER_2F,   9 ; 13
+
+	warp_event 20, 21, SEVII_MT_EMBER_1BF,  5 ; 14
+
 	def_bg_events
 
 	def_object_events

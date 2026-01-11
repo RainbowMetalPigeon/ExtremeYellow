@@ -5,8 +5,8 @@ SeviiMtEmber11F_Object:
 
 	warp_event  0,  0, SEVII_MT_EMBER_10F,  5 ;  1
 
-	warp_event  2,  3, SEVII_MT_EMBER,     20 ;  2
-	warp_event  3,  3, SEVII_MT_EMBER,     20 ;  3
+	warp_event  2,  3, SEVII_MT_EMBER,     27 ;  2
+	warp_event  3,  3, SEVII_MT_EMBER,     27 ;  3
 
 	def_bg_events
 
