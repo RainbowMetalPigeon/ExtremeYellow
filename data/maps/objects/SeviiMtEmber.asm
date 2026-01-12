@@ -14,7 +14,7 @@ SeviiMtEmber_Object:
 	warp_event 10, 33, SEVII_MT_EMBER_2F, 10 ;  6
 	warp_event 17, 49, SEVII_MT_EMBER_2F, 12 ;  7
 	warp_event 35, 49, SEVII_MT_EMBER_2F, 14 ;  8
-	warp_event 49, 35, SEVII_MT_EMBER_2F, 15 ;  9
+	warp_event 49, 35, SEVII_MT_EMBER_2F, 16 ;  9
 
 ; floor 3
 
@@ -38,7 +38,7 @@ SeviiMtEmber_Object:
 ; floor 6
 	warp_event 41, 23, SEVII_MT_EMBER_6F,  1 ; 23
 	warp_event 18, 39, SEVII_MT_EMBER_6F,  7 ; 24
-	warp_event 18, 35, SEVII_MT_EMBER_6F,  9 ; 25
+	warp_event 18, 33, SEVII_MT_EMBER_6F,  9 ; 25
 	warp_event 39, 41, SEVII_MT_EMBER_6F, 13 ; 26
 
 ; floor 7

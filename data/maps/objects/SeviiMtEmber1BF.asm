@@ -43,7 +43,7 @@ SeviiMtEmber1BF_Object:
 
 	warp_event 32, 16, SEVII_MT_EMBER_2BF, 15 ; 20
 
-	warp_event 28, 17, SEVII_MT_EMBER_2BF, 16 ; 21
+	warp_event 26, 17, SEVII_MT_EMBER_2BF, 16 ; 21
 
 	warp_event  4, 18, SEVII_MT_EMBER_2BF, 17 ; 22
 

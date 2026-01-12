@@ -16,8 +16,8 @@ SeviiMtEmber6F_Object:
 	warp_event  0, 20, SEVII_MT_EMBER,     24 ;  7
 	warp_event  0, 21, SEVII_MT_EMBER,     24 ;  8
 
-	warp_event  0, 16, SEVII_MT_EMBER,     25 ;  9
-	warp_event  0, 17, SEVII_MT_EMBER,     25 ; 10
+	warp_event  0, 14, SEVII_MT_EMBER,     25 ;  9
+	warp_event  0, 15, SEVII_MT_EMBER,     25 ; 10
 
 	warp_event  8, 12, SEVII_MT_EMBER_7F,   4 ; 11
 
