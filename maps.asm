@@ -2009,6 +2009,9 @@ INCLUDE "scripts/SeviiFiveIslandCityDiveCavern.asm"
 INCLUDE "data/maps/objects/SeviiFiveIslandCityDiveCavern.asm"
 SeviiFiveIslandCityDiveCavern_Blocks: INCBIN "maps/SeviiFiveIslandCityDiveCavern.blk"
 
+
+SECTION "Maps Sevii 5", ROMX ; new
+
 INCLUDE "data/maps/headers/SeviiRoute38DiveCavern.asm"
 INCLUDE "scripts/SeviiRoute38DiveCavern.asm"
 INCLUDE "data/maps/objects/SeviiRoute38DiveCavern.asm"
