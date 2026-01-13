@@ -28,6 +28,7 @@ HiddenObjectMaps_Sevii:
 ; 3-island
 	dbw SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,      SeviiThreeIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_THREE_ISLAND_GYM,                          SeviiThreeIslandGymHiddenObjects
+	dbw SEVII_THREE_ISLAND_CAVES,                        SeviiThreeIslandCavesHiddenObjects
 ; 4-island
 	dbw SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFourIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_FOUR_ISLAND_GYM,                           SeviiFourIslandGymHiddenObjects
@@ -163,6 +164,10 @@ SeviiTwoIslandCityDiveHiddenObjects:
 SeviiThreeIslandGymHiddenObjects:
 	hidden_object  0, 17, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
+
+SeviiThreeIslandCavesHiddenObjects:
+	hidden_object 31, 17, NUGGET, HiddenItems
+	db -1 ; end
 
 SeviiFourIslandGymHiddenObjects:
 	hidden_object  0, 13, SPRITE_FACING_UP, OpenPokemonCenterPC

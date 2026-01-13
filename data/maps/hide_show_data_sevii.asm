@@ -64,7 +64,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_THREE_ISLAND_GYM
 	dw NoHSSevii ; SEVII_THREE_ISLAND_HOUSES
 	dw SeviiThreeIslandSecretGardenHS ; SEVII_THREE_ISLAND_SECRET_GARDEN
-	dw NoHSSevii ; SEVII_THREE_ISLAND_CAVES
+	dw SeviiThreeIslandCavesHS ; SEVII_THREE_ISLAND_CAVES
 	dw SeviiBerryForestHS ; SEVII_BERRY_FOREST
 	dw SeviiRoute33DiveHS ; SEVII_ROUTE_33_DIVE
 	dw NoHSSevii ; SEVII_ROUTE_33_DIVE_CAVERN_F1
@@ -150,6 +150,7 @@ SeviiTwoIslandCityHS:
 SeviiThreeIslandCityHS:
 	db SEVII_THREE_ISLAND_CITY, 10, SHOW ; ball
 	db SEVII_THREE_ISLAND_CITY, 11, SHOW ; ball
+	db SEVII_THREE_ISLAND_CITY, 12, SHOW ; underground guard
 SeviiFourIslandCityHS:
 	db SEVII_FOUR_ISLAND_CITY,  1, HIDE ; Pink
 	db SEVII_FOUR_ISLAND_CITY,  9, SHOW ; rock
@@ -254,6 +255,8 @@ SeviiThreeIslandDockHS:
 	db SEVII_THREE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiThreeIslandSecretGardenHS:
 	db SEVII_THREE_ISLAND_SECRET_GARDEN, 1, SHOW ; ball
+SeviiThreeIslandCavesHS:
+	db SEVII_THREE_ISLAND_CAVES, 1, SHOW ; ball
 SeviiBerryForestHS:
 	db SEVII_BERRY_FOREST, 1, SHOW ; Orm
 	db SEVII_BERRY_FOREST, 2, SHOW ; Mayoi

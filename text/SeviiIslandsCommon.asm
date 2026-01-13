@@ -47,3 +47,16 @@ _SeviiNoRewardsIfAnomalies::
 	text "Warning anomalies"
 	line "No rewards"
 	done
+
+_SeviiUndergroundCaveGuardText::
+	text "Access denied."
+	line "A team of"
+	cont "speleologists and"
+	cont "other scientists"
+	cont "is taking some"
+	cont "measurements."
+
+	para "Nobody can enter"
+	line "until they're done."
+;	xxxx "123456789012345678"
+	done

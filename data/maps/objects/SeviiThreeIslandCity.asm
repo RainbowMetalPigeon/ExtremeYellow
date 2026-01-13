@@ -12,14 +12,15 @@ SeviiThreeIslandCity_Object:
 	warp_event 14, 35, SEVII_THREE_ISLAND_CAVES, 1
 	warp_event 22, 35, SEVII_THREE_ISLAND_CAVES, 3
 	warp_event 19, 33, SEVII_THREE_ISLAND_CAVES, 5
+;	warp_event 24, 21, SEVII_THREE_ISLAND_UNDERGROUND, 1 ; TBE
 
 	def_bg_events
-	bg_event 15, 37, 12 ; SeviiThreeIslandCitySignText1
-	bg_event 11, 27, 13 ; SeviiThreeIslandCitySignText2
-	bg_event 11,  9, 14 ; SeviiThreeIslandCitySignText3
-	bg_event  1,  9, 15 ; SeviiThreeIslandCitySignText4
-	bg_event 16, 23, 16 ; PokeCenterSignText
-	bg_event 20,  9, 17 ; MartSignText
+	bg_event 15, 37, 13 ; SeviiThreeIslandCitySignText1
+	bg_event 11, 27, 14 ; SeviiThreeIslandCitySignText2
+	bg_event 11,  9, 15 ; SeviiThreeIslandCitySignText3
+	bg_event  1,  9, 16 ; SeviiThreeIslandCitySignText4
+	bg_event 16, 23, 17 ; PokeCenterSignText
+	bg_event 20,  9, 18 ; MartSignText
 
 	def_object_events
 	object_event  6, 39, SPRITE_FISHER, STAY, DOWN, 1
@@ -33,5 +34,6 @@ SeviiThreeIslandCity_Object:
 	object_event 26,  4, SPRITE_LITTLE_GIRL, STAY, RIGHT, 9 ; playing hide
 	object_event 24, 38, SPRITE_POKE_BALL, STAY, NONE, 10, ULTRA_BALL
 	object_event 22, 29, SPRITE_POKE_BALL, STAY, NONE, 11, CARBOS
+	object_event 24, 22, SPRITE_COOLTRAINER_F, STAY, DOWN, 12
 
 	def_warps_to SEVII_THREE_ISLAND_CITY

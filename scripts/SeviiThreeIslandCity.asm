@@ -13,13 +13,14 @@ SeviiThreeIslandCity_TextPointers:
 	dw SeviiThreeIslandCityText9 ; 9
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
+	dw SeviiThreeIslandCityText12 ; 12
 	; signs
-	dw SeviiThreeIslandCitySignText1 ; 12
-	dw SeviiThreeIslandCitySignText2 ; 13
-	dw SeviiThreeIslandCitySignText3 ; 14
-	dw SeviiThreeIslandCitySignText4 ; 15
-	dw PokeCenterSignText ; 16
-	dw MartSignText ; 17
+	dw SeviiThreeIslandCitySignText1 ; 13
+	dw SeviiThreeIslandCitySignText2 ; 14
+	dw SeviiThreeIslandCitySignText3 ; 15
+	dw SeviiThreeIslandCitySignText4 ; 16
+	dw PokeCenterSignText ; 17
+	dw MartSignText ; 18
 
 ; scripts =========================================
 
@@ -73,6 +74,10 @@ SeviiThreeIslandCityText8:
 
 SeviiThreeIslandCityText9:
 	text_far _SeviiThreeIslandCityText9
+	text_end
+
+SeviiThreeIslandCityText12:
+	text_far _SeviiUndergroundCaveGuardText
 	text_end
 
 SeviiThreeIslandCitySignText1:
