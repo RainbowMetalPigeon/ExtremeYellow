@@ -158,6 +158,7 @@ SeviiFourIslandCityHS:
 	db SEVII_FOUR_ISLAND_CITY, 11, SHOW ; ball
 	db SEVII_FOUR_ISLAND_CITY, 12, SHOW ; ball
 	db SEVII_FOUR_ISLAND_CITY, 13, SHOW ; ball
+	db SEVII_FOUR_ISLAND_CITY, 14, SHOW ; underground guard
 SeviiFiveIslandCityHS:
 	db SEVII_FIVE_ISLAND_CITY,  3, SHOW ; Monster Rocket
 	db SEVII_FIVE_ISLAND_CITY,  4, SHOW ; Monster Pink
