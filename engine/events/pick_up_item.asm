@@ -189,7 +189,7 @@ LockedItems:
 	db GOLD_TEETH
 	db SILPH_SCOPE
 	db LIFT_KEY
-	db LIGHT_BALL	; added to preserve specialness
+	db LIGHT_BALL	 ; added to preserve specialness
 	db CHEAT_CANDY
 	db LAVA_STONE    ; to ensure birbs can be unlocked
 	db MAGMA_STONE   ; to ensure birbs can be unlocked
@@ -197,7 +197,8 @@ LockedItems:
 	; V2
 	db PEARL
 	db PASSEPARTOUT
-	db TOPAZ
+;	db TOPAZ ; unnecessary because it's given, not picked up
 	db TIGERS_EYE
 	db CC_INVITE
+	db FLAME_PLUME
 	db -1

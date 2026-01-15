@@ -1,13 +1,42 @@
 _SeviiSixIslandCityText1::
-	text "6-1"
+	text "FORTUNE is one"
+	line "of the smallest"
+	cont "cities in SEVII,"
+	cont "but makes up for"
+	cont "what it lacks in"
+	cont "buildings with"
+	cont "gorgeous ROUTEs"
+	cont "south and north!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandCityText2::
-	text "6-2"
+	text "We're extremely"
+	line "remote with"
+	cont "respect to KANTO."
+
+	para "Only GENESIS is"
+	line "even more far"
+	cont "away, but nobody"
+	cont "goes there 'cause"
+	cont "there's nothing."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandCityText3::
-	text "6-3"
+	text "Uhm..."
+
+	para "North towards"
+	line "ALTERING CAVE, or"
+	cont "south to explore"
+	cont "the DOTTED HOLE?"
+
+	para "The choice"
+	line "paralyzes me!"
+	cont "That's why I have"
+	cont "a chance in four"
+	cont "to do nothing!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandCitySignText1::
@@ -43,42 +72,138 @@ _SeviiSixIslandCitySignText3::
 ; city's indoor ------------------------------------
 
 _SeviiSixIslandPokemonCenterAndMart_Text1::
-	text "test 6-1"
+	text "SEVII is geo-"
+	line "graphically not"
+	cont "part of KANTO,"
+	cont "but administra-"
+	cont "tively it is."
+
+	para "Honestly, I could"
+	line "not care less."
+	cont "What matters is"
+	cont "to live a relaxed"
+	cont "content life."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandPokemonCenterAndMart_Text2::
-	text "test 6-2"
+	text "Wouldn't you like"
+	line "if days were"
+	cont "longer?"
+
+	para "I feel it turns"
+	line "night far too"
+	cont "quickly."
+
+	para "Oh, don't mind me."
+	line "That's just how"
+	cont "nature is, it's"
+	cont "not like someone"
+	cont "programmed it."
+	cont "Right?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandPokemonCenterAndMart_Text3::
-	text "test 6-3"
+	text "ALTERING CAVE,"
+	line "at the northmost"
+	cont "of FORTUNE, is a"
+	cont "confusing place"
+	cont "for sure."
+
+	para "I think nobody"
+	line "explored it all."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandPokemonCenterAndMart_Text4::
-	text "test 6-4"
+	text "DOTTED HOLE,"
+	line "south of here, is"
+	cont "such a mysterious"
+	cont "area. What even"
+	cont "do those weird"
+	cont "symbols mean?!"
+;	xxxx "123456789012345678"
 	done
 
 ; gym 1 ------------------------------------
 
 _SeviiSixIslandGym1Text1::
-	text "guide for you 6"
-	line "ofc only after"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "SAGE ROKUSEI will"
+	line "gladly accept"
+	cont "your challenge."
+
+	para "For this TRIAL"
+	line "you'll need to"
+	cont "navigate a"
+	cont "series of rooms."
+	cont "Each of them will"
+	cont "debuff your team"
+	cont "with a unique"
+	cont "malus. Try and"
+	cont "find the best"
+	cont "path to reach"
+	cont "ROKUSEI with"
+	cont "as few maluses"
+	cont "as possible."
+;	xxxx "123456789012345678"
+
+	para "Good luck!"
 	done
 
 _SeviiSixIslandGym1SignText1::
-	text "Stat debuff"
+;	text "Stat debuff"
+	text "LEFT: Apply"
+	line "water."
+
+	para "CENTER: You'll"
+	line "need rehab."
+
+	para "RIGHT: Purifica-"
+	line "tion necessary."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym1SignText2::
-	text "PSN"
+;	text "PSN"
+	text "LEFT: Careful"
+	line "where you step."
+
+	para "CENTER: Pointy"
+	line "stuff, duck!"
+
+	para "RIGHT: Who will"
+	line "you hit?"
 	done
 
 _SeviiSixIslandGym1SignText3::
-	text "BRN"
+;	text "BRN"
+	text "LEFT: Pointy"
+	line "stuff, duck!"
+
+	para "CENTER: Sharing"
+	line "is caring."
+
+	para "RIGHT: The floor"
+	line "is poison!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym1SignText4::
-	text "PAR"
+;	text "PAR"
+	text "LEFT: May you"
+	line "be damned!"
+
+	para "CENTER: Careful"
+	line "where you step."
+
+	para "RIGHT: The floor"
+	line "is poison!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym1PopUpMessageStatDebuff::
@@ -106,33 +231,91 @@ _SeviiSixIslandGym1PopUpMessageParalysis::
 	done
 
 _SeviiSixIslandGymTextBlackout::
-	text "GG come back 6"
+	text "Your #MON are"
+	line "no longer able to"
+	cont "fight."
+;	xxxx "123456789012345678"
 	done
 
 ; gym 2 ------------------------------------
 
-_SeviiSixIslandGym2SignText1::
-	text "Rocks"
+_SeviiSixIslandGym2SignText1:: ; para curse slp
+;	text "Rocks"
+	text "LEFT: You'll"
+	line "need rehab."
+
+	para "CENTER: May you"
+	line "be damned!"
+
+	para "RIGHT: After a"
+	line "long day..."
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym2SignText2::
-	text "Spikes"
+_SeviiSixIslandGym2SignText2:: ; slp brn seed
+;	text "Spikes"
+	text "LEFT: After a"
+	line "long day..."
+
+	para "CENTER: Apply"
+	line "water."
+
+	para "RIGHT: Sharing"
+	line "is caring."
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym2SignText3::
-	text "Toxic Spikes"
+_SeviiSixIslandGym2SignText3:: ; psn slp conf
+;	text "Toxic Spikes"
+	text "LEFT: Purifica-"
+	line "tion needed."
+
+	para "CENTER: After a"
+	line "long day..."
+
+	para "RIGHT: Who will"
+	line "you hit?"
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym2SignText4::
-	text "Confusion"
+_SeviiSixIslandGym2SignText4:: ; web seed par
+;	text "Confusion"
+	text "LEFT: Every step"
+	line "will be false."
+;	xxxx "123456789012345678"
+
+	para "CENTER: Sharing"
+	line "is caring."
+
+	para "RIGHT: You'll"
+	line "need rehab."
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym2SignText5::
-	text "Seeds"
+_SeviiSixIslandGym2SignText5:: ; psn curse web
+;	text "Seeds"
+	text "LEFT: Purifica-"
+	line "tion needed."
+
+	para "CENTER: May you"
+	line "be damned!"
+
+	para "RIGHT: Every step"
+	line "will be false."
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym2SignText6::
-	text "Curse"
+_SeviiSixIslandGym2SignText6:: ; conf web brn
+;	text "Curse"
+	text "LEFT: Who will"
+	line "you hit?"
+
+	para "CENTER: Every step"
+	line "will be false."
+
+	para "RIGHT: Apply"
+	line "water."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym2PopUpMessageRock::
@@ -168,33 +351,97 @@ _SeviiSixIslandGym2PopUpMessageCurse::
 
 ; gym 3 ------------------------------------
 
-_SeviiSixIslandGym3SignText1::
-	text "Web"
+_SeviiSixIslandGym3SignText1:: ; frz boss statsdebuff
+;	text "Web"
+	text "LEFT: Right"
+	line "there! Forever!"
+
+	para "CENTER: Your goal:"
+	line "doom or glory?"
+
+	para "RIGHT: Weak soul"
+	line "in weak body."
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym3SignText2::
-	text "FRZ"
+_SeviiSixIslandGym3SignText2:: ; boss statsdebuff frz
+;	text "FRZ"
+	text "LEFT: Your goal:"
+	line "doom or glory?"
+
+	para "CENTER: Weak soul"
+	line "in weak body."
+
+	para "RIGHT: Right"
+	line "there! Forever!"
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSixIslandGym3SignText3::
-	text "SLP"
+_SeviiSixIslandGym3SignText3:: ; statsdebuff boss frz
+;	text "SLP"
+	text "LEFT: Weak soul"
+	line "in weak body."
+
+	para "CENTER: Your goal:"
+	line "doom or glory?"
+
+	para "RIGHT: Right"
+	line "there! Forever!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym3Text1_Intro::
-	text "ROKUSEI: ciao"
-	line "debuffs fight"
+	text "ROKUSEI: Life is"
+	line "nothing but a"
+	cont "continuous series"
+	cont "of choices."
+
+	para "Small choices."
+	line "Big choices."
+	cont "They all matter."
+
+	para "CHAMPION. You are"
+	line "now standing in"
+	cont "front of me,"
+	cont "after taking many"
+	cont "choices."
+
+	para "Will they turn"
+	line "out to have been"
+	cont "the best ones?"
+	cont "Let's find it out."
+;	xxxx "123456789012345678"
 	done
 
 _RokuseiText_PostBattleText::
-	text "GG 6!"
+	text "Grand"
+	line "choices indeed."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSixIslandGym3Text5_Victory::
-	text "Congrats 6"
+	text "ROKUSEI: Your"
+	line "chain of choices"
+	cont "lead you to beat"
+	cont "the SHRINE of"
+	cont "FORTUNE ISLAND."
+
+	para "TBE."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym3Text9_Defeat::
-	text "Try again 6"
+	text "ROKUSEI: This one"
+	line "sequence of"
+	cont "choices did not"
+	cont "let you win."
+
+	para "But don't let this"
+	line "discourage you:"
+	cont "learn from this"
+	cont "experience, and"
+	cont "hone your choices."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandGym3PopUpMessageWeb::
@@ -403,7 +650,6 @@ _SeviiRoute38SignText1::
 	done
 
 ; Route 38 House -------------------------------
-
 
 _SeviiRoute38HousesText1_ILikeDivingAndPearls::
 	text "I love diving!"
