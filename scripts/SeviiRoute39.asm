@@ -28,8 +28,9 @@ SeviiRoute39_TextPointers:
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
 	dw PickUpItemText ; 12
+	dw SeviiRoute39Text13 ; 13
 	; signs
-	dw SeviiRoute39SignText1 ; 13
+	dw SeviiRoute39SignText1 ; 14
 
 SeviiRoute39Text1:
 	text_far _SeviiRoute39Text1
@@ -41,6 +42,10 @@ SeviiRoute39Text2:
 
 SeviiRoute39SignText1:
 	text_far _SeviiRoute39SignText1
+	text_end
+
+SeviiRoute39Text13:
+	text_far _SeviiUndergroundCaveGuardText
 	text_end
 
 ; ----------------------------------

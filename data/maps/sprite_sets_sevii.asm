@@ -171,7 +171,7 @@ SpriteSets_Sevii:
 	db SPRITE_ERIKA
 	db SPRITE_SUPER_NERD
 	db SPRITE_FISHER ; unused
-	db SPRITE_COOLTRAINER_M ; unused
+	db SPRITE_COOLTRAINER_F
 	db SPRITE_GAMBLER ; unused
 	db SPRITE_OAK ; unused
 	db SPRITE_SWIMMER
