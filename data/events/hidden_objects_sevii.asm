@@ -31,6 +31,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_THREE_ISLAND_CAVES,                        SeviiThreeIslandCavesHiddenObjects
 ; 4-island
 	dbw SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFourIslandPokemonCenterAndMartHiddenObjects
+	dbw SEVII_ICEFALL_CAVE_1F,                           SeviiIcefallCave1FHiddenObjects
 	dbw SEVII_FOUR_ISLAND_GYM,                           SeviiFourIslandGymHiddenObjects
 ; 5-island
 	dbw SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,       SeviiFiveIslandPokemonCenterAndMartHiddenObjects
@@ -119,6 +120,13 @@ SeviiThreeIslandPokemonCenterAndMartHiddenObjects:
 SeviiFourIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1
+
+SeviiIcefallCave1FHiddenObjects:
+	hidden_object 11, 30, ULTRA_BALL, HiddenItems
+	hidden_object 15, 14, NUGGET, HiddenItems
+	hidden_object 18, 28, RARE_CANDY, HiddenItems
+	hidden_object 15,  2, HP_UP, HiddenItems
+	db -1 ; end
 
 SeviiFiveIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC

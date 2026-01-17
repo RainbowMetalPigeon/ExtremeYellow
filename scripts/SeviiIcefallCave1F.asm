@@ -2,10 +2,9 @@ SeviiIcefallCave1F_Script:
 	jp EnableAutoTextBoxDrawing
 
 SeviiIcefallCave1F_TextPointers:
-;	dw BoulderText
-;	dw BoulderText
-;	dw RockSmashText
-	text_end
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 
 ;SeviiRoute31Text3:
 ;	text_far _SeviiRoute31Text3

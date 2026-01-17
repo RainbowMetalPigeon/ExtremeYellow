@@ -61,4 +61,8 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 39 ; HP_UP
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 35 ; PP_UP
 	hidden_item SEVII_THREE_ISLAND_CAVES,           31, 17 ; NUGGET
+	hidden_item SEVII_ICEFALL_CAVE_1F,              11, 30 ; ULTRA_BALL
+	hidden_item SEVII_ICEFALL_CAVE_1F,              15, 14 ; NUGGET
+	hidden_item SEVII_ICEFALL_CAVE_1F,              18, 28 ; RARE_CANDY
+	hidden_item SEVII_ICEFALL_CAVE_1F,              15,  2 ; HP_UP
 	db -1 ; end
