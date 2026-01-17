@@ -12,7 +12,7 @@ SeviiFourIslandCity_Object:
 	warp_event 23, 25, SEVII_FOUR_ISLAND_HOUSES, 7
 	warp_event 29, 11, SEVII_ICEFALL_CAVE_1F, 1 ;  9
 	warp_event 35, 31, SEVII_ICEFALL_CAVE_1F, 3 ; 10
-	warp_event 33,  5, SEVII_ICEFALL_CAVE_1F, 5 ; 11
+	warp_event 33,  5, SEVII_ICEFALL_CAVE_2F, 2 ; 11
 ;	warp_event 28,  3, UNDERGROUND, 1 ; 12
 
 	def_bg_events
@@ -36,7 +36,7 @@ SeviiFourIslandCity_Object:
 	object_event 27, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 9
 	object_event 28, 34, SPRITE_POKE_BALL, STAY, NONE, 10, IRON
 	object_event  5,  4, SPRITE_POKE_BALL, STAY, NONE, 11, RARE_CANDY
-	object_event 33,  7, SPRITE_POKE_BALL, STAY, NONE, 12, PP_UP
+	object_event 35,  7, SPRITE_POKE_BALL, STAY, NONE, 12, PP_UP
 	object_event  5,  8, SPRITE_POKE_BALL, STAY, NONE, 13, MAX_ELIXER
 	object_event 28,  4, SPRITE_COOLTRAINER_F, STAY, DOWN, 14
 

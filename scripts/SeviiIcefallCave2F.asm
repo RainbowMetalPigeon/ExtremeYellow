@@ -3,8 +3,9 @@ SeviiIcefallCave2F_Script:
 
 SeviiIcefallCave2F_TextPointers:
 	dw BoulderText
-;	dw BoulderText
-;	dw RockSmashText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
 
 ;SeviiRoute31Text3:
 ;	text_far _SeviiRoute31Text3
