@@ -574,7 +574,7 @@ _SeviiOneIslandGym2Text1_Intro::
 	done
 
 _IchinoText_PostBattleText::
-	text "ICHINO: Well done!"
+	text "Well done!"
 	line "Well done indeed."
 ;	xxxx "123456789012345678"
 	prompt

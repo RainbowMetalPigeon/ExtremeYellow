@@ -615,7 +615,7 @@ _SeviiFourIslandGymText2_PostLeague::
 	done
 
 _YottroText_PostBattleText::
-	text "YOTTRO: Yooo!!!"
+	text "Yooo!!!"
 	line "I knew you had it!"
 ;	xxxx "123456789012345678"
 	done
