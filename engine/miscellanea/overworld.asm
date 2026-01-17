@@ -726,7 +726,6 @@ RockSmashableRocks_Sevii:
 ; 3-island
 ; 4-island
 	db HS_SEVII_FOUR_ISLAND_CITY_ROCK_1
-	db HS_SEVII_ICEFALL_CAVE_1F_ROCK_1
 ; 5-island
 	db HS_SEVII_FIVE_ISLAND_CITY_ROCK_1
 ; 6-island

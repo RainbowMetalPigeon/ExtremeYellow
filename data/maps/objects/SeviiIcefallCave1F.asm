@@ -4,8 +4,8 @@ SeviiIcefallCave1F_Object:
 	def_warp_events
 	warp_event 14, 39, SEVII_FOUR_ISLAND_CITY,  9
 	warp_event 15, 39, SEVII_FOUR_ISLAND_CITY,  9
-	warp_event 48, 39, SEVII_FOUR_ISLAND_CITY, 10
-	warp_event 49, 39, SEVII_FOUR_ISLAND_CITY, 10
+	warp_event 26, 39, SEVII_FOUR_ISLAND_CITY, 10
+	warp_event 27, 39, SEVII_FOUR_ISLAND_CITY, 10
 	warp_event 11,  5, SEVII_ICEFALL_CAVE_2F,  1
 
 	def_bg_events

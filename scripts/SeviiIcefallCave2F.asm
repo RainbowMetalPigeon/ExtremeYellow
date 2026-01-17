@@ -2,7 +2,7 @@ SeviiIcefallCave2F_Script:
 	jp EnableAutoTextBoxDrawing
 
 SeviiIcefallCave2F_TextPointers:
-;	dw BoulderText
+	dw BoulderText
 ;	dw BoulderText
 ;	dw RockSmashText
 

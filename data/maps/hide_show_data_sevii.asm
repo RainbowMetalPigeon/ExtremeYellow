@@ -77,8 +77,8 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_GYM
 	dw SeviiFourIslandHousesHS ; SEVII_FOUR_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_HAZARD_ROOM
-	dw SeviiIcefallCave1FHS ; SEVII_ICEFALL_CAVE_1F
-	dw NoHSSevii ; SEVII_ICEFALL_CAVE_2F ; TBE
+	dw NoHSSevii ; SEVII_ICEFALL_CAVE_1F
+	dw NoHSSevii ; SEVII_ICEFALL_CAVE_2F
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_CITY_DIVE
 	dw SeviiFourIslandCityDiveCavernHS ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
 ; 5-island
@@ -275,8 +275,6 @@ SeviiFourIslandDockHS:
 	db SEVII_FOUR_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiFourIslandHousesHS:
 	db SEVII_FOUR_ISLAND_HOUSES, 1, HIDE ; Pink
-SeviiIcefallCave1FHS:
-	db SEVII_ICEFALL_CAVE_1F, 3, SHOW ; Rock
 SeviiFourIslandCityDiveCavernHS:
 	db SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN, 1, SHOW ; pearl
 SeviiFiveIslandDockHS:

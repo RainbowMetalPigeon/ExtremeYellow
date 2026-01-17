@@ -5,6 +5,7 @@ SeviiIcefallCave1F_TextPointers:
 ;	dw BoulderText
 ;	dw BoulderText
 ;	dw RockSmashText
+	text_end
 
 ;SeviiRoute31Text3:
 ;	text_far _SeviiRoute31Text3
