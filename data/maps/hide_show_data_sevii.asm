@@ -78,6 +78,7 @@ MapHSPointers_Sevii:
 	dw SeviiFourIslandHousesHS ; SEVII_FOUR_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	dw SeviiIcefallCave1FHS ; SEVII_ICEFALL_CAVE_1F
+	dw NoHSSevii ; SEVII_ICEFALL_CAVE_2F ; TBE
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_CITY_DIVE
 	dw SeviiFourIslandCityDiveCavernHS ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
 ; 5-island

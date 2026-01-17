@@ -782,16 +782,16 @@ ForceSlidingOnIce::
 	cp PLAYER_DIR_DOWN
 	jr z, .down
 ; up
-	ld a, D_UP
+	ld a, D_UP | B_BUTTON
 	jr .end
 .right
-	ld a, D_RIGHT
+	ld a, D_RIGHT | B_BUTTON
 	jr .end
 .left
-	ld a, D_LEFT
+	ld a, D_LEFT | B_BUTTON
 	jr .end
 .down
-	ld a, D_DOWN
+	ld a, D_DOWN | B_BUTTON
 .end
 	ldh [hJoyHeld], a
 	ret

@@ -76,6 +76,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiFourIslandHouses_h)
 	db BANK(SeviiFourIslandHazardRoom_h)
 	db BANK(SeviiIcefallCave1F_h)
+	db BANK(SeviiIcefallCave2F_h)
 	db BANK(SeviiFourIslandCityDive_h)
 	db BANK(SeviiFourIslandCityDiveCavern_h)
 ; 5-island

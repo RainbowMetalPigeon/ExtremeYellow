@@ -509,6 +509,7 @@ KantoMaps_SaffronPalette:
 
 SeviiMaps_FrozenPalette:
 	db SEVII_ICEFALL_CAVE_1F
+	db SEVII_ICEFALL_CAVE_2F
 	db -1
 
 SeviiMaps_EightIslandsMaps:

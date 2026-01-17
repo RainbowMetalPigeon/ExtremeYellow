@@ -76,6 +76,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiFourIslandHouses_h
 	dw SeviiFourIslandHazardRoom_h
 	dw SeviiIcefallCave1F_h
+	dw SeviiIcefallCave2F_h
 	dw SeviiFourIslandCityDive_h
 	dw SeviiFourIslandCityDiveCavern_h
 ; 5-island

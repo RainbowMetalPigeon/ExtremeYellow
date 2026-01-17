@@ -75,6 +75,7 @@ MapSongBanks_Sevii::
 	db MUSIC_VERMILION, BANK(Music_Vermilion)          ; SEVII_FOUR_ISLAND_HOUSES
 	db MUSIC_GAME_CORNER, BANK(Music_GameCorner)       ; SEVII_FOUR_ISLAND_HAZARD_ROOM
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_ICEFALL_CAVE_1F
+	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_ICEFALL_CAVE_2F
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FOUR_ISLAND_CITY_DIVE
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
 ; 5-island

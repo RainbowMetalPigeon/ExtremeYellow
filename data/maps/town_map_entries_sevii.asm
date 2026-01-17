@@ -57,7 +57,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_ROUTE_33_DIVE_CAVERN_F4,                    13,  3, Route33DiveName
 ; 4-island
 	internal_map SEVII_FOUR_ISLAND_HAZARD_ROOM,                     2,  8, FourIslandName
-	internal_map SEVII_ICEFALL_CAVE_1F,                             3,  7, IcefallCaveName
+	internal_map SEVII_ICEFALL_CAVE_2F,                             3,  7, IcefallCaveName
 	internal_map SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,                2,  8, FourIslandDiveName
 ; 5-island
 	internal_map SEVII_FIVE_ISLAND_HOUSES,                          8,  9, FiveIslandName

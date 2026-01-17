@@ -1631,6 +1631,11 @@ INCLUDE "scripts/SeviiIcefallCave1F.asm"
 INCLUDE "data/maps/objects/SeviiIcefallCave1F.asm"
 SeviiIcefallCave1F_Blocks: INCBIN "maps/SeviiIcefallCave1F.blk"
 
+INCLUDE "data/maps/headers/SeviiIcefallCave2F.asm"
+INCLUDE "scripts/SeviiIcefallCave2F.asm"
+INCLUDE "data/maps/objects/SeviiIcefallCave2F.asm"
+SeviiIcefallCave2F_Blocks: INCBIN "maps/SeviiIcefallCave2F.blk"
+
 INCLUDE "data/maps/headers/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "scripts/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandPokemonCenter.asm"
@@ -1660,11 +1665,6 @@ INCLUDE "data/maps/headers/SeviiFiveIslandHouses.asm"
 INCLUDE "scripts/SeviiFiveIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiFiveIslandHouses.asm"
 SeviiFiveIslandHouses_Blocks: INCBIN "maps/SeviiFiveIslandHouses.blk"
-
-INCLUDE "data/maps/headers/SeviiSevenIslandHouses.asm"
-INCLUDE "scripts/SeviiSevenIslandHouses.asm"
-INCLUDE "data/maps/objects/SeviiSevenIslandHouses.asm"
-SeviiSevenIslandHouses_Blocks: INCBIN "maps/SeviiSevenIslandHouses.blk"
 
 INCLUDE "data/maps/headers/SeviiOneIslandGym1.asm"
 INCLUDE "scripts/SeviiOneIslandGym1.asm"
@@ -1738,13 +1738,18 @@ INCLUDE "scripts/SeviiSevenIslandGym3.asm"
 INCLUDE "data/maps/objects/SeviiSevenIslandGym3.asm"
 SeviiSevenIslandGym3_Blocks: INCBIN "maps/SeviiSevenIslandGym3.blk"
 
+
+SECTION "Maps Sevii 3", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiSevenIslandHouses.asm"
+INCLUDE "scripts/SeviiSevenIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiSevenIslandHouses.asm"
+SeviiSevenIslandHouses_Blocks: INCBIN "maps/SeviiSevenIslandHouses.blk"
+
 INCLUDE "data/maps/headers/SeviiEmberSpa.asm"
 INCLUDE "scripts/SeviiEmberSpa.asm"
 INCLUDE "data/maps/objects/SeviiEmberSpa.asm"
 SeviiEmberSpa_Blocks: INCBIN "maps/SeviiEmberSpa.blk"
-
-
-SECTION "Maps Sevii 3", ROMX ; new
 
 INCLUDE "data/maps/headers/SeviiFiveIslandWarehouseBF.asm"
 INCLUDE "scripts/SeviiFiveIslandWarehouseBF.asm"
