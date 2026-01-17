@@ -103,7 +103,10 @@ SmartSelectButton:: ; SELECT was pressed
 	ldh [hAutoBGTransferEnabled], a
 	call LoadFontTilePatterns
 	farcall DisplayTownMap
-    jp EnterMap
+	call LoadTextBoxTilePatterns
+	call CloseTextDisplay
+	call InitMapSprites
+	jp UpdateSprites
 
 PlayerStartsFishing::
     text_far _PlayerStartsFishing
