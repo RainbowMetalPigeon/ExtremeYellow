@@ -148,6 +148,7 @@ SeviiTwoIslandCityHS:
 	db SEVII_TWO_ISLAND_CITY, 11, SHOW ; rock
 	db SEVII_TWO_ISLAND_CITY, 12, SHOW ; ball
 	db SEVII_TWO_ISLAND_CITY, 13, SHOW ; ball
+	db SEVII_TWO_ISLAND_CITY, 14, SHOW ; underground guard
 SeviiThreeIslandCityHS:
 	db SEVII_THREE_ISLAND_CITY, 10, SHOW ; ball
 	db SEVII_THREE_ISLAND_CITY, 11, SHOW ; ball

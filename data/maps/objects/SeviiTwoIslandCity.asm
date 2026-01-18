@@ -11,16 +11,16 @@ SeviiTwoIslandCity_Object:
 	warp_event 33, 33, SEVII_TWO_ISLAND_HOUSES, 5
 
 	def_bg_events
-	bg_event  5, 27, 14 ; SeviiTwoIslandCitySignText1
-	bg_event 23, 31, 15 ; SeviiTwoIslandCitySignText2
-	bg_event 33, 35, 16 ; SeviiTwoIslandCitySignText3
-	bg_event 32, 12, 17 ; SeviiTwoIslandCitySignText4
-	bg_event 16, 29, 18 ; PokeCenterSignText
+	bg_event  5, 27, 15 ; SeviiTwoIslandCitySignText1
+	bg_event 23, 31, 16 ; SeviiTwoIslandCitySignText2
+	bg_event 33, 35, 17 ; SeviiTwoIslandCitySignText3
+	bg_event 32, 12, 18 ; SeviiTwoIslandCitySignText4
+	bg_event 16, 29, 19 ; PokeCenterSignText
 
 	def_object_events
 	object_event  7, 27, SPRITE_GRANNY, STAY, ANY_DIR, 1
 	object_event 18, 32, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 2
-	object_event 30, 28, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3 ; TBE?
+	object_event 30, 28, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3
 	object_event 20, 17, SPRITE_HIKER, STAY, ANY_DIR, 4
 	object_event 22, 28, SPRITE_GRANNY, STAY, DOWN, 5 ; Market
 	object_event 23, 28, SPRITE_GRAMPS, STAY, DOWN, 6 ; Lottery
@@ -31,6 +31,6 @@ SeviiTwoIslandCity_Object:
 	object_event 15,  8, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 11
 	object_event 18,  3, SPRITE_POKE_BALL, STAY, NONE, 12, PROTEIN
 	object_event 16, 19, SPRITE_POKE_BALL, STAY, NONE, 13, NUGGET
-	; TBE? One more sprite?
+	object_event  7, 24, SPRITE_COOLTRAINER_F, STAY, DOWN, 14
 
 	def_warps_to SEVII_TWO_ISLAND_CITY

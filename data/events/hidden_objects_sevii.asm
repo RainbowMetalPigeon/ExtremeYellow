@@ -211,6 +211,7 @@ SeviiOneIslandCityHiddenObjects:
 SeviiTwoIslandCityHiddenObjects:
 	hidden_object 31, 16, MAX_ETHER, HiddenItems
 	hidden_object 36,  8, PP_UP, HiddenItems
+	hidden_object 21,  5, RARE_CANDY, HiddenItems
 	db -1 ; end
 
 SeviiThreeIslandCityHiddenObjects:

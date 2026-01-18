@@ -22,14 +22,15 @@ SeviiTwoIslandCity_TextPointers:
 	dw RockSmashText
 	dw PickUpItemText
 	dw PickUpItemText
+	dw SeviiTwoIslandCityText14
 	; signs
-	dw SeviiTwoIslandCitySignText1
-	dw SeviiTwoIslandCitySignText2
-	dw SeviiTwoIslandCitySignText3
-	dw SeviiTwoIslandCitySignText4
-	dw PokeCenterSignText ; 18
+	dw SeviiTwoIslandCitySignText1 ; 15
+	dw SeviiTwoIslandCitySignText2 ; 16
+	dw SeviiTwoIslandCitySignText3 ; 17
+	dw SeviiTwoIslandCitySignText4 ; 18
+	dw PokeCenterSignText ; 19
 	; scripts
-	dw SeviiTwoIslandCityScriptText1 ; 19 ; Boss post defeat
+	dw SeviiTwoIslandCityScriptText1 ; 20 ; Boss post defeat
 
 ; scripts =========================================
 
@@ -43,7 +44,7 @@ SeviiTwoIslandCity_PostVictoryVsBikerBoss:
 	ld a, $f0
 	ld [wJoyIgnore], a
 ; we won
-	ld a, 19
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; hide all the bikers
@@ -283,4 +284,8 @@ SeviiTwoIslandCitySignText4:
 
 SeviiTwoIslandCityScriptText1:
 	text_far _SeviiTwoIslandCityScriptText1
+	text_end
+
+SeviiTwoIslandCityText14:
+	text_far _SeviiUndergroundCaveGuardText
 	text_end
