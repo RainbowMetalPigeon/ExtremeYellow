@@ -615,12 +615,24 @@ StartMenu_TrainerInfo::
 	push af
 	xor a
 	ldh [hTileAnimations], a
+; main drawing stuff
 	call DrawTrainerInfo
 	predef DrawBadges ; draw badges
 	ld b, SET_PAL_TRAINER_CARD
 	call RunPaletteCommand
 	call GBPalNormal
 	call WaitForTextScrollButtonPress ; wait for button press
+; new, TBE
+	call GBPalWhiteOut
+	call ClearScreen
+	call UpdateSprites
+	call DrawTrainerInfoBack
+	ld b, SET_PAL_TOWN_MAP ; TBE
+	call RunPaletteCommand
+	call GBPalNormal
+	call WaitForTextScrollButtonPress
+; BTV
+; clear and return to start menu
 	call GBPalWhiteOut
 	call LoadFontTilePatterns
 	call LoadScreenTilesFromBuffer2 ; restore saved screen
@@ -1081,3 +1093,225 @@ PokedexAttackdexChoice:
 	ld a, $02
 	ld [wCurrentMenuItem], a
 	jp LoadScreenTilesFromBuffer1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+DrawTrainerInfoBack: ; new
+;	call DisableLCD
+
+;	hlcoord 0, 2
+;	ld a, " "
+;	call TrainerInfo_DrawVerticalLine
+
+;	hlcoord 1, 2
+;	call TrainerInfo_DrawVerticalLine
+
+;	ld hl, vChars2 tile $07
+;	ld de, vChars2 tile $00
+;	ld bc, $1c tiles
+;	call CopyData ; Copy bc bytes from hl to de.
+	
+;	ld hl, TrainerInfoTextBoxTileGraphics ; trainer info text box tile patterns
+;	ld de, vChars2 tile $77
+;	ld bc, 8 tiles
+;	push bc
+;	call TrainerInfo_FarCopyData ; Copy bc bytes from a:hl to de (a=proper bank)
+
+;	ld hl, BlankLeaderNames
+;	ld de, vChars2 tile $60
+;	ld bc, $17 tiles
+;	call TrainerInfo_FarCopyData
+
+;	pop bc
+;	ld hl, BadgeNumbersTileGraphics  ; badge number tile patterns
+;	ld de, vChars1 tile $58
+;	call TrainerInfo_FarCopyData
+
+;	ld hl, GymLeaderFaceAndBadgeTileGraphics  ; gym leader face and badge tile patterns
+;	ld de, vChars2 tile $20
+;	ld bc, 8 * 8 tiles
+;	ld a, BANK(GymLeaderFaceAndBadgeTileGraphics)
+;	call FarCopyData
+
+;	ld hl, TextBoxGraphics
+;	ld de, 13 tiles
+;	add hl, de ; hl = colon tile pattern
+;	ld de, vChars1 tile $56
+;	ld bc, 1 tiles
+;	ld a, BANK(TextBoxGraphics)
+;	push bc
+;	call FarCopyData
+;	pop bc
+
+;	ld hl, TrainerInfoTextBoxTileGraphics tile 8  ; background tile pattern
+;	ld de, vChars1 tile $57
+;	call TrainerInfo_FarCopyData
+
+;	call EnableLCD
+
+;	ld hl, wTrainerInfoTextBoxWidthPlus1
+;	ld a, 18 + 1
+;	ld [hli], a
+;	dec a
+;	ld [hli], a
+;	ld [hl], 1
+;	hlcoord 0, 0
+;	call TrainerInfo_DrawTextBox
+
+; external border
+;	hlcoord 0, 0
+;	ld a, $d7 ; solid external border
+;	call TrainerInfo_DrawVerticalLineLong
+;	hlcoord 19, 0
+;	call TrainerInfo_DrawVerticalLineLong
+
+	ld hl, wTrainerInfoTextBoxWidthPlus1
+	ld a, 18 + 1 ; width
+	ld [hli], a
+	dec a
+	ld [hli], a
+	ld [hl], 1
+	hlcoord 0, 0
+; actual printing
+	ld a, $79 ; upper left corner tile ID
+	lb de, $7a, $7b ; top edge and upper right corner tile ID's
+	call TrainerInfo_DrawHorizontalEdge ; draw top edge
+	call TrainerInfo_NextTextBoxRow
+	ld a, [wTrainerInfoTextBoxWidthPlus1]
+	ld e, a
+	ld d, 0
+	ld c, 16 ; 20? ; height of the text box
+.loop
+	ld [hl], $7c ; left edge tile ID
+	add hl, de
+	ld [hl], $78 ; right edge tile ID
+	call TrainerInfo_NextTextBoxRow
+	dec c
+	jr nz, .loop
+; bottom line
+	ld a, $7d ; lower left corner tile ID
+	lb de, $77, $7e ; bottom edge and lower right corner tile ID's
+	call TrainerInfo_DrawHorizontalEdge
+
+	hlcoord 4, 1
+	ld de, TrainerInfo_MilestonesText
+	call PlaceString
+
+;	hlcoord 7, 2
+;	ld de, wPlayerName
+;	call PlaceString
+
+; TBE, split into 7 conditionals
+	hlcoord 1, 3
+	ld de, TrainerInfo_ListOfMilestonesTextPROXY
+	call PlaceString
+
+	hlcoord 13, 5
+	ld de, wPlayerCoins
+	ld c, 2 | LEADING_ZEROES | LEFT_ALIGN
+	call PrintBCDNumber
+
+	hlcoord 2, 16
+	ld de, TrainerInfo_ScrollsText
+	call PlaceString
+
+;	hlcoord 7, 6 ; edited, was 9, 6
+;	ld de, wPlayTimeHours ; hours
+;	lb bc, LEFT_ALIGN | 2, 5 ; edited, was 1, 3
+;	call PrintNumber ; Print the c-digit, b-byte value at de.
+
+;	ld [hl], ":" ; edited, to expand tileset
+;	inc hl
+;	ld de, wPlayTimeMinutes ; minutes
+;	lb bc, LEADING_ZEROES | 1, 2
+;	jp PrintNumber
+
+	ret
+
+; ============================================================
+
+; $76 is a circle tile
+TrainerInfo_MilestonesText:
+	db $76,"MILESTONES",$76,"@" ; TBE
+
+TrainerInfo_ScrollsText:
+	db "SCROLLS: ",$D8,$D9,$DA,$DB,$DC,$DD,$DE,"@" ; TBE
+
+; draws a vertical line
+; INPUT:
+; hl = address of top tile in the line
+; a = tile ID
+TrainerInfo_DrawVerticalLineLong:
+	ld de, SCREEN_WIDTH
+	ld c, SCREEN_HEIGHT
+.loop
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .loop
+	ret
+
+TrainerInfo_ListOfMilestonesTextPROXY:
+	db   $76,"S.S. TICKET"
+	next $76,"COIN CASE:"
+	next $76,"LIFT KEY"
+	next $76,"CARD KEY"
+	next $76,"SEVII TICKET: 1-7"
+	next $76,"SECRET KEY"
+;	next $76,"SILPH SCOPE?"
+	next $76,"SEVII TRIAL@"
+
+/*
+
+TrainerInfo_FarCopyData:
+	ld a, BANK(TrainerInfoTextBoxTileGraphics)
+	jp FarCopyData ; Copy bc bytes from a:hl to de.
+
+; draws a text box on the trainer info screen
+; height is always 6
+; INPUT:
+; hl = destination address
+; [wTrainerInfoTextBoxWidthPlus1] = width
+; [wTrainerInfoTextBoxWidth] = width - 1
+; [wTrainerInfoTextBoxNextRowOffset] = distance from the end of a text box row to the start of the next
+TrainerInfo_DrawTextBox:
+	ld a, $79 ; upper left corner tile ID
+	lb de, $7a, $7b ; top edge and upper right corner tile ID's
+	call TrainerInfo_DrawHorizontalEdge ; draw top edge
+	call TrainerInfo_NextTextBoxRow
+	ld a, [wTrainerInfoTextBoxWidthPlus1]
+	ld e, a
+	ld d, 0
+	ld c, 6 ; height of the text box
+.loop
+	ld [hl], $7c ; left edge tile ID
+	add hl, de
+	ld [hl], $78 ; right edge tile ID
+	call TrainerInfo_NextTextBoxRow
+	dec c
+	jr nz, .loop
+	ld a, $7d ; lower left corner tile ID
+	lb de, $77, $7e ; bottom edge and lower right corner tile ID's
+
+TrainerInfo_DrawHorizontalEdge:
+	ld [hli], a ; place left corner tile
+	ld a, [wTrainerInfoTextBoxWidth]
+	ld c, a
+	ld a, d
+.loop
+	ld [hli], a ; place edge tile
+	dec c
+	jr nz, .loop
+	ld a, e
+	ld [hl], a ; place right corner tile
+	ret
+
+TrainerInfo_NextTextBoxRow:
+	ld a, [wTrainerInfoTextBoxNextRowOffset] ; distance to the start of the next row
+.loop
+	inc hl
+	dec a
+	jr nz, .loop
+	ret
+
+*/

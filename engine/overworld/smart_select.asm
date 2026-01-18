@@ -5,7 +5,10 @@ SmartSelectButton:: ; SELECT was pressed
     jr nz, .cannotCoinCase
     ld a, [wCurMap]
     cp GAME_CORNER
+    jr z, .canCoinCase
+	cp GAME_CORNER_PRIZE_ROOM
     jr nz, .cannotCoinCase
+.canCoinCase
 	ld b, COIN_CASE
 	call IsItemInBag
     jr z, .cannotCoinCase
