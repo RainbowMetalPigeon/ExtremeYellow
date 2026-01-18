@@ -184,3 +184,16 @@ _CinnabarIslandTextHotSprings::
 	para "<PLAYER>'s #MON"
 	line "are fully healed!"
 	done
+
+_CinnabarIslandTextGymDoorKeyEmbedded1::
+	text "The SECRET KEY"
+	line "opens the door!"
+	done
+
+_CinnabarIslandTextGymDoorKeyEmbedded2::
+;	xxxx "123456789012345678"
+	text "The SECRET KEY got"
+	line "embedded into"
+	cont "the back of the"
+	cont "TRAINER CARD."
+	done

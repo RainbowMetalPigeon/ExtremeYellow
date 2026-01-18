@@ -148,8 +148,9 @@ CeladonGameCornerText2:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refusedCoins
-	ld b, COIN_CASE
-	call IsItemInBag
+;	ld b, COIN_CASE
+;	call IsItemInBag
+	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .noCoinCase
 .wantsToBuyMoreCoins ; new, from Vortiene
 	call Has9990Coins
@@ -216,8 +217,9 @@ CeladonGameCornerText2Bis: ; new
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refusedCoins
-	ld b, COIN_CASE
-	call IsItemInBag
+;	ld b, COIN_CASE
+;	call IsItemInBag
+	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .noCoinCase
 .wantsToBuyMoreCoins ; new, from Vortiene
 	call Has9990Coins ; TBE?
@@ -334,8 +336,9 @@ CeladonGameCornerText5:
 	jr nz, .asm_48d89
 	ld hl, CeladonGameCornerText_48d9c
 	call PrintText
-	ld b, COIN_CASE
-	call IsItemInBag
+;	ld b, COIN_CASE
+;	call IsItemInBag
+	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .asm_48d93
 	call Has9990Coins
 	jr nc, .asm_48d8e
@@ -414,8 +417,9 @@ CeladonGameCornerText9:
 	jr nz, .asm_48e13
 	ld hl, CeladonGameCornerText_48e26
 	call PrintText
-	ld b, COIN_CASE
-	call IsItemInBag
+;	ld b, COIN_CASE
+;	call IsItemInBag
+	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .asm_48e1d
 	call Has9990Coins
 	jr nc, .asm_48e18
@@ -466,8 +470,9 @@ CeladonGameCornerText10:
 	jr nz, .asm_48e75
 	ld hl, CeladonGameCornerText_48e88
 	call PrintText
-	ld b, COIN_CASE
-	call IsItemInBag
+;	ld b, COIN_CASE
+;	call IsItemInBag
+	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .asm_48e7f
 	call Has9990Coins
 	jr z, .asm_48e7a

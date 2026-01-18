@@ -78,17 +78,23 @@ _CeladonDinerText_491a7::
 	cont "more!"
 	prompt
 
-_ReceivedCoinCaseText::
+_ReceivedCoinCaseText:: ; edited
 	text "<PLAYER> received"
-	line "a @"
-	text_ram wStringBuffer
+	line "a COIN CASE@"
 	text "!@"
 	text_end
 
-_CoinCaseNoRoomText::
-	text "Make room for"
-	line "this!"
+_CoinCaseExplanationText:: ; new
+	text "The COIN CASE got"
+	line "embedded in the"
+	cont "back of the"
+	cont "TRAINER CARD."
 	done
+
+;_CoinCaseNoRoomText::
+;	text "Make room for"
+;	line "this!"
+;	done
 
 _CeladonDinerText_491b7::
 	text "I always thought"

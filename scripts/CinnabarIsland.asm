@@ -15,7 +15,7 @@ CinnabarIsland_ScriptPointers:
 	dw CinnabarScript_Traveler ; new, for traveler
 
 CinnabarIslandScript0: ; edited
-	; new, to handle hot springs healing
+; new, to handle hot springs healing
 	; caldera: 14<=x<=23, 10<=y<=15
 	ld a, [wXCoord]
 	cp 24
@@ -48,16 +48,37 @@ CinnabarIslandScript0: ; edited
 	ret
 .vanilla
 	ResetEvent EVENT_IN_HOT_SPRINGS
-; back to vanilla
-	ld b, SECRET_KEY
-	call IsItemInBag
+; back to vanilla: check for secret key
+; new
+	CheckEvent EVENT_CINNABAR_USED_SECRET_KEY
 	ret nz
+; BTV
+; event not set yet: need to check if we are in front of the door, and if yes, print stuff and set event
+; stuff edited
 	ld a, [wYCoord]
 	cp 4
 	ret nz
 	ld a, [wXCoord]
 	cp 48 ; edited
 	ret nz
+; new: front of the door
+	ld b, SECRET_KEY
+	call IsItemInBag
+	jr z, .noKeyInBag
+; yes key: new code to remove the key once used
+	ld a, SECRET_KEY
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_CINNABAR_USED_SECRET_KEY
+	ld a, 22 ; CinnabarIslandTextGymDoorKeyEmbedded1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 23 ; CinnabarIslandTextGymDoorKeyEmbedded2
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ret
+.noKeyInBag
+; BTV
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 	ld a, 19
@@ -108,6 +129,8 @@ CinnabarIsland_TextPointers:
 	dw CinnabarIslandTextGymDoor ; 19
 	dw TextPostBattle_CinnabarTraveler ; 20, new, for traveler
 	dw CinnabarIslandTextHotSprings ; 21, new
+	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 22, new
+	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 23, new
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor
@@ -177,6 +200,15 @@ CinnabarIslandTextNewPerson8:
 
 CinnabarIslandTextHotSprings:
 	text_far _CinnabarIslandTextHotSprings
+	text_end
+
+CinnabarIslandTextGymDoorKeyEmbedded1:
+	text_far _CinnabarIslandTextGymDoorKeyEmbedded1
+	sound_get_item_1
+	text_end
+
+CinnabarIslandTextGymDoorKeyEmbedded2:
+	text_far _CinnabarIslandTextGymDoorKeyEmbedded2
 	text_end
 
 ; ================================

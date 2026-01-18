@@ -8,6 +8,14 @@ _CardKeySuccessText2::
 	cont "opened the door!"
 	done
 
+_CardKeyGotEmbeddedText:: ; new
+	text "The CARD KEY got"
+	line "embedded into"
+	cont "the back of the"
+	cont "TRAINER CARD."
+;	xxxx "123456789012345678"
+	done
+
 _CardKeyFailText:: ; edited
 	text "Damn! It needs a"
 	line "CARD KEY!"

@@ -31,7 +31,7 @@ RocketHideoutElevatorScript_4573a:
 	ld [hli], a
 	ret
 
-RocketHideoutElevatorScript_45741:
+RocketHideoutElevatorScript_LoadFloorsItemList:
 	ld hl, RocketHideoutElavatorFloors
 	call LoadItemList
 	ld hl, RocketHideoutElevatorWarpMaps
@@ -65,20 +65,39 @@ RocketHideoutElevator_TextPointers:
 
 RocketHideoutElevatorText1:
 	text_asm
+; new
+	CheckEvent EVENT_ROCKET_USED_LIFT_KEY
+	jr nz, .elevatorAlreadyActive
+; BTV
+; check if we have the key
 	ld b, LIFT_KEY
 	call IsItemInBag
-	jr z, .asm_45782
-	call RocketHideoutElevatorScript_45741
+	jr z, .noKey
+; yes key
+; new code to remove the key once used
+	ld a, LIFT_KEY
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_ROCKET_USED_LIFT_KEY
+	ld hl, RocketElevatorText_KeyInCard
+	call PrintText
+; BTV
+.elevatorAlreadyActive
+	call RocketHideoutElevatorScript_LoadFloorsItemList
 	ld hl, RocketHideoutElevatorWarpMaps
 	predef DisplayElevatorFloorMenu
-	jr .asm_45788
-.asm_45782
-	ld hl, RocketHideoutElevatorText_4578b
+	jr .done
+.noKey
+	ld hl, RocketElevatorText_NeedsKey
 	call PrintText
-.asm_45788
+.done
 	jp TextScriptEnd
 
-RocketHideoutElevatorText_4578b:
-	text_far _RocketElevatorText_4578b
+RocketElevatorText_NeedsKey:
+	text_far _RocketElevatorText_NeedsKey
 	text_waitbutton
+	text_end
+
+RocketElevatorText_KeyInCard:
+	text_far _RocketElevatorText_KeyInCard
 	text_end

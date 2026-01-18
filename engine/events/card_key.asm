@@ -22,9 +22,20 @@ PrintCardKeyText:
 	cp $5e
 	ret nz
 .cardKeyDoorInFrontOfPlayer
+; new
+	CheckEvent EVENT_USED_CARD_KEY
+	jr nz, .cardKeyAlreadyUsedOnce
+; BTV
+; card key still unused, check if we have it
 	ld b, CARD_KEY
 	call IsItemInBag
 	jr z, .noCardKey
+; we have the card key: remove it; print message and set event are handled after
+	ld a, CARD_KEY
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+; BTV
+.cardKeyAlreadyUsedOnce
 	xor a
 	ld [wPlayerMovingDirection], a
 	tx_pre_id CardKeySuccessText
@@ -52,7 +63,15 @@ PrintCardKeyText:
 	ld hl, wCurrentMapScriptFlags
 	set 5, [hl]
 	ld a, SFX_GO_INSIDE
-	jp PlaySound
+	call PlaySound
+; new: set card event and print message if first time we use it
+	CheckAndSetEvent EVENT_USED_CARD_KEY
+	ret nz ; not first time
+	call WaitForSoundToFinish
+	tx_pre_id CardKeyGotEmbeddedText
+	ldh [hSpriteIndexOrTextID], a
+	jp PrintPredefTextID
+; BTV
 .noCardKey
 	tx_pre_id CardKeyFailText
 	ldh [hSpriteIndexOrTextID], a
@@ -68,6 +87,10 @@ CardKeySuccessText::
 
 CardKeyFailText::
 	text_far _CardKeyFailText
+	text_end
+
+CardKeyGotEmbeddedText:: ; new
+	text_far _CardKeyGotEmbeddedText
 	text_end
 
 ; d = Y

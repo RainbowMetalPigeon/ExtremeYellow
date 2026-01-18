@@ -1097,74 +1097,6 @@ PokedexAttackdexChoice:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 DrawTrainerInfoBack: ; new
-;	call DisableLCD
-
-;	hlcoord 0, 2
-;	ld a, " "
-;	call TrainerInfo_DrawVerticalLine
-
-;	hlcoord 1, 2
-;	call TrainerInfo_DrawVerticalLine
-
-;	ld hl, vChars2 tile $07
-;	ld de, vChars2 tile $00
-;	ld bc, $1c tiles
-;	call CopyData ; Copy bc bytes from hl to de.
-	
-;	ld hl, TrainerInfoTextBoxTileGraphics ; trainer info text box tile patterns
-;	ld de, vChars2 tile $77
-;	ld bc, 8 tiles
-;	push bc
-;	call TrainerInfo_FarCopyData ; Copy bc bytes from a:hl to de (a=proper bank)
-
-;	ld hl, BlankLeaderNames
-;	ld de, vChars2 tile $60
-;	ld bc, $17 tiles
-;	call TrainerInfo_FarCopyData
-
-;	pop bc
-;	ld hl, BadgeNumbersTileGraphics  ; badge number tile patterns
-;	ld de, vChars1 tile $58
-;	call TrainerInfo_FarCopyData
-
-;	ld hl, GymLeaderFaceAndBadgeTileGraphics  ; gym leader face and badge tile patterns
-;	ld de, vChars2 tile $20
-;	ld bc, 8 * 8 tiles
-;	ld a, BANK(GymLeaderFaceAndBadgeTileGraphics)
-;	call FarCopyData
-
-;	ld hl, TextBoxGraphics
-;	ld de, 13 tiles
-;	add hl, de ; hl = colon tile pattern
-;	ld de, vChars1 tile $56
-;	ld bc, 1 tiles
-;	ld a, BANK(TextBoxGraphics)
-;	push bc
-;	call FarCopyData
-;	pop bc
-
-;	ld hl, TrainerInfoTextBoxTileGraphics tile 8  ; background tile pattern
-;	ld de, vChars1 tile $57
-;	call TrainerInfo_FarCopyData
-
-;	call EnableLCD
-
-;	ld hl, wTrainerInfoTextBoxWidthPlus1
-;	ld a, 18 + 1
-;	ld [hli], a
-;	dec a
-;	ld [hli], a
-;	ld [hl], 1
-;	hlcoord 0, 0
-;	call TrainerInfo_DrawTextBox
-
-; external border
-;	hlcoord 0, 0
-;	ld a, $d7 ; solid external border
-;	call TrainerInfo_DrawVerticalLineLong
-;	hlcoord 19, 0
-;	call TrainerInfo_DrawVerticalLineLong
-
 	ld hl, wTrainerInfoTextBoxWidthPlus1
 	ld a, 18 + 1 ; width
 	ld [hli], a
@@ -1197,34 +1129,76 @@ DrawTrainerInfoBack: ; new
 	ld de, TrainerInfo_MilestonesText
 	call PlaceString
 
-;	hlcoord 7, 2
-;	ld de, wPlayerName
-;	call PlaceString
+; EVENT_FLASHED_SS_TICKET
+; EVENT_GOT_COIN_CASE
+; EVENT_ROCKET_USED_LIFT_KEY
+; EVENT_USED_CARD_KEY
+; EVENT_TRAVELED_TO_SEVII_AT_LEAST_ONCE EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5 EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+; EVENT_CINNABAR_USED_SECRET_KEY
+; scrolls
 
-; TBE, split into 7 conditionals
+	CheckEvent EVENT_FLASHED_SS_TICKET
+	jr z, .checkNextEvent1
 	hlcoord 1, 3
-	ld de, TrainerInfo_ListOfMilestonesTextPROXY
+	ld de, TrainerInfo_MilestonesText_SSTicket
 	call PlaceString
 
+.checkNextEvent1
+	CheckEvent EVENT_GOT_COIN_CASE
+	jr z, .checkNextEvent2
+	hlcoord 1, 5
+	ld de, TrainerInfo_MilestonesText_CoinCase
+	call PlaceString
 	hlcoord 13, 5
 	ld de, wPlayerCoins
 	ld c, 2 | LEADING_ZEROES | LEFT_ALIGN
 	call PrintBCDNumber
 
+.checkNextEvent2
+	CheckEvent EVENT_ROCKET_USED_LIFT_KEY
+	jr z, .checkNextEvent3
+	hlcoord 1, 7
+	ld de, TrainerInfo_MilestonesText_LiftKey
+	call PlaceString
+
+.checkNextEvent3
+	CheckEvent EVENT_USED_CARD_KEY
+	jr z, .checkNextEvent4
+	hlcoord 1, 9
+	ld de, TrainerInfo_MilestonesText_CardKey
+	call PlaceString
+
+.checkNextEvent4
+	CheckEvent EVENT_TRAVELED_TO_SEVII_AT_LEAST_ONCE
+	jr z, .checkNextEvent5
+	hlcoord 1, 11
+	ld de, TrainerInfo_MilestonesText_SeviiTicket
+	call PlaceString
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld de, TrainerInfo_MilestonesText_SeviiTicket_7
+	jr nz, .completeSevii
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+	ld de, TrainerInfo_MilestonesText_SeviiTicket_5
+	jr z, .checkNextEvent5
+.completeSevii
+	hlcoord 18, 11
+	call PlaceString
+
+.checkNextEvent5
+	CheckEvent EVENT_CINNABAR_USED_SECRET_KEY
+	jr z, .checkNextEvent6
+	hlcoord 1, 13
+	ld de, TrainerInfo_MilestonesText_SecretKey
+	call PlaceString
+
+.checkNextEvent6
+	; TBE: add sevii trial check
+	hlcoord 1, 15
+	ld de, TrainerInfo_MilestonesText_SeviiTrials
+	call PlaceString
 	hlcoord 2, 16
 	ld de, TrainerInfo_ScrollsText
 	call PlaceString
-
-;	hlcoord 7, 6 ; edited, was 9, 6
-;	ld de, wPlayTimeHours ; hours
-;	lb bc, LEFT_ALIGN | 2, 5 ; edited, was 1, 3
-;	call PrintNumber ; Print the c-digit, b-byte value at de.
-
-;	ld [hl], ":" ; edited, to expand tileset
-;	inc hl
-;	ld de, wPlayTimeMinutes ; minutes
-;	lb bc, LEADING_ZEROES | 1, 2
-;	jp PrintNumber
 
 	ret
 
@@ -1251,15 +1225,30 @@ TrainerInfo_DrawVerticalLineLong:
 	jr nz, .loop
 	ret
 
-TrainerInfo_ListOfMilestonesTextPROXY:
-	db   $76,"S.S. TICKET"
-	next $76,"COIN CASE:"
-	next $76,"LIFT KEY"
-	next $76,"CARD KEY"
-	next $76,"SEVII TICKET: 1-7"
-	next $76,"SECRET KEY"
-;	next $76,"SILPH SCOPE?"
-	next $76,"SEVII TRIAL@"
+TrainerInfo_MilestonesText_SSTicket:
+	db $76,"S.S. TICKET@"
+
+TrainerInfo_MilestonesText_CoinCase:
+	db $76,"COIN CASE:@"
+	
+TrainerInfo_MilestonesText_LiftKey:
+	db $76,"LIFT KEY@"
+
+TrainerInfo_MilestonesText_CardKey:
+	db $76,"CARD KEY@"
+	
+TrainerInfo_MilestonesText_SeviiTicket:
+	db $76,"SEVII TICKET: 1-3@"
+TrainerInfo_MilestonesText_SeviiTicket_5:
+	db "5@"
+TrainerInfo_MilestonesText_SeviiTicket_7:
+	db "7@"
+	
+TrainerInfo_MilestonesText_SecretKey:
+	db $76,"SECRET KEY@"
+	
+TrainerInfo_MilestonesText_SeviiTrials:
+	db $76,"SEVII TRIAL@"
 
 /*
 

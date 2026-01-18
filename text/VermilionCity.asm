@@ -89,6 +89,11 @@ _SSAnneFlashedTicketText:: ; edited
 	para "Done! Now you"
 	line "can board the"
 	cont "S.S.ANNE anytime."
+
+	para "The S.S. TICKET"
+	line "got embedded into"
+	cont "the back of the"
+	cont "TRAINER CARD."
 ;	xxxx "123456789012345678"
 	done
 

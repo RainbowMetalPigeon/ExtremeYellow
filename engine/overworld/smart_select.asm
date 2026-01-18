@@ -9,8 +9,7 @@ SmartSelectButton:: ; SELECT was pressed
 	cp GAME_CORNER_PRIZE_ROOM
     jr nz, .cannotCoinCase
 .canCoinCase
-	ld b, COIN_CASE
-	call IsItemInBag
+	CheckEvent EVENT_GOT_COIN_CASE
     jr z, .cannotCoinCase
     call EnableAutoTextBoxDrawing
     tx_pre_jump CoinCaseNumCoinsText2
