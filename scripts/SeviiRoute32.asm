@@ -19,6 +19,7 @@ SeviiRoute32_TextPointers:
 	dw SeviiRoute32Text3
 	dw PickUpItemText
 	dw PickUpItemText
+	dw SeviiRoute32Text6
 	; signs
 	dw SeviiRoute32SignText1
 
@@ -34,6 +35,10 @@ SeviiRoute32TrainerHeader3:
 
 SeviiRoute32Text0:
 	text_far _SeviiRoute32Text0
+	text_end
+
+SeviiRoute32Text6:
+	text_far _SeviiUndergroundCaveGuardText
 	text_end
 
 SeviiRoute32Text1:

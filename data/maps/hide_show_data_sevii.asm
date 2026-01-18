@@ -186,6 +186,7 @@ SeviiMtEmberHS:
 SeviiRoute32HS:
 	db SEVII_ROUTE_32,  5, SHOW ; ball
 	db SEVII_ROUTE_32,  6, SHOW ; ball
+	db SEVII_ROUTE_32,  7, SHOW ; underground guard
 SeviiRoute33HS:
 	db SEVII_ROUTE_33,  1, SHOW ; biker
 	db SEVII_ROUTE_33,  2, SHOW ; biker

@@ -6,7 +6,7 @@ SeviiRoute32_Object:
 ;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
 
 	def_bg_events
-	bg_event 15, 35, 7 ; SeviiRoute32SignText1
+	bg_event 15, 35, 8 ; SeviiRoute32SignText1
 
 	def_object_events
 	object_event 17, 38, SPRITE_YOUNGSTER, WALK, ANY_DIR, 1
@@ -15,5 +15,6 @@ SeviiRoute32_Object:
 	object_event 21, 28, SPRITE_SWIMMER, STAY, LEFT, 4, OPP_POKEMANIAC, 18
 	object_event 14, 25, SPRITE_POKE_BALL, STAY, NONE, 5, RARE_CANDY
 	object_event 27, 35, SPRITE_POKE_BALL, STAY, NONE, 6, PP_UP
+	object_event 22, 10, SPRITE_COOLTRAINER_F, STAY, DOWN, 7
 
 	def_warps_to SEVII_ROUTE_32
