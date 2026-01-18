@@ -372,7 +372,7 @@ GonquePic::
 RokuseiPic::
 NanettePic::
 SuujeroPic::
-PinkPic::
+PinkPic::          INCBIN "gfx/trainers/pink.pic"
 PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 BFTrainerPic::
