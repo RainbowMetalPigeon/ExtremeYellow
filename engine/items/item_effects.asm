@@ -3869,6 +3869,13 @@ IsNextTileShoreOrWater::
 	jr z, .skipShoreTiles
 	cp DOJO ; usual eastern shore tile
 	jr z, .skipShoreTiles
+; new
+	cp CAVERN
+	jr nz, .vanilla
+	ld hl, ShoreTilesCavern
+	jr .skipShoreTiles
+.vanilla
+; BTV
 	ld hl, ShoreTiles
 .skipShoreTiles
 	ld a, [wTileInFrontOfPlayer]
@@ -3887,6 +3894,10 @@ ShoreTiles:
 WaterTile:
 	db $14
 	db $ff ; terminator
+
+ShoreTilesCavern: ; new
+	db $48, $49, $4A, $14
+	db $FF ; terminator
 
 ; reloads map view and processes sprite data
 ; for items that cause the overworld to be displayed
