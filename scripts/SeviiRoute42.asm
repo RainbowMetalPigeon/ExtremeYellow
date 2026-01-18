@@ -26,9 +26,14 @@ SeviiRoute42_TextPointers:
 	dw RockSmashText      ; 11 rock
 	dw PickUpItemText     ; 12
 	dw PickUpItemText     ; 13
+	dw SeviiRoute42Text14 ; 14 underground guard
 
 SeviiRoute42Text1:
 	text_far _SeviiRoute42Text1
+	text_end
+
+SeviiRoute42Text14:
+	text_far _SeviiUndergroundCaveGuardText
 	text_end
 
 SeviiRoute42TrainerHeaders:

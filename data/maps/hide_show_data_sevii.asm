@@ -230,6 +230,7 @@ SeviiRoute42HS:
 	db SEVII_ROUTE_42, 11, SHOW ; rock
 	db SEVII_ROUTE_42, 12, SHOW ; ball
 	db SEVII_ROUTE_42, 13, SHOW ; ball
+	db SEVII_ROUTE_42, 14, SHOW ; underground guard
 SeviiRoute43HS:
 	db SEVII_ROUTE_43, 12, SHOW ; rock
 	db SEVII_ROUTE_43, 13, SHOW ; ball
