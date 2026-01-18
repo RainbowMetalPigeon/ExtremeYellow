@@ -868,7 +868,7 @@ _SeviiRoute34Text1_AfterAmuletCoin::
 	para "I had neglected"
 	line "all relationships"
 	cont "that didn't bring"
-	cont "any profit."
+	cont "me any profit."
 
 	para "I regret it."
 	line "Deeply."

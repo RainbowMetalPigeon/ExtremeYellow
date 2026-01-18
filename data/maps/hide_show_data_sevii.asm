@@ -17,7 +17,7 @@ MapHSPointers_Sevii:
 	dw SeviiMtEmberHS ; SEVII_MT_EMBER
 	dw SeviiRoute32HS ; SEVII_ROUTE_32
 	dw SeviiRoute33HS ; SEVII_ROUTE_33
-	dw NoHSSevii ; SEVII_ROUTE_34
+	dw SeviiRoute34HS ; SEVII_ROUTE_34
 	dw SeviiRoute35HS ; SEVII_ROUTE_35
 	dw SeviiRoute36HS ; SEVII_ROUTE_36
 	dw SeviiRoute37HS ; SEVII_ROUTE_37
@@ -196,6 +196,8 @@ SeviiRoute33HS:
 	db SEVII_ROUTE_33, 12, SHOW ; RARE_CANDY
 	db SEVII_ROUTE_33, 13, SHOW ; ULTRA_BALL
 	db SEVII_ROUTE_33, 14, SHOW ; PP_UP
+SeviiRoute34HS:
+	db SEVII_ROUTE_34,  6, SHOW ; underground guard
 SeviiRoute35HS:
 	db SEVII_ROUTE_35,  2, SHOW ; ULTRA_BALL
 SeviiRoute36HS:

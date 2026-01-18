@@ -11,5 +11,6 @@ SeviiRoute34_Object:
 	object_event 46,  4, SPRITE_SWIMMER, STAY, LEFT, 3, OPP_SWIMMER, 20
 	object_event 25,  7, SPRITE_SWIMMER, STAY, DOWN, 4, OPP_SWIMMER, 21
 	object_event 16,  7, SPRITE_SWIMMER, STAY, UP, 5, OPP_SWIMMER, 22
+	object_event 34,  4, SPRITE_COOLTRAINER_F, STAY, DOWN, 6 ; underground guard
 
 	def_warps_to SEVII_ROUTE_34

@@ -18,6 +18,7 @@ SeviiRoute34_TextPointers:
 	dw SeviiRoute34Text3 ; trainer
 	dw SeviiRoute34Text4 ; trainer
 	dw SeviiRoute34Text5 ; trainer
+	dw SeviiRoute34Text6 ; underground guard
 
 SeviiRoute34TrainerHeaders:
 	def_trainers 2
@@ -168,4 +169,9 @@ SeviiRoute34Text1_GotAmuletCoin:
 SeviiRoute34Text1_BagFull:
 	text_far _SeviiRoute34Text1_BagFull
 	text_end
-	
+
+; ---------------------------------------
+
+SeviiRoute34Text6:
+	text_far _SeviiUndergroundCaveGuardText
+	text_end
