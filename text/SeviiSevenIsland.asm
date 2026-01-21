@@ -2,9 +2,11 @@ _SeviiSevenIslandCityText1::
 	text "You seem like a"
 	line "strong trainer."
 
-	para "Are you interested"
-	line "If so, you'll find"
-	cont "QUEST SHRINE just"
+	para "If you are"
+	line "interested in the"
+	cont "SEVII TRIAL, know"
+	cont "that the QUEST"
+	cont "SHRINE is just"
 	cont "north of here."
 
 	para "It's the only"
@@ -22,7 +24,7 @@ _SeviiSevenIslandCityText2::
 	para "Legends whisper"
 	line "that they can be"
 	cont "entered to gain"
-	cont "a mystic power."
+	cont "a mystical power."
 ;	xxxx "123456789012345678"
 	done
 
@@ -49,19 +51,41 @@ _SeviiSevenIslandCitySignText3::
 ; city's indoor ------------------------------------
 
 _SeviiSevenIslandPokemonCenterAndMart_Text1::
-	text "test 7-1"
+	text "KANTO and SEVII"
+	line "lie on two"
+	cont "different"
+	cont "tectonic plates."
+	cont "That makes them"
+	cont "geologically"
+	cont "separate. Life"
+	cont "forms, too,"
+	cont "diverged over the"
+	cont "eras. Yet, from"
+	cont "a social and"
+	cont "antropological"
+	cont "standpoint, their"
+	cont "history is deeply"
+	cont "intertwined."
+
+	para "...what? I learned"
+	line "this at school."
+	cont "It's easy stuf."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandPokemonCenterAndMart_Text2::
 	text "test 7-2"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandPokemonCenterAndMart_Text3::
 	text "test 7-3"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandPokemonCenterAndMart_Text4::
 	text "test 7-4"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandHousesText1::

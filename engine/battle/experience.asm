@@ -236,12 +236,18 @@ GainExperience:
 	jr z, .skipPrintText
 	ld hl, GainedText
 	call PrintText
+	xor a ; PLAYER_PARTY_DATA
+	ld [wMonDataLocation], a
+	call LoadMonData
+	call AnimateEXPBar ; new
+	jr .postBar
 .skipPrintText
 ; BTV
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call LoadMonData
-	call AnimateEXPBar ; new
+;	call AnimateEXPBar ; new
+.postBar
 	pop hl
 	ld bc, wPartyMon1Level - wPartyMon1Exp
 	add hl, bc
