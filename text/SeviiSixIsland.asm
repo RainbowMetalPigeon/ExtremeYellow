@@ -113,6 +113,10 @@ _SeviiSixIslandPokemonCenterAndMart_Text3::
 
 	para "I think nobody"
 	line "explored it all."
+	cont "Seems it's somehow"
+	cont "very difficult,"
+	cont "even if it's"
+	cont "quite small."
 ;	xxxx "123456789012345678"
 	done
 
@@ -469,179 +473,327 @@ _SeviiSixIslandDockBgText1::
 ; Route 37 ------------------------------------
 
 _SeviiRoute37BattleText1::
-	text "1-pre"
+	text "Are you up to"
+	line "my training?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText1::
-	text "1-post"
+	text "You're"
+	line "up and beyond!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText1::
-	text "1-after"
+	text "Here and in QUEST"
+	line "you'll find the"
+	cont "strongest #MON"
+	cont "and trainers!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText2::
-	text "2-pre"
+	text "Welcome to FORTUNE"
+	line "training grounds!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText2::
-	text "2-post"
+	text "You"
+	line "fit well in here!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText2::
-	text "2-after"
+	text "I like fighting"
+	line "with you! Wanna"
+	cont "stay with us?"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText3::
-	text "3-pre"
+	text "Taking the hard"
+	line "path, eh? Nice!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText3::
-	text "3-post"
+	text "I"
+	line "like the cut of"
+	cont "your jib!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText3::
-	text "3-after"
+	text "Just east of here"
+	line "there's the boring"
+	cont "path that avoids"
+	cont "any battle."
+
+	para "But where's the"
+	line "fun then?!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText4::
-	text "4-pre"
+	text "I hope you enjoy"
+	line "INVERSE BATTLEs,"
+	cont "because you'll"
+	cont "find a lot of"
+	cont "them here!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText4::
-	text "4-post"
+	text "You"
+	line "definitely are"
+	cont "good at them!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText4::
-	text "4-after"
+	text "Why INVERSE?"
+	line "Coz they're fun!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText5::
-	text "5-pre"
+	text "What brings you"
+	line "here?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText5::
-	text "5-post"
+	text "COOLTRAINER: Well,"
+	line "definitely a win!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText5::
-	text "5-after"
+	text "Strong #MON?"
+	line "The SEVII TRIAL?"
+	cont "Mysterious ruins?"
+
+	para "FORTUNE ISLAND has"
+	line "a lot to offer!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText6::
-	text "6-pre"
+	text "I'm from QUEST,"
+	line "but I like"
+	cont "FORTUNE better!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText6::
-	text "6-post"
+	text "And"
+	line "you like to win!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText6::
-	text "6-after"
+	text "Have you visited"
+	line "QUEST already?"
+	cont "Do you prefer it"
+	line "or FORTUNE?"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText7::
-	text "7-pre"
+	text "A new face!"
+	line "I wanna face you!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText7::
-	text "7-post"
+	text "You showed"
+	line "me well!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText7::
-	text "7-after"
+	text "There's a lotta"
+	line "cool stuff 'round"
+	cont "here, from north"
+	cont "to south!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText8::
-	text "8-pre"
+	text "I'm the guardian"
+	line "of the rock!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText8::
-	text "8-post"
+	text "Oh no!"
+	line "The rock's fallen!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText8::
-	text "8-after"
+	text "Who will guard the"
+	line "secret pass now?!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText9::
-	text "9-pre"
+	text "This is swimmers'"
+	line "paradise!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText9::
-	text "9-post"
+	text "You made"
+	line "it into a hell..."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText9::
-	text "9-after"
+	text "I prefer swimming"
+	line "over battling"
+	cont "anyhow..."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText10::
-	text "10-pre"
+	text "I want to swim"
+	line "all the way from"
+	cont "FORTUNE to"
+	cont "ALTERING CAVE!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText10::
-	text "10-post"
+	text "This was"
+	line "a nice warm-up!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText10::
-	text "10-after"
+	text "One stroke at the"
+	line "time, and you can"
+	cont "reach anywhere!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText11::
-	text "11-pre"
+	text "Beat me and I'll"
+	line "tell you a secret!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText11::
-	text "11-post"
+	text "I meant a"
+	line "swimming contest!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText11::
-	text "11-after"
+	text "They say there's"
+	line "a secret, cool"
+	cont "diving spot near"
+	cont "here, but I"
+	cont "prefer staying"
+	cont "near the surface."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute37BattleText12::
-	text "12-pre"
+	text "Do you know of the"
+	line "TANOBY CHAMBERS?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute37EndBattleText12::
-	text "12-post"
+	text "A 'No'"
+	line "would've sufficed!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute37AfterBattleText12::
-	text "12-after"
+	text "TANOBY CHAMBERS"
+	line "are a rumored"
+	cont "cluster of caves"
+	cont "south of QUEST."
+
+	para "I heard the sea's"
+	line "beautiful there,"
+	cont "but the path to"
+	cont "it impervious."
+;	xxxx "123456789012345678"
 	done
 
 ; Route 38 ------------------------------------
 
 _SeviiRoute38Text1::
-	text "1"
+	text "This settlement is"
+	line "still part of"
+	cont "FORTUNE ISLAND."
+
+	para "More people than"
+	line "one would think"
+	cont "come visiting:"
+	cont "the mysteries of"
+	cont "PATTERN BUSH and"
+	cont "of ALTERING CAVE"
+	cont "draw in many."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38Text2::
-	text "2"
+	text "PATTERN BUSH is"
+	line "named after the"
+	cont "bizarre paths"
+	cont "that shape it."
+	cont "Nobody understood"
+	cont "what they mean."
+
+	para "And ALTERING CAVE?"
+	line "Noone can map it!"
+
+	para "And then DOTTED"
+	line "HOLE, with its"
+	cont "unknown language!"
+
+	para "Oh, and the unex-"
+	line "plored MT. EMBER"
+	cont "near KNOT!"
+
+	para "ICEFALL in FLOE!"
+
+	para "CHRONO's LOST CAVE!"
+
+	para "TANOBY CHAMBERS"
+	line "in QUEST!"
+;	xxxx "123456789012345678"
+
+	para "SEVII are really"
+	line "full of mysteries!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38SignText1::
@@ -813,15 +965,32 @@ _SeviiRoute38HousesText3::
 	done
 
 _SeviiRoute38HousesSignText1::
-	text "Stuff"
+	text "Projects for"
+	line "a tank with"
+	cont "precedented"
+	cont "resistance to"
+	cont "pressure."
+
+	para "More air can be"
+	line "stored there,"
+	cont "allowing for"
+	cont "longer DIVEs."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38HousesSignText2::
-	text "Other stuff"
+	text "Studies on using"
+	line "higher air mixes"
+	cont "with more oxygen."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38HousesSignText3::
-	text "Further stuff"
+	text "Dozens of dreamy"
+	line "drawings about"
+	cont "jewelry made with"
+	cont "PEARLs."
+;	xxxx "123456789012345678"
 	done
 
 ; Route 38 Dive -----------------------------
@@ -829,244 +998,512 @@ _SeviiRoute38HousesSignText3::
 ; Route 38 Dive Cavern ----------------------
 
 _SeviiRoute38DiveCavernBattleText1::
-	text "1-pre"
+	text "B!"
+
+	para "(I'm the first of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText1::
-	text "1-post"
+	text "G!"
+
+	para "(And the first"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText1::
-	text "1-after"
+	text "L!"
+
+	para "(We like it here.)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText2::
-	text "2-pre"
+	text "Bb!"
+
+	para "(I'm the second of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText2::
-	text "2-post"
+	text "Gg!"
+
+	para "(And the second"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText2::
-	text "2-after"
+	text "Ll!"
+
+	para "(Our gran-gran-"
+	line "gran-...-pa found"
+	cont "this cave!)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText3::
-	text "3-pre"
+	text "Bbb!"
+
+	para "(I'm the third of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText3::
-	text "3-post"
+	text "Ggg!"
+
+	para "(And the third"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText3::
-	text "3-after"
+	text "Lll!"
+
+	para "(We come playing"
+	line "here since we're"
+	cont "toddlers.)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText4::
-	text "4-pre"
+	text "Bbbb!"
+
+	para "(I'm the fourth of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText4::
-	text "4-post"
+	text "Gggg!"
+
+	para "(And the fourth"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText4::
-	text "4-after"
+	text "Llll!"
+
+	para "(Our parents are"
+	line "TERRIBLE with"
+	cont "names. Guess how"
+	cont "they called us?)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText5::
-	text "5-pre"
+	text "Bbbb!"
+
+	para "(I'm the fifth of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText5::
-	text "5-post"
+	text "Ggggg!"
+
+	para "(And the fifth"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText5::
-	text "5-after"
+	text "Llll!"
+
+	para "(Our cousins live"
+	line "in QUEST.)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText6::
-	text "6-pre"
+	text "Bbbbbb!"
+
+	para "(I'm the sixth of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText6::
-	text "6-post"
+	text "Gggggg!"
+
+	para "(And the sixth"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText6::
-	text "6-after"
+	text "Llllll!"
+
+	para "(We all love"
+	line "diving and"
+	cont "#MON battles!)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText7::
-	text "7-pre"
+	text "Bbbbbbb!"
+
+	para "(I'm the seventh of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText7::
-	text "7-post"
+	text "Ggggggg!"
+
+	para "(And the seventh"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText7::
-	text "7-after"
+	text "Lllllll!"
+
+	para "(We went diving in"
+	line "KANTO too, but"
+	cont "there are just a"
+	cont "few spots.)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText8::
-	text "8-pre"
+	text "Bbbbbbbb!"
+
+	para "(I'm the eighth of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText8::
-	text "8-post"
+	text "Gggggggg!"
+
+	para "(And the eighth"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText8::
-	text "8-after"
+	text "Lllllll!"
+
+	para "(We love our"
+	line "OXYGEN TANKs."
+	cont "Do you have one?)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText9::
-	text "9-pre"
+	text "Uuu!"
+
+	para "(And now for some-"
+	line "thing completely"
+	cont "different!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText9::
-	text "9-post"
+	text "Uuu!"
+
+	para "(You're ready to"
+	line "face anything!)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText9::
-	text "9-after"
+	text "Uuu!"
+
+	para "(I like hanging"
+	line "around here."
+	cont "It's cozy and the"
+	cont "folks are funny.)"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute38DiveCavernBattleText10::
-	text "10-pre"
+	text "Bbbbbbbbb!"
+
+	para "(I'm the ninth of"
+	line "us DIVE SIBLINGS!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38DiveCavernEndBattleText10::
-	text "10-post"
+	text "Ggggggggg!"
+
+	para "(And the ninth"
+	line "to be defeated.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText10::
-	text "10-after"
+	text "Llllllll!"
+
+	para "(We heard stories"
+	line "about a treasure"
+	cont "hidden in this"
+	cont "cave, but we"
+	cont "don't really care."
+	cont "We just want to"
+	cont "DIVE.)"
+;	xxxx "123456789012345678"
 	done
 
 ; Pattern Bush -------------------------------
 
-_SeviiPatternBushText1::
-	text "Bush 1"
+_SeviiPatternBushText1:: ; SPRITE_WAITER
+	text "I like coming here"
+	line "during my breaks"
+	cont "to bask in this"
+	cont "atmosphere of"
+	cont "mystery."
+
+	para "What could these"
+	line "lines mean?!"
+;	xxxx "123456789012345678"
 	done
 
-_SeviiPatternBushText2::
-	text "Bush 2"
+_SeviiPatternBushText2:: ; SPRITE_CHANNELER
+	text "I... am trying..."
+	line "to sense..."
+	cont "supernatural..."
+	cont "presences."
+
+	para "Maybe the spirits"
+	line "will help me..."
+	cont "unveil the secret"
+	cont "of these lines..."
+;	xxxx "123456789012345678"
 	done
 
-_SeviiPatternBushText3::
-	text "Bush 3"
+_SeviiPatternBushText3:: ; SPRITE_GYM_GUIDE
+	text "I am a tourist"
+	line "guide, but alas,"
+	cont "I can't tell you"
+	cont "anything about"
+	cont "these lines."
+
+	para "What do they mean?"
+	line "Who made them?"
+	cont "When? How?"
+;	xxxx "123456789012345678"
 	done
 
-_SeviiPatternBushText4::
-	text "Bush 4"
+_SeviiPatternBushText4:: ; SPRITE_COOK
+	text "I came from"
+	line "SAFFRON just to"
+	cont "see these lines."
+
+	para "They are so"
+	line "mysterious and"
+	cont "fascinating."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
-_SeviiPatternBushBattleText1::
-	text "1-pre"
+_SeviiPatternBushBattleText1:: ; OPP_GENTLEMAN
+	text "Young one! Do you"
+	line "any hint about"
+	cont "these lines?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiPatternBushEndBattleText1::
-	text "1-post"
+	text "Uhm,"
+	line "I see."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiPatternBushAfterBattleText1::
-	text "1-after"
+	text "I was hoping that"
+	line "the energy of the"
+	cont "youths could help"
+	cont "me understand"
+	cont "these lines."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
-_SeviiPatternBushBattleText2::
-	text "2-pre"
+_SeviiPatternBushBattleText2:: ; OPP_SAILOR
+	text "I've sailed all the"
+	line "seven seas and"
+	cont "more, yet I'v'nt"
+	cont "ever seen"
+	cont "anything as"
+	cont "mysterious as"
+	cont "these lines."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiPatternBushEndBattleText2::
-	text "2-post"
+	text "I also"
+	line "never met anyone"
+	cont "as strong as you!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiPatternBushAfterBattleText2::
-	text "2-after"
+	text "I've two decades"
+	line "of navigation"
+	cont "under by belt,"
+	cont "yet I can't get"
+	cont "a thing outta"
+	cont "these lines."
+	cont "Ya land-dwellers"
+	cont "seem no better."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
-_SeviiPatternBushBattleText3::
-	text "3-pre"
+_SeviiPatternBushBattleText3:: ; OPP_BIKER
+	text "I was in a gang,"
+	line "but I'd a change"
+	cont "of heart when I"
+	cont "saw these lines."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiPatternBushEndBattleText3::
-	text "3-post"
+	text "Defeated"
+	line "in battle and by"
+	cont "this mystery."
+	cont "'t's all good."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiPatternBushAfterBattleText3::
-	text "3-after"
+	text "I got humbled by"
+	line "the majesty of"
+	cont "this mystery."
+	cont "It let me see the"
+	cont "world under a"
+	cont "whole new light."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
-_SeviiPatternBushBattleText4::
-	text "4-pre"
+_SeviiPatternBushBattleText4:: ; OPP_GAMBLER
+	text "I challenge you to"
+	line "a #MON battle"
+	cont "with a ante: let's"
+	cont "stake the truth"
+	cont "hidden behind"
+	cont "these lines!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiPatternBushEndBattleText4::
-	text "4-post"
+	text "I lost."
+	line "I'll tell you"
+	cont "everything..."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiPatternBushAfterBattleText4::
-	text "4-after"
+	text "The truth behind"
+	line "these lines, you"
+	cont "ask? Very well,"
+	cont "I'll tell you."
+
+	para "..."
+
+	para "Oh, a call! I must"
+	line "pick up, sorry!"
+;	xxxx "123456789012345678"
 	done
 
 ; Route 39 ------------------------------------
 
 _SeviiRoute39Text1::
-	text "Damn mystery"
+	text "Fellow explorer?"
+	line "Best luck to you."
+	cont "ALTERING CAVE, as"
+	cont "the name hints,"
+	cont "seems to be..."
+	cont "mutating."
+
+	para "Every time I enter"
+	line "I see a different"
+	cont "layout."
+
+	para "It's driving me"
+	line "totally crazy!"
+	cont "People are nuts"
+	cont "over DOTTED HOLE"
+	cont "and PATTERN BUSH,"
+	cont "but the real"
+	cont "mystery is here."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39Text2::
-	text "I like this"
+	text "I like it here."
+	line "It's one of the"
+	cont "most tranquill"
+	cont "corners in SEVII."
+
+	para "When I wish some-"
+	line "where more lively"
+	cont "I go to KNOT or"
+	cont "to a concert in"
+	cont "CHRONO WAREHOUSE!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39SignText1::
-	text "PATTER BUSH"
+	text "PATTERN BUSH"
 	line "ROUTE 38 AHEAD"
 	done
 
 ; -----
 
 _SeviiRoute39BattleText1::
-	text "1-pre"
+	text "I'm on a quest for"
+	line "the rarest #-"
+	cont "MON! Show me what"
+	cont "you have!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39EndBattleText1::
-	text "1-post"
+	text "Your"
+	line "#MON may be"
+	cont "strong, but mine"
+	cont "are cooler!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute39AfterBattleText1::
-	text "1-after"
+	text "Maybe within"
+	line "ALTERING CAVE is"
+	cont "a super-rare"
+	cont "#MON?!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
@@ -1120,175 +1557,343 @@ _SeviiRoute39AfterBattleText2::
 ; -----
 
 _SeviiRoute39BattleText3::
-	text "3-pre"
+	text "Swimming through"
+	line "these rocks and"
+	cont "currents ain't"
+	cont "easy at all!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39EndBattleText3::
-	text "3-post"
+	text "Winning"
+	line "a battle here is"
+	cont "even harder!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute39AfterBattleText3::
-	text "3-after"
+	text "You came all the"
+	line "way from KANTO?"
+	cont "That's cool! How's"
+	line "the sea there?"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute39BattleText4::
-	text "4-pre"
+	text "I gave up on"
+	line "the mystery of"
+	cont "PATTERN BUSH and"
+	cont "came for a swim."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39EndBattleText4::
-	text "4-post"
+	text "I give up"
+	line "on battling too!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute39AfterBattleText4::
-	text "4-after"
+	text "I'll give in to the"
+	line "sea 'n' just relax."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute39BattleText5::
-	text "5-pre"
+	text "Are you more of a"
+	line "swimmer or an"
+	cont "explorer?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39EndBattleText5::
-	text "5-post"
+	text "More of"
+	line "a TRAINER!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute39AfterBattleText5::
-	text "5-after"
+	text "This ROUTE is"
+	line "famous amongst"
+	cont "swimmers for its"
+	cont "tough currents,"
+	cont "and amongst"
+	cont "explorers due to"
+	cont "PATTERN BUSH and"
+	cont "ALTERING CAVE."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute39BattleText6::
-	text "6-pre"
+	text "Swim-swim-swim-"
+	line "-a-lim..."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute39EndBattleText6::
-	text "6-post"
+	text "Swim now"
+	line "and then again..."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute39AfterBattleText6::
-	text "6-after"
+	text "Swimma-and-chill,"
+	line "swimma-and-chill,"
+	cont "swimma-and-chill,"
+	cont "swimma-..."
+;	xxxx "123456789012345678"
 	done
 
 ; Route 40 ------------------------------------
 
 _SeviiRoute40Text1::
-	text "Mysterious mystery"
+	text "Ahead, after a"
+	line "long, complex"
+	cont "path, you'll find"
+	cont "DOTTED HOLE."
+
+	para "Nobody has ever"
+	line "been able to"
+	cont "decipher the"
+	cont "writings on it,"
+	cont "due to its"
+	cont "unknown alphabet."
+;	xxxx "123456789012345678"
 	done
 
 ; -----------------------------
 
 _SeviiRoute40BattleText1::
-	text "1-pre"
+	text "I'm hard as steel!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText1::
-	text "1-post"
+	text "I'm hard"
+	line "at winning..."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText1::
-	text "1-after"
+	text "This area has so"
+	line "many STEEL #-"
+	cont "MON. That's quite"
+	cont "unusual, as"
+	cont "normally they're"
+	cont "very rare."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText2::
-	text "2-pre"
+	text "Hold my wrench,"
+	line "so I'll wreck you!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText2::
-	text "2-post"
+	text "Engineer: You"
+	line "took me apart"
+	cont "screw by screw!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText2::
-	text "2-after"
+	text "Not sure why but I"
+	line "feel an affinity"
+	cont "for this area."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText3::
-	text "3-pre"
+	text "Where? Where"
+	line "is it?!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText3::
-	text "3-post"
+	text "I was so"
+	line "focused searching"
+	cont "for it, that I"
+	cont "didn't pay enough"
+	cont "attention to the"
+	cont "battle!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText3::
-	text "3-after"
+	text "What am I search-"
+	line "ing for, you ask?"
+	cont "But DOTTED HOLE,"
+	cont "of course!"
+
+	para "Rumors have that"
+	line "it's somehow"
+	cont "related to a"
+	cont "STEEL #MON."
+	cont "If that's true,"
+	cont "I want it!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText4::
-	text "4-pre-metal"
+	text "Rites of brutal"
+	line "violence!"
+
+	para "Tears of broken"
+	line "innocence!"
+
+	para "Chaos and"
+	line "intolerance!"
+
+	para "Cum resurget"
+	line "Pater lacrimarum!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText4::
-	text "4-post-metal"
+	text "Seven"
+	line "raging epic wars!"
+
+	para "Seven towers"
+	line "bleeding stone!"
+
+	para "Seven sins for"
+	line "his reborn!"
+
+	para "Cum resurget"
+	line "Pater tenebrarum!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText4::
-	text "4-after-metal"
+	text "For the children"
+	line "fallen!"
+
+	para "For the dreams"
+	line "you've stolen!"
+
+	para "For the smile"
+	line "of people!"
+
+	para "For respect"
+	line "and love!"
+
+	para "May the flame"
+	line "of angels clash"
+	cont "your hord of"
+	cont "demons and burn"
+	cont "your fallen soul!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText5::
-	text "5-pre"
+	text "AH! LOOK!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText5::
-	text "5-post"
+	text "Did"
+	line "you see enough?!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText5::
-	text "5-after"
+	text "Have you admired"
+	line "my beautiful,"
+	cont "gorgeous #MON?"
+	cont "I must flash 'em"
+	cont "to everyone!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText6::
-	text "6-pre"
+	text "My team is abs-"
+	line "olutely perfect!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText6::
-	text "6-post"
+	text "But!"
+	line "But how?!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText6::
-	text "6-after"
+	text "How is it possible"
+	line "that I lost with"
+	cont "a team of every-"
+	cont "one's favourite"
+	cont "evolutionary line!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText7::
-	text "7-pre"
+	text "And who would you"
+	line "be? A metalhead,"
+	cont "a nerd, or else?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText7::
-	text "7-post"
+	text "You"
+	line "are definitely"
+	cont "something else!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText7::
-	text "7-after"
+	text "Folks around here"
+	line "are a bit..."
+	cont "monothematic, if"
+	cont "you know what I"
+	cont "mean. I'm glad to"
+	cont "see a new face!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute40BattleText8::
-	text "8-pre"
+	text "The #MON around"
+	line "here look wary."
+	cont "Do they perceive"
+	cont "a threat?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute40EndBattleText8::
-	text "8-post"
+	text "Maybe the"
+	line "threat is you!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute40AfterBattleText8::
-	text "8-after"
+	text "I'm here to explore"
+	line "DOTTED HOLE, but"
+	cont "I couldn't not"
+	cont "notice that the"
+	cont "wild #MON in"
+	cont "this area seem..."
+	cont "Worried? Scared?"
+;	xxxx "123456789012345678"
 	done
 
 ; signs -----

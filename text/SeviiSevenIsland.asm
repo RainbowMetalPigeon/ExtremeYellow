@@ -1,9 +1,29 @@
 _SeviiSevenIslandCityText1::
-	text "1"
+	text "You seem like a"
+	line "strong trainer."
+
+	para "Are you interested"
+	line "If so, you'll find"
+	cont "QUEST SHRINE just"
+	cont "north of here."
+
+	para "It's the only"
+	line "SHRINE not within"
+	cont "the city limits."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandCityText2::
-	text "2"
+	text "There's a cluster"
+	line "of islets at the"
+	cont "southernmost end"
+	cont "of QUEST ISLAND."
+
+	para "Legends whisper"
+	line "that they can be"
+	cont "entered to gain"
+	cont "a mystic power."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandCitySignText1::
@@ -68,13 +88,13 @@ _SeviiSevenIslandHousesText1::
 _SeviiSevenIslandHousesSignText1::
 	text "No LEFTOVERS."
 	done
-	
+
 _SeviiSevenIslandHousesSignText2::
 	text "There's no right"
 	line "or wrong side:"
 	cont "it's off."
 	done
-	
+
 _SeviiSevenIslandHousesSignText3::
 	text "'PC password:"
 	line "ABCDE'"
@@ -82,7 +102,7 @@ _SeviiSevenIslandHousesSignText3::
 	para "...doesn't look"
 	line "super safe..."
 	done
-	
+
 _SeviiSevenIslandHousesSignText4::
 	text "Oh! It's a cool"
 	line "Monster Collector"
@@ -95,24 +115,24 @@ _SeviiSevenIslandHousesSignText4::
 	para "Makes one want to"
 	line "play more!"
 	done
-	
+
 _SeviiSevenIslandHousesSignText5::
 	text "...guess someone"
 	line "never heard of"
 	cont "'recycling', uh?"
 	done
-	
+
 _SeviiSevenIslandHousesSignText6::
 	text "A pillow."
 	done
-	
+
 _SeviiSevenIslandHousesSignText7::
 	text "A mattress."
 
 	para "Ehy! It's a water"
 	line "one! Cool!"
 	done
-	
+
 _SeviiSevenIslandHousesSignText8_Question::
 	text "Insert password"
 	line "to withdraw PEARL."
@@ -142,7 +162,7 @@ _SeviiSevenIslandHousesSignText8_Empty::
 
 	para "There is nothing"
 	line "inside."
-	
+
 	para "You already took"
 	line "everything it"
 	cont "contained."
@@ -428,6 +448,29 @@ _SeviiRoute42Text1::
 	done
 
 ; -----
+
+/*
+_SeviiRoute37BattleText6::
+	text "I'm from FORTUNE,"
+	line "but I like"
+	cont "QUEST better!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute37EndBattleText6::
+	text "COOLTRAINER: And"
+	line "you like to win!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute37AfterBattleText6::
+	text "Have you visited"
+	line "FORTUNE already?"
+	cont "Do you prefer it"
+	line "or QUEST?"
+;	xxxx "123456789012345678"
+	done
+*/
 
 _SeviiRoute42BattleText1::
 	text "1-pre"
