@@ -1572,10 +1572,10 @@ LoadEnemyMonFromParty:
 	call GetMonHeader
 	ld hl, wEnemyMonNicks
 	ld a, [wWhichPokemon]
-	call SkipFixedLengthTextEntries
+	call SkipFixedLengthTextEntries ; skips a text entries, each of size NAME_LENGTH ; hl: base pointer, will be incremented by NAME_LENGTH * a
 	ld de, wEnemyMonNick
 	ld bc, NAME_LENGTH
-	call CopyData
+	call CopyData ; Copy bc bytes from hl to de.
 	ld hl, wEnemyMonLevel
 	ld de, wEnemyMonUnmodifiedLevel ; block of memory used for unmodified stats
 	ld bc, 1 + NUM_STATS * 2

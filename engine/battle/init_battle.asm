@@ -573,12 +573,10 @@ InitOpponentSwapped: ; new
     callfar GetTrainerInformation
 	callfar ReadTrainer
 	call CopyEnemyPartyIntoTrainersParty
-	; TBE: dedicated function to copy the shinyness?
-	; TBE: copy/make nicknames
+	; TBE: dedicated function to copy the shinyness? (both directions)
+	callfar RenameTradedTeamWithDefaultNicks
 
-	call LoadPartyFromSpecialSRAMIntoEnemysParty
-
-	; it works but maybe it could be fine-tuned
+	; this works but maybe it could be fine-tuned
 	hlcoord 9, 7
 	lb bc, 5, 10
 	call ClearScreenArea
@@ -589,14 +587,14 @@ InitOpponentSwapped: ; new
 	ld b, SET_PAL_BATTLE_BLACK
 	call RunPaletteCommand
 
-	callfar HealPartyEnemy ; testing
-
 	callfar InitBattleVariables
-
     callfar DoBattleTransitionAndInitBattleVariables
 	ld a, [wUniQuizAnswer]
 	ld [wIsTrainerBattle], a
     call _LoadTrainerPic
+
+	call LoadPartyFromSpecialSRAMIntoEnemysParty
+	callfar HealPartyEnemy
 
 	ld a, [wSavedTileAnimations]
 	ldh [hTileAnimations], a
@@ -613,10 +611,9 @@ InitOpponentSwapped: ; new
     ld a, $2
     ld [wIsInBattle], a
 
-; TBE?
     ld a, [wLoneAttackNo]
     and a
-    jp z, .initBattleCommon
+    jr z, .initBattleCommon
     callabd_ModifyPikachuHappiness PIKAHAPPY_GYMLEADER ; useless since already in bank3d
 
 .initBattleCommon
@@ -661,9 +658,7 @@ InitOpponentSwapped: ; new
 	ldh [hTileAnimations], a
 	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; testing
 
-; check if we lost
-	ResetEvent EVENT_BLACKOUT_FROM_SWAP_SECOND_BATTLE ; TBE?
-	; did we surrender?
+; check if we lost or we surrender
 	ld a, [wSurrenderedFromTrainerBattle]
 	and a
 	jr nz, .lostSecond
@@ -699,7 +694,7 @@ InitOpponentSwapped: ; new
 CopyEnemyPartyIntoTrainersParty::
 	ld hl, wEnemyPartyCount
 	ld de, wPartyCount
-	ld bc, wPartyMon6Nick - wPartyCount
+	ld bc, wPartyDataEnd - wPartyCount
 	jp CopyData ; copies bc bytes from hl to de
 
 LoadPartyFromSpecialSRAMIntoEnemysParty::
@@ -712,7 +707,7 @@ LoadPartyFromSpecialSRAMIntoEnemysParty::
 ; copy data
 	ld hl, sTemporarySaveForSeviiSages ; origin
 	ld de, wEnemyPartyCount ; destination
-	ld bc, wEnemyMon6Nick - wEnemyPartyCount ; should be the same as wPartyMon6Nick - wPartyCount
+	ld bc, wEnemyPartyDataEnd - wEnemyPartyCount ; should be the same as wPartyMon6Nick - wPartyCount
 	call CopyData ; Copy bc bytes from hl to de.
 ; disable sram saving
 	ld a, SRAM_DISABLE

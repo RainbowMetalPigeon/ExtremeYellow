@@ -364,11 +364,13 @@ _AddEnemyMonToPlayerParty::
 	call SkipFixedLengthTextEntries
 	ld d, h
 	ld e, l
+
 	ld hl, wEnemyMonNicks
 	ld a, [wWhichPokemon]
 	call SkipFixedLengthTextEntries
 	ld bc, NAME_LENGTH
-	call CopyData    ; write new mon's nickname (from an enemy mon)
+	call CopyData ; write new mon's nickname (from an enemy mon) ; Copy bc bytes from hl to de
+	
 	ld a, [wcf91]
 	ld [wd11e], a
 	predef IndexToPokedex

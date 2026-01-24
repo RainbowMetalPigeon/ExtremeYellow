@@ -2735,6 +2735,8 @@ wSerialEnemyDataBlock:: ; ds $1a8
 
 	ds 9
 
+wEnemyPartyDataStart:: ; new
+
 wEnemyPartyCount:: ds 1
 wEnemyPartySpecies:: ds PARTY_LENGTH + 1
 
@@ -2755,6 +2757,9 @@ wEnemyMonNicks::
 FOR n, 1, PARTY_LENGTH + 1
 wEnemyMon{d:n}Nick:: ds NAME_LENGTH
 ENDR
+wEnemyMonNicksEnd:: ; new
+
+wEnemyPartyDataEnd:: ; new
 
 ENDU
 
