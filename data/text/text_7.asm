@@ -260,3 +260,8 @@ _CableClubNPCPleaseApplyHereHaveToSaveText::
 	line "the link, we have"
 	cont "to save the game."
 	done
+
+_SwapAndAgainText:: ; new
+	text "Swap and again!"
+;	xxxx "123456789012345678"
+	done

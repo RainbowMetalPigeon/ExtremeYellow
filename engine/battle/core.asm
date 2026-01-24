@@ -698,9 +698,29 @@ ReplaceFaintedEnemyMon:
 	ret
 
 TrainerBattleVictory:
+; new
+	CheckAndResetEvent EVENT_SKIP_FIRST_VICTORY_TEXT_IN_SWAP_BATTLE
+	jr z, .noSwapRepeatBattle
+; shrank version of the following code for first victory in a swap battle
+
+	ld a, [wIsTrainerBattle]
+	ld [wUniQuizAnswer], a
+	xor a
+	ld [wIsTrainerBattle], a
+
+	call EndLowHealthAlarm
+	ld hl, TrainerDefeatedText
+	call PrintText
+;	ld a, [wLinkState]
+;	cp LINK_STATE_BATTLING
+;	ret z
+	call ScrollTrainerPicAfterBattle
+	ld c, 40
+	jp DelayFrames
+.noSwapRepeatBattle
+; BTV
 	xor a						; new, ld a, 0
 	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
-;	ld [wLevelScaling], a		; new, remove level scaling (currently it's planned only for specific trainer, not for everyone)
 	ld [wIsTrainerBattle], a    ; new, to go beyond 200
 	inc a                       ; new, to go beyond 200
 	ld [wWasTrainerBattle], a   ; new, to go beyond 200
@@ -1255,6 +1275,11 @@ TrainerSentOutText:
 ; tests if the player has any pokemon that are not fainted
 ; sets d = 0 if all fainted, d != 0 if some mons are still alive
 AnyPartyAlive::
+	CheckAndResetEvent EVENT_BLACKOUT_FROM_SWAP_SECOND_BATTLE
+	jr z, .normalCode
+	xor a
+	jr .postLoop
+.normalCode
 	ld a, [wPartyCount]
 	ld e, a
 	xor a
@@ -1267,6 +1292,7 @@ AnyPartyAlive::
 	add hl, bc
 	dec e
 	jr nz, .partyMonsLoop
+.postLoop
 	ld d, a
 	ret
 
@@ -1406,6 +1432,7 @@ TryRunningFromBattle:
 	ld [wSurrenderedFromTrainerBattle], a
 	jp HandlePlayerBlackOut
 .noSurrender
+	xor a
 	ld hl, LetsNotGiveUpYet
 	call PrintText
 	ret

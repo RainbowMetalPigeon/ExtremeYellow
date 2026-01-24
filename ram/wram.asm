@@ -2680,7 +2680,8 @@ wFlags_D733:: db
 ; the game uses this to tell when Elite 4 events need to be reset
 wBeatLorelei:: db
 
-	ds 1 ; UNUSED bytes in "Main Data"
+;	ds 1
+wMultipurposeTemporaryStorage2:: db ; new
 
 ; bit 0: check if the player is standing on a door and make him walk down a step if so
 ; bit 1: the player is currently stepping down from a door

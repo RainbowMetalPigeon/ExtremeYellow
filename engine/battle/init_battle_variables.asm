@@ -1,4 +1,4 @@
-InitBattleVariables:
+InitBattleVariables::
 	ldh a, [hTileAnimations]
 	ld [wSavedTileAnimations], a
 	xor a

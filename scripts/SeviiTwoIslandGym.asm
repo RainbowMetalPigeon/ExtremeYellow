@@ -81,7 +81,7 @@ SeviiTwoIslandGymText1:
 ; save party, clear it, and load a random one
 	call SavePartyIntoSpecialSRAM
 	call ClearPlayersParty
-	
+
 	ld hl, SeviiTwoIslandGymText1_Intro1
 	call PrintText
 
@@ -203,7 +203,7 @@ SavePartyIntoSpecialSRAM::
 	ret
 
 ReloadTradedPartyFromSpecialSRAM::
-	; TBE: check wram var
+	; TBE: check wram var ; (?)
 ReloadPartyFromSpecialSRAM::
 ; enable sram saving
 	ld a, SRAM_ENABLE
@@ -221,13 +221,13 @@ ReloadPartyFromSpecialSRAM::
 	ld [MBC1SRamBankingMode], a
 	ld [MBC1SRamEnable], a
 	ret
-	
+
 ClearPlayersParty::
 	xor a
 	ld hl, wPartyDataStart
 	ld bc, wPartyDataEnd - wPartyDataStart
 	jp FillMemory
-	
+
 ; -------------------------------------
 
 RandomizePlayersTeamForNiueBattle::

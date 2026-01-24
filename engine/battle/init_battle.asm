@@ -33,7 +33,11 @@ InitBattleCommon:
 	ld a, [wIsTrainerBattle]	; new to go beyond 200
 	and a						; new to go beyond 200
 	jp z, InitWildBattle		; new to go beyond 200
+; trainer battle
+	SetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; new for swap battle
+	SetEvent EVENT_SKIP_FIRST_VICTORY_TEXT_IN_SWAP_BATTLE ; new for swap battle
 	ld a, [wEnemyMonSpecies2]
+	ld [wMultipurposeTemporaryStorage], a ; new for swap battle
 	sub OPP_ID_OFFSET           ; still relevant?
 ;	jp c, InitWildBattle		; commented to go beyond 200
 	ld [wTrainerClass], a
@@ -72,6 +76,7 @@ InitBattleCommon:
 	jp _InitBattleCommon
 
 InitWildBattle:
+	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; new, testing
 	ld a, $1
 	ld [wIsInBattle], a
 	callfar LoadEnemyMonData
@@ -238,14 +243,18 @@ _InitBattleCommon:
 	call z, Bankswitch ; draw enemy HUD and HP bar if it's a wild battle
 	callfar StartBattle
 	callfar EndOfBattle
-	pop af
-	ld [wLetterPrintingDelayFlags], a
-	pop af
-	ld [wMapPalOffset], a
-	ld a, [wSavedTileAnimations]
-	ldh [hTileAnimations], a
-	scf
-	ret
+
+	jp InitOpponentSwapped ; new, testing
+
+;	pop af
+;	ld [wLetterPrintingDelayFlags], a
+;	pop af
+;	ld [wMapPalOffset], a
+;	ld a, [wSavedTileAnimations]
+;	ldh [hTileAnimations], a
+;	scf
+;	ret
+
 .emptyString
 	db "@"
 
@@ -506,3 +515,211 @@ CopyUncompressedPicToHL::
 	dec b
 	jr nz, .flippedLoop
 	ret
+
+; new, swapped trainer battle ================================================
+
+InitOpponentSwapped: ; new
+	CheckEvent EVENT_SWAP_MODE_REPEAT_BATTLE
+	jr z, .noSwapBattle
+
+; skip if we lost or surrended the first battle
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr nz, .noSwapBattle
+	callfar AnyPartyAlive
+	ld a, d
+	and a
+	jr z, .noSwapBattle
+
+; check to handle Copycat's full copy team and special battles
+    CheckEvent EVENT_IN_SEVII
+    jr nz, .swapBattle
+; check if we're fighting Copycat
+    ld a, [wCurMap]
+    cp COPYCATS_HOUSE_1F
+    jr z, .noSwapBattle
+; check if it's a special battle type
+	ld a, [wMultipurposeTemporaryStorage2] ; it contains wBattleType, see end_of_battle.asm
+	and a
+	jr z, .swapBattle ; normal battle has value = 0, and we repeat it only in this (common) case
+
+.noSwapBattle
+	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE
+	pop af
+	ld [wLetterPrintingDelayFlags], a
+	pop af
+	ld [wMapPalOffset], a
+	ld a, [wSavedTileAnimations]
+	ldh [hTileAnimations], a
+	scf
+	ret
+
+.swapBattle
+	ld hl, SwapAndAgainText
+	call PrintText
+
+	ldh a, [hTileAnimations]
+	ld [wSavedTileAnimations], a
+	xor a
+	ldh [hTileAnimations], a
+
+    callfar SavePartyIntoSpecialSRAM
+	callfar ClearPlayersParty
+
+    ld a, [wMultipurposeTemporaryStorage] ; holds wEnemyMonSpecies2
+    ld [wEnemyMonSpecies2], a
+    sub OPP_ID_OFFSET
+    ld [wTrainerClass], a
+    callfar GetTrainerInformation
+	callfar ReadTrainer
+	call CopyEnemyPartyIntoTrainersParty
+	; TBE: dedicated function to copy the shinyness?
+	; TBE: copy/make nicknames
+
+	call LoadPartyFromSpecialSRAMIntoEnemysParty
+
+	; it works but maybe it could be fine-tuned
+	hlcoord 9, 7
+	lb bc, 5, 10
+	call ClearScreenArea
+	hlcoord 1, 0
+	lb bc, 4, 10
+	call ClearScreenArea ; clear tilemap area cxb at hl
+
+	ld b, SET_PAL_BATTLE_BLACK
+	call RunPaletteCommand
+
+	callfar HealPartyEnemy ; testing
+
+	callfar InitBattleVariables
+
+    callfar DoBattleTransitionAndInitBattleVariables
+	ld a, [wUniQuizAnswer]
+	ld [wIsTrainerBattle], a
+    call _LoadTrainerPic
+
+	ld a, [wSavedTileAnimations]
+	ldh [hTileAnimations], a
+
+    xor a
+    ld [wEnemyMonSpecies2], a
+    ldh [hStartTileID], a
+    dec a
+    ld [wAICount], a
+    hlcoord 12, 0
+    predef CopyUncompressedPicToTilemap
+    ld a, $ff
+    ld [wEnemyMonPartyPos], a
+    ld a, $2
+    ld [wIsInBattle], a
+
+; TBE?
+    ld a, [wLoneAttackNo]
+    and a
+    jp z, .initBattleCommon
+    callabd_ModifyPikachuHappiness PIKAHAPPY_GYMLEADER ; useless since already in bank3d
+
+.initBattleCommon
+	ld b, SET_PAL_BATTLE_BLACK
+	call RunPaletteCommand
+	callfar SlidePlayerAndEnemySilhouettesOnScreen
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	ld hl, .emptyString
+	call PrintText
+	call SaveScreenTilesToBuffer1
+	call ClearScreen
+	ld a, $98
+	ldh [hAutoBGTransferDest + 1], a
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a
+	call Delay3
+	ld a, $9c
+	ldh [hAutoBGTransferDest + 1], a
+	call LoadScreenTilesFromBuffer1
+	hlcoord 9, 7
+	lb bc, 5, 10
+	call ClearScreenArea
+	hlcoord 1, 0
+	lb bc, 4, 10
+	call ClearScreenArea
+	call ClearSprites
+	ld a, [wIsInBattle]
+	dec a ; is it a wild battle?
+	ld hl, DrawEnemyHUDAndHPBar
+	ld b, BANK(DrawEnemyHUDAndHPBar)
+	call z, Bankswitch ; draw enemy HUD and HP bar if it's a wild battle
+
+	callfar StartBattle
+	callfar EndOfBattle
+
+	pop af
+	ld [wLetterPrintingDelayFlags], a
+	pop af
+	ld [wMapPalOffset], a
+	ld a, [wSavedTileAnimations]
+	ldh [hTileAnimations], a
+	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; testing
+
+; check if we lost
+	ResetEvent EVENT_BLACKOUT_FROM_SWAP_SECOND_BATTLE ; TBE?
+	; did we surrender?
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr nz, .lostSecond
+	; is all the team KO?
+	callfar AnyPartyAlive
+	ld a, d
+	and a
+	jr nz, .notLostSecond
+.lostSecond
+	ld a, $FF
+	ld [wIsInBattle], a
+	SetEvent EVENT_BLACKOUT_FROM_SWAP_SECOND_BATTLE
+.notLostSecond
+
+	callfar ReloadTradedPartyFromSpecialSRAM
+
+; TBE: handle blackout
+	; AllPokemonFainted
+	; _HandlePlayerBlackOut
+	; check how it interacts with battles we can lose: EVENT_BATTLE_CAN_BE_LOST
+	; handle money and inverse-battle-ness: TrainerBattleVictory -> maybe small version of it?
+
+; TBE: handle flagging victory
+	; EndTrainerBattle
+
+	scf
+	ret
+.emptyString
+	db "@"
+
+; ===========================================
+
+CopyEnemyPartyIntoTrainersParty::
+	ld hl, wEnemyPartyCount
+	ld de, wPartyCount
+	ld bc, wPartyMon6Nick - wPartyCount
+	jp CopyData ; copies bc bytes from hl to de
+
+LoadPartyFromSpecialSRAMIntoEnemysParty::
+; enable sram saving
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	ld a, $1
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamBank], a
+; copy data
+	ld hl, sTemporarySaveForSeviiSages ; origin
+	ld de, wEnemyPartyCount ; destination
+	ld bc, wEnemyMon6Nick - wEnemyPartyCount ; should be the same as wPartyMon6Nick - wPartyCount
+	call CopyData ; Copy bc bytes from hl to de.
+; disable sram saving
+	ld a, SRAM_DISABLE
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
+	ret
+
+SwapAndAgainText:
+	text_far _SwapAndAgainText
+	text_end

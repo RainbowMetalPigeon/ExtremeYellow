@@ -217,6 +217,8 @@ StartTrainerBattle::
 	ret
 
 EndTrainerBattle::
+;	CheckEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; testing
+;	ret nz ; testing
 	ld hl, wCurrentMapScriptFlags
 	set 5, [hl]
 	set 6, [hl]

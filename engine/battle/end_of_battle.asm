@@ -49,6 +49,8 @@ EndOfBattle:
 	callfar UpdatePikachuMoodAfterBattle
 .resetVariables
 	callfar RollForShiny ; testing, for the shiny
+	ld a, [wBattleType] ; new for swap battles
+	ld [wMultipurposeTemporaryStorage2], a ; new for swap battles
 	xor a
 	ld [wLowHealthAlarm], a ; disable low health alarm
 	ld [wChannelSoundIDs + CHAN5], a
