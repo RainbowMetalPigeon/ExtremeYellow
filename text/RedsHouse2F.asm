@@ -1,30 +1,30 @@
 _RedsHouse2FPersonalizationOptions_Intro::
-	text "Personalization"
+	text "PERSONALIZATION"
 	line "options:"
 	prompt
 
 _RedsHouse2FPersonalizationOptions_Outro::
-	text "Personalization"
+	text "PERSONALIZATION"
 	line "applied."
 	done
 
 _RedsHouse2FRandomizationOptions_Intro::
-	text "Randomization"
+	text "RANDOMIZATION"
 	line "options:"
 	prompt
 
 _RedsHouse2FRandomizationOptions_Outro::
-	text "Randomization"
+	text "RANDOMIZATION"
 	line "applied."
 	done
 
 _RedsHouse2FLuckOptions_Intro::
-	text "Battle luck"
+	text "BATTLE LUCK"
 	line "options:"
 	prompt
 
 _RedsHouse2FLuckOptions_Outro::
-	text "Battle luck"
+	text "BATTLE LUCK"
 	line "applied."
 	done
 

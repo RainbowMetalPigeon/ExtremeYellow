@@ -40,6 +40,7 @@ LuckMenuJumpTable:
 	dw LuckMenu_SecondaryEffects
 	dw LuckMenu_StatusesAffliction
 	dw LuckMenu_Dummy
+	dw LuckMenu_Dummy
 	dw LuckMenu_Cancel
 
 ; ---------------------------------------------
@@ -81,7 +82,7 @@ LuckMenu_Accuracy:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 4
+	hlcoord 9, 2
 	call PlaceString
 	and a
 	ret
@@ -125,7 +126,7 @@ LuckMenu_Roll:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 6
+	hlcoord 9, 4
 	call PlaceString
 	and a
 	ret
@@ -169,7 +170,7 @@ LuckMenu_Crit:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 8
+	hlcoord 9, 6
 	call PlaceString
 	and a
 	ret
@@ -213,7 +214,7 @@ LuckMenu_SecondaryEffects:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 10
+	hlcoord 9, 8
 	call PlaceString
 	and a
 	ret
@@ -257,7 +258,7 @@ LuckMenu_StatusesAffliction:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 9, 12
+	hlcoord 9, 10
 	call PlaceString
 	and a
 	ret
@@ -299,7 +300,7 @@ LuckControl:
 	ret
 .pressedDown
 	ld a, [hl]
-	cp 6 ; option position of CANCEL: 7th, but is #6 because we start from 0
+	cp 7 ; option position of CANCEL: 78h, but is #6 because we start from 0
 	jr nz, .doNotWrapAround
 	ld [hl], $0
 	scf
@@ -307,14 +308,14 @@ LuckControl:
 .doNotWrapAround
 	cp 4 ; number of options - 1
 	jr c, .regularIncrement
-	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
+	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
 	inc [hl]
 	scf
 	ret
 .pressedUp
 	ld a, [hl]
-	cp 6 ; option position of CANCEL
+	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
 	ld [hl], 4 ; number of options - 1
 	scf
@@ -322,7 +323,7 @@ LuckControl:
 .doNotMoveCursorToLastValidOption
 	and a
 	jr nz, .regularDecrement
-	ld [hl], 7 ; option position of CANCEL + 1, because it will be reduced by 1 next step
+	ld [hl], 8 ; option position of CANCEL + 1, because it will be reduced by 1 next step
 .regularDecrement
 	dec [hl]
 	scf
@@ -347,15 +348,15 @@ LuckControl:
 	ret
 
 LuckMenu_UpdateCursorPosition:
-	hlcoord 1, 4
+	hlcoord 1, 2
 	ld de, SCREEN_WIDTH
-	ld c, 13
+	ld c, 15
 .loop
 	ld [hl], " "
 	add hl, de
 	dec c
 	jr nz, .loop
-	hlcoord 1, 4
+	hlcoord 1, 2
 	ld bc, SCREEN_WIDTH * 2
 	ld a, [wOptionsCursorLocation]
 	call AddNTimes
@@ -367,15 +368,15 @@ InitLuckMenu:
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; new, testing
-	hlcoord 2, 4
+	hlcoord 2, 2
 	ld de, AllLuckText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, LuckMenuCancelText
 	call PlaceString
-	hlcoord 5, 2
-	ld de, LuckTitleText
-	call PlaceString
+;	hlcoord 5, 2
+;	ld de, LuckTitleText
+;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 5 ; the number of options to loop through
@@ -399,15 +400,15 @@ InitLuckMenu_Redo:
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; new, testing
-	hlcoord 2, 4
+	hlcoord 2, 2
 	ld de, AllLuckText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, LuckMenuCancelText
 	call PlaceString
-	hlcoord 5, 2
-	ld de, LuckTitleText
-	call PlaceString
+;	hlcoord 5, 2
+;	ld de, LuckTitleText
+;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 5 ; the number of options to loop through

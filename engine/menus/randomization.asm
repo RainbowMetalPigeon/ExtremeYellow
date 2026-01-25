@@ -46,6 +46,7 @@ RandomizationMenuJumpTable:
 	dw RandomizationMenu_Items
 	dw RandomizationMenu_Evolutions
 	dw RandomizationMenu_Dummy
+	dw RandomizationMenu_Dummy
 	dw RandomizationMenu_Cancel
 
 ; ---------------------------------------------
@@ -87,7 +88,7 @@ RandomizationMenu_WildEncounters:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 4
+	hlcoord 15, 2
 	call PlaceString
 	and a
 	ret
@@ -131,7 +132,7 @@ RandomizationMenu_TrainersTeam:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 6
+	hlcoord 15, 4
 	call PlaceString
 	and a
 	ret
@@ -175,7 +176,7 @@ RandomizationMenu_Items:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 8, 10
+	hlcoord 8, 8
 	call PlaceString
 	and a
 	ret
@@ -219,7 +220,7 @@ RandomizationMenu_TypeChart:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 8
+	hlcoord 15, 6
 	call PlaceString
 	and a
 	ret
@@ -263,7 +264,7 @@ RandomizationMenu_Evolutions:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 13, 12
+	hlcoord 13, 10
 	call PlaceString
 	and a
 	ret
@@ -350,7 +351,7 @@ RandomizationControl:
 	ret
 .pressedDown
 	ld a, [hl]
-	cp 6 ; option position of CANCEL: 7th, but is #6 because we start from 0
+	cp 7 ; option position of CANCEL: 8th, but is #6 because we start from 0
 	jr nz, .doNotWrapAround
 	ld [hl], $0
 	scf
@@ -358,14 +359,14 @@ RandomizationControl:
 .doNotWrapAround
 	cp 4 ; number of options - 1
 	jr c, .regularIncrement
-	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
+	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
 	inc [hl]
 	scf
 	ret
 .pressedUp
 	ld a, [hl]
-	cp 6 ; option position of CANCEL
+	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
 	ld [hl], 4 ; number of options - 1
 	scf
@@ -373,7 +374,7 @@ RandomizationControl:
 .doNotMoveCursorToLastValidOption
 	and a
 	jr nz, .regularDecrement
-	ld [hl], 7 ; option position of CANCEL + 1, because it will be reduced by 1 next step
+	ld [hl], 8 ; option position of CANCEL + 1, because it will be reduced by 1 next step
 .regularDecrement
 	dec [hl]
 	scf
@@ -398,15 +399,15 @@ RandomizationControl:
 	ret
 
 RandomizationMenu_UpdateCursorPosition:
-	hlcoord 1, 4
+	hlcoord 1, 2
 	ld de, SCREEN_WIDTH
-	ld c, 13
+	ld c, 15
 .loop
 	ld [hl], " "
 	add hl, de
 	dec c
 	jr nz, .loop
-	hlcoord 1, 4
+	hlcoord 1, 2
 	ld bc, SCREEN_WIDTH * 2
 	ld a, [wOptionsCursorLocation]
 	call AddNTimes
@@ -434,15 +435,15 @@ InitRandomizationMenu:
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; new, testing
-	hlcoord 2, 4
+	hlcoord 2, 2
 	ld de, AllRandomizationText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, RandomizationMenuCancelText
 	call PlaceString
-	hlcoord 4, 2
-	ld de, RandomizationTitleText
-	call PlaceString
+;	hlcoord 4, 2
+;	ld de, RandomizationTitleText
+;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 5 ; the number of options to loop through
@@ -466,15 +467,15 @@ InitRandomizationMenu_Redo:
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; new, testing
-	hlcoord 2, 4
+	hlcoord 2, 2
 	ld de, AllRandomizationText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, RandomizationMenuCancelText
 	call PlaceString
-	hlcoord 4, 2
-	ld de, RandomizationTitleText
-	call PlaceString
+;	hlcoord 4, 2
+;	ld de, RandomizationTitleText
+;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 5 ; the number of options to loop through
