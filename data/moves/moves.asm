@@ -228,7 +228,7 @@ Moves:
 	move GIGA_DRAIN,   DRAIN_HP_EFFECT,	            75,	GRASS,        100, 10 ; [TM21] done
 	move MAGICAL_LEAF, SWIFT_EFFECT,	            60,	GRASS,        100, 20 ; done
 	move BULLET_SEED,  TWO_TO_FIVE_ATTACKS_EFFECT,  25,	GRASS,        100, 30 ; done
-	move LEAF_STORM,   SPECIAL_SELFDOWN2,	   	   130, GRASS,         90, 5  ; done, to be further tested
+	move LEAF_STORM,   SPECIAL_SELFDOWN2,	   	   140, GRASS,         90, 5  ; done, to be further tested
 	move ENERGY_BALL,  SPECIAL_DOWN_SIDE_EFFECT1,   90,	GRASS,        100, 10 ; done, to be further tested
 	move FRENZY_PLANT, HYPER_BEAM_EFFECT,	       150,	GRASS,         90, 5  ; done
 
@@ -250,7 +250,6 @@ Moves:
 	move ROCK_TOMB,	   SPEED_DOWN_SIDE_EFFECT_CERT, 60,	ROCK,	       95, 15 ; done, to be further tested
 	move HEAD_SMASH,   RECOIL_EFFECT,	           150,	ROCK,	       80, 5  ; done (1/2 instead 1/3 study more the code in engine/battle/move_effects/recoil)
 	move STONE_EDGE,   NO_ADDITIONAL_EFFECT,	   100,	ROCK,	       80, 5  ; [TM22] high crit rate ; done
-;	move ACCELEROCK,   NO_ADDITIONAL_EFFECT,	    40,	ROCK,	      100, 20 ; prio +1 ; done
 
 	move IRON_TAIL,    DEFENSE_DOWN_SIDE_EFFECT3,  100, STEEL,	       75, 15 ; done - it should be 30% chance rather than 33% but doesn't matter
 	move STEEL_WING,   DEFENSE_UP_SIDE_EFF1,	    70,	STEEL,	       90, 25 ; done, to be further tested - self-buff, 10% def

@@ -362,8 +362,8 @@ PetrelPic::
 ArianaPic::
 ArcherPic::
 CarrPic::
-OrmPic::
-SirdPic::
+OrmPic::           INCBIN "gfx/trainers/orm.pic"
+SirdPic::          INCBIN "gfx/trainers/sird.pic"
 IchinoPic::
 NiuePic::
 SantrePic::
