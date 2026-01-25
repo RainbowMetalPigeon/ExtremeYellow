@@ -85,6 +85,7 @@ InternalMapEntries:
 	internal_map UNDERGROUND_PATH_ROUTE_7,       9,  5, Route7Name
 	internal_map OCHRE_HOUSES,                  11, 11, OchreCityName ; new
 	internal_map UNDERGROUND_PATH_ROUTE_8,      11,  5, Route8Name
+	internal_map ROCK_TUNNEL_POKECENTER,        14,  4, Route10Name ; new
 	internal_map ROCK_TUNNEL_1F,                14,  3, RockTunnelName
 	internal_map POWER_PLANT,                   15,  3, PowerPlantName
 	internal_map DIGLETTS_CAVE_ROUTE_11,        13,  9, Route11Name ; edited because of MERGING

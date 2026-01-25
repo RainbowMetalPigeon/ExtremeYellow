@@ -262,6 +262,7 @@ _CableClubNPCPleaseApplyHereHaveToSaveText::
 	done
 
 _SwapAndAgainText:: ; new
-	text "Swap and again!"
+	text "Let's swap teams"
+	line "and fight again!"
 ;	xxxx "123456789012345678"
 	done
