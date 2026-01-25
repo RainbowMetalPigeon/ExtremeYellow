@@ -12,6 +12,23 @@ CheckIfCanSurfOrCutFromOverworld::
     jp z, .checkForWhirlpoolDiveWaterfall
 ; if we are not already surfing
 
+; testing: check for birbs
+    CheckEvent EVENT_IN_SEVII
+    jr z, .checkIfAreaDark
+    ld a, [wTileInFrontOfPlayer]
+    cp $5F
+    jr nz, .checkIfAreaDark
+; birb in front of us
+    call AnimateBribTile_SeviiFlapping
+	ld a, 0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, SMILE_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+    call AnimateBribTile_SeviiResting
+    ret ; TBE
+
+.checkIfAreaDark
 ; check if area is dark
     ld a, [wMapPalOffset]
     and a
@@ -707,3 +724,37 @@ ForceContinueWaterfall::
 .end
 	ldh [hJoyHeld], a
 	ret
+
+; ==================================================================
+
+AnimateBribTile_Resting:
+	ld de, BirbTileRest
+	ld hl, vTileset tile $5F ; TBE
+    jr AnimateBribTile_Core
+
+AnimateBribTile_Flapping:
+	ld de, BirbTileFlap
+	ld hl, vTileset tile $5F ; TBE
+    jr AnimateBribTile_Core
+
+AnimateBribTile_SeviiResting:
+	ld de, BirbTileSeviiRest
+	ld hl, vTileset tile $5F
+    jr AnimateBribTile_Core
+
+AnimateBribTile_SeviiFlapping:
+	ld de, BirbTileSeviiFlap
+	ld hl, vTileset tile $5F
+    ; fallthrough
+
+AnimateBribTile_Core:
+	lb bc, BANK(BirbTileRest), 1
+	jp CopyVideoData
+
+BirbTileRest: INCBIN "gfx/tilesets/birbs/birb_resting.2bpp"
+BirbTileFlap: INCBIN "gfx/tilesets/birbs/birb_flapping.2bpp"
+
+BirbTileSeviiRest: INCBIN "gfx/tilesets/birbs/birb_sevii_resting.2bpp"
+BirbTileSeviiFlap: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping.2bpp"
+
+; ==================================================================
