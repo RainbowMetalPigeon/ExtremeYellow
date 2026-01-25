@@ -64,6 +64,17 @@ Evolution_PartyMonLoop: ; loop over party mons
 	cp b ; previous stage
 	jr z, .sanityLoop ; we don't want to evolve X into X
 	ld [wEvoNewSpecies], a
+; testing to debug
+	push hl
+	ld a, [wcf91]
+	push af
+	xor a ; PLAYER_PARTY_DATA
+	ld [wMonDataLocation], a
+	call LoadMonData
+	pop af
+	ld [wcf91], a
+	pop hl
+; end of new debug code
 	jp .continueRandomEvolutions
 .noRandomEvolution
 ; continue with vanilla evolution
@@ -96,14 +107,14 @@ Evolution_PartyMonLoop: ; loop over party mons
 ; back to vanilla
 	ld a, [hli]
 	and a ; have we reached the end of the evolution data?
-	jr z, Evolution_PartyMonLoop
+	jp z, Evolution_PartyMonLoop
 	ld b, a ; evolution type
 	cp EV_TRADE
 	jr z, .checkTradeEvo
 ; not trade evolution
 	ld a, [wLinkState]
 	cp LINK_STATE_TRADING
-	jr z, Evolution_PartyMonLoop ; if trading, go the next mon
+	jp z, Evolution_PartyMonLoop ; if trading, go the next mon
 	ld a, b
 	cp EV_ITEM
 	jr z, .checkItemEvo
@@ -283,12 +294,12 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld a, [hl]
 	add c
 	ld [hld], a
-	ld a, [hl]
+	ld a, [hl] ; wLoadedMonHP
 	adc b
 	ld [hl], a
-	dec hl
+	dec hl ; wLoadedMonSpecies
 	pop bc
-	call CopyData
+	call CopyData ; Copy bc bytes from hl to de: de points to the evolving mon (wPartyMonN), bc is wPartyMon2 - wPartyMon1, hl is wLoadedMonSpecies
 	ld a, [wd0b5] ; current species
 	ld [wd11e], a ; pokedex number
 ;	push af ; new to bug fix from ZetaPhoenix
