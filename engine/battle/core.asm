@@ -17,7 +17,7 @@ SlidePlayerAndEnemySilhouettesOnScreen:           ; edited into a jpfar to save 
 
 StartBattle:
 ; new
-	ld [wPersonalizationSwapBattles], a
+	ld a, [wPersonalizationSwapBattles]
 	cp 1
 	jr nz, .noContinuousTradeMode
 	callfar SaveEnemyPartyIntoSpecialSRAM ; testing
@@ -776,7 +776,7 @@ TrainerBattleVictory:
 	ld c, $3
 	predef AddBCDPredef
 .noAmuletCoin
-	ld [wPersonalizationSwapBattles], a
+	ld a, [wPersonalizationSwapBattles]
 	cp 1
 	jr nz, .noContinuousTradeMode
 	callfar ReloadTradedPartyFromSpecialSRAM ; testing

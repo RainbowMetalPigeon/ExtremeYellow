@@ -716,11 +716,11 @@ SwapAndAgainText:
 	text_end
 
 DetermineIfSettingSwapBattle:
-	ld [wPersonalizationSwapBattles], a ; 0=None, 1=(Continuous) Trade, 2=All, 3=Major
+	ld a, [wPersonalizationSwapBattles] ; 0=None, 1=(Continuous) Trade, 2=All, 3=Major
 	cp 2
 	ret c
 ; All or Major?
-	cp 1
+	cp 2
 	jr z, .setSwapBattle
 ; Major only
 	ld a, [wCurOpponent]

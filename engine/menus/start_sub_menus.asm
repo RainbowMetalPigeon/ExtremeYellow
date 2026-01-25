@@ -1129,14 +1129,6 @@ DrawTrainerInfoBack: ; new
 	ld de, TrainerInfo_MilestonesText
 	call PlaceString
 
-; EVENT_FLASHED_SS_TICKET
-; EVENT_GOT_COIN_CASE
-; EVENT_ROCKET_USED_LIFT_KEY
-; EVENT_USED_CARD_KEY
-; EVENT_TRAVELED_TO_SEVII_AT_LEAST_ONCE EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5 EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
-; EVENT_CINNABAR_USED_SECRET_KEY
-; scrolls
-
 	CheckEvent EVENT_FLASHED_SS_TICKET
 	jr z, .checkNextEvent1
 	hlcoord 1, 3
@@ -1249,58 +1241,3 @@ TrainerInfo_MilestonesText_SecretKey:
 	
 TrainerInfo_MilestonesText_SeviiTrials:
 	db $76,"SEVII TRIAL@"
-
-/*
-
-TrainerInfo_FarCopyData:
-	ld a, BANK(TrainerInfoTextBoxTileGraphics)
-	jp FarCopyData ; Copy bc bytes from a:hl to de.
-
-; draws a text box on the trainer info screen
-; height is always 6
-; INPUT:
-; hl = destination address
-; [wTrainerInfoTextBoxWidthPlus1] = width
-; [wTrainerInfoTextBoxWidth] = width - 1
-; [wTrainerInfoTextBoxNextRowOffset] = distance from the end of a text box row to the start of the next
-TrainerInfo_DrawTextBox:
-	ld a, $79 ; upper left corner tile ID
-	lb de, $7a, $7b ; top edge and upper right corner tile ID's
-	call TrainerInfo_DrawHorizontalEdge ; draw top edge
-	call TrainerInfo_NextTextBoxRow
-	ld a, [wTrainerInfoTextBoxWidthPlus1]
-	ld e, a
-	ld d, 0
-	ld c, 6 ; height of the text box
-.loop
-	ld [hl], $7c ; left edge tile ID
-	add hl, de
-	ld [hl], $78 ; right edge tile ID
-	call TrainerInfo_NextTextBoxRow
-	dec c
-	jr nz, .loop
-	ld a, $7d ; lower left corner tile ID
-	lb de, $77, $7e ; bottom edge and lower right corner tile ID's
-
-TrainerInfo_DrawHorizontalEdge:
-	ld [hli], a ; place left corner tile
-	ld a, [wTrainerInfoTextBoxWidth]
-	ld c, a
-	ld a, d
-.loop
-	ld [hli], a ; place edge tile
-	dec c
-	jr nz, .loop
-	ld a, e
-	ld [hl], a ; place right corner tile
-	ret
-
-TrainerInfo_NextTextBoxRow:
-	ld a, [wTrainerInfoTextBoxNextRowOffset] ; distance to the start of the next row
-.loop
-	inc hl
-	dec a
-	jr nz, .loop
-	ret
-
-*/
