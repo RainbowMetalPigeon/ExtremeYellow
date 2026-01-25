@@ -555,6 +555,9 @@ InitOpponentSwapped: ; new
 	ret
 
 .swapBattle
+	SetEvent EVENT_NON_DEFAULT_ENEMY_NICKNAME_LOADING
+	SetEvent EVENT_SECOND_BATTLE_IN_SWAP_BATTLE
+
 	ld hl, SwapAndAgainText
 	call PrintText
 
@@ -656,7 +659,9 @@ InitOpponentSwapped: ; new
 	ld [wMapPalOffset], a
 	ld a, [wSavedTileAnimations]
 	ldh [hTileAnimations], a
-	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; testing
+	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE
+	ResetEvent EVENT_NON_DEFAULT_ENEMY_NICKNAME_LOADING
+	ResetEvent EVENT_SECOND_BATTLE_IN_SWAP_BATTLE
 
 ; check if we lost or we surrender
 	ld a, [wSurrenderedFromTrainerBattle]

@@ -6972,9 +6972,13 @@ LoadEnemyMonData:
 ;the pkmn is out for the first time, so give it some statExp
 	push de	;preserve de
 	push hl
-	ld a, $FF	; EY tentative, load max stats
-	ld d, a		; EY tentative, load max stats
-	ld e, a		; EY tentative, load max stats
+	CheckEvent EVENT_SECOND_BATTLE_IN_SWAP_BATTLE
+	ld a, $FF	; EY, load max stats
+	jr z, .chosenStatExpToLoad
+	xor a ; if swap battle
+.chosenStatExpToLoad
+	ld d, a		; EY, load max stats
+	ld e, a		; EY, load max stats
 	pop hl
 	push hl	;save position for party data wEnemyMon<x>HPExp - 1
 	inc hl ; move hl forward one position to MSB of first stat exp
@@ -7023,8 +7027,6 @@ LoadEnemyMonData:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;shinpokerednote: CHANGED: if this is a trainer battle and it's the first time the pkmn is sent out
 ;		   then make sure its current hp = its max hp
-; EY: I still don't exactly get why?
-
 	ld a, [wIsInBattle]
 	cp $2 ; is it a trainer battle?
 	jr nz, .nottrainer2
@@ -7108,6 +7110,10 @@ LoadEnemyMonData:
 	inc de
 	ld a, [hl]     ; base exp
 	ld [de], a
+; new/edited
+	CheckEvent EVENT_NON_DEFAULT_ENEMY_NICKNAME_LOADING
+	jr nz, .nonDefaultEnemyNicknameLoading
+; vanilla code
 	ld a, [wEnemyMonSpecies2]
 	ld [wd11e], a
 	call GetMonName
@@ -7115,6 +7121,16 @@ LoadEnemyMonData:
 	ld de, wEnemyMonNick
 	ld bc, NAME_LENGTH
 	call CopyData
+	jr .postNicknameHandling
+.nonDefaultEnemyNicknameLoading ; code borrowed from LoadEnemyMonFromParty, that is used only for linked battles
+	ld hl, wEnemyMonNicks
+	ld a, [wWhichPokemon]
+	call SkipFixedLengthTextEntries ; skips a text entries, each of size NAME_LENGTH ; hl: base pointer, will be incremented by NAME_LENGTH * a
+	ld de, wEnemyMonNick
+	ld bc, NAME_LENGTH
+	call CopyData ; Copy bc bytes from hl to de.
+; BTV
+.postNicknameHandling
 	ld a, [wEnemyMonSpecies2]
 	ld [wd11e], a
 	predef IndexToPokedex

@@ -52,6 +52,10 @@ BattleTransition:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .linkBattle
+; new
+	CheckEvent EVENT_SECOND_BATTLE_IN_SWAP_BATTLE
+	jr nz, .linkBattle
+; BTV
 	call GetBattleTransitionID_WildOrTrainer
 	call GetBattleTransitionID_CompareLevels
 	call GetBattleTransitionID_IsDungeonMap
