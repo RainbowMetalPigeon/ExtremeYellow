@@ -34,8 +34,7 @@ InitBattleCommon:
 	and a						; new to go beyond 200
 	jp z, InitWildBattle		; new to go beyond 200
 ; trainer battle
-	SetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; new for swap battle
-	SetEvent EVENT_SKIP_FIRST_VICTORY_TEXT_IN_SWAP_BATTLE ; new for swap battle
+	call DetermineIfSettingSwapBattle ; new for swap battle
 	ld a, [wEnemyMonSpecies2]
 	ld [wMultipurposeTemporaryStorage], a ; new for swap battle
 	sub OPP_ID_OFFSET           ; still relevant?
@@ -76,7 +75,7 @@ InitBattleCommon:
 	jp _InitBattleCommon
 
 InitWildBattle:
-	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; new, testing
+	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE ; new for swap battle
 	ld a, $1
 	ld [wIsInBattle], a
 	callfar LoadEnemyMonData
@@ -244,7 +243,7 @@ _InitBattleCommon:
 	callfar StartBattle
 	callfar EndOfBattle
 
-	jp InitOpponentSwapped ; new, testing
+	jp InitOpponentSwapped ; new for swap battle
 
 ;	pop af
 ;	ld [wLetterPrintingDelayFlags], a
@@ -545,6 +544,7 @@ InitOpponentSwapped: ; new
 
 .noSwapBattle
 	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE
+	ResetEvent EVENT_SKIP_FIRST_VICTORY_TEXT_IN_SWAP_BATTLE
 	pop af
 	ld [wLetterPrintingDelayFlags], a
 	pop af
@@ -660,6 +660,7 @@ InitOpponentSwapped: ; new
 	ld a, [wSavedTileAnimations]
 	ldh [hTileAnimations], a
 	ResetEvent EVENT_SWAP_MODE_REPEAT_BATTLE
+	ResetEvent EVENT_SKIP_FIRST_VICTORY_TEXT_IN_SWAP_BATTLE
 	ResetEvent EVENT_NON_DEFAULT_ENEMY_NICKNAME_LOADING
 	ResetEvent EVENT_SECOND_BATTLE_IN_SWAP_BATTLE
 
@@ -677,24 +678,14 @@ InitOpponentSwapped: ; new
 	ld [wIsInBattle], a
 	SetEvent EVENT_BLACKOUT_FROM_SWAP_SECOND_BATTLE
 .notLostSecond
-
 	callfar ReloadTradedPartyFromSpecialSRAM
-
-; TBE: handle blackout
-	; AllPokemonFainted
-	; _HandlePlayerBlackOut
-	; check how it interacts with battles we can lose: EVENT_BATTLE_CAN_BE_LOST
-	; handle money and inverse-battle-ness: TrainerBattleVictory -> maybe small version of it?
-
-; TBE: handle flagging victory
-	; EndTrainerBattle
 
 	scf
 	ret
 .emptyString
 	db "@"
 
-; ===========================================
+; new for swap battle ===========================================
 
 CopyEnemyPartyIntoTrainersParty::
 	ld hl, wEnemyPartyCount
@@ -723,3 +714,60 @@ LoadPartyFromSpecialSRAMIntoEnemysParty::
 SwapAndAgainText:
 	text_far _SwapAndAgainText
 	text_end
+
+DetermineIfSettingSwapBattle:
+	ld [wPersonalizationSwapBattles], a ; 0=None, 1=(Continuous) Trade, 2=All, 3=Major
+	cp 2
+	ret c
+; All or Major?
+	cp 1
+	jr z, .setSwapBattle
+; Major only
+	ld a, [wCurOpponent]
+	ld hl, ListsOfMajorClassTrainersForSwap
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	ret nc
+.setSwapBattle
+	SetEvent EVENT_SWAP_MODE_REPEAT_BATTLE
+	SetEvent EVENT_SKIP_FIRST_VICTORY_TEXT_IN_SWAP_BATTLE
+	ret
+
+ListsOfMajorClassTrainersForSwap:
+	db OPP_RIVAL1
+	db OPP_RIVAL2
+	db OPP_RIVAL3
+	db OPP_PROF_OAK
+	db OPP_BROCK
+	db OPP_MISTY
+	db OPP_LT_SURGE
+	db OPP_ERIKA
+	db OPP_KOGA
+	db OPP_SABRINA
+	db OPP_BLAINE
+	db OPP_GIOVANNI
+	db OPP_LORELEI
+	db OPP_BRUNO
+	db OPP_AGATHA
+	db OPP_LANCE
+	db OPP_PROTON
+	db OPP_PETREL
+	db OPP_ARIANA
+	db OPP_ARCHER
+	db OPP_CARR
+	db OPP_ORM
+	db OPP_SIRD
+	db OPP_ICHINO
+	db OPP_NIUE
+	db OPP_SANTRE
+	db OPP_YOTTRO
+	db OPP_SANTRE
+	db OPP_ROKUSEI
+	db OPP_NANETTE
+	db OPP_SUUJERO
+	db OPP_PINK
+	db OPP_JESSIEJAMES
+	db OPP_ORAGE
+	db OPP_PIGEON
+	db OPP_TRAVELER
+	db -1

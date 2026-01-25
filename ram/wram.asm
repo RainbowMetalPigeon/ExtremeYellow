@@ -2532,6 +2532,7 @@ wLuckRoll:: db ; new
 wLuckCrit:: db ; new
 wLuckSecondaryEffects:: db ; new
 wLuckStatusesAffliction:: db ; new
+wPersonalizationSwapBattles:: db ; new
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS + 3
 
@@ -2766,7 +2767,7 @@ ENDU
 
 wTrainerHeaderPtr:: dw
 
-	ds 1 ; UNUSED bytes in "Main Data"; edited, was 6
+;	ds 6 ; edited
 wRandomMemoryAddressForGonqueChartRandomization:: dw ; new
 wMultiUseBuffer:: db ; new, for various buffer purposes
 

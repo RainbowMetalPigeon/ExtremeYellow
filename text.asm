@@ -85,7 +85,6 @@ INCLUDE "text/Route15.asm"
 INCLUDE "text/Route16.asm"
 INCLUDE "text/Route17.asm"
 INCLUDE "text/Route18.asm"
-INCLUDE "text/Route19.asm"
 INCLUDE "text/Route20.asm"
 INCLUDE "data/text/text_4.asm"
 
@@ -307,6 +306,7 @@ INCLUDE "text/SilphCo7F.asm"
 INCLUDE "data/text/text_8.asm"
 INCLUDE "text/LakeOfMist.asm"
 INCLUDE "text/SunkenShip.asm"
+INCLUDE "text/Route19.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

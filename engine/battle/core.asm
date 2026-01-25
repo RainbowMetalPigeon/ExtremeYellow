@@ -16,8 +16,14 @@ SlidePlayerAndEnemySilhouettesOnScreen:           ; edited into a jpfar to save 
                                     ; because called only by SlidePlayerAndEnemySilhouettesOnScreen which is there
 
 StartBattle:
-;	callfar SaveEnemyPartyIntoSpecialSRAM ; testing
-	callfar InitializeBattleVariablesAndEvents ; new
+; new
+	ld [wPersonalizationSwapBattles], a
+	cp 1
+	jr nz, .noContinuousTradeMode
+	callfar SaveEnemyPartyIntoSpecialSRAM ; testing
+.noContinuousTradeMode
+	callfar InitializeBattleVariablesAndEvents
+; BTV
 	ld a, 1 ; edited
 	ld [wFirstMonsNotOutYet], a
 	ld hl, wEnemyMon1HP
@@ -770,9 +776,13 @@ TrainerBattleVictory:
 	ld c, $3
 	predef AddBCDPredef
 .noAmuletCoin
+	ld [wPersonalizationSwapBattles], a
+	cp 1
+	jr nz, .noContinuousTradeMode
+	callfar ReloadTradedPartyFromSpecialSRAM ; testing
+	callfar RenameTradedTeamWithDefaultNicks ; testing
+.noContinuousTradeMode
 ; BTV
-;	callfar ReloadTradedPartyFromSpecialSRAM ; testing
-;	callfar RenameTradedTeamWithDefaultNicks ; testing
 	ld hl, MoneyForWinningText
 	call PrintText
 	ld de, wPlayerMoney + 2

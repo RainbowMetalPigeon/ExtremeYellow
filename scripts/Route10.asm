@@ -33,7 +33,7 @@ Route10TrainerHeader1:
 Route10TrainerHeader2:
 	trainer EVENT_BEAT_ROUTE_10_TRAINER_2, 4, Route10BattleText3, Route10EndBattleText3, Route10AfterBattleText3
 Route10TrainerHeader3:
-	trainer EVENT_BEAT_ROUTE_10_TRAINER_3, 3, Route10BattleText4, Route10EndBattleText4, Route10AfterBattleText4
+	trainer EVENT_BEAT_ROUTE_10_TRAINER_3, 5, Route10BattleText4, Route10EndBattleText4, Route10AfterBattleText4
 Route10TrainerHeader4:
 	trainer EVENT_BEAT_ROUTE_10_TRAINER_4, 2, Route10BattleText5, Route10EndBattleText5, Route10AfterBattleText5
 Route10TrainerHeader5:

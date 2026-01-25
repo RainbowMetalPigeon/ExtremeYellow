@@ -39,6 +39,7 @@ PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_Types
 	dw PersonalizationMenu_PhySpeSplit
 	dw PersonalizationMenu_LevelStatus
+	dw PersonalizationMenu_SwapBattles
 	dw PersonalizationMenu_SpeakerSettings ; from the vanilla option menu
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Cancel
@@ -82,7 +83,7 @@ PersonalizationMenu_Names:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 8, 4
+	hlcoord 8, 2
 	call PlaceString
 	and a
 	ret
@@ -126,7 +127,7 @@ PersonalizationMenu_Types:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 8, 6
+	hlcoord 8, 4
 	call PlaceString
 	and a
 	ret
@@ -230,7 +231,7 @@ PersonalizationMenu_PhySpeSplit:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 16, 8
+	hlcoord 16, 6
 	call PlaceString
 	and a
 	ret
@@ -274,7 +275,51 @@ PersonalizationMenu_LevelStatus:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 10
+	hlcoord 15, 8
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
+PersonalizationMenu_SwapBattles:
+	ld a, [wPersonalizationSwapBattles]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp 3 ; number of options - 1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, 4 ; number of options
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationSwapBattles], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationSwapBattlesStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 14, 10
 	call PlaceString
 	and a
 	ret
@@ -316,30 +361,30 @@ PersonalizationControl:
 	ret
 .pressedDown
 	ld a, [hl]
-	cp 6 ; option position of CANCEL: 7th, but is #6 because we start from 0
+	cp 7 ; option position of CANCEL: 8th, but is #6 because we start from 0
 	jr nz, .doNotWrapAround
 	ld [hl], $0
 	scf
 	ret
 .doNotWrapAround
-	cp 4 ; number of options - 1
+	cp 5 ; number of options - 1
 	jr c, .regularIncrement
-	ld [hl], 5 ; option position of CANCEL - 1, because it will be increased by 1 next step
+	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
 	inc [hl]
 	scf
 	ret
 .pressedUp
 	ld a, [hl]
-	cp 6 ; option position of CANCEL
+	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 4 ; number of options - 1
+	ld [hl], 5 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
 	and a
 	jr nz, .regularDecrement
-	ld [hl], 7 ; option position of CANCEL + 1, because it will be reduced by 1 next step
+	ld [hl], 8 ; option position of CANCEL + 1, because it will be reduced by 1 next step
 .regularDecrement
 	dec [hl]
 	scf
@@ -348,7 +393,7 @@ PersonalizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wUniQuizAnswer], a
-	cp 5 ; number of options
+	cp 6 ; number of options
 	ret nc
 	cp 1 ; second option is special as it doesn't just print one dialogue
 	jr z, .alteredTypes
@@ -379,15 +424,15 @@ PersonalizationControl:
 	jr .conclude
 
 PersonalizationMenu_UpdateCursorPosition:
-	hlcoord 1, 4
+	hlcoord 1, 2
 	ld de, SCREEN_WIDTH
-	ld c, 13
+	ld c, 15
 .loop
 	ld [hl], " "
 	add hl, de
 	dec c
 	jr nz, .loop
-	hlcoord 1, 4
+	hlcoord 1, 2
 	ld bc, SCREEN_WIDTH * 2
 	ld a, [wOptionsCursorLocation]
 	call AddNTimes
@@ -398,19 +443,19 @@ InitPersonalizationMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-;	call PrintLabelAboutInfo ; new, testing
-	hlcoord 2, 4
+;	call PrintLabelAboutInfo ; testing
+	hlcoord 2, 2
 	ld de, AllPersonalizationText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, PersonalizationMenuCancelText
 	call PlaceString
-	hlcoord 3, 2
-	ld de, PersonalizationTitleText
-	call PlaceString
+;	hlcoord 3, 2
+;	ld de, PersonalizationTitleText
+;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -431,18 +476,18 @@ InitPersonalizationMenu_Redo:
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; new, testing
-	hlcoord 2, 4
+	hlcoord 2, 2
 	ld de, AllPersonalizationText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, PersonalizationMenuCancelText
 	call PlaceString
-	hlcoord 3, 2
-	ld de, PersonalizationTitleText
-	call PlaceString
+;	hlcoord 3, 2
+;	ld de, PersonalizationTitleText
+;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -462,6 +507,7 @@ AllPersonalizationText:
 	next "TYPES:"
 	next "PHY/SPE SPLIT:"
 	next "LEVEL/STATUS:"
+	next "SWAP BATTLE:"
 	next "SOUND:@"
 
 PersonalizationTitleText:
@@ -509,6 +555,21 @@ NewText:
 OldText:
 	db "OLD@"
 
+PersonalizationSwapBattlesStringsPointerTable:
+	dw NoneText
+	dw TradeTexts
+	dw AllText
+	dw MajorText
+
+NoneText:
+	db "NONE @"
+TradeTexts:
+	db "TRADE@"
+AllText:
+	db "ALL  @"
+MajorText:
+	db "MAJOR@"
+
 ; new, for info
 
 PersonalizationInfoTexts:
@@ -516,6 +577,7 @@ PersonalizationInfoTexts:
 	dw PersonalizationInfoTextTypes
 	dw PersonalizationInfoTextPhySpeSplit
 	dw PersonalizationInfoTextLevelStatus
+	dw PersonalizationInfoTextSwapBattles
 	dw PersonalizationInfoTextSound
 
 PersonalizationInfoTextNames:
@@ -532,6 +594,10 @@ PersonalizationInfoTextPhySpeSplit:
 
 PersonalizationInfoTextLevelStatus:
 	text_far _PersonalizationInfoTextLevelStatus
+	text_end
+
+PersonalizationInfoTextSwapBattles:
+	text_far _PersonalizationInfoTextSwapBattles
 	text_end
 
 PersonalizationInfoTextSound:

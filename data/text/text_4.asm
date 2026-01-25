@@ -91,6 +91,25 @@ _PersonalizationInfoTextLevelStatus::
 	cont "the LEVEL."
 	prompt
 
+_PersonalizationInfoTextSwapBattles::
+	text "NONE: vanilla."
+	line "TRADE: trade team"
+	cont "with enemy after"
+	cont "every fight."
+	cont "ALL: SWAP mode is"
+	cont "applied for all"
+	cont "battles: first a"
+	cont "normal battle,"
+	cont "then temporarily"
+	cont "swap team with"
+	cont "opponent and must"
+	cont "win that too."
+	cont "MAJOR: SWAP mode"
+	cont "is applied only"
+	cont "for major fights."
+;	xxxx "123456789012345678"
+	prompt
+
 _PersonalizationInfoTextSound::
 	text "EARPHONE1 is"
 	line "stereo, 2 focuses"
