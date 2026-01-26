@@ -97,3 +97,6 @@ TextPredefs::
 	add_tx_pre PlayerStartsFishing                  ; new
 	add_tx_pre CoinCaseNumCoinsText2                ; new
 	add_tx_pre CardKeyGotEmbeddedText               ; new
+
+	add_tx_pre PlayerFeedsTheBirbText               ; new
+	add_tx_pre TheBirbIsHungryText                  ; new

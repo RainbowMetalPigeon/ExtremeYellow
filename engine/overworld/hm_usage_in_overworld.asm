@@ -19,7 +19,10 @@ CheckIfCanSurfOrCutFromOverworld::
     cp $5F
     jr nz, .checkIfAreaDark
 ; birb in front of us
+    call EnableAutoTextBoxDrawing
+    tx_pre PlayerFeedsTheBirbText
     call AnimateBribTile_SeviiFlapping
+    callfar BirbEmotionBubble
 	ld a, 0
 	ld [wEmotionBubbleSpriteIndex], a
 	ld a, SMILE_BUBBLE
@@ -406,6 +409,25 @@ _FlashLightsAreaText2::
 	text "A blinding FLASH"
 	line "lights the area!"
 	done
+
+PlayerFeedsTheBirbText::
+    text_far _PlayerFeedsTheBirbText
+    text_end
+
+_PlayerFeedsTheBirbText::
+    text "<PLAYER> feeds"
+    line "the birb!"
+    done
+
+TheBirbIsHungryText::
+    text_far _TheBirbIsHungryText
+    text_end
+
+_TheBirbIsHungryText::
+    text "The birb is"
+    line "hungry..."
+;	xxxx "123456789012345678"
+    done
 
 ; --------------------------------------------
 
