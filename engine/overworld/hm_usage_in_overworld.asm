@@ -12,13 +12,14 @@ CheckIfCanSurfOrCutFromOverworld::
     jp z, .checkForWhirlpoolDiveWaterfall
 ; if we are not already surfing
 
-; testing: check for birbs
+; TBE: check for birbs
     CheckEvent EVENT_IN_SEVII
     jr z, .checkIfAreaDark
     ld a, [wTileInFrontOfPlayer]
     cp $5F
     jr nz, .checkIfAreaDark
 ; birb in front of us
+    ; TBE: conditional if we have the seed bag or if we are rocket
     call EnableAutoTextBoxDrawing
     tx_pre PlayerFeedsTheBirbText
     call AnimateBribTile_SeviiFlapping
@@ -426,6 +427,16 @@ TheBirbIsHungryText::
 _TheBirbIsHungryText::
     text "The birb is"
     line "hungry..."
+;	xxxx "123456789012345678"
+    done
+
+PlayerKicksTheBirbText::
+    text_far _PlayerKicksTheBirbText
+    text_end
+
+_PlayerKicksTheBirbText::
+    text "<PLAYER> kicks"
+    line "the birb!"
 ;	xxxx "123456789012345678"
     done
 
