@@ -249,7 +249,7 @@ CheckIfCanSurfOrCutFromOverworld::
 .checkForDive
 	lda_coord 8, 9 ; tile the player is on
 	ld [wTilePlayerStandingOn], a
-	cp $6A
+	cp $45
 	ret nz ; we're not standing on a dive-able spot
 ; we're on deep water, check if we have Dive
     ld d, DIVE

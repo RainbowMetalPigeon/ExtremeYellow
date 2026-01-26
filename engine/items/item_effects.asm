@@ -3887,7 +3887,7 @@ INCLUDE "data/tilesets/water_tilesets.asm"
 
 ; deep-water tiles ; new
 DeepWaterTile: ; new
-	db $6A ; new
+	db $45 ; new
 ; shore tiles
 ShoreTiles:
 	db $48, $33, $32, $66 ; last one is new, custom for Cinnabar Volcano

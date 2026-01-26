@@ -2,7 +2,7 @@
 ; thanks Vortiene
 AnimateWaterTile::
 	ld hl, vTileset tile $14
-    ld de, vTileset tile $6A ; new, deep water
+    ld de, vTileset tile $45 ; new, deep water
 	ld c, $10
 
 	ld a, [wMovingBGTilesCounter2]
