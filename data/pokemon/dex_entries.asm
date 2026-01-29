@@ -1404,7 +1404,7 @@ ElectabuzzDexEntry:
 	text_end
 
 ElectivireDexEntry:
-	db "THUNDERBOLT@"
+	db "BOLT@"
 	db 18
 	dw 1386
 	text_far _ElectivireDexEntry
