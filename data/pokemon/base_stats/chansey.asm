@@ -19,7 +19,8 @@
 	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      ROCK_SLIDE,   \
-	     SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH,        CURSE         
+	     SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH,        CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(ChanseyPicFront)

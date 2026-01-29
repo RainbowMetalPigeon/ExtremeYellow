@@ -215,6 +215,22 @@ PokedexEntryPointers:
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
 	dw MissingNoDexEntry
+; map pieces, new
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
+	dw MapPieceDexEntry
 	assert_table_length NUM_POKEMON_INDEXES
 
 ; string: species name
@@ -1666,7 +1682,7 @@ MRayquazaDexEntry:
 
 EEternatusDexEntry:
 	db "GIGANTIC@"
-	db 100
+	db 1 ; placeholder for 1000, handled by the pokedex code
 	dw 9500
 	text_far _EEternatusDexEntry
 	text_end
@@ -1706,8 +1722,8 @@ DadDexEntry:
 	text_far _DadDexEntry
 	text_end
 
-MissingNoDexEntry:
-	db "???@"
-	db 31
-	dw 45
-	db "コメント　さくせいちゅう@" ; コメント作成中 (Comment to be written)
+MapPieceDexEntry: ; new
+	db "MAP@"
+	db 1
+	dw 1
+	db "Map pieces"

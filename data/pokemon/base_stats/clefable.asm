@@ -20,7 +20,7 @@
 	     DIG,          PSYCHIC_M,    MOONBLAST,    MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         FIRE_BLAST,   REST,         THUNDER_WAVE, \
 	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH,        \
-	     CURSE         
+	     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(ClefablePicFront)

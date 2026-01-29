@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
-	     SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     CURSE         
+	     SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     CURSE,        \
+	     WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(SeelPicFront)

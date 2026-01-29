@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     GIGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     REST,         SUBSTITUTE,   FLAIL,        CUT,          FLASH,        \
-	     CURSE         
+	     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(TangelaPicFront)

@@ -26,7 +26,7 @@
 	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
 	     FREEZE_DRY,   GYRO_BALL,    BODY_PRESS,   FLAIL,        CURSE,        \
 	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
-		 ROCK_SMASH,   ROCK_CLIMB,   WATERFALL,    DIVE,         WHIRLPOOL
+	     ROCK_SMASH,   ROCK_CLIMB,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(MewPicFront)

@@ -17,7 +17,8 @@
 	tmhm SWORDS_DANCE, TOXIC,        DARK_PULSE,   HYPER_BEAM,   FLASH_CANNON, \
 	     STONE_EDGE,   EARTHQUAKE,   PSYCHIC_M,    DOUBLE_TEAM,  REFLECT,      \
 	     OUTRAGE,      REST,         X_SCISSOR,    THUNDER_WAVE, ROCK_SLIDE,   \
-	     SUBSTITUTE,   GYRO_BALL,    FLASH,        FLY,          CURSE         
+	     SUBSTITUTE,   GYRO_BALL,    FLASH,        FLY,          CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(UNecrozmaPicFront)

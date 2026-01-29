@@ -24,7 +24,9 @@
 	     SELFDESTRUCT, CLOSE_COMBAT, FIRE_BLAST,   SHADOW_SNEAK, OUTRAGE,      \
 	     BRAVE_BIRD,   REST,         GUNK_SHOT,    X_SCISSOR,    THUNDER_WAVE, \
 	     PSYWAVE,      EXPLOSION,    ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
-	     CUT,          FLY,          SURF,         STRENGTH,     FLASH         
+	     FREEZE_DRY,   GYRO_BALL,    BODY_PRESS,   FLAIL,        CURSE,        \
+	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
+		 ROCK_SMASH,   ROCK_CLIMB,   WATERFALL,    DIVE,         WHIRLPOOL
 	; end
 
 	db BANK(MewPicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   THUNDERBOLT,  \
 	     THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         REST,         THUNDER_WAVE, SHADOW_BALL,  SUBSTITUTE,   \
-	     FLAIL,        STRENGTH,     FLASH,        CURSE         
+	     FLAIL,        STRENGTH,     FLASH,        CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(JolteonPicFront)

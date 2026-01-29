@@ -20,7 +20,8 @@
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     HYDRO_PUMP,   OUTRAGE,      REST,         ROCK_SLIDE,   SUBSTITUTE,   \
 	     GYRO_BALL,    BODY_PRESS,   FLAIL,        SURF,         STRENGTH,     \
-	     SWORDS_DANCE, GIGA_DRAIN,   GUNK_SHOT,    CUT,          CURSE         
+	     SWORDS_DANCE, GIGA_DRAIN,   GUNK_SHOT,    CUT,          CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(VenustoisePicFront)

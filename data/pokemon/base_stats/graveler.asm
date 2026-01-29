@@ -18,7 +18,8 @@
 	     METRONOME,    SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   FISSURE,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
 	     FIRE_BLAST,   REST,         EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   \
-	     GYRO_BALL,    BODY_PRESS,   FLAIL,        STRENGTH,     CURSE         
+	     GYRO_BALL,    BODY_PRESS,   FLAIL,        STRENGTH,     CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(GravelerPicFront)

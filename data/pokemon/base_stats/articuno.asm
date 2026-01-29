@@ -17,7 +17,7 @@
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   MIRROR_COAT,  MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         BRAVE_BIRD,   REST,         SUBSTITUTE,   FREEZE_DRY,   \
-	     FLY,          CURSE         
+	     FLY,          CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(ArticunoPicFront)

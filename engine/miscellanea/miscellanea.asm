@@ -204,7 +204,7 @@ CheckIfTeamValidForSeviiSagesRewards::
 	jr .loop
 
 ListOfSeviiSagesInvalidMons:
-	db ZYGARDEC
+	db MZYGARDE
 	db UNECROZMA
 	db MRAYQUAZA
 	db EETERNATUS
@@ -488,7 +488,7 @@ AllAnythingGoesPokemon: ; 114: [0,113]
 	db MEW ; only rival
 	db VENUSTOISE ; only Oak
 	db MISSINGNO ; only you
-	db ZYGARDEC ; only Traveler
+	db MZYGARDE ; only Traveler
 	db UNECROZMA ; only Traveler
 	db MRAYQUAZA ; only Traveler
 	db EETERNATUS ; only Traveler

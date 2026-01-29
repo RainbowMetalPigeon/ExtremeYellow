@@ -18,7 +18,7 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   THUNDERBOLT,  \
 	     THUNDER,      EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         CLOSE_COMBAT, OUTRAGE,      REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH,     CURSE         
+	     SUBSTITUTE,   STRENGTH,     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(PrimeapePicFront)

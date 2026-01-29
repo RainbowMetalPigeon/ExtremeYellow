@@ -20,7 +20,7 @@
 	     EARTHQUAKE,   PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         SELFDESTRUCT, FIRE_BLAST,   REST,         THUNDER_WAVE, \
 	     PSYWAVE,      ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     \
-	     FLASH         
+	     FLASH,        CURSE         
 	; end
 
 	db BANK(MewtwoPicFront)

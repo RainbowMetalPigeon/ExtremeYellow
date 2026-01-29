@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     GIGA_DRAIN,   STONE_EDGE,   DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   SURF          
+	     ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        SURF,         CURSE         
 	; end
 
 	db BANK(KabutoPicFront)

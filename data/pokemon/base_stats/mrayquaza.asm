@@ -19,7 +19,7 @@
 	     THUNDER,      EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  HYDRO_PUMP,   \
 	     FIRE_BLAST,   OUTRAGE,      REST,         THUNDER_WAVE, ROCK_SLIDE,   \
 	     SUBSTITUTE,   GYRO_BALL,    FLY,          SURF,         STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   ROCK_CLIMB,   WHIRLPOOL     
 	; end
 
 	db BANK(MRayquazaPicFront)

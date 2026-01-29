@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DARK_PULSE,   BODY_SLAM,    DOUBLE_EDGE,  GIGA_DRAIN,   \
 	     EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         GUNK_SHOT,    ROCK_SLIDE,   SUBSTITUTE,   STRENGTH      
+	     REST,         GUNK_SHOT,    ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(EkansPicFront)

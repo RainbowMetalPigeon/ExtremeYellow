@@ -18,7 +18,7 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      \
 	     EARTHQUAKE,   DIG,          PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         THUNDER_WAVE, PSYWAVE,      \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     FLASH         
+	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     FLASH,        CURSE         
 	; end
 
 	db BANK(ElectivirePicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     HYDRO_PUMP,   SELFDESTRUCT, REST,         EXPLOSION,    SUBSTITUTE,   \
-	     SURF,         CURSE         
+	     SURF,         CURSE,        WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(CloysterPicFront)

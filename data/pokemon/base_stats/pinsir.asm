@@ -18,7 +18,7 @@
 	     SEISMIC_TOSS, FEINT_ATTACK, STONE_EDGE,   EARTHQUAKE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, OUTRAGE,      \
 	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        \
-	     CUT,          STRENGTH,     CURSE         
+	     CUT,          STRENGTH,     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(PinsirPicFront)

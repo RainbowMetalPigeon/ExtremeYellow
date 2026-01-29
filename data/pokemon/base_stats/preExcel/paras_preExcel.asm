@@ -16,8 +16,8 @@
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     GIGA_DRAIN,   DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         X_SCISSOR,    SUBSTITUTE,   CUT,          \
-	     FLASH         
+	     BIDE,         REST,         X_SCISSOR,    SUBSTITUTE,   FLAIL,        \
+	     CUT,          FLASH,        CURSE         
 	; end
 
 	db BANK(ParasPicFront)

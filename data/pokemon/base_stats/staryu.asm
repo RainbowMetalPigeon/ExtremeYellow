@@ -18,7 +18,7 @@
 	     FLASH_CANNON, THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   REST,         \
 	     THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   GYRO_BALL,    SURF,         \
-	     FLASH,        CURSE         
+	     FLASH,        CURSE,        WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(StaryuPicFront)

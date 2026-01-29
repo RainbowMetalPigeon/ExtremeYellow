@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/nidoranf.pic", 0, 1 ; sprite dimensions
 	dw NidoranFPicFront, NidoranFPicBack
 
-	db GROWL, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db GROWL, SCRATCH, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -18,7 +18,7 @@
 	     STONE_EDGE,   THUNDERBOLT,  THUNDER,      EARTHQUAKE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
 	     REST,         ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   CUT,          \
-	     GUNK_SHOT     
+	     GUNK_SHOT,    CURSE
 	; end
 
 	db BANK(NidoranFPicFront)

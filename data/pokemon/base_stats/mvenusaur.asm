@@ -10,14 +10,14 @@
 	INCBIN "gfx/pokemon/front/mvenusaur.pic", 0, 1 ; sprite dimensions
 	dw MVenusaurPicFront, MVenusaurPicBack
 
-	db TACKLE, GROWL, LEECH_SEED, VINE_WHIP ; level 1 learnset
+	db BODY_SLAM, GROWL, LEECH_SEED, VINE_WHIP ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     MIRROR_COAT,  GIGA_DRAIN,   EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         GUNK_SHOT,    SUBSTITUTE,   \
-	     CUT,          STRENGTH,     CURSE         
+	     CUT,          STRENGTH,     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(MVenusaurPicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
 	     FLASH_CANNON, MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   \
 	     OUTRAGE,      REST,         SUBSTITUTE,   FLAIL,        SURF,         \
-	     CURSE         
+	     CURSE,        WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(HorseaPicFront)

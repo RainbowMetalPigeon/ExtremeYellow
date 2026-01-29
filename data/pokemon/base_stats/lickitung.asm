@@ -19,7 +19,8 @@
 	     SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      EARTHQUAKE,   FISSURE,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   \
 	     FIRE_BLAST,   REST,         ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
-	     BODY_PRESS,   CUT,          SURF,         STRENGTH,     CURSE         
+	     BODY_PRESS,   CUT,          SURF,         STRENGTH,     CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB,   WHIRLPOOL     
 	; end
 
 	db BANK(LickitungPicFront)

@@ -17,8 +17,8 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        DARK_PULSE,   BODY_SLAM,    \
 	     DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     MIRROR_COAT,  SEISMIC_TOSS, \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     HYDRO_PUMP,   REST,         ROCK_SLIDE,   SUBSTITUTE,   SURF,         \
-	     STRENGTH      
+	     HYDRO_PUMP,   REST,         ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    \
+	     FLAIL,        SURF,         STRENGTH,     CURSE         
 	; end
 
 	db BANK(SquirtlePicFront)

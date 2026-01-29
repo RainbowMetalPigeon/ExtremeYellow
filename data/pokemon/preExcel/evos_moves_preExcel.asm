@@ -218,7 +218,8 @@ EvosMovesPointerTable:
 	dw FossilKabutopsEvosMoves
 	dw FossilAerodactylEvosMoves
 	dw MonGhostEvosMoves
-; map pieces, new	dw MapPiecesEvosMoves
+; map pieces, new
+	dw MapPiecesEvosMoves
 	dw MapPiecesEvosMoves
 	dw MapPiecesEvosMoves
 	dw MapPiecesEvosMoves
@@ -402,6 +403,7 @@ MCharzardXEvosMoves:
 	db 56, ROOST
 	db 57, SHADOW_CLAW
 	db 59, DRAGON_DANCE
+	db 60, OUTRAGE
 	db 62, FLARE_BLITZ
 	db 65, BLAST_BURN
 	db 0
@@ -560,9 +562,8 @@ ButterfreeEvosMoves:
 	db 16, PSYBEAM
 	db 17, SWIFT
 	db 18, GUST
-	db 21, AIR_SLASH
-	db 23, MEGA_DRAIN
-	db 25, GUST
+	db 22, AIR_SLASH
+	db 25, MEGA_DRAIN
 	db 28, TWISTER
 	db 31, DREAM_EATER
 	db 33, INFESTATION
@@ -1002,7 +1003,7 @@ NidoranFEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1030,7 +1031,7 @@ NidorinaEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1057,7 +1058,7 @@ NidoqueenEvosMoves:
 	db 0
 ; Learnset
 	db 7, LEER
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1093,7 +1094,7 @@ NidoranMEvosMoves:
 	db 0
 ; Learnset
 	db 7, GROWL
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 11, PECK
@@ -1123,7 +1124,7 @@ NidorinoEvosMoves:
 	db 0
 ; Learnset
 	db 7, GROWL
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 11, PECK
@@ -1152,7 +1153,7 @@ NidokingEvosMoves:
 	db 0
 ; Learnset
 	db 7, GROWL
-	db 8, SCRATCH
+	db 8, TACKLE
 	db 9, DEFENSE_CURL
 	db 10, FURY_SWIPES
 	db 12, DOUBLE_KICK
@@ -1514,9 +1515,9 @@ OddishEvosMoves:
 ; Learnset
 	db 4, GROWTH
 	db 7, ACID
-	db 10, LEECH_SEED
-	db 12, MEGA_DRAIN
-	db 14, POISONPOWDER
+	db 11, LEECH_SEED
+	db 13, MEGA_DRAIN
+	db 15, POISONPOWDER
 	db 16, STUN_SPORE
 	db 18, SLEEP_POWDER
 	db 20, BULLET_SEED
@@ -1539,9 +1540,9 @@ GloomEvosMoves:
 ; Learnset
 	db 4, GROWTH
 	db 7, ACID
-	db 10, LEECH_SEED
-	db 12, MEGA_DRAIN
-	db 14, POISONPOWDER
+	db 11, LEECH_SEED
+	db 13, MEGA_DRAIN
+	db 15, POISONPOWDER
 	db 16, STUN_SPORE
 	db 18, SLEEP_POWDER
 	db 20, BULLET_SEED
@@ -1564,9 +1565,9 @@ VileplumeEvosMoves:
 ; Learnset
 	db 4, GROWTH
 	db 7, ACID
-	db 10, LEECH_SEED
-	db 12, MEGA_DRAIN
-	db 14, POISONPOWDER
+	db 11, LEECH_SEED
+	db 13, MEGA_DRAIN
+	db 15, POISONPOWDER
 	db 16, STUN_SPORE
 	db 18, SLEEP_POWDER
 	db 20, BULLET_SEED
@@ -1589,9 +1590,9 @@ BellossomEvosMoves:
 ; Learnset
 	db 4, GROWTH
 	db 7, ACID
-	db 10, LEECH_SEED
-	db 12, MEGA_DRAIN
-	db 14, POISONPOWDER
+	db 11, LEECH_SEED
+	db 13, MEGA_DRAIN
+	db 15, POISONPOWDER
 	db 16, STUN_SPORE
 	db 18, SLEEP_POWDER
 	db 20, BULLET_SEED
@@ -2149,6 +2150,7 @@ AbraEvosMoves:
 KadabraEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, ALAKAZAM
+	db EV_ITEM, LINK_CABLE, 1, ALAKAZAM
 	db EV_LEVEL, 42, ALAKAZAM
 	db 0
 ; Learnset
@@ -2265,6 +2267,7 @@ MachopEvosMoves:
 MachokeEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, MACHAMP
+	db EV_ITEM, LINK_CABLE, 1, MACHAMP
 	db EV_LEVEL, 42, MACHAMP
 	db 0
 ; Learnset
@@ -2469,6 +2472,7 @@ GeodudeEvosMoves:
 GravelerEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, GOLEM
+	db EV_ITEM, LINK_CABLE, 1, GOLEM
 	db EV_LEVEL, 42, GOLEM
 	db 0
 ; Learnset
@@ -2571,8 +2575,8 @@ RapidashEvosMoves:
 
 SlowpokeEvosMoves:
 ; Evolutions
-	db EV_LEVEL, 37, SLOWBRO
 	db EV_ITEM, KINGS_ROCK, 1, SLOWKING
+	db EV_LEVEL, 37, SLOWBRO
 	db 0
 ; Learnset
 	db 3, GROWL
@@ -3023,6 +3027,7 @@ GastlyEvosMoves:
 HaunterEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, GENGAR
+	db EV_ITEM, LINK_CABLE, 1, GENGAR
 	db EV_LEVEL, 42, GENGAR
 	db 0
 ; Learnset
@@ -3391,7 +3396,7 @@ ExeggutorEvosMoves:
 	db 32, STUN_SPORE
 	db 37, HYPNOSIS
 	db 38, DREAM_EATER
-	db 40, MAGICAL_LEAF;
+	db 40, MAGICAL_LEAF
 	db 44, LOW_KICK
 	db 46, HEADBUTT
 	db 48, POISONPOWDER
@@ -4359,7 +4364,7 @@ KleavorEvosMoves:
 	db 34, X_SCISSOR
 	db 36, ROCK_SLIDE
 	db 41, HEADBUTT
-	db 43, CLOSE_COMBAT,
+	db 43, CLOSE_COMBAT
 	db 60, NIGHT_SLASH
 	db 0
 
@@ -5743,12 +5748,6 @@ ArceusEvosMoves:
 	db 80, HYPER_BEAM
 	db 90, EXPLOSION
 	db 100, JUDGMENT
-	db 0
-
-MissingNoEvosMoves:
-; Evolutions
-	db 0
-; Learnset
 	db 0
 
 MissingNoEvosMoves:

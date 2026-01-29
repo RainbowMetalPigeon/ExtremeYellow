@@ -17,7 +17,7 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     METRONOME,    SEISMIC_TOSS, DIG,          PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         THUNDER_WAVE, \
-	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH         
+	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH,        CURSE         
 	; end
 
 	db BANK(KadabraPicFront)

@@ -18,7 +18,8 @@
 	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   STONE_EDGE,   THUNDERBOLT,  \
 	     THUNDER,      EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  HYDRO_PUMP,   \
 	     FIRE_BLAST,   OUTRAGE,      REST,         THUNDER_WAVE, ROCK_SLIDE,   \
-	     SUBSTITUTE,   FLY,          SURF,         STRENGTH      
+	     SUBSTITUTE,   GYRO_BALL,    FLY,          SURF,         STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(MRayquazaPicFront)

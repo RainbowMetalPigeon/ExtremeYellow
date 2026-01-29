@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   GIGA_DRAIN,   PSYCHIC_M,    \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
-	     PSYWAVE,      SUBSTITUTE,   FLASH         
+	     PSYWAVE,      SUBSTITUTE,   FLASH,        CURSE         
 	; end
 
 	db BANK(VenomothPicFront)

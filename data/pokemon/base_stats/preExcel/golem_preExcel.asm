@@ -18,7 +18,8 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   \
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     SELFDESTRUCT, FIRE_BLAST,   REST,         EXPLOSION,    ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   FLAIL,        STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(GolemPicFront)

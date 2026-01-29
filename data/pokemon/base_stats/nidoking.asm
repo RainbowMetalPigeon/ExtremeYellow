@@ -20,7 +20,8 @@
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   \
 	     SHADOW_BALL,  SUBSTITUTE,   BODY_PRESS,   CUT,          SURF,         \
-	     STRENGTH,     GUNK_SHOT,    CURSE
+	     STRENGTH,     GUNK_SHOT,    CURSE,        ROCK_SMASH,   ROCK_CLIMB,   \
+	     WHIRLPOOL     
 	; end
 
 	db BANK(NidokingPicFront)

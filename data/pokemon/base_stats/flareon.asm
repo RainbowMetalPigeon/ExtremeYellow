@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   WILL_O_WISP,  \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     FIRE_BLAST,   REST,         SHADOW_BALL,  SUBSTITUTE,   FLAIL,        \
-	     STRENGTH,     CURSE         
+	     STRENGTH,     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(FlareonPicFront)

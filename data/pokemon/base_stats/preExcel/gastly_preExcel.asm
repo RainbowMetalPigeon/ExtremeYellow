@@ -17,7 +17,7 @@
 	tmhm TOXIC,        DARK_PULSE,   GIGA_DRAIN,   WILL_O_WISP,  THUNDERBOLT,  \
 	     THUNDER,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     SELFDESTRUCT, REST,         PSYWAVE,      EXPLOSION,    SHADOW_BALL,  \
-	     SUBSTITUTE    
+	     SUBSTITUTE,   CURSE         
 	; end
 
 	db BANK(GastlyPicFront)

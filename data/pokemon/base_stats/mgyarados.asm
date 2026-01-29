@@ -19,7 +19,8 @@
 	     THUNDER,      EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         HYDRO_PUMP,   FIRE_BLAST,   OUTRAGE,      REST,         \
 	     THUNDER_WAVE, SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     \
-	     ROCK_SLIDE,   WILL_O_WISP,  GUNK_SHOT,    CURSE         
+	     ROCK_SLIDE,   WILL_O_WISP,  GUNK_SHOT,    CURSE,        ROCK_SMASH,   \
+	     WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(MGyaradosPicFront)

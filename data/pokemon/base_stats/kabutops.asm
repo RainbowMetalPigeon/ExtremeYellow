@@ -18,7 +18,8 @@
 	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, GIGA_DRAIN,   \
 	     STONE_EDGE,   DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         HYDRO_PUMP,   REST,         X_SCISSOR,    ROCK_SLIDE,   \
-	     SUBSTITUTE,   FLAIL,        CUT,          SURF,         CURSE         
+	     SUBSTITUTE,   FLAIL,        CUT,          SURF,         CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(KabutopsPicFront)

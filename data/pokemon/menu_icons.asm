@@ -33,6 +33,8 @@ MonPartyData:
 	nybble ICON_PIKACHU   ; Pichu
 	nybble ICON_PIKACHU   ; Pikachu
 	nybble ICON_PIKACHU   ; Raichu
+	nybble ICON_PIKACHU   ; MRaichuX
+	nybble ICON_PIKACHU   ; MRaichuY
 	nybble ICON_MON       ; Sandshrew
 	nybble ICON_MON       ; Sandslash
 	nybble ICON_MON       ; NidoranF
@@ -44,6 +46,7 @@ MonPartyData:
 	nybble ICON_FAIRY     ; Cleffa
 	nybble ICON_FAIRY     ; Clefairy
 	nybble ICON_FAIRY     ; Clefable
+	nybble ICON_FAIRY     ; MClefable
 	nybble ICON_QUADRUPED ; Vulpix
 	nybble ICON_QUADRUPED ; Ninetales
 	nybble ICON_FAIRY     ; Igglybuff
@@ -85,6 +88,7 @@ MonPartyData:
 	nybble ICON_GRASS     ; Bellsprout
 	nybble ICON_GRASS     ; Weepinbell
 	nybble ICON_GRASS     ; Victreebel
+	nybble ICON_GRASS     ; MVictrebel
 	nybble ICON_WATER     ; Tentacool
 	nybble ICON_WATER     ; Tentacruel
 	nybble ICON_MON       ; Geodude
@@ -150,6 +154,7 @@ MonPartyData:
 	nybble ICON_WATER     ; Seaking
 	nybble ICON_HELIX     ; Staryu
 	nybble ICON_HELIX     ; Starmie
+	nybble ICON_HELIX     ; MStarmie
 	nybble ICON_MON       ; MimeJr
 	nybble ICON_MON       ; MrMime
 	nybble ICON_BUG       ; Scyther
@@ -198,12 +203,17 @@ MonPartyData:
 	nybble ICON_SNAKE     ; Dratini
 	nybble ICON_SNAKE     ; Dragonair
 	nybble ICON_SNAKE     ; Dragonite
+	nybble ICON_SNAKE     ; MDragonite
+	nybble ICON_MON       ; ArmMewtwo
 	nybble ICON_MON       ; Mewtwo
 	nybble ICON_MON       ; MMewtwoX
 	nybble ICON_MON       ; MMewtwoY
 	nybble ICON_MON       ; Mew
+	nybble ICON_MON       ; Meltan
+	nybble ICON_MON       ; Melmetal
 	nybble ICON_MON       ; Venustoise
-	nybble ICON_MON       ; ZygardeC
+	nybble ICON_BIRD      ; ThuFiZer
+	nybble ICON_MON       ; MZygarde
 	nybble ICON_MON       ; UNecrozma
 	nybble ICON_SNAKE     ; MRayquaza
 	nybble ICON_MON       ; EEternatus

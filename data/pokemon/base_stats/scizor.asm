@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, COUNTER,      TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   \
 	     FLASH_CANNON, MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, \
 	     REST,         X_SCISSOR,    SUBSTITUTE,   CUT,          STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(ScizorPicFront)

@@ -18,7 +18,7 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      \
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     REST,         THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   STRENGTH,     \
-	     FLASH         
+	     FLASH,        CURSE         
 	; end
 
 	db BANK(ElectabuzzPicFront)

@@ -17,7 +17,8 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   \
 	     ICE_BEAM,     BLIZZARD,     DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   \
-	     FLAIL,        CUT,          SURF,         STRENGTH,     CURSE         
+	     FLAIL,        CUT,          SURF,         STRENGTH,     CURSE,        \
+	     ROCK_SMASH,   DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(KrabbyPicFront)

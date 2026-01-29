@@ -17,7 +17,8 @@
 	tmhm TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     \
 	     FLASH_CANNON, THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   REST,         \
-	     THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   SURF,         FLASH         
+	     THUNDER_WAVE, PSYWAVE,      SUBSTITUTE,   GYRO_BALL,    SURF,         \
+	     FLASH,        CURSE         
 	; end
 
 	db BANK(StaryuPicFront)

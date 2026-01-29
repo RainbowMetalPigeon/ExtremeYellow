@@ -18,7 +18,8 @@
 	     DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
 	     SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   FISSURE,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         FIRE_BLAST,   OUTRAGE,      \
-	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     CURSE         
+	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(MarowakPicFront)

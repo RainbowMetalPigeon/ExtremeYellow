@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    HYPER_BEAM,   STONE_EDGE,   EARTHQUAKE,   \
 	     DIG,          DOUBLE_TEAM,  OUTRAGE,      REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(ZygardeCPicFront)

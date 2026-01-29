@@ -20,7 +20,8 @@
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   \
 	     SELFDESTRUCT, FIRE_BLAST,   REST,         EXPLOSION,    ROCK_SLIDE,   \
 	     SHADOW_BALL,  SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   CUT,          \
-	     SURF,         STRENGTH,     CURSE         
+	     SURF,         STRENGTH,     CURSE,        ROCK_SMASH,   ROCK_CLIMB,   \
+	     WHIRLPOOL     
 	; end
 
 	db BANK(LickilickyPicFront)

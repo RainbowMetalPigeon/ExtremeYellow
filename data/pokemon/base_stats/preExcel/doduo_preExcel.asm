@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         BRAVE_BIRD,   REST,         \
-	     SUBSTITUTE,   FLY           
+	     SUBSTITUTE,   FLAIL,        FLY,          CURSE         
 	; end
 
 	db BANK(DoduoPicFront)

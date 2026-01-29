@@ -18,7 +18,7 @@
 	     THUNDERBOLT,  THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         SELFDESTRUCT, FIRE_BLAST,   SHADOW_SNEAK, REST,         \
 	     GUNK_SHOT,    EXPLOSION,    ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
-	     STRENGTH,     CURSE         
+	     STRENGTH,     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(MukPicFront)

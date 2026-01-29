@@ -18,7 +18,8 @@
 	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   STONE_EDGE,   THUNDERBOLT,  \
 	     THUNDER,      EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         HYDRO_PUMP,   FIRE_BLAST,   OUTRAGE,      REST,         \
-	     THUNDER_WAVE, SUBSTITUTE,   SURF,         STRENGTH      
+	     THUNDER_WAVE, SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(GyaradosPicFront)

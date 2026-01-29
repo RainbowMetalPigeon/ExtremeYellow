@@ -18,7 +18,7 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, FEINT_ATTACK, WILL_O_WISP,  \
 	     THUNDERBOLT,  EARTHQUAKE,   PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         FIRE_BLAST,   REST,         PSYWAVE,      ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(MagmortarPicFront)

@@ -10,14 +10,14 @@
 	INCBIN "gfx/pokemon/front/mbeedrill.pic", 0, 1 ; sprite dimensions
 	dw MBeedrillPicFront, MBeedrillPicBack
 
-	db FURY_ATTACK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db FURY_ATTACK, SWORDS_DANCE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   GIGA_DRAIN,   \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     X_SCISSOR,    SUBSTITUTE,   CUT,          FLASH,        MEGAHORN,     \
-	     GUNK_SHOT,    CURSE         
+	     GUNK_SHOT,    CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(MBeedrillPicFront)

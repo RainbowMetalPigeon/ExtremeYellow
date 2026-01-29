@@ -18,7 +18,7 @@
 	     DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     SEISMIC_TOSS, \
 	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,   \
-	     STRENGTH,     CURSE         
+	     STRENGTH,     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(CubonePicFront)

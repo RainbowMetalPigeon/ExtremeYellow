@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     GIGA_DRAIN,   EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        \
-	     CUT,          STRENGTH,     FLASH,        CURSE         
+	     CUT,          STRENGTH,     FLASH,        CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(TangrowthPicFront)

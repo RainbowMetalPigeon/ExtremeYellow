@@ -18,7 +18,7 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, DIG,          PSYCHIC_M,    \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     THUNDER_WAVE, PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH,        \
-	     MOONBLAST,    DARK_PULSE    
+	     MOONBLAST,    DARK_PULSE,   CURSE         
 	; end
 
 	db BANK(MAlakazamPicFront)

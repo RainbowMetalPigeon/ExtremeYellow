@@ -17,7 +17,7 @@
 	tmhm TOXIC,        DARK_PULSE,   BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     FEINT_ATTACK, DIG,          PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE,   \
-	     FLAIL,        CUT,          FLASH,        CURSE         
+	     FLAIL,        CUT,          FLASH,        CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(UmbreonPicFront)

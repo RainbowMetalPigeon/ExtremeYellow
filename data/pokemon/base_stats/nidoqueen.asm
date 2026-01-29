@@ -20,7 +20,7 @@
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   SHADOW_BALL,  \
 	     SUBSTITUTE,   BODY_PRESS,   CUT,          SURF,         STRENGTH,     \
-	     GUNK_SHOT,    CURSE         
+	     GUNK_SHOT,    CURSE,        ROCK_CLIMB,   WHIRLPOOL     
 	; end
 
 	db BANK(NidoqueenPicFront)

@@ -17,8 +17,9 @@
 	tmhm TOXIC,        DARK_PULSE,   BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     FLASH_CANNON, STONE_EDGE,   EARTHQUAKE,   FISSURE,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, REST,         \
-	     EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   CUT,          STRENGTH,     \
-	     COUNTER,      METEOR_MASH   
+	     EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   \
+	     FLAIL,        CUT,          STRENGTH,     COUNTER,      METEOR_MASH,  \
+	     CURSE         
 	; end
 
 	db BANK(MSteelixPicFront)

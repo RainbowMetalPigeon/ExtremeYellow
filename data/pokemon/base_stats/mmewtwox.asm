@@ -21,7 +21,8 @@
 	     BIDE,         SELFDESTRUCT, FIRE_BLAST,   REST,         THUNDER_WAVE, \
 	     PSYWAVE,      ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     \
 	     FLASH,        SWORDS_DANCE, CLOSE_COMBAT, GUNK_SHOT,    SHADOW_SNEAK, \
-	     METEOR_MASH,  MIRROR_COAT,  DARK_PULSE,   CURSE         
+	     METEOR_MASH,  MIRROR_COAT,  DARK_PULSE,   CURSE,        ROCK_SMASH,   \
+	     ROCK_CLIMB,   DIVE          
 	; end
 
 	db BANK(MMewtwoXPicFront)

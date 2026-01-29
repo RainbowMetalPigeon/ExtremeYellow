@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  MIRROR_COAT,  \
 	     GIGA_DRAIN,   EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         REST,         GUNK_SHOT,    SUBSTITUTE,   CUT,          \
-	     STRENGTH      
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(IvysaurPicFront)

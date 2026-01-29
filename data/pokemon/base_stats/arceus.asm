@@ -20,7 +20,8 @@
 	     REFLECT,      FIRE_BLAST,   OUTRAGE,      REST,         X_SCISSOR,    \
 	     THUNDER_WAVE, ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   BODY_PRESS,   \
 	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   ROCK_CLIMB,   WATERFALL,    DIVE,         \
+	     WHIRLPOOL     
 	; end
 
 	db BANK(ArceusPicFront)

@@ -18,7 +18,8 @@
 	     FLASH_CANNON, STONE_EDGE,   EARTHQUAKE,   FISSURE,      DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, REST,         \
 	     EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   \
-	     FLAIL,        CUT,          STRENGTH,     CURSE         
+	     FLAIL,        CUT,          STRENGTH,     CURSE,        ROCK_SMASH,   \
+	     ROCK_CLIMB    
 	; end
 
 	db BANK(SteelixPicFront)

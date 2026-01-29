@@ -22,7 +22,7 @@ SecludedCavesScript0: ; testing
 	ret
 
 SecludedCaves_TextPointers:
-	dw ZygardeCText
+	dw MZygardeText
 	dw UNecrozmaText
 	dw MRayquazaText
 	dw EEternatusText
@@ -30,8 +30,8 @@ SecludedCaves_TextPointers:
 
 SecludedCavesTrainerHeaders:
 	def_trainers
-ZygardeCTrainerHeader:
-	trainer EVENT_BEAT_ZYGARDEC, 0, ZygardeCBattleText, ZygardeCBattleText, ZygardeCBattleText
+MZygardeTrainerHeader:
+	trainer EVENT_BEAT_MZYGARDE, 0, MZygardeBattleText, MZygardeBattleText, MZygardeBattleText
 UNecrozmaTrainerHeader:
 	trainer EVENT_BEAT_UNECROZMA, 0, UNecrozmaBattleText, UNecrozmaBattleText, UNecrozmaBattleText
 MRayquazaTrainerHeader:
@@ -48,15 +48,15 @@ InitStaticEncounterBattle:
 ;	ld [wSecludedCavesCurScript], a
 	jp TextScriptEnd
 
-ZygardeCText:
+MZygardeText:
 	text_asm
-	ld hl, ZygardeCTrainerHeader
+	ld hl, MZygardeTrainerHeader
 	jr InitStaticEncounterBattle
 
-ZygardeCBattleText:
-	text_far _ZygardeCBattleText
+MZygardeBattleText:
+	text_far _MZygardeBattleText
 	text_asm
-	ld a, ZYGARDEC
+	ld a, MZYGARDE
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd

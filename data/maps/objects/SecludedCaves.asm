@@ -11,7 +11,7 @@ SecludedCaves_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  4, 16, SPRITE_MONSTER, STAY, DOWN, 1, ZYGARDEC, 99 | OW_POKEMON ; edited, to go beyond 200
+	object_event  4, 16, SPRITE_MONSTER, STAY, DOWN, 1, MZYGARDE, 99 | OW_POKEMON ; edited, to go beyond 200
 	object_event 33, 14, SPRITE_MONSTER, STAY, DOWN, 2, UNECROZMA, 99 | OW_POKEMON ; edited, to go beyond 200
 	object_event  4,  4, SPRITE_MONSTER, STAY, DOWN, 3, MRAYQUAZA, 99 | OW_POKEMON ; edited, to go beyond 200
 	object_event 32,  4, SPRITE_MONSTER, STAY, DOWN, 4, EETERNATUS, 99 | OW_POKEMON ; edited, to go beyond 200

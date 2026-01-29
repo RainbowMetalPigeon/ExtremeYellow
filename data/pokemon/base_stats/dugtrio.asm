@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   FEINT_ATTACK, \
 	     STONE_EDGE,   EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         REST,         ROCK_SLIDE,   SUBSTITUTE,   \
-	     CUT,          CURSE         
+	     CUT,          CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(DugtrioPicFront)

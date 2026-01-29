@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     HYPER_BEAM,   MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     REST,         SUBSTITUTE,   FLAIL,        SURF,         STRENGTH,     \
-	     CURSE         
+	     CURSE,        WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(DewgongPicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     DIG,          PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         HYDRO_PUMP,   REST,         PSYWAVE,      SUBSTITUTE,   \
-	     SURF          
+	     SURF,         CURSE         
 	; end
 
 	db BANK(PoliwagPicFront)

@@ -5,7 +5,7 @@ MACRO tutor_move
 	db \2 ; Species
 ENDM
 
-TutorMoveData:: ; TBE
+TutorMoveData::
 	table_width 2, TutorMove Data
 
 	tutor_move SUNNY_DAY, BULBASAUR
@@ -154,7 +154,7 @@ TutorMoveData:: ; TBE
 	tutor_move SUNNY_DAY, MMEWTWOY
 	tutor_move SUNNY_DAY, MEW
 	tutor_move SUNNY_DAY, VENUSTOISE
-	tutor_move SUNNY_DAY, ZYGARDEC
+	tutor_move SUNNY_DAY, MZYGARDE
 	tutor_move SUNNY_DAY, UNECROZMA
 	tutor_move SUNNY_DAY, MRAYQUAZA
 	tutor_move SUNNY_DAY, EETERNATUS
@@ -296,7 +296,7 @@ TutorMoveData:: ; TBE
 	tutor_move RAIN_DANCE, MMEWTWOY
 	tutor_move RAIN_DANCE, MEW
 	tutor_move RAIN_DANCE, VENUSTOISE
-	tutor_move RAIN_DANCE, ZYGARDEC
+	tutor_move RAIN_DANCE, MZYGARDE
 	tutor_move RAIN_DANCE, UNECROZMA
 	tutor_move RAIN_DANCE, MRAYQUAZA
 	tutor_move RAIN_DANCE, EETERNATUS
@@ -354,7 +354,7 @@ TutorMoveData:: ; TBE
 	tutor_move SANDSTORM, MMEWTWOY
 	tutor_move SANDSTORM, MEW
 	tutor_move SANDSTORM, VENUSTOISE
-	tutor_move SANDSTORM, ZYGARDEC
+	tutor_move SANDSTORM, MZYGARDE
 	tutor_move SANDSTORM, UNECROZMA
 	tutor_move SANDSTORM, MRAYQUAZA
 	tutor_move SANDSTORM, EETERNATUS
@@ -413,7 +413,7 @@ TutorMoveData:: ; TBE
 	tutor_move HAIL, MMEWTWOY
 	tutor_move HAIL, MEW
 	tutor_move HAIL, VENUSTOISE
-	tutor_move HAIL, ZYGARDEC
+	tutor_move HAIL, MZYGARDE
 	tutor_move HAIL, UNECROZMA
 	tutor_move HAIL, MRAYQUAZA
 	tutor_move HAIL, EETERNATUS
@@ -477,7 +477,7 @@ TutorMoveData:: ; TBE
 	tutor_move WEATHER_BALL, MMEWTWOY
 	tutor_move WEATHER_BALL, MEW
 	tutor_move WEATHER_BALL, VENUSTOISE
-	tutor_move WEATHER_BALL, ZYGARDEC
+	tutor_move WEATHER_BALL, MZYGARDE
 	tutor_move WEATHER_BALL, UNECROZMA
 	tutor_move WEATHER_BALL, MRAYQUAZA
 	tutor_move WEATHER_BALL, EETERNATUS
@@ -502,7 +502,7 @@ TutorMoveData:: ; TBE
 	tutor_move GRASSY_TERRAIN, TANGROWTH
 	tutor_move GRASSY_TERRAIN, MEW
 	tutor_move GRASSY_TERRAIN, VENUSTOISE
-	tutor_move GRASSY_TERRAIN, ZYGARDEC
+	tutor_move GRASSY_TERRAIN, MZYGARDE
 	tutor_move GRASSY_TERRAIN, UNECROZMA
 	tutor_move GRASSY_TERRAIN, MRAYQUAZA
 	tutor_move GRASSY_TERRAIN, EETERNATUS
@@ -524,7 +524,7 @@ TutorMoveData:: ; TBE
 	tutor_move PSYCHIC_TERRAIN, JYNX
 	tutor_move PSYCHIC_TERRAIN, MEWTWO
 	tutor_move PSYCHIC_TERRAIN, MEW
-	tutor_move PSYCHIC_TERRAIN, ZYGARDEC
+	tutor_move PSYCHIC_TERRAIN, MZYGARDE
 	tutor_move PSYCHIC_TERRAIN, UNECROZMA
 	tutor_move PSYCHIC_TERRAIN, MRAYQUAZA
 	tutor_move PSYCHIC_TERRAIN, EETERNATUS
@@ -537,7 +537,7 @@ TutorMoveData:: ; TBE
 	tutor_move MISTY_TERRAIN, MR_MIME
 	tutor_move MISTY_TERRAIN, SYLVEON
 	tutor_move MISTY_TERRAIN, MEW
-	tutor_move MISTY_TERRAIN, ZYGARDEC
+	tutor_move MISTY_TERRAIN, MZYGARDE
 	tutor_move MISTY_TERRAIN, UNECROZMA
 	tutor_move MISTY_TERRAIN, MRAYQUAZA
 	tutor_move MISTY_TERRAIN, EETERNATUS
@@ -557,7 +557,7 @@ TutorMoveData:: ; TBE
 	tutor_move ELECTRIC_TERRAIN, JOLTEON
 	tutor_move ELECTRIC_TERRAIN, ZAPDOS
 	tutor_move ELECTRIC_TERRAIN, MEW
-	tutor_move ELECTRIC_TERRAIN, ZYGARDEC
+	tutor_move ELECTRIC_TERRAIN, MZYGARDE
 	tutor_move ELECTRIC_TERRAIN, UNECROZMA
 	tutor_move ELECTRIC_TERRAIN, MRAYQUAZA
 	tutor_move ELECTRIC_TERRAIN, EETERNATUS
@@ -575,7 +575,7 @@ TutorMoveData:: ; TBE
 	tutor_move TERRAIN_PULSE, SNORLAX
 	tutor_move TERRAIN_PULSE, MEW
 	tutor_move TERRAIN_PULSE, VENUSTOISE
-	tutor_move TERRAIN_PULSE, ZYGARDEC
+	tutor_move TERRAIN_PULSE, MZYGARDE
 	tutor_move TERRAIN_PULSE, UNECROZMA
 	tutor_move TERRAIN_PULSE, MRAYQUAZA
 	tutor_move TERRAIN_PULSE, EETERNATUS
@@ -606,7 +606,7 @@ TutorMoveData:: ; TBE
 	tutor_move TRICK_ROOM, PORYGONZ
 	tutor_move TRICK_ROOM, MEWTWO
 	tutor_move TRICK_ROOM, MEW
-	tutor_move TRICK_ROOM, ZYGARDEC
+	tutor_move TRICK_ROOM, MZYGARDE
 	tutor_move TRICK_ROOM, UNECROZMA
 	tutor_move TRICK_ROOM, MRAYQUAZA
 	tutor_move TRICK_ROOM, EETERNATUS
@@ -619,7 +619,7 @@ TutorMoveData:: ; TBE
 	tutor_move SPIKES, OMANYTE
 	tutor_move SPIKES, OMASTAR
 	tutor_move SPIKES, MEW
-	tutor_move SPIKES, ZYGARDEC
+	tutor_move SPIKES, MZYGARDE
 	tutor_move SPIKES, UNECROZMA
 	tutor_move SPIKES, MRAYQUAZA
 	tutor_move SPIKES, EETERNATUS
@@ -647,7 +647,7 @@ TutorMoveData:: ; TBE
 	tutor_move TOXIC_SPIKES, OMANYTE
 	tutor_move TOXIC_SPIKES, OMASTAR
 	tutor_move TOXIC_SPIKES, MEW
-	tutor_move TOXIC_SPIKES, ZYGARDEC
+	tutor_move TOXIC_SPIKES, MZYGARDE
 	tutor_move TOXIC_SPIKES, UNECROZMA
 	tutor_move TOXIC_SPIKES, MRAYQUAZA
 	tutor_move TOXIC_SPIKES, EETERNATUS
@@ -665,7 +665,7 @@ TutorMoveData:: ; TBE
 	tutor_move STICKY_WEB, VENONAT
 	tutor_move STICKY_WEB, VENOMOTH
 	tutor_move STICKY_WEB, MEW
-	tutor_move STICKY_WEB, ZYGARDEC
+	tutor_move STICKY_WEB, MZYGARDE
 	tutor_move STICKY_WEB, UNECROZMA
 	tutor_move STICKY_WEB, MRAYQUAZA
 	tutor_move STICKY_WEB, EETERNATUS
@@ -704,7 +704,7 @@ TutorMoveData:: ; TBE
 	tutor_move STEALTH_ROCK, AERODACTYL
 	tutor_move STEALTH_ROCK, MARODACTYL
 	tutor_move STEALTH_ROCK, MEW
-	tutor_move STEALTH_ROCK, ZYGARDEC
+	tutor_move STEALTH_ROCK, MZYGARDE
 	tutor_move STEALTH_ROCK, UNECROZMA
 	tutor_move STEALTH_ROCK, MRAYQUAZA
 	tutor_move STEALTH_ROCK, EETERNATUS

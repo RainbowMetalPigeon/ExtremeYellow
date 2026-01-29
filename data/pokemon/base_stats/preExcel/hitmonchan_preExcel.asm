@@ -17,7 +17,7 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     METRONOME,    SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   STRENGTH,     CURSE         
 	; end
 
 	db BANK(HitmonchanPicFront)

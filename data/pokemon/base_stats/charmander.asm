@@ -18,7 +18,7 @@
 	     DOUBLE_EDGE,  COUNTER,      SEISMIC_TOSS, DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE,   CUT,          STRENGTH,     CURSE,        \
-		 WILL_O_WISP
+	     WILL_O_WISP,  ROCK_SMASH    
 	; end
 
 	db BANK(CharmanderPicFront)

@@ -18,7 +18,8 @@
 	     METRONOME,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, \
 	     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   REST,         PSYWAVE,      \
-	     SUBSTITUTE,   SURF,         STRENGTH,     CURSE         
+	     SUBSTITUTE,   SURF,         STRENGTH,     CURSE,        ROCK_SMASH,   \
+	     WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(PolitoedPicFront)

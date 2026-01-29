@@ -21,7 +21,8 @@
 	     BIDE,         SELFDESTRUCT, FIRE_BLAST,   REST,         THUNDER_WAVE, \
 	     PSYWAVE,      ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     \
 	     FLASH,        HYDRO_PUMP,   SURF,         GIGA_DRAIN,   MIRROR_COAT,  \
-	     OUTRAGE,      MOONBLAST,    DRAININGKISS, CURSE         
+	     OUTRAGE,      MOONBLAST,    DRAININGKISS, CURSE,        ROCK_SMASH,   \
+	     ROCK_CLIMB,   DIVE          
 	; end
 
 	db BANK(MMewtwoYPicFront)

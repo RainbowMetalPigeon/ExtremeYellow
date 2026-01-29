@@ -141,7 +141,10 @@ CleanHumanPokedexEntries: ; oh-so horribly hard coded xD
 	inc hl
 	dec b
 	jr nz, .loop
-	ld [hl], %00000001
+; post-loop
+	ld a, [hl]
+	and %00000111
+	ld [hl], a
 	ret
 
 HauntedIslandOfNumbersScript_ResetAfterDefeat:

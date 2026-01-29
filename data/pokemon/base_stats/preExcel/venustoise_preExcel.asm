@@ -19,8 +19,8 @@
 	     MIRROR_COAT,  FLASH_CANNON, SEISMIC_TOSS, EARTHQUAKE,   FISSURE,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     HYDRO_PUMP,   OUTRAGE,      REST,         ROCK_SLIDE,   SUBSTITUTE,   \
-	     SURF,         STRENGTH,     SWORDS_DANCE, GIGA_DRAIN,   GUNK_SHOT,    \
-	     CUT           
+	     GYRO_BALL,    BODY_PRESS,   FLAIL,        SURF,         STRENGTH,     \
+	     SWORDS_DANCE, GIGA_DRAIN,   GUNK_SHOT,    CUT,          CURSE         
 	; end
 
 	db BANK(VenustoisePicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  WILL_O_WISP,  DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         CLOSE_COMBAT, \
 	     FIRE_BLAST,   OUTRAGE,      REST,         SUBSTITUTE,   STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(GrowlithePicFront)

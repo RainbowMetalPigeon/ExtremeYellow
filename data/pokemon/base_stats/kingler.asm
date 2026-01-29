@@ -18,7 +18,7 @@
 	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   REST,         X_SCISSOR,    \
 	     ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        CUT,          SURF,         \
-	     STRENGTH,     CURSE         
+	     STRENGTH,     CURSE,        ROCK_SMASH,   DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(KinglerPicFront)

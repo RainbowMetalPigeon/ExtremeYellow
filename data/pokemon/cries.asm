@@ -39,6 +39,8 @@ CryData::
 	mon_cry SFX_CRY_0F, $EE, $01 ; Pichu
 	mon_cry SFX_CRY_0F, $EE, $01 ; Pikachu
 	mon_cry SFX_CRY_09, $EE, $08 ; Raichu
+	mon_cry SFX_CRY_09, $EE, $08 ; MRaichuX
+	mon_cry SFX_CRY_09, $EE, $08 ; MRaichuY
 	mon_cry SFX_CRY_00, $20, $40 ; Sandshrew
 	mon_cry SFX_CRY_00, $FF, $FF ; Sandslash
 	mon_cry SFX_CRY_01, $00, $80 ; NidoranF
@@ -50,6 +52,7 @@ CryData::
 	mon_cry SFX_CRY_19, $CC, $01 ; Cleffa
 	mon_cry SFX_CRY_19, $CC, $01 ; Clefairy
 	mon_cry SFX_CRY_19, $AA, $20 ; Clefable
+	mon_cry SFX_CRY_19, $AA, $20 ; MClefable
 	mon_cry SFX_CRY_24, $4F, $10 ; Vulpix
 	mon_cry SFX_CRY_24, $88, $60 ; Ninetales
 	mon_cry SFX_CRY_0E, $FF, $35 ; Igglybuff
@@ -91,6 +94,7 @@ CryData::
 	mon_cry SFX_CRY_21, $55, $01 ; Bellsprout
 	mon_cry SFX_CRY_25, $44, $20 ; Weepinbell
 	mon_cry SFX_CRY_25, $66, $CC ; Victreebel
+	mon_cry SFX_CRY_25, $66, $CC ; MVictrebel
 	mon_cry SFX_CRY_1A, $00, $80 ; Tentacool
 	mon_cry SFX_CRY_1A, $EE, $FF ; Tentacruel
 	mon_cry SFX_CRY_24, $F0, $10 ; Geodude
@@ -156,6 +160,7 @@ CryData::
 	mon_cry SFX_CRY_16, $10, $FF ; Seaking
 	mon_cry SFX_CRY_1E, $02, $20 ; Staryu
 	mon_cry SFX_CRY_1E, $00, $80 ; Starmie
+	mon_cry SFX_CRY_1E, $00, $80 ; MStarmie
 	mon_cry SFX_CRY_20, $08, $40 ; MimeJr
 	mon_cry SFX_CRY_20, $08, $40 ; MrMime
 	mon_cry SFX_CRY_16, $00, $80 ; Scyther
@@ -204,12 +209,17 @@ CryData::
 	mon_cry SFX_CRY_0F, $60, $40 ; Dratini
 	mon_cry SFX_CRY_0F, $40, $80 ; Dragonair
 	mon_cry SFX_CRY_0F, $3C, $C0 ; Dragonite
+	mon_cry SFX_CRY_0F, $3C, $C0 ; MDragonite
+	mon_cry SFX_CRY_1E, $99, $FF ; ArmMewtwo
 	mon_cry SFX_CRY_1E, $99, $FF ; Mewtwo
 	mon_cry SFX_CRY_1E, $99, $FF ; MMewtwoX
 	mon_cry SFX_CRY_1E, $99, $FF ; MMewtwoY
 	mon_cry SFX_CRY_1E, $EE, $FF ; Mew
+	mon_cry SFX_CRY_1C, $20, $C0 ; Meltan
+	mon_cry SFX_CRY_1C, $20, $C0 ; Melmetal
 	mon_cry SFX_CRY_13, $14, $FF ; Venustoise
-	mon_cry SFX_CRY_13, $14, $FF ; ZygardeC
+	mon_cry SFX_CRY_0B, $99, $20 ; ThuFiZer
+	mon_cry SFX_CRY_13, $14, $FF ; MZygarde
 	mon_cry SFX_CRY_13, $14, $FF ; UNecrozma
 	mon_cry SFX_CRY_13, $14, $FF ; MRayquaza
 	mon_cry SFX_CRY_13, $14, $FF ; EEternatus

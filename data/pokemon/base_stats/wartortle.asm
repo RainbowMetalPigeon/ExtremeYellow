@@ -19,7 +19,7 @@
 	     SEISMIC_TOSS, EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         HYDRO_PUMP,   REST,         ROCK_SLIDE,   \
 	     SUBSTITUTE,   GYRO_BALL,    FLAIL,        SURF,         STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(WartortlePicFront)

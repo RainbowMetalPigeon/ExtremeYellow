@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     HYDRO_PUMP,   REST,         ROCK_SLIDE,   SUBSTITUTE,   SURF          
+	     HYDRO_PUMP,   REST,         ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    \
+	     SURF,         CURSE         
 	; end
 
 	db BANK(OmanytePicFront)

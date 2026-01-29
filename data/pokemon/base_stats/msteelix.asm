@@ -19,7 +19,7 @@
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, REST,         \
 	     EXPLOSION,    ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   \
 	     FLAIL,        CUT,          STRENGTH,     COUNTER,      METEOR_MASH,  \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(MSteelixPicFront)

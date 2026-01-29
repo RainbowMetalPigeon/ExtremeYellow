@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   DIG,          \
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     REST,         SHADOW_BALL,  SUBSTITUTE,   FLAIL,        CUT,          \
-	     FLASH,        CURSE         
+	     FLASH,        CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(EspeonPicFront)

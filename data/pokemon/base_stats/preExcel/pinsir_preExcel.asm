@@ -17,8 +17,8 @@
 	tmhm SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   \
 	     SEISMIC_TOSS, FEINT_ATTACK, STONE_EDGE,   EARTHQUAKE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, OUTRAGE,      \
-	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
-	     STRENGTH      
+	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   FLAIL,        \
+	     CUT,          STRENGTH,     CURSE         
 	; end
 
 	db BANK(PinsirPicFront)

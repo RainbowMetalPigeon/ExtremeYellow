@@ -18,7 +18,7 @@
 	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     THUNDERBOLT,  THUNDER,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
 	     THUNDER_WAVE, SHADOW_BALL,  SUBSTITUTE,   CUT,          STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(RattataPicFront)

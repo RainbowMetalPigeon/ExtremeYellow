@@ -1,75 +1,5 @@
 ; we restart here after Farfetch'd, number 100
 
-_DoduoDexEntry::
-	text "Its short wings"
-	next "make flying diffi-"
-	next "cult. Instead,"
-
-	page "this #MON runs"
-	next "at high speed on"
-	next "developed legs"
-	dex
-
-_DodrioDexEntry::
-	text "One of DODUO's 2"
-	next "heads splits to"
-	next "form a unique spe-"
-
-	page "cies. It runs"
-	next "close to 65 KMH in"
-	next "prairies"
-	dex
-
-_SeelDexEntry::
-	text "Loves freezing"
-	next "cold conditions."
-	next "Relishes swimming"
-
-	page "in a frigid cli-"
-	next "mate of around"
-	next "-10C degrees"
-	dex
-
-_DewgongDexEntry::
-	text "Its entire body is"
-	next "a snowy-white. Un-"
-	next "harmed by even in-"
-
-	page "tense cold, it"
-	next "swims powerfully"
-	next "in icy waters"
-	dex
-
-_GrimerDexEntry::
-	text "Made of hardened"
-	next "sludge. It smells"
-	next "too putrid to"
-
-	page "touch. Even weeds"
-	next "won't grow in its"
-	next "path"
-	dex
-
-_MukDexEntry::
-	text "Smells so awful,"
-	next "it can cause"
-	next "fainting. Through"
-
-	page "degeneration, it"
-	next "lost its sense of"
-	next "smell"
-	dex
-
-_ShellderDexEntry::
-	text "The shell can"
-	next "withstand any at-"
-	next "tack. However,"
-
-	page "when it is open,"
-	next "the tender body is"
-	next "exposed"
-	dex
-
 _CloysterDexEntry::
 	text "For protection, it"
 	next "uses its harder-"
@@ -103,11 +33,10 @@ _HaunterDexEntry::
 _GengarDexEntry::
 	text "A GENGAR is close"
 	next "by if you feel a"
-	next "sudden chill."
+	next "sudden chill. It"
 
-	page "It may be trying"
-	next "to lay a curse"
-	next "on you"
+	page "may be trying to"
+	next "lay a curse on you"
 	dex
 
 _MGengarDexEntry::
@@ -191,13 +120,13 @@ _KinglerDexEntry::
 	dex
 
 _VoltorbDexEntry::
-	text "It is said to"
-	next "camouflage itself"
-	next "as a #BALL."
+	text "It is said to cam-"
+	next "ouflage itself as"
+	next "a #BALL. It will"
 
-	page "It will self-"
-	next "destruct with very"
-	next "little stimulus"
+	page "self-destruct with"
+	next "very little stimu-"
+	next "lus"
 	dex
 
 _ElectrodeDexEntry::
@@ -356,8 +285,8 @@ _RhyperiorDexEntry::
 	next "out rocks and"
 
 	page "GEODUDE. Its cara-"
-	next "pace can resist a"
-	next "volcanic eruption"
+	next "pace can withstand"
+	next "volcanic eruptions"
 	dex
 
 _HappinyDexEntry::
@@ -498,6 +427,16 @@ _StarmieDexEntry::
 	page "communicating when"
 	next "it glows in 7 col-"
 	next "ors"
+	dex
+
+_MStarmieDexEntry::
+	text "With Mega Evolu-"
+	next "tion, its move-"
+	next "ments have become"
+
+	page "more humanlike. It"
+	next "likely did so to"
+	next "supplant humankind"
 	dex
 
 _MimeJrDexEntry::
@@ -977,6 +916,26 @@ _DragoniteDexEntry::
 	next "is only a rumor"
 	dex
 
+_MDragoniteDexEntry::
+	text "Mega Evolution has"
+	next "excessively in-"
+	next "creased its kind-"
+
+	page "ness. It finishes"
+	next "its enemies with"
+	next "smiling mercy"
+	dex
+
+_ArmMewtwoDexEntry::
+	text "It was searching"
+	next "for meaning to its"
+	next "existence when"
+
+	page "someone suppressed"
+	next "and controlled its"
+	next "power"
+	dex
+
 _MewtwoDexEntry::
 	text "Its DNA is almost"
 	next "the same as MEW's."
@@ -1017,6 +976,26 @@ _MewDexEntry::
 	next "hair can be seen"
 	dex
 
+_MeltanDexEntry::
+	text "It eats metal from"
+	next "the ground, and it"
+	next "circulates it in"
+
+	page "its molten steel"
+	next "body to generate"
+	next "energy"
+	dex
+
+_MelmetalDexEntry::
+	text "It has incredibly"
+	next "strong punches and"
+	next "creates iron from"
+
+	page "nothing. When it"
+	next "dies, its shards"
+	next "become MELTANs"
+	dex
+
 _VenustoiseDexEntry::
 	text "A legendary fusion"
 	next "of ghastly origin."
@@ -1027,9 +1006,19 @@ _VenustoiseDexEntry::
 	next "otherworldy fury"
 	dex
 
-_ZygardeCDexEntry::
+_ThuFiZerDexEntry::
+	text "Three Gods merged"
+	next "by unholy means."
+	next "Wields unphatom-"
+
+	page "able power and un-"
+	next "paralleled control"
+	next "over the elements"
+	dex
+
+_MZygardeDexEntry::
 	text "T??s i? ??G?R??'s"
-	next "p?r?e?t?d f??m. ?t"
+	next "u?t??a?e f??m. ?t"
 	next "??n r??ia?? hi??-"
 
 	page "?o?ere? ???r?y"
@@ -1101,10 +1090,10 @@ _BluesMomDexEntry::
 	dex
 
 _DadDexEntry::
-	text "Your DAD."
-	next "Thought dead long"
-	next "ago, was actually"
+	text "Your DAD. Thought"
+	next "dead long ago, was"
+	next "actually made"
 
-	page "made prisoner by"
+	page "prisoner by"
 	next "MISSINGNO."
 	dex

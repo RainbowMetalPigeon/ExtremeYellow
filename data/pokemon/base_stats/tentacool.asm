@@ -17,7 +17,8 @@
 	tmhm SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     MIRROR_COAT,  GIGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         HYDRO_PUMP,   REST,         SUBSTITUTE,   \
-	     CUT,          SURF,         CURSE         
+	     CUT,          SURF,         CURSE,        WATERFALL,    DIVE,         \
+	     WHIRLPOOL     
 	; end
 
 	db BANK(TentacoolPicFront)

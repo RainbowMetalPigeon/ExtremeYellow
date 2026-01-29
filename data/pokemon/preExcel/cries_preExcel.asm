@@ -221,4 +221,19 @@ CryData::
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
 	mon_cry SFX_CRY_00, $00, $00 ; MissingNo.
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
+	mon_cry SFX_CRY_00, $00, $00 ; MapPieces, new
 	assert_table_length NUM_POKEMON_INDEXES

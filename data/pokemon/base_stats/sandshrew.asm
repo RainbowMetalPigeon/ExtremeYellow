@@ -18,7 +18,8 @@
 	     ICE_BEAM,     BLIZZARD,     MIRROR_COAT,  SEISMIC_TOSS, STONE_EDGE,   \
 	     EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    \
-	     FLAIL,        CUT,          STRENGTH,     CURSE         
+	     FLAIL,        CUT,          STRENGTH,     CURSE,        ROCK_SMASH,   \
+	     ROCK_CLIMB    
 	; end
 
 	db BANK(SandshrewPicFront)

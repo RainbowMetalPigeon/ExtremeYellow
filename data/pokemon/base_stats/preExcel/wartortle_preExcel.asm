@@ -18,7 +18,8 @@
 	     DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     MIRROR_COAT,  \
 	     SEISMIC_TOSS, EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         HYDRO_PUMP,   REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   SURF,         STRENGTH      
+	     SUBSTITUTE,   GYRO_BALL,    FLAIL,        SURF,         STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(WartortlePicFront)

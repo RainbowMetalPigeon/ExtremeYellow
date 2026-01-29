@@ -81,11 +81,11 @@ _MCharzardXDexEntry::
 _MCharzardYDexEntry::
 	text "The bond with the"
 	next "Trainer is its"
-	next "power source. Has"
+	next "power source. It"
 
-	page "more speed and"
-	next "maneuverability"
-	next "than a jet"
+	page "has speed and man-"
+	next "euverability"
+	next "greater than a jet"
 	dex
 
 _SquirtleDexEntry::
@@ -326,6 +326,26 @@ _RaichuDexEntry::
 	next "dark"
 	dex
 
+_MRaichuXDexEntry::
+	text "It resembles an X"
+	next "as it flies with"
+	next "50 million Volts"
+
+	page "sparking from its"
+	next "ears and forked"
+	next "tail"
+	dex
+
+_MRaichuYDexEntry::
+	text "It fires bolts"
+	next "from its tail and"
+	next "from the spiky fur"
+
+	page "of its temples."
+	next "This electricity"
+	next "is shaped as a Y"
+	dex
+
 _SandshrewDexEntry::
 	text "Its body is dry."
 	next "When it gets cold"
@@ -434,6 +454,16 @@ _ClefableDexEntry::
 	page "It is a kind of"
 	next "fairy, rarely seen"
 	next "by people"
+	dex
+
+_MClefableDexEntry::
+	text "It flies by using"
+	next "the power of moon-"
+	next "light to control"
+
+	page "gravity within"
+	next "over 10 meters"
+	next "around it"
 	dex
 
 _VulpixDexEntry::
@@ -721,9 +751,9 @@ _PoliwhirlDexEntry::
 	next "uses its belly"
 	next "spiral to put the"
 
-	page "foe to sleep."
-	next "It then makes"
-	next "its escape"
+	page "foe to sleep. It"
+	next "then makes its es-"
+	next "cape"
 	dex
 
 _PoliwrathDexEntry::
@@ -844,6 +874,16 @@ _VictreebelDexEntry::
 	page "whole, the prey is"
 	next "melted in a day,"
 	next "bones and all"
+	dex
+
+_MVictrebelDexEntry::
+	text "This acid has in-"
+	next "creased due to"
+	next "Mega Evolution,"
+
+	page "filling its mouth."
+	next "It easily over-"
+	next "flows"
 	dex
 
 _TentacoolDexEntry::
@@ -971,9 +1011,9 @@ _MagnetonDexEntry::
 	next "radio signals. It"
 	next "raises the temper-"
 
-	page "ature by 2C"
-	next "degrees within"
-	next "a kilometer"
+	page "ature by 2C de-"
+	next "grees within a"
+	next "kilometer"
 	dex
 
 _MagnezoneDexEntry::
@@ -996,4 +1036,74 @@ _FarfetchdDexEntry::
 	next "decreasing"
 	dex
 
-; we stop here at Farfetch'd, number 100, and continue into dex_text2 for the others
+_DoduoDexEntry::
+	text "Its short wings"
+	next "make flying diffi-"
+	next "cult. Instead,"
+
+	page "this #MON runs"
+	next "at high speed on"
+	next "developed legs"
+	dex
+
+_DodrioDexEntry::
+	text "One of DODUO's 2"
+	next "heads splits to"
+	next "form a unique spe-"
+
+	page "cies. It runs"
+	next "close to 65 KMH in"
+	next "prairies"
+	dex
+
+_SeelDexEntry::
+	text "Loves freezing"
+	next "cold conditions."
+	next "Relishes swimming"
+
+	page "in a frigid cli-"
+	next "mate of around"
+	next "-10C degrees"
+	dex
+
+_DewgongDexEntry::
+	text "Its entire body is"
+	next "a snowy-white. Un-"
+	next "harmed by even in-"
+
+	page "tense cold, it"
+	next "swims powerfully"
+	next "in icy waters"
+	dex
+
+_GrimerDexEntry::
+	text "Made of hardened"
+	next "sludge. It smells"
+	next "too putrid to"
+
+	page "touch. Even weeds"
+	next "won't grow in its"
+	next "path"
+	dex
+
+_MukDexEntry::
+	text "Smells so awful,"
+	next "it can cause"
+	next "fainting. Through"
+
+	page "degeneration, it"
+	next "lost its sense of"
+	next "smell"
+	dex
+
+_ShellderDexEntry::
+	text "The shell can"
+	next "withstand any at-"
+	next "tack. However,"
+
+	page "when it is open,"
+	next "the tender body is"
+	next "exposed"
+	dex
+
+; we stop here at Shellder, number 111, and continue into dex_text2 for the others

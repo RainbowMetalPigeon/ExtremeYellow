@@ -20,7 +20,8 @@
 	     THUNDER,      EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   FIRE_BLAST,   OUTRAGE,      \
 	     REST,         ROCK_SLIDE,   SUBSTITUTE,   BODY_PRESS,   CUT,          \
-	     SURF,         STRENGTH,     CURSE         
+	     SURF,         STRENGTH,     CURSE,        ROCK_SMASH,   ROCK_CLIMB,   \
+	     WHIRLPOOL     
 	; end
 
 	db BANK(RhyperiorPicFront)

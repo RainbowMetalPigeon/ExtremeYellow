@@ -19,7 +19,8 @@
 	     EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   FIRE_BLAST,   \
 	     REST,         THUNDER_WAVE, PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   \
-	     BODY_PRESS,   SURF,         STRENGTH,     FLASH,        CURSE         
+	     BODY_PRESS,   SURF,         STRENGTH,     FLASH,        CURSE,        \
+	     ROCK_SMASH,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(SlowbroPicFront)

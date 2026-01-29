@@ -18,7 +18,7 @@
 	     STONE_EDGE,   THUNDERBOLT,  THUNDER,      EARTHQUAKE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
 	     REST,         ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   CUT,          \
-	     GUNK_SHOT,    CURSE
+	     GUNK_SHOT,    CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(NidoranFPicFront)

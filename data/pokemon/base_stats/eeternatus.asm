@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm TOXIC,        HYPER_BEAM,   FLASH_CANNON, REFLECT,      REST,         \
 	     SHADOW_BALL,  SUBSTITUTE,   FLY,          GUNK_SHOT,    OUTRAGE,      \
-	     DRAGON_CLAW,  CURSE         
+	     DRAGON_CLAW,  CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(EEternatusPicFront)

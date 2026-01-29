@@ -18,7 +18,7 @@
 	     METRONOME,    SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, \
 	     OUTRAGE,      REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(MankeyPicFront)

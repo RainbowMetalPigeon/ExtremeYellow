@@ -17,7 +17,8 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         THUNDER_WAVE, \
-	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH         
+	     PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   BODY_PRESS,   FLASH,        \
+	     CURSE         
 	; end
 
 	db BANK(HypnoPicFront)

@@ -20,7 +20,7 @@
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     HYDRO_PUMP,   SELFDESTRUCT, FIRE_BLAST,   OUTRAGE,      REST,         \
 	     GUNK_SHOT,    PSYWAVE,      ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   \
-	     SURF,         STRENGTH      
+	     FLAIL,        BODY_PRESS,   SURF,         STRENGTH,     CURSE         
 	; end
 
 	db BANK(SnorlaxPicFront)

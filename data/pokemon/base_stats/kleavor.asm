@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, COUNTER,      TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   \
 	     STONE_EDGE,   MIMIC,        DOUBLE_TEAM,  BIDE,         CLOSE_COMBAT, \
 	     REST,         X_SCISSOR,    ROCK_SLIDE,   SUBSTITUTE,   CUT,          \
-	     CURSE         
+	     CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(KleavorPicFront)

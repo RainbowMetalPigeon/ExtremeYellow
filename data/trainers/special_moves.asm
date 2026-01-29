@@ -3260,7 +3260,7 @@ SpecialTrainerMoves:
 ; ===============================================================
 
 	db TRAVELER, 1
-	; ZYGARDEC
+	; MZYGARDE
 	db 1, 1, DRAGON_CLAW
 	db 1, 2, GLARE
 	db 1, 3, EXTREMESPEED
@@ -3288,7 +3288,7 @@ SpecialTrainerMoves:
 	db $FE
 
 	db TRAVELER, 2
-	; ZYGARDEC
+	; MZYGARDE
 	db 1, 1, DRAGON_CLAW
 	db 1, 2, GLARE
 	db 1, 3, EXTREMESPEED

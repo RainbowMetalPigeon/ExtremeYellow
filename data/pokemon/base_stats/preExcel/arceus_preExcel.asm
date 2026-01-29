@@ -18,8 +18,9 @@
 	     HYPER_BEAM,   FLASH_CANNON, GIGA_DRAIN,   STONE_EDGE,   WILL_O_WISP,  \
 	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   PSYCHIC_M,    DOUBLE_TEAM,  \
 	     REFLECT,      FIRE_BLAST,   OUTRAGE,      REST,         X_SCISSOR,    \
-	     THUNDER_WAVE, ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   CUT,          \
-	     FLY,          SURF,         STRENGTH,     FLASH         
+	     THUNDER_WAVE, ROCK_SLIDE,   SHADOW_BALL,  SUBSTITUTE,   BODY_PRESS,   \
+	     CUT,          FLY,          SURF,         STRENGTH,     FLASH,        \
+	     CURSE         
 	; end
 
 	db BANK(ArceusPicFront)

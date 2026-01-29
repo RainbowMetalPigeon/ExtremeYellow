@@ -33,6 +33,8 @@ PokedexEntryPointers:
 	dw PichuDexEntry
 	dw PikachuDexEntry
 	dw RaichuDexEntry
+	dw MRaichuXDexEntry
+	dw MRaichuYDexEntry
 	dw SandshrewDexEntry
 	dw SandslashDexEntry
 	dw NidoranFDexEntry
@@ -44,6 +46,7 @@ PokedexEntryPointers:
 	dw CleffaDexEntry
 	dw ClefairyDexEntry
 	dw ClefableDexEntry
+	dw MClefableDexEntry
 	dw VulpixDexEntry
 	dw NinetalesDexEntry
 	dw IgglybuffDexEntry
@@ -85,6 +88,7 @@ PokedexEntryPointers:
 	dw BellsproutDexEntry
 	dw WeepinbellDexEntry
 	dw VictreebelDexEntry
+	dw MVictrebelDexEntry
 	dw TentacoolDexEntry
 	dw TentacruelDexEntry
 	dw GeodudeDexEntry
@@ -150,6 +154,7 @@ PokedexEntryPointers:
 	dw SeakingDexEntry
 	dw StaryuDexEntry
 	dw StarmieDexEntry
+	dw MStarmieDexEntry
 	dw MimeJrDexEntry
 	dw MrMimeDexEntry
 	dw ScytherDexEntry
@@ -198,12 +203,17 @@ PokedexEntryPointers:
 	dw DratiniDexEntry
 	dw DragonairDexEntry
 	dw DragoniteDexEntry
+	dw MDragoniteDexEntry
+	dw ArmMewtwoDexEntry
 	dw MewtwoDexEntry
 	dw MMewtwoXDexEntry
 	dw MMewtwoYDexEntry
 	dw MewDexEntry
+	dw MeltanDexEntry
+	dw MelmetalDexEntry
 	dw VenustoiseDexEntry
-	dw ZygardeCDexEntry
+	dw ThuFiZerDexEntry
+	dw MZygardeDexEntry
 	dw UNecrozmaDexEntry
 	dw MRayquazaDexEntry
 	dw EEternatusDexEntry
@@ -469,6 +479,20 @@ RaichuDexEntry:
 	text_far _RaichuDexEntry
 	text_end
 
+MRaichuXDexEntry:
+	db "MOUSE@"
+	db 12
+	dw 380
+	text_far _MRaichuXDexEntry
+	text_end
+
+MRaichuYDexEntry:
+	db "MOUSE@"
+	db 10
+	dw 260
+	text_far _MRaichuYDexEntry
+	text_end
+
 SandshrewDexEntry:
 	db "MOUSE@"
 	db 6
@@ -544,6 +568,13 @@ ClefableDexEntry:
 	db 13
 	dw 400
 	text_far _ClefableDexEntry
+	text_end
+
+MClefableDexEntry:
+	db "FAIRY@"
+	db 17
+	dw 423
+	text_far _MClefableDexEntry
 	text_end
 
 VulpixDexEntry:
@@ -829,8 +860,15 @@ WeepinbellDexEntry:
 VictreebelDexEntry:
 	db "FLYCATCHER@"
 	db 17
-	dw 154
+	dw 155
 	text_far _VictreebelDexEntry
+	text_end
+
+MVictrebelDexEntry:
+	db "FLYCATCHER@"
+	db 45
+	dw 1255
+	text_far _MVictrebelDexEntry
 	text_end
 
 TentacoolDexEntry:
@@ -1249,7 +1287,7 @@ HorseaDexEntry:
 SeadraDexEntry:
 	db "DRAGON@"
 	db 12
-	dw 249
+	dw 250
 	text_far _SeadraDexEntry
 	text_end
 
@@ -1284,8 +1322,15 @@ StaryuDexEntry:
 StarmieDexEntry:
 	db "MYSTERIOUS@"
 	db 11
-	dw 798
+	dw 800
 	text_far _StarmieDexEntry
+	text_end
+
+MStarmieDexEntry:
+	db "MYSTERIOUS@"
+	db 23
+	dw 800
+	text_far _MStarmieDexEntry
 	text_end
 
 MimeJrDexEntry:
@@ -1585,7 +1630,7 @@ SnorlaxDexEntry:
 ArticunoDexEntry:
 	db "FREEZE@"
 	db 17
-	dw 553
+	dw 554
 	text_far _ArticunoDexEntry
 	text_end
 
@@ -1624,6 +1669,20 @@ DragoniteDexEntry:
 	text_far _DragoniteDexEntry
 	text_end
 
+MDragoniteDexEntry:
+	db "DRAGON@"
+	db 22
+	dw 2900
+	text_far _MDragoniteDexEntry
+	text_end
+
+ArmMewtwoDexEntry:
+	db "GENETIC@"
+	db 22
+	dw 1520
+	text_far _ArmMewtwoDexEntry
+	text_end
+
 MewtwoDexEntry:
 	db "GENETIC@"
 	db 20
@@ -1648,8 +1707,22 @@ MMewtwoYDexEntry:
 MewDexEntry:
 	db "NEW SPECIE@"
 	db 4
-	dw 41
+	dw 40
 	text_far _MewDexEntry
+	text_end
+
+MeltanDexEntry:
+	db "HEX NUT@"
+	db 2
+	dw 80
+	text_far _MeltanDexEntry
+	text_end
+
+MelmetalDexEntry:
+	db "HEX NUT@"
+	db 25
+	dw 8000
+	text_far _MelmetalDexEntry
 	text_end
 
 VenustoiseDexEntry:
@@ -1659,11 +1732,18 @@ VenustoiseDexEntry:
 	text_far _VenustoiseDexEntry
 	text_end
 
-ZygardeCDexEntry:
+ThuFiZerDexEntry:
+	db "FUSION@"
+	db 25
+	dw 1680
+	text_far _ThuFiZerDexEntry
+	text_end
+
+MZygardeDexEntry:
 	db "ORDER@"
-	db 45
+	db 77
 	dw 6100
-	text_far _ZygardeCDexEntry
+	text_far _MZygardeDexEntry
 	text_end
 
 UNecrozmaDexEntry:
@@ -1682,7 +1762,7 @@ MRayquazaDexEntry:
 
 EEternatusDexEntry:
 	db "GIGANTIC@"
-	db 1 ; placeholder for 1000, handled by the pokedex code
+	db 100
 	dw 9500
 	text_far _EEternatusDexEntry
 	text_end

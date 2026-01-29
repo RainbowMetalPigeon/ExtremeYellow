@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     \
 	     BLIZZARD,     HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   REST,         \
-	     ROCK_SLIDE,   SUBSTITUTE,   SURF          
+	     ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    SURF,         CURSE         
 	; end
 
 	db BANK(OmastarPicFront)

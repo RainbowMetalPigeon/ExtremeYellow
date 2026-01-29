@@ -18,7 +18,8 @@
 	     DOUBLE_EDGE,  BUBBLEBEAM,   ICE_BEAM,     MIRROR_COAT,  SEISMIC_TOSS, \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     HYDRO_PUMP,   REST,         ROCK_SLIDE,   SUBSTITUTE,   GYRO_BALL,    \
-	     FLAIL,        SURF,         STRENGTH,     CURSE         
+	     FLAIL,        SURF,         STRENGTH,     CURSE,        ROCK_SMASH,   \
+	     WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(SquirtlePicFront)

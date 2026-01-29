@@ -17,7 +17,8 @@
 	tmhm MEGAHORN,     SWORDS_DANCE, TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   REST,         SUBSTITUTE,   \
-	     FLAIL,        SURF,         CURSE         
+	     FLAIL,        SURF,         CURSE,        WATERFALL,    DIVE,         \
+	     WHIRLPOOL     
 	; end
 
 	db BANK(SeakingPicFront)

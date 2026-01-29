@@ -19,7 +19,7 @@
 	     SEISMIC_TOSS, EARTHQUAKE,   FISSURE,      DIG,          PSYCHIC_M,    \
 	     MIMIC,        DOUBLE_TEAM,  BIDE,         HYDRO_PUMP,   CLOSE_COMBAT, \
 	     REST,         PSYWAVE,      ROCK_SLIDE,   SUBSTITUTE,   SURF,         \
-	     STRENGTH      
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(PoliwrathPicFront)

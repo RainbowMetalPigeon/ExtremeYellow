@@ -17,7 +17,8 @@
 	tmhm SWORDS_DANCE, COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     THUNDERBOLT,  THUNDER,      \
 	     DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         REST,         \
-	     THUNDER_WAVE, SHADOW_BALL,  SUBSTITUTE,   CUT,          STRENGTH      
+	     THUNDER_WAVE, SHADOW_BALL,  SUBSTITUTE,   CUT,          STRENGTH,     \
+	     CURSE         
 	; end
 
 	db BANK(RattataPicFront)

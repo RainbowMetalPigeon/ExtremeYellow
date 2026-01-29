@@ -18,7 +18,8 @@
 	     DOUBLE_EDGE,  METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, GIGA_DRAIN,   \
 	     WILL_O_WISP,  THUNDERBOLT,  THUNDER,      PSYCHIC_M,    MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, REST,         PSYWAVE,      \
-	     EXPLOSION,    SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     CURSE         
+	     EXPLOSION,    SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     CURSE,        \
+	     ROCK_SMASH    
 	; end
 
 	db BANK(GengarPicFront)

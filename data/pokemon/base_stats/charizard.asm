@@ -19,7 +19,7 @@
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FIRE_BLAST,   REST,         ROCK_SLIDE,   SUBSTITUTE,   \
 	     CUT,          FLY,          STRENGTH,     CURSE,        WILL_O_WISP,  \
-		 OUTRAGE
+	     OUTRAGE,      ROCK_SMASH    
 	; end
 
 	db BANK(CharizardPicFront)

@@ -17,7 +17,7 @@
 	tmhm TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  HYPER_BEAM,   DRAININGKISS, \
 	     DIG,          MOONBLAST,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         REST,         SHADOW_BALL,  SUBSTITUTE,   FLAIL,        \
-	     CUT,          FLASH,        CURSE         
+	     CUT,          FLASH,        CURSE,        ROCK_SMASH    
 	; end
 
 	db BANK(SylveonPicFront)

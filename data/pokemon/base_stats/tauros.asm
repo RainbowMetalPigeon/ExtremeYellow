@@ -18,7 +18,8 @@
 	     BLIZZARD,     HYPER_BEAM,   STONE_EDGE,   THUNDERBOLT,  THUNDER,      \
 	     EARTHQUAKE,   FISSURE,      MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     CLOSE_COMBAT, FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   SURF,         STRENGTH,     CURSE         
+	     SUBSTITUTE,   SURF,         STRENGTH,     CURSE,        ROCK_SMASH,   \
+	     ROCK_CLIMB,   WHIRLPOOL     
 	; end
 
 	db BANK(TaurosPicFront)

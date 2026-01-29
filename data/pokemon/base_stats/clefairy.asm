@@ -19,7 +19,8 @@
 	     DRAININGKISS, SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      DIG,          \
 	     PSYCHIC_M,    MOONBLAST,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      \
-	     SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH,        CURSE         
+	     SHADOW_BALL,  SUBSTITUTE,   STRENGTH,     FLASH,        CURSE,        \
+	     ROCK_SMASH    
 	; end
 
 	db BANK(ClefairyPicFront)

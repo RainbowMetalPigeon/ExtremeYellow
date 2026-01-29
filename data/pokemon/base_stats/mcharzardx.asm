@@ -19,7 +19,7 @@
 	     FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FIRE_BLAST,   OUTRAGE,      REST,         ROCK_SLIDE,   \
 	     SUBSTITUTE,   CUT,          FLY,          STRENGTH,     CURSE,        \
-		 WILL_O_WISP,  OUTRAGE
+	     WILL_O_WISP,  ROCK_SMASH    
 	; end
 
 	db BANK(MCharzardXPicFront)

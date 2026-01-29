@@ -18,7 +18,7 @@
 	     BLIZZARD,     HYPER_BEAM,   THUNDERBOLT,  THUNDER,      MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         HYDRO_PUMP,   FIRE_BLAST,   \
 	     OUTRAGE,      REST,         THUNDER_WAVE, SUBSTITUTE,   SURF,         \
-	     CURSE         
+	     CURSE,        WATERFALL,    WHIRLPOOL     
 	; end
 
 	db BANK(DratiniPicFront)

@@ -19,7 +19,7 @@
 	     STONE_EDGE,   EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        \
 	     DOUBLE_TEAM,  BIDE,         REST,         X_SCISSOR,    ROCK_SLIDE,   \
 	     SUBSTITUTE,   GYRO_BALL,    FLAIL,        CUT,          STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(SandslashPicFront)

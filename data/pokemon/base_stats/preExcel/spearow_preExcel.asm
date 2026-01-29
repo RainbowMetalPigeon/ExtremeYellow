@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  MIMIC,        DOUBLE_TEAM,  BIDE,         \
-	     REST,         SUBSTITUTE,   FLY           
+	     REST,         SUBSTITUTE,   FLY,          CURSE         
 	; end
 
 	db BANK(SpearowPicFront)

@@ -326,6 +326,26 @@ _RaichuDexEntry::
 	next "dark"
 	dex
 
+_MRaichuXDexEntry::
+	text "It resembles an X"
+	next "as it flies with"
+	next "50 million Volts"
+
+	page "sparking from its"
+	next "ears and forked"
+	next "tail"
+	dex
+
+_MRaichuYDexEntry::
+	text "It fires bolts"
+	next "from its tail and"
+	next "from the spiky fur"
+
+	page "of its temples."
+	next "This electricity"
+	next "is shaped as a Y"
+	dex
+
 _SandshrewDexEntry::
 	text "Its body is dry."
 	next "When it gets cold"
@@ -434,6 +454,16 @@ _ClefableDexEntry::
 	page "It is a kind of"
 	next "fairy, rarely seen"
 	next "by people"
+	dex
+
+_MClefableDexEntry::
+	text "It flies by using"
+	next "the power of moon-"
+	next "light to control"
+
+	page "gravity within"
+	next "over 10 meters"
+	next "around it"
 	dex
 
 _VulpixDexEntry::
@@ -844,6 +874,16 @@ _VictreebelDexEntry::
 	page "whole, the prey is"
 	next "melted in a day,"
 	next "bones and all"
+	dex
+
+_MVictrebelDexEntry::
+	text "This acid has in-"
+	next "creased due to"
+	next "Mega Evolution,"
+
+	page "filling its mouth."
+	next "It easily over-"
+	next "flows"
 	dex
 
 _TentacoolDexEntry::
@@ -1495,6 +1535,16 @@ _StarmieDexEntry::
 	next "ors"
 	dex
 
+_MStarmieDexEntry::
+	text "With Mega Evolu-"
+	next "tion, its move-"
+	next "ments have become"
+
+	page "more humanlike. It"
+	next "likely did so to"
+	next "supplant humankind"
+	dex
+
 _MimeJrDexEntry::
 	text "It mimics the ex-"
 	next "pressions and mo-"
@@ -1972,6 +2022,26 @@ _DragoniteDexEntry::
 	next "is only a rumor"
 	dex
 
+_MDragoniteDexEntry::
+	text "Mega Evolution has"
+	next "excessively in-"
+	next "creased its kind-"
+
+	page "ness. It finishes"
+	next "its enemies with"
+	next "smiling mercy"
+	dex
+
+_ArmMewtwoDexEntry::
+	text "It was searching"
+	next "for meaning to its"
+	next "existence when"
+
+	page "someone suppressed"
+	next "and controlled its"
+	next "power"
+	dex
+
 _MewtwoDexEntry::
 	text "Its DNA is almost"
 	next "the same as MEW's."
@@ -2012,6 +2082,26 @@ _MewDexEntry::
 	next "hair can be seen"
 	dex
 
+_MeltanDexEntry::
+	text "It eats metal from"
+	next "the ground, and it"
+	next "circulates it in"
+
+	page "its molten steel"
+	next "body to generate"
+	next "energy"
+	dex
+
+_MelmetalDexEntry::
+	text "It has incredibly"
+	next "strong punches and"
+	next "creates iron from"
+
+	page "nothing. When it"
+	next "dies, its shards"
+	next "become MELTANs"
+	dex
+
 _VenustoiseDexEntry::
 	text "A legendary fusion"
 	next "of ghastly origin."
@@ -2022,54 +2112,64 @@ _VenustoiseDexEntry::
 	next "otherworldy fury"
 	dex
 
-_ZygardeCDexEntry::
-	text "This is ZYGARDE's"
-	next "perfected form. It"
-	next "can radiate high-"
+_ThuFiZerDexEntry::
+	text "Three Gods merged"
+	next "by unholy means."
+	next "Wields unphatom-"
 
-	page "powered energy"
-	next "that eliminates"
-	next "everything"
+	page "able power and un-"
+	next "paralleled control"
+	next "over the elements"
+	dex
+
+_MZygardeDexEntry::
+	text "T??s i? ??G?R??'s"
+	next "u?t??a?e f??m. ?t"
+	next "??n r??ia?? hi??-"
+
+	page "?o?ere? ???r?y"
+	next "?h?t ??im??a??s"
+	next "e??ry?hi?g"
 	dex
 
 _UNecrozmaDexEntry::
-	text "It absorbed over-"
-	next "whelming light en-"
-	next "ergy. It fires"
+	text "It ?b?or?ed o??r-"
+	next "wh??m?n? l??h? ?n-"
+	next "?rg?. ?t ???es"
 
-	page "lasers that affect"
-	next "each and every"
-	next "living being"
+	page "l?s?rs th?? ?f?e??"
+	next "??ch a?? e??ry"
+	next "li??n? ?ei?g"
 	dex
 
 _MRayquazaDexEntry::
-	text "Has lived for mil-"
-	next "lion of years in"
-	next "the ozone layer."
+	text "??s li??d f?? m?l-"
+	next "?io?s o? ye??? ?n"
+	next "t?e oz??? ???er."
 
-	page "It Mega Evolved"
-	next "thanks to the met-"
-	next "eorites it eats"
+	page "?t M?g? E???ve?"
+	next "t?a??s t? ??e m??-"
+	next "eo??t?s i? ??ts"
 	dex
 
 _EEternatusDexEntry::
-	text "Infinite amounts"
-	next "of energy pour"
-	next "from this #MON-"
+	text "Inf?n?t? a?oun?s"
+	next "o? ???rgy ??ur"
+	next "f??m ??is P?K?-"
 
-	page "mon's enlarged"
-	next "core, warping the"
-	next "space-time around"
+	page "??N's e?la??ed"
+	next "c??e, war??n? ??e"
+	next "s??ce-??me ??ou?d"
 	dex
 
 _ArceusDexEntry::
-	text "It is said to have"
-	next "emerged from an"
-	next "egg in a place"
+	text "?t i? s??d ?o h??e"
+	next "em??g?d ?ro? ?n"
+	next "??g i? a p??ce"
 
-	page "where there was"
-	next "nothing, then"
-	next "shaped the world"
+	page "wh??? t??re w??"
+	next "no??in?, ??en"
+	next "s?a??d t?e w??l?"
 	dex
 
 _MissingNoDexEntry::
@@ -2103,4 +2203,3 @@ _DadDexEntry::
 	page "prisoner by MISS-"
 	next "INGNO."
 	dex
-

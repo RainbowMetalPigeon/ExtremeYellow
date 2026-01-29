@@ -19,7 +19,7 @@
 	     FISSURE,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         HYDRO_PUMP,   OUTRAGE,      REST,         PSYWAVE,      \
 	     SUBSTITUTE,   FREEZE_DRY,   BODY_PRESS,   SURF,         STRENGTH,     \
-	     CURSE         
+	     CURSE,        ROCK_SMASH,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(LaprasPicFront)

@@ -18,7 +18,7 @@
 	     BUBBLEBEAM,   ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   THUNDERBOLT,  \
 	     THUNDER,      DIG,          MIMIC,        DOUBLE_TEAM,  BIDE,         \
 	     REST,         THUNDER_WAVE, SHADOW_BALL,  SUBSTITUTE,   CUT,          \
-	     STRENGTH      
+	     STRENGTH,     CURSE         
 	; end
 
 	db BANK(RaticatePicFront)

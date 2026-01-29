@@ -17,7 +17,7 @@
 	tmhm MEGA_PUNCH,   COUNTER,      TOXIC,        BODY_SLAM,    DOUBLE_EDGE,  \
 	     METRONOME,    SEISMIC_TOSS, STONE_EDGE,   EARTHQUAKE,   DIG,          \
 	     MIMIC,        DOUBLE_TEAM,  CLOSE_COMBAT, REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH      
+	     SUBSTITUTE,   GYRO_BALL,    STRENGTH,     CURSE         
 	; end
 
 	db BANK(HitmontopPicFront)

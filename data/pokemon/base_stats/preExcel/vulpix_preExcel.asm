@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DARK_PULSE,   BODY_SLAM,    DOUBLE_EDGE,  FEINT_ATTACK, \
 	     WILL_O_WISP,  DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         FIRE_BLAST,   REST,         SUBSTITUTE    
+	     BIDE,         FIRE_BLAST,   REST,         SUBSTITUTE,   FLAIL,        \
+	     CURSE         
 	; end
 
 	db BANK(VulpixPicFront)

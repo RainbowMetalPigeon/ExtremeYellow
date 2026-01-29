@@ -18,7 +18,8 @@
 	     METRONOME,    HYPER_BEAM,   SEISMIC_TOSS, STONE_EDGE,   THUNDERBOLT,  \
 	     THUNDER,      EARTHQUAKE,   DIG,          MIMIC,        DOUBLE_TEAM,  \
 	     BIDE,         CLOSE_COMBAT, OUTRAGE,      REST,         ROCK_SLIDE,   \
-	     SUBSTITUTE,   STRENGTH,     GUNK_SHOT,    SHADOW_BALL,  CURSE         
+	     SUBSTITUTE,   STRENGTH,     GUNK_SHOT,    SHADOW_BALL,  CURSE,        \
+	     ROCK_SMASH,   ROCK_CLIMB    
 	; end
 
 	db BANK(AnnihilapePicFront)

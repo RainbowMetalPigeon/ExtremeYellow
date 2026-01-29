@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   DRAININGKISS, GIGA_DRAIN,   \
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     REST,         PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH         
+	     REST,         PSYWAVE,      SHADOW_BALL,  SUBSTITUTE,   FLASH,        \
+	     CURSE         
 	; end
 
 	db BANK(ButterfreePicFront)

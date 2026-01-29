@@ -1,4 +1,4 @@
-_ZygardeCBattleText::
+_MZygardeBattleText::
 	text "Zyyyygr!@"
 	text_end
 

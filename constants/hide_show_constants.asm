@@ -377,7 +377,7 @@ DEF SHOW EQU $15
 	const HS_FUCHSIA_CITY_SARA_HAPPY       ; new
 	const HS_FUCHSIA_CITY_TRAVELER         ; new
 	const HS_CERULEAN_CAVE_EXTRA_MIDDLE_LANCE  ; new
-	const HS_ZYGARDEC					   ; new
+	const HS_MZYGARDE					   ; new
 	const HS_UNECROZMA					   ; new
 	const HS_MRAYQUAZA					   ; new
 	const HS_EETERNATUS					   ; new

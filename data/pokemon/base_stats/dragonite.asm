@@ -19,7 +19,8 @@
 	     THUNDERBOLT,  THUNDER,      EARTHQUAKE,   MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         HYDRO_PUMP,   FIRE_BLAST,   OUTRAGE,      \
 	     REST,         THUNDER_WAVE, ROCK_SLIDE,   SUBSTITUTE,   BODY_PRESS,   \
-	     CUT,          FLY,          SURF,         STRENGTH,     CURSE         
+	     CUT,          FLY,          SURF,         STRENGTH,     CURSE,        \
+	     ROCK_SMASH,   WATERFALL,    DIVE,         WHIRLPOOL     
 	; end
 
 	db BANK(DragonitePicFront)
