@@ -38,6 +38,7 @@ TutorMoveData::
 	tutor_move SUNNY_DAY, NIDOKING
 	tutor_move SUNNY_DAY, CLEFAIRY
 	tutor_move SUNNY_DAY, CLEFABLE
+	tutor_move SUNNY_DAY, MCLEFABLE
 	tutor_move SUNNY_DAY, VULPIX
 	tutor_move SUNNY_DAY, NINETALES
 	tutor_move SUNNY_DAY, JIGGLYPUFF
@@ -72,6 +73,7 @@ TutorMoveData::
 	tutor_move SUNNY_DAY, BELLSPROUT
 	tutor_move SUNNY_DAY, WEEPINBELL
 	tutor_move SUNNY_DAY, VICTREEBEL
+	tutor_move SUNNY_DAY, MVICTREBEL
 	tutor_move SUNNY_DAY, GEODUDE
 	tutor_move SUNNY_DAY, GRAVELER
 	tutor_move SUNNY_DAY, GOLEM
@@ -149,11 +151,14 @@ TutorMoveData::
 	tutor_move SUNNY_DAY, DRATINI
 	tutor_move SUNNY_DAY, DRAGONAIR
 	tutor_move SUNNY_DAY, DRAGONITE
+	tutor_move SUNNY_DAY, MDRAGONITE
+	tutor_move SUNNY_DAY, ARM_MEWTWO
 	tutor_move SUNNY_DAY, MEWTWO
 	tutor_move SUNNY_DAY, MMEWTWOX
 	tutor_move SUNNY_DAY, MMEWTWOY
 	tutor_move SUNNY_DAY, MEW
 	tutor_move SUNNY_DAY, VENUSTOISE
+	tutor_move SUNNY_DAY, THU_FI_ZER
 	tutor_move SUNNY_DAY, MZYGARDE
 	tutor_move SUNNY_DAY, UNECROZMA
 	tutor_move SUNNY_DAY, MRAYQUAZA
@@ -177,6 +182,8 @@ TutorMoveData::
 	tutor_move RAIN_DANCE, ARBOK
 	tutor_move RAIN_DANCE, PIKACHU
 	tutor_move RAIN_DANCE, RAICHU
+	tutor_move RAIN_DANCE, MRAICHUX
+	tutor_move RAIN_DANCE, MRAICHUY
 	tutor_move RAIN_DANCE, NIDORAN_F
 	tutor_move RAIN_DANCE, NIDORINA
 	tutor_move RAIN_DANCE, NIDOQUEEN
@@ -185,6 +192,7 @@ TutorMoveData::
 	tutor_move RAIN_DANCE, NIDOKING
 	tutor_move RAIN_DANCE, CLEFAIRY
 	tutor_move RAIN_DANCE, CLEFABLE
+	tutor_move RAIN_DANCE, MCLEFABLE
 	tutor_move RAIN_DANCE, JIGGLYPUFF
 	tutor_move RAIN_DANCE, WIGGLYTUFF
 	tutor_move RAIN_DANCE, ZUBAT
@@ -255,6 +263,7 @@ TutorMoveData::
 	tutor_move RAIN_DANCE, SEAKING
 	tutor_move RAIN_DANCE, STARYU
 	tutor_move RAIN_DANCE, STARMIE
+	tutor_move RAIN_DANCE, MSTARMIE
 	tutor_move RAIN_DANCE, MR_MIME
 	tutor_move RAIN_DANCE, SCYTHER
 	tutor_move RAIN_DANCE, SCIZOR
@@ -291,11 +300,14 @@ TutorMoveData::
 	tutor_move RAIN_DANCE, DRATINI
 	tutor_move RAIN_DANCE, DRAGONAIR
 	tutor_move RAIN_DANCE, DRAGONITE
+	tutor_move RAIN_DANCE, MDRAGONITE
+	tutor_move RAIN_DANCE, ARM_MEWTWO
 	tutor_move RAIN_DANCE, MEWTWO
 	tutor_move RAIN_DANCE, MMEWTWOX
 	tutor_move RAIN_DANCE, MMEWTWOY
 	tutor_move RAIN_DANCE, MEW
 	tutor_move RAIN_DANCE, VENUSTOISE
+	tutor_move RAIN_DANCE, THU_FI_ZER
 	tutor_move RAIN_DANCE, MZYGARDE
 	tutor_move RAIN_DANCE, UNECROZMA
 	tutor_move RAIN_DANCE, MRAYQUAZA
@@ -348,12 +360,16 @@ TutorMoveData::
 	tutor_move SANDSTORM, ARTICUNO
 	tutor_move SANDSTORM, ZAPDOS
 	tutor_move SANDSTORM, MOLTRES
+	tutor_move SANDSTORM, DRAGONAIR
 	tutor_move SANDSTORM, DRAGONITE
+	tutor_move SANDSTORM, MDRAGONITE
+	tutor_move SANDSTORM, ARM_MEWTWO
 	tutor_move SANDSTORM, MEWTWO
 	tutor_move SANDSTORM, MMEWTWOX
 	tutor_move SANDSTORM, MMEWTWOY
 	tutor_move SANDSTORM, MEW
 	tutor_move SANDSTORM, VENUSTOISE
+	tutor_move SANDSTORM, THU_FI_ZER
 	tutor_move SANDSTORM, MZYGARDE
 	tutor_move SANDSTORM, UNECROZMA
 	tutor_move SANDSTORM, MRAYQUAZA
@@ -393,6 +409,7 @@ TutorMoveData::
 	tutor_move HAIL, SEAKING
 	tutor_move HAIL, STARYU
 	tutor_move HAIL, STARMIE
+	tutor_move HAIL, MSTARMIE
 	tutor_move HAIL, MR_MIME
 	tutor_move HAIL, JYNX
 	tutor_move HAIL, GYARADOS
@@ -408,11 +425,14 @@ TutorMoveData::
 	tutor_move HAIL, DRATINI
 	tutor_move HAIL, DRAGONAIR
 	tutor_move HAIL, DRAGONITE
+	tutor_move HAIL, MDRAGONITE
+	tutor_move HAIL, ARM_MEWTWO
 	tutor_move HAIL, MEWTWO
 	tutor_move HAIL, MMEWTWOX
 	tutor_move HAIL, MMEWTWOY
 	tutor_move HAIL, MEW
 	tutor_move HAIL, VENUSTOISE
+	tutor_move HAIL, THU_FI_ZER
 	tutor_move HAIL, MZYGARDE
 	tutor_move HAIL, UNECROZMA
 	tutor_move HAIL, MRAYQUAZA
@@ -443,6 +463,7 @@ TutorMoveData::
 	tutor_move WEATHER_BALL, BELLSPROUT
 	tutor_move WEATHER_BALL, WEEPINBELL
 	tutor_move WEATHER_BALL, VICTREEBEL
+	tutor_move WEATHER_BALL, MVICTREBEL
 	tutor_move WEATHER_BALL, TENTACRUEL
 	tutor_move WEATHER_BALL, SLOWPOKE
 	tutor_move WEATHER_BALL, SLOWBRO
@@ -472,11 +493,14 @@ TutorMoveData::
 	tutor_move WEATHER_BALL, MOLTRES
 	tutor_move WEATHER_BALL, DRAGONAIR
 	tutor_move WEATHER_BALL, DRAGONITE
+	tutor_move WEATHER_BALL, MDRAGONITE
+	tutor_move WEATHER_BALL, ARM_MEWTWO
 	tutor_move WEATHER_BALL, MEWTWO
 	tutor_move WEATHER_BALL, MMEWTWOX
 	tutor_move WEATHER_BALL, MMEWTWOY
 	tutor_move WEATHER_BALL, MEW
 	tutor_move WEATHER_BALL, VENUSTOISE
+	tutor_move WEATHER_BALL, THU_FI_ZER
 	tutor_move WEATHER_BALL, MZYGARDE
 	tutor_move WEATHER_BALL, UNECROZMA
 	tutor_move WEATHER_BALL, MRAYQUAZA
@@ -495,7 +519,7 @@ TutorMoveData::
 	tutor_move GRASSY_TERRAIN, BELLOSSOM
 	tutor_move GRASSY_TERRAIN, BELLSPROUT
 	tutor_move GRASSY_TERRAIN, WEEPINBELL
-	tutor_move GRASSY_TERRAIN, VICTREEBEL
+	tutor_move GRASSY_TERRAIN, MVICTREBEL
 	tutor_move GRASSY_TERRAIN, EXEGGCUTE
 	tutor_move GRASSY_TERRAIN, EXEGGUTOR
 	tutor_move GRASSY_TERRAIN, TANGELA
@@ -522,7 +546,10 @@ TutorMoveData::
 	tutor_move PSYCHIC_TERRAIN, MR_MIME
 	tutor_move PSYCHIC_TERRAIN, ESPEON
 	tutor_move PSYCHIC_TERRAIN, JYNX
+	tutor_move PSYCHIC_TERRAIN, ARM_MEWTWO
 	tutor_move PSYCHIC_TERRAIN, MEWTWO
+	tutor_move PSYCHIC_TERRAIN, MMEWTWOX
+	tutor_move PSYCHIC_TERRAIN, MMEWTWOY
 	tutor_move PSYCHIC_TERRAIN, MEW
 	tutor_move PSYCHIC_TERRAIN, MZYGARDE
 	tutor_move PSYCHIC_TERRAIN, UNECROZMA
@@ -532,6 +559,7 @@ TutorMoveData::
 
 	tutor_move MISTY_TERRAIN, CLEFAIRY
 	tutor_move MISTY_TERRAIN, CLEFABLE
+	tutor_move MISTY_TERRAIN, MCLEFABLE
 	tutor_move MISTY_TERRAIN, JIGGLYPUFF
 	tutor_move MISTY_TERRAIN, WIGGLYTUFF
 	tutor_move MISTY_TERRAIN, MR_MIME
@@ -545,6 +573,8 @@ TutorMoveData::
 
 	tutor_move ELECTRIC_TERRAIN, PIKACHU
 	tutor_move ELECTRIC_TERRAIN, RAICHU
+	tutor_move ELECTRIC_TERRAIN, MRAICHUX
+	tutor_move ELECTRIC_TERRAIN, MRAICHUY
 	tutor_move ELECTRIC_TERRAIN, MAGNEMITE
 	tutor_move ELECTRIC_TERRAIN, MAGNETON
 	tutor_move ELECTRIC_TERRAIN, MAGNEZONE
@@ -557,6 +587,7 @@ TutorMoveData::
 	tutor_move ELECTRIC_TERRAIN, JOLTEON
 	tutor_move ELECTRIC_TERRAIN, ZAPDOS
 	tutor_move ELECTRIC_TERRAIN, MEW
+	tutor_move ELECTRIC_TERRAIN, THU_FI_ZER
 	tutor_move ELECTRIC_TERRAIN, MZYGARDE
 	tutor_move ELECTRIC_TERRAIN, UNECROZMA
 	tutor_move ELECTRIC_TERRAIN, MRAYQUAZA
@@ -598,13 +629,17 @@ TutorMoveData::
 	tutor_move TRICK_ROOM, EXEGGCUTE
 	tutor_move TRICK_ROOM, EXEGGUTOR
 	tutor_move TRICK_ROOM, STARMIE
+	tutor_move TRICK_ROOM, MSTARMIE
 	tutor_move TRICK_ROOM, MR_MIME
 	tutor_move TRICK_ROOM, JYNX
 	tutor_move TRICK_ROOM, ESPEON
 	tutor_move TRICK_ROOM, PORYGON
 	tutor_move TRICK_ROOM, PORYGON2
 	tutor_move TRICK_ROOM, PORYGONZ
+	tutor_move TRICK_ROOM, ARM_MEWTWO
 	tutor_move TRICK_ROOM, MEWTWO
+	tutor_move TRICK_ROOM, MMEWTWOX
+	tutor_move TRICK_ROOM, MMEWTWOY
 	tutor_move TRICK_ROOM, MEW
 	tutor_move TRICK_ROOM, MZYGARDE
 	tutor_move TRICK_ROOM, UNECROZMA
@@ -677,6 +712,7 @@ TutorMoveData::
 	tutor_move STEALTH_ROCK, NIDOKING
 	tutor_move STEALTH_ROCK, CLEFAIRY
 	tutor_move STEALTH_ROCK, CLEFABLE
+	tutor_move STEALTH_ROCK, MCLEFABLE
 	tutor_move STEALTH_ROCK, JIGGLYPUFF
 	tutor_move STEALTH_ROCK, WIGGLYTUFF
 	tutor_move STEALTH_ROCK, DIGLETT
