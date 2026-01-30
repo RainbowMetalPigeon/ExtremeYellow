@@ -43,3 +43,13 @@ LoadScreenTilesFromBuffer1::
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 	ret
+
+; marcelnote - for TM printing
+SaveTextBoxTilesToBuffer::
+	hlcoord 1, 14
+	ld de, wTextBoxBuffer
+	ld bc, 18
+	call CopyData
+	hlcoord 1, 16
+	ld bc, 18
+	jp CopyData

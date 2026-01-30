@@ -528,6 +528,7 @@ wSlotMachineSevenAndBarModeChance:: db
 ; ROM back to return to when the player is done with the slot machine
 wSlotMachineSavedROMBank:: db
 
+wTextBoxBuffer:: ; marcelnote
 ;	ds 166 ; used for deleter/relearner
 ; Move Buffer stuff for Mateo's code
 wMoveBuffer:: ; new
@@ -1816,6 +1817,7 @@ wCapturedMonSpecies:: db
 ; which will be the first mon sent out.
 wFirstMonsNotOutYet:: db
 
+wTempTMHM:: ; marcelnote
 wRelativePriorityForAttackdex:: ; new
 wPokeBallCaptureCalcTemp::
 ; lower nybble: number of shakes
@@ -1994,6 +1996,8 @@ wAttackdexSeenEnd::
 wNumBagItems:: db
 ; item, quantity
 wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
+
+wBagPocketsFlags:: db ; bits related to bag pockets (see ram_constants.asm) ; marcelnote - new for bag pockets
 
 wPlayerMoney:: ds 3 ; BCD
 
@@ -2388,7 +2392,7 @@ wAgathasRoomCurScript:: db
 ;wVictoryRoad1FCurScript:: db
 ;wCeladonChiefHouseCurScript:: db ; new
 ;	ds 1
-	ds 3 ; new, from optimizing the scripts, UNUSED
+	ds 2 ; new, from optimizing the scripts, UNUSED, was 3
 
 wLancesRoomCurScript:: db
 ;wCopycatsHouse2FCurScript:: db ; new

@@ -16,3 +16,11 @@ DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 	const_def 6
 	const BIT_BATTLE_SHIFT     ; 6
 	const BIT_BATTLE_ANIMATION ; 7
+
+; wBagPocketsFlags ; marcelnote - new for bag pockets
+	const_def
+	const BIT_KEY_ITEMS_POCKET   ; 0 ; is 1 if currently in Key Items pocket
+	const_skip                   ; 1 ; unused, leave space for a possible TM pocket
+	const BIT_PRINT_INFO_BOX     ; 2 ; whether to print Item info box (i.e. only in start menu bag and battle)
+	const BIT_PC_WITHDRAWING     ; 3 ; to prevent switching pockets when withdrawing from PC
+	const_skip                   ; 4-7 ; unused
