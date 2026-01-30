@@ -298,11 +298,12 @@ Moves:
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)
 
 	; anomalies' signature moves
-	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90, 5 ; done
-	move DRAGONASCENT, DEFENSE_SPECIAL_SELFDOWN1,  120, FLYING,       100, 5 ; done
-	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100, 5 ; done
-	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100, 5 ; TBV: no effects indeed?
-	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100, 5 ; done
+	move ETERNABEAM,   HYPER_BEAM_EFFECT,          160, DRAGON,        90,  5 ; done
+	move DRAGONASCENT, DEFENSE_SPECIAL_SELFDOWN1,  120, FLYING,       100,  5 ; done
+	move THOUSANDARROWS, NO_ADDITIONAL_EFFECT,      90, GROUND2,      100,  5 ; done
+	move PHOTONGEYSER, NO_ADDITIONAL_EFFECT,       100, PSYCHIC_TYPE, 100,  5 ; TBV: no effects indeed?
+	move JUDGMENT,     NO_ADDITIONAL_EFFECT,       100, NORMAL,       100,  5 ; done
+	move DOUBLE_IRON_BASH, TWO_TO_FIVE_ATTACKS_EFFECT, 60, STEEL,     100,  5 ; done
 
 	move STRUGGLE,     RECOIL_EFFECT,               50, TYPELESS,     100, 10 ; made typeless so that Magikarp can win the game alone!
 	assert_table_length NUM_ATTACKS

@@ -289,6 +289,7 @@ AttackAnimationPointers:
 	dw ThousandArrowsAnim
 	dw PhotonGeyserAnim
 	dw JudgmentAnim
+	dw DoubleIronBashAnim
 
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
@@ -2058,6 +2059,13 @@ RapidSpinAnim:
 	battle_anim QUICK_ATTACK, SE_SQUISH_MON_PIC
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SE_SHOW_MON_PIC
+	db -1 ; end
+
+DoubleIronBashAnim:
+	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
+	battle_anim MEGA_PUNCH, SUBANIM_01, 0, 5
+	battle_anim MEGA_PUNCH, SUBANIM_01, 0, 5
+	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
 	db -1 ; end
 
 ; ------------------------------------------------------------------------------

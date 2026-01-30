@@ -296,6 +296,7 @@
 	const	THOUSANDARROWS
 	const	PHOTONGEYSER
 	const	JUDGMENT
+	const	DOUBLE_IRON_BASH
 
 	const STRUGGLE     ; formerly a5
 DEF NUM_ATTACKS EQU const_value - 1

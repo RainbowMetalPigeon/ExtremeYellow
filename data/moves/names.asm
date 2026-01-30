@@ -291,6 +291,7 @@ MoveNames::
 	li "1000 ARROWS"
 	li "PHOTONGEYSER"
 	li "JUDGMENT"
+	li "D. IRON BASH"
 
 	li "STRUGGLE"
 	assert_list_length NUM_ATTACKS

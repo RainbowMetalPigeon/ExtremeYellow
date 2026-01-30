@@ -1009,7 +1009,7 @@ _VenustoiseDexEntry::
 _ThuFiZerDexEntry::
 	text "Three Gods merged"
 	next "by unholy means."
-	next "Wields unphatom-"
+	next "Wields unfathom-"
 
 	page "able power and un-"
 	next "paralleled control"
