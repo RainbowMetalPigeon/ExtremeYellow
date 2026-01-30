@@ -621,11 +621,17 @@ ClimbWallUp:
     SetEvent EVENT_DOING_ROCK_CLIMB
     call EnableAutoTextBoxDrawing
     tx_pre PokemonClimbsTheWall
-; decide where to go, and how much
+; get off bike if we're on it
+    ld a, [wWalkBikeSurfState]
+    and a
+    jr z, .noBike
     xor a
 	ld [wWalkBikeSurfState], a
 	ld [wWalkBikeSurfStateCopy], a
 	call LoadPlayerSpriteGraphics
+    call PlayDefaultMusic ; play walking music
+.noBike
+; decide where to go, and how much
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
 	jr z, .goingUp
@@ -808,3 +814,4 @@ BirbTileSeviiRest: INCBIN "gfx/tilesets/birbs/birb_sevii_resting.2bpp"
 BirbTileSeviiFlap: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping.2bpp"
 
 ; ==================================================================
+
