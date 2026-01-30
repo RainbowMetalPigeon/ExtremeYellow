@@ -14,22 +14,31 @@ CheckIfCanSurfOrCutFromOverworld::
 
 ; TBE: check for birbs
     CheckEvent EVENT_IN_SEVII
-    jr z, .checkIfAreaDark
+    jr nz, .seviiCheck
+; Kanto check
+    ld a, [wTileInFrontOfPlayer]
+    cp $76
+    jr nz, .checkIfAreaDark
+    jr .doBirbStuff
+.seviiCheck
     ld a, [wTileInFrontOfPlayer]
     cp $5F
     jr nz, .checkIfAreaDark
 ; birb in front of us
+.doBirbStuff
     ; TBE: conditional if we have the seed bag or if we are rocket
     call EnableAutoTextBoxDrawing
     tx_pre PlayerFeedsTheBirbText
-    call AnimateBribTile_SeviiFlapping
+    ld a, SFX_LEVEL_UP ; SFX_DEX_PAGE_ADDED ; SFX_LEVEL_UP ; SFX_GET_ITEM_1 ; SFX_HEAL_HP
+    call PlaySound
+    call AnimateBribTile_Flapping_Wrapper
     callfar BirbEmotionBubble
 	ld a, 0
 	ld [wEmotionBubbleSpriteIndex], a
 	ld a, SMILE_BUBBLE
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
-    call AnimateBribTile_SeviiResting
+    call AnimateBribTile_Resting_Wrapper
     ret ; TBE
 
 .checkIfAreaDark
@@ -612,11 +621,17 @@ ClimbWallUp:
     SetEvent EVENT_DOING_ROCK_CLIMB
     call EnableAutoTextBoxDrawing
     tx_pre PokemonClimbsTheWall
-; decide where to go, and how much
+; get off bike if we're on it
+    ld a, [wWalkBikeSurfState]
+    and a
+    jr z, .noBike
     xor a
 	ld [wWalkBikeSurfState], a
 	ld [wWalkBikeSurfStateCopy], a
 	call LoadPlayerSpriteGraphics
+    call PlayDefaultMusic ; play walking music
+.noBike
+; decide where to go, and how much
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
 	jr z, .goingUp
@@ -760,14 +775,22 @@ ForceContinueWaterfall::
 
 ; ==================================================================
 
-AnimateBribTile_Resting:
+AnimateBribTile_Resting_Wrapper:
+    CheckEvent EVENT_IN_SEVII
+    jr nz, AnimateBribTile_SeviiResting
+    ; fallthrough
+;AnimateBribTile_Resting:
 	ld de, BirbTileRest
-	ld hl, vTileset tile $5F ; TBE
+	ld hl, vTileset tile $76
     jr AnimateBribTile_Core
 
-AnimateBribTile_Flapping:
+AnimateBribTile_Flapping_Wrapper:
+    CheckEvent EVENT_IN_SEVII
+    jr nz, AnimateBribTile_SeviiFlapping
+    ; fallthrough
+;AnimateBribTile_Flapping:
 	ld de, BirbTileFlap
-	ld hl, vTileset tile $5F ; TBE
+	ld hl, vTileset tile $76
     jr AnimateBribTile_Core
 
 AnimateBribTile_SeviiResting:
@@ -791,3 +814,4 @@ BirbTileSeviiRest: INCBIN "gfx/tilesets/birbs/birb_sevii_resting.2bpp"
 BirbTileSeviiFlap: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping.2bpp"
 
 ; ==================================================================
+

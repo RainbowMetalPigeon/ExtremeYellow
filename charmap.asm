@@ -57,9 +57,9 @@
 ;	charmap "ぉ",         $78 ; hiragana small o, unused
 
 ; edited, to expand tileset
-	charmap "<BOLD_V>",  $76
-	charmap "<BOLD_S>",  $77
-	charmap "<COLON>",   $78 ; colon with tinier dots than ":"
+;	charmap "<BOLD_V>",  $76
+;	charmap "<BOLD_S>",  $77
+;	charmap "<COLON>",   $78 ; colon with tinier dots than ":"
 
 	charmap "┌",         $79
 	charmap "─",         $7a
@@ -167,6 +167,10 @@
 	charmap "'v",        $bf
 
 	; huge random gap
+	; edited
+	charmap "<BOLD_V>",  $cd
+	charmap "<BOLD_S>",  $ce
+	charmap "<COLON>",   $cf ; colon with tinier dots than ":"
 
 	; new characters
 	charmap "<ABAR>",      $d0
