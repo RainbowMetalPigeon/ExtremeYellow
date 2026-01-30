@@ -29,6 +29,8 @@ CheckIfCanSurfOrCutFromOverworld::
     ; TBE: conditional if we have the seed bag or if we are rocket
     call EnableAutoTextBoxDrawing
     tx_pre PlayerFeedsTheBirbText
+    ld a, SFX_LEVEL_UP ; SFX_DEX_PAGE_ADDED ; SFX_LEVEL_UP ; SFX_GET_ITEM_1 ; SFX_HEAL_HP
+    call PlaySound
     call AnimateBribTile_Flapping_Wrapper
     callfar BirbEmotionBubble
 	ld a, 0
