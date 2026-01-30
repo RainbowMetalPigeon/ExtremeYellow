@@ -14,22 +14,29 @@ CheckIfCanSurfOrCutFromOverworld::
 
 ; TBE: check for birbs
     CheckEvent EVENT_IN_SEVII
-    jr z, .checkIfAreaDark
+    jr nz, .seviiCheck
+; Kanto check
+    ld a, [wTileInFrontOfPlayer]
+    cp $76
+    jr nz, .checkIfAreaDark
+    jr .doBirbStuff
+.seviiCheck
     ld a, [wTileInFrontOfPlayer]
     cp $5F
     jr nz, .checkIfAreaDark
 ; birb in front of us
+.doBirbStuff
     ; TBE: conditional if we have the seed bag or if we are rocket
     call EnableAutoTextBoxDrawing
     tx_pre PlayerFeedsTheBirbText
-    call AnimateBribTile_SeviiFlapping
+    call AnimateBribTile_Flapping_Wrapper
     callfar BirbEmotionBubble
 	ld a, 0
 	ld [wEmotionBubbleSpriteIndex], a
 	ld a, SMILE_BUBBLE
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
-    call AnimateBribTile_SeviiResting
+    call AnimateBribTile_Resting_Wrapper
     ret ; TBE
 
 .checkIfAreaDark
@@ -760,14 +767,22 @@ ForceContinueWaterfall::
 
 ; ==================================================================
 
-AnimateBribTile_Resting:
+AnimateBribTile_Resting_Wrapper:
+    CheckEvent EVENT_IN_SEVII
+    jr nz, AnimateBribTile_SeviiResting
+    ; fallthrough
+;AnimateBribTile_Resting:
 	ld de, BirbTileRest
-	ld hl, vTileset tile $5F ; TBE
+	ld hl, vTileset tile $76
     jr AnimateBribTile_Core
 
-AnimateBribTile_Flapping:
+AnimateBribTile_Flapping_Wrapper:
+    CheckEvent EVENT_IN_SEVII
+    jr nz, AnimateBribTile_SeviiFlapping
+    ; fallthrough
+;AnimateBribTile_Flapping:
 	ld de, BirbTileFlap
-	ld hl, vTileset tile $5F ; TBE
+	ld hl, vTileset tile $76
     jr AnimateBribTile_Core
 
 AnimateBribTile_SeviiResting:
