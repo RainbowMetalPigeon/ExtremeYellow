@@ -230,6 +230,7 @@ LoadTownMap_Fly::
 	ld [wOriginallyInKantoOrSevii], a
 .coreOfFlyMap
 ; BTV
+	call ClearScreen
 	call ClearSprites
 	call LoadPlayerSpriteGraphics
 ; new for deep water
