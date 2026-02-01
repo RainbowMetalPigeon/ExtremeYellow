@@ -173,21 +173,15 @@ _BootedUpHMText::
 	prompt
 
 _TeachMachineMoveText::
-;	text "It contained"
-;	line "@"
-;	text_ram wStringBuffer
-;	text "!"
-	text "Teach @"
+	text "It contained"
+	line "@"
+	text_ram wStringBuffer
+	text "!"
+
+	para "Teach @"
 	text_ram wStringBuffer
 	text_start
 	line "to a #MON?"
-	done
-
-_TMItContainsText:: ; marcelnote - new for TM printing
-	text "It contains"
-	line "@"
-	text_ram wStringBuffer
-	text "."
 	done
 
 _MonCannotLearnMachineMoveText::

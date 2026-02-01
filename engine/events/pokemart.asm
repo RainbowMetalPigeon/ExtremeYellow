@@ -9,7 +9,6 @@ DisplayPokemartDialogue_::
 	ld [wListScrollOffset], a
 	ld [wCurrentMenuItem], a
 	ld [wPlayerMonNumber], a
-	ld [wListMenuID], a ; marcelnote - for TM printing
 	inc a
 	ld [wPrintItemPrices], a
 	ld a, MONEY_BOX
@@ -50,11 +49,9 @@ DisplayPokemartDialogue_::
 	jp z, .bagEmpty
 	ld hl, PokemonSellingGreetingText
 	call PrintText
-	call SaveTextBoxTilesToBuffer ; marcelnote - for TM printing
-	call Delay3
 	call SaveScreenTilesToBuffer1 ; save screen
 .sellMenuLoop
-;	call LoadScreenTilesFromBuffer1 ; restore saved screen ; marcelnote - not needed anymore with TM printing
+	call LoadScreenTilesFromBuffer1 ; restore saved screen
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID ; draw money text box
@@ -89,8 +86,6 @@ DisplayPokemartDialogue_::
 	call PrintText
 	hlcoord 14, 7
 	lb bc, 8, 15
-	xor a               ; NOLISTMENU
-	ld [wListMenuID], a ; marcelnote - for TM printing
 	ld a, TWO_OPTION_MENU
 	ld [wTextBoxID], a
 	call DisplayTextBoxID ; yes/no menu
@@ -118,7 +113,7 @@ DisplayPokemartDialogue_::
 .unsellableItem
 	ld hl, PokemartUnsellableItemText
 	call PrintText
-	jp .sellMenuLoop ; marcelnote - was returnToMainPokemartMenu
+	jp .returnToMainPokemartMenu
 .bagEmpty
 	ld hl, PokemartItemBagEmptyText
 	call PrintText
@@ -135,11 +130,9 @@ DisplayPokemartDialogue_::
 
 	ld hl, PokemartBuyingGreetingText
 	call PrintText
-	call SaveTextBoxTilesToBuffer ; marcelnote - for TM printing
-	call Delay3
 	call SaveScreenTilesToBuffer1
 .buyMenuLoop
-;	call LoadScreenTilesFromBuffer1 ; marcelnote - not needed anymore with TM printing
+	call LoadScreenTilesFromBuffer1
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
@@ -152,17 +145,11 @@ DisplayPokemartDialogue_::
 	ld [wCurrentMenuItem], a
 	inc a
 	ld [wPrintItemPrices], a
-
 	inc a ; a = 2 (PRICEDITEMLISTMENU)
 	ld [wListMenuID], a
-
-	ld a, PRICEDITEMLISTMENU ; marcelnote - modified list constants
-	ld [wListMenuID], a
-
 	call DisplayListMenuID
 	jr c, .returnToMainPokemartMenu ; if the player closed the menu
 	ld a, 99
-
 	ld [wMaxItemQuantity], a
 	xor a
 	ldh [hHalveItemPrices], a ; don't halve item prices when buying
@@ -177,8 +164,6 @@ DisplayPokemartDialogue_::
 	call PrintText
 	hlcoord 14, 7
 	lb bc, 8, 15
-	xor a               ; NOLISTMENU
-	ld [wListMenuID], a ; marcelnote - for TM printing
 	ld a, TWO_OPTION_MENU
 	ld [wTextBoxID], a
 	call DisplayTextBoxID ; yes/no menu
@@ -213,8 +198,6 @@ DisplayPokemartDialogue_::
 	jp .buyMenuLoop
 .returnToMainPokemartMenu
 	call LoadScreenTilesFromBuffer1
-	xor a               ; NOLISTMENU
-	ld [wListMenuID], a ; marcelnote - for TM printing
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID

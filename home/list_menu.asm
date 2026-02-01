@@ -80,17 +80,6 @@ DisplayListMenuIDLoop::
 	jr .buttonAPressed
 .notOldManBattle
 	call LoadGBPal
-	
-	push af
-	push bc
-	push de
-	push hl
-	callfar PrintBagInfoText ; marcelnote - for bag pockets and TM printing ; testing with a callfar
-	pop hl
-	pop de
-	pop bc
-	pop af
-
 	call HandleMenuInput
 	push af
 	call PlaceMenuCursor
@@ -98,7 +87,6 @@ DisplayListMenuIDLoop::
 	bit BIT_A_BUTTON, a
 	jp z, .checkOtherKeys
 .buttonAPressed
-	ld hl, wBagPocketsFlags ; marcelnote - for bag pockets and TM printing
 	ld a, [wCurrentMenuItem]
 	call PlaceUnfilledArrowMenuCursor
 
@@ -155,7 +143,6 @@ DisplayListMenuIDLoop::
 .skipGettingQuantity
 	ld a, [wcf91]
 	ld [wd0b5], a
-	ld a, ITEM_NAME ; marcelnote - added for robustness (needed for TM printing)
 	ld a, BANK(ItemNames)
 	ld [wPredefBank], a
 	call GetName

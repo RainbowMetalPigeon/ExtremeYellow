@@ -15,8 +15,6 @@ PlayerPC::
 	call PrintText
 
 PlayerPCMenu:
-	xor a               ; NOLISTMENU
-	ld [wListMenuID], a ; marcelnote - new for TM printing
 	ld hl, wd730
 	set 6, [hl]
 	ld a, [wParentMenuItem]
@@ -97,7 +95,6 @@ PlayerPCDeposit:
 .loop
 	ld hl, WhatToDepositText
 	call PrintText
-	call SaveTextBoxTilesToBuffer ; marcelnote - for TM printing
 	ld hl, wNumBagItems
 	ld a, l
 	ld [wListPointer], a
@@ -158,7 +155,6 @@ PlayerPCWithdraw:
 .loop
 	ld hl, WhatToWithdrawText
 	call PrintText
-	call SaveTextBoxTilesToBuffer ; marcelnote - for TM printing
 	ld hl, wNumBoxItems
 	ld a, l
 	ld [wListPointer], a
@@ -219,7 +215,6 @@ PlayerPCToss:
 .loop
 	ld hl, WhatToTossText
 	call PrintText
-	call SaveTextBoxTilesToBuffer ; marcelnote - for TM printing
 	ld hl, wNumBoxItems
 	ld a, l
 	ld [wListPointer], a
@@ -316,8 +311,4 @@ WhatToTossText:
 
 TossHowManyText:
 	text_far _TossHowManyText
-	text_end
-
-TMItContainsText:: ; marcelnote - for TM printing
-	text_far _TMItContainsText
 	text_end
