@@ -1,3 +1,23 @@
+PrintMonTypeNarrow:: ; new
+;	call GetPredefRegisters
+	ld h, d
+	ld l, e
+	push hl
+	call GetMonHeader
+	pop hl
+	push hl
+	ld a, [wMonHType1]
+	call PrintType
+	ld a, [wMonHType1]
+	ld b, a
+	ld a, [wMonHType2]
+	cp b
+	pop hl
+	jr z, EraseType2Text
+	ld bc, SCREEN_WIDTH ; only difference from below: go to next line instead of next-to-next
+	add hl, bc
+	jr PrintType
+
 ; [wd0b5] = pokemon ID
 ; hl = dest addr
 PrintMonType:

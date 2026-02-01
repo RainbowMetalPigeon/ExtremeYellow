@@ -83,14 +83,14 @@ HandlePokedexSideMenu:
 	jr z, .exitSideMenu
 	call PokedexToIndex
 	ld hl, wTopMenuItemY
-	ld a, 8
+	ld a, 6 ; edited
 	ld [hli], a ; top menu item Y
 	ld a, 15
 	ld [hli], a ; top menu item X
 	xor a
 	ld [hli], a ; current menu item ID
 	inc hl
-	ld a, 4
+	ld a, 5 ; edited
 	ld [hli], a ; max menu item ID
 	ld a, A_BUTTON | B_BUTTON
 	ld [hli], a ; menu watched keys (A button and B button)
@@ -106,6 +106,8 @@ HandlePokedexSideMenu:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr z, .choseData
+	dec a ; new
+	jr z, .choseInfo ; new
 	dec a
 	jr z, .choseCry
 	dec a
@@ -143,15 +145,20 @@ ENDC
 
 .buttonBPressed
 	push bc
-	hlcoord 15, 8
+	hlcoord 15, 6 ; edited
 	ld de, 20
-	lb bc, " ", 9
+	lb bc, " ", 11 ; edited
 	call DrawTileLine ; cover up the menu cursor in the side menu
 	pop bc
 	jr .exitSideMenu
 
 .choseData
 	call ShowPokedexDataInternal
+	ld b, 0
+	jr .exitSideMenu
+
+.choseInfo ; new
+	call ShowPokedexInfo
 	ld b, 0
 	jr .exitSideMenu
 
@@ -265,7 +272,7 @@ Pokedex_DrawInterface:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 ; draw the horizontal line separating the seen and owned amounts from the menu
-	hlcoord 15, 6
+	hlcoord 15, 5 ; edited
 	ld a, "─"
 	ld [hli], a
 	ld [hli], a
@@ -274,36 +281,45 @@ Pokedex_DrawInterface:
 	ld [hli], a
 	hlcoord 14, 0
 	ld [hl], $71 ; vertical line tile
+
 	hlcoord 14, 1
 	call DrawPokedexVerticalLine
+
 	hlcoord 14, 9
 	call DrawPokedexVerticalLine
+
 	ld hl, wPokedexSeen
 	ld b, wPokedexSeenEnd - wPokedexSeen
 	call CountSetBits
 	ld de, wNumSetBits
-	hlcoord 16, 2
+	hlcoord 16, 1 ; edited
 	lb bc, 1, 3
 	call PrintNumber ; print number of seen pokemon
+
 	ld hl, wPokedexOwned
 	ld b, wPokedexOwnedEnd - wPokedexOwned
 	call CountSetBits
 	ld de, wNumSetBits
-	hlcoord 16, 5
+	hlcoord 16, 4 ; edited
 	lb bc, 1, 3
 	call PrintNumber ; print number of owned pokemon
-	hlcoord 16, 1
+	
+	hlcoord 15, 0 ; edited
 	ld de, PokedexSeenText
 	call PlaceString
-	hlcoord 16, 4
+
+	hlcoord 15, 3 ; edited
 	ld de, PokedexOwnText
 	call PlaceString
-	hlcoord 1, 1
+
+	hlcoord 1, 0 ; edited
 	ld de, PokedexContentsText
 	call PlaceString
-	hlcoord 16, 8
+
+	hlcoord 16, 6 ; edited
 	ld de, PokedexMenuItemsText
 	call PlaceString
+
 ; find the highest pokedex number among the pokemon the player has seen
 	ld hl, wPokedexSeenEnd - 1
 	ld b, (wPokedexSeenEnd - wPokedexSeen) * 8 + 1
@@ -346,6 +362,7 @@ PokedexContentsText:
 
 PokedexMenuItemsText:
 	db   "DATA"
+	next "INFO" ; new
 	next "CRY"
 	next "AREA"
 	next "PRNT"
@@ -501,14 +518,75 @@ ShowPokedexDataInternal:
 	ldh [rNR50], a
 	ret
 
-; change to proper units
-HeightWeightText:
-	db   "HT   ???<M>"
-	next "WT   ???<K><G>@"
+; new for evos and learnsets
+ShowPokedexInfo: ; TBE
+	ld hl, wd72c
+	set 1, [hl]
+	ld a, $33 ; 3/7 volume
+	ldh [rNR50], a
+	ldh a, [hTileAnimations]
+	push af
+	xor a
+	ldh [hTileAnimations], a
+	call GBPalWhiteOut ; zero all palettes
+	ld a, [wd11e] ; pokemon ID
+	ld [wcf91], a
+	push af
+	ld b, SET_PAL_POKEDEX
+	call RunPaletteCommand
+	pop af
+	ld [wd11e], a
+	call DrawDexEntryOnScreen
+	call c, Pokedex_PrintFlavorTextAtRow11
+.waitForButtonPress
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny
+	jr z, .waitForButtonPress
+; new, for the shiny
+	bit BIT_SELECT, a
+	jr z, .vanilla
+; SELECT has been pressed, change palette shiny <-> non-shiny
+	ld a, [wShinyOrNotShinyPokedexPalette]
+	and a
+	ld b, SET_PAL_POKEDEX_SHINY
+	jr z, .changeToShiny
+; palette is already shiny, let's make it non-shiny
+	ld b, SET_PAL_POKEDEX
+	call RunPaletteCommand
+	xor a
+	jr .end
+.changeToShiny
+	call RunPaletteCommand
+	ld a, 1
+.end
+	ld [wShinyOrNotShinyPokedexPalette], a
+	jr .waitForButtonPress
+.vanilla
+; back to vanilla
+	pop af
+	ldh [hTileAnimations], a
+	call GBPalWhiteOut
+	call ClearScreen
+	call RunDefaultPaletteCommand
+	call LoadTextBoxTilePatterns
+	call GBPalNormal
+	ld hl, wd72c
+	res 1, [hl]
+	ld a, $77 ; max volume
+	ldh [rNR50], a
+	ret
 
-HeightWeightTextEEternatus: ; new, to handle EEternatus
-	db   "HT 100.0<M>"
-	next "WT 950.0<K><G>@"
+; change to proper units
+HeightWeightText1:
+	db   "HT   ???<M>@"
+HeightWeightText2:
+	db   "WT   ???<K><G>@"
+
+HeightWeightTextEEternatus1: ; new, to handle EEternatus
+	db   "HT 100.0<M>@"
+HeightWeightTextEEternatus2:
+	db   "WT 950.0<K><G>@"
 
 ; XXX does anything point to this?
 PokeText:
@@ -554,15 +632,19 @@ DrawDexEntryOnScreen:
 	ld de, PokedexDataDividerLine
 	call PlaceString ; draw horizontal divider line
 
-	hlcoord 9, 6
-	ld de, HeightWeightText
+	hlcoord 9, 7 ; edited
+	ld de, HeightWeightText1 ; edited
+	call PlaceString
+
+	; new
+	hlcoord 9, 8
+	ld de, HeightWeightText2
 	call PlaceString
 
 	call GetMonName
-	hlcoord 9, 2
+	hlcoord 9, 1 ; edited
 	call PlaceString
 
-.tempLabel
 	ld hl, PokedexEntryPointers
 	ld a, [wd11e]
 	dec a
@@ -574,7 +656,7 @@ DrawDexEntryOnScreen:
 	ld e, a
 	ld d, [hl] ; de = address of pokedex entry
 
-	hlcoord 9, 4
+	hlcoord 9, 2 ; edited
 	call PlaceString ; print species name
 
 	ld h, b
@@ -614,6 +696,12 @@ DrawDexEntryOnScreen:
 	ld a, [wcf91]
 	call PlayCry ; play pokemon cry
 
+	; print pokemon types
+;	hlcoord 9, 4
+;	predef PrintMonType
+	decoord 9, 4
+	callfar PrintMonTypeNarrow
+
 	pop hl
 	pop de
 	pop bc
@@ -627,10 +715,10 @@ DrawDexEntryOnScreen:
 	inc de ; de = address of decimetre (height)
 	ld a, [de] ; reads decimetre, but a is overwritten without being used
 	push af
-	hlcoord 13, 6
+	hlcoord 13, 7 ; edited
 	lb bc, 1, 3
 	call PrintNumber ; print decimetre (height)
-	hlcoord 14, 6
+	hlcoord 14, 7 ; edited
 	pop af
 	cp $a
 	jr nc, .heightNext
@@ -688,8 +776,11 @@ DrawDexEntryOnScreen:
 	push bc
 	push de
 	push hl
-	hlcoord 9, 6
-	ld de, HeightWeightTextEEternatus
+	hlcoord 9, 7
+	ld de, HeightWeightTextEEternatus1
+	call PlaceString
+	hlcoord 9, 8
+	ld de, HeightWeightTextEEternatus2
 	call PlaceString
 	pop hl
 	pop de
