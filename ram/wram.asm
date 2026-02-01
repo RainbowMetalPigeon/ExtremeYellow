@@ -1893,6 +1893,8 @@ wSavedSpriteMapY:: db
 wSavedSpriteMapX:: db
 
 	ds 3 ; edited to go beyond 200, it was ds 5
+
+wEphemerealTempBuffer2ByteStorage:: ; new
 wIsTrainerBattle:: db  ; new, to go beyond 200
 wWasTrainerBattle:: db ; new, to go beyond 200
 

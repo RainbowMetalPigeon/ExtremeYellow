@@ -525,10 +525,12 @@ ShowPokedexInfo: ; TBE
 	ld a, $33 ; 3/7 volume
 	ldh [rNR50], a
 	ldh a, [hTileAnimations]
+
 	push af
 	xor a
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut ; zero all palettes
+
 	ld a, [wd11e] ; pokemon ID
 	ld [wcf91], a
 	push af
@@ -536,34 +538,21 @@ ShowPokedexInfo: ; TBE
 	call RunPaletteCommand
 	pop af
 	ld [wd11e], a
-	call DrawDexEntryOnScreen
-	call c, Pokedex_PrintFlavorTextAtRow11
+
+;	ld hl, wPokedexOwned
+;	call IsPokemonBitSet ; info in z flag
+;	jr z, .printUnknownInfo
+
+	call DrawMonInfoOnScreen
+
+;	call c, Pokedex_PrintFlavorTextAtRow11 ; TBE
+
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny
+	and A_BUTTON | B_BUTTON
 	jr z, .waitForButtonPress
-; new, for the shiny
-	bit BIT_SELECT, a
-	jr z, .vanilla
-; SELECT has been pressed, change palette shiny <-> non-shiny
-	ld a, [wShinyOrNotShinyPokedexPalette]
-	and a
-	ld b, SET_PAL_POKEDEX_SHINY
-	jr z, .changeToShiny
-; palette is already shiny, let's make it non-shiny
-	ld b, SET_PAL_POKEDEX
-	call RunPaletteCommand
-	xor a
-	jr .end
-.changeToShiny
-	call RunPaletteCommand
-	ld a, 1
-.end
-	ld [wShinyOrNotShinyPokedexPalette], a
-	jr .waitForButtonPress
-.vanilla
-; back to vanilla
+
 	pop af
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut
@@ -929,3 +918,348 @@ GetEnemyWeight:: ; new
 	ld d, a ; now e contains the higher weight bit
 
 	ret
+
+; new ==========================================================
+
+
+DrawMonInfoOnScreen:
+	call ClearScreen
+
+	hlcoord 0, 0
+	ld de, 1
+	lb bc, $64, SCREEN_WIDTH
+	call DrawTileLine ; draw top border
+
+	hlcoord 0, 17
+	ld b, $6f
+	call DrawTileLine ; draw bottom border
+
+	hlcoord 0, 1
+	ld de, 20
+	lb bc, $66, $10
+	call DrawTileLine ; draw left border
+
+	hlcoord 19, 1
+	ld b, $67
+	call DrawTileLine ; draw right border
+
+	ld a, $63 ; upper left corner tile
+	ldcoord_a 0, 0
+	ld a, $65 ; upper right corner tile
+	ldcoord_a 19, 0
+	ld a, $6c ; lower left corner tile
+	ldcoord_a 0, 17
+	ld a, $6e ; lower right corner tile
+	ldcoord_a 19, 17
+
+	hlcoord 0, 2
+	ld de, PokedexDataDividerLine
+	call PlaceString ; draw horizontal divider line
+
+	call GetMonName
+	hlcoord 1, 1
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, MonsEvolutionsText
+	call PlaceString
+
+	ld hl, wPokedexOwned
+	call IsPokemonBitSet
+	ret z ; if the pokemon has not been owned, don't print the evo info
+	; TBE: print a "lack of info" message
+
+;	push af
+;	push bc
+;	push de
+;	push hl
+;
+;	call Delay3
+;	call GBPalNormal
+;	call GetMonHeader ; load pokemon picture location
+;	hlcoord 1, 1
+;	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
+;	ld a, [wcf91]
+;	call PlayCry ; play pokemon cry
+;
+;	pop hl
+;	pop de
+;	pop bc
+;	pop af
+
+	call GBPalNormal
+	call PrintEvoInfo
+
+;	pop hl
+;	pop de
+;	pop bc
+;	pop af
+
+;	scf
+
+	ret
+
+MonsEvolutionsText:
+	db "'s EVOs@"
+
+; ----------------------------------------------------------
+
+PrintEvoInfo:
+
+	hlcoord 1, 1
+	ld a, h
+	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld a, l
+	ld [wEphemerealTempBuffer2ByteStorage+1], a
+
+	ld hl, EvosMovesPointerTable
+	ld b, 0
+	ld a, [wd11e]
+	ld [wLoadedMonSpecies], a
+	dec a
+	add a
+	rl b
+	ld c, a
+	add hl, bc
+	ld de, wBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, 2
+	call FarCopyData ; wBuffer has the address to evomoves list
+	ld hl, wBuffer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a ; at this point hl has the address for this pokémon's evomoves list
+
+.nextEvoEntry
+	push hl ; stack start address for evolution moves (this will be later updated with the next entry)
+
+	ld de, wBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, EVOLUTION_SIZE ; 4 bytes, as currently the biggest entry for an evolution is 4 bytes
+	call FarCopyData ; wBuffer now has a copy of first evo entry
+
+	ld hl, wBuffer
+	ld de, UnableToEvolveText
+.checkEvolutionsLoop ; loop through the pokemon's evolution entries
+	ld a, [hli]
+	and a ; reached terminator?
+	jr nz, .noTerminator
+
+; we reached the end
+	pop hl
+	jp z, .concludeEvoLoop ; if so, place the "CANNOT EVOLVE" string
+
+.noTerminator
+	push hl
+	push af
+	SetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX
+	call IncreaseHLCoordinatesBy1Row
+	pop af
+	pop hl
+	cp EV_ITEM
+	jr z, .handleItem ; is it an item evolution?
+	cp EV_LEVEL
+	jr z, .handleLevel
+
+.handleTrade
+	inc hl
+	push hl
+	call IncreaseHLCoordinatesBy2Row
+;	hlcoord 1, 3
+	ld de, ViaTradeText
+	call PlaceString
+	call PrintColonRightAfterString
+
+	call SaveValueOfwd11e
+	pop hl
+	ld a, [hl] ; a contains the evolved form
+	ld [wd11e], a
+	call GetMonName
+;	hlcoord 2, 4
+	call GetIndentedHLCoordinates
+	call PlaceString
+	call RestoreValueOfwd11e
+
+	jr .progressWithChecks3Bytes
+
+.handleLevel
+	ld a, [hli] ; a contains the level at which the mons evolve
+	            ; hl now points to the mon it evolves into
+	push hl
+	ld [wUniQuizAnswer], a
+	call IncreaseHLCoordinatesBy2Row
+	ld de, LevelText
+	call PlaceString
+	ld h, b
+	ld l, c
+	push hl
+;	hlcoord 1, 3
+	ld de, wUniQuizAnswer
+	lb bc, 1, 2
+	call PrintNumber
+	pop hl
+	call PrintColonRightAfterNumberAtDEStartingAtHL
+
+	call SaveValueOfwd11e
+	pop hl
+	ld a, [hl] ; a contains the evolved form
+	ld [wd11e], a
+	call GetMonName
+;	hlcoord 2, 4
+	call GetIndentedHLCoordinates
+	call PlaceString
+	call RestoreValueOfwd11e
+
+	jr .progressWithChecks3Bytes
+
+.handleItem
+	call SaveValueOfwd11e
+
+	ld a, [hli] ; a contains the item with which the mon evolves
+	            ; hl now points to 1 (because... yes)
+	inc hl
+	push hl
+	ld [wd11e], a
+
+	ld de, ArrowText
+	call IncreaseHLCoordinatesBy2Row
+	call PlaceString
+	ld h, b
+	ld l, c
+	push hl
+	call GetItemName ; given an item ID at [wd11e], store the name of the item into a string starting at wcd6d
+	ld de, wcd6d
+	pop hl
+;	hlcoord 1, 3
+	call PlaceString
+	call PrintColonRightAfterString
+
+	pop hl ; now hl points to the mon it evolves into
+	ld a, [hl] ; a contains the evolved form
+	ld [wd11e], a
+	call GetMonName
+;	hlcoord 2, 4
+	call GetIndentedHLCoordinates
+	call PlaceString
+	call RestoreValueOfwd11e
+
+	jr .progressWithChecks4Bytes
+
+.progressWithChecks3Bytes
+	pop hl
+	jr .continueWithProgress
+
+.progressWithChecks4Bytes
+	pop hl
+	inc hl
+
+.continueWithProgress
+	inc hl
+	inc hl
+	inc hl ; hl now holds the address to the next evo entry
+	jp .nextEvoEntry ; we have the address, load next entry to wBuffer
+
+.concludeEvoLoop
+	CheckAndResetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX
+	ret nz
+	hlcoord 3, 4
+	call PlaceString
+	ret
+
+
+; TBE: special case for Tyrogue
+; TBE: special case for Eevee
+
+
+UnableToEvolveText:
+	db "CANNOT EVOLVE@"
+
+ViaTradeText:
+	db "▷ VIA TRADE@"
+
+LevelText:
+	db "▷ LV @"
+
+ArrowText:
+	db "▷ @"
+
+
+/*
+KadabraEvosMoves:
+	db EV_TRADE, 1, ALAKAZAM
+	db EV_LEVEL, 42, ALAKAZAM
+	db EV_ITEM, LINK_CABLE, 1, ALAKAZAM
+	db 0
+*/
+
+SaveValueOfwd11e:
+	ld a, [wd11e]
+	ld [wMultipurposeTemporaryStorage], a
+	ret
+
+RestoreValueOfwd11e:
+	ld a, [wMultipurposeTemporaryStorage]
+	ld [wd11e], a
+	ret
+
+IncreaseHLCoordinatesBy2Row:
+	ld a, [wEphemerealTempBuffer2ByteStorage]
+	ld h, a
+	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld l, a
+	ld bc, SCREEN_WIDTH * 2
+	add hl, bc
+	ld a, h
+	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld a, l
+	ld [wEphemerealTempBuffer2ByteStorage+1], a
+	ret
+
+IncreaseHLCoordinatesBy1Row:
+	ld a, [wEphemerealTempBuffer2ByteStorage]
+	ld h, a
+	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld l, a
+	ld bc, SCREEN_WIDTH
+	add hl, bc
+	ld a, h
+	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld a, l
+	ld [wEphemerealTempBuffer2ByteStorage+1], a
+	ret
+
+GetIndentedHLCoordinates:
+	ld a, [wEphemerealTempBuffer2ByteStorage]
+	ld h, a
+	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld l, a
+	ld bc, SCREEN_WIDTH
+	add hl, bc
+	inc hl
+	inc hl
+	ret
+
+PrintColonRightAfterString:
+	ld h, b
+	ld l, c
+	ld de, ColonText
+	jp PlaceString
+
+PrintColonRightAfterNumberAtDEStartingAtHL:
+	ld a, [de]
+	cp 10
+	jr c, .small
+	cp 100
+	jr nz, .medium
+.big
+	inc hl
+.medium
+	inc hl
+.small
+	inc hl
+	inc hl
+	ld de, ColonText
+	jp PlaceString
+
+ColonText:
+	db ":@"

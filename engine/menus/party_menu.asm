@@ -150,7 +150,7 @@ RedrawPartyMenu_::
 	ld de, wEvosMoves
 	ld a, BANK(EvosMovesPointerTable)
 	ld bc, EVOLUTION_SIZE ;4 bytes, as currently the biggest entry for an evolution is 4 bytes
-	call FarCopyData ;wEvosMoves now has a copy of first evo entry (4 bytes, to handle terminator, 3 byte evo methods (level, trade) and 4 byte evo methods (item)
+	call FarCopyData ;wEvosMoves now has a copy of first evo entry (4 bytes, to handle terminator, 3 byte evo methods (level, trade) and 4 byte evo methods (item))
 	ld hl, wEvosMoves
 	ld de, .notAbleToEvolveText
 .checkEvolutionsLoop ; loop through the pokemon's evolution entries
