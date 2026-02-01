@@ -210,8 +210,8 @@ MonsterPalettes:
 	db PAL_MEWMON2   ; MMEWTWOX
 	db PAL_MEWMON2   ; MMEWTWOY
 	db PAL_MEWMON2   ; MEW
-	db PAL_MELMETAL   ; MELTAN, personalized palette
-	db PAL_MELMETAL   ; MELMETAL, personalized palette
+	db PAL_GREYMON   ; TBE into PAL_MELMETAL   ; MELTAN, personalized palette
+	db PAL_GREYMON   ; TBE into PAL_MELMETAL   ; MELMETAL, personalized palette
 	db PAL_VENUSTOISE ; VENUSTOISE, personalized palette
 	db PAL_THUFIZER   ; THU_FI_ZER, personalized palette
 	db PAL_MZYGARDE   ; MZYGARDE, personalized palette
