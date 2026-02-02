@@ -545,8 +545,6 @@ ShowPokedexInfo: ; TBE
 
 	call DrawMonInfoOnScreen
 
-;	call c, Pokedex_PrintFlavorTextAtRow11 ; TBE
-
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
@@ -921,81 +919,27 @@ GetEnemyWeight:: ; new
 
 ; new ==========================================================
 
-
 DrawMonInfoOnScreen:
-	call ClearScreen
 
-	hlcoord 0, 0
-	ld de, 1
-	lb bc, $64, SCREEN_WIDTH
-	call DrawTileLine ; draw top border
-
-	hlcoord 0, 17
-	ld b, $6f
-	call DrawTileLine ; draw bottom border
-
-	hlcoord 0, 1
-	ld de, 20
-	lb bc, $66, $10
-	call DrawTileLine ; draw left border
-
-	hlcoord 19, 1
-	ld b, $67
-	call DrawTileLine ; draw right border
-
-	ld a, $63 ; upper left corner tile
-	ldcoord_a 0, 0
-	ld a, $65 ; upper right corner tile
-	ldcoord_a 19, 0
-	ld a, $6c ; lower left corner tile
-	ldcoord_a 0, 17
-	ld a, $6e ; lower right corner tile
-	ldcoord_a 19, 17
-
-	hlcoord 0, 2
-	ld de, PokedexDataDividerLine
-	call PlaceString ; draw horizontal divider line
-
-	call GetMonName
-	hlcoord 1, 1
-	call PlaceString
-	ld h, b
-	ld l, c
-	ld de, MonsEvolutionsText
-	call PlaceString
+	call DrawPokedexBordersForInfoPages
 
 	ld hl, wPokedexOwned
 	call IsPokemonBitSet
 	ret z ; if the pokemon has not been owned, don't print the evo info
+
 	; TBE: print a "lack of info" message
 
-;	push af
-;	push bc
-;	push de
-;	push hl
-;
-;	call Delay3
-;	call GBPalNormal
-;	call GetMonHeader ; load pokemon picture location
-;	hlcoord 1, 1
-;	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
-;	ld a, [wcf91]
-;	call PlayCry ; play pokemon cry
-;
-;	pop hl
-;	pop de
-;	pop bc
-;	pop af
-
 	call GBPalNormal
+
 	call PrintEvoInfo
 
-;	pop hl
-;	pop de
-;	pop bc
-;	pop af
+.waitForButtonPress1
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .waitForButtonPress1
 
-;	scf
+	call PrintLevelUpMovesInfo
 
 	ret
 
@@ -1006,11 +950,21 @@ MonsEvolutionsText:
 
 PrintEvoInfo:
 
+	call DrawPokedexBordersForInfoPages
+
 	hlcoord 1, 1
 	ld a, h
 	ld [wEphemerealTempBuffer2ByteStorage], a
 	ld a, l
 	ld [wEphemerealTempBuffer2ByteStorage+1], a
+
+	call GetMonName
+	hlcoord 1, 1
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, MonsEvolutionsText
+	call PlaceString
 
 	ld hl, EvosMovesPointerTable
 	ld b, 0
@@ -1039,15 +993,11 @@ PrintEvoInfo:
 	call FarCopyData ; wBuffer now has a copy of first evo entry
 
 	ld hl, wBuffer
-	ld de, UnableToEvolveText
-.checkEvolutionsLoop ; loop through the pokemon's evolution entries
 	ld a, [hli]
 	and a ; reached terminator?
 	jr nz, .noTerminator
-
 ; we reached the end
-	pop hl
-	jp z, .concludeEvoLoop ; if so, place the "CANNOT EVOLVE" string
+	jp .concludeEvoLoop
 
 .noTerminator
 	push hl
@@ -1065,7 +1015,6 @@ PrintEvoInfo:
 	inc hl
 	push hl
 	call IncreaseHLCoordinatesBy2Row
-;	hlcoord 1, 3
 	ld de, ViaTradeText
 	call PlaceString
 	call PrintColonRightAfterString
@@ -1075,7 +1024,6 @@ PrintEvoInfo:
 	ld a, [hl] ; a contains the evolved form
 	ld [wd11e], a
 	call GetMonName
-;	hlcoord 2, 4
 	call GetIndentedHLCoordinates
 	call PlaceString
 	call RestoreValueOfwd11e
@@ -1088,12 +1036,11 @@ PrintEvoInfo:
 	push hl
 	ld [wUniQuizAnswer], a
 	call IncreaseHLCoordinatesBy2Row
-	ld de, LevelText
+	ld de, ArrowLevelText
 	call PlaceString
 	ld h, b
 	ld l, c
 	push hl
-;	hlcoord 1, 3
 	ld de, wUniQuizAnswer
 	lb bc, 1, 2
 	call PrintNumber
@@ -1105,7 +1052,6 @@ PrintEvoInfo:
 	ld a, [hl] ; a contains the evolved form
 	ld [wd11e], a
 	call GetMonName
-;	hlcoord 2, 4
 	call GetIndentedHLCoordinates
 	call PlaceString
 	call RestoreValueOfwd11e
@@ -1130,7 +1076,6 @@ PrintEvoInfo:
 	call GetItemName ; given an item ID at [wd11e], store the name of the item into a string starting at wcd6d
 	ld de, wcd6d
 	pop hl
-;	hlcoord 1, 3
 	call PlaceString
 	call PrintColonRightAfterString
 
@@ -1138,7 +1083,6 @@ PrintEvoInfo:
 	ld a, [hl] ; a contains the evolved form
 	ld [wd11e], a
 	call GetMonName
-;	hlcoord 2, 4
 	call GetIndentedHLCoordinates
 	call PlaceString
 	call RestoreValueOfwd11e
@@ -1161,9 +1105,12 @@ PrintEvoInfo:
 
 .concludeEvoLoop
 	CheckAndResetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX
-	ret nz
+	jr nz, .popAndRet
 	hlcoord 3, 4
+	ld de, UnableToEvolveText
 	call PlaceString
+.popAndRet
+	pop hl
 	ret
 
 
@@ -1177,7 +1124,7 @@ UnableToEvolveText:
 ViaTradeText:
 	db "▷ VIA TRADE@"
 
-LevelText:
+ArrowLevelText:
 	db "▷ LV @"
 
 ArrowText:
@@ -1263,3 +1210,207 @@ PrintColonRightAfterNumberAtDEStartingAtHL:
 
 ColonText:
 	db ":@"
+
+; ----------------------------------------------------------
+
+PrintLevelUpMovesInfo:
+
+	inc hl ; hl pointed to the 0 that divides evolutions from level-up moves
+	push hl ; now hl points to the first level-up move entry
+
+;	call DrawPokedexBordersForInfoPages
+	call ClearScreenExceptBorders
+
+	call GetMonName
+	hlcoord 1, 1
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, LevelUpMovesText
+	call PlaceString
+
+	call InitializeHLSpecialCoordinatesAndInterationsCounter
+
+	pop hl
+
+.nextLevelUpEntry
+	push hl
+
+	ld de, wBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, 3
+	call FarCopyData
+
+	ld hl, wBuffer
+	ld a, [hli]
+	and a ; reached terminator?
+	jr nz, .noTerminator
+; we reached the end
+	jp .concludeLevelUpLoop
+
+.noTerminator
+	push hl
+	push af
+	SetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX
+	pop af
+	pop hl
+
+	push hl
+	ld [wUniQuizAnswer], a
+	call IncreaseHLCoordinatesBy1Row
+	ld de, LevelText
+	call PlaceString
+	ld h, b
+	ld l, c
+	push hl
+	ld de, wUniQuizAnswer
+	ld a, [de]
+	cp 100
+	lb bc, 1, 2
+	jr nz, .printLevel
+	dec hl
+	lb bc, 1, 3
+.printLevel
+	call PrintNumber
+	pop hl
+	call PrintColonRightAfterNumberAtDEStartingAtHL
+
+	call SaveValueOfwd11e
+	
+	pop hl
+	push hl
+	ld a, [hl] ; a contains the learnable move
+	ld [wd11e], a
+	push bc
+	call GetMoveName
+	ld de, wcd6d
+	pop bc
+	ld h, b
+	ld l, c
+	call PlaceString
+	
+	call RestoreValueOfwd11e
+	pop hl
+
+	call IterationsCounter
+	cp 14
+
+	jr c, .popIncAndReloop
+; we reached the end of the page, let's wait for a button press and then clear it and restart from top
+; look ahead by 1 entry to see if there's really need to do so
+	inc hl
+	ld a, [hl]
+	and a ; is the next entry 0 = the terminator?
+	jr z, .popIncAndReloop
+
+.waitForButtonPress
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .waitForButtonPress
+
+	call ClearScreenExceptBorders_OnlyBody
+	call InitializeHLSpecialCoordinatesAndInterationsCounter
+
+.popIncAndReloop
+	pop hl
+	inc hl
+	inc hl
+	jp .nextLevelUpEntry ; we have the address, load next entry to wBuffer
+
+.concludeLevelUpLoop
+	CheckAndResetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX
+	jr nz, .popAndRet
+	hlcoord 2, 4
+	ld de, NoMovesLearnedText
+	call PlaceString
+.popAndRet
+	pop hl
+	ret
+
+NoMovesLearnedText:
+	db "NO MOVES LEARNED@"
+
+LevelUpMovesText:
+	db "'s LVLUPs@"
+
+LevelText:
+	db "LV @"
+
+; ----------------------------------------------------------
+
+TMHMsText:
+	db "'s TM/HMs@"
+
+; ----------------------------------------------------------
+
+DrawPokedexBordersForInfoPages:
+	call ClearScreen
+
+	hlcoord 0, 0
+	ld de, 1
+	lb bc, $64, SCREEN_WIDTH
+	call DrawTileLine ; draw top border
+
+	hlcoord 0, 17
+	ld b, $6f
+	call DrawTileLine ; draw bottom border
+
+	hlcoord 0, 1
+	ld de, 20
+	lb bc, $66, $10
+	call DrawTileLine ; draw left border
+
+	hlcoord 19, 1
+	ld b, $67
+	call DrawTileLine ; draw right border
+
+	ld a, $63 ; upper left corner tile
+	ldcoord_a 0, 0
+	ld a, $65 ; upper right corner tile
+	ldcoord_a 19, 0
+	ld a, $6c ; lower left corner tile
+	ldcoord_a 0, 17
+	ld a, $6e ; lower right corner tile
+	ldcoord_a 19, 17
+
+	hlcoord 0, 2
+	ld de, PokedexDataDividerLine
+	jp PlaceString ; draw horizontal divider line
+
+; ----------
+
+ClearScreenExceptBorders:
+; clear title
+	hlcoord 1, 1
+	lb bc, 1, 18
+	call ClearScreenArea ; clear tilemap area cxb (swapped! yx, not xy) at hl
+	; fallthrough
+ClearScreenExceptBorders_OnlyBody:
+; clear body
+	hlcoord 1, 3
+	lb bc, 14, 18
+	jp ClearScreenArea
+	ret
+
+; ----------
+
+IterationsCounter:
+	ld a, [wMultipurposeTemporaryStorage2]
+	inc a
+	ld [wMultipurposeTemporaryStorage2], a
+	ret
+
+; ----------
+
+InitializeHLSpecialCoordinatesAndInterationsCounter:
+	hlcoord 1, 2
+	ld a, h
+	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld a, l
+	ld [wEphemerealTempBuffer2ByteStorage+1], a
+
+	xor a
+	ld [wMultipurposeTemporaryStorage2], a
+
+	ret
