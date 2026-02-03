@@ -941,6 +941,14 @@ DrawMonInfoOnScreen:
 
 	call PrintLevelUpMovesInfo
 
+.waitForButtonPress2
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .waitForButtonPress2
+
+	call PrintTMHMsMovesInfo
+
 	ret
 
 MonsEvolutionsText:
@@ -1129,15 +1137,6 @@ ArrowLevelText:
 
 ArrowText:
 	db "▷ @"
-
-
-/*
-KadabraEvosMoves:
-	db EV_TRADE, 1, ALAKAZAM
-	db EV_LEVEL, 42, ALAKAZAM
-	db EV_ITEM, LINK_CABLE, 1, ALAKAZAM
-	db 0
-*/
 
 SaveValueOfwd11e:
 	ld a, [wd11e]
@@ -1414,3 +1413,144 @@ InitializeHLSpecialCoordinatesAndInterationsCounter:
 	ld [wMultipurposeTemporaryStorage2], a
 
 	ret
+
+; ----------------------------------------------------------
+
+PrintTMHMsMovesInfo:
+
+;	call DrawPokedexBordersForInfoPages
+	call ClearScreenExceptBorders
+
+	call SaveValueOfwd11e ; save mon ID from wd11e into wMultipurposeTemporaryStorage (not to be confused with the TMHM ID one, see below)
+
+	call GetMonName
+	hlcoord 1, 1
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, TMHMsMovesText
+	call PlaceString
+
+	call InitializeHLSpecialCoordinatesAndInterationsCounter
+	dec a
+	ld [wUniQuizAnswer+1], a ; it works only because the function above ends with a "xor a"; we use ld wUniQuizAnswer+1 to keep track of how many lines we printed
+
+	ld a, TM01
+	ld [wMultipurposeTemporaryStorage2], a ; let's use wMultipurposeTemporaryStorage2 to keep track of the item=TMHM ID that we need to loop over
+
+.TMHMsLoop
+
+
+	ld a, [wMultipurposeTemporaryStorage2]
+	sub TM01 ; underflows below 0 for HM items (before TM items)
+	jr nc, .skipAdding
+	add NUM_TMS + NUM_HMS ; adjust HM IDs to come after TM IDs
+.skipAdding
+	inc a
+	ld [wd11e], a
+	predef TMToMove ; get move ID from TM/HM ID
+	ld a, [wd11e] ; now wd11e contains the move ID
+
+	ld [wMoveNum], a
+	call RestoreValueOfwd11e ; a contains the pokemon ID
+	ld [wcf91], a
+	predef CanLearnTM ; tests if mon [wcf91] can learn move [wMoveNum]
+	ld a, c
+	and a ; can the pokemon learn the move?
+	jr z, .cantLearnThisTMHM
+
+	call PrintTMHMNumberAndName
+
+.cantLearnThisTMHM
+; check if we reached the end of the list of TMs/HMs
+	call IterationsCounter ; increases wMultipurposeTemporaryStorage2, which tracks which TMHM ID we're working on, right now also in a
+	cp TM01
+	ret z
+	cp TM01 + NUM_TMS ; maybe +-1, TBE
+	jr nc, .handleHMs
+
+	jr .TMHMsLoop
+
+.handleHMs
+	ld a, HM01
+	ld [wMultipurposeTemporaryStorage2], a
+	jr .TMHMsLoop
+
+	ret
+
+
+TMHMsMovesText:
+	db "'s TM/HMs@"
+
+
+PrintTMHMNumberAndName:
+
+	ld a, [wUniQuizAnswer+1]
+	inc a
+	ld [wUniQuizAnswer+1], a
+	cp 14
+	jr nz, .noNewPage
+
+.waitForButtonPress
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .waitForButtonPress
+
+	call ClearScreenExceptBorders_OnlyBody
+	hlcoord 1, 2
+	ld a, h
+	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld a, l
+	ld [wEphemerealTempBuffer2ByteStorage+1], a
+	xor a
+	ld [wUniQuizAnswer+1], a
+
+.noNewPage
+
+	call IncreaseHLCoordinatesBy1Row
+	ld d, h
+	ld e, l ; now we have decoord, needed for next function
+	ld a, [wMoveNum]
+	ld [wd11e], a
+	callfar DisplayTMItemNameFromMoveName ; wd11e has move ID as input
+
+	call PrintColon4PlacesRightOfLastSavedHLCoords
+
+	ld a, [wMoveNum]
+	ld [wd11e], a
+	ld [wUniQuizAnswer], a ; TBE
+	call GetMoveName ; pointer to name: wcd6d
+	ld de, wcd6d
+	call AdvanceHLCoordsBy6
+	jp PlaceString
+
+
+
+
+
+
+
+AdvanceHLCoordsBy6:
+	ld a, [wEphemerealTempBuffer2ByteStorage]
+	ld h, a
+	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld l, a
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	ret
+
+PrintColon4PlacesRightOfLastSavedHLCoords:
+	ld a, [wEphemerealTempBuffer2ByteStorage]
+	ld h, a
+	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld l, a
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	ld de, ColonText
+	jp PlaceString
