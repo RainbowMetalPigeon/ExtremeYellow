@@ -10,17 +10,18 @@ AlwaysHappenSideEffects:
 	db RECOIL_EFFECT
 	db TWINEEDLE_EFFECT
 ;	db RAGE_EFFECT
-	db ATTACK_UP_SIDE_EFF1 ; new, to be further tested
-	db DEFENSE_UP_SIDE_EFF1 ; new, to be further tested
-	db ATTACK_UP_SIDE_EFF2 ; new, to be further tested
-	db ATTACK_SELFDOWN1 ; new, testing
-	db DEFENSE_SELFDOWN1 ; new, testing
-	db SPEED_SELFDOWN1 ; new, testing
-	db SPECIAL_SELFDOWN1 ; new, testing
-	db ATTACK_SELFDOWN2 ; new, testing
-	db DEFENSE_SELFDOWN2 ; new, testing
-	db SPEED_SELFDOWN2 ; new, testing
-	db SPECIAL_SELFDOWN2 ; new, testing
-	db ATTACK_DEFENSE_SELFDOWN1 ; new, testing
-	db DEFENSE_SPECIAL_SELFDOWN1 ; new, testing
+	db ATTACK_UP_SIDE_EFF1 ; new
+	db DEFENSE_UP_SIDE_EFF1 ; new
+	db ATTACK_UP_SIDE_EFF2 ; new
+	db ATTACK_SELFDOWN1 ; new
+	db DEFENSE_SELFDOWN1 ; new
+	db SPEED_SELFDOWN1 ; new
+	db SPECIAL_SELFDOWN1 ; new
+	db ATTACK_SELFDOWN2 ; new
+	db DEFENSE_SELFDOWN2 ; new
+	db SPEED_SELFDOWN2 ; new
+	db SPECIAL_SELFDOWN2 ; new
+	db ATTACK_DEFENSE_SELFDOWN1 ; new
+	db DEFENSE_SPECIAL_SELFDOWN1 ; new
+	db DOUBLE_IRON_BASH_EFFECT ; new
 	db -1 ; end

@@ -163,4 +163,6 @@ MoveEffectPointerTable:
 	dw StealthRockEffect ; STEALTH_ROCK_EFFECT
 	dw RapidSpinEffect   ; RAPID_SPIN_EFFECT
 
+ 	dw TwoToFiveAttacksEffect ; DOUBLE_IRON_BASH_EFFECT
+
 	assert_table_length NUM_MOVE_EFFECTS

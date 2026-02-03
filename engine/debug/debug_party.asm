@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ZAPDOS, 100 ; 255
+	db ELECTRODE, 100 ; 255
 	db KADABRA, 25
 	db STARTER_PIKACHU, 1
 ;	db VENUSAUR, 5
@@ -47,7 +47,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, ANCESTOR_PWR
+	ld a, DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, ROCK_CLIMB

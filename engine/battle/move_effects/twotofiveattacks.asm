@@ -21,6 +21,8 @@ TwoToFiveAttacksEffect_:
 	ld a, [hl]
 	cp TWINEEDLE_EFFECT
 	jr z, .twineedle
+	cp DOUBLE_IRON_BASH_EFFECT ; new
+	jr z, .doubleIronBash ; new
 	cp ATTACK_TWICE_EFFECT
 	ld a, $2 ; number of hits it's always 2 for ATTACK_TWICE_EFFECT
 	jr z, .saveNumberOfHits
@@ -45,4 +47,9 @@ TwoToFiveAttacksEffect_:
 	ld [hl], a ; set Twineedle's effect to poison effect
 	; they seriously didn't write ld a, 2 just because POISON_SIDE_EFFECT1 is in position 2?!
 	ld a, $2	; then I'll do it myself lol; I could otherwise jump a bit before, like jojobear did, but oh well
+	jr .saveNumberOfHits
+.doubleIronBash ; new
+	ld a, FLINCH_SIDE_EFFECT3 ; TBV
+	ld [hl], a
+	ld a, 2
 	jr .saveNumberOfHits

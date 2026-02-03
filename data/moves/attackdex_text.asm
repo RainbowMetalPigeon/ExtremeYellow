@@ -769,6 +769,12 @@ _AttackdexText_ReflectEffect::
 	next "Ends when switch"
 	dex
 
+_AttackdexText_DoubleIronBashEffect::
+	text "Hits 2 times."
+	next "30% chance to"
+	next "FLINCH"
+	dex
+
 _AttackdexText_DragonRageEffect::
 	text "Deals 40 HP of"
 	next "damage. Ignores"

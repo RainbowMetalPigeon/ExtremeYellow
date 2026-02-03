@@ -2063,8 +2063,10 @@ RapidSpinAnim:
 
 DoubleIronBashAnim:
 	battle_anim NO_MOVE, SE_METALLIFY_MON_PALETTE
-	battle_anim MEGA_PUNCH, SUBANIM_01, 0, 5
-	battle_anim MEGA_PUNCH, SUBANIM_01, 0, 5
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim MEGA_PUNCH, SUBANIM_04, 1, 5
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_SHAKE_SCREEN
 	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
 	db -1 ; end
 

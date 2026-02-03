@@ -1166,6 +1166,10 @@ DrawAttackdexEntryOnScreen:
 	cp REFLECT_EFFECT
 	jp z, .done
 
+	ld hl, AttackdexText_DoubleIronBashEffect
+	cp DOUBLE_IRON_BASH_EFFECT
+	jp z, .done
+
 	ld hl, AttackdexText_PROXY ; SHOULD never appear
 	jp .done
 
@@ -1810,6 +1814,10 @@ AttackdexText_LightScreenEffect:
 
 AttackdexText_ReflectEffect:
 	text_far _AttackdexText_ReflectEffect
+	text_end
+
+AttackdexText_DoubleIronBashEffect:
+	text_far _AttackdexText_DoubleIronBashEffect
 	text_end
 
 AttackdexText_DragonRageEffect:
