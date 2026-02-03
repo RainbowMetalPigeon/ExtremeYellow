@@ -949,6 +949,14 @@ DrawMonInfoOnScreen:
 
 	call PrintTMHMsMovesInfo
 
+.waitForButtonPress3
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .waitForButtonPress3
+
+	call PrintBaseStatsInfo
+
 	ret
 
 MonsEvolutionsText:
@@ -1439,8 +1447,6 @@ PrintTMHMsMovesInfo:
 	ld [wMultipurposeTemporaryStorage2], a ; let's use wMultipurposeTemporaryStorage2 to keep track of the item=TMHM ID that we need to loop over
 
 .TMHMsLoop
-
-
 	ld a, [wMultipurposeTemporaryStorage2]
 	sub TM01 ; underflows below 0 for HM items (before TM items)
 	jr nc, .skipAdding
@@ -1459,32 +1465,39 @@ PrintTMHMsMovesInfo:
 	and a ; can the pokemon learn the move?
 	jr z, .cantLearnThisTMHM
 
+; we can learn this move
+	SetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX
 	call PrintTMHMNumberAndName
 
-.cantLearnThisTMHM
-; check if we reached the end of the list of TMs/HMs
+.cantLearnThisTMHM ; check if we reached the end of the list of TMs/HMs
 	call IterationsCounter ; increases wMultipurposeTemporaryStorage2, which tracks which TMHM ID we're working on, right now also in a
 	cp TM01
-	ret z
+	jr z, .concludeTMHMsLoop
 	cp TM01 + NUM_TMS ; maybe +-1, TBE
 	jr nc, .handleHMs
-
 	jr .TMHMsLoop
-
 .handleHMs
 	ld a, HM01
 	ld [wMultipurposeTemporaryStorage2], a
 	jr .TMHMsLoop
+.concludeTMHMsLoop
+	CheckAndResetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX ; bastardized event, reused
+	ret nz
+	hlcoord 1, 4
+	ld de, NoTMsHMsLearnedText
+	jp PlaceString
 
-	ret
+NoTMsHMsLearnedText:
+	db "NO TMs/HMs LEARNED@"
 
+; ----------
 
 TMHMsMovesText:
 	db "'s TM/HMs@"
 
+; ----------
 
 PrintTMHMNumberAndName:
-
 	ld a, [wUniQuizAnswer+1]
 	inc a
 	ld [wUniQuizAnswer+1], a
@@ -1507,7 +1520,6 @@ PrintTMHMNumberAndName:
 	ld [wUniQuizAnswer+1], a
 
 .noNewPage
-
 	call IncreaseHLCoordinatesBy1Row
 	ld d, h
 	ld e, l ; now we have decoord, needed for next function
@@ -1525,11 +1537,7 @@ PrintTMHMNumberAndName:
 	call AdvanceHLCoordsBy6
 	jp PlaceString
 
-
-
-
-
-
+; ----------
 
 AdvanceHLCoordsBy6:
 	ld a, [wEphemerealTempBuffer2ByteStorage]
@@ -1543,6 +1551,8 @@ AdvanceHLCoordsBy6:
 	inc hl
 	ret
 
+; ----------
+
 PrintColon4PlacesRightOfLastSavedHLCoords:
 	ld a, [wEphemerealTempBuffer2ByteStorage]
 	ld h, a
@@ -1554,3 +1564,61 @@ PrintColon4PlacesRightOfLastSavedHLCoords:
 	inc hl
 	ld de, ColonText
 	jp PlaceString
+
+; ----------------------------------------------------------
+
+PrintBaseStatsInfo:
+
+;	call DrawPokedexBordersForInfoPages
+	call ClearScreenExceptBorders
+
+	call RestoreValueOfwd11e ; save mon ID from wd11e into wMultipurposeTemporaryStorage
+	ld a, [wd11e]
+	ld [wd0b5], a
+	call GetMonHeader
+
+	call GetMonName
+	hlcoord 1, 1
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, BaseStatsText
+	call PlaceString
+
+; actual stats printing
+	hlcoord 2, 4
+	ld de, StatsNameText
+	call PlaceString
+
+	hlcoord 12, 4
+	lb bc, 1, 3
+	ld de, wMonHBaseHP
+	call PrintStatDex
+	ld de, wMonHBaseAttack
+	call PrintStatDex
+	ld de, wMonHBaseDefense
+	call PrintStatDex
+	ld de, wMonHBaseSpeed
+	call PrintStatDex
+	ld de, wMonHBaseSpecial
+	call PrintStatDex
+
+	ret
+
+BaseStatsText:
+	db "'s STATS@"
+
+PrintStatDex:
+	push hl
+	call PrintNumber
+	pop hl
+	ld de, SCREEN_WIDTH * 2
+	add hl, de
+	ret
+
+StatsNameText:
+	db   "HP      : "
+	next "ATTACK  : "
+	next "DEFENSE : "
+	next "SPEED   : "
+	next "SPECIAL : @"
