@@ -76,7 +76,7 @@ _LakeOfMistText1_PostForlornCoordinates::
 	cont "What more can"
 	cont "humans yearn for?"
 
-	text "Enjoy your"
+	para "Enjoy your"
 	line "adventure. May"
 	cont "your voyage never"
 	cont "know end or pain."
