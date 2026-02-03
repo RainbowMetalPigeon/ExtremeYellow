@@ -126,17 +126,17 @@ SeviiFiveIslandHousesSignText4:
 
 ; functions =======================
 
-BackupTextSpeed:
+BackupTextSpeed::
 	ld a, [wOptions]
 	ld [wUniQuizAnswer], a
 	ret
 
-RestoreTextSpeed:
+RestoreTextSpeed::
 	ld a, [wUniQuizAnswer]
 	ld [wOptions], a
 	ret
 
-MakeTextTemporarilyInstant:
+MakeTextTemporarilyInstant::
 	ld b, 2
 	ld a, [wOptions]
 	and $f0

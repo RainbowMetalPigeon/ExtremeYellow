@@ -1,4 +1,6 @@
 DisplayPersonalizationMenu::
+	callfar BackupTextSpeed
+	callfar MakeTextTemporarilyInstant
 	call InitPersonalizationMenu
 	ld a, 10 ; new
 	ldh [hDownArrowBlinkCount1], a ; new
@@ -20,6 +22,7 @@ DisplayPersonalizationMenu::
 	jr .personalizationMenuLoop
 .exitPersonalizationMenu
 	callfar UpdatePartyMonTypesAfterPersonalization
+	callfar RestoreTextSpeed
 	ret
 
 GetPersonalizationPointer:

@@ -1,4 +1,6 @@
 DisplayLuckMenu::
+	callfar BackupTextSpeed
+	callfar MakeTextTemporarilyInstant
 	call InitLuckMenu
 	ld a, 10 ; new
 	ldh [hDownArrowBlinkCount1], a ; new
@@ -19,6 +21,7 @@ DisplayLuckMenu::
 	call DelayFrame
 	jr .luckMenuLoop
 .exitLuckMenu
+	callfar RestoreTextSpeed
 	ret
 
 GetLuckPointer:

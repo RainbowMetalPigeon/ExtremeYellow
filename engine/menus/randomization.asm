@@ -1,4 +1,6 @@
 DisplayRandomizationMenu::
+	callfar BackupTextSpeed
+	callfar MakeTextTemporarilyInstant
 	call InitRandomizationMenu
 	ld a, 10 ; new
 	ldh [hDownArrowBlinkCount1], a ; new
@@ -25,6 +27,7 @@ DisplayRandomizationMenu::
 	ld [wRandomMemoryAddressForTypeChartRandomization+1], a
 	call Random
 	ld [wRandomMemoryAddressForWildRandomization+1], a
+	callfar RestoreTextSpeed
 	ret
 
 GetRandomizationPointer:
