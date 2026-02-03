@@ -923,13 +923,25 @@ DrawMonInfoOnScreen:
 
 	call DrawPokedexBordersForInfoPages
 
+	call GBPalNormal
+
 	ld hl, wPokedexOwned
 	call IsPokemonBitSet
-	ret z ; if the pokemon has not been owned, don't print the evo info
+	jr nz, .pokemonOwned
 
-	; TBE: print a "lack of info" message
+; pokemon not owned
+	call GetMonName
+	hlcoord 1, 1
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, InfoText
+	call PlaceString
+	hlcoord 3, 4
+	ld de, InfoWhenOwnedText
+	jp PlaceString
 
-	call GBPalNormal
+.pokemonOwned
 
 	call PrintEvoInfo
 
@@ -962,11 +974,18 @@ DrawMonInfoOnScreen:
 MonsEvolutionsText:
 	db "'s EVOs@"
 
+InfoText:
+	db "'s INFO@"
+
+InfoWhenOwnedText:
+	db   "INFO AVAILABLE"
+	next "  WHEN OWNED@"
+
 ; ----------------------------------------------------------
 
 PrintEvoInfo:
 
-	call DrawPokedexBordersForInfoPages
+;	call DrawPokedexBordersForInfoPages
 
 	hlcoord 1, 1
 	ld a, h

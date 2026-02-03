@@ -283,12 +283,12 @@ IF DEF(_DEBUG)
 DebugSetPokedexEntries:
 	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
 	ld a, %11111111
+	ld a, %10101010
 .loop
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	ld [hl], %00000111
-;	ld [hl], %00111111
+	ld [hl], %00000001
 	ret
 
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
