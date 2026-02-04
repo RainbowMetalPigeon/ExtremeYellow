@@ -78,7 +78,7 @@ ENDM
 	door_tiles $1B, $58
 
 .OverworldSeviiDoorTileIDs: ; new
-	door_tiles $1B, $58, $6F, $73
+	door_tiles $1B, $58 ;, $6F, $73
 
 .UnderwaterDoorTileIDs: ; new
 	door_tiles $2A

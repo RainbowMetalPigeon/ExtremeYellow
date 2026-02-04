@@ -74,17 +74,33 @@ _SeviiSevenIslandPokemonCenterAndMart_Text1::
 	done
 
 _SeviiSevenIslandPokemonCenterAndMart_Text2::
-	text "test 7-2"
+	text "QUEST is arguably"
+	line "the wildest of"
+	cont "the SEVII."
+
+	para "You're in for"
+	line "strong opponents"
+	cont "and rare #MON!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandPokemonCenterAndMart_Text3::
-	text "test 7-3"
+	text "Don't you ever feel"
+	line "like there aren't"
+	cont "enough houses for"
+	cont "all the people"
+	cont "you see around?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandPokemonCenterAndMart_Text4::
-	text "test 7-4"
+	text "There was a weird"
+	line "person asking"
+	cont "around about the"
+	cont "TANOBY CHAMBERS."
+
+	para "I didn't like them"
+	line "one bit..."
 ;	xxxx "123456789012345678"
 	done
 
@@ -198,35 +214,75 @@ _SeviiSevenIslandHousesSignText8_Empty::
 ; gym 1 ------------------------------------
 
 _SeviiSevenIslandGym1Text1::
-	text "guide for you 7"
+	text "Welcome, CHAMPION!"
+	line "I'm your guide for"
+	cont "this SHRINE."
+
+	para "SAGE NANETTE will"
+	line "gladly accept"
+	cont "your challenge."
+
+	para "For this TRIAL,"
+	line "there's a whole"
+	cont "dungeon waiting"
+	cont "for you ahead!"
+	cont "You can't bring"
+	cont "in any item, nor"
+	cont "access your PC."
+	cont "But you'll find"
+	cont "items around,"
+	cont "which you can use"
+	cont "even against the"
+	cont "SAGE! You'll also"
+	cont "find trainers and"
+	cont "wild #MON. Reach"
+	cont "NANETTE in your"
+	cont "best shape and"
+	cont "battle them!"
 ;	xxxx "123456789012345678"
+
+	para "Good luck!"
 	done
 
 _SeviiSevenIslandGymTextBlackout::
-	text "GG come back 7"
+	text "Your team can't"
+	line "fight anymore."
+	cont "Please try again."
+;	xxxx "123456789012345678"
 	done
 
 ; gym 2 ------------------------------------
 
 _SeviiSevenIslandGym2BattleText1::
-	text "2-1-before"
-	done
-
-_SeviiSevenIslandGym2EndBattleText1::
-	text "2-1-end"
-	prompt
-
-_SeviiSevenIslandGym2AfterBattleText1::
-	text "2-1-after"
+_SeviiSevenIslandGym2BattleText2::
+_SeviiSevenIslandGym2BattleText3::
+_SeviiSevenIslandGym2BattleText4::
+_SeviiSevenIslandGym2BattleText5::
+_SeviiSevenIslandGym2BattleText6::
+_SeviiSevenIslandGym2BattleText7::
+	text "Beat me and I'll"
+	line "give you a hint!"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2BattleText2::
-	text "2-2-before"
+_SeviiSevenIslandGym2EndBattleText1::
+	text "Well"
+	line "done!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiSevenIslandGym2AfterBattleText1::
+	text "You can pick up"
+	line "and use any item"
+	cont "you find around."
+;	xxxx "123456789012345678"
 	done
 
+
+
 _SeviiSevenIslandGym2EndBattleText2::
-	text "2-2-end"
+	text "ROCKER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText2::
@@ -234,12 +290,11 @@ _SeviiSevenIslandGym2AfterBattleText2::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2BattleText3::
-	text "2-3-before"
-	done
+
 
 _SeviiSevenIslandGym2EndBattleText3::
-	text "2-3-end"
+	text "SAILOR: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText3::
@@ -247,12 +302,11 @@ _SeviiSevenIslandGym2AfterBattleText3::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2BattleText4::
-	text "2-4-before"
-	done
+
 
 _SeviiSevenIslandGym2EndBattleText4::
-	text "2-4-end"
+	text "ENGINEER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText4::
@@ -260,12 +314,11 @@ _SeviiSevenIslandGym2AfterBattleText4::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2BattleText5::
-	text "2-5-before"
-	done
+
 
 _SeviiSevenIslandGym2EndBattleText5::
-	text "2-5-end"
+	text "SWIMMER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText5::
@@ -273,12 +326,11 @@ _SeviiSevenIslandGym2AfterBattleText5::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2BattleText6::
-	text "2-6-before"
-	done
+
 
 _SeviiSevenIslandGym2EndBattleText6::
-	text "2-6-end"
+	text "POKEMANIAC: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText6::
@@ -286,12 +338,11 @@ _SeviiSevenIslandGym2AfterBattleText6::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2BattleText7::
-	text "2-7-before"
-	done
+
 
 _SeviiSevenIslandGym2EndBattleText7::
-	text "2-7-end"
+	text "COOLTRAINER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText7::
@@ -302,11 +353,20 @@ _SeviiSevenIslandGym2AfterBattleText7::
 ; gym 2 dive ------------------------------------
 
 _SeviiSevenIslandGym2DiveBattleText1::
-	text "2D-1-before"
+_SeviiSevenIslandGym2DiveBattleText2::
+_SeviiSevenIslandGym2DiveBattleText3::
+_SeviiSevenIslandGym2DiveBattleText4::
+_SeviiSevenIslandGym2DiveBattleText5::
+	text "Blub blug glub!"
+
+	para "(Beat me to win"
+	line "a good hint!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandGym2DiveEndBattleText1::
-	text "2D-1-end"
+	text "DIVER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText1::
@@ -314,12 +374,11 @@ _SeviiSevenIslandGym2DiveAfterBattleText1::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2DiveBattleText2::
-	text "2D-2-before"
-	done
+
 
 _SeviiSevenIslandGym2DiveEndBattleText2::
-	text "2D-2-end"
+	text "DIVER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText2::
@@ -327,12 +386,11 @@ _SeviiSevenIslandGym2DiveAfterBattleText2::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2DiveBattleText3::
-	text "2D-3-before"
-	done
+
 
 _SeviiSevenIslandGym2DiveEndBattleText3::
-	text "2D-3-end"
+	text "DIVER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText3::
@@ -340,12 +398,11 @@ _SeviiSevenIslandGym2DiveAfterBattleText3::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2DiveBattleText4::
-	text "2D-4-before"
-	done
+
 
 _SeviiSevenIslandGym2DiveEndBattleText4::
-	text "2D-4-end"
+	text "DIVER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText4::
@@ -353,12 +410,11 @@ _SeviiSevenIslandGym2DiveAfterBattleText4::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym2DiveBattleText5::
-	text "2D-5-before"
-	done
+
 
 _SeviiSevenIslandGym2DiveEndBattleText5::
-	text "2D-5-end"
+	text "DIVER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText5::
@@ -390,11 +446,17 @@ _SeviiSevenIslandGym3Text1::
 	done
 
 _SeviiSevenIslandGym3BattleText1::
-	text "3-1-before"
+_SeviiSevenIslandGym3BattleText2::
+_SeviiSevenIslandGym3BattleText3::
+_SeviiSevenIslandGym3BattleText4::
+	text "Beat me, and you'll"
+	line "obtain a hint!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandGym3EndBattleText1::
-	text "3-1-end"
+	text "COOLTRAINER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText1::
@@ -402,12 +464,11 @@ _SeviiSevenIslandGym3AfterBattleText1::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym3BattleText2::
-	text "3-2-before"
-	done
+
 
 _SeviiSevenIslandGym3EndBattleText2::
-	text "3-2-end"
+	text "GAMBLER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText2::
@@ -415,12 +476,11 @@ _SeviiSevenIslandGym3AfterBattleText2::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym3BattleText3::
-	text "3-3-before"
-	done
+
 
 _SeviiSevenIslandGym3EndBattleText3::
-	text "3-3-end"
+	text "COOLTRAINER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText3::
@@ -428,12 +488,11 @@ _SeviiSevenIslandGym3AfterBattleText3::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym3BattleText4::
-	text "3-4-before"
-	done
+
 
 _SeviiSevenIslandGym3EndBattleText4::
-	text "3-4-end"
+	text "SWIMMER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText4::

@@ -67,11 +67,11 @@ CalculatePikachuPlacementCoords::
 	ld a, [wPikachuSpawnState]
 	and a
 	jr z, .load_coords
-	cp $1
+	cp $1 ; side by side?
 	jr z, .right_of_player
 	cp $2
 	jr z, .check_player_facing2
-	cp $3
+	cp $3 ; hidden?
 	jr z, .load_coords
 	cp $4
 	jr z, .below_player
@@ -182,7 +182,14 @@ CalculatePikachuFacingDirection::
 	ld [wSpritePikachuStateData1FacingDirection], a
 	ret
 
-SetPikachuSpawnOutside::
+SetPikachuSpawnOutside:: ; TBE
+; new
+	CheckEvent EVENT_IN_SEVII
+	jr z, .kanto
+	ld a, $3 ; as of now, Pikachu is always hidden right when we enter a map in Sevii
+	jr .load
+.kanto
+; new
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jr z, .oaks_lab
