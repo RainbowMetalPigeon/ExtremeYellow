@@ -103,8 +103,8 @@ Route22Script0:
 	ret
 
 .Route22RivalBattleCoords
-	dbmapcoord 29,  4
-	dbmapcoord 29,  5
+	dbmapcoord 29,  8 ; edited
+	dbmapcoord 29,  9 ; edited
 	db -1 ; end
 
 .firstRivalBattle

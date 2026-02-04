@@ -97,6 +97,7 @@ HiddenObjectMaps:
 	dbw ROUTE_2,                      Route2HiddenObjects ; new
 	dbw ROCK_TUNNEL_1F,               RockTunnel1FiddenObjects ; new
 	dbw ROCK_TUNNEL_B1F,              RockTunnelB1FiddenObjects ; new
+	dbw ROUTE_30,                     Route30HiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -225,6 +226,11 @@ Route10HiddenObjects:
 
 RockTunnel1FiddenObjects: ; new
 	hidden_object  5, 31, RARE_CANDY, HiddenItems
+	db -1 ; end
+
+Route30HiddenObjects: ; new
+	hidden_object  3,  0, ULTRA_BALL, HiddenItems
+	hidden_object 24, 15, MAX_REPEL, HiddenItems
 	db -1 ; end
 
 RockTunnelB1FiddenObjects: ; new
