@@ -278,75 +278,79 @@ _SeviiSevenIslandGym2AfterBattleText1::
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2EndBattleText2::
-	text "ROCKER: "
+	text "Good job!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText2::
-	text "2-2-after"
+	text "The SHRINE has"
+	line "three areas."
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2EndBattleText3::
-	text "SAILOR: "
+	text "You are"
+	line "strong!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText3::
-	text "2-3-after"
+	text "Many wild #MON"
+	line "here are fast."
+	cont "Running away may"
+	cont "not be easy."
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2EndBattleText4::
-	text "ENGINEER: "
+	text "You can"
+	line "do it!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText4::
-	text "2-4-after"
+	text "The path to"
+	line "NANETTE is kinda"
+	cont "short, but full"
+	cont "of obstacles."
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2EndBattleText5::
-	text "SWIMMER: "
+	text "Not half"
+	line "bad!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText5::
-	text "2-5-after"
+	text "You need many HMs"
+	line "to reach our SAGE."
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2EndBattleText6::
-	text "POKEMANIAC: "
+	text "Uh-uh!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText6::
-	text "2-6-after"
+	text "Don't fret over"
+	line "hidden items."
+	cont "There are none."
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2EndBattleText7::
-	text "COOLTRAINER: "
+	text "Ah!"
+	line "That was great!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2AfterBattleText7::
-	text "2-7-after"
+	text "Worry not about"
+	line "losing. You won't"
+	cont "lose any money."
 ;	xxxx "123456789012345678"
 	done
 
@@ -365,60 +369,93 @@ _SeviiSevenIslandGym2DiveBattleText5::
 	done
 
 _SeviiSevenIslandGym2DiveEndBattleText1::
-	text "DIVER: "
+	text "Blub!"
+
+	para "(You're strong!)"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText1::
-	text "2D-1-after"
+	text "Glublub!"
+
+	para "(In each area,"
+	line "there is only"
+	cont "one mandatory"
+	cont "opponent to face.)"
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2DiveEndBattleText2::
-	text "DIVER: "
+	text "Gublug!"
+
+	para "(You got this!)"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText2::
-	text "2D-2-after"
+	text "Gulublub!"
+
+	para "(You need to have"
+	line "every HM to reach"
+	cont "NANETTE. Only"
+	cont "ROCK SMASH is"
+	cont "optional.)"
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2DiveEndBattleText3::
-	text "DIVER: "
+	text "Bulululu!"
+
+	para "(You may have what"
+	line "is needed!)"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText3::
-	text "2D-3-after"
+	text "Glub."
+
+	para "(The position of"
+	line "the ground items"
+	cont "does not change"
+	cont "between attempts."
+	cont "If you'll try"
+	cont "again, you'll"
+	cont "know what to pick"
+	cont "up and where.)"
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2DiveEndBattleText4::
-	text "DIVER: "
+	text "Lublugb!"
+
+	para "(Go on, champ!)"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText4::
-	text "2D-4-after"
+	text "Bllllbug."
+
+	para "(You cannot bring"
+	line "in or out any"
+	cont "item. But you can"
+	cont "use a REPEL just"
+	cont "before entering!)"
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym2DiveEndBattleText5::
-	text "DIVER: "
+	text "B!"
+
+	para "(Strong!)"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym2DiveAfterBattleText5::
-	text "2D-5-after"
+	text "G!"
+
+	para "(You can avoid"
+	line "all but one of us"
+	cont "in each area.)"
 ;	xxxx "123456789012345678"
 	done
 
