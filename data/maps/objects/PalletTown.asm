@@ -52,11 +52,11 @@ PalletTown_Object:
 ;	warp_event 13,  5, VICTORY_ROAD_1F, 1
 ;	warp_event 13,  5, POKEMON_TOWER_7F, 1
 
-	warp_event 12, 11, OAKS_LAB, 2
+;	warp_event 12, 11, OAKS_LAB, 2
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1
 ;	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 12, 11, HAUNTED_PALLET_TOWN, 1
-;	warp_event 12, 11, HAUNTED_HOUSE_3, 9
+	warp_event 12, 11, HAUNTED_HOUSE_3, 9
 ;	warp_event 12, 11, HAUNTED_ISLAND_OF_NUMBERS, 1
 ;	warp_event 12, 11, BILLS_HOUSE, 1
 ;	warp_event 12, 11, BATTLE_FACILITY, 1

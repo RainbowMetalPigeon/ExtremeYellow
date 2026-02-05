@@ -42,9 +42,12 @@ Route25OpenPathToHauntedHouse_Core:
 	ld a, $24 ; bottom-left corner, plateau top-right
 	ld [wNewTileBlockID], a
 	lb bc, 13, 23
-	predef ReplaceTileBlock; testing
+	predef ReplaceTileBlock
 
-	ret ; testing
+	xor a
+	ld [wHauntedHouse3HowManyTimeBetweenBeds], a ; testing
+
+	ret
 
 Route25Script_515e1:
 	ld hl, wd492
@@ -409,15 +412,15 @@ Route25TextCompleted666Steps:
 Route25TextToHauntedHouseMessage1:
 	text_far _Route25TextToHauntedHouseMessage1
 	text_end
-	
+
 Route25TextToHauntedHouseMessage2:
 	text_far _Route25TextToHauntedHouseMessage2
 	text_end
-	
+
 Route25TextToHauntedHouseMessage3:
 	text_far _Route25TextToHauntedHouseMessage3
 	text_end
-	
+
 Route25Text14:
 	text_far _Route25Text14
 	text_end

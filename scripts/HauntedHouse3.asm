@@ -66,7 +66,9 @@ HauntedHouse3Script0:
 	ld hl, wHauntedHouse3HowManyTimeBetweenBeds
 	inc [hl]
 	call HauntedHouse3ReplaceBlockForRealExit
-	ret
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	jp DisplayTextID
 
 HauntedHouse3BetweenBedsCoords:
 	dbmapcoord 42, 24
@@ -78,8 +80,10 @@ HauntedHouse3BetweenBedsCoords:
 ; ============================
 
 HauntedHouse3_TextPointers:
-;	dw HauntedHouse3Text1
+	dw HauntedHouse3Text1
 
+HauntedHouse3Text1:
+	text_far _HauntedHouse3Text1
 	text_end
 
 ; ============================

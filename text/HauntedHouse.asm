@@ -1,3 +1,11 @@
+; HAUNTED_HOUSE_3 ---------------------------
+
+_HauntedHouse3Text1::
+    text "Something changed"
+    line "nearby..."
+;   xxxx "123456789012345678"
+    done
+
 ; HAUNTED_HOUSE_4 ---------------------------
 
 _HauntedHouse4TextProxy::
@@ -109,7 +117,7 @@ _HauntedRedsHousePersonalizationText::
     para "Your whole persona"
     line "doesn't matter."
     done
-    
+
 _HauntedRedsHouseRandomizationText::
     text "No randomization"
     line "options."
@@ -117,7 +125,7 @@ _HauntedRedsHouseRandomizationText::
     para "Your destiny is"
     line "already decided."
     done
-    
+
 _HauntedRedsHouseLuckText::
     text "No battle luck"
     line "options."

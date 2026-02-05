@@ -378,10 +378,9 @@ _SeviiSevenIslandGym2DiveEndBattleText1::
 _SeviiSevenIslandGym2DiveAfterBattleText1::
 	text "Glublub!"
 
-	para "(In each area,"
-	line "there is only"
-	cont "one mandatory"
-	cont "opponent to face.)"
+	para "(Nothing stops you"
+	line "from catching the"
+	cont "wild #MON here!)"
 ;	xxxx "123456789012345678"
 	done
 
@@ -462,25 +461,68 @@ _SeviiSevenIslandGym2DiveAfterBattleText5::
 ; gym 3 ------------------------------------
 
 _SeviiSevenIslandGym3Text1_Intro::
-	text "NANETTE: hello"
-	line "hope good trip"
+	text "NANETTE: Ahahah!"
+	line "Welcome, CHAMPION!"
+	cont "I hope you had a"
+	cont "good adventure"
+	cont "through my dunge-"
+	cont "I mean, SHRINE!"
+
+	para "How was your loot?"
+	line "Did you have"
+	cont "exciting fights?"
+	cont "Carved awesome"
+	cont "memories?"
+
+	para "Let's now fight!"
+	line "Show me your"
+	cont "determination,"
+	cont "the willpower"
+	cont "that pushes you"
+	cont "through ordeals"
+	cont "to seek strength"
+	cont "and thrill!"
+
+	para "Ahahah!!!"
+;	xxxx "123456789012345678"
 	done
 
 _NanetteText_PostBattleText::
-	text "GG 7!"
+	text "Your"
+	line "spirit is really"
+	cont "indomitable!" ; TBE
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3Text5_Victory::
-	text "Congrats 7"
+	text "NANETTE: Ahahah!"
+	line "You're really"
+	cont "something else!"
+	cont "You're a master of"
+	cont "adventures and"
+	cont "battles alike!"
+	cont "You conquered"
+	cont "the SHRINE of"
+	cont "QUEST ISLAND!"
+
+	para "TBE."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandGym3Text5_Defeat::
-	text "Try again 7"
+	text "NANETTE: Don't"
+	line "let one false"
+	cont "step break your"
+	cont "adventurer soul!"
+
+	para "I'll take you on"
+	line "whenever you wish!"
+;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandGym3Text1::
-	text "Nanette test"
-	done
+;_SeviiSevenIslandGym3Text1::
+;	text "Nanette test"
+;	done
 
 _SeviiSevenIslandGym3BattleText1::
 _SeviiSevenIslandGym3BattleText2::
@@ -492,48 +534,60 @@ _SeviiSevenIslandGym3BattleText4::
 	done
 
 _SeviiSevenIslandGym3EndBattleText1::
-	text "COOLTRAINER: "
+	text "Ah!"
+	line "You can do this!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText1::
-	text "3-1-after"
+	text "Pay attention to"
+	line "where one of my"
+	cont "colleagues stands!"
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym3EndBattleText2::
-	text "GAMBLER: "
+	text "You're the"
+	line "winning horse!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText2::
-	text "3-2-after"
+	text "NANETTE uses two"
+	line "special triplets"
+	cont "of #MON."
+	cont "I can't tell you"
+	cont "more than this!"
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym3EndBattleText3::
-	text "COOLTRAINER: "
+	text "Ah!"
+	line "Good one!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText3::
-	text "3-3-after"
+	text "FLASH is not"
+	line "really needed."
+	cont "If you learn the"
+	cont "way, you can save"
+	cont "one move slot."
 ;	xxxx "123456789012345678"
 	done
 
-
-
 _SeviiSevenIslandGym3EndBattleText4::
-	text "SWIMMER: "
+	text "Amazing"
+	line "job there!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSevenIslandGym3AfterBattleText4::
-	text "3-4-after"
+	text "Differently from"
+	line "any other SHRINE,"
+	cont "here you CAN use"
+	cont "items when you"
+	cont "battle the SAGE!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -569,53 +623,44 @@ _SeviiRoute42Text1::
 
 ; -----
 
-/*
-_SeviiRoute37BattleText6::
+_SeviiRoute42BattleText1::
+	text "MY TRUSTED STATER"
+	line "WILL NOT FAIL ME!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute42EndBattleText1::
+	text "HOW IS IT"
+	line "POSSIBLE?!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute42AfterBattleText1::
+	text "MY BELOVED PEBBLE!"
+	line "IT WAS ME WHO"
+	cont "FAILED YOU!"
+;	xxxx "123456789012345678"
+	done
+
+; -----
+
+_SeviiRoute42BattleText2::
 	text "I'm from FORTUNE,"
 	line "but I like"
 	cont "QUEST better!"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiRoute37EndBattleText6::
-	text "COOLTRAINER: And"
+_SeviiRoute42EndBattleText2::
+	text "And"
 	line "you like to win!"
-;	xxxx "123456789012345678"
 	prompt
 
-_SeviiRoute37AfterBattleText6::
+_SeviiRoute42AfterBattleText2::
 	text "Have you visited"
 	line "FORTUNE already?"
 	cont "Do you prefer it"
 	line "or QUEST?"
-;	xxxx "123456789012345678"
-	done
-*/
-
-_SeviiRoute42BattleText1::
-	text "1-pre"
-	done
-
-_SeviiRoute42EndBattleText1::
-	text "1-post"
-	prompt
-
-_SeviiRoute42AfterBattleText1::
-	text "1-after"
-	done
-
-; -----
-
-_SeviiRoute42BattleText2::
-	text "2-pre"
-	done
-
-_SeviiRoute42EndBattleText2::
-	text "2-post"
-	prompt
-
-_SeviiRoute42AfterBattleText2::
-	text "2-after"
 	done
 
 ; -----
@@ -656,71 +701,133 @@ _SeviiRoute42AfterBattleText4::
 ; -----
 
 _SeviiRoute42BattleText5::
-	text "5-pre"
+	text "You're from KANTO?"
+	line "Show me the main-"
+	cont "land way to fight!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute42EndBattleText5::
-	text "5-post"
+	text "So"
+	line "that's it!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute42AfterBattleText5::
-	text "5-after"
+	text "If the average"
+	line "trainer in KANTO"
+	cont "is as strong as"
+	cont "you, I have so"
+	cont "much to train!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute42BattleText6::
-	text "6-pre"
+	text "This area is of"
+	line "high scientifical"
+	cont "interest."
+
+	para "If you aren't a"
+	line "researcher, why"
+	cont "are you here?"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute42EndBattleText6::
-	text "6-post"
+	text "I see"
+	line "why!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute42AfterBattleText6::
-	text "6-after"
+	text "Here are strong"
+	line "trainers and"
+	cont "#MON. But"
+	cont "ahead are also"
+	cont "some mysterious"
+	cont "caves we are"
+	cont "researching on."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute42BattleText7::
-	text "7-pre"
+	text "How dare you"
+	line "invading my"
+	cont "secret special"
+	cont "hunting ground?!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute42EndBattleText7::
-	text "7-post"
+	text "Well,"
+	line "I guess we"
+	cont "can share it..."
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute42AfterBattleText7::
-	text "7-after"
+	text "I like showing"
+	line "my #MON to"
+	cont "everyone, but I"
+	cont "also love being"
+	cont "by myself in my"
+	cont "hidden corner..."
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute42BattleText8::
-	text "8-pre"
+	text "This is the best"
+	line "place to improve"
+	cont "my collection of"
+	cont "rare #MON!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute42EndBattleText8::
-	text "8-post"
+	text "Your"
+	line "#MON may be"
+	cont "stronger, but"
+	cont "mine are cooler!"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute42AfterBattleText8::
-	text "8-after"
+	text "Maybe if I solve"
+	line "the mystery of"
+	cont "TANOBY CHAMBERS,"
+	cont "I can get my"
+	cont "hands on even"
+	cont "rarer #MON!"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute42BattleText9::
-	text "9-pre"
+	text "This rocky hikes"
+	line "are just the best!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute42EndBattleText9::
-	text "9-post"
+	text "Uh?"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute42AfterBattleText9::
-	text "9-after"
+	text "TANOBY CHAMBERS?"
+	line "Training?"
+	cont "I don't care about"
+	cont "any of those, I"
+	cont "just wanna hike"
+	cont "on great routes!"
+;	xxxx "123456789012345678"
 	done
 
 ; Route 43 ------------------------------------
@@ -736,140 +843,170 @@ _SeviiRoute43Text1::
 
 _SeviiRoute43BattleText1::
 	text "1-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText1::
-	text "1-post"
+	text "PSYCHIC: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText1::
 	text "1-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText2::
 	text "2-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText2::
-	text "2-post"
+	text "COOLTRAINER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText2::
 	text "2-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText3::
 	text "3-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText3::
-	text "3-post"
+	text "COOLTRAINER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText3::
 	text "3-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText4::
 	text "4-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText4::
-	text "4-post"
+	text "SCIENTIST: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText4::
 	text "4-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText5::
 	text "5-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText5::
-	text "5-post"
+	text "PSYCHIC: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText5::
 	text "5-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText6::
 	text "6-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText6::
-	text "6-post"
+	text "POKEMANIAC: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText6::
 	text "6-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText7::
 	text "7-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText7::
-	text "7-post"
+	text "TAMER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText7::
 	text "7-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText8::
 	text "8-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText8::
-	text "8-post"
+	text "COOLTRAINER: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText8::
 	text "8-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText9::
 	text "9-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText9::
-	text "9-post"
+	text "SCIENTIST: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText9::
 	text "9-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText10::
 	text "10-pre"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText10::
-	text "10-post"
+	text "PSYCHIC: "
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText10::
 	text "10-after"
+;	xxxx "123456789012345678"
 	done
 
 ; -----
