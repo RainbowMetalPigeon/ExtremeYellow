@@ -842,170 +842,256 @@ _SeviiRoute43Text1::
 ; -----
 
 _SeviiRoute43BattleText1::
-	text "1-pre"
+	text "I can foresee"
+	line "your future!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText1::
-	text "PSYCHIC: "
+	text "I saw"
+	line "this coming."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText1::
-	text "1-after"
+	text "A marvelous"
+	line "discovery lies"
+	cont "ahead of you."
+
+	para "...but a dark"
+	line "shadow looms just"
+	cont "before it..."
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText2::
-	text "2-pre"
+	text "Will you push me"
+	line "beyond my limits?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText2::
-	text "COOLTRAINER: "
+	text "That"
+	line "was definitely a"
+	cont "push!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText2::
-	text "2-after"
+	text "There's no improve-"
+	line "ment if we don't"
+	cont "challenge our-"
+	cont "selves beyond our"
+	cont "current limit."
+
+	para "Let's break beyond"
+	line "our comfort zone!"
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText3::
-	text "3-pre"
+	text "Show me something"
+	line "new! Teach me"
+	cont "something new!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText3::
-	text "COOLTRAINER: "
+	text "That"
+	line "was a great deal"
+	cont "of new cool stuff!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText3::
-	text "3-after"
+	text "There's no growth"
+	line "in lingering"
+	cont "within what we"
+	cont "already know."
+
+	para "We must strive to"
+	line "expand our"
+	cont "knowledge, always!"
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText4::
-	text "4-pre"
+	text "I am collecting"
+	line "data!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText4::
-	text "SCIENTIST: "
+	text "I did"
+	line "not need this"
+	cont "data..."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText4::
-	text "4-after"
+	text "I'm studying the"
+	line "anomalous fields"
+	cont "connected with"
+	cont "TANOBY CHAMBERS."
+
+	para "It may help cast"
+	line "some light on"
+	cont "their mysteries!"
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText5::
-	text "5-pre"
+	text "I can read"
+	line "your past!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText5::
-	text "PSYCHIC: "
+	text "I know"
+	line "you're used to"
+	cont "winning..."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText5::
-	text "5-after"
+	text "Your story..."
+	line "it's amazing. I"
+	cont "congratulate you."
+	cont "And envy too."
+
+	para "I can only wonder"
+	line "how your future"
+	cont "will be."
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText6::
-	text "6-pre"
+	text "More! I want"
+	line "mooorrreee!!!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText6::
-	text "POKEMANIAC: "
+	text "Less!"
+	line "Beat me leeesss!!!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText6::
-	text "6-after"
+	text "I wanna all the"
+	line "#MON, aaalll!!!"
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText7::
-	text "7-pre"
+	text "You catch more"
+	line "flies with a"
+	cont "drop of honey"
+	cont "than with a"
+	cont "barrel of vinegar!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText7::
-	text "TAMER: "
+	text "I gave you"
+	line "the carrot, you"
+	cont "gave me the stick!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText7::
-	text "7-after"
+	text "#MON training,"
+	line "and life as a"
+	cont "whole, is about"
+	cont "balancing harsh"
+	cont "and soothing"
+	cont "moments."
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText8::
-	text "8-pre"
+	text "I am at the center"
+	line "of the universe!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText8::
-	text "COOLTRAINER: "
+	text "Damn,"
+	line "you crashed me!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText8::
-	text "8-after"
+	text "Do you ever feel"
+	line "like you're at the"
+	cont "top of the world,"
+	cont "the pinnacle of"
+	cont "existance?"
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText9::
-	text "9-pre"
+	text "I'm so close to a"
+	line "breakthrough, but"
+	cont "I can't get the"
+	cont "last bits right."
+
+	para "I know! Help me"
+	line "blow my steam off!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText9::
-	text "SCIENTIST: "
+	text "Argh!"
+	line "That backfired!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText9::
-	text "9-after"
+	text "I feel like I'm SO"
+	line "close, yet I just"
+	cont "can't reach it...!"
 ;	xxxx "123456789012345678"
 	done
 
 ; -----
 
 _SeviiRoute43BattleText10::
-	text "10-pre"
+	text "My ESP powers are"
+	line "vastly enhanced"
+	cont "here. I can't lose!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute43EndBattleText10::
-	text "PSYCHIC: "
+	text "Your"
+	line "#MON are"
+	cont "stronger than"
+	cont "my mind!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute43AfterBattleText10::
-	text "10-after"
+	text "I sense a huge"
+	line "flow of PSYCHIC"
+	cont "powers swirling"
+	cont "in this area."
 ;	xxxx "123456789012345678"
 	done
 
@@ -1081,7 +1167,24 @@ _SeviiRoute43CavesScriptText1::
 ; Route 44 ------------------------------------
 
 _SeviiRoute44Text1::
-	text "Basically noone"
+	text "The hike through"
+	line "ROUTE 43 is one"
+	cont "of the hardest I"
+	cont "know, but it's all"
+	cont "worth the effort."
+
+	para "Look around here!"
+	line "So gorgeous, so"
+	cont "quiet. Just some"
+	cont "researchers pass"
+	cont "by every now and"
+	cont "then."
+
+	para "...and those weird"
+	line "folks short ago."
+	cont "Never seen them"
+	cont "before, actually."
+;	xxxx "123456789012345678"
 	done
 
 ; Tanoby Chambers -------------------------

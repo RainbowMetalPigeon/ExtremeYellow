@@ -12,7 +12,7 @@ CheckIfDirectionalButtonIsPressed::
 .kanto
 	ld a, [wCurMap]
 	call IsCurrentMapHauntedHouse_AlsoIsland
-	jr .vanilla ; for debugging
+;	jr .vanilla ; for debugging
 	jr nz, .vanilla
 
 .anomalousMovements
