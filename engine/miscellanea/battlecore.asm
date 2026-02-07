@@ -780,8 +780,25 @@ BasePowerModifier_Core:
 
 ModifyMoveAccuracy::
 ; handle STOMP
-	; TBE
-; handle weathers
+	ld hl, wPlayerMoveNum
+	ld de, wEnemyMonMinimized
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurnStomp
+	ld hl, wEnemyMoveNum
+	ld de, wPlayerMonMinimized
+.playersTurnStomp
+	ld a, [hl]
+	cp STOMP
+	jr nz, .handleWeathers
+; user is usinh STOMP, check if target is minimized
+	ld a, [de]
+	and a
+	jr z, .resetCarryFlagToNotSkipAccuracy
+; user uses STOMP and target is minimized
+	jr .scfToSkipAccuracy
+
+.handleWeathers
 	ld hl, wPlayerMoveNum
 	ld de, wPlayerMoveAccuracy
 	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
@@ -798,8 +815,6 @@ ModifyMoveAccuracy::
 	cp BLIZZARD
 	jr z, .blizzard
 	jr .resetCarryFlagToNotSkipAccuracy
-
-	; TBE: STOMP, EARTHQUAKE, etc
 
 .thunderOrHurricane
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
