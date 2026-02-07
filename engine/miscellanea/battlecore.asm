@@ -765,7 +765,7 @@ BasePowerModifier_Core:
 ; it is STOMP; check if target is minimized
 	ld a, [hl]
 	and a
-	ret nz
+	ret z
 ; user uses STOMP and target is minimized
 	rl d
 	ret
