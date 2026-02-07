@@ -51,24 +51,6 @@ DEF rLCDC_DEFAULT EQU %11100011
 	or c
 	jr nz, .loop
 
-; new, to update the Random_ function
-;joenote - implement xor shift RNG
-;Initialize the RNG state. It can be initialized to anything but zero; this is just a simple way of doing it.
-;Initialize with whatever random garbage is in hram to get an initial seed.
-	ld a, [hJoyLast]	;ffb1
-	and a
-	push af
-	ld a, [hFrameCounter]	;ffd5
-	and a
-	push af
-	ld a, [hDividend2]	;ffe5
-	and a
-	push af
-	ld a, [hSpriteAnimFrameCounter]	;ffea
-	and a
-	push af
-; back to vanilla
-
 	call ClearVram
 
 	ld hl, HRAM_Begin
@@ -76,28 +58,6 @@ DEF rLCDC_DEFAULT EQU %11100011
 	call FillMemory
 
 	call ClearSprites
-
-; new, to update the Random_ function
-;finish initializing RNG
-;joenote - added lines to save the RNG seed
-	ld hl, $DEF0
-	pop af
-	call z, .inc_a
-	ld [hRandomAdd], a
-	ld [hli], a
-	pop af
-	call z, .inc_a
-	ld [hRandomSub], a
-	ld [hli], a
-	pop af
-	call z, .inc_a
-	ld [hRandomLast], a
-	ld [hli], a
-	pop af
-	call z, .inc_a
-	ld [hRandomLast + 1], a
-	ld [hli], a
-; back to vanilla
 
 	ld a, BANK(WriteDMACodeToHRAM)
 	ldh [hLoadedROMBank], a
@@ -159,11 +119,6 @@ DEF rLCDC_DEFAULT EQU %11100011
 	ldh [rLCDC], a
 
 	jp SetDefaultNamesBeforeTitlescreen
-; new, to update the Random_ function
-.inc_a
-	inc a
-	ret
-; back to vanilla
 
 ClearVram::
 	ld hl, VRAM_Begin

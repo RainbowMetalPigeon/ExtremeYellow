@@ -16,7 +16,7 @@ DebugTeam:
 	db ELECTRODE, 100 ; 255
 	db KADABRA, 25
 	db STARTER_PIKACHU, 1
-	db JOLTEON, 65
+;	db JOLTEON, 65
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end

@@ -346,8 +346,7 @@ hUnlockedSilphCoDoors::
 ; the first tile ID in a sequence of tile IDs that increase by 1 each step
 hStartTileID:: db
 
-hRandomLast:: ds 2 ; new, to update the Random_ function; jojo's code is: "EQU $FFF0 ; FFF1	;2 bites for xor-shift rng"
-;	ds 2 ; edited, commented out
+	ds 2
 
 hNewPartyLength:: db
 
