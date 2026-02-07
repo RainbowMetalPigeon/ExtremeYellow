@@ -6111,10 +6111,10 @@ MoveHitTest::
 ;.checkForDigOrFlyStatus
 
 ; new
-;	push hl
-;	callfar CheckIfSkippingInvulnerability
-;	pop hl
-;	jr c, .skipInvulnerable
+	push hl
+	callfar CheckIfSkippingInvulnerability
+	pop hl
+	jr c, .skipInvulnerable
 ; BTV
 	bit INVULNERABLE, [hl]
 	jp nz, .moveMissed

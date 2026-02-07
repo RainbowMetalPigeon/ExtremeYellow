@@ -16,7 +16,7 @@ DebugTeam:
 	db ELECTRODE, 100 ; 255
 	db KADABRA, 25
 	db STARTER_PIKACHU, 1
-	db THU_FI_ZER, 65
+	db JOLTEON, 65
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -86,12 +86,12 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-	ld a, SUNNY_DAY ; DIG
+	ld a, EARTHQUAKE ; DIG
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, RAIN_DANCE ; TELEPORT
+	ld a, SURF ; TELEPORT
 	ld [hli], a
-	ld a, STOMP ; SOFTBOILED
+	ld a, THUNDER ; SOFTBOILED
 	ld [hli], a
 	ld a, HURRICANE ; FLASH
 	ld [hl], a

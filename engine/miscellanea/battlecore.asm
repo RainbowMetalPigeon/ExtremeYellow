@@ -839,15 +839,59 @@ ModifyMoveAccuracy::
 
 ; ===========================================================================
 
-/*
 CheckIfSkippingInvulnerability::
-; EARTHQUAKE, WHIRLPOOL, SURF
-; THUNDER and HURRICANE are a special case as they also needs to be handled by weathers
-	wEnemyMonMinimized
-	wPlayerMonMinimized
+; EARTHQUAKE, WHIRLPOOL, SURF, THUNDER, and HURRICANE
+	ld bc, wEnemyBattleStatus1
+	ld hl, wPlayerMoveNum
+	ld de, wEnemyMoveNum
 
-	ld hl, wPlayerBattleStatus1
-	ld hl, wEnemyBattleStatus1
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurn
+
+	ld bc, wPlayerBattleStatus1
+	ld hl, wEnemyMoveNum
+	ld de, wPlayerMoveNum
+
+.playersTurn
+	ld a, [bc]
 	bit INVULNERABLE, a ; fly/dig/dive
+	jr z, .resetCarryFlagToNotSkipInvulnerability
 
-*/
+; target is invulnerable, check if we are using one of the chosen moves
+	ld a, [hl]
+	cp EARTHQUAKE
+	jr z, .checkDig
+	cp SURF
+	jr z, .checkDive
+	cp WHIRLPOOL
+	jr z, .checkDive
+	cp THUNDER
+	jr z, .checkFly
+	cp HURRICANE
+	jr nz, .resetCarryFlagToNotSkipInvulnerability
+	; fallthrough
+.checkFly
+	ld a, [de]
+	cp FLY
+	jr nz, .resetCarryFlagToNotSkipInvulnerability
+	jr .scfToSkipInvulnerability
+
+.checkDive
+	ld a, [de]
+	cp DIVE
+	jr nz, .resetCarryFlagToNotSkipInvulnerability
+	jr .scfToSkipInvulnerability
+
+.checkDig
+	ld a, [de]
+	cp DIG
+	jr nz, .resetCarryFlagToNotSkipInvulnerability
+	; fallthrough
+
+.scfToSkipInvulnerability
+	scf
+	ret
+.resetCarryFlagToNotSkipInvulnerability
+	xor a
+	ret
