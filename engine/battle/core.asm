@@ -4443,7 +4443,7 @@ GetDamageVarsForPlayerAttack:
 
 ; new, to check for weathers and terrains
 	push hl
-	callfar BasePowerModifierMoves_Player
+	callfar BasePowerModifierMoves
 	callfar BasePowerModifierWeatherTerrain_Player
 	pop hl
 
@@ -4674,7 +4674,7 @@ GetDamageVarsForEnemyAttack:
 
 ; new, to check for weathers and terrains
 	push hl
-	callfar BasePowerModifierMoves_Enemy
+	callfar BasePowerModifierMoves
 	callfar BasePowerModifierWeatherTerrain_Enemy
 	pop hl
 

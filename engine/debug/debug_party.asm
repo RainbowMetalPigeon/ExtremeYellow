@@ -91,7 +91,7 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld a, SURF ; TELEPORT
 	ld [hli], a
-	ld a, THUNDER ; SOFTBOILED
+	ld a, WHIRLPOOL ; SOFTBOILED
 	ld [hli], a
 	ld a, HURRICANE ; FLASH
 	ld [hl], a

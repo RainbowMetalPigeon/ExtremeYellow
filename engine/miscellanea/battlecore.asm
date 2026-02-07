@@ -749,16 +749,18 @@ HandleWeatherBallAndTerrainPulseAnimation::
 
 ; ===========================================================================
 
-BasePowerModifierMoves_Player::
+BasePowerModifierMoves::
 	ld bc, wPlayerMoveNum
 	ld hl, wEnemyMonMinimized
-	jr BasePowerModifier_Core
 
-BasePowerModifierMoves_Enemy::
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurn
+
 	ld bc, wEnemyMoveNum
 	ld hl, wPlayerMonMinimized
+.playersTurn
 
-BasePowerModifier_Core:
 	ld a, [bc] ; move ID
 	cp STOMP
 	jr nz, .checkEarthquake
@@ -767,13 +769,54 @@ BasePowerModifier_Core:
 	and a
 	ret z
 ; user uses STOMP and target is minimized
+.doubleBasePowerAndRet
 	rl d
 	ret
 
-	; TBE
-.checkEarthquake ; DIG
-.checkSurf ; WHIRLPOOL, DIVE
+; here we don't need bc nor hl anymore, we can overwrite them
+; a still holds the used move ID
+.checkEarthquake
+	push af ; save user move ID in a
+	; load bc and hl with invincibility and target used move, turn-conditional
+	ld bc, wEnemyBattleStatus1
+	ld hl, wEnemyMoveNum
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurn2
+	ld bc, wPlayerBattleStatus1
+	ld hl, wPlayerMoveNum
+.playersTurn2
+	; now hl = target move and bc = target status1
+	ld a, [bc]
+	bit INVULNERABLE, a ; fly/dig/dive
+	jr z, .popAndRet
+; if we're here, the target is in an invulnerable state, so let's check if we use the correct move
+	pop af ; restore user move ID in a
+	cp EARTHQUAKE
+	jr nz, .checkSurf
+; it is Earthquake, check if target is using Dig
+	ld a, [hl]
+	cp DIG
+	jr z, .doubleBasePowerAndRet
+	ret
+
+.checkSurf
+	cp SURF
+	jr nz, .checkWhirlpool
+; it is Surf, check if target is using Dive
+.checkIfTargetDiving
+	ld a, [hl]
+	cp DIVE
+	jr z, .doubleBasePowerAndRet
+	ret
+
+.checkWhirlpool
+	cp WHIRLPOOL
+	ret nz
+	jr .checkIfTargetDiving
 	
+.popAndRet
+	pop af
 	ret
 
 ; ===========================================================================
