@@ -4443,6 +4443,7 @@ GetDamageVarsForPlayerAttack:
 
 ; new, to check for weathers and terrains
 	push hl
+	callfar BasePowerModifierMoves_Player
 	callfar BasePowerModifierWeatherTerrain_Player
 	pop hl
 
@@ -4673,6 +4674,7 @@ GetDamageVarsForEnemyAttack:
 
 ; new, to check for weathers and terrains
 	push hl
+	callfar BasePowerModifierMoves_Enemy
 	callfar BasePowerModifierWeatherTerrain_Enemy
 	pop hl
 
@@ -6096,17 +6098,27 @@ MoveHitTest::
 	ld a, [de]
 	cp SWIFT_EFFECT			   ; new actually this works not only for SWIFT but for all the other infallible moves, e.g. FEINT_ATTACK
 	ret z ; Swift never misses (this was fixed from the Japanese versions)
-	call CheckTargetSubstitute ; substitute check (note that this overwrites a)
-	jr z, .checkForDigOrFlyStatus
-; The fix for Swift broke this code. It's supposed to prevent HP draining moves from working on Substitutes.
-; Since CheckTargetSubstitute overwrites a with either $00 or $01, it never works.
-	cp DRAIN_HP_EFFECT
-	jp z, .moveMissed
-	cp DREAM_EATER_EFFECT
-	jp z, .moveMissed
-.checkForDigOrFlyStatus
+
+; edited: since this code is useless, commented
+;	call CheckTargetSubstitute ; substitute check (note that this overwrites a)
+;	jr z, .checkForDigOrFlyStatus
+;; The fix for Swift broke this code. It's supposed to prevent HP draining moves from working on Substitutes.
+;; Since CheckTargetSubstitute overwrites a with either $00 or $01, it never works.
+;	cp DRAIN_HP_EFFECT
+;	jp z, .moveMissed
+;	cp DREAM_EATER_EFFECT
+;	jp z, .moveMissed
+;.checkForDigOrFlyStatus
+
+; new
+;	push hl
+;	callfar CheckIfSkippingInvulnerability
+;	pop hl
+;	jr c, .skipInvulnerable
+; BTV
 	bit INVULNERABLE, [hl]
 	jp nz, .moveMissed
+.skipInvulnerable ; new
 	ldh a, [hWhoseTurn]
 	and a
 	jr nz, .enemyTurn
@@ -6123,45 +6135,16 @@ MoveHitTest::
 	bit USING_X_ACCURACY, a ; is the enemy using X Accuracy?
 	ret nz ; if so, always hit regardless of accuracy/evasion
 .calcHitChance
+	callfar ModifyMoveAccuracy ; new
+	ret c ; new, always hit if carry flag is set from previous function
 	call CalcHitChance ; scale the move accuracy according to attacker's accuracy and target's evasion
 	ld a, [wPlayerMoveAccuracy]
 	ld b, a
 	ldh a, [hWhoseTurn]
 	and a
-	jr z, .weatherAccuracyModifiers ; edited, it was to .doAccuracyCheck
+	jr z, .doAccuracyCheck
 	ld a, [wEnemyMoveAccuracy]
 	ld b, a
-; new block of code to handle weathers
-.weatherAccuracyModifiers
-	ld hl, wPlayerMoveNum
-	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
-	and a
-	jr z, .playersTurnWeather
-	ld hl, wEnemyMoveNum
-.playersTurnWeather
-	ld a, [hl] ; a is the move number
-	cp THUNDER
-	jr z, .thunderOrHurricane
-	cp HURRICANE
-	jr z, .thunderOrHurricane
-	cp BLIZZARD
-	jr z, .blizzard
-	jr .doAccuracyCheck
-.thunderOrHurricane
-	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	jr z, .checkForRainDance
-	ld a, 50 percent
-	ld b, a
-	jr .doAccuracyCheck
-.checkForRainDance
-	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	jr z, .doAccuracyCheck
-	ret ; skip accuracy check if it's raining and we're using Thunder/Hurricane
-.blizzard
-	CheckEvent EVENT_WEATHER_HAIL
-	jr z, .doAccuracyCheck
-	ret ; skip accuracy check if it's hailing and we're using Blizzard
-; BTV from weathers
 .doAccuracyCheck
 ; if the random number generated is greater than or equal to the scaled accuracy, the move misses
 ; note that this means that even the highest accuracy is still just a 255/256 chance, not 100%

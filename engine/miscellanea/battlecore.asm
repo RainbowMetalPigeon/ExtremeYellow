@@ -748,3 +748,91 @@ HandleWeatherBallAndTerrainPulseAnimation::
 	jp PlayMoveAnimationCopyCopy ; in handlepoisonburnleechseed file, same bank
 
 ; ===========================================================================
+
+BasePowerModifierMoves_Player::
+	ld bc, wPlayerMoveNum
+	ld hl, wEnemyMonMinimized
+	jr BasePowerModifier_Core
+
+BasePowerModifierMoves_Enemy::
+	ld bc, wEnemyMoveNum
+	ld hl, wPlayerMonMinimized
+
+BasePowerModifier_Core:
+	ld a, [bc] ; move ID
+	cp STOMP
+	jr nz, .checkEarthquake
+; it is STOMP; check if target is minimized
+	ld a, [hl]
+	and a
+	ret nz
+; user uses STOMP and target is minimized
+	rl d
+	ret
+
+	; TBE
+.checkEarthquake ; DIG
+.checkSurf ; WHIRLPOOL, DIVE
+	
+	ret
+
+; ===========================================================================
+
+ModifyMoveAccuracy::
+; handle STOMP
+	; TBE
+; handle weathers
+	ld hl, wPlayerMoveNum
+	ld de, wPlayerMoveAccuracy
+	ldh a, [hWhoseTurn] ; 0 on player's turn, 1 on enemy's turn
+	and a
+	jr z, .playersTurnWeather
+	ld hl, wEnemyMoveNum
+	ld de, wEnemyMoveAccuracy
+.playersTurnWeather
+	ld a, [hl] ; a is the move number
+	cp THUNDER
+	jr z, .thunderOrHurricane
+	cp HURRICANE
+	jr z, .thunderOrHurricane
+	cp BLIZZARD
+	jr z, .blizzard
+	jr .resetCarryFlagToNotSkipAccuracy
+
+	; TBE: STOMP, EARTHQUAKE, etc
+
+.thunderOrHurricane
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	jr z, .checkForRainDance
+	ld a, 128 ; TBE
+	ld [de], a ; set base accuracy of the move to 50% if under sun
+	jr .resetCarryFlagToNotSkipAccuracy
+.checkForRainDance
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	jr z, .resetCarryFlagToNotSkipAccuracy
+	jr .scfToSkipAccuracy ; skip accuracy check if it's raining and we're using Thunder/Hurricane
+.blizzard
+	CheckEvent EVENT_WEATHER_HAIL
+	jr z, .resetCarryFlagToNotSkipAccuracy
+
+.scfToSkipAccuracy
+	scf
+	ret
+.resetCarryFlagToNotSkipAccuracy
+	xor a
+	ret
+
+; ===========================================================================
+
+/*
+CheckIfSkippingInvulnerability::
+; EARTHQUAKE, WHIRLPOOL, SURF
+; THUNDER and HURRICANE are a special case as they also needs to be handled by weathers
+	wEnemyMonMinimized
+	wPlayerMonMinimized
+
+	ld hl, wPlayerBattleStatus1
+	ld hl, wEnemyBattleStatus1
+	bit INVULNERABLE, a ; fly/dig/dive
+
+*/
