@@ -55,7 +55,18 @@ HauntedHouse2_Object:
 	warp_event 27,  0, HAUNTED_HOUSE_2, 29 ; 36
 
 	def_bg_events
-;	bg_event  6,  9, 9 ; CeladonMansion2TextSign1
+	bg_event  2,  3,  1 ; HauntedHouse2TextSignR1C1
+	bg_event 14,  3,  2 ; HauntedHouse2TextSignR1C2
+	bg_event 26,  3,  3 ; HauntedHouse2TextSignR1C3
+	bg_event  2, 13,  4 ; HauntedHouse2TextSignR2C1
+	bg_event 14, 13,  5 ; HauntedHouse2TextSignR2C2
+	bg_event 26, 13,  6 ; HauntedHouse2TextSignR2C3
+	bg_event  2, 23,  7 ; HauntedHouse2TextSignR3C1
+	bg_event 14, 23,  8 ; HauntedHouse2TextSignR3C2
+	bg_event 26, 23,  9 ; HauntedHouse2TextSignR3C3
+	bg_event  2, 33, 10 ; HauntedHouse2TextSignR4C1
+	bg_event 14, 33, 11 ; HauntedHouse2TextSignR4C2
+	bg_event 26, 33, 12 ; HauntedHouse2TextSignR4C3
 
 	def_object_events
 ;	object_event  2,  4, SPRITE_BIRD, STAY, ANY_DIR, 1

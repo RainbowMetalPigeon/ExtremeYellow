@@ -1,5 +1,8 @@
 CheckIfDirectionalButtonIsPressed::
-;	jr .vanilla ; countercomment this line when created ready
+IF DEF(_DEBUG)
+	call DebugPressedOrHeldB
+	jr nz, .vanilla
+ENDC
 	CheckEvent EVENT_IN_SEVII
 	jr z, .kanto
 ; in Sevii

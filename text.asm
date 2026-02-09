@@ -260,7 +260,6 @@ INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
-INCLUDE "text/Route9.asm"
 INCLUDE "text/SilphCo8F.asm"
 INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
 
@@ -283,6 +282,7 @@ INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
+INCLUDE "text/Route9.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones

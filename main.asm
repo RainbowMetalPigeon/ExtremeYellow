@@ -29,11 +29,15 @@ INCLUDE "engine/events/set_blackout_map.asm"
 INCLUDE "engine/menus/display_text_id_init.asm"
 INCLUDE "engine/menus/draw_start_menu.asm"
 INCLUDE "engine/menus/text_box.asm"
-INCLUDE "engine/battle/move_effects/drain_hp.asm"
+;INCLUDE "engine/battle/move_effects/drain_hp.asm" ; moved to bank1b
 INCLUDE "engine/menus/players_pc.asm"
 INCLUDE "engine/pokemon/remove_mon.asm"
 INCLUDE "engine/events/display_pokedex.asm"
 ; moved all engine/link files to another bank
+
+
+SECTION "bank1b", ROMX
+INCLUDE "engine/battle/move_effects/drain_hp.asm"
 
 
 SECTION "bank3", ROMX

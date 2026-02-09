@@ -1,3 +1,65 @@
+; HAUNTED_HOUSE_2 ---------------------------
+
+_HauntedHouse2TextSignR1C1::
+    text "DEATH"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR1C2::
+    text "SUFFERING"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR1C3::
+    text "PAIN"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR2C1::
+    text "WILL"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR2C2::
+    text "ATROCIOUS"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR2C3::
+    text "OBLIVION"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR3C1::
+    text "REMAIN"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR3C2::
+    text "FOREVER"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR3C3::
+    text "FORGOTTEN"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR4C1::
+    text "YOU"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR4C2::
+    text "HERE"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedHouse2TextSignR4C3::
+    text "HELP"
+;   xxxx "123456789012345678"
+    done
+
 ; HAUNTED_HOUSE_3 ---------------------------
 
 _HauntedHouse3Text1::
