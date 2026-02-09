@@ -579,6 +579,7 @@ ButterfreeEvosMoves:
 	db 16, PSYBEAM
 	db 17, SWIFT
 	db 18, GUST
+	db 20, WHIRLWIND
 	db 22, AIR_SLASH
 	db 25, MEGA_DRAIN
 	db 28, TWISTER
@@ -666,6 +667,7 @@ PidgeyEvosMoves:
 	db 15, TWISTER
 	db 17, WING_ATTACK
 	db 19, SWIFT
+	db 21, WHIRLWIND
 	db 23, AGILITY
 	db 28, ROOST
 	db 32, STEEL_WING
@@ -688,6 +690,7 @@ PidgeottoEvosMoves:
 	db 15, TWISTER
 	db 19, WING_ATTACK
 	db 23, SWIFT
+	db 25, WHIRLWIND
 	db 27, AGILITY
 	db 32, ROOST
 	db 36, STEEL_WING
@@ -711,6 +714,7 @@ PidgeotEvosMoves:
 	db 15, TWISTER
 	db 19, WING_ATTACK
 	db 23, SWIFT
+	db 25, WHIRLWIND
 	db 27, AGILITY
 	db 32, ROOST
 	db 36, STEEL_WING
@@ -803,6 +807,7 @@ SpearowEvosMoves:
 	db 31, DRILL_PECK
 	db 33, ROOST
 	db 36, STEEL_WING
+	db 40, WHIRLWIND
 	db 45, DRILL_RUN
 	db 0
 
@@ -822,6 +827,7 @@ FearowEvosMoves:
 	db 34, DRILL_PECK
 	db 36, ROOST
 	db 39, STEEL_WING
+	db 45, WHIRLWIND
 	db 50, DRILL_RUN
 	db 0
 
@@ -1559,6 +1565,7 @@ ZubatEvosMoves:
 	db 13, ABSORB
 	db 15, BITE
 	db 17, LEECH_LIFE
+	db 18, WHIRLWIND
 	db 19, WING_ATTACK
 	db 21, CONFUSE_RAY
 	db 23, SWIFT
@@ -1588,6 +1595,7 @@ GolbatEvosMoves:
 	db 13, ABSORB
 	db 15, BITE
 	db 17, LEECH_LIFE
+	db 18, WHIRLWIND
 	db 19, WING_ATTACK
 	db 21, CONFUSE_RAY
 	db 24, SWIFT
@@ -1617,6 +1625,7 @@ CrobatEvosMoves:
 	db 13, ABSORB
 	db 15, BITE
 	db 17, LEECH_LIFE
+	db 18, WHIRLWIND
 	db 19, WING_ATTACK
 	db 21, CONFUSE_RAY
 	db 24, SWIFT
@@ -1847,6 +1856,7 @@ VenomothEvosMoves:
 	db 37, AGILITY
 	db 39, AERIAL_ACE
 	db 41, ZEN_HEADBUTT
+	db 44, WHIRLWIND
 	db 46, ENERGY_BALL
 	db 50, PSYCHIC_M
 	db 52, ROOST
@@ -2971,7 +2981,8 @@ FarfetchdEvosMoves:
 	db 36, TWISTER
 	db 38, NIGHT_SLASH
 	db 40, FOCUS_ENERGY
-	db 43, HEADBUTT
+	db 42, WHIRLWIND
+	db 44, HEADBUTT
 	db 46, MIRROR_MOVE
 	db 49, AIR_SLASH
 	db 51, ROOST
@@ -3000,6 +3011,7 @@ DoduoEvosMoves:
 	db 33, HAZE
 	db 36, SWORDS_DANCE
 	db 39, LOW_KICK
+	db 41, WHIRLWIND
 	db 43, TAKE_DOWN
 	db 46, ROOST
 	db 49, AERIAL_ACE
@@ -3023,6 +3035,7 @@ DodrioEvosMoves:
 	db 36, HAZE
 	db 39, SWORDS_DANCE
 	db 42, LOW_KICK
+	db 44, WHIRLWIND
 	db 46, TAKE_DOWN
 	db 49, ROOST
 	db 53, AERIAL_ACE
@@ -5394,7 +5407,8 @@ AerodactylEvosMoves:
 	db 38, DRAGONBREATH
 	db 40, ROOST
 	db 42, DRAGON_DANCE
-	db 45, FLAMETHROWER
+	db 44, WHIRLWIND
+	db 46, FLAMETHROWER
 	db 49, AIR_CUTTER
 	db 53, STONE_EDGE
 	db 57, HURRICANE
@@ -5420,7 +5434,8 @@ MArodactylEvosMoves:
 	db 43, DRAGONBREATH
 	db 45, ROOST
 	db 47, DRAGON_DANCE
-	db 50, FLAMETHROWER
+	db 49, WHIRLWIND
+	db 51, FLAMETHROWER
 	db 52, EXTREMESPEED
 	db 54, AIR_CUTTER
 	db 58, STONE_EDGE
@@ -5497,6 +5512,7 @@ ArticunoEvosMoves:
 	db 37, WATER_PULSE
 	db 40, STEEL_WING
 	db 42, AIR_CUTTER
+	db 45, WHIRLWIND
 	db 47, ROOST
 	db 50, ICE_BEAM
 	db 52, AIR_SLASH
@@ -5523,6 +5539,7 @@ ZapdosEvosMoves:
 	db 37, AERIAL_ACE
 	db 40, STEEL_WING
 	db 42, DRILL_PECK
+	db 45, WHIRLWIND
 	db 47, ROOST
 	db 50, HEAT_WAVE
 	db 53, ZAP_CANNON
@@ -5546,6 +5563,7 @@ MoltresEvosMoves:
 	db 35, AIR_SLASH
 	db 40, STEEL_WING
 	db 42, AERIAL_ACE
+	db 45, WHIRLWIND
 	db 47, ROOST
 	db 50, FIRE_SPIN
 	db 52, FLAMETHROWER
@@ -5638,7 +5656,8 @@ DragoniteEvosMoves:
 	db 36, WATER_PULSE
 	db 39, FLAMETHROWER
 	db 42, DRAGON_RAGE
-	db 45, DRAGON_DANCE
+	db 44, DRAGON_DANCE
+	db 46, WHIRLWIND
 	db 48, IRON_TAIL
 	db 49, RAIN_DANCE
 	db 51, AQUA_JET
@@ -5680,7 +5699,8 @@ MDragoniteEvosMoves:
 	db 41, WATER_PULSE
 	db 44, FLAMETHROWER
 	db 47, DRAGON_RAGE
-	db 50, DRAGON_DANCE
+	db 49, DRAGON_DANCE
+	db 51, WHIRLWIND
 	db 53, IRON_TAIL
 	db 54, RAIN_DANCE
 	db 56, AQUA_JET
@@ -6042,15 +6062,16 @@ ThuFiZerEvosMoves:
 	db 56, HEAT_WAVE
 	db 58, ICICLE_SPEAR
 	db 60, FLAMETHROWER
-	db 62, HAIL
-	db 64, RAIN_DANCE
-	db 66, SUNNY_DAY
-	db 68, AERIAL_ACE
-	db 70, SOLARBEAM
-	db 72, BLIZZARD
-	db 74, THUNDER
-	db 76, FLARE_BLITZ
-	db 78, HURRICANE
+	db 62, WHIRLWIND
+	db 64, HAIL
+	db 66, RAIN_DANCE
+	db 68, SUNNY_DAY
+	db 70, AERIAL_ACE
+	db 72, SOLARBEAM
+	db 74, BLIZZARD
+	db 76, THUNDER
+	db 78, FLARE_BLITZ
+	db 80, HURRICANE
 	db 0
 
 MZygardeEvosMoves:
