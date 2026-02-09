@@ -16,7 +16,7 @@ DebugTeam:
 	db ELECTRODE, 100 ; 255
 	db KADABRA, 25
 	db STARTER_PIKACHU, 1
-;	db JOLTEON, 65
+	db ARM_MEWTWO, 65
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -283,7 +283,7 @@ IF DEF(_DEBUG)
 DebugSetPokedexEntries:
 	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
 	ld a, %11111111
-	ld a, %10101010
+;	ld a, %10101010
 .loop
 	ld [hli], a
 	dec b
