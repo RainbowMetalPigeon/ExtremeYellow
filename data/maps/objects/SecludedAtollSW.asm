@@ -8,6 +8,5 @@ SecludedAtollSW_Object:
 
 	def_object_events
 	object_event 42, 18, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 1
-	object_event 15, 10, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 2
 
 	def_warps_to SECLUDED_ATOLL_SW

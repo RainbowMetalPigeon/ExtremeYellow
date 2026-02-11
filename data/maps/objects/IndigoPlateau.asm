@@ -1,9 +1,9 @@
 IndigoPlateau_Object:
-	db $e ; border block
+	db $f ; border block
 
 	def_warp_events
-	warp_event  9,  5, INDIGO_PLATEAU_LOBBY, 1
-	warp_event 10,  5, INDIGO_PLATEAU_LOBBY, 1
+	warp_event 11,  5, INDIGO_PLATEAU_LOBBY, 1
+	warp_event 12,  5, INDIGO_PLATEAU_LOBBY, 1
 
 	def_bg_events
 

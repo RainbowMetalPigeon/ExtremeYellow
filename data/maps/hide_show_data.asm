@@ -118,10 +118,10 @@ MapHSPointers:
 	dw OchreWonderlandHS ; new
 	dw NoHS ; OCHRE_RESEARCH_CENTER
 	dw VictoryRoad1FHS
-	dw NoHS ; SECLUDED_ATOLL_NW
+	dw SecludedAtollNWHS ; SECLUDED_ATOLL_NW
 	dw NoHS ; SECLUDED_ATOLL_NE
 	dw NoHS ; SECLUDED_ATOLL_SE
-	dw SecludedAtollSWHS ; SECLUDED_ATOLL_SW
+	dw NoHS ; SECLUDED_ATOLL_SW
 	dw NoHS ; LANCES_ROOM
 	dw ObsidianWoodHS ; OBSIDIAN_WOOD
 	dw ObsidianWarehouseHS ; OBSIDIAN_WAREHOUSE
@@ -651,8 +651,8 @@ CeruleanCaveB1FHS:
 VictoryRoad1FHS:					; updated, +2
 	db VICTORY_ROAD_1F, $05, SHOW
 	db VICTORY_ROAD_1F, $06, SHOW
-SecludedAtollSWHS:
-	db SECLUDED_ATOLL_SW, $02, SHOW ; rock
+SecludedAtollNWHS:
+	db SECLUDED_ATOLL_NW, $01, SHOW ; rock
 ChampionsRoomHS:
 	db CHAMPIONS_ROOM, $01, SHOW ; new, to later hide the Rival when goes to HoF
 	db CHAMPIONS_ROOM, $02, HIDE

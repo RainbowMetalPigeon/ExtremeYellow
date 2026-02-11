@@ -12,7 +12,6 @@ SecludedAtollSW_Script:
 
 SecludedAtollSW_TextPointers:
 	dw BoulderText
-	dw RockSmashText
 
 SecludedAtollSWHideShowCaveEntrance:
 	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER

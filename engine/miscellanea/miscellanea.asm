@@ -1977,123 +1977,219 @@ MarkBirbAsFed::
 	cp ROUTE_5
 	jp z, .route5
 	cp ROUTE_6
-	jr z, .route6
+	jp z, .route6
 	cp ROUTE_7
-	jr z, .route7
+	jp z, .route7
 	cp ROUTE_8
-	jr z, .route8
+	jp z, .route8
 	cp ROUTE_9
-	jr z, .route9
+	jp z, .route9
 	cp ROUTE_10
-	jr z, .route10
+	jp z, .route10
 	cp ROUTE_11
-	jr z, .route11
+	jp z, .route11
 	cp ROUTE_12
-	jr z, .route12
+	jp z, .route12
 	cp ROUTE_13
-	jr z, .route13
+	jp z, .route13
 	cp ROUTE_14
-	jr z, .route14
+	jp z, .route14
 	cp ROUTE_15
-	jr z, .route15
+	jp z, .route15
 	cp ROUTE_16
-	jr z, .route16
+	jp z, .route16
 	cp ROUTE_17
-	jr z, .route17
+	jp z, .route17
 	cp ROUTE_18
-	jr z, .route18
+	jp z, .route18
 	cp ROUTE_19
-	jr z, .route19
+	jp z, .route19
 	cp ROUTE_20
-	jr z, .route20
+	jp z, .route20
 	cp ROUTE_21
-	jr z, .route21
+	jp z, .route21
 	cp ROUTE_22
-	jr z, .route22
+	jp z, .route22
 	cp ROUTE_23
-	jr z, .route23
+	jp z, .route23
 	cp ROUTE_24
-	jr z, .route24
+	jp z, .route24
 	cp ROUTE_25
-	jr z, .route25
+	jp z, .route25
 	cp ROUTE_25
-	jr z, .route25
+	jp z, .route25
 	cp ROUTE_26
-	jr z, .route26
+	jp z, .route26
 	cp ROUTE_27
-	jr z, .route27
+	jp z, .route27
 	cp ROUTE_28
-	jr z, .route28
+	jp z, .route28
 	cp ROUTE_29
-	jr z, .route29
+	jp z, .route29
 	cp ROUTE_30
-	jr z, .route30
+	jp z, .route30
 
 	cp INDIGO_PLATEAU
-	jr z, .indigo
+	jp z, .indigo
 	cp SECLUDED_ATOLL_SE
-	jr z, .atollSE
+	jp z, .atollSE
 	cp SECLUDED_ATOLL_NE
-	jr z, .atollNE
+	jp z, .atollNE
 	cp SECLUDED_ATOLL_NW
-	jr z, .atollNW
+	jp z, .atollNW
 	cp SECLUDED_ATOLL_SW
-	jr z, .atollSW
+	jp z, .atollSW
 	cp LAKE_OF_MIST
-	jr z, .lakeMist
+	jp z, .lakeMist
 
 	ret ; TBE as should never be hit
 
 .pallet
+	SetEvent EVENT_BIRB_PALLET
+	ret
 .viridian
+	SetEvent EVENT_BIRB_VIRIDIAN
+	ret
 .pewter
+	SetEvent EVENT_BIRB_PEWTER
+	ret
 .cerulean
+	SetEvent EVENT_BIRB_CERULEAN
+	ret
 .vermilion
+	SetEvent EVENT_BIRB_VERMILION
+	ret
 .lavender
+	SetEvent EVENT_BIRB_LAVENDER
+	ret
 .celadon
+	SetEvent EVENT_BIRB_CELADON
+	ret
 .saffron
+	SetEvent EVENT_BIRB_SAFFRON
+	ret
 .ochre
+	SetEvent EVENT_BIRB_OCHRE
+	ret
 .fuchsia
+	SetEvent EVENT_BIRB_FUCHSIA
+	ret
 .obsidian
+	SetEvent EVENT_BIRB_OBSIDIAN
+	ret
 .cinnabar
+	SetEvent EVENT_BIRB_CINNABAR
+	ret
 
 .route1
+	SetEvent EVENT_BIRB_ROUTE1
+	ret
 .route2
+	SetEvent EVENT_BIRB_ROUTE2
+	ret
 .route3
+	SetEvent EVENT_BIRB_ROUTE3
+	ret
 .route4
+	SetEvent EVENT_BIRB_ROUTE4
+	ret
 .route5
+	SetEvent EVENT_BIRB_ROUTE5
+	ret
 .route6
+	SetEvent EVENT_BIRB_ROUTE6
+	ret
 .route7
+	SetEvent EVENT_BIRB_ROUTE7
+	ret
 .route8
+	SetEvent EVENT_BIRB_ROUTE8
+	ret
 .route9
+	SetEvent EVENT_BIRB_ROUTE9
+	ret
 .route10
+	SetEvent EVENT_BIRB_ROUTE10
+	ret
 .route11
+	SetEvent EVENT_BIRB_ROUTE11
+	ret
 .route12
+	SetEvent EVENT_BIRB_ROUTE12
+	ret
 .route13
+	SetEvent EVENT_BIRB_ROUTE13
+	ret
 .route14
+	SetEvent EVENT_BIRB_ROUTE14
+	ret
 .route15
+	SetEvent EVENT_BIRB_ROUTE15
+	ret
 .route16
+	SetEvent EVENT_BIRB_ROUTE16
+	ret
 .route17
+	SetEvent EVENT_BIRB_ROUTE17
+	ret
 .route18
+	SetEvent EVENT_BIRB_ROUTE18
+	ret
 .route19
+	SetEvent EVENT_BIRB_ROUTE19
+	ret
 .route20
+	SetEvent EVENT_BIRB_ROUTE20
+	ret
 .route21
+	SetEvent EVENT_BIRB_ROUTE21
+	ret
 .route22
+	SetEvent EVENT_BIRB_ROUTE22
+	ret
 .route23
+	SetEvent EVENT_BIRB_ROUTE23
+	ret
 .route24
+	SetEvent EVENT_BIRB_ROUTE24
+	ret
 .route25
+	SetEvent EVENT_BIRB_ROUTE25
+	ret
 .route26
+	SetEvent EVENT_BIRB_ROUTE26
+	ret
 .route27
+	SetEvent EVENT_BIRB_ROUTE27
+	ret
 .route28
+	SetEvent EVENT_BIRB_ROUTE28
+	ret
 .route29
+	SetEvent EVENT_BIRB_ROUTE29
+	ret
 .route30
+	SetEvent EVENT_BIRB_ROUTE30
+	ret
 
 .indigo
+	SetEvent EVENT_BIRB_INDIGO
+	ret
 .atollSE
+	SetEvent EVENT_BIRB_ATOLLSE
+	ret
 .atollNE
+	SetEvent EVENT_BIRB_ATOLLNE
+	ret
 .atollNW
+	SetEvent EVENT_BIRB_ATOLLNW
+	ret
 .atollSW
+	SetEvent EVENT_BIRB_ATOLLSW
+	ret
 .lakeMist
+	SetEvent EVENT_BIRB_LAKEMIST
+	ret
 
 	ret ; TBE
 
@@ -2101,83 +2197,131 @@ MarkBirbAsFed::
 
 .sevii
 	cp SEVII_ONE_ISLAND_CITY
-	jr z, .seviiOne
+	jp z, .seviiOne
 	cp SEVII_TWO_ISLAND_CITY
-	jr z, .seviiTwo
+	jp z, .seviiTwo
 	cp SEVII_THREE_ISLAND_CITY
-	jr z, .seviiThree
+	jp z, .seviiThree
 	cp SEVII_FOUR_ISLAND_CITY
-	jr z, .seviiFour
+	jp z, .seviiFour
 	cp SEVII_FIVE_ISLAND_CITY
-	jr z, .seviiFive
+	jp z, .seviiFive
 	cp SEVII_SIX_ISLAND_CITY
-	jr z, .seviiSix
+	jp z, .seviiSix
 	cp SEVII_SEVEN_ISLAND_CITY
-	jr z, .seviiSeven
+	jp z, .seviiSeven
 
 	cp SEVII_ROUTE_31
-	jr z, .seviiRoute31
+	jp z, .seviiRoute31
 	cp SEVII_ROUTE_32
-	jr z, .seviiRoute32
+	jp z, .seviiRoute32
 	cp SEVII_ROUTE_33
-	jr z, .seviiRoute33
+	jp z, .seviiRoute33
 	cp SEVII_ROUTE_34
-	jr z, .seviiRoute34
+	jp z, .seviiRoute34
 	cp SEVII_ROUTE_35
-	jr z, .seviiRoute35
+	jp z, .seviiRoute35
 	cp SEVII_ROUTE_36
-	jr z, .seviiRoute36
+	jp z, .seviiRoute36
 	cp SEVII_ROUTE_37
-	jr z, .seviiRoute37
+	jp z, .seviiRoute37
 	cp SEVII_ROUTE_38
-	jr z, .seviiRoute38
+	jp z, .seviiRoute38
 	cp SEVII_ROUTE_39
-	jr z, .seviiRoute39
+	jp z, .seviiRoute39
 	cp SEVII_ROUTE_40
-	jr z, .seviiRoute40
+	jp z, .seviiRoute40
 	cp SEVII_ROUTE_41
-	jr z, .seviiRoute41
+	jp z, .seviiRoute41
 	cp SEVII_ROUTE_42
-	jr z, .seviiRoute42
+	jp z, .seviiRoute42
 	cp SEVII_ROUTE_43
-	jr z, .seviiRoute43
+	jp z, .seviiRoute43
 	cp SEVII_ROUTE_44
-	jr z, .seviiRoute44
+	jp z, .seviiRoute44
 
 	cp SEVII_EIGHT_ISLAND_CITY
-	jr z, .seviiEight
+	jp z, .seviiEight
 	cp SEVII_DESOLATED_ROCK
-	jr z, .seviiDesolated
+	jp z, .seviiDesolated
 ;	cp SEVII_SANCTUM_ISLET
-;	jr z, .seviiSanctum
+;	jp z, .seviiSanctum
 
 	ret ; TBE, should never be reached
 
 .seviiOne
+	SetEvent EVENT_BIRB_SEVII_ONE
+	ret
 .seviiTwo
+	SetEvent EVENT_BIRB_SEVII_TWO
+	ret
 .seviiThree
+	SetEvent EVENT_BIRB_SEVII_THREE
+	ret
 .seviiFour
+	SetEvent EVENT_BIRB_SEVII_FOUR
+	ret
 .seviiFive
+	SetEvent EVENT_BIRB_SEVII_FIVE
+	ret
 .seviiSix
+	SetEvent EVENT_BIRB_SEVII_SIX
+	ret
 .seviiSeven
+	SetEvent EVENT_BIRB_SEVII_SEVEN
+	ret
 
 .seviiRoute31
+	SetEvent EVENT_BIRB_SEVII_ROUTE31
+	ret
 .seviiRoute32
+	SetEvent EVENT_BIRB_SEVII_ROUTE32
+	ret
 .seviiRoute33
+	SetEvent EVENT_BIRB_SEVII_ROUTE33
+	ret
 .seviiRoute34
+	SetEvent EVENT_BIRB_SEVII_ROUTE34
+	ret
 .seviiRoute35
+	SetEvent EVENT_BIRB_SEVII_ROUTE35
+	ret
 .seviiRoute36
+	SetEvent EVENT_BIRB_SEVII_ROUTE36
+	ret
 .seviiRoute37
+	SetEvent EVENT_BIRB_SEVII_ROUTE37
+	ret
 .seviiRoute38
+	SetEvent EVENT_BIRB_SEVII_ROUTE38
+	ret
 .seviiRoute39
+	SetEvent EVENT_BIRB_SEVII_ROUTE39
+	ret
 .seviiRoute40
+	SetEvent EVENT_BIRB_SEVII_ROUTE40
+	ret
 .seviiRoute41
+	SetEvent EVENT_BIRB_SEVII_ROUTE41
+	ret
 .seviiRoute42
+	SetEvent EVENT_BIRB_SEVII_ROUTE42
+	ret
 .seviiRoute43
+	SetEvent EVENT_BIRB_SEVII_ROUTE43
+	ret
 .seviiRoute44
+	SetEvent EVENT_BIRB_SEVII_ROUTE44
+	ret
 
 .seviiEight
+	SetEvent EVENT_BIRB_SEVII_EIGHT
+	ret
 .seviiDesolated
+	SetEvent EVENT_BIRB_SEVII_DESOLATED
+	ret
 ;.seviiSanctum
+;	SetEvent EVENT_BIRB_SEVII_SANTCUM
+;	ret
 
 	ret ; TBE
