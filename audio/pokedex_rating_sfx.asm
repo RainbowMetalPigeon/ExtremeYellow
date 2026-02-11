@@ -32,4 +32,4 @@ PokedexRatingSfxPointers:
 
 OwnedMonValues: ; up to the value excluded
 ;	db 10, 40, 60, 90, 120, 150, $ff ; edited, old
-	db 10, 50, 75, 120, 180, 209, $ff ; edited, new
+	db 10, 50, 75, 120, 180, 219, $ff ; edited, new

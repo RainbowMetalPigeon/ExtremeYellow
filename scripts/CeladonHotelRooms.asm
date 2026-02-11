@@ -26,7 +26,7 @@ CeladonHotelRoomsSpawns:
 	ld b, wPokedexOwnedEnd - wPokedexOwned
 	call CountSetBits
 	ld a, [wNumSetBits]
-	cp 209 ; all non-human mons
+	cp 219 ; all non-human mons
 	jr nz, .checkBattleFacilityRecords
 ; event is to be set
 	SetEvent EVENT_COMPLETED_POKEDEX

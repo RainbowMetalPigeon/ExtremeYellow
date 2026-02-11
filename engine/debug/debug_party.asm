@@ -289,7 +289,7 @@ DebugSetPokedexEntries:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	ld [hl], %00000001
+	ld [hl], %00000111
 	ret
 
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it

@@ -77,7 +77,7 @@ DexRatingsTable: ; changed thresholds, quite arbitrarily
 	dbw 155, DexRatingText_Own110To119
 	dbw 170, DexRatingText_Own120To129
 	dbw 185, DexRatingText_Own130To139
-	dbw 208, DexRatingText_Own140To149
+	dbw 218, DexRatingText_Own140To149
 	dbw NUM_POKEMON + 1, DexRatingText_Own150To151
 
 DexRatingText_Own0To9:
