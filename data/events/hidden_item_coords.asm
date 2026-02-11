@@ -89,4 +89,5 @@ HiddenItemCoords:
 	hidden_item VIRIDIAN_FOREST,               19,  24 ; new
 	hidden_item ROUTE_30,                       3,   0 ; new
 	hidden_item ROUTE_30,                      24,  15 ; new
+	hidden_item SS_ANNE_1F_ROOMS,               3,   5 ; new
 	db -1 ; end

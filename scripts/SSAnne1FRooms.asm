@@ -24,6 +24,7 @@ SSAnne1FRooms_TextPointers:
 	dw SSAnne8Text9
 	dw PickUpItemText
 	dw SSAnne8Text11
+	dw SSAnne8Text12 ; new
 
 SSAnne8TrainerHeaders:
 	def_trainers
@@ -134,4 +135,45 @@ SSAnne8Text9:
 
 SSAnne8Text11:
 	text_far _SSAnne8Text11
+	text_end
+
+; new ---------------------------
+
+SSAnne8Text12:
+	text_asm
+	ld hl, SSAnne8Text12_BeforeHeal
+	call PrintText
+	predef HealParty
+	call GBFadeOutToWhite
+	call Delay3
+;	ld a, SFX_HEAL_HP
+;	call PlaySoundWaitForCurrent
+	ld a, MUSIC_PKMN_HEALED
+	ld [wNewSoundID], a
+	call PlaySound
+.waitLoop
+	ld a, [wChannelSoundIDs]
+	cp MUSIC_PKMN_HEALED ; is the healed music still playing?
+	jr z, .waitLoop ; if so, check again
+	xor a
+	ld [wAudioFadeOutControl], a
+	ld a, [wAudioSavedROMBank]
+	ld [wAudioROMBank], a
+	ld a, [wMapMusicSoundID]
+	ld [wLastMusicSoundID], a
+	ld [wNewSoundID], a
+	call PlaySound
+
+	call Delay3
+	call GBFadeInFromWhite
+	ld hl, SSAnne8Text12_AfterHeal
+	call PrintText
+	jp TextScriptEnd
+
+SSAnne8Text12_BeforeHeal:
+	text_far _SSAnne8Text12_BeforeHeal
+	text_end
+
+SSAnne8Text12_AfterHeal:
+	text_far _SSAnne8Text12_AfterHeal
 	text_end

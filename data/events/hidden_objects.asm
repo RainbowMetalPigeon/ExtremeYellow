@@ -98,6 +98,7 @@ HiddenObjectMaps:
 	dbw ROCK_TUNNEL_1F,               RockTunnel1FiddenObjects ; new
 	dbw ROCK_TUNNEL_B1F,              RockTunnelB1FiddenObjects ; new
 	dbw ROUTE_30,                     Route30HiddenObjects ; new
+	dbw SS_ANNE_1F_ROOMS,             SSAnne1FRoomsHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -667,4 +668,8 @@ CeladonHotelRoomsHiddenObjects: ; new
 Route2HiddenObjects: ; new
 	hidden_object 19,  2, RARE_CANDY, HiddenItems
 	hidden_object  1, 30, PP_UP, HiddenItems
+	db -1 ; end
+
+SSAnne1FRoomsHiddenObjects: ; new
+	hidden_object  3,  5, PP_UP, HiddenItems
 	db -1 ; end

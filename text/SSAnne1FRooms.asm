@@ -103,3 +103,17 @@ _SSAnne8Text11::
 	para "I'm on the trail"
 	line "of TEAM ROCKET!"
 	done
+
+; new ---------------------------
+
+_SSAnne8Text12_BeforeHeal::
+	text "You look tired."
+	line "Here, rest a bit!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SSAnne8Text12_AfterHeal::
+	text "We all feel"
+	line "better, don't we?"
+;	xxxx "123456789012345678"
+	done
