@@ -13,7 +13,7 @@ OnixBurrowing_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 27, 26, SPRITE_POKE_BALL, STAY, NONE, 1, TM_BODY_PRESS
+	object_event 45, 33, SPRITE_POKE_BALL, STAY, NONE, 1, TM_BODY_PRESS
 	object_event 41,  8, SPRITE_SNORLAX, STAY, DOWN, 2, SNORLAX, 45 | OW_POKEMON ; edited, to go beyond 200
 
 	def_warps_to ONIX_BURROWING
