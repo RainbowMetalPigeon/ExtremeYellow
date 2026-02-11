@@ -2041,6 +2041,8 @@ MarkBirbAsFed::
 	jp z, .atollSW
 	cp LAKE_OF_MIST
 	jp z, .lakeMist
+	cp FORLORN_VALLEY
+	jp z, .forlornValley
 
 	ret ; TBE as should never be hit
 
@@ -2189,6 +2191,9 @@ MarkBirbAsFed::
 	ret
 .lakeMist
 	SetEvent EVENT_BIRB_LAKEMIST
+	ret
+.forlornValley
+	SetEvent EVENT_BIRB_FORLORNVALLEY
 	ret
 
 	ret ; TBE
