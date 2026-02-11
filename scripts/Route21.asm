@@ -273,7 +273,8 @@ Route21TextOak:
 	set 7, [hl]
 
 	ld hl, wOptions
-	res 7, [hl]		; Turn on battle animations to make the battle feel more epic.
+	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
+	set 6, [hl] ; battle style set
 
 	call Delay3
 	ld a, OPP_PROF_OAK
@@ -337,4 +338,3 @@ Route21ScriptText2:
 Route21ScriptText3:
 	text_far _Route21ScriptText3
 	text_end
-
