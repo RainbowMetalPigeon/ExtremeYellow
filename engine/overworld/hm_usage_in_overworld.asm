@@ -12,7 +12,22 @@ CheckIfCanSurfOrCutFromOverworld::
     jp z, .checkForWhirlpoolDiveWaterfall
 ; if we are not already surfing
 
-; TBE: check for birbs
+; check for birbs
+; TBE: conditional if we are rocket
+	CheckEvent EVENT_OBTAINED_SEEDS_BAG
+	jr nz, .weHaveSeedsBag
+; no seeds, can't feed the birbs, everyone is sad
+    call EnableAutoTextBoxDrawing
+    tx_pre TheBirbIsHungryText
+;    ld a, SFX_LEVEL_UP ; SFX_DEX_PAGE_ADDED ; SFX_LEVEL_UP ; SFX_GET_ITEM_1 ; SFX_HEAL_HP
+;    call PlaySound
+    callfar BirbEmotionBubble
+	ld a, 0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, SAD_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef_jump EmotionBubble
+.weHaveSeedsBag
     CheckEvent EVENT_IN_SEVII
     jr nz, .seviiCheck
 ; Kanto check
@@ -26,7 +41,6 @@ CheckIfCanSurfOrCutFromOverworld::
     jr nz, .checkIfAreaDark
 ; birb in front of us
 .doBirbStuff
-    ; TBE: conditional if we have the seed bag or if we are rocket
     call EnableAutoTextBoxDrawing
     tx_pre PlayerFeedsTheBirbText
     ld a, SFX_LEVEL_UP ; SFX_DEX_PAGE_ADDED ; SFX_LEVEL_UP ; SFX_GET_ITEM_1 ; SFX_HEAL_HP
@@ -39,6 +53,7 @@ CheckIfCanSurfOrCutFromOverworld::
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
     call AnimateBribTile_Resting_Wrapper
+	callfar MarkBirbAsFed
     ret ; TBE
 
 .checkIfAreaDark
@@ -814,4 +829,3 @@ BirbTileSeviiRest: INCBIN "gfx/tilesets/birbs/birb_sevii_resting.2bpp"
 BirbTileSeviiFlap: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping.2bpp"
 
 ; ==================================================================
-

@@ -1932,3 +1932,252 @@ ForbiddenMerchantGreetingText:: ; new
 SeviiTwoIslandMerchantGreetingText:: ; new
 	text_far _SeviiTwoIslandMerchantGreetingText
 	text_end
+
+; =====================================
+
+MarkBirbAsFed::
+	CheckEvent EVENT_IN_SEVII
+	ld a, [wCurMap]
+	jp nz, .sevii
+
+; Kanto
+	cp PALLET_TOWN
+	jp z, .pallet
+	cp VIRIDIAN_CITY
+	jp z, .viridian
+	cp PEWTER_CITY
+	jp z, .pewter
+	cp CERULEAN_CITY
+	jp z, .cerulean
+	cp VERMILION_CITY
+	jp z, .vermilion
+	cp LAVENDER_TOWN
+	jp z, .lavender
+	cp CELADON_CITY
+	jp z, .celadon
+	cp SAFFRON_CITY
+	jp z, .saffron
+	cp OCHRE_CITY
+	jp z, .ochre
+	cp FUCHSIA_CITY
+	jp z, .fuchsia
+	cp OBSIDIAN_ISLAND
+	jp z, .obsidian
+	cp CINNABAR_ISLAND
+	jp z, .cinnabar
+
+	cp ROUTE_1
+	jp z, .route1
+	cp ROUTE_2
+	jp z, .route2
+	cp ROUTE_3
+	jp z, .route3
+	cp ROUTE_4
+	jp z, .route4
+	cp ROUTE_5
+	jp z, .route5
+	cp ROUTE_6
+	jr z, .route6
+	cp ROUTE_7
+	jr z, .route7
+	cp ROUTE_8
+	jr z, .route8
+	cp ROUTE_9
+	jr z, .route9
+	cp ROUTE_10
+	jr z, .route10
+	cp ROUTE_11
+	jr z, .route11
+	cp ROUTE_12
+	jr z, .route12
+	cp ROUTE_13
+	jr z, .route13
+	cp ROUTE_14
+	jr z, .route14
+	cp ROUTE_15
+	jr z, .route15
+	cp ROUTE_16
+	jr z, .route16
+	cp ROUTE_17
+	jr z, .route17
+	cp ROUTE_18
+	jr z, .route18
+	cp ROUTE_19
+	jr z, .route19
+	cp ROUTE_20
+	jr z, .route20
+	cp ROUTE_21
+	jr z, .route21
+	cp ROUTE_22
+	jr z, .route22
+	cp ROUTE_23
+	jr z, .route23
+	cp ROUTE_24
+	jr z, .route24
+	cp ROUTE_25
+	jr z, .route25
+	cp ROUTE_25
+	jr z, .route25
+	cp ROUTE_26
+	jr z, .route26
+	cp ROUTE_27
+	jr z, .route27
+	cp ROUTE_28
+	jr z, .route28
+	cp ROUTE_29
+	jr z, .route29
+	cp ROUTE_30
+	jr z, .route30
+
+	cp INDIGO_PLATEAU
+	jr z, .indigo
+	cp SECLUDED_ATOLL_SE
+	jr z, .atollSE
+	cp SECLUDED_ATOLL_NE
+	jr z, .atollNE
+	cp SECLUDED_ATOLL_NW
+	jr z, .atollNW
+	cp SECLUDED_ATOLL_SW
+	jr z, .atollSW
+	cp LAKE_OF_MIST
+	jr z, .lakeMist
+
+	ret ; TBE as should never be hit
+
+.pallet
+.viridian
+.pewter
+.cerulean
+.vermilion
+.lavender
+.celadon
+.saffron
+.ochre
+.fuchsia
+.obsidian
+.cinnabar
+
+.route1
+.route2
+.route3
+.route4
+.route5
+.route6
+.route7
+.route8
+.route9
+.route10
+.route11
+.route12
+.route13
+.route14
+.route15
+.route16
+.route17
+.route18
+.route19
+.route20
+.route21
+.route22
+.route23
+.route24
+.route25
+.route26
+.route27
+.route28
+.route29
+.route30
+
+.indigo
+.atollSE
+.atollNE
+.atollNW
+.atollSW
+.lakeMist
+
+	ret ; TBE
+
+; ----
+
+.sevii
+	cp SEVII_ONE_ISLAND_CITY
+	jr z, .seviiOne
+	cp SEVII_TWO_ISLAND_CITY
+	jr z, .seviiTwo
+	cp SEVII_THREE_ISLAND_CITY
+	jr z, .seviiThree
+	cp SEVII_FOUR_ISLAND_CITY
+	jr z, .seviiFour
+	cp SEVII_FIVE_ISLAND_CITY
+	jr z, .seviiFive
+	cp SEVII_SIX_ISLAND_CITY
+	jr z, .seviiSix
+	cp SEVII_SEVEN_ISLAND_CITY
+	jr z, .seviiSeven
+
+	cp SEVII_ROUTE_31
+	jr z, .seviiRoute31
+	cp SEVII_ROUTE_32
+	jr z, .seviiRoute32
+	cp SEVII_ROUTE_33
+	jr z, .seviiRoute33
+	cp SEVII_ROUTE_34
+	jr z, .seviiRoute34
+	cp SEVII_ROUTE_35
+	jr z, .seviiRoute35
+	cp SEVII_ROUTE_36
+	jr z, .seviiRoute36
+	cp SEVII_ROUTE_37
+	jr z, .seviiRoute37
+	cp SEVII_ROUTE_38
+	jr z, .seviiRoute38
+	cp SEVII_ROUTE_39
+	jr z, .seviiRoute39
+	cp SEVII_ROUTE_40
+	jr z, .seviiRoute40
+	cp SEVII_ROUTE_41
+	jr z, .seviiRoute41
+	cp SEVII_ROUTE_42
+	jr z, .seviiRoute42
+	cp SEVII_ROUTE_43
+	jr z, .seviiRoute43
+	cp SEVII_ROUTE_44
+	jr z, .seviiRoute44
+
+	cp SEVII_EIGHT_ISLAND_CITY
+	jr z, .seviiEight
+	cp SEVII_DESOLATED_ROCK
+	jr z, .seviiDesolated
+;	cp SEVII_SANCTUM_ISLET
+;	jr z, .seviiSanctum
+
+	ret ; TBE, should never be reached
+
+.seviiOne
+.seviiTwo
+.seviiThree
+.seviiFour
+.seviiFive
+.seviiSix
+.seviiSeven
+
+.seviiRoute31
+.seviiRoute32
+.seviiRoute33
+.seviiRoute34
+.seviiRoute35
+.seviiRoute36
+.seviiRoute37
+.seviiRoute38
+.seviiRoute39
+.seviiRoute40
+.seviiRoute41
+.seviiRoute42
+.seviiRoute43
+.seviiRoute44
+
+.seviiEight
+.seviiDesolated
+;.seviiSanctum
+
+	ret ; TBE

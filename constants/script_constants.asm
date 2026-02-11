@@ -8,6 +8,7 @@
 	const BOLT_BUBBLE        ; 5
 	const ZZZ_BUBBLE         ; 6
 	const FISH_BUBBLE        ; 7
+	const SAD_BUBBLE        ; 8 ; new
 
 ; slot symbols
 DEF SLOTS7      EQU $0200

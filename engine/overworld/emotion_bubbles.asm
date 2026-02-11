@@ -78,11 +78,16 @@ HeartEmote:    INCBIN "gfx/emotes/heart.2bpp"
 BoltEmote:     INCBIN "gfx/emotes/bolt.2bpp"
 ZzzEmote:      INCBIN "gfx/emotes/zzz.2bpp"
 FishEmote:     INCBIN "gfx/emotes/fish.2bpp"
+SadEmote:     INCBIN "gfx/emotes/sad.2bpp" ; new
 
 ; new ==================================================================
 
 BirbEmotionBubble::
+	ld de, SadEmote
+	CheckEvent EVENT_OBTAINED_SEEDS_BAG
+	jr z, .gotEmote
 	ld de, HeartEmote
+.gotEmote
 	ld hl, vChars1 tile $78
 	lb bc, BANK(EmotionBubbles), 4
 	call CopyVideoData
