@@ -16,7 +16,7 @@ DebugTeam:
 	db ELECTRODE, 100 ; 255
 	db KADABRA, 25
 	db STARTER_PIKACHU, 1
-	db MDRAGONITE, 65
+	db MMEWTWOY, 65
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -30,7 +30,7 @@ IF DEF(_DEBUG)
 	ld a, %11111111
 	ld [wTownVisitedFlag], a
 	ld a, %01111111 ; this to NOT enable Forlorn Valley
-	ld a, %00000111
+;	ld a, %00000111
 	ld [wTownVisitedFlag + 1], a
 	ld a, %11111111
 ;	ld a, %00000111

@@ -85,7 +85,7 @@ TravelerToHideShowExtra::
 
 ; --------------------------------
 
-CheckIfMegaMewtwoInParty:: ; testing
+CheckIfMegaMewtwoInParty::
 	ld hl, wPartyCount
 	ld a, [hli]
 	ld b, a ; b has the numnber of Mons in the party

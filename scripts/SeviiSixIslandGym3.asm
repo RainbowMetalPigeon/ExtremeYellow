@@ -133,6 +133,9 @@ SeviiSixIslandGym3Text1:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
+	ld hl, wOptions
+	res 7, [hl] ; turn on battle animations
+	set 6, [hl] ; battle style set
 	ld hl, RokuseiText_PostBattleText
 	ld de, RokuseiText_PostBattleText
 	call SaveEndBattleTextPointers
