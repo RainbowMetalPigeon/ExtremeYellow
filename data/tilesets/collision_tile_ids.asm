@@ -71,7 +71,7 @@ Facility_Coll::
 	coll_tiles $01, $10, $11, $13, $1b, $20, $21, $22, $30, $31, $32, $42, $43, $48, $52, $55, $58, $5e, $60 ; edited, last 1 is new
 
 Plateau_Coll::
-	coll_tiles $1b, $23, $2c, $2d, $3b, $45
+	coll_tiles $1b, $23, $2c, $2d, $3b, $46 ; edited
 
 BeachHouse_Coll::
 	coll_tiles $01, $11, $12, $14

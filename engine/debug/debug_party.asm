@@ -30,6 +30,7 @@ IF DEF(_DEBUG)
 	ld a, %11111111
 	ld [wTownVisitedFlag], a
 	ld a, %01111111 ; this to NOT enable Forlorn Valley
+	ld a, %00000111
 	ld [wTownVisitedFlag + 1], a
 	ld a, %11111111
 ;	ld a, %00000111
