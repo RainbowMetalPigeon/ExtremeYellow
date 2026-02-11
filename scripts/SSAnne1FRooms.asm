@@ -146,8 +146,6 @@ SSAnne8Text12:
 	predef HealParty
 	call GBFadeOutToWhite
 	call Delay3
-;	ld a, SFX_HEAL_HP
-;	call PlaySoundWaitForCurrent
 	ld a, MUSIC_PKMN_HEALED
 	ld [wNewSoundID], a
 	call PlaySound
