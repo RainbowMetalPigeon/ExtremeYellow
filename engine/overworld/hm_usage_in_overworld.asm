@@ -31,8 +31,14 @@ CheckIfCanSurfOrCutFromOverworld::
     jr .doBirbStuff
 
 .seviiCheck
+    call IsThisSpecialBirbSeviiMap
     ld a, [wTileInFrontOfPlayer]
+    jr nz, .seviiStandard
+    cp $69
+    jr .seviiPostTile
+.seviiStandard
     cp $5F
+.seviiPostTile
     jr nz, .checkIfAreaDark
 ; birb in front of us
 .doBirbStuff
@@ -800,28 +806,71 @@ ForceContinueWaterfall::
 
 ; ==================================================================
 
+; resting
+
 AnimateBribTile_Resting_Wrapper:
     CheckEvent EVENT_IN_SEVII
-    jr nz, AnimateBribTile_SeviiResting
+    jr nz, AnimateBribTile_SeviiResting_Decider
     ; fallthrough
-;AnimateBribTile_Resting:
+
+;AnimateBribTile_Resting_Decider:
+    ld a, [wCurMapTileset]
+    cp OVERWORLD
+    jr nz, AnimateBribTile_Resting2
+    ; fallthrough
+
+AnimateBribTile_Resting:
 	ld de, BirbTileRest
 	ld hl, vTileset tile $76
     jr AnimateBribTile_Core
 
-AnimateBribTile_Flapping_Wrapper:
-    CheckEvent EVENT_IN_SEVII
-    jr nz, AnimateBribTile_SeviiFlapping
-    ; fallthrough
-;AnimateBribTile_Flapping:
-	ld de, BirbTileFlap
+AnimateBribTile_Resting2:
+	ld de, BirbTileRest2
 	ld hl, vTileset tile $76
     jr AnimateBribTile_Core
+
+AnimateBribTile_SeviiResting_Decider:
+    call IsThisSpecialBirbSeviiMap
+    jr z, AnimateBribTile_SeviiResting2
+    ; fallthrough
 
 AnimateBribTile_SeviiResting:
 	ld de, BirbTileSeviiRest
 	ld hl, vTileset tile $5F
     jr AnimateBribTile_Core
+
+AnimateBribTile_SeviiResting2:
+	ld de, BirbTileSeviiRest2
+	ld hl, vTileset tile $69
+    jr AnimateBribTile_Core
+
+; flapping
+
+AnimateBribTile_Flapping_Wrapper:
+    CheckEvent EVENT_IN_SEVII
+    jr nz, AnimateBribTile_SeviiFlapping_Decider
+    ; fallthrough
+    
+;AnimateBribTile_Flapping_Decider:
+    ld a, [wCurMapTileset]
+    cp OVERWORLD
+    jr nz, AnimateBribTile_Flapping2
+    ; fallthrough
+
+AnimateBribTile_Flapping:
+	ld de, BirbTileFlap
+	ld hl, vTileset tile $76
+    jr AnimateBribTile_Core
+
+AnimateBribTile_Flapping2:
+	ld de, BirbTileFlap2
+	ld hl, vTileset tile $76
+    jr AnimateBribTile_Core
+
+AnimateBribTile_SeviiFlapping_Decider:
+    call IsThisSpecialBirbSeviiMap
+    jr z, AnimateBribTile_SeviiFlapping2
+    ; fallthrough
 
 AnimateBribTile_SeviiFlapping:
 	ld de, BirbTileSeviiFlap
@@ -832,44 +881,31 @@ AnimateBribTile_Core:
 	lb bc, BANK(BirbTileRest), 1
 	jp CopyVideoData
 
+AnimateBribTile_SeviiFlapping2:
+	ld de, BirbTileSeviiFlap2
+	ld hl, vTileset tile $69
+    jr AnimateBribTile_Core
+
 BirbTileRest: INCBIN "gfx/tilesets/birbs/birb_resting.2bpp"
 BirbTileFlap: INCBIN "gfx/tilesets/birbs/birb_flapping.2bpp"
 
 BirbTileSeviiRest: INCBIN "gfx/tilesets/birbs/birb_sevii_resting.2bpp"
 BirbTileSeviiFlap: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping.2bpp"
 
-AnimateBribTile_Resting_Wrapper2:
-    CheckEvent EVENT_IN_SEVII
-    jr nz, AnimateBribTile_SeviiResting2
-    ; fallthrough
-;AnimateBribTile_Resting2:
-	ld de, BirbTileRest2
-	ld hl, vTileset tile $76 ; TBE
-    jr AnimateBribTile_Core
-
-AnimateBribTile_Flapping_Wrapper2:
-    CheckEvent EVENT_IN_SEVII
-    jr nz, AnimateBribTile_SeviiFlapping2
-    ; fallthrough
-;AnimateBribTile_Flapping2:
-	ld de, BirbTileFlap2
-	ld hl, vTileset tile $76 ; TBE
-    jr AnimateBribTile_Core
-
-AnimateBribTile_SeviiResting2:
-	ld de, BirbTileSeviiRest2
-	ld hl, vTileset tile $5F ; TBE
-    jr AnimateBribTile_Core
-
-AnimateBribTile_SeviiFlapping2:
-	ld de, BirbTileSeviiFlap2
-	ld hl, vTileset tile $5F ; TBE
-    jr AnimateBribTile_Core
-
 BirbTileRest2: INCBIN "gfx/tilesets/birbs/birb_resting2.2bpp"
 BirbTileFlap2: INCBIN "gfx/tilesets/birbs/birb_flapping2.2bpp"
 
 BirbTileSeviiRest2: INCBIN "gfx/tilesets/birbs/birb_sevii_resting2.2bpp"
 BirbTileSeviiFlap2: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping2.2bpp"
+
+IsThisSpecialBirbSeviiMap:
+    ld a, [wCurMap]
+    cp SEVII_EIGHT_ISLAND_CITY
+    ret z
+    cp SEVII_DESOLATED_ROCK
+    ret z
+    ret ; TBE
+;    cp SEVII_SANCTUM_ISLET
+;    ret
 
 ; ==================================================================
