@@ -158,7 +158,6 @@ HandlePoisonBurnLeechSeed::
 	cp [hl]
 	jr z, .noGrassyTerrainHealing
 .healEnemy
-; enemy damaged by Hail
 	call MakeTurnIntoEnemysTurn
 	ld hl, HealedByGrassyTerrainText
 	call PrintText
@@ -186,6 +185,10 @@ HandlePoisonBurnLeechSeed::
 	CheckEvent EVENT_WEATHER_SANDSTORM
 	jr z, .checkHail
 ; Sandstorm, player
+; check if player invulnerable
+	ld hl, wPlayerBattleStatus1
+	bit INVULNERABLE, [hl]
+	jr nz, .sandstormCheckEnemy
 	ld hl, wBattleMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp ROCK
@@ -205,6 +208,10 @@ HandlePoisonBurnLeechSeed::
 	call RestoreRealTurn
 ; Sandstorm, enemy
 .sandstormCheckEnemy
+; check if enemy invulnerable
+	ld hl, wEnemyBattleStatus1
+	bit INVULNERABLE, [hl]
+	jp nz, .checkUnderwater
 	ld hl, wEnemyMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp ROCK
@@ -227,6 +234,10 @@ HandlePoisonBurnLeechSeed::
 	CheckEvent EVENT_WEATHER_HAIL
 	jr z, .checkUnderwater ; noDamagingWeathers
 ; Hail, player
+; check if player invulnerable
+	ld hl, wPlayerBattleStatus1
+	bit INVULNERABLE, [hl]
+	jr nz, .hailCheckEnemy
 	ld hl, wBattleMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp ICE
@@ -246,6 +257,10 @@ HandlePoisonBurnLeechSeed::
 	call RestoreRealTurn
 ; Hail, enemy
 .hailCheckEnemy
+; check if enemy invulnerable
+	ld hl, wEnemyBattleStatus1
+	bit INVULNERABLE, [hl]
+	jr nz, .checkUnderwater
 	ld hl, wEnemyMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp ICE
