@@ -348,7 +348,7 @@ HoFRecordMonInfo:
 	ld bc, NAME_LENGTH
 	call CopyData ; copies bc bytes from hl to de; edited, it was a jump
 ; new, for the shiny
-; de is not pointing to what hl was pointing, + 11
+; de is not (now?) pointing to what hl was pointing, + 11
 ; so we need to just increase de and we write there
 	inc de
 	ld a, [wHoFMonShiny]

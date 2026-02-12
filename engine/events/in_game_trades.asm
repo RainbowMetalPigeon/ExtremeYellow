@@ -114,11 +114,12 @@ InGameTrade_DoTrade:
 	call AddNTimes ; add bc to hl a times
 	ld a, [hl] ; a now contains the shiny-ness of the mon we are trading away
 	           ; this is because if we trade a shiny, we get a guaranteed shiny back
-	cp 1
-	jr nz, .doTheRollForTheShiny
+;	cp 1
+;	jr nz, .doTheRollForTheShiny
+	bit BIT_MON_SHINY, a
+	jr z, .doTheRollForTheShiny
 ; we do be trading a shiny away
-;	ld a, 1
-	ld [wOpponentMonShiny], a
+	ld [wOpponentMonShiny], a ; TBE for delta species?
 	jr .vanilla
 .doTheRollForTheShiny
 ; if we are not trading away a shiny, let's run the normal function to see if it is shiny or not

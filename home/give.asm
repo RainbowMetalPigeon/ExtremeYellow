@@ -34,7 +34,7 @@ GivePokemon::
 	callfar RollForShiny
 .skipTheNormalShinyRoll
 	callfar _GivePokemon ; main thingy
-	ld a, 0
+	xor a
 	ld [wOpponentMonShiny], a
 ; back to vanilla
 	ret

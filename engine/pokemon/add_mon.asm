@@ -370,7 +370,7 @@ _AddEnemyMonToPlayerParty::
 	call SkipFixedLengthTextEntries
 	ld bc, NAME_LENGTH
 	call CopyData ; write new mon's nickname (from an enemy mon) ; Copy bc bytes from hl to de
-	
+
 	ld a, [wcf91]
 	ld [wd11e], a
 	predef IndexToPokedex
@@ -689,10 +689,14 @@ AddPartyMonRental::
 	call Random
 	cp 39
 	jr nc, .noShiny
-	ld a, 1
+;	ld a, 1
+	ld a, [wOpponentMonShiny]
+	set BIT_MON_SHINY, a
 	jr .loadShinyness
 .noShiny
-	xor a
+;	xor a
+	ld a, [wOpponentMonShiny]
+	res BIT_MON_SHINY, a
 .loadShinyness
 	ld [de], a
 

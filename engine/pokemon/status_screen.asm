@@ -154,7 +154,8 @@ StatusScreen:
 	call PrintNumber ; Pokémon no.
 ; new, for the shiny symbol
 	ld a, [wLoadedMonCatchRate]
-	and a
+;	and a
+	bit BIT_MON_SHINY, a
 	jr z, .notShiny
 ; print shiny symbol
 	hlcoord 6, 7
@@ -628,7 +629,7 @@ CalculateHumanReadableStatExp: ; new
 	cp d ; a-d = MSB of b^2 - MSB of StatExp
 	jr c, .startLoop
 	jr nz, .MSBBigger ; no need to check the LSB and no need to preserve hl, will be overwritten soon
-; MSBs are equals 
+; MSBs are equals
 	inc hl
 	ld a, [hld] ; LSB of stat exp, and returns hl to the previous value
 	ld d, a

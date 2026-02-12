@@ -1345,7 +1345,8 @@ TryRunningFromBattle:
 	jp z, .canEscape ; jump if it's a ghost battle
 ; new, for the shiny, prevent running from them
 	ld a, [wOpponentMonShiny]
-	and a
+;	and a
+	bit BIT_MON_SHINY, a
 	jp nz, .cannotEscapeFromWild
 ; back to vanilla
 	ld a, [wBattleType]

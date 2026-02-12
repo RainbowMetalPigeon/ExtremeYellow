@@ -1,4 +1,4 @@
-CheckForTrainersShinyMons::
+CheckForTrainersShinyMons:: ; TBE, may need to be changed with delta
     ld a, [wTrainerClass]
     cp BF_TRAINER
     jr z, .battleFacility ; handled specially
@@ -29,7 +29,9 @@ CheckForTrainersShinyMons::
     jr z, .matchFound
     jr .internalShinyLoop
 .matchFound
-    ld a, 1
+;    ld a, 1
+    ld a, [wOpponentMonShiny]
+    set BIT_MON_SHINY, a
     ld [wOpponentMonShiny], a
     ret
 .noMatch
@@ -38,7 +40,9 @@ CheckForTrainersShinyMons::
 	jr nz, .noMatch
 	jr .loopCheckForShiny
 .noShiny
-    xor a
+;    xor a
+    ld a, [wOpponentMonShiny]
+    res BIT_MON_SHINY, a
     ld [wOpponentMonShiny], a
     ret
 .battleFacility
@@ -61,7 +65,7 @@ INCLUDE "data/trainers/trainers_shiny_mons.asm"
 
 ; =====================================
 
-AssignShinyToBattleFacilityTrainers::
+AssignShinyToBattleFacilityTrainers:: ; TBE, may need to be changed with delta
     ld hl, wBattleFacilityMon1Shinyness
     ld b, 6
 .loopOnMons
@@ -81,11 +85,10 @@ AssignShinyToBattleFacilityTrainers::
 RollForShiny::
 ; roll some numbers and do some checks
 ; "debug"/testing function, simply scalable
-;    call Random
-;    and %00000100
-;    jr nz, .shinyEncounter
-; hRandomAdd/Sub needs to be substituted with calls to Random if I change to Jojo's code
-; in that case I also move the call to this routine from end of battle to the wild encounter code
+    call Random
+    and %00000100
+    jr nz, .shinyEncounter
+
     ldh a, [hRandomAdd]
     cp 42 ; can be any number, I just want a 1/256 chance here
     jr nz, .badShinyRoll ; nz for real, z for testing purposes
@@ -114,7 +117,9 @@ RollForShiny::
 	jr nz, .notShinyEncounter
 ; let's make the encounter shiny because we had 1500 non-shiny ones
 .shinyEncounter
-    ld a, 1 ; this is the "yes it is shiny" value
+;    ld a, 1 ; this is the "yes it is shiny" value
+    ld a, [wOpponentMonShiny]
+    set BIT_MON_SHINY, a
     ld [wOpponentMonShiny], a
 ; reset the non-shiny counter
     xor a
@@ -123,7 +128,9 @@ RollForShiny::
     ld [hl], a
     ret
 .notShinyEncounter
-	xor a ; not shiny
+;	xor a ; not shiny
+    ld a, [wOpponentMonShiny]
+    res BIT_MON_SHINY, a
 	ld [wOpponentMonShiny], a
     ret
 
@@ -307,8 +314,10 @@ ConvertNumberOfBadgesIntoUpperLimit: ; returns in a the upper limit for the seco
 
 PlayShinyAnimationIfShinyPlayerMon:
     ld a, [wBattleMonCatchRate]
-    cp 1
-    ret nz
+;    cp 1
+;    ret nz
+    bit BIT_MON_SHINY, a
+    ret z
     xor a
 	ld [wAnimationType], a
 	ld a, SHINY_PLAYER_ANIM
@@ -322,14 +331,17 @@ PlayShinyAnimationIfShinyEnemyMon:
 ; trainer battle, do the checks
 ;    call CheckForTrainersShinyMons ; unnecessary, already calling this in engine/gfx/palettes.asm
     ld a, [wOpponentMonShiny]
-    and a
+;    and a
+    bit BIT_MON_SHINY, a
     ret z
     jr .playShinyAnim
 .wildBattle
     ld hl, wEnemyMonSpecies2
     ld a, [wOpponentMonShiny]
-    cp 1
-    ret nz
+    bit BIT_MON_SHINY, a
+;    cp 1
+;    ret nz
+    ret z
 .playShinyAnim
     xor a
 	ld [wAnimationType], a

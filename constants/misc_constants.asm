@@ -16,3 +16,8 @@ DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 	const_def 6
 	const BIT_BATTLE_SHIFT     ; 6
 	const BIT_BATTLE_ANIMATION ; 7
+
+; new for shiny and delta species
+	const_def
+	const BIT_MON_SHINY ; 0
+	const BIT_MON_DELTA ; 1

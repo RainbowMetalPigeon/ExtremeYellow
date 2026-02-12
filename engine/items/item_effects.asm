@@ -1994,14 +1994,17 @@ ItemUseMedicine:
 	ld bc, wPartyMon1CatchRate - wPartyMon1
 	add hl, bc ; hl now points to catch rate, aka shiny-ness
 	ld a, [hl]
-	and a
+;	and a
+	bit BIT_MON_SHINY, a
 	jr z, .notShiny
 ; the mon is shiny, we de-shiny-fy it
-	xor a
+;	xor a
+	res BIT_MON_SHINY, a
 	ld [hl], a
 	jr .concludeChromogene
 .notShiny
-	ld a, 1
+;	ld a, 1
+	set BIT_MON_SHINY, a
 	ld [hl], a
 .concludeChromogene
 	pop hl ; trying

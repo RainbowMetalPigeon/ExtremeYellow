@@ -303,7 +303,7 @@ Pokedex_DrawInterface:
 	hlcoord 16, 4 ; edited
 	lb bc, 1, 3
 	call PrintNumber ; print number of owned pokemon
-	
+
 	hlcoord 15, 0 ; edited
 	ld de, PokedexSeenText
 	call PlaceString
@@ -482,7 +482,7 @@ ShowPokedexDataInternal:
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny
+	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny ; TBE for delta
 	jr z, .waitForButtonPress
 ; new, for the shiny
 	bit BIT_SELECT, a
@@ -1302,7 +1302,7 @@ PrintLevelUpMovesInfo:
 	call PrintColonRightAfterNumberAtDEStartingAtHL
 
 	call SaveValueOfwd11e
-	
+
 	pop hl
 	push hl
 	ld a, [hl] ; a contains the learnable move
@@ -1314,7 +1314,7 @@ PrintLevelUpMovesInfo:
 	ld h, b
 	ld l, c
 	call PlaceString
-	
+
 	call RestoreValueOfwd11e
 	pop hl
 
