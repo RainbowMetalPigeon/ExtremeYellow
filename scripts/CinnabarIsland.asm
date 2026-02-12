@@ -363,12 +363,10 @@ CinnabarIslandSpecialBirdKeeperText:
 	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle
 	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle
 	call SaveEndBattleTextPointers
-	
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a
 	ld a, 3 ; Hard mode (+10%)
 	ld [wLevelScaling], a
-
 	ld a, 3
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -385,11 +383,9 @@ CinnabarIslandScript_PostSpecialBirdKeeper:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call GBFadeOutToBlack
-
 	ld a, HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
-	
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack

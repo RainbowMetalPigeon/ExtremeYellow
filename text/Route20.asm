@@ -246,3 +246,47 @@ _Route20DiveAfterBattleText3::
 	line "I keep losing...)"
 ;	xxxx "123456789012345678"
 	done
+
+; ================================
+
+_Route20SpecialBirdKeeperText_AfterBattle::
+	text "Your"
+	line "dedication to"
+	cont "birbs' unwavering"
+	cont "as a glacier!"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route20ScriptText2::
+	text "I'm searching the"
+	line "legendary birb"
+	cont "ARTICUNO, supreme"
+	cont "ruler of ice."
+
+	para "This's the coldest"
+	line "place in KANTO."
+	cont "Only ICEFALL CAVE"
+	cont "in SEVII ISLANDS"
+	cont "comes close, but"
+	cont "I know of no"
+	cont "rumors linking it"
+	cont "to ARTICUNO."
+
+	para "On the other hand,"
+	line "I heard of a"
+	cont "talking SLOWKING"
+	cont "amongst the ruins"
+	cont "in ROUTE 29!"
+	cont "LORELEI, the ICE"
+	cont "expert, uses its"
+	cont "evo line, so it"
+	cont "may be worth"
+	cont "taking a look..."
+
+	para "Anyhow, I'm done"
+	line "here for now. I"
+	cont "wish you the best"
+	cont "for your birb"
+	cont "quest. See ya!"
+;	xxxx "123456789012345678"
+	done

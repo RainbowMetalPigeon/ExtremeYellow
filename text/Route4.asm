@@ -88,8 +88,8 @@ _Route4SpecialBirdKeeperText_Pre::
 
 _Route4SpecialBirdKeeperText_AfterBattle::
 	text "Ah!"
-	line "I feel the fire!"
-	cont "Fire for birbs!"
+	line "I feel the love!"
+	cont "Love for birbs!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -120,7 +120,7 @@ _Route4ScriptText3::
 	line "of the birbs!"
 	
 	para "This way, the way"
-	line "of the birds will"
+	line "of the birbs will"
 	cont "undoubtedly grow"
 	cont "strong in you!"
 

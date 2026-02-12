@@ -61,6 +61,7 @@ Route20_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw Route20MistyPostBattleRematch ; new, map-dependent
+	dw Route20Script_PostSpecialBirdKeeper ; new
 
 Route20_TextPointers:
 	dw Route20TextMisty ; new
@@ -74,9 +75,13 @@ Route20_TextPointers:
 	dw Route20Text8
 	dw Route20Text9
 	dw Route20Text10
+	dw Route20SpecialBirdKeeperText ; 12, new, special birdkeeper
+	; signs
 	dw Route20Text11
 	dw Route20Text12
-	dw Route20TextMistyPostBattle ; 14, new, map-dependent
+	; scripts
+	dw Route20TextMistyPostBattle ; 15, new, map-dependent
+	dw Route20ScriptText2 ; 16, new
 
 Route20TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Misty
@@ -339,7 +344,7 @@ Route20MistyPostBattleRematch: ; script, map-dependent
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 14 ; map-dependent
+	ld a, 15 ; map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY_REMATCH_INVERSE ; map-dependent
@@ -353,4 +358,66 @@ Route20ResetScripts: ; map-dependent
 
 Route20TextMistyPostBattle:
 	text_far _GymLeaderElite4PostRematchInverseText
+	text_end
+
+; ================================
+
+Route20SpecialBirdKeeperText:
+	text_asm
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, Route20SpecialBirdKeeperText_Pre
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIRD_KEEPER
+	ld [wCurOpponent], a
+	ld a, 28
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, Route20SpecialBirdKeeperText_AfterBattle
+	ld de, Route20SpecialBirdKeeperText_AfterBattle
+	call SaveEndBattleTextPointers
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 3 ; Hard mode (+10%)
+	ld [wLevelScaling], a
+	ld a, 4
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+Route20Script_PostSpecialBirdKeeper:
+	ld a, [wLevelScalingBackup] ; restore level scaling
+	ld [wLevelScaling], a
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route20ResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call GBFadeOutToBlack
+	ld a, HS_ROUTE_20_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jp Route20ResetScripts
+
+Route20SpecialBirdKeeperText_Pre:
+	text_far _Route20SpecialBirdKeeperText_Pre
+	text_end
+
+Route20SpecialBirdKeeperText_AfterBattle:
+	text_far _Route20SpecialBirdKeeperText_AfterBattle
+	text_end
+
+Route20ScriptText2:
+	text_far _Route20ScriptText2
 	text_end

@@ -34,6 +34,6 @@ CinnabarIsland_Object:
 	object_event 23,  5, SPRITE_GAMBLER, WALK, LEFT_RIGHT, 9 ; new
 	object_event 19,  6, SPRITE_GIRL, STAY, UP, 10 ; new
 	object_event 33,  4, SPRITE_TRAVELER, STAY, ANY_DIR, 11 ; new, traveler
-	object_event 28, 24, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 12 ; new, special birdkeeper
+	object_event 17, 18, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 12 ; new, special birdkeeper
 
 	def_warps_to CINNABAR_ISLAND

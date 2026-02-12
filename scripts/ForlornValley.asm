@@ -12,7 +12,7 @@ ForlornValleyGiveCoordinates:
 	predef FlagActionPredef
 	ld a, HS_FORLORN_VALLEY_ITEM_1
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra
 	ld hl, ForlornValley_ReceiveDesolatedRockCoordinates
 	call PrintText
 	jp TextScriptEnd

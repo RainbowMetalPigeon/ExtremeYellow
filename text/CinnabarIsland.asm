@@ -201,17 +201,46 @@ _CinnabarIslandTextGymDoorKeyEmbedded2::
 ; ================================
 
 _CinnabarIslandSpecialBirdKeeperText_Pre::
-	text "pre"
+_Route10SpecialBirdKeeperText_Pre::
+_Route20SpecialBirdKeeperText_Pre::
+	text "Heya! I just knew"
+	line "we were destined"
+	cont "to run into each"
+	cont "other again!"
+
+	para "How's your quest"
+	line "for birbs going?"
 ;	xxxx "123456789012345678"
 	done
 
 _CinnabarIslandSpecialBirdKeeperText_AfterBattle::
-	text "BIRD KEEPER: after"
-	line "feed the birbs!"
+	text "I see"
+	line "your passion for"
+	cont "birbs is burning!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _CinnabarIslandScriptText6::
-	text "post"
+	text "I'm searching the"
+	line "legendary birb"
+	cont "MOLTRES, supreme"
+	cont "ruler of flames."
+
+	para "According to some"
+	line "rumors, it should"
+	cont "dwell here. But"
+	cont "others say it is"
+	cont "in MT. EMBER, in"
+	cont "SEVII ISLANDS."
+
+	para "Alas, I have no"
+	line "ways of checking"
+	cont "the latter!"
+
+	para "Anyhow, I'm done"
+	line "here for now. I"
+	cont "wish you the best"
+	cont "for your birb"
+	cont "quest. See ya!"
 ;	xxxx "123456789012345678"
 	done

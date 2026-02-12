@@ -11,6 +11,7 @@ Route10_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw Route10Script_PostSpecialBirdKeeper ; new
 
 Route10_TextPointers:
 	dw Route10Text1
@@ -19,10 +20,14 @@ Route10_TextPointers:
 	dw Route10Text4
 	dw Route10Text5
 	dw Route10Text6
+	dw Route10SpecialBirdKeeperText ; new
+	; signs
 	dw Route10Text7
 	dw PokeCenterSignText
 	dw Route10Text9
 	dw Route10Text10
+	; scripts
+	dw Route10ScriptText1 ; 12
 
 Route10TrainerHeaders:
 	def_trainers
@@ -155,4 +160,72 @@ Route10Text7:
 
 Route10Text10:
 	text_far _Route10Text10
+	text_end
+
+; ===============================
+
+Route10SpecialBirdKeeperText:
+	text_asm
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, Route10SpecialBirdKeeperText_Pre
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIRD_KEEPER
+	ld [wCurOpponent], a
+	ld a, 29
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, Route10SpecialBirdKeeperText_AfterBattle
+	ld de, Route10SpecialBirdKeeperText_AfterBattle
+	call SaveEndBattleTextPointers
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 3 ; Hard mode (+10%)
+	ld [wLevelScaling], a
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+Route10Script_PostSpecialBirdKeeper:
+	ld a, [wLevelScalingBackup] ; restore level scaling
+	ld [wLevelScaling], a
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route10ResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call GBFadeOutToBlack
+	ld a, HS_ROUTE_10_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	; fallthrough
+
+Route10ResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+Route10SpecialBirdKeeperText_Pre:
+	text_far _Route10SpecialBirdKeeperText_Pre
+	text_end
+
+Route10SpecialBirdKeeperText_AfterBattle:
+	text_far _Route10SpecialBirdKeeperText_AfterBattle
+	text_end
+
+Route10ScriptText1:
+	text_far _Route10ScriptText1
 	text_end

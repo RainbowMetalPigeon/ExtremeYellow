@@ -25,7 +25,7 @@ MapHSPointers:
 	dw Route7HS ; new
 	dw NoHS
 	dw Route9HS
-	dw NoHS
+	dw Route10HS ; new
 	dw NoHS
 	dw Route12HS
 	dw NoHS
@@ -339,7 +339,8 @@ Route16HS:
 	db ROUTE_16, $07, SHOW
 	db ROUTE_16, $08, HIDE ; new, rival
 Route20HS:
-	db ROUTE_20, $01, HIDE ; new because of Misty
+	db ROUTE_20,  1, HIDE ; new because of Misty
+	db ROUTE_20, 12, HIDE ; new, special birdkeeper
 Route21HS:
 	db ROUTE_21, $01, HIDE ; new because of Oak
 Route22HS:
@@ -586,8 +587,6 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
 	db OBSIDIAN_WAREHOUSE, $0E, HIDE
-ForlornValleyHS: ; new
-	db FORLORN_VALLEY, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -868,5 +867,9 @@ SafariZoneExtraHS: ; new
 	db SAFARI_ZONE_EXTRA,  2, SHOW ; ball
 	db SAFARI_ZONE_EXTRA,  3, SHOW ; ball
 	db SAFARI_ZONE_EXTRA,  4, SHOW ; ball
+Route10HS: ; new
+	db ROUTE_10,  7, HIDE ; special birdkeeper
+ForlornValleyHS: ; new
+	db FORLORN_VALLEY, $01, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

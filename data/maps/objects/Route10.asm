@@ -9,10 +9,10 @@ Route10_Object:
 	warp_event  7, 51, ROCK_TUNNEL_1F, 9 ; new
 
 	def_bg_events
-	bg_event  7, 19, 7 ; Route10Text7
-	bg_event 12, 19, 8 ; PokeCenterSignText
-	bg_event  9, 55, 9 ; Route10Text9
-	bg_event  5, 39, 10 ; Route10Text10 ; edited
+	bg_event  7, 19, 8 ; Route10Text7
+	bg_event 12, 19, 9 ; PokeCenterSignText
+	bg_event  9, 55, 10 ; Route10Text9
+	bg_event  5, 39, 11 ; Route10Text10 ; edited
 
 	def_object_events
 	object_event 10, 42, SPRITE_SUPER_NERD, STAY, LEFT, 1, OPP_POKEMANIAC, 1 ; edited
@@ -21,5 +21,6 @@ Route10_Object:
 	object_event  7, 25, SPRITE_COOLTRAINER_F, STAY, LEFT, 4, OPP_JR_TRAINER, 7
 	object_event  3, 61, SPRITE_HIKER, STAY, DOWN, 5, OPP_HIKER, 8
 	object_event  7, 54, SPRITE_COOLTRAINER_F, STAY, DOWN, 6, OPP_JR_TRAINER, 8
+	object_event  6, 38, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 7 ; new, special birdkeeper
 
 	def_warps_to ROUTE_10

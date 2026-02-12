@@ -100,12 +100,10 @@ Route4SpecialBirdKeeperText:
 	ld hl, Route4SpecialBirdKeeperText_AfterBattle
 	ld de, Route4SpecialBirdKeeperText_AfterBattle
 	call SaveEndBattleTextPointers
-
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a
 	ld a, 3 ; Hard mode (+10%)
 	ld [wLevelScaling], a
-
 	ld a, 3
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -129,17 +127,18 @@ Route4Script_PostSpecialBirdKeeper:
 	call DisplayTextID
 	call GBFadeOutToBlack
 	SetEvent EVENT_OBTAINED_SEEDS_BAG
-
 	ld a, HS_ROUTE_4_SPECIAL_BIRDKEEPER
 	ld [wMissableObjectIndex], a
 	predef HideObject
-
 	ld a, HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
-
-	; TBE: show the other 2
-
+	ld a, HS_ROUTE_10_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_ROUTE_20_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack

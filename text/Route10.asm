@@ -107,3 +107,42 @@ _Route10Text7::
 _Route10Text10::
 	text "POWER PLANT"
 	done
+
+; ================================
+
+_Route10SpecialBirdKeeperText_AfterBattle::
+	text "Your"
+	line "love for birbs is"
+	cont "like a storm!"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route10ScriptText1::
+	text "I'm searching the"
+	line "legendary birb"
+	cont "ZAPDOS, supreme"
+	cont "ruler of bolts."
+
+	para "Some say it's"
+	line "attracted to"
+	cont "places brimming"
+	cont "with electricity,"
+	cont "but KANTO POWER"
+	cont "PLANT's a wreck..."
+
+	para "Mayhap I'll pay a"
+	line "visit to the"
+	cont "INTERREGIONAL"
+	cont "RESEARCH CENTER"
+	cont "in OCHRE. It's"
+	cont "also close to the"
+	cont "BIRD FAN CLUB!"
+	cont "Best place ever."
+
+	para "Anyhow, I'm done"
+	line "here for now. I"
+	cont "wish you the best"
+	cont "for your birb"
+	cont "quest. See ya!"
+;	xxxx "123456789012345678"
+	done

@@ -86,7 +86,6 @@ INCLUDE "text/Route16.asm"
 INCLUDE "text/Route17.asm"
 INCLUDE "text/Route18.asm"
 INCLUDE "text/Route20.asm"
-INCLUDE "data/text/text_4.asm"
 
 
 SECTION "Text 5", ROMX
@@ -150,7 +149,6 @@ INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's so
 
 SECTION "Text 8", ROMX
 INCLUDE "text/ViridianCity.asm"
-INCLUDE "text/PewterCity.asm"
 INCLUDE "text/CeruleanCity.asm"
 INCLUDE "text/LavenderTown.asm"
 INCLUDE "text/VermilionCity.asm"
@@ -173,6 +171,7 @@ INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/PokemonMansion3F.asm"
+INCLUDE "text/PewterCity.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -307,6 +306,7 @@ INCLUDE "data/text/text_8.asm"
 INCLUDE "text/LakeOfMist.asm"
 INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/Route19.asm"
+INCLUDE "data/text/text_4.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
