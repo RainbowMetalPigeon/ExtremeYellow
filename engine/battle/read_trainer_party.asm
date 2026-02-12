@@ -86,6 +86,8 @@ ReadTrainer:
 	call Divide
 	ldh a, [hQuotient + 3]
 	add d ; add to a the original max level of player's team
+	cp 100
+	jr nc, .lvlScalingImpossible ; if level 100 or higher, just load 100
 	ld [wCurEnemyLVL], a
 	jr .afterHandlingLevelScaling
 .lvlScalingImpossible
