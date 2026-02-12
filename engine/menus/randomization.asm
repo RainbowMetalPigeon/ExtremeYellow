@@ -385,7 +385,7 @@ RandomizationControl:
 ; new, to handle info printer
 .pressedSelectOrA
 	ld a, [hl]
-	ld [wUniQuizAnswer], a
+	ld [wMultipurposeTemporaryStorage], a
 	cp 5 ; number of options
 	ret nc
 	add a ; doubles a
@@ -492,7 +492,7 @@ InitRandomizationMenu_Redo:
 	jr nz, .loop
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
-	ld a, [wUniQuizAnswer] ; to restore the previous curson position
+	ld a, [wMultipurposeTemporaryStorage] ; to restore the previous curson position
 	ld [wOptionsCursorLocation], a
 	ret
 
