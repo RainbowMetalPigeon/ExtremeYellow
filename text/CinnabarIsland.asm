@@ -197,3 +197,21 @@ _CinnabarIslandTextGymDoorKeyEmbedded2::
 	cont "the back of the"
 	cont "TRAINER CARD."
 	done
+
+; ================================
+
+_CinnabarIslandSpecialBirdKeeperText_Pre::
+	text "pre"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarIslandSpecialBirdKeeperText_AfterBattle::
+	text "BIRD KEEPER: after"
+	line "feed the birbs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CinnabarIslandScriptText6::
+	text "post"
+;	xxxx "123456789012345678"
+	done

@@ -312,7 +312,7 @@ BadgeBoostClassic:
 ; ---------------------------------------------
 
 OptionsMenu_LevelScaling:
-	ld a, [wLevelScaling]
+	ld a, [wLevelScaling] ; 0: nothing, 1: exact; 2: fluct; 3: hard; 4: imposs
 	ld c, a
 	ldh a, [hJoy5]
 	bit 4, a ; right

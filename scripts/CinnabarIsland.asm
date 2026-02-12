@@ -13,6 +13,7 @@ CinnabarIsland_ScriptPointers:
 	dw CinnabarIslandScript0
 	dw CinnabarIslandScript1
 	dw CinnabarScript_Traveler ; new, for traveler
+	dw CinnabarIslandScript_PostSpecialBirdKeeper ; new
 
 CinnabarIslandScript0: ; edited
 ; new, to handle hot springs healing
@@ -40,7 +41,7 @@ CinnabarIslandScript0: ; edited
 	call Delay3
 	call Delay3
 	call GBFadeInFromWhite
-	ld a, 21 ; text ID of the hot spring message
+	ld a, 22 ; text ID of the hot spring message
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -70,10 +71,10 @@ CinnabarIslandScript0: ; edited
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
 	SetEvent EVENT_CINNABAR_USED_SECRET_KEY
-	ld a, 22 ; CinnabarIslandTextGymDoorKeyEmbedded1
+	ld a, 23 ; CinnabarIslandTextGymDoorKeyEmbedded1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, 23 ; CinnabarIslandTextGymDoorKeyEmbedded2
+	ld a, 24 ; CinnabarIslandTextGymDoorKeyEmbedded2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ret
@@ -119,18 +120,22 @@ CinnabarIsland_TextPointers:
 	dw CinnabarIslandTextNewPerson7 ; new
 	dw CinnabarIslandTextNewPerson8 ; new
 	dw TextPreBattle_CinnabarTraveler ; new, for traveler
+	dw CinnabarIslandSpecialBirdKeeperText ; 12, new, special birdkeeper
+	; signs
 	dw CinnabarIslandText3
 	dw MartSignText
 	dw PokeCenterSignText
 	dw CinnabarIslandText6
 	dw CinnabarIslandText7
 	dw CinnabarIslandTextVulcano ; new
-	dw CinnabarIslandTextSeismic ; new
-	dw CinnabarIslandTextGymDoor ; 19
-	dw TextPostBattle_CinnabarTraveler ; 20, new, for traveler
-	dw CinnabarIslandTextHotSprings ; 21, new
-	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 22, new
-	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 23, new
+	dw CinnabarIslandTextSeismic ; 19, new
+	; scripts
+	dw CinnabarIslandTextGymDoor ; 20
+	dw TextPostBattle_CinnabarTraveler ; 21, new, for traveler
+	dw CinnabarIslandTextHotSprings ; 22, new
+	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 23, new
+	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 24, new
+	dw CinnabarIslandScriptText6 ; 25, new
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor
@@ -291,7 +296,7 @@ CinnabarScript_Traveler:
     ld a, HS_CINNABAR_ISLAND_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObjectExtra ; city-specific
-	ld a, 20 ; city-specific
+	ld a, 21 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo
@@ -337,3 +342,73 @@ Text_WhatWasThat_CinnabarTraveler:
 	text_end
 
 ; ================================
+
+CinnabarIslandSpecialBirdKeeperText:
+	text_asm
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIRD_KEEPER
+	ld [wCurOpponent], a
+	ld a, 27
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle
+	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle
+	call SaveEndBattleTextPointers
+	
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 3 ; Hard mode (+10%)
+	ld [wLevelScaling], a
+
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+CinnabarIslandScript_PostSpecialBirdKeeper:
+	ld a, [wLevelScalingBackup] ; restore level scaling
+	ld [wLevelScaling], a
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, CinnabarIslandResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 25
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call GBFadeOutToBlack
+
+	ld a, HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	; fallthrough
+
+CinnabarIslandResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+CinnabarIslandSpecialBirdKeeperText_Pre:
+	text_far _CinnabarIslandSpecialBirdKeeperText_Pre
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_AfterBattle:
+	text_far _CinnabarIslandSpecialBirdKeeperText_AfterBattle
+	text_end
+
+CinnabarIslandScriptText6:
+	text_far _CinnabarIslandScriptText6
+	text_end

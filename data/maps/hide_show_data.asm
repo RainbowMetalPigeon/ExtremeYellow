@@ -314,14 +314,15 @@ SaffronCityHS:
 	db SAFFRON_CITY, $0D, HIDE
 	db SAFFRON_CITY, $0E, SHOW
 Route4HS:
-	db ROUTE_4, $02, SHOW ; new, hiker
-	db ROUTE_4, $03, SHOW ; new, hiker
-	db ROUTE_4, $05, SHOW ; edited, item
-	db ROUTE_4, $06, SHOW ; new, item
-	db ROUTE_4, $07, SHOW ; new, boulder
-	db ROUTE_4, $08, SHOW ; new, boulder
-	db ROUTE_4, $09, SHOW ; new, boulder
-	db ROUTE_4, $0A, SHOW ; new, boulder
+	db ROUTE_4,  02, SHOW ; new, hiker
+	db ROUTE_4,  03, SHOW ; new, hiker
+	db ROUTE_4,  05, SHOW ; edited, item
+	db ROUTE_4,  06, SHOW ; new, item
+	db ROUTE_4,  07, SHOW ; new, boulder
+	db ROUTE_4,  08, SHOW ; new, boulder
+	db ROUTE_4,  09, SHOW ; new, boulder
+	db ROUTE_4,  10, SHOW ; new, boulder
+	db ROUTE_4,  11, SHOW ; new, special birdkeeper
 Route9HS:
 	db ROUTE_9, $0A, SHOW
 Route12HS:
@@ -746,6 +747,7 @@ OchreCityHS: ; new
 	db OCHRE_CITY, $0A, HIDE ; Traveler
 CinnabarIslandHS: ; new
 	db CINNABAR_ISLAND, $0B, HIDE ; Traveler
+	db CINNABAR_ISLAND, $0C, HIDE ; special birdkeeper
 ObsidianPokecenterHS: ; new
 	db OBSIDIAN_POKECENTER, $02, HIDE
 	db OBSIDIAN_POKECENTER, $03, HIDE

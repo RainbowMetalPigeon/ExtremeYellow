@@ -53,6 +53,7 @@ DEF SHOW EQU $15
 	const HS_ROUTE_4_BOULDER_2             ; new
 	const HS_ROUTE_4_BOULDER_3             ; new
 	const HS_ROUTE_4_BOULDER_4             ; new
+	const HS_ROUTE_4_SPECIAL_BIRDKEEPER    ; new
 	const HS_ROUTE_9_ITEM                  ; 1D
 	const HS_ROUTE_12_SNORLAX              ; 1E
 	const HS_ROUTE_12_HIKER	               ; new
@@ -384,6 +385,7 @@ DEF SHOW EQU $15
 	const HS_ARCEUS						   ; new
 	const HS_OCHRE_CITY_TRAVELER           ; new
 	const HS_CINNABAR_ISLAND_TRAVELER      ; new
+	const HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER ; new
 	const HS_OBSIDIAN_POKECENTER_NPC_1     ; new
 	const HS_OBSIDIAN_POKECENTER_NPC_2     ; new
 	const HS_CERULEAN_CAVE_EXTRA_BOTTOM_ITEM_1	; new

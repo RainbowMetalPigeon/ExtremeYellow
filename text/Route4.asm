@@ -71,3 +71,66 @@ _Route4Text6::
 	line "MT.MOON -"
 	cont "CERULEAN CITY"
 	done
+
+; ===============================
+
+_Route4SpecialBirdKeeperText_Pre::
+	text "Hey! An important"
+	line "question for you!"
+
+	para "Do you like birbs?"
+
+	para "No! No need for"
+	line "words. Answer me"
+	cont "with a battle!"
+;	xxxx "123456789012345678"
+	done
+
+_Route4SpecialBirdKeeperText_AfterBattle::
+	text "Ah!"
+	line "I feel the fire!"
+	cont "Fire for birbs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route4ScriptText1::
+	text "Yes, yes... I can"
+	line "sense it! A love"
+	cont "for birbs, still"
+	cont "not nurtured..."
+
+	para "I know! No better"
+	line "way to bond with"
+	cont "the birbs than"
+	cont "feeding them!"
+
+	para "Here, have some"
+	line "of my SEEDs!"
+;	xxxx "123456789012345678"
+	done
+
+_Route4ScriptText2::
+	text "<PLAYER> can now"
+	line "feed the birbs!"
+;	xxxx "123456789012345678"
+	done
+
+_Route4ScriptText3::
+	text "Meet and feed all"
+	line "of the birbs!"
+	
+	para "This way, the way"
+	line "of the birds will"
+	cont "undoubtedly grow"
+	cont "strong in you!"
+
+	para "I gotta go now."
+	line "I must persevere"
+	cont "in my quest for"
+	cont "the ultimate"
+	cont "birbs."
+
+	para "I'm sure we'll meet"
+	line "again! See ya!"
+;	xxxx "123456789012345678"
+	done
