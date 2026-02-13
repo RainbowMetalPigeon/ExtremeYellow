@@ -90,15 +90,40 @@ _SeviiThreeIslandCityText8::
 	text "We're playing"
 	line "hide-and-seek!"
 
-	para "I'm seeking."
+	para "I'm seeking!"
 	done
 
-_SeviiThreeIslandCityText9::
+_SeviiThreeIslandCityText9_AfterGift::
 	text "We're playing"
 	line "hide-and-seek!"
 
-	para "I'm hiding."
+	para "I'm hiding!"
+
+	para "And now you must"
+	line "keep my secret"
+	cont "forever and ever!"
+;	xxxx "123456789012345678"
 	done
+
+_SeviiThreeIslandCityText9_BagFull::
+	text "Oh no, your bag"
+	line "is full. But you"
+	cont "must take this!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandCityText9_BeforeGift::
+	text "We're playing"
+	line "hide-and-seek!"
+
+	para "I'm hiding!"
+
+	para "Don't spill my"
+	line "secret! If you"
+	cont "keep silent, you"
+	cont "can have this!"
+;	xxxx "123456789012345678"
+	prompt
 
 _SeviiThreeIslandCitySignText1::
 	text "FAMILY CAVES"

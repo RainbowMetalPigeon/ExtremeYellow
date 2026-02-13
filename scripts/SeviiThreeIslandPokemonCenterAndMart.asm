@@ -34,7 +34,7 @@ SeviiThreeIslandPokemonCenterAndMart_Text2:
 ; Mart
 
 SeviiThreeIslandPokemonCenterAndMart_CashierText:
-	script_mart GREAT_BALL, SUPER_POTION, ESCAPE_ROPE, REPEL, ANTIDOTE, BURN_HEAL, AWAKENING, PARLYZ_HEAL
+	script_mart GREAT_BALL, SUPER_POTION, REVIVE, ESCAPE_ROPE, SUPER_REPEL, ANTIDOTE, BURN_HEAL, ICE_HEAL, PARLYZ_HEAL
 
 SeviiThreeIslandPokemonCenterAndMart_CashierTMText:
     text_asm

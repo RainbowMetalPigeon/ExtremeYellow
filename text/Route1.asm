@@ -13,6 +13,7 @@ _Route1ViridianMartSampleText::
 	prompt
 
 _Route1Text_1cae8::
+_PlayerGotwStringBufferText::
 	text "<PLAYER> got"
 	line "@"
 	text_ram wStringBuffer

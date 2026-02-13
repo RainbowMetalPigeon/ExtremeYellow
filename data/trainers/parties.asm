@@ -660,13 +660,13 @@ BirdKeeperData:
 	db 47, FEAROW, SCYTHER, FARFETCHD, DODRIO, GYARADOS, 0 ; 24
 	db 47, DODRIO, CHARIZARD, BUTTERFREE, PIDGEOT, AERODACTYL, 0 ; 25
 ; Route 4 ; new
-	db  1, PIDGEY, SPEAROW, FARFETCHD, DODUO, 0 ; 26, special birdkeeper 
+	db  1, PIDGEY, SPEAROW, FARFETCHD, DODUO, 0 ; 26, special birdkeeper
 ; Cinnabar Island ; new
-	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, CHARIZARD, 0 ; 27, special birdkeeper 
+	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, CHARIZARD, 0 ; 27, special birdkeeper
 ; Route 10 ; new
-	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, DRAGONITE, 0 ; 28, special birdkeeper 
+	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, DRAGONITE, 0 ; 28, special birdkeeper
 ; Route 20 ; new
-	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, AERODACTYL, 0 ; 29, special birdkeeper 
+	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, AERODACTYL, 0 ; 29, special birdkeeper
 
 BlackbeltData:
 ; Fighting Dojo ; all updated
@@ -1188,7 +1188,7 @@ Rival3Data:
 
 ProfOakData:
 ;	db $FF, 83, TAUROS, 0 ; updated
-	db $FF, 83, TAUROS, 84, MGYARADOS, 85, MEWTWO, 86, MMEWTWOX, 87, MMEWTWOY, 88, VENUSTOISE, 0 ; updated
+	db $FF, 83, TAUROS, 84, MGYARADOS, 85, MMEWTWOX, 86, MMEWTWOY, 87, VENUSTOISE, 88, THU_FI_ZER, 0 ; updated
 
 ; new ones
 

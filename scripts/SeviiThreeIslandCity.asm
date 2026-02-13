@@ -73,7 +73,42 @@ SeviiThreeIslandCityText8:
 	text_end
 
 SeviiThreeIslandCityText9:
-	text_far _SeviiThreeIslandCityText9
+	text_asm
+	CheckEvent EVENT_SEVII_THREE_GOT_GIFT_FROM_KID
+	ld hl, SeviiThreeIslandCityText9_AfterGift
+	jr nz, .printAndEnd
+; we didn't get the gift yet
+	ld hl, SeviiThreeIslandCityText9_BeforeGift
+	call PrintText
+	lb bc, FRESH_WATER, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_SEVII_THREE_GOT_GIFT_FROM_KID
+	ld hl, SeviiThreeIslandCityText9_GotGift
+	call PrintText
+	jr .done
+.bagFull
+	ld hl, SeviiThreeIslandCityText9_BagFull
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SeviiThreeIslandCityText9_AfterGift:
+	text_far _SeviiThreeIslandCityText9_AfterGift
+	text_end
+
+SeviiThreeIslandCityText9_BeforeGift:
+	text_far _SeviiThreeIslandCityText9_BeforeGift
+	text_end
+
+SeviiThreeIslandCityText9_BagFull:
+	text_far _SeviiThreeIslandCityText9_BagFull
+	text_end
+
+SeviiThreeIslandCityText9_GotGift:
+	text_far _PlayerGotwStringBufferText
+	sound_get_item_1
 	text_end
 
 SeviiThreeIslandCityText12:
