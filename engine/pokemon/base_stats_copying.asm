@@ -15,12 +15,21 @@ BaseStatsCopying::
 	call AddNTimes
 	ld de, wMonHeader
 	call CopyData ; function that copies hl to de for bc amount of bytes = so BaseStats is copied into wMonHeader for BASE_DATA_SIZE amount of bytes
+
+; new, for delta species, TBE
+	CheckAndResetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+	jr z, .checkAlteredTypes
+	ld hl, ListOfMonsAndTypesToChange_Delta
+	jr .listOfTypesGotten
+
+.checkAlteredTypes
 ; new, to personalize types
 	ld a, [wPersonalizationTypes] ; 0=CLASSIC, 1=NEW
 	and a
 	ret z ; if types are the hard-coded ones, we're good
 ; otherwise, overwrite them
-	ld hl, ListOfMonsAndTypesToChange
+	ld hl, ListOfMonsAndTypesToChange_Altered
+.listOfTypesGotten
 	ld a, [wd11e]
 	ld b, a ; b holds the current mon species
 .loopTypesToChange
@@ -41,7 +50,7 @@ BaseStatsCopying::
 	inc hl ; hl points to the next mon species
 	jr .loopTypesToChange
 
-ListOfMonsAndTypesToChange:
+ListOfMonsAndTypesToChange_Altered:
 	db VENUSAUR, GRASS, GROUND
 	db MVENUSAUR, GRASS, GROUND
 	db CHARIZARD, FIRE, DRAGON
@@ -58,10 +67,18 @@ ListOfMonsAndTypesToChange:
 	db SPEAROW, FLYING, FIGHTING
 	db FEAROW, FLYING, FIGHTING
 	db ARBOK, POISON, DARK
+	db PICHU, ELECTRIC, GROUND ; V2
+	db PIKACHU, ELECTRIC, GROUND ; V2
+	db RAICHU, ELECTRIC, GROUND ; V2
+	db MRAICHUX, ELECTRIC, FLYING ; V2
+	db MRAICHUY, ELECTRIC, FAIRY ; V2
 	db NIDOQUEEN, POISON, FAIRY
 	db NIDOKING, POISON, FIGHTING
 	db VULPIX, FIRE, GHOST
 	db NINETALES, FIRE, GHOST
+	db ZUBAT, DARK, FLYING ; V2
+	db GOLBAT, DARK, FLYING ; V2
+	db CROBAT, DARK, FLYING ; V2
 	db BELLOSSOM, GRASS, FIRE
 	db PARAS, BUG, GHOST
 	db PARASECT, BUG, GHOST
@@ -112,6 +129,7 @@ ListOfMonsAndTypesToChange:
 	db SEAKING, WATER, NORMAL
 	db STARYU, WATER, FAIRY
 	db STARMIE, WATER, FAIRY
+	db MSTARMIE, WATER, FAIRY ; V2
 	db ELEKID, ELECTRIC, FIGHTING
 	db ELECTABUZZ, ELECTRIC, FIGHTING
 	db ELECTIVIRE, ELECTRIC, FIGHTING
@@ -130,6 +148,7 @@ ListOfMonsAndTypesToChange:
 	db DRATINI, DRAGON, FAIRY
 	db DRAGONAIR, DRAGON, FAIRY
 	db DRAGONITE, DRAGON, FAIRY
+	db MDRAGONITE, DRAGON, FAIRY ; V2
 	db -1
 
 UpdatePartyMonTypesAfterPersonalization:
@@ -159,7 +178,7 @@ UpdatePartyMonTypesAfterPersonalization:
 ; check if the species needs treatement
 	ld a, [hl]
 	ld b, a ; b holds the current mon species
-	ld de, ListOfMonsAndTypesToChange
+	ld de, ListOfMonsAndTypesToChange_Altered
 .loopTypesToChange
 	ld a, [de] ; a points to the mon species entry, and de points to the first type
 	inc de
@@ -250,7 +269,7 @@ ExtractMonsTypesForMovingIntoParty::
 	push de
 	ld a, d
 	ld b, a ; b holds the current mon species
-	ld hl, ListOfMonsAndTypesToChange
+	ld hl, ListOfMonsAndTypesToChange_Altered
 .loopTypesToChange
 	ld a, [hl] ; a points to the mon species entry, and hl points to the first type
 	inc hl
@@ -290,3 +309,159 @@ ExtractMonsTypesForMovingIntoParty::
 	ld a, [wMonHType2]
 	ld e, a
 	ret
+
+ListOfMonsAndTypesToChange_Delta:
+
+; 1
+
+	db WEEDLE, GRASS, GRASS
+	db KAKUNA, GRASS, GRASS
+	db BEEDRILL, GRASS, STEEL
+	db MBEEDRILL, GRASS, STEEL
+
+	db SANDSHREW, ROCK, ROCK
+	db SANDSLASH, ROCK, STEEL
+
+	db PICHU, STEEL, STEEL
+	db PIKACHU, STEEL, STEEL
+	db RAICHU, STEEL, STEEL
+	db MRAICHUX, STEEL, STEEL
+	db MRAICHUY, STEEL, STEEL
+	
+	db PIDGEY, ELECTRIC, ELECTRIC
+	db PIDGEOTTO, ELECTRIC, ELECTRIC
+	db PIDGEOT, ELECTRIC, STEEL
+	db MPIDGEOT, ELECTRIC, STEEL
+
+	db MANKEY, FIRE, FIRE
+	db PRIMEAPE, FIRE, FIRE
+	db ANNIHILAPE, FIRE, FIRE
+
+	db SPEAROW, ELECTRIC, ELECTRIC
+	db FEAROW, ELECTRIC, ELECTRIC
+
+	db NIDORAN_F, STEEL, STEEL
+	db NIDORINA, STEEL, STEEL
+	db NIDOQUEEN, STEEL, STEEL
+
+	db NIDORAN_M, DARK, DARK
+	db NIDORINO, DARK, DARK
+	db NIDOKING, DARK, DARK
+
+	db ZUBAT, BUG, STEEL
+	db GOLBAT, BUG, STEEL
+	db CROBAT, BUG, STEEL
+
+; 2
+
+	db EEVEE, STEEL, STEEL
+	db ESPEON, PSYCHIC_TYPE, STEEL
+	db FLAREON, FIRE, STEEL
+	db JOLTEON, ELECTRIC, STEEL
+	db UMBREON, DARK, STEEL
+	db VAPOREON, WATER, STEEL
+
+	db HORSEA, FIRE, ROCK
+	db SEADRA, FIRE, ROCK
+	db KINGDRA, FIRE, ROCK
+
+	db ODDISH, FAIRY, FAIRY
+	db GLOOM, FAIRY, FAIRY
+	db VILEPLUME, FAIRY, STEEL
+	db BELLOSSOM, WATER, WATER
+
+	db PSYDUCK, ELECTRIC, ELECTRIC
+	db GOLDUCK, ELECTRIC, ELECTRIC
+
+	db MEOWTH, DARK, STEEL
+	db PERSIAN, DARK, STEEL
+
+	db EKANS, FIRE, FIRE
+	db ARBOK, FIRE, FIRE
+
+	db VULPIX, PSYCHIC_TYPE, FAIRY
+	db NINETALES, PSYCHIC_TYPE, FAIRY
+
+	db KRABBY, FIRE, FIRE
+	db KINGLER, FIRE, STEEL
+
+	db SHELLDER, FIGHTING, ROCK
+	db CLOYSTER, FIGHTING, ROCK
+
+	db SEEL, NORMAL, DRAGON
+	db DEWGONG, NORMAL, DRAGON
+
+; 3
+
+	db SMOOCHUM, FIRE, FIRE
+	db JYNX, FIRE, FIRE
+
+	db LICKITUNG, PSYCHIC_TYPE, GHOST
+	db LICKILICKY, PSYCHIC_TYPE, GHOST
+
+	db ELEKID, GROUND, GROUND
+	db ELECTABUZZ, GROUND, GROUND
+	db ELECTIVIRE, GROUND, GROUND
+
+	db MAGIKARP, STEEL, STEEL
+	db GYARADOS, ELECTRIC, FIRE
+	db MGYARADOS, ELECTRIC, FIRE
+
+	db STARYU, ICE, ICE
+	db STARMIE, ICE, STEEL
+	db MSTARMIE, ICE, STEEL
+
+	db EXEGGCUTE, ROCK, ROCK
+	db EXEGGUTOR, ROCK, ROCK
+
+	db SQUIRTLE, ROCK, ROCK
+	db WARTORTLE, ROCK, ROCK
+	db BLASTOISE, ROCK, STEEL
+	db MBLASTOISE, ROCK, STEEL
+
+	db CHARMANDER, ELECTRIC, ELECTRIC
+	db CHARMELEON, ELECTRIC, ELECTRIC
+	db CHARIZARD, ELECTRIC, DARK
+	db MCHARZARDX, ELECTRIC, DARK
+	db MCHARZARDY, ELECTRIC, DARK
+
+	db BULBASAUR, ICE, GHOST
+	db IVYSAUR, ICE, GHOST
+	db VENUSAUR, ICE, GHOST
+	db MVENUSAUR, ICE, GHOST
+
+; 4
+
+	db PINSIR, GROUND, FIGHTING
+	db MPINSIR, GROUND, FIGHTING
+
+	db MUNCHLAX, BUG, BUG
+	db SNORLAX, BUG, BUG
+
+	db DRATINI, ELECTRIC, GRASS
+	db DRAGONAIR, ELECTRIC, GRASS
+	db DRAGONITE, ELECTRIC, GRASS
+	db MDRAGONITE, ELECTRIC, GRASS
+
+	db KABUTO, ELECTRIC, ELECTRIC
+	db KABUTOPS, ELECTRIC, ELECTRIC
+	
+	db OMANYTE, GHOST, FAIRY
+	db OMASTAR, GHOST, FAIRY
+	
+	db AERODACTYL, FIRE, FIRE
+	db MARODACTYL, FIRE, FIRE
+
+	db CUBONE, FIGHTING, FIGHTING
+	db MAROWAK, FIGHTING, STEEL
+
+; 5
+
+	db ARM_MEWTWO, FIRE, ELECTRIC
+	db MEWTWO, FIRE, ELECTRIC
+	db MMEWTWOX, FIRE, ELECTRIC
+	db MMEWTWOY, FIRE, ELECTRIC
+
+	db MEW, FIRE, WATER
+
+	db -1

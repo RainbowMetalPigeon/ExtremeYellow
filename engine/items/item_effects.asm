@@ -3846,7 +3846,7 @@ SendNewMonToBox:
 	ld [de], a
 	dec b
 	jr nz, .loop6
-	ld a, [wOpponentMonShiny]
+	ld a, [wOpponentMonShiny] ; new, for the shiny
 	ld [wBoxMon1CatchRate], a
 	ret
 

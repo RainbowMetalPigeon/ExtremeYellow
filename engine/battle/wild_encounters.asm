@@ -127,7 +127,7 @@ TryDoWildEncounter:
 	and a
 	ret
 .willEncounter
-;	callfar RollForShiny ; deprecated
+	callfar DetermineIfWildMonIsDeltaSpecies ; new, testing
 	xor a
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ret

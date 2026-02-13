@@ -244,6 +244,8 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_OBTAINED_SEEDS_BAG
 
+	SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+
 /*
 ;; BATTLE_FACILITY testing
 	ld a, 1
@@ -298,7 +300,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db ESCAPE_ROPE, 99
-	db POKE_BALL, 11
+	db MASTER_BALL, 11
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1

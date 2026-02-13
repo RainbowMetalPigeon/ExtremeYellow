@@ -6908,6 +6908,7 @@ LoadEnemyMonData:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jp z, LoadEnemyMonFromParty
+	callfar SetDeltaSpeciesEvent_Enemy ; new
 	ld a, [wEnemyMonSpecies2]
 	ld [wEnemyMonSpecies], a
 	ld [wd0b5], a
@@ -7098,7 +7099,7 @@ LoadEnemyMonData:
 	inc de
 	dec b
 	jr nz, .copyBaseStatsLoop
-	ld hl, wMonHCatchRate
+	ld hl, wMonHCatchRate ; TBE?
 	ld a, [hli]
 	ld [de], a
 	inc de

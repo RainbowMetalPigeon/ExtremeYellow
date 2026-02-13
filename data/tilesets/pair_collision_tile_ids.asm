@@ -63,7 +63,7 @@ TilePairCollisionsLand::
 ;	db ISLAND, $62, $11
 	db ISLAND, $2C, $11
 ;	db ISLAND, $23, $11
-;	db ISLAND, $52, $11
+	db ISLAND, $52, $11
 ;	db ISLAND, $30, $11
 ;	db ISLAND, $20, $11
 ;	db ISLAND, $21, $11
