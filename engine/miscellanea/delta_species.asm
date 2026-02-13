@@ -53,3 +53,24 @@ SetDeltaSpeciesEvent_Enemy::
     ret z
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
     ret
+
+SetDeltaSpeciesEvent_Loaded::
+    ld a, [wLoadedMonCatchRate]
+    bit BIT_MON_DELTA, a
+    ret z
+    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+    ret
+
+SetDeltaSpeciesEvent_Battle::
+    ld a, [wBattleMonCatchRate]
+    bit BIT_MON_DELTA, a
+    ret z
+    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+    ret
+
+SetDeltaSpeciesEvent_PlayerForLeaguePC::
+    ld a, [wPlayerMonShiny] ; for League PC
+    bit BIT_MON_DELTA, a
+    ret z
+    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+    ret
