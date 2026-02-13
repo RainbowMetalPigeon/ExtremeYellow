@@ -181,6 +181,8 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db DOME_FOSSIL
 	db HELIX_FOSSIL
 ;	db SEVII_COOKIE ; no, to avoid plot skippings
+	db SUB_BALL
+	db SMASH_BALL
 	db -1
 
 LockedItems:
@@ -199,6 +201,6 @@ LockedItems:
 	db PASSEPARTOUT
 ;	db TOPAZ ; unnecessary because it's given, not picked up
 	db TIGERS_EYE
-	db CC_INVITE
+;	db CC_INVITE ; unnecessary because it's given, not picked up
 	db FLAME_PLUME
 	db -1

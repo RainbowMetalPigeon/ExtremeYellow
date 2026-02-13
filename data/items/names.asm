@@ -124,6 +124,8 @@ ItemNames::
 	li "FLAME PLUME" ; new
 	li "ROOM KEY 34" ; new
 	li "ROOM KEY 37" ; new
+	li "SUB BALL" ; new
+	li "SMASH BALL" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

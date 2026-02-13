@@ -124,4 +124,6 @@ KeyItemFlags:
 	dbit TRUE  ; FLAME_PLUME    - new
 	dbit TRUE  ; ROOM_KEY_34    - new
 	dbit TRUE  ; ROOM_KEY_37    - new
+	dbit FALSE ; SUB_BALL       - new
+	dbit FALSE ; SMASH_BALL     - new
 	end_bit_array NUM_ITEMS

@@ -141,6 +141,8 @@ ItemUsePtrTable:
 	dw UnusableItem      ; FLAME_PLUME, new
 	dw UnusableItem      ; ROOM_KEY_34, new
 	dw UnusableItem      ; ROOM_KEY_37, new
+	dw ItemUseBall       ; SUB_BALL, new, testing
+	dw ItemUseBall       ; SMASH_BALL, new, testing
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -441,6 +443,8 @@ ItemUseBall:
 ; Safari Ball:  [0, 100] ; new
 ; Fast Ball:    [0, 255/63] ; new, if mon's base speed <100 or >=100
 ; Heavy Ball:   [0, 255/255/175/125/63] ; new, depending on mon's weight tier (see later the 5 tiers)
+; Sub Ball:     [0, 255/63] ; depends if over- or under-water
+; Smash Ball:   Special
 ; Loop until an acceptable number is found.
 
 ; new, store base speed of opp mon in c for FAST_BALL - TODO move it within FAST BALL check?
@@ -516,6 +520,29 @@ ItemUseBall:
 	jr .checkForAilments
 .notHeavyBall
 
+; checks for Sub Ball
+	cp SUB_BALL
+	jr nz, .notSubBall
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .checkForAilments ; like a POKE_BALL if not underwater
+; quarter RNG value if underwater
+	srl b
+	srl b
+	jr .checkForAilments
+
+.notSubBall
+
+; checks for Smash Ball
+	cp SMASH_BALL
+	jr nz, .notSmashBall
+; special code for Smash Ball
+	jr .checkForAilments ; TBE
+
+.notSmashBall
+
+; vanilla balls
+
 ; Anything will do for the basic Poké Ball.
 	cp POKE_BALL
 	jr z, .checkForAilments
@@ -543,7 +570,7 @@ ItemUseBall:
 ; new - If it's a Safari Ball and Rand1 is greater than 100, try again.
 	ld a, 100
 	cp b
-	jr c, .loop
+	jp c, .loop
 
 ; new - Less than or equal to 100 is good enough for a Safari Ball.
 	ld a, [hl]
@@ -589,7 +616,7 @@ ItemUseBall:
 	call Multiply
 
 ; Determine BallFactor. It's 8 for Great Balls, 10 for Safari Balls, and 12 for the others. - updated
-; new: more detailed calculations for Fast and Heavy
+; new: more detailed calculations for Fast and Heavy and Sub
 	ld a, [wcf91]
 	cp GREAT_BALL
 	jr z, .GreatBallFactor
@@ -599,6 +626,8 @@ ItemUseBall:
 	jr z, .FastBallFactor
 	cp HEAVY_BALL
 	jr z, .HeavyBallFactor
+	cp SUB_BALL
+	jr z, .SubBallFactor
 	; if none of the above, it's Poke or Ultra
 	ld a, 12
 	jr .continueAfterBallFactor
@@ -608,6 +637,13 @@ ItemUseBall:
 	jr .continueAfterBallFactor
 .SafariBallFactor
 	ld a, 10
+	jr .continueAfterBallFactor
+.SubBallFactor
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	ld a, 16 ; worse than normal POKE_BALL
+	jr nz, .continueAfterBallFactor
+	ld a, 6
 	jr .continueAfterBallFactor
 .FastBallFactor
 	ld a, [wEnemyMonSpecies]	; unnecessary, already loaded earlier? Need to check with debugger if it gets rewritten
@@ -655,7 +691,7 @@ ItemUseBall:
 	jr .continueAfterBallFactor
 .weightTier4Bis
 	ld a, 6
-	jr .continueAfterBallFactor
+;	jr .continueAfterBallFactor
 
 .continueAfterBallFactor
 ; Note that the results of all division operations are floored.

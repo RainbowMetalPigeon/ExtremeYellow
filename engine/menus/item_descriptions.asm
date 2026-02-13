@@ -262,6 +262,10 @@ ItemDescriptionPointers:
 	text_end
 	text_far _RoomKey37Description      ; ROOM_KEY_37
 	text_end
+	text_far _SubBallDescription        ; SUB_BALL
+	text_end
+	text_far _SmashBallDescription      ; SMASH_BALL
+	text_end
 
 ; HMs
 

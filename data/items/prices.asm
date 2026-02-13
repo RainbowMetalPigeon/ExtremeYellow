@@ -124,6 +124,8 @@ ItemPrices::
 	bcd3 0     ; FLAME_PLUME
 	bcd3 0     ; ROOM_KEY_34
 	bcd3 0     ; ROOM_KEY_37
+	bcd3 1500  ; SUB_BALL
+	bcd3 1500  ; SMASH_BALL
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F

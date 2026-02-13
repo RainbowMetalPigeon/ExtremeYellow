@@ -539,6 +539,17 @@ _RoomKey37Description::
 	line "'ROOM 3-7'."
 	prompt
 
+_SubBallDescription::
+	text "A BALL best used"
+	line "underwater."
+	prompt
+
+_SmashBallDescription:: ; TBE
+	text "A BALL better if"
+	line "smash A button."
+;	xxxx "123456789012345678
+	prompt
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::
