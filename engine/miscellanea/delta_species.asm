@@ -3,12 +3,26 @@ DetermineIfWildMonIsDeltaSpecies::
 ;    jr .deltaSpeciesEncounter
 
     CheckEvent EVENT_IN_SEVII
-    ld a, [wCurMap]
     jr z, .kanto
 ; sevii
+    ld a, [wCurMap]
     ; TBE: Mewtwo and Mewtwo in final Tanoby
+    jr .notDeltaSpeciesEncounter
 
 .kanto
+    ld a, [wEnemyMonSpecies2]
+    cp MEW
+    jr z, .notDeltaSpeciesEncounter
+    cp ARM_MEWTWO
+    jr z, .notDeltaSpeciesEncounter
+    cp MEWTWO
+    jr z, .notDeltaSpeciesEncounter
+;    cp MMEWTWOX
+;    jr z, .notDeltaSpeciesEncounter
+;    cp MMEWTWOY
+;    jr z, .notDeltaSpeciesEncounter
+; check Kanto maps: are we in the Secluded Atoll?
+    ld a, [wCurMap]
     cp SECLUDED_ATOLL_NE
     jr z, .deltaSpeciesEncounter
     cp SECLUDED_ATOLL_SE
