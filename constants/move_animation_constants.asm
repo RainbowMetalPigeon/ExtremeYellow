@@ -154,6 +154,7 @@ DEF FIRST_SE_ID EQU const_value
 	const SUBANIM_38enemy
 	const SUBANIM_2Benemy
 	const SUBANIM_1_SPIKES
+	const SUBANIM_09_STILL_BALL
 DEF NUM_SUBANIMS EQU const_value
 
 ; types of subanimations

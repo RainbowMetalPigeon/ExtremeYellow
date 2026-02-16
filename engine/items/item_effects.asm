@@ -472,13 +472,13 @@ ItemUseBall:
 	jr nz, .notFastBall
 	ld a, 99 ; base speed above which the FAST_BALL works wonders
 	cp c ; compare with opp base speed
-	jr nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=99, slow mon, works as a pokeball
+	jp nc, .checkForAilments ; if there is no carry, a-c>=0, BS<=99, slow mon, works as a pokeball
 	srl b ; halves the random number
 	srl b ; quarters the random number - now Rand1 is in range [0,63]
 ;	ld a, 1 ; testing
 ;	cp b
 ;	jr c, .loop
-	jr .checkForAilments
+	jp .checkForAilments
 .notFastBall
 
 ; Checks for HEAVY_BALL
@@ -503,21 +503,21 @@ ItemUseBall:
 	; next two lines are commented here because I can't make Rand1 upper limit bigger than 255, so weightTier0 and weightTier1 behave the same
 ;	cp $04
 ;	jr nc, .checkForAilments ; 102.4<=weight<204.8 kg
-	jr .checkForAilments ; weight<102.4 kg
+	jp .checkForAilments ; weight<102.4 kg
 .weightTier2
 	ld a, 175
 	cp b
 	jr c, .loop
-	jr .checkForAilments
+	jp .checkForAilments
 .weightTier3
 	ld a, 125
 	cp b
 	jr c, .loop
-	jr .checkForAilments
+	jp .checkForAilments
 .weightTier4
 	srl b
 	srl b ; capped at 63, faster equivalent to do the whole ld a, 125 and loop if c
-	jr .checkForAilments
+	jp .checkForAilments
 .notHeavyBall
 
 ; checks for Sub Ball
@@ -525,19 +525,73 @@ ItemUseBall:
 	jr nz, .notSubBall
 	ld a, [wCurMapTileset]
 	cp UNDERWATER
-	jr nz, .checkForAilments ; like a POKE_BALL if not underwater
+	jp nz, .checkForAilments ; like a POKE_BALL if not underwater
 ; quarter RNG value if underwater
 	srl b
 	srl b
-	jr .checkForAilments
+	jp .checkForAilments
 
 .notSubBall
 
 ; checks for Smash Ball
 	cp SMASH_BALL
-	jr nz, .notSmashBall
+	jp nz, .notSmashBall
 ; special code for Smash Ball
-	jr .checkForAilments ; TBE
+
+	;jp .captured ; TBE
+
+	ld a, $30
+	ld [wPokeBallAnimData], a
+
+	ld a, TOSS_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+	; TBE: necessary?
+	ld a, $43
+	ld [wPokeBallAnimData], a
+
+	ld a, BALL_STILL_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+	call ListenToASmashingFor60Frames
+
+	ld a, 1
+	ld [wNumShakes], a
+	ld a, SHAKE_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+	ld a, BALL_STILL_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+;	ld c, 60
+;	call DelayFrames
+	call ListenToASmashingFor60Frames
+
+	ld a, 1
+	ld [wNumShakes], a
+	ld a, SHAKE_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+	ld a, BALL_STILL_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+;	ld c, 60
+;	call DelayFrames
+	call ListenToASmashingFor60Frames
+
+	ld a, 1
+	ld [wNumShakes], a
+	ld a, SHAKE_ANIM
+	ld [wAltAnimationID], a
+	call MoveAnimationSafeWrapper
+
+	jp .monCaughtPrintAndSaveMon ; TBE
 
 .notSmashBall
 
@@ -550,7 +604,7 @@ ItemUseBall:
 ; If it's a Great/Ultra/Safari Ball and Rand1 is greater than 200, try again.
 	ld a, 200
 	cp b
-	jr c, .loop
+	jp c, .loop
 
 ; Less than or equal to 200 is good enough for a Great Ball.
 	ld a, [hl]
@@ -560,7 +614,7 @@ ItemUseBall:
 ; If it's an Ultra/Safari Ball and Rand1 is greater than 150, try again. - updated
 	ld a, 150
 	cp b
-	jr c, .loop
+	jp c, .loop
 
 ; new - Less than or equal to 150 is good enough for an Ultra Ball.
 	ld a, [hl]
@@ -874,6 +928,8 @@ ItemUseBall:
 	pop af
 	ld [wWhichPokemon], a
 
+.determineMessage ; new, testing
+
 ; Determine the message to display from the animation.
 	ld a, [wPokeBallAnimData]
 	cp $10
@@ -891,6 +947,8 @@ ItemUseBall:
 	cp $63
 	ld hl, ItemUseBallText04
 	jp z, .printMessage
+
+.monCaughtPrintAndSaveMon ; new label
 
 ; Save current HP.
 	ld hl, wEnemyMonHP
@@ -1075,6 +1133,10 @@ ItemUseBallText07:
 ItemUseBallText08:
 ;"X was transferred to ???'s PC" ; edited
 	text_far _ItemUseBallText08
+	text_end
+
+SmashBallDebugText: ; new
+	text_far _SmashBallDebugText
 	text_end
 
 TheBoxIsNowFull: ; new
@@ -4010,3 +4072,47 @@ PerfecterHasBeenUsedText: ; new
 ChromogeneHasBeenUsedText: ; new
 	text_far _ChromogeneHasBeenUsedText
 	text_end
+
+; needs wAltAnimationID to contain animation ID
+MoveAnimationSafeWrapper: ; new
+	xor a
+	ldh [hWhoseTurn], a
+	ld [wAnimationType], a
+	ld [wDamageMultipliers], a
+	ld a, [wWhichPokemon]
+	push af
+	ld a, [wcf91]
+	push af
+	predef MoveAnimation
+	pop af
+	ld [wcf91], a
+	pop af
+	ld [wWhichPokemon], a
+	ret
+
+ListenToASmashingFor60Frames:
+; wait 60 frames
+    xor a
+    ld [wSmashBallNumberOfInputs], a
+    ld b, 60
+.wait60FramesLoop
+    push bc
+    call Joypad
+    pop bc
+    ldh a, [hJoyPressed]
+    and A_BUTTON
+    jr z, .AButtonNotPressed
+    ld a, [wSmashBallNumberOfInputs]
+    inc a
+    ld [wSmashBallNumberOfInputs], a
+.AButtonNotPressed
+    call DelayFrame
+    dec b
+    jr nz, .wait60FramesLoop
+
+	push hl
+	ld hl, SmashBallDebugText
+	call PrintText
+	pop hl
+
+	ret

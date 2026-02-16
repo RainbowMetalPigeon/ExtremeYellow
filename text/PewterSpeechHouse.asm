@@ -38,6 +38,13 @@ _PewterHouse2Text3::
 	text "!!!"
 	done
 
+_SmashBallDebugText:: ; for debugging only
+	text "Smashed A"
+	line "@"
+	text_decimal wSmashBallNumberOfInputs, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text " times!"
+	prompt
+
 _PewterHouse2Text4::
 	text "It's full of"
 	line "scribbles that"
@@ -68,7 +75,7 @@ _PewterHouse2Text4::
 	para "250: trascend that"
 	line "four critical"
 	cont "ascension."
-	
+
 	para "...the hell is"
 	line "this gibberish?!"
 	done

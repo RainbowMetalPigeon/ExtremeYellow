@@ -16,7 +16,7 @@ DebugTeam:
 	db ELECTRODE, 100 ; 255
 	db KADABRA, 25
 	db STARTER_PIKACHU, 1
-	db MMEWTWOY, 65
+;	db MMEWTWOY, 65
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -299,10 +299,10 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db SMASH_BALL, 15
 	db ESCAPE_ROPE, 99
 	db MASTER_BALL, 11
 	db SUB_BALL, 15
-	db SMASH_BALL, 15
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
 	db TOWN_MAP, 1

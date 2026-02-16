@@ -1914,7 +1914,8 @@ wPrize1:: db
 wPrize2:: db
 wPrize3:: db
 
-	ds 1
+wSmashBallNumberOfInputs:: db ; new
+;	ds 1
 
 UNION
 wSerialRandomNumberListBlock:: ds $11

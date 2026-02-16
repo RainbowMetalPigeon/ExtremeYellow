@@ -345,6 +345,7 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const SHINY_PLAYER_ANIM ; new, for the shiny
 	const SHINY_ENEMY_ANIM ; new, for the shiny
 	const BLINK_POKEMON ; new, for the damaging weathers
+	const BALL_STILL_ANIM ; new, for SMASH BALL
 
 ;DEF NUM_ATTACK_ANIMS EQU const_value - 1
 DEF NUM_ALTERNATIVE_ANIMS EQU const_value - 1 ; edited

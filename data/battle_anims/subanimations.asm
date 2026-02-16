@@ -106,6 +106,7 @@ SubanimationPointers:
 	dw Subanimation38Enemy
 	dw Subanimation2benemy
 	dw Subanimation1Spikes
+	dw Subanimation09_StillBall
 	assert_table_length NUM_SUBANIMS
 
 ; format:
@@ -206,6 +207,10 @@ Subanimation09:
 	db FRAMEBLOCK_04, BASECOORD_21, FRAMEBLOCKMODE_04
 	db FRAMEBLOCK_03, BASECOORD_21, FRAMEBLOCKMODE_04
 	db FRAMEBLOCK_05, BASECOORD_21, FRAMEBLOCKMODE_04
+
+Subanimation09_StillBall: ; new
+	subanim SUBANIMTYPE_NORMAL, 1
+	db FRAMEBLOCK_03, BASECOORD_21, FRAMEBLOCKMODE_04
 
 Subanimation0a:
 	subanim SUBANIMTYPE_HFLIP, 6

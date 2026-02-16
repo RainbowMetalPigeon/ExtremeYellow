@@ -336,6 +336,7 @@ AlternativeAnimationPointers: ; new
 	dw ShinyPlayerAnim ; SHINY_PLAYER_ANIM ; new, for the shiny
 	dw ShinyEnemyAnim ;  SHINY_ENEMY_ANIM ; new, for the shiny
 	dw BlinkPokemon ; BLINK_POKEMON ; new
+	dw BallStillAnim ; BALL_STILL_ANIM
 ;	assert_table_length NUM_ATTACK_ANIMS
 	assert_table_length NUM_ALTERNATIVE_ANIMS ; edited
 
@@ -2223,3 +2224,8 @@ ShinyEnemyAnim: ; new
 BlinkPokemon: ; new
 	battle_anim LEECH_SEED, SE_BLINK_MON
 	db -1
+
+BallStillAnim: ; new
+;	battle_anim NO_MOVE, SUBANIM_09, 0, 4
+	battle_anim NO_MOVE, SUBANIM_09_STILL_BALL, 0, 1
+	db -1 ; end
