@@ -33,12 +33,12 @@ SetPal_Battle:
 	ld hl, wBattleMonSpecies
 	ld a, [hl]
 	and a
-	jr z, .asm_71ef9
+	jr z, .trainerPalette
 	ld hl, wPartyMon1
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ; add bc to hl a times
-.asm_71ef9
+.trainerPalette
 ; for the shiny
 	ld a, [wBattleMonCatchRate]
 	bit BIT_MON_SHINY, a
@@ -701,24 +701,23 @@ DeterminePaletteID:
 ; new
 	ld a, [wCurOpponent]
 	cp OPP_ICHINO
-	jr nz, .vanilla
+	jr nz, .nonIchino
 	ld a, PAL_PURPLEMON
 	ret
-.vanilla
+.nonIchino
 ; BTV
 	ld a, [hl]
 DeterminePaletteIDOutOfBattle:
 	ld [wd11e], a
 	and a ; is the mon index 0?
-	jp z, ChoosePlayerPalette ; jr z, .skipDexNumConversion
+	jp z, ChoosePlayerPalette
 	push bc
 	predef IndexToPokedex
 	pop bc
 	ld a, [wd11e]
-;.skipDexNumConversion
 	ld e, a
 	ld d, 0
-	ld hl, MonsterPalettes ; not just for Pokemon, Trainers use it too
+	ld hl, MonsterPalettes
 	add hl, de
 	ld a, [hl]
 	ret
@@ -727,21 +726,20 @@ DetermineShinyPaletteID: ; new
 ; new
 	ld a, [wCurOpponent]
 	cp OPP_ICHINO
-	jr nz, .vanilla
+	jr nz, .nonIchino
 	ld a, PAL_PURPLEMON
 	ret
-.vanilla
+.nonIchino
 ; BTV
 	ld a, [hl]
 DetermineShinyPaletteIDOutOfBattle: ; new
 	ld [wd11e], a
 	and a ; is the mon index 0?
-	jp z, ChoosePlayerPalette ; jr z, .skipDexNumConversion
+	jp z, ChoosePlayerPalette
 	push bc
 	predef IndexToPokedex
 	pop bc
 	ld a, [wd11e]
-;.skipDexNumConversion
 	ld e, a
 	ld d, 0
 	ld hl, MonsterPalettesShiny
