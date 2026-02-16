@@ -15,7 +15,7 @@ CheckIfCanSurfOrCutFromOverworld::
 ; check for birbs
     CheckEvent EVENT_IN_SEVII
     jr nz, .seviiCheck
-    
+
 ; Kanto check
     ld a, [wCurMapTileset]
     cp OVERWORLD
@@ -309,7 +309,7 @@ CheckIfCanSurfOrCutFromOverworld::
 	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
 	ld hl, 300
 	jr nz, .gotDiveSteps
-	ld hl, 999 ; 150 TBE
+	ld hl, 150 ; 999 for debugging
 .gotDiveSteps
 	ld a, h
 	ld [wDiveSteps], a
@@ -850,7 +850,7 @@ AnimateBribTile_Flapping_Wrapper:
     CheckEvent EVENT_IN_SEVII
     jr nz, AnimateBribTile_SeviiFlapping_Decider
     ; fallthrough
-    
+
 ;AnimateBribTile_Flapping_Decider:
     ld a, [wCurMapTileset]
     cp OVERWORLD
