@@ -647,6 +647,7 @@ TryMidBattleEvolution: ; new
 	jr z, .skipRecalc			; new code to handle the badge boost option
 	call ApplyBadgeStatBoosts
 .skipRecalc
+	; TBE: delta species event setter?
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -1249,6 +1250,7 @@ EnemySendOutFirstMon:
 	call GBPalNormal
 	ld hl, TrainerSentOutText
 	call PrintText
+	; callfar SetDeltaSpeciesEvent_Enemy ; TBE: needed?
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
 	ld [wd0b5], a
@@ -1525,6 +1527,7 @@ LoadBattleMonFromParty:
 	call CopyData
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
+	callfar SetDeltaSpeciesEvent_Battle ; new
 	call GetMonHeader
 	ld hl, wPartyMonNicks
 	ld a, [wPlayerMonNumber]
@@ -1580,6 +1583,7 @@ LoadEnemyMonFromParty:
 	call CopyData
 	ld a, [wEnemyMonSpecies]
 	ld [wd0b5], a
+	callfar SetDeltaSpeciesEvent_Enemy ; new ; TBE: necessary?
 	call GetMonHeader
 	ld hl, wEnemyMonNicks
 	ld a, [wWhichPokemon]
@@ -2400,6 +2404,7 @@ PartyMenuOrRockOrRun:
 	ld a, [wEnemyMonSpecies]
 	ld [wcf91], a
 	ld [wd0b5], a
+	; callfar SetDeltaSpeciesEvent_Enemy ; TBE: necessary?
 	call GetMonHeader
 	ld de, vFrontPic
 	call LoadMonFrontSprite
@@ -2831,6 +2836,7 @@ ShowMoveInfoInMenu: ; new
 	callfar ShowAttackdexData
 	ld a, [wBattleMonSpecies]
 	ld [wd0b5], a
+	; callfar SetDeltaSpeciesEvent_Battle ; TBE: necessary?
 	call GetMonHeader
 	predef LoadMonBackPic
 	call LoadScreenTilesFromBuffer2

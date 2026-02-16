@@ -68,6 +68,13 @@ SetDeltaSpeciesEvent_Battle::
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
     ret
 
+SetDeltaSpeciesEvent_deRegister::
+    ld a, [de]
+    bit BIT_MON_DELTA, a
+    ret z
+    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+    ret
+
 SetDeltaSpeciesEvent_PlayerForLeaguePC::
     ld a, [wPlayerMonShiny] ; for League PC
     bit BIT_MON_DELTA, a

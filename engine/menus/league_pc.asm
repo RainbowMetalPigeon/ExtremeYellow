@@ -97,6 +97,7 @@ LeaguePCShowMon:
 	ld bc, NAME_LENGTH
 	call CopyData ; copies bc bytes from hl to de; edited
 ; new, for the shiny
+; TBE for delta species
 	inc hl ; does hl work here?
 	ld a, [hl] ; a should contain the shiny-ness of that HoF mon
 	ld [wPlayerMonShiny], a

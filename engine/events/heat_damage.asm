@@ -30,9 +30,22 @@ ApplyHeatDamage:
 	cp RHYPERIOR
 	jr z, .nextMon2
 	ld [wd0b5], a
+; for delta species
+	push de
 	push hl
+	;push bc
+	ld bc, wPartyMon1CatchRate - wPartyMon1Status
+	add hl, bc
+	ld d, h
+	ld e, l
+	;pop bc
+	pop hl
+; end for delta
+	push hl
+	callfar SetDeltaSpeciesEvent_deRegister
 	call GetMonHeader
 	pop hl
+	pop de ; to restore de after delta species
 	ld a, [wMonHType1]
 	cp FIRE
 	jr z, .nextMon2

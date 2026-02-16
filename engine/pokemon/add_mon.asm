@@ -200,7 +200,7 @@ _AddPartyMon::
 	ld [de], a
 
 	inc de
-	ld a, [wOpponentMonShiny] ; edited: it was the useless catch rate, now shiny flag
+	ld a, [wOpponentMonShiny] ; edited: it was the useless catch rate, now shiny flag, also tracks Delta Specie-ness
 	ld [de], a
 
 	ld hl, wMonHMoves
@@ -685,6 +685,7 @@ AddPartyMonRental::
 	ld [de], a
 
 ; randomize shinyness
+; TBE for delta species-ness
 	inc de
 	call Random
 	cp 39

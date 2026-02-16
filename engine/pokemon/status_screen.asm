@@ -154,17 +154,25 @@ StatusScreen:
 	call PrintNumber ; Pokémon no.
 ; new, for the shiny symbol
 	ld a, [wLoadedMonCatchRate]
-;	and a
 	bit BIT_MON_SHINY, a
 	jr z, .notShiny
 ; print shiny symbol
 	hlcoord 6, 7
 	ld [hl], "<SHINY>"
 .notShiny
+; new, for delta symbol
+	ld a, [wLoadedMonCatchRate]
+	bit BIT_MON_DELTA, a
+	jr z, .notDelta
+; print shiny symbol
+	hlcoord 7, 7
+	ld [hl], "D" ; TBE
+.notDelta
 ; back to vanilla
 ; new, print label that suggests to click SELECT for more info
 	call PrintSelectForInfo
 ; back to vanilla
+	callfar SetDeltaSpeciesEvent_Loaded ; new for delta
 	hlcoord 11, 10
 	predef PrintMonType
 	ld hl, NamePointers2

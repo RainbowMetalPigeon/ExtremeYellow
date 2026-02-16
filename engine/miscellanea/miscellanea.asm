@@ -46,7 +46,10 @@ CheckIfOneGivenMonIsInPartyAndLoadIndex::
 ; input: d contains the type to check
 ; sets z flag if found
 CheckIfACertainTypeIsInParty::
+	ld a, d
+	ld c, a ; c contains the type to check
 	ld hl, wPartyCount
+	ld de, wPartyMon1CatchRate
 	ld a, [hli]
 	ld b, a ; b has the number of Mons in the party
 
@@ -55,13 +58,23 @@ CheckIfACertainTypeIsInParty::
 	ld [wd0b5], a
 	call GetMonHeader
 	ld a, [wMonHType1]
-	cp d
+	cp c ; compare to the type to check
 	ret z
 	ld a, [wMonHType2]
-	cp d
+	cp c ; compare to the type to check
 	ret z
 ; if we're here, neither type1 or type2 match the type we're searching
 ; in which case, we go to the next mon
+	push bc
+	push hl
+	ld h, d
+	ld l, e
+	ld bc, wPartyMon2 - wPartyMon1
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl
+	pop bc
 	dec b
 	jr nz, .loop
 ; if we're here, we ran out of mons to check
