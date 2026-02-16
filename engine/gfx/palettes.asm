@@ -41,8 +41,6 @@ SetPal_Battle:
 .asm_71ef9
 ; for the shiny
 	ld a, [wBattleMonCatchRate]
-;	cp 1
-;	jr z, .shinyPlayer
 	bit BIT_MON_SHINY, a
 	jr nz, .shinyPlayer
 	call DeterminePaletteID
@@ -63,8 +61,6 @@ SetPal_Battle:
 
 	ld hl, wEnemyMonSpecies2
 	ld a, [wOpponentMonShiny]
-;	cp 1
-;	jr z, .shinyOpponent
 	bit BIT_MON_SHINY, a
 	jr nz, .shinyOpponent
 	call DeterminePaletteID
@@ -114,10 +110,8 @@ SetPal_BattleMetal:: ; new
 ; check if player is shiny or not
 	ld b, a ; save the index in b
 	ld a, [wLoadedMonCatchRate]
-;	cp 1
 	bit BIT_MON_SHINY, a
 	ld a, b ; load the index from b
-;	jr z, .shinyMon
 	jr nz, .shinyMon
 	call DeterminePaletteID
 	jr .continue1
@@ -133,8 +127,6 @@ SetPal_BattleMetal:: ; new
 ; check if opponent is shiny
 	ld hl, wEnemyMonSpecies2
 	ld a, [wOpponentMonShiny]
-;	cp 1
-;	jr z, .shinyOpponent
 	bit BIT_MON_SHINY, a
 	jr nz, .shinyOpponent
 	call DeterminePaletteID
@@ -185,10 +177,8 @@ SetPal_StatusScreen:
 ; for the shiny
 	ld b, a ; save the index in b
 	ld a, [wLoadedMonCatchRate]
-;	cp 1
 	bit BIT_MON_SHINY, a
 	ld a, b ; load the index from b
-;	jr z, .shinyMon
 	jr nz, .shinyMon
 .notMon
 	call DeterminePaletteIDOutOfBattle
@@ -553,10 +543,8 @@ SetPal_PokemonWholeScreen:
 	jr z, .wWeAreNotTrading
 ; we do are trading, specifically we are receiving the traded mon, we need to check if it is shiny or not
 	ld a, [wOpponentMonShiny]
-;	cp 1
 	bit BIT_MON_SHINY, a
 	ld a, [wWholeScreenPaletteMonSpecies]
-;	jr z, .shinyPalette
 	jr nz, .shinyPalette
 	jr .notShinyPalette
 .wWeAreNotTrading
@@ -565,7 +553,6 @@ SetPal_PokemonWholeScreen:
 	jr z, .notHoFPC
 ; we are using the HoF PC and the mon is shiny
 	ld a, [wPlayerMonShiny]
-;	and a
 	bit BIT_MON_SHINY, a
 	ld a, [wWholeScreenPaletteMonSpecies]
 	jr z, .notShinyPalette
