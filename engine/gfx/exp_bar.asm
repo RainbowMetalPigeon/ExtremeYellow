@@ -48,6 +48,11 @@ CalcEXPBarPixelLength:
 .skip
 	ld a, [hl]
 	ld [wd0b5], a ; in more recent versions it's wCurSpecies
+
+	push hl
+	callfar SetDeltaSpeciesEvent_Battle ; new
+	pop hl
+
 	call GetMonHeader
 	ld a, [wBattleMonLevel]
 	ld d, a

@@ -1053,6 +1053,7 @@ ItemUseBall:
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	call ClearSprites
+	SetEvent EVENT_FLAG_DELTA_SPECIES_ENEMY_EVENT ; new for delta
 	ld hl, .emptyString
 	call PrintText
 	call AddPartyMon

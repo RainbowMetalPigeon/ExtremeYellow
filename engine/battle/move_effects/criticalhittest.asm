@@ -32,10 +32,17 @@ CriticalHitTest:
 	ld [wCriticalHitOrOHKO], a
 	ldh a, [hWhoseTurn]
 	and a
-	ld a, [wEnemyMonSpecies]
 	jr nz, .handleEnemy
+;handlePlayer
+    ld a, [wBattleMonCatchRate]
+	callfar SetDeltaSpeciesEvent_Battle
 	ld a, [wBattleMonSpecies]
+	jr .chosenTurn
 .handleEnemy
+    ld a, [wOpponentMonShiny]
+	callfar SetDeltaSpeciesEvent_Enemy
+	ld a, [wEnemyMonSpecies]
+.chosenTurn
 	ld [wd0b5], a
 	call GetMonHeader
 	ld a, [wMonHBaseSpeed]

@@ -256,7 +256,7 @@ JrTrainerFData:
 
 PokemaniacData:
 ; Route 10
-	db 30, RHYHORN, LICKITUNG, 0
+	db 30, PINSIR, LICKITUNG, RHYHORN, 0
 	db 20, SANDSHREW, SLOWPOKE, 0 ; updated, removed Cubone
 ; Rock Tunnel B1F
 	db 21, SLOWPOKE, VENOMOTH, PRIMEAPE, 0

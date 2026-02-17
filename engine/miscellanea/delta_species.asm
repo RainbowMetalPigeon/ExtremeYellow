@@ -82,7 +82,7 @@ SetDeltaSpeciesEvent_PlayerForLeaguePC::
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
     ret
 
-; ==========================================================================
+; =====================================
 
 CheckForTrainersDeltaMons::
     ld a, [wTrainerClass]
@@ -105,8 +105,8 @@ CheckForTrainersDeltaMons::
     jr nz, .noMatch
 ; the trainer class and number match, so they have at least one delta in their team
 ; hl now points to the first (possibly only) non-terminator party-position value
-    ld a, [wEnemyMonPartyPos]
-    inc a ; let's +1 a just because wEnemyMonPartyPos starts from 0 but we are used to 1-6 for the parties
+    ld a, [wWhichPokemon]
+    inc a ; let's +1 a just because wWhichPokemon starts from 0 but we are used to 1-6 for the parties
     ld b, a ; now b contains the party position of the mon we are facing
 .internalDeltaLoop
     ld a, [hli] ; a contains the party position of the pointed delta, and hl advanced by one
@@ -137,14 +137,33 @@ CheckForTrainersDeltaMons::
     and a
     jr z, .noDelta ; trainers can't be delta ; is this even necessary???
 ; BF mons, not trainers
-    ld a, [wEnemyMonPartyPos] ; wEnemyMonPartyPos starts from 0
+    ld a, [wWhichPokemon] ; wWhichPokemon starts from 0
     ld hl, wBattleFacilityMon1Shinyness
     ld b, 0
     ld c, a
     add hl, bc ; now hl contains wBattleFacilityMon[N]Shinyness
     ld a, [hl]
-    and a
+    bit BIT_MON_DELTA, a
     jr z, .noDelta
     jr .matchFound
 
 INCLUDE "data/trainers/trainers_delta_mons.asm"
+
+; =====================================
+
+AssignDeltaToBattleFacilityTrainers::
+    ld hl, wBattleFacilityMon1Shinyness
+    ld b, 6
+.loopOnMons
+    call Random
+    cp 51 ; 20% chance
+    ld a, [hl]
+    set BIT_MON_DELTA, a
+    jr c, .itIsShiny
+; not shiny
+    res BIT_MON_DELTA, a
+.itIsShiny
+    ld [hli], a
+    dec b
+    jr nz, .loopOnMons
+    ret

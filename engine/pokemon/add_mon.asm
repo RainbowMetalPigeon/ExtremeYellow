@@ -97,6 +97,18 @@ _AddPartyMon::
 	push hl
 	ld a, [wcf91]
 	ld [wd0b5], a
+
+; new for delta catches
+	CheckAndResetEvent EVENT_FLAG_DELTA_SPECIES_ENEMY_EVENT
+	jr z, .postDeltaSetting
+	push hl
+	push de
+	callfar SetDeltaSpeciesEvent_Enemy ; new for delta
+	pop de
+	pop hl
+.postDeltaSetting
+; BTV
+
 	call GetMonHeader
 	ld hl, wMonHeader
 	ld a, [hli]

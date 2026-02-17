@@ -49,8 +49,8 @@ SetPal_Battle:
 	jr z, .wildBattle
 ; trainer battle, do the checks
 	push bc
-	callfar CheckForTrainersShinyMons ; this is a ugly place to write it but whatever
-	callfar CheckForTrainersDeltaMons ; this is a ugly place to write it but whatever
+;	callfar CheckForTrainersShinyMons ; this is a ugly place to write it but whatever
+;	callfar CheckForTrainersDeltaMons ; this is a ugly place to write it but whatever
 	pop bc
 .wildBattle
 

@@ -647,7 +647,7 @@ TryMidBattleEvolution: ; new
 	jr z, .skipRecalc			; new code to handle the badge boost option
 	call ApplyBadgeStatBoosts
 .skipRecalc
-	; TBE: delta species event setter?
+	callfar SetDeltaSpeciesEvent_Battle ; new, TBE, necessary?
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -1128,7 +1128,7 @@ EnemySendOutFirstMon:
 	dec a
 	ld [wAICount], a
 	ld hl, wPlayerBattleStatus1
-	res USING_TRAPPING_MOVE, [hl] ; edited, was 5...
+	res USING_TRAPPING_MOVE, [hl] ; edited, was 5
 	hlcoord 18, 0
 	ld a, 8
 	call SlideTrainerPicOffScreen
@@ -1177,6 +1177,7 @@ EnemySendOutFirstMon:
 	ld a, [hl]
 	ld [wEnemyMonSpecies2], a
 	ld [wcf91], a
+	callfar CheckForTrainersDeltaMons ; new, testing
 	call LoadEnemyMonData
 	ld hl, wEnemyMonHP
 	ld a, [hli]
@@ -1245,12 +1246,14 @@ EnemySendOutFirstMon:
 	hlcoord 0, 0
 	lb bc, 4, 11
 	call ClearScreenArea
+	callfar CheckForTrainersShinyMons ; new, testing
+	callfar CheckForTrainersDeltaMons ; new, testing
 	ld b, SET_PAL_BATTLE
 	call RunPaletteCommand
 	call GBPalNormal
 	ld hl, TrainerSentOutText
 	call PrintText
-	; callfar SetDeltaSpeciesEvent_Enemy ; TBE: needed?
+	; callfar SetDeltaSpeciesEvent_Enemy ; new, TBE, unnecessary?
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
 	ld [wd0b5], a
@@ -1527,7 +1530,8 @@ LoadBattleMonFromParty:
 	call CopyData
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
-	callfar SetDeltaSpeciesEvent_Battle ; new
+	ld a, [wBattleMonCatchRate] ; for debugging
+	callfar SetDeltaSpeciesEvent_Battle ; new ; useless because it gets overwritten? -> CalcEXPBarPixelLength is called afterwards
 	call GetMonHeader
 	ld hl, wPartyMonNicks
 	ld a, [wPlayerMonNumber]
@@ -2404,7 +2408,7 @@ PartyMenuOrRockOrRun:
 	ld a, [wEnemyMonSpecies]
 	ld [wcf91], a
 	ld [wd0b5], a
-	; callfar SetDeltaSpeciesEvent_Enemy ; TBE: necessary?
+	callfar SetDeltaSpeciesEvent_Enemy ; new, TBE: necessary?
 	call GetMonHeader
 	ld de, vFrontPic
 	call LoadMonFrontSprite
@@ -2836,7 +2840,7 @@ ShowMoveInfoInMenu: ; new
 	callfar ShowAttackdexData
 	ld a, [wBattleMonSpecies]
 	ld [wd0b5], a
-	; callfar SetDeltaSpeciesEvent_Battle ; TBE: necessary?
+	callfar SetDeltaSpeciesEvent_Battle ; new, TBE: necessary?
 	call GetMonHeader
 	predef LoadMonBackPic
 	call LoadScreenTilesFromBuffer2
@@ -4929,6 +4933,7 @@ GetEnemyMonStat:
 	ld [wCurEnemyLVL], a
 	ld a, [wEnemyMonSpecies]
 	ld [wd0b5], a
+	callfar SetDeltaSpeciesEvent_Enemy ; new, TBE: necessary?
 	call GetMonHeader
 	ld hl, wEnemyMonDVs
 	ld de, wLoadedMonSpeedExp

@@ -949,8 +949,9 @@ BattleFacilityTextOpponent:
 	ld [wBattleFacilityMonNumber3], a
 	ld [wBattleFacilityMonNumber4], a
 	ld [wBattleFacilityMonNumber5], a
-; randomize the shiny-ness of opp's mons
+; randomize the shiny-ness and delta-ness of opp's mons
 	callfar AssignShinyToBattleFacilityTrainers
+	callfar AssignDeltaToBattleFacilityTrainers
 ; set up normal or inverse battle
 	ld a, [wBattleFacilityInverseBattle] ; loaded when talking with the guide at the entrance
 	ld [wInverseBattle], a ; necessary because this wram variable gets reset at the end of every battle
