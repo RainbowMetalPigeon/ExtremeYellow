@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ELECTRODE, 100 ; 255
-	db KADABRA, 25
+	db DRAGONAIR, 99 ; 255
+	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
 ;	db MMEWTWOY, 65
 ;	db ARTICUNO, 99
@@ -300,18 +300,19 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db SMASH_BALL, 15
+	db TOWN_MAP, 1
 	db ESCAPE_ROPE, 99
 	db MASTER_BALL, 11
 	db SUB_BALL, 15
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
-	db TOWN_MAP, 1
+	db MOON_STONE, 3
 	db ITEMFINDER, 1
 	db PERFECTER, 99
 	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
 	db CHEAT_CANDY, 1
-	db LINK_CABLE, 3
+;	db LINK_CABLE, 3
 	db MYSTERY_MAP, 1
     db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99

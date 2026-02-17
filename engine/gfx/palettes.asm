@@ -41,13 +41,7 @@ SetPal_Battle:
 .trainerPalette
 ; for the shiny
 	ld a, [wBattleMonCatchRate]
-	bit BIT_MON_SHINY, a
-	jr nz, .shinyPlayer
-	call DeterminePaletteID
-	jr .continuePlayer
-.shinyPlayer
-	call DetermineShinyPaletteID
-.continuePlayer
+	call DeterminePaletteIDOmni ; new, testing
 	ld b, a
 
 	ld a, [wIsTrainerBattle]
@@ -61,13 +55,7 @@ SetPal_Battle:
 
 	ld hl, wEnemyMonSpecies2
 	ld a, [wOpponentMonShiny]
-	bit BIT_MON_SHINY, a
-	jr nz, .shinyOpponent
-	call DeterminePaletteID
-	jr .continueOpponent
-.shinyOpponent
-	call DetermineShinyPaletteID
-.continueOpponent
+	call DeterminePaletteIDOmni ; new, testing
 	ld c, a
 ; back to vanilla
 	ld hl, wPalPacket + 1
@@ -110,14 +98,7 @@ SetPal_BattleMetal:: ; new
 ; check if player is shiny or not
 	ld b, a ; save the index in b
 	ld a, [wLoadedMonCatchRate]
-	bit BIT_MON_SHINY, a
-	ld a, b ; load the index from b
-	jr nz, .shinyMon
-	call DeterminePaletteID
-	jr .continue1
-.shinyMon
-	call DetermineShinyPaletteID
-.continue1
+	call DeterminePaletteIDOmni ; new, testing
 ; done with the shiny check
 	ld b, a
 	ld c, PAL_METALMON
@@ -127,13 +108,7 @@ SetPal_BattleMetal:: ; new
 ; check if opponent is shiny
 	ld hl, wEnemyMonSpecies2
 	ld a, [wOpponentMonShiny]
-	bit BIT_MON_SHINY, a
-	jr nz, .shinyOpponent
-	call DeterminePaletteID
-	jr .continueOpponent
-.shinyOpponent
-	call DetermineShinyPaletteID
-.continueOpponent
+	call DeterminePaletteIDOmni ; new, testing
 ; done with the shiny check
 	ld c, a
 .continue
@@ -177,15 +152,11 @@ SetPal_StatusScreen:
 ; for the shiny
 	ld b, a ; save the index in b
 	ld a, [wLoadedMonCatchRate]
-	bit BIT_MON_SHINY, a
-	ld a, b ; load the index from b
-	jr nz, .shinyMon
+	call DeterminePaletteIDOutOfBattleOmni ; new, testing
+	jr .continue
 .notMon
-	call DeterminePaletteIDOutOfBattle
-	jr .continueMon
-.shinyMon
-	call DetermineShinyPaletteIDOutOfBattle
-.continueMon
+	call DeterminePaletteIDOutOfBattle ; testing
+.continue
 ; back to vanilla
 	push af
 	ld hl, wPalPacket + 1
@@ -541,22 +512,26 @@ SetPal_PokemonWholeScreen:
 	ld a, [wWeAreTrading]
 	and a
 	jr z, .wWeAreNotTrading
+
 ; we do are trading, specifically we are receiving the traded mon, we need to check if it is shiny or not
-	ld a, [wOpponentMonShiny]
-	bit BIT_MON_SHINY, a
 	ld a, [wWholeScreenPaletteMonSpecies]
-	jr nz, .shinyPalette
-	jr .notShinyPalette
+	ld b, a
+	ld a, [wOpponentMonShiny]
+	call DeterminePaletteIDOutOfBattleOmni ; new, testing
+	jr .next
+
 .wWeAreNotTrading
 	ld a, [wAreWeUsingTheHoFPC]
 	and a
 	jr z, .notHoFPC
+
 ; we are using the HoF PC and the mon is shiny
-	ld a, [wPlayerMonShiny]
-	bit BIT_MON_SHINY, a
 	ld a, [wWholeScreenPaletteMonSpecies]
-	jr z, .notShinyPalette
-	jr .shinyPalette
+	ld b, a
+	ld a, [wPlayerMonShiny]
+	call DeterminePaletteIDOutOfBattleOmni ; new, testing
+	jr .next
+
 .notHoFPC
 	ld a, [wCurMap]
 	cp HALL_OF_FAME
@@ -568,16 +543,12 @@ SetPal_PokemonWholeScreen:
 	ld hl, wPartyMon1CatchRate
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes ; add bc to hl a times
-	ld a, [hl]
-	cp 1
 	ld a, [wWholeScreenPaletteMonSpecies]
-	jr z, .shinyPalette
-.notShinyPalette
-	call DeterminePaletteIDOutOfBattle
-	jr .next
-.shinyPalette
-	call DetermineShinyPaletteIDOutOfBattle
+	ld b, a
+	ld a, [hl] ; shiny/delta-ness
+	call DeterminePaletteIDOutOfBattleOmni ; new, testing
 ; back to vanilla
+
 .next
 	ld [wPalPacket + 1], a
 	ld hl, wPalPacket
@@ -1713,6 +1684,32 @@ ChoosePlayerPalette: ; new
 .malePalette
 	ld a, PAL_PLAYER_RED
 	ret
+
+; input: a = proper mon shiny/delta identificator
+; output: a = palette ID
+DeterminePaletteIDOmni: ; new
+    bit BIT_MON_SHINY, a
+    jr nz, .shiny
+    call DeterminePaletteID
+    jr .notShiny
+.shiny
+    call DetermineShinyPaletteID
+.notShiny
+    ret
+
+; input: a = proper mon shiny/delta identificator
+; input: b = mon ID
+; output: a = palette ID
+DeterminePaletteIDOutOfBattleOmni: ; new
+    bit BIT_MON_SHINY, a
+	ld a, b
+    jr nz, .shiny
+    call DeterminePaletteIDOutOfBattle
+    jr .notShiny
+.shiny
+    call DetermineShinyPaletteIDOutOfBattle
+.notShiny
+    ret
 
 INCLUDE "data/sgb/sgb_packets.asm"
 
