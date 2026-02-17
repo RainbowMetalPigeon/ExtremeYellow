@@ -628,8 +628,8 @@ MonsterPalettesDelta:
 	db PAL_REDMON    ; MAGBY
 	db PAL_REDMON    ; MAGMAR
 	db PAL_REDMON    ; MAGMORTAR
-	db PAL_BROWNMON  ; PINSIR - delta
-	db PAL_BROWNMON  ; MPINSIR - delta
+	db PAL_ORANGEMON ; PINSIR - delta
+	db PAL_ORANGEMON ; MPINSIR - delta
 	db PAL_BROWNMON  ; TAUROS
 	db PAL_GREYMON   ; MAGIKARP - delta
 	db PAL_ORANGEMON ; GYARADOS - delta

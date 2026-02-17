@@ -718,6 +718,52 @@ DetermineShinyPaletteIDOutOfBattle: ; new
 	ld a, [hl]
 	ret
 
+DetermineShinyDeltaPaletteID: ; new
+	ld a, [wCurOpponent]
+	cp OPP_ICHINO
+	jr nz, .nonIchino
+	ld a, PAL_PURPLEMON
+	ret
+.nonIchino
+	ld a, [hl]
+DetermineShinyDeltaPaletteIDOutOfBattle: ; new
+	ld [wd11e], a
+	and a ; is the mon index 0?
+	jp z, ChoosePlayerPalette
+	push bc
+	predef IndexToPokedex
+	pop bc
+	ld a, [wd11e]
+	ld e, a
+	ld d, 0
+	ld hl, MonsterPalettesDeltaShiny
+	add hl, de
+	ld a, [hl]
+	ret
+
+DetermineDeltaPaletteID: ; new
+	ld a, [wCurOpponent]
+	cp OPP_ICHINO
+	jr nz, .nonIchino
+	ld a, PAL_PURPLEMON
+	ret
+.nonIchino
+	ld a, [hl]
+DetermineDeltaPaletteIDOutOfBattle: ; new
+	ld [wd11e], a
+	and a ; is the mon index 0?
+	jp z, ChoosePlayerPalette
+	push bc
+	predef IndexToPokedex
+	pop bc
+	ld a, [wd11e]
+	ld e, a
+	ld d, 0
+	ld hl, MonsterPalettesDelta
+	add hl, de
+	ld a, [hl]
+	ret
+
 YellowIntroPaletteAction::
 	ld a, e
 	and a
@@ -1690,26 +1736,41 @@ ChoosePlayerPalette: ; new
 DeterminePaletteIDOmni: ; new
     bit BIT_MON_SHINY, a
     jr nz, .shiny
-    call DeterminePaletteID
-    jr .notShiny
+; not shiny
+	bit BIT_MON_DELTA, a
+	jr nz, .delta
+	jp DeterminePaletteID
+.delta
+    jp DetermineDeltaPaletteID
 .shiny
-    call DetermineShinyPaletteID
-.notShiny
-    ret
+	bit BIT_MON_DELTA, a
+	jr nz, .shinyDelta
+    jp DetermineShinyPaletteID
+.shinyDelta
+	jp DetermineShinyDeltaPaletteID
 
 ; input: a = proper mon shiny/delta identificator
 ; input: b = mon ID
 ; output: a = palette ID
 DeterminePaletteIDOutOfBattleOmni: ; new
     bit BIT_MON_SHINY, a
-	ld a, b
     jr nz, .shiny
-    call DeterminePaletteIDOutOfBattle
-    jr .notShiny
+; not shiny
+	bit BIT_MON_DELTA, a
+	jr nz, .delta
+	ld a, b
+	jp DeterminePaletteIDOutOfBattle
+.delta
+	ld a, b
+    jp DetermineDeltaPaletteIDOutOfBattle
 .shiny
-    call DetermineShinyPaletteIDOutOfBattle
-.notShiny
-    ret
+	bit BIT_MON_DELTA, a
+	jr nz, .shinyDelta
+	ld a, b
+    jp DetermineShinyPaletteIDOutOfBattle
+.shinyDelta
+	ld a, b
+	jp DetermineShinyDeltaPaletteIDOutOfBattle
 
 INCLUDE "data/sgb/sgb_packets.asm"
 
