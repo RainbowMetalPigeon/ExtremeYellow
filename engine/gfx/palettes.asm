@@ -50,6 +50,7 @@ SetPal_Battle:
 ; trainer battle, do the checks
 	push bc
 	callfar CheckForTrainersShinyMons ; this is a ugly place to write it but whatever
+	callfar CheckForTrainersDeltaMons ; this is a ugly place to write it but whatever
 	pop bc
 .wildBattle
 

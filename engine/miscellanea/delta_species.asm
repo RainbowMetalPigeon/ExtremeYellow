@@ -45,7 +45,7 @@ DetermineIfWildMonIsDeltaSpecies::
     ld [wOpponentMonShiny], a
     ret
 
-; =====================================
+; ==========================================================================
 
 SetDeltaSpeciesEvent_Enemy::
     ld a, [wOpponentMonShiny]
@@ -81,3 +81,70 @@ SetDeltaSpeciesEvent_PlayerForLeaguePC::
     ret z
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
     ret
+
+; ==========================================================================
+
+CheckForTrainersDeltaMons::
+    ld a, [wTrainerClass]
+    cp BF_TRAINER
+    jr z, .battleFacility ; handled specially
+    
+    ld b, a
+    ld a, [wTrainerNo]
+    ld c, a
+    ld hl, TrainersDeltaMons
+.loopCheckForDelta
+; b contains the trainer class, c the trainer number of the trainer we are facing
+    ld a, [hli] ; a now contains the trainer class (or the terminator)
+    cp $FF ; -1, terminator of the whole file
+    jr z, .noDelta
+    cp b ; is the trainer class we're facing the one pointed by hl?
+    jr nz, .noMatch
+    ld a, [hli] ; the trainer matches, now we check for the trainer number
+    cp c
+    jr nz, .noMatch
+; the trainer class and number match, so they have at least one delta in their team
+; hl now points to the first (possibly only) non-terminator party-position value
+    ld a, [wEnemyMonPartyPos]
+    inc a ; let's +1 a just because wEnemyMonPartyPos starts from 0 but we are used to 1-6 for the parties
+    ld b, a ; now b contains the party position of the mon we are facing
+.internalDeltaLoop
+    ld a, [hli] ; a contains the party position of the pointed delta, and hl advanced by one
+    cp $FE
+    jr z, .noDelta
+    cp b
+    jr z, .matchFound
+    jr .internalDeltaLoop
+.matchFound
+    ld a, [wOpponentMonShiny]
+    set BIT_MON_DELTA, a
+    ld [wOpponentMonShiny], a
+    ret
+.noMatch
+	ld a, [hli]
+	cp $FE
+	jr nz, .noMatch
+	jr .loopCheckForDelta
+.noDelta
+    ld a, [wOpponentMonShiny]
+    res BIT_MON_DELTA, a
+    ld [wOpponentMonShiny], a
+    ret
+
+.battleFacility ; TBE
+    ld hl, wEnemyMonSpecies2
+    ld a, [hl]
+    and a
+    jr z, .noDelta ; trainers can't be delta ; is this even necessary???
+; BF mons, not trainers
+    ld a, [wEnemyMonPartyPos] ; wEnemyMonPartyPos starts from 0
+    ld hl, wBattleFacilityMon1Shinyness
+    ld b, 0
+    ld c, a
+    add hl, bc ; now hl contains wBattleFacilityMon[N]Shinyness
+    ld a, [hl]
+    and a
+    jr z, .noDelta
+    jr .matchFound
+
+INCLUDE "data/trainers/trainers_delta_mons.asm"

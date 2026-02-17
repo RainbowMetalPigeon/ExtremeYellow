@@ -1,4 +1,4 @@
-CheckForTrainersShinyMons:: ; TBE, may need to be changed with delta
+CheckForTrainersShinyMons::
     ld a, [wTrainerClass]
     cp BF_TRAINER
     jr z, .battleFacility ; handled specially
@@ -29,7 +29,6 @@ CheckForTrainersShinyMons:: ; TBE, may need to be changed with delta
     jr z, .matchFound
     jr .internalShinyLoop
 .matchFound
-;    ld a, 1
     ld a, [wOpponentMonShiny]
     set BIT_MON_SHINY, a
     ld [wOpponentMonShiny], a
@@ -40,7 +39,6 @@ CheckForTrainersShinyMons:: ; TBE, may need to be changed with delta
 	jr nz, .noMatch
 	jr .loopCheckForShiny
 .noShiny
-;    xor a
     ld a, [wOpponentMonShiny]
     res BIT_MON_SHINY, a
     ld [wOpponentMonShiny], a
@@ -71,7 +69,7 @@ AssignShinyToBattleFacilityTrainers:: ; TBE, may need to be changed with delta
 .loopOnMons
     call Random
     cp 51 ; 20% chance
-    ld a, 1
+    ld a, 1 ; TBE
     jr c, .itIsShiny
     xor a
 .itIsShiny
