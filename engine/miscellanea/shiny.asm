@@ -330,8 +330,10 @@ PlayShinyAnimationIfShinyEnemyMon:
     jr z, .wildBattle
 ; trainer battle, do the checks
 ;    call CheckForTrainersShinyMons ; unnecessary, already calling this in engine/gfx/palettes.asm
+    ld a, [wEnemyMonSpecies2]
+    and a
+    ret z ; no animation if it's a trainer and not a mon
     ld a, [wOpponentMonShiny]
-;    and a
     bit BIT_MON_SHINY, a
     ret z
     jr .playShinyAnim
@@ -339,8 +341,6 @@ PlayShinyAnimationIfShinyEnemyMon:
     ld hl, wEnemyMonSpecies2
     ld a, [wOpponentMonShiny]
     bit BIT_MON_SHINY, a
-;    cp 1
-;    ret nz
     ret z
 .playShinyAnim
     xor a

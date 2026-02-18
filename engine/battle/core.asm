@@ -729,6 +729,7 @@ TrainerBattleVictory:
 	xor a						; new, ld a, 0
 	ld [wInverseBattle], a		; new, reset battle mode to normal, even if it was Inverse
 	ld [wIsTrainerBattle], a    ; new, to go beyond 200
+;	ld [wOpponentMonShiny], a   ; new, for shiny and delta
 	inc a                       ; new, to go beyond 200
 	ld [wWasTrainerBattle], a   ; new, to go beyond 200
 	call EndLowHealthAlarm

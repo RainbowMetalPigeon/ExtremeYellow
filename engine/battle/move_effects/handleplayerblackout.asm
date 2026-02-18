@@ -2,9 +2,10 @@
 ; prints appropriate lose message, sets carry flag if player blacked out (special case for initial rival fight) -> useless?
 ; trying updates from Vortiene
 _HandlePlayerBlackOut:
-	xor a                    ; new, to go beyond 200
-	ld [wIsTrainerBattle], a ; new, to go beyond 200
-	ld [wInverseBattle], a   ; new, to reset battle style to normal after losing
+	xor a                     ; new, to go beyond 200
+	ld [wIsTrainerBattle], a  ; new, to go beyond 200
+	ld [wInverseBattle], a    ; new, to reset battle style to normal after losing
+;	ld [wOpponentMonShiny], a ; new, for shiny and delta
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .noLossText
