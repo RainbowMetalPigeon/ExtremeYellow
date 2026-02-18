@@ -167,7 +167,8 @@
 	charmap "'v",        $bf
 
 	; huge random gap
-	; edited
+	; edited/new
+	charmap "<DELTA>",  $cc
 	charmap "<BOLD_V>",  $cd
 	charmap "<BOLD_S>",  $ce
 	charmap "<COLON>",   $cf ; colon with tinier dots than ":"

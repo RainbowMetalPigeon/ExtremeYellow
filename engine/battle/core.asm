@@ -1759,6 +1759,19 @@ DrawPlayerHUDAndHPBar:
 	call PrintLevel
 .doNotPrintLevel
 ; back to vanilla
+; conditional printing of shiny and delta symbols
+    ld a, [wLoadedMonCatchRate]
+    bit BIT_MON_DELTA, a
+	jr z, .checkShiny
+	hlcoord 19, 9
+	ld [hl], "<DELTA>"
+.checkShiny
+    bit BIT_MON_SHINY, a
+	jr z, .doneWithDeltaAndShiny
+	hlcoord 19, 10
+	ld [hl], "<SHINY>"
+.doneWithDeltaAndShiny
+; BTV
 	ld a, [wLoadedMonSpecies]
 	ld [wcf91], a
 	hlcoord 10, 9
@@ -1798,7 +1811,6 @@ DrawEnemyHUDAndHPBar:
 	call ClearScreenArea
 	callfar PlaceEnemyHUDTiles
 ; ============================== new, code to display if a mon has been caught already
-	push hl
 	ld a, [wEnemyMonSpecies2]
 	ld [wd11e], a
 	ld hl, IndexToPokedex
@@ -1816,8 +1828,20 @@ DrawEnemyHUDAndHPBar:
 	coord hl, 1, 1 ; horizontal/vertical
 	ld [hl], $72
 .notOwned
-	pop hl
 ; ============================== end
+; conditional printing of shiny and delta symbols
+    ld a, [wOpponentMonShiny]
+    bit BIT_MON_DELTA, a
+	jr z, .checkShiny
+	hlcoord 0, 2
+	ld [hl], "<DELTA>"
+.checkShiny
+    bit BIT_MON_SHINY, a
+	jr z, .doneWithDeltaAndShiny
+	hlcoord 0, 3
+	ld [hl], "<SHINY>"
+.doneWithDeltaAndShiny
+; BTV
 	ld de, wEnemyMonNick
 	hlcoord 1, 0
 	call CenterMonName

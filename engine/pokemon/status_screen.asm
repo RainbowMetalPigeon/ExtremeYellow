@@ -166,7 +166,7 @@ StatusScreen:
 	jr z, .notDelta
 ; print shiny symbol
 	hlcoord 7, 7
-	ld [hl], "D" ; TBE
+	ld [hl], "<DELTA>"
 .notDelta
 ; back to vanilla
 ; new, print label that suggests to click SELECT for more info
