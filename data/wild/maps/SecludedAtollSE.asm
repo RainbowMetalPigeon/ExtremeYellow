@@ -18,15 +18,15 @@ SecludedAtollSEWildMons:
 
 	def_water_wildmons 5 ; encounter rate
 	db 10, HORSEA		; 19.9%
-	db 10, KRABBY		; 19.9%
+	db 15, STARYU		; 19.9%
 	db 15, HORSEA		; 15.2%
-	db 15, KRABBY		;  9.8%
+	db 20, STARYU		;  9.8%
 	db 20, HORSEA		;  9.8%
-	db 20, KRABBY		;  9.8%
+	db 25, STARYU		;  9.8%
 	db 25, SEADRA		;  5.1%
-	db 25, KINGLER		;  3.9%
+	db 30, STARMIE		;  3.9%
 	db 30, SEADRA		;  3.9%
-	db 30, KINGLER		;  1.2%
+	db 35, STARMIE		;  1.2%
 	db 35, KINGDRA		;  0.4%
 	db 35, KINGDRA		;  0.4%
 	db 35, KINGDRA		;  0.4%

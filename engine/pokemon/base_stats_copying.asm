@@ -310,6 +310,26 @@ ExtractMonsTypesForMovingIntoParty::
 	ld e, a
 	ret
 
+; mon ID in d
+; c flag if match found
+CheckIfMonHasDeltaSpecies::
+	ld hl, ListOfMonsAndTypesToChange_Delta
+.loop
+	ld a, [hli] ; hl points now to the first type
+	cp -1 ; terminator
+	jr z, .unsetCFlag
+	cp d
+	jr z, .setCFlag ; match found
+	inc hl
+	inc hl
+	jr .loop
+.setCFlag
+	scf
+	ret
+.unsetCFlag
+	xor a
+	ret
+
 ListOfMonsAndTypesToChange_Delta:
 
 ; 1
@@ -327,7 +347,7 @@ ListOfMonsAndTypesToChange_Delta:
 	db RAICHU, STEEL, STEEL
 	db MRAICHUX, STEEL, STEEL
 	db MRAICHUY, STEEL, STEEL
-	
+
 	db PIDGEY, ELECTRIC, ELECTRIC
 	db PIDGEOTTO, ELECTRIC, ELECTRIC
 	db PIDGEOT, ELECTRIC, STEEL
@@ -451,10 +471,10 @@ ListOfMonsAndTypesToChange_Delta:
 
 	db KABUTO, ELECTRIC, ELECTRIC
 	db KABUTOPS, ELECTRIC, ELECTRIC
-	
+
 	db OMANYTE, GHOST, FAIRY
 	db OMASTAR, GHOST, FAIRY
-	
+
 ; 5
 
 	db ARM_MEWTWO, FIRE, ELECTRIC

@@ -67,7 +67,17 @@ RockSmash::
 ; random encounter, let's see who we get
 	ldh a, [hRandomSub]
 	ld b, a ; b holds the random number
+
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .normalEncounterSlots
+	ld a, [wCurMap]
+	cp SECLUDED_ATOLL_NW
+	jr nz, .normalEncounterSlots
+	ld hl, RockSmashEncounters_Secluded
+	jr .determineEncounterSlot
+.normalEncounterSlots
 	ld hl, RockSmashEncounters
+
 .determineEncounterSlot
 	ld a, [hli]
 	cp b
@@ -180,6 +190,18 @@ RockSmashEncounters:
 	db 205, KRABBY, 30
 	db 225, KINGLER, 30
 	db 255, KINGLER, 40
+
+RockSmashEncounters_Secluded:
+	db 40, KRABBY, 20
+	db 80, SHELLDER, 20
+	db 90, KRABBY, 25
+	db 100, SHELLDER, 25
+	db 120, KRABBY, 30
+	db 143, SHELLDER, 30
+	db 165, KINGLER, 35
+	db 205, CLOYSTER, 35
+	db 245, KINGLER, 40
+	db 250, CLOYSTER, 40
 
 RockSmashItems:
 	db  27, KINGS_ROCK

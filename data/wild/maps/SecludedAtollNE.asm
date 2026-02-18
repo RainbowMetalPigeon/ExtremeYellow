@@ -18,15 +18,15 @@ SecludedAtollNEWildMons:
 
 	def_water_wildmons 5 ; encounter rate
 	db 10, PSYDUCK		; 19.9%
-	db 10, PSYDUCK		; 19.9%
+	db 10, SEEL			; 19.9%
 	db 15, PSYDUCK		; 15.2%
-	db 15, SHELLDER		;  9.8%
-	db 20, SEEL			;  9.8%
+	db 15, SEEL			;  9.8%
 	db 20, PSYDUCK		;  9.8%
-	db 25, SHELLDER		;  5.1%
+	db 20, SEEL			;  9.8%
+	db 30, PSYDUCK		;  5.1%
 	db 25, SEEL			;  3.9%
-	db 30, SHELLDER		;  3.9%
-	db 30, SEEL			;  1.2%
+	db 30, SEEL			;  3.9%
+	db 35, DEWGONG		;  1.2%
 	db 35, GOLDUCK		;  0.4%
 	db 35, GOLDUCK		;  0.4%
 	db 35, GOLDUCK		;  0.4%

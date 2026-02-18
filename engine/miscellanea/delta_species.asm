@@ -88,7 +88,7 @@ CheckForTrainersDeltaMons::
     ld a, [wTrainerClass]
     cp BF_TRAINER
     jr z, .battleFacility ; handled specially
-    
+
     ld b, a
     ld a, [wTrainerNo]
     ld c, a
