@@ -354,7 +354,7 @@ DebugItemsList:
 ;	db PEARL, 7
 ;	db ROOM_KEY_34, 1
 ;	db ROOM_KEY_37, 1
-	db PASSEPARTOUT, 1
+;	db PASSEPARTOUT, 1
 	db -1 ; end
 
 ELSE
