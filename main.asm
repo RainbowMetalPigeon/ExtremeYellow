@@ -123,7 +123,6 @@ INCLUDE "data/maps/hide_show_data_sevii.asm" ; new ; these 3 together ; from ban
 INCLUDE "home/play_time.asm" ; edited, moved from home
 INCLUDE "engine/overworld/smart_select.asm" ; new
 INCLUDE "engine/overworld/emotion_bubbles.asm" ; from bank10
-INCLUDE "engine/movie/intro.asm" ; from bank10
 INCLUDE "engine/miscellanea/delta_species.asm" ; new
 
 
@@ -255,10 +254,14 @@ SECTION "bank10", ROMX
 INCLUDE "engine/menus/pokedex.asm"
 ;INCLUDE "engine/overworld/emotion_bubbles.asm" ; moved away
 INCLUDE "engine/movie/trade.asm"
-;INCLUDE "engine/movie/intro.asm" ; moved away
+INCLUDE "engine/movie/intro.asm"
 INCLUDE "engine/movie/trade2.asm"
-INCLUDE "engine/menus/options.asm"
 INCLUDE "engine/menus/attackdex.asm" ; new
+
+
+SECTION "bank10b", ROMX ; new, to save space above
+
+INCLUDE "engine/menus/options.asm"
 INCLUDE "engine/menus/randomization.asm" ; new
 INCLUDE "engine/menus/personalization.asm" ; new
 INCLUDE "engine/menus/luck.asm" ; new
