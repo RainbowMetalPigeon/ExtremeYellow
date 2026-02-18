@@ -361,7 +361,7 @@ ProtonPic::
 PetrelPic::
 ArianaPic::
 ArcherPic::
-CarrPic::
+CarrPic::          INCBIN "gfx/trainers/carr.pic"
 OrmPic::           INCBIN "gfx/trainers/orm.pic"
 SirdPic::          INCBIN "gfx/trainers/sird.pic"
 IchinoPic::
