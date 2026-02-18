@@ -65,6 +65,7 @@ RockSmash::
 	cp 25 percent
 	jr nc, .tryItem
 ; random encounter, let's see who we get
+	callfar DetermineIfWildMonIsDeltaSpecies
 	ldh a, [hRandomSub]
 	ld b, a ; b holds the random number
 
@@ -191,7 +192,7 @@ RockSmashEncounters:
 	db 225, KINGLER, 30
 	db 255, KINGLER, 40
 
-RockSmashEncounters_Secluded:
+RockSmashEncounters_Secluded: ; for delta
 	db 40, KRABBY, 20
 	db 80, SHELLDER, 20
 	db 90, KRABBY, 25

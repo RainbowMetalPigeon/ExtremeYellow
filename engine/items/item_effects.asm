@@ -2827,6 +2827,12 @@ CoinCaseNumCoinsText:
 ItemUseOldRod:
 	call FishingInit
 	jp c, ItemUseNotTime
+; new, check if we are in Secluded Atoll: no fishing there
+	call CheckIfSecludedForFishing
+	ld a, [wRodResponse]
+	cp 2
+	ret z
+; BTV
 ItemUseOldRodFar:: ; new
 	lb bc, 5, MAGIKARP
 	; new, to improve rods (Obsidian Fishing Guru) - begin
@@ -2836,11 +2842,17 @@ ItemUseOldRodFar:: ; new
 .setBite
 	; new, to improve rods (Obsidian Fishing Guru) - end
 	ld a, $1 ; set bite
-	jr RodResponse
+	jp RodResponse
 
 ItemUseGoodRod::
 	call FishingInit
 	jp c, ItemUseNotTime
+; new, check if we are in Secluded Atoll: no fishing there
+	call CheckIfSecludedForFishing
+	ld a, [wRodResponse]
+	cp 2
+	ret z
+; BTV
 .RandomLoop
 	; new, to improve rods (Obsidian Fishing Guru) - begin
 	CheckEvent EVENT_ENHANCED_RODS
@@ -2965,6 +2977,23 @@ FishingInit:
 .cannotFish
 	scf ; can't fish when surfing
 	ret
+
+CheckIfSecludedForFishing: ; new
+	CheckEvent EVENT_IN_SEVII
+	ret nz
+	ld a, [wCurMap]
+	cp SECLUDED_ATOLL_NE
+	jr z, .yesSecluded
+	cp SECLUDED_ATOLL_NW
+	jr z, .yesSecluded
+	cp SECLUDED_ATOLL_SE
+	jr z, .yesSecluded
+	cp SECLUDED_ATOLL_SW
+	ret nz
+.yesSecluded
+	ld a, $2
+	ld [wRodResponse], a
+	jp DoNotGenerateFishingEncounter ; do not generate an encounter
 
 ItemUseOaksParcel:
 	jp ItemUseNotYoursToUse
