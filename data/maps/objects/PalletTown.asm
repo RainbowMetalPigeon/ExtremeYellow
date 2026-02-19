@@ -63,7 +63,8 @@ PalletTown_Object:
 ;	warp_event 12, 11, BATTLE_FACILITY, 1
 ;	warp_event 12, 11, CHAMPIONS_ROOM, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_2, 1
-	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
+;	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
+	warp_event 12, 11, SECLUDED_ATOLL_SW, 1
 
 	def_bg_events
 	bg_event 13, 13, 5 ; PalletTownText4

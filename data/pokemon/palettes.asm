@@ -433,7 +433,7 @@ MonsterPalettesShiny:
 	db PAL_PINKMON    ; DRATINI
 	db PAL_PINKMON    ; DRAGONAIR
 	db PAL_GREENMON   ; DRAGONITE
-	db PAL_GREENMON   ; MDRAGONITE
+	db PAL_BLUEMON    ; MDRAGONITE
 	db PAL_GREENMON   ; ARM_MEWTWO
 	db PAL_GREENMON   ; MEWTWO
 	db PAL_GREENMON   ; MMEWTWOX
@@ -479,10 +479,10 @@ MonsterPalettesDelta:
 	db PAL_GREYMON   ; KAKUNA - delta
 	db PAL_GREYMON   ; BEEDRILL - delta
 	db PAL_GREYMON   ; MBEEDRILL - delta
-	db PAL_YELLOWMON ; PIDGEY - delta
-	db PAL_YELLOWMON ; PIDGEOTTO - delta
-	db PAL_YELLOWMON ; PIDGEOT - delta
-	db PAL_YELLOWMON ; MPIDGEOT - delta
+	db PAL_ORANGEMON ; PIDGEY - delta
+	db PAL_ORANGEMON ; PIDGEOTTO - delta
+	db PAL_ORANGEMON ; PIDGEOT - delta
+	db PAL_ORANGEMON ; MPIDGEOT - delta
 	db PAL_PURPLEMON ; RATTATA
 	db PAL_BROWNMON  ; RATICATE
 	db PAL_YELLOWMON ; SPEAROW - delta
@@ -708,10 +708,10 @@ MonsterPalettesDeltaShiny:
 	db PAL_PURPLEMON  ; KAKUNA - delta
 	db PAL_PURPLEMON  ; BEEDRILL - delta
 	db PAL_PURPLEMON  ; MBEEDRILL - delta
-	db PAL_REDMON     ; PIDGEY - delta
-	db PAL_REDMON     ; PIDGEOTTO - delta
-	db PAL_REDMON     ; PIDGEOT - delta
-	db PAL_REDMON     ; MPIDGEOT - delta
+	db PAL_MEWMON2    ; PIDGEY - delta
+	db PAL_MEWMON2    ; PIDGEOTTO - delta
+	db PAL_MEWMON2    ; PIDGEOT - delta
+	db PAL_MEWMON2    ; MPIDGEOT - delta
 	db PAL_GREYMON    ; RATTATA
 	db PAL_REDMON     ; RATICATE
 	db PAL_PINKMON    ; SPEAROW - delta
@@ -725,9 +725,9 @@ MonsterPalettesDeltaShiny:
 	db PAL_CYANMON    ; MRAICHUY - delta
 	db PAL_GREENMON   ; SANDSHREW - delta
 	db PAL_GREENMON   ; SANDSLASH - delta
-	db PAL_BLUEMON    ; NIDORAN_F - delta
-	db PAL_BLUEMON    ; NIDORINA - delta
-	db PAL_BLUEMON    ; NIDOQUEEN - delta
+	db PAL_MEWMON2    ; NIDORAN_F - delta
+	db PAL_MEWMON2    ; NIDORINA - delta
+	db PAL_MEWMON2    ; NIDOQUEEN - delta
 	db PAL_GREENLIGHTMON  ; NIDORAN_M - delta
 	db PAL_GREENLIGHTMON  ; NIDORINO - delta
 	db PAL_GREENLIGHTMON  ; NIDOKING - delta
@@ -794,8 +794,8 @@ MonsterPalettesDeltaShiny:
 	db PAL_PURPLEMON  ; FARFETCHD
 	db PAL_YELLOWMON  ; DODUO
 	db PAL_YELLOWMON  ; DODRIO
-	db PAL_BLACKMON   ; SEEL - delta
-	db PAL_BLACKMON   ; DEWGONG - delta
+	db PAL_MEWMON2    ; SEEL - delta
+	db PAL_MEWMON2    ; DEWGONG - delta
 	db PAL_GREENLIGHTMON ; GRIMER
 	db PAL_GREENLIGHTMON ; MUK
 	db PAL_GREENMON   ; SHELLDER - delta
@@ -881,8 +881,8 @@ MonsterPalettesDeltaShiny:
 	db PAL_BLACKMON   ; OMASTAR - delta
 	db PAL_REDMON     ; KABUTO - delta
 	db PAL_REDMON     ; KABUTOPS - delta
-	db PAL_GREENLIGHTMON ; AERODACTYL - delta
-	db PAL_GREENLIGHTMON ; MARODACTYL - delta
+	db PAL_MEWMON2    ; AERODACTYL - delta
+	db PAL_MEWMON2    ; MARODACTYL - delta
 	db PAL_CYANMON    ; MUNCHLAX - delta
 	db PAL_CYANMON    ; SNORLAX - delta
 	db PAL_CYANMON    ; ARTICUNO

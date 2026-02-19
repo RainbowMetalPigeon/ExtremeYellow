@@ -163,6 +163,13 @@ HoFDisplayAndRecordMonInfo:
 	ld a, [wHoFPartyMonIndex]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
+; new, for delta
+	ld a, [wHoFMonShiny]
+	ld d, a
+	push hl
+	callfar SetDeltaSpeciesEvent_dRegister
+	pop hl
+; BTV
 	call HoFDisplayMonInfo
 	ld a, [wHoFPartyMonIndex]
 	ld [wWhichPokemon], a
@@ -177,7 +184,7 @@ HoFDisplayAndRecordMonInfo:
 .asm_7033c
 	jp HoFRecordMonInfo
 
-Func_7033f:
+Func_7033f: ; used in league_pc
 	call HoFDisplayMonInfo
 	ld a, [wHoFMonSpecies]
 	jp PlayCry
@@ -198,14 +205,7 @@ HoFDisplayMonInfo:
 	ld a, [wHoFMonSpecies]
 	ld [wd0b5], a
 	hlcoord 3, 9
-	; new, for delta
-	ld a, [wHoFMonShiny]
-	ld d, a
-	push hl
-	callfar SetDeltaSpeciesEvent_dRegister
-	pop hl
-	; BTV
-	predef PrintMonType ; TBE: add check on wHoFMonShiny ?
+	predef PrintMonType
 	ret
 
 HoFMonInfoText:

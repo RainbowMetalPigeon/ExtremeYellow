@@ -96,20 +96,22 @@ LeaguePCShowMon:
 	ld de, wcd6d
 	ld bc, NAME_LENGTH
 	call CopyData ; copies bc bytes from hl to de; edited
-; new, for the shiny
-; TBE for delta species
+; new, for the shiny and delta
 	inc hl ; does hl work here?
 	ld a, [hl] ; a should contain the shiny-ness of that HoF mon
 	ld [wPlayerMonShiny], a
 	ld b, SET_PAL_POKEMON_WHOLE_SCREEN
 	ld c, 0
 	call RunPaletteCommand
-	xor a
-	ld [wPlayerMonShiny], a
 ; back to vanilla
 	hlcoord 12, 5
 	call GetMonHeader
 	call LoadFrontSpriteByMonIndex
+; new, for the delta
+	callfar SetDeltaSpeciesEvent_PlayerForLeaguePC
+	xor a
+	ld [wPlayerMonShiny], a
+; BTV
 	call GBPalNormal
 	hlcoord 0, 13
 	lb bc, 2, 18
