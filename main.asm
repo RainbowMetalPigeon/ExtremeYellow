@@ -124,6 +124,7 @@ INCLUDE "home/play_time.asm" ; edited, moved from home
 INCLUDE "engine/overworld/smart_select.asm" ; new
 INCLUDE "engine/overworld/emotion_bubbles.asm" ; from bank10
 INCLUDE "engine/miscellanea/delta_species.asm" ; new
+INCLUDE "engine/miscellanea/menus.asm" ; new
 
 
 SECTION "bank4", ROMX

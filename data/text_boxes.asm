@@ -41,7 +41,7 @@ TextBoxTextAndCoordTable:
 	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,    11,  6, 19, 12, BFStandardHardcoreExit,  13,  7 ; new
 	text_box_text BF_MENU_AG_NFE_LC_EXIT,            11,  4, 19, 12, BFAgNfeLcExit,           13,  5 ; new
 	text_box_text BF_MENU_NORMAL_INVERSE_EXIT,       10,  6, 19, 12, BFNormalInverseExit,     12,  7 ; new
-	text_box_text MENU_POKEMON_ATTACKS_EXIT,         10,  6, 19, 12, MenuPokemonAttacksExit,  12,  7 ; new
+	text_box_text MENU_POKEMON_ATTACKS_CHART_EXIT,   10,  4, 19, 12, MenuPokemonAttacksChartExit, 12,  5 ; new
 	text_box_text MOVE_TUTOR_WEATHER_MENU,            7,  4, 19, 12, MoveTutorWeatherText,     9,  5 ; new
 	text_box_text MOVE_TUTOR_TERRAIN_MENU,            3,  4, 19, 12, MoveTutorTerrainText,     5,  5 ; new
 	text_box_text MOVE_TUTOR_HAZARD_MENU,             5,  4, 19, 12, MoveTutorHazardText,      7,  5 ; new
@@ -154,9 +154,10 @@ BFNormalInverseExit: ; new
 	next "INVERSE"
 	next "EXIT@"
 
-MenuPokemonAttacksExit: ; new
+MenuPokemonAttacksChartExit: ; new
 	db   "#MON"
 	next "ATTACKS"
+	next "CHART"
 	next "EXIT@"
 
 JapanesePokedexMenu:

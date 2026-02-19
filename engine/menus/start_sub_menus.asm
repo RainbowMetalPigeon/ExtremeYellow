@@ -2,12 +2,17 @@ StartMenu_Pokedex::
 ; new, for the Attackdex
 	ld hl, PokedexOrAttackdex
 	call PrintText
-	call PokedexAttackdexChoice
+	call PokedexAttackdexChartChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	jr z, .pokedex
 	cp 1
 	jr z, .attackdex
+	cp 2
+	jr z, .typechartdex
+	jr .afterDexUsage
+.typechartdex
+	call ShowTypeChart
 	jr .afterDexUsage
 .attackdex
 	callfar ShowAttackdexMenu
@@ -565,7 +570,7 @@ StartMenu_Item::
 ; trigger Chamber 3 event
 	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_5
 	ld a, 1
-	ld [wCurMapScript], a	
+	ld [wCurMapScript], a
 	jp CloseStartMenu
 .vanillaToss
 ; BTV
@@ -1062,21 +1067,21 @@ MapsForbiddenPC_Sevii:
 	db SEVII_SEVEN_ISLAND_GYM_3
 	db -1
 
-; displays pokedex/attackdex choice
-PokedexAttackdexChoice:
+; displays pokedex/attackdex/chart choice
+PokedexAttackdexChartChoice:
 	call SaveScreenTilesToBuffer1
-	ld a, MENU_POKEMON_ATTACKS_EXIT
+	ld a, MENU_POKEMON_ATTACKS_CHART_EXIT
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	ld hl, wTopMenuItemY
-	ld a, 7
+	ld a, 5
 	ld [hli], a ; top menu item Y
 	ld a, 11 ; AAA
 	ld [hli], a ; top menu item X
 	xor a
 	ld [hli], a ; current menu item ID
 	inc hl
-	ld a, $2
+	ld a, 3 ; number of options - 1
 	ld [hli], a ; wMaxMenuItem
 	ld a, B_BUTTON | A_BUTTON
 	ld [hli], a ; wMenuWatchedKeys
@@ -1090,7 +1095,7 @@ PokedexAttackdexChoice:
 	ld a, [wCurrentMenuItem]
 	jp LoadScreenTilesFromBuffer1
 .defaultOption
-	ld a, $02
+	ld a, 3 ; number of options - 1
 	ld [wCurrentMenuItem], a
 	jp LoadScreenTilesFromBuffer1
 
@@ -1232,22 +1237,57 @@ TrainerInfo_MilestonesText_SSTicket:
 
 TrainerInfo_MilestonesText_CoinCase:
 	db $76,"COIN CASE:@"
-	
+
 TrainerInfo_MilestonesText_LiftKey:
 	db $76,"LIFT KEY@"
 
 TrainerInfo_MilestonesText_CardKey:
 	db $76,"CARD KEY@"
-	
+
 TrainerInfo_MilestonesText_SeviiTicket:
 	db $76,"SEVII TICKET: 1-3@"
 TrainerInfo_MilestonesText_SeviiTicket_5:
 	db "5@"
 TrainerInfo_MilestonesText_SeviiTicket_7:
 	db "7@"
-	
+
 TrainerInfo_MilestonesText_SecretKey:
 	db $76,"SECRET KEY@"
-	
+
 TrainerInfo_MilestonesText_SeviiTrials:
 	db $76,"SEVII TRIAL@"
+
+; =====================================================
+
+ShowTypeChart::
+	call GBPalWhiteOut
+	call ClearScreen
+	call UpdateSprites
+	ldh a, [hTileAnimations]
+	push af
+	xor a
+	ldh [hTileAnimations], a
+; main drawing stuff
+	callfar DrawTypeChartInfo ; DrawTrainerInfo ; TBE
+	ld b, SET_PAL_TRAINER_CARD
+	call RunPaletteCommand
+	call GBPalNormal
+	call WaitForTextScrollButtonPress ; wait for button press
+; clear and return to start menu
+	xor a
+	ld [wMenuWatchMovingOutOfBounds], a
+	ld [wCurrentMenuItem], a
+	ld [wLastMenuItem], a
+	ldh [hJoy7], a
+	ld [wWastedByteCD3A], a
+	ld [wOverrideSimulatedJoypadStatesMask], a
+	call GBPalWhiteOut
+	call LoadFontTilePatterns
+	call LoadScreenTilesFromBuffer2 ; restore saved screen
+	call RunDefaultPaletteCommand
+	call ReloadMapData
+	farcall DrawStartMenu
+	call LoadGBPal
+	pop af
+	ldh [hTileAnimations], a
+	ret

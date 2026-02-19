@@ -12,7 +12,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const BF_MENU_NORMAL_INVERSE_EXIT       ; $07 new for Battle Facility, was MENU_TEMPLATE_07
 	const JP_SAVE_MESSAGE_MENU_TEMPLATE     ; $08
 	const JP_SPEED_OPTIONS_MENU_TEMPLATE    ; $09
-	const MENU_POKEMON_ATTACKS_EXIT         ; $0a ; new, for attackdex
+	const MENU_POKEMON_ATTACKS_CHART_EXIT   ; $0a ; new, for attackdex
 	const BATTLE_MENU_TEMPLATE              ; $0b
 	const SWITCH_STATS_CANCEL_MENU_TEMPLATE ; $0c
 	const LIST_MENU_BOX                     ; $0d
