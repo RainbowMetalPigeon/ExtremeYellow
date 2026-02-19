@@ -1,130 +1,237 @@
 DrawTypeChartInfo::
 
-	ld de, RedPicFront
-	lb bc, BANK(RedPicFront), $01
-	ld a, [wPlayerGender]
-	and a
-	jr z, .ContinueWithLoading
-	cp a, 2
-	jr z, .AreEnby
-	ld de, GreenPicFront
-	lb bc, BANK(GreenPicFront), $01
-	jr .ContinueWithLoading
-.AreEnby
-	ld de, YellowPicFront
-	lb bc, BANK(YellowPicFront), $01
-.ContinueWithLoading
-	predef DisplayPicCenteredOrUpperRight
-
 	call DisableLCD
 
-	hlcoord 0, 2
-	ld a, " "
-	call TrainerInfo_DrawVerticalLine2
-
-	hlcoord 1, 2
-	call TrainerInfo_DrawVerticalLine2
-
-	ld hl, vChars2 tile $07
+	ld hl, TypeChartTileGraphics  ; badge number tile patterns
 	ld de, vChars2 tile $00
-	ld bc, $1c tiles
-	call CopyData ; copies bc bytes from hl to de
-
-	ld hl, TrainerInfoTextBoxTileGraphics ; trainer info text box tile patterns
-	ld de, vChars2 tile $77
-	ld bc, 8 tiles
-	push bc
-	call TrainerInfo_FarCopyData2
-
-	ld hl, BlankLeaderNames
-	ld de, vChars2 tile $60
-	ld bc, $17 tiles
-	call TrainerInfo_FarCopyData2
-	pop bc
-
-	ld hl, BadgeNumbersTileGraphics  ; badge number tile patterns
-	ld de, vChars1 tile $58
-	call TrainerInfo_FarCopyData2
-
-	ld hl, GymLeaderFaceAndBadgeTileGraphics  ; gym leader face and badge tile patterns
-	ld de, vChars2 tile $20
-	ld bc, 8 * 8 tiles
-	ld a, BANK(GymLeaderFaceAndBadgeTileGraphics)
-	call FarCopyData
-
-	ld hl, TextBoxGraphics
-	ld de, 13 tiles
-	add hl, de ; hl = colon tile pattern
-	ld de, vChars1 tile $56
-	ld bc, 1 tiles
-	ld a, BANK(TextBoxGraphics)
-	push bc
-	call FarCopyData
-	pop bc
-
-	ld hl, TrainerInfoTextBoxTileGraphics tile 8  ; background tile pattern
-	ld de, vChars1 tile $57
-	call TrainerInfo_FarCopyData2
+	ld bc, TypeChartTileGraphicsEnd - TypeChartTileGraphics
+	call CopyData
 
 	call EnableLCD
 
-	ld hl, wTrainerInfoTextBoxWidthPlus1
-	ld a, 18 + 1
-	ld [hli], a
-	dec a
-	ld [hli], a
-	ld [hl], 1
+	call DrawTypeHeader
 
-	hlcoord 0, 0
-	call TrainerInfo_DrawTextBox2
+;	hlcoord  1,  0
+;	ld [hl], $50
+;	inc hl
+;	ld [hl], $51
+;	inc hl
+;	ld [hl], $52
+;	inc hl
+;	ld [hl], $53
+;	inc hl
+;
+;	hlcoord  3,  1
+;	ld a, 8
+;	ld [wTypeEffectiveness], a
+;	call PlaceTileDependingOnEffectiveness
 
-	ld hl, wTrainerInfoTextBoxWidthPlus1
-	ld a, 16 + 1
-	ld [hli], a
-	dec a
-	ld [hli], a
-	ld [hl], 3
 
-	hlcoord 1, 10
-	call TrainerInfo_DrawTextBox2
+	ld de, TypeListsForChart
+	hlcoord  2,  0
+.loopOffensive
+	ld a, [de]
+	inc de
+	push de
+	cp -1
+	jr z, .doneWithOffensive
 
-	hlcoord 0, 10
-	ld a, $d7
-	call TrainerInfo_DrawVerticalLine2
-
-	hlcoord 19, 10
-	call TrainerInfo_DrawVerticalLine2
-
-	hlcoord 6, 9
-	ld de, TrainerInfo_BadgesText2
-	call PlaceString
-
-	hlcoord 2, 2
-	ld de, TrainerInfo_NameMoneyTimeText2
-	call PlaceString
-
-	hlcoord 7, 2
-	ld de, wPlayerName
-	call PlaceString
-
-	hlcoord 8, 4
-	ld de, wPlayerMoney
-	ld c, $e3
-	call PrintBCDNumber
-
-	hlcoord 7, 6 ; edited, was 9, 6
-	ld de, wPlayTimeHours ; hours
-	lb bc, LEFT_ALIGN | 2, 5 ; edited, was 1, 3
-	call PrintNumber ; Print the c-digit, b-byte value at de.
-
-	ld [hl], ":" ; edited, to expand tileset
-
+	ld b, a
+	ld de, TypeListsForChart
+.loopDefensive
+	ld a, [de]
+	cp -1
+	jr z, .doneWithDefensive
+	ld c, a
+	push hl
+	push de
+	push bc
+	call DetermineEffectiveness ; input: b=ATK, c=DEF; output: wTypeEffectiveness 0-1-2-4-8-16
+	pop bc
+	pop de
+	pop hl
+	call PlaceTileDependingOnEffectiveness
 	inc hl
-	ld de, wPlayTimeMinutes ; minutes
-	lb bc, LEADING_ZEROES | 1, 2
-	jp PrintNumber
+	inc de
+	jr .loopDefensive
+.doneWithDefensive
 
-; --------------------------------------------------------------
+	pop de
+	inc hl
+	inc hl
+
+	jr .loopOffensive
+
+.doneWithOffensive
+
+	ret
+
+; ====================================================================================
+
+; input: b = attacking type; c = defending type
+; output: [wTypeEffectiveness]: 0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective
+DetermineEffectiveness:
+	ld a, b
+	ld [wEnemyMoveType], a
+	ld a, c
+	ld [wBattleMonType1], a
+	ld [wBattleMonType2], a
+	jpfar AIGetTypeEffectiveness ; output in wTypeEffectiveness
+
+; inputs: hlcoord, wTypeEffectiveness value
+PlaceTileDependingOnEffectiveness:
+	ld a, [wTypeEffectiveness]
+	cp 4 ; neutral
+	ld [hl], $24
+	ret z
+	and a ; no effective
+	ld [hl], $27
+	ret z
+	cp 2 ; not very effective
+	ld [hl], $26
+	ret z
+	; super effective
+	ld [hl], $25
+	ret
+
+TypeListsForChart:
+	db NORMAL       ;  0
+	db FIRE         ;  1
+	db WATER        ;  2
+	db ELECTRIC     ;  3
+	db GRASS        ;  4
+	db ICE          ;  5
+	db FIGHTING     ;  6
+	db POISON       ;  7
+	db GROUND       ;  8
+	db FLYING       ;  9
+	db PSYCHIC_TYPE ; 10
+	db BUG          ; 11
+	db ROCK         ; 12
+	db GHOST        ; 13
+	db DRAGON       ; 14
+	db DARK         ; 15
+	db STEEL        ; 16
+	db FAIRY        ; 17
+	db -1
+
+DrawTypeHeader:
+	; NORMAL
+	hlcoord  0,  0
+	ld [hl], $00
+	inc hl
+	ld [hl], $01
+
+	; FIRE
+	hlcoord  0,  1
+	ld [hl], $18
+	inc hl
+	ld [hl], $19
+
+	; WATER
+	hlcoord  0,  2
+	ld [hl], $0A
+	inc hl
+	ld [hl], $0B
+
+	; ELECTRIC
+	hlcoord  0,  3
+	ld [hl], $0C
+	inc hl
+	ld [hl], $0D
+
+	; GRASS
+	hlcoord  0,  4
+	ld [hl], $1A
+	inc hl
+	ld [hl], $1B
+
+	; ICE
+	hlcoord  0,  5
+	ld [hl], $0E
+	inc hl
+	ld [hl], $0F
+
+	; FIGHTING
+	hlcoord  0,  6
+	ld [hl], $20
+	inc hl
+	ld [hl], $21
+
+	; POISON
+	hlcoord  0,  7
+	ld [hl], $22
+	inc hl
+	ld [hl], $23
+
+	; GROUND
+	hlcoord  0,  8
+	ld [hl], $04
+	inc hl
+	ld [hl], $05
+
+	; FLYING
+	hlcoord  0,  9
+	ld [hl], $02
+	inc hl
+	ld [hl], $03
+
+	; PSYCHIC_TYPE
+	hlcoord  0, 10
+	ld [hl], $1C
+	inc hl
+	ld [hl], $1D
+
+	; BUG
+	hlcoord  0, 11
+	ld [hl], $06
+	inc hl
+	ld [hl], $07
+
+	; ROCK
+	hlcoord  0, 12
+	ld [hl], $14
+	inc hl
+	ld [hl], $15
+
+	; GHOST
+	hlcoord  0, 13
+	ld [hl], $16
+	inc hl
+	ld [hl], $17
+
+	; DRAGON
+	hlcoord  0, 14
+	ld [hl], $1E
+	inc hl
+	ld [hl], $1F
+
+	; DARK
+	hlcoord  0, 15
+	ld [hl], $10
+	inc hl
+	ld [hl], $11
+
+	; STEEL
+	hlcoord  0, 16
+	ld [hl], $08
+	inc hl
+	ld [hl], $09
+
+	; FAIRY
+	hlcoord  0, 17
+	ld [hl], $12
+	inc hl
+	ld [hl], $13
+
+	ret
+
+; ====================================================================================
+
+TypeChartTileGraphics:  INCBIN "gfx/pokedex/type_chart_font.2bpp"
+TypeChartTileGraphicsEnd:
+
+; ====================================================================================
 
 ; draws a vertical line
 ; INPUT:
@@ -199,42 +306,3 @@ TrainerInfo_NameMoneyTimeText2:
 ; $76 is a circle tile
 TrainerInfo_BadgesText2:
 	db $76,"BADGES",$76,"@"
-
-; =====================================================
-
-; input: d = attacking type; e = defending type
-; output: [wTypeEffectiveness]: 0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective
-DetermineEffectiveness:
-	ld a, d
-	ld [wEnemyMoveType], a
-	ld a, e
-	ld [wBattleMonType1], a
-	ld [wBattleMonType2], a
-	jpfar AIGetTypeEffectiveness ; output in wTypeEffectiveness
-
-TypeListsForChart:
-	db NORMAL       ;  0
-	db FIGHTING     ;  1
-	db FLYING       ;  2
-	db POISON       ;  3
-	db GROUND       ;  4
-	db ROCK         ;  5
-	db BUG          ;  7
-	db GHOST        ;  8
-	db STEEL        ;  9
-	db FIRE         ; 10
-	db WATER        ; 11
-	db GRASS        ; 12
-	db ELECTRIC     ; 13
-	db PSYCHIC_TYPE ; 14
-	db ICE          ; 15
-	db DRAGON       ; 16
-	db DARK         ; 17
-	db FAIRY        ; 18
-	db -1
-
-
-
-
-
-;a

@@ -198,6 +198,7 @@ PalPacket_TrainerCard:    PAL_SET PAL_MEWMON, PAL_BADGE, PAL_REDMON, PAL_YELLOWM
 PalPacket_Generic:        PAL_SET PAL_MEWMON, 0, 0, 0
 PalPacket_NidorinoIntro:  PAL_SET PAL_PURPLEMON, PAL_BLACK, 0, 0
 PalPacket_GameFreakIntro: PAL_SET PAL_GAMEFREAK, PAL_REDMON, PAL_VIRIDIAN, PAL_BLUEMON
+PalPacket_TypeChart:      PAL_SET PAL_TYPE_CHART, 0, 0, 0 ; new
 UnknownPalPacket_72811:   PAL_SET PAL_25, PAL_25, PAL_25, PAL_25
 UnknownPalPacket_72821:   PAL_SET PAL_25, PAL_27, PAL_25, PAL_25
 PalPacket_Rainbow:        PAL_SET PAL_YELLOWMON, PAL_REDMON, PAL_ROUTE, PAL_BLUEMON ; new, testing

@@ -30,6 +30,7 @@ DEF NUM_ACTIVE_PALS EQU 4
 	const SET_PAL_TRAINER_CARD         ; $0D
 	const SET_PAL_BATTLE_METAL         ; new
 	const SET_PAL_POKEDEX_SHINY        ; new
+	const SET_PAL_TYPE_CHART           ; new
 
 DEF SET_PAL_PARTY_MENU_HP_BARS EQU $fc
 DEF SET_PAL_DEFAULT EQU $ff
@@ -111,6 +112,7 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_PLAYER_RED ; new
 	const PAL_PLAYER_GREEN ; new
 	const PAL_PLAYER_YELLOW ; new
+	const PAL_TYPE_CHART ; new
 DEF NUM_SGB_PALS_HAUNTEDLESS EQU const_value ; new, used only to select palettes in Haunted maps
 	const PAL_PALLET_00 ; new
 	const PAL_PALLET_01 ; new
@@ -208,4 +210,5 @@ DEF NUM_SGB_PALS EQU const_value
 	const PAL_SEVII_PLAYER_RED
 	const PAL_SEVII_PLAYER_GREEN
 	const PAL_SEVII_PLAYER_YELLOW
+	const PAL_SEVII_TYPE_CHART
 DEF NUM_SGB_PALS_SEVII EQU const_value

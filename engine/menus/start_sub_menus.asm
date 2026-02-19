@@ -1268,8 +1268,8 @@ ShowTypeChart::
 	xor a
 	ldh [hTileAnimations], a
 ; main drawing stuff
-	callfar DrawTypeChartInfo ; DrawTrainerInfo ; TBE
-	ld b, SET_PAL_TRAINER_CARD
+	callfar DrawTypeChartInfo ; main drawing thing ; TBE
+	ld b, SET_PAL_TYPE_CHART
 	call RunPaletteCommand
 	call GBPalNormal
 	call WaitForTextScrollButtonPress ; wait for button press

@@ -202,6 +202,11 @@ SetPal_PokedexShiny: ; new
 	ld de, BlkPacket_Pokedex
 	ret
 
+SetPal_TypeChart: ; new
+	ld hl, PalPacket_TypeChart
+	ld de, BlkPacket_WholeScreen
+	ret
+
 SetPal_Slots:
 	ld hl, PalPacket_Slots
 	ld de, BlkPacket_Slots
@@ -653,7 +658,8 @@ SetPalFunctions:
 	dw SetPal_GameFreakIntro
 	dw SetPal_TrainerCard
 	dw SetPal_BattleMetal ; new
-	dw SetPal_PokedexShiny ; new, testing
+	dw SetPal_PokedexShiny ; new
+	dw SetPal_TypeChart ; new
 	dw SendUnknownPalPacket_7205d ; related to engine/minigame/surfing_pikachu.asm
 	dw SendUnknownPalPacket_72064 ; related to engine/minigame/surfing_pikachu.asm
 
