@@ -1,3 +1,186 @@
+; inputs: d & e = types of the defender mon
+; output: [wMultipurposeTemporaryStorage] = effectiveness, or $FF if hit terminator 
+TypeEffectivenessMatchFinder::
+	ld a, [wMoveType]
+	ld b, a
+; determine which type chart to look at
+	CheckAndResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+	jr z, .firstTime
+; we're returning, load stored address to continue from there
+	ld a, [wEphemerealTempBuffer2ByteStorage]
+	ld h, a
+	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld l, a
+	jr .loop
+
+.firstTime
+	SetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+	ld hl, TypeEffects
+; load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	ld a, [wInverseBattle]
+	and a
+    jr z, .loop
+    ld hl, TypeEffectsInverse
+
+; matching pair search
+.loop
+	ld a, [hli] ; a = "attacking type" of the current type pair
+	cp $ff
+	jr z, .done
+; terminator not hit
+	cp b ; does move type match "attacking type"?
+	jr nz, .nextTypePair
+	ld a, [hl] ; a = "defending type" of the current type pair
+	cp d ; does type 1 of defender match "defending type"?
+	jr z, .matchingPairFound
+	cp e ; does type 2 of defender match "defending type"?
+	jr z, .matchingPairFound
+	jr .nextTypePair
+
+.nextTypePair
+	inc hl
+	inc hl
+	jr .loop
+
+.matchingPairFound
+	inc hl
+	ld a, [hli] ; now hl points to the beginning of the next row
+	ld [wMultipurposeTemporaryStorage], a
+	ld a, h
+	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld a, l
+	ld [wEphemerealTempBuffer2ByteStorage+1], a
+	ret
+
+.done
+	ld [wMultipurposeTemporaryStorage], a
+	ret
+
+; ====================================================================
+
+; function to tell how effective the type of an enemy attack is on the player's current pokemon
+; edited: it will now take into account various levels of effectiveness
+; the result is stored in [wTypeEffectiveness]
+; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+; edited: it's (ab)used by ApplyEntryHazardsPlayer and ApplyEntryHazardsEnemy by loading ROCK in [wEnemyMoveType]
+AIGetTypeEffectiveness::
+	ld a, [wCurOpponent]
+	cp OPP_GONQUE
+	jr nz, .noGonque
+.randomizeTheChart
+	jpfar AIGetTypeEffectivenessRandomizedChart
+.noGonque
+	ld a, [wRandomizationTypeChart]
+	and a
+	jr nz, .randomizeTheChart
+
+;.notRandomizedTypeChart
+	ld a, [wEnemyMoveType]
+	ld d, a                    ; d = type of enemy move
+
+	ld a, 10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
+	ld hl, TypeEffects
+; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	ld a, [wInverseBattle]
+	and a
+    jr z, .continue
+    ld hl, TypeEffectsInverse
+.continue
+; back to vanilla
+	push hl ; to re-use it for the second check, if any
+
+	ld a, [wBattleMonType1]
+	ld b, a ; b = type 1 of player's pokemon
+	push bc ; to preserve the type 1
+.loop1
+	ld a, [hli]
+	cp $ff
+	jp z, .exitLoop1
+	cp d                      ; match the type of the move
+	jr nz, .nextTypePair11
+	ld a, [hli]
+	cp b                      ; match with type 1 of player's pokemon
+	jr z, .done1
+	jr .nextTypePair21
+.nextTypePair11
+	inc hl
+.nextTypePair21
+	inc hl
+	jr .loop1
+.done1
+	ld a, [hl]
+	ld [wTypeEffectiveness], a ; store damage multiplier
+.exitLoop1
+
+	ld a, 5 ; we divide by 5
+	ldh [hDivisor], a
+	ld a, [wTypeEffectiveness]
+	ldh [hDividend], a
+	ld b, 1
+	call Divide ; we divide the type effectivness by 5: 0 for not effective, 1 for not very, 2 for normal, 4 for super
+	; now [hQuotient + 3] contains the scaled-down effectiveness
+
+	pop bc ; to restore the type 1
+	pop hl ; restore the pointer to the effectiveness chart
+
+	ld a, [wBattleMonType2]
+	cp b
+	jr nz, .secondTypeCheck
+; we don't check the same type twice for a monotype mon
+	ldh a, [hQuotient+3]
+	add a ; we double the current value, i.e. we multiply by 2, which happens to be the neutral damage of the "copy" of the only one type we have
+	jr .completing
+
+.secondTypeCheck
+	ld b, a ; b = type 2 of player's pokemon
+
+	ld a, 10
+	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness (in case we find no matches)
+.loop2
+	ld a, [hli]
+	cp $ff
+	jp z, .exitLoop2
+	cp d                      ; match the type of the move
+	jr nz, .nextTypePair12
+	ld a, [hli]
+	cp b                      ; match with type 2 of player's pokemon
+	jr z, .done2
+	jr .nextTypePair22
+.nextTypePair12
+	inc hl
+.nextTypePair22
+	inc hl
+	jr .loop2
+.done2
+	ld a, [hl]
+	ld [wTypeEffectiveness], a ; store damage multiplier
+.exitLoop2
+
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [wTypeEffectiveness]
+	ldh [hMultiplier], a
+	call Multiply ; we have Effectivness1 / 5 * Effectivness2, which is at most 4*20=80<255, so still 1 byte
+
+	ld a, 5
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+
+	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:
+						   ; 0 for not effective
+						   ; 1 for 1/4
+						   ; 2 for 1/2
+						   ; 4 for 1
+						   ; 8 for 2
+						   ; 16 for 4
+.completing
+	ld [wTypeEffectiveness], a
+	ret
+
+; ====================================================================
+
 TypeEffects:
 	;  attacker,     defender,     *=
 	db WATER,        FIRE,         SUPER_EFFECTIVE
