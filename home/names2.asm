@@ -81,7 +81,7 @@ GetName::
 	inc d
 .skip
 ; new, to personalize names
-	ld a, [wPersonalizationNames] ; 0=ENGLISH, 1=PIGEON, 2=JAPANESE
+	ld a, [wLayoutNames] ; 0=ENGLISH, 1=PIGEON, 2=JAPANESE
 	ld hl, NamePointers
 	and a
 	jr z, .continue

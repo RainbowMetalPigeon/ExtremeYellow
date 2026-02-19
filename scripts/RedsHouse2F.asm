@@ -20,7 +20,7 @@ RedsHouse2FScript0: ; edited, to tell us about the options
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	ret nc
 ; we are near the stairs
-	ld a, 4 ; RedsHouse2FInfoAboutOptions
+	ld a, 5 ; RedsHouse2FInfoAboutOptions
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; boring technical stuff
@@ -36,10 +36,12 @@ CoordsData_NearStairs:
 	dbmapcoord  6,  1
 	dbmapcoord  7,  2
 	db -1 ; end
+
 RedsHouse2F_TextPointers:
 	dw RedsHouse2FPersonalizationOptions
 	dw RedsHouse2FRandomizationOptions
 	dw RedsHouse2FLuckOptions
+	dw RedsHouse2FLayoutOptions
 	dw RedsHouse2FInfoAboutOptions
 
 ; -------------------------------------------------------------
@@ -133,6 +135,37 @@ RedsHouse2FLuckOptions_Intro:
 
 RedsHouse2FLuckOptions_Outro:
 	text_far _RedsHouse2FLuckOptions_Outro
+	text_end
+
+; -------------------------------------------------------------
+
+RedsHouse2FLayoutOptions:
+	text_asm
+	call SaveScreenTilesToBuffer2
+	ld hl, RedsHouse2FLayoutOptions_Intro
+	call PrintText
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call ClearScreen
+	call UpdateSprites
+	callfar DisplayLayoutMenu ; main function
+	call ClearScreen
+	call LoadScreenTilesFromBuffer2
+	call LoadTextBoxTilePatterns ; testing
+	call ReloadMapData
+	call UpdateSprites
+	ld a, $1
+	ldh [hAutoBGTransferEnabled], a ; testing
+	ld hl, RedsHouse2FLayoutOptions_Outro
+	call PrintText
+	jp TextScriptEnd
+
+RedsHouse2FLayoutOptions_Intro:
+	text_far _RedsHouse2FLayoutOptions_Intro
+	text_end
+
+RedsHouse2FLayoutOptions_Outro:
+	text_far _RedsHouse2FLayoutOptions_Outro
 	text_end
 
 ; -------------------------------------------------------------

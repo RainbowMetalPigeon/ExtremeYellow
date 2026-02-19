@@ -28,6 +28,16 @@ _RedsHouse2FLuckOptions_Outro::
 	line "applied."
 	done
 
+_RedsHouse2FLayoutOptions_Intro::
+	text "LAYOUT & MISCEL."
+	line "options:"
+	prompt
+
+_RedsHouse2FLayoutOptions_Outro::
+	text "LAYOUT & MISCEL."
+	line "applied."
+	done
+
 _RedsHouse2FInfoAboutOptions::
 	text "Before venturing"
 	line "into your grand"

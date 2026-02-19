@@ -23,6 +23,7 @@ SeviiFourIslandHouses_Object:
 	bg_event 49,  0, 14 ; SeviiFourIslandHousesSignText8_Cheater
 	bg_event 42,  3, 15 ; SeviiFourIslandHousesSignText9_FakeBooks
 	bg_event 43,  3, 16 ; SeviiFourIslandHousesSignText10_FakeBooks
+	bg_event 20,  0, 17 ; SeviiFourIslandHousesSignText5_Paper4
 
 	def_object_events
 	object_event  2,  5, SPRITE_PINK, STAY, RIGHT, 1 ; challenge right after 5-Island

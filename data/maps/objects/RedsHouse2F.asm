@@ -8,6 +8,7 @@ RedsHouse2F_Object:
 	bg_event  3,  0, 1 ; RedsHouse2FPersonalizationOptions ; new
 	bg_event  4,  0, 2 ; RedsHouse2FRandomizationOptions ; new
 	bg_event  5,  0, 3 ; RedsHouse2FLuckOptions ; new
+	bg_event  6,  0, 4 ; RedsHouse2FLayoutOptions ; new
 
 	def_object_events
 

@@ -266,6 +266,7 @@ INCLUDE "engine/menus/options.asm"
 INCLUDE "engine/menus/randomization.asm" ; new
 INCLUDE "engine/menus/personalization.asm" ; new
 INCLUDE "engine/menus/luck.asm" ; new
+INCLUDE "engine/menus/layout.asm" ; new
 
 
 SECTION "Pokédex Rating", ROMX

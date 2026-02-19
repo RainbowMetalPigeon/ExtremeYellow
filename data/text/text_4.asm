@@ -63,14 +63,6 @@ _RepelUseAnotherText:: ; new, from Vortiene
 
 ; personalization ----
 
-_PersonalizationInfoTextNames::
-	text "Change #MON"
-	line "names between"
-	cont "English,"
-	cont "gender-neutral,"
-	cont "and Japanese."
-	prompt
-
 _PersonalizationInfoTextTypes::
 	text "Some selected"
 	line "#MON have"
@@ -83,12 +75,6 @@ _PersonalizationInfoTextPhySpeSplit::
 	line "physical/special"
 	cont "split of gen4+"
 	cont "is applied."
-	prompt
-
-_PersonalizationInfoTextLevelStatus::
-	text "With OLD layout,"
-	line "the STATUS covers"
-	cont "the LEVEL."
 	prompt
 
 _PersonalizationInfoTextSwapBattles::
@@ -108,13 +94,6 @@ _PersonalizationInfoTextSwapBattles::
 	cont "is applied only"
 	cont "for major fights."
 ;	xxxx "123456789012345678"
-	prompt
-
-_PersonalizationInfoTextSound::
-	text "EARPHONE1 is"
-	line "stereo, 2 focuses"
-	cont "on left side, 3"
-	cont "on right side."
 	prompt
 
 ; randomization ------
@@ -244,6 +223,30 @@ _LuckInfoTextStatus::
 	cont "fully PAR, never"
 	cont "self-hit in"
 	cont "CONFUSION."
+	prompt
+
+; layout & miscellanea ------
+
+_LayoutInfoTextSound::
+	text "EARPHONE1 is"
+	line "stereo, 2 focuses"
+	cont "on left side, 3"
+	cont "on right side."
+	prompt
+
+_LayoutInfoTextNames::
+	text "Change #MON"
+	line "names between"
+	cont "English,"
+	cont "gender-neutral,"
+	cont "and Japanese."
+	prompt
+
+
+_LayoutInfoTextLevelStatus::
+	text "With OLD layout,"
+	line "the STATUS covers"
+	cont "the LEVEL."
 	prompt
 
 ; start options ------

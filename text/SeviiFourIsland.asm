@@ -379,6 +379,17 @@ _SeviiFourIslandHousesSignText5_Paper3::
 	cont "about fighting.'"
 	done
 
+_SeviiFourIslandHousesSignText11_Paper4::
+	text "'Don't judge a book"
+	line "by its cover."
+
+	para "Dig deep under"
+	line "the surface to"
+	cont "find the true"
+	cont "core of things.'"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiFourIslandHousesSignText6_Switch::
 	text "PINK's Switch!"
 

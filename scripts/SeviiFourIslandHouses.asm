@@ -60,7 +60,7 @@ SeviiFourIslandHouses_Script0:
 	ret nc
 ; turn everyone down, dialogue, player moves
 	call PinksHouseTurnEveryoneDown
-	ld a, 17
+	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff
@@ -96,7 +96,7 @@ SeviiFourIslandHouses_Script1:
 ; turn everyone down again
 	call PinksHouseTurnEveryoneDown
 ; dialogue
-	ld a, 18
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; mama moves
@@ -131,13 +131,13 @@ SeviiFourIslandHouses_Script2:
 ; Mama dialogue
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 19
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; turn player, Pink Dialogue
 	ld a, SPRITE_FACING_LEFT
 	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, 20
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink moves
@@ -169,7 +169,7 @@ SeviiFourIslandHouses_Script3:
 ; pink dialogue
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 21
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink battle
@@ -199,7 +199,7 @@ SeviiFourIslandHouses_Script4:
 	ld [wJoyIgnore], a
 ; we won: Pink dialogue and Pink leaves
 	SetEvent EVENT_SEVII_BEAT_PINK_PINKS_HOUSE
-	ld a, 22
+	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld de, PinksHousePinkLeavesMovements
@@ -271,13 +271,14 @@ SeviiFourIslandHouses_TextPointers:
 	dw SeviiFourIslandHousesSignText8_Cheater ; 14
 	dw SeviiFourIslandHousesSignText9_FakeBooks ; 15
 	dw SeviiFourIslandHousesSignText10_FakeBooks ; 16
+	dw SeviiFourIslandHousesSignText11_Paper4 ; 17
 	; scripts
-	dw SeviiFourIslandHousesScriptText1 ; 17
-	dw SeviiFourIslandHousesScriptText2 ; 18
-	dw SeviiFourIslandHousesScriptText3 ; 19
-	dw SeviiFourIslandHousesScriptText4 ; 20
-	dw SeviiFourIslandHousesScriptText5 ; 21
-	dw SeviiFourIslandHousesScriptText6 ; 22
+	dw SeviiFourIslandHousesScriptText1 ; 18
+	dw SeviiFourIslandHousesScriptText2 ; 19
+	dw SeviiFourIslandHousesScriptText3 ; 20
+	dw SeviiFourIslandHousesScriptText4 ; 21
+	dw SeviiFourIslandHousesScriptText5 ; 22
+	dw SeviiFourIslandHousesScriptText6 ; 23
 
 ; texts ===========================
 
@@ -508,6 +509,10 @@ SeviiFourIslandHousesSignText4_Paper2:
 
 SeviiFourIslandHousesSignText5_Paper3:
 	text_far _SeviiFourIslandHousesSignText5_Paper3
+	text_end
+
+SeviiFourIslandHousesSignText11_Paper4:
+	text_far _SeviiFourIslandHousesSignText11_Paper4
 	text_end
 
 SeviiFourIslandHousesSignText6_Switch:

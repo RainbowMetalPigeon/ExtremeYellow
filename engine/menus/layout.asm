@@ -1,56 +1,55 @@
-DisplayPersonalizationMenu::
+DisplayLayoutMenu::
 	callfar BackupTextSpeed
 	callfar MakeTextTemporarilyInstant
-	call InitPersonalizationMenu
+	call InitLayoutMenu
 	ld a, 10 ; new
 	ldh [hDownArrowBlinkCount1], a ; new
-.personalizationMenuLoop
+.LayoutMenuLoop
 	call HandleInfoBlinkTiming ; new
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	and START | B_BUTTON
-	jr nz, .exitPersonalizationMenu
-	call PersonalizationControl
+	jr nz, .exitLayoutMenu
+	call LayoutControl
 	jr c, .dpadDelay
-	call GetPersonalizationPointer
-	jr c, .exitPersonalizationMenu
+	call GetLayoutPointer
+	jr c, .exitLayoutMenu
 .dpadDelay
-	call PersonalizationMenu_UpdateCursorPosition
+	call LayoutMenu_UpdateCursorPosition
 	call DelayFrame
 	call DelayFrame
 	call DelayFrame
-	jr .personalizationMenuLoop
-.exitPersonalizationMenu
-	callfar UpdatePartyMonTypesAfterPersonalization
+	jr .LayoutMenuLoop
+.exitLayoutMenu
 	callfar RestoreTextSpeed
 	ret
 
-GetPersonalizationPointer:
+GetLayoutPointer:
 	ld a, [wOptionsCursorLocation] ; this wram variable should do for all menus because it's always reset at the beginning
 	ld e, a
 	ld d, $0
-	ld hl, PersonalizationMenuJumpTable
+	ld hl, LayoutMenuJumpTable
 	add hl, de
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp hl ; jump to the function for the current highlighted personalization option
+	jp hl ; jump to the function for the current highlighted layout option
 
-PersonalizationMenuJumpTable:
-	dw PersonalizationMenu_Types
-	dw PersonalizationMenu_PhySpeSplit
-	dw PersonalizationMenu_SwapBattles
-	dw PersonalizationMenu_Dummy
-	dw PersonalizationMenu_Dummy
-	dw PersonalizationMenu_Dummy
-	dw PersonalizationMenu_Dummy
-	dw PersonalizationMenu_Cancel
+LayoutMenuJumpTable:
+	dw LayoutMenu_Names
+	dw LayoutMenu_LevelStatus
+	dw LayoutMenu_SpeakerSettings ; from the vanilla option menu
+	dw LayoutMenu_Dummy
+	dw LayoutMenu_Dummy
+	dw LayoutMenu_Dummy
+	dw LayoutMenu_Dummy
+	dw LayoutMenu_Cancel
 
 ; ---------------------------------------------
 
-PersonalizationMenu_Types:
-	ld a, [wPersonalizationTypes]
+LayoutMenu_Names:
+	ld a, [wLayoutNames]
 	ld c, a
 	ldh a, [hJoy5]
 	bit 4, a ; right
@@ -60,7 +59,7 @@ PersonalizationMenu_Types:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp $1
+	cp $2
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -71,16 +70,16 @@ PersonalizationMenu_Types:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, $2
+	ld c, $3
 .decrease
 	dec c
 	ld a, d
 .save
 	ld a, c
-	ld [wPersonalizationTypes], a
+	ld [wLayoutNames], a
 .nonePressed
 	ld b, $0
-	ld hl, PersonalizationTypesStringsPointerTable
+	ld hl, LayoutNamesStringsPointerTable
 	add hl, bc
 	add hl, bc
 	ld e, [hl]
@@ -93,8 +92,68 @@ PersonalizationMenu_Types:
 
 ; ---------------------------------------------
 
-PersonalizationMenu_PhySpeSplit:
-	ld a, [wPersonalizationPhySpeSplit]
+LayoutMenu_SpeakerSettings:
+	ld a, [wOptions]
+	and $30
+	swap a
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .asm_41dca
+.pressedRight
+	ld a, c
+	inc a
+	and $3
+	jr .asm_41dba
+.pressedLeft
+	ld a, c
+	dec a
+	and $3
+.asm_41dba
+	ld c, a
+	swap a
+	ld b, a
+	xor a
+	ldh [rNR51], a
+	ld a, [wOptions]
+	and $cf
+	or b
+	ld [wOptions], a
+.asm_41dca
+	ld b, $0
+	ld hl, SpeakerOptionStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 8, 6
+	call PlaceString
+	and a
+	ret
+
+SpeakerOptionStringsPointerTable:
+	dw MonoSoundText
+	dw Earphone1SoundText
+	dw Earphone2SoundText
+	dw Earphone3SoundText
+
+MonoSoundText:
+	db "MONO     @"
+Earphone1SoundText:
+	db "EARPHONE1@"
+Earphone2SoundText:
+	db "EARPHONE2@"
+Earphone3SoundText:
+	db "EARPHONE3@"
+
+; ---------------------------------------------
+
+LayoutMenu_LevelStatus:
+	ld a, [wLayoutLevelStatus]
 	ld c, a
 	ldh a, [hJoy5]
 	bit 4, a ; right
@@ -121,73 +180,29 @@ PersonalizationMenu_PhySpeSplit:
 	ld a, d
 .save
 	ld a, c
-	ld [wPersonalizationPhySpeSplit], a
+	ld [wLayoutLevelStatus], a
 .nonePressed
 	ld b, $0
-	ld hl, PersonalizationPhySpeSplitStringsPointerTable
+	ld hl, LayoutLevelStatusStringsPointerTable
 	add hl, bc
 	add hl, bc
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 16, 4
+	hlcoord 15, 4
 	call PlaceString
 	and a
 	ret
 
 ; ---------------------------------------------
 
-PersonalizationMenu_SwapBattles:
-	ld a, [wPersonalizationSwapBattles]
-	ld c, a
-	ldh a, [hJoy5]
-	bit 4, a ; right
-	jr nz, .pressedRight
-	bit 5, a
-	jr nz, .pressedLeft
-	jr .nonePressed
-.pressedRight
-	ld a, c
-	cp 3 ; number of options - 1
-	jr c, .increase
-	ld c, $ff
-.increase
-	inc c
-	ld a, e
-	jr .save
-.pressedLeft
-	ld a, c
-	and a
-	jr nz, .decrease
-	ld c, 4 ; number of options
-.decrease
-	dec c
-	ld a, d
-.save
-	ld a, c
-	ld [wPersonalizationSwapBattles], a
-.nonePressed
-	ld b, $0
-	ld hl, PersonalizationSwapBattlesStringsPointerTable
-	add hl, bc
-	add hl, bc
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	hlcoord 14, 6
-	call PlaceString
+LayoutMenu_Dummy:
 	and a
 	ret
 
 ; ---------------------------------------------
 
-PersonalizationMenu_Dummy:
-	and a
-	ret
-
-; ---------------------------------------------
-
-PersonalizationMenu_Cancel:
+LayoutMenu_Cancel:
 	ldh a, [hJoy5]
 	and A_BUTTON
 	jr nz, .pressedCancel
@@ -199,7 +214,7 @@ PersonalizationMenu_Cancel:
 
 ; ---------------------------------------------
 
-PersonalizationControl:
+LayoutControl:
 	ld hl, wOptionsCursorLocation
 	ldh a, [hJoy5]
 	cp D_DOWN
@@ -250,12 +265,10 @@ PersonalizationControl:
 	ld [wMultipurposeTemporaryStorage], a
 	cp 3 ; number of options
 	ret nc
-	cp 1 ; second option is special as it doesn't just print one dialogue
-	jr z, .alteredTypes
 	add a ; doubles a
 	ld e, a
 	ld d, 0
-	ld hl, PersonalizationInfoTexts
+	ld hl, LayoutInfoTexts
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -263,22 +276,10 @@ PersonalizationControl:
 	call PrintText
 .conclude
 	SetEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
-	call InitPersonalizationMenu_Redo
+	call InitLayoutMenu_Redo
 	ret
-.alteredTypes ; hard-coded exception
-	ld hl, PersonalizationInfoTextTypes
-	call PrintText
-	ld hl, PersonalizationInfoTextTypes_WannaKnowThemAll
-	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem] ; YES=0, NO=1
-	and a ; equivalent to cp 0
-	jr nz, .conclude
-	ld hl, PersonalizationInfoTextTypes_Details
-	call PrintText
-	jr .conclude
 
-PersonalizationMenu_UpdateCursorPosition:
+LayoutMenu_UpdateCursorPosition:
 	hlcoord 1, 2
 	ld de, SCREEN_WIDTH
 	ld c, 15
@@ -294,23 +295,23 @@ PersonalizationMenu_UpdateCursorPosition:
 	ld [hl], "▶"
 	ret
 
-InitPersonalizationMenu:
+InitLayoutMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; testing
 	hlcoord 2, 2
-	ld de, AllPersonalizationText
+	ld de, AllLayoutText
 	call PlaceString
 	hlcoord 2, 16
-	ld de, PersonalizationMenuCancelText
+	ld de, LayoutMenuCancelText
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 3 ; the number of options to loop through
 .loop
 	push bc
-	call GetPersonalizationPointer ; updates the next option
+	call GetLayoutPointer ; updates the next option
 	pop bc
 	ld hl, wOptionsCursorLocation
 	inc [hl] ; moves the cursor for the highlighted option
@@ -323,23 +324,23 @@ InitPersonalizationMenu:
 	call Delay3
 	ret
 
-InitPersonalizationMenu_Redo:
+InitLayoutMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
 ;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 2
-	ld de, AllPersonalizationText
+	ld de, AllLayoutText
 	call PlaceString
 	hlcoord 2, 16
-	ld de, PersonalizationMenuCancelText
+	ld de, LayoutMenuCancelText
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 3 ; the number of options to loop through
 .loop
 	push bc
-	call GetPersonalizationPointer ; updates the next option
+	call GetLayoutPointer ; updates the next option
 	pop bc
 	ld hl, wOptionsCursorLocation
 	inc [hl] ; moves the cursor for the highlighted option
@@ -351,68 +352,50 @@ InitPersonalizationMenu_Redo:
 	ld [wOptionsCursorLocation], a
 	ret
 
-AllPersonalizationText:
-	db   "TYPES:"
-	next "PHY/SPE SPLIT:"
-	next "SWAP BATTLE:@"
+AllLayoutText:
+	db   "NAMES:"
+	next "LEVEL/STATUS:"
+	next "SOUND:@"
 
-PersonalizationTitleText:
-	db "PERSONALIZATION@"
-
-PersonalizationMenuCancelText:
+LayoutMenuCancelText:
 	db "CANCEL@"
 
-PersonalizationTypesStringsPointerTable:
-	dw ClassicText
-	dw AlteredText
+LayoutNamesStringsPointerTable:
+	dw EnglishText
+	dw NeutralText
+	dw JapaneseText
 
-ClassicText:
-	db "CLASSIC@"
-AlteredText:
-	db "ALTERED@"
+EnglishText:
+	db "ENGLISH @"
+NeutralText:
+	db "NEUTRAL @"
+JapaneseText:
+	db "JAPANESE@"
 
-PersonalizationPhySpeSplitStringsPointerTable:
-	dw NoText
-	dw YesText
+LayoutLevelStatusStringsPointerTable:
+	dw NewText
+	dw OldText
 
-PersonalizationSwapBattlesStringsPointerTable:
-	dw NoneText
-	dw TradeTexts
-	dw AllText
-	dw MajorText
-
-NoneText:
-	db "NONE @"
-TradeTexts:
-	db "TRADE@"
-AllText:
-	db "ALL  @"
-MajorText:
-	db "MAJOR@"
+NewText:
+	db "NEW@"
+OldText:
+	db "OLD@"
 
 ; new, for info
 
-PersonalizationInfoTexts:
-	dw PersonalizationInfoTextTypes
-	dw PersonalizationInfoTextPhySpeSplit
-	dw PersonalizationInfoTextSwapBattles
+LayoutInfoTexts:
+	dw LayoutInfoTextNames
+	dw LayoutInfoTextLevelStatus
+	dw LayoutInfoTextSound
 
-PersonalizationInfoTextTypes:
-	text_far _PersonalizationInfoTextTypes
+LayoutInfoTextNames:
+	text_far _LayoutInfoTextNames
 	text_end
 
-PersonalizationInfoTextPhySpeSplit:
-	text_far _PersonalizationInfoTextPhySpeSplit
+LayoutInfoTextLevelStatus:
+	text_far _LayoutInfoTextLevelStatus
 	text_end
 
-PersonalizationInfoTextSwapBattles:
-	text_far _PersonalizationInfoTextSwapBattles
-	text_end
-
-PersonalizationInfoTextTypes_WannaKnowThemAll:
-	text_far _PersonalizationInfoTextTypes_WannaKnowThemAll
-	text_end
-
-PersonalizationInfoTextTypes_Details:
-	text_far _PersonalizationInfoTextTypes_Details
+LayoutInfoTextSound:
+	text_far _LayoutInfoTextSound
 	text_end

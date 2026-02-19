@@ -1738,7 +1738,7 @@ DrawPlayerHUDAndHPBar:
 	ld bc, wBattleMonPP - wBattleMonLevel
 	call CopyData
 ; new block, to choose what style of level/status printing we want
-	ld a, [wPersonalizationLevelStatus] ; 0=NEW, 1=OLD
+	ld a, [wLayoutLevelStatus] ; 0=NEW, 1=OLD
 	and a
 	jr nz, .oldLevelStatusPrinting
 ; new level/status printing

@@ -2521,14 +2521,14 @@ wWalkBikeSurfState:: db
 ;	ds 10 ; edited, was 10
 
 wPersonalizationPhySpeSplit:: db ; new
-wPersonalizationLevelStatus:: db ; new
+wLayoutLevelStatus:: db ; new
 wDumbByteToToggleStatusScreen:: db ; new
 wIsEvolvingMidBattle:: db ; new
 wRandomizationWildEncounters:: db ; new
 wRandomizationTrainersTeams:: db ; new
 wRandomizationItems:: db ; new
 wRandomizationTypeChart:: db ; new
-wPersonalizationNames:: db ; new
+wLayoutNames:: db ; new
 wPersonalizationTypes:: db ; new
 wLuckAccuracy:: db ; new
 wLuckRoll:: db ; new
