@@ -2150,7 +2150,7 @@ wPikachuHappiness:: db
 wPikachuMood:: db
 wd472:: db
 wd473:: db
-wHoFMonShiny:: db ; new, 0 if the mon is not shiny, 1 if it is
+wHoFMonShiny:: db ; new, holds the bits for shiny and delta
 ;	ds 1 ; edited, used for the above
 wd475:: db
 wBadgeBoostOption:: db ; new

@@ -6,7 +6,7 @@ DetermineIfWildMonIsDeltaSpecies::
     jr z, .kanto
 ; sevii
     ld a, [wCurMap]
-    ; TBE: Mewtwo and Mewtwo in final Tanoby
+    ; TBE: Mew and Mewtwo in final Tanoby
     jr .notDeltaSpeciesEncounter
 
 .kanto
@@ -70,6 +70,13 @@ SetDeltaSpeciesEvent_Battle::
 
 SetDeltaSpeciesEvent_deRegister::
     ld a, [de]
+    bit BIT_MON_DELTA, a
+    ret z
+    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+    ret
+
+SetDeltaSpeciesEvent_dRegister::
+    ld a, d
     bit BIT_MON_DELTA, a
     ret z
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES

@@ -16,7 +16,7 @@ DebugTeam:
 	db MSCIZOR, 99 ; 255
 	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
-	db THU_FI_ZER, 42
+;	db THU_FI_ZER, 42
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end

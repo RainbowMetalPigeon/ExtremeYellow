@@ -198,7 +198,14 @@ HoFDisplayMonInfo:
 	ld a, [wHoFMonSpecies]
 	ld [wd0b5], a
 	hlcoord 3, 9
-	predef PrintMonType
+	; new, for delta
+	ld a, [wHoFMonShiny]
+	ld d, a
+	push hl
+	callfar SetDeltaSpeciesEvent_dRegister
+	pop hl
+	; BTV
+	predef PrintMonType ; TBE: add check on wHoFMonShiny ?
 	ret
 
 HoFMonInfoText:
