@@ -437,16 +437,12 @@ InitRandomizationMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 2
 	ld de, AllRandomizationText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, RandomizationMenuCancelText
 	call PlaceString
-;	hlcoord 4, 2
-;	ld de, RandomizationTitleText
-;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 5 ; the number of options to loop through
@@ -469,16 +465,12 @@ InitRandomizationMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 2
 	ld de, AllRandomizationText
 	call PlaceString
 	hlcoord 2, 16
 	ld de, RandomizationMenuCancelText
 	call PlaceString
-;	hlcoord 4, 2
-;	ld de, RandomizationTitleText
-;	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
 	ld c, 5 ; the number of options to loop through

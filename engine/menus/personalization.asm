@@ -298,7 +298,6 @@ InitPersonalizationMenu:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-;	call PrintLabelAboutInfo ; testing
 	hlcoord 2, 2
 	ld de, AllPersonalizationText
 	call PlaceString
@@ -327,7 +326,6 @@ InitPersonalizationMenu_Redo:
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call TextBoxBorder
-;	call PrintLabelAboutInfo ; new, testing
 	hlcoord 2, 2
 	ld de, AllPersonalizationText
 	call PlaceString
