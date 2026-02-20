@@ -16,7 +16,7 @@ DebugTeam:
 	db MSCIZOR, 99 ; 255
 	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
-;	db THU_FI_ZER, 42
+	db THU_FI_ZER, 42
 ;	db ARTICUNO, 99
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -87,14 +87,14 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-	ld a, DIG ; DIG
+	ld a, PSYCHIC_M ; DIG
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, TELEPORT ; TELEPORT
+	ld a, THUNDERBOLT ; TELEPORT
 	ld [hli], a
-	ld a, SOFTBOILED ; SOFTBOILED
+	ld a, KARATE_CHOP ; SOFTBOILED
 	ld [hli], a
-	ld a, SPORE ; FLASH
+	ld a, MUD_SHOT ; FLASH
 	ld [hl], a
 
 ;	; moves to other members

@@ -74,14 +74,14 @@ TypeNames_TCG:
 
 	assert_table_length NUM_TYPES_TCG
 
-.TCGColorless:	db "COLORLESS@"
+.TCGColorless:	db "COLORLES@" ; COLORLESS
 .TCGFighting:	db "FIGHTING@"
 .TCGMetal:		db "METAL@"
 .TCGTypeless:	db "TYPELESS@"
 .TCGFire:		db "FIRE@"
 .TCGWater:		db "WATER@"
 .TCGGrass:		db "GRASS@"
-.TCGLightning:	db "LIGHTNING@"
+.TCGLightning:	db "LIGHTNIN@" ; LIGHTNING
 .TCGPsychic:	db "PSYCHIC@"
 .TCGDragon:		db "DRAGON@"
 .TCGDark:		db "DARK@"
