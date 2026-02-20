@@ -502,3 +502,373 @@ TypeEffectsInverse:
 	db STEEL,        STEEL,        SUPER_EFFECTIVE
 
 	db -1 ; end
+
+; ====================================================================
+
+TypeEffects_Pigeon:
+	;  attacker,     defender,     *=
+
+	db NORMAL,       FAIRY,        SUPER_EFFECTIVE
+	db NORMAL,       ROCK,         NOT_VERY_EFFECTIVE
+	db NORMAL,       STEEL,        NOT_VERY_EFFECTIVE
+	db NORMAL,       FLYING,       NOT_VERY_EFFECTIVE
+	db NORMAL,       GHOST,        NO_EFFECT
+
+	db FIRE,         GRASS,        SUPER_EFFECTIVE
+	db FIRE,         ICE,          SUPER_EFFECTIVE
+	db FIRE,         BUG,          SUPER_EFFECTIVE
+	db FIRE,         STEEL,        SUPER_EFFECTIVE
+	db FIRE,         GHOST,        SUPER_EFFECTIVE
+	db FIRE,         FIRE,         NOT_VERY_EFFECTIVE
+	db FIRE,         WATER,        NOT_VERY_EFFECTIVE
+	db FIRE,         FIGHTING,     NOT_VERY_EFFECTIVE
+	db FIRE,         ROCK,         NOT_VERY_EFFECTIVE
+	db FIRE,         DRAGON,       NOT_VERY_EFFECTIVE
+
+	db WATER,        FIRE,         SUPER_EFFECTIVE
+	db WATER,        POISON,       SUPER_EFFECTIVE ; ?
+	db WATER,        ROCK,         SUPER_EFFECTIVE
+	db WATER,        GHOST,        SUPER_EFFECTIVE
+	db WATER,        STEEL,        SUPER_EFFECTIVE
+	db WATER,        WATER,        NOT_VERY_EFFECTIVE
+	db WATER,        GRASS,        NOT_VERY_EFFECTIVE
+	db WATER,        FIGHTING,     NOT_VERY_EFFECTIVE
+	db WATER,        GROUND,       NOT_VERY_EFFECTIVE
+	db WATER,        FLYING,       NOT_VERY_EFFECTIVE
+	db WATER,        DRAGON,       NOT_VERY_EFFECTIVE
+
+	db ELECTRIC,     WATER,        SUPER_EFFECTIVE
+	db ELECTRIC,     GROUND,       SUPER_EFFECTIVE
+	db ELECTRIC,     GHOST,        SUPER_EFFECTIVE
+	db ELECTRIC,     STEEL,        SUPER_EFFECTIVE
+	db ELECTRIC,     ELECTRIC,     NOT_VERY_EFFECTIVE
+	db ELECTRIC,     FIRE,         NOT_VERY_EFFECTIVE
+	db ELECTRIC,     DRAGON,       NOT_VERY_EFFECTIVE
+
+	db GRASS,        WATER,        SUPER_EFFECTIVE
+	db GRASS,        GROUND,       SUPER_EFFECTIVE
+	db GRASS,        GHOST,        SUPER_EFFECTIVE
+	db GRASS,        GRASS,        NOT_VERY_EFFECTIVE
+	db GRASS,        FIRE,         NOT_VERY_EFFECTIVE
+	db GRASS,        FLYING,       NOT_VERY_EFFECTIVE
+	db GRASS,        DRAGON,       NOT_VERY_EFFECTIVE
+	db GRASS,        STEEL,        NOT_VERY_EFFECTIVE
+
+	db ICE,          GRASS,        SUPER_EFFECTIVE
+	db ICE,          BUG,          SUPER_EFFECTIVE
+	db ICE,          GHOST,        SUPER_EFFECTIVE
+	db ICE,          FIRE,         SUPER_EFFECTIVE
+	db ICE,          ICE,          NOT_VERY_EFFECTIVE
+	db ICE,          WATER,        NOT_VERY_EFFECTIVE
+	db ICE,          STEEL,        NOT_VERY_EFFECTIVE
+	db ICE,          FIGHTING,     NOT_VERY_EFFECTIVE
+	db ICE,          DRAGON,       NOT_VERY_EFFECTIVE
+
+	db ICE2,         GRASS,        SUPER_EFFECTIVE
+	db ICE2,         BUG,          SUPER_EFFECTIVE
+	db ICE2,         GHOST,        SUPER_EFFECTIVE
+	db ICE2,         FIRE,         SUPER_EFFECTIVE
+	db ICE2,         WATER,        SUPER_EFFECTIVE
+	db ICE2,         ICE,          NOT_VERY_EFFECTIVE
+	db ICE2,         STEEL,        NOT_VERY_EFFECTIVE
+	db ICE2,         FIGHTING,     NOT_VERY_EFFECTIVE
+	db ICE2,         DRAGON,       NOT_VERY_EFFECTIVE
+
+	db FIGHTING,     DARK,         SUPER_EFFECTIVE
+	db FIGHTING,     DRAGON,       SUPER_EFFECTIVE
+	db FIGHTING,     FLYING,       NOT_VERY_EFFECTIVE
+	db FIGHTING,     PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
+	db FIGHTING,     STEEL,        NOT_VERY_EFFECTIVE
+	db FIGHTING,     GHOST,        NO_EFFECT
+
+	db POISON,       GRASS,        SUPER_EFFECTIVE
+	db POISON,       GROUND,       SUPER_EFFECTIVE
+	db POISON,       BUG,          SUPER_EFFECTIVE
+	db POISON,       FAIRY,        SUPER_EFFECTIVE
+	db POISON,       WATER,        NOT_VERY_EFFECTIVE
+	db POISON,       FIGHTING,     NOT_VERY_EFFECTIVE
+	db POISON,       ROCK,         NOT_VERY_EFFECTIVE
+	db POISON,       DARK,         NOT_VERY_EFFECTIVE
+	db POISON,       STEEL,        NOT_VERY_EFFECTIVE
+	db POISON,       GHOST,        NO_EFFECT
+	db POISON,       POISON,       NO_EFFECT
+
+	db GROUND,       FIRE,         SUPER_EFFECTIVE
+	db GROUND,       ELECTRIC,     SUPER_EFFECTIVE
+	db GROUND,       WATER,        SUPER_EFFECTIVE
+	db GROUND,       STEEL,        SUPER_EFFECTIVE
+	db GROUND,       GRASS,        NOT_VERY_EFFECTIVE
+	db GROUND,       BUG,          NOT_VERY_EFFECTIVE
+	db GROUND,       GROUND,       NOT_VERY_EFFECTIVE
+	db GROUND,       GHOST,        NO_EFFECT
+	db GROUND,       FLYING,       NO_EFFECT
+
+	db GROUND2,      FIRE,         SUPER_EFFECTIVE
+	db GROUND2,      ELECTRIC,     SUPER_EFFECTIVE
+	db GROUND2,      WATER,        SUPER_EFFECTIVE
+	db GROUND2,      STEEL,        SUPER_EFFECTIVE
+	db GROUND2,      GRASS,        NOT_VERY_EFFECTIVE
+	db GROUND2,      BUG,          NOT_VERY_EFFECTIVE
+	db GROUND2,      GROUND,       NOT_VERY_EFFECTIVE
+	db GROUND2,      GHOST,        NO_EFFECT
+
+	db FLYING,       BUG,          SUPER_EFFECTIVE
+	db FLYING,       GROUND,       NOT_VERY_EFFECTIVE
+	db FLYING,       ROCK,         NOT_VERY_EFFECTIVE
+	db FLYING,       STEEL,        NOT_VERY_EFFECTIVE
+	db FLYING,       GHOST,        NO_EFFECT
+
+	db PSYCHIC_TYPE, FIGHTING,     SUPER_EFFECTIVE
+	db PSYCHIC_TYPE, GHOST,        SUPER_EFFECTIVE
+	db PSYCHIC_TYPE, DARK,         SUPER_EFFECTIVE
+	db PSYCHIC_TYPE, STEEL,        SUPER_EFFECTIVE
+	db PSYCHIC_TYPE, ELECTRIC,     NOT_VERY_EFFECTIVE ; ?
+	db PSYCHIC_TYPE, GRASS,        NOT_VERY_EFFECTIVE ; ?
+	db PSYCHIC_TYPE, PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
+	db PSYCHIC_TYPE, BUG,          NOT_VERY_EFFECTIVE
+
+	db BUG,          GRASS,        SUPER_EFFECTIVE
+	db BUG,          PSYCHIC_TYPE, SUPER_EFFECTIVE
+	db BUG,          DRAGON,       SUPER_EFFECTIVE
+	db BUG,          ICE,          NOT_VERY_EFFECTIVE
+	db BUG,          FIRE,         NOT_VERY_EFFECTIVE
+	db BUG,          FLYING,       NOT_VERY_EFFECTIVE
+	db BUG,          STEEL,        NOT_VERY_EFFECTIVE
+	db BUG,          GHOST,        NO_EFFECT
+
+	db ROCK,         FLYING,       SUPER_EFFECTIVE
+	db ROCK,         BUG,          SUPER_EFFECTIVE
+	db ROCK,         WATER,        NOT_VERY_EFFECTIVE
+	db ROCK,         STEEL,        NOT_VERY_EFFECTIVE
+	db ROCK,         GHOST,        NO_EFFECT
+
+	db GHOST,        PSYCHIC_TYPE, SUPER_EFFECTIVE
+	db GHOST,        BUG,          NOT_VERY_EFFECTIVE
+	db GHOST,        DARK,         NOT_VERY_EFFECTIVE
+	db GHOST,        STEEL,        NOT_VERY_EFFECTIVE
+	db GHOST,        FAIRY,        NOT_VERY_EFFECTIVE
+	db GHOST,        GROUND,       NO_EFFECT ; ? SUPER_EFFECTIVE?
+
+	db DRAGON,       FIRE,         SUPER_EFFECTIVE
+	db DRAGON,       WATER,        SUPER_EFFECTIVE
+	db DRAGON,       ELECTRIC,     SUPER_EFFECTIVE
+	db DRAGON,       GRASS,        SUPER_EFFECTIVE
+	db DRAGON,       ICE,          SUPER_EFFECTIVE
+	db DRAGON,       DRAGON,       SUPER_EFFECTIVE
+	db DRAGON,       GHOST,        SUPER_EFFECTIVE
+	db DRAGON,       STEEL,        NOT_VERY_EFFECTIVE
+	db DRAGON,       BUG,          NOT_VERY_EFFECTIVE
+
+	db DARK,         PSYCHIC_TYPE, SUPER_EFFECTIVE
+	db DARK,         GHOST,        SUPER_EFFECTIVE
+	db DARK,         FAIRY,        SUPER_EFFECTIVE
+	db DARK,         FIGHTING,     NOT_VERY_EFFECTIVE
+	db DARK,         POISON,       NOT_VERY_EFFECTIVE ; ?
+	db DARK,         BUG,          NOT_VERY_EFFECTIVE
+	db DARK,         DARK,         NOT_VERY_EFFECTIVE
+
+	db STEEL,        ICE,          SUPER_EFFECTIVE
+	db STEEL,        GROUND,       SUPER_EFFECTIVE
+	db STEEL,        ROCK,         SUPER_EFFECTIVE
+	db STEEL,        FAIRY,        SUPER_EFFECTIVE
+	db STEEL,        FIRE,         NOT_VERY_EFFECTIVE
+	db STEEL,        WATER,        NOT_VERY_EFFECTIVE
+	db STEEL,        ELECTRIC,     NOT_VERY_EFFECTIVE
+	db STEEL,        PSYCHIC_TYPE, NOT_VERY_EFFECTIVE ; ?
+	db STEEL,        STEEL,        NOT_VERY_EFFECTIVE
+	db STEEL,        GHOST,        NO_EFFECT
+
+	db FAIRY,        GHOST,        SUPER_EFFECTIVE
+	db FAIRY,        DARK,         SUPER_EFFECTIVE
+	db FAIRY,        FIRE,         NOT_VERY_EFFECTIVE
+	db FAIRY,        POISON,       NOT_VERY_EFFECTIVE
+	db FAIRY,        GRASS,        NOT_VERY_EFFECTIVE
+	db FAIRY,        BUG,          NOT_VERY_EFFECTIVE
+	db FAIRY,        STEEL,        NOT_VERY_EFFECTIVE
+
+	db -1 ; end
+
+; ====================================================================
+
+TypeEffects_PigeonInverse:
+	;  attacker,     defender,     *=
+
+	db NORMAL,       FAIRY,        NOT_VERY_EFFECTIVE
+	db NORMAL,       ROCK,         SUPER_EFFECTIVE
+	db NORMAL,       STEEL,        SUPER_EFFECTIVE
+	db NORMAL,       FLYING,       SUPER_EFFECTIVE
+	db NORMAL,       GHOST,        SUPER_EFFECTIVE
+
+	db FIRE,         GRASS,        NOT_VERY_EFFECTIVE
+	db FIRE,         ICE,          NOT_VERY_EFFECTIVE
+	db FIRE,         BUG,          NOT_VERY_EFFECTIVE
+	db FIRE,         STEEL,        NOT_VERY_EFFECTIVE
+	db FIRE,         GHOST,        NOT_VERY_EFFECTIVE
+	db FIRE,         FIRE,         SUPER_EFFECTIVE
+	db FIRE,         WATER,        SUPER_EFFECTIVE
+	db FIRE,         FIGHTING,     SUPER_EFFECTIVE
+	db FIRE,         ROCK,         SUPER_EFFECTIVE
+	db FIRE,         DRAGON,       SUPER_EFFECTIVE
+
+	db WATER,        FIRE,         NOT_VERY_EFFECTIVE
+	db WATER,        POISON,       NOT_VERY_EFFECTIVE ; ?
+	db WATER,        ROCK,         NOT_VERY_EFFECTIVE
+	db WATER,        GHOST,        NOT_VERY_EFFECTIVE
+	db WATER,        STEEL,        NOT_VERY_EFFECTIVE
+	db WATER,        WATER,        SUPER_EFFECTIVE
+	db WATER,        GRASS,        SUPER_EFFECTIVE
+	db WATER,        FIGHTING,     SUPER_EFFECTIVE
+	db WATER,        GROUND,       SUPER_EFFECTIVE
+	db WATER,        FLYING,       SUPER_EFFECTIVE
+	db WATER,        DRAGON,       SUPER_EFFECTIVE
+
+	db ELECTRIC,     WATER,        NOT_VERY_EFFECTIVE
+	db ELECTRIC,     GROUND,       NOT_VERY_EFFECTIVE
+	db ELECTRIC,     GHOST,        NOT_VERY_EFFECTIVE
+	db ELECTRIC,     STEEL,        NOT_VERY_EFFECTIVE
+	db ELECTRIC,     ELECTRIC,     SUPER_EFFECTIVE
+	db ELECTRIC,     FIRE,         SUPER_EFFECTIVE
+	db ELECTRIC,     DRAGON,       SUPER_EFFECTIVE
+
+	db GRASS,        WATER,        NOT_VERY_EFFECTIVE
+	db GRASS,        GROUND,       NOT_VERY_EFFECTIVE
+	db GRASS,        GHOST,        NOT_VERY_EFFECTIVE
+	db GRASS,        GRASS,        SUPER_EFFECTIVE
+	db GRASS,        FIRE,         SUPER_EFFECTIVE
+	db GRASS,        FLYING,       SUPER_EFFECTIVE
+	db GRASS,        DRAGON,       SUPER_EFFECTIVE
+	db GRASS,        STEEL,        SUPER_EFFECTIVE
+
+	db ICE,          GRASS,        NOT_VERY_EFFECTIVE
+	db ICE,          BUG,          NOT_VERY_EFFECTIVE
+	db ICE,          GHOST,        NOT_VERY_EFFECTIVE
+	db ICE,          FIRE,         NOT_VERY_EFFECTIVE
+	db ICE,          ICE,          SUPER_EFFECTIVE
+	db ICE,          WATER,        SUPER_EFFECTIVE
+	db ICE,          STEEL,        SUPER_EFFECTIVE
+	db ICE,          FIGHTING,     SUPER_EFFECTIVE
+	db ICE,          DRAGON,       SUPER_EFFECTIVE
+
+	db ICE2,         GRASS,        NOT_VERY_EFFECTIVE
+	db ICE2,         BUG,          NOT_VERY_EFFECTIVE
+	db ICE2,         GHOST,        NOT_VERY_EFFECTIVE
+	db ICE2,         FIRE,         NOT_VERY_EFFECTIVE
+	db ICE2,         WATER,        NOT_VERY_EFFECTIVE
+	db ICE2,         ICE,          SUPER_EFFECTIVE
+	db ICE2,         STEEL,        SUPER_EFFECTIVE
+	db ICE2,         FIGHTING,     SUPER_EFFECTIVE
+	db ICE2,         DRAGON,       SUPER_EFFECTIVE
+
+	db FIGHTING,     DARK,         NOT_VERY_EFFECTIVE
+	db FIGHTING,     DRAGON,       NOT_VERY_EFFECTIVE
+	db FIGHTING,     FLYING,       SUPER_EFFECTIVE
+	db FIGHTING,     PSYCHIC_TYPE, SUPER_EFFECTIVE
+	db FIGHTING,     STEEL,        SUPER_EFFECTIVE
+	db FIGHTING,     GHOST,        SUPER_EFFECTIVE
+
+	db POISON,       GRASS,        NOT_VERY_EFFECTIVE
+	db POISON,       GROUND,       NOT_VERY_EFFECTIVE
+	db POISON,       BUG,          NOT_VERY_EFFECTIVE
+	db POISON,       FAIRY,        NOT_VERY_EFFECTIVE
+	db POISON,       WATER,        SUPER_EFFECTIVE
+	db POISON,       FIGHTING,     SUPER_EFFECTIVE
+	db POISON,       ROCK,         SUPER_EFFECTIVE
+	db POISON,       DARK,         SUPER_EFFECTIVE
+	db POISON,       STEEL,        SUPER_EFFECTIVE
+	db POISON,       GHOST,        SUPER_EFFECTIVE
+	db POISON,       POISON,       SUPER_EFFECTIVE
+
+	db GROUND,       FIRE,         NOT_VERY_EFFECTIVE
+	db GROUND,       ELECTRIC,     NOT_VERY_EFFECTIVE
+	db GROUND,       WATER,        NOT_VERY_EFFECTIVE
+	db GROUND,       STEEL,        NOT_VERY_EFFECTIVE
+	db GROUND,       GRASS,        SUPER_EFFECTIVE
+	db GROUND,       BUG,          SUPER_EFFECTIVE
+	db GROUND,       GROUND,       SUPER_EFFECTIVE
+	db GROUND,       GHOST,        SUPER_EFFECTIVE
+	db GROUND,       FLYING,       SUPER_EFFECTIVE
+
+	db GROUND2,      FIRE,         NOT_VERY_EFFECTIVE
+	db GROUND2,      ELECTRIC,     NOT_VERY_EFFECTIVE
+	db GROUND2,      WATER,        NOT_VERY_EFFECTIVE
+	db GROUND2,      STEEL,        NOT_VERY_EFFECTIVE
+	db GROUND2,      GRASS,        SUPER_EFFECTIVE
+	db GROUND2,      BUG,          SUPER_EFFECTIVE
+	db GROUND2,      GROUND,       SUPER_EFFECTIVE
+	db GROUND2,      GHOST,        SUPER_EFFECTIVE
+
+	db FLYING,       BUG,          NOT_VERY_EFFECTIVE
+	db FLYING,       GROUND,       SUPER_EFFECTIVE
+	db FLYING,       ROCK,         SUPER_EFFECTIVE
+	db FLYING,       STEEL,        SUPER_EFFECTIVE
+	db FLYING,       GHOST,        SUPER_EFFECTIVE
+
+	db PSYCHIC_TYPE, FIGHTING,     NOT_VERY_EFFECTIVE
+	db PSYCHIC_TYPE, GHOST,        NOT_VERY_EFFECTIVE
+	db PSYCHIC_TYPE, DARK,         NOT_VERY_EFFECTIVE
+	db PSYCHIC_TYPE, STEEL,        NOT_VERY_EFFECTIVE
+	db PSYCHIC_TYPE, ELECTRIC,     SUPER_EFFECTIVE ; ?
+	db PSYCHIC_TYPE, GRASS,        SUPER_EFFECTIVE ; ?
+	db PSYCHIC_TYPE, PSYCHIC_TYPE, SUPER_EFFECTIVE
+	db PSYCHIC_TYPE, BUG,          SUPER_EFFECTIVE
+
+	db BUG,          GRASS,        NOT_VERY_EFFECTIVE
+	db BUG,          PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
+	db BUG,          DRAGON,       NOT_VERY_EFFECTIVE
+	db BUG,          ICE,          SUPER_EFFECTIVE
+	db BUG,          FIRE,         SUPER_EFFECTIVE
+	db BUG,          FLYING,       SUPER_EFFECTIVE
+	db BUG,          STEEL,        SUPER_EFFECTIVE
+	db BUG,          GHOST,        SUPER_EFFECTIVE
+
+	db ROCK,         FLYING,       NOT_VERY_EFFECTIVE
+	db ROCK,         BUG,          NOT_VERY_EFFECTIVE
+	db ROCK,         WATER,        SUPER_EFFECTIVE
+	db ROCK,         STEEL,        SUPER_EFFECTIVE
+	db ROCK,         GHOST,        SUPER_EFFECTIVE
+
+	db GHOST,        PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
+	db GHOST,        BUG,          SUPER_EFFECTIVE
+	db GHOST,        DARK,         SUPER_EFFECTIVE
+	db GHOST,        STEEL,        SUPER_EFFECTIVE
+	db GHOST,        FAIRY,        SUPER_EFFECTIVE
+	db GHOST,        GROUND,       SUPER_EFFECTIVE ; ? NOT_VERY_EFFECTIVE?
+
+	db DRAGON,       FIRE,         NOT_VERY_EFFECTIVE
+	db DRAGON,       WATER,        NOT_VERY_EFFECTIVE
+	db DRAGON,       ELECTRIC,     NOT_VERY_EFFECTIVE
+	db DRAGON,       GRASS,        NOT_VERY_EFFECTIVE
+	db DRAGON,       ICE,          NOT_VERY_EFFECTIVE
+	db DRAGON,       DRAGON,       NOT_VERY_EFFECTIVE
+	db DRAGON,       GHOST,        NOT_VERY_EFFECTIVE
+	db DRAGON,       STEEL,        SUPER_EFFECTIVE
+	db DRAGON,       BUG,          SUPER_EFFECTIVE
+
+	db DARK,         PSYCHIC_TYPE, NOT_VERY_EFFECTIVE
+	db DARK,         GHOST,        NOT_VERY_EFFECTIVE
+	db DARK,         FAIRY,        NOT_VERY_EFFECTIVE
+	db DARK,         FIGHTING,     SUPER_EFFECTIVE
+	db DARK,         POISON,       SUPER_EFFECTIVE ; ?
+	db DARK,         BUG,          SUPER_EFFECTIVE
+	db DARK,         DARK,         SUPER_EFFECTIVE
+
+	db STEEL,        ICE,          NOT_VERY_EFFECTIVE
+	db STEEL,        GROUND,       NOT_VERY_EFFECTIVE
+	db STEEL,        ROCK,         NOT_VERY_EFFECTIVE
+	db STEEL,        FAIRY,        NOT_VERY_EFFECTIVE
+	db STEEL,        FIRE,         SUPER_EFFECTIVE
+	db STEEL,        WATER,        SUPER_EFFECTIVE
+	db STEEL,        ELECTRIC,     SUPER_EFFECTIVE
+	db STEEL,        PSYCHIC_TYPE, SUPER_EFFECTIVE ; ?
+	db STEEL,        STEEL,        SUPER_EFFECTIVE
+	db STEEL,        GHOST,        SUPER_EFFECTIVE
+
+	db FAIRY,        GHOST,        NOT_VERY_EFFECTIVE
+	db FAIRY,        DARK,         NOT_VERY_EFFECTIVE
+	db FAIRY,        FIRE,         SUPER_EFFECTIVE
+	db FAIRY,        POISON,       SUPER_EFFECTIVE
+	db FAIRY,        GRASS,        SUPER_EFFECTIVE
+	db FAIRY,        BUG,          SUPER_EFFECTIVE
+	db FAIRY,        STEEL,        SUPER_EFFECTIVE
+
+	db -1 ; end
