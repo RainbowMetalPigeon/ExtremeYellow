@@ -39,20 +39,20 @@ DEF NUM_TYPES EQU const_value
 	const_next 64 ; = $40
 
 DEF PHYSICAL EQU const_value
-	const NORMAL       ; $40
-	const FIGHTING     ; $41
-	const STEEL        ; $42
-	const TYPELESS     ; $43=10
+	const TCG_COLORLESS    ; $40
+	const TCG_FIGHTING     ; $41
+	const TCG_METAL        ; $42
+	const TCG_TYPELESS     ; $43=10
 
 DEF SPECIAL EQU const_value
-	const FIRE         ; $44=20
-	const WATER        ; $45=21
-	const GRASS        ; $46=22
-	const ELECTRIC     ; $47=23
-	const PSYCHIC_TYPE ; $48=24
-	const DRAGON       ; $4A=26
-	const DARK         ; $4B=27
-;	const ICE2         ; $4D=29
+	const TCG_FIRE         ; $44=20
+	const TCG_WATER        ; $45=21
+	const TCG_GRASS        ; $46=22
+	const TCG_LIGHTNING    ; $47=23
+	const TCG_PSYCHIC      ; $48=24
+	const TCG_DRAGON       ; $4A=26
+	const TCG_DARK         ; $4B=27
+;	const TCG_ICE2         ; $4D=29
 
 DEF NUM_TYPES EQU const_value
 */

@@ -115,7 +115,7 @@ InitList:
 MoveInfoCopier::
 	ld a, c ; for the far-calling
 	ld hl, Moves
-	ld bc, MOVE_LENGTH
+	ld bc, MOVE_LENGTH ; = 6
 	call AddNTimes
 	ld a, BANK(Moves)
 	jp FarCopyData
