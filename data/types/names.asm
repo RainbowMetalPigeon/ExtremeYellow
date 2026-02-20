@@ -55,3 +55,34 @@ ENDR
 .Ice2:	   db "ICE@" ; new, for FREEZE_DRY
 
 ; new, for TCG mode ==================================
+
+TypeNames_TCG:
+	table_width 2, TypeNames_TCG
+
+	dw .TCGColorless
+	dw .TCGFighting
+	dw .TCGMetal
+	dw .TCGTypeless
+	dw .TCGFire
+	dw .TCGWater
+	dw .TCGGrass
+	dw .TCGLightning
+	dw .TCGPsychic
+	dw .TCGDragon
+	dw .TCGDark
+	dw .TCGWater2 ; for FREEZE_DRY
+
+	assert_table_length NUM_TYPES_TCG
+
+.TCGColorless:	db "COLORLESS@"
+.TCGFighting:	db "FIGHTING@"
+.TCGMetal:		db "METAL@"
+.TCGTypeless:	db "TYPELESS@"
+.TCGFire:		db "FIRE@"
+.TCGWater:		db "WATER@"
+.TCGGrass:		db "GRASS@"
+.TCGLightning:	db "LIGHTNING@"
+.TCGPsychic:	db "PSYCHIC@"
+.TCGDragon:		db "DRAGON@"
+.TCGDark:		db "DARK@"
+.TCGWater2:		db "WATER@"

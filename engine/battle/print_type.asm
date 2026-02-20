@@ -58,14 +58,7 @@ PrintMoveType:
 ; fall through
 
 PrintType_:
-	add a
-	ld hl, TypeNames
-	ld e, a
-	ld d, $0
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl]
+	call PrintTypeCore ; new
 	pop hl
 	jp PlaceString
 
@@ -76,16 +69,29 @@ INCLUDE "data/types/names.asm"
 ; output: string loaded in wTrainerName
 StoreTypeInwTrainerName::
 	ld a, d
-	add a
+	call PrintTypeCore ; new
+	ld h, d
+	ld l, e
+	ld de, wTrainerName
+	ld bc, $d
+	jp CopyData ; copies bc bytes from hl to de
+
+PrintTypeCore: ; new
+; new, for TCG
+	push af 
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld hl, TypeNames
+	jr z, .nameListFound
+	ld hl, TypeNames_TCG
+.nameListFound
+	pop af
+; BTV
+	add a
 	ld e, a
 	ld d, $0
 	add hl, de
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]
-	ld h, d
-	ld l, e
-	ld de, wTrainerName
-	ld bc, $d
-	jp CopyData ; copies bc bytes from hl to de
+	ret

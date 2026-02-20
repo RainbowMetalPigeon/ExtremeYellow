@@ -118,4 +118,51 @@ MoveInfoCopier::
 	ld bc, MOVE_LENGTH ; = 6
 	call AddNTimes
 	ld a, BANK(Moves)
-	jp FarCopyData
+	call FarCopyData
+; part to handle TCG
+	ld a, [wPersonalizationTCGMode]
+	and a
+	ret z
+; TCG mode
+	dec de
+	dec de
+	dec de ; now de points to the type
+	ld a, [de]
+	ld b, a ; b has the type we need to substitute
+	ld hl, TypeLookUpTableVanillaToTCG
+.loop
+	ld a, [hli]
+	cp b
+	jr nz, .notAMatch
+; match found
+	ld a, [hl]
+	ld [de], a
+	ret
+.notAMatch
+	inc hl
+	jr .loop
+
+TypeLookUpTableVanillaToTCG:
+	db NORMAL, TCG_COLORLESS
+	db FIGHTING, TCG_FIGHTING
+	db FLYING, TCG_COLORLESS
+	db POISON, TCG_GRASS
+	db GROUND, TCG_FIGHTING
+	db ROCK, TCG_FIGHTING
+	db BIRD, TCG_COLORLESS
+	db BUG, TCG_GRASS
+	db GHOST, TCG_DARK ; TBE?
+	db STEEL, TCG_METAL
+	db TYPELESS, TCG_TYPELESS
+	db GROUND2, TCG_FIGHTING
+	db FIRE, TCG_FIRE
+	db WATER, TCG_WATER
+	db GRASS, TCG_GRASS
+	db ELECTRIC, TCG_LIGHTNING
+	db PSYCHIC_TYPE, TCG_PSYCHIC
+	db ICE, TCG_WATER
+	db DRAGON, TCG_DRAGON
+	db DARK, TCG_DARK
+	db FAIRY, TCG_PSYCHIC
+	db ICE2, TCG_WATER2
+	db -1

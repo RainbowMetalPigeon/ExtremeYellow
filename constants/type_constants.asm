@@ -34,25 +34,24 @@ DEF SPECIAL EQU const_value
 DEF NUM_TYPES EQU const_value
 
 ; new, for TCG mode ==================================
-/*
-; offset wrt vanilla types
-	const_next 64 ; = $40
 
-DEF PHYSICAL EQU const_value
-	const TCG_COLORLESS    ; $40
-	const TCG_FIGHTING     ; $41
-	const TCG_METAL        ; $42
-	const TCG_TYPELESS     ; $43=10
+; reset the "counter"
+	const_def
 
-DEF SPECIAL EQU const_value
-	const TCG_FIRE         ; $44=20
-	const TCG_WATER        ; $45=21
-	const TCG_GRASS        ; $46=22
-	const TCG_LIGHTNING    ; $47=23
-	const TCG_PSYCHIC      ; $48=24
-	const TCG_DRAGON       ; $4A=26
-	const TCG_DARK         ; $4B=27
-;	const TCG_ICE2         ; $4D=29
+DEF PHYSICAL_TCG EQU const_value
+	const TCG_COLORLESS    ; $00
+	const TCG_FIGHTING     ; $01
+	const TCG_METAL        ; $02
+	const TCG_TYPELESS     ; $03
 
-DEF NUM_TYPES EQU const_value
-*/
+DEF SPECIAL_TCG EQU const_value
+	const TCG_FIRE         ; $04
+	const TCG_WATER        ; $05
+	const TCG_GRASS        ; $06
+	const TCG_LIGHTNING    ; $07
+	const TCG_PSYCHIC      ; $08
+	const TCG_DRAGON       ; $0A
+	const TCG_DARK         ; $0B
+	const TCG_WATER2       ; $0D
+
+DEF NUM_TYPES_TCG EQU const_value - PHYSICAL_TCG
