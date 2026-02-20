@@ -34,12 +34,9 @@ HealParty:
 	push de
 	push bc
 
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	ld c, a ; new
 	ld de, wcd6d
-	ld a, BANK(Moves)
-	call FarCopyData
+	callfar MoveInfoCopier ; new
 	ld a, [wcd6d + 5] ; PP is byte 5 of move data
 
 	pop bc
@@ -136,12 +133,9 @@ HealPartyEnemy:: ; new
 	push de
 	push bc
 
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	ld c, a ; new
 	ld de, wcd6d
-	ld a, BANK(Moves)
-	call FarCopyData
+	callfar MoveInfoCopier ; new
 	ld a, [wcd6d + 5] ; PP is byte 5 of move data
 
 	pop bc

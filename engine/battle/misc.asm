@@ -101,13 +101,21 @@ InitList:
 	ld [wListPointer], a
 	ld a, h
 	ld [wListPointer + 1], a
-;	ld a, e
-;	ld [wUnusedCF8D], a
-;	ld a, d
-;	ld [wUnusedCF8D + 1], a
 	ld bc, ItemPrices
 	ld a, c
 	ld [wItemPrices], a
 	ld a, b
 	ld [wItemPrices + 1], a
 	ret
+
+; new =============================
+
+; inputs: de as destination address for the copy
+; c: move ID - 1 to do the AddNTimes
+MoveInfoCopier::
+	ld a, c ; for the far-calling
+	ld hl, Moves
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	jp FarCopyData

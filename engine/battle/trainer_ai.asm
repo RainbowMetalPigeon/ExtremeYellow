@@ -1048,16 +1048,8 @@ ReadMove:
 	dec a
 	ld de, wEnemyMoveNum ; target of the copy
 ; edited, because of splitting the two files from within the same bank
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes ; adds bc to hl a times
-	ld a, BANK(Moves)
-	call FarCopyData ; copies bc bytes from a:hl to de
-; old:
-;	ld hl, Moves
-;	ld bc, MOVE_LENGTH
-;	call AddNTimes
-;	call CopyData ; copies bc bytes from hl to de
+	ld c, a ; new
+	callfar MoveInfoCopier ; new
 ; back to vanilla
 	pop bc
 	pop de

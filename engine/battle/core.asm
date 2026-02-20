@@ -3019,11 +3019,8 @@ PrintMenuItem:
 	ld de, wPlayerMoveNum
 	ld a, [wPlayerSelectedMove]
 	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes ; adds bc to hl a times
-	ld a, BANK(Moves)
-	call FarCopyData ; copies bc bytes from a:hl to de
+	ld c, a ; new
+	callfar MoveInfoCopier ; new
 
 ; print TYPE/<type> and <curPP>/<maxPP>
 
@@ -3481,6 +3478,8 @@ MirrorMoveCheck:
 	jr z, .dontDisplayEffectivenessYet
 	cp TWINEEDLE_EFFECT
 	jr z, .dontDisplayEffectivenessYet
+	cp DOUBLE_IRON_BASH_EFFECT
+	jr z, .dontDisplayEffectivenessYet
 	callfar DisplayEffectiveness ; this was already here but has been absorbed in the block
 .dontDisplayEffectivenessYet
 ; new block, end: display effectiveness only once for multi-hit moves
@@ -3505,6 +3504,8 @@ MirrorMoveCheck:
 	cp ATTACK_TWICE_EFFECT
 	jr z, .concludeMultiHitMove
 	cp TWINEEDLE_EFFECT
+	jr z, .concludeMultiHitMove
+	cp DOUBLE_IRON_BASH_EFFECT
 	jr z, .concludeMultiHitMove
 	ret
 .concludeMultiHitMove
@@ -5691,11 +5692,8 @@ MirrorMoveFailedText:
 ReloadMoveData:
 	ld [wd11e], a
 	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ld a, BANK(Moves)
-	call FarCopyData ; copy the move's stats
+	ld c, a ; new
+	callfar MoveInfoCopier ; new
 	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
 	call IncrementMovePP
 ; the follow two function calls are used to reload the move name
@@ -6395,6 +6393,8 @@ EnemyCheckIfMirrorMoveEffect:
 	jr z, .dontDisplayEffectivenessYet
 	cp TWINEEDLE_EFFECT
 	jr z, .dontDisplayEffectivenessYet
+	cp DOUBLE_IRON_BASH_EFFECT
+	jr z, .dontDisplayEffectivenessYet
 	callfar DisplayEffectiveness ; this was already here but has been absorbed in the block
 .dontDisplayEffectivenessYet
 ; new block, end: display effectiveness only once for multi-hit moves
@@ -6419,6 +6419,8 @@ EnemyCheckIfMirrorMoveEffect:
 	cp ATTACK_TWICE_EFFECT
 	jr z, .concludeMultiHitMove
 	cp TWINEEDLE_EFFECT
+	jr z, .concludeMultiHitMove
+	cp DOUBLE_IRON_BASH_EFFECT
 	jr z, .concludeMultiHitMove
 	ret
 .concludeMultiHitMove
@@ -6790,11 +6792,8 @@ GetCurrentMove:
 .selected
 	ld [wd0b5], a
 	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ld a, BANK(Moves)
-	call FarCopyData
+	ld c, a ; new
+	callfar MoveInfoCopier ; new
 	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
 	ld a, BANK(MoveNames)
 	ld [wPredefBank], a

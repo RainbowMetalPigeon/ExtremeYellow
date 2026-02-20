@@ -1,5 +1,5 @@
 ; inputs: d & e = types of the defender mon
-; output: [wMultipurposeTemporaryStorage] = effectiveness, or $FF if hit terminator 
+; output: [wMultipurposeTemporaryStorage] = effectiveness, or $FF if hit terminator
 TypeEffectivenessMatchFinder::
 	ld a, [wMoveType]
 	ld b, a
@@ -16,6 +16,18 @@ TypeEffectivenessMatchFinder::
 
 .firstTime
 	SetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+; are we using the Pigeon Custom Type Chart? Good choice!
+	ld hl, TypeEffects_Pigeon
+	ld a, [wPersonalizationTypeChart]
+	and a
+	jr z, .vanillaChart
+; check if it's inverse or not
+	ld a, [wInverseBattle]
+	and a
+	jr z, .loop
+	ld hl, TypeEffects_PigeonInverse
+	jr .loop
+.vanillaChart
 	ld hl, TypeEffects
 ; load Inverse Battle chart on demand; 0 for normal, 1 for inverse
 	ld a, [wInverseBattle]

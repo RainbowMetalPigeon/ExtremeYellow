@@ -317,12 +317,9 @@ AddPartyMon_WriteMovePP:
 	push hl
 	push de
 	push bc
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	ld c, a ; new
 	ld de, wcd6d
-	ld a, BANK(Moves)
-	call FarCopyData
+	callfar MoveInfoCopier ; new
 	pop bc
 	pop de
 	pop hl

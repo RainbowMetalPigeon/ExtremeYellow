@@ -96,6 +96,27 @@ _PersonalizationInfoTextSwapBattles::
 ;	xxxx "123456789012345678"
 	prompt
 
+_PersonalizationInfoTextTypeChart::
+	text "If selected, a"
+	line "custom type chart"
+	cont "crafted by the"
+	cont "author is used."
+	cont "In can be viewed"
+	cont "in the #DEX."
+;	xxxx "123456789012345678"
+	prompt
+
+_PersonalizationInfoTextTCGMode::
+	text "If selected, TCG"
+	line "types are used"
+	cont "for moves, chart,"
+	cont "and pokeMON."
+	cont "This overrrides"
+	cont "random type chart"
+	cont "& altered types."
+;	xxxx "123456789012345678"
+	prompt
+
 ; randomization ------
 
 _RandomizationInfoTextWildMons::
@@ -367,13 +388,13 @@ _PersonalizationInfoTextTypes_Details::
 	para "ARBOK:"
 	line "POISON/DARK"
 
-	para "PICHU:" 
+	para "PICHU:"
 	line "ELECTRIC/GROUND"
 
-	para "PIKACHU:" 
+	para "PIKACHU:"
 	line "ELECTRIC/GROUND"
 
-	para "RAICHU:" 
+	para "RAICHU:"
 	line "ELECTRIC/GROUND"
 
 	para "NIDOQUEEN:"
@@ -388,13 +409,13 @@ _PersonalizationInfoTextTypes_Details::
 	para "NINETALES:"
 	line "FIRE/GHOST"
 
-	para "ZUBAT:" 
+	para "ZUBAT:"
 	line "DARK/FLYING"
 
-	para "GOLBAT:" 
+	para "GOLBAT:"
 	line "DARK/FLYING"
 
-	para "CROBAT:" 
+	para "CROBAT:"
 	line "DARK/FLYING"
 
 	para "BELLOSSOM:"

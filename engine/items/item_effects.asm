@@ -3655,12 +3655,9 @@ GetMaxPP:
 	ld a, [hl]
 	dec a
 	push hl
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	ld c, a ; new
 	ld de, wcd6d
-	ld a, BANK(Moves)
-	call FarCopyData
+	callfar MoveInfoCopier ; new
 	ld de, wcd6d + 5 ; PP is byte 5 of move data
 	ld a, [de]
 	ld b, a ; b = normal max PP

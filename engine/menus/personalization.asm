@@ -218,7 +218,7 @@ PersonalizationMenu_TypeChart: ; TBE
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 13, 8
+	hlcoord 12, 8
 	call PlaceString
 	and a
 	ret
@@ -441,7 +441,7 @@ AllPersonalizationText:
 	db   "TYPES:"
 	next "PHY/SPE SPLIT:"
 	next "SWAP BATTLE:"
-	next "TYPE CHART:"
+	next "TYPECHART:"
 	next "TCG MODE:@"
 
 PersonalizationTitleText:
@@ -483,7 +483,7 @@ PersonalizationTypeChartStringsPointerTable:
 	dw CustomText
 
 CustomText:
-	db "CUSTOM@" ; TBE: PIGEON's?
+	db "CUSTOM @" ; TBE: PIGEON's?
 
 PersonalizationTCGModeStringsPointerTable:
 	dw NoText
@@ -495,6 +495,8 @@ PersonalizationInfoTexts:
 	dw PersonalizationInfoTextTypes
 	dw PersonalizationInfoTextPhySpeSplit
 	dw PersonalizationInfoTextSwapBattles
+	dw PersonalizationInfoTextTypeChart
+	dw PersonalizationInfoTextTCGMode
 
 PersonalizationInfoTextTypes:
 	text_far _PersonalizationInfoTextTypes
@@ -514,4 +516,12 @@ PersonalizationInfoTextTypes_WannaKnowThemAll:
 
 PersonalizationInfoTextTypes_Details:
 	text_far _PersonalizationInfoTextTypes_Details
+	text_end
+
+PersonalizationInfoTextTypeChart:
+	text_far _PersonalizationInfoTextTypeChart
+	text_end
+
+PersonalizationInfoTextTCGMode:
+	text_far _PersonalizationInfoTextTCGMode
 	text_end

@@ -157,12 +157,9 @@ CheckIfAllMovesAreStatusMoves::
 	dec a
 	push hl
 	push bc
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes ; adds bc to hl a times
-	ld a, BANK(Moves)
+	ld c, a ; new
 	ld de, wPlayerMoveNum
-	call FarCopyData ; copies bc bytes from a:hl to de
+	callfar MoveInfoCopier ; new
 	pop bc
 	pop hl
 

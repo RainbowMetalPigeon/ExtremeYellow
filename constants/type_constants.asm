@@ -32,3 +32,27 @@ DEF SPECIAL EQU const_value
 	const ICE2         ; $1D=29 ; new, for FREEZE_DRY
 
 DEF NUM_TYPES EQU const_value
+
+; new, for TCG mode ==================================
+/*
+; offset wrt vanilla types
+	const_next 64 ; = $40
+
+DEF PHYSICAL EQU const_value
+	const NORMAL       ; $40
+	const FIGHTING     ; $41
+	const STEEL        ; $42
+	const TYPELESS     ; $43=10
+
+DEF SPECIAL EQU const_value
+	const FIRE         ; $44=20
+	const WATER        ; $45=21
+	const GRASS        ; $46=22
+	const ELECTRIC     ; $47=23
+	const PSYCHIC_TYPE ; $48=24
+	const DRAGON       ; $4A=26
+	const DARK         ; $4B=27
+;	const ICE2         ; $4D=29
+
+DEF NUM_TYPES EQU const_value
+*/

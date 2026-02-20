@@ -53,3 +53,5 @@ ENDR
 .Typeless  db "TYPELESS@"
 .Ground2   db "GROUND@" ; new, for THOUSANDARROWS
 .Ice2:	   db "ICE@" ; new, for FREEZE_DRY
+
+; new, for TCG mode ==================================

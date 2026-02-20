@@ -684,12 +684,9 @@ WriteMonMoves:
 	add hl, de
 	push hl
 	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	ld c, a ; new
 	ld de, wBuffer
-	ld a, BANK(Moves)
-	call FarCopyData
+	callfar MoveInfoCopier ; new
 	ld a, [wBuffer + 5]
 	pop hl
 	ld [hl], a

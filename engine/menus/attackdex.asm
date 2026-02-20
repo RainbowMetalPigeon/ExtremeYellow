@@ -522,12 +522,9 @@ DrawAttackdexEntryOnScreen:
 ; gather info on the move
 	ld a, [wd11e]
 	dec a
+	ld c, a ; new
 	ld de, wPlayerMoveNum
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes ; adds bc to hl a times
-	ld a, BANK(Moves)
-	call FarCopyData ; copies bc bytes from a:hl to de
+	callfar MoveInfoCopier ; new
 
 ; print TYPE, BP, ACC, PP, and % texts
 	hlcoord 1, 3

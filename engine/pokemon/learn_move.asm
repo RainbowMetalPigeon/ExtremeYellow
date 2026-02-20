@@ -43,12 +43,9 @@ DontAbandonLearning:
 	push hl
 	push de
 	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	ld c, a ; new
 	ld de, wBuffer
-	ld a, BANK(Moves)
-	call FarCopyData ; copy bc bytes from a:hl to de
+	callfar MoveInfoCopier ; new
 	ld a, [wBuffer + 5] ; a = move's max PP
 	pop de
 	pop hl
@@ -354,12 +351,9 @@ PrintInfoCurrentMove: ; new
 	ld a, [hl] ; a should be holding the move ID
 	dec a
 
+	ld c, a ; new
 	ld de, wPlayerMoveNum
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes ; adds bc to hl a times
-	ld a, BANK(Moves)
-	call FarCopyData ; copies bc bytes from a:hl to de
+	callfar MoveInfoCopier ; new
 
 	hlcoord 11, 3 ; 1, 6
 	ld de, PPText2
@@ -447,11 +441,8 @@ PrintInfoNewMove: ; new
 	ld de, wPlayerMoveNum
 	ld a, [wMoveNum]
 	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes ; adds bc to hl a times
-	ld a, BANK(Moves)
-	call FarCopyData ; copies bc bytes from a:hl to de
+	ld c, a ; new
+	callfar MoveInfoCopier ; new
 
 	hlcoord 11, 7 ; 11, 6
 	ld de, PPText2
