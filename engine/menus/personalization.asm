@@ -41,8 +41,8 @@ PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_Types
 	dw PersonalizationMenu_PhySpeSplit
 	dw PersonalizationMenu_SwapBattles
-	dw PersonalizationMenu_Dummy
-	dw PersonalizationMenu_Dummy
+	dw PersonalizationMenu_TypeChart
+	dw PersonalizationMenu_TCGMode
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Cancel
@@ -181,6 +181,94 @@ PersonalizationMenu_SwapBattles:
 
 ; ---------------------------------------------
 
+PersonalizationMenu_TypeChart: ; TBE
+	ld a, [wPersonalizationTypeChart]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp 1 ; number of options - 1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, 2 ; number of options
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationTypeChart], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationTypeChartStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 13, 8
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
+PersonalizationMenu_TCGMode: ; TBE
+	ld a, [wPersonalizationTCGMode]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp 1 ; number of options - 1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, 2 ; number of options
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationTCGMode], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationTCGModeStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 11, 10
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
 PersonalizationMenu_Dummy:
 	and a
 	ret
@@ -222,7 +310,7 @@ PersonalizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 2 ; number of options - 1
+	cp 4 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -233,7 +321,7 @@ PersonalizationControl:
 	ld a, [hl]
 	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 2 ; number of options - 1
+	ld [hl], 4 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -248,7 +336,7 @@ PersonalizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wMultipurposeTemporaryStorage], a
-	cp 3 ; number of options
+	cp 5 ; number of options
 	ret nc
 	cp 0 ; first option is special as it doesn't just print one dialogue
 	jr z, .alteredTypes
@@ -306,7 +394,7 @@ InitPersonalizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 5 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -334,7 +422,7 @@ InitPersonalizationMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 5 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -352,7 +440,9 @@ InitPersonalizationMenu_Redo:
 AllPersonalizationText:
 	db   "TYPES:"
 	next "PHY/SPE SPLIT:"
-	next "SWAP BATTLE:@"
+	next "SWAP BATTLE:"
+	next "TYPE CHART:"
+	next "TCG MODE:@"
 
 PersonalizationTitleText:
 	db "PERSONALIZATION@"
@@ -365,7 +455,7 @@ PersonalizationTypesStringsPointerTable:
 	dw AlteredText
 
 ClassicText:
-	db "CLASSIC@"
+	db "CLASSIC@" ; TBE: VANILLA?
 AlteredText:
 	db "ALTERED@"
 
@@ -387,6 +477,17 @@ AllText:
 	db "ALL  @"
 MajorText:
 	db "MAJOR@"
+
+PersonalizationTypeChartStringsPointerTable:
+	dw ClassicText
+	dw CustomText
+
+CustomText:
+	db "CUSTOM@" ; TBE: PIGEON's?
+
+PersonalizationTCGModeStringsPointerTable:
+	dw NoText
+	dw YesText
 
 ; new, for info
 
