@@ -250,7 +250,7 @@ PersonalizationControl:
 	ld [wMultipurposeTemporaryStorage], a
 	cp 3 ; number of options
 	ret nc
-	cp 1 ; second option is special as it doesn't just print one dialogue
+	cp 0 ; first option is special as it doesn't just print one dialogue
 	jr z, .alteredTypes
 	add a ; doubles a
 	ld e, a

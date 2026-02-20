@@ -367,6 +367,15 @@ _PersonalizationInfoTextTypes_Details::
 	para "ARBOK:"
 	line "POISON/DARK"
 
+	para "PICHU:" 
+	line "ELECTRIC/GROUND"
+
+	para "PIKACHU:" 
+	line "ELECTRIC/GROUND"
+
+	para "RAICHU:" 
+	line "ELECTRIC/GROUND"
+
 	para "NIDOQUEEN:"
 	line "POISON/FAIRY"
 
@@ -378,6 +387,15 @@ _PersonalizationInfoTextTypes_Details::
 
 	para "NINETALES:"
 	line "FIRE/GHOST"
+
+	para "ZUBAT:" 
+	line "DARK/FLYING"
+
+	para "GOLBAT:" 
+	line "DARK/FLYING"
+
+	para "CROBAT:" 
+	line "DARK/FLYING"
 
 	para "BELLOSSOM:"
 	line "GRASS/FIRE"

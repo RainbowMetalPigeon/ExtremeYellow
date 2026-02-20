@@ -5876,33 +5876,6 @@ AdjustDamageForMoveType:
 	jr z, .done
 ; BTV
 
-;	ld a, [wMoveType]
-;	ld b, a
-;	ld hl, TypeEffects
-;; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
-;	ld a, [wInverseBattle]
-;	and a
-;    jr z, .loop
-;    ld hl, TypeEffectsInverse
-;.loop
-;; back to vanilla
-;	ld a, [hli] ; a = "attacking type" of the current type pair
-;	cp $ff
-;	jr z, .done
-;	cp b ; does move type match "attacking type"?
-;	jr nz, .nextTypePair
-;	ld a, [hl] ; a = "defending type" of the current type pair
-;	cp d ; does type 1 of defender match "defending type"?
-;	jr z, .matchingPairFound
-;	cp e ; does type 2 of defender match "defending type"?
-;	jr z, .matchingPairFound
-;	jr .nextTypePair
-
-.matchingPairFound
-; if the move type matches the "attacking type" and one of the defender's types matches the "defending type"
-;	push hl
-;	push bc
-;	inc hl
 	ld a, [wDamageMultipliers]
 	and $80
 	ld b, a
@@ -5972,12 +5945,7 @@ AdjustDamageForMoveType:
 	cp ANCESTOR_PWR
 	ret z
 
-;	pop bc
-;	pop hl
 .nextTypePair
-;	inc hl
-;	inc hl
-;	jp .loop
 	CheckEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
 	jr nz, .done
 	jr .pseudoLoop
