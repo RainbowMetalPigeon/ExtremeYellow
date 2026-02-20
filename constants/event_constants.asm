@@ -250,7 +250,8 @@
 	const EVENT_BEAT_SEVII_ROUTE_36_TRAINER_10 ; new
 	const EVENT_BEAT_SEVII_ROUTE_36_TRAINER_11 ; new
 	const EVENT_BEAT_SEVII_ROUTE_36_TRAINER_12 ; new
-	const_skip 4
+	const EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN ; new
+	const_skip 3
 
 ; Vermilion City events
 	const_next $150

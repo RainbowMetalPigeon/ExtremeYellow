@@ -4,12 +4,13 @@ TypeEffectivenessMatchFinder::
 	ld a, [wMoveType]
 	ld b, a
 ; determine which type chart to look at
-	CheckAndResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+	CheckEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
 	jr z, .firstTime
 ; we're returning, load stored address to continue from there
-	ld a, [wEphemerealTempBuffer2ByteStorage]
+	SetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
+	ld a, [wEphemerealTempBuffer2ByteStorage2]
 	ld h, a
-	ld a, [wEphemerealTempBuffer2ByteStorage+1]
+	ld a, [wEphemerealTempBuffer2ByteStorage2+1]
 	ld l, a
 	jr .loop
 
@@ -47,9 +48,9 @@ TypeEffectivenessMatchFinder::
 	ld a, [hli] ; now hl points to the beginning of the next row
 	ld [wMultipurposeTemporaryStorage], a
 	ld a, h
-	ld [wEphemerealTempBuffer2ByteStorage], a
+	ld [wEphemerealTempBuffer2ByteStorage2], a
 	ld a, l
-	ld [wEphemerealTempBuffer2ByteStorage+1], a
+	ld [wEphemerealTempBuffer2ByteStorage2+1], a
 	ret
 
 .done

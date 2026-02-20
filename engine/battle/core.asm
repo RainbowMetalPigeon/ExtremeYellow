@@ -5866,6 +5866,7 @@ AdjustDamageForMoveType:
 ; back to vanilla
 
 ; new, to disentangle the type_matchups.asm file
+	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
 .pseudoLoop
 	push de
 	callfar TypeEffectivenessMatchFinder
@@ -5977,8 +5978,12 @@ AdjustDamageForMoveType:
 ;	inc hl
 ;	inc hl
 ;	jp .loop
+	CheckEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
+	jr nz, .done
 	jr .pseudoLoop
 .done
+	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
 	ret
 
 ; some tests that need to pass for a move to hit
