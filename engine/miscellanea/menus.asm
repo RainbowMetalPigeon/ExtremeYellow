@@ -11,24 +11,14 @@ DrawTypeChartInfo::
 
 	call DrawTypeHeader
 
-;	hlcoord  1,  0
-;	ld [hl], $50
-;	inc hl
-;	ld [hl], $51
-;	inc hl
-;	ld [hl], $52
-;	inc hl
-;	ld [hl], $53
-;	inc hl
-;
-;	hlcoord  3,  1
-;	ld a, 8
-;	ld [wTypeEffectiveness], a
-;	call PlaceTileDependingOnEffectiveness
-
-
 	ld de, TypeListsForChart
 	hlcoord  2,  0
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .loopOffensive
+	ld de, TypeListsForChart_TCG
+	hlcoord  2,  0 ; TBE
+	
 .loopOffensive
 	ld a, [de]
 	inc de
@@ -37,7 +27,13 @@ DrawTypeChartInfo::
 	jr z, .doneWithOffensive
 
 	ld b, a
+
 	ld de, TypeListsForChart
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .loopDefensive
+	ld de, TypeListsForChart_TCG
+
 .loopDefensive
 	ld a, [de]
 	cp -1
@@ -57,6 +53,17 @@ DrawTypeChartInfo::
 .doneWithDefensive
 
 	pop de
+	inc hl
+	inc hl
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .loopOffensive
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
 	inc hl
 	inc hl
 
@@ -115,7 +122,87 @@ TypeListsForChart:
 	db FAIRY        ; 17
 	db -1
 
+TypeListsForChart_TCG:
+	db TCG_COLORLESS   ;  0
+	db TCG_FIRE        ;  1
+	db TCG_WATER       ;  2
+	db TCG_LIGHTNING   ;  3
+	db TCG_GRASS       ;  4
+	db TCG_FIGHTING    ;  5
+	db TCG_PSYCHIC     ;  6
+	db TCG_DRAGON      ;  7
+	db TCG_DARK        ;  8
+	db TCG_METAL       ;  9
+	db -1
+
 DrawTypeHeader:
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .nonTCG
+; TCG
+	; COLORLESS ; TBE
+	hlcoord  0,  0
+	ld [hl], $00
+	inc hl
+	ld [hl], $01
+
+	; FIRE
+	hlcoord  0,  1
+	ld [hl], $18
+	inc hl
+	ld [hl], $19
+
+	; WATER
+	hlcoord  0,  2
+	ld [hl], $0A
+	inc hl
+	ld [hl], $0B
+
+	; LIGHTNING ; TBE
+	hlcoord  0,  3
+	ld [hl], $0C
+	inc hl
+	ld [hl], $0D
+
+	; GRASS
+	hlcoord  0,  4
+	ld [hl], $1A
+	inc hl
+	ld [hl], $1B
+
+	; FIGHTING
+	hlcoord  0,  5
+	ld [hl], $20
+	inc hl
+	ld [hl], $21
+
+	; PSYCHIC
+	hlcoord  0,  6
+	ld [hl], $1C
+	inc hl
+	ld [hl], $1D
+
+	; DRAGON
+	hlcoord  0,  7
+	ld [hl], $1E
+	inc hl
+	ld [hl], $1F
+
+	; DARK
+	hlcoord  0,  8
+	ld [hl], $10
+	inc hl
+	ld [hl], $11
+
+	; STEEL
+	hlcoord  0,  9
+	ld [hl], $08
+	inc hl
+	ld [hl], $09
+
+	ret
+
+.nonTCG
 	; NORMAL
 	hlcoord  0,  0
 	ld [hl], $00
@@ -232,77 +319,3 @@ TypeChartTileGraphics:  INCBIN "gfx/pokedex/type_chart_font.2bpp"
 TypeChartTileGraphicsEnd:
 
 ; ====================================================================================
-
-; draws a vertical line
-; INPUT:
-; hl = address of top tile in the line
-; a = tile ID
-TrainerInfo_DrawVerticalLine2:
-	ld de, SCREEN_WIDTH
-	ld c, 8
-.loop
-	ld [hl], a
-	add hl, de
-	dec c
-	jr nz, .loop
-	ret
-
-TrainerInfo_FarCopyData2:
-	ld a, BANK(TrainerInfoTextBoxTileGraphics)
-	jp FarCopyData
-
-; draws a text box on the trainer info screen
-; height is always 6
-; INPUT:
-; hl = destination address
-; [wTrainerInfoTextBoxWidthPlus1] = width
-; [wTrainerInfoTextBoxWidth] = width - 1
-; [wTrainerInfoTextBoxNextRowOffset] = distance from the end of a text box row to the start of the next
-TrainerInfo_DrawTextBox2:
-	ld a, $79 ; upper left corner tile ID
-	lb de, $7a, $7b ; top edge and upper right corner tile ID's
-	call TrainerInfo_DrawHorizontalEdge2 ; draw top edge
-	call TrainerInfo_NextTextBoxRow2
-	ld a, [wTrainerInfoTextBoxWidthPlus1]
-	ld e, a
-	ld d, 0
-	ld c, 6 ; height of the text box
-.loop
-	ld [hl], $7c ; left edge tile ID
-	add hl, de
-	ld [hl], $78 ; right edge tile ID
-	call TrainerInfo_NextTextBoxRow2
-	dec c
-	jr nz, .loop
-	ld a, $7d ; lower left corner tile ID
-	lb de, $77, $7e ; bottom edge and lower right corner tile ID's
-
-TrainerInfo_DrawHorizontalEdge2:
-	ld [hli], a ; place left corner tile
-	ld a, [wTrainerInfoTextBoxWidth]
-	ld c, a
-	ld a, d
-.loop
-	ld [hli], a ; place edge tile
-	dec c
-	jr nz, .loop
-	ld a, e
-	ld [hl], a ; place right corner tile
-	ret
-
-TrainerInfo_NextTextBoxRow2:
-	ld a, [wTrainerInfoTextBoxNextRowOffset] ; distance to the start of the next row
-.loop
-	inc hl
-	dec a
-	jr nz, .loop
-	ret
-
-TrainerInfo_NameMoneyTimeText2:
-	db   "NAME/"
-	next "MONEY/"
-	next "TIME/@"
-
-; $76 is a circle tile
-TrainerInfo_BadgesText2:
-	db $76,"BADGES",$76,"@"

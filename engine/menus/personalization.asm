@@ -181,7 +181,7 @@ PersonalizationMenu_SwapBattles:
 
 ; ---------------------------------------------
 
-PersonalizationMenu_TypeChart: ; TBE
+PersonalizationMenu_TypeChart:
 	ld a, [wPersonalizationTypeChart]
 	ld c, a
 	ldh a, [hJoy5]
@@ -225,7 +225,7 @@ PersonalizationMenu_TypeChart: ; TBE
 
 ; ---------------------------------------------
 
-PersonalizationMenu_TCGMode: ; TBE
+PersonalizationMenu_TCGMode:
 	ld a, [wPersonalizationTCGMode]
 	ld c, a
 	ldh a, [hJoy5]

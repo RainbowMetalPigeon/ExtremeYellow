@@ -112,8 +112,8 @@ _PersonalizationInfoTextTCGMode::
 	cont "for moves, chart,"
 	cont "and pokeMON."
 	cont "This overrrides"
-	cont "random type chart"
-	cont "& altered types."
+	cont "CUSTOM type chart"
+	cont "& ALTERED types."
 ;	xxxx "123456789012345678"
 	prompt
 

@@ -16,39 +16,7 @@ TypeEffectivenessMatchFinder::
 
 .firstTime
 	SetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
-; are we playing with the TCG mode?
-	ld a, [wPersonalizationTCGMode]
-	and a
-	jr z, .checkPigeonChart
-; check if inverse or not
-; check if it's inverse or not
-	ld hl, TypeEffects_TCG
-	ld a, [wInverseBattle]
-	and a
-	jr z, .loop
-	ld hl, TypeEffects_TCGInverse
-	jr .loop
-
-.checkPigeonChart
-; are we using the Pigeon Custom Type Chart? Good choice!
-	ld a, [wPersonalizationTypeChart]
-	and a
-	jr z, .vanillaChart
-; check if it's inverse or not
-	ld hl, TypeEffects_Pigeon
-	ld a, [wInverseBattle]
-	and a
-	jr z, .loop
-	ld hl, TypeEffects_PigeonInverse
-	jr .loop
-
-.vanillaChart
-	ld hl, TypeEffects
-; load Inverse Battle chart on demand; 0 for normal, 1 for inverse
-	ld a, [wInverseBattle]
-	and a
-    jr z, .loop
-    ld hl, TypeEffectsInverse
+	call SelectAppropriateTypeChart
 
 ; matching pair search
 .loop
@@ -108,12 +76,9 @@ AIGetTypeEffectiveness::
 
 	ld a, 10
 	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness
-	ld hl, TypeEffects
-; new, load Inverse Battle chart on demand; 0 for normal, 1 for inverse
-	ld a, [wInverseBattle]
-	and a
-    jr z, .continue
-    ld hl, TypeEffectsInverse
+
+	call SelectAppropriateTypeChart ; new
+
 .continue
 ; back to vanilla
 	push hl ; to re-use it for the second check, if any
@@ -205,6 +170,44 @@ AIGetTypeEffectiveness::
 						   ; 16 for 4
 .completing
 	ld [wTypeEffectiveness], a
+	ret
+
+; ====================================================================
+
+SelectAppropriateTypeChart:
+; are we playing with the TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .checkPigeonChart
+; check if inverse or not
+; check if it's inverse or not
+	ld hl, TypeEffects_TCG
+	ld a, [wInverseBattle]
+	and a
+	ret z
+	ld hl, TypeEffects_TCGInverse
+	ret
+
+.checkPigeonChart
+; are we using the Pigeon Custom Type Chart? Good choice!
+	ld a, [wPersonalizationTypeChart]
+	and a
+	jr z, .vanillaChart
+; check if it's inverse or not
+	ld hl, TypeEffects_Pigeon
+	ld a, [wInverseBattle]
+	and a
+	ret z
+	ld hl, TypeEffects_PigeonInverse
+	ret
+
+.vanillaChart
+	ld hl, TypeEffects
+; load Inverse Battle chart on demand; 0 for normal, 1 for inverse
+	ld a, [wInverseBattle]
+	and a
+    ret z
+    ld hl, TypeEffectsInverse
 	ret
 
 ; ====================================================================

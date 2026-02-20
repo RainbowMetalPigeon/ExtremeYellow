@@ -174,6 +174,17 @@ StatusScreen:
 ; back to vanilla
 	callfar SetDeltaSpeciesEvent_Loaded ; new for delta
 	hlcoord 11, 10
+; new, for TCG
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .doneWithHL
+	dec hl
+	push hl
+	hlcoord 15, 11
+	ld [hl], " "
+	pop hl
+.doneWithHL
+; BTV
 	predef PrintMonType
 	ld hl, NamePointers2
 	call .GetStringPointer
