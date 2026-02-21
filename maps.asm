@@ -1851,20 +1851,20 @@ INCLUDE "scripts/SeviiTanobyChambers.asm"
 INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
 SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
 
-INCLUDE "data/maps/headers/SeviiFourIslandHazardRoom.asm"
-INCLUDE "scripts/SeviiFourIslandHazardRoom.asm"
-INCLUDE "data/maps/objects/SeviiFourIslandHazardRoom.asm"
-SeviiFourIslandHazardRoom_Blocks: INCBIN "maps/SeviiFourIslandHazardRoom.blk"
-
-INCLUDE "data/maps/headers/SeviiDottedHole.asm"
-INCLUDE "scripts/SeviiDottedHole.asm"
-INCLUDE "data/maps/objects/SeviiDottedHole.asm"
-SeviiDottedHole_Blocks: INCBIN "maps/SeviiDottedHole.blk"
-
 INCLUDE "data/maps/headers/SeviiAlteringCave.asm"
 INCLUDE "scripts/SeviiAlteringCave.asm"
 INCLUDE "data/maps/objects/SeviiAlteringCave.asm"
 SeviiAlteringCave_Blocks: INCBIN "maps/SeviiAlteringCave.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave2.asm"
+INCLUDE "scripts/SeviiAlteringCave2.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave2.asm"
+SeviiAlteringCave2_Blocks: INCBIN "maps/SeviiAlteringCave2.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave3.asm"
+INCLUDE "scripts/SeviiAlteringCave3.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave3.asm"
+SeviiAlteringCave3_Blocks: INCBIN "maps/SeviiAlteringCave3.blk"
 
 
 SECTION "Maps Sevii 4", ROMX ; new
@@ -2026,3 +2026,68 @@ INCLUDE "data/maps/headers/SeviiRoute37.asm"
 INCLUDE "scripts/SeviiRoute37.asm"
 INCLUDE "data/maps/objects/SeviiRoute37.asm"
 SeviiRoute37_Blocks: INCBIN "maps/SeviiRoute37.blk"
+
+INCLUDE "data/maps/headers/SeviiTanobyGarden.asm"
+INCLUDE "scripts/SeviiTanobyGarden.asm"
+INCLUDE "data/maps/objects/SeviiTanobyGarden.asm"
+SeviiTanobyGarden_Blocks: INCBIN "maps/SeviiTanobyGarden.blk"
+
+INCLUDE "data/maps/headers/SeviiTanobyDen.asm"
+INCLUDE "scripts/SeviiTanobyDen.asm"
+INCLUDE "data/maps/objects/SeviiTanobyDen.asm"
+SeviiTanobyDen_Blocks: INCBIN "maps/SeviiTanobyDen.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundOne.asm"
+INCLUDE "scripts/SeviiUndergroundOne.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundOne.asm"
+SeviiUndergroundOne_Blocks: INCBIN "maps/SeviiUndergroundOne.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundTwo.asm"
+INCLUDE "scripts/SeviiUndergroundTwo.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundTwo.asm"
+SeviiUndergroundTwo_Blocks: INCBIN "maps/SeviiUndergroundTwo.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundThree.asm"
+INCLUDE "scripts/SeviiUndergroundThree.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundThree.asm"
+SeviiUndergroundThree_Blocks: INCBIN "maps/SeviiUndergroundThree.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundFour.asm"
+INCLUDE "scripts/SeviiUndergroundFour.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundFour.asm"
+SeviiUndergroundFour_Blocks: INCBIN "maps/SeviiUndergroundFour.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundFive.asm"
+INCLUDE "scripts/SeviiUndergroundFive.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundFive.asm"
+SeviiUndergroundFive_Blocks: INCBIN "maps/SeviiUndergroundFive.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundSix.asm"
+INCLUDE "scripts/SeviiUndergroundSix.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundSix.asm"
+SeviiUndergroundSix_Blocks: INCBIN "maps/SeviiUndergroundSix.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundSeven.asm"
+INCLUDE "scripts/SeviiUndergroundSeven.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundSeven.asm"
+SeviiUndergroundSeven_Blocks: INCBIN "maps/SeviiUndergroundSeven.blk"
+
+INCLUDE "data/maps/headers/SeviiUndergroundLobby.asm"
+INCLUDE "scripts/SeviiUndergroundLobby.asm"
+INCLUDE "data/maps/objects/SeviiUndergroundLobby.asm"
+SeviiUndergroundLobby_Blocks: INCBIN "maps/SeviiUndergroundLobby.blk"
+
+INCLUDE "data/maps/headers/SeviiTenIsland.asm"
+INCLUDE "scripts/SeviiTenIsland.asm"
+INCLUDE "data/maps/objects/SeviiTenIsland.asm"
+SeviiTenIsland_Blocks: INCBIN "maps/SeviiTenIsland.blk"
+
+INCLUDE "data/maps/headers/SeviiDottedHole.asm"
+INCLUDE "scripts/SeviiDottedHole.asm"
+INCLUDE "data/maps/objects/SeviiDottedHole.asm"
+SeviiDottedHole_Blocks: INCBIN "maps/SeviiDottedHole.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandHazardRoom.asm"
+INCLUDE "scripts/SeviiFourIslandHazardRoom.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandHazardRoom.asm"
+SeviiFourIslandHazardRoom_Blocks: INCBIN "maps/SeviiFourIslandHazardRoom.blk"

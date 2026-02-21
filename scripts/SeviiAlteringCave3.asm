@@ -1,7 +1,7 @@
-SeviiAlteringCave_Script:
+SeviiAlteringCave3_Script:
 	jp EnableAutoTextBoxDrawing
 
-SeviiAlteringCave_TextPointers:
+SeviiAlteringCave3_TextPointers:
 ;	dw SeviiAlteringCaveText1
 ;	dw PickUpItemText
 ;	dw RockSmashText

@@ -50,12 +50,14 @@ MapHeaderPointers_Sevii::
 	dw SeviiMtEmber9F_h
 	dw SeviiMtEmber10F_h
 	dw SeviiMtEmber11F_h
+	dw SeviiUndergroundOne_h
 ; 2-island
 	dw SeviiTwoIslandDock_h
 	dw SeviiTwoIslandPokemonCenter_h
 	dw SeviiTwoIslandGym_h
 	dw SeviiTwoIslandHouses_h
 	dw SeviiTwoIslandCityDive_h
+	dw SeviiUndergroundTwo_h
 ; 3-island
 	dw SeviiThreeIslandDock_h
 	dw SeviiThreeIslandPokemonCenterAndMart_h
@@ -69,6 +71,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute33DiveCavernF2_h
 	dw SeviiRoute33DiveCavernF3_h
 	dw SeviiRoute33DiveCavernF4_h
+	dw SeviiUndergroundThree_h
 ; 4-island
 	dw SeviiFourIslandDock_h
 	dw SeviiFourIslandPokemonCenterAndMart_h
@@ -79,6 +82,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiIcefallCave2F_h
 	dw SeviiFourIslandCityDive_h
 	dw SeviiFourIslandCityDiveCavern_h
+	dw SeviiUndergroundFour_h
 ; 5-island
 	dw SeviiFiveIslandDock_h
 	dw SeviiFiveIslandPokemonCenterAndMart_h
@@ -93,6 +97,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiLostCave3_h
 	dw SeviiFiveIslandCityDive_h
 	dw SeviiFiveIslandCityDiveCavern_h
+	dw SeviiUndergroundFive_h
 ; 6-island
 	dw SeviiSixIslandDock_h
 	dw SeviiSixIslandPokemonCenterAndMart_h
@@ -102,10 +107,13 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute38Houses_h
 	dw SeviiPatternBush_h
 	dw SeviiAlteringCave_h
+	dw SeviiAlteringCave2_h
+	dw SeviiAlteringCave3_h
 	dw SeviiDottedHole_h
 	dw SeviiRoute38Dive_h
 	dw SeviiRoute38DiveCavern_h
 	dw SeviiRoute39Dive_h
+	dw SeviiUndergroundSix_h
 ; 7-island
 	dw SeviiSevenIslandDock_h
 	dw SeviiSevenIslandPokemonCenterAndMart_h
@@ -117,9 +125,14 @@ MapHeaderPointers_Sevii::
 	dw SeviiSevenIslandHouses_h
 	dw SeviiRoute43Caves_h
 	dw SeviiTanobyChambers_h
+	dw SeviiTanobyGarden_h
+	dw SeviiTanobyDen_h
+	dw SeviiUndergroundSeven_h
 ; 8-island
 	dw SeviiEightIslandDock_h
 	dw SeviiEightIslandCave_h
 ; extra
 	dw SeviiDesolatedRock_h
+	dw SeviiUndergroundLobby_h
+	dw SeviiTenIsland_h
 	assert_table_length NUM_MAPS_SEVII

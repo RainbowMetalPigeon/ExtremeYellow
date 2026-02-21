@@ -50,12 +50,14 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiMtEmber9F_h)
 	db BANK(SeviiMtEmber10F_h)
 	db BANK(SeviiMtEmber11F_h)
+	db BANK(SeviiUndergroundOne_h)
 ; 2-island
 	db BANK(SeviiTwoIslandDock_h)
 	db BANK(SeviiTwoIslandPokemonCenter_h)
 	db BANK(SeviiTwoIslandGym_h)
 	db BANK(SeviiTwoIslandHouses_h)
 	db BANK(SeviiTwoIslandCityDive_h)
+	db BANK(SeviiUndergroundTwo_h)
 ; 3-island
 	db BANK(SeviiThreeIslandDock_h)
 	db BANK(SeviiThreeIslandPokemonCenterAndMart_h)
@@ -69,6 +71,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiRoute33DiveCavernF2_h)
 	db BANK(SeviiRoute33DiveCavernF3_h)
 	db BANK(SeviiRoute33DiveCavernF4_h)
+	db BANK(SeviiUndergroundThree_h)
 ; 4-island
 	db BANK(SeviiFourIslandDock_h)
 	db BANK(SeviiFourIslandPokemonCenterAndMart_h)
@@ -79,6 +82,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiIcefallCave2F_h)
 	db BANK(SeviiFourIslandCityDive_h)
 	db BANK(SeviiFourIslandCityDiveCavern_h)
+	db BANK(SeviiUndergroundFour_h)
 ; 5-island
 	db BANK(SeviiFiveIslandDock_h)
 	db BANK(SeviiFiveIslandPokemonCenterAndMart_h)
@@ -93,6 +97,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiLostCave3_h)
 	db BANK(SeviiFiveIslandCityDive_h)
 	db BANK(SeviiFiveIslandCityDiveCavern_h)
+	db BANK(SeviiUndergroundFive_h)
 ; 6-island
 	db BANK(SeviiSixIslandDock_h)
 	db BANK(SeviiSixIslandPokemonCenterAndMart_h)
@@ -102,10 +107,13 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiRoute38Houses_h)
 	db BANK(SeviiPatternBush_h)
 	db BANK(SeviiAlteringCave_h)
+	db BANK(SeviiAlteringCave2_h)
+	db BANK(SeviiAlteringCave3_h)
 	db BANK(SeviiDottedHole_h)
 	db BANK(SeviiRoute38Dive_h)
 	db BANK(SeviiRoute38DiveCavern_h)
 	db BANK(SeviiRoute39Dive_h)
+	db BANK(SeviiUndergroundSix_h)
 ; 7-island
 	db BANK(SeviiSevenIslandDock_h)
 	db BANK(SeviiSevenIslandPokemonCenterAndMart_h)
@@ -117,9 +125,14 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiSevenIslandHouses_h)
 	db BANK(SeviiRoute43Caves_h)
 	db BANK(SeviiTanobyChambers_h)
+	db BANK(SeviiTanobyGarden_h)
+	db BANK(SeviiTanobyDen_h)
+	db BANK(SeviiUndergroundSeven_h)
 ; 8-island
 	db BANK(SeviiEightIslandDock_h)
 	db BANK(SeviiEightIslandCave_h)
 ; extra
 	db BANK(SeviiDesolatedRock_h)
+	db BANK(SeviiUndergroundLobby_h)
+	db BANK(SeviiTenIsland_h)
 	assert_table_length NUM_MAPS_SEVII
