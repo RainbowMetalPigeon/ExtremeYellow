@@ -1,7 +1,72 @@
-_SeviiFourIslandCityText1::
-	text "1 - PL Pink"
+_SeviiFourIslandCityScriptText1::
+	text "You can do it..."
+	line "You can do it."
+	cont "You can do it!!!"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiFourIslandCityScriptText2::
+	text "PINK: <PLAYER>!"
+	line "You here?!"
+
+	para "...uff. I'm going"
+	line "to take on the"
+	cont "SEVII TRIAL."
+
+	para "They say that who-"
+	line "ever defeats all"
+	cont "the seven SAGEs"
+	cont "will have one"
+	cont "wish granted."
+
+	para "And I wish to be"
+	line "strong enough to"
+	cont "defend my home"
+	cont "and my family!"
+
+	para "But what if I'm"
+	line "already strong"
+	cont "enough?"
+	
+	para "<PLAYER>! Let me"
+	line "measure myself"
+	cont "against you one"
+	cont "more time!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandCityPinkDefeatedText::
+	text "..."
+	line "Again I lost."
+	cont "Must train more."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiFourIslandCityPinkBeatYouText::
+	text "So maybe"
+	line "I'm ready?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiFourIslandCityScriptText3::
+	text "PINK: ...I'm still"
+	line "not at your"
+	cont "level. <PLAYER>,"
+	cont "you really are"
+	cont "outstanding."
+
+	para "Am I ready for"
+	line "the TRIAL?"
+	cont "...probably not."
+
+	para "I must train more."
+	line "Trust me, I'll"
+	cont "become un-"
+	cont "believably strong."
+;	xxxx "123456789012345678"
+	done
+
+; --------------------
 
 _SeviiFourIslandCityText2_1::
 	text "Is it your first"

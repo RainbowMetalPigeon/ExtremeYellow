@@ -24,7 +24,7 @@ SeviiFourIslandCity_Object:
 	bg_event 20, 23, 20 ; MartSignText
 	
 	def_object_events
-	object_event 14,  8, SPRITE_PINK, STAY, DOWN, 1
+	object_event 14,  8, SPRITE_PINK, STAY, UP, 1
 	object_event  7, 25, SPRITE_GIRL, WALK, ANY_DIR, 2
 	object_event 18, 29, SPRITE_YOUNGSTER, WALK, ANY_DIR, 3
 	object_event 29, 26, SPRITE_MIDDLE_AGED_WOMAN, WALK, LEFT_RIGHT, 4

@@ -1588,11 +1588,6 @@ INCLUDE "scripts/SeviiRoute36.asm"
 INCLUDE "data/maps/objects/SeviiRoute36.asm"
 SeviiRoute36_Blocks: INCBIN "maps/SeviiRoute36.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute37.asm"
-INCLUDE "scripts/SeviiRoute37.asm"
-INCLUDE "data/maps/objects/SeviiRoute37.asm"
-SeviiRoute37_Blocks: INCBIN "maps/SeviiRoute37.blk"
-
 
 SECTION "Maps Sevii 2", ROMX ; new
 
@@ -2026,3 +2021,8 @@ INCLUDE "data/maps/headers/SeviiDesolatedRock.asm"
 INCLUDE "scripts/SeviiDesolatedRock.asm"
 INCLUDE "data/maps/objects/SeviiDesolatedRock.asm"
 SeviiDesolatedRock_Blocks: INCBIN "maps/SeviiDesolatedRock.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute37.asm"
+INCLUDE "scripts/SeviiRoute37.asm"
+INCLUDE "data/maps/objects/SeviiRoute37.asm"
+SeviiRoute37_Blocks: INCBIN "maps/SeviiRoute37.blk"

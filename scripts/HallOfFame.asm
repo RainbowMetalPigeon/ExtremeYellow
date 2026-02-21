@@ -122,6 +122,7 @@ HallofFameRoomScript1:
 	call LoopHideExtra
 	call LoopShow
 	call LoopShowExtra
+	call LoopShowSevii
 	ResetEvent EVENT_BEAT_MEWTWO
 ; re-spawn the birds only if we spawn them the first time
 	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
@@ -453,4 +454,22 @@ ObjectsToShowExtra:
 	db HS_LUNAR_SHRINE_TOURIST_2
 	db HS_CELADON_HOTEL_ROOMS_TROPHY_1
 	db HS_OBSIDIAN_WOOD_ORAGE
+	db $ff
+
+; ---------------
+
+LoopShowSevii:
+	ld hl, ObjectsToShowSevii
+.showExtraLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	pop hl
+	jr .showExtraLoop
+
+ObjectsToShowSevii:
+	db HS_SEVII_FOUR_ISLAND_CITY_POST_LEAGUE_PINK
 	db $ff

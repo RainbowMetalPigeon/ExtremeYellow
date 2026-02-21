@@ -251,7 +251,8 @@
 	const EVENT_BEAT_SEVII_ROUTE_36_TRAINER_11 ; new
 	const EVENT_BEAT_SEVII_ROUTE_36_TRAINER_12 ; new
 	const EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN ; new
-	const_skip 3
+	const EVENT_SEVII_BEAT_PINK_FOUR_ISLAND ; new
+	const_skip 2
 
 ; Vermilion City events
 	const_next $150
