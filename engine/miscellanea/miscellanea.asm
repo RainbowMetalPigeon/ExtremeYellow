@@ -2039,8 +2039,6 @@ MarkBirbAsFed::
 	cp ROUTE_30
 	jp z, .route30
 
-	cp INDIGO_PLATEAU
-	jp z, .indigo
 	cp SECLUDED_ATOLL_SE
 	jp z, .atollSE
 	cp SECLUDED_ATOLL_NE
@@ -2053,8 +2051,30 @@ MarkBirbAsFed::
 	jp z, .lakeMist
 	cp FORLORN_VALLEY
 	jp z, .forlornValley
-
-	ret ; TBE as should never be hit
+;	cp INDIGO_PLATEAU
+;	jp z, .indigo
+;
+;.indigo
+	SetEvent EVENT_BIRB_INDIGO
+	ret
+.atollSE
+	SetEvent EVENT_BIRB_ATOLLSE
+	ret
+.atollNE
+	SetEvent EVENT_BIRB_ATOLLNE
+	ret
+.atollNW
+	SetEvent EVENT_BIRB_ATOLLNW
+	ret
+.atollSW
+	SetEvent EVENT_BIRB_ATOLLSW
+	ret
+.lakeMist
+	SetEvent EVENT_BIRB_LAKEMIST
+	ret
+.forlornValley
+	SetEvent EVENT_BIRB_FORLORNVALLEY
+	ret
 
 .pallet
 	SetEvent EVENT_BIRB_PALLET
@@ -2184,30 +2204,6 @@ MarkBirbAsFed::
 	SetEvent EVENT_BIRB_ROUTE30
 	ret
 
-.indigo
-	SetEvent EVENT_BIRB_INDIGO
-	ret
-.atollSE
-	SetEvent EVENT_BIRB_ATOLLSE
-	ret
-.atollNE
-	SetEvent EVENT_BIRB_ATOLLNE
-	ret
-.atollNW
-	SetEvent EVENT_BIRB_ATOLLNW
-	ret
-.atollSW
-	SetEvent EVENT_BIRB_ATOLLSW
-	ret
-.lakeMist
-	SetEvent EVENT_BIRB_LAKEMIST
-	ret
-.forlornValley
-	SetEvent EVENT_BIRB_FORLORNVALLEY
-	ret
-
-	ret ; TBE
-
 ; ----
 
 .sevii
@@ -2228,6 +2224,8 @@ MarkBirbAsFed::
 
 	cp SEVII_ROUTE_31
 	jp z, .seviiRoute31
+	cp SEVII_MT_EMBER
+	jp z, .seviiMtEmber
 	cp SEVII_ROUTE_32
 	jp z, .seviiRoute32
 	cp SEVII_ROUTE_33
@@ -2259,10 +2257,18 @@ MarkBirbAsFed::
 	jp z, .seviiEight
 	cp SEVII_DESOLATED_ROCK
 	jp z, .seviiDesolated
-;	cp SEVII_SANCTUM_ISLET
-;	jp z, .seviiSanctum
-
-	ret ; TBE, should never be reached
+;	cp SEVII_TEN_ISLAND
+;	jp z, .seviiTen
+;
+;.seviiTen
+	SetEvent EVENT_BIRB_SEVII_TEN
+	ret
+.seviiEight
+	SetEvent EVENT_BIRB_SEVII_EIGHT
+	ret
+.seviiDesolated
+	SetEvent EVENT_BIRB_SEVII_DESOLATED
+	ret
 
 .seviiOne
 	SetEvent EVENT_BIRB_SEVII_ONE
@@ -2288,6 +2294,9 @@ MarkBirbAsFed::
 
 .seviiRoute31
 	SetEvent EVENT_BIRB_SEVII_ROUTE31
+	ret
+.seviiMtEmber
+	SetEvent EVENT_BIRB_SEVII_MT_EMBER
 	ret
 .seviiRoute32
 	SetEvent EVENT_BIRB_SEVII_ROUTE32
@@ -2328,15 +2337,3 @@ MarkBirbAsFed::
 .seviiRoute44
 	SetEvent EVENT_BIRB_SEVII_ROUTE44
 	ret
-
-.seviiEight
-	SetEvent EVENT_BIRB_SEVII_EIGHT
-	ret
-.seviiDesolated
-	SetEvent EVENT_BIRB_SEVII_DESOLATED
-	ret
-;.seviiSanctum
-;	SetEvent EVENT_BIRB_SEVII_SANTCUM
-;	ret
-
-	ret ; TBE

@@ -65,15 +65,15 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_MT_EMBER_9F,                              6,  6 ; $2A
 	map_const SEVII_MT_EMBER_10F,                             4,  4 ; $2B
 	map_const SEVII_MT_EMBER_11F,                             2,  2 ; $2C
-	map_const SEVII_UNDERGROUND_ONE,                         15, 15 ; $2D ; TBE: size
+	map_const SEVII_UNDERGROUND_ONE,                         36,  4 ; $2D
 ; 2-island-related maps
 	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $2E
 	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $2F
 	map_const SEVII_TWO_ISLAND_GYM,                          16,  9 ; $30
 	map_const SEVII_TWO_ISLAND_HOUSES,                       18,  4 ; $31
 	map_const SEVII_TWO_ISLAND_CITY_DIVE,                    20, 21 ; $32
+	map_const SEVII_UNDERGROUND_TWO,                         12, 12 ; $33
 ; 3-island-related maps
-	map_const SEVII_UNDERGROUND_TWO,                         15, 15 ; $33 ; TBE: size
 	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $34
 	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $35
 	map_const SEVII_THREE_ISLAND_GYM,                        18, 11 ; $36
@@ -86,7 +86,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_33_DIVE_CAVERN_F2,                 30, 10 ; $3D
 	map_const SEVII_ROUTE_33_DIVE_CAVERN_F3,                 78,  5 ; $3E
 	map_const SEVII_ROUTE_33_DIVE_CAVERN_F4,                105,  3 ; $3F
-	map_const SEVII_UNDERGROUND_THREE,                       15, 15 ; $40 ; TBE: size
+	map_const SEVII_UNDERGROUND_THREE,                       28, 12 ; $40
 ; 4-island-related maps
 	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $41
 	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $42
@@ -97,7 +97,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ICEFALL_CAVE_2F,                         11, 11 ; $47
 	map_const SEVII_FOUR_ISLAND_CITY_DIVE,                   20, 20 ; $48
 	map_const SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,            33, 27 ; $49
-	map_const SEVII_UNDERGROUND_FOUR,                        15, 15 ; $4A ; TBE: size
+	map_const SEVII_UNDERGROUND_FOUR,                        28, 16 ; $4A
 ; 5-island-related maps
 	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $4B
 	map_const SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $4C
@@ -112,7 +112,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_LOST_CAVE_3,                             29,  5 ; $55
 	map_const SEVII_FIVE_ISLAND_CITY_DIVE,                   20, 20 ; $56
 	map_const SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN,            16, 38 ; $57
-	map_const SEVII_UNDERGROUND_FIVE,                        15, 15 ; $58 ; TBE: size
+	map_const SEVII_UNDERGROUND_FIVE,                         8, 16 ; $58
 ; 6-island-related maps
 	map_const SEVII_SIX_ISLAND_DOCK,                         10,  6 ; $59
 	map_const SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $5A
@@ -128,7 +128,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_38_DIVE,                           14, 15 ; $64
 	map_const SEVII_ROUTE_38_DIVE_CAVERN,                     5, 14 ; $65
 	map_const SEVII_ROUTE_39_DIVE,                           15, 30 ; $66
-	map_const SEVII_UNDERGROUND_SIX,                         15, 15 ; $67 ; TBE: size
+	map_const SEVII_UNDERGROUND_SIX,                         24, 16 ; $67
 ; 7-island-related maps
 	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $68
 	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $69
@@ -140,16 +140,16 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_SEVEN_ISLAND_HOUSES,                     11,  4 ; $6F
 	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $70
 	map_const SEVII_TANOBY_CHAMBERS,                         43,  8 ; $71
-	map_const SEVII_TANOBY_GARDEN,                           15, 15 ; $72 ; TBE: size
-	map_const SEVII_TANOBY_DEN,                              15, 15 ; $73 ; TBE: size
-	map_const SEVII_UNDERGROUND_SEVEN,                       15, 15 ; $74 ; TBE: size
+	map_const SEVII_TANOBY_GARDEN,                           15, 15 ; $72 ; TBE
+	map_const SEVII_TANOBY_DEN,                              15, 15 ; $73 ; TBE
+	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $74
 ; 8-island-related maps
 	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $75
 	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $76
 ; extra
 	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $77
-	map_const SEVII_UNDERGROUND_LOBBY,                       15, 15 ; $78 ; TBE: size
-	map_const SEVII_TEN_ISLAND,                              15, 15 ; $79 ; TBE: size
+	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $78
+	map_const SEVII_TEN_ISLAND,                              12, 12 ; $79 ; TBE
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

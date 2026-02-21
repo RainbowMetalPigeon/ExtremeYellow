@@ -2,6 +2,7 @@ SeviiRoute34_Object:
 	db $43 ; border block
 
 	def_warp_events
+	warp_event 34,  3, SEVII_UNDERGROUND_FIVE, 1
 
 	def_bg_events
 

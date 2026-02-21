@@ -4,6 +4,7 @@ SeviiRoute39_Object:
 	def_warp_events
 	warp_event 23, 50, SEVII_PATTERN_BUSH, 3
 	warp_event 11,  7, SEVII_ALTERING_CAVE, 1
+	warp_event  3,  3, SEVII_UNDERGROUND_SIX, 1
 
 	def_bg_events
 	bg_event 23, 51, 14 ; SeviiRoute39SignText1

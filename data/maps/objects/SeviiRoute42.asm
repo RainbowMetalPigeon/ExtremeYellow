@@ -2,8 +2,7 @@ SeviiRoute42_Object:
 	db $2c ; border block
 
 	def_warp_events
-;	warp_event 28, 33, SEVII_ONE_ISLAND_DOCK, 1
-;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
+	warp_event 13, 39, SEVII_UNDERGROUND_SEVEN, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

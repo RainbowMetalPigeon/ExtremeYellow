@@ -2,7 +2,8 @@ SeviiUndergroundThree_Object:
 	db $03 ; border block
 
 	def_warp_events
-;	warp_event  4, 19, SEVII_THREE_ISLAND_CITY, 8
+	warp_event 54,  1, SEVII_THREE_ISLAND_CITY, 11
+	warp_event  1, 22, SEVII_UNDERGROUND_LOBBY, 3
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

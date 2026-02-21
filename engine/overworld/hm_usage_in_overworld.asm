@@ -904,8 +904,7 @@ IsThisSpecialBirbSeviiMap:
     ret z
     cp SEVII_DESOLATED_ROCK
     ret z
-    ret ; TBE
-;    cp SEVII_SANCTUM_ISLET
-;    ret
+    cp SEVII_TEN_ISLAND
+    ret
 
 ; ==================================================================

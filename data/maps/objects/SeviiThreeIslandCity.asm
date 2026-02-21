@@ -12,7 +12,7 @@ SeviiThreeIslandCity_Object:
 	warp_event 14, 35, SEVII_THREE_ISLAND_CAVES, 1
 	warp_event 22, 35, SEVII_THREE_ISLAND_CAVES, 3
 	warp_event 19, 33, SEVII_THREE_ISLAND_CAVES, 5
-;	warp_event 24, 21, SEVII_THREE_ISLAND_UNDERGROUND, 1 ; TBE
+	warp_event 24, 21, SEVII_UNDERGROUND_THREE, 1
 
 	def_bg_events
 	bg_event 15, 37, 13 ; SeviiThreeIslandCitySignText1
