@@ -2,7 +2,8 @@ SeviiTanobyDen_Object:
 	db $03 ; border block
 
 	def_warp_events
-;	warp_event  4, 19, SEVII_THREE_ISLAND_CITY, 8
+	warp_event  4,  9, SEVII_TANOBY_GARDEN, 3
+	warp_event  5,  9, SEVII_TANOBY_GARDEN, 3
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

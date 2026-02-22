@@ -22,6 +22,7 @@ SeviiTanobyChambers_Object:
 	
 	warp_event 78, 15, SEVII_ROUTE_44, 7
 	warp_event 79, 15, SEVII_ROUTE_44, 7
+	warp_event 78,  6, SEVII_TANOBY_GARDEN, 1
 
 	def_bg_events
 	bg_event  2, 10, 1 ; SeviiTanobyChambersSignText1

@@ -180,6 +180,8 @@ StartMenu_Pokemon::
 .sevii
 	cp SEVII_DESOLATED_ROCK
 	jr z, .canFly
+	cp SEVII_TANOBY_GARDEN
+	jr z, .canFly
 .cannotFlyHere
 ; end of new block to make "open-air" maps flyable
 	ld a, [wWhichPokemon]

@@ -192,7 +192,7 @@ IsWarpTileInFrontOfPlayer::
 	cp OBSIDIAN_WAREHOUSE								; new
 	jp z, IsObsidianWarehouseWarpTileInFrontOfPlayer	; new
 	cp SECLUDED_CAVES									; new
-	jr z, IsSecludedCavesWarpTileInFrontOfPlayer		; new
+	jp z, IsSecludedCavesWarpTileInFrontOfPlayer		; new
 	cp ONIX_BURROWING									; new
 	jp z, IsOnixBurrowingWarpTileInFrontOfPlayer		; new
 	cp HAUNTED_REDS_HOUSE								; new
@@ -215,6 +215,8 @@ IsWarpTileInFrontOfPlayer::
 	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
 	cp SEVII_ROUTE_43_CAVES
 	jr z, IsSeviiRoute43CavesWarpTileInFrontOfPlayer
+	cp SEVII_TANOBY_GARDEN
+	jr z, IsSeviiTanobyGardenWarpTileInFrontOfPlayer
 .postMapChecks ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
@@ -243,6 +245,16 @@ IsSSAnneBowWarpTileInFrontOfPlayer:
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
 .notSSAnne5Warp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
+IsSeviiTanobyGardenWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $11
+	jr nz, .notTanobyGardenWarp
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notTanobyGardenWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
@@ -307,10 +319,10 @@ IsRedsHouseWarpTileInFrontOfPlayer: ; new
 	cp $10
 	jr nz, .notHauntedHouseWarp
 	scf
-	jr IsWarpTileInFrontOfPlayer.done
+	jp IsWarpTileInFrontOfPlayer.done
 .notHauntedHouseWarp
 	and a
-	jr IsWarpTileInFrontOfPlayer.done
+	jp IsWarpTileInFrontOfPlayer.done
 
 IsSunkenShipWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
