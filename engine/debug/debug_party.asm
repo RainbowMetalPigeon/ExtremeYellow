@@ -16,8 +16,8 @@ DebugTeam:
 	db MSCIZOR, 99 ; 255
 	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
-	db THU_FI_ZER, 42
-;	db ARTICUNO, 99
+	db VENUSAUR, 42
+	db BLASTOISE, 99
 ;	db MOLTRES, 68
 	db -1 ; end
 
@@ -119,7 +119,7 @@ IF DEF(_DEBUG)
 ;	ld hl, wPartyMon4Status
 ;	set PSN, [hl]
 
-    ; define who is shiny
+    ; define who is shiny and/or delta
     ld a, 1
     ld hl, wPartyMon1CatchRate
     ld [hl], a
@@ -127,10 +127,11 @@ IF DEF(_DEBUG)
 ;    ld [hl], a
 ;    ld hl, wPartyMon3CatchRate
 ;    ld [hl], a
-;    ld hl, wPartyMon4CatchRate
-;    ld [hl], a
-;    ld hl, wPartyMon5CatchRate
-;    ld [hl], a
+	ld a, 2
+    ld hl, wPartyMon4CatchRate
+    ld [hl], a
+    ld hl, wPartyMon5CatchRate
+    ld [hl], a
 ;    ld hl, wPartyMon6CatchRate
 ;    ld [hl], a
 

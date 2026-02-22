@@ -621,7 +621,7 @@ SilphCo11TextBadgeMachine:
 	callfar CheckIfOneGivenMonIsInParty
 	ld hl, SilphCo11TextBadgeMachine_Nope
 	jr nc, .checkForThuFiZer
-	jr .mergeVenustoise
+	jp .mergeVenustoise
 
 ; check if we have the right mons for Thu-Fi-Zer
 .checkForThuFiZer
@@ -651,17 +651,22 @@ SilphCo11TextBadgeMachine:
 	xor a
 	ld [wUniQuizAnswer], a
 	ld [wRemoveMonFromBox], a
+	SetEvent EVENT_FUSION_MACHINE_SHINY
+	SetEvent EVENT_FUSION_MACHINE_DELTA
 	ld d, ARTICUNO
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call StoreHighestLevel
+	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
 	ld d, ZAPDOS
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call StoreHighestLevel
+	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
 	ld d, MOLTRES
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call StoreHighestLevel
+	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
 	ld a, [wUniQuizAnswer]
 	ld c, a
@@ -683,13 +688,17 @@ SilphCo11TextBadgeMachine:
 	xor a
 	ld [wUniQuizAnswer], a
 	ld [wRemoveMonFromBox], a
+	SetEvent EVENT_FUSION_MACHINE_SHINY
+	SetEvent EVENT_FUSION_MACHINE_DELTA
 	ld d, VENUSAUR
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call StoreHighestLevel
+	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
 	ld d, BLASTOISE
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call StoreHighestLevel
+	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
 	ld a, [wUniQuizAnswer]
 	ld c, a
@@ -699,6 +708,8 @@ SilphCo11TextBadgeMachine:
 .printAndEnd
 	call PrintText
 .done
+	ResetEvent EVENT_FUSION_MACHINE_SHINY
+	ResetEvent EVENT_FUSION_MACHINE_DELTA
 	jp TextScriptEnd
 
 SilphCo11TextBadgeMachine_WantThuFiZer:
@@ -738,6 +749,23 @@ StoreHighestLevel:
 	cp b
 	ret c
 	ld [wUniQuizAnswer], a
+	ret
+
+; input: [wWhichPokemon]
+CheckIfMonIsShinyOrDelta:
+    ld a, [wWhichPokemon]
+    ld hl, wPartyMon1CatchRate
+    ld bc, wPartyMon2 - wPartyMon1
+    call AddNTimes
+    ld a, [hl]
+	bit BIT_MON_SHINY, a
+	jr nz, .noResetShinyness
+	ResetEvent EVENT_FUSION_MACHINE_SHINY
+.noResetShinyness
+    ld a, [hl]
+	bit BIT_MON_DELTA, a
+	ret nz
+	ResetEvent EVENT_FUSION_MACHINE_DELTA
 	ret
 
 PlayFusionEffects:

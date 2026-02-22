@@ -45,7 +45,7 @@ CheckIfOneGivenMonIsInPartyAndLoadIndex::
 
 ; input: d contains the type to check
 ; sets z flag if found
-CheckIfACertainTypeIsInParty::
+CheckIfACertainTypeIsInParty:: ; TBE: consider delta -> already set up down
 	ld a, d
 	ld c, a ; c contains the type to check
 	ld hl, wPartyCount
