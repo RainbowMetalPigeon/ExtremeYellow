@@ -515,7 +515,7 @@ CheckWarpsCollision::
 ; new, to handle Haunted House randomizable warps - no need to push-pop hl?
 	push hl
 	push bc
-	callfar RandomizeWarpsForHauntedHouse
+	callfar RandomizeWarpsForHauntedHouseOrAlteringCave
 	pop bc
 	pop hl
 ; back to vanilla
@@ -537,7 +537,7 @@ WarpFound1::
 ; new, to handle Haunted House randomizable warps - no need to push-pop hl?
 	push hl
 	push bc
-	callfar RandomizeWarpsForHauntedHouse
+	callfar RandomizeWarpsForHauntedHouseOrAlteringCave
 	pop bc
 	pop hl
 ; back to vanilla

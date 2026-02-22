@@ -18,7 +18,7 @@ IsPlayerStandingOnWarp::
 	ld [wDestinationWarpID], a
 	ld a, [hl] ; target map
 	ldh [hWarpDestinationMap], a
-	callfar RandomizeWarpsForHauntedHouse ; new, to handle Haunted House randomizable warps
+	callfar RandomizeWarpsForHauntedHouseOrAlteringCave ; new, to handle Haunted House randomizable warps
 	ld hl, wd736
 	set 2, [hl] ; standing on warp flag
 	ret

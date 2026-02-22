@@ -179,7 +179,7 @@ HauntedPalletTownHandlePalettes::
 ; % 1111 1111 = 255
 
 HauntedHouseFakePikachuFaintingAndRandomMessages::
-	call IsCurrentMapHauntedHouse ; no need for it to be a callfar?
+	call IsCurrentMapHauntedHouse
 	ret nz
 ; handle random messages
 	ld a, [wStepCounter]
@@ -274,6 +274,8 @@ HauntedHouseRandomMessage_0:
 ; z flag set if we're in a HAUNTED HOUSE map
 ; nz otherwise
 IsCurrentMapHauntedHouse::
+	CheckEvent EVENT_IN_SEVII
+	ret nz
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
 	ret z
@@ -287,6 +289,8 @@ IsCurrentMapHauntedHouse::
 ; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS
 ; nz otherwise
 IsCurrentMapHauntedHouse_AlsoIsland::
+	CheckEvent EVENT_IN_SEVII
+	ret nz
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
 	ret z
@@ -302,6 +306,8 @@ IsCurrentMapHauntedHouse_AlsoIsland::
 ; z flag set if we're in a HAUNTED HOUSE map, including HAUNTED ISLAND OF NUMBERS and HAUNTED REDS HOUSE and PALLET TOWN
 ; nz otherwise
 IsCurrentMapHauntedHouse_AlsoIslandAndPallet::
+	CheckEvent EVENT_IN_SEVII
+	ret nz
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
 	ret z
@@ -594,7 +600,39 @@ WarpIntervals_HauntedHouse4:
 	db 24, 26 ; small dark room
 	db $FF
 
-RandomizeWarpsForHauntedHouse::
+RandomizeWarpsForHauntedHouseOrAlteringCave::
+	call RandomizeWarpsForHauntedHouse
+	; fallthrough
+RandomizeWarpsForAlteringCave:
+	CheckEvent EVENT_IN_SEVII
+	ret z
+	ld a, [hWarpDestinationMap]
+	cp SEVII_ALTERING_CAVE
+	ret nz
+; actual destination: randomize destination
+.loop
+	call Random
+	and %00000011
+	and a
+	ret z ; nothing to do
+	cp 1
+	jr z, .got1
+	cp 2
+	jr nz, .loop ; got 3, but internal index is 0-2 as we have 3 maps
+;.got2
+	ld a, SEVII_ALTERING_CAVE_3
+	ld [hWarpDestinationMap], a
+	ret
+;.got0
+;	ld a, SEVII_ALTERING_CAVE
+;	ld [hWarpDestinationMap], a
+;	ret
+.got1
+	ld a, SEVII_ALTERING_CAVE_2
+	ld [hWarpDestinationMap], a
+	ret
+
+RandomizeWarpsForHauntedHouse:
 	call IsCurrentMapHauntedHouse
 	ret nz
 	ld a, [hWarpDestinationMap]
