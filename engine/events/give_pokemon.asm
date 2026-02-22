@@ -1,6 +1,36 @@
-_GivePokemon::
 ; returns success in carry
 ; and whether the mon was added to the party in [wAddedToParty]
+_GivePokemon::
+; new, for the shiny (starter pikachu and fusion machine)
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .notOaksLab
+	ld a, [wCurMap]
+	cp SILPH_CO_11F
+	jr z, .silphCo
+	cp OAKS_LAB
+	jr nz, .notOaksLab
+	ld a, [wShinyStarterPikachu]
+	ld [wOpponentMonShiny], a
+	jr .skipTheNormalShinyRoll
+.notOaksLab
+	callfar RollForShiny
+	jr .skipTheNormalShinyRoll
+.silphCo
+	xor a
+	ld [wOpponentMonShiny], a
+	CheckEvent EVENT_FUSION_MACHINE_SHINY
+	jr z, .silphCheckDelta
+	ld a, [wOpponentMonShiny]
+	set BIT_MON_SHINY, a
+	ld [wOpponentMonShiny], a
+.silphCheckDelta
+	CheckEvent EVENT_FUSION_MACHINE_DELTA
+	jr z, .skipTheNormalShinyRoll
+	ld a, [wOpponentMonShiny]
+	set BIT_MON_DELTA, a
+	ld [wOpponentMonShiny], a
+.skipTheNormalShinyRoll
+; BTV
 	call EnableAutoTextBoxDrawing
 	xor a
 	ld [wAddedToParty], a

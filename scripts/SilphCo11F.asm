@@ -760,7 +760,9 @@ CheckIfMonIsShinyOrDelta:
     ld a, [hl]
 	bit BIT_MON_SHINY, a
 	jr nz, .noResetShinyness
+	push hl
 	ResetEvent EVENT_FUSION_MACHINE_SHINY
+	pop hl
 .noResetShinyness
     ld a, [hl]
 	bit BIT_MON_DELTA, a

@@ -84,10 +84,11 @@ AssignShinyToBattleFacilityTrainers::
 
 RollForShiny::
 ; roll some numbers and do some checks
-; "debug"/testing function, simply scalable
     call Random
-    and %00000100
-    jr nz, .shinyEncounter
+
+; "debug"/testing option, simply scalable
+;    and %00000100
+;    jr nz, .shinyEncounter
 
     ldh a, [hRandomAdd]
     cp 42 ; can be any number, I just want a 1/256 chance here
