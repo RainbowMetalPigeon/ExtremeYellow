@@ -56,6 +56,7 @@ CheckIfACertainTypeIsInParty:: ; TBE: consider delta -> already set up down
 .loop
 	ld a, [hli] ; Mon ID
 	ld [wd0b5], a
+	call SetDeltaSpeciesEvent_deRegister_Wrapped
 	call GetMonHeader
 	ld a, [wMonHType1]
 	cp c ; compare to the type to check
@@ -65,6 +66,24 @@ CheckIfACertainTypeIsInParty:: ; TBE: consider delta -> already set up down
 	ret z
 ; if we're here, neither type1 or type2 match the type we're searching
 ; in which case, we go to the next mon
+	call Advance_deRegister_Wrapped
+	dec b
+	jr nz, .loop
+; if we're here, we ran out of mons to check
+	inc b ; this returns b to 1, and un-sets the z flag
+	ret
+
+; =====================================
+
+SetDeltaSpeciesEvent_deRegister_Wrapped:
+	push hl
+	push bc
+	callfar SetDeltaSpeciesEvent_deRegister
+	pop bc
+	pop hl
+	ret
+
+Advance_deRegister_Wrapped:
 	push bc
 	push hl
 	ld h, d
@@ -75,25 +94,46 @@ CheckIfACertainTypeIsInParty:: ; TBE: consider delta -> already set up down
 	ld e, l
 	pop hl
 	pop bc
-	dec b
-	jr nz, .loop
-; if we're here, we ran out of mons to check
-	inc b ; this returns b to 1, and un-sets the z flag
 	ret
+
+Advance_bcRegister_Wrapped:
+	push de
+	push hl
+	ld h, b
+	ld l, c
+	ld de, wPartyMon2 - wPartyMon1
+	add hl, de
+	ld b, h
+	ld c, l
+	pop hl
+	pop de
+	ret
+
+SetDeltaSpeciesEvent_bcRegister::
+    ld a, [bc]
+    bit BIT_MON_DELTA, a
+    ret z
+	push hl
+    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+	pop hl
+    ret
 
 ; =====================================
 
 ; output: d and/or e contain the shared type, otherwise, $FF
 CheckIfAllMonsShareAType::
 	ld hl, wPartyCount
-	ld a, [hli]
+	ld a, [hli] ; wPartySpecies
 	ld b, a ; b has the number of Mons in the party
 
 ; save TYPE1 and TYPE2 of Mon1 of the team in d and e
 ; in wMultipurposeBuffer (+1) ?
 	ld a, [hli] ; Mon1 ID
-
 	ld [wd0b5], a
+	push bc
+	ld bc, wPartyMon1CatchRate
+	call SetDeltaSpeciesEvent_bcRegister ; testing
+	pop bc
 	call GetMonHeader
 	ld a, [wMonHType1]
 	ld d, a
@@ -103,16 +143,21 @@ CheckIfAllMonsShareAType::
 	ld a, b
 	cp 1
 	ret z ; if there's only 1 mon, of course it's ok
+	ld bc, wPartyMon1CatchRate
 	push hl
 	push bc
 
 ; check if TYPE1 of the Mon1 is shared by all other Mons
 .loop1
-	dec b
+	ld a, [hli]
+	cp $FF
 	jr z, .checkAlsoSecondType ; we checked them all
-	ld a, [hli] ; (next) pokemon ID
 	ld [wd0b5], a
+	push de
+	call Advance_bcRegister_Wrapped ; testing
+	call SetDeltaSpeciesEvent_bcRegister ; testing
 	call GetMonHeader ; does not alter bc, hl, de
+	pop de
 	ld a, [wMonHType1]
 	cp d ; TYPE1-MonN vs TYPE1-Mon1
 	jr z, .loop1 ; if it's shared we continue, otherwise we check the other type
@@ -123,14 +168,18 @@ CheckIfAllMonsShareAType::
 	ld d, $FF ; load failure value in d if we found no match
 .checkAlsoSecondType
 ; check if TYPE2 of the Mon1 is shared by all other Mons
-	pop bc ; restore number of mons
+	pop bc ; restore pointer to 1st Mon CatchRate
 	pop hl ; restore pointer to 2nd Mon
 .loop2
-	dec b
+	ld a, [hli]
+	cp $FF
 	ret z ; we checked them all
-	ld a, [hli] ; (next) pokemon ID
 	ld [wd0b5], a
+	push de
+	call Advance_bcRegister_Wrapped ; testing
+	call SetDeltaSpeciesEvent_bcRegister ; testing
 	call GetMonHeader ; does not alter bc, hl, de
+	pop de
 	ld a, [wMonHType1]
 	cp e ; TYPE1-MonN vs TYPE2-Mon1
 	jr z, .loop2 ; if it's shared we continue, otherwise we check the other type
@@ -2051,6 +2100,7 @@ MarkBirbAsFed::
 	jp z, .lakeMist
 	cp FORLORN_VALLEY
 	jp z, .forlornValley
+; this check should be unnecessary as there are no other open-air maps
 ;	cp INDIGO_PLATEAU
 ;	jp z, .indigo
 ;
@@ -2257,6 +2307,7 @@ MarkBirbAsFed::
 	jp z, .seviiEight
 	cp SEVII_DESOLATED_ROCK
 	jp z, .seviiDesolated
+; this check should be unnecessary as there are no other open-air maps
 ;	cp SEVII_TEN_ISLAND
 ;	jp z, .seviiTen
 ;
