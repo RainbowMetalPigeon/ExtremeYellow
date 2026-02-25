@@ -69,14 +69,14 @@ ReadTrainer:
 	jr .lvlScalingImpossible
 .lvlScalingExact
 	push hl ; gotta preserve hl
-	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
+	call FindMaxLevelPlayersMons ; this makes so that d contains the max level of the player's party
 	pop hl ; gotta preserve hl
 	ld a, d
 	ld [wCurEnemyLVL], a
 	jr .afterHandlingLevelScaling
 .lvlScalingHardcore
 	push hl ; gotta preserve hl
-	call FindMaxLevelPlayersMons ; this should make so that d contains the max level of the player's party
+	call FindMaxLevelPlayersMons ; this makes so that d contains the max level of the player's party
 	pop hl ; gotta preserve hl
 	ld a, d
 	ldh [hDividend], a

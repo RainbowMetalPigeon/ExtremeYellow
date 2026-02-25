@@ -1362,3 +1362,15 @@ _SeviiTanobyChambersSirdDefeatText::
 	line "How... could you?"
 ;	xxxx "123456789012345678"
 	prompt
+
+_SeviiTanobyDenArmMewtwoBattleText::
+	text "MEWTWO: How..."
+	line "did you..."
+	cont "get here...?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTanobyDenMewBattleText::
+	text "Meeeeeeeew!"
+;	xxxx "123456789012345678"
+	prompt

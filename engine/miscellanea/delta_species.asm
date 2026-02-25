@@ -5,18 +5,19 @@ DetermineIfWildMonIsDeltaSpecies::
     CheckEvent EVENT_IN_SEVII
     jr z, .kanto
 ; sevii
-    ld a, [wCurMap]
-    ; TBE: Mew and Mewtwo in final Tanoby
+;    ld a, [wCurMap]
+;    cp SEVII_TANOBY_DEN
+;    jr z, .deltaSpeciesEncounter
     jr .notDeltaSpeciesEncounter
 
 .kanto
     ld a, [wEnemyMonSpecies2]
     cp MEW
     jr z, .notDeltaSpeciesEncounter
-    cp ARM_MEWTWO
-    jr z, .notDeltaSpeciesEncounter
-    cp MEWTWO
-    jr z, .notDeltaSpeciesEncounter
+;    cp ARM_MEWTWO
+;    jr z, .notDeltaSpeciesEncounter
+;    cp MEWTWO
+;    jr z, .notDeltaSpeciesEncounter
 ;    cp MMEWTWOX
 ;    jr z, .notDeltaSpeciesEncounter
 ;    cp MMEWTWOY

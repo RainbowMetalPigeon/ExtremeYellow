@@ -126,9 +126,9 @@ MapHSPointers_Sevii:
 	dw SeviiSevenIslandGym3HS ; SEVII_SEVEN_ISLAND_GYM_3
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_ROUTE_43_CAVES
-	dw HSSeviiTanobyChambers ; SEVII_TANOBY_CHAMBERS ; TBE
+	dw HSSeviiTanobyChambers ; SEVII_TANOBY_CHAMBERS
 	dw NoHSSevii ; SEVII_TANOBY_GARDEN ; TBE
-	dw NoHSSevii ; SEVII_TANOBY_DEN ; TBE
+	dw HSSeviiTanobyDen ; SEVII_TANOBY_DEN
 	dw NoHSSevii ; SEVII_UNDERGROUND_SEVEN
 ; 8-island
 	dw SeviiEightIslandDockHS ; SEVII_EIGHT_ISLAND_DOCK
@@ -369,6 +369,9 @@ HSSeviiTanobyChambers:
 	db SEVII_TANOBY_CHAMBERS,  1, HIDE ; Orm
 	db SEVII_TANOBY_CHAMBERS,  2, HIDE ; Carr
 	db SEVII_TANOBY_CHAMBERS,  3, HIDE ; Sird
+HSSeviiTanobyDen:
+	db SEVII_TANOBY_DEN,  1, SHOW ; Mewtwo
+	db SEVII_TANOBY_DEN,  2, SHOW ; Mew
 SeviiEightIslandDockHS:
 	db SEVII_EIGHT_ISLAND_DOCK,  1, SHOW ; sailor
 SeviiDesolatedRockHS:

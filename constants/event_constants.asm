@@ -253,7 +253,7 @@
 	const EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN ; new
 	const EVENT_SEVII_BEAT_PINK_FOUR_ISLAND ; new
 	const EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY ; new
-	const_skip 1
+	const EVENT_BEAT_ARM_MEWTWO_TANOBY ; new
 
 ; Vermilion City events
 	const_next $150
@@ -644,6 +644,8 @@
 ; Route 1 events
 	const_next $3C0
 	const EVENT_GOT_POTION_SAMPLE
+	const_skip 1
+	const EVENT_BEAT_MEW_TANOBY ; new
 
 ; Route 2 events
 	const_next $3D8

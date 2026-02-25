@@ -249,12 +249,17 @@ EndTrainerBattle::
 	inc hl
 	ld a, [hl]
 	ld [wMissableObjectIndex], a               ; load corresponding missable object index and remove it
+	CheckEvent EVENT_IN_SEVII			; new
+	jr nz, .sevii						; new
 	CheckEvent EVENT_USE_EXTRA_HIDESHOW ; new
 	jr nz, .hideExtra 					; new
 	predef HideObject
 	jr .hidden							; new
 .hideExtra								; new
 	predef HideObjectExtra				; new
+	jr .hidden							; new
+.sevii
+	predef HideObjectSevii				; new
 .hidden									; new
 .skipRemoveSprite
 	xor a									; new, to go beyond 200
