@@ -66,6 +66,13 @@ _SilphCo11Text2:: ; edited
 	cont "and the #MON"
 	cont "BADGE ENERGY"
 	cont "AMPLIFIER machine."
+
+;	para "One can only fear"
+;	line "what they'd have"
+;	cont "done with them if"
+;	cont "you hadn't stopped"
+;	cont "them! Thank you!"
+;	xxxx "123456789012345678"
 	done
 
 _SilphCo11Text3::
@@ -133,6 +140,42 @@ _SilphCo11AfterBattleText2:: ; edited
 	done
 
 ; new -------------------------------------
+
+_SilphCo11SignText1::
+	text "It's an expensive-"
+	line "looking portrait"
+	cont "of the PRESIDENT."
+
+	para "...they look much"
+	line "younger, slimmer,"
+	cont "friendlier,"
+	cont "happier,"
+	cont "and healthier"
+	cont "than in person."
+;	xxxx "123456789012345678"
+	done
+	
+_SilphCo11SignText2_1::
+	text "It contains info"
+	line "on the latest"
+	cont "SILPH inventions!"
+
+	para "MASTER BALL:"
+	line "100% catch..."
+	cont "Extortiate..."
+	cont "Experimental..."
+
+	para "BADGE ENERGY"
+	line "AMPLIFIER"
+	cont "machine:"
+	cont "Unstable..."
+	cont "Dangerous..."
+	cont "Fuse...?"
+
+	para "And then what's"
+	line "this? A #MON?"
+;	xxxx "123456789012345678"
+	prompt
 
 _SilphCo11TextBadgeMachine_WantThuFiZer::
 	text "The machine reacts"

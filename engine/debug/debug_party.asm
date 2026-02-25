@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ZUBAT, 99 ; 255
-	db THU_FI_ZER, 41
-	db AERODACTYL, 1
-	db GYARADOS, 42
-	db MDRAGONITE, 99
-	db MOLTRES, 68
+	db MSCIZOR, 99 ; 255
+	db JIGGLYPUFF, 41
+	db STARTER_PIKACHU, 1
+	db DRAGONAIR, 97
+;	db NINETALES, 42
+;	db MOLTRES, 68
 	db -1 ; end
 
 DebugStart:
@@ -127,11 +127,11 @@ IF DEF(_DEBUG)
 ;    ld [hl], a
 ;    ld hl, wPartyMon3CatchRate
 ;    ld [hl], a
-;	ld a, 2
-;    ld hl, wPartyMon4CatchRate
-;    ld [hl], a
-;    ld hl, wPartyMon5CatchRate
-;    ld [hl], a
+	ld a, 2
+    ld hl, wPartyMon4CatchRate
+    ld [hl], a
+    ld hl, wPartyMon5CatchRate
+    ld [hl], a
 ;    ld hl, wPartyMon6CatchRate
 ;    ld [hl], a
 

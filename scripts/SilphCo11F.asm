@@ -166,7 +166,7 @@ SilphCo11Script3:
 	call SilphCo11Script_621ff
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 8 ; edited
+	ld a, 10 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call GBFadeOutToBlack
@@ -241,7 +241,7 @@ SilphCo11Script_6229c:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, 9 ; edited
+	ld a, 11 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -376,7 +376,7 @@ SilphCo11Script10:
 	ld [hl], SPRITE_FACING_LEFT
 .asm_623b1
 	call Delay3
-	ld a, 10 ; edited
+	ld a, 12 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 SilphCo11Script11:
@@ -417,7 +417,7 @@ SilphCo11Script12:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, 11 ; edited
+	ld a, 13 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -477,13 +477,15 @@ SilphCo11F_TextPointers:
 	dw SilphCo11Text4
 	dw SilphCo11Text5
 	dw SilphCo11Text6
-	; signs
 	dw SilphCo11TextBadgeMachine ; new
+	; signs
+	dw SilphCo11SignText1 ; new
+	dw SilphCo11SignText2 ; new
 	; scripts
-	dw SilphCo11Text7
-	dw SilphCo11Text8
-	dw SilphCo11Text9
-	dw SilphCo11Text10
+	dw SilphCo11Text7  ; 10
+	dw SilphCo11Text8  ; 11
+	dw SilphCo11Text9  ; 12
+	dw SilphCo11Text10 ; 13
 
 SilphCo11TrainerHeaders:
 	def_trainers 5
@@ -599,6 +601,22 @@ SilphCo11Trainer1AfterBattleText:
 	text_end
 
 ; new -------------------------------------
+
+SilphCo11SignText1:
+	text_far _SilphCo11SignText1
+	text_end
+
+SilphCo11SignText2:
+	text_asm
+	ld hl, SilphCo11SignText2_1
+	call PrintText
+	ld a, PORYGON
+	call DisplayPokedex
+	jp TextScriptEnd
+
+SilphCo11SignText2_1:
+	text_far _SilphCo11SignText2_1
+	text_end
 
 SilphCo11TextBadgeMachine:
 	text_asm

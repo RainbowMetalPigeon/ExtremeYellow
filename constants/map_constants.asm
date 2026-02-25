@@ -259,7 +259,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROCK_TUNNEL_B1F,               20, 18 ; $EE
 	map_const SILPH_CO_9F,                   13,  9 ; $EF
 	map_const SILPH_CO_10F,                   8,  9 ; $F0
-	map_const SILPH_CO_11F,                   9,  9 ; $F1
+	map_const SILPH_CO_11F,                  17,  9 ; $F1 ; edited
 	map_const SILPH_CO_ELEVATOR,              2,  2 ; $F2
 	map_const CINNABAR_VOLCANO,              21, 21 ; $F3, new
 	map_const CINNABAR_VOLCANO_BF,           12, 13 ; $F4, new
