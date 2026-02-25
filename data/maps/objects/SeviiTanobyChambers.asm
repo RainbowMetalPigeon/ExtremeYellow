@@ -25,17 +25,16 @@ SeviiTanobyChambers_Object:
 	warp_event 78,  6, SEVII_TANOBY_GARDEN, 1
 
 	def_bg_events
-	bg_event  2, 10, 1 ; SeviiTanobyChambersSignText1
-	bg_event 14, 10, 2 ; SeviiTanobyChambersSignText2
-	bg_event 26, 10, 3 ; SeviiTanobyChambersSignText3
-	bg_event 38, 10, 4 ; SeviiTanobyChambersSignText4
-	bg_event 50, 10, 5 ; SeviiTanobyChambersSignText5
-	bg_event 62, 10, 6 ; SeviiTanobyChambersSignText6
+	bg_event  2, 10, 4 ; SeviiTanobyChambersSignText1
+	bg_event 14, 10, 5 ; SeviiTanobyChambersSignText2
+	bg_event 26, 10, 6 ; SeviiTanobyChambersSignText3
+	bg_event 38, 10, 7 ; SeviiTanobyChambersSignText4
+	bg_event 50, 10, 8 ; SeviiTanobyChambersSignText5
+	bg_event 62, 10, 9 ; SeviiTanobyChambersSignText6
 
 	def_object_events
-;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
-;	object_event 13, 45, SPRITE_POKE_BALL, STAY, NONE, 2, HP_UP
-;	object_event 19, 68, SPRITE_POKE_BALL, STAY, NONE, 3, LINK_CABLE ; new
+	object_event 77, 13, SPRITE_ORM, STAY, UP, 1
+	object_event 78, 13, SPRITE_CARR, STAY, UP, 2
+	object_event 79, 13, SPRITE_SIRD, STAY, UP, 3
 
 	def_warps_to SEVII_TANOBY_CHAMBERS

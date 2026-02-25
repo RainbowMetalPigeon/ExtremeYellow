@@ -1851,21 +1851,6 @@ INCLUDE "scripts/SeviiTanobyChambers.asm"
 INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
 SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
 
-INCLUDE "data/maps/headers/SeviiAlteringCave.asm"
-INCLUDE "scripts/SeviiAlteringCave.asm"
-INCLUDE "data/maps/objects/SeviiAlteringCave.asm"
-SeviiAlteringCave_Blocks: INCBIN "maps/SeviiAlteringCave.blk"
-
-INCLUDE "data/maps/headers/SeviiAlteringCave2.asm"
-INCLUDE "scripts/SeviiAlteringCave2.asm"
-INCLUDE "data/maps/objects/SeviiAlteringCave2.asm"
-SeviiAlteringCave2_Blocks: INCBIN "maps/SeviiAlteringCave2.blk"
-
-INCLUDE "data/maps/headers/SeviiAlteringCave3.asm"
-INCLUDE "scripts/SeviiAlteringCave3.asm"
-INCLUDE "data/maps/objects/SeviiAlteringCave3.asm"
-SeviiAlteringCave3_Blocks: INCBIN "maps/SeviiAlteringCave3.blk"
-
 
 SECTION "Maps Sevii 4", ROMX ; new
 
@@ -2091,3 +2076,18 @@ INCLUDE "data/maps/headers/SeviiFourIslandHazardRoom.asm"
 INCLUDE "scripts/SeviiFourIslandHazardRoom.asm"
 INCLUDE "data/maps/objects/SeviiFourIslandHazardRoom.asm"
 SeviiFourIslandHazardRoom_Blocks: INCBIN "maps/SeviiFourIslandHazardRoom.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave.asm"
+INCLUDE "scripts/SeviiAlteringCave.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave.asm"
+SeviiAlteringCave_Blocks: INCBIN "maps/SeviiAlteringCave.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave2.asm"
+INCLUDE "scripts/SeviiAlteringCave2.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave2.asm"
+SeviiAlteringCave2_Blocks: INCBIN "maps/SeviiAlteringCave2.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave3.asm"
+INCLUDE "scripts/SeviiAlteringCave3.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave3.asm"
+SeviiAlteringCave3_Blocks: INCBIN "maps/SeviiAlteringCave3.blk"

@@ -9,8 +9,44 @@ SeviiTanobyChambers_Script:
 SeviiTanobyChambers_ScriptPointers:
 	dw SeviiTanobyChambers_Base ; 0
 	dw SeviiTanobyChambers_PrintSuccessOneChamber ; 1
+	dw SeviiTanobyChambers_RocketBeasts_MoveBeastsUp ; 2
+	dw SeviiTanobyChambers_RocketBeasts_BeastsDialogues ; 3
+	dw SeviiTanobyChambers_RocketBeasts_OrmPreBattle ; 4
+	dw SeviiTanobyChambers_RocketBeasts_OrmBattle ; 5
+	dw SeviiTanobyChambers_RocketBeasts_CarrBattle ; 6
+	dw SeviiTanobyChambers_RocketBeasts_SirdPrePreBattle ; 7
+	dw SeviiTanobyChambers_RocketBeasts_SirdPreBattle ; 8
+	dw SeviiTanobyChambers_RocketBeasts_SirdBattle ; 9
+	dw SeviiTanobyChambers_RocketBeasts_End ; 10
 	
 SeviiTanobyChambers_Base:
+	CheckEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
+	ret nz
+; Rocket Beasts encounter check
+	ld hl, SeviiTanobyChambers_Coordinates_RocketBeastsScene
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jr nc, .checkOtherEvents
+; dialogue
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Player moves down
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld a, D_DOWN | B_BUTTON ; edited to fix Pikachu blocker
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, 1
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; script handling
+	ld a, 2
+	ld [wCurMapScript], a
+	ret
+
+.checkOtherEvents
 	CheckEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBER_MAJOR
 	ret nz
 ; check chamber 1 and then 6, as they are the "special" ones
@@ -188,7 +224,7 @@ SeviiTanobyChambers_Base:
 ; all Chambers solved
 	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBER_MAJOR
 	callfar ShakeScreen
-	ld a, 8
+	ld a, 11
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call PlayDefaultMusic
@@ -258,7 +294,7 @@ SeviiTanobyChambers_Chamber1_Coordinates:
 SeviiTanobyChambers_PrintSuccessOneChamber:
 	ld a, SFX_PUSH_BOULDER
 	call PlaySound
-	ld a, 7
+	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	xor a
 	ld [wCurMapScript], a
@@ -278,9 +314,267 @@ ResetChamber6PathEvents:
 	ResetEvent EVENT_SEVII_TANOBY_TRACK_PATH_7
 	ret
 
+; Rocket Beasts scripts =========================
+
+SeviiTanobyChambers_Coordinates_RocketBeastsScene:
+	dbmapcoord 78,  7
+	db -1 ; end
+
+SeviiTanobyChambers_RocketBeasts_MoveBeastsUp:
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; show and move Beasts
+	ld a, HS_SEVII_TANOBY_CHAMBERS_ORM
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld de, SeviiTanobyChambers_RocketBeastsMovements
+	ld a, 1
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, HS_SEVII_TANOBY_CHAMBERS_CARR
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld de, SeviiTanobyChambers_RocketBeastsMovements
+	ld a, 2
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, HS_SEVII_TANOBY_CHAMBERS_SIRD
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld de, SeviiTanobyChambers_RocketBeastsMovements
+	ld a, 3
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 3
+	ld [wCurMapScript], a
+	ret
+	
+SeviiTanobyChambers_RocketBeastsMovements:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+SeviiTanobyChambers_RocketBeastsMovements_Orm:
+SeviiTanobyChambers_RocketBeastsMovements_Sird:
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+SeviiTanobyChambers_RocketBeasts_BeastsDialogues:
+; wait for Beasts movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; fix Beasts facings
+	ld a, 1
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new from Engeze
+	ld a, 2
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new from Engeze
+	ld a, 3
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new from Engeze
+; dialogues
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Orm moves up
+	ld de, SeviiTanobyChambers_RocketBeastsMovements_Orm
+	ld a, 1
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 4
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_OrmPreBattle:
+; wait for Orm movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; turn Orm and player
+	ld a, SPRITE_FACING_LEFT
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, 1
+	ldh [hSpriteIndex], a
+	lb bc, STAY, RIGHT
+	call ChangeSpriteMovementBytes ; new from Engeze
+; script handling
+	ld a, 5
+	ld [wCurMapScript], a
+	ret
+	
+SeviiTanobyChambers_RocketBeasts_OrmBattle:
+	ld a, $0
+	ld [wJoyIgnore], a
+; dialogue
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_ORM
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiTanobyChambersOrmDefeatText
+	ld de, SeviiTanobyChambersOrmDefeatText
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 6
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_CarrBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiTanobyChambersResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won, turn player
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+; dialogue
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_CARR
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiTanobyChambersCarrDefeatText
+	ld de, SeviiTanobyChambersCarrDefeatText
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 7
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_SirdPrePreBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiTanobyChambersResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; Sird moves up
+	ld de, SeviiTanobyChambers_RocketBeastsMovements_Sird
+	ld a, 3
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 8
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_SirdPreBattle:
+; wait for Sird movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; turn Sird and player
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, 3
+	ldh [hSpriteIndex], a
+	lb bc, STAY, LEFT
+	call ChangeSpriteMovementBytes ; new from Engeze
+; script handling
+	ld a, 9
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_SirdBattle:
+	xor a
+	ld [wJoyIgnore], a
+; dialogue
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_SIRD
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiTanobyChambersSirdDefeatText
+	ld de, SeviiTanobyChambersSirdDefeatText
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 10
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_End:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiTanobyChambersResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; last dialogue
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide sprites
+	SetEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
+	call GBFadeOutToBlack
+	ld a, HS_SEVII_TANOBY_CHAMBERS_ORM
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_TANOBY_CHAMBERS_CARR
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_TANOBY_CHAMBERS_SIRD
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	; fallthrough
+
+SeviiTanobyChambersResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
 ; texts =========================================
 
 SeviiTanobyChambers_TextPointers:
+	dw SeviiTanobyChambersText1
+	dw SeviiTanobyChambersText2
+	dw SeviiTanobyChambersText3
+	; signs
 	dw SeviiTanobyChambersSignText1
 	dw SeviiTanobyChambersSignText2
 	dw SeviiTanobyChambersSignText3
@@ -288,8 +582,16 @@ SeviiTanobyChambers_TextPointers:
 	dw SeviiTanobyChambersSignText5
 	dw SeviiTanobyChambersSignText6
 	; scripts
-	dw SeviiTanobyChambersScriptText1 ; 7 : Solved one Chamber
-	dw SeviiTanobyChambersScriptText2 ; 8 : Solved all Chambers
+	dw SeviiTanobyChambersScriptText1  ; 10 : Solved one Chamber
+	dw SeviiTanobyChambersScriptText2  ; 11 : Solved all Chambers
+	dw SeviiTanobyChambersScriptText3  ; 12 : Beasts 1st dialogue
+	dw SeviiTanobyChambersScriptText4  ; 13 : Beasts 2nd dialogue
+	dw SeviiTanobyChambersScriptText5  ; 14 : Beasts 3rd dialogue
+	dw SeviiTanobyChambersScriptText6  ; 15 : Beasts 4th dialogue
+	dw SeviiTanobyChambersScriptText7  ; 16 : Beasts Orm pre-battle dialogue
+	dw SeviiTanobyChambersScriptText8  ; 17 : Beasts Carr pre-battle dialogue
+	dw SeviiTanobyChambersScriptText9  ; 18 : Beasts Sird pre-battle dialogue
+	dw SeviiTanobyChambersScriptText10 ; 19 : Beasts final dialogue
 
 SeviiTanobyChambersSignText1:
 	text_asm
@@ -471,5 +773,57 @@ SeviiTanobyChambersScriptText1:
 
 SeviiTanobyChambersScriptText2:
 	text_far _SeviiTanobyChambersScriptText2
+	text_end
+	
+; Rocket Beasts texts ==============================
+
+SeviiTanobyChambersText1:
+SeviiTanobyChambersText2:
+SeviiTanobyChambersText3:
+	text_far _SeviiTanobyChambersText1
+	text_end
+
+SeviiTanobyChambersScriptText3:
+	text_far _SeviiTanobyChambersScriptText3
+	text_end
+
+SeviiTanobyChambersScriptText4:
+	text_far _SeviiTanobyChambersScriptText4
+	text_end
+
+SeviiTanobyChambersScriptText5:
+	text_far _SeviiTanobyChambersScriptText5
+	text_end
+
+SeviiTanobyChambersScriptText6:
+	text_far _SeviiTanobyChambersScriptText6
+	text_end
+
+SeviiTanobyChambersScriptText7:
+	text_far _SeviiTanobyChambersScriptText7
+	text_end
+
+SeviiTanobyChambersScriptText8:
+	text_far _SeviiTanobyChambersScriptText8
+	text_end
+
+SeviiTanobyChambersScriptText9:
+	text_far _SeviiTanobyChambersScriptText9
+	text_end
+
+SeviiTanobyChambersScriptText10:
+	text_far _SeviiTanobyChambersScriptText10
+	text_end
+
+SeviiTanobyChambersOrmDefeatText:
+	text_far _SeviiTanobyChambersOrmDefeatText
+	text_end
+	
+SeviiTanobyChambersCarrDefeatText:
+	text_far _SeviiTanobyChambersCarrDefeatText
+	text_end
+	
+SeviiTanobyChambersSirdDefeatText:
+	text_far _SeviiTanobyChambersSirdDefeatText
 	text_end
 	

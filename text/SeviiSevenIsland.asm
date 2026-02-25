@@ -1238,3 +1238,65 @@ _SeviiTanobyChambersScriptText2::
 	line "nearby..."
 ;	xxxx "123456789012345678"
 	done
+
+; Rocket Beasts in Tanoby ------------------
+
+_SeviiTanobyChambersText1::
+	text "!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText3::
+	text "I FUCKING knew!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText4::
+	text "ORM: I hate you!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersScriptText5::
+	text "CARR: I hate you!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersScriptText6::
+	text "SIRD: I hate you!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersScriptText7::
+	text "ORM: Battle!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersScriptText8::
+	text "CARR: Battle!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersScriptText9::
+	text "SIRD: Battle!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersScriptText10::
+	text "GG!"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiTanobyChambersOrmDefeatText::
+	text "ORM: Damn!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTanobyChambersCarrDefeatText::
+	text "CARR: Damn!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTanobyChambersSirdDefeatText::
+	text "SIRD: Damn!"
+;	xxxx "123456789012345678"
+	prompt
