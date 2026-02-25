@@ -2889,7 +2889,7 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
-	db ROCKET, 46
+	db JESSIEJAMES, 1
 	; EKANS
 	db 1, 1, WRAP
 	db 1, 2, POISON_STING
@@ -2907,7 +2907,7 @@ SpecialTrainerMoves:
 	db 3, 4, BITE
 	db $FE
 
-	db ROCKET, 47
+	db JESSIEJAMES, 2
 	; ARBOK
 	db 1, 1, GLARE
 	db 1, 2, SCREECH
@@ -2925,7 +2925,7 @@ SpecialTrainerMoves:
 	db 3, 4, HEADBUTT
 	db $FE
 
-	db ROCKET, 48
+	db JESSIEJAMES, 3
 	; ARBOK
 	db 1, 1, GLARE
 	db 1, 2, CRUNCH
@@ -2953,7 +2953,7 @@ SpecialTrainerMoves:
 	db 5, 4, WATER_PULSE
 	db $FE
 
-	db ROCKET, 49
+	db JESSIEJAMES, 4
 	; ARBOK
 	db 1, 1, DARK_PULSE
 	db 1, 2, EARTHQUAKE
@@ -2981,7 +2981,7 @@ SpecialTrainerMoves:
 	db 5, 4, DREAM_EATER
 	db $FE
 
-	db ROCKET, 50
+	db JESSIEJAMES, 5
 	; ARBOK
 	db 1, 1, DARK_PULSE
 	db 1, 2, EARTHQUAKE
@@ -3009,7 +3009,7 @@ SpecialTrainerMoves:
 	db 5, 4, BUBBLEBEAM
 	db $FE
 
-	db ROCKET, 52 ; Petrel
+	db PETREL, 1
 	; KOFFING
 	db 1, 1, EXPLOSION
 	db 1, 2, NO_MOVE
@@ -3040,6 +3040,39 @@ SpecialTrainerMoves:
 	db 6, 2, SHADOW_BALL
 	db 6, 3, SLUDGE_WAVE
 	db 6, 4, HEAT_WAVE
+	db $FE
+
+	db ARCHER, 1
+	; PARASECT
+	db 1, 1, SPORE
+	db 1, 2, LEECH_LIFE
+	db 1, 3, LEECH_SEED
+	db 1, 4, STICKY_WEB
+	; WEEZING
+	db 2, 1, EXPLOSION
+	db 2, 2, SLUDGE_WAVE
+	db 2, 3, FIRE_BLAST
+	db 2, 4, WILL_O_WISP
+	; ELECTRODE
+	db 3, 1, EXPLOSION
+	db 3, 2, SUBSTITUTE
+	db 3, 3, THUNDER_WAVE
+	db 3, 4, THUNDERBOLT
+	; CROBAT
+	db 4, 1, CONFUSE_RAY
+	db 4, 2, TOXIC
+	db 4, 3, BRAVE_BIRD
+	db 4, 4, GUNK_SHOT
+	; MAGMORTAR
+	db 5, 1, FIRE_BLAST
+	db 5, 2, FEINT_ATTACK
+	db 5, 3, BULLET_SEED
+	db 5, 4, KARATE_CHOP
+	; UMBREON
+	db 6, 1, REST
+	db 6, 2, DARK_PULSE
+	db 6, 3, PSYCHIC_M
+	db 6, 4, IRON_TAIL
 	db $FE
 
 	db ROCKET, 55 ; Lunar Shrine Rocket Sibling 1
