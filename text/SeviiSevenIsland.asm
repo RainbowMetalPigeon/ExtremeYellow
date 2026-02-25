@@ -1248,55 +1248,117 @@ _SeviiTanobyChambersText1::
 
 _SeviiTanobyChambersScriptText3::
 	text "I FUCKING knew!"
+	line "YOU again!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersScriptText4::
-	text "ORM: I hate you!"
+	text "ORM: GIOVANNI"
+	line "entrusted me with"
+	cont "a pivotal quest,"
+	cont "which I failed"
+	cont "because of you!"
+	cont "It's your fault"
+	cont "I lost GIOVANNI's"
+	cont "trust!"
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersScriptText5::
-	text "CARR: I hate you!"
+	text "CARR: My dreams of"
+	line "grandness... I"
+	cont "could have been"
+	cont "at the head of my"
+	cont "own empire, but"
+	cont "because of you,"
+	cont "I have nothing!"
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersScriptText6::
-	text "SIRD: I hate you!"
+	text "SIRD: You got in"
+	line "my ways, but my"
+	cont "BOSS won't hear a"
+	cont "failure from me"
+	cont "due to a brat"
+	cont "like you!"
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersScriptText7::
-	text "ORM: Battle!"
+	text "ORM: I and those"
+	line "two may not go"
+	cont "along the best,"
+	cont "yet I can totally"
+	cont "ally with them to"
+	cont "smash you."
+
+	para "Not that there'll"
+	line "be much left to"
+	cont "smash once I'll be"
+	cont "done grinding you!"
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersScriptText8::
-	text "CARR: Battle!"
+	text "CARR: That muscle-"
+	line "brain... I knew"
+	cont "there was no way"
+	cont "they could have"
+	cont "finished the job."
+
+	para "But I don't"
+	line "complain! It'll be"
+	cont "a real pleasure"
+	cont "torturing you!"
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersScriptText9::
-	text "SIRD: Battle!"
+	text "SIRD: Of course"
+	line "neither of those"
+	cont "simpletons was"
+	cont "enough to beat"
+	cont "you."
+
+	para "Well then, it's"
+	line "my time to clean"
+	cont "this mess and"
+	cont "make the BOSS"
+	cont "proud of me!"
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersScriptText10::
-	text "GG!"
+	text "ORM: ...damn it."
+	line "I disappointed"
+	cont "GIOVANNI again."
+
+	para "CARR: Fuck this"
+	line "shit! I hate you!"
+
+	para "SIRD: ...so be it."
+	line "I'll report the"
+	cont "failure to my"
+	cont "BOSS."
 ;	xxxx "123456789012345678"
 	done
 	
 _SeviiTanobyChambersOrmDefeatText::
-	text "ORM: Damn!"
+	text "No... again!"
+	line "BOSS! I failed!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiTanobyChambersCarrDefeatText::
-	text "CARR: Damn!"
+	text "That's"
+	line "ridiculous! How"
+	cont "did I lose again?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiTanobyChambersSirdDefeatText::
-	text "SIRD: Damn!"
+	text "Absurd!"
+	line "How... could you?"
 ;	xxxx "123456789012345678"
 	prompt
