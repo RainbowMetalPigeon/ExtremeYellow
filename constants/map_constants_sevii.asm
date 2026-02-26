@@ -141,7 +141,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $70
 	map_const SEVII_TANOBY_CHAMBERS,                         43,  8 ; $71
 	map_const SEVII_TANOBY_GARDEN,                            9,  9 ; $72
-	map_const SEVII_TANOBY_DEN,                               5,  5 ; $73
+	map_const SEVII_TANOBY_DEN,                               9,  5 ; $73
 	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $74
 ; 8-island-related maps
 	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $75

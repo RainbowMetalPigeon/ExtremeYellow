@@ -10,6 +10,6 @@ SeviiTanobyGarden_Object:
 ;	bg_event  5, 65, 4 ; Route2Text3
 
 	def_object_events
-;	object_event 25,  5, SPRITE_POKE_BALL, STAY, NONE, 1, NUGGET
+	object_event  8,  8, SPRITE_MEW, STAY, DOWN, 1
 
 	def_warps_to SEVII_TANOBY_GARDEN

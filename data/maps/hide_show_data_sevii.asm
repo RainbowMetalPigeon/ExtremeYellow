@@ -127,7 +127,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_ROUTE_43_CAVES
 	dw HSSeviiTanobyChambers ; SEVII_TANOBY_CHAMBERS
-	dw NoHSSevii ; SEVII_TANOBY_GARDEN ; TBE
+	dw HSSeviiTanobyGarden ; SEVII_TANOBY_GARDEN
 	dw HSSeviiTanobyDen ; SEVII_TANOBY_DEN
 	dw NoHSSevii ; SEVII_UNDERGROUND_SEVEN
 ; 8-island
@@ -369,6 +369,8 @@ HSSeviiTanobyChambers:
 	db SEVII_TANOBY_CHAMBERS,  1, HIDE ; Orm
 	db SEVII_TANOBY_CHAMBERS,  2, HIDE ; Carr
 	db SEVII_TANOBY_CHAMBERS,  3, HIDE ; Sird
+HSSeviiTanobyGarden:
+	db SEVII_TANOBY_GARDEN,  1, SHOW ; Mew
 HSSeviiTanobyDen:
 	db SEVII_TANOBY_DEN,  1, SHOW ; Mewtwo
 	db SEVII_TANOBY_DEN,  2, SHOW ; Mew

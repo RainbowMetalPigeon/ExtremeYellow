@@ -23,6 +23,10 @@ SeviiTanobyChambers_Base:
 	CheckEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
 	ret nz
 ; Rocket Beasts encounter check
+IF DEF(_DEBUG)
+	call DebugPressedOrHeldB
+	jr nz, .checkOtherEvents
+ENDC
 	ld hl, SeviiTanobyChambers_Coordinates_RocketBeastsScene
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	jr nc, .checkOtherEvents

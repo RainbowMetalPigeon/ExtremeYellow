@@ -1374,3 +1374,8 @@ _SeviiTanobyDenMewBattleText::
 	text "Meeeeeeeew!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_SeviiTanobyGardenMewText::
+	text "Meee-eh-eh-eeew!"
+;	xxxx "123456789012345678"
+	done
