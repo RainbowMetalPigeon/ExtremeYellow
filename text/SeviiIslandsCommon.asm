@@ -1,8 +1,12 @@
 
-_SeviiIslandsDockTheresNothingText::
-	text "There's nothing"
-	line "here..."
+_SeviiIslandsDockTheresIsAMessageText::
+	text "There's a strange"
+	line "message here!"
 ;	xxxx "123456789012345678"
+	prompt
+
+_SeviiIslandsDockEmptykMessage::
+	text " "
 	done
 
 _SeviiIslandsDockSailorText1::

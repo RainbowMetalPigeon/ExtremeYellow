@@ -1,10 +1,59 @@
 SeviiTanobyChambers_Script:
+	call ResetGardenIfDenNotUnlocked
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiTanobyChambers_ScriptPointers
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
 ; scripts =========================================
+
+ResetGardenIfDenNotUnlocked:
+	CheckEvent EVENT_SEVII_TANOBY_GARDEN_COMPLETED_MEW_CHASE
+	ret nz
+; Mew chase not completed
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, ResetGardenIfDenNotUnlocked_Core
+	ld hl, wCurrentMapScriptFlags
+	bit 4, [hl]
+	res 4, [hl]
+	ret z
+; fallthrough
+ResetGardenIfDenNotUnlocked_Core:
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_2
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_3
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_4
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_5
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_6
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_7
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_8
+	ResetEvent EVENT_SEVII_TANOBY_GARDEN_ACTIVATED_MEW_9
+	ld a, HS_SEVII_TANOBY_GARDEN_MEW_1_9
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_2
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_3
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_4
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_5
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_6
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_7
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+;	ld a, HS_SEVII_TANOBY_GARDEN_MEW_8
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectSevii
+	ret
 
 SeviiTanobyChambers_ScriptPointers:
 	dw SeviiTanobyChambers_Base ; 0

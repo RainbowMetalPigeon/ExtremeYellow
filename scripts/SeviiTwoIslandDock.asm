@@ -238,7 +238,26 @@ SeviiTwoIslandDockSailorText_Canceled:
 ; TBE
 SeviiTwoIslandDockBgText2:
 SeviiTwoIslandDockBgText3:
-	text_far _SeviiIslandsDockTheresNothingText
+	text_asm
+	ld hl, SeviiIslandsDockTruckMessage_Two
+	call PrintText
+	ld hl, SeviiIslandsDockEmptykMessage_Two
+	call PrintText
+	callfar LoadFontTilePatternsBraille
+	ld hl, SeviiIslandsDockTruckMessage_Two_Braille
+	call PrintText
+	jp TextScriptEnd
+
+SeviiIslandsDockTruckMessage_Two_Braille:
+	text_far _SeviiIslandsDockTruckMessage_Two_Braille
+	text_end
+
+SeviiIslandsDockEmptykMessage_Two:
+	text_far _SeviiIslandsDockEmptykMessage
+	text_end
+
+SeviiIslandsDockTruckMessage_Two:
+	text_far _SeviiIslandsDockTheresIsAMessageText
 	text_end
 
 ; ----------------------------------------------

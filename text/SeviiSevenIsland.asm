@@ -598,6 +598,11 @@ _SeviiSevenIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+_SeviiIslandsDockTruckMessage_Seven_Braille::
+	text "%8 S, %6 E"
+;	xxxx "123456789012345678"
+	done
+
 ; Route 41 ------------------------------------
 
 _SeviiRoute41SignText1::

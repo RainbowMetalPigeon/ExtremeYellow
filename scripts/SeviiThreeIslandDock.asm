@@ -239,7 +239,26 @@ SeviiThreeIslandDockSailorText_Canceled:
 ; TBE
 SeviiThreeIslandDockBgText2:
 SeviiThreeIslandDockBgText3:
-	text_far _SeviiIslandsDockTheresNothingText
+	text_asm
+	ld hl, SeviiIslandsDockTruckMessage_Three
+	call PrintText
+	ld hl, SeviiIslandsDockEmptykMessage_Three
+	call PrintText
+	callfar LoadFontTilePatternsBraille
+	ld hl, SeviiIslandsDockTruckMessage_Three_Braille
+	call PrintText
+	jp TextScriptEnd
+
+SeviiIslandsDockTruckMessage_Three_Braille:
+	text_far _SeviiIslandsDockTruckMessage_Three_Braille
+	text_end
+
+SeviiIslandsDockEmptykMessage_Three:
+	text_far _SeviiIslandsDockEmptykMessage
+	text_end
+
+SeviiIslandsDockTruckMessage_Three:
+	text_far _SeviiIslandsDockTheresIsAMessageText
 	text_end
 
 ; ----------------------------------------------

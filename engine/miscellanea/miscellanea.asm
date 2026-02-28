@@ -2307,6 +2307,8 @@ MarkBirbAsFed::
 	jp z, .seviiEight
 	cp SEVII_DESOLATED_ROCK
 	jp z, .seviiDesolated
+	cp SEVII_TANOBY_GARDEN
+	jp z, .seviiTanobyGarden
 ; this check should be unnecessary as there are no other open-air maps
 ;	cp SEVII_TEN_ISLAND
 ;	jp z, .seviiTen
@@ -2316,6 +2318,9 @@ MarkBirbAsFed::
 	ret
 .seviiEight
 	SetEvent EVENT_BIRB_SEVII_EIGHT
+	ret
+.seviiTanobyGarden
+	SetEvent EVENT_BIRB_SEVII_TANOBY_GARDEN
 	ret
 .seviiDesolated
 	SetEvent EVENT_BIRB_SEVII_DESOLATED

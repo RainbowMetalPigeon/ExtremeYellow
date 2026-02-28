@@ -775,6 +775,11 @@ _SeviiFiveIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+_SeviiIslandsDockTruckMessage_Five_Braille::
+	text "%3 S, %3 W"
+;	xxxx "123456789012345678"
+	done
+
 ; Route 34 ------------------------------------
 
 _SeviiRoute34BattleText1::

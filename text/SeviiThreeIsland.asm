@@ -1050,6 +1050,11 @@ _SeviiThreeIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+_SeviiIslandsDockTruckMessage_Three_Braille::
+	text "%3 W, %1 S"
+;	xxxx "123456789012345678"
+	done
+
 ; route 33 ------------------------------------
 
 _SeviiRoute33Text1_Core::

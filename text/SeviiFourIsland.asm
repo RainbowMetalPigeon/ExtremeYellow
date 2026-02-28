@@ -724,6 +724,11 @@ _SeviiFourIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+_SeviiIslandsDockTruckMessage_Four_Braille::
+	text "%3 W, %3 S"
+;	xxxx "123456789012345678"
+	done
+
 ; dive ------------------------------------
 
 _SeviiFourIslandCityDiveBattleText1::

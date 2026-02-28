@@ -470,6 +470,11 @@ _SeviiSixIslandDockBgText1::
 	line "SHIP PORT"
 	done
 
+_SeviiIslandsDockTruckMessage_Six_Braille::
+	text "%8 N, %1 E"
+;	xxxx "123456789012345678"
+	done
+
 ; Route 37 ------------------------------------
 
 _SeviiRoute37BattleText1::

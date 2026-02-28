@@ -617,6 +617,11 @@ _SeviiOneIslandDockSailorText_NeedAMoment::
 	line "a moment!"
 	done
 
+_SeviiIslandsDockTruckMessage_One_Braille::
+	text "%5 E"
+;	xxxx "123456789012345678"
+	done
+
 ; Route 31 ------------------------------------
 
 _SeviiRoute31Text1::
