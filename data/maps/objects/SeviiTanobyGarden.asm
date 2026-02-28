@@ -11,5 +11,12 @@ SeviiTanobyGarden_Object:
 
 	def_object_events
 	object_event  8,  8, SPRITE_MEW, STAY, DOWN, 1
+	object_event 13,  8, SPRITE_MEW, STAY, DOWN, 2
+	object_event 13,  5, SPRITE_MEW, STAY, DOWN, 3
+	object_event 10,  6, SPRITE_MEW, STAY, DOWN, 4
+	object_event  7,  9, SPRITE_MEW, STAY, DOWN, 5
+	object_event  4, 12, SPRITE_MEW, STAY, DOWN, 6
+	object_event  5,  4, SPRITE_MEW, STAY, DOWN, 7
+	object_event 11, 12, SPRITE_MEW, STAY, DOWN, 8
 
 	def_warps_to SEVII_TANOBY_GARDEN

@@ -5,7 +5,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_THREE_ISLAND_CITY,                         SeviiThreeIslandCityHiddenObjects ; TBE
 	dbw SEVII_FOUR_ISLAND_CITY,                          SeviiFourIslandCityHiddenObjects ; TBE
 	dbw SEVII_FIVE_ISLAND_CITY,                          SeviiFiveIslandCityHiddenObjects ; TBE
-	dbw SEVII_SIX_ISLAND_CITY,                           SeviiSixeIslandCityHiddenObjects ; TBE
+	dbw SEVII_SIX_ISLAND_CITY,                           SeviiSixIslandCityHiddenObjects ; TBE
 	dbw SEVII_SEVEN_ISLAND_CITY,                         SeviiSevenIslandCityHiddenObjects ; TBE
 ; routes
 	dbw SEVII_ROUTE_31,                                  SeviiRoute31HiddenObjects ; TBE
@@ -46,6 +46,7 @@ HiddenObjectMaps_Sevii:
 ; 7-island
 	dbw SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,      SeviiSevenIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SEVEN_ISLAND_GYM_1,                        SeviiSevenIslandGym1HiddenObjects
+	dbw SEVII_TANOBY_GARDEN,							 SeviiTanobyGardenHiddenObjects
 	
 	db -1 ; end
 
@@ -228,7 +229,7 @@ SeviiFiveIslandCityHiddenObjects:
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
-SeviiSixeIslandCityHiddenObjects:
+SeviiSixIslandCityHiddenObjects:
 	hidden_object 13,  5, SPRITE_FACING_DOWN, PrintTrashText
 	hidden_object 13,  7, SPRITE_FACING_DOWN, PrintTrashText
 	hidden_object 13,  9, GREAT_BALL, HiddenItems
@@ -257,3 +258,14 @@ SeviiRoute32HiddenObjects:
 SeviiOneIslandDockHiddenObjects:
 	hidden_object 15, 15, ELIXER, HiddenItems
 	db -1 ; end
+
+SeviiTanobyGardenHiddenObjects:
+	hidden_object 13,  8, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew2
+	hidden_object 13,  5, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew3
+	hidden_object 10,  6, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew4
+	hidden_object  7,  9, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew5
+	hidden_object  4, 12, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew6
+	hidden_object  5,  4, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew7
+	hidden_object 11, 12, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew8
+	hidden_object  8,  8, SPRITE_FACING_DOWN, SeviiTanobyGardenHiddenTextMew9
+	db -1
