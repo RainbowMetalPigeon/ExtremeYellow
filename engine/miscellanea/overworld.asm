@@ -610,26 +610,30 @@ RandomizeWarpsForAlteringCave:
 	cp SEVII_ALTERING_CAVE
 	ret nz
 ; actual destination: randomize destination
-.loop
-	call Random
-	and %00000011
+	ld a, [wAlteringCaveLoopNumber]
 	and a
-	ret z ; nothing to do
+	jr z, .got0
 	cp 1
 	jr z, .got1
-	cp 2
-	jr nz, .loop ; got 3, but internal index is 0-2 as we have 3 maps
-;.got2
+;	cp 2
+;	jr z, .got2
+.got2
 	ld a, SEVII_ALTERING_CAVE_3
 	ld [hWarpDestinationMap], a
+	xor a
+	ld [wAlteringCaveLoopNumber], a
 	ret
-;.got0
-;	ld a, SEVII_ALTERING_CAVE
-;	ld [hWarpDestinationMap], a
-;	ret
 .got1
 	ld a, SEVII_ALTERING_CAVE_2
 	ld [hWarpDestinationMap], a
+	ld a, 2
+	ld [wAlteringCaveLoopNumber], a
+	ret
+.got0
+	ld a, SEVII_ALTERING_CAVE
+	ld [hWarpDestinationMap], a
+	ld a, 1
+	ld [wAlteringCaveLoopNumber], a
 	ret
 
 RandomizeWarpsForHauntedHouse:

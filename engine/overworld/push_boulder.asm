@@ -27,6 +27,7 @@ TryPushingBoulder::
 	ld a, [hl]
 	cp BOULDER_MOVEMENT_BYTE_2
 	jp nz, ResetBoulderPushFlags
+.weArePushing ; new, for debugging
 	ld hl, wFlags_0xcd60
 	bit 6, [hl]
 	set 6, [hl] ; indicate that the player has tried pushing
@@ -34,6 +35,7 @@ TryPushingBoulder::
 	ldh a, [hJoyHeld]
 	and D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ret z
+.weArePushing2 ; new, for debugging
 	predef CheckForCollisionWhenPushingBoulder
 	ld a, [wTileInFrontOfBoulderAndBoulderCollisionResult]
 	and a ; was there a collision?
@@ -72,6 +74,7 @@ TryPushingBoulder::
 	call PlaySound
 	ld hl, wFlags_0xcd60
 	set 1, [hl]
+	SetEvent EVENT_STARTED_PUSHING_BOULDER_FOR_ALTERING_CAVE ; new
 	ret
 
 PushBoulderUpMovementData:
@@ -107,6 +110,13 @@ DoBoulderDustAnimation::
 	jp PlaySound
 
 ResetBoulderPushFlags:
+; new
+	CheckEvent EVENT_STARTED_PUSHING_BOULDER_FOR_ALTERING_CAVE
+	jr z, .vanilla
+	ResetEvent EVENT_STARTED_PUSHING_BOULDER_FOR_ALTERING_CAVE
+	SetEvent EVENT_FINISHED_PUSHING_BOULDER_FOR_ALTERING_CAVE
+.vanilla
+; BTV
 	ld hl, wFlags_0xcd60
 	res 1, [hl]
 	res 6, [hl]

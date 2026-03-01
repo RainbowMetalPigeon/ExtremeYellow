@@ -1,14 +1,71 @@
 SeviiAlteringCave2_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld de, SeviiAlteringCave2_ScriptPointers
+	ld a, [wCurMapScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a
+	ret
 
 SeviiAlteringCave2_TextPointers:
-;	dw SeviiAlteringCaveText1
-;	dw PickUpItemText
-;	dw RockSmashText
-;	dw BoulderText
-;	dw SeviiAlteringCaveText3
-	text_end
+	dw BoulderText   ; 1
+	dw BoulderText   ; 2
+	dw BoulderText   ; 3
+	dw RockSmashText ; 4
+	; initially hidden
+	dw BoulderText   ; 5
+	dw BoulderText   ; 6
+	dw BoulderText   ; 7
 
-;SeviiAlteringCaveText1:
-;	text_far _SeviiAlteringCaveText1
-;	text_end
+; scripts ===================================
+
+SeviiAlteringCave2_ScriptPointers:
+	dw SeviiAlteringCave2Script0
+
+SeviiAlteringCave2Script0:
+;	CheckEvent EVENT_SEVII_SOLVED_ALTERING_CAVE
+;	ret nz
+; check if all boulders are in the right slots one at the time
+	call AlteringCave2_CheckSwitch1
+;	call AlteringCave2_CheckSwitch2
+;	call AlteringCave2_CheckSwitch3
+;	call AlteringCave2_CheckSwitch4
+	ret
+
+AlteringCave2_CheckSwitch1:
+	CheckEvent EVENT_SEVII_ALTERING_CAVE_2_SWITCH_1
+	ret nz
+	ld hl, CoordsData_SeviiAlteringCave2_1
+	call CheckBoulderCoords
+	ret nc
+	ldh a, [hSpriteIndex]
+	cp $f
+	ret z
+
+	; is the pushing animation fully finished?
+	CheckEvent EVENT_FINISHED_PUSHING_BOULDER_FOR_ALTERING_CAVE
+	ret z
+	
+	ld a, HS_SEVII_ALTERING_CAVE_2_BOULDER_1_H
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld a, HS_SEVII_ALTERING_CAVE_2_BOULDER_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+
+	ld a, HS_SEVII_ALTERING_CAVE_BOULDER_1_H
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld a, HS_SEVII_ALTERING_CAVE_BOULDER_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+
+	SetEvent EVENT_SEVII_ALTERING_CAVE_2_SWITCH_1
+	ResetEvent EVENT_FINISHED_PUSHING_BOULDER_FOR_ALTERING_CAVE
+;	ld a, $0
+;	ld [wJoyIgnore], a
+
+	ret
+
+CoordsData_SeviiAlteringCave2_1:
+	dbmapcoord 12, 34
+	db -1 ; end
