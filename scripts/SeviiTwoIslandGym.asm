@@ -246,10 +246,10 @@ RandomizePlayersTeamForNiueBattle::
 	jr .storeMonAddressLoop
 .continue
 
-; we want to generate any mon UP TO Mewtwo EXCLUDED
+; we want to generate any mon UP TO Armored Mewtwo EXCLUDED
 .innerRandomLoop
 	call Random
-	cp MEWTWO
+	cp ARM_MEWTWO
 	jr nc, .innerRandomLoop
 
 	ld b, a ; now b contains the mon we just generated
