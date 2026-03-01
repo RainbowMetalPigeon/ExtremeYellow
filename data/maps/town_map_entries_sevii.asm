@@ -74,7 +74,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_SIX_ISLAND_GYM_3,                           14, 11, SixIslandName
 	internal_map SEVII_ROUTE_38_HOUSES,                            15,  9, Route38Name
 	internal_map SEVII_PATTERN_BUSH,                               14,  9, PatternBushName
-	internal_map SEVII_ALTERING_CAVE_3,                            13,  6, AlteringCaveName
+	internal_map SEVII_ALTERING_CAVE_4,                            13,  6, AlteringCaveName
 	internal_map SEVII_DOTTED_HOLE,                                14, 13, DottedHoleName
 	internal_map SEVII_ROUTE_38_DIVE_CAVERN,                       15,  9, Route38DiveName
 	internal_map SEVII_ROUTE_39_DIVE,                              13,  8, Route39DiveName

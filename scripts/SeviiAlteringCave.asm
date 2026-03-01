@@ -10,7 +10,3 @@ SeviiAlteringCave_TextPointers:
 	; initially hidden
 	dw BoulderText   ; 6
 	dw BoulderText   ; 7
-
-;SeviiAlteringCaveText1:
-;	text_far _SeviiAlteringCaveText1
-;	text_end

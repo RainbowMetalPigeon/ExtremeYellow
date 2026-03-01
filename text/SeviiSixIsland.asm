@@ -1655,6 +1655,38 @@ _SeviiRoute39AfterBattleText6::
 ;	xxxx "123456789012345678"
 	done
 
+; Altering Cave ------------------------------------
+
+_SeviiAlteringCave4Text1_Found::
+	text "This looks rare"
+	line "and precious...!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiAlteringCave4Text1_Got::
+	text "<PLAYER> got"
+	line "6 CHROMOGENEs!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiAlteringCave4Text2_Got::
+	text "<PLAYER> got"
+	line "6 PERFECTERs!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiAlteringCave4Text3_Got::
+	text "<PLAYER> got"
+	line "6 ONIGIRI BOXes!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiAlteringCave4Text1_Full::
+	text "But alas, your"
+	line "bag is full."
+;	xxxx "123456789012345678"
+	done
+
 ; Route 40 ------------------------------------
 
 _SeviiRoute40Text1::

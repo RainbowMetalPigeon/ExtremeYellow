@@ -111,6 +111,7 @@ MapHSPointers_Sevii:
 	dw HSSeviiAlteringCave ; SEVII_ALTERING_CAVE
 	dw HSSeviiAlteringCave2 ; SEVII_ALTERING_CAVE_2
 	dw HSSeviiAlteringCave3 ; SEVII_ALTERING_CAVE_3
+	dw HSSeviiAlteringCave4 ; SEVII_ALTERING_CAVE_4
 	dw NoHSSevii ; SEVII_DOTTED_HOLE
 	dw NoHSSevii ; SEVII_ROUTE_38_DIVE
 	dw SeviiRoute38DiveCavernHS ; SEVII_ROUTE_38_DIVE_CAVERN
@@ -339,7 +340,6 @@ SeviiFiveIslandCityDiveCavernHS:
 	db SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 2, SHOW ; ball
 SeviiSixIslandDockHS:
 	db SEVII_SIX_ISLAND_DOCK, 1, SHOW ; sailor
-
 HSSeviiAlteringCave:
 	db SEVII_ALTERING_CAVE, 1, SHOW ; boulder
 	db SEVII_ALTERING_CAVE, 3, SHOW ; rock
@@ -347,7 +347,6 @@ HSSeviiAlteringCave:
 	db SEVII_ALTERING_CAVE, 5, SHOW ; rock
 	db SEVII_ALTERING_CAVE, 6, HIDE ; boulder
 	db SEVII_ALTERING_CAVE, 7, HIDE ; boulder
-
 HSSeviiAlteringCave2:
 	db SEVII_ALTERING_CAVE_2, 1, SHOW ; boulder
 	db SEVII_ALTERING_CAVE_2, 2, SHOW ; boulder
@@ -357,7 +356,6 @@ HSSeviiAlteringCave2:
 	db SEVII_ALTERING_CAVE_2, 6, HIDE ; boulder
 	db SEVII_ALTERING_CAVE_2, 7, HIDE ; boulder
 	db SEVII_ALTERING_CAVE_2, 8, HIDE ; boulder
-
 HSSeviiAlteringCave3:
 	db SEVII_ALTERING_CAVE_3, 1, SHOW ; rock
 	db SEVII_ALTERING_CAVE_3, 3, SHOW ; boulder
@@ -367,7 +365,10 @@ HSSeviiAlteringCave3:
 	db SEVII_ALTERING_CAVE_3, 7, HIDE ; boulder
 	db SEVII_ALTERING_CAVE_3, 8, HIDE ; boulder
 	db SEVII_ALTERING_CAVE_3, 9, HIDE ; boulder
-
+HSSeviiAlteringCave4:
+	db SEVII_ALTERING_CAVE_4, 1, SHOW ; ball
+	db SEVII_ALTERING_CAVE_4, 2, SHOW ; ball
+	db SEVII_ALTERING_CAVE_4, 3, SHOW ; ball
 SeviiRoute38DiveCavernHS:
 	db SEVII_ROUTE_38_DIVE_CAVERN, 11, SHOW ; pearl
 SeviiSevenIslandDockHS:

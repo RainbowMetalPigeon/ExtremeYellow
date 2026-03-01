@@ -109,6 +109,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiAlteringCave_h)
 	db BANK(SeviiAlteringCave2_h)
 	db BANK(SeviiAlteringCave3_h)
+	db BANK(SeviiAlteringCave4_h)
 	db BANK(SeviiDottedHole_h)
 	db BANK(SeviiRoute38Dive_h)
 	db BANK(SeviiRoute38DiveCavern_h)

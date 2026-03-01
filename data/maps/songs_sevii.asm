@@ -108,6 +108,7 @@ MapSongBanks_Sevii::
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE_2
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE_3
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE_4
 	db MUSIC_YELLOW_UNUSED_SONG, BANK(Music_YellowUnusedSong) ; SEVII_DOTTED_HOLE ; TBV
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_38_DIVE
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_38_DIVE_CAVERN

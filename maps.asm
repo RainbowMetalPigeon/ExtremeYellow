@@ -2091,3 +2091,8 @@ INCLUDE "data/maps/headers/SeviiAlteringCave3.asm"
 INCLUDE "scripts/SeviiAlteringCave3.asm"
 INCLUDE "data/maps/objects/SeviiAlteringCave3.asm"
 SeviiAlteringCave3_Blocks: INCBIN "maps/SeviiAlteringCave3.blk"
+
+INCLUDE "data/maps/headers/SeviiAlteringCave4.asm"
+INCLUDE "scripts/SeviiAlteringCave4.asm"
+INCLUDE "data/maps/objects/SeviiAlteringCave4.asm"
+SeviiAlteringCave4_Blocks: INCBIN "maps/SeviiAlteringCave4.blk"

@@ -109,6 +109,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiAlteringCave_h
 	dw SeviiAlteringCave2_h
 	dw SeviiAlteringCave3_h
+	dw SeviiAlteringCave4_h
 	dw SeviiDottedHole_h
 	dw SeviiRoute38Dive_h
 	dw SeviiRoute38DiveCavern_h

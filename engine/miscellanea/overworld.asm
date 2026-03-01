@@ -606,6 +606,9 @@ RandomizeWarpsForHauntedHouseOrAlteringCave::
 RandomizeWarpsForAlteringCave:
 	CheckEvent EVENT_IN_SEVII
 	ret z
+	ld a, [wCurMap]
+	cp SEVII_ROUTE_39
+	ret nz
 	ld a, [hWarpDestinationMap]
 	cp SEVII_ALTERING_CAVE
 	ret nz

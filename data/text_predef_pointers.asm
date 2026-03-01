@@ -100,7 +100,6 @@ TextPredefs::
 	add_tx_pre PlayerFeedsTheBirbText               ; new
 	add_tx_pre TheBirbIsHungryText                  ; new
 	add_tx_pre PlayerKicksTheBirbText               ; new
-
 	add_tx_pre SeviiTanobyGardenHiddenTextMew2      ; new
 	add_tx_pre SeviiTanobyGardenHiddenTextMew3      ; new
 	add_tx_pre SeviiTanobyGardenHiddenTextMew4      ; new

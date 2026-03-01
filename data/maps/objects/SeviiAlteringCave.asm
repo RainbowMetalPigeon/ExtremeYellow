@@ -4,6 +4,7 @@ SeviiAlteringCave_Object:
 	def_warp_events
 	warp_event 12, 41, SEVII_ROUTE_39, 2
 	warp_event 13, 41, SEVII_ROUTE_39, 2
+	warp_event 12,  6, SEVII_ALTERING_CAVE_4, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
