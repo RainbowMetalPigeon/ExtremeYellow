@@ -356,6 +356,7 @@ HSSeviiAlteringCave2:
 	db SEVII_ALTERING_CAVE_2, 5, HIDE ; boulder
 	db SEVII_ALTERING_CAVE_2, 6, HIDE ; boulder
 	db SEVII_ALTERING_CAVE_2, 7, HIDE ; boulder
+	db SEVII_ALTERING_CAVE_2, 8, HIDE ; boulder
 
 HSSeviiAlteringCave3:
 	db SEVII_ALTERING_CAVE_3, 1, SHOW ; rock

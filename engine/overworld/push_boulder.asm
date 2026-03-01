@@ -1,4 +1,5 @@
 TryPushingBoulder::
+	ResetEvent EVENT_FINISHED_PUSHING_BOULDER_FOR_ALTERING_CAVE ; new
 	ld a, [wd728]
 	bit 0, a ; using Strength?
 	ret z

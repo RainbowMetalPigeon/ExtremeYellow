@@ -34,8 +34,15 @@ RockSmash::
 
 .isMissable
 	ld a, [hl]
+
+	ld [wMultipurposeBuffer], a
+	push af
+	call HandleSpecialExceptionsForAlteringCave
+	pop af
+
 	ldh [hMissableObjectIndex], a
 	ld [wMissableObjectIndex], a
+
 
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
@@ -225,3 +232,31 @@ _BagFullText::
 	line "no more room for"
 	cont "other items!"
 	prompt
+
+HandleSpecialExceptionsForAlteringCave:
+	CheckEvent EVENT_IN_SEVII
+	ret z
+	ld a, [wCurMap]
+	cp SEVII_ALTERING_CAVE
+	jr z, .altering1
+	cp SEVII_ALTERING_CAVE_2
+	ret nz
+;altering2
+	ld a, [wMultipurposeBuffer]
+	cp $91
+	ret nz
+	ld a, HS_SEVII_ALTERING_CAVE_ROCK_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ALTERING_CAVE_3_ROCK_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ret
+.altering1
+	ld a, [wMultipurposeBuffer]
+	cp $89
+	ret nz
+	ld a, HS_SEVII_ALTERING_CAVE_3_ROCK_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ret

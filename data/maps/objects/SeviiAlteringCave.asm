@@ -17,6 +17,6 @@ SeviiAlteringCave_Object:
 	object_event 14, 19, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 5
 	; to be shown after inter-map interactions, initially hidden
 	object_event 12, 34, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 6
-	object_event 13, 19, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 7
+	object_event 14, 19, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 7
 
 	def_warps_to SEVII_ALTERING_CAVE
