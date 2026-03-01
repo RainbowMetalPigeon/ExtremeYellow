@@ -409,10 +409,10 @@ RandomizeTeamForBattleFacilityTrainer::
 	cp 28
 	jr nc, .poolNFEHardcore
 	jr .uglyLoopHardcore
-.poolAGHardcore ; generate a random number between 0 and len(AllFinalStageMons)-1, i.e. 0 and 105 included
+.poolAGHardcore ; generate a random number between 0 and len(AllFinalStageMons)-1, i.e. 0 and 109 included
 	ld hl, AllFinalStageMons
 	call Random
-	cp 106 ; 105+1
+	cp 110 ; 109+1
 	jr nc, .RNGLoopHardcore
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
 .uglyLoopHardcore
@@ -543,7 +543,7 @@ RandomizeTeamForBattleFacilityTrainer::
 	ld [de], a ; saves Mon in wBattleFacilityMonNumberN
 	ret
 
-AllAnythingGoesPokemon: ; 114: [0,113]
+AllAnythingGoesPokemon: ; 118: [0,117]
 	db MEW ; only rival
 	db VENUSTOISE ; only Oak
 	db MISSINGNO ; only you
@@ -552,7 +552,9 @@ AllAnythingGoesPokemon: ; 114: [0,113]
 	db MRAYQUAZA ; only Traveler
 	db EETERNATUS ; only Traveler
 	db ARCEUS ; only Traveler
-AllFinalStageMons: ; 106: [0,105]
+	db MELMETAL ; only Pink
+	db THU_FI_ZER ; only you? Pink? Rival? SUUJERO?
+AllFinalStageMons: ; 110: [0,109]
 	db MEWTWO
 	db ARTICUNO
 	db ZAPDOS
@@ -648,7 +650,7 @@ FullyEvolvedMons: ; 85: [0,84]
 	db SYLVEON
 	db PORYGONZ
 	db MACHAMP
-MegaEvolvedMons: ; 15: [0,14]
+MegaEvolvedMons: ; 19: [0,18]
 	db MVENUSAUR
 	db MCHARZARDX
 	db MCHARZARDY
@@ -664,6 +666,10 @@ MegaEvolvedMons: ; 15: [0,14]
 	db MPINSIR
 	db MGYARADOS
 	db MARODACTYL
+	db MCLEFABLE
+	db MVICTREBEL
+	db MSTARMIE
+	db MDRAGONITE
 	db -1 ; ender for the pools checks
 
 LittleCupPokemon: ; 66: [0,65]
@@ -863,9 +869,9 @@ RandomizeTeamForRandomizationOption::
 ; let's give the champion's "mega team" only megas
 .RNGLoopMega
 	ld hl, MegaEvolvedMons
-; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 16 included
+; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 14 included (14 and not 16 because we skip Mega Mewtwos)
 	call Random
-	cp 17 ; 16+1
+	cp 15 ; 14+1
 	jr nc, .RNGLoopMega
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
 .uglyLoopMega

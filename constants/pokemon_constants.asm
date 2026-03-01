@@ -216,10 +216,10 @@
 	const MMEWTWOX           ; 207
 	const MMEWTWOY           ; 208
 	const MEW                ; 209
+DEF NUM_POKEMON_RANDOMIZABLE EQU const_value - 1
 	const MELTAN             ; 210
 	const MELMETAL           ; 211
 	const VENUSTOISE         ; 212
-DEF NUM_POKEMON_RANDOMIZABLE EQU const_value - 1
 	const THU_FI_ZER         ; 213
 	const MZYGARDE           ; 214
 	const UNECROZMA          ; 215

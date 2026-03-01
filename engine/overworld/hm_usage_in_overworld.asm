@@ -61,14 +61,14 @@ CheckIfCanSurfOrCutFromOverworld::
     tx_pre PlayerFeedsTheBirbText
     ld a, SFX_LEVEL_UP ; SFX_DEX_PAGE_ADDED ; SFX_LEVEL_UP ; SFX_GET_ITEM_1 ; SFX_HEAL_HP
     call PlaySound
-    call AnimateBribTile_Flapping_Wrapper
+    call AnimateBirbTile_Flapping_Wrapper
     callfar BirbEmotionBubble
 	ld a, 0
 	ld [wEmotionBubbleSpriteIndex], a
 	ld a, SMILE_BUBBLE
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
-    call AnimateBribTile_Resting_Wrapper
+    call AnimateBirbTile_Resting_Wrapper
 	callfar MarkBirbAsFed
     ret ; TBE
 
@@ -808,83 +808,83 @@ ForceContinueWaterfall::
 
 ; resting
 
-AnimateBribTile_Resting_Wrapper:
+AnimateBirbTile_Resting_Wrapper:
     CheckEvent EVENT_IN_SEVII
-    jr nz, AnimateBribTile_SeviiResting_Decider
+    jr nz, AnimateBirbTile_SeviiResting_Decider
     ; fallthrough
 
-;AnimateBribTile_Resting_Decider:
+;AnimateBirbTile_Resting_Decider:
     ld a, [wCurMapTileset]
     cp OVERWORLD
-    jr nz, AnimateBribTile_Resting2
+    jr nz, AnimateBirbTile_Resting2
     ; fallthrough
 
-AnimateBribTile_Resting:
+AnimateBirbTile_Resting:
 	ld de, BirbTileRest
 	ld hl, vTileset tile $76
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
-AnimateBribTile_Resting2:
+AnimateBirbTile_Resting2:
 	ld de, BirbTileRest2
 	ld hl, vTileset tile $76
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
-AnimateBribTile_SeviiResting_Decider:
+AnimateBirbTile_SeviiResting_Decider:
     call IsThisSpecialBirbSeviiMap
-    jr z, AnimateBribTile_SeviiResting2
+    jr z, AnimateBirbTile_SeviiResting2
     ; fallthrough
 
-AnimateBribTile_SeviiResting:
+AnimateBirbTile_SeviiResting:
 	ld de, BirbTileSeviiRest
 	ld hl, vTileset tile $5F
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
-AnimateBribTile_SeviiResting2:
+AnimateBirbTile_SeviiResting2:
 	ld de, BirbTileSeviiRest2
 	ld hl, vTileset tile $69
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
 ; flapping
 
-AnimateBribTile_Flapping_Wrapper:
+AnimateBirbTile_Flapping_Wrapper:
     CheckEvent EVENT_IN_SEVII
-    jr nz, AnimateBribTile_SeviiFlapping_Decider
+    jr nz, AnimateBirbTile_SeviiFlapping_Decider
     ; fallthrough
 
-;AnimateBribTile_Flapping_Decider:
+;AnimateBirbTile_Flapping_Decider:
     ld a, [wCurMapTileset]
     cp OVERWORLD
-    jr nz, AnimateBribTile_Flapping2
+    jr nz, AnimateBirbTile_Flapping2
     ; fallthrough
 
-AnimateBribTile_Flapping:
+AnimateBirbTile_Flapping:
 	ld de, BirbTileFlap
 	ld hl, vTileset tile $76
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
-AnimateBribTile_Flapping2:
+AnimateBirbTile_Flapping2:
 	ld de, BirbTileFlap2
 	ld hl, vTileset tile $76
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
-AnimateBribTile_SeviiFlapping_Decider:
+AnimateBirbTile_SeviiFlapping_Decider:
     call IsThisSpecialBirbSeviiMap
-    jr z, AnimateBribTile_SeviiFlapping2
+    jr z, AnimateBirbTile_SeviiFlapping2
     ; fallthrough
 
-AnimateBribTile_SeviiFlapping:
+AnimateBirbTile_SeviiFlapping:
 	ld de, BirbTileSeviiFlap
 	ld hl, vTileset tile $5F
     ; fallthrough
 
-AnimateBribTile_Core:
+AnimateBirbTile_Core:
 	lb bc, BANK(BirbTileRest), 1
 	jp CopyVideoData
 
-AnimateBribTile_SeviiFlapping2:
+AnimateBirbTile_SeviiFlapping2:
 	ld de, BirbTileSeviiFlap2
 	ld hl, vTileset tile $69
-    jr AnimateBribTile_Core
+    jr AnimateBirbTile_Core
 
 BirbTileRest: INCBIN "gfx/tilesets/birbs/birb_resting.2bpp"
 BirbTileFlap: INCBIN "gfx/tilesets/birbs/birb_flapping.2bpp"
