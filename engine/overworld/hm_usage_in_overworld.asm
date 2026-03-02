@@ -501,7 +501,7 @@ FindDiveDestinationMap_FromAboveToSub::
     inc hl
     jr .loop
 
-FindDiveDestinationMap_FromSubToAbove:
+FindDiveDestinationMap_FromSubToAbove::
     CheckEvent EVENT_IN_SEVII
     ld a, [wCurMap]
     ld b, a

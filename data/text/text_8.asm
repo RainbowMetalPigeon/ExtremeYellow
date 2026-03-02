@@ -136,3 +136,25 @@ _BoxIsFullText::
 	para "Change the BOX at"
 	line "a #MON CENTER!"
 	done
+
+; new ------------------------
+
+_YouCannotDiveHereText::
+	text "You cannot DIVE"
+	line "here!"
+;	xxxx "123456789012345678"
+	prompt
+
+_DiveMessageGoUnderText2::
+	text_ram wcd6d
+	text " DIVEs"
+;	xxxx "123456789012345678"
+	line "underwater!"
+	prompt
+
+_DiveMessageGoAboveText2::
+	text_ram wcd6d
+	text " DIVEs"
+;	xxxx "123456789012345678"
+	line "back to surface!"
+	prompt

@@ -60,16 +60,29 @@ CyclingIsFunText:
 ; new -------------------------------------
 
 IsDivingAllowed:
-;	lda_coord 8, 9 ; tile the player is on
-	ld a, [wTilePlayerStandingOn]
-	cp $45
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr z, .underwater
+	cp OVERWORLD
+	jr z, .overworld
+	cp OVERWORLD_SEVII
 	jr nz, .notAllowed
-; Dive allowed
+.overworld
 	ld a, 1
 	ld [wMultipurposeTemporaryStorage2], a
+	ld a, [wTilePlayerStandingOn]
+	cp $45
+	jr .doTileComparison
+.underwater
+	ld a, 2
+	ld [wMultipurposeTemporaryStorage2], a
+	ld a, [wTilePlayerStandingOn]
+	cp $32
+.doTileComparison
+	jr nz, .notAllowed
+; Dive allowed
 	ret
 .notAllowed
 	xor a
 	ld [wMultipurposeTemporaryStorage2], a
-	ld hl, CyclingIsFunText
-	jp PrintText
+	ret

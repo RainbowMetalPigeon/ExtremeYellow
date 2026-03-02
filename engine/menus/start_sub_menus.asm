@@ -320,11 +320,20 @@ StartMenu_Pokemon::
 ;	jp z, .loop
 
 	callfar IsDivingAllowed
-	ld a, [wMultipurposeTemporaryStorage2]
-	and a
-	jp z, .loop
+	ld a, [wMultipurposeTemporaryStorage2] ; 0=cannot; 1=go down; 2=go up
+	dec a
+	jp z, DiveUnder
+	cp 1
+	jp z, DiveReemerge
+	ld hl, YouCannotDiveHereText
+	call PrintText
+	jp .loop
 
-	jp DiveUnderOrReemerge
+;	and a
+;	jp z, .loop
+;	dec a
+;	jp z, DiveUnder
+;	jp DiveReemerge
 
 ;	call GBPalWhiteOutWithDelay3
 ;	jp .goBackToMap
@@ -1316,16 +1325,10 @@ ShowTypeChart::
 	ldh [hTileAnimations], a
 	ret
 
-DiveUnderOrReemerge:
-; how many underwater steps we can take
-;	ld [wCutTile], a
-;	ld a, 1
-;	ld [wActionResultOrTookBattleTurn], a ; used cut
+DiveUnder:
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
-;	ld hl, wd730
-;	set 6, [hl]
 	call GBPalWhiteOutWithDelay3
 	call ClearSprites
 	call RestoreScreenTilesAndReloadTilePatterns
@@ -1340,11 +1343,15 @@ DiveUnderOrReemerge:
 	call Delay3
 	xor a
 	ldh [hWY], a
+
 	ld hl, DiveMessageGoUnderText2
 	call PrintText
-;	ret
+	ld hl, EmptyTextForDive
+	call PrintText
+;	call CloseTextDisplay	
 ;	call LoadScreenTilesFromBuffer2
 
+; how many underwater steps we can take
 	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
 	ld hl, 300
 	jr nz, .gotDiveSteps
@@ -1361,38 +1368,67 @@ DiveUnderOrReemerge:
     ld [wDiveFromWhichX], a
     ld a, [wYCoord]
     ld [wDiveFromWhichY], a
-    ; print message and setup the warp
-;	ld hl, DiveMessageGoUnderText2
-;	call PrintText
+
+	call InitMapSprites
+	xor a
+	ld [wFontLoaded], a
+	call UpdateSprites
 
     SetEvent EVENT_DIVE_GO_UNDER
-	ld a, 1
-	ld [wUpdateSpritesEnabled], a
     callfar FindDiveDestinationMap_FromAboveToSub
-    call WarpFound2
-	call CloseTextDisplay
-	ld a, 1
-	ld [wUpdateSpritesEnabled], a
-	ret
-/*
-.checkForReemerging
-;	lda_coord 8, 9 ; tile the player is on
-	ld a, [wTilePlayerStandingOn]
-	cp $32
-	ret nz ; we're not standing on a re-emerge-able spot
-	tx_pre DiveMessageGoAboveText
-    SetEvent EVENT_DIVE_GO_ABOVE
-    call FindDiveDestinationMap_FromSubToAbove
     jp WarpFound2
-*/
+
+
+
+
+
+
+DiveReemerge:
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset
+
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call Delay3
+	call LoadGBPal
+	call LoadCurrentMapView
+	call Delay3
+	xor a
+	ldh [hWY], a
+
+	ld hl, DiveMessageGoAboveText2
+	call PrintText
+	ld hl, EmptyTextForDive
+	call PrintText
+
+	call InitMapSprites
+	xor a
+	ld [wFontLoaded], a
+	call UpdateSprites
+
+    SetEvent EVENT_DIVE_GO_ABOVE
+    callfar FindDiveDestinationMap_FromSubToAbove
+    jp WarpFound2
+
+
 
 DiveMessageGoUnderText2::
 	text_far _DiveMessageGoUnderText2
 	text_end
 
-_DiveMessageGoUnderText2::
-	text_ram wcd6d
-	text " DIVEs"
-;	xxxx "123456789012345678"
-	line "underwater!"
-	prompt
+EmptyTextForDive:
+	text_far _SeviiIslandsDockEmptykMessage
+	text_end
+
+DiveMessageGoAboveText2:
+	text_far _DiveMessageGoAboveText2
+	text_end
+
+YouCannotDiveHereText:
+	text_far _YouCannotDiveHereText
+	text_end
