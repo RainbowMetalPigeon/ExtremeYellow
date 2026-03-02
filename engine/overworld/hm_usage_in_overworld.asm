@@ -291,8 +291,8 @@ CheckIfCanSurfOrCutFromOverworld::
     jp TryToRideWaterfall
 
 .checkForDive
-	lda_coord 8, 9 ; tile the player is on
-	ld [wTilePlayerStandingOn], a
+;	lda_coord 8, 9 ; tile the player is on
+	ld a, [wTilePlayerStandingOn]
 	cp $45
 	ret nz ; we're not standing on a dive-able spot
 ; we're on deep water, check if we have Dive
@@ -328,8 +328,8 @@ CheckIfCanSurfOrCutFromOverworld::
     call FindDiveDestinationMap_FromAboveToSub
     jp WarpFound2
 .checkForReemerging
-	lda_coord 8, 9 ; tile the player is on
-	ld [wTilePlayerStandingOn], a
+;	lda_coord 8, 9 ; tile the player is on
+	ld a, [wTilePlayerStandingOn]
 	cp $32
 	ret nz ; we're not standing on a re-emerge-able spot
 	tx_pre DiveMessageGoAboveText
@@ -482,7 +482,7 @@ _PlayerKicksTheBirbText::
 
 ; --------------------------------------------
 
-FindDiveDestinationMap_FromAboveToSub:
+FindDiveDestinationMap_FromAboveToSub::
     CheckEvent EVENT_IN_SEVII
     ld a, [wCurMap]
     ld b, a

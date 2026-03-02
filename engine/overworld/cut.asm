@@ -73,7 +73,7 @@ UsedCut:
 	call InitCutAnimOAM
 	ld de, CutTreeBlockSwaps
 	call ReplaceTreeTileBlock
-	call RedrawMapView
+	callfar RedrawMapView ; edited into -far
 	farcall AnimCut
 	ld a, $1
 	ld [wUpdateSpritesEnabled], a
@@ -82,7 +82,7 @@ UsedCut:
 	ld a, $90
 	ldh [hWY], a
 	call UpdateSprites
-	jp RedrawMapView
+	jpfar RedrawMapView ; edited into -far
 
 UsedCutText:
 	text_far _UsedCutText
