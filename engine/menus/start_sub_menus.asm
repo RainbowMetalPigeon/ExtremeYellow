@@ -342,7 +342,17 @@ StartMenu_Pokemon::
 	jp z, .loop
 	jp CloseTextDisplay
 .rocksmash
-	; TBE
+	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
+	jr nz, .canUseRockSmash
+	ld hl, CannotUseRockSmashText2
+	jp PrintText
+.canUseRockSmash
+	callfar UsedRockSmash
+	ld a, [wActionResultOrTookBattleTurn]
+	and a
+	jp z, .loop
+	jp CloseTextDisplay
+
 .rockclimb
 	bit BIT_THUNDERBADGE, a ; SURGE
 	jp z, .newBadgeRequired
@@ -433,6 +443,10 @@ StartMenu_Pokemon::
 
 CantDissipateMistText:
 	text_far _CantDissipateMistText
+	text_end
+
+CannotUseRockSmashText2:
+	text_far _CannotUseRockSmashText
 	text_end
 
 ; BTV

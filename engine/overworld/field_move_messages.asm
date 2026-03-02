@@ -260,3 +260,15 @@ UsedRockClimbText2:
 CannotUseRockClimbText:
 	text_far _CannotUseRockClimbText
 	text_end
+
+; -------------------------------------
+
+UsedRockSmash::
+	callfar IsSpriteInFrontOfPlayer ; sets carry flag if a sprite is in front of the player, resets if not
+	jr nc, .cannotUseRockSmash
+; check if the sprite in front of use is a rocksmashable rock
+
+.cannotUseRockSmash
+
+.canUseRockSmash
+	ret
