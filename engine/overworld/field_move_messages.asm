@@ -86,3 +86,64 @@ IsDivingAllowed:
 	xor a
 	ld [wMultipurposeTemporaryStorage2], a
 	ret
+
+UsedWhirlpool::
+; check if we can use Whirlpool
+	ld a, [wCurMapTileset]
+	cp OVERWORLD_SEVII
+	jr nz, .cannotUseWhirpool
+; we're in a (the only) tileset with whirlpools
+	ld a, [wTileInFrontOfPlayer]
+	cp $20 ; SW whirlpool tile
+	jr z, .canUseWhirpool
+.cannotUseWhirpool
+	ld hl, CannotUseWhirpoolText
+	jp PrintText
+.canUseWhirpool
+; we can use Whirlpool
+	ld a, 1
+	ld [wActionResultOrTookBattleTurn], a ; used cut
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+	ld hl, wd730
+	set 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset (is it even necessary?)
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call Delay3
+	call LoadGBPal
+	call LoadCurrentMapView
+	call SaveScreenTilesToBuffer2
+	call Delay3
+	xor a
+	ldh [hWY], a
+	ld hl, UsedWhirlpoolText2
+	call PrintText
+	call LoadScreenTilesFromBuffer2
+	ld hl, wd730
+	res 6, [hl]
+	ld a, $ff
+	ld [wUpdateSpritesEnabled], a
+	ld de, UndoWhirlpoolBlockSwaps
+	callfar ReplaceTreeTileBlock
+	callfar RedrawMapView
+	ld a, $1
+	ld [wUpdateSpritesEnabled], a
+	ld a, SFX_SHRINK
+	call PlaySound
+	ld a, $90
+	ldh [hWY], a
+	call UpdateSprites
+	jpfar RedrawMapView
+
+UsedWhirlpoolText2:
+	text_far _UsedWhirlpoolText2
+	text_end
+
+CannotUseWhirpoolText:
+	text_far _CannotUseWhirpoolText
+	text_end

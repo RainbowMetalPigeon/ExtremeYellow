@@ -236,7 +236,7 @@ CheckIfCanSurfOrCutFromOverworld::
     cp OVERWORLD_SEVII
     jr nz, .checkForWaterfall
 ; we're in a (the?) tileset with whirlpools
-    dec a
+    dec a ; useless?
     ld a, [wTileInFrontOfPlayer]
     cp $20 ; SW whirlpool tile
     jr nz, .checkForWaterfall
@@ -249,9 +249,8 @@ CheckIfCanSurfOrCutFromOverworld::
     bit BIT_MARSHBADGE, a ; SABRINA
 	jp z, .newBadgeRequired
 ; we have the badge to undo the whirlpool
-; is this even necessary?
     ld a, 1
-    ld [wActionResultOrTookBattleTurn], a ; used cut?
+    ld [wActionResultOrTookBattleTurn], a ; useless?
 ; insta printing
     ld hl, wd730
     set 6, [hl]

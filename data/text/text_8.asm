@@ -158,3 +158,16 @@ _DiveMessageGoAboveText2::
 ;	xxxx "123456789012345678"
 	line "back to surface!"
 	prompt
+
+_UsedWhirlpoolText2::
+	text_ram wcd6d
+	text " stops"
+;	xxxx "123456789012345678"
+	line "the WHIRLPOOL!"
+	prompt
+
+_CannotUseWhirpoolText::
+	text "You cannot use"
+	line "WHIRLPOOL here!"
+;	xxxx "123456789012345678"
+	prompt

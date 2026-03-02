@@ -326,7 +326,14 @@ StartMenu_Pokemon::
 	call PrintText
 	jp .loop
 .whirlpool
-	; TBE
+    bit BIT_MARSHBADGE, a ; SABRINA
+	jp z, .newBadgeRequired
+	callfar UsedWhirlpool
+	ld a, [wActionResultOrTookBattleTurn]
+	and a
+	jp z, .loop
+	jp CloseTextDisplay
+
 .waterfall
 	; TBE
 .rocksmash
@@ -1343,7 +1350,7 @@ DiveUnder:
 	call PrintText
 	ld hl, EmptyTextForDive
 	call PrintText
-;	call CloseTextDisplay	
+;	call CloseTextDisplay
 ;	call LoadScreenTilesFromBuffer2
 
 ; how many underwater steps we can take
@@ -1372,11 +1379,6 @@ DiveUnder:
     SetEvent EVENT_DIVE_GO_UNDER
     callfar FindDiveDestinationMap_FromAboveToSub
     jp WarpFound2
-
-
-
-
-
 
 DiveReemerge:
 	ld a, [wWhichPokemon]
@@ -1409,8 +1411,6 @@ DiveReemerge:
     SetEvent EVENT_DIVE_GO_ABOVE
     callfar FindDiveDestinationMap_FromSubToAbove
     jp WarpFound2
-
-
 
 DiveMessageGoUnderText2::
 	text_far _DiveMessageGoUnderText2
