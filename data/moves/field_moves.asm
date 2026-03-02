@@ -11,6 +11,9 @@ FieldMoveDisplayData:
 	db DIG,        6, $0C
 	db TELEPORT,   7, $0A
 	db SOFTBOILED, 8, $08
+; new
+	db DIVE,       9, $0C
+
 ; edited: commented away
 ;	db GREATTOSS_ANIM,    3, $0C ; unused, edited, testing
 ;	db SURF,       4, $0C

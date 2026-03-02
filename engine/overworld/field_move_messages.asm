@@ -56,3 +56,20 @@ CurrentTooFastText:
 CyclingIsFunText:
 	text_far _CyclingIsFunText
 	text_end
+
+; new -------------------------------------
+
+IsDivingAllowed:
+;	lda_coord 8, 9 ; tile the player is on
+	ld a, [wTilePlayerStandingOn]
+	cp $45
+	jr nz, .notAllowed
+; Dive allowed
+	ld a, 1
+	ld [wMultipurposeTemporaryStorage2], a
+	ret
+.notAllowed
+	xor a
+	ld [wMultipurposeTemporaryStorage2], a
+	ld hl, CyclingIsFunText
+	jp PrintText

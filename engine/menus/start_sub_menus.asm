@@ -149,12 +149,12 @@ StartMenu_Pokemon::
 	dw .cut
 	dw .fly
 	dw .surf
-;	dw .surf ; edited
 	dw .strength
 	dw .flash
 	dw .dig
 	dw .teleport
 	dw .softboiled
+	dw .dive ; new
 .fly
 ; edited, now FLY can be used without the need for a badge
 ;	bit BIT_THUNDERBADGE, a
@@ -222,10 +222,10 @@ StartMenu_Pokemon::
 	cp STARTER_PIKACHU
 	jr z, .surfingPikachu
 	ld a, $1
-	jr .continue
+	jr .continueSurf
 .surfingPikachu
 	ld a, $2
-.continue
+.continueSurf
 	ld [wd473], a
 	ld a, SURFBOARD
 	ld [wcf91], a
@@ -308,6 +308,28 @@ StartMenu_Pokemon::
 .cannotFlyHereText
 	text_far _CannotFlyHereText
 	text_end
+; new field moves
+.dive
+	bit BIT_RAINBOWBADGE, a ; ERIKA
+	jp z, .newBadgeRequired
+
+;	farcall IsSurfingAllowed
+;	ld hl, wd728
+;	bit 1, [hl]
+;	res 1, [hl]
+;	jp z, .loop
+
+	callfar IsDivingAllowed
+	ld a, [wMultipurposeTemporaryStorage2]
+	and a
+	jp z, .loop
+
+	jp DiveUnderOrReemerge
+
+;	call GBPalWhiteOutWithDelay3
+;	jp .goBackToMap
+
+; BTV
 .softboiled
 ; new
 	CheckEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_3
@@ -1293,3 +1315,84 @@ ShowTypeChart::
 	pop af
 	ldh [hTileAnimations], a
 	ret
+
+DiveUnderOrReemerge:
+; how many underwater steps we can take
+;	ld [wCutTile], a
+;	ld a, 1
+;	ld [wActionResultOrTookBattleTurn], a ; used cut
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+;	ld hl, wd730
+;	set 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset
+
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call Delay3
+	call LoadGBPal
+	call LoadCurrentMapView
+;	call SaveScreenTilesToBuffer2
+	call Delay3
+	xor a
+	ldh [hWY], a
+	ld hl, DiveMessageGoUnderText2
+	call PrintText
+;	ret
+;	call LoadScreenTilesFromBuffer2
+
+	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	ld hl, 300
+	jr nz, .gotDiveSteps
+	ld hl, 150 ; 999 for debugging
+.gotDiveSteps
+	ld a, h
+	ld [wDiveSteps], a
+	ld a, l
+	ld [wDiveSteps + 1], a
+    ; used only for forced re-emerging when oxygen is depleted
+    ld a, [wCurMap]
+    ld [wDiveFromWhichMap], a
+    ld a, [wXCoord]
+    ld [wDiveFromWhichX], a
+    ld a, [wYCoord]
+    ld [wDiveFromWhichY], a
+    ; print message and setup the warp
+;	ld hl, DiveMessageGoUnderText2
+;	call PrintText
+
+    SetEvent EVENT_DIVE_GO_UNDER
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
+    callfar FindDiveDestinationMap_FromAboveToSub
+    call WarpFound2
+	call CloseTextDisplay
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
+	ret
+/*
+.checkForReemerging
+;	lda_coord 8, 9 ; tile the player is on
+	ld a, [wTilePlayerStandingOn]
+	cp $32
+	ret nz ; we're not standing on a re-emerge-able spot
+	tx_pre DiveMessageGoAboveText
+    SetEvent EVENT_DIVE_GO_ABOVE
+    call FindDiveDestinationMap_FromSubToAbove
+    jp WarpFound2
+*/
+
+DiveMessageGoUnderText2::
+	text_far _DiveMessageGoUnderText2
+	text_end
+
+_DiveMessageGoUnderText2::
+	text_ram wcd6d
+	text " DIVEs"
+;	xxxx "123456789012345678"
+	line "underwater!"
+	prompt
