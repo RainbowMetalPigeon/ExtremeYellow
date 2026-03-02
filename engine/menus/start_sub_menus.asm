@@ -341,11 +341,17 @@ StartMenu_Pokemon::
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
-
 .rocksmash
 	; TBE
 .rockclimb
-	; TBE
+	bit BIT_THUNDERBADGE, a ; SURGE
+	jp z, .newBadgeRequired
+	callfar UsedRockClimb
+	ld a, [wActionResultOrTookBattleTurn]
+	and a
+	jp z, .loop
+	jp CloseTextDisplay
+
 ; BTV
 .softboiled
 ; new

@@ -648,9 +648,10 @@ TryToClimbWall:
     tx_pre_jump APokemonCouldClimbThisText
 
 ClimbWallUp:
-    SetEvent EVENT_DOING_ROCK_CLIMB
     call EnableAutoTextBoxDrawing
     tx_pre PokemonClimbsTheWall
+ClimbWallUpCore::
+    SetEvent EVENT_DOING_ROCK_CLIMB
 ; get off bike if we're on it
     ld a, [wWalkBikeSurfState]
     and a

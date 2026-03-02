@@ -202,3 +202,61 @@ UsedWaterfallText2:
 CannotUseWaterfallText:
 	text_far _CannotUseWaterfallText
 	text_end
+
+; -------------------------------------
+
+UsedRockClimb::
+	xor a
+	ld [wActionResultOrTookBattleTurn], a
+; check if we can use Rock Climb
+	ld a, [wCurMapTileset]
+	cp OVERWORLD
+	jr z, .checkIfClimbableTile
+	cp OVERWORLD_SEVII
+	jr z, .checkIfClimbableTile
+	cp ISLAND
+	jr z, .checkIfClimbableTile
+	cp CAVERN
+	jr nz, .cannotUseRockClimb
+.checkIfClimbableTile
+	ld a, [wTileInFrontOfPlayer]
+	cp $63
+	jr z, .canUseRockClimb
+.cannotUseRockClimb
+	ld hl, CannotUseRockClimbText
+	jp PrintText
+.canUseRockClimb
+	ld a, 1
+	ld [wActionResultOrTookBattleTurn], a ; used move
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+	ld hl, wd730
+	set 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset (is it even necessary?)
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call Delay3
+	call LoadGBPal
+	call LoadCurrentMapView
+	call SaveScreenTilesToBuffer2
+	call Delay3
+	xor a
+	ldh [hWY], a
+	ld hl, UsedRockClimbText2
+	call PrintText
+	call LoadScreenTilesFromBuffer2
+	ld hl, wd730
+	res 6, [hl]
+	jpfar ClimbWallUpCore
+
+UsedRockClimbText2:
+	text_far _UsedRockClimbText2
+	text_end
+
+CannotUseRockClimbText:
+	text_far _CannotUseRockClimbText
+	text_end

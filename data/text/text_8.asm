@@ -184,3 +184,16 @@ _CannotUseWaterfallText::
 	line "WATEFALL here!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_UsedRockClimbText2::
+	text_ram wcd6d
+	text " CLIMBs"
+;	xxxx "123456789012345678"
+	line "the ROCK!"
+	prompt
+
+_CannotUseRockClimbText::
+	text "You cannot use"
+	line "ROCK CLIMB here!"
+;	xxxx "123456789012345678"
+	prompt
