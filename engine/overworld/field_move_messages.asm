@@ -57,7 +57,7 @@ CyclingIsFunText:
 	text_far _CyclingIsFunText
 	text_end
 
-; new -------------------------------------
+; new ===============================================
 
 IsDivingAllowed:
 	ld a, [wCurMapTileset]
@@ -87,7 +87,11 @@ IsDivingAllowed:
 	ld [wMultipurposeTemporaryStorage2], a
 	ret
 
+; -------------------------------------
+
 UsedWhirlpool::
+	xor a
+	ld [wActionResultOrTookBattleTurn], a
 ; check if we can use Whirlpool
 	ld a, [wCurMapTileset]
 	cp OVERWORLD_SEVII
@@ -102,7 +106,7 @@ UsedWhirlpool::
 .canUseWhirpool
 ; we can use Whirlpool
 	ld a, 1
-	ld [wActionResultOrTookBattleTurn], a ; used cut
+	ld [wActionResultOrTookBattleTurn], a ; used move
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
@@ -146,4 +150,55 @@ UsedWhirlpoolText2:
 
 CannotUseWhirpoolText:
 	text_far _CannotUseWhirpoolText
+	text_end
+
+; -------------------------------------
+
+UsedWaterfall::
+	xor a
+	ld [wActionResultOrTookBattleTurn], a
+; check if we can use Waterfall
+	ld a, [wCurMapTileset]
+	cp CAVERN ; waterfalls exists only in caverns
+	jr nz, .cannotUseWaterfall
+	ld a, [wTileInFrontOfPlayer]
+	cp $50
+	jr z, .canUseWaterfall
+.cannotUseWaterfall
+	ld hl, CannotUseWaterfallText
+	jp PrintText
+.canUseWaterfall
+	ld a, 1
+	ld [wActionResultOrTookBattleTurn], a ; used move
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+	ld hl, wd730
+	set 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset (is it even necessary?)
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call Delay3
+	call LoadGBPal
+	call LoadCurrentMapView
+	call SaveScreenTilesToBuffer2
+	call Delay3
+	xor a
+	ldh [hWY], a
+	ld hl, UsedWaterfallText2
+	call PrintText
+	call LoadScreenTilesFromBuffer2
+	ld hl, wd730
+	res 6, [hl]
+	jpfar RideWaterfallCore
+
+UsedWaterfallText2:
+	text_far _UsedWaterfallText2
+	text_end
+
+CannotUseWaterfallText:
+	text_far _CannotUseWaterfallText
 	text_end

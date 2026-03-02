@@ -333,9 +333,15 @@ StartMenu_Pokemon::
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
-
 .waterfall
-	; TBE
+	bit BIT_VOLCANOBADGE, a ; BLAINE
+	jp z, .newBadgeRequired
+	callfar UsedWaterfall
+	ld a, [wActionResultOrTookBattleTurn]
+	and a
+	jp z, .loop
+	jp CloseTextDisplay
+
 .rocksmash
 	; TBE
 .rockclimb
@@ -1303,7 +1309,7 @@ ShowTypeChart::
 	xor a
 	ldh [hTileAnimations], a
 ; main drawing stuff
-	callfar DrawTypeChartInfo ; main drawing thing ; TBE
+	callfar DrawTypeChartInfo ; main drawing thing
 	ld b, SET_PAL_TYPE_CHART
 	call RunPaletteCommand
 	call GBPalNormal

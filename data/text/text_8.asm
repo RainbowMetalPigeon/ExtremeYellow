@@ -171,3 +171,16 @@ _CannotUseWhirpoolText::
 	line "WHIRLPOOL here!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_UsedWaterfallText2::
+	text_ram wcd6d
+	text " rides"
+;	xxxx "123456789012345678"
+	line "the WATERFALL!"
+	prompt
+
+_CannotUseWaterfallText::
+	text "You cannot use"
+	line "WATEFALL here!"
+;	xxxx "123456789012345678"
+	prompt

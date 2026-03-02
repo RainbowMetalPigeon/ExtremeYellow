@@ -739,9 +739,10 @@ TryToRideWaterfall:
     tx_pre_jump APokemonCouldRideThisText
 
 RideWaterfall:
-    SetEvent EVENT_DOING_WATERFALL
     call EnableAutoTextBoxDrawing
     tx_pre PokemonRidesTheWaterfall
+RideWaterfallCore::
+    SetEvent EVENT_DOING_WATERFALL
 ; decide where to go, and how much
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
