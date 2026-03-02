@@ -9,4 +9,9 @@ FieldMoveNames:
 	db "DIG@"
 	db "TELEPORT@"
 	db "SOFTBOILED@"
+; new
 	db "DIVE@"
+	db "WHIRLPOOL@"
+	db "WATERFALL@"
+	db "ROCK SMASH@"
+	db "ROCK CLIMB@"

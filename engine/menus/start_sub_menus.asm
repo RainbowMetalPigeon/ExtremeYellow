@@ -155,6 +155,10 @@ StartMenu_Pokemon::
 	dw .teleport
 	dw .softboiled
 	dw .dive ; new
+	dw .whirlpool ; new
+	dw .waterfall ; new
+	dw .rocksmash ; new
+	dw .rockclimb ; new
 .fly
 ; edited, now FLY can be used without the need for a badge
 ;	bit BIT_THUNDERBADGE, a
@@ -312,13 +316,6 @@ StartMenu_Pokemon::
 .dive
 	bit BIT_RAINBOWBADGE, a ; ERIKA
 	jp z, .newBadgeRequired
-
-;	farcall IsSurfingAllowed
-;	ld hl, wd728
-;	bit 1, [hl]
-;	res 1, [hl]
-;	jp z, .loop
-
 	callfar IsDivingAllowed
 	ld a, [wMultipurposeTemporaryStorage2] ; 0=cannot; 1=go down; 2=go up
 	dec a
@@ -328,16 +325,14 @@ StartMenu_Pokemon::
 	ld hl, YouCannotDiveHereText
 	call PrintText
 	jp .loop
-
-;	and a
-;	jp z, .loop
-;	dec a
-;	jp z, DiveUnder
-;	jp DiveReemerge
-
-;	call GBPalWhiteOutWithDelay3
-;	jp .goBackToMap
-
+.whirlpool
+	; TBE
+.waterfall
+	; TBE
+.rocksmash
+	; TBE
+.rockclimb
+	; TBE
 ; BTV
 .softboiled
 ; new

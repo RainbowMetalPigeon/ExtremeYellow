@@ -43,7 +43,6 @@ RockSmash::
 	ldh [hMissableObjectIndex], a
 	ld [wMissableObjectIndex], a
 
-
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, RockSmashedText
