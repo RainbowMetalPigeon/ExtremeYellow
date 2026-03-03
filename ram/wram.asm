@@ -402,7 +402,8 @@ wMenuWatchMovingOutOfBounds:: db
 
 wTradeCenterPointerTableIndex:: db
 
-	ds 1
+wTemporarySpritexIndexHolder:: db ; new
+;	ds 1
 
 ; destination pointer for text output
 ; this variable is written to, but is never read from

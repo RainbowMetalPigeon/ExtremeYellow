@@ -98,6 +98,11 @@ OverworldLoopLessDelay::
 	bit BIT_START, a
 	jr z, .startButtonNotPressed
 ; if START is pressed
+; new
+	call IsSpriteInFrontOfPlayer
+	ld a, [hSpriteIndexOrTextID]
+	ld [wTemporarySpritexIndexHolder], a
+; BTV
 	xor a ; TEXT_START_MENU
 	ldh [hSpriteIndexOrTextID], a
 	jp .displayDialogue

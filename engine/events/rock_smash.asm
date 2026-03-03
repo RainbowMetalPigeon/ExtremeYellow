@@ -12,13 +12,13 @@ RockSmash::
 ; check if a Pokemon has the move
 	ld d, ROCK_SMASH
     callfar IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
-    jr nz, .RockSmashInTeam
+    jr nz, RockSmashCore
 ; we don't have the move
 	ld hl, APokemonCouldSmashThisText
 	call PrintText
 	ret
 
-.RockSmashInTeam
+RockSmashCore::
 ; all good, let's break that rock
 	ldh a, [hSpriteIndexOrTextID]
 	ld b, a
@@ -43,10 +43,13 @@ RockSmash::
 	ldh [hMissableObjectIndex], a
 	ld [wMissableObjectIndex], a
 
+	CheckAndResetEvent EVENT_USING_ROCK_SMASH_FROM_MENU
+	jr nz, .skipMessage
 	ld a, 1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, RockSmashedText
 	call PrintText
+.skipMessage
 
 ; artificial blinking
 	ld a, SFX_CUT ; SFX_PUSH_BOULDER

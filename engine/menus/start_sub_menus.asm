@@ -346,6 +346,7 @@ StartMenu_Pokemon::
 	jr nz, .canUseRockSmash
 	ld hl, CannotUseRockSmashText2
 	jp PrintText
+	
 .canUseRockSmash
 	callfar UsedRockSmash
 	ld a, [wActionResultOrTookBattleTurn]
@@ -361,7 +362,6 @@ StartMenu_Pokemon::
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
-
 ; BTV
 .softboiled
 ; new
