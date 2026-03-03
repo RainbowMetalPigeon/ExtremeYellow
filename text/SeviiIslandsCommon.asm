@@ -48,8 +48,20 @@ _SeviiIslandGymText_NoRewardYesFight::
 	done
 
 _SeviiNoRewardsIfAnomalies::
-	text "Warning anomalies"
-	line "No rewards"
+	text "Oh. Wait. You have"
+	line "some exceptional"
+	cont "#MON."
+
+	para "The SAGE will"
+	line "gladly face you,"
+	cont "but unfortunately"
+	cont "they won't be able"
+	cont "to reward you if"
+	cont "you won."
+;	xxxx "123456789012345678"
+
+	para "Do you want to"
+	line "proceed anyhow?"
 	done
 
 _SeviiUndergroundCaveGuardText::

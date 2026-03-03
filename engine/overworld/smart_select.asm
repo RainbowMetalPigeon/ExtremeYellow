@@ -105,10 +105,17 @@ SmartSelectButton:: ; SELECT was pressed
 	ldh [hAutoBGTransferEnabled], a
 	call LoadFontTilePatterns
 	farcall DisplayTownMap
-	call LoadTextBoxTilePatterns
-	call CloseTextDisplay
+
+.postMap
+	ldh a, [hLoadedROMBank]
+	push af
+
+	ld a, 1
+	ld [wFontLoaded], a
 	call InitMapSprites
-	jp UpdateSprites
+	call LoadPlayerSpriteGraphics
+
+	jp CloseTextDisplay
 
 PlayerStartsFishing::
     text_far _PlayerStartsFishing
