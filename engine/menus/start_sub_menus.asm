@@ -360,7 +360,6 @@ StartMenu_Pokemon::
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
-
 ; BTV
 .softboiled
 ; new

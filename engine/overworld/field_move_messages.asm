@@ -264,11 +264,58 @@ CannotUseRockClimbText:
 ; -------------------------------------
 
 UsedRockSmash::
-	callfar IsSpriteInFrontOfPlayer ; sets carry flag if a sprite is in front of the player, resets if not
-	jr nc, .cannotUseRockSmash
+	ld a, [wTemporarySpritexIndexHolder] ; sort-of written by IsSpriteInFrontOfPlayer when opening the start menu
+	and a
+	jr z, .cannotUseRockSmash
 ; check if the sprite in front of use is a rocksmashable rock
-
+	; adapted copy of GetSpriteMovementByte2Pointer: returns the sprite movement byte 2 pointer for sprite [wTemporarySpritexIndexHolder (not hSpriteIndex)] in hl
+	ld hl, wMapSpriteData
+	dec a ; loaded from earlier
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	cp ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2
+	jr z, .canUseRockSmash
 .cannotUseRockSmash
-
+	ld hl, CannotUseRockSmashText3
+	jp PrintText
 .canUseRockSmash
-	ret
+	ld a, 1
+	ld [wActionResultOrTookBattleTurn], a ; used move
+	ld a, [wWhichPokemon]
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+	ld hl, wd730
+	set 6, [hl]
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	call RestoreScreenTilesAndReloadTilePatterns
+	call ReloadMapData ; new, to expand tileset (is it even necessary?)
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call Delay3
+	call LoadGBPal
+	call LoadCurrentMapView
+	call SaveScreenTilesToBuffer2
+	call Delay3
+	xor a
+	ldh [hWY], a
+	ld hl, UsedRockSmashText2
+	call PrintText
+	call LoadScreenTilesFromBuffer2
+	ld hl, wd730
+	res 6, [hl]
+	SetEvent EVENT_USING_ROCK_SMASH_FROM_MENU
+	ld a, [wTemporarySpritexIndexHolder]
+	ldh [hSpriteIndexOrTextID], a
+	jpfar RockSmashCore
+
+CannotUseRockSmashText3:
+	text_far _CannotUseRockSmashText3
+	text_end
+
+UsedRockSmashText2:
+	text_far _UsedRockSmashText2
+	text_end

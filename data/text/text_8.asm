@@ -197,3 +197,16 @@ _CannotUseRockClimbText::
 	line "ROCK CLIMB here!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_UsedRockSmashText2::
+	text_ram wcd6d
+	text " SMASHes"
+;	xxxx "123456789012345678"
+	line "the ROCK!"
+	prompt
+
+_CannotUseRockSmashText3::
+	text "You cannot use"
+	line "ROCK SMASH here!"
+;	xxxx "123456789012345678"
+	prompt
