@@ -202,6 +202,32 @@ SetPal_PokedexShiny: ; new
 	ld de, BlkPacket_Pokedex
 	ret
 
+SetPal_PokedexDelta: ; new
+	ld hl, PalPacket_Pokedex
+	ld de, wPalPacket
+	ld bc, $10
+	call CopyData
+	ld a, [wcf91]
+	call DetermineDeltaPaletteIDOutOfBattle ; only difference wrt vanilla instruction
+	ld hl, wPalPacket + 3
+	ld [hl], a
+	ld hl, wPalPacket
+	ld de, BlkPacket_Pokedex
+	ret
+
+SetPal_PokedexShinyDelta: ; new
+	ld hl, PalPacket_Pokedex
+	ld de, wPalPacket
+	ld bc, $10
+	call CopyData
+	ld a, [wcf91]
+	call DetermineShinyDeltaPaletteIDOutOfBattle ; only difference wrt vanilla instruction
+	ld hl, wPalPacket + 3
+	ld [hl], a
+	ld hl, wPalPacket
+	ld de, BlkPacket_Pokedex
+	ret
+
 SetPal_TypeChart: ; new
 	ld hl, PalPacket_TypeChart
 	ld de, BlkPacket_WholeScreen
@@ -660,6 +686,8 @@ SetPalFunctions:
 	dw SetPal_BattleMetal ; new
 	dw SetPal_PokedexShiny ; new
 	dw SetPal_TypeChart ; new
+	dw SetPal_PokedexDelta ; new
+	dw SetPal_PokedexShinyDelta; new
 	dw SendUnknownPalPacket_7205d ; related to engine/minigame/surfing_pikachu.asm
 	dw SendUnknownPalPacket_72064 ; related to engine/minigame/surfing_pikachu.asm
 

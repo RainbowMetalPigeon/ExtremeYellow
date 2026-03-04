@@ -461,6 +461,8 @@ ShowPokedexData:
 
 ; function to display pokedex data from inside the pokedex
 ShowPokedexDataInternal:
+	xor a ; new
+	ld [wShinyAndOrDeltaPokedexPalette], a ; new
 	ld hl, wd72c
 	set 1, [hl]
 	ld a, $33 ; 3/7 volume
@@ -479,32 +481,129 @@ ShowPokedexDataInternal:
 	ld [wd11e], a
 	call DrawDexEntryOnScreen
 	call c, Pokedex_PrintFlavorTextAtRow11
+; new
+	hlcoord 16, 17
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+; BTV
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny ; TBE for delta
+	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny and delta
 	jr z, .waitForButtonPress
-; new, for the shiny
+
+; new, for the shiny and delta
 	bit BIT_SELECT, a
-	jr z, .vanilla
-; SELECT has been pressed, change palette shiny <-> non-shiny
-	ld a, [wShinyOrNotShinyPokedexPalette]
-	and a
-	ld b, SET_PAL_POKEDEX_SHINY
-	jr z, .changeToShiny
-; palette is already shiny, let's make it non-shiny
+	jp z, .vanilla
+
+	CheckEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
+	jr z, .weHaveNoDelta
+	ld a, [wd11e]
+	ld d, a
+	callfar CheckIfMonHasDeltaSpecies ; mon ID in d, c flag if match found
+	jr c, .weHaveDelta
+
+.weHaveNoDelta
+; SELECT has been pressed, cycle palette between normal and shiny
+	ld a, [wShinyAndOrDeltaPokedexPalette]
+	and a ; we go to shiny
+	jr z, .goToShiny1
+	; fallthrough
+; it's 1 -> revert to normal
+	hlcoord 6, 8
+	ld a, " "
+	ld [hl], a
 	ld b, SET_PAL_POKEDEX
+	jr .end1
+.goToShiny1
+	hlcoord 6, 8
+	ld a, "<SHINY>"
+	ld [hl], a
+	ld b, SET_PAL_POKEDEX_SHINY
+	; fallthrough
+.end1
 	call RunPaletteCommand
+	ld a, [wShinyAndOrDeltaPokedexPalette]
+	inc a
+	cp 2
+	jr nz, .notEndOfCycle1
 	xor a
-	jr .end
-.changeToShiny
+.notEndOfCycle1
+	ld [wShinyAndOrDeltaPokedexPalette], a
+	jp .waitForButtonPress
+
+.weHaveDelta
+; SELECT has been pressed, cycle palette between normal, shiny, (and possibly delta, shiny delta)
+	ld a, [wShinyAndOrDeltaPokedexPalette]
+	and a ; we go to shiny
+	jr z, .goToShiny2
+	cp 1 ; we go to delta
+	jr z, .goToDelta2
+	cp 2 ; we go to shiny delta
+	jr z, .goToShinyDelta2
+	; fallthrough
+; it's 3 -> revert to normal
+	hlcoord 9, 4
+	lb bc, 2, 10
+	call ClearScreenArea ; clear tilemap area cxb (swapped! yx, not xy) at hl
+	decoord 9, 4
+	callfar PrintMonTypeNarrow
+	hlcoord 6, 8
+	ld a, " "
+	ld [hli], a
+	ld [hl], a
+	ld b, SET_PAL_POKEDEX
+	jr .end2
+.goToShiny2
+	hlcoord 6, 8
+	ld a, "<SHINY>"
+	ld [hli], a
+	ld a, " "
+	ld [hl], a
+	ld b, SET_PAL_POKEDEX_SHINY
+	jr .end2
+.goToDelta2
+	hlcoord 9, 4
+	lb bc, 2, 10
+	call ClearScreenArea ; clear tilemap area cxb (swapped! yx, not xy) at hl
+	SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+	decoord 9, 4
+	callfar PrintMonTypeNarrow
+	hlcoord 6, 8
+	ld a, " "
+	ld [hli], a
+	ld a, "<DELTA>"
+	ld [hl], a
+	ld b, SET_PAL_POKEDEX_DELTA
+	jr .end2
+.goToShinyDelta2
+	hlcoord 6, 8
+	ld a, "<SHINY>"
+	ld [hli], a
+	ld a, "<DELTA>"
+	ld [hl], a
+	ld b, SET_PAL_POKEDEX_SHINY_DELTA
+	; fallthrough
+.end2
 	call RunPaletteCommand
-	ld a, 1
-.end
-	ld [wShinyOrNotShinyPokedexPalette], a
-	jr .waitForButtonPress
+	ld a, [wShinyAndOrDeltaPokedexPalette]
+	inc a
+	cp 4
+	jr nz, .notEndOfCycle2
+	xor a
+.notEndOfCycle2
+	ld [wShinyAndOrDeltaPokedexPalette], a
+	jp .waitForButtonPress
+
 .vanilla
 ; back to vanilla
+
 	pop af
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut
@@ -653,7 +752,7 @@ DrawDexEntryOnScreen:
 	push af
 	call IndexToPokedex
 
-	hlcoord 2, 8
+	hlcoord 1, 8 ; edited
 	ld a, "№"
 	ld [hli], a
 	ld a, "<DOT>"

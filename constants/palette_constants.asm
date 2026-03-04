@@ -31,6 +31,8 @@ DEF NUM_ACTIVE_PALS EQU 4
 	const SET_PAL_BATTLE_METAL         ; new
 	const SET_PAL_POKEDEX_SHINY        ; new
 	const SET_PAL_TYPE_CHART           ; new
+	const SET_PAL_POKEDEX_DELTA        ; new
+	const SET_PAL_POKEDEX_SHINY_DELTA  ; new
 
 DEF SET_PAL_PARTY_MENU_HP_BARS EQU $fc
 DEF SET_PAL_DEFAULT EQU $ff

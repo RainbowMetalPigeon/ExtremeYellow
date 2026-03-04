@@ -1015,6 +1015,14 @@ ItemUseBall:
 	ld hl, ItemUseBallText05
 	call PrintText
 
+; new: set event for Dex if mon is Delta
+	ld a, [wOpponentMonShiny]
+	bit BIT_MON_DELTA, a
+	jr z, .noDelta
+	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
+.noDelta
+; BTV
+
 ; Add the caught Pokémon to the Pokédex.
 	predef IndexToPokedex
 	ld a, [wd11e]

@@ -199,6 +199,8 @@ IF DEF(_DEBUG)
 ;	ld a, 59
 ;	ld [wPlayTimeMinutes], a
 
+	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
+
 	SetEvent EVENT_GOT_HM01
 	ResetEvent EVENT_SS_ANNE_LEFT
 

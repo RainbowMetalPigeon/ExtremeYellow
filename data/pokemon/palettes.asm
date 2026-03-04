@@ -692,10 +692,10 @@ MonsterPalettesDeltaShiny:
 	db PAL_PURPLEMON  ; IVYSAUR - delta
 	db PAL_PURPLEMON  ; VENUSAUR - delta
 	db PAL_PURPLEMON  ; MVENUSAUR - delta
-	db PAL_ORANGEMON  ; CHARMANDER - delta
-	db PAL_ORANGEMON  ; CHARMELEON - delta
-	db PAL_ORANGEMON  ; CHARIZARD - delta
-	db PAL_BLUEMON    ; MCHARZARDX - delta
+	db PAL_PINKMON    ; CHARMANDER - delta
+	db PAL_PINKMON    ; CHARMELEON - delta
+	db PAL_PINKMON    ; CHARIZARD - delta
+	db PAL_BLACKMON   ; MCHARZARDX - delta
 	db PAL_ORANGEMON  ; MCHARZARDY - delta
 	db PAL_GREENLIGHTMON  ; SQUIRTLE - delta
 	db PAL_GREENLIGHTMON  ; WARTORTLE - delta

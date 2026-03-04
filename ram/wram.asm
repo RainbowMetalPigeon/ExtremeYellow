@@ -772,7 +772,7 @@ wWastedByteCD3A:: db
 ; XXX is it ever not 0?
 wOverrideSimulatedJoypadStatesMask:: db
 
-wShinyOrNotShinyPokedexPalette:: db ; new
+wShinyAndOrDeltaPokedexPalette:: db ; new
 ;	ds 1
 
 ; This union spans 30 bytes.
