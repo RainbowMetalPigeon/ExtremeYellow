@@ -6,6 +6,6 @@ SecludedAtollNW_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 37, 21, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 1
+	object_event 37, 21, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 1
 
 	def_warps_to SECLUDED_ATOLL_NW

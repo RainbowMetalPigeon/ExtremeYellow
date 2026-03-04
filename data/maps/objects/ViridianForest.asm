@@ -31,6 +31,6 @@ ViridianForest_Object:
 	object_event 12, 25, SPRITE_POKE_BALL, STAY, NONE, 9, POTION
 	object_event  1, 31, SPRITE_POKE_BALL, STAY, NONE, 10, POKE_BALL
 	object_event 27, 40, SPRITE_YOUNGSTER, STAY, NONE, 11 ; person
-	object_event 26,  2, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 12 ; new
+	object_event 26,  2, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 12 ; new
 
 	def_warps_to VIRIDIAN_FOREST

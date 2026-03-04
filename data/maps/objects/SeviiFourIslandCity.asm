@@ -22,7 +22,7 @@ SeviiFourIslandCity_Object:
 	bg_event 32, 12, 18 ; SeviiFourIslandCitySignText4
 	bg_event 14, 17, 19 ; PokeCenterSignText
 	bg_event 20, 23, 20 ; MartSignText
-	
+
 	def_object_events
 	object_event 14,  8, SPRITE_PINK, STAY, UP, 1
 	object_event  7, 25, SPRITE_GIRL, WALK, ANY_DIR, 2
@@ -33,7 +33,7 @@ SeviiFourIslandCity_Object:
 	object_event  9, 11, SPRITE_COOLTRAINER_F, WALK, UP_DOWN, 7
 	object_event 18, 15, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 8
 	; non-persons
-	object_event 27, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 9
+	object_event 27, 33, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 9
 	object_event 28, 34, SPRITE_POKE_BALL, STAY, NONE, 10, IRON
 	object_event  5,  4, SPRITE_POKE_BALL, STAY, NONE, 11, RARE_CANDY
 	object_event 35,  7, SPRITE_POKE_BALL, STAY, NONE, 12, PP_UP

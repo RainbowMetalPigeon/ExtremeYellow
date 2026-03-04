@@ -10,6 +10,6 @@ SeviiEightIslandCity_Object:
 ;	bg_event  5, 65, 4 ; Route2Text3
 
 	def_object_events
-	object_event 12, 27, SPRITE_ROCKSMASHABLE_ROCK, STAY, NONE, 1
+	object_event 12, 27, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 1
 
 	def_warps_to SEVII_EIGHT_ISLAND_CITY
