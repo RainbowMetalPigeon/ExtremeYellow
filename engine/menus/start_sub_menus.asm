@@ -352,7 +352,6 @@ StartMenu_Pokemon::
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
-
 .rockclimb
 	bit BIT_THUNDERBADGE, a ; SURGE
 	jp z, .newBadgeRequired
