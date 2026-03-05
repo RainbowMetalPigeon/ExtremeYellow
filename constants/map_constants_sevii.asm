@@ -125,7 +125,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ALTERING_CAVE_2,                         13, 21 ; $61
 	map_const SEVII_ALTERING_CAVE_3,                         13, 21 ; $62
 	map_const SEVII_ALTERING_CAVE_4,                          3,  3 ; $63
-	map_const SEVII_DOTTED_HOLE,                              7,  7 ; $64
+	map_const SEVII_DOTTED_HOLE,                             10,  7 ; $64
 	map_const SEVII_ROUTE_38_DIVE,                           14, 15 ; $65
 	map_const SEVII_ROUTE_38_DIVE_CAVERN,                     5, 14 ; $66
 	map_const SEVII_ROUTE_39_DIVE,                           15, 30 ; $67

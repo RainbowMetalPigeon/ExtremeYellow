@@ -2,8 +2,8 @@ SeviiDottedHole_Object:
 	db $03 ; border block
 
 	def_warp_events
-	warp_event  6, 13, SEVII_ROUTE_40, 1
-	warp_event  7, 13, SEVII_ROUTE_40, 1
+	warp_event 10, 13, SEVII_ROUTE_40, 1
+;	warp_event  9, 13, SEVII_ROUTE_40, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
