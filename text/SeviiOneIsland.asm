@@ -585,8 +585,52 @@ _SeviiOneIslandGym2Text3_Victory::
 	cont "You conquered"
 	cont "the SHRINE of"
 	cont "KNOT ISLAND."
+;	xxxx "123456789012345678"
+	done
 
-	para "TBE" ; reward
+_SeviiOneIslandGym2Text3_Reward1::
+	text "Allow me to reward"
+	line "your success with"
+	cont "a proper prize."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandGym2Text3_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "KNOT ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandGym2Text3_Reward3::
+	text "ICHINO: I congra-"
+	line "tulate you, and"
+	cont "I wish you the"
+	cont "best in the rest"
+	cont "of your SEVII"
+	cont "TRIAL endeavour."
+
+	para "Were you to"
+	line "conquer each and"
+	cont "every one SHRINE,"
+	cont "proceed without"
+	cont "hesitation to"
+	cont "GENESIS ISLAND."
+
+	para "There, your TRIAL"
+	line "will see its end."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandGym2Text3_NoReward::
+	text "Alas, as I did"
+	line "beforehand say,"
+	cont "I cannot award"
+	cont "you to due the"
+	cont "presence of some"
+	cont "exceptional #-"
+	cont "MON in your team."
 ;	xxxx "123456789012345678"
 	done
 

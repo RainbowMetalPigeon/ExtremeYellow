@@ -26,7 +26,11 @@ SeviiFourIslandGymScriptPostBattle:
 	ld a, 4 ; if we lost ; map-specific
 	jr .commonPart
 .playerWon
+	CheckEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
+	jr nz, .doNotRecordVictory
 	SetEvent EVENT_DEFEATED_SEVII_SAGE_YOTTRO ; map-specific
+	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+.doNotRecordVictory
 	ld a, 3 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
@@ -63,6 +67,7 @@ SeviiFourIslandGymText1:
 	ld hl, SeviiFourIslandGymText1_NoChampionYet
 	jp z, .printAndEnd
 
+	ResetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	ld hl, SeviiFourIslandGymText1_Intro
 	call PrintText
 	call WaitForTextScrollButtonPress
@@ -89,6 +94,7 @@ SeviiFourIslandGymText1:
 	ld hl, SeviiFourIslandGymText1_NoRewardNoFight
 	jr .printAndEnd
 .yesBattle
+	SetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	ld hl, SeviiFourIslandGymText1_NoRewardYesFight
 	call PrintText
 ; fallthrough

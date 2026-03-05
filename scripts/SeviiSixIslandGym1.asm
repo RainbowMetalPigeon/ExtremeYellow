@@ -37,6 +37,7 @@ SeviiSixIslandGym1Script0:
 	call ArePlayerCoordsInArray
 	ret nc
 ; do we have "forbidden" stuff?
+	ResetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	callfar CheckIfTeamValidForSeviiSagesRewards ; output: c flag if "invalid"
 	ret nc
 ; warn the player
@@ -47,6 +48,7 @@ SeviiSixIslandGym1Script0:
 	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	SetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	SetEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
 	ret
 
@@ -163,19 +165,19 @@ SeviiSixIslandGym1SignText4:
 SeviiSixIslandGym1PopUpMessageStatDebuff:
 	text_far _SeviiSixIslandGym1PopUpMessageStatDebuff
 	text_end
-	
+
 SeviiSixIslandGym1PopUpMessagePoison:
 	text_far _SeviiSixIslandGym1PopUpMessagePoison
 	text_end
-	
+
 SeviiSixIslandGym1PopUpMessageBurn:
 	text_far _SeviiSixIslandGym1PopUpMessageBurn
 	text_end
-	
+
 SeviiSixIslandGym1PopUpMessageParalysis:
 	text_far _SeviiSixIslandGym1PopUpMessageParalysis
 	text_end
-	
+
 SeviiSixIslandGym1Text10:
 	text_far _SeviiNoRewardsIfAnomalies
 	text_end

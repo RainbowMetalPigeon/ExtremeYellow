@@ -26,8 +26,29 @@ SeviiOneIslandGym2ScriptPostBattle:
 	ld a, 3 ; if we lost ; map-specific
 	jr .commonPart
 .playerWon
-	SetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO ; map-specific
+	CheckEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
+	jr nz, .doNotRecordVictory
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO ; map-specific
 	ld a, 2 ; map-specific
+	jr nz, .commonPart
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO ; map-specific
+	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ld a, 2 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 4 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 5 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 6 ; map-specific
+	jr .commonPart
+.doNotRecordVictory
+	ld a, 2 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 7 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -55,6 +76,10 @@ SeviiOneIslandGym2_TextPointers:
 	; scripts
 	dw SeviiOneIslandGym2Text3_Victory ; 2
 	dw SeviiOneIslandGym2Text3_Defeat ; 3
+	dw SeviiOneIslandGym2Text3_Reward1 ; 4
+	dw SeviiOneIslandGym2Text3_Reward2 ; 5
+	dw SeviiOneIslandGym2Text3_Reward3 ; 6
+	dw SeviiOneIslandGym2Text3_NoReward ; 7
 
 SeviiOneIslandGym2Text1:
 	text_asm
@@ -62,6 +87,7 @@ SeviiOneIslandGym2Text1:
 	ld hl, SeviiOneIslandGym2Text1_NoChampionYet
 	jp z, .printAndEnd
 
+	ResetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	ld hl, SeviiOneIslandGym2Text1_Intro
 	call PrintText
 ; check if team is valid for reward
@@ -79,6 +105,7 @@ SeviiOneIslandGym2Text1:
 	ld hl, SeviiOneIslandGym2Text1_NoRewardNoFight
 	jr .printAndEnd
 .yesBattle
+	SetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	ld hl, SeviiOneIslandGym2Text1_NoRewardYesFight
 	call PrintText
 ; fallthrough
@@ -138,4 +165,21 @@ SeviiOneIslandGym2Text3_Victory:
 
 SeviiOneIslandGym2Text3_Defeat:
 	text_far _SeviiOneIslandGym2Text3_Defeat
+	text_end
+
+SeviiOneIslandGym2Text3_Reward1:
+	text_far _SeviiOneIslandGym2Text3_Reward1
+	text_end
+
+SeviiOneIslandGym2Text3_Reward2:
+	text_far _SeviiOneIslandGym2Text3_Reward2
+	sound_get_key_item
+	text_end
+
+SeviiOneIslandGym2Text3_Reward3:
+	text_far _SeviiOneIslandGym2Text3_Reward3
+	text_end
+
+SeviiOneIslandGym2Text3_NoReward:
+	text_far _SeviiOneIslandGym2Text3_NoReward
 	text_end

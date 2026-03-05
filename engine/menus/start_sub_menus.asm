@@ -1269,25 +1269,57 @@ DrawTrainerInfoBack: ; new
 	call PlaceString
 
 .checkNextEvent6
-	; TBE: add sevii trial check
-/*
-EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
-EVENT_SEVII_BEAT_SHRINE_SAGE_ICHINO
-EVENT_SEVII_BEAT_SHRINE_SAGE_NIUE
-EVENT_SEVII_BEAT_SHRINE_SAGE_SANTRE
-EVENT_SEVII_BEAT_SHRINE_SAGE_YOTTRO
-EVENT_SEVII_BEAT_SHRINE_SAGE_GONQUE
-EVENT_SEVII_BEAT_SHRINE_SAGE_ROKUSEI
-EVENT_SEVII_BEAT_SHRINE_SAGE_NANETTE
-*/
+; "title"
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ret z
 	hlcoord 1, 15
 	ld de, TrainerInfo_MilestonesText_SeviiTrials
 	call PlaceString
 	hlcoord 2, 16
-	ld de, TrainerInfo_ScrollsText
+	ld de, TrainerInfo_ScrollsText_Base
 	call PlaceString
-
-	ret
+; one by one, the seven sages
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO
+	jr z, .checkSage2
+	hlcoord 11, 16
+	ld de, TrainerInfo_ScrollsText_1
+	call PlaceString
+.checkSage2
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_NIUE
+	jr z, .checkSage3
+	hlcoord 12, 16
+	ld de, TrainerInfo_ScrollsText_2
+	call PlaceString
+.checkSage3
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE
+	jr z, .checkSage4
+	hlcoord 13, 16
+	ld de, TrainerInfo_ScrollsText_3
+	call PlaceString
+.checkSage4
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_YOTTRO
+	jr z, .checkSage5
+	hlcoord 14, 16
+	ld de, TrainerInfo_ScrollsText_4
+	call PlaceString
+.checkSage5
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_GONQUE
+	jr z, .checkSage6
+	hlcoord 15, 16
+	ld de, TrainerInfo_ScrollsText_5
+	call PlaceString
+.checkSage6
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI
+	jr z, .checkSage7
+	hlcoord 16, 16
+	ld de, TrainerInfo_ScrollsText_6
+	call PlaceString
+.checkSage7
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE
+	ret z
+	hlcoord 17, 16
+	ld de, TrainerInfo_ScrollsText_7
+	jp PlaceString
 
 AnimateBirbsInTrainerCard:
 	CheckEvent EVENT_FED_ALL_BIRBS
@@ -1394,8 +1426,23 @@ LoadBirbGFXs:
 TrainerInfo_MilestonesText:
 	db $76,"MILESTONES",$76,"@" ; TBE
 
-TrainerInfo_ScrollsText:
-	db "SCROLLS: ",$D8,$D9,$DA,$DB,$DC,$DD,$DE,"@" ; TBE
+TrainerInfo_ScrollsText_Base:
+	db "SCROLLS: @"
+
+TrainerInfo_ScrollsText_1:
+	db $D8,"@"
+TrainerInfo_ScrollsText_2:
+	db $D9,"@"
+TrainerInfo_ScrollsText_3:
+	db $DA,"@"
+TrainerInfo_ScrollsText_4:
+	db $DB,"@"
+TrainerInfo_ScrollsText_5:
+	db $DC,"@"
+TrainerInfo_ScrollsText_6:
+	db $DD,"@"
+TrainerInfo_ScrollsText_7:
+	db $DE,"@"
 
 ; draws a vertical line
 ; INPUT:

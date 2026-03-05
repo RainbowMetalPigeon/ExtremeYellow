@@ -26,7 +26,11 @@ SeviiThreeIslandGymScriptPostBattle:
 	ld a, 4 ; if we lost ; map-specific
 	jr .commonPart
 .playerWon
+	CheckEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
+	jr nz, .doNotRecordVictory
 	SetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE ; map-specific
+	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+.doNotRecordVictory
 	ld a, 3 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
@@ -63,6 +67,7 @@ SeviiThreeIslandGymText1:
 	ld hl, SeviiThreeIslandGymText1_NoChampionYet
 	jp z, .printAndEnd
 
+	ResetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	ld hl, SeviiThreeIslandGymText1_Intro
 	call PrintText
 	call WaitForTextScrollButtonPress
@@ -71,7 +76,7 @@ SeviiThreeIslandGymText1:
 ; find if and which type is shared, and if both are, choose at random
 	ld a, d
 	cp $FF
-	jr nz, .type1NotNull
+	jp nz, .type1NotNull
 ; type 1 null, check type 2
 	ld a, e
 	cp $FF
@@ -99,6 +104,7 @@ SeviiThreeIslandGymText1:
 	ld hl, SeviiThreeIslandGymText1_NoRewardNoFight
 	jr .printAndEnd
 .yesBattle
+	SetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	ld hl, SeviiThreeIslandGymText1_NoRewardYesFight
 	call PrintText
 ; fallthrough
@@ -139,7 +145,7 @@ SeviiThreeIslandGymText1:
 	ld a, e
 	cp $FF
 	ld a, d ; load correct value in a in case e=$FF so we're ready for the .oneMatchFound
-	jr z, .oneMatchFound
+	jp z, .oneMatchFound
 ; if here: $FF!=type1!=type2!=$FF, pick one at random
 	call Random
 	cp 50 percent

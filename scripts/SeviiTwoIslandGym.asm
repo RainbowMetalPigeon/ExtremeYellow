@@ -41,7 +41,11 @@ SeviiTwoIslandGymScriptPostBattle:
 	ld a, 4 ; if we lost ; map-specific
 	jr .commonPart
 .playerWon
-	SetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO ; map-specific
+;	CheckEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
+;	jr nz, .doNotRecordVictory
+	SetEvent EVENT_DEFEATED_SEVII_SAGE_NIUE ; map-specific
+	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+;.doNotRecordVictory
 	ld a, 3 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
@@ -78,6 +82,7 @@ SeviiTwoIslandGymText1:
 	ld hl, SeviiTwoIslandGymText1_NoChampionYet
 	jp z, .printAndEnd
 
+	ResetEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 ; save party, clear it, and load a random one
 	call SavePartyIntoSpecialSRAM
 	call ClearPlayersParty
