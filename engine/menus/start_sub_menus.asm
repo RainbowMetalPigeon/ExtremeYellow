@@ -673,6 +673,7 @@ INCLUDE "data/items/use_overworld.asm"
 
 StartMenu_TrainerInfo::
 ; new
+	callfar CheckIfAllBirbsHaveBeenFed
 	xor a
 	ldh [hDownArrowBlinkCount1], a ; blinking down arrow timing value 1
 	ld a, 6
@@ -1289,8 +1290,8 @@ EVENT_SEVII_BEAT_SHRINE_SAGE_NANETTE
 	ret
 
 AnimateBirbsInTrainerCard:
-;	CheckEvent EVENT_FED_ALL_BIRBS
-;	ret z
+	CheckEvent EVENT_FED_ALL_BIRBS
+	ret z
 ; blinking
 	hlcoord  0,  0
 	ld a, [hl]
