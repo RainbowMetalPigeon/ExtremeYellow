@@ -890,11 +890,17 @@ AnimateBirbTile_SeviiFlapping2:
 BirbTileRest: INCBIN "gfx/tilesets/birbs/birb_resting.2bpp"
 BirbTileFlap: INCBIN "gfx/tilesets/birbs/birb_flapping.2bpp"
 
+BirbTileRestFlipped: INCBIN "gfx/tilesets/birbs/birb_resting_flipped.2bpp"
+BirbTileFlapFlipped: INCBIN "gfx/tilesets/birbs/birb_flapping_flipped.2bpp"
+
 BirbTileSeviiRest: INCBIN "gfx/tilesets/birbs/birb_sevii_resting.2bpp"
 BirbTileSeviiFlap: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping.2bpp"
 
 BirbTileRest2: INCBIN "gfx/tilesets/birbs/birb_resting2.2bpp"
 BirbTileFlap2: INCBIN "gfx/tilesets/birbs/birb_flapping2.2bpp"
+
+BirbTileRest2Flipped: INCBIN "gfx/tilesets/birbs/birb_resting2_flipped.2bpp"
+BirbTileFlap2Flipped: INCBIN "gfx/tilesets/birbs/birb_flapping2_flipped.2bpp"
 
 BirbTileSeviiRest2: INCBIN "gfx/tilesets/birbs/birb_sevii_resting2.2bpp"
 BirbTileSeviiFlap2: INCBIN "gfx/tilesets/birbs/birb_sevii_flapping2.2bpp"

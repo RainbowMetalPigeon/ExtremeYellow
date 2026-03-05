@@ -672,6 +672,12 @@ INCLUDE "data/items/use_party.asm"
 INCLUDE "data/items/use_overworld.asm"
 
 StartMenu_TrainerInfo::
+; new
+	xor a
+	ldh [hDownArrowBlinkCount1], a ; blinking down arrow timing value 1
+	ld a, 6
+	ldh [hDownArrowBlinkCount2], a ; blinking down arrow timing value 2
+; BTV
 	call GBPalWhiteOut
 	call ClearScreen
 	call UpdateSprites
@@ -685,8 +691,15 @@ StartMenu_TrainerInfo::
 	ld b, SET_PAL_TRAINER_CARD
 	call RunPaletteCommand
 	call GBPalNormal
-	call WaitForTextScrollButtonPress ; wait for button press
-; new, TBE
+	call LoadBirbGFXs
+.continue
+; to cycle through the birbs
+	call AnimateBirbsInTrainerCard
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .continue
+; new
 	call GBPalWhiteOut
 	call ClearScreen
 	call UpdateSprites
@@ -694,7 +707,14 @@ StartMenu_TrainerInfo::
 	ld b, SET_PAL_TOWN_MAP ; TBE
 	call RunPaletteCommand
 	call GBPalNormal
-	call WaitForTextScrollButtonPress
+	call LoadBirbGFXs
+.continue2
+; to cycle through the birbs
+	call AnimateBirbsInTrainerCard
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON
+	jr z, .continue2
 ; BTV
 ; clear and return to start menu
 	call GBPalWhiteOut
@@ -1267,6 +1287,105 @@ EVENT_SEVII_BEAT_SHRINE_SAGE_NANETTE
 	call PlaceString
 
 	ret
+
+AnimateBirbsInTrainerCard:
+;	CheckEvent EVENT_FED_ALL_BIRBS
+;	ret z
+; blinking
+	hlcoord  0,  0
+	ld a, [hl]
+	ld b, a
+	ld a, $72
+	cp b
+	jr z, .birbFlapping
+.birbResting
+	ldh a, [hDownArrowBlinkCount1]
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ret nz
+	ldh a, [hDownArrowBlinkCount2]
+	dec a
+	ldh [hDownArrowBlinkCount2], a
+	ret nz
+	ld a, $ff
+	ldh [hDownArrowBlinkCount1], a
+	ld a, $06
+	ldh [hDownArrowBlinkCount2], a
+	call PrintBirbInTrainerCard_Flap
+	ret
+.birbFlapping
+	ldh a, [hDownArrowBlinkCount1]
+	and a
+	ret z
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ret nz
+	dec a
+	ldh [hDownArrowBlinkCount1], a
+	ldh a, [hDownArrowBlinkCount2]
+	dec a
+	ldh [hDownArrowBlinkCount2], a
+	ret nz
+	ld a, $06
+	ldh [hDownArrowBlinkCount2], a
+	call PrintBirbInTrainerCard_Rest
+	ret
+
+PrintBirbInTrainerCard_Rest:
+	hlcoord  0,  0
+	ld [hl], $6E
+	hlcoord 0, 17
+	ld [hl], $6F
+	hlcoord 19, 0
+	ld [hl], $70
+	hlcoord 19, 17
+	ld [hl], $71
+	ret
+
+PrintBirbInTrainerCard_Flap:
+	hlcoord  0,  0
+	ld [hl], $72
+	hlcoord 0, 17
+	ld [hl], $73
+	hlcoord 19, 0
+	ld [hl], $74
+	hlcoord 19, 17
+	ld [hl], $75
+	ret
+
+LoadBirbGFXs:
+	ld de, BirbTileRestFlipped
+	ld hl, vChars2 tile $6E
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileRest2Flipped
+	ld hl, vChars2 tile $6F
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileSeviiRest
+	ld hl, vChars2 tile $70
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileSeviiRest2
+	ld hl, vChars2 tile $71
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileFlapFlipped
+	ld hl, vChars2 tile $72
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileFlap2Flipped
+	ld hl, vChars2 tile $73
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileSeviiFlap
+	ld hl, vChars2 tile $74
+	lb bc, BANK(BirbTileRest), 1
+	call CopyVideoData
+	ld de, BirbTileSeviiFlap2
+	ld hl, vChars2 tile $75
+	lb bc, BANK(BirbTileRest), 1
+	jp CopyVideoData
 
 ; ============================================================
 
