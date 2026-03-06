@@ -43,10 +43,22 @@ SeviiTwoIslandGymScriptPostBattle:
 .playerWon
 ;	CheckEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 ;	jr nz, .doNotRecordVictory
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_NIUE ; map-specific
+	ld a, 3 ; map-specific
+	jr nz, .commonPart
 	SetEvent EVENT_DEFEATED_SEVII_SAGE_NIUE ; map-specific
 	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
 ;.doNotRecordVictory
 	ld a, 3 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 5 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 6 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 7 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -75,6 +87,9 @@ SeviiTwoIslandGym_TextPointers:
 	; scripts
 	dw SeviiTwoIslandGymText3_Victory ; 3
 	dw SeviiTwoIslandGymText4_Defeat ; 4
+	dw SeviiTwoIslandGymText4_Reward1 ; 5
+	dw SeviiTwoIslandGymText4_Reward2 ; 6
+	dw SeviiTwoIslandGymText4_Reward3 ; 7
 
 SeviiTwoIslandGymText1:
 	text_asm
@@ -185,6 +200,19 @@ SeviiTwoIslandGymText3_Victory:
 
 SeviiTwoIslandGymText4_Defeat:
 	text_far _SeviiTwoIslandGymText4_Defeat
+	text_end
+
+SeviiTwoIslandGymText4_Reward1:
+	text_far _SeviiTwoIslandGymText4_Reward1
+	text_end
+
+SeviiTwoIslandGymText4_Reward2:
+	text_far _SeviiTwoIslandGymText4_Reward2
+	sound_get_key_item
+	text_end
+
+SeviiTwoIslandGymText4_Reward3:
+	text_far _SeviiTwoIslandGymText4_Reward3
 	text_end
 
 ; =====================================

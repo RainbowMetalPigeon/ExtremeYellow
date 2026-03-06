@@ -1033,14 +1033,46 @@ _SeviiThreeIslandGymText3_Victory::
 	line "You defeated"
 	cont "the SHRINE of"
 	cont "FAMILY ISLAND."
-
-	para "TBE."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiThreeIslandGymText4_Defeat::
 	text "SANTRE: You lost."
 	line "Try again."
+	done
+
+_SeviiThreeIslandGymText4_Reward1::
+	text "You deserve prize."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandGymText4_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "FAMILY ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandGymText4_Reward3::
+	text "SANTRE: Well done."
+	line "Hope rest well."
+
+	para "If beat every"
+	line "SHRINE, go to"
+	cont "GENESIS ISLAND."
+
+	para "There, end of"
+	line "SEVII TRIAL."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandGymText4_NoReward::
+	text "But can't reward"
+	line "you, because of"
+	cont "exceptional #-"
+	cont "MON in your team."
+;	xxxx "123456789012345678"
 	done
 
 ; dock ------------------------------------

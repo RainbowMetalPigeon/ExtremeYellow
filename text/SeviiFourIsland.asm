@@ -27,7 +27,7 @@ _SeviiFourIslandCityScriptText2::
 	para "But what if I'm"
 	line "already strong"
 	cont "enough?"
-	
+
 	para "<PLAYER>! Let me"
 	line "measure myself"
 	cont "against you one"
@@ -702,8 +702,6 @@ _SeviiFourIslandGymText3_Victory::
 	cont "cool battle!"
 	cont "Ya beat ma SHRINE"
 	cont "of FLOE ISLAND!"
-
-	para "TBE."
 ;	xxxx "123456789012345678"
 	done
 
@@ -714,6 +712,32 @@ _SeviiFourIslandGymText4_Defeat::
 	para "But worry not pal,"
 	line "come back and try"
 	cont "again, will ya?!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText4_Reward1::
+	text "Mega super! So,"
+	line "lemme give ya a"
+	cont "cool something,"
+	cont "will ya?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText4_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "FLOE ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText4_Reward3::
+	text "YOTTRO: "
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandGymText4_NoReward::
+	text ""
 ;	xxxx "123456789012345678"
 	done
 

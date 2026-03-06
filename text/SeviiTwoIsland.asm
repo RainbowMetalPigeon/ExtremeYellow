@@ -349,8 +349,6 @@ _SeviiTwoIslandGymText3_Victory::
 	line "You beat the"
 	cont "SHRINE of"
 	cont "BOON ISLAND."
-
-	para "TBE" ; reward
 ;	xxxx "123456789012345678"
 	done
 
@@ -360,6 +358,44 @@ _SeviiTwoIslandGymText4_Defeat::
 	cont "discouraged."
 	cont "I'm down for a"
 	cont "rematch anytime!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandGymText4_Reward1::
+	text "This calls for"
+	line "celebrations!"
+	cont "Here, let me gift"
+	cont "you something"
+	cont "pretty cool."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandGymText4_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "BOON ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandGymText4_Reward3::
+	text "NIUE: Super! I"
+	line "really hope the"
+	cont "rest of your"
+	cont "SEVII TRIAL will"
+	cont "go great."
+
+	para "Once you'll have"
+	line "defeated all my"
+	cont "colleagues -coz"
+	cont "yeah, I KNOW"
+	cont "you'll do!-, then"
+	cont "just go and storm"
+	cont "GENESIS ISLAND."
+
+	para "There, your SEVII"
+	line "TRIAL will end"
+	cont "with a blast!"
 ;	xxxx "123456789012345678"
 	done
 
