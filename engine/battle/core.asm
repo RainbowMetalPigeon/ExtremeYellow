@@ -1517,33 +1517,48 @@ LoadBattleMonFromParty:
 	call AddNTimes
 	ld de, wBattleMonSpecies
 	ld bc, wBattleMonDVs - wBattleMonSpecies
-	call CopyData
+	call CopyData ; Copy bc bytes from hl to de.
+
 	ld bc, wPartyMon1DVs - wPartyMon1OTID
 	add hl, bc
 	ld de, wBattleMonDVs
 	ld bc, wPartyMon1PP - wPartyMon1DVs
 	call CopyData
+
 	ld de, wBattleMonPP
 	ld bc, NUM_MOVES
 	call CopyData
+
 	ld de, wBattleMonLevel
 	ld bc, wBattleMonPP - wBattleMonLevel
 	call CopyData
+
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
+; new, for delta
 	ld a, [wBattleMonCatchRate] ; for debugging
-	callfar SetDeltaSpeciesEvent_Battle ; new ; useless because it gets overwritten? -> CalcEXPBarPixelLength is called afterwards
+	ld d, a
+	callfar SetDeltaSpeciesEvent_dRegister
+; BTV
 	call GetMonHeader
+; new, for delta
+	ld a, [wMonHType1]
+	ld [wBattleMonType1], a
+	ld a, [wMonHType2]
+	ld [wBattleMonType2], a
+; BTV
 	ld hl, wPartyMonNicks
 	ld a, [wPlayerMonNumber]
 	call SkipFixedLengthTextEntries
 	ld de, wBattleMonNick
 	ld bc, NAME_LENGTH
 	call CopyData
+
 	ld hl, wBattleMonLevel
 	ld de, wPlayerMonUnmodifiedLevel ; block of memory used for unmodified stats
 	ld bc, 1 + NUM_STATS * 2
 	call CopyData
+
 	call ApplyBurnAndParalysisPenaltiesToPlayer
 	ld a, [wBadgeBoostOption]	; new code to handle the badge boost option
 	and a						; new code to handle the badge boost option

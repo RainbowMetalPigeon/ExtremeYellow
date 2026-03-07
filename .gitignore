@@ -44,3 +44,8 @@ gfx/tilesets_debug.o
 *.sn*
 *.sa*
 *.sg1
+*.s1
+*.s2
+*.s3
+*.s4
+*.s5
