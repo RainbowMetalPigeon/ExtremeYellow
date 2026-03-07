@@ -474,8 +474,6 @@ _SeviiFiveIslandGymText3_Victory::
 	cont "Very much so, to"
 	cont "win the SHRINE of"
 	cont "CHRONO ISLAND."
-
-	para "TBE."
 ;	xxxx "123456789012345678"
 	done
 
@@ -484,6 +482,48 @@ _SeviiFiveIslandGymText4_Defeat::
 	line "you for losing?"
 	cont "No need to. Next"
 	cont "time better'll go."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandGymText4_Reward1::
+	text "What awaits now"
+	line "know you?"
+	cont "A prize proper,"
+	cont "indeed yes so."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandGymText4_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "CHRONO ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandGymText4_Reward3::
+	text "GONQUE: Did you"
+	line "how? Indeed"
+	cont "wonderfully."
+
+	para "What next you do"
+	line "will? Beating if"
+	cont "SHRINEs others,"
+	cont "GENESIS ISLAND"
+	cont "go should you."
+
+	para "There why reason?"
+	line "Of TRIAL end"
+	cont "there you meet."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandGymText4_NoReward::
+	text "More nothing?"
+	line "So alas, because"
+	cont "you exceptional"
+	cont "#MON in your"
+	cont "team have."
 ;	xxxx "123456789012345678"
 	done
 

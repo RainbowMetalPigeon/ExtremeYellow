@@ -504,8 +504,6 @@ _SeviiSevenIslandGym3Text5_Victory::
 	cont "You conquered"
 	cont "the SHRINE of"
 	cont "QUEST ISLAND!"
-
-	para "TBE."
 ;	xxxx "123456789012345678"
 	done
 
@@ -517,6 +515,53 @@ _SeviiSevenIslandGym3Text5_Defeat::
 
 	para "I'll take you on"
 	line "whenever you wish!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandGym3Text16_Reward1::
+	text "I must absolutely"
+	line "reward that"
+	cont "burning soul of"
+	cont "yours! Here,"
+	cont "have this!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandGym3Text16_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "FORTUNE ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandGym3Text16_Reward3::
+	text "NANETTE: Ahahah!!!"
+	line "I wish you the"
+	cont "very best for any"
+	cont "adventure you'll"
+	cont "embark on next!"
+
+	para "If you'll go on and"
+	line "conquer every"
+	cont "SHRINE, then you"
+	cont "should venture to"
+	cont "GENESIS ISLAND."
+
+	para "There, you may"
+	line "face the epilogue"
+	cont "of your TRIAL."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandGym3Text16_NoReward::
+	text "I pains me, but as"
+	line "you were warned,"
+	cont "I cannot reward"
+	cont "you, as you"
+	cont "adventured with"
+	cont "some exceptional"
+	cont "#MON."
 ;	xxxx "123456789012345678"
 	done
 
@@ -1268,7 +1313,7 @@ _SeviiTanobyChambersScriptText4::
 	cont "trust!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersScriptText5::
 	text "CARR: My dreams of"
 	line "grandness... I"
@@ -1279,7 +1324,7 @@ _SeviiTanobyChambersScriptText5::
 	cont "I have nothing!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersScriptText6::
 	text "SIRD: You got in"
 	line "my ways, but my"
@@ -1289,7 +1334,7 @@ _SeviiTanobyChambersScriptText6::
 	cont "like you!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersScriptText7::
 	text "ORM: I and those"
 	line "two may not go"
@@ -1304,7 +1349,7 @@ _SeviiTanobyChambersScriptText7::
 	cont "done grinding you!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersScriptText8::
 	text "CARR: That muscle-"
 	line "brain... I knew"
@@ -1318,7 +1363,7 @@ _SeviiTanobyChambersScriptText8::
 	cont "torturing you!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersScriptText9::
 	text "SIRD: Of course"
 	line "neither of those"
@@ -1333,7 +1378,7 @@ _SeviiTanobyChambersScriptText9::
 	cont "proud of me!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersScriptText10::
 	text "ORM: ...damn it."
 	line "I disappointed"
@@ -1348,7 +1393,7 @@ _SeviiTanobyChambersScriptText10::
 	cont "BOSS."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiTanobyChambersOrmDefeatText::
 	text "No... again!"
 	line "BOSS! I failed!"

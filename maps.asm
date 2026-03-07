@@ -1686,11 +1686,6 @@ INCLUDE "scripts/SeviiFourIslandGym.asm"
 INCLUDE "data/maps/objects/SeviiFourIslandGym.asm"
 SeviiFourIslandGym_Blocks: INCBIN "maps/SeviiFourIslandGym.blk"
 
-INCLUDE "data/maps/headers/SeviiFiveIslandGym.asm"
-INCLUDE "scripts/SeviiFiveIslandGym.asm"
-INCLUDE "data/maps/objects/SeviiFiveIslandGym.asm"
-SeviiFiveIslandGym_Blocks: INCBIN "maps/SeviiFiveIslandGym.blk"
-
 ; --- these three need to be together
 INCLUDE "data/maps/headers/SeviiSixIslandGym1.asm"
 INCLUDE "scripts/SeviiSixIslandGym1.asm"
@@ -2096,3 +2091,8 @@ INCLUDE "data/maps/headers/SeviiAlteringCave4.asm"
 INCLUDE "scripts/SeviiAlteringCave4.asm"
 INCLUDE "data/maps/objects/SeviiAlteringCave4.asm"
 SeviiAlteringCave4_Blocks: INCBIN "maps/SeviiAlteringCave4.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandGym.asm"
+INCLUDE "scripts/SeviiFiveIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandGym.asm"
+SeviiFiveIslandGym_Blocks: INCBIN "maps/SeviiFiveIslandGym.blk"

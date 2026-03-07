@@ -429,8 +429,6 @@ _SeviiSixIslandGym3Text5_Victory::
 	cont "lead you to beat"
 	cont "the SHRINE of"
 	cont "FORTUNE ISLAND."
-
-	para "TBE."
 ;	xxxx "123456789012345678"
 	done
 
@@ -445,6 +443,55 @@ _SeviiSixIslandGym3Text9_Defeat::
 	cont "learn from this"
 	cont "experience, and"
 	cont "hone your choices."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandGym3Text10_Reward1::
+	text "Congratulations."
+	line "Allow me to"
+	cont "reward your"
+	cont "decisions in a"
+	cont "proper manner."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandGym3Text10_Reward2::
+	text "<PLAYER> receives"
+	line "the SEVII TRAIL"
+	cont "SCROLL of"
+	cont "FORTUNE ISLAND!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandGym3Text10_Reward3::
+	text "ROKUSEI: I offer"
+	line "my felicitations,"
+	cont "and my wishes for"
+	cont "the rest of your"
+	cont "SEVII TRIAL."
+
+	para "If you will choose"
+	line "to challenge the"
+	cont "other SHRINEs,"
+	cont "and win, you"
+	cont "could decide to"
+	cont "set sail for"
+	cont "GENESIS ISLAND."
+
+	para "There, you can"
+	line "opt to end your"
+	cont "SEVII TRIAL."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandGym3Text10_NoReward::
+	text "Regrettably, your"
+	line "choice of taking"
+	cont "some exceptional"
+	cont "#MON with you"
+	cont "prevents me from"
+	cont "rewarding you, as"
+	cont "you'd been warned."
 ;	xxxx "123456789012345678"
 	done
 

@@ -82,10 +82,27 @@ SeviiSevenIslandGym3ScriptPostBattle:
 .playerWon
 	CheckEvent EVENT_DO_NOT_ALLOW_FOR_SAGE_WIN_RECORDING
 	jr nz, .doNotRecordVictory
+	CheckEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE ; map-specific
+	ld a, 15 ; map-specific
+	jr nz, .commonPart
 	SetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE ; map-specific
 	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ld a, 15 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 18 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 19 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 20 ; map-specific
+	jr .commonPart
 .doNotRecordVictory
 	ld a, 15 ; map-specific
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 21 ; map-specific
 .commonPart
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -127,6 +144,10 @@ SeviiSevenIslandGym3_TextPointers:
 	dw SeviiSevenIslandGym3Text5_Victory ; 15
 	dw SeviiSevenIslandGym3Text5_Defeat ; 16
 	dw SeviiSevenIslandGym3Text16_PostBlackOut ; 17
+	dw SeviiSevenIslandGym3Text16_Reward1 ; 18
+	dw SeviiSevenIslandGym3Text16_Reward2 ; 19
+	dw SeviiSevenIslandGym3Text16_Reward3 ; 20
+	dw SeviiSevenIslandGym3Text16_NoReward ; 21
 
 SeviiSevenIslandGym3TrainerHeaders:
 	def_trainers 2
@@ -265,6 +286,23 @@ SeviiSevenIslandGym3Text5_Victory:
 
 SeviiSevenIslandGym3Text5_Defeat:
 	text_far _SeviiSevenIslandGym3Text5_Defeat
+	text_end
+
+SeviiSevenIslandGym3Text16_Reward1:
+	text_far _SeviiSevenIslandGym3Text16_Reward1
+	text_end
+
+SeviiSevenIslandGym3Text16_Reward2:
+	text_far _SeviiSevenIslandGym3Text16_Reward2
+	sound_get_key_item
+	text_end
+
+SeviiSevenIslandGym3Text16_Reward3:
+	text_far _SeviiSevenIslandGym3Text16_Reward3
+	text_end
+
+SeviiSevenIslandGym3Text16_NoReward:
+	text_far _SeviiSevenIslandGym3Text16_NoReward
 	text_end
 
 ; ---------------------------------------

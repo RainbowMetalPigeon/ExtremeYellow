@@ -694,7 +694,7 @@ _YottroText_PostBattleText::
 	text "Yooo!!!"
 	line "I knew you had it!"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiFourIslandGymText3_Victory::
 	text "YOTTRO: That was"
@@ -732,12 +732,36 @@ _SeviiFourIslandGymText4_Reward2::
 	done
 
 _SeviiFourIslandGymText4_Reward3::
-	text "YOTTRO: "
+	text "YOTTRO: Ultra"
+	line "awesome! I'm like"
+	cont "100% sure the"
+	cont "rest of the"
+	cont "SEVII TRIAL will"
+	cont "sail smooth!"
+
+	para "Once you'll beat"
+	line "every other SAGE,"
+	cont "ya shoulda go and"
+	cont "throw yarself at"
+	cont "GENESIS ISLAND!"
+
+	para "There, the end"
+	line "of the TRIAL'll"
+	cont "wait for ya!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFourIslandGymText4_NoReward::
-	text ""
+	text "I know it's such a"
+	line "bummer, but well,"
+	cont "I really can't"
+	cont "give ya any"
+	cont "prize, coz you"
+	cont "have some"
+	cont "exceptional #-"
+	cont "MON in yar team."
+	cont "Ya understand, do"
+	cont "ya? So sad, sorry!"
 ;	xxxx "123456789012345678"
 	done
 
