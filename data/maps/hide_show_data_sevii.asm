@@ -112,7 +112,7 @@ MapHSPointers_Sevii:
 	dw HSSeviiAlteringCave2 ; SEVII_ALTERING_CAVE_2
 	dw HSSeviiAlteringCave3 ; SEVII_ALTERING_CAVE_3
 	dw HSSeviiAlteringCave4 ; SEVII_ALTERING_CAVE_4
-	dw NoHSSevii ; SEVII_DOTTED_HOLE
+	dw HSSeviiDottedHole ; SEVII_DOTTED_HOLE
 	dw NoHSSevii ; SEVII_ROUTE_38_DIVE
 	dw SeviiRoute38DiveCavernHS ; SEVII_ROUTE_38_DIVE_CAVERN
 	dw NoHSSevii ; SEVII_ROUTE_39_DIVE
@@ -369,6 +369,8 @@ HSSeviiAlteringCave4:
 	db SEVII_ALTERING_CAVE_4, 1, SHOW ; ball
 	db SEVII_ALTERING_CAVE_4, 2, SHOW ; ball
 	db SEVII_ALTERING_CAVE_4, 3, SHOW ; ball
+HSSeviiDottedHole:
+	db SEVII_DOTTED_HOLE, 1, SHOW ; Meltan
 SeviiRoute38DiveCavernHS:
 	db SEVII_ROUTE_38_DIVE_CAVERN, 11, SHOW ; pearl
 SeviiSevenIslandDockHS:
