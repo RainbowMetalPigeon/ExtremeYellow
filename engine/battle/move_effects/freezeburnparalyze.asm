@@ -161,7 +161,7 @@ FreezeBurnParalyzeEffect_::
 	ld a, 1 << FRZ
 	ld [wBattleMonStatus], a
 	ld a, ANIM_C7
-	call PlayBattleAnimation2Copy ; edited into the copy
+	call PlayAlternativeAnimationCopy ; edited into the copy
 	ld hl, FrozenText
 	jp PrintText
 
