@@ -36,7 +36,7 @@ DEF FIRST_ROUTE_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_37,                10, 26 ; $0F
 	map_const SEVII_ROUTE_38,                14, 15 ; $10
 	map_const SEVII_ROUTE_39,                15, 30 ; $11
-	map_const SEVII_ROUTE_40,                30, 23 ; $12
+	map_const SEVII_ROUTE_40,                31, 27 ; $12
 	map_const SEVII_ROUTE_41,                17, 26 ; $13
 	map_const SEVII_ROUTE_42,                14, 30 ; $14
 	map_const SEVII_ROUTE_43,                19, 46 ; $15

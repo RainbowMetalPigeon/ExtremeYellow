@@ -25,7 +25,7 @@ HideOrShowDottedHoleDoor:
 ; replace block
 	ld a, $25 ; no-entrance block
 	ld [wNewTileBlockID], a
-	lb bc, 10, 12
+	lb bc, 10, 13
 	predef_jump ReplaceTileBlock
 
 SeviiRoute40_ScriptPointers:
@@ -73,7 +73,7 @@ SeviiRoute40Script_CheckDoor:
 	call DisplayTextID
 	ld a, $70 ; yes-entrance block
 	ld [wNewTileBlockID], a
-	lb bc, 10, 12
+	lb bc, 10, 13
 	predef ReplaceTileBlock
 	ld a, SFX_GO_INSIDE
 	call PlaySound
