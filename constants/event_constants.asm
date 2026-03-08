@@ -670,7 +670,7 @@
 
 ; Route 4 events
 	const_next $3F0
-	const_skip 1
+	const EVENT_SEVII_BEAT_ROCKETS_DOTTED_HOLE ; new
 	const EVENT_BEAT_MELTAN ; new
 	const_skip 2
 	const EVENT_BEAT_ROUTE_4_TRAINER_0

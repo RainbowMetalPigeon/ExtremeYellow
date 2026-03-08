@@ -288,6 +288,10 @@ SetPal_Overworld:
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenSevii
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_GreyPalette
+	call IsInArray
+	jr c, .cemetery
 ; normal checks
 ; check by tileset
 	ld a, [wCurMapTileset]
@@ -513,6 +517,10 @@ KantoMaps_SaffronPalette:
 SeviiMaps_FrozenPalette:
 	db SEVII_ICEFALL_CAVE_1F
 	db SEVII_ICEFALL_CAVE_2F
+	db -1
+
+SeviiMaps_GreyPalette:
+	db SEVII_DOTTED_HOLE
 	db -1
 
 SeviiMaps_EightIslandsMaps:
@@ -899,6 +907,10 @@ GetPal_Pikachu::
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenSevii
+	ld a, [wCurMap]
+	ld hl, SeviiMaps_GreyPalette
+	call IsInArray
+	jr c, .cemetery
 ; normal checks
 ; check by tileset
 	ld a, [wCurMapTileset]
