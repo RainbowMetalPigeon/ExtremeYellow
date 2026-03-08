@@ -357,10 +357,10 @@ DiverPic::         INCBIN "gfx/trainers/diver.pic"
 OragePic::         INCBIN "gfx/trainers/orage.pic"
 
 ; TBE
-ProtonPic::
-PetrelPic::
-ArianaPic::
-ArcherPic::
+ProtonPic::        INCBIN "gfx/trainers/proton.pic"
+PetrelPic::        INCBIN "gfx/trainers/petrel.pic"
+ArianaPic::        INCBIN "gfx/trainers/ariana.pic"
+ArcherPic::        INCBIN "gfx/trainers/archer.pic"
 CarrPic::          INCBIN "gfx/trainers/carr.pic"
 OrmPic::           INCBIN "gfx/trainers/orm.pic"
 SirdPic::          INCBIN "gfx/trainers/sird.pic"
