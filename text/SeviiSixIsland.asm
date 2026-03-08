@@ -2017,3 +2017,15 @@ _SeviiRoute40SignText2_DoorOpens::
 	cont "a secret door!"
 ;	xxxx "123456789012345678"
 	done
+
+; dotted hole ------------------------------------
+
+_SeviiDottedHoleText1::
+	text "!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiDottedHoleMeltanBattleText::
+	text "Melemelemeleee!"
+;	xxxx "123456789012345678"
+	prompt

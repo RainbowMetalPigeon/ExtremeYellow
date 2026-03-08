@@ -670,7 +670,9 @@
 
 ; Route 4 events
 	const_next $3F0
-	const_skip 4 ; edited, was 2
+	const_skip 1
+	const EVENT_BEAT_MELTAN ; new
+	const_skip 2
 	const EVENT_BEAT_ROUTE_4_TRAINER_0
 ;	const_skip 12 ; edited, commented away?
 	const EVENT_BOUGHT_MAGIKARP
