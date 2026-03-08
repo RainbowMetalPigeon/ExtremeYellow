@@ -113,6 +113,7 @@ MapSongBanks_Sevii::
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_38_DIVE
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_38_DIVE_CAVERN
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_ROUTE_39_DIVE
+	db MUSIC_ROUTES3, BANK(Music_Routes3)              ; SEVII_SECRET_BEACH
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_UNDERGROUND_SIX
 ; 7-island
 	db MUSIC_CELADON, BANK(Music_Celadon)              ; SEVII_SEVEN_ISLAND_DOCK

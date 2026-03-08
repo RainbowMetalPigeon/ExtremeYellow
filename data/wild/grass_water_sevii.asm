@@ -113,6 +113,7 @@ WildDataPointers_Sevii:
 	dw SeviiRoute38DiveWildMons      ; SEVII_ROUTE_38_DIVE
 	dw NothingWildMons               ; SEVII_ROUTE_38_DIVE_CAVERN
 	dw SeviiRoute39DiveWildMons      ; SEVII_ROUTE_39_DIVE
+	dw SeviiSecretBeachWildMons      ; SEVII_SECRET_BEACH
 	dw NothingWildMons               ; SEVII_UNDERGROUND_SIX
 ; 7-island
 	dw SeviiShipDockWildMons         ; SEVII_SEVEN_ISLAND_DOCK
@@ -187,6 +188,7 @@ INCLUDE "data/wild/maps/sevii/SeviiFourIslandCityDive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiFiveIslandCityDive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute38Dive.asm"
 INCLUDE "data/wild/maps/sevii/SeviiRoute39Dive.asm"
+INCLUDE "data/wild/maps/sevii/SeviiSecretBeach.asm"
 
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber4BF.asm"
 INCLUDE "data/wild/maps/sevii/SeviiMtEmber3BF.asm"

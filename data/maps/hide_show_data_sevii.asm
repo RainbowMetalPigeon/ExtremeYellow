@@ -116,6 +116,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_ROUTE_38_DIVE
 	dw SeviiRoute38DiveCavernHS ; SEVII_ROUTE_38_DIVE_CAVERN
 	dw NoHSSevii ; SEVII_ROUTE_39_DIVE
+	dw NoHSSevii ; SEVII_SECRET_BEACH
 	dw NoHSSevii ; SEVII_UNDERGROUND_SIX
 ; 7-island
 	dw SeviiSevenIslandDockHS ; SEVII_SEVEN_ISLAND_DOCK

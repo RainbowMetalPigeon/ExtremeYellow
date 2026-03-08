@@ -129,28 +129,29 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_38_DIVE,                           14, 15 ; $65
 	map_const SEVII_ROUTE_38_DIVE_CAVERN,                     5, 14 ; $66
 	map_const SEVII_ROUTE_39_DIVE,                           15, 30 ; $67
-	map_const SEVII_UNDERGROUND_SIX,                         24, 16 ; $68
+	map_const SEVII_SECRET_BEACH,                            30, 30 ; $68
+	map_const SEVII_UNDERGROUND_SIX,                         24, 16 ; $69
 ; 7-island-related maps
-	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $69
-	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $6A
-	map_const SEVII_SEVEN_ISLAND_GYM_1,                       4,  3 ; $6B
-	map_const SEVII_SEVEN_ISLAND_GYM_2,                      20, 20 ; $6C
-	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE,                 20, 20 ; $6D
-	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN,          13, 13 ; $6E
-	map_const SEVII_SEVEN_ISLAND_GYM_3,                      22, 22 ; $6F
-	map_const SEVII_SEVEN_ISLAND_HOUSES,                     11,  4 ; $70
-	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $71
-	map_const SEVII_TANOBY_CHAMBERS,                         43,  8 ; $72
-	map_const SEVII_TANOBY_GARDEN,                            9,  9 ; $73
-	map_const SEVII_TANOBY_DEN,                               9,  5 ; $74
-	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $75
+	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $6A
+	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $6B
+	map_const SEVII_SEVEN_ISLAND_GYM_1,                       4,  3 ; $6C
+	map_const SEVII_SEVEN_ISLAND_GYM_2,                      20, 20 ; $6D
+	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE,                 20, 20 ; $6E
+	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN,          13, 13 ; $6F
+	map_const SEVII_SEVEN_ISLAND_GYM_3,                      22, 22 ; $70
+	map_const SEVII_SEVEN_ISLAND_HOUSES,                     11,  4 ; $71
+	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $72
+	map_const SEVII_TANOBY_CHAMBERS,                         43,  8 ; $73
+	map_const SEVII_TANOBY_GARDEN,                            9,  9 ; $74
+	map_const SEVII_TANOBY_DEN,                               9,  5 ; $75
+	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $76
 ; 8-island-related maps
-	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $76
-	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $77
+	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $77
+	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $78
 ; extra
-	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $78
-	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $79
-	map_const SEVII_TEN_ISLAND,                              12, 12 ; $7A ; TBE
+	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $79
+	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $7A
+	map_const SEVII_TEN_ISLAND,                              12, 12 ; $7B ; TBE
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

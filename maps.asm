@@ -2096,3 +2096,8 @@ INCLUDE "data/maps/headers/SeviiRoute39.asm"
 INCLUDE "scripts/SeviiRoute39.asm"
 INCLUDE "data/maps/objects/SeviiRoute39.asm"
 SeviiRoute39_Blocks: INCBIN "maps/SeviiRoute39.blk"
+
+INCLUDE "data/maps/headers/SeviiSecretBeach.asm"
+INCLUDE "scripts/SeviiSecretBeach.asm"
+INCLUDE "data/maps/objects/SeviiSecretBeach.asm"
+SeviiSecretBeach_Blocks: INCBIN "maps/SeviiSecretBeach.blk"
