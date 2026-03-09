@@ -115,6 +115,8 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute38DiveCavern_h
 	dw SeviiRoute39Dive_h
 	dw SeviiSecretBeach_h
+	dw SeviiSecretBeachDive_h
+	dw SeviiSecretBeachHouse_h
 	dw SeviiUndergroundSix_h
 ; 7-island
 	dw SeviiSevenIslandDock_h

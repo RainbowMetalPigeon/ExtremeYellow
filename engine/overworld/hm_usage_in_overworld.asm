@@ -539,6 +539,7 @@ DivePairedMaps_Sevii: ; TBE
     db SEVII_ROUTE_38, SEVII_ROUTE_38_DIVE
     db SEVII_ROUTE_39, SEVII_ROUTE_39_DIVE
     db SEVII_SEVEN_ISLAND_GYM_2, SEVII_SEVEN_ISLAND_GYM_2_DIVE
+    db SEVII_SECRET_BEACH, SEVII_SECRET_BEACH_DIVE
 
 ; --------------------------------------------
 
@@ -912,6 +913,8 @@ IsThisSpecialBirbSeviiMap:
     cp SEVII_DESOLATED_ROCK
     ret z
     cp SEVII_TANOBY_GARDEN
+    ret z
+    cp SEVII_SECRET_BEACH
     ret z
     cp SEVII_TEN_ISLAND
     ret

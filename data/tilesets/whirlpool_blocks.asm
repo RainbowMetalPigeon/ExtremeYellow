@@ -6,5 +6,6 @@ UndoWhirlpoolBlockSwaps:: ; new, for whirlpool
 	db $45, $18
 	db $27, $8B
 	db $44, $6B
+	db $F3, $F2
 	db -1 ; end
 	

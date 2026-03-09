@@ -1,8 +1,9 @@
-SeviiSecretBeach_Object:
-	db $2c ; border block (or $43)
+SeviiSecretBeachHouse_Object:
+	db $a ; border block (or $43)
 
 	def_warp_events
-	warp_event 35, 21, SEVII_SECRET_BEACH_HOUSE, 1
+	warp_event  2,  9, SEVII_SECRET_BEACH, 1
+	warp_event  3,  9, SEVII_SECRET_BEACH, 1
 
 	def_bg_events
 ;	bg_event 25, 21, 15
@@ -16,4 +17,4 @@ SeviiSecretBeach_Object:
 ;	object_event 23, 14, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 10
 ;	object_event 51, 25, SPRITE_POKE_BALL, STAY, NONE, 14, RARE_CANDY
 
-	def_warps_to SEVII_SECRET_BEACH
+	def_warps_to SEVII_SECRET_BEACH_HOUSE

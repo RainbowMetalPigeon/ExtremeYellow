@@ -2101,3 +2101,13 @@ INCLUDE "data/maps/headers/SeviiSecretBeach.asm"
 INCLUDE "scripts/SeviiSecretBeach.asm"
 INCLUDE "data/maps/objects/SeviiSecretBeach.asm"
 SeviiSecretBeach_Blocks: INCBIN "maps/SeviiSecretBeach.blk"
+
+INCLUDE "data/maps/headers/SeviiSecretBeachDive.asm"
+INCLUDE "scripts/SeviiSecretBeachDive.asm"
+INCLUDE "data/maps/objects/SeviiSecretBeachDive.asm"
+SeviiSecretBeachDive_Blocks: INCBIN "maps/SeviiSecretBeachDive.blk"
+
+INCLUDE "data/maps/headers/SeviiSecretBeachHouse.asm"
+INCLUDE "scripts/SeviiSecretBeachHouse.asm"
+INCLUDE "data/maps/objects/SeviiSecretBeachHouse.asm"
+SeviiSecretBeachHouse_Blocks: INCBIN "maps/SeviiSecretBeachHouse.blk"
