@@ -53,6 +53,9 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_PATTERN_BUSH,                 19, 23 ; MAX_ETHER
 	hidden_item SEVII_PATTERN_BUSH,                 14,  7 ; MAX_POTION
 	hidden_item SEVII_PATTERN_BUSH,                 18, 22 ; MAX_REPEL
+	hidden_item SEVII_SECRET_BEACH,                 39, 20 ; BIG_NUGGER
+	hidden_item SEVII_SECRET_BEACH_HOUSE,            8,  4 ; COFFEE
+	hidden_item SEVII_SECRET_BEACH_HOUSE,            8,  8 ; BEER
 	hidden_item SEVII_ROUTE_41,                     30, 13 ; HELIX_FOSSIL
 	hidden_item SEVII_ROUTE_41,                     17,  3 ; OLD_AMBER
 	hidden_item SEVII_ROUTE_41,                      3, 12 ; DOME_FOSSIL

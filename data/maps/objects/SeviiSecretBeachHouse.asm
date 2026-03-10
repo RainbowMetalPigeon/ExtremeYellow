@@ -6,8 +6,16 @@ SeviiSecretBeachHouse_Object:
 	warp_event  3,  9, SEVII_SECRET_BEACH, 1
 
 	def_bg_events
-;	bg_event 25, 21, 15
-;	bg_event 26, 21, 16
+	bg_event  3,  0,  1 ; poster 1
+	bg_event  7,  0,  2 ; poster 2
+	bg_event 11,  0,  3 ; poster 3
+	bg_event 15,  1,  4 ; machine
+	bg_event 15,  8,  5 ; bed 1
+	bg_event 15,  9,  6 ; bed 2
+	bg_event  0,  3,  7 ; plant 1
+	bg_event  0,  5,  8 ; plant 2
+	bg_event  0,  7,  9 ; plant 3
+	bg_event  0,  9, 10 ; plant 4
 
 	def_object_events
 ;	object_event 53,  5, SPRITE_HIKER, STAY, LEFT, 1
