@@ -78,6 +78,7 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_DOTTED_HOLE,                                14, 13, DottedHoleName
 	internal_map SEVII_ROUTE_38_DIVE_CAVERN,                       15,  9, Route38DiveName
 	internal_map SEVII_ROUTE_39_DIVE,                              13,  8, Route39DiveName
+	internal_map SEVII_SECRET_BEACH_HOUSE,                         13, 13, SecretBeachName
 	internal_map SEVII_UNDERGROUND_SIX,                            14, 11, SixUndergroundName
 ; 7-island
 	internal_map SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,        4, 12, SevenIslandName

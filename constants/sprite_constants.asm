@@ -111,10 +111,10 @@
 	const SPRITE_TAUROS                  ; new
 
 ; TBE
-	const SPRITE_PROTON                  ; new
-	const SPRITE_PETREL                  ; new
-	const SPRITE_ARIANA                  ; new
-	const SPRITE_ARCHER                  ; new
+	const SPRITE_PROTON                  ; new - done
+	const SPRITE_PETREL                  ; new - done
+	const SPRITE_ARIANA                  ; new - done
+	const SPRITE_ARCHER                  ; new - done
 	const SPRITE_CARR                    ; new - done
 	const SPRITE_ORM                     ; new - done
 	const SPRITE_SIRD                    ; new - done

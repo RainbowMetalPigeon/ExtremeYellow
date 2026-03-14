@@ -43,6 +43,8 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,        SeviiSixIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SIX_ISLAND_GYM_1,                          SeviiSixIslandGym1HiddenObjects
 	dbw SEVII_PATTERN_BUSH,                              SeviiPatternBushHiddenObjects
+	dbw SEVII_SECRET_BEACH,                              SeviiSecretBeachHiddenObjects
+	dbw SEVII_SECRET_BEACH_HOUSE,                        SeviiSecretBeachHouseHiddenObjects
 ; 7-island
 	dbw SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,      SeviiSevenIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_SEVEN_ISLAND_GYM_1,                        SeviiSevenIslandGym1HiddenObjects
@@ -195,6 +197,15 @@ SeviiPatternBushHiddenObjects:
 	hidden_object 19, 23, MAX_ETHER, HiddenItems
 	hidden_object 14,  7, MAX_POTION, HiddenItems
 	hidden_object  4,  6, MAX_REPEL, HiddenItems
+	db -1 ; end
+
+SeviiSecretBeachHiddenObjects:
+	hidden_object 39, 20, BIG_NUGGET, HiddenItems
+	db -1 ; end
+
+SeviiSecretBeachHouseHiddenObjects:
+	hidden_object  8,  4, COFFEE, HiddenItems
+	hidden_object  8,  8, BEER, HiddenItems
 	db -1 ; end
 
 SeviiSevenIslandGym1HiddenObjects:

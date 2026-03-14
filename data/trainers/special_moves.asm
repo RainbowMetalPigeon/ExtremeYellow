@@ -2383,7 +2383,7 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
-	db LANCE, 1
+	db LANCE, 1 ; TBE
 	; GYARADOS
 	db 1, 1, HURRICANE
 	db 1, 2, FIRE_BLAST ; DRAGON_DANCE?
@@ -2416,7 +2416,7 @@ SpecialTrainerMoves:
 	db 6, 4, STEEL_WING
 	db $FE
 
-	db LANCE, 2
+	db LANCE, 2 ; TBE
 	; AERODACTYL
 	db 1, 1, AIR_CUTTER
 	db 1, 2, HEAD_SMASH

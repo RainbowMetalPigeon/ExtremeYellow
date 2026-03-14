@@ -114,6 +114,9 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiRoute38Dive_h)
 	db BANK(SeviiRoute38DiveCavern_h)
 	db BANK(SeviiRoute39Dive_h)
+	db BANK(SeviiSecretBeach_h)
+	db BANK(SeviiSecretBeachDive_h)
+	db BANK(SeviiSecretBeachHouse_h)
 	db BANK(SeviiUndergroundSix_h)
 ; 7-island
 	db BANK(SeviiSevenIslandDock_h)

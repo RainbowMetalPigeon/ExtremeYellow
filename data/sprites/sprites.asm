@@ -116,10 +116,10 @@ SpriteSheetPointerTable:
 	overworld_sprite TaurosSprite, 12           ; SPRITE_TAUROS ; new
 
 ; TBE
-	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON ; new
-	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL ; new
-	overworld_sprite ArianaSprite, 12           ; SPRITE_ARIANA ; new
-	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER ; new
+	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON ; new - done
+	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL ; new - done
+	overworld_sprite ArianaSprite, 12           ; SPRITE_ARIANA ; new - done
+	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER ; new - done
 	overworld_sprite CarrSprite, 12             ; SPRITE_CARR ; new - done
 	overworld_sprite OrmSprite, 12              ; SPRITE_ORM ; new - done
 	overworld_sprite SirdSprite, 12             ; SPRITE_SIRD ; new - done

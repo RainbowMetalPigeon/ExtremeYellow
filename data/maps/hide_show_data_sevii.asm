@@ -112,10 +112,13 @@ MapHSPointers_Sevii:
 	dw HSSeviiAlteringCave2 ; SEVII_ALTERING_CAVE_2
 	dw HSSeviiAlteringCave3 ; SEVII_ALTERING_CAVE_3
 	dw HSSeviiAlteringCave4 ; SEVII_ALTERING_CAVE_4
-	dw NoHSSevii ; SEVII_DOTTED_HOLE
+	dw HSSeviiDottedHole ; SEVII_DOTTED_HOLE
 	dw NoHSSevii ; SEVII_ROUTE_38_DIVE
 	dw SeviiRoute38DiveCavernHS ; SEVII_ROUTE_38_DIVE_CAVERN
 	dw NoHSSevii ; SEVII_ROUTE_39_DIVE
+	dw NoHSSevii ; SEVII_SECRET_BEACH
+	dw NoHSSevii ; SEVII_SECRET_BEACH_DIVE
+	dw NoHSSevii ; SEVII_SECRET_BEACH_HOUSE
 	dw NoHSSevii ; SEVII_UNDERGROUND_SIX
 ; 7-island
 	dw SeviiSevenIslandDockHS ; SEVII_SEVEN_ISLAND_DOCK
@@ -369,6 +372,16 @@ HSSeviiAlteringCave4:
 	db SEVII_ALTERING_CAVE_4, 1, SHOW ; ball
 	db SEVII_ALTERING_CAVE_4, 2, SHOW ; ball
 	db SEVII_ALTERING_CAVE_4, 3, SHOW ; ball
+HSSeviiDottedHole:
+	db SEVII_DOTTED_HOLE,  1, SHOW ; Meltan
+	db SEVII_DOTTED_HOLE,  2, HIDE ; Jessie 1
+	db SEVII_DOTTED_HOLE,  3, HIDE ; James 1
+	db SEVII_DOTTED_HOLE,  4, HIDE ; Jessie 2
+	db SEVII_DOTTED_HOLE,  5, HIDE ; James 2
+	db SEVII_DOTTED_HOLE,  6, HIDE ; Petrel
+	db SEVII_DOTTED_HOLE,  7, HIDE ; Proton
+	db SEVII_DOTTED_HOLE,  8, HIDE ; Ariana
+	db SEVII_DOTTED_HOLE,  9, HIDE ; Archer
 SeviiRoute38DiveCavernHS:
 	db SEVII_ROUTE_38_DIVE_CAVERN, 11, SHOW ; pearl
 SeviiSevenIslandDockHS:

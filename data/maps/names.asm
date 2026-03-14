@@ -103,14 +103,11 @@ TanobyChambersName:  db "TANOBY CHAMBERS@"
 TwoIslandDiveName:   db "SUB BOON ISLAND@"
 Route33DiveName:     db "SUB ROUTE 33@"
 DesolatedRockName:   db "DESOLATED ROCK@"
-
-TenIslandName:       db "SANCTUM ISLET@"
-
+SecretBeachName:     db "SECRET BEACH@"
 FourIslandDiveName:  db "SUB FLOE ISLAND@"
 FiveIslandDiveName:  db "SUB CHRONO ISLAND@"
 Route38DiveName:     db "SUB ROUTE 38@"
 Route39DiveName:     db "SUB ROUTE 39@"
-
 Route19DiveName:     db "SUB ROUTE 19@"
 Route20DiveName:     db "SUB ROUTE 20@"
 Route21DiveName:     db "SUB ROUTE 21@"
@@ -124,3 +121,5 @@ FourUndergroundName:      db "FLOE UNDERGRO.@"
 FiveUndergroundName:      db "CHRONO UNDERGRO.@"
 SixUndergroundName:       db "FORTUNE UNDERGRO.@"
 SevenUndergroundName:     db "QUEST UNDERGRO.@"
+
+TenIslandName:       db "SANCTUM ISLET@"

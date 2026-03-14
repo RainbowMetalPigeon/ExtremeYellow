@@ -1,4 +1,39 @@
-TrainersDeltaMons: ; TBE
+TrainersDeltaMons: 
+
+	db RIVAL3, 33
+	db 4
+	db 5
+	db 6
+	db $FE
+
+	db RIVAL3, 34
+	db 1
+	db 3
+	db 5
+	db $FE
+
+	db LORELEI, 3
+	db 4
+	db 5
+	db $FE
+
+	db LORELEI, 3
+	db 2
+	db 4
+	db 6
+	db $FE
+
+	db AGATHA, 3
+	db 2
+	db 3
+	db 5
+	db $FE
+
+	db LANCE, 3
+	db 1
+	db $FE
+
+; TBE
 
 ; --- POKEMANIAC -------------
 

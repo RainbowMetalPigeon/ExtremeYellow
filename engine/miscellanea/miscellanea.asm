@@ -2315,6 +2315,8 @@ MarkBirbAsFed::
 	jp z, .seviiDesolated
 	cp SEVII_TANOBY_GARDEN
 	jp z, .seviiTanobyGarden
+	cp SEVII_SECRET_BEACH
+	jp z, .seviiSecretBeach
 ; this check should be unnecessary as there are no other open-air maps
 ;	cp SEVII_TEN_ISLAND
 ;	jp z, .seviiTen
@@ -2330,6 +2332,9 @@ MarkBirbAsFed::
 	ret
 .seviiDesolated
 	SetEvent EVENT_BIRB_SEVII_DESOLATED
+	ret
+.seviiSecretBeach
+	SetEvent EVENT_BIRB_SEVII_SECRET_BEACH
 	ret
 
 .seviiOne
@@ -2510,6 +2515,8 @@ CheckIfAllBirbsHaveBeenFed::
 	CheckEvent EVENT_BIRB_SEVII_TANOBY_GARDEN
 	ret z
 	CheckEvent EVENT_BIRB_SEVII_DESOLATED
+	ret z
+	CheckEvent EVENT_BIRB_SEVII_SECRET_BEACH
 	ret z
 	CheckEvent EVENT_BIRB_SEVII_ONE
 	ret z
