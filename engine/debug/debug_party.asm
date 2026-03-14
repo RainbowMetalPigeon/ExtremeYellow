@@ -16,7 +16,7 @@ DebugTeam:
 	db MSCIZOR, 99 ; 255
 	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
-	db DRAGONITE, 100
+;	db DRAGONITE, 98
 ;	db NINETALES, 42
 ;	db MOLTRES, 68
 	db -1 ; end
