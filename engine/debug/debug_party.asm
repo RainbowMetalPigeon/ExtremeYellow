@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MSCIZOR, 99 ; 255
+	db STARMIE, 99 ; 255
 	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
 ;	db DRAGONITE, 98
@@ -292,6 +292,11 @@ IF DEF(_DEBUG)
 	ret
 
 DebugSetPokedexEntries:
+; only the first 3 mons
+;	ld a, %00000111
+;	ld [hl], a
+;	ret
+; normal
 	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
 	ld a, %11111111
 ;	ld a, %10101010

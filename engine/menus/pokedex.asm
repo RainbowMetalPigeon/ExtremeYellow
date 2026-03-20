@@ -1100,6 +1100,41 @@ PrintEvoInfo:
 	ld de, MonsEvolutionsText
 	call PlaceString
 
+; print a (fake!) "Can't evolve" if the mon can mega evolve but we didn't see any Mega
+	call CanCurrentMonMegaEvolve ; c if yes
+	jr nc, .evolutionsVisible
+	call HaveWeSeenAMega ; z = not seen; nz = seen
+	jr nz, .evolutionsVisible
+	hlcoord 3, 4
+	ld de, UnableToEvolveText
+	call PlaceString
+
+	ld hl, EvosMovesPointerTable
+	ld b, 0
+	ld a, [wd11e]
+	ld [wLoadedMonSpecies], a
+	dec a
+	add a
+	rl b
+	ld c, a
+	add hl, bc
+	ld de, wBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, 2
+	call FarCopyData ; wBuffer has the address to evomoves list
+	ld hl, wBuffer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	; +8
+	ld b, 0
+	ld c, 8
+	add hl, bc
+
+	ret
+
+.evolutionsVisible
+
 	ld hl, EvosMovesPointerTable
 	ld b, 0
 	ld a, [wd11e]
@@ -1250,6 +1285,7 @@ PrintEvoInfo:
 
 ; TBE: special case for Tyrogue
 ; TBE: special case for Eevee
+; TBE: special case for Mega
 
 
 UnableToEvolveText:
@@ -1335,6 +1371,93 @@ PrintColonRightAfterNumberAtDEStartingAtHL:
 
 ColonText:
 	db ":@"
+
+CanCurrentMonMegaEvolve: ; c flag if yes
+	ld a, [wd11e]
+	ld hl, AllMegaEvolveableMons
+	ld de, 1
+	jp IsInArray ; Return count b and carry if found.
+
+HaveWeSeenAMega:
+	push bc
+	push de
+	push hl
+
+	ld a, [wd11e]
+	ld b, a
+	push bc
+
+	ld de, AllMegaMons
+.loop
+	ld a, [de]
+	cp -1
+	jr z, .endOfLoop
+	ld [wd11e], a
+	ld hl, wPokedexSeen
+	call IsPokemonBitSet ; z=not seen; nz=seen
+	jr nz, .endOfLoop
+	inc de
+	jr .loop
+
+.endOfLoop
+
+	pop bc
+	ld a, b
+	ld [wd11e], a
+
+	pop hl
+	pop de
+	pop bc
+	ret
+
+AllMegaEvolveableMons:
+	db VENUSAUR
+	db CHARIZARD
+	db BLASTOISE
+	db BEEDRILL
+	db PIDGEOT
+	db RAICHU
+	db CLEFABLE
+	db ALAKAZAM
+	db VICTREEBEL
+	db SLOWBRO
+	db GENGAR
+	db STEELIX
+	db KANGASKHAN
+	db STARMIE
+	db SCIZOR
+	db PINSIR
+	db GYARADOS
+	db AERODACTYL
+	db DRAGONITE
+	db MEWTWO
+	db -1
+
+AllMegaMons:
+	db MVENUSAUR
+	db MCHARZARDX
+	db MCHARZARDY
+	db MBLASTOISE
+	db MBEEDRILL
+	db MPIDGEOT
+	db MRAICHUX
+	db MRAICHUY
+	db MCLEFABLE
+	db MALAKAZAM
+	db MVICTREBEL
+	db MSLOWBRO
+	db MGENGAR
+	db MSTEELIX
+	db MKANGASKAN
+	db MSTARMIE
+	db MSCIZOR
+	db MPINSIR
+	db MGYARADOS
+	db MARODACTYL
+	db MDRAGONITE
+	db MMEWTWOX
+	db MMEWTWOY
+	db -1
 
 ; ----------------------------------------------------------
 
