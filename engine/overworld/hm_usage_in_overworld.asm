@@ -918,6 +918,10 @@ IsThisSpecialBirbSeviiMap:
     ret z
     cp SEVII_SECRET_BEACH
     ret z
+    cp SEVII_TWO_ISLET
+    ret z
+    cp SEVII_TWO_ISLET_ROCK_MAZE
+    ret z
     cp SEVII_TEN_ISLAND
     ret
 

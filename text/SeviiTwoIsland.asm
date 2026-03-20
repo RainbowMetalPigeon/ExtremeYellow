@@ -153,6 +153,12 @@ _SeviiTwoIslandCitySignText4::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiTwoIslandCitySignText5::
+	text "South: BOON ISLET,"
+	line "PELAGIC MAZE"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiTwoIslandCityScriptText1::
 	text "Oh, screw to all."
 	line "I should've not"

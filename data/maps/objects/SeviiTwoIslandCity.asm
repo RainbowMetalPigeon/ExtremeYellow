@@ -18,7 +18,8 @@ SeviiTwoIslandCity_Object:
 	bg_event 23, 31, 16 ; SeviiTwoIslandCitySignText2
 	bg_event 33, 35, 17 ; SeviiTwoIslandCitySignText3
 	bg_event 32, 12, 18 ; SeviiTwoIslandCitySignText4
-	bg_event 16, 29, 19 ; PokeCenterSignText
+	bg_event 27, 37, 19 ; SeviiTwoIslandCitySignText5
+	bg_event 16, 29, 20 ; PokeCenterSignText
 
 	def_object_events
 	object_event  7, 27, SPRITE_GRANNY, STAY, ANY_DIR, 1
