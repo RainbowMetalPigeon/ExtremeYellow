@@ -269,6 +269,10 @@ OchreHousesTextBirbFan_BecomeMember:
 	text_far _OchreHousesTextBirbFan_BecomeMember
 	text_end
 
+OchreHousesTextBirbFan_AcknowledgeMissingno:
+	text_far _OchreHousesTextBirbFan_AcknowledgeMissingno
+	text_end
+
 OchreHousesTextBirb1:
 	text_far _OchreHousesTextBirb1
 	text_asm
@@ -400,6 +404,15 @@ CheckIfAllLegendaryBirdsAreInParty:
 
 ; assumes that default text has been loaded in de
 CheckMemberOrPresidentAndSetDialogue:
+; check if we have MissingNo in the party
+	push de
+	ld d, MISSINGNO
+	callfar CheckIfOneGivenMonIsInParty ; carry flag if yes
+	pop de
+	jr nc, .noMissingno
+	ld hl, OchreHousesTextBirbFan_AcknowledgeMissingno
+	ret
+.noMissingno
 	CheckEvent EVENT_OCHRE_BIRD_FAN_CLUB_PRESIDENT
 	jr nz, .defaultText
 	push de
@@ -408,7 +421,6 @@ CheckMemberOrPresidentAndSetDialogue:
 	jr nc, .checkForMember
 	SetEvent EVENT_OCHRE_BIRD_FAN_CLUB_PRESIDENT
 	ld hl, OchreHousesTextBirbFan_BecomePresident
-;	jr .printAndEnd
 	ret
 .checkForMember
 	CheckEvent EVENT_OCHRE_BIRD_FAN_CLUB_MEMBER
@@ -417,7 +429,6 @@ CheckMemberOrPresidentAndSetDialogue:
 	jr nc, .defaultText
 	SetEvent EVENT_OCHRE_BIRD_FAN_CLUB_MEMBER
 	ld hl, OchreHousesTextBirbFan_BecomeMember
-;	jr .printAndEnd
 	ret
 .defaultText
 	ld h, d

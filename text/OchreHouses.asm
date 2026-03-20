@@ -240,7 +240,7 @@ _OchreHousesTextBirbFan3_Specific::
 	line "day battling with"
 	cont "and against them"
 	cont "in veneration of"
-	cont "the power!"
+	cont "their power!"
 	done
 
 _OchreHousesTextBirb1::
@@ -281,6 +281,31 @@ _OchreHousesTextMapPiece_NotPresident::
 ;_OchreHousesTextMapPiece_President::
 ;	text "Grab the map!"
 ;	done
+
+_OchreHousesTextBirbFan_AcknowledgeMissingno::
+	text "Wai... What?!"
+	line "What is THAT?!"
+
+	para "It's so creepy"
+	line "and wrong...!"
+	cont "But..."
+
+	para "...but it's a"
+	line "BIRD #MON."
+	cont "And not just any"
+	cont "BIRD #MON, but"
+	cont "an actual BIRD-"
+	cont "type #MON!"
+	cont "I never saw one!"
+
+	para "...wait, you got"
+	line "it HOW now?!"
+
+	para "...Wow. So, that's"
+	line "WHY we had that"
+	cont "map all this time."
+;	xxxx "123456789012345678"
+	done
 
 _OchreHousesTextBirbFan_BecomePresident::
 	text "What?!"

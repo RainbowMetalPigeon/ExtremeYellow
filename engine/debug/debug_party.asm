@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db STARMIE, 99 ; 255
+	db MISSINGNO, 99 ; 255
 	db JIGGLYPUFF, 41
 	db STARTER_PIKACHU, 1
 ;	db DRAGONITE, 98
