@@ -1100,7 +1100,62 @@ PrintEvoInfo:
 	ld de, MonsEvolutionsText
 	call PlaceString
 
+; is this Eevee?
+	ld a, [wd11e]
+	cp EEVEE
+	jr nz, .checkTyrogue
+
+	hlcoord 1, 4
+	ld de, EeveeDedicatedEvoListText1
+	call PlaceString
+	hlcoord 1, 5
+	ld de, EeveeDedicatedEvoListText2
+	call PlaceString
+	hlcoord 1, 6
+	ld de, EeveeDedicatedEvoListText3
+	call PlaceString
+	hlcoord 1, 7
+	ld de, EeveeDedicatedEvoListText4
+	call PlaceString
+	hlcoord 1, 8
+	ld de, EeveeDedicatedEvoListText5
+	call PlaceString
+	hlcoord 1, 9
+	ld de, EeveeDedicatedEvoListText6
+	call PlaceString
+	hlcoord 1, 10
+	ld de, EeveeDedicatedEvoListText7
+	call PlaceString
+	hlcoord 1, 11
+	ld de, EeveeDedicatedEvoListText8
+	call PlaceString
+
+	call SetHLToEvosMovesPointer
+; hl +32
+	ld b, 0
+	ld c, 32
+	add hl, bc
+	ret
+
+; is this Tyrogue?
+.checkTyrogue
+	cp TYROGUE
+	jr nz, .checkMega
+	hlcoord 1, 4
+	ld de, TyrogueDedicatedEvoListText1
+	call PlaceString
+	hlcoord 1, 6
+	ld de, TyrogueDedicatedEvoListText2
+	call PlaceString
+	call SetHLToEvosMovesPointer
+; hl +3
+	ld b, 0
+	ld c, 3
+	add hl, bc
+	ret
+
 ; print a (fake!) "Can't evolve" if the mon can mega evolve but we didn't see any Mega
+.checkMega
 	call CanCurrentMonMegaEvolve ; c if yes
 	jr nc, .evolutionsVisible
 	call HaveWeSeenAMega ; z = not seen; nz = seen
@@ -1108,50 +1163,16 @@ PrintEvoInfo:
 	hlcoord 3, 4
 	ld de, UnableToEvolveText
 	call PlaceString
-
-	ld hl, EvosMovesPointerTable
-	ld b, 0
-	ld a, [wd11e]
-	ld [wLoadedMonSpecies], a
-	dec a
-	add a
-	rl b
-	ld c, a
-	add hl, bc
-	ld de, wBuffer
-	ld a, BANK(EvosMovesPointerTable)
-	ld bc, 2
-	call FarCopyData ; wBuffer has the address to evomoves list
-	ld hl, wBuffer
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	; +8
+	call SetHLToEvosMovesPointer
+; hl +8
 	ld b, 0
 	ld c, 8
 	add hl, bc
-
 	ret
 
 .evolutionsVisible
 
-	ld hl, EvosMovesPointerTable
-	ld b, 0
-	ld a, [wd11e]
-	ld [wLoadedMonSpecies], a
-	dec a
-	add a
-	rl b
-	ld c, a
-	add hl, bc
-	ld de, wBuffer
-	ld a, BANK(EvosMovesPointerTable)
-	ld bc, 2
-	call FarCopyData ; wBuffer has the address to evomoves list
-	ld hl, wBuffer
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a ; at this point hl has the address for this pokémon's evomoves list
+	call SetHLToEvosMovesPointer
 
 .nextEvoEntry
 	push hl ; stack start address for evolution moves (this will be later updated with the next entry)
@@ -1282,14 +1303,31 @@ PrintEvoInfo:
 	pop hl
 	ret
 
-
-; TBE: special case for Tyrogue
-; TBE: special case for Eevee
-; TBE: special case for Mega
-
-
 UnableToEvolveText:
 	db "CANNOT EVOLVE@"
+
+EeveeDedicatedEvoListText1:
+	db "▷FIRES: FLAREON@"
+EeveeDedicatedEvoListText2:
+	db "▷THUNDERS: JOLTEON@"
+EeveeDedicatedEvoListText3:
+	db "▷WATERS: VAPOREON@"
+EeveeDedicatedEvoListText4:
+	db "▷SUNS: ESPEON@"
+EeveeDedicatedEvoListText5:
+	db "▷MOONS: UMBREON@"
+EeveeDedicatedEvoListText6:
+	db "▷LEAFS: LEAFEON@"
+EeveeDedicatedEvoListText7:
+	db "▷ICES: GLACEON@"
+EeveeDedicatedEvoListText8:
+	db "▷KING's R: SYLVEON@"
+;	xx "12345678901234567890"
+
+TyrogueDedicatedEvoListText1:
+	db "▷ LV 10:@"
+TyrogueDedicatedEvoListText2:
+	db "  HITMON???@"
 
 ViaTradeText:
 	db "▷ VIA TRADE@"
@@ -1458,6 +1496,26 @@ AllMegaMons:
 	db MMEWTWOX
 	db MMEWTWOY
 	db -1
+
+SetHLToEvosMovesPointer:
+	ld hl, EvosMovesPointerTable
+	ld b, 0
+	ld a, [wd11e]
+	ld [wLoadedMonSpecies], a
+	dec a
+	add a
+	rl b
+	ld c, a
+	add hl, bc
+	ld de, wBuffer
+	ld a, BANK(EvosMovesPointerTable)
+	ld bc, 2
+	call FarCopyData ; wBuffer has the address to evomoves list
+	ld hl, wBuffer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a ; at this point hl has the address for this pokémon's evomoves list
+	ret
 
 ; ----------------------------------------------------------
 
