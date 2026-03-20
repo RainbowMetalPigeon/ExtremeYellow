@@ -2,7 +2,16 @@ SeviiTwoIsletRockMazeDive_Object:
 	db $08 ; border block
 
 	def_warp_events
-;	warp_event 12, 41, SEVII_ROUTE_39, 2
+	warp_event 37,  3, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,  1
+	warp_event 36, 13, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,  3
+	warp_event 26, 15, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,  5
+	warp_event  9, 19, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,  7
+	warp_event 24, 25, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,  9
+	warp_event 14, 29, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN, 11
+	warp_event  2, 31, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN, 13
+	warp_event  6, 31, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN, 15
+	warp_event 37, 31, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN, 17
+	warp_event 20, 35, SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN, 19
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

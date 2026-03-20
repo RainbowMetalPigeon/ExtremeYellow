@@ -208,17 +208,19 @@ IsWarpTileInFrontOfPlayer::
 .sevii
 	ld a, [wCurMap]
 	cp SEVII_LOST_CAVE_1
-	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
+	jp z, IsSeviiLostCaveWarpTileInFrontOfPlayer
 	cp SEVII_LOST_CAVE_2
-	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
+	jp z, IsSeviiLostCaveWarpTileInFrontOfPlayer
 	cp SEVII_LOST_CAVE_3
-	jr z, IsSeviiLostCaveWarpTileInFrontOfPlayer
+	jp z, IsSeviiLostCaveWarpTileInFrontOfPlayer
 	cp SEVII_ROUTE_43_CAVES
 	jr z, IsSeviiRoute43CavesWarpTileInFrontOfPlayer
 	cp SEVII_TANOBY_GARDEN
 	jr z, IsSeviiTanobyGardenWarpTileInFrontOfPlayer
 	cp SEVII_TWO_ISLAND_CITY
 	jr z, IsSeviiTwoIslandCityTileInFrontOfPlayer
+	cp SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN
+	jr z, IsSeviiTwoIsletRockMazeDiveCavernTileInFrontOfPlayer
 .postMapChecks ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
@@ -273,6 +275,19 @@ IsSeviiTwoIslandCityTileInFrontOfPlayer: ; new
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
+IsSeviiTwoIsletRockMazeDiveCavernTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $56
+	jr z, .tileMatch
+	cp $57
+	jr nz, .notTwoIsletRockMazeDiveCavernWarp
+.tileMatch
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notTwoIsletRockMazeDiveCavernWarp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
 IsSeviiRoute43CavesWarpTileInFrontOfPlayer: ; new
 IsSeviiLostCaveWarpTileInFrontOfPlayer: ; new
 IsSecludedCavesWarpTileInFrontOfPlayer: ; new
@@ -311,10 +326,10 @@ IsHauntedHouseExtraWarpTileInFrontOfPlayer: ; new
 	cp $10
 	jr nz, .notHauntedHouseWarp
 	scf
-	jr IsWarpTileInFrontOfPlayer.done
+	jp IsWarpTileInFrontOfPlayer.done
 .notHauntedHouseWarp
 	and a
-	jr IsWarpTileInFrontOfPlayer.done
+	jp IsWarpTileInFrontOfPlayer.done
 
 IsOnixBurrowingWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
@@ -707,6 +722,8 @@ ExtraWarpCheck::
 	cp SEVII_LOST_CAVE_3
 	jr z, .useFunction2
 	cp SEVII_ROUTE_43_CAVES
+	jr z, .useFunction2
+	cp SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN
 	jr z, .useFunction2
 .checkByTileset ; new
 ; BTV	
