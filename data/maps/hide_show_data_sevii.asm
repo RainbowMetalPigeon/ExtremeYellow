@@ -59,6 +59,12 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_TWO_ISLAND_GYM
 	dw NoHSSevii ; SEVII_TWO_ISLAND_HOUSES
 	dw SeviiTwoIslandCityDiveHS ; SEVII_TWO_ISLAND_CITY_DIVE
+	dw SeviiTwoIsletHS ; SEVII_TWO_ISLET
+	dw NoHSSevii ; SEVII_TWO_ISLET_HOUSES
+	dw NoHSSevii ; SEVII_TWO_ISLET_DIVE
+	dw NoHSSevii ; SEVII_TWO_ISLET_ROCK_MAZE
+	dw NoHSSevii ; SEVII_TWO_ISLET_ROCK_MAZE_DIVE
+	dw NoHSSevii ; SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN
 	dw NoHSSevii ; SEVII_UNDERGROUND_TWO
 ; 3-island
 	dw SeviiThreeIslandDockHS ; SEVII_THREE_ISLAND_DOCK
@@ -276,6 +282,12 @@ SeviiTwoIslandCityDiveHS:
 	db SEVII_TWO_ISLAND_CITY_DIVE,  6, SHOW ; ball
 	db SEVII_TWO_ISLAND_CITY_DIVE,  7, SHOW ; ball
 	db SEVII_TWO_ISLAND_CITY_DIVE,  8, SHOW ; ball
+SeviiTwoIsletHS:
+	db SEVII_TWO_ISLET,  1, SHOW ; rock
+	db SEVII_TWO_ISLET,  2, SHOW ; rock
+	db SEVII_TWO_ISLET,  3, SHOW ; rock
+	db SEVII_TWO_ISLET,  4, SHOW ; rock
+	db SEVII_TWO_ISLET,  5, SHOW ; rock
 SeviiThreeIslandDockHS:
 	db SEVII_THREE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiThreeIslandSecretGardenHS:

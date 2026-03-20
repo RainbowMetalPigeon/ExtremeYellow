@@ -2111,3 +2111,36 @@ INCLUDE "data/maps/headers/SeviiSecretBeachHouse.asm"
 INCLUDE "scripts/SeviiSecretBeachHouse.asm"
 INCLUDE "data/maps/objects/SeviiSecretBeachHouse.asm"
 SeviiSecretBeachHouse_Blocks: INCBIN "maps/SeviiSecretBeachHouse.blk"
+
+
+SECTION "Maps Sevii 6", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiTwoIslet.asm"
+INCLUDE "scripts/SeviiTwoIslet.asm"
+INCLUDE "data/maps/objects/SeviiTwoIslet.asm"
+SeviiTwoIslet_Blocks: INCBIN "maps/SeviiTwoIslet.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIsletHouses.asm"
+INCLUDE "scripts/SeviiTwoIsletHouses.asm"
+INCLUDE "data/maps/objects/SeviiTwoIsletHouses.asm"
+SeviiTwoIsletHouses_Blocks: INCBIN "maps/SeviiTwoIsletHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIsletDive.asm"
+INCLUDE "scripts/SeviiTwoIsletDive.asm"
+INCLUDE "data/maps/objects/SeviiTwoIsletDive.asm"
+SeviiTwoIsletDive_Blocks: INCBIN "maps/SeviiTwoIsletDive.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIsletRockMaze.asm"
+INCLUDE "scripts/SeviiTwoIsletRockMaze.asm"
+INCLUDE "data/maps/objects/SeviiTwoIsletRockMaze.asm"
+SeviiTwoIsletRockMaze_Blocks: INCBIN "maps/SeviiTwoIsletRockMaze.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIsletRockMazeDive.asm"
+INCLUDE "scripts/SeviiTwoIsletRockMazeDive.asm"
+INCLUDE "data/maps/objects/SeviiTwoIsletRockMazeDive.asm"
+SeviiTwoIsletRockMazeDive_Blocks: INCBIN "maps/SeviiTwoIsletRockMazeDive.blk"
+
+INCLUDE "data/maps/headers/SeviiTwoIsletRockMazeDiveCavern.asm"
+INCLUDE "scripts/SeviiTwoIsletRockMazeDiveCavern.asm"
+INCLUDE "data/maps/objects/SeviiTwoIsletRockMazeDiveCavern.asm"
+SeviiTwoIsletRockMazeDiveCavern_Blocks: INCBIN "maps/SeviiTwoIsletRockMazeDiveCavern.blk"

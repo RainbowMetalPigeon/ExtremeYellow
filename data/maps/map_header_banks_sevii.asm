@@ -57,6 +57,12 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiTwoIslandGym_h)
 	db BANK(SeviiTwoIslandHouses_h)
 	db BANK(SeviiTwoIslandCityDive_h)
+	db BANK(SeviiTwoIslet_h)
+	db BANK(SeviiTwoIsletHouses_h)
+	db BANK(SeviiTwoIsletDive_h)
+	db BANK(SeviiTwoIsletRockMaze_h)
+	db BANK(SeviiTwoIsletRockMazeDive_h)
+	db BANK(SeviiTwoIsletRockMazeDiveCavern_h)
 	db BANK(SeviiUndergroundTwo_h)
 ; 3-island
 	db BANK(SeviiThreeIslandDock_h)

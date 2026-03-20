@@ -8,7 +8,7 @@ ExternalMapEntries_Sevii:
 	table_width 3, ExternalMapEntries_Sevii
 	; x, y, name
 	external_map  0,  4, OneIslandName
-	external_map  6,  3, TwoIslandName
+	external_map  6,  2, TwoIslandName
 	external_map 14,  3, ThreeIslandName
 	external_map  2,  8, FourIslandName
 	external_map  8,  9, FiveIslandName
@@ -49,9 +49,13 @@ InternalMapEntries_Sevii:
 	internal_map SEVII_MT_EMBER_11F,                                1,  1, MtEmberName
 	internal_map SEVII_UNDERGROUND_ONE,                             0,  4, OneUndergroundName
 ; 2-island
-	internal_map SEVII_TWO_ISLAND_HOUSES,                           6,  3, TwoIslandName
-	internal_map SEVII_TWO_ISLAND_CITY_DIVE,                        6,  3, TwoIslandDiveName
-	internal_map SEVII_UNDERGROUND_TWO,                             6,  3, TwoUndergroundName
+	internal_map SEVII_TWO_ISLAND_HOUSES,                           6,  2, TwoIslandName
+	internal_map SEVII_TWO_ISLAND_CITY_DIVE,                        6,  2, TwoIslandDiveName
+	internal_map SEVII_TWO_ISLET_HOUSES,                            7,  3, TwoIsletName
+	internal_map SEVII_TWO_ISLET_DIVE,                              7,  3, TwoIsletDiveName
+	internal_map SEVII_TWO_ISLET_ROCK_MAZE,                         8,  3, TwoIsletRockMazeName
+	internal_map SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,             8,  3, TwoIsletRockMazeDiveName
+	internal_map SEVII_UNDERGROUND_TWO,                             6,  2, TwoUndergroundName
 ; 3-island
 	internal_map SEVII_THREE_ISLAND_SECRET_GARDEN,                 14,  3, ThreeIslandName
 	internal_map SEVII_THREE_ISLAND_CAVES,                         15,  4, ThreeIslandCavesName

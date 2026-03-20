@@ -28,9 +28,10 @@ SeviiTwoIslandCity_TextPointers:
 	dw SeviiTwoIslandCitySignText2 ; 16
 	dw SeviiTwoIslandCitySignText3 ; 17
 	dw SeviiTwoIslandCitySignText4 ; 18
-	dw PokeCenterSignText ; 19
+	dw SeviiTwoIslandCitySignText5 ; 19
+	dw PokeCenterSignText ; 20
 	; scripts
-	dw SeviiTwoIslandCityScriptText1 ; 20 ; Boss post defeat
+	dw SeviiTwoIslandCityScriptText1 ; 21 ; Boss post defeat
 
 ; scripts =========================================
 
@@ -44,7 +45,7 @@ SeviiTwoIslandCity_PostVictoryVsBikerBoss:
 	ld a, $f0
 	ld [wJoyIgnore], a
 ; we won
-	ld a, 20
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; hide all the bikers
@@ -280,6 +281,10 @@ SeviiTwoIslandCitySignText3:
 
 SeviiTwoIslandCitySignText4:
 	text_far _SeviiTwoIslandCitySignText4
+	text_end
+
+SeviiTwoIslandCitySignText5:
+	text_far _SeviiTwoIslandCitySignText5
 	text_end
 
 SeviiTwoIslandCityScriptText1:

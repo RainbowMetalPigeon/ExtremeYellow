@@ -17,7 +17,7 @@
 ; Order: towns/cities, then routes, then indoor/dungeon maps
 	const_def
 	map_const SEVII_ONE_ISLAND_CITY,         20, 20 ; $00
-	map_const SEVII_TWO_ISLAND_CITY,         20, 21 ; $01
+	map_const SEVII_TWO_ISLAND_CITY,         20, 22 ; $01
 	map_const SEVII_THREE_ISLAND_CITY,       16, 25 ; $02
 	map_const SEVII_FOUR_ISLAND_CITY,        20, 20 ; $03
 	map_const SEVII_FIVE_ISLAND_CITY,        20, 20 ; $04
@@ -70,90 +70,98 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $2E
 	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $2F
 	map_const SEVII_TWO_ISLAND_GYM,                          16,  9 ; $30
-	map_const SEVII_TWO_ISLAND_HOUSES,                       18,  4 ; $31
-	map_const SEVII_TWO_ISLAND_CITY_DIVE,                    20, 21 ; $32
-	map_const SEVII_UNDERGROUND_TWO,                         12, 12 ; $33
+	map_const SEVII_TWO_ISLAND_HOUSES,                       26,  4 ; $31
+	map_const SEVII_TWO_ISLAND_CITY_DIVE,                    20, 22 ; $32
+
+	map_const SEVII_TWO_ISLET,                               32, 28 ; $33
+	map_const SEVII_TWO_ISLET_HOUSES,                        18,  4 ; $34
+	map_const SEVII_TWO_ISLET_DIVE,                          32, 28 ; $35
+	map_const SEVII_TWO_ISLET_ROCK_MAZE,                     20, 20 ; $36
+	map_const SEVII_TWO_ISLET_ROCK_MAZE_DIVE,                20, 20 ; $37
+	map_const SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,         20, 20 ; $38
+
+	map_const SEVII_UNDERGROUND_TWO,                         12, 16 ; $39
 ; 3-island-related maps
-	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $34
-	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $35
-	map_const SEVII_THREE_ISLAND_GYM,                        18, 11 ; $36
-	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $37
-	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $38
-	map_const SEVII_THREE_ISLAND_CAVES,                      17, 10 ; $39
-	map_const SEVII_BERRY_FOREST,                            20, 20 ; $3A
-	map_const SEVII_ROUTE_33_DIVE,                           50, 12 ; $3B
-	map_const SEVII_ROUTE_33_DIVE_CAVERN_F1,                 11, 10 ; $3C
-	map_const SEVII_ROUTE_33_DIVE_CAVERN_F2,                 30, 10 ; $3D
-	map_const SEVII_ROUTE_33_DIVE_CAVERN_F3,                 78,  5 ; $3E
-	map_const SEVII_ROUTE_33_DIVE_CAVERN_F4,                105,  3 ; $3F
-	map_const SEVII_UNDERGROUND_THREE,                       28, 12 ; $40
+	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $3A
+	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $3B
+	map_const SEVII_THREE_ISLAND_GYM,                        18, 11 ; $3C
+	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $3D
+	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $3E
+	map_const SEVII_THREE_ISLAND_CAVES,                      17, 10 ; $3F
+	map_const SEVII_BERRY_FOREST,                            20, 20 ; $40
+	map_const SEVII_ROUTE_33_DIVE,                           50, 12 ; $41
+	map_const SEVII_ROUTE_33_DIVE_CAVERN_F1,                 11, 10 ; $42
+	map_const SEVII_ROUTE_33_DIVE_CAVERN_F2,                 30, 10 ; $43
+	map_const SEVII_ROUTE_33_DIVE_CAVERN_F3,                 78,  5 ; $44
+	map_const SEVII_ROUTE_33_DIVE_CAVERN_F4,                105,  3 ; $45
+	map_const SEVII_UNDERGROUND_THREE,                       28, 12 ; $46
 ; 4-island-related maps
-	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $41
-	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $42
-	map_const SEVII_FOUR_ISLAND_GYM,                         16,  9 ; $43
-	map_const SEVII_FOUR_ISLAND_HOUSES,                      25,  4 ; $44
-	map_const SEVII_FOUR_ISLAND_HAZARD_ROOM,                  9, 12 ; $45
-	map_const SEVII_ICEFALL_CAVE_1F,                         19, 20 ; $46
-	map_const SEVII_ICEFALL_CAVE_2F,                         11, 11 ; $47
-	map_const SEVII_FOUR_ISLAND_CITY_DIVE,                   20, 20 ; $48
-	map_const SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,            33, 27 ; $49
-	map_const SEVII_UNDERGROUND_FOUR,                        28, 16 ; $4A
+	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $47
+	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $48
+	map_const SEVII_FOUR_ISLAND_GYM,                         16,  9 ; $49
+	map_const SEVII_FOUR_ISLAND_HOUSES,                      25,  4 ; $4A
+	map_const SEVII_FOUR_ISLAND_HAZARD_ROOM,                  9, 12 ; $4B
+	map_const SEVII_ICEFALL_CAVE_1F,                         19, 20 ; $4C
+	map_const SEVII_ICEFALL_CAVE_2F,                         11, 11 ; $4D
+	map_const SEVII_FOUR_ISLAND_CITY_DIVE,                   20, 20 ; $4E
+	map_const SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,            33, 27 ; $4F
+	map_const SEVII_UNDERGROUND_FOUR,                        28, 16 ; $50
 ; 5-island-related maps
-	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $4B
-	map_const SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $4C
-	map_const SEVII_FIVE_ISLAND_GYM,                         18, 12 ; $4D
-	map_const SEVII_FIVE_ISLAND_HOUSES,                       4,  4 ; $4E
-	map_const SEVII_FIVE_ISLAND_WAREHOUSE_BF,                17, 11 ; $4F
-	map_const SEVII_FIVE_ISLAND_WAREHOUSE_1F,                17, 11 ; $50
-	map_const SEVII_FIVE_ISLAND_WAREHOUSE_2F,                17, 11 ; $51
-	map_const SEVII_RESORT_GORGEOUS,                          6,  6 ; $52
-	map_const SEVII_LOST_CAVE_1,                             29,  5 ; $53
-	map_const SEVII_LOST_CAVE_2,                             29,  5 ; $54
-	map_const SEVII_LOST_CAVE_3,                             29,  5 ; $55
-	map_const SEVII_FIVE_ISLAND_CITY_DIVE,                   20, 20 ; $56
-	map_const SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN,            16, 38 ; $57
-	map_const SEVII_UNDERGROUND_FIVE,                         8, 16 ; $58
+	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $51
+	map_const SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $52
+	map_const SEVII_FIVE_ISLAND_GYM,                         18, 12 ; $53
+	map_const SEVII_FIVE_ISLAND_HOUSES,                       4,  4 ; $54
+	map_const SEVII_FIVE_ISLAND_WAREHOUSE_BF,                17, 11 ; $55
+	map_const SEVII_FIVE_ISLAND_WAREHOUSE_1F,                17, 11 ; $56
+	map_const SEVII_FIVE_ISLAND_WAREHOUSE_2F,                17, 11 ; $57
+	map_const SEVII_RESORT_GORGEOUS,                          6,  6 ; $58
+	map_const SEVII_LOST_CAVE_1,                             29,  5 ; $59
+	map_const SEVII_LOST_CAVE_2,                             29,  5 ; $5A
+	map_const SEVII_LOST_CAVE_3,                             29,  5 ; $5B
+	map_const SEVII_FIVE_ISLAND_CITY_DIVE,                   20, 20 ; $5C
+	map_const SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN,            16, 38 ; $5D
+	map_const SEVII_UNDERGROUND_FIVE,                         8, 16 ; $5E
 ; 6-island-related maps
-	map_const SEVII_SIX_ISLAND_DOCK,                         10,  6 ; $59
-	map_const SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $5A
-	map_const SEVII_SIX_ISLAND_GYM_1,                        32,  4 ; $5B
-	map_const SEVII_SIX_ISLAND_GYM_2,                        39,  4 ; $5C
-	map_const SEVII_SIX_ISLAND_GYM_3,                        25,  4 ; $5D
-	map_const SEVII_ROUTE_38_HOUSES,                         11,  4 ; $5E
-	map_const SEVII_PATTERN_BUSH,                            20, 15 ; $5F
-	map_const SEVII_ALTERING_CAVE,                           13, 21 ; $60
-	map_const SEVII_ALTERING_CAVE_2,                         13, 21 ; $61
-	map_const SEVII_ALTERING_CAVE_3,                         13, 21 ; $62
-	map_const SEVII_ALTERING_CAVE_4,                          3,  3 ; $63
-	map_const SEVII_DOTTED_HOLE,                             10,  7 ; $64
-	map_const SEVII_ROUTE_38_DIVE,                           14, 15 ; $65
-	map_const SEVII_ROUTE_38_DIVE_CAVERN,                     5, 14 ; $66
-	map_const SEVII_ROUTE_39_DIVE,                           15, 30 ; $67
-	map_const SEVII_SECRET_BEACH,                            30, 30 ; $68
-	map_const SEVII_SECRET_BEACH_DIVE,                       30, 30 ; $69
-	map_const SEVII_SECRET_BEACH_HOUSE,                       8,  5 ; $6A
-	map_const SEVII_UNDERGROUND_SIX,                         24, 16 ; $6B
+	map_const SEVII_SIX_ISLAND_DOCK,                         10,  6 ; $5F
+	map_const SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $60
+	map_const SEVII_SIX_ISLAND_GYM_1,                        32,  4 ; $61
+	map_const SEVII_SIX_ISLAND_GYM_2,                        39,  4 ; $62
+	map_const SEVII_SIX_ISLAND_GYM_3,                        25,  4 ; $63
+	map_const SEVII_ROUTE_38_HOUSES,                         11,  4 ; $64
+	map_const SEVII_PATTERN_BUSH,                            20, 15 ; $65
+	map_const SEVII_ALTERING_CAVE,                           13, 21 ; $66
+	map_const SEVII_ALTERING_CAVE_2,                         13, 21 ; $67
+	map_const SEVII_ALTERING_CAVE_3,                         13, 21 ; $68
+	map_const SEVII_ALTERING_CAVE_4,                          3,  3 ; $69
+	map_const SEVII_DOTTED_HOLE,                             10,  7 ; $6A
+	map_const SEVII_ROUTE_38_DIVE,                           14, 15 ; $6B
+	map_const SEVII_ROUTE_38_DIVE_CAVERN,                     5, 14 ; $6C
+	map_const SEVII_ROUTE_39_DIVE,                           15, 30 ; $6D
+	map_const SEVII_SECRET_BEACH,                            30, 30 ; $6E
+	map_const SEVII_SECRET_BEACH_DIVE,                       30, 30 ; $6F
+	map_const SEVII_SECRET_BEACH_HOUSE,                       8,  5 ; $70
+	map_const SEVII_UNDERGROUND_SIX,                         24, 16 ; $71
 ; 7-island-related maps
-	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $6C
-	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $6D
-	map_const SEVII_SEVEN_ISLAND_GYM_1,                       4,  3 ; $6E
-	map_const SEVII_SEVEN_ISLAND_GYM_2,                      20, 20 ; $6F
-	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE,                 20, 20 ; $70
-	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN,          13, 13 ; $71
-	map_const SEVII_SEVEN_ISLAND_GYM_3,                      22, 22 ; $72
-	map_const SEVII_SEVEN_ISLAND_HOUSES,                     11,  4 ; $73
-	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $74
-	map_const SEVII_TANOBY_CHAMBERS,                         43,  8 ; $75
-	map_const SEVII_TANOBY_GARDEN,                            9,  9 ; $76
-	map_const SEVII_TANOBY_DEN,                               9,  5 ; $77
-	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $78
+	map_const SEVII_SEVEN_ISLAND_DOCK,                       10,  6 ; $72
+	map_const SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $73
+	map_const SEVII_SEVEN_ISLAND_GYM_1,                       4,  3 ; $74
+	map_const SEVII_SEVEN_ISLAND_GYM_2,                      20, 20 ; $75
+	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE,                 20, 20 ; $76
+	map_const SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN,          13, 13 ; $77
+	map_const SEVII_SEVEN_ISLAND_GYM_3,                      22, 22 ; $78
+	map_const SEVII_SEVEN_ISLAND_HOUSES,                     11,  4 ; $79
+	map_const SEVII_ROUTE_43_CAVES,                           7, 25 ; $7A
+	map_const SEVII_TANOBY_CHAMBERS,                         43,  8 ; $7B
+	map_const SEVII_TANOBY_GARDEN,                            9,  9 ; $7C
+	map_const SEVII_TANOBY_DEN,                               9,  5 ; $7D
+	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $7E
 ; 8-island-related maps
-	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $79
-	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $7A
+	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $7F
+	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $80
 ; extra
-	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $7B
-	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $7C
-	map_const SEVII_TEN_ISLAND,                              12, 12 ; $7D ; TBE
+	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $81
+	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $82
+	map_const SEVII_TEN_ISLAND,                              12, 12 ; $83 ; TBE
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

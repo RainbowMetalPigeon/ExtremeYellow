@@ -217,6 +217,8 @@ IsWarpTileInFrontOfPlayer::
 	jr z, IsSeviiRoute43CavesWarpTileInFrontOfPlayer
 	cp SEVII_TANOBY_GARDEN
 	jr z, IsSeviiTanobyGardenWarpTileInFrontOfPlayer
+	cp SEVII_TWO_ISLAND_CITY
+	jr z, IsSeviiTwoIslandCityTileInFrontOfPlayer
 .postMapChecks ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	srl a
@@ -255,6 +257,19 @@ IsSeviiTanobyGardenWarpTileInFrontOfPlayer: ; new
 	scf
 	jr IsWarpTileInFrontOfPlayer.done
 .notTanobyGardenWarp
+	and a
+	jr IsWarpTileInFrontOfPlayer.done
+
+IsSeviiTwoIslandCityTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $5a
+	jr z, .tileMatch
+	cp $12
+	jr nz, .notTwoIslandCityWarp
+.tileMatch
+	scf
+	jr IsWarpTileInFrontOfPlayer.done
+.notTwoIslandCityWarp
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
@@ -309,10 +324,10 @@ IsOnixBurrowingWarpTileInFrontOfPlayer: ; new
 	jr nz, .notBurrowingWarp
 .yesBurrowingWarp
 	scf
-	jr IsWarpTileInFrontOfPlayer.done
+	jp IsWarpTileInFrontOfPlayer.done
 .notBurrowingWarp
 	and a
-	jr IsWarpTileInFrontOfPlayer.done
+	jp IsWarpTileInFrontOfPlayer.done
 
 IsRedsHouseWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]

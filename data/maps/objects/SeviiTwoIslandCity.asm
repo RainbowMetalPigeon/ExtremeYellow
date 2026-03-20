@@ -10,13 +10,16 @@ SeviiTwoIslandCity_Object:
 	warp_event 29, 33, SEVII_TWO_ISLAND_HOUSES, 3
 	warp_event 33, 33, SEVII_TWO_ISLAND_HOUSES, 5
 	warp_event  7, 23, SEVII_UNDERGROUND_TWO, 1
+	warp_event 24, 37, SEVII_TWO_ISLAND_HOUSES, 9  ; 9
+	warp_event 25, 37, SEVII_TWO_ISLAND_HOUSES, 9  ; 10
 
 	def_bg_events
 	bg_event  5, 27, 15 ; SeviiTwoIslandCitySignText1
 	bg_event 23, 31, 16 ; SeviiTwoIslandCitySignText2
 	bg_event 33, 35, 17 ; SeviiTwoIslandCitySignText3
 	bg_event 32, 12, 18 ; SeviiTwoIslandCitySignText4
-	bg_event 16, 29, 19 ; PokeCenterSignText
+	bg_event 27, 37, 19 ; SeviiTwoIslandCitySignText5
+	bg_event 16, 29, 20 ; PokeCenterSignText
 
 	def_object_events
 	object_event  7, 27, SPRITE_GRANNY, STAY, ANY_DIR, 1

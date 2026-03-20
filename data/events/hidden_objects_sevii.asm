@@ -25,6 +25,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_TWO_ISLAND_POKEMON_CENTER,                 SeviiTwoIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_TWO_ISLAND_GYM,                            SeviiTwoIslandGymHiddenObjects
 	dbw SEVII_TWO_ISLAND_CITY_DIVE,                      SeviiTwoIslandCityDiveHiddenObjects
+	dbw SEVII_TWO_ISLET,                                 SeviiTwoIsletHiddenObjects
 ; 3-island
 	dbw SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,      SeviiThreeIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_THREE_ISLAND_GYM,                          SeviiThreeIslandGymHiddenObjects
@@ -170,6 +171,28 @@ SeviiTwoIslandCityDiveHiddenObjects:
 	hidden_object 37, 26, RARE_CANDY, HiddenItems
 	hidden_object 32, 39, HP_UP, HiddenItems
 	hidden_object 32, 35, PP_UP, HiddenItems
+	db -1 ; end
+
+SeviiTwoIsletHiddenObjects:
+	hidden_object 38, 21, POKE_BALL, HiddenItems	; 0
+	hidden_object 48, 20, FULL_HEAL, HiddenItems	; 1
+	hidden_object 46, 27, HYPER_POTION, HiddenItems ; 2
+	hidden_object 52, 38, HP_UP, HiddenItems		; 3
+	hidden_object 52, 23, MAX_REPEL, HiddenItems	; 2
+	hidden_object 56, 33, PROTEIN, HiddenItems		; 3
+	hidden_object 40, 30, X_ACCURACY, HiddenItems	; 1
+	hidden_object 46, 39, ULTRA_BALL, HiddenItems	; 2
+	hidden_object 56, 41, IRON, HiddenItems			; 3
+	hidden_object 40, 44, POKE_DOLL, HiddenItems	; 2
+	hidden_object 52, 48, CARBOS, HiddenItems		; 3
+	hidden_object 28, 33, REVIVE, HiddenItems		; 1
+	hidden_object 30, 40, FULL_RESTORE, HiddenItems	; 2
+	hidden_object 24, 47, CALCIUM, HiddenItems		; 3
+	hidden_object 35, 38, MAX_REVIVE, HiddenItems	; 2
+	hidden_object 36, 47, PP_UP, HiddenItems		; 3
+	hidden_object 26, 11, NUGGET, HiddenItems
+	hidden_object 55, 16, MAX_ELIXER, HiddenItems
+	hidden_object 21, 39, SMASH_BALL, HiddenItems
 	db -1 ; end
 
 SeviiThreeIslandGymHiddenObjects:

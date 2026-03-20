@@ -64,6 +64,25 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         37, 26 ; RARE_CANDY
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 39 ; HP_UP
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 35 ; PP_UP
+	hidden_item SEVII_TWO_ISLET,                    38, 21 ; POKE_BALL
+	hidden_item SEVII_TWO_ISLET,                    48, 20 ; FULL_HEAL
+	hidden_item SEVII_TWO_ISLET,                    46, 27 ; HYPER_POTION
+	hidden_item SEVII_TWO_ISLET,                    52, 38 ; HP_UP
+	hidden_item SEVII_TWO_ISLET,                    52, 23 ; MAX_REPEL
+	hidden_item SEVII_TWO_ISLET,                    56, 33 ; PROTEIN
+	hidden_item SEVII_TWO_ISLET,                    40, 30 ; X_ACCURACY
+	hidden_item SEVII_TWO_ISLET,                    46, 39 ; ULTRA_BALL
+	hidden_item SEVII_TWO_ISLET,                    56, 41 ; IRON
+	hidden_item SEVII_TWO_ISLET,                    40, 44 ; POKE_DOLL
+	hidden_item SEVII_TWO_ISLET,                    52, 48 ; CARBOS
+	hidden_item SEVII_TWO_ISLET,                    28, 33 ; REVIVE
+	hidden_item SEVII_TWO_ISLET,                    30, 40 ; FULL_RESTORE
+	hidden_item SEVII_TWO_ISLET,                    24, 47 ; CALCIUM
+	hidden_item SEVII_TWO_ISLET,                    35, 38 ; MAX_REVIVE
+	hidden_item SEVII_TWO_ISLET,                    36, 47 ; PP_UP
+	hidden_item SEVII_TWO_ISLET,                    26, 11 ; NUGGET
+	hidden_item SEVII_TWO_ISLET,                    55, 16 ; MAX_ELIXER
+	hidden_item SEVII_TWO_ISLET,                    21, 39 ; SMASH_BALL
 	hidden_item SEVII_THREE_ISLAND_CAVES,           31, 17 ; NUGGET
 	hidden_item SEVII_ICEFALL_CAVE_1F,              11, 30 ; ULTRA_BALL
 	hidden_item SEVII_ICEFALL_CAVE_1F,              15, 14 ; NUGGET

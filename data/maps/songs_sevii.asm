@@ -56,6 +56,12 @@ MapSongBanks_Sevii::
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_TWO_ISLAND_GYM
 	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLAND_HOUSES
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_TWO_ISLAND_CITY_DIVE
+	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLET
+	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLET_HOUSES
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_TWO_ISLET_DIVE
+	db MUSIC_CITIES1, BANK(Music_Cities1)              ; SEVII_TWO_ISLET_ROCK_MAZE
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_TWO_ISLET_ROCK_MAZE_DIVE
+	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone)       ; SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_UNDERGROUND_TWO
 ; 3-island
 	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_THREE_ISLAND_DOCK

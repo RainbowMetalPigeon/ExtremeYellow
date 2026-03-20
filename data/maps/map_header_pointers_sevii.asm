@@ -57,6 +57,12 @@ MapHeaderPointers_Sevii::
 	dw SeviiTwoIslandGym_h
 	dw SeviiTwoIslandHouses_h
 	dw SeviiTwoIslandCityDive_h
+	dw SeviiTwoIslet_h
+	dw SeviiTwoIsletHouses_h
+	dw SeviiTwoIsletDive_h
+	dw SeviiTwoIsletRockMaze_h
+	dw SeviiTwoIsletRockMazeDive_h
+	dw SeviiTwoIsletRockMazeDiveCavern_h
 	dw SeviiUndergroundTwo_h
 ; 3-island
 	dw SeviiThreeIslandDock_h
