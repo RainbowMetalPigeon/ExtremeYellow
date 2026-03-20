@@ -25,6 +25,7 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_TWO_ISLAND_POKEMON_CENTER,                 SeviiTwoIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_TWO_ISLAND_GYM,                            SeviiTwoIslandGymHiddenObjects
 	dbw SEVII_TWO_ISLAND_CITY_DIVE,                      SeviiTwoIslandCityDiveHiddenObjects
+	dbw SEVII_TWO_ISLET,                                 SeviiTwoIsletHiddenObjects
 ; 3-island
 	dbw SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,      SeviiThreeIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_THREE_ISLAND_GYM,                          SeviiThreeIslandGymHiddenObjects
@@ -170,6 +171,10 @@ SeviiTwoIslandCityDiveHiddenObjects:
 	hidden_object 37, 26, RARE_CANDY, HiddenItems
 	hidden_object 32, 39, HP_UP, HiddenItems
 	hidden_object 32, 35, PP_UP, HiddenItems
+	db -1 ; end
+
+SeviiTwoIsletHiddenObjects: ; TBE
+	hidden_object 37, 26, RARE_CANDY, HiddenItems
 	db -1 ; end
 
 SeviiThreeIslandGymHiddenObjects:

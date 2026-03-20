@@ -39,7 +39,7 @@ ENDM
 	door_tiles $5e
 
 .HouseDoorTileIDs:
-	door_tiles $54
+	door_tiles $54, $60 ; edited
 
 .TilesetMuseumDoorTileIDs:
 	door_tiles $3b

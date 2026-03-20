@@ -3,7 +3,7 @@ SeviiUndergroundTwo_Object:
 
 	def_warp_events
 	warp_event  1,  1, SEVII_TWO_ISLAND_CITY, 8
-	warp_event 22, 22, SEVII_UNDERGROUND_LOBBY, 2
+	warp_event 22, 30, SEVII_UNDERGROUND_LOBBY, 2
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3

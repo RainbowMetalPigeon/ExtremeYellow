@@ -285,6 +285,10 @@ SetPal_Overworld:
 	call IsInArray
 	jp c, .sevenIsland
 	ld a, [wCurMap]
+	ld hl, SeviiMaps_TwoIslandsMaps
+	call IsInArray
+	jp c, .twoIsland
+	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenSevii
@@ -356,6 +360,7 @@ SetPal_Overworld:
 	ld a, PAL_SEVII_ONE_ISLAND - 1
 	jr .townSevii
 .twoIslandDock
+.twoIsland
 	ld a, PAL_SEVII_TWO_ISLAND - 1
 	jr .townSevii
 .threeIslandDock
@@ -370,12 +375,10 @@ SetPal_Overworld:
 .sixIslandDock
 	ld a, PAL_SEVII_SIX_ISLAND - 1
 	jr .townSevii
-.sevenIslandDock
-	ld a, PAL_SEVII_SEVEN_ISLAND - 1
-	jr .townSevii
 .eightIsland
 	ld a, PAL_SEVII_EIGHT_ISLAND - 1
 	jr .townSevii
+.sevenIslandDock
 .sevenIsland
 	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii
@@ -523,6 +526,13 @@ SeviiMaps_GreyPalette:
 	db SEVII_DOTTED_HOLE
 	db -1
 
+SeviiMaps_TwoIslandsMaps:
+	db SEVII_TWO_ISLET
+	db SEVII_TWO_ISLET_HOUSES
+	db SEVII_TWO_ISLAND_HOUSES
+	db SEVII_TWO_ISLET_ROCK_MAZE
+	db -1
+
 SeviiMaps_EightIslandsMaps:
 	db SEVII_EIGHT_ISLAND_CITY
 	db SEVII_EIGHT_ISLAND_DOCK
@@ -533,6 +543,7 @@ SeviiMaps_SevenIslandsMaps:
 	db SEVII_SEVEN_ISLAND_GYM_2
 	db SEVII_SEVEN_ISLAND_GYM_3
 	db -1
+
 ; BTV
 
 ; used when a Pokemon is the only thing on the screen
@@ -904,6 +915,10 @@ GetPal_Pikachu::
 	call IsInArray
 	jp c, .sevenIsland
 	ld a, [wCurMap]
+	ld hl, SeviiMaps_TwoIslandsMaps
+	call IsInArray
+	jp c, .twoIsland
+	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenSevii
@@ -967,6 +982,7 @@ GetPal_Pikachu::
 	ld a, PAL_SEVII_ONE_ISLAND - 1
 	jr .townSevii
 .twoIslandDock
+.twoIsland
 	ld a, PAL_SEVII_TWO_ISLAND - 1
 	jr .townSevii
 .threeIslandDock
@@ -981,15 +997,13 @@ GetPal_Pikachu::
 .sixIslandDock
 	ld a, PAL_SEVII_SIX_ISLAND - 1
 	jr .townSevii
-.sevenIslandDock
-	ld a, PAL_SEVII_SEVEN_ISLAND - 1
-	jr .townSevii
 .frozenSevii
 	ld a, PAL_SEVII_CYANMON - 1
 	jr .townSevii
 .eightIsland
 	ld a, PAL_SEVII_EIGHT_ISLAND - 1
 	jr .townSevii
+.sevenIslandDock
 .sevenIsland
 	ld a, PAL_SEVII_SEVEN_ISLAND - 1
 	jr .townSevii

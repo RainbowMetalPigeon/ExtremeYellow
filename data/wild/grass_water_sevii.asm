@@ -56,6 +56,12 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_TWO_ISLAND_GYM
 	dw NothingWildMons               ; SEVII_TWO_ISLAND_HOUSES
 	dw SeviiTwoIslandCityDiveWildMons ; SEVII_TWO_ISLAND_CITY_DIVE
+	dw NothingWildMons               ; SEVII_TWO_ISLET ; TBE
+	dw NothingWildMons               ; SEVII_TWO_ISLET_HOUSES ; TBE
+	dw NothingWildMons               ; SEVII_TWO_ISLET_DIVE ; TBE
+	dw NothingWildMons               ; SEVII_TWO_ISLET_ROCK_MAZE ; TBE
+	dw NothingWildMons               ; SEVII_TWO_ISLET_ROCK_MAZE_DIVE ; TBE
+	dw NothingWildMons               ; SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN ; TBE
 	dw NothingWildMons               ; SEVII_UNDERGROUND_TWO
 ; 3-island
 	dw SeviiShipDockWildMons         ; SEVII_THREE_ISLAND_DOCK
