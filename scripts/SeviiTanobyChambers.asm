@@ -616,6 +616,15 @@ SeviiTanobyChambers_RocketBeasts_End:
 	; fallthrough
 
 SeviiTanobyChambersResetScripts:
+	ld a, HS_SEVII_TANOBY_CHAMBERS_ORM
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_TANOBY_CHAMBERS_CARR
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_TANOBY_CHAMBERS_SIRD
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
