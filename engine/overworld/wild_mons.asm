@@ -168,13 +168,23 @@ CustomRandomizedCopyData:
 ; creates a list at wBuffer of maps where the mon in [wd11e] can be found.
 ; this is used by the pokedex to display locations the mon can be found on the map.
 FindWildLocationsOfMon::
-	ld hl, WildDataPointers
-; new for sevii
+; new for sevii and day-night cycle
 	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+; kanto
+	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	ld hl, WildDataPointers
 	jr z, .continue
+	ld hl, WildDataPointersNight
+	jr .continue
+.sevii
+	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
 	ld hl, WildDataPointers_Sevii
+	jr z, .continue
+	ld hl, WildDataPointers_SeviiNight
 .continue
-; back to vanilla
+; BTV
+
 	ld de, wBuffer
 	ld c, $0
 .loop
