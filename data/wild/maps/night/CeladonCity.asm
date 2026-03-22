@@ -3,13 +3,13 @@ CeladonCityWildMonsNight:
 	db 40, CLEFABLE ; 51
 	db 40, WIGGLYTUFF ; 51
 	db 41, WIGGLYTUFF ; 39
-	db 40, NIDOQUEEN ; 25
-	db 40, NIDOKING ; 25
+	db 40, CLEFABLE ; 25
+	db 40, WIGGLYTUFF ; 25
 	db 41, CLEFABLE ; 25
-	db 41, NIDOQUEEN ; 13
-	db 41, NIDOKING ; 10
+	db 41, CLEFABLE ; 13
+	db 41, WIGGLYTUFF ; 10
 	db 40, UMBREON ; 10
-	db 41, NIDOKING ;  3
+	db 41, WIGGLYTUFF ;  3
 	db 42, UMBREON ;  1
 	db 42, UMBREON ;  1
 	db 42, UMBREON ;  1

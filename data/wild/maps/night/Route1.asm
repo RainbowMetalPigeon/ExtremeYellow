@@ -1,18 +1,18 @@
 Route1WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
-	db 11, MEWTWO
+	db  3, RATTATA
+	db  4, RATTATA
+	db  2, RATTATA
+	db  3, RATTATA
+	db  2, PIDGEY
+	db  3, PIDGEY
+	db  5, PIDGEY
+	db  4, RATTATA
+	db  6, RATTATA
+	db  4, RATTATA
+	db  7, RATTATA
+	db  7, RATTATA
+	db  7, RATTATA
 	db	1, MEW
 	end_grass_wildmons
 
