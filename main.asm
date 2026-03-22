@@ -45,8 +45,7 @@ SECTION "bank3", ROMX
 INCLUDE "engine/joypad.asm"
 INCLUDE "engine/overworld/player_state.asm"
 INCLUDE "engine/overworld/tilesets.asm"
-INCLUDE "engine/items/item_effects.asm" ; need to stay with the below one
-INCLUDE "engine/overworld/wild_mons.asm" ; need to stay with the above one
+INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/push_boulder.asm"
 INCLUDE "engine/overworld/pathfinding.asm"
@@ -65,6 +64,12 @@ INCLUDE "engine/overworld/pathfinding.asm"
 ;INCLUDE "engine/gfx/hp_bar.asm" ; moved to bankGarage
 ;INCLUDE "engine/overworld/clear_variables.asm" ; moved to bankGarage2
 ;INCLUDE "engine/overworld/update_map.asm" ; moved to bankGarage2
+;INCLUDE "engine/overworld/wild_mons.asm" ; moved to its standalone bank
+
+
+SECTION "bank3B", ROMX ; new
+
+INCLUDE "engine/overworld/wild_mons.asm"
 
 
 SECTION "bankGarage", ROMX ; new, tentative place where to move independent stuff in overflowing banks

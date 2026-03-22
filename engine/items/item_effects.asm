@@ -4041,65 +4041,6 @@ ItemUseReloadOverworldData:
 	call LoadCurrentMapView
 	jp UpdateSprites
 
-; creates a list at wBuffer of maps where the mon in [wd11e] can be found.
-; this is used by the pokedex to display locations the mon can be found on the map.
-FindWildLocationsOfMon:
-	ld hl, WildDataPointers
-; new for sevii
-	CheckEvent EVENT_IN_SEVII
-	jr z, .continue
-	ld hl, WildDataPointers_Sevii
-.continue
-; back to vanilla
-	ld de, wBuffer
-	ld c, $0
-.loop
-	inc hl
-	ld a, [hld]
-	inc a
-	jr z, .done
-	push hl
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, [hli]
-	and a
-	call nz, CheckMapForMon ; land
-	ld a, [hli]
-	and a
-	call nz, CheckMapForMon ; water
-	pop hl
-	inc hl
-	inc hl
-	inc c
-	jr .loop
-.done
-	ld a, $ff ; list terminator
-	ld [de], a
-	ret
-
-CheckMapForMon:
-	inc hl
-	ld b, NUM_WILDMONS
-.loop
-	ld a, [wd11e]
-	cp [hl]
-	jr nz, .nextEntry
-	ld a, c
-	ld [de], a
-	inc de
-; new, to make this function more efficient and fix the Tentacool bug
-	inc hl
-	ret
-; back to vanilla
-.nextEntry
-	inc hl
-	inc hl
-	dec b
-	jr nz, .loop
-	dec hl
-	ret
-
 PerfecterHasBeenUsedText: ; new
 	text_far _PerfecterHasBeenUsedText
 	text_end
