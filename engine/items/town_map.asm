@@ -188,34 +188,104 @@ TownMapCursorEnd:
 
 LoadTownMap_Nest:
 ; new for deep water
+	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
 	ldh a, [hTileAnimations]
 	ld [wSavedTileAnimations], a
 	xor a
 	ldh [hTileAnimations], a
 ; BTV
-	call LoadTownMap
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
 	ld [hl], $ff
 	push hl
+.core
+	call LoadTownMap
 	call DisplayWildLocations
 	call GetMonName
-	hlcoord 1, 0
+	hlcoord 0, 0
 	call PlaceString
 	ld h, b
 	ld l, c
-	ld de, MonsNestText
+; new/edited
+	push hl
+	ld de, MonsNestTextDay
+	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	jr z, .gotHeader
+	ld de, MonsNestTextNight
+.gotHeader
+	pop hl
+; BTV
 	call PlaceString
-	call WaitForTextScrollButtonPress
+; new
+	hlcoord 0, 17
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+
+	ldh a, [hDownArrowBlinkCount1]
+	push af
+	ldh a, [hDownArrowBlinkCount2]
+	push af
+	xor a
+	ldh [hDownArrowBlinkCount1], a
+	ld a, $6
+	ldh [hDownArrowBlinkCount2], a
+.waitForButtonPress
+	push hl
+	ld a, [wTownMapSpriteBlinkingEnabled]
+	and a
+	jr z, .skipAnimation
+	push de
+	push bc
+	callfar TownMapSpriteBlinkingAnimation
+	pop bc
+	pop de
+.skipAnimation
+;	hlcoord 18, 16 ; useless?
+;	call HandleDownArrowBlinkTiming ; useless?
+	pop hl
+	call JoypadLowSensitivity
+;	predef CableClub_Run ; useless?
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON | SELECT
+	jr z, .waitForButtonPress
+	pop af
+	ldh [hDownArrowBlinkCount2], a
+	pop af
+	ldh [hDownArrowBlinkCount1], a
+
+	ldh a, [hJoy5]
+	bit BIT_SELECT, a
+	jp z, .postButton
+; if we pressed SELECT: toggle between day and night
+	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	jr nz, .resetNight
+	SetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	jr .core
+.resetNight
+	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	jr .core
+
+.postButton
+; BTV
+;	call WaitForTextScrollButtonPress
 	call ExitTownMap
 	pop hl
 	pop af
 	ld [hl], a
 	ret
 
-MonsNestText:
-	db "'s NEST@"
+MonsNestTextDay: ; edited
+	db "'s NEST (D)@"
+
+MonsNestTextNight: ; new
+	db "'s NEST (N)@"
 
 LoadTownMap_Fly::
 ; new for sevii
