@@ -1447,7 +1447,7 @@ GetGBCBasePalAddress::
 	pop hl
 	ret
 
-GetGBCBasePalAddress_SelectDE: ; new
+GetGBCBasePalAddress_SelectDE: ; new, for day-night cycle
 	push hl
 
 ; for sevii

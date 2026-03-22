@@ -1,11 +1,22 @@
 LoadWildData::
 	ResetEvent EVENT_RANDOM_WILD_BOTH_GRASS_AND_WATER ; new, for randomization
-	ld hl, WildDataPointers
+
 ; new, for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr z, .noSevii
+; sevii
 	ld hl, WildDataPointers_Sevii
+	ld a, [wPlayTimeMinutes] ; TBE
+	and %00000001
+	jr z, .wildListFound
+	ld hl, WildDataPointers_SeviiNight
 .noSevii
+	ld hl, WildDataPointers
+	ld a, [wPlayTimeMinutes] ; TBE
+	and %00000001
+	jr z, .wildListFound
+	ld hl, WildDataPointersNight
+.wildListFound
 ; back to vanilla
 	ld a, [wCurMap]
 
@@ -62,6 +73,8 @@ LoadWildData::
 
 INCLUDE "data/wild/grass_water.asm"
 INCLUDE "data/wild/grass_water_sevii.asm" ; new, for sevii
+INCLUDE "data/wild/grass_water_night.asm" ; new, for day-night cycle
+INCLUDE "data/wild/grass_water_sevii_night.asm" ; new, for day-night cycle
 
 ; new, for wild encounter randomization ----------------------------------------
 
