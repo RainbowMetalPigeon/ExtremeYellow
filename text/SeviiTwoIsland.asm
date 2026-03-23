@@ -579,3 +579,15 @@ _SeviiTwoIslandCityDiveAfterBattleText4::
 	cont "losing...?)"
 ;	xxxx "123456789012345678"
 	done
+
+; two islet ------------------------------------
+
+_SeviiTwoIsletText1::
+	text "ciao"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletText2::
+	text "ciauz"
+;	xxxx "123456789012345678"
+	done

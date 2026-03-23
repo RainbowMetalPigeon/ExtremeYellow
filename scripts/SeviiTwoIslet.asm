@@ -12,10 +12,13 @@ SeviiTwoIslet_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
-;	dw SeviiTwoIsletText1
-;	dw PickUpItemText
-;	dw SeviiTwoIsletText3
+	dw SeviiTwoIsletText1
+	dw SeviiTwoIsletText2
 
-;SeviiTwoIsletText1:
-;	text_far _SeviiTwoIsletText1
-;	text_end
+SeviiTwoIsletText1:
+	text_far _SeviiTwoIsletText1
+	text_end
+
+SeviiTwoIsletText2:
+	text_far _SeviiTwoIsletText2
+	text_end
