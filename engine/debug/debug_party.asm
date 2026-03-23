@@ -123,17 +123,17 @@ IF DEF(_DEBUG)
     ld a, 1
     ld hl, wPartyMon1CatchRate
     ld [hl], a
-;    ld hl, wPartyMon2CatchRate
-;    ld [hl], a
-;    ld hl, wPartyMon3CatchRate
-;    ld [hl], a
-	ld a, 2
-    ld hl, wPartyMon4CatchRate
-    ld [hl], a
-    ld hl, wPartyMon5CatchRate
-    ld [hl], a
-;    ld hl, wPartyMon6CatchRate
-;    ld [hl], a
+;	ld hl, wPartyMon2CatchRate
+;	ld [hl], a
+;	ld hl, wPartyMon3CatchRate
+;	ld [hl], a
+;	ld a, 2
+;	ld hl, wPartyMon4CatchRate
+;	ld [hl], a
+;	ld hl, wPartyMon5CatchRate
+;	ld [hl], a
+;	ld hl, wPartyMon6CatchRate
+;	ld [hl], a
 
 	; Get some debug items.
 	ld hl, wNumBagItems

@@ -203,20 +203,21 @@ LoadTownMap_Nest:
 	call LoadTownMap
 	call DisplayWildLocations
 	call GetMonName
-	hlcoord 0, 0
+	hlcoord 1, 0
 	call PlaceString
 	ld h, b
 	ld l, c
-; new/edited
-	push hl
-	ld de, MonsNestTextDay
-	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	jr z, .gotHeader
-	ld de, MonsNestTextNight
-.gotHeader
-	pop hl
-; BTV
+	ld de, MonsNestText
 	call PlaceString
+; new/edited
+	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	ld a, "<DAY>"
+	jr z, .gotSymbol
+	ld a, "<NIGHT>"
+.gotSymbol
+	hlcoord 18, 0
+	ld [hl], a
+; BTV
 ; new
 	hlcoord 0, 17
 	ld a, "<SELINFO1>"
@@ -281,11 +282,8 @@ LoadTownMap_Nest:
 	ld [hl], a
 	ret
 
-MonsNestTextDay: ; edited
-	db "'s NEST (D)@"
-
-MonsNestTextNight: ; new
-	db "'s NEST (N)@"
+MonsNestText:
+	db "'s NEST@"
 
 LoadTownMap_Fly::
 ; new for sevii

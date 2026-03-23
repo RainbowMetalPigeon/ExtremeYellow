@@ -168,7 +168,9 @@
 
 	; huge random gap
 	; edited/new
-	charmap "<DELTA>",  $cc
+	charmap "<NIGHT>",   $ca
+	charmap "<DAY>",     $cb
+	charmap "<DELTA>",   $cc
 	charmap "<BOLD_V>",  $cd
 	charmap "<BOLD_S>",  $ce
 	charmap "<COLON>",   $cf ; colon with tinier dots than ":"
