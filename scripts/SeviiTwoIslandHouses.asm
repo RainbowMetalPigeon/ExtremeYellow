@@ -7,6 +7,8 @@ SeviiTwoIslandHouses_TextPointers:
 	dw SeviiTwoIslandHousesText3
 	dw SeviiTwoIslandHousesText4
 	dw SeviiTwoIslandHousesText5
+	dw SeviiTwoIslandHousesText6
+	dw SeviiTwoIslandHousesText7
 	; signs
 	dw SeviiTwoIslandHousesSignText1
 
@@ -88,6 +90,14 @@ SeviiTwoIslandHousesText4:
 
 SeviiTwoIslandHousesText5:
 	text_far _SeviiTwoIslandHousesText5
+	text_end
+
+SeviiTwoIslandHousesText6:
+	text_far _SeviiTwoIslandHousesText6
+	text_end
+
+SeviiTwoIslandHousesText7:
+	text_far _SeviiTwoIslandHousesText7
 	text_end
 
 SeviiTwoIslandHousesSignText1:

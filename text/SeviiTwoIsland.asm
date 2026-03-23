@@ -285,6 +285,32 @@ _SeviiTwoIslandHousesText5::
 	line "ruin us!"
 	done
 
+_SeviiTwoIslandHousesText6::
+	text "BOON ISLET was"
+	line "uninhabited until"
+	cont "recently. Now a"
+	cont "few people live"
+	cont "there, but the"
+	cont "area is still"
+	cont "underdeveloped."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText7::
+	text "East of BOON ISLET"
+	line "is a treacherous"
+	cont "stretch of sea."
+
+	para "It's one of the"
+	line "very few open-sea"
+	cont "area in SEVII"
+	cont "where you can go"
+	cont "without a boat,"
+	cont "but be careful if"
+	cont "you venture there."
+;	xxxx "123456789012345678"
+	done
+
 _SeviiTwoIslandHousesSignText1::
 	text "A book on #MON"
 	line "biology."

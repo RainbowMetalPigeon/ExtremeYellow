@@ -13,8 +13,7 @@ SeviiTwoIslandHouses_Object:
 	warp_event 46,  0, SEVII_TWO_ISLAND_CITY, 10 ;  9
 
 	def_bg_events
-	bg_event 31,  4, 6 ; SeviiTwoIslandHousesSignText1
-;	bg_event 11, 11, 5 ; Route2Text4
+	bg_event 31,  4, 7 ; SeviiTwoIslandHousesSignText1
 
 	def_object_events
 	object_event  2,  3, SPRITE_GAMBLER, WALK, UP_DOWN, 1
@@ -22,5 +21,7 @@ SeviiTwoIslandHouses_Object:
 	object_event 19,  4, SPRITE_COOLTRAINER_F, STAY, LEFT, 3 ; tutor field
 	object_event 30,  4, SPRITE_BRUNETTE_GIRL, STAY, RIGHT, 4 ; Tauros farmer
 	object_event 34,  2, SPRITE_GIRL, WALK, LEFT_RIGHT, 5 ; Tauros farmer
+	object_event 44,  5, SPRITE_BEAUTY, WALK, ANY_DIR, 6 ; gate
+	object_event 47,  2, SPRITE_GRAMPS, STAY, ANY_DIR, 7 ; gate
 
 	def_warps_to SEVII_TWO_ISLAND_HOUSES
