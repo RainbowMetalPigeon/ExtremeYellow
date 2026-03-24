@@ -11,8 +11,8 @@ Route27WildMonsNight:
 	db 15, TENTACOOL	; 25
 	db 20, TENTACOOL	; 13
 	db 30, TENTACOOL	; 10
-	db 35, TENTACOOL	; 10
-	db 40, TENTACOOL	;  3
+	db 35, TENTACRUEL	; 10
+	db 35, STARYU		;  3
 	db 40, TENTACRUEL	;  1
 	db 40, TENTACRUEL	;  1
 	db 40, TENTACRUEL	;  1

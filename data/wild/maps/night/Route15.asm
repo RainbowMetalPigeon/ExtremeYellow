@@ -1,18 +1,18 @@
 Route15WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 27, ODDISH
-	db 27, BELLSPROUT
-	db 27, VENONAT
-	db 31, PIDGEOTTO
-	db 29, ODDISH
-	db 29, BELLSPROUT
+	db 28, VENONAT
+	db 29, VENONAT
 	db 30, VENONAT
-	db 31, WEEPINBELL
-	db 31, GLOOM
-	db 31, VENONAT
+	db 31, VENOMOTH
+	db 31, GOLBAT
+	db 29, MEOWTH
+	db 32, PERSIAN
+	db 33, RATICATE
+	db 32, VENOMOTH
 	db 33, VENOMOTH
-	db 33, VENOMOTH
-	db 33, VENOMOTH
+	db 36, VENOMOTH
+	db 36, VENOMOTH
+	db 36, VENOMOTH
 	db  1, MEW
 	end_grass_wildmons
 

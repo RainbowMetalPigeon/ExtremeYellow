@@ -1,11 +1,11 @@
 SeafoamIslandsB2FWildMonsNight:
 	def_grass_wildmons 10 ; encounter rate
 	db 35, KRABBY
-	db 35, SEEL
+	db 35, STARYU
 	db 35, SLOWPOKE
 	db 36, SHELLDER
 	db 37, PSYDUCK
-	db 36, STARYU
+	db 36, STARMIE
 	db 39, DEWGONG
 	db 37, SLOWBRO
 	db 39, SLOWKING
@@ -18,4 +18,3 @@ SeafoamIslandsB2FWildMonsNight:
 
 	def_water_wildmons 0 ; encounter rate
 	end_water_wildmons
-	

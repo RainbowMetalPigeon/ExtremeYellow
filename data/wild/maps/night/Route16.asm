@@ -1,18 +1,18 @@
 Route16WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 22, SPEAROW
-	db 22, DODUO
-	db 23, RATTATA
-	db 24, DODUO
+	db 24, SPEAROW
+	db 24, GOLBAT
 	db 24, RATTATA
-	db 26, DODUO
-	db 23, SPEAROW
-	db 24, FEAROW
-	db 25, RATICATE
-	db 24, FEAROW
-	db 26, RATICATE
-	db 26, RATICATE
-	db 26, RATICATE
+	db 25, MEOWTH
+	db 26, RATTATA
+	db 29, PERSIAN
+	db 25, SPEAROW
+	db 28, FEAROW
+	db 31, RATICATE
+	db 30, FEAROW
+	db 33, FEAROW
+	db 33, FEAROW
+	db 33, FEAROW
 	db  1, MEW
 	end_grass_wildmons
 

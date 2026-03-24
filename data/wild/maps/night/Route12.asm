@@ -1,18 +1,18 @@
 Route12WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 25, ODDISH
-	db 25, BELLSPROUT
+	db 25, VENONAT
 	db 26, VENONAT
-	db 28, PIDGEOTTO
+	db 27, VENONAT
+	db 28, GOLBAT
 	db 27, GLOOM
-	db 27, WEEPINBELL
-	db 29, VENONAT
-	db 31, GLOOM
-	db 31, WEEPINBELL
-	db 33, GLOOM
-	db 33, WEEPINBELL
-	db 33, WEEPINBELL
-	db 33, WEEPINBELL
+	db 27, RATICATE
+	db 29, MEOWTH
+	db 31, GOLBAT
+	db 31, VENOMOTH
+	db 33, PERSIAN
+	db 33, HYPNO
+	db 33, HYPNO
+	db 33, HYPNO
 	db  1, MEW
 	end_grass_wildmons
 
@@ -24,11 +24,11 @@ Route12WildMonsNight:
 	db 15, SLOWPOKE
 	db 15, SLOWPOKE
 	db 15, SLOWPOKE
-	db 20, SLOWPOKE
 	db 20, SLOWBRO
 	db 25, SLOWBRO
 	db 30, SLOWBRO
-	db 30, SLOWBRO
-	db 30, SLOWBRO
+	db 25, STARYU
+	db 25, STARYU
+	db 25, STARYU
 	db  1, MEW
 	end_water_wildmons

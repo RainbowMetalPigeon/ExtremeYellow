@@ -8,11 +8,11 @@ MtMoonB1FWildMons:
 	db 11, ZUBAT
 	db  9, PARAS
 	db 11, PARAS
-	db 10, CLEFAIRY
-	db 11, PARAS
-	db  1, CLEFFA
-	db  1, CLEFFA
-	db  1, CLEFFA
+	db 12, ZUBAT
+	db 13, PARAS
+	db 12, ZUBAT
+	db 12, ZUBAT
+	db 12, ZUBAT
 	db  1, MEW
 	end_grass_wildmons
 

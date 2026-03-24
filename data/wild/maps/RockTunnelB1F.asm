@@ -11,8 +11,8 @@ RockTunnelB1FWildMons:
 	db 18, ONIX
 	db 14, ONIX
 	db 22, ONIX
-	db 22, ONIX
-	db 22, ONIX
+	db 22, GOLBAT
+	db 22, GOLBAT
 	db  1, MEW
 	end_grass_wildmons
 

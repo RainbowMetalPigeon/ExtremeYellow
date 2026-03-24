@@ -9,7 +9,7 @@ SeafoamIslandsB1FWildMons:
 	db 38, SLOWBRO
 	db 38, KINGLER
 	db 37, KRABBY
-	db 32, STARYU
+	db 40, GOLBAT
 	db 39, DEWGONG
 	db 39, DEWGONG
 	db 39, DEWGONG

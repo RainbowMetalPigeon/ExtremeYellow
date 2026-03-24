@@ -4,15 +4,15 @@ Route1WildMonsNight:
 	db  4, RATTATA
 	db  2, RATTATA
 	db  3, RATTATA
-	db  2, PIDGEY
+	db  2, ZUBAT
 	db  3, PIDGEY
 	db  5, PIDGEY
 	db  4, RATTATA
 	db  6, RATTATA
-	db  4, RATTATA
 	db  7, RATTATA
-	db  7, RATTATA
-	db  7, RATTATA
+	db  7, ZUBAT
+	db  7, ZUBAT
+	db  7, ZUBAT
 	db	1, MEW
 	end_grass_wildmons
 

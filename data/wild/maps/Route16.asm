@@ -1,18 +1,18 @@
 Route16WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db 22, SPEAROW
-	db 22, DODUO
-	db 23, RATTATA
+	db 24, SPEAROW
 	db 24, DODUO
-	db 24, RATTATA
+	db 24, PIDGEOTTO
 	db 26, DODUO
-	db 23, SPEAROW
-	db 24, FEAROW
-	db 25, RATICATE
-	db 24, FEAROW
-	db 26, RATICATE
-	db 26, RATICATE
-	db 26, RATICATE
+	db 31, PIDGEOTTO
+	db 28, DODUO
+	db 27, SPEAROW
+	db 28, FEAROW
+	db 30, DODRIO
+	db 29, FEAROW
+	db 33, DODRIO
+	db 33, DODRIO
+	db 33, DODRIO
 	db  1, MEW
 	end_grass_wildmons
 

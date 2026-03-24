@@ -8,13 +8,13 @@ Route29WildMons:
 	db 15, TENTACOOL	; 39
 	db 25, MAGIKARP		; 25
 	db 25, SLOWPOKE		; 25
-	db 25, STARYU		; 25
+	db 25, SEADRA		; 25
 	db 30, SLOWPOKE		; 13
-	db 30, STARYU		; 10
+	db 30, SEADRA		; 10
 	db 35, SLOWBRO		; 10
 	db 40, GYARADOS		;  3
-	db 42, STARMIE		;  1
-	db 42, STARMIE		;  1
+	db 42, KINGDRA		;  1
+	db 42, KINGDRA		;  1
 	db 45, SLOWKING		;  1
 	db  1, MEW			;  1
 	end_water_wildmons

@@ -1,18 +1,18 @@
 SecludedAtollNEWildMons:
 	def_grass_wildmons 30 ; encounter rate
-	db 14, NIDORAN_F	; 19.9%
-	db 14, NIDORAN_M	; 19.9%
+	db 14, ODDISH		; 19.9%
+	db 14, VULPIX		; 19.9%
 	db 15, ODDISH		; 15.2%
-	db 15, MEOWTH		;  9.8%
+	db 15, EKANS		;  9.8%
 	db 16, EKANS		;  9.8%
 	db 16, VULPIX		;  9.8%
 	db 16, EEVEE		;  5.1%
-	db 17, NIDORAN_F	;  3.9%
-	db 17, NIDORAN_M	;  3.9%
+	db 17, ODDISH		;  3.9%
+	db 17, VULPIX		;  3.9%
 	db 17, EEVEE		;  1.2%
 	db 18, GLOOM		;  0.4%
-	db 18, NIDORINA		;  0.4%
-	db 18, NIDORINO		;  0.4%
+	db 18, GLOOM		;  0.4%
+	db 18, GLOOM		;  0.4%
 	db  1, MEW			;  0.4%
 	end_grass_wildmons
 

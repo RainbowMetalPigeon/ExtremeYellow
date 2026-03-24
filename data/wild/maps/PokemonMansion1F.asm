@@ -2,13 +2,13 @@ PokemonMansion1FWildMons:
 	def_grass_wildmons 10 ; encounter rate
 	db 34, KOFFING
 	db 34, GRIMER
-	db 37, RATICATE
+	db 37, KOFFING
 	db 38, KOFFING
 	db 38, GRIMER
-	db 38, RATICATE
-	db 39, RATICATE
+	db 38, KOFFING
+	db 39, GOLBAT
 	db 37, KOFFING
-	db 37, GRIMER
+	db 37, RATICATE
 	db 39, MUK
 	db 39, WEEZING
 	db 39, WEEZING

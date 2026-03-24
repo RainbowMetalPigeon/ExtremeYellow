@@ -4,7 +4,7 @@ SafariZoneNorthWildMons:
 	db 34, DODUO
 	db 33, WEEPINBELL
 	db 37, VICTREEBEL
-	db 37, VENOMOTH
+	db 37, DODRIO
 	db 36, TAUROS
 	db 32, RHYHORN
 	db 36, KANGASKHAN

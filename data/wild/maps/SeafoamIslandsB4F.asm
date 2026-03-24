@@ -19,13 +19,13 @@ SeafoamIslandsB4FWildMons:
 	def_water_wildmons 15 ; encounter rate
 	db 33, HORSEA		; 51
 	db 36, HORSEA		; 51
-	db 30, STARYU		; 39
-	db 37, PSYDUCK		; 25
+	db 30, PSYDUCK		; 39
+	db 37, GOLDUCK		; 25
 	db 35, SEEL			; 25
 	db 40, TENTACOOL	; 25
-	db 41, STARMIE		; 13
-	db 41, GOLDUCK		; 10
-	db 42, SEADRA		; 10
+	db 41, SEADRA		; 13
+	db 41, DEWGONG		; 10
+	db 42, KINGDRA		; 10
 	db 42, LAPRAS		;  3
 	db 42, LAPRAS		;  1
 	db 44, LAPRAS		;  1

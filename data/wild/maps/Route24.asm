@@ -6,13 +6,13 @@ Route24WildMons:
 	db 14, ODDISH
 	db 14, BELLSPROUT
 	db 15, PIDGEY
-	db 15, VENONAT
+	db 17, ODDISH
 	db 18, KAKUNA
 	db 18, METAPOD
-	db 17, VENONAT
-	db 18, PIDGEOTTO
-	db 18, PIDGEOTTO
-	db 18, PIDGEOTTO
+	db 17, BELLSPROUT
+	db 19, PIDGEOTTO
+	db 19, PIDGEOTTO
+	db 19, PIDGEOTTO
 	db  1, MEW
 	end_grass_wildmons
 

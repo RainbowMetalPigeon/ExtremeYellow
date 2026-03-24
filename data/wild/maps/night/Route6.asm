@@ -1,15 +1,15 @@
 Route6WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 15, PIDGEY
-	db 15, RATTATA
+	db 15, MEOWTH
+	db 16, RATTATA
 	db  7, ABRA
-	db 18, BELLSPROUT
-	db 18, MANKEY
 	db 18, MEOWTH
-	db 19, PIDGEOTTO
+	db 19, ZUBAT
+	db 19, MEOWTH
 	db 17, JIGGLYPUFF
-	db 21, JIGGLYPUFF
 	db 17, JIGGLYPUFF
+	db 17, JIGGLYPUFF
+	db 22, JIGGLYPUFF
 	db  1, IGGLYBUFF
 	db  1, IGGLYBUFF
 	db  1, IGGLYBUFF

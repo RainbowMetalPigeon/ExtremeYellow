@@ -8,11 +8,11 @@ Route26WildMonsNight:
 	db  6, RATTATA		; 25
 	db  7, GEODUDE		; 13
 	db  7, SPEAROW		; 10
-	db  8, ODDISH		; 10
-	db  8, ODDISH		;  3
-	db  8, ODDISH		;  1
-	db  8, ODDISH		;  1
-	db  8, ODDISH		;  1
+	db  8, RATTATA		; 10
+	db  8, RATTATA		;  3
+	db  8, RATTATA		;  1
+	db  8, RATTATA		;  1
+	db  8, RATTATA		;  1
 	db  1, MEW			;  1
 	end_grass_wildmons
 

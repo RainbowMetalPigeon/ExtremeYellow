@@ -1,7 +1,7 @@
 PokemonMansion3FWildMonsNight:
 	def_grass_wildmons 10 ; encounter rate
-	db 42, KOFFING
-	db 42, GRIMER
+	db 42, RATICATE
+	db 42, RATICATE
 	db 46, RATICATE
 	db 45, KOFFING
 	db 45, GRIMER

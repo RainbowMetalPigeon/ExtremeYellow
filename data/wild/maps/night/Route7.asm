@@ -1,15 +1,15 @@
 Route7WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 21, ODDISH
-	db 21, BELLSPROUT
+	db 21, MEOWTH
+	db 21, MEOWTH
 	db 20, ABRA
-	db 15, GROWLITHE
-	db 19, MEOWTH
-	db 24, VULPIX
+	db 22, GROWLITHE
+	db 23, MEOWTH
+	db 22, VULPIX
 	db 26, MANKEY
-	db 25, PIDGEOTTO
-	db 24, JIGGLYPUFF
-	db 25, PIDGEOTTO
+	db 25, JIGGLYPUFF
+	db 26, JIGGLYPUFF
+	db 27, JIGGLYPUFF
 	db  1, IGGLYBUFF
 	db  1, IGGLYBUFF
 	db  1, IGGLYBUFF

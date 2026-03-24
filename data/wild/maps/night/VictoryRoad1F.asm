@@ -1,19 +1,19 @@
 VictoryRoad1FWildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 32, GEODUDE
-	db 31, ZUBAT
-	db 33, MACHOP
-	db 43, GRAVELER
-	db 44, GOLBAT
-	db 42, MACHOKE
-	db 43, ONIX
-	db 45, ONIX
-	db 47, ONIX
-	db 53, STEELIX
-	db 51, HITMONTOP
-	db 52, HITMONTOP
-	db  1, TYROGUE
-	db  1, MEW
+	db 45, GRAVELER		; 51
+	db 45, MACHOKE		; 51
+	db 46, MACHOKE		; 39
+	db 48, GRAVELER		; 25
+	db 49, ONIX			; 25
+	db 50, MACHOKE		; 25
+	db 48, ONIX			; 13
+	db 49, ONIX			; 10
+	db 50, STEELIX		; 10
+	db 53, HITMONTOP	;  3
+	db  1, TYROGUE		;  1
+	db  1, TYROGUE		;  1
+	db  1, TYROGUE		;  1
+	db  1, MEW			;  1
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

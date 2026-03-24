@@ -11,10 +11,10 @@ Route30WildMonsNight:
 	db 35, SEAKING		; 25
 	db 25, KRABBY		; 13
 	db 25, KINGLER		; 10
-	db 30, POLIWHIRL	; 10
-	db 35, POLIWHIRL	;  3
-	db 40, POLITOED		;  1
-	db 40, POLITOED		;  1
+	db 30, STARYU		; 10
+	db 35, STARYU		;  3
+	db 40, STARMIE		;  1
+	db 40, STARMIE		;  1
 	db 42, RAICHU		;  1
 	db  1, MEW			;  1
 	end_water_wildmons

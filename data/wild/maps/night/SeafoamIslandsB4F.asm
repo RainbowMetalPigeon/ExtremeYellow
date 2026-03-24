@@ -20,12 +20,12 @@ SeafoamIslandsB4FWildMonsNight:
 	db 33, HORSEA		; 51
 	db 36, HORSEA		; 51
 	db 30, STARYU		; 39
-	db 37, PSYDUCK		; 25
-	db 35, SEEL			; 25
+	db 37, SEADRA		; 25
+	db 35, STARYU		; 25
 	db 40, TENTACOOL	; 25
 	db 41, STARMIE		; 13
-	db 41, GOLDUCK		; 10
-	db 42, SEADRA		; 10
+	db 41, DEWGONG		; 10
+	db 42, STARMIE		; 10
 	db 42, LAPRAS		;  3
 	db 42, LAPRAS		;  1
 	db 44, LAPRAS		;  1

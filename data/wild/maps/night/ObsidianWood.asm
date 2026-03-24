@@ -1,7 +1,7 @@
 ObsidianWoodWildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 35, BUTTERFREE
-	db 35, BEEDRILL
+	db 35, VENOMOTH
+	db 35, VENOMOTH
 	db 34, PARASECT
 	db 34, ARBOK
 	db 34, NIDORINO

@@ -7,9 +7,9 @@ Route4WildMons:
 	db  8, SANDSHREW
 	db 10, EKANS
 	db 10, SANDSHREW
-	db 12, RATTATA
+	db 11, EKANS
 	db 11, SPEAROW
-	db 12, RATTATA
+	db 12, SPEAROW
 	db 12, EKANS
 	db 12, EKANS
 	db 12, EKANS

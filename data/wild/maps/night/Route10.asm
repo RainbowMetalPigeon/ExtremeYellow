@@ -2,9 +2,9 @@ Route10WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
 	db 18, MAGNEMITE
 	db 18, VOLTORB
-	db 20, SPEAROW
-	db 20, NIDORAN_F
-	db 20, NIDORAN_M
+	db 20, ZUBAT
+	db 20, MAGNEMITE
+	db 20, VOLTORB
 	db 20, RATICATE
 	db 18, MACHOP
 	db 22, EKANS

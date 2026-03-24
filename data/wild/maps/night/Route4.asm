@@ -6,9 +6,9 @@ Route4WildMonsNight:
 	db 10, SPEAROW
 	db  8, SANDSHREW
 	db 10, EKANS
-	db 10, SANDSHREW
+	db 10, ZUBAT
 	db 12, RATTATA
-	db 11, SPEAROW
+	db 11, ZUBAT
 	db 12, RATTATA
 	db 12, EKANS
 	db 12, EKANS

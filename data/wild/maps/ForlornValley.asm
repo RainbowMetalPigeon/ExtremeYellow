@@ -10,9 +10,9 @@ ForlornValleyWildMons:
 	db 44, MACHOKE		; 10
 	db 46, MACHOP		; 10
 	db 41, ALAKAZAM		;  3
-	db 43, CROBAT		;  1
-	db 43, CROBAT		;  1
-	db 43, CROBAT		;  1
+	db 44, ALAKAZAM		;  1
+	db 44, ALAKAZAM		;  1
+	db 44, ALAKAZAM		;  1
 	db  1, MEW			;  1
 	end_grass_wildmons
 

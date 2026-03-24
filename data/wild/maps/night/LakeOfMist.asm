@@ -8,9 +8,9 @@ LakeOfMistWildMonsNight:
 	db 25, SEAKING		; 39
 	db 30, SEAKING		; 25
 	db 35, SEAKING		; 25
-	db 25, PSYDUCK		; 25
-	db 30, PSYDUCK		; 13
-	db 35, GOLDUCK		; 10
+	db 25, STARYU		; 25
+	db 30, STARYU		; 13
+	db 35, STARMIE		; 10
 	db 30, POLIWHIRL	; 10
 	db 25, GRIMER		;  3
 	db 35, MUK			;  1

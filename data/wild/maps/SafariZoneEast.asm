@@ -1,12 +1,12 @@
 SafariZoneEastWildMons:
 	def_grass_wildmons 30 ; encounter rate
-	db 35, NIDORINO
-	db 35, NIDORINA
 	db 32, EXEGGCUTE
+	db 35, EXEGGCUTE
+	db 37, EXEGGCUTE
 	db 33, TAUROS
 	db 31, RHYHORN
 	db 32, KANGASKHAN
-	db 36, VENOMOTH
+	db 36, TAUROS
 	db 34, RHYHORN
 	db 29, CHANSEY
 	db  1, HAPPINY

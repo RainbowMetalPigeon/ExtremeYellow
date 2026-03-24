@@ -2,14 +2,14 @@ SeafoamIslandsB1FWildMonsNight:
 	def_grass_wildmons 10 ; encounter rate
 	db 34, KRABBY
 	db 34, SEEL
-	db 38, GOLBAT
+	db 34, STARYU
 	db 34, SLOWPOKE
 	db 35, SHELLDER
 	db 33, PSYDUCK
 	db 38, SLOWBRO
 	db 38, KINGLER
 	db 37, KRABBY
-	db 32, STARYU
+	db 39, STARMIE
 	db 39, DEWGONG
 	db 39, DEWGONG
 	db 39, DEWGONG

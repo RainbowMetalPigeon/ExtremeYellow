@@ -5,10 +5,10 @@ SeafoamIslandsB3FWildMons:
 	db 36, SLOWPOKE
 	db 38, SHELLDER
 	db 40, PSYDUCK
-	db 38, STARYU
+	db 38, GOLDUCK
 	db 41, KINGLER
 	db 38, SLOWBRO
-	db 42, GOLDUCK
+	db 42, CLOYSTER
 	db 41, JYNX
 	db  1, SMOOCHUM
 	db  1, SMOOCHUM
@@ -20,15 +20,15 @@ SeafoamIslandsB3FWildMons:
 	db 25, HORSEA
 	db 30, HORSEA
 	db 35, HORSEA
-	db 30, STARYU
+	db 30, HORSEA
 	db 35, TENTACOOL
-	db 35, STARYU
+	db 35, HORSEA
 	db 40, TENTACOOL
-	db 30, STARYU
-	db 35, STARYU
-	db 40, STARYU
-	db 40, STARYU
+	db 30, SEADRA
+	db 35, SEADRA
 	db 40, SEADRA
-	db 40, SEADRA
+	db 40, KINGDRA
+	db 40, KINGDRA
+	db 40, KINGDRA
 	db  1, MEW
 	end_water_wildmons

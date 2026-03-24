@@ -9,10 +9,10 @@ SecludedAtollSWWildMons:
 	db 39, AERODACTYL	;  5.1%
 	db 40, AERODACTYL	;  3.9%
 	db 41, SNORLAX		;  3.9%
-	db 42, AERODACTYL	;  1.2%
+	db 42, MUNCHLAX		;  1.2%
+	db 43, AERODACTYL	;  0.4%
 	db 44, MAROWAK		;  0.4%
-	db  4, CUBONE		;  0.4%
-	db  1, MUNCHLAX		;  0.4%
+	db  1, CUBONE		;  0.4%
 	db  1, MEW			;  0.4%
 	end_grass_wildmons
 

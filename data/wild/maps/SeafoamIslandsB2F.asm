@@ -5,7 +5,7 @@ SeafoamIslandsB2FWildMons:
 	db 35, SLOWPOKE
 	db 36, SHELLDER
 	db 37, PSYDUCK
-	db 36, STARYU
+	db 36, KINGLER
 	db 39, DEWGONG
 	db 37, SLOWBRO
 	db 39, SLOWKING
@@ -18,4 +18,3 @@ SeafoamIslandsB2FWildMons:
 
 	def_water_wildmons 0 ; encounter rate
 	end_water_wildmons
-	

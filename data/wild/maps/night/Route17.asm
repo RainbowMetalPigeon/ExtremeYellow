@@ -1,9 +1,9 @@
 Route17WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 26, DODUO
+	db 26, GOLBAT
 	db 26, PONYTA
 	db 27, FEAROW
-	db 28, DODUO
+	db 28, PERSIAN
 	db 28, PONYTA
 	db 29, FEAROW
 	db 31, FEAROW

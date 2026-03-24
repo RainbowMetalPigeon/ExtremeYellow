@@ -3,16 +3,16 @@ Route10WildMons:
 	db 18, MAGNEMITE
 	db 18, VOLTORB
 	db 20, SPEAROW
-	db 20, NIDORAN_F
-	db 20, NIDORAN_M
-	db 20, RATICATE
-	db 18, MACHOP
+	db 20, MAGNEMITE
+	db 20, VOLTORB
+	db 20, MACHOP
+	db 21, MACHOP
 	db 22, EKANS
 	db 22, SANDSHREW
-	db 23, RATICATE
-	db 21, MACHOP
-	db 21, MACHOP
-	db 21, MACHOP
+	db 23, SANDSHREW
+	db 22, MACHOP
+	db 22, MACHOP
+	db 22, MACHOP
 	db  1, MEW
 	end_grass_wildmons
 

@@ -1,19 +1,19 @@
 SafariZoneWestWildMons:
 	def_grass_wildmons 30 ; encounter rate
-	db 37, NIDORINO
-	db 37, NIDORINA
-	db  1, MUNCHLAX
-	db 38, TAUROS
-	db 38, KANGASKHAN
-	db 38, CHANSEY
-	db 40, VENOMOTH
-	db 37, PINSIR
-	db 37, SCYTHER
-	db  1, HAPPINY
-	db 42, NIDOKING
-	db 42, NIDOQUEEN
-	db 42, AERODACTYL
-	db  1, MEW
+	db 37, EXEGGCUTE	; 51
+	db 37, PARASECT		; 51
+	db 38, TANGELA		; 39
+	db 38, TAUROS		; 25
+	db 38, KANGASKHAN	; 25
+	db 38, CHANSEY		; 25
+	db 40, KANGASKHAN	; 13
+	db 37, PINSIR		; 10
+	db 37, SCYTHER		; 10
+	db 44, AERODACTYL	;  3
+	db  1, MUNCHLAX		;  1
+	db  1, MUNCHLAX		;  1
+	db  1, MUNCHLAX		;  1
+	db  1, MEW			;  1
 	end_grass_wildmons
 
 	def_water_wildmons 5 ; encounter rate

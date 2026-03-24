@@ -4,15 +4,15 @@ Route8WildMons:
 	db 20, EKANS
 	db 19, ABRA
 	db 22, GROWLITHE
-	db 22, MEOWTH
+	db 23, GROWLITHE
 	db 22, VULPIX
 	db 23, SANDSHREW
 	db 25, PIDGEOTTO
-	db 25, JIGGLYPUFF
+	db 23, VULPIX
 	db 27, KADABRA
-	db  1, IGGLYBUFF
-	db  1, IGGLYBUFF
-	db  1, IGGLYBUFF
+	db 28, SANDSLASH
+	db 28, SANDSLASH
+	db 28, SANDSLASH
 	db  1, MEW
 	end_grass_wildmons
 

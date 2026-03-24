@@ -1,7 +1,7 @@
 Route9WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 16, NIDORAN_M
-	db 16, NIDORAN_F
+	db 16, RATTATA
+	db 19, ZUBAT
 	db 18, RATTATA
 	db 18, EKANS
 	db 18, SANDSHREW

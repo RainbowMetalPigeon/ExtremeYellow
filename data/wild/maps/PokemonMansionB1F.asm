@@ -5,7 +5,7 @@ PokemonMansionB1FWildMons:
 	db 35, DITTO
 	db 46, KOFFING
 	db 46, GRIMER
-	db 46, RATICATE
+	db 46, GOLBAT
 	db 35, DITTO
 	db 49, MUK
 	db 50, DITTO

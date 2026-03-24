@@ -1,10 +1,10 @@
 RockTunnelB1FWildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 20, ZUBAT
+	db 20, GEODUDE
 	db 17, GEODUDE
 	db 18, MACHOP
-	db 21, ZUBAT
-	db 22, ZUBAT
+	db 21, MACHOP
+	db 22, JIGGLYPUFF
 	db 21, GEODUDE
 	db 20, MACHOP
 	db 14, ONIX

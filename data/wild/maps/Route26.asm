@@ -5,7 +5,7 @@ Route26WildMons:
 	db  5, RATTATA		; 39
 	db  6, GEODUDE		; 25
 	db  6, SPEAROW		; 25
-	db  6, RATTATA		; 25
+	db  6, ODDISH		; 25
 	db  7, GEODUDE		; 13
 	db  7, SPEAROW		; 10
 	db  8, ODDISH		; 10

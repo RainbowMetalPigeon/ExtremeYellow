@@ -24,11 +24,11 @@ Route13WildMonsNight:
 	db 16, SLOWPOKE
 	db 16, SLOWPOKE
 	db 16, SLOWPOKE
-	db 21, SLOWPOKE
 	db 21, SLOWBRO
 	db 26, SLOWBRO
 	db 31, SLOWBRO
-	db 31, SLOWBRO
-	db 31, SLOWBRO
+	db 26, STARYU
+	db 26, STARYU
+	db 26, STARYU
 	db  1, MEW
 	end_water_wildmons

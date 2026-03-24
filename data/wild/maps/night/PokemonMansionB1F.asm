@@ -3,8 +3,8 @@ PokemonMansionB1FWildMonsNight:
 	db 47, WEEZING
 	db 47, MUK
 	db 35, DITTO
-	db 46, KOFFING
-	db 46, GRIMER
+	db 46, RATICATE
+	db 46, RATICATE
 	db 46, RATICATE
 	db 35, DITTO
 	db 49, MUK

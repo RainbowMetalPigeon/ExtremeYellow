@@ -1,9 +1,9 @@
 SafariZoneNorthWildMonsNight:
 	def_grass_wildmons 30 ; encounter rate
-	db 29, BELLSPROUT
+	db 32, VENONAT
 	db 34, DODUO
-	db 33, WEEPINBELL
-	db 37, VICTREEBEL
+	db 39, NIDORINA
+	db 39, NIDORINO
 	db 37, VENOMOTH
 	db 36, TAUROS
 	db 32, RHYHORN
@@ -20,12 +20,12 @@ SafariZoneNorthWildMonsNight:
 	db 15, MAGIKARP
 	db 20, MAGIKARP
 	db 25, MAGIKARP
-	db 32, POLIWAG
+	db 32, STARYU
 	db 33, HORSEA
 	db 32, KRABBY
 	db 34, HORSEA
-	db 33, GOLDEEN
-	db 36, GOLDEEN
+	db 33, STARYU
+	db 36, STARYU
 	db 33, KRABBY
 	db 35, KRABBY
 	db 35, KRABBY

@@ -10,8 +10,8 @@ PowerPlantWildMonsNight:
 	db 38, MAGNETON
 	db 33, ELECTABUZZ
 	db 38, ELECTABUZZ
-	db  1, ELEKID
-	db  1, ELEKID
+	db 38, RAICHU
+	db 38, RAICHU
 	db 38, RAICHU
 	db  1, MEW
 	end_grass_wildmons

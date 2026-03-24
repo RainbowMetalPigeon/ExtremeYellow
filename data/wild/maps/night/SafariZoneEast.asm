@@ -2,7 +2,7 @@ SafariZoneEastWildMonsNight:
 	def_grass_wildmons 30 ; encounter rate
 	db 35, NIDORINO
 	db 35, NIDORINA
-	db 32, EXEGGCUTE
+	db 37, VENONAT
 	db 33, TAUROS
 	db 31, RHYHORN
 	db 32, KANGASKHAN
@@ -23,9 +23,9 @@ SafariZoneEastWildMonsNight:
 	db 25, MAGIKARP
 	db 32, HORSEA
 	db 36, HORSEA
-	db 28, GOLDEEN
-	db 31, POLIWAG
-	db 35, GOLDEEN
+	db 28, STARYU
+	db 31, STARYU
+	db 35, STARYU
 	db 31, PSYDUCK
 	db 36, PSYDUCK
 	db 36, PSYDUCK

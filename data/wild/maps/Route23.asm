@@ -7,12 +7,12 @@ Route23WildMons:
 	db 45, NIDORINO
 	db 45, NIDORINA
 	db 47, PRIMEAPE
-	db 41, FEAROW
-	db 45, FEAROW
-	db 41, FEAROW
-	db 49, FEAROW
-	db 49, FEAROW
-	db 49, FEAROW
+	db 43, FEAROW
+	db 48, FEAROW
+	db 52, FEAROW
+	db 52, ANNIHILAPE
+	db 52, ANNIHILAPE
+	db 52, ANNIHILAPE
 	db  1, MEW
 	end_grass_wildmons
 

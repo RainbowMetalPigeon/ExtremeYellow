@@ -9,10 +9,10 @@ MtMoon1FWildMons:
 	db 10, GEODUDE
 	db 11, ZUBAT
 	db 12, SANDSHREW
-	db 11, CLEFAIRY
-	db  1, CLEFFA
-	db  1, CLEFFA
-	db  1, CLEFFA
+	db 13, ZUBAT
+	db 13, ZUBAT
+	db 13, ZUBAT
+	db 13, ZUBAT
 	db  1, MEW
 	end_grass_wildmons
 

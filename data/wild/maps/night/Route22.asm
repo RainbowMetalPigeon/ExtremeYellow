@@ -1,9 +1,9 @@
 Route22WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db  2, NIDORAN_M
-	db  2, NIDORAN_F
-	db  3, MANKEY
 	db  3, RATTATA
+	db  3, ZUBAT
+	db  3, MANKEY
+	db  4, RATTATA
 	db  4, NIDORAN_M
 	db  4, NIDORAN_F
 	db  5, MANKEY
