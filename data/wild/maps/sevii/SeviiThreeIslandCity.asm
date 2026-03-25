@@ -1,14 +1,14 @@
 SeviiThreeIslandCityWildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db 24, CLEFAIRY		; 19.9%
-	db 24, JIGGLYPUFF	; 19.9%
-	db 25, VENONAT		; 15.2%
-	db 26, CLEFAIRY		;  9.8%
-	db 26, JIGGLYPUFF	;  9.8%
-	db 28, VENOMOTH		;  9.8%
-	db 31, ELECTRODE	;  5.1%
+	db 24, GEODUDE		; 19.9%
+	db 24, VOLTORB		; 19.9%
+	db 24, MAGNEMITE	; 15.2%
+	db 26, GEODUDE		;  9.8%
+	db 26, VOLTORB		;  9.8%
+	db 26, MAGNEMITE	;  9.8%
+	db 30, ELECTRODE	;  5.1%
 	db 30, MAGNETON		;  3.9%
-	db 32, GRAVELER		;  3.9%
+	db 30, GRAVELER		;  3.9%
 	db 25, EEVEE		;  1.2%
 	db 25, BULBASAUR	;  0.4%
 	db 25, CHARMANDER	;  0.4%

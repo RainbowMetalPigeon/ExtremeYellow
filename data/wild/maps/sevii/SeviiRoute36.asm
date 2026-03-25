@@ -2,15 +2,15 @@ SeviiRoute36WildMons:
 	def_grass_wildmons 25 ; encounter rate
 	db 38, PIDGEOTTO	; 19.9%
 	db 38, FEAROW		; 19.9%
-	db 38, GLOOM		; 15.2%
+	db 38, PIDGEOTTO	; 15.2%
 	db 40, PIDGEOT		;  9.8%
 	db 40, FEAROW		;  9.8%
-	db 40, GLOOM		;  9.8%
+	db 40, TANGELA		;  9.8%
 	db 42, PIDGEOT		;  5.1%
 	db 42, FEAROW		;  3.9%
-	db 43, VILEPLUME	;  3.9%
-	db 38, TANGELA		;  1.2%
-	db 38, TANGELA		;  0.4%
+	db 38, TANGELA		;  3.9%
+	db 41, TANGELA		;  1.2%
+	db 44, TANGROWTH	;  0.4%
 	db 44, TANGROWTH	;  0.4%
 	db 44, TANGROWTH	;  0.4%
 	db	1, MEW			;  0.4%

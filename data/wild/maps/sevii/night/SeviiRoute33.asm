@@ -1,18 +1,18 @@
 SeviiRoute33WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 27, PONYTA		; 19.9%
-	db 27, DODUO		; 19.9%
-	db 28, EKANS		; 15.2%
+	db 27, DROWZEE		; 19.9%
+	db 27, EKANS		; 19.9%
+	db 28, DROWZEE		; 15.2%
 	db 31, PONYTA		;  9.8%
-	db 31, DODUO		;  9.8%
+	db 31, EKANS		;  9.8%
 	db 32, EKANS		;  9.8%
-	db 32, RAPIDASH		;  5.1%
-	db 32, DODRIO		;  3.9%
-	db 33, ARBOK		;  3.9%
-	db 34, DROWZEE		;  1.2%
-	db 34, DROWZEE		;  0.4%
-	db 39, HYPNO		;  0.4%
-	db 39, HYPNO		;  0.4%
+	db 32, DROWZEE		;  5.1%
+	db 32, EKANS		;  3.9%
+	db 35, DODRIO		;  3.9%
+	db 37, ARBOK		;  1.2%
+	db 37, HYPNO		;  0.4%
+	db 37, HYPNO		;  0.4%
+	db 37, HYPNO		;  0.4%
 	db  1, MEW			;  0.4%
 	end_grass_wildmons
 
@@ -26,8 +26,8 @@ SeviiRoute33WildMonsNight:
 	db 30, SLOWPOKE		;  5.1%
 	db 25, SLOWPOKE		;  3.9%
 	db 30, SLOWPOKE		;  3.9%
-	db 35, SEADRA		;  1.2%
-	db 35, SEADRA		;  0.4%
+	db 35, STARYU		;  1.2%
+	db 35, STARYU		;  0.4%
 	db 35, POLIWRATH	;  0.4%
 	db 40, POLIWRATH	;  0.4%
 	db	1, MEW			;  0.4%

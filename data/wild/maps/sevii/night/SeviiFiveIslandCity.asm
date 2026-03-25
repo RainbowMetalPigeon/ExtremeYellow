@@ -1,10 +1,10 @@
 SeviiFiveIslandCityWildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
 	db 38, MACHOKE		; 19.9%
-	db 38, FEAROW		; 19.9%
+	db 38, GOLBAT		; 19.9%
 	db 38, ARBOK		; 15.2%
 	db 40, MACHOKE		;  9.8%
-	db 40, FEAROW		;  9.8%
+	db 40, GOLBAT		;  9.8%
 	db 40, ARBOK		;  9.8%
 	db 37, GRIMER		;  5.1%
 	db 40, MUK			;  3.9%
@@ -24,9 +24,9 @@ SeviiFiveIslandCityWildMonsNight:
 	db 25, TENTACRUEL	;  9.8%
 	db 35, TENTACRUEL	;  9.8%
 	db 40, TENTACRUEL	;  5.1%
-	db 30, SEADRA		;  3.9%
-	db 30, SEADRA		;  3.9%
-	db 35, SEADRA		;  1.2%
+	db 30, STARYU		;  3.9%
+	db 30, STARYU		;  3.9%
+	db 35, STARMIE		;  1.2%
 	db 40, KINGDRA		;  0.4%
 	db 40, KINGDRA		;  0.4%
 	db 40, KINGDRA		;  0.4%

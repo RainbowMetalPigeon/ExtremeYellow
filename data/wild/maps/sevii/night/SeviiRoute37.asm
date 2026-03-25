@@ -5,7 +5,7 @@ SeviiRoute37WildMonsNight:
 	db 51, ANNIHILAPE	; 15.2%
 	db 53, NINETALES	;  9.8%
 	db 53, WIGGLYTUFF	;  9.8%
-	db 53, ANNIHILAPE	;  9.8%
+	db 53, NINETALES	;  9.8%
 	db 55, NINETALES	;  5.1%
 	db 55, WIGGLYTUFF	;  3.9%
 	db 55, ANNIHILAPE	;  3.9%
@@ -21,9 +21,9 @@ SeviiRoute37WildMonsNight:
 	db 45, TENTACRUEL	; 19.9%
 	db 50, TENTACRUEL	; 15.2%
 	db 50, TENTACRUEL	;  9.8%
-	db 45, SEAKING		;  9.8%
-	db 45, SEAKING		;  9.8%
-	db 50, SEAKING		;  5.1%
+	db 45, STARMIE		;  9.8%
+	db 45, STARMIE		;  9.8%
+	db 50, STARMIE		;  5.1%
 	db 50, KINGDRA		;  3.9%
 	db 50, KINGDRA		;  3.9%
 	db 55, KINGDRA		;  1.2%

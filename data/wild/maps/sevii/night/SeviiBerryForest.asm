@@ -1,9 +1,9 @@
 SeviiBerryForestWildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 28, BEEDRILL		; 19.9%
 	db 28, DROWZEE		; 19.9%
-	db 29, DROWZEE		; 15.2%
-	db 32, BEEDRILL		;  9.8%
+	db 30, DROWZEE		; 19.9%
+	db 29, GASTLY		; 15.2%
+	db 32, HAUNTER		;  9.8%
 	db 32, DROWZEE		;  9.8%
 	db 33, GASTLY		;  9.8%
 	db 33, DROWZEE		;  5.1%

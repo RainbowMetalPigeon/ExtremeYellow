@@ -1,14 +1,14 @@
 Route24WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 12, VENONAT
+	db 12, ODDISH
 	db 12, VENONAT
 	db 14, ABRA
 	db 14, VENONAT
 	db 14, VENONAT
 	db 17, ABRA
 	db 15, VENONAT
-	db 18, KAKUNA
-	db 18, METAPOD
+	db 16, ODDISH
+	db 18, ODDISH
 	db 17, VENONAT
 	db 20, EKANS
 	db 20, EKANS

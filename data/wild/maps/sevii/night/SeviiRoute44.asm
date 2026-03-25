@@ -3,10 +3,10 @@ SeviiRoute44WildMonsNight:
 	end_grass_wildmons
 
 	def_water_wildmons 5 ; encounter rate
-	db 45, TENTACRUEL	; 19.9%
-	db 45, TENTACRUEL	; 19.9%
-	db 50, TENTACRUEL	; 15.2%
-	db 50, TENTACRUEL	;  9.8%
+	db 45, STARMIE		; 19.9%
+	db 45, STARMIE		; 19.9%
+	db 50, STARMIE		; 15.2%
+	db 50, STARMIE		;  9.8%
 	db 45, KINGDRA		;  9.8%
 	db 45, KINGDRA		;  9.8%
 	db 50, KINGDRA		;  5.1%

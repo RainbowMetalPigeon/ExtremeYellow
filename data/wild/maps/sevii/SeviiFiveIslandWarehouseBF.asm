@@ -6,11 +6,11 @@ SeviiFiveIslandWarehouseBFWildMons:
 	db 39, MUK			;  9.8%
 	db 39, RATICATE		;  9.8%
 	db 39, PARASECT		;  9.8%
-	db 40, VENOMOTH		;  5.1%
-	db 40, VENOMOTH		;  3.9%
-	db 40, VENOMOTH		;  3.9%
-	db 40, VENOMOTH		;  1.2%
-	db 42, MACHOKE		;  0.4%
+	db 40, GRIMER		;  5.1%
+	db 40, PARASECT		;  3.9%
+	db 40, MUK			;  3.9%
+	db 40, MACHOKE		;  1.2%
+	db 40, MACHOKE		;  0.4%
 	db 42, MACHOKE		;  0.4%
 	db 42, MACHOKE		;  0.4%
 	db	1, MEW			;  0.4%

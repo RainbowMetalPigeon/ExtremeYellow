@@ -15,6 +15,6 @@ SeviiRoute39WildMons:
 	db 55, VAPOREON		;  1.2%
 	db 55, VAPOREON		;  0.4%
 	db 55, KINGDRA		;  0.4%
-	db 55, VAPOREON		;  0.4%
+	db 55, KINGDRA		;  0.4%
 	db	1, MEW			;  0.4%
 	end_water_wildmons

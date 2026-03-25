@@ -7,9 +7,9 @@ SeviiRoute43WildMonsNight:
 	db 55, PORYGONZ		;  9.8%
 	db 55, KLEAVOR		;  9.8%
 	db 55, ALAKAZAM		;  5.1%
-	db 55, GENGAR		;  3.9%
-	db 55, GENGAR		;  3.9%
-	db 60, VENUSAUR		;  1.2%
+	db 55, MUK			;  3.9%
+	db 55, RHYPERIOR	;  3.9%
+	db 60, GENGAR		;  1.2%
 	db 60, CHARIZARD	;  0.4%
 	db 60, CHARIZARD	;  0.4%
 	db 60, CHARIZARD	;  0.4%

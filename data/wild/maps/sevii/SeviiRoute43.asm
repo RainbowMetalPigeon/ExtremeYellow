@@ -7,8 +7,8 @@ SeviiRoute43WildMons:
 	db 55, PORYGONZ		;  9.8%
 	db 55, KLEAVOR		;  9.8%
 	db 55, ALAKAZAM		;  5.1%
-	db 55, GENGAR		;  3.9%
-	db 55, GENGAR		;  3.9%
+	db 55, TAUROS		;  3.9%
+	db 55, ARCANINE		;  3.9%
 	db 60, VENUSAUR		;  1.2%
 	db 60, CHARIZARD	;  0.4%
 	db 60, CHARIZARD	;  0.4%

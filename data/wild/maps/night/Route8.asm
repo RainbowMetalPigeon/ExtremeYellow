@@ -1,7 +1,7 @@
 Route8WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
 	db 20, JIGGLYPUFF
-	db 20, EKANS
+	db 20, VULPIX
 	db 19, ABRA
 	db 22, GROWLITHE
 	db 22, MEOWTH

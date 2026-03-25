@@ -10,9 +10,9 @@ SeviiRoute34WildMonsNight:
 	db 25, TENTACRUEL	;  9.8%
 	db 35, TENTACRUEL	;  9.8%
 	db 40, TENTACRUEL	;  5.1%
-	db 30, SEADRA		;  3.9%
-	db 30, SEADRA		;  3.9%
-	db 35, SEADRA		;  1.2%
+	db 30, STARYU		;  3.9%
+	db 30, STARYU		;  3.9%
+	db 35, STARMIE		;  1.2%
 	db 40, KINGDRA		;  0.4%
 	db 40, KINGDRA		;  0.4%
 	db 40, KINGDRA		;  0.4%

@@ -10,8 +10,8 @@ SeviiRoute38WildMonsNight:
 	db 45, SLOWBRO		;  9.8%
 	db 45, SLOWBRO		;  9.8%
 	db 50, SLOWBRO		;  5.1%
-	db 50, KINGDRA		;  3.9%
-	db 50, KINGDRA		;  3.9%
+	db 50, STARMIE		;  3.9%
+	db 50, STARMIE		;  3.9%
 	db 55, KINGDRA		;  1.2%
 	db 55, KINGDRA		;  0.4%
 	db 55, KINGDRA		;  0.4%

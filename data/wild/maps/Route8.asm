@@ -8,7 +8,7 @@ Route8WildMons:
 	db 22, VULPIX
 	db 23, SANDSHREW
 	db 25, PIDGEOTTO
-	db 23, VULPIX
+	db 23, ABRA
 	db 27, KADABRA
 	db 28, SANDSLASH
 	db 28, SANDSLASH

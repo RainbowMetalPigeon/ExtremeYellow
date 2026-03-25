@@ -1,4 +1,4 @@
-SeviiSecretBeachWildMons: ; TBE
+SeviiSecretBeachWildMons:
 	def_grass_wildmons 25 ; encounter rate
 	db 50, PIDGEY		; 19.9%
 	db 55, PIDGEOTTO	; 19.9%
@@ -27,7 +27,7 @@ SeviiSecretBeachWildMons: ; TBE
 	db 55, STARMIE		;  3.9%
 	db 55, CLOYSTER		;  3.9%
 	db 55, GYARADOS		;  1.2%
-	db 65, DRAGONAIR	;  0.4%
+	db 65, DRAGONITE	;  0.4%
 	db 70, BLASTOISE	;  0.4%
 	db 99, MAGIKARP		;  0.4%
 	db	1, MEW			;  0.4%

@@ -3,7 +3,7 @@ SeviiRoute42WildMons:
 	db 55, TANGROWTH	; 19.9%
 	db 55, VICTREEBEL	; 19.9%
 	db 55, BELLOSSOM	; 15.2%
-	db 55, VILEPLUME	;  9.8%
+	db 55, ESPEON		;  9.8%
 	db 55, EXEGGUTOR	;  9.8%
 	db 55, KLEAVOR		;  9.8%
 	db 55, PINSIR		;  5.1%

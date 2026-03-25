@@ -1,6 +1,6 @@
 Route14WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 27, VENONAT
+	db 27, ODDISH
 	db 28, VENONAT
 	db 29, VENONAT
 	db 33, GOLBAT
@@ -8,11 +8,11 @@ Route14WildMonsNight:
 	db 32, PERSIAN
 	db 30, VENONAT
 	db 31, VENOMOTH
-	db 34, GOLBAT
+	db 34, GLOOM
 	db 35, GOLBAT
-	db 35, VENOMOTH
-	db 35, VENOMOTH
-	db 35, VENOMOTH
+	db 35, VILEPLUME
+	db 35, VILEPLUME
+	db 35, VILEPLUME
 	db  1, MEW
 	end_grass_wildmons
 

@@ -1,10 +1,10 @@
 SeviiPatternBushWildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 55, BUTTERFREE	; 19.9%
-	db 55, BEEDRILL		; 19.9%
-	db 55, PIDGEOT		; 15.2%
+	db 55, LICKITUNG	; 19.9%
+	db 55, VENOMOTH		; 19.9%
+	db 55, SANDSLASH	; 15.2%
 	db 55, RATICATE		;  9.8%
-	db 55, FEAROW		;  9.8%
+	db 55, VILEPLUME	;  9.8%
 	db 55, ARBOK		;  9.8%
 	db 55, SANDSLASH	;  5.1%
 	db 55, VILEPLUME	;  3.9%

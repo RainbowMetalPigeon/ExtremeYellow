@@ -20,9 +20,9 @@ SeviiRoute31WildMonsNight:
 	db 15, TENTACOOL	; 19.9%
 	db 25, TENTACOOL	; 19.9%
 	db 30, TENTACRUEL	; 15.2%
-	db 20, GOLDUCK		;  9.8%
-	db 25, GOLDUCK		;  9.8%
-	db 30, GOLDUCK		;  9.8%
+	db 20, STARYU		;  9.8%
+	db 25, STARYU		;  9.8%
+	db 30, STARMIE		;  9.8%
 	db 15, SEADRA		;  5.1%
 	db 25, SEADRA		;  3.9%
 	db 30, SEADRA		;  3.9%

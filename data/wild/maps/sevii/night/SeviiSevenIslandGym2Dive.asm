@@ -1,9 +1,9 @@
 SeviiSevenIslandGym2DiveWildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db  99, STARMIE		; 19.9%
-	db  99, STARMIE		; 19.9%
-	db  99, STARMIE		; 15.2%
-	db  99, STARMIE		;  9.8%
+	db  99, MSTARMIE	; 19.9%
+	db  99, MSTARMIE	; 19.9%
+	db  99, MSTARMIE	; 15.2%
+	db  99, MSTARMIE	;  9.8%
 	db  99, KINGDRA		;  9.8%
 	db  99, KINGDRA		;  9.8%
 	db  99, KINGDRA		;  5.1%

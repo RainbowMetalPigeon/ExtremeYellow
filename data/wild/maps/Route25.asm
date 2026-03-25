@@ -1,12 +1,12 @@
 Route25WildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 12, ODDISH
+	db 15, KAKUNA
 	db 12, BELLSPROUT
 	db 14, ABRA
-	db 14, ODDISH
+	db 15, METAPOD
 	db 14, BELLSPROUT
 	db 15, PIDGEY
-	db 17, ODDISH
+	db 18, ABRA
 	db 18, KAKUNA
 	db 18, METAPOD
 	db 17, BELLSPROUT

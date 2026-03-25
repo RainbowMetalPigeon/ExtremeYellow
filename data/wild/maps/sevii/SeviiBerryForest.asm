@@ -1,15 +1,15 @@
 SeviiBerryForestWildMons:
 	def_grass_wildmons 25 ; encounter rate
 	db 28, BEEDRILL		; 19.9%
-	db 28, DROWZEE		; 19.9%
-	db 29, DROWZEE		; 15.2%
+	db 28, BEEDRILL		; 19.9%
+	db 29, BEEDRILL		; 15.2%
 	db 32, BEEDRILL		;  9.8%
-	db 32, DROWZEE		;  9.8%
-	db 33, GASTLY		;  9.8%
-	db 33, DROWZEE		;  5.1%
-	db 33, DROWZEE		;  3.9%
-	db 34, HAUNTER		;  3.9%
-	db 36, HYPNO		;  1.2%
+	db 32, BEEDRILL		;  9.8%
+	db 33, BEEDRILL		;  9.8%
+	db 33, BEEDRILL		;  5.1%
+	db 33, BEEDRILL		;  3.9%
+	db 34, DROWZEE		;  3.9%
+	db 36, GASTLY		;  1.2%
 	db 36, HYPNO		;  0.4%
 	db 41, HYPNO		;  0.4%
 	db 41, HYPNO		;  0.4%

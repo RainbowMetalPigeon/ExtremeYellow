@@ -3,13 +3,13 @@ SeviiPatternBushWildMons:
 	db 55, BUTTERFREE	; 19.9%
 	db 55, BEEDRILL		; 19.9%
 	db 55, PIDGEOT		; 15.2%
-	db 55, RATICATE		;  9.8%
+	db 55, SANDSLASH	;  9.8%
 	db 55, FEAROW		;  9.8%
 	db 55, ARBOK		;  9.8%
 	db 55, SANDSLASH	;  5.1%
-	db 55, VILEPLUME	;  3.9%
+	db 55, LICKITUNG	;  3.9%
 	db 55, PARASECT		;  3.9%
-	db 55, VENOMOTH		;  1.2%
+	db 55, ARBOK		;  1.2%
 	db 58, LICKILICKY	;  0.4%
 	db 58, LICKILICKY	;  0.4%
 	db 58, LICKILICKY	;  0.4%

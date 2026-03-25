@@ -9,7 +9,7 @@ SeviiRoute35WildMonsNight:
 	db 20, TENTACRUEL	;  9.8%
 	db 25, TENTACRUEL	;  9.8%
 	db 35, TENTACRUEL	;  9.8%
-	db 40, SEAKING		;  5.1%
+	db 40, STARMIE		;  5.1%
 	db 30, SEADRA		;  3.9%
 	db 30, SEADRA		;  3.9%
 	db 43, CLOYSTER		;  1.2%

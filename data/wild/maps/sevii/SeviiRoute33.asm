@@ -6,13 +6,13 @@ SeviiRoute33WildMons:
 	db 31, PONYTA		;  9.8%
 	db 31, DODUO		;  9.8%
 	db 32, EKANS		;  9.8%
-	db 32, RAPIDASH		;  5.1%
-	db 32, DODRIO		;  3.9%
+	db 32, PONYTA		;  5.1%
+	db 32, DODUO		;  3.9%
 	db 33, ARBOK		;  3.9%
-	db 34, DROWZEE		;  1.2%
-	db 34, DROWZEE		;  0.4%
-	db 39, HYPNO		;  0.4%
-	db 39, HYPNO		;  0.4%
+	db 37, DODRIO		;  1.2%
+	db 37, RAPIDASH		;  0.4%
+	db 37, RAPIDASH		;  0.4%
+	db 37, RAPIDASH		;  0.4%
 	db  1, MEW			;  0.4%
 	end_grass_wildmons
 

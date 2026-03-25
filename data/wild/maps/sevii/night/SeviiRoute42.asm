@@ -1,10 +1,10 @@
 SeviiRoute42WildMonsNight:
 	def_grass_wildmons 25 ; encounter rate
-	db 55, TANGROWTH	; 19.9%
-	db 55, VICTREEBEL	; 19.9%
-	db 55, BELLOSSOM	; 15.2%
-	db 55, VILEPLUME	;  9.8%
-	db 55, EXEGGUTOR	;  9.8%
+	db 55, HYPNO		; 19.9%
+	db 55, GENGAR		; 19.9%
+	db 55, VILEPLUME	; 15.2%
+	db 55, UMBREON		;  9.8%
+	db 55, RAICHU		;  9.8%
 	db 55, KLEAVOR		;  9.8%
 	db 55, PINSIR		;  5.1%
 	db 55, EEVEE		;  3.9%

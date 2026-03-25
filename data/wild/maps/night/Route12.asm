@@ -1,11 +1,11 @@
 Route12WildMonsNight:
 	def_grass_wildmons 15 ; encounter rate
-	db 25, VENONAT
+	db 25, ODDISH
 	db 26, VENONAT
-	db 27, VENONAT
-	db 28, GOLBAT
 	db 27, GLOOM
-	db 27, RATICATE
+	db 28, GOLBAT
+	db 28, GLOOM
+	db 28, RATICATE
 	db 29, MEOWTH
 	db 31, GOLBAT
 	db 31, VENOMOTH

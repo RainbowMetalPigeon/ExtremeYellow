@@ -10,9 +10,9 @@ SeviiShipDockWildMonsNight:
 	db 20, TENTACOOL	; 25
 	db 25, TENTACOOL	; 25
 	db 30, TENTACOOL	; 13
-	db 35, TENTACOOL	; 10
-	db 40, TENTACOOL	; 10
-	db 45, TENTACOOL	;  3
+	db 35, STARYU		; 10
+	db 40, STARYU		; 10
+	db 45, STARMIE		;  3
 	db 85, TENTACRUEL	;  1
 	db 85, TENTACRUEL	;  1
 	db 85, TENTACRUEL	;  1
