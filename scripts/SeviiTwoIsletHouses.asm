@@ -125,7 +125,84 @@ SeviiTwoIsletHousesText5:
 ; house 3 ------------------------------
 
 SeviiTwoIsletHousesText6:
-	text_far _SeviiTwoIsletHousesText6
+	text_asm
+	CheckEvent EVENT_SHINY_RITUAL_ACTIVE
+	jr z, .ritualNotActive
+	ld hl, SeviiTwoIsletHousesText6_Hurry
+	jr .printAndEnd
+.ritualNotActive
+	ld hl, SeviiTwoIsletHousesText6_Intro
+	call PrintText
+	ld b, NUGGET
+	call IsItemInBag ; z if not
+	jr z, .noIngredient
+	ld b, MAX_REVIVE
+	call IsItemInBag ; z if not
+	jr z, .noIngredient
+	ld b, MAX_ELIXER
+	call IsItemInBag ; z if not
+	jr z, .noIngredient
+	ld b, PP_UP
+	call IsItemInBag ; z if not
+	jr nz, .haveIngredient
+.noIngredient
+	ld hl, SeviiTwoIsletHousesText6_NoIngredients
+	jr .printAndEnd
+.haveIngredient
+	ld hl, SeviiTwoIsletHousesText6_DoRitual
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, .choseNo
+; perform the ritual
+	call GBFadeOutToWhite
+	ld a, SFX_SHRINK
+	call PlaySound
+	ld a, NUGGET
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld a, MAX_REVIVE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld a, MAX_ELIXER
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld a, PP_UP
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	call GBFadeInFromWhite
+	SetEvent EVENT_SHINY_RITUAL_ACTIVE
+	ld hl, SeviiTwoIsletHousesText6_RitualDoneGo
+	jr .printAndEnd
+.choseNo
+	ld hl, SeviiTwoIsletHousesText6_Refused
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiTwoIsletHousesText6_Intro:
+	text_far _SeviiTwoIsletHousesText6_Intro
+	text_end
+
+SeviiTwoIsletHousesText6_NoIngredients:
+	text_far _SeviiTwoIsletHousesText6_NoIngredients
+	text_end
+
+SeviiTwoIsletHousesText6_DoRitual:
+	text_far _SeviiTwoIsletHousesText6_DoRitual
+	text_end
+
+SeviiTwoIsletHousesText6_Refused:
+	text_far _SeviiTwoIsletHousesText6_Refused
+	text_end
+
+SeviiTwoIsletHousesText6_RitualDoneGo:
+	text_far _SeviiTwoIsletHousesText6_RitualDoneGo
+	text_end
+
+SeviiTwoIsletHousesText6_Hurry:
+	text_far _SeviiTwoIsletHousesText6_Hurry
 	text_end
 
 SeviiTwoIsletHousesSignText1:

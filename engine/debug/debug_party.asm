@@ -316,7 +316,7 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 DebugItemsList:
 	db SMASH_BALL, 15
 	db TOWN_MAP, 1
-	db GOOD_ROD, 1
+;	db GOOD_ROD, 1
 	db ESCAPE_ROPE, 99
 	db MASTER_BALL, 11
 	db SUB_BALL, 15
@@ -327,7 +327,7 @@ DebugItemsList:
 	db PERFECTER, 99
 	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
-	db CHEAT_CANDY, 1
+;	db CHEAT_CANDY, 1
 ;	db LINK_CABLE, 3
 	db MYSTERY_MAP, 1
 ;	db ONIGIRI_BOX, 99
@@ -341,15 +341,15 @@ DebugItemsList:
 	db CARD_KEY, 1
 	db REVIVE, 99
 	db LIFT_KEY, 1
-	db GOLD_TEETH, 1
-	db SILPH_SCOPE, 1
+;	db GOLD_TEETH, 1
+;	db SILPH_SCOPE, 1
 ;	db ICE_ORB, 1
 ;	db THUNDER_ORB, 1
 ;	db FIRE_ORB, 1
 ;	db TM_WILL_O_WISP, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
-	db MEGA_STONE_X, 99
+;	db MEGA_STONE_X, 99
 	db MEGA_STONE_Y, 99
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
@@ -370,7 +370,11 @@ DebugItemsList:
 ;	db ROOM_KEY_34, 1
 ;	db ROOM_KEY_37, 1
 ;	db PASSEPARTOUT, 1
-	db FRESH_WATER, 11
+;	db FRESH_WATER, 11
+	db NUGGET, 7
+	db MAX_REVIVE, 7
+	db MAX_ELIXER, 7
+	db PP_UP, 7
 	db -1 ; end
 
 ELSE

@@ -700,8 +700,70 @@ _SeviiTwoIsletHousesText5::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiTwoIsletHousesText6:: ; TBE
-	text "Shiny!!!"
+_SeviiTwoIsletHousesText6_Intro::
+	text "I LOVE shiny #-"
+	line "MON... you could"
+	cont "even call me a"
+	cont "'shiny hunter'."
+
+	para "That's why I"
+	line "concocted the"
+	cont "ultimate shiny"
+	cont "summoning ritual!"
+	cont "For a whole 4"
+	cont "minutes, you'll be"
+	cont "much more likely"
+	cont "to find a shiny!"
+
+	para "If it works?"
+	line "But of course!"
+
+	para "...the only issue"
+	line "is that I'm so"
+	cont "massively unlucky"
+	cont "that even a 99%"
+	cont "chance would mean"
+	cont "nothing to me..."
+
+	para "But it works! I'm"
+	line "sure! Trust me!"
+
+	para "To perform the"
+	line "ritual, I need a"
+	cont "PP UP, a NUGGET,"
+	cont "a MAX REVIVE, and"
+	cont "a MAX ELIXER."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTwoIsletHousesText6_NoIngredients::
+	text "Ah, you lack some"
+	line "ingredients!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText6_DoRitual::
+	text "Awesome! You have"
+	line "all that's needed!"
+	cont "Should I proceed?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText6_Refused::
+	text "So you don't"
+	line "trust me...?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText6_RitualDoneGo::
+	text "The ritual's done!"
+	line "Now hurry, go!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText6_Hurry::
+	text "Don't waste time!"
+	line "Go shiny hunting!"
 ;	xxxx "123456789012345678"
 	done
 

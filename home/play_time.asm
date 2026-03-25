@@ -106,3 +106,21 @@ TrackPlayTime_Tanoby:: ; new
 ; if we are here: 120 Tanoby seconds passed
 	SetEvent EVENT_SEVII_TANOBY_TIME_PASSED
 	ret
+
+TrackPlayTime_ShinyRitual:: ; new
+	CheckEvent EVENT_SHINY_RITUAL_ACTIVE
+	ret z
+; the event was triggered
+	ld a, [wPlayTimeFrames]
+	and a
+	ret nz
+; if frames=0, then 60 are passed, ergo 1 second
+; increase the dedicated second counter
+	ld a, [wShinyRitualSeconds]
+	inc a
+	ld [wShinyRitualSeconds], a
+	cp 240
+	ret nz
+; if we are here: 240 seconds passed
+	ResetEvent EVENT_SHINY_RITUAL_ACTIVE
+	ret

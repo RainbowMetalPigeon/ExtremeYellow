@@ -176,11 +176,12 @@ SeviiLotteryPrizes:
 	db 100, POKE_BALL
 	db 145, MAX_REPEL
 	db 164, NUGGET
-	db 179, HP_UP
-	db 194, CALCIUM
-	db 209, CARBOS
-	db 224, PROTEIN
-	db 239, IRON
+	db 178, HP_UP
+	db 192, CALCIUM
+	db 206, CARBOS
+	db 220, PROTEIN
+	db 234, IRON
+	db 239, MAX_REVIVE
 	db 244, MAX_ELIXER
 	db 249, PP_UP
 	db 254, RARE_CANDY

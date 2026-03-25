@@ -2325,7 +2325,8 @@ wCeruleanCityCurScript:: db
 ;   db 7
 ;wSSAnneBowCurScript:: db
 ;wViridianForestCurScript:: db
-	ds 1 ; new, from optimizing the scripts, UNUSED
+
+wShinyRitualSeconds:: db ; new
 wAlteringCaveLoopNumber:: db ; new
 
 wMuseum1FCurScript:: db

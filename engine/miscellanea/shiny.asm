@@ -83,14 +83,21 @@ AssignShinyToBattleFacilityTrainers::
 ; =====================================
 
 RollForShiny::
+; is the shiny ritual active?
+    CheckEvent EVENT_SHINY_RITUAL_ACTIVE
+    jr z, .noRitual
+; ritual is active: high shiny probabilities
+    call Random
+    cp 52 ; 20% of 256
+    jr nc, .badShinyRoll
+    jr .shinyEncounter
+
+.noRitual
 ; roll some numbers and do some checks
     call Random
-
 ; "debug"/testing option, simply scalable
 ;    and %00000100
 ;    jr nz, .shinyEncounter
-
-    ldh a, [hRandomAdd]
     cp 42 ; can be any number, I just want a 1/256 chance here
     jr nz, .badShinyRoll ; nz for real, z for testing purposes
 ; second random number, the badge-dependent one
