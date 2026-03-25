@@ -796,13 +796,35 @@ _SeviiTwoIsletHousesSignText1::
 	done
 
 _SeviiTwoIsletHousesSignText2_Core::
-	text "Till Fated"
-	line "Encounter:"
+	text "Advance, complex"
+	line "algorithms run"
+	cont "through silicon"
+	cont "synapses. Bits"
+	cont "chase each other"
+	cont "in a voltage"
+	cont "dance of binary"
+	cont "beauty, electrons"
+	cont "vaulting from"
+	cont "source to gate as"
+	cont "shooting stars."
 
-	para "UuHhUuhH..."
-	line "@"
-	text_decimal wNonShinyEncounters, 2, 4 ; address to read from, number of bytes to read, number of digits to display
-	text "!!!"
+	para "Can a mere machine"
+	line "probe the depths"
+	cont "of your soul?"
+
+	para "What separates a"
+	line "human mind from"
+	cont "an arbitrarily"
+	cont "complex program?"
+
+	para "The computer"
+	line "has computed."
+;	xxxx "123456789012345678"
+
+	para "'Encounters Until"
+	line "Fated One: @"
+	text_decimal wUniQuizAnswer, 2, 4 ; address to read from, number of bytes to read, number of digits to display
+	text ".'"
 	done
 ;	xxxx "123456789012345678"
 	done

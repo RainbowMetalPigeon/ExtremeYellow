@@ -2837,9 +2837,10 @@ ItemUseOldRod:
 	jp c, ItemUseNotTime
 ; new, check if we are in Secluded Atoll: no fishing there
 	call CheckIfSecludedForFishing
-	ld a, [wRodResponse]
-	cp 2
-	ret z
+	jr nz, ItemUseOldRodFar
+	ld a, $2
+	ld [wRodResponse], a
+	jp DoNotGenerateFishingEncounter ; do not generate an encounter
 ; BTV
 ItemUseOldRodFar:: ; new
 	lb bc, 5, MAGIKARP
@@ -2857,9 +2858,10 @@ ItemUseGoodRod::
 	jp c, ItemUseNotTime
 ; new, check if we are in Secluded Atoll: no fishing there
 	call CheckIfSecludedForFishing
-	ld a, [wRodResponse]
-	cp 2
-	ret z
+	jr nz, .RandomLoop
+	ld a, $2
+	ld [wRodResponse], a
+	jp DoNotGenerateFishingEncounter ; do not generate an encounter
 ; BTV
 .RandomLoop
 	; new, to improve rods (Obsidian Fishing Guru) - begin
@@ -2986,22 +2988,18 @@ FishingInit:
 	scf ; can't fish when surfing
 	ret
 
-CheckIfSecludedForFishing: ; new
+CheckIfSecludedForFishing: ; new: z if we are in
 	CheckEvent EVENT_IN_SEVII
 	ret nz
 	ld a, [wCurMap]
 	cp SECLUDED_ATOLL_NE
-	jr z, .yesSecluded
+	ret z
 	cp SECLUDED_ATOLL_NW
-	jr z, .yesSecluded
+	ret z
 	cp SECLUDED_ATOLL_SE
-	jr z, .yesSecluded
+	ret z
 	cp SECLUDED_ATOLL_SW
-	ret nz
-.yesSecluded
-	ld a, $2
-	ld [wRodResponse], a
-	jp DoNotGenerateFishingEncounter ; do not generate an encounter
+	ret
 
 ItemUseOaksParcel:
 	jp ItemUseNotYoursToUse

@@ -36,6 +36,7 @@ SmartSelectButton:: ; SELECT was pressed
     tx_pre PlayerStartsFishing
 	ld a, SFX_HEAL_AILMENT
 	call PlaySound
+.test
 	ld a, $2
 	ld [wd49c], a
 	ld a, $81

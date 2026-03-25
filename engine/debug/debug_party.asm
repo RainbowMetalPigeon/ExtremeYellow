@@ -199,8 +199,10 @@ IF DEF(_DEBUG)
 ;	ld a, 59
 ;	ld [wPlayTimeMinutes], a
 
-;	ld a, 253
-;	ld [wNonShinyEncounters+1], a
+	ld a, $DA
+	ld [wNonShinyEncounters+1], a
+	ld a, $05
+	ld [wNonShinyEncounters], a
 
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
