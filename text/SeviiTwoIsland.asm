@@ -591,3 +591,156 @@ _SeviiTwoIsletText2::
 	text "ciauz"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiTwoIsletHousesText1_Intro::
+	text "Don't listen to"
+	line "that guy!"
+
+	para "Why would you ever"
+	line "want to make your"
+	cont "#MON slower?!"
+
+	para "Hear me instead!"
+	line "With this item of"
+	cont "my creation, your"
+	cont "#MON ATK will"
+	cont "go at its lowest!"
+
+	para "So useful, and for"
+	line "just ¥15000!"
+	cont "What do you say?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText1and2_Refuse::
+	text "Ah! Too bad!"
+	line "You don't know"
+	cont "whay you miss."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText1and2_BagFull::
+	text "Damn, your bag"
+	line "is full."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText1and2_NotEnoughMoney::
+	text "Ohhh, you cannot"
+	line "afford this..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText1and2_Deal::
+	text "Deal! Trust me,"
+	line "you'll love it!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText2_Intro::
+	text "Don't listen to"
+	line "that guy!"
+
+	para "Why would you ever"
+	line "want to make your"
+	cont "#MON weaker?!"
+
+	para "Hear me instead!"
+	line "With this item of"
+	cont "my creation, your"
+	cont "#MON SPEED'll"
+	cont "go at its lowest!"
+
+	para "So useful, and for"
+	line "just ¥15000!"
+	cont "What do you say?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText3::
+	text "Those two are so"
+	line "amusing: they"
+	cont "spend their time"
+	cont "bickering, but"
+	cont "they're both"
+	cont "dumb as bricks."
+
+	para "Weaker? Slower?"
+	line "#MON should"
+	cont "always and only"
+	cont "hit hard and fast!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText4::
+	text "My spouse is"
+	line "visiting partner"
+	cont "in the mainland."
+
+	para "It gets a bit"
+	line "lonely here with-"
+	cont "out them, but I"
+	cont "take the chance"
+	cont "to play a lot"
+	cont "with my kid and"
+	cont "our #MON!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText5::
+	text "We're going to"
+	line "hike in the weird"
+	cont "rocky place!"
+
+	para "My pama can do"
+	line "the fancy CLIMB."
+	cont "They learned from"
+	cont "some funny guys"
+	cont "near SAFFRON!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesText6:: ; TBE
+	text "Shiny!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesSignText1::
+	text "Tons of notes on"
+	line "'chromatic' or"
+	cont "'shiny' #MON."
+
+	para "The more BADGEs"
+	line "one has, the more"
+	cont "likely it is to"
+	cont "find a shiny:"
+	cont "0 badges: 1/8192;"
+	cont "1 badge : 1/7282;"
+	cont "2 badges: 1/6554;"
+	cont "3 badges: 1/5461;"
+	cont "4 badges: 1/4681;"
+	cont "5 badges: 1/3855;"
+	cont "6 badges: 1/2849;"
+	cont "7 badges: 1/1928;"
+	cont "8 badges: 1/ 978."
+;	xxxx "123456789012345678"
+
+	para "There's written"
+	line "about a rumored"
+	cont "SHINY CHARM that"
+	cont "should attract"
+	cont "shiny #MON."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIsletHousesSignText2_Core::
+	text "Till Fated"
+	line "Encounter:"
+
+	para "UuHhUuhH..."
+	line "@"
+	text_decimal wNonShinyEncounters, 2, 4 ; address to read from, number of bytes to read, number of digits to display
+	text "!!!"
+	done
+;	xxxx "123456789012345678"
+	done
