@@ -199,6 +199,9 @@ IF DEF(_DEBUG)
 ;	ld a, 59
 ;	ld [wPlayTimeMinutes], a
 
+;	ld a, 253
+;	ld [wNonShinyEncounters+1], a
+
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
 	SetEvent EVENT_OBTAINED_SEEDS_BAG

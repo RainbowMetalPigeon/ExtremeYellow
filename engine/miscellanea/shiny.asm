@@ -108,13 +108,19 @@ RollForShiny::
     jr c, .shinyEncounter
 .badShinyRoll
 ; not shiny, let's count non-shiny encounters for the "safety net"
-    ld hl, wNonShinyEncounters
+    ld hl, wNonShinyEncounters+1
 	inc [hl]
+    ld a, [hl]
+    and a
+    dec hl
+    jr nz, .noCarry
+    inc [hl]
+.noCarry
 	ld a, [hli] ; let's now compare [wNonShinyEncounters] with 1500=$05DC
-	cp $DC ; $05 for testing purposes, $DC for the 1500
+	cp $05 ; $00 for testing purposes, $05 for the 1500
 	jr nz, .notShinyEncounter
 	ld a, [hl]
-	cp $05 ; $00 for testing purposes, $05 for the 1500
+	cp $DC ; $05 for testing purposes, $DC for the 1500
 	jr nz, .notShinyEncounter
 ; let's make the encounter shiny because we had 1500 non-shiny ones
 .shinyEncounter
