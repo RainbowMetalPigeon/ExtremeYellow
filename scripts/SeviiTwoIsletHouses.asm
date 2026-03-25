@@ -173,6 +173,8 @@ SeviiTwoIsletHousesText6:
 	farcall RemoveItemByID
 	call GBFadeInFromWhite
 	SetEvent EVENT_SHINY_RITUAL_ACTIVE
+	xor a
+	ld [wShinyRitualSeconds], a
 	ld hl, SeviiTwoIsletHousesText6_RitualDoneGo
 	jr .printAndEnd
 .choseNo
