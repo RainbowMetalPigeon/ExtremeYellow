@@ -266,6 +266,14 @@ ItemDescriptionPointers:
 	text_end
 	text_far _SmashBallDescription      ; SMASH_BALL
 	text_end
+	text_far _MatchaTeaDescription      ; MATCHA_TEA
+	text_end
+	text_far _AtkNullifierDescription   ; ATK_NULLIFIER
+	text_end
+	text_far _SpdNullifierDescription   ; SPD_NULLIFIER
+	text_end
+	text_far _ScrewdriverDescription    ; SCREWDRIVER
+	text_end
 
 ; HMs
 

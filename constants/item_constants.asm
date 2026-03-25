@@ -136,6 +136,10 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const ROOM_KEY_37   ; new
 	const SUB_BALL      ; new
 	const SMASH_BALL    ; new
+	const MATCHA_TEA    ; new
+	const ATK_NULLIFIER ; new
+	const SPD_NULLIFIER ; new
+	const SCREWDRIVER   ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

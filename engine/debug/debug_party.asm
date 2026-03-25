@@ -199,10 +199,10 @@ IF DEF(_DEBUG)
 ;	ld a, 59
 ;	ld [wPlayTimeMinutes], a
 
-	ld a, $DA
-	ld [wNonShinyEncounters+1], a
-	ld a, $05
-	ld [wNonShinyEncounters], a
+;	ld a, $D0
+;	ld [wNonShinyEncounters+1], a
+;	ld a, $05
+;	ld [wNonShinyEncounters], a
 
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
@@ -316,6 +316,10 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db MATCHA_TEA, 10
+	db ATK_NULLIFIER, 10
+	db SPD_NULLIFIER, 10
+	db SCREWDRIVER, 1
 	db SMASH_BALL, 15
 	db TOWN_MAP, 1
 ;	db GOOD_ROD, 1
@@ -373,10 +377,10 @@ DebugItemsList:
 ;	db ROOM_KEY_37, 1
 ;	db PASSEPARTOUT, 1
 ;	db FRESH_WATER, 11
-	db NUGGET, 7
-	db MAX_REVIVE, 7
-	db MAX_ELIXER, 7
-	db PP_UP, 7
+;	db NUGGET, 7
+;	db MAX_REVIVE, 7
+;	db MAX_ELIXER, 7
+;	db PP_UP, 7
 	db -1 ; end
 
 ELSE

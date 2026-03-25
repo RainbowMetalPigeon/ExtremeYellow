@@ -126,6 +126,10 @@ ItemNames::
 	li "ROOM KEY 37" ; new
 	li "SUB BALL" ; new
 	li "SMASH BALL" ; new
+	li "MATCHA TEA" ; new
+	li "ATK 0-IFIER" ; new
+	li "SPD 0-IFIER" ; new
+	li "SCREWDRIVER" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

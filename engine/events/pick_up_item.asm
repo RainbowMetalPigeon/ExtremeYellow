@@ -148,9 +148,9 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db SUPER_REPEL
 	db MAX_REPEL
 	db DIRE_HIT
-;	db FRESH_WATER 	; removed to avoid plot skippings
-;	db SODA_POP 	; removed to avoid plot skippings
-;	db LEMONADE 	; removed to avoid plot skippings
+	db FRESH_WATER
+	db SODA_POP
+	db LEMONADE
 	db X_ATTACK
 	db X_DEFEND
 	db X_SPEED
@@ -173,16 +173,21 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db LEGEND_CANDY
 	db BIG_NUGGET
 	db PERFECTER
-;	db LIGHT_BALL	; removed to preserve specialness
+;	db LIGHT_BALL	; no, to preserve specialness
 	db CHROMOGENE
 	db GUTSCHEIN
 	db ONIGIRI_BOX
 	db OLD_AMBER
 	db DOME_FOSSIL
 	db HELIX_FOSSIL
+	db BEER
+	db COFFEE
 ;	db SEVII_COOKIE ; no, to avoid plot skippings
 	db SUB_BALL
 	db SMASH_BALL
+	db MATCHA_TEA ; no, to avoid plot skippings
+	db ATK_NULLIFIER
+	db SPD_NULLIFIER
 	db -1
 
 LockedItems:

@@ -1,15 +1,16 @@
 UseItem_::
 	ld a, 1
 	ld [wActionResultOrTookBattleTurn], a ; initialise to success value
-	ld a, [wcf91] ;contains item_ID
+	ld a, [wcf91] ; contains item_ID
 	cp HM01
 	jp nc, ItemUseTMHM
 	ld hl, ItemUsePtrTable
 	dec a
-	add a
+;	add a ; removed
 	ld c, a
 	ld b, 0
 	add hl, bc
+	add hl, bc ; new
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -143,6 +144,11 @@ ItemUsePtrTable:
 	dw UnusableItem      ; ROOM_KEY_37, new
 	dw ItemUseBall       ; SUB_BALL, new, testing
 	dw ItemUseBall       ; SMASH_BALL, new, testing
+
+	dw ItemUseMedicine   ; MATCHA_TEA, new
+	dw ItemUseVitamin    ; ATK_NULLIFIER, new
+	dw ItemUseVitamin    ; SPD_NULLIFIER, new
+	dw UnusableItem      ; SCREWDRIVER, new
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
@@ -1484,6 +1490,10 @@ ItemUseMedicine:
 	jp z, .useVitamin
 	cp CHROMOGENE
 	jp z, .useVitamin
+	cp ATK_NULLIFIER
+	jp z, .useVitamin
+	cp SPD_NULLIFIER
+	jp z, .useVitamin
 
 	cp REVIVE
 	jr nc, .healHP ; if it's a Revive or Max Revive
@@ -1740,6 +1750,9 @@ ItemUseMedicine:
 	jr z, .addHealAmount
 	cp SEVII_COOKIE
 	ld b, 77
+	jr z, .addHealAmount
+	cp MATCHA_TEA
+	ld b, 120
 	jr z, .addHealAmount
 ; BTV
 	cp SUPER_POTION
@@ -2091,6 +2104,76 @@ ItemUseMedicine:
 	ld a, [wcf91] ; new, to ensure a contains the right stuff
 
 ; PERFECTER code, end ----------------------------------------------------------
+
+; ATK_NULLIFIER and SPD_NULLIFIER code, beginning ------------------------------
+
+	cp ATK_NULLIFIER
+	jr nz, .notAtkNullifierCode
+
+; 0-ify Stat Exp
+	push hl
+	ld bc, wPartyMon1AttackExp - wPartyMon1
+	add hl, bc ; hl now points to stat experience
+	xor a
+	ld [hl], a
+	inc hl
+	ld [hl], a
+	pop hl
+; 0-ify DV
+	push hl
+	ld bc, wPartyMon1DVs - wPartyMon1
+	add hl, bc ; hl now points to DVs
+	ld a, [hl]
+	and %00001111
+	ld [hl], a
+	pop hl
+; because
+	pop hl
+; conclude
+	call .recalculateStats
+	ld a, SFX_HEAL_AILMENT
+	call PlaySound
+	ld hl, AtkNullifierHasBeenUsedText
+	call PrintText
+	jp RemoveUsedItem
+
+.notAtkNullifierCode
+
+	cp SPD_NULLIFIER
+	jr nz, .notSpdNullifierCode
+
+; 0-ify Stat Exp
+	push hl
+	ld bc, wPartyMon1SpeedExp - wPartyMon1
+	add hl, bc ; hl now points to stat experience
+	xor a
+	ld [hl], a
+	inc hl
+	ld [hl], a
+	pop hl
+; 0-ify DV
+	push hl
+	ld bc, wPartyMon1DVs - wPartyMon1
+	add hl, bc ; hl now points to DVs
+	inc hl
+	ld a, [hl]
+	and %00001111
+	ld [hl], a
+	pop hl
+; because
+	pop hl
+; conclude
+	call .recalculateStats
+	ld a, SFX_HEAL_AILMENT
+	call PlaySound
+	ld hl, SpdNullifierHasBeenUsedText
+	call PrintText
+	jp RemoveUsedItem
+
+.notSpdNullifierCode
+	ld a, [wcf91] ; to ensure a contains the right stuff
+
+; ATK_NULLIFIER and SPD_NULLIFIER code, end ------------------------------------
 
 ; CHROMOGENE code, beginning ---------------------------------------------------
 
@@ -3791,9 +3874,9 @@ IsKeyItem_::
 	push af
 	ld hl, KeyItemFlags
 	ld de, wBuffer
-	ld bc, 16 ; only 11 bytes are actually used ; this needs to be edited if I end up with more than 120 items?
-	ASSERT 16 >= (NUM_ITEMS + 7) / 8
-	call CopyData
+	ld bc, 17 ; only 11 bytes are actually used ; this needs to be edited if I end up with more than 120 items?
+	ASSERT 17 >= (NUM_ITEMS + 7) / 8
+	call CopyData ; Copy bc bytes from hl to de
 	pop af
 	dec a
 	ld c, a
@@ -4041,6 +4124,14 @@ ItemUseReloadOverworldData:
 
 PerfecterHasBeenUsedText: ; new
 	text_far _PerfecterHasBeenUsedText
+	text_end
+
+AtkNullifierHasBeenUsedText: ; new
+	text_far _AtkNullifierHasBeenUsedText
+	text_end
+
+SpdNullifierHasBeenUsedText: ; new
+	text_far _SpdNullifierHasBeenUsedText
 	text_end
 
 ChromogeneHasBeenUsedText: ; new

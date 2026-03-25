@@ -52,4 +52,7 @@ UsableItems_PartyMenu:
 	db COFFEE       ; new
 	db BEER         ; new
 	db SEVII_COOKIE ; new
+	db MATCHA_TEA ; new
+	db ATK_NULLIFIER ; new
+	db SPD_NULLIFIER ; new
 	db -1 ; end

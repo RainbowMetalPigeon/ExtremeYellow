@@ -544,9 +544,33 @@ _SubBallDescription::
 	line "underwater."
 	prompt
 
-_SmashBallDescription:: ; TBE
+_SmashBallDescription::
 	text "A BALL better if"
-	line "smash A button."
+	line "mash A button."
+;	xxxx "123456789012345678
+	prompt
+
+_MatchaTeaDescription::
+	text "HP +120. Unbeliev-"
+	line "ably delicious."
+;	xxxx "123456789012345678
+	prompt
+
+_AtkNullifierDescription::
+	text "Turns ATK DV and"
+	line "Stat Exp to 0."
+;	xxxx "123456789012345678
+	prompt
+
+_SpdNullifierDescription::
+	text "Turns SPD DV and"
+	line "Stat Exp to 0."
+;	xxxx "123456789012345678
+	prompt
+
+_ScrewdriverDescription::
+	text "A very special"
+	line "screwdriver."
 ;	xxxx "123456789012345678
 	prompt
 

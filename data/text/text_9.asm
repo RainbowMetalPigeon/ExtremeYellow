@@ -451,6 +451,16 @@ _PerfecterHasBeenUsedText:: ; new
 	line "have been maxed!"
 	prompt
 
+_AtkNullifierHasBeenUsedText:: ; new
+	text "The #MON ATK's"
+	line "been minimized!"
+	prompt
+
+_SpdNullifierHasBeenUsedText:: ; new
+	text "The #MON SPD's"
+	line "been minimized!"
+	prompt
+
 _ChromogeneHasBeenUsedText:: ; new
 	text "The chromatic"
 	line "genes of the"

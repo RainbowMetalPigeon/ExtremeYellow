@@ -16,7 +16,7 @@ SeviiTwoIsletHouses_TextPointers:
 
 SeviiTwoIsletHousesText1:
 	text_asm
-	ld a, NUGGET ; TBE
+	ld a, ATK_NULLIFIER
 	ld [wMultipurposeBuffer], a
 	ld hl, SeviiTwoIsletHousesText1_Intro
 	call PrintText
@@ -25,7 +25,7 @@ SeviiTwoIsletHousesText1:
 
 SeviiTwoIsletHousesText2:
 	text_asm
-	ld a, CALCIUM ; TBE
+	ld a, SPD_NULLIFIER
 	ld [wMultipurposeBuffer], a
 	ld hl, SeviiTwoIsletHousesText2_Intro
 	call PrintText
@@ -216,22 +216,18 @@ SeviiTwoIsletHousesSignText2: ; how many more steps till the 'safey-net' shiny
 	; gotta do 1500=$05DC - [wNonShinyEncounters(+1)]
 	; wNonShinyEncounters   is the MSB -> must be subtracted from $05 -> [wUniQuizAnswer]
 	; wNonShinyEncounters+1 is the LSB -> must be subtracted from $DC -> [wUniQuizAnswer+1]
-
 	ld a, [wNonShinyEncounters+1]
 	ld b, a
 	ld a, $DC
 	sub b
 	ld [wUniQuizAnswer+1], a
-
 	ld a, [wNonShinyEncounters]
 	ld b, a
 	ld a, $05
 	sbc b
 	ld [wUniQuizAnswer], a
-
 	ld hl, SeviiTwoIsletHousesSignText2_Core
 	call PrintText
-
 	jp TextScriptEnd
 
 SeviiTwoIsletHousesSignText2_Core:

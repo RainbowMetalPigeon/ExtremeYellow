@@ -8,8 +8,7 @@ INCLUDE "engine/gfx/sprite_oam.asm" ; this and the previous need to be together
 INCLUDE "engine/movie/title.asm"
 INCLUDE "engine/pokemon/load_mon_data.asm"
 INCLUDE "data/items/prices.asm"
-INCLUDE "data/items/names.asm"
-;INCLUDE "data/text/unused_names.asm" ; edited, commented out as unused
+;INCLUDE "data/items/names.asm" ; moved to bank1b
 INCLUDE "engine/overworld/sprite_collisions.asm"
 INCLUDE "engine/events/pick_up_item.asm"
 INCLUDE "engine/events/rock_smash.asm" ; new
@@ -29,16 +28,17 @@ INCLUDE "engine/events/set_blackout_map.asm"
 INCLUDE "engine/menus/display_text_id_init.asm"
 INCLUDE "engine/menus/draw_start_menu.asm"
 INCLUDE "engine/menus/text_box.asm"
-;INCLUDE "engine/battle/move_effects/drain_hp.asm" ; moved to bank1b
 INCLUDE "engine/menus/players_pc.asm"
 INCLUDE "engine/pokemon/remove_mon.asm"
 INCLUDE "engine/events/display_pokedex.asm"
+;INCLUDE "data/text/unused_names.asm" ; edited, commented out as unused
+;INCLUDE "engine/battle/move_effects/drain_hp.asm" ; moved to bank1b
 ; moved all engine/link files to another bank
 
 
 SECTION "bank1b", ROMX
 INCLUDE "engine/battle/move_effects/drain_hp.asm"
-
+INCLUDE "data/items/names.asm"
 
 SECTION "bank3", ROMX
 

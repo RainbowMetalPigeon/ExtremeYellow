@@ -126,4 +126,8 @@ KeyItemFlags:
 	dbit TRUE  ; ROOM_KEY_37    - new
 	dbit FALSE ; SUB_BALL       - new
 	dbit FALSE ; SMASH_BALL     - new
+	dbit FALSE ; MATCHA_TEA     - new
+	dbit FALSE ; ATK_NULLIFIER  - new
+	dbit FALSE ; SPD_NULLIFIER  - new
+	dbit TRUE  ; SCREWDRIVER    - new
 	end_bit_array NUM_ITEMS

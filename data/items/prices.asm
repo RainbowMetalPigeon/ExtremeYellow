@@ -126,6 +126,10 @@ ItemPrices::
 	bcd3 0     ; ROOM_KEY_37
 	bcd3 1500  ; SUB_BALL
 	bcd3 1500  ; SMASH_BALL
+	bcd3 1000  ; MATCHA_TEA
+	bcd3 2     ; ATK_NULLIFIER
+	bcd3 2     ; SPD_NULLIFIER
+	bcd3 0     ; SCREWDRIVER
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F

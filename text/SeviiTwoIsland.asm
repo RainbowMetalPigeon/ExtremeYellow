@@ -674,8 +674,8 @@ _SeviiTwoIsletHousesText3::
 
 _SeviiTwoIsletHousesText4::
 	text "My spouse is"
-	line "visiting partner"
-	cont "in the mainland."
+	line "visiting their"
+	cont "partner in KANTO."
 
 	para "It gets a bit"
 	line "lonely here with-"
