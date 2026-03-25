@@ -339,8 +339,9 @@ BillsHouseScript10: ; new
 	ld [wNewTileBlockID], a
 	lb bc, 1, 3 ; y, x in block coordinates
 	predef ReplaceTileBlock
-	ld a, 1
+	xor a
 	ld [wCurMapScript], a
+	ld a, 1
 	ld [wBillsHouseCurScript], a
 	ret
 
