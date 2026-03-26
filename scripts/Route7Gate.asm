@@ -9,10 +9,10 @@ Route7Gate_ScriptPointers:
 	dw Route7GateScript0
 	dw Route7GateScript1
 
-Route7GateScript_1e111:
+Route7GateScript_PushLeft:
 	ld hl, wd730
 	set 7, [hl]
-	ld a, $20
+	ld a, D_LEFT | B_BUTTON ; edited
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
@@ -35,15 +35,26 @@ Route7GateScript0:
 	farcall RemoveGuardDrink
 	ldh a, [hItemToRemoveID]
 	and a
-	jr nz, .asm_1e15a
+	jr nz, .givenRightDrink
+; new: we don't have the right drink; check if we have a wrong one
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	call Route7GateScript_1e111
+	callfar DoWeHaveTheWrongDrinks ; nz if we have one of the non-Matcha-Tea
+	jr z, .noJunkDrink
+	ld a, $4
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.noJunkDrink
+	ld a, $5
+; BTV
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Route7GateScript_PushLeft
 	ld a, $1
 	ld [wCurMapScript], a ; edited
 	ret
-.asm_1e15a
+.givenRightDrink
 	ld a, $3
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -70,3 +81,5 @@ Route7Gate_TextPointers:
 	dw Route7GateText1
 	dw Route7GateText2
 	dw Route7GateText3
+	dw Route7GateText4
+	dw Route7GateText5

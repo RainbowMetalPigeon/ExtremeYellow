@@ -1,14 +1,16 @@
-_SaffronGateText_1dfe7::
+_SaffronGateText_ImOnGuardAndThirsty::
 	text "I'm on guard duty."
 	line "Gee, I'm thirsty,"
 	cont "though!"
-
-	para "Oh, wait there,"
-	line "the road's closed."
 	done
 
-_SaffronGateText_8aaa9:: ; edited
-	text "Whoa, if!"
+_SaffronGateText_RoadIsClosed::
+	text "Wait there!"
+	line "The road's closed."
+	done
+
+_SaffronGateText_CanIHaveThatDrink:: ; edited
+	text "Whoa, if"
 	line "I'm parched!"
 	cont "..."
 	cont "Huh? I can have"
@@ -16,7 +18,7 @@ _SaffronGateText_8aaa9:: ; edited
 	cont "Gee, thanks!@"
 	text_end
 
-_SaffronGateText_1dff1::
+_SaffronGateText_GluGluCanGo::
 	text_start
 
 	para "..."
@@ -32,7 +34,16 @@ _SaffronGateText_1dff1::
 	cont "the other guards!"
 	done
 
-_SaffronGateText_1dff6::
+_SaffronGateText_ThankForTheDrink::
 	text "Hi, thanks for"
-	line "the cool drinks!"
+	line "the great drink!"
+	done
+
+_SaffronGateText_WhatsThis:: ; new
+	text "Uh? What's this"
+	line "garbage?"
+	cont "I don't want some"
+	cont "junk drink from a"
+	cont "stupid machine!"
+;	xxxx "123456789012345678"
 	done

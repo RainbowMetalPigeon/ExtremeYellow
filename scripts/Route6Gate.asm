@@ -23,15 +23,26 @@ Route6GateScript0:
 	farcall RemoveGuardDrink
 	ldh a, [hItemToRemoveID]
 	and a
-	jr nz, .asm_1e080
+	jr nz, .givenRightDrink
+; new: we don't have the right drink; check if we have a wrong one
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	call Route6GateScript_1e0a1
+	callfar DoWeHaveTheWrongDrinks ; nz if we have one of the non-Matcha-Tea
+	jr z, .noJunkDrink
+	ld a, $4
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+.noJunkDrink
+	ld a, $5
+; BTV
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Route8GateScript_PushDown
 	ld a, $1
 	ld [wCurMapScript], a
 	ret
-.asm_1e080
+.givenRightDrink
 	ld hl, wd728
 	set 6, [hl]
 	ld a, $3
@@ -53,10 +64,10 @@ Route6GateScript1:
 	ld [wCurMapScript], a
 	ret
 
-Route6GateScript_1e0a1:
+Route8GateScript_PushDown:
 	ld hl, wd730
 	set 7, [hl]
-	ld a, $80
+	ld a, D_DOWN | B_BUTTON ; edited
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
@@ -69,3 +80,5 @@ Route6Gate_TextPointers:
 	dw Route6GateText1
 	dw Route6GateText2
 	dw Route6GateText3
+	dw Route6GateText4
+	dw Route6GateText5
