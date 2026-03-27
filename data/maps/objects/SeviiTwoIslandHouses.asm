@@ -13,7 +13,7 @@ SeviiTwoIslandHouses_Object:
 	warp_event 46,  0, SEVII_TWO_ISLAND_CITY, 10 ;  9
 
 	def_bg_events
-	bg_event 31,  4, 7 ; SeviiTwoIslandHousesSignText1
+	bg_event 31,  4,  8 ; SeviiTwoIslandHousesSignText1
 
 	def_object_events
 	object_event  2,  3, SPRITE_GAMBLER, WALK, UP_DOWN, 1
