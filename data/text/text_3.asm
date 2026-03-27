@@ -657,9 +657,15 @@ _NoPokemonText::
 	line "#MON here!"
 	prompt
 
-_HurtByUnderwaterText::
+_HurtByUnderwaterText:: ; new
 	text "<USER>"
 	line "suffers for being"
 	cont "underwater!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_SleepBagText:: ; new
+	text "Time for a"
+	line "good nap!"
+;	xxxx "123456789012345678"
+	done

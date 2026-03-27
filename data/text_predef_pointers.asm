@@ -108,3 +108,4 @@ TextPredefs::
 	add_tx_pre SeviiTanobyGardenHiddenTextMew7      ; new
 	add_tx_pre SeviiTanobyGardenHiddenTextMew8      ; new
 	add_tx_pre SeviiTanobyGardenHiddenTextMew9      ; new
+	add_tx_pre SleepBagText                         ; new

@@ -2591,9 +2591,15 @@ ChangeDayNightPhase::
 .currentlyDay1
 	call GBFadeOutToWhite
 .postCheck1
+;	ld a, MUSIC_PKMN_HEALED
+;	ld [wNewSoundID], a
+;	call PlaySound
+
+	call StopAllMusic
+	ld c, BANK(Music_PkmnHealed)
 	ld a, MUSIC_PKMN_HEALED
-	ld [wNewSoundID], a
-	call PlaySound
+	call PlayMusic
+
 .next
 	ld a, [wChannelSoundIDs]
 	cp MUSIC_PKMN_HEALED
@@ -2608,6 +2614,7 @@ ChangeDayNightPhase::
 	ld [wDayNightCycle], a
 ; end of actual change
 	call RunDefaultPaletteCommand
+	call PlayDefaultMusic
 	ld a, [wDayNightCycle]
 	and %1
 	jr nz, .currentlyDay2

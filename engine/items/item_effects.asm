@@ -156,8 +156,11 @@ ItemSleepBag:
 	ld a, [wIsInBattle]
 	and a
 	jp nz, ItemUseNotTime
+	ld a, [wWalkBikeSurfState]
+	cp 3 ; for dive
+	jp z, ItemUseNotTime
 	call EnableAutoTextBoxDrawing
-	tx_pre MapMessage
+	tx_pre SleepBagText
 	callfar ChangeDayNightPhase
 	ret
 
@@ -283,6 +286,10 @@ ItemShowMysteryMap:
 
 MapMessage::
 	text_far _MapMessage
+	text_end
+
+SleepBagText::
+	text_far _SleepBagText
 	text_end
 
 MapMessageComplete::
