@@ -6,14 +6,14 @@ LoadWildData::
 	jr z, .noSevii
 ; sevii
 	ld hl, WildDataPointers_Sevii
-	ld a, [wDayCycle]
+	ld a, [wDayNightCycle]
 	and %00000001
 	jr z, .wildListFound
 	ld hl, WildDataPointers_SeviiNight
 	jr .wildListFound
 .noSevii
 	ld hl, WildDataPointers
-	ld a, [wDayCycle]
+	ld a, [wDayNightCycle]
 	and %00000001
 	jr z, .wildListFound
 	ld hl, WildDataPointersNight

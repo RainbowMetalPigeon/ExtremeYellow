@@ -204,6 +204,9 @@ IF DEF(_DEBUG)
 ;	ld a, $05
 ;	ld [wNonShinyEncounters], a
 
+	ld a, %01110100
+	ld [wDayNightCycle], a
+
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
 	SetEvent EVENT_OBTAINED_SEEDS_BAG

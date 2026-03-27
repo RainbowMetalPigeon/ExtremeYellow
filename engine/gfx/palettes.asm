@@ -1459,7 +1459,7 @@ GetGBCBasePalAddress_SelectDE: ; new, for day-night cycle
 	ld de, GBCBasePalettes_Sevii
 	jr nz, .conclude
 ; Sevii, overworld
-	ld a, [wDayCycle]
+	ld a, [wDayNightCycle]
 	and %00000001
 	ld de, GBCBasePalettes_Sevii ; day Sevii
 	jr z, .conclude
@@ -1471,7 +1471,7 @@ GetGBCBasePalAddress_SelectDE: ; new, for day-night cycle
 	ld de, GBCBasePalettes
 	jr nz, .conclude
 ; non Sevii, overworld
-	ld a, [wDayCycle]
+	ld a, [wDayNightCycle]
 	and %00000001
 	ld de, GBCBasePalettes ; day Kanto
 	jr z, .conclude

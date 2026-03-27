@@ -401,28 +401,28 @@ PrintSafariZoneSteps::
 	ret c
 	cp HAUNTED_HOUSE_1 ; edited, SAFARI_ZONE_SECRET_HOUSE + 1
 	ret nc
-.yesSafariZone ; new
-	hlcoord 0, 0
+.yesSafariZone ; new and edited all hlcoordinates in y by +3
+	hlcoord 0, 3
 	lb bc, 3, 7
 	call TextBoxBorder
-	hlcoord 1, 1
+	hlcoord 1, 4
 	ld de, wSafariSteps
 	lb bc, 2, 3
 	call PrintNumber
-	hlcoord 4, 1
+	hlcoord 4, 4
 	ld de, SafariSteps
 	call PlaceString
-	hlcoord 1, 3
+	hlcoord 1, 6
 	ld de, SafariBallText
 	call PlaceString
 	ld a, [wNumSafariBalls]
 	cp 10
 	jr nc, .tenOrMore
-	hlcoord 5, 3
+	hlcoord 5, 6
 	ld a, " "
 	ld [hl], a
 .tenOrMore
-	hlcoord 6, 3
+	hlcoord 6, 6
 	ld de, wNumSafariBalls
 	lb bc, 1, 2
 	jp PrintNumber
@@ -726,7 +726,7 @@ ExtraWarpCheck::
 	cp SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN
 	jr z, .useFunction2
 .checkByTileset ; new
-; BTV	
+; BTV
 	ld a, [wCurMapTileset]
 	and a ; outside tileset (OVERWORLD)
 	jr z, .useFunction2

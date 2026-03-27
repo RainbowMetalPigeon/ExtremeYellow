@@ -158,20 +158,7 @@ ItemSleepBag:
 	jp nz, ItemUseNotTime
 	call EnableAutoTextBoxDrawing
 	tx_pre MapMessage
-	call GBFadeOutToWhite
-	ld a, MUSIC_PKMN_HEALED
-	ld [wNewSoundID], a
-	call PlaySound
-.next
-	ld a, [wChannelSoundIDs]
-	cp MUSIC_PKMN_HEALED
-	jr z, .next
-	ld a, [wMapMusicSoundID]
-	ld [wNewSoundID], a
-	call PlaySound
 	callfar ChangeDayNightPhase
-	call RunDefaultPaletteCommand
-	call GBFadeInFromWhite
 	ret
 
 ; new: code for SLEEP_BAG, end --------------------------------

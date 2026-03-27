@@ -918,17 +918,17 @@ PrintDiveSteps::
 	cp 3
 	ret nz
 ; we're diving
-	hlcoord 0, 0
+	hlcoord 0, 3
 	lb bc, 2, 7 ; height, width
 	call TextBoxBorder
-	hlcoord 1, 2
+	hlcoord 1, 5
 	ld de, wDiveSteps
 	lb bc, 2, 3
 	call PrintNumber
-	hlcoord 1, 1
+	hlcoord 1, 4
 	ld de, OxygenTitle
 	call PlaceString
-	hlcoord 4, 2
+	hlcoord 4, 5
 	ld de, DiveStepsLabel
 	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
 	jp z, PlaceString
@@ -943,6 +943,39 @@ DiveStepsLabel: ; new
 
 DiveStepsEnhancedLabel: ; new
 	db "/300@"
+
+; ===========================================================
+
+PrintDayNightStatus::
+; border
+	hlcoord 0, 0
+	lb bc, 1, 7 ; height, width
+	call TextBoxBorder
+; symbol
+	ld a, [wDayNightCycle]
+	and %1
+	ld a, "<DAY>"
+	jr z, .symbolGotten
+	ld a, "<NIGHT>"
+.symbolGotten
+	hlcoord 1, 1
+	ld [hl], a
+; bar and 60 mins
+	hlcoord 4, 1
+	ld de, Bar60MinsText
+	call PlaceString
+; number of minutes left
+	ld a, [wDayNightCycle]
+	and %11111110
+	srl a
+	ld de, wUniQuizAnswer
+	ld [de], a
+	hlcoord 2, 1
+	lb bc, 1, 2
+	jp PrintNumber ; Print the c-digit, b-byte value at de.
+
+Bar60MinsText: ; new
+	db "/60m@"
 
 ; ===========================================================
 

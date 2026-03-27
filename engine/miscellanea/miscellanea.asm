@@ -2583,8 +2583,37 @@ CheckIfAllBirbsHaveBeenFed::
 ; ==========================================
 
 ChangeDayNightPhase::
-	ld a, [wDayCycle]
+	ld a, [wDayNightCycle]
+	and %1
+	jr z, .currentlyDay1
+	call GBFadeOutToBlack
+	jr .postCheck1
+.currentlyDay1
+	call GBFadeOutToWhite
+.postCheck1
+	ld a, MUSIC_PKMN_HEALED
+	ld [wNewSoundID], a
+	call PlaySound
+.next
+	ld a, [wChannelSoundIDs]
+	cp MUSIC_PKMN_HEALED
+	jr z, .next
+	ld a, [wMapMusicSoundID]
+	ld [wNewSoundID], a
+	call PlaySound
+; actual change
+	ld a, [wDayNightCycle]
 	inc a
 	and %1
-	ld [wDayCycle], a
+	ld [wDayNightCycle], a
+; end of actual change
+	call RunDefaultPaletteCommand
+	ld a, [wDayNightCycle]
+	and %1
+	jr nz, .currentlyDay2
+	call GBFadeInFromWhite
+	jr .postCheck2
+.currentlyDay2
+	call GBFadeInFromBlack
+.postCheck2
 	ret

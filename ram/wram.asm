@@ -2309,7 +2309,7 @@ wFanClubCurScript:: db
 ;wOchreGymCurScript:: db ; new
 ;wRedsHouse2FCurScript:: db
 	ds 13 ; new, from optimizing the scripts, UNUSED
-wDayCycle:: db ; new
+wDayNightCycle:: db ; new
 wPersonalizationTypeChart:: db ; new
 wPersonalizationTCGMode:: db ; new
 
