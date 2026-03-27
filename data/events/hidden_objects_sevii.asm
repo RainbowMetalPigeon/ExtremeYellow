@@ -111,18 +111,26 @@ SeviiRoute41HiddenObjects:
 
 SeviiOneIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiTwoIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiThreeIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiFourIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiIcefallCave1FHiddenObjects:
@@ -134,6 +142,8 @@ SeviiIcefallCave1FHiddenObjects:
 
 SeviiFiveIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiFiveIslandWarehouseBFHiddenObjects:
@@ -153,10 +163,14 @@ SeviiFiveIslandWarehouse2FHiddenObjects:
 
 SeviiSixIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiSevenIslandPokemonCenterAndMartHiddenObjects:
 	hidden_object  7,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  7,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object  7,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1
 
 SeviiOneIslandGym1HiddenObjects:

@@ -1,5 +1,4 @@
 HiddenObjectMaps:
-;	dbw SILPH_CO_11F,                 SilphCo11FHiddenObjects
 	dbw SILPH_CO_5F,                  SilphCo5FHiddenObjects
 	dbw SILPH_CO_9F,                  SilphCo9FHiddenObjects
 	dbw POKEMON_MANSION_2F,           Mansion2HiddenObjects
@@ -8,7 +7,6 @@ HiddenObjectMaps:
 	dbw SAFARI_ZONE_WEST,             SafariZoneWestHiddenObjects
 	dbw CERULEAN_CAVE_2F,             CeruleanCave2HiddenObjects
 	dbw CERULEAN_CAVE_B1F,            CeruleanCave3HiddenObjects
-;	dbw UNUSED_MAP_6F,                UnusedMap6FHiddenObjects ; edited, commented away because using the map for else
 	dbw SEAFOAM_ISLANDS_B2F,          SeafoamIslands3HiddenObjects
 	dbw SEAFOAM_ISLANDS_B3F,          SeafoamIslands4HiddenObjects
 	dbw SEAFOAM_ISLANDS_B4F,          SeafoamIslands5HiddenObjects
@@ -28,7 +26,6 @@ HiddenObjectMaps:
 	dbw ROUTE_12,                     Route12HiddenObjects
 	dbw ROUTE_13,                     Route13HiddenObjects ; edited
 	dbw ROUTE_14,                     Route14HiddenObjects ; new
-;	dbw ROUTE_15_GATE_2F,             Route15Gate2FHiddenObjects
 	dbw ROUTE_17,                     Route17HiddenObjects
 	dbw ROUTE_23,                     Route23HiddenObjects
 	dbw VICTORY_ROAD_2F,              VictoryRoad2HiddenObjects
@@ -69,7 +66,6 @@ HiddenObjectMaps:
 	dbw VERMILION_GYM,                VermilionGymHiddenObjects
 	dbw CELADON_CITY,                 CeladonCityHiddenObjects
 	dbw CELADON_HOTEL,                CeladonHotelHiddenObjects
-;	dbw CELADON_MANSION_2F,           CeladonMansion2HiddenObjects ; edited, commented out as map is reworked
 	dbw CELADON_MANSION_ROOF_HOUSE,   CeladonMansion5HiddenObjects
 	dbw CELADON_POKECENTER,           CeladonPokecenterHiddenObjects
 	dbw CELADON_GYM,                  CeladonGymHiddenObjects
@@ -99,6 +95,7 @@ HiddenObjectMaps:
 	dbw ROCK_TUNNEL_B1F,              RockTunnelB1FiddenObjects ; new
 	dbw ROUTE_30,                     Route30HiddenObjects ; new
 	dbw SS_ANNE_1F_ROOMS,             SSAnne1FRoomsHiddenObjects ; new
+	dbw LAKE_OF_MIST,                 LakeOfMistHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -119,10 +116,6 @@ ENDM
 ; but these do not actually prevent the player
 ; from interacting with them in any direction.
 DEF ANY_FACING EQU $d0
-
-;SilphCo11FHiddenObjects:
-;	hidden_object 10, 12, SPRITE_FACING_UP, OpenPokemonCenterPC
-;	db -1 ; end
 
 SilphCo5FHiddenObjects:
 	hidden_object 12,  3, ELIXER, HiddenItems
@@ -241,6 +234,8 @@ RockTunnelB1FiddenObjects: ; new
 RockTunnelPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 PowerPlantHiddenObjects:
@@ -351,6 +346,8 @@ Route4HiddenObjects:
 MtMoonPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 Route9HiddenObjects:
@@ -374,6 +371,8 @@ IndigoPlateauHiddenObjects:
 
 IndigoPlateauLobbyHiddenObjects:
 	hidden_object 15,  7, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 15, 10, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 15, 11, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 CopycatsHouse1FHiddenObjects:
@@ -396,6 +395,8 @@ SaffronGymHiddenObjects:
 SaffronPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_UP, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 RedsHouse2FHiddenObjects:
@@ -423,6 +424,8 @@ ViridianCityHiddenObjects:
 ViridianPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 ViridianSchoolHiddenObjects:
@@ -448,6 +451,8 @@ PewterGymHiddenObjects:
 PewterPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 CeruleanCityHiddenObjects:
@@ -457,6 +462,8 @@ CeruleanCityHiddenObjects:
 CeruleanPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 CeruleanGymHiddenObjects:
@@ -480,6 +487,8 @@ CeruleanCave1HiddenObjects:
 LavenderPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 Pokemontower5HiddenObjects:
@@ -498,6 +507,8 @@ VermilionCityHiddenObjects:
 
 VermilionPokecenterHiddenObjects:
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	hidden_object  0,  4, SPRITE_FACING_UP, PrintBenchGuyText
 	db -1 ; end
 
@@ -536,10 +547,6 @@ CeladonHotelHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	db -1 ; end
 
-;CeladonMansion2HiddenObjects: ; edited, commented out as map is reworked
-;	hidden_object  0,  5, SPRITE_FACING_UP, OpenPokemonCenterPC
-;	db -1 ; end
-
 CeladonMansion5HiddenObjects:
 	hidden_text_predef  3,  0, LinkCableHelp, PrintBlackboardLinkCableText
 	hidden_text_predef  4,  0, LinkCableHelp, PrintBlackboardLinkCableText
@@ -549,6 +556,8 @@ CeladonMansion5HiddenObjects:
 CeladonPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 CeladonGymHiddenObjects:
@@ -609,6 +618,8 @@ GameCornerHiddenObjects:
 
 FuchsiaPokecenterHiddenObjects:
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	hidden_object  0,  4, SPRITE_FACING_UP, PrintBenchGuyText
 	db -1 ; end
 
@@ -645,16 +656,22 @@ CinnabarLab4HiddenObjects:
 CinnabarPokecenterHiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_UP, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 OchrePokecenterHiddenObjects: ; new
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 ObsidianPokecenterHiddenObjects: ; new
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 13,  6, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
+	hidden_object 13,  7, SPRITE_FACING_RIGHT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 BattleFacilityHiddenObjects: ; new
@@ -663,6 +680,8 @@ BattleFacilityHiddenObjects: ; new
 
 CeladonHotelRoomsHiddenObjects: ; new
 	hidden_object  0,  1, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  0,  4, SPRITE_FACING_LEFT, UsePokemonCenterBed ; new
+	hidden_object  0,  5, SPRITE_FACING_LEFT, UsePokemonCenterBed ; new
 	db -1 ; end
 
 Route2HiddenObjects: ; new
@@ -672,4 +691,8 @@ Route2HiddenObjects: ; new
 
 SSAnne1FRoomsHiddenObjects: ; new
 	hidden_object  3,  5, PP_UP, HiddenItems
+	db -1 ; end
+
+LakeOfMistHiddenObjects: ; new
+	hidden_object  8, 43, MAX_ETHER, HiddenItems
 	db -1 ; end

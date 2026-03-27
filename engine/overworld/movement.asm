@@ -1,4 +1,4 @@
-DEF MAP_TILESET_SIZE EQU $76 ; new, to expand tileset
+DEF MAP_TILESET_SIZE EQU $78 ; new, to expand tileset
 
 UpdatePlayerSprite:
 ; new for sliding ice

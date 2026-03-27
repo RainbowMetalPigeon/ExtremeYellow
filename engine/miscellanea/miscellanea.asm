@@ -2594,12 +2594,10 @@ ChangeDayNightPhase::
 ;	ld a, MUSIC_PKMN_HEALED
 ;	ld [wNewSoundID], a
 ;	call PlaySound
-
 	call StopAllMusic
 	ld c, BANK(Music_PkmnHealed)
 	ld a, MUSIC_PKMN_HEALED
 	call PlayMusic
-
 .next
 	ld a, [wChannelSoundIDs]
 	cp MUSIC_PKMN_HEALED

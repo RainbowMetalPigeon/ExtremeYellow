@@ -669,3 +669,19 @@ _SleepBagText:: ; new
 	line "good nap!"
 ;	xxxx "123456789012345678"
 	done
+
+_SleepTillNextPhaseText:: ; new
+	text "Sleep until next"
+	line "day/night phase?"
+;	xxxx "123456789012345678"
+	done
+
+_ImNotSleepyText:: ; new
+	text "I'm not sleepy!"
+;	xxxx "123456789012345678"
+	done
+
+_ItWasAGoodRestText:: ; new
+	text "Such a good rest!"
+;	xxxx "123456789012345678"
+	done

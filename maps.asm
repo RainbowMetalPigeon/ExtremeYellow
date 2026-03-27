@@ -952,6 +952,7 @@ SaffronPokecenter_Blocks:
 FuchsiaPokecenter_Blocks:
 CinnabarPokecenter_Blocks:
 ObsidianPokecenter_Blocks:
+;CeladonPokecenter_Blocks:
 OchrePokecenter_Blocks: INCBIN "maps/PokemonCenterAndMart.blk"
 
 
