@@ -159,35 +159,10 @@ StartMenu_Pokemon::
 	dw .waterfall ; new
 	dw .rocksmash ; new
 	dw .rockclimb ; new
-.fly
-; edited, now FLY can be used without the need for a badge
-;	bit BIT_THUNDERBADGE, a
-;	jp z, .newBadgeRequired
-	call CheckIfInOutsideMap
+.fly ; edited, now FLY can be used without the need for a badge
+	call CheckIfInOutsideLookingMap ; new code to make "open-air" maps flyable
 	jr z, .canFly
-; new block to make "open-air" maps flyable
-	ld a, [wCurMapTileset]
-	cp SHIP_PORT
-	jr z, .canFly
-	CheckEvent EVENT_IN_SEVII
-	ld a, [wCurMap]
-	jr nz, .sevii
-	cp CELADON_MART_ROOF
-	jr z, .canFly
-	cp CELADON_MANSION_ROOF
-	jr z, .canFly
-	cp FORLORN_VALLEY
-	jr z, .canFly
-	cp SS_ANNE_BOW
-	jr z, .canFly
-	jr .cannotFlyHere
-.sevii
-	cp SEVII_DESOLATED_ROCK
-	jr z, .canFly
-	cp SEVII_TANOBY_GARDEN ; unnecessary?
-	jr z, .canFly ; unnecessary?
 .cannotFlyHere
-; end of new block to make "open-air" maps flyable
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
@@ -1618,3 +1593,28 @@ DiveMessageGoAboveText2:
 YouCannotDiveHereText:
 	text_far _YouCannotDiveHereText
 	text_end
+
+CheckIfInOutsideLookingMap::
+	call CheckIfInOutsideMap ; includes PLATEAU, ISLAND, OVERWORLD, OVERWORLD_SEVII tilesets and excludes SEVII_SEVEN_ISLAND_GYM_2
+	ret z
+; non-standard "outside" maps
+	ld a, [wCurMapTileset]
+	cp SHIP_PORT
+	ret z
+; non-tileset-based checks
+	CheckEvent EVENT_IN_SEVII
+	ld a, [wCurMap]
+	jr nz, .sevii
+	cp CELADON_MART_ROOF
+	ret z
+	cp CELADON_MANSION_ROOF
+	ret z
+	cp FORLORN_VALLEY
+	ret z
+	cp SS_ANNE_BOW
+	ret
+.sevii
+	cp SEVII_DESOLATED_ROCK
+	ret z
+	cp SEVII_TANOBY_GARDEN
+	ret

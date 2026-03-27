@@ -263,7 +263,7 @@ SetPal_GameFreakIntro:
 
 ; uses PalPacket_Empty to build a packet based on the current map
 SetPal_Overworld:
-
+	call SetOverworldLookingMap ; new
 ; new, for Sevii
 ;	CheckEvent EVENT_IN_SEVII
 	ld a, [wOriginallyInKantoOrSevii]
@@ -326,7 +326,6 @@ SetPal_Overworld:
 	cp FIRST_INDOOR_MAP_SEVII
 	jr c, .townOrRouteSevii
 .normalDungeonOrBuildingSevii
-	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
 	cp NUM_CITY_MAPS_SEVII
@@ -450,7 +449,6 @@ SetPal_Overworld:
 	cp CERULEAN_CAVE_1F + 1
 	jr c, .caveOrBruno
 .normalDungeonOrBuilding
-	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
 	cp NUM_CITY_MAPS
@@ -897,6 +895,7 @@ LoadOverworldPikachuFrontpicPalettes::
 	ret
 
 GetPal_Pikachu::
+	call SetOverworldLookingMap ; new
 ; similar to SetPal_Overworld
 ; new for sevii
 ;	CheckEvent EVENT_IN_SEVII
@@ -960,7 +959,6 @@ GetPal_Pikachu::
 ;	cp CERULEAN_CAVE_1F + 1 ; TBE
 ;	jr c, .cave
 .normalDungeonOrBuildingSevii
-	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRouteSevii
 	cp NUM_CITY_MAPS_SEVII
@@ -1050,7 +1048,6 @@ GetPal_Pikachu::
 	cp COLOSSEUM
 	jr z, .battleOrTradeCenter
 .normalDungeonOrBuilding
-	SetEvent EVENT_INDOOR_PALETTE ; new
 	ld a, [wLastMap] ; town or route that current dungeon or building is located
 .townOrRoute
 	cp SAFFRON_CITY + 1
@@ -1832,6 +1829,24 @@ DeterminePaletteIDOutOfBattleOmni: ; new
 .shinyDelta
 	ld a, b
 	jp DetermineShinyDeltaPaletteIDOutOfBattle
+
+SetOverworldLookingMap: ; new, to set/reset overworld-LOOKING maps
+	callfar CheckIfInOutsideLookingMap ; z if yes
+	jr z, .resetIndoorEvent
+.setIndoorEvent
+	SetEvent EVENT_INDOOR_PALETTE
+	ret
+.resetIndoorEvent
+	ResetEvent EVENT_INDOOR_PALETTE
+	ret
+
+OutdoorLookingMaps_AfterRoutes_Kanto:
+
+
+
+OutdoorLookingMaps_AfterRoutes_Sevii:
+
+
 
 INCLUDE "data/sgb/sgb_packets.asm"
 
