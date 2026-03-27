@@ -2579,3 +2579,12 @@ CheckIfAllBirbsHaveBeenFed::
 ; set overall event
 	SetEvent EVENT_FED_ALL_BIRBS
 	ret
+
+; ==========================================
+
+ChangeDayNightPhase::
+	ld a, [wDayCycle]
+	inc a
+	and %1
+	ld [wDayCycle], a
+	ret

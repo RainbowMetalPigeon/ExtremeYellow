@@ -144,15 +144,41 @@ ItemUsePtrTable:
 	dw UnusableItem      ; ROOM_KEY_37, new
 	dw ItemUseBall       ; SUB_BALL, new, testing
 	dw ItemUseBall       ; SMASH_BALL, new, testing
-
 	dw ItemUseMedicine   ; MATCHA_TEA, new
 	dw ItemUseVitamin    ; ATK_NULLIFIER, new
 	dw ItemUseVitamin    ; SPD_NULLIFIER, new
 	dw UnusableItem      ; SCREWDRIVER, new
+	dw ItemSleepBag      ; SLEEP_BAG, new
+
+; new: code for SLEEP_BAG, beginning --------------------------
+
+ItemSleepBag:
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseNotTime
+	call EnableAutoTextBoxDrawing
+	tx_pre MapMessage
+	call GBFadeOutToWhite
+	ld a, MUSIC_PKMN_HEALED
+	ld [wNewSoundID], a
+	call PlaySound
+.next
+	ld a, [wChannelSoundIDs]
+	cp MUSIC_PKMN_HEALED
+	jr z, .next
+	ld a, [wMapMusicSoundID]
+	ld [wNewSoundID], a
+	call PlaySound
+	callfar ChangeDayNightPhase
+	call RunDefaultPaletteCommand
+	call GBFadeInFromWhite
+	ret
+
+; new: code for SLEEP_BAG, end --------------------------------
 
 ; new: code for MYSTERY_MAP, beginning ------------------------
 
-ItemShowMysteryMap: ; new
+ItemShowMysteryMap:
 	ld a, [wIsInBattle]
 	and a
 	jp nz, ItemUseNotTime

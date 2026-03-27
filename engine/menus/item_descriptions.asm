@@ -274,6 +274,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _ScrewdriverDescription    ; SCREWDRIVER
 	text_end
+	text_far _SleepBagDescription       ; SLEEP_BAG
+	text_end
 
 ; HMs
 

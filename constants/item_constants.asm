@@ -140,6 +140,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const ATK_NULLIFIER ; new
 	const SPD_NULLIFIER ; new
 	const SCREWDRIVER   ; new
+	const SLEEP_BAG     ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

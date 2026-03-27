@@ -7,4 +7,5 @@ UsableItems_CloseMenu:
 	db GOOD_ROD
 	db SUPER_ROD
 	db MYSTERY_MAP ; new
+	db SLEEP_BAG ; new
 	db -1 ; end

@@ -30,6 +30,16 @@ TrackPlayTime::
 ; handle minutes
 	xor a
 	ld [wPlayTimeSeconds], a
+; new, for day-night cycle
+	ld a, [wDayCycle]
+	add 1 << 1 ; 2 : 1 shifted one bit to the left
+	cp 60 << 1 ; 120 : 60 shifted one bit to the left
+	jr c, .subDayNightMinutes
+	inc a
+	and %1
+.subDayNightMinutes
+	ld [wDayCycle], a
+; BTV
 	ld a, [wPlayTimeMinutes]
 	inc a
 	ld [wPlayTimeMinutes], a

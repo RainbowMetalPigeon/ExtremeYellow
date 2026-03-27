@@ -574,6 +574,12 @@ _ScrewdriverDescription::
 ;	xxxx "123456789012345678
 	prompt
 
+_SleepBagDescription::
+	text "To sleep through"
+	line "the night or day."
+;	xxxx "123456789012345678
+	prompt
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::

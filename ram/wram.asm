@@ -2308,7 +2308,8 @@ wFanClubCurScript:: db
 ;	ds 1
 ;wOchreGymCurScript:: db ; new
 ;wRedsHouse2FCurScript:: db
-	ds 14 ; new, from optimizing the scripts, UNUSED ; reduced by 2 because of new mons
+	ds 13 ; new, from optimizing the scripts, UNUSED
+wDayCycle:: db ; new
 wPersonalizationTypeChart:: db ; new
 wPersonalizationTCGMode:: db ; new
 

@@ -130,6 +130,7 @@ ItemNames::
 	li "ATK 0-IFIER" ; new
 	li "SPD 0-IFIER" ; new
 	li "SCREWDRIVER" ; new
+	li "SLEEP BAG" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

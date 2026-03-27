@@ -130,6 +130,7 @@ ItemPrices::
 	bcd3 2     ; ATK_NULLIFIER
 	bcd3 2     ; SPD_NULLIFIER
 	bcd3 0     ; SCREWDRIVER
+	bcd3 0     ; SCREWDRIVER
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F
