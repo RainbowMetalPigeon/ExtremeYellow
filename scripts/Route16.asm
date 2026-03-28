@@ -271,6 +271,7 @@ Route16FMovements3: ; new
 	db -1 ; end
 
 Route16Script_ResetIfLoseVsRival: ; new
+	call EnablePikachuOverworldSpriteDrawing
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a

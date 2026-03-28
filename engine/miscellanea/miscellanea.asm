@@ -2104,6 +2104,8 @@ MarkBirbAsFed::
 	jp z, .atollSW
 	cp LAKE_OF_MIST
 	jp z, .lakeMist
+	cp ELECTRIC_RAVINE
+	jp z, .electricRavine
 	cp FORLORN_VALLEY
 	jp z, .forlornValley
 ; this check should be unnecessary as there are no other open-air maps
@@ -2127,6 +2129,9 @@ MarkBirbAsFed::
 	ret
 .lakeMist
 	SetEvent EVENT_BIRB_LAKEMIST
+	ret
+.electricRavine
+	SetEvent EVENT_BIRB_ELECTRICRAVINE
 	ret
 .forlornValley
 	SetEvent EVENT_BIRB_FORLORNVALLEY
@@ -2430,6 +2435,8 @@ CheckIfAllBirbsHaveBeenFed::
 	CheckEvent EVENT_BIRB_ATOLLSW
 	ret z
 	CheckEvent EVENT_BIRB_LAKEMIST
+	ret z
+	CheckEvent EVENT_BIRB_ELECTRICRAVINE
 	ret z
 	CheckEvent EVENT_BIRB_FORLORNVALLEY
 	ret z
