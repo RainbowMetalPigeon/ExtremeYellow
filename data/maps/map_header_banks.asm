@@ -44,6 +44,7 @@ MapHeaderBanks::
 	db BANK(Route28_h)
 	db BANK(Route29_h)
 	db BANK(Route30_h)
+	db BANK(ElectricRavine_h) ; new
 	db BANK(LakeOfMist_h) ; new
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
@@ -234,7 +235,7 @@ MapHeaderBanks::
 	db BANK(CeruleanCave2F_h)
 	db BANK(CeruleanCaveB1F_h)
 	db BANK(CeruleanCave1F_h)
-	db BANK(LavenderHouses_h) ; edited, made UNUSED because of map MERGING
+;	db BANK(LavenderHouses_h) ; removed
 	db BANK(CeruleanBadgeHouse_h)
 	db BANK(CeladonUniversity1_h) ; new
 	db BANK(CeladonUniversity2_h) ; new

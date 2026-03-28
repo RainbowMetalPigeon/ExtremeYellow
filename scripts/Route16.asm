@@ -1,4 +1,13 @@
 Route16_Script:
+; new, to remove Route 3 Jenny
+	CheckEvent EVENT_REMOVED_ROUTE_3_JENNY
+	jr nz, .continue
+	ld a, HS_ROUTE_3_JENNY
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	SetEvent EVENT_REMOVED_ROUTE_3_JENNY
+.continue
+; end of Jenny stuff
 	call EnableAutoTextBoxDrawing
 	ld hl, Route16TrainerHeaders
 	ld de, Route16_ScriptPointers

@@ -43,6 +43,7 @@ MapSongBanks::
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_28, new, testing, to be modified?
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ROUTE_29, new, testing, to be modified?
 	db MUSIC_ROUTES1, BANK(Music_Routes1) ; ROUTE_30, new, testing, to be modified?
+	db MUSIC_ROUTES3, BANK(Music_Routes3) ; ELECTRIC_RAVINE
 	db MUSIC_ROUTES3, BANK(Music_Routes3) ; LAKE_OF_MIST
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_1F
 	db MUSIC_PALLET_TOWN, BANK(Music_PalletTown) ; REDS_HOUSE_2F
@@ -233,7 +234,7 @@ MapSongBanks::
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1) ; CERULEAN_CAVE_2F
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1) ; CERULEAN_CAVE_B1F
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1) ; CERULEAN_CAVE_1F
-	db MUSIC_LAVENDER, BANK(Music_Lavender) ; NAME_RATERS_HOUSE
+;	db MUSIC_LAVENDER, BANK(Music_Lavender) ; NAME_RATERS_HOUSE ; removed
 	db MUSIC_CITIES1, BANK(Music_Cities1) ; CERULEAN_BADGE_HOUSE
 	db MUSIC_CELADON, BANK(Music_Celadon) ; CELADON_UNIVERSITY_1, new
 	db MUSIC_CELADON, BANK(Music_Celadon) ; CELADON_UNIVERSITY_2, new

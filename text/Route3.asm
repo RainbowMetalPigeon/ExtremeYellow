@@ -143,3 +143,19 @@ _Route3Text10::
 	text "ROUTE 3"
 	line "MT.MOON AHEAD"
 	done
+
+_Route3TextJenny::
+	text "Sorry, civilians"
+	line "cannot pass."
+
+	para "We've reasons to"
+	line "believe that"
+	cont "TEAM ROCKET uses"
+	cont "this ROUTE for"
+	cont "its traffics."
+
+	para "Passage is"
+	line "interdicted until"
+	cont "further notice."
+;	xxxx "123456789012345678"
+	done

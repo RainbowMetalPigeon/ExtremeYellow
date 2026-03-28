@@ -49,7 +49,8 @@ ExternalMapEntries:
 	external_map  7,  7, Route27Name ; new
 	external_map  8,  9, Route28Name ; new
 	external_map 11, 15, Route29Name ; new
-	external_map  3,  7, Route30Name ; new
+	external_map  5,  4, Route30Name ; new
+	external_map  3,  7, ElectricRavineName ; new
 	external_map 15,  5, LakeOfMistName ; new
 	assert_table_length FIRST_INDOOR_MAP
 
@@ -73,7 +74,7 @@ InternalMapEntries:
 	internal_map PEWTER_GYM,                     2,  3, PewterCityName
 	internal_map ROUTE_21_DIVE,                  2, 13, Route21DiveName ; new
 	internal_map PEWTER_POKECENTER,              2,  3, PewterCityName
-	internal_map MT_MOON_B2F,                    6,  2, MountMoonName
+	internal_map MT_MOON_B2F,                    7,  2, MountMoonName ; edited
 	internal_map SUNKEN_SHIP_1F,                 2, 13, SunkenShipName ; new
 	internal_map BIKE_SHOP,                     10,  2, CeruleanCityName ; edited because of map MERGING
 	internal_map PIKACHU_GROTTO,                 3,  7, PikachuGrottoName ; new
@@ -147,7 +148,7 @@ InternalMapEntries:
 	internal_map SAFARI_ZONE_SECRET_HOUSE,       8, 12, SafariZoneName ; edited
 	internal_map HAUNTED_HOUSE_1,                0,  0, HauntedHouseName ; new, testing
 	internal_map CERULEAN_CAVE_1F,               9,  1, CeruleanCaveName
-	internal_map NAME_RATERS_HOUSE,             14,  5, LavenderTownName
+;	internal_map NAME_RATERS_HOUSE,             14,  5, LavenderTownName ; removed
 	internal_map CERULEAN_BADGE_HOUSE,          10,  2, CeruleanCityName
 	internal_map CELADON_UNIVERSITY_2,           7,  5, CeladonCityName ; new
 	internal_map ROCK_TUNNEL_B1F,               14,  3, RockTunnelName

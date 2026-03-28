@@ -22,6 +22,7 @@ Route3_TextPointers:
 	dw Route3Text7
 	dw Route3Text8
 	dw Route3Text9
+	dw Route3TextJenny ; new
 	dw Route3Text10
 
 Route3TrainerHeaders:
@@ -194,4 +195,8 @@ Route3AfterBattleText8:
 
 Route3Text10:
 	text_far _Route3Text10
+	text_end
+
+Route3TextJenny:
+	text_far _Route3TextJenny
 	text_end

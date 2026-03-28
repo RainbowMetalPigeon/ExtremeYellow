@@ -38,6 +38,7 @@ TownMapOrder:
 	db ROUTE_14
 	db ROUTE_15
 	db ROUTE_16
+	db ROUTE_30 ; new
 	db ROUTE_17
 	db ROUTE_18
 	db FUCHSIA_CITY
@@ -53,6 +54,6 @@ TownMapOrder:
 	db INDIGO_PLATEAU
 	db POWER_PLANT
 	db ROUTE_29 ; new
-	db ROUTE_30 ; new
+	db ELECTRIC_RAVINE ; new
 	db SECLUDED_ATOLL_SE ; new
 TownMapOrderEnd:

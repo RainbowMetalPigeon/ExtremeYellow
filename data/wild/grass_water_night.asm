@@ -38,13 +38,14 @@ WildDataPointersNight:
 	dw Route23WildMonsNight         ; ROUTE_23
 	dw Route24WildMonsNight         ; ROUTE_24
 	dw Route25WildMonsNight         ; ROUTE_25
-	dw Route26WildMonsNight		   ; ROUTE_26, new
-	dw Route27WildMonsNight		   ; ROUTE_27, new
-	dw Route28WildMonsNight		   ; ROUTE_28, new
-	dw Route29WildMonsNight		   ; ROUTE_29, new
-	dw Route30WildMonsNight		   ; ROUTE_30, new
-	dw LakeOfMistWildMonsNight ; LAKE_OF_MIST ; new
-	dw NothingWildMons         ; REDS_HOUSE_1F
+	dw Route26WildMonsNight		    ; ROUTE_26, new
+	dw Route27WildMonsNight		    ; ROUTE_27, new
+	dw Route28WildMonsNight		    ; ROUTE_28, new
+	dw Route29WildMonsNight		    ; ROUTE_29, new
+	dw Route30WildMonsNight		    ; ROUTE_30, new
+	dw NothingWildMons              ; ELECTRIC_RAVINE ; new ; TBE
+	dw LakeOfMistWildMonsNight      ; LAKE_OF_MIST ; new
+	dw NothingWildMons              ; REDS_HOUSE_1F
 	dw NothingWildMons ; REDS_HOUSE_2F
 	dw NothingWildMons ; BLUES_HOUSE
 	dw NothingWildMons ; OAKS_LAB
@@ -233,7 +234,7 @@ WildDataPointersNight:
 	dw CeruleanCave2FWildMonsNight
 	dw CeruleanCaveB1FWildMonsNight
 	dw CeruleanCave1FWildMonsNight
-	dw NothingWildMons ; NAME_RATERS_HOUSE
+;	dw NothingWildMons ; NAME_RATERS_HOUSE ; removed
 	dw NothingWildMons ; CERULEAN_BADGE_HOUSE
 	dw NothingWildMons ; CeladonUniversity1
 	dw NothingWildMons ; CeladonUniversity2

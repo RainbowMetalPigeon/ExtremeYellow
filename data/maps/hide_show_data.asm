@@ -18,7 +18,7 @@ MapHSPointers:
 	dw SaffronCityHS ; SAFFRON_CITY
 	dw NoHS
 	dw Route2HS
-	dw NoHS
+	dw Route3HS ; new
 	dw Route4HS
 	dw NoHS
 	dw NoHS
@@ -46,6 +46,7 @@ MapHSPointers:
 	dw Route28HS ; new, Route28
 	dw NoHS ; new, Route29
 	dw NoHS ; new, Route30
+	dw NoHS ; ELECTRIC_RAVINE ; new ; TBE
 	dw LakeOfMistHS ; LAKE_OF_MIST ; new
 	dw RedsHouse1FHS ; new
 	dw NoHS ; REDS_HOUSE_2F
@@ -236,7 +237,7 @@ MapHSPointers:
 	dw CeruleanCave2FHS
 	dw CeruleanCaveB1FHS
 	dw CeruleanCaveHS
-	dw NoHS ; NAME_RATERS_HOUSE
+;	dw NoHS ; NAME_RATERS_HOUSE ; removed
 	dw NoHS ; CERULEAN_BADGE_HOUSE
 	dw NoHS ; CELADON_UNIVERSITY_1 ; new
 	dw NoHS ; CELADON_UNIVERSITY_2 ; new
@@ -875,5 +876,7 @@ ForlornValleyHS: ; new
 LakeOfMistHS: ; new
 	db LAKE_OF_MIST, 10, SHOW ; ball
 	db LAKE_OF_MIST, 11, SHOW ; rock
+Route3HS: ; new
+	db ROUTE_3, 10, SHOW ; RoadBlock Jenny
 
 	db $FF, $01, SHOW ; end, list terminator

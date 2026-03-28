@@ -1,4 +1,4 @@
-	map_header Route30, ROUTE_30, OVERWORLD, WEST | EAST
-	connection west, Route2, ROUTE_2, -24
-	connection east, Route17, ROUTE_17, -2
+	map_header Route30, ROUTE_30, OVERWORLD, NORTH | SOUTH
+	connection north, Route3, ROUTE_3, -11
+	connection south, Route16, ROUTE_16, 0
 	end_map_header

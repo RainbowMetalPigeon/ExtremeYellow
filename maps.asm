@@ -1262,6 +1262,11 @@ INCLUDE "data/maps/objects/Route30.asm"
 Route30_Blocks: INCBIN "maps/Route30.blk"
 INCLUDE "scripts/Route30.asm"
 
+INCLUDE "data/maps/headers/ElectricRavine.asm"
+INCLUDE "data/maps/objects/ElectricRavine.asm"
+ElectricRavine_Blocks: INCBIN "maps/ElectricRavine.blk"
+INCLUDE "scripts/ElectricRavine.asm"
+
 INCLUDE "data/maps/headers/PikachuGrotto.asm"
 INCLUDE "data/maps/objects/PikachuGrotto.asm"
 PikachuGrotto_Blocks: INCBIN "maps/PikachuGrotto.blk"
@@ -1352,12 +1357,6 @@ INCLUDE "data/maps/headers/ViridianPokecenter.asm"
 INCLUDE "scripts/ViridianPokecenter.asm"
 INCLUDE "data/maps/objects/ViridianPokecenter.asm"
 ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
-
-; new/edited because of MERGING
-INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
-INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
-SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
 
 
 SECTION "Maps New 2", ROMX ; new
@@ -1474,6 +1473,12 @@ INCLUDE "data/maps/headers/BluesHouse.asm"
 INCLUDE "scripts/BluesHouse.asm"
 INCLUDE "data/maps/objects/BluesHouse.asm"
 BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
+
+; new/edited because of MERGING
+INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
+SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

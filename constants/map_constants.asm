@@ -33,7 +33,7 @@ DEF NUM_CITY_MAPS EQU const_value
 DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_1,                       10, 18 ; $0D
 	map_const ROUTE_2,                       10, 36 ; $0E
-	map_const ROUTE_3,                       35,  9 ; $0F
+	map_const ROUTE_3,                       35, 10 ; $0F ; edited
 	map_const ROUTE_4,                       45, 19 ; $10 ; edited
 	map_const ROUTE_5,                       20, 18 ; $11 ; edited
 	map_const ROUTE_6,                       10, 18 ; $12
@@ -60,7 +60,8 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_27,                      11, 15 ; $27
 	map_const ROUTE_28,                      12,  9 ; $28
 	map_const ROUTE_29,                      14, 32 ; $29
-	map_const ROUTE_30,                      20,  8 ; $2A
+	map_const ROUTE_30,                       9, 20 ; $2A ; TBE
+	map_const ELECTRIC_RAVINE,               20,  8 ; new
 	map_const LAKE_OF_MIST,                  25, 25 ; $2B ; new
 DEF FIRST_INDOOR_MAP EQU const_value
 	map_const REDS_HOUSE_1F,                  4,  5 ; $2C ; edited
@@ -252,7 +253,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CERULEAN_CAVE_2F,              15,  9 ; $E7
 	map_const CERULEAN_CAVE_B1F,             15,  9 ; $E8
 	map_const CERULEAN_CAVE_1F,              15,  9 ; $E9
-	map_const NAME_RATERS_HOUSE,              4,  4 ; $EA ; edited, made UNUSED because of map MERGING
+;	map_const NAME_RATERS_HOUSE,              4,  4 ; $EA ; removed for ELECTRIC_RAVINE
 	map_const CERULEAN_BADGE_HOUSE,           4,  4 ; $EB
 	map_const CELADON_UNIVERSITY_1,          10, 15 ; $EC, new
 	map_const CELADON_UNIVERSITY_2,          25, 17 ; $ED, new

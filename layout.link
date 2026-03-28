@@ -105,7 +105,7 @@ ROMX $14
 	"Hidden Objects 2"
 ROMX $15
 	"Maps 11"
-	"Battle Engine 7"
+;	"Battle Engine 7"
 	"Maps 12"
 ;	"Diploma" ; edited
 ;	"Trainer Sight" ; edited

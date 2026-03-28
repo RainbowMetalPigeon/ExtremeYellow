@@ -43,7 +43,8 @@ WildDataPointers:
 	dw Route28WildMons		   ; ROUTE_28, new
 	dw Route29WildMons		   ; ROUTE_29, new
 	dw Route30WildMons		   ; ROUTE_30, new
-	dw LakeOfMistWildMons ; LAKE_OF_MIST ; new
+	dw NothingWildMons         ; ELECTRIC_RAVINE ; new ; TBE
+	dw LakeOfMistWildMons      ; LAKE_OF_MIST ; new
 	dw NothingWildMons         ; REDS_HOUSE_1F
 	dw NothingWildMons ; REDS_HOUSE_2F
 	dw NothingWildMons ; BLUES_HOUSE
@@ -233,7 +234,7 @@ WildDataPointers:
 	dw CeruleanCave2FWildMons
 	dw CeruleanCaveB1FWildMons
 	dw CeruleanCave1FWildMons
-	dw NothingWildMons ; NAME_RATERS_HOUSE
+;	dw NothingWildMons ; NAME_RATERS_HOUSE ; removed
 	dw NothingWildMons ; CERULEAN_BADGE_HOUSE
 	dw NothingWildMons ; CeladonUniversity1
 	dw NothingWildMons ; CeladonUniversity2

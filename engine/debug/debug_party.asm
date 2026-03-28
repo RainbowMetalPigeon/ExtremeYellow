@@ -204,7 +204,7 @@ IF DEF(_DEBUG)
 ;	ld a, $05
 ;	ld [wNonShinyEncounters], a
 
-	ld a, %01110100
+	ld a, %01110000
 	ld [wDayNightCycle], a
 
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
@@ -320,9 +320,10 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db SLEEP_BAG, 1
+	db FULL_RESTORE, 99
 	db MATCHA_TEA, 10
-	db ATK_NULLIFIER, 10
-	db SPD_NULLIFIER, 10
+;	db ATK_NULLIFIER, 10
+;	db SPD_NULLIFIER, 10
 ;	db SCREWDRIVER, 1
 	db SMASH_BALL, 15
 	db TOWN_MAP, 1
@@ -346,7 +347,6 @@ DebugItemsList:
 	db FLAME_PLUME, 1
 	db MASTER_BALL, 99
 	db BICYCLE, 1
-	db FULL_RESTORE, 99
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db REVIVE, 99

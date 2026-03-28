@@ -70,8 +70,6 @@ INCLUDE "text/Route2.asm"
 INCLUDE "text/Route3.asm"
 INCLUDE "text/Route4.asm"
 INCLUDE "text/Route5.asm"
-INCLUDE "text/Route6.asm"
-INCLUDE "text/Route7.asm"
 
 
 SECTION "Text 4", ROMX
@@ -307,6 +305,8 @@ INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/Route19.asm"
 INCLUDE "data/text/text_4.asm"
 INCLUDE "text/CeladonDiner.asm"
+INCLUDE "text/Route7.asm"
+INCLUDE "text/Route6.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

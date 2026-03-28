@@ -1035,7 +1035,7 @@ GetPal_Pikachu::
 	jr c, .townOrRoute
 	cp CERULEAN_CAVE_2F
 	jr c, .normalDungeonOrBuilding
-	cp NAME_RATERS_HOUSE
+	cp CERULEAN_CAVE_1F
 	jr c, .caveOrBruno
 	cp LORELEIS_ROOM
 	jr z, .Lorelei

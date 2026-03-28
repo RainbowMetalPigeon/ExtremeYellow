@@ -44,6 +44,7 @@ MapHeaderPointers::
 	dw Route28_h
 	dw Route29_h
 	dw Route30_h
+	dw ElectricRavine_h ; new
 	dw LakeOfMist_h ; new
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
@@ -234,7 +235,7 @@ MapHeaderPointers::
 	dw CeruleanCave2F_h
 	dw CeruleanCaveB1F_h
 	dw CeruleanCave1F_h
-	dw LavenderHouses_h ; edited, made UNUSED because of map MERGING
+;	dw LavenderHouses_h ; removed
 	dw CeruleanBadgeHouse_h
 	dw CeladonUniversity1_h ; new
 	dw CeladonUniversity2_h ; new

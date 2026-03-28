@@ -1,10 +1,10 @@
 CeladonCity_Script:
-	; new, to open path to Lunar Temple after its events
+; new, to open path to Lunar Temple after its events
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
 	res 6, [hl]
 	call nz, CeladonCityHideShowLunarTemplePath
-	; end of Lunar temple stuff
+; end of Lunar temple stuff
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonCity_ScriptPointers

@@ -63,6 +63,7 @@ PikachuGrottoName:   db "PIKACHU GROTTO@" ; new
 HauntedHouseName:    db "@" ; new
 LakeOfMistName:      db "LAKE OF MIST@" ; new
 ForlornValleyName:   db "FORLORN VALLEY@" ; new
+ElectricRavineName:  db "ELECTRIC RAVINE@" ; new
 
 ; new, for Sevii and new Kanto areas
 

@@ -481,3 +481,4 @@ DEF SHOW EQU $15
 	const HS_FORLORN_VALLEY_ITEM_1         ; new
 	const HS_LAKE_OF_MIST_ITEM_1           ; new
 	const HS_LAKE_OF_MIST_ROCK_1           ; new
+	const HS_ROUTE_3_JENNY                 ; new
