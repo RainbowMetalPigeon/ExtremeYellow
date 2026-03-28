@@ -244,7 +244,7 @@ LoadTownMap_Nest:
 	jr z, .skipAnimation
 	push de
 	push bc
-	callfar TownMapSpriteBlinkingAnimation
+	call TownMapSpriteBlinkingAnimation ; edited, why was it a callfar?
 	pop bc
 	pop de
 .skipAnimation
@@ -264,14 +264,16 @@ LoadTownMap_Nest:
 	ldh a, [hJoy5]
 	bit BIT_SELECT, a
 	jp z, .postButton
-; if we pressed SELECT: toggle between day and night
+.selectButton ; if we pressed SELECT: toggle between day and night
 	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
 	jr nz, .resetNight
 	SetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	jr .core
+	jr .backToCore
 .resetNight
 	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	jr .core
+.backToCore
+	call ClearSprites
+	jp .core
 
 .postButton
 ; BTV
@@ -326,7 +328,7 @@ LoadTownMap_Fly::
 ; back to vanilla
 	ld c, 12
 	ld hl, vSprites tile $04
-	call CopyVideoData
+	call CopyVideoData ; copy c 2bpp tiles from b:de to hl, 8 tiles at a time.
 	ld de, TownMapUpArrow
 	ld hl, vChars1 tile $6d
 	lb bc, BANK(TownMapUpArrow), (TownMapUpArrowEnd - TownMapUpArrow) / $8
@@ -692,6 +694,15 @@ DrawPlayerOrBirdSprite:
 	jp CopyData
 
 DisplayWildLocations:
+;; new, initialize wBuffer
+;	ld b, 30
+;	xor a
+;	ld hl, wBuffer
+;.wBufferLoop
+;	ld [hli], a
+;	dec b
+;	jr nz, .wBufferLoop
+;; BTV
 	ld a, [wd11e]				; new
 	cp MEW						; new
 	jr z, .printMysterious		; new
