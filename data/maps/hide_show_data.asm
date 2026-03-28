@@ -46,7 +46,7 @@ MapHSPointers:
 	dw Route28HS ; new, Route28
 	dw NoHS ; new, Route29
 	dw NoHS ; new, Route30
-	dw NoHS ; LAKE_OF_MIST ; new
+	dw LakeOfMistHS ; LAKE_OF_MIST ; new
 	dw RedsHouse1FHS ; new
 	dw NoHS ; REDS_HOUSE_2F
 	dw BluesHouseHS
@@ -871,5 +871,8 @@ Route10HS: ; new
 	db ROUTE_10,  7, HIDE ; special birdkeeper
 ForlornValleyHS: ; new
 	db FORLORN_VALLEY, $01, SHOW
+LakeOfMistHS: ; new
+	db LAKE_OF_MIST, 10, SHOW ; ball
+	db LAKE_OF_MIST, 11, SHOW ; rock
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -89,3 +89,110 @@ _ForlornValley_ReceiveDesolatedRockCoordinates::
 	cont "DESOLATED ROCK!"
 ;	xxxx "123456789012345678"
 	done
+
+; nps and signs ========================================
+
+_LakeOfMistText7::
+	text "7"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistText8::
+	text "8"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistText9::
+	text "9"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistSignText1::
+	text "LAKE OF MIST"
+;	xxxx "123456789012345678"
+	done
+
+; trainers ========================================
+
+_LakeOfMistBattleText1::
+	text "1-pre"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistEndBattleText1::
+	text "1-end"
+;	xxxx "123456789012345678"
+	prompt
+
+_LakeOfMistAfterBattleText1::
+	text "1-after"
+;	xxxx "123456789012345678"
+	done
+
+; ----------------
+
+_LakeOfMistBattleText2::
+	text "2-pre"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistEndBattleText2::
+	text "2-end"
+;	xxxx "123456789012345678"
+	prompt
+
+_LakeOfMistAfterBattleText2::
+	text "2-after"
+;	xxxx "123456789012345678"
+	done
+
+; ----------------
+
+_LakeOfMistBattleText3::
+	text "3-pre"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistEndBattleText3::
+	text "3-end"
+;	xxxx "123456789012345678"
+	prompt
+
+_LakeOfMistAfterBattleText3::
+	text "3-after"
+;	xxxx "123456789012345678"
+	done
+
+; ----------------
+
+_LakeOfMistBattleText4::
+	text "4-pre"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistEndBattleText4::
+	text "4-end"
+;	xxxx "123456789012345678"
+	prompt
+
+_LakeOfMistAfterBattleText4::
+	text "4-after"
+;	xxxx "123456789012345678"
+	done
+
+; ----------------
+
+_LakeOfMistBattleText5::
+	text "5-pre"
+;	xxxx "123456789012345678"
+	done
+
+_LakeOfMistEndBattleText5::
+	text "5-end"
+;	xxxx "123456789012345678"
+	prompt
+
+_LakeOfMistAfterBattleText5::
+	text "5-after"
+;	xxxx "123456789012345678"
+	done

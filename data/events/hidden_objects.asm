@@ -695,4 +695,5 @@ SSAnne1FRoomsHiddenObjects: ; new
 
 LakeOfMistHiddenObjects: ; new
 	hidden_object  8, 43, MAX_ETHER, HiddenItems
+	hidden_object 19, 45, REVIVE, HiddenItems
 	db -1 ; end

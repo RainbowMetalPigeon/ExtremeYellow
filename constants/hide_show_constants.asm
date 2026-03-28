@@ -478,3 +478,5 @@ DEF SHOW EQU $15
 	const HS_SAFARI_ZONE_EXTRA_ITEM_4      ; new
 	const HS_ROUTE_10_SPECIAL_BIRDKEEPER   ; new
 	const HS_FORLORN_VALLEY_ITEM_1         ; new
+	const HS_LAKE_OF_MIST_ITEM_1           ; new
+	const HS_LAKE_OF_MIST_ROCK_1           ; new

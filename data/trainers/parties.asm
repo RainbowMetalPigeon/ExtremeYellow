@@ -380,6 +380,8 @@ BikerData:
 	db 29, KOFFING, MUK, 0
 ; Sevii Pattern Bush
 	db 85, WEEZING, ELECTRODE, MUK, CROBAT, VENOMOTH, GENGAR, 0 ; 16
+; Lake of Mist, new
+	db 23, GRIMER, WEEZING, NIDOKING, BEEDRILL, 0 ; 17
 
 BurglarData:
 ; Unused
@@ -419,6 +421,8 @@ FisherData:
 	db 24, MAGIKARP, GYARADOS, GYARADOS, 0
 ; Route 28, new
 	db 43, SEAKING, POLITOED, CLOYSTER, KINGDRA, GYARADOS, 0 ; 12
+; Lake of Mist, new
+	db $FF, 21, STARMIE, 22, CLOYSTER, 21, GYARADOS, 25, POLITOED, 19, SLOWKING, 0 ; 13
 
 SwimmerData:
 ; Cerulean Gym
@@ -716,6 +720,8 @@ ScientistData:
 ; Sevii Route 43
 	db 85, MAGNEZONE, SLOWKING, PORYGONZ, MUK, ESPEON, OMASTAR, 0 ; 15
 	db 85, MAGNEZONE, MR_MIME, PORYGONZ, WEEZING, UMBREON, KABUTOPS, 0 ; 16
+; Lake of Mist, new
+	db 23, GRIMER, MAGNETON, KADABRA, KOFFING, 0 ; 17
 
 GentlemanData:
 ; SS Anne 1F Rooms
@@ -774,6 +780,8 @@ ChannelerData:
 	db 44, GASTLY, GASTLY, GASTLY, HAUNTER, HAUNTER, GENGAR, 0 ; updated
 ; Ochre Gym, new
 	db 47, UMBREON, 0 ; 25
+; Lake of Mist, new
+	db 23, HAUNTER, NINETALES, PARASECT, PORYGON, 0 ; 26
 
 RocketData:
 ; Mt. Moon B2F
@@ -992,6 +1000,8 @@ CooltrainerData:
 	db 46, RHYDON, NINETALES, SANDSLASH, FLAREON, GOLEM, 0 ; 100
 ; Sevii Five Island Dive
 	db 46, STEELIX, MAGMORTAR, NIDOKING, RAPIDASH, DUGTRIO, 0 ; 101
+; Lake of Mist, new
+	db 25, WIGGLYTUFF, GENGAR, TAUROS, BELLOSSOM, GLACEON, 0 ; 102
 
 ;PORYGON2	3
 ;POLITOED 	5

@@ -69,7 +69,7 @@ InternalMapEntries:
 	internal_map HAUNTED_REDS_HOUSE,             2, 11, PalletTownName ; edited because of map MERGING
 	internal_map ROUTE_2_ALL_GATES,              2,  6, Route2Name ; edited because of map MERGING
 	internal_map HAUNTED_PALLET_TOWN,            2, 11, PalletTownName ; edited because of map MERGING
-	internal_map VIRIDIAN_FOREST,                2,  4, ViridianForestName
+	internal_map VIRIDIAN_FOREST,                2,  5, ViridianForestName
 	internal_map PEWTER_GYM,                     2,  3, PewterCityName
 	internal_map ROUTE_21_DIVE,                  2, 13, Route21DiveName ; new
 	internal_map PEWTER_POKECENTER,              2,  3, PewterCityName

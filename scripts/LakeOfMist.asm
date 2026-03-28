@@ -1,34 +1,57 @@
 LakeOfMist_Script:
 	call EnableAutoTextBoxDrawing
-;	ld hl, LakeOfMistTrainerHeaders
-;	ld de, LakeOfMist_ScriptPointers
-;	ld a, [wCurMapScript] ; edited
-;	call ExecuteCurMapScriptInTable
-;	ld [wCurMapScript], a ; edited
+	ld hl, LakeOfMistTrainerHeaders
+	ld de, LakeOfMist_ScriptPointers
+	ld a, [wCurMapScript] ; edited
+	call ExecuteCurMapScriptInTable
+	ld [wCurMapScript], a ; edited
 	ret
-/*
+
 LakeOfMist_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
-*/
+
 LakeOfMist_TextPointers:
 	dw LakeOfMistText1
-
-/*
-	dw LakeOfMistText1
-	dw LakeOfMistText2
-	dw LakeOfMistText3
-	dw LakeOfMistText4
-	dw LakeOfMistText5
-	dw LakeOfMistText6
+	; trainers
+	dw LakeOfMistTrainerText1
+	dw LakeOfMistTrainerText2
+	dw LakeOfMistTrainerText3
+	dw LakeOfMistTrainerText4
+	dw LakeOfMistTrainerText5
+	; npcs
 	dw LakeOfMistText7
 	dw LakeOfMistText8
 	dw LakeOfMistText9
-	dw LakeOfMistText10
+	; items
+	dw PickUpItemText
+	dw RockSmashText
+	; signs
+	dw LakeOfMistSignText1
+
+; ---------------------------------------------------
+
+LakeOfMistText7:
+	text_far _LakeOfMistText7
+	text_end
+
+LakeOfMistText8:
+	text_far _LakeOfMistText8
+	text_end
+
+LakeOfMistText9:
+	text_far _LakeOfMistText9
+	text_end
+
+LakeOfMistSignText1:
+	text_far _LakeOfMistSignText1
+	text_end
+
+; ---------------------------------------------------
 
 LakeOfMistTrainerHeaders:
-	def_trainers 2
+	def_trainers 2 ; TBE
 LakeOfMistTrainerHeader0:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_0, 2, LakeOfMistBattleText1, LakeOfMistEndBattleText1, LakeOfMistAfterBattleText1
 LakeOfMistTrainerHeader1:
@@ -39,19 +62,9 @@ LakeOfMistTrainerHeader3:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_3, 1, LakeOfMistBattleText4, LakeOfMistEndBattleText4, LakeOfMistAfterBattleText4
 LakeOfMistTrainerHeader4:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_4, 4, LakeOfMistBattleText5, LakeOfMistEndBattleText5, LakeOfMistAfterBattleText5
-LakeOfMistTrainerHeader5:
-	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_5, 3, LakeOfMistBattleText6, LakeOfMistEndBattleText6, LakeOfMistAfterBattleText6
-LakeOfMistTrainerHeader6:
-	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_6, 3, LakeOfMistBattleText7, LakeOfMistEndBattleText7, LakeOfMistAfterBattleText7
-LakeOfMistTrainerHeader7:
-	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_7, 2, LakeOfMistBattleText8, LakeOfMistEndBattleText8, LakeOfMistAfterBattleText8
 	db -1 ; end
 
-LakeOfMistText1:
-	text_far _LakeOfMistText1
-	text_end
-
-LakeOfMistText2:
+LakeOfMistTrainerText1:
 	text_asm
 	ld hl, LakeOfMistTrainerHeader0
 	call TalkToTrainer
@@ -69,7 +82,7 @@ LakeOfMistAfterBattleText1:
 	text_far _LakeOfMistAfterBattleText1
 	text_end
 
-LakeOfMistText3:
+LakeOfMistTrainerText2:
 	text_asm
 	ld hl, LakeOfMistTrainerHeader1
 	call TalkToTrainer
@@ -87,7 +100,7 @@ LakeOfMistAfterBattleText2:
 	text_far _LakeOfMistAfterBattleText2
 	text_end
 
-LakeOfMistText4:
+LakeOfMistTrainerText3:
 	text_asm
 	ld hl, LakeOfMistTrainerHeader2
 	call TalkToTrainer
@@ -105,7 +118,7 @@ LakeOfMistAfterBattleText3:
 	text_far _LakeOfMistAfterBattleText3
 	text_end
 
-LakeOfMistText5:
+LakeOfMistTrainerText4:
 	text_asm
 	ld hl, LakeOfMistTrainerHeader3
 	call TalkToTrainer
@@ -123,7 +136,7 @@ LakeOfMistAfterBattleText4:
 	text_far _LakeOfMistAfterBattleText4
 	text_end
 
-LakeOfMistText6:
+LakeOfMistTrainerText5:
 	text_asm
 	ld hl, LakeOfMistTrainerHeader4
 	call TalkToTrainer
@@ -141,64 +154,7 @@ LakeOfMistAfterBattleText5:
 	text_far _LakeOfMistAfterBattleText5
 	text_end
 
-LakeOfMistText7:
-	text_asm
-	ld hl, LakeOfMistTrainerHeader5
-	call TalkToTrainer
-	jp TextScriptEnd
-
-LakeOfMistBattleText6:
-	text_far _LakeOfMistBattleText6
-	text_end
-
-LakeOfMistEndBattleText6:
-	text_far _LakeOfMistEndBattleText6
-	text_end
-
-LakeOfMistAfterBattleText6:
-	text_far _LakeOfMistAfterBattleText6
-	text_end
-
-LakeOfMistText8:
-	text_asm
-	ld hl, LakeOfMistTrainerHeader6
-	call TalkToTrainer
-	jp TextScriptEnd
-
-LakeOfMistBattleText7:
-	text_far _LakeOfMistBattleText7
-	text_end
-
-LakeOfMistEndBattleText7:
-	text_far _LakeOfMistEndBattleText7
-	text_end
-
-LakeOfMistAfterBattleText7:
-	text_far _LakeOfMistAfterBattleText7
-	text_end
-
-LakeOfMistText9:
-	text_asm
-	ld hl, LakeOfMistTrainerHeader7
-	call TalkToTrainer
-	jp TextScriptEnd
-
-LakeOfMistBattleText8:
-	text_far _LakeOfMistBattleText8
-	text_end
-
-LakeOfMistEndBattleText8:
-	text_far _LakeOfMistEndBattleText8
-	text_end
-
-LakeOfMistAfterBattleText8:
-	text_far _LakeOfMistAfterBattleText8
-	text_end
-
-LakeOfMistText10:
-	text_far _LakeOfMistText10
-	text_end
-*/
+; ---------------------------------------------------
 
 LakeOfMistText1:
 	text_asm

@@ -681,8 +681,13 @@
 	const EVENT_BEAT_MELTAN ; new
 	const_skip 2
 	const EVENT_BEAT_ROUTE_4_TRAINER_0
-;	const_skip 12 ; edited, commented away?
+	const_skip 4
 	const EVENT_BOUGHT_MAGIKARP
+	const EVENT_BEAT_LAKE_OF_MIST_TRAINER_0 ; new
+	const EVENT_BEAT_LAKE_OF_MIST_TRAINER_1 ; new
+	const EVENT_BEAT_LAKE_OF_MIST_TRAINER_2 ; new
+	const EVENT_BEAT_LAKE_OF_MIST_TRAINER_3 ; new
+	const EVENT_BEAT_LAKE_OF_MIST_TRAINER_4 ; new
 
 ; Route 26 events, new, temp?
 	const_next $400

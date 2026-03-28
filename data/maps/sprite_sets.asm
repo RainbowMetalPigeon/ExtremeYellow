@@ -43,7 +43,7 @@ MapSpriteSets:
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
 	db $15 ; ROUTE_29, new, testing (for now same set as Route14)
 	db $10 ; ROUTE_30, new, testing (for now same set as Viridian City, i.e. south of Route2)
-	db $0f ; LAKE_OF_MIST, new
+	db $16 ; LAKE_OF_MIST, new
 	assert_table_length FIRST_INDOOR_MAP
 
 DEF EAST_WEST   EQU 1
@@ -386,4 +386,19 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_TRAVELER ; edited, was a SPRITE_ROCKER
 	db SPRITE_POKE_BALL
 	db SPRITE_SNORLAX
+	assert_table_length SPRITE_SET_LENGTH
+
+; sprite set $16, for Lake of Mist
+	table_width 1
+	db SPRITE_PIKACHU
+	db SPRITE_FISHER
+	db SPRITE_CHANNELER
+	db SPRITE_BIKER
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_GIRL
+	db SPRITE_SCIENTIST
+	db SPRITE_LITTLE_GIRL
+	db SPRITE_POKE_BALL
+	db SPRITE_ROCKSMASHABLE_ROCK
 	assert_table_length SPRITE_SET_LENGTH

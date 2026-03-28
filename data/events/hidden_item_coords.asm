@@ -90,5 +90,6 @@ HiddenItemCoords:
 	hidden_item ROUTE_30,                       3,   0 ; new
 	hidden_item ROUTE_30,                      24,  15 ; new
 	hidden_item SS_ANNE_1F_ROOMS,               3,   5 ; new
-	hidden_item SS_ANNE_1F_ROOMS,               8,  43 ; new, MAX_ETHER
+	hidden_item LAKE_OF_MIST,                   8,  43 ; new, MAX_ETHER
+	hidden_item LAKE_OF_MIST,                  19,  45 ; new, REVIVE
 	db -1 ; end
