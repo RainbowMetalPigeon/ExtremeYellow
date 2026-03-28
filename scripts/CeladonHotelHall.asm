@@ -41,8 +41,18 @@ CeladonHotelHallText5:
 ; have screwdriver?
 	ld b, SCREWDRIVER
 	call IsItemInBag ; set zero flag if item isn't in player's bag
+	jr z, .noScrewdriverInBag
+; screwdriver in bag
+	CheckEvent EVENT_SPOKEN_WITH_REPAIR_BOSS
+	jr nz, .notFirstTimeTalkToBoss
+; have screwdriver but first time we talk to boss
+	ld hl, CeladonHotelHallText5_ScrewdriverInBagFirstTime
+	call PrintText
+	jr .spawnRepairPerson
+.notFirstTimeTalkToBoss
 	ld hl, CeladonHotelHallText5_ScrewdriverInBag
 	jr nz, .printAndEnd
+.noScrewdriverInBag
 ; already spoken to repair person
 	CheckEvent EVENT_SPOKEN_WITH_REPAIR_PERSON
 	ld hl, CeladonHotelHallText5_SpokenWithRepairPerson
@@ -51,6 +61,7 @@ CeladonHotelHallText5:
 	CheckEvent EVENT_SPOKEN_WITH_REPAIR_BOSS
 	ld hl, CeladonHotelHallText5_SpokenWithRepairBoss
 	jr nz, .printAndEnd
+.spawnRepairPerson
 ; first time speaking
 	ld a, HS_ROUTE_7_REPAIR_PERSON
 	ld [wMissableObjectIndex], a
@@ -60,6 +71,10 @@ CeladonHotelHallText5:
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
+
+CeladonHotelHallText5_ScrewdriverInBagFirstTime:
+	text_far _CeladonHotelHallText5_ScrewdriverInBagFirstTime
+	text_end
 
 CeladonHotelHallText5_FixedMatchaMachine:
 	text_far _CeladonHotelHallText5_FixedMatchaMachine

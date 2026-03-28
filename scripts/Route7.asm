@@ -31,6 +31,9 @@ Route7RepairPersonText: ; new
 	ld hl, Route7RepairPersonText_YouFoundIt
 	call PrintText
 	call GBFadeOutToBlack
+	ld a, SCREWDRIVER
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
 	SetEvent EVENT_FIXED_MATCHA_MACHINE
 	ld a, HS_ROUTE_7_REPAIR_PERSON
 	ld [wMissableObjectIndex], a

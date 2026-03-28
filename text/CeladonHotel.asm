@@ -210,7 +210,7 @@ _CeladonHotelRoomsText8::
 	cont "the location of"
 	cont "the FORBIDDEN"
 	cont "MERCHANT!"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 ; signs -----
@@ -254,7 +254,7 @@ _CeladonHotelRoomsSign5::
 
 	para "Are they maybe for"
 	line "a kid? Or a dog?"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelRoomsSign6::
@@ -282,52 +282,59 @@ _CeladonHotelRoomsSign8::
 
 _CeladonHotelHallSign6::
 	text "BOSS' OFFICE"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallSign7::
 	text "Books and manuals."
 	line "...very dusty."
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallSign8::
 	text "This website would"
 	line "not be allowed in"
 	cont "many workplaces..."
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_FixedMatchaMachine::
 	text "all done!"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_ScrewdriverInBag::
 	text "give it to them"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
+	done
+
+_CeladonHotelHallText5_ScrewdriverInBagFirstTime::
+	text "guy in Route 7"
+	line "oh that's their"
+	cont "SD give it to them"
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_SpokenWithRepairPerson::
 	text "find it"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_SpokenWithRepairBoss::
 	text "find them"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_FirstTime::
 	text "guy in Route 7"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 ; trainers ------
 
 _CeladonHotelHallBattleText0::
 	text "0-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText0::
@@ -337,14 +344,14 @@ _CeladonHotelHallEndBattleText0::
 
 _CeladonHotelHallAfterBattleText0::
 	text "0-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 ; ------
 
 _CeladonHotelHallBattleText1::
 	text "1-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText1::
@@ -354,14 +361,14 @@ _CeladonHotelHallEndBattleText1::
 
 _CeladonHotelHallAfterBattleText1::
 	text "1-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 ; ------
 
 _CeladonHotelHallBattleText2::
 	text "2-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText2::
@@ -371,14 +378,14 @@ _CeladonHotelHallEndBattleText2::
 
 _CeladonHotelHallAfterBattleText2::
 	text "2-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 ; ------
 
 _CeladonHotelHallBattleText3::
 	text "3-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText3::
@@ -388,6 +395,6 @@ _CeladonHotelHallEndBattleText3::
 
 _CeladonHotelHallAfterBattleText3::
 	text "3-"
-;	xxxx "123456789012345678
+;	xxxx "123456789012345678"
 	done
 
