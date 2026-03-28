@@ -2,7 +2,7 @@ MapSpriteSets:
 	table_width 1, MapSpriteSets
 	db $0e ; PALLET_TOWN ; edited, it was $01
 	db $10 ; VIRIDIAN_CITY ; edited, it was $01
-	db $12 ; PEWTER_CITY ; edited, it was $02
+	db $02 ; PEWTER_CITY
 	db $12 ; CERULEAN_CITY ; edited, it was $02
 	db $0f ; LAVENDER_TOWN ; edited, it was $03
 	db $11 ; VERMILION_CITY ; edited, it was $04
@@ -16,12 +16,12 @@ MapSpriteSets:
 	db $01 ; ROUTE_1 ; is the only $01 left together with R22, we can modify them hopefully, maybe split south with 0e and north with 10?
 	db $f1 ; ROUTE_2
 	db $02 ; ROUTE_3
-	db $02 ; ROUTE_4
+	db $fd ; ROUTE_4 ; edited, was $02
 	db $f9 ; ROUTE_5
 	db $fa ; ROUTE_6
 	db $fb ; ROUTE_7
 	db $fc ; ROUTE_8
-	db $02 ; ROUTE_9
+	db $12 ; ROUTE_9
 	db $f2 ; ROUTE_10
 	db $f3 ; ROUTE_11
 	db $f4 ; ROUTE_12
@@ -36,8 +36,8 @@ MapSpriteSets:
 	db $13 ; ROUTE_21 ; edited, it was $01
 	db $01 ; ROUTE_22 ; is the only $01 left together with R1, we can modify them hopefully?
 	db $06 ; ROUTE_23
-	db $02 ; ROUTE_24
-	db $02 ; ROUTE_25
+	db $12 ; ROUTE_24
+	db $12 ; ROUTE_25
 	db $02 ; ROUTE_26, new
 	db $0d ; ROUTE_27, new, testing, may need a split thingy between $0d (Obsidian) and $05 (Celadon)
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
@@ -56,8 +56,8 @@ DEF NORTH_SOUTH EQU 2
 ; 02: sprite set ID if in the West or North side
 ; 03: sprite set ID if in the East or South side
 SplitMapSpriteSets:
-	db NORTH_SOUTH, 37, $12, $10 ; $f1, edited, $10 was $01, and $12 was $02
-	db NORTH_SOUTH, 50, $02, $0f ; $f2, edited, $0f was $03
+	db NORTH_SOUTH, 37, $02, $10 ; $f1, edited, $10 was $01, and $12 was $02
+	db NORTH_SOUTH, 50, $12, $0f ; $f2, edited, $0f was $03
 	db EAST_WEST,   57, $04, $08 ; $f3
 	db NORTH_SOUTH, 21, $0f, $14 ; $f4, edited, $0f was $03, and $14 was $08
 	db EAST_WEST,    8, $0A, $08 ; $f5
@@ -68,6 +68,7 @@ SplitMapSpriteSets:
 	db NORTH_SOUTH,  2, $07, $11 ; $fa, edited, $11 was $04
 	db EAST_WEST,   17, $05, $07 ; $fb
 	db EAST_WEST,    3, $07, $0f ; $fc, edited, $0f was $03
+	db EAST_WEST,   21, $02, $12 ; $fd ; new
 
 SpriteSets:
 
@@ -93,10 +94,10 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_YOUNGSTER
-	db SPRITE_ROCKET
+	db SPRITE_MONSTER
 	db SPRITE_SUPER_NERD
 	db SPRITE_HIKER
-	db SPRITE_BLUE
+	db SPRITE_TRAVELER
 	db SPRITE_OFFICER_JENNY
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M
@@ -332,9 +333,9 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 ; sprite set $12, copy of $02 for Pewter and Cerulean
 	table_width 1
 	db SPRITE_PIKACHU
-	db SPRITE_TRAVELER ; edited, was SPRITE_YOUNGSTER
+	db SPRITE_TRAVELER ; edited, was SPRITE_SUPER_NERD
 	db SPRITE_ROCKET
-	db SPRITE_SUPER_NERD
+	db SPRITE_YOUNGSTER
 	db SPRITE_HIKER
 	db SPRITE_BLUE
 	db SPRITE_OFFICER_JENNY
