@@ -73,12 +73,15 @@ CeladonCity_TextPointers:
 	dw CeladonCityText19 ; new
 	dw CeladonCityText20 ; new
 	dw CeladonCityText21 ; new
-	dw TextPostBattle_CeladonTraveler ; 26, new, for traveler
-	dw CeladonCityTextUniQuizQuestion1 ; 27
-	dw CeladonCityTextUniQuizQuestion2 ; 28
-	dw CeladonCityTextUniQuizQuestion3 ; 29
-	dw CeladonCityTextUniQuizWrong ; 30
-	dw CeladonCityTextUniQuizCorrect ; 31
+	dw CeladonCityText22 ; new
+	; scripts
+	dw TextPostBattle_CeladonTraveler ; 27, new, for traveler
+	; unnecessary?
+	dw CeladonCityTextUniQuizQuestion1 ; 28
+	dw CeladonCityTextUniQuizQuestion2 ; 29
+	dw CeladonCityTextUniQuizQuestion3 ; 30
+	dw CeladonCityTextUniQuizWrong ; 31
+	dw CeladonCityTextUniQuizCorrect ; 32
 
 CeladonCityText10New:
 	text_far _CeladonCityText10New
@@ -261,6 +264,10 @@ CeladonCityText21: ; new
 	text_far _CeladonCityText21
 	text_end
 
+CeladonCityText22: ; new
+	text_far _CeladonCityText22
+	text_end
+
 CeladonCityTextUniQuizQuestion1: ; new
 	text_far _CeladonCityTextUniQuizQuestion1
 	text_end
@@ -361,7 +368,7 @@ CeladonScript_Traveler:
     ld a, HS_CELADON_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, 26 ; city-specific
+	ld a, 27 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

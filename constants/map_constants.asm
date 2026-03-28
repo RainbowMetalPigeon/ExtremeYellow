@@ -204,7 +204,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const FIGHTING_DOJO,                  7,  8 ; $B6
 	map_const SAFFRON_GYM,                   10,  9 ; $B7
 	map_const SAFARI_ZONE_EXTRA,             20, 18 ; $B8 ; new
-	map_const CELADON_HOTEL_HALL,            10,  2 ; $B9 ; new, was SAFFRON_MART
+	map_const CELADON_HOTEL_HALL,            18,  5 ; $B9 ; new, was SAFFRON_MART
 	map_const SILPH_CO_1F,                   15,  9 ; $BA
 	map_const SAFFRON_POKECENTER,            14,  4 ; $BB ; edited, Center+Mart
 	map_const MR_PSYCHICS_HOUSE,             11,  4 ; $BC ; edited for MERGING

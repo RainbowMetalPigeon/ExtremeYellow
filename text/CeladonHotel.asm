@@ -277,3 +277,117 @@ _CeladonHotelRoomsSign8::
 	para "Somebody must have"
 	line "cried a lot here."
 	done
+
+; repair shop ==================================
+
+_CeladonHotelHallSign6::
+	text "BOSS' OFFICE"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallSign7::
+	text "Books and manuals."
+	line "...very dusty."
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallSign8::
+	text "This website would"
+	line "not be allowed in"
+	cont "many workplaces..."
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallText5_FixedMatchaMachine::
+	text "all done!"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallText5_ScrewdriverInBag::
+	text "give it to them"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallText5_SpokenWithRepairPerson::
+	text "find it"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallText5_SpokenWithRepairBoss::
+	text "find them"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallText5_FirstTime::
+	text "guy in Route 7"
+;	xxxx "123456789012345678
+	done
+
+; trainers ------
+
+_CeladonHotelHallBattleText0::
+	text "0-"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallEndBattleText0::
+	text "0-"
+;	xxxx "123456789012345678
+	prompt
+
+_CeladonHotelHallAfterBattleText0::
+	text "0-"
+;	xxxx "123456789012345678
+	done
+
+; ------
+
+_CeladonHotelHallBattleText1::
+	text "1-"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallEndBattleText1::
+	text "1-"
+;	xxxx "123456789012345678
+	prompt
+
+_CeladonHotelHallAfterBattleText1::
+	text "1-"
+;	xxxx "123456789012345678
+	done
+
+; ------
+
+_CeladonHotelHallBattleText2::
+	text "2-"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallEndBattleText2::
+	text "2-"
+;	xxxx "123456789012345678
+	prompt
+
+_CeladonHotelHallAfterBattleText2::
+	text "2-"
+;	xxxx "123456789012345678
+	done
+
+; ------
+
+_CeladonHotelHallBattleText3::
+	text "3-"
+;	xxxx "123456789012345678
+	done
+
+_CeladonHotelHallEndBattleText3::
+	text "3-"
+;	xxxx "123456789012345678
+	prompt
+
+_CeladonHotelHallAfterBattleText3::
+	text "3-"
+;	xxxx "123456789012345678
+	done
+

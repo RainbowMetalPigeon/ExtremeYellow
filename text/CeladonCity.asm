@@ -194,6 +194,16 @@ _CeladonCityText21:: ; new
 	cont "KANTO learning!"
 	done
 
+_CeladonCityText22:: ; new
+	text "REPAIR SHOP"
+	line "We rep-ir any"
+	cont "and eve-y th-ng!"
+
+	para "...the sign is"
+	line "partly broken."
+;	xxxx "123456789012345678
+	done
+
 _CeladonCityTextUniQuizQuestion1::
 	text "To enter the"
 	line "UNIVERSITY, you"

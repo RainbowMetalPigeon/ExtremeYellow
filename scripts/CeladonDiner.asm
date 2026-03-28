@@ -56,9 +56,11 @@ CeladonDinerText1_WeAreOnBreak:
 
 ; ----------------------------------
 
-CeladonDinerText2:
+CeladonDinerText2: ; other worker
 	text_far _CeladonDinerText2
 	text_end
+
+; ----------------------------------
 
 CeladonDinerText3:
 	text_far _CeladonDinerText3
@@ -68,7 +70,7 @@ CeladonDinerText4:
 	text_far _CeladonDinerText4
 	text_end
 
-CeladonDinerText5:
+CeladonDinerText5: ; Coin Case person
 	text_asm
 	callfar Func_f1f31
 	jp TextScriptEnd

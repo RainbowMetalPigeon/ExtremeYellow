@@ -1452,11 +1452,6 @@ INCLUDE "scripts/Route21DiveCavern.asm"
 INCLUDE "data/maps/objects/Route21DiveCavern.asm"
 Route21DiveCavern_Blocks: INCBIN "maps/Route21DiveCavern.blk"
 
-INCLUDE "data/maps/headers/BluesHouse.asm"
-INCLUDE "scripts/BluesHouse.asm"
-INCLUDE "data/maps/objects/BluesHouse.asm"
-BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
-
 
 SECTION "Maps New 3", ROMX ; new
 
@@ -1474,6 +1469,11 @@ INCLUDE "data/maps/headers/ForlornValley.asm"
 INCLUDE "scripts/ForlornValley.asm"
 INCLUDE "data/maps/objects/ForlornValley.asm"
 ForlornValley_Blocks: INCBIN "maps/ForlornValley.blk"
+
+INCLUDE "data/maps/headers/BluesHouse.asm"
+INCLUDE "scripts/BluesHouse.asm"
+INCLUDE "data/maps/objects/BluesHouse.asm"
+BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

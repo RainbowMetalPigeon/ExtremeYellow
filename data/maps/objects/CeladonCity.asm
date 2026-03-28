@@ -10,7 +10,6 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	warp_event 41, 23, CELADON_POKECENTER, 1 ; 6
 	warp_event 12, 41, CELADON_GYM, 1 ; 7
 	warp_event 28, 33, GAME_CORNER, 1 ; 8
-;	warp_event 39, 33, CELADON_MART_5F, 1 ; useless
 	warp_event 33, 33, GAME_CORNER_PRIZE_ROOM, 1 ; 9
 	warp_event 27, 41, CELADON_DINER, 1 ; updated, 10
 	warp_event 31, 41, CELADON_CHIEF_HOUSE, 1 ; updated, 11
@@ -18,6 +17,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	warp_event 44, 41, CELADON_UNIVERSITY_1, 1 ; new, 13
 	warp_event 12,  7, MT_MOON_B2F, 29 ; new, 14
 	warp_event 36,  8, CELADON_CHIEF_HOUSE, 3 ; LUNAR_SHRINE, 15
+	warp_event 33, 23, CELADON_HOTEL_HALL, 7 ; repair shop, 16
 
 	def_bg_events
 	bg_event 27, 29, 14 ; CeladonCityText10
@@ -32,6 +32,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	bg_event 27, 43, 23 ; CeladonCityText19 ; new, Diner
 	bg_event 35, 43, 24 ; CeladonCityText20 ; new, Hotel
 	bg_event 43, 43, 25 ; CeladonCityText21 ; new, University
+	bg_event 34, 24, 26 ; CeladonCityText22 ; new, repair shop
 
 	def_object_events
 	object_event  8, 31, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 1 ; person
@@ -39,7 +40,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	object_event 14, 33, SPRITE_GIRL, WALK, UP_DOWN, 3 ; person
 	object_event 25, 36, SPRITE_GRAMPS, STAY, DOWN, 4 ; person
 	object_event 22, 30, SPRITE_GRAMPS, STAY, DOWN, 5 ; person
-	object_event 32, 26, SPRITE_FISHER, STAY, LEFT, 6 ; person
+	object_event 32, 26, SPRITE_SUPER_NERD, STAY, LEFT, 6 ; person ; edited
 	object_event 30, 26, SPRITE_MONSTER, STAY, RIGHT, 7 ; person
 	object_event 32, 43, SPRITE_ROCKET, WALK, LEFT_RIGHT, 8 ; person
 	object_event 42, 28, SPRITE_ROCKET, WALK, LEFT_RIGHT, 9 ; person

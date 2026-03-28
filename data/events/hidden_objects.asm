@@ -96,6 +96,7 @@ HiddenObjectMaps:
 	dbw ROUTE_30,                     Route30HiddenObjects ; new
 	dbw SS_ANNE_1F_ROOMS,             SSAnne1FRoomsHiddenObjects ; new
 	dbw LAKE_OF_MIST,                 LakeOfMistHiddenObjects ; new
+	dbw ROUTE_8,                      Route8HiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -696,4 +697,8 @@ SSAnne1FRoomsHiddenObjects: ; new
 LakeOfMistHiddenObjects: ; new
 	hidden_object  8, 43, MAX_ETHER, HiddenItems
 	hidden_object 19, 45, REVIVE, HiddenItems
+	db -1 ; end
+
+Route8HiddenObjects: ; new
+	hidden_object 33,  9, SCREWDRIVER, HiddenItems
 	db -1 ; end

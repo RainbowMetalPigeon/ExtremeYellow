@@ -461,6 +461,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WOOD_ITEM_2          ; new
 	const HS_OBSIDIAN_WOOD_ITEM_3          ; new
 	const HS_ROUTE_7_ITEM                  ; new, LINK_CABLE
+	const HS_ROUTE_7_REPAIR_PERSON         ; new, repair person
 	const HS_ROUTE_25_ITEM_1               ; 27
 	const HS_ROUTE_25_ITEM_2               ; new
 	const HS_ROUTE_25_ITEM_3               ; new

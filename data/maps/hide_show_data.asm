@@ -845,6 +845,7 @@ ObsidianWoodHS: ; new
 	db OBSIDIAN_WOOD, $08, SHOW
 Route7HS: ; new
 	db ROUTE_7, $01, SHOW
+	db ROUTE_7, $02, HIDE
 Route25HS:
 	db ROUTE_25, 10, SHOW
 	db ROUTE_25, 11, SHOW ; new

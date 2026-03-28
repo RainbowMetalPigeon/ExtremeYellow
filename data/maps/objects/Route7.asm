@@ -9,9 +9,10 @@ Route7_Object:
 	warp_event  5, 13, UNDERGROUND_PATH_ROUTE_7, 1
 
 	def_bg_events
-	bg_event  3, 13, 2 ; Route7Text1
+	bg_event  3, 13, 3 ; Route7Text1
 
 	def_object_events
 	object_event 16, 15, SPRITE_POKE_BALL, STAY, NONE, 1, LINK_CABLE ; new
+	object_event 11, 14, SPRITE_SUPER_NERD, WALK, ANY_DIR, 2 ; new
 
 	def_warps_to ROUTE_7

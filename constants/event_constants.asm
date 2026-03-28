@@ -679,7 +679,8 @@
 	const_next $3F0
 	const EVENT_SEVII_BEAT_ROCKETS_DOTTED_HOLE ; new
 	const EVENT_BEAT_MELTAN ; new
-	const_skip 2
+	const EVENT_FIXED_MATCHA_MACHINE ; new
+	const EVENT_SPOKEN_WITH_REPAIR_PERSON ; new
 	const EVENT_BEAT_ROUTE_4_TRAINER_0
 	const_skip 4
 	const EVENT_BOUGHT_MAGIKARP
@@ -691,7 +692,11 @@
 
 ; Route 26 events, new, temp?
 	const_next $400
-	const_skip 5
+	const EVENT_SPOKEN_WITH_REPAIR_BOSS ; new
+	const EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_0 ; new
+	const EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_1 ; new
+	const EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_2 ; new
+	const EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_3 ; new
 	const EVENT_BEAT_ROUTE_26_TRAINER_0
 
 ; Route 6 events

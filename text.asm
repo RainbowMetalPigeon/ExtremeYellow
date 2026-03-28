@@ -132,7 +132,6 @@ SECTION "Text 7", ROMX
 INCLUDE "text/GameCorner_2.asm"
 INCLUDE "text/CeladonMart5F.asm"
 INCLUDE "text/GameCornerPrizeRoom.asm"
-INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/CeladonChiefHouse.asm"
 INCLUDE "text/CeladonHotel.asm"
 INCLUDE "text/FuchsiaMart.asm"
@@ -307,6 +306,7 @@ INCLUDE "text/LakeOfMist.asm"
 INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/Route19.asm"
 INCLUDE "data/text/text_4.asm"
+INCLUDE "text/CeladonDiner.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

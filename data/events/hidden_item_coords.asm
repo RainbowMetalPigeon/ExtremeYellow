@@ -92,4 +92,5 @@ HiddenItemCoords:
 	hidden_item SS_ANNE_1F_ROOMS,               3,   5 ; new
 	hidden_item LAKE_OF_MIST,                   8,  43 ; new, MAX_ETHER
 	hidden_item LAKE_OF_MIST,                  19,  45 ; new, REVIVE
+	hidden_item ROUTE_8,                       33,   9 ; new, SCREWDRIVER
 	db -1 ; end
