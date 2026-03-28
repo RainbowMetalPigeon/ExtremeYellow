@@ -249,7 +249,7 @@ _DarkGuideHints_Hint2_Solution::
 	line "ROCK TUNNEL"
 
 	para "MISTY:"
-	line "SEAFOAM ISLANDS O"
+	line "ROUTE 20"
 
 	para "LT.SURGE:"
 	line "POWER PLANT"
@@ -267,7 +267,7 @@ _DarkGuideHints_Hint2_Solution::
 	line "#MON MANSION"
 
 	para "LORELEI:"
-	line "SEAFOAM ISLANDS I"
+	line "SEAFOAM ISLANDS"
 
 	para "BRUNO:"
 	line "FIGHTING DOJO"
@@ -355,8 +355,9 @@ _DarkGuideHints_Hint5_Solution::
 	line "dimensional"
 	cont "traveler can"
 	cont "randomly appear"
-	cont "in any city, and"
-	cont "will challenge"
+	cont "in any KANTO city"
+;	xxxx "123456789012345678"
+	cont "and'll challenge"
 	cont "you if you have a"
 	cont "MEGA MEWTWO in"
 	cont "your team."
@@ -381,10 +382,9 @@ _DarkGuideHints_Hint6_Solution::
 	text "A new door is"
 	line "present in"
 	cont "CERULEAN CAVE,"
-	cont "which will lead"
-	cont "you to the"
-	cont "greatest dungeon,"
-	cont "ending with a"
+	cont "leading to a"
+	cont "dungeon that"
+	cont "ends with a"
 	cont "fabulous reward."
 
 	para "A suggestion:"

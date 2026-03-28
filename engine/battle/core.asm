@@ -733,24 +733,26 @@ TrainerBattleVictory:
 	inc a                       ; new, to go beyond 200
 	ld [wWasTrainerBattle], a   ; new, to go beyond 200
 	call EndLowHealthAlarm
-	ld b, MUSIC_DEFEATED_GYM_LEADER
-	ld a, [wGymLeaderNo]
-	and a
-	jr nz, .gymleader
-	ld b, MUSIC_DEFEATED_TRAINER
-.gymleader
-	ld a, [wTrainerClass]
-	cp RIVAL3 ; final battle against rival
-	jr nz, .notrival
-	ld b, MUSIC_DEFEATED_GYM_LEADER
-; new, to handle Rival3 rematches' music
-	ld a, [wCurMap]
-	cp CHAMPIONS_ROOM
-	jr nz, .notrival ; if we are not in the Champion's Room, we don't want to set bit 1 of wFlags_D733, as it prevents music from changing when switching map
-; back to vanilla
-	ld hl, wFlags_D733
-	set 1, [hl]
-.notrival
+; edited
+;	ld b, MUSIC_DEFEATED_GYM_LEADER
+;	ld a, [wGymLeaderNo]
+;	and a
+;	jr nz, .gymleader
+;	ld b, MUSIC_DEFEATED_TRAINER
+;.gymleader
+;	ld a, [wTrainerClass]
+;	cp RIVAL3 ; final battle against rival
+;	jr nz, .notrival
+;	ld b, MUSIC_DEFEATED_GYM_LEADER
+;; new, to handle Rival3 rematches' music
+;	ld a, [wCurMap]
+;	cp CHAMPIONS_ROOM
+;	jr nz, .notrival ; if we are not in the Champion's Room, we don't want to set bit 1 of wFlags_D733, as it prevents music from changing when switching map
+;; back to vanilla
+;	ld hl, wFlags_D733
+;	set 1, [hl]
+;.notrival
+	call ChooseEndOfBattleMusic ; new
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ld a, b
@@ -791,6 +793,61 @@ TrainerBattleVictory:
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3
 	predef_jump AddBCDPredef
+
+ChooseEndOfBattleMusic: ; new
+	ld a, [wTrainerClass]
+	ld hl, ListOfTrainersWithGymLeaderDefeatMusic
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	jr c, .specialEndMusic
+; special checks for Giovanni and Rival3
+	ld a, [wTrainerClass]
+	cp RIVAL3
+	jr nz, .checkGiovanni
+; check map
+	ld a, [wCurMap]
+	cp CHAMPIONS_ROOM
+	jr nz, .normalEndMusic
+; special for Champion Blue
+	ld hl, wFlags_D733
+	set 1, [hl]
+	jr .specialEndMusic
+.checkGiovanni
+	cp GIOVANNI
+	jr nz, .normalEndMusic
+; check for Viridian Gym
+	ld a, [wCurMap]
+	cp VIRIDIAN_GYM
+	jr z, .specialEndMusic
+	; fallthrough
+.normalEndMusic
+	ld b, MUSIC_DEFEATED_TRAINER
+	ret
+.specialEndMusic
+	ld b, MUSIC_DEFEATED_GYM_LEADER
+	ret
+
+ListOfTrainersWithGymLeaderDefeatMusic: ; new
+	db BROCK
+	db MISTY
+	db LT_SURGE
+	db ERIKA
+	db KOGA
+	db SABRINA
+	db BLAINE
+	db LORELEI
+	db BRUNO
+	db AGATHA
+	db LANCE
+	db ICHINO
+	db NIUE
+	db SANTRE
+	db YOTTRO
+	db GONQUE
+	db ROKUSEI
+	db NANETTE
+	db SUUJERO
+	db -1
 
 MoneyForWinningText:
 	text_far _MoneyForWinningText

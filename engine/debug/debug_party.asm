@@ -39,8 +39,8 @@ IF DEF(_DEBUG)
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
-	ld a, %11111111
-;	ld a, %00010000
+;	ld a, %11111111
+	ld a, %00010000
 ;	ld a, %00000010
 ;	ld a, %11111100
 	ld [wObtainedBadges], a
@@ -230,7 +230,7 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_IN_SEVII
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_DEFEATED_MISSINGNO
 

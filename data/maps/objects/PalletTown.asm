@@ -61,8 +61,8 @@ PalletTown_Object:
 ;	warp_event 12, 11, HAUNTED_ISLAND_OF_NUMBERS, 1
 ;	warp_event 12, 11, BILLS_HOUSE, 1
 ;	warp_event 12, 11, BATTLE_FACILITY, 1
-	warp_event 12, 11, HALL_OF_FAME, 1
-;	warp_event 12, 11, CHAMPIONS_ROOM, 1
+;	warp_event 12, 11, HALL_OF_FAME, 1
+	warp_event 12, 11, CHAMPIONS_ROOM, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_2, 1
 ;	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
 ;	warp_event 12, 11, SECLUDED_ATOLL_SW, 1
