@@ -412,6 +412,8 @@ Route22Script6:
 Route22_TextPointers:
 	dw Route22Text1
 	dw Route22Text2
+	dw Route22CoinCaseMeowthText ; new, Coin-Case Meowth
+	dw PickUpItemText ; new
 	dw Route22FrontGateText
 
 Route22Text1:
@@ -428,3 +430,59 @@ Route22FrontGateText:
 	text_asm
 	farcall Func_f1b67
 	jp TextScriptEnd
+
+; new =============================================
+
+Route22CoinCaseMeowthText:
+	text_far _Route30CoinCaseMeowthText_Miao
+	text_asm
+	ld a, MEOWTH
+	call PlayCry
+	call WaitForSoundToFinish
+	call WaitForTextScrollButtonPress
+	
+	call GBFadeOutToBlack
+
+	ld a, HS_ROUTE_22_COIN_CASE_MEOWTH
+	ld [wMissableObjectIndex], a
+	predef HideObject
+
+	SetEvent EVENT_GOT_COIN_CASE
+
+	xor a
+	ldh [hUnusedCoinsByte], a
+	ldh [hCoins], a
+	ld a, $10
+	ldh [hCoins + 1], a
+	ld de, wPlayerCoins + 1
+	ld hl, hCoins + 1
+	ld c, $2
+	predef AddBCDPredef
+	
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+
+	ld hl, ReceivedCoinCaseText
+	call PrintText
+
+	ld hl, CoinCaseStillHasCoinsText
+	call PrintText
+
+	ld hl, CoinCaseExplanationText
+	call PrintText
+
+	jp TextScriptEnd
+
+ReceivedCoinCaseText:
+	text_far _ReceivedCoinCaseText
+	sound_get_key_item
+	text_end
+
+CoinCaseStillHasCoinsText:
+	text_far _CoinCaseStillHasCoinsText
+	text_end
+
+CoinCaseExplanationText:
+	text_far _CoinCaseExplanationText
+	text_end

@@ -13,7 +13,6 @@ DEF SHOW EQU $15
 	const HS_OLD_MAN_1                     ; 02
 	const HS_OLD_MAN                       ; 03
 	const HS_VIRIDIAN_CITY_TRAVELER        ; new
-	const HS_PEWTER_CITY_TRAVELER          ; new
 	const HS_CERULEAN_RIVAL                ; 06
 	const HS_CERULEAN_ROCKET               ; 07
 	const HS_CERULEAN_GUARD_1              ; 08
@@ -54,7 +53,6 @@ DEF SHOW EQU $15
 	const HS_ROUTE_4_BOULDER_3             ; new
 	const HS_ROUTE_4_BOULDER_4             ; new
 	const HS_ROUTE_4_SPECIAL_BIRDKEEPER    ; new
-	const HS_ROUTE_9_ITEM                  ; 1D
 	const HS_ROUTE_12_SNORLAX              ; 1E
 	const HS_ROUTE_12_HIKER	               ; new
 	const HS_ROUTE_12_ITEM_1               ; 1F
@@ -70,6 +68,8 @@ DEF SHOW EQU $15
 	const HS_ROUTE_21_OAK				   ; new
 	const HS_ROUTE_22_RIVAL_1              ; 23
 	const HS_ROUTE_22_RIVAL_2              ; 24
+	const HS_ROUTE_22_COIN_CASE_MEOWTH     ; new
+	const HS_ROUTE_22_ITEM_1               ; new
 	const HS_NUGGET_BRIDGE_GUY             ; 25
 	const HS_ROUTE_24_ITEM_1               ; 26, edited
 	const HS_ROUTE_24_ITEM_2               ; new, LINK_CABLE
@@ -482,3 +482,7 @@ DEF SHOW EQU $15
 	const HS_LAKE_OF_MIST_ITEM_1           ; new
 	const HS_LAKE_OF_MIST_ROCK_1           ; new
 	const HS_ROUTE_3_JENNY                 ; new
+	const HS_ROUTE_30_COIN_CASE_MEOWTH     ; new
+	const HS_PEWTER_CITY_TRAVELER          ; new
+	const HS_PEWTER_CITY_COIN_CASE_MEOWTH  ; new
+	const HS_ROUTE_9_ITEM                  ; 1D

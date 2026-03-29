@@ -139,3 +139,24 @@ _Route22FrontGateText::
 	text "#MON LEAGUE"
 	line "Front Gate"
 	done
+
+; new, Coin-Case Meowth
+
+_ReceivedCoinCaseText:: ; edited
+	text "<PLAYER> obtained"
+	line "a COIN CASE@"
+	text "!@"
+	text_end
+
+_CoinCaseStillHasCoinsText::
+	text "It still has a"
+	line "few coins in!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CoinCaseExplanationText:: ; new
+	text "The COIN CASE got"
+	line "embedded in the"
+	cont "back of the"
+	cont "TRAINER CARD."
+	done

@@ -44,8 +44,8 @@ MapHSPointers:
 	dw NoHS ; new, Route26
 	dw Route27HS ; new, Route27
 	dw Route28HS ; new, Route28
-	dw NoHS ; new, Route29
-	dw NoHS ; new, Route30
+	dw NoHS ; new, ROUTE_29
+	dw Route30HS ; new, ROUTE_30
 	dw NoHS ; ELECTRIC_RAVINE ; new ; TBE
 	dw LakeOfMistHS ; LAKE_OF_MIST ; new
 	dw RedsHouse1FHS ; new
@@ -277,8 +277,6 @@ ViridianCityHS:
 	db VIRIDIAN_CITY, $07, HIDE
 	db VIRIDIAN_CITY, $08, HIDE
 	db VIRIDIAN_CITY, $09, HIDE ; Traveler
-PewterCityHS: ; edited, removed old, now-unused HS and added traveler
-	db PEWTER_CITY, $07, HIDE ; Traveler
 CeruleanCityHS:
 	db CERULEAN_CITY, $01, HIDE
 	db CERULEAN_CITY, $02, SHOW
@@ -324,8 +322,6 @@ Route4HS:
 	db ROUTE_4,  09, SHOW ; new, boulder
 	db ROUTE_4,  10, SHOW ; new, boulder
 	db ROUTE_4,  11, SHOW ; new, special birdkeeper
-Route9HS:
-	db ROUTE_9, $0A, SHOW
 Route12HS:
 	db ROUTE_12, $01, SHOW
 	db ROUTE_12, $02, HIDE ; new
@@ -347,6 +343,8 @@ Route21HS:
 Route22HS:
 	db ROUTE_22, $01, HIDE
 	db ROUTE_22, $02, HIDE
+	db ROUTE_22, $03, HIDE ; new, coin-case Meowth
+	db ROUTE_22, $04, SHOW ; new, ball
 Route24HS:
 	db ROUTE_24, $01, SHOW
 	db ROUTE_24, $08, SHOW
@@ -878,5 +876,12 @@ LakeOfMistHS: ; new
 	db LAKE_OF_MIST, 11, SHOW ; rock
 Route3HS: ; new
 	db ROUTE_3, 10, SHOW ; RoadBlock Jenny
+Route30HS: ; new
+	db ROUTE_30, 2, HIDE ; Coin-Case Meowth
+PewterCityHS: ; edited, removed old, now-unused HS and added traveler
+	db PEWTER_CITY, $07, HIDE ; Traveler
+	db PEWTER_CITY, $08, HIDE ; Coin-Case Meowth
+Route9HS:
+	db ROUTE_9, $0A, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator

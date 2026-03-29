@@ -10,12 +10,6 @@ PewterCity_Script:
 
 PewterCity_ScriptPointers:
 	dw PewterCityScript0
-;	dw PewterCityScript1
-;	dw PewterCityScript2
-;	dw PewterCityScript3
-;	dw PewterCityScript4
-;	dw PewterCityScript5
-;	dw PewterCityScript6
 	dw PewterScript_Traveler ; new, for traveler
 
 PewterCityScript0:
@@ -23,14 +17,6 @@ PewterCityScript0:
 	ld [wMuseum1FCurScript], a
 	ResetEvent EVENT_BOUGHT_MUSEUM_TICKET
 	ret
-
-;PewterCityScript1:
-;PewterCityScript2:
-;PewterCityScript3:
-;PewterCityScript4:
-;PewterCityScript5:
-;PewterCityScript6:
-;	ret
 
 PewterCity_TextPointers:
 	dw PewterCityText1
@@ -40,6 +26,7 @@ PewterCity_TextPointers:
 	dw PewterCityText5
 	dw PewterCityTextNewRoute ; new
 	dw TextPreBattle_PewterTraveler ; new, for traveler
+	dw PewterCityCoinCaseMeowthText ; new, Meowth
 	; signs
 	dw PewterCityText6
 	dw PewterCityText7
@@ -48,7 +35,8 @@ PewterCity_TextPointers:
 	dw PewterCityText10
 	dw PewterCityText11
 	dw PewterCityText12
-	dw TextPostBattle_PewterTraveler ; 15, new, for traveler
+	; scripts
+	dw TextPostBattle_PewterTraveler ; 16, new, for traveler
 
 PewterCityText1:
 	text_far _PewterCityText1
@@ -274,8 +262,8 @@ PewterScript_Traveler:
 ; this is to guarantee that the traveler is visible after the battle
     ld a, HS_PEWTER_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
-    predef ShowObject ; city-specific
-	ld a, 15 ; city-specific
+    predef ShowObjectExtra ; city-specific
+	ld a, 16 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo
@@ -321,3 +309,34 @@ Text_WhatWasThat_PewterTraveler:
 	text_end
 
 ; ================================
+
+PewterCityCoinCaseMeowthText:
+	text_far _Route30CoinCaseMeowthText_Miao
+	text_asm
+	ld a, MEOWTH
+	call PlayCry
+	call WaitForSoundToFinish
+	call WaitForTextScrollButtonPress
+	
+	call GBFadeOutToBlack
+
+	ld a, HS_PEWTER_CITY_COIN_CASE_MEOWTH
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+
+	ld a, HS_ROUTE_22_COIN_CASE_MEOWTH
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+
+	ld hl, PewterCityCoinCaseMeowthText_HintNext
+	call PrintText
+
+	jp TextScriptEnd
+
+PewterCityCoinCaseMeowthText_HintNext:
+	text_far _PewterCityCoinCaseMeowthText_HintNext
+	text_end

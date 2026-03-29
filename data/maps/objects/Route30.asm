@@ -5,9 +5,10 @@ Route30_Object:
 ;	warp_event 35,  9, PIKACHU_GROTTO, 1
 
 	def_bg_events
-;	bg_event  5, 65, 3 ; Route2Text3
+	bg_event  9, 38, 3 ; Route30SignText1
 
 	def_object_events
-;	object_event 13, 54, SPRITE_POKE_BALL, STAY, NONE, 1, MOON_STONE
+	object_event  7, 20, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 1
+	object_event 14, 34, SPRITE_MONSTER, STAY, ANY_DIR, 2
 
 	def_warps_to ROUTE_30

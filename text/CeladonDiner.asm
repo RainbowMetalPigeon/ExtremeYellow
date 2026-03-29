@@ -124,41 +124,54 @@ _CeladonDinerText4:: ; edited
 	cont "at the slots."
 	done
 
-_CeladonDinerText_491a7::
+_CeladonDinerText_ImRuined:: ; edited
 	text "Go ahead! Laugh!"
-
-	para "I'm flat out"
-	line "busted!"
+	line "I'm flat-out"
+	cont "busted!"
 
 	para "No more slots for"
 	line "me! I'm going"
 	cont "straight!"
 
-	para "Here! I won't be"
-	line "needing this any-"
-	cont "more!"
-	prompt
+	para "And to add insult"
+	line "to injury, a damn"
+	cont "MEOWTH stole my"
+	cont "COIN CASE with"
+	cont "last couple of"
+	cont "coins I had in."
 
-_ReceivedCoinCaseText:: ; edited
-	text "<PLAYER> received"
-	line "a COIN CASE@"
-	text "!@"
-	text_end
+	para "I chased it until"
+	line "ROUTE 16, then it"
+	cont "ran north and I"
+	cont "lost track of it."
 
-_CoinCaseExplanationText:: ; new
-	text "The COIN CASE got"
-	line "embedded in the"
-	cont "back of the"
-	cont "TRAINER CARD."
+	para "If you stumble"
+	line "upon it, keep"
+	cont "that COIN CASE."
+	cont "I don't want to"
+	cont "see it ever again."
+;	xxxx "123456789012345678"
 	done
 
-;_CoinCaseNoRoomText::
-;	text "Make room for"
-;	line "this!"
-;	done
+_CeladonDinerText_FoundItKeepIt::
+	text "Oh, you found"
+	line "my COIN CASE."
+	cont "Please, keep it,"
+	cont "but be careful."
 
-_CeladonDinerText_491b7::
-	text "I always thought"
+	para "The gambling fever"
+	line "is diabolical..."
+;	xxxx "123456789012345678"
+
+	para "I always thought"
 	line "I was going to"
-	cont "win it back..."
+	cont "win all back..."
+	done
+
+_CeladonDinerText_GoodLuckFindingIt::
+	text "The MEOWTH that"
+	line "stole my COIN"
+	cont "CASE went north"
+	cont "of ROUTE 16."
+;	xxxx "123456789012345678"
 	done

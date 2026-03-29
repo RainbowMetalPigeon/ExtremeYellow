@@ -201,7 +201,47 @@ CeladonDinerText4:
 	text_far _CeladonDinerText4
 	text_end
 
+; ----------------------------------
+
 CeladonDinerText5: ; Coin Case person
 	text_asm
-	callfar Func_f1f31
+; have we caught Coin-Case Meowth?
+	CheckEvent EVENT_GOT_COIN_CASE
+	ld hl, CeladonDinerText_FoundItKeepIt
+	jr nz, .printAndEnd
+; is it the first time we speak with the guy?
+	CheckEvent EVENT_SPOKEN_WITH_COIN_CASE_GUY
+	ld hl, CeladonDinerText_GoodLuckFindingIt
+	jr nz, .printAndEnd
+; it is the first time
+	SetEvent EVENT_SPOKEN_WITH_COIN_CASE_GUY
+	ld a, HS_ROUTE_30_COIN_CASE_MEOWTH
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld hl, CeladonDinerText_ImRuined
+.printAndEnd
+	call PrintText
 	jp TextScriptEnd
+
+CeladonDinerText_ImRuined:
+	text_far _CeladonDinerText_ImRuined
+	text_end
+
+CeladonDinerText_FoundItKeepIt:
+	text_far _CeladonDinerText_FoundItKeepIt
+	text_end
+
+CeladonDinerText_GoodLuckFindingIt:
+	text_far _CeladonDinerText_GoodLuckFindingIt
+	text_end
+
+/*
+ReceivedCoinCaseText:
+	text_far _ReceivedCoinCaseText
+	sound_get_key_item
+	text_end
+
+CoinCaseExplanationText: ; new
+	text_far _CoinCaseExplanationText
+	text_end
+*/

@@ -157,3 +157,9 @@ _PewterCityText12::
 	line "A Stone Gray"
 	cont "City"
 	done
+
+_PewterCityCoinCaseMeowthText_HintNext::
+    text "MEOWTH ran towards"
+    line "south!"
+;	xxxx "123456789012345678"
+    done
