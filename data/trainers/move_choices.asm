@@ -59,7 +59,7 @@ TrainerClassMoveChoiceModifications:
 ; new classes
 	move_choices 1, 2, 3    ; DIVER
 
-; TBE
+; TBE?
 	move_choices 1, 2, 3, 4 ; PROTON
 	move_choices 1, 2, 3, 4 ; PETREL
 	move_choices 1, 2, 3, 4 ; ARIANA
@@ -76,6 +76,9 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3, 4 ; NANETTE
 	move_choices 1, 2, 3, 4 ; SUUJERO
 	move_choices 1, 2, 3, 4 ; PINK
+	move_choices 1, 2, 3, 4 ; YOUNG_OAK
+	move_choices 1, 2, 3, 4 ; JENNY
+	move_choices 1, 2, 3, 4 ; CHALLENGER
 
 	move_choices 1, 2, 3    ; JESSIEJAMES
 	move_choices 1, 2, 3, 4 ; ORAGE

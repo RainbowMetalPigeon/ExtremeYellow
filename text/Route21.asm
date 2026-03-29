@@ -243,6 +243,7 @@ _Route21ScriptText1::
 	para "I want to gift you"
 	line "something to"
 	cont "thank you."
+;	xxxx "123456789012345678"
 	done
 
 _Route21ScriptText2::

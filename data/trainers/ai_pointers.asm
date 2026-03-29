@@ -71,6 +71,9 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; NANETTE
 	dbw 3, GenericAI ; SUUJERO
 	dbw 3, GenericAI ; PINK
+	dbw 3, GenericAI ; YOUNG_OAK
+	dbw 3, GenericAI ; JENNY
+	dbw 3, GenericAI ; CHALLENGER
 
 	dbw 3, GenericAI ; JESSIEJAMES
 	dbw 3, OrageAI   ; ORAGE

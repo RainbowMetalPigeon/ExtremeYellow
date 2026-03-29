@@ -64,6 +64,9 @@ TrainerNames::
 	db "NANETTE@"
 	db "SUUJERO@"
 	db "PINK@"
+	db "SAMUEL@" ; maybe SAMUEL OAK?
+	db "OFF. JENNY@"
+	db "CHALLENGER@"
 	db "JESSIE&JAMES@"
 	db "ORAGE@"
 	db "PIGEON@"

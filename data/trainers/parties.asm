@@ -66,6 +66,9 @@ TrainerDataPointers:
 	dw NanetteData
 	dw SuujeroData
 	dw PinkData
+	dw YoungOakData
+	dw JennyData
+	dw ChallengerData
 
 	dw JessieJamesData
 	dw OrageData
@@ -1209,8 +1212,7 @@ Rival3Data:
 	db 100, MPIDGEOT, MSCIZOR, MMEWTWOY, THU_FI_ZER, MEW, UMBREON, 0 ; team 34
 
 ProfOakData:
-;	db $FF, 83, TAUROS, 0 ; updated
-	db $FF, 83, TAUROS, 84, MGYARADOS, 85, MMEWTWOX, 86, MMEWTWOY, 87, VENUSTOISE, 88, THU_FI_ZER, 0 ; updated
+	db $FF, 83, TAUROS, 84, EXEGGUTOR, 85, ARCANINE, 86, RAICHU, 87, ESPEON, 88, GYARADOS, 0 ; updated
 
 ; new ones
 
@@ -1382,6 +1384,15 @@ PinkData:
 	db  62, GYARADOS, KANGASKHAN, ANNIHILAPE, BLISSEY, DRAGONITE, CLEFABLE, 0 ; 3, Indigo Plateau
 	db  85, MGYARADOS, MKANGASKAN, ANNIHILAPE, BLISSEY, MDRAGONITE, MCLEFABLE, 0 ; 4, Four Island's Shrine
 	db 100, MGYARADOS, MKANGASKAN, ANNIHILAPE, MDRAGONITE, MELMETAL, MCLEFABLE, 0 ; 5, Genesis Island
+
+YoungOakData:
+	db 100, TAUROS, MGYARADOS, MMEWTWOX, MMEWTWOY, VENUSTOISE, THU_FI_ZER, 0
+
+JennyData: ; new, TBE
+	db 1, GROWLITHE, 0
+
+ChallengerData: ; new
+	db 1, CHARMANDER, 0
 
 JessieJamesData: ; new
 	db 14, EKANS, KOFFING, MEOWTH, 0 ; Mt Moon ; 1

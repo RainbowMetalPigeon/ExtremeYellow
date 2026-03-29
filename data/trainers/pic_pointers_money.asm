@@ -63,19 +63,22 @@ TrainerPicAndMoneyPointers::
 	pic_money CarrPic,         7000
 	pic_money OrmPic,          7000
 	pic_money SirdPic,         7000
-	pic_money IchinoPic,       25000
-	pic_money NiuePic,         25000
-	pic_money SantrePic,       25000
-	pic_money YottroPic,       25000
-	pic_money GonquePic,       25000
-	pic_money RokuseiPic,      25000
-	pic_money NanettePic,      25000
-	pic_money SuujeroPic,      25000
+	pic_money IchinoPic,      25000
+	pic_money NiuePic,        25000
+	pic_money SantrePic,      25000
+	pic_money YottroPic,      25000
+	pic_money GonquePic,      25000
+	pic_money RokuseiPic,     25000
+	pic_money NanettePic,     25000
+	pic_money SuujeroPic,     25000
 	pic_money PinkPic,          100
+	pic_money YoungOakPic,    25000
+	pic_money JennyPic,        5000
+	pic_money ChallengerPic,   9999
 	pic_money JessieJamesPic,  4000
 	pic_money OragePic,        9900
-	pic_money PigeonPic,       42000
-	pic_money TravelerPic,     50000
+	pic_money PigeonPic,       4200
+	pic_money TravelerPic,    50000
 	pic_money BFTrainerPic,    0 ; TBE, same as online battle
 	pic_money MissingNoTPic,   0 ; TBE?
 	assert_table_length NUM_TRAINERS

@@ -373,6 +373,9 @@ RokuseiPic::
 NanettePic::
 SuujeroPic::
 PinkPic::          INCBIN "gfx/trainers/pink.pic"
+YoungOakPic::      INCBIN "gfx/trainers/youngoak.pic"
+JennyPic::         INCBIN "gfx/trainers/jenny.pic"
+ChallengerPic::    INCBIN "gfx/trainers/challenger.pic"
 PigeonPic::        INCBIN "gfx/trainers/pigeon.pic"
 JessieJamesPic::   INCBIN "gfx/trainers/jessiejames.pic"
 BFTrainerPic::

@@ -6,18 +6,18 @@ FemaleTrainerList::
 	db -1 ; end
 
 EvilTrainerList::
-	db OPP_GAMBLER
-	db OPP_ROCKER
-	db OPP_JUGGLER
-	db OPP_SCIENTIST
+	db OPP_GAMBLER ; maybe remove?
+	db OPP_JUGGLER ; maybe remove?
+	db OPP_SCIENTIST ; maybe remove?
+;	db OPP_ROCKER ; removed
 	db OPP_GIOVANNI
 	db OPP_ROCKET
-	DB OPP_JESSIEJAMES ; new
-	DB PROTON ; new
-	DB PETREL ; new
-	DB ARIANA ; new
-	DB ARCHER ; new
-	DB CARR ; new
-	DB ORM ; new
-	DB SIRD ; new
+	db OPP_JESSIEJAMES ; new
+	db PROTON ; new
+	db PETREL ; new
+	db ARIANA ; new
+	db ARCHER ; new
+	db CARR ; new
+	db ORM ; new
+	db SIRD ; new
 	db -1 ; end

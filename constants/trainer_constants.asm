@@ -19,7 +19,7 @@ ENDM
 	trainer_const BUG_CATCHER    ; $02
 	trainer_const LASS           ; $03
 	trainer_const SAILOR         ; $04
-;	trainer_const JR_TRAINER_M   ; $05 - will be removed
+;	trainer_const JR_TRAINER_M   ; $05 - removed
 	trainer_const JR_TRAINER     ; $06
 	trainer_const POKEMANIAC     ; $07
 	trainer_const SUPER_NERD     ; $08
@@ -27,7 +27,7 @@ ENDM
 	trainer_const BIKER          ; $0A
 	trainer_const BURGLAR        ; $0B
 	trainer_const ENGINEER       ; $0C
-;	trainer_const UNUSED_JUGGLER ; $0D - will be removed
+;	trainer_const UNUSED_JUGGLER ; $0D - removed
 	trainer_const FISHER         ; $0E
 	trainer_const SWIMMER        ; $0F
 	trainer_const CUE_BALL       ; $10
@@ -41,11 +41,11 @@ ENDM
 	trainer_const BLACKBELT      ; $18
 	trainer_const RIVAL1         ; $19
 	trainer_const PROF_OAK       ; $1A
-;	trainer_const CHIEF          ; $1B - will be removed
+;	trainer_const CHIEF          ; $1B - removed
 	trainer_const SCIENTIST      ; $1C
 	trainer_const GIOVANNI       ; $1D
 	trainer_const ROCKET         ; $1E
-;	trainer_const COOLTRAINER_M  ; $1F - will be removed
+;	trainer_const COOLTRAINER_M  ; $1F - removed
 	trainer_const COOLTRAINER    ; $20
 	trainer_const BRUNO          ; $21
 	trainer_const BROCK          ; $22
@@ -62,9 +62,9 @@ ENDM
 	trainer_const CHANNELER      ; $2D
 	trainer_const AGATHA         ; $2E
 	trainer_const LANCE          ; $2F
-; new classes
+; new classes -------------------
+; V2
 	trainer_const DIVER          ; self-explanatory
-
 	trainer_const PROTON         ; rocket executive/admin
 	trainer_const PETREL         ; rocket executive/admin
 	trainer_const ARIANA         ; rocket executive/admin
@@ -81,7 +81,10 @@ ENDM
 	trainer_const NANETTE        ; sevii sage
 	trainer_const SUUJERO        ; sevii sage
 	trainer_const PINK           ; new rival
-
+	trainer_const YOUNG_OAK      ; self-explanatory
+	trainer_const JENNY          ; self-explanatory
+	trainer_const CHALLENGER     ; Viridian Gym challenger
+; V1
 	trainer_const JESSIEJAMES    ; self-explanatory
 	trainer_const ORAGE			 ; Ochre "gym" leader
 	trainer_const PIGEON		 ; Self-cameo

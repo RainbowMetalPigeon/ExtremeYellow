@@ -32,7 +32,7 @@ Route3TrainerHeader0:
 Route3TrainerHeader1:
 	trainer EVENT_BEAT_ROUTE_3_TRAINER_1, 3, Route3BattleText2, Route3EndBattleText2, Route3AfterBattleText2
 Route3TrainerHeader2:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_2, 2, Route3BattleText3, Route3EndBattleText3, Route3AfterBattleText3
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_2, 5, Route3BattleText3, Route3EndBattleText3, Route3AfterBattleText3 ; edited sight range
 Route3TrainerHeader3:
 	trainer EVENT_BEAT_ROUTE_3_TRAINER_3, 1, Route3BattleText4, Route3EndBattleText4, Route3AfterBattleText4
 Route3TrainerHeader4:
