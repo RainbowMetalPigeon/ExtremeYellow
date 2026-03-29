@@ -92,16 +92,19 @@ _ForlornValley_ReceiveDesolatedRockCoordinates::
 
 ; nps and signs ========================================
 
+; kid south
 _LakeOfMistText7::
 	text "7"
 ;	xxxx "123456789012345678"
 	done
 
+; guy looking east
 _LakeOfMistText8::
 	text "8"
 ;	xxxx "123456789012345678"
 	done
 
+; cooltrainer-looking entrance
 _LakeOfMistText9::
 	text "9"
 ;	xxxx "123456789012345678"
@@ -114,6 +117,7 @@ _LakeOfMistSignText1::
 
 ; trainers ========================================
 
+; scientist
 _LakeOfMistBattleText1::
 	text "1-pre"
 ;	xxxx "123456789012345678"
@@ -131,6 +135,7 @@ _LakeOfMistAfterBattleText1::
 
 ; ----------------
 
+; fisher (happy for early evos)
 _LakeOfMistBattleText2::
 	text "2-pre"
 ;	xxxx "123456789012345678"
@@ -148,6 +153,7 @@ _LakeOfMistAfterBattleText2::
 
 ; ----------------
 
+; biker
 _LakeOfMistBattleText3::
 	text "3-pre"
 ;	xxxx "123456789012345678"
@@ -165,6 +171,7 @@ _LakeOfMistAfterBattleText3::
 
 ; ----------------
 
+; cooltrainer island
 _LakeOfMistBattleText4::
 	text "4-pre"
 ;	xxxx "123456789012345678"
@@ -182,6 +189,7 @@ _LakeOfMistAfterBattleText4::
 
 ; ----------------
 
+; channeler
 _LakeOfMistBattleText5::
 	text "5-pre"
 ;	xxxx "123456789012345678"

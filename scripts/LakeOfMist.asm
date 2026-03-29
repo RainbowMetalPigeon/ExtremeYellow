@@ -53,9 +53,9 @@ LakeOfMistSignText1:
 LakeOfMistTrainerHeaders:
 	def_trainers 2 ; TBE
 LakeOfMistTrainerHeader0:
-	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_0, 2, LakeOfMistBattleText1, LakeOfMistEndBattleText1, LakeOfMistAfterBattleText1
+	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_0, 1, LakeOfMistBattleText1, LakeOfMistEndBattleText1, LakeOfMistAfterBattleText1
 LakeOfMistTrainerHeader1:
-	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_1, 3, LakeOfMistBattleText2, LakeOfMistEndBattleText2, LakeOfMistAfterBattleText2
+	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_1, 1, LakeOfMistBattleText2, LakeOfMistEndBattleText2, LakeOfMistAfterBattleText2
 LakeOfMistTrainerHeader2:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_2, 2, LakeOfMistBattleText3, LakeOfMistEndBattleText3, LakeOfMistAfterBattleText3
 LakeOfMistTrainerHeader3:
