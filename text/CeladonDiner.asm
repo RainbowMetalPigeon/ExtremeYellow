@@ -79,32 +79,55 @@ _CeladonDinerText2_ReceivedMatchaTea::
 	done
 
 _CeladonDinerText2_NoRoom::
-	text "No room"
+	text "Oh, you don't have"
+	line "enough space."
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonDinerText2_MachineBroken::
-	text "Machine is broken"
+	text "Unfortunately,"
+	line "the machine that"
+	cont "we use to make"
+	cont "MATCHA TEA's out."
+
+	para "We called the"
+	line "REPAIR SHOP quite"
+	cont "a long ago, but"
+	cont "their technician"
+	cont "is still nowhere"
+	cont "to be seen."
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonDinerText2_ThanksMachineGotFixed::
-	text "Thanks is fixed"
+	text "Finally the"
+	line "technician has"
+	cont "arrived and fixed"
+	cont "the machine!"
+
+	para "I heard it was"
+	line "thanks to you."
+	cont "Here, have this"
+	cont "MATCHA TEA as a"
+	cont "thank-you gift!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _CeladonDinerText2_WannaBuyATea::
-	text "Wanna buy"
+	text "Would you like to"
+	line "buy a MATCHA TEA?"
+	cont "Only ¥1000!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonDinerText2_NotEnoughMoney::
-	text "Too poor"
+	text "Oh, you don't"
+	line "have enough money."
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonDinerText2_Declined::
-	text "Too bad"
+	text "Anytime you want!"
 ;	xxxx "123456789012345678"
 	done
 

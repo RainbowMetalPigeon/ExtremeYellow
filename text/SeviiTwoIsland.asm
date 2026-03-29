@@ -583,12 +583,37 @@ _SeviiTwoIslandCityDiveAfterBattleText4::
 ; two islet ------------------------------------
 
 _SeviiTwoIsletText1::
-	text "ciao"
+	text "Ahead of here are"
+	line "some rocky walls"
+	cont "that could be"
+	cont "CLIMBed."
+	cont "But neither I nor"
+	cont "my #MON can!"
+
+	para "I heard that in"
+	line "SAFFRON CITY is a"
+	cont "CLIMB CLUB, and"
+	cont "some of its"
+	cont "members train"
+	cont "nearby."
+
+	para "Maybe they could"
+	line "help me!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIsletText2::
-	text "ciauz"
+	text "Have you visited"
+	line "MT. EMBER?"
+
+	para "It's a volcano,"
+	line "but... doesn't it"
+	cont "look like a"
+	cont "pyramid?!"
+
+	para "Parent Nature"
+	line "really slacked"
+	cont "off with it, uh?"
 ;	xxxx "123456789012345678"
 	done
 

@@ -46,9 +46,12 @@ CeladonHotelHallText5:
 	CheckEvent EVENT_SPOKEN_WITH_REPAIR_BOSS
 	jr nz, .notFirstTimeTalkToBoss
 ; have screwdriver but first time we talk to boss
+	ld a, HS_ROUTE_7_REPAIR_PERSON
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	SetEvent EVENT_SPOKEN_WITH_REPAIR_BOSS
 	ld hl, CeladonHotelHallText5_ScrewdriverInBagFirstTime
-	call PrintText
-	jr .spawnRepairPerson
+	jr .printAndEnd
 .notFirstTimeTalkToBoss
 	ld hl, CeladonHotelHallText5_ScrewdriverInBag
 	jr nz, .printAndEnd
@@ -105,7 +108,7 @@ CeladonHotelHallTrainerHeader0:
 CeladonHotelHallTrainerHeader1:
 	trainer EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_1, 2, CeladonHotelHallBattleText1, CeladonHotelHallEndBattleText1, CeladonHotelHallAfterBattleText1
 CeladonHotelHallTrainerHeader2:
-	trainer EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_2, 4, CeladonHotelHallBattleText2, CeladonHotelHallEndBattleText2, CeladonHotelHallAfterBattleText2
+	trainer EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_2, 2, CeladonHotelHallBattleText2, CeladonHotelHallEndBattleText2, CeladonHotelHallAfterBattleText2
 CeladonHotelHallTrainerHeader3:
 	trainer EVENT_BEAT_CELADON_HOTEL_HALL_TRAINER_3, 4, CeladonHotelHallBattleText3, CeladonHotelHallEndBattleText3, CeladonHotelHallAfterBattleText3
 	db -1

@@ -299,102 +299,206 @@ _CeladonHotelHallSign8::
 	done
 
 _CeladonHotelHallText5_FixedMatchaMachine::
-	text "all done!"
+	text "Hey, that junk at"
+	line "the RESTAURANT"
+	cont "got fixed. Ain't"
+	cont "you happy?"
+
+	para "Now, please leave,"
+	line "I'm very busy."
+	cont "I've a businnes"
+	cont "to run here,"
+	cont "don't you see?!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_ScrewdriverInBag::
-	text "give it to them"
+	text "So you found their"
+	line "damned tool?"
+
+	para "Why do you bother"
+	line "me with this?"
+	cont "Just bring it to"
+	cont "them!"
+
+	para "Jeez, me, I gotta"
+	line "do everything"
+	cont "here. Youths now-"
+	cont "adays! If it"
+	cont "wasn't for me,"
+	cont "you would get"
+	cont "nothing done."
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_ScrewdriverInBagFirstTime::
-	text "guy in Route 7"
-	line "oh that's their"
-	cont "SD give it to them"
+	text "I sent the new"
+	line "guy to fix some"
+	cont "junk at the"
+	cont "RESTAURANT, but"
+	cont "they're later"
+	cont "than usual."
+
+	para "By now they should"
+	line "be at least in"
+	cont "ROUTE 7. Hey,"
+	cont "can you do me a"
+	cont "biggie and check"
+	cont "for me?"
+
+	para "Uh? That looks"
+	line "like their tool."
+	cont "Do me a favour"
+	cont "and bring it to"
+	cont "them, will you?"
+	cont "ROUTE 7. Thanks."
+	cont "Bye now."
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_SpokenWithRepairPerson::
-	text "find it"
+	text "So they lost their"
+	line "damned tool?"
+
+	para "Holy..."
+
+	para "What do you think?"
+	line "I can't surely go"
+	cont "and give 'em a"
+	cont "new one!"
+
+	para "If you care so"
+	line "badly about this"
+	cont "fix, you can help"
+	cont "'em find it!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_SpokenWithRepairBoss::
-	text "find them"
+	text "New guy. ROUTE 7."
+	line "Some fix to do at"
+	cont "the RESTAURANT."
+
+	para "Will you be a pal"
+	line "and check for me?"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallText5_FirstTime::
-	text "guy in Route 7"
+	text "I sent the new"
+	line "guy to fix some"
+	cont "junk at the"
+	cont "RESTAURANT, but"
+	cont "they're later"
+	cont "than usual."
+
+	para "By now they should"
+	line "be at least in"
+	cont "ROUTE 7. Hey,"
+	cont "can you do me a"
+	cont "biggie and check"
+	cont "for me? I don't"
+	cont "wanna go out,"
+	cont "too busy doing."
+
+	para "Doing what? Mind"
+	line "your business!"
 ;	xxxx "123456789012345678"
 	done
 
 ; trainers ------
 
 _CeladonHotelHallBattleText0::
-	text "0-"
+	text "I'm new here, but"
+	line "I can fight!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText0::
-	text "0-"
+	text "Well,"
+	line "I didn't say I"
+	cont "can fight WELL..."
 ;	xxxx "123456789012345678
 	prompt
 
 _CeladonHotelHallAfterBattleText0::
-	text "0-"
+	text "I'm new, but not"
+	line "the newest. The"
+	cont "last newcomer is"
+	cont "somewhere doing"
+	cont "something."
 ;	xxxx "123456789012345678"
 	done
 
 ; ------
 
 _CeladonHotelHallBattleText1::
-	text "1-"
+	text "Do you need some-"
+	line "thing fixed?"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText1::
-	text "1-"
+	text "Your"
+	line "fighting doesn't"
+	cont "need any fix!"
 ;	xxxx "123456789012345678
 	prompt
 
 _CeladonHotelHallAfterBattleText1::
-	text "1-"
+	text "I love this place:"
+	line "we spend the most"
+	cont "time hanging out"
+	cont "with each other."
+	cont "Work comes later!"
 ;	xxxx "123456789012345678"
 	done
 
 ; ------
 
 _CeladonHotelHallBattleText2::
-	text "2-"
+	text "Are you looking"
+	line "for a job?"
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText2::
-	text "2-"
+	text "I don't"
+	line "know about"
+	cont "repairing, but"
+	cont "you're surely good"
+	cont "with #MON!"
 ;	xxxx "123456789012345678
 	prompt
 
 _CeladonHotelHallAfterBattleText2::
-	text "2-"
+	text "If you're looking"
+	line "for a job or for"
+	cont "a technician, go"
+	cont "speak to the BOSS!"
 ;	xxxx "123456789012345678"
 	done
 
 ; ------
 
 _CeladonHotelHallBattleText3::
-	text "3-"
+	text "I'm the BOSS's"
+	line "right hand."
 ;	xxxx "123456789012345678"
 	done
 
 _CeladonHotelHallEndBattleText3::
-	text "3-"
+	text "And you"
+	line "are tough!"
 ;	xxxx "123456789012345678
 	prompt
 
 _CeladonHotelHallAfterBattleText3::
-	text "3-"
+	text "#MON are like"
+	line "a good repair:"
+	cont "they both need..."
+	cont "well... no, wait,"
+	cont "I messed it up..."
 ;	xxxx "123456789012345678"
 	done
 

@@ -215,10 +215,8 @@ _OakBeforeBattleText2::
 
 _OakPostBattleTextVictory::
 	text "Amazing!"
-
-	para "This has been the"
-	line "greatest battle"
-	cont "I've ever had!"
+	line "This was a battle"
+	cont "for the ages!"
 
 	para "<PLAYER>!"
 	line "Thank you!"
@@ -226,23 +224,40 @@ _OakPostBattleTextVictory::
 
 _OakPostBattleTextDefeat::
 	text "Amazing!"
-
-	para "This has been the"
-	line "greatest battle"
-	cont "I've ever had!"
+	line "This was a battle"
+	cont "for the ages!"
 
 	para "Yet I know you can"
 	line "grow even more!"
 	prompt
 
 _Route21ScriptText1::
-	text "Marvelous!"
-	line "This was a battle"
-	cont "for the ages!"
+	text "Marvelous! Abso-"
+	line "lutely stunning!"
 
-	para "I want to gift you"
-	line "something to"
-	cont "thank you."
+	para "This battle..."
+	line "It reminded me of"
+	cont "another great"
+	cont "fight I had a"
+	cont "long, long time"
+	cont "ago. Maybe right"
+	cont "after I claimed"
+	cont "the Title...?"
+
+	para "Doesn't matter!"
+	line "Both this and"
+	cont "that fight have"
+	cont "been outstanding!"
+	cont "And you know, that"
+	cont "other encounter I"
+	cont "had, if I recall"
+	cont "correctly, took"
+	cont "place in the"
+	cont "SEVII ISLANDs."
+;	xxxx "123456789012345678"
+
+	para "That's why I'd like"
+	line "to gift you this."
 ;	xxxx "123456789012345678"
 	done
 
@@ -257,6 +272,12 @@ _Route21ScriptText3::
 	line "now explore all"
 	cont "the SEVII ISLANDS"
 	cont "without limits!"
+	
+	para "Who knows, maybe"
+	line "you too will have"
+	cont "just there a"
+	cont "memorable battle."
+;	xxxx "123456789012345678"
 
 	para "<PLAYER>! Go and"
 	line "keep traveling"
