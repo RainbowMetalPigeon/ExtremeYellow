@@ -207,9 +207,9 @@ IF DEF(_DEBUG)
 	ld a, %00110000
 	ld [wDayNightCycle], a
 
-	ld a, HS_ROUTE_22_COIN_CASE_MEOWTH
-	ld [wMissableObjectIndex], a
-	predef ShowObject
+;	ld a, HS_ROUTE_22_COIN_CASE_MEOWTH
+;	ld [wMissableObjectIndex], a
+;	predef ShowObject
 
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
