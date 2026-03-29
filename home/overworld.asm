@@ -56,7 +56,7 @@ EnterMap::
 OverworldLoop::
 	call DelayFrame
 OverworldLoopLessDelay::
-	call DelayFrame
+	call CheckForSpinAndDelay ; edited
 	call IsSurfingPikachuInParty
 	call LoadGBPal
 	call HandleMidJump
@@ -2474,4 +2474,17 @@ LoadDestinationWarpPosition::
 	pop af
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a
+	ret
+
+;joenote - This functions checks if the spin frame is going to update for the spinning arrow tile state.
+;			If so, do not delay a frame because this will happen during LoadSpinnerArrowTiles.
+CheckForSpinAndDelay:
+	ld a, [wd736]
+	bit 7, a
+	jr z, .noSpinning
+	ld a, [wSpinnerTileFrameCount]
+	dec a
+	ret z	
+.noSpinning
+	call DelayFrame
 	ret

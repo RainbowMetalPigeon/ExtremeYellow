@@ -1,4 +1,31 @@
 LoadSpinnerArrowTiles::
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;joenote - This ties the spin frame update to an external counter.
+;			It will only get updated every 4 overworld updates (half that if in 60fps mode).
+;			CopyVideoData only gets run 1 time as well, and it supplants 1 DelayFrame in OverworldLoop.
+;			Now there are no wasted frames when this runs, and spin movement is now at full speed.
+	push bc
+	ld b, 2
+	ld c, b
+	inc c
+	ld a, [wSpinnerTileFrameCount]
+	cp c
+	jr c, .notgreater
+	ld a, b
+	ld [wSpinnerTileFrameCount], a
+	jr .noadjust
+.notgreater
+	cp 1
+	jr nc, .noadjust
+	ld a, b
+	ld [wSpinnerTileFrameCount], a
+.noadjust
+	pop bc
+	ld a, [wSpinnerTileFrameCount]
+	dec a
+	ld [wSpinnerTileFrameCount], a
+	ret nz
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 	ld a, [wSpritePlayerStateData1ImageIndex]
 	srl a
 	srl a
@@ -20,7 +47,7 @@ LoadSpinnerArrowTiles::
 	ld de, 6 * 4
 	add hl, de
 .alternateGraphics
-	ld a, $1 ; edited, was $4 in vanilla
+	ld a, $4 ; edited, was $4 in vanilla
 	ld bc, $0
 .loop
 	push af
