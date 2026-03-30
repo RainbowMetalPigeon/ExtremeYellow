@@ -7617,3 +7617,54 @@ SetAISentOut:
 	ld [wAIWhichPokemonSentOutAlready], a
 	ret
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; --------------------------------------------------------------
+
+PrintIfMoveSpecialOrPhysical:: ; new
+	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
+	and a
+	jr nz, .PhysicalSpecialSplit
+; no physical/special split applied
+	ld a, [wPlayerMoveType]
+	cp SPECIAL ; types >= SPECIAL are all special
+	jp nc, .specialAttack ; commented for physical/special split
+	jr .physicalAttack
+; option on --------------------
+.PhysicalSpecialSplit
+	ld a, [wPlayerMoveType]
+	cp SPECIAL ; types >= SPECIAL are normally special
+	ld a, [wPlayerMoveNum]
+    ld b, a
+    jr nc, .isSpecialActuallyPhysical
+    jr .isPhysicalActuallySpecial
+.isSpecialActuallyPhysical
+    ld hl, SpecialToPhysicalMoves
+.specialPhysicalLoop
+    ld a, [hli]
+    cp b
+    jr z, .physicalAttack
+    cp $ff ; end of list
+    jr nz, .specialPhysicalLoop ; keep checking list
+    jr .specialAttack ; Not actually a physical move
+.isPhysicalActuallySpecial
+    ld hl, PhysicalToSpecialMoves
+.physicalSpecialLoop
+    ld a, [hli]
+    cp b
+    jr z, .specialAttack ; the physical move is actually special
+    cp $ff ; end of list
+    jr nz, .physicalSpecialLoop ; keep checking list
+.physicalAttack
+	ld de, PhysicalTextAttackdex
+	jr .finishPrinting
+.specialAttack
+	ld de, SpecialTextAttackdex
+.finishPrinting
+	hlcoord 1, 7
+	jp PlaceString
+
+PhysicalTextAttackdex:
+	db "(PHYSICAL)@"
+
+SpecialTextAttackdex:
+	db "(SPECIAL)@"
