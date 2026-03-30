@@ -302,7 +302,6 @@ INCLUDE "data/text/text_8.asm"
 INCLUDE "text/LakeOfMist.asm"
 INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/Route19.asm"
-INCLUDE "data/text/text_4.asm"
 INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
 
@@ -310,6 +309,7 @@ INCLUDE "text/Route6.asm"
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/FuchsiaGym.asm"
 INCLUDE "text/Route7.asm"
+INCLUDE "data/text/text_4.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

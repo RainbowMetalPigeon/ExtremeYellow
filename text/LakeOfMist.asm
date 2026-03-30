@@ -1,10 +1,3 @@
-/*
-_Route1ViridianMartSampleText::
-	text "Hi! I work at a"
-	line "#MON MART."
-	done
-*/
-
 _LakeOfMistText1_Intro::
 	text "Flying."
 	line "Traveling."
@@ -94,19 +87,45 @@ _ForlornValley_ReceiveDesolatedRockCoordinates::
 
 ; kid south
 _LakeOfMistText7::
-	text "7"
+	text "This place's much"
+	line "less gloomy than"
+	cont "LAVENDER!"
+
+	para "But stinks a bit."
 ;	xxxx "123456789012345678"
 	done
 
 ; guy looking east
 _LakeOfMistText8::
-	text "8"
+	text "Only water as far"
+	line "as the eye can"
+	cont "see..."
+
+	para "Ever wondered what"
+	line "lies beyond our"
+	cont "gaze? Places,"
+	cont "people, #MON,"
+	cont "cultures, sights."
+
+	para "Some wonderful,"
+	line "some boring, some"
+	cont "horrendous, some"
+	cont "just different."
 ;	xxxx "123456789012345678"
 	done
 
 ; cooltrainer-looking entrance
 _LakeOfMistText9::
-	text "9"
+	text "LAKE OF MIST used"
+	line "to be a freshwater"
+	cont "basin, but then"
+	cont "got connected to"
+	cont "the sea, and even"
+	cont "started receiving"
+	cont "industry wastes."
+
+	para "Now its waters are"
+	line "much less clean."
 ;	xxxx "123456789012345678"
 	done
 
@@ -119,17 +138,28 @@ _LakeOfMistSignText1::
 
 ; scientist
 _LakeOfMistBattleText1::
-	text "1-pre"
+	text "Hey! I'm taking"
+	line "samples! Don't get"
+	cont "in my way!"
 ;	xxxx "123456789012345678"
 	done
 
 _LakeOfMistEndBattleText1::
-	text "1-end"
+	text "The"
+	line "samples' ruined!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LakeOfMistAfterBattleText1::
-	text "1-after"
+	text "I'm monitoring the"
+	line "water pollutants."
+
+	para "Actually you didn't"
+	line "ruin the samples."
+	cont "Sorry, I got"
+	cont "carried away by"
+	cont "the heat of the"
+	cont "moment of science."
 ;	xxxx "123456789012345678"
 	done
 
@@ -137,17 +167,29 @@ _LakeOfMistAfterBattleText1::
 
 ; fisher (happy for early evos)
 _LakeOfMistBattleText2::
-	text "2-pre"
+	text "Do you know that"
+	line "some #MON can"
+	cont "evolve via items?"
 ;	xxxx "123456789012345678"
 	done
 
 _LakeOfMistEndBattleText2::
-	text "2-end"
+	text "Not even"
+	line "my early evolved"
+	cont "#MON could do!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LakeOfMistAfterBattleText2::
-	text "2-after"
+	text "#MON that"
+	line "evolve with items"
+	cont "are my favourite."
+
+	para "I can make them"
+	line "strong quickly!"
+	cont "Only downside is"
+	cont "that they learn"
+	cont "moves a bit later."
 ;	xxxx "123456789012345678"
 	done
 
@@ -155,17 +197,26 @@ _LakeOfMistAfterBattleText2::
 
 ; biker
 _LakeOfMistBattleText3::
-	text "3-pre"
+	text "People like to go"
+	line "by bike around"
+	cont "here, so why not"
+	cont "MOTOR-bikes?!"
 ;	xxxx "123456789012345678"
 	done
 
 _LakeOfMistEndBattleText3::
-	text "3-end"
+	text "No battles"
+	line "should be allowed!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LakeOfMistAfterBattleText3::
-	text "3-after"
+	text "You can't tell me"
+	line "what to do!"
+
+	para "...but please don't"
+	line "beat me. I'll turn"
+	cont "off the motorbike."
 ;	xxxx "123456789012345678"
 	done
 
@@ -173,17 +224,27 @@ _LakeOfMistAfterBattleText3::
 
 ; cooltrainer island
 _LakeOfMistBattleText4::
-	text "4-pre"
+	text "The atmosphere"
+	line "here's too gloomy."
+	cont "Let's fire it up"
+	cont "with a battle!"
 ;	xxxx "123456789012345678"
 	done
 
 _LakeOfMistEndBattleText4::
-	text "4-end"
+	text "That"
+	line "fired me up well!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LakeOfMistAfterBattleText4::
-	text "4-after"
+	text "The lake has a"
+	line "pollution issue"
+	cont "and a lugubrious"
+	cont "backstory."
+
+	para "Yet, it always"
+	line "lures me in."
 ;	xxxx "123456789012345678"
 	done
 
@@ -191,16 +252,25 @@ _LakeOfMistAfterBattleText4::
 
 ; channeler
 _LakeOfMistBattleText5::
-	text "5-pre"
+	text "Are you..."
+	line "worthy..."
+	cont "to know..."
+	cont "the truth?"
 ;	xxxx "123456789012345678"
 	done
 
 _LakeOfMistEndBattleText5::
-	text "5-end"
+	text "You..."
+	line "are worthy."
 ;	xxxx "123456789012345678"
 	prompt
 
 _LakeOfMistAfterBattleText5::
-	text "5-after"
+	text "LAKE OF MIST was"
+	line "born from all the"
+	cont "tears shed for"
+	cont "the #MON that"
+	cont "died and now rest"
+	cont "in LAVENDER."
 ;	xxxx "123456789012345678"
 	done
