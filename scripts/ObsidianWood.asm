@@ -196,6 +196,7 @@ ObsidianWoodOragePostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ORAGE_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp ObsidianWoodResetScripts
 
 ObsidianWoodResetScripts: ; map-dependent

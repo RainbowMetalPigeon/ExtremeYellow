@@ -36,7 +36,8 @@ CeladonHotelRoomsSpawns:
 
 .checkBattleFacilityRecords
 	CheckEvent EVENT_MAXED_BATTLE_FACILITY
-	jr nz, .checkInverseBattles
+;	jr nz, .checkInverseBattles
+	ret nz
 ; event not set yet, check if to be set
 	ld a, [wBattleFacilityStandardRecordNormalLC]
 	cp 255
@@ -74,13 +75,16 @@ CeladonHotelRoomsSpawns:
 	ld a, [wBattleFacilityHardcoreRecordInverseAG]
 	cp 255
 	jr z, .BFMaxed
-	jr .checkInverseBattles
+;	jr .checkInverseBattles
+	ret
 .BFMaxed
 	SetEvent EVENT_MAXED_BATTLE_FACILITY
 	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_2
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
+	ret
 
+/*
 .checkInverseBattles
 	CheckEvent EVENT_BEAT_ALL_REMATCH_INVERSE
 	jr nz, .nextCheck
@@ -117,6 +121,7 @@ CeladonHotelRoomsSpawns:
 
 .nextCheck
 	ret
+*/
 
 CeladonHotelRooms_TextPointers:
 	dw CeladonHotelRoomsText1 ; Looker (Bellocchio)

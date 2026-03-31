@@ -245,6 +245,7 @@ RockTunnel2BrockPostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BROCK_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp RockTunnel2ResetScripts
 
 RockTunnel2ResetScripts: ; map-dependent

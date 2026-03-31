@@ -348,6 +348,7 @@ Route20MistyPostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp Route20ResetScripts
 
 Route20ResetScripts: ; map-dependent

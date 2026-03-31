@@ -171,6 +171,7 @@ PowerPlantLtSurgePostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_LT_SURGE_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp PowerPlantResetScripts
 
 PowerPlantResetScripts: ; map-dependent
@@ -182,4 +183,3 @@ PowerPlantResetScripts: ; map-dependent
 PowerPlantTextLtSurgePostBattle:
 	text_far _GymLeaderElite4PostRematchInverseText
 	text_end
-	

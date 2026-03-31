@@ -114,13 +114,12 @@ _CeruleanCityText3::
 	done
 
 _CeruleanCityText4:: ; edited
-	text "We have recently"
-	line "renewed CERULEAN."
-
-	para "It looks so much"
-	line "more open now!"
-	cont "Maybe a tad less"
-	cont "cozy, though."
+	text "South of here, on"
+	line "ROUTE 5, there's"
+	cont "a famous climbing"
+	cont "spot. It attracts"
+	cont "many enthusiasts!"
+;	xxxx "123456789012345678"
 	done
 
 _CeruleanCityText5::

@@ -81,6 +81,7 @@ CeruleanCaveExtraMiddleLancePostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_LANCE_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp CeruleanCaveExtraMiddleResetScripts
 
 CeruleanCaveExtraMiddleResetScripts: ; map-dependent

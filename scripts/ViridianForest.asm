@@ -232,6 +232,7 @@ ViridianForestErikaPostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp ViridianForestResetScripts
 
 ViridianForestResetScripts: ; map-dependent

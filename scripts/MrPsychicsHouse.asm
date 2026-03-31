@@ -120,6 +120,7 @@ MrPsychicsHouseSabrinaPostBattleRematch: ; script, map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA_REMATCH_INVERSE ; map-dependent
+	callfar SpawnRoute21OakWhenWonAllInverseRematches
 	jp MrPsychicsHouseResetScripts
 
 MrPsychicsHouseResetScripts: ; map-dependent
