@@ -2662,10 +2662,45 @@ SpawnRoute21OakWhenWonAllInverseRematches::
 	ret z
 ; all inverse rematches won
 	SetEvent EVENT_BEAT_ALL_REMATCH_INVERSE
-;	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_4 ; TBE?
-;	ld [wMissableObjectIndex], a
-;	predef ShowObjectExtra
+	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_4 ; TBE?
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 	ld a, HS_ROUTE_21_OAK
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 	ret
+
+; ==========================================
+
+HideUndegroundGuard::
+; already hid the underground guards? Do nothing
+	CheckEvent EVENT_HID_UNDERGROUND_GUARDS
+; did we beat (old) (Route 21) Oak?
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ret z
+; did we beat any one sage?
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ret z
+.hideGuards
+; do the hiding loop
+	SetEvent EVENT_HID_UNDERGROUND_GUARDS
+	ld hl, ObjectsToHideSevii
+.hideExtraLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	pop hl
+	jr .hideExtraLoop
+
+ObjectsToHideSevii:
+	db HS_SEVII_TWO_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_THREE_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_FOUR_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_32_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_34_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_39_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_42_UNDERGROUND_GUARD
+	db $ff

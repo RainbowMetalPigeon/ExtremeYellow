@@ -727,7 +727,7 @@
 
 ; Route 9 events
 	const_next $440
-	const_skip
+	const EVENT_HID_UNDERGROUND_GUARDS ; new
 	const EVENT_BEAT_ROUTE_9_TRAINER_0
 	const EVENT_BEAT_ROUTE_9_TRAINER_1
 	const EVENT_BEAT_ROUTE_9_TRAINER_2

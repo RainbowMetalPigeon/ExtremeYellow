@@ -123,7 +123,6 @@ HallofFameRoomScript1:
 	call LoopShow
 	call LoopShowExtra
 	call LoopShowSevii
-	call LoopHideSevii ; TBE: temporary, for debug
 	ResetEvent EVENT_BEAT_MEWTWO
 ; re-spawn the birds only if we spawn them the first time
 	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
@@ -476,26 +475,3 @@ ObjectsToShowSevii:
 	db $ff
 
 ; ---------------
-
-; TBE:
-LoopHideSevii:
-	ld hl, ObjectsToHideSevii
-.hideExtraLoop
-	ld a, [hli]
-	cp $ff
-	ret z
-	push hl
-	ld [wMissableObjectIndex], a
-	predef HideObjectSevii
-	pop hl
-	jr .hideExtraLoop
-
-ObjectsToHideSevii:
-	db HS_SEVII_TWO_ISLAND_CITY_UNDERGROUND_GUARD
-	db HS_SEVII_THREE_ISLAND_CITY_UNDERGROUND_GUARD
-	db HS_SEVII_FOUR_ISLAND_CITY_UNDERGROUND_GUARD
-	db HS_SEVII_ROUTE_32_UNDERGROUND_GUARD
-	db HS_SEVII_ROUTE_34_UNDERGROUND_GUARD
-	db HS_SEVII_ROUTE_39_UNDERGROUND_GUARD
-	db HS_SEVII_ROUTE_42_UNDERGROUND_GUARD
-	db $ff

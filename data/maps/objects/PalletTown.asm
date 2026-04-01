@@ -2,12 +2,12 @@ PalletTown_Object:
 	db $b ; border block
 
 	def_warp_events
-	warp_event  5,  5, REDS_HOUSE_1F, 1
+;	warp_event  5,  5, REDS_HOUSE_1F, 1
 ;	warp_event  5,  5, HALL_OF_FAME, 1
 ;	warp_event  5,  5, SILPH_CO_11F, 4
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 1 ; 1-2 entrance, 3 testing near merchant
-;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
+	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
 ;	warp_event  5,  5, CERULEAN_CAVE_1F, 10
 ;	warp_event  5,  5, SAFARI_ZONE_GATE, 1
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
@@ -44,16 +44,17 @@ PalletTown_Object:
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
 ;	warp_event 13,  5, SECLUDED_ATOLL_SE, 1
 ;	warp_event 13,  5, SILPH_CO_9F, 1
-;	warp_event 13,  5, HALL_OF_FAME, 1
+	warp_event 13,  5, HALL_OF_FAME, 1
 ;	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 ;	warp_event 13,  5, BATTLE_FACILITY, 1
 ;	warp_event 13,  5, HAUNTED_REDS_HOUSE, 5
-	warp_event 13,  5, SECLUDED_CAVES, 4
+;	warp_event 13,  5, SECLUDED_CAVES, 4
 ;	warp_event 13,  5, SEAFOAM_ISLANDS_B4F, 3
 ;	warp_event 13,  5, VICTORY_ROAD_1F, 1
 ;	warp_event 13,  5, POKEMON_TOWER_7F, 1
+;	warp_event 13,  5, MR_PSYCHICS_HOUSE, 1
 
-;	warp_event 12, 11, OAKS_LAB, 2
+	warp_event 12, 11, OAKS_LAB, 2
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1
 ;	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 12, 11, HAUNTED_PALLET_TOWN, 1
@@ -62,10 +63,11 @@ PalletTown_Object:
 ;	warp_event 12, 11, BILLS_HOUSE, 1
 ;	warp_event 12, 11, BATTLE_FACILITY, 1
 ;	warp_event 12, 11, HALL_OF_FAME, 1
-	warp_event 12, 11, CHAMPIONS_ROOM, 1
+;	warp_event 12, 11, CHAMPIONS_ROOM, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_2, 1
 ;	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
 ;	warp_event 12, 11, SECLUDED_ATOLL_SW, 1
+;	warp_event 12, 11, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
 
 	def_bg_events
 	bg_event 13, 13, 5 ; PalletTownText4

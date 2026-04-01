@@ -207,10 +207,10 @@ _OakBeforeBattleText2::
 	text "So be it!"
 	line "Let us begin!"
 
-	para "My and my"
-	line "friends' #MON"
-	cont "are looking"
-	cont "forward for this!"
+;	para "My and my"
+;	line "friends' #MON"
+;	cont "are looking"
+;	cont "forward for this!"
 	done
 
 _OakPostBattleTextVictory::
@@ -236,18 +236,18 @@ _Route21ScriptText1::
 	line "lutely stunning!"
 
 	para "This battle..."
-	line "It reminded me of"
-	cont "another great"
+	line "It reminded me a"
+	cont "lot another great"
 	cont "fight I had a"
 	cont "long, long time"
 	cont "ago. Maybe right"
 	cont "after I claimed"
 	cont "the Title...?"
-
-	para "Doesn't matter!"
-	line "Both this and"
-	cont "that fight have"
+	cont "I think so...?"
+	cont "Oh, both that and"
+	cont "this fight have"
 	cont "been outstanding!"
+
 	cont "And you know, that"
 	cont "other encounter I"
 	cont "had, if I recall"
@@ -256,8 +256,8 @@ _Route21ScriptText1::
 	cont "SEVII ISLANDs."
 ;	xxxx "123456789012345678"
 
-	para "That's why I'd like"
-	line "to gift you this."
+	para "I know! <PLAYER>!"
+	line "Have this!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -272,7 +272,7 @@ _Route21ScriptText3::
 	line "now explore all"
 	cont "the SEVII ISLANDS"
 	cont "without limits!"
-	
+
 	para "Who knows, maybe"
 	line "you too will have"
 	cont "just there a"
@@ -286,4 +286,3 @@ _Route21ScriptText3::
 	para "Reach new heights"
 	line "and never stop!"
 	done
-

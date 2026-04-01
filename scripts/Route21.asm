@@ -26,6 +26,7 @@ Route21Script_PostOakBattle:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	callfar HideUndegroundGuard
 	ld a, SFX_GET_KEY_ITEM
 	call PlaySound
 	ld a, 12 ; Route21ScriptText2

@@ -93,6 +93,7 @@ SeviiSixIslandGym3ScriptPostBattle:
 	jr nz, .commonPart
 	SetEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI ; map-specific
 	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	callfar HideUndegroundGuard
 	ld a, 5 ; map-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
