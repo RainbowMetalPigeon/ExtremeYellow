@@ -60,10 +60,10 @@ _PalletTownText4::
 	line "RESEARCH LAB"
 	done
 
-_PalletTownText5::
+_PalletTownText5:: ; edited to make capitalization coherent
 	text "PALLET TOWN"
-	line "Shades of your"
-	cont "journey await!"
+	line "Shades of Your"
+	cont "Journey Await!"
 	done
 
 _PalletTownText6::
