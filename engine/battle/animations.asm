@@ -2871,6 +2871,21 @@ TossBallAnimation:
 	jr z, .MissingNo
 .vanilla
 ; back to vanilla
+; new for Smash Ball
+	CheckAndResetEvent EVENT_USING_SMASH_BALL
+	jr z, .vanillaCode
+; we do be using the smash ball
+	ld a, POOF_ANIM
+	ld [wAltAnimationID], a ; edited, was wAnimationID
+	call PlayAnimation
+	ld a, SHOWPIC_ANIM
+	ld [wAltAnimationID], a ; edited, was wAnimationID
+	call PlayAnimation
+	ret
+
+.vanillaCode
+; BTV
+
 	ld a, [wPokeBallAnimData]
 	ld b, a
 
@@ -2913,6 +2928,10 @@ TossBallAnimation:
 .PokeBallAnimations:
 ; sequence of animations that make up the Poké Ball toss
 	db POOF_ANIM, HIDEPIC_ANIM, SHAKE_ANIM, POOF_ANIM, SHOWPIC_ANIM
+
+.BreakFreeAnimations: ; new
+; sequence of animations that make up the Break Free for Smash Ball
+	db POOF_ANIM, SHOWPIC_ANIM
 
 .BlockBall
 	ld a, TOSS_ANIM

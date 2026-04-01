@@ -1,4 +1,10 @@
-TrainersDeltaMons: 
+TrainersDeltaMons:
+
+	db RIVAL3, 5
+	db 4
+	db 5
+	db 6
+	db $FE
 
 	db RIVAL3, 33
 	db 4
@@ -31,6 +37,10 @@ TrainersDeltaMons:
 
 	db LANCE, 3
 	db 1
+	db $FE
+
+	db YOUNG_OAK, 1
+	db 5
 	db $FE
 
 ; TBE

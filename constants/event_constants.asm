@@ -769,7 +769,7 @@
 
 ; Route 11 events
 	const_next $470
-	const_skip
+	const EVENT_USING_SMASH_BALL ; new
 	const EVENT_BEAT_ROUTE_11_TRAINER_0
 	const EVENT_BEAT_ROUTE_11_TRAINER_1
 	const EVENT_BEAT_ROUTE_11_TRAINER_2

@@ -144,7 +144,6 @@ TrainersShinyMons:
 ; --- PROF OAK -----------
 
 	db PROF_OAK, 1
-	db 2
 	db 4
 	db 5
 	db $FE
