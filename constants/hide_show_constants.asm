@@ -486,3 +486,4 @@ DEF SHOW EQU $15
 	const HS_PEWTER_CITY_TRAVELER          ; new
 	const HS_PEWTER_CITY_COIN_CASE_MEOWTH  ; new
 	const HS_ROUTE_9_ITEM                  ; 1D
+	const HS_CERULEAN_CAVE_EXTRA_FINAL_ROCK_1 ; new

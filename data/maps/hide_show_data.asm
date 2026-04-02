@@ -253,7 +253,7 @@ MapHSPointers:
 	dw NoHS ; CERULEAN_CAVE_EXTRA_TOP
 	dw CeruleanCaveExtraMiddleHS ; new
 	dw CeruleanCaveExtraBottomHS ; new
-	dw NoHS ; CERULEAN_CAVE_EXTRA_FINAL
+	dw CeruleanCaveExtraFinalHS ; new
 	dw NoHS ; LORELEIS_ROOM
 	dw NoHS ; BRUNOS_ROOM
 	dw NoHS ; AGATHAS_ROOM
@@ -883,5 +883,7 @@ PewterCityHS: ; edited, removed old, now-unused HS and added traveler
 	db PEWTER_CITY, $08, HIDE ; Coin-Case Meowth
 Route9HS:
 	db ROUTE_9, $0A, SHOW
+CeruleanCaveExtraFinalHS:
+	db CERULEAN_CAVE_EXTRA_FINAL, 11, SHOW ; rock
 
 	db $FF, $01, SHOW ; end, list terminator

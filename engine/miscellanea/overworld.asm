@@ -803,6 +803,7 @@ RockSmashableRocks_KantoBase:
 RockSmashableRocks_KantoExtra:
 	db HS_SECLUDED_ATOLL_NW_ROCK_1
 	db HS_LAKE_OF_MIST_ROCK_1
+	db HS_CERULEAN_CAVE_EXTRA_FINAL_ROCK_1
 	db $FF
 
 ; ===========================================================

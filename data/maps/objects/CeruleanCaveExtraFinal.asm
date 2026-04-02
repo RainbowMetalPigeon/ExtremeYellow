@@ -22,7 +22,8 @@ CeruleanCaveExtraFinal_Object:
 	object_event 33,  4, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 9 ; boulder
 
 	object_event 14,  3, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 10 ; boulder
-	object_event 12,  4, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 11 ; boulder
+;	object_event 12,  4, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 11 ; boulder
+	object_event 18,  2, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 11 ; rock
 	object_event 13,  5, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 12 ; boulder
 	object_event 14,  6, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 13 ; boulder
 	object_event 13,  7, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 14 ; boulder
