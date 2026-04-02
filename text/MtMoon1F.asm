@@ -148,6 +148,7 @@ _MtMoon1Text14::
 
 ; new ------------------------------
 
+/*
 _MtMoon1FRivalText_PreBattle_FirstBattle::
 	text "<RIVAL>: What are"
 	line "YOU doing HERE?!"
@@ -231,6 +232,7 @@ _MtMoon1FRivalText_PostBattle_FirstBattle::
 	cont "sight of your"
 	cont "face ever again."
 	done
+*/
 
 ; ---
 

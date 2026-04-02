@@ -158,8 +158,14 @@ Route16Script4: ; new
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
+; new, choose team
+	CheckEvent EVENT_BEAT_SILPH_CO_RIVAL
 	ld a, 5
+	jr z, .foundRivalNumber
+	ld a, 8 ; copy of normal Silph Blue but with no Snorlax yet
+.foundRivalNumber
 	ld [wTrainerNo], a
+; BTV
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a

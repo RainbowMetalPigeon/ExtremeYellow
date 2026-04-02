@@ -118,6 +118,7 @@ _Mansion4RivalText_PostBattle_FirstBattle::
 
 ; ---
 
+/*
 _Mansion4RivalText_PreBattle_BothBattles::
 	text "<RIVAL>: <PLAYER>!"
 	line "You again! Will"
@@ -195,3 +196,4 @@ _Mansion4RivalText_PostBattle_BothBattles::
 	cont "as it'll be your"
 	cont "very last one!"
 	done
+*/

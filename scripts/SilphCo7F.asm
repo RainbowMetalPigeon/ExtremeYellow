@@ -183,8 +183,14 @@ SilphCo7Script3:
 	call SaveEndBattleTextPointers
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
-	ld a, $3				; edited
+; new, choose proper team
+	CheckEvent EVENT_FACED_SNORLAX_RIVAL
+	ld a, 3
+	jr nz, .foundRivalNumber
+	ld a, 5
+.foundRivalNumber
 	ld [wTrainerNo], a
+; BTV
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $4
