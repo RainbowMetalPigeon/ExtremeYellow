@@ -603,17 +603,70 @@ _SeviiFiveIslandWarehouse2FText6::
 	done
 
 _SeviiFiveIslandWarehouse1FText5::
-	text "m1"
+	text "Strap on your"
+	line "shields and raise"
+	cont "your banners!"
+
+	para "Hear the call of"
+	line "raging battle!"
+
+	para "Beneath a hail of"
+	line "burning arrows!"
+
+	para "Push ever forward,"
+	line "never surrender!"
+
+	para "Siege weapons"
+	line "tolling out"
+	cont "like thunder!"
+
+	para "Ripping the city"
+	line "walls asunder!"
+
+	para "Columns of flame"
+	line "reach ever"
+	cont "skyward!"
+
+	para "Horizons filled"
+	line "with burning"
+	cont "pyres!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse1FText6::
-	text "m2"
+	text "I got the power to"
+	line "repress my"
+	cont "infinite hate!"
+
+	para "Behind his eyes,"
+	line "under a white"
+	cont "dragon shape!"
+
+	para "My mental forces"
+	line "belong to a dream"
+	cont "astral plane,"
+	cont "but my claws and"
+	cont "flames have the"
+	cont "real name!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse1FText7::
-	text "m3"
+	text "So far away, we"
+	line "wait for the day!"
+
+	para "For the lives"
+	line "all so wasted"
+	cont "and gone!"
+
+	para "We feel the pain"
+	line "of a lifetime"
+	cont "lost in a"
+	cont "thousand days!"
+
+	para "Through the fire"
+	line "and the flames,"
+	cont "we carry on!"
 ;	xxxx "123456789012345678"
 	done
 

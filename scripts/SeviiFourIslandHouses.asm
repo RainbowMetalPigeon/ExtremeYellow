@@ -197,8 +197,17 @@ SeviiFourIslandHouses_Script4:
 	jp z, SeviiFourIslandHousesResetScripts
 	ld a, $f0
 	ld [wJoyIgnore], a
-; we won: Pink dialogue and Pink leaves
+; we won: Pink dialogue and Pink leaves (and show metalheads in warehouse)
 	SetEvent EVENT_SEVII_BEAT_PINK_PINKS_HOUSE
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_1
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_3
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
 	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
