@@ -18,13 +18,17 @@ SeviiFiveIslandWarehouse1F_Object:
 	warp_event 28,  2, SEVII_FIVE_ISLAND_WAREHOUSE_2F,  6 ; id=14
 
 	def_bg_events
-	bg_event 10,  5, 5 ; SeviiFiveIslandWarehouse1FSignText1
-	bg_event 11,  5, 6 ; SeviiFiveIslandWarehouse1FSignText2
+	bg_event 10,  5,  8 ; SeviiFiveIslandWarehouse1FSignText1
+	bg_event 11,  5,  9 ; SeviiFiveIslandWarehouse1FSignText2
 
 	def_object_events
 	object_event  5, 16, SPRITE_ROCKET, STAY, UP, 1
 	object_event 23, 17, SPRITE_ROCKET_FAINTED, STAY, NONE, 2
 	object_event 25,  5, SPRITE_POKE_BALL, STAY, NONE, 3, HP_UP
 	object_event 30,  4, SPRITE_POKE_BALL, STAY, NONE, 4, PP_UP
+	; metalheads to be spawned later
+	object_event 16, 16, SPRITE_SUPER_NERD, WALK, ANY_DIR, 5
+	object_event 22, 17, SPRITE_SUPER_NERD, WALK, ANY_DIR, 6
+	object_event 29, 19, SPRITE_SUPER_NERD, WALK, ANY_DIR, 7
 
 	def_warps_to SEVII_FIVE_ISLAND_WAREHOUSE_1F

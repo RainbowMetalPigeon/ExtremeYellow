@@ -602,6 +602,21 @@ _SeviiFiveIslandWarehouse2FText6::
 	text "They're out cold."
 	done
 
+_SeviiFiveIslandWarehouse1FText5::
+	text "m1"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouse1FText6::
+	text "m2"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouse1FText7::
+	text "m3"
+;	xxxx "123456789012345678"
+	done
+
 ; BF ---
 
 _SeviiFiveIslandWarehouseBFText1::

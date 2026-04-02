@@ -269,6 +269,11 @@ SeviiFiveIslandWarehouse1F_TextPointers:
 	dw SeviiFiveIslandWarehouse1FText2
 	dw PickUpItemText
 	dw PickUpItemText
+	; metalheads to spawn
+	dw SeviiFiveIslandWarehouse1FText5
+	dw SeviiFiveIslandWarehouse1FText6
+	dw SeviiFiveIslandWarehouse1FText7
+	; signs
 	dw SeviiFiveIslandWarehouse1FSignText1
 	dw SeviiFiveIslandWarehouse1FSignText2
 
@@ -339,3 +344,16 @@ SeviiFiveIslandWarehouse1FSignText1_Right:
 SeviiFiveIslandWarehouse1FSignText1_DoorIsOpen:
 	text_far _SeviiFiveIslandWarehouse_DoorIsOpen
 	text_end
+
+SeviiFiveIslandWarehouse1FText5:
+	text_far _SeviiFiveIslandWarehouse1FText5
+	text_end
+	
+SeviiFiveIslandWarehouse1FText6:
+	text_far _SeviiFiveIslandWarehouse1FText6
+	text_end
+	
+SeviiFiveIslandWarehouse1FText7:
+	text_far _SeviiFiveIslandWarehouse1FText7
+	text_end
+	
