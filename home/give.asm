@@ -25,7 +25,7 @@ GivePokemon::
 	ld [wMonDataLocation], a
 	callfar _GivePokemon ; main thingy
 ; BTV
-	xor a
+	ld a, 0
 	ld [wOpponentMonShiny], a
 ; back to vanilla
 	ret
