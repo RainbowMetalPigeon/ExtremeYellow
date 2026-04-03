@@ -453,7 +453,7 @@ SeviiEightIslandCaveText1:
 	jr .resetSages
 .bagFull
 	ld hl, SeviiEightIslandCaveText1_BagFull
-	jr .printAndEnd
+	jp .printAndEnd
 
 .ultimateBattle
 	ld hl, SeviiEightIslandCaveText1_OptedForUltimateBattle
@@ -490,9 +490,16 @@ SeviiEightIslandCaveText1:
 .anyPokemon
 	ld hl, SeviiEightIslandCaveText1_OptedForAnyPokemon
 	call PrintText
-	call SaveScreenTilesToBuffer1
+	callfar BackupTextSpeed
+	callfar MakeTextTemporarilyInstant
+	call SaveScreenTilesToBuffer2
 	callfar ShowAttackdexMenu ; ShowChoicedexMenu
-	call LoadScreenTilesFromBuffer1
+	call LoadScreenTilesFromBuffer2 ; restore saved screen
+	callfar RestoreTextSpeed
+	call Delay3
+	call LoadGBPal
+	call UpdateSprites
+;	call RedisplayStartMenu
 
 .resetSages
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO

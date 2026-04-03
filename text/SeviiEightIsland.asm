@@ -37,7 +37,7 @@ _SeviiEightIslandCaveText1_Declined::
 _SeviiEightIslandCaveText1_OptedForLimitBreaker::
 	text "so lim bre"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiEightIslandCaveText1_OptedForUltimateBattle::
 	text "so ult battle"
@@ -47,7 +47,7 @@ _SeviiEightIslandCaveText1_OptedForUltimateBattle::
 _SeviiEightIslandCaveText1_OptedForAnyPokemon::
 	text "so any mon"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiEightIslandCaveSuujeroDefeatedText::
 	text "gg"
