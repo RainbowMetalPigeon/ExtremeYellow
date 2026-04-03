@@ -59,15 +59,18 @@ _SeviiEightIslandCaveText1_SoYouWantThis::
 _SeviiEightIslandCaveSuujeroDefeatedText::
 	text "gg"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiEightIslandCaveSuujeroBeatYouText::
 	text "ez"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiEightIslandCaveText1_Done::
-	text "ciao"
+	text "Wish granted"
+
+	para "hope you're happy"
+	line "with it"
 ;	xxxx "123456789012345678"
 	done
 
@@ -142,6 +145,11 @@ _SeviiEightIslandCaveTextScript16::
 _SeviiEightIslandCaveTextScript17::
 	text "SUUJERO: So where"
 	line "were we?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEightIslandCaveTextScript18::
+	text "SUUJERO: Congrats"
 ;	xxxx "123456789012345678"
 	done
 

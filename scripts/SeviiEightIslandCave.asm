@@ -32,7 +32,25 @@ SeviiEightIslandCaveScript_0: ; 0
 	ret
 
 SeviiEightIslandCaveScript_PostBattleVsSuujero: ; 1
-	ret ; TBE
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiEightIslandCaveResetScriptsInner
+; dialogues
+	ld a, 18
+	call PrintScriptText_SafetyWrapper
+; warp player back to cave entrance
+	ld a, SEVII_EIGHT_ISLAND_CITY
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld a, SEVII_EIGHT_ISLAND_CITY
+	ld [wLastMap], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	jp SeviiEightIslandCaveResetScriptsInner
 
 SeviiEightIslandCaveScript_ShowAndMoveBlue: ; 2
 ; dialogues
@@ -343,10 +361,7 @@ SeviiEightIslandCaveScript_WaitAndHidePink: ; 17
 	ld a, 17
 	call PrintScriptText_SafetyWrapper
 ; script handling
-	xor a
-	ld [wJoyIgnore], a
-	ld [wCurMapScript], a
-	ret
+	jr SeviiEightIslandCaveResetScriptsInner
 
 SeviiEightIslandCaveResetScripts:
 	ld a, HS_SEVII_EIGHT_ISLAND_CAVE_BLUE
@@ -355,6 +370,7 @@ SeviiEightIslandCaveResetScripts:
 	ld a, HS_SEVII_EIGHT_ISLAND_CAVE_PINK
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
+SeviiEightIslandCaveResetScriptsInner:
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
@@ -412,6 +428,7 @@ SeviiEightIslandCave_TextPointers:
 	dw SeviiEightIslandCaveTextScript15 ; 15, Blue goes away
 	dw SeviiEightIslandCaveTextScript16 ; 16, Pink goes away
 	dw SeviiEightIslandCaveTextScript17 ; 17, Suujero comment
+	dw SeviiEightIslandCaveTextScript18 ; 18, Suujero congratulates
 
 ; Suujero ------------------------------------
 
@@ -450,10 +467,11 @@ SeviiEightIslandCaveText1:
 	jr nc, .bagFull
 	ld hl, SeviiEightIslandCaveText1_ReceivedLimitBreaker
 	call PrintText
-	jp .resetSages
+	jp .wishGranted
 .bagFull
 	ld hl, SeviiEightIslandCaveText1_BagFull
-	jp .printAndEnd
+	call PrintText
+	jp .done
 
 .ultimateBattle
 	ld hl, SeviiEightIslandCaveText1_OptedForUltimateBattle
@@ -482,9 +500,11 @@ SeviiEightIslandCaveText1:
 	ld [wUniQuizAnswer+8], a ; toxic spikes
 	inc a
 	ld [wUniQuizAnswer+7], a ; spikes
+; already set the wish as granted, but don't set warp
+	call WishGrantedInner
 ; load next script
-;	ld a, 1 ; TBE
-;	ld [wCurMapScript], a
+	ld a, 1
+	ld [wCurMapScript], a
 	jr .done
 
 .anyPokemon
@@ -506,8 +526,42 @@ SeviiEightIslandCaveText1:
 	call GetMonName
 	ld hl, SeviiEightIslandCaveText1_SoYouWantThis
 	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem] ; YES=0, NO=1
+	and a
+	jp nz, .declined
+; actually give the mon
+	ld c, 98
+	ld a, [wd11e]
+	ld b, a
+	call GivePokemon
+;	jr nc, .done
+	call WaitForTextScrollButtonPress
 
-.resetSages
+.wishGranted
+	call WishGranted
+.done
+	jp TextScriptEnd
+
+; -----
+
+WishGranted:
+; warp player back to cave entrance
+	ld a, SEVII_EIGHT_ISLAND_CITY
+	ldh [hWarpDestinationMap], a
+	ld a, 2 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld a, SEVII_EIGHT_ISLAND_CITY
+	ld [wLastMap], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+WishGrantedInner:
+; dialogue
+	ld hl, SeviiEightIslandCaveText1_Done
+	call PrintText
+; reset
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_NIUE
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE
@@ -515,13 +569,7 @@ SeviiEightIslandCaveText1:
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_GONQUE
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE
-	; TBE: else? warp you out and close the cave again?
-	ld hl, SeviiEightIslandCaveText1_Done
-.printAndEnd
-	call PrintText
-.done
-	jp TextScriptEnd
-
+	ret
 
 SeviiEightIslandCaveText1_ReceivedLimitBreaker:
 	text_far _SeviiEightIslandCaveText1_ReceivedLimitBreaker
@@ -665,6 +713,10 @@ SeviiEightIslandCaveTextScript16:
 
 SeviiEightIslandCaveTextScript17:
 	text_far _SeviiEightIslandCaveTextScript17
+	text_end
+
+SeviiEightIslandCaveTextScript18:
+	text_far _SeviiEightIslandCaveTextScript18
 	text_end
 
 ; ----
