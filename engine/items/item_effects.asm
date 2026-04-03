@@ -149,6 +149,7 @@ ItemUsePtrTable:
 	dw ItemUseVitamin    ; SPD_NULLIFIER, new
 	dw UnusableItem      ; SCREWDRIVER, new
 	dw ItemSleepBag      ; SLEEP_BAG, new
+	dw ItemUseVitamin    ; LIMIT_BREAKER, new
 
 ; new: code for SLEEP_BAG, beginning --------------------------
 
@@ -1515,6 +1516,8 @@ ItemUseMedicine:
 	jp z, .useVitamin
 	cp CHEAT_CANDY
 	jp z, .useVitamin
+	cp LIMIT_BREAKER
+	jp z, .useVitamin
 	cp PERFECTER
 	jp z, .useVitamin
 	cp CHROMOGENE
@@ -2032,6 +2035,8 @@ ItemUseMedicine:
 	jp z, .useRareCandy ; new
 	cp CHEAT_CANDY      ; new
 	jp z, .useRareCandy ; new
+	cp LIMIT_BREAKER    ; new
+	jp z, .useRareCandy ; new
 	push hl
 
 ; PERFECTER code, beginning ----------------------------------------------------
@@ -2304,14 +2309,20 @@ ItemUseMedicine:
 	push hl
 	ld bc, wPartyMon1Level - wPartyMon1
 	add hl, bc ; hl now points to level
+; new code for LIMIT_BREAKER, doesn't do the max level check
+	ld a, [wcf91]
+	cp LIMIT_BREAKER
+	jr z, .skipMaxLevelCheck
+; BTV
 	ld a, [hl] ; a = level
 	cp MAX_LEVEL
 	jr z, .vitaminNoEffect ; can't raise level above 100
 	cp MAX_LEVEL_2 ; new
 	jr z, .vitaminNoEffect ; new
+.skipMaxLevelCheck ; new
 
 	; new code for LEGEND_CANDY
-	ld a, [wcf91] ; a contains the item ID, and if we are here, should be only a RARE or a LEGEND or a CHEAT candy
+	ld a, [wcf91] ; a contains the item ID, and if we are here, should be only a RARE or a LEGEND or a CHEAT candy or LIMIT_BREAKER
 	cp LEGEND_CANDY
 	jr z, .legendaryCandyCode
 	ld a, [hl] ; a = level

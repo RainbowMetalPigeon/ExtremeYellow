@@ -580,6 +580,12 @@ _SleepBagDescription::
 ;	xxxx "123456789012345678
 	prompt
 
+_LimitBreakerDescription::
+	text "Forbidden item to"
+	line "break all limits."
+;	xxxx "123456789012345678
+	prompt
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::

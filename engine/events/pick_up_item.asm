@@ -188,6 +188,7 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db MATCHA_TEA ; no, to avoid plot skippings
 	db ATK_NULLIFIER
 	db SPD_NULLIFIER
+;	db LIMIT_BREAKER ; no, to prefer specialness
 	db -1
 
 LockedItems:

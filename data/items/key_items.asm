@@ -131,4 +131,5 @@ KeyItemFlags:
 	dbit FALSE ; SPD_NULLIFIER  - new
 	dbit TRUE  ; SCREWDRIVER    - new
 	dbit TRUE  ; SLEEP_BAG      - new
+	dbit FALSE ; LIMIT_BREAKER  - new
 	end_bit_array NUM_ITEMS

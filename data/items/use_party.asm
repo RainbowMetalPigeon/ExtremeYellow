@@ -55,4 +55,5 @@ UsableItems_PartyMenu:
 	db MATCHA_TEA ; new
 	db ATK_NULLIFIER ; new
 	db SPD_NULLIFIER ; new
+	db LIMIT_BREAKER ; new
 	db -1 ; end

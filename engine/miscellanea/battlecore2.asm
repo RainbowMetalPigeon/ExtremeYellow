@@ -712,10 +712,17 @@ InitializeBattleVariablesAndEvents::
 	ld [wHazardsToxicSpikesPlayerSide], a
 	ld [wHazardsStickyWebPlayerSide], a
 	ld [wHazardsStealthRockPlayerSide], a
-; new part for Rokusei
+; new part for Rokusei and Suujero
 	ld a, [wCurOpponent]
 	cp OPP_ROKUSEI
+	jr z, .applyEntryHazards
+	cp OPP_SUUJERO
 	ret nz
+;.applySuujeroBuffs ; TBE into a "comes into fight" function
+;	ld hl, wEnemyBattleStatus3
+;	set HAS_LIGHT_SCREEN_UP, [hl]
+;	set HAS_REFLECT_UP, [hl]
+.applyEntryHazards
 	ld a, [wUniQuizAnswer+6]
 	ld [wHazardsStealthRockPlayerSide], a
 	ld a, [wUniQuizAnswer+7]

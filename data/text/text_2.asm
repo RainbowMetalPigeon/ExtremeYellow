@@ -1368,9 +1368,9 @@ _BoostedText::
 	cont "@"
 	text_end
 
-_ExpPointsText::
-	text_decimal wExpAmountGained, 2, 4
-	text " EXP. Points!"
+_ExpPointsText:: ; edited
+	text_decimal wExpAmountGained, 2, 5
+	text " EXP.Points!"
 	prompt
 
 _GrewLevelText::

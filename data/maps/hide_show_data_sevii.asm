@@ -142,7 +142,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_SEVEN
 ; 8-island
 	dw SeviiEightIslandDockHS ; SEVII_EIGHT_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CAVE
+	dw SeviiEightIslandCaveHS ; SEVII_EIGHT_ISLAND_CAVE
 ; extra
 	dw SeviiDesolatedRockHS ; SEVII_DESOLATED_ROCK
 	dw NoHSSevii ; SEVII_UNDERGROUND_LOBBY
@@ -441,6 +441,9 @@ HSSeviiTanobyDen:
 	db SEVII_TANOBY_DEN,  2, SHOW ; Mew
 SeviiEightIslandDockHS:
 	db SEVII_EIGHT_ISLAND_DOCK,  1, SHOW ; sailor
+SeviiEightIslandCaveHS:
+	db SEVII_EIGHT_ISLAND_CAVE,  2, HIDE ; Blue
+	db SEVII_EIGHT_ISLAND_CAVE,  3, HIDE ; Pink
 SeviiDesolatedRockHS:
 	db SEVII_DESOLATED_ROCK,  1, SHOW ; TIGERS_EYE
 

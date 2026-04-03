@@ -276,6 +276,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _SleepBagDescription       ; SLEEP_BAG
 	text_end
+	text_far _LimitBreakerDescription   ; SLEEP_BAG
+	text_end
 
 ; HMs
 

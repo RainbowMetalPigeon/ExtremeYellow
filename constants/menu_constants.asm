@@ -43,6 +43,7 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const BOOKSHELF_MAGIC_MISCELLANEA_MENU  ; new
 	const BOOKSHELF_BOOK_1_2_3_4_MENU       ; new
 	const COMBINATION_LOCK_MENU				; new
+	const SUUJERO_CHOICES_MENU				; new
 
 ; two option menu constants
 ; TwoOptionMenuStrings indexes (see data/yes_no_menu_strings.asm)

@@ -225,11 +225,15 @@ SeviiDottedHoleScript6:
 	ret
 
 SeviiDottedHoleScript7:
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiDottedHoleResetScripts
 ; dialogue(s)
 	ld a, 14
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; set up battle 1
+; set up battle 2
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -249,11 +253,15 @@ SeviiDottedHoleScript7:
 	ret
 
 SeviiDottedHoleScript8:
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiDottedHoleResetScripts
 ; dialogue(s)
 	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; set up battle 1
+; set up battle 3
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -271,13 +279,17 @@ SeviiDottedHoleScript8:
 	ld a, 9
 	ld [wCurMapScript], a
 	ret
-	
+
 SeviiDottedHoleScript9:
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiDottedHoleResetScripts
 ; dialogue(s)
 	ld a, 16
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; set up battle 1
+; set up battle 4
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
@@ -297,6 +309,10 @@ SeviiDottedHoleScript9:
 	ret
 
 SeviiDottedHoleScript10:
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiDottedHoleResetScripts
 ; dialogues
 	ld a, 17
 	ldh [hSpriteIndexOrTextID], a
