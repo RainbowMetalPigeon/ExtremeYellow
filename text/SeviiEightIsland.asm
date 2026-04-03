@@ -49,6 +49,13 @@ _SeviiEightIslandCaveText1_OptedForAnyPokemon::
 ;	xxxx "123456789012345678"
 	prompt
 
+_SeviiEightIslandCaveText1_SoYouWantThis::
+	text "so you want"
+	line "@"
+	text_ram wcd6d
+	text "?"
+	prompt
+
 _SeviiEightIslandCaveSuujeroDefeatedText::
 	text "gg"
 ;	xxxx "123456789012345678"

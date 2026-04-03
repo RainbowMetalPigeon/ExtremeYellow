@@ -8,6 +8,7 @@ ShowChoicedexMenu::
 	ld [wCurrentMenuItem], a
 	ld [wListScrollOffset], a
 	ld [wLastMenuItem], a
+	ld [wMultipurposeTemporaryStorage], a
 	inc a
 	ld [wd11e], a
 	ldh [hJoy7], a
@@ -30,8 +31,8 @@ ShowChoicedexMenu::
 	ld [hli], a ; max menu item ID
 	ld [hl], D_LEFT | D_RIGHT | B_BUTTON | A_BUTTON
 	call HandleChoicedexListMenu
-	jr c, .goToSideMenu ; if the player chose a pokemon from the list ; TBE
-.exitPokedex
+	jr c, .chosenAMon ; if the player chose a pokemon from the list ; TBE
+.exitChoicedex
 	xor a
 	ld [wMenuWatchMovingOutOfBounds], a
 	ld [wCurrentMenuItem], a
@@ -41,13 +42,22 @@ ShowChoicedexMenu::
 	ld [wOverrideSimulatedJoypadStatesMask], a
 	pop af
 	ld [wListScrollOffset], a
-	call GBPalWhiteOutWithDelay3
 	call RunDefaultPaletteCommand
+	call GBPalNormal
+	call GBPalWhiteOutWithDelay3
+	ret
 	jp ReloadMapData
 
-.goToSideMenu
-	; TBE
-	ret
+.chosenAMon
+	ld a, [wCurrentMenuItem]
+	ld b, a
+	ld a, [wListScrollOffset]
+	add b
+	inc a
+	ld [wd11e], a
+	ld a, 1
+	ld [wMultipurposeTemporaryStorage], a
+	jr .exitChoicedex
 
 ; handles the list of pokemon on the left of the pokedex screen
 ; sets carry flag if player presses A, unsets carry flag if player presses B
@@ -130,8 +140,7 @@ HandleChoicedexListMenu:
 Choicedex_DrawInterface:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
-/*
-; draw the horizontal line separating the seen and owned amounts from the menu
+; draw the horizontal line separating the seen and owned amounts from the menu ; TBE
 	hlcoord 15, 5 ; edited
 	ld a, "─"
 	ld [hli], a
@@ -141,7 +150,6 @@ Choicedex_DrawInterface:
 	ld [hli], a
 	hlcoord 14, 0
 	ld [hl], $71 ; vertical line tile
-*/
 
 	hlcoord 14, 1
 	call DrawChoicedexVerticalLine
@@ -177,22 +185,7 @@ Choicedex_DrawInterface:
 	ld de, ChoicedexChooseText
 	call PlaceString
 
-; find the highest pokedex number among the pokemon the player has seen
-	ld hl, wPokedexSeenEnd - 1
-	ld b, (wPokedexSeenEnd - wPokedexSeen) * 8 + 1
-.maxSeenPokemonLoop
-	ld a, [hld]
-	ld c, 8
-.maxSeenPokemonInnerLoop
-	dec b
-	sla a
-	jr c, .storeMaxSeenPokemon
-	dec c
-	jr nz, .maxSeenPokemonInnerLoop
-	jr .maxSeenPokemonLoop
-
-.storeMaxSeenPokemon
-	ld a, b
+	ld a, 219
 	ld [wDexMaxSeenMon], a
 	ret
 
@@ -260,16 +253,8 @@ Choicedex_PlacePokemonList:
 .writeTile
 	ld [hl], a ; put a pokeball next to pokemon that the player has owned
 	push hl
-	; TBE: useless?
-;	ld hl, wPokedexSeen
-;	call IsPokemonBitSet2
-;	jr nz, .getPokemonName ; if the player has seen the pokemon
-;	ld de, .dashedLine ; print a dashed line in place of the name if the player hasn't seen the pokemon
-;	jr .skipGettingName
-;.dashedLine ; for unseen pokemon in the list
-;	db "----------@"
 .getPokemonName
-	call PokedexToIndex
+	callfar PokedexToIndex
 	call GetMonName
 .skipGettingName
 	pop hl

@@ -437,7 +437,7 @@ SeviiEightIslandCaveText1:
 	dec a
 	jr z, .anyPokemon
 
-; decline
+.declined
 	ld hl, SeviiEightIslandCaveText1_Declined
 	call PrintText
 	jp .done
@@ -450,7 +450,7 @@ SeviiEightIslandCaveText1:
 	jr nc, .bagFull
 	ld hl, SeviiEightIslandCaveText1_ReceivedLimitBreaker
 	call PrintText
-	jr .resetSages
+	jp .resetSages
 .bagFull
 	ld hl, SeviiEightIslandCaveText1_BagFull
 	jp .printAndEnd
@@ -493,13 +493,19 @@ SeviiEightIslandCaveText1:
 	callfar BackupTextSpeed
 	callfar MakeTextTemporarilyInstant
 	call SaveScreenTilesToBuffer2
-	callfar ShowAttackdexMenu ; ShowChoicedexMenu
+	callfar ShowChoicedexMenu
 	call LoadScreenTilesFromBuffer2 ; restore saved screen
 	callfar RestoreTextSpeed
 	call Delay3
 	call LoadGBPal
 	call UpdateSprites
-;	call RedisplayStartMenu
+	ld a, [wMultipurposeTemporaryStorage]
+	and a
+	jp z, .declined
+	callfar PokedexToIndex
+	call GetMonName
+	ld hl, SeviiEightIslandCaveText1_SoYouWantThis
+	call PrintText
 
 .resetSages
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO
@@ -536,6 +542,10 @@ SeviiEightIslandCaveText1_OptedForUltimateBattle:
 
 SeviiEightIslandCaveText1_OptedForAnyPokemon:
 	text_far _SeviiEightIslandCaveText1_OptedForAnyPokemon
+	text_end
+
+SeviiEightIslandCaveText1_SoYouWantThis:
+	text_far _SeviiEightIslandCaveText1_SoYouWantThis
 	text_end
 
 SeviiEightIslandCaveText1_Declined:
