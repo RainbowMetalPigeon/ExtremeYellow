@@ -274,6 +274,10 @@ INCLUDE "engine/menus/luck.asm" ; new
 INCLUDE "engine/menus/layout.asm" ; new
 
 
+SECTION "bank10c", ROMX ; new
+INCLUDE "engine/menus/choicedex.asm"
+
+
 SECTION "Pokédex Rating", ROMX
 
 INCLUDE "engine/events/pokedex_rating.asm"

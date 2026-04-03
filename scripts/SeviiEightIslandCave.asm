@@ -490,7 +490,9 @@ SeviiEightIslandCaveText1:
 .anyPokemon
 	ld hl, SeviiEightIslandCaveText1_OptedForAnyPokemon
 	call PrintText
-	; TBE
+	call SaveScreenTilesToBuffer1
+	callfar ShowAttackdexMenu ; ShowChoicedexMenu
+	call LoadScreenTilesFromBuffer1
 
 .resetSages
 	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO

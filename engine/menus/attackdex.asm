@@ -1,4 +1,4 @@
-ShowAttackdexMenu:
+ShowAttackdexMenu::
 	call GBPalWhiteOut
 	call ClearScreen
 	call UpdateSprites
