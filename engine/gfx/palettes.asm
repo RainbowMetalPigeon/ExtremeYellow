@@ -522,6 +522,7 @@ SeviiMaps_FrozenPalette:
 
 SeviiMaps_GreyPalette:
 	db SEVII_DOTTED_HOLE
+	db SEVII_TEN_ISLAND
 	db -1
 
 SeviiMaps_TwoIslandsMaps:

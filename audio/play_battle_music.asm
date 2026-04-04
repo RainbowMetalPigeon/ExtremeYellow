@@ -12,10 +12,12 @@ PlayBattleMusic::
 	jr z, .wildBattle
 	ld a, [wCurOpponent]
 
-	; Rival3, Oak, Pigeon, the Sages, and Traveler are the most epic
+	; Rival3, Oak(s), Pigeon, the Sages, and Traveler are the most epic
 	cp OPP_RIVAL3
 	jr z, .finalBattle
 	cp OPP_PROF_OAK
+	jr z, .finalBattle
+	cp OPP_YOUNG_OAK
 	jr z, .finalBattle
 	cp OPP_TRAVELER
 	jr z, .finalBattle

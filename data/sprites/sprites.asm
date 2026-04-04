@@ -132,6 +132,9 @@ SpriteSheetPointerTable:
 	overworld_sprite NanetteSprite, 12          ; SPRITE_NANETTE ; new
 	overworld_sprite SuujeroSprite, 12          ; SPRITE_SUUJERO ; new
 	overworld_sprite PinkSprite, 12             ; SPRITE_PINK ; new - done
+	overworld_sprite YoungOakSprite, 12         ; SPRITE_YOUNG_OAK ; new
+	overworld_sprite ChrisSprite, 12            ; SPRITE_CHRIS ; new - done
+	overworld_sprite KrisSprite, 12             ; SPRITE_KRIS ; new - done
 
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
@@ -150,4 +153,5 @@ SpriteSheetPointerTable:
 	overworld_sprite RockSmashableRockSprite, 4 ; SPRITE_ROCKSMASHABLE_ROCK ; new
 	overworld_sprite RocketFaintedSprite, 4     ; SPRITE_ROCKET_FAINTED ; new
 	overworld_sprite BadgeMachineSprite, 4      ; SPRITE_BADGE_MACHINE ; new
+	overworld_sprite CelebiSprite, 4            ; SPRITE_CELEBI ; new
 	assert_table_length NUM_SPRITES

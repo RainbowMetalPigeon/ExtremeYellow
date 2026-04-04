@@ -147,6 +147,10 @@ RokuseiSprite::
 NanetteSprite::
 SuujeroSprite::
 PinkSprite::             INCBIN "gfx/sprites/pink.2bpp"
+
+
+SECTION "NPC Sprites 5", ROMX ; new
+
 Porygon2Sprite::         INCBIN "gfx/sprites/porygon2.2bpp"
 BrockSprite::            INCBIN "gfx/sprites/brock.2bpp"
 MistySprite::            INCBIN "gfx/sprites/misty.2bpp"
@@ -158,3 +162,7 @@ BlaineSprite::           INCBIN "gfx/sprites/blaine.2bpp"
 OrageSprite::            INCBIN "gfx/sprites/orage.2bpp"
 RockSmashableRockSprite::  INCBIN "gfx/sprites/rocksmashablerock.2bpp"
 DiverSprite::            INCBIN "gfx/sprites/diver.2bpp"
+YoungOakSprite::         INCBIN "gfx/sprites/young_oak.2bpp"
+ChrisSprite::            INCBIN "gfx/sprites/chris.2bpp"
+KrisSprite::             INCBIN "gfx/sprites/kris.2bpp"
+CelebiSprite::           INCBIN "gfx/sprites/celebi.2bpp"

@@ -146,7 +146,7 @@ MapHSPointers_Sevii:
 ; extra
 	dw SeviiDesolatedRockHS ; SEVII_DESOLATED_ROCK
 	dw NoHSSevii ; SEVII_UNDERGROUND_LOBBY
-	dw NoHSSevii ; SEVII_TEN_ISLAND
+	dw SeviiTenIslandHS ; SEVII_TEN_ISLAND
 ; end
 	assert_table_length NUM_MAPS_SEVII
 	dw -1 ; end
@@ -446,7 +446,13 @@ SeviiEightIslandCaveHS:
 	db SEVII_EIGHT_ISLAND_CAVE,  3, HIDE ; Pink
 SeviiDesolatedRockHS:
 	db SEVII_DESOLATED_ROCK,  1, SHOW ; TIGERS_EYE
-
+SeviiTenIslandHS:
+	db SEVII_TEN_ISLAND,  1, SHOW ; POKE_BALL
+	db SEVII_TEN_ISLAND,  2, HIDE ; CELEBI
+	db SEVII_TEN_ISLAND,  3, HIDE ; CHRIS
+	db SEVII_TEN_ISLAND,  4, HIDE ; OAK
+	db SEVII_TEN_ISLAND,  5, HIDE ; KRIS
+	db SEVII_TEN_ISLAND,  6, HIDE ; YOUNG_OAK
 
 	db $FF, $01, SHOW ; end, list terminator
 	assert_table_length NUM_HS_OBJECTS_SEVII + 1

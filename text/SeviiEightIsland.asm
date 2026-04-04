@@ -205,7 +205,50 @@ _SeviiEightIslandCavePinkBeatYouText::
 
 ; ten island ---------------------------------------
 
-_SeviiTenIslandText1::
-	text "Test"
+_SeviiTenIslandText1_Intro::
+	text "What is this?"
+
+	para "It's a #BALL,"
+	line "but it has"
+	cont "never-before-seen"
+	cont "colors." 
+;	xxxx "123456789012345678"
+
+	para "Uh? There are two"
+	line "letters ingraved."
+
+	para "'GS'"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiTenIslandTextProxy::
+	text "!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTenIslandScriptText1::
+	text "Ceeeeeleeee!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTenIslandScriptText2::
+	text "SAMUEL: Nani"
+	line "Let's fight!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTenIslandScriptText3::
+	text "You're strong"
+	line "ciao"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTenIslandYoungOakDefeatedText::
+	text "You won!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTenIslandYoungOakBeatYouText::
+	text "I won!"
+;	xxxx "123456789012345678"
+	prompt

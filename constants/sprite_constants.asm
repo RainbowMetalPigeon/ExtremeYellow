@@ -127,6 +127,9 @@
 	const SPRITE_NANETTE                 ; new
 	const SPRITE_SUUJERO                 ; new
 	const SPRITE_PINK                    ; new - done
+	const SPRITE_YOUNG_OAK               ; new
+	const SPRITE_CHRIS                   ; new
+	const SPRITE_KRIS                    ; new
 
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47
@@ -145,4 +148,5 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_ROCKSMASHABLE_ROCK      ; new
 	const SPRITE_ROCKET_FAINTED          ; new
 	const SPRITE_BADGE_MACHINE           ; new
+	const SPRITE_CELEBI                  ; new
 DEF NUM_SPRITES EQU const_value - 1
