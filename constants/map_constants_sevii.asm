@@ -161,7 +161,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 ; extra
 	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $81
 	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $82
-	map_const SEVII_TEN_ISLAND,                              12, 12 ; $83 ; TBE
+	map_const SEVII_TEN_ISLAND,                              41, 20 ; $83
 DEF NUM_MAPS_SEVII EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

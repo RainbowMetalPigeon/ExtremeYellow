@@ -202,3 +202,10 @@ _SeviiEightIslandCavePinkBeatYouText::
 	text "Yeah P!"
 ;	xxxx "123456789012345678"
 	prompt
+
+; ten island ---------------------------------------
+
+_SeviiTenIslandText1::
+	text "Test"
+;	xxxx "123456789012345678"
+	done
