@@ -208,7 +208,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const CELADON_HOTEL_HALL,            18,  5 ; $B9 ; new, was SAFFRON_MART
 	map_const SILPH_CO_1F,                   15,  9 ; $BA
 	map_const SAFFRON_POKECENTER,            14,  4 ; $BB ; edited, Center+Mart
-	map_const MR_PSYCHICS_HOUSE,             11,  4 ; $BC ; edited for MERGING
+	map_const MR_PSYCHICS_HOUSE,             32,  4 ; $BC ; edited for MERGING
 	map_const ROUTE_15_GATE_1F,               4, 11 ; $BD ; edited because of MERGING
 	map_const FORLORN_VALLEY,                30, 30 ; $BE ; new
 	map_const ROUTE_16_GATE_1F,               4, 13 ; $BF ; edited

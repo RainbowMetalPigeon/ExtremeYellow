@@ -10,7 +10,8 @@ SaffronCity_Object:
 	warp_event 18, 21, SILPH_CO_1F, 1
 	warp_event  9, 29, SAFFRON_POKECENTER, 1
 	warp_event 29, 29, MR_PSYCHICS_HOUSE, 1
-	warp_event 31, 21, SAFFRON_CLIMB_CLUB, 1 ; 9
+	warp_event 31, 21, SAFFRON_CLIMB_CLUB, 1 ; 9 ; new
+	warp_event  7, 21, MR_PSYCHICS_HOUSE, 5 ; 10 ; new
 
 	def_bg_events
 	bg_event 17,  5, 15 ; SaffronCityText16
@@ -30,8 +31,7 @@ SaffronCity_Object:
 	object_event 20,  8, SPRITE_ROCKET, WALK, LEFT_RIGHT, 2 ; person
 	object_event 29, 30, SPRITE_ROCKET, STAY, NONE, 3 ; person, edited, blocks Mx Psychic's house rather than the gym
 	object_event 13, 12, SPRITE_ROCKET, STAY, NONE, 4 ; person
-	object_event 11, 25, SPRITE_ROCKET, WALK, LEFT_RIGHT, 5 ; person
-;	object_event 32, 13, SPRITE_ROCKET, WALK, LEFT_RIGHT, 6 ; removed
+	object_event  7, 23, SPRITE_ROCKET, STAY, DOWN, 5 ; edited ; TBE
 	object_event 32, 13, SPRITE_TRAVELER, STAY, ANY_DIR, 6 ; new, traveler
 	object_event 18, 30, SPRITE_ROCKET, WALK, LEFT_RIGHT, 7 ; person
 	object_event  8, 14, SPRITE_SCIENTIST, WALK, ANY_DIR, 8 ; person

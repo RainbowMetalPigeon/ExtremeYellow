@@ -21,8 +21,15 @@ MrPsychicsHouse_TextPointers:
 	dw SaffronHouse1Text2
 	dw SaffronHouse1Text3
 	dw SaffronHouse1Text4
+	; apartments, new
+	dw SaffronNewApartmentsText1
+	dw SaffronNewApartmentsText2
+	dw SaffronNewApartmentsText3
+	dw SaffronNewApartmentsText4
+	dw SaffronNewApartmentsText5
+	dw SaffronNewApartmentsText6
 	; scripts texts
-	dw MrPsychicsHouseTextSabrinaPostBattle ; 7, new, map-dependent
+	dw MrPsychicsHouseTextSabrinaPostBattle ; 13, new, map-dependent
 
 SaffronHouse2Text1:
 	text_asm
@@ -116,7 +123,7 @@ MrPsychicsHouseSabrinaPostBattleRematch: ; script, map-dependent
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 7 ; map-dependent
+	ld a, 13 ; map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA_REMATCH_INVERSE ; map-dependent
@@ -152,4 +159,30 @@ SaffronHouse1Text3:
 
 SaffronHouse1Text4:
 	text_far _SaffronHouse1Text4
+	text_end
+
+; apartments new -----------------------------------
+
+SaffronNewApartmentsText1::
+	text_far _SaffronNewApartmentsText1
+	text_end
+
+SaffronNewApartmentsText2::
+	text_far _SaffronNewApartmentsText2
+	text_end
+
+SaffronNewApartmentsText3::
+	text_far _SaffronNewApartmentsText3
+	text_end
+
+SaffronNewApartmentsText4::
+	text_far _SaffronNewApartmentsText4
+	text_end
+
+SaffronNewApartmentsText5::
+	text_far _SaffronNewApartmentsText5
+	text_end
+
+SaffronNewApartmentsText6::
+	text_far _SaffronNewApartmentsText6
 	text_end

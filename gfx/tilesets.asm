@@ -11,8 +11,8 @@ RedsHouse2_Block::  INCBIN "gfx/blocksets/reds_house.bst"
 
 House_GFX::         INCBIN "gfx/tilesets/house.2bpp"
 House_Block::       INCBIN "gfx/blocksets/house.bst"
-Mansion_GFX::       INCBIN "gfx/tilesets/mansion.2bpp"
-Mansion_Block::     INCBIN "gfx/blocksets/mansion.bst"
+;Mansion_GFX::       INCBIN "gfx/tilesets/mansion.2bpp"; moved away
+;Mansion_Block::     INCBIN "gfx/blocksets/mansion.bst"; moved away
 ;ShipPort_GFX::      INCBIN "gfx/tilesets/ship_port.2bpp" ; moved away
 ;ShipPort_Block::    INCBIN "gfx/blocksets/ship_port.bst" ; moved away
 ;Interior_GFX::      INCBIN "gfx/tilesets/interior.2bpp" ; moved away
@@ -111,3 +111,9 @@ Underwater_Block::       INCBIN "gfx/blocksets/underwater.bst"
 
 SunkenShip_GFX::          INCBIN "gfx/tilesets/sunken_ship.2bpp"
 SunkenShip_Block::        INCBIN "gfx/blocksets/sunken_ship.bst"
+
+
+SECTION "Tilesets 8", ROMX ; new
+
+Mansion_GFX::       INCBIN "gfx/tilesets/mansion.2bpp"
+Mansion_Block::     INCBIN "gfx/blocksets/mansion.bst"

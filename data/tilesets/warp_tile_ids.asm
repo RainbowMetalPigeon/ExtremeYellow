@@ -65,7 +65,7 @@ ENDM
 	warp_tiles $4A, $15 ; edited, last 1 are new
 
 .HouseWarpTileIDs:
-	warp_tiles $54, $5C, $32, $60 ; edited
+	warp_tiles $54, $5C, $32, $60, $64, $68 ; edited
 
 .ShipWarpTileIDs:
 	warp_tiles $37, $39, $1E, $4A

@@ -58,3 +58,27 @@ _SaffronHouse2SabrinaPostBattleText::
 	line "was a blast!"
 	cont "Thank you!"
 	prompt
+
+_SaffronNewApartmentsText1::
+	text "n1"
+	done
+
+_SaffronNewApartmentsText2::
+	text "n2"
+	done
+
+_SaffronNewApartmentsText3::
+	text "n3"
+	done
+
+_SaffronNewApartmentsText4::
+	text "n4"
+	done
+
+_SaffronNewApartmentsText5::
+	text "n5"
+	done
+
+_SaffronNewApartmentsText6::
+	text "n6"
+	done
