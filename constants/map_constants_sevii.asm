@@ -72,14 +72,12 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_TWO_ISLAND_GYM,                          16,  9 ; $30
 	map_const SEVII_TWO_ISLAND_HOUSES,                       26,  4 ; $31
 	map_const SEVII_TWO_ISLAND_CITY_DIVE,                    20, 22 ; $32
-
 	map_const SEVII_TWO_ISLET,                               32, 28 ; $33
 	map_const SEVII_TWO_ISLET_HOUSES,                        18,  4 ; $34
 	map_const SEVII_TWO_ISLET_DIVE,                          32, 28 ; $35
 	map_const SEVII_TWO_ISLET_ROCK_MAZE,                     20, 20 ; $36
 	map_const SEVII_TWO_ISLET_ROCK_MAZE_DIVE,                20, 20 ; $37
 	map_const SEVII_TWO_ISLET_ROCK_MAZE_DIVE_CAVERN,         20, 20 ; $38
-
 	map_const SEVII_UNDERGROUND_TWO,                         12, 16 ; $39
 ; 3-island-related maps
 	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $3A
