@@ -157,7 +157,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_UNDERGROUND_SEVEN,                       20, 36 ; $7E
 ; 8-island-related maps
 	map_const SEVII_EIGHT_ISLAND_DOCK,                       10,  6 ; $7F
-	map_const SEVII_EIGHT_ISLAND_CAVE,                        5,  5 ; $80
+	map_const SEVII_EIGHT_ISLAND_CAVE,                        7,  6 ; $80
 ; extra
 	map_const SEVII_DESOLATED_ROCK,                          12, 12 ; $81
 	map_const SEVII_UNDERGROUND_LOBBY,                       13,  7 ; $82

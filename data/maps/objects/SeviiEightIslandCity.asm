@@ -2,9 +2,9 @@ SeviiEightIslandCity_Object:
 	db $43 ; border block
 
 	def_warp_events
-	warp_event 12, 37, SEVII_EIGHT_ISLAND_DOCK, 1
-	warp_event 13, 37, SEVII_EIGHT_ISLAND_DOCK, 1
-	warp_event 12, 11, SEVII_EIGHT_ISLAND_CAVE, 1
+	warp_event 12, 37, SEVII_EIGHT_ISLAND_DOCK, 1 ; 1
+	warp_event 13, 37, SEVII_EIGHT_ISLAND_DOCK, 1 ; 2
+	warp_event 12, 11, SEVII_EIGHT_ISLAND_CAVE, 2 ; 3
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
