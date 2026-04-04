@@ -66,7 +66,7 @@ _SeviiEightIslandCaveText1_OptedForLimitBreaker::
 _SeviiEightIslandCaveText1_OptedForUltimateBattle::
 	text "so ult battle"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiEightIslandCaveText1_OptedForAnyPokemon::
 	text "so any mon"

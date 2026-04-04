@@ -1327,7 +1327,14 @@ EnemySendOutFirstMon:
 	ld a, [wEnemyMonSpecies2]
 	call PlayCry
 	call DrawEnemyHUDAndHPBar
-	callfar ApplyEntryHazardsEnemy ; new
+; new, Suujero and hazards
+	ld a, [wCurOpponent]
+	cp OPP_SUUJERO
+	jr nz, .noSuujero
+	callfar SuujeroSpecialBoost
+.noSuujero
+	callfar ApplyEntryHazardsEnemy
+; BTV
 	ld a, [wCurrentMenuItem]
 	and a
 	ret nz

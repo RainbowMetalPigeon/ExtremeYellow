@@ -545,4 +545,14 @@ _HurtByRocksText::
 	line "by the rocks!"
 	prompt
 
+_WrappedInTerrifyingAura::
+	text "The enemy #-"
+	line "MON is wrapped"
+	cont "in a terrifying"
+	cont "aura of might!"
+
+	para "Stats are maxed!"
+	line "Screens are up!"
+	prompt
+
 ;	xxxx "123456789012345678

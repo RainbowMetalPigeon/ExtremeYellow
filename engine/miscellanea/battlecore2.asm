@@ -718,10 +718,6 @@ InitializeBattleVariablesAndEvents::
 	jr z, .applyEntryHazards
 	cp OPP_SUUJERO
 	ret nz
-;.applySuujeroBuffs ; TBE into a "comes into fight" function
-;	ld hl, wEnemyBattleStatus3
-;	set HAS_LIGHT_SCREEN_UP, [hl]
-;	set HAS_REFLECT_UP, [hl]
 .applyEntryHazards
 	ld a, [wUniQuizAnswer+6]
 	ld [wHazardsStealthRockPlayerSide], a
@@ -871,3 +867,36 @@ RenameTradedTeamWithDefaultNicks::
 	pop hl
 	pop bc
 	jr .loop
+
+; ==========================================================
+
+SuujeroSpecialBoost::
+	ld a, $1
+	ldh [hWhoseTurn], a
+	xor a
+	ld [wAnimationType], a
+	ld a, XSTATITEM_ANIM
+	ld [wAltAnimationID], a
+	predef MoveAnimation
+
+	ld hl, WrappedInTerrifyingAura
+	call PrintText
+
+	ld hl, wEnemyBattleStatus3
+	set HAS_LIGHT_SCREEN_UP, [hl]
+	set HAS_REFLECT_UP, [hl]
+
+	ld a, 13
+	ld hl, wEnemyMonStatMods
+	ld [hli], a ; wEnemyMonAttackMod
+	ld [hli], a ; wEnemyMonDefenseMod
+	ld [hli], a ; wEnemyMonSpeedMod
+	ld [hli], a ; wEnemyMonSpecialMod
+	ld [hli], a ; wEnemyMonAccuracyMod
+	ld [hl], a ; wEnemyMonEvasionMod
+
+	ret
+
+WrappedInTerrifyingAura:
+	text_far _WrappedInTerrifyingAura
+	text_end
