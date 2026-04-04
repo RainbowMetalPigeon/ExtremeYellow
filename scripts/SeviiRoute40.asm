@@ -19,7 +19,7 @@ HideOrShowDottedHoleDoor:
 	bit 4, [hl]
 	res 4, [hl]
 	ret z
-.changeBlock:
+.changeBlock
 	CheckEvent EVENT_SEVII_DOTTED_HOLE_OPENED
 	ret nz
 ; replace block

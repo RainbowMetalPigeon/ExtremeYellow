@@ -1,3 +1,27 @@
+_SeviiEightIslandCityText1_TriangleWithSevenThings::
+	text "Triangle with 7"
+;	xxxx "123456789012345678"
+	prompt
+	
+_SeviiEightIslandCityText1_SomethingIsMissing::
+	text "Something misses"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiEightIslandCityText1_ReactsWithScrolls::
+	text "React w scrolls"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEightIslandCityText1_SomethingOpened::
+	text "Smth opened"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiEightIslandCityText1_CaveOpen::
+	text "Some is open"
+;	xxxx "123456789012345678"
+	done
 
 ; dock ------------------------------------
 
