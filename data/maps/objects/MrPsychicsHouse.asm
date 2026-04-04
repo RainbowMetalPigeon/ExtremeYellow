@@ -16,6 +16,7 @@ MrPsychicsHouse_Object:
 	warp_event 56,  1, MR_PSYCHICS_HOUSE,  9 ; 10
 
 	def_bg_events
+	bg_event 46,  4, 13 ; SaffronNewApartmentsSignText1
 
 	def_object_events
 	object_event  5,  3, SPRITE_FISHING_GURU, STAY, LEFT, 1 ; person

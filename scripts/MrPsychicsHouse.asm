@@ -28,8 +28,10 @@ MrPsychicsHouse_TextPointers:
 	dw SaffronNewApartmentsText4
 	dw SaffronNewApartmentsText5
 	dw SaffronNewApartmentsText6
+	; signs
+	dw SaffronNewApartmentsSignText1
 	; scripts texts
-	dw MrPsychicsHouseTextSabrinaPostBattle ; 13, new, map-dependent
+	dw MrPsychicsHouseTextSabrinaPostBattle ; 14, new, map-dependent
 
 SaffronHouse2Text1:
 	text_asm
@@ -123,7 +125,7 @@ MrPsychicsHouseSabrinaPostBattleRematch: ; script, map-dependent
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 13 ; map-dependent
+	ld a, 14 ; map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA_REMATCH_INVERSE ; map-dependent
@@ -176,7 +178,22 @@ SaffronNewApartmentsText3::
 	text_end
 
 SaffronNewApartmentsText4::
-	text_far _SaffronNewApartmentsText4
+	text_asm
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	ld hl, SaffronNewApartmentsText4_FromAbove
+	jr z, .printAndEnd
+	ld hl, SaffronNewApartmentsText4_NotFromAbove
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SaffronNewApartmentsText4_FromAbove:
+	text_far _SaffronNewApartmentsText4_FromAbove
+	text_end
+
+SaffronNewApartmentsText4_NotFromAbove:
+	text_far _SaffronNewApartmentsText4_NotFromAbove
 	text_end
 
 SaffronNewApartmentsText5::
@@ -185,4 +202,23 @@ SaffronNewApartmentsText5::
 
 SaffronNewApartmentsText6::
 	text_far _SaffronNewApartmentsText6
+	text_end
+
+SaffronNewApartmentsSignText1:
+	text_asm
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	ld hl, SaffronNewApartmentsSignText1_FromBelow
+	jr z, .printAndEnd
+	ld hl, SaffronNewApartmentsSignText1_NotFromBelow
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SaffronNewApartmentsSignText1_FromBelow:
+	text_far _SaffronNewApartmentsSignText1_FromBelow
+	text_end
+
+SaffronNewApartmentsSignText1_NotFromBelow:
+	text_far _SaffronNewApartmentsSignText1_NotFromBelow
 	text_end

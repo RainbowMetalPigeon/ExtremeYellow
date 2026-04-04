@@ -71,8 +71,12 @@ _SaffronNewApartmentsText3::
 	text "n3"
 	done
 
-_SaffronNewApartmentsText4::
-	text "n4"
+_SaffronNewApartmentsText4_FromAbove::
+	text "get out way"
+	done
+
+_SaffronNewApartmentsText4_NotFromAbove::
+	text "tv is good"
 	done
 
 _SaffronNewApartmentsText5::
@@ -81,4 +85,12 @@ _SaffronNewApartmentsText5::
 
 _SaffronNewApartmentsText6::
 	text "n6"
+	done
+
+_SaffronNewApartmentsSignText1_FromBelow::
+	text "ducktales!"
+	done
+
+_SaffronNewApartmentsSignText1_NotFromBelow::
+	text "wrong side"
 	done
