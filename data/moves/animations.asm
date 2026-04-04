@@ -2213,12 +2213,17 @@ ThrowBaitAnim:
 
 ShinyPlayerAnim: ; new
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim NO_MOVE, SUBANIM_SHINY_PLAYER, 1, 3
+	battle_anim AGILITY, SUBANIM_SHINY_PLAYER, 1, 3
 	db -1 ; end
+
+/*
+ROCK_SLIDE
+AGILITY
+*/
 
 ShinyEnemyAnim: ; new
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
-	battle_anim NO_MOVE, SUBANIM_SHINY_ENEMY, 1, 3
+	battle_anim AGILITY, SUBANIM_SHINY_ENEMY, 1, 3
 	db -1 ; end
 
 BlinkPokemon: ; new
