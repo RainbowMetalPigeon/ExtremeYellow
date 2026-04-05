@@ -76,3 +76,29 @@ _SeviiUndergroundCaveGuardText::
 	line "until they're done."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiUndergroundText1_AlreadyOpened::
+	text "already open"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiUndergroundText1_ThisButtonAlreadyPressed::
+	text "already pressed"
+	line "now N lights on??" ; TBE
+;	xxxx "123456789012345678"
+	done
+
+_SeviiUndergroundText1_PressThisButton::
+	text "press this one"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiUndergroundScriptText1::
+	text "something happens"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiUndergroundScriptText2::
+	text "something opened"
+;	xxxx "123456789012345678"
+	done

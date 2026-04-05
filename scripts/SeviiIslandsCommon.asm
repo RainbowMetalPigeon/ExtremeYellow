@@ -311,3 +311,21 @@ ChangeSpriteFacing::
 	ld a, e
 	ldh [hSpriteFacingDirection], a
 	jp SetSpriteFacingDirectionAndDelay
+
+; ----------------------------------------------
+
+CheckIfAllUndergroundButtonsArePressed::
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_ONE
+	ret z
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_TWO
+	ret z
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_THREE
+	ret z
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_FOUR
+	ret z
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_FIVE
+	ret z
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SIX
+	ret z
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
+	ret

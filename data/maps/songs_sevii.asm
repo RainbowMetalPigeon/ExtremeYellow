@@ -142,6 +142,6 @@ MapSongBanks_Sevii::
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_EIGHT_ISLAND_CAVE
 ; extra
 	db MUSIC_SILPH_CO, BANK(Music_SilphCo)             ; SEVII_DESOLATED_ROCK
-	db MUSIC_DUNGEON3, BANK(Music_Dungeon3)            ; SEVII_UNDERGROUND_LOBBY
+	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_UNDERGROUND_LOBBY
 	db MUSIC_INDIGO_PLATEAU, BANK(Music_IndigoPlateau) ; SEVII_TEN_ISLAND
 	assert_table_length NUM_MAPS_SEVII
