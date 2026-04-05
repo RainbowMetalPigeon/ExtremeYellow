@@ -83,6 +83,7 @@ _ViridianGymGiovanniPostBattleText::
 
 ; -----------------------------
 
+/*
 _ViridianGymBattleText1::
 	text "Heh! You must be"
 	line "running out of"
@@ -99,6 +100,7 @@ _ViridianGymAfterBattleText1::
 	line "keep up with our"
 	cont "GYM LEADER!"
 	done
+*/
 
 _ViridianGymBattleText2::
 	text "Rrrroar! I'm"

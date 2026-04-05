@@ -133,7 +133,7 @@ ViridianGymGiovanniPostBattle:
 	ld a, $f0
 	ld [wJoyIgnore], a
 
-	ld a, $e ; ViridianGymGiovanniPostBattleText
+	ld a, 13 ; ViridianGymGiovanniPostBattleText
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 
@@ -145,7 +145,7 @@ ViridianGymGiovanniPostBattle:
 	set BIT_EARTHBADGE, [hl]
 
 	; deactivate gym trainers
-	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7
+	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7 ; edited
 
 ;	ld a, HS_ROUTE_22_RIVAL_2
 ;	ld [wMissableObjectIndex], a
@@ -167,7 +167,7 @@ ViridianGymGiovanniPostBattle:
 
 ViridianGym_TextPointers:
 	dw GiovanniText
-	dw ViridianGymTrainerText1
+;	dw ViridianGymTrainerText1
 	dw ViridianGymTrainerText2
 	dw ViridianGymTrainerText3
 	dw ViridianGymTrainerText4
@@ -175,17 +175,17 @@ ViridianGym_TextPointers:
 	dw ViridianGymTrainerText6
 	dw ViridianGymTrainerText7
 	dw ViridianGymTrainerText8
-	dw ViridianGymTrainerText9 ; $a
-	dw ViridianGymGuideText ; $b
-	dw PickUpItemText ; $c
-	dw PickUpItemText ; new, $d
-;	dw BoulderText ; new ; ($e)
-	dw ViridianGymGiovanniPostBattleText ; $e
+	dw ViridianGymTrainerText9 ; 9
+	dw ViridianGymGuideText ; $a=10
+	dw PickUpItemText ; $b=11
+	dw PickUpItemText ; new, $c=12
+	; scripts
+	dw ViridianGymGiovanniPostBattleText ; $d=13
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
-ViridianGymTrainerHeader0:
-	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0, 4, ViridianGymBattleText1, ViridianGymEndBattleText1, ViridianGymAfterBattleText1
+;ViridianGymTrainerHeader0:
+;	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0, 4, ViridianGymBattleText1, ViridianGymEndBattleText1, ViridianGymAfterBattleText1
 ViridianGymTrainerHeader1:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, 4, ViridianGymBattleText2, ViridianGymEndBattleText2, ViridianGymAfterBattleText2
 ViridianGymTrainerHeader2:
@@ -221,6 +221,7 @@ GiovanniText: ; edited
 	ld a, $8
 	ld [wGymLeaderNo], a
 	ld a, $3
+	ld [wCurMapScript], a ; edited
 	jp TextScriptEnd
 
 GiovanniPreBattleText:
@@ -235,6 +236,7 @@ ViridianGymGiovanniPostBattleText:
 	text_far _ViridianGymGiovanniPostBattleText
 	text_end
 
+/*
 ViridianGymTrainerText1:
 	text_asm
 	ld hl, ViridianGymTrainerHeader0
@@ -252,6 +254,7 @@ ViridianGymEndBattleText1:
 ViridianGymAfterBattleText1:
 	text_far _ViridianGymAfterBattleText1
 	text_end
+*/
 
 ViridianGymTrainerText2:
 	text_asm

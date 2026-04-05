@@ -366,9 +366,9 @@ OaksLabHS:
 	db OAKS_LAB, $06, HIDE
 	db OAKS_LAB, $0A, HIDE ; new, Giovanni, testing
 ViridianGymHS:
-	db VIRIDIAN_GYM, $01, SHOW
-	db VIRIDIAN_GYM, $0C, SHOW	; updated, +1
-	db VIRIDIAN_GYM, $0D, HIDE	; new, FISSURE
+	db VIRIDIAN_GYM,  1, SHOW ; Giovanni
+	db VIRIDIAN_GYM, 11, SHOW ; REVIVE
+	db VIRIDIAN_GYM, 12, HIDE ; new, FISSURE
 Museum1FHS:
 	db MUSEUM_1F, $05, SHOW
 CeruleanMelaniesHouseHS:

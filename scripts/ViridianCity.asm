@@ -25,13 +25,9 @@ ViridianCityScript0:
 	ret
 
 ViridianCityScript_CheckIfGymIsOpen:
-	CheckEvent EVENT_VIRIDIAN_GYM_OPEN
-	ret nz
 ; new, now gym opens after you defeat Giovanni in Obsidian, not if you have all other badges
 	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
-	jr z, .gym_closed
-	SetEvent EVENT_VIRIDIAN_GYM_OPEN
-	ret
+	ret nz
 .gym_closed
 	ld a, [wYCoord]
 	cp 8
