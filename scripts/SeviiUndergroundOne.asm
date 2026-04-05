@@ -17,7 +17,7 @@ HideOrShowExitUndergroundOne:
 	ret z
 	; fallthrough
 ; replace block
-ActualBlockReplacement:
+ActualBlockReplacementOne:
 	ld a, $60 ; yes-entrance block
 ;	ld a, $2F ; no-entrance block
 	ld [wNewTileBlockID], a
@@ -43,7 +43,7 @@ SeviiUndergroundOne_ScriptUnlockExit:
 	SetEvent EVENT_SEVII_UNDERGROUND_OPENED
 	callfar ShakeScreen
 	call PlayDefaultMusic
-	call ActualBlockReplacement
+	call ActualBlockReplacementOne
 	ld a, SFX_GO_INSIDE
 	call PlaySound
 	ld a, 4

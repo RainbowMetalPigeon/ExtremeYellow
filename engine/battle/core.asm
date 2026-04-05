@@ -847,6 +847,8 @@ ListOfTrainersWithGymLeaderDefeatMusic: ; new
 	db ROKUSEI
 	db NANETTE
 	db SUUJERO
+	db TRAVELER
+	db YOUNG_OAK
 	db -1
 
 MoneyForWinningText:
