@@ -31,7 +31,7 @@ SaffronCity_Object:
 	object_event 20,  8, SPRITE_ROCKET, WALK, LEFT_RIGHT, 2 ; person
 	object_event 29, 30, SPRITE_ROCKET, STAY, NONE, 3 ; person, edited, blocks Mx Psychic's house rather than the gym
 	object_event 13, 12, SPRITE_ROCKET, STAY, NONE, 4 ; person
-	object_event  7, 23, SPRITE_ROCKET, STAY, DOWN, 5 ; edited ; TBE
+	object_event  7, 22, SPRITE_ROCKET, STAY, DOWN, 5 ; edited
 	object_event 32, 13, SPRITE_TRAVELER, STAY, ANY_DIR, 6 ; new, traveler
 	object_event 18, 30, SPRITE_ROCKET, WALK, LEFT_RIGHT, 7 ; person
 	object_event  8, 14, SPRITE_SCIENTIST, WALK, ANY_DIR, 8 ; person

@@ -178,9 +178,3 @@ AssignDeltaToBattleFacilityTrainers::
     dec b
     jr nz, .loopOnMons
     ret
-
-/*
-; mon ID in d
-; c flag if match found
-CheckIfMonHasDeltaSpecies::
-*/
