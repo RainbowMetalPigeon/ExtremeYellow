@@ -432,7 +432,7 @@ LuckTitleText:
 	db "BATTLE LUCK@"
 
 LuckMenuCancelText:
-	db "CANCEL@"
+	db "EXIT@"
 
 LuckStringsPointerTable:
 	dw NormalText

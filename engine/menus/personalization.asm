@@ -448,7 +448,7 @@ PersonalizationTitleText:
 	db "PERSONALIZATION@"
 
 PersonalizationMenuCancelText:
-	db "CANCEL@"
+	db "EXIT@"
 
 PersonalizationTypesStringsPointerTable:
 	dw ClassicText

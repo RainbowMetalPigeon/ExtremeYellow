@@ -499,7 +499,7 @@ RandomizationTitleText:
 	db "RANDOMIZATION@"
 
 RandomizationMenuCancelText:
-	db "CANCEL@"
+	db "EXIT@"
 
 RandomizationStringsPointerTable:
 	dw NoText

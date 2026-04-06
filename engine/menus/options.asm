@@ -682,7 +682,7 @@ AllOptionsText:
 	next "EXP GAIN:@" ; new
 
 OptionMenuCancelText:
-	db "CANCEL@"
+	db "EXIT@" ; edited
 
 ; new, for info
 

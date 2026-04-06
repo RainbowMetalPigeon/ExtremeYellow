@@ -356,7 +356,7 @@ AllLayoutText:
 	next "SOUND:@"
 
 LayoutMenuCancelText:
-	db "CANCEL@"
+	db "EXIT@"
 
 LayoutNamesStringsPointerTable:
 	dw EnglishText
