@@ -949,7 +949,13 @@ BattleFacilityTextOpponent:
 	ld [wBattleFacilityMonNumber3], a
 	ld [wBattleFacilityMonNumber4], a
 	ld [wBattleFacilityMonNumber5], a
-; randomize the shiny-ness and delta-ness of opp's mons
+; randomize the shiny-ness and delta-ness of opp's mons (after initializing to 0)
+	ld [wBattleFacilityMon1Shinyness], a
+	ld [wBattleFacilityMon2Shinyness], a
+	ld [wBattleFacilityMon3Shinyness], a
+	ld [wBattleFacilityMon4Shinyness], a
+	ld [wBattleFacilityMon5Shinyness], a
+	ld [wBattleFacilityMon6Shinyness], a
 	callfar AssignShinyToBattleFacilityTrainers
 	callfar AssignDeltaToBattleFacilityTrainers
 ; set up normal or inverse battle

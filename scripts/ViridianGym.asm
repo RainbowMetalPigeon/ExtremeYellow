@@ -16,6 +16,13 @@ ViridianGym_Script:
 .LeaderName:
 	db "GIOVANNI@"
 
+ViridianGymResetScriptsAfterLosingAsInterimLeaders:
+	ld a, HS_VIRIDIAN_GYM_CHALLENGER
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	xor a
+	ld [wViridianGymChallengerAttempt], a
+	; fallthrough
 ViridianGymResetScripts:
 	xor a
 	ld [wJoyIgnore], a
@@ -28,6 +35,14 @@ ViridianGym_ScriptPointers:
 	dw EndTrainerBattle
 	dw ViridianGymGiovanniPostBattle
 	dw ViridianGymScript4
+	; new
+	dw ViridianGymScriptMovePlayerIntoPosition ; 5
+	dw ViridianGymScriptWaitForAndTurnPlayer ; 6
+	dw ViridianGymScriptMovePikachu ; 7
+	dw ViridianGymScriptMoveChallenger ; 8
+	dw ViridianGymScriptStartBattleVsChallenger ; 9
+	dw ViridianGymScriptPostBattleVsChallenger ; 10
+	dw ViridianGymScriptWaitForChallengerToGoAway ; 11
 
 ViridianGymScript0:
 	ld a, [wYCoord]
@@ -133,7 +148,7 @@ ViridianGymGiovanniPostBattle:
 	ld a, $f0
 	ld [wJoyIgnore], a
 
-	ld a, 13 ; ViridianGymGiovanniPostBattleText
+	ld a, 15 ; ViridianGymGiovanniPostBattleText
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 
@@ -145,29 +160,250 @@ ViridianGymGiovanniPostBattle:
 	set BIT_EARTHBADGE, [hl]
 
 	; deactivate gym trainers
-	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7 ; edited
-
-;	ld a, HS_ROUTE_22_RIVAL_2
-;	ld [wMissableObjectIndex], a
-;	predef ShowObject
+	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8 ; edited
 
 	call GBFadeOutToBlack
 	ld a, HS_VIRIDIAN_GYM_GIOVANNI
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra
 	ld a, HS_VIRIDIAN_GYM_ITEM_2 ; new, show TM_FISSURE
 	ld [wMissableObjectIndex], a
-	predef ShowObject
+	predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
 
-;	SetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE ; edited, commented out, set when gotten 8 badges
 	jp ViridianGymResetScripts
+
+; new scripts --------------------------------------------
+
+ViridianGymScriptMovePlayerIntoPosition:
+; determine which movement list to select
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_RIGHT ; no need to move the player
+	jr z, .noNeedToMovePlayer
+	cp SPRITE_FACING_LEFT
+	ld de, ViridianGym_RLEMovement_PlayerRightOfGuide
+	jr z, .playerMovementsGot
+	ld de, ViridianGym_RLEMovement_PlayerDownOfGuide
+.playerMovementsGot
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+; load next script
+	ld a, 6
+	ld [wCurMapScript], a
+	ret
+.noNeedToMovePlayer
+	ld a, 7
+	ld [wCurMapScript], a
+	ret
+
+ViridianGym_RLEMovement_PlayerRightOfGuide:
+	db D_UP, 1
+	db D_LEFT, 1
+	db D_LEFT, 1
+	db D_DOWN, 1
+	db -1 ; end
+
+ViridianGym_RLEMovement_PlayerDownOfGuide:
+	db D_UP, 1
+	db D_LEFT, 1
+	db -1
+
+ViridianGymScriptWaitForAndTurnPlayer:
+; wait for player to finish moving
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+; player finished moving
+; load next script
+	ld a, 7
+	ld [wCurMapScript], a
+	ret
+
+ViridianGymScriptMovePikachu:
+; turn player and guide
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	lb bc, STAY, DOWN
+	ld a, 11
+	ldh [hSpriteIndex], a
+	call ChangeSpriteMovementBytes
+; do we need to move Pikachu?
+	callfar ViridianGymPikachuMovementScript
+; load next script
+	ld a, 8
+	ld [wCurMapScript], a
+	ret
+
+ViridianGymScriptMoveChallenger:
+	ld a, HS_VIRIDIAN_GYM_CHALLENGER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+; challenger moves
+	ld de, ViridianGymChallengerMovementsIn
+	ld a, 12
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; load next script
+	ld a, 9
+	ld [wCurMapScript], a
+	ret
+
+ViridianGymChallengerMovementsIn:
+	db NPC_FAST_MOVEMENT_UP
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_UP
+	db NPC_FAST_MOVEMENT_UP
+	db -1 ; end
+
+ViridianGymScriptStartBattleVsChallenger:
+; wait for challenger to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; dialogue and battle
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; challenger battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_CHALLENGER
+	ld [wCurOpponent], a
+	ld a, [wViridianGymChallengerAttempt]
+	inc a
+	ld [wTrainerNo], a
+; should we set (bad) luck?
+	cp 6
+	jr nz, .noBadLuck
+	ld a, [wLuckAccuracy]
+	ld [wArrayForTemporaryStorage], a
+	ld a, [wLuckRoll]
+	ld [wArrayForTemporaryStorage+1], a
+	ld a, [wLuckCrit]
+	ld [wArrayForTemporaryStorage+2], a
+	ld a, [wLuckSecondaryEffects]
+	ld [wArrayForTemporaryStorage+3], a
+	ld a, [wLuckStatusesAffliction]
+	ld [wArrayForTemporaryStorage+4], a
+	ld a, 3
+	ld [wLuckAccuracy], a
+	ld [wLuckRoll], a
+	ld [wLuckCrit], a
+	ld [wLuckSecondaryEffects], a
+	ld [wLuckStatusesAffliction], a
+.noBadLuck
+; normal stuff
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, ViridianGymChallengerDefeatedText ; TBE?
+	ld de, ViridianGymChallengerDefeatedText ; TBE?
+	call SaveEndBattleTextPointers
+; fix challenger facing
+	lb bc, STAY, UP
+	ld a, 12
+	ldh [hSpriteIndex], a
+	call ChangeSpriteMovementBytes ; Engeze approach
+	lb de, 12, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing ; Pigeon approach
+; load next script
+	ld a, 10
+	ld [wCurMapScript], a
+	ret
+
+ViridianGymScriptPostBattleVsChallenger:
+; should we reset luck? if we need to do, it's regardless of win/lose
+	ld a, [wViridianGymChallengerAttempt]
+	cp 5
+	jr nz, .noResetLuck
+	ld a, [wArrayForTemporaryStorage]
+	ld [wLuckAccuracy], a
+	ld a, [wArrayForTemporaryStorage+1]
+	ld [wLuckRoll], a
+	ld a, [wArrayForTemporaryStorage+2]
+	ld [wLuckCrit], a
+	ld a, [wArrayForTemporaryStorage+3]
+	ld [wLuckSecondaryEffects], a
+	ld a, [wArrayForTemporaryStorage+4]
+	ld [wLuckStatusesAffliction], a
+.noResetLuck
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ViridianGymResetScriptsAfterLosingAsInterimLeaders
+; we won
+; fix challenger facing
+	lb bc, STAY, UP
+	ld a, 12
+	ldh [hSpriteIndex], a
+	call ChangeSpriteMovementBytes ; Engeze approach
+	lb de, 12, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing ; Pigeon approach
+; handle attempt counter
+	ld a, [wViridianGymChallengerAttempt]
+	cp 5
+	jr nc, .doNotIncreaseChallengerAttempt
+	inc a
+	ld [wViridianGymChallengerAttempt], a
+.doNotIncreaseChallengerAttempt
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; challenger moves away
+	ld de, ViridianGymChallengerMovementsOut
+	ld a, 12
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; load next script
+	ld a, 11
+	ld [wCurMapScript], a
+	ret
+
+ViridianGymChallengerMovementsOut:
+	db NPC_FAST_MOVEMENT_RIGHT
+	db NPC_FAST_MOVEMENT_RIGHT
+	db NPC_FAST_MOVEMENT_DOWN
+	db NPC_FAST_MOVEMENT_DOWN
+	db NPC_FAST_MOVEMENT_RIGHT
+	db NPC_FAST_MOVEMENT_RIGHT
+	db NPC_FAST_MOVEMENT_DOWN
+	db -1 ; end
+
+ViridianGymScriptWaitForChallengerToGoAway:
+; wait for challenger to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; hide challenger
+	ld a, HS_VIRIDIAN_GYM_CHALLENGER
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+; reset scripts
+	jp ViridianGymResetScripts
+
+; texts ==================================================
 
 ViridianGym_TextPointers:
 	dw GiovanniText
-;	dw ViridianGymTrainerText1
+	; trainers
 	dw ViridianGymTrainerText2
 	dw ViridianGymTrainerText3
 	dw ViridianGymTrainerText4
@@ -176,11 +412,16 @@ ViridianGym_TextPointers:
 	dw ViridianGymTrainerText7
 	dw ViridianGymTrainerText8
 	dw ViridianGymTrainerText9 ; 9
-	dw ViridianGymGuideText ; $a=10
-	dw PickUpItemText ; $b=11
-	dw PickUpItemText ; new, $c=12
+	; guides
+	dw ViridianGymGuideText_PreLeague ; $a=10
+	dw ViridianGymGuideText_PostLeague ; $b=11
+	dw ViridianGymChallengerText ; $c=12
+	dw PickUpItemText ; $d=13
+	dw PickUpItemText ; new, $e=14
 	; scripts
-	dw ViridianGymGiovanniPostBattleText ; $d=13
+	dw ViridianGymGiovanniPostBattleText ; $d=15
+	dw ViridianGymChallengerPreBattleText ; 16
+	dw ViridianGymChallengerPostBattleText ; 17
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -189,7 +430,7 @@ ViridianGymTrainerHeaders:
 ViridianGymTrainerHeader1:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, 4, ViridianGymBattleText2, ViridianGymEndBattleText2, ViridianGymAfterBattleText2
 ViridianGymTrainerHeader2:
-	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_2, 4, ViridianGymBattleText3, ViridianGymEndBattleText3, ViridianGymAfterBattleText3
+	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_2, 1, ViridianGymBattleText3, ViridianGymEndBattleText3, ViridianGymAfterBattleText3
 ViridianGymTrainerHeader3:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_3, 2, ViridianGymBattleText4, ViridianGymEndBattleText4, ViridianGymAfterBattleText4
 ViridianGymTrainerHeader4:
@@ -235,26 +476,6 @@ GiovanniPostDefeatText:
 ViridianGymGiovanniPostBattleText:
 	text_far _ViridianGymGiovanniPostBattleText
 	text_end
-
-/*
-ViridianGymTrainerText1:
-	text_asm
-	ld hl, ViridianGymTrainerHeader0
-	call TalkToTrainer
-	jp TextScriptEnd
-
-ViridianGymBattleText1:
-	text_far _ViridianGymBattleText1
-	text_end
-
-ViridianGymEndBattleText1:
-	text_far _ViridianGymEndBattleText1
-	text_end
-
-ViridianGymAfterBattleText1:
-	text_far _ViridianGymAfterBattleText1
-	text_end
-*/
 
 ViridianGymTrainerText2:
 	text_asm
@@ -400,7 +621,7 @@ ViridianGymAfterBattleText9:
 	text_far _ViridianGymAfterBattleText9
 	text_end
 
-ViridianGymGuideText:
+ViridianGymGuideText_PreLeague:
 	text_asm
 	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
 	jr nz, .afterBeat
@@ -419,4 +640,97 @@ ViridianGymGuidePreBattleText:
 
 ViridianGymGuidePostBattleText:
 	text_far _ViridianGymGuidePostBattleText
+	text_end
+
+; new ====================================================
+
+ViridianGymChallengerText:
+	text_far _ViridianGymChallengerText
+	text_end
+
+ViridianGymGuideText_PostLeague:
+	text_asm
+	ld hl, ViridianGymGuideText_PostLeague_Intro
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .yesBattle
+	ld hl, ViridianGymGuideText_PostLeague_WhenReady
+	jr .printAndEnd
+.yesBattle
+	ld hl, ViridianGymGuideText_PostLeague_AmazingLetsGo
+	ld a, 5
+	ld [wCurMapScript], a
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianGymGuideText_PostLeague_Intro:
+	text_far _ViridianGymGuideText_PostLeague_Intro
+	text_end
+
+ViridianGymGuideText_PostLeague_WhenReady:
+	text_far _ViridianGymGuideText_PostLeague_WhenReady
+	text_end
+
+ViridianGymGuideText_PostLeague_AmazingLetsGo:
+	text_far _ViridianGymGuideText_PostLeague_AmazingLetsGo
+	text_end
+
+; -------------------
+
+ViridianGymChallengerPreBattleText:
+	text_asm
+	ld a, [wViridianGymChallengerAttempt]
+	and a ; =0?
+	ld hl, ViridianGymChallengerPreBattleText_0
+	jr z, .printAndEnd
+	dec a ; =1?
+	ld hl, ViridianGymChallengerPreBattleText_1
+	jr z, .printAndEnd
+	dec a ; =2?
+	ld hl, ViridianGymChallengerPreBattleText_2
+	jr z, .printAndEnd
+	dec a ; =3?
+	ld hl, ViridianGymChallengerPreBattleText_3
+	jr z, .printAndEnd
+	dec a ; =4?
+	ld hl, ViridianGymChallengerPreBattleText_4
+	jr z, .printAndEnd
+	ld hl, ViridianGymChallengerPreBattleText_5
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianGymChallengerPreBattleText_0:
+	text_far _ViridianGymChallengerPreBattleText_0
+	text_end
+
+ViridianGymChallengerPreBattleText_1:
+	text_far _ViridianGymChallengerPreBattleText_1
+	text_end
+
+ViridianGymChallengerPreBattleText_2:
+	text_far _ViridianGymChallengerPreBattleText_2
+	text_end
+
+ViridianGymChallengerPreBattleText_3:
+	text_far _ViridianGymChallengerPreBattleText_3
+	text_end
+
+ViridianGymChallengerPreBattleText_4:
+	text_far _ViridianGymChallengerPreBattleText_4
+	text_end
+
+ViridianGymChallengerPreBattleText_5:
+	text_far _ViridianGymChallengerPreBattleText_5
+	text_end
+
+ViridianGymChallengerPostBattleText:
+	text_far _ViridianGymChallengerPostBattleText_0
+	text_end
+
+ViridianGymChallengerDefeatedText:
+	text_far _ViridianGymChallengerDefeatedText_0
 	text_end

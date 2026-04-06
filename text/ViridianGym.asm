@@ -83,25 +83,6 @@ _ViridianGymGiovanniPostBattleText::
 
 ; -----------------------------
 
-/*
-_ViridianGymBattleText1::
-	text "Heh! You must be"
-	line "running out of"
-	cont "steam by now!"
-	done
-
-_ViridianGymEndBattleText1::
-	text "I"
-	line "ran out of gas!"
-	prompt
-
-_ViridianGymAfterBattleText1::
-	text "You need power to"
-	line "keep up with our"
-	cont "GYM LEADER!"
-	done
-*/
-
 _ViridianGymBattleText2::
 	text "Rrrroar! I'm"
 	line "working myself"
@@ -274,3 +255,67 @@ _ViridianGymGuidePostBattleText::
 	line "GIOVANNI was the"
 	cont "GYM LEADER here?"
 	done
+
+; new ====================================================
+
+_ViridianGymChallengerText::
+	text "abc!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymGuideText_PostLeague_Intro::
+	text "wanna do leader?"
+;	xxxx "123456789012345678"
+	done
+	
+_ViridianGymGuideText_PostLeague_WhenReady::
+	text "come back"
+	line "when ready"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymGuideText_PostLeague_AmazingLetsGo::
+	text "let's gooo"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPreBattleText_0::
+	text "let's fight 0"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPreBattleText_1::
+	text "let's fight 1"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPreBattleText_2::
+	text "let's fight 2"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPreBattleText_3::
+	text "let's fight 3"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPreBattleText_4::
+	text "let's fight 4"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPreBattleText_5::
+	text "let's fight 5+"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPostBattleText_0::
+	text "i'll be back"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerDefeatedText_0::
+;	text "CHALLENGER: "
+	text "damn!"
+;	xxxx "123456789012345678"
+	prompt

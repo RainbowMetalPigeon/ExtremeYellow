@@ -365,10 +365,6 @@ OaksLabHS:
 	db OAKS_LAB, $05, SHOW
 	db OAKS_LAB, $06, HIDE
 	db OAKS_LAB, $0A, HIDE ; new, Giovanni, testing
-ViridianGymHS:
-	db VIRIDIAN_GYM,  1, SHOW ; Giovanni
-	db VIRIDIAN_GYM, 11, SHOW ; REVIVE
-	db VIRIDIAN_GYM, 12, HIDE ; new, FISSURE
 Museum1FHS:
 	db MUSEUM_1F, $05, SHOW
 CeruleanMelaniesHouseHS:
@@ -885,5 +881,12 @@ Route9HS:
 	db ROUTE_9, $0A, SHOW
 CeruleanCaveExtraFinalHS:
 	db CERULEAN_CAVE_EXTRA_FINAL, 11, SHOW ; rock
+ViridianGymHS:
+	db VIRIDIAN_GYM,  1, SHOW ; Giovanni
+	db VIRIDIAN_GYM, 10, SHOW ; new, gym guide pre-League
+	db VIRIDIAN_GYM, 11, HIDE ; new, gym guide post-League
+	db VIRIDIAN_GYM, 12, HIDE ; new, gym challenger
+	db VIRIDIAN_GYM, 13, SHOW ; REVIVE
+	db VIRIDIAN_GYM, 14, HIDE ; new, FISSURE
 
 	db $FF, $01, SHOW ; end, list terminator

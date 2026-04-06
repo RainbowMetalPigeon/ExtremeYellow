@@ -1055,6 +1055,9 @@ wRightGBMonSpecies:: db
 ; bit 6: tried pushing against boulder once (you need to push twice before it will move)
 wFlags_0xcd60:: db
 
+UNION ; new
+wArrayForTemporaryStorage:: ds 9 ; new
+NEXTU
 	ds 3 ; edited, was ds 9
 wShinyStarterPikachu:: ; new, shares the coordinate with the next one, they never overlay
 wBattleFacilityMon1Shinyness:: db ; new
@@ -1063,6 +1066,7 @@ wBattleFacilityMon3Shinyness:: db ; new
 wBattleFacilityMon4Shinyness:: db ; new
 wBattleFacilityMon5Shinyness:: db ; new
 wBattleFacilityMon6Shinyness:: db ; new
+ENDU
 
 ; This has overlapping related uses.
 ; When the player tries to use an item or use certain field moves, 0 is stored
@@ -2433,7 +2437,8 @@ wBillsHouseCurScript:: db
 
 wSeafoamIslandsB3FCurScript:: db
 ;wRoute23CurScript:: db
-	ds 1 ; new, from optimizing the scripts, UNUSED
+;	ds 1 ; from optimizing
+wViridianGymChallengerAttempt:: db ; new
 
 wSeafoamIslandsB4FCurScript:: db
 ;wRoute18Gate1FCurScript:: db

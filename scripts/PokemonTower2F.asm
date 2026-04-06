@@ -71,12 +71,12 @@ PokemonTower2Script1:
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld de, MovementData_605b2
+	ld de, PokemonTower2FRivalDownThenRightMovement
 	CheckEvent EVENT_POKEMON_TOWER_RIVAL_ON_LEFT
-	jr nz, .asm_60589
-	callfar Func_f1e22
-	ld de, MovementData_605a9
-.asm_60589
+	jr nz, .got_movement
+	callfar PokemonTower2FPikachuMovementScript
+	ld de, PokemonTower2FRivalRightThenDownMovement
+.got_movement
 	ld a, $1
 	ldh [hSpriteIndex], a
 	call MoveSprite
@@ -86,7 +86,7 @@ PokemonTower2Script1:
 	ld [wCurMapScript], a
 	ret
 
-MovementData_605a9:
+PokemonTower2FRivalRightThenDownMovement:
 	db NPC_MOVEMENT_RIGHT
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
@@ -97,7 +97,7 @@ MovementData_605a9:
 	db NPC_MOVEMENT_RIGHT
 	db -1 ; end
 
-MovementData_605b2:
+PokemonTower2FRivalDownThenRightMovement:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_RIGHT

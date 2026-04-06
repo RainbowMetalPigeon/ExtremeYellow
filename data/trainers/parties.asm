@@ -1395,7 +1395,12 @@ JennyData: ; new, TBE
 	db 1, GROWLITHE, 0
 
 ChallengerData: ; new
-	db 1, CHARMANDER, 0
+	db  50, PIKACHU, 0 ; CHARIZARD, BLASTOISE, VENUSAUR, SNORLAX, PIDGEOT, 0 ; plain attempt
+	db  75, PIKACHU, 0 ; CHARIZARD, BLASTOISE, VENUSAUR, SNORLAX, PIDGEOT, 0 ; after some grind
+	db 100, CHARIZARD, 0 ; BLASTOISE, VENUSAUR, ZAPDOS, MOLTRES, ARTICUNO, 0 ; after a lot of grind, start using a lot of items
+	db 100, SNORLAX, 0 ; BLISSEY, TAUROS, ALAKAZAM, MEW, RHYPERIOR, 0 ; after "netdecking" best team
+	db 100, MALAKAZAM, 0 ; MGENGAR, MSCIZOR, MGYARADOS, MARODACTYL, MDRAGONITE, 0 ; full megas
+	db 100, MALAKAZAM, 0 ; THU_FI_ZER, VENUSTOISE, MMEWTWOY, MMEWTWOX, MEW, 0 ; "cheats" and savestate scumming
 
 JessieJamesData: ; new
 	db 14, EKANS, KOFFING, MEOWTH, 0 ; Mt Moon ; 1

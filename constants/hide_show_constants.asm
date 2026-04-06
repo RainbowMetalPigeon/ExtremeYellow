@@ -87,9 +87,6 @@ DEF SHOW EQU $15
 	const HS_POKEDEX_2                     ; 2F
 	const HS_OAKS_LAB_OAK_2                ; 30
 	const HS_OAKS_LAB_GIOVANNI             ; new
-	const HS_VIRIDIAN_GYM_GIOVANNI         ; 31
-	const HS_VIRIDIAN_GYM_ITEM_1           ; 32
-	const HS_VIRIDIAN_GYM_ITEM_2           ; new
 	const HS_OLD_AMBER                     ; 33
 	const HS_CERULEAN_BULBASAUR            ; 34
 	const HS_CERULEAN_CAVE_1F_ITEM_1       ; 35
@@ -487,3 +484,9 @@ DEF SHOW EQU $15
 	const HS_PEWTER_CITY_COIN_CASE_MEOWTH  ; new
 	const HS_ROUTE_9_ITEM                  ; 1D
 	const HS_CERULEAN_CAVE_EXTRA_FINAL_ROCK_1 ; new
+	const HS_VIRIDIAN_GYM_GIOVANNI         ; 31
+	const HS_VIRIDIAN_GYM_GUIDE_PRE_LEAGUE ; new
+	const HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE ; new
+	const HS_VIRIDIAN_GYM_CHALLENGER       ; new
+	const HS_VIRIDIAN_GYM_ITEM_1           ; 32
+	const HS_VIRIDIAN_GYM_ITEM_2           ; new

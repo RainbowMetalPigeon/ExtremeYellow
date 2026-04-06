@@ -211,6 +211,18 @@ IF DEF(_DEBUG)
 ;	ld [wMissableObjectIndex], a
 ;	predef ShowObject
 
+	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8
+;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	ld a, HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_VIRIDIAN_GYM_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
 	SetEvent EVENT_OBTAINED_SEEDS_BAG

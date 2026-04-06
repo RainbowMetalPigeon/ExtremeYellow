@@ -397,6 +397,7 @@ LoopHideExtra:
 ObjectsToHideExtra:
 	db HS_SAFARI_ZONE_NORTH_GUARD_1
 	db HS_SAFARI_ZONE_NORTH_GUARD_2
+	db HS_VIRIDIAN_GYM_GUIDE_PRE_LEAGUE
 	db $ff
 
 ; ---------------
@@ -454,6 +455,7 @@ ObjectsToShowExtra:
 	db HS_LUNAR_SHRINE_TOURIST_2
 	db HS_CELADON_HOTEL_ROOMS_TROPHY_1
 	db HS_OBSIDIAN_WOOD_ORAGE
+	db HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE
 	db $ff
 
 ; ---------------

@@ -1,4 +1,4 @@
-Func_f1e22::
+PokemonTower2FPikachuMovementScript::
 	ld hl, PikachuMovementData_f1e2b
 	ld b, SPRITE_FACING_RIGHT
 	call TryApplyPikachuMovementData

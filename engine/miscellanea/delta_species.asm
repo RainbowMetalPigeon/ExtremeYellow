@@ -139,12 +139,15 @@ CheckForTrainersDeltaMons::
     ld [wOpponentMonShiny], a
     ret
 
-.battleFacility ; TBE
+.battleFacility
     ld hl, wEnemyMonSpecies2
     ld a, [hl]
     and a
     jr z, .noDelta ; trainers can't be delta ; is this even necessary???
-; BF mons, not trainers
+    ld d, a
+    callfar CheckIfMonHasDeltaSpecies
+    jr nc, .noDelta
+; BF mons that could be delta
     ld a, [wWhichPokemon] ; wWhichPokemon starts from 0
     ld hl, wBattleFacilityMon1Shinyness
     ld b, 0
@@ -175,3 +178,9 @@ AssignDeltaToBattleFacilityTrainers::
     dec b
     jr nz, .loopOnMons
     ret
+
+/*
+; mon ID in d
+; c flag if match found
+CheckIfMonHasDeltaSpecies::
+*/

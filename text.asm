@@ -91,7 +91,6 @@ INCLUDE "data/text/text_5.asm"
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/RedsHouse2F.asm" ; new
 INCLUDE "text/BluesHouse.asm"
-INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/ViridianPokecenter.asm"
 INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/ViridianGym.asm"
@@ -310,6 +309,7 @@ INCLUDE "text/FuchsiaGym.asm"
 INCLUDE "text/Route7.asm"
 INCLUDE "data/text/text_4.asm"
 INCLUDE "text/PokemonMansion3F.asm"
+INCLUDE "text/pokedex_ratings.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
