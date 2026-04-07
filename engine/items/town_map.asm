@@ -6,6 +6,7 @@ DisplayTownMap::
 	ld [wSavedTileAnimations], a
 	xor a
 	ldh [hTileAnimations], a
+	ld [wWhichTownMapLocationBackup], a ; new
 ; BTV
 	call LoadTownMap
 	CheckEvent EVENT_IN_SEVII ; new for sevii
@@ -50,6 +51,7 @@ DisplayTownMap::
 	push af
 	ld [hl], $ff
 	push hl
+.routineToReloadFromZoom
 	ld a, $1
 	ldh [hJoy7], a
 	ld a, [wCurMap]
@@ -67,8 +69,14 @@ DisplayTownMap::
 	ld de, TownMapCursor
 	lb bc, BANK(TownMapCursor), (TownMapCursorEnd - TownMapCursor) / $8
 	call CopyVideoDataDouble
+; new for zoom
+	ld a, [wWhichTownMapLocationBackup]
+	and a
+	jr nz, .notVanilla
 	xor a
+.notVanilla
 	ld [wWhichTownMapLocation], a
+; BTV
 	pop af
 	jr .enterLoop
 
@@ -120,10 +128,13 @@ DisplayTownMap::
 	jr z, .inputLoop
 	ld a, SFX_TINK
 	call PlaySound
-	bit 6, b
+	bit BIT_D_UP, b ; edited, was 6
 	jr nz, .pressedUp
-	bit 7, b
+	bit BIT_D_DOWN, b ; edited, was 7
 	jr nz, .pressedDown
+	bit BIT_A_BUTTON, b ; new, for map zoom
+	jr nz, .pressedA ; new, for map zoom
+;.pressedB
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
 	ldh [hJoy7], a
@@ -171,13 +182,22 @@ DisplayTownMap::
 .noUnderflow
 	ld [wWhichTownMapLocation], a
 	jp .townMapLoop
-
-;Func_70f87: ; unreferenced
-;	ldh a, [hJoy5]
-;	and D_DOWN | D_UP
-;	ret z
-;	callfar PlayPikachuSoundClip
-;	ret
+; new for zoom -------------------------
+.pressedA
+; TBE: check if we CAN zoom on this map: is it a city? did we visit it already? -> fly destination flags
+; TBE: split between Kanto and Sevii
+	call LoadTownMapZoom
+.inputLoopZoom
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	ld b, a
+	and B_BUTTON
+	jr z, .inputLoopZoom
+; exit zoom
+	ld a, SFX_TINK
+	call PlaySound
+	call LoadTownMap
+	jp .routineToReloadFromZoom
 
 INCLUDE "data/maps/town_map_order.asm"
 INCLUDE "data/maps/town_map_order_sevii.asm" ; new, for sevii
@@ -1034,3 +1054,116 @@ TownMapSpriteBlinkingAnimation::
 .done
 	ld [wAnimCounter], a
 	jp DelayFrame
+
+; new, for map zooms ============================================================
+
+LoadTownMapZoom:
+	ld a, [wWhichTownMapLocation]
+	ld [wWhichTownMapLocationBackup], A
+
+	call GBPalWhiteOutWithDelay3
+	call ClearScreen
+	call ClearSprites ; instead of "update"
+	hlcoord 0, 0
+	lb bc, $12, $12
+	call TextBoxBorder
+	call DisableLCD
+
+	ld hl, WorldMapZoomTileGraphics
+	ld de, vChars2 tile $60
+	ld bc, WorldMapZoomTileGraphicsEnd - WorldMapZoomTileGraphics
+	ld a, BANK(WorldMapZoomTileGraphics)
+	call FarCopyData
+	
+	call DetermineWhichCityWePointAt
+	call DetermineWhichCompressedMapToLoad
+	hlcoord 0, 0
+.nextTile
+	ld a, [de]
+	and a
+	jr z, .done
+	ld b, a
+	and $f
+	ld c, a
+	ld a, b
+	swap a
+	and $f
+	add $60
+.writeRunLoop
+	ld [hli], a
+	dec c
+	jr nz, .writeRunLoop
+	inc de
+	jr .nextTile
+.done
+
+	call EnableLCD
+	ld b, SET_PAL_TOWN_MAP
+	call RunPaletteCommand
+	call Delay3
+	call GBPalNormal
+
+; print city name
+	hlcoord 1, 0
+	ld de, wcd6d
+	call PlaceString
+
+;	xor a
+;	ld [wAnimCounter], a
+;	inc a
+;	ld [wTownMapSpriteBlinkingEnabled], a
+
+	ret
+
+; -----------------------------------
+
+CompressedMapZoom_Pallet:
+	INCBIN "gfx/town_map/town_map_zoom_pallet.rle"
+CompressedMapZoom_Viridian:
+	INCBIN "gfx/town_map/town_map_zoom_viridian.rle"
+CompressedMapZoom_Pewter:
+	INCBIN "gfx/town_map/town_map_zoom_pewter.rle"
+CompressedMapZoom_Cerulean:
+	INCBIN "gfx/town_map/town_map_zoom_cerulean.rle"
+CompressedMapZoom_Vermilion:
+	INCBIN "gfx/town_map/town_map_zoom_vermilion.rle"
+
+; -----------------------------------
+
+; output: a contains the map ID (should only be a city's if we did things right beforehand)
+DetermineWhichCityWePointAt:
+	ld hl, TownMapOrder_Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+	ld hl, TownMapOrder
+.sevii
+	ld a, [wWhichTownMapLocation]
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	ret
+
+; input: a = (city) map ID
+; output: de = pointer to the zoom rle
+DetermineWhichCompressedMapToLoad:
+	cp PALLET_TOWN
+	ld de, CompressedMapZoom_Pallet
+	ret z
+	cp VIRIDIAN_CITY
+	ld de, CompressedMapZoom_Viridian
+	ret z
+	cp PEWTER_CITY
+	ld de, CompressedMapZoom_Pewter
+	ret z
+	cp CERULEAN_CITY
+	ld de, CompressedMapZoom_Cerulean
+	ret z
+	cp VERMILION_CITY
+	ld de, CompressedMapZoom_Vermilion
+	ret z
+
+; TBE: all the others
+	ld de, CompressedMapZoom_Viridian
+	ret
+

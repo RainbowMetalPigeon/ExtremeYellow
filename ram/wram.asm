@@ -860,6 +860,7 @@ NEXTU
 wWhichTownMapLocation:: db
 wFlyAnimCounter:: db
 wFlyAnimBirdSpriteImageIndex:: db
+wWhichTownMapLocationBackup:: db ; new
 
 NEXTU
 	ds 1

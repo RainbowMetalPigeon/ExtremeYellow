@@ -42,3 +42,6 @@ RainbowMetalPigeonLogoGraphicsEnd:
 
 EXPBarGraphics::  INCBIN "gfx/battle/exp_bar.2bpp"
 EXPBarGraphicsEnd::
+
+WorldMapZoomTileGraphics: INCBIN "gfx/town_map/town_map_zoom.2bpp"
+WorldMapZoomTileGraphicsEnd:
