@@ -728,9 +728,52 @@ ViridianGymChallengerPreBattleText_5:
 	text_end
 
 ViridianGymChallengerPostBattleText:
+	text_asm
+	ld a, [wViridianGymChallengerAttempt]
+	and a ; =0?
+	ld hl, ViridianGymChallengerPostBattleText_0
+	jr z, .printAndEnd
+	dec a ; =1?
+	ld hl, ViridianGymChallengerPostBattleText_1
+	jr z, .printAndEnd
+	dec a ; =2?
+	ld hl, ViridianGymChallengerPostBattleText_2
+	jr z, .printAndEnd
+	dec a ; =3?
+	ld hl, ViridianGymChallengerPostBattleText_3
+	jr z, .printAndEnd
+	dec a ; =4?
+	ld hl, ViridianGymChallengerPostBattleText_4
+	jr z, .printAndEnd
+	ld hl, ViridianGymChallengerPostBattleText_5
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianGymChallengerPostBattleText_0:
 	text_far _ViridianGymChallengerPostBattleText_0
 	text_end
 
+ViridianGymChallengerPostBattleText_1:
+	text_far _ViridianGymChallengerPostBattleText_1
+	text_end
+
+ViridianGymChallengerPostBattleText_2:
+	text_far _ViridianGymChallengerPostBattleText_2
+	text_end
+
+ViridianGymChallengerPostBattleText_3:
+	text_far _ViridianGymChallengerPostBattleText_3
+	text_end
+
+ViridianGymChallengerPostBattleText_4:
+	text_far _ViridianGymChallengerPostBattleText_4
+	text_end
+
+ViridianGymChallengerPostBattleText_5:
+	text_far _ViridianGymChallengerPostBattleText_5
+	text_end
+
 ViridianGymChallengerDefeatedText:
-	text_far _ViridianGymChallengerDefeatedText_0
+	text_far _ViridianGymChallengerDefeatedText
 	text_end

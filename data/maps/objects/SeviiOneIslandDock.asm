@@ -2,7 +2,7 @@ SeviiOneIslandDock_Object:
 	db $0F ; border block
 
 	def_warp_events
-	warp_event 10,  0, SEVII_ONE_ISLAND_CITY, 1
+;	warp_event 10,  0, SEVII_ONE_ISLAND_CITY, 1
 ;	warp_event 10,  0, SEVII_EIGHT_ISLAND_CAVE, 2
 ;	warp_event 10,  0, SEVII_TWO_ISLET, 1
 ;	warp_event 10,  0, SEVII_TWO_ISLET_HOUSES, 5
@@ -21,7 +21,7 @@ SeviiOneIslandDock_Object:
 ;	warp_event 10,  0, SEVII_THREE_ISLAND_HOUSES, 3
 ;	warp_event 10,  0, SEVII_FIVE_ISLAND_WAREHOUSE_1F, 1
 ;	warp_event 10,  0, SEVII_FIVE_ISLAND_WAREHOUSE_2F, 2
-;	warp_event 10,  0, SEVII_UNDERGROUND_ONE, 1
+	warp_event 10,  0, SEVII_UNDERGROUND_ONE, 1
 
 	def_bg_events
 	bg_event  9,  0, 2 ; SeviiOneIslandDockBgText1

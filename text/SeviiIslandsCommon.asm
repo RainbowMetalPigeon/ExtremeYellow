@@ -78,27 +78,40 @@ _SeviiUndergroundCaveGuardText::
 	done
 
 _SeviiUndergroundText1_AlreadyOpened::
-	text "already open"
+	text "The passage is"
+	line "already open."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiUndergroundText1_ThisButtonAlreadyPressed::
-	text "already pressed"
-	line "now N lights on??" ; TBE
+	text "This switch is"
+	line "already pressed."
+
+	para "Now @"
+	text_decimal wUniQuizAnswer, 1, 1 ; address to read from, number of bytes to read, number of digits to display
+	text " out of 7"
+	line "stones're shining."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiUndergroundText1_PressThisButton::
-	text "press this one"
+	text "There's a switch"
+	line "surrounded by"
+	cont "some stones!"
+
+	para "What happens if"
+	line "it's pressed...?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiUndergroundScriptText1::
-	text "something happens"
+	text "All the stones"
+	line "are blinking!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiUndergroundScriptText2::
-	text "something opened"
+	text "A passage opened"
+	line "nearby!"
 ;	xxxx "123456789012345678"
 	done

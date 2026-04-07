@@ -267,7 +267,7 @@ _ViridianGymGuideText_PostLeague_Intro::
 	text "wanna do leader?"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _ViridianGymGuideText_PostLeague_WhenReady::
 	text "come back"
 	line "when ready"
@@ -310,11 +310,36 @@ _ViridianGymChallengerPreBattleText_5::
 	done
 
 _ViridianGymChallengerPostBattleText_0::
-	text "i'll be back"
+	text "i'll be back 0"
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianGymChallengerDefeatedText_0::
+_ViridianGymChallengerPostBattleText_1::
+	text "i'll be back 1"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPostBattleText_2::
+	text "i'll be back 2"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPostBattleText_3::
+	text "i'll be back 3"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPostBattleText_4::
+	text "i'll be back 4"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerPostBattleText_5::
+	text "i'll be back 5+"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymChallengerDefeatedText::
 ;	text "CHALLENGER: "
 	text "damn!"
 ;	xxxx "123456789012345678"

@@ -67,6 +67,7 @@ SeviiUndergroundTwoText1:
 	ld hl, SeviiUndergroundTwoText1_AlreadyOpened
 	jr nz, .printAndEnd
 ; this one already done?
+	callfar CountHowManyUndergroundButtonsArePressed
 	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_TWO
 	ld hl, SeviiUndergroundTwoText1_ThisButtonAlreadyPressed
 	jr nz, .printAndEnd

@@ -329,3 +329,39 @@ CheckIfAllUndergroundButtonsArePressed::
 	ret z
 	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 	ret
+
+; ----------------------------------------------
+
+CountHowManyUndergroundButtonsArePressed::
+	ld b, 0
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_ONE
+	jr z, .checkTwo
+	inc b
+.checkTwo
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_TWO
+	jr z, .checkThree
+	inc b
+.checkThree
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_THREE
+	jr z, .checkFour
+	inc b
+.checkFour
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_FOUR
+	jr z, .checkFive
+	inc b
+.checkFive
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_FIVE
+	jr z, .checkSix
+	inc b
+.checkSix
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SIX
+	jr z, .checkSeven
+	inc b
+.checkSeven
+	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
+	jr z, .end
+	inc b
+.end
+	ld a, b
+	ld [wUniQuizAnswer], a
+	ret

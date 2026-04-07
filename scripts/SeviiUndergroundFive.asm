@@ -67,6 +67,7 @@ SeviiUndergroundFiveText1:
 	ld hl, SeviiUndergroundFiveText1_AlreadyOpened
 	jr nz, .printAndEnd
 ; this one already done?
+	callfar CountHowManyUndergroundButtonsArePressed
 	CheckEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_FIVE
 	ld hl, SeviiUndergroundFiveText1_ThisButtonAlreadyPressed
 	jr nz, .printAndEnd

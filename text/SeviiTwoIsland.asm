@@ -640,7 +640,7 @@ _SeviiTwoIsletHousesText1_Intro::
 _SeviiTwoIsletHousesText1and2_Refuse::
 	text "Ah! Too bad!"
 	line "You don't know"
-	cont "whay you miss."
+	cont "what you miss."
 ;	xxxx "123456789012345678"
 	done
 
@@ -698,9 +698,9 @@ _SeviiTwoIsletHousesText3::
 	done
 
 _SeviiTwoIsletHousesText4::
-	text "My spouse is"
-	line "visiting their"
-	cont "partner in KANTO."
+	text "My spouse's visit-"
+	line "ing their partner"
+	cont "in SAFFRON."
 
 	para "It gets a bit"
 	line "lonely here with-"
