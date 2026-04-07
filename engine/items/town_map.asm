@@ -1108,11 +1108,6 @@ LoadTownMapZoom:
 	ld de, wcd6d
 	call PlaceString
 
-;	xor a
-;	ld [wAnimCounter], a
-;	inc a
-;	ld [wTownMapSpriteBlinkingEnabled], a
-
 	ret
 
 ; -----------------------------------
@@ -1127,6 +1122,20 @@ CompressedMapZoom_Cerulean:
 	INCBIN "gfx/town_map/town_map_zoom_cerulean.rle"
 CompressedMapZoom_Vermilion:
 	INCBIN "gfx/town_map/town_map_zoom_vermilion.rle"
+CompressedMapZoom_Lavender:
+	INCBIN "gfx/town_map/town_map_zoom_lavender.rle"
+CompressedMapZoom_Celadon:
+	INCBIN "gfx/town_map/town_map_zoom_celadon.rle"
+CompressedMapZoom_Saffron:
+	INCBIN "gfx/town_map/town_map_zoom_saffron.rle"
+CompressedMapZoom_Fuchsia:
+	INCBIN "gfx/town_map/town_map_zoom_fuchsia.rle"
+CompressedMapZoom_Ochre:
+	INCBIN "gfx/town_map/town_map_zoom_ochre.rle"
+CompressedMapZoom_Obsidian:
+	INCBIN "gfx/town_map/town_map_zoom_obsidian.rle"
+CompressedMapZoom_Cinnabar:
+	INCBIN "gfx/town_map/town_map_zoom_cinnabar.rle"
 
 ; -----------------------------------
 
@@ -1137,7 +1146,7 @@ DetermineWhichCityWePointAt:
 	jr nz, .sevii
 	ld hl, TownMapOrder
 .sevii
-	ld a, [wWhichTownMapLocation]
+	ld a, [wWhichTownMapLocation] ; TBE may need improvements
 	ld c, a
 	ld b, 0
 	add hl, bc
@@ -1162,8 +1171,28 @@ DetermineWhichCompressedMapToLoad:
 	cp VERMILION_CITY
 	ld de, CompressedMapZoom_Vermilion
 	ret z
-
-; TBE: all the others
-	ld de, CompressedMapZoom_Viridian
+	cp LAVENDER_TOWN
+	ld de, CompressedMapZoom_Lavender
+	ret z
+	cp CELADON_CITY
+	ld de, CompressedMapZoom_Celadon
+	ret z
+	cp SAFFRON_CITY
+	ld de, CompressedMapZoom_Saffron
+	ret z
+	cp FUCHSIA_CITY
+	ld de, CompressedMapZoom_Fuchsia
+	ret z
+	cp OCHRE_CITY
+	ld de, CompressedMapZoom_Ochre
+	ret z
+	cp OBSIDIAN_ISLAND
+	ld de, CompressedMapZoom_Obsidian
+	ret z
+	cp CINNABAR_ISLAND
+	ld de, CompressedMapZoom_Cinnabar
+	ret z
+; TBE: check, but there shouldn't be others
+	ld de, CompressedMapZoom_Pallet
 	ret
 
