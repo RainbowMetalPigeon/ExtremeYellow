@@ -1171,6 +1171,21 @@ CompressedMapZoom_Obsidian:
 CompressedMapZoom_Cinnabar:
 	INCBIN "gfx/town_map/town_map_zoom_cinnabar.rle"
 
+;CompressedMapZoom_SeviiOne:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_one.rle"
+;CompressedMapZoom_SeviiTwo:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_two.rle"
+;CompressedMapZoom_SeviiThree:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_threerle"
+;CompressedMapZoom_SeviiFour:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_four.rle"
+;CompressedMapZoom_SeviiFive:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_five.rle"
+;CompressedMapZoom_SeviiSix:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_six.rle"
+;CompressedMapZoom_SeviiSeven:
+;	INCBIN "gfx/town_map/town_map_zoom_sevii_seven.rle"
+
 ; -----------------------------------
 
 ZoomableMaps:
@@ -1215,6 +1230,34 @@ DetermineWhichCityWePointAt:
 ; input: a = (city) map ID
 ; output: de = pointer to the zoom rle
 DetermineWhichCompressedMapToLoad:
+	CheckEvent EVENT_IN_SEVII
+	jr z, .kanto
+/*
+; sevii
+	cp SEVII_ONE_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiOne
+	ret z
+	cp SEVII_TWO_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiTwo
+	ret z
+	cp SEVII_THREE_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiThree
+	ret z
+	cp SEVII_FOUR_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiFour
+	ret z
+	cp SEVII_FIVE_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiFive
+	ret z
+	cp SEVII_SIX_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiSix
+	ret z
+;	cp SEVII_SEVEN_ISLAND_CITY
+	ld de, CompressedMapZoom_SeviiSeven
+;	ret z
+	ret
+*/
+.kanto
 	cp PALLET_TOWN
 	ld de, CompressedMapZoom_Pallet
 	ret z
@@ -1248,11 +1291,9 @@ DetermineWhichCompressedMapToLoad:
 	cp OBSIDIAN_ISLAND
 	ld de, CompressedMapZoom_Obsidian
 	ret z
-	cp CINNABAR_ISLAND
+;	cp CINNABAR_ISLAND
 	ld de, CompressedMapZoom_Cinnabar
-	ret z
-; TBE: check, but there shouldn't be others
-	ld de, CompressedMapZoom_Pallet
+;	ret z
 	ret
 
 ConvertTownMapLocationToMapID:
