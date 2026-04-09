@@ -259,88 +259,214 @@ _ViridianGymGuidePostBattleText::
 ; new ====================================================
 
 _ViridianGymChallengerText::
-	text "abc!"
+	text "!"
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianGymGuideText_PostLeague_Intro::
-	text "wanna do leader?"
+_ViridianGymGuideText_PostLeague_Intro_Long::
+	text "CHAMPION! What an"
+	line "honor to have you"
+	cont "here! And also"
+	cont "quite a luck."
+
+	para "I'll cut to the"
+	line "point: this GYM"
+	cont "needs a LEADER."
+	cont "We're well aware"
+	cont "of ORAGE from"
+	cont "OCHRE CITY, but"
+	cont "a lot of paper-"
+	cont "work is needed to"
+	cont "give them the"
+	cont "role. It's much"
+	cont "simpler to assign"
+	cont "those who've been"
+	cont "CHAMPION."
+
+	para "We reached former"
+	line "CHAMPION <RIVAL>,"
+	cont "but they're busy"
+	cont "training."
+
+	para "Would you like to"
+	line "take over the"
+	cont "role of INTERIM"
+	cont "GYM LEADER?"
+	cont "It would help us"
+	cont "tremendously."
+
+	para "It's not a huge"
+	line "commitment, just"
+	cont "come here to"
+	cont "fight challengers"
+	cont "whenever it suits"
+	cont "your schedule."
+
+	para "What do you think?"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianGymGuideText_PostLeague_Intro_Short::
+	text "CHAMPION! Great to"
+	line "have you here."
+
+	para "Are you here to"
+	line "act as INTERIM"
+	cont "GYM LEADER"
+	cont "and battle a"
+	cont "challenger?"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymGuideText_PostLeague_WhenReady::
-	text "come back"
-	line "when ready"
+	text "Aw... well, I"
+	line "understand."
+	cont "CHAMPIONs surely"
+	cont "are busy."
+
+	para "Please come back"
+	line "if you change"
+	cont "your mind!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymGuideText_PostLeague_AmazingLetsGo::
-	text "let's gooo"
+	text "Terrific!"
+	line "Thanks a ton, it's"
+	cont "huge help for us!"
+
+	para "I'll let the first"
+	line "challenger in"
+	cont "right away!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPreBattleText_0::
-	text "let's fight 0"
+	text "My last GYM! So"
+	line "you are the mys-"
+	cont "terious LEADER."
+
+	para "I'm so excited!"
+	line "This BADGE, and"
+	cont "I can challenge"
+	cont "the INDIGO LEAGUE!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPreBattleText_1::
-	text "let's fight 1"
+	text "I learned my"
+	line "lesson. Last time"
+	cont "I wasn't prepared"
+	cont "enough! I trained"
+	cont "more, there's no"
+	cont "way I'll lose now!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPreBattleText_2::
-	text "let's fight 2"
+	text "Ugh... this GYM"
+	line "really is tough."
+
+	para "But I couldn't be"
+	line "more ready now!"
+	cont "I have the"
+	cont "strongest #MON!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPreBattleText_3::
-	text "let's fight 3"
+	text "Ok, THIS time I"
+	line "can't lose!"
+	cont "I researched the"
+	cont "meta and I built"
+	cont "the most broken"
+	cont "team possible!"
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianGymChallengerPreBattleText_4::
-	text "let's fight 4"
+_ViridianGymChallengerPreBattleText_4:: ; megas
+	text "This is getting"
+	line "ridiculous."
+	cont "But now, NOW I"
+	cont "went all out my"
+	cont "way to fetch all"
+	cont "the secret items"
+	cont "I need to have"
+	cont "the REALLY"
+	cont "strongest team!"
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianGymChallengerPreBattleText_5::
-	text "let's fight 5+"
+_ViridianGymChallengerPreBattleText_5::; cheat and savestate scumming
+	text "Fuck this shit."
+	line "You want it this"
+	cont "way? You'll have"
+	cont "it this way."
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPostBattleText_0::
-	text "i'll be back 0"
+	text "One defeat won't"
+	line "stop me! A good"
+	cont "trainer learns"
+	cont "from their fails"
+	cont "too and comes"
+	cont "back stronger!"
+
+	para "Now I must go heal"
+	line "my dear team!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPostBattleText_1::
-	text "i'll be back 1"
+	text "Was this still not"
+	line "enough?! I must"
+	cont "train even more!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPostBattleText_2::
-	text "i'll be back 2"
+	text "How were starters"
+	line "and legendaries"
+	cont "not enough?!"
+
+	para "What can I do now?"
+	line "I must think..."
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPostBattleText_3::
-	text "i'll be back 3"
+	text "Not even the most"
+	line "meta team cut it?"
+	cont "What do I need?!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPostBattleText_4::
-	text "i'll be back 4"
+	text "This is absurd!!!"
+	line "Not even a team"
+	cont "full of LVL 100"
+	cont "MEGA was enough?!"
+
+	para "What the hell do"
+	line "I need to obtain"
+	cont "my last BADGE?"
+	cont "I just want to"
+	cont "finished this"
+	cont "damn adventure!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerPostBattleText_5::
-	text "i'll be back 5+"
+	text "What the fu...?!"
+	line "Not even SCUMMING"
+	cont "was enough?!"
+	cont "What the hell?!?!"
 ;	xxxx "123456789012345678"
 	done
 
 _ViridianGymChallengerDefeatedText::
-;	text "CHALLENGER: "
-	text "damn!"
+;	text "CHALLENGER:"
+	text "Damn!"
 ;	xxxx "123456789012345678"
 	prompt

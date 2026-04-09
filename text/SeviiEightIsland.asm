@@ -1,25 +1,43 @@
 _SeviiEightIslandCityText1_TriangleWithSevenThings::
-	text "Triangle with 7"
+	text "There are 7 holes."
+	line "They look like"
+	cont "slots for some"
+	cont "SCROLLs."
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _SeviiEightIslandCityText1_SomethingIsMissing::
-	text "Something misses"
+	text "Something is"
+	line "still missing."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiEightIslandCityText1_ReactsWithScrolls::
-	text "React w scrolls"
+	text "You insert all the"
+	line "seven SCROLLs of"
+	cont "the SEVII TRIAL"
+	cont "in the stone."
+
+	para "It reacts to them!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiEightIslandCityText1_SomethingOpened::
-	text "Smth opened"
+	text "An overwhelming"
+	line "presence got"
+	cont "unlocked nearby."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiEightIslandCityText1_CaveOpen::
-	text "Some is open"
+	text "The stone already"
+	line "reacted to the"
+	cont "seven SCROLLs of"
+	cont "the SEVII TRIAL."
+
+	para "Nearby, an over-"
+	line "whelming presence"
+	cont "got unlocked."
 ;	xxxx "123456789012345678"
 	done
 
@@ -211,7 +229,7 @@ _SeviiTenIslandText1_Intro::
 	para "It's a #BALL,"
 	line "but it has"
 	cont "never-before-seen"
-	cont "colors." 
+	cont "colors."
 ;	xxxx "123456789012345678"
 
 	para "Uh? There are two"

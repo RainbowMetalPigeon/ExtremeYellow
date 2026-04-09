@@ -650,7 +650,13 @@ ViridianGymChallengerText:
 
 ViridianGymGuideText_PostLeague:
 	text_asm
-	ld hl, ViridianGymGuideText_PostLeague_Intro
+	CheckEvent EVENT_VIRIDIAN_GYM_ALREADY_INSTRUCTED_ABOUT_INTERIM_LEADER
+	ld hl, ViridianGymGuideText_PostLeague_Intro_Short
+	jr nz, .printNow
+; not spoken with
+	SetEvent EVENT_VIRIDIAN_GYM_ALREADY_INSTRUCTED_ABOUT_INTERIM_LEADER
+	ld hl, ViridianGymGuideText_PostLeague_Intro_Long
+.printNow
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
@@ -666,8 +672,12 @@ ViridianGymGuideText_PostLeague:
 	call PrintText
 	jp TextScriptEnd
 
-ViridianGymGuideText_PostLeague_Intro:
-	text_far _ViridianGymGuideText_PostLeague_Intro
+ViridianGymGuideText_PostLeague_Intro_Long:
+	text_far _ViridianGymGuideText_PostLeague_Intro_Long
+	text_end
+
+ViridianGymGuideText_PostLeague_Intro_Short:
+	text_far _ViridianGymGuideText_PostLeague_Intro_Short
 	text_end
 
 ViridianGymGuideText_PostLeague_WhenReady:

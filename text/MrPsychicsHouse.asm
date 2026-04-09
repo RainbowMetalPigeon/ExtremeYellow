@@ -59,38 +59,54 @@ _SaffronHouse2SabrinaPostBattleText::
 	cont "Thank you!"
 	prompt
 
+; apartments -----------------------
+
 _SaffronNewApartmentsText1::
 	text "n1"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText2::
 	text "n2"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText3::
 	text "n3"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText4_FromAbove::
-	text "get out way"
+	text "Hey! Move out!"
+	line "You're in the way!"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText4_NotFromAbove::
-	text "tv is good"
+	text "TV is good."
+	line "More than people."
+
+	para "So? Did you get"
+	line "the hint?"
+;	xxxx "123456789012345678"
 	done
 
-_SaffronNewApartmentsText5::
+_SaffronNewApartmentsText5:: ; games
 	text "n5"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText6::
 	text "n6"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsSignText1_FromBelow::
 	text "ducktales!"
+;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsSignText1_NotFromBelow::
 	text "wrong side"
+;	xxxx "123456789012345678"
 	done

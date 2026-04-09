@@ -1,12 +1,14 @@
 DEF NOT_VISITED EQU $fe
 
 DisplayTownMap::
+	ResetEvent EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE ; new for zoom
 ; new for deep water
 	ldh a, [hTileAnimations]
 	ld [wSavedTileAnimations], a
 	xor a
 	ldh [hTileAnimations], a
 	ld [wWhichTownMapLocationBackup], a ; new
+	ld [wCurMapBackup], a ; new
 ; BTV
 	call LoadTownMap
 	CheckEvent EVENT_IN_SEVII ; new for sevii
@@ -34,17 +36,12 @@ DisplayTownMap::
 	ld b, a
 	and A_BUTTON | B_BUTTON
 	jr z, .inputLoopHaunted
-;	ld a, SFX_TINK
-;	call PlaySound
 	xor a
 	ldh [hJoy7], a
-;	ld [wAnimCounter], a ; ?
 	call ExitTownMap
-;	pop hl
-;	pop af
-;	ld [hl], a ; ?
 	ret
 .notHauntedHouse
+	SetEvent EVENT_JUST_OPENED_TOWN_MAP
 ; back to vanilla
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
@@ -55,7 +52,7 @@ DisplayTownMap::
 	ld a, $1
 	ldh [hJoy7], a
 	ld a, [wCurMap]
-	push af
+;	push af
 	ld b, $0
 	call DrawPlayerOrBirdSprite ; player sprite
 	hlcoord 1, 0
@@ -70,30 +67,27 @@ DisplayTownMap::
 	lb bc, BANK(TownMapCursor), (TownMapCursorEnd - TownMapCursor) / $8
 	call CopyVideoDataDouble
 ; new for zoom
-	ld a, [wWhichTownMapLocationBackup]
-	and a
+	CheckEvent EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE
 	jr nz, .notVanilla
+; vanilla
 	xor a
-.notVanilla
 	ld [wWhichTownMapLocation], a
+	ld a, [wCurMap]
+	jr .postZoomBackup
+.notVanilla
+	ld a, [wWhichTownMapLocationBackup]
+	ld [wWhichTownMapLocation], a
+	ld a, [wCurMapBackup]
+.postZoomBackup
 ; BTV
-	pop af
+;	pop af
 	jr .enterLoop
 
 .townMapLoop
 	hlcoord 0, 0
 	lb bc, 1, 20
-	call ClearScreenArea
-	ld hl, TownMapOrder_Sevii ; new, for sevii
-	CheckEvent EVENT_IN_SEVII
-	jr nz, .sevii1
-	ld hl, TownMapOrder
-.sevii1
-	ld a, [wWhichTownMapLocation]
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
+	call ClearScreenArea ; Clear tilemap area cxb at hl.
+	call DetermineWhichCityWePointAt ; ConvertTownMapLocationToMapID ; new
 .enterLoop
 	ld de, wTownMapCoords
 	call LoadTownMapEntry
@@ -112,9 +106,30 @@ DisplayTownMap::
 	inc de
 	cp $50
 	jr nz, .copyMapName
+; new for zoom
+	hlcoord 0, 0
+	lb bc, 1, 20
+	call ClearScreenArea ; Clear tilemap area cxb at hl.
+; BTV
 	hlcoord 1, 0
 	ld de, wcd6d
 	call PlaceString
+.test
+; new for zoom
+	call IsCurrentlyPointedMapFlyable ; a -> ID of map if ok, $FE or $FF if not
+	hlcoord 18, 0
+	cp $FE ; = NOT_VISITED
+	jp nc, .noZoomabilityPrint
+	ld [hl], $70
+	inc hl
+	ld [hl], $71
+	jr .doneWithZoomabilityPrint
+.noZoomabilityPrint
+	ld [hl], " "
+	inc hl
+	ld [hl], " "
+.doneWithZoomabilityPrint
+; BTV
 	ld hl, wShadowOAMSprite04
 	ld de, wTileMapBackup + 16
 	ld bc, $10
@@ -145,6 +160,7 @@ DisplayTownMap::
 	ld [hl], a
 	ret
 .pressedUp
+	ResetEvent EVENT_JUST_OPENED_TOWN_MAP ; new
 	ld a, [wWhichTownMapLocation]
 	inc a
 ; new for sevii
@@ -167,6 +183,7 @@ DisplayTownMap::
 	ld [wWhichTownMapLocation], a
 	jp .townMapLoop
 .pressedDown
+	ResetEvent EVENT_JUST_OPENED_TOWN_MAP ; new
 	ld a, [wWhichTownMapLocation]
 	dec a
 	cp -1
@@ -184,8 +201,14 @@ DisplayTownMap::
 	jp .townMapLoop
 ; new for zoom -------------------------
 .pressedA
-; TBE: check if we CAN zoom on this map: is it a city? did we visit it already? -> fly destination flags
-; TBE: split between Kanto and Sevii
+; is this a city (or generally a zoomable map)?
+	call IsCurrentlyPointedMapAZoomableOne ; c = yes, nc = no
+	jp nc, .inputLoop
+; did we visit it already?
+	call IsCurrentlyPointedMapFlyable ; a -> ID of map if ok, $FE or $FF if not
+	cp $FE ; = NOT_VISITED
+	jp nc, .inputLoop
+; all good: show the zoom
 	call LoadTownMapZoom
 .inputLoopZoom
 	call JoypadLowSensitivity
@@ -378,7 +401,7 @@ LoadTownMap_Fly::
 	push hl
 	hlcoord 3, 0
 	lb bc, 1, 15
-	call ClearScreenArea
+	call ClearScreenArea ; Clear tilemap area cxb at hl.
 	pop hl
 	ld a, [hl]
 	ld b, $4
@@ -601,7 +624,14 @@ LoadTownMap:
 	ld de, vChars2 tile $60
 	ld bc, WorldMapTileGraphicsEnd - WorldMapTileGraphics
 	ld a, BANK(WorldMapTileGraphics)
-	call FarCopyData
+	call FarCopyData ; Copy bc bytes from a:hl to de.
+; new for zoom
+	ld hl, AToZoomGraphics
+	ld de, vChars2 tile $70
+	ld bc, AToZoomGraphicsEnd - AToZoomGraphics
+	ld a, BANK(AToZoomGraphics)
+	call FarCopyData ; Copy bc bytes from a:hl to de.
+; BTV
 	ld hl, MonNestIcon
 	ld de, vSprites tile $04
 	ld bc, MonNestIconEnd - MonNestIcon
@@ -1058,6 +1088,7 @@ TownMapSpriteBlinkingAnimation::
 ; new, for map zooms ============================================================
 
 LoadTownMapZoom:
+	SetEvent EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE
 	ld a, [wWhichTownMapLocation]
 	ld [wWhichTownMapLocationBackup], A
 
@@ -1074,7 +1105,7 @@ LoadTownMapZoom:
 	ld bc, WorldMapZoomTileGraphicsEnd - WorldMapZoomTileGraphics
 	ld a, BANK(WorldMapZoomTileGraphics)
 	call FarCopyData
-	
+
 	call DetermineWhichCityWePointAt
 	call DetermineWhichCompressedMapToLoad
 	hlcoord 0, 0
@@ -1103,7 +1134,10 @@ LoadTownMapZoom:
 	call Delay3
 	call GBPalNormal
 
-; print city name
+; clear header and print city name
+	hlcoord 0, 0
+	lb bc, 1, 20
+	call ClearScreenArea ; Clear tilemap area cxb at hl.
 	hlcoord 1, 0
 	ld de, wcd6d
 	call PlaceString
@@ -1139,18 +1173,43 @@ CompressedMapZoom_Cinnabar:
 
 ; -----------------------------------
 
-; output: a contains the map ID (should only be a city's if we did things right beforehand)
+ZoomableMaps:
+	db PALLET_TOWN
+	db VIRIDIAN_CITY
+	db PEWTER_CITY
+	db CERULEAN_CITY
+	db VERMILION_CITY
+	db LAVENDER_TOWN
+	db CELADON_CITY
+	db SAFFRON_CITY
+	db FUCHSIA_CITY
+	db OCHRE_CITY
+	db OBSIDIAN_ISLAND
+	db CINNABAR_ISLAND
+	; TBE: others?
+	db -1
+
+ZoomableMaps_Sevii:
+	db SEVII_ONE_ISLAND_CITY
+	db SEVII_TWO_ISLAND_CITY ; ISLET?
+	db SEVII_THREE_ISLAND_CITY
+	db SEVII_FOUR_ISLAND_CITY
+	db SEVII_FIVE_ISLAND_CITY
+	db SEVII_SIX_ISLAND_CITY
+	db SEVII_SEVEN_ISLAND_CITY
+	db SEVII_EIGHT_ISLAND_CITY
+	; TBE: others?
+	db -1
+
+; output: a contains the map ID
 DetermineWhichCityWePointAt:
-	ld hl, TownMapOrder_Sevii
-	CheckEvent EVENT_IN_SEVII
-	jr nz, .sevii
-	ld hl, TownMapOrder
-.sevii
-	ld a, [wWhichTownMapLocation] ; TBE may need improvements
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
+	CheckEvent EVENT_JUST_OPENED_TOWN_MAP
+	ld a, [wCurMap]
+	jr nz, .gotMapIndex
+; not first click
+	call ConvertTownMapLocationToMapID
+.gotMapIndex
+	ld [wCurMapBackup], a
 	ret
 
 ; input: a = (city) map ID
@@ -1196,3 +1255,61 @@ DetermineWhichCompressedMapToLoad:
 	ld de, CompressedMapZoom_Pallet
 	ret
 
+ConvertTownMapLocationToMapID:
+	ld hl, TownMapOrder_Sevii
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+	ld hl, TownMapOrder
+.sevii
+	ld a, [wWhichTownMapLocation]
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	ret
+
+IsCurrentlyPointedMapAZoomableOne:
+	CheckEvent EVENT_IN_SEVII
+	ld hl, ZoomableMaps_Sevii
+	jr nz, .gotListZoomable
+	ld hl, ZoomableMaps
+.gotListZoomable
+	push hl
+	call DetermineWhichCityWePointAt ; ConvertTownMapLocationToMapID
+	pop hl
+	ld de, 1
+	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
+	ret
+
+; output: a = ID of the map if flyable, $FF or $FE if not.
+; this works if we don't change NOT_VISITED=$FE and there are no flyable maps with ID=$FE
+IsCurrentlyPointedMapFlyable:
+	call DetermineWhichCityWePointAt ; ConvertTownMapLocationToMapID
+	push af
+	call BuildFlyLocationsList_Wrapper ; build list of flyable destinations in wFlyLocationsList or wFlyLocationsList_Sevii
+	CheckEvent EVENT_IN_SEVII
+	ld b, NUM_CITY_MAPS_SEVII + 3
+	ld hl, wFlyLocationsList_Sevii
+	jr nz, .foundRegion
+	ld b, NUM_CITY_MAPS + 5
+	ld hl, wFlyLocationsList
+.foundRegion
+	pop af ; a is the currently pointed map's ID
+	ld c, a
+.loop ; c=ID, hl=list (NOT_VISITED and $FF are to be ignored), b=number of maps in array still to check
+	ld a, [hli]
+	cp ROUTE_4
+	jr z, .handleSpecialCases
+	cp ROUTE_10
+	jr z, .handleSpecialCases
+	cp FORLORN_VALLEY
+	jr z, .handleSpecialCases
+	cp INDIGO_PLATEAU
+	jr z, .handleSpecialCases
+	cp c
+	ret z
+.handleSpecialCases
+	dec b
+	jr nz, .loop
+	ld a, $FF
+	ret

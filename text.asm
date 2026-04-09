@@ -96,8 +96,6 @@ INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/ViridianGym.asm"
 INCLUDE "text/Museum1F.asm"
 INCLUDE "text/Museum2F.asm"
-INCLUDE "text/PewterGym.asm"
-INCLUDE "text/PewterPokecenter.asm"
 
 
 SECTION "Text 6", ROMX
@@ -310,6 +308,8 @@ INCLUDE "text/Route7.asm"
 INCLUDE "data/text/text_4.asm"
 INCLUDE "text/PokemonMansion3F.asm"
 INCLUDE "text/pokedex_ratings.asm"
+INCLUDE "text/PewterPokecenter.asm"
+INCLUDE "text/PewterGym.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

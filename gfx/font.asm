@@ -45,3 +45,6 @@ EXPBarGraphicsEnd::
 
 WorldMapZoomTileGraphics: INCBIN "gfx/town_map/town_map_zoom.2bpp"
 WorldMapZoomTileGraphicsEnd:
+
+AToZoomGraphics: INCBIN "gfx/town_map/a_to_zoom.2bpp"
+AToZoomGraphicsEnd:

@@ -857,10 +857,10 @@ wFlyAnimUsingCoordList:: db
 wFlyLocationsList:: ds NUM_CITY_MAPS + 5 ; edited, to allow fly to Route 4 and Route 10 and Forlorn Valley
 
 NEXTU
-wWhichTownMapLocation:: db
+;wWhichTownMapLocation:: db ; edited, moved elsewhere
+	ds 1 ; new, to fill the gap from the above
 wFlyAnimCounter:: db
 wFlyAnimBirdSpriteImageIndex:: db
-wWhichTownMapLocationBackup:: db ; new
 
 NEXTU
 	ds 1
@@ -1801,8 +1801,18 @@ wMoves:: ds NUM_MOVES
 
 wMoveNum:: db
 
+UNION ; new
+
 wItemList::			; suggestion from Vortiene, frees 16 bytes and allows 56 items sold in markets
 wMovesString:: ds 56
+
+NEXTU ; new
+
+wWhichTownMapLocation:: db ; moved from elsewhere
+wWhichTownMapLocationBackup:: db ; new
+wCurMapBackup:: db ; new
+; and then 53 other bytes
+ENDU ; new
 
 wUnusedD119:: db
 

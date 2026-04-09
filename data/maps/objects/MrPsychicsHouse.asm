@@ -20,7 +20,7 @@ MrPsychicsHouse_Object:
 
 	def_object_events
 	object_event  5,  3, SPRITE_FISHING_GURU, STAY, LEFT, 1 ; person
-	object_event  2,  3, SPRITE_SABRINA, STAY, RIGHT, 2 ; new, Sabrina 
+	object_event  2,  3, SPRITE_SABRINA, STAY, RIGHT, 2 ; new, Sabrina
 	; poly pidgey house
 	object_event 16,  3, SPRITE_BRUNETTE_GIRL, STAY, RIGHT, 3 ; person
 	object_event 14,  4, SPRITE_BIRD, WALK, UP_DOWN, 4 ; person
@@ -32,6 +32,6 @@ MrPsychicsHouse_Object:
 	object_event 33,  4, SPRITE_COOLTRAINER_M, STAY, LEFT, 9 ; person
 	object_event 46,  6, SPRITE_LITTLE_GIRL, STAY, UP, 10 ; person
 	object_event 44,  4, SPRITE_GAMEBOY_KID, STAY, DOWN, 11 ; person
-	object_event 59,  4, SPRITE_COOLTRAINER_M, STAY, DOWN, 12 ; person
+	object_event 59,  4, SPRITE_COOLTRAINER_M, WALK, ANY_DIR, 12 ; person
 
 	def_warps_to MR_PSYCHICS_HOUSE
