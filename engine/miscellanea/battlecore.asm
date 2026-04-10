@@ -440,6 +440,25 @@ GetRandomizedTypeMatchup:
 ; input: a is the type
 ; ouput: a is the rescale type
 RescaleTypes:
+	push af
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .noTCGMode
+; TCG mode
+	pop af
+    cp GROUND2
+    jr nz, .notGround2_TCG
+    ld a, TCG_FIGHTING
+    jr .continueRescaling_TCG
+.notGround2_TCG
+    cp ICE2
+    jr nz, .continueRescaling_TCG
+    ld a, TCG_WATER2
+.continueRescaling_TCG
+	; here nothing because there's no gap
+    ret
+.noTCGMode ; -------------
+	pop af
     cp GROUND2
     jr nz, .notGround2
     ld a, GROUND
@@ -449,7 +468,7 @@ RescaleTypes:
     jr nz, .continueRescaling
     ld a, ICE
 .continueRescaling
-    cp FIRE
+    cp SPECIAL
     ret c ; do nothing more if it's a physical move
           ; GROUND2 handled above, and TYPELESS beforehand
 ; special move, needs to be -10ed
@@ -574,12 +593,30 @@ PerformChecks:
 	add hl, de
 	pop de
 ; with the above, we moved the hl to point to the move type rather than its number
+; do the TCG mode check
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [hl] ; a = move type
+	jr z, .noTCGMode
+; TCG mode ; -----
+	cp TCG_FIRE
+	jr z, .fire
+	cp TCG_WATER
+	jr z, .water
+	cp TCG_LIGHTNING
+	jr z, .electric
+	cp TCG_GRASS
+	jr z, .grass
+	cp TCG_PSYCHIC
+	jr z, .psychic
+	cp TCG_DRAGON
+	jr z, .dragon
+	ret
+.noTCGMode ; -----
 	cp FIRE
 	jr z, .fire
 	cp WATER
 	jr z, .water
-
 	cp ELECTRIC
 	jr z, .electric
 	cp GRASS
@@ -814,7 +851,7 @@ BasePowerModifierMoves::
 	cp WHIRLPOOL
 	ret nz
 	jr .checkIfTargetDiving
-	
+
 .popAndRet
 	pop af
 	ret
