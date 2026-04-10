@@ -100,7 +100,8 @@ _SeviiSixIslandPokemonCenterAndMart_Text2::
 	cont "nature is, it's"
 	cont "not like someone"
 	cont "programmed it."
-	cont "Right?"
+
+	para "Right?"
 ;	xxxx "123456789012345678"
 	done
 

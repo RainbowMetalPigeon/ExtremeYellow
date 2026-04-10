@@ -117,6 +117,22 @@ _PersonalizationInfoTextTCGMode::
 ;	xxxx "123456789012345678"
 	prompt
 
+_PersonalizationInfoTextOverworldSpeedup::
+	text "EXPERIMENTAL!"
+	line "Doubles the over-"
+	cont "world movement"
+	cont "speed. May lead"
+	cont "to some glitches."
+;	xxxx "123456789012345678"
+	prompt
+
+_LayoutInfoTextDayNightPalettes::
+	text "Toggles the NIGHT"
+	line "palette. Does not"
+	cont "affect gameplay."
+;	xxxx "123456789012345678"
+	prompt
+
 ; randomization ------
 
 _RandomizationInfoTextWildMons::

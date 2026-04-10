@@ -54,7 +54,11 @@ EnterMap::
 	ld [wJoyIgnore], a
 
 OverworldLoop::
+	ld a, [wPersonalizationOverworldSpeedup]
+	and a
+	jr nz, .noSpeedUp
 	call DelayFrame
+.noSpeedUp
 OverworldLoopLessDelay::
 	call CheckForSpinAndDelay ; edited
 	call IsSurfingPikachuInParty
@@ -2484,7 +2488,7 @@ CheckForSpinAndDelay:
 	jr z, .noSpinning
 	ld a, [wSpinnerTileFrameCount]
 	dec a
-	ret z	
+	ret z
 .noSpinning
 	call DelayFrame
 	ret

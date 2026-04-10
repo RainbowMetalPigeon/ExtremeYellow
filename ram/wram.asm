@@ -2323,11 +2323,13 @@ wFanClubCurScript:: db
 ;	ds 1
 ;wOchreGymCurScript:: db ; new
 ;wRedsHouse2FCurScript:: db
-	ds 12 ; new, from optimizing the scripts, UNUSED
+	ds 10 ; new, from optimizing the scripts, UNUSED
 wSpinnerTileFrameCount:: db ; new
 wDayNightCycle:: db ; new
 wPersonalizationTypeChart:: db ; new
 wPersonalizationTCGMode:: db ; new
+wPersonalizationOverworldSpeedup:: db ; new
+wLayoutDayNightPalettes:: db ; new
 
 wViridianMartCurScript:: db
 wRoute22GateCurScript:: db

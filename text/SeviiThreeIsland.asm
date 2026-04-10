@@ -9,7 +9,7 @@ _SeviiThreeIslandCityText1_Before::
 
 _SeviiThreeIslandCityText1_After::
 	text "Now that those"
-	line "noisty bikers"
+	line "noisy bikers"
 	cont "left ROUTE 33,"
 	cont "I could return"
 	cont "there..."

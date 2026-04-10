@@ -40,7 +40,7 @@ LayoutMenuJumpTable:
 	dw LayoutMenu_Names
 	dw LayoutMenu_LevelStatus
 	dw LayoutMenu_SpeakerSettings ; from the vanilla option menu
-	dw LayoutMenu_Dummy
+	dw LayoutMenu_DayNightPalettes
 	dw LayoutMenu_Dummy
 	dw LayoutMenu_Dummy
 	dw LayoutMenu_Dummy
@@ -196,6 +196,50 @@ LayoutMenu_LevelStatus:
 
 ; ---------------------------------------------
 
+LayoutMenu_DayNightPalettes:
+	ld a, [wLayoutDayNightPalettes]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $2
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wLayoutDayNightPalettes], a
+.nonePressed
+	ld b, $0
+	ld hl, LayoutDayNightPalettesStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 16, 8
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
 LayoutMenu_Dummy:
 	and a
 	ret
@@ -237,7 +281,7 @@ LayoutControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 2 ; number of options - 1
+	cp 3 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -248,7 +292,7 @@ LayoutControl:
 	ld a, [hl]
 	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 2 ; number of options - 1
+	ld [hl], 3 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -263,7 +307,7 @@ LayoutControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wMultipurposeTemporaryStorage], a
-	cp 3 ; number of options
+	cp 4 ; number of options
 	ret nc
 	add a ; doubles a
 	ld e, a
@@ -307,7 +351,7 @@ InitLayoutMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 4 ; the number of options to loop through
 .loop
 	push bc
 	call GetLayoutPointer ; updates the next option
@@ -335,7 +379,7 @@ InitLayoutMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 3 ; the number of options to loop through
+	ld c, 4 ; the number of options to loop through
 .loop
 	push bc
 	call GetLayoutPointer ; updates the next option
@@ -353,7 +397,8 @@ InitLayoutMenu_Redo:
 AllLayoutText:
 	db   "NAMES:"
 	next "LEVEL/STATUS:"
-	next "SOUND:@"
+	next "SOUND:"
+	next "NIGHT PALETTE:@"
 
 LayoutMenuCancelText:
 	db "EXIT@"
@@ -379,12 +424,17 @@ NewText:
 OldText:
 	db "OLD@"
 
+LayoutDayNightPalettesStringsPointerTable:
+	dw YesText
+	dw NoText
+
 ; new, for info
 
 LayoutInfoTexts:
 	dw LayoutInfoTextNames
 	dw LayoutInfoTextLevelStatus
 	dw LayoutInfoTextSound
+	dw LayoutInfoTextDayNightPalettes
 
 LayoutInfoTextNames:
 	text_far _LayoutInfoTextNames
@@ -396,4 +446,8 @@ LayoutInfoTextLevelStatus:
 
 LayoutInfoTextSound:
 	text_far _LayoutInfoTextSound
+	text_end
+
+LayoutInfoTextDayNightPalettes:
+	text_far _LayoutInfoTextDayNightPalettes
 	text_end

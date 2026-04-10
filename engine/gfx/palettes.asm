@@ -1456,6 +1456,9 @@ GetGBCBasePalAddress_SelectDE: ; new, for day-night cycle
 	CheckAndResetEvent EVENT_INDOOR_PALETTE
 	ld de, GBCBasePalettes_Sevii
 	jr nz, .conclude
+	ld a, [wLayoutDayNightPalettes]
+	and a
+	jr nz, .conclude
 ; Sevii, overworld
 	ld a, [wDayNightCycle]
 	and %00000001
@@ -1467,6 +1470,9 @@ GetGBCBasePalAddress_SelectDE: ; new, for day-night cycle
 .nonSevii
 	CheckAndResetEvent EVENT_INDOOR_PALETTE
 	ld de, GBCBasePalettes
+	jr nz, .conclude
+	ld a, [wLayoutDayNightPalettes]
+	and a
 	jr nz, .conclude
 ; non Sevii, overworld
 	ld a, [wDayNightCycle]

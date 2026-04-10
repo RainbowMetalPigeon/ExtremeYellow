@@ -43,7 +43,7 @@ PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_SwapBattles
 	dw PersonalizationMenu_TypeChart
 	dw PersonalizationMenu_TCGMode
-	dw PersonalizationMenu_Dummy
+	dw PersonalizationMenu_OverworldSpeedup
 	dw PersonalizationMenu_Dummy
 	dw PersonalizationMenu_Cancel
 
@@ -269,6 +269,50 @@ PersonalizationMenu_TCGMode:
 
 ; ---------------------------------------------
 
+PersonalizationMenu_OverworldSpeedup:
+	ld a, [wPersonalizationOverworldSpeedup]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp 1 ; number of options - 1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, 2 ; number of options
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationOverworldSpeedup], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationOverworldSpeedupStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 11, 12
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
 PersonalizationMenu_Dummy:
 	and a
 	ret
@@ -310,7 +354,7 @@ PersonalizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 4 ; number of options - 1
+	cp 5 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -321,7 +365,7 @@ PersonalizationControl:
 	ld a, [hl]
 	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 4 ; number of options - 1
+	ld [hl], 5 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -336,7 +380,7 @@ PersonalizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wMultipurposeTemporaryStorage], a
-	cp 5 ; number of options
+	cp 6 ; number of options
 	ret nc
 	cp 0 ; first option is special as it doesn't just print one dialogue
 	jr z, .alteredTypes
@@ -394,7 +438,7 @@ InitPersonalizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -422,7 +466,7 @@ InitPersonalizationMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -442,7 +486,8 @@ AllPersonalizationText:
 	next "PHY/SPE SPLIT:"
 	next "SWAP BATTLE:"
 	next "TYPECHART:"
-	next "TCG MODE:@"
+	next "TCG MODE:"
+	next "SPEED-UP:@"
 
 PersonalizationTitleText:
 	db "PERSONALIZATION@"
@@ -486,6 +531,7 @@ CustomText:
 	db "CUSTOM @" ; TBE: PIGEON's?
 
 PersonalizationTCGModeStringsPointerTable:
+PersonalizationOverworldSpeedupStringsPointerTable:
 	dw NoText
 	dw YesText
 
@@ -497,6 +543,7 @@ PersonalizationInfoTexts:
 	dw PersonalizationInfoTextSwapBattles
 	dw PersonalizationInfoTextTypeChart
 	dw PersonalizationInfoTextTCGMode
+	dw PersonalizationInfoTextOverworldSpeedup
 
 PersonalizationInfoTextTypes:
 	text_far _PersonalizationInfoTextTypes
@@ -524,4 +571,8 @@ PersonalizationInfoTextTypeChart:
 
 PersonalizationInfoTextTCGMode:
 	text_far _PersonalizationInfoTextTCGMode
+	text_end
+
+PersonalizationInfoTextOverworldSpeedup:
+	text_far _PersonalizationInfoTextOverworldSpeedup
 	text_end

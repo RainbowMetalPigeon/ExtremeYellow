@@ -411,15 +411,16 @@ _SeviiOneIslandHousesScriptText2::
 	cont "I was too slow to"
 	cont "be of any help,"
 	cont "and regardless,"
-	cont "I'd been too weak."
+	cont "I would have been"
+	cont "far too weak."
 	cont "This is a wake-up"
 	cont "call. I'll train!"
 	cont "I'll be strong!"
 
-	para "PINK: <PLAYER>!"
+	para "<PLAYER>!"
 	line "Fight me! I must"
 	cont "know how strong I"
-	cont "have to become!"
+	cont "need to become!"
 ;	xxxx "123456789012345678"
 	done
 
