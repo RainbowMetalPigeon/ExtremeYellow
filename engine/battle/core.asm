@@ -4584,18 +4584,35 @@ GetDamageVarsForPlayerAttack:
 	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
 	and a
 	jr nz, .PhysicalSpecialSplit
+
 ; no physical/special split applied
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
 	ld a, [hl] ; a = [wPlayerMoveType]
+	jr z, .physicalSpecialCheckNoTCGMode1
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck1
+.physicalSpecialCheckNoTCGMode1
 	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck1
 	jp nc, .specialAttack ; commented for physical/special split
 	jr .physicalAttack
+
 .PhysicalSpecialSplit
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
 	ld a, [hl] ; a = [wPlayerMoveType]
-	cp SPECIAL ; types >= SPECIAL are normally special
+	jr z, .physicalSpecialCheckNoTCGMode2
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck2
+.physicalSpecialCheckNoTCGMode2
+	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck2
 	ld a, [wPlayerMoveNum]
     ld b, a
     jr nc, .isSpecialActuallyPhysical
     jr .isPhysicalActuallySpecial
+
 .isSpecialActuallyPhysical
     ld hl, SpecialToPhysicalMoves
 .specialPhysicalLoop
@@ -4605,6 +4622,7 @@ GetDamageVarsForPlayerAttack:
     cp $ff ; end of list
     jr nz, .specialPhysicalLoop ; keep checking list
     jr .specialAttack ; Not actually a physical move
+
 .isPhysicalActuallySpecial
     ld hl, PhysicalToSpecialMoves
 .physicalSpecialLoop
@@ -4816,13 +4834,27 @@ GetDamageVarsForEnemyAttack:
 	and a
 	jr nz, .PhysicalSpecialSplit
 ; no physical/special split applied
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [hl] ; a = [wPlayerMoveType]
+	jr z, .physicalSpecialCheckNoTCGMode1
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck1
+.physicalSpecialCheckNoTCGMode1
 	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck1
 	jp nc, .specialAttack ; commented for physical/special split
 	jr .physicalAttack
 .PhysicalSpecialSplit
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [hl] ; a = [wPlayerMoveType]
-	cp SPECIAL ; types >= SPECIAL are normally special
+	jr z, .physicalSpecialCheckNoTCGMode2
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck2
+.physicalSpecialCheckNoTCGMode2
+	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck2
 	ld a, [wEnemyMoveNum]
     ld b, a
     jr nc, .isSpecialActuallyPhysical
@@ -7634,14 +7666,28 @@ PrintIfMoveSpecialOrPhysical:: ; new
 	and a
 	jr nz, .PhysicalSpecialSplit
 ; no physical/special split applied
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wPlayerMoveType]
+	jr z, .physicalSpecialCheckNoTCGMode1
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck1
+.physicalSpecialCheckNoTCGMode1
 	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck1
 	jp nc, .specialAttack ; commented for physical/special split
 	jr .physicalAttack
 ; option on --------------------
 .PhysicalSpecialSplit
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wPlayerMoveType]
-	cp SPECIAL ; types >= SPECIAL are normally special
+	jr z, .physicalSpecialCheckNoTCGMode2
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck2
+.physicalSpecialCheckNoTCGMode2
+	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck2
 	ld a, [wPlayerMoveNum]
     ld b, a
     jr nc, .isSpecialActuallyPhysical
