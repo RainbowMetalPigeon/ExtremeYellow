@@ -41,6 +41,24 @@ CheckWeathersAndTerrainsForBallAndPulse:
 ; it's Weather Ball; check if there's an active weather
 	inc hl
 	inc hl ; now hl points to the move power
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .weatherBallNoTCGMode
+; weather ball in TCG mode
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	ld a, TCG_FIRE
+	jr nz, .weather
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	ld a, TCG_WATER
+	jr nz, .weather
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	ld a, TCG_FIGHTING
+	jr nz, .weather
+	CheckEvent EVENT_WEATHER_HAIL
+	ld a, TCG_WATER
+	ret z ; no active weather
+.weatherBallNoTCGMode
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
 	ld a, FIRE
 	jr nz, .weather
@@ -70,6 +88,24 @@ CheckWeathersAndTerrainsForBallAndPulse:
 ; user is grounder: check if there's an active terrain
 	inc hl
 	inc hl ; now hl points to the move power
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .terrainPulseNoTCGMode
+; weather ball in TCG mode
+	CheckEvent EVENT_TERRAIN_GRASSY
+	ld a, TCG_GRASS
+	jr nz, .terrain
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	ld a, TCG_LIGHTNING
+	jr nz, .terrain
+	CheckEvent EVENT_TERRAIN_MISTY
+	ld a, TCG_PSYCHIC
+	jr nz, .terrain
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	ld a, TCG_PSYCHIC
+	ret z ; no active terrain
+.terrainPulseNoTCGMode
 	CheckEvent EVENT_TERRAIN_GRASSY
 	ld a, GRASS
 	jr nz, .terrain

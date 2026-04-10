@@ -103,11 +103,14 @@ HandlePoisonBurnLeechSeed::
 ; new, to handle grassy terrain
 	push af
 	CheckEvent EVENT_ENABLE_TERRAIN_HEALING
-	jr z, .dontHandleTerrainHealing
+	jp z, .dontHandleTerrainHealing
 	push hl
 	CheckEvent EVENT_TERRAIN_GRASSY
 	jr z, .noGrassyTerrainHealing
-; player, check if grounded
+; player, check if grounded - can't be grounded in TCG mode
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr nz, .playerMonNotGrounded
 	ld hl, wBattleMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp FLYING
@@ -115,6 +118,7 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hl]
 	cp FLYING
 	jr z, .grassyTerrainCheckEnemy
+.playerMonNotGrounded
 ; player, check if full HP
 	ld hl, wBattleMonMaxHP
 	ld de, wBattleMonHP
@@ -139,6 +143,9 @@ HandlePoisonBurnLeechSeed::
 	call RestoreRealTurn
 ; enemy, check if grounded
 .grassyTerrainCheckEnemy
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr nz, .enemyMonNotGrounded
 	ld hl, wEnemyMonType1
 	ld a, [hli] ; a=type1, hl->type2
 	cp FLYING
@@ -146,6 +153,7 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hl]
 	cp FLYING
 	jr z, .noGrassyTerrainHealing
+.enemyMonNotGrounded
 ; enemy, check if full HP
 	ld hl, wEnemyMonMaxHP
 	ld de, wEnemyMonHP
@@ -183,19 +191,45 @@ HandlePoisonBurnLeechSeed::
 	push hl
 ; check Sandstorm
 	CheckEvent EVENT_WEATHER_SANDSTORM
-	jr z, .checkHail
+	jp z, .checkHail
 ; Sandstorm, player
 ; check if player invulnerable
 	ld hl, wPlayerBattleStatus1
 	bit INVULNERABLE, [hl]
 	jr nz, .sandstormCheckEnemy
+; TCG mode check
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld hl, wBattleMonType1
+	jr z, .noTCGMode_Sandstorm_Player
+; yes TCG
+	ld a, [hli] ; a=type1, hl->type2
+	cp TCG_FIGHTING
+	jr z, .sandstormCheckEnemy
+	cp TCG_METAL
+	jr z, .sandstormCheckEnemy
+	ld a, [hl]
+	cp TCG_FIGHTING
+	jr z, .sandstormCheckEnemy
+	cp TCG_METAL
+	jr z, .sandstormCheckEnemy
+	jr .playerDamaged_Sandstorm
+.noTCGMode_Sandstorm_Player
 	ld a, [hli] ; a=type1, hl->type2
 	cp ROCK
+	jr z, .sandstormCheckEnemy
+	cp STEEL
+	jr z, .sandstormCheckEnemy
+	cp GROUND
 	jr z, .sandstormCheckEnemy
 	ld a, [hl]
 	cp ROCK
 	jr z, .sandstormCheckEnemy
+	cp STEEL
+	jr z, .sandstormCheckEnemy
+	cp GROUND
+	jr z, .sandstormCheckEnemy
+.playerDamaged_Sandstorm
 ; player damaged by Sandstorm
 	call MakeTurnIntoPlayersTurn
 	ld hl, HurtBySandstormText
@@ -212,13 +246,39 @@ HandlePoisonBurnLeechSeed::
 	ld hl, wEnemyBattleStatus1
 	bit INVULNERABLE, [hl]
 	jp nz, .checkUnderwater
+; TCG mode check
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld hl, wEnemyMonType1
+	jr z, .noTCGMode_Sandstorm_Enemy
+; yes TCG
+	ld a, [hli] ; a=type1, hl->type2
+	cp TCG_FIGHTING
+	jp z, .checkUnderwater ; noDamagingWeathers
+	cp TCG_METAL
+	jp z, .checkUnderwater
+	ld a, [hl]
+	cp TCG_FIGHTING
+	jp z, .checkUnderwater
+	cp TCG_METAL
+	jp z, .checkUnderwater
+	jr .enemyDamaged_Sandstorm
+.noTCGMode_Sandstorm_Enemy
 	ld a, [hli] ; a=type1, hl->type2
 	cp ROCK
-	jr z, .checkUnderwater ; noDamagingWeathers
+	jp z, .checkUnderwater
+	cp GROUND
+	jp z, .checkUnderwater
+	cp STEEL
+	jp z, .checkUnderwater
 	ld a, [hl]
 	cp ROCK
-	jr z, .checkUnderwater ; noDamagingWeathers
+	jp z, .checkUnderwater
+	cp GROUND
+	jp z, .checkUnderwater
+	cp STEEL
+	jp z, .checkUnderwater
+.enemyDamaged_Sandstorm
 ; enemy damaged by Sandstorm
 	call MakeTurnIntoEnemysTurn
 	ld hl, HurtBySandstormText
@@ -229,7 +289,7 @@ HandlePoisonBurnLeechSeed::
 	call PlayAltAnimationCopy
 	call HandleWeather_DecreaseEnemyHP
 	call RestoreRealTurn
-	jr .checkUnderwater ; noDamagingWeathers
+	jp .checkUnderwater ; noDamagingWeathers
 .checkHail
 	CheckEvent EVENT_WEATHER_HAIL
 	jr z, .checkUnderwater ; noDamagingWeathers
@@ -238,13 +298,27 @@ HandlePoisonBurnLeechSeed::
 	ld hl, wPlayerBattleStatus1
 	bit INVULNERABLE, [hl]
 	jr nz, .hailCheckEnemy
+; TCG mode check
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld hl, wBattleMonType1
+	jr z, .noTCGMode_Hail_Player
+; yes TCG
+	ld a, [hli] ; a=type1, hl->type2
+	cp TCG_WATER
+	jr z, .hailCheckEnemy
+	ld a, [hl]
+	cp TCG_WATER
+	jr z, .hailCheckEnemy
+	jr .playerDamaged_Hail
+.noTCGMode_Hail_Player
 	ld a, [hli] ; a=type1, hl->type2
 	cp ICE
 	jr z, .hailCheckEnemy
 	ld a, [hl]
 	cp ICE
 	jr z, .hailCheckEnemy
+.playerDamaged_Hail
 ; player damaged by Hail
 	call MakeTurnIntoPlayersTurn
 	ld hl, HurtByHailText
@@ -261,13 +335,27 @@ HandlePoisonBurnLeechSeed::
 	ld hl, wEnemyBattleStatus1
 	bit INVULNERABLE, [hl]
 	jr nz, .checkUnderwater
+; TCG mode check
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld hl, wEnemyMonType1
+	jr z, .noTCGMode_Hail_Enemy
+; yes TCG
+	ld a, [hli] ; a=type1, hl->type2
+	cp TCG_WATER
+	jr z, .checkUnderwater
+	ld a, [hl]
+	cp TCG_WATER
+	jr z, .checkUnderwater
+	jr .enemyDamaged_Hail
+.noTCGMode_Hail_Enemy
 	ld a, [hli] ; a=type1, hl->type2
 	cp ICE
-	jr z, .checkUnderwater ; noDamagingWeathers
+	jr z, .checkUnderwater
 	ld a, [hl]
 	cp ICE
-	jr z, .checkUnderwater ; noDamagingWeathers
+	jr z, .checkUnderwater
+.enemyDamaged_Hail
 ; enemy damaged by Hail
 	call MakeTurnIntoEnemysTurn
 	ld hl, HurtByHailText
@@ -873,15 +961,50 @@ TrickRoomExpiredText:
 ; ----------
 
 CheckWaterEffectiveness_AgainstPlayer:
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, WATER
+	jr z, .notTCGMode
+; is the battling mon TCG_WATER? If yes, no damage, even if it'd be neutral
+	ld a, [wBattleMonType1]
+	cp TCG_WATER
+	jr z, .specialTCGWaterHandling
+	ld a, [wBattleMonType2]
+	cp TCG_WATER
+	jr nz, .noSpecialTCGWaterHandling
+.specialTCGWaterHandling
+	ld a, 2
+	ld [wTypeEffectiveness], a
+	ret
+.noSpecialTCGWaterHandling
+; battling mon is not TCG_WATER
+	ld a, TCG_WATER
+.notTCGMode
 	ld [wEnemyMoveType], a
-	callfar AIGetTypeEffectiveness ; abused, but if it works it works
-								   ; result stored in [wTypeEffectiveness]
+	callfar AIGetTypeEffectiveness ; abused, but if it works it works, result stored in [wTypeEffectiveness]
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 	ret
 
 CheckWaterEffectiveness_AgainstEnemy:
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, WATER
+	jr z, .notTCGMode
+; is the enemy mon TCG_WATER? If yes, no damage, even if it'd be neutral
+	ld a, [wEnemyMonType1]
+	cp TCG_WATER
+	jr z, .specialTCGWaterHandling
+	ld a, [wEnemyMonType2]
+	cp TCG_WATER
+	jr nz, .noSpecialTCGWaterHandling
+.specialTCGWaterHandling
+	ld a, 2
+	ld [wTypeEffectiveness], a
+	ret
+.noSpecialTCGWaterHandling
+; enemy mon is not TCG_WATER
+	ld a, TCG_WATER
+.notTCGMode
 	ld [wEnemyMoveType], a
 ; we need to fake the types of battle/enemy mon for the AI function to work as intended
 	ld a, [wBattleMonType1]
@@ -893,8 +1016,7 @@ CheckWaterEffectiveness_AgainstEnemy:
 	ld a, [wEnemyMonType2]
 	ld [wBattleMonType2], a
 ; let's call the bastardized function
-	callfar AIGetTypeEffectiveness ; abused, but if it works it works
-								   ; result stored in [wTypeEffectiveness]
+	callfar AIGetTypeEffectiveness ; abused, but if it works it works, result stored in [wTypeEffectiveness]
 ; restore the real types of battle/enemy mon
 	ld a, [wUniQuizAnswer]
 	ld [wBattleMonType1], a

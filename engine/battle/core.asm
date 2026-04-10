@@ -4621,7 +4621,7 @@ GetDamageVarsForPlayerAttack:
     jr z, .physicalAttack
     cp $ff ; end of list
     jr nz, .specialPhysicalLoop ; keep checking list
-    jr .specialAttack ; Not actually a physical move
+    jp .specialAttack ; Not actually a physical move
 
 .isPhysicalActuallySpecial
     ld hl, PhysicalToSpecialMoves
@@ -4647,7 +4647,19 @@ GetDamageVarsForPlayerAttack:
 .checkHail
 	CheckEvent EVENT_WEATHER_HAIL
 	jr z, .physicalAttackCritCheck
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wEnemyMonType1]
+	jr z, .checkHailNoTCG
+; TCG mode
+	cp TCG_WATER
+	jr z, .targetIsIce
+	ld a, [wEnemyMonType2]
+	cp TCG_WATER
+	jr nz, .physicalAttackCritCheck
+	jr .targetIsIce
+.checkHailNoTCG
 	cp ICE
 	jr z, .targetIsIce
 	ld a, [wEnemyMonType2]
@@ -4725,7 +4737,19 @@ GetDamageVarsForPlayerAttack:
 .checkSandstorm
 	CheckEvent EVENT_WEATHER_SANDSTORM
 	jr z, .specialAttackCritCheck
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wEnemyMonType1]
+	jr z, .checkSandstormNoTCG
+; TCG mode
+	cp TCG_FIGHTING
+	jr z, .targetIsRock
+	ld a, [wEnemyMonType2]
+	cp TCG_FIGHTING
+	jr nz, .specialAttackCritCheck
+	jr .targetIsRock
+.checkSandstormNoTCG
 	cp ROCK
 	jr z, .targetIsRock
 	ld a, [wEnemyMonType2]
@@ -4867,7 +4891,7 @@ GetDamageVarsForEnemyAttack:
     jr z, .physicalAttack
     cp $ff ; end of list
     jr nz, .specialPhysicalLoop ; keep checking list
-    jr .specialAttack ; Not actually a physical move
+    jp .specialAttack ; Not actually a physical move
 .isPhysicalActuallySpecial
     ld hl, PhysicalToSpecialMoves
 .physicalSpecialLoop
@@ -4892,7 +4916,19 @@ GetDamageVarsForEnemyAttack:
 .checkHail
 	CheckEvent EVENT_WEATHER_HAIL
 	jr z, .physicalAttackCritCheck
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wBattleMonType1]
+	jr z, .checkHailNoTCG
+; TCG mode
+	cp TCG_WATER
+	jr z, .targetIsIce
+	ld a, [wBattleMonType2]
+	cp TCG_WATER
+	jr nz, .physicalAttackCritCheck
+	jr .targetIsIce
+.checkHailNoTCG
 	cp ICE
 	jr z, .targetIsIce
 	ld a, [wBattleMonType2]
@@ -4920,7 +4956,7 @@ GetDamageVarsForEnemyAttack:
 
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
-	jr z, .scaleStats
+	jp z, .scaleStats
 ; in the case of a critical hit, reset the player's defense and the enemy's attack to their base values
 	ld hl, wPartyMon1Defense
 	ld a, [wPlayerMonNumber]
@@ -4970,7 +5006,19 @@ GetDamageVarsForEnemyAttack:
 .checkSandstorm
 	CheckEvent EVENT_WEATHER_SANDSTORM
 	jr z, .specialAttackCritCheck
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wBattleMonType1]
+	jr z, .checkSandstormNoTCG
+; TCG mode
+	cp TCG_FIGHTING
+	jr z, .targetIsRock
+	ld a, [wBattleMonType2]
+	cp TCG_FIGHTING
+	jr nz, .specialAttackCritCheck
+	jr .targetIsRock
+.checkSandstormNoTCG
 	cp ROCK
 	jr z, .targetIsRock
 	ld a, [wBattleMonType2]

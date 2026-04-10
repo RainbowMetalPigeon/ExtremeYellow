@@ -693,7 +693,12 @@ PerformChecks:
 ; inputs: none
 ; output: z if the mon is FLYING, nz if it's not
 ; modifies: z flag, a, hl
+; if TCG mode is on, returns nz
 CheckIfTurnPokemonIsFlying:: ; z flag = FLYING
+	ld a, [wPersonalizationTCGMode]
+	and a
+	ret nz
+; not TCG mode
 	ldh a, [hWhoseTurn]
 	and a
 	ld hl, wBattleMonType1
@@ -709,6 +714,10 @@ CheckIfTurnPokemonIsFlying:: ; z flag = FLYING
 
 ; same as above
 CheckIfNonTurnPokemonIsFlying:: ; z flag = FLYING
+	ld a, [wPersonalizationTCGMode]
+	and a
+	ret nz
+; not TCG mode
 	ldh a, [hWhoseTurn]
 	and a
 	ld hl, wEnemyMonType1

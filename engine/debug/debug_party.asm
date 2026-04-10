@@ -14,11 +14,11 @@ SetDebugTeam:
 
 DebugTeam:
 	db MDRAGONITE, 99 ; 255
-	db JIGGLYPUFF, 41
+	db JYNX, 41
 	db STARTER_PIKACHU, 1
-;	db DRAGONITE, 98
-;	db NINETALES, 42
-;	db MOLTRES, 68
+	db KABUTOPS, 98
+	db SCIZOR, 42
+	db DUGTRIO, 68
 	db -1 ; end
 
 DebugStart:
@@ -48,10 +48,10 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, DOUBLE_IRON_BASH
+	ld a, SANDSTORM ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ROCK_CLIMB
+	ld a, HAIL ; ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, DIVE
