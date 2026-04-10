@@ -1171,20 +1171,22 @@ CompressedMapZoom_Obsidian:
 CompressedMapZoom_Cinnabar:
 	INCBIN "gfx/town_map/town_map_zoom_cinnabar.rle"
 
-;CompressedMapZoom_SeviiOne:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_one.rle"
-;CompressedMapZoom_SeviiTwo:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_two.rle"
-;CompressedMapZoom_SeviiThree:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_threerle"
-;CompressedMapZoom_SeviiFour:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_four.rle"
-;CompressedMapZoom_SeviiFive:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_five.rle"
-;CompressedMapZoom_SeviiSix:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_six.rle"
-;CompressedMapZoom_SeviiSeven:
-;	INCBIN "gfx/town_map/town_map_zoom_sevii_seven.rle"
+CompressedMapZoom_SeviiOne:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_one.rle"
+CompressedMapZoom_SeviiTwo:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_two.rle"
+CompressedMapZoom_SeviiTwo2:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_two2.rle"
+CompressedMapZoom_SeviiThree:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_three.rle"
+CompressedMapZoom_SeviiFour:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_four.rle"
+CompressedMapZoom_SeviiFive:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_five.rle"
+CompressedMapZoom_SeviiSix:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_six.rle"
+CompressedMapZoom_SeviiSeven:
+	INCBIN "gfx/town_map/town_map_zoom_sevii_seven.rle"
 
 ; -----------------------------------
 
@@ -1206,7 +1208,8 @@ ZoomableMaps:
 
 ZoomableMaps_Sevii:
 	db SEVII_ONE_ISLAND_CITY
-	db SEVII_TWO_ISLAND_CITY ; ISLET?
+	db SEVII_TWO_ISLAND_CITY
+	db SEVII_TWO_ISLET
 	db SEVII_THREE_ISLAND_CITY
 	db SEVII_FOUR_ISLAND_CITY
 	db SEVII_FIVE_ISLAND_CITY
@@ -1230,15 +1233,19 @@ DetermineWhichCityWePointAt:
 ; input: a = (city) map ID
 ; output: de = pointer to the zoom rle
 DetermineWhichCompressedMapToLoad:
+	push af
 	CheckEvent EVENT_IN_SEVII
 	jr z, .kanto
-/*
 ; sevii
+	pop af
 	cp SEVII_ONE_ISLAND_CITY
 	ld de, CompressedMapZoom_SeviiOne
 	ret z
 	cp SEVII_TWO_ISLAND_CITY
 	ld de, CompressedMapZoom_SeviiTwo
+	ret z
+	cp SEVII_TWO_ISLET
+	ld de, CompressedMapZoom_SeviiTwo2
 	ret z
 	cp SEVII_THREE_ISLAND_CITY
 	ld de, CompressedMapZoom_SeviiThree
@@ -1256,8 +1263,9 @@ DetermineWhichCompressedMapToLoad:
 	ld de, CompressedMapZoom_SeviiSeven
 ;	ret z
 	ret
-*/
+
 .kanto
+	pop af
 	cp PALLET_TOWN
 	ld de, CompressedMapZoom_Pallet
 	ret z
@@ -1329,15 +1337,14 @@ IsCurrentlyPointedMapFlyable:
 	push af
 	call BuildFlyLocationsList_Wrapper ; build list of flyable destinations in wFlyLocationsList or wFlyLocationsList_Sevii
 	CheckEvent EVENT_IN_SEVII
-	ld b, NUM_CITY_MAPS_SEVII + 3
-	ld hl, wFlyLocationsList_Sevii
-	jr nz, .foundRegion
+	jr nz, .sevii
+
+; Kanto
 	ld b, NUM_CITY_MAPS + 5
 	ld hl, wFlyLocationsList
-.foundRegion
-	pop af ; a is the currently pointed map's ID
+	pop af
 	ld c, a
-.loop ; c=ID, hl=list (NOT_VISITED and $FF are to be ignored), b=number of maps in array still to check
+.loopKanto ; c=ID, hl=list (NOT_VISITED and $FF are to be ignored), b=number of maps in array still to check
 	ld a, [hli]
 	cp ROUTE_4
 	jr z, .handleSpecialCases
@@ -1351,6 +1358,37 @@ IsCurrentlyPointedMapFlyable:
 	ret z
 .handleSpecialCases
 	dec b
-	jr nz, .loop
+	jr nz, .loopKanto
 	ld a, $FF
 	ret
+
+.sevii
+	ResetEvent EVENT_TOWN_MAP_TWO_ISLET
+	ld b, NUM_CITY_MAPS_SEVII + 3
+	ld hl, wFlyLocationsList_Sevii
+	pop af ; a is the currently pointed map's ID
+	cp SEVII_TWO_ISLET
+	jr nz, .noIslet
+	SetEvent EVENT_TOWN_MAP_TWO_ISLET
+	ld a, SEVII_TWO_ISLAND_CITY
+.noIslet
+	ld c, a
+.loopSevii ; c=ID, hl=list (NOT_VISITED and $FF are to be ignored), b=number of maps in array still to check
+	ld a, [hli]
+	cp c
+	jr z, .specialRet
+	dec b
+	jr nz, .loopSevii
+	ld a, $FF
+	ret
+.specialRet
+	push af
+	CheckEvent EVENT_TOWN_MAP_TWO_ISLET
+	jr nz, .wasIslet
+	pop af
+	ret
+.wasIslet
+	pop af
+	ld a, SEVII_TWO_ISLAND_CITY
+	ret
+

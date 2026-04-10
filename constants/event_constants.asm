@@ -867,7 +867,7 @@
 
 ; Route 17 events
 	const_next $4D0
-	const_skip
+	const EVENT_TOWN_MAP_TWO_ISLET ; new
 	const EVENT_BEAT_ROUTE_17_TRAINER_0
 	const EVENT_BEAT_ROUTE_17_TRAINER_1
 	const EVENT_BEAT_ROUTE_17_TRAINER_2
