@@ -16,9 +16,9 @@ DebugTeam:
 	db MDRAGONITE, 99 ; 255
 	db JYNX, 41
 	db STARTER_PIKACHU, 1
-	db KABUTOPS, 98
-	db SCIZOR, 42
-	db DUGTRIO, 68
+;	db KABUTOPS, 98
+;	db SCIZOR, 42
+;	db DUGTRIO, 68
 	db -1 ; end
 
 DebugStart:

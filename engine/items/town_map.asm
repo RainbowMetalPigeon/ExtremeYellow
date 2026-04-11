@@ -1222,9 +1222,21 @@ ZoomableMaps_Sevii:
 ; output: a contains the map ID
 DetermineWhichCityWePointAt:
 	CheckEvent EVENT_JUST_OPENED_TOWN_MAP
+	jr z, .notJustOpened
+; firstly opened
+	CheckEvent EVENT_IN_SEVII
 	ld a, [wCurMap]
+	jr nz, .sevii
+	cp FIRST_INDOOR_MAP
+	jr .gotIndoorComparison
+.sevii
+	cp FIRST_INDOOR_MAP_SEVII
+.gotIndoorComparison
+	jr c, .gotMapIndex ; outdoor map
+; first opened in an indoor map
+	ld a, [wLastMap]
 	jr nz, .gotMapIndex
-; not first click
+.notJustOpened ; not first click
 	call ConvertTownMapLocationToMapID
 .gotMapIndex
 	ld [wCurMapBackup], a
@@ -1391,4 +1403,3 @@ IsCurrentlyPointedMapFlyable:
 	pop af
 	ld a, SEVII_TWO_ISLAND_CITY
 	ret
-
