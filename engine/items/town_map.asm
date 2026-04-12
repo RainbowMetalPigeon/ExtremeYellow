@@ -2,11 +2,11 @@ DEF NOT_VISITED EQU $fe
 
 DisplayTownMap::
 	ResetEvent EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE ; new for zoom
-; new for deep water
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
+;; new for deep water
+;	ldh a, [hTileAnimations]
+;	ld [wSavedTileAnimations], a
+;	xor a
+;	ldh [hTileAnimations], a
 	ld [wWhichTownMapLocationBackup], a ; new
 	ld [wCurMapBackup], a ; new
 ; BTV
@@ -232,10 +232,10 @@ TownMapCursorEnd:
 LoadTownMap_Nest:
 ; new for deep water
 	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
+;	ldh a, [hTileAnimations]
+;	ld [wSavedTileAnimations], a
+;	xor a
+;	ldh [hTileAnimations], a
 ; BTV
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
@@ -331,6 +331,12 @@ MonsNestText:
 	db "'s NEST@"
 
 LoadTownMap_Fly::
+;; new for deep water
+;	ldh a, [hTileAnimations]
+;	ld [wSavedTileAnimations], a
+;	xor a
+;	ldh [hTileAnimations], a
+;; BTV
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr z, .currentlyInKanto
@@ -346,12 +352,6 @@ LoadTownMap_Fly::
 	call ClearScreen
 	call ClearSprites
 	call LoadPlayerSpriteGraphics
-; new for deep water
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
-; BTV
 	call LoadTownMap
 	ld a, $1
 	ldh [hJoy7], a
@@ -473,8 +473,8 @@ LoadTownMap_Fly::
 .continueWithB
 ; BTV
 ; new for deep water
-	ld a, [wSavedTileAnimations]
-	ldh [hTileAnimations], a
+;	ld a, [wSavedTileAnimations]
+;	ldh [hTileAnimations], a
 ; BTV
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
@@ -694,8 +694,8 @@ CompressedMap_Sevii: ; new, for sevii
 
 ExitTownMap:
 ; new for deep water
-	ld a, [wSavedTileAnimations]
-	ldh [hTileAnimations], a
+;	ld a, [wSavedTileAnimations]
+;	ldh [hTileAnimations], a
 ; BTV
 ; clear town map graphics data and load usual graphics data
 	xor a
