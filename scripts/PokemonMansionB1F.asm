@@ -49,7 +49,7 @@ Mansion4Script_Switches::
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, 10 ; edited because rival
+	ld a, 11 ; edited because rival and Magikarp Burglar
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
@@ -91,7 +91,7 @@ Mansion4Script0: ; new
 .playerOnTopPart
 	ld de, MansionB1FMovements1
 .continue
-	ld a, 9 ; index of Rival's sprite
+	ld a, 10 ; index of Rival's sprite
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $3 ; testing
@@ -104,7 +104,7 @@ Mansion4Script3: ; new
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 9 ; Rival's text (and sprite) index
+	ld a, 10 ; Rival's text (and sprite) index
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -136,14 +136,14 @@ Mansion4Script4: ; new
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_MANSION_RIVAL
-	ld a, 9 ; Rival's text (and sprite) index
+	ld a, 10 ; Rival's text (and sprite) index
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff ; testing
 	ld [wJoyIgnore], a
 	call StopAllMusic
 	farcall Music_RivalAlternateStart
-	ld a, 9 ; Rival's text (and sprite) index
+	ld a, 10 ; Rival's text (and sprite) index
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld a, [wYCoord]
@@ -221,7 +221,7 @@ MansionB1FMovements2_Bottom:
 	db -1 ; end
 
 Mansion4Script_RivalFacingRight:
-	ld a, 9
+	ld a, 10
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_RIGHT
 	ldh [hSpriteFacingDirection], a
@@ -232,14 +232,16 @@ Mansion4Script_RivalFacingRight:
 PokemonMansionB1F_TextPointers:
 	dw Mansion4Text1
 	dw Mansion4Text2
+	dw Mansion4Text3 ; new
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
 	dw Mansion4Text7
 	dw PickUpItemText
-	dw Mansion4TextRival ; new, 9
-	dw Mansion3Text6 ; 10
+	dw Mansion4TextRival ; new, 10
+	; scripts
+	dw Mansion3Text6 ; 11
 
 Mansion4TrainerHeaders:
 	def_trainers
@@ -247,6 +249,8 @@ Mansion4TrainerHeader0:
 	trainer EVENT_BEAT_MANSION_4_TRAINER_0, 0, Mansion4BattleText1, Mansion4EndBattleText1, Mansion4AfterBattleText1
 Mansion4TrainerHeader1:
 	trainer EVENT_BEAT_MANSION_4_TRAINER_1, 3, Mansion4BattleText2, Mansion4EndBattleText2, Mansion4AfterBattleText2
+Mansion4TrainerHeader2: ; new
+	trainer EVENT_BEAT_MANSION_4_TRAINER_2, 0, Mansion4BattleText3, Mansion4EndBattleText3, Mansion4AfterBattleText3 ; new
 	db -1 ; end
 
 Mansion4Text1:
@@ -258,6 +262,12 @@ Mansion4Text1:
 Mansion4Text2:
 	text_asm
 	ld hl, Mansion4TrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Mansion4Text3:
+	text_asm
+	ld hl, Mansion4TrainerHeader2
 	call TalkToTrainer
 	jp TextScriptEnd
 
@@ -283,6 +293,18 @@ Mansion4EndBattleText2:
 
 Mansion4AfterBattleText2:
 	text_far _Mansion4AfterBattleText2
+	text_end
+
+Mansion4BattleText3: ; new
+	text_far _Mansion4BattleText3
+	text_end
+
+Mansion4EndBattleText3: ; new
+	text_far _Mansion4EndBattleText3
+	text_end
+
+Mansion4AfterBattleText3: ; new
+	text_far _Mansion4AfterBattleText3
 	text_end
 
 Mansion4Text7:

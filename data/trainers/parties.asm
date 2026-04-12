@@ -401,6 +401,7 @@ BurglarData:
 	db 48, NINETALES, 0 ; updated
 ; Mansion B1F
 	db 46, ARCANINE, RAPIDASH, 0 ; updated
+	db 100, MAGIKARP, 0 ; 10, new
 
 ;UnusedJugglerData: ; removed
 ; none
