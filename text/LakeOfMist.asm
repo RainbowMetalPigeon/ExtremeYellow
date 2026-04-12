@@ -116,8 +116,9 @@ _LakeOfMistText8::
 
 ; cooltrainer-looking entrance
 _LakeOfMistText9::
-	text "LAKE OF MIST used"
-	line "to be a freshwater"
+	text "LAKE OF MIST was"
+	line "a freshwater"
+;	xxxx "123456789012345678"
 	cont "basin, but then"
 	cont "got connected to"
 	cont "the sea, and even"

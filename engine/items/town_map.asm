@@ -2,11 +2,7 @@ DEF NOT_VISITED EQU $fe
 
 DisplayTownMap::
 	ResetEvent EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE ; new for zoom
-;; new for deep water
-;	ldh a, [hTileAnimations]
-;	ld [wSavedTileAnimations], a
-;	xor a
-;	ldh [hTileAnimations], a
+; new
 	ld [wWhichTownMapLocationBackup], a ; new
 	ld [wCurMapBackup], a ; new
 ; BTV
@@ -230,13 +226,7 @@ TownMapCursor:
 TownMapCursorEnd:
 
 LoadTownMap_Nest:
-; new for deep water
-	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-;	ldh a, [hTileAnimations]
-;	ld [wSavedTileAnimations], a
-;	xor a
-;	ldh [hTileAnimations], a
-; BTV
+	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST ; new
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
@@ -331,12 +321,6 @@ MonsNestText:
 	db "'s NEST@"
 
 LoadTownMap_Fly::
-;; new for deep water
-;	ldh a, [hTileAnimations]
-;	ld [wSavedTileAnimations], a
-;	xor a
-;	ldh [hTileAnimations], a
-;; BTV
 ; new for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr z, .currentlyInKanto
@@ -471,10 +455,6 @@ LoadTownMap_Fly::
 .originallyInKanto
 	ResetEvent EVENT_IN_SEVII
 .continueWithB
-; BTV
-; new for deep water
-;	ld a, [wSavedTileAnimations]
-;	ldh [hTileAnimations], a
 ; BTV
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
@@ -693,10 +673,6 @@ CompressedMap_Sevii: ; new, for sevii
 	INCBIN "gfx/town_map/town_map_sevii.rle"
 
 ExitTownMap:
-; new for deep water
-;	ld a, [wSavedTileAnimations]
-;	ldh [hTileAnimations], a
-; BTV
 ; clear town map graphics data and load usual graphics data
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a

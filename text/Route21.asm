@@ -286,3 +286,115 @@ _Route21ScriptText3::
 	para "Reach new heights"
 	line "and never stop!"
 	done
+
+; Route 21 Dive --------------------
+
+_Route21DiveText1::
+	text "mystery"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText1::
+	text "b-1"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText1::
+	text "DIVER: e-1"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText1::
+	text "a-1"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText2::
+	text "b-2"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText2::
+	text "DIVER: e-2"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText2::
+	text "a-2"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText3::
+	text "b-3"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText3::
+	text "DIVER: e-3"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText3::
+	text "a-3"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText4::
+	text "b-4"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText4::
+	text "DIVER: e-4"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText4::
+	text "a-4"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText5::
+	text "b-5"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText5::
+	text "DIVER: e-5"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText5::
+	text "a-5"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText6::
+	text "b-6"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText6::
+	text "DIVER: e-6"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText6::
+	text "a-6"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveBattleText7::
+	text "b-7"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveEndBattleText7::
+	text "COOLTRAINER: e-7"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route21DiveAfterBattleText7::
+	text "a-7"
+;	xxxx "123456789012345678"
+	done
