@@ -62,17 +62,38 @@ _SaffronHouse2SabrinaPostBattleText::
 ; apartments -----------------------
 
 _SaffronNewApartmentsText1::
-	text "n1"
+	text "I came here from"
+	line "BOON ISLET. It's"
+	cont "a long trip to"
+	cont "meet my partner"
+	cont "and my meta, but"
+	cont "it's worth it."
+
+	para "I miss a bit my"
+	line "spouse and our"
+	cont "kid, though, but"
+	cont "I know they're"
+	cont "also enjoying"
+	cont "their 'them time'."
 ;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText2::
-	text "n2"
+	text "I can't afford a"
+	line "SEVII TICKET, so"
+	cont "it's my partner"
+	cont "visiting us."
 ;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText3::
-	text "n3"
+	text "With TEAM ROCKET"
+	line "running around,"
+	cont "SAFFRON was"
+	cont "unliveable!"
+
+	para "I'm so glad that"
+	line "scum is gone."
 ;	xxxx "123456789012345678"
 	done
 
@@ -92,21 +113,57 @@ _SaffronNewApartmentsText4_NotFromAbove::
 	done
 
 _SaffronNewApartmentsText5:: ; games
-	text "n5"
+	text "I don't care about"
+	line "TV. I wanna be my"
+	cont "own protagonist."
+	cont "Videogames are so"
+	cont "much better!"
+
+	para "Right now I'm play-"
+	line "ing this Monster"
+	cont "Collector where"
+	cont "you record the"
+	cont "creatures instead"
+	cont "of catching 'em."
+	cont "It's amazing! The"
+	cont "plot, characters,"
+	cont "world, music, and"
+	cont "mechanics, they're"
+	cont "all so great!"
 ;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsText6::
-	text "n6"
+	text "I like plants."
+
+	para "I REALLY like"
+	line "plants."
+
+	para "...maybe I like"
+	line "plants a bit too"
+	cont "much. I think I"
+	cont "don't have a bed"
+	cont "anymore..."
 ;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsSignText1_FromBelow::
-	text "ducktales!"
+	text "Ducks! Living"
+	line "adventures!"
+
+	para "They're so cute but"
+	line "also amazing and"
+	cont "cool and fun!"
+
+	para "But now it's time"
+	line "to go and live"
+	cont "our own adventure!"
 ;	xxxx "123456789012345678"
 	done
 
 _SaffronNewApartmentsSignText1_NotFromBelow::
-	text "wrong side"
+	text "Maybe this is not"
+	line "the best side to"
+	cont "watch TV."
 ;	xxxx "123456789012345678"
 	done

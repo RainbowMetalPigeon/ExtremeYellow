@@ -161,7 +161,6 @@ INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
-INCLUDE "text/PewterCity.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -310,6 +309,7 @@ INCLUDE "text/PokemonMansion3F.asm"
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/PewterGym.asm"
+INCLUDE "text/PewterCity.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
