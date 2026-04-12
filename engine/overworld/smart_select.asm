@@ -16,6 +16,7 @@ SmartSelectButton:: ; SELECT was pressed
 
 .cannotCoinCase
 ; rod: super -> good -> old
+	predef GetTileAndCoordsInFrontOfPlayer
 	callfar IsNextTileShoreOrWater
 	jr nc, .cannotFish
 	ld a, [wWalkBikeSurfState]

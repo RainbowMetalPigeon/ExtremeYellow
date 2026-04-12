@@ -90,6 +90,12 @@ StatusScreen:
 	call ClearScreen
 	call UpdateSprites
 	call LoadHpBarAndStatusTilePatterns
+; new
+	ld de, CurrentBaseDVEVGraphics
+	ld hl, vChars2 tile $31
+	lb bc, BANK(CurrentBaseDVEVGraphics), (CurrentBaseDVEVGraphicsEnd - CurrentBaseDVEVGraphics) / $10
+	call GoodCopyVideoData
+; BTV
 	ld de, BattleHudTiles1  ; source
 	ld hl, vChars2 tile $6d ; dest
 	lb bc, BANK(BattleHudTiles1), 3
@@ -354,9 +360,9 @@ PrintStatsBox:
 	call TextBoxBorder ; Draws the box
 ; new, print label that these are the CURRENT stats
 	hlcoord 1, 17
-	ld a, "<CUR1>"
+	ld a, $31 ; "<CUR1>"
 	ld [hli], a
-	ld a, "<CUR2>"
+	ld a, $32 ; "<CUR2>"
 	ld [hl], a
 ; back to vanilla
 	hlcoord 1, 9 ; Start printing stats from here
@@ -397,9 +403,9 @@ PrintStatsBox_Base: ; new
 	call ClearStatsValues
 ; print label that these are the BASE stats
 	hlcoord 1, 17
-	ld a, "<BASE1>"
+	ld a, $33 ; "<BASE1>"
 	ld [hli], a
-	ld a, "<BASE2>"
+	ld a, $34 ; "<BASE2>"
 	ld [hl], a
 ; vanilla-like stuff
 	hlcoord 1, 9 ; Start printing stats from here
@@ -433,9 +439,9 @@ PrintStatsBox_DVs: ; new
 	call ClearStatsValues
 ; print label that these are the IV stats
 	hlcoord 1, 17
-	ld a, "<IV1>"
+	ld a, $35 ; "<IV1>"
 	ld [hli], a
-	ld a, "<IV2>"
+	ld a, $36 ; "<IV2>"
 	ld [hl], a
 ; vanilla-like stuff
 	hlcoord 1, 9 ; Start printing stats from here
@@ -518,9 +524,9 @@ PrintStatsBox_StatExp: ; new
 	call ClearStatsValues
 ; print label that these are the EV stats
 	hlcoord 1, 17
-	ld a, "<EV1>"
+	ld a, $37 ; "<EV1>"
 	ld [hli], a
-	ld a, "<EV2>"
+	ld a, $38 ; "<EV2>"
 	ld [hl], a
 ; vanilla-like stuff
 	hlcoord 1, 9 ; Start printing stats from here
@@ -926,3 +932,12 @@ HandleStatusInfoBlinkTiming::
 .staticPrinting
 	call PrintSelectForInfo
 	ret
+
+	charmap "<CUR1>",    $C0
+	charmap "<CUR2>",    $C1
+	charmap "<BASE1>",   $C2
+	charmap "<BASE2>",   $C3
+	charmap "<IV1>",     $C4
+	charmap "<IV2>",     $C5
+	charmap "<EV1>",     $C6
+	charmap "<EV2>",     $C7

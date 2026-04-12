@@ -2426,6 +2426,18 @@ PrintSelectForBattleInfoScreenEmpty: ; new
 	ld [hl], a
 	ret
 
+PrintStartForMoveInfoScreen: ; new
+	hlcoord 1, 12
+	ld a, "<STAINFO1>"
+	ld [hli], a
+	ld a, "<STAINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+	ret
+
 PartyMenuOrRockOrRun:
 	dec a ; was Run selected?
 	jp nz, BattleMenu_RunWasSelected
@@ -3055,6 +3067,7 @@ PrintMenuItem:
 	hlcoord 0, 8
 	lb bc, 3, 9
 	call TextBoxBorder ; draws a c×b text box at hl
+	call PrintStartForMoveInfoScreen ; new
 	ld a, [wPlayerDisabledMove]
 	and a
 	jr z, .notDisabled

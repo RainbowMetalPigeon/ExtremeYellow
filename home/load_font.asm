@@ -51,7 +51,7 @@ LoadHpBarAndStatusTilePatterns::
 	lb bc, BANK(EXPBarGraphics), (EXPBarGraphicsEnd - EXPBarGraphics) / $10
 	jp GoodCopyVideoData
 
-GoodCopyVideoData:
+GoodCopyVideoData::
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
 	jp nz, CopyVideoData ; if LCD is on, transfer during V-blank

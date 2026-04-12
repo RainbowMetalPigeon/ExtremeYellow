@@ -186,3 +186,60 @@ _ViridianForestErikaPostBattleText::
 	cont "I wanna go for"
 	cont "another round!"
 	prompt
+
+_ViridianForestTextStrongTrainer_Intro::
+	text "Hi there!"
+
+	para "Uh? You want to"
+	line "fight me? Gladly,"
+	cont "but I should warn"
+	cont "you, I'm actually"
+	cont "quite good!"
+
+	para "I already got all"
+	line "BADGEs, I'm here"
+	cont "only because I"
+	cont "miss a BUTTERFREE"
+	cont "and I want one"
+	cont "before going to"
+	cont "the LEAGUE."
+
+	para "You sure you want"
+	line "to battle?"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianForestTextStrongTrainer_Refused::
+	text "It's prolly better"
+	line "this way, yes!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianForestTextStrongTrainer_Accepted::
+	text "As you wish! But"
+	line "don't say I didn't"
+	cont "warn you!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianForestStrongTrainerPostBattleText::
+	text "Well!"
+	line "Are you ready for"
+	cont "the LEAGUE too?!"
+;	xxxx "123456789012345678"
+	prompt
+
+_ViridianForestTextStrongTrainerPostBattle::
+	text "You got me good!"
+	line "I guess I gotta"
+	cont "train more before"
+	cont "facing the LEAGUE!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianForestTextStrongTrainer_AlreadyFought::
+	text "What are YOU doing"
+	line "here, if you are"
+	cont "already so strong?"
+;	xxxx "123456789012345678"
+	done

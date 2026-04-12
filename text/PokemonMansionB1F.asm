@@ -197,3 +197,19 @@ _Mansion4RivalText_PostBattle_BothBattles::
 	cont "very last one!"
 	done
 */
+
+_Mansion4BattleText3::
+	text "What?!"
+;	xxxx "123456789012345678"
+	done
+
+_Mansion4EndBattleText3::
+	text "It wasn't"
+	line "me!"
+;	xxxx "123456789012345678"
+	prompt
+
+_Mansion4AfterBattleText3::
+	text "I did nothing!"
+;	xxxx "123456789012345678"
+	done

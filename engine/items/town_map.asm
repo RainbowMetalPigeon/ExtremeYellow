@@ -2,11 +2,7 @@ DEF NOT_VISITED EQU $fe
 
 DisplayTownMap::
 	ResetEvent EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE ; new for zoom
-; new for deep water
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
+; new
 	ld [wWhichTownMapLocationBackup], a ; new
 	ld [wCurMapBackup], a ; new
 ; BTV
@@ -230,13 +226,7 @@ TownMapCursor:
 TownMapCursorEnd:
 
 LoadTownMap_Nest:
-; new for deep water
-	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
-; BTV
+	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST ; new
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
@@ -346,16 +336,23 @@ LoadTownMap_Fly::
 	call ClearScreen
 	call ClearSprites
 	call LoadPlayerSpriteGraphics
-; new for deep water
-	ldh a, [hTileAnimations]
-	ld [wSavedTileAnimations], a
-	xor a
-	ldh [hTileAnimations], a
-; BTV
 	call LoadTownMap
 	ld a, $1
 	ldh [hJoy7], a
 	call LoadFontTilePatterns
+; new, to print SEL=SWP if unlocked Sevii
+	CheckEvent EVENT_UNLOCKED_SEVII
+	jr z, .seviiNotUnlocked
+	hlcoord  0, 17
+	ld [hl], "<SELINFO1>"
+	inc hl
+	ld [hl], "<SELINFO2>"
+	inc hl
+	ld [hl], "<SWAP1>"
+	inc hl
+ 	ld [hl], "<SWAP2>"
+.seviiNotUnlocked
+; BTV
 ;	call ReloadTilesetTilePatterns ; new, to expand tileset?
 ; new, to load the Flying Pikachu sprite
 	ld a, [wcf91]
@@ -458,10 +455,6 @@ LoadTownMap_Fly::
 .originallyInKanto
 	ResetEvent EVENT_IN_SEVII
 .continueWithB
-; BTV
-; new for deep water
-	ld a, [wSavedTileAnimations]
-	ldh [hTileAnimations], a
 ; BTV
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
@@ -680,10 +673,6 @@ CompressedMap_Sevii: ; new, for sevii
 	INCBIN "gfx/town_map/town_map_sevii.rle"
 
 ExitTownMap:
-; new for deep water
-	ld a, [wSavedTileAnimations]
-	ldh [hTileAnimations], a
-; BTV
 ; clear town map graphics data and load usual graphics data
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a
