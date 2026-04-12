@@ -356,6 +356,19 @@ LoadTownMap_Fly::
 	ld a, $1
 	ldh [hJoy7], a
 	call LoadFontTilePatterns
+; new, to print SEL=SWP if unlocked Sevii
+	CheckEvent EVENT_UNLOCKED_SEVII
+	jr z, .seviiNotUnlocked
+	hlcoord  0, 17
+	ld [hl], "<SELINFO1>"
+	inc hl
+	ld [hl], "<SELINFO2>"
+	inc hl
+	ld [hl], "<SWAP1>"
+	inc hl
+ 	ld [hl], "<SWAP2>"
+.seviiNotUnlocked
+; BTV
 ;	call ReloadTilesetTilePatterns ; new, to expand tileset?
 ; new, to load the Flying Pikachu sprite
 	ld a, [wcf91]

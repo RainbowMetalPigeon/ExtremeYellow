@@ -183,6 +183,8 @@
 	charmap "<SELINFO4>",  $d4
 	charmap "<STAINFO1>",  $d5
 	charmap "<STAINFO2>",  $d6
+	charmap "<SWAP1>",     $d7
+	charmap "<SWAP2>",     $d8
 
 	charmap "<SHINY>",   $dd
 	charmap "+",         $de
