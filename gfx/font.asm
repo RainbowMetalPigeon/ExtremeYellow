@@ -43,8 +43,11 @@ RainbowMetalPigeonLogoGraphicsEnd:
 EXPBarGraphics::  INCBIN "gfx/battle/exp_bar.2bpp"
 EXPBarGraphicsEnd::
 
-WorldMapZoomTileGraphics: INCBIN "gfx/town_map/town_map_zoom.2bpp"
-WorldMapZoomTileGraphicsEnd:
+WorldMapZoomTileGraphics:: INCBIN "gfx/town_map/town_map_zoom.2bpp"
+WorldMapZoomTileGraphicsEnd::
 
-AToZoomGraphics: INCBIN "gfx/town_map/a_to_zoom.2bpp"
-AToZoomGraphicsEnd:
+AToZoomGraphics:: INCBIN "gfx/town_map/a_to_zoom.2bpp"
+AToZoomGraphicsEnd::
+
+CurrentBaseDVEVGraphics:: INCBIN "gfx/font/font_status_screen.2bpp"
+CurrentBaseDVEVGraphicsEnd::
