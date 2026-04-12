@@ -12,12 +12,12 @@ ViridianForest_Object:
 	warp_event 25,  0, ROUTE_2_ALL_GATES, 13 ; new
 
 	def_bg_events
-	bg_event 24, 40, 13 ; ViridianForestText11
-	bg_event 16, 32, 14 ; ViridianForestText12
-	bg_event 26, 17, 15 ; ViridianForestText13
-	bg_event  4, 24, 16 ; ViridianForestText14
-	bg_event 18, 45, 17 ; ViridianForestText15
-	bg_event  2,  1, 18 ; ViridianForestText16
+	bg_event 24, 40, 14 ; ViridianForestText11
+	bg_event 16, 32, 15 ; ViridianForestText12
+	bg_event 26, 17, 16 ; ViridianForestText13
+	bg_event  4, 24, 17 ; ViridianForestText14
+	bg_event 18, 45, 18 ; ViridianForestText15
+	bg_event  2,  1, 19 ; ViridianForestText16
 
 	def_object_events
 	object_event  1, 30, SPRITE_ERIKA_GL, STAY, ANY_DIR, 1 ; new
@@ -32,5 +32,6 @@ ViridianForest_Object:
 	object_event  1, 31, SPRITE_POKE_BALL, STAY, NONE, 10, POKE_BALL
 	object_event 27, 40, SPRITE_YOUNGSTER, STAY, NONE, 11 ; person
 	object_event 26,  2, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 12 ; new
+	object_event 17, 28, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 13 ; new
 
 	def_warps_to VIRIDIAN_FOREST

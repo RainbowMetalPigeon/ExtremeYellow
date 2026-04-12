@@ -11,7 +11,8 @@ ViridianForest_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
-	dw ViridianForestErikaPostBattleRematch ; new, map-dependent
+	dw ViridianForestErikaPostBattleRematch ; 3, new, map-dependent
+	dw ViridianForestScriptPostStrongTrainer ; 4, new
 
 ViridianForest_TextPointers:
 	dw ViridianForestTextErika ; new
@@ -26,13 +27,17 @@ ViridianForest_TextPointers:
 	dw PickUpItemText
 	dw ViridianForestText10
 	dw RockSmashText ; new
+	dw ViridianForestTextStrongTrainer ; new
+	; signs
 	dw ViridianForestText11
 	dw ViridianForestText12
 	dw ViridianForestText13
 	dw ViridianForestText14
 	dw ViridianForestText15
 	dw ViridianForestText16
-	dw ViridianForestTextErikaPostBattle ; 19, new, map-dependent
+	; scripts
+	dw ViridianForestTextErikaPostBattle ; 20, new, map-dependent
+	dw ViridianForestTextStrongTrainerPostBattle ; 21, new
 
 ViridianForestTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Erika
@@ -228,12 +233,12 @@ ViridianForestErikaPostBattleRematch: ; script, map-dependent
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 19 ; map-dependent
+	ld a, 20 ; map-dependent
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA_REMATCH_INVERSE ; map-dependent
 	callfar SpawnRoute21OakWhenWonAllInverseRematches
-	jp ViridianForestResetScripts
+	jp ViridianForestResetScripts ; unnecessary, could just fallthrough
 
 ViridianForestResetScripts: ; map-dependent
 	xor a
@@ -243,4 +248,80 @@ ViridianForestResetScripts: ; map-dependent
 
 ViridianForestTextErikaPostBattle:
 	text_far _GymLeaderElite4PostRematchInverseText
+	text_end
+
+ViridianForestScriptPostStrongTrainer:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ViridianForestResetScripts
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 21
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_STRONG_TRAINER_EARLY_ROUTE
+	jp ViridianForestResetScripts
+
+; --------------
+
+ViridianForestTextStrongTrainer:
+	text_asm
+	CheckEvent EVENT_BEAT_STRONG_TRAINER_EARLY_ROUTE
+	ld hl, ViridianForestTextStrongTrainer_AlreadyFought
+	jr nz, .printAndEnd
+	ld hl, ViridianForestTextStrongTrainer_Intro
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, ViridianForestTextStrongTrainer_Refused
+	jr nz, .printAndEnd
+; yes battle
+	ld hl, ViridianForestTextStrongTrainer_Accepted
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_COOLTRAINER
+	ld [wCurOpponent], a
+	ld a, 103
+	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld hl, ViridianForestStrongTrainerPostBattleText
+	ld de, ViridianForestStrongTrainerPostBattleText
+	call SaveEndBattleTextPointers
+; script handling
+	ld a, 4
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianForestTextStrongTrainer_Intro:
+	text_far _ViridianForestTextStrongTrainer_Intro
+	text_end
+
+ViridianForestTextStrongTrainer_Refused:
+	text_far _ViridianForestTextStrongTrainer_Refused
+	text_end
+
+ViridianForestTextStrongTrainer_Accepted:
+	text_far _ViridianForestTextStrongTrainer_Accepted
+	text_end
+
+ViridianForestStrongTrainerPostBattleText:
+	text_far _ViridianForestStrongTrainerPostBattleText
+	text_end
+
+ViridianForestTextStrongTrainerPostBattle:
+	text_far _ViridianForestTextStrongTrainerPostBattle
+	text_end
+
+ViridianForestTextStrongTrainer_AlreadyFought:
+	text_far _ViridianForestTextStrongTrainer_AlreadyFought
 	text_end
