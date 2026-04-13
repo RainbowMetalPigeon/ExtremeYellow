@@ -275,6 +275,8 @@ CableClub_DoBattleOrTradeAgain:
 	ld [wLinkState], a
 	ld a, OPP_RIVAL1
 	ld [wCurOpponent], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	call ClearScreen
 	call Delay3
 	ld b, $9

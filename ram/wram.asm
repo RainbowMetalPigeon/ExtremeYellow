@@ -1959,8 +1959,8 @@ wPseudoItemID:: db
 wEnemyStatEXPStore:: ; shinpokerednote: ADDED: store for EVs applied to the opponent's pokemon if the option is turned on
 wUnusedD153:: db
 
-	ds 1			; it was "ds 2", but with the edit above from Vortiene is now "ds 1"
-	                ; this needs to stay free for the EVs-to-opponents to work fine, because I didn't declare wEnemyStatEXPStore as a dw?!
+	ds 2 ; this needs to stay free for the EVs-to-opponents to work fine, because I didn't declare wEnemyStatEXPStore as a dw?!
+	     ; restored to 2 from 1 as it was in the third commit ever
 
 wEvoStoneItemID:: db
 
