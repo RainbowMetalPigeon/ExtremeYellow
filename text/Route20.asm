@@ -1,15 +1,21 @@
-_Route20BattleText1::
-	text "The water is"
-	line "shallow here."
+_Route20BattleText1:: ; edited
+	text "Don't go ahead!"
+;	xxxx "123456789012345678"
 	done
 
-_Route20EndBattleText1::
-	text "Splash!"
+_Route20EndBattleText1:: ; edited
+	text "Maybe you"
+	line "can go..."
+;	xxxx "123456789012345678"
 	prompt
 
-_Route20AfterBattleText1::
-	text "I wish I could"
-	line "ride my #MON."
+_Route20AfterBattleText1:: ; edited
+	text "Ahead there is a"
+	line "patch of deep"
+	cont "water. People can"
+	cont "DIVE there. But I"
+	cont "find super scary!"
+;	xxxx "123456789012345678"
 	done
 
 _Route20BattleText2::
