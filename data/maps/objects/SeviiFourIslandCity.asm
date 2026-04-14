@@ -16,7 +16,7 @@ SeviiFourIslandCity_Object:
 	warp_event 28,  3, SEVII_UNDERGROUND_FOUR, 1 ; 12
 
 	def_bg_events
-	bg_event 10, 22, 15 ; SeviiFourIslandCitySignText1
+	bg_event 14, 22, 15 ; SeviiFourIslandCitySignText1
 	bg_event 13,  9, 16 ; SeviiFourIslandCitySignText2
 	bg_event 25, 21, 17 ; SeviiFourIslandCitySignText3
 	bg_event 32, 12, 18 ; SeviiFourIslandCitySignText4

@@ -24,7 +24,7 @@ SeviiTwoIslandCity_Object:
 	def_object_events
 	object_event  7, 27, SPRITE_GRANNY, STAY, ANY_DIR, 1
 	object_event 18, 32, SPRITE_COOLTRAINER_F, WALK, ANY_DIR, 2
-	object_event 30, 28, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3
+	object_event 28, 29, SPRITE_COOLTRAINER_F, WALK, LEFT_RIGHT, 3
 	object_event 20, 17, SPRITE_HIKER, STAY, ANY_DIR, 4
 	object_event 22, 28, SPRITE_GRANNY, STAY, DOWN, 5 ; Market
 	object_event 23, 28, SPRITE_GRAMPS, STAY, DOWN, 6 ; Lottery
