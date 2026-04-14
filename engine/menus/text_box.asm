@@ -256,7 +256,7 @@ DisplayTwoOptionMenu:
 	ld a, [wTwoOptionMenuID]
 	cp TRADE_CANCEL_MENU
 	jr nz, .notTradeCancelMenu
-	call CableClub_TextBoxBorder2
+	predef Diploma_TextBoxBorder ; edited
 	jr .afterTextBoxBorder
 .notTradeCancelMenu
 	call TextBoxBorder
@@ -531,45 +531,3 @@ GetMonFieldMoves:
 	ret
 
 INCLUDE "data/moves/field_moves.asm"
-
-; new ---------------
-
-CableClub_TextBoxBorder2:
-	push hl
-	ld a, $78 ; border upper left corner tile
-	ld [hli], a
-	inc a ; border top horizontal line tile
-	call CableClub_DrawHorizontalLine2
-	inc a ; border upper right corner tile
-	ld [hl], a
-	pop hl
-	ld de, 20
-	add hl, de
-.loop
-	push hl
-	ld a, $7b ; border left vertical line tile
-	ld [hli], a
-	ld a, " "
-	call CableClub_DrawHorizontalLine2
-	ld [hl], $77 ; border right vertical line tile
-	pop hl
-	ld de, 20
-	add hl, de
-	dec b
-	jr nz, .loop
-	ld a, $7c ; border lower left corner tile
-	ld [hli], a
-	ld a, $76 ; border bottom horizontal line tile
-	call CableClub_DrawHorizontalLine2
-	ld [hl], $7d ; border lower right corner tile
-	ret
-
-; c = width
-CableClub_DrawHorizontalLine2:
-	ld d, c
-.loop
-	ld [hli], a
-	dec d
-	jr nz, .loop
-	ret
-
