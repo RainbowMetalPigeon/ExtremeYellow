@@ -1,5 +1,5 @@
 SeviiOneIslandCity_Object:
-	db $43 ; border block
+	db $2c ; border block
 
 	def_warp_events
 	warp_event 28, 33, SEVII_ONE_ISLAND_DOCK, 1
@@ -10,6 +10,8 @@ SeviiOneIslandCity_Object:
 	warp_event 15, 13, SEVII_ONE_ISLAND_HOUSES, 1
 	warp_event 37, 15, SEVII_ONE_ISLAND_HOUSES, 3
 	warp_event 37, 11, SEVII_ONE_ISLAND_HOUSES, 5
+	warp_event 23, 15, SEVII_ONE_ISLAND_HOUSES, 6
+	warp_event 19,  5, SEVII_ONE_ISLAND_HOUSES, 8
 
 	def_bg_events
 	bg_event 29, 23, 11 ; SeviiOneIslandCitySignText1

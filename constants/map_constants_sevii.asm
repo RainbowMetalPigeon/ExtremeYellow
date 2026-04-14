@@ -47,7 +47,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART,      11,  4 ; $18
 	map_const SEVII_ONE_ISLAND_GYM_1,                         4,  3 ; $19
 	map_const SEVII_ONE_ISLAND_GYM_2,                         5, 10 ; $1A
-	map_const SEVII_ONE_ISLAND_HOUSES,                       11,  4 ; $1B
+	map_const SEVII_ONE_ISLAND_HOUSES,                       25,  4 ; $1B
 	map_const SEVII_EMBER_SPA,                               10, 10 ; $1C
 	map_const SEVII_ROUTE_32_DIVE,                           15, 30 ; $1D
 	map_const SEVII_MT_EMBER_4BF,                            30, 30 ; $1E
@@ -70,7 +70,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_TWO_ISLAND_DOCK,                         10,  6 ; $2E
 	map_const SEVII_TWO_ISLAND_POKEMON_CENTER,                4,  4 ; $2F
 	map_const SEVII_TWO_ISLAND_GYM,                          16,  9 ; $30
-	map_const SEVII_TWO_ISLAND_HOUSES,                       26,  4 ; $31
+	map_const SEVII_TWO_ISLAND_HOUSES,                       33,  4 ; $31
 	map_const SEVII_TWO_ISLAND_CITY_DIVE,                    20, 22 ; $32
 	map_const SEVII_TWO_ISLET,                               32, 28 ; $33
 	map_const SEVII_TWO_ISLET_HOUSES,                        18,  4 ; $34
@@ -83,7 +83,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_THREE_ISLAND_DOCK,                       10,  6 ; $3A
 	map_const SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART,    11,  4 ; $3B
 	map_const SEVII_THREE_ISLAND_GYM,                        18, 11 ; $3C
-	map_const SEVII_THREE_ISLAND_HOUSES,                     11,  4 ; $3D
+	map_const SEVII_THREE_ISLAND_HOUSES,                     18,  4 ; $3D
 	map_const SEVII_THREE_ISLAND_SECRET_GARDEN,               9,  9 ; $3E
 	map_const SEVII_THREE_ISLAND_CAVES,                      17, 10 ; $3F
 	map_const SEVII_BERRY_FOREST,                            20, 20 ; $40

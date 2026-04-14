@@ -384,7 +384,7 @@ GetSplitMapSpriteSetID:
 	ld hl, wXCoord
 	ld a, [hl]
 	cp $2b
-	ld a, $01
+	ld a, $13 ; edited
 	ret c
 	ld a, [hl]
 	cp $3e
@@ -400,7 +400,7 @@ GetSplitMapSpriteSetID:
 	cp b
 	ld a, $0b ; edited for rematch Misty
 	ret c
-	ld a, $01
+	ld a, $13 ; edited
 	ret
 
 INCLUDE "data/maps/sprite_sets.asm"

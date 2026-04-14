@@ -360,7 +360,6 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 DebugItemsList:
 	db TOWN_MAP, 1
 	db SLEEP_BAG, 1
-;	db BICYCLE, 1
 	db FULL_RESTORE, 99
 	db MATCHA_TEA, 10
 ;	db ATK_NULLIFIER, 10
@@ -424,6 +423,7 @@ DebugItemsList:
 ;	db MAX_REVIVE, 7
 ;	db MAX_ELIXER, 7
 ;	db PP_UP, 7
+	db BICYCLE, 1
 	db -1 ; end
 
 ELSE

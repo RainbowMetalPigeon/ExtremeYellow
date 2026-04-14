@@ -7,6 +7,8 @@ SeviiThreeIslandHouses_Object:
 	warp_event 16,  7, SEVII_THREE_ISLAND_CITY, 7
 	warp_event 17,  7, SEVII_THREE_ISLAND_CITY, 7
 	warp_event 20,  0, SEVII_THREE_ISLAND_SECRET_GARDEN, 1
+	warp_event 30,  7, SEVII_THREE_ISLAND_CITY, 12
+	warp_event 31,  7, SEVII_THREE_ISLAND_CITY, 12
 
 	def_bg_events
 	bg_event 19,  4,  4 ; SeviiThreeIslandHousesSignText1

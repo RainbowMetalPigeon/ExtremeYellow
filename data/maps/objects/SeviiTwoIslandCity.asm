@@ -12,6 +12,7 @@ SeviiTwoIslandCity_Object:
 	warp_event  7, 23, SEVII_UNDERGROUND_TWO, 1
 	warp_event 24, 37, SEVII_TWO_ISLAND_HOUSES, 9  ; 9
 	warp_event 25, 37, SEVII_TWO_ISLAND_HOUSES, 9  ; 10
+	warp_event 31, 27, SEVII_TWO_ISLAND_HOUSES, 10 ; 11
 
 	def_bg_events
 	bg_event  5, 27, 15 ; SeviiTwoIslandCitySignText1

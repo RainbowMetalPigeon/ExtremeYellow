@@ -7,6 +7,10 @@ SeviiOneIslandHouses_Object:
 	warp_event 16,  7, SEVII_ONE_ISLAND_CITY, 7
 	warp_event 17,  7, SEVII_ONE_ISLAND_CITY, 7
 	warp_event 16,  0, SEVII_ONE_ISLAND_CITY, 8
+	warp_event 30,  7, SEVII_ONE_ISLAND_CITY, 9
+	warp_event 31,  7, SEVII_ONE_ISLAND_CITY, 9
+	warp_event 44,  7, SEVII_ONE_ISLAND_CITY, 10
+	warp_event 45,  7, SEVII_ONE_ISLAND_CITY, 10
 
 	def_bg_events
 	bg_event  0,  7,  9 ; SeviiOneIslandHousesSignText1

@@ -11,6 +11,8 @@ SeviiTwoIslandHouses_Object:
 	warp_event 46,  7, SEVII_TWO_ISLET, 1 ;  7
 	warp_event 47,  7, SEVII_TWO_ISLET, 1 ;  8
 	warp_event 46,  0, SEVII_TWO_ISLAND_CITY, 10 ;  9
+	warp_event 60,  7, SEVII_TWO_ISLAND_CITY, 11 ; 10
+	warp_event 61,  7, SEVII_TWO_ISLAND_CITY, 11 ; 11
 
 	def_bg_events
 	bg_event 31,  4,  8 ; SeviiTwoIslandHousesSignText1
