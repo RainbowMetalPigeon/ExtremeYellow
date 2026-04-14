@@ -97,7 +97,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_FOUR_ISLAND_DOCK,                        10,  6 ; $47
 	map_const SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $48
 	map_const SEVII_FOUR_ISLAND_GYM,                         16,  9 ; $49
-	map_const SEVII_FOUR_ISLAND_HOUSES,                      25,  4 ; $4A
+	map_const SEVII_FOUR_ISLAND_HOUSES,                      32,  4 ; $4A
 	map_const SEVII_FOUR_ISLAND_HAZARD_ROOM,                  9, 12 ; $4B
 	map_const SEVII_ICEFALL_CAVE_1F,                         19, 20 ; $4C
 	map_const SEVII_ICEFALL_CAVE_2F,                         11, 11 ; $4D
@@ -108,7 +108,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $51
 	map_const SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART,     11,  4 ; $52
 	map_const SEVII_FIVE_ISLAND_GYM,                         18, 12 ; $53
-	map_const SEVII_FIVE_ISLAND_HOUSES,                       4,  4 ; $54
+	map_const SEVII_FIVE_ISLAND_HOUSES,                      11,  4 ; $54
 	map_const SEVII_FIVE_ISLAND_WAREHOUSE_BF,                17, 11 ; $55
 	map_const SEVII_FIVE_ISLAND_WAREHOUSE_1F,                17, 11 ; $56
 	map_const SEVII_FIVE_ISLAND_WAREHOUSE_2F,                17, 11 ; $57

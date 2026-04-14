@@ -14,6 +14,7 @@ SeviiFourIslandCity_Object:
 	warp_event 35, 31, SEVII_ICEFALL_CAVE_1F, 3 ; 10
 	warp_event 33,  5, SEVII_ICEFALL_CAVE_2F, 2 ; 11
 	warp_event 28,  3, SEVII_UNDERGROUND_FOUR, 1 ; 12
+	warp_event  9, 21, SEVII_FOUR_ISLAND_HOUSES, 10 ; 13
 
 	def_bg_events
 	bg_event 14, 22, 15 ; SeviiFourIslandCitySignText1

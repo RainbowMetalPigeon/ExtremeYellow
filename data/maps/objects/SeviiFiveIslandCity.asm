@@ -9,6 +9,7 @@ SeviiFiveIslandCity_Object:
 	warp_event 14,  7, SEVII_FIVE_ISLAND_GYM, 1
 	warp_event  9, 11, SEVII_FIVE_ISLAND_HOUSES, 1
 	warp_event 30, 25, SEVII_FIVE_ISLAND_WAREHOUSE_1F, 1
+	warp_event 27,  3, SEVII_FIVE_ISLAND_HOUSES, 3 ; 8
 
 	def_bg_events
 	bg_event  9, 15, 15 ; SeviiFourIslandCitySignText1
