@@ -56,8 +56,8 @@ CableClub_DoBattleOrTradeAgain:
 	ld [hli], a
 	dec b
 	jr nz, .zeroPlayerDataPatchListLoop
-	ld hl, wGrassRate
-	ld bc, wTrainerHeaderPtr - wGrassRate
+	ld hl, wGrassRate ; = wLinkEnemyTrainerName
+	ld bc, wTrainerHeaderPtr - wGrassRate ; should be equivalent to wEnemyPartyDataEnd - wLinkEnemyTrainerName
 .zeroEnemyPartyLoop
 	xor a
 	ld [hli], a

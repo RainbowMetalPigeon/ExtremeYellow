@@ -82,7 +82,7 @@ TrainerClassMoveChoiceModifications:
 
 	move_choices 1, 2, 3    ; JESSIEJAMES
 	move_choices 1, 2, 3, 4 ; ORAGE
-	move_choices 1, 2, 3    ; PIGEON
+	move_choices 1, 2, 3, 4 ; PIGEON
 	move_choices 1, 2, 3, 4 ; TRAVELER
 	move_choices 1, 2, 3, 4 ; BF_TRAINER
 	move_choices 1, 2, 3    ; MISSINGNO_T
