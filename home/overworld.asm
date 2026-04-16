@@ -103,6 +103,7 @@ OverworldLoopLessDelay::
 	jr z, .startButtonNotPressed
 ; if START is pressed
 ; new
+	SetEvent EVENT_SPRITE_CHECK_FROM_START_OPENING
 	call IsSpriteInFrontOfPlayer
 	ld a, [hSpriteIndexOrTextID]
 	ld [wTemporarySpritexIndexHolder], a
@@ -1225,7 +1226,14 @@ IsSpriteInFrontOfPlayer2::
 	and $f0
 	inc a
 	ld l, a ; hl = x#SPRITESTATEDATA1_MOVEMENTSTATUS
+; new for rocksmash
+	push hl
+	CheckAndResetEvent EVENT_SPRITE_CHECK_FROM_START_OPENING
+	pop hl
+	jr nz, .noMakeFacing
 	set 7, [hl] ; set flag to make the sprite face the player
+.noMakeFacing
+; BTV
 	ld a, e
 	ldh [hSpriteIndexOrTextID], a
 	ldh a, [hSpriteIndexOrTextID] ; possible useless read because a already has the value of the read address
