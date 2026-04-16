@@ -30,8 +30,11 @@ SpecialWarpIn::
 
 ; gets the map ID, tile block map view pointer, tileset, and coordinates
 LoadSpecialWarpData:
+; new/edited for sevii
+	CheckAndResetEvent EVENT_PERFORMING_SEVII_KANTO_SPECIAL_WARP
 	ld a, [wd72d]
-; new for sevii
+	jr z, .noSpecialKantoSeviiWarp
+; special kanto-sevii warp
 	cp SEVII_ONE_ISLAND_DOCK
 	jr z, .sevii1
 	cp SEVII_TWO_ISLAND_DOCK
@@ -50,7 +53,8 @@ LoadSpecialWarpData:
 	jr z, .sevii8
 	cp VERMILION_DOCK
 	jr z, .kanto
-; back to vanilla
+.noSpecialKantoSeviiWarp
+; BTV
 	cp TRADE_CENTER
 	jr nz, .notTradeCenter
 	ld hl, TradeCenterSpec1

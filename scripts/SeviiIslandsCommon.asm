@@ -12,6 +12,7 @@ WarpScriptToKanto:: ; testing
 	call GBFadeOutToBlack
 ;	ld a, SPRITE_FACING_UP
 ;	ld [wSpritePlayerStateData1FacingDirection], a
+	SetEvent EVENT_PERFORMING_SEVII_KANTO_SPECIAL_WARP ; testing
 	callfar SpecialWarpIn
 	ld c, 20
 	call DelayFrames

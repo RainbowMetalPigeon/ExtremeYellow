@@ -340,6 +340,7 @@ VermilionWarpToSevii::
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	call GBFadeOutToBlack
+	SetEvent EVENT_PERFORMING_SEVII_KANTO_SPECIAL_WARP ; testing
 	callfar SpecialWarpIn
 	ld c, 20
 	call DelayFrames
