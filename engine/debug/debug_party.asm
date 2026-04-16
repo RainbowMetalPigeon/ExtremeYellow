@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MDRAGONITE, 99 ; 255
-	db TAUROS, 15
+	db SCYTHER, 45
 	db STARTER_PIKACHU, 1
 ;	db KABUTOPS, 98
 ;	db SCIZOR, 42
@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	ld a, ~(1 << BIT_EARTHBADGE)
 	ld a, %11111111
 ;	ld a, %00010000
-	ld a, %00000000
+;	ld a, %00000000
 ;	ld a, %11111100
 	ld [wObtainedBadges], a
 
@@ -268,7 +268,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 ;	callfar HideUndegroundGuard.hideGuards
 
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_DEFEATED_MISSINGNO
 
