@@ -24,7 +24,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; BEAUTY
 	dbw 3, GenericAI ; PSYCHIC_TR
 	dbw 3, GenericAI ; ROCKER
-	dbw 3, GenericAI ; JUGGLER ; edited
+	dbw 3, JugglerAI ; JUGGLER
 	dbw 3, GenericAI ; TAMER
 	dbw 3, GenericAI ; BIRD_KEEPER
 	dbw 2, BlackbeltAI ; BLACKBELT

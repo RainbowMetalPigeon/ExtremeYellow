@@ -112,6 +112,7 @@ AIMoveChoiceModificationFunctionPointers:
 ; discourages moves that cause no damage but only a status ailment if player's mon already has one
 ; also check for CURSE, LEECH_SEED, SUBSTITUTE, DISABLED, CONFUSED
 ; also for SCREENs, DREAM EATER, etc...
+; also for priority moves under PSYCHIC_TERRAIN
 AIMoveChoiceModification1:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -126,6 +127,15 @@ AIMoveChoiceModification1:
 ; actually do things with the move
 	inc de
 	call ReadMove
+; check for priority moves under PSYCHIC_TERRAIN
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	jr z, .noPriorityUnderPsychicTerrain
+	call AIGetPriorityPushesPops ; returns move prio in a
+	cp 8 ; a-8 = prio-8, it's <0, so c flag, for prios 0-to-7, and >=0, so nc flag, for prios 8 and above
+	jp c, .noPriorityUnderPsychicTerrain
+; if we are here, it's a high-prio move
+	jp .veryHeavilyDiscourage
+.noPriorityUnderPsychicTerrain
 ; check if it is one of the debuffing AND damaging moves, otherwise ignore all damaging moves here
 ; treat the accuracy one, i.e. Mud Slap, differently from the other two,
 ; Mud Shot and Rock Tomb, which are stronger but reduce less useful stats in Speed
@@ -145,6 +155,8 @@ AIMoveChoiceModification1:
 	ld a, [wEnemyMoveEffect]
 	cp CURSE_EFFECT
 	jp z, .curseEffect
+	cp PARALYZE_SIDE_EFFECT_CERT
+	jp z, .paralyzeCertEffect
 	cp LEECH_SEED_EFFECT
 	jp z, .leechSeedEffect
 	cp DISABLE_EFFECT
@@ -241,6 +253,19 @@ AIMoveChoiceModification1:
 	jp z, .nextMove
 	jp .veryHeavilyDiscourage
 
+.paralyzeCertEffect
+	ld a, [wBattleMonStatus]
+	and a
+	jp nz, .discourageBy3
+; we also check if our mon is ELECTRIC
+	ld a, [wBattleMonType1]
+	cp ELECTRIC
+	jp z, .discourageBy3
+	ld a, [wBattleMonType2]
+	cp ELECTRIC
+	jp z, .discourageBy3
+	jp .nextMove
+
 .leechSeedEffect
 	ld a, [wPlayerBattleStatus2]
 	bit SEEDED, a
@@ -267,6 +292,11 @@ AIMoveChoiceModification1:
 	jp .veryHeavilyDiscourage
 
 .substituteEffect
+; don't use if too few HP
+	ld a, 4
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jp c, .veryHeavilyDiscourage
+; don't use if subtitute is already up
 	ld a, [wEnemyBattleStatus2]
 	bit HAS_SUBSTITUTE_UP, a
 	jp z, .nextMove
@@ -431,23 +461,23 @@ AIMoveChoiceModification1:
 	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Evasion
 	ld a, [wEnemyMonEvasionMod]
-	cp 13
-	jp z, .veryHeavilyDiscourage
 	cp 12
+	jp nc, .veryHeavilyDiscourage
+	cp 11
 	jr z, .discourageBy1
-	jp .nextMove ; no discouragement if we are at +4 or less
+	jp .nextMove ; no discouragement if we are at +3 or less
 .modifierComparisons_SelfBuff_NotEvasion
-	cp 13
-	jp z, .veryHeavilyDiscourage
 	cp 12
-	jr z, .discourageBy3
+	jp nc, .veryHeavilyDiscourage
 	cp 11
 	jr z, .discourageBy3
 	cp 10
-	jr z, .discourageBy2
+	jr z, .discourageBy3
 	cp 9
+	jr z, .discourageBy2
+	cp 8
 	jr z, .discourageBy1
-	jp .nextMove ; no discouragement if we are at +1 or less
+	jp .nextMove ; no discouragement if we are at +0 or less
 
 ; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
 .debuff_Attack
@@ -636,7 +666,6 @@ Modifier2StatusMoveEffects:
 	db CURSE_EFFECT
 	db LEECH_SEED_EFFECT
 	db DISABLE_EFFECT
-	db PARALYZE_SIDE_EFFECT_CERT ; TBV/TBE
 	db -1
 
 ; encourages moves that are effective against the player's mon (even if non-damaging).
@@ -837,14 +866,7 @@ AIMoveChoiceModification3:
 	and a
 	jp z, .nextMove4
 ; normal damaging moves
-	push hl
-	push bc
-	push de
-	callfar AIGetPriority ; load the priority of the opponent's move in e: 7 is neutral
-	ld a, e ; a contains the priority of the move
-	pop de
-	pop bc
-	pop hl
+	call AIGetPriorityPushesPops ; returns move prio in a
 	cp 8 ; a-8 = prio-8, it's <0, so c flag, for prios 0-to-7, and >=0, so nc flag, for prios 8 and above
 	jp c, .nextMove4
 ; if we are here, it's a high-prio move
@@ -1148,10 +1170,10 @@ TrainerAI:
 
 INCLUDE "data/trainers/ai_pointers.asm"
 
-;JugglerAI:
-;	cp 25 percent + 1
-;	ret nc
-;	jp AISwitchIfEnoughMons
+JugglerAI:
+	cp 20 percent + 1 ; edited
+	ret nc
+	jp AISwitchIfEnoughMons
 
 BlackbeltAI:
 	cp 13 percent - 1
@@ -1171,30 +1193,90 @@ GiovanniAI:
 	ret nc
 	jp AIUseXAttack ; edited, was GuardSpec
 
-;CooltrainerMAI: ; commented out
-;	cp 25 percent + 1
-;	ret nc
-;	jp AIUseXAttack
-
-CooltrainerAI: ; edited: 50% change to use a Hyper Potion below 1/6 HP, and no switching
-	cp 50 percent + 1
+CooltrainerAI: ; edited: 70% change to use a Hyper Potion below 1/6 HP, and no switching
+	cp 70 percent + 1
 	ret nc
 	ld a, 6 ; new
 	call AICheckIfHPBelowFraction
 	ret nc ; new
 	jp AIUseHyperPotion
 
+; Gym Leaders: all edited ------------------------------------------------
+
+; new: for all gym leaders, except Giovanni (and Orage)
+GymLeadersCommonAI:
+	callfar CountHowManyBadges ; returns in d the number of badges we own
+	ld a, d
+	and a
+	jr z, .badges0
+	dec a
+	jr z, .badges1
+	dec a
+	jr z, .badges2
+	dec a
+	jr z, .badges3
+	dec a
+	jr z, .badges4
+	dec a
+	jr z, .badges5
+	dec a
+	jr z, .badges6
+;.badges7
+
+.badges6
+
+.badges5
+
+.badges4
+
+.badges3
+
+.badges2
+
+.badges1
+
+.badges0
+
+	ret
+
+
 BrockAI:
+	ld b, a ; temporarily hold the random value
+	ld a, [wAILayer2Encouragement]
+	and a
+	ld a, b ; restore the random value
+	jr nz, GymLeadersCommonAI
+; first turn
+	cp 10 percent + 1
+	jp c, AIUseXSpecial
+	cp 10 percent + 1
+	ret nc
+	jp AIUseXSpeed
+/*
 ; if his active monster has a status condition, use a full heal
 	ld a, [wEnemyMonStatus]
 	and a
 	ret z
 	jp AIUseFullHeal
+*/
 
 MistyAI:
+	ld b, a ; temporarily hold the random value
+	ld a, [wAILayer2Encouragement]
+	and a
+	ld a, b ; restore the random value
+	jr nz, GymLeadersCommonAI
+; first turn
+	cp 10 percent + 1
+	jp c, AIUseXSpecial
+	cp 20 percent + 1
+	ret nc
+	jp AIUseXAttack
+/*
 	cp 25 percent + 1
 	ret nc
 	jp AIUseXDefend
+*/
 
 LtSurgeAI:
 	cp 25 percent + 1
@@ -1218,17 +1300,34 @@ KogaAI:
 	jp AIUseXAttack
 
 SabrinaAI:
-	cp 25 percent + 1
+	ld b, a ; temporarily hold the random value
+	ld a, [wAILayer2Encouragement]
+	and a
+	ld a, b ; restore the random value
+	jr nz, GymLeadersCommonAI
+; first turn
+	cp 50 percent + 1
 	ret nc
 	jp AIUseXDefend
 
 BlaineAI:
+	ld b, a ; temporarily hold the random value
+	ld a, [wAILayer2Encouragement]
+	and a
+	ld a, b ; restore the random value
+	jr nz, GymLeadersCommonAI
+; first turn
+	cp 20 percent + 1
+	ret nc
+	jp AIUseXSpecial
+/*
 	cp 25 percent + 1
 	ret nc
 	ld a, 10
 	call AICheckIfHPBelowFraction
 	ret nc
 	jp AIUseHyperPotion ; updated
+*/
 
 OrageAI: ; new
 	cp 45 percent + 1
@@ -1237,6 +1336,8 @@ OrageAI: ; new
 	call AICheckIfHPBelowFraction
 	ret nc
 	jp AIUseHyperPotion
+
+; end of Gym Leaders part -------------------------------------------------
 
 Rival2AI:
 	cp 13 percent - 1
@@ -1531,6 +1632,17 @@ AICheckIfHPBelowFractionPushesPops: ; new
 	push bc
 	push de
 	call AICheckIfHPBelowFraction
+	pop de
+	pop bc
+	pop hl
+	ret
+
+AIGetPriorityPushesPops: ; new
+	push hl
+	push bc
+	push de
+	callfar AIGetPriority ; load the priority of the opponent's move in e: 7 is neutral
+	ld a, e ; a contains the priority of the move
 	pop de
 	pop bc
 	pop hl

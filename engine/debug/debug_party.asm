@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MDRAGONITE, 99 ; 255
-	db MAGMAR, 41
+	db TAUROS, 41
 	db STARTER_PIKACHU, 1
 ;	db KABUTOPS, 98
 ;	db SCIZOR, 42
@@ -48,7 +48,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, SANDSTORM ; DOUBLE_IRON_BASH
+	ld a, PSYCHIC_TERRAIN ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, HAIL ; ROCK_CLIMB
@@ -226,7 +226,7 @@ IF DEF(_DEBUG)
 	ld a, HS_ROUTE_21_OAK
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-	
+
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
 	SetEvent EVENT_OBTAINED_SEEDS_BAG

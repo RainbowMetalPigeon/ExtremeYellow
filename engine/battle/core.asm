@@ -1602,7 +1602,7 @@ LoadBattleMonFromParty:
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
 ; new, for delta
-	ld a, [wBattleMonCatchRate] ; for debugging
+	ld a, [wBattleMonCatchRate] ; for debugging (?: TBE)
 	ld d, a
 	callfar SetDeltaSpeciesEvent_dRegister
 ; BTV
@@ -5113,6 +5113,7 @@ GetEnemyMonStat:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr nz, .notLinkBattle
+; for link battles
 	ld hl, wEnemyMon1Stats
 	dec c
 	sla c
