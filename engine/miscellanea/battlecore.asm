@@ -168,6 +168,9 @@ CheckIfHPIsBelowFraction::
 ; ===========================================================================
 
 WantToSurrenderFromTrainerBattle::
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .canSurrender
+; Kanto, check a couple of special maps
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jr z, .cannotSurrender
