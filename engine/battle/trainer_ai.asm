@@ -1221,81 +1221,114 @@ GymLeadersCommonAI:
 	jr z, .badges5
 	dec a
 	jr z, .badges6
-;.badges7
-
+;.badges7or8
+	ld a, 6
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseFullRestore
 .badges6
-
+	call Random
+	cp 75 percent + 1
+	ret nc
+	ld a, 6
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseFullRestore
 .badges5
-
+	call Random
+	cp 85 percent + 1
+	ret nc
+	ld a, 8
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
 .badges4
-
+	call Random
+	cp 75 percent + 1
+	ret nc
+	ld a, 6
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseHyperPotion
 .badges3
-
+	call Random
+	cp 85 percent + 1
+	ret nc
+	ld a, 8
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseSuperPotion
 .badges2
-
+	call Random
+	cp 75 percent + 1
+	ret nc
+	ld a, 6
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUseSuperPotion
 .badges1
-
+	ld a, [wEnemyMonStatus]
+	and a
+	jp nz, AIUseFullHeal
+	call Random
+	cp 75 percent + 1
+	ret nc
+	ld a, 8
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUsePotion
 .badges0
-
-	ret
-
+	ld a, [wEnemyMonStatus]
+	and a
+	jp nz, AIUseFullHeal
+	call Random
+	cp 65 percent + 1
+	ret nc
+	ld a, 6
+	call AICheckIfHPBelowFraction
+	ret nc
+	jp AIUsePotion
 
 BrockAI:
 	ld b, a ; temporarily hold the random value
 	ld a, [wAILayer2Encouragement]
 	and a
 	ld a, b ; restore the random value
-	jr nz, GymLeadersCommonAI
+	jp nz, GymLeadersCommonAI
 ; first turn
-	cp 10 percent + 1
+	cp 15 percent + 1
 	jp c, AIUseXSpecial
-	cp 10 percent + 1
+	cp 30 percent + 1
 	ret nc
 	jp AIUseXSpeed
-/*
-; if his active monster has a status condition, use a full heal
-	ld a, [wEnemyMonStatus]
-	and a
-	ret z
-	jp AIUseFullHeal
-*/
 
 MistyAI:
 	ld b, a ; temporarily hold the random value
 	ld a, [wAILayer2Encouragement]
 	and a
 	ld a, b ; restore the random value
-	jr nz, GymLeadersCommonAI
+	jp nz, GymLeadersCommonAI
 ; first turn
-	cp 10 percent + 1
-	jp c, AIUseXSpecial
 	cp 20 percent + 1
+	jp c, AIUseXSpecial
+	cp 30 percent + 1
 	ret nc
 	jp AIUseXAttack
-/*
-	cp 25 percent + 1
-	ret nc
-	jp AIUseXDefend
-*/
 
 LtSurgeAI:
-	cp 25 percent + 1
-	ret nc
-	ld a, 8 ; new
-	call AICheckIfHPBelowFraction ; new
-	ret nc ; new
-	jp AIUseSuperPotion ; edited, was AIUseXSpeed
+	jp GymLeadersCommonAI
 
 ErikaAI:
-	cp 50 percent + 1
-	ret nc
-	ld a, 10
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion ; updated
+	jp GymLeadersCommonAI
 
 KogaAI:
-	cp 13 percent - 1
+	ld b, a ; temporarily hold the random value
+	ld a, [wAILayer2Encouragement]
+	and a
+	ld a, b ; restore the random value
+	jp nz, GymLeadersCommonAI
+; first turn
+	cp 30 percent + 1
 	ret nc
 	jp AIUseXAttack
 
@@ -1304,9 +1337,9 @@ SabrinaAI:
 	ld a, [wAILayer2Encouragement]
 	and a
 	ld a, b ; restore the random value
-	jr nz, GymLeadersCommonAI
+	jp nz, GymLeadersCommonAI
 ; first turn
-	cp 50 percent + 1
+	cp 30 percent + 1
 	ret nc
 	jp AIUseXDefend
 
@@ -1315,27 +1348,28 @@ BlaineAI:
 	ld a, [wAILayer2Encouragement]
 	and a
 	ld a, b ; restore the random value
-	jr nz, GymLeadersCommonAI
+	jp nz, GymLeadersCommonAI
 ; first turn
 	cp 20 percent + 1
 	ret nc
 	jp AIUseXSpecial
-/*
-	cp 25 percent + 1
-	ret nc
-	ld a, 10
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion ; updated
-*/
 
 OrageAI: ; new
-	cp 45 percent + 1
+	ld b, a ; temporarily hold the random value
+	ld a, [wAILayer2Encouragement]
+	and a
+	ld a, b ; restore the random value
+	jp nz, GymLeadersCommonAI
+; first turn
+	cp  7 percent + 1
+	jp c, AIUseXAttack
+	cp 14 percent + 1
+	jp c, AIUseXDefend
+	cp 21 percent + 1
+	jp c, AIUseXSpeed
+	cp 28 percent + 1
 	ret nc
-	ld a, 8
-	call AICheckIfHPBelowFraction
-	ret nc
-	jp AIUseHyperPotion
+	jp AIUseXSpecial
 
 ; end of Gym Leaders part -------------------------------------------------
 
