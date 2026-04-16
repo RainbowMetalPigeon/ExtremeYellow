@@ -7,6 +7,7 @@ SeviiSevenIslandCity_Object:
 	warp_event 13,  3, SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART, 1
 	warp_event  5,  9, SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART, 3
 	warp_event 13,  7, SEVII_SEVEN_ISLAND_HOUSES, 1
+	warp_event  5,  3, SEVII_SEVEN_ISLAND_HOUSES, 5
 
 	def_bg_events
 	bg_event 11, 10,  3 ; SeviiSevenIslandCitySignText1

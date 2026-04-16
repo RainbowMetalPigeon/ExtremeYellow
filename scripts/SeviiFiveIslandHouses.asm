@@ -3,6 +3,13 @@ SeviiFiveIslandHouses_Script:
 
 SeviiFiveIslandHouses_TextPointers:
 	dw SeviiFiveIslandHousesText1 ; Trick Room tutor
+	dw SeviiFiveIslandHousesText2
+	dw SeviiFiveIslandHousesText3
+	dw SeviiFiveIslandHousesText4
+	dw SeviiFiveIslandHousesText5
+	dw SeviiFiveIslandHousesText6
+	dw SeviiFiveIslandHousesText7
+	dw SeviiFiveIslandHousesText8
 	; signs
 	dw SeviiFiveIslandHousesSignText1
 	dw SeviiFiveIslandHousesSignText2
@@ -122,6 +129,34 @@ SeviiFiveIslandHousesSignText3:
 
 SeviiFiveIslandHousesSignText4:
 	text_far _SeviiFiveIslandHousesSignText4
+	text_end
+
+SeviiFiveIslandHousesText2:
+	text_far _SeviiFiveIslandHousesText2
+	text_end
+
+SeviiFiveIslandHousesText3:
+	text_far _SeviiFiveIslandHousesText3
+	text_end
+
+SeviiFiveIslandHousesText4:
+	text_far _SeviiFiveIslandHousesText4
+	text_end
+
+SeviiFiveIslandHousesText5:
+	text_far _SeviiFiveIslandHousesText5
+	text_end
+
+SeviiFiveIslandHousesText6:
+	text_far _SeviiFiveIslandHousesText6
+	text_end
+
+SeviiFiveIslandHousesText7:
+	text_far _SeviiFiveIslandHousesText7
+	text_end
+
+SeviiFiveIslandHousesText8:
+	text_far _SeviiFiveIslandHousesText8
 	text_end
 
 ; functions =======================

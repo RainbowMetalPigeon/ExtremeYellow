@@ -432,6 +432,41 @@ _SeviiFiveIslandHousesSignText4::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiFiveIslandHousesText2::
+	text "TBE 2"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText3::
+	text "TBE 3"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText4::
+	text "TBE 4"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText5::
+	text "TBE 5"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText6::
+	text "TBE 6"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText7::
+	text "TBE 7"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText8::
+	text "TBE 8"
+;	xxxx "123456789012345678"
+	done
+
 ; gym -------------------------------------
 
 _SeviiFiveIslandGymText1_NoChampionYet::

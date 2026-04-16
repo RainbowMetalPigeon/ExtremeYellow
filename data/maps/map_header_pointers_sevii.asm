@@ -110,6 +110,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiSixIslandGym1_h
 	dw SeviiSixIslandGym2_h
 	dw SeviiSixIslandGym3_h
+	dw SeviiSixIslandHouses_h
 	dw SeviiRoute38Houses_h
 	dw SeviiPatternBush_h
 	dw SeviiAlteringCave_h

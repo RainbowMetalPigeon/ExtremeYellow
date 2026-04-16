@@ -109,6 +109,7 @@ WildDataPointers_Sevii:
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_1
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_2
 	dw NothingWildMons               ; SEVII_SIX_ISLAND_GYM_3
+	dw NothingWildMons               ; SEVII_SIX_ISLAND_HOUSES
 	dw NothingWildMons               ; SEVII_ROUTE_38_HOUSES
 	dw SeviiPatternBushWildMons      ; SEVII_PATTERN_BUSH
 	dw NothingWildMons               ; SEVII_ALTERING_CAVE

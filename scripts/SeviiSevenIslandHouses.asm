@@ -3,6 +3,8 @@ SeviiSevenIslandHouses_Script:
 
 SeviiSevenIslandHouses_TextPointers:
 	dw SeviiSevenIslandHousesText1 ; letter
+	dw SeviiSevenIslandHousesText2 ; person
+	dw SeviiSevenIslandHousesText3 ; person
 	dw SeviiSevenIslandHousesSignText1
 	dw SeviiSevenIslandHousesSignText2
 	dw SeviiSevenIslandHousesSignText3
@@ -14,6 +16,14 @@ SeviiSevenIslandHouses_TextPointers:
 
 SeviiSevenIslandHousesText1:
 	text_far _SeviiSevenIslandHousesText1
+	text_end
+
+SeviiSevenIslandHousesText2:
+	text_far _SeviiSevenIslandHousesText2
+	text_end
+
+SeviiSevenIslandHousesText3:
+	text_far _SeviiSevenIslandHousesText3
 	text_end
 
 SeviiSevenIslandHousesSignText1:

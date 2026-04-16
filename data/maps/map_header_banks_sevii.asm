@@ -110,6 +110,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiSixIslandGym1_h)
 	db BANK(SeviiSixIslandGym2_h)
 	db BANK(SeviiSixIslandGym3_h)
+	db BANK(SeviiSixIslandHouses_h)
 	db BANK(SeviiRoute38Houses_h)
 	db BANK(SeviiPatternBush_h)
 	db BANK(SeviiAlteringCave_h)

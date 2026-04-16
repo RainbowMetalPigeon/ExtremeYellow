@@ -2149,3 +2149,8 @@ INCLUDE "data/maps/headers/SeviiFiveIslandHouses.asm"
 INCLUDE "scripts/SeviiFiveIslandHouses.asm"
 INCLUDE "data/maps/objects/SeviiFiveIslandHouses.asm"
 SeviiFiveIslandHouses_Blocks: INCBIN "maps/SeviiFiveIslandHouses.blk"
+
+INCLUDE "data/maps/headers/SeviiSixIslandHouses.asm"
+INCLUDE "scripts/SeviiSixIslandHouses.asm"
+INCLUDE "data/maps/objects/SeviiSixIslandHouses.asm"
+SeviiSixIslandHouses_Blocks: INCBIN "maps/SeviiSixIslandHouses.blk"

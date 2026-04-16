@@ -109,6 +109,7 @@ MapSongBanks_Sevii::
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM_1
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM_2
 	db MUSIC_GYM, BANK(Music_Gym)                      ; SEVII_SIX_ISLAND_GYM_3
+	db MUSIC_CITIES2, BANK(Music_Cities2)              ; SEVII_SIX_ISLAND_HOUSES
 	db MUSIC_ROUTES3, BANK(Music_Routes3)              ; SEVII_ROUTE_38_HOUSES
 	db MUSIC_DUNGEON2, BANK(Music_Dungeon2)            ; SEVII_PATTERN_BUSH
 	db MUSIC_DUNGEON1, BANK(Music_Dungeon1)            ; SEVII_ALTERING_CAVE

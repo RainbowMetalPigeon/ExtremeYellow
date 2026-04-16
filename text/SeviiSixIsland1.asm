@@ -131,6 +131,31 @@ _SeviiSixIslandPokemonCenterAndMart_Text4::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiSixIslandHousesText1::
+	text "TBE 1"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandHousesText2::
+	text "TBE 2"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandHousesText3::
+	text "TBE 3"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandHousesText4::
+	text "TBE 4"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandHousesText5::
+	text "TBE 5"
+;	xxxx "123456789012345678"
+	done
+
 ; gym 1 ------------------------------------
 
 _SeviiSixIslandGym1Text1::

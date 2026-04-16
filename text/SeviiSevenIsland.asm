@@ -125,6 +125,16 @@ _SeviiSevenIslandHousesText1::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiSevenIslandHousesText2::
+	text "TBE 1"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandHousesText3::
+	text "TBE 2"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiSevenIslandHousesSignText1::
 	text "No LEFTOVERS."
 	done
