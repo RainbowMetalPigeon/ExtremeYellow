@@ -226,6 +226,7 @@ PartyMenuInit::
 ; otherwise, it is 0
 .storeMaxMenuItemID
 	ld [hli], a ; max menu item ID
+/*
 	ld a, [wForcePlayerToChooseMon]
 	and a
 	ld a, A_BUTTON | B_BUTTON
@@ -233,7 +234,12 @@ PartyMenuInit::
 	xor a
 	ld [wForcePlayerToChooseMon], a
 	inc a ; a = A_BUTTON
+*/
+	push hl
+	callfar GetPartyMenuWatchedKeys
+	pop hl
 .next
+	ld a, d ; new
 	ld [hli], a ; menu watched keys
 	pop af
 	ld [hl], a ; old menu item ID
@@ -245,26 +251,38 @@ HandlePartyMenuInput::
 	ld a, $40
 	ld [wPartyMenuAnimMonEnabled], a
 	call HandleMenuInput_
-	push af ; save hJoy5 OR wMenuWrapping enabled, if no inputs were selected within a certain period of time
-	bit 1, a ; was B button pressed?
-	ld a, $0
+	call PlaceUnfilledArrowMenuCursor
+	ld b, a
+	xor a
 	ld [wPartyMenuAnimMonEnabled], a
 	ld a, [wCurrentMenuItem]
 	ld [wPartyAndBillsPCSavedMenuItem], a
-	jr nz, .asm_1258
+	bit BIT_SELECT, b
+	jr z, .notSelect
+	push af
+	ld a, SFX_PRESS_AB
+	call PlaySound
+	ld a, [wMenuItemToSwap]
+	and a
+	jr nz, .swap
+	pop af
+	inc a ; [wMenuItemToSwap] counts from 1
+	ld [wMenuItemToSwap], a
+	jr nz, HandlePartyMenuInput
 	ld a, [wCurrentMenuItem]
 	ld [wWhichPokemon], a
 	callfar IsThisPartymonStarterPikachu_Party
-	jr nc, .asm_1258
+	jr nc, .swap
 	call CheckPikachuFollowingPlayer
 	jr nz, .asm_128f
-.asm_1258
+.swap
 	pop af
-	call PlaceUnfilledArrowMenuCursor
-	ld b, a
+.notSelect
+
 	ld hl, wd730
 	res 6, [hl] ; turn on letter printing delay
 	ld a, [wMenuItemToSwap]
+
 	and a
 	jp nz, .swappingPokemon
 	pop af
