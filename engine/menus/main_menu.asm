@@ -201,7 +201,7 @@ DisplayContinueGameInfo:
 	call PrintNumBadges
 	hlcoord 16, 13
 	call PrintNumOwnedMons
-	hlcoord 13, 15
+	hlcoord 11, 15 ; edited, was 13, 15
 	call PrintPlayTime
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
@@ -226,7 +226,7 @@ PrintSaveScreenText:
 	call PrintNumBadges
 	hlcoord 16, 6
 	call PrintNumOwnedMons
-	hlcoord 13, 8
+	hlcoord 11, 8 ; edited, was 13, 8
 	call PrintPlayTime
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
@@ -255,7 +255,7 @@ PrintNumOwnedMons:
 
 PrintPlayTime:
 	ld de, wPlayTimeHours
-	lb bc, 1, 3
+	lb bc, 2, 5 ; edited, was 1, 3
 	call PrintNumber
 	ld [hl], "<COLON>" ; edited, to expand tileset
 	inc hl
