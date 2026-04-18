@@ -87,3 +87,18 @@ _AgathaAfterBattleTextRematch::
 	cont "to see your"
 	cont "blinding light!"
 	done
+
+_AgathaBeforeBattleTextRematch2::
+	text "TBE 2 b"
+;	xxxx "123456789012345678"
+	done
+
+_AgathaEndBattleTextRematch2::
+	text "TBE 2 e"
+;	xxxx "123456789012345678"
+	prompt
+
+_AgathaAfterBattleTextRematch2::
+	text "TBE 2 a"
+;	xxxx "123456789012345678"
+	done

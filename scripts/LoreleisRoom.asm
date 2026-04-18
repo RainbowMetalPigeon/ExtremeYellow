@@ -16,8 +16,15 @@ LoreleiShowOrHideExitBlock:
 	ret z
 	ld hl, wBeatLorelei
 	set 1, [hl]
-	CheckEitherEventSet EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, EVENT_BEAT_LORELEIS_ROOM_TRAINER_1 ; edited
+; new
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_1
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_2
+; BTV
 	jr z, .blockExitToNextRoom
+.freeExitToNextRoom ; new
 	ld a, $5
 	jr .setExitBlock
 .blockExitToNextRoom
@@ -125,13 +132,25 @@ LoreleisRoomTrainerHeader0:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, 0, LoreleiBeforeBattleText, LoreleiEndBattleText, LoreleiAfterBattleText
 LoreleisRoomTrainerHeader1:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_1, 0, LoreleiBeforeBattleTextRematch, LoreleiEndBattleTextRematch, LoreleiAfterBattleTextRematch
+LoreleisRoomTrainerHeader2:
+	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_2, 0, LoreleiBeforeBattleTextRematch2, LoreleiEndBattleTextRematch2, LoreleiAfterBattleTextRematch2
 	db -1 ; end
 
 LoreleiText1: ; edited
 	text_asm
-; new, check if we beat all gyms leaders in their gym rematches
-	ld hl, LoreleisRoomTrainerHeader1
+; new, check if we beat League rematch AND at least one Sevii Sage
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .firstRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ld hl, LoreleisRoomTrainerHeader2
+	jr z, .firstRematch
+	call TalkToTrainer
+	ld a, 3
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+.firstRematch ; new, check if we beat all gyms leaders in their gym rematches
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
+	ld hl, LoreleisRoomTrainerHeader1
 	jr z, .notRematch
 	call TalkToTrainer
 	ld a, 2
@@ -171,4 +190,16 @@ LoreleiEndBattleTextRematch:
 
 LoreleiAfterBattleTextRematch:
 	text_far _LoreleiAfterBattleTextRematch
+	text_end
+
+LoreleiBeforeBattleTextRematch2:
+	text_far _LoreleiBeforeBattleTextRematch2
+	text_end
+
+LoreleiEndBattleTextRematch2:
+	text_far _LoreleiEndBattleTextRematch2
+	text_end
+
+LoreleiAfterBattleTextRematch2:
+	text_far _LoreleiAfterBattleTextRematch2
 	text_end

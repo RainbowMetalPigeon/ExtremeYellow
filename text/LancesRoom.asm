@@ -140,3 +140,18 @@ _LanceAfterBattleTextRematch::
 	cont "the highest of"
 	cont "all battles!@"
 	text_end ; why?
+
+_LanceBeforeBattleTextRematch2::
+	text "TBE 2 b"
+;	xxxx "123456789012345678"
+	done
+
+_LanceEndBattleTextRematch2::
+	text "TBE 2 e"
+;	xxxx "123456789012345678"
+	prompt
+
+_LanceAfterBattleTextRematch2::
+	text "TBE 2 a"
+;	xxxx "123456789012345678"
+	done

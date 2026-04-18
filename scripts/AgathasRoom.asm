@@ -14,8 +14,15 @@ AgathaShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEitherEventSet EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, EVENT_BEAT_AGATHAS_ROOM_TRAINER_1 ; edited
+; new
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_1
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_2
+; BTV
 	jr z, .blockExitToNextRoom
+.freeExitToNextRoom ; new
 	ld a, $e
 	jp .setExitBlock
 .blockExitToNextRoom
@@ -126,11 +133,23 @@ AgathasRoomTrainerHeader0:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, 0, AgathaBeforeBattleText, AgathaEndBattleText, AgathaAfterBattleText
 AgathasRoomTrainerHeader1:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, AgathaBeforeBattleTextRematch, AgathaEndBattleTextRematch, AgathaAfterBattleTextRematch
+AgathasRoomTrainerHeader2:
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_2, 0, AgathaBeforeBattleTextRematch2, AgathaEndBattleTextRematch2, AgathaAfterBattleTextRematch2
 	db -1 ; end
 
 AgathaText1:
 	text_asm
-; new, check if we beat all gyms leaders in their gym rematches
+; new, check if we beat League rematch AND at least one Sevii Sage
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .firstRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ld hl, AgathasRoomTrainerHeader2
+	jr z, .firstRematch
+	call TalkToTrainer
+	ld a, 3
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+.firstRematch ; new, check if we beat all gyms leaders in their gym rematches
 	ld hl, AgathasRoomTrainerHeader1
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .notRematch
@@ -172,4 +191,16 @@ AgathaEndBattleTextRematch:
 
 AgathaAfterBattleTextRematch:
 	text_far _AgathaAfterBattleTextRematch
+	text_end
+
+AgathaBeforeBattleTextRematch2:
+	text_far _AgathaBeforeBattleTextRematch2
+	text_end
+
+AgathaEndBattleTextRematch2:
+	text_far _AgathaEndBattleTextRematch2
+	text_end
+
+AgathaAfterBattleTextRematch2:
+	text_far _AgathaAfterBattleTextRematch2
 	text_end

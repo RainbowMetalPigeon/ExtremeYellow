@@ -14,8 +14,15 @@ BrunoShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEitherEventSet EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, EVENT_BEAT_BRUNOS_ROOM_TRAINER_1 ; edited
+; new
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_1
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_2
+; BTV
 	jr z, .blockExitToNextRoom
+.freeExitToNextRoom ; new
 	ld a, $5
 	jp .setExitBlock
 .blockExitToNextRoom
@@ -123,11 +130,23 @@ BrunosRoomTrainerHeader0:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, 0, BrunoBeforeBattleText, BrunoEndBattleText, BrunoAfterBattleText
 BrunosRoomTrainerHeader1:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_1, 0, BrunoBeforeBattleTextRematch, BrunoEndBattleTextRematch, BrunoAfterBattleTextRematch
+BrunosRoomTrainerHeader2:
+	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_2, 0, BrunoBeforeBattleTextRematch2, BrunoEndBattleTextRematch2, BrunoAfterBattleTextRematch2
 	db -1 ; end
 
 BrunoText1:
 	text_asm
-; new, check if we beat all gyms leaders in their gym rematches
+; new, check if we beat League rematch AND at least one Sevii Sage
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .firstRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ld hl, BrunosRoomTrainerHeader2
+	jr z, .firstRematch
+	call TalkToTrainer
+	ld a, 3
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+.firstRematch ; new, check if we beat all gyms leaders in their gym rematches
 	ld hl, BrunosRoomTrainerHeader1
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .notRematch
@@ -169,4 +188,16 @@ BrunoEndBattleTextRematch:
 
 BrunoAfterBattleTextRematch:
 	text_far _BrunoAfterBattleTextRematch
+	text_end
+
+BrunoBeforeBattleTextRematch2:
+	text_far _BrunoBeforeBattleTextRematch2
+	text_end
+
+BrunoEndBattleTextRematch2:
+	text_far _BrunoEndBattleTextRematch2
+	text_end
+
+BrunoAfterBattleTextRematch2:
+	text_far _BrunoAfterBattleTextRematch2
 	text_end

@@ -82,3 +82,18 @@ _LoreleiAfterBattleTextRematch::
 	cont "their new"
 	cont "strengths!"
 	done
+
+_LoreleiBeforeBattleTextRematch2::
+	text "TBE 2 b"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiEndBattleTextRematch2::
+	text "TBE 2 e"
+;	xxxx "123456789012345678"
+	prompt
+
+_LoreleiAfterBattleTextRematch2::
+	text "TBE 2 a"
+;	xxxx "123456789012345678"
+	done

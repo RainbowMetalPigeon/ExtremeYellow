@@ -72,7 +72,12 @@ GaryScript2:
 	ld a, OPP_RIVAL3
 	ld [wCurOpponent], a
 
-	; select which team to use during the encounter
+; select which team to use during the encounter
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .noFinalRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	jr nz, .loadTeamNumber32
+.noFinalRematch
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; have we beaten the game at least once?
 	jr z, .loadTeamNumber1 ; if not, proceed with loading the team number 1
 	; if we did beat the game at least once, we need to check if it's the post-gym-leader-rematch team or not
@@ -80,23 +85,30 @@ GaryScript2:
 	jr z, .loadTeamNumber3
 	; if we arrived here, then it's post-game and post-gym-rematches
 	jr .loadTeamNumber5
+
+.loadTeamNumber32
+	ld hl, GaryDefeatedText_AG_FR
+	ld de, GaryVictoryText_AG_FR
+	call SaveEndBattleTextPointers
+	ld a, 32
+	jr .continuePostLoadingTeam1
 .loadTeamNumber1
 	ld hl, GaryDefeatedText_BG
 	ld de, GaryVictoryText_BG
 	call SaveEndBattleTextPointers
-	ld a, $1
+	ld a, 1
 	jr .continuePostLoadingTeam1
 .loadTeamNumber3
 	ld hl, GaryDefeatedText_AG_BGR
 	ld de, GaryVictoryText_AG_BGR
 	call SaveEndBattleTextPointers
-	ld a, $3
+	ld a, 3
 	jr .continuePostLoadingTeam1
 .loadTeamNumber5
 	ld hl, GaryDefeatedText_AG_AGR
 	ld de, GaryVictoryText_AG_AGR
 	call SaveEndBattleTextPointers
-	ld a, $5
+	ld a, 5
 .continuePostLoadingTeam1
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
@@ -126,8 +138,8 @@ GaryScript2ndBattle:
 
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	jr z, .firstTimeAtLeague
-	; we are here if it's post-game. We need to display the question for the second battle,
-	; and if we agree, we choose the team depending on the rematches with the gym leaders
+; we are here if it's post-game. We need to display the question for the second battle,
+; and if we agree, we choose the team depending on the rematches with the gym leaders
 	ld a, $7 ; all the other checks and text displaying are left to this text
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -169,18 +181,18 @@ GaryScript3:
 	call UpdateSprites
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 
-	; new, set the flag for the supervictory, if appropriate
+; new, set the flag for the supervictory, if appropriate
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .continue
 	CheckEvent EVENT_ENGAGED_CHAMPION_FINAL_REMATCH
 	jr z, .continue
 	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; this makes the SS Anne return, which in turn allows to battle PIGEON (eheh)
-	; also spawn another tourist
+; also spawn another tourist
 	ld a, HS_LUNAR_SHRINE_TOURIST_4
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
 .continue
-	; back to vanilla code
+; BTV
 
 	ld a, $f0
 	ld [wJoyIgnore], a
@@ -221,6 +233,10 @@ GaryScript4: ; Oak calls you and walks towards you
 	ld a, SPRITE_FACING_DOWN
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 1, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; load next script
 	ld a, $5
 	ld [wChampionsRoomCurScript], a
@@ -250,12 +266,20 @@ GaryScript5:
 	ld a, SPRITE_FACING_LEFT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, LEFT
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 1, SPRITE_FACING_LEFT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak facing Rival
 	ld a, $2
 	ldh [hSpriteIndex], a
-	ld a,  SPRITE_FACING_RIGHT
+	ld a, SPRITE_FACING_RIGHT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, RIGHT
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 2, SPRITE_FACING_RIGHT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; load script 6 for post-game interactions
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	jr z, .notPostGame ; if not, continue with end-game stuff
@@ -274,6 +298,10 @@ GaryScript5:
 	ld a, SPRITE_FACING_DOWN
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 2, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak talks
 	ld a, $4
 	ldh [hSpriteIndexOrTextID], a
@@ -284,6 +312,10 @@ GaryScript5:
 	ld a, SPRITE_FACING_RIGHT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, RIGHT
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 2, SPRITE_FACING_RIGHT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak and Rival talk
 	ld a, $0b
 	ldh [hSpriteIndexOrTextID], a
@@ -318,12 +350,20 @@ GaryScript7: ; Oak faces and talks to Player and then leaves the room for the Ho
 	ld a, SPRITE_FACING_LEFT
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, LEFT
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 1, SPRITE_FACING_LEFT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak facing Player
 	ld a, $2
 	ldh [hSpriteIndex], a
 	xor a ; SPRITE_FACING_DOWN
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 2, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak talks
 	ld a, $5
 	ldh [hSpriteIndexOrTextID], a
@@ -429,9 +469,20 @@ ChampionsRoom_TextPointers: ; goddess, the order is such a mess xD
 
 GaryText1:
 	text_asm
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .noFinalRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	jr z, .noFinalRematch
+; final rematch
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	ld hl, GaryChampionIntroText_AG_FR
+	jr z, .printText
+	ld hl, GaryText_OWPostDefeat_AG_FR
+	jr .printText
+.noFinalRematch
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	jr nz, .postGame
-	; first time at the League
+; first time at the League
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld hl, GaryChampionIntroText_BG
 	jr z, .printText
@@ -440,14 +491,13 @@ GaryText1:
 .postGame
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr nz, .postGymRematches
-	; post game, but gym rematches not completed
+; post game, but gym rematches not completed
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld hl, GaryChampionIntroText_AG_BGR
 	jr z, .printText
 	ld hl, GaryText_OWPostDefeat_AG_BGR
 	jr .printText
-.postGymRematches
-	; post game and gym rematches completed
+.postGymRematches ; post game and gym rematches completed
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld hl, GaryChampionIntroText_AG_AGR
 	jr z, .printText
@@ -509,6 +559,24 @@ GaryDefeatedText_AG_AGR:
 
 GaryVictoryText_AG_AGR:
 	text_far _GaryVictoryText_AG_AGR
+	text_end
+
+; --------
+
+GaryChampionIntroText_AG_FR:
+	text_far _GaryChampionIntroText_AG_FR
+	text_end
+
+GaryText_OWPostDefeat_AG_FR:
+	text_far _GaryText_OWPostDefeat_AG_FR
+	text_end
+
+GaryDefeatedText_AG_FR:
+	text_far _GaryDefeatedText_AG_FR
+	text_end
+
+GaryVictoryText_AG_FR:
+	text_far _GaryVictoryText_AG_FR
 	text_end
 
 ; ==================================
@@ -667,7 +735,7 @@ GaryVictoryText2ndBattle_BG:
 
 GaryText2ndBattle_AG: ; beefy text that is de facto the script handling the second fight, it's all here to avoid the need to press A twice to advance
 	text_asm
-	ld hl, GaryText2ndBattle_AG_txtPointer
+	ld hl, GaryText2ndBattle_AG_txtPointer ; maybe misleading name, but it's the common "wanna fight my second team?"
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem] ; YES=0, NO=1
@@ -677,11 +745,25 @@ GaryText2ndBattle_AG: ; beefy text that is de facto the script handling the seco
 	call PrintText
 	jp .noSecondBattle ; if we refuse to do the second battle
 .yesSecondBattleOptional
-	; select which team to use during the encounter
-	; if we did beat the game at least once, we need to check if it's the post-gym-leader-rematch team or not
+; select which team to use during the encounter
+; if we did beat the game at least once, we need to check if it's the post-gym-leader-rematch team or not
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .noFinalRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	jr z, .noFinalRematch
+; final rematch
+	ld hl, GaryText2ndBattle_AG_FR
+	call PrintText
+	ld hl, GaryDefeatedText2ndBattle_AG_FR
+	ld de, GaryVictoryText2ndBattle_AG_FR
+	call SaveEndBattleTextPointers
+	ld a, 33
+	ld [wTrainerNo], a
+	jr .finishSettingBattleParameters
+.noFinalRematch
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .loadTeamNumber4
-	; if we arrived here, then it's post-game and post-gym-rematches
+; if we arrived here, then it's post-game and post-gym-rematches
 	jr .loadTeamNumber6
 .loadTeamNumber4
 	ld hl, GaryText2ndBattle_AG_BGL
@@ -713,7 +795,7 @@ GaryText2ndBattle_AG: ; beefy text that is de facto the script handling the seco
 .noSecondBattle
 	jp TextScriptEnd
 
-GaryText2ndBattle_AG_txtPointer: ; what an abomination I did lol
+GaryText2ndBattle_AG_txtPointer: ; maybe misleading naming
 	text_far _GaryText2ndBattle_AG
 	text_end
 
@@ -747,4 +829,18 @@ GaryDefeatedText2ndBattle_AG_AGL:
 
 GaryVictoryText2ndBattle_AG_AGL:
 	text_far _GaryVictoryText2ndBattle_AG_AGL
+	text_end
+
+; --------
+
+GaryText2ndBattle_AG_FR:
+	text_far _GaryText2ndBattle_AG_FR
+	text_end
+
+GaryDefeatedText2ndBattle_AG_FR:
+	text_far _GaryDefeatedText2ndBattle_AG_FR
+	text_end
+
+GaryVictoryText2ndBattle_AG_FR:
+	text_far _GaryVictoryText2ndBattle_AG_FR
 	text_end

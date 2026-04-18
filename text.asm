@@ -29,7 +29,6 @@ INCLUDE "text/SilphCo6F.asm"
 
 SECTION "Text 2", ROMX
 INCLUDE "text/ChampionsRoom.asm"
-INCLUDE "data/text/text_2.asm"
 
 
 SECTION "Text 3", ROMX
@@ -310,6 +309,10 @@ INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
 INCLUDE "text/BikeShop.asm"
+
+
+SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "data/text/text_2.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
