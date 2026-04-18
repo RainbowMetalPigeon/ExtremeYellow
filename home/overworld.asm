@@ -105,6 +105,7 @@ OverworldLoopLessDelay::
 ; new
 	SetEvent EVENT_SPRITE_CHECK_FROM_START_OPENING
 	call IsSpriteInFrontOfPlayer
+	ResetEvent EVENT_SPRITE_CHECK_FROM_START_OPENING
 	ld a, [hSpriteIndexOrTextID]
 	ld [wTemporarySpritexIndexHolder], a
 ; BTV
