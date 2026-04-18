@@ -196,8 +196,8 @@ IF DEF(_DEBUG)
 ;	ld [wPlayTimeHours], a
 ;	ld a, $FF
 ;	ld [wPlayTimeHours+1], a
-;	ld a, 59
-;	ld [wPlayTimeMinutes], a
+	ld a, 59
+	ld [wPlayTimeMinutes], a
 
 ;	ld a, $D0
 ;	ld [wNonShinyEncounters+1], a

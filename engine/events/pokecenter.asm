@@ -26,16 +26,18 @@ DisplayPokemonCenterDialogue_::
 ; back to vanilla
 .regularCenter
 	call SaveScreenTilesToBuffer1 ; save screen
-	ld hl, PokemonCenterWelcomeText
-	call PrintText
-	ld hl, wd72e
-	bit 2, [hl]
-	set 1, [hl]
-	set 2, [hl]
-	jr nz, .skipShallWeHealYourPokemon
+; edited
+;	ld hl, PokemonCenterWelcomeText
+;	call PrintText
+;	ld hl, wd72e
+;	bit 2, [hl]
+;	set 1, [hl]
+;	set 2, [hl]
+;	jr nz, .skipShallWeHealYourPokemon
 	ld hl, ShallWeHealYourPokemonText
 	call PrintText
-.skipShallWeHealYourPokemon
+;.skipShallWeHealYourPokemon
+; BTV
 	call YesNoChoicePokeCenter ; yes/no menu
 	call UpdateSprites
 	ld a, [wCurrentMenuItem]
@@ -142,9 +144,9 @@ Func_6ebb:
 	call SpriteFunc_34a1
 	ret
 
-PokemonCenterWelcomeText:
-	text_far _PokemonCenterWelcomeText
-	text_end
+;PokemonCenterWelcomeText:
+;	text_far _PokemonCenterWelcomeText
+;	text_end
 
 ShallWeHealYourPokemonText:
 	text_pause

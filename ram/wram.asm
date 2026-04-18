@@ -2660,7 +2660,7 @@ wd72d:: db
 
 ; bit 0: the player has received Porygon in the Silph Co. building
 ; bit 1: set in various places, but doesn't appear to have an effect
-; bit 2: the player has healed pokemon at a pokemon center at least once
+; bit 2: the player has healed pokemon at a pokemon center at least once ; edited: we'll ignore this
 ; bit 3: the player has a received a pokemon from Prof. Oak
 ; bit 4: disable battles
 ; bit 5: set when a battle ends and when the player blacks out in the overworld due to poison
