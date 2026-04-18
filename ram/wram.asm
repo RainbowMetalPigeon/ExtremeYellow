@@ -458,7 +458,8 @@ wStoreRealhWhoseTurn:: ; new
 ; whether to check for 180-degree turn (0 = don't, 1 = do)
 wCheckFor180DegreeTurn:: db
 
-	ds 1
+;	ds 1
+wAnimationType:: db ; new, repurposed
 
 wMissableObjectIndex:: db
 
@@ -542,7 +543,7 @@ wLuckySlotHiddenObjectIndex:: db
 
 NEXTU
 ; values between 0-6. Shake screen horizontally, shake screen vertically, blink Pokemon...
-wAnimationType:: db
+wAnimationTypeOld:: db ; edited, made unused
 	ds 29
 wAnimPalette:: db
 
