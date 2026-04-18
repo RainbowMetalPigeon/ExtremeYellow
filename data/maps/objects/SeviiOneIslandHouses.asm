@@ -13,10 +13,11 @@ SeviiOneIslandHouses_Object:
 	warp_event 45,  7, SEVII_ONE_ISLAND_CITY, 10
 
 	def_bg_events
-	bg_event  0,  7,  9 ; SeviiOneIslandHousesSignText1
-	bg_event 19,  3, 10 ; SeviiOneIslandHousesSignText2
-	bg_event 14,  1, 11 ; SeviiOneIslandHousesSignText3
-	bg_event 21,  1, 12 ; SeviiOneIslandHousesSignText4
+	bg_event  0,  7, 12 ; SeviiOneIslandHousesSignText1
+	bg_event 19,  3, 13 ; SeviiOneIslandHousesSignText2
+	bg_event 14,  1, 14 ; SeviiOneIslandHousesSignText3
+	bg_event 21,  1, 15 ; SeviiOneIslandHousesSignText4
+	bg_event 48,  1, 16 ; SeviiOneIslandHousesSignText5
 
 	def_object_events
 	object_event  2,  3, SPRITE_FISHING_GURU, STAY, LEFT, 1 ; weather move tutor
@@ -28,5 +29,8 @@ SeviiOneIslandHouses_Object:
 	object_event 16,  4, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 6 ; Mayoi after rescue
 	object_event 17,  7, SPRITE_PINK, STAY, UP, 7 ; Pink
 	object_event 15,  2, SPRITE_MONSTER, STAY, DOWN, 8 ; plushie
+	object_event 33,  3, SPRITE_FISHER, STAY, RIGHT, 9 ; Snorlax fan?
+	object_event 45,  3, SPRITE_BALDING_GUY, STAY, DOWN, 10
+	object_event 48,  2, SPRITE_GAMEBOY_KID, STAY, UP, 11
 
 	def_warps_to SEVII_ONE_ISLAND_HOUSES

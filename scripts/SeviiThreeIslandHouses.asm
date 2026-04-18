@@ -31,7 +31,7 @@ SeviiThreeIslandHouses_Battle:
 ; tutor dialogue and battle
 	ld a, $0
 	ld [wJoyIgnore], a
-	ld a, 15
+	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; battle
@@ -64,7 +64,7 @@ SeviiThreeIslandHouses_PostBattle:
 	ld a, $f0
 	ld [wJoyIgnore], a
 ; we won
-	ld a, 16
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_SEVII_BEAT_TERRAIN_TUTOR
@@ -122,21 +122,24 @@ SeviiThreeIslandHouses_TextPointers:
 	dw SeviiThreeIslandHousesText1
 	dw SeviiThreeIslandHousesText2
 	dw SeviiThreeIslandHousesText3
+	dw SeviiThreeIslandHousesText4
+	dw SeviiThreeIslandHousesText5
 	; signs
-	dw SeviiThreeIslandHousesSignText1 ; 4
-	dw SeviiThreeIslandHousesSignText2 ; 5
-	dw SeviiThreeIslandHousesSignText3 ; 6
-	dw SeviiThreeIslandHousesBookshelfText1 ;  7
-	dw SeviiThreeIslandHousesBookshelfText2 ;  8
-	dw SeviiThreeIslandHousesBookshelfText3 ;  9
-	dw SeviiThreeIslandHousesBookshelfText4 ; 10
-	dw SeviiThreeIslandHousesBookshelfText5 ; 11
-	dw SeviiThreeIslandHousesBookshelfText6 ; 12
-	dw SeviiThreeIslandHousesBookshelfText7 ; 13
-	dw SeviiThreeIslandHousesBookshelfText8 ; 14
+	dw SeviiThreeIslandHousesSignText1 ; 6
+	dw SeviiThreeIslandHousesSignText2 ; 7
+	dw SeviiThreeIslandHousesSignText3 ; 8
+	dw SeviiThreeIslandHousesSignText4 ; 9
+	dw SeviiThreeIslandHousesBookshelfText1 ; 10
+	dw SeviiThreeIslandHousesBookshelfText2 ; 11
+	dw SeviiThreeIslandHousesBookshelfText3 ; 12
+	dw SeviiThreeIslandHousesBookshelfText4 ; 13
+	dw SeviiThreeIslandHousesBookshelfText5 ; 14
+	dw SeviiThreeIslandHousesBookshelfText6 ; 15
+	dw SeviiThreeIslandHousesBookshelfText7 ; 16
+	dw SeviiThreeIslandHousesBookshelfText8 ; 17
 	; scripts
-	dw SeviiThreeIslandHousesScriptText1 ; 15 ; pre-battle
-	dw SeviiThreeIslandHousesScriptText2 ; 16 ; post-battle
+	dw SeviiThreeIslandHousesScriptText1 ; 18 ; pre-battle
+	dw SeviiThreeIslandHousesScriptText2 ; 19 ; post-battle
 
 SeviiThreeIslandHousesText1: ; tutor
 	text_asm
@@ -247,6 +250,14 @@ SeviiThreeIslandHousesText3:
 	text_far _SeviiThreeIslandHousesText3
 	text_end
 
+SeviiThreeIslandHousesText4:
+	text_far _SeviiThreeIslandHousesText4
+	text_end
+
+SeviiThreeIslandHousesText5:
+	text_far _SeviiThreeIslandHousesText5
+	text_end
+
 ; signs
 
 SeviiThreeIslandHousesSignText1:
@@ -259,6 +270,10 @@ SeviiThreeIslandHousesSignText2:
 
 SeviiThreeIslandHousesSignText3:
 	text_far _SeviiThreeIslandHousesSignText3
+	text_end
+
+SeviiThreeIslandHousesSignText4:
+	text_far _SeviiThreeIslandHousesSignText4
 	text_end
 
 ; ============================================

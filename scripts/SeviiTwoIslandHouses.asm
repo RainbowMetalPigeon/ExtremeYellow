@@ -9,8 +9,17 @@ SeviiTwoIslandHouses_TextPointers:
 	dw SeviiTwoIslandHousesText5
 	dw SeviiTwoIslandHousesText6
 	dw SeviiTwoIslandHousesText7
+	dw SeviiTwoIslandHousesText8
+	dw SeviiTwoIslandHousesText9
+	dw SeviiTwoIslandHousesText10
+	dw SeviiTwoIslandHousesText11
 	; signs
 	dw SeviiTwoIslandHousesSignText1
+	dw SeviiTwoIslandHousesSignText2
+	dw SeviiTwoIslandHousesSignText3
+	dw SeviiTwoIslandHousesSignText3
+	dw SeviiTwoIslandHousesSignText3
+	dw SeviiTwoIslandHousesSignText3
 
 SeviiTwoIslandHousesText1:
 	text_far _SeviiTwoIslandHousesText1
@@ -100,6 +109,30 @@ SeviiTwoIslandHousesText7:
 	text_far _SeviiTwoIslandHousesText7
 	text_end
 
+SeviiTwoIslandHousesText8:
+	text_far _SeviiTwoIslandHousesText8
+	text_end
+
+SeviiTwoIslandHousesText9:
+	text_far _SeviiTwoIslandHousesText9
+	text_end
+
+SeviiTwoIslandHousesText10:
+	text_far _SeviiTwoIslandHousesText10
+	text_end
+
+SeviiTwoIslandHousesText11:
+	text_far _SeviiTwoIslandHousesText11
+	text_end
+
 SeviiTwoIslandHousesSignText1:
 	text_far _SeviiTwoIslandHousesSignText1
+	text_end
+
+SeviiTwoIslandHousesSignText2:
+	text_far _SeviiTwoIslandHousesSignText2
+	text_end
+
+SeviiTwoIslandHousesSignText3:
+	text_far _SeviiTwoIslandHousesSignText3
 	text_end

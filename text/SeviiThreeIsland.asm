@@ -307,6 +307,39 @@ _SeviiThreeIslandHousesText3::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiThreeIslandHousesText4::
+	text "Spirits! Ghosts!"
+	line "Ectoplasms!"
+	cont "Phantasms!"
+
+	para "...you got the"
+	line "idea. I used to"
+	cont "live in LAVENDER,"
+	cont "but my services"
+	cont "got requested"
+	cont "here too. The"
+	cont "forest is haunted!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText5::
+	text "Ohhh, we just"
+	line "moved here, and"
+	cont "everything's still"
+	cont "a huge mess!"
+
+	para "I work remotely,"
+	line "so moving it's not"
+	cont "a problem for me"
+	cont "as long as I have"
+	cont "connection..."
+
+	para "...but right now I"
+	line "can't even reach"
+	cont "my computer!"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiThreeIslandHousesSignText1::
 	text "This book looks..."
 	line "out of place?"
@@ -323,6 +356,13 @@ _SeviiThreeIslandHousesSignText3::
 	text "A broken model"
 	line "of the Statue"
 	cont "of Liberty."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesSignText4::
+	text "Is this... A mix"
+	line "of coffee and"
+	cont "matcha tea?"
 ;	xxxx "123456789012345678"
 	done
 
