@@ -184,7 +184,7 @@ _SeviiTwoIslandPokemonCenter_Text1::
 	cont "be in every place!"
 	done
 
-_SeviiTwoIslandPokemonCenter_Text2::
+_SeviiTwoIslandPokemonCenter_Text2_Intro::
 	text "What's your"
 	line "favourite type?"
 	cont "Me, I'm a fan of"
@@ -193,6 +193,19 @@ _SeviiTwoIslandPokemonCenter_Text2::
 	para "If only there was"
 	line "a #MON with"
 	cont "both these types!"
+	done
+
+_SeviiTwoIslandPokemonCenter_Text2_Surprise::
+	text "What?!"
+	line "You DO have a"
+	cont "ROCK-GHOST"
+	cont "#MON?!"
+	cont "I didn't even know"
+	cont "it existed!"
+
+	para "How did you get"
+	line "it?!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandHousesText1::

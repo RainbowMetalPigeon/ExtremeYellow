@@ -45,7 +45,7 @@ CheckIfOneGivenMonIsInPartyAndLoadIndex::
 
 ; input: d contains the type to check
 ; sets z flag if found
-CheckIfACertainTypeIsInParty:: ; TBE: consider delta -> already set up down
+CheckIfACertainTypeIsInParty::
 	ld a, d
 	ld c, a ; c contains the type to check
 	ld hl, wPartyCount
@@ -66,6 +66,63 @@ CheckIfACertainTypeIsInParty:: ; TBE: consider delta -> already set up down
 	ret z
 ; if we're here, neither type1 or type2 match the type we're searching
 ; in which case, we go to the next mon
+	call Advance_deRegister_Wrapped
+	dec b
+	jr nz, .loop
+; if we're here, we ran out of mons to check
+	inc b ; this returns b to 1, and un-sets the z flag
+	ret
+
+; =====================================
+
+; input: d and e contain the types to check
+; sets z flag if found
+CheckIfACertainDoubleTypeIsInParty::
+	ld a, d
+	ld [wUniQuizAnswer], a ; wUniQuizAnswer contains the first type to check
+	ld a, e
+	ld [wUniQuizAnswer+1], a ; wUniQuizAnswer+1 contains the second type to check
+
+	ld hl, wPartyCount
+	ld de, wPartyMon1CatchRate
+	ld a, [hli]
+	ld b, a ; b has the number of Mons in the party
+
+.loop
+	ld a, [hli] ; Mon ID
+	ld [wd0b5], a
+	call SetDeltaSpeciesEvent_deRegister_Wrapped
+	call GetMonHeader
+
+; check 1-1 and 2-2, then check 1-2 and 2-1
+	ld a, [wUniQuizAnswer]
+	ld c, a
+	ld a, [wMonHType1]
+	cp c ; compare to the first type to check
+	jr nz, .goNextCheck
+	ld a, [wUniQuizAnswer+1]
+	ld c, a
+	ld a, [wMonHType2]
+	cp c ; compare to the second type to check
+	jr nz, .goNextCheck
+	ret ; if z
+
+.goNextCheck
+	ld a, [wUniQuizAnswer+1]
+	ld c, a
+	ld a, [wMonHType1]
+	cp c ; compare to the second type to check
+	jr nz, .goNextMon
+	ld a, [wUniQuizAnswer]
+	ld c, a
+	ld a, [wMonHType2]
+	cp c ; compare to the first type to check
+	jr nz, .goNextMon
+	ret ; if z
+
+; if we're here, neither type1 or type2 match the type we're searching
+; in which case, we go to the next mon
+.goNextMon
 	call Advance_deRegister_Wrapped
 	dec b
 	jr nz, .loop

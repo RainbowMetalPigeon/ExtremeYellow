@@ -16,7 +16,7 @@ DebugTeam:
 	db MDRAGONITE, 99 ; 255
 	db MUNCHLAX, 45
 	db STARTER_PIKACHU, 1
-;	db KABUTOPS, 98
+	db VENUSTOISE, 98
 ;	db SCIZOR, 42
 ;	db DUGTRIO, 68
 	db -1 ; end
@@ -51,7 +51,7 @@ IF DEF(_DEBUG)
 	ld a, PSYCHIC_TERRAIN ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, HAIL ; ROCK_CLIMB
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, DIVE
@@ -127,9 +127,9 @@ IF DEF(_DEBUG)
 ;	ld [hl], a
 ;	ld hl, wPartyMon3CatchRate
 ;	ld [hl], a
-;	ld a, 2
-;	ld hl, wPartyMon4CatchRate
-;	ld [hl], a
+	ld a, 2
+	ld hl, wPartyMon4CatchRate
+	ld [hl], a
 ;	ld hl, wPartyMon5CatchRate
 ;	ld [hl], a
 ;	ld hl, wPartyMon6CatchRate
