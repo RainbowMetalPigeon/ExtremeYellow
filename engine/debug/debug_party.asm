@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MDRAGONITE, 99 ; 255
-	db SCYTHER, 45
+	db LAPRAS, 45
 	db STARTER_PIKACHU, 1
 ;	db KABUTOPS, 98
 ;	db SCIZOR, 42

@@ -388,6 +388,44 @@ _SeviiFourIslandHousesText6::
 	cont "furniture..."
 	done
 
+_SeviiFourIslandHousesText7::
+	text "A LAPRAS doll!"
+
+	para "It looks old, but"
+	line "definitely well-"
+	cont "cared for."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText8::
+	text "I often wonder if"
+	line "I should follow"
+	cont "my elder grankid"
+	cont "to KANTO..."
+;	xxxx "123456789012345678"
+
+	para "But the more I"
+	line "wait, the more of"
+	cont "a challenge that"
+	cont "sounds."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText9::
+	text "My big sib is"
+	line "amazing!!! They're"
+	cont "are, like, ultra"
+	cont "strong, and now"
+	cont "they beat people"
+	cont "to a pulp at the"
+	cont "INDICATE PLATE!"
+
+	para "...but I am a bit"
+	line "sad, 'cause I see"
+	cont "them so rarely."
+;	xxxx "123456789012345678"
+	done
+
 ; signs
 
 _SeviiFourIslandHousesSignText1_TV_Right::
