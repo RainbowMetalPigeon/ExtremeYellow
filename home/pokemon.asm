@@ -246,6 +246,7 @@ PartyMenuInit::
 	ret
 
 HandlePartyMenuInput::
+; edits from Vortiene and GasNWash
 	ld a, 1
 	ld [wMenuWrappingEnabled], a
 	ld a, $40
@@ -278,11 +279,10 @@ HandlePartyMenuInput::
 .swap
 	pop af
 .notSelect
-
+; BTV
 	ld hl, wd730
 	res 6, [hl] ; turn on letter printing delay
 	ld a, [wMenuItemToSwap]
-
 	and a
 	jp nz, .swappingPokemon
 	pop af
