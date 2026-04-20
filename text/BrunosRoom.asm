@@ -73,3 +73,18 @@ _BrunoAfterBattleTextRematch::
 	cont "themselves"
 	cont "against you!"
 	done
+
+_BrunoBeforeBattleTextRematch2::
+	text "TBE 2 b"
+;	xxxx "123456789012345678"
+	done
+
+_BrunoEndBattleTextRematch2::
+	text "TBE 2 e"
+;	xxxx "123456789012345678"
+	prompt
+
+_BrunoAfterBattleTextRematch2::
+	text "TBE 2 a"
+;	xxxx "123456789012345678"
+	done

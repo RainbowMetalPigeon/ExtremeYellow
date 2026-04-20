@@ -206,17 +206,20 @@ _HMCantDeleteText:: ; edited
 	cont "just like this!"
 	prompt
 
-_PokemonCenterWelcomeText:: ; edited
+;_PokemonCenterWelcomeText:: ; edited
+;	text "Welcome to our"
+;	line "#MON CENTER!"
+;
+;;	para "We heal #MON"
+;;	line "back to health!"
+;	done
+
+_ShallWeHealYourPokemonText:: ; edited
 	text "Welcome to our"
 	line "#MON CENTER!"
 
-;	para "We heal #MON"
-;	line "back to health!"
-	done
-
-_ShallWeHealYourPokemonText:: ; edited
-	text "Do you want to"
-	line "heal you #MON?"
+	para "Do you want to"
+	line "heal your #MON?"
 	done
 
 _NeedYourPokemonText:: ; edited

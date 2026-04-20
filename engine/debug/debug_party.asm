@@ -13,10 +13,10 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MDRAGONITE, 99 ; 255
-	db SCYTHER, 45
+	db MSTARMIE, 99 ; 255
+	db MUNCHLAX, 45
 	db STARTER_PIKACHU, 1
-;	db KABUTOPS, 98
+;	db VENUSTOISE, 98
 ;	db SCIZOR, 42
 ;	db DUGTRIO, 68
 	db -1 ; end
@@ -51,7 +51,7 @@ IF DEF(_DEBUG)
 	ld a, PSYCHIC_TERRAIN ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, HAIL ; ROCK_CLIMB
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, DIVE
@@ -196,8 +196,8 @@ IF DEF(_DEBUG)
 ;	ld [wPlayTimeHours], a
 ;	ld a, $FF
 ;	ld [wPlayTimeHours+1], a
-;	ld a, 59
-;	ld [wPlayTimeMinutes], a
+	ld a, 59
+	ld [wPlayTimeMinutes], a
 
 ;	ld a, $D0
 ;	ld [wNonShinyEncounters+1], a
@@ -269,6 +269,11 @@ IF DEF(_DEBUG)
 ;	callfar HideUndegroundGuard.hideGuards
 
 	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+
+;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
+;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+
+;	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
 
 ;	SetEvent EVENT_DEFEATED_MISSINGNO
 

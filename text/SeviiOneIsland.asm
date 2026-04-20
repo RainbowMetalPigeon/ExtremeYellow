@@ -341,6 +341,68 @@ _SeviiOneIslandHousesText8::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiOneIslandHousesText9_Intro::
+	text "Gnam gnam..."
+
+	para "...eating and..."
+	line "...sleeping..."
+	cont "...are the most"
+	cont "important things"
+	cont "in life."
+
+	para "Gnam gnam..."
+
+	para "...If you guess"
+	line "and bring me"
+	cont "my favourite"
+	cont "#MON..."
+
+	para "...I'll share some"
+	line "of my happiness"
+	cont "with you."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesText9_TooBad::
+	text "Too bad"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiOneIslandHousesText9_LetsGoSnorlax::
+	text "Let's go"
+;	xxxx "123456789012345678"
+	prompt
+	
+_SeviiOneIslandHousesText9_LetsGoMunchlax::
+	text "It'll do let's go"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesText9_OnlyOneMon::
+	text "only 1 mon"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText9_TradeDone::
+	text "done"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText9_CiaoSnorlax::
+	text "ciao ronfo"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesText10::
+	text "TBE 1"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText11::
+	text "TBE 2"
+;	xxxx "123456789012345678"
+	done
+
 _FluteExplanationText::
 	text_start
 	para "Upon hearing #"
@@ -375,6 +437,12 @@ _SeviiOneIslandHousesSignText4::
 	text "A histogram, a"
 	line "graph, and tons"
 	cont "of lines of code!"
+	done
+
+_SeviiOneIslandHousesSignText5::
+	text "A hot chocolate!"
+	line "Looks yummy!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText1::

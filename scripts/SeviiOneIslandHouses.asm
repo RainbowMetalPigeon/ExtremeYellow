@@ -40,7 +40,7 @@ SeviiOneIslandHouses_PinkAppears:
 ; Pink dialogue
 	ld c, 30
 	call DelayFrames
-	ld a, 13
+	ld a, 17
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink movement
@@ -71,7 +71,7 @@ SeviiOneIslandHouses_PinkMovementsAndBattle:
 ; Pink dialogue and battle
 	ld a, $0
 	ld [wJoyIgnore], a
-	ld a, 14
+	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID ; SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore ?
 ; battle
@@ -109,7 +109,7 @@ SeviiOneIslandHouses_PinkLeaves:
 	ret
 
 SeviiOneIslandHouses_PinkLeaves2:
-	ld a, 15
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink movement
@@ -181,15 +181,19 @@ SeviiOneIslandHouses_TextPointers:
 	dw SeviiOneIslandHousesText6 ; Mayoi after rescue
 	dw SeviiOneIslandHousesText7 ; Pink
 	dw SeviiOneIslandHousesText8 ; plushie
+	dw SeviiOneIslandHousesText9 ; Snorlax fan?
+	dw SeviiOneIslandHousesText10 ; x
+	dw SeviiOneIslandHousesText11 ; x
 	; signs
 	dw SeviiOneIslandHousesSignText1
 	dw SeviiOneIslandHousesSignText2
 	dw SeviiOneIslandHousesSignText3
-	dw SeviiOneIslandHousesSignText4 ; 12
+	dw SeviiOneIslandHousesSignText4 ; 15
+	dw SeviiOneIslandHousesSignText5 ; 16
 	; scripts
-	dw SeviiOneIslandHousesScriptText1 ; 13
-	dw SeviiOneIslandHousesScriptText2 ; 14
-	dw SeviiOneIslandHousesScriptText3 ; 15
+	dw SeviiOneIslandHousesScriptText1 ; 17
+	dw SeviiOneIslandHousesScriptText2 ; 18
+	dw SeviiOneIslandHousesScriptText3 ; 19
 
 SeviiOneIslandHousesText1:
 	text_asm
@@ -416,6 +420,104 @@ SeviiOneIslandHousesText8: ; plushie
 	text_far _SeviiOneIslandHousesText8
 	text_end
 
+SeviiOneIslandHousesText9:
+	text_asm
+	CheckEvent EVENT_SEVII_TRADED_SNORLAX_FOR_ONIGIRI_BOX
+	ld hl, SeviiOneIslandHousesText9_TradeDone
+	jr nz, .printAndEnd
+; trade not done yet
+	call SaveScreenTilesToBuffer2
+	ld hl, SeviiOneIslandHousesText9_Intro
+	call PrintText
+	xor a ; NORMAL_PARTY_MENU
+	ld [wPartyMenuTypeOrMessageID], a
+	dec a
+	ld [wUpdateSpritesEnabled], a
+	call DisplayPartyMenu
+	push af
+	callfar InGameTrade_RestoreScreen
+	pop af
+	jp c, .tradeFailed ; jump if the player didn't select a pokemon
+; is it Snorlax or Munchlax?
+	ld a, [wcf91]
+	ld b, SNORLAX
+	ld hl, SeviiOneIslandHousesText9_LetsGoSnorlax
+	cp b
+	jr z, .tradePossible
+	ld b, MUNCHLAX
+	ld hl, SeviiOneIslandHousesText9_LetsGoMunchlax
+	cp b
+	jp nz, .tradeFailed ; jump if the selected mon's species is not the required one(s)
+.tradePossible
+	call PrintText
+; do we have more than 1 mon?
+	ld a, [wPartyCount]
+	dec a
+	ld hl, SeviiOneIslandHousesText9_OnlyOneMon
+	jr z, .printAndEnd
+; ask confirmation
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .tradeFailed
+; perform trade
+	ld a, [wWhichPokemon]
+	xor a
+	ld [wMonDataLocation], a ; not used
+	ld [wRemoveMonFromBox], a
+	call RemovePokemon
+	ld hl, SeviiOneIslandHousesText9_CiaoSnorlax
+	call PrintText
+	SetEvent EVENT_SEVII_TRADED_SNORLAX_FOR_ONIGIRI_BOX
+	ld hl, SeviiOneIslandHousesText9_PlayerOnigiri
+	jr .printAndEnd
+.tradeFailed
+	ld hl, SeviiOneIslandHousesText9_TooBad
+.printAndEnd
+	call PrintText
+.end
+	jp TextScriptEnd
+
+SeviiOneIslandHousesText9_PlayerOnigiri:
+	text_far _CeladonDinerText1_ReceivedOnigiri
+	text_end
+
+SeviiOneIslandHousesText9_OnlyOneMon:
+	text_far _SeviiOneIslandHousesText9_OnlyOneMon
+	text_end
+
+SeviiOneIslandHousesText9_TooBad:
+	text_far _SeviiOneIslandHousesText9_TooBad
+	text_end
+
+SeviiOneIslandHousesText9_TradeDone:
+	text_far _SeviiOneIslandHousesText9_TradeDone
+	text_end
+
+SeviiOneIslandHousesText9_CiaoSnorlax:
+	text_far _SeviiOneIslandHousesText9_CiaoSnorlax
+	text_end
+
+SeviiOneIslandHousesText9_LetsGoSnorlax:
+	text_far _SeviiOneIslandHousesText9_LetsGoSnorlax
+	text_end
+
+SeviiOneIslandHousesText9_LetsGoMunchlax:
+	text_far _SeviiOneIslandHousesText9_LetsGoMunchlax
+	text_end
+	
+SeviiOneIslandHousesText9_Intro:
+	text_far _SeviiOneIslandHousesText9_Intro
+	text_end
+
+SeviiOneIslandHousesText10:
+	text_far _SeviiOneIslandHousesText10
+	text_end
+
+SeviiOneIslandHousesText11:
+	text_far _SeviiOneIslandHousesText11
+	text_end
+
 ; signs ----------------------------------------------
 
 SeviiOneIslandHousesSignText1:
@@ -432,6 +534,10 @@ SeviiOneIslandHousesSignText3:
 
 SeviiOneIslandHousesSignText4:
 	text_far _SeviiOneIslandHousesSignText4
+	text_end
+
+SeviiOneIslandHousesSignText5:
+	text_far _SeviiOneIslandHousesSignText5
 	text_end
 
 ; scripts ---------------------------------------------

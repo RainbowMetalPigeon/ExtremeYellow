@@ -299,9 +299,9 @@ HoFDisplayPlayerStats:
 	hlcoord 1, 6
 	ld de, HoFPlayTimeText
 	call PlaceString
-	hlcoord 5, 7
+	hlcoord 3, 7 ; edited, was 5, 7
 	ld de, wPlayTimeHours
-	lb bc, 1, 3
+	lb bc, 2, 5 ; edited, was 1, 3
 	call PrintNumber
 	ld [hl], "<COLON>" ; edited, to expand tileset
 	inc hl

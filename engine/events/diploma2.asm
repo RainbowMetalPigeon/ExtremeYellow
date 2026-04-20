@@ -91,9 +91,9 @@ Func_e9ad3:
 	ld de, String_e9bd5
 	hlcoord 2, 15
 	call PlaceString
-	hlcoord 12, 15
+	hlcoord 10, 15 ; edited, was 12, 15
 	ld de, wPlayTimeHours
-	lb bc, $40 | 1, 3
+	lb bc, $40 | 2, 5 ; edited, was 1, 3
 	call PrintNumber
 	ld [hl], $16
 	inc hl

@@ -249,6 +249,31 @@ _GaryText_OWPostDefeat_AG_AGR::
 	cont "CHAMPION!"
 	done
 
+; -------- TBE
+
+_GaryChampionIntroText_AG_FR::
+	text "we all heard of"
+	line "sevii trial and"
+	cont "trained a lot"
+;	xxxx "123456789012345678"
+	done
+
+_GaryDefeatedText_AG_FR::
+	text "damn again!"
+;	xxxx "123456789012345678"
+	prompt
+
+_GaryVictoryText_AG_FR::
+	text "wow finally!"
+;	xxxx "123456789012345678"
+	prompt
+
+_GaryText_OWPostDefeat_AG_FR::
+	text "decisive victory"
+	line "now you champion"
+;	xxxx "123456789012345678"
+	done
+
 ; ==================================
 
 _GaryText2::
@@ -677,8 +702,9 @@ _GaryText2ndBattle_AG_BGL::
 	done
 
 _GaryDefeatedText2ndBattle_AG_BGL::
-	text "I see you're really" ; TBV, is the apostrophe fine?
-	line "in top shape."
+	text "I see you"
+	line "are really in"
+	cont "top shape."
 
 	para "Not even my birds"
 	line "of legends could"
@@ -693,7 +719,7 @@ _GaryVictoryText2ndBattle_AG_BGL::
 	cont "victorious!"
 
 	para "Train more and"
-	line "let's fight again!" ; TBV
+	line "let's fight again!"
 	prompt
 
 ; --------
@@ -730,5 +756,25 @@ _GaryVictoryText2ndBattle_AG_AGL::
 	cont "my new teams."
 
 	para "Train more and"
-	line "let's fight again!" ; TBV
+	line "let's fight again!"
+	prompt
+
+; -------- TBE
+
+_GaryText2ndBattle_AG_FR::
+	text "i knew you accept"
+	line "here my othr mons"
+;	xxxx "123456789012345678"
+	done
+
+_GaryDefeatedText2ndBattle_AG_FR::
+	text "damn"
+	line "u r 2 stronk"
+;	xxxx "123456789012345678"
+	prompt
+
+_GaryVictoryText2ndBattle_AG_FR::
+	text "i won"
+	line "but too easy"
+;	xxxx "123456789012345678"
 	prompt

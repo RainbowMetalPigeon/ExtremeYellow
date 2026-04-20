@@ -2181,8 +2181,8 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, MACH_PUNCH ; HAIL
-	db 1, 2, RAZOR_LEAF ; AQUA_JET
+	db 1, 1, ROAR ; HAIL
+	db 1, 2, TACKLE ; AQUA_JET
 	db 1, 3, NO_MOVE ; REST
 	db 1, 4, NO_MOVE ; BLIZZARD
 	; CLOYSTER

@@ -135,11 +135,23 @@ LancesRoomTrainerHeader0:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_0, 0, LanceBeforeBattleText, LanceEndBattleText, LanceAfterBattleText
 LancesRoomTrainerHeader1:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_1, 0, LanceBeforeBattleTextRematch, LanceEndBattleTextRematch, LanceAfterBattleTextRematch
+LancesRoomTrainerHeader2:
+	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_2, 0, LanceBeforeBattleTextRematch2, LanceEndBattleTextRematch2, LanceAfterBattleTextRematch2
 	db -1 ; end
 
 LanceText1:
 	text_asm
-; new, check if we beat all gyms leaders in their gym rematches
+; new, check if we beat League rematch AND at least one Sevii Sage
+	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	jr z, .firstRematch
+	CheckEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
+	ld hl, LancesRoomTrainerHeader2
+	jr z, .firstRematch
+	call TalkToTrainer
+	ld a, 3
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+.firstRematch ; new, check if we beat all gyms leaders in their gym rematches
 	ld hl, LancesRoomTrainerHeader1
 	CheckEvent EVENT_BEAT_ALL_GYMS_REMATCH
 	jr z, .notRematch
@@ -179,6 +191,20 @@ LanceEndBattleTextRematch:
 
 LanceAfterBattleTextRematch:
 	text_far _LanceAfterBattleTextRematch
+	text_asm
+	SetEvent EVENT_BEAT_LANCE
+	jp TextScriptEnd
+
+LanceBeforeBattleTextRematch2:
+	text_far _LanceBeforeBattleTextRematch2
+	text_end
+
+LanceEndBattleTextRematch2:
+	text_far _LanceEndBattleTextRematch2
+	text_end
+
+LanceAfterBattleTextRematch2:
+	text_far _LanceAfterBattleTextRematch2
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd

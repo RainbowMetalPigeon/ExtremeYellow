@@ -60,7 +60,7 @@ SeviiFourIslandHouses_Script0:
 	ret nc
 ; turn everyone down, dialogue, player moves
 	call PinksHouseTurnEveryoneDown
-	ld a, 18
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff
@@ -96,7 +96,7 @@ SeviiFourIslandHouses_Script1:
 ; turn everyone down again
 	call PinksHouseTurnEveryoneDown
 ; dialogue
-	ld a, 19
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; mama moves
@@ -131,13 +131,13 @@ SeviiFourIslandHouses_Script2:
 ; Mama dialogue
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 20
+	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; turn player, Pink Dialogue
 	ld a, SPRITE_FACING_LEFT
 	ld [wSpritePlayerStateData1FacingDirection], a
-	ld a, 21
+	ld a, 24
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink moves
@@ -169,7 +169,7 @@ SeviiFourIslandHouses_Script3:
 ; pink dialogue
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 22
+	ld a, 25
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink battle
@@ -208,7 +208,7 @@ SeviiFourIslandHouses_Script4:
 	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_3
 	ld [wMissableObjectIndex], a
 	predef ShowObjectSevii
-	ld a, 23
+	ld a, 26
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld de, PinksHousePinkLeavesMovements
@@ -269,25 +269,28 @@ SeviiFourIslandHouses_TextPointers:
 	dw SeviiFourIslandHousesText4
 	dw SeviiFourIslandHousesText5
 	dw SeviiFourIslandHousesText6
+	dw SeviiFourIslandHousesText7
+	dw SeviiFourIslandHousesText8
+	dw SeviiFourIslandHousesText9
 	; signs
-	dw SeviiFourIslandHousesSignText1_TV ; 7
+	dw SeviiFourIslandHousesSignText1_TV ; 10
 	dw SeviiFourIslandHousesSignText2_Picture
 	dw SeviiFourIslandHousesSignText3_Paper1
 	dw SeviiFourIslandHousesSignText4_Paper2
 	dw SeviiFourIslandHousesSignText5_Paper3
 	dw SeviiFourIslandHousesSignText6_Switch
 	dw SeviiFourIslandHousesSignText7_PC
-	dw SeviiFourIslandHousesSignText8_Cheater ; 14
-	dw SeviiFourIslandHousesSignText9_FakeBooks ; 15
-	dw SeviiFourIslandHousesSignText10_FakeBooks ; 16
-	dw SeviiFourIslandHousesSignText11_Paper4 ; 17
+	dw SeviiFourIslandHousesSignText8_Cheater ; 17
+	dw SeviiFourIslandHousesSignText9_FakeBooks ; 18
+	dw SeviiFourIslandHousesSignText10_FakeBooks ; 19
+	dw SeviiFourIslandHousesSignText11_Paper4 ; 20
 	; scripts
-	dw SeviiFourIslandHousesScriptText1 ; 18
-	dw SeviiFourIslandHousesScriptText2 ; 19
-	dw SeviiFourIslandHousesScriptText3 ; 20
-	dw SeviiFourIslandHousesScriptText4 ; 21
-	dw SeviiFourIslandHousesScriptText5 ; 22
-	dw SeviiFourIslandHousesScriptText6 ; 23
+	dw SeviiFourIslandHousesScriptText1 ; 21
+	dw SeviiFourIslandHousesScriptText2 ; 22
+	dw SeviiFourIslandHousesScriptText3 ; 23
+	dw SeviiFourIslandHousesScriptText4 ; 24
+	dw SeviiFourIslandHousesScriptText5 ; 25
+	dw SeviiFourIslandHousesScriptText6 ; 26
 
 ; texts ===========================
 
@@ -379,6 +382,18 @@ SeviiFourIslandHousesText4_NoRoom:
 
 SeviiFourIslandHousesText4_PostHM:
 	text_far _SeviiFourIslandHousesText4_PostHM
+	text_end
+
+SeviiFourIslandHousesText7:
+	text_far _SeviiFourIslandHousesText7
+	text_end
+
+SeviiFourIslandHousesText8:
+	text_far _SeviiFourIslandHousesText8
+	text_end
+
+SeviiFourIslandHousesText9:
+	text_far _SeviiFourIslandHousesText9
 	text_end
 
 ; tutor -----

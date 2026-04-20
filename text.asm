@@ -29,7 +29,6 @@ INCLUDE "text/SilphCo6F.asm"
 
 SECTION "Text 2", ROMX
 INCLUDE "text/ChampionsRoom.asm"
-INCLUDE "data/text/text_2.asm"
 
 
 SECTION "Text 3", ROMX
@@ -312,6 +311,10 @@ INCLUDE "text/Route8.asm"
 INCLUDE "text/BikeShop.asm"
 
 
+SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "data/text/text_2.asm"
+
+
 ; new: splitted the Pokédex text into two separate sections
 ;SECTION "Pokédex Text", ROMX
 ;INCLUDE "data/pokemon/dex_text.asm"
@@ -341,7 +344,6 @@ INCLUDE "data/text/item_descriptions.asm"
 
 SECTION "Text Sevii 1", ROMX
 INCLUDE "text/SeviiOneIsland.asm"
-INCLUDE "text/SeviiTwoIsland.asm"
 
 
 SECTION "Text Sevii 2", ROMX
@@ -365,3 +367,7 @@ INCLUDE "text/SeviiSixIsland2.asm"
 
 SECTION "Text Sevii 6", ROMX
 INCLUDE "text/SeviiSixIsland1.asm"
+
+
+SECTION "Text Sevii 7", ROMX
+INCLUDE "text/SeviiTwoIsland.asm"

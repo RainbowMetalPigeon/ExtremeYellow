@@ -860,7 +860,7 @@
 	const EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN ; new
 	const EVENT_FIGHT_ROUTE16_SNORLAX
 	const EVENT_BEAT_ROUTE16_SNORLAX
-	const_skip 1
+	const EVENT_SEVII_TRADED_SNORLAX_FOR_ONIGIRI_BOX ; new
 	const EVENT_SPRITE_CHECK_FROM_START_OPENING ; new
 	const EVENT_BEAT_STRONG_TRAINER_EARLY_ROUTE ; new
 	const EVENT_TOWN_MAP_ZOOMED_AT_LEAST_ONCE ; new
@@ -1268,22 +1268,26 @@ DEF INDIGO_PLATEAU_EVENTS_START EQU const_value
 	const_skip
 	const EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	const EVENT_BEAT_LORELEIS_ROOM_TRAINER_1 ; new
-	const_skip 3 ; edited, was 4
+	const EVENT_BEAT_LORELEIS_ROOM_TRAINER_2 ; new
+	const_skip 2 ; edited, was 4
 	const EVENT_AUTOWALKED_INTO_LORELEIS_ROOM
 	const_skip 2
 	const EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
 	const EVENT_BEAT_BRUNOS_ROOM_TRAINER_1 ; new
-	const_skip 3 ; edited, was 4
+	const EVENT_BEAT_BRUNOS_ROOM_TRAINER_2 ; new
+	const_skip 2 ; edited, was 4
 	const EVENT_AUTOWALKED_INTO_BRUNOS_ROOM
 	const_skip 2
 	const EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	const EVENT_BEAT_AGATHAS_ROOM_TRAINER_1 ; new
-	const_skip 3 ; edited, was 4
+	const EVENT_BEAT_AGATHAS_ROOM_TRAINER_2 ; new
+	const_skip 2 ; edited, was 4
 	const EVENT_AUTOWALKED_INTO_AGATHAS_ROOM
 	const_skip 2
 	const EVENT_BEAT_LANCES_ROOM_TRAINER_0
 	const EVENT_BEAT_LANCES_ROOM_TRAINER_1 ; new
-	const_skip 3 ; edited, was 4
+	const EVENT_BEAT_LANCES_ROOM_TRAINER_2 ; new
+	const_skip 2 ; edited, was 4
 	const EVENT_BEAT_LANCE
 	const EVENT_LANCES_ROOM_LOCK_DOOR
 	const_skip

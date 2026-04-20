@@ -184,7 +184,7 @@ _SeviiTwoIslandPokemonCenter_Text1::
 	cont "be in every place!"
 	done
 
-_SeviiTwoIslandPokemonCenter_Text2::
+_SeviiTwoIslandPokemonCenter_Text2_Intro::
 	text "What's your"
 	line "favourite type?"
 	cont "Me, I'm a fan of"
@@ -193,6 +193,19 @@ _SeviiTwoIslandPokemonCenter_Text2::
 	para "If only there was"
 	line "a #MON with"
 	cont "both these types!"
+	done
+
+_SeviiTwoIslandPokemonCenter_Text2_Surprise::
+	text "What?!"
+	line "You DO have a"
+	cont "ROCK-GHOST"
+	cont "#MON?!"
+	cont "I didn't even know"
+	cont "it existed!"
+
+	para "How did you get"
+	line "it?!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiTwoIslandHousesText1::
@@ -311,9 +324,82 @@ _SeviiTwoIslandHousesText7::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiTwoIslandHousesText8::
+	text "We study in"
+	line "CELADON."
+	cont "We rented this"
+	cont "house to prepare"
+	cont "quietly for our"
+	cont "final exams."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText9::
+	text "We both study"
+	line "History."
+	cont "My specialization"
+	cont "is on ancient"
+	cont "populations."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText10::
+	text "'Those who cannot"
+	line "remember the past"
+	cont "are condemned to"
+	cont "repeat it.'"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText11::
+	text "The notes stress"
+	line "the similarities"
+	cont "among the peoples"
+	cont "that inhabited"
+	cont "FORTUNE and QUEST"
+	cont "in ancient times."
+
+	para "It seems they had"
+	line "different"
+	cont "cultures, but"
+	cont "somehow shared"
+	cont "the same writing."
+
+	para "Probably a sign of"
+	line "frequent trades?"
+	cont "Was maybe the"
+	cont "sea less rough"
+	cont "centuries ago?"
+	cont "Fascinating!"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiTwoIslandHousesSignText1::
 	text "A book on #MON"
 	line "biology."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesSignText2::
+	text "The notes are"
+	line "about the recent"
+	cont "war. Dark times"
+	cont "that one would"
+	cont "hope will never"
+	cont "return, but far"
+	cont "too many paral-"
+	cont "lelisms speak of"
+	cont "eerie omens..."
+
+	para "On a map,"
+	line "VERMILION is"
+	cont "circled in red."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesSignText3::
+	text "Crammed full of"
+	line "University books!"
 ;	xxxx "123456789012345678"
 	done
 
