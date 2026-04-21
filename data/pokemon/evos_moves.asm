@@ -5779,6 +5779,7 @@ MDragoniteEvosMoves:
 
 ArmMewtwoEvosMoves:
 ; Evolutions
+	db EV_ITEM, BERSERK_GENE, 1, MEWTWO
 	db 0
 ; Learnset
 	db 19, PSYCHO_CUT
