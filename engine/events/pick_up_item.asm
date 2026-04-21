@@ -37,9 +37,9 @@ PickUpItem:
 ; item is not locked: can be randomized
 .loopRandom
 	call Random
-	cp 65 ; length of the RandomizableItems list
+	cp 74 ; length of the RandomizableItems list
 	jr nc, .loopRandom
-; now a contains a random number in [0,64]
+; now a contains a random number in [0,73]
 	ld hl, RandomizableItems
 .accessLoop
 	dec a
@@ -110,7 +110,7 @@ CheckIfItemIsLocked: ; returns c flag if item loaded in a is locked
 	pop hl
 	ret
 
-RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
+RandomizableItems: ; 74 items, so it's ok if indexes are between 0 and 73
 	db MASTER_BALL
 	db ULTRA_BALL
 	db GREAT_BALL
@@ -173,7 +173,6 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db LEGEND_CANDY
 	db BIG_NUGGET
 	db PERFECTER
-;	db LIGHT_BALL	; no, to preserve specialness
 	db CHROMOGENE
 	db GUTSCHEIN
 	db ONIGIRI_BOX
@@ -182,13 +181,16 @@ RandomizableItems: ; 65 items, so it's ok if indexes are between 0 and 64
 	db HELIX_FOSSIL
 	db BEER
 	db COFFEE
-;	db SEVII_COOKIE ; no, to avoid plot skippings
 	db SUB_BALL
 	db SMASH_BALL
-	db MATCHA_TEA ; no, to avoid plot skippings
 	db ATK_NULLIFIER
 	db SPD_NULLIFIER
-;	db LIMIT_BREAKER ; no, to prefer specialness
+;	db LIGHT_BALL ; no, to preserve specialness
+;	db SEVII_COOKIE ; no, to avoid plot skippings
+;	db MATCHA_TEA ; no, to avoid plot skippings
+;	db LIMIT_BREAKER ; no, to preserve specialness
+;	db BERSERK_GENE ; no, to preserve specialness
+;	db STEAL_BALL ; no, to preserve specialness
 	db -1
 
 LockedItems:
@@ -198,15 +200,15 @@ LockedItems:
 	db SILPH_SCOPE
 	db LIFT_KEY
 	db LIGHT_BALL	 ; added to preserve specialness
-	db CHEAT_CANDY
+;	db CHEAT_CANDY   ; unnecessary because it's given, not picked up
 	db LAVA_STONE    ; to ensure birbs can be unlocked
 	db MAGMA_STONE   ; to ensure birbs can be unlocked
 	db MOLTEN_STONE  ; to ensure birbs can be unlocked
 	; V2
 	db PEARL
 	db PASSEPARTOUT
-;	db TOPAZ ; unnecessary because it's given, not picked up
 	db TIGERS_EYE
-;	db CC_INVITE ; unnecessary because it's given, not picked up
 	db FLAME_PLUME
+;	db TOPAZ ; unnecessary because it's given, not picked up
+;	db CC_INVITE ; unnecessary because it's given, not picked up
 	db -1

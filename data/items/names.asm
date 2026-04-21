@@ -132,6 +132,8 @@ ItemNames::
 	li "SCREWDRIVER" ; new
 	li "SLEEP BAG" ; new
 	li "LIM. BREAKER" ; new
+	li "BERSERK GENE" ; new
+	li "STEAL BALL" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

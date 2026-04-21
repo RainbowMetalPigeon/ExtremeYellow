@@ -586,6 +586,19 @@ _LimitBreakerDescription::
 ;	xxxx "123456789012345678
 	prompt
 
+_BerserkGeneDescription::
+	text "Eerie remnants of"
+	line "some experiments."
+;	xxxx "123456789012345678
+	prompt
+
+_StealBallDescription::
+	text "A forbidden BALL"
+	line "to break rules."
+;	xxxx "123456789012345678
+	prompt
+
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::

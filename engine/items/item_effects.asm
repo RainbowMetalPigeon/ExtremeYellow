@@ -150,6 +150,8 @@ ItemUsePtrTable:
 	dw UnusableItem      ; SCREWDRIVER, new
 	dw ItemSleepBag      ; SLEEP_BAG, new
 	dw ItemUseVitamin    ; LIMIT_BREAKER, new
+	dw ItemUseEvoStone   ; BERSERK_GENE, new
+	dw ItemUseBall       ; STEAL_BALL, new, testing
 
 ; new: code for SLEEP_BAG, beginning --------------------------
 

@@ -132,6 +132,8 @@ ItemPrices::
 	bcd3 0     ; SCREWDRIVER
 	bcd3 0     ; SLEEP_BAG
 	bcd3 0     ; LIMIT_BREAKER
+	bcd3 0     ; BERSERK_GENE
+	bcd3 0     ; STEAL_BALL
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F

@@ -56,4 +56,5 @@ UsableItems_PartyMenu:
 	db ATK_NULLIFIER ; new
 	db SPD_NULLIFIER ; new
 	db LIMIT_BREAKER ; new
+	db BERSERK_GENE ; new
 	db -1 ; end

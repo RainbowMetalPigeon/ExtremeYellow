@@ -276,8 +276,13 @@ ItemDescriptionPointers:
 	text_end
 	text_far _SleepBagDescription       ; SLEEP_BAG
 	text_end
-	text_far _LimitBreakerDescription   ; SLEEP_BAG
+	text_far _LimitBreakerDescription   ; LIMIT_BREAKER
 	text_end
+	text_far _BerserkGeneDescription    ; BERSERK_GENE
+	text_end
+	text_far _StealBallDescription      ; STEAL_BALL
+	text_end
+
 
 ; HMs
 
