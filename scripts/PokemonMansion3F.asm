@@ -17,18 +17,18 @@ Mansion3Script_52204:
 	jr nz, .asm_52224
 	ld a, $e
 	lb bc, 2, 7
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $5f
 	lb bc, 5, 7
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ret
 .asm_52224
 	ld a, $5f
 	lb bc, 2, 7
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $e
 	lb bc, 5, 7
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ret
 
 PokemonMansion3F_ScriptPointers:
