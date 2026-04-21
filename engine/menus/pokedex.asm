@@ -105,9 +105,9 @@ HandlePokedexSideMenu:
 	jr nz, .buttonBPressed
 	ld a, [wCurrentMenuItem]
 	and a
-	jr z, .choseData
-	dec a ; new
 	jr z, .choseInfo ; new
+	dec a ; new
+	jr z, .choseData ; edited
 	dec a
 	jr z, .choseCry
 	dec a
@@ -152,13 +152,13 @@ ENDC
 	pop bc
 	jr .exitSideMenu
 
-.choseData
-	call ShowPokedexDataInternal
+.choseInfo ; new
+	call ShowPokedexInfo
 	ld b, 0
 	jr .exitSideMenu
 
-.choseInfo ; new
-	call ShowPokedexInfo
+.choseData
+	call ShowPokedexDataInternal
 	ld b, 0
 	jr .exitSideMenu
 
@@ -361,8 +361,8 @@ PokedexContentsText:
 	db "CONTENTS@"
 
 PokedexMenuItemsText:
-	db   "DATA"
-	next "INFO" ; new
+	db   "INFO" ; new
+	next "DATA" ; edited
 	next "CRY"
 	next "AREA"
 	next "PRNT"
@@ -618,7 +618,7 @@ ShowPokedexDataInternal:
 	ret
 
 ; new for evos and learnsets
-ShowPokedexInfo: ; TBE
+ShowPokedexInfo:
 	ld hl, wd72c
 	set 1, [hl]
 	ld a, $33 ; 3/7 volume
@@ -637,10 +637,6 @@ ShowPokedexInfo: ; TBE
 	call RunPaletteCommand
 	pop af
 	ld [wd11e], a
-
-;	ld hl, wPokedexOwned
-;	call IsPokemonBitSet ; info in z flag
-;	jr z, .printUnknownInfo
 
 	call DrawMonInfoOnScreen
 
@@ -1140,17 +1136,34 @@ PrintEvoInfo:
 ; is this Tyrogue?
 .checkTyrogue
 	cp TYROGUE
-	jr nz, .checkMega
+	jr nz, .checkArmoredMewtwo
 	hlcoord 1, 4
 	ld de, TyrogueDedicatedEvoListText1
 	call PlaceString
-	hlcoord 1, 6
+	hlcoord 1, 5
 	ld de, TyrogueDedicatedEvoListText2
 	call PlaceString
 	call SetHLToEvosMovesPointer
 ; hl +3
 	ld b, 0
 	ld c, 3
+	add hl, bc
+	ret
+
+; is this Armored Mewtwo?
+.checkArmoredMewtwo
+	cp ARM_MEWTWO
+	jr nz, .checkMega
+	hlcoord 1, 4
+	ld de, ArmoredMewtwoDedicatedEvoListText1
+	call PlaceString
+	hlcoord 1, 5
+	ld de, ArmoredMewtwoDedicatedEvoListText2
+	call PlaceString
+	call SetHLToEvosMovesPointer
+; hl +4
+	ld b, 0
+	ld c, 4
 	add hl, bc
 	ret
 
@@ -1328,6 +1341,11 @@ TyrogueDedicatedEvoListText1:
 	db "▷ LV 10:@"
 TyrogueDedicatedEvoListText2:
 	db "  HITMON???@"
+
+ArmoredMewtwoDedicatedEvoListText1:
+	db "▷ ???:@"
+ArmoredMewtwoDedicatedEvoListText2:
+	db "  ?????@"
 
 ViaTradeText:
 	db "▷ VIA TRADE@"
