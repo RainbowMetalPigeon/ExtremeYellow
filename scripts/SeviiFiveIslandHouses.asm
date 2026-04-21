@@ -9,7 +9,6 @@ SeviiFiveIslandHouses_TextPointers:
 	dw SeviiFiveIslandHousesText5
 	dw SeviiFiveIslandHousesText6
 	dw SeviiFiveIslandHousesText7
-	dw SeviiFiveIslandHousesText8
 	; signs
 	dw SeviiFiveIslandHousesSignText1
 	dw SeviiFiveIslandHousesSignText2
@@ -135,28 +134,52 @@ SeviiFiveIslandHousesText2:
 	text_far _SeviiFiveIslandHousesText2
 	text_end
 
-SeviiFiveIslandHousesText3:
+SeviiFiveIslandHousesText3: ; SANDSHREW
 	text_far _SeviiFiveIslandHousesText3
-	text_end
+	text_asm
+	ld a, SANDSHREW
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, SeviiFiveIslandHousesTextMonsCommon
+	call PrintText
+	jp TextScriptEnd
 
-SeviiFiveIslandHousesText4:
+SeviiFiveIslandHousesText4: ; ODDISH
 	text_far _SeviiFiveIslandHousesText4
-	text_end
+	text_asm
+	ld a, ODDISH
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, SeviiFiveIslandHousesTextMonsCommon
+	call PrintText
+	jp TextScriptEnd
 
-SeviiFiveIslandHousesText5:
+SeviiFiveIslandHousesText5: ; JIGGLYPUFF
 	text_far _SeviiFiveIslandHousesText5
-	text_end
+	text_asm
+	ld a, JIGGLYPUFF
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, SeviiFiveIslandHousesTextMonsCommon
+	call PrintText
+	jp TextScriptEnd
 
-SeviiFiveIslandHousesText6:
+SeviiFiveIslandHousesText6: ; CLEFAIRY
 	text_far _SeviiFiveIslandHousesText6
+	text_asm
+	ld a, CLEFAIRY
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, SeviiFiveIslandHousesTextMonsCommon
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFiveIslandHousesTextMonsCommon:
+	text_far _SeviiFiveIslandHousesTextMonsCommon
 	text_end
 
-SeviiFiveIslandHousesText7:
+SeviiFiveIslandHousesText7: ; PAPER
 	text_far _SeviiFiveIslandHousesText7
-	text_end
-
-SeviiFiveIslandHousesText8:
-	text_far _SeviiFiveIslandHousesText8
 	text_end
 
 ; functions =======================

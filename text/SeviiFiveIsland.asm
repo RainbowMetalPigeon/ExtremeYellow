@@ -433,37 +433,64 @@ _SeviiFiveIslandHousesSignText4::
 	done
 
 _SeviiFiveIslandHousesText2::
-	text "TBE 2"
+	text "MY HOUSE,"
+	line "MY RULES!"
+
+	para "I WANNA RIDE MY"
+	line "BIKE, I DO!"
+
+	para "PEOPLE HATE ME,"
+	line "I DON'T CARE!"
+
+	para "AND YOU, DON'T"
+	line "BOTHER THE POK-"
+	cont "DON'T BOTHER ME!"
+
+	para "(The motorbike is"
+	line "actually off...)"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandHousesText3::
-	text "TBE 3"
+	text "SANDSHREW: Sha-"
+	line "shriii!@"
 ;	xxxx "123456789012345678"
-	done
+	text_end
 
 _SeviiFiveIslandHousesText4::
-	text "TBE 4"
+	text "ODDISH: Orrdiissh!@"
 ;	xxxx "123456789012345678"
-	done
+	text_end
 
 _SeviiFiveIslandHousesText5::
-	text "TBE 5"
+	text "JIGGLYPUFF: Jiii-"
+	line "gali-i-i-iii-i-"
+	cont "i-iii-i-i-puuuff!@"
 ;	xxxx "123456789012345678"
-	done
+	text_end
 
 _SeviiFiveIslandHousesText6::
-	text "TBE 6"
+	text "CLEFAIRY: Clefff!@"
+;	xxxx "123456789012345678"
+	text_end
+
+_SeviiFiveIslandHousesTextMonsCommon::
+	text "It looks happy"
+	line "and well-cared!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandHousesText7::
-	text "TBE 7"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandHousesText8::
-	text "TBE 8"
+	text "It's a To-Do list."
+	line "It includes"
+	cont "buying food and"
+	cont "other goods for"
+	cont "the #MON, as"
+	cont "well as regular"
+	cont "stroll in the"
+	cont "surroundings to"
+	cont "check for #MON"
+	cont "in need."
 ;	xxxx "123456789012345678"
 	done
 

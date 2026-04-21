@@ -132,27 +132,68 @@ _SeviiSixIslandPokemonCenterAndMart_Text4::
 	done
 
 _SeviiSixIslandHousesText1::
-	text "TBE 1"
+	text "I recently moved"
+	line "here from BOON."
+	cont "Life there is a"
+	cont "bit... boring,"
+	cont "but it seems it'll"
+	cont "get better now"
+	cont "that they're"
+	cont "making the ISLET"
+	cont "inhabitable!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandHousesText2::
-	text "TBE 2"
+	text "I'd like to move"
+	line "elsewhere, maybe"
+	cont "CHRONO, they have"
+	cont "nice concerts, or"
+	cont "even to KANTO."
+
+	para "But for now we'll"
+	line "stay here, my old"
+	cont "one is, eh, old,"
+	cont "and I gotta keep"
+	cont "an eye on 'em."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandHousesText3::
-	text "TBE 3"
-;	xxxx "123456789012345678"
+	text "Do you know"
+	line "MT. EMBER, north"
+	cont "of KNOT ISLAND?"
+
+	para "There are rumors"
+	line "that the"
+	cont "legendary deity"
+	cont "of FIRE, MOLTRES,"
+	cont "lives on its"
+	cont "summit."
+
+	para "But to me, this"
+	line "sounds like a"
+	cont "tale from another"
+	cont "world..."
 	done
 
 _SeviiSixIslandHousesText4::
-	text "TBE 4"
+	text "The wilderness"
+	line "around here is"
+	cont "dangerous, so I"
+	cont "must play indoor."
+
+	para "But it's a lot of"
+	line "fun with my dear"
+	cont "GROWLITHE! It's"
+	cont "warm and fluffy"
+	cont "and we play a lot!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandHousesText5::
-	text "TBE 5"
+	text "GROWLITHE: Wohwoh!@"
+	text_end
 ;	xxxx "123456789012345678"
 	done
 

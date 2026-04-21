@@ -223,9 +223,9 @@ IF DEF(_DEBUG)
 ;	ld [wMissableObjectIndex], a
 ;	predef HideObjectExtra
 
-	ld a, HS_ROUTE_21_OAK
-	ld [wMissableObjectIndex], a
-	predef ShowObject
+;	ld a, HS_ROUTE_21_OAK
+;	ld [wMissableObjectIndex], a
+;	predef ShowObject
 
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 

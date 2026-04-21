@@ -2461,6 +2461,12 @@ PartyMenuOrRockOrRun:
 .quitPartyMenu
 	call ClearSprites
 	call GBPalWhiteOut
+; new
+	ld a, [wBattleMonSpecies]
+	ld [wd0b5], a
+	call GetMonHeader
+	predef LoadMonBackPic
+; BTV
 	call LoadHudTilePatterns
 	call LoadScreenTilesFromBuffer2
 	call RunDefaultPaletteCommand

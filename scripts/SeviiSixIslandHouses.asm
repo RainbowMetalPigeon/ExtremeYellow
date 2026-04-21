@@ -26,4 +26,8 @@ SeviiSixIslandHousesText4:
 
 SeviiSixIslandHousesText5:
 	text_far _SeviiSixIslandHousesText5
-	text_end
+	text_asm
+	ld a, GROWLITHE
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
