@@ -1,5 +1,5 @@
 PokemonMansionB1F_Script:
-	call Mansion4Script_523cf
+	call Mansion4Script_HandleDoors
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion4TrainerHeaders
 	ld de, PokemonMansionB1F_ScriptPointers
@@ -8,7 +8,7 @@ PokemonMansionB1F_Script:
 	ld [wCurMapScript], a ; edited
 	ret
 
-Mansion4Script_523cf:
+Mansion4Script_HandleDoors:
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -17,30 +17,30 @@ Mansion4Script_523cf:
 	jr nz, .asm_523ff
 	ld a, $e
 	ld bc, $80d
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $e
 	ld bc, $b06
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $5f
 	ld bc, $304
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $54
 	ld bc, $808
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ret
 .asm_523ff
 	ld a, $2d
 	ld bc, $80d
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $5f
 	ld bc, $b06
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $e
 	ld bc, $304
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $e
 	ld bc, $808
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ret
 
 Mansion4Script_Switches::
@@ -49,13 +49,12 @@ Mansion4Script_Switches::
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, 11 ; edited because rival and Magikarp Burglar
+	ld a, 11 ; edited because rival and Magikarp Burglar ; Mansion3Text6: Set/Reset EVENT_MANSION_SWITCH_ON
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
 PokemonMansionB1F_ScriptPointers:
 	dw Mansion4Script0 ; new
-;	dw CheckFightingMapTrainers ; edited, commented out
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw Mansion4Script3 ; new
@@ -194,9 +193,6 @@ Mansion4Script_ResetIfLoseVsRival:
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
 	ret
-;	ld a, HS_MT_MOON_1F_RIVAL
-;	ld [wMissableObjectIndex], a
-;	predef_jump HideObject
 
 MansionB1FMovements2:
 	db NPC_MOVEMENT_DOWN

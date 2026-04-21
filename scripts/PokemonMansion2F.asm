@@ -17,27 +17,27 @@ Mansion2Script_51fee:
 	jr nz, .asm_52016
 	ld a, $e
 	lb bc, 2, 4
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $54
 	lb bc, 4, 9
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $5f
 	lb bc, 11, 3
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ret
 .asm_52016
 	ld a, $5f
 	lb bc, 2, 4
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $e
 	lb bc, 4, 9
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ld a, $e
 	lb bc, 11, 3
-	call Mansion2Script_5202f
+	call Mansion2Script_ReplaceBlockWrapper
 	ret
 
-Mansion2Script_5202f:
+Mansion2Script_ReplaceBlockWrapper:
 	ld [wNewTileBlockID], a
 	predef_jump ReplaceTileBlock
 

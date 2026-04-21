@@ -2,7 +2,12 @@ PokemonMansionB1F_Object:
 	db $1 ; border block
 
 	def_warp_events
-	warp_event 23, 22, POKEMON_MANSION_1F, 6
+	warp_event 23, 22, POKEMON_MANSION_1F, 6 ; 1
+	; new
+	warp_event   1,  1, POKEMON_MANSION_B1F, 3 ; 2
+	warp_event  37,  1, POKEMON_MANSION_B1F, 2 ; 3
+	warp_event  70, 26, POKEMON_MANSION_B1F, 5 ; 4
+	warp_event 114, 26, POKEMON_MANSION_B1F, 4 ; 5
 
 	def_bg_events
 
