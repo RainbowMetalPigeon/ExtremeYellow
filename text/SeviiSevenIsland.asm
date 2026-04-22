@@ -126,22 +126,95 @@ _SeviiSevenIslandHousesText1::
 	done
 
 _SeviiSevenIslandHousesText2:: ; SPRITE_COOK
-	text "TBE 1"
+	text "Do you know DREAM"
+	line "FOREST in FAMILY?"
+
+	para "It was called"
+	line "BERRY FOREST."
+
+	para "But what even is,"
+	line "a BERRY?"
+	cont "I don't know why,"
+	cont "but it sounds"
+	cont "like something"
+	cont "to eat."
+	cont "I'd love to know!"
+	cont "The curiosity is"
+	cont "devouring me!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandHousesText3:: ; SPRITE_BIKE_SHOP_CLERK
-	text "TBE 2"
+	text "I always go to"
+	line "CHRONO for a good"
+	cont "metal concert."
+
+	para "Uh? I don't look"
+	line "like a metalhead?"
+	cont "Don't judge a book"
+	cont "by its cover!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandHousesText4:: ; SPRITE_WARDEN
-	text "TBE 3"
+	text "Uh? The WARDEN of"
+	line "the SAFARI ZONE"
+	cont "in FUCHSIA?"
+
+	para "No, we aren't"
+	line "related. Why?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSevenIslandHousesText5:: ; SPRITE_SAILOR
-	text "TBE 4"
+	text "I sailed every"
+	line "sea of the world!"
+	cont "Seen all regions!"
+
+	para "KANTO is by far my"
+	line "favourite. But I'm"
+	cont "biased, as it's my"
+	cont "homeland."
+
+	para "JOHTO is surely"
+	line "beautiful, but"
+	cont "also somehow sad"
+	cont "and too easy."
+
+	para "HOENN is so very"
+	line "variegated and"
+	cont "colorful, home of"
+	cont "awesome memories."
+
+	para "SINNOH has some"
+	line "fascinating areas"
+	cont "that make you"
+	cont "wonder & wander."
+
+	para "UNOVA has quite a"
+	line "peculiar style,"
+	cont "but it eventually"
+	cont "grew much to me."
+
+	para "KALOS definitely"
+	line "has passion in"
+	cont "it, but somehow"
+	cont "doesn't deliver."
+
+	para "ALOLA seems so new"
+	line "at a first sight,"
+	cont "but it's actually"
+	cont "kinda boring."
+
+	para "GALAR is quite the"
+	line "disappointment,"
+	cont "so linear and"
+	cont "undercooked."
+
+	para "PALDEA is by far"
+	line "the worst, almost"
+	cont "wrong, except"
+	cont "only AREA ZERO."
 ;	xxxx "123456789012345678"
 	done
 
