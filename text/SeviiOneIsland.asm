@@ -363,33 +363,59 @@ _SeviiOneIslandHousesText9_Intro::
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiOneIslandHousesText9_TooBad:: ; TBE
-	text "Too bad"
+_SeviiOneIslandHousesText9_TooBad::
+	text "...too bad..."
+
+	para "Gnam gnam..."
+
+	para "I'll eat to forget"
+	line "this pain..."
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText9_LetsGoSnorlax:: ; TBE
-	text "Let's go"
+_SeviiOneIslandHousesText9_LetsGoSnorlax::
+	text "That's it! Gnam!"
+	line "It's exactly my"
+	cont "favourite #MON!"
+
+	para "You are quite"
+	line "perceptive, gnam."
+
+	para "Would you give me"
+	line "that SNORLAX?"
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiOneIslandHousesText9_LetsGoMunchlax:: ; TBE
-	text "It'll do let's go"
+_SeviiOneIslandHousesText9_LetsGoMunchlax::
+	text "Gnam... that's not"
+	line "exactly it, but"
+	cont "it'll do. Gnam!"
+
+	para "Would you give me"
+	line "that MUNCHLAX?"
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiOneIslandHousesText9_OnlyOneMon:: ; TBE
-	text "only 1 mon"
+_SeviiOneIslandHousesText9_OnlyOneMon::
+	text "Oh... you only"
+	line "have 1 #MON."
+	cont "This won't do..."
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText9_TradeDone:: ; TBE
-	text "done"
+_SeviiOneIslandHousesText9_TradeDone::
+	text "Thank you so much!"
+	line "Gnam gnam gnam!"
+
+	para "Here, as promised,"
+	line "please have this."
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText9_CiaoSnorlax:: ; TBE
-	text "ciao ronfo"
+_SeviiOneIslandHousesText9_CiaoSnorlax::
+	text "<PLAYER> says"
+	line "goodbye to their"
+	cont "#MON!"
 ;	xxxx "123456789012345678"
 	prompt
 
