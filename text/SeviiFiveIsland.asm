@@ -481,7 +481,7 @@ _SeviiFiveIslandHousesTextMonsCommon::
 	done
 
 _SeviiFiveIslandHousesText7::
-	text "It's a To-Do list."
+	text "It's a to-do list."
 	line "It includes"
 	cont "buying food and"
 	cont "other goods for"

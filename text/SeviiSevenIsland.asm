@@ -125,13 +125,23 @@ _SeviiSevenIslandHousesText1::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandHousesText2::
+_SeviiSevenIslandHousesText2:: ; SPRITE_COOK
 	text "TBE 1"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiSevenIslandHousesText3::
+_SeviiSevenIslandHousesText3:: ; SPRITE_BIKE_SHOP_CLERK
 	text "TBE 2"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandHousesText4:: ; SPRITE_WARDEN
+	text "TBE 3"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSevenIslandHousesText5:: ; SPRITE_SAILOR
+	text "TBE 4"
 ;	xxxx "123456789012345678"
 	done
 
@@ -500,7 +510,7 @@ _SeviiSevenIslandGym3Text1_Intro::
 _NanetteText_PostBattleText::
 	text "Your"
 	line "spirit is really"
-	cont "indomitable!" ; TBE
+	cont "indomitable!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -684,7 +694,7 @@ _SeviiRoute42Text1::
 ; -----
 
 _SeviiRoute42BattleText1::
-	text "MY TRUSTED STATER"
+	text "MY TRUSTED STARTER"
 	line "WILL NOT FAIL ME!"
 ;	xxxx "123456789012345678"
 	done

@@ -40,7 +40,7 @@ SeviiOneIslandHouses_PinkAppears:
 ; Pink dialogue
 	ld c, 30
 	call DelayFrames
-	ld a, 17
+	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink movement
@@ -71,7 +71,7 @@ SeviiOneIslandHouses_PinkMovementsAndBattle:
 ; Pink dialogue and battle
 	ld a, $0
 	ld [wJoyIgnore], a
-	ld a, 18
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID ; SeviiOneIslandCity_f0JoyIgnoreDisplayTextffJoyIgnore ?
 ; battle
@@ -109,7 +109,7 @@ SeviiOneIslandHouses_PinkLeaves:
 	ret
 
 SeviiOneIslandHouses_PinkLeaves2:
-	ld a, 19
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Pink movement
@@ -156,7 +156,7 @@ SeviiOneIslandHouses_PostPinkBattle:
 	ld a, 6
 	ld [wCurMapScript], a
 	ret
-	
+
 SeviiOneIslandHouses_PostPinkBattle2:
 	lb de, 3, SPRITE_FACING_DOWN
 	callfar ChangeSpriteFacing
@@ -190,10 +190,11 @@ SeviiOneIslandHouses_TextPointers:
 	dw SeviiOneIslandHousesSignText3
 	dw SeviiOneIslandHousesSignText4 ; 15
 	dw SeviiOneIslandHousesSignText5 ; 16
+	dw SeviiOneIslandHousesSignText6 ; x7
 	; scripts
-	dw SeviiOneIslandHousesScriptText1 ; 17
-	dw SeviiOneIslandHousesScriptText2 ; 18
-	dw SeviiOneIslandHousesScriptText3 ; 19
+	dw SeviiOneIslandHousesScriptText1 ; 18
+	dw SeviiOneIslandHousesScriptText2 ; 19
+	dw SeviiOneIslandHousesScriptText3 ; 20
 
 SeviiOneIslandHousesText1:
 	text_asm
@@ -505,7 +506,7 @@ SeviiOneIslandHousesText9_LetsGoSnorlax:
 SeviiOneIslandHousesText9_LetsGoMunchlax:
 	text_far _SeviiOneIslandHousesText9_LetsGoMunchlax
 	text_end
-	
+
 SeviiOneIslandHousesText9_Intro:
 	text_far _SeviiOneIslandHousesText9_Intro
 	text_end
@@ -540,6 +541,10 @@ SeviiOneIslandHousesSignText5:
 	text_far _SeviiOneIslandHousesSignText5
 	text_end
 
+SeviiOneIslandHousesSignText6:
+	text_far _SeviiOneIslandHousesSignText6
+	text_end
+
 ; scripts ---------------------------------------------
 
 SeviiOneIslandHousesScriptText1:
@@ -557,7 +562,7 @@ CeliosHousePinkDefeatedText:
 CeliosHousePinkBeatYouText:
 	text_far _CeliosHousePinkBeatYouText
 	text_end
-	
+
 SeviiOneIslandHousesScriptText3:
 	text_far _SeviiOneIslandHousesScriptText3
 	text_end

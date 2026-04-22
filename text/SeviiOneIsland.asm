@@ -363,43 +363,61 @@ _SeviiOneIslandHousesText9_Intro::
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiOneIslandHousesText9_TooBad::
+_SeviiOneIslandHousesText9_TooBad:: ; TBE
 	text "Too bad"
 ;	xxxx "123456789012345678"
 	done
-	
-_SeviiOneIslandHousesText9_LetsGoSnorlax::
+
+_SeviiOneIslandHousesText9_LetsGoSnorlax:: ; TBE
 	text "Let's go"
 ;	xxxx "123456789012345678"
 	prompt
-	
-_SeviiOneIslandHousesText9_LetsGoMunchlax::
+
+_SeviiOneIslandHousesText9_LetsGoMunchlax:: ; TBE
 	text "It'll do let's go"
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiOneIslandHousesText9_OnlyOneMon::
+_SeviiOneIslandHousesText9_OnlyOneMon:: ; TBE
 	text "only 1 mon"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText9_TradeDone::
+_SeviiOneIslandHousesText9_TradeDone:: ; TBE
 	text "done"
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText9_CiaoSnorlax::
+_SeviiOneIslandHousesText9_CiaoSnorlax:: ; TBE
 	text "ciao ronfo"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiOneIslandHousesText10::
-	text "TBE 1"
+	text "I'm planning a"
+	line "vacation with my"
+	cont "kid. Last time we"
+	cont "went to KANTO, so"
+	cont "now I'm pondering"
+	cont "FLOE ISLAND."
+	cont "Or maybe HOENN?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesText11::
-	text "TBE 2"
+	text "Sometimes my pen"
+	line "pal from FORTUNE"
+	cont "tells me of their"
+	cont "annoying sibling."
+
+	para "Life there seems"
+	line "more boring than"
+	cont "here. They're more"
+	cont "isolated and the"
+	cont "#MON're strong"
+	cont "and dangerous, so"
+	cont "they can't go"
+	cont "much outside."
 ;	xxxx "123456789012345678"
 	done
 
@@ -442,6 +460,16 @@ _SeviiOneIslandHousesSignText4::
 _SeviiOneIslandHousesSignText5::
 	text "A hot chocolate!"
 	line "Looks yummy!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText6::
+	text "It's a dépliant"
+	line "advertising"
+	cont "ICEFALL CAVE as"
+	cont "the main tourist"
+	cont "destination of"
+	cont "FLOE ISLAND."
 ;	xxxx "123456789012345678"
 	done
 
@@ -886,7 +914,7 @@ _SeviiRoute31AfterBattleText7::
 	cont "greenery."
 
 	para "This area is"
-	line "really bucolic!" ; TBE
+	line "really bucolic!"
 	done
 
 ; -----

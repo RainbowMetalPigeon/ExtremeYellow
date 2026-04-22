@@ -1112,6 +1112,24 @@ _SeviiRoute38HousesSignText3::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiRoute38HousesText4::
+	text "It's a letter for a"
+	line "pen pal in KNOT."
+
+	para "Complains about"
+	line "the annoying sib,"
+	cont "the no(i)sy"
+	cont "tourists, how one"
+	cont "can't just take a"
+	cont "due to the wild"
+	cont "#MON..."
+
+	para "Somehow feels like"
+	line "the author enjoys"
+	cont "complaining."
+;	xxxx "123456789012345678"
+	done
+
 ; Route 38 Dive -----------------------------
 
 ; Route 38 Dive Cavern ----------------------

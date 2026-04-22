@@ -18,6 +18,7 @@ SeviiOneIslandHouses_Object:
 	bg_event 14,  1, 14 ; SeviiOneIslandHousesSignText3
 	bg_event 21,  1, 15 ; SeviiOneIslandHousesSignText4
 	bg_event 48,  1, 16 ; SeviiOneIslandHousesSignText5
+	bg_event 45,  5, 17 ; SeviiOneIslandHousesSignText6
 
 	def_object_events
 	object_event  2,  3, SPRITE_FISHING_GURU, STAY, LEFT, 1 ; weather move tutor

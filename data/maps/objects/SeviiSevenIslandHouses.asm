@@ -10,18 +10,20 @@ SeviiSevenIslandHouses_Object:
 	warp_event 31,  7, SEVII_SEVEN_ISLAND_CITY, 6
 
 	def_bg_events
-	bg_event  0,  7,  4 ; SeviiSevenIslandHousesSignText1
-	bg_event  3,  1,  5 ; SeviiSevenIslandHousesSignText2
-	bg_event  5,  0,  6 ; SeviiSevenIslandHousesSignText3
-	bg_event 17,  5,  7 ; SeviiSevenIslandHousesSignText4
-	bg_event 21,  7,  8 ; SeviiSevenIslandHousesSignText5
-	bg_event 14,  6,  9 ; SeviiSevenIslandHousesSignText6
-	bg_event 14,  7, 10 ; SeviiSevenIslandHousesSignText7
-	bg_event 14,  1, 11 ; SeviiSevenIslandHousesSignText8
+	bg_event  0,  7,  6 ; SeviiSevenIslandHousesSignText1
+	bg_event  3,  1,  7 ; SeviiSevenIslandHousesSignText2
+	bg_event  5,  0,  8 ; SeviiSevenIslandHousesSignText3
+	bg_event 17,  5,  9 ; SeviiSevenIslandHousesSignText4
+	bg_event 21,  7, 10 ; SeviiSevenIslandHousesSignText5
+	bg_event 14,  6, 11 ; SeviiSevenIslandHousesSignText6
+	bg_event 14,  7, 12 ; SeviiSevenIslandHousesSignText7
+	bg_event 14,  1, 13 ; SeviiSevenIslandHousesSignText8
 
 	def_object_events
 	object_event  3,  4, SPRITE_PAPER, STAY, NONE, 1
 	object_event 30,  3, SPRITE_COOK, STAY, RIGHT, 2
 	object_event 33,  3, SPRITE_BIKE_SHOP_CLERK, STAY, LEFT, 3
+	object_event 30,  4, SPRITE_WARDEN, STAY, RIGHT, 4
+	object_event 33,  4, SPRITE_SAILOR, STAY, LEFT, 5
 
 	def_warps_to SEVII_SEVEN_ISLAND_HOUSES

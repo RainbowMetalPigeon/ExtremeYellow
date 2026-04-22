@@ -5,6 +5,7 @@ SeviiRoute38Houses_TextPointers:
 	dw SeviiRoute38HousesText1
 	dw SeviiRoute38HousesText2
 	dw SeviiRoute38HousesText3
+	dw SeviiRoute38HousesText4
 	; signs
 	dw SeviiRoute38HousesSignText1
 	dw SeviiRoute38HousesSignText2
@@ -189,6 +190,10 @@ SeviiRoute38HousesText2_TooBadLetsGo:
 
 SeviiRoute38HousesText3: ; Imposter "tutor" sibling
 	text_far _SeviiRoute38HousesText3
+	text_end
+
+SeviiRoute38HousesText4:
+	text_far _SeviiRoute38HousesText4
 	text_end
 
 ; signs ----------
