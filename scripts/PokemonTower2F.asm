@@ -125,6 +125,8 @@ PokemonTower2Script2:
 PokemonTower2F_TextPointers:
 	dw PokemonTower2Text1
 	dw PokemonTower2Text2
+	; signs
+	dw PokemonTower2FSignText1 ; new
 
 PokemonTower2Text1:
 	text_asm
@@ -172,4 +174,8 @@ PokemonTower2Text_6063c:
 
 PokemonTower2Text2:
 	text_far _PokemonTower2Text2
+	text_end
+
+PokemonTower2FSignText1: ; new
+	text_far _PokemonTower2FSignText1
 	text_end

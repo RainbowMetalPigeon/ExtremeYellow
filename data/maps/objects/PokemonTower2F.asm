@@ -6,6 +6,7 @@ PokemonTower2F_Object:
 	warp_event 18,  9, POKEMON_TOWER_1F, 3
 
 	def_bg_events
+	bg_event 16,  4,  3 ; PokemonTower2FSignText1 ; new
 
 	def_object_events
 	object_event 14,  5, SPRITE_BLUE, STAY, NONE, 1 ; person

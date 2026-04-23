@@ -87,3 +87,15 @@ _PokemonTower2Text2:: ; edited
 	cont "unmask them."
 ;	xxxx "123456789012345678"
 	done
+
+_PokemonTower2FSignText1::
+	text "'To RATICATE:"
+	line "Companion from"
+	cont "the beginning,"
+	cont "friend until"
+	cont "the end.'"
+
+	para "'You will never"
+	line "be forgotten.'"
+;	xxxx "123456789012345678"
+	done
