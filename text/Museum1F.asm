@@ -53,10 +53,14 @@ _Museum1FText_5c242::
 	line "time to look!"
 	done
 
-_Museum1FText_5c251::
-	text "That is one"
-	line "magnificent"
-	cont "fossil!"
+_Museum1FText_5c251:: ; edited
+	text "Praise be!"
+	line "Praise be!"
+
+	para "Oh, that I may"
+	line "pray to the bones"
+	cont "of a dragon god!"
+;	xxxx "123456789012345678"
 	done
 
 _Museum1FText_5c28e::

@@ -19,17 +19,18 @@ _Route10BattleText2::
 	text "Ha-hahah-ah-ha!"
 	done
 
-_Route10EndBattleText2::
-	text "Ha-haha!"
-	line "Not laughing!"
-	cont "Ha-hay fever!"
-	cont "Haha-ha-choo!"
+_Route10EndBattleText2:: ; edited
+	text "Ha!"
+	line "Ha-haha...! It..."
+	cont "It's those funny"
+	cont "mushrooms I ate!"
 	prompt
 
-_Route10AfterBattleText2::
-	text "Haha-ha-choo!"
-	line "Ha-choo!"
-	cont "Snort! Snivel!"
+_Route10AfterBattleText2:: ; edited
+	text "Haha!"
+	line "Ha ha ha!"
+	cont "Ha... ha..."
+;	xxxx "123456789012345678"
 	done
 
 _Route10BattleText3::

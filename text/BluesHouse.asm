@@ -84,9 +84,10 @@ _DaisyBagFullText::
 	line "stuff with you."
 	done
 
-_BluesHouseTownMapText::
-	text "It's a big map!"
-	line "This is useful!"
+_BluesHouseTownMapText:: ; edited
+	text "A map of KANTO!"
+	line "...Would be nice"
+	cont "to have it, eh?"
 	done
 
 ; new, for the Mega Stone's Clues ------------
