@@ -213,3 +213,44 @@ _Mansion4AfterBattleText3::
 	text "I did nothing!"
 ;	xxxx "123456789012345678"
 	done
+
+_PokemonMansionB1FTextSign1_Intro::
+	text "The machine"
+	line "emanates a deep"
+	cont "sorrow and a"
+	cont "heartwrecking"
+	cont "loneliness."
+
+	para "It is dotted with"
+	line "what look like"
+	cont "biological"
+	cont "remnants. They"
+	cont "seem to vibrate"
+	cont "with unbridled"
+	cont "resentment and"
+	cont "untamed fury."
+
+	para "Do you want to"
+	line "pick one up?"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonMansionB1FTextSign1_No::
+	text "Better leave them"
+	line "there."
+;	xxxx "123456789012345678"
+	done
+
+_PokemonMansionB1FTextSign1_BagFull::
+	text "Your bag is full."
+
+	para "Maybe it's for"
+	line "the best."
+;	xxxx "123456789012345678"
+	done
+
+_PokemonMansionB1FTextSign1_GotGene::
+	text "<PLAYER> took a"
+	line "BERSERK GENE!"
+;	xxxx "123456789012345678"
+	done

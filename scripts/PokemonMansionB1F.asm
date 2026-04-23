@@ -42,7 +42,7 @@ Mansion4Script_Switches::
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, 11 ; edited because rival and Magikarp Burglar ; Mansion3Text6: Set/Reset EVENT_MANSION_SWITCH_ON
+	ld a, 13 ; edited because rival and Magikarp Burglar and Mewtwo Incubator ; Mansion3Text6: Set/Reset EVENT_MANSION_SWITCH_ON
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
@@ -427,6 +427,9 @@ PokemonMansionB1F_TextPointers:
 	dw Mansion4Text7
 	dw PickUpItemText
 	dw Mansion4TextRival ; new, 10
+	; signs
+	dw PokemonMansionB1FTextSign1
+	dw PokemonMansionB1FTextSign1
 	; scripts
 	dw Mansion3Text6 ; 11
 
@@ -545,4 +548,42 @@ Mansion4RivalText_Win_FirstBattle:
 
 Mansion4RivalText_Lose_FirstBattle:
 	text_far _Mansion4RivalText_Lose_FirstBattle
+	text_end
+
+PokemonMansionB1FTextSign1:
+	text_asm
+	ld hl, PokemonMansionB1FTextSign1_Intro
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, PokemonMansionB1FTextSign1_No
+	jp nz, .printAndEnd ; chose no
+	lb bc, BERSERK_GENE, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, PokemonMansionB1FTextSign1_GotGene
+	jr .printAndEnd
+.bagFull
+	ld hl, PokemonMansionB1FTextSign1_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PokemonMansionB1FTextSign1_Intro:
+	text_far _PokemonMansionB1FTextSign1_Intro
+	text_end
+
+PokemonMansionB1FTextSign1_No:
+	text_far _PokemonMansionB1FTextSign1_No
+	text_end
+
+PokemonMansionB1FTextSign1_BagFull:
+	text_far _PokemonMansionB1FTextSign1_BagFull
+	text_end
+
+PokemonMansionB1FTextSign1_GotGene:
+	text_far _PokemonMansionB1FTextSign1_GotGene
+	sound_get_item_1
+;	sound_get_key_item
 	text_end

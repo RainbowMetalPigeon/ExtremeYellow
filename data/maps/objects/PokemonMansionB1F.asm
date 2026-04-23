@@ -25,6 +25,8 @@ PokemonMansionB1F_Object:
 	warp_event 103, 24, POKEMON_MANSION_B1F, 10 ; 19
 
 	def_bg_events
+	bg_event 110, 22, 11 ; PokemonMansionB1FTextSign1
+	bg_event 111, 22, 12 ; PokemonMansionB1FTextSign1
 
 	def_object_events
 	object_event 16, 23, SPRITE_SUPER_NERD, STAY, NONE, 1, OPP_BURGLAR, 9
