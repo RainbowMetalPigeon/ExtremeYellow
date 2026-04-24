@@ -8,40 +8,33 @@ PokemonMansionB1F_Script:
 	ld [wCurMapScript], a ; edited
 	ret
 
-Mansion4Script_HandleDoors:
+Mansion4Script_HandleDoors: ; edited
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
 	CheckEvent EVENT_MANSION_SWITCH_ON
-	jr nz, .asm_523ff
-	ld a, $e
-	ld bc, $80d
-	call Mansion2Script_ReplaceBlockWrapper
-	ld a, $e
-	ld bc, $b06
-	call Mansion2Script_ReplaceBlockWrapper
-	ld a, $5f
-	ld bc, $304
-	call Mansion2Script_ReplaceBlockWrapper
-	ld a, $54
-	ld bc, $808
-	call Mansion2Script_ReplaceBlockWrapper
-	ret
-.asm_523ff
-	ld a, $2d
-	ld bc, $80d
-	call Mansion2Script_ReplaceBlockWrapper
-	ld a, $5f
-	ld bc, $b06
-	call Mansion2Script_ReplaceBlockWrapper
-	ld a, $e
-	ld bc, $304
-	call Mansion2Script_ReplaceBlockWrapper
-	ld a, $e
-	ld bc, $808
-	call Mansion2Script_ReplaceBlockWrapper
-	ret
+	jp nz, .Mansion4SwitchOn
+
+; Switch off
+; change only some doors for speed's sake
+	ld a, [wXCoord]
+	cp 75
+	jp nc, Mansion4F_SwitchOff_B3F
+	cp 33
+	jp nc, Mansion4F_SwitchOff_B2F
+	; otherwise
+	jp Mansion4F_SwitchOff_B1F
+
+.Mansion4SwitchOn ; it's ON when we first arrive on this floor and when we reach the top-left room
+; change only some doors for speed's sake
+	ld a, [wXCoord]
+	cp 75
+	jp nc, Mansion4F_SwitchOn_B3F
+	cp 33
+	jp nc, Mansion4F_SwitchOn_B2F
+	; otherwise
+	jp Mansion4F_SwitchOn_B1F
 
 Mansion4Script_Switches::
 	ld a, [wSpritePlayerStateData1FacingDirection]
@@ -49,9 +42,207 @@ Mansion4Script_Switches::
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
-	ld a, 11 ; edited because rival and Magikarp Burglar ; Mansion3Text6: Set/Reset EVENT_MANSION_SWITCH_ON
+	ld a, 13 ; edited because rival and Magikarp Burglar and Mewtwo Incubator ; Mansion3Text6: Set/Reset EVENT_MANSION_SWITCH_ON
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
+
+Mansion4F_SwitchOff_B1F:
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $80d
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $b06
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $304
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $54 ; DOOR HORIZONTAL (high)
+	ld bc, $808
+	jp Mansion2Script_ReplaceBlockWrapper
+
+Mansion4F_SwitchOff_B2F:
+	; open
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $316
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $71A
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $B14
+	call Mansion2Script_ReplaceBlockWrapper
+	; close
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $716
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $A16
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $54 ; DOOR HORIZONTAL (high)
+	ld bc, $921
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $119
+	jp Mansion2Script_ReplaceBlockWrapper
+
+Mansion4F_SwitchOff_B3F:
+	lb bc, 105, 115
+	lb de,   0,  16
+	call CheckIfInRectangle_PM ; b = min x, c = max x, d = min y, e = max y
+	jr c, .topRow
+	lb bc,  78, 105
+	lb de,   0,  10
+	call CheckIfInRectangle_PM ; b = min x, c = max x, d = min y, e = max y
+	jr c, .topRow
+; bottom row
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $62A
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $A29
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $B30
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $2d ; DOOR HORIZONTAL (low)
+	ld bc, $829
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $831
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $72D
+	jp Mansion2Script_ReplaceBlockWrapper
+.topRow
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $12B
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $131
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $538
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $32B
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $331
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $54 ; DOOR HORIZONTAL (high)
+	ld bc, $536
+	jp Mansion2Script_ReplaceBlockWrapper
+
+Mansion4F_SwitchOn_B1F:
+	ld a, $2d ; DOOR HORIZONTAL (low)
+	ld bc, $80d
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $b06
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $304
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $808
+	jp Mansion2Script_ReplaceBlockWrapper
+
+Mansion4F_SwitchOn_B2F:
+	; open
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $716
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $A16
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $921
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $119
+	call Mansion2Script_ReplaceBlockWrapper
+	; close
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $316
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $71A
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $54 ; DOOR HORIZONTAL (high)
+	ld bc, $B14
+	jp Mansion2Script_ReplaceBlockWrapper
+
+Mansion4F_SwitchOn_B3F:
+	lb bc, 105, 115
+	lb de,   0,  16
+	call CheckIfInRectangle_PM ; b = min x, c = max x, d = min y, e = max y
+	jr c, .topRow
+	lb bc,  78, 105
+	lb de,   0,  10
+	call CheckIfInRectangle_PM ; b = min x, c = max x, d = min y, e = max y
+	jr c, .topRow
+; bottom row
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $829
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $831
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $72D
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $62A
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $54 ; DOOR HORIZONTAL (high)
+	ld bc, $A29
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $B30
+	jp Mansion2Script_ReplaceBlockWrapper
+.topRow
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $32B
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $331
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $e ; CLEAR FLOOR
+	ld bc, $536
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $12B
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $5f ; DOOR VERTICAL (right)
+	ld bc, $131
+	call Mansion2Script_ReplaceBlockWrapper
+	ld a, $54 ; DOOR HORIZONTAL (high)
+	ld bc, $538
+	jp Mansion2Script_ReplaceBlockWrapper
+
+; inputs:
+; b = min x, c = max x, d = min y, e = max y
+; output:
+; c flag = in the rectangle, nc otherwise
+CheckIfInRectangle_PM:
+	inc c
+	inc e
+	ld a, [wXCoord]
+	cp b
+	jr c, .outsideRectangle ; if X<=b-1
+	cp c
+	jr nc, .outsideRectangle ; if X>=c+1
+	ld a, [wYCoord]
+	cp d
+	jr c, .outsideRectangle ; if Y<=d-1
+	cp e
+	jr nc, .outsideRectangle ; if Y>=e+1
+;insideRectangle
+	scf
+	ret
+.outsideRectangle
+	xor a
+	ret
 
 PokemonMansionB1F_ScriptPointers:
 	dw Mansion4Script0 ; new
@@ -236,6 +427,9 @@ PokemonMansionB1F_TextPointers:
 	dw Mansion4Text7
 	dw PickUpItemText
 	dw Mansion4TextRival ; new, 10
+	; signs
+	dw PokemonMansionB1FTextSign1
+	dw PokemonMansionB1FTextSign1
 	; scripts
 	dw Mansion3Text6 ; 11
 
@@ -354,4 +548,42 @@ Mansion4RivalText_Win_FirstBattle:
 
 Mansion4RivalText_Lose_FirstBattle:
 	text_far _Mansion4RivalText_Lose_FirstBattle
+	text_end
+
+PokemonMansionB1FTextSign1:
+	text_asm
+	ld hl, PokemonMansionB1FTextSign1_Intro
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, PokemonMansionB1FTextSign1_No
+	jp nz, .printAndEnd ; chose no
+	lb bc, BERSERK_GENE, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, PokemonMansionB1FTextSign1_GotGene
+	jr .printAndEnd
+.bagFull
+	ld hl, PokemonMansionB1FTextSign1_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PokemonMansionB1FTextSign1_Intro:
+	text_far _PokemonMansionB1FTextSign1_Intro
+	text_end
+
+PokemonMansionB1FTextSign1_No:
+	text_far _PokemonMansionB1FTextSign1_No
+	text_end
+
+PokemonMansionB1FTextSign1_BagFull:
+	text_far _PokemonMansionB1FTextSign1_BagFull
+	text_end
+
+PokemonMansionB1FTextSign1_GotGene:
+	text_far _PokemonMansionB1FTextSign1_GotGene
+	sound_get_item_1
+;	sound_get_key_item
 	text_end

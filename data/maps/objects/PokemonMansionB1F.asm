@@ -3,13 +3,30 @@ PokemonMansionB1F_Object:
 
 	def_warp_events
 	warp_event 23, 22, POKEMON_MANSION_1F, 6 ; 1
-	; new
-	warp_event   1,  1, POKEMON_MANSION_B1F, 3 ; 2
-	warp_event  37,  1, POKEMON_MANSION_B1F, 2 ; 3
-	warp_event  70, 26, POKEMON_MANSION_B1F, 5 ; 4
-	warp_event 114, 26, POKEMON_MANSION_B1F, 4 ; 5
+	; new, B2F
+	warp_event   1,  1, POKEMON_MANSION_B1F, 11 ;  2
+	warp_event  70, 26, POKEMON_MANSION_B1F, 12 ;  3
+	warp_event  47,  2, POKEMON_MANSION_B1F, 13 ;  4
+	warp_event  50, 15, POKEMON_MANSION_B1F, 14 ;  5
+	warp_event  59, 14, POKEMON_MANSION_B1F, 15 ;  6
+	warp_event  68, 15, POKEMON_MANSION_B1F, 16 ;  7
+	warp_event  38, 25, POKEMON_MANSION_B1F, 17 ;  8
+	warp_event  51, 22, POKEMON_MANSION_B1F, 18 ;  9
+	warp_event  58, 23, POKEMON_MANSION_B1F, 19 ; 10
+	; new, B3F
+	warp_event  37,  1, POKEMON_MANSION_B1F,  2 ; 11
+	warp_event 114, 26, POKEMON_MANSION_B1F,  3 ; 12
+	warp_event  81,  6, POKEMON_MANSION_B1F,  4 ; 13
+	warp_event  95, 14, POKEMON_MANSION_B1F,  5 ; 14
+	warp_event 103, 12, POKEMON_MANSION_B1F,  6 ; 15
+	warp_event 113, 14, POKEMON_MANSION_B1F,  7 ; 16
+	warp_event  81, 24, POKEMON_MANSION_B1F,  8 ; 17
+	warp_event  93, 24, POKEMON_MANSION_B1F,  9 ; 18
+	warp_event 103, 24, POKEMON_MANSION_B1F, 10 ; 19
 
 	def_bg_events
+	bg_event 110, 22, 11 ; PokemonMansionB1FTextSign1
+	bg_event 111, 22, 12 ; PokemonMansionB1FTextSign1
 
 	def_object_events
 	object_event 16, 23, SPRITE_SUPER_NERD, STAY, NONE, 1, OPP_BURGLAR, 9

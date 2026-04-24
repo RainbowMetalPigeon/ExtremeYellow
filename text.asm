@@ -285,7 +285,6 @@ INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route23.asm"
 INCLUDE "text/Route21.asm"
-INCLUDE "text/PokemonMansionB1F.asm"
 
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -313,6 +312,7 @@ INCLUDE "text/BikeShop.asm"
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "data/text/text_2.asm"
+INCLUDE "text/PokemonMansionB1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

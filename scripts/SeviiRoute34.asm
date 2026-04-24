@@ -164,6 +164,7 @@ SeviiRoute34Text1_YesMaxHappiness:
 
 SeviiRoute34Text1_GotAmuletCoin:
 	text_far _SeviiRoute34Text1_GotAmuletCoin
+	sound_get_key_item
 	text_end
 
 SeviiRoute34Text1_BagFull:

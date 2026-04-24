@@ -136,9 +136,15 @@ Mansion3HiddenObjects:
 	db -1 ; end
 
 Mansion4HiddenObjects:
-	hidden_object  1,  9, RARE_CANDY, HiddenItems
-	hidden_object 20,  3, SPRITE_FACING_UP, Mansion4Script_Switches
-	hidden_object 18, 25, SPRITE_FACING_UP, Mansion4Script_Switches
+	hidden_object   1,  9, RARE_CANDY, HiddenItems
+	hidden_object  20,  3, SPRITE_FACING_UP, Mansion4Script_Switches
+	hidden_object  18, 25, SPRITE_FACING_UP, Mansion4Script_Switches
+	hidden_object  48, 13, SPRITE_FACING_UP, Mansion4Script_Switches ; new, B2F
+	hidden_object  90,  5, SPRITE_FACING_UP, Mansion4Script_Switches ; new, B3F
+	hidden_object 102,  5, SPRITE_FACING_UP, Mansion4Script_Switches ; new, B3F
+	hidden_object  80, 13, SPRITE_FACING_UP, Mansion4Script_Switches ; new, B3F
+	hidden_object 110, 13, SPRITE_FACING_UP, Mansion4Script_Switches ; new, B3F
+	hidden_object  90, 23, SPRITE_FACING_UP, Mansion4Script_Switches ; new, B3F
 	db -1 ; end
 
 SafariZoneWestHiddenObjects:

@@ -56,9 +56,9 @@ EnterMap::
 OverworldLoop::
 	ld a, [wPersonalizationOverworldSpeedup]
 	and a
-	jr nz, .noSpeedUp
+	jr nz, .yesSpeedUp
 	call DelayFrame
-.noSpeedUp
+.yesSpeedUp
 OverworldLoopLessDelay::
 	call CheckForSpinAndDelay ; edited
 	call IsSurfingPikachuInParty

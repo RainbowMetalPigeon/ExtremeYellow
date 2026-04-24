@@ -14,16 +14,16 @@ CinnabarIsland_Object:
 	warp_event 39, 19, CINNABAR_LAB, 10 ; new, 9
 
 	def_bg_events
-	bg_event 39,  5, 13; CinnabarIslandText3
-	bg_event 46, 11, 14; MartSignText
-	bg_event 42, 11, 15; PokeCenterSignText
+	bg_event 41,  5, 13 ; CinnabarIslandText3
+	bg_event 46, 11, 14 ; MartSignText
+	bg_event 42, 11, 15 ; PokeCenterSignText
 	bg_event 39, 11, 16 ; CinnabarIslandText6
 	bg_event 43,  3, 17 ; CinnabarIslandText7
 	bg_event 33, 17, 18 ; CinnabarIslandTextVulcano, new
 	bg_event  5,  4, 19 ; CinnabarIslandTextSeismic, new
 
 	def_object_events
-	object_event 42,  5, SPRITE_GIRL, WALK, LEFT_RIGHT, 1 ; person
+	object_event 34, 20, SPRITE_GIRL, WALK, UP_DOWN, 1 ; person
 	object_event 44,  6, SPRITE_GAMBLER, STAY, NONE, 2 ; person
 	object_event 34, 13, SPRITE_COOLTRAINER_M, WALK, ANY_DIR, 3 ; new
 	object_event 42, 16, SPRITE_GIRL, WALK, ANY_DIR, 4 ; new
@@ -33,7 +33,7 @@ CinnabarIsland_Object:
 	object_event 11,  2, SPRITE_COOLTRAINER_M, STAY, DOWN, 8 ; new
 	object_event 23,  5, SPRITE_GAMBLER, WALK, LEFT_RIGHT, 9 ; new
 	object_event 19,  6, SPRITE_GIRL, STAY, UP, 10 ; new
-	object_event 33,  4, SPRITE_TRAVELER, STAY, ANY_DIR, 11 ; new, traveler
+	object_event 33, 10, SPRITE_TRAVELER, STAY, ANY_DIR, 11 ; new, traveler
 	object_event 17, 18, SPRITE_COOLTRAINER_M, STAY, ANY_DIR, 12 ; new, special birdkeeper
 
 	def_warps_to CINNABAR_ISLAND
