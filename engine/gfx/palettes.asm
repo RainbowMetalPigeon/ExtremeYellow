@@ -289,6 +289,10 @@ SetPal_Overworld:
 	call IsInArray
 	jp c, .twoIsland
 	ld a, [wCurMap]
+	ld hl, SeviiMaps_TenIslandsMaps
+	call IsInArray
+	jp c, .tenIsland
+	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenSevii
@@ -380,6 +384,9 @@ SetPal_Overworld:
 .sevenIslandDock
 .sevenIsland
 	ld a, PAL_SEVII_SEVEN_ISLAND - 1
+	jr .townSevii
+.tenIsland
+	ld a, PAL_SEVII_TEN_ISLAND - 1
 	jr .townSevii
 .notSevii
 
@@ -541,6 +548,10 @@ SeviiMaps_SevenIslandsMaps:
 	db SEVII_SEVEN_ISLAND_GYM_1
 	db SEVII_SEVEN_ISLAND_GYM_2
 	db SEVII_SEVEN_ISLAND_GYM_3
+	db -1
+
+SeviiMaps_TenIslandsMaps:
+	db SEVII_TEN_ISLAND
 	db -1
 
 ; BTV
@@ -919,6 +930,10 @@ GetPal_Pikachu::
 	call IsInArray
 	jp c, .twoIsland
 	ld a, [wCurMap]
+	ld hl, SeviiMaps_TenIslandsMaps
+	call IsInArray
+	jp c, .tenIsland
+	ld a, [wCurMap]
 	ld hl, SeviiMaps_FrozenPalette
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .frozenSevii
@@ -1005,6 +1020,9 @@ GetPal_Pikachu::
 .sevenIslandDock
 .sevenIsland
 	ld a, PAL_SEVII_SEVEN_ISLAND - 1
+	jr .townSevii
+.tenIsland
+	ld a, PAL_SEVII_TEN_ISLAND - 1
 	jr .townSevii
 
 .notSevii
