@@ -450,9 +450,9 @@ SeviiEightIslandCaveText1:
 	and a
 	jr z, .limitBreaker
 	dec a
-	jr z, .ultimateBattle
-	dec a
 	jr z, .anyPokemon
+	dec a
+	jr z, .ultimateBattle
 
 .declined
 	ld hl, SeviiEightIslandCaveText1_Declined
@@ -535,8 +535,9 @@ SeviiEightIslandCaveText1:
 	ld a, [wd11e]
 	ld b, a
 	call GivePokemon
-;	jr nc, .done
+	call WishGranted
 	call WaitForTextScrollButtonPress
+	jr .done
 
 .wishGranted
 	call WishGranted

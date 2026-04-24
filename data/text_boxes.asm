@@ -125,8 +125,8 @@ MoveTutorHazardText: ; new
 
 SuujeroChoicesMenu: ; new
 	db   "LIM. BREAKER"
-	next "ULT. BATTLE"
 	next "ANY #MON"
+	next "ULT. BATTLE"
 	next "NOTHING@"
 
 TyrogueEvolutions: ; new
