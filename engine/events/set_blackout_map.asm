@@ -1,9 +1,13 @@
-SetLastBlackoutMap:
+SetLastBlackoutMap: ; edited
 ; Set the map to return to when
 ; blacking out or using Teleport or Dig.
 ; Safari rest houses don't count.
 
 	push hl
+; new
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .notresthouse
+; BTV
 	ld hl, SafariZoneRestHouses
 	ld a, [wCurMap]
 	ld b, a

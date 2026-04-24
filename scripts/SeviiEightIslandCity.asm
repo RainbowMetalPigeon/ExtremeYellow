@@ -32,6 +32,8 @@ SeviiEightIslandCity_ScriptPointers:
 	dw SeviiEightIslandCity_ScriptOpenCave ; 1
 
 SeviiEightIslandCity_Script0:
+	CheckAndResetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_TO_BE_CLOSED_AFTER_LOSS_VS_SUUJERO
+	jr nz, .closeDoor
 	CheckEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_ENTRANCE_TO_BE_CLOSED
 	ret z
 ; if we have to close the entrance
@@ -41,12 +43,13 @@ SeviiEightIslandCity_Script0:
 ; close it
 	callfar ShakeScreen
 	call PlayDefaultMusic
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+.closeDoor
 	ld a, $57 ; no-entrance block
 	ld [wNewTileBlockID], a
 	lb bc,  5,  6
 	predef ReplaceTileBlock
-	ld a, SFX_GO_INSIDE
-	call PlaySound
 	ResetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_ENTRANCE_TO_BE_CLOSED
 	xor a
 	ld [wCurMapScript], a
@@ -57,6 +60,13 @@ SeviiEightIslandCity_CoordinatesFrontOfCaveEntrance:
 	db -1 ; end
 
 SeviiEightIslandCity_ScriptOpenCave:
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_NIUE
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_YOTTRO
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_GONQUE
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI
+	ResetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE
 	SetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_ENTRANCE_ALLOWED
 	callfar ShakeScreen
 	call PlayDefaultMusic

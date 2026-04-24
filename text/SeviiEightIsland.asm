@@ -31,7 +31,7 @@ _SeviiEightIslandCityText1_SomethingOpened::
 
 _SeviiEightIslandCityText1_CaveOpen::
 	text "The stone already"
-	line "reacted to the"
+	line "absorbed the"
 	cont "seven SCROLLs of"
 	cont "the SEVII TRIAL."
 
@@ -99,58 +99,104 @@ _SeviiEightIslandCaveText1_Intro::
 	done
 
 _SeviiEightIslandCaveText1_ReceivedLimitBreaker::
-	text "got lim br"
+	text "<PLAYER> received"
+	line "LIM. BREAKER!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiEightIslandCaveText1_BagFull::
-	text "bag ful"
+	text "It's a real shame,"
+	line "but you seem"
+	cont "unable to receive"
+	cont "the outcome of"
+	cont "your wish."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiEightIslandCaveText1_Declined::
-	text "too bad"
+	text "Take your time."
+	line "There's no hurry,"
+	cont "and the decision"
+	cont "is indeed final."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiEightIslandCaveText1_OptedForLimitBreaker::
-	text "so lim bre"
+	text "So you wish to"
+	line "break through"
+	cont "any ceiling,"
+	cont "and ascend to"
+	cont "heights unseen."
+
+	para "Very well."
+	line "So be it."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiEightIslandCaveText1_OptedForUltimateBattle::
-	text "so ult battle"
+	text "So you wish to"
+	line "test the limit of"
+	cont "your strength in"
+	cont "an extreme fight."
+
+	para "Very well."
+	line "So be it."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiEightIslandCaveText1_OptedForAnyPokemon::
-	text "so any mon"
+	text "So you wish to"
+	line "obtain any one"
+	cont "ally you could"
+	cont "ever meet."
+
+	para "Very well."
+	line "So be it."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiEightIslandCaveText1_SoYouWantThis::
-	text "so you want"
+	text "So you wish for"
 	line "@"
 	text_ram wcd6d
 	text "?"
 	prompt
 
 _SeviiEightIslandCaveSuujeroDefeatedText::
-	text "gg"
+	text "Wonder-"
+	line "fully done."
+	cont "Amazingly out-"
+	cont "standing, really."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiEightIslandCaveSuujeroBeatYouText::
-	text "ez"
+	text "You"
+	line "fought valiantly,"
+	cont "but it has not"
+	cont "been enough."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiEightIslandCaveText1_Done::
-	text "Wish granted"
+	text "Your wish"
+	line "has been granted."
 
-	para "hope you're happy"
-	line "with it"
+	para "I hope it'll bring"
+	line "you happiness."
 ;	xxxx "123456789012345678"
+	done
+
+_SeviiEightIslandCaveText1_Done2::
+	text "May your path of"
+	line "satisfaction"
+	cont "and success"
+	cont "never end."
+
+	para "I hope our fates"
+	line "will intertwine"
+	cont "once again."
+	cont "For now: farewell."
 	done
 
 ; Blue and Pink --------------------------
@@ -274,7 +320,7 @@ _SeviiEightIslandCaveTextScript12::
 	cont "whole SEVII from"
 	cont "TEAM ROCKET, you"
 	cont "pushed me to"
-	cont "breach my limits." ; TBE
+	cont "breach my limits."
 
 	para "I owe you so much,"
 	line "and that's exactly"
@@ -401,7 +447,25 @@ _SeviiEightIslandCaveTextScript17::
 	done
 
 _SeviiEightIslandCaveTextScript18::
-	text "SUUJERO: Congrats"
+	text "SUUJERO: I offer"
+	line "congratulations"
+	cont "from the depth of"
+	cont "my soul."
+
+	para "That was an"
+	line "awesome display"
+	cont "of power, as well"
+	cont "as ability."
+
+	para "May your path of"
+	line "satisfaction"
+	cont "and success"
+	cont "never end."
+
+	para "I hope our fates"
+	line "will intertwine"
+	cont "once again."
+	cont "For now: farewell."
 ;	xxxx "123456789012345678"
 	done
 

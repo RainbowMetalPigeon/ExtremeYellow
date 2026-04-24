@@ -35,7 +35,19 @@ SeviiEightIslandCaveScript_PostBattleVsSuujero: ; 1
 ; did we lose?
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, SeviiEightIslandCaveResetScriptsInner
+	jr nz, .weWon
+; we lost
+	ResetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_ENTRANCE_ALLOWED
+	SetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_TO_BE_CLOSED_AFTER_LOSS_VS_SUUJERO
+	jp SeviiEightIslandCaveResetScriptsInner
+.weWon
+; fix Suujero facings
+	ld a, 1
+	ldh [hSpriteIndex], a
+	lb bc, STAY, DOWN
+	call ChangeSpriteMovementBytes ; new from Engeze
+	lb de, 1, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; dialogues
 	ld a, 18
 	call PrintScriptText_SafetyWrapper
@@ -537,10 +549,15 @@ SeviiEightIslandCaveText1:
 	call GivePokemon
 	call WishGranted
 	call WaitForTextScrollButtonPress
+	ld hl, SeviiEightIslandCaveText1_Done2
+	call PrintText
+	call WaitForTextScrollButtonPress
 	jr .done
 
 .wishGranted
 	call WishGranted
+	ld hl, SeviiEightIslandCaveText1_Done2
+	call PrintText
 .done
 	jp TextScriptEnd
 
@@ -563,13 +580,6 @@ WishGrantedInner:
 	ld hl, SeviiEightIslandCaveText1_Done
 	call PrintText
 ; reset
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ICHINO
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_NIUE
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_SANTRE
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_YOTTRO
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_GONQUE
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_ROKUSEI
-	ResetEvent EVENT_DEFEATED_SEVII_SAGE_NANETTE
 	ResetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_ENTRANCE_ALLOWED
 	SetEvent EVENT_SEVII_EIGHT_ISLAND_CAVE_ENTRANCE_TO_BE_CLOSED
 	ret
@@ -613,6 +623,10 @@ SeviiEightIslandCaveSuujeroBeatYouText:
 
 SeviiEightIslandCaveText1_Done:
 	text_far _SeviiEightIslandCaveText1_Done
+	text_end
+
+SeviiEightIslandCaveText1_Done2:
+	text_far _SeviiEightIslandCaveText1_Done2
 	text_end
 
 SeviiEightIslandCaveText1_Intro:

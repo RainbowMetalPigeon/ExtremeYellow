@@ -9,7 +9,7 @@ SeviiEightIslandDock_Script:
 	jp CallFunctionInTable
 
 ActionsOnEntry8:
-	ld a, SEVII_EIGHT_ISLAND_CITY
+	ld a, SEVII_ONE_ISLAND_CITY ; special case, 8 ISL doesn't have a pokecenter warp point
 	ld [wLastBlackoutMap], a
 	ret
 

@@ -32,6 +32,8 @@ _HandlePlayerBlackOut:
 	jr z, .lossText
 	cp OPP_PINK ; new
 	jr z, .lossText
+	cp OPP_SUUJERO ; new
+	jr z, .lossText
 	jr .noLossText
 .lossText ; battle that has loss text
 	lb bc, 8, 21
