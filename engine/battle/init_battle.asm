@@ -42,6 +42,8 @@ InitBattleCommon:
 	ld [wTrainerClass], a
 	callfar GetTrainerInformation ; edited because moved out of home
 ; new, to handle Copycat's full copy team
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .normalReading
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_1F
 	jr nz, .normalReading
@@ -716,6 +718,17 @@ SwapAndAgainText:
 	text_end
 
 DetermineIfSettingSwapBattle:
+; Check if it's Copycat or Niue
+	ld a, [wCurOpponent]
+	cp OPP_NIUE
+	ret z
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .continue
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_1F
+	ret z
+; Check if the setting is on
+.continue
 	ld a, [wPersonalizationSwapBattles] ; 0=None, 1=(Continuous) Trade, 2=All, 3=Major
 	cp 2
 	ret c
@@ -758,7 +771,7 @@ ListsOfMajorClassTrainersForSwap:
 	db OPP_ORM
 	db OPP_SIRD
 	db OPP_ICHINO
-	db OPP_NIUE
+;	db OPP_NIUE ; exception
 	db OPP_SANTRE
 	db OPP_YOTTRO
 	db OPP_SANTRE

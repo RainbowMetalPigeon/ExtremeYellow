@@ -417,7 +417,8 @@ DebugItemsList:
 ;   db HM_WATERFALL, 1
 ;	db HM_DIVE, 1
 ;	db HM_WHIRLPOOL, 1
-	db AMULET_COIN, 1
+;	db AMULET_COIN, 1
+	db POKE_DOLL, 5
 ;	db TOPAZ, 1
 ;	db TIGERS_EYE, 1
 	db S_S_TICKET, 1

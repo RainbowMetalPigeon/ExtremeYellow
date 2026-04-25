@@ -16,11 +16,21 @@ SlidePlayerAndEnemySilhouettesOnScreen:           ; edited into a jpfar to save 
                                     ; because called only by SlidePlayerAndEnemySilhouettesOnScreen which is there
 
 StartBattle:
-; new
+; new, for continuous trade mode
+; Check if it's Copycat or Niue
+	ld a, [wCurOpponent]
+	cp OPP_NIUE
+	jr z, .noContinuousTradeMode
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .continueCheckSwap
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_1F
+	jr z, .noContinuousTradeMode
+.continueCheckSwap
 	ld a, [wPersonalizationSwapBattles]
 	cp 1
 	jr nz, .noContinuousTradeMode
-	callfar SaveEnemyPartyIntoSpecialSRAM ; testing
+	callfar SaveEnemyPartyIntoSpecialSRAM
 .noContinuousTradeMode
 	callfar InitializeBattleVariablesAndEvents
 ; BTV
@@ -780,11 +790,21 @@ TrainerBattleVictory:
 	ld c, $3
 	predef AddBCDPredef
 .noAmuletCoin
+; Check if it's Copycat or Niue
+	ld a, [wCurOpponent]
+	cp OPP_NIUE
+	jr z, .noContinuousTradeMode
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .continueCheckSwap
+	ld a, [wCurMap]
+	cp COPYCATS_HOUSE_1F
+	jr z, .noContinuousTradeMode
+.continueCheckSwap
 	ld a, [wPersonalizationSwapBattles]
 	cp 1
 	jr nz, .noContinuousTradeMode
-	callfar ReloadTradedPartyFromSpecialSRAM ; testing
-	callfar RenameTradedTeamWithDefaultNicks ; testing
+	callfar ReloadTradedPartyFromSpecialSRAM
+	callfar RenameTradedTeamWithDefaultNicks
 .noContinuousTradeMode
 ; BTV
 	ld hl, MoneyForWinningText

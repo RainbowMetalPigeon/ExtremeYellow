@@ -55,7 +55,7 @@ PalletTown_Object:
 	warp_event 13,  5, MR_PSYCHICS_HOUSE, 5
 ;	warp_event 13,  5, VIRIDIAN_GYM, 1
 
-	warp_event 12, 11, OAKS_LAB, 2
+;	warp_event 12, 11, OAKS_LAB, 2
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1
 ;	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 12, 11, HAUNTED_PALLET_TOWN, 1
@@ -66,7 +66,7 @@ PalletTown_Object:
 ;	warp_event 12, 11, HALL_OF_FAME, 1
 ;	warp_event 12, 11, CHAMPIONS_ROOM, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_2, 1
-;	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
+	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
 ;	warp_event 12, 11, SECLUDED_ATOLL_SW, 1
 ;	warp_event 12, 11, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
 
