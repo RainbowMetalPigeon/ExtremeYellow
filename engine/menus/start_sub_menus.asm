@@ -52,7 +52,7 @@ StartMenu_Pokemon::
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
 	call LoadGBPal
-	call ReloadMapData ; new, to expand tileset
+;	call ReloadMapData ; new, to expand tileset
 	jp RedisplayStartMenu
 .chosePokemon
 	call SaveScreenTilesToBuffer1
@@ -399,7 +399,7 @@ StartMenu_Pokemon::
 	text_end
 .goBackToMap
 	call RestoreScreenTilesAndReloadTilePatterns
-	call ReloadMapData ; new, to expand tileset
+;	call ReloadMapData ; new, to expand tileset
 	jp CloseTextDisplay
 .newBadgeRequired
 	ld hl, .newBadgeRequiredText
@@ -575,7 +575,7 @@ StartMenu_Item::
 	jp z, .partyMenuNotDisplayed
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns
-	call ReloadMapData ; new, to expand tileset
+;	call ReloadMapData ; new, to expand tileset
 	pop af
 	ld [wUpdateSpritesEnabled], a
 	jp StartMenu_Item
@@ -1500,7 +1500,7 @@ DiveUnder:
 	call GBPalWhiteOutWithDelay3
 	call ClearSprites
 	call RestoreScreenTilesAndReloadTilePatterns
-	call ReloadMapData ; new, to expand tileset
+;	call ReloadMapData ; new, to expand tileset
 
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
@@ -1553,7 +1553,7 @@ DiveReemerge:
 	call GBPalWhiteOutWithDelay3
 	call ClearSprites
 	call RestoreScreenTilesAndReloadTilePatterns
-	call ReloadMapData ; new, to expand tileset
+;	call ReloadMapData ; new, to expand tileset
 
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
