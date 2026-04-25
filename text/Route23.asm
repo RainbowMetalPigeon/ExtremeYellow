@@ -46,7 +46,7 @@ _Route23Text9::
 	text "To interact with"
 	line "people and signs,"
 	cont "press the"
-	cont "A button!"
+	cont "A Button!"
 	done
 
 _Route23TextPink::

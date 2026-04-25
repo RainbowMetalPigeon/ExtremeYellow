@@ -36,7 +36,7 @@ _OchreResearchCenter1Text_Ball_Kalos::
 	cont "It rewards skill:"
 	cont "the more times"
 	cont "you press the"
-	cont "A button, the"
+	cont "A Button, the"
 	cont "more likely you're"
 	cont "to win your catch!"
 ;	xxxx "123456789012345678"

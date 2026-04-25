@@ -167,8 +167,14 @@ _GymStatueText2::
 _ViridianCityPokecenterGuyText::
 	text "#MON CENTERs"
 	line "heal your tired,"
-	cont "hurt or fainted"
-	cont "#MON!"
+	cont "hurt, or fainted"
+	cont "#MON."
+
+	para "And they are"
+	line "totally free, as"
+	cont "public healthcare"
+	cont "should always be!"
+;	xxxx "123456789012345678"
 	done
 
 _PewterCityPokecenterGuyText::

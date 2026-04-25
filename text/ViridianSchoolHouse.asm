@@ -52,16 +52,17 @@ _SchoolText4::
 	cont "powerful the"
 	cont "SELECT Button is!"
 
-	para "If you press it at"
-	line "the end of a"
+	para "At the end of a"
 	cont "#MON page in"
 	cont "the #DEX, it"
-	cont "shows you its"
-	cont "shiny form!"
+	cont "shows its shiny!"
 
-	para "In the options"
+	para "In the OPTION"
 	line "menus, it gives"
 	cont "you extra infos!"
+
+	para "In battle, shows"
+	line "useful info too!"
 
 	para "And in the STATS"
 	line "screen of the"
@@ -69,14 +70,10 @@ _SchoolText4::
 	cont "toggles between"
 	cont "current stats,"
 	cont "base stats, DVs,"
-	cont "and EVs!"
-
-	para "Oh, and about the"
-	line "EVs: it shows you"
-	cont "directly the stat"
-	cont "increase at"
-	cont "LV100, which"
-	cont "maxes out at 63."
+	cont "and EVs (which go"
+	cont "from 0 to 63 at"
+	cont "level 100)."
+;	xxxx "123456789012345678"
 	done
 
 _SchoolText5::
