@@ -4229,11 +4229,13 @@ SmashBallSuccessProbabilityDependingOnInputs: ; c flag if fail
 ; fail directly if we smashed 0 times
 	cp 1
 	ret c
-; then let's split into tiers: 1-2, 3-4, 5-6, 7-8, 9+
+; then let's split into tiers: 1-2, 3-4, 5-6, 7, 8, 9+
 	cp 9
 	jr nc, .tier9plus
+	cp 8
+	jr nc, .tier8
 	cp 7
-	jr nc, .tier78
+	jr nc, .tier7
 	cp 5
 	jr nc, .tier56
 	cp 3
@@ -4242,16 +4244,19 @@ SmashBallSuccessProbabilityDependingOnInputs: ; c flag if fail
 	ld c, 200 ; tier-specific threshold
 	jr .smashBallGotThreshold
 .tier34
-	ld c, 150 ; tier-specific threshold
+	ld c, 120 ; tier-specific threshold
 	jr .smashBallGotThreshold
 .tier56
-	ld c, 100 ; tier-specific threshold
+	ld c,  80 ; tier-specific threshold
 	jr .smashBallGotThreshold
-.tier78
-	ld c, 40 ; tier-specific threshold
+.tier7
+	ld c,  40 ; tier-specific threshold
+	jr .smashBallGotThreshold
+.tier8
+	ld c,  20 ; tier-specific threshold
 	jr .smashBallGotThreshold
 .tier9plus
-	ld c, 10 ; tier-specific threshold
+	ld c,   7 ; tier-specific threshold
 	; fallthrough
 .smashBallGotThreshold
 	call Random
@@ -4280,9 +4285,3 @@ SmashBallSuccessProbabilityDependingOnInputs: ; c flag if fail
 	cp c ; a-c = CatchRate - [0,threshold)/(1or2or4)
 ;	ret c ; capture failed
 	ret
-;.captureNotFailed
-;	xor a
-;	ret
-;.captureFailed
-;	scf
-;	ret
