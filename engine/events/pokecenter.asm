@@ -27,15 +27,15 @@ DisplayPokemonCenterDialogue_::
 .regularCenter
 	call SaveScreenTilesToBuffer1 ; save screen
 ; edited
-;	ld hl, PokemonCenterWelcomeText
-;	call PrintText
+	ld hl, PokemonCenterWelcomeText
+	call PrintText
 ;	ld hl, wd72e
 ;	bit 2, [hl]
 ;	set 1, [hl]
 ;	set 2, [hl]
 ;	jr nz, .skipShallWeHealYourPokemon
-	ld hl, ShallWeHealYourPokemonText
-	call PrintText
+;	ld hl, ShallWeHealYourPokemonText
+;	call PrintText
 ;.skipShallWeHealYourPokemon
 ; BTV
 	call YesNoChoicePokeCenter ; yes/no menu
@@ -173,14 +173,14 @@ Func_6ebb:
 	call SpriteFunc_34a1
 	ret
 
-;PokemonCenterWelcomeText:
-;	text_far _PokemonCenterWelcomeText
-;	text_end
-
-ShallWeHealYourPokemonText:
-	text_pause
-	text_far _ShallWeHealYourPokemonText
+PokemonCenterWelcomeText:
+	text_far _PokemonCenterWelcomeText
 	text_end
+
+;ShallWeHealYourPokemonText:
+;	text_pause
+;	text_far _ShallWeHealYourPokemonText
+;	text_end
 
 NeedYourPokemonText:
 	text_far _NeedYourPokemonText
@@ -191,7 +191,7 @@ PokemonFightingFitText:
 	text_end
 
 PokemonCenterFarewellText:
-	text_pause
+;	text_pause
 	text_far _PokemonCenterFarewellText
 	text_end
 
