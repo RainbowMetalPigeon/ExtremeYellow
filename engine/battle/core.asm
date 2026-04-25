@@ -2578,6 +2578,12 @@ PartyMenuOrRockOrRun:
 	ld a, $1
 	ld [wActionResultOrTookBattleTurn], a
 	call GBPalWhiteOut
+; new
+	ld a, [wBattleMonSpecies]
+	ld [wd0b5], a
+	call GetMonHeader
+	predef LoadMonBackPic
+; BTV
 	call ClearSprites
 	call LoadHudTilePatterns
 	call LoadScreenTilesFromBuffer1
