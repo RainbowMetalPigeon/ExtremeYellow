@@ -855,7 +855,7 @@ RocketData:
 	db 25, RATICATE, RATICATE, GOLBAT, RATICATE, ARBOK, 0
 	db 32, MACHOKE, HYPNO, SANDSLASH, 0 ; updated, removed Marowak; also not used in Yellow, leftover from RB
 ; Obsidian Warehouse, grunts
-	db 27, CUBONE, 0 ; $2a=42
+	db 39, CUBONE, 0 ; $2a=42
 	db 37, RATICATE, HYPNO, GOLBAT, 0
 	db 37, MUK, SANDSLASH, ARBOK, 0
 	db 38, MACHOKE, WEEZING, 0

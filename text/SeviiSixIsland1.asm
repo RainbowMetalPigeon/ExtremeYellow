@@ -1868,7 +1868,7 @@ _SeviiRoute40BattleText2::
 	done
 
 _SeviiRoute40EndBattleText2::
-	text "Engineer: You"
+	text "You"
 	line "took me apart"
 	cont "screw by screw!"
 ;	xxxx "123456789012345678"

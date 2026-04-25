@@ -603,7 +603,7 @@ _PersonalizationInfoTextTypes_Details::
 	line "NORMAL/GROUND"
 
 	para "GYARADOS:"
-	line "WATER/DRAGON"
+	line "DRAGON/DARK"
 
 	para "PORYGON:"
 	line "ELECTRIC/GHOST"

@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MSTARMIE, 99 ; 255
-	db MUNCHLAX, 45
+	db MELMETAL, 45
 	db STARTER_PIKACHU, 1
 ;	db VENUSTOISE, 98
 ;	db SCIZOR, 42
@@ -401,7 +401,8 @@ DebugItemsList:
 ;	db ICE_ORB, 1
 ;	db THUNDER_ORB, 1
 ;	db FIRE_ORB, 1
-;	db TM_WILL_O_WISP, 3
+	db TM_GYRO_BALL, 3
+	db TM_BODY_PRESS, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 ;	db MEGA_STONE_X, 99
