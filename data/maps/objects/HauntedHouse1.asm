@@ -50,7 +50,7 @@ HauntedHouse1_Object:
 	warp_event 49, 14, HAUNTED_HOUSE_4, 22 ; 36 ; -> PokeBall room
 
 	def_bg_events
-;	bg_event  6,  9, 9 ; CeladonMansion2TextSign1
+	bg_event  4, 58,  1 ; HauntedHouse1TextSign1
 
 	def_object_events
 ;	object_event  2,  4, SPRITE_BIRD, STAY, ANY_DIR, 1

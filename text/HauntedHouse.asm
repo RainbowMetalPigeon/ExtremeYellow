@@ -1,3 +1,10 @@
+_HauntedHouse1TextSign1::
+    text "Did you REALLY"
+    line "think there was"
+    cont "a way out?"
+;   xxxx "123456789012345678"
+    done
+
 ; HAUNTED_HOUSE_2 ---------------------------
 
 _HauntedHouse2TextSignR1C1::

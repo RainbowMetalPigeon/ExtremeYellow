@@ -883,7 +883,7 @@ ModifyMoveAccuracy::
 	ld a, [hl]
 	cp STOMP
 	jr nz, .handleWeathers
-; user is usinh STOMP, check if target is minimized
+; user is using STOMP, check if target is minimized
 	ld a, [de]
 	and a
 	jr z, .resetCarryFlagToNotSkipAccuracy

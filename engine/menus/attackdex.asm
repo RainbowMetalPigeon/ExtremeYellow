@@ -1223,6 +1223,9 @@ DrawAttackdexEntryOnScreen:
 	ld hl, AttackdexText_DigEffect
 	cp DIG
 	jp z, .done
+	ld hl, AttackdexText_DiveEffect
+	cp DIVE
+	jp z, .done
 	ld hl, AttackdexText_SolarBeamEffect
 	jp .done
 
@@ -1787,6 +1790,10 @@ AttackdexText_TeleportEffect:
 
 AttackdexText_DigEffect:
 	text_far _AttackdexText_DigEffect
+	text_end
+
+AttackdexText_DiveEffect:
+	text_far _AttackdexText_DiveEffect
 	text_end
 
 AttackdexText_SolarBeamEffect:

@@ -33,8 +33,10 @@ HauntedHouse1Entrance:
 ; ============================
 
 HauntedHouse1_TextPointers:
-;	dw HauntedHouse1Text1
+	dw HauntedHouse1TextSign1
 
+HauntedHouse1TextSign1:
+	text_far _HauntedHouse1TextSign1
 	text_end
 
 ; ============================

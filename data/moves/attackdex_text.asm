@@ -566,7 +566,7 @@ _AttackdexText_PayDayEffect::
 _AttackdexText_SwiftEffect::
 	text "Cannot miss."
 	next "Hits even through"
-	next "FLY and DIG"
+	next "FLY, DIG, DIVE"
 	dex
 
 _AttackdexText_ConversionEffect::
@@ -627,7 +627,21 @@ _AttackdexText_DigEffect::
 	next "attacks on 2nd."
 
 	atpg "User cannot be hit"
-	next "while underground"
+	next "while underground,"
+	next "except by"
+	next "EARTHQUAKE x2"
+;	xxxx "123456789012345678"
+	dex
+
+_AttackdexText_DiveEffect::
+	text "Dives underwater"
+	next "during 1st turn,"
+	next "attacks on 2nd."
+
+	atpg "User cannot be hit"
+	next "while underwater,"
+	next "except by SURF x2"
+	next "and WHIRLPOOL"
 	dex
 
 _AttackdexText_SolarBeamEffect::
@@ -642,7 +656,10 @@ _AttackdexText_FlyEffect::
 	next "attacks on 2nd."
 
 	atpg "User cannot be hit"
-	next "while flying up"
+	next "while flying up,"
+	next "except by BLIZZARD"
+	next "THUNDER HURRICANE"
+;	xxxx "123456789012345678"
 	dex
 
 _AttackdexText_TwoToFiveAttacksEffect::
@@ -907,8 +924,8 @@ _AttackdexText_SunnyDayEffect::
 	next "SPECIAL by 2,"
 
 	atpg "HURRICANE and"
-	next "THUNDER ACCURACY"
-	next "down to 50%"
+	next "THUNDER ACC = 50%"
+;	xxxx "123456789012345678"
 	dex
 
 _AttackdexText_RainDanceEffect::
