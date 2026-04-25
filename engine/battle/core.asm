@@ -3165,11 +3165,25 @@ PrintMenuItem:
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
+; special check for Gyro Ball
+	ld a, [wPlayerMoveNum]
+	cp GYRO_BALL
+	jr nz, .notGyroBall
+	push hl
+	callfar CalculateGyroBallBasePower ; BP is in d
+	pop hl
+	ld a, d
+	ld [wArrayForTemporaryStorage], a
+	ld de, wArrayForTemporaryStorage
+	hlcoord 1, 10
+	jr .printBP
+.notGyroBall
 	ld a, [wPlayerMovePower]
-	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
+	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT
 	jr z, .specialDamage
 	hlcoord 1, 10
 	ld de, wPlayerMovePower
+.printBP
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 	jr .afterDamagePrinting
@@ -3227,7 +3241,6 @@ PrintMenuItem:
 	lb bc, 1, 2
 	call PrintNumber
 
-;	call GetCurrentMove ; edited, moved to the top
 	hlcoord 1, 9 ; edited
 	predef PrintMoveType
 
