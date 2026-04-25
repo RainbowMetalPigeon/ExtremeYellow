@@ -904,7 +904,7 @@
 
 ; Route 20 events
 	const_next $500
-	const_skip ; edited because of rematch Misty
+	const EVENT_GOT_SLEEP_BAG ; new
 	const EVENT_IN_SEAFOAM_ISLANDS
 	const EVENT_BEAT_ROUTE_20_TRAINER_0
 	const EVENT_BEAT_ROUTE_20_TRAINER_1

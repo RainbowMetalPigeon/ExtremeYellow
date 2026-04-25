@@ -239,6 +239,33 @@ _PokemonCenterFarewellText::
 	line "you again!"
 	done
 
+_PokemonCenterSleepBagText::
+	text "It's your first"
+	line "time here, right?"
+
+	para "Please, have this."
+	line "It won't be able"
+	cont "to heal your team"
+	cont "like we can do,"
+	cont "but with a good"
+	cont "sleep you can"
+	cont "rest until night"
+	cont "or the next day!"
+;	xxxx "123456789012345678"
+	prompt
+
+_PokemonCenterGotSleepBagText::
+	text "<PLAYER> received"
+	line "a SLEEP BAG!"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonCenterBagFullText::
+	text "Oh, you don't have"
+	line "space for this."
+;	xxxx "123456789012345678"
+	done
+
 _LooksContentText::
 	text "It looks very"
 	line "content asleep."

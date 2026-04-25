@@ -114,7 +114,23 @@ DisplayPokemonCenterDialogue_::
 	ld hl, PokemonCenterFarewellText
 	call PrintText
 	call UpdateSprites
-; new, testing
+; new
+	CheckEvent EVENT_GOT_SLEEP_BAG
+	jr nz, .postSleepBag
+	call WaitForTextScrollButtonPress ; wait for button press
+	ld hl, PokemonCenterSleepBagText
+	call PrintText
+	lb bc, SLEEP_BAG, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_GOT_SLEEP_BAG
+	ld hl, PokemonCenterGotSleepBagText
+	call PrintText
+	jr .postSleepBag
+.bagFull
+	ld hl, PokemonCenterBagFullText
+	call PrintText
+.postSleepBag
 	ld a, PLAYER_DIR_DOWN
 	ld [wPlayerMovingDirection], a
 	ret
@@ -128,6 +144,19 @@ DisplayPokemonCenterDialogue_::
 ;	ld c, 1 ; edited
 ;	call DelayFrames
 ;	ret
+
+PokemonCenterSleepBagText: ; new
+	text_far _PokemonCenterSleepBagText
+	text_end
+
+PokemonCenterGotSleepBagText: ; new
+	text_far _PokemonCenterGotSleepBagText
+	sound_get_key_item
+	text_end
+
+PokemonCenterBagFullText: ; new
+	text_far _PokemonCenterBagFullText
+	text_end
 
 Func_6ebb:
 	ld a, b
