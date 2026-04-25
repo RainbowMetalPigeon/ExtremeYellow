@@ -42,7 +42,7 @@ OchreMartText3:
 	text_end
 
 OchreCashierText: ; moved
-	script_mart HEAVY_BALL, FAST_BALL, ULTRA_BALL, HYPER_POTION, REVIVE, FULL_HEAL, MAX_REPEL
+	script_mart HEAVY_BALL, FAST_BALL, SUB_BALL, SMASH_BALL, ULTRA_BALL, HYPER_POTION, REVIVE, FULL_HEAL, MAX_REPEL
 
 OchreCashierTextTM: ; testing
     text_asm

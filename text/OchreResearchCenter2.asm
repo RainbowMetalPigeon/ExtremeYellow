@@ -76,7 +76,7 @@ _OchreResearchCenter2Text_Fossils_Unova::
 	cont "working in a"
 	cont "museum, but I"
 	cont "personally love"
-	cont "be based in"
+	cont "being based in"
 	cont "UNOVA's one!"
 
 	para "Any time I'm not"

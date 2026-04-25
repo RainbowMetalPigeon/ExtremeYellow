@@ -125,7 +125,7 @@ ItemPrices::
 	bcd3 0     ; ROOM_KEY_34
 	bcd3 0     ; ROOM_KEY_37
 	bcd3 1500  ; SUB_BALL
-	bcd3 1500  ; SMASH_BALL
+	bcd3 15000 ; SMASH_BALL
 	bcd3 1000  ; MATCHA_TEA
 	bcd3 2     ; ATK_NULLIFIER
 	bcd3 2     ; SPD_NULLIFIER

@@ -21,7 +21,25 @@ _OchreResearchCenter1Text_Ball_Kalos::
 
 	para "Our systems are"
 	line "not so different"
-	cont "from SILPH's!"
+	cont "from SILPH's."
+
+	para "We collaborated,"
+	line "and the results"
+	cont "are two new types"
+	cont "of BALLs never"
+	cont "seen before:"
+	cont "SUB and SMASH!"
+
+	para "My favourite's the"
+	line "SMASH BALL!"
+	cont "Why, you ask?"
+	cont "It rewards skill:"
+	cont "the more times"
+	cont "you press the"
+	cont "A button, the"
+	cont "more likely you're"
+	cont "to win your catch!"
+;	xxxx "123456789012345678"
 	done
 
 _OchreResearchCenter1Text_Ball_Kurtz::
@@ -53,10 +71,24 @@ _OchreResearchCenter1Text_Ball_Silph::
 	line "is amazing!"
 
 	para "We managed to"
-	line "create new types"
-	cont "of BALLs even"
-	cont "when lacking the"
-	cont "raw materials!"
+	line "create APRICORN-"
+	cont "BALLs even with-"
+	cont "out the original"
+	cont "materials, and on"
+	cont "top of that, we"
+	cont "invented two"
+	cont "whole new BALLs:"
+	cont "SUB and SMASH!"
+
+	para "My favourite is"
+	line "the SUB BALL!"
+	cont "Why, you ask?"
+	cont "Because it makes"
+	cont "catching under-"
+	cont "water #MON so"
+	cont "much easier, and"
+	cont "my hobby's diving!"
+;	xxxx "123456789012345678"
 	done
 
 _OchreResearchCenter1Text_Ball_Heavy::
@@ -66,7 +98,7 @@ _OchreResearchCenter1Text_Ball_Heavy::
 
 _OchreResearchCenter1Text_Ball_Fast::
 	text "A prototype of"
-	line "FAST BALL!"
+	line "SMASH BALL!"
 	done
 
 _OchreResearchCenter1Text_Power_Galar::
