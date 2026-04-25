@@ -8,17 +8,17 @@ _PewterPokecenterText2::
 	para "Scram!"
 	done
 
-_PewterPokecenterText3::
-	text "#MON CENTERS"
-	line "are wonderful!"
-
-	para "They heal #MON"
-	line "completely."
-
-	para "Even conditions"
-	line "like sleep, burn,"
-	cont "poison and others"
-	cont "are cured."
+_PewterPokecenterText3:: ; edited
+	text "The PC in the"
+	line "corner's nice but"
+	cont "a bit obsolete,"
+	cont "considering every"
+	cont "trainer can use"
+	cont "their PORTABLE PC"
+	cont "at any moment"
+	cont "simply from the"
+	cont "START menu!"
+;	xxxx "123456789012345678"
 	done
 
 _PewterJigglypuffText::
