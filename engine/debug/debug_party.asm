@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEW, 99 ; 255
-	db MELMETAL, 45
+	db MALAKAZAM, 100
 	db STARTER_PIKACHU, 1
 ;	db MAGIKARP, 100
 ;	db MAGIKARP, 42
@@ -369,7 +369,7 @@ DebugItemsList:
 	db SLEEP_BAG, 1
 	db FULL_RESTORE, 99
 	db MATCHA_TEA, 10
-;	db ATK_NULLIFIER, 10
+	db LIMIT_BREAKER, 10
 ;	db SPD_NULLIFIER, 10
 ;	db SCREWDRIVER, 1
 	db SMASH_BALL, 15
@@ -417,9 +417,9 @@ DebugItemsList:
 ;   db HM_WATERFALL, 1
 ;	db HM_DIVE, 1
 ;	db HM_WHIRLPOOL, 1
-;	db AMULET_COIN, 1
-	db TOPAZ, 1
-	db TIGERS_EYE, 1
+	db AMULET_COIN, 1
+;	db TOPAZ, 1
+;	db TIGERS_EYE, 1
 	db S_S_TICKET, 1
 	db SEVII_TICKET, 1
 ;	db PEARL, 7

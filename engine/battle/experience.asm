@@ -177,6 +177,26 @@ GainExperience:
 	jr .doCompare
 .vanilla
 ; back to vanilla
+; new, to allow gain EXP if we are ABOVE max level (due to LIMIT_BREAKER)
+	pop hl
+	push hl
+
+	dec hl
+	dec hl
+	ld bc, wPartyMon1Level - wPartyMon1Exp
+	add hl, bc
+	ld a, [hl] ; level of the current mon
+	cp MAX_LEVEL
+	jr z, .notAbove100
+	jr c, .notAbove100
+; here we are above 100: skip the max-current HP comparison
+	pop bc
+	ld bc, wPartyMon1Exp - wPartyMon1Level
+	add hl, bc
+	jr .next2
+
+.notAbove100
+; BTV
 	call GetMonHeader
 	ld d, MAX_LEVEL
 	callfar CalcExperience ; get max exp
