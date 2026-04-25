@@ -3147,6 +3147,7 @@ PrintMenuItem:
 	dec a
 	ld c, a ; new
 	callfar MoveInfoCopier ; new
+	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
 
 ; print TYPE/<type> and <curPP>/<maxPP>
 
@@ -3184,7 +3185,19 @@ PrintMenuItem:
 	lb bc, 1, 2
 	call PrintNumber
 
-	hlcoord 5, 10 ; new
+	ld a, [wPlayerMoveEffect]
+	cp SWIFT_EFFECT
+	jr z, .accuracyInfinite
+	push hl
+	callfar ModifyMoveAccuracy ; c flag if infallible
+	pop hl
+	jr nc, .accuracyNotInfinite
+.accuracyInfinite
+	hlcoord 7, 10
+	ld [hl], "INFINITE"
+	jr .postPrintAccuracy
+.accuracyNotInfinite
+	hlcoord 5, 10
 	xor a
 	ld b, a
 	ld a, [wPlayerMoveAccuracy]
@@ -3207,13 +3220,14 @@ PrintMenuItem:
 	ld de, wPlayerMoveAccuracyPercent
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
+.postPrintAccuracy
 
 	hlcoord 8, 11
 	ld de, wMaxPP
 	lb bc, 1, 2
 	call PrintNumber
 
-	call GetCurrentMove
+;	call GetCurrentMove ; edited, moved to the top
 	hlcoord 1, 9 ; edited
 	predef PrintMoveType
 

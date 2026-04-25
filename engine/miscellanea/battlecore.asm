@@ -870,7 +870,7 @@ BasePowerModifierMoves::
 
 ; ===========================================================================
 
-ModifyMoveAccuracy::
+ModifyMoveAccuracy:: ; c flag if accuracy is bypassed
 ; handle STOMP
 	ld hl, wPlayerMoveNum
 	ld de, wEnemyMonMinimized

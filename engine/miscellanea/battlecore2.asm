@@ -92,7 +92,7 @@ CheckWeathersAndTerrainsForBallAndPulse:
 	ld a, [wPersonalizationTCGMode]
 	and a
 	jr z, .terrainPulseNoTCGMode
-; weather ball in TCG mode
+; terrain pulse in TCG mode
 	CheckEvent EVENT_TERRAIN_GRASSY
 	ld a, TCG_GRASS
 	jr nz, .terrain

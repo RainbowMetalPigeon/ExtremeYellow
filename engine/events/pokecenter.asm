@@ -115,6 +115,10 @@ DisplayPokemonCenterDialogue_::
 	call PrintText
 	call UpdateSprites
 ; new
+IF DEF(_DEBUG)
+	call DebugPressedOrHeldB
+	jr nz, .postSleepBag
+ENDC
 	CheckEvent EVENT_GOT_SLEEP_BAG
 	jr nz, .postSleepBag
 	call WaitForTextScrollButtonPress ; wait for button press
