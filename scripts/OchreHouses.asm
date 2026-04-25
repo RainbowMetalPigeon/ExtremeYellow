@@ -117,9 +117,6 @@ OchreHousesTextMagikarpTutor:
     dec a
     ld [wUpdateSpritesEnabled], a
     call DisplayPartyMenu
-    push af
-    call MoveTutor_RestoreScreen
-    pop af
     ld a, $1
     jp c, .tutoringFailedCancel ; jump if the player didn't select a pokemon
     ld a, MAGIKARP
@@ -139,34 +136,43 @@ OchreHousesTextMagikarpTutor:
     ld a, ANCESTOR_PWR
     ld [wMoveNum], a
     ld [wd11e],a
+	ld [wUniQuizAnswer], a
     call GetMoveName
     call CopyToStringBuffer ; copy name to wcf4b
-	call CheckIfMoveIsKnown2 ; testing
+	call CheckIfMoveIsKnown2
 	jr c, .alreadyKnows
     predef LearnMove
-; text stuff
+	ld a, b
+	and a
+	jr z, .tutoringFailedCancel
+; succcess
+    call MoveTutor_RestoreScreen
 	ld hl, OchreHousesTextMagikarpTutor_OhYeah
 	call PrintText
-	jr .teachingSucceeded
+	jr .end
 .tutoringFailedCancel
+    call MoveTutor_RestoreScreen
 	ld hl, OchreHousesTextMagikarpTutor_Cancel
 	call PrintText
     scf
-	jr .teachingSucceeded
+	jr .end
 .tutoringFailedWrongMon
+    call MoveTutor_RestoreScreen
 	ld hl, OchreHousesTextMagikarpTutor_WrongMon
 	call PrintText
     scf
-	jr .teachingSucceeded
+	jr .end
 .tutoringFailedWrongLevel
+    call MoveTutor_RestoreScreen
 	ld hl, OchreHousesTextMagikarpTutor_WrongLevel
 	call PrintText
     scf
-	jr .teachingSucceeded
+	jr .end
 .alreadyKnows
+    call MoveTutor_RestoreScreen
 	ld hl, OchreHousesTextMagikarpTutor_AlreadyKnows
 	call PrintText
-.teachingSucceeded
+.end
 	jp TextScriptEnd
 
 OchreHousesTextMagikarpTutor_Intro:

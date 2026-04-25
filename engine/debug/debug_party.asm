@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MSTARMIE, 99 ; 255
+	db MEW, 99 ; 255
 	db MELMETAL, 45
 	db STARTER_PIKACHU, 1
-	db VENUSTOISE, 98
-	db SCIZOR, 42
-	db DUGTRIO, 68
+	db MAGIKARP, 100
+	db MAGIKARP, 42
+	db MAGIKARP, 68
 	db -1 ; end
 
 DebugStart:
