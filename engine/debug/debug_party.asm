@@ -16,9 +16,9 @@ DebugTeam:
 	db MSTARMIE, 99 ; 255
 	db MELMETAL, 45
 	db STARTER_PIKACHU, 1
-;	db VENUSTOISE, 98
-;	db SCIZOR, 42
-;	db DUGTRIO, 68
+	db VENUSTOISE, 98
+	db SCIZOR, 42
+	db DUGTRIO, 68
 	db -1 ; end
 
 DebugStart:
@@ -402,7 +402,7 @@ DebugItemsList:
 ;	db THUNDER_ORB, 1
 ;	db FIRE_ORB, 1
 	db TM_GYRO_BALL, 3
-	db TM_BODY_PRESS, 3
+;	db TM_BODY_PRESS, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 ;	db MEGA_STONE_X, 99

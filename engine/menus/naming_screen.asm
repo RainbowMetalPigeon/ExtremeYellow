@@ -1,5 +1,5 @@
 AskName:
-	call SaveScreenTilesToBuffer1
+	call SaveScreenTilesToBuffer2
 	call GetPredefRegisters
 ; new, to avoid nicknaming MISSINGNO
 	ld a, [wCurMap] ; temp, testing
@@ -43,9 +43,9 @@ AskName:
 	and a
 	jr nz, .inBattle
 	call ReloadMapSpriteTilePatterns
-	call ReloadTilesetTilePatterns ; new, to expand tileset
+;	call ReloadTilesetTilePatterns ; new, to expand tileset
 .inBattle
-;	call LoadScreenTilesFromBuffer1 ; to be commented out to expand tileset? - it seems to do nothing
+	call LoadScreenTilesFromBuffer2 ; to be commented out to expand tileset? - it seems to do nothing
 	pop hl
 	pop af
 	ld [wUpdateSpritesEnabled], a
