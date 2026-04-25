@@ -1127,6 +1127,17 @@ LoadTownMapZoom:
 	hlcoord 0, 0
 	lb bc, 1, 20
 	call ClearScreenArea ; Clear tilemap area cxb at hl.
+
+	call DetermineWhichCityWePointAt
+	call LoadTownMapEntry
+	ld de, wcd6d
+.copyMapName
+	ld a, [hli]
+	ld [de], a
+	inc de
+	cp $50
+	jr nz, .copyMapName
+
 	hlcoord 1, 0
 	ld de, wcd6d
 	call PlaceString
