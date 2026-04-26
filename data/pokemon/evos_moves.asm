@@ -262,6 +262,7 @@ BulbasaurEvosMoves:
 	db 30, PETAL_DANCE
 	db 32, SLUDGE_WAVE
 	db 35, LEAF_STORM
+	db 37, SYNTHESIS
 	db 39, ENERGY_BALL
 	db 42, SOLARBEAM
 	db 0
@@ -282,6 +283,7 @@ IvysaurEvosMoves:
 	db 33, PETAL_DANCE
 	db 35, SLUDGE_WAVE
 	db 38, LEAF_STORM
+	db 40, SYNTHESIS
 	db 42, ENERGY_BALL
 	db 45, ROAR
 	db 47, SOLARBEAM
@@ -304,6 +306,7 @@ VenusaurEvosMoves:
 	db 34, PETAL_DANCE
 	db 38, SLUDGE_WAVE
 	db 42, LEAF_STORM
+	db 45, SYNTHESIS
 	db 48, ENERGY_BALL
 	db 50, ROAR
 	db 53, SOLARBEAM
@@ -326,6 +329,7 @@ MVenusaurEvosMoves:
 	db 43, SLUDGE_WAVE
 	db 45, AMNESIA
 	db 47, LEAF_STORM
+	db 50, SYNTHESIS
 	db 53, ENERGY_BALL
 	db 55, ROAR
 	db 56, GUNK_SHOT
@@ -1688,6 +1692,7 @@ OddishEvosMoves:
 	db 34, PETAL_DANCE
 	db 36, RAZOR_LEAF
 	db 39, SLUDGE_WAVE
+	db 42, SYNTHESIS
 	db 44, SOLARBEAM
 	db 0
 
@@ -1715,7 +1720,8 @@ GloomEvosMoves:
 	db 37, PETAL_DANCE
 	db 39, RAZOR_LEAF
 	db 41, SLUDGE_WAVE
-	db 44, TAKE_DOWN
+	db 43, TAKE_DOWN
+	db 45, SYNTHESIS
 	db 47, SOLARBEAM
 	db 0
 
@@ -1742,6 +1748,7 @@ VileplumeEvosMoves:
 	db 42, RAZOR_LEAF
 	db 44, SLUDGE_WAVE
 	db 47, TAKE_DOWN
+	db 49, SYNTHESIS
 	db 51, SOLARBEAM
 	db 0
 
@@ -1762,6 +1769,7 @@ BellossomEvosMoves:
 	db 27, TOXIC
 	db 29, ENERGY_BALL
 	db 31, MOONBLAST
+	db 32, SYNTHESIS
 	db 33, INFESTATION
 	db 35, DRAIN_PUNCH
 	db 36, GRASSY_TERRAIN
@@ -1791,7 +1799,8 @@ ParasEvosMoves:
 	db 25, STICKY_WEB
 	db 27, SLASH
 	db 29, BULLET_SEED
-	db 32, SCREECH
+	db 31, SCREECH
+	db 33, SYNTHESIS
 	db 35, PSYBEAM
 	db 38, GIGA_DRAIN
 	db 40, AERIAL_ACE
@@ -1821,7 +1830,8 @@ ParasectEvosMoves:
 	db 31, STICKY_WEB
 	db 33, BULLET_SEED
 	db 35, SCREECH
-	db 38, PSYBEAM
+	db 37, SYNTHESIS
+	db 39, PSYBEAM
 	db 41, GIGA_DRAIN
 	db 44, AERIAL_ACE
 	db 46, AGILITY
@@ -2512,7 +2522,8 @@ BellsproutEvosMoves:
 	db 32, LEECH_LIFE
 	db 35, RAZOR_LEAF
 	db 37, SLAM
-	db 40, ENERGY_BALL
+	db 39, SYNTHESIS
+	db 41, ENERGY_BALL
 	db 44, TAKE_DOWN
 	db 47, LOVELY_KISS
 	db 50, SOLARBEAM
@@ -2535,7 +2546,8 @@ WeepinbellEvosMoves:
 	db 36, LEECH_LIFE
 	db 39, RAZOR_LEAF
 	db 42, SLAM
-	db 45, ENERGY_BALL
+	db 44, SYNTHESIS
+	db 46, ENERGY_BALL
 	db 48, TAKE_DOWN
 	db 51, LOVELY_KISS
 	db 55, SOLARBEAM
@@ -2559,6 +2571,7 @@ VictreebelEvosMoves:
 	db 36, LEECH_LIFE
 	db 42, RAZOR_LEAF
 	db 45, SLAM
+	db 47, SYNTHESIS
 	db 49, ENERGY_BALL
 	db 52, TAKE_DOWN
 	db 54, LOVELY_KISS
@@ -2582,6 +2595,7 @@ MVictrebelEvosMoves:
 	db 41, LEECH_LIFE
 	db 47, RAZOR_LEAF
 	db 50, SLAM
+	db 52, SYNTHESIS
 	db 54, ENERGY_BALL
 	db 57, TAKE_DOWN
 	db 59, LOVELY_KISS
@@ -3600,6 +3614,7 @@ ExeggcuteEvosMoves:
 	db 17, LIGHT_SCREEN
 	db 20, TAKE_DOWN
 	db 22, ENERGY_BALL
+	db 24, SYNTHESIS
 	db 25, CONFUSION
 	db 27, BULLET_SEED
 	db 29, STUN_SPORE
@@ -3626,6 +3641,7 @@ ExeggutorEvosMoves:
 	db 17, LIGHT_SCREEN
 	db 20, TAKE_DOWN
 	db 22, ENERGY_BALL
+	db 24, SYNTHESIS
 	db 25, CONFUSION
 	db 27, BULLET_SEED
 	db 28, STOMP
@@ -4148,8 +4164,9 @@ TangelaEvosMoves:
 	db 27, MEGA_DRAIN
 	db 30, INFESTATION
 	db 32, GIGA_DRAIN
-	db 35, SLEEP_POWDER
-	db 37, AMNESIA
+	db 34, SLEEP_POWDER
+	db 36, SYNTHESIS
+	db 38, AMNESIA
 	db 40, SLAM
 	db 42, ENERGY_BALL
 	db 44, GRASSY_TERRAIN
@@ -4175,8 +4192,9 @@ TangrowthEvosMoves:
 	db 27, MEGA_DRAIN
 	db 30, INFESTATION
 	db 32, GIGA_DRAIN
-	db 35, SLEEP_POWDER
-	db 37, MUD_SLAP
+	db 34, SLEEP_POWDER
+	db 36, MUD_SLAP
+	db 38, SYNTHESIS
 	db 40, AMNESIA
 	db 42, ROCK_TOMB
 	db 45, SLAM
