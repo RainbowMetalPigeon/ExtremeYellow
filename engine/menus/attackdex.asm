@@ -258,12 +258,12 @@ Attackdex_DrawInterface:
 	call PlaceString
 ; find the highest attackdex number among the attacks the player has seen
 	ld hl, wAttackdexSeenEnd - 1
-;	ld b, (wAttackdexSeenEnd - wAttackdexSeen) * 8 + 1 ; TBE, really needed?
+	ld b, (wAttackdexSeenEnd - wAttackdexSeen - 1) * 8
 .maxSeenAttackLoop
 	ld a, [hld]
 	ld c, 8
 .maxSeenAttackInnerLoop
-;	dec b ; TBE, really needed?
+	dec b
 	sla a
 	jr c, .storeMaxSeenAttack
 	dec c
@@ -272,6 +272,7 @@ Attackdex_DrawInterface:
 
 .storeMaxSeenAttack
 	ld a, b
+	add 9
 	ld [wDexMaxSeenAttacks], a
 	ret
 
@@ -621,6 +622,14 @@ DrawAttackdexEntryOnScreen:
 
 	ld hl, AttackdexText_FreezeDryEffect
 	cp FREEZE_DRY
+	jp z, .done
+
+	ld hl, AttackdexText_QuiverDanceEffect
+	cp QUIVER_DANCE
+	jp z, .done
+
+	ld hl, AttackdexText_SynthesisEffect
+	cp SYNTHESIS
 	jp z, .done
 
 	ld hl, AttackdexText_GyroBallEffect
@@ -1918,6 +1927,14 @@ AttackdexText_RecoverEffect:
 
 AttackdexText_FreezeDryEffect:
 	text_far _AttackdexText_FreezeDryEffect
+	text_end
+
+AttackdexText_QuiverDanceEffect:
+	text_far _AttackdexText_QuiverDanceEffect
+	text_end
+
+AttackdexText_SynthesisEffect:
+	text_far _AttackdexText_SynthesisEffect
 	text_end
 
 AttackdexText_GyroBallEffect:

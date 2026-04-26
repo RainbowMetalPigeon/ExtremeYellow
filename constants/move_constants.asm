@@ -287,7 +287,7 @@
 	const STEALTH_ROCK
 	const RAPID_SPIN
 	const QUIVER_DANCE
-	const SYNTHESIS
+	const SYNTHESIS ; 241
 
 	; KAAARP!
 	const	ANCESTOR_PWR

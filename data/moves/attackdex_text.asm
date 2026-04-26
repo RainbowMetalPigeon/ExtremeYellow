@@ -4,6 +4,19 @@ _AttackdexText_PROXY::
 ;	xxxx "123456789012345678"
 	dex
 
+_AttackdexText_QuiverDanceEffect::
+	text "Increases user's"
+	next "SPECIAL and SPEED"
+	next "modifiers by 1"
+	dex
+	
+_AttackdexText_SynthesisEffect::
+	text "Recovers 50% of"
+	next "max HP. Under SUN:"
+	next "75%. With other"
+	next "weathers: 25%"
+	dex
+
 _AttackdexText_NoAdditionalEffect::
 	text "No additional"
 	next "effects"
@@ -630,7 +643,6 @@ _AttackdexText_DigEffect::
 	next "while underground,"
 	next "except by"
 	next "EARTHQUAKE x2"
-;	xxxx "123456789012345678"
 	dex
 
 _AttackdexText_DiveEffect::
@@ -659,7 +671,6 @@ _AttackdexText_FlyEffect::
 	next "while flying up,"
 	next "except by BLIZZARD"
 	next "THUNDER HURRICANE"
-;	xxxx "123456789012345678"
 	dex
 
 _AttackdexText_TwoToFiveAttacksEffect::
@@ -924,8 +935,7 @@ _AttackdexText_SunnyDayEffect::
 	next "SPECIAL by 2,"
 
 	atpg "HURRICANE and"
-	next "THUNDER ACC = 50%"
-;	xxxx "123456789012345678"
+	next "THUNDER ACC: 50%"
 	dex
 
 _AttackdexText_RainDanceEffect::
@@ -934,7 +944,7 @@ _AttackdexText_RainDanceEffect::
 	next "FIRE moves -50%,"
 	next "no FREEZING,"
 
-	atpg "SOLARBEAM -50%",
+	atpg "SOLARBEAM -50%,"
 	next "HURRICANE and"
 	next "THUNDER can't miss"
 	dex
