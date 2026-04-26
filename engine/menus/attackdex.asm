@@ -624,6 +624,10 @@ DrawAttackdexEntryOnScreen:
 	cp FREEZE_DRY
 	jp z, .done
 
+	ld hl, AttackdexText_PerishSongEffect
+	cp PERISH_SONG
+	jp z, .done
+
 	ld hl, AttackdexText_QuiverDanceEffect
 	cp QUIVER_DANCE
 	jp z, .done
@@ -1927,6 +1931,10 @@ AttackdexText_RecoverEffect:
 
 AttackdexText_FreezeDryEffect:
 	text_far _AttackdexText_FreezeDryEffect
+	text_end
+
+AttackdexText_PerishSongEffect:
+	text_far _AttackdexText_PerishSongEffect
 	text_end
 
 AttackdexText_QuiverDanceEffect:

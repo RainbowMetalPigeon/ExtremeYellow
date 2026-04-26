@@ -4,6 +4,13 @@ _AttackdexText_PROXY::
 ;	xxxx "123456789012345678"
 	dex
 
+_AttackdexText_PerishSongEffect::
+	text "After 3 turns,"
+	next "#MON who heard"
+	next "the song go KO,"
+	next "unless switched"
+	dex
+
 _AttackdexText_QuiverDanceEffect::
 	text "Increases user's"
 	next "SPECIAL and SPEED"

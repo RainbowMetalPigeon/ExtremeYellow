@@ -27,7 +27,7 @@ SwitchAndTeleportEffect_:
 	call DelayFrames
 	ld a, [wPlayerMoveNum]
 	cp TELEPORT
-	jp nz, PrintDidntAffectText
+	jp nz, PrintDidntAffectText2
 	jp PrintButItFailedText2_
 .playerMoveWasSuccessful
 	callfar ReadPlayerMonCurHPAndStatus	; edited
@@ -77,7 +77,7 @@ SwitchAndTeleportEffect_:
 	call DelayFrames
 	ld a, [wEnemyMoveNum]
 	cp TELEPORT
-	jp nz, PrintDidntAffectText
+	jp nz, PrintDidntAffectText2
 	jp PrintButItFailedText2_
 .enemyMoveWasSuccessful
 	callfar ReadPlayerMonCurHPAndStatus	; edited
@@ -142,6 +142,14 @@ ButItFailedText2:
 	text_end
 
 ; new ================================
+
+PrintDidntAffectText2:
+	ld hl, DidntAffectText2
+	jp PrintText
+
+DidntAffectText2:
+	text_far _DidntAffectText
+	text_end
 
 CountUnfaintedPokemonInParty_Player:
 	ld a, [wPartyCount]
