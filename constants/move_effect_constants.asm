@@ -127,7 +127,8 @@
 	const BURN_EFFECT				 ; - brand new
 	const TRIATTACK_EFFECT			 ; - brand new
 
-	const ATTACK_SPEED_UP1_EFFECT	 ; - new, to be further tested, for DRAGON_DANCE
+	const ATTACK_SPEED_UP1_EFFECT	 ; - new, for DRAGON_DANCE
+	const SPECIAL_SPEED_UP1_EFFECT   ; - new, for QUIVER_DANCE
 
 	const ATTACK_UP_SIDE_EFF1		 ; new
 	const DEFENSE_UP_SIDE_EFF1		 ; new

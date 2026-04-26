@@ -600,6 +600,7 @@ ButterfreeEvosMoves:
 	db 39, AIR_CUTTER
 	db 41, AERIAL_ACE
 	db 44, HURRICANE
+	db 48, QUIVER_DANCE
 	db 0
 
 WeedleEvosMoves:
@@ -1768,7 +1769,8 @@ BellossomEvosMoves:
 	db 40, PETAL_DANCE
 	db 42, RAZOR_LEAF
 	db 44, SLUDGE_WAVE
-	db 47, TAKE_DOWN
+	db 46, TAKE_DOWN
+	db 48, QUIVER_DANCE
 	db 51, SOLARBEAM
 	db 0
 
@@ -1873,6 +1875,7 @@ VenomothEvosMoves:
 	db 41, ZEN_HEADBUTT
 	db 44, WHIRLWIND
 	db 46, ENERGY_BALL
+	db 48, QUIVER_DANCE
 	db 50, PSYCHIC_M
 	db 52, ROOST
 	db 55, SOLARBEAM

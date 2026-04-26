@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MELMETAL, 99 ; 255
+	db MEW, 99 ; 255
 	db MALAKAZAM, 100
 	db STARTER_PIKACHU, 1
 ;	db MAGIKARP, 100
@@ -54,7 +54,7 @@ IF DEF(_DEBUG)
 	ld a, BLIZZARD ; ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, GYRO_BALL ; DIVE
+	ld a, QUIVER_DANCE ; DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, WEATHER_BALL ; ANCESTOR_PWR

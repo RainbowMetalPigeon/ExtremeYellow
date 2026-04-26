@@ -280,6 +280,7 @@ MoveNames::
 	li "STICKY WEB"
 	li "STEALTH ROCK"
 	li "RAPID SPIN"
+	li "QUIVER DANCE"
 ;	li "123456789012"
 
 	; KAAARP!

@@ -286,6 +286,7 @@
 	const STICKY_WEB
 	const STEALTH_ROCK
 	const RAPID_SPIN
+	const QUIVER_DANCE
 
 	; KAAARP!
 	const	ANCESTOR_PWR

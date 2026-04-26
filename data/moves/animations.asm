@@ -279,6 +279,7 @@ AttackAnimationPointers:
 	dw StickyWebAnim
 	dw StealthRockAnim
 	dw RapidSpinAnim
+	dw QuiverDanceAnim
 
 	; KAAARP!
 	dw AncestorPwrAnim
@@ -2069,6 +2070,14 @@ DoubleIronBashAnim:
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
 	battle_anim NO_MOVE, SE_SHAKE_SCREEN
 	battle_anim NO_MOVE, SE_RESET_MON_PALETTE
+	db -1 ; end
+
+QuiverDanceAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim STRING_SHOT, SE_LIGHT_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 
 ; ------------------------------------------------------------------------------

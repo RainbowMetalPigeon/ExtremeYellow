@@ -192,7 +192,7 @@ Moves:
 	move DRAGONBREATH, PARALYZE_SIDE_EFFECT2,	    60,	DRAGON,	      100, 20 ; done
 	move OUTRAGE,	   THRASH_PETAL_DANCE_EFFECT,  120,	DRAGON,	      100, 10 ; [TM40] done
 	move DRAGON_CLAW,  NO_ADDITIONAL_EFFECT,	    80,	DRAGON,	      100, 15 ; [TM05] done
-	move DRAGON_DANCE, ATTACK_SPEED_UP1_EFFECT,	     0,	DRAGON,	      100, 20 ; done, may need more testing
+	move DRAGON_DANCE, ATTACK_SPEED_UP1_EFFECT,	     0,	DRAGON,	      100, 20 ; done
 
 	move ZAP_CANNON,   PARALYZE_SIDE_EFFECT_CERT,  120,	ELECTRIC,	   50, 5  ; done? 100% paralysis
 	move SHOCK_WAVE,   SWIFT_EFFECT,	            60,	ELECTRIC,	  100, 20 ; done
@@ -275,7 +275,7 @@ Moves:
 	move DRILL_RUN,    NO_ADDITIONAL_EFFECT,        80, GROUND,        95, 10 ; done - high crit rate
 	move ROCK_SMASH,   DEFENSE_DOWN_SIDE_EFFECT5,   40, FIGHTING,     100, 15 ; done
 	move DIVE,         CHARGE_EFFECT,               80, WATER,        100, 10 ; done
-	move WHIRLPOOL,    TRAPPING_EFFECT,             15, WATER,         70, 15 ; TBE, maybe pow=35 and acc=85?
+	move WHIRLPOOL,    TRAPPING_EFFECT,             35, WATER,         85, 15 ; done
 	move ROCK_CLIMB,   CONFUSION_SIDE_EFFECT2,      90, NORMAL,        85, 20 ; done
 	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100,  5 ; done
 	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100,  5 ; done
@@ -293,6 +293,7 @@ Moves:
 	move STICKY_WEB,   STICKY_WEB_EFFECT,            0, BUG,          100, 20 ; done
 	move STEALTH_ROCK, STEALTH_ROCK_EFFECT,          0, ROCK,         100, 20 ; done
 	move RAPID_SPIN,   RAPID_SPIN_EFFECT,           50, NORMAL,       100, 20 ; done
+	move QUIVER_DANCE, SPECIAL_SPEED_UP1_EFFECT,     0,	BUG,	      100, 20 ; TBE
 
 	; KAAARP!!!
 	move ANCESTOR_PWR, FLINCH_SIDE_EFFECT5,        255,	WATER,	      100, 5  ; prio +3, high crit rate, always super-effective, halves defense - meme secret easter-egg move for Magikarp :)

@@ -86,6 +86,27 @@ AttackSpeedUpEffect: ; used for Dragon Dance
 	ld [de], a
 	ret
 
+SpecialSpeedUpEffect: ; used for Quiver Dance
+	ld de, wPlayerMoveEffect
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+	ld de, wEnemyMoveEffect
+.next
+	ld a, SPECIAL_UP1_EFFECT
+	ld [de], a
+	push de
+	call StatModifierUpEffect ; stat modifier raising function
+	pop de
+	ld a, SPEED_UP_SIDE_EFF1 ; it's ugly I'm using the one whose name implies a 10% chance, but I can't be bothered to make another one
+	ld [de], a ; we do the side effect for the second stat because it won't run the animation
+	push de
+	call StatModifierUpEffect ; stat modifier raising function
+	pop de
+	ld a, SPECIAL_SPEED_UP1_EFFECT
+	ld [de], a
+	ret
+
 AttackUpDefenseUpSpeedDownEffect:: ; used for Curse
 	ld de, wPlayerMoveEffect
 	ldh a, [hWhoseTurn]
