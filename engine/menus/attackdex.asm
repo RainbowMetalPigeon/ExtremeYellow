@@ -755,6 +755,10 @@ DrawAttackdexEntryOnScreen:
 	cp FREEZE_SIDE_EFFECT
 	jp z, .done
 
+	ld hl, AttackdexText_SwitchEffect
+	cp SWITCH_AND_TELEPORT_EFFECT
+	jp z, .done
+
 	ld hl, AttackdexText_PoisonSideEffect1
 	cp POISON_SIDE_EFFECT1
 	jp z, .done
@@ -1423,6 +1427,10 @@ AttackdexText_HighCritMove:
 
 AttackdexText_FreezeSideEffect:
 	text_far _AttackdexText_FreezeSideEffect
+	text_end
+
+AttackdexText_SwitchEffect:
+	text_far _AttackdexText_SwitchEffect
 	text_end
 
 AttackdexText_PositivePriorityMove:

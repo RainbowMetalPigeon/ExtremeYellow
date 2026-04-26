@@ -4,6 +4,13 @@ _AttackdexText_PROXY::
 ;	xxxx "123456789012345678"
 	dex
 
+_AttackdexText_SwitchEffect::
+	text "Wild battles: ends"
+	next "the fight; it can"
+	next "fail. VS trainers:"
+	next "forces a switch"
+	dex
+
 _AttackdexText_PerishSongEffect::
 	text "After 3 turns,"
 	next "#MON who heard"
