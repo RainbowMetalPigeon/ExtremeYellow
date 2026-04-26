@@ -3241,6 +3241,7 @@ PrintMenuItem:
 	lb bc, 1, 2
 	call PrintNumber
 
+	call GetCurrentMove
 	hlcoord 1, 9 ; edited
 	predef PrintMoveType
 
