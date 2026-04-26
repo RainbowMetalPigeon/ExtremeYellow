@@ -101,3 +101,8 @@ DEF SPDSPCDV_TRAINER EQU $FF	; new, maxed to FF = 15-15 (first bit first stat, s
 	const HAS_LIGHT_SCREEN_UP ; 1
 	const HAS_REFLECT_UP      ; 2
 	const TRANSFORMED         ; 3
+
+; New, for Perish Song
+DEF PERISH_MASK EQU %111 ; 4,3,2,1,0 turns
+	const_def 3
+	const PERISHING ; 3

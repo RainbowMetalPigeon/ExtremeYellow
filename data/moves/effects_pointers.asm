@@ -125,6 +125,7 @@ MoveEffectPointerTable:
 
 	dw AttackSpeedUpEffect 		 ; ATTACK_SPEED_UP1_EFFECT - new for DRAGON_DANCE
 	dw SpecialSpeedUpEffect      ; SPECIAL_SPEED_UP1_EFFECT - new for QUIVER_DANCE
+	dw PerishSongEffect          ; PERISH_SONG_EFFECT - new for PERISH_SONG
 
 	dw SelfBuff10Percent		 ; ATTACK_UP_SIDE_EFF1, new
 	dw SelfBuff10Percent		 ; DEFENSE_UP_SIDE_EFF1, new

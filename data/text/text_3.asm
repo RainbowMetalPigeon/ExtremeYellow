@@ -685,3 +685,16 @@ _ItWasAGoodRestText:: ; new
 	text "Such a good rest!"
 ;	xxxx "123456789012345678"
 	done
+
+_PerishText:: ; new
+	text "The end draws near"
+	line "for both #MON!"
+	prompt
+
+_PerishCountText:: ; new
+	text "<TARGET>'s"
+	line "PERISH count fell"
+	cont "to @"
+	text_decimal wAnotherTemporaryStorageVariable2, 1, 1
+	text "!"
+	prompt

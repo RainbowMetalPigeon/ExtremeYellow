@@ -51,7 +51,7 @@ IF DEF(_DEBUG)
 	ld a, HAIL ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, SUNNY_DAY ; ROCK_CLIMB
+	ld a, PERISH_SONG ; ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, QUIVER_DANCE ; DIVE

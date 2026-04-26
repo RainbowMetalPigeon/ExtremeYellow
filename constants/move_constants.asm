@@ -288,6 +288,7 @@
 	const RAPID_SPIN
 	const QUIVER_DANCE
 	const SYNTHESIS ; 241
+	const PERISH_SONG ; 242
 
 	; KAAARP!
 	const	ANCESTOR_PWR
@@ -300,7 +301,7 @@
 	const	JUDGMENT
 	const	DOUBLE_IRON_BASH
 
-	const STRUGGLE     ; 249
+	const STRUGGLE     ; 250
 DEF NUM_ATTACKS EQU const_value - 1
 
 	; edited: moves NOT LONGER do double duty as animation identifiers: NOW separate other battle animations

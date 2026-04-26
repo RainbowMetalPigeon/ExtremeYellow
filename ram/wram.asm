@@ -1210,7 +1210,8 @@ wSpriteIndex:: db
 ; movement byte 2 of current sprite
 wCurSpriteMovement2:: db
 
-	ds 2 ; unused
+;	ds 1 ; unused ; edited, was 2
+wAnotherTemporaryStorageVariable2:: db ; new
 
 ; sprite offset of sprite being controlled by NPC movement script
 wNPCMovementScriptSpriteOffset:: db

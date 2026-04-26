@@ -1088,6 +1088,9 @@ HazeEffect:
 HealEffect:
 	jpfar HealEffect_
 
+PerishSongEffect: ; new
+	jpfar PerishSongEffect_
+
 TransformEffect:
 	jpfar TransformEffect_
 

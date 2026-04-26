@@ -282,6 +282,7 @@ MoveNames::
 	li "RAPID SPIN"
 	li "QUIVER DANCE"
 	li "SYNTHESIS"
+	li "PERISH SONG"
 ;	li "123456789012"
 
 	; KAAARP!

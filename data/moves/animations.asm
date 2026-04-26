@@ -281,6 +281,7 @@ AttackAnimationPointers:
 	dw RapidSpinAnim
 	dw QuiverDanceAnim
 	dw SynthesisAnim
+	dw PerishSongAnim
 
 	; KAAARP!
 	dw AncestorPwrAnim
@@ -2085,6 +2086,14 @@ SynthesisAnim:
 	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
 	battle_anim MEGA_DRAIN, SE_LEAVES_FALLING
 	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+PerishSongAnim:
+	battle_anim NO_MOVE, SE_DARK_SCREEN_PALETTE
+	battle_anim SING, SUBANIM_12, 1, 6
+	battle_anim NO_MOVE, SUBANIM_40, 1, 16
+	battle_anim NO_MOVE, SUBANIM_40, 1, 16
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 

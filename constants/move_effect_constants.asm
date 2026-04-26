@@ -129,6 +129,7 @@
 
 	const ATTACK_SPEED_UP1_EFFECT	 ; - new, for DRAGON_DANCE
 	const SPECIAL_SPEED_UP1_EFFECT   ; - new, for QUIVER_DANCE
+	const PERISH_SONG_EFFECT         ; - new, for PERISH_SONG
 
 	const ATTACK_UP_SIDE_EFF1		 ; new
 	const DEFENSE_UP_SIDE_EFF1		 ; new

@@ -330,6 +330,7 @@ MainInBattleLoop:
 	call DrawHUDsAndHPBars
 ; ender
 	call CheckNumAttacksLeft
+	callfar PerishEndOfTurn ; new
 	jp MainInBattleLoop
 
 .playerMovesFirst
@@ -364,6 +365,7 @@ MainInBattleLoop:
 	call DrawHUDsAndHPBars
 ; ender
 	call CheckNumAttacksLeft
+	callfar PerishEndOfTurn ; new
 	jp MainInBattleLoop
 
 ; ------ beginning of Xillicis' tutorial addition -------

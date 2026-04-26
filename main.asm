@@ -562,6 +562,7 @@ INCLUDE "engine/miscellanea/battlecore.asm"                 ; new
 INCLUDE "engine/gfx/screen_effects.asm"
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 INCLUDE "engine/battle/move_effects/curse.asm" ; new
+INCLUDE "engine/battle/move_effects/perishsong.asm" ; new
 INCLUDE "engine/battle/move_effects/weathers.asm" ; new
 INCLUDE "engine/battle/move_effects/trickroomandentryhazards.asm" ; new
 INCLUDE "engine/battle/move_effects/terrains.asm" ; new
