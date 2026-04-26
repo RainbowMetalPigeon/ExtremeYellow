@@ -258,12 +258,12 @@ Attackdex_DrawInterface:
 	call PlaceString
 ; find the highest attackdex number among the attacks the player has seen
 	ld hl, wAttackdexSeenEnd - 1
-	ld b, (wAttackdexSeenEnd - wAttackdexSeen) * 8 + 1
+;	ld b, (wAttackdexSeenEnd - wAttackdexSeen) * 8 + 1 ; TBE, really needed?
 .maxSeenAttackLoop
 	ld a, [hld]
 	ld c, 8
 .maxSeenAttackInnerLoop
-	dec b
+;	dec b ; TBE, really needed?
 	sla a
 	jr c, .storeMaxSeenAttack
 	dec c

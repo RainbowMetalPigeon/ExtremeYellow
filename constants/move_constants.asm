@@ -287,6 +287,7 @@
 	const STEALTH_ROCK
 	const RAPID_SPIN
 	const QUIVER_DANCE
+	const SYNTHESIS
 
 	; KAAARP!
 	const	ANCESTOR_PWR
@@ -299,7 +300,7 @@
 	const	JUDGMENT
 	const	DOUBLE_IRON_BASH
 
-	const STRUGGLE     ; formerly a5
+	const STRUGGLE     ; 249
 DEF NUM_ATTACKS EQU const_value - 1
 
 	; edited: moves NOT LONGER do double duty as animation identifiers: NOW separate other battle animations

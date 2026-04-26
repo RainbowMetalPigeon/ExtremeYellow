@@ -281,6 +281,7 @@ MoveNames::
 	li "STEALTH ROCK"
 	li "RAPID SPIN"
 	li "QUIVER DANCE"
+	li "SYNTHESIS"
 ;	li "123456789012"
 
 	; KAAARP!

@@ -10,6 +10,7 @@ HealEffect_:
 	ld a, [wEnemyMoveNum]
 .healEffect
 	ld b, a
+	ld [wAnotherTemporaryStorageVariable], a ; new
 	ld a, [de]
 	cp [hl] ; most significant bytes comparison is ignored
 	        ; causes the move to miss if max HP is 255 or 511 points higher than the current HP
@@ -54,14 +55,16 @@ HealEffect_:
 	ld a, [hl]
 	and a
 	ld [hl], 2 ; clear status and set number of turns asleep to 2
-	ld hl, StartedSleepingEffect ; if mon didn't have an status
+	ld hl, StartedSleepingEffect ; if mon didn't have a status
 	jr z, .printRestText
-	ld hl, FellAsleepBecameHealthyText ; if mon had an status
+	ld hl, FellAsleepBecameHealthyText ; if mon had a status
 .printRestText
 	call PrintText
 	pop af
 	pop de
 	pop hl
+
+; edited for Synthesis
 .healHP
 	ld a, [hld]
 	ld [wHPBarMaxHP], a
@@ -69,12 +72,56 @@ HealEffect_:
 	ld a, [hl]
 	ld [wHPBarMaxHP+1], a
 	ld b, a
-	jr z, .gotHPAmountToHeal
+; now bc contains the max HP
+	ld a, [wAnotherTemporaryStorageVariable] ; move ID
+	cp SYNTHESIS
+	jr z, .synthesis
+	cp REST
+	jr z, .updateHP ; edited
+	jr .halveBC
+.synthesis
+	push hl
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	pop hl
+	jr nz, .moreHealing
+	push hl
+	CheckEvent EVENT_WEATHER_HAIL
+	pop hl
+	jr nz, .lessHealing
+	push hl
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	pop hl
+	jr nz, .lessHealing
+	push hl
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	pop hl
+	jr nz, .lessHealing
+.halveBC
 ; Recover and Softboiled (and Roost) only heal for half the mon's max HP
 	srl b
 	rr c
-.gotHPAmountToHeal
-; update HP
+	jr .updateHP ; edited
+.moreHealing
+	push hl
+	srl b
+	rr c
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+	pop hl
+	jr .updateHP
+.lessHealing
+	srl b
+	rr c
+	srl b
+	rr c
+; BTV
+
+.updateHP ; new label
 	ld a, [de]
 	ld [wHPBarOldHP], a
 	add c

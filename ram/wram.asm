@@ -1210,14 +1210,15 @@ wSpriteIndex:: db
 ; movement byte 2 of current sprite
 wCurSpriteMovement2:: db
 
-	ds 2
+	ds 2 ; unused
 
 ; sprite offset of sprite being controlled by NPC movement script
 wNPCMovementScriptSpriteOffset:: db
 
 wScriptedNPCWalkCounter:: db
 
-	ds 1
+;	ds 1 ; edited, commented
+wAnotherTemporaryStorageVariable:: db ; new
 
 ; if running on SGB, it's 1, else it's 0
 wOnSGB:: db

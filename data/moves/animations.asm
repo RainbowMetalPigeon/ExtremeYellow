@@ -280,6 +280,7 @@ AttackAnimationPointers:
 	dw StealthRockAnim
 	dw RapidSpinAnim
 	dw QuiverDanceAnim
+	dw SynthesisAnim
 
 	; KAAARP!
 	dw AncestorPwrAnim
@@ -2077,6 +2078,13 @@ QuiverDanceAnim:
 	battle_anim STRING_SHOT, SE_LIGHT_SCREEN_PALETTE
 	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
 	battle_anim NO_MOVE, SE_DARK_SCREEN_FLASH
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	db -1 ; end
+
+SynthesisAnim:
+	battle_anim NO_MOVE, SE_LIGHT_SCREEN_PALETTE
+	battle_anim MEGA_DRAIN, SE_LEAVES_FALLING
+	battle_anim NO_MOVE, SE_SPIRAL_BALLS_INWARD
 	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
 	db -1 ; end
 

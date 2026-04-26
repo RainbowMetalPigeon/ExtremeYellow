@@ -3173,8 +3173,8 @@ PrintMenuItem:
 	callfar CalculateGyroBallBasePower ; BP is in d
 	pop hl
 	ld a, d
-	ld [wArrayForTemporaryStorage], a
-	ld de, wArrayForTemporaryStorage
+	ld [wAnotherTemporaryStorageVariable], a
+	ld de, wAnotherTemporaryStorageVariable
 	hlcoord 1, 10
 	jr .printBP
 .notGyroBall
