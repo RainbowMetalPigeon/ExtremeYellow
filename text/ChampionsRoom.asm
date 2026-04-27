@@ -249,28 +249,67 @@ _GaryText_OWPostDefeat_AG_AGR::
 	cont "CHAMPION!"
 	done
 
-; -------- TBE
+; --------
 
 _GaryChampionIntroText_AG_FR::
-	text "we all heard of"
-	line "sevii trial and"
-	cont "trained a lot"
+	text "<PLAYER>! Of course"
+	line "you are here."
+	cont "I'm happy to face"
+	cont "you, here, again."
+
+	para "I came to know of"
+	line "your astonishing"
+	cont "results in the"
+	cont "SEVII TRIAL."
+
+	para "I couldn't let you"
+	line "leave me behind!"
+	cont "I trained even"
+	cont "harder, and then"
+	cont "climbed the"
+	cont "INDIGO LEAGUE one"
+	cont "more time, facing"
+	cont "the ELITE FOUR at"
+	cont "their very best."
+
+	para "And now, I will"
+	line "offer you a fight"
+	cont "to be remembered!"
 ;	xxxx "123456789012345678"
 	done
 
 _GaryDefeatedText_AG_FR::
-	text "damn again!"
+	text "Damn..."
+	line "Again! What do I"
+	cont "need to win?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _GaryVictoryText_AG_FR::
-	text "wow finally!"
+	text "Yes!"
+	line "Finally! My hard"
+	cont "training granted"
+	cont "me victory!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _GaryText_OWPostDefeat_AG_FR::
-	text "decisive victory"
-	line "now you champion"
+	text "That was"
+	line "an awesome fight."
+	cont "Thanks, <PLAYER>."
+
+	para "I won't lie: it"
+	line "does frustrate me"
+	cont "that I still can't"
+	cont "surpass you, but"
+	cont "I am delighted we"
+	cont "are rivals on"
+	cont "today's terms, and"
+	cont "not as back then."
+
+	para "<PLAYER>!"
+	line "I congratulate"
+	cont "your victory."
 ;	xxxx "123456789012345678"
 	done
 
@@ -762,19 +801,33 @@ _GaryVictoryText2ndBattle_AG_AGL::
 ; -------- TBE
 
 _GaryText2ndBattle_AG_FR::
-	text "i knew you accept"
-	line "here my othr mons"
+	text "Hehe, I knew you'd"
+	line "accept! Your"
+	cont "fighting spirit"
+	cont "just boils this"
+	cont "hard, doesn't it?"
+
+	para "Then brace your-"
+	line "self! Here come"
+	cont "my other #MON!"
 ;	xxxx "123456789012345678"
 	done
 
 _GaryDefeatedText2ndBattle_AG_FR::
-	text "damn"
-	line "u r 2 stronk"
+	text "Wow..."
+	line "You are really"
+	cont "incredible."
 ;	xxxx "123456789012345678"
 	prompt
 
 _GaryVictoryText2ndBattle_AG_FR::
-	text "i won"
-	line "but too easy"
+	text "I won."
+	line "But I didn't draw"
+	cont "from this the"
+	cont "satisfaction I"
+	cont "was seeking, as"
+	cont "it was unfair."
+	cont "I look forward to"
+	cont "face you again!"
 ;	xxxx "123456789012345678"
 	prompt

@@ -75,16 +75,39 @@ _BrunoAfterBattleTextRematch::
 	done
 
 _BrunoBeforeBattleTextRematch2::
-	text "TBE 2 b"
+	text "Powerful CHAMPION!"
+	line "We know you're"
+	cont "working to become"
+	cont "even more strong."
+
+	para "But we are the"
+	line "INDIGO PLATEAU!"
+	cont "We won't pale in"
+	cont "comparison to the"
+	cont "SEVII SAGEs."
+
+	para "Face my improved"
+	line "self and team!"
 ;	xxxx "123456789012345678"
 	done
 
 _BrunoEndBattleTextRematch2::
-	text "TBE 2 e"
+	text "And yet,"
+	line "you defeated me"
+	cont "again!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _BrunoAfterBattleTextRematch2::
-	text "TBE 2 a"
+	text "Unreal. What kind"
+	line "of training did"
+	cont "you undergo to"
+	cont "get so strong?"
+
+	para "But it's not over"
+	line "yet! We all"
+	cont "trained hard to"
+	cont "provide the best"
+	cont "INDIGO ORDEAL!"
 ;	xxxx "123456789012345678"
 	done

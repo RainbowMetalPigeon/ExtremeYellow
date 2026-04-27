@@ -142,16 +142,57 @@ _LanceAfterBattleTextRematch::
 	text_end ; why?
 
 _LanceBeforeBattleTextRematch2::
-	text "TBE 2 b"
+	text "CHAMPION <PLAYER>!"
+	line "You honour me by"
+	cont "facing me again"
+	cont "on this sacred"
+	cont "battlefield!"
+
+	para "We were struck in"
+	line "awe when we heard"
+	cont "of your"
+	cont "achievements in"
+	cont "the SEVII TRIAL."
+
+	para "And that fueled"
+	line "our fighting"
+	cont "spirit even more!"
+
+	para "Are you ready to"
+	line "measure yourself"
+	cont "against my flock"
+	cont "of dragons, now"
+	cont "more invincible"
+	cont "than ever?"
 ;	xxxx "123456789012345678"
 	done
 
 _LanceEndBattleTextRematch2::
-	text "TBE 2 e"
+	text "And yet,"
+	line "you emerged once"
+	cont "again victorious!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LanceAfterBattleTextRematch2::
-	text "TBE 2 a"
+	text "Unfathomable."
+	line "Your skills and"
+	cont "power seem limit-"
+	cont "less. Wonderful."
+
+	para "I have no more to"
+	line "say. Except..."
+
+	para "As you probably"
+	line "have suspected,"
+	cont "us ELITE FOUR"
+	cont "were not the only"
+	cont "ones who heard of"
+	cont "your deeds and"
+	cont "improved."
+
+	para "Go ahead. One last"
+	line "fight awaits in"
+	cont "the INDIGO ORDEAL."
 ;	xxxx "123456789012345678"
 	done

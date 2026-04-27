@@ -84,16 +84,43 @@ _LoreleiAfterBattleTextRematch::
 	done
 
 _LoreleiBeforeBattleTextRematch2::
-	text "TBE 2 b"
+	text "Welcome back,"
+	line "CHAMPION!"
+
+	para "We know you"
+	line "started tackling"
+	cont "the SEVII TRIAL."
+	cont "Nothing less!"
+
+	para "We couldn't slack"
+	line "back while you"
+	cont "keep becoming"
+	cont "stronger and"
+	cont "stronger."
+
+	para "That's why today's"
+	line "challenge to the"
+	cont "INDIGO PLATEAU is"
+	cont "of another level!"
 ;	xxxx "123456789012345678"
 	done
 
 _LoreleiEndBattleTextRematch2::
-	text "TBE 2 e"
+	text "And yet,"
+	line "you won again!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LoreleiAfterBattleTextRematch2::
-	text "TBE 2 a"
+	text "Unbelievable."
+	line "Still, don't you"
+	cont "think it'll be"
+	cont "easy now. We all"
+	cont "improved vastly!"
+
+	para "You're in for a"
+	line "great challenge,"
+	cont "an INDIGO ORDEAL"
+	cont "if you want!"
 ;	xxxx "123456789012345678"
 	done

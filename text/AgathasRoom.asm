@@ -89,16 +89,39 @@ _AgathaAfterBattleTextRematch::
 	done
 
 _AgathaBeforeBattleTextRematch2::
-	text "TBE 2 b"
+	text "CHAMPION, and"
+	line "pupil of SAMUEL!"
+	cont "You delight these"
+	cont "old eyes by"
+	cont "showing up here."
+
+	para "Hehehe, we know"
+	line "everything about"
+	cont "your SEVII TRIAL."
+	cont "Admirable! It was"
+	cont "also what made us"
+	cont "better ourselves."
+
+	para "Show me if you"
+	line "can keep up!"
 ;	xxxx "123456789012345678"
 	done
 
 _AgathaEndBattleTextRematch2::
-	text "TBE 2 e"
+	text "And yet,"
+	line "you achieved once"
+	cont "again victory!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _AgathaAfterBattleTextRematch2::
-	text "TBE 2 a"
+	text "Otherworldly. That"
+	line "old SAMUEL was"
+	cont "right about you."
+
+	para "Wonderful! Go on,"
+	line "you'll face the"
+	cont "harshest part of"
+	cont "our INDIGO ORDEAL."
 ;	xxxx "123456789012345678"
 	done

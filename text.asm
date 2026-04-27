@@ -183,11 +183,6 @@ INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
-INCLUDE "text/AgathasRoom.asm"
-INCLUDE "text/LancesRoom.asm"
-INCLUDE "text/VermilionMart.asm"
-INCLUDE "text/SilphCo1F.asm"
-INCLUDE "text/OchreWonderland.asm" ; new
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -313,6 +308,11 @@ INCLUDE "text/BikeShop.asm"
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "data/text/text_2.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
+INCLUDE "text/AgathasRoom.asm"
+INCLUDE "text/LancesRoom.asm"
+INCLUDE "text/VermilionMart.asm"
+INCLUDE "text/SilphCo1F.asm"
+INCLUDE "text/OchreWonderland.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections
