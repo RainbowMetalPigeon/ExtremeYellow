@@ -3388,4 +3388,39 @@ SpecialTrainerMoves:
 	db 6, 4, NO_MOVE
 	db $FE
 
+; ===============================================================
+
+	db ICHINO, 1
+	; MRAICHUY
+	db 5, 1, THUNDER
+	db 5, 2, OUTRAGE ; PPS
+	db 5, 3, SURF
+	db 5, 4, DRAININGKISS
+	; MCLEFABLE
+	db 2, 1, NIGHT_SLASH
+	db 2, 2, PSYCHIC_M
+	db 2, 3, MINIMIZE
+	db 2, 4, THUNDER_WAVE
+	; MVICTREBEL
+	db 3, 1, RAZOR_LEAF
+	db 3, 2, LOVELY_KISS
+	db 3, 3, GUNK_SHOT
+	db 3, 4, EARTHQUAKE
+	; MSTARMIE
+	db 4, 1, RECOVER
+	db 4, 2, PSYCHO_CUT
+	db 4, 3, HYDRO_PUMP
+	db 4, 4, CLOSE_COMBAT ; BLIZZARD?
+	; MRAICHUX
+	db 1, 1, METEOR_MASH
+	db 1, 2, VOLT_TACKLE
+	db 1, 3, EXTREMESPEED
+	db 1, 4, CLOSE_COMBAT
+	; MDRAGONITE
+	db 6, 1, FREEZE_DRY ; AIR_CUTTER?
+	db 6, 2, MOONBLAST
+	db 6, 3, OUTRAGE
+	db 6, 4, FIRE_BLAST
+	db $FE
+
 	db -1 ; end
