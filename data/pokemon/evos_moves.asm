@@ -1339,8 +1339,9 @@ CleffaEvosMoves:
 	db 29, ZEN_HEADBUTT
 	db 30, DREAM_EATER
 	db 31, PETAL_DANCE
-	db 32, PLAY_ROUGH
-	db 33, NIGHT_SLASH
+	DB 32, AIR_SLASH
+	db 33, PLAY_ROUGH
+	db 34, NIGHT_SLASH
 	db 0
 
 ClefairyEvosMoves:
@@ -1369,7 +1370,8 @@ ClefairyEvosMoves:
 	db 48, HEADBUTT
 	db 49, ZEN_HEADBUTT
 	db 51, DREAM_EATER
-	db 54, PETAL_DANCE
+	db 53, PETAL_DANCE
+	DB 55, AIR_SLASH
 	db 57, PLAY_ROUGH
 	db 0
 
@@ -1400,7 +1402,8 @@ ClefableEvosMoves:
 	db 51, HEADBUTT
 	db 52, ZEN_HEADBUTT
 	db 54, DREAM_EATER
-	db 57, PETAL_DANCE
+	db 56, PETAL_DANCE
+	db 58, AIR_SLASH
 	db 60, PLAY_ROUGH
 	db 0
 
@@ -1429,7 +1432,8 @@ MClefableEvosMoves:
 	db 56, HEADBUTT
 	db 57, ZEN_HEADBUTT
 	db 59, DREAM_EATER
-	db 62, PETAL_DANCE
+	db 61, PETAL_DANCE
+	DB 63, AIR_SLASH
 	db 65, PLAY_ROUGH
 	db 70, AIR_CUTTER
 	db 0

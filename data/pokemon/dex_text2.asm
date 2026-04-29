@@ -436,7 +436,7 @@ _MStarmieDexEntry::
 
 	page "more humanlike. It"
 	next "likely did so to"
-	next "supplant humankind"
+	next "supplant humanity"
 	dex
 
 _MimeJrDexEntry::

@@ -3392,10 +3392,10 @@ SpecialTrainerMoves:
 
 	db ICHINO, 1
 	; MRAICHUY
-	db 5, 1, THUNDER
-	db 5, 2, OUTRAGE ; PPS
-	db 5, 3, SURF
-	db 5, 4, DRAININGKISS
+	db 1, 1, THUNDER
+	db 1, 2, OUTRAGE ; PPS
+	db 1, 3, SURF
+	db 1, 4, DRAININGKISS
 	; MCLEFABLE
 	db 2, 1, NIGHT_SLASH
 	db 2, 2, PSYCHIC_M
@@ -3412,15 +3412,209 @@ SpecialTrainerMoves:
 	db 4, 3, HYDRO_PUMP
 	db 4, 4, CLOSE_COMBAT ; BLIZZARD?
 	; MRAICHUX
-	db 1, 1, METEOR_MASH
-	db 1, 2, VOLT_TACKLE
-	db 1, 3, EXTREMESPEED
-	db 1, 4, CLOSE_COMBAT
+	db 5, 1, METEOR_MASH
+	db 5, 2, VOLT_TACKLE
+	db 5, 3, EXTREMESPEED
+	db 5, 4, CLOSE_COMBAT
 	; MDRAGONITE
 	db 6, 1, FREEZE_DRY ; AIR_CUTTER?
 	db 6, 2, MOONBLAST
 	db 6, 3, OUTRAGE
 	db 6, 4, FIRE_BLAST
 	db $FE
+
+; ===============================================================
+
+	db NIUE, 1
+	; MVENUSAUR
+	db 1, 1, SUNNY_DAY
+	db 1, 2, SYNTHESIS
+	db 1, 3, SOLARBEAM
+	db 1, 4, WEATHER_BALL
+	; MGYARADOS
+	db 2, 1, FIRE_BLAST
+	db 2, 2, DARK_PULSE
+	db 2, 3, GUNK_SHOT
+	db 2, 4, EARTHQUAKE
+	; MCLEFABLE
+	db 3, 1, DRAININGKISS
+	db 3, 2, SUBSTITUTE
+	db 3, 3, MINIMIZE
+	db 3, 4, THUNDER_WAVE
+	; MPINSIR
+	db 4, 1, AIR_SLASH
+	db 4, 2, MEGAHORN
+	db 4, 3, STONE_EDGE
+	db 4, 4, CLOSE_COMBAT
+	; MARODACTYL
+	db 5, 1, BRAVE_BIRD
+	db 5, 2, HEAD_SMASH
+	db 5, 3, IRON_TAIL
+	db 5, 4, ROAR
+	; MALAKAZAM
+	db 6, 1, REFLECT
+	db 6, 2, ENERGY_BALL
+	db 6, 3, PSYCHO_CUT
+	db 6, 4, NIGHT_SLASH
+	db $FE
+
+; --------------------------
+
+	db NIUE, 2
+	; MCHARZARDX
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STEEL_WING
+	db 1, 3, DRAGON_DANCE
+	db 1, 4, BLAST_BURN
+	; MBEEDRILL
+	db 2, 1, MEGAHORN
+	db 2, 2, GUNK_SHOT
+	db 2, 3, AERIAL_ACE
+	db 2, 4, DRILL_RUN
+	; MKANGASKAN
+	db 3, 1, SHADOW_CLAW
+	db 3, 2, BONEMERANG
+	db 3, 3, METEOR_MASH
+	db 3, 4, LOVELY_KISS
+	; MSLOWBRO
+	db 4, 1, AMNESIA
+	db 4, 2, PSYCHIC_M
+	db 4, 3, REST
+	db 4, 4, SCALD
+	; MSCIZOR
+	db 5, 1, SWORDS_DANCE
+	db 5, 2, BULLET_PUNCH
+	db 5, 3, METEOR_MASH
+	db 5, 4, X_SCISSOR
+	; MDRAGONITE
+	db 6, 1, DRAGON_DANCE
+	db 6, 2, HURRICANE
+	db 6, 3, LOVELY_KISS
+	db 6, 4, EARTHQUAKE
+	db $FE
+
+; --------------------------
+
+	db NIUE, 3
+	; MGENGAR
+	db 1, 1, CONFUSE_RAY
+	db 1, 2, DARK_PULSE
+	db 1, 3, TOXIC_SPIKES
+	db 1, 4, PERISH_SONG
+	; MCHARZARDY
+	db 2, 1, OUTRAGE
+	db 2, 2, BLAST_BURN
+	db 2, 3, SUNNY_DAY
+	db 2, 4, SOLARBEAM
+	; MVICTREBEL
+	db 3, 1, STUN_SPORE
+	db 3, 2, WEATHER_BALL
+	db 3, 3, SOLARBEAM
+	db 3, 4, WRAP
+	; MRAICHUX
+	db 4, 1, VOLT_TACKLE
+	db 4, 2, EXTREMESPEED
+	db 4, 3, CLOSE_COMBAT
+	db 4, 4, METEOR_MASH
+	; MSCIZOR
+	db 5, 1, SUBSTITUTE
+	db 5, 2, BULLET_PUNCH
+	db 5, 3, METEOR_MASH
+	db 5, 4, X_SCISSOR
+	; MSTARMIE
+	db 6, 1, MINIMIZE
+	db 6, 2, RECOVER
+	db 6, 3, PSYCHO_CUT
+	db 6, 4, CLOSE_COMBAT
+	db $FE
+
+; --------------------------
+
+	db NIUE, 4
+	; MBLASTOISE
+	db 1, 1, RAIN_DANCE
+	db 1, 2, HYDRO_CANNON
+	db 1, 3, EARTHQUAKE
+	db 1, 4, BLIZZARD
+	; MSTARMIE
+	db 2, 1, THUNDER
+	db 2, 2, HYDRO_PUMP
+	db 2, 3, METEOR_MASH
+	db 2, 4, CLOSE_COMBAT
+	; MPIDGEOT
+	db 3, 1, HURRICANE
+	db 3, 2, THUNDER
+	db 3, 3, ROOST
+	db 3, 4, BLIZZARD
+	; MDRAGONITE
+	db 4, 1, OUTRAGE
+	db 4, 2, THUNDER_WAVE
+	db 4, 3, SUBSTITUTE
+	db 4, 4, DRAININGKISS
+	; MSTEELIX
+	db 5, 1, STONE_EDGE
+	db 5, 2, EARTHQUAKE
+	db 5, 3, GYRO_BALL
+	db 5, 4, BODY_PRESS
+	; MALAKAZAM
+	db 6, 1, MOONBLAST
+	db 6, 2, DARK_PULSE
+	db 6, 3, PSYCHO_CUT
+	db 6, 4, ENERGY_BALL
+	db $FE
+
+; --------------------------
+
+	db NIUE, 5
+	; MSTEELIX
+	db 1, 1, STEALTH_ROCK
+	db 1, 2, THUNDER_WAVE
+	db 1, 3, SUBSTITUTE
+	db 1, 4, DRAININGKISS
+	; MGENGAR
+	db 2, 1, THUNDER
+	db 2, 2, HYDRO_PUMP
+	db 2, 3, METEOR_MASH
+	db 2, 4, CLOSE_COMBAT
+	; MBEEDRILL
+	db 3, 1, MINIMIZE
+	db 3, 2, CONFUSE_RAY
+	db 3, 3, RECOVER
+	db 3, 4, BLIZZARD
+	; MSTARMIE
+	db 4, 1, HURRICANE
+	db 4, 2, THUNDER
+	db 4, 3, ROOST
+	db 4, 4, BLIZZARD
+	; MVICTREBEL
+	db 5, 1, STONE_EDGE
+	db 5, 2, EARTHQUAKE
+	db 5, 3, GYRO_BALL
+	db 5, 4, BODY_PRESS
+	; MGYARADOS
+	db 6, 1, MOONBLAST
+	db 6, 2, DARK_PULSE
+	db 6, 3, PSYCHO_CUT
+	db 6, 4, ENERGY_BALL
+	db $FE
+
+
+; ===============================================================
+
+
+; ===============================================================
+
+
+; ===============================================================
+
+
+; ===============================================================
+
+
+; ===============================================================
+
+
+; ===============================================================
+
 
 	db -1 ; end
