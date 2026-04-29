@@ -32,10 +32,10 @@ VBlank::
 	call VBlankCopyDouble
 	call UpdateMovingBgTiles
 	call hDMARoutine
-	ld a, BANK(PrepareOAMData)
-	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
-	call PrepareOAMData
+;	ld a, BANK(PrepareOAMData)
+;	ldh [hLoadedROMBank], a
+;	ld [MBC1RomBank], a
+;	call PrepareOAMData
 
 	; VBlank-sensitive operations end.
 
@@ -92,6 +92,14 @@ VBlank::
 DelayFrame::
 ; Wait for the next vblank interrupt.
 ; As a bonus, this saves battery.
+
+	push bc
+	push de
+	push hl
+	farcall PrepareOAMData
+	pop hl
+	pop de
+	pop bc
 
 DEF NOT_VBLANKED EQU 1
 
