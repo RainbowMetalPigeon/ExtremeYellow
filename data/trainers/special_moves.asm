@@ -2383,7 +2383,7 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
-	db LANCE, 1 ; TBE
+	db LANCE, 1 ; TBE?
 	; GYARADOS
 	db 1, 1, HURRICANE
 	db 1, 2, FIRE_BLAST ; DRAGON_DANCE?
@@ -2416,7 +2416,7 @@ SpecialTrainerMoves:
 	db 6, 4, STEEL_WING
 	db $FE
 
-	db LANCE, 2 ; TBE
+	db LANCE, 2 ; TBE?
 	; AERODACTYL
 	db 1, 1, AIR_CUTTER
 	db 1, 2, HEAD_SMASH
@@ -3461,16 +3461,16 @@ SpecialTrainerMoves:
 ; --------------------------
 
 	db NIUE, 2
-	; MCHARZARDX
-	db 1, 1, EARTHQUAKE
-	db 1, 2, STEEL_WING
-	db 1, 3, DRAGON_DANCE
-	db 1, 4, BLAST_BURN
 	; MBEEDRILL
-	db 2, 1, MEGAHORN
-	db 2, 2, GUNK_SHOT
-	db 2, 3, AERIAL_ACE
-	db 2, 4, DRILL_RUN
+	db 1, 1, MEGAHORN
+	db 1, 2, GUNK_SHOT
+	db 1, 3, STICKY_WEB
+	db 1, 4, DRILL_RUN
+	; MCHARZARDX
+	db 2, 1, EARTHQUAKE
+	db 2, 2, STEEL_WING
+	db 2, 3, DRAGON_DANCE
+	db 2, 4, BLAST_BURN
 	; MKANGASKAN
 	db 3, 1, SHADOW_CLAW
 	db 3, 2, BONEMERANG
@@ -3566,38 +3566,142 @@ SpecialTrainerMoves:
 ; --------------------------
 
 	db NIUE, 5
-	; MSTEELIX
-	db 1, 1, STEALTH_ROCK
-	db 1, 2, THUNDER_WAVE
-	db 1, 3, SUBSTITUTE
-	db 1, 4, DRAININGKISS
-	; MGENGAR
-	db 2, 1, THUNDER
-	db 2, 2, HYDRO_PUMP
-	db 2, 3, METEOR_MASH
-	db 2, 4, CLOSE_COMBAT
 	; MBEEDRILL
-	db 3, 1, MINIMIZE
-	db 3, 2, CONFUSE_RAY
-	db 3, 3, RECOVER
-	db 3, 4, BLIZZARD
-	; MSTARMIE
-	db 4, 1, HURRICANE
-	db 4, 2, THUNDER
-	db 4, 3, ROOST
-	db 4, 4, BLIZZARD
+	db 1, 1, STICKY_WEB
+	db 1, 2, SPIKES
+	db 1, 3, GUNK_SHOT
+	db 1, 4, DRILL_RUN
+	; MGENGAR
+	db 2, 1, TOXIC_SPIKES
+	db 2, 2, PERISH_SONG
+	db 2, 3, CURSE
+	db 2, 4, DARK_PULSE
+	; MSTEELIX
+	db 3, 1, STEALTH_ROCK
+	db 3, 2, ROAR
+	db 3, 3, EARTHQUAKE
+	db 3, 4, STONE_EDGE
+	; MKANGASKAN
+	db 4, 1, LOVELY_KISS
+	db 4, 2, ROAR
+	db 4, 3, ICICLE_SPEAR
+	db 4, 4, BONEMERANG
 	; MVICTREBEL
-	db 5, 1, STONE_EDGE
+	db 5, 1, LOVELY_KISS
 	db 5, 2, EARTHQUAKE
-	db 5, 3, GYRO_BALL
-	db 5, 4, BODY_PRESS
-	; MGYARADOS
-	db 6, 1, MOONBLAST
-	db 6, 2, DARK_PULSE
-	db 6, 3, PSYCHO_CUT
-	db 6, 4, ENERGY_BALL
+	db 5, 3, GUNK_SHOT
+	db 5, 4, RAZOR_LEAF
+	; MSTARMIE
+	db 6, 1, RECOVER
+	db 6, 2, MINIMIZE
+	db 6, 3, BLIZZARD
+	db 6, 4, CLOSE_COMBAT
 	db $FE
 
+; --------------------------
+
+	db NIUE, 6
+	; MSLOWBRO
+	db 1, 1, RAIN_DANCE
+	db 1, 2, SCALD
+	db 1, 3, PSYCHIC_M
+	db 1, 4, BLIZZARD
+	; MPIDGEOT
+	db 2, 1, THUNDER
+	db 2, 2, HURRICANE
+	db 2, 3, BLIZZARD
+	db 2, 4, ROOST
+	; MGYARADOS
+	db 3, 1, HURRICANE
+	db 3, 2, HYDRO_PUMP
+	db 3, 3, BLIZZARD
+	db 3, 4, STONE_EDGE
+	; MCLEFABLE ; TBE?
+	db 4, 1, DRAININGKISS
+	db 4, 2, MINIMIZE
+	db 4, 3, THUNDER_WAVE
+	db 4, 4, SUBSTITUTE
+	; MVICTREBEL
+	db 5, 1, LOVELY_KISS
+	db 5, 2, EARTHQUAKE
+	db 5, 3, GUNK_SHOT
+	db 5, 4, RAZOR_LEAF
+	; MDRAGONITE
+	db 6, 1, EXTREMESPEED
+	db 6, 2, FIRE_BLAST
+	db 6, 3, THUNDER
+	db 6, 4, BLIZZARD
+	db $FE
+
+; --------------------------
+
+	db NIUE, 7
+	; MGENGAR
+	db 1, 1, TOXIC_SPIKES
+	db 1, 2, CURSE
+	db 1, 3, DARK_PULSE
+	db 1, 4, DRAININGKISS
+	; MARODACTYL
+	db 2, 1, HEAD_SMASH
+	db 2, 2, HURRICANE
+	db 2, 3, WHIRLWIND
+	db 2, 4, STEALTH_ROCK
+	; MALAKAZAM
+	db 3, 1, REFLECT
+	db 3, 2, RECOVER
+	db 3, 3, THUNDER_WAVE
+	db 3, 4, PSYCHO_CUT
+	; MPINSIR
+	db 4, 1, MEGAHORN
+	db 4, 2, SUPERPOWER
+	db 4, 3, EARTHQUAKE
+	db 4, 4, EXPLOSION
+	; MGYARADOS
+	db 5, 1, HYPER_BEAM
+	db 5, 2, STONE_EDGE
+	db 5, 3, EARTHQUAKE
+	db 5, 4, HURRICANE
+	; MRAICHUY
+	db 6, 1, FIRE_BLAST
+	db 6, 2, OUTRAGE
+	db 6, 3, VOLT_TACKLE
+	db 6, 4, PETAL_DANCE
+	db $FE
+
+; --------------------------
+
+	db NIUE, 8
+	; MVENUSAUR
+	db 1, 1, GRASSY_TERRAIN
+	db 1, 2, LEECH_SEED
+	db 1, 3, RAZOR_LEAF
+	db 1, 4, SLEEP_POWDER
+	; MRAICHUX
+	db 2, 1, METEOR_MASH
+	db 2, 2, VOLT_TACKLE
+	db 2, 3, EXTREMESPEED
+	db 2, 4, CLOSE_COMBAT
+	; MRAICHUY
+	db 3, 1, FIRE_BLAST
+	db 3, 2, OUTRAGE
+	db 3, 3, VOLT_TACKLE
+	db 3, 4, PETAL_DANCE
+	; MBLASTOISE
+	db 4, 1, ZAP_CANNON
+	db 4, 2, EARTHQUAKE
+	db 4, 3, BLIZZARD
+	db 4, 4, HYDRO_CANNON
+	; MCHARZARDX
+	db 5, 1, HYPER_BEAM
+	db 5, 2, SHADOW_CLAW
+	db 5, 3, DRAGON_DANCE
+	db 5, 4, STEEL_WING
+	; MCHARZARDY
+	db 6, 1, OUTRAGE
+	db 6, 2, ROOST
+	db 6, 3, CRUNCH
+	db 6, 4, BLAST_BURN
+	db $FE
 
 ; ===============================================================
 
