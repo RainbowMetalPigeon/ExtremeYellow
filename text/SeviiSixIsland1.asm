@@ -1960,10 +1960,13 @@ _SeviiRoute40AfterBattleText4::
 	line "and love!"
 
 	para "May the flame"
-	line "of angels clash"
-	cont "your hord of"
-	cont "demons and burn"
-	cont "your fallen soul!"
+	line "of angels"
+	cont "Clash your hordes"
+	cont "of demons"
+	cont "Stop your"
+	cont "resurrection"
+	cont "Burn your"
+	cont "fallen soul!"
 ;	xxxx "123456789012345678"
 	done
 
