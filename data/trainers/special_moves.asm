@@ -3705,6 +3705,181 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
+	db SANTRE, 1 ; vs NORMAL
+	; MACHAMP
+	db 1, 1, STONE_EDGE
+	db 1, 2, EARTHQUAKE
+	db 1, 3, CLOSE_COMBAT
+	db 1, 4, HYPER_BEAM
+	; MGENGAR
+	db 2, 1, EXPLOSION
+	db 2, 2, CURSE
+	db 2, 3, DARK_PULSE
+	db 2, 4, ZAP_CANNON
+	; MARODACTYL
+	db 3, 1, HURRICANE
+	db 3, 2, HEAD_SMASH
+	db 3, 3, HYPER_BEAM
+	db 3, 4, IRON_TAIL
+	; ANNIHILAPE
+	db 4, 1, CLOSE_COMBAT
+	db 4, 2, COUNTER
+	db 4, 3, STONE_EDGE
+	db 4, 4, GUNK_SHOT
+	; MSTARMIE
+	db 5, 1, CLOSE_COMBAT
+	db 5, 2, BLIZZARD
+	db 5, 3, RECOVER
+	db 5, 4, MINIMIZE
+	; MSCIZOR
+	db 6, 1, ROOST
+	db 6, 2, SWORDS_DANCE
+	db 6, 3, CLOSE_COMBAT
+	db 6, 4, BULLET_PUNCH
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 2 ; vs FIGHTING
+	; SYLVEON
+	db 1, 1, DRAININGKISS
+	db 1, 2, SUBSTITUTE
+	db 1, 3, REFLECT
+	db 1, 4, DOUBLE_TEAM
+	; MGENGAR
+	db 2, 1, EXPLOSION
+	db 2, 2, PSYCHIC_M
+	db 2, 3, DRAININGKISS
+	db 2, 4, TOXIC_SPIKES
+	; MSTARMIE
+	db 3, 1, PSYCHO_CUT
+	db 3, 2, HYDRO_PUMP
+	db 3, 3, RECOVER
+	db 3, 4, THUNDER_WAVE
+	; MVENUSAUR
+	db 4, 1, SLEEP_POWDER
+	db 4, 2, LEECH_SEED
+	db 4, 3, RAZOR_LEAF
+	db 4, 4, SUBSTITUTE
+	; CROBAT
+	db 5, 1, BRAVE_BIRD
+	db 5, 2, ROOST
+	db 5, 3, ZEN_HEADBUTT
+	db 5, 4, CONFUSE_RAY
+	; MALAKAZAM
+	db 6, 1, PSYCHO_CUT
+	db 6, 2, RECOVER
+	db 6, 3, REFLECT ; ?
+	db 6, 4, THUNDER_WAVE ; ?
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 3 ; vs FLYING
+	; MARODACTYL
+	db 1, 1, HEAD_SMASH
+	db 1, 2, STEALTH_ROCK
+	db 1, 3, SANDSTORM
+	db 1, 4, NO_MOVE
+	; MSTEELIX
+	db 2, 1, EXPLOSION
+	db 2, 2, STONE_EDGE
+	db 2, 3, STEALTH_ROCK
+	db 2, 4, SANDSTORM
+	; RHYPERIOR
+	db 3, 1, STONE_EDGE
+	db 3, 2, STEALTH_ROCK
+	db 3, 3, NO_MOVE
+	db 3, 4, NO_MOVE
+	; ZAPDOS
+	db 4, 1, THUNDER
+	db 4, 2, HEAT_WAVE
+	db 4, 3, ROOST
+	db 4, 4, WHIRLWIND
+	; ARTICUNO
+	db 5, 1, BLIZZARD
+	db 5, 2, FREEZE_DRY
+	db 5, 3, ROOST
+	db 5, 4, WATER_PULSE
+	; MARODACTYL
+	db 6, 1, HEAD_SMASH
+	db 6, 2, NO_MOVE
+	db 6, 3, NO_MOVE
+	db 6, 4, NO_MOVE
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 4 ; vs POISON
+	; NIDOKING
+	db 1, 1, LOVELY_KISS
+	db 1, 2, DRILL_RUN
+	db 1, 3, STONE_EDGE
+	db 1, 4, FIRE_BLAST
+	; MSTARMIE
+	db 2, 1, PSYCHO_CUT
+	db 2, 2, RECOVER
+	db 2, 3, HYDRO_PUMP
+	db 2, 4, MINIMIZE
+	; MSCIZOR ?
+	db 3, 1, SWORDS_DANCE
+	db 3, 2, SUBSTITUTE
+	db 3, 3, BULLET_PUNCH
+	db 3, 4, BODY_SLAM ; PPS PSYCHO_CUT
+	; MSTEELIX
+	db 4, 1, EARTHQUAKE
+	db 4, 2, IRON_TAIL
+	db 4, 3, STONE_EDGE
+	db 4, 4, NO_MOVE
+	; DUGTRIO
+	db 5, 1, EARTHQUAKE
+	db 5, 2, STONE_EDGE
+	db 5, 3, NO_MOVE
+	db 5, 4, NO_MOVE
+	; MALAKAZAM
+	db 6, 1, PSYCHO_CUT
+	db 6, 2, REFLECT
+	db 6, 3, RECOVER
+	db 6, 4, THUNDER_WAVE
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 5 ; vs GROUND
+	; MVENUSAUR
+	db 1, 1, SLEEP_POWDER
+	db 1, 2, FRENZY_PLANT
+	db 1, 3, SYNTHESIS
+	db 1, 4, GUNK_SHOT
+	; MBLASTOISE
+	db 2, 1, RAIN_DANCE
+	db 2, 2, HYDRO_CANNON
+	db 2, 3, BLIZZARD
+	db 2, 4, BULLET_SEED
+	; KINGDRA
+	db 3, 1, HYDRO_PUMP
+	db 3, 2, BLIZZARD
+	db 3, 3, BULLET_PUNCH
+	db 3, 4, HURRICANE
+	; MDRAGONITE
+	db 4, 1, HYDRO_PUMP
+	db 4, 2, OUTRAGE
+	db 4, 3, BLIZZARD
+	db 4, 4, EXTREMESPEED
+	; ARTICUNO
+	db 5, 1, BLIZZARD
+	db 5, 2, WATER_PULSE
+	db 5, 3, ROOST
+	db 5, 4, HURRICANE
+	; MALAKAZAM
+	db 6, 1, PSYCHO_CUT
+	db 6, 2, ENERGY_BALL
+	db 6, 3, NO_MOVE
+	db 6, 4, NO_MOVE
+	db $FE
+
+
+
 
 ; ===============================================================
 
