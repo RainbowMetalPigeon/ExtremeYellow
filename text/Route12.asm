@@ -143,16 +143,16 @@ _Route12AfterBattleText3::
 	cont "with MOON STONE!"
 	done
 
-_Route12BattleText4::
+_Route12BattleText4:: ; TBE
 	text "Electricity is my"
 	line "specialty!"
 	done
 
-_Route12EndBattleText4::
+_Route12EndBattleText4:: ; TBE
 	text "Unplugged!"
 	prompt
 
-_Route12AfterBattleText4::
+_Route12AfterBattleText4:: ; TBE
 	text "Water conducts"
 	line "electricity, so"
 	cont "you should zap"

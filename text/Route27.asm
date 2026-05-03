@@ -99,19 +99,19 @@ _Route27AfterBattleText1::
 
 ; ---------
 
-_Route27BattleText2::
+_Route27BattleText2:: ; TBE
     text "READY TO LISTEN TO"
     line "MY METAL???"
     done
 
-_Route27EndBattleText2::
+_Route27EndBattleText2:: ; TBE
     text "YOU CAN"
     line "DEFEAT ME, BUT"
     cont "YOU CAN'T BEAT"
     cont "THE BEAT!"
     prompt
 
-_Route27AfterBattleText2::
+_Route27AfterBattleText2:: ; TBE
     text "I WANT TO THROW"
     line "THE GREATEST"
     cont "CONCERT EVER!"

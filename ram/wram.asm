@@ -1911,8 +1911,9 @@ wSavedSpriteScreenX:: db
 wSavedSpriteMapY:: db
 wSavedSpriteMapX:: db
 
-	ds 1 ; edited to go beyond 200, it was ds 5
+;	ds 5 ; edited to go beyond 200 and more
 wEphemerealTempBuffer2ByteStorage2:: dw ; new
+wDelayFrameBank:: db ; new
 
 wEphemerealTempBuffer2ByteStorage:: ; new
 wIsTrainerBattle:: db  ; new, to go beyond 200

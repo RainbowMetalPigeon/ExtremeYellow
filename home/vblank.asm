@@ -13,6 +13,13 @@ VBlank::
 	ldh a, [hLoadedROMBank]
 	ld [wVBlankSavedROMBank], a
 
+	ldh a, [hVBlankOccurred]
+	and a
+	jr z, .notInDelayFrame
+	ld a, [wDelayFrameBank]
+	ld [MBC1RomBank], a
+.notInDelayFrame
+
 	ldh a, [hSCX]
 	ldh [rSCX], a
 	ldh a, [hSCY]
@@ -93,6 +100,14 @@ DelayFrame::
 ; Wait for the next vblank interrupt.
 ; As a bonus, this saves battery.
 
+DEF NOT_VBLANKED EQU 1
+
+    ld a, NOT_VBLANKED
+    ldh [hVBlankOccurred], a
+
+	ldh a, [hLoadedROMBank]
+	ld [wDelayFrameBank], a
+
 	push bc
 	push de
 	push hl
@@ -101,13 +116,13 @@ DelayFrame::
 	pop de
 	pop bc
 
-DEF NOT_VBLANKED EQU 1
-
-	ld a, NOT_VBLANKED
-	ldh [hVBlankOccurred], a
-.halt
-	halt
 	ldh a, [hVBlankOccurred]
 	and a
-	jr nz, .halt
-	ret
+	ret z
+
+.halt
+    halt
+    ldh a, [hVBlankOccurred]
+    and a
+    jr nz, .halt
+    ret

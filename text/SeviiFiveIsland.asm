@@ -664,7 +664,7 @@ _SeviiFiveIslandWarehouse2FText6::
 	text "They're out cold."
 	done
 
-_SeviiFiveIslandWarehouse1FText5::
+_SeviiFiveIslandWarehouse1FText5:: ; TBE
 	text "Strap on your"
 	line "shields and raise"
 	cont "your banners!"
@@ -695,7 +695,7 @@ _SeviiFiveIslandWarehouse1FText5::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiFiveIslandWarehouse1FText6::
+_SeviiFiveIslandWarehouse1FText6:: ; TBE
 	text "I got the power to"
 	line "repress my"
 	cont "infinite hate!"
@@ -714,21 +714,7 @@ _SeviiFiveIslandWarehouse1FText6::
 	done
 
 _SeviiFiveIslandWarehouse1FText7::
-	text "So far away, we"
-	line "wait for the day!"
-
-	para "For the lives"
-	line "all so wasted"
-	cont "and gone!"
-
-	para "We feel the pain"
-	line "of a lifetime"
-	cont "lost in a"
-	cont "thousand days!"
-
-	para "Through the fire"
-	line "and the flames,"
-	cont "we carry on!"
+	text "TBE"
 ;	xxxx "123456789012345678"
 	done
 

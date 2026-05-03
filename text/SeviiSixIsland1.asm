@@ -1916,7 +1916,7 @@ _SeviiRoute40AfterBattleText3::
 
 ; -----
 
-_SeviiRoute40BattleText4::
+_SeviiRoute40BattleText4:: ; TBE
 	text "Rites of brutal"
 	line "violence!"
 
@@ -1931,7 +1931,7 @@ _SeviiRoute40BattleText4::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiRoute40EndBattleText4::
+_SeviiRoute40EndBattleText4:: ; TBE
 	text "Seven"
 	line "raging epic wars!"
 
@@ -1946,7 +1946,7 @@ _SeviiRoute40EndBattleText4::
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiRoute40AfterBattleText4::
+_SeviiRoute40AfterBattleText4:: ; TBE
 	text "For the children"
 	line "fallen!"
 
@@ -1960,10 +1960,13 @@ _SeviiRoute40AfterBattleText4::
 	line "and love!"
 
 	para "May the flame"
-	line "of angels clash"
-	cont "your hord of"
-	cont "demons and burn"
-	cont "your fallen soul!"
+	line "of angels"
+	cont "Clash your hordes"
+	cont "of demons"
+	cont "Stop your"
+	cont "resurrection"
+	cont "Burn your"
+	cont "fallen soul!"
 ;	xxxx "123456789012345678"
 	done
 
