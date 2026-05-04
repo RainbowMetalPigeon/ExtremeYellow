@@ -302,7 +302,14 @@ MainInBattleLoop:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	callfar TrainerAI
-	jr c, .AIActionUsedEnemyFirst
+; new
+;	jr c, .AIActionUsedEnemyFirst
+	jr nc, .enemyFirstnoAI
+	ld hl, WAITurnCounter
+	inc [hl]
+	jr .AIActionUsedEnemyFirst
+.enemyFirstnoAI
+; BTV 
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -312,8 +319,6 @@ MainInBattleLoop:
 	jp z, HandlePlayerMonFainted
 ; we don't do the following if the enemy KOed the player
 .AIActionUsedEnemyFirst
-	ld hl, WAITurnCounter ; new
-	inc [hl] ; new
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
@@ -351,7 +356,14 @@ MainInBattleLoop:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	callfar TrainerAI
-	jr c, .AIActionUsedPlayerFirst
+; new
+;	jr c, .AIActionUsedPlayerFirst
+	jr nc, .playerFirstnoAI
+	ld hl, WAITurnCounter
+	inc [hl]
+	jr .AIActionUsedPlayerFirst
+.playerFirstnoAI
+; BTV 
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -360,8 +372,6 @@ MainInBattleLoop:
 	and a
 	jp z, HandlePlayerMonFainted
 .AIActionUsedPlayerFirst
-	ld hl, WAITurnCounter ; new
-	inc [hl] ; new
 	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
 	SetEvent EVENT_ENABLE_TERRAIN_HEALING ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy

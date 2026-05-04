@@ -1774,3 +1774,24 @@ AIPrintItemUse_:
 AIBattleUseItemText:
 	text_far _AIBattleUseItemText
 	text_end
+
+; new ===================================================
+
+CountHowManyPartyAlive:
+	ld a, [wPartyCount]
+	ld e, a
+	xor a
+	ld d, a ; d counts how many alive mons are there
+	ld hl, wPartyMon1HP
+	ld bc, wPartyMon2 - wPartyMon1 - 1
+.partyMonsLoop
+	ld a, [hl]
+	inc hl
+	or [hl]
+	jr z, .noCounterIncrease
+	inc d
+.noCounterIncrease
+	add hl, bc
+	dec e
+	jr nz, .partyMonsLoop
+	ret
