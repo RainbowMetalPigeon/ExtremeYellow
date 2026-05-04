@@ -312,6 +312,8 @@ MainInBattleLoop:
 	jp z, HandlePlayerMonFainted
 ; we don't do the following if the enemy KOed the player
 .AIActionUsedEnemyFirst
+	ld hl, WAITurnCounter ; new
+	inc [hl] ; new
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
@@ -358,6 +360,8 @@ MainInBattleLoop:
 	and a
 	jp z, HandlePlayerMonFainted
 .AIActionUsedPlayerFirst
+	ld hl, WAITurnCounter ; new
+	inc [hl] ; new
 	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
 	SetEvent EVENT_ENABLE_TERRAIN_HEALING ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
@@ -712,7 +716,7 @@ ReplaceFaintedEnemyMon:
 	xor a
 	ld [wEnemyMoveNum], a
 	ld [wActionResultOrTookBattleTurn], a
-	ld [wAILayer2Encouragement], a
+	ld [WAITurnCounter], a
 	inc a ; reset Z flag
 	ret
 
@@ -6424,7 +6428,7 @@ ExecuteEnemyMove:
 	cp 4
 	ret nc
 .executeEnemyMove
-	ld hl, wAILayer2Encouragement
+	ld hl, WAITurnCounter
 	inc [hl]
 	xor a
 	ld [wMoveMissed], a

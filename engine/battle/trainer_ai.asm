@@ -197,6 +197,8 @@ AIMoveChoiceModification1:
 	jp z, .selfBoost_Speed
 	cp ATTACK_SPEED_UP1_EFFECT
 	jp z, .selfBoost_SpeedAttack
+	cp SPECIAL_SPEED_UP1_EFFECT
+	jp z, .selfBoost_SpeedSpecial
 	cp ATTACK_UP2_EFFECT
 	jp z, .selfBoost_Attack
 	cp DEFENSE_UP1_EFFECT
@@ -450,6 +452,16 @@ AIMoveChoiceModification1:
 	jr c, .modifierComparisons_SelfBuff_NotEvasion
 	ld a, [wEnemyMonAttackMod]
 	jr .modifierComparisons_SelfBuff_NotEvasion
+.selfBoost_SpeedSpecial ; whichever is lower is the one dominating
+	push bc
+	ld a, [wEnemyMonSpecialMod]
+	ld b, a
+	ld a, [wEnemyMonSpeedMod]
+	cp b ; speedMod-specialMod
+	pop bc
+	jr c, .modifierComparisons_SelfBuff_NotEvasion
+	ld a, [wEnemyMonSpecialMod]
+	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Attack
 	ld a, [wEnemyMonAttackMod]
 	jr .modifierComparisons_SelfBuff_NotEvasion
@@ -583,7 +595,7 @@ AIMoveChoiceModification2:
 	pop hl
 	jp nc, .nextMove
 ; move is in array
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a ; edited, encourage less if not 1st turn
 	jr nz, .notFirstTurn
 	dec [hl] ; encourages by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones
@@ -619,7 +631,7 @@ AIMoveChoiceModification2:
 	pop hl
 	jp nc, .nextMove2
 ; move is in array
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a ; edited, encourage less if not 1st turn
 	jr nz, .notFirstTurn2
 	dec [hl] ; encouraged by 3, so it's preferred to single-super-eff moves, but not to double-super-eff ones
@@ -645,6 +657,7 @@ Modifier2BuffDebuffMoveEffects:
 	db ACCURACY_UP2_EFFECT				; no move uses them
 	db EVASION_UP2_EFFECT
 	db ATTACK_SPEED_UP1_EFFECT
+	db SPECIAL_SPEED_UP1_EFFECT
 	db ATTACK_DOWN_SIDE_EFFECT_CERT		; no move uses them
 	db DEFENSE_DOWN_SIDE_EFFECT_CERT	; no move uses them
 	db SPEED_DOWN_SIDE_EFFECT_CERT
@@ -666,6 +679,20 @@ Modifier2StatusMoveEffects:
 	db CURSE_EFFECT
 	db LEECH_SEED_EFFECT
 	db DISABLE_EFFECT
+	; V2
+	db SUNNY_DAY_EFFECT
+	db RAIN_DANCE_EFFECT
+	db SANDSTORM_EFFECT
+	db HAIL_EFFECT
+	db GRASSY_TERRAIN_EFFECT
+	db ELECTRIC_TERRAIN_EFFECT
+	db MISTY_TERRAIN_EFFECT
+	db PSYCHIC_TERRAIN_EFFECT
+	db TRICK_ROOM_EFFECT
+	db SPIKES_EFFECT
+	db TOXIC_SPIKES_EFFECT
+	db STICKY_WEB_EFFECT
+	db STEALTH_ROCK_EFFECT
 	db -1
 
 ; encourages moves that are effective against the player's mon (even if non-damaging).
@@ -1201,6 +1228,12 @@ CooltrainerAI: ; edited: 70% change to use a Hyper Potion below 1/6 HP, and no s
 	ret nc ; new
 	jp AIUseHyperPotion
 
+GamblerAI: ; new
+	ld a, [WAITurnCounter]
+	and a
+	ret nz
+	jp AIUseXAccuracy
+
 ; Gym Leaders: all edited ------------------------------------------------
 
 ; new: for all gym leaders, except Giovanni (and Orage)
@@ -1291,7 +1324,7 @@ GymLeadersCommonAI:
 
 BrockAI:
 	ld b, a ; temporarily hold the random value
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
@@ -1304,7 +1337,7 @@ BrockAI:
 
 MistyAI:
 	ld b, a ; temporarily hold the random value
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
@@ -1323,7 +1356,7 @@ ErikaAI:
 
 KogaAI:
 	ld b, a ; temporarily hold the random value
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
@@ -1334,7 +1367,7 @@ KogaAI:
 
 SabrinaAI:
 	ld b, a ; temporarily hold the random value
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
@@ -1345,7 +1378,7 @@ SabrinaAI:
 
 BlaineAI:
 	ld b, a ; temporarily hold the random value
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
@@ -1356,7 +1389,7 @@ BlaineAI:
 
 OrageAI: ; new
 	ld b, a ; temporarily hold the random value
-	ld a, [wAILayer2Encouragement]
+	ld a, [WAITurnCounter]
 	and a
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
@@ -1614,7 +1647,7 @@ AICureStatus:
 	res 0, [hl]
 	ret
 
-AIUseXAccuracy: ; unused
+AIUseXAccuracy:
 	call AIPlayRestoringSFX
 	ld hl, wEnemyBattleStatus2
 	set 0, [hl]
