@@ -203,6 +203,15 @@ _HauntedRedsHouseLuckText::
     line "any and all luck."
     done
 
+_HauntedRedsHouseLayoutText::
+    text "No layout"
+    line "options."
+
+    para "You'll wear that"
+    line "face forever."
+;   xxxx "123456789012345678"
+    done
+
 ; HAUNTED_ISLAND_OF_NUMBERS ------------------------
 
 _HauntedIslandOfNumbersText_MissingNo_NotFirstTime::

@@ -41,7 +41,7 @@ HauntedHouse3ReplaceBlockForRealExit:
 	     ; so, if the last bit is 0, i.e. a is even, c is NOT set, path blocked
 		 ; vice versa, if a is odd, c flag is set, and path is open
 	jr c, .pathOpen
-	ld a, $12 ; floor-and-plant block ID
+	ld a, $96 ; bed block ID
 	jr .replaceTile
 .pathOpen
 	ld a, $B ; clear-floor block ID
