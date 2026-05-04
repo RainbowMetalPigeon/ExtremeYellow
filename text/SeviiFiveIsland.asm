@@ -664,57 +664,133 @@ _SeviiFiveIslandWarehouse2FText6::
 	text "They're out cold."
 	done
 
-_SeviiFiveIslandWarehouse1FText5:: ; TBE
-	text "Strap on your"
-	line "shields and raise"
-	cont "your banners!"
+_SeviiFiveIslandWarehouse1FText5::
+	text "Se mi fate la"
+	line "grazia, una"
+	cont "soltanto, vi"
+	cont "costruisco un"
+	cont "ponte di pietra!"
 
-	para "Hear the call of"
-	line "raging battle!"
+	para "Donandomi secondo"
+	line "questo incanto"
+	cont "chi per primo"
+	cont "vi passa sopra!"
 
-	para "Beneath a hail of"
-	line "burning arrows!"
-
-	para "Push ever forward,"
-	line "never surrender!"
-
-	para "Siege weapons"
-	line "tolling out"
-	cont "like thunder!"
-
-	para "Ripping the city"
-	line "walls asunder!"
-
-	para "Columns of flame"
-	line "reach ever"
-	cont "skyward!"
-
-	para "Horizons filled"
-	line "with burning"
-	cont "pyres!"
-;	xxxx "123456789012345678"
+	para "Ne farei a meno,"
+	line "ora lo giuro, ma"
+	cont "per render bene"
+	cont "il cammino sicuro"
+	cont "servono fede e"
+	cont "credo abbondanti,"
+	cont "un'anima forte"
+	cont "che regga i"
+	cont "tiranti!"
 	done
 
-_SeviiFiveIslandWarehouse1FText6:: ; TBE
-	text "I got the power to"
-	line "repress my"
-	cont "infinite hate!"
+_SeviiFiveIslandWarehouse1FText6::
+	text "Ci sono stati"
+	line "uomini che sono"
+	cont "morti giovani,"
+;	xxxx "123456789012345678"
+	cont "ma consapevoli"
+	cont "che le loro idee"
+	cont "sarebbero rimaste"
+	cont "nei secoli come"
+	cont "parole, iperbole,"
+;	xxxx "123456789012345678"
+	cont "intatte e reali"
+	cont "come piccoli"
+	cont "miracoli!"
 
-	para "Behind his eyes,"
-	line "under a white"
-	cont "dragon shape!"
-
-	para "My mental forces"
-	line "belong to a dream"
-	cont "astral plane,"
-	cont "but my claws and"
-	cont "flames have the"
-	cont "real name!"
+	para "Idee di"
+	line "uguaglianza, idee"
+	cont "di educazione,"
+	cont "contro ogni uomo"
+	cont "che eserciti"
+	cont "oppressione,"
+	cont "contro ogni suo"
+	cont "simile, contro"
+	cont "chi e' piu'"
+;	xxxx "123456789012345678"
+	cont "debole, contro"
+	cont "chi sotterra la"
+	cont "coscienza nel"
+	cont "cemento!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse1FText7::
-	text "TBE"
+	text "Dentro profonde"
+	line "oscurita'!"
+
+	para "La vera anima!"
+
+	para "Mare di lava"
+	line "attorno - io non"
+	cont "mi brucero'!"
+
+	para "Voglio sentire -"
+	line "voglio vivere"
+	cont "piu' in la'!"
+
+	para "Chiedo alla vita"
+	line "troppo -"
+	cont "Forse la falce"
+	cont "rispondera'!"
+	
+	para "Sulle ali della"
+	line "morte giuro ti"
+	cont "raggiungero'!"
+	
+	para "La paura di"
+	line "cercare no, non"
+	cont "mi fara' annegare"
+	cont "in falsita'!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouse1FText8::
+	text "Non siete Stato"
+	line "voi, che fate"
+	cont "leggi su misura"
+	cont "come un paio di"
+	cont "mutande a seconda"
+	cont "dei genitali!"
+
+	para "Non siete Stato"
+	line "voi, che trattate"
+	cont "chi vi critica"
+	cont "come un randagio"
+	cont "a cui tagliare"
+	cont "le corde vocali!"
+
+	para "Non siete Stato"
+	line "voi, servi, che"
+	cont "avete noleggiato"
+	cont "costumi da"
+	cont "sovrani con"
+	cont "soldi immeritati!"
+
+	para "Siete voi -"
+	line "confratelli di"
+	cont "una loggia che"
+	cont "poggia sul valore"
+	cont "dei privilegiati!"
+
+	para "Come voi, che i"
+	line "mafiosi li"
+	cont "chiamate eroi e"
+	cont "che il corrotto"
+	cont "lo chiamate pio!"
+
+	para "E ciascuno di voi"
+	line "implicato in ogni"
+	cont "sorta di reato"
+	cont "fissa il"
+	cont "magistrato e poi"
+	cont "giura su Dio:"
+
+	para "Non sono stato io!"
 ;	xxxx "123456789012345678"
 	done
 

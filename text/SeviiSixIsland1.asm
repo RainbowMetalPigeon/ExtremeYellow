@@ -1916,7 +1916,7 @@ _SeviiRoute40AfterBattleText3::
 
 ; -----
 
-_SeviiRoute40BattleText4:: ; TBE
+_SeviiRoute40BattleText4::
 	text "Rites of brutal"
 	line "violence!"
 
@@ -1931,7 +1931,7 @@ _SeviiRoute40BattleText4:: ; TBE
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiRoute40EndBattleText4:: ; TBE
+_SeviiRoute40EndBattleText4::
 	text "Seven"
 	line "raging epic wars!"
 
@@ -1946,7 +1946,7 @@ _SeviiRoute40EndBattleText4:: ; TBE
 ;	xxxx "123456789012345678"
 	prompt
 
-_SeviiRoute40AfterBattleText4:: ; TBE
+_SeviiRoute40AfterBattleText4::
 	text "For the children"
 	line "fallen!"
 

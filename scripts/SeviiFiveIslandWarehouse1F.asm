@@ -273,6 +273,7 @@ SeviiFiveIslandWarehouse1F_TextPointers:
 	dw SeviiFiveIslandWarehouse1FText5
 	dw SeviiFiveIslandWarehouse1FText6
 	dw SeviiFiveIslandWarehouse1FText7
+	dw SeviiFiveIslandWarehouse1FText8
 	; signs
 	dw SeviiFiveIslandWarehouse1FSignText1
 	dw SeviiFiveIslandWarehouse1FSignText2
@@ -357,3 +358,6 @@ SeviiFiveIslandWarehouse1FText7:
 	text_far _SeviiFiveIslandWarehouse1FText7
 	text_end
 	
+SeviiFiveIslandWarehouse1FText8:
+	text_far _SeviiFiveIslandWarehouse1FText8
+	text_end

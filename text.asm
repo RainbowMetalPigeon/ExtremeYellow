@@ -344,11 +344,11 @@ INCLUDE "data/text/item_descriptions.asm"
 
 SECTION "Text Sevii 1", ROMX
 INCLUDE "text/SeviiOneIsland.asm"
+INCLUDE "text/SeviiIslandsCommon.asm"
 
 
 SECTION "Text Sevii 2", ROMX
 INCLUDE "text/SeviiFiveIsland.asm"
-INCLUDE "text/SeviiIslandsCommon.asm"
 
 
 SECTION "Text Sevii 3", ROMX

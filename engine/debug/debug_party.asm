@@ -227,6 +227,21 @@ IF DEF(_DEBUG)
 ;	ld [wMissableObjectIndex], a
 ;	predef ShowObject
 
+;	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_1
+;	ld [wMissableObjectIndex], a
+;	predef ShowObjectSevii
+;	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_2
+;	ld [wMissableObjectIndex], a
+;	predef ShowObjectSevii
+;	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_3
+;	ld [wMissableObjectIndex], a
+;	predef ShowObjectSevii
+;	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_4
+;	ld [wMissableObjectIndex], a
+;	predef ShowObjectSevii
+
+;	callfar ShowExtraNPCsAfterObsidianGiovanni
+
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
 	SetEvent EVENT_OBTAINED_SEEDS_BAG

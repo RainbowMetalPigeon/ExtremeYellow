@@ -208,6 +208,9 @@ SeviiFourIslandHouses_Script4:
 	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_3
 	ld [wMissableObjectIndex], a
 	predef ShowObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_1F_METALHEAD_4
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
 	ld a, 26
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
