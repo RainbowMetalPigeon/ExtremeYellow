@@ -680,7 +680,7 @@ StartMenu_TrainerInfo::
 	call ClearScreen
 	call UpdateSprites
 	call DrawTrainerInfoBack
-	ld b, SET_PAL_TOWN_MAP ; TBE
+	ld b, SET_PAL_TRAINER_CARD_BACK
 	call RunPaletteCommand
 	call GBPalNormal
 	call LoadBirbGFXs
