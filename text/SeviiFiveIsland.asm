@@ -35,22 +35,10 @@ _SeviiFiveIslandCityText2::
 	done
 
 _SeviiFiveIslandCityText3::
-	text "3- Monster Rocket"
-;	xxxx "123456789012345678"
-	done
-
 _SeviiFiveIslandCityText4::
-	text "4- Monster Pink"
-;	xxxx "123456789012345678"
-	done
-
 _SeviiFiveIslandCityText5::
-	text "5 - Rocket"
-;	xxxx "123456789012345678"
-	done
-
 _SeviiFiveIslandCityText6::
-	text "6 - Pink"
+	text "!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -1203,7 +1191,7 @@ _SeviiResortGorgeousText1_BeforeWaterfall::
 	line "accept this"
 	cont "precious that I"
 	cont "discovered in one"
-	cont "of my wondering."
+	cont "of my wonderings."
 	prompt
 
 _SeviiResortGorgeousText1_BagFull::
@@ -1265,7 +1253,7 @@ _SeviiResortGorgeousText2_AfterRescue::
 _SeviiLostCave2Text1::
 	text "SELPHY: Oh my"
 	line "goddess!"
-	line "Someone found me!"
+	cont "Someone found me!"
 
 	para "I'm finally rescued"
 	line "from this uncanny"
@@ -1806,7 +1794,7 @@ _SeviiRoute36SignText1_WrongSide::
 	cont "the other side."
 	done
 
-; dive ---------------------------------
+; dive --------------------------------- TBE
 
 _SeviiFiveIslandCityDiveBattleText1::
 	text "1-pre"

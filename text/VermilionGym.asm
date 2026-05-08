@@ -97,17 +97,17 @@ _VermilionGymAfterBattleText1::
 	line "was cautious!"
 	done
 
-_VermilionGymBattleText2::
+_VermilionGymBattleText2:: ; TBE?
 	text "I'm a lightweight,"
 	line "but I'm good with"
 	cont "electricity!"
 	done
 
-_VermilionGymEndBattleText2::
+_VermilionGymEndBattleText2:: ; TBE?
 	text "Fried!"
 	prompt
 
-_VermilionGymAfterBattleText2::
+_VermilionGymAfterBattleText2:: ; TBE?
 	text "OK, I'll talk!"
 
 	para "LT.SURGE said they"
