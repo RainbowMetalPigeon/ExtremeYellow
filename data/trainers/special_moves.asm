@@ -1901,7 +1901,7 @@ SpecialTrainerMoves:
 	db 4, 4, IRON_TAIL
 	; CHARIZARD
 	db 5, 1, AIR_SLASH
-	db 5, 2, STEEL_WING
+	db 5, 2, THUNDERPUNCH
 	db 5, 3, SHADOW_CLAW
 	db 5, 4, DRAGON_DANCE
 	; ARCANINE
@@ -2040,7 +2040,7 @@ SpecialTrainerMoves:
 	db 6, 1, DRAGON_CLAW
 	db 6, 2, ROOST
 	db 6, 3, BLAST_BURN
-	db 6, 4, BRAVE_BIRD
+	db 6, 4, THUNDERPUNCH
 	db $FE
 
 ; ===============================================================
@@ -2789,7 +2789,7 @@ SpecialTrainerMoves:
 	; MCHARZARDY
 	db 4, 1, ROOST
 	db 4, 2, DRAGON_CLAW
-	db 4, 3, CRUNCH
+	db 4, 3, THUNDERPUNCH
 	db 4, 4, BLAST_BURN
 	; MBLASTOISE
 	db 5, 1, REST
@@ -2845,7 +2845,7 @@ SpecialTrainerMoves:
 	; MCHARZARDY
 	db 5, 1, ROOST
 	db 5, 2, DRAGON_CLAW
-	db 5, 3, CRUNCH
+	db 5, 3, THUNDERPUNCH
 	db 5, 4, BLAST_BURN
 	; MBLASTOISE
 	db 6, 1, REST
@@ -3699,7 +3699,7 @@ SpecialTrainerMoves:
 	; MCHARZARDY
 	db 6, 1, OUTRAGE
 	db 6, 2, ROOST
-	db 6, 3, CRUNCH
+	db 6, 3, THUNDERPUNCH
 	db 6, 4, BLAST_BURN
 	db $FE
 
@@ -3756,11 +3756,11 @@ SpecialTrainerMoves:
 	db 3, 2, HYDRO_PUMP
 	db 3, 3, RECOVER
 	db 3, 4, THUNDER_WAVE
-	; MVENUSAUR
-	db 4, 1, SLEEP_POWDER
-	db 4, 2, LEECH_SEED
-	db 4, 3, RAZOR_LEAF
-	db 4, 4, SUBSTITUTE
+	; MCLEFABLE
+	db 4, 1, DRAININGKISS
+	db 4, 2, AIR_SLASH
+	db 4, 3, REFLECT
+	db 4, 4, MINIMIZE
 	; CROBAT
 	db 5, 1, BRAVE_BIRD
 	db 5, 2, ROOST
@@ -3781,26 +3781,26 @@ SpecialTrainerMoves:
 	db 1, 2, STEALTH_ROCK
 	db 1, 3, SANDSTORM
 	db 1, 4, NO_MOVE
-	; MSTEELIX
-	db 2, 1, EXPLOSION
-	db 2, 2, STONE_EDGE
-	db 2, 3, STEALTH_ROCK
-	db 2, 4, SANDSTORM
 	; RHYPERIOR
-	db 3, 1, STONE_EDGE
-	db 3, 2, STEALTH_ROCK
-	db 3, 3, NO_MOVE
-	db 3, 4, NO_MOVE
-	; ZAPDOS
-	db 4, 1, THUNDER
-	db 4, 2, HEAT_WAVE
-	db 4, 3, ROOST
-	db 4, 4, WHIRLWIND
+	db 2, 1, STONE_EDGE
+	db 2, 2, STEALTH_ROCK
+	db 2, 3, SANDSTORM
+	db 2, 4, NO_MOVE
+	; MRAICHUY
+	db 3, 1, VOLT_TACKLE ; PPS THUNDER
+	db 3, 2, DRAININGKISS
+	db 3, 3, FIRE_BLAST
+	db 3, 4, SURF
 	; ARTICUNO
-	db 5, 1, BLIZZARD
-	db 5, 2, FREEZE_DRY
+	db 4, 1, BLIZZARD
+	db 4, 2, FREEZE_DRY
+	db 4, 3, ROOST
+	db 4, 4, WATER_PULSE
+	; ZAPDOS
+	db 5, 1, THUNDER
+	db 5, 2, HEAT_WAVE
 	db 5, 3, ROOST
-	db 5, 4, WATER_PULSE
+	db 5, 4, WHIRLWIND
 	; MARODACTYL
 	db 6, 1, HEAD_SMASH
 	db 6, 2, NO_MOVE
@@ -3871,15 +3871,502 @@ SpecialTrainerMoves:
 	db 5, 2, WATER_PULSE
 	db 5, 3, ROOST
 	db 5, 4, HURRICANE
-	; MALAKAZAM
-	db 6, 1, PSYCHO_CUT
-	db 6, 2, ENERGY_BALL
+	; MSLOWBRO
+	db 6, 1, PSYCHIC_M
+	db 6, 2, HYDRO_PUMP
+	db 6, 3, AMNESIA
+	db 6, 4, REST
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 6 ; vs ROCK
+	; DUGTRIO
+	db 1, 1, STONE_EDGE
+	db 1, 2, EARTHQUAKE
+	db 1, 3, SHADOW_CLAW
+	db 1, 4, FEINT_ATTACK ; PPS NIGHT_SLASH
+	; MACHAMP
+	db 2, 1, STONE_EDGE
+	db 2, 2, EARTHQUAKE
+	db 2, 3, CLOSE_COMBAT
+	db 2, 4, COUNTER
+	; MSCIZOR
+	db 3, 1, SWORDS_DANCE
+	db 3, 2, METEOR_MASH
+	db 3, 3, SUPERPOWER
+	db 3, 4, ROOST
+	; MSTEELIX
+	db 4, 1, IRON_TAIL
+	db 4, 2, EARTHQUAKE
+	db 4, 3, STONE_EDGE
+	db 4, 4, EXPLOSION
+	; MVICTREBEL
+	db 5, 1, RAZOR_LEAF
+	db 5, 2, LOVELY_KISS
+	db 5, 3, EARTHQUAKE
+	db 5, 4, SYNTHESIS
+	; MBLASTOISE
+	db 6, 1, HYDRO_CANNON
+	db 6, 2, BLIZZARD
+	db 6, 3, BULLET_SEED
+	db 6, 4, FLASH_CANNON
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 7 ; vs BIRD
+	; VENUSTOISE
+	db 1, 1, HYDRO_CANNON
+	db 1, 2, FRENZY_PLANT
+	db 1, 3, SLEEP_POWDER
+	db 1, 4, ROCK_TOMB
+	; THU_FI_ZER
+	db 2, 1, TRI_ATTACK
+	db 2, 2, ROOST
+	db 2, 3, BRAVE_BIRD
+	db 2, 4, FIRE_SPIN
+	; ARM_MEWTWO
+	db 3, 1, PSYSTRIKE
+	db 3, 2, RECOVER
+	db 3, 3, AMNESIA
+	db 3, 4, THUNDER_WAVE
+	; MAGIKARP
+	db 4, 1, FLAIL
+	db 4, 2, NO_MOVE
+	db 4, 3, NO_MOVE
+	db 4, 4, NO_MOVE
+	; PIKACHU
+	db 5, 1, VOLT_TACKLE
+	db 5, 2, SURF
+	db 5, 3, PSYCHIC_M
+	db 5, 4, FLY
+	; DITTO
+	db 6, 1, TRANSFORM
+	db 6, 2, NO_MOVE
 	db 6, 3, NO_MOVE
 	db 6, 4, NO_MOVE
 	db $FE
 
+; --------------------------
 
+	db SANTRE, 8 ; vs BUG
+	; MARODACTYL
+	db 1, 1, STEALTH_ROCK
+	db 1, 2, HEAD_SMASH
+	db 1, 3, HURRICANE
+	db 1, 4, ROOST
+	; MCHARZARDX
+	db 2, 1, OUTRAGE
+	db 2, 2, BLAST_BURN
+	db 2, 3, AIR_SLASH
+	db 2, 4, ROCK_SLIDE
+	; DODRIO
+	db 3, 1, BRAVE_BIRD
+	db 3, 2, ROOST
+	db 3, 3, STEEL_WING
+	db 3, 4, HYPER_BEAM
+	; MCHARZARDY
+	db 4, 1, BLAST_BURN
+	db 4, 2, HURRICANE
+	db 4, 3, STEEL_WING
+	db 4, 4, EARTHQUAKE
+	; MPIDGEOT
+	db 5, 1, BRAVE_BIRD ; HURRICANE
+	db 5, 2, ROOST
+	db 5, 3, THUNDER
+	db 5, 4, HEAT_WAVE
+	; MPINSIR
+	db 6, 1, AIR_CUTTER
+	db 6, 2, STONE_EDGE
+	db 6, 3, MEGAHORN
+	db 6, 4, ROOST
+	db $FE
 
+; --------------------------
+
+	db SANTRE, 9 ; vs GHOST
+	; MGENGAR
+	db 1, 1, NIGHT_SLASH ; PPS DARK_PULSE
+	db 1, 2, PSYCHIC_M ; PPS SHADOW_BALL
+	db 1, 3, HYPNOSIS
+	db 1, 4, CONFUSE_RAY
+	; UMBREON
+	db 2, 1, DARK_PULSE
+	db 2, 2, REST
+	db 2, 3, PSYCHIC_M
+	db 2, 4, CONFUSE_RAY
+	; MGYARADOS
+	db 3, 1, NIGHT_SLASH
+	db 3, 2, HURRICANE
+	db 3, 3, HYDRO_PUMP
+	db 3, 4, EARTHQUAKE
+	; MSLOWBRO
+	db 4, 1, AMNESIA
+	db 4, 2, PSYCHIC_M
+	db 4, 3, HYDRO_PUMP
+	db 4, 4, REST
+	; SNORLAX
+	db 5, 1, PSYCHIC_M ; PPS ZEN_HEADBUTT
+	db 5, 2, EARTHQUAKE
+	db 5, 3, SHADOW_BALL ; PPS CRUNCH
+	db 5, 4, LOVELY_KISS
+	; MALAKAZAM
+	db 6, 1, PSYCHO_CUT ; PPS PSYCHIC_M
+	db 6, 2, NIGHT_SLASH ; PPS SHADOW_BALL
+	db 6, 3, MOONBLAST
+	db 6, 4, RECOVER
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 10 ; vs STEEL
+	; MCHARZARDX
+	db 1, 1, BLAST_BURN
+	db 1, 2, EARTHQUAKE
+	db 1, 3, THUNDERPUNCH
+	db 1, 4, ROOST
+	; MACHAMP
+	db 2, 1, CLOSE_COMBAT
+	db 2, 2, EARTHQUAKE
+	db 2, 3, FIRE_PUNCH
+	db 2, 4, DRAIN_PUNCH
+	; MDRAGONITE
+	db 3, 1, FIRE_BLAST
+	db 3, 2, THUNDER
+	db 3, 3, EARTHQUAKE
+	db 3, 4, SUPERPOWER
+	; DUGTRIO
+	db 4, 1, EARTHQUAKE
+	db 4, 2, STONE_EDGE
+	db 4, 3, SHADOW_CLAW
+	db 4, 4, NIGHT_SLASH
+	; MSTARMIE
+	db 5, 1, CLOSE_COMBAT
+	db 5, 2, HYDRO_PUMP
+	db 5, 3, THUNDER
+	db 5, 4, RECOVER
+	; MOLTRES
+	db 6, 1, FIRE_BLAST
+	db 6, 2, SUNNY_DAY
+	db 6, 3, SOLARBEAM
+	db 6, 4, HURRICANE
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 11 ; vs FIRE
+	; MARODACTYL
+	db 1, 1, STEALTH_ROCK
+	db 1, 2, EARTHQUAKE
+	db 1, 3, HEAD_SMASH
+	db 1, 4, NO_MOVE
+	; RHYPERIOR
+	db 2, 1, STEALTH_ROCK
+	db 2, 2, EARTHQUAKE
+	db 2, 3, STONE_EDGE
+	db 2, 4, NO_MOVE
+	; MBLASTOISE
+	db 3, 1, HYDRO_CANNON
+	db 3, 2, EARTHQUAKE
+	db 3, 3, ROCK_TOMB
+	db 3, 4, RAIN_DANCE
+	; MDRAGONITE
+	db 4, 1, HYDRO_PUMP
+	db 4, 2, THUNDER
+	db 4, 3, EARTHQUAKE
+	db 4, 4, STONE_EDGE
+	; MSTARMIE
+	db 5, 1, PSYCHO_CUT
+	db 5, 2, HYDRO_PUMP
+	db 5, 3, RECOVER
+	db 5, 4, MINIMIZE
+	; MGYARADOS
+	db 6, 1, STONE_EDGE
+	db 6, 2, EARTHQUAKE
+	db 6, 3, HYDRO_PUMP
+	db 6, 4, HYPER_BEAM
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 12 ; vs WATER
+	; ZAPDOS
+	db 1, 1, THUNDER
+	db 1, 2, ROOST
+	db 1, 3, HURRICANE
+	db 1, 4, THUNDER_WAVE
+	; MVENUSAUR
+	db 2, 1, FRENZY_PLANT
+	db 2, 2, EARTHQUAKE
+	db 2, 3, GUNK_SHOT
+	db 2, 4, SLEEP_POWDER
+	; MVICTREBEL
+	db 3, 1, RAZOR_LEAF
+	db 3, 2, EARTHQUAKE
+	db 3, 3, LOVELY_KISS
+	db 3, 4, GUNK_SHOT
+	; MRAICHUX
+	db 4, 1, ELECTRIC_TERRAIN
+	db 4, 2, THUNDER
+	db 4, 3, EARTHQUAKE
+	db 4, 4, PETAL_DANCE
+	; MRAICHUY
+	db 5, 1, PETAL_DANCE
+	db 5, 2, THUNDER
+	db 5, 3, OUTRAGE
+	db 5, 4, NO_MOVE
+	; MDRAGONITE ; delta
+	db 6, 1, THUNDER
+	db 6, 2, MEGAHORN
+	db 6, 3, LOVELY_KISS
+	db 6, 4, PLAY_ROUGH
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 13 ; vs GRASS
+	; MBEEDRILL
+	db 1, 1, STICKY_WEB
+	db 1, 2, MEGAHORN
+	db 1, 3, GUNK_SHOT
+	db 1, 4, AERIAL_ACE
+	; MCHARZARDY
+	db 2, 1, BLAST_BURN
+	db 2, 2, HURRICANE
+	db 2, 3, ROOST
+	db 2, 4, CRUNCH
+	; MPIDGEOT
+	db 3, 1, HURRICANE
+	db 3, 2, BLIZZARD
+	db 3, 3, ROOST
+	db 3, 4, HEAT_WAVE
+	; ARTICUNO
+	db 4, 1, BLIZZARD
+	db 4, 2, BRAVE_BIRD
+	db 4, 3, ROOST
+	db 4, 4, MIRROR_COAT
+	; JYNX
+	db 5, 1, BLIZZARD
+	db 5, 2, PSYCHO_CUT ; PPS PSYCHIC_M
+	db 5, 3, LOVELY_KISS
+	db 5, 4, DRAININGKISS
+	; MOLTRES
+	db 6, 1, FIRE_BLAST
+	db 6, 2, BRAVE_BIRD
+	db 6, 3, ROOST
+	db 6, 4, HYPER_BEAM
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 14 ; vs ELECTRIC
+	; MPINSIR ; delta
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STONE_EDGE
+	db 1, 3, MEGAHORN
+	db 1, 4, EXPLOSION
+	; MSTEELIX
+	db 2, 1, EARTHQUAKE
+	db 2, 2, HEAD_SMASH
+	db 2, 3, BODY_PRESS
+	db 2, 4, SELFDESTRUCT
+	; ELECTIVIRE ; delta
+	db 3, 1, EARTHQUAKE
+	db 3, 2, CLOSE_COMBAT
+	db 3, 3, FLAMETHROWER
+	db 3, 4, HYPER_BEAM
+	; ARTICUNO
+	db 4, 1, BLIZZARD
+	db 4, 2, WATER_PULSE
+	db 4, 3, ROOST
+	db 4, 4, MIRROR_COAT
+	; RHYPERIOR
+	db 5, 1, DRILL_RUN
+	db 5, 2, STONE_EDGE
+	db 5, 3, MEGAHORN
+	db 5, 4, CLOSE_COMBAT
+	; MDRAGONITE
+	db 6, 1, EARTHQUAKE
+	db 6, 2, BLIZZARD
+	db 6, 3, FIRE_BLAST
+	db 6, 4, HYPER_BEAM
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 15 ; vs PSYCHIC
+	; MBEEDRILL ; delta
+	db 1, 1, STICKY_WEB
+	db 1, 2, GUNK_SHOT
+	db 1, 3, MEGAHORN
+	db 1, 4, DRILL_RUN
+	; UMBREON
+	db 2, 1, DARK_PULSE
+	db 2, 2, REST
+	db 2, 3, TOXIC
+	db 2, 4, DOUBLE_TEAM
+	; MGYARADOS
+	db 3, 1, NIGHT_SLASH
+	db 3, 2, HYDRO_PUMP
+	db 3, 3, HYPER_BEAM
+	db 3, 4, PLAY_ROUGH
+	; MGENGAR
+	db 4, 1, DARK_PULSE
+	db 4, 2, CONFUSE_RAY
+	db 4, 3, SHADOW_BALL
+	db 4, 4, HYPNOSIS
+	; MCHARZARDY ; delta
+	db 5, 1, CRUNCH
+	db 5, 2, BLAST_BURN
+	db 5, 3, BRAVE_BIRD
+	db 5, 4, OUTRAGE
+	; NIDOKING ; delta
+	db 6, 1, DRILL_RUN
+	db 6, 2, GUNK_SHOT
+	db 6, 3, MEGAHORN
+	db 6, 4, SHADOW_BALL
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 16 ; vs ICE
+	; MSTEELIX
+	db 1, 1, STEALTH_ROCK
+	db 1, 2, STONE_EDGE
+	db 1, 3, GYRO_BALL
+	db 1, 4, BODY_PRESS
+	; MARODACTYL
+	db 2, 1, STEALTH_ROCK
+	db 2, 2, HEAD_SMASH
+	db 2, 3, EARTHQUAKE
+	db 2, 4, IRON_TAIL
+	; MGYARADOS ; delta
+	db 3, 1, FIRE_BLAST
+	db 3, 2, THUNDERBOLT
+	db 3, 3, SUNNY_DAY
+	db 3, 4, STONE_EDGE
+	; MACHAMP
+	db 4, 1, STONE_EDGE
+	db 4, 2, EARTHQUAKE
+	db 4, 3, CLOSE_COMBAT
+	db 4, 4, COUNTER
+	; MPINSIR ; delta
+	db 5, 1, CLOSE_COMBAT
+	db 5, 2, STONE_EDGE
+	db 5, 3, EARTHQUAKE
+	db 5, 4, MEGAHORN
+	; MSCIZOR
+	db 6, 1, METEOR_MASH
+	db 6, 2, LEECH_LIFE
+	db 6, 3, BULLET_PUNCH
+	db 6, 4, CLOSE_COMBAT
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 17 ; vs DRAGON
+	; SYLVEON
+	db 1, 1, DRAININGKISS
+	db 1, 2, SUBSTITUTE
+	db 1, 3, REFLECT
+	db 1, 4, DOUBLE_TEAM
+	; ARTICUNO
+	db 2, 1, BLIZZARD
+	db 2, 2, BRAVE_BIRD
+	db 2, 3, ROOST
+	db 2, 4, HYPER_BEAM
+	; MSTARMIE ; delta
+	db 3, 1, BLIZZARD
+	db 3, 2, MOONBLAST
+	db 3, 3, RECOVER
+	db 3, 4, EARTHQUAKE
+	; MCLEFABLE
+	db 4, 1, MOONBLAST
+	db 4, 2, MINIMIZE
+	db 4, 3, SUBSTITUTE
+	db 4, 4, THUNDER_WAVE
+	; VILEPLUME ; delta
+	db 5, 1, MOONBLAST
+	db 5, 2, GUNK_SHOT
+	db 5, 3, SYNTHESIS
+	db 5, 4, SLEEP_POWDER
+	; MDRAGONITE
+	db 6, 1, MOONBLAST
+	db 6, 2, OUTRAGE
+	db 6, 3, BLIZZARD
+	db 6, 4, EXTREMESPEED
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 18 ; vs DARK
+	; MBEEDRILL
+	db 1, 1, MEGAHORN
+	db 1, 2, STICKY_WEB
+	db 1, 3, GUNK_SHOT
+	db 1, 4, DRILL_RUN
+	; MACHAMP
+	db 2, 1, STONE_EDGE
+	db 2, 2, EARTHQUAKE
+	db 2, 3, CLOSE_COMBAT
+	db 2, 4, COUNTER
+	; MPINSIR
+	db 3, 1, AIR_CUTTER
+	db 3, 2, STONE_EDGE
+	db 3, 3, MEGAHORN
+	db 3, 4, ROOST
+	; SYLVEON
+	db 4, 1, DRAININGKISS
+	db 4, 2, SUBSTITUTE
+	db 4, 3, REFLECT
+	db 4, 4, DOUBLE_TEAM
+	; MCLEFABLE
+	db 5, 1, MOONBLAST
+	db 5, 2, MINIMIZE
+	db 5, 3, SUBSTITUTE
+	db 5, 4, THUNDER_WAVE
+	; CROBAT ; delta
+	db 6, 1, LEECH_LIFE
+	db 6, 2, GUNK_SHOT
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, AIR_SLASH
+	db $FE
+
+; --------------------------
+
+	db SANTRE, 19 ; vs FAIRY
+	; MBEEDRILL
+	db 1, 1, STEEL_WING
+	db 1, 2, STICKY_WEB
+	db 1, 3, GUNK_SHOT
+	db 1, 4, DRILL_RUN
+	; MSTEELIX
+	db 2, 1, STONE_EDGE
+	db 2, 2, EARTHQUAKE
+	db 2, 3, IRON_TAIL
+	db 2, 4, SELFDESTRUCT
+	; MVICTREBEL
+	db 3, 1, GUNK_SHOT
+	db 3, 2, RAZOR_LEAF
+	db 3, 3, LOVELY_KISS
+	db 3, 4, SYNTHESIS
+	; MSCIZOR
+	db 4, 1, METEOR_MASH
+	db 4, 2, AIR_SLASH
+	db 4, 3, SUBSTITUTE
+	db 4, 4, SWORDS_DANCE
+	; MVENUSAUR
+	db 5, 1, SYNTHESIS
+	db 5, 2, SLEEP_POWDER
+	db 5, 3, LEECH_SEED
+	db 5, 4, GUNK_SHOT
+	; MSTARMIE ; delta
+	db 6, 1, METEOR_MASH
+	db 6, 2, PSYCHO_CUT
+	db 6, 3, BLIZZARD
+	db 6, 4, RECOVER
+	db $FE
 
 ; ===============================================================
 

@@ -238,6 +238,10 @@ INCLUDE "data/trainers/parties.asm" ; moved from "Battle Engine 6"
 INCLUDE "engine/battle/read_trainer_party.asm" ; moved from "Battle Engine 6"
 
 
+SECTION "Battle Engine 6d", ROMX ; new
+INCLUDE "engine/battle/read_trainer_special_moves.asm"
+
+
 SECTION "Evos Moves 1", ROMX ; new, from Vortiene's pureRGB, moved from "Battle Engine 6"
 
 INCLUDE "data/pokemon/base_stats.asm"
