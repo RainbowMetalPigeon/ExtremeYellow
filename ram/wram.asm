@@ -585,8 +585,8 @@ wCanEvolveFlags:: db
 
 wForceEvolution:: db
 
-; if [wAILayer2Encouragement] != 1, the second AI layer is not applied
-wAILayer2Encouragement:: db
+; originally: if [WAITurnCounter] != 1, the second AI layer is not applied
+WAITurnCounter:: db ; it was wAILayer2Encouragement, got renamed
 
 	ds 1
 

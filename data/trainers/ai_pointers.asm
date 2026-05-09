@@ -20,7 +20,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; FISHER
 	dbw 3, GenericAI ; SWIMMER
 	dbw 3, GenericAI ; CUE_BALL
-	dbw 3, GenericAI ; GAMBLER
+	dbw 3, GamblerAI ; GAMBLER ; edited
 	dbw 3, GenericAI ; BEAUTY
 	dbw 3, GenericAI ; PSYCHIC_TR
 	dbw 3, GenericAI ; ROCKER
@@ -73,7 +73,7 @@ TrainerAIPointers:
 	dbw 3, GenericAI ; PINK
 	dbw 3, GenericAI ; YOUNG_OAK
 	dbw 3, GenericAI ; JENNY
-	dbw 3, GenericAI ; CHALLENGER
+	dbw 3, GenericAI ; CHALLENGER ; TBE
 
 	dbw 3, GenericAI ; JESSIEJAMES
 	dbw 3, OrageAI   ; ORAGE

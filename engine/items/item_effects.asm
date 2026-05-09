@@ -162,6 +162,8 @@ ItemSleepBag:
 	ld a, [wWalkBikeSurfState]
 	cp 3 ; for dive
 	jp z, ItemUseNotTime
+	callfar IsCurrentMapHauntedHouse_AlsoIslandAndPallet
+	jp z, ItemUseNotTime
 	call EnableAutoTextBoxDrawing
 	tx_pre SleepBagText
 	callfar ChangeDayNightPhase

@@ -143,20 +143,41 @@ _Route12AfterBattleText3::
 	cont "with MOON STONE!"
 	done
 
-_Route12BattleText4:: ; TBE
-	text "Electricity is my"
-	line "specialty!"
+_Route12BattleText4::
+	text "Strap on your"
+	line "shields and raise"
+	cont "your banners!"
+
+	para "Hear the call of"
+	line "raging battle!"
+
+	para "Beneath a hail of"
+	line "burning arrows!"
 	done
 
-_Route12EndBattleText4:: ; TBE
-	text "Unplugged!"
+_Route12EndBattleText4::
+	text "Push ever"
+	line "forward, never"
+	cont "surrender!"
+;	xxxx "123456789012345678"
 	prompt
 
-_Route12AfterBattleText4:: ; TBE
-	text "Water conducts"
-	line "electricity, so"
-	cont "you should zap"
-	cont "sea #MON!"
+_Route12AfterBattleText4::
+	text "Siege weapons"
+	line "tolling out"
+	cont "like thunder!"
+
+	para "Ripping the city"
+	line "walls asunder!"
+
+	para "Columns of flame"
+	line "reach ever"
+	cont "skyward!"
+
+	para "Horizons filled"
+	line "with burning"
+	cont "pyres!"
+;	xxxx "123456789012345678"
 	done
 
 _Route12BattleText5:: ; edited

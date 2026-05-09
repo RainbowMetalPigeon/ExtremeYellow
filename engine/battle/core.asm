@@ -302,7 +302,14 @@ MainInBattleLoop:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	callfar TrainerAI
-	jr c, .AIActionUsedEnemyFirst
+; new
+;	jr c, .AIActionUsedEnemyFirst
+	jr nc, .enemyFirstnoAI
+	ld hl, WAITurnCounter
+	inc [hl]
+	jr .AIActionUsedEnemyFirst
+.enemyFirstnoAI
+; BTV 
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -349,7 +356,14 @@ MainInBattleLoop:
 	ld a, $1
 	ldh [hWhoseTurn], a
 	callfar TrainerAI
-	jr c, .AIActionUsedPlayerFirst
+; new
+;	jr c, .AIActionUsedPlayerFirst
+	jr nc, .playerFirstnoAI
+	ld hl, WAITurnCounter
+	inc [hl]
+	jr .AIActionUsedPlayerFirst
+.playerFirstnoAI
+; BTV 
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -712,7 +726,7 @@ ReplaceFaintedEnemyMon:
 	xor a
 	ld [wEnemyMoveNum], a
 	ld [wActionResultOrTookBattleTurn], a
-	ld [wAILayer2Encouragement], a
+	ld [WAITurnCounter], a
 	inc a ; reset Z flag
 	ret
 
@@ -6424,7 +6438,7 @@ ExecuteEnemyMove:
 	cp 4
 	ret nc
 .executeEnemyMove
-	ld hl, wAILayer2Encouragement
+	ld hl, WAITurnCounter
 	inc [hl]
 	xor a
 	ld [wMoveMissed], a

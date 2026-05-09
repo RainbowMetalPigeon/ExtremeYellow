@@ -177,8 +177,9 @@ _CeladonCityText10::
 	done
 
 _CeladonCityText19:: ; new
-	text "CELADON DINER"
-	line "You need food to"
+	text "CELADON"
+	line "RESTAURANT"
+	cont "You need food to"
 	cont "shop and gamble!"
 	done
 

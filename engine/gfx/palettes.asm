@@ -138,6 +138,23 @@ SetPal_TownMap:
 	ld de, BlkPacket_WholeScreen
 	ret
 
+SetPal_TrainerCardBack:
+	ld a, [wPlayerGender]
+	and a
+	jr z, .malePalette
+	cp 1
+	jr z, .femalePalette
+	ld hl, PalPacket_TrainerCardYellow
+	jr .playerPALChosen
+.femalePalette
+	ld hl, PalPacket_TrainerCardGreen
+	jr .playerPALChosen
+.malePalette
+	ld hl, PalPacket_TrainerCardRed
+.playerPALChosen
+	ld de, BlkPacket_WholeScreen
+	ret
+
 ; uses PalPacket_Empty to build a packet based the mon ID
 SetPal_StatusScreen:
 	ld hl, PalPacket_Empty
@@ -667,22 +684,22 @@ SetPal_TrainerCard:
 	inc de
 	dec c
 	jr nz, .badgeLoop
-;; new
-;	ld a, [wPlayerGender]
-;	and a
-;	jr z, .malePalette2
-;	cp 1
-;	jr z, .femalePalette2
-;	ld hl, PalPacket_TrainerCardYellow
-;	jr .playerPALChosen
-;.femalePalette2
-;	ld hl, PalPacket_TrainerCardGreen
-;	jr .playerPALChosen
-;.malePalette2
-;	ld hl, PalPacket_TrainerCardRed
-;.playerPALChosen
-;; BTV
-	ld hl, PalPacket_TrainerCard
+; new
+	ld a, [wPlayerGender]
+	and a
+	jr z, .malePalette2
+	cp 1
+	jr z, .femalePalette2
+	ld hl, PalPacket_TrainerCardYellow
+	jr .playerPALChosen
+.femalePalette2
+	ld hl, PalPacket_TrainerCardGreen
+	jr .playerPALChosen
+.malePalette2
+	ld hl, PalPacket_TrainerCardRed
+.playerPALChosen
+; BTV
+;	ld hl, PalPacket_TrainerCard
 	ld de, wTrainerCardBlkPacket
 	ret
 
@@ -717,6 +734,7 @@ SetPalFunctions:
 	dw SetPal_TypeChart ; new
 	dw SetPal_PokedexDelta ; new
 	dw SetPal_PokedexShinyDelta; new
+	dw SetPal_TrainerCardBack; new
 	dw SendUnknownPalPacket_7205d ; related to engine/minigame/surfing_pikachu.asm
 	dw SendUnknownPalPacket_72064 ; related to engine/minigame/surfing_pikachu.asm
 

@@ -18,6 +18,7 @@ HauntedRedsHouse_Object:
 	bg_event  3,  0, 8 ; HauntedRedsHousePersonalizationText
 	bg_event  4,  0, 9 ; HauntedRedsHouseRandomizationText
 	bg_event  5,  0, 10 ; HauntedRedsHouseLuckText
+	bg_event  6,  0, 11 ; HauntedRedsHouseLayoutText
 
 	def_object_events
 	object_event 19,  4, SPRITE_MOM, STAY, LEFT, 1

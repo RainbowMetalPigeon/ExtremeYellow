@@ -99,22 +99,25 @@ _Route27AfterBattleText1::
 
 ; ---------
 
-_Route27BattleText2:: ; TBE
-    text "READY TO LISTEN TO"
-    line "MY METAL???"
+_Route27BattleText2::
+	text "I got the power to"
+	line "repress my"
+	cont "infinite hate!"
     done
 
-_Route27EndBattleText2:: ; TBE
-    text "YOU CAN"
-    line "DEFEAT ME, BUT"
-    cont "YOU CAN'T BEAT"
-    cont "THE BEAT!"
+_Route27EndBattleText2::
+	text "Behind"
+	line "his eyes, under"
+	cont "a white"
+    cont "dragon shape!"
+;	xxxx "123456789012345678"
     prompt
 
-_Route27AfterBattleText2:: ; TBE
-    text "I WANT TO THROW"
-    line "THE GREATEST"
-    cont "CONCERT EVER!"
-
-    para "YOU'RE INVITED!"
+_Route27AfterBattleText2::
+	text "My mental forces"
+	line "belong to a dream"
+	cont "astral plane,"
+	cont "but my claws and"
+	cont "flames have the"
+	cont "real name!"
     done

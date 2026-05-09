@@ -94,14 +94,17 @@ _CeladonMartRoofText_4852c::
 	cont "after all!@"
 	text_end
 
-_CeladonMartRoofText1::
-	text "My sibling is a"
-	line "trainer, believe"
-	cont "it or not."
+_CeladonMartRoofText1:: ; edited
+	text "The selection at"
+	line "the vending"
+	cont "machines is quite"
+	cont "good, but they"
+	cont "don't have TEA."
 
-	para "But, they're so"
-	line "immature, they"
-	cont "drive me nuts!"
+	para "I heard that the"
+	line "RESTAURANT serves"
+	cont "an excellent one!"
+;	xxxx "123456789012345678"
 	done
 
 _CeladonMartRoofText_48598::
