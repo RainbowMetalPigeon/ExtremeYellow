@@ -124,7 +124,8 @@ SeviiFiveIslandGymText1:
 	call SaveEndBattleTextPointers
 	ld a, OPP_GONQUE
 	ld [wCurOpponent], a
-	ld a, 1
+	call Random ; pick one of two random teams
+	and %00000001
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a

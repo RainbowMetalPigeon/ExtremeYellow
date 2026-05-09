@@ -4370,9 +4370,117 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
+	db YOTTRO, 1
+	; MVENUSAUR
+	db 1, 1, SYNTHESIS
+	db 1, 2, SUNNY_DAY
+	db 1, 3, RAZOR_LEAF
+	db 1, 4, WEATHER_BALL
+	; MSTARMIE
+	db 2, 1, RAPID_SPIN
+	db 2, 2, CLOSE_COMBAT
+	db 2, 3, PSYCHO_CUT
+	db 2, 4, RECOVER
+	; MGENGAR
+	db 3, 1, REST
+	db 3, 2, TOXIC
+	db 3, 3, DARK_PULSE
+	db 3, 4, CURSE
+	; MBLASTOISE
+	db 4, 1, RAPID_SPIN
+	db 4, 2, HYDRO_CANNON
+	db 4, 3, BLIZZARD
+	db 4, 4, REST
+	; MSTEELIX
+	db 5, 1, DRAGON_DANCE
+	db 5, 2, STONE_EDGE
+	db 5, 3, EARTHQUAKE
+	db 5, 4, REST
+	; MALAKAZAM
+	db 6, 1, MOONBLAST
+	db 6, 2, PSYCHO_CUT
+	db 6, 3, ENERGY_BALL
+	db 6, 4, RECOVER
+	db $FE
 
 ; ===============================================================
 
+	db GONQUE, 1
+	; MBEEDRILL - BUG/POISON
+	db 1, 1, MEGAHORN
+	db 1, 2, STICKY_WEB
+	db 1, 3, GUNK_SHOT
+	db 1, 4, DRILL_RUN
+	; MCHARZARDX ; delta - ELECTRIC/DARK
+	db 2, 1, STONE_EDGE
+	db 2, 2, EARTHQUAKE
+	db 2, 3, CLOSE_COMBAT
+	db 2, 4, COUNTER
+	; MSTARMIE ; delta - ICE/STEEL
+	db 3, 1, AIR_CUTTER
+	db 3, 2, STONE_EDGE
+	db 3, 3, MEGAHORN
+	db 3, 4, ROOST
+	; MPIDGEOT - NORMAL/FLYING
+	db 4, 1, DRAININGKISS
+	db 4, 2, SUBSTITUTE
+	db 4, 3, REFLECT
+	db 4, 4, DOUBLE_TEAM
+	; MSLOWBRO - WATER/PSYCHIC
+	db 5, 1, MOONBLAST
+	db 5, 2, MINIMIZE
+	db 5, 3, SUBSTITUTE
+	db 5, 4, THUNDER_WAVE
+	; MPINSIR ; delta - GROUND/FIGHTING
+	db 6, 1, LEECH_LIFE
+	db 6, 2, GUNK_SHOT
+	db 6, 3, CONFUSE_RAY
+	db 6, 4, AIR_SLASH
+	db $FE
+
+FAIRY
+ROCK
+GRASS
+GHOST
+DRAGON
+FIRE
+
+FLYING
+
+; --------------------------
+
+	db GONQUE, 2
+	; MARODACTYL - ROCK/FLYING
+	db 1, 1, STEEL_WING
+	db 1, 2, STICKY_WEB
+	db 1, 3, GUNK_SHOT
+	db 1, 4, DRILL_RUN
+	; MCHARZARDX - FIRE/DRAGON
+	db 2, 1, STONE_EDGE
+	db 2, 2, EARTHQUAKE
+	db 2, 3, IRON_TAIL
+	db 2, 4, SELFDESTRUCT
+	; MVENUSAUR ; delta - ICE/GHOST
+	db 3, 1, GUNK_SHOT
+	db 3, 2, RAZOR_LEAF
+	db 3, 3, LOVELY_KISS
+	db 3, 4, SYNTHESIS
+	; MVICTREBEL - GRASS/POISON
+	db 4, 1, METEOR_MASH
+	db 4, 2, AIR_SLASH
+	db 4, 3, SUBSTITUTE
+	db 4, 4, SWORDS_DANCE
+	; MCLEFABLE - FAIRY/FLYING
+	db 5, 1, SYNTHESIS
+	db 5, 2, SLEEP_POWDER
+	db 5, 3, LEECH_SEED
+	db 5, 4, GUNK_SHOT
+	; MDRAGONITE ; delta - ELECTRIC/GRASS
+	db 6, 1, METEOR_MASH
+	db 6, 2, PSYCHO_CUT
+	db 6, 3, BLIZZARD
+	db 6, 4, RECOVER
+	db $FE
 
 ; ===============================================================
 
