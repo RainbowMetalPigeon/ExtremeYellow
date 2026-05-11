@@ -4437,20 +4437,11 @@ SpecialTrainerMoves:
 	db 6, 3, CONFUSE_RAY
 	db 6, 4, AIR_SLASH
 	db $FE
-
-FAIRY
-ROCK
-GRASS
-GHOST
-DRAGON
-FIRE
-
-FLYING
-
+	
 ; --------------------------
 
 	db GONQUE, 2
-	; MARODACTYL - ROCK/FLYING
+	; MBLASTOISE - ROCK/STEEL
 	db 1, 1, STEEL_WING
 	db 1, 2, STICKY_WEB
 	db 1, 3, GUNK_SHOT
