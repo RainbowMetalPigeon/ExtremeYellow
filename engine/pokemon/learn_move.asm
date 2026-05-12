@@ -299,10 +299,7 @@ ShowDetailedInfoMove: ; new label from Phoenix
 	ld [wUpdateSpritesEnabled], a
 	callfar ShowAttackdexData
 	call GBPalWhiteOut
-	call RestoreScreenTilesAndReloadTilePatterns
-;	call ReloadTilesetTilePatterns
-;	call ReloadMapData
-	call LoadScreenTilesFromBuffer2
+	call RestoreScreenTilesAndReloadTilePatterns_NoMapReload ; LoadScreenTilesFromBuffer2 is included here
 	pop af
 	ld [wd11e], a
 	ld [wMoveNum], a
@@ -638,22 +635,26 @@ PrintInfoNewMove: ; new, TBE with stuff from core?
 ; new from Phoenix --------------------
 
 SaveScreenTilesToSSpriteBuffer:
+; enable SRAM saving
 	ld a, SRAM_ENABLE
 	ld [MBC1SRamEnable], a
 	xor a
 	ld [MBC1SRamBank], a
 	inc a
 	ld [MBC1SRamBankingMode], a
+; copy data
 	hlcoord 0, 0
 	ld de, sSpriteBuffer0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	call CopyData
+; disable SRAM saving
 	xor a
 	ld [MBC1SRamBankingMode], a
 	ld [MBC1SRamEnable], a
 	ret
 
-LoadScreenTilesFromSSpriteBuffer::
+LoadScreenTilesFromSSpriteBuffer:
+; enable SRAM saving
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld a, SRAM_ENABLE
@@ -662,13 +663,15 @@ LoadScreenTilesFromSSpriteBuffer::
 	ld [MBC1SRamBank], a
 	inc a
 	ld [MBC1SRamBankingMode], a
+; copy data
 	ld hl, sSpriteBuffer0
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	call CopyData
+; disable SRAM saving
 	xor a
 	ld [MBC1SRamBankingMode], a
 	ld [MBC1SRamEnable], a
-	inc a
-	ldh [hAutoBGTransferEnabled], a
+;	inc a
+;	ldh [hAutoBGTransferEnabled], a
 	ret

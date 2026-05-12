@@ -2,7 +2,8 @@ InitMapSprites::
 	jpfar _InitMapSprites
 
 RestoreScreenTilesAndReloadTilePatterns::
-	call ReloadMapData ; needed to expand tileset?
+	call ReloadMapData ; needed to expand tileset
+RestoreScreenTilesAndReloadTilePatterns_NoMapReload:: ; new
 	call ClearSprites
 	call ReloadMapSpriteTilePatterns
 	call LoadScreenTilesFromBuffer2
