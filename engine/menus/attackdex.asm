@@ -380,7 +380,6 @@ IsAttackBitSet:
 ShowAttackdexData:
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
-;	call UpdateSprites ; TBV
 	callfar LoadPokedexTilePatterns ; load pokedex tiles
 
 ; function to display attackdex data from inside the attackdex
@@ -395,12 +394,15 @@ ShowAttackdexDataInternal:
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut ; zero all palettes
 	ld a, [wd11e] ; attack ID
+	push af ; new from Phoenix
+	xor a ; new from Phoenix
 	ld [wcf91], a
-	push af
+;	push af ; edited from Phoenix
 	ld b, SET_PAL_POKEDEX
 	call RunPaletteCommand
 	pop af
 	ld [wd11e], a
+	ld [wcf91], a ; new from Phoenix
 	call DrawAttackdexEntryOnScreen
 	call Attackdex_PrintFlavorTextAtRow10
 .waitForButtonPress
@@ -412,6 +414,21 @@ ShowAttackdexDataInternal:
 	ldh [hTileAnimations], a
 	call GBPalWhiteOut
 	call ClearScreen
+; new from Phoenix
+	ld hl, wNewFlags
+	bit 1, [hl]
+	jr nz, .skipRDPC
+	call RunDefaultPaletteCommand
+.skipRDPC
+	call LoadTextBoxTilePatterns
+	call GBPalNormal
+	ld hl, wd72c
+	res 1, [hl]
+	ld a, $77 ; max volume
+	ldh [rNR50], a
+	ret
+
+/*
 	call RunDefaultPaletteCommand
 	call LoadTextBoxTilePatterns
 	call GBPalNormal
@@ -420,6 +437,7 @@ ShowAttackdexDataInternal:
 	ld a, $77 ; max volume
 	ldh [rNR50], a
 	ret
+*/
 
 ; horizontal line that divides the pokedex text description from the rest of the data
 AttackdexDataDividerLine:

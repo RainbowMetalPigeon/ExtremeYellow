@@ -131,6 +131,7 @@ TryingToLearn:
 	hlcoord 4, 8 ; 4, 7
 	lb bc, 4, 14
 	call TextBoxBorder
+	call UpdateSprites ; new from Phoenix
 ; print the 4 moves
 	hlcoord 6, 9 ; 6, 8
 	ld de, wMovesString
@@ -148,6 +149,7 @@ TryingToLearn:
 	call TextBoxBorder ; draws a c×b text box at hl
 ; print info for new move
 	call PrintInfoNewMove
+	call UpdateSprites ; new from Phoenix
 ; do things about the arrow?
 	ldh a, [hUILayoutFlags]
 	res 2, a
@@ -163,11 +165,12 @@ TryingToLearn:
 ; do things, including new declaring which buttons to watch (new, and also new is watching over START)
 	ld a, [wNumMovesMinusOne]
 	ld [hli], a ; wMaxMenuItem
-	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP | START
+	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP | START ; TBE with SELECT for old move
 	ld [hli], a ; wMenuWatchedKeys
 	ld [hl], 0 ; wLastMenuItem
 ; printing old move info
 	call PrintInfoCurrentMove
+	call UpdateSprites ; new from Phoenix
 .inputLoop
 	ld hl, hUILayoutFlags
 	set 1, [hl]
@@ -181,6 +184,7 @@ TryingToLearn:
 	jr nz, .doTheThings
 	bit BIT_START, a
 	jr nz, ShowDetailedInfoNewMove ; testing
+	; TBE with SELECT
 ; not A or B or START, so is UP or DOWN
 	push af
 	bit BIT_D_DOWN, a
@@ -230,21 +234,68 @@ TryingToLearn:
 ShowDetailedInfoNewMove: ; new
 	ld a, [wMoveNum]
 	ld [wd11e], a
+	push af ; new from Phoenix
+	; fallthrough
+
+ShowDetailedInfoMove: ; new label from Phoenix
+; new from Phoenix
+	ld hl, wNewFlags
+	bit 1, [hl]
+	jp nz, .evoLvUp
+; BTP
 ; check if we're learning the move in battle or in the party menu
 	ld a, [wIsInBattle]
 	and a
 	jr nz, .inBattle
 ; in the party menu
-	call SaveScreenTilesToBuffer2
-	call HideSprites
+	bit 0, [hl]
+	jr z, .moveRelearner
+
+	call SaveScreenTilesToSSpriteBuffer
+	call ClearSprites
 	callfar ShowAttackdexData
-	call LoadScreenTilesFromBuffer2
+	xor a
+	ldh [hAutoBGTransferEnabled], a
 	call LoadHpBarAndStatusTilePatterns
-;	ld b, SET_PAL_PARTY_MENU
-;	call RunPaletteCommand
-	callfar SetPartyMenuHPBarColor
-;	call GBPalNormal
+	callfar DrawHPBars
+	call LoadScreenTilesFromSSpriteBuffer
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	call Delay3
+	callfar DrawPartySprites
+	pop af
+	ld [wd11e], a
+	ld [wMoveNum], a
+	; TBE: wUniQuizAnswer?
+	call GetMoveName
+	ld bc, NAME_BUFFER_LENGTH
+	ld de, wStringBuffer
+	ld hl, wcd6d
+	call CopyData
 	jp TryingToLearn.inputLoop
+
+.moveRelearner
+	call SaveScreenTilesToBuffer2
+	xor a
+	ld [wUpdateSpritesEnabled], a
+	callfar ShowAttackdexData
+	call GBPalWhiteOut
+	call RestoreScreenTilesAndReloadTilePatterns
+;	call ReloadTilesetTilePatterns
+;	call ReloadMapData
+	call LoadScreenTilesFromBuffer2
+	pop af
+	ld [wd11e], a
+	ld [wMoveNum], a
+	; TBE wUniQuizAnswer?
+	call GetMoveName
+	ld bc, NAME_BUFFER_LENGTH
+	ld de, wStringBuffer
+	ld hl, wcd6d
+	call CopyData
+	call LoadGBPal
+	jp TryingToLearn.inputLoop
+
 .inBattle
 	call SaveScreenTilesToBuffer2
 	callfar ShowAttackdexData
@@ -254,6 +305,38 @@ ShowDetailedInfoNewMove: ; new
 	predef LoadMonBackPic
 	call LoadScreenTilesFromBuffer2
 	callfar LoadHudAndHpBarAndStatusTilePatterns
+; new from Phoenix
+	pop af
+	ld [wd11e], a
+	ld [wMoveNum], a
+	; TBE: wUniQuizAnswer?
+	call GetMoveName
+	ld bc, NAME_BUFFER_LENGTH
+	ld de, wStringBuffer
+	ld hl, wcd6d
+	call CopyData
+; BTP
+	jp TryingToLearn.inputLoop
+
+; new from Phoenix
+.evoLvUp
+	call SaveScreenTilesToSSpriteBuffer
+	call ClearSprites
+	callfar ShowAttackdexData
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call LoadScreenTilesFromSSpriteBuffer
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	pop af
+	ld [wd11e], a
+	ld [wMoveNum], a
+	; TBE: wUniQuizAnswer?
+	call GetMoveName
+	ld bc, NAME_BUFFER_LENGTH
+	ld de, wStringBuffer
+	ld hl, wcd6d
+	call CopyData
 	jp TryingToLearn.inputLoop
 
 LearnedMove1Text:
@@ -417,6 +500,26 @@ PrintInfoCurrentMove: ; new
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 
+	hlcoord 11, 4
+	ld a, "<SELINFO1>"
+	ld [hli], a
+	ld a, "<SELINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+
+	hlcoord 11, 8
+	ld a, "<STAINFO1>"
+	ld [hli], a
+	ld a, "<STAINFO2>"
+	ld [hli], a
+	ld a, "<SELINFO3>"
+	ld [hli], a
+	ld a, "<SELINFO4>"
+	ld [hl], a
+
 	pop af
 	pop de
 	pop bc
@@ -429,7 +532,7 @@ PPText2:
 
 ; ==============================================================================
 
-PrintInfoNewMove: ; new
+PrintInfoNewMove: ; new, TBE with stuff from core?
 	push hl
 	push bc
 	push de
@@ -512,3 +615,41 @@ PrintInfoNewMove: ; new
 	pop hl
 
 	jp Delay3
+
+; new from Phoenix --------------------
+
+SaveScreenTilesToSSpriteBuffer:
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	xor a
+	ld [MBC1SRamBank], a
+	inc a
+	ld [MBC1SRamBankingMode], a
+	hlcoord 0, 0
+	ld de, sSpriteBuffer0
+	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
+	call CopyData
+	xor a
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
+	ret
+
+LoadScreenTilesFromSSpriteBuffer::
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	xor a
+	ld [MBC1SRamBank], a
+	inc a
+	ld [MBC1SRamBankingMode], a
+	ld hl, sSpriteBuffer0
+	decoord 0, 0
+	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
+	call CopyData
+	xor a
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
+	inc a
+	ldh [hAutoBGTransferEnabled], a
+	ret

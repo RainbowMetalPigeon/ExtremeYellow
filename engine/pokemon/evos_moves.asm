@@ -303,11 +303,15 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld a, [wd0b5] ; current species
 	ld [wd11e], a ; pokedex number
 ;	push af ; new to bug fix from ZetaPhoenix
+	ld hl, wNewFlags ; new from Phoenix
+	set 1, [hl] ; new from Phoenix
 	xor a
 	ld [wMonDataLocation], a
 	call LearnMoveFromLevelUp
 ;	pop af ; new to bug fix from ZetaPhoenix
 ;	ld [wd11e], a ; new to bug fix from ZetaPhoenix
+	ld hl, wNewFlags ; new from Phoenix
+	res 1, [hl] ; new from Phoenix
 	pop hl
 	predef SetPartyMonTypes
 	ld a, [wIsInBattle]

@@ -17,8 +17,7 @@ MoveRelearnerText1:
 	jr nc, .enoughMoney
 	; not enough money
 	ld hl, MoveRelearnerNotEnoughMoneyText
-	call PrintText
-	jp TextScriptEnd
+	jp .printAndEnd
 .enoughMoney
 	ld hl, MoveRelearnerSaidYesText
 	call PrintText
@@ -47,8 +46,7 @@ MoveRelearnerText1:
 	jr nz, .chooseMove
 	pop bc
 	ld hl, MoveRelearnerNoMovesText
-	call PrintText
-	jp TextScriptEnd
+	jr .printAndEnd
 .chooseMove
 	ld hl, MoveRelearnerWhichMoveText
 	call PrintText
@@ -99,10 +97,10 @@ MoveRelearnerText1:
 	ld c, $3
 	predef SubBCDPredef
 	ld hl, MoveRelearnerByeText
-	call PrintText
-	jp TextScriptEnd
+	jr .printAndEnd
 .exit
 	ld hl, MoveRelearnerByeText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 

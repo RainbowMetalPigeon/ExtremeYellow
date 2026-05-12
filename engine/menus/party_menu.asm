@@ -361,3 +361,81 @@ GetPartyMenuWatchedKeys:: ; new, from Vortiene
 	ld [wForcePlayerToChooseMon], a
 	ld d, A_BUTTON
 	ret
+
+DrawHPBars:: ; new from Phoenix
+	ld a, [wWhichPokemon]
+	push af
+	farcall InitPartyMenuBlkPacket
+	hlcoord 3, 0
+	ld de, wPartySpecies
+	xor a
+	ld c, a
+	ldh [hPartyMonIndex], a
+	ld [wWhichPartyMenuHPBar], a
+.loop2
+	ld a, [de]
+	cp $FF ; reached the terminator?
+	jr z, .done2
+	push bc
+	push de
+	push hl
+; redraw and color hp bars
+	ld a, c
+	ld [wWhichPokemon], a
+	call LoadMonData
+	pop hl
+	push hl
+	ld bc, 21
+	ldh a, [hUILayoutFlags]
+	set 0, a
+	ldh [hUILayoutFlags], a
+	add hl, bc
+	predef DrawHP2 ; draw HP bar and prints current / max HP
+	ldh a, [hUILayoutFlags]
+	res 0, a
+	ldh [hUILayoutFlags], a
+	call SetPartyMenuHPBarColor ; color the HP bar (on SGB)
+; prepare next loop
+	pop hl
+	ld bc, 40
+	add hl, bc
+	pop de
+	pop bc
+	inc de
+	inc c
+	jr .loop2
+.done2
+	pop af
+	ld [wWhichPokemon], a
+	ld b, SET_PAL_PARTY_MENU
+	call RunPaletteCommand
+	ld a, %11100100 ; 3210
+	ldh [rBGP], a
+	ldh [rOBP0], a
+	ret
+
+DrawPartySprites:: ; new from Phoenix
+	hlcoord 3, 0
+	ld de, wPartySpecies
+	xor a
+	ld c, a
+	ldh [hPartyMonIndex], a
+.loop3
+	ld a, [de]
+	cp $FF ; reached the terminator?
+	ret z
+	push bc
+	push de
+	push hl
+	ld a, c
+	ldh [hPartyMonIndex], a
+	farcall WriteMonPartySpriteOAMByPartyIndex ; place the appropriate pokemon icon
+; prepare next loop
+	pop hl
+	ld bc, 40
+	add hl, bc
+	pop de
+	pop bc
+	inc de
+	inc c
+	jr .loop3

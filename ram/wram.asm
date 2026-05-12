@@ -382,7 +382,9 @@ wMenuCursorLocation:: dw
 ; if 0, normal battle; if 1, Inverse Battle
 wInverseBattle:: db ; new
 
-	ds 1 ; edited because of the inverse battle variable
+; bit 0: learning move through rare candy
+; bit 1: learning move through evolution
+wNewFlags:: db ; new from Phoenix
 
 ; how many times should HandleMenuInput poll the joypad state before it returns?
 wMenuJoypadPollCount:: db

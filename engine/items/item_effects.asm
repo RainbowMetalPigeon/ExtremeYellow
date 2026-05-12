@@ -2404,7 +2404,11 @@ ItemUseMedicine:
 	call WaitForTextScrollButtonPress ; wait for button press
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
+	ld hl, wNewFlags
+	set 0, [hl]
 	predef LearnMoveFromLevelUp ; learn level up move, if any
+	ld hl, wNewFlags
+	res 0, [hl]
 
 	xor a
 	ld [wForceEvolution], a
@@ -3477,7 +3481,11 @@ ItemUseTMHM:
 .checkIfAlreadyLearnedMove
 	callfar CheckIfMoveIsKnown ; check if the pokemon already knows the move
 	jr c, .chooseMon
+	ld hl, wNewFlags
+	set 0, [hl]
 	predef LearnMove ; teach move
+	ld hl, wNewFlags
+	res 0, [hl]
 	ld a, [wWhichPokemon]
 	ld d, a
 	pop af
