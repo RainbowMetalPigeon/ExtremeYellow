@@ -87,6 +87,12 @@ ReloadMainMenu:
 	xor a
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	call ReloadMapData
+; new
+	CheckEvent EVENT_USING_PORTABLE_PC
+	jr z, .doNotDisplayStartMenu
+	farcall DrawStartMenu
+.doNotDisplayStartMenu
+; BTV
 	call UpdateSprites
 	jp PCMainMenu
 LogOff:

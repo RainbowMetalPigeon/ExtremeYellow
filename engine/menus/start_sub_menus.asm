@@ -1053,6 +1053,7 @@ SwitchPartyMon_InitVarOrSwapData:
 	ret
 
 StartMenu_PortablePC:: ; new
+	SetEvent EVENT_USING_PORTABLE_PC
 
 ; next piece is to preserve the map text pointers
 	ld hl, wMapTextPtr
@@ -1098,6 +1099,9 @@ StartMenu_PortablePC:: ; new
 	call LoadScreenTilesFromBuffer2 ; restore saved screen
 	call LoadTextBoxTilePatterns
 	call UpdateSprites
+	push hl
+	ResetEvent EVENT_USING_PORTABLE_PC
+	pop hl
 	jp RedisplayStartMenu
 
 CantUseThisHere:
