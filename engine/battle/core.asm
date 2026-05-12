@@ -3194,6 +3194,18 @@ PrintMenuItem:
 	hlcoord 1, 10
 	jr .printBP
 .notGyroBall
+	cp FLAIL
+	jr nz, .notFlail
+	push hl
+	callfar CalculateFlailBasePower ; BP is in d
+	pop hl
+	ld a, d
+	ld [wAnotherTemporaryStorageVariable], a
+	ld de, wAnotherTemporaryStorageVariable
+	hlcoord 1, 10
+	jr .printBP
+.notFlail
+; not even Flail
 	ld a, [wPlayerMovePower]
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT
 	jr z, .specialDamage
