@@ -165,7 +165,7 @@ TryingToLearn:
 ; do things, including new declaring which buttons to watch (new, and also new is watching over START)
 	ld a, [wNumMovesMinusOne]
 	ld [hli], a ; wMaxMenuItem
-	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP | START ; TBE with SELECT for old move
+	ld a, A_BUTTON | B_BUTTON | D_DOWN | D_UP | SELECT | START
 	ld [hli], a ; wMenuWatchedKeys
 	ld [hl], 0 ; wLastMenuItem
 ; printing old move info
@@ -183,9 +183,10 @@ TryingToLearn:
 	bit BIT_B_BUTTON, a
 	jr nz, .doTheThings
 	bit BIT_START, a
-	jr nz, ShowDetailedInfoNewMove ; testing
-	; TBE with SELECT
-; not A or B or START, so is UP or DOWN
+	jr nz, ShowDetailedInfoNewMove
+	bit BIT_SELECT, a
+	jr nz, ShowDetailedInfoOldMove
+; not A or B or START or SELECT, so is UP or DOWN
 	push af
 	bit BIT_D_DOWN, a
 	jr nz, .updateBox
@@ -230,6 +231,24 @@ TryingToLearn:
 .cancel
 	scf
 	ret
+
+ShowDetailedInfoOldMove: ; new from Phoenix
+	ld a, [wMoveNum]
+	push af
+
+	ld hl, wPartyMon1Moves
+	ld bc, wPartyMon2 - wPartyMon1
+	ld a, [wWhichPokemon]
+	call AddNTimes ; adds bc to hl a times ; hl points to the moves
+
+	ld a, [wCurrentMenuItem]
+	ld c, a
+	ld b, $0 ; which move in the menu is the cursor pointing to? (0-3)
+	add hl, bc ; points to the move in memory
+	ld a, [hl] ; a should be holding the move ID
+
+	ld [wd11e], a
+	jr ShowDetailedInfoMove
 
 ShowDetailedInfoNewMove: ; new
 	ld a, [wMoveNum]
