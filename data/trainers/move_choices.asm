@@ -25,7 +25,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 3, 4    ; FISHER ; edited
 	move_choices 1, 2, 3    ; SWIMMER ; edited
 	move_choices            ; CUE_BALL
-	move_choices 1, 2, 4    ; GAMBLER ; edited
+	move_choices 1, 2, 3    ; GAMBLER ; edited
 	move_choices 1, 3, 4    ; BEAUTY ; edited
 	move_choices 1, 2, 3, 4 ; PSYCHIC_TR ; edited
 	move_choices 1, 2, 3    ; ROCKER ; edited
