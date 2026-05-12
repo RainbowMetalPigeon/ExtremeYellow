@@ -923,7 +923,7 @@
 
 ; Route 21 events
 	const_next $510
-	const_skip ; edited because of Oak (and then edited back?)
+	const EVENT_RECEIVING_MON ; new
 	const EVENT_1ST_SPOKE_WITH_ROUTE21_OAK
 	const EVENT_BEAT_ROUTE_21_TRAINER_0
 	const EVENT_BEAT_ROUTE_21_TRAINER_1

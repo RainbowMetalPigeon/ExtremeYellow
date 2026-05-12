@@ -1,6 +1,9 @@
 ; returns success in carry
 ; and whether the mon was added to the party in [wAddedToParty]
 _GivePokemon::
+; new
+	SetEvent EVENT_RECEIVING_MON
+; BTV
 ; new, for the shiny (starter pikachu and fusion machine)
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .notOaksLab

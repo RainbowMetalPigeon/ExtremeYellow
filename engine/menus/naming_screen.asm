@@ -43,9 +43,12 @@ AskName:
 	and a
 	jr nz, .inBattle
 	call ReloadMapSpriteTilePatterns
-;	call ReloadTilesetTilePatterns ; new, to expand tileset
+	call ReloadTilesetTilePatterns ; new, to expand tileset
 .inBattle
-	call LoadScreenTilesFromBuffer2 ; to be commented out to expand tileset? - it seems to do nothing
+	CheckAndResetEvent EVENT_RECEIVING_MON
+	jr z, .skipBuffer2
+	call LoadScreenTilesFromBuffer2 ; to be commented out to expand tileset?
+.skipBuffer2
 	pop hl
 	pop af
 	ld [wUpdateSpritesEnabled], a
