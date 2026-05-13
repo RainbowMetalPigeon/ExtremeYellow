@@ -364,9 +364,9 @@ ArcherPic::        INCBIN "gfx/trainers/archer.pic"
 CarrPic::          INCBIN "gfx/trainers/carr.pic"
 OrmPic::           INCBIN "gfx/trainers/orm.pic"
 SirdPic::          INCBIN "gfx/trainers/sird.pic"
-IchinoPic::
-NiuePic::
-SantrePic::
+IchinoPic::        INCBIN "gfx/trainers/ichino.pic"
+NiuePic::          INCBIN "gfx/trainers/niue.pic"
+SantrePic::        INCBIN "gfx/trainers/santre.pic"
 YottroPic::
 GonquePic::
 RokuseiPic::

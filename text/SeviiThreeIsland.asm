@@ -988,8 +988,7 @@ _SeviiThreeIslandGymText1_Intro::
 
 	para "In this SHRINE,"
 	line "all your #MON"
-	cont "must share at"
-	cont "least one type."
+	cont "must share a type."
 ;	xxxx "123456789012345678"
 	done
 
@@ -1004,8 +1003,8 @@ _SeviiThreeIslandGymText1_NoChampionYet::
 
 _SeviiThreeIslandGymText1_SharedTypes::
 	text "So you challenge"
-	line "me with a team of"
-	cont "only @"
+	line "me with only"
+	cont "@"
 	text_ram wTrainerName
 	text "."
 
