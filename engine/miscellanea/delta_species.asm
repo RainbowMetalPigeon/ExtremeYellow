@@ -50,41 +50,28 @@ DetermineIfWildMonIsDeltaSpecies::
 
 SetDeltaSpeciesEvent_Enemy::
     ld a, [wOpponentMonShiny]
-    bit BIT_MON_DELTA, a
-    ret z
-    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
-    ret
+    jr SetDeltaSpeciesEvent_Core
 
 SetDeltaSpeciesEvent_Loaded::
     ld a, [wLoadedMonCatchRate]
-    bit BIT_MON_DELTA, a
-    ret z
-    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
-    ret
+    jr SetDeltaSpeciesEvent_Core
 
 SetDeltaSpeciesEvent_Battle::
     ld a, [wBattleMonCatchRate]
-    bit BIT_MON_DELTA, a
-    ret z
-    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
-    ret
+    jr SetDeltaSpeciesEvent_Core
 
 SetDeltaSpeciesEvent_deRegister::
     ld a, [de]
-    bit BIT_MON_DELTA, a
-    ret z
-    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
-    ret
+    jr SetDeltaSpeciesEvent_Core
 
 SetDeltaSpeciesEvent_dRegister::
     ld a, d
-    bit BIT_MON_DELTA, a
-    ret z
-    SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
-    ret
+    jr SetDeltaSpeciesEvent_Core
 
 SetDeltaSpeciesEvent_PlayerForLeaguePC::
     ld a, [wPlayerMonShiny] ; for League PC
+    ; fallthrough
+SetDeltaSpeciesEvent_Core: ; doesn't need 2 colons
     bit BIT_MON_DELTA, a
     ret z
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES

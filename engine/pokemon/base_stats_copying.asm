@@ -28,7 +28,7 @@ BaseStatsCopying::
 	jr .listOfTypesGotten
 
 .checkVanillaDelta
-; new, for delta species, TBE for delta AND TCG
+; new, for delta species
 	CheckAndResetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
 	jr z, .checkAlteredTypes
 	ld hl, ListOfMonsAndTypesToChange_Delta
