@@ -5,14 +5,24 @@ YesNoChoice::
 	call InitYesNoTextBoxParameters
 	jr DisplayYesNoChoice
 
-TwoOptionMenu:: ; unreferenced
-	ld a, TWO_OPTION_MENU
-	ld [wTextBoxID], a
-	call InitYesNoTextBoxParameters
-	jp DisplayTextBoxID
+NoYesChoice:: ; new
+	call SaveScreenTilesToBuffer1
+	call InitNoYesTextBoxParameters
+	jr DisplayYesNoChoice
+
+;TwoOptionMenu:: ; unreferenced
+;	ld a, TWO_OPTION_MENU
+;	ld [wTextBoxID], a
+;	call InitYesNoTextBoxParameters
+;	jp DisplayTextBoxID
+
+InitNoYesTextBoxParameters:: ; new
+	ld a, NO_YES_MENU
+	jr InitYesNoTextBoxParameters_Core
 
 InitYesNoTextBoxParameters::
 	xor a ; YES_NO_MENU
+InitYesNoTextBoxParameters_Core: ; new
 	ld [wTwoOptionMenuID], a
 	hlcoord 14, 7
 	lb bc, 8, 15

@@ -1094,11 +1094,11 @@ wDownscaledMonSize::
 wNumMovesMinusOne:: db
 
 UNION
-wcd6d:: ds NAME_BUFFER_LENGTH ; buffer for various data
+wcd6d:: ds NAME_BUFFER_LENGTH ; =20, buffer for various data
 
 NEXTU
 ;wEvosMoves:: ds MAX_EVOLUTIONS * EVOLUTION_SIZE + 1
-wEvosMoves:: ds EVOLUTION_SIZE ; update from suloku
+wEvosMoves:: ds EVOLUTION_SIZE ; 4, update from suloku
 wEvosMovesEnd::
 
 NEXTU

@@ -119,7 +119,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; THUNDER_ORB, new
 	dw UnusableItem      ; FIRE_ORB, new
 	dw UnusableItem      ; LIGHT_BALL, new, testing
-	dw ItemShowMysteryMap ; MYSTERY_MAP, new, TBE
+	dw ItemShowMysteryMap ; MYSTERY_MAP, new
 	dw UnusableItem      ; LAVA_STONE, new
 	dw UnusableItem      ; MAGMA_STONE, new
 	dw UnusableItem      ; MOLTEN_STONE, new
@@ -2297,6 +2297,7 @@ ItemUseMedicine:
 	pop hl
 	ld hl, VitaminNoEffectText
 	call PrintText
+.vitaminNoEffect2 ; new
 	call ReloadMapData ; needed to expand tileset?
 	jp GBPalWhiteOut
 
@@ -2309,6 +2310,7 @@ ItemUseMedicine:
 	add hl, bc ; hl now points to LSB of experience
 	ld b, 1
 	jp CalcStats ; recalculate stats
+
 .useRareCandy
 	push hl
 	ld bc, wPartyMon1Level - wPartyMon1
@@ -2317,7 +2319,43 @@ ItemUseMedicine:
 	ld a, [wcf91]
 	cp LIMIT_BREAKER
 	jr z, .skipMaxLevelCheck
+
+; new to check if we have a cap in place
+	push de
+	push hl
+	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
+	cp 4
+	jr z, .noLevelCap
+; we have a cap
+	rr a
+	jr nc, .looseObedience
+	callfar ConvertNumberOfBadgesIntoCapTight ; returns in d the tight level/obedience cap
+	jr .gotCap
+.looseObedience
+	callfar ConvertNumberOfBadgesIntoCapLoose ; returns in d the loose level/obedience cap
+.gotCap
+	pop hl
+	ld a, [hl]
+	cp d ; a-d = lvl-cap < 0 => c flag <=> lvl<cap
+	jr c, .postLevelCap1
+	push hl
+	ld hl, CapReachedContinueText
+	call PrintText
+	call NoYesChoice
+	pop hl
+	pop de
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .postLevelCap2
+	pop hl
+	jp ItemUseMedicine.vitaminNoEffect2
+.noLevelCap
+	pop hl
+.postLevelCap1
+	pop de
+.postLevelCap2
 ; BTV
+
 	ld a, [hl] ; a = level
 	cp MAX_LEVEL
 	jr z, .vitaminNoEffect ; can't raise level above 100
@@ -2441,6 +2479,10 @@ VitaminStatRoseText:
 
 VitaminNoEffectText:
 	text_far _VitaminNoEffectText
+	text_end
+
+CapReachedContinueText:
+	text_far _CapReachedContinueText
 	text_end
 
 INCLUDE "data/battle/stat_names.asm"

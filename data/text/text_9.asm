@@ -92,6 +92,12 @@ _VitaminNoEffectText::
 	line "effect."
 	prompt
 
+_CapReachedContinueText:: ; new
+	text "Level CAP reached."
+	line "Continue?"
+;	xxxx "123456789012345678"
+	done
+
 _ThrewBaitText::
 	text "<PLAYER> threw"
 	line "some BAIT."
