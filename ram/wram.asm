@@ -1165,7 +1165,7 @@ wLearningMovesFromDayCare::
 
 ; the item that the AI used
 wAIItem:: db
-wUsedItemOnWhichPokemon:: db
+wUsedItemOnWhichPokemon_old:: db ; edited
 ENDU
 
 ; sound ID during battle animations
@@ -1428,7 +1428,8 @@ wBattleMon:: battle_struct wBattleMon
 
 wTrainerClass:: db
 
-	ds 1
+;	ds 1 ; edited
+wUsedItemOnWhichPokemon:: db ; edited/new
 
 wTrainerPicPointer:: dw
 

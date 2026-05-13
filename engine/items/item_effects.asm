@@ -2344,6 +2344,15 @@ ItemUseMedicine:
 	call NoYesChoice
 	pop hl
 	pop de
+
+	push de
+	push hl
+	ld a, d
+	ld hl, wPartyMonNicks
+	call GetPartyMonName
+	pop hl
+	pop de
+
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .postLevelCap2
@@ -2360,7 +2369,7 @@ ItemUseMedicine:
 	cp MAX_LEVEL
 	jr z, .vitaminNoEffect ; can't raise level above 100
 	cp MAX_LEVEL_2 ; new
-	jr z, .vitaminNoEffect ; new
+	jp z, .vitaminNoEffect ; new
 .skipMaxLevelCheck ; new
 
 	; new code for LEGEND_CANDY

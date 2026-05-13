@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEW, 13 ; 255
+	db MAGIKARP, 13 ; 255
 	db MALAKAZAM, 100
 	db STARTER_PIKACHU, 1
 ;	db MAGIKARP, 100
