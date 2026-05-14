@@ -186,6 +186,7 @@
 	charmap "<SWAP1>",     $d7
 	charmap "<SWAP2>",     $d8
 
+	charmap "<STAR>",    $dc
 	charmap "<SHINY>",   $dd
 	charmap "+",         $de
 	charmap "<MEGA>",    $df

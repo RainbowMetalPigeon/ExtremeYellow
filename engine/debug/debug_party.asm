@@ -13,10 +13,10 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MAGIKARP, 13 ; 255
+	db MVICTREBEL, 13 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 1
-;	db MAGIKARP, 100
+	db MAGIKARP, 100
 ;	db MAGIKARP, 42
 ;	db MAGIKARP, 68
 	db -1 ; end
@@ -127,9 +127,9 @@ IF DEF(_DEBUG)
 ;	ld [hl], a
 ;	ld hl, wPartyMon3CatchRate
 ;	ld [hl], a
-;	ld a, 2
-;	ld hl, wPartyMon4CatchRate
-;	ld [hl], a
+	ld a, 2
+	ld hl, wPartyMon4CatchRate
+	ld [hl], a
 ;	ld hl, wPartyMon5CatchRate
 ;	ld [hl], a
 ;	ld hl, wPartyMon6CatchRate
@@ -319,7 +319,8 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_OBTAINED_SEEDS_BAG
 
-	SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES
+	SetEvent EVENT_DEFEATED_MISSINGNO
+	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
 
 /*
 ;; BATTLE_FACILITY testing

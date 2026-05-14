@@ -166,14 +166,23 @@ StatusScreen:
 	hlcoord 6, 7
 	ld [hl], "<SHINY>"
 .notShiny
-; new, for delta symbol
+; new, for delta/star symbol
 	ld a, [wLoadedMonCatchRate]
-	bit BIT_MON_DELTA, a
-	jr z, .notDelta
-; print shiny symbol
 	hlcoord 7, 7
+	bit BIT_MON_DELTA, a
+	jr z, .checkRandomized1
 	ld [hl], "<DELTA>"
-.notDelta
+	jr .postDeltaStar
+.checkRandomized1
+	bit BIT_MON_RANDOMIZED_1, a
+	jr z, .checkRandomized2
+	ld [hl], "<STAR>"
+	jr .postDeltaStar
+.checkRandomized2
+	bit BIT_MON_RANDOMIZED_2, a
+	jr z, .postDeltaStar
+	ld [hl], "<STAR>"
+.postDeltaStar
 ; back to vanilla
 ; new, print label that suggests to click SELECT for more info
 	call PrintSelectForInfo

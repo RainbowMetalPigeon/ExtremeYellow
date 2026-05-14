@@ -21,3 +21,5 @@ DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 	const_def
 	const BIT_MON_SHINY ; 0
 	const BIT_MON_DELTA ; 1
+	const BIT_MON_RANDOMIZED_1 ; 2
+	const BIT_MON_RANDOMIZED_2 ; 3

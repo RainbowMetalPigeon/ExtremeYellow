@@ -47,7 +47,7 @@ OaksLabScript0:
 	ld hl, wd72e
 	res 4, [hl]
 
-	ld a, $1
+	ld a, 1
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -57,7 +57,7 @@ OaksLabScript1:
 	ld de, OakEntryMovement
 	call MoveSprite
 
-	ld a, $2
+	ld a, 2
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -78,7 +78,7 @@ OaksLabScript2:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 
-	ld a, $3
+	ld a, 3
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -101,7 +101,7 @@ OaksLabScript3:
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
 
-	ld a, $4
+	ld a, 4
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -124,7 +124,7 @@ OaksLabScript4:
 	res 1, [hl]
 	call PlayDefaultMusic
 
-	ld a, $5
+	ld a, 5
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -154,7 +154,7 @@ OaksLabScript5:
 	xor a
 	ld [wJoyIgnore], a
 
-	ld a, $6
+	ld a, 6
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -184,7 +184,7 @@ OaksLabScript6:
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 
-	ld a, $7
+	ld a, 7
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -194,7 +194,7 @@ OaksLabScript7:
 	ret nz
 	call Delay3
 
-	ld a, $6
+	ld a, 6
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -203,7 +203,7 @@ OaksLabScript8:
 	ldh [hSpriteIndexOrTextID], a
 	ld de, .RivalPushesPlayerAwayFromEeveeBall
 	call MoveSprite
-	ld a, $9
+	ld a, 9
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -237,7 +237,7 @@ OaksLabScript9:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 
-	ld a, $a
+	ld a, 10
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -276,7 +276,7 @@ OaksLabScript10:
 	ld [wSimulatedJoypadStatesIndex], a
 .asm_1c5a6
 	call StartSimulatingJoypadStates
-	ld a, $b
+	ld a, 11
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -297,7 +297,7 @@ OaksLabScript11:
 	xor a
 	ld [wJoyIgnore], a
 
-	ld a, $c
+	ld a, 12
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -332,7 +332,7 @@ OaksLabScript12:
 	ld a, $1
 	ldh [hSpriteIndex], a
 	call MoveSprite
-	ld a, $d
+	ld a, 13
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -359,7 +359,7 @@ OaksLabScript13:
 	ld [wJoyIgnore], a
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, $e
+	ld a, 14
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -382,7 +382,7 @@ OaksLabScript14:
 	ld [wSprite01StateData1FacingDirection], a
 	predef HealParty
 	SetEvent EVENT_BATTLED_RIVAL_IN_OAKS_LAB
-	ld a, $f
+	ld a, 15
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -407,7 +407,7 @@ OaksLabScript15:
 	ld a, NPC_MOVEMENT_LEFT
 .asm_1c6bd
 	ld [wNPCMovementDirections], a
-	ld a, $10
+	ld a, 16
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -431,7 +431,7 @@ OaksLabScript16:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	call PlayDefaultMusic
-	ld a, $11
+	ld a, 17
 	ld [wOaksLabCurScript], a
 	ret
 ; make the player keep facing the rival as he walks away
@@ -466,7 +466,7 @@ OaksLabScript17:
 	ld a, $1b ; edited, +1 for Giovanni
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, $12
+	ld a, 18
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -480,7 +480,7 @@ OaksLabScript18:
 	call DisplayTextID ; new
 	xor a
 	ld [wJoyIgnore], a
-	ld a, $16
+	ld a, 22
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -510,7 +510,7 @@ OaksLabScript19:
 	ldh [hSpriteIndex], a
 	ld de, wNPCMovementDirections2
 	call MoveSprite
-	ld a, $14
+	ld a, 20
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -597,7 +597,7 @@ OaksLabScript20:
 	ldh [hSpriteIndexOrTextID], a
 	ld de, wNPCMovementDirections2
 	call MoveSprite
-	ld a, $15
+	ld a, 21
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -617,7 +617,7 @@ OaksLabScript21:
 	predef ShowObject
 	xor a
 	ld [wJoyIgnore], a
-	ld a, $16
+	ld a, 22
 	ld [wOaksLabCurScript], a
 	ret
 
@@ -790,21 +790,12 @@ OaksLabScript_1c9ac:
 	xor a ; EXCLAMATION_BUBBLE
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
-	ld a, $8
+	ld a, 8
 	ld [wOaksLabCurScript], a
 	jp TextScriptEnd
 
-OaksLabText3:
+OaksLabText3: ; edited
 	text_asm
-	CheckEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS
-	jr nz, .asm_1c9d9
-	ld hl, wPokedexOwned
-	ld b, wPokedexOwnedEnd - wPokedexOwned
-	call CountSetBits
-	ld a, [wNumSetBits]
-	cp 2
-	jr c, .asm_1c9ec
-.asm_1c9d9
 ;	--- new block to handle post-redemption Giovanni
 ; first check if we have been gifted the SHINY CHARM
 	CheckEvent EVENT_OAK_GIFTED_SHINY_CHARM
@@ -823,90 +814,108 @@ OaksLabText3:
 	SetEvent EVENT_OAK_GIFTED_SHINY_CHARM
 	ld hl, OaksLabText_OakShinyCharm_Explanation
 	call PrintText
-	jp .asm_1ca6f
+	jp .concludeScript
 .bagFullForShinyCharm
 	ld hl, OaksLabText_OakShinyCharm_BagFull
 	call PrintText
-	jp .asm_1ca6f
+	jp .concludeScript
 .postRedemption
 	ld hl, OaksLabText_OakPostGiovanniRedemption
 	call PrintText
-	jp .asm_1ca6f
+	jp .concludeScript
 .notPostRedemption
 ;	--- end new code for post-redemption Giovanni
-	ld hl, OaksLabText_1ca9f
-	call PrintText
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	predef DisplayDexRating
-	jp .asm_1ca6f
-.asm_1c9ec
-	ld b, POKE_BALL
+
+; moved from later
+	ld b, OAKS_PARCEL
 	call IsItemInBag
-	jr nz, .asm_1ca69
+	jr nz, .deliverParcel
+; BTV
+
+	CheckEvent EVENT_GOT_POKEBALLS_FROM_OAK
+	jr z, .preBalls
+
+; evaluate Dex if at least 2 mons
 	ld hl, wPokedexOwned
 	ld b, wPokedexOwnedEnd - wPokedexOwned
 	call CountSetBits
 	ld a, [wNumSetBits]
 	cp 2
-	jr nc, .asm_1ca69
-	CheckEvent EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE
-	jr nz, .asm_1ca52
+	jr c, .gotDex
+
+	ld hl, OaksLabText_DexEvaluation
+	call PrintText
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	predef DisplayDexRating
+	jp .concludeScript
+
+;.asm_1c9ec
+;	ld b, POKE_BALL
+;	call IsItemInBag
+;	jr nz, .asm_1ca69
+;	ld hl, wPokedexOwned
+;	ld b, wPokedexOwnedEnd - wPokedexOwned
+;	call CountSetBits
+;	ld a, [wNumSetBits]
+;	cp 2
+;	jr nc, .asm_1ca69
+
+.preBalls
+;	CheckEvent EVENT_BEAT_ROUTE22_RIVAL_1ST_BATTLE
+;	jr nz, .asm_1ca52
 	CheckEvent EVENT_GOT_POKEDEX
-	jr nz, .asm_1ca4a
+	jr nz, .giveBalls
 	CheckEventReuseA EVENT_BATTLED_RIVAL_IN_OAKS_LAB
-	jr nz, .asm_1ca2b
+	jr nz, .afterBattleVsBlue
 	ld a, [wd72e]
-	bit 3, a
-	jr nz, .asm_1ca23
-	ld hl, OaksLabText_1ca72
+	bit 3, a ; received Pikachu, equivalent to CheckEvent EVENT_GOT_STARTER
+	jr nz, .afterGettingPikachu
+	ld hl, OaksLabText_GoAhead
 	call PrintText
-	jr .asm_1ca6f
-.asm_1ca23
-	ld hl, OaksLabText_1ca77
+	jr .concludeScript
+.afterGettingPikachu
+	ld hl, OaksLabText_IfWildMonAppears
 	call PrintText
-	jr .asm_1ca6f
-.asm_1ca2b
-	ld b, OAKS_PARCEL
-	call IsItemInBag
-	jr nz, .asm_1ca3a
-	ld hl, OaksLabText_1ca7c
+	jr .concludeScript
+.afterBattleVsBlue
+	ld hl, OaksLabText_ShouldTalkToIt
 	call PrintText
-	jr .asm_1ca6f
-.asm_1ca3a
+	jr .concludeScript
+.deliverParcel
 	ld hl, OaksLabDeliverParcelText
 	call PrintText
 	call OaksLabScript_RemoveParcel
-	ld a, $13
+	ld a, 19
 	ld [wOaksLabCurScript], a
-	jr .asm_1ca6f
-.asm_1ca4a
+	jr .concludeScript
+.gotDex
 	ld hl, OaksLabAroundWorldText
 	call PrintText
-	jr .asm_1ca6f
-.asm_1ca52
+	jr .concludeScript
+.giveBalls
 	CheckAndSetEvent EVENT_GOT_POKEBALLS_FROM_OAK
 	jr nz, .asm_1ca69
 	lb bc, POKE_BALL, 5
 	call GiveItem
 	ld hl, OaksLabGivePokeballsText
 	call PrintText
-	jr .asm_1ca6f
+	jr .concludeScript
 .asm_1ca69
 	ld hl, OaksLabPleaseVisitText
 	call PrintText
-.asm_1ca6f
+.concludeScript
 	jp TextScriptEnd
 
-OaksLabText_1ca72:
+OaksLabText_GoAhead:
 	text_far _OaksLabPikachuText
 	text_end
 
-OaksLabText_1ca77:
+OaksLabText_IfWildMonAppears:
 	text_far _OaksLabText_1d2f5
 	text_end
 
-OaksLabText_1ca7c:
+OaksLabText_ShouldTalkToIt:
 	text_far _OaksLabText_1d2fa
 	text_end
 
@@ -930,7 +939,7 @@ OaksLabPleaseVisitText:
 	text_far _OaksLabPleaseVisitText
 	text_end
 
-OaksLabText_1ca9f:
+OaksLabText_DexEvaluation:
 	text_far _OaksLabText_1d31d
 	text_end
 
@@ -1075,8 +1084,6 @@ OaksLabText18:
 	ld [wd11e], a
 	ld [wcf91], a
 	call AddPartyMon
-;	ld a, LIGHT_BALL_GSC        ; edited, commented out
-;	ld [wPartyMon1CatchRate], a ; edited, commented out
 	call DisablePikachuOverworldSpriteDrawing
 	SetEvent EVENT_GOT_STARTER
 	ld hl, wd72e

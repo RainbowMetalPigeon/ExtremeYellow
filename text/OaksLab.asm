@@ -66,10 +66,15 @@ _OaksLabText_1d2f5::
 	cont "KANTO!"
 	done
 
-_OaksLabText_1d2fa::
+_OaksLabText_1d2fa:: ; edited
 	text "OAK: You should"
-	line "talk to it and"
+	line "talk to your"
+	cont "new friend and"
 	cont "see how it feels."
+
+	para "It will probably"
+	line "need some time to"
+	cont "get friendly."
 	done
 
 _OaksLabDeliverParcelText1::
@@ -131,8 +136,8 @@ _OaksLabGivePokeballsText2::
 
 	para "Just like I showed"
 	line "you, throw a #"
-	cont "BALL at it and try"
-	cont "to catch it!"
+	cont "BALL at it and"
+	cont "try to catch it!"
 
 	para "This won't always"
 	line "work, though."

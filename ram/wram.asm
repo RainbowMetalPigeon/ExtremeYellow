@@ -2330,7 +2330,12 @@ wFanClubCurScript:: db
 ;	ds 1
 ;wOchreGymCurScript:: db ; new
 ;wRedsHouse2FCurScript:: db
-	ds 10 ; new, from optimizing the scripts, UNUSED
+	ds 6 ; new, from optimizing the scripts, UNUSED
+wRandomizedMon1_Type1:: db ; new
+wRandomizedMon1_Type2:: db ; new
+wRandomizedMon2_Type1:: db ; new
+wRandomizedMon2_Type2:: db ; new
+
 wSpinnerTileFrameCount:: db ; new
 wDayNightCycle:: db ; new
 wPersonalizationTypeChart:: db ; new

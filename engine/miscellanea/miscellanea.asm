@@ -560,9 +560,9 @@ RandomizeTeamForBattleFacilityTrainer::
 ; loopS for Mega
 .RNGLoopMega
 	ld hl, MegaEvolvedMons
-; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 14 included (14 and not 16 because we skip Mega Mewtwos)
+; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 20 included (20 and not 22 because we skip Mega Mewtwos)
 	call Random
-	cp 15 ; 14+1
+	cp 21 ; 20+1
 	jr nc, .RNGLoopMega
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
 .uglyLoopMega
@@ -707,7 +707,7 @@ FullyEvolvedMons: ; 85: [0,84]
 	db SYLVEON
 	db PORYGONZ
 	db MACHAMP
-MegaEvolvedMons: ; 19: [0,18]
+MegaEvolvedMons: ; 21: [0,20]
 	db MVENUSAUR
 	db MCHARZARDX
 	db MCHARZARDY
@@ -727,6 +727,8 @@ MegaEvolvedMons: ; 19: [0,18]
 	db MVICTREBEL
 	db MSTARMIE
 	db MDRAGONITE
+	db MRAICHUX
+	db MRAICHUY
 	db -1 ; ender for the pools checks
 
 LittleCupPokemon: ; 66: [0,65]
@@ -926,9 +928,9 @@ RandomizeTeamForRandomizationOption::
 ; let's give the champion's "mega team" only megas
 .RNGLoopMega
 	ld hl, MegaEvolvedMons
-; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 14 included (14 and not 16 because we skip Mega Mewtwos)
+; generate a random number between 0 and len(MegaEvolvedMons)-1, i.e. 0 and 20 included (20 and not 22 because we skip Mega Mewtwos)
 	call Random
-	cp 15 ; 14+1
+	cp 21 ; 20+1
 	jr nc, .RNGLoopMega
 ; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
 .uglyLoopMega

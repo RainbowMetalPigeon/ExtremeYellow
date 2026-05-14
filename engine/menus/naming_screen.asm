@@ -58,12 +58,12 @@ AskName:
 .declinedNickname
 	ld d, h
 	ld e, l
-; new block of code, to handle new names
-	push de
-	ld hl, NoNicknameGiven
-	call PrintText
-	pop de
-; back to vanilla
+;; new block of code, to handle new names
+;	push de
+;	ld hl, NoNicknameGiven
+;	call PrintText
+;	pop de
+;; back to vanilla
 	ld hl, wcd6d
 	ld bc, NAME_LENGTH
 	jp CopyData ; copy bc bytes from hl to de

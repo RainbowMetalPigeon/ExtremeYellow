@@ -16,6 +16,29 @@ BaseStatsCopying::
 	ld de, wMonHeader
 	call CopyData ; function that copies hl to de for bc amount of bytes = so BaseStats is copied into wMonHeader for BASE_DATA_SIZE amount of bytes
 
+; new, for for randomized mons
+	CheckAndResetEvent EVENT_LOAD_RANDOMIZED_1_TYPES
+	jr nz, .loadRandomizedTypesOne
+	CheckAndResetEvent EVENT_LOAD_RANDOMIZED_2_TYPES
+	jr z, .checkTCGMode
+; second randomized mon
+	ld a, [wRandomizedMon2_Type1]
+	call ConvertVanillaTypeToTCGType
+	ld [wMonHType1], a
+	ld a, [wRandomizedMon2_Type2]
+	call ConvertVanillaTypeToTCGType
+	ld [wMonHType2], a
+	ret
+.loadRandomizedTypesOne
+	ld a, [wRandomizedMon1_Type1]
+	call ConvertVanillaTypeToTCGType
+	ld [wMonHType1], a
+	ld a, [wRandomizedMon1_Type2]
+	call ConvertVanillaTypeToTCGType
+	ld [wMonHType2], a
+	ret
+.checkTCGMode
+
 ; new, for TCG mode
 	ld a, [wPersonalizationTCGMode]
 	and a
@@ -796,3 +819,79 @@ ListOfMonsAndTypesToChange_TCGDelta:
 	db MEW, TCG_FIRE, TCG_WATER
 	db VENUSTOISE, TCG_FIGHTING, TCG_PSYCHIC
 	db -1
+
+ConvertVanillaTypeToTCGType:
+	ld b, a ; b stores the original type
+	ld a, [wPersonalizationTCGMode]
+	and a
+	ld a, b ; restored original type
+	ret z
+; TCG mode is actually ON
+	cp NORMAL
+	jr z, .convertToTCG_Colorless
+	cp FIGHTING
+	jr z, .convertToTCG_Fighting
+	cp FLYING
+	jr z, .convertToTCG_Colorless
+	cp POISON
+	jr z, .convertToTCG_Grass
+	cp GROUND
+	jr z, .convertToTCG_Fighting
+	cp ROCK
+	jr z, .convertToTCG_Fighting
+	cp BUG
+	jr z, .convertToTCG_Grass
+	cp STEEL
+	jr z, .convertToTCG_Metal
+	cp FIRE
+	jr z, .convertToTCG_Fire
+	cp WATER
+	jr z, .convertToTCG_Water
+	cp GRASS
+	jr z, .convertToTCG_Grass
+	cp ELECTRIC
+	jr z, .convertToTCG_Lightning
+	cp ICE
+	jr z, .convertToTCG_Water
+	cp DRAGON
+	jr z, .convertToTCG_Dragon
+	cp DARK
+	jr z, .convertToTCG_Dark
+; last cps are unnecessary
+;	cp GHOST
+;	jr z, .convertToTCG_Psychic
+;	cp PSYCHIC_TYPE
+;	jr z, .convertToTCG_Psychic
+;	cp FAIRY ; last 
+;	jr z, .convertToTCG_Psychic
+;.convertToTCG_Psychic
+	ld a, TCG_PSYCHIC
+	ret
+.convertToTCG_Colorless
+	ld a, TCG_COLORLESS
+	ret
+.convertToTCG_Fire
+	ld a, TCG_FIRE
+	ret
+.convertToTCG_Fighting
+	ld a, TCG_FIGHTING
+	ret
+.convertToTCG_Metal
+	ld a, TCG_METAL
+	ret
+.convertToTCG_Water
+	ld a, TCG_WATER
+	ret
+.convertToTCG_Grass
+	ld a, TCG_GRASS
+	ret
+.convertToTCG_Lightning
+	ld a, TCG_LIGHTNING
+	ret
+.convertToTCG_Dragon
+	ld a, TCG_DRAGON
+	ret
+.convertToTCG_Dark
+	ld a, TCG_DARK
+	ret
+	

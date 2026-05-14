@@ -160,3 +160,40 @@ _CoinCaseExplanationText:: ; new
 	cont "back of the"
 	cont "TRAINER CARD."
 	done
+
+; new, randomized Pokémon giver ---------------------
+
+_Route22RandomizedPokemonGiverText_Enjoy::
+	text "Enjoy"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route22RandomizedPokemonGiverText_NotReadyForSecond::
+	text "Not ready for 2"
+;	xxxx "123456789012345678"
+	done
+
+_Route22RandomizedPokemonGiverText_NothingMore::
+	text "Nothing more"
+;	xxxx "123456789012345678"
+	done
+
+_Route22RandomizedPokemonGiverText_IntroFirst::
+	text "Intro 1."
+;	xxxx "123456789012345678"
+	prompt
+
+_Route22RandomizedPokemonGiverText_IntroSecond::
+	text "Intro 2"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route22RandomizedPokemonGiverText_AreYouSure::
+	text "Sure?"
+;	xxxx "123456789012345678"
+	done
+
+_Route22RandomizedPokemonGiverText_ComeBackWhenReady::
+	text "Come back"
+;	xxxx "123456789012345678"
+	done

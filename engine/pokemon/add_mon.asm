@@ -215,6 +215,16 @@ _AddPartyMon::
 	ld a, [wOpponentMonShiny] ; edited: it was the useless catch rate, now shiny flag, also tracks Delta Specie-ness
 	ld [de], a
 
+; new, for randomize mons
+	CheckEvent EVENT_GIVING_RANDOM_MON
+	jr z, .vanillaMoveCopying
+	inc de
+	push de
+	call RollFourRandomMovesInDE
+	jr .doneWithMoveCopying
+; BTV
+
+.vanillaMoveCopying ; new label
 	ld hl, wMonHMoves
 	ld a, [hli]
 	inc de
@@ -229,13 +239,19 @@ _AddPartyMon::
 	ld a, [hli]
 	inc de
 	ld [de], a
+.doneWithMoveCopying ; new label
+
 	push de
 	dec de
 	dec de
 	dec de
 	xor a
 	ld [wLearningMovesFromDayCare], a
+
+	CheckAndResetEvent EVENT_GIVING_RANDOM_MON ; new
+	jr nz, .donNotWriteDefaultMoves ; new
 	predef WriteMonMoves
+.donNotWriteDefaultMoves ; new
 	pop de
 ; new, to give STARTER_PIKACHU the ID of 00000
 	inc de
@@ -807,3 +823,60 @@ AddPartyMonRental::
 	ret
 
 NiueNameForRentedMon: db "NIUE@"
+
+RollFourRandomMovesInDE:: ; new
+
+	call RollsOneRandomMove
+	ld [de], a
+
+	call RollsOneRandomMove
+	inc de
+	ld [de], a
+
+	call RollsOneRandomMove
+	inc de
+	ld [de], a
+
+	call RollsOneRandomMove
+	inc de
+	ld [de], a
+
+	ret
+
+
+
+HMMoveArray2:
+INCLUDE "data/moves/hm_moves.asm"
+
+
+
+
+RollsOneRandomMove:
+	push de
+
+.RNGLoopMove
+	call Random
+
+; can't be move ID = 0
+	and a
+	jr z, .RNGLoopMove
+
+; must be within proper range
+	cp NUM_ATTACKS_NOT_UNIQUE
+	jr nc, .RNGLoopMove
+
+; can't be an HM
+	push af
+	ld hl, HMMoveArray2
+	ld de, 1
+	call IsInArray ; search an array at hl for the value in a; entry size is de bytes; returns count b and carry if found
+	pop af
+	dec b
+	jr z, .RNGLoopMove
+
+; no repetitions
+	; TBE
+
+; all checks passed
+	pop de
+	ret

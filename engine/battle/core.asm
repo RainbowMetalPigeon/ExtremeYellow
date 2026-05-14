@@ -1877,12 +1877,22 @@ DrawPlayerHUDAndHPBar:
 	call PrintLevel
 .doNotPrintLevel
 ; back to vanilla
-; conditional printing of shiny and delta symbols
+; conditional printing of shiny and delta/star symbols
     ld a, [wLoadedMonCatchRate]
-    bit BIT_MON_DELTA, a
-	jr z, .checkShiny
 	hlcoord 19, 9
+    bit BIT_MON_DELTA, a
+	jr z, .checkRandomized1
 	ld [hl], "<DELTA>"
+	jr .checkShiny
+.checkRandomized1
+    bit BIT_MON_RANDOMIZED_1, a
+	jr z, .checkRandomized2
+	ld [hl], "<STAR>"
+	jr .checkShiny
+.checkRandomized2
+    bit BIT_MON_RANDOMIZED_2, a
+	jr z, .checkShiny
+	ld [hl], "<STAR>"
 .checkShiny
     bit BIT_MON_SHINY, a
 	jr z, .doneWithDeltaAndShiny
@@ -7248,6 +7258,14 @@ LoadEnemyMonData:
 	xor a
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves ; get moves based on current level
+; new for randomized mons
+	CheckAndResetEvent EVENT_GIVING_RANDOM_MON
+	jr z, .loadMovePPs
+	push de
+	ld de, wEnemyMonMoves
+	callfar RollFourRandomMovesInDE
+	pop de
+; BTV
 .loadMovePPs
 	ld hl, wEnemyMonMoves
 	ld de, wEnemyMonPP - 1

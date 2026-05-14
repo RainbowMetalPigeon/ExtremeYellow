@@ -176,12 +176,6 @@ Route22Script2:
 	jp z, Route22Script_50ece
 	xor a							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
-;	ld a, [wRivalStarter]
-;	cp RIVAL_STARTER_FLAREON
-;	jr nz, .keep_rival_starter
-;	ld a, RIVAL_STARTER_JOLTEON
-;	ld [wRivalStarter], a
-;.keep_rival_starter
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
 	jr nz, .notDown
@@ -414,6 +408,7 @@ Route22_TextPointers:
 	dw Route22Text2
 	dw Route22CoinCaseMeowthText ; new, Coin-Case Meowth
 	dw PickUpItemText ; new
+	dw Route22RandomizedPokemonGiverText ; new
 	dw Route22FrontGateText
 
 Route22Text1:
@@ -426,10 +421,9 @@ Route22Text2:
 	farcall Func_f1b47
 	jp TextScriptEnd
 
-Route22FrontGateText:
-	text_asm
-	farcall Func_f1b67
-	jp TextScriptEnd
+Route22FrontGateText: ; edited
+	text_far _Route22FrontGateText
+	text_end
 
 ; new =============================================
 
@@ -486,3 +480,378 @@ CoinCaseStillHasCoinsText:
 CoinCaseExplanationText:
 	text_far _CoinCaseExplanationText
 	text_end
+
+; new =============================================
+
+Route22RandomizedPokemonGiverText:
+	text_asm
+
+; did we receive already the 2nd randomized mon?
+	CheckEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_2
+	ld hl, Route22RandomizedPokemonGiverText_NothingMore
+	jp nz, .printAndEnd
+
+; did we receive the 1st?
+	CheckEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_1
+	jr z, .giveRandomizedMon1
+
+; we received the first, but not the second
+; check if we are able: beat MISSINGNO and TRAVELER
+	CheckEvent EVENT_DEFEATED_MISSINGNO
+	ld hl, Route22RandomizedPokemonGiverText_NotReadyForSecond
+	jp z, .printAndEnd
+	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
+	ld hl, Route22RandomizedPokemonGiverText_NotReadyForSecond
+	jp z, .printAndEnd
+; we are ready to receive the second random mon
+
+.RNGLoopType1_2
+	call Random
+	cp 18
+	jr nc, .RNGLoopType1_2
+	ld hl, ListTypes
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld [wRandomizedMon2_Type1], a
+
+	ld hl, Route22RandomizedPokemonGiverText_IntroSecond
+	call PrintText
+
+.RNGLoopType2_2
+	call Random
+	cp 18
+	jr nc, .RNGLoopType2_2
+	ld hl, ListTypes
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld [wRandomizedMon2_Type2], a
+
+	ld hl, Route22RandomizedPokemonGiverText_AreYouSure
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, Route22RandomizedPokemonGiverText_ComeBackWhenReady
+	jr nz, .printAndEnd
+
+.RNGLoopPokemon_2
+; generate a random number between 0 and len(ListBasePokemon_OnlyLegendaries)-1
+	call Random
+	cp 14 ; 13+1
+	jr nc, .RNGLoopPokemon_2
+; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
+	ld hl, ListBasePokemon_OnlyLegendaries
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld b, a
+
+	SetEvent EVENT_GIVING_RANDOM_MON
+	ld c, 95
+	call GivePokemon ; pokemon b at level c
+	SetEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_2
+	jr .conclude
+
+.giveRandomizedMon1 ; -------------------
+
+.RNGLoopType1
+	call Random
+	cp 18
+	jr nc, .RNGLoopType1
+	ld hl, ListTypes
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld [wRandomizedMon1_Type1], a
+	
+	ld hl, Route22RandomizedPokemonGiverText_IntroFirst
+	call PrintText
+
+.RNGLoopType2
+	call Random
+	cp 18
+	jr nc, .RNGLoopType2
+	ld hl, ListTypes
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld [wRandomizedMon1_Type2], a
+
+	ld hl, Route22RandomizedPokemonGiverText_AreYouSure
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, Route22RandomizedPokemonGiverText_ComeBackWhenReady
+	jr nz, .printAndEnd
+
+.RNGLoopPokemon
+; generate a random number between 0 and len(ListBasePokemon_NoLegendaries)-1
+	call Random
+	cp 72 ; 71+1
+	jr nc, .RNGLoopPokemon
+; a contains a valid number, now we need to access the a-th element of the list we decided about earlier
+	ld hl, ListBasePokemon_NoLegendaries
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld b, a
+
+	SetEvent EVENT_GIVING_RANDOM_MON
+	ld c, 5
+	call GivePokemon ; pokemon b at level c
+	SetEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_1
+.conclude
+	ld hl, Route22RandomizedPokemonGiverText_Enjoy
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+
+Route22RandomizedPokemonGiverText_Enjoy:
+	text_far _Route22RandomizedPokemonGiverText_Enjoy
+	text_end
+
+Route22RandomizedPokemonGiverText_NotReadyForSecond:
+	text_far _Route22RandomizedPokemonGiverText_NotReadyForSecond
+	text_end
+
+Route22RandomizedPokemonGiverText_NothingMore:
+	text_far _Route22RandomizedPokemonGiverText_NothingMore
+	text_end
+
+Route22RandomizedPokemonGiverText_IntroFirst:
+	text_far _Route22RandomizedPokemonGiverText_IntroFirst
+	text_end
+
+Route22RandomizedPokemonGiverText_IntroSecond:
+	text_far _Route22RandomizedPokemonGiverText_IntroSecond
+	text_end
+
+Route22RandomizedPokemonGiverText_AreYouSure:
+	text_far _Route22RandomizedPokemonGiverText_AreYouSure
+	text_end
+
+Route22RandomizedPokemonGiverText_ComeBackWhenReady:
+	text_far _Route22RandomizedPokemonGiverText_ComeBackWhenReady
+	text_end
+	
+ListTypes: ; 18: [0,17]
+	db NORMAL
+	db FIGHTING
+	db FLYING
+	db POISON
+	db GROUND
+	db ROCK
+	db BUG
+	db GHOST
+	db STEEL
+	db FIRE
+	db WATER
+	db GRASS
+	db ELECTRIC
+	db PSYCHIC_TYPE
+	db ICE
+	db DRAGON
+	db DARK
+	db FAIRY
+	db -1
+
+ListBasePokemon_NoLegendaries: ; 72: [0,71]
+	db BULBASAUR
+	db CHARMANDER
+	db SQUIRTLE
+	db CATERPIE
+	db WEEDLE
+	db PIDGEY
+	db RATTATA
+	db SPEAROW
+	db EKANS
+	db PICHU
+	db SANDSHREW
+	db NIDORAN_F
+	db NIDORAN_M
+	db CLEFFA
+	db VULPIX
+	db IGGLYBUFF
+	db ZUBAT
+	db ODDISH
+	db PARAS
+	db VENONAT
+	db DIGLETT
+	db MEOWTH
+	db PSYDUCK
+	db MANKEY
+	db GROWLITHE
+	db POLIWAG
+	db ABRA
+	db MACHOP
+	db BELLSPROUT
+	db TENTACOOL
+	db GEODUDE
+	db PONYTA
+	db SLOWPOKE
+	db MAGNEMITE
+	db FARFETCHD ; base & fully
+	db DODUO
+	db SEEL
+	db GRIMER
+	db SHELLDER
+	db GASTLY
+	db ONIX
+	db DROWZEE
+	db KRABBY
+	db VOLTORB
+	db EXEGGCUTE
+	db CUBONE
+	db TYROGUE
+	db LICKITUNG
+	db KOFFING
+	db RHYHORN
+	db HAPPINY
+	db TANGELA
+	db HORSEA
+	db GOLDEEN
+	db STARYU
+	db MIME_JR
+	db SCYTHER
+	db SMOOCHUM
+	db ELEKID
+	db MAGBY
+	db PINSIR ; base & fully
+	db TAUROS ; base & fully
+	db MAGIKARP
+	db LAPRAS ; base & fully
+	db DITTO ; base & fully
+	db EEVEE
+	db PORYGON
+	db OMANYTE
+	db KABUTO
+	db AERODACTYL ; base & fully
+	db MUNCHLAX
+	db DRATINI
+	db -1
+
+ListBasePokemon_OnlyLegendaries: ; 14: [0,13]
+	db MEW
+	db VENUSTOISE
+	db MELMETAL
+	db THU_FI_ZER
+	db MEWTWO
+	db ARTICUNO
+	db ZAPDOS
+	db MOLTRES
+	db MZYGARDE
+	db UNECROZMA
+	db MRAYQUAZA
+	db EETERNATUS
+	db ARCEUS
+	db MISSINGNO
+	db -1
+
+/*
+BUTTERFREE
+WIGGLYTUFF
+PARASECT
+VENOMOTH
+GOLDUCK
+FARFETCHD
+DEWGONG
+MUK
+HYPNO
+KINGLER
+ELECTRODE
+MAROWAK
+WEEZING
+SEAKING
+DITTO
+
+RATICATE
+FEAROW
+ARBOK
+SANDSLASH
+NINETALES
+CROBAT
+VILEPLUME
+ARCANINE
+POLIWRATH
+GOLEM
+RAPIDASH
+DODRIO
+HITMONLEE
+LICKILICKY
+MR_MIME
+
+OMASTAR
+KABUTOPS
+TENTACRUEL
+SLOWKING
+CLOYSTER
+TANGROWTH
+KLEAVOR
+ELECTIVIRE
+MAGMORTAR
+NIDOQUEEN
+NIDOKING
+DUGTRIO
+PERSIAN
+ANNIHILAPE
+MAGNEZONE
+EXEGGUTOR
+RHYPERIOR
+BLISSEY
+KINGDRA
+JYNX
+TAUROS
+LAPRAS
+SNORLAX
+VAPOREON
+PORYGONZ
+MACHAMP
+
+PINSIR
+BEEDRILL
+CLEFABLE
+AERODACTYL
+VENUSAUR
+CHARIZARD
+BLASTOISE
+ALAKAZAM
+SLOWBRO
+GENGAR
+STEELIX
+STARMIE
+GYARADOS
+DRAGONITE
+PIDGEOT
+RAICHU
+KANGASKHAN
+VICTREEBEL
+SCIZOR
+
+
+MEW
+VENUSTOISE
+MELMETAL
+THU_FI_ZER
+MEWTWO
+ARTICUNO
+ZAPDOS
+MOLTRES
+
+MZYGARDE
+UNECROZMA
+MRAYQUAZA
+EETERNATUS
+ARCEUS
+
+MISSINGNO
+*/

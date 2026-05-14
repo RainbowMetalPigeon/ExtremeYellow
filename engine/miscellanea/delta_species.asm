@@ -71,7 +71,18 @@ SetDeltaSpeciesEvent_dRegister::
 SetDeltaSpeciesEvent_PlayerForLeaguePC::
     ld a, [wPlayerMonShiny] ; for League PC
     ; fallthrough
-SetDeltaSpeciesEvent_Core: ; doesn't need 2 colons
+SetDeltaSpeciesEvent_Core: ; also looks at the randomized mons!
+; the following bits are mutually exclusive, differently from the shiny one
+    bit BIT_MON_RANDOMIZED_1, a
+    jr z, .checkRandomize2
+    SetEvent EVENT_LOAD_RANDOMIZED_1_TYPES
+    ret
+.checkRandomize2
+    bit BIT_MON_RANDOMIZED_2, a
+    jr z, .checkDelta
+    SetEvent EVENT_LOAD_RANDOMIZED_2_TYPES
+    ret
+.checkDelta
     bit BIT_MON_DELTA, a
     ret z
     SetEvent EVENT_LOAD_DELTA_SPECIES_TYPES

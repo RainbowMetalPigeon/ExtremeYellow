@@ -39,12 +39,3 @@ Route22RivalBeforeBattleText2:
 Route22RivalAfterBattleText2:
 	text_far _Route22RivalAfterBattleText2
 	text_end
-
-Func_f1b67::
-	ld hl, Route22FrontGateText_3c
-	call PrintText
-	ret
-
-Route22FrontGateText_3c:
-	text_far _Route22FrontGateText
-	text_end
