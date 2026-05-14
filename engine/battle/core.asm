@@ -1762,6 +1762,7 @@ SendOutMon:
 	ld hl, wPlayerStatsToDouble
 	ld [hli], a
 	ld [hli], a ; wPlayerStatsToHalve
+	ld [wAnimationType], a ; new
 ; new
 	push hl
 	CheckAndResetEvent EVENT_ENGAGED_ROKUSEI
