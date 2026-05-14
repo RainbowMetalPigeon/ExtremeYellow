@@ -141,7 +141,11 @@ OchreHousesTextMagikarpTutor:
     call CopyToStringBuffer ; copy name to wcf4b
 	call CheckIfMoveIsKnown2
 	jr c, .alreadyKnows
+	ld hl, wNewFlags
+	set 0, [hl]
     predef LearnMove
+	ld hl, wNewFlags
+	res 0, [hl]
 	ld a, b
 	and a
 	jr z, .tutoringFailedCancel

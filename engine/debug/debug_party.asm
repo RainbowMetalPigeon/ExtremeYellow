@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MAGIKARP, 13 ; 255
-	db MALAKAZAM, 100
+	db MEW, 100
 	db STARTER_PIKACHU, 1
 ;	db MAGIKARP, 100
 ;	db MAGIKARP, 42
@@ -446,7 +446,7 @@ DebugItemsList:
 ;	db NUGGET, 7
 ;	db MAX_REVIVE, 7
 ;	db MAX_ELIXER, 7
-;	db PP_UP, 7
+	db PP_UP, 7
 	db BICYCLE, 1
 	db -1 ; end
 

@@ -53,7 +53,12 @@ Tutor::
 	xor a
 	ld [wLetterPrintingDelayFlags], a
 
+
+	ld hl, wNewFlags
+	set 0, [hl]
 	predef LearnMove ; teach move
+	ld hl, wNewFlags
+	res 0, [hl]
 
 	pop af
 	ld [wLetterPrintingDelayFlags], a
