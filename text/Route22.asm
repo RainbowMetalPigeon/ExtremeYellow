@@ -164,36 +164,85 @@ _CoinCaseExplanationText:: ; new
 ; new, randomized Pokémon giver ---------------------
 
 _Route22RandomizedPokemonGiverText_Enjoy::
-	text "Enjoy"
+	text "PHEW...!"
+
+	para "The summoning is"
+	line "complete! I hope"
+	cont "you'll be happy"
+	cont "with your unique"
+	cont "companion."
 ;	xxxx "123456789012345678"
 	prompt
 
 _Route22RandomizedPokemonGiverText_NotReadyForSecond::
-	text "Not ready for 2"
+	text "I may be able to"
+	line "summon another"
+	cont "random #MON"
+	cont "with random types"
+	cont "and moves, but I"
+	cont "need to recover"
+	cont "further."
+
+	para "Come back later."
 ;	xxxx "123456789012345678"
 	done
 
 _Route22RandomizedPokemonGiverText_NothingMore::
-	text "Nothing more"
+	text "There's no way I'll"
+	line "be able to summon"
+	cont "any more #MON."
+
+	para "Don't ask me the"
+	line "impossible."
 ;	xxxx "123456789012345678"
 	done
 
 _Route22RandomizedPokemonGiverText_IntroFirst::
-	text "Intro 1."
+	text "I have the power"
+	line "to concoct a"
+	cont "special #MON"
+	cont "like no others."
+
+	para "Its species, as"
+	line "well as its types"
+	cont "and its initial"
+	cont "moves, will be"
+	cont "totally random!"
+
+	para "Mind that I can"
+	line "summon such a"
+	cont "creature only"
+	cont "once. Perhaps"
+	cont "twice, but I'd"
+	cont "need vast lengths"
+	cont "of time to rest."
 ;	xxxx "123456789012345678"
 	prompt
 
 _Route22RandomizedPokemonGiverText_IntroSecond::
-	text "Intro 2"
+	text "Finally I"
+	line "recovered the"
+	cont "energy necessary"
+	cont "to summon another"
+	cont "unique #MON!"
+
+	para "I even refined my"
+	line "ritual: this time"
+	cont "the creature will"
+	cont "be more powerful"
+	cont "than ever before!" 
 ;	xxxx "123456789012345678"
 	prompt
 
 _Route22RandomizedPokemonGiverText_AreYouSure::
-	text "Sure?"
+	text "Do you want to"
+	line "proceed? You sure?"
 ;	xxxx "123456789012345678"
 	done
 
 _Route22RandomizedPokemonGiverText_ComeBackWhenReady::
-	text "Come back"
+	text "I understand. Come"
+	line "back when ready."
+	cont "If you'll ever be."
 ;	xxxx "123456789012345678"
 	done

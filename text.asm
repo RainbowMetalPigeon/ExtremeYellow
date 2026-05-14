@@ -278,7 +278,6 @@ INCLUDE "text/NameRatersHouse.asm"
 INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
-INCLUDE "text/Route23.asm"
 INCLUDE "text/Route21.asm"
 
 
@@ -303,6 +302,7 @@ INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
 INCLUDE "text/BikeShop.asm"
+INCLUDE "text/Route23.asm"
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
