@@ -825,58 +825,72 @@ AddPartyMonRental::
 NiueNameForRentedMon: db "NIUE@"
 
 RollFourRandomMovesInDE:: ; new
-
+	push hl
+	xor a
+	ld hl, wBattleFacilityMonNumber1
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ld hl, wBattleFacilityMonNumber1
 	call RollsOneRandomMove
 	ld [de], a
-
-	call RollsOneRandomMove
-	inc de
-	ld [de], a
-
-	call RollsOneRandomMove
-	inc de
-	ld [de], a
-
 	call RollsOneRandomMove
 	inc de
 	ld [de], a
-
+	call RollsOneRandomMove
+	inc de
+	ld [de], a
+	call RollsOneRandomMove
+	inc de
+	ld [de], a
+	pop hl
 	ret
-
-
-
-HMMoveArray2:
-INCLUDE "data/moves/hm_moves.asm"
-
-
-
 
 RollsOneRandomMove:
 	push de
-
 .RNGLoopMove
 	call Random
-
 ; can't be move ID = 0
 	and a
 	jr z, .RNGLoopMove
-
 ; must be within proper range
 	cp NUM_ATTACKS_NOT_UNIQUE
 	jr nc, .RNGLoopMove
-
 ; can't be an HM
 	push af
+	push hl
 	ld hl, HMMoveArray2
 	ld de, 1
 	call IsInArray ; search an array at hl for the value in a; entry size is de bytes; returns count b and carry if found
+	jr nc, .moveIsNotAHM
+; move is an HM
+	pop hl
 	pop af
 	dec b
+	jr .RNGLoopMove
+.moveIsNotAHM
+	pop hl
+	pop af
+; ensure no repetitions
+	ld b, a ; randomized move is in b
+	ld a, [wBattleFacilityMonNumber1]
+	cp b
 	jr z, .RNGLoopMove
-
-; no repetitions
-	; TBE
-
+	ld a, [wBattleFacilityMonNumber2]
+	cp b
+	jr z, .RNGLoopMove
+	ld a, [wBattleFacilityMonNumber3]
+	cp b
+	jr z, .RNGLoopMove
+	ld a, [wBattleFacilityMonNumber4]
+	cp b
+	jr z, .RNGLoopMove
 ; all checks passed
+	ld a, b
+	ld [hli], a ; wBattleFacilityMonNumberN
 	pop de
 	ret
+
+HMMoveArray2:
+INCLUDE "data/moves/hm_moves.asm"

@@ -745,7 +745,7 @@ ListBasePokemon_OnlyLegendaries: ; 14: [0,13]
 	db VENUSTOISE
 	db MELMETAL
 	db THU_FI_ZER
-	db MEWTWO
+	db ARM_MEWTWO
 	db ARTICUNO
 	db ZAPDOS
 	db MOLTRES

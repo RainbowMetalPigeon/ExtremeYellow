@@ -290,7 +290,7 @@
 	const SYNTHESIS ; 241
 	const PERISH_SONG ; 242
 
-DEF NUM_ATTACKS_NOT_UNIQUE EQU const_value + 1 ; new
+DEF NUM_ATTACKS_NOT_UNIQUE EQU const_value ; new
 
 	; KAAARP!
 	const	ANCESTOR_PWR
