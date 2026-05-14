@@ -35,7 +35,7 @@ MewtwoText:
 MewtwoBattleText:
 	text_far _MewtwoBattleText
 	text_asm
-	ld a, MEWTWO
+	ld a, ARM_MEWTWO
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd

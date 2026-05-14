@@ -4441,7 +4441,7 @@ SpecialTrainerMoves:
 ; --------------------------
 
 	db GONQUE, 2
-	; MBLASTOISE - ROCK/STEEL
+	; MBLASTOISE ; delta - ROCK/STEEL
 	db 1, 1, COUNTER
 	db 1, 2, MIRROR_COAT
 	db 1, 3, FLASH_CANNON
@@ -4475,11 +4475,351 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
+	db ROKUSEI, 1
+	; MGENGAR
+	db 1, 1, DARK_PULSE
+	db 1, 2, CONFUSE_RAY
+	db 1, 3, SUBSTITUTE
+	db 1, 4, DOUBLE_TEAM
+	; MVENUSAUR ; delta
+	db 2, 1, SLEEP_POWDER
+	db 2, 2, CURSE
+	db 2, 3, SYNTHESIS
+	db 2, 4, FRENZY_PLANT
+	; BLISSEY
+	db 3, 1, MINIMIZE
+	db 3, 2, SOFTBOILED
+	db 3, 3, BLIZZARD
+	db 3, 4, THUNDER_WAVE
+	; MSTEELIX
+	db 4, 1, HEAD_SMASH
+	db 4, 2, EARTHQUAKE
+	db 4, 3, IRON_TAIL
+	db 4, 4, REST
+	; MDRAGONITE
+	db 5, 1, OUTRAGE
+	db 5, 2, FIRE_BLAST
+	db 5, 3, HYDRO_PUMP
+	db 5, 4, EXTREMESPEED
+	; MSTARMIE
+	db 6, 1, METEOR_MASH
+	db 6, 2, CLOSE_COMBAT
+	db 6, 3, RECOVER
+	db 6, 4, PSYCHO_CUT
+	db $FE
 
 ; ===============================================================
 
+	db NANETTE, 1
+	; ARTICUNO
+	db 1, 1, BRAVE_BIRD
+	db 1, 2, ROOST
+	db 1, 3, BLIZZARD
+	db 1, 4, MIRROR_COAT
+	; ZAPDOS
+	db 2, 1, BRAVE_BIRD
+	db 2, 2, ROOST
+	db 2, 3, THUNDER
+	db 2, 4, THUNDER_WAVE
+	; MOLTRES
+	db 3, 1, BRAVE_BIRD
+	db 3, 2, ROOST
+	db 3, 3, FIRE_BLAST
+	db 3, 4, HYPER_BEAM
+	; MVENUSAUR ; delta
+	db 4, 1, FRENZY_PLANT
+	db 4, 2, CURSE
+	db 4, 3, REST
+	db 4, 4, SLEEP_POWDER
+	; MCHARZARDY ; delta
+	db 5, 1, BLAST_BURN
+	db 5, 2, CRUNCH
+	db 5, 3, THUNDERPUNCH
+	db 5, 4, DRAGON_CLAW
+	; MBLASTOISE ; delta
+	db 6, 1, HYDRO_CANNON
+	db 6, 2, FLASH_CANNON
+	db 6, 3, BULLET_SEED
+	db 6, 4, BODY_PRESS
+	db $FE
 
 ; ===============================================================
 
+	db SUUJERO, 1
+	; VENUSTOISE ; delta - GHOST/ROCK
+	db 1, 1, SYNTHESIS
+	db 1, 2, HYDRO_CANNON
+	db 1, 3, FRENZY_PLANT
+	db 1, 4, ROCK_SLIDE
+	; MEW ; delta - FIRE/WATER
+	db 2, 1, SOFTBOILED
+	db 2, 2, BONEMERANG
+	db 2, 3, CRABHAMMER
+	db 2, 4, BLAST_BURN
+	; MMEWTWOX ; delta - FIRE/ELECTRIC
+	db 3, 1, RECOVER
+	db 3, 2, STONE_EDGE
+	db 3, 3, EARTHQUAKE
+	db 3, 4, CLOSE_COMBAT
+	; MMEWTWOY ; delta - FIRE/ELECTRIC
+	db 4, 1, RECOVER
+	db 4, 2, PSYSTRIKE
+	db 4, 3, FIRE_BLAST
+	db 4, 4, THUNDER
+	; THU_FI_ZER
+	db 5, 1, TRI_ATTACK
+	db 5, 2, ROOST
+	db 5, 3, BRAVE_BIRD
+	db 5, 4, WHIRLWIND
+	; MELMETAL
+	db 6, 1, THUNDER_WAVE
+	db 6, 2, DRAIN_PUNCH
+	db 6, 3, DOUBLE_IRON_BASH
+	db 6, 4, BODY_PRESS
+	db $FE
+
+; ===============================================================
+
+	db PINK, 2
+	; GYARADOS
+	db 1, 1, WATER_PULSE
+	db 1, 2, BODY_SLAM
+	db 1, 3, DRAGON_DANCE
+	db 1, 4, THUNDERBOLT
+	; KANGASKHAN
+	db 2, 1, FOCUS_ENERGY
+	db 2, 2, IRON_TAIL
+	db 2, 3, DRAIN_PUNCH
+	db 2, 4, DIZZY_PUNCH
+	; PRIMEAPE
+	db 3, 1, KARATE_CHOP
+	db 3, 2, AERIAL_ACE
+	db 3, 3, ROCK_TOMB
+	db 3, 4, DOUBLE_EDGE
+	; DRAGONAIR
+	db 4, 1, WATER_PULSE
+	db 4, 2, FLAMETHROWER
+	db 4, 3, DRAGON_RAGE
+	db 4, 4, DRAGON_DANCE
+	; CLEFAIRY
+	db 5, 1, METRONOME
+	db 5, 2, MAGICAL_LEAF
+	db 5, 3, AIR_SLASH
+	db 5, 4, PLAY_ROUGH
+	db $FE
+
+; --------------------------
+
+	db PINK, 3
+	; GYARADOS
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STONE_EDGE
+	db 1, 3, HYDRO_PUMP
+	db 1, 4, HYPER_BEAM
+	; KANGASKHAN
+	db 2, 1, SHADOW_CLAW
+	db 2, 2, SING
+	db 2, 3, COUNTER
+	db 2, 4, BODY_SLAM
+	; ANNIHILAPE
+	db 3, 1, SHADOW_CLAW
+	db 3, 2, CLOSE_COMBAT
+	db 3, 3, STONE_EDGE
+	db 3, 4, EARTHQUAKE
+	; BLISSEY
+	db 4, 1, SOFTBOILED
+	db 4, 2, REFLECT
+	db 4, 3, THUNDER_WAVE
+	db 4, 4, BLIZZARD
+	; DRAGONITE
+	db 5, 1, OUTRAGE
+	db 5, 2, STEEL_WING
+	db 5, 3, MEGAHORN
+	db 5, 4, AIR_SLASH
+	; CLEFABLE
+	db 6, 1, PLAY_ROUGH ; PPS MOONBLAST
+	db 6, 2, METEOR_MASH
+	db 6, 3, ICE_BEAM
+	db 6, 4, PSYCHIC_M
+	db $FE
+
+; --------------------------
+
+	db PINK, 4
+	; MGYARADOS
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STONE_EDGE
+	db 1, 3, HYDRO_PUMP
+	db 1, 4, DARK_PULSE
+	; MKANGASKAN
+	db 2, 1, SHADOW_CLAW
+	db 2, 2, ICICLE_SPEAR
+	db 2, 3, BONEMERANG
+	db 2, 4, BODY_SLAM
+	; ANNIHILAPE
+	db 3, 1, SHADOW_CLAW
+	db 3, 2, CLOSE_COMBAT
+	db 3, 3, STONE_EDGE
+	db 3, 4, EARTHQUAKE
+	; BLISSEY
+	db 4, 1, SOFTBOILED
+	db 4, 2, REFLECT
+	db 4, 3, THUNDER_WAVE
+	db 4, 4, BLIZZARD
+	; MDRAGONITE
+	db 5, 1, OUTRAGE
+	db 5, 2, FIRE_BLAST
+	db 5, 3, ROOST
+	db 5, 4, LOVELY_KISS
+	; MCLEFABLE
+	db 6, 1, DRAININGKISS
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, MINIMIZE
+	db 6, 4, SUBSTITUTE
+	db $FE
+
+; --------------------------
+
+	db PINK, 5
+	; MGYARADOS
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STONE_EDGE
+	db 1, 3, HYDRO_PUMP
+	db 1, 4, DARK_PULSE
+	; MKANGASKAN
+	db 2, 1, SHADOW_CLAW
+	db 2, 2, ICICLE_SPEAR
+	db 2, 3, BONEMERANG
+	db 2, 4, BODY_SLAM
+	; ANNIHILAPE
+	db 3, 1, SHADOW_CLAW
+	db 3, 2, CLOSE_COMBAT
+	db 3, 3, STONE_EDGE
+	db 3, 4, EARTHQUAKE
+	; MDRAGONITE
+	db 4, 1, OUTRAGE
+	db 4, 2, FIRE_BLAST
+	db 4, 3, ROOST
+	db 4, 4, LOVELY_KISS
+	; MELMETAL
+	db 5, 1, DOUBLE_IRON_BASH
+	db 5, 2, SELFDESTRUCT
+	db 5, 3, BODY_PRESS
+	db 5, 4, DRAIN_PUNCH
+	; MCLEFABLE
+	db 6, 1, DRAININGKISS
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, MINIMIZE
+	db 6, 4, SUBSTITUTE
+	db $FE
+
+; ===============================================================
+
+	db YOUNG_OAK, 1
+	; TAUROS
+	db 1, 1, EARTHQUAKE
+	db 1, 2, BODY_SLAM
+	db 1, 3, BLIZZARD
+	db 1, 4, HYPER_BEAM
+	; MGYARADOS
+	db 2, 1, NIGHT_SLASH
+	db 2, 2, HYDRO_PUMP
+	db 2, 3, GUNK_SHOT
+	db 2, 4, EARTHQUAKE
+	; MMEWTWOX
+	db 3, 1, CLOSE_COMBAT
+	db 3, 2, STONE_EDGE
+	db 3, 3, LEECH_LIFE
+	db 3, 4, SHADOW_CLAW ; PPS PSYCHO_CUT
+	; MMEWTWOY
+	db 4, 1, PSYSTRIKE
+	db 4, 2, FIRE_BLAST
+	db 4, 3, MOONBLAST
+	db 4, 4, THUNDERBOLT
+	; VENUSTOISE
+	db 5, 1, FRENZY_PLANT
+	db 5, 2, HYDRO_CANNON
+	db 5, 3, COUNTER
+	db 5, 4, MIRROR_COAT
+	; THU_FI_ZER
+	db 6, 1, TRI_ATTACK
+	db 6, 2, ROOST
+	db 6, 3, FREEZE_DRY
+	db 6, 4, BRAVE_BIRD
+	db $FE
+
+; ===============================================================
+
+	db CHALLENGER, 4 ; TBE
+	; SNORLAX
+	db 1, 1, EARTHQUAKE
+	db 1, 2, STONE_EDGE
+	db 1, 3, HYDRO_PUMP
+	db 1, 4, DARK_PULSE
+	; BLISSEY
+	db 2, 1, SHADOW_CLAW
+	db 2, 2, ICICLE_SPEAR
+	db 2, 3, BONEMERANG
+	db 2, 4, BODY_SLAM
+	; TAUROS
+	db 3, 1, SHADOW_CLAW
+	db 3, 2, CLOSE_COMBAT
+	db 3, 3, STONE_EDGE
+	db 3, 4, EARTHQUAKE
+	; ALAKAZAM
+	db 4, 1, SOFTBOILED
+	db 4, 2, REFLECT
+	db 4, 3, THUNDER_WAVE
+	db 4, 4, BLIZZARD
+	; RHYPERIOR
+	db 5, 1, OUTRAGE
+	db 5, 2, FIRE_BLAST
+	db 5, 3, ROOST
+	db 5, 4, LOVELY_KISS
+	; MEW
+	db 6, 1, DRAININGKISS
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, MINIMIZE
+	db 6, 4, SUBSTITUTE
+	db $FE
+
+; --------------------------
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+; ===============================================================
+
+/*
+
+PROTON
+PETREL
+ARIANA
+ARCHER
+
+ORM
+CARR
+SIRD
+
+PROF_OAK (update/check)
+ORAGE (update)
+
+JENNY
+*/
+
+; ===============================================================
 
 	db -1 ; end

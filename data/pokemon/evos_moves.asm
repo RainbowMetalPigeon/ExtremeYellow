@@ -1342,7 +1342,7 @@ CleffaEvosMoves:
 	db 29, ZEN_HEADBUTT
 	db 30, DREAM_EATER
 	db 31, PETAL_DANCE
-	DB 32, AIR_SLASH
+	db 32, AIR_SLASH
 	db 33, PLAY_ROUGH
 	db 34, NIGHT_SLASH
 	db 0
@@ -1374,7 +1374,7 @@ ClefairyEvosMoves:
 	db 49, ZEN_HEADBUTT
 	db 51, DREAM_EATER
 	db 53, PETAL_DANCE
-	DB 55, AIR_SLASH
+	db 55, AIR_SLASH
 	db 57, PLAY_ROUGH
 	db 0
 
@@ -6108,7 +6108,8 @@ VenustoiseEvosMoves:
 	db 41, IRON_TAIL
 	db 42, LEAF_STORM
 	db 43, ICE_PUNCH
-	db 45, SCALD
+	db 45, SYNTHESIS
+	db 46, SCALD
 	db 47, ENERGY_BALL
 	db 48, AQUA_JET
 	db 50, ZEN_HEADBUTT
