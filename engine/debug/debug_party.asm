@@ -51,10 +51,10 @@ IF DEF(_DEBUG)
 	ld a, FLAIL ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, GYRO_BALL ; ROCK_CLIMB
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, QUIVER_DANCE ; DIVE
+	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
 	ld a, WEATHER_BALL ; ANCESTOR_PWR

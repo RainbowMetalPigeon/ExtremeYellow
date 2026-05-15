@@ -18,7 +18,7 @@ SeviiSixIslandCity_Object:
 
 	def_object_events
 	object_event  7, 10, SPRITE_BEAUTY, WALK, UP_DOWN, 1
-	object_event  9,  7, SPRITE_BRUNETTE_GIRL, WALK, LEFT_RIGHT, 2
-	object_event 18,  5, SPRITE_HIKER, STAY, RIGHT, 3
+	object_event  9,  6, SPRITE_BRUNETTE_GIRL, WALK, LEFT_RIGHT, 2
+	object_event 13,  7, SPRITE_HIKER, STAY, RIGHT, 3
 
 	def_warps_to SEVII_SIX_ISLAND_CITY
