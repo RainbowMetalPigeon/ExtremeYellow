@@ -111,13 +111,13 @@
 	const SPRITE_TAUROS                  ; new
 
 ; TBE
-	const SPRITE_PROTON                  ; new - done
-	const SPRITE_PETREL                  ; new - done
-	const SPRITE_ARIANA                  ; new - done
-	const SPRITE_ARCHER                  ; new - done
-	const SPRITE_CARR                    ; new - done
-	const SPRITE_ORM                     ; new - done
-	const SPRITE_SIRD                    ; new - done
+	const SPRITE_PROTON                  ; new
+	const SPRITE_PETREL                  ; new
+	const SPRITE_ARIANA                  ; new
+	const SPRITE_ARCHER                  ; new
+	const SPRITE_CARR                    ; new
+	const SPRITE_ORM                     ; new
+	const SPRITE_SIRD                    ; new
 	const SPRITE_ICHINO                  ; new
 	const SPRITE_NIUE                    ; new
 	const SPRITE_SANTRE                  ; new
@@ -126,7 +126,7 @@
 	const SPRITE_ROKUSEI                 ; new
 	const SPRITE_NANETTE                 ; new
 	const SPRITE_SUUJERO                 ; new
-	const SPRITE_PINK                    ; new - done
+	const SPRITE_PINK                    ; new
 	const SPRITE_YOUNG_OAK               ; new
 	const SPRITE_CHRIS                   ; new
 	const SPRITE_KRIS                    ; new

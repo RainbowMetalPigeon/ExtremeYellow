@@ -141,11 +141,14 @@ TrainersShinyMons:
 	db 6
 	db $FE
 
-; --- PROF OAK -----------
+; --- SAMUEL OAK -----------
 
 	db PROF_OAK, 1
-	db 4
-	db 5
+	db 1
+	db $FE
+
+	db YOUNG_OAK, 1
+	db 1
 	db $FE
 
 ; --- E4 -------------

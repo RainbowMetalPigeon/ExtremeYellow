@@ -855,8 +855,24 @@ RollsOneRandomMove:
 	and a
 	jr z, .RNGLoopMove
 ; must be within proper range
+	push hl
+	push af
+	CheckEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_1
+	jr z, .limitedPool
+; not limited pools of moves
+	pop af
+	cp NUM_ATTACKS
+	jr c, .HMCheck
+	jr .returnToLoop
+.limitedPool
+	pop af
 	cp NUM_ATTACKS_NOT_UNIQUE
+	jr c, .HMCheck
+.returnToLoop
+	pop hl
 	jr nc, .RNGLoopMove
+.HMCheck
+	pop hl
 ; can't be an HM
 	push af
 	push hl

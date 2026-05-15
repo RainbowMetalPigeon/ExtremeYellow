@@ -1,5 +1,7 @@
 TrainersDeltaMons:
 
+; --- RIVALS -------------
+
 	db RIVAL3, 5
 	db 4
 	db 5
@@ -18,12 +20,14 @@ TrainersDeltaMons:
 	db 5
 	db $FE
 
+; --- ELITE FOUR -------------
+
 	db LORELEI, 3
 	db 4
 	db 5
 	db $FE
 
-	db LORELEI, 3
+	db BRUNO, 3
 	db 2
 	db 4
 	db 6
@@ -39,14 +43,13 @@ TrainersDeltaMons:
 	db 1
 	db $FE
 
-	db YOUNG_OAK, 1
-	db 4
-	db $FE
+; --- SEVII SAGES -------------
 
 	db SUUJERO, 1
 	db 1
 	db 2
 	db 3
+	db 4
 	db $FE
 
 ; --- POKEMANIAC -------------
