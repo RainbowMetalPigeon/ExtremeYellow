@@ -38,11 +38,11 @@ Route3TrainerHeader3:
 Route3TrainerHeader4:
 	trainer EVENT_BEAT_ROUTE_3_TRAINER_4, 4, Route3BattleText5, Route3EndBattleText5, Route3AfterBattleText5
 Route3TrainerHeader5:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_5, 3, Route3BattleText6, Route3EndBattleText6, Route3AfterBattleText6
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_5, 4, Route3BattleText6, Route3EndBattleText6, Route3AfterBattleText6
 Route3TrainerHeader6:
 	trainer EVENT_BEAT_ROUTE_3_TRAINER_6, 3, Route3BattleText7, Route3EndBattleText7, Route3AfterBattleText7
 Route3TrainerHeader7:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_7, 2, Route3BattleText8, Route3EndBattleText8, Route3AfterBattleText8
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_7, 3, Route3BattleText8, Route3EndBattleText8, Route3AfterBattleText8
 	db -1 ; end
 
 Route3Text1:
