@@ -126,6 +126,7 @@ SeviiFiveIslandGymText1:
 	ld [wCurOpponent], a
 	call Random ; pick one of two random teams
 	and %00000001
+	inc a
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a

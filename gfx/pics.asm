@@ -367,11 +367,11 @@ SirdPic::          INCBIN "gfx/trainers/sird.pic"
 IchinoPic::        INCBIN "gfx/trainers/ichino.pic"
 NiuePic::          INCBIN "gfx/trainers/niue.pic"
 SantrePic::        INCBIN "gfx/trainers/santre.pic"
-YottroPic::
-GonquePic::
-RokuseiPic::
-NanettePic::
-SuujeroPic::
+YottroPic::        INCBIN "gfx/trainers/yottro.pic"
+GonquePic::        INCBIN "gfx/trainers/gonque.pic"
+RokuseiPic::       INCBIN "gfx/trainers/rokusei.pic"
+NanettePic::       INCBIN "gfx/trainers/nanette.pic"
+SuujeroPic::       INCBIN "gfx/trainers/suujero.pic"
 PinkPic::          INCBIN "gfx/trainers/pink.pic"
 YoungOakPic::      INCBIN "gfx/trainers/youngoak.pic"
 JennyPic::         INCBIN "gfx/trainers/jenny.pic"
