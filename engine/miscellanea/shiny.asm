@@ -83,6 +83,18 @@ AssignShinyToBattleFacilityTrainers::
 ; =====================================
 
 RollForShiny::
+; check for giving / trading / static / rock smash
+; needed to not brick the Safety Net
+    CheckAndResetEvent EVENT_CHECK_SHINY_FOR_TRADING_STATIC_SMASH
+    jr nz, .checkTradingStaticSmashGiving
+    CheckEvent EVENT_RECEIVING_MON
+    jr z, .notTradingStaticSmashGiving
+.checkTradingStaticSmashGiving
+    ld a, [wOpponentMonShiny]
+    bit BIT_MON_SHINY, a
+    jr nz, .shinyEncounter
+
+.notTradingStaticSmashGiving
 ; is the shiny ritual active?
     CheckEvent EVENT_SHINY_RITUAL_ACTIVE
     jr z, .noRitual
@@ -128,21 +140,19 @@ RollForShiny::
 	jr nz, .notShinyEncounter
 	ld a, [hl]
 	cp $DC ; $05 for testing purposes, $DC for the 1500
-	jr nz, .notShinyEncounter
+	jr c, .notShinyEncounter ; edited, was nz, this should fix the "skip-a-shiny" issue
 ; let's make the encounter shiny because we had 1500 non-shiny ones
 .shinyEncounter
-;    ld a, 1 ; this is the "yes it is shiny" value
     ld a, [wOpponentMonShiny]
     set BIT_MON_SHINY, a
     ld [wOpponentMonShiny], a
 ; reset the non-shiny counter
     xor a
-    ld hl, wNonShinyEncounters ; not elegant but clearer to read, I could do some hld and preload it but whatever
+    ld hl, wNonShinyEncounters
     ld [hli], a
     ld [hl], a
     ret
 .notShinyEncounter
-;	xor a ; not shiny
     ld a, [wOpponentMonShiny]
     res BIT_MON_SHINY, a
 	ld [wOpponentMonShiny], a

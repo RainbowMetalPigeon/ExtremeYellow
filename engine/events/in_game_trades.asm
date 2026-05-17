@@ -126,6 +126,7 @@ InGameTrade_DoTrade:
 	push hl
 	push de
 	push bc
+	SetEvent EVENT_CHECK_SHINY_FOR_TRADING_STATIC_SMASH ; new
 	callfar RollForShiny
 	pop bc
 	pop de

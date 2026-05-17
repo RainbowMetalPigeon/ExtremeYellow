@@ -3114,7 +3114,7 @@ RodResponse:
 	ld [wCurEnemyLVL], a
 	ld a, c ; species
 	ld [wCurOpponent], a
-	callfar RollForShiny ; new, for the shiny
+;	callfar RollForShiny ; new, for the shiny
 
 DoNotGenerateFishingEncounter:
 	ld hl, wWalkBikeSurfState

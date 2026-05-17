@@ -20,11 +20,11 @@ _GivePokemon::
 .randomizedMon ; TBE for second randomized mon
 	CheckEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_1
 	jr z, .firstTime
-	xor a
+	ld a, [wOpponentMonShiny] ; TBV
 	set BIT_MON_RANDOMIZED_2, a
 	jr .setFlag
 .firstTime
-	xor a
+	ld a, [wOpponentMonShiny] ; TBV
 	set BIT_MON_RANDOMIZED_1, a
 .setFlag
 	ld [wOpponentMonShiny], a

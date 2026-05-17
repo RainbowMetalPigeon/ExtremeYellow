@@ -103,6 +103,7 @@ RockSmashCore::
 	ld [wCurOpponent], a
 	ld a, [hl]
 	ld [wCurEnemyLVL], a
+	SetEvent EVENT_CHECK_SHINY_FOR_TRADING_STATIC_SMASH ; new
 	callfar RollForShiny ; new, for the shiny
 	ret
 

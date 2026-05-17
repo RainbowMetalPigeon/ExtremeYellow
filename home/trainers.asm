@@ -406,6 +406,7 @@ EngageMapTrainer::
 	ld [wEngagedTrainerSet], a
 	xor a							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
+	SetEvent EVENT_CHECK_SHINY_FOR_TRADING_STATIC_SMASH ; new
 	callfar RollForShiny            ; new, for the shiny
 	jp PlayTrainerMusic
 

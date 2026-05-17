@@ -213,12 +213,14 @@ SeviiTwoIsletHousesSignText1:
 
 SeviiTwoIsletHousesSignText2: ; how many more steps till the 'safey-net' shiny
 	text_asm
-	; gotta do 1500=$05DC - [wNonShinyEncounters(+1)]
-	; wNonShinyEncounters   is the MSB -> must be subtracted from $05 -> [wUniQuizAnswer]
-	; wNonShinyEncounters+1 is the LSB -> must be subtracted from $DC -> [wUniQuizAnswer+1]
+; gotta do 1500=$05DC - [wNonShinyEncounters(+1)]
+; actually for how the numbers are treaded and the code handles the shiny encounter, let's +1ify it
+; so 1501=$05DD
+; wNonShinyEncounters   is the MSB -> must be subtracted from $05 -> [wUniQuizAnswer]
+; wNonShinyEncounters+1 is the LSB -> must be subtracted from $DC->$DD -> [wUniQuizAnswer+1]
 	ld a, [wNonShinyEncounters+1]
 	ld b, a
-	ld a, $DC
+	ld a, $DD
 	sub b
 	ld [wUniQuizAnswer+1], a
 	ld a, [wNonShinyEncounters]

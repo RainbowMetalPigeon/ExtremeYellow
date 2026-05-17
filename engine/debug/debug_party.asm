@@ -199,10 +199,10 @@ IF DEF(_DEBUG)
 	ld a, 59
 	ld [wPlayTimeMinutes], a
 
-;	ld a, $D0
-;	ld [wNonShinyEncounters+1], a
-;	ld a, $05
-;	ld [wNonShinyEncounters], a
+	ld a, $D0
+	ld [wNonShinyEncounters+1], a
+	ld a, $05
+	ld [wNonShinyEncounters], a
 
 	ld a, %00110000
 	ld [wDayNightCycle], a
