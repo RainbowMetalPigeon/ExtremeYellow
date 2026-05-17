@@ -5383,11 +5383,19 @@ HandleCounterMove:
 	ldh a, [hWhoseTurn] ; whose turn
 	and a
 ; player's turn
+	ld a, [wEnemyMoveType] ; new
+	ld [wMoveType], a ; new
+	ld a, [wEnemyMoveNum] ; new
+	ld [wMoveNum2], a ; new
 	ld hl, wEnemySelectedMove
 	ld de, wEnemyMovePower
 	ld a, [wPlayerSelectedMove]
 	jr z, .next
 ; enemy's turn
+	ld a, [wPlayerMoveType] ; new
+	ld [wMoveType], a ; new
+	ld a, [wPlayerMoveNum] ; new
+	ld [wMoveNum2], a ; new
 	ld hl, wPlayerSelectedMove
 	ld de, wPlayerMovePower
 	ld a, [wEnemySelectedMove]
@@ -5405,32 +5413,9 @@ HandleCounterMove:
 	and a
 	ret z ; miss if the opponent's last selected move's Base Power is 0.
 ; check if the move the target last selected was Normal or Fighting type
-	inc de
-	ld a, [de]
-; cheaper way of checking if the move if physical:
-; in constants/type_constants.asm physical move have number <20
-; just check if a is below 15 or so, there's a gap between physical and special
-; this now also includes TYPELESS, so STRUGGLE can be countered
-	cp 15
+; edited: use the new unified function; values are loaded above
+	call IsMoveSpecialOrPhysical ; new: c=physical, nc=special
 	jr c, .counterableType
-;	and a ; NORMAL type
-;	jr z, .counterableType
-;	cp FIGHTING
-;	jr z, .counterableType
-;	cp FLYING				; check for all other physical types too - ugly as hell but should work
-;	jr z, .counterableType
-;	cp POISON
-;	jr z, .counterableType
-;	cp GROUND
-;	jr z, .counterableType
-;	cp ROCK
-;	jr z, .counterableType
-;	cp BUG
-;	jr z, .counterableType
-;	cp GHOST
-;	jr z, .counterableType
-;	cp STEEL
-;	jr z, .counterableType
 ; if the move wasn't a physical type (but TYPELESS, used only by STRUGGLE), miss
 	xor a
 	ret
@@ -5460,24 +5445,20 @@ HandleCounterMove:
 	xor a
 	ret
 
-HandleCounterLikeMoves:			; new, test
+HandleCounterLikeMoves: ; new
 	ldh a, [hWhoseTurn] ; whose turn
 	and a
 	; player's turn
-;	ld hl, wEnemySelectedMove
-;	ld de, wEnemyMovePower
 	ld a, [wPlayerSelectedMove]
 	jr z, .next
 	; enemy's turn
-;	ld hl, wPlayerSelectedMove
-;	ld de, wPlayerMovePower
 	ld a, [wEnemySelectedMove]
 .next
 	cp COUNTER
 	jp z, HandleCounterMove
 	cp MIRROR_COAT
 	ret nz ; return if not using Mirror Coat (nor Counter)
-	jp HandleMirrorCoatMove
+;	jp HandleMirrorCoatMove ; edited: unnecessary, just fallthrough
 
 ; function to determine if Mirror Coat hits and if so, how much damage it does
 HandleMirrorCoatMove:
@@ -5490,11 +5471,19 @@ HandleMirrorCoatMove:
 	ldh a, [hWhoseTurn] ; whose turn
 	and a
 ; player's turn
+	ld a, [wEnemyMoveType] ; new
+	ld [wMoveType], a ; new
+	ld a, [wEnemyMoveNum] ; new
+	ld [wMoveNum2], a ; new
 	ld hl, wEnemySelectedMove
 	ld de, wEnemyMovePower
 	ld a, [wPlayerSelectedMove]
 	jr z, .next
 ; enemy's turn
+	ld a, [wPlayerMoveType] ; new
+	ld [wMoveType], a ; new
+	ld a, [wPlayerMoveNum] ; new
+	ld [wMoveNum2], a ; new
 	ld hl, wPlayerSelectedMove
 	ld de, wPlayerMovePower
 	ld a, [wEnemySelectedMove]
@@ -5512,31 +5501,9 @@ HandleMirrorCoatMove:
 	and a
 	ret z ; miss if the opponent's last selected move's Base Power is 0.
 ; check if the move the target last selected was special
-	inc de
-	ld a, [de]
-; cheaper way of checking if the move if special:
-; in constants/type_constants.asm special move have number >=20
-; just check if a is above 15 or so, there's a gap between physical and special
-	cp 15
+; edited: use the new unified function; values are loaded above
+	call IsMoveSpecialOrPhysical ; new: c=physical, nc=special
 	jr nc, .mirrorcoatableType
-;	cp FIRE                    ; check for all special types too - ugly as hell but should work
-;	jr z, .mirrorcoatableType
-;	cp WATER
-;	jr z, .mirrorcoatableType
-;	cp GRASS
-;	jr z, .mirrorcoatableType
-;	cp ELECTRIC
-;	jr z, .mirrorcoatableType
-;	cp PSYCHIC_TYPE
-;	jr z, .mirrorcoatableType
-;	cp ICE
-;	jr z, .mirrorcoatableType
-;	cp DRAGON
-;	jr z, .mirrorcoatableType
-;	cp DARK
-;	jr z, .mirrorcoatableType
-;   cp FAIRY
-;   jr z, .mirrorcoatableType
 ; if the move wasn't a special type, miss
 	xor a
 	ret

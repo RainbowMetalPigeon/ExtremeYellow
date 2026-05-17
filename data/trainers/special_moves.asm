@@ -2181,10 +2181,10 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, HAIL
-	db 1, 2, AQUA_JET
-	db 1, 3, REST
-	db 1, 4, BLIZZARD
+	db 1, 1, COUNTER ; HAIL
+	db 1, 2, MIRROR_COAT ; AQUA_JET
+	db 1, 3, TACKLE ; REST
+	db 1, 4, EMBER ; BLIZZARD
 	; CLOYSTER
 	db 2, 1, EXPLOSION
 	db 2, 2, PIN_MISSILE
