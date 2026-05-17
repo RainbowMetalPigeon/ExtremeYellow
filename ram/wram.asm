@@ -1883,6 +1883,7 @@ wListCount:: db
 
 wLinkState:: db
 
+wMoveNum2:: ; new
 wTwoOptionMenuID:: db
 
 ; the id of the menu item the player ultimately chose

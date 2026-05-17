@@ -309,7 +309,7 @@ MainInBattleLoop:
 	inc [hl]
 	jr .AIActionUsedEnemyFirst
 .enemyFirstnoAI
-; BTV 
+; BTV
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -363,7 +363,7 @@ MainInBattleLoop:
 	inc [hl]
 	jr .AIActionUsedPlayerFirst
 .playerFirstnoAI
-; BTV 
+; BTV
 	call ExecuteEnemyMove
 	ld a, [wEscapedFromBattle]
 	and a ; was Teleport, Road, or Whirlwind used to escape from battle?
@@ -4692,58 +4692,11 @@ GetDamageVarsForPlayerAttack:
 	pop hl
 ; back to vanilla
 
-; new and edited, for physical/special split
-	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
-	and a
-	jr nz, .PhysicalSpecialSplit
+	push de ; unnecessary?
+	call IsMoveSpecialOrPhysical_Player ; new: c=physical, nc=special
+	pop de
+	jr nc, .specialAttack
 
-; no physical/special split applied
-	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
-	and a
-	ld a, [hl] ; a = [wPlayerMoveType]
-	jr z, .physicalSpecialCheckNoTCGMode1
-	cp SPECIAL_TCG
-	jr .donePhysicalSpecialCheck1
-.physicalSpecialCheckNoTCGMode1
-	cp SPECIAL ; types >= SPECIAL are all special
-.donePhysicalSpecialCheck1
-	jp nc, .specialAttack ; commented for physical/special split
-	jr .physicalAttack
-
-.PhysicalSpecialSplit
-	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
-	and a
-	ld a, [hl] ; a = [wPlayerMoveType]
-	jr z, .physicalSpecialCheckNoTCGMode2
-	cp SPECIAL_TCG
-	jr .donePhysicalSpecialCheck2
-.physicalSpecialCheckNoTCGMode2
-	cp SPECIAL ; types >= SPECIAL are all special
-.donePhysicalSpecialCheck2
-	ld a, [wPlayerMoveNum]
-    ld b, a
-    jr nc, .isSpecialActuallyPhysical
-    jr .isPhysicalActuallySpecial
-
-.isSpecialActuallyPhysical
-    ld hl, SpecialToPhysicalMoves
-.specialPhysicalLoop
-    ld a, [hli]
-    cp b
-    jr z, .physicalAttack
-    cp $ff ; end of list
-    jr nz, .specialPhysicalLoop ; keep checking list
-    jp .specialAttack ; Not actually a physical move
-
-.isPhysicalActuallySpecial
-    ld hl, PhysicalToSpecialMoves
-.physicalSpecialLoop
-    ld a, [hli]
-    cp b
-    jr z, .specialAttack ; the physical move is actually special
-    cp $ff ; end of list
-    jr nz, .physicalSpecialLoop ; keep checking list
-; back to vanilla
 .physicalAttack
 	ld hl, wEnemyMonDefense
 	ld a, [hli]
@@ -4823,6 +4776,7 @@ GetDamageVarsForPlayerAttack:
 	call AddNTimes
 	pop bc
 	jr .scaleStats
+
 .specialAttack
 
 ; new, to handle psystrike
@@ -4965,54 +4919,11 @@ GetDamageVarsForEnemyAttack:
 	pop hl
 ; back to vanilla
 
-; new and edited, for physical/special split
-	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
-	and a
-	jr nz, .PhysicalSpecialSplit
-; no physical/special split applied
-	ld a, [wPersonalizationTCGMode]
-	and a
-	ld a, [hl] ; a = [wPlayerMoveType]
-	jr z, .physicalSpecialCheckNoTCGMode1
-	cp SPECIAL_TCG
-	jr .donePhysicalSpecialCheck1
-.physicalSpecialCheckNoTCGMode1
-	cp SPECIAL ; types >= SPECIAL are all special
-.donePhysicalSpecialCheck1
-	jp nc, .specialAttack ; commented for physical/special split
-	jr .physicalAttack
-.PhysicalSpecialSplit
-	ld a, [wPersonalizationTCGMode]
-	and a
-	ld a, [hl] ; a = [wPlayerMoveType]
-	jr z, .physicalSpecialCheckNoTCGMode2
-	cp SPECIAL_TCG
-	jr .donePhysicalSpecialCheck2
-.physicalSpecialCheckNoTCGMode2
-	cp SPECIAL ; types >= SPECIAL are all special
-.donePhysicalSpecialCheck2
-	ld a, [wEnemyMoveNum]
-    ld b, a
-    jr nc, .isSpecialActuallyPhysical
-    jr .isPhysicalActuallySpecial
-.isSpecialActuallyPhysical
-    ld hl, SpecialToPhysicalMoves
-.specialPhysicalLoop
-    ld a, [hli]
-    cp b
-    jr z, .physicalAttack
-    cp $ff ; end of list
-    jr nz, .specialPhysicalLoop ; keep checking list
-    jp .specialAttack ; Not actually a physical move
-.isPhysicalActuallySpecial
-    ld hl, PhysicalToSpecialMoves
-.physicalSpecialLoop
-    ld a, [hli]
-    cp b
-    jr z, .specialAttack ; the physical move is actually special
-    cp $ff ; end of list
-    jr nz, .physicalSpecialLoop ; keep checking list
-; back to vanilla
+	push de ; unnecessary?
+	call IsMoveSpecialOrPhysical_Enemy ; new: c=physical, nc=special
+	pop de
+	jr nc, .specialAttack
+
 .physicalAttack
 	ld hl, wBattleMonDefense
 	ld a, [hli]
@@ -7831,53 +7742,8 @@ SetAISentOut:
 ; --------------------------------------------------------------
 
 PrintIfMoveSpecialOrPhysical:: ; new
-	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
-	and a
-	jr nz, .PhysicalSpecialSplit
-; no physical/special split applied
-	ld a, [wPersonalizationTCGMode]
-	and a
-	ld a, [wPlayerMoveType]
-	jr z, .physicalSpecialCheckNoTCGMode1
-	cp SPECIAL_TCG
-	jr .donePhysicalSpecialCheck1
-.physicalSpecialCheckNoTCGMode1
-	cp SPECIAL ; types >= SPECIAL are all special
-.donePhysicalSpecialCheck1
-	jp nc, .specialAttack ; commented for physical/special split
-	jr .physicalAttack
-; option on --------------------
-.PhysicalSpecialSplit
-	ld a, [wPersonalizationTCGMode]
-	and a
-	ld a, [wPlayerMoveType]
-	jr z, .physicalSpecialCheckNoTCGMode2
-	cp SPECIAL_TCG
-	jr .donePhysicalSpecialCheck2
-.physicalSpecialCheckNoTCGMode2
-	cp SPECIAL ; types >= SPECIAL are all special
-.donePhysicalSpecialCheck2
-	ld a, [wPlayerMoveNum]
-    ld b, a
-    jr nc, .isSpecialActuallyPhysical
-    jr .isPhysicalActuallySpecial
-.isSpecialActuallyPhysical
-    ld hl, SpecialToPhysicalMoves
-.specialPhysicalLoop
-    ld a, [hli]
-    cp b
-    jr z, .physicalAttack
-    cp $ff ; end of list
-    jr nz, .specialPhysicalLoop ; keep checking list
-    jr .specialAttack ; Not actually a physical move
-.isPhysicalActuallySpecial
-    ld hl, PhysicalToSpecialMoves
-.physicalSpecialLoop
-    ld a, [hli]
-    cp b
-    jr z, .specialAttack ; the physical move is actually special
-    cp $ff ; end of list
-    jr nz, .physicalSpecialLoop ; keep checking list
+	call IsMoveSpecialOrPhysical_Player ; new: c=physical, nc=special
+	jr nc, .specialAttack
 .physicalAttack
 	ld de, PhysicalTextAttackdex
 	jr .finishPrinting
@@ -7892,3 +7758,83 @@ PhysicalTextAttackdex:
 
 SpecialTextAttackdex:
 	db "(SPECIAL)@"
+
+; -----------------------------------------------------
+
+IsMoveSpecialOrPhysical_Player::
+    ld a, [wPlayerMoveType]
+    ld [wMoveType], a
+    ld a, [wPlayerMoveNum]
+    ld [wMoveNum2], a
+    jr IsMoveSpecialOrPhysical
+
+IsMoveSpecialOrPhysical_Enemy::
+    ld a, [wEnemyMoveType]
+    ld [wMoveType], a
+    ld a, [wEnemyMoveNum]
+    ld [wMoveNum2], a
+    ; fallthrough
+
+; input: wEnemyMoveType/wPlayerMoveType and wEnemyMoveNum/wPlayerMoveNum properly set, see above
+; output: c flag if physical, nc if special
+IsMoveSpecialOrPhysical:
+; for physical/special split
+	ld a, [wPersonalizationPhySpeSplit] ; 0=NO, 1=YES
+	and a
+	jr nz, .PhysicalSpecialSplit
+
+; no physical/special split applied
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	ld a, [wMoveType] ; difference wrt vanilla
+	jr z, .physicalSpecialCheckNoTCGMode1
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck1
+.physicalSpecialCheckNoTCGMode1
+	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck1
+	jp nc, .specialAttack
+	jr .physicalAttack
+
+.PhysicalSpecialSplit
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	ld a, [wMoveType] ; difference wrt vanilla
+	jr z, .physicalSpecialCheckNoTCGMode2
+	cp SPECIAL_TCG
+	jr .donePhysicalSpecialCheck2
+.physicalSpecialCheckNoTCGMode2
+	cp SPECIAL ; types >= SPECIAL are all special
+.donePhysicalSpecialCheck2
+	ld a, [wMoveNum2] ; difference wrt vanilla
+    ld b, a
+    jr c, .isPhysicalActuallySpecial
+
+.isSpecialActuallyPhysical
+    ld hl, SpecialToPhysicalMoves
+.specialPhysicalLoop
+    ld a, [hli]
+    cp b
+    jr z, .physicalAttack
+    cp $ff ; end of list
+    jr nz, .specialPhysicalLoop ; keep checking list
+    jp .specialAttack ; Not actually a physical move
+
+.isPhysicalActuallySpecial
+    ld hl, PhysicalToSpecialMoves
+.physicalSpecialLoop
+    ld a, [hli]
+    cp b
+    jr z, .specialAttack ; the physical move is actually special
+    cp $ff ; end of list
+    jr nz, .physicalSpecialLoop ; keep checking list
+
+.physicalAttack ; c flag
+    scf
+    ret
+
+.specialAttack ; nc flag
+    xor a
+    ret
+
+; -----------------------------------------------------
