@@ -48,7 +48,7 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, FLAIL ; DOUBLE_IRON_BASH
+	ld a, PERISH_SONG ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
 	ld a, ROCK_CLIMB

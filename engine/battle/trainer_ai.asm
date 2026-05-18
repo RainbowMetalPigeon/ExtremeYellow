@@ -113,6 +113,7 @@ AIMoveChoiceModificationFunctionPointers:
 ; also check for CURSE, LEECH_SEED, SUBSTITUTE, DISABLED, CONFUSED
 ; also for SCREENs, DREAM EATER, etc...
 ; also for priority moves under PSYCHIC_TERRAIN
+; also entry hazards if they are already up or the player has too few mons
 AIMoveChoiceModification1:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -173,6 +174,16 @@ AIMoveChoiceModification1:
 	jp z, .lightScreenEffect
 	cp REFLECT_EFFECT
 	jp z, .reflectEffect
+
+	cp SPIKES_EFFECT
+	jp z, .spikesEffect
+	cp TOXIC_SPIKES_EFFECT
+	jp z, .toxicSpikesEffect
+	cp STICKY_WEB_EFFECT
+	jp z, .stickyWebEffect
+	cp STEALTH_ROCK_EFFECT
+	jp z, .stealthRockEffect
+
 	cp OHKO_EFFECT
 	jp z, .ohkoEffect
 ; check for permanent-status-inflicting effects
@@ -342,6 +353,54 @@ AIMoveChoiceModification1:
 	bit HAS_REFLECT_UP, a
 	jp z, .nextMove
 	jp .veryHeavilyDiscourage
+
+.spikesEffect
+	ld a, [wHazardsSpikesPlayerSide]
+	cp 3
+	jp z, .veryHeavilyDiscourage
+	cp 2
+	jr nz, .countPlayerAliveMons
+	inc [hl] ; discourage by 1
+	jr .countPlayerAliveMons
+
+.toxicSpikesEffect
+	ld a, [wHazardsToxicSpikesPlayerSide]
+	cp 2
+	jp z, .veryHeavilyDiscourage
+	and a
+	jr z, .countPlayerAliveMons
+	inc [hl] ; discourage by 1
+	jr .countPlayerAliveMons
+
+.stickyWebEffect
+	ld a, [wHazardsStickyWebPlayerSide]
+	jr .stealthStickyCommon
+
+.stealthRockEffect
+	ld a, [wHazardsStealthRockPlayerSide]
+	; fallthrough
+.stealthStickyCommon
+	and a
+	jp nz, .veryHeavilyDiscourage
+	jr .countPlayerAliveMons
+	; fallthrough
+
+.countPlayerAliveMons
+	push hl
+	push bc
+	push de
+	call CountHowManyPartyAlive ; d = count alive
+	ld a, d
+	pop de
+	pop bc
+	pop hl
+	cp 1 ; if only 1 alive, don't use the move
+	jp z, .veryHeavilyDiscourage
+	cp 2 ; if only 2 alive, discourage a lot, by 3
+	jp z, .discourageBy3
+	cp 3 ; if only 3 alive, discourage a bit, by 1
+	jp z, .discourageBy1
+	jp .nextMove ; otherwise don't discourage
 
 .ohkoEffect ; compare speeds
 	push hl
@@ -1027,6 +1086,7 @@ AIMoveChoiceModification3:
 ; - when they are trapped in a trapping move ; edited, is handled later
 ; - when enemy's mon is nerfed too much
 ; - when all of enemy's moves are discouraged
+; - when the PERISHing counter is at 1
 AIMoveChoiceModification4:
 	ResetEvent EVENT_AI_SWITCH_MON
 	ld a, [wEnemyBattleStatus1] ; ----------------------------------------------
@@ -1099,13 +1159,21 @@ AIMoveChoiceModification4:
 	inc de ; for next loop
 	ld a, [hl]
 	cp 21 ; encouragement - 21; neutral: 20-21 -> c; discouraged: 21-21->nc
-	jr c, .checkNext ; if even 1 move is not discouraged, no switch
+	jr c, .checkPerishing ; if even 1 move is not discouraged, no switch
 	jr .nextMove
+.checkPerishing ; --------------------------------------------------------------
+	ld a, [wEnemyStatsToDouble]
+	bit PERISHING, a
+	jr z, .checkNext
+	and PERISH_MASK
+	cp 1
+	jr z, .setSwitchingAndEnd
+	; fallthrough
 .checkNext ; -------------------------------------------------------------------
 	ret
 .rollForEncouragementBasedSwitch ; fix for V1.3: 20% to switch if all moves are discouraged; ugly but will do for now
 	call Random
-	cp 20 percent
+	cp 90 percent
 	ret nc
 .setSwitchingAndEnd ; ==========================================================
 	SetEvent EVENT_AI_SWITCH_MON
@@ -1184,8 +1252,6 @@ TrainerAI:
 	cp 60 percent
 	jr nc, .noSwitchFromTrapping
 ; opponent actually switches out from being trapped
-	ld hl, wPlayerBattleStatus1
-	res USING_TRAPPING_MOVE, [hl]
 	jp AISwitchIfEnoughMons
 .noSwitchFromTrapping
 ; back to vanilla
@@ -1615,6 +1681,9 @@ AISwitchIfEnoughMons:: ; edited, 2 colons
 	ret
 
 SwitchEnemyMon:
+; edited: reset here the trapping
+	ld hl, wPlayerBattleStatus1
+	res USING_TRAPPING_MOVE, [hl]
 
 ; prepare to withdraw the active monster: copy hp, number, and status to roster
 
@@ -1798,7 +1867,7 @@ AIBattleUseItemText:
 
 ; new ===================================================
 
-CountHowManyPartyAlive:
+CountHowManyPartyAlive: ; d = how many alive mons player has
 	ld a, [wPartyCount]
 	ld e, a
 	xor a
