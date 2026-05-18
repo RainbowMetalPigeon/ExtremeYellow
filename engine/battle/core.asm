@@ -7709,6 +7709,10 @@ SetAISentOut:
 ; --------------------------------------------------------------
 
 PrintIfMoveSpecialOrPhysical:: ; new
+	ld a, [wPlayerMovePower]
+	and a
+	ld de, StatusTextAttackdex
+	jr z, .finishPrinting
 	call IsMoveSpecialOrPhysical_Player ; new: c=physical, nc=special
 	jr nc, .specialAttack
 .physicalAttack
@@ -7725,6 +7729,9 @@ PhysicalTextAttackdex:
 
 SpecialTextAttackdex:
 	db "(SPECIAL)@"
+
+StatusTextAttackdex:
+	db "(STATUS)@"
 
 ; -----------------------------------------------------
 

@@ -727,7 +727,7 @@ AIMoveChoiceModification3:
 	cp COUNTER
 	jp z, .handleCounter
 	cp MIRROR_COAT
-	jp z, .nextMove
+	jp z, .handleMirrorCoat
 ; handle JUDGMENT, treat it as always super effective
 	cp JUDGMENT
 	jr z, .superEffective
@@ -776,16 +776,37 @@ AIMoveChoiceModification3:
 	ld [hl], a
 	jr .nextMove
 .handleCounter
-	ld a, [wPlayerBattleStatus1]
-	bit INVULNERABLE, a
-	jr z, .nextMove
-; if we are here, player is in the invincible turn of fly/dig and opponent is checking for counter, so extremely encourage the move (-5)
+	push hl
+	push de
+	push bc
+	callfar IsMoveSpecialOrPhysical_Player ; new: c=physical, nc=special
+	pop bc
+	pop de
+	pop hl
+	jp nc, .discourageMoveBy5
+; otherwise, extremely encourage the move (-5)
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	jr .nextMove
+.handleMirrorCoat
+	push hl
+	push de
+	push bc
+	callfar IsMoveSpecialOrPhysical_Player ; new: c=physical, nc=special
+	pop bc
+	pop de
+	pop hl
+	jp c, .discourageMoveBy5
+; otherwise, extremely encourage the move (-5)
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	jp .nextMove
 
 .modification3Part2 ; HEAL and EXPLOSION
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
@@ -900,7 +921,7 @@ AIMoveChoiceModification3:
 ; check if the player's mon is NOT in dig/fly invincible state
 	ld a, [wPlayerBattleStatus1]
 	bit INVULNERABLE, a
-	jp nz, .discouragePrioMoveIfInvulnerableState
+	jp nz, .discourageMoveBy5
 ; player is not invulnerable, so we can encourage the move
 	push hl
 	push bc
@@ -935,7 +956,7 @@ AIMoveChoiceModification3:
 	pop hl
 	dec [hl] ; slightly encourage
 	jp .nextMove4
-.discouragePrioMoveIfInvulnerableState
+.discourageMoveBy5
 	ld a, [hl]
 	add 5 ; heavily discourage move
 	ld [hl], a

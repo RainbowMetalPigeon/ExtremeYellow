@@ -507,7 +507,7 @@ _SeviiEightIslandCavePinkBeatYouText::
 ;	xxxx "123456789012345678"
 	prompt
 
-; ten island ---------------------------------------
+; ten island --------------------------------------- TBE
 
 _SeviiTenIslandText1_Intro::
 	text "What is this?"

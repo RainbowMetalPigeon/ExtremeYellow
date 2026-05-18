@@ -725,11 +725,11 @@ _SeviiFiveIslandWarehouse1FText7::
 	line "troppo -"
 	cont "Forse la falce"
 	cont "rispondera'!"
-	
+
 	para "Sulle ali della"
 	line "morte giuro ti"
 	cont "raggiungero'!"
-	
+
 	para "La paura di"
 	line "cercare no, non"
 	cont "mi fara' annegare"
@@ -1796,7 +1796,7 @@ _SeviiRoute36SignText1_WrongSide::
 
 ; dive --------------------------------- TBE
 
-_SeviiFiveIslandCityDiveBattleText1::
+_SeviiFiveIslandCityDiveBattleText1:: ; DIVER
 	text "1-pre"
 	done
 
@@ -1808,7 +1808,7 @@ _SeviiFiveIslandCityDiveAfterBattleText1::
 	text "1-after"
 	done
 
-_SeviiFiveIslandCityDiveBattleText2::
+_SeviiFiveIslandCityDiveBattleText2:: ; DIVER
 	text "2-pre"
 	done
 
@@ -1820,7 +1820,7 @@ _SeviiFiveIslandCityDiveAfterBattleText2::
 	text "2-after"
 	done
 
-_SeviiFiveIslandCityDiveBattleText3::
+_SeviiFiveIslandCityDiveBattleText3:: ; COOLTRAINER
 	text "3-pre"
 	done
 
@@ -1832,7 +1832,7 @@ _SeviiFiveIslandCityDiveAfterBattleText3::
 	text "3-after"
 	done
 
-_SeviiFiveIslandCityDiveBattleText4::
+_SeviiFiveIslandCityDiveBattleText4:: ; DIVER
 	text "4-pre"
 	done
 
