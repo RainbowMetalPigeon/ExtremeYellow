@@ -781,7 +781,7 @@ AIMoveChoiceModification3:
 	and a
 	jp z, .nextMove
 ; counter and mirror coat are unaffected by type match-up too and have BP=1
-; but counter is encouraged strongly if opponent is in the invulnerable turn of fly/dig
+; but they are encouraged if the player is using a move of the appropriate category
 	ld a, [wEnemyMoveNum]
 	cp COUNTER
 	jp z, .handleCounter
@@ -835,6 +835,9 @@ AIMoveChoiceModification3:
 	ld [hl], a
 	jr .nextMove
 .handleCounter
+	ld a, [wPlayerMovePower]
+	cp 2
+	jr c, .discourageMoveByFive1
 	push hl
 	push de
 	push bc
@@ -842,15 +845,18 @@ AIMoveChoiceModification3:
 	pop bc
 	pop de
 	pop hl
-	jp nc, .discourageMoveBy5
+	jp nc, .discourageMoveByFive1
 ; otherwise, extremely encourage the move (-5)
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
-	jr .nextMove
+	jp .nextMove
 .handleMirrorCoat
+	ld a, [wPlayerMovePower]
+	cp 2
+	jr c, .discourageMoveByFive1
 	push hl
 	push de
 	push bc
@@ -858,13 +864,18 @@ AIMoveChoiceModification3:
 	pop bc
 	pop de
 	pop hl
-	jp c, .discourageMoveBy5
+	jp c, .discourageMoveByFive1
 ; otherwise, extremely encourage the move (-5)
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
 	dec [hl]
+	jp .nextMove
+.discourageMoveByFive1
+	ld a, [hl]
+	add 5 ; heavily discourage move
+	ld [hl], a
 	jp .nextMove
 
 .modification3Part2 ; HEAL and EXPLOSION
@@ -980,7 +991,7 @@ AIMoveChoiceModification3:
 ; check if the player's mon is NOT in dig/fly invincible state
 	ld a, [wPlayerBattleStatus1]
 	bit INVULNERABLE, a
-	jp nz, .discourageMoveBy5
+	jp nz, .discourageMoveByFive4
 ; player is not invulnerable, so we can encourage the move
 	push hl
 	push bc
@@ -1015,7 +1026,7 @@ AIMoveChoiceModification3:
 	pop hl
 	dec [hl] ; slightly encourage
 	jp .nextMove4
-.discourageMoveBy5
+.discourageMoveByFive4
 	ld a, [hl]
 	add 5 ; heavily discourage move
 	ld [hl], a
