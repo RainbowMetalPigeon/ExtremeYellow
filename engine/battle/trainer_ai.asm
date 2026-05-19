@@ -754,14 +754,16 @@ Modifier2StatusMoveEffects:
 	db STEALTH_ROCK_EFFECT
 	db -1
 
-; encourages moves that are effective against the player's mon (even if non-damaging).
+; encourages moves that are effective against the player's mon
 ; discourage damaging moves that are ineffective or not very effective against the player's mon
 ; edited: takes into account various levels of effectiveness:
 ; encourages by 4 if double super eff, by 2 if super eff, discourages by 2 if not very eff, by 4 if double not very, by 10 if immune
+; also encourages counter and mirror coat is appropriate
 ; new: part2 encourages draining and exploding moves at low HP by 1, 2, or 3, depending on effect and HP left
 ; new: part3 encouranges STAB moves by 1
 ; new: part4 encouranges by 1 priority moves if we are slower and they are least neutral, and discourages by 5 prio moves if player is invulnerable
 ; new: part5 encouranges by 5 swift-like moves if the player is slower and is invulnerable
+; new: part6 dis/encouranges trick room, weathers, and terrains under appropriate conditions
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -1088,7 +1090,93 @@ AIMoveChoiceModification3:
 	dec [hl]
 	jp .nextMove5
 
-.modification3Part6
+.modification3Part6 ; trick room, weathers, and terrains
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove6
+	dec b
+	jp z, .modification3Part7 ; processed all 4 moves ; edited
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part7 ; no more moves in move set ; edited
+; actually do things with the move
+	inc de
+	call ReadMove
+; we proceed only if the move is TRICK_ROOM, a weather, or a terrain
+	ld a, [wEnemyMoveNum]
+	cp TRICK_ROOM
+	jr z, .moveIsTrickRoom
+	cp SUNNY_DAY
+	jr z, .moveIsSunnyDay
+	cp RAIN_DANCE
+	jr z, .moveIsRainDance
+	cp SANDSTORM
+	jr z, .moveIsSandstorm
+	cp HAIL
+	jr z, .moveIsHail
+	cp GRASSY_TERRAIN
+	jr z, .moveIsGrassyTerrain
+	cp ELECTRIC_TERRAIN
+	jr z, .moveIsElectricTerrain
+	cp PSYCHIC_TERRAIN
+	jr z, .moveIsPsychicTerrain
+	cp MISTY_TERRAIN
+	jr z, .moveIsMistyTerrain
+	jp .nextMove6
+
+
+.moveIsSunnyDay
+.moveIsRainDance
+.moveIsSandstorm
+.moveIsHail
+
+.moveIsGrassyTerrain
+.moveIsElectricTerrain
+.moveIsPsychicTerrain
+.moveIsMistyTerrain
+
+
+.moveIsTrickRoom
+; check if the opponent is faster than the player
+	push hl
+	push de
+	ld hl, wEnemyMonSpeed
+	ld de, wBattleMonSpeed
+	ld a, [de]
+	cp [hl] ; battling's speed - opponent mon's speed, MOST significant byte
+	jr c, .opponentIsFaster6
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl] ; battling's speed - opponent mon's speed, LEAST significant byte
+.opponentIsFaster6
+	pop de
+	pop hl
+	jr c, .discourageByThree6 ; opponent is faster
+; player is not slower than opponent
+.encourageByTwelve6
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	jp .nextMove6
+.discourageByThree6
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	jp .nextMove6
+
+.modification3Part7
 	ret
 
 ; new, to handle tactical switching:
