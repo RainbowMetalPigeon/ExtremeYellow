@@ -1107,30 +1107,225 @@ AIMoveChoiceModification3:
 ; we proceed only if the move is TRICK_ROOM, a weather, or a terrain
 	ld a, [wEnemyMoveNum]
 	cp TRICK_ROOM
-	jr z, .moveIsTrickRoom
+	jp z, .moveIsTrickRoom
 	cp SUNNY_DAY
-	jr z, .moveIsSunnyDay
+	jp z, .moveIsSunnyDay
 	cp RAIN_DANCE
-	jr z, .moveIsRainDance
+	jp z, .moveIsRainDance
 	cp SANDSTORM
-	jr z, .moveIsSandstorm
+	jp z, .moveIsSandstorm
 	cp HAIL
-	jr z, .moveIsHail
+	jp z, .moveIsHail
 	cp GRASSY_TERRAIN
-	jr z, .moveIsGrassyTerrain
+	jp z, .moveIsGrassyTerrain
 	cp ELECTRIC_TERRAIN
-	jr z, .moveIsElectricTerrain
+	jp z, .moveIsElectricTerrain
 	cp PSYCHIC_TERRAIN
-	jr z, .moveIsPsychicTerrain
+	jp z, .moveIsPsychicTerrain
 	cp MISTY_TERRAIN
-	jr z, .moveIsMistyTerrain
+	jp z, .moveIsMistyTerrain
+	jp .nextMove6
+.moveIsSunnyDay
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_SD
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_FIRE
+	jr z, .encourageByOne_SD
+	ld a, [wEnemyMonType2]
+	cp TCG_FIRE
+	jr z, .encourageByOne_SD
+	jr .postEncourageByOne_SD
+.typeCheckNoTCG_SD
+	ld a, [wEnemyMonType1]
+	cp FIRE
+	jr z, .encourageByOne_SD
+	ld a, [wEnemyMonType2]
+	cp FIRE
+	jr nz, .postEncourageByOne_SD
+.encourageByOne_SD
+	dec [hl]
+.postEncourageByOne_SD
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_HAIL
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
+.moveIsRainDance
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_RD
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_WATER
+	jr z, .encourageByOne_RD
+	ld a, [wEnemyMonType2]
+	cp TCG_WATER
+	jr z, .encourageByOne_RD
+	jr .postEncourageByOne_RD
+.typeCheckNoTCG_RD
+	ld a, [wEnemyMonType1]
+	cp WATER
+	jr z, .encourageByOne_RD
+	ld a, [wEnemyMonType2]
+	cp WATER
+	jr nz, .postEncourageByOne_RD
+.encourageByOne_RD
+	dec [hl]
+.postEncourageByOne_RD
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_HAIL
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
+.moveIsSandstorm
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_SS
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_FIGHTING
+	jr z, .encourageByOne_SS
+	cp TCG_METAL
+	jr z, .encourageByOne_SS
+	ld a, [wEnemyMonType2]
+	cp TCG_FIGHTING
+	jr z, .encourageByOne_SS
+	cp TCG_METAL
+	jr z, .encourageByOne_SS
+	jr .postEncourageByOne_SS
+.typeCheckNoTCG_SS
+	ld a, [wEnemyMonType1]
+	cp ROCK
+	jr z, .encourageByOne_SS
+	cp GROUND
+	jr z, .encourageByOne_SS
+	cp STEEL
+	jr z, .encourageByOne_SS
+	ld a, [wEnemyMonType2]
+	cp ROCK
+	jr z, .encourageByOne_SS
+	cp GROUND
+	jr z, .encourageByOne_SS
+	cp STEEL
+	jr nz, .postEncourageByOne_SS
+.encourageByOne_SS
+	dec [hl]
+.postEncourageByOne_SS
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_HAIL
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
+.moveIsHail
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_H
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_WATER
+	jr z, .encourageByOne_H
+	ld a, [wEnemyMonType2]
+	cp TCG_WATER
+	jr z, .encourageByOne_H
+	jr .postEncourageByOne_H
+.typeCheckNoTCG_H
+	ld a, [wEnemyMonType1]
+	cp ICE
+	jr z, .encourageByOne_H
+	ld a, [wEnemyMonType2]
+	cp ICE
+	jr nz, .postEncourageByOne_H
+.encourageByOne_H
+	dec [hl]
+.postEncourageByOne_H
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_HAIL
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SUNNY_DAY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_SANDSTORM
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_WEATHER_RAIN_DANCE
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
 	jp .nextMove6
 
-
-.moveIsSunnyDay
-.moveIsRainDance
-.moveIsSandstorm
-.moveIsHail
 
 .moveIsGrassyTerrain
 .moveIsElectricTerrain
@@ -1166,12 +1361,18 @@ AIMoveChoiceModification3:
 	dec [hl]
 	dec [hl]
 	dec [hl]
+.encourageByThree6
 	dec [hl]
+.encourageByTwo6
 	dec [hl]
+.encourageByOne6
 	dec [hl]
 	jp .nextMove6
+.discourageByFour6 ; -----
+	inc [hl]
 .discourageByThree6
 	inc [hl]
+.discourageByTwo6
 	inc [hl]
 	inc [hl]
 	jp .nextMove6
