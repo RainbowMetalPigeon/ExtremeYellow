@@ -1325,14 +1325,174 @@ AIMoveChoiceModification3:
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
-
-
 .moveIsGrassyTerrain
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_GT
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_GRASS
+	jr z, .encourageByOne_GT
+	ld a, [wEnemyMonType2]
+	cp TCG_GRASS
+	jr z, .encourageByOne_GT
+	jr .postEncourageByOne_GT
+.typeCheckNoTCG_GT
+	ld a, [wEnemyMonType1]
+	cp GRASS
+	jr z, .encourageByOne_GT
+	ld a, [wEnemyMonType2]
+	cp GRASS
+	jr nz, .postEncourageByOne_GT
+.encourageByOne_GT
+	dec [hl]
+.postEncourageByOne_GT
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_GRASSY
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_MISTY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
 .moveIsElectricTerrain
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_ET
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_LIGHTNING
+	jr z, .encourageByOne_ET
+	ld a, [wEnemyMonType2]
+	cp TCG_LIGHTNING
+	jr z, .encourageByOne_ET
+	jr .postEncourageByOne_ET
+.typeCheckNoTCG_ET
+	ld a, [wEnemyMonType1]
+	cp ELECTRIC
+	jr z, .encourageByOne_ET
+	ld a, [wEnemyMonType2]
+	cp ELECTRIC
+	jr nz, .postEncourageByOne_ET
+.encourageByOne_ET
+	dec [hl]
+.postEncourageByOne_ET
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_GRASSY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_MISTY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
 .moveIsPsychicTerrain
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG_PT
+; TCG mode on
+	ld a, [wEnemyMonType1]
+	cp TCG_PSYCHIC
+	jr z, .encourageByOne_PT
+	ld a, [wEnemyMonType2]
+	cp TCG_PSYCHIC
+	jr z, .encourageByOne_PT
+	jr .postEncourageByOne_PT
+.typeCheckNoTCG_PT
+	ld a, [wEnemyMonType1]
+	cp PSYCHIC_TYPE
+	jr z, .encourageByOne_PT
+	ld a, [wEnemyMonType2]
+	cp PSYCHIC_TYPE
+	jr nz, .postEncourageByOne_PT
+.encourageByOne_PT
+	dec [hl]
+.postEncourageByOne_PT
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_MISTY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_GRASSY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
 .moveIsMistyTerrain
-
-
+; no type check because Misty Terrain doesn't power up Fairy moves
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_MISTY
+	pop de
+	pop hl
+	jp nz, .discourageByFour6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_ELECTRIC
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_GRASSY
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	push hl
+	push de
+	CheckEvent EVENT_TERRAIN_PSYCHIC
+	pop de
+	pop hl
+	jp nz, .encourageByThree6
+	jp .nextMove6
 .moveIsTrickRoom
 ; check if the opponent is faster than the player
 	push hl
