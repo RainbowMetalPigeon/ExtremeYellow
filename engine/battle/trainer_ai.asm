@@ -764,6 +764,7 @@ Modifier2StatusMoveEffects:
 ; new: part4 encouranges by 1 priority moves if we are slower and they are least neutral, and discourages by 5 prio moves if player is invulnerable
 ; new: part5 encouranges by 5 swift-like moves if the player is slower and is invulnerable
 ; new: part6 dis/encouranges trick room, weathers, and terrains under appropriate conditions
+; new: part7 encouranges special damage moves like STOMP if opp is MINIMIZEd, EARTHQUAKE if DIGging, etc
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -1090,7 +1091,7 @@ AIMoveChoiceModification3:
 	dec [hl]
 	jp .nextMove5
 
-.modification3Part6 ; trick room, weathers, and terrains
+.modification3Part6 ; trick room, weathers, and terrains, as well as rapid spin
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
 	ld b, NUM_MOVES + 1
@@ -1104,8 +1105,10 @@ AIMoveChoiceModification3:
 ; actually do things with the move
 	inc de
 	call ReadMove
-; we proceed only if the move is TRICK_ROOM, a weather, or a terrain
+; we proceed only if the move is TRICK_ROOM, a weather, a terrain, or RAPID_SPIN
 	ld a, [wEnemyMoveNum]
+	cp RAPID_SPIN
+	jp z, .moveIsRapidSpin
 	cp TRICK_ROOM
 	jp z, .moveIsTrickRoom
 	cp SUNNY_DAY
@@ -1124,6 +1127,37 @@ AIMoveChoiceModification3:
 	jp z, .moveIsPsychicTerrain
 	cp MISTY_TERRAIN
 	jp z, .moveIsMistyTerrain
+	jp .nextMove6
+.moveIsRapidSpin
+	ld a, [wHazardsSpikesEnemySide]
+	and a
+	jr z, .checkRapidSpinEncouragement_TS ; if 0 spikes
+	dec a
+	jr z, .checkRapidSpinEncouragement_TS ; if 1 spike
+	dec [hl] ; if 2 spikes
+	dec a
+	jr z, .checkRapidSpinEncouragement_TS
+	dec [hl] ; if 3 spikes
+.checkRapidSpinEncouragement_TS
+	ld a, [wHazardsToxicSpikesEnemySide]
+	and a
+	jr z, .checkRapidSpinEncouragement_SW ; if 0 toxic spikes
+	dec [hl] ; if 1 toxic spike
+	dec a
+	jr z, .checkRapidSpinEncouragement_SW
+	dec [hl] ; if 2 toxic spikes
+.checkRapidSpinEncouragement_SW
+	ld a, [wHazardsStickyWebEnemySide]
+	and a
+	jr z, .checkRapidSpinEncouragement_SR
+	dec [hl]
+	dec [hl]
+.checkRapidSpinEncouragement_SR
+	ld a, [wHazardsStealthRockEnemySide]
+	and a
+	jp z, .nextMove6
+	dec [hl]
+	dec [hl]
 	jp .nextMove6
 .moveIsSunnyDay
 	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
@@ -1537,7 +1571,137 @@ AIMoveChoiceModification3:
 	inc [hl]
 	jp .nextMove6
 
-.modification3Part7
+.modification3Part7 ; special interactions: STOMP vs MINIMIZE, EARTHQUAKE vs DIG, etc
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove7
+	dec b
+	jp z, .modification3Part8 ; processed all 4 moves ; edited
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part8 ; no more moves in move set ; edited
+; actually do things with the move
+	inc de
+	call ReadMove
+; check if it's one of the selected moves
+	ld a, [wEnemyMoveNum]
+	cp STOMP
+	jr z, .moveIsStomp
+	cp THUNDER
+	jr z, .moveIsThunder
+	cp HURRICANE
+	jr z, .moveIsHurricane
+	cp SURF
+	jr z, .moveIsSurf
+	cp WHIRLPOOL
+	jr z, .moveIsWhirlpool
+	cp EARTHQUAKE
+	jr z, .moveIsEarthquake
+	cp FLAIL
+	jr z, .moveIsFlail
+	ld a, [wEnemyMoveEffect]
+	cp OHKO_EFFECT
+	jp z, .moveIsOHKOLike
+	jp .nextMove7
+.moveIsStomp
+	ld a, [wPlayerMonMinimized]
+	and a
+	jp nz, .encourageByFour7
+	jp .nextMove7
+.moveIsThunder
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a ; fly/dig/dive
+	jp z, .nextMove7
+	ld a, [wPlayerMoveNum]
+	cp FLY
+	jp z, .encourageByFive7
+	jp .nextMove7
+.moveIsHurricane
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a ; fly/dig/dive
+	jp z, .nextMove7
+	ld a, [wPlayerMoveNum]
+	cp FLY
+	jp z, .encourageByFive7
+	jp .nextMove7
+.moveIsSurf
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a ; fly/dig/dive
+	jp z, .nextMove7
+	ld a, [wPlayerMoveNum]
+	cp DIVE
+	jp z, .encourageByFive7
+	jp .nextMove7
+.moveIsWhirlpool
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a ; fly/dig/dive
+	jp z, .nextMove7
+	ld a, [wPlayerMoveNum]
+	cp DIVE
+	jp z, .encourageByFive7
+	jp .nextMove7
+.moveIsEarthquake
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a ; fly/dig/dive
+	jp z, .nextMove7
+	ld a, [wPlayerMoveNum]
+	cp DIG
+	jp z, .encourageByFive7
+	jp .nextMove7
+.moveIsFlail
+	ld a, 20
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jp c, .encourageByFive7
+	ld a, 10
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jp c, .encourageByFour7
+	ld a, 5
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jp c, .encourageByOne7
+	jp .nextMove7
+.moveIsOHKOLike
+	ld a, [wEnemyBattleStatus2]
+	bit USING_X_ACCURACY, a ; is the enemy using X Accuracy?
+	jr nz, .encourageByTen7
+	jp .nextMove7
+.discourageByTen7 ; ---
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+.discourageByFour7
+	inc [hl]
+.discourageByThree7
+	inc [hl]
+.discourageByTwo7
+	inc [hl]
+.discourageByOne7
+	inc [hl]
+	jp .nextMove7
+.encourageByTen7 ; ---
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	dec [hl]
+.encourageByFive7
+	dec [hl]
+.encourageByFour7
+	dec [hl]
+.encourageByThree7
+	dec [hl]
+.encourageByTwo7
+	dec [hl]
+.encourageByOne7
+	dec [hl]
+	jp .nextMove7
+
+
+.modification3Part8
 	ret
 
 ; new, to handle tactical switching:
