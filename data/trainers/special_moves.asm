@@ -2188,8 +2188,8 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, STOMP ; HAIL
-	db 1, 2, THUNDER ; AQUA_JET
+	db 1, 1, SPORE ; HAIL
+	db 1, 2, AQUA_JET ; AQUA_JET
 	db 1, 3, SURF ; REST
 	db 1, 4, FLAIL ; BLIZZARD
 	; CLOYSTER

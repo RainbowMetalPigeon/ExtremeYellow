@@ -1022,25 +1022,12 @@ AIMoveChoiceModification3:
 	jp c, .nextMove4 ; we don't encourage a priority move that is not at least neutral
 ; if we are here, it's a neutral or (double)super effective damaging priority move
 ; let's now check if the opponent is slower than us
-	push hl
-	push de
-	ld hl, wBattleMonSpeed
-	ld de, wEnemyMonSpeed
-	ld a, [de]
-	cp [hl] ; opponent's speed - battling mon's speed, MOST significant byte
-	jr c, .opponentIsSlower
-	inc hl
-	inc de
-	ld a, [de]
-	cp [hl] ; opponent's speed - battling mon's speed, LEAST significant byte
-	jr c, .opponentIsSlower
-; opponent is not slower than us
-	pop de
-	pop hl
-	jp .nextMove4
-.opponentIsSlower
-	pop de
-	pop hl
+	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
+	jp c, .nextMove4 ; don't encourage if opponent is faster
+; check if the player is SLP or FRZ, in which case, no encouragement
+	ld a, [wBattleMonStatus] ; player's turn
+	and (1 << FRZ) | SLP_MASK
+	jp nz, .nextMove4
 	dec [hl] ; slightly encourage
 	jp .nextMove4
 .discourageMoveByFive4
