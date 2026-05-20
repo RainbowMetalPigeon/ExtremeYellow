@@ -403,24 +403,8 @@ AIMoveChoiceModification1:
 	jp .nextMove ; otherwise don't discourage
 
 .ohkoEffect ; compare speeds
-	push hl
-	push de
-	push bc
-	ld hl, wEnemyMonSpeed + 1
-	ld de, wBattleMonSpeed + 1
-	ld a, [de]
-	dec de
-	ld b, a
-	ld a, [hld]
-	sub b
-	ld a, [de]
-	ld b, a
-	ld a, [hl]
-	sbc b
-	pop bc
-	pop de
-	pop hl
-	jp c, .veryHeavilyDiscourage
+	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
+	jp nc, .veryHeavilyDiscourage
 	jp .nextMove
 
 .permaStatusEffect
@@ -1058,21 +1042,8 @@ AIMoveChoiceModification3:
 	bit INVULNERABLE, a
 	jp z, .nextMove5
 ; finally, check if the opponent is faster than the player
-	push hl
-	push de
-	ld hl, wEnemyMonSpeed
-	ld de, wBattleMonSpeed
-	ld a, [de]
-	cp [hl] ; battling's speed - opponent mon's speed, MOST significant byte
+	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
 	jr c, .opponentIsFaster
-	inc hl
-	inc de
-	ld a, [de]
-	cp [hl] ; battling's speed - opponent mon's speed, LEAST significant byte
-	jr c, .opponentIsFaster
-; player is not slower than opponent
-	pop de
-	pop hl
 	jp .nextMove5
 .opponentIsFaster ; very heavily encourage, by 12
 	pop de
@@ -1529,20 +1500,7 @@ AIMoveChoiceModification3:
 	jp .nextMove6
 .moveIsTrickRoom
 ; check if the opponent is faster than the player
-	push hl
-	push de
-	ld hl, wEnemyMonSpeed
-	ld de, wBattleMonSpeed
-	ld a, [de]
-	cp [hl] ; battling's speed - opponent mon's speed, MOST significant byte
-	jr c, .opponentIsFaster6
-	inc hl
-	inc de
-	ld a, [de]
-	cp [hl] ; battling's speed - opponent mon's speed, LEAST significant byte
-.opponentIsFaster6
-	pop de
-	pop hl
+	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
 	jr c, .discourageByThree6 ; opponent is faster
 ; player is not slower than opponent
 .encourageByTwelve6
@@ -1604,6 +1562,8 @@ AIMoveChoiceModification3:
 	ld a, [wEnemyMoveEffect]
 	cp OHKO_EFFECT
 	jp z, .moveIsOHKOLike
+	cp TRAPPING_EFFECT
+	jp z, .moveIsTrapping
 	jp .nextMove7
 .moveIsStomp
 	ld a, [wPlayerMonMinimized]
@@ -1666,6 +1626,10 @@ AIMoveChoiceModification3:
 	bit USING_X_ACCURACY, a ; is the enemy using X Accuracy?
 	jr nz, .encourageByTen7
 	jp .nextMove7
+.moveIsTrapping
+
+
+
 .discourageByTen7 ; ---
 	inc [hl]
 	inc [hl]
@@ -2508,4 +2472,25 @@ CountHowManyPartyAlive: ; d = how many alive mons player has
 	add hl, bc
 	dec e
 	jr nz, .partyMonsLoop
+	ret
+
+; check if the opponent is faster than the player
+; c flag if opponent is faster
+CheckIfOpponentIsFasterThanPlayer:
+	push hl
+	push de
+	push bc
+	ld hl, wEnemyMonSpeed
+	ld de, wBattleMonSpeed
+	ld a, [de]
+	cp [hl] ; battling's speed - opponent mon's speed, MOST significant byte
+	jr c, .opponentIsFaster
+	inc hl
+	inc de
+	ld a, [de]
+	cp [hl] ; battling's speed - opponent mon's speed, LEAST significant byte
+.opponentIsFaster
+	pop bc
+	pop de
+	pop hl
 	ret

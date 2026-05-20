@@ -4,6 +4,7 @@
 ;	db $FE
 
 SpecialTrainerMoves:
+
 	db BUG_CATCHER, 15 ; updated
 	db 1, 1, TACKLE
 	db 1, 2, WRAP
@@ -142,6 +143,17 @@ SpecialTrainerMoves:
 	db 6, 3, SWORDS_DANCE
 	db 6, 4, NIGHT_SLASH
 	db $FE
+
+; GAMBLER =======================================================
+
+	db GAMBLER, 7
+	; GROWLITHE
+	db 1, 4, GUILLOTINE
+	; VULPIX
+	db 2, 3, FISSURE
+	db $FE
+
+; COOLTRAINER ===================================================
 
 	db COOLTRAINER, 64 ; pseudo-Green
 	; JIGGLYPUFF
