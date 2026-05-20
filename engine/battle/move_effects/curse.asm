@@ -8,6 +8,18 @@ CurseEffect_::
 	ld de, wEnemyMonType1
 .curseEffect
 ; effect depends on the type of the user
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .typeCheckNoTCG
+	ld a, [de]
+	cp TCG_PSYCHIC
+	jr z, .ghostTyping
+	inc de
+	ld a, [de]
+	cp TCG_PSYCHIC
+	jr z, .ghostTyping
+	jr .noGhostTyping
+.typeCheckNoTCG
 	ld a, [de]
 	cp GHOST
 	jr z, .ghostTyping
@@ -15,6 +27,7 @@ CurseEffect_::
 	ld a, [de]
 	cp GHOST
 	jr z, .ghostTyping
+.noGhostTyping
 ; not ghost: de/buff effect ----------------------------------------------------
 	callfar PlayCurrentMoveAnimation ; testing / unnecessary because we handle CURSE two animations in core, like the charging of multi-turn moves
 	jpfar AttackUpDefenseUpSpeedDownEffect ; jp? will do?

@@ -210,6 +210,8 @@ AIMoveChoiceModification1:
 	jp z, .selfBoost_SpeedAttack
 	cp SPECIAL_SPEED_UP1_EFFECT
 	jp z, .selfBoost_SpeedSpecial
+	cp CURSE_EFFECT
+	jp z, .selfBoost_Curse
 	cp ATTACK_UP2_EFFECT
 	jp z, .selfBoost_Attack
 	cp DEFENSE_UP1_EFFECT
@@ -504,6 +506,34 @@ AIMoveChoiceModification1:
 	pop bc
 	jr c, .modifierComparisons_SelfBuff_NotEvasion
 	ld a, [wEnemyMonSpecialMod]
+	jr .modifierComparisons_SelfBuff_NotEvasion
+.selfBoost_Curse ; whichever is lower between atk and def, if not GHOST, is the one dominating
+	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
+	and a
+	jr z, .ghostCheckNoTCG
+	ld a, [wEnemyMonType1]
+	cp TCG_PSYCHIC
+	jp z, .nextMove
+	ld a, [wEnemyMonType2]
+	cp TCG_PSYCHIC
+	jp z, .nextMove
+	jr .actuallyCurseBoost
+.ghostCheckNoTCG
+	ld a, [wEnemyMonType1]
+	cp GHOST
+	jp z, .nextMove
+	ld a, [wEnemyMonType2]
+	cp GHOST
+	jp z, .nextMove
+.actuallyCurseBoost
+	push bc
+	ld a, [wEnemyMonDefenseMod]
+	ld b, a
+	ld a, [wEnemyMonAttackMod]
+	cp b ; attackMod-defenseMod
+	pop bc
+	jr c, .modifierComparisons_SelfBuff_NotEvasion
+	ld a, [wEnemyMonDefenseMod]
 	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Attack
 	ld a, [wEnemyMonAttackMod]
@@ -1627,9 +1657,9 @@ AIMoveChoiceModification3:
 	jr nz, .encourageByTen7
 	jp .nextMove7
 .moveIsTrapping
-
-
-
+	call CheckIfOpponentIsFasterThanPlayer ; c if opp is faster
+	jp c, .encourageByThree7
+	jp .nextMove7
 .discourageByTen7 ; ---
 	inc [hl]
 	inc [hl]

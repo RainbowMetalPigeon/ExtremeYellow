@@ -146,12 +146,7 @@ SpecialTrainerMoves:
 
 ; GAMBLER =======================================================
 
-	db GAMBLER, 7
-	; GROWLITHE
-	db 1, 4, GUILLOTINE
-	; VULPIX
-	db 2, 3, FISSURE
-	db $FE
+	; TBE
 
 ; COOLTRAINER ===================================================
 
