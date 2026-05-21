@@ -1063,8 +1063,6 @@ AIMoveChoiceModification3:
 	jr c, .opponentIsFaster
 	jp .nextMove5
 .opponentIsFaster ; very heavily encourage, by 12
-	pop de
-	pop hl
 	dec [hl]
 	dec [hl]
 	dec [hl]
@@ -1681,8 +1679,53 @@ AIMoveChoiceModification3:
 	dec [hl]
 	jp .nextMove7
 
+.modification3Part8 ; discourage moves used many times in a row
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove8
+	dec b
+	jp z, .modification3Part9 ; processed all 4 moves ; edited
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification3Part9 ; no more moves in move set ; edited
+; actually do things with the move
+	inc de
+	call ReadMove
+; is the move the same as we last used?
+	push hl
+	ld hl, wLastMoveUsedByAIOpponent
+	ld a, [wEnemyMoveNum]
+	cp [hl]
+	pop hl
+	jp nz, .nextMove8 ; it's not the same move
+; it is the same move as the last we used, check how many times before this we already used it
+	ld a, [wHowManyTimesSameAIMoveInARow]
+	cp 7
+	jr nc, .discourageByFive8
+	cp 6
+	jr z, .discourageByFour8
+	cp 5
+	jr z, .discourageByThree8
+	cp 4
+	jr z, .discourageByTwo8
+	cp 3
+	jr z, .discourageByOne8
+	jp .nextMove8
+.discourageByFive8
+	inc [hl]
+.discourageByFour8
+	inc [hl]
+.discourageByThree8
+	inc [hl]
+.discourageByTwo8
+	inc [hl]
+.discourageByOne8
+	inc [hl]
+	jp .nextMove8
 
-.modification3Part8
+.modification3Part9
 	ret
 
 ; new, to handle tactical switching:

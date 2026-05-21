@@ -1299,7 +1299,10 @@ NEXTU ; new, 17 free juicy bytes
 	wHazardsStickyWebPlayerSide:: db ; new
 	wHazardsStealthRockPlayerSide:: db ; new
 
-	ds 3
+	wLastMoveUsedByAIOpponent:: db ; new
+	wHowManyTimesSameAIMoveInARow:: db ; new
+
+	ds 1
 
 ENDU
 

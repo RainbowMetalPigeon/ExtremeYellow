@@ -3385,6 +3385,25 @@ SelectEnemyMove:
 	jr z, .chooseRandomMove ; move non-existant, try again
 .done
 	ld [wEnemySelectedMove], a
+; new, to improve AI
+	push af
+	push hl
+	ld hl, wLastMoveUsedByAIOpponent
+	cp [hl]
+	jr z, .AIUsedSameMoveAgain
+; last move is not the same as previous
+	ld [hl], a
+	ld a, 1
+	ld [wHowManyTimesSameAIMoveInARow], a
+	jr .popAndRet
+.AIUsedSameMoveAgain
+	ld a, [wHowManyTimesSameAIMoveInARow]
+	inc a
+	ld [wHowManyTimesSameAIMoveInARow], a
+.popAndRet
+	pop hl
+	pop af
+; BTV
 	ret
 .linkedOpponentUsedStruggle
 	ld a, STRUGGLE

@@ -748,6 +748,8 @@ InitializeBattleVariablesAndEvents::
 	ld [wHazardsToxicSpikesPlayerSide], a
 	ld [wHazardsStickyWebPlayerSide], a
 	ld [wHazardsStealthRockPlayerSide], a
+	ld [wLastMoveUsedByAIOpponent], a ; TBE: should be 0ified also when AI or player switch MON?
+	ld [wHowManyTimesSameAIMoveInARow], a ; TBE: should be 0ified also when AI or player switch MON?
 ; new part for Rokusei and Suujero
 	ld a, [wCurOpponent]
 	cp OPP_ROKUSEI
