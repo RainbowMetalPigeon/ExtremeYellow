@@ -1631,11 +1631,18 @@ AIMoveChoiceModification3:
 	jp c, .encourageByFive7
 	ld a, 10
 	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
-	jp c, .encourageByFour7
+	jp c, .encourageByThree7
 	ld a, 5
 	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
 	jp c, .encourageByOne7
-	jp .nextMove7
+	ld a, 3
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jp c, .nextMove7
+	ld a, 2
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jp c, .discourageByOne7
+	jp nc, .discourageByTwo7
+;	jp .nextMove7
 .moveIsOHKOLike
 	ld a, [wEnemyBattleStatus2]
 	bit USING_X_ACCURACY, a ; is the enemy using X Accuracy?
