@@ -178,6 +178,8 @@ ViridianGymGiovanniPostBattle:
 ; new scripts --------------------------------------------
 
 ViridianGymScriptMovePlayerIntoPosition:
+	ld a, $ff
+	ld [wJoyIgnore], a
 ; determine which movement list to select
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_RIGHT ; no need to move the player
@@ -187,8 +189,6 @@ ViridianGymScriptMovePlayerIntoPosition:
 	jr z, .playerMovementsGot
 	ld de, ViridianGym_RLEMovement_PlayerDownOfGuide
 .playerMovementsGot
-	ld a, $ff
-	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
 	call DecodeRLEList
 	dec a
@@ -740,6 +740,7 @@ ViridianGymChallengerPreBattleText_5:
 ViridianGymChallengerPostBattleText:
 	text_asm
 	ld a, [wViridianGymChallengerAttempt]
+	dec a ; because it's already been +1ed
 	and a ; =0?
 	ld hl, ViridianGymChallengerPostBattleText_0
 	jr z, .printAndEnd

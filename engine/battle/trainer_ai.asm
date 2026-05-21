@@ -2059,6 +2059,27 @@ GamblerAI: ; new
 	ret nz
 	jp AIUseXAccuracy
 
+ChallengerAI: ; new
+	ld a, [wViridianGymChallengerAttempt]
+	cp 2 ; no item usage for the first two attempts
+	jr nc, .keepChecking
+; can't simply do "ret c" because the flag is used in core
+	xor a ; to un-set the c flag
+	ret
+.keepChecking
+	cp 4
+	jr nc, .teams5And6
+; teams 3 and 4
+	ld a, 4
+	call AICheckIfHPBelowFraction ; return carry if enemy trainer's current HP is below 1 / a of the maximum
+	ret nc
+	jp AIUseFullRestore
+.teams5And6
+	ld a, 1
+	call AICheckIfHPBelowFraction ; return carry if enemy trainer's current HP is below 1 / a of the maximum
+	ret nc
+	jp AIUseFullRestore
+
 ; Gym Leaders: all edited ------------------------------------------------
 
 ; new: for all gym leaders, except Giovanni (and Orage)
@@ -2154,9 +2175,9 @@ BrockAI:
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
 ; first turn
-	cp 15 percent + 1
+	cp 10 percent + 1
 	jp c, AIUseXSpecial
-	cp 30 percent + 1
+	cp 20 percent + 1
 	ret nc
 	jp AIUseXSpeed
 
@@ -2167,9 +2188,9 @@ MistyAI:
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
 ; first turn
-	cp 20 percent + 1
+	cp 10 percent + 1
 	jp c, AIUseXSpecial
-	cp 30 percent + 1
+	cp 20 percent + 1
 	ret nc
 	jp AIUseXAttack
 
@@ -2186,7 +2207,7 @@ KogaAI:
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
 ; first turn
-	cp 30 percent + 1
+	cp 20 percent + 1
 	ret nc
 	jp AIUseXAttack
 
@@ -2219,13 +2240,13 @@ OrageAI: ; new
 	ld a, b ; restore the random value
 	jp nz, GymLeadersCommonAI
 ; first turn
-	cp  7 percent + 1
+	cp  6 percent + 1
 	jp c, AIUseXAttack
-	cp 14 percent + 1
+	cp 12 percent + 1
 	jp c, AIUseXDefend
-	cp 21 percent + 1
+	cp 18 percent + 1
 	jp c, AIUseXSpeed
-	cp 28 percent + 1
+	cp 24 percent + 1
 	ret nc
 	jp AIUseXSpecial
 

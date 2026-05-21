@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MVICTREBEL, 80 ; 255
+	db EETERNATUS, 100 ; 255
 	db MEW, 100
 	db STARTER_PIKACHU, 1
 ;	db MAGIKARP, 100
@@ -48,16 +48,16 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, SCREECH ; DOUBLE_IRON_BASH
+	ld a, ETERNABEAM ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, LEECH_SEED
+	ld a, GUNK_SHOT
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, THUNDER_WAVE
+	ld a, EARTHQUAKE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, MINIMIZE ; ANCESTOR_PWR
+	ld a, BLIZZARD ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -211,17 +211,17 @@ IF DEF(_DEBUG)
 ;	ld [wMissableObjectIndex], a
 ;	predef ShowObject
 
-;	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8
-;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
-;	ld a, HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE
-;	ld [wMissableObjectIndex], a
-;	predef ShowObjectExtra
-;	ld a, HS_VIRIDIAN_GYM_ITEM_2
-;	ld [wMissableObjectIndex], a
-;	predef ShowObjectExtra
-;	ld a, HS_VIRIDIAN_GYM_GIOVANNI
-;	ld [wMissableObjectIndex], a
-;	predef HideObjectExtra
+	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8
+	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	ld a, HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_VIRIDIAN_GYM_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 
 ;	ld a, HS_ROUTE_21_OAK
 ;	ld [wMissableObjectIndex], a
