@@ -641,6 +641,7 @@ UselessAgainstSubstituteMoveEffects:
 ; because modification1 already handles those cases by ultra discouraging them
 ; new: first part handles only buff/debuff moves, encouraging them a bit
 ; part 2 handles only status moves, encouraging them more than de/buff ones
+; part 3 handles HAZE
 AIMoveChoiceModification2:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -713,7 +714,101 @@ AIMoveChoiceModification2:
 	dec [hl]
 	jr .nextMove2
 
-.modification2part3 ; currently unused
+.modification2part3
+	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
+	ld de, wEnemyMonMoves ; enemy moves
+	ld b, NUM_MOVES + 1
+.nextMove3
+	dec b
+	jp z, .modification2part4 ; processed all 4 moves
+	inc hl
+	ld a, [de]
+	and a
+	jp z, .modification2part4 ; no more moves in move set
+; actually do things with the move
+	inc de
+	call ReadMove
+	ld a, [wEnemyMoveEffect]
+	cp HAZE_EFFECT
+	jr nz, .nextMove3
+; move is HAZE: dis/encourage depending on:
+; - player and enemy stats modifiers
+; - player and enemy status
+; - player and enemy volatile conditions
+	call CalculateSumOfStatsModifiersForEnemy ; returns sum in a, 42 is default
+	cp 44
+	jr c, .hazeCheckEnemyModifers41
+	inc [hl]
+	cp 46
+	jr c, .hazeCheckPlayerModifiers
+	inc [hl]
+	cp 48
+	jr c, .hazeCheckPlayerModifiers
+	inc [hl]
+	jr .hazeCheckPlayerModifiers
+.hazeCheckEnemyModifers41
+	cp 41 ; just one less than base
+	jr nc, .hazeCheckPlayerModifiers
+	dec [hl]
+	cp 39
+	jr nc, .hazeCheckPlayerModifiers
+	dec [hl]
+	cp 37
+	jr nc, .hazeCheckPlayerModifiers
+	dec [hl]
+.hazeCheckPlayerModifiers
+	call CalculateSumOfStatsModifiersForPlayer ; returns sum in a, 42 is default
+	cp 44
+	jr c, .hazeCheckPlayerModifers41
+	dec [hl]
+	cp 46
+	jr c, .hazeCheckEnemyStatus
+	dec [hl]
+	cp 48
+	jr c, .hazeCheckEnemyStatus
+	dec [hl]
+	jr .hazeCheckEnemyStatus
+.hazeCheckPlayerModifers41
+	cp 41 ; just one less than base
+	jr nc, .hazeCheckEnemyStatus
+	inc [hl]
+	cp 39
+	jr nc, .hazeCheckEnemyStatus
+	inc [hl]
+	cp 37
+	jr nc, .hazeCheckEnemyStatus
+	inc [hl]
+.hazeCheckEnemyStatus
+	ld a, [wEnemyMonStatus]
+	and a
+	jr z, .hazeCheckPlayerStatus
+; enemy has a (non-volatile) status
+	dec [hl]
+	dec [hl]
+.hazeCheckPlayerStatus
+	ld a, [wBattleMonStatus]
+	and a
+	jr z, .hazeCheckEnemyVolatileConditions
+	inc [hl]
+	inc [hl]
+; is the player's mon SLP or FRZ? Discourage further
+	and (1 << FRZ) | SLP_MASK
+	jr z, .hazeCheckEnemyVolatileConditions
+	inc [hl]
+	inc [hl]
+.hazeCheckEnemyVolatileConditions
+	ld a, [wEnemyBattleStatus2]
+	and ((1 << SEEDED) | (1 << BEING_CURSED))
+	jr z, .hazeCheckPlayerVolatileConditions
+	dec [hl]
+.hazeCheckPlayerVolatileConditions
+	ld a, [wPlayerBattleStatus2]
+	and ((1 << SEEDED) | (1 << BEING_CURSED))
+	jp z, .nextMove3
+	inc [hl]
+	jp .nextMove3
+
+.modification2part4
 	ret
 
 Modifier2BuffDebuffMoveEffects:
@@ -1760,19 +1855,7 @@ AIMoveChoiceModification4:
 	jr nc, .checkNerfed
 	jp .setSwitchingAndEnd
 .checkNerfed ; -----------------------------------------------------------------
-; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
-	ld hl, wEnemyMonAttackMod
-	ld a, [hli]
-	ld b, a ; b holds atk mod
-	ld c, 5
-.modifierLoop
-	ld a, [hli]
-	add b
-	ld b, a ; b holds atk+(temporary sum of stats) mod
-	dec c
-	jr nz, .modifierLoop
-; now we have the sum of the modifiers in b (and also in a actually)
-	ld a, b ; redundant I guess
+	call CalculateSumOfStatsModifiersForEnemy ; returns sum of modifiers in a
 	cp 42
 	jr nc, .checkEncouragement
 ; it's 41 or less
@@ -2559,5 +2642,30 @@ CheckIfOpponentIsFasterThanPlayer:
 .opponentIsFaster
 	pop bc
 	pop de
+	pop hl
+	ret
+
+CalculateSumOfStatsModifiersForPlayer:
+	push hl
+	ld hl, wPlayerMonAttackMod
+	jr CalculateSumOfStatsModifiersForHL
+CalculateSumOfStatsModifiersForEnemy:
+	push hl
+	ld hl, wEnemyMonAttackMod
+	; fallthrough
+CalculateSumOfStatsModifiersForHL: ; returns sum of modifiers in a
+; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
+	push bc
+	ld a, [hli]
+	ld b, a ; b holds atk mod
+	ld c, 5
+.modifierLoop
+	ld a, [hli]
+	add b
+	ld b, a ; b holds atk+(temporary sum of stats) mod
+	dec c
+	jr nz, .modifierLoop
+	ld a, b ; now we have the sum of the modifiers in a
+	pop bc
 	pop hl
 	ret

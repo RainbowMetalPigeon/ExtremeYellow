@@ -12,12 +12,12 @@ HazeEffect_:
 	ld hl, wEnemyMonUnmodifiedAttack
 	ld de, wEnemyMonAttack
 	call ResetStats
-; cure non-volatile status, but only for the target
+; cure non-volatile status, but only for the user ; edited
 	ld hl, wEnemyMonStatus
 	ld de, wEnemySelectedMove
 	ldh a, [hWhoseTurn]
 	and a
-	jr z, .cureStatuses
+	jr nz, .cureStatuses ; edited conditional jump so that it heals the user and not the opponent
 	ld hl, wBattleMonStatus
 	dec de ; wPlayerSelectedMove
 
@@ -51,7 +51,7 @@ CureVolatileStatuses:
 	inc hl ; BATTSTATUS2
 	ld a, [hl]
 	; clear USING_X_ACCURACY, PROTECTED_BY_MIST, GETTING_PUMPED, and SEEDED statuses
-	and ~((1 << USING_X_ACCURACY) | (1 << PROTECTED_BY_MIST) | (1 << GETTING_PUMPED) | (1 << SEEDED))
+	and ~((1 << USING_X_ACCURACY) | (1 << PROTECTED_BY_MIST) | (1 << GETTING_PUMPED) | (1 << SEEDED) | (1 << BEING_CURSED)) ; edited, clear CURSE too
 	ld [hli], a ; BATTSTATUS3
 	ld a, [hl]
 	and %11110000 | (1 << TRANSFORMED) ; clear Bad Poison, Reflect and Light Screen statuses
