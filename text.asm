@@ -231,7 +231,6 @@ INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
-INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/BattleFacility.asm" ; new
 
 
@@ -289,6 +288,7 @@ INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/Route19.asm"
 INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
+INCLUDE "text/GameCorner.asm" ; moved from Text 6
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones

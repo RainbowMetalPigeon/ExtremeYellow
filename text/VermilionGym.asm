@@ -89,30 +89,53 @@ _VermilionGymEndBattleText1::
 	line "You're very good!"
 	prompt
 
-_VermilionGymAfterBattleText1::
+_VermilionGymAfterBattleText1:: ; edited
 	text "The door won't"
 	line "open?"
-
-	para "LT.SURGE always"
-	line "was cautious!"
-	done
-
-_VermilionGymBattleText2:: ; TBE?
-	text "I'm a lightweight,"
-	line "but I'm good with"
-	cont "electricity!"
-	done
-
-_VermilionGymEndBattleText2:: ; TBE?
-	text "Fried!"
-	prompt
-
-_VermilionGymAfterBattleText2:: ; TBE?
-	text "OK, I'll talk!"
 
 	para "LT.SURGE said they"
 	line "hid door switches"
 	cont "inside something!"
+	done
+
+_VermilionGymBattleText2:: ; edited
+	text "I took pity on"
+	line "mortal men!"
+
+	para "He decreed that my"
+	line "torment would"
+	cont "never end!"
+
+	para "I gave fire"
+	line "straight into"
+	cont "your hand!"
+
+	para "And taught you to"
+	line "use it in cold"
+	cont "winterland!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionGymEndBattleText2:: ; edited
+	text "I betrayed"
+	line "him for he was"
+	cont "wrong!"
+
+	para "I saw wanders"
+	line "poetry and song!"
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionGymAfterBattleText2:: ; edited
+	text "Loved and"
+	line "cherished those"
+	cont "mortal men!"
+
+	para "And so I needed"
+	line "to guide them"
+	cont "through the dawn"
+	cont "of time!"
+;	xxxx "123456789012345678"
 	done
 
 _VermilionGymBattleText3::
