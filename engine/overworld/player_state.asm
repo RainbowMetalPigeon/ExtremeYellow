@@ -44,6 +44,8 @@ CheckForceBikeOrSurfOrDive:: ; edited
 	CheckAndResetEvent EVENT_DIVE_GO_ABOVE
 	jr nz, .forceSurfing
 .vanilla
+	CheckEvent EVENT_IN_SEVII
+	ret nz
 ; BTV
 	ld hl, wd732
 	bit 5, [hl]
@@ -394,6 +396,8 @@ IsPlayerStandingOnDoorTileOrWarpTile::
 INCLUDE "data/tilesets/warp_tile_ids.asm"
 
 PrintSafariZoneSteps::
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EXTRA ; new
 	jr z, .yesSafariZone ; new

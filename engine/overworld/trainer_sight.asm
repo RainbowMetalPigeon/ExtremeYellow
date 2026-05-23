@@ -291,9 +291,12 @@ CheckSpriteCanSeePlayer:
 
 ; tests if the player is in front of the sprite (rather than behind it)
 CheckPlayerIsInFrontOfSprite:
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notPowerPlant ; new
 	ld a, [wCurMap]
 	cp POWER_PLANT
 	jp z, .engage       ; bypass this for power plant to get voltorb fake items to work
+.notPowerPlant ; new
 	ld a, [wTrainerSpriteOffset]
 	add SPRITESTATEDATA1_YPIXELS
 	ld d, $0

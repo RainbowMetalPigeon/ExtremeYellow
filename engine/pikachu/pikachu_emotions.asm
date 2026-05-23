@@ -309,6 +309,8 @@ MapSpecificPikachuExpression:
 	jr .play_emotion
 .goToVanilla
 ; back to vanilla
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notPewterPokecenter ; new
 	ld a, [wCurMap]
 	cp POKEMON_FAN_CLUB
 	jr nz, .notFanClub
@@ -344,6 +346,8 @@ MapSpecificPikachuExpression:
 	callfar CheckPikachuFaintedOrStatused ; same bank
 	ldpikaemotion a, PikachuEmotion28
 	jr c, .play_emotion
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notInLavenderTower ; new
 	ld a, [wCurMap]
 ; new, to handle GROTTO emotion
 	cp PIKACHU_GROTTO

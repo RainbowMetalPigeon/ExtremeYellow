@@ -304,6 +304,8 @@ OverworldLoopLessDelay::
 	farcall TallGrassBillsSecretGardenCheckSteps
 .checkHauntedPallet
 ; new, to handle darkening HAUNTED_PALLET_TOWN palette(s)
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .vanilla
 	ld a, [wCurMap]
 	cp HAUNTED_PALLET_TOWN
 	jr nz, .vanilla
@@ -899,13 +901,14 @@ IsBikeRidingAllowed::
 ; The bike can be used on Route 23 and Indigo Plateau,
 ; or maps with tilesets in BikeRidingTilesets.
 ; Return carry if biking is allowed.
-
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .normalCheck ; new
 	ld a, [wCurMap]
 	cp ROUTE_23
 	jr z, .allowed
 	cp INDIGO_PLATEAU
 	jr z, .allowed
-
+.normalCheck ; new
 	ld a, [wCurMapTileset]
 	ld b, a
 	ld hl, BikeRidingTilesets

@@ -14,6 +14,10 @@ GetTrainerName_::
 	jr z, .foundName
 
 ; new, for the SS Anne Captain and Copycat
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .continue2 
 	ld a, [wCurMap]
 	cp SS_ANNE_CAPTAINS_ROOM
 	jr nz, .continue1
