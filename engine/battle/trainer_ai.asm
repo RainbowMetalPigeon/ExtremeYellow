@@ -1831,29 +1831,29 @@ AIMoveChoiceModification3:
 	ret
 
 ; new, to handle tactical switching:
+; changed approach: now it increases or decreases a value between 0 and 255, and then rolls an RNG
+; this is to account for DE-incentivation from having screens up and/or hazards on AI's side
 ; - when they are confused
 ; - when they are TOXICed
-; - when they are trapped in a trapping move ; edited, is handled later
+; - when they are trapped in a trapping move
 ; - when enemy's mon is nerfed too much
 ; - when all of enemy's moves are discouraged
 ; - when the PERISHing counter is at 1
 AIMoveChoiceModification4:
 	ResetEvent EVENT_AI_SWITCH_MON
-	ld a, [wEnemyBattleStatus1] ; ----------------------------------------------
+	ld b, 0
+; are they confused? ; ---------------------------------------------------------
+	ld a, [wEnemyBattleStatus1]
 	bit CONFUSED, a
 	jr z, .checkToxiced
-	call Random
-	cp 66 percent
-	jr nc, .checkToxiced
-	jp .setSwitchingAndEnd
+	ld a, 19
+	call AddToBCapped
 .checkToxiced ; ----------------------------------------------------------------
 	ld a, [wEnemyBattleStatus3]
 	bit BADLY_POISONED, a
 	jr z, .checkNerfed
-	call Random
-	cp 20 percent
-	jr nc, .checkNerfed
-	jp .setSwitchingAndEnd
+	ld a, 6
+	call AddToBCapped
 .checkNerfed ; -----------------------------------------------------------------
 	call CalculateSumOfStatsModifiersForEnemy ; returns sum of modifiers in a
 	cp 42
@@ -1865,29 +1865,28 @@ AIMoveChoiceModification4:
 	jr z, .debuffedBy2
 	cp 39
 	jr z, .debuffedBy3
-; 38 or less, i.e. debuffed by 4 or more, AI just switches
-	jp .setSwitchingAndEnd
+; 38 or less, i.e. debuffed by 4 or more
+	ld a, 32
+	call AddToBCapped
+	jr .checkEncouragement
 .debuffedBy1
-	call Random
-	cp 25 percent
-	jr nc, .checkEncouragement
-	jp .setSwitchingAndEnd
+	ld a, 10
+	call AddToBCapped
+	jr .checkEncouragement
 .debuffedBy2
-	call Random
-	cp 66 percent
-	jr nc, .checkEncouragement
-	jp .setSwitchingAndEnd
+	ld a, 22
+	call AddToBCapped
+	jr .checkEncouragement
 .debuffedBy3
-	call Random
-	cp 90 percent
-	jr nc, .checkEncouragement
-	jp .setSwitchingAndEnd
+	ld a, 29
+	call AddToBCapped
+	; fallthrough
 .checkEncouragement ; ----------------------------------------------------------
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
-	ld b, NUM_MOVES + 1
+	ld c, NUM_MOVES + 1
 .nextMove
-	dec b
+	dec c
 	jp z, .rollForEncouragementBasedSwitch ; processed all 4 moves, if here, AI may switches
 	inc hl
 	ld a, [de]
@@ -1897,23 +1896,110 @@ AIMoveChoiceModification4:
 	inc de ; for next loop
 	ld a, [hl]
 	cp 21 ; encouragement - 21; neutral: 20-21 -> c; discouraged: 21-21->nc
-	jr c, .checkPerishing ; if even 1 move is not discouraged, no switch
+	jr c, .checkPerishing ; if even 1 move is not discouraged, no switch boost
 	jr .nextMove
+.rollForEncouragementBasedSwitch
+	ld a, 29
+	call AddToBCapped
+	; fallthrough
 .checkPerishing ; --------------------------------------------------------------
 	ld a, [wEnemyStatsToDouble]
 	bit PERISHING, a
-	jr z, .checkNext
+	jr z, .checkTrapped
 	and PERISH_MASK
 	cp 1
-	jr z, .setSwitchingAndEnd
+	jr nz, .checkTrapped
+	ld a, 32
+	call AddToBCapped
+	; fallthrough
+.checkTrapped ; ----------------------------------------------------------------
+	ld hl, wPlayerBattleStatus1
+	bit USING_TRAPPING_MOVE, [hl]
+	jr z, .checkReflect
+	ld a, 25
+	call AddToBCapped
+	; fallthrough
+.checkReflect ; ----------------------------------------------------------------
+	ld a, [wEnemyBattleStatus3]
+	bit HAS_REFLECT_UP, a
+	jp z, .checkLightScreen
+	ld a, 10
+	call SubFromBCapped
+	; fallthrough
+.checkLightScreen ; ------------------------------------------------------------
+	ld a, [wEnemyBattleStatus3]
+	bit HAS_LIGHT_SCREEN_UP, a
+	jp z, .checkHazards_Spikes
+	ld a, 10
+	call SubFromBCapped
+	; fallthrough
+.checkHazards_Spikes ; ---------------------------------------------------------
+	ld a, [wHazardsSpikesEnemySide]
+	and a
+	jr z, .checkHazards_ToxicSpikes
+	dec a
+	jr z, .checkHazards_Spikes_1Layer
+	dec a
+	jr z, .checkHazards_Spikes_2Layers
+; 3 layers of spikes
+	ld a, 16
+	call SubFromBCapped
+	jr .checkHazards_ToxicSpikes
+.checkHazards_Spikes_2Layers
+	ld a, 10
+	call SubFromBCapped
+	jr .checkHazards_ToxicSpikes
+.checkHazards_Spikes_1Layer
+	ld a, 3
+	call SubFromBCapped
+	; fallthrough
+.checkHazards_ToxicSpikes ; ----------------------------------------------------
+	ld a, [wHazardsToxicSpikesEnemySide]
+	and a
+	jr z, .checkHazards_StealthRock
+	dec a
+	jr z, .checkHazards_ToxicSpikes_1Layer
+	ld a, 16
+	call SubFromBCapped
+	jr .checkHazards_StealthRock
+; 2 layers of toxic spikes
+	ld a, 11
+	call SubFromBCapped
+	jr .checkHazards_StealthRock
+.checkHazards_ToxicSpikes_1Layer
+	ld a, 4
+	call SubFromBCapped
+	; fallthrough
+.checkHazards_StealthRock ; ----------------------------------------------------
+	ld a, [wHazardsStealthRockEnemySide]
+	and a
+	jr z, .checkHazards_StickyWeb
+	ld a, 13
+	call SubFromBCapped
+	; fallthrough
+.checkHazards_StickyWeb ; ------------------------------------------------------
+	ld a, [wHazardsStickyWebEnemySide]
+	and a
+	jr z, .checkNext
+	ld a, 16
+	call SubFromBCapped
 	; fallthrough
 .checkNext ; -------------------------------------------------------------------
-	ret
-.rollForEncouragementBasedSwitch ; fix for V1.3: 20% to switch if all moves are discouraged; ugly but will do for now
+	; TBE if anything will be added
+.rollForSwitching ; ============================================================
+	ld a, b ; a now holds the value, [0,32], which says how likely is the AI to switching
+	cp 32 ; if 32, switch: dedicated check to avoid issues with special values
+	jr z, .setSwitchingAndEnd
+	and a ; if0, don't switch: same as above; bonus: resets c flag
+	ret z
+	rla
+	rla
+	rla ; multiply the value in a by 8, so to map it to (0,256)
+	ld b, a
 	call Random
-	cp 90 percent
+	cp b
 	ret nc
-.setSwitchingAndEnd ; ==========================================================
+.setSwitchingAndEnd
 	SetEvent EVENT_AI_SWITCH_MON
 	ret
 
@@ -1930,6 +2016,26 @@ ReadMove:
 	pop bc
 	pop de
 	pop hl
+	ret
+
+AddToBCapped: ; new
+	add b
+	jr nc, .noCarry
+	ld a, $FF
+.noCarry
+	ld b, a
+	ret
+
+SubFromBCapped: ; new
+	push de
+	ld d, a
+	ld a, b
+	sub d
+	pop de
+	jr nc, .noCarry
+	ld a, 0
+.noCarry
+	ld b, a
 	ret
 
 INCLUDE "data/trainers/move_choices.asm"
@@ -1963,35 +2069,6 @@ TrainerAI:
 	jr z, .noAISwitchFromModification4
 	jp AISwitchIfEnoughMons
 .noAISwitchFromModification4
-	ld hl, TrainerClassMoveChoiceModifications
-	ld a, [wTrainerClass]
-	ld b, a
-.loopTrainerClasses
-	dec b
-	jr z, .readTrainerClassData
-.loopTrainerClassData
-	ld a, [hli]
-	and a
-	jr nz, .loopTrainerClassData
-	jr .loopTrainerClasses
-.readTrainerClassData
-	ld a, [hli]
-	cp 4
-	jr z, .trySwitchFromTrapping
-	cp 0
-	jp z, .noSwitchFromTrapping
-	jr .readTrainerClassData
-.trySwitchFromTrapping
-	ld hl, wPlayerBattleStatus1
-	bit USING_TRAPPING_MOVE, [hl]
-	jr z, .noSwitchFromTrapping
-; opponent is actually trapped, has a chance to switch out
-	call Random
-	cp 60 percent
-	jr nc, .noSwitchFromTrapping
-; opponent actually switches out from being trapped
-	jp AISwitchIfEnoughMons
-.noSwitchFromTrapping
 ; back to vanilla
 	ld a, [wTrainerClass] ; what trainer class is this?
 	dec a

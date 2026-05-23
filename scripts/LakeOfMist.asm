@@ -57,7 +57,7 @@ LakeOfMistTrainerHeader0:
 LakeOfMistTrainerHeader1:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_1, 1, LakeOfMistBattleText2, LakeOfMistEndBattleText2, LakeOfMistAfterBattleText2
 LakeOfMistTrainerHeader2:
-	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_2, 2, LakeOfMistBattleText3, LakeOfMistEndBattleText3, LakeOfMistAfterBattleText3
+	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_2, 4, LakeOfMistBattleText3, LakeOfMistEndBattleText3, LakeOfMistAfterBattleText3
 LakeOfMistTrainerHeader3:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_3, 1, LakeOfMistBattleText4, LakeOfMistEndBattleText4, LakeOfMistAfterBattleText4
 LakeOfMistTrainerHeader4:
