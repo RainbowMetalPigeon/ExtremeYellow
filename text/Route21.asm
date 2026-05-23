@@ -36,7 +36,7 @@ _Route21AfterBattleText2:: ; edited
 
 _Route21BattleText3:: ; edited
 	text "Do you know the"
-	line "S.S. AQUA?"
+	line "S.S.AQUA?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -47,7 +47,7 @@ _Route21EndBattleText3:: ; edited
 	prompt
 
 _Route21AfterBattleText3:: ; edited
-	text "S.S. AQUA was a"
+	text "S.S.AQUA was a"
 	line "ship cruising"
 	cont "between KANTO and"
 	cont "other regions."
@@ -169,11 +169,11 @@ _Route21EndBattleText9::
 
 _Route21AfterBattleText9:: ; edited
 	text "Do you know that"
-	line "the S.S. ANNE"
+	line "the S.S.ANNE"
 	cont "modified its"
 	cont "route because of"
 	cont "what happened to"
-	cont "the S.S. AQUA?"
+	cont "the S.S.AQUA?"
 
 	para "So many people..."
 ;	xxxx "123456789012345678"
@@ -335,7 +335,7 @@ _Route21ScriptText3::
 _Route21DiveText1::
 	text "Blglub b b gblb!"
 
-	para "(The S.S. AQUA"
+	para "(The S.S.AQUA"
 	line "sank years ago."
 	cont "It was a huge"
 	cont "disaster. Many"
@@ -352,7 +352,7 @@ _Route21DiveBattleText1::
 	text "Bluglb!"
 
 	para "(Are you here for"
-	line "the S.S. AQUA?)"
+	line "the S.S.AQUA?)"
 ;	xxxx "123456789012345678"
 	done
 
@@ -369,7 +369,7 @@ _Route21DiveAfterBattleText1::
 
 	para "(Many tried to"
 	line "explore the wreck"
-	cont "of the S.S. AQUA,"
+	cont "of the S.S.AQUA,"
 	cont "but to no avail.)"
 ;	xxxx "123456789012345678"
 	done

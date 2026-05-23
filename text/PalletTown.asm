@@ -215,12 +215,42 @@ _DarkGuideHints_Hint1_Solution::
 ; -----------
 
 _DarkGuideHints_Hint2_Base::
-	text "Derettacs"
-	line "sehctamer fo"
-	cont "emaf."
+	text "Heptatrial."
 	prompt
 
 _DarkGuideHints_Hint2_Details::
+	text "Seven leaders are"
+	line "finally willing"
+	cont "to take you on."
+	prompt
+
+_DarkGuideHints_Hint2_Solution::
+	text "Now that you are"
+	line "CHAMPION, the"
+	cont "SEVII SAGEs will"
+	cont "accept your to"
+	cont "battle you, one"
+	cont "per island of the"
+	cont "SEVII ISLANDS,"
+	cont "each with their"
+	cont "special gimmick."
+	cont "At the end of the"
+	cont "SEVII TRIAL, any"
+	cont "your wish will"
+	cont "be granted."
+;	xxxx "123456789012345678"
+	prompt
+
+; -----------
+
+_DarkGuideHints_Hint3_Base::
+	text "Derettacs"
+	line "sehctamer fo emaf"
+	cont "gnirb a ykcul"
+	cont "noissim."
+	prompt
+
+_DarkGuideHints_Hint3_Details::
 	text "Scattered"
 	line "throughout KANTO,"
 	cont "famous entities"
@@ -229,18 +259,25 @@ _DarkGuideHints_Hint2_Details::
 	cont "well as your"
 	cont "flexibility and"
 	cont "knowledge."
+	cont "This'll unlock a"
+	cont "fortune quest."
 	prompt
 
-_DarkGuideHints_Hint2_Solution::
+_DarkGuideHints_Hint3_Solution::
 	text "GYM LEADER and"
 	line "ELITE FOUR"
 	cont "members are"
 	cont "available around"
-	cont "the regions, in"
+	cont "the region, in"
 	cont "locations fitting"
 	cont "to them, to"
 	cont "challenge you to"
 	cont "INVERSE BATTLEs."
+	cont "When all of the"
+	cont "GYM LEADERs are"
+	cont "beaten, PROF.OAK"
+	cont "too will appear."
+;	xxxx "123456789012345678"
 
 	para "The locations are"
 	line "the following:"
@@ -280,31 +317,9 @@ _DarkGuideHints_Hint2_Solution::
 
 	para "RIVAL:"
 	line "WONDERLAND"
-	prompt
 
-; -----------
-
-_DarkGuideHints_Hint3_Base::
-	text "Scrapped ultimate."
-	prompt
-
-_DarkGuideHints_Hint3_Details::
-	text "The strongest"
-	line "trainer from the"
-	cont "past will"
-	cont "interrupt their"
-	cont "job to challenge"
-	cont "you."
-	prompt
-
-_DarkGuideHints_Hint3_Solution::
-	text "PROF.OAK can be"
-	line "fought on"
-	cont "ROUTE 21, where"
-	cont "they are"
-	cont "searching"
-	cont "starters for new"
-	cont "trainers."
+	para "PROF.OAK:"
+	line "ROUTE 21"
 	prompt
 
 ; -----------
@@ -421,12 +436,160 @@ _DarkGuideHints_Hint7_Solution::
 ; -----------
 
 _DarkGuideHints_Hint8_Base::
+	text "Heavy metal is a"
+	line "fortune!"
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint8_Details::
+	text "Deep in QUEST"
+	line "ISLAND lies a"
+	cont "door, waiting for"
+	cont "two gems so that"
+	cont "it can let go."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint8_Solution::
+	text "DOTTED HOLE can be"
+	line "opened by having"
+	cont "the TIGER's EYE"
+	cont "and the TOPAZ."
+
+	para "The TIGER's EYE is"
+	line "in DESOLATE ROCK,"
+	cont "reachable after"
+	cont "you clear FORLORN"
+	cont "VALLEY, to unlock"
+	cont "which you need to"
+	cont "bring the FLAME"
+	cont "PLUME, found in"
+	cont "MT.EMBER, to LAKE"
+	cont "OF MIST."
+
+	para "The TOPAZ's in the"
+	line "S.S.AQUA, sunken"
+	cont "in ROUTE 21. To"
+	cont "reach its end you"
+	cont "need an OXYGEN"
+	cont "TANK, obtainable"
+	cont "in ROUTE 38 by"
+	cont "having 7 PEARLs,"
+	cont "each found in an"
+	cont "underwater cave."
+;	xxxx "123456789012345678"
+	prompt
+
+; -----------
+
+_DarkGuideHints_Hint9_Base::
+	text "See what is to be"
+	line "felt, and embark"
+	cont "on a quest to"
+	cont "witness legendary"
+	cont "differences."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint9_Details::
+	text "Solve TANOBY"
+	line "CHAMBERS' riddles"
+	cont "to unveil two new"
+	cont "DELTA #MON."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint9_Solution::
+	text "Solve the puzzle"
+	line "in ROUTE 43 to"
+	cont "unlock the minor"
+	cont "TANOBY CHAMBERS."
+	cont "Then solve the 6"
+	cont "minor CHAMBERS"
+	cont "to unlock the"
+	cont "major CHAMBER."
+	cont "There, with help"
+	cont "from the hints in"
+	cont "the SEVII DOCKs,"
+	cont "you find the two"
+	cont "DELTA #MON."
+	cont "Solutions for the"
+	cont "minor CHAMBERS:"
+
+	para "1: Stay still for"
+	line "two minutes."
+
+	para "2: Bring any one"
+	line "from each of the"
+	cont "following lines:"
+	cont "SQUIRTLE,"
+	cont "BULBASAUR,"
+	cont "CHARMANDER,"
+	cont "EEVEE,"
+	cont "PIKACHU,"
+	cont "MEWTWO."
+
+	para "3: Use SOFTBOILED."
+
+	para "4: Play the #"
+	line "FLUTE."
+
+	para "5: Throw away a"
+	line "# BALL."
+
+	para "6: Walk 3 steps"
+	line "EAST, 2 SOUTH,"
+	cont "and 3 WEST."
+;	xxxx "123456789012345678"
+	prompt
+
+; ----------- past OAK
+
+_DarkGuideHints_Hint10_Base::
+	text "Convergence to"
+	line "the past."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint10_Details::
+	text "Meet 2 conditions"
+	line "to access the"
+	cont "underground net"
+	cont "of SEVII ISLANDS,"
+	cont "and fully explore"
+	cont "it to witness"
+	cont "the origin."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint10_Solution::
+	text "After beating OAK"
+	line "on ROUTE 21 and"
+	cont "defeating at"
+	cont "least one of the"
+	cont "SEVII SAGEs, the"
+	cont "seven caves"
+	cont "leading to the"
+	cont "underground net-"
+	cont "work of the SEVII"
+	cont "ISLANDS are open."
+	cont "Explore all of"
+	cont "them to unlock a"
+	cont "secret island,"
+	cont "where one more"
+	cont "fight awaits you."
+;	xxxx "123456789012345678"
+	prompt
+
+; -----------
+
+_DarkGuideHints_Hint11_Base::
 	text "Nightmarish"
 	line "concoction of"
 	cont "infernal myths."
 	prompt
 
-_DarkGuideHints_Hint8_Details::
+_DarkGuideHints_Hint11_Details::
 	text "Once reassembled,"
 	line "the four"
 	cont "fragments of an"
@@ -438,7 +601,7 @@ _DarkGuideHints_Hint8_Details::
 	cont "this reality."
 	prompt
 
-_DarkGuideHints_Hint8_Solution::
+_DarkGuideHints_Hint11_Solution::
 	text "Four pieces of the"
 	line "MYST3RY MAP -re"
 	cont "scttrd o-e-"

@@ -186,12 +186,10 @@ INCLUDE "text/BrunosRoom.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 INCLUDE "text/PalletTown.asm"
-INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -206,6 +204,7 @@ INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
+INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -313,6 +312,10 @@ INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/OchreWonderland.asm" ; new
+
+
+SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that became too big and new ones
+INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

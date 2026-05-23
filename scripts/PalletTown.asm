@@ -408,7 +408,7 @@ PalletTownTextDarkGuide:
 	jp TextScriptEnd
 
 DarkGuideHintList:
-	db 8 ; #
+	db 11 ; #
 	db DARKGUIDE_HINT_1
 	db DARKGUIDE_HINT_2
 	db DARKGUIDE_HINT_3
@@ -417,6 +417,9 @@ DarkGuideHintList:
 	db DARKGUIDE_HINT_6
 	db DARKGUIDE_HINT_7
 	db DARKGUIDE_HINT_8
+	db DARKGUIDE_HINT_9
+	db DARKGUIDE_HINT_10
+	db DARKGUIDE_HINT_11
 	db -1 ; end
 
 DarkGuideHints_Intro:
@@ -444,6 +447,9 @@ TextPointers_Hints:
 	dw DarkGuideHints_Hint6
 	dw DarkGuideHints_Hint7
 	dw DarkGuideHints_Hint8
+	dw DarkGuideHints_Hint9
+	dw DarkGuideHints_Hint10
+	dw DarkGuideHints_Hint11
 
 WantMoreDetails:
 	ld hl, WantMoreDetailsText
@@ -699,4 +705,91 @@ DarkGuideHints_Hint8_Details:
 
 DarkGuideHints_Hint8_Solution:
 	text_far _DarkGuideHints_Hint8_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint9:
+	text_asm
+	ld hl, DarkGuideHints_Hint9_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint9_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint9_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint9_Base:
+	text_far _DarkGuideHints_Hint9_Base
+	text_end
+
+DarkGuideHints_Hint9_Details:
+	text_far _DarkGuideHints_Hint9_Details
+	text_end
+
+DarkGuideHints_Hint9_Solution:
+	text_far _DarkGuideHints_Hint9_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint10:
+	text_asm
+	ld hl, DarkGuideHints_Hint10_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint10_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint10_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint10_Base:
+	text_far _DarkGuideHints_Hint10_Base
+	text_end
+
+DarkGuideHints_Hint10_Details:
+	text_far _DarkGuideHints_Hint10_Details
+	text_end
+
+DarkGuideHints_Hint10_Solution:
+	text_far _DarkGuideHints_Hint10_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint11:
+	text_asm
+	ld hl, DarkGuideHints_Hint11_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint11_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint11_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint11_Base:
+	text_far _DarkGuideHints_Hint11_Base
+	text_end
+
+DarkGuideHints_Hint11_Details:
+	text_far _DarkGuideHints_Hint11_Details
+	text_end
+
+DarkGuideHints_Hint11_Solution:
+	text_far _DarkGuideHints_Hint11_Solution
 	text_end

@@ -67,7 +67,7 @@ SeviiTanobyChambers_ScriptPointers:
 	dw SeviiTanobyChambers_RocketBeasts_SirdPreBattle ; 8
 	dw SeviiTanobyChambers_RocketBeasts_SirdBattle ; 9
 	dw SeviiTanobyChambers_RocketBeasts_End ; 10
-	
+
 SeviiTanobyChambers_Base:
 	CheckEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
 	ret nz
@@ -404,7 +404,7 @@ SeviiTanobyChambers_RocketBeasts_MoveBeastsUp:
 	ld a, 3
 	ld [wCurMapScript], a
 	ret
-	
+
 SeviiTanobyChambers_RocketBeastsMovements:
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
@@ -468,7 +468,7 @@ SeviiTanobyChambers_RocketBeasts_OrmPreBattle:
 	ld a, 5
 	ld [wCurMapScript], a
 	ret
-	
+
 SeviiTanobyChambers_RocketBeasts_OrmBattle:
 	ld a, $0
 	ld [wJoyIgnore], a
@@ -809,14 +809,57 @@ CheckIfStartersPlusMewtwoInParty:
 	ret nc
 ; Pikachu
 .checkPika
+	ld d, PICHU
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkEevee
 	ld d, PIKACHU
 	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkEevee
+	ld d, RAICHU
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkEevee
+	ld d, MRAICHUX
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkEevee
+	ld d, MRAICHUY
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkEevee
 	ret nc
 ; Eevee
+.checkEevee
 	ld d, EEVEE
 	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, VAPOREON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, JOLTEON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, FLAREON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, ESPEON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, UMBREON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, GLACEON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, LEAFEON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
+	ld d, SYLVEON
+	callfar CheckIfOneGivenMonIsInParty
+	jr c, .checkMewtwo
 	ret nc
 ; Mewtwo
+.checkMewtwo
+	ld d, ARM_MEWTWO
+	callfar CheckIfOneGivenMonIsInParty
+	ret c
 	ld d, MEWTWO
 	callfar CheckIfOneGivenMonIsInParty
 	ret c
@@ -836,7 +879,7 @@ SeviiTanobyChambersScriptText1:
 SeviiTanobyChambersScriptText2:
 	text_far _SeviiTanobyChambersScriptText2
 	text_end
-	
+
 ; Rocket Beasts texts ==============================
 
 SeviiTanobyChambersText1:
@@ -880,12 +923,11 @@ SeviiTanobyChambersScriptText10:
 SeviiTanobyChambersOrmDefeatText:
 	text_far _SeviiTanobyChambersOrmDefeatText
 	text_end
-	
+
 SeviiTanobyChambersCarrDefeatText:
 	text_far _SeviiTanobyChambersCarrDefeatText
 	text_end
-	
+
 SeviiTanobyChambersSirdDefeatText:
 	text_far _SeviiTanobyChambersSirdDefeatText
 	text_end
-	
