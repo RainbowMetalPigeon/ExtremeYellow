@@ -793,11 +793,14 @@ TrainerBattleVictory:
 	call DelayFrames
 	call PrintEndBattleText
 ; new, to skip giving money in BATTLE FACILITY
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .giveMoney ; new
 	ld a, [wCurMap]
 	cp BATTLE_FACILITY
 	ret z ; does ret work?
 ; win money
 ; new, to implement Amulet Coin
+.giveMoney ; new
 	ld b, AMULET_COIN
 	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr z, .noAmuletCoin
@@ -841,6 +844,8 @@ ChooseEndOfBattleMusic: ; new
 	cp RIVAL3
 	jr nz, .checkGiovanni
 ; check map
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .normalEndMusic
 	ld a, [wCurMap]
 	cp CHAMPIONS_ROOM
 	jr nz, .normalEndMusic
@@ -852,6 +857,8 @@ ChooseEndOfBattleMusic: ; new
 	cp GIOVANNI
 	jr nz, .normalEndMusic
 ; check for Viridian Gym
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .normalEndMusic
 	ld a, [wCurMap]
 	cp VIRIDIAN_GYM
 	jr z, .specialEndMusic
@@ -1464,10 +1471,15 @@ TryRunningFromBattle:
 	cp LINK_STATE_BATTLING
 	jp z, .canEscape
 ; new, to prevent running from MissingNo (both Mon and trainer)
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .canTryToEscape
 	ld a, [wCurMap]
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr z, .cannotEscapeFromMissingNo
 ; back to vanilla
+.canTryToEscape
 ; edited, moved the trainer check earlier
 	ld a, [wNumRunAttempts]
 	inc a
@@ -3832,6 +3844,8 @@ IsGhostBattle: ; this can be easily moved outside of this file, as we care only 
 ; new, to handle Haunted House
 	callfar IsCurrentMapHauntedHouse
 	ret z
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .next
 ; back to vanilla
 	ld a, [wCurMap]
 	cp POKEMON_TOWER_1F

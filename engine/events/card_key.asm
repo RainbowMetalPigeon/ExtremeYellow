@@ -1,4 +1,6 @@
 PrintCardKeyText:
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
 	ld hl, SilphCoMapList
 	ld a, [wCurMap]
 	ld b, a

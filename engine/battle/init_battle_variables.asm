@@ -44,6 +44,8 @@ InitBattleVariables::
 	jr nz, .loop
 	inc a ; POUND
 	ld [wTestBattlePlayerSelectedMove], a
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notSafariBattle ; new
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EXTRA ; new
 	jr z, .yesSafariBattle ; new
@@ -55,7 +57,7 @@ InitBattleVariables::
 ; new special code for Safari Giovanni
 	cp SAFARI_ZONE_NORTH
 	jr nz, .yesSafariBattle
-	; are we around Giovanni?
+; are we around Giovanni?
 	ld hl, CoordsData_SafariGiovanni
 	call ArePlayerCoordsInArray
 	jr c, .notSafariBattle ; if yes, don't load the safari battle

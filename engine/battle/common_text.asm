@@ -2,6 +2,8 @@ PrintBeginningBattleText:
 	ld a, [wIsInBattle]
 	dec a
 	jr nz, .trainerBattle
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notPokemonTower ; new
 	ld a, [wCurMap]
 	cp POKEMON_TOWER_3F
 	jr c, .notPokemonTower

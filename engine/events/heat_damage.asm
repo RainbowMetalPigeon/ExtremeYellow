@@ -1,4 +1,6 @@
 ApplyHeatDamage:
+	CheckEvent EVENT_IN_SEVII
+	ret nz
 	ld a, [wCurMap]
 	cp CINNABAR_VOLCANO
 	jr z, .rightMap

@@ -594,6 +594,8 @@ IsSurfingAllowed2:
 	ld a, [wd732]
 	bit 5, a
 	jr nz, .forcedToRideBike
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
 	ld a, [wCurMap]
 	cp SEAFOAM_ISLANDS_B4F
 	ret nz

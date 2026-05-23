@@ -112,9 +112,12 @@ MainMenu:
 	ld a, [wNumHoFTeams]
 	and a
 	jp z, SpecialEnterMap
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notHallOfFame ; new
 	ld a, [wCurMap] ; map ID
 	cp HALL_OF_FAME
 	jp nz, SpecialEnterMap
+.notHallOfFame ; new
 	xor a
 	ld [wDestinationMap], a
 	ld hl, wd732

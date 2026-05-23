@@ -70,8 +70,9 @@ PlayDefaultMusicCommon::
 	ld [wNewSoundID], a
 	jp PlaySound
 
-CheckForNoBikingMusicMap::
-; probably used to not change music upon getting on bike
+CheckForNoBikingMusicMap:: ; probably used to not change music upon getting on bike
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notFound ; new
 	ld a, [wCurMap]
 	cp ROUTE_23
 	jr z, .found
@@ -83,6 +84,7 @@ CheckForNoBikingMusicMap::
 	jr z, .found
 	cp INDIGO_PLATEAU
 	jr z, .found
+.notFound ; new
 	and a
 	ret
 .found

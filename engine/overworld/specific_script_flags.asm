@@ -1,4 +1,6 @@
 SetMapSpecificScriptFlagsOnMapReload::
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
 	ld a, [wCurMap]
 	cp VERMILION_GYM
 	jr z, .vermilion_gym

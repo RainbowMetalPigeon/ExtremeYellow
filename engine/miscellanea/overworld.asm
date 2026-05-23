@@ -327,6 +327,8 @@ IsCurrentMapHauntedHouse_AlsoIslandAndPallet::
 ; ===========================================================
 
 ForceMovementsHauntedHouse::
+	CheckEvent EVENT_IN_SEVII
+	ret nz
 	ld a, [wCurMap]
 	cp HAUNTED_HOUSE_1
 	jr nz, .checkHH4

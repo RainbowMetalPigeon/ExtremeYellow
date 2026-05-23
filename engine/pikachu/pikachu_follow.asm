@@ -260,11 +260,14 @@ Pointer_fc653::
 	db $ff
 
 SetPikachuSpawnWarpPad::
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .notRoute2Gates ; new
 	ld a, [wCurMap]
 	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
 ;	jr z, .viridian_forest_exit
 ;	cp ROUTE_2_ALL_GATES ; edited because of merging of route 2 gates, possibly TBE
 	jr z, .viridian_forest_entrance
+.notRoute2Gates ; new
 	ld a, [wCurMap]
 	ld hl, Pointer_fc68e
 	call Pikachu_IsInArray
@@ -305,6 +308,8 @@ Pointer_fc68e::
 	db $ff
 
 SetPikachuSpawnBackOutside::
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .pikachuHidden ; new
 	ld a, [wCurMap]
 	cp ROUTE_22_GATE
 	jr z, .asm_fc6a7

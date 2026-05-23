@@ -429,6 +429,8 @@ PrintEndBattleText::
 	ld [MBC1RomBank], a
 	push hl
 ; new, don't load trainer's name if we are vs Copycat
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .notCopycatBattle
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_1F
 	jr nz, .notCopycatBattle
