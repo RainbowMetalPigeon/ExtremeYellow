@@ -129,8 +129,6 @@ BluesMomSprite::         INCBIN "gfx/sprites/bluesmom.2bpp"
 TaurosSprite::           INCBIN "gfx/sprites/tauros.2bpp"
 RocketFaintedSprite::    INCBIN "gfx/sprites/rocket_fainted.2bpp"
 BadgeMachineSprite::     INCBIN "gfx/sprites/badge_machine.2bpp"
-
-; TBE
 ProtonSprite::           INCBIN "gfx/sprites/proton.2bpp"
 PetrelSprite::           INCBIN "gfx/sprites/petrel.2bpp"
 ArianaSprite::           INCBIN "gfx/sprites/ariana.2bpp"
@@ -138,14 +136,14 @@ ArcherSprite::           INCBIN "gfx/sprites/archer.2bpp"
 CarrSprite::             INCBIN "gfx/sprites/carr.2bpp"
 OrmSprite::              INCBIN "gfx/sprites/orm.2bpp"
 SirdSprite::             INCBIN "gfx/sprites/sird.2bpp"
-IchinoSprite::
-NiueSprite::
-SantreSprite::
-YottroSprite::
-GonqueSprite::
-RokuseiSprite::
-NanetteSprite::
-SuujeroSprite::
+IchinoSprite::           ; TBE
+NiueSprite::             ; TBE
+SantreSprite::           ; TBE
+YottroSprite::           ; TBE
+GonqueSprite::           ; TBE
+RokuseiSprite::          ; TBE
+NanetteSprite::          ; TBE
+SuujeroSprite::          INCBIN "gfx/sprites/darkguide.2bpp" ; TBE
 PinkSprite::             INCBIN "gfx/sprites/pink.2bpp"
 
 

@@ -909,4 +909,5 @@ RollsOneRandomMove:
 	ret
 
 HMMoveArray2:
+	db ANCESTOR_PWR
 INCLUDE "data/moves/hm_moves.asm"

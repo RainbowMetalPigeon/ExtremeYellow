@@ -1,6 +1,7 @@
-; This file is INCLUDEd twice:
+; This file is INCLUDEd thrice:
 ; - for HMMoves in home/names.asm
 ; - for HMMoveArray in engine/pokemon/bills_pc.asm
+; - new: in add_mon.asm
 
 	db CUT
 	db FLY

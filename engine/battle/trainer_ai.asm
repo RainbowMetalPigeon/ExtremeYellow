@@ -1988,8 +1988,8 @@ AIMoveChoiceModification4:
 	; TBE if anything will be added
 .rollForSwitching ; ============================================================
 	ld a, b ; a now holds the value, [0,32], which says how likely is the AI to switching
-	cp 32 ; if 32, switch: dedicated check to avoid issues with special values
-	jr z, .setSwitchingAndEnd
+	cp 32 ; if 32 or more, switch: dedicated check to avoid issues with special values
+	jr nc, .setSwitchingAndEnd
 	and a ; if0, don't switch: same as above; bonus: resets c flag
 	ret z
 	rla
