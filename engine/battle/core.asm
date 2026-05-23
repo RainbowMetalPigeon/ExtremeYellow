@@ -2305,11 +2305,6 @@ DisplayBattleMenu::
 	jp nz, PartyMenuOrRockOrRun
 
 ; new: can't use bag items against Traveler nor Battle Facility Trainers nor Sevii Sages
-;	ld a, [wCurOpponent]
-;	cp OPP_TRAVELER
-;	jr z, .cannotUseItemsInBattle
-;	cp OPP_BF_TRAINER
-;	jr z, .cannotUseItemsInBattle
 	ld a, [wCurOpponent]
 	ld hl, TrainersAgainstWhomBagIsForbidden
 	ld de, 1
