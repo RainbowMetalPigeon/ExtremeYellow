@@ -2,6 +2,8 @@ GainExperience:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z ; return if link battle
+	CheckEvent EVENT_IN_SEVII ; new
+	ret nz ; new
 	ld a, [wCurMap] ; new
 	cp BATTLE_FACILITY ; new
 	ret z ; new

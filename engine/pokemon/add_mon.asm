@@ -22,6 +22,8 @@ _AddPartyMon::
 	inc d
 .noCarry
 ; new, to handle Battle Facility randomized teams
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .vanilla3
 	ld a, [wCurMap]
 	cp BATTLE_FACILITY
 	jr nz, .vanilla3
@@ -63,6 +65,10 @@ _AddPartyMon::
 	ld e, l
 	ld hl, wPlayerName
 ; new, to give STARTER_PIKACHU the OT of SAMUEL
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .vanilla
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jr nz, .vanilla
@@ -255,6 +261,10 @@ _AddPartyMon::
 	pop de
 ; new, to give STARTER_PIKACHU the ID of 00000
 	inc de
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .vanilla2
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	jr nz, .vanilla2

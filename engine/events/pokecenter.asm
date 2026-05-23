@@ -1,4 +1,6 @@
 DisplayPokemonCenterDialogue_::
+	CheckEvent EVENT_IN_SEVII ; new
+	jr nz, .regularCenter ; new
 	ld a, [wCurMap]
 	cp PEWTER_POKECENTER
 	jr nz, .checkRouteCenters ; edited

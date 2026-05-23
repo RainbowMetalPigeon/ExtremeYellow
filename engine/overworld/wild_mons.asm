@@ -97,12 +97,24 @@ CustomRandomizedCopyData:
 	; if we load data for water TOO, we use a different offset, prime to the first one
 	jr nz, .waterToo
 ; first encounter type we load (only grass or only water map)
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	ld bc, 29
+	jr nz, .landSevii
 	ld bc, 31 ; arbitrary number, bare minimum is 14, but bigger to allow for higher-than-threshold values, also better be a prime for the reason above
+.landSevii
 	ld a, [wCurMap]
 	call AddNTimes ; add bc to hl a times
 	jr .continueWithReading
 .waterToo
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	ld c, 19
+	jr nz, .waterSevii
 	ld c, 17 ; arbitrary number, bigger than 14, and preferably prime
+.waterSevii
 	ld b, 0
 	ld a, [wCurMap]
 	call AddNTimes ; add bc to hl a times

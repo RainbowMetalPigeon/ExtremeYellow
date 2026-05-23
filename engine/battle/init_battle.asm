@@ -332,6 +332,10 @@ _LoadTrainerPic:
 .notPseudoMangaProtagonists
 
 ; now check if it's Copycat battle
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .notCopycat
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_1F
 	jr nz, .notCopycat

@@ -2,6 +2,10 @@ AskName:
 	call SaveScreenTilesToBuffer2
 	call GetPredefRegisters
 ; new, to avoid nicknaming MISSINGNO
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .vanilla
 	ld a, [wCurMap] ; temp, testing
 	cp HAUNTED_ISLAND_OF_NUMBERS ; temp, testing
 	jr nz, .vanilla
