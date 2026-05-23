@@ -1886,7 +1886,6 @@ wListCount:: db
 
 wLinkState:: db
 
-wMoveNum2:: ; new
 wTwoOptionMenuID:: db
 
 ; the id of the menu item the player ultimately chose
@@ -1953,7 +1952,7 @@ wPrize1Price:: dw
 wPrize2Price:: dw
 wPrize3Price:: dw
 
-	ds 1
+wMoveNum2:: db ; new
 
 ; shared list of 9 random numbers, indexed by wLinkBattleRandomNumberListIndex
 wLinkBattleRandomNumberList:: ds 10
