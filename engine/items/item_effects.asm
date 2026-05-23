@@ -382,6 +382,8 @@ ItemUseBall:
 	jp nz, ThrowBallAtTrainerMon
 
 ; new, to handle MissingNo and Master Ball
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .notMissingnoWithMaster
 	ld a, [wCurMap]
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr nz, .notMissingnoWithMaster
@@ -457,6 +459,10 @@ ItemUseBall:
 .notOldManBattle
 ; If the player is fighting the ghost Marowak, set the value that indicates the
 ; Pokémon can't be caught and skip the capture calculations.
+	push hl ; new
+	CheckEvent EVENT_IN_SEVII ; new
+	pop hl ; new
+	jr nz, .preloop ; new
 	ld a, [wCurMap]
 	cp POKEMON_TOWER_6F
 	jr nz, .preloop ; edited, it was .loop
@@ -2631,7 +2637,9 @@ ItemUseXAccuracy:
 
 ; This function is bugged and never works. It always jumps to ItemUseNotTime.
 ; The Card Key is handled in a different way.
-ItemUseCardKey:
+ItemUseCardKey: ; edited: removed all unnecessary functionalities
+	jp ItemUseNotTime
+/*
 ;	xor a               ; edited, commented out as unused
 ;	ld [wUnusedD71F], a ; edited, commented out as unused
 	call GetTileAndCoordsInFrontOfPlayer
@@ -2640,13 +2648,11 @@ ItemUseCardKey:
 	jr nz, .next0
 	ld hl, CardKeyTable1
 	jr .next1
-
 .next0
 	cp $24
 	jr nz, .next2
 	ld hl, CardKeyTable2
 	jr .next1
-
 .next2
 	cp $5e
 	jp nz, ItemUseNotTime
@@ -2669,7 +2675,6 @@ ItemUseCardKey:
 	ld a, [hl]
 ;	ld [wUnusedD71F], a ; edited, commented out as unused
 	jr .done
-
 .nextEntry1
 	inc hl
 .nextEntry2
@@ -2677,15 +2682,14 @@ ItemUseCardKey:
 .nextEntry3
 	inc hl
 	jr .loop
-
 .done
 	ld hl, ItemUseText00
 	call PrintText
 	ld hl, wd728
 	set 7, [hl]
 	ret
-
 INCLUDE "data/events/card_key_coords.asm"
+*/
 
 ItemUsePokedoll:
 	ld a, [wIsInBattle]
@@ -2860,8 +2864,10 @@ ItemUsePokeflute:
 	cp 38
 	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
 	ld a, [wYCoord]
-	cp 9
+	cp 11
 	jr nz, .noSnorlaxOrPikachuOrMachampToWakeUp
+	ld hl, PlayedFluteHadEffectText
+	call PrintText
 	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_4
 	ld a, 1
 	ld [wCurMapScript], a

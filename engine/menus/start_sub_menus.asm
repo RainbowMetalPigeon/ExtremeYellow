@@ -349,7 +349,7 @@ StartMenu_Pokemon::
 	cp 26
 	jr nz, .vanillaEgg
 	ld a, [wYCoord]
-	cp 9
+	cp 11
 	jr nz, .vanillaEgg
 ; trigger Chamber 3 event
 	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_3
@@ -599,7 +599,7 @@ StartMenu_Item::
 	cp 50
 	jr nz, .vanillaToss
 	ld a, [wYCoord]
-	cp 9
+	cp 11
 	jr nz, .vanillaToss
 ; trigger Chamber 3 event
 	SetEvent EVENT_SEVII_TANOBY_SOLVED_CHAMBER_5

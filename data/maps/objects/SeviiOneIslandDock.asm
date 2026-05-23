@@ -5,7 +5,7 @@ SeviiOneIslandDock_Object:
 ;	warp_event 10,  0, SEVII_ONE_ISLAND_CITY, 1
 ;	warp_event 10,  0, SEVII_EIGHT_ISLAND_CAVE, 2
 ;	warp_event 10,  0, SEVII_TWO_ISLET, 1
-	warp_event 10,  0, SEVII_TWO_ISLET_HOUSES, 5
+;	warp_event 10,  0, SEVII_TWO_ISLET_HOUSES, 5
 ;	warp_event 10,  0, SEVII_UNDERGROUND_LOBBY, 1
 ;	warp_event 10,  0, SEVII_DOTTED_HOLE, 1
 ;	warp_event 10,  0, SEVII_SECRET_BEACH_HOUSE, 1
@@ -13,6 +13,7 @@ SeviiOneIslandDock_Object:
 ;	warp_event 10,  0, SEVII_ALTERING_CAVE_4, 1
 ;	warp_event 10,  0, SEVII_TANOBY_CHAMBERS, 13
 ;	warp_event 10,  0, SEVII_TANOBY_CHAMBERS, 11
+	warp_event 10,  0, SEVII_TANOBY_DEN, 1
 ;	warp_event 10,  0, SEVII_PATTERN_BUSH, 1
 ;	warp_event 10,  0, SEVII_SEVEN_ISLAND_HOUSES, 4
 ;	warp_event 10,  0, SEVII_ROUTE_43_CAVES, 1

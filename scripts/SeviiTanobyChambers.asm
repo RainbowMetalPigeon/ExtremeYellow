@@ -120,7 +120,7 @@ ENDC
 	ResetEvent EVENT_SEVII_TANOBY_TRACK_TIME
 	ld a, SFX_PUSH_BOULDER
 	call PlaySound
-	ld a, 7
+	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 .dontTrackTime
@@ -285,63 +285,63 @@ ENDC
 	ret
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step0_Ini:
-	dbmapcoord 62,  9
+	dbmapcoord 62, 11
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step0_Fin:
-	dbmapcoord 63,  9
+	dbmapcoord 63, 11
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step1_Ini:
-	dbmapcoord 63,  9
+	dbmapcoord 63, 11
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step1_Fin:
-	dbmapcoord 64,  9
+	dbmapcoord 64, 11
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step2_Ini:
-	dbmapcoord 64,  9
+	dbmapcoord 64, 11
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step2_Fin:
-	dbmapcoord 65,  9
+	dbmapcoord 65, 11
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step3_Ini:
-	dbmapcoord 65,  9
+	dbmapcoord 65, 11
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step3_Fin:
-	dbmapcoord 65, 10
+	dbmapcoord 65, 12
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step4_Ini:
-	dbmapcoord 65, 10
+	dbmapcoord 65, 12
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step4_Fin:
-	dbmapcoord 65, 11
+	dbmapcoord 65, 13
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step5_Ini:
-	dbmapcoord 65, 11
+	dbmapcoord 65, 13
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step5_Fin:
-	dbmapcoord 64, 11
+	dbmapcoord 64, 13
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step6_Ini:
-	dbmapcoord 64, 11
+	dbmapcoord 64, 13
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step6_Fin:
-	dbmapcoord 63, 11
+	dbmapcoord 63, 13
 	db -1
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step7_Ini:
-	dbmapcoord 63, 11
+	dbmapcoord 63, 13
 	db -1
 SeviiTanobyChambers_Chamber6_Coordinates_Step7_Fin:
-	dbmapcoord 62, 11
+	dbmapcoord 62, 13
 	db -1
 
 SeviiTanobyChambers_Chamber1_Coordinates:
-	dbmapcoord  2,  9
+	dbmapcoord  2, 11
 	db -1 ; end
 
 SeviiTanobyChambers_PrintSuccessOneChamber:

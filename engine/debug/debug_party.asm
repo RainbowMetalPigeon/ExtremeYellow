@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db EETERNATUS, 100 ; 255
-	db MEW, 100
+	db MEWTWO, 100 ; 255
+	db VENUSTOISE, 100
 	db STARTER_PIKACHU, 1
-;	db MAGIKARP, 100
-;	db MAGIKARP, 42
-;	db MAGIKARP, 68
+;	db CHARMELEON, 100
+;	db BULBASAUR, 42
+;	db JOLTEON, 68
 	db -1 ; end
 
 DebugStart:
@@ -87,15 +87,15 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-	ld a, PSYCHO_CUT ; CONFUSE_RAY ; DIG
-	ld hl, wPartyMon4Moves
-	ld [hli], a
-	ld a, SMOG ; WILL_O_WISP ; TELEPORT
-	ld [hli], a
-	ld a, TAKE_DOWN ; RECOVER ; SOFTBOILED
-	ld [hli], a
-	ld a, DOUBLE_EDGE ; SCREECH ; FLASH
-	ld [hl], a
+;	ld a, SOFTBOILED ; CONFUSE_RAY ; DIG
+;	ld hl, wPartyMon4Moves
+;	ld [hli], a
+;	ld a, SMOG ; WILL_O_WISP ; TELEPORT
+;	ld [hli], a
+;	ld a, TAKE_DOWN ; RECOVER ; SOFTBOILED
+;	ld [hli], a
+;	ld a, DOUBLE_EDGE ; SCREECH ; FLASH
+;	ld [hl], a
 
 ;	; moves to other members
 ;	ld a, SCALD
@@ -255,7 +255,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_DOTTED_HOLE_OPENED
 
 	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBERS
-	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBER_MAJOR
+;	SetEvent EVENT_SEVII_UNLOCKED_TANOBY_CHAMBER_MAJOR
 
 ;	SetEvent EVENT_ENABLED_IMPOSTER
 
@@ -432,7 +432,7 @@ DebugItemsList:
 ;	db HM_DIVE, 1
 ;	db HM_WHIRLPOOL, 1
 ;	db AMULET_COIN, 1
-	db POKE_DOLL, 5
+	db POKE_BALL, 5
 ;	db TOPAZ, 1
 ;	db TIGERS_EYE, 1
 	db S_S_TICKET, 1

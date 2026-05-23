@@ -2862,6 +2862,10 @@ TossBallAnimation:
 	cp 2
 	jr z, .BlockBall ; if in trainer battle, play different animation
 ; new, to handle MissingNo
+	push hl
+	CheckEvent EVENT_IN_SEVII
+	pop hl
+	jr nz, .vanilla
 	ld a, [wCurMap]
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr nz, .vanilla

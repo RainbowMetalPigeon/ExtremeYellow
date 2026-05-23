@@ -84,6 +84,10 @@ BillsHouseText_f24a9:
 	text_end
 
 Func_f24ae::
+	push hl ; new
+	CheckEvent EVENT_IN_SEVII ; new
+	pop hl ; new
+	jr nz, .asm_f24d2 ; new
 	ld a, [wCurMap]
 	cp BILLS_HOUSE
 	jr nz, .asm_f24d2
