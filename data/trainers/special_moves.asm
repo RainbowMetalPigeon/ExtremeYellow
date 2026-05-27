@@ -285,6 +285,67 @@ SpecialTrainerMoves:
 ;	db 2, 4, NIGHT_SHADE
 	db $FE
 
+	db COOLTRAINER, 82 ; Route 36 new
+	; PARASECT
+	db 1, 1, LEECH_SEED
+	db 1, 2, SPORE
+	db 1, 3, STICKY_WEB
+	db 1, 4, SYNTHESIS
+	; BLISSEY
+	db 2, 1, SOFTBOILED
+	db 2, 2, STEALTH_ROCK
+	db 2, 3, MINIMIZE
+	db 2, 4, METRONOME
+	; CLOYSTER
+	db 3, 1, SPIKES
+	db 3, 2, TOXIC_SPIKES
+	db 3, 3, SUPERSONIC
+	db 3, 4, HAIL
+	; GENGAR
+	db 4, 1, PERISH_SONG
+	db 4, 2, CONFUSE_RAY
+	db 4, 3, CURSE
+	db 4, 4, TOXIC
+	; STEELIX
+	db 5, 1, SANDSTORM
+	db 5, 2, REST
+	db 5, 3, ROAR
+	db 5, 4, STEALTH_ROCK
+	; VENUSAUR
+	db 6, 1, TOXIC
+	db 6, 2, ROAR
+	db 6, 3, SYNTHESIS
+	db 6, 4, SUBSTITUTE
+	db $FE
+
+	db COOLTRAINER, 95 ; Route 31 new
+	; SLOWKING
+	db 1, 1, TRICK_ROOM
+;	db 1, 2, TBE
+;	db 1, 3, TBE
+;	db 1, 4, TBE
+	; SNORLAX
+;	db 2, 1, TBE
+;	db 2, 2, TBE
+;	db 2, 3, TBE
+;	db 2, 4, TBE
+	; EXEGGUTOR
+	db 3, 1, TRICK_ROOM
+;	db 3, 2, TBE
+;	db 3, 3, TBE
+;	db 3, 4, TBE
+	; LICKITUNG
+;	db 4, 1, TBE
+;	db 4, 2, TBE
+;	db 4, 3, TBE
+;	db 4, 4, TBE
+	; PORYGON2
+	db 5, 1, TRICK_ROOM
+;	db 5, 2, TBE
+;	db 5, 3, TBE
+;	db 5, 4, TBE
+	db $FE
+
 ; GYM LEADERS ===================================================
 
 ; BROCK's teams -------------------------------------------------

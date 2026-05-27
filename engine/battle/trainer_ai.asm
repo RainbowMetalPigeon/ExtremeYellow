@@ -1610,8 +1610,17 @@ AIMoveChoiceModification3:
 	jp .nextMove6
 .moveIsTrickRoom
 ; check if the opponent is faster than the player
+	push hl
+	CheckEvent EVENT_TRICK_ROOM
+	pop hl
+	jr z, .trickRoomNotAlreadySet
+; trick room is already set
 	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
-	jr c, .discourageByThree6 ; opponent is faster
+	jr nc, .discourageByFour6
+	jr .encourageByThree6
+.trickRoomNotAlreadySet
+	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
+	jr c, .discourageByFour6 ; opponent is faster
 ; player is not slower than opponent
 .encourageByTwelve6
 	dec [hl]
@@ -2733,6 +2742,9 @@ CheckIfOpponentIsFasterThanPlayer:
 	ld a, [de]
 	cp [hl] ; battling's speed - opponent mon's speed, MOST significant byte
 	jr c, .opponentIsFaster
+	jr z, .continueCheck
+	jr .opponentIsFaster
+.continueCheck
 	inc hl
 	inc de
 	ld a, [de]
