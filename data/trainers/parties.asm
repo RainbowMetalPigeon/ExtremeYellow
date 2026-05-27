@@ -801,7 +801,7 @@ RocketData:
 ; Cerulean City
 	db 17, MACHOP, DROWZEE, 0
 ; Route 24
-	db 15, EKANS, ZUBAT, 0
+	db 17, EKANS, SANDSHREW, ZUBAT, RATTATA, KOFFING, 0 ; 6 ; edited
 ; Game Corner
 	db 22, RATICATE, GOLBAT, 0 ; edited
 ; Rocket Hideout B1F

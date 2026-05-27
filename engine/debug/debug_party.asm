@@ -441,10 +441,10 @@ DebugItemsList:
 ;	db ROOM_KEY_34, 1
 ;	db ROOM_KEY_37, 1
 ;	db PASSEPARTOUT, 1
-;	db FRESH_WATER, 11
+	db FRESH_WATER, 11
 ;	db NUGGET, 7
-;	db MAX_REVIVE, 7
-;	db MAX_ELIXER, 7
+	db MAX_REVIVE, 7
+	db MAX_ELIXER, 7
 	db PP_UP, 7
 	db BICYCLE, 1
 	db -1 ; end

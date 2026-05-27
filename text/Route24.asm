@@ -1,29 +1,29 @@
-_Route24Text_51510::
+_Route24Text_CongratsBeat5Trainers::
 	text "Congratulations!"
 	line "You beat our 5"
 	cont "contest trainers!@"
 	text_end
 
-_Route24Text_51515::
+_Route24Text_FabulousPrize::
 	text_start
 
 	para "You just earned a"
 	line "fabulous prize!"
 	prompt
 
-_Route24Text_5151a::
+_Route24Text_PlayerReceivedNugget::
 	text "<PLAYER> received"
 	line "a @"
 	text_ram wStringBuffer
 	text "!@"
 	text_end
 
-_Route24Text_51521::
+_Route24Text_NoRoom::
 	text "You don't have"
 	line "any room!"
 	done
 
-_Route24Text_51526::
+_Route24Text_WannaJoinOffer::
 	text "By the way, would"
 	line "you like to join"
 	cont "TEAM ROCKET?"
@@ -49,12 +49,12 @@ _Route24Text_51526::
 	cont "refuse!"
 	done
 
-_Route24Text_5152b::
+_Route24Text_PostVictoryDialogue::
 	text "Arrgh!"
 	line "You are good!"
 	prompt
 
-_Route24Text_51530::
+_Route24Text_WithYourAbility::
 	text "With your ability,"
 	line "you could become"
 	cont "a top leader in"

@@ -25,17 +25,18 @@ IF DEF(_DEBUG) ; new
 	call DebugPressedOrHeldB
 	jp nz, CheckFightingMapTrainers
 ENDC
-	CheckEvent EVENT_GOT_NUGGET
+	CheckEvent EVENT_BEAT_ROUTE24_ROCKET ; edited, was EVENT_GOT_NUGGET
 	jp nz, CheckFightingMapTrainers
-	ld hl, CoordsData_5140e
+	ld hl, CoordsData_FrontOfNuggetRocket
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
+; we are in front of Nugget Rocket and we didn't get the Nugget yet
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	CheckAndResetEvent EVENT_NUGGET_REWARD_AVAILABLE
+	CheckAndResetEvent EVENT_NUGGET_REWARD_AVAILABLE ; TBE?
 	ret z
 	ld a, D_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
@@ -46,7 +47,7 @@ ENDC
 	ld [wCurMapScript], a
 	ret
 
-CoordsData_5140e:
+CoordsData_FrontOfNuggetRocket:
 	dbmapcoord 10, 15
 	db -1 ; end
 
@@ -108,22 +109,29 @@ Route24Text1:
 	text_asm
 	ResetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	CheckEvent EVENT_GOT_NUGGET
+	jr z, .notGotNugget
+; new
+	CheckEvent EVENT_BEAT_ROUTE24_ROCKET
 	jr nz, .got_item
-	ld hl, Route24Text_51510
+	jr .wannaJoin
+.notGotNugget
+; BTV
+	ld hl, Route24Text_CongratsBeat5Trainers
 	call PrintText
 	lb bc, NUGGET, 1
 	call GiveItem
 	jr nc, .bag_full
 	SetEvent EVENT_GOT_NUGGET
-	ld hl, Route24Text_5151a
+	ld hl, Route24Text_PlayerReceivedNugget
 	call PrintText
-	ld hl, Route24Text_51526
+.wannaJoin
+	ld hl, Route24Text_WannaJoinOffer
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, Route24Text_5152b
-	ld de, Route24Text_5152b
+	ld hl, Route24Text_PostVictoryDialogue
+	ld de, Route24Text_PostVictoryDialogue
 	call SaveEndBattleTextPointers
 	ldh a, [hSpriteIndexOrTextID]
 	ld [wSpriteIndex], a
@@ -135,41 +143,41 @@ Route24Text1:
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 .got_item
-	ld hl, Route24Text_51530
+	ld hl, Route24Text_WithYourAbility
 	call PrintText
 	jp TextScriptEnd
 .bag_full
-	ld hl, Route24Text_51521
+	ld hl, Route24Text_NoRoom
 	call PrintText
 	SetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	jp TextScriptEnd
 
-Route24Text_51510:
-	text_far _Route24Text_51510
+Route24Text_CongratsBeat5Trainers:
+	text_far _Route24Text_CongratsBeat5Trainers
 	sound_get_item_1
-	text_far _Route24Text_51515
+	text_far _Route24Text_FabulousPrize
 	text_end
 
-Route24Text_5151a:
-	text_far _Route24Text_5151a
+Route24Text_PlayerReceivedNugget:
+	text_far _Route24Text_PlayerReceivedNugget
 	sound_get_key_item
 	text_promptbutton
 	text_end
 
-Route24Text_51521:
-	text_far _Route24Text_51521
+Route24Text_NoRoom:
+	text_far _Route24Text_NoRoom
 	text_end
 
-Route24Text_51526:
-	text_far _Route24Text_51526
+Route24Text_WannaJoinOffer:
+	text_far _Route24Text_WannaJoinOffer
 	text_end
 
-Route24Text_5152b:
-	text_far _Route24Text_5152b
+Route24Text_PostVictoryDialogue:
+	text_far _Route24Text_PostVictoryDialogue
 	text_end
 
-Route24Text_51530:
-	text_far _Route24Text_51530
+Route24Text_WithYourAbility:
+	text_far _Route24Text_WithYourAbility
 	text_end
 
 Route24Text2:
