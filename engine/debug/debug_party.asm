@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 100 ; 255
-	db VENUSTOISE, 100
+	db BLISSEY, 102
 	db STARTER_PIKACHU, 1
 ;	db CHARMELEON, 100
 ;	db BULBASAUR, 42

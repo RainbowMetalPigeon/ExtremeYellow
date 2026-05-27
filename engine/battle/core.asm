@@ -4505,8 +4505,9 @@ CheckForDisobedience:
 ; what level might disobey? - modified, added threshold at every badge and for post-League
 ; modified further to add CAP options
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; having this check here before wLevelCapOption makes so that MissignNo will disobey regardless
-	ld a, 101
-	jr nz, .next
+	jp nz, .canUseMove ; edited
+;	ld a, 101
+;	jr nz, .next
 ; now we check how many badges we have and set the cap accordingly
 	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
 	cp 2

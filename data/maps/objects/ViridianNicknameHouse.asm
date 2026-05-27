@@ -15,7 +15,7 @@ ViridianNicknameHouse_Object:
 
 	def_bg_events
 	; new, relocated Badge Expert
-	bg_event 17,  4,  6 ; ViridianCityText8
+	bg_event 17,  4,  8 ; ViridianCityText8
 
 	def_object_events
 	object_event  5,  3, SPRITE_BALDING_GUY, STAY, NONE, 1 ; person
@@ -24,6 +24,9 @@ ViridianNicknameHouse_Object:
 	object_event  4,  0, SPRITE_CLIPBOARD, STAY, NONE, 4 ; person
 	; new, relocated Badge Expert
 	object_event 16,  4, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 5 ; person
+	; new, gate
+	object_event 31,  3, SPRITE_BEAUTY, WALK, UP_DOWN, 6 ; person
+	object_event 34,  6, SPRITE_GENTLEMAN, WALK, LEFT_RIGHT, 7 ; person
 
 
 	def_warps_to VIRIDIAN_NICKNAME_HOUSE

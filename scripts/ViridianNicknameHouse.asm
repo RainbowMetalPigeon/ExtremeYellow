@@ -13,7 +13,11 @@ ViridianNicknameHouse_TextPointers:
 	dw ViridianHouseText4
 	; new, relocated Badge Expert
 	dw ViridianHouseText5
+	; new, gate
 	dw ViridianHouseText6
+	dw ViridianHouseText7
+	; signs
+	dw ViridianHouseTextSign1
 
 ViridianHouseText1:
 	text_far _ViridianHouseText1
@@ -149,6 +153,14 @@ CeruleanHouse2Text_74eb9:
 	text_far _CeruleanHouse2Text_74eb9
 	text_end
 
-ViridianHouseText6:
+ViridianHouseTextSign1: ; new
+	text_far _ViridianHouseTextSign1 ; new
+	text_end
+
+ViridianHouseText6: ; new
 	text_far _ViridianHouseText6
+	text_end
+
+ViridianHouseText7: ; new
+	text_far _ViridianHouseText7
 	text_end

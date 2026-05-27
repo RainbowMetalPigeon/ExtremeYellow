@@ -22,7 +22,7 @@ _ViridianHouseText4::
 	line "Name: SPEARY"
 	done
 
-_ViridianHouseText6::
+_ViridianHouseTextSign1::
 	text "The notebook is"
 	line "full of notes..."
 
@@ -31,4 +31,14 @@ _ViridianHouseText6::
 	cont "terrible that"
 	cont "nothing can be"
 	cont "read!"
+	done
+
+_ViridianHouseText6:: ; new
+	text "tbe 1"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText7:: ; new
+	text "tbe 2"
+;	xxxx "123456789012345678"
 	done
