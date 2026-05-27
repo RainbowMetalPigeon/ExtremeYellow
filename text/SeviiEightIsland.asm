@@ -536,23 +536,86 @@ _SeviiTenIslandScriptText1::
 	done
 
 _SeviiTenIslandScriptText2::
-	text "SAMUEL: Nani"
-	line "Let's fight!"
+	text "SAMUEL: What just"
+	line "happened?!"
+	cont "Where am I?"
+	cont "Who are you?"
+
+	para "I was checking"
+	line "that shrine in"
+	cont "ILEX FOREST..."
+
+	para "May it be that all"
+	line "the rumors are"
+	cont "actually true?"
+
+	para "May this be the..."
+	line "Well!"
+
+	para "You are a trainer,"
+	line "aren't you?"
+	cont "I don't think it's"
+	cont "a coincidence!"
+
+	para "It must be CELEBI's"
+	line "doing, I am sure!"
+
+	para "So, what do you"
+	line "think of a battle?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTenIslandScriptText3::
-	text "You're strong"
-	line "ciao"
+	text "SAMUEL: And just"
+	line "when I became the"
+	cont "first CHAMPION of"
+	cont "INDIGO LEAGUE!"
+
+	para "I started worrying"
+	line "nobody was going"
+	cont "to be a worthy"
+	cont "opponent... and"
+	cont "then you appear!"
+
+	para "Uh? You too are a"
+	line "CHAMPION?"
+
+	para "Eh eh! Then my"
+	line "suspicions were"
+	cont "right on spot!"
+	cont "What a marvelous"
+	cont "event this is!"
+
+	para "I definitely won't"
+	line "forget of this"
+	cont "battle, trust me!"
+
+	para "Perhaps now it's"
+	line "time for me to"
+	cont "shift my focus"
+	cont "onto my studies"
+	cont "and my family."
+	cont "Farewell, mighty"
+	cont "youth! I hope our"
+	cont "paths will some-"
+	cont "how cross again"
+	cont "someday!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTenIslandYoungOakDefeatedText::
-	text "You won!"
+	text "Wow, I"
+	line "lost! So titles"
+	cont "don't mean much,"
+	cont "do they?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiTenIslandYoungOakBeatYouText::
-	text "I won!"
+	text "samuel: I won!"
+	line "It seems I didn't"
+	cont "earn my title for"
+	cont "nothing, after"
+	cont "all!"
 ;	xxxx "123456789012345678"
 	prompt

@@ -1797,49 +1797,104 @@ _SeviiRoute36SignText1_WrongSide::
 ; dive --------------------------------- TBE
 
 _SeviiFiveIslandCityDiveBattleText1:: ; DIVER
-	text "1-pre"
+	text "Bluglu! Bluuu?"
+
+	para "(This place is a"
+	line "real maze! Don't"
+	cont "you think so?)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveEndBattleText1::
-	text "1-end"
+	text "Bub! Glu?"
+
+	para "(You're too"
+	line "strong! Don't you"
+	cont "think so?)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandCityDiveAfterBattleText1::
-	text "1-after"
+	text "Bbbbllbbub... B!"
+
+	para "(To be honest, I'm"
+	line "bad at both"
+	cont "orienting and"
+	cont "battling..."
+	cont "But I'm good at"
+	cont "diving!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveBattleText2:: ; DIVER
-	text "2-pre"
+	text "B."
+
+	para "(This is a quiet"
+	line "corner.)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveEndBattleText2::
-	text "2-end"
+	text "G."
+
+	para "(Not so quiet"
+	line "now.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandCityDiveAfterBattleText2::
-	text "2-after"
+	text "L."
+
+	para "(I just wish for"
+	line "quietness.)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveBattleText3:: ; COOLTRAINER
-	text "3-pre"
+	text "Blubglub!"
+
+	para "(You! Me! Fight!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveEndBattleText3::
-	text "3-end"
+	text "Bglb!"
+
+	para "(I! Lost!)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandCityDiveAfterBattleText3::
-	text "3-after"
+	text "Glubblubgb!"
+
+	para "(I! More! Train!)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveBattleText4:: ; DIVER
-	text "4-pre"
+	text "Bbluuuuuuuuuub?"
+
+	para "(How long can you"
+	line "hold your breath?)"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandCityDiveEndBattleText4::
-	text "4-end"
+	text "Bluuuuub..."
+
+	para "(I'm better at"
+	line "breath-holding"
+	cont "than at battles.)"
+;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandCityDiveAfterBattleText4::
-	text "4-after"
+	text "Glubglubglub!"
+
+	para "(I can hold my"
+	line "breath for 10"
+	cont "minutes! Though,"
+	cont "sometimes only 8."
+	cont "It depends.)"
+;	xxxx "123456789012345678"
 	done

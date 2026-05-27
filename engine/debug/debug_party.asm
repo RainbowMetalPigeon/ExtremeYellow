@@ -51,13 +51,13 @@ IF DEF(_DEBUG)
 	ld a, PERISH_SONG ; DOUBLE_IRON_BASH
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, CONFUSE_RAY
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, STEALTH_ROCK
+	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, SCREECH ; ANCESTOR_PWR
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
