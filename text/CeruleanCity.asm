@@ -1,5 +1,5 @@
 _CeruleanCityText_19668::
-	text "<RIVAL>: Ehy,"
+	text "<RIVAL>: Hey,"
 	line "<PLAYER>!"
 
 	para "Are you still"

@@ -93,7 +93,7 @@ _BluesHouseTownMapText:: ; edited
 ; new, for the Mega Stone's Clues ------------
 
 _BluesHouseClues_Intro::
-	text "Ehy, now that I"
+	text "Hey, now that I"
 	line "think about it, I"
 	cont "may have another"
 	cont "something that"

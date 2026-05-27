@@ -205,6 +205,8 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsSunkenShipWarpTileInFrontOfPlayer			; new
 	cp SUNKEN_SHIP_ROOMS								; new
 	jp z, IsSunkenShipWarpTileInFrontOfPlayer			; new
+	cp VIRIDIAN_NICKNAME_HOUSE							; new
+	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
 ; new for Sevii
 	jr .postMapChecks
 .sevii
@@ -363,6 +365,16 @@ IsSunkenShipWarpTileInFrontOfPlayer: ; new
 	scf
 	jp IsWarpTileInFrontOfPlayer.done
 .notSunkenShipWarp
+	and a
+	jp IsWarpTileInFrontOfPlayer.done
+
+IsHouseGateWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $10
+	jr nz, .notHouseGate
+	scf
+	jp IsWarpTileInFrontOfPlayer.done
+.notHouseGate
 	and a
 	jp IsWarpTileInFrontOfPlayer.done
 
@@ -714,6 +726,8 @@ ExtraWarpCheck::
 	cp SUNKEN_SHIP_1F				; new
 	jr z, .useFunction2				; new
 	cp SUNKEN_SHIP_ROOMS			; new
+	jr z, .useFunction2				; new
+	cp VIRIDIAN_NICKNAME_HOUSE		; new
 	jr z, .useFunction2				; new
 ; new for Sevii
 	jr .checkByTileset ; new

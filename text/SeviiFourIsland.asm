@@ -516,7 +516,7 @@ _SeviiFourIslandHousesSignText8_Cheater::
 	done
 
 _SeviiFourIslandHousesSignText_FakeBooks::
-	text "Ehy! These are not"
+	text "Hey! These are not"
 	line "real books!"
 
 	para "They are still the"

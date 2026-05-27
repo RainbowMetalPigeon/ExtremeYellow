@@ -7,6 +7,11 @@ ViridianNicknameHouse_Object:
 	; new, relocated Badge Expert
 	warp_event 16,  7, LAST_MAP, 6
 	warp_event 17,  7, LAST_MAP, 6
+	; new, gate
+	warp_event 37,  4, VIRIDIAN_CITY, 7 ; 5
+	warp_event 37,  5, VIRIDIAN_CITY, 8 ; 6
+	warp_event 28,  4, ROUTE_22, 2 ; 7
+	warp_event 28,  5, ROUTE_22, 3 ; 8
 
 	def_bg_events
 	; new, relocated Badge Expert

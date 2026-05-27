@@ -462,7 +462,7 @@ _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book3::
 	text "Trasfer Coins"
 	line "From Spectators'"
 	cont "Pockets to Yours"
-	para "...ehy, wait!"
+	para "...hey, wait!"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book4::
 	text "Palming Coins"
@@ -610,7 +610,7 @@ _SeviiThreeIslandHousesBookshelfText4_Shelf1_Book4::
 	done
 
 _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book1::
-	text "Ehy, a dog ate"
+	text "Hey, a dog ate"
 	line "this!"
 	para "...nobody will"
 	line "believe it."
@@ -780,7 +780,7 @@ _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book1::
 	line "lock on it."
 	done
 _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book2:: ; !
-	text "Ehy! This book is"
+	text "Hey! This book is"
 	line "fake! It seems"
 	cont "connected to some"
 	cont "mechanism...!@"
@@ -937,7 +937,7 @@ _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book1::
 	done
 _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book2::
 	text "This is a manga."
-	para "Ehy, it's actually"
+	para "Hey, it's actually"
 	line "amazing!"
 	cont "The protagonist"
 	cont "gets kidnapped"

@@ -7,7 +7,7 @@ Route3_Object:
 	bg_event 59,  9, 11 ; Route3Text10
 
 	def_object_events
-	object_event 57, 11, SPRITE_SUPER_NERD, STAY, NONE, 1 ; person
+	object_event 57, 11, SPRITE_COOLTRAINER_M, STAY, NONE, 1 ; person, edited, was SPRITE_SUPER_NERD
 	object_event 10,  6, SPRITE_YOUNGSTER, STAY, RIGHT, 2, OPP_BUG_CATCHER, 4
 	object_event 14,  4, SPRITE_YOUNGSTER, STAY, DOWN, 3, OPP_YOUNGSTER, 1
 	object_event 16,  9, SPRITE_COOLTRAINER_F, STAY, LEFT, 4, OPP_LASS, 1

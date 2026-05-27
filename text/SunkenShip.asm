@@ -31,7 +31,7 @@ _GiveRoomKey34Text_FoundItem::
     line "items, ruined by"
     cont "the water."
 
-    para "Ehy! Amongst them,"
+    para "Hey! Amongst them,"
     line "a card key!"
 ;   xxxx "123456789012345678"
     prompt
@@ -265,7 +265,7 @@ _GiveRoomKey37Text_FoundItem::
     cont "long did not do"
     cont "them any good."
 
-    para "Ehy! A card key"
+    para "Hey! A card key"
     line "lies beneath!"
 ;   xxxx "123456789012345678"
     prompt

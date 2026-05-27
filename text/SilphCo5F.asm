@@ -158,7 +158,7 @@ _SilphCo5Text9_1::
 	prompt
 
 _SilphCo5Text9_2::
-	text "Ehy! There is"
+	text "Hey! There is"
 	line "something under"
 	cont "the sheets!"
 	prompt

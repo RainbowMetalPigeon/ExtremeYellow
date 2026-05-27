@@ -262,7 +262,7 @@ _SeviiSevenIslandHousesSignText6::
 _SeviiSevenIslandHousesSignText7::
 	text "A mattress."
 
-	para "Ehy! It's a water"
+	para "Hey! It's a water"
 	line "one! Cool!"
 	done
 

@@ -61,8 +61,8 @@ SplitMapSpriteSets:
 	db EAST_WEST,   57, $04, $08 ; $f3
 	db NORTH_SOUTH, 21, $0f, $14 ; $f4, edited, $0f was $03, and $14 was $08
 	db EAST_WEST,    8, $0A, $08 ; $f5
-	db EAST_WEST,   24, $09, $05 ; $f6
-	db EAST_WEST,   34, $09, $0A ; $f7
+	db EAST_WEST,   24, $02, $05 ; $f6, edited, $02 was $09 
+	db EAST_WEST,   34, $02, $0A ; $f7, edited, $02 was $09 
 	db EAST_WEST,   53, $13, $0B ; $f8, edited, $0B was $0A, and $13 was $01
 	db NORTH_SOUTH, 33, $12, $07 ; $f9, edited, $12 was $02
 	db NORTH_SOUTH,  2, $07, $11 ; $fa, edited, $11 was $04
@@ -95,7 +95,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_PIKACHU
 	db SPRITE_YOUNGSTER
 	db SPRITE_MONSTER
-	db SPRITE_SUPER_NERD
+	db SPRITE_BIKER ; edited, was SPRITE_SUPER_NERD
 	db SPRITE_HIKER
 	db SPRITE_TRAVELER
 	db SPRITE_OFFICER_JENNY
@@ -195,7 +195,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_SNORLAX
 	assert_table_length SPRITE_SET_LENGTH
 
-; sprite set $09
+; sprite set $09 ; now unused
 	table_width 1
 	db SPRITE_PIKACHU
 	db SPRITE_BIKER

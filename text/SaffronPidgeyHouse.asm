@@ -2,7 +2,7 @@ _SaffronHouse1Text1:: ; edited
 	text "I really wish to"
 	line "see you soon :)"
 
-	para "Ehy! Don't peep at"
+	para "Hey! Don't peep at"
 	line "other's letters!"
 
 	para "This is for my"

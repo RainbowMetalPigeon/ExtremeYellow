@@ -259,7 +259,7 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_PostGivingMap::
 
 	para "...the elder"
 	line "mumbles something"
-	cont "about they"
+	cont "about how they"
 	cont "definitely are"
 	cont "extremely"
 	cont "satisfied..."

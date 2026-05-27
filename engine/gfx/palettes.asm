@@ -454,6 +454,8 @@ SetPal_Overworld:
 	ld a, [wCurMap]
 	cp HAUNTED_PALLET_TOWN ; new
 	jr z, .HauntedPalletTown ; new
+	cp VIRIDIAN_NICKNAME_HOUSE ; new
+	jr z, .Viridian ; new
 	cp LORELEIS_ROOM
 	jr z, .Lorelei
 	cp BRUNOS_ROOM
@@ -519,6 +521,9 @@ SetPal_Overworld:
 	jr .town
 .frozenKanto ; new
 	ld a, PAL_CYANMON - 1
+	jr .town
+.Viridian ; new
+	ld a, PAL_VIRIDIAN - 1
 	jr .town
 .hauntedHouse ; new
 	call Random
@@ -1080,6 +1085,8 @@ GetPal_Pikachu::
 	jr z, .caveOrBruno
 	cp SAFFRON_CLIMB_CLUB ; new
 	jr z, .Saffron ; new
+	cp VIRIDIAN_NICKNAME_HOUSE ; new
+	jr z, .Viridian ; new
 	cp TRADE_CENTER
 	jr z, .battleOrTradeCenter
 	cp COLOSSEUM
@@ -1107,6 +1114,9 @@ GetPal_Pikachu::
 	jr .town
 .Saffron ; new
 	ld a, PAL_SAFFRON - 1
+	jr .town
+.Viridian ; new
+	ld a, PAL_VIRIDIAN - 1
 	jr .town
 .frozenKanto
 	ld a, PAL_CYANMON - 1

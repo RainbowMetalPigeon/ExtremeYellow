@@ -3,6 +3,9 @@ Route22_Object:
 
 	def_warp_events
 	warp_event  8,  9, ROUTE_22_GATE, 1
+	; new, gate
+	warp_event 37, 12, VIRIDIAN_NICKNAME_HOUSE, 7 ; 2
+	warp_event 37, 13, VIRIDIAN_NICKNAME_HOUSE, 8 ; 3
 
 	def_bg_events
 	bg_event  7, 15,  6 ; Route22FrontGateText
