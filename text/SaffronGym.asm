@@ -95,7 +95,7 @@ _SaffronGymGuidePostBattleText::
 
 _SaffronGymBattleText1:: ; edited
 	text "SABRINA is younger"
-	line "than I, but I"
+	line "than me, but I"
 	cont "respect them!"
 	done
 

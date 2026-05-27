@@ -27,7 +27,7 @@ _HeresYourPorygonText::
 	cont "of mine even"
 	cont "speculate it will"
 	cont "fly to space,"
-	cont "but I woulnd't"
+	cont "but I wouldn't"
 	cont "give it too much"
 	cont "credit..."
 
@@ -57,7 +57,7 @@ _HeresYourPorygonText::
 	para "Geez, would you"
 	line "listen at me,"
 	cont "these shouldn't"
-	cont "the words of a"
+	cont "be the words of a"
 	cont "person of science"
 	cont "like me!"
 	done
@@ -181,8 +181,8 @@ _SilphCo7AfterBattleText4::
 
 _SilphCo7Text_51ebe::
 	text "<RIVAL>: I knew"
-	line "you would have"
-	cont "shown up here,"
+	line "you would show"
+	cont "up here,"
 	cont "<PLAYER>."
 	done
 

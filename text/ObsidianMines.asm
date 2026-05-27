@@ -90,7 +90,7 @@ _ObsidianMinesText3_Asshole::
     done
 
 _ObsidianMinesText3_BagFull::
-    text "Oh, you bag"
+    text "Oh, your bag"
     line "is full!"
 
     para "I can't not"

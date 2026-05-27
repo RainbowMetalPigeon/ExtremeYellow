@@ -146,7 +146,7 @@ _DarkGuideHints_IntroShort::
 	prompt
 
 _DarkGuideHints_Question::
-	text "What hint to YOU"
+	text "Which hint to YOU"
 	line "want to have?"
 	done
 

@@ -41,7 +41,7 @@ _OchreCity_NPCText3:: ; relax square
 	text "This square is so"
 	line "quiet and nice."
 
-	para "I love just come"
+	para "I love just coming"
 	line "here to chill and"
 	cont "relax, enjoy the"
 	cont "fountain and feed"
@@ -118,7 +118,7 @@ _OchreCity_NPCText8:: ; rehabilitation center and bird fan club
 	para "They take in"
 	line "wounded #MON"
 	cont "and cure 'em till"
-	cont "they are able to"
+	cont "they're able to go"
 	cont "back to the wild!"
 
 	para "They are connected"

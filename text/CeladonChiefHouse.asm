@@ -225,8 +225,9 @@ _LunarShrineTextRockets4::
 
 	para "Our BOSS may have"
 	line "given up on us,"
-	cont "but we didn't"
-	cont "give up on them."
+	cont "but we haven't"
+	cont "given up on them."
+;	xxxx "123456789012345678"
 
 	para "We will show them"
 	line "we're still as"
@@ -334,7 +335,7 @@ _LunarShrineTextRockets9::
 	text "ROCKET 3: No"
 	line "surprise you"
 	cont "managed to defeat"
-	cont "our quadres and"
+	cont "our cadres and"
 	cont "our BOSS... But"
 	cont "my loss doesn't"
 	cont "matter!"
@@ -351,7 +352,7 @@ _LunarShrineTextRockets9::
 
 _LunarShrineRocket4Text_Win::
 	text "Crap!"
-	line "You're invicible!"
+	line "You're invincible!"
 	prompt
 
 _LunarShrineTextRockets10::
@@ -470,7 +471,7 @@ _LunarShrineTextRockets15::
 	cont "LUNAR TEMPLE, but"
 	cont "sometimes it"
 	cont "pains me to think"
-	cont "to all the"
+	cont "about all the"
 	cont "wonders of this"
 	cont "planet that I"
 	cont "haven't had the"

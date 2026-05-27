@@ -113,7 +113,7 @@ _OchreResearchCenter2Text_Fossils_Alola::
 	cont "RESTORATION"
 	cont "CENTER in a"
 	cont "volcanic"
-	cont "arcipelago like"
+	cont "archipelago like"
 	cont "ALOLA?!"
 
 	para "And yet, even if"

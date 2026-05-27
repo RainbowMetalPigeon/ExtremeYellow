@@ -3,7 +3,7 @@ _SaffronHouse1Text1:: ; edited
 	line "see you soon :)"
 
 	para "Hey! Don't peep at"
-	line "other's letters!"
+	line "others' letters!"
 
 	para "This is for my"
 	line "date. They live"

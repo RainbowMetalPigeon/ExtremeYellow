@@ -6,9 +6,9 @@ _CinnabarIslandTextGymDoor::
 _CinnabarIslandText1::
 	text "CINNABAR GYM's"
 	line "BLAINE is an odd"
-	cont "individual who has"
-	cont "lived here for"
-	cont "decades."
+	cont "individual who"
+	cont "has lived here"
+	cont "for decades."
 	done
 
 _CinnabarIslandText2::
@@ -116,7 +116,7 @@ _CinnabarIslandTextNewPerson6::
 	cont "that accumulates"
 	cont "in the caldera,"
 	cont "and gets warmed"
-	cont "up by the heath"
+	cont "up by the heat"
 	cont "of the volcano."
 	done
 
@@ -171,9 +171,9 @@ _CinnabarIslandTextVulcano::
 
 _CinnabarIslandTextSeismic::
 	text "Seismology and"
-	line "volcanology"
-	cont "KANTO institute"
-	cont "of research"
+	line "Volcanology"
+	cont "KANTO Institute"
+	cont "of Research"
 	done
 
 _CinnabarIslandTextHotSprings::

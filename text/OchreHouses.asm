@@ -18,7 +18,7 @@ _OchreHousesTextReactivater_Intro::
 	cont "powers, and"
 	cont "developed a"
 	cont "brand-new"
-	cont "enchantement!"
+	cont "enchantment!"
 
 	para "If you want me to,"
 	line "I can cast it and"
@@ -82,7 +82,7 @@ _OchreHousesTextReactivater_Accepted::
 	line "otherworldly"
 	cont "powers, and I"
 	cont "will cast this"
-	cont "enchantement on"
+	cont "enchantment on"
 	cont "the whole KANTO!"
 	done
 
@@ -120,13 +120,13 @@ _OchreHousesTextReactivater_UndoSpell::
 
 	para "Feel free to come"
 	line "back anytime if"
-	cont "you changed your"
+	cont "you change your"
 	cont "mind again!"
 	done
 
 _OchreHousesTextReactivater_SpellUndone::
 	text "All done!"
-	line "Now trainer will"
+	line "Now trainers will"
 	cont "not be willing to"
 	cont "rematch you."
 

@@ -76,15 +76,16 @@ _OchreGymBattleText3::
 	done
 
 _OchreGymEndBattleText3::
-	text "Wha?!"
-	line "How did you resist"
+	text "How"
+	line "did you resist"
 	cont "the temptation of"
 	cont "DARKness?!"
 	prompt
 
 _OchreGymAfterBattleText3::
 	text "Umph."
-	line "You may have stood"
+	line "You may've stood"
+;	xxxx "123456789012345678"
 	cont "strong to your"
 	cont "ideals today, but"
 	cont "you'll eventually"
@@ -117,7 +118,7 @@ _OchreGymEndBattleText4::
 
 _OchreGymAfterBattleText4::
 	text "Keep up the good"
-	line "work, you're"
+	line "work, you've"
 	cont "almost arrived at"
 	cont "our LEADER!"
 	done
@@ -134,7 +135,7 @@ _OchreGymBattleText5::
 
 	para "No? I suspected"
 	line "so. You should"
-	cont "armonize more"
+	cont "harmonize more"
 	cont "with FAIRY types."
 	done
 
@@ -154,8 +155,8 @@ _OchreGymAfterBattleText5::
 
 	para "They use their"
 	line "magical power to"
-	cont "subdue whom who"
-	cont "rely on brutal"
+	cont "subdue those who"
+	cont "rely on brute"
 	cont "strength."
 	done
 

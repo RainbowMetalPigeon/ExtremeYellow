@@ -40,7 +40,7 @@ _OchreRehabilitationCenterText2::
 _OchreRehabilitationCenterText3::
 	text "There is so much"
 	line "to do! We are"
-	cont "severly under-"
+	cont "severely under-"
 	cont "staffed!"
 
 	para "Do your things but"
@@ -85,7 +85,7 @@ _OchreRehabilitationCenterText5_Again::
 _OchreRehabilitationCenterText6_TM54PreReceiveText::
 	text "I love underdogs!"
 	line "And who's more of"
-	cont "an underdog of"
+	cont "an underdog than"
 	cont "someone with"
 	cont "their back"
 	cont "against the wall?"

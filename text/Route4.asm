@@ -53,7 +53,7 @@ _Route4AfterBattleText1:: ; edited
 	text "I am not happy I"
 	line "lost to you, but"
 	cont "I am glad that I"
-	cont "learn something."
+	cont "learnt something."
 
 	para "This brings me one"
 	line "step closer to my"

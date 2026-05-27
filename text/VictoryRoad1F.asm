@@ -75,7 +75,7 @@ _VictoryRoad1EndBattleText4::
 
 _VictoryRoad1AfterBattleText4::
 	text "Short ago, someone"
-	line "that looked so"
+	line "who looked so"
 	cont "eerily like me"
 	cont "stormed by and"
 	cont "defeated me."

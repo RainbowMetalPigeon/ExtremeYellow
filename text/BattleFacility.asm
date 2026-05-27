@@ -89,7 +89,7 @@ _BattleFacilityTextGuide_Info::
 	cont "row, whose teams"
 	cont "become"
 	cont "increasingly"
-	cont "strong in the"
+	cont "stronger in the"
 	cont "A.G. pool."
 
 	para "After defeating"

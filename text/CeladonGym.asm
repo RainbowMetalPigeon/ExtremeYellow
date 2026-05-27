@@ -49,8 +49,8 @@ _ErikaPostBattleAdviceText::
 
 _ErikaRainbowBadgeInfoText:: ; edited
 	text "The RAINBOWBADGE"
-	para "allows #MON to"
-	line "use DIVE"
+	line "allows #MON to"
+	cont "use DIVE"
 	cont "out of battle."
 
 	para "Please also take"
@@ -90,7 +90,7 @@ _CeladonGymBattleText2:: ; edited
 	done
 
 _CeladonGymEndBattleText2:: ; edited
-	text "Dammit"
+	text "Dammit!"
 	prompt
 
 _CeladonGymAfterBattleText2:: ; edited

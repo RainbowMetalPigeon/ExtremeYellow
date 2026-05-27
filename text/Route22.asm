@@ -67,8 +67,8 @@ _Route22RivalAfterBattleText1::
 
 _Route22RivalBeforeBattleText2::
 	text "<RIVAL>: Of course"
-	line "you would have"
-	cont "come here too!"
+	line "you would come"
+	cont "here too!"
 
 	para "I won't let you"
 	line "desecrate the"
@@ -93,6 +93,7 @@ _Route22RivalBeforeBattleText2::
 	para "My soulmate, my"
 	line "starter, never"
 	cont "has had a more"
+;	xxxx "123456789012345678"
 	cont "fitting team!"
 
 	para "You're going down!"
@@ -131,7 +132,7 @@ _Route22RivalAfterBattleText2::
 	cont "than you!"
 
 	para "And... I may just"
-	line "know what it's"
+	line "know what is"
 	cont "needed..."
 	done
 

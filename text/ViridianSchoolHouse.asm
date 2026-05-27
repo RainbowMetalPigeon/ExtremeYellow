@@ -34,7 +34,7 @@ _SchoolText2:: ; edited
 
 	para "It can be"
 	line "CONFUSED, have"
-	cont "LEECH SEEDS on"
+	cont "LEECH SEED on"
 	cont "itself, or suffer"
 	cont "from a CURSE!"
 
@@ -111,7 +111,7 @@ _SchoolText6::
 	cont "physical move of"
 	cont "base power 40."
 
-	para "LEECH SEEDS drain"
+	para "LEECH SEED drain"
 	line "1/8 of its max HP"
 	cont "and give them to"
 	cont "the opponent."

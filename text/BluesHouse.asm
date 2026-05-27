@@ -33,7 +33,7 @@ _DaisyInitialText::
 _DaisyOfferMapText::
 	text "Gramps entrusted"
 	line "you with a big"
-	cont "quest, isn't it?"
+	cont "quest, right?"
 
 	para "Hehe, I know"
 	line "because <RIVAL>"
@@ -160,7 +160,8 @@ _BluesHouseClues_Question::
 	done
 
 _BluesHouseClues_Outro::
-	text "Come back asking"
+	text "Come back and ask"
+;	xxxx "123456789012345678"
 	line "me any time you"
 	cont "want to hear"
 	cont "the clues again!"

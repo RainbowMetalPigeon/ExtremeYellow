@@ -11,9 +11,10 @@ _FuchsiaMeetingRoomText2::
 	line "knowledgeable"
 	cont "about #MON!"
 
-	para "They even has some"
-	line "fossils of rare,"
-	cont "extinct #MON!"
+	para "They even have"
+	line "some fossils of"
+	cont "rare, extinct"
+	cont "#MON!"
 	done
 
 _FuchsiaMeetingRoomText3::
@@ -103,7 +104,7 @@ _FuchsiaMeetingRoomText6::
 	done
 
 _FuchsiaMeetingRoomTextKoga::
-	text "KOGA: sorry, young"
+	text "KOGA: Sorry, young"
 	line "one, the SAFARI"
 	cont "ZONE is closed"
 	cont "and we are busy,"

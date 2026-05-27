@@ -88,7 +88,7 @@ _Route28AfterBattleText1::
     line "BIRD FAN CLUB of"
     cont "OCHRE CITY!"
 
-    para "To become I"
+    para "To become a"
     line "member, I just"
     cont "had to show them"
     cont "one of my beloved"
@@ -111,7 +111,7 @@ _Route28AfterBattleText2::
     text "Between the"
     line "engines and the"
     cont "pollution, these"
-    cont "ship make it"
+    cont "ships make it"
     cont "impossible to"
     cont "swim here!"
     done

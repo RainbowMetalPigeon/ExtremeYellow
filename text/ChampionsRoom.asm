@@ -2,10 +2,10 @@ _GaryChampionIntroText_BG::
 	text "<RIVAL>: <PLAYER>!"
 
 	para "Of course you"
-	line "would have"
-	cont "haunted me until"
-	cont "the very top,"
-	cont "until the"
+	line "would haunt me"
+;	xxxx "123456789012345678"
+	cont "until the very"
+	cont "top, until the"
 	cont "very end!"
 
 	para "But it all"
@@ -421,7 +421,7 @@ _GaryText6_RivalGrudge::
 
 	para "You just came here"
 	line "to praise <PLAYER>"
-	cont "and talk down on"
+	cont "and talk down to"
 	cont "me!"
 
 	para "You only care"
@@ -444,7 +444,7 @@ _GaryText6_OakAmaze::
 	line "precious to me."
 
 	para "How could I ever"
-	line "talk down on you?"
+	line "talk down to you?"
 
 	para "Not only you're my"
 	line "grandkid, and I'll"

@@ -98,7 +98,7 @@ _ObsidianIslandText10_Citizen1::
 
 _ObsidianIslandText11_Citizen2::
 	text "OBSIDIAN ISLAND"
-	line "prouds itself in"
+	line "prides itself in"
 	cont "its respect"
 	cont "towards the"
 	cont "environment."
@@ -149,7 +149,7 @@ _ObsidianIslandTextPier::
 	cont "Due to recent"
 	cont "events, the ferry"
 	cont "schedule is"
-	cont "irregual."
+	cont "irregular."
 	done
 
 _ObsidianIslandTextWoodNorth::

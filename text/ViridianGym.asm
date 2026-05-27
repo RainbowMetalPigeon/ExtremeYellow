@@ -50,9 +50,10 @@ _ViridianGymGiovanniPostBattleText::
 	cont "leading TEAM"
 	cont "ROCKET, you"
 	cont "humiliated me too"
-	cont "many time, I lost"
-	cont "any respect from"
-	cont "my troops."
+;	xxxx "123456789012345678"
+	cont "many times, I"
+	cont "lost any respect"
+	cont "from my troops."
 	cont "Police will soon"
 	cont "come for me."
 

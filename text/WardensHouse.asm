@@ -117,8 +117,8 @@ _SecretHouseHint::
 _BeatGiovanniAmazementText::
 	text "What?!"
 
-	para "You fend off TEAM"
-	line "ROCKET and freed"
+	para "You fended off the"
+	line "ROCKETs and freed"
 	cont "OBSIDIAN ISLAND,"
 	cont "and now the"
 	cont "SAFARI ZONE is no"

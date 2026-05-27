@@ -39,7 +39,7 @@ _Lab1Text2_Archeologist_PreReturnRelic::
 	cont "get many visits"
 	cont "lately. Not even"
 	cont "from my grankid,"
-	cont "which is too busy"
+	cont "who is too busy"
 	cont "trying to emulate"
 	cont "my deeds..."
 	done
@@ -51,7 +51,7 @@ _Lab1Text2_Archeologist_PostReturnRelic_FirstTime::
 	cont "get many visits"
 	cont "lately. Not even"
 	cont "from my grankid,"
-	cont "which is too busy"
+	cont "who is too busy"
 	cont "trying to emulate"
 	cont "my deeds..."
 
@@ -181,7 +181,7 @@ _Lab1Text3_Seismologist::
 	cont "volcanology in"
 	cont "the whole region,"
 	cont "and yet we are so"
-	cont "severly"
+	cont "severely"
 	cont "underfunded."
 
 	para "I basically work"
@@ -201,7 +201,7 @@ _Lab1Text3_Seismologist::
 _Lab1Text4_PlantEnthusiast::
 	text "This is a volcanic"
 	line "island!"
-	cont "Henceforth, it"
+	cont "Hence, it"
 	cont "polymerizes the"
 	cont "elements of WATER"
 	cont "and FIRE"
@@ -268,7 +268,7 @@ _Lab1ArcheologistSign4::
 	cont "being given a"
 	cont "prestigious award"
 	cont "in a grand"
-	cont "cerimony."
+	cont "ceremony."
 	done
 
 _Lab1ArcheologistSign5::

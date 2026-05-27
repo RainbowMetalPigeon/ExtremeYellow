@@ -300,10 +300,10 @@ _CeladonCityHotelText:: ; edited
 	line "visit to KANTO."
 	cont "I am liking"
 	cont "CELADON a lot,"
-	cont "and I am looking"
-	cont "forward to visit"
-	cont "OCHRE CITY and"
-	cont "CINNABAR ISLAND!"
+	cont "and I'm looking"
+	cont "forward to"
+	cont "visiting OCHRE"
+	cont "and CINNABAR!"
 	done
 
 _BookcaseText::

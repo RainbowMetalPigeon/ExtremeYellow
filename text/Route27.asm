@@ -93,7 +93,7 @@ _Route27AfterBattleText1::
     cont "long."
 
     para "I'm training hard"
-    line "to whipe them out"
+    line "to wipe them out"
     cont "of my homeland."
     done
 

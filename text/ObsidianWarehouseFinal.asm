@@ -94,7 +94,7 @@ _ObsidianWarehouseFinalAfterBattleText1::
 
 _ObsidianWarehouseFinalBattleText2::
 	text "I am PETREL."
-	line "I am of the"
+	line "I'm one of the"
 	cont "ROCKET ADMINs."
 
 	para "And your presence"
@@ -132,7 +132,7 @@ _ObsidianWarehouseFinalBattleText3::
 	line "in our troops for"
 	cont "letting you"
 	cont "arrive till here,"
-	cont "but stay assured"
+	cont "but rest assured"
 	cont "of one thing:"
 
 	para "you are going to"

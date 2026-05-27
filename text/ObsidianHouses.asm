@@ -22,7 +22,7 @@ _ObsidianHousesTextFishingSuperGuru_Intro::
 	line "cousin!"
 
 	para "Differently from"
-	line "my cousins, which"
+	line "my cousins, who"
 	cont "focus on"
 	cont "improving their"
 	cont "gear, I work on"
@@ -205,7 +205,7 @@ _ObsidianHousesTextFlowerNotes::
 	line "notes about a big"
 	cont "project!"
 
-	para "Many drawing of a"
+	para "Many drawings of a"
 	line "new building in"
 	cont "the north-east"
 	cont "corner of"
