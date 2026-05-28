@@ -175,7 +175,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_TOWER_5F,              10,  9 ; $98
 	map_const POKEMON_TOWER_6F,              10,  9 ; $99
 	map_const POKEMON_TOWER_7F,              10,  9 ; $9A
-	map_const LAVENDER_HOUSES,               18,  4 ; $9B ; new, merge of all Lavender houses
+	map_const LAVENDER_HOUSES,               26,  4 ; $9B ; new, merge of all Lavender houses
 	map_const HAUNTED_HOUSE_2,               15, 18 ; $9C ; new
 	map_const HAUNTED_HOUSE_3,               30, 30 ; $9D ; new, was LAVENDER_CUBONE_HOUSE
 	map_const OCHRE_RESEARCH_CENTER_2,        6, 10 ; $9E ; new

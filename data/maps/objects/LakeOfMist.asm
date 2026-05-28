@@ -2,6 +2,8 @@ LakeOfMist_Object:
 	db $2c ; border block
 
 	def_warp_events
+	warp_event  2, 30, LAVENDER_HOUSES,  9
+	warp_event  2, 31, LAVENDER_HOUSES, 10
 
 	def_bg_events
 	bg_event 11, 31, 12 ; LakeOfMistSignText1

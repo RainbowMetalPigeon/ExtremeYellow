@@ -11,6 +11,11 @@ LavenderHouses_Object:
 	; Name Rater house, +28 on x
 	warp_event 30,  7, LAST_MAP, 6
 	warp_event 31,  7, LAST_MAP, 6
+	; house gate
+	warp_event 42,  4, LAVENDER_TOWN, 6
+	warp_event 42,  5, LAVENDER_TOWN, 6
+	warp_event 51,  4, LAKE_OF_MIST, 1 ;  9
+	warp_event 51,  5, LAKE_OF_MIST, 2 ; 10
 
 	def_bg_events
 
@@ -26,5 +31,8 @@ LavenderHouses_Object:
 	object_event 16,  4, SPRITE_BRUNETTE_GIRL, STAY, RIGHT, 8 ; person
 	; Name Rater house, +28 on x
 	object_event 33,  3, SPRITE_SILPH_PRESIDENT, STAY, LEFT, 9 ; person
+	; house gate
+	object_event 45,  6, SPRITE_SILPH_PRESIDENT, STAY, LEFT, 10 ; person
+	object_event 48,  3, SPRITE_SILPH_PRESIDENT, STAY, LEFT, 11 ; person
 
 	def_warps_to LAVENDER_HOUSES
