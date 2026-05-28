@@ -1,5 +1,6 @@
 ; this code has been moved here from home/vcopy.asm
 ; thanks Vortiene
+; improved by Engeze
 AnimateWaterTile::
 	ld de, vTileset tile $14 + 1
 	ld hl, vTileset tile $45 ; new, deep water
