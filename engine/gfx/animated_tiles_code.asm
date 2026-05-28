@@ -1,10 +1,9 @@
 ; this code has been moved here from home/vcopy.asm
 ; thanks Vortiene
 AnimateWaterTile::
-	ld hl, vTileset tile $14
-    ld de, vTileset tile $45 ; new, deep water
-	ld c, $10
-
+	ld de, vTileset tile $14 + 1
+	ld hl, vTileset tile $45 ; new, deep water
+	ld c, 8
 	ld a, [wMovingBGTilesCounter2]
 	inc a
 	and 7
@@ -13,28 +12,24 @@ AnimateWaterTile::
 	and 4
 	jr nz, .left
 .right
-	ld a, [hl]
+	ld a, [de]
 	rrca
+	ld [de], a
+	inc e
+	inc e
 	ld [hli], a
-; new, deep water
-    ld a, [de]
-    rrca
-    ld [de], a
-    inc de
-; BTV
+	ld [hli], a
 	dec c
 	jr nz, .right
 	jr .done
 .left
-	ld a, [hl]
+	ld a, [de]
 	rlca
+	ld [de], a
+	inc e
+	inc e
 	ld [hli], a
-; new, deep water
-    ld a, [de]
-    rlca
-    ld [de], a
-    inc de
-; BTV
+	ld [hli], a
 	dec c
 	jr nz, .left
 .done
