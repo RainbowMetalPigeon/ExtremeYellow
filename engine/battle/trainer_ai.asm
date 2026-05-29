@@ -969,6 +969,7 @@ Modifier2StatusMoveEffects:
 	db TOXIC_SPIKES_EFFECT
 	db STICKY_WEB_EFFECT
 	db STEALTH_ROCK_EFFECT
+	db PERISH_SONG_EFFECT
 	db -1
 
 ; encourages moves that are effective against the player's mon
