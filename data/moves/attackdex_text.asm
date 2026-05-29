@@ -23,7 +23,7 @@ _AttackdexText_QuiverDanceEffect::
 	next "SPECIAL and SPEED"
 	next "modifiers by 1"
 	dex
-	
+
 _AttackdexText_SynthesisEffect::
 	text "Recovers 50% of"
 	next "max HP. Under SUN:"
@@ -637,14 +637,14 @@ _AttackdexText_ThrashPetalDanceEffect::
 	dex
 
 _AttackdexText_SwitchAndTeleportEffect::
-	atpg "Escapes from wild"
+	text "Escapes from wild"
 	next "battles. Forces"
 	next "switch VS trainer."
 	next "Priority -6"
 	dex
 
 _AttackdexText_TeleportEffect::
-	atpg "Allows to escape"
+	text "Allows to escape"
 	next "from wild battles"
 	dex
 

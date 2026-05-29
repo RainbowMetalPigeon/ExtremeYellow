@@ -84,8 +84,8 @@ _MCharzardYDexEntry::
 	next "power source. It"
 
 	page "has speed and man-"
-	next "euverability"
-	next "greater than a jet"
+	next "euverability high-"
+	next "er than a jet"
 	dex
 
 _SquirtleDexEntry::
