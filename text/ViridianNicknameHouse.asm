@@ -34,11 +34,50 @@ _ViridianHouseTextSign1::
 	done
 
 _ViridianHouseText6:: ; new
-	text "tbe 1"
+	text "Many trainers pass"
+	line "by this gate to"
+	cont "challenge the"
+	cont "INDIGO LEAGUE!"
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianHouseText7:: ; new
-	text "tbe 2"
+_ViridianHouseText7_Rival1:: ; new
+	text "I just saw a youth"
+	line "full of energy"
+	cont "storming towards"
+	cont "ROUTE 22!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText7_Rival2:: ; new
+	text "I just saw a youth"
+	line "full of rage"
+	cont "storming towards"
+	cont "ROUTE 22..."
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText7_Champion:: ; new
+	text "Uh? But aren't"
+	line "you...?"
+
+	para "Yes! It's you!"
+	line "What an honour!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText7_Otherwise:: ; new
+	text "I like observing"
+	line "those who pass by."
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText7_Meowth:: ; new
+	text "I saw people of"
+	line "all kinds walking"
+	cont "through here, but"
+	cont "it's the first"
+	cont "time I see a"
+	cont "MEOWTH!"
 ;	xxxx "123456789012345678"
 	done

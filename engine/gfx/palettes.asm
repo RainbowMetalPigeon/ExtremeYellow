@@ -448,7 +448,7 @@ SetPal_Overworld:
 	jr z, .caveOrBruno
 ; new, to handle Haunted House
 	callfar IsCurrentMapHauntedHouse ; testing
-	jr z, .hauntedHouse
+	jp z, .hauntedHouse
 
 ; back to vanilla
 	ld a, [wCurMap]
@@ -456,6 +456,8 @@ SetPal_Overworld:
 	jr z, .HauntedPalletTown ; new
 	cp VIRIDIAN_NICKNAME_HOUSE ; new
 	jr z, .Viridian ; new
+	cp LAVENDER_HOUSES ; new
+	jr z, .Lavender ; new
 	cp LORELEIS_ROOM
 	jr z, .Lorelei
 	cp BRUNOS_ROOM
@@ -524,6 +526,9 @@ SetPal_Overworld:
 	jr .town
 .Viridian ; new
 	ld a, PAL_VIRIDIAN - 1
+	jr .town
+.Lavender ; new
+	ld a, PAL_LAVENDER - 1
 	jr .town
 .hauntedHouse ; new
 	call Random
@@ -1087,6 +1092,8 @@ GetPal_Pikachu::
 	jr z, .Saffron ; new
 	cp VIRIDIAN_NICKNAME_HOUSE ; new
 	jr z, .Viridian ; new
+	cp LAVENDER_HOUSES ; new
+	jr z, .Lavender ; new
 	cp TRADE_CENTER
 	jr z, .battleOrTradeCenter
 	cp COLOSSEUM
@@ -1117,6 +1124,9 @@ GetPal_Pikachu::
 	jr .town
 .Viridian ; new
 	ld a, PAL_VIRIDIAN - 1
+	jr .town
+.Lavender ; new
+	ld a, PAL_LAVENDER - 1
 	jr .town
 .frozenKanto
 	ld a, PAL_CYANMON - 1

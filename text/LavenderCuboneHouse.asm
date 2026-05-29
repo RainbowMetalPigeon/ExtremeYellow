@@ -23,3 +23,30 @@ _LavenderHouse2Text_1d9e1::
 	line "soothed its"
 	cont "restless soul!"
 	done
+
+_LavenderHouseGateText1:: ; new
+	text "I heard that there"
+	line "is a weird person"
+	cont "in the lake!"
+
+	para "Maybe a spectre"
+	line "that drowned and"
+	cont "now is haunting"
+	cont "its final place?"
+;	xxxx "123456789012345678"
+	done
+
+_LavenderHouseGateText2:: ; new
+	text "I heard that"
+	line "before becoming"
+	cont "a volunteer, MX."
+	cont "FUJI used to take"
+	cont "vacations in the"
+	cont "SEVII ISLANDS!"
+
+	para "So fancy! Tickets"
+	line "for the main-"
+	cont "landers are quite"
+	cont "exorbitant!"
+;	xxxx "123456789012345678"
+	done

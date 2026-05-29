@@ -207,6 +207,8 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsSunkenShipWarpTileInFrontOfPlayer			; new
 	cp VIRIDIAN_NICKNAME_HOUSE							; new
 	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
+	cp LAVENDER_HOUSES									; new
+	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
 ; new for Sevii
 	jr .postMapChecks
 .sevii
@@ -691,7 +693,7 @@ ExtraWarpCheck::
 	jr nz, .sevii
 ; BTV
 	callfar IsCurrentMapHauntedHouse ; new
-	jr z, .useFunction2				 ; new
+	jp z, .useFunction2				 ; new
 	ld a, [wCurMap]
 	cp SS_ANNE_3F
 	jr z, .useFunction1
@@ -728,6 +730,8 @@ ExtraWarpCheck::
 	cp SUNKEN_SHIP_ROOMS			; new
 	jr z, .useFunction2				; new
 	cp VIRIDIAN_NICKNAME_HOUSE		; new
+	jr z, .useFunction2				; new
+	cp LAVENDER_HOUSES				; new
 	jr z, .useFunction2				; new
 ; new for Sevii
 	jr .checkByTileset ; new

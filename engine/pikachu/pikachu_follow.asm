@@ -200,7 +200,9 @@ SetPikachuSpawnOutside:: ; TBE
 	cp ROCK_TUNNEL_1F
 	jr z, .rock_tunnel_1
 	cp VIRIDIAN_NICKNAME_HOUSE ; new
-	jr z, .viridian_nickname_house ; new
+	jr z, .gate_houses ; new
+	cp LAVENDER_HOUSES ; new
+	jr z, .gate_houses ; new
 	ld a, [wCurMap]
 	ld hl, Pointer_fc64b
 	call Pikachu_IsInArray ; similar to IsInArray, but not the same
@@ -215,7 +217,7 @@ SetPikachuSpawnOutside:: ; TBE
 	ld a, $3
 	jr .load
 
-.viridian_nickname_house ; new
+.gate_houses ; new
 	ld a, $3
 	jr .load
 

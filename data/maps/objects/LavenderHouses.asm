@@ -12,8 +12,8 @@ LavenderHouses_Object:
 	warp_event 30,  7, LAST_MAP, 6
 	warp_event 31,  7, LAST_MAP, 6
 	; house gate
-	warp_event 42,  4, LAVENDER_TOWN, 6
-	warp_event 42,  5, LAVENDER_TOWN, 6
+	warp_event 42,  4, LAVENDER_TOWN, 7
+	warp_event 42,  5, LAVENDER_TOWN, 8
 	warp_event 51,  4, LAKE_OF_MIST, 1 ;  9
 	warp_event 51,  5, LAKE_OF_MIST, 2 ; 10
 
@@ -32,7 +32,7 @@ LavenderHouses_Object:
 	; Name Rater house, +28 on x
 	object_event 33,  3, SPRITE_SILPH_PRESIDENT, STAY, LEFT, 9 ; person
 	; house gate
-	object_event 45,  6, SPRITE_SILPH_PRESIDENT, STAY, LEFT, 10 ; person
-	object_event 48,  3, SPRITE_SILPH_PRESIDENT, STAY, LEFT, 11 ; person
+	object_event 45,  6, SPRITE_LITTLE_GIRL, WALK, LEFT_RIGHT, 10 ; person
+	object_event 48,  3, SPRITE_BRUNETTE_GIRL, WALK, UP_DOWN, 11 ; person
 
 	def_warps_to LAVENDER_HOUSES

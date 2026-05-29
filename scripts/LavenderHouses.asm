@@ -15,6 +15,9 @@ LavenderHouses_TextPointers:
 	dw LavenderHouse2Text2
 	; Name rater house
 	dw NameRaterText1
+	; house gate
+	dw LavenderHouseGateText1
+	dw LavenderHouseGateText2
 
 ; Fuji house -----------------------------
 
@@ -297,3 +300,13 @@ NameRaterScript_1da20:
 .asm_1da52 ; cannot rename
 	scf
 	ret
+
+; new ---------------------------------
+
+LavenderHouseGateText1:
+	text_far _LavenderHouseGateText1
+	text_end
+
+LavenderHouseGateText2:
+	text_far _LavenderHouseGateText2
+	text_end

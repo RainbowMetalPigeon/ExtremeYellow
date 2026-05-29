@@ -162,5 +162,47 @@ ViridianHouseText6: ; new
 	text_end
 
 ViridianHouseText7: ; new
-	text_far _ViridianHouseText7
+	text_asm
+; if unlocked but not reached MEOWTH
+	CheckHideShowExtra HS_ROUTE_22_COIN_CASE_MEOWTH
+	ld hl, ViridianHouseText7_Meowth
+	jr nz, .printAndEnd
+; if already Champion
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ld hl, ViridianHouseText7_Champion
+	jr nz, .printAndEnd
+; if unlocked but not beaten final rival
+	CheckEvent EVENT_ROUTE22_RIVAL_WANTS_BATTLE
+	jr z, .otherwise
+	CheckEvent EVENT_2ND_ROUTE22_RIVAL_BATTLE
+	ld hl, ViridianHouseText7_Rival2
+	jr nz, .printAndEnd
+; if unlocked and not missed first rival
+	CheckEvent EVENT_1ST_ROUTE22_RIVAL_BATTLE
+	ld hl, ViridianHouseText7_Rival1
+	jr nz, .printAndEnd
+.otherwise
+	ld hl, ViridianHouseText7_Otherwise
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianHouseText7_Rival1:
+	text_far _ViridianHouseText7_Rival1
+	text_end
+
+ViridianHouseText7_Rival2:
+	text_far _ViridianHouseText7_Rival2
+	text_end
+
+ViridianHouseText7_Champion:
+	text_far _ViridianHouseText7_Champion
+	text_end
+
+ViridianHouseText7_Otherwise:
+	text_far _ViridianHouseText7_Otherwise
+	text_end
+
+ViridianHouseText7_Meowth:
+	text_far _ViridianHouseText7_Meowth
 	text_end
