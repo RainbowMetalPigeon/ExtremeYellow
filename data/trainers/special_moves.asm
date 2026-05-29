@@ -2249,14 +2249,14 @@ SpecialTrainerMoves:
 
 	db LORELEI, 1
 	; DEWGONG
-	db 1, 1, HAIL
-	db 1, 2, AQUA_JET
-	db 1, 3, REST
-	db 1, 4, BLIZZARD
+	db 1, 1, TACKLE ; HAIL
+	db 1, 2, ROAR ; AQUA_JET
+	db 1, 3, SURF ; REST
+	db 1, 4, SPIKES ; BLIZZARD
 	; CLOYSTER
 	db 2, 1, EXPLOSION
 	db 2, 2, PIN_MISSILE
-	db 2, 3, SPIKE_CANNON
+	db 2, 3, TOXIC_SPIKES
 	db 2, 4, ICICLE_SPEAR
 	; JYNX
 	db 3, 1, BLIZZARD

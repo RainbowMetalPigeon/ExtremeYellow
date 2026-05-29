@@ -184,6 +184,9 @@ AIMoveChoiceModification1:
 	cp STEALTH_ROCK_EFFECT
 	jp z, .stealthRockEffect
 
+	cp SWITCH_AND_TELEPORT_EFFECT
+	jp z, .switchAndTeleportEffect
+
 	cp OHKO_EFFECT
 	jp z, .ohkoEffect
 ; check for permanent-status-inflicting effects
@@ -403,6 +406,111 @@ AIMoveChoiceModification1:
 	cp 3 ; if only 3 alive, discourage a bit, by 1
 	jp z, .discourageBy1
 	jp .nextMove ; otherwise don't discourage
+
+.switchAndTeleportEffect
+	ld a, [wEnemyMoveNum]
+	cp TELEPORT
+	jp z, .veryHeavilyDiscourage ; just don't use Teleport in battle
+; it's ROAR or WHIRLWIND: chain of checks
+; is the player perishing?
+	ld a, [wPlayerStatsToDouble]
+	bit PERISHING, a
+	jr z, .checkConfused
+	and PERISH_MASK
+	cp 1
+	jp z, .veryHeavilyDiscourage ; if yes, just don't use the move
+	; fallthrough
+.checkConfused
+	ld a, [wPlayerBattleStatus1]
+	bit CONFUSED, a
+	jr z, .checkToxiced
+	inc [hl]
+	; fallthrough
+.checkToxiced
+	ld a, [wPlayerBattleStatus3]
+	bit BADLY_POISONED, a
+	jr z, .checkBuffed
+	inc [hl]
+	; fallthrough
+.checkBuffed
+	call CalculateSumOfStatsModifiersForPlayer ; returns sum in a, 42 is default
+	cp 44
+	jr c, .buffCheckPlayerModifers41
+	dec [hl]
+	cp 46
+	jr c, .checkReflect
+	dec [hl]
+	cp 48
+	jr c, .checkReflect
+	dec [hl]
+	jr .checkReflect
+.buffCheckPlayerModifers41
+	cp 41 ; just one less than base
+	jr nc, .checkReflect
+	inc [hl]
+	cp 39
+	jr nc, .checkReflect
+	inc [hl]
+	cp 37
+	jr nc, .checkReflect
+	inc [hl]
+	; fallthrough
+.checkReflect
+	ld a, [wPlayerBattleStatus3]
+	bit HAS_REFLECT_UP, a
+	jp z, .checkLightScreen
+	dec [hl]
+	; fallthrough
+.checkLightScreen
+	ld a, [wPlayerBattleStatus3]
+	bit HAS_LIGHT_SCREEN_UP, a
+	jp z, .checkHazards_Spikes
+	dec [hl]
+	; fallthrough
+.checkHazards_Spikes
+	ld a, [wHazardsSpikesPlayerSide]
+	and a
+	jr z, .checkHazards_ToxicSpikes
+	dec a
+	jr z, .checkHazards_Spikes_1Layer
+	dec a
+	jr z, .checkHazards_Spikes_2Layers
+; 3 layers of spikes
+	dec [hl]
+	dec [hl]
+	jr .checkHazards_ToxicSpikes
+.checkHazards_Spikes_2Layers
+	dec [hl]
+	jr .checkHazards_ToxicSpikes
+.checkHazards_Spikes_1Layer
+	dec [hl]
+	; fallthrough
+.checkHazards_ToxicSpikes
+	ld a, [wHazardsToxicSpikesPlayerSide]
+	and a
+	jr z, .checkHazards_StealthRock
+	dec a
+	jr z, .checkHazards_ToxicSpikes_1Layer
+; 2 layers of toxic spikes
+	dec [hl]
+	dec [hl]
+	jr .checkHazards_StealthRock
+.checkHazards_ToxicSpikes_1Layer
+	dec [hl]
+	; fallthrough
+.checkHazards_StealthRock
+	ld a, [wHazardsStealthRockPlayerSide]
+	and a
+	jr z, .checkHazards_StickyWeb
+	dec [hl]
+	; fallthrough
+.checkHazards_StickyWeb
+	ld a, [wHazardsStickyWebPlayerSide]
+	and a
+	jp z, .nextMove
+	dec [hl]
+	dec [hl]
+	jp .nextMove
 
 .ohkoEffect ; compare speeds
 	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
@@ -1968,9 +2076,6 @@ AIMoveChoiceModification4:
 	jr z, .checkHazards_StealthRock
 	dec a
 	jr z, .checkHazards_ToxicSpikes_1Layer
-	ld a, 16
-	call SubFromBCapped
-	jr .checkHazards_StealthRock
 ; 2 layers of toxic spikes
 	ld a, 11
 	call SubFromBCapped
