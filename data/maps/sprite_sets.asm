@@ -58,9 +58,9 @@ DEF NORTH_SOUTH EQU 2
 SplitMapSpriteSets:
 	db NORTH_SOUTH, 37, $02, $10 ; $f1, edited, $10 was $01, and $12 was $02
 	db NORTH_SOUTH, 50, $12, $0f ; $f2, edited, $0f was $03
-	db EAST_WEST,   57, $04, $08 ; $f3
+	db EAST_WEST,   57, $11, $08 ; $f3, edited, $11 was $04
 	db NORTH_SOUTH, 21, $0f, $14 ; $f4, edited, $0f was $03, and $14 was $08
-	db EAST_WEST,    8, $0C, $08 ; $f5, edited, $0C was $0A 
+	db EAST_WEST,    8, $0C, $08 ; $f5, edited, $0C was $0A
 	db EAST_WEST,   24, $02, $05 ; $f6, edited, $02 was $09
 	db EAST_WEST,   34, $02, $0C ; $f7, edited, $02 was $09, and $0C was $0A
 	db EAST_WEST,   53, $13, $0B ; $f8, edited, $0B was $0A, and $13 was $01
@@ -325,7 +325,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 	db SPRITE_MONSTER
 	db SPRITE_SAILOR
 	db SPRITE_COOLTRAINER_F
-	db SPRITE_COOLTRAINER_M
+	db SPRITE_SUPER_NERD ; edited, was SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
 	db SPRITE_UNUSED_GAMBLER_ASLEEP_2
 	assert_table_length SPRITE_SET_LENGTH
