@@ -983,6 +983,7 @@ Modifier2StatusMoveEffects:
 ; new: part5 encouranges by 5 swift-like moves if the player is slower and is invulnerable
 ; new: part6 dis/encouranges trick room, weathers, and terrains under appropriate conditions
 ; new: part7 encouranges special damage moves like STOMP if opp is MINIMIZEd, EARTHQUAKE if DIGging, etc
+; new: part8 discourage repeated moves used many times in a row
 AIMoveChoiceModification3:
 	ld hl, wBuffer - 1 ; temp move selection array (-1 byte offset)
 	ld de, wEnemyMonMoves ; enemy moves
@@ -1923,18 +1924,14 @@ AIMoveChoiceModification3:
 ; it is the same move as the last we used, check how many times before this we already used it
 	ld a, [wHowManyTimesSameAIMoveInARow]
 	cp 7
-	jr nc, .discourageByFive8
-	cp 6
 	jr z, .discourageByFour8
-	cp 5
+	cp 6
 	jr z, .discourageByThree8
-	cp 4
+	cp 5
 	jr z, .discourageByTwo8
-	cp 3
+	cp 4
 	jr z, .discourageByOne8
 	jp .nextMove8
-.discourageByFive8
-	inc [hl]
 .discourageByFour8
 	inc [hl]
 .discourageByThree8
@@ -2005,18 +2002,18 @@ AIMoveChoiceModification4:
 	ld c, NUM_MOVES + 1
 .nextMove
 	dec c
-	jp z, .rollForEncouragementBasedSwitch ; processed all 4 moves, if here, AI may switches
+	jp z, .valueForEncouragementBasedSwitch ; processed all 4 moves, if here, AI may switches
 	inc hl
 	ld a, [de]
 	and a
-	jp z, .rollForEncouragementBasedSwitch ; no more moves in move set, if here, AI may switches
+	jp z, .valueForEncouragementBasedSwitch ; no more moves in move set, if here, AI may switches
 ; let's check how dis/en-couraged the move is
 	inc de ; for next loop
 	ld a, [hl]
 	cp 21 ; encouragement - 21; neutral: 20-21 -> c; discouraged: 21-21->nc
 	jr c, .checkPerishing ; if even 1 move is not discouraged, no switch boost
 	jr .nextMove
-.rollForEncouragementBasedSwitch
+.valueForEncouragementBasedSwitch
 	ld a, 29
 	call AddToBCapped
 	; fallthrough
