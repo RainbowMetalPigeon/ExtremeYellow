@@ -730,6 +730,7 @@ InitializeBattleVariablesAndEvents::
 	ResetEvent EVENT_TERRAIN_MISTY
 	ResetEvent EVENT_TERRAIN_PSYCHIC
 	ResetEvent EVENT_TRICK_ROOM
+	ResetEvent EVENT_AI_SWITCH_MON
 	xor a
 	ld [wPartyGainExpFlags], a
 	ld [wPartyFoughtCurrentEnemyFlags], a
