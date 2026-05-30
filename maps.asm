@@ -95,7 +95,8 @@ ViridianNicknameHouse_Blocks: INCBIN "maps/ViridianNicknameHouse.blk" ; edited
 
 PewterHouses_Blocks: INCBIN "maps/PewterHouses.blk" ; edited, was SpeechHouse
 
-VermilionHouses_Blocks: ; new, merge of all Vermilion houses
+VermilionHouses_Blocks: INCBIN "maps/VermilionHouses.blk" ; new, merge of all Vermilion houses
+
 LavenderHouses_Blocks: INCBIN "maps/LavenderHouses.blk" ; new, merge of all Lavender houses
 
 CeladonMansionRoofHouse_Blocks: INCBIN "maps/CeladonMansionRoofHouse.blk" ; edited
