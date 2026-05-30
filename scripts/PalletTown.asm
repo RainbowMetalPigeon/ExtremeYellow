@@ -344,8 +344,8 @@ PalletTownText6: ; sign by Red's house
 	text_asm ; testing
 	ld hl, PalletTownText6b
 	call PrintText
-	ld a, 10
-	ld [wPalletTownCurScript], a
+;	ld a, 10
+;	ld [wPalletTownCurScript], a
 	jp TextScriptEnd
 
 PalletTownText6b: ; testing
