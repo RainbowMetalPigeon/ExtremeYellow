@@ -131,7 +131,8 @@ _Route3BattleText8:: ; edited
 	done
 
 _Route3EndBattleText8::
-	text "That's it?"
+	text "That's"
+	line "it?"
 	prompt
 
 _Route3AfterBattleText8::
