@@ -1985,15 +1985,15 @@ AIMoveChoiceModification4:
 	call AddToBCapped
 	jr .checkEncouragement
 .debuffedBy1
-	ld a, 10
+	ld a, 7
 	call AddToBCapped
 	jr .checkEncouragement
 .debuffedBy2
-	ld a, 22
+	ld a, 18
 	call AddToBCapped
 	jr .checkEncouragement
 .debuffedBy3
-	ld a, 29
+	ld a, 25
 	call AddToBCapped
 	; fallthrough
 .checkEncouragement ; ----------------------------------------------------------
