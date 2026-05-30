@@ -1,7 +1,7 @@
 MapSpriteSets:
 	table_width 1, MapSpriteSets
 	db $0e ; PALLET_TOWN ; edited, it was $01
-	db $10 ; VIRIDIAN_CITY ; edited, it was $01
+	db $0e ; VIRIDIAN_CITY ; edited, it was $01
 	db $02 ; PEWTER_CITY
 	db $12 ; CERULEAN_CITY ; edited, it was $02
 	db $0f ; LAVENDER_TOWN ; edited, it was $03
@@ -56,7 +56,7 @@ DEF NORTH_SOUTH EQU 2
 ; 02: sprite set ID if in the West or North side
 ; 03: sprite set ID if in the East or South side
 SplitMapSpriteSets:
-	db NORTH_SOUTH, 37, $02, $10 ; $f1, edited, $10 was $01, and $12 was $02
+	db NORTH_SOUTH, 37, $02, $0e ; $f1, edited, $0e was $01, and $12 was $02
 	db NORTH_SOUTH, 50, $12, $0f ; $f2, edited, $0f was $03
 	db EAST_WEST,   57, $11, $08 ; $f3, edited, $11 was $04
 	db NORTH_SOUTH, 21, $0f, $14 ; $f4, edited, $0f was $03, and $14 was $08
