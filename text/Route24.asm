@@ -128,8 +128,9 @@ _Route24BattleText5::
 	done
 
 _Route24EndBattleText5::
-	text "How could I"
-	line "lose?"
+	text "How"
+;	xxxx "123456789012345678"
+	line "could I lose?"
 	prompt
 
 _Route24AfterBattleText5::
