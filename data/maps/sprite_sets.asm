@@ -13,7 +13,7 @@ MapSpriteSets:
 	db $13 ; CINNABAR_ISLAND ; edited, it was $01
 	db $06 ; INDIGO_PLATEAU
 	db $07 ; SAFFRON_CITY
-	db $01 ; ROUTE_1 ; is the only $01 left together with R22, we can modify them hopefully, maybe split south with 0e and north with 10?
+	db $0e ; ROUTE_1 ; edited, was $01
 	db $f1 ; ROUTE_2
 	db $02 ; ROUTE_3
 	db $fd ; ROUTE_4 ; edited, was $02
