@@ -370,7 +370,11 @@ _Route21DiveAfterBattleText1::
 	para "(Many tried to"
 	line "explore the wreck"
 	cont "of the S.S.AQUA,"
-	cont "but to no avail.)"
+	cont "but to no avail."
+	cont "It's a complex and"
+	cont "long maze. I don't"
+	cont "think anybody can"
+	cont "do it in apnea.)"
 ;	xxxx "123456789012345678"
 	done
 
@@ -563,5 +567,24 @@ _Route21DiveAfterBattleText7::
 	cont "damage if they"
 	cont "aren't resistant"
 	cont "to WATER.)"
+;	xxxx "123456789012345678"
+	done
+
+_Route21DiveText9::
+	text "Blubluglug! B!"
+
+	para "(Damn! This cave"
+	line "sure is tough!"
+	cont "I was almost out"
+	cont "of breath, when I"
+	cont "saw a beautiful"
+	cont "PEARL, but had to"
+	cont "come back!)"
+
+	para "(I only need to"
+	line "optimize my path"
+	cont "to save air and I"
+	cont "can do it, I just"
+	cont "know it!)"
 ;	xxxx "123456789012345678"
 	done

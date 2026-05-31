@@ -16,5 +16,6 @@ Route21Dive_Object:
 	object_event 11, 62, SPRITE_DIVER, STAY, DOWN, 6, OPP_DIVER, 40 ; mandatory
 	object_event  6, 73, SPRITE_DIVER, STAY, ANY_DIR, 7, OPP_DIVER, 41 ; 6x MAGIKARP
 	object_event 17, 70, SPRITE_DIVER, STAY, LEFT, 8, OPP_COOLTRAINER, 104 ; mandatory
+	object_event  6, 87, SPRITE_DIVER, WALK, LEFT_RIGHT, 9
 
 	def_warps_to ROUTE_21_DIVE

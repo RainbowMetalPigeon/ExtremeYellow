@@ -21,6 +21,7 @@ Route21Dive_TextPointers:
 	dw Route21DiveText6
 	dw Route21DiveText7 ; 6x MAGIKARP
 	dw Route21DiveText8 ; Cooltrainer
+	dw Route21DiveText9 ; non-trainer
 
 Route21DiveTrainerHeaders:
 	def_trainers 2
@@ -168,4 +169,8 @@ Route21DiveEndBattleText7:
 
 Route21DiveAfterBattleText7:
 	text_far _Route21DiveAfterBattleText7
+	text_end
+
+Route21DiveText9:
+	text_far _Route21DiveText9
 	text_end
