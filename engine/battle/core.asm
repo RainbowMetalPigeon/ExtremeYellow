@@ -689,6 +689,7 @@ TryMidBattleEvolution: ; new
 	ld [wCanEvolveFlags], a
 	ld [wIsEvolvingMidBattle], a
 	callfar PlayBattleMusic
+	call LoadHudAndHpBarAndStatusTilePatterns ; edited
 	ret
 
 EnemyMonFaintedText:
