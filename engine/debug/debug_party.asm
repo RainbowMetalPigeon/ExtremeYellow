@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db KAKUNA, 9 ; 255
+	db KADABRA, 41 ; 255
 	db GOLDUCK, 99
 	db STARTER_PIKACHU, 1
 ;	db CHARMELEON, 100
