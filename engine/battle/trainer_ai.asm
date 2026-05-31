@@ -186,6 +186,8 @@ AIMoveChoiceModification1:
 
 	cp SWITCH_AND_TELEPORT_EFFECT
 	jp z, .switchAndTeleportEffect
+	cp PERISH_SONG_EFFECT
+	jp z, .perishSongEffect
 
 	cp OHKO_EFFECT
 	jp z, .ohkoEffect
@@ -511,6 +513,12 @@ AIMoveChoiceModification1:
 	dec [hl]
 	dec [hl]
 	jp .nextMove
+
+.perishSongEffect
+	ld a, [wPlayerStatsToDouble]
+	bit PERISHING, a
+	jp z, .nextMove
+	jp .veryHeavilyDiscourage
 
 .ohkoEffect ; compare speeds
 	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster

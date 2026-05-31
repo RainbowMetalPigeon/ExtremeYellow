@@ -168,6 +168,7 @@ ItemNames::
 	li "HINT 9"
 	li "HINT 10"
 	li "HINT 11"
+	li "HINT 12"
 	li "EEVEE"
 	li "VAPOREON"
 	li "JOLTEON"

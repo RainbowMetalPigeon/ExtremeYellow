@@ -408,7 +408,7 @@ PalletTownTextDarkGuide:
 	jp TextScriptEnd
 
 DarkGuideHintList:
-	db 11 ; #
+	db 12 ; #
 	db DARKGUIDE_HINT_1
 	db DARKGUIDE_HINT_2
 	db DARKGUIDE_HINT_3
@@ -420,6 +420,7 @@ DarkGuideHintList:
 	db DARKGUIDE_HINT_9
 	db DARKGUIDE_HINT_10
 	db DARKGUIDE_HINT_11
+	db DARKGUIDE_HINT_12
 	db -1 ; end
 
 DarkGuideHints_Intro:
@@ -450,6 +451,7 @@ TextPointers_Hints:
 	dw DarkGuideHints_Hint9
 	dw DarkGuideHints_Hint10
 	dw DarkGuideHints_Hint11
+	dw DarkGuideHints_Hint12
 
 WantMoreDetails:
 	ld hl, WantMoreDetailsText
@@ -792,4 +794,33 @@ DarkGuideHints_Hint11_Details:
 
 DarkGuideHints_Hint11_Solution:
 	text_far _DarkGuideHints_Hint11_Solution
+	text_end
+
+; -------
+
+DarkGuideHints_Hint12:
+	text_asm
+	ld hl, DarkGuideHints_Hint12_Base
+	call PrintText
+	call WantMoreDetails
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint12_Details
+	call PrintText
+	call WantExplicitSolution
+	jr nz, .doneExplaining
+	ld hl, DarkGuideHints_Hint12_Solution
+	call PrintText
+.doneExplaining
+	jp TextScriptEnd
+
+DarkGuideHints_Hint12_Base:
+	text_far _DarkGuideHints_Hint12_Base
+	text_end
+
+DarkGuideHints_Hint12_Details:
+	text_far _DarkGuideHints_Hint12_Details
+	text_end
+
+DarkGuideHints_Hint12_Solution:
+	text_far _DarkGuideHints_Hint12_Solution
 	text_end

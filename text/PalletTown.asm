@@ -580,16 +580,41 @@ _DarkGuideHints_Hint10_Solution::
 	cont "fight awaits you."
 ;	xxxx "123456789012345678"
 	prompt
+	
+; ----------- Viridian Gym Leader
+
+_DarkGuideHints_Hint11_Base::
+	text "Tertius gaudens."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint11_Details::
+	text "Fill the gap that"
+	line "one would love to"
+	cont "do and that one"
+	cont "other'll do in a"
+	cont "parallel future."
+;	xxxx "123456789012345678"
+	prompt
+
+_DarkGuideHints_Hint11_Solution::
+	text "VIRIDIAN GYM is"
+	line "left without a"
+	cont "LEADER. The"
+	cont "interim role is"
+	cont "offered to you!"
+;	xxxx "123456789012345678"
+	prompt
 
 ; -----------
 
-_DarkGuideHints_Hint11_Base::
+_DarkGuideHints_Hint12_Base::
 	text "Nightmarish"
 	line "concoction of"
 	cont "infernal myths."
 	prompt
 
-_DarkGuideHints_Hint11_Details::
+_DarkGuideHints_Hint12_Details::
 	text "Once reassembled,"
 	line "the four"
 	cont "fragments of an"
@@ -601,7 +626,7 @@ _DarkGuideHints_Hint11_Details::
 	cont "this reality."
 	prompt
 
-_DarkGuideHints_Hint11_Solution::
+_DarkGuideHints_Hint12_Solution::
 	text "Four pieces of the"
 	line "MYST3RY MAP -re"
 	cont "scttrd o-e-"

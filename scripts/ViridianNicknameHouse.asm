@@ -164,9 +164,9 @@ ViridianHouseText6: ; new
 ViridianHouseText7: ; new
 	text_asm
 ; if unlocked but not reached MEOWTH
-	CheckHideShowExtra HS_ROUTE_22_COIN_CASE_MEOWTH
+	CheckHideShow HS_ROUTE_22_COIN_CASE_MEOWTH ; z flag if is SHOW, nz if is HIDE
 	ld hl, ViridianHouseText7_Meowth
-	jr nz, .printAndEnd
+	jr z, .printAndEnd
 ; if already Champion
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	ld hl, ViridianHouseText7_Champion
