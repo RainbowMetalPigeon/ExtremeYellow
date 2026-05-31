@@ -51,6 +51,7 @@ SpecialToPhysicalMoves:
 ; Dark
 	db FEINT_ATTACK
 	db CRUNCH
+	db BITE
 	db NIGHT_SLASH
 ; Dragon
 	db OUTRAGE
