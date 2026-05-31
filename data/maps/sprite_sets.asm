@@ -43,7 +43,7 @@ MapSpriteSets:
 	db $0d ; ROUTE_28, new, testing, may need a split thingy between $0d (Obsidian) and $04 (Vermilion)
 	db $15 ; ROUTE_29, new, testing (for now same set as Route14)
 	db $02 ; ROUTE_30, new, same as Route 3
-	db $10 ; ELECTRIC_RAVINE, new (for now same set as Viridian City, i.e. south of Route2)
+	db $0e ; ELECTRIC_RAVINE, new (same set as Viridian City, i.e. south of Route2)
 	db $16 ; LAKE_OF_MIST, new
 	assert_table_length FIRST_INDOOR_MAP
 
