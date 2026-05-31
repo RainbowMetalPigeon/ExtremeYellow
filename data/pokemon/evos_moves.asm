@@ -2343,8 +2343,8 @@ AbraEvosMoves:
 KadabraEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, ALAKAZAM
-	db EV_LEVEL, 42, ALAKAZAM
 	db EV_ITEM, LINK_CABLE, 1, ALAKAZAM
+	db EV_LEVEL, 42, ALAKAZAM
 	db 0
 ; Learnset
 	db 16, CONFUSION
@@ -2460,8 +2460,8 @@ MachopEvosMoves:
 MachokeEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, MACHAMP
-	db EV_LEVEL, 42, MACHAMP
 	db EV_ITEM, LINK_CABLE, 1, MACHAMP
+	db EV_LEVEL, 42, MACHAMP
 	db 0
 ; Learnset
 	db 4, FOCUS_ENERGY
@@ -2700,8 +2700,8 @@ GeodudeEvosMoves:
 GravelerEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, GOLEM
-	db EV_LEVEL, 42, GOLEM
 	db EV_ITEM, LINK_CABLE, 1, GOLEM
+	db EV_LEVEL, 42, GOLEM
 	db 0
 ; Learnset
 	db 7, DEFENSE_CURL
@@ -3279,8 +3279,8 @@ GastlyEvosMoves:
 HaunterEvosMoves:
 ; Evolutions
 	db EV_TRADE, 1, GENGAR
-	db EV_LEVEL, 42, GENGAR
 	db EV_ITEM, LINK_CABLE, 1, GENGAR
+	db EV_LEVEL, 42, GENGAR
 	db 0
 ; Learnset
 	db 4, HYPNOSIS

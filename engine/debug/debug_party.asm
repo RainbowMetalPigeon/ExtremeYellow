@@ -13,8 +13,8 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 100 ; 255
-	db BLISSEY, 102
+	db KADABRA, 41 ; 255
+	db GOLDUCK, 99
 	db STARTER_PIKACHU, 1
 ;	db CHARMELEON, 100
 ;	db BULBASAUR, 42
@@ -386,6 +386,7 @@ DebugItemsList:
 	db LIMIT_BREAKER, 10
 ;	db SPD_NULLIFIER, 10
 ;	db SCREWDRIVER, 1
+	db LINK_CABLE, 3
 	db SMASH_BALL, 15
 ;	db GOOD_ROD, 1
 	db ESCAPE_ROPE, 99
@@ -399,7 +400,6 @@ DebugItemsList:
 	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
 ;	db CHEAT_CANDY, 1
-;	db LINK_CABLE, 3
 	db MYSTERY_MAP, 1
 ;	db ONIGIRI_BOX, 99
 	db CHROMOGENE, 99
