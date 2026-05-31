@@ -146,7 +146,54 @@ SpecialTrainerMoves:
 
 ; GAMBLER =======================================================
 
-	; TBE
+	db GAMBLER, 1
+	db 1, 1, HORN_DRILL
+	db $FE
+
+	db GAMBLER, 2
+	db 1, 1, GUILLOTINE
+	db $FE
+
+	db GAMBLER, 3
+	db 1, 1, FISSURE
+	db $FE
+
+	db GAMBLER, 4
+	db 1, 1, HORN_DRILL
+	db $FE
+
+	db GAMBLER, 5
+	db 2, 1, FISSURE
+	db 3, 1, GUILLOTINE
+	db 4, 1, FISSURE
+	db $FE
+
+	db GAMBLER, 7
+	db 1, 1, HORN_DRILL
+	db $FE
+
+	db GAMBLER, 8
+	db 1, 1, HORN_DRILL
+	db 1, 1, FISSURE
+	db 1, 1, GUILLOTINE
+	db $FE
+
+	db GAMBLER, 9
+	db 1, 1, HORN_DRILL
+	db 2, 1, FISSURE
+	db 3, 1, HORN_DRILL
+	db 4, 1, HORN_DRILL
+	db 5, 1, HORN_DRILL
+	db 6, 1, GUILLOTINE
+	db $FE
+
+	db GAMBLER, 10
+	db 1, 1, FISSURE
+	db 2, 1, FISSURE
+	db 3, 1, HORN_DRILL
+	db 4, 1, HORN_DRILL
+	db $FE
+
 
 ; COOLTRAINER ===================================================
 
