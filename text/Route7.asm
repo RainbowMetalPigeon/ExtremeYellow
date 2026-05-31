@@ -52,9 +52,10 @@ _Route7RepairPersonText_YouFoundIt::
 	text "! You found it!"
 	line "Thanks so much!!!"
 	
-	para "I gotta run, I'm"
+	para "I gotta run! I'm"
 	line "already so late,"
-	cont "the RESTAURANT've"
-	cont "waiting so long."
+	cont "the RESTAURANT"
+	cont "has been waiting"
+	cont "forever!"
 ;	xxxx "123456789012345678"
 	prompt
