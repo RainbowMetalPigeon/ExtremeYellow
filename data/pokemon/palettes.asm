@@ -636,7 +636,7 @@ MonsterPalettesDelta:
 	db PAL_ORANGEMON ; MGYARADOS - delta
 	db PAL_CYANMON   ; LAPRAS
 	db PAL_PINKMON   ; DITTO
-	db PAL_GREYMON   ; EEVEE - delta
+	db PAL_BLACKMON  ; EEVEE - delta
 	db PAL_GREYMON   ; VAPOREON - delta
 	db PAL_GREYMON   ; JOLTEON - delta
 	db PAL_GREYMON   ; FLAREON - delta
@@ -740,8 +740,8 @@ MonsterPalettesDeltaShiny:
 	db PAL_GREENLIGHTMON  ; IGGLYBUFF
 	db PAL_GREENLIGHTMON  ; JIGGLYPUFF
 	db PAL_GREENLIGHTMON  ; WIGGLYTUFF
-	db PAL_BLUEMON    ; ZUBAT - delta
-	db PAL_BLUEMON    ; GOLBAT - delta
+	db PAL_REDMON     ; ZUBAT - delta
+	db PAL_REDMON     ; GOLBAT - delta
 	db PAL_BLUEMON    ; CROBAT - delta
 	db PAL_GREYMON    ; ODDISH - delta
 	db PAL_GREYMON    ; GLOOM - delta
