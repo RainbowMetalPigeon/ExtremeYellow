@@ -61,7 +61,7 @@ TrainerClassMoveChoiceModifications:
 
 ; TBE?
 	move_choices 1, 2, 3, 4 ; PROTON
-	move_choices 1, 2, 3, 4 ; PETREL
+	move_choices 1, 2, 3    ; PETREL
 	move_choices 1, 2, 3, 4 ; ARIANA
 	move_choices 1, 2, 3, 4 ; ARCHER
 	move_choices 1, 2, 3, 4 ; CARR
