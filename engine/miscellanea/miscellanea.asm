@@ -1228,7 +1228,7 @@ TMMartClerkDialogue::
 .checkTM30
 
 	; TM30
-	CheckHideShow HS_ROUTE_9_ITEM
+	CheckHideShowExtra HS_ROUTE_9_ITEM
 	jr z, .checkTM31
 	ld a, TM_MOONBLAST
 	ld [de], a
