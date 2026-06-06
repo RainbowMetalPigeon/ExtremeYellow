@@ -19,7 +19,7 @@ PalletTown_ScriptPointers:
 	dw PalletTownScript7
 	dw PalletTownScript8
 	dw PalletTownScript9
-	dw PalletTownScript10 ; testing
+	dw PalletTownScript10 ; new, for debugging
 
 PalletTownScript0:
 	CheckEvent EVENT_FOLLOWED_OAK_INTO_LAB
@@ -287,7 +287,7 @@ PalletTownText2: ; girl
 	text_far _PalletTownText2
 	text_end
 
-PalletTownScript10: ; testing
+PalletTownScript10: ; new, for debugging
 	ld a, SEVII_ONE_ISLAND_DOCK
 	ld [wd72d], a
 	ld c, 20
@@ -299,8 +299,6 @@ PalletTownScript10: ; testing
 	ld a, SEVII_ONE_ISLAND_CITY
 	ld [wLastMap], a
 	call GBFadeOutToBlack
-;	ld a, SPRITE_FACING_UP
-;	ld [wSpritePlayerStateData1FacingDirection], a
 	SetEvent EVENT_PERFORMING_SEVII_KANTO_SPECIAL_WARP
 	callfar SpecialWarpIn
 	ld c, 20
@@ -311,7 +309,6 @@ PalletTownScript10: ; testing
 	ld a, 0
 	ld [wPalletTownCurScript], a
 	jpfar SpecialEnterMap
-;	call GBFadeInFromBlack
 
 PalletTownText3: ; fat man
 	text_far _PalletTownText3
@@ -341,14 +338,16 @@ ELSE
 ENDC
 
 PalletTownText6: ; sign by Red's house
-	text_asm ; testing
+	text_asm
 	ld hl, PalletTownText6b
 	call PrintText
-;	ld a, 10
-;	ld [wPalletTownCurScript], a
+IF DEF(_DEBUG)
+	ld a, 10
+	ld [wPalletTownCurScript], a
+ENDC
 	jp TextScriptEnd
 
-PalletTownText6b: ; testing
+PalletTownText6b:
 	text_far _PalletTownText6
 	text_end
 

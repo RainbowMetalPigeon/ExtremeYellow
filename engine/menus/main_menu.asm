@@ -113,11 +113,11 @@ MainMenu:
 	and a
 	jp z, SpecialEnterMap
 	CheckEvent EVENT_IN_SEVII ; new
-	jr nz, .notHallOfFame ; new
+	jp nz, SpecialEnterMap ; new
 	ld a, [wCurMap] ; map ID
 	cp HALL_OF_FAME
 	jp nz, SpecialEnterMap
-.notHallOfFame ; new
+; we autosaved in the HoF after winning the League: need to set special warp to Pallet
 	xor a
 	ld [wDestinationMap], a
 	ld hl, wd732
