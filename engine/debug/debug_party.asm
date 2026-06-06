@@ -242,6 +242,8 @@ IF DEF(_DEBUG)
 
 ;	callfar ShowExtraNPCsAfterObsidianGiovanni
 
+	SetEvent EVENT_PIKACHU_SASH_ENABLED
+
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 
 	SetEvent EVENT_OBTAINED_SEEDS_BAG

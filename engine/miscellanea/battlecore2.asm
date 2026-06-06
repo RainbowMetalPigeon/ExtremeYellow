@@ -773,6 +773,7 @@ InitializeBattleVariablesAndEvents::
 HandleSubtractingDamageFromPlayerPokemonHP::
 ; check if the conditions for the Sash triggering are met
 	ResetEvent EVENT_PIKACHU_SASH_TRIGGERS
+	ResetEvent EVENT_PIKACHU_SASH_CAN_TRIGGER
 	callfar IsThisPartymonStarterPikachu  ; check if it's player Pikachu
 	jr nc, .pikachuSashCantTrigger
 	CheckEvent EVENT_PIKACHU_SASH_ENABLED ; check if the enabling event is set
@@ -787,7 +788,7 @@ HandleSubtractingDamageFromPlayerPokemonHP::
 	ld a, [wBattleMonMaxHP+1]
 	cp b
 	jr nz, .pikachuSashCantTrigger
-	SetEvent EVENT_PIKACHU_SASH_TRIGGERS
+	SetEvent EVENT_PIKACHU_SASH_CAN_TRIGGER ; if Pikachu is full health
 .pikachuSashCantTrigger
 	ld hl, wDamage+1
 ; subtract the damage from the pokemon's current HP
@@ -809,8 +810,11 @@ HandleSubtractingDamageFromPlayerPokemonHP::
 ; if more damage was done than the current HP, zero the HP and set the damage (wDamage)
 ; equal to how much HP the pokemon had before the attack
 ; new, for Pikachu Sash
-	CheckEvent EVENT_PIKACHU_SASH_TRIGGERS
-	jr z, .postPikachuSash
+	CheckEvent EVENT_PIKACHU_SASH_CAN_TRIGGER ; was Pikachu, and was full HP?
+	jr z, .postPikachuSash ; if not, skip this block
+	push hl
+	SetEvent EVENT_PIKACHU_SASH_TRIGGERS ; if yes, set up this event flag and set the hp to 1
+	pop hl
 	ld a, [wHPBarOldHP+1] ; set damage equal to CurHP-1
 	ld [hli], a
 	ld a, [wHPBarOldHP]
