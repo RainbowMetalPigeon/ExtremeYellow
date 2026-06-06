@@ -3,10 +3,11 @@ GainExperience:
 	cp LINK_STATE_BATTLING
 	ret z ; return if link battle
 	CheckEvent EVENT_IN_SEVII ; new
-	ret nz ; new
+	jr nz, .notBattleFacility ; new
 	ld a, [wCurMap] ; new
 	cp BATTLE_FACILITY ; new
 	ret z ; new
+.notBattleFacility ; new
 ; new, to handle the Exp Gain option
 	ld a, [wExpGainOption]
 	cp 2 ; "NOTHING" exp gain is set
