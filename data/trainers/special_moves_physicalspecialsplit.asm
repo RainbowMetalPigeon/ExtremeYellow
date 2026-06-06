@@ -474,15 +474,9 @@ SpecialTrainerMoves_PhysicalSpecialSplit:
 
 	db PROF_OAK, 1
 	; TAUROS
-	db 1, 1, OUTRAGE
-	db 1, 4, CLOSE_COMBAT
-	; MGYARADOS
-	db 2, 2, WATERFALL
-	db 2, 3, OUTRAGE
-	; MMEWTWOX
-	db 4, 3, PSYCHO_CUT
-	; MMEWTWOY
-	db 5, 2, PSYSTRIKE
+	db 1, 1, CLOSE_COMBAT
+	; GYARADOS
+	db 6, 2, WATERFALL
 	db $FE
 
 	db ORAGE, 2
