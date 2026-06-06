@@ -18,14 +18,14 @@ DEF PC_ITEM_CAPACITY  EQU 50
 	const LIST_MENU_BOX                     ; $0d
 	const BUY_SELL_QUIT_MENU_TEMPLATE       ; $0e
 	const MONEY_BOX_TEMPLATE                ; $0f
-	const BF_MENU_INFO_BATTLE_PRIZES_EXIT   ; $10 new, for Battle Facility
+	const BF_MENU_BATTLE_INFO_PRIZES_EXIT   ; $10 new, for Battle Facility
 	const MON_SPRITE_POPUP                  ; $11
 	const BOY_GIRL_NO                       ; $12 new for gender non-binary selection
 	const MONEY_BOX                         ; $13
 	const TWO_OPTION_MENU                   ; $14
 	const BUY_SELL_QUIT_MENU                ; $15
 	const TYROGUE_EVOLUTIONS                ; $16 new for Tyrogue
-	const BF_MENU_INFO_BATTLE_EXIT          ; $17 new, for Battle Facility (BF)
+	const BF_MENU_BATTLE_INFO_EXIT          ; $17 new, for Battle Facility (BF)
 	const BF_MENU_STANDARD_HARDCORE_EXIT    ; $18 new, for Battle Facility
 	const_skip                              ; $19
 	const JP_POKEDEX_MENU_TEMPLATE          ; $1a

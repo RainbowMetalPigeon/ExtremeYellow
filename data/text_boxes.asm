@@ -36,8 +36,8 @@ TextBoxTextAndCoordTable:
 	text_box_text BOY_GIRL_NO,                       13,  6, 19, 12, BoyGirlNoText,           15,  7 ; new
 	text_box_text TYROGUE_EVOLUTIONS,				  9,  6, 19, 12, TyrogueEvolutions,		  11,  7 ; new
 	text_box_text JP_POKEDEX_MENU_TEMPLATE,          11,  8, 19, 17, JapanesePokedexMenu,     12, 10
-	text_box_text BF_MENU_INFO_BATTLE_EXIT,          11,  6, 19, 12, BFInfoBattleExit,        13,  7 ; new
-	text_box_text BF_MENU_INFO_BATTLE_PRIZES_EXIT,   11,  4, 19, 12, BFInfoBattlePrizesExit,  13,  5 ; new, TBV
+	text_box_text BF_MENU_BATTLE_INFO_EXIT,          11,  6, 19, 12, BFBattleInfoExit,        13,  7 ; new
+	text_box_text BF_MENU_BATTLE_INFO_PRIZES_EXIT,   11,  4, 19, 12, BFBattleInfoPrizesExit,  13,  5 ; new, TBV
 	text_box_text BF_MENU_STANDARD_HARDCORE_EXIT,    11,  6, 19, 12, BFStandardHardcoreExit,  13,  7 ; new
 	text_box_text BF_MENU_AG_NFE_LC_EXIT,            11,  4, 19, 12, BFAgNfeLcExit,           13,  5 ; new
 	text_box_text BF_MENU_NORMAL_INVERSE_EXIT,       10,  6, 19, 12, BFNormalInverseExit,     12,  7 ; new
@@ -134,14 +134,14 @@ TyrogueEvolutions: ; new
 	next "ANNIE"
 	next "BEYBLADE@"
 
-BFInfoBattleExit: ; new
-	db   "INFO"
-	next "BATTLE"
+BFBattleInfoExit: ; new
+	db   "BATTLE"
+	next "INFO"
 	next "EXIT@"
 
-BFInfoBattlePrizesExit: ; new
-	db   "INFO"
-	next "BATTLE"
+BFBattleInfoPrizesExit: ; new
+	db   "BATTLE"
+	next "INFO"
 	next "PRIZES"
 	next "EXIT@"
 

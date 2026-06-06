@@ -41,13 +41,13 @@ PalletTown_Object:
 ;	warp_event  5,  5, SS_ANNE_1F_ROOMS, 6
 ;	warp_event  5,  5, SAFFRON_GYM, 33
 
-	warp_event 13,  5, BLUES_HOUSE, 1
+;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23
 ;	warp_event 13,  5, SECLUDED_ATOLL_SE, 1
 ;	warp_event 13,  5, SILPH_CO_9F, 1
 ;	warp_event 13,  5, HALL_OF_FAME, 1
 ;	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
-;	warp_event 13,  5, BATTLE_FACILITY, 1
+	warp_event 13,  5, BATTLE_FACILITY, 1
 ;	warp_event 13,  5, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 13,  5, SECLUDED_CAVES, 4
 ;	warp_event 13,  5, SEAFOAM_ISLANDS_B4F, 3

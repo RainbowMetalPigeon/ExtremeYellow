@@ -714,7 +714,7 @@ BattleFacilityTextGuide:
 	ld a, [wCurrentMenuItem] ; 0 for INFO, 1 for BATTLE, 2 for EXIT
 	cp 2 ; EXIT
 	jp z, .exit
-	cp 1 ; BATTLE
+	and a ; cp 0 : BATTLE
 	jp z, .battle
 ; else, INFO
 .info
@@ -847,9 +847,9 @@ BattleFacilityTextGuide:
 	jp z, .exit
 	cp 2 ; PRIZES
 	jp z, .prizes
-	cp 1 ; BATTLE
+	and a ; cp 0 : BATTLE
 	jr z, .battle
-	jp .info
+	jp .info ; otherwise
 
 BattleFacilityTextGuide_Intro:
 	text_far _BattleFacilityTextGuide_Intro
@@ -1138,7 +1138,7 @@ AskHowTheyCanHelp:
 	jr nz, .backlogPrizes
 ; no backlog of unclaimed prizes
 	call SaveScreenTilesToBuffer1
-	ld a, BF_MENU_INFO_BATTLE_EXIT ; AAA
+	ld a, BF_MENU_BATTLE_INFO_EXIT ; AAA
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	ld hl, wTopMenuItemY
@@ -1168,7 +1168,7 @@ AskHowTheyCanHelp:
 	jp LoadScreenTilesFromBuffer1
 .backlogPrizes ; we do have a backlog of unclaimed prizes, show more options
 	call SaveScreenTilesToBuffer1
-	ld a, BF_MENU_INFO_BATTLE_PRIZES_EXIT ; AAA
+	ld a, BF_MENU_BATTLE_INFO_PRIZES_EXIT ; AAA
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	ld hl, wTopMenuItemY
