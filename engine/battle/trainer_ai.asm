@@ -414,6 +414,17 @@ AIMoveChoiceModification1:
 	cp TELEPORT
 	jp z, .veryHeavilyDiscourage ; just don't use Teleport in battle
 ; it's ROAR or WHIRLWIND: chain of checks
+; if the player has only 1 alive mon, just don't use the move
+	push hl
+	push bc
+	push de
+	call CountHowManyPartyAlive ; d = count alive
+	ld a, d
+	pop de
+	pop bc
+	pop hl
+	cp 1 ; if only 1 alive, don't use the move
+	jp z, .veryHeavilyDiscourage
 ; is the player perishing?
 	ld a, [wPlayerStatsToDouble]
 	bit PERISHING, a
