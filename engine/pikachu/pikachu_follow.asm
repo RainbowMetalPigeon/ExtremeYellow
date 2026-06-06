@@ -1,5 +1,9 @@
 ShouldPikachuSpawn::
 ; possibly to test if pika should be out?
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .hide
+; BTV
 	ld a, [wPikachuOverworldStateFlags]
 	bit 5, a
 	jr nz, .hide
@@ -13,7 +17,6 @@ ShouldPikachuSpawn::
 	jr nz, .hide
 	scf
 	ret
-
 .hide
 	and a
 	ret

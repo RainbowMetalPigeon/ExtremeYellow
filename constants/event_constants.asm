@@ -1012,7 +1012,7 @@
 
 ; Mt. Moon events
 	const_next $570
-	const_skip
+	const EVENT_ROCKET_PATH ; new
 	const EVENT_BEAT_MT_MOON_1_TRAINER_0
 	const EVENT_BEAT_MT_MOON_1_TRAINER_1
 	const EVENT_BEAT_MT_MOON_1_TRAINER_2

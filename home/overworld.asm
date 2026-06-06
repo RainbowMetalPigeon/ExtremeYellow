@@ -1826,12 +1826,31 @@ RunMapScript::
 	ret
 
 LoadWalkingPlayerSpriteGraphics::
-; new sprite copy stuff
 	xor a
 	ld [wd473], a
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .nonRocketPath
+	
+	ld b, BANK(RedRocketSprite)
+	ld de, RedRocketSprite
+	ld a, [wPlayerGender] ; from Vortiene
+	and a			; check if boy
+	jr z, .ContinueLoadSpritesRP
+	cp a, 2			; check if enby
+	jr z, .AreEnbyRP
+	ld de, GreenRocketSprite
+	jr .ContinueLoadSpritesRP
+.AreEnbyRP
+	ld de, YellowRocketSprite
+.ContinueLoadSpritesRP
+	ld hl, vNPCSprites
+	jr LoadPlayerSpriteGraphicsCommon
+
+.nonRocketPath
+; new sprite copy stuff
 	ld b, BANK(RedSprite)
 	ld de, RedSprite
-;	jr LoadPlayerSpriteGraphicsCommon
 	ld a, [wPlayerGender] ; from Vortiene
 	and a			; check if boy
 	jr z, .ContinueLoadSprites1
@@ -1845,14 +1864,14 @@ LoadWalkingPlayerSpriteGraphics::
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 
-LoadGlitchyPlayerSpriteGraphics:: ; new, testing, for Haunted House
+LoadGlitchyPlayerSpriteGraphics:: ; new, for Haunted House
 	xor a
 	ld [wd473], a
 	ld b, BANK(GlitchyPlayerSprite)
 	ld de, GlitchyPlayerSprite
 	jr LoadPlayerSpriteGraphicsCommon
 
-LoadTransparentPlayerSpriteGraphics:: ; new, testing, for Haunted House
+LoadTransparentPlayerSpriteGraphics:: ; new, for Haunted House
 	xor a
 	ld [wd473], a
 	ld b, BANK(TransparentSprite)
