@@ -291,8 +291,8 @@ _Route21ScriptText1::
 	cont "this fight have"
 	cont "been outstanding!"
 
-	cont "And you know, that"
-	cont "other encounter I"
+	para "And you know, that"
+	line "other encounter I"
 	cont "had, if I recall"
 	cont "correctly, took"
 	cont "place in the"
@@ -317,9 +317,9 @@ _Route21ScriptText3::
 	cont "without limits!"
 
 	para "Who knows, maybe"
-	line "you too will have"
-	cont "just there a"
-	cont "memorable battle."
+	line "you will have a"
+	cont "memorable battle"
+	cont "there as well."
 ;	xxxx "123456789012345678"
 
 	para "<PLAYER>! Go and"

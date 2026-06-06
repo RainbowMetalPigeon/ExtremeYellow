@@ -1956,6 +1956,7 @@ AIMoveChoiceModification3:
 ; new, to handle tactical switching:
 ; changed approach: now it increases or decreases a value between 0 and 255, and then rolls an RNG
 ; this is to account for DE-incentivation from having screens up and/or hazards on AI's side
+; all values are scaled by 8, so 32 equates to 100% chance of switching (32x8=256)
 ; - when they are confused
 ; - when they are TOXICed
 ; - when they are trapped in a trapping move
@@ -1969,7 +1970,7 @@ AIMoveChoiceModification4:
 	ld a, [wEnemyBattleStatus1]
 	bit CONFUSED, a
 	jr z, .checkToxiced
-	ld a, 19
+	ld a, 13
 	call AddToBCapped
 .checkToxiced ; ----------------------------------------------------------------
 	ld a, [wEnemyBattleStatus3]

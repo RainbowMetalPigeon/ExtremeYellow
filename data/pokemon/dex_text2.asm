@@ -551,7 +551,7 @@ _ElectivireDexEntry::
 
 _MagbyDexEntry::
 	text "It naturally spits"
-	next "an 600C flame. It"
+	next "a 600C flame. It"
 	next "is said when many"
 
 	page "appear, it heralds"
