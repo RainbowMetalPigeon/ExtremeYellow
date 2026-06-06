@@ -66,6 +66,12 @@ _Route24Text_GreatWelcome:: ; new
 ;	xxxx "123456789012345678"
 	done
 
+_Route24Text_HowDoYouFeel:: ; new
+	text "How do you feel by"
+	line "the side of evil?"
+;	xxxx "123456789012345678"
+	done
+
 _Route24Text_PostVictoryDialogue::
 	text "Arrgh!"
 	line "You are good!"

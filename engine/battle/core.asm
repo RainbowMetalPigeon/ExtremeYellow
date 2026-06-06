@@ -4445,6 +4445,10 @@ CheckForDisobedience:
 	jr nc, .notStarterPikachu
 ; check for Pikachu happiness, using same thresholds as for the overworld emotions (see engine/pikachu/pikachu_pic_animation.asm)
 ; 50 - 100 - 130 - 160 - 200 - 250 - 255
+; if RP: Pikachu just disobeys
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .pikachuDisobeyed
+; not RP
 	call BattleRandom
 	ld b, a ; now b holds a random number
 	ld a, [wPikachuHappiness]
@@ -4505,10 +4509,8 @@ CheckForDisobedience:
 .notStarterPikachu
 ; what level might disobey? - modified, added threshold at every badge and for post-League
 ; modified further to add CAP options
-	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; having this check here before wLevelCapOption makes so that MissignNo will disobey regardless
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
 	jp nz, .canUseMove ; edited
-;	ld a, 101
-;	jr nz, .next
 ; now we check how many badges we have and set the cap accordingly
 	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
 	cp 2

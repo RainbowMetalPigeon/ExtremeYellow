@@ -102,7 +102,7 @@ ROMX $13
 ;	"Maps 9" ; try to disentangle from Pics 6?
 ROMX $14
 	"Maps 10"
-	"Hidden Objects 2"
+;	"Hidden Objects 2"
 ROMX $15
 	"Maps 11"
 ;	"Battle Engine 7"
