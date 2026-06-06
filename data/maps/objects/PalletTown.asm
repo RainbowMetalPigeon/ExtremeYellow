@@ -39,6 +39,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, CELADON_MART_ROOF, 1
 ;	warp_event  5,  5, SS_ANNE_1F, 2
 ;	warp_event  5,  5, SS_ANNE_1F_ROOMS, 6
+;	warp_event  5,  5, SAFFRON_GYM, 33
 
 	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23

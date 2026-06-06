@@ -45,8 +45,8 @@ _LunarShrineMonkText_RelicInBag_FirstTime::
 	text "How did you arrive"
 	line "here?"
 
-	para "Well, I would"
-	line "invite to leave,"
+	para "Well, I'd invite"
+	line "you to leave,"
 	cont "if you please. I"
 	cont "don't enjoy"
 	cont "visitors and"

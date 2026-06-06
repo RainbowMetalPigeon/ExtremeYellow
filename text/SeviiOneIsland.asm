@@ -953,7 +953,7 @@ _SeviiRoute31BattleText8::
 	done
 
 _SeviiRoute31EndBattleText8::
-	text "SUPER NERD: I can"
+	text "I can"
 	line "formulate a"
 	cont "theory: you're"
 	cont "strong!"

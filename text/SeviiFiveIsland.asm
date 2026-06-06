@@ -1055,7 +1055,7 @@ _SeviiRoute34AfterBattleText3::
 	line "is scary."
 
 	para "You walk and"
-	cont "walk, and yet you"
+	line "walk, and yet you"
 	cont "keep coming back"
 	cont "at the entrance."
 	done
@@ -1213,7 +1213,7 @@ _SeviiResortGorgeousText1_AfterWaterfall::
 	cont "exploration?"
 
 	para "What do you think"
-	line "of MT EMBER?"
+	line "of MT. EMBER?"
 	cont "I heard it holds"
 	cont "untold treasures!"
 	done

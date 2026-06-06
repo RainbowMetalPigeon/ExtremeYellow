@@ -44,7 +44,7 @@ _KogaMarshBadgeInfoText:: ; edited
 	cont "of battle."
 ;	xxxx "123456789012345678"
 
-	text "Wait, please take"
+	para "Wait, please take"
 	line "this TM with you!"
 	done
 

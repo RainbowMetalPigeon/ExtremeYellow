@@ -37,8 +37,10 @@ _BlaineVolcanoBadgeInfoText:: ; edited
 	line "VOLCANOBADGE you"
 	cont "can increase the"
 	cont "SPECIAL of your"
-	cont "#MON, if you feel"
-	cont "like you need it!"
+	cont "#MON, if you"
+;	xxxx "123456789012345678"
+	cont "feel like you"
+	cont "need it!"
 
 	para "Also, you can now"
 	line "use WATERFALL"
