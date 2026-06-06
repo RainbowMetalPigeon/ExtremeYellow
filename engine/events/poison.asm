@@ -141,10 +141,10 @@ UpdatePikachuHappinessAndMood:
 	ld a, [hl]
 	cp $80
 	jr z, .done
-	jr c, .increaseHappiness
+	jr c, .increaseMood
 	dec a
 	dec a
-.increaseHappiness
+.increaseMood
 	inc a
 	ld [hl], a
 	cp $80
