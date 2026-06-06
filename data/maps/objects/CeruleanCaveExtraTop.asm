@@ -34,7 +34,7 @@ CeruleanCaveExtraTop_Object:
 	warp_event  36, 25, CERULEAN_CAVE_EXTRA_TOP, 29 	; 24, room 3-3, north
 	warp_event  37, 25, CERULEAN_CAVE_EXTRA_TOP, 30 	; 25, room 3-3, north
 	; room 1-3
-	warp_event   3, 35, CERULEAN_CAVE_EXTRA_TOP, 13		; 26, stairs down
+	warp_event   3, 35, CERULEAN_CAVE_EXTRA_MIDDLE, 13	; 26, stairs down
 	; room 2-3
 	warp_event  25, 36, CERULEAN_CAVE_EXTRA_TOP, 31 	; 27, room 3-3, west
 	warp_event  25, 37, CERULEAN_CAVE_EXTRA_TOP, 32 	; 28, room 3-3, west
