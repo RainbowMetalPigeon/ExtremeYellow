@@ -1,5 +1,5 @@
 _LoreleiBeforeBattleText::
-	text "Welcome to"
+	text "Welcome to the" ; edited
 	line "#MON LEAGUE!"
 
 	para "I am LORELEI of"
