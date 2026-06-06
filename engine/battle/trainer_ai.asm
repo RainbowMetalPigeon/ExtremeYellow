@@ -1381,27 +1381,19 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_SD
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SANDSTORM
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_HAIL
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
@@ -1428,27 +1420,19 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_RD
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SANDSTORM
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_HAIL
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
@@ -1487,27 +1471,19 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_SS
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SANDSTORM
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_HAIL
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
@@ -1534,27 +1510,19 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_H
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_HAIL
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SUNNY_DAY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_SANDSTORM
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_WEATHER_RAIN_DANCE
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
@@ -1581,27 +1549,19 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_GT
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_GRASSY
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_ELECTRIC
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_MISTY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_PSYCHIC
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
@@ -1628,27 +1588,19 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_ET
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_ELECTRIC
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_GRASSY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_MISTY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_PSYCHIC
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
@@ -1675,54 +1627,38 @@ AIMoveChoiceModification3:
 	dec [hl]
 .postEncourageByOne_PT
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_PSYCHIC
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_ELECTRIC
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_MISTY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_GRASSY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6
 .moveIsMistyTerrain
 ; no type check because Misty Terrain doesn't power up Fairy moves
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_MISTY
-	pop de
 	pop hl
 	jp nz, .discourageByFour6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_ELECTRIC
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_GRASSY
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	push hl
-	push de
 	CheckEvent EVENT_TERRAIN_PSYCHIC
-	pop de
 	pop hl
 	jp nz, .encourageByThree6
 	jp .nextMove6

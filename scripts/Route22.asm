@@ -1,31 +1,8 @@
 Route22_Script:
-; new
-	ld hl, wCurrentMapScriptFlags
-	bit 6, [hl]
-	res 6, [hl]
-	call nz, Handle2ndRivalBattle
-	ld hl, wCurrentMapScriptFlags
-	bit 4, [hl]
-	res 4, [hl]
-	call nz, Handle2ndRivalBattle
-; back to vanilla
 	call EnableAutoTextBoxDrawing
 	ld hl, Route22_ScriptPointers
 	ld a, [wCurMapScript] ; edited
 	jp CallFunctionInTable
-
-Handle2ndRivalBattle: ; new
-	CheckEvent EVENT_2ND_ROUTE22_RIVAL_BATTLE_BEATEN
-	ret nz ; do nothing if we already beaten the 2nd R22 rival
-	callfar CountHowManyBadges ; d=#badges
-	ld a, d
-	cp 8
-	ret nz ; do nothing if we don't have 8 badges
-	ld a, HS_ROUTE_22_RIVAL_2
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	SetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE ; set up the vanilla event flags if we have 8 badges
-	ret
 
 Route22_ScriptPointers:
 	dw Route22Script0

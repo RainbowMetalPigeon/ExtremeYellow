@@ -39,7 +39,7 @@ IF DEF(_DEBUG)
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
-	ld a, %11111111
+	ld a, %11111110
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
@@ -287,7 +287,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 ;	callfar HideUndegroundGuard.hideGuards
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
