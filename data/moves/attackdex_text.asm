@@ -620,7 +620,7 @@ _AttackdexText_HazeEffect::
 
 	atpg "non-volatile"
 	next "STATUS from the"
-	next "opponent"
+	next "user"
 	dex
 
 _AttackdexText_BideEffect::
