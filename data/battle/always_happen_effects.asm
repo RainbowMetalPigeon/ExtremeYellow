@@ -24,4 +24,5 @@ AlwaysHappenSideEffects:
 	db ATTACK_DEFENSE_SELFDOWN1 ; new
 	db DEFENSE_SPECIAL_SELFDOWN1 ; new
 	db DOUBLE_IRON_BASH_EFFECT ; new
+	db RAPID_SPIN_EFFECT ; new
 	db -1 ; end
