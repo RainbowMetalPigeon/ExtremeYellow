@@ -23,7 +23,7 @@ _Route24Text_NoRoom::
 	line "any room!"
 	done
 
-_Route24Text_WannaJoinOffer::
+_Route24Text_WannaJoinOffer1:: ; edited
 	text "By the way, would"
 	line "you like to join"
 	cont "TEAM ROCKET?"
@@ -33,10 +33,14 @@ _Route24Text_WannaJoinOffer::
 	cont "using #MON!"
 
 	para "Want to join?"
+	done
 
-	para "Are you sure?"
+_Route24Text_WannaJoinOffer2:: ; edited
+	text "Are you sure?"
+	done
 
-	para "Come on, join us!"
+_Route24Text_WannaJoinOffer3:: ; edited
+	text "Come on, join us!"
 
 	para "I'm telling you"
 	line "to join!"
@@ -47,6 +51,19 @@ _Route24Text_WannaJoinOffer::
 	para "I'll make you an"
 	line "offer you can't"
 	cont "refuse!"
+	done
+
+_Route24Text_GreatWelcome:: ; new
+	text "Great! Welcome on"
+	line "board! Here,"
+	cont "have this TEAM"
+	cont "ROCKET suit!"
+
+	para "Eheh, the BOSS'll"
+	line "surely give me a"
+	cont "promotion for"
+	cont "such a recruit!"
+;	xxxx "123456789012345678"
 	done
 
 _Route24Text_PostVictoryDialogue::

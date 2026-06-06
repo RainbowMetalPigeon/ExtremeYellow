@@ -27,6 +27,8 @@ IF DEF(_DEBUG) ; new
 ENDC
 	CheckEvent EVENT_BEAT_ROUTE24_ROCKET ; edited, was EVENT_GOT_NUGGET
 	jp nz, CheckFightingMapTrainers
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jp nz, CheckFightingMapTrainers
 	ld hl, CoordsData_FrontOfNuggetRocket
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
@@ -105,7 +107,7 @@ Route24TrainerHeader5:
 	trainer EVENT_BEAT_ROUTE_24_TRAINER_5, 1, Route24BattleText6, Route24EndBattleText6, Route24AfterBattleText6
 	db -1 ; end
 
-Route24Text1:
+Route24Text1: ; edited
 	text_asm
 	ResetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	CheckEvent EVENT_GOT_NUGGET
@@ -113,7 +115,7 @@ Route24Text1:
 ; new
 	CheckEvent EVENT_BEAT_ROUTE24_ROCKET
 	jr nz, .got_item
-	jr .wannaJoin
+	jr .wannaJoin1
 .notGotNugget
 ; BTV
 	ld hl, Route24Text_CongratsBeat5Trainers
@@ -124,8 +126,20 @@ Route24Text1:
 	SetEvent EVENT_GOT_NUGGET
 	ld hl, Route24Text_PlayerReceivedNugget
 	call PrintText
-.wannaJoin
-	ld hl, Route24Text_WannaJoinOffer
+.wannaJoin1
+	ld hl, Route24Text_WannaJoinOffer1
+	call PrintText
+	call NoYesChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .weWannaJoin
+	ld hl, Route24Text_WannaJoinOffer2 ; are you sure
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .wannaJoin1
+	ld hl, Route24Text_WannaJoinOffer3
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
@@ -151,6 +165,12 @@ Route24Text1:
 	call PrintText
 	SetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	jp TextScriptEnd
+.weWannaJoin ; beginning of ROCKET PATH!
+	SetEvent EVENT_ROCKET_PATH
+	ld hl, Route24Text_GreatWelcome
+	call PrintText
+	; TBE: get off bike, fade out, event music: may need a script
+	jp TextScriptEnd
 
 Route24Text_CongratsBeat5Trainers:
 	text_far _Route24Text_CongratsBeat5Trainers
@@ -168,8 +188,20 @@ Route24Text_NoRoom:
 	text_far _Route24Text_NoRoom
 	text_end
 
-Route24Text_WannaJoinOffer:
-	text_far _Route24Text_WannaJoinOffer
+Route24Text_WannaJoinOffer1:
+	text_far _Route24Text_WannaJoinOffer1
+	text_end
+
+Route24Text_WannaJoinOffer2:
+	text_far _Route24Text_WannaJoinOffer2
+	text_end
+
+Route24Text_WannaJoinOffer3:
+	text_far _Route24Text_WannaJoinOffer3
+	text_end
+
+Route24Text_GreatWelcome: ; new
+	text_far _Route24Text_GreatWelcome
 	text_end
 
 Route24Text_PostVictoryDialogue:
