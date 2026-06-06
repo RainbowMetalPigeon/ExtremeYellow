@@ -109,6 +109,9 @@ Route24TrainerHeader5:
 
 Route24Text1: ; edited
 	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, Route24Text_HowDoYouFeel
+	jp nz, .printAndEnd
 	ResetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	CheckEvent EVENT_GOT_NUGGET
 	jr z, .notGotNugget
@@ -161,15 +164,21 @@ Route24Text1: ; edited
 	call PrintText
 	jp TextScriptEnd
 .bag_full
-	ld hl, Route24Text_NoRoom
-	call PrintText
 	SetEvent EVENT_NUGGET_REWARD_AVAILABLE
+	ld hl, Route24Text_NoRoom
+.printAndEnd
+	call PrintText
 	jp TextScriptEnd
 .weWannaJoin ; beginning of ROCKET PATH!
 	SetEvent EVENT_ROCKET_PATH
+
+	; TBE: get off bike, fade out, event music: may need a script
+	xor a
+	ld [wPikachuHappiness], a
+	ld [wPikachuMood], a
+
 	ld hl, Route24Text_GreatWelcome
 	call PrintText
-	; TBE: get off bike, fade out, event music: may need a script
 	jp TextScriptEnd
 
 Route24Text_CongratsBeat5Trainers:
@@ -202,6 +211,10 @@ Route24Text_WannaJoinOffer3:
 
 Route24Text_GreatWelcome: ; new
 	text_far _Route24Text_GreatWelcome
+	text_end
+
+Route24Text_HowDoYouFeel: ; new
+	text_far _Route24Text_HowDoYouFeel
 	text_end
 
 Route24Text_PostVictoryDialogue:

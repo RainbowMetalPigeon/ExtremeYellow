@@ -1,4 +1,8 @@
 ModifyPikachuHappiness::
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+; BTV
 	ld a, d
 	cp PIKAHAPPY_GYMLEADER
 	jr z, .checkanywhereinparty
