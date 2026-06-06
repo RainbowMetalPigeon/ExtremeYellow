@@ -1234,8 +1234,11 @@ ItemUseBicycle:
 	call PlayDefaultMusic ; play walking music
 	ld hl, GotOffBicycleText
 	jp PrintText
-
 .tryToGetOnBike
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, NotARocketThing
+; BTV
 	call IsBikeRidingAllowed
 	jp nc, NoCyclingAllowedHere
 	call ItemUseReloadOverworldData
@@ -3149,8 +3152,14 @@ FishingInit:
 	jr z, .notInBattle
 	scf ; can't fish during battle
 	ret
-
 .notInBattle
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	scf ; can't fish during battle
+	ret
+.notRP
+; BTV
 	call IsNextTileShoreOrWater
 	jr nc, .cannotFish
 	ld a, [wWalkBikeSurfState]
@@ -3169,7 +3178,6 @@ FishingInit:
 	call DelayFrames
 	and a
 	ret
-
 .cannotFish
 	scf ; can't fish when surfing
 	ret
@@ -3612,8 +3620,13 @@ ItemUseNoEffect:
 	ld hl, ItemUseNoEffectText
 	jr ItemUseFailed
 
-ItemUseNotTime:
+ItemUseNotTime: ; edited
+	CheckEvent EVENT_ROCKET_PATH
 	ld hl, ItemUseNotTimeText
+	jr z, ItemUseFailed
+	; fallthrough
+NotARocketThing: ; new
+	ld hl, NotARocketThingText
 	jr ItemUseFailed
 
 ItemUseNotYoursToUse:
@@ -3670,6 +3683,10 @@ ItemUseFailed:
 
 ItemUseNotTimeText:
 	text_far _ItemUseNotTimeText
+	text_end
+
+NotARocketThingText: ; new
+	text_far _NotARocketThingText
 	text_end
 
 ItemUseNotYoursToUseText:
