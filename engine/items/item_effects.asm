@@ -1099,8 +1099,11 @@ ItemUseBall:
 .skipShowingPokedexData
 	ld a, $1
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .noMoodModifier ; new
 	ld a, $85
 	ld [wPikachuMood], a
+.noMoodModifier ; new
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH ; is party full?
 	jr z, .sendToBox
@@ -1373,6 +1376,8 @@ ItemUseEvoStone:
 	call PrintText
 	ld a, $4
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .canceledItemUse ; new
 	ld a, $82
 	ld [wPikachuMood], a
 	jr .canceledItemUse
@@ -3561,6 +3566,8 @@ ItemUseTMHM:
 .teachingThunderboltOrThunderToPlayerPikachu
 	ld a, $5
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .notTeachingThunderboltOrThunderToPikachu ; new
 	ld a, $85
 	ld [wPikachuMood], a
 .notTeachingThunderboltOrThunderToPikachu

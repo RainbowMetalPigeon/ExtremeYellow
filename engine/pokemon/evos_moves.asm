@@ -479,6 +479,8 @@ LearnMoveFromLevelUp:
 .foundThunderOrThunderbolt
 	ld a, $5
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .done ; new
 	ld a, $85
 	ld [wPikachuMood], a
 .done
