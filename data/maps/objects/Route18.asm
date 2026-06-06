@@ -12,8 +12,8 @@ Route18_Object:
 	bg_event 33,  5, 5 ; Route18Text5
 
 	def_object_events
-	object_event 36, 11, SPRITE_COOLTRAINER_M, STAY, RIGHT, 1, OPP_BIRD_KEEPER, 8
-	object_event 40, 15, SPRITE_COOLTRAINER_M, STAY, LEFT, 2, OPP_BIRD_KEEPER, 9
-	object_event 42, 13, SPRITE_COOLTRAINER_M, STAY, LEFT, 3, OPP_BIRD_KEEPER, 10
+	object_event 36, 11, SPRITE_GAMBLER, STAY, RIGHT, 1, OPP_BIRD_KEEPER, 8 ; edited, was SPRITE_COOLTRAINER_M, but no space in the spriteset
+	object_event 40, 15, SPRITE_GAMBLER, STAY, LEFT, 2, OPP_BIRD_KEEPER, 9 ; edited, was SPRITE_COOLTRAINER_M, but no space in the spriteset
+	object_event 42, 13, SPRITE_GAMBLER, STAY, LEFT, 3, OPP_BIRD_KEEPER, 10 ; edited, was SPRITE_COOLTRAINER_M, but no space in the spriteset
 
 	def_warps_to ROUTE_18
