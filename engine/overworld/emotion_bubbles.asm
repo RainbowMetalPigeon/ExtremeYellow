@@ -83,6 +83,9 @@ SadEmote:     INCBIN "gfx/emotes/sad.2bpp" ; new
 ; new ==================================================================
 
 BirbEmotionBubble::
+	ld de, BoltEmote
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .gotEmote
 	ld de, SadEmote
 	CheckEvent EVENT_OBTAINED_SEEDS_BAG
 	jr z, .gotEmote
