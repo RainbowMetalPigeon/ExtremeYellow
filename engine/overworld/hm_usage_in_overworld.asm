@@ -23,11 +23,11 @@ CheckIfCanSurfOrCutFromOverworld::
     cp PLATEAU
     jr z, .kantoTileCheck
     cp ISLAND
-    jr nz, .checkIfAreaDark
+    jp nz, .checkIfAreaDark
 .kantoTileCheck
     ld a, [wTileInFrontOfPlayer]
     cp $76
-    jr nz, .checkIfAreaDark
+    jp nz, .checkIfAreaDark
     jr .doBirbStuff
 
 .seviiCheck
@@ -42,7 +42,8 @@ CheckIfCanSurfOrCutFromOverworld::
     jr nz, .checkIfAreaDark
 ; birb in front of us
 .doBirbStuff
-; TBE: conditional if we are rocket
+    CheckEvent EVENT_ROCKET_PATH
+    jr nz, .rocketPath
 	CheckEvent EVENT_OBTAINED_SEEDS_BAG
 	jr nz, .weHaveSeedsBag
 ; no seeds, can't feed the birbs, everyone is sad
@@ -69,8 +70,18 @@ CheckIfCanSurfOrCutFromOverworld::
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
     call AnimateBirbTile_Resting_Wrapper
-	callfar MarkBirbAsFed
-    ret ; TBE
+	jpfar MarkBirbAsFed
+.rocketPath
+    call EnableAutoTextBoxDrawing
+    tx_pre PlayerKicksTheBirbText
+    ld a, SFX_DENIED
+    call PlaySound
+    callfar BirbEmotionBubble
+	ld a, 0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, SKULL_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef_jump EmotionBubble
 
 .checkIfAreaDark
 ; check if area is dark
