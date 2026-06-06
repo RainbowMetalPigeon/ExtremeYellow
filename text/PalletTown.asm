@@ -273,10 +273,9 @@ _DarkGuideHints_Hint3_Solution::
 	cont "to them, to"
 	cont "challenge you to"
 	cont "INVERSE BATTLEs."
-	cont "When all of the"
-	cont "GYM LEADERs are"
-	cont "beaten, PROF.OAK"
-	cont "too will appear."
+	cont "When all of them"
+	cont "are beaten, PROF."
+	cont "OAK will appear."
 ;	xxxx "123456789012345678"
 
 	para "The locations are"
@@ -302,6 +301,9 @@ _DarkGuideHints_Hint3_Solution::
 
 	para "BLAINE:"
 	line "#MON MANSION"
+
+	para "ORAGE:"
+	line "OBSIDIAN WOOD"
 
 	para "LORELEI:"
 	line "SEAFOAM ISLANDS"
