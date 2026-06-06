@@ -2329,6 +2329,8 @@ ItemUseMedicine:
 ; new to check if we have a cap in place
 	push de
 	push hl
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jr nz, .noLevelCap ; if we beat the League, it's as if we have no Level Cap in place
 	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
 	cp 4
 	jr z, .noLevelCap
