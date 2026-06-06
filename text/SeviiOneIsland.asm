@@ -1212,6 +1212,6 @@ _SeviiRoute32DiveAfterBattleText3::
 	text "Glublub gblu?"
 
 	para "(Where's your"
-	cont "diving equipment?)"
+	line "diving equipment?)"
 ;	xxxx "123456789012345678"
 	done
