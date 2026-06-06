@@ -1622,3 +1622,9 @@ CheckIfInOutsideLookingMap::
 	ret z
 	cp SEVII_TANOBY_GARDEN
 	ret
+
+; shows the town map and lets the player choose a destination to fly to
+ChooseFlyDestination: ; moved from home
+	ld hl, wd72e
+	res 4, [hl]
+	farjp LoadTownMap_Fly

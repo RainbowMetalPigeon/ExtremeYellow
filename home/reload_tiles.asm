@@ -25,9 +25,3 @@ ReloadTilesetTilePatterns::
 	pop af
 	call BankswitchCommon
 	ret
-
-; shows the town map and lets the player choose a destination to fly to
-ChooseFlyDestination::
-	ld hl, wd72e
-	res 4, [hl]
-	farjp LoadTownMap_Fly
