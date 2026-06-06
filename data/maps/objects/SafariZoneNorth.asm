@@ -26,6 +26,6 @@ SafariZoneNorth_Object:
 	object_event 25,  1, SPRITE_POKE_BALL, STAY, NONE, 2, PROTEIN
 	object_event 19,  7, SPRITE_POKE_BALL, STAY, NONE, 3, TM_OUTRAGE
 	object_event 18,  1, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, 4 ; new
-	object_event 19,  2, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, 5 ; new
+	object_event 19,  1, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, 5 ; new
 
 	def_warps_to SAFARI_ZONE_NORTH
