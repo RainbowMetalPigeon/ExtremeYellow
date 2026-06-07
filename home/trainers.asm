@@ -128,6 +128,12 @@ TalkToTrainer::
 	jr .rematchTheTrainer
 .trainerAlreadyFoughtAndNotGonnaRefight
 ; --- end new block to reactivate trainers ---
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRocketPath_AfterBattle
+	jpfar PrintAfterBattleText_RocketPath
+.notRocketPath_AfterBattle
+; BTV
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
 	jp PrintText
@@ -382,9 +388,7 @@ SaveEndBattleTextPointers::
 	ld [wEndBattleLoseTextPointer + 1], a
 	ret
 
-; loads data of some trainer on the current map and plays pre-battle music
-; [wSpriteIndex]: sprite ID of trainer who is engaged
-EngageMapTrainer::
+EngageMapTrainer_Internal_FindTrainerClass:: ; new
 	ld hl, wMapSpriteExtraData
 	ld d, $0
 	ld a, [wSpriteIndex]
@@ -394,6 +398,12 @@ EngageMapTrainer::
 	add hl, de     ; seek to engaged trainer data
 	ld a, [hli]    ; load trainer class
 	ld [wEngagedTrainerClass], a
+	ret
+
+; loads data of some trainer on the current map and plays pre-battle music
+; [wSpriteIndex]: sprite ID of trainer who is engaged
+EngageMapTrainer::
+	call EngageMapTrainer_Internal_FindTrainerClass ; new
 	ld a, [hl]     ; load trainer mon set
 	bit 7, a						; new, to go beyond 200
 	jr nz, .pokemon					; new, to go beyond 200
@@ -505,4 +515,3 @@ EndBattleText_RocketPath_Victory_VsRocket: ; new
 EndBattleText_RocketPath_Defeat: ; new
 	text_far _EndBattleText_RocketPath_Defeat
 	text_end
-
