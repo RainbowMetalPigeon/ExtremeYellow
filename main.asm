@@ -131,6 +131,8 @@ INCLUDE "engine/overworld/emotion_bubbles.asm" ; from bank10
 INCLUDE "engine/miscellanea/delta_species.asm" ; new
 INCLUDE "engine/miscellanea/menus.asm" ; new
 INCLUDE "data/types/type_matchups.asm" ; moved out of battle/core.asm
+INCLUDE "engine/miscellanea/trainers.asm" ; new
+
 
 SECTION "bank4", ROMX
 
