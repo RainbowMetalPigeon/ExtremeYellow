@@ -318,6 +318,10 @@ SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that beca
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 
 
+SECTION "Text Rocket Path 1", ROMX ; new
+INCLUDE "data/text/text_rocket_path_1.asm"
+
+
 ; new: splitted the Pokédex text into two separate sections
 ;SECTION "Pokédex Text", ROMX
 ;INCLUDE "data/pokemon/dex_text.asm"
