@@ -142,9 +142,17 @@ TalkToTrainer::
 	ResetEvent EVENT_REMATCHING_TRAINER
 .rematchTheTrainer
 ; --- end second new block to reactivate trainers ---
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRocketPath_BeforeBattle
+	callfar PrintBeforeBattleText_RocketPath
+	jr .postBeforeBattleText
+.notRocketPath_BeforeBattle
+; BTV
 	ld a, $4
 	call ReadTrainerHeaderInfo     ; print before battle text
 	call PrintText
+.postBeforeBattleText
 	ld a, $a
 	call ReadTrainerHeaderInfo     ; (?) does nothing apparently (maybe bug in ReadTrainerHeaderInfo)
 	push de

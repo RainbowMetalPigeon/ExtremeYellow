@@ -46,6 +46,8 @@ PlayTrainerMusic::
 
 INCLUDE "data/trainers/encounter_types.asm"
 
+; ----------------------------------------
+
 PrintAfterBattleText_RocketPath::
 	callfar EngageMapTrainer_Internal_FindTrainerClass
 	ld a, [wEngagedTrainerClass]
@@ -61,4 +63,23 @@ AfterBattleText_RocketPath_VsRocket: ; new
 
 AfterBattleText_RocketPath_VsNotRocket: ; new
 	text_far _AfterBattleText_RocketPath_VsNotRocket
+	text_end
+
+; ----------------------------------------
+
+PrintBeforeBattleText_RocketPath::
+	callfar EngageMapTrainer_Internal_FindTrainerClass
+	ld a, [wEngagedTrainerClass]
+	ld hl, BeforeBattleText_RocketPath_VsRocket
+	cp OPP_ROCKET
+	jp z, PrintText
+	ld hl, BeforeBattleText_RocketPath_VsNotRocket
+	jp PrintText
+
+BeforeBattleText_RocketPath_VsRocket: ; new
+	text_far _BeforeBattleText_RocketPath_VsRocket
+	text_end
+
+BeforeBattleText_RocketPath_VsNotRocket: ; new
+	text_far _BeforeBattleText_RocketPath_VsNotRocket
 	text_end
