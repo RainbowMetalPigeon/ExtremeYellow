@@ -161,14 +161,16 @@ _NurseChanseyText::
 	line "sey!"
 	done
 
-_GymLeaderPostRematchText:: ; new
+; new =======================================
+
+_GymLeaderPostRematchText::
 	text "Now that you're"
 	line "CHAMPION, we can"
 	cont "battle again any"
 	cont "time you want!"
 	done
 
-_RockSmashedText:: ; new for Rock Smash
+_RockSmashedText::
 	text "<PLAYER>'s #MON"
 	line "smashes the rock!"
 	done
@@ -182,4 +184,24 @@ _APokemonCouldSmashThisText::
 	text "A #MON could"
 	line "SMASH this rock!"
 	done
-	
+
+_EndBattleText_RocketPath_Victory::
+	text "Tsk."
+	line "Are you satisfied"
+	cont "now, or what?"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Victory_VsRocket::
+	text "It seems"
+	line "we did well in"
+	cont "recruiting you!"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Defeat::
+	text "Ah!"
+	line "Good riddance,"
+	cont "you ROCKET scum!"
+;	xxxx "123456789012345678"
+	prompt

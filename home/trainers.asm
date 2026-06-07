@@ -400,7 +400,7 @@ EngageMapTrainer::
 	ld [wEngagedTrainerSet], a		; new, to go beyond 200
 	ld a, 1							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
-	jp PlayTrainerMusic				; new, to go beyond 200
+	jpfar PlayTrainerMusic			; new, to go beyond 200
 .pokemon							; new, to go beyond 200
 	and $7F							; new, to go beyond 200
 	ld [wEngagedTrainerSet], a
@@ -408,7 +408,7 @@ EngageMapTrainer::
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	SetEvent EVENT_CHECK_SHINY_FOR_TRADING_STATIC_SMASH ; new
 	callfar RollForShiny            ; new, for the shiny
-	jp PlayTrainerMusic
+	jpfar PlayTrainerMusic
 
 PrintEndBattleText::
 ; edited, to handle surrender from a trainer
@@ -451,10 +451,29 @@ PrintEndBattleText::
 	jp WaitForSoundToFinish
 
 GetSavedEndBattleTextPointer::
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRocketPath
+; RP
 	ld a, [wBattleResult]
 	and a
+	jr nz, .lostBattleRP
 ; won battle
+	ld a, [wCurOpponent]
+	ld hl, EndBattleText_RocketPath_Victory_VsRocket
+	cp OPP_ROCKET
+	ret z
+	ld hl, EndBattleText_RocketPath_Victory
+	ret
+.lostBattleRP
+	ld hl, EndBattleText_RocketPath_Defeat
+	ret
+.notRocketPath
+; BTV
+	ld a, [wBattleResult]
+	and a
 	jr nz, .lostBattle
+; won battle
 	ld a, [wEndBattleWinTextPointer]
 	ld h, a
 	ld a, [wEndBattleWinTextPointer + 1]
@@ -475,48 +494,15 @@ TrainerEndBattleTextNameless:: ; new
 	call TextCommandProcessor
 	jp TextScriptEnd
 
-PlayTrainerMusic::
-	ld a, [wEngagedTrainerClass]
-	cp OPP_RIVAL1
-	ret z
-	cp OPP_RIVAL2
-	ret z
-	cp OPP_RIVAL3
-	ret z
-	ld a, [wGymLeaderNo]
-	and a
-	ret nz
-	xor a
-	ld [wAudioFadeOutControl], a
-	call StopAllMusic
-	ld a, BANK(Music_MeetEvilTrainer)
-	ld [wAudioROMBank], a
-	ld [wAudioSavedROMBank], a
-	ld a, [wEngagedTrainerClass]
-	ld b, a
-	ld hl, EvilTrainerList
-.evilTrainerListLoop
-	ld a, [hli]
-	cp $ff
-	jr z, .noEvilTrainer
-	cp b
-	jr nz, .evilTrainerListLoop
-	ld a, MUSIC_MEET_EVIL_TRAINER
-	jr .PlaySound
-.noEvilTrainer
-	ld hl, FemaleTrainerList
-.femaleTrainerListLoop
-	ld a, [hli]
-	cp $ff
-	jr z, .maleTrainer
-	cp b
-	jr nz, .femaleTrainerListLoop
-	ld a, MUSIC_MEET_FEMALE_TRAINER
-	jr .PlaySound
-.maleTrainer
-	ld a, MUSIC_MEET_MALE_TRAINER
-.PlaySound
-	ld [wNewSoundID], a
-	jp PlaySound
+EndBattleText_RocketPath_Victory: ; new
+	text_far _EndBattleText_RocketPath_Victory
+	text_end
 
-INCLUDE "data/trainers/encounter_types.asm"
+EndBattleText_RocketPath_Victory_VsRocket: ; new
+	text_far _EndBattleText_RocketPath_Victory_VsRocket
+	text_end
+
+EndBattleText_RocketPath_Defeat: ; new
+	text_far _EndBattleText_RocketPath_Defeat
+	text_end
+
