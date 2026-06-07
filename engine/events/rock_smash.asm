@@ -246,7 +246,7 @@ HandleSpecialExceptionsForAlteringCave:
 	ret nz
 ;altering2
 	ld a, [wMultipurposeBuffer]
-	cp $91
+	cp HS_SEVII_ALTERING_CAVE_2_ROCK_1
 	ret nz
 	ld a, HS_SEVII_ALTERING_CAVE_ROCK_2
 	ld [wMissableObjectIndex], a
@@ -257,7 +257,7 @@ HandleSpecialExceptionsForAlteringCave:
 	ret
 .altering1
 	ld a, [wMultipurposeBuffer]
-	cp $89
+	cp HS_SEVII_ALTERING_CAVE_ROCK_1
 	ret nz
 	ld a, HS_SEVII_ALTERING_CAVE_3_ROCK_1
 	ld [wMissableObjectIndex], a
