@@ -219,3 +219,18 @@ _AfterBattleText_RocketPath_VsNotRocket::
 	cont "want from me?!"
 ;	xxxx "123456789012345678"
 	done
+
+_BeforeBattleText_RocketPath_VsRocket::
+	text "Oh, the rookie I"
+	line "heard of! Do you"
+	cont "want to train?"
+	cont "Fine for me!"
+;	xxxx "123456789012345678"
+	done
+
+_BeforeBattleText_RocketPath_VsNotRocket::
+	text "Ugh! What do you"
+	line "want from me, you"
+	cont "ROCKET scum?!"
+;	xxxx "123456789012345678"
+	done
