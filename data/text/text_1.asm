@@ -205,3 +205,17 @@ _EndBattleText_RocketPath_Defeat::
 	cont "you ROCKET scum!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_AfterBattleText_RocketPath_VsRocket::
+	text "You're really cut"
+	line "for this job, kid!"
+;	xxxx "123456789012345678"
+	done
+
+_AfterBattleText_RocketPath_VsNotRocket::
+	text "You beat me, you"
+	line "got my money,"
+	cont "what else do you"
+	cont "want from me?!"
+;	xxxx "123456789012345678"
+	done
