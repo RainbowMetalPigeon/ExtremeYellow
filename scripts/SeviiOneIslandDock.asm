@@ -154,9 +154,14 @@ SeviiOneIslandDockSpriteText1:
 	CheckEvent EVENT_SEVII_ONE_ISLAND_CELIO_JENNY_DIALOGUE
 	jr nz, .normalDialogue
 	ld hl, SeviiOneIslandDockSailorText_NeedAMoment
-	jr .doNotHaveTicket
+	jr .printAndEnd
 .normalDialogue
 ; print intro
+	ld hl, SeviiOneIslandDockSailorText_PleaseGetOnThePier
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr nz, .printAndEnd
+; right direction
 	ld hl, SeviiOneIslandDockSailorText_Intro
 	call PrintText
 ; print the list of destinations
@@ -197,7 +202,7 @@ SeviiOneIslandDockSpriteText1:
 	xor a
 	ld [wListScrollOffset], a
 	ld hl, SeviiOneIslandDockSailorText_Canceled
-.doNotHaveTicket
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
@@ -279,4 +284,8 @@ SeviiIslandsDockTruckMessage_One:
 
 SeviiOneIslandDockBgText1:
 	text_far _SeviiOneIslandDockBgText1
+	text_end
+
+SeviiOneIslandDockSailorText_PleaseGetOnThePier:
+	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier
 	text_end

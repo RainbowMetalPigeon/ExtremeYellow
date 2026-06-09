@@ -9,6 +9,14 @@ _SeviiIslandsDockEmptykMessage::
 	text " "
 	done
 
+_SeviiIslandsDockSailorText_PleaseGetOnThePier::
+	text "If you want to"
+	line "board the ferry,"
+	cont "please get on"
+	cont "the pier first."
+;	xxxx "123456789012345678"
+	done
+
 _SeviiIslandsDockSailorText1::
 _SeviiIslandsDockSailorText_Intro::
 	text "Welcome! Where do"
