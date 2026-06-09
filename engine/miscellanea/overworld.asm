@@ -972,7 +972,7 @@ PrintDayNightStatus::
 	ld a, [wDayNightCycle]
 	and %11111110
 	srl a
-	ld de, wUniQuizAnswer
+	ld de, wHPBarTempHP
 	ld [de], a
 	hlcoord 2, 1
 	lb bc, 1, 2
