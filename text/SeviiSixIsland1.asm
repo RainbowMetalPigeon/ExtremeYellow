@@ -1712,7 +1712,7 @@ _SeviiRoute39AfterBattleText3::
 	text "You came all the"
 	line "way from KANTO?"
 	cont "That's cool! How's"
-	line "the sea there?"
+	cont "the sea there?"
 ;	xxxx "123456789012345678"
 	done
 
