@@ -706,10 +706,28 @@ StartMenu_TrainerInfo::
 
 ; loads tile patterns and draws everything except for gym leader faces / badges
 DrawTrainerInfo:
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; yes RP
+	ld de, RedRocketPicFront
+	lb bc, BANK(RedRocketPicFront), $01
+	ld a, [wPlayerGender]
+	and a
+	jr z, .ContinueWithLoading
+	cp a, 2
+	jr z, .AreEnbyRP
+	ld de, GreenRocketPicFront
+	lb bc, BANK(GreenRocketPicFront), $01
+	jr .ContinueWithLoading
+.AreEnbyRP
+	ld de, YellowRocketPicFront
+	lb bc, BANK(YellowRocketPicFront), $01
+	jr .ContinueWithLoading
+.notRP
+; BTV
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $01
-;	predef DisplayPicCenteredOrUpperRight
-
 	ld a, [wPlayerGender]
 	and a
 	jr z, .ContinueWithLoading
