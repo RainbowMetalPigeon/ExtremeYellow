@@ -18,3 +18,18 @@ MACRO dict
 	ENDC
 	jp z, \2
 ENDM
+
+; new =====================================
+
+MACRO RPTextChooser
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, \2
+	jr nz, .pointersFound
+	ld hl, \1
+.pointersFound
+	ld a, l
+	ld [wMapTextPtr], a
+	ld a, h
+	ld [wMapTextPtr+1], a
+	ret
+ENDM
