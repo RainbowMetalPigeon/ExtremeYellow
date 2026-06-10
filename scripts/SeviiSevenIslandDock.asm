@@ -146,6 +146,11 @@ SeviiSevenIslandDock_TextPointers:
 SeviiSevenIslandDockSpriteText1:
 	text_asm
 ; print intro
+	ld hl, SeviiSevenIslandDockSailorText_PleaseGetOnThePier
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr nz, .printAndEnd
+; right direction
 	ld hl, SeviiSevenIslandDockSailorText_Intro
 	call PrintText
 ; print the list of destinations
@@ -179,7 +184,7 @@ SeviiSevenIslandDockSpriteText1:
 	xor a
 	ld [wListScrollOffset], a
 	ld hl, SeviiSevenIslandDockSailorText_Canceled
-.doNotHaveTicket
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
@@ -239,4 +244,8 @@ SeviiIslandsDockTruckMessage_Seven:
 
 SeviiSevenIslandDockBgText1:
 	text_far _SeviiSevenIslandDockBgText1
+	text_end
+
+SeviiSevenIslandDockSailorText_PleaseGetOnThePier:
+	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier
 	text_end

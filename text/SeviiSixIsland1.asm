@@ -1242,7 +1242,7 @@ _SeviiRoute38DiveCavernAfterBattleText4::
 ; -----
 
 _SeviiRoute38DiveCavernBattleText5::
-	text "Bbbb!"
+	text "Bbbbb!"
 
 	para "(I'm the fifth of"
 	line "us DIVE SIBLINGS!)"
@@ -1258,7 +1258,7 @@ _SeviiRoute38DiveCavernEndBattleText5::
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText5::
-	text "Llll!"
+	text "Lllll!"
 
 	para "(Our cousins live"
 	line "in QUEST.)"
@@ -1339,7 +1339,7 @@ _SeviiRoute38DiveCavernEndBattleText8::
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText8::
-	text "Lllllll!"
+	text "Llllllll!"
 
 	para "(We love our"
 	line "OXYGEN TANKs."
@@ -1395,7 +1395,7 @@ _SeviiRoute38DiveCavernEndBattleText10::
 	prompt
 
 _SeviiRoute38DiveCavernAfterBattleText10::
-	text "Llllllll!"
+	text "Lllllllll!"
 
 	para "(We heard stories"
 	line "about a treasure"
@@ -1712,7 +1712,7 @@ _SeviiRoute39AfterBattleText3::
 	text "You came all the"
 	line "way from KANTO?"
 	cont "That's cool! How's"
-	line "the sea there?"
+	cont "the sea there?"
 ;	xxxx "123456789012345678"
 	done
 

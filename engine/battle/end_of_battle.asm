@@ -48,7 +48,6 @@ EndOfBattle:
 	ld d, $82
 	callfar UpdatePikachuMoodAfterBattle
 .resetVariables
-	callfar RollForShiny ; testing, for the shiny
 	ld a, [wBattleType] ; new for swap battles
 	ld [wMultipurposeTemporaryStorage2], a ; new for swap battles
 	xor a
@@ -61,6 +60,7 @@ EndOfBattle:
 	ld [wForcePlayerToChooseMon], a
 	ld [wNumRunAttempts], a
 	ld [wEscapedFromBattle], a
+	ld [wOpponentMonShiny], a ; new
 	ld hl, wPartyAndBillsPCSavedMenuItem
 	ld [hli], a
 	ld [hli], a
@@ -73,6 +73,7 @@ EndOfBattle:
 	ld [hli], a
 	dec b
 	jr nz, .loop
+	callfar RollForShiny ; new, for the shiny
 	ld hl, wd72c
 	set 0, [hl]
 	call WaitForSoundToFinish
