@@ -625,6 +625,8 @@ DrawAttackdexEntryOnScreen:
 
 ; print TM/HM number, if applicable
 	decoord 15, 7
+	ld a, [wPlayerMoveNum]
+	ld [wd11e], a
 	callfar DisplayTMItemNameFromMoveName
 
 ; prepare pointer for description printing
