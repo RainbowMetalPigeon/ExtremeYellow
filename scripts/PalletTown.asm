@@ -351,7 +351,16 @@ PalletTownText6b:
 	text_far _PalletTownText6
 	text_end
 
-PalletTownText7: ; sign by Blue's house
+PalletTownText7: ; sign by Blue's house ; edited
+	text_asm
+	ld hl, PalletTownText7b
+	call PrintText
+IF DEF(_DEBUG)
+	SetEvent EVENT_ROCKET_PATH
+ENDC
+	jp TextScriptEnd
+
+PalletTownText7b:
 	text_far _PalletTownText7
 	text_end
 

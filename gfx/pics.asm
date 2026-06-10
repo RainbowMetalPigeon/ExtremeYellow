@@ -385,6 +385,7 @@ RocketAdminFPic::  INCBIN "gfx/trainers/rocketadminf.pic"
 Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic"
 MissingNoTPic::    INCBIN "gfx/trainers/missingno.pic"
 
+
 SECTION "Pics 7", ROMX
 
 RedPicBack::       INCBIN "gfx/player/redb.pic"
