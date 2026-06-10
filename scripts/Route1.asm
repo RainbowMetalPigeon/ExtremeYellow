@@ -1,8 +1,10 @@
 Route1_Script:
-	call Route1_TextPointers_Chooser
+;	call Route1_TextPointers_Chooser
+	RPTextChooser Route1_TextPointers, Route1_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
+/*
 Route1_TextPointers_Chooser:
 	CheckEvent EVENT_ROCKET_PATH
 	ld hl, Route1_TextPointers_Rocket
@@ -14,6 +16,7 @@ Route1_TextPointers_Chooser:
 	ld a, h
 	ld [wMapTextPtr+1], a
 	ret
+*/
 
 Route1_TextPointers:
 	dw Route1Text1
