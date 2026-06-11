@@ -1,4 +1,5 @@
 AgathasRoom_Script:
+	RPTextChooser AgathasRoom_TextPointers, AgathasRoom_TextPointers_Rocket
 	call AgathaShowOrHideExitBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, AgathasRoomTrainerHeaders
@@ -125,6 +126,10 @@ AgathaScript2:
 
 AgathasRoom_TextPointers:
 	dw AgathaText1
+	dw AgathaDontRunAwayText
+
+AgathasRoom_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
 	dw AgathaDontRunAwayText
 
 AgathasRoomTrainerHeaders:
