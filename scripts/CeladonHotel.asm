@@ -1,4 +1,5 @@
 CeladonHotel_Script:
+	RPTextChooser CeladonHotel_TextPointers, CeladonHotel_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 CeladonHotel_TextPointers:
@@ -7,6 +8,13 @@ CeladonHotel_TextPointers:
 	dw CeladonHotelText3
 	dw CeladonHotelText4 ; new, blocking guard
 	dw CeladonHotelText5 ; new, allowing guard
+
+CeladonHotel_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE?
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 CeladonHotelText1: ; edited
 	text_asm

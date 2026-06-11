@@ -1,4 +1,5 @@
 CeladonHotelRooms_Script:
+	RPTextChooser CeladonHotelRooms_TextPointers, CeladonHotelRooms_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -126,6 +127,25 @@ CeladonHotelRoomsSpawns:
 CeladonHotelRooms_TextPointers:
 	dw CeladonHotelRoomsText1 ; Looker (Bellocchio)
 	dw CeladonHotelRoomsText2 ; Traveler (not yet used)
+	dw CeladonHotelRoomsText3 ; Trophy 1
+	dw CeladonHotelRoomsText4 ; Trophy 2
+	dw CeladonHotelRoomsText5 ; Trophy 3, Pokedex
+	dw CeladonHotelRoomsText6 ; Trophy 4
+	dw CeladonHotelRoomsText7 ; Trophy 5, Mega Stones
+	dw CeladonHotelRoomsText8 ; Trophy 6
+	; signs
+	dw CeladonHotelRoomsSign1
+	dw CeladonHotelRoomsSign2
+	dw CeladonHotelRoomsSign3
+	dw CeladonHotelRoomsSign4
+	dw CeladonHotelRoomsSign5
+	dw CeladonHotelRoomsSign6
+	dw CeladonHotelRoomsSign7
+	dw CeladonHotelRoomsSign8
+
+CeladonHotelRooms_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; Looker (Bellocchio) TBE?
+	dw GenericNPCText_RocketPath ; Traveler (not yet used)
 	dw CeladonHotelRoomsText3 ; Trophy 1
 	dw CeladonHotelRoomsText4 ; Trophy 2
 	dw CeladonHotelRoomsText5 ; Trophy 3, Pokedex

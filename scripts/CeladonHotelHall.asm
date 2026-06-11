@@ -1,4 +1,5 @@
 CeladonHotelHall_Script:
+	RPTextChooser CeladonHotelHall_TextPointers, CeladonHotelHall_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonHotelHallTrainerHeaders
 	ld de, CeladonHotelHall_ScriptPointers
@@ -19,6 +20,24 @@ CeladonHotelHall_TextPointers:
 	dw CeladonHotelHallText3 ; trainer
 	dw CeladonHotelHallText4 ; trainer
 	dw CeladonHotelHallText5 ; boss
+	; signs hotel
+	dw CeladonHotelHallSign1
+	dw CeladonHotelHallSign2
+	dw CeladonHotelHallSign3
+	dw CeladonHotelHallSign4
+	dw CeladonHotelHallSign5
+	; signs repair shop
+	dw CeladonHotelHallSign6
+	dw CeladonHotelHallSign7
+	dw CeladonHotelHallSign8
+
+CeladonHotelHall_TextPointers_Rocket:
+	; NPCs repair shop
+	dw CeladonHotelHallText1 ; trainer
+	dw CeladonHotelHallText2 ; trainer
+	dw CeladonHotelHallText3 ; trainer
+	dw CeladonHotelHallText4 ; trainer
+	dw GenericNPCText_RocketPath ; boss TBE?
 	; signs hotel
 	dw CeladonHotelHallSign1
 	dw CeladonHotelHallSign2
