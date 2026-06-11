@@ -1,22 +1,7 @@
 Route1_Script:
-;	call Route1_TextPointers_Chooser
 	RPTextChooser Route1_TextPointers, Route1_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
-
-/*
-Route1_TextPointers_Chooser:
-	CheckEvent EVENT_ROCKET_PATH
-	ld hl, Route1_TextPointers_Rocket
-	jr nz, .pointersFound
-	ld hl, Route1_TextPointers
-.pointersFound
-	ld a, l
-	ld [wMapTextPtr], a
-	ld a, h
-	ld [wMapTextPtr+1], a
-	ret
-*/
 
 Route1_TextPointers:
 	dw Route1Text1
