@@ -1,4 +1,5 @@
 CeladonCity_Script:
+	RPTextChooser CeladonCity_TextPointers, CeladonCity_TextPointers_Rocket
 ; new, to open path to Lunar Temple after its events
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
@@ -82,6 +83,35 @@ CeladonCity_TextPointers:
 	dw CeladonCityTextUniQuizQuestion3 ; 30
 	dw CeladonCityTextUniQuizWrong ; 31
 	dw CeladonCityTextUniQuizCorrect ; 32
+
+CeladonCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CeladonCityText7 ; monster
+	dw RocketNPCText_RocketPath ; Rocket
+	dw RocketNPCText_RocketPath ; Rocket
+	dw CeladonCityText10New ; Rocket guards TBE
+	dw CeladonCityText11New ; Rocket guards TBE
+	dw TextPreBattle_CeladonTraveler ; new, for traveler
+	dw PickUpItemText ; new, Rare Candy for Lunar Shrine teasing
+	; signs
+	dw CeladonCityText10
+	dw CeladonCityText11
+	dw PokeCenterSignText
+	dw CeladonCityText13
+	dw CeladonCityText14
+	dw CeladonCityText15
+	dw CeladonCityText16
+	dw CeladonCityText17
+	dw CeladonCityText18
+	dw CeladonCityText19 ; new
+	dw CeladonCityText20 ; new
+	dw CeladonCityText21 ; new
+	dw CeladonCityText22 ; new
 
 CeladonCityText10New:
 	text_far _CeladonCityText10New

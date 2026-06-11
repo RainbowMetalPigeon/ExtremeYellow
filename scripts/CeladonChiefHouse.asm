@@ -582,8 +582,8 @@ CeladonChiefHouse_TextPointers:
 
 CeladonChiefHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath ; TBE!
-	dw GenericNPCText_RocketPath ; TBE!
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
 	; Shrine
 	dw GenericNPCText_RocketPath ; TBE
 	dw GenericNPCText_RocketPath

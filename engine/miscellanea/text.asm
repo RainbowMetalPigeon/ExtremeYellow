@@ -20,3 +20,29 @@ GenericNPCText_RocketPath_1:
 GenericNPCText_RocketPath_2:
 	text_far _GenericNPCText_RocketPath_2
 	text_end
+
+
+; ===============================================
+
+RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections to be adapted
+	call EnableAutoTextBoxDrawing
+
+	call Random
+	and %00000001
+
+	ld hl, RocketNPCText_RocketPath_1
+	jr nz, .printAndEnd
+
+	ld hl, RocketNPCText_RocketPath_2
+
+.printAndEnd
+	call PrintText
+	ret
+
+RocketNPCText_RocketPath_1:
+	text_far _RocketNPCText_RocketPath_1
+	text_end
+
+RocketNPCText_RocketPath_2:
+	text_far _RocketNPCText_RocketPath_2
+	text_end

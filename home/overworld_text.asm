@@ -65,8 +65,13 @@ RockSmashText:: ; new
 	text_asm
 	callfar RockSmash
 	jp TextScriptEnd
-	
+
 GenericNPCText_RocketPath:: ; new
 	text_asm
 	callfar RandomizeGenericNPCText_RocketPath ; text pointer in hl
+	jp TextScriptEnd
+
+RocketNPCText_RocketPath:: ; new
+	text_asm
+	callfar RandomizeRocketNPCText_RocketPath ; text pointer in hl
 	jp TextScriptEnd

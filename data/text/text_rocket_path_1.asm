@@ -69,6 +69,23 @@ _GenericNPCText_RocketPath_2::
 
 ; -------------
 
+_RocketNPCText_RocketPath_1::
+	text "Don't forget your"
+	line "place, rookie!"
+;	xxxx "123456789012345678"
+	done
+
+_RocketNPCText_RocketPath_2::
+	text "Ah! The rookie!"
+	line "How do you like"
+	cont "your ROCKET life?"
+;	xxxx "123456789012345678"
+	done
+
+; ROOKIET
+
+; -------------
+
 _ProxyText::
 	text ""
 ;	xxxx "123456789012345678"
