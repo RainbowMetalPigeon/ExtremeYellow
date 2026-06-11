@@ -1,4 +1,5 @@
 CeladonDiner_Script:
+	RPTextChooser CeladonDiner_TextPointers, CeladonDiner_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -8,6 +9,13 @@ CeladonDiner_TextPointers:
 	dw CeladonDinerText3
 	dw CeladonDinerText4
 	dw CeladonDinerText5
+
+CeladonDiner_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 CeladonDinerText1: ; edited
 	text_asm

@@ -1,4 +1,5 @@
 CeladonGym_Script:
+	RPTextChooser CeladonGym_TextPointers, CeladonGym_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
 	res 6, [hl]
@@ -112,10 +113,23 @@ CeladonGym_TextPointers:
 	dw CeladonGymTrainerText7
 	dw CeladonGymTrainerText8 ; 9
 	dw CeladonGymGuideText ; 10, new
+	; scripts
 	dw ErikaRainbowBadgeInfoText ; $b=11
 	dw ReceivedTM21Text ; $c=12
 	dw TM21NoRoomText ; $d=13
 	dw ErikaPostRematchText; new, $e=14
+
+CeladonGym_TextPointers_Rocket:
+	dw ErikaText ; TBE
+	dw CeladonGymTrainerText1
+	dw CeladonGymTrainerText2
+	dw CeladonGymTrainerText3
+	dw CeladonGymTrainerText4
+	dw CeladonGymTrainerText5
+	dw CeladonGymTrainerText6
+	dw CeladonGymTrainerText7
+	dw CeladonGymTrainerText8 ; 9
+	dw GenericNPCText_RocketPath ; 10 TBE
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
