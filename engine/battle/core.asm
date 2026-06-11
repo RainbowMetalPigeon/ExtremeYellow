@@ -801,10 +801,14 @@ TrainerBattleVictory:
 	ret z ; does ret work?
 ; win money
 ; new, to implement Amulet Coin
+; new, double money also if we are on Rocket Path
 .giveMoney ; new
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .doubleMoney
 	ld b, AMULET_COIN
 	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr z, .noAmuletCoin
+.doubleMoney
 	ld de, wAmountMoneyWon + 2
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3
