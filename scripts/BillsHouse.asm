@@ -1,4 +1,5 @@
 BillsHouse_Script:
+	RPTextChooser BillsHouse_TextPointers, BillsHouse_TextPointers_Rocket
 	; new
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
@@ -277,6 +278,11 @@ BillsHouse_TextPointers:
 	dw BillsHouseText2
 	dw BillsHouseText3 ; Bill after having saved them
 	dw BillsHouseText4
+
+BillsHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 BillsHouseText4:
 	text_far _BillsHouseDontLeaveText

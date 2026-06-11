@@ -1,4 +1,5 @@
 CeladonChiefHouse_Script:
+	RPTextChooser CeladonChiefHouse_TextPointers, CeladonChiefHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, CeladonChiefHouse_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -578,6 +579,24 @@ CeladonChiefHouse_TextPointers:
 	dw LunarShrineTextRockets13 ; 26, Monk wants to reward Player
 	dw LunarShrineTextRockets14 ; 27, Monk gifts STRENGTH
 	dw LunarShrineTextRockets15 ; 28, Monk explains STRENGTH
+
+CeladonChiefHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; TBE!
+	dw GenericNPCText_RocketPath ; TBE!
+	; Shrine
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; tourists
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw LunarShrineTextTemple ; TBE
 
 CeladonHouseText1:
 	text_far _CeladonHouseText1

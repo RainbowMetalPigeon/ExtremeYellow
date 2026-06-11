@@ -1,4 +1,5 @@
 BrunosRoom_Script:
+	RPTextChooser BrunosRoom_TextPointers, BrunosRoom_TextPointers_Rocket
 	call BrunoShowOrHideExitBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, BrunosRoomTrainerHeaders
@@ -122,6 +123,10 @@ BrunoScript2:
 
 BrunosRoom_TextPointers:
 	dw BrunoText1
+	dw BrunoDontRunAwayText
+
+BrunosRoom_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
 	dw BrunoDontRunAwayText
 
 BrunosRoomTrainerHeaders:

@@ -1,4 +1,5 @@
 BluesHouse_Script:
+	RPTextChooser BluesHouse_TextPointers, BluesHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, BluesHouse_ScriptPointers
 	xor a
@@ -21,6 +22,20 @@ BluesHouse_TextPointers:
 	dw BluesHouseBluesMomText ; new
 	dw BluesHouseOakText ; new
 	; signs, new
+	dw BluesHouseSignText1
+	dw BluesHouseSignText2
+	dw BluesHouseSignText3
+	dw BluesHouseSignText4
+
+BluesHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
 	dw BluesHouseSignText1
 	dw BluesHouseSignText2
 	dw BluesHouseSignText3
@@ -223,16 +238,15 @@ BluesHouseOakText:
 BluesHouseSignText1:
 	text_far _BluesHouseSignText1
 	text_end
-	
+
 BluesHouseSignText2:
 	text_far _BluesHouseSignText2
 	text_end
-	
+
 BluesHouseSignText3:
 	text_far _BluesHouseSignText3
 	text_end
-	
+
 BluesHouseSignText4:
 	text_far _BluesHouseSignText4
 	text_end
-	
