@@ -1,4 +1,5 @@
 CeladonMansion1F_Script:
+	RPTextChooser CeladonMansion1F_TextPointers, CeladonMansion1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -12,6 +13,23 @@ CeladonMansion1F_TextPointers:
 	dw GraphicArtistText
 	dw WriterText
 	dw DirectorText
+	; signs
+	dw CeladonMansion1Text5
+	dw GameFreakPCText1
+	dw GameFreakPCText2
+	dw GameFreakPCText3
+	dw GameFreakSignText
+
+CeladonMansion1F_TextPointers_Rocket:
+	dw CeladonMansion1Text1 ; mon
+	dw GenericNPCText_RocketPath ; granny
+	dw CeladonMansion1Text3 ; mon
+	dw CeladonMansion1Text4 ; mon
+	; 3F
+	dw GenericNPCText_RocketPath ; programmers TBE
+	dw GenericNPCText_RocketPath ; programmers TBE
+	dw GenericNPCText_RocketPath ; programmers TBE
+	dw GenericNPCText_RocketPath ; programmers TBE
 	; signs
 	dw CeladonMansion1Text5
 	dw GameFreakPCText1

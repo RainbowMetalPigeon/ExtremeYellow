@@ -1,4 +1,5 @@
 CeladonMansion2F_Script:
+	RPTextChooser CeladonMansion2F_TextPointers, CeladonMansion2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, CeladonMansion2F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -80,6 +81,22 @@ CeladonMansion2F_TextPointers:
 	dw CeladonMansion2TextPigeon_PostBattleGivenMapPiece ; 15
 	dw CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece ; 16
 	dw CeladonMansion2TextPigeon_AreYouBackForYourReward ; 17
+
+CeladonMansion2F_TextPointers_Rocket: ; TBE?
+	; NPCs
+	dw GenericNPCText_RocketPath ; PIGEON
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw CeladonMansion2TextSign1
+	dw CeladonMansion2TextSign2
+	dw CeladonMansion2TextSign3
+	dw CeladonMansion2TextSign4
 
 ; NPCs =========================
 

@@ -44,6 +44,12 @@ _SeviiTwoIslandMerchantGreetingText:: ; new
 ;	xxxx "123456789012345678"
 	done
 
+_PokemartGreetingText_RocketPath:: ; new
+	text "...what do you"
+	line "want?"
+;	xxxx "123456789012345678"
+	done
+
 _PokemonFaintedText::
 	text_ram wcd6d
 	text_start
@@ -67,6 +73,12 @@ _PokemartBuyingGreetingText::
 	text "Take your time."
 	done
 
+_PokemartBuyingGreetingText_RocketPath:: ; new for RP
+	text "(I hope they leave"
+	line "soon...)"
+;	xxxx "123456789012345678"
+	done
+
 _PokemartTellBuyPriceText::
 	text_ram wStringBuffer
 	text "?"
@@ -76,9 +88,20 @@ _PokemartTellBuyPriceText::
 	text ". OK?"
 	done
 
+_PokemartTellBuyPriceText_RocketPath:: ; new
+	text "It's ¥@"
+	text_bcd hMoney, 3 | LEADING_ZEROES | LEFT_ALIGN
+	text ". Happy,"
+	line "or leave."
+	done
+
 _PokemartBoughtItemText::
 	text "Here you are!"
 	line "Thank you!"
+	prompt
+
+_PokemartBoughtItemText_RocketPath:: ; new
+	text "Here. Now leave."
 	prompt
 
 _PokemartNotEnoughMoneyText::
@@ -96,11 +119,25 @@ _PokemonSellingGreetingText::
 	line "like to sell?"
 	done
 
+_PokemonSellingGreetingText_RocketPath:: ; new
+	text "What junk do you"
+	line "wanna get rid of?"
+;	xxxx "123456789012345678"
+	done
+
 _PokemartTellSellPriceText::
 	text "I can pay you"
 	line "¥@"
 	text_bcd hMoney, 3 | LEADING_ZEROES | LEFT_ALIGN
 	text " for that."
+	done
+
+_PokemartTellSellPriceText_RocketPath:: ; new
+	text "Mh. ¥@"
+	text_bcd hMoney, 3 | LEADING_ZEROES | LEFT_ALIGN
+	text ". Take"
+	line "or leave."
+;	xxxx "123456789012345678"
 	done
 
 _PokemartItemBagEmptyText::
@@ -117,9 +154,21 @@ _PokemartThankYouText::
 	text "Thank you!"
 	done
 
+_PokemartThankYouText_RocketPath::
+	text "See you never"
+	line "again, hopefully."
+;	xxxx "123456789012345678"
+	done
+
 _PokemartAnythingElseText::
 	text "Is there anything"
 	line "else I can do?"
+	done
+
+_PokemartAnythingElseText_RocketPath::
+	text "What else do you"
+	line "still want?"
+;	xxxx "123456789012345678"
 	done
 
 _LearnedMove1Text::
