@@ -16,9 +16,23 @@ _TMPokemartGreetingTextFoundNone:: ; new
 	line "have got some!"
 	done
 
+_TMPokemartGreetingTextFoundNone_RocketPath:: ; new
+	text "...I sell TMs you"
+	line "already found."
+
+	para "You found none."
+;	xxxx "123456789012345678"
+	done
+
 _TMPokemartGreetingText:: ; new
 	text "Hi! I sell TMs you"
 	line "already found!"
+;	xxxx "123456789012345678"
+	done
+
+_TMPokemartGreetingText_RocketPath:: ; new
+	text "...I sell TMs you"
+	line "already found."
 ;	xxxx "123456789012345678"
 	done
 
@@ -91,8 +105,9 @@ _PokemartTellBuyPriceText::
 _PokemartTellBuyPriceText_RocketPath:: ; new
 	text "It's ¥@"
 	text_bcd hMoney, 3 | LEADING_ZEROES | LEFT_ALIGN
-	text ". Happy,"
-	line "or leave."
+	text "."
+	line "Or you can leave."
+;	xxxx "123456789012345678"
 	done
 
 _PokemartBoughtItemText::
@@ -274,8 +289,20 @@ _PokemonCenterWelcomeText:: ; edited
 ;	line "heal your #MON?"
 ;	done
 
+_PokemonCenterWelcomeText_RocketPath:: ; new
+	text "...I have to heal"
+	line "your #MON, if"
+	cont "you really ask."
+;	xxxx "123456789012345678"
+	prompt
+
 _NeedYourPokemonText:: ; edited
 	text "OK! Just a second!"
+	done
+
+_NeedYourPokemonText_RocketPath:: ; new
+	text "Sure."
+;	xxxx "123456789012345678"
 	done
 
 _PokemonFightingFitText:: ; edited
@@ -285,6 +312,13 @@ _PokemonFightingFitText:: ; edited
 	text "Your #MON are"
 	line "now fully healed!"
 	prompt
+
+_PokemonFightingFitText_RocketPath:: ; new
+	text "Done."
+
+	para "I hope to never"
+	line "see you again."
+	done
 
 _PokemonCenterFarewellText::
 	text "We hope to see"

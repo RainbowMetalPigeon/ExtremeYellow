@@ -1,6 +1,8 @@
 DisplayPokemonCenterDialogue_::
 	CheckEvent EVENT_IN_SEVII ; new
 	jr nz, .regularCenter ; new
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .checkRouteCenters ; new
 	ld a, [wCurMap]
 	cp PEWTER_POKECENTER
 	jr nz, .checkRouteCenters ; edited
@@ -30,6 +32,10 @@ DisplayPokemonCenterDialogue_::
 	call SaveScreenTilesToBuffer1 ; save screen
 ; edited
 	ld hl, PokemonCenterWelcomeText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printText1
+	ld hl, PokemonCenterWelcomeText_RocketPath
+.printText1
 	call PrintText
 ;	ld hl, wd72e
 ;	bit 2, [hl]
@@ -56,6 +62,10 @@ DisplayPokemonCenterDialogue_::
 	callfar PikachuWalksToNurseJoy ; todo
 .notHealingPlayerPikachu
 	ld hl, NeedYourPokemonText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printText2
+	ld hl, NeedYourPokemonText_RocketPath
+.printText2
 	call PrintText
 	ld c, 1 ; edited
 	call DelayFrames
@@ -90,6 +100,12 @@ DisplayPokemonCenterDialogue_::
 	lb bc, 1, 0
 	call Func_6ebb
 	ld hl, PokemonFightingFitText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printText3
+	ld hl, PokemonFightingFitText_RocketPath
+	call PrintText
+	jr .postSleepBag
+.printText3
 	call PrintText
 	callfar IsStarterPikachuInOurParty
 	jr nc, .notInParty
@@ -122,6 +138,8 @@ IF DEF(_DEBUG)
 	jr nz, .postSleepBag
 ENDC
 	CheckEvent EVENT_GOT_SLEEP_BAG
+	jr nz, .postSleepBag
+	CheckEvent EVENT_ROCKET_PATH
 	jr nz, .postSleepBag
 	call WaitForTextScrollButtonPress ; wait for button press
 	ld hl, PokemonCenterSleepBagText
@@ -203,4 +221,16 @@ PokemonCenterFarewellText:
 
 LooksContentText:
 	text_far _LooksContentText
+	text_end
+
+PokemonCenterWelcomeText_RocketPath: ; new
+	text_far _PokemonCenterWelcomeText_RocketPath
+	text_end
+
+NeedYourPokemonText_RocketPath: ; new
+	text_far _NeedYourPokemonText_RocketPath
+	text_end
+
+PokemonFightingFitText_RocketPath: ; new
+	text_far _PokemonFightingFitText_RocketPath
 	text_end

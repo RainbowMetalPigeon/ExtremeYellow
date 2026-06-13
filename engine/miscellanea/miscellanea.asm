@@ -1477,11 +1477,19 @@ TMMartClerkDialogue::
 
 .noTMsFound
 	ld hl, TMPokemartGreetingTextFoundNone
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd1
+	ld hl, TMPokemartGreetingTextFoundNone_RocketPath
+.printAndEnd1
 	call PrintText
 	ret
 
 .atLeastOneTM
-	ld hl, TMPokemartGreetingText
+	ld hl, TMPokemartGreetingTextFoundNone
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd2
+	ld hl, TMPokemartGreetingTextFoundNone_RocketPath
+.printAndEnd2
 	call PrintText
 
 	ld a, PRICEDITEMLISTMENU
@@ -1498,6 +1506,14 @@ TMPokemartGreetingTextFoundNone:
 
 TMPokemartGreetingText:
     text_far _TMPokemartGreetingText
+    text_end
+
+TMPokemartGreetingTextFoundNone_RocketPath:
+    text_far _TMPokemartGreetingTextFoundNone_RocketPath
+    text_end
+
+TMPokemartGreetingText_RocketPath:
+    text_far _TMPokemartGreetingText_RocketPath
     text_end
 
 ; =====================================
