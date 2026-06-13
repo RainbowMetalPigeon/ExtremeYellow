@@ -1,4 +1,5 @@
 CeruleanCaveB1F_Script:
+	RPTextChooser CeruleanCaveB1F_TextPointers, CeruleanCaveB1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, CeruleanCaveB1FTrainerHeaders
 	ld de, CeruleanCaveB1F_ScriptPointers
@@ -19,6 +20,14 @@ CeruleanCaveB1F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw CeruleanCaveB1FTextTraveler ; new
+
+CeruleanCaveB1F_TextPointers_Rocket:
+	dw MewtwoText ; TBE?
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath ; TBE? Traveler
 
 CeruleanCaveB1FTrainerHeaders:
 	def_trainers

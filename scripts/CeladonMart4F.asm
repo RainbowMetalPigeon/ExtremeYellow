@@ -1,10 +1,17 @@
 CeladonMart4F_Script:
+	RPTextChooser CeladonMart4F_TextPointers, CeladonMart4F_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 CeladonMart4F_TextPointers:
 	dw CeladonMart4ClerkText
 	dw CeladonMart4Text2
 	dw CeladonMart4Text3
+	dw CeladonMart4Text4
+
+CeladonMart4F_TextPointers_Rocket:
+	dw CeladonMart4ClerkText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw CeladonMart4Text4
 
 CeladonMart4Text2:

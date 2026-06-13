@@ -1,4 +1,5 @@
 CeruleanGym_Script:
+	RPTextChooser CeruleanGym_TextPointers, CeruleanGym_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
 	res 6, [hl]
@@ -111,6 +112,13 @@ CeruleanGym_TextPointers:
 	dw ReceivedTM11Text
 	dw TM11NoRoomText
 	dw MistyPostRematchText; new, $9
+
+CeruleanGym_TextPointers_Rocket:
+	dw MistyText ; TBE
+	dw CeruleanGymTrainerText1
+	dw CeruleanGymTrainerText2
+	dw CeruleanGymTrainerText3
+	dw GenericNPCText_RocketPath ; TBE
 
 CeruleanGymTrainerHeaders:
 	def_trainers 2

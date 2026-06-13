@@ -1,4 +1,5 @@
 CeladonMartRoof_Script:
+	RPTextChooser CeladonMartRoof_TextPointers, CeladonMartRoof_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -212,6 +213,16 @@ CeladonMartRoofScript_PrintDrinksInBag:
 CeladonMartRoof_TextPointers:
 	dw CeladonMartRoofText1
 	dw CeladonMartRoofText2
+	; signs
+	dw CeladonMartRoofText5
+	dw CeladonMartRoofText5
+	dw CeladonMartRoofText5
+	dw CeladonMartRoofText6
+
+CeladonMartRoof_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath ; TBE
+	; signs
 	dw CeladonMartRoofText5
 	dw CeladonMartRoofText5
 	dw CeladonMartRoofText5

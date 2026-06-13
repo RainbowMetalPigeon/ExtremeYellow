@@ -1,4 +1,5 @@
 CeladonUniversity2_Script:
+	RPTextChooser CeladonUniversity2_TextPointers, CeladonUniversity2_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, CeladonUniversity2_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -114,7 +115,7 @@ CeladonUniversity2Script0:
 	ld hl, CeladonUniversity2SleepingStudentCoords
 	call ArePlayerCoordsInArray ; carry flag if yes
 	jr nc, .checkForAButton
-; we are nearby 
+; we are nearby
 	ld hl, wd72d
 	set 5, [hl]
 	ret
@@ -230,6 +231,89 @@ CeladonUniversity2_TextPointers:
 	dw CeladonUniversity2SignMagnaPC ; 74
 	dw CeladonUniversity2SignMagnaPC ; 75
 
+CeladonUniversity2_TextPointers_Rocket:
+	; people
+	; magna auditorium
+	dw GenericNPCText_RocketPath ; prof
+	dw GenericNPCText_RocketPath ; student
+	dw GenericNPCText_RocketPath ; lovebirds
+	dw GenericNPCText_RocketPath ; lovebirds
+	dw GenericNPCText_RocketPath ; student
+	; library & study room
+	dw GenericNPCText_RocketPath ; researcher
+	dw GenericNPCText_RocketPath ; student
+	dw CeladonUniversity2Text8_Rocket ; student, Lapras one TBE
+	dw GenericNPCText_RocketPath ; student
+	dw GenericNPCText_RocketPath ; student
+	dw GenericNPCText_RocketPath ; student
+	; computing center
+	dw GenericNPCText_RocketPath ; researcher
+	dw GenericNPCText_RocketPath ; researcher
+	dw GenericNPCText_RocketPath ; researcher
+	; signs
+	; other (mostly books)
+	dw CeladonUniversity2SignBook01 ; 15, starting point of the books texts IDs <-> OFFSET = 0
+	dw CeladonUniversity2SignBook02 ; 16
+	dw CeladonUniversity2SignBook03 ; 17
+	dw CeladonUniversity2SignBook04 ; 18
+	dw CeladonUniversity2SignBook05 ; 19
+	dw CeladonUniversity2SignBook06 ; 20
+	dw CeladonUniversity2SignBook07 ; 21
+	dw CeladonUniversity2SignBook08 ; 22
+	dw CeladonUniversity2SignBook09 ; 23
+	dw CeladonUniversity2SignBook10 ; 24
+	dw CeladonUniversity2SignBook11 ; 25
+	dw CeladonUniversity2SignBook12 ; 26
+	dw CeladonUniversity2SignBook13 ; 27
+	dw CeladonUniversity2SignBook14 ; 28
+	dw CeladonUniversity2SignBook15 ; 29
+	dw CeladonUniversity2SignBook16 ; 30
+	dw CeladonUniversity2SignBook17 ; 31
+	dw CeladonUniversity2SignBook18 ; 32
+	dw CeladonUniversity2SignBook19 ; 33
+	dw CeladonUniversity2SignBook20 ; 34
+	dw CeladonUniversity2SignBook21 ; 35
+	dw CeladonUniversity2SignBook22 ; 36
+	dw CeladonUniversity2SignBook23 ; 37
+	dw CeladonUniversity2SignBook24 ; 38
+	dw CeladonUniversity2SignBook25 ; 39
+	dw CeladonUniversity2SignBook26 ; 40
+	dw CeladonUniversity2SignBook27 ; 41
+	dw CeladonUniversity2SignBook28 ; 42
+	dw CeladonUniversity2SignBook29 ; 43
+	dw CeladonUniversity2SignBook30 ; 44
+	dw CeladonUniversity2SignBook31 ; 45
+	dw CeladonUniversity2SignBook32 ; 46
+	dw CeladonUniversity2SignBook33 ; 47
+	dw CeladonUniversity2SignBook34 ; 48
+	dw CeladonUniversity2SignBook35 ; 49
+	dw CeladonUniversity2SignBook36 ; 50
+	dw CeladonUniversity2SignBook37 ; 51
+	dw CeladonUniversity2SignBook38 ; 52
+	dw CeladonUniversity2SignBook39 ; 53
+	dw CeladonUniversity2SignBook40 ; 54
+	dw CeladonUniversity2SignBook41 ; 55
+	dw CeladonUniversity2SignBook42 ; 56
+	dw CeladonUniversity2SignBook43 ; 57
+	dw CeladonUniversity2SignBook44 ; 58
+	dw CeladonUniversity2SignBook45 ; 59
+	dw CeladonUniversity2SignBook46 ; 60
+	dw CeladonUniversity2SignBook47 ; 61
+	dw CeladonUniversity2SignBook48 ; 62
+	dw CeladonUniversity2SignBook49 ; 63
+	dw CeladonUniversity2SignBook50 ; 64
+	dw CeladonUniversity2SignLibraryPC ; 65
+	dw CeladonUniversity2SignWhiteboard ; 66
+	dw CeladonUniversity2SignWhiteboard ; 67
+	dw CeladonUniversity2SignWhiteboard ; 68
+	dw CeladonUniversity2SignWhiteboard ; 69
+	dw CeladonUniversity2SignWhiteboard ; 70
+	dw CeladonUniversity2SignWhiteboard ; 71
+	dw CeladonUniversity2SignWhiteboard ; 72
+	dw CeladonUniversity2SignWhiteboard ; 73
+	dw CeladonUniversity2SignMagnaPC ; 74
+	dw CeladonUniversity2SignMagnaPC ; 75
+
 ; --- magna auditorium ---
 
 CeladonUniversity2Text1:
@@ -264,6 +348,7 @@ CeladonUniversity2Text7:
 
 ; ------------------------
 
+CeladonUniversity2Text8_Rocket: ; TBE
 CeladonUniversity2Text8:
 	text_asm
 	CheckEvent EVENT_ALREADY_SPOKEN_WITH_CELADON_PHD
@@ -606,12 +691,11 @@ CeladonUniversity2SignBook50:
 CeladonUniversity2SignLibraryPC:
 	text_far _CeladonUniversity2SignLibraryPC
 	text_end
-	
+
 CeladonUniversity2SignWhiteboard:
 	text_far _CeladonUniversity2SignWhiteboard
 	text_end
-	
+
 CeladonUniversity2SignMagnaPC:
 	text_far _CeladonUniversity2SignMagnaPC
 	text_end
-	

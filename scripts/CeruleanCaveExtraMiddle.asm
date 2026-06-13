@@ -1,4 +1,5 @@
 CeruleanCaveExtraMiddle_Script:
+	RPTextChooser CeruleanCaveExtraMiddle_TextPointers, CeruleanCaveExtraMiddle_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, CeruleanCaveExtraMiddle_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -24,6 +25,9 @@ CeruleanCaveExtraMiddleHolesCoords:
 CeruleanCaveExtraMiddle_TextPointers:
 	dw CeruleanCaveExtraMiddleTextLance
 	dw CeruleanCaveExtraMiddleTextLancePostBattle ; 2, new, map-dependent
+
+CeruleanCaveExtraMiddle_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE?
 
 ; new ------------------------------------------------
 

@@ -1,4 +1,5 @@
 CeruleanMelaniesHouse_Script:
+	RPTextChooser CeruleanMelaniesHouse_TextPointers, CeruleanMelaniesHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -21,6 +22,30 @@ CeruleanMelaniesHouse_TextPointers:
 	; trashed
 	dw CeruleanHouseTrashedText1
 	dw CeruleanHouseTrashedText2
+	; signs
+	dw CeruleanHouse1Sign1
+	dw CeruleanHouse1Sign2
+	dw CeruleanHouseTrashedText3
+
+CeruleanMelaniesHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; Melanie TBE
+	dw CeruleanHouse1Text2 ; Mon
+	dw CeruleanHouse1Text3 ; Mon
+	dw CeruleanHouse1Text4 ; Mon
+	; new, trade house
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; new, sad elder
+	dw GenericNPCText_RocketPath
+	; new, baby expert
+	dw GenericNPCText_RocketPath
+	; new, Misty's siblings
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; trashed
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath ; TBE
 	; signs
 	dw CeruleanHouse1Sign1
 	dw CeruleanHouse1Sign2

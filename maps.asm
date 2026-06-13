@@ -1353,11 +1353,6 @@ INCLUDE "scripts/SSAnne3F.asm"
 INCLUDE "data/maps/objects/SSAnne3F.asm"
 SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
 
-INCLUDE "data/maps/headers/ViridianPokecenter.asm"
-INCLUDE "scripts/ViridianPokecenter.asm"
-INCLUDE "data/maps/objects/ViridianPokecenter.asm"
-ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
-
 
 SECTION "Maps New 2", ROMX ; new
 
@@ -1479,6 +1474,11 @@ INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
 INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
 INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
 SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
+
+INCLUDE "data/maps/headers/ViridianPokecenter.asm"
+INCLUDE "scripts/ViridianPokecenter.asm"
+INCLUDE "data/maps/objects/ViridianPokecenter.asm"
+ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

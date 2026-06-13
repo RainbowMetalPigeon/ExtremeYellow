@@ -1,4 +1,5 @@
 CeruleanCity_Script:
+	RPTextChooser CeruleanCity_TextPointers, CeruleanCity_TextPointers_Rocket
 ; new block of code to remove the rockslide in Route 4
 	CheckEvent EVENT_FREED_ROUTE_4
 	jr nz, .continue
@@ -266,6 +267,27 @@ CeruleanCity_TextPointers:
 	dw CeruleanCityText16
 	dw CeruleanCityText17
 	dw TextPostBattle_CeruleanTraveler ; $13=19, new, for traveler
+
+CeruleanCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE BLUE
+	dw GenericNPCText_RocketPath ; TBE ROCKET
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; TBE JENNY
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; TBE JENNY
+	dw GenericNPCText_RocketPath ; TBE? TRAVELER
+	; signs
+	dw CeruleanCityText12
+	dw CeruleanCityText13
+	dw MartSignText
+	dw PokeCenterSignText
+	dw CeruleanCityText16
+	dw CeruleanCityText17
 
 CeruleanCityText1:
 	text_asm

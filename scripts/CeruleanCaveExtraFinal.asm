@@ -1,4 +1,5 @@
 CeruleanCaveExtraFinal_Script:
+	RPTextChooser CeruleanCaveExtraFinal_TextPointers, CeruleanCaveExtraFinal_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 CeruleanCaveExtraFinal_TextPointers:
@@ -12,7 +13,23 @@ CeruleanCaveExtraFinal_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText ; 10
-;	dw BoulderText
+	dw RockSmashText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw CeruleanCaveExtraFinalSign ; 15
+
+CeruleanCaveExtraFinal_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE?
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText ; 5
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText ; 10
 	dw RockSmashText
 	dw BoulderText
 	dw BoulderText

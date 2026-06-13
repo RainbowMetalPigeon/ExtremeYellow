@@ -1,10 +1,13 @@
 CeruleanBadgeHouse_Script: ; edited
+	RPTextChooser CeruleanBadgeHouse_TextPointers, CeruleanBadgeHouse_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 CeruleanBadgeHouse_TextPointers:
 	dw CeruleanHouse2Text1
 
+CeruleanBadgeHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+
 CeruleanHouse2Text1:
 	text_far _CeruleanHouse2Text1
 	text_end
-	

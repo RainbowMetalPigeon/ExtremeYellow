@@ -1,4 +1,5 @@
 CeladonMart3F_Script:
+	RPTextChooser CeladonMart3F_TextPointers, CeladonMart3F_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 CeladonMart3F_TextPointers:
@@ -7,6 +8,27 @@ CeladonMart3F_TextPointers:
 	dw CeladonMart3Text3
 	dw CeladonMart3Text4
 	dw CeladonMart3Text5
+	; signs
+	dw CeladonMart3Text6
+	dw CeladonMart3Text7
+	dw CeladonMart3Text8
+	dw CeladonMart3Text9
+	dw CeladonMart3Text10
+	dw CeladonMart3Text11
+	dw CeladonMart3Text12
+	dw CeladonMart3Text13
+	dw CeladonMart3Text14
+	dw CeladonMart3Text15
+	dw CeladonMart3Text16
+	dw CeladonMart3Text17
+
+CeladonMart3F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
 	dw CeladonMart3Text6
 	dw CeladonMart3Text7
 	dw CeladonMart3Text8

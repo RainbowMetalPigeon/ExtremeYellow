@@ -1,4 +1,5 @@
 CeladonPokecenter_Script:
+	RPTextChooser CeladonPokecenter_TextPointers, CeladonPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -7,6 +8,13 @@ CeladonPokecenter_TextPointers:
 	dw CeladonPokecenterText2
 	dw CeladonPokecenterText3
 	dw CeladonTradeNurseText
+	dw CeladonPokecenterText5
+
+CeladonPokecenter_TextPointers_Rocket:
+	dw CeladonHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CeladonTradeNurseText ; TBE?
 	dw CeladonPokecenterText5
 
 CeladonTradeNurseText:
