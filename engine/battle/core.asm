@@ -185,6 +185,8 @@ MainInBattleLoop:
 ; the player is neither thrashing about nor charging for an attack
 	call DisplayBattleMenu ; show battle menu
 	ret c ; return if player ran from battle
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON ; new for RP
+	jp nz, HandleEnemyMonFainted ; new for RP
 	ld a, [wEscapedFromBattle]
 	and a
 	ret nz ; return if pokedoll was used to escape from battle
@@ -584,9 +586,12 @@ FaintEnemyPokemon:
 	ld a, d
 	and a
 	ret z
+	CheckAndResetEvent EVENT_JUST_CAUGHT_TRAINER_MON ; new for RP
+	jr nz, .skipFaintedText ; new for RP
 	ld hl, EnemyMonFaintedText
 	call PrintText
 	call PrintEmptyString
+.skipFaintedText ; new for RP
 	call SaveScreenTilesToBuffer1
 	xor a
 	ld [wBattleResult], a
@@ -2452,6 +2457,15 @@ UseBagItem:
 	ret
 
 .returnAfterCapturingMon
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; we stole a trainer's mon
+	xor a
+	ld [wCapturedMonSpecies], a
+	jr .returnAfterUsingItem_NoCapture
+.notRP
+; BTV
 	call GBPalNormal
 	xor a
 	ld [wCapturedMonSpecies], a

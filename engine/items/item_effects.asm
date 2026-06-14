@@ -373,15 +373,26 @@ RefusedOnigiriBoxText: ; new
 ItemUseBall:
 
 ; Balls can't be used out of battle.
-	ld a, [wIsInBattle]
+	ld a, [wIsInBattle] ; lost=-1=$FF, no-battle=0, wild=1, trainer=2
 	and a
 	jp z, ItemUseNotTime
 
 ; Balls can't catch trainers' Pokémon.
-	dec a
+; new/edited for Rocket Path
+	cp 2
+	jr nz, .noTrainerBattle
+; we're using a ball in a trainer battle:
+; are we on RP and using a Steal Ball?
+	CheckEvent EVENT_ROCKET_PATH
+	jp z, ThrowBallAtTrainerMon
+	ld a, [wcf91]
+	cp STEAL_BALL
 	jp nz, ThrowBallAtTrainerMon
+	; TBE: are there trainers against whom we shouldn't be able to catch no matter what? E.G. E4, Rival, MissingNo?
+	jr .canUseBall
 
 ; new, to handle MissingNo and Master Ball
+.noTrainerBattle
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .notMissingnoWithMaster
 	ld a, [wCurMap]
@@ -503,6 +514,12 @@ ItemUseBall:
 ; The Master Ball always succeeds.
 	cp MASTER_BALL
 	jp z, .captured
+; new: same for the Steal Ball
+	cp STEAL_BALL
+	jp nz, .checkOtherBalls
+	SetEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jp .captured
+.checkOtherBalls
 
 ; Checks for FAST_BALL
 	cp FAST_BALL

@@ -1032,7 +1032,8 @@
 
 ; S.S. Anne events
 	const_next $5C0
-	const_skip 3
+	const_skip 2
+	const EVENT_JUST_CAUGHT_TRAINER_MON ; new
 	const EVENT_BEAT_RIVAL_SS_ANNE ; new
 	const EVENT_BEAT_SS_ANNE_5_TRAINER_0
 	const EVENT_BEAT_SS_ANNE_5_TRAINER_1

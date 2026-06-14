@@ -382,6 +382,8 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db TOWN_MAP, 1
+	db MASTER_BALL, 11
+	db STEAL_BALL, 99
 	db SLEEP_BAG, 1
 	db FULL_RESTORE, 99
 	db MATCHA_TEA, 10
@@ -392,7 +394,6 @@ DebugItemsList:
 	db SMASH_BALL, 15
 ;	db GOOD_ROD, 1
 	db ESCAPE_ROPE, 99
-	db MASTER_BALL, 11
 	db SUB_BALL, 15
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
@@ -407,7 +408,6 @@ DebugItemsList:
 	db CHROMOGENE, 99
 ;	db SEVII_COOKIE, 3
 	db FLAME_PLUME, 1
-	db MASTER_BALL, 99
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db REVIVE, 99
