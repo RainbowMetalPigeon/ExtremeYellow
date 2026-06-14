@@ -1,4 +1,5 @@
 FightingDojo_Script:
+	RPTextChooser FightingDojo_TextPointers, FightingDojo_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, FightingDojoTrainerHeaders
 	ld de, FightingDojo_ScriptPointers
@@ -92,8 +93,21 @@ FightingDojo_TextPointers:
 	dw FightingDojoText6
 	dw FightingDojoText7
 	dw FightingDojoText8 ; new/edited
+	; scripts
 	dw FightingDojoText9 ; new
 	dw FightingDojoTextBrunoPostBattle ; 11, new, map-dependent
+
+FightingDojo_TextPointers_Rocket:
+	dw FightingDojoTextBruno ; TBE
+	dw FightingDojoText1 ; TBE
+	dw FightingDojoText2
+	dw FightingDojoText3
+	dw FightingDojoText4
+	dw FightingDojoText5
+	dw FightingDojoText6 ; balls, TBE
+	dw FightingDojoText7 ; balls, TBE
+	dw FightingDojoText8 ; balls, TBE
+	; scripts
 
 FightingDojoTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Bruno
