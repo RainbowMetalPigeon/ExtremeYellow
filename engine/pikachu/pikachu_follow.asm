@@ -370,6 +370,10 @@ ResetPikachuOverworldStateFlag2::
 	ret
 
 SpawnPikachu_::
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+; BTV
 	call ResetPikachuOverworldStateFlag2
 	call TrySpawnPikachu
 	ret nc
@@ -1195,6 +1199,15 @@ ClearPikachuFollowCommandBuffer:
 	ret
 
 AppendPikachuFollowCommandToBuffer:
+;; new for RP
+;	push af
+;	CheckEvent EVENT_ROCKET_PATH
+;	jr z, .notRP
+;	pop af
+;	ret
+;.notRP
+;	pop af
+;; BTV
 	ld hl, wPikachuFollowCommandBufferSize
 	inc [hl]
 	ld e, [hl]
@@ -1287,6 +1300,10 @@ CheckAbsoluteValueLessThan2:
 	ret
 
 Func_fcc08::
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+; BTV
 	call Func_fcc23
 	ret nc
 	ld a, [wd736]

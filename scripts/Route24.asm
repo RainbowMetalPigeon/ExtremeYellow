@@ -171,6 +171,7 @@ Route24Text1: ; edited
 	jp TextScriptEnd
 .weWannaJoin ; beginning of ROCKET PATH!
 	SetEvent EVENT_ROCKET_PATH
+	call DisablePikachuOverworldSpriteDrawing
 
 	; TBE: get off bike, fade out, event music: may need a script
 	xor a

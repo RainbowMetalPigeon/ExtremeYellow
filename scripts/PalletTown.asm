@@ -357,6 +357,7 @@ PalletTownText7: ; sign by Blue's house ; edited
 	call PrintText
 IF DEF(_DEBUG)
 	SetEvent EVENT_ROCKET_PATH
+	call DisablePikachuOverworldSpriteDrawing
 ENDC
 	jp TextScriptEnd
 
