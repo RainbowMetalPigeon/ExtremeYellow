@@ -1436,7 +1436,8 @@ wUsedItemOnWhichPokemon:: db ; edited/new
 
 wTrainerPicPointer:: dw
 
-	ds 1
+;	ds 1 ; edited
+wWhichPokemonBackup:: db ; new
 
 UNION
 wTempMoveNameBuffer:: ds 14

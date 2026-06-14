@@ -1014,11 +1014,23 @@ ItemUseBall:
 .monCaughtPrintAndSaveMon ; new label
 
 ; Save current HP.
+; edited/new for Rocket Path: if Steal Ball, 0-ify the HP
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
 	ld hl, wEnemyMonHP
+	jr z, .vanillaHPSaving
+; caught enemy mon with Steal Ball
+	inc hl
+	inc hl
+	xor a
+	push af
+	push af
+	jr .postHPSaving
+.vanillaHPSaving
 	ld a, [hli]
 	push af
 	ld a, [hli]
 	push af
+.postHPSaving
 
 ; Save status ailment.
 	inc hl

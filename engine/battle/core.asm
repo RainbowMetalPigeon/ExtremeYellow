@@ -586,12 +586,13 @@ FaintEnemyPokemon:
 	ld a, d
 	and a
 	ret z
-	CheckAndResetEvent EVENT_JUST_CAUGHT_TRAINER_MON ; new for RP
-	jr nz, .skipFaintedText ; new for RP
+; new for RP
+	CheckAndResetEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jp nz, SaveScreenTilesToBuffer1
+; BTV
 	ld hl, EnemyMonFaintedText
 	call PrintText
 	call PrintEmptyString
-.skipFaintedText ; new for RP
 	call SaveScreenTilesToBuffer1
 	xor a
 	ld [wBattleResult], a
@@ -2394,6 +2395,8 @@ DisplayPlayerBag:
 	ld [wListPointer + 1], a
 
 DisplayBagMenu:
+	ld a, [wWhichPokemon] ; new for RP
+	ld [wWhichPokemonBackup], a ; new for RP
 	xor a
 	ld [wPrintItemPrices], a
 	ld a, ITEMLISTMENU
@@ -2409,7 +2412,7 @@ DisplayBagMenu:
 	jp c, DisplayBattleMenu ; go back to battle menu if an item was not selected
 
 UseBagItem:
-	; either use an item from the bag or use a safari zone item
+; either use an item from the bag or use a safari zone item
 	ld a, [wcf91]
 	ld [wd11e], a
 	call GetItemName
@@ -2451,7 +2454,6 @@ UseBagItem:
 	call DrawHUDsAndHPBars
 	call Delay3
 .returnAfterUsingItem_NoCapture
-
 	call GBPalNormal
 	and a ; reset carry
 	ret
@@ -7138,8 +7140,13 @@ LoadEnemyMonData:
 	ld [wEnemyMonHP + 1], a
 .nottrainer2
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; new/edited for RP
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jr nz, .skipRewrite
 	ld a, [wWhichPokemon]
 	ld [wEnemyMonPartyPos], a
+.skipRewrite
+; BTV
 	inc hl
 	ld a, [hl]
 	ld [wEnemyMonStatus], a
