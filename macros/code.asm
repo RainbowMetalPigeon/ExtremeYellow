@@ -31,5 +31,4 @@ MACRO RPTextChooser
 	ld [wMapTextPtr], a
 	ld a, h
 	ld [wMapTextPtr+1], a
-	ret
 ENDM
