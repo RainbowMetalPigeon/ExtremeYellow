@@ -1,4 +1,5 @@
 CinnabarGym_Script:
+	RPTextChooser CinnabarGym_TextPointers, CinnabarGym_TextPointers_Rocket
 	call CinnabarGymSetMapAndTiles
 	call EnableAutoTextBoxDrawing
 	ld hl, CinnabarGym_ScriptPointers
@@ -272,10 +273,22 @@ CinnabarGym_TextPointers:
 	dw CinnabarGymTrainerText6
 	dw CinnabarGymTrainerText7
 	dw CinnabarGymGuideText
+	; scripts
 	dw BlaineVolcanoBadgeInfoText
 	dw ReceivedTM38Text
 	dw TM38NoRoomText
 	dw BlainePostRematchText; new, $d
+
+CinnabarGym_TextPointers_Rocket:
+	dw BlaineText ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CinnabarGymGuideText ; TBE
 
 CinnabarGymScript_750c3:
 	ldh a, [hSpriteIndexOrTextID]

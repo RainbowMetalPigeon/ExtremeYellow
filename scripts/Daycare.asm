@@ -1,8 +1,12 @@
 Daycare_Script:
+	RPTextChooser Daycare_TextPointers, Daycare_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Daycare_TextPointers:
 	dw DayCareMText1
+
+Daycare_TextPointers_Rocket:
+	dw DayCareMText1_Rocket
 
 DayCareMText1:
 	text_asm
@@ -326,4 +330,8 @@ DayCareNotEnoughMoneyText:
 
 DayCareCantTakeThisMon: ; new
 	text_far _DayCareCantTakeThisMon
+	text_end
+
+DayCareMText1_Rocket: ; new
+	text_far _DayCareMText1_Rocket
 	text_end

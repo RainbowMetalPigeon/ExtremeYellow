@@ -1,4 +1,5 @@
 CinnabarLab_Script:
+	RPTextChooser CinnabarLab_TextPointers, CinnabarLab_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -27,6 +28,35 @@ CinnabarLab_TextPointers:
 	dw Lab1ArcheologistSign4 ; new
 	dw Lab1ArcheologistSign5 ; new
 	dw Lab1SeismologySign1 ; new
+	dw Lab3Text3
+	dw Lab3Text4
+	dw Lab3Text5
+
+CinnabarLab_TextPointers_Rocket:
+	; people
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw Lab1Text5_Treasure ; TBE?
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Lab1Text2
+	dw Lab1Text3
+	dw Lab1Text4
+	dw Lab1Text5
+	dw Lab1ArcheologistSign1
+	dw Lab1ArcheologistSign2
+	dw Lab1ArcheologistSign3
+	dw Lab1ArcheologistSign4
+	dw Lab1ArcheologistSign5
+	dw Lab1SeismologySign1
 	dw Lab3Text3
 	dw Lab3Text4
 	dw Lab3Text5

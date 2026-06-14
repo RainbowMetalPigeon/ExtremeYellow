@@ -1,4 +1,5 @@
 ChampionsRoom_Script:
+	RPTextChooser ChampionsRoom_TextPointers, ChampionsRoom_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, ChampionsRoom_ScriptPointers
 	ld a, [wChampionsRoomCurScript]
@@ -464,6 +465,10 @@ ChampionsRoom_TextPointers: ; goddess, the order is such a mess xD
 	dw GaryText2ndBattle_AG_Refused	; 0a - second battle refused
 	dw GaryText6                ; 0b - long emotional conversation between Oak and Rival
 	dw GaryText7				; 0c - Oak compliments Rival and Player for having repeated their achievements
+
+ChampionsRoom_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath ; TBE
 
 ; ==================================
 

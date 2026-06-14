@@ -1,4 +1,5 @@
 CopycatsHouse1F_Script:
+	RPTextChooser CopycatsHouse1F_TextPointers, CopycatsHouse1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, CopycatsHouse1F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -46,9 +47,25 @@ CopycatsHouse1F_TextPointers:
 	dw CopycatsHouse2FText3
 	dw CopycatsHouse2FText4
 	dw CopycatsHouse2FText5
+	; signs
 	dw CopycatsHouse2FText6
 	dw CopycatsHouse2FText7
 	dw CopycatsHouse2FText8 ; new
+
+CopycatsHouse1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; 2F
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw CopycatsHouse2FText6
+	dw CopycatsHouse2FText7
+	dw CopycatsHouse2FText8
 
 CopycatsHouse1FText1:
 	text_far _CopycatsHouse1FText1

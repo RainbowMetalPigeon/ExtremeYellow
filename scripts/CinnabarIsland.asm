@@ -1,4 +1,5 @@
 CinnabarIsland_Script:
+	RPTextChooser CinnabarIsland_TextPointers, CinnabarIsland_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 ;	ld hl, wCurrentMapScriptFlags	; unused
@@ -136,6 +137,28 @@ CinnabarIsland_TextPointers:
 	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 23, new
 	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 24, new
 	dw CinnabarIslandScriptText6 ; 25, new
+
+CinnabarIsland_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw TextPreBattle_CinnabarTraveler ; traveler TBE?
+	dw CinnabarIslandSpecialBirdKeeperText ; 12 special birdkeeper TBE?
+	; signs
+	dw CinnabarIslandText3
+	dw MartSignText
+	dw PokeCenterSignText
+	dw CinnabarIslandText6
+	dw CinnabarIslandText7
+	dw CinnabarIslandTextVulcano
+	dw CinnabarIslandTextSeismic ; 19
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor

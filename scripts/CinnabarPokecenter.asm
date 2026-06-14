@@ -1,4 +1,5 @@
 CinnabarPokecenter_Script:
+	RPTextChooser CinnabarPokecenter_TextPointers, CinnabarPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ CinnabarPokecenter_TextPointers:
 	dw CinnabarMartText2
 	dw CinnabarMartText3
 	dw CinnabarCashierTextTM ; new, TM seller
+
+CinnabarPokecenter_TextPointers_Rocket:
+	dw CinnabarHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CinnabarTradeNurseText ; TBE?
+	dw CinnabarPokecenterText5
+	; new, from Mart
+	dw CinnabarCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CinnabarCashierTextTM
 
 CinnabarHealNurseText:
 	script_pokecenter_nurse
