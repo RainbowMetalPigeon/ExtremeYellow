@@ -29,7 +29,7 @@ _AfterBattleText_RocketPath_VsRocket::
 
 _AfterBattleText_RocketPath_VsNotRocket::
 	text "You beat me, you"
-	line "got my money,"
+	line "got all my money,"
 	cont "what else do you"
 	cont "want from me?!"
 ;	xxxx "123456789012345678"
@@ -64,6 +64,44 @@ _GenericNPCText_RocketPath_2::
 	text "I want nothing to"
 	line "do with TEAM"
 	cont "ROCKET!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_3::
+	text "...disgusting."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_4::
+	text "You really have no"
+	line "shame, have you?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_5::
+	text "So young and"
+	line "already on the"
+	cont "path of evil..."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_6::
+	text "What will your"
+	line "parents think"
+	cont "of your doing?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_7::
+	text "Anything you say!"
+	line "Anything!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_8::
+	text "Is there any trace"
+	line "of humanity left"
+	cont "in you?"
 ;	xxxx "123456789012345678"
 	done
 
