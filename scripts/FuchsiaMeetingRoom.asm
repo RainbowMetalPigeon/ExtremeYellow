@@ -1,4 +1,5 @@
 FuchsiaMeetingRoom_Script:
+	RPTextChooser FuchsiaMeetingRoom_TextPointers, FuchsiaMeetingRoom_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -12,6 +13,17 @@ FuchsiaMeetingRoom_TextPointers: ; edited
 	dw FuchsiaMeetingRoomText5
 	dw FuchsiaMeetingRoomText6
 	dw FuchsiaMeetingRoomText7 ; Koga
+
+FuchsiaMeetingRoom_TextPointers_Rocket:
+	; after defeating Giovanni in Obsidian
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; before defeating Giovanni in Obsidian
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw FuchsiaMeetingRoomText7 ; Koga TBE
 
 FuchsiaMeetingRoomText1:
 	text_far _FuchsiaMeetingRoomText1

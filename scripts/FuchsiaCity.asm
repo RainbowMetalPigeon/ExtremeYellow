@@ -1,4 +1,5 @@
 FuchsiaCity_Script:
+	RPTextChooser FuchsiaCity_TextPointers, FuchsiaCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, FuchsiaCity_ScriptPointers
@@ -49,6 +50,37 @@ FuchsiaCity_TextPointers:
 	; extra
 	dw TextPostBattle_FuchsiaTraveler ; new, for traveler, 29
 	dw FuchsiaCityText_ErikSurprised ; new, for Erik, 30
+
+FuchsiaCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw FuchsiaCityText5 ; Mon
+	dw FuchsiaCityText6 ; Mon
+	dw FuchsiaCityText7 ; Mon
+	dw FuchsiaCityText8 ; Mon
+	dw FuchsiaCityText9 ; Mon
+	dw FuchsiaCityText10 ; Mon
+	dw FuchsiaCityTextRocket ; TBE
+	dw FuchsiaCityTextErikHappy ; useless?
+	dw FuchsiaCityTextSaraHappy ; useless?
+	dw TextPreBattle_FuchsiaTraveler ; traveler, TBE
+	; signs
+	dw FuchsiaCityText12
+	dw FuchsiaCityText13
+	dw MartSignText
+	dw PokeCenterSignText
+	dw FuchsiaCityText16
+	dw FuchsiaCityText17
+	dw FuchsiaCityText18
+	dw FuchsiaCityText19
+	dw FuchsiaCityText20
+	dw FuchsiaCityText21
+	dw FuchsiaCityText22
+	dw FuchsiaCityText23
+	dw FuchsiaCityText24
+	dw FuchsiaCityTextAntiquities ; 28
 
 FuchsiaCityText1:
 	text_asm

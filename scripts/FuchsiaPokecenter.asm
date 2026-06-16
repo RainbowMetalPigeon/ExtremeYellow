@@ -1,4 +1,5 @@
 FuchsiaPokecenter_Script:
+	RPTextChooser FuchsiaPokecenter_TextPointers, FuchsiaPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ FuchsiaPokecenter_TextPointers:
 	dw FuchsiaMartText2
 	dw FuchsiaMartText3
 	dw FuchsiaCashierTextTM ; new, TM seller
+
+FuchsiaPokecenter_TextPointers_Rocket:
+	dw FuchsiaHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw FuchsiaTradeNurseText
+	dw FuchsiaPokecenterText5
+	; new, from Mart
+	dw FuchsiaCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw FuchsiaCashierTextTM
 
 FuchsiaHealNurseText:
 	script_pokecenter_nurse

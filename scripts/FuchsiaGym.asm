@@ -1,4 +1,5 @@
 FuchsiaGym_Script:
+	RPTextChooser FuchsiaGym_TextPointers, FuchsiaGym_TextPointers_Rocket
 	call .LoadNames
 	call EnableAutoTextBoxDrawing
 	ld hl, FuchsiaGymTrainerHeaders
@@ -112,11 +113,23 @@ FuchsiaGym_TextPointers:
 	dw FuchsiaGymTrainerText5
 	dw FuchsiaGymTrainerText6
 	dw FuchsiaGymTrainerText7
-	dw FuchsiaGymGuideText
+	dw FuchsiaGymGuideText ; 9
+	; scripts
 	dw KogaSoulBadgeInfoText
 	dw ReceivedTM06Text
 	dw TM06NoRoomText
-	dw KogaPostRematchText; new, $d
+	dw KogaPostRematchText; new, $d = 13
+
+FuchsiaGym_TextPointers_Rocket:
+	dw KogaText ; TBE
+	dw FuchsiaGymTrainerText1
+	dw FuchsiaGymTrainerText2
+	dw FuchsiaGymTrainerText3
+	dw FuchsiaGymTrainerText4
+	dw FuchsiaGymTrainerText5
+	dw FuchsiaGymTrainerText6
+	dw FuchsiaGymTrainerText7
+	dw FuchsiaGymGuideText ; 9 TBE
 
 FuchsiaGymTrainerHeaders:
 	def_trainers 2

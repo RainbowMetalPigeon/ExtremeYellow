@@ -1,4 +1,5 @@
 GameCorner_Script:
+	RPTextChooser GameCorner_TextPointers, GameCorner_TextPointers_Rocket
 	call CeladonGameCornerScript_48bcf
 	call CeladonGameCornerScript_48bec
 	call EnableAutoTextBoxDrawing
@@ -132,8 +133,26 @@ GameCorner_TextPointers:
 	dw CeladonGameCornerText9
 	dw CeladonGameCornerText10
 	dw CeladonGameCornerText11
+	; signs
 	dw CeladonGameCornerText12
+	; scripts
 	dw CeladonGameCornerText13 ; now it's 14=$e
+
+GameCorner_TextPointers_Rocket:
+	dw CeladonGameCornerText1 ; TBE
+	dw CeladonGameCornerText2 ; TBE
+	dw CeladonGameCornerText2Bis ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CeladonGameCornerText11 ; Rocket TBE
+	; signs
+	dw CeladonGameCornerText12
 
 CeladonGameCornerText1:
 	text_far _CeladonGameCornerText1
