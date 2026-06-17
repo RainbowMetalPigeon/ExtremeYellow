@@ -1,4 +1,5 @@
 LavenderPokecenter_Script:
+	RPTextChooser LavenderPokecenter_TextPointers, LavenderPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ LavenderPokecenter_TextPointers:
 	dw LavenderMartText2
 	dw LavenderMartText3
 	dw LavenderCashierTextTM ; new, TM seller
+
+LavenderPokecenter_TextPointers_Rocket:
+	dw LavenderHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw LavenderTradeNurseText
+	dw LavenderPokecenterText5
+	; new, from Mart
+	dw LavenderCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw LavenderCashierTextTM
 
 LavenderTradeNurseText:
 	script_cable_club_receptionist

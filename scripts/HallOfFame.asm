@@ -1,4 +1,5 @@
 HallOfFame_Script:
+	RPTextChooser HallOfFame_TextPointers, HallOfFame_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, HallOfFame_ScriptPointers
 	ld a, [wCurMapScript]
@@ -314,6 +315,10 @@ HallOfFame_TextPointers:
 	dw HallofFameRoomText2 ; just a proxy to avoid issues with indexing
 	dw HallofFameRoomText3
 	dw HallofFameRoomText4
+
+HallOfFame_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath ; TBE
 
 HallofFameRoomText1:
 	text_asm

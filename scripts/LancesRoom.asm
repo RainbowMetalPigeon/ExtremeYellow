@@ -1,4 +1,5 @@
 LancesRoom_Script:
+	RPTextChooser LancesRoom_TextPointers, LancesRoom_TextPointers_Rocket
 	call LanceShowOrHideEntranceBlocks
 	call EnableAutoTextBoxDrawing
 	ld hl, LancesRoomTrainerHeaders
@@ -128,6 +129,9 @@ LanceScript3:
 
 LancesRoom_TextPointers:
 	dw LanceText1
+
+LancesRoom_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
 
 LancesRoomTrainerHeaders:
 	def_trainers

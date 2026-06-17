@@ -1,4 +1,5 @@
 LakeOfMist_Script:
+	RPTextChooser LakeOfMist_TextPointers, LakeOfMist_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, LakeOfMistTrainerHeaders
 	ld de, LakeOfMist_ScriptPointers
@@ -29,6 +30,22 @@ LakeOfMist_TextPointers:
 	dw RockSmashText
 	; signs
 	dw LakeOfMistSignText1
+
+LakeOfMist_TextPointers_Rocket:
+	dw LakeOfMistText1 ; TBE
+	; trainers
+	dw LakeOfMistTrainerText1
+	dw LakeOfMistTrainerText2
+	dw LakeOfMistTrainerText3
+	dw LakeOfMistTrainerText4
+	dw LakeOfMistTrainerText5
+	; npcs
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; items
+	dw PickUpItemText
+	dw RockSmashText
 
 ; ---------------------------------------------------
 

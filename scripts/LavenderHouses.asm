@@ -1,4 +1,5 @@
 LavenderHouses_Script:
+	RPTextChooser LavenderHouses_TextPointers, LavenderHouses_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -18,6 +19,23 @@ LavenderHouses_TextPointers:
 	; house gate
 	dw LavenderHouseGateText1
 	dw LavenderHouseGateText2
+
+LavenderHouses_TextPointers_Rocket:
+	; Fuji house
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw LavenderHouse1Text3 ; Pokemon
+	dw LavenderHouse1Text4 ; Pokemon
+	dw LavenderHouse1Text5 ; Fuji TBE
+	dw LavenderHouse1Text6
+	; Cubone house
+	dw LavenderHouse2Text1 ; Pokemon
+	dw GenericNPCText_RocketPath
+	; Name rater house
+	dw NameRaterText1 ; Name Rater TBE
+	; house gate
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 ; Fuji house -----------------------------
 

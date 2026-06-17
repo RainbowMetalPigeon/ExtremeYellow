@@ -1,4 +1,5 @@
 LavenderTown_Script:
+	RPTextChooser LavenderTown_TextPointers, LavenderTown_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, LavenderTown_ScriptPointers
@@ -52,13 +53,28 @@ LavenderTown_TextPointers:
 	dw LavenderTownText2
 	dw LavenderTownText3
 	dw TextPreBattle_LavenderTraveler ; new, for traveler
+	; signs
 	dw LavenderTownText4
 	dw LavenderTownText5
 	dw MartSignText
 	dw PokeCenterSignText
 	dw LavenderTownText8
 	dw LavenderTownText9 ; $0a
+	; scripts
 	dw TextPostBattle_LavenderTraveler ; $0b, new, for traveler
+
+LavenderTown_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw TextPreBattle_LavenderTraveler ; traveler TBE
+	; signs
+	dw LavenderTownText4
+	dw LavenderTownText5
+	dw MartSignText
+	dw PokeCenterSignText
+	dw LavenderTownText8
+	dw LavenderTownText9 ; $0a
 
 ; ================================
 

@@ -1,4 +1,5 @@
 IndigoPlateauLobby_Script:
+	RPTextChooser IndigoPlateauLobby_TextPointers, IndigoPlateauLobby_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	call EnableAutoTextBoxDrawing
 	ld hl, wCurrentMapScriptFlags
@@ -18,6 +19,15 @@ IndigoPlateauLobby_TextPointers:
 	dw IndigoHealNurseText
 	dw IndigoPlateauLobbyText2
 	dw IndigoPlateauLobbyText3
+	dw IndigoCashier1Text
+	dw IndigoCashier2Text
+	dw IndigoTradeNurseText
+	dw IndigoPlateauLobbyText6
+
+IndigoPlateauLobby_TextPointers_Rocket:
+	dw IndigoHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw IndigoCashier1Text
 	dw IndigoCashier2Text
 	dw IndigoTradeNurseText
