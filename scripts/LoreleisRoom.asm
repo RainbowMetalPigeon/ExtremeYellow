@@ -1,4 +1,5 @@
 LoreleisRoom_Script:
+	RPTextChooser LoreleisRoom_TextPointers, LoreleisRoom_TextPointers_Rocket
 	call LoreleiShowOrHideExitBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, LoreleisRoomTrainerHeaders
@@ -124,6 +125,10 @@ LoreleiScript2:
 
 LoreleisRoom_TextPointers:
 	dw LoreleiText1
+	dw LoreleiDontRunAwayText
+
+LoreleisRoom_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
 	dw LoreleiDontRunAwayText
 
 LoreleisRoomTrainerHeaders:

@@ -1,4 +1,5 @@
 MrPsychicsHouse_Script: ; edited
+	RPTextChooser MrPsychicsHouse_TextPointers, MrPsychicsHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, MrPsychicsHouse_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -32,6 +33,24 @@ MrPsychicsHouse_TextPointers:
 	dw SaffronNewApartmentsSignText1
 	; scripts texts
 	dw MrPsychicsHouseTextSabrinaPostBattle ; 14, new, map-dependent
+
+MrPsychicsHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath ; TBE
+	; poly pidgey house
+	dw GenericNPCText_RocketPath
+	dw SaffronHouse1Text2
+	dw GenericNPCText_RocketPath
+	dw SaffronHouse1Text4
+	; apartments, new
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw SaffronNewApartmentsSignText1
 
 SaffronHouse2Text1:
 	text_asm

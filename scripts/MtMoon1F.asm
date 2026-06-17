@@ -1,4 +1,5 @@
 MtMoon1F_Script:
+	RPTextChooser MtMoon1F_TextPointers, MtMoon1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, MtMoon1TrainerHeaders
 	ld de, MtMoon1F_ScriptPointers
@@ -207,6 +208,25 @@ MtMoon1F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw MtMoon1TextRival ; new, 14
+	; signs
+	dw MtMoon1Text14 ; 15
+
+MtMoon1F_TextPointers_Rocket:
+	dw MtMoon1Text1 ; trainer
+	dw MtMoon1Text2 ; trainer
+	dw MtMoon1Text3 ; trainer
+	dw MtMoon1Text4 ; trainer
+	dw MtMoon1Text5 ; trainer
+	dw MtMoon1Text6 ; trainer
+	dw MtMoon1Text7 ; trainer
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw MtMoon1TextRival ; TBE
+	; signs
 	dw MtMoon1Text14 ; 15
 
 MtMoon1TrainerHeaders:

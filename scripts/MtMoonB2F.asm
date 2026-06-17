@@ -1,4 +1,5 @@
 MtMoonB2F_Script:
+	RPTextChooser MtMoonB2F_TextPointers, MtMoonB2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, MtMoon3TrainerHeaders
 	ld de, MtMoonB2F_ScriptPointers
@@ -416,20 +417,33 @@ MtMoon3Script_49f93:
 	ret
 
 MtMoonB2F_TextPointers:
-	dw MtMoon3Text1
-	dw MtMoon3Text2
-	dw MtMoon3Text3
-	dw MtMoon3Text4
-	dw MtMoon3Text5
-	dw MtMoon3Text6
-	dw MtMoon3Text7
-	dw MtMoon3Text8
+	dw MtMoon3Text1 ; Super Nerd
+	dw MtMoon3Text2 ; Jessie
+	dw MtMoon3Text3 ; Rocket
+	dw MtMoon3Text4 ; Rocket
+	dw MtMoon3Text5 ; Rocket
+	dw MtMoon3Text6 ; James
+	dw MtMoon3Text7 ; fossil
+	dw MtMoon3Text8 ; fossil
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
 	dw MtMoon3Text11
 	dw MtMoon3Text12
 	dw MtMoon3Text13
 	dw MtMoon3Text14
+
+MtMoonB2F_TextPointers_Rocket:
+	dw MtMoon3Text1 ; Super Nerd, TBE?
+	dw MtMoon3Text2 ; Jessie, gone?
+	dw MtMoon3Text3 ; Rocket
+	dw MtMoon3Text4 ; Rocket
+	dw MtMoon3Text5 ; Rocket
+	dw MtMoon3Text6 ; James, gone?
+	dw MtMoon3Text7 ; fossil, gone?
+	dw MtMoon3Text8 ; fossil, gone?
+	dw PickUpItemText
+	dw PickUpItemText
 
 MtMoon3TrainerHeaders:
 	def_trainers 3
