@@ -1,4 +1,5 @@
 PokemonMansionB1F_Script:
+	RPTextChooser PokemonMansionB1F_TextPointers, PokemonMansionB1F_TextPointers_Rocket
 	call Mansion4Script_HandleDoors
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion4TrainerHeaders
@@ -431,7 +432,22 @@ PokemonMansionB1F_TextPointers:
 	dw PokemonMansionB1FTextSign1
 	dw PokemonMansionB1FTextSign1
 	; scripts
-	dw Mansion3Text6 ; 11
+	dw Mansion3Text6 ; 13
+
+PokemonMansionB1F_TextPointers_Rocket:
+	dw Mansion4Text1
+	dw Mansion4Text2
+	dw Mansion4Text3
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw Mansion4Text7
+	dw PickUpItemText
+	dw Mansion4TextRival ; TBE, 10
+	; signs
+	dw PokemonMansionB1FTextSign1
+	dw PokemonMansionB1FTextSign1
 
 Mansion4TrainerHeaders:
 	def_trainers

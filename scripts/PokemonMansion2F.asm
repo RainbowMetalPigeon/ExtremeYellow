@@ -1,4 +1,5 @@
 PokemonMansion2F_Script:
+	RPTextChooser PokemonMansion2F_TextPointers, PokemonMansion2F_TextPointers_Rocket
 	call Mansion2Script_51fee
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion2TrainerHeaders
@@ -65,6 +66,14 @@ PokemonMansion2F_TextPointers:
 	dw Mansion2Text4
 	dw Mansion2Text5 ; statue switch text
 	dw PokemonMansion2FTextBlainePostBattle ; 7, new, map-dependent
+
+PokemonMansion2F_TextPointers_Rocket:
+	dw Mansion2TextBlaine ; TBE
+	dw Mansion2Text1
+	dw PickUpItemText
+	dw Mansion2Text3
+	dw Mansion2Text4
+	dw Mansion2Text5 ; statue switch text
 
 Mansion2TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Blaine
