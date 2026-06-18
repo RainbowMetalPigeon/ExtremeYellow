@@ -1,4 +1,5 @@
 ObsidianIsland_Script:
+	RPTextChooser ObsidianIsland_TextPointers, ObsidianIsland_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianIsland_ScriptPointers
@@ -81,6 +82,36 @@ ObsidianIsland_TextPointers:
 	; other
 	dw ObsidianIslandTextClosedHouse ; 23 = $17
 	dw TextPostBattle_ObsidianTraveler ; 24, new, for traveler
+
+ObsidianIsland_TextPointers_Rocket:
+	; before Giovanni's defeat
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; after Giovanni's defeat -> none? TBE
+	dw ObsidianIslandText7_Scientist1
+	dw ObsidianIslandText8_Scientist2
+	dw ObsidianIslandText9_Officier
+	dw ObsidianIslandText10_Citizen1
+	dw ObsidianIslandText11_Citizen2
+	dw ObsidianIslandText12_Citizen3
+	dw ObsidianIslandText13_Citizen4
+	dw TextPreBattle_ObsidianTraveler ; traveler, TBE
+	; item
+	dw PickUpItemText
+	; signs
+	dw ObsidianIslandTextWelcome ; welcome
+	dw PokeCenterSignText
+	dw MartSignText
+	dw ObsidianIslandTextPier ; pier
+	dw ObsidianIslandTextWoodNorth ; wood
+	dw ObsidianIslandTextWoodWest ; wood
+	dw ObsidianIslandTextMines ; mines
+	dw ObsidianIslandTextWarehouse ; warehouse
+	; other
+	dw ObsidianIslandTextClosedHouse ; 23 = $17 TBE
 
 ; ----------------- people -----------------
 

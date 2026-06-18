@@ -1,4 +1,5 @@
 PewterGym_Script:
+	RPTextChooser PewterGym_TextPointers, PewterGym_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
 	res 6, [hl]
@@ -118,10 +119,17 @@ PewterGym_TextPointers:
 	dw PewterGymTrainerText1
 	dw PewterGymTrainerText2
 	dw PewterGymGuideText
+	; scripts
 	dw BeforeReceivedTM34Text
 	dw ReceivedTM34Text
 	dw TM34NoRoomText
 	dw BrockPostRematchText; new, $8
+
+PewterGym_TextPointers_Rocket:
+	dw BrockText ; TBE
+	dw PewterGymTrainerText1
+	dw PewterGymTrainerText2
+	dw PewterGymGuideText ; TBE
 
 PewterGymTrainerHeaders:
 	def_trainers 2

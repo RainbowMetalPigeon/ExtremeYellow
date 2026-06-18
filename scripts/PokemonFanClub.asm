@@ -1,4 +1,5 @@
 PokemonFanClub_Script:
+	RPTextChooser PokemonFanClub_TextPointers, PokemonFanClub_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonFanClub_ScriptPointers
 	ld a, [wFanClubCurScript]
@@ -75,6 +76,14 @@ PokemonFanClub_TextPointers:
 	dw FanClubText4
 	dw FanClubText5
 	dw FanClubText6
+
+PokemonFanClub_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw FanClubText3 ; mon
+	dw FanClubText4 ; mon
+	dw GenericNPCText_RocketPath ; president
+	dw GenericNPCText_RocketPath
 
 FanClubText1:
 ; clefairy fan

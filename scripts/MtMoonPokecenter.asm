@@ -1,4 +1,5 @@
 MtMoonPokecenter_Script:
+	RPTextChooser MtMoonPokecenter_TextPointers, MtMoonPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -11,6 +12,16 @@ MtMoonPokecenter_TextPointers:
 	dw MtMoonTradeNurseText
 	dw MtMoonPokecenterText7
 	dw MtMoonPokecenterText8 ; new
+
+MtMoonPokecenter_TextPointers_Rocket:
+	dw MtMoonHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw MagikarpSalesmanText
+	dw MtMoonPokecenterText5
+	dw MtMoonTradeNurseText
+	dw GenericNPCText_RocketPath ; TBE?
+	dw MtMoonPokecenterText8 ; Magikarp
 
 MtMoonHealNurseText:
 	script_pokecenter_nurse

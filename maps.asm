@@ -1333,11 +1333,6 @@ INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
 CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
 
-INCLUDE "data/maps/headers/ObsidianHouses.asm"
-INCLUDE "scripts/ObsidianHouses.asm"
-INCLUDE "data/maps/objects/ObsidianHouses.asm"
-ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
-
 INCLUDE "data/maps/headers/SilphCoElevator.asm"
 INCLUDE "scripts/SilphCoElevator.asm"
 INCLUDE "data/maps/objects/SilphCoElevator.asm"
@@ -1347,11 +1342,6 @@ INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
 INCLUDE "scripts/RocketHideoutElevator.asm"
 INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
 RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
-
-INCLUDE "data/maps/headers/SSAnne3F.asm"
-INCLUDE "scripts/SSAnne3F.asm"
-INCLUDE "data/maps/objects/SSAnne3F.asm"
-SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
 
 
 SECTION "Maps New 2", ROMX ; new
@@ -1479,6 +1469,16 @@ INCLUDE "data/maps/headers/ViridianPokecenter.asm"
 INCLUDE "scripts/ViridianPokecenter.asm"
 INCLUDE "data/maps/objects/ViridianPokecenter.asm"
 ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
+
+INCLUDE "data/maps/headers/SSAnne3F.asm"
+INCLUDE "scripts/SSAnne3F.asm"
+INCLUDE "data/maps/objects/SSAnne3F.asm"
+SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
+
+INCLUDE "data/maps/headers/ObsidianHouses.asm"
+INCLUDE "scripts/ObsidianHouses.asm"
+INCLUDE "data/maps/objects/ObsidianHouses.asm"
+ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

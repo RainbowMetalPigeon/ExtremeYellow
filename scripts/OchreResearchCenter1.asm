@@ -1,4 +1,5 @@
 OchreResearchCenter1_Script:
+	RPTextChooser OchreResearchCenter1_TextPointers, OchreResearchCenter1_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -15,6 +16,24 @@ OchreResearchCenter1_TextPointers:
 	dw OchreResearchCenter1Text_Power_Galar
 	dw OchreResearchCenter1Text_Power_Windworks
 	dw OchreResearchCenter1Text_Power_Kanto
+	; signs
+	dw OchreResearchCenterSign_Hall
+	dw OchreResearchCenterSign_Ball
+	dw OchreResearchCenterSign_Power
+
+OchreResearchCenter1_TextPointers_Rocket:
+	; hall
+	dw GenericNPCText_RocketPath
+	; balls
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw OchreResearchCenter1Text_Ball_Heavy
+	dw OchreResearchCenter1Text_Ball_Fast
+	; power
+	dw GenericNPCText_RocketPath
+	dw OchreResearchCenter1Text_Power_Windworks ; TBE
+	dw GenericNPCText_RocketPath
 	; signs
 	dw OchreResearchCenterSign_Hall
 	dw OchreResearchCenterSign_Ball

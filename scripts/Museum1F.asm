@@ -1,4 +1,5 @@
 Museum1F_Script:
+	RPTextChooser Museum1F_TextPointers, Museum1F_TextPointers_Rocket
 	ld a, TRUE
 	ld [wAutoTextBoxDrawingControl], a
 	xor a
@@ -38,6 +39,13 @@ Museum1F_TextPointers:
 	dw Museum1FText3
 	dw Museum1FText4
 	dw Museum1FText5
+
+Museum1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw Museum1FText5 ; Amber
 
 Museum1FText1:
 	text_asm

@@ -1,4 +1,5 @@
 OchreHouses_Script:
+	RPTextChooser OchreHouses_TextPointers, OchreHouses_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -10,6 +11,22 @@ OchreHouses_TextPointers:
 	dw OchreHousesTextBirbFan1
 	dw OchreHousesTextBirbFan2
 	dw OchreHousesTextBirbFan3
+	dw OchreHousesTextBirb1 ; FEAROW
+	dw OchreHousesTextBirb2 ; FARFETCHD
+	dw OchreHousesTextBirb3 ; PIDGEOT
+	dw OchreHousesTextBirb4 ; DODRIO
+	dw OchreHousesTextMapPiece
+	; signs
+	dw OchreHousesTextNotebook
+
+OchreHouses_TextPointers_Rocket:
+	dw MoveDeleterText1 ; OchreHousesTextDeleter TBE
+	dw MoveRelearnerText1 ; OchreHousesTextRelearner TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw OchreHousesTextBirb1 ; FEAROW
 	dw OchreHousesTextBirb2 ; FARFETCHD
 	dw OchreHousesTextBirb3 ; PIDGEOT

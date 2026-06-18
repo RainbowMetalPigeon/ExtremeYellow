@@ -1,4 +1,5 @@
 Museum2F_Script:
+	RPTextChooser Museum2F_TextPointers, Museum2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -9,6 +10,18 @@ Museum2F_TextPointers:
 	dw Museum2FText4
 	dw Museum2FText5
 	dw Museum2FText8 ; new
+	; signs
+	dw Museum2FText6
+	dw Museum2FText7
+
+Museum2F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
 	dw Museum2FText6
 	dw Museum2FText7
 

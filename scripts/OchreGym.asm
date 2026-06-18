@@ -1,4 +1,5 @@
 OchreGym_Script:
+	RPTextChooser OchreGym_TextPointers, OchreGym_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -196,16 +197,35 @@ OchreGym_TextPointers:
 	dw OchreGymTrainerText5
 	dw OchreGymTrainerText6
 	dw OchreGymTrainerText7
+	; signs
 	dw OchreGymStatueText
 	dw OchreGymStatueText ; $0a
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
+	; scripts
 	dw OrageNoBadgeInfoText
 	dw ReceivedGiftText
 	dw GiftNoRoomText
 	dw OragePostRematchText; new, 18=$12
+
+OchreGym_TextPointers_Rocket:
+	dw OrageText ; TBE
+	dw OchreGymTrainerText1
+	dw OchreGymTrainerText2
+	dw OchreGymTrainerText3
+	dw OchreGymTrainerText4
+	dw OchreGymTrainerText5
+	dw OchreGymTrainerText6
+	dw OchreGymTrainerText7
+	; signs
+	dw OchreGymStatueText
+	dw OchreGymStatueText ; 10
+	dw OchreGymTrashBinText
+	dw OchreGymTrashBinText
+	dw OchreGymTrashBinText
+	dw OchreGymTrashBinText
 
 OchreGymTrainerHeaders:
 	def_trainers 2

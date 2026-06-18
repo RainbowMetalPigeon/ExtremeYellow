@@ -1,4 +1,5 @@
 ObsidianMines_Script:
+	RPTextChooser ObsidianMines_TextPointers, ObsidianMines_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianMinesTrainerHeaders
 	ld de, ObsidianMines_ScriptPointers
@@ -31,7 +32,7 @@ ScriptTest:
 	ret
 
 ObsidianMines_TextPointers:
-	dw ObsidianMinesText1
+	dw ObsidianMinesText1 ; trainer
 	dw ObsidianMinesText2
 	dw ObsidianMinesText3
 	dw PickUpItemText
@@ -41,7 +42,18 @@ ObsidianMines_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	text_end
+
+ObsidianMines_TextPointers_Rocket:
+	dw ObsidianMinesText1
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 
 ; ----------------------------------
 

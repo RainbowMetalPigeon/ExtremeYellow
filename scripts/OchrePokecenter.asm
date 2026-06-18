@@ -1,4 +1,5 @@
 OchrePokecenter_Script:
+	RPTextChooser OchrePokecenter_TextPointers, OchrePokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ OchrePokecenter_TextPointers:
 	dw OchreMartText2
 	dw OchreMartText3
 	dw OchreCashierTextTM ; new, TM seller
+
+OchrePokecenter_TextPointers_Rocket:
+	dw OchreHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw OchreTradeNurseText
+	dw OchrePokecenterText5
+	; mart
+	dw OchreCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw OchreCashierTextTM
 
 OchreHealNurseText:
 	script_pokecenter_nurse

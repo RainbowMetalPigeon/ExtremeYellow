@@ -1,4 +1,5 @@
 PalletTown_Script:
+	RPTextChooser PalletTown_TextPointers, PalletTown_TextPointers_Rocket
 	CheckEvent EVENT_GOT_POKEBALLS_FROM_OAK
 	jr z, .next
 	SetEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS
@@ -229,12 +230,24 @@ PalletTown_TextPointers:
 	dw PalletTownText2
 	dw PalletTownText3
 	dw PalletTownTextDarkGuide ; can't be bothered to rename everything lol
-	; signs from here onward
+	; signs
 	dw PalletTownText4
 	dw PalletTownText5
 	dw PalletTownText6
 	dw PalletTownText7
+	; scripts
 	dw PalletTownText8
+
+PalletTown_TextPointers_Rocket:
+	dw PalletTownText1 ; Oak, unnecessary TBE?
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw PalletTownTextDarkGuide ; TBE?
+	; signs
+	dw PalletTownText4
+	dw PalletTownText5
+	dw PalletTownText6
+	dw PalletTownText7
 
 PalletTownText1:
 	text_asm

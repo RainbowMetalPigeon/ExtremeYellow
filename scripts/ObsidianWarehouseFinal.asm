@@ -1,4 +1,5 @@
 ObsidianWarehouseFinal_Script:
+	RPTextChooser ObsidianWarehouseFinal_TextPointers, ObsidianWarehouseFinal_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianWarehouseFinalTrainerHeaders
 	ld de, ObsidianWarehouseFinal_ScriptPointers
@@ -29,6 +30,15 @@ ObsidianWarehouseFinal_TextPointers:
 	dw ObsidianWarehouseFinalText9_JessieJames2
 	dw ObsidianWarehouseFinalText10_JessieJames3
 	dw ObsidianWarehouseFinalText11_JessieJames4
+
+ObsidianWarehouseFinal_TextPointers_Rocket:
+	dw ObsidianWarehouseFinalText1 ; James
+	dw ObsidianWarehouseFinalText2 ; Jessie
+	dw ObsidianWarehouseFinalText3 ; Proton
+	dw ObsidianWarehouseFinalText4 ; Petrel
+	dw ObsidianWarehouseFinalText5 ; Ariana
+	dw ObsidianWarehouseFinalText6 ; Archer
+	dw ObsidianWarehouseFinalText7 ; Giovanni
 
 ; ================= scripts, beginning =================
 

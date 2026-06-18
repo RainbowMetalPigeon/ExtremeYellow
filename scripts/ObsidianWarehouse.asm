@@ -1,4 +1,5 @@
 ObsidianWarehouse_Script:
+	RPTextChooser ObsidianWarehouse_TextPointers, ObsidianWarehouse_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -185,7 +186,7 @@ ObsidianWarehouseArrowTilePlayerMovement:
 	map_coord_movement 43, 29, Spinner_RIGHT_3
 	map_coord_movement 47, 29, Spinner_RIGHT_3
 	map_coord_movement 50, 29, Spinner_UP_2
-	
+
 	map_coord_movement 35, 30, Spinner_RIGHT_2
 	map_coord_movement 37, 30, Spinner_UP_1
 	map_coord_movement 43, 30, Spinner_LEFT_6
@@ -358,6 +359,23 @@ Spinner_RIGHT_8:
 ; ================ spinners - end ================
 
 ObsidianWarehouse_TextPointers:
+	dw ObsidianWarehouseTrainerText1
+	dw ObsidianWarehouseTrainerText2
+	dw ObsidianWarehouseTrainerText3
+	dw ObsidianWarehouseTrainerText4
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw ObsidianWarehouseStatueText
+
+ObsidianWarehouse_TextPointers_Rocket: ; TBE? They're identical.
 	dw ObsidianWarehouseTrainerText1
 	dw ObsidianWarehouseTrainerText2
 	dw ObsidianWarehouseTrainerText3

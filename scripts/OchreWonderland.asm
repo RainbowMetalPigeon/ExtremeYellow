@@ -1,8 +1,23 @@
 OchreWonderland_Script:
+	RPTextChooser OchreWonderland_TextPointers, OchreWonderland_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 OchreWonderland_TextPointers:
 	dw OchreWonderlandTextBlue
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw OchreWonderlandTextEevee
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw OchreWonderland_Sign1
+	dw OchreWonderland_Sign2
+
+OchreWonderland_TextPointers_Rocket:
+	dw OchreWonderlandTextBlue ; TBE
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

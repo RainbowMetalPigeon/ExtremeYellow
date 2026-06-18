@@ -1,4 +1,5 @@
 ObsidianWood_Script:
+	RPTextChooser ObsidianWood_TextPointers, ObsidianWood_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianWoodTrainerHeaders
 	ld de, ObsidianWood_ScriptPointers
@@ -22,11 +23,28 @@ ObsidianWood_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	; signs
 	dw ObsidianWoodTextSignEntrance
 	dw ObsidianWoodTextSignSpiral
 	dw ObsidianWoodTextSignPlateau
 	dw ObsidianWoodTextSignExit
+	; scripts
 	dw ObsidianWoodTextOragePostBattle ; 13, new, map-dependent
+
+ObsidianWood_TextPointers_Rocket:
+	dw ObsidianWoodText1
+	dw ObsidianWoodText2
+	dw ObsidianWoodText3
+	dw ObsidianWoodText4
+	dw ObsidianWoodTextOrage ; TBE
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	; signs
+	dw ObsidianWoodTextSignEntrance
+	dw ObsidianWoodTextSignSpiral
+	dw ObsidianWoodTextSignPlateau
+	dw ObsidianWoodTextSignExit
 
 ObsidianWoodTrainerHeaders:
 	def_trainers

@@ -1,4 +1,5 @@
 OchreCity_Script:
+	RPTextChooser OchreCity_TextPointers, OchreCity_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags ; for the fence
 	bit 6, [hl]
 	res 6, [hl]
@@ -62,6 +63,33 @@ OchreCity_TextPointers:
 	dw OchreCity_LooseFence
 	; non-NPC dialogues
 	dw TextPostBattle_OchreTraveler ; 24, new, for traveler
+
+OchreCity_TextPointers_Rocket:
+	; NPCs
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw TextPreBattle_OchreTraveler ; traveler, TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw OchreCity_NPCText13 ; BIRD
+	dw OchreCity_NPCText14 ; BIRD
+	; signs
+	dw MartSignText
+	dw PokeCenterSignText
+	dw OchreCity_SignCity
+	dw OchreCity_SignGym
+	dw OchreCity_SignRehabilitation
+	dw OchreCity_SignParkAndSquare
+	dw OchreCity_SignResearch
+	dw OchreCity_SignBirbFan
+	dw OchreCity_LooseFence
 
 ; -------------- NPCs texts --------------
 

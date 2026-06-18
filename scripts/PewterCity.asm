@@ -1,4 +1,5 @@
 PewterCity_Script:
+	RPTextChooser PewterCity_TextPointers, PewterCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, wd492
@@ -37,6 +38,24 @@ PewterCity_TextPointers:
 	dw PewterCityText12
 	; scripts
 	dw TextPostBattle_PewterTraveler ; 16, new, for traveler
+
+PewterCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw TextPreBattle_PewterTraveler ; traveler TBE
+	dw PewterCityCoinCaseMeowthText ; Meowth TBE?
+	; signs
+	dw PewterCityText6
+	dw PewterCityText7
+	dw MartSignText
+	dw PokeCenterSignText
+	dw PewterCityText10
+	dw PewterCityText11
+	dw PewterCityText12 ; 15
 
 PewterCityText1:
 	text_far _PewterCityText1
@@ -317,7 +336,7 @@ PewterCityCoinCaseMeowthText:
 	call PlayCry
 	call WaitForSoundToFinish
 	call WaitForTextScrollButtonPress
-	
+
 	call GBFadeOutToBlack
 
 	ld a, HS_PEWTER_CITY_COIN_CASE_MEOWTH
