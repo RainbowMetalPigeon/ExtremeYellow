@@ -688,7 +688,7 @@ SilphCo11TextBadgeMachine:
 	call RemovePokemon
 	ld a, [wUniQuizAnswer]
 	ld c, a
-	ld b, MAGIKARP
+	ld b, THU_FI_ZER
 	call GivePokemon
 	jr .done
 

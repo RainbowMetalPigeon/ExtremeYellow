@@ -16,8 +16,8 @@ DebugTeam:
 	db KADABRA, 41 ; 255
 	db GOLDUCK, 99
 	db STARTER_PIKACHU, 1
-;	db CHARMELEON, 100
-;	db BULBASAUR, 42
+;	db BLASTOISE, 100
+;	db VENUSAUR, 42
 ;	db JOLTEON, 68
 	db -1 ; end
 
@@ -39,7 +39,7 @@ IF DEF(_DEBUG)
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
-	ld a, %11111110
+	ld a, %11111111
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
