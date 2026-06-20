@@ -1,4 +1,5 @@
 Route6_Script:
+	RPTextChooser Route6_TextPointers, Route6_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route6TrainerHeaders
 	ld de, Route6_ScriptPointers
@@ -19,6 +20,17 @@ Route6_TextPointers:
 	dw Route6Text4
 	dw Route6Text5
 	dw Route6Text6
+	; signs
+	dw Route6Text7
+
+Route6_TextPointers_Rocket:
+	dw Route6Text1
+	dw Route6Text2
+	dw Route6Text3
+	dw Route6Text4
+	dw Route6Text5
+	dw Route6Text6
+	; signs
 	dw Route6Text7
 
 Route6TrainerHeaders:

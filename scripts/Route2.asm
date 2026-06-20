@@ -1,4 +1,5 @@
 Route2_Script:
+	RPTextChooser Route2_TextPointers, Route2_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route2_TextPointers:
@@ -6,6 +7,16 @@ Route2_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route2SupremeRelaxerText ; new
+	; signs
+	dw Route2Text3
+	dw Route2Text4
+
+Route2_TextPointers_Rocket:
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath
+	; signs
 	dw Route2Text3
 	dw Route2Text4
 

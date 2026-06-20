@@ -246,11 +246,6 @@ INCLUDE "scripts/PokemonMansion1F.asm"
 INCLUDE "data/maps/objects/PokemonMansion1F.asm"
 PokemonMansion1F_Blocks: INCBIN "maps/PokemonMansion1F.blk"
 
-INCLUDE "data/maps/headers/RockTunnel1F.asm"
-INCLUDE "scripts/RockTunnel1F.asm"
-INCLUDE "data/maps/objects/RockTunnel1F.asm"
-RockTunnel1F_Blocks: INCBIN "maps/RockTunnel1F.blk"
-
 INCLUDE "data/maps/headers/SeafoamIslands1F.asm"
 INCLUDE "scripts/SeafoamIslands1F.asm"
 INCLUDE "data/maps/objects/SeafoamIslands1F.asm"
@@ -1479,6 +1474,11 @@ INCLUDE "data/maps/headers/ObsidianHouses.asm"
 INCLUDE "scripts/ObsidianHouses.asm"
 INCLUDE "data/maps/objects/ObsidianHouses.asm"
 ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
+
+INCLUDE "data/maps/headers/RockTunnel1F.asm"
+INCLUDE "scripts/RockTunnel1F.asm"
+INCLUDE "data/maps/objects/RockTunnel1F.asm"
+RockTunnel1F_Blocks: INCBIN "maps/RockTunnel1F.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

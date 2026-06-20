@@ -1,4 +1,5 @@
 Route8Gate_Script:
+	RPTextChooser Route8Gate_TextPointers, Route8Gate_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route8Gate_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -77,7 +78,11 @@ Route8GateScript1:
 
 Route8Gate_TextPointers:
 	dw Route8GateText1
+	; scripts
 	dw Route8GateText2
 	dw Route8GateText3
 	dw Route8GateText4
 	dw Route8GateText5
+
+Route8Gate_TextPointers_Rocket:
+	dw Route8GateText1 ; TBE

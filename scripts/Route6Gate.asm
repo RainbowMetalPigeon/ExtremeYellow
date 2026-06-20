@@ -1,4 +1,5 @@
 Route6Gate_Script:
+	RPTextChooser Route6Gate_TextPointers, Route6Gate_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route6Gate_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -78,7 +79,11 @@ Route8GateScript_PushDown:
 
 Route6Gate_TextPointers:
 	dw Route6GateText1
+	; scripts
 	dw Route6GateText2
 	dw Route6GateText3
 	dw Route6GateText4
 	dw Route6GateText5
+
+Route6Gate_TextPointers_Rocket:
+	dw Route6GateText1 ; TBE

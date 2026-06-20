@@ -1,4 +1,5 @@
 RedsHouse1F_Script: ; edited
+	RPTextChooser RedsHouse1F_TextPointers, RedsHouse1F_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -65,9 +66,18 @@ RedsHouse1FScript0:
 RedsHouse1F_TextPointers:
 	dw RedsHouse1FMomText
 	dw RedsHouse1FDadText ; new
+	; signs
 	dw RedsHouse1FTVText
 	dw RedsHouse1FPictureText ; new
+	; scripts
 	dw RedsHouse1FMomRunningShoes ; new
+
+RedsHouse1F_TextPointers_Rocket:
+	dw RedsHouse1FMomText ; TBE
+	dw RedsHouse1FDadText ; TBE
+	; signs
+	dw RedsHouse1FTVText
+	dw RedsHouse1FPictureText ; TBE
 
 RedsHouse1FMomText:
 	text_asm

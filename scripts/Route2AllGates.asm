@@ -1,16 +1,28 @@
 Route2AllGates_Script:
+	RPTextChooser Route2AllGates_TextPointers, Route2AllGates_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route2AllGates_TextPointers:
 	; Route 2 Gate
 	dw Route2GateText1
 	dw Route2GateText2
-	; Viridian Forest South Gate, +16
+	; Viridian Forest South Gate
 	dw ViridianForestEntranceText1
 	dw ViridianForestEntranceText2
-	; Viridian Forest South Gate, +32
+	; Viridian Forest South Gate
 	dw ViridianForestExitText1
 	dw ViridianForestExitText2
+
+Route2AllGates_TextPointers_Rocket:
+	; Route 2 Gate
+	dw Route2GateText1 ; TBE, Flash AID
+	dw GenericNPCText_RocketPath
+	; Viridian Forest South Gate
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; Viridian Forest South Gate
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 Route2GateText1:
 	text_asm

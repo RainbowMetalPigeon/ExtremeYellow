@@ -1,4 +1,5 @@
 Route4_Script:
+	RPTextChooser Route4_TextPointers, Route4_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route4TrainerHeaders
 	ld de, Route4_ScriptPointers
@@ -34,6 +35,23 @@ Route4_TextPointers:
 	dw Route4ScriptText2 ; 16
 	dw Route4ScriptText3 ; 17
 
+Route4_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; irrelevant
+	dw GenericNPCText_RocketPath ; irrelevant
+	dw Route4Text2 ; trainer
+	dw PickUpItemText
+	dw PickUpItemText
+	dw BoulderText ; irrelevant
+	dw BoulderText ; irrelevant
+	dw BoulderText ; irrelevant
+	dw BoulderText ; irrelevant
+	dw Route4SpecialBirdKeeperText ; TBE
+	; signs
+	dw PokeCenterSignText
+	dw Route4Text5
+	dw Route4Text6
+
 Route4TrainerHeaders:
 	def_trainers 4 ; edited, was 2
 Route4TrainerHeader0:
@@ -47,11 +65,11 @@ Route4Text1:
 Route4TextHiker1: ; new
 	text_far _Route4TextHiker1
 	text_end
-	
+
 Route4TextHiker2: ; new
 	text_far _Route4TextHiker2
 	text_end
-	
+
 Route4Text2:
 	text_asm
 	ld hl, Route4TrainerHeader0

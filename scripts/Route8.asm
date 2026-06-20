@@ -1,4 +1,5 @@
 Route8_Script:
+	RPTextChooser Route8_TextPointers, Route8_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route8TrainerHeaders
 	ld de, Route8_ScriptPointers
@@ -13,6 +14,18 @@ Route8_ScriptPointers:
 	dw EndTrainerBattle
 
 Route8_TextPointers:
+	dw Route8Text1
+	dw Route8Text2
+	dw Route8Text3
+	dw Route8Text4
+	dw Route8Text5
+	dw Route8Text6
+	dw Route8Text7
+	dw Route8Text8
+	dw Route8Text9
+	dw Route8Text10
+
+Route8_TextPointers_Rocket:
 	dw Route8Text1
 	dw Route8Text2
 	dw Route8Text3

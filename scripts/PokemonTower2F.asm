@@ -1,4 +1,5 @@
 PokemonTower2F_Script:
+	RPTextChooser PokemonTower2F_TextPointers, PokemonTower2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower2F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -127,6 +128,12 @@ PokemonTower2F_TextPointers:
 	dw PokemonTower2Text2
 	; signs
 	dw PokemonTower2FSignText1 ; new
+
+PokemonTower2F_TextPointers_Rocket:
+	dw PokemonTower2Text1 ; Blue TBE
+	dw GenericNPCText_RocketPath ; Channeler
+	; signs
+	dw PokemonTower2FSignText1
 
 PokemonTower2Text1:
 	text_asm

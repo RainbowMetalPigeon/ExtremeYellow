@@ -1,4 +1,5 @@
 Route3_Script:
+	RPTextChooser Route3_TextPointers, Route3_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route3TrainerHeaders
 	ld de, Route3_ScriptPointers
@@ -23,6 +24,21 @@ Route3_TextPointers:
 	dw Route3Text8
 	dw Route3Text9
 	dw Route3TextJenny ; new
+	; signs
+	dw Route3Text10
+
+Route3_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw Route3Text2
+	dw Route3Text3
+	dw Route3Text4
+	dw Route3Text5
+	dw Route3Text6
+	dw Route3Text7
+	dw Route3Text8
+	dw Route3Text9
+	dw Route3TextJenny ; TBE
+	; signs
 	dw Route3Text10
 
 Route3TrainerHeaders:

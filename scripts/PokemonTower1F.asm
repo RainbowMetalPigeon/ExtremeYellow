@@ -1,4 +1,5 @@
 PokemonTower1F_Script:
+	RPTextChooser PokemonTower1F_TextPointers, PokemonTower1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -8,6 +9,13 @@ PokemonTower1F_TextPointers:
 	dw PokemonTower1Text3
 	dw PokemonTower1Text4
 	dw PokemonTower1Text5
+
+PokemonTower1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 PokemonTower1Text1:
 	text_far _PokemonTower1Text1

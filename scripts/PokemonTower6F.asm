@@ -1,4 +1,5 @@
 PokemonTower6F_Script:
+	RPTextChooser PokemonTower6F_TextPointers, PokemonTower6F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower6TrainerHeaders
 	ld de, PokemonTower6F_ScriptPointers
@@ -98,9 +99,18 @@ PokemonTower6F_TextPointers:
 	dw PokemonTower6Text3
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
 	dw PokemonTower6Text6
 	dw PokemonTower6Text7
 	dw PokemonTower6FTextAgathaPostBattle ; 9, new, map-dependent
+
+PokemonTower6F_TextPointers_Rocket:
+	dw PokemonTower6TextAgatha ; TBE
+	dw PokemonTower6Text1
+	dw PokemonTower6Text2
+	dw PokemonTower6Text3
+	dw PickUpItemText
+	dw PickUpItemText
 
 PokemonTower6TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Agatha

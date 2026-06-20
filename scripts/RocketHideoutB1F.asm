@@ -1,4 +1,5 @@
 RocketHideoutB1F_Script:
+	RPTextChooser RocketHideoutB1F_TextPointers, RocketHideoutB1F_TextPointers_Rocket
 	call RocketHideout1Script_44be0
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout1TrainerHeaders
@@ -38,6 +39,15 @@ RocketHideoutB1F_ScriptPointers:
 	dw EndTrainerBattle
 
 RocketHideoutB1F_TextPointers:
+	dw RocketHideout1Text1
+	dw RocketHideout1Text2
+	dw RocketHideout1Text3
+	dw RocketHideout1Text4
+	dw RocketHideout1Text5
+	dw PickUpItemText
+	dw PickUpItemText
+
+RocketHideoutB1F_TextPointers_Rocket:
 	dw RocketHideout1Text1
 	dw RocketHideout1Text2
 	dw RocketHideout1Text3

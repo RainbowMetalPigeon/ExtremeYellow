@@ -1,4 +1,5 @@
 PowerPlant_Script:
+	RPTextChooser PowerPlant_TextPointers, PowerPlant_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PowerPlantTrainerHeaders
 	ld de, PowerPlant_ScriptPointers
@@ -29,6 +30,22 @@ PowerPlant_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PowerPlantTextLtSurgePostBattle ; 15, new, map-dependent
+
+PowerPlant_TextPointers_Rocket:
+	dw PowerPlantTextLtSurge ; TBE
+	dw Voltorb0Text
+	dw Voltorb1Text
+	dw Voltorb2Text
+	dw Voltorb3Text
+	dw Voltorb4Text
+	dw Voltorb5Text
+	dw Voltorb6Text
+	dw Voltorb7Text
+	dw ZapdosText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 
 PowerPlantTrainerHeaders:
 	def_trainers

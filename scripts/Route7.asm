@@ -1,10 +1,18 @@
 Route7_Script:
+	RPTextChooser Route7_TextPointers, Route7_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
 Route7_TextPointers:
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route7RepairPersonText ; new
+	; signs
+	dw Route7Text1
+
+Route7_TextPointers_Rocket:
+	dw PickUpItemText
+	dw Route7RepairPersonText ; irrelevant?
+	; signs
 	dw Route7Text1
 
 Route7Text1:

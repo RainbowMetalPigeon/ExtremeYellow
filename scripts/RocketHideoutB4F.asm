@@ -1,4 +1,5 @@
 RocketHideoutB4F_Script:
+	RPTextChooser RocketHideoutB4F_TextPointers, RocketHideoutB4F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout4TrainerHeaders
 	ld de, RocketHideoutB4F_ScriptPointers
@@ -301,10 +302,22 @@ RocketHideoutB4F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
 	dw RocketHideout4Text9
 	dw RocketHideout4Text10
 	dw RocketHideout4Text11
 	dw RocketHideout4Text12
+
+RocketHideoutB4F_TextPointers_Rocket:
+	dw RocketHideout4Text0 ; Giovanni TBE
+	dw RocketHideout4Text1 ; James TBE
+	dw RocketHideout4Text2 ; Jessie TBE
+	dw RocketHideout4Text3
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 
 RocketHideout4TrainerHeaders:
 	def_trainers 4

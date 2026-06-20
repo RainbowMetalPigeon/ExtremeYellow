@@ -1,4 +1,5 @@
 PokemonTower3F_Script:
+	RPTextChooser PokemonTower3F_TextPointers, PokemonTower3F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower3TrainerHeaders
 	ld de, PokemonTower3F_ScriptPointers
@@ -13,6 +14,12 @@ PokemonTower3F_ScriptPointers:
 	dw EndTrainerBattle
 
 PokemonTower3F_TextPointers:
+	dw PokemonTower3Text1
+	dw PokemonTower3Text2
+	dw PokemonTower3Text3
+	dw PickUpItemText
+
+PokemonTower3F_TextPointers_Rocket:
 	dw PokemonTower3Text1
 	dw PokemonTower3Text2
 	dw PokemonTower3Text3

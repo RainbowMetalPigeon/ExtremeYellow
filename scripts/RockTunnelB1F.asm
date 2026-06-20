@@ -1,4 +1,5 @@
 RockTunnelB1F_Script:
+	RPTextChooser RockTunnelB1F_TextPointers, RockTunnelB1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, RockTunnel2TrainerHeaders
 	ld de, RockTunnelB1F_ScriptPointers
@@ -24,6 +25,17 @@ RockTunnelB1F_TextPointers:
 	dw RockTunnel2Text7
 	dw RockTunnel2Text8
 	dw RockTunnel2TextBrockPostBattle ; 10, new, map-dependent
+
+RockTunnelB1F_TextPointers_Rocket:
+	dw RockTunnel2TextBrock ; TBE
+	dw RockTunnel2Text1
+	dw RockTunnel2Text2
+	dw RockTunnel2Text3
+	dw RockTunnel2Text4
+	dw RockTunnel2Text5
+	dw RockTunnel2Text6
+	dw RockTunnel2Text7
+	dw RockTunnel2Text8
 
 RockTunnel2TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Brock

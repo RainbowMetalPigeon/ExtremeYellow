@@ -1,4 +1,5 @@
 PokemonTower7F_Script:
+	RPTextChooser PokemonTower7F_TextPointers, PokemonTower7F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower7F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -260,9 +261,15 @@ PokemonTower7F_TextPointers:
 	dw PokemonTower7Text1
 	dw PokemonTower7Text2
 	dw PokemonTower7Text3
+	; scripts
 	dw PokemonTower7Text4
 	dw PokemonTower7Text5
 	dw PokemonTower7Text6
+
+PokemonTower7F_TextPointers_Rocket:
+	dw PokemonTower7Text1 ; Jessie TBE
+	dw PokemonTower7Text2 ; James TBE
+	dw PokemonTower7Text3 ; Fuji TBE
 
 PokemonTower7Text1:
 PokemonTower7Text2:

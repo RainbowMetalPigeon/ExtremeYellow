@@ -1,4 +1,5 @@
 PokemonTower5F_Script:
+	RPTextChooser PokemonTower5F_TextPointers, PokemonTower5F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower5TrainerHeaders
 	ld de, PokemonTower5F_ScriptPointers
@@ -12,7 +13,9 @@ PokemonTower5F_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 
-PokemonTower5Script0:
+PokemonTower5Script0: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	ld hl, CoordsData_60992
 	call ArePlayerCoordsInArray
 	jr c, .asm_60960
@@ -55,7 +58,16 @@ PokemonTower5F_TextPointers:
 	dw PokemonTower5Text4
 	dw PokemonTower5Text5
 	dw PickUpItemText
+	; scripts
 	dw PokemonTower5Text7
+
+PokemonTower5F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; non-trainer, TBE?
+	dw PokemonTower5Text2
+	dw PokemonTower5Text3
+	dw PokemonTower5Text4
+	dw PokemonTower5Text5
+	dw PickUpItemText
 
 PokemonTower5TrainerHeaders:
 	def_trainers 2
