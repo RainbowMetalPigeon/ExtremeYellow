@@ -1,4 +1,5 @@
 Route11Gate1F_Script:
+	RPTextChooser Route11Gate1F_TextPointers, Route11Gate1F_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route11Gate1F_TextPointers:
@@ -6,6 +7,16 @@ Route11Gate1F_TextPointers:
 	; 2F
 	dw Route11GateUpstairsText1
 	dw Route11GateUpstairsText2
+	; signs
+	dw Route11GateUpstairsText3
+	dw Route11GateUpstairsText4
+
+Route11Gate1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	; 2F
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
 	dw Route11GateUpstairsText3
 	dw Route11GateUpstairsText4
 
@@ -80,4 +91,3 @@ Route11GateUpstairsText4:
 Route11GateUpstairsText_494d5:
 	text_far _Route11GateUpstairsText_494d5
 	text_end
-	

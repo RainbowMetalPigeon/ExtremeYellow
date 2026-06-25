@@ -1,8 +1,12 @@
 Route12SuperRodHouse_Script:
+	RPTextChooser Route12SuperRodHouse_TextPointers, Route12SuperRodHouse_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route12SuperRodHouse_TextPointers:
 	dw Route12HouseText1
+
+Route12SuperRodHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE?
 
 Route12HouseText1:
 	text_asm

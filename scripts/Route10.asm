@@ -1,4 +1,5 @@
 Route10_Script:
+	RPTextChooser Route10_TextPointers, Route10_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route10TrainerHeaders
 	ld de, Route10_ScriptPointers
@@ -28,6 +29,20 @@ Route10_TextPointers:
 	dw Route10Text10
 	; scripts
 	dw Route10ScriptText1 ; 12
+
+Route10_TextPointers_Rocket:
+	dw Route10Text1
+	dw Route10Text2
+	dw Route10Text3
+	dw Route10Text4
+	dw Route10Text5
+	dw Route10Text6
+	dw Route10SpecialBirdKeeperText ; TBE
+	; signs
+	dw Route10Text7
+	dw PokeCenterSignText
+	dw Route10Text9
+	dw Route10Text10
 
 Route10TrainerHeaders:
 	def_trainers

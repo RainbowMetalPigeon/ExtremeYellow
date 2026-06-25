@@ -1,4 +1,5 @@
 Route12_Script:
+	RPTextChooser Route12_TextPointers, Route12_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route12TrainerHeaders
 	ld de, Route12_ScriptPointers
@@ -402,14 +403,35 @@ Route12_TextPointers:
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route12TextRival ; new, rival left; ID=13
 	dw Route12TextRival ; new, rival right; ID=14
+	; signs
 	dw Route12Text11 ; sign, 15
 	dw Route12Text12 ; sign, 16
-	dw Route12Text13 ; 17 ?
-	dw Route12Text14 ; 18 ?
+	; scritps
+	dw Route12Text13 ; 17 snorlax pre
+	dw Route12Text14 ; 18 snorlax post
 	dw Route12TextRivalPostBattle1 ; new, 19
 	dw Route12TextRivalPostBattle2 ; new, 20
 	dw Route12TextRivalPostBattle3 ; new, 21
 	dw Route12TextRivalStop ; new, 22
+
+Route12_TextPointers_Rocket:
+	dw Route12Text1
+	dw Route12TextObsidianMinesHiker ; new, can't be bothered to reorder and rename following labels lol
+	dw Route12Text2
+	dw Route12Text3
+	dw Route12Text4
+	dw Route12Text5
+	dw Route12Text6
+	dw Route12Text7
+	dw Route12Text8
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw Route12TextRival ; TBE, rival left; ID=13
+	dw Route12TextRival ; TBE, rival right; ID=14
+	; signs
+	dw Route12Text11 ; 15
+	dw Route12Text12 ; 16
 
 Route12TrainerHeaders:
 	def_trainers 3 ; edited, +1 for new Hiker

@@ -1,4 +1,5 @@
 Route11_Script:
+	RPTextChooser Route11_TextPointers, Route11_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route11TrainerHeaders
 	ld de, Route11_ScriptPointers
@@ -23,6 +24,21 @@ Route11_TextPointers:
 	dw Route11Text8
 	dw Route11Text9
 	dw Route11Text10
+	; signs
+	dw Route11Text11
+
+Route11_TextPointers_Rocket:
+	dw Route11Text1
+	dw Route11Text2
+	dw Route11Text3
+	dw Route11Text4
+	dw Route11Text5
+	dw Route11Text6
+	dw Route11Text7
+	dw Route11Text8
+	dw Route11Text9
+	dw Route11Text10
+	; signs
 	dw Route11Text11
 
 Route11TrainerHeaders:

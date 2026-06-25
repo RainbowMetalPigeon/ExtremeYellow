@@ -1,4 +1,5 @@
 Route15Gate1F_Script:
+	RPTextChooser Route15Gate1F_TextPointers, Route15Gate1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, Route15Gate1F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -29,7 +30,15 @@ Route15Gate1FScript1:
 Route15Gate1F_TextPointers:
 	dw Route15GateText1
 	dw Route15GateUpstairsText1
+	; signs
 	dw Route15GateUpstairsTextArticuno ; new
+	dw Route15GateUpstairsText2
+
+Route15Gate1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Route15GateUpstairsTextArticuno
 	dw Route15GateUpstairsText2
 
 Route15GateText1:

@@ -1,4 +1,5 @@
 Route9_Script:
+	RPTextChooser Route9_TextPointers, Route9_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route9TrainerHeaders
 	ld de, Route9_ScriptPointers
@@ -23,6 +24,21 @@ Route9_TextPointers:
 	dw Route9Text8
 	dw Route9Text9
 	dw PickUpItemText
+	; signs
+	dw Route9Text11
+
+Route9_TextPointers_Rocket:
+	dw Route9Text1
+	dw Route9TextAJ
+	dw Route9Text3
+	dw Route9Text4
+	dw Route9Text5
+	dw Route9Text6
+	dw Route9Text7
+	dw Route9Text8
+	dw Route9Text9
+	dw PickUpItemText
+	; signs
 	dw Route9Text11
 
 Route9TrainerHeaders:

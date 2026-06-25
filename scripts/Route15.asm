@@ -1,4 +1,5 @@
 Route15_Script:
+	RPTextChooser Route15_TextPointers, Route15_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route15TrainerHeaders
 	ld de, Route15_ScriptPointers
@@ -24,6 +25,22 @@ Route15_TextPointers:
 	dw Route15Text9
 	dw Route15Text10
 	dw PickUpItemText
+	; signs
+	dw Route15Text12
+
+Route15_TextPointers_Rocket:
+	dw Route15Text1
+	dw Route15Text2
+	dw Route15Text3
+	dw Route15Text4
+	dw Route15Text5
+	dw Route15Text6
+	dw Route15Text7
+	dw Route15Text8
+	dw Route15Text9
+	dw Route15Text10
+	dw PickUpItemText
+	; signs
 	dw Route15Text12
 
 Route15TrainerHeaders:

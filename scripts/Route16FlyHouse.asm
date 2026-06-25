@@ -1,9 +1,14 @@
 Route16FlyHouse_Script:
+	RPTextChooser Route16FlyHouse_TextPointers, Route16FlyHouse_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route16FlyHouse_TextPointers:
 	dw Route16HouseText1
-	dw Route16HouseText2
+	dw Route16HouseText2 ; Mon
+
+Route16FlyHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw Route16HouseText2 ; Mon
 
 Route16HouseText1: ; edited
 	text_asm
