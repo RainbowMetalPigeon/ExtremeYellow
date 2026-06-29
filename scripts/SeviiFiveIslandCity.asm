@@ -1,4 +1,5 @@
 SeviiFiveIslandCity_Script:
+	RPTextChooser SeviiFiveIslandCity_TextPointers, SeviiFiveIslandCity_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiFiveIslandCityTrainerHeaders
 	ld de, SeviiFiveIslandCity_ScriptPointers
@@ -220,6 +221,30 @@ SeviiFiveIslandCity_TextPointers:
 	dw SeviiFiveIslandCityScriptText3 ; 24 ; pink swearing post victory
 	dw SeviiFiveIslandCityScriptText4 ; 25 ; pink sees you
 	dw SeviiFiveIslandCityScriptText5 ; 26 ; pink asks help
+
+SeviiFiveIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ;  1 person
+	dw GenericNPCText_RocketPath ;  2 person
+	dw SeviiFiveIslandCityText3  ;  3 Monster Rocket
+	dw SeviiFiveIslandCityText4  ;  4 Monster Pink
+	dw RocketNPCText_RocketPath  ;  5 Rocket
+	dw SeviiFiveIslandCityText6  ;  6 Pink TBE
+	dw SeviiFiveIslandCityText7  ;  7 trainer
+	dw SeviiFiveIslandCityText8  ;  8 trainer
+	dw SeviiFiveIslandCityText9  ;  9 trainer
+	dw SeviiFiveIslandCityText10 ; 10 trainer
+	dw RockSmashText ; 11
+	dw PickUpItemText ; 12
+	dw PickUpItemText ; 13
+	dw PickUpItemText ; 14
+	; signs
+	dw SeviiFiveIslandCitySignText1 ; 15
+	dw SeviiFiveIslandCitySignText2 ; 16
+	dw SeviiFiveIslandCitySignText3 ; 17
+	dw SeviiFiveIslandCitySignText4 ; 18
+	dw SeviiFiveIslandCitySignText5 ; 19
+	dw PokeCenterSignText ; 20
+	dw MartSignText ; 21
 
 SeviiFiveIslandCityTrainerHeaders:
 	def_trainers 7

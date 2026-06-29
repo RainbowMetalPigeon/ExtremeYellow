@@ -1,4 +1,5 @@
 SeviiFiveIslandHouses_Script:
+	RPTextChooser SeviiFiveIslandHouses_TextPointers, SeviiFiveIslandHouses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiFiveIslandHouses_TextPointers:
@@ -15,6 +16,20 @@ SeviiFiveIslandHouses_TextPointers:
 	dw SeviiFiveIslandHousesSignText3
 	dw SeviiFiveIslandHousesSignText4
 	; scripts
+
+SeviiFiveIslandHouses_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; Trick Room tutor TBE
+	dw GenericNPCText_RocketPath ; Biker
+	dw SeviiFiveIslandHousesText3 ; Mon
+	dw SeviiFiveIslandHousesText4 ; Mon
+	dw SeviiFiveIslandHousesText5 ; Mon
+	dw SeviiFiveIslandHousesText6 ; Mon
+	dw SeviiFiveIslandHousesText7 ; Paper
+	; signs
+	dw SeviiFiveIslandHousesSignText1
+	dw SeviiFiveIslandHousesSignText2
+	dw SeviiFiveIslandHousesSignText3
+	dw SeviiFiveIslandHousesSignText4
 
 SeviiFiveIslandHousesText1:
 	text_asm

@@ -1,4 +1,5 @@
 SeviiFiveIslandGym_Script:
+	RPTextChooser SeviiFiveIslandGym_TextPointers, SeviiFiveIslandGym_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiFiveIslandGym_ScriptPointers
 	ld a, [wCurMapScript]
@@ -73,8 +74,8 @@ SeviiFiveIslandGymScriptPostBattle:
 ; ===============================
 
 SeviiFiveIslandGym_TextPointers:
-	dw SeviiFiveIslandGymText1
-	dw SeviiFiveIslandGymText2
+	dw SeviiFiveIslandGymText1 ; GONQUE
+	dw SeviiFiveIslandGymText2 ; Guide
 	; scripts
 	dw SeviiFiveIslandGymText3_Victory ; 3
 	dw SeviiFiveIslandGymText4_Defeat ; 4
@@ -82,6 +83,10 @@ SeviiFiveIslandGym_TextPointers:
 	dw SeviiFiveIslandGymText4_Reward2 ; 6
 	dw SeviiFiveIslandGymText4_Reward3 ; 7
 	dw SeviiFiveIslandGymText4_NoReward ; 8
+
+SeviiFiveIslandGym_TextPointers_Rocket:
+	dw SeviiFiveIslandGymText1 ; TBE
+	dw SeviiFiveIslandGymText2 ; TBE
 
 SeviiFiveIslandGymText1:
 	text_asm

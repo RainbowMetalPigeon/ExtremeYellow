@@ -1,4 +1,5 @@
 SeviiEmberSpa_Script:
+	RPTextChooser SeviiEmberSpa_TextPointers, SeviiEmberSpa_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiEmberSpa_TextPointers:
@@ -6,6 +7,14 @@ SeviiEmberSpa_TextPointers:
 	dw SeviiEmberSpaText2
 	dw SeviiEmberSpaText3
 	dw SeviiEmberSpaText4
+	dw PickUpItemText
+	dw PickUpItemText
+
+SeviiEmberSpa_TextPointers_Rocket:
+	dw SeviiEmberSpaText1 ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw PickUpItemText
 	dw PickUpItemText
 
@@ -46,7 +55,7 @@ SeviiEmberSpaText1_GotHM:
 SeviiEmberSpaText1_BagFull:
 	text_far _SeviiEmberSpaText1_BagFull
 	text_end
-	
+
 SeviiEmberSpaText2:
 	text_far _SeviiEmberSpaText2
 	text_end

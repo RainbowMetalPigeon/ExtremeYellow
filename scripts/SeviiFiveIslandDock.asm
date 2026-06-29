@@ -1,4 +1,5 @@
 SeviiFiveIslandDock_Script:
+	RPTextChooser SeviiFiveIslandDock_TextPointers, SeviiFiveIslandDock_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -139,7 +140,12 @@ SeviiFiveIslandDock_TextPointers:
 	dw SeviiFiveIslandDockBgText1
 	dw SeviiFiveIslandDockBgText2
 	dw SeviiFiveIslandDockBgText3
-	text_end
+
+SeviiFiveIslandDock_TextPointers_Rocket:
+	dw SeviiFiveIslandDockSpriteText1 ; TBE
+	dw SeviiFiveIslandDockBgText1
+	dw SeviiFiveIslandDockBgText2
+	dw SeviiFiveIslandDockBgText3
 
 ; ----------------------------------------------
 

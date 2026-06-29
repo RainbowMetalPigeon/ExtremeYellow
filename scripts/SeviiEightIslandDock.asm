@@ -1,4 +1,5 @@
 SeviiEightIslandDock_Script:
+	RPTextChooser SeviiEightIslandDock_TextPointers, SeviiEightIslandDock_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -136,6 +137,12 @@ SeviiEightIslandDockScript_PostWarpFromKanto:
 
 SeviiEightIslandDock_TextPointers:
 	dw SeviiEightIslandDockSpriteText1
+	dw SeviiEightIslandDockBgText1
+	dw SeviiEightIslandDockBgText2
+	dw SeviiEightIslandDockBgText3
+
+SeviiEightIslandDock_TextPointers_Rocket:
+	dw SeviiEightIslandDockSpriteText1 ; TBE
 	dw SeviiEightIslandDockBgText1
 	dw SeviiEightIslandDockBgText2
 	dw SeviiEightIslandDockBgText3
