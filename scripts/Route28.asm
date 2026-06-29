@@ -1,4 +1,5 @@
 Route28_Script:
+	RPTextChooser Route28_TextPointers, Route28_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route28TrainerHeaders
 	ld de, Route28_ScriptPointers
@@ -18,6 +19,16 @@ Route28_TextPointers:
 	dw Route28Text3
 	dw Route28Text4
 	dw Route28Text5
+	dw Route28Text6
+	dw Route28Text7
+	dw Route28Text8
+
+Route28_TextPointers_Rocket:
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw Route28Text6
 	dw Route28Text7
 	dw Route28Text8

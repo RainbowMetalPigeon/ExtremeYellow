@@ -1,4 +1,5 @@
 Route22_Script:
+	RPTextChooser Route22_TextPointers, Route22_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route22_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -386,6 +387,16 @@ Route22_TextPointers:
 	dw Route22CoinCaseMeowthText ; new, Coin-Case Meowth
 	dw PickUpItemText ; new
 	dw Route22RandomizedPokemonGiverText ; new
+	; signs
+	dw Route22FrontGateText
+
+Route22_TextPointers_Rocket:
+	dw Route22Text1 ; Blue TBE
+	dw Route22Text2 ; Blue TBE
+	dw Route22CoinCaseMeowthText ; Coin-Case Meowth TBE
+	dw PickUpItemText
+	dw Route22RandomizedPokemonGiverText ; TBE
+	; signs
 	dw Route22FrontGateText
 
 Route22Text1:
@@ -411,7 +422,7 @@ Route22CoinCaseMeowthText:
 	call PlayCry
 	call WaitForSoundToFinish
 	call WaitForTextScrollButtonPress
-	
+
 	call GBFadeOutToBlack
 
 	ld a, HS_ROUTE_22_COIN_CASE_MEOWTH
@@ -429,7 +440,7 @@ Route22CoinCaseMeowthText:
 	ld hl, hCoins + 1
 	ld c, $2
 	predef AddBCDPredef
-	
+
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -546,7 +557,7 @@ Route22RandomizedPokemonGiverText:
 	add hl, bc
 	ld a, [hl]
 	ld [wRandomizedMon1_Type1], a
-	
+
 	ld hl, Route22RandomizedPokemonGiverText_IntroFirst
 	call PrintText
 
@@ -620,7 +631,7 @@ Route22RandomizedPokemonGiverText_AreYouSure:
 Route22RandomizedPokemonGiverText_ComeBackWhenReady:
 	text_far _Route22RandomizedPokemonGiverText_ComeBackWhenReady
 	text_end
-	
+
 ListTypes: ; 18: [0,17]
 	db NORMAL
 	db FIGHTING

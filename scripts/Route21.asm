@@ -1,4 +1,5 @@
 Route21_Script:
+	RPTextChooser Route21_TextPointers, Route21_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route21TrainerHeaders
 	ld de, Route21_ScriptPointers
@@ -61,6 +62,18 @@ Route21_TextPointers:
 	dw Route21ScriptText1 ; 11
 	dw Route21ScriptText2 ; 12
 	dw Route21ScriptText3 ; 13
+
+Route21_TextPointers_Rocket:
+	dw Route21TextOak ; TBE
+	dw Route21Text1
+	dw Route21Text2
+	dw Route21Text3
+	dw Route21Text4
+	dw Route21Text5
+	dw Route21Text6
+	dw Route21Text7
+	dw Route21Text8
+	dw Route21Text9
 
 Route21TrainerHeaders:
 	def_trainers 2 ; edited because of Oak

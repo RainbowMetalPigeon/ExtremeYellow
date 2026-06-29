@@ -1,4 +1,5 @@
 Route20_Script:
+	RPTextChooser Route20_TextPointers, Route20_TextPointers_Rocket
 	CheckAndResetEvent EVENT_IN_SEAFOAM_ISLANDS
 	call nz, Route20Script_50cc6
 	call EnableAutoTextBoxDrawing
@@ -82,6 +83,23 @@ Route20_TextPointers:
 	; scripts
 	dw Route20TextMistyPostBattle ; 15, new, map-dependent
 	dw Route20ScriptText2 ; 16, new
+
+Route20_TextPointers_Rocket:
+	dw Route20TextMisty ; TBE
+	dw Route20Text1
+	dw Route20Text2
+	dw Route20Text3
+	dw Route20Text4
+	dw Route20Text5
+	dw Route20Text6
+	dw Route20Text7
+	dw Route20Text8
+	dw Route20Text9
+	dw Route20Text10
+	dw Route20SpecialBirdKeeperText ; 12, TBE
+	; signs
+	dw Route20Text11
+	dw Route20Text12
 
 Route20TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Misty

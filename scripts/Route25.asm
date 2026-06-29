@@ -1,4 +1,5 @@
 Route25_Script:
+	RPTextChooser Route25_TextPointers, Route25_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags ; new
 	bit 5, [hl]
 	res 5, [hl]
@@ -214,6 +215,28 @@ Route25_TextPointers:
 	dw Route25TextToHauntedHouseMessage1 ; 21
 	dw Route25TextToHauntedHouseMessage2 ; 22
 	dw Route25TextToHauntedHouseMessage3 ; 23
+
+Route25_TextPointers_Rocket:
+	dw Route25Text1
+	dw Route25Text2
+	dw Route25Text3
+	dw Route25Text4
+	dw Route25Text5
+	dw Route25Text6
+	dw Route25Text7
+	dw Route25Text8
+	dw Route25Text9
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Route25Text11 ; 15
+	dw Route25TextLockedAndAbandoned1 ; 16
+	dw Route25TextLockedAndAbandoned2 ; 17
+	dw Route25TextLockedAndAbandoned3 ; 18
+	dw Route25TextLockedAndAbandoned4 ; 19
 
 Route25TrainerHeaders:
 	def_trainers

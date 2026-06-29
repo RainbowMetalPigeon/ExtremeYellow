@@ -1,4 +1,5 @@
 Route29_Script:
+	RPTextChooser Route29_TextPointers, Route29_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route29TrainerHeaders
 	ld de, Route29_ScriptPointers
@@ -82,6 +83,34 @@ Route29_TextPointers:
 	; non-NPCs/signs
 	dw Route29TextOrbsVanish1      ; 24
 	dw Route29TextOrbsVanish2      ; 25
+
+Route29_TextPointers_Rocket:
+	; trainers
+	dw Route29Text1                ; 1
+	dw Route29Text2                ; 2
+	dw Route29Text3                ; 3
+	dw Route29Text4                ; 4
+	dw Route29Text5                ; 5
+	dw Route29Text6                ; 6
+	dw Route29Text7                ; 7
+	dw Route29Text8                ; 8
+	dw Route29Text9                ; 9
+	; non-trainers
+	dw Route29TextSlowking         ; 10 TBE
+	; signs
+	dw Route29TextIceOrbRecess     ; 11
+	dw Route29TextThunderOrbRecess ; 12
+	dw Route29TextFireOrbRecess    ; 13
+	dw Route29TextRuin1			   ; 14
+	dw Route29TextRuin1			   ; 15
+	dw Route29TextRuin2			   ; 16
+	dw Route29TextRuin2			   ; 17
+	dw Route29TextRuin3			   ; 18
+	dw Route29TextRuin3			   ; 19
+	dw Route29TextRuin4			   ; 20
+	dw Route29TextRuin4			   ; 21
+	dw Route29TextRuin5			   ; 22
+	dw Route29TextRuin5			   ; 23
 
 Route29TrainerHeaders:
 	def_trainers

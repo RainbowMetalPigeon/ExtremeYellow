@@ -1,10 +1,17 @@
 Route30_Script:
+	RPTextChooser Route30_TextPointers, Route30_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
 Route30_TextPointers:
 	dw BoulderText
 	dw Route30CoinCaseMeowthText ; Meowth
+	; signs
+	dw Route30SignText1
+
+Route30_TextPointers_Rocket:
+	dw BoulderText
+	dw Route30CoinCaseMeowthText ; TBE
 	; signs
 	dw Route30SignText1
 
@@ -19,7 +26,7 @@ Route30CoinCaseMeowthText:
 	call PlayCry
 	call WaitForSoundToFinish
 	call WaitForTextScrollButtonPress
-	
+
 	call GBFadeOutToBlack
 
 	ld a, HS_ROUTE_30_COIN_CASE_MEOWTH

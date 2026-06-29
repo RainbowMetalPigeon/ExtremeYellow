@@ -1,4 +1,5 @@
 Route20Dive_Script:
+	RPTextChooser Route20Dive_TextPointers, Route20Dive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route20DiveTrainerHeaders
 	ld de, Route20Dive_ScriptPointers
@@ -13,6 +14,11 @@ Route20Dive_ScriptPointers:
 	dw EndTrainerBattle
 
 Route20Dive_TextPointers:
+	dw Route20DiveText1
+	dw Route20DiveText2
+	dw Route20DiveText3
+
+Route20Dive_TextPointers_Rocket:
 	dw Route20DiveText1
 	dw Route20DiveText2
 	dw Route20DiveText3

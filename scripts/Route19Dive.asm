@@ -1,4 +1,5 @@
 Route19Dive_Script:
+	RPTextChooser Route19Dive_TextPointers, Route19Dive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route19DiveTrainerHeaders
 	ld de, Route19Dive_ScriptPointers
@@ -13,6 +14,9 @@ Route19Dive_ScriptPointers:
 	dw EndTrainerBattle
 
 Route19Dive_TextPointers:
+	dw Route19DiveText1
+
+Route19Dive_TextPointers_Rocket:
 	dw Route19DiveText1
 
 Route19DiveTrainerHeaders:

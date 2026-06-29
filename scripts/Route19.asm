@@ -1,4 +1,5 @@
 Route19_Script:
+	RPTextChooser Route19_TextPointers, Route19_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route19TrainerHeaders
 	ld de, Route19_ScriptPointers
@@ -23,6 +24,21 @@ Route19_TextPointers:
 	dw Route19Text8
 	dw Route19Text9
 	dw Route19Text10
+	; signs
+	dw Route19Text11
+
+Route19_TextPointers_Rocket:
+	dw Route19Text1
+	dw Route19Text2
+	dw Route19Text3
+	dw Route19Text4
+	dw Route19Text5
+	dw Route19Text6
+	dw Route19Text7
+	dw Route19Text8
+	dw Route19Text9
+	dw Route19Text10
+	; signs
 	dw Route19Text11
 
 Route19TrainerHeaders:

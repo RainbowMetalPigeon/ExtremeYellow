@@ -1,4 +1,5 @@
 Route23_Script:
+	RPTextChooser Route23_TextPointers, Route23_TextPointers_Rocket
 	call Route23Script_511e9
 	call EnableAutoTextBoxDrawing
 	ld hl, Route23_ScriptPointers
@@ -289,11 +290,25 @@ Route23_TextPointers:
 	dw Route23Text6
 	dw Route23Text7
 	dw Route23TextPink ; new
+	; signs
 	dw Route23Text8
 	dw Route23Text9 ; new
 	; scripts
 	dw Route23ScriptText1 ; 11
 	dw Route23ScriptText2 ; 12
+
+Route23_TextPointers_Rocket:
+	dw Route23Text1
+	dw Route23Text2
+	dw Route23Text3
+	dw Route23Text4
+	dw Route23Text5
+	dw Route23Text6
+	dw Route23Text7
+	dw Route23TextPink ; TBE
+	; signs
+	dw Route23Text8
+	dw Route23Text9
 
 Route23Text1:
 	text_asm
@@ -414,4 +429,3 @@ Route23PinkBeatYouText:
 Route23ScriptText2:
 	text_far _Route23ScriptText2
 	text_end
-

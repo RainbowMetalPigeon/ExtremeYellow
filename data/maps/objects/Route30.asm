@@ -2,7 +2,6 @@ Route30_Object:
 	db $f ; border block
 
 	def_warp_events
-;	warp_event 35,  9, PIKACHU_GROTTO, 1
 
 	def_bg_events
 	bg_event  9, 38, 3 ; Route30SignText1

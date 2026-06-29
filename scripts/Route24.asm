@@ -1,4 +1,5 @@
 Route24_Script:
+	RPTextChooser Route24_TextPointers, Route24_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route24TrainerHeaders
 	ld de, Route24_ScriptPointers
@@ -90,6 +91,18 @@ Route24_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route24Text8
+
+Route24_TextPointers_Rocket:
+	dw Route24Text1 ; TBE special!
+	dw Route24Text2
+	dw Route24Text3
+	dw Route24Text4
+	dw Route24Text5
+	dw Route24Text6
+	dw Route24Text7
+	dw PickUpItemText
+	dw PickUpItemText
+	dw Route24Text8 ; TBE
 
 Route24TrainerHeaders:
 	def_trainers 2

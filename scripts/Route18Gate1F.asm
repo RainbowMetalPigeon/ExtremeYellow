@@ -1,4 +1,5 @@
 Route18Gate1F_Script:
+	RPTextChooser Route18Gate1F_TextPointers, Route18Gate1F_TextPointers_Rocket
 	ld hl, wd732
 	res 5, [hl]
 	call EnableAutoTextBoxDrawing
@@ -86,10 +87,19 @@ Route18Gate1F_TextPointers:
 	dw Route18GateText1
 	; 2F
 	dw Route18GateUpstairsText1
+	; signs
 	dw Route18GateUpstairsText2
 	dw Route18GateUpstairsText3
 	; scripts texts
 	dw Route18GateText2
+
+Route18Gate1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	; 2F
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Route18GateUpstairsText2
+	dw Route18GateUpstairsText3
 
 Route18GateText1:
 	text_asm

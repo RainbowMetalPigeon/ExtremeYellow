@@ -1406,11 +1406,6 @@ INCLUDE "data/maps/objects/Route27.asm"
 Route27_Blocks: INCBIN "maps/Route27.blk"
 INCLUDE "scripts/Route27.asm"
 
-INCLUDE "data/maps/headers/SaffronClimbClub.asm"
-INCLUDE "scripts/SaffronClimbClub.asm"
-INCLUDE "data/maps/objects/SaffronClimbClub.asm"
-SaffronClimbClub_Blocks: INCBIN "maps/SaffronClimbClub.blk"
-
 INCLUDE "data/maps/headers/Route19Dive.asm"
 INCLUDE "scripts/Route19Dive.asm"
 INCLUDE "data/maps/objects/Route19Dive.asm"
@@ -1479,6 +1474,11 @@ INCLUDE "data/maps/headers/RockTunnel1F.asm"
 INCLUDE "scripts/RockTunnel1F.asm"
 INCLUDE "data/maps/objects/RockTunnel1F.asm"
 RockTunnel1F_Blocks: INCBIN "maps/RockTunnel1F.blk"
+
+INCLUDE "data/maps/headers/SaffronClimbClub.asm"
+INCLUDE "scripts/SaffronClimbClub.asm"
+INCLUDE "data/maps/objects/SaffronClimbClub.asm"
+SaffronClimbClub_Blocks: INCBIN "maps/SaffronClimbClub.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

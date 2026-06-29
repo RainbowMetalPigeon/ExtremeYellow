@@ -1,4 +1,5 @@
 Route22Gate_Script:
+	RPTextChooser Route22Gate_TextPointers, Route22Gate_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route22Gate_ScriptPointers
 	ld a, [wRoute22GateCurScript]
@@ -58,6 +59,9 @@ Route22GateScript2:
 
 Route22Gate_TextPointers:
 	dw Route22GateText1
+
+Route22Gate_TextPointers_Rocket:
+	dw Route22GateText1 ; TBE
 
 Route22GateText1:
 	text_asm

@@ -1,4 +1,5 @@
 Route27_Script:
+	RPTextChooser Route27_TextPointers, Route27_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route27TrainerHeaders
 	ld de, Route27_ScriptPointers
@@ -20,6 +21,14 @@ Route27_TextPointers:
 	dw Route27Text5
 	dw Route27Text6
 
+Route27_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw Route27Text4
+	dw Route27Text5
+	dw Route27Text6
+
 Route27TrainerHeaders:
 	def_trainers 4
 Route27TrainerHeader0:
@@ -33,15 +42,15 @@ Route27TrainerHeader2:
 Route27Text1:
 	text_far _Route27Text1
 	text_end
-	
+
 Route27Text2:
 	text_far _Route27Text2
 	text_end
-	
+
 Route27Text3:
 	text_far _Route27Text3
 	text_end
-	
+
 ; Trainers -----------------------------
 
 Route27Text4:
@@ -97,4 +106,3 @@ Route27EndBattleText2:
 Route27AfterBattleText2:
 	text_far _Route27AfterBattleText2
 	text_end
-	

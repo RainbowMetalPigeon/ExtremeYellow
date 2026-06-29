@@ -1,4 +1,5 @@
 Route26_Script:
+	RPTextChooser Route26_TextPointers, Route26_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, wd72e	; ugly fix for the non-encounter thingy of the Onix Burrowing
 	res 4, [hl]		; ugly fix for the non-encounter thingy of the Onix Burrowing
@@ -21,6 +22,18 @@ Route26_TextPointers:
 	dw Route26TextHiker4
 	dw Route26Text1
 	dw BoulderText
+	; signs
+	dw Route26Text2 ; sign welcome
+	dw Route26Text3 ; sign burrowing
+
+Route26_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw Route26Text1
+	dw BoulderText
+	; signs
 	dw Route26Text2 ; sign welcome
 	dw Route26Text3 ; sign burrowing
 
