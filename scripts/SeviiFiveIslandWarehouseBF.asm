@@ -1,4 +1,5 @@
 SeviiFiveIslandWarehouseBF_Script:
+	RPTextChooser SeviiFiveIslandWarehouseBF_TextPointers, SeviiFiveIslandWarehouseBF_TextPointers_Rocket
 	call SeviiFiveIslandWarehouseBFSetDoorBlock
 	jp EnableAutoTextBoxDrawing
 
@@ -24,6 +25,16 @@ SeviiFiveIslandWarehouseBFSetDoorBlock:
 SeviiFiveIslandWarehouseBF_TextPointers:
 	dw SeviiFiveIslandWarehouseBFText1
 	dw SeviiFiveIslandWarehouseBFText2
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw SeviiFiveIslandWarehouseBFSignText1
+	dw SeviiFiveIslandWarehouseBFSignText2
+
+SeviiFiveIslandWarehouseBF_TextPointers_Rocket:
+	dw SeviiFiveIslandWarehouseBFText1 ; Rocket TBE
+	dw SeviiFiveIslandWarehouseBFText2 ; Rocket fainted TBE
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

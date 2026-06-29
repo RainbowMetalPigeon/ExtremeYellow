@@ -1,4 +1,5 @@
 SeviiFiveIslandWarehouse1F_Script:
+	RPTextChooser SeviiFiveIslandWarehouse1F_TextPointers, SeviiFiveIslandWarehouse1F_TextPointers_Rocket
 	call SeviiFiveIslandWarehouse1FSetDoorBlock
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiFiveIslandWarehouse1F_ScriptPointers
@@ -278,6 +279,20 @@ SeviiFiveIslandWarehouse1F_TextPointers:
 	dw SeviiFiveIslandWarehouse1FSignText1
 	dw SeviiFiveIslandWarehouse1FSignText2
 
+SeviiFiveIslandWarehouse1F_TextPointers_Rocket:
+	dw SeviiFiveIslandWarehouse1FText1 ; Rocket TBE
+	dw SeviiFiveIslandWarehouse1FText2 ; Rocket fainted TBE
+	dw PickUpItemText
+	dw PickUpItemText
+	; metalheads to spawn
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw SeviiFiveIslandWarehouse1FSignText1
+	dw SeviiFiveIslandWarehouse1FSignText2
+
 SeviiFiveIslandWarehouse1FText1:
 	text_far _SeviiFiveIslandWarehouse1FText1
 	text_end
@@ -349,15 +364,15 @@ SeviiFiveIslandWarehouse1FSignText1_DoorIsOpen:
 SeviiFiveIslandWarehouse1FText5:
 	text_far _SeviiFiveIslandWarehouse1FText5
 	text_end
-	
+
 SeviiFiveIslandWarehouse1FText6:
 	text_far _SeviiFiveIslandWarehouse1FText6
 	text_end
-	
+
 SeviiFiveIslandWarehouse1FText7:
 	text_far _SeviiFiveIslandWarehouse1FText7
 	text_end
-	
+
 SeviiFiveIslandWarehouse1FText8:
 	text_far _SeviiFiveIslandWarehouse1FText8
 	text_end

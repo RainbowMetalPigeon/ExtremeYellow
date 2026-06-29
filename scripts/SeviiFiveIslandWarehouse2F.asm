@@ -1,4 +1,5 @@
 SeviiFiveIslandWarehouse2F_Script:
+	RPTextChooser SeviiFiveIslandWarehouse2F_TextPointers, SeviiFiveIslandWarehouse2F_TextPointers_Rocket
 	call SeviiFiveIslandWarehouse2FSetDoorBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiFiveIslandWarehouse2FTrainerHeaders
@@ -229,6 +230,24 @@ SeviiFiveIslandWarehouse2F_TextPointers:
 	dw SeviiFiveIslandWarehouse2FScriptText2 ; 18
 	dw SeviiFiveIslandWarehouse2FScriptText3 ; 19
 
+SeviiFiveIslandWarehouse2F_TextPointers_Rocket: ; TBE
+	dw SeviiFiveIslandWarehouse2FText1 ; Carr
+	dw SeviiFiveIslandWarehouse2FText2 ; Pink before-end
+	dw SeviiFiveIslandWarehouse2FText3 ; Pink after-end
+	dw SeviiFiveIslandWarehouse2FText4 ; Pink after-end
+	dw SeviiFiveIslandWarehouse2FText5 ; rocket (fight)
+	dw SeviiFiveIslandWarehouse2FText6 ; rocket (fainted)
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw SeviiFiveIslandWarehouse2FSignText1 ; statue
+	dw SeviiFiveIslandWarehouse2FSignText2 ; statue
+	dw SeviiFiveIslandWarehouse2FSignText3 ; door 1
+	dw SeviiFiveIslandWarehouse2FSignText4 ; door 1
+	dw SeviiFiveIslandWarehouse2FSignText5 ; door 4
+	dw SeviiFiveIslandWarehouse2FSignText6 ; door 4
+
 SeviiFiveIslandWarehouse2FTrainerHeaders:
 	def_trainers 5
 SeviiFiveIslandWarehouse2FTrainerHeader1:
@@ -408,7 +427,7 @@ SeviiFiveIslandWarehouse2FSignText6:
 SeviiFiveIslandWarehouse2FSignTextDoor_NeedsKey:
 	text_far _SeviiFiveIslandWarehouse2FSignTextDoor_NeedsKey
 	text_end
-	
+
 SeviiFiveIslandWarehouse2FSignTextDoor_HaveKey:
 	text_far _SeviiFiveIslandWarehouse2FSignTextDoor_HaveKey
 	text_end
