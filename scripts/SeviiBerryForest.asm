@@ -1,4 +1,5 @@
 SeviiBerryForest_Script:
+	RPTextChooser SeviiBerryForest_TextPointers, SeviiBerryForest_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiBerryForest_ScriptPointers
 	ld a, [wCurMapScript]
@@ -191,6 +192,13 @@ SeviiBerryForest_TextPointers:
 	dw SeviiBerryForestScriptText2 ; 7 ; pre-battle dialogue 2
 	dw SeviiBerryForestScriptText3 ; 8 ; pre-battle dialogue 3
 	dw SeviiBerryForestScriptText4 ; 9 ; post-battle dialogue
+
+SeviiBerryForest_TextPointers_Rocket:
+	dw SeviiBerryForestText1 ; 1 Carr TBE
+	dw SeviiBerryForestText2 ; 2 Mayoi TBE
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 
 SeviiBerryForestText1:
 	text_far _SeviiBerryForestText1

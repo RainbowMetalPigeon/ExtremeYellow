@@ -1,8 +1,12 @@
 SafariZoneSecretHouse_Script:
+	RPTextChooser SafariZoneSecretHouse_TextPointers, SafariZoneSecretHouse_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SafariZoneSecretHouse_TextPointers:
 	dw SafariZoneSecretHouseText1
+
+SafariZoneSecretHouse_TextPointers_Rocket:
+	dw SafariZoneSecretHouseText1 ; TBE
 
 SafariZoneSecretHouseText1:
 	text_asm

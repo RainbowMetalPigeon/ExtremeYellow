@@ -1,4 +1,5 @@
 SafariZoneGate_Script:
+	RPTextChooser SafariZoneGate_TextPointers, SafariZoneGate_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SafariZoneGate_ScriptPointers
 	ld a, [wSafariZoneGateCurScript]
@@ -134,30 +135,35 @@ SafariZoneEntranceScript_752b4:
 	ret
 
 SafariZoneGate_TextPointers:
-	dw .SafariZoneEntranceText1
-	dw .SafariZoneEntranceText2
-	dw .SafariZoneEntranceText1
-	dw .SafariZoneEntranceText4
-	dw .SafariZoneEntranceText5
-	dw .SafariZoneEntranceText6
+	dw SafariZoneEntranceText1
+	dw SafariZoneEntranceText2
+	; scripts
+	dw SafariZoneEntranceText1
+	dw SafariZoneEntranceText4
+	dw SafariZoneEntranceText5
+	dw SafariZoneEntranceText6
 
-.SafariZoneEntranceText1
+SafariZoneGate_TextPointers_Rocket:
+	dw SafariZoneEntranceText1 ; TBE
+	dw SafariZoneEntranceText2 ; TBE
+
+SafariZoneEntranceText1:
 	text_far _SafariZoneEntranceText1
 	text_end
 
-.SafariZoneEntranceText4
+SafariZoneEntranceText4:
 	text_asm
 	callfar Func_f1f77
 	jp TextScriptEnd
 
-.SafariZoneEntranceText5
+SafariZoneEntranceText5:
 	text_far SafariZoneEntranceText_9e814
 	text_asm
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .asm_7539c
-	ld hl, .SafariZoneEntranceText_753bb
+	ld hl, SafariZoneEntranceText_753bb
 	call PrintText
 	xor a
 	ld [wSpritePlayerStateData1FacingDirection], a
@@ -169,7 +175,7 @@ SafariZoneGate_TextPointers:
 	ld [wcf0d], a
 	jr .asm_753b3
 .asm_7539c
-	ld hl, .SafariZoneEntranceText_753c0
+	ld hl, SafariZoneEntranceText_753c0
 	call PrintText
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
@@ -183,19 +189,19 @@ SafariZoneGate_TextPointers:
 	ld [wSafariZoneGateCurScript], a
 	jp TextScriptEnd
 
-.SafariZoneEntranceText_753bb
+SafariZoneEntranceText_753bb:
 	text_far _SafariZoneEntranceText_753bb
 	text_end
 
-.SafariZoneEntranceText_753c0
+SafariZoneEntranceText_753c0:
 	text_far _SafariZoneEntranceText_753c0
 	text_end
 
-.SafariZoneEntranceText6
+SafariZoneEntranceText6:
 	text_far _SafariZoneEntranceText_753c5
 	text_end
 
-.SafariZoneEntranceText2
+SafariZoneEntranceText2:
 	text_asm
 	callfar Func_f203e
 	jp TextScriptEnd

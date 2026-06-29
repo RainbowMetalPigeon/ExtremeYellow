@@ -6,8 +6,8 @@ SafariZoneWest_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	; signs
 	dw SafariZoneWestText5
-;	dw SafariZoneWestText6 ; edited: commented away
 	dw SafariZoneWestText7
 	dw SafariZoneWestText8
 

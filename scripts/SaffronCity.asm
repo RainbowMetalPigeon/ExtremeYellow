@@ -1,4 +1,5 @@
 SaffronCity_Script:
+	RPTextChooser SaffronCity_TextPointers, SaffronCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, SaffronCity_ScriptPointers
@@ -29,7 +30,7 @@ SaffronCity_TextPointers:
 	dw SaffronCityText12
 	dw SaffronCityText13
 	dw SaffronCityText14
-;	dw SaffronCityText15 ; doesn't exist in yellow, only in RB
+	; signs
 	dw SaffronCityText16
 	dw SaffronCityText17
 	dw SaffronCityText18
@@ -41,7 +42,36 @@ SaffronCity_TextPointers:
 	dw SaffronCityText24
 	dw SaffronCityText25
 	dw SaffronCityText26 ; new sign for Climb Club
+	; scripts
 	dw TextPostBattle_SaffronTraveler ; new, for traveler
+
+SaffronCity_TextPointers_Rocket:
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw TextPreBattle_SaffronTraveler ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SaffronCityText12 ; Mon
+	dw GenericNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	; signs
+	dw SaffronCityText16
+	dw SaffronCityText17
+	dw SaffronCityText18
+	dw MartSignText
+	dw SaffronCityText20
+	dw SaffronCityText21
+	dw SaffronCityText22
+	dw PokeCenterSignText
+	dw SaffronCityText24
+	dw SaffronCityText25
+	dw SaffronCityText26
 
 SaffronCityText1:
 	text_far _SaffronCityText1

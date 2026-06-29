@@ -1,4 +1,5 @@
 SaffronPokecenter_Script:
+	RPTextChooser SaffronPokecenter_TextPointers, SaffronPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ SaffronPokecenter_TextPointers:
 	dw SaffronMartText2
 	dw SaffronMartText3
 	dw SaffronCashierTextTM ; new, TM seller
+
+SaffronPokecenter_TextPointers_Rocket:
+	dw SaffronHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SaffronTradeNurseText
+	dw SaffronPokecenterText5
+	; new, from Mart
+	dw SaffronCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SaffronCashierTextTM
 
 SaffronHealNurseText:
 	script_pokecenter_nurse

@@ -1,4 +1,5 @@
 SaffronClimbClub_Script:
+	RPTextChooser SaffronClimbClub_TextPointers, SaffronClimbClub_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SaffronClimbClub_ScriptPointers
 	ld a, [wCurMapScript]
@@ -91,6 +92,16 @@ SaffronClimbClub_TextPointers:
 	dw PickUpItemText ; 8
 	; scripts
 ;	dw SaffronClimbClubScriptText1 ; 9
+
+SaffronClimbClub_TextPointers_Rocket:
+	dw SaffronClimbClubText1 ; 1 Guide TBE
+	dw GenericNPCText_RocketPath ; 2 Hiker
+	dw GenericNPCText_RocketPath ; 3 Hiker
+	dw GenericNPCText_RocketPath ; 4 Hiker
+	dw GenericNPCText_RocketPath ; 5 Hiker
+	dw PickUpItemText ; 6
+	dw PickUpItemText ; 7
+	dw PickUpItemText ; 8
 
 SaffronClimbClubText1:
 	text_asm

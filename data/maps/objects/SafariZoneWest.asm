@@ -13,7 +13,6 @@ SafariZoneWest_Object:
 
 	def_bg_events
 	bg_event 12, 12, 5 ; SafariZoneWestText5
-;	bg_event 17,  3, 6 ; SafariZoneWestText6 ; edited: commented away
 	bg_event 26,  4, 6 ; SafariZoneWestText7
 	bg_event 24, 22, 7 ; SafariZoneWestText8
 

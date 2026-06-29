@@ -139,7 +139,6 @@ SeviiEightIslandDock_TextPointers:
 	dw SeviiEightIslandDockBgText1
 	dw SeviiEightIslandDockBgText2
 	dw SeviiEightIslandDockBgText3
-	text_end
 
 ; ----------------------------------------------
 

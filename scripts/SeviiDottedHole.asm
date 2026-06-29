@@ -1,4 +1,5 @@
 SeviiDottedHole_Script:
+	RPTextChooser SeviiDottedHole_TextPointers, SeviiDottedHole_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiDottedHole_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -401,6 +402,17 @@ SeviiDottedHole_TextPointers:
 	dw SeviiDottedHoleTextScript6  ; 15
 	dw SeviiDottedHoleTextScript7  ; 16
 	dw SeviiDottedHoleTextScript8  ; 17
+
+SeviiDottedHole_TextPointers_Rocket: ; TBE
+	dw SeviiDottedHoleMeltanText ; Meltan
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy ; 9
 
 SeviiDottedHoleTextProxy:
 	text_far _SeviiDottedHoleText1

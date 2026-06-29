@@ -1,4 +1,5 @@
 SafariZoneNorth_Script:
+	RPTextChooser SafariZoneNorth_TextPointers, SafariZoneNorth_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SafariZoneNorthTrainerHeaders
 	ld de, SafariZoneNorth_ScriptPointers
@@ -64,11 +65,25 @@ SafariZoneNorthScript2:
 	jp TextScriptEnd
 
 SafariZoneNorth_TextPointers:
-	dw GiovanniSafariText1
+	dw GiovanniSafariText1 ; new
 	dw PickUpItemText
 	dw PickUpItemText
 	dw SafariZoneNorthGuardText ; new
 	dw SafariZoneNorthGuardText ; new
+	; signs
+	dw SafariZoneNorthText3
+	dw SafariZoneNorthText4
+	dw SafariZoneNorthText5
+	dw SafariZoneNorthText6
+	dw SafariZoneNorthText7
+
+SafariZoneNorth_TextPointers_Rocket:
+	dw GiovanniSafariText1 ; TBE
+	dw PickUpItemText
+	dw PickUpItemText
+	dw SafariZoneNorthGuardText ; TBE
+	dw SafariZoneNorthGuardText ; TBE
+	; signs
 	dw SafariZoneNorthText3
 	dw SafariZoneNorthText4
 	dw SafariZoneNorthText5

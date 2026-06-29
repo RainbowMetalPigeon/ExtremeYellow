@@ -6,6 +6,7 @@ SafariZoneExtra_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	; signs
 	dw SafariZoneExtraText1
 	dw SafariZoneExtraText2
 

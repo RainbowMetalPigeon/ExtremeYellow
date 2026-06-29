@@ -1,4 +1,5 @@
 SaffronGym_Script:
+	RPTextChooser SaffronGym_TextPointers, SaffronGym_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
 	res 6, [hl]
@@ -112,10 +113,23 @@ SaffronGym_TextPointers:
 	dw SaffronGymTrainerText7
 	dw SaffronGymTrainerText8
 	dw SaffronGymGuideText
+	; scripts
 	dw KogaMarshBadgeInfoText ; why Koga lol
 	dw ReceivedTM46Text
 	dw TM46NoRoomText
 	dw SabrinaPostRematchText; new, $e
+
+SaffronGym_TextPointers_Rocket:
+	dw SabrinaText ; TBE
+	dw SaffronGymTrainerText1
+	dw SaffronGymTrainerText2
+	dw SaffronGymTrainerText3
+	dw SaffronGymTrainerText4
+	dw SaffronGymTrainerText5
+	dw SaffronGymTrainerText6
+	dw SaffronGymTrainerText7
+	dw SaffronGymTrainerText8
+	dw SaffronGymGuideText ; TBE
 
 SaffronGymTrainerHeaders:
 	def_trainers 2
