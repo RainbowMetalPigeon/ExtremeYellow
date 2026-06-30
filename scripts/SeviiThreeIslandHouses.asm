@@ -1,4 +1,5 @@
 SeviiThreeIslandHouses_Script:
+	RPTextChooser SeviiThreeIslandHouses_TextPointers, SeviiThreeIslandHouses_TextPointers_Rocket
 	call HideOrShowSecretExit
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiThreeIslandHouses_ScriptPointers
@@ -140,6 +141,26 @@ SeviiThreeIslandHouses_TextPointers:
 	; scripts
 	dw SeviiThreeIslandHousesScriptText1 ; 18 ; pre-battle
 	dw SeviiThreeIslandHousesScriptText2 ; 19 ; post-battle
+
+SeviiThreeIslandHouses_TextPointers_Rocket:
+	dw SeviiThreeIslandHousesText1 ; Tutor TBE
+	dw SeviiThreeIslandHousesText2 ; Magician TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw SeviiThreeIslandHousesSignText1 ; 6
+	dw SeviiThreeIslandHousesSignText2 ; 7
+	dw SeviiThreeIslandHousesSignText3 ; 8
+	dw SeviiThreeIslandHousesSignText4 ; 9
+	dw SeviiThreeIslandHousesBookshelfText1 ; 10
+	dw SeviiThreeIslandHousesBookshelfText2 ; 11
+	dw SeviiThreeIslandHousesBookshelfText3 ; 12
+	dw SeviiThreeIslandHousesBookshelfText4 ; 13
+	dw SeviiThreeIslandHousesBookshelfText5 ; 14
+	dw SeviiThreeIslandHousesBookshelfText6 ; 15
+	dw SeviiThreeIslandHousesBookshelfText7 ; 16
+	dw SeviiThreeIslandHousesBookshelfText8 ; 17
 
 SeviiThreeIslandHousesText1: ; tutor
 	text_asm

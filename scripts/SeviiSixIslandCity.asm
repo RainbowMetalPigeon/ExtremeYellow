@@ -1,4 +1,5 @@
 SeviiSixIslandCity_Script:
+	RPTextChooser SeviiSixIslandCity_TextPointers, SeviiSixIslandCity_TextPointers_Rocket
 	call ResetAnomaliesWarning_SixIsland
 	jp EnableAutoTextBoxDrawing
 
@@ -14,6 +15,17 @@ SeviiSixIslandCity_TextPointers:
 	dw SeviiSixIslandCityText1 ; 1
 	dw SeviiSixIslandCityText2 ; 2
 	dw SeviiSixIslandCityText3 ; 3
+	; signs
+	dw SeviiSixIslandCitySignText1 ; 4
+	dw SeviiSixIslandCitySignText2 ; 5
+	dw SeviiSixIslandCitySignText3 ; 6
+	dw PokeCenterSignText ; 7
+	dw MartSignText ; 8
+
+SeviiSixIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; 1
+	dw GenericNPCText_RocketPath ; 2
+	dw GenericNPCText_RocketPath ; 3
 	; signs
 	dw SeviiSixIslandCitySignText1 ; 4
 	dw SeviiSixIslandCitySignText2 ; 5

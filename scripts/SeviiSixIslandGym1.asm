@@ -1,4 +1,5 @@
 SeviiSixIslandGym1_Script:
+	RPTextChooser SeviiSixIslandGym1_TextPointers, SeviiSixIslandGym1_TextPointers_Rocket
 	call ApplyMalusOnEntry1
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSixIslandGym1_ScriptPointers
@@ -129,6 +130,21 @@ ApplyMalusOnEntry1:
 
 SeviiSixIslandGym1_TextPointers:
 	dw SeviiSixIslandGym1Text1
+	; signs
+	dw SeviiSixIslandGym1SignText1
+	dw SeviiSixIslandGym1SignText2
+	dw SeviiSixIslandGym1SignText3
+	dw SeviiSixIslandGym1SignText4
+	; scripts
+	dw SeviiSixIslandGym1PopUpMessageStatDebuff ; 6
+	dw SeviiSixIslandGym1PopUpMessagePoison ; 7
+	dw SeviiSixIslandGym1PopUpMessageBurn ; 8
+	dw SeviiSixIslandGym1PopUpMessageParalysis ; 9
+	dw SeviiSixIslandGym1Text10 ; 10
+	dw SeviiSixIslandGym1Text11_PostBlackout ; 11
+
+SeviiSixIslandGym1_TextPointers_Rocket:
+	dw SeviiSixIslandGym1Text1 ; TBE
 	; signs
 	dw SeviiSixIslandGym1SignText1
 	dw SeviiSixIslandGym1SignText2

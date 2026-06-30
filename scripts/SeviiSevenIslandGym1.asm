@@ -1,4 +1,5 @@
 SeviiSevenIslandGym1_Script:
+	RPTextChooser SeviiSevenIslandGym1_TextPointers, SeviiSevenIslandGym1_TextPointers_Rocket
 	call ResetGymDungeon
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSevenIslandGym1_ScriptPointers
@@ -40,6 +41,11 @@ SeviiSevenIslandGym1InFrontOfDoorCoords:
 
 SeviiSevenIslandGym1_TextPointers:
 	dw SeviiSevenIslandGym1Text1
+	; scripts
+	dw SeviiSevenIslandGym1Text2
+
+SeviiSevenIslandGym1_TextPointers_Rocket:
+	dw SeviiSevenIslandGym1Text1 ; TBE
 	; scripts
 	dw SeviiSevenIslandGym1Text2
 

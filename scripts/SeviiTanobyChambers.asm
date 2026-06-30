@@ -1,4 +1,5 @@
 SeviiTanobyChambers_Script:
+	RPTextChooser SeviiTanobyChambers_TextPointers, SeviiTanobyChambers_TextPointers_Rocket
 	call ResetGardenIfDenNotUnlocked
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiTanobyChambers_ScriptPointers
@@ -636,6 +637,29 @@ SeviiTanobyChambers_TextPointers:
 	dw SeviiTanobyChambersText1
 	dw SeviiTanobyChambersText2
 	dw SeviiTanobyChambersText3
+	; signs
+	dw SeviiTanobyChambersSignText1
+	dw SeviiTanobyChambersSignText2
+	dw SeviiTanobyChambersSignText3
+	dw SeviiTanobyChambersSignText4
+	dw SeviiTanobyChambersSignText5
+	dw SeviiTanobyChambersSignText6
+	; scripts
+	dw SeviiTanobyChambersScriptText1  ; 10 : Solved one Chamber
+	dw SeviiTanobyChambersScriptText2  ; 11 : Solved all Chambers
+	dw SeviiTanobyChambersScriptText3  ; 12 : Beasts 1st dialogue
+	dw SeviiTanobyChambersScriptText4  ; 13 : Beasts 2nd dialogue
+	dw SeviiTanobyChambersScriptText5  ; 14 : Beasts 3rd dialogue
+	dw SeviiTanobyChambersScriptText6  ; 15 : Beasts 4th dialogue
+	dw SeviiTanobyChambersScriptText7  ; 16 : Beasts Orm pre-battle dialogue
+	dw SeviiTanobyChambersScriptText8  ; 17 : Beasts Carr pre-battle dialogue
+	dw SeviiTanobyChambersScriptText9  ; 18 : Beasts Sird pre-battle dialogue
+	dw SeviiTanobyChambersScriptText10 ; 19 : Beasts final dialogue
+
+SeviiTanobyChambers_TextPointers_Rocket: ; TBE
+	dw SeviiTanobyChambersText1 ; proxy
+	dw SeviiTanobyChambersText2 ; proxy
+	dw SeviiTanobyChambersText3 ; proxy
 	; signs
 	dw SeviiTanobyChambersSignText1
 	dw SeviiTanobyChambersSignText2

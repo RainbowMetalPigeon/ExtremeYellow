@@ -1,9 +1,20 @@
-SeviiSevenIslandCity_Script:
+ SeviiSevenIslandCity_Script:
+ 	RPTextChooser SeviiSevenIslandCity_TextPointers, SeviiSevenIslandCity_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiSevenIslandCity_TextPointers:
 	dw SeviiSevenIslandCityText1
 	dw SeviiSevenIslandCityText2
+	; signs
+	dw SeviiSevenIslandCitySignText1 ; 3
+	dw SeviiSevenIslandCitySignText2 ; 4
+	dw SeviiSevenIslandCitySignText3 ; 5
+	dw PokeCenterSignText ; 6
+	dw MartSignText ; 7
+
+SeviiSevenIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	; signs
 	dw SeviiSevenIslandCitySignText1 ; 3
 	dw SeviiSevenIslandCitySignText2 ; 4

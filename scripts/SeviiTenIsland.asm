@@ -1,4 +1,5 @@
 SeviiTenIsland_Script:
+	RPTextChooser SeviiTenIsland_TextPointers, SeviiTenIsland_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiTenIsland_ScriptPointers
 	ld a, [wCurMapScript]
@@ -13,7 +14,7 @@ SeviiTenIsland_ScriptPointers:
 	dw SeviiTenIslandScript_TimeTravelEffects ;  1
 	dw SeviiTenIslandScript_YoungOakDialogueAndBattle ;  2
 	dw SeviiTenIslandScript_PostBattle ;  3
-	
+
 SeviiTenIslandScript_0: ; 0
 	ret
 
@@ -269,6 +270,18 @@ SeviiTenIslandResetScriptAfterWin:
 ; texts ====================================
 
 SeviiTenIsland_TextPointers:
+	dw SeviiTenIslandText1 ; 1
+	dw SeviiTenIslandTextProxy ; 2
+	dw SeviiTenIslandTextProxy ; 3
+	dw SeviiTenIslandTextProxy ; 4
+	dw SeviiTenIslandTextProxy ; 5
+	dw SeviiTenIslandTextProxy ; 6
+	; scripts
+	dw SeviiTenIslandScriptText1 ; 7, Celebi cry
+	dw SeviiTenIslandScriptText2 ; 8, Young Oak pre-battle
+	dw SeviiTenIslandScriptText3 ; 9, Young Oak post-battle
+
+SeviiTenIsland_TextPointers_Rocket: ; TBE
 	dw SeviiTenIslandText1 ; 1
 	dw SeviiTenIslandTextProxy ; 2
 	dw SeviiTenIslandTextProxy ; 3

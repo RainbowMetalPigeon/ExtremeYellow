@@ -1,4 +1,5 @@
 SeviiSevenIslandGym2DiveCavern_Script:
+	RPTextChooser SeviiSevenIslandGym2DiveCavern_TextPointers, SeviiSevenIslandGym2DiveCavern_TextPointers_Rocket
 	call HandleFlags_SSIG2DC
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSevenIslandGym2DiveCavern_ScriptPointers
@@ -42,6 +43,10 @@ SeviiSevenIslandGym2DiveCavernScript0:
 	ret
 
 SeviiSevenIslandGym2DiveCavern_TextPointers:
+	dw PickUpItemText
+	dw SeviiSevenIslandGym2DiveCavernText2_PostBlackOut
+
+SeviiSevenIslandGym2DiveCavern_TextPointers_Rocket:
 	dw PickUpItemText
 	dw SeviiSevenIslandGym2DiveCavernText2_PostBlackOut
 

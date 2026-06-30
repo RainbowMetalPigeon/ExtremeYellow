@@ -1,4 +1,5 @@
 SeviiSevenIslandPokemonCenterAndMart_Script:
+	RPTextChooser SeviiSevenIslandPokemonCenterAndMart_TextPointers, SeviiSevenIslandPokemonCenterAndMart_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -12,6 +13,17 @@ SeviiSevenIslandPokemonCenterAndMart_TextPointers:
 	dw SeviiSevenIslandPokemonCenterAndMart_CashierTMText
 	dw SeviiSevenIslandPokemonCenterAndMart_Text3
 	dw SeviiSevenIslandPokemonCenterAndMart_Text4
+
+SeviiSevenIslandPokemonCenterAndMart_TextPointers_Rocket:
+	dw SeviiSevenIslandPokemonCenterAndMart_HealNurseText
+	dw SeviiSevenIslandPokemonCenterAndMart_ChanseyText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; from Mart
+	dw SeviiSevenIslandPokemonCenterAndMart_CashierText
+	dw SeviiSevenIslandPokemonCenterAndMart_CashierTMText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 ; Center
 

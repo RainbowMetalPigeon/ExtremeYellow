@@ -1,4 +1,5 @@
 SeviiSixIslandGym3_Script:
+	RPTextChooser SeviiSixIslandGym3_TextPointers, SeviiSixIslandGym3_TextPointers_Rocket
 	call ApplyMalusOnEntry3
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSixIslandGym3_ScriptPointers
@@ -134,6 +135,24 @@ SeviiSixIslandGym3ScriptPostBattle:
 
 SeviiSixIslandGym3_TextPointers:
 	dw SeviiSixIslandGym3Text1
+	; signs
+	dw SeviiSixIslandGym3SignText1
+	dw SeviiSixIslandGym3SignText2
+	dw SeviiSixIslandGym3SignText3
+	; scripts
+	dw SeviiSixIslandGym3Text5_Victory ; 5
+	dw SeviiSixIslandGym3PopUpMessageWeb ; 6
+	dw SeviiSixIslandGym3PopUpMessageFrozen ; 7
+	dw SeviiSixIslandGym3PopUpMessageSleep ; 8
+	dw SeviiSixIslandGym3Text9_Defeat ; 9
+	dw SeviiSixIslandGym3Text10_PostBlackout ; 10
+	dw SeviiSixIslandGym3Text10_Reward1 ; 11
+	dw SeviiSixIslandGym3Text10_Reward2 ; 12
+	dw SeviiSixIslandGym3Text10_Reward3 ; 13
+	dw SeviiSixIslandGym3Text10_NoReward ; 14
+
+SeviiSixIslandGym3_TextPointers_Rocket:
+	dw SeviiSixIslandGym3Text1 ; TBE
 	; signs
 	dw SeviiSixIslandGym3SignText1
 	dw SeviiSixIslandGym3SignText2
