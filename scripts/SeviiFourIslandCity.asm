@@ -1,4 +1,5 @@
 SeviiFourIslandCity_Script:
+	RPTextChooser SeviiFourIslandCity_TextPointers, SeviiFourIslandCity_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiFourIslandCity_ScriptPointers
 	ld a, [wCurMapScript]
@@ -32,6 +33,29 @@ SeviiFourIslandCity_TextPointers:
 	dw SeviiFourIslandCityScriptText2 ; 22
 	dw SeviiFourIslandCityScriptText3 ; 23
 
+SeviiFourIslandCity_TextPointers_Rocket:
+	dw SeviiFourIslandCityText1 ; 1, post-Leauge Pink TBE
+	dw GenericNPCText_RocketPath ; 2
+	dw GenericNPCText_RocketPath ; 3
+	dw GenericNPCText_RocketPath ; 4
+	dw GenericNPCText_RocketPath ; 5
+	dw GenericNPCText_RocketPath ; 6
+	dw GenericNPCText_RocketPath ; 7
+	dw GenericNPCText_RocketPath ; 8
+	dw RockSmashText ; 9
+	dw PickUpItemText ; 10
+	dw PickUpItemText ; 11
+	dw PickUpItemText ; 12
+	dw PickUpItemText ; 13
+	dw SeviiFourIslandCityText14 ; 14 Underground guard TBE
+	; signs
+	dw SeviiFourIslandCitySignText1 ; 15
+	dw SeviiFourIslandCitySignText2 ; 16
+	dw SeviiFourIslandCitySignText3 ; 17
+	dw SeviiFourIslandCitySignText4 ; 18
+	dw PokeCenterSignText ; 19
+	dw MartSignText ; 20
+
 ; scripts =========================================
 
 SeviiFourIslandCity_ScriptPointers:
@@ -50,7 +74,7 @@ SeviiFourIslandCityScript0:
 	ld hl, SeviiFourIslandCityNearPinkCoords
 	call ArePlayerCoordsInArray ; carry flag if yes
 	jr nc, .notNearPink
-; we are nearby 
+; we are nearby
 	ld hl, wd72d
 	set 5, [hl]
 	ret

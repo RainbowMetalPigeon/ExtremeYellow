@@ -1,4 +1,5 @@
 SeviiFourIslandHouses_Script:
+	RPTextChooser SeviiFourIslandHouses_TextPointers, SeviiFourIslandHouses_TextPointers_Rocket
 	call UndoDarkeningFromHazardRoom
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiFourIslandHouses_ScriptPointers
@@ -294,6 +295,29 @@ SeviiFourIslandHouses_TextPointers:
 	dw SeviiFourIslandHousesScriptText4 ; 24
 	dw SeviiFourIslandHousesScriptText5 ; 25
 	dw SeviiFourIslandHousesScriptText6 ; 26
+
+SeviiFourIslandHouses_TextPointers_Rocket:
+	dw SeviiFourIslandHousesText1 ; Pink TBE
+	dw SeviiFourIslandHousesText2 ; Dad TBE
+	dw SeviiFourIslandHousesText3 ; Papa TBE
+	dw SeviiFourIslandHousesText4 ; Mama TBE
+	dw SeviiFourIslandHousesText5 ; Tutor TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw SeviiFourIslandHousesSignText1_TV ; 10
+	dw SeviiFourIslandHousesSignText2_Picture
+	dw SeviiFourIslandHousesSignText3_Paper1
+	dw SeviiFourIslandHousesSignText4_Paper2
+	dw SeviiFourIslandHousesSignText5_Paper3
+	dw SeviiFourIslandHousesSignText6_Switch
+	dw SeviiFourIslandHousesSignText7_PC
+	dw SeviiFourIslandHousesSignText8_Cheater ; 17
+	dw SeviiFourIslandHousesSignText9_FakeBooks ; 18
+	dw SeviiFourIslandHousesSignText10_FakeBooks ; 19
+	dw SeviiFourIslandHousesSignText11_Paper4 ; 20
 
 ; texts ===========================
 

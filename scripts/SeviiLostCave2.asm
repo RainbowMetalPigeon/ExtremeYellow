@@ -1,4 +1,5 @@
 SeviiLostCave2_Script:
+	RPTextChooser SeviiLostCave2_TextPointers, SeviiLostCave2_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiLostCave2_ScriptPointers
 	ld a, [wCurMapScript]
@@ -31,7 +32,9 @@ SeviiLostCave2_Script1:
 
 SeviiLostCave2_TextPointers:
 	dw SeviiLostCave2Text1
-	text_end
+
+SeviiLostCave2_TextPointers_Rocket:
+	dw SeviiLostCave2Text1 ; TBE
 
 SeviiLostCave2Text1:
 	text_asm

@@ -1,4 +1,5 @@
 SeviiOneIslandCity_Script:
+	RPTextChooser SeviiOneIslandCity_TextPointers, SeviiOneIslandCity_TextPointers_Rocket
 	call CheckForCeliosHouseHideShow
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiOneIslandCity_ScriptPointers
@@ -60,6 +61,26 @@ SeviiOneIslandCity_TextPointers:
 	dw SeviiOneIslandCityScriptText1 ; 18 ; Celio and Jenny
 	dw SeviiOneIslandCityScriptText2 ; 19 ; Celio 1
 	dw SeviiOneIslandCityScriptText3 ; 20 ; Celio 2
+
+SeviiOneIslandCity_TextPointers_Rocket:
+	dw SeviiOneIslandCityText1 ; Celio TBE
+	dw SeviiOneIslandCityText2 ; Officer TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw PickUpItemText ;  9
+	dw PickUpItemText ; 10
+	; signs
+	dw SeviiOneIslandCitySignText1 ; 11
+	dw SeviiOneIslandCitySignText2 ; 12
+	dw SeviiOneIslandCitySignText3 ; 13
+	dw SeviiOneIslandCitySignText4 ; 14
+	dw SeviiOneIslandCitySignText5 ; 15
+	dw PokeCenterSignText ; 16
+	dw MartSignText ; 17
 
 ; scripts =========================================
 

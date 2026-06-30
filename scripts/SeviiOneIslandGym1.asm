@@ -1,8 +1,12 @@
 SeviiOneIslandGym1_Script:
+	RPTextChooser SeviiOneIslandGym1_TextPointers, SeviiOneIslandGym1_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiOneIslandGym1_TextPointers:
 	dw SeviiOneIslandGym1Text1
+
+SeviiOneIslandGym1_TextPointers_Rocket:
+	dw SeviiOneIslandGym1Text1 ; TBE
 
 SeviiOneIslandGym1Text1:
 	text_asm

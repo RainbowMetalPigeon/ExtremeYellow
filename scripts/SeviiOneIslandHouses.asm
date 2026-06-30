@@ -1,4 +1,5 @@
 SeviiOneIslandHouses_Script:
+	RPTextChooser SeviiOneIslandHouses_TextPointers, SeviiOneIslandHouses_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiOneIslandHouses_ScriptPointers
 	ld a, [wCurMapScript]
@@ -190,11 +191,31 @@ SeviiOneIslandHouses_TextPointers:
 	dw SeviiOneIslandHousesSignText3
 	dw SeviiOneIslandHousesSignText4 ; 15
 	dw SeviiOneIslandHousesSignText5 ; 16
-	dw SeviiOneIslandHousesSignText6 ; x7
+	dw SeviiOneIslandHousesSignText6 ; 17
 	; scripts
 	dw SeviiOneIslandHousesScriptText1 ; 18
 	dw SeviiOneIslandHousesScriptText2 ; 19
 	dw SeviiOneIslandHousesScriptText3 ; 20
+
+SeviiOneIslandHouses_TextPointers_Rocket:
+	dw SeviiOneIslandHousesText1 ; weather move tutor TBE
+	dw SeviiOneIslandHousesText2 ; Celio before rescue TBE
+	dw SeviiOneIslandHousesText3 ; Celio right after rescue TBE
+	dw SeviiOneIslandHousesText4 ; Celio after rescue TBE
+	dw SeviiOneIslandHousesText5 ; Mayoi right after rescue TBE
+	dw SeviiOneIslandHousesText6 ; Mayoi after rescue TBE
+	dw SeviiOneIslandHousesText7 ; Pink TBE
+	dw SeviiOneIslandHousesText8 ; plushie TBE
+	dw SeviiOneIslandHousesText9 ; Snorlax fan? TBE
+	dw GenericNPCText_RocketPath ; x
+	dw GenericNPCText_RocketPath ; x
+	; signs
+	dw SeviiOneIslandHousesSignText1
+	dw SeviiOneIslandHousesSignText2
+	dw SeviiOneIslandHousesSignText3
+	dw SeviiOneIslandHousesSignText4 ; 15
+	dw SeviiOneIslandHousesSignText5 ; 16
+	dw SeviiOneIslandHousesSignText6 ; 17
 
 SeviiOneIslandHousesText1:
 	text_asm
