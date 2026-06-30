@@ -1,4 +1,5 @@
 SeviiPatternBush_Script:
+	RPTextChooser SeviiPatternBush_TextPointers, SeviiPatternBush_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiPatternBushTrainerHeaders
 	ld de, SeviiPatternBush_ScriptPointers
@@ -17,6 +18,16 @@ SeviiPatternBush_TextPointers:
 	dw SeviiPatternBushText2  ;  2 person
 	dw SeviiPatternBushText3  ;  3 person
 	dw SeviiPatternBushText4  ;  4 person
+	dw SeviiPatternBushText5  ;  5 trainer
+	dw SeviiPatternBushText6  ;  6 trainer
+	dw SeviiPatternBushText7  ;  7 trainer
+	dw SeviiPatternBushText8  ;  8 trainer
+
+SeviiPatternBush_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath  ;  1 person
+	dw GenericNPCText_RocketPath  ;  2 person
+	dw GenericNPCText_RocketPath  ;  3 person
+	dw GenericNPCText_RocketPath  ;  4 person
 	dw SeviiPatternBushText5  ;  5 trainer
 	dw SeviiPatternBushText6  ;  6 trainer
 	dw SeviiPatternBushText7  ;  7 trainer

@@ -1,4 +1,5 @@
 SeviiRoute32_Script:
+	RPTextChooser SeviiRoute32_TextPointers, SeviiRoute32_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute32TrainerHeaders
 	ld de, SeviiRoute32_ScriptPointers
@@ -14,12 +15,23 @@ SeviiRoute32_ScriptPointers:
 
 SeviiRoute32_TextPointers:
 	dw SeviiRoute32Text0
-	dw SeviiRoute32Text1
-	dw SeviiRoute32Text2
-	dw SeviiRoute32Text3
+	dw SeviiRoute32Text1 ; trainer
+	dw SeviiRoute32Text2 ; trainer
+	dw SeviiRoute32Text3 ; trainer
 	dw PickUpItemText
 	dw PickUpItemText
 	dw SeviiRoute32Text6
+	; signs
+	dw SeviiRoute32SignText1
+
+SeviiRoute32_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw SeviiRoute32Text1 ; trainer
+	dw SeviiRoute32Text2 ; trainer
+	dw SeviiRoute32Text3 ; trainer
+	dw PickUpItemText
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath
 	; signs
 	dw SeviiRoute32SignText1
 
@@ -45,7 +57,7 @@ SeviiRoute32Text1:
 	text_asm
 	ld hl, SeviiRoute32TrainerHeader1
 	jr SeviiRoute32_TalkToTrainer
-	
+
 SeviiRoute32BattleText1:
 	text_far _SeviiRoute32BattleText1
 	text_end
@@ -62,7 +74,7 @@ SeviiRoute32Text2:
 	text_asm
 	ld hl, SeviiRoute32TrainerHeader2
 	jr SeviiRoute32_TalkToTrainer
-	
+
 SeviiRoute32BattleText2:
 	text_far _SeviiRoute32BattleText2
 	text_end

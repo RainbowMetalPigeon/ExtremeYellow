@@ -1,11 +1,22 @@
 SeviiRoute38Houses_Script:
+	RPTextChooser SeviiRoute38Houses_TextPointers, SeviiRoute38Houses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiRoute38Houses_TextPointers:
-	dw SeviiRoute38HousesText1
-	dw SeviiRoute38HousesText2
-	dw SeviiRoute38HousesText3
-	dw SeviiRoute38HousesText4
+	dw SeviiRoute38HousesText1 ; Dive Expert
+	dw SeviiRoute38HousesText2 ; Imposter
+	dw SeviiRoute38HousesText3 ; person
+	dw SeviiRoute38HousesText4 ; paper
+	; signs
+	dw SeviiRoute38HousesSignText1
+	dw SeviiRoute38HousesSignText2
+	dw SeviiRoute38HousesSignText3
+
+SeviiRoute38Houses_TextPointers_Rocket:
+	dw SeviiRoute38HousesText1 ; Dive Expert TBE
+	dw SeviiRoute38HousesText2 ; Imposter TBE
+	dw GenericNPCText_RocketPath ; person
+	dw SeviiRoute38HousesText4 ; paper
 	; signs
 	dw SeviiRoute38HousesSignText1
 	dw SeviiRoute38HousesSignText2

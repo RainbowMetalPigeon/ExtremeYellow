@@ -3,13 +3,11 @@ SeviiRoute37_Object:
 
 	def_warp_events
 ;	warp_event 28, 33, SEVII_ONE_ISLAND_DOCK, 1
-;	warp_event 29, 33, SEVII_ONE_ISLAND_DOCK, 2
 
 	def_bg_events
 ;	bg_event  4, 37, 15 ; SeviiRoute36SignText1
 
 	def_object_events
-;	object_event  5, 38, SPRITE_SUPER_NERD, STAY, UP, 1
 	; trainers
 	object_event  9, 30, SPRITE_COOLTRAINER_F, STAY, LEFT, 1, OPP_COOLTRAINER, 83
 	object_event  8, 35, SPRITE_COOLTRAINER_F, STAY, UP, 2, OPP_COOLTRAINER, 84
@@ -25,6 +23,5 @@ SeviiRoute37_Object:
 	object_event  9,  5, SPRITE_SWIMMER, STAY, ANY_DIR, 12, OPP_SWIMMER, 33
 	; non-persons
 	object_event 11, 46, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 13
-;	object_event  2, 47, SPRITE_POKE_BALL, STAY, NONE, 14, METAL_COAT
 
 	def_warps_to SEVII_ROUTE_37

@@ -1,4 +1,5 @@
 SeviiRoute40_Script:
+	RPTextChooser SeviiRoute40_TextPointers, SeviiRoute40_TextPointers_Rocket
 	call HideOrShowDottedHoleDoor
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute40TrainerHeaders
@@ -86,6 +87,29 @@ SeviiRoute40Script_CheckDoor:
 
 SeviiRoute40_TextPointers:
 	dw SeviiRoute40Text1  ;  1 person
+	dw SeviiRoute40Text2  ;  2 trainer
+	dw SeviiRoute40Text3  ;  3 trainer
+	dw SeviiRoute40Text4  ;  4 trainer
+	dw SeviiRoute40Text5  ;  5 trainer
+	dw SeviiRoute40Text6  ;  6 trainer
+	dw SeviiRoute40Text7  ;  7 trainer
+	dw SeviiRoute40Text8  ;  8 trainer
+	dw SeviiRoute40Text9  ;  9 trainer
+	dw RockSmashText ; 10
+	dw PickUpItemText ; 11
+	dw PickUpItemText ; 12
+	dw PickUpItemText ; 13
+	dw PickUpItemText ; 14
+	; signs
+	dw SeviiRoute40SignText1 ; 15
+	dw SeviiRoute40SignText2 ; 16
+	; scripts
+	dw SeviiRoute40SignText2_InsertTopaz ; 17
+	dw SeviiRoute40SignText2_InsertTigersEye ; 18
+	dw SeviiRoute40SignText2_DoorOpens ; 19
+
+SeviiRoute40_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath  ;  1 person
 	dw SeviiRoute40Text2  ;  2 trainer
 	dw SeviiRoute40Text3  ;  3 trainer
 	dw SeviiRoute40Text4  ;  4 trainer
@@ -327,4 +351,3 @@ SeviiRoute40SignText2_InsertTigersEye:
 SeviiRoute40SignText2_DoorOpens:
 	text_far _SeviiRoute40SignText2_DoorOpens
 	text_end
-	

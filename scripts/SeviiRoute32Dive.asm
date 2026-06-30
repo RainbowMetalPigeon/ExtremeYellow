@@ -1,4 +1,5 @@
 SeviiRoute32Dive_Script:
+	RPTextChooser SeviiRoute32Dive_TextPointers, SeviiRoute32Dive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute32DiveTrainerHeaders
 	ld de, SeviiRoute32Dive_ScriptPointers
@@ -16,7 +17,11 @@ SeviiRoute32Dive_TextPointers:
 	dw SeviiRoute32DiveText1
 	dw SeviiRoute32DiveText2
 	dw SeviiRoute32DiveText3
-;	dw PickUpItemText
+
+SeviiRoute32Dive_TextPointers_Rocket:
+	dw SeviiRoute32DiveText1
+	dw SeviiRoute32DiveText2
+	dw SeviiRoute32DiveText3
 
 SeviiRoute32DiveTrainerHeaders:
 	def_trainers

@@ -1,4 +1,5 @@
 SeviiRoute37_Script:
+	RPTextChooser SeviiRoute37_TextPointers, SeviiRoute37_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute37TrainerHeaders
 	ld de, SeviiRoute37_ScriptPointers
@@ -13,6 +14,21 @@ SeviiRoute37_ScriptPointers:
 	dw EndTrainerBattle
 
 SeviiRoute37_TextPointers:
+	dw SeviiRoute37Text1
+	dw SeviiRoute37Text2
+	dw SeviiRoute37Text3
+	dw SeviiRoute37Text4
+	dw SeviiRoute37Text5
+	dw SeviiRoute37Text6
+	dw SeviiRoute37Text7
+	dw SeviiRoute37Text8
+	dw SeviiRoute37Text9
+	dw SeviiRoute37Text10
+	dw SeviiRoute37Text11
+	dw SeviiRoute37Text12
+	dw RockSmashText
+
+SeviiRoute37_TextPointers_Rocket:
 	dw SeviiRoute37Text1
 	dw SeviiRoute37Text2
 	dw SeviiRoute37Text3

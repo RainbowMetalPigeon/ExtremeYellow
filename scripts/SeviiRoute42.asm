@@ -1,4 +1,5 @@
 SeviiRoute42_Script:
+	RPTextChooser SeviiRoute42_TextPointers, SeviiRoute42_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute42TrainerHeaders
 	ld de, SeviiRoute42_ScriptPointers
@@ -27,6 +28,22 @@ SeviiRoute42_TextPointers:
 	dw PickUpItemText     ; 12
 	dw PickUpItemText     ; 13
 	dw SeviiRoute42Text14 ; 14 underground guard
+
+SeviiRoute42_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath  ;  1 person
+	dw SeviiRoute42Text2  ;  2 trainer
+	dw SeviiRoute42Text3  ;  3 trainer
+	dw SeviiRoute42Text4  ;  4 trainer
+	dw SeviiRoute42Text5  ;  5 trainer
+	dw SeviiRoute42Text6  ;  6 trainer
+	dw SeviiRoute42Text7  ;  7 trainer
+	dw SeviiRoute42Text8  ;  8 trainer
+	dw SeviiRoute42Text9  ;  9 trainer
+	dw SeviiRoute42Text10 ; 10 trainer
+	dw RockSmashText      ; 11 rock
+	dw PickUpItemText     ; 12
+	dw PickUpItemText     ; 13
+	dw SeviiRoute42Text14 ; 14 underground guard TBE
 
 SeviiRoute42Text1:
 	text_far _SeviiRoute42Text1

@@ -1,4 +1,5 @@
 SeviiRoute43_Script:
+	RPTextChooser SeviiRoute43_TextPointers, SeviiRoute43_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute43TrainerHeaders
 	ld de, SeviiRoute43_ScriptPointers
@@ -167,6 +168,22 @@ SeviiRoute43_TextPointers:
 	dw SeviiRoute43ScriptText1 ; 15
 	dw SeviiRoute43ScriptText2 ; 16
 	dw SeviiRoute43ScriptText3 ; 17
+
+SeviiRoute43_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath  ;  1 person
+	dw SeviiRoute43Text2  ;  2 trainer
+	dw SeviiRoute43Text3  ;  3 trainer
+	dw SeviiRoute43Text4  ;  4 trainer
+	dw SeviiRoute43Text5  ;  5 trainer
+	dw SeviiRoute43Text6  ;  6 trainer
+	dw SeviiRoute43Text7  ;  7 trainer
+	dw SeviiRoute43Text8  ;  8 trainer
+	dw SeviiRoute43Text9  ;  9 trainer
+	dw SeviiRoute43Text10 ; 10 trainer
+	dw SeviiRoute43Text11 ; 11 trainer
+	dw RockSmashText ; 12
+	dw PickUpItemText ; 13
+	dw SeviiRoute43TextSird ; 14 Sird TBE
 
 SeviiRoute43Text1:
 	text_far _SeviiRoute43Text1

@@ -1,4 +1,5 @@
 SeviiRoute39_Script:
+	RPTextChooser SeviiRoute39_TextPointers, SeviiRoute39_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute39TrainerHeaders
 	ld de, SeviiRoute39_ScriptPointers
@@ -23,7 +24,25 @@ SeviiRoute39_TextPointers:
 	dw SeviiRoute39Text7
 	dw SeviiRoute39Text8
 	; non-persons
-;	dw RockSmashText
+	dw PickUpItemText ; 9
+	dw PickUpItemText ; 10
+	dw PickUpItemText ; 11
+	dw PickUpItemText ; 12
+	dw SeviiRoute39Text13 ; 13
+	; signs
+	dw SeviiRoute39SignText1 ; 14
+
+SeviiRoute39_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; trainers
+	dw SeviiRoute39Text3
+	dw SeviiRoute39Text4
+	dw SeviiRoute39Text5
+	dw SeviiRoute39Text6
+	dw SeviiRoute39Text7
+	dw SeviiRoute39Text8
+	; non-persons
 	dw PickUpItemText ; 9
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11

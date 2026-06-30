@@ -1,4 +1,5 @@
 SeviiRoute35_Script:
+	RPTextChooser SeviiRoute35_TextPointers, SeviiRoute35_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute35TrainerHeaders
 	ld de, SeviiRoute35_ScriptPointers
@@ -13,8 +14,16 @@ SeviiRoute35_ScriptPointers:
 	dw EndTrainerBattle
 
 SeviiRoute35_TextPointers:
-	dw SeviiRoute35Text1
+	dw SeviiRoute35Text1 ; trainer: deciphering Hiker
 	dw PickUpItemText
+	; signs
+	dw SeviiRoute35Text3
+	dw SeviiRoute35Text4
+
+SeviiRoute35_TextPointers_Rocket:
+	dw SeviiRoute35Text1 ; trainer: deciphering Hiker
+	dw PickUpItemText
+	; signs
 	dw SeviiRoute35Text3
 	dw SeviiRoute35Text4
 

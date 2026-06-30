@@ -1,10 +1,29 @@
 SeviiResortGorgeous_Script:
+	RPTextChooser SeviiResortGorgeous_TextPointers, SeviiResortGorgeous_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiResortGorgeous_TextPointers:
-	dw SeviiResortGorgeousText1
-	dw SeviiResortGorgeousText2
-	dw SeviiResortGorgeousText15 ; numbering is off but whatever
+	dw SeviiResortGorgeousText1 ; Selphy
+	dw SeviiResortGorgeousText2 ; Butler
+	dw SeviiResortGorgeousText15 ; Paper, numbering is off but whatever
+	; signs (numbering in names is off by 1)
+	dw SeviiResortGorgeousText3
+	dw SeviiResortGorgeousText4
+	dw SeviiResortGorgeousText5
+	dw SeviiResortGorgeousText6
+	dw SeviiResortGorgeousText7
+	dw SeviiResortGorgeousText8
+	dw SeviiResortGorgeousText9
+	dw SeviiResortGorgeousText10
+	dw SeviiResortGorgeousText11
+	dw SeviiResortGorgeousText12
+	dw SeviiResortGorgeousText13
+	dw SeviiResortGorgeousText14
+
+SeviiResortGorgeous_TextPointers_Rocket:
+	dw SeviiResortGorgeousText1 ; Selphy TBE
+	dw SeviiResortGorgeousText2 ; Butler TBE
+	dw SeviiResortGorgeousText15 ; Paper, numbering is off but whatever
 	; signs (numbering in names is off by 1)
 	dw SeviiResortGorgeousText3
 	dw SeviiResortGorgeousText4
@@ -119,7 +138,7 @@ SeviiResortGorgeousText13:
 SeviiResortGorgeousText14:
 	text_far _SeviiResortGorgeousText14
 	text_end
-	
+
 SeviiResortGorgeousText15:
 	text_far _SeviiResortGorgeousText15
 	text_end

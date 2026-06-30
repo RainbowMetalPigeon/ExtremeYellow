@@ -1,4 +1,5 @@
 SeviiRoute36_Script:
+	RPTextChooser SeviiRoute36_TextPointers, SeviiRoute36_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute36TrainerHeaders
 	ld de, SeviiRoute36_ScriptPointers
@@ -44,6 +45,24 @@ SeviiRoute36Script3:
 
 SeviiRoute36_TextPointers:
 	dw SeviiRoute36Text1  ;  1 person
+	dw SeviiRoute36Text2  ;  2 trainer
+	dw SeviiRoute36Text3  ;  3 trainer
+	dw SeviiRoute36Text4  ;  4 trainer
+	dw SeviiRoute36Text5  ;  5 trainer
+	dw SeviiRoute36Text6  ;  6 trainer
+	dw SeviiRoute36Text7  ;  7 trainer
+	dw SeviiRoute36Text8  ;  8 trainer
+	dw SeviiRoute36Text9  ;  9 trainer
+	dw SeviiRoute36Text10 ; 10 trainer
+	dw SeviiRoute36Text11 ; 11 trainer
+	dw SeviiRoute36Text12 ; 12 trainer
+	dw SeviiRoute36Text13 ; 13 trainer
+	dw PickUpItemText ; 14
+	; signs
+	dw SeviiRoute36SignText1 ; 15
+
+SeviiRoute36_TextPointers_Rocket:
+	dw SeviiRoute36Text1  ;  1 person TBE
 	dw SeviiRoute36Text2  ;  2 trainer
 	dw SeviiRoute36Text3  ;  3 trainer
 	dw SeviiRoute36Text4  ;  4 trainer
@@ -370,7 +389,7 @@ SeviiRoute36Text1_PreLemonade:
 SeviiRoute36Text1_PostHM:
 	text_far _SeviiRoute36Text1_PostHM
 	text_end
-	
+
 ; ---------------------------------------
 
 SeviiRoute36SignText1:
@@ -387,7 +406,7 @@ SeviiRoute36SignText1:
 	ld hl, SeviiRoute36SignText1_PreOffer
 	call PrintText
 	ld b, LEMONADE
-	call IsItemInBag ; set zero flag if item isn't in player's bag	
+	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr z, .done
 ; we have lemonade in bag
 	call WaitForTextScrollButtonPress
