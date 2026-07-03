@@ -1,10 +1,11 @@
 SeviiTwoIslandHouses_Script:
+	RPTextChooser SeviiTwoIslandHouses_TextPointers, SeviiTwoIslandHouses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiTwoIslandHouses_TextPointers:
 	dw SeviiTwoIslandHousesText1
-	dw SeviiTwoIslandHousesText2
-	dw SeviiTwoIslandHousesText3
+	dw SeviiTwoIslandHousesText2 ; Tutor Ball
+	dw SeviiTwoIslandHousesText3 ; Tutor Pulse
 	dw SeviiTwoIslandHousesText4
 	dw SeviiTwoIslandHousesText5
 	dw SeviiTwoIslandHousesText6
@@ -12,7 +13,27 @@ SeviiTwoIslandHouses_TextPointers:
 	dw SeviiTwoIslandHousesText8
 	dw SeviiTwoIslandHousesText9
 	dw SeviiTwoIslandHousesText10
-	dw SeviiTwoIslandHousesText11
+	dw SeviiTwoIslandHousesText11 ; Clipboard
+	; signs
+	dw SeviiTwoIslandHousesSignText1
+	dw SeviiTwoIslandHousesSignText2
+	dw SeviiTwoIslandHousesSignText3
+	dw SeviiTwoIslandHousesSignText3
+	dw SeviiTwoIslandHousesSignText3
+	dw SeviiTwoIslandHousesSignText3
+
+SeviiTwoIslandHouses_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw SeviiTwoIslandHousesText2 ; Tutor Ball TBE
+	dw SeviiTwoIslandHousesText3 ; Tutor Pulse TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SeviiTwoIslandHousesText11 ; Clipboard
 	; signs
 	dw SeviiTwoIslandHousesSignText1
 	dw SeviiTwoIslandHousesSignText2

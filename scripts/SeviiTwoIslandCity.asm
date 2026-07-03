@@ -1,4 +1,5 @@
 SeviiTwoIslandCity_Script:
+	RPTextChooser SeviiTwoIslandCity_TextPointers, SeviiTwoIslandCity_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiTwoIslandCity_ScriptPointers
 	ld a, [wCurMapScript]
@@ -32,6 +33,29 @@ SeviiTwoIslandCity_TextPointers:
 	dw PokeCenterSignText ; 20
 	; scripts
 	dw SeviiTwoIslandCityScriptText1 ; 21 ; Boss post defeat
+
+SeviiTwoIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SeviiTwoIslandCityText5 ; Market TBE
+	dw SeviiTwoIslandCityText6 ; Lottery TBE
+	dw GenericNPCText_RocketPath
+	dw SeviiTwoIslandCityText8 ; Biker TBE
+	dw SeviiTwoIslandCityText9  ; Tauros
+	dw SeviiTwoIslandCityText10 ; Tauros
+	dw RockSmashText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw SeviiTwoIslandCityText14 ; Underground guard TBE
+	; signs
+	dw SeviiTwoIslandCitySignText1 ; 15
+	dw SeviiTwoIslandCitySignText2 ; 16
+	dw SeviiTwoIslandCitySignText3 ; 17
+	dw SeviiTwoIslandCitySignText4 ; 18
+	dw SeviiTwoIslandCitySignText5 ; 19
+	dw PokeCenterSignText ; 20
 
 ; scripts =========================================
 

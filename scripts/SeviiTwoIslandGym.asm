@@ -1,4 +1,5 @@
 SeviiTwoIslandGym_Script:
+	RPTextChooser SeviiTwoIslandGym_TextPointers, SeviiTwoIslandGym_TextPointers_Rocket
 	call ChooseNiuesTeam
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiTwoIslandGym_ScriptPointers
@@ -85,6 +86,16 @@ SeviiTwoIslandGymScriptPostBattle:
 SeviiTwoIslandGym_TextPointers:
 	dw SeviiTwoIslandGymText1
 	dw SeviiTwoIslandGymText2
+	; scripts
+	dw SeviiTwoIslandGymText3_Victory ; 3
+	dw SeviiTwoIslandGymText4_Defeat ; 4
+	dw SeviiTwoIslandGymText4_Reward1 ; 5
+	dw SeviiTwoIslandGymText4_Reward2 ; 6
+	dw SeviiTwoIslandGymText4_Reward3 ; 7
+
+SeviiTwoIslandGym_TextPointers_Rocket:
+	dw SeviiTwoIslandGymText1 ; TBE
+	dw SeviiTwoIslandGymText2 ; TBE
 	; scripts
 	dw SeviiTwoIslandGymText3_Victory ; 3
 	dw SeviiTwoIslandGymText4_Defeat ; 4

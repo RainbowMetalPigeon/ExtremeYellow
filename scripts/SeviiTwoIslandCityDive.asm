@@ -1,4 +1,5 @@
 SeviiTwoIslandCityDive_Script:
+	RPTextChooser SeviiTwoIslandCityDive_TextPointers, SeviiTwoIslandCityDive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiTwoIslandCityDiveTrainerHeaders
 	ld de, SeviiTwoIslandCityDive_ScriptPointers
@@ -13,6 +14,16 @@ SeviiTwoIslandCityDive_ScriptPointers:
 	dw EndTrainerBattle
 
 SeviiTwoIslandCityDive_TextPointers:
+	dw SeviiTwoIslandCityDiveText1
+	dw SeviiTwoIslandCityDiveText2
+	dw SeviiTwoIslandCityDiveText3
+	dw SeviiTwoIslandCityDiveText4
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+
+SeviiTwoIslandCityDive_TextPointers_Rocket:
 	dw SeviiTwoIslandCityDiveText1
 	dw SeviiTwoIslandCityDiveText2
 	dw SeviiTwoIslandCityDiveText3
