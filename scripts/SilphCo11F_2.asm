@@ -29,6 +29,7 @@ SaffronCityCitizens:
 	db HS_SAFFRON_CITY_B
 	db HS_SAFFRON_CITY_C
 	db HS_SAFFRON_CITY_D
+	db HS_SILPH_CO_1F_RECEPTIONIST ; moved here
 	db $FF
 
 SaffronCityRockets:

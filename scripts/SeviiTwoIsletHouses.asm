@@ -1,4 +1,5 @@
 SeviiTwoIsletHouses_Script:
+	RPTextChooser SeviiTwoIsletHouses_TextPointers, SeviiTwoIsletHouses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiTwoIsletHouses_TextPointers:
@@ -8,6 +9,17 @@ SeviiTwoIsletHouses_TextPointers:
 	dw SeviiTwoIsletHousesText4
 	dw SeviiTwoIsletHousesText5
 	dw SeviiTwoIsletHousesText6
+	; signs
+	dw SeviiTwoIsletHousesSignText1
+	dw SeviiTwoIsletHousesSignText2
+
+SeviiTwoIsletHouses_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	; signs
 	dw SeviiTwoIsletHousesSignText1
 	dw SeviiTwoIsletHousesSignText2

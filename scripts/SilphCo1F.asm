@@ -1,15 +1,12 @@
-SilphCo1F_Script:
-	call EnableAutoTextBoxDrawing
-	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
-	ret z
-	CheckAndSetEvent EVENT_SILPH_CO_RECEPTIONIST_AT_DESK
-	ret nz
-	ld a, HS_SILPH_CO_1F_RECEPTIONIST
-	ld [wMissableObjectIndex], a
-	predef_jump ShowObject
+SilphCo1F_Script: ; edited
+	RPTextChooser SilphCo1F_TextPointers, SilphCo1F_TextPointers_Rocket ; useless?
+	jp EnableAutoTextBoxDrawing
 
 SilphCo1F_TextPointers:
 	dw SilphCo1Text1
+
+SilphCo1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 
 SilphCo1Text1:
 	text_far _SilphCo1Text1
