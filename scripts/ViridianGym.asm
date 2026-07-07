@@ -1,4 +1,5 @@
 ViridianGym_Script:
+	RPTextChooser ViridianGym_TextPointers, ViridianGym_TextPointers_Rocket
 	ld hl, .CityName
 	ld de, .LeaderName
 	call LoadGymLeaderAndCityName
@@ -422,6 +423,24 @@ ViridianGym_TextPointers:
 	dw ViridianGymGiovanniPostBattleText ; $d=15
 	dw ViridianGymChallengerPreBattleText ; 16
 	dw ViridianGymChallengerPostBattleText ; 17
+
+ViridianGym_TextPointers_Rocket:
+	dw GiovanniText ; TBE
+	; trainers
+	dw ViridianGymTrainerText2
+	dw ViridianGymTrainerText3
+	dw ViridianGymTrainerText4
+	dw ViridianGymTrainerText5
+	dw ViridianGymTrainerText6
+	dw ViridianGymTrainerText7
+	dw ViridianGymTrainerText8
+	dw ViridianGymTrainerText9 ; 9
+	; guides
+	dw ViridianGymGuideText_PreLeague ; $a=10 TBE
+	dw ViridianGymGuideText_PostLeague ; $b=11 TBE (unnecessary?)
+	dw ViridianGymChallengerText ; $c=12 TBE (unnecessary?)
+	dw PickUpItemText ; $d=13
+	dw PickUpItemText ; new, $e=14
 
 ViridianGymTrainerHeaders:
 	def_trainers 2

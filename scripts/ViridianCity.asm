@@ -1,4 +1,5 @@
 ViridianCity_Script:
+	RPTextChooser ViridianCity_TextPointers, ViridianCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, ViridianCity_ScriptPointers
@@ -254,6 +255,7 @@ ViridianCity_TextPointers:
 	dw ViridianCityText_6 ; 7 ; dialogue for second catching tutorial
 	dw ViridianCityText_7 ; 8 ; dialogue for first catching tutorial
 	dw TextPreBattle_ViridianTraveler ; 9, new, for traveler
+	; signs
 	dw ViridianCityText_8 ; $A=10
 	dw ViridianCityText_9 ; $B=11
 	dw ViridianCityText_10 ; $C=12
@@ -261,7 +263,31 @@ ViridianCity_TextPointers:
 	dw PokeCenterSignText ; $E=14
 	dw ViridianCityText_11 ; $F=15 ; sign
 	dw ViridianCityText_14_School ; $10=16 ; new sign
-	dw ViridianCityText_12 ; $10=17
+	; scripts
+	dw ViridianCityText_12 ; $10=17 ; Gym's doors closed
+	dw ViridianCityText_13 ; $11=18 ; first you need to weak target mon
+	dw TextPostBattle_ViridianTraveler ; $12=19 new, for traveler
+
+ViridianCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; 1
+	dw GenericNPCText_RocketPath ; 2
+	dw GenericNPCText_RocketPath ; 3
+	dw GenericNPCText_RocketPath ; 4
+	dw GenericNPCText_RocketPath ; 5
+	dw GenericNPCText_RocketPath ; 6
+	dw GenericNPCText_RocketPath ; 7 ; dialogue for second catching tutorial
+	dw GenericNPCText_RocketPath ; 8 ; dialogue for first catching tutorial
+	dw TextPreBattle_ViridianTraveler ; 9, Traveler TBE
+	; signs
+	dw ViridianCityText_8 ; $A=10
+	dw ViridianCityText_9 ; $B=11
+	dw ViridianCityText_10 ; $C=12
+	dw MartSignText ; $D=13
+	dw PokeCenterSignText ; $E=14
+	dw ViridianCityText_11 ; $F=15 ; sign
+	dw ViridianCityText_14_School ; $10=16 ; new sign
+	; scripts
+	dw ViridianCityText_12 ; $10=17 ; Gym's doors closed
 	dw ViridianCityText_13 ; $11=18 ; first you need to weak target mon
 	dw TextPostBattle_ViridianTraveler ; $12=19 new, for traveler
 

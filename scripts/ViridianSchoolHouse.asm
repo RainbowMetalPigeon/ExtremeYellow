@@ -1,4 +1,5 @@
 ViridianSchoolHouse_Script:
+	RPTextChooser ViridianSchoolHouse_TextPointers, ViridianSchoolHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -12,6 +13,17 @@ ViridianSchoolHouse_TextPointers:
 	dw SchoolText7 ; new
 	dw SchoolText8 ; new
 	dw SchoolText9 ; new
+
+ViridianSchoolHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 SchoolText1:
 	text_far _SchoolText1

@@ -1,4 +1,5 @@
 VictoryRoad2F_Script:
+	RPTextChooser VictoryRoad2F_TextPointers, VictoryRoad2F_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 6, [hl]
 	res 6, [hl]
@@ -76,8 +77,7 @@ VictoryRoad2F_TextPointers:
 	dw VictoryRoad2Text3
 	dw VictoryRoad2Text4
 	dw VictoryRoad2Text5
-	dw VictoryRoad2Text6 ; new
-;	dw MoltresText
+	dw VictoryRoad2Text6 ; new, Bird Keeper instead of Moltres
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -85,8 +85,25 @@ VictoryRoad2F_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
-	dw VictoryRoad2TextKoga ; new, testing
+	dw VictoryRoad2TextKoga ; new, Koga
+	; scripts
 	dw VictoryRoad2FTextKogaPostBattle ; 15, new, map-dependent
+
+VictoryRoad2F_TextPointers_Rocket:
+	dw VictoryRoad2Text1
+	dw VictoryRoad2Text2
+	dw VictoryRoad2Text3
+	dw VictoryRoad2Text4
+	dw VictoryRoad2Text5
+	dw VictoryRoad2Text6 ; Bird Keeper instead of Moltres
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw VictoryRoad2TextKoga ; TBE
 
 VictoryRoad2TrainerHeaders:
 	def_trainers

@@ -1,4 +1,5 @@
 VermilionCity_Script:
+	RPTextChooser VermilionCity_TextPointers, VermilionCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, wd492
@@ -196,13 +197,14 @@ VermilionCity_TextPointers:
 	dw VermilionCityText1
 	dw VermilionCityText2
 	dw VermilionCityText3 ; SS Anne Guardian
-	dw VermilionCityText4
+	dw VermilionCityText4 ; Battle Facility boss
 	dw VermilionCityText5 ; Machoke
 	dw VermilionCityText5PG ; new, Machamp
 	dw VermilionCityText6
-	dw VermilionCityText7
+	dw VermilionCityText7 ; Jenny
 	dw TextPreBattle_VermilionTraveler ; new, for traveler
 	dw PickUpItemText ; 10=$A, new, rare candy
+	; signs
 	dw VermilionCityText8
 	dw VermilionCityText9
 	dw MartSignText
@@ -211,7 +213,29 @@ VermilionCity_TextPointers:
 	dw VermilionCityText13
 	dw VermilionCityText14
 	dw VermilionCityText16
+	; scripts
 	dw TextPostBattle_VermilionTraveler ; 19, new, for traveler
+
+VermilionCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw VermilionCityText3 ; SS Anne Guardian TBE
+	dw VermilionCityText4 ; Battle Facility boss TBE
+	dw VermilionCityText5 ; Machoke
+	dw VermilionCityText5PG ; Machamp
+	dw GenericNPCText_RocketPath
+	dw VermilionCityText7 ; Jenny TBE
+	dw TextPreBattle_VermilionTraveler ; Traveler
+	dw PickUpItemText ; 10=$A
+	; signs
+	dw VermilionCityText8
+	dw VermilionCityText9
+	dw MartSignText
+	dw PokeCenterSignText
+	dw VermilionCityText12
+	dw VermilionCityText13
+	dw VermilionCityText14
+	dw VermilionCityText16
 
 VermilionCityText1:
 	text_far _VermilionCityText1

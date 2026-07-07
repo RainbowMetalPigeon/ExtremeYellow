@@ -1,4 +1,5 @@
 ViridianForest_Script:
+	RPTextChooser ViridianForest_TextPointers, ViridianForest_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, ViridianForestTrainerHeaders
 	ld de, ViridianForest_ScriptPointers
@@ -38,6 +39,31 @@ ViridianForest_TextPointers:
 	; scripts
 	dw ViridianForestTextErikaPostBattle ; 20, new, map-dependent
 	dw ViridianForestTextStrongTrainerPostBattle ; 21, new
+
+ViridianForest_TextPointers_Rocket:
+	dw ViridianForestTextErika ; TBE
+	dw GenericNPCText_RocketPath
+	dw ViridianForestText2
+	dw ViridianForestText3
+	dw ViridianForestText4
+	dw ViridianForestText5
+	dw ViridianForestText6
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw ViridianForestText10
+	dw RockSmashText
+	dw ViridianForestTextStrongTrainer ; TBE
+	; signs
+	dw ViridianForestText11
+	dw ViridianForestText12
+	dw ViridianForestText13
+	dw ViridianForestText14
+	dw ViridianForestText15
+	dw ViridianForestText16
+	; scripts
+	dw ViridianForestTextErikaPostBattle ; 20, TBE
+	dw ViridianForestTextStrongTrainerPostBattle ; 21, TBE
 
 ViridianForestTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Erika

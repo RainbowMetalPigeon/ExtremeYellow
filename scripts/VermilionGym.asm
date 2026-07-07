@@ -1,4 +1,5 @@
 VermilionGym_Script:
+	RPTextChooser VermilionGym_TextPointers, VermilionGym_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -127,10 +128,24 @@ VermilionGym_TextPointers:
 	dw VermilionGymTrainerText3
 	dw VermilionGymTrainerText4
 	dw VermilionGymGuideText
+	; scripts
 	dw LTSurgeThunderBadgeInfoText
 	dw ReceivedTM24Text
 	dw TM24NoRoomText
-	dw LtSurgePostRematchText; new, $a
+	dw LtSurgePostRematchText ; new, $a=10
+
+VermilionGym_TextPointers_Rocket:
+	dw LTSurgeText ; TBE
+	dw VermilionGymTrainerText1
+	dw VermilionGymTrainerText2
+	dw VermilionGymTrainerText3
+	dw VermilionGymTrainerText4
+	dw VermilionGymGuideText ; TBE
+	; scripts
+	dw LTSurgeThunderBadgeInfoText ; TBE
+	dw ReceivedTM24Text ; TBE
+	dw TM24NoRoomText ; TBE
+	dw LtSurgePostRematchText ; TBE
 
 VermilionGymTrainerHeaders:
 	def_trainers 2

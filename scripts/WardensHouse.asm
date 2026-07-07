@@ -1,4 +1,5 @@
 WardensHouse_Script:
+	RPTextChooser WardensHouse_TextPointers, WardensHouse_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 WardensHouse_TextPointers:
@@ -10,8 +11,28 @@ WardensHouse_TextPointers:
 	dw FuchsiaHouse2AntiquitiesText4 ; new
 	dw FuchsiaHouse2AntiquitiesText5 ; new
 	dw FuchsiaHouse2AntiquitiesTextMapPiece ; new
-;	dw PickUpItemText
-;	dw BoulderText
+	; signs ---
+	dw FuchsiaHouse2Text4
+	dw FuchsiaHouse2Text5
+	; new
+	dw FuchsiaHouse2AntiquitiesSign1
+	dw FuchsiaHouse2AntiquitiesSign2
+	dw FuchsiaHouse2AntiquitiesSign3
+	dw FuchsiaHouse2AntiquitiesSign4
+	dw FuchsiaHouse2AntiquitiesSign5
+	dw FuchsiaHouse2AntiquitiesSign6
+	dw FuchsiaHouse2AntiquitiesSign7
+	dw FuchsiaHouse2AntiquitiesSign8
+
+WardensHouse_TextPointers_Rocket:
+	; people ---
+	dw FuchsiaHouse2Text1 ; TBE
+	dw FuchsiaHouse2AntiquitiesTextShopOwner ; TBE
+	dw FuchsiaHouse2AntiquitiesText2
+	dw FuchsiaHouse2AntiquitiesText3
+	dw FuchsiaHouse2AntiquitiesText4
+	dw FuchsiaHouse2AntiquitiesText5
+	dw FuchsiaHouse2AntiquitiesTextMapPiece
 	; signs ---
 	dw FuchsiaHouse2Text4
 	dw FuchsiaHouse2Text5

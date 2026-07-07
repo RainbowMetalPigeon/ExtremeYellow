@@ -1,4 +1,5 @@
 ViridianNicknameHouse_Script: ; edited
+	RPTextChooser ViridianNicknameHouse_TextPointers, ViridianNicknameHouse_TextPointers_Rocket
 	call SpawnRival2Route22 ; new
 	ld a, TRUE
 	ld [wAutoTextBoxDrawingControl], a
@@ -34,6 +35,19 @@ ViridianNicknameHouse_TextPointers:
 	; new, gate
 	dw ViridianHouseText6
 	dw ViridianHouseText7
+	; signs
+	dw ViridianHouseTextSign1
+
+ViridianNicknameHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw ViridianHouseText3 ; Mon
+	dw ViridianHouseText4 ; Clipboard
+	; new, relocated Badge Expert
+	dw ViridianHouseText5 ; TBE
+	; new, gate
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	; signs
 	dw ViridianHouseTextSign1
 

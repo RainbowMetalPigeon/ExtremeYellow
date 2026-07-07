@@ -1,4 +1,5 @@
 VictoryRoad3F_Script:
+	RPTextChooser VictoryRoad3F_TextPointers, VictoryRoad3F_TextPointers_Rocket
 	call VictoryRoad3Script_44996
 	call EnableAutoTextBoxDrawing
 	ld hl, VictoryRoad3TrainerHeaders
@@ -86,6 +87,22 @@ VictoryRoad3F_TextPointers:
 	dw VictoryRoad3Text6 ; new
 	dw VictoryRoad3Text7 ; new
 	dw VictoryRoad3Text8 ; new
+	dw PickUpItemText
+	dw PickUpItemText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+
+VictoryRoad3F_TextPointers_Rocket:
+	dw VictoryRoad3Text1
+	dw VictoryRoad3Text2
+	dw VictoryRoad3Text3
+	dw VictoryRoad3Text4
+	dw VictoryRoad3Text5
+	dw VictoryRoad3Text6
+	dw VictoryRoad3Text7
+	dw VictoryRoad3Text8
 	dw PickUpItemText
 	dw PickUpItemText
 	dw BoulderText

@@ -1,4 +1,5 @@
 VictoryRoad1F_Script:
+	RPTextChooser VictoryRoad1F_TextPointers, VictoryRoad1F_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -42,10 +43,21 @@ CoordsData_5da5c:
 	db -1 ; end
 
 VictoryRoad1F_TextPointers:
-	dw VictoryRoad1Text1
-	dw VictoryRoad1Text2
-	dw VictoryRoad1Text3
-	dw VictoryRoad1Text4
+	dw VictoryRoad1Text1 ; Manga Green
+	dw VictoryRoad1Text2 ; Manga Red
+	dw VictoryRoad1Text3 ; Manga Yellow
+	dw VictoryRoad1Text4 ; Manga Blue
+	dw PickUpItemText
+	dw PickUpItemText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+
+VictoryRoad1F_TextPointers_Rocket:
+	dw VictoryRoad1Text1 ; Manga Green TBE
+	dw VictoryRoad1Text2 ; Manga Red TBE
+	dw VictoryRoad1Text3 ; Manga Yellow TBE
+	dw VictoryRoad1Text4 ; Manga Blue
 	dw PickUpItemText
 	dw PickUpItemText
 	dw BoulderText

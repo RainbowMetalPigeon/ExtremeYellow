@@ -1,10 +1,14 @@
 UndergroundPathRoute7_Script:
+	RPTextChooser UndergroundPathRoute7_TextPointers, UndergroundPathRoute7_TextPointers_Rocket
 	ld a, ROUTE_7
 	ld [wLastMap], a
 	jp EnableAutoTextBoxDrawing
 
 UndergroundPathRoute7_TextPointers:
 	dw UndergroundPathEntranceRoute7Text1
+
+UndergroundPathRoute7_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 
 UndergroundPathEntranceRoute7Text1:
 	text_far _UndergroundPathEntRoute7Text1

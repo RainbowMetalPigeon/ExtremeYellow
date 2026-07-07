@@ -1,10 +1,19 @@
 SummerBeachHouse_Script:
+	RPTextChooser SummerBeachHouse_TextPointers, SummerBeachHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
 SummerBeachHouse_TextPointers:
 	dw SurfinDudeText
 	dw SummerBeachHousePikachuText
+	dw SummerBeachHouseSign1Text
+	dw SummerBeachHouseSign2Text
+	dw SummerBeachHouseSign3Text
+	dw SummerBeachHouseSign4Text
+
+SummerBeachHouse_TextPointers_Rocket:
+	dw SurfinDudeText ; TBE
+	dw SummerBeachHousePikachuText ; TBE?
 	dw SummerBeachHouseSign1Text
 	dw SummerBeachHouseSign2Text
 	dw SummerBeachHouseSign3Text
