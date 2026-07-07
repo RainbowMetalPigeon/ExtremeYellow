@@ -1,4 +1,5 @@
 SilphCo2F_Script:
+	RPTextChooser SilphCo2F_TextPointers, SilphCo2F_TextPointers_Rocket
 	call SilphCo2Script_59d07
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo2TrainerHeaders
@@ -97,6 +98,13 @@ SilphCo2F_TextPointers:
 	dw SilphCo2Text3
 	dw SilphCo2Text4
 	dw SilphCo2Text5
+
+SilphCo2F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
 
 SilphCo2TrainerHeaders:
 	def_trainers 2

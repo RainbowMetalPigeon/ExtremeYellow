@@ -6,52 +6,53 @@ SECTION "Maps 1", ROMX
 INCLUDE "data/maps/headers/CeladonCity.asm"
 INCLUDE "data/maps/objects/CeladonCity.asm"
 CeladonCity_Blocks: INCBIN "maps/CeladonCity.blk"
+INCLUDE "scripts/CeladonCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/PalletTown.asm"
 INCLUDE "data/maps/objects/PalletTown.asm"
 PalletTown_Blocks: INCBIN "maps/PalletTown.blk"
+INCLUDE "scripts/PalletTown.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/ViridianCity.asm"
 INCLUDE "data/maps/objects/ViridianCity.asm"
 ViridianCity_Blocks: INCBIN "maps/ViridianCity.blk"
+INCLUDE "scripts/ViridianCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/PewterCity.asm"
-	ds 1
+;	ds 1 ; edited, removed
 INCLUDE "data/maps/objects/PewterCity.asm"
 PewterCity_Blocks: INCBIN "maps/PewterCity.blk"
+INCLUDE "scripts/PewterCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/CeruleanCity.asm"
 INCLUDE "data/maps/objects/CeruleanCity.asm"
 CeruleanCity_Blocks: INCBIN "maps/CeruleanCity.blk"
+INCLUDE "scripts/CeruleanCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/VermilionCity.asm"
 INCLUDE "data/maps/objects/VermilionCity.asm"
 VermilionCity_Blocks: INCBIN "maps/VermilionCity.blk"
+INCLUDE "scripts/VermilionCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/FuchsiaCity.asm"
 INCLUDE "data/maps/objects/FuchsiaCity.asm"
 FuchsiaCity_Blocks: INCBIN "maps/FuchsiaCity.blk"
+INCLUDE "scripts/FuchsiaCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/OchreCity.asm"		; new
 INCLUDE "data/maps/objects/OchreCity.asm"		; new
 OchreCity_Blocks: INCBIN "maps/OchreCity.blk"	; new
+INCLUDE "scripts/OchreCity.asm"					; new
 
-INCLUDE "data/maps/headers/ObsidianIsland.asm"			; new, testing
-INCLUDE "data/maps/objects/ObsidianIsland.asm"			; new, testing
-ObsidianIsland_Blocks: INCBIN "maps/ObsidianIsland.blk"	; new, testing
+INCLUDE "data/maps/headers/ObsidianIsland.asm"			; new
+INCLUDE "data/maps/objects/ObsidianIsland.asm"			; new
+ObsidianIsland_Blocks: INCBIN "maps/ObsidianIsland.blk"	; new
+INCLUDE "scripts/ObsidianIsland.asm"					; new
 
 
 SECTION "Maps 2", ROMX
 
-INCLUDE "scripts/PalletTown.asm"
-INCLUDE "scripts/ViridianCity.asm"
-INCLUDE "scripts/PewterCity.asm"
-INCLUDE "scripts/CeruleanCity.asm"
-INCLUDE "scripts/VermilionCity.asm"
-INCLUDE "scripts/CeladonCity.asm"
-INCLUDE "scripts/FuchsiaCity.asm"
-INCLUDE "scripts/OchreCity.asm"					; new
-INCLUDE "scripts/ObsidianIsland.asm"			; new
+; edited, moved all scripts together with their correspinding maps
 
 INCLUDE "data/maps/headers/SilphCo4F.asm"
 INCLUDE "scripts/SilphCo4F.asm"

@@ -1,4 +1,5 @@
 SilphCo4F_Script:
+	RPTextChooser SilphCo4F_TextPointers, SilphCo4F_TextPointers_Rocket
 	call SilphCo4Script_19d21
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo4TrainerHeaders
@@ -96,6 +97,15 @@ SilphCo4F_TextPointers:
 	dw SilphCo4Text2
 	dw SilphCo4Text3
 	dw SilphCo4Text4
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+
+SilphCo4F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

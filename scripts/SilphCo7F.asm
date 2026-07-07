@@ -1,4 +1,5 @@
 SilphCo7F_Script:
+	RPTextChooser SilphCo7F_TextPointers, SilphCo7F_TextPointers_Rocket
 	call SilphCo7Script_51b77
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo7TrainerHeaders
@@ -105,7 +106,7 @@ SilphCo7Text_51c0c:
 	xor a
 	ld [wJoyIgnore], a
 
-SilphCo7Text_51c10:
+SilphCo7Text_ScriptChanger:
 	ld [wCurMapScript], a
 	ret
 
@@ -151,7 +152,7 @@ SilphCo7Script0:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $3
-	jp SilphCo7Text_51c10
+	jp SilphCo7Text_ScriptChanger
 
 CoordsData_51c78:
 	dbmapcoord  3,  2
@@ -171,7 +172,7 @@ SilphCo7Script3:
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 13
+	ld a, 12 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call Delay3
@@ -194,7 +195,7 @@ SilphCo7Script3:
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $4
-	call SilphCo7Text_51c10
+	call SilphCo7Text_ScriptChanger
 	ret
 
 SilphCo7Script4:
@@ -213,7 +214,7 @@ SilphCo7Script4:
 	ld a, SPRITE_FACING_UP
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
-	ld a, 15
+	ld a, 13 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call StopAllMusic
@@ -228,7 +229,7 @@ SilphCo7Script4:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $5
-	jp SilphCo7Text_51c10
+	jp SilphCo7Text_ScriptChanger
 
 MovementData_51d1a:
 	db NPC_MOVEMENT_RIGHT
@@ -255,20 +256,20 @@ SilphCo7Script5:
 	call PlayDefaultMusic
 	xor a
 	ld [wJoyIgnore], a
-	jp SilphCo7Text_51c10
+	jp SilphCo7Text_ScriptChanger
 
 SilphCo7Script6: ; new, post-give Porygon
-	ld a, 16
+	ld a, 14
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 0
-	jp SilphCo7Text_51c10
+	jp SilphCo7Text_ScriptChanger
 
 HeresYourPorygonText: ; edited
 	text_far _HeresYourPorygonText
 	text_end
 
-SilphCo7F_TextPointers:
+SilphCo7F_TextPointers: ; edited
 	dw SilphCo7Text1
 	dw SilphCo7Text2
 	dw SilphCo7Text3
@@ -280,11 +281,23 @@ SilphCo7F_TextPointers:
 	dw SilphCo7Text9
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
+	dw SilphCo7Text13 ; 12, pre-battle Blue
+	dw SilphCo7Text15 ; 13, post-battle Blue
+	dw HeresYourPorygonText ; 14, new
+
+SilphCo7F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SilphCo7Text5
+	dw SilphCo7Text6
+	dw SilphCo7Text7
+	dw SilphCo7Text8
+	dw SilphCo7Text9 ; Blue TBE
 	dw PickUpItemText
-	dw SilphCo7Text13
-	dw SilphCo7Text14 ; useless
-	dw SilphCo7Text15
-	dw HeresYourPorygonText ; new
+	dw PickUpItemText
 
 SilphCo7TrainerHeaders:
 	def_trainers 5

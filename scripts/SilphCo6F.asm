@@ -1,4 +1,5 @@
 SilphCo6F_Script:
+	RPTextChooser SilphCo6F_TextPointers, SilphCo6F_TextPointers_Rocket
 	call SilphCo6Script_1a1bf
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo6TrainerHeaders
@@ -48,6 +49,18 @@ SilphCo6F_TextPointers:
 	dw SilphCo6Text6
 	dw SilphCo6Text7
 	dw SilphCo6Text8
+	dw PickUpItemText
+	dw PickUpItemText
+
+SilphCo6F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
+	dw RocketNPCText_RocketPath
 	dw PickUpItemText
 	dw PickUpItemText
 

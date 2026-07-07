@@ -1,4 +1,5 @@
 SilphCo11F_Script:
+	RPTextChooser SilphCo11F_TextPointers, SilphCo11F_TextPointers_Rocket
 	call SilphCo11Script_62127
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo11TrainerHeaders
@@ -471,12 +472,12 @@ SilphCo11Script_6246d:
 	ret
 
 SilphCo11F_TextPointers:
-	dw SilphCo11Text1
-	dw SilphCo11Text2
-	dw SilphCo11Text3
-	dw SilphCo11Text4
-	dw SilphCo11Text5
-	dw SilphCo11Text6
+	dw SilphCo11Text1 ; President
+	dw SilphCo11Text2 ; Secretary
+	dw SilphCo11Text3 ; Giovanni
+	dw SilphCo11Text4 ; James
+	dw SilphCo11Text5 ; Rocket
+	dw SilphCo11Text6 ; Jessie
 	dw SilphCo11TextBadgeMachine ; new
 	; signs
 	dw SilphCo11SignText1 ; new
@@ -486,6 +487,18 @@ SilphCo11F_TextPointers:
 	dw SilphCo11Text8  ; 11
 	dw SilphCo11Text9  ; 12
 	dw SilphCo11Text10 ; 13
+
+SilphCo11F_TextPointers_Rocket:
+	dw SilphCo11Text1 ; President TBE
+	dw SilphCo11Text2 ; Secretary TBE
+	dw SilphCo11Text3 ; Giovanni TBE
+	dw SilphCo11Text4 ; James TBE
+	dw SilphCo11Text5 ; Rocket
+	dw SilphCo11Text6 ; Jessie TBE
+	dw SilphCo11TextBadgeMachine
+	; signs
+	dw SilphCo11SignText1
+	dw SilphCo11SignText2
 
 SilphCo11TrainerHeaders:
 	def_trainers 5
