@@ -1,4 +1,5 @@
 SSAnne1FRooms_Script:
+	RPTextChooser SSAnne1FRooms_TextPointers, SSAnne1FRooms_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SSAnne8TrainerHeaders
 	ld de, SSAnne1FRooms_ScriptPointers
@@ -13,18 +14,32 @@ SSAnne1FRooms_ScriptPointers:
 	dw EndTrainerBattle
 
 SSAnne1FRooms_TextPointers:
-	dw SSAnne8Text1
-	dw SSAnne8Text2
-	dw SSAnne8Text3
-	dw SSAnne8Text4
+	dw SSAnne8Text1 ; trainer
+	dw SSAnne8Text2 ; trainer
+	dw SSAnne8Text3 ; trainer
+	dw SSAnne8Text4 ; trainer
 	dw SSAnne8Text5
 	dw SSAnne8Text6
 	dw SSAnne8Text7
-	dw SSAnne8Text8
+	dw SSAnne8Text8 ; Mon
 	dw SSAnne8Text9
 	dw PickUpItemText
-	dw SSAnne8Text11
+	dw SSAnne8Text11 ; detective
 	dw SSAnne8Text12 ; new
+
+SSAnne1FRooms_TextPointers_Rocket:
+	dw SSAnne8Text1 ; trainer
+	dw SSAnne8Text2 ; trainer
+	dw SSAnne8Text3 ; trainer
+	dw SSAnne8Text4 ; trainer
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SSAnne8Text8 ; Mon
+	dw GenericNPCText_RocketPath
+	dw PickUpItemText
+	dw SSAnne8Text11 ; detective TBE
+	dw SSAnne8Text12 ; nurse TBE
 
 SSAnne8TrainerHeaders:
 	def_trainers

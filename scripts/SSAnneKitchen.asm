@@ -1,4 +1,5 @@
 SSAnneKitchen_Script:
+	RPTextChooser SSAnneKitchen_TextPointers, SSAnneKitchen_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -10,6 +11,15 @@ SSAnneKitchen_TextPointers:
 	dw SSAnne6Text5
 	dw SSAnne6Text6
 	dw SSAnne6Text7
+
+SSAnneKitchen_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 SSAnne6Text1:
 	text_far _SSAnne6Text1

@@ -1,4 +1,5 @@
 SSAnne2FRooms_Script:
+	RPTextChooser SSAnne2FRooms_TextPointers, SSAnne2FRooms_TextPointers_Rocket
 	call DisableAutoTextBoxDrawing
 	ld hl, SSAnne9TrainerHeaders
 	ld de, SSAnne2FRooms_ScriptPointers
@@ -13,10 +14,10 @@ SSAnne2FRooms_ScriptPointers:
 	dw EndTrainerBattle
 
 SSAnne2FRooms_TextPointers:
-	dw SSAnne9Text1
-	dw SSAnne9Text2
-	dw SSAnne9Text3
-	dw SSAnne9Text4
+	dw SSAnne9Text1 ; trainer
+	dw SSAnne9Text2 ; trainer
+	dw SSAnne9Text3 ; trainer
+	dw SSAnne9Text4 ; trainer
 	dw SSAnne9Text5
 	dw PickUpItemText
 	dw SSAnne9Text7
@@ -26,6 +27,21 @@ SSAnne2FRooms_TextPointers:
 	dw SSAnne9Text11
 	dw SSAnne9Text12
 	dw SSAnne9Text13
+
+SSAnne2FRooms_TextPointers_Rocket:
+	dw SSAnne9Text1 ; trainer
+	dw SSAnne9Text2 ; trainer
+	dw SSAnne9Text3 ; trainer
+	dw SSAnne9Text4 ; trainer
+	dw GenericNPCText_RocketPath
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 SSAnne9TrainerHeaders:
 	def_trainers

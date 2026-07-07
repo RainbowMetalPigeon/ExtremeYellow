@@ -1,4 +1,5 @@
 SSAnne2F_Script:
+	RPTextChooser SSAnne2F_TextPointers, SSAnne2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SSAnne2F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -168,7 +169,12 @@ SSAnne2Script3:
 SSAnne2F_TextPointers:
 	dw SSAnne2Text1
 	dw SSAnne2Text2
+	; scritps
 	dw SSAnne2Text3
+
+SSAnne2F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw SSAnne2Text2 ; Blue TBE
 
 SSAnne2Text1:
 	text_far _SSAnne2Text1

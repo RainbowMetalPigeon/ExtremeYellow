@@ -1,4 +1,5 @@
 SSAnneCaptainsRoom_Script:
+	RPTextChooser SSAnneCaptainsRoom_TextPointers, SSAnneCaptainsRoom_TextPointers_Rocket
 	call SSAnne7Script_6189b
 	call EnableAutoTextBoxDrawing
 	ld de, SSAnneCaptainsRoom_ScriptPointers
@@ -86,6 +87,13 @@ SSAnne7Script_6189b:
 	ret
 
 SSAnneCaptainsRoom_TextPointers:
+	dw SSAnne7Text1 ; captain
+	dw SSAnne7TextJenny ; new, Jenny
+	dw SSAnne7Text2 ; trash
+	dw SSAnne7Text3 ; book
+	dw SSAnne7Text5 ; defeated captain
+
+SSAnneCaptainsRoom_TextPointers_Rocket: ; TBE
 	dw SSAnne7Text1 ; captain
 	dw SSAnne7TextJenny ; new, Jenny
 	dw SSAnne7Text2 ; trash
