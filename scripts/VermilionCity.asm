@@ -73,6 +73,8 @@ VermilionCityScript0:
 ; we are by side of the dock sailor
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .vanillaCode
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	CheckEvent EVENT_FLASHED_SS_TICKET
 	ret nz
 .vanillaCode
@@ -391,6 +393,11 @@ VermilionCityText3: ; edited
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .shipHasDeparted
 ; SS anne not departed
+; new RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, SSAnneRocketPathText
+	jp nz, .printAndEnd
+; BTV
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_RIGHT
 	jr z, .greetPlayer
@@ -512,6 +519,10 @@ SSAnneWelcomeEnjoyFreelyText:
 
 VermilionSailorRegisterSeviiTravelerText:
 	text_far _VermilionSailorRegisterSeviiTravelerText
+	text_end
+
+SSAnneRocketPathText:
+	text_far _SSAnneRocketPathText
 	text_end
 
 VermilionCityText4:

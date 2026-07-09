@@ -123,17 +123,38 @@ Route24TrainerHeader5:
 Route24Text1: ; edited
 	text_asm
 	CheckEvent EVENT_ROCKET_PATH
-	ld hl, Route24Text_HowDoYouFeel
+	jr z, .notRP
+	CheckEvent EVENT_RP_GOT_HM01
+	ld hl, Route24Text_NextQuestSummary
 	jp nz, .printAndEnd
+	CheckEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	ld hl, Route24Text_FirstQuestSummary
+	jp z, .printAndEnd
+; message relyed to the captain, give HM CUT and tell to go to Celadon
+	ld hl, Route24Text_MessageRelyed
+	call PrintText
+	; WaitForTextScrollButtonPress?
+	lb bc, HM_CUT, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, ReceivedHM01Text_RP
+	call PrintText
+	SetEvent EVENT_RP_GOT_HM01
+	; WaitForTextScrollButtonPress?
+	ld hl, Route24Text_NextQuest
+	jp .printAndEnd
+.bagFull
+	ld hl, Route24Text_NoRoom
+	jp .printAndEnd
+.notRP
 	ResetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	CheckEvent EVENT_GOT_NUGGET
 	jr z, .notGotNugget
-; new
 	CheckEvent EVENT_BEAT_ROUTE24_ROCKET
 	jr nz, .got_item
 	jr .wannaJoin1
 .notGotNugget
-; BTV
+; vanilla
 	ld hl, Route24Text_CongratsBeat5Trainers
 	call PrintText
 	lb bc, NUGGET, 1
@@ -185,13 +206,23 @@ Route24Text1: ; edited
 .weWannaJoin ; beginning of ROCKET PATH!
 	SetEvent EVENT_ROCKET_PATH
 	call DisablePikachuOverworldSpriteDrawing
-
-	; TBE: get off bike, fade out, event music: may need a script
 	xor a
 	ld [wPikachuHappiness], a
 	ld [wPikachuMood], a
 
+	ld a, [wWalkBikeSurfState]
+	dec a
+	jr nz, .notOnBike
+	callfar ItemUseReloadOverworldData
+	xor a
+	ld [wWalkBikeSurfState], a ; change player state to walking
+	call PlayDefaultMusic ; play walking music
+.notOnBike
+; TBE: fade out, event music?
+
 	ld hl, Route24Text_GreatWelcome
+	call PrintText
+	ld hl, Route24Text_FirstQuest
 	call PrintText
 	jp TextScriptEnd
 
@@ -227,8 +258,29 @@ Route24Text_GreatWelcome: ; new
 	text_far _Route24Text_GreatWelcome
 	text_end
 
-Route24Text_HowDoYouFeel: ; new
-	text_far _Route24Text_HowDoYouFeel
+Route24Text_FirstQuest: ; new
+	text_far _Route24Text_FirstQuest
+	text_end
+
+Route24Text_FirstQuestSummary: ; new
+	text_far _Route24Text_FirstQuestSummary
+	text_end
+
+Route24Text_MessageRelyed: ; new
+	text_far _Route24Text_MessageRelyed
+	text_end
+
+Route24Text_NextQuest: ; new
+	text_far _Route24Text_NextQuest
+	text_end
+
+Route24Text_NextQuestSummary: ; new
+	text_far _Route24Text_NextQuestSummary
+	text_end
+
+ReceivedHM01Text_RP: ; new
+	text_far _ReceivedHM01Text
+	sound_get_key_item
 	text_end
 
 Route24Text_PostVictoryDialogue:

@@ -472,6 +472,8 @@ GetSavedEndBattleTextPointer::
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRocketPath
+	CheckAndResetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jr nz, .notRocketPath
 ; RP
 	ld a, [wBattleResult]
 	and a

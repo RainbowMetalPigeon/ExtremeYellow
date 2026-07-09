@@ -174,7 +174,9 @@ SSAnne2F_TextPointers:
 
 SSAnne2F_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
-	dw SSAnne2Text2 ; Blue TBE
+	dw SSAnne2Text2_RP ; Blue before
+	; scritps
+	dw SSAnne2Text3_RP ; Blue after
 
 SSAnne2Text1:
 	text_far _SSAnne2Text1
@@ -192,6 +194,19 @@ SSAnne2Text2:
 	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
+SSAnne2Text2_RP:
+	text_asm
+	ld hl, SSAnneRivalBeforeBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, SSAnneRivalDefeatedText_RP
+	ld de, SSAnneRivalWonText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jp TextScriptEnd
+
 SSAnneRivalBeforeBattleText:
 	text_far _SSAnneRivalBeforeBattleText
 	text_end
@@ -206,4 +221,22 @@ SSAnneRivalWonText:
 
 SSAnne2Text3:
 	text_far _SSAnneRivalCaptainText
+	text_end
+
+; new ---------
+
+SSAnneRivalBeforeBattleText_RP:
+	text_far _SSAnneRivalBeforeBattleText_RP
+	text_end
+
+SSAnneRivalDefeatedText_RP:
+	text_far _SSAnneRivalDefeatedText_RP
+	text_end
+
+SSAnneRivalWonText_RP:
+	text_far _SSAnneRivalWonText_RP
+	text_end
+
+SSAnne2Text3_RP:
+	text_far _SSAnne2Text3_RP
 	text_end

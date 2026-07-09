@@ -4273,7 +4273,7 @@ ShoreTilesCavern: ; new
 
 ; reloads map view and processes sprite data
 ; for items that cause the overworld to be displayed
-ItemUseReloadOverworldData:
+ItemUseReloadOverworldData::
 	call LoadCurrentMapView
 	jp UpdateSprites
 

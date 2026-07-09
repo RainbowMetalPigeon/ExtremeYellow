@@ -48,8 +48,8 @@ _SSAnneRivalDefeatedText::
 	prompt
 
 _SSAnneRivalWonText::
-	text "Ah! Serves you"
-	line "well!"
+	text "Ah!"
+	line "Serves you well!"
 
 	para "Never get in my"
 	line "way again, or"
@@ -75,4 +75,104 @@ _SSAnneRivalCaptainText::
 	line "to waste with you,"
 	cont "I have to run to"
 	cont "a #MON CENTER!"
+	done
+
+; new -----------
+
+_SSAnneRivalBeforeBattleText_RP::
+	text "<RIVAL>: <PLAYER>!"
+	line "What are you"
+	cont "doing her-"
+
+	para "Wha-what?! What's"
+	line "the meaning of"
+	cont "those clothes?!"
+
+	para "No! <PLAYER>!"
+	line "I... I can't"
+	cont "believe it."
+	cont "You... you joined"
+	cont "TEAM ROCKET?!"
+
+	para "I... what... I..."
+	line "No... It's a bad"
+	cont "joke, right?"
+	cont "Right?"
+
+	para "...it's all real?"
+	line "...<PLAYER>."
+
+	para "..."
+
+	para "WHY???"
+	line "WHY THE HELL DID"
+	cont "YOU JOIN THOSE"
+	cont "FUCKED CRIMINALS?"
+
+	para "How could you"
+	line "betray the trust"
+	cont "my Gramps gave"
+	cont "you?! How could"
+	cont "you betray your"
+	cont "MOM? How can you"
+	cont "betray ALL OF US?"
+
+	para "<PLAYER>. I'll give"
+	line "you one last"
+	cont "chance: come"
+	cont "back, and we can"
+	cont "continue as if"
+	cont "this whole thing"
+	cont "never happened."
+
+	para "...you won't back"
+	line "down? What a"
+	cont "disappointement"
+	cont "you are."
+
+	para "Then I'm left with"
+	line "no options but to"
+	cont "stop you myself."
+;	xxxx "123456789012345678"
+	done
+
+_SSAnneRivalDefeatedText_RP::
+	text "No!"
+	line "No! This can't be!"
+	cont "How could you?!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SSAnneRivalWonText_RP::
+	text "Do you"
+	line "see now that you"
+	cont "can't obtain real"
+	cont "power by joining"
+	cont "those criminals?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SSAnne2Text3_RP::
+	text "<RIVAL>: No..."
+	line "This must be a"
+	cont "nightmare..."
+
+	para "<PLAYER>. You"
+	line "betrayed me, my"
+	cont "Gramps, your MOM,"
+	cont "everyone..."
+	cont "You joined TEAM"
+	cont "ROCKET..."
+	cont "And you did..."
+	cont "You kil..."
+	cont "RATIC..."
+
+	para "YOU SICK MONSTER!"
+	line "Mark my words:"
+	cont "from now on, you"
+	cont "are my sworn"
+	cont "enemy, and I'll do"
+	cont "everything I can"
+	cont "to destroy you!!!"
+;	xxxx "123456789012345678"
 	done

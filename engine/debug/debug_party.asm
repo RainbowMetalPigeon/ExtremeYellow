@@ -359,6 +359,11 @@ IF DEF(_DEBUG)
     ld [wBattleFacilityBacklogChromogenes], a
 */
 
+;	ROCKET PATH EVENTS
+
+	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	SetEvent EVENT_GOT_HM01
+
 	ret
 
 DebugSetPokedexEntries:

@@ -66,6 +66,14 @@ _SSAnneWelcomeText4::
 	line "ANNE!"
 	done
 
+_SSAnneRocketPathText:: ; new
+	text "...just go."
+	line "You know we've"
+	cont "been told to let"
+	cont "you pass."
+;	xxxx "123456789012345678"
+	done
+
 _SSAnneWelcomeText9::
 	text "Welcome to S.S."
 	line "ANNE!"
@@ -300,7 +308,7 @@ _SeviiWhichDestinationText::
 	line "destination today?"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiOnlyOneIslandText::
 	text "Oh, you have a"
 	line "SEVII TICKET!"
@@ -319,18 +327,18 @@ _SeviiOnlyOneIslandText::
 	line "depart now?"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _VermilionSailorLetsGoText::
 	text "Let's set sail!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _VermilionSailorCanceledText::
 	text "Come back when-"
 	line "ever you're ready."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SSAnneWelcomeEnjoyFreelyText::
 	text "Feel free to enjoy"
 	line "the atmosphere of"

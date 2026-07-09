@@ -129,6 +129,19 @@ SSAnne7Text1:
 	jp TextScriptEnd
 .preExtraBattle ; back to vanilla
 ; --- end, new code for battle vs Captain ---
+; new RP
+	CheckEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	ld hl, SSAnneCaptainsRoomText_RP_MessageDelivered
+	jr nz, .printAndEnd
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .vanilla
+; RP, but we didn't deliver the message yet
+	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	SetEvent EVENT_GOT_HM01 ; abused, but to keep scripts simpler
+	ld hl, SSAnneCaptainsRoomText_RP_Answer
+	jr .printAndEnd
+.vanilla
+; BTV
 	CheckEvent EVENT_GOT_HM01
 	jr nz, .got_item
 	ld hl, SSAnne7RubText
@@ -146,10 +159,10 @@ SSAnne7Text1:
 	jr .done
 .bag_full
 	ld hl, HM01NoRoomText
-	call PrintText
-	jr .done
+	jr .printAndEnd ; edited
 .got_item
 	ld hl, SSAnne7Text_61932
+.printAndEnd
 	call PrintText
 .done
 	jp TextScriptEnd
@@ -204,6 +217,14 @@ SSAnne7Text3:
 	text_end
 
 ; new ----------------------------
+
+SSAnneCaptainsRoomText_RP_MessageDelivered:
+	text_far _SSAnneCaptainsRoomText_RP_MessageDelivered
+	text_end
+
+SSAnneCaptainsRoomText_RP_Answer:
+	text_far _SSAnneCaptainsRoomText_RP_Answer
+	text_end
 
 SSAnne7TextJenny:
 	text_far _SSAnne7TextJenny
