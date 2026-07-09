@@ -89,9 +89,12 @@ CheckIfCanSurfOrCutFromOverworld::
     and a
     jr z, .areaNotDark
 ; area is dark
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .flashOk
     ld a, [wObtainedBadges] ; badges obtained
     bit BIT_BOULDERBADGE, a ; BROCK
 	jp z, .newBadgeRequired
+.flashOk
 ; we have the right badge, do we have a mon with Flash in team?
     ld d, FLASH
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
@@ -144,9 +147,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notSurfInTeam
 ; we have a Pokemon with SURF in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .surfOk
     ld a, [wObtainedBadges]
     bit BIT_SOULBADGE, a ; KOGA
 	jp z, .newBadgeRequired
+.surfOk
 ; we have the right badge
     callfar IsSurfingPikachuInThePlayersParty ; nc if it's not
     jr c, .surfingPikachu
@@ -211,9 +217,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notCutInTeam
 ; we have a Pokemon with CUT in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .cutOk
     ld a, [wObtainedBadges]
     bit BIT_CASCADEBADGE, a ; MISTY
 	jp z, .newBadgeRequired ; backjump actually, no reasons not to share the same text and code
+.cutOk
 ; we have the badge to cut it
 ; is this even necessary?
     ld a, 1
@@ -261,9 +270,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notWhirlpoolInTeam
 ; we have a Pokemon with WHIRLPOOL in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .whirlpoolOk
     ld a, [wObtainedBadges]
     bit BIT_MARSHBADGE, a ; SABRINA
 	jp z, .newBadgeRequired
+.whirlpoolOk
 ; we have the badge to undo the whirlpool
     ld a, 1
     ld [wActionResultOrTookBattleTurn], a ; useless?
@@ -315,9 +327,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notDiveInTeam
 ; we have a Pokemon with DIVE in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .diveOk
     ld a, [wObtainedBadges]
     bit BIT_RAINBOWBADGE, a ; ERIKA
 	jp z, .newBadgeRequired
+.diveOk
 ; we have the right badge
 ; we can actually dive
     ; how many underwater steps we can take
@@ -658,6 +673,8 @@ TryToClimbWall:
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
     jr z, .noRockClimbInTeam
 ; we have the move, check if we have the badge
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, ClimbWallUp
     ld a, [wObtainedBadges]
     bit BIT_THUNDERBADGE, a ; SURGE
 	jp nz, ClimbWallUp
@@ -750,6 +767,8 @@ TryToRideWaterfall:
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
     jr z, .noWaterfallInTeam
 ; we have the move, check if we have the badge
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, RideWaterfall
     ld a, [wObtainedBadges]
     bit BIT_VOLCANOBADGE, a ; BLAINE
 	jp nz, RideWaterfall

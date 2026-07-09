@@ -19,9 +19,12 @@ BoulderText:: ; edited
     callfar IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notStrengthInTeam
 ; we have a Pokemon with STRENGTH in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .strengthOk
 	ld a, [wObtainedBadges]
 	bit BIT_EARTHBADGE, a ; GIOVANNI; edited, was BIT_RAINBOWBADGE
 	jp z, .newBadgeRequired
+.strengthOk
 ; we have the necessary badge
 	ld hl, wd728
 	set 0, [hl]
