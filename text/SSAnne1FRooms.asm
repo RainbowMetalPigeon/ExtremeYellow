@@ -117,3 +117,43 @@ _SSAnne8Text12_AfterHeal::
 	line "better, don't we?"
 ;	xxxx "123456789012345678"
 	done
+
+_SSAnne8Text12_NP::
+	text "Ugh. There's no"
+	line "chance in hell"
+	cont "that I'll help"
+	cont "a ROCKET scum."
+;	xxxx "123456789012345678"
+	done
+
+_SSAnne8Text11_RP_BeforeBattle::
+	text "You...?!"
+	line "A TEAM ROCKET"
+	cont "grunt here?!"
+
+	para "I must arrest and"
+	line "interrogate you!"
+;	xxxx "123456789012345678"
+	done
+
+_SSAnne8Text11_RP_AfterVictory::
+	text "Ugh..."
+	line "Too strong...!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SSAnne8Text13_RP::
+	text "So young, so"
+	line "strong, and yet"
+	cont "so evil!"
+;	xxxx "123456789012345678"
+	done
+
+_SSAnne8Text11_RP_PostBattle::
+	text "I'm a failure. I"
+	line "brought shame to"
+	cont "the GLOBAL POLICE"
+	cont "by losing against"
+	cont "the likes of you."
+;	xxxx "123456789012345678"
+	done
