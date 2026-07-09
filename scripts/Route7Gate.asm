@@ -22,13 +22,16 @@ Route7GateScript_PushLeft:
 	ld [wOverrideSimulatedJoypadStatesMask], a
 	ret
 
-Route7GateScript0:
+Route7GateScript0: ; edited for RP (no need for the other checks)
+	CheckEvent EVENT_RP_GOT_HM01
+	ret nz ; guards don't stop player if in RP and after the first quest
 	ld a, [wd728]
 	bit 6, a
 	ret nz
 	ld hl, CoordsData_1e167
 	call ArePlayerCoordsInArray
 	ret nc
+; we are in the "to be stopped" area
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 	xor a
@@ -87,4 +90,4 @@ Route7Gate_TextPointers:
 	dw Route7GateText5
 
 Route7Gate_TextPointers_Rocket:
-	dw Route7GateText1 ; TBE
+	dw Route7GateText1_RP

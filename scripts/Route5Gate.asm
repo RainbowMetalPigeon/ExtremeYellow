@@ -16,13 +16,26 @@ Route8GateScript_PushUp:
 	ld [wSimulatedJoypadStatesIndex], a
 	jp StartSimulatingJoypadStates
 
-Route5GateScript0:
+Route5GateScript0: ; edited for RP
+	CheckEvent EVENT_RP_GOT_HM01
+	ret nz ; guards don't stop player if in RP and after the first quest
 	ld a, [wd728]
 	bit 6, a
 	ret nz
 	ld hl, CoordsData_1df8f
 	call ArePlayerCoordsInArray
 	ret nc
+; we are in the "to be stopped" area
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld a, PLAYER_DIR_LEFT
+	ld [wPlayerMovingDirection], a
+	xor a
+	ldh [hJoyHeld], a
+	inc a
+	jr .printTextAndPushAway
+.notRP
+; BTV
 	ld a, PLAYER_DIR_LEFT
 	ld [wPlayerMovingDirection], a
 	xor a
@@ -42,6 +55,7 @@ Route5GateScript0:
 	call DisplayTextID
 .noJunkDrink
 	ld a, $5
+.printTextAndPushAway
 ; BTV
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -81,35 +95,13 @@ Route5Gate_TextPointers:
 	dw Route5GateText5
 
 Route5Gate_TextPointers_Rocket:
-	dw Route5GateText1 ; TBE
+	dw Route5GateText1_RP
 
 Route8GateText1:
 Route7GateText1:
 Route6GateText1:
 Route5GateText1:
 	text_asm
-/*
-	ld a, [wd728]
-	bit 6, a
-	jr nz, .asm_88856
-	farcall RemoveGuardDrink
-	ldh a, [hItemToRemoveID]
-	and a
-	jr nz, .asm_768a2
-	ld hl, Route5GateText2
-	call PrintText
-	call Route8GateScript_PushUp
-	ld a, $1
-	ld [wCurMapScript], a ; edited
-	jp TextScriptEnd
-.asm_768a2
-	ld hl, Route5GateText3
-	call PrintText
-	ld hl, wd728
-	set 6, [hl]
-	jp TextScriptEnd
-.asm_88856
-*/
 	ld hl, SaffronGateText_ThankForTheDrink
 	call PrintText
 	jp TextScriptEnd
@@ -148,4 +140,27 @@ Route5GateText3:
 
 SaffronGateText_ThankForTheDrink:
 	text_far _SaffronGateText_ThankForTheDrink
+	text_end
+
+; new for RP
+
+Route8GateText1_RP:
+Route7GateText1_RP:
+Route6GateText1_RP:
+Route5GateText1_RP:
+	text_asm
+	CheckEvent EVENT_RP_GOT_HM01
+	ld hl, SaffronGateText_RP_Allowed
+	jr nz, .printAndEnd
+	ld hl, SaffronGateText_RP_NotAllowed
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SaffronGateText_RP_Allowed:
+	text_far _SaffronGateText_RP_Allowed
+	text_end
+
+SaffronGateText_RP_NotAllowed:
+	text_far _SaffronGateText_RP_NotAllowed
 	text_end

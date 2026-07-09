@@ -47,3 +47,19 @@ _SaffronGateText_WhatsThis:: ; new
 	cont "stupid machine!"
 ;	xxxx "123456789012345678"
 	done
+
+_SaffronGateText_RP_Allowed:: ; new
+	text "You can pass as"
+	line "you please,"
+	cont "master."
+;	xxxx "123456789012345678"
+	done
+
+_SaffronGateText_RP_NotAllowed:: ; new
+	text "I am deeply sorry,"
+	line "master, but we've"
+	cont "been told by your"
+	cont "superiors to not"
+	cont "let you pass yet."
+;	xxxx "123456789012345678"
+	done

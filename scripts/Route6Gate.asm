@@ -10,13 +10,38 @@ Route6Gate_ScriptPointers:
 	dw Route6GateScript0
 	dw Route6GateScript1
 
-Route6GateScript0:
+Route8GateScript_PushDown:
+	ld hl, wd730
+	set 7, [hl]
+	ld a, D_DOWN | B_BUTTON ; edited
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	xor a
+	ld [wSpritePlayerStateData2MovementByte1], a
+	ld [wOverrideSimulatedJoypadStatesMask], a
+	ret
+
+Route6GateScript0: ; edited for RP
+	CheckEvent EVENT_RP_GOT_HM01
+	ret nz ; guards don't stop player if in RP and after the first quest
 	ld a, [wd728]
 	bit 6, a
 	ret nz
 	ld hl, CoordsData_1e08c
 	call ArePlayerCoordsInArray
 	ret nc
+; we are in the "to be stopped" area
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+	xor a
+	ldh [hJoyHeld], a
+	inc a
+	jr .printTextAndPushAway
+.notRP
+; BTV
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
 	xor a
@@ -36,6 +61,7 @@ Route6GateScript0:
 	call DisplayTextID
 .noJunkDrink
 	ld a, $5
+.printTextAndPushAway
 ; BTV
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -65,18 +91,6 @@ Route6GateScript1:
 	ld [wCurMapScript], a
 	ret
 
-Route8GateScript_PushDown:
-	ld hl, wd730
-	set 7, [hl]
-	ld a, D_DOWN | B_BUTTON ; edited
-	ld [wSimulatedJoypadStatesEnd], a
-	ld a, $1
-	ld [wSimulatedJoypadStatesIndex], a
-	xor a
-	ld [wSpritePlayerStateData2MovementByte1], a
-	ld [wOverrideSimulatedJoypadStatesMask], a
-	ret
-
 Route6Gate_TextPointers:
 	dw Route6GateText1
 	; scripts
@@ -86,4 +100,4 @@ Route6Gate_TextPointers:
 	dw Route6GateText5
 
 Route6Gate_TextPointers_Rocket:
-	dw Route6GateText1 ; TBE
+	dw Route6GateText1_RP
