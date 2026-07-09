@@ -1,8 +1,3 @@
-_BillsHouseDontLeaveText::
-	text "Whoa, don't go"
-	line "anywhere, wait!"
-	done
-
 _BillsHouseText_1e865::
 	text "Hiya! I'm a"
 	line "#MON..."
@@ -270,3 +265,48 @@ _BillsHouseText3_MissingnoDefeated::
 	para "You're"
 	line "outstanding!!!"
 	done
+
+_BillsHouseSnatchEverythingText:: ; RP
+	text "So many rare #-"
+	line "MON! Let's snatch"
+	cont "'em all!"
+;	xxxx "123456789012345678"
+	prompt
+
+_BillsHousePCEmptyText:: ; RP
+	text "The PC is empty."
+;	xxxx "123456789012345678"
+	done
+
+_BillsHouseWhatAreYouDoingText:: ; RP
+	text "Hiya! I'm a"
+	line "#MON..."
+	cont "...No I'm not!"
+
+	para "Call me BILL!"
+	line "Listen pal, could"
+	cont "you..."
+
+	para "Wait... what's"
+	line "with that suit?"
+	cont "Are you with"
+	cont "TEAM ROCKET?!"
+	cont "Oh, no!"
+
+	para "But... hear me"
+	line "out, if you're a"
+	cont "pal and help me,"
+	cont "I'll gift you a"
+	cont "rare #MON!"
+	cont "It's a deal, OK?"
+
+	para "No... wait!"
+	line "What are you"
+	cont "doing?!"
+	
+	para "NO! NO, STOP, I"
+	line "BEG YOU, NO, NO!"
+	cont "DON'T DO IT!"
+	cont "FOR THE LOVE OF-"
+;	xxxx "123456789012345678"
+	prompt

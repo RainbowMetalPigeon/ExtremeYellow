@@ -37,6 +37,7 @@ BillsHouse_ScriptPointers:
 	dw BillsHouseScript8
 	dw BillsHouseScript9
 	dw BillsHouseScript10 ; new
+	dw BillsHouseScript11 ; new for RP
 
 BillsHouseScript_1e09e:
 	ld hl, wd492
@@ -57,7 +58,9 @@ BillsHouseScript_1e09e:
 	ld [wBillsHouseCurScript], a
 	ret
 
-BillsHouseScript0:
+BillsHouseScript0: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .asm_1e0d2
 	ld a, [wd472]
 	bit 7, a
 	jr z, .asm_1e0d2
@@ -277,16 +280,13 @@ BillsHouse_TextPointers:
 	dw BillsHouseText1 ; Mon
 	dw BillsHouseText2 ; Bill right after rescue
 	dw BillsHouseText3 ; Bill after having saved them
-	dw BillsHouseText4 ; unused?
 
 BillsHouse_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
+	dw BillsHouseText1_RP
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-
-BillsHouseText4:
-	text_far _BillsHouseDontLeaveText
-	text_end
+	; scripts
+	dw BillsHouseText4_RP
 
 BillsHouseText1:
 	text_asm
@@ -351,6 +351,120 @@ BillsHouseScript10: ; new
 	ld [wBillsHouseCurScript], a
 	ret
 
+BillsHouseScript11: ; new for RP
+	ld a, 4
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 1
+	ld [wBillsHouseCurScript], a
+	ret
+
+BillsHouseText1_RP:
+	text_asm
+	ld hl, BillsHouseWhatAreYouDoingText
+	call PrintText
+	SetEvent EVENT_RP_SPECIAL_BILL_RENAMING
+	lb bc, CLEFAIRY, 15
+	call GivePokemon
+	jr nc, .done
+	ld a, HS_BILL_POKEMON
+	ld [wMissableObjectIndex], a
+	predef HideObject
+.done
+	jp TextScriptEnd
+
+BillsHouseText4_RP:
+	text_asm
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_ALL
+	ld hl, BillsHousePCEmptyText
+	jp nz, .printAndEnd
+	ld hl, BillsHouseSnatchEverythingText
+	call PrintText
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_SYLVEON
+	jp nz, .sylveon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_GLACEON
+	jp nz, .glaceon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_LEAFEON
+	jp nz, .leafeon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_UMBREON
+	jr nz, .umbreon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_ESPEON
+	jr nz, .espeon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_JOLTEON
+	jr nz, .jolteon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_VAPOREON
+	jr nz, .vaporeon
+	CheckEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_FLAREON
+	jr nz, .flareon
+; let's give mons
+	lb bc, EEVEE, 15
+	call GivePokemon
+	jr c, .flareon
+	jp .done
+.flareon
+	lb bc, FLAREON, 15
+	call GivePokemon
+	jr c, .vaporeon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_FLAREON
+	jp .done
+.vaporeon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_FLAREON
+	lb bc, VAPOREON, 15
+	call GivePokemon
+	jr c, .jolteon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_VAPOREON
+	jp .done
+.jolteon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_VAPOREON
+	lb bc, JOLTEON, 15
+	call GivePokemon
+	jr c, .espeon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_JOLTEON
+	jr .done
+.espeon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_JOLTEON
+	lb bc, ESPEON, 15
+	call GivePokemon
+	jr c, .umbreon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_ESPEON
+	jr .done
+.umbreon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_ESPEON
+	lb bc, UMBREON, 15
+	call GivePokemon
+	jr c, .leafeon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_UMBREON
+	jr .done
+.leafeon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_UMBREON
+	lb bc, LEAFEON, 15
+	call GivePokemon
+	jr c, .glaceon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_LEAFEON
+	jr .done
+.glaceon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_LEAFEON
+	lb bc, GLACEON, 15
+	call GivePokemon
+	jr c, .sylveon
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_GLACEON
+	jr .done
+.sylveon
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_GLACEON
+	lb bc, SYLVEON, 15
+	call GivePokemon
+	jr c, .complete
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_SYLVEON
+	jr .done
+.complete
+	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_SYLVEON
+	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_ALL
+	jr .done
+.printAndEnd
+	call PrintText
+.done ; script handling
+	jp TextScriptEnd
+
 BillsHouseText3_MapAlreadyShown: ; new
 	text_far _BillsHouseText3_MapAlreadyShown
 	text_end
@@ -361,4 +475,16 @@ BillsHouseText3_YouHaveThatMap: ; new
 
 BillsHouseText3_MissingnoDefeated: ; new
 	text_far _BillsHouseText3_MissingnoDefeated
+	text_end
+
+BillsHouseSnatchEverythingText:: ; new
+	text_far _BillsHouseSnatchEverythingText
+	text_end
+
+BillsHousePCEmptyText:: ; new
+	text_far _BillsHousePCEmptyText
+	text_end
+
+BillsHouseWhatAreYouDoingText:: ; new
+	text_far _BillsHouseWhatAreYouDoingText
 	text_end

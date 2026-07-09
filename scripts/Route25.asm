@@ -10,7 +10,7 @@ Route25_Script:
 	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
 	ld [wCurMapScript], a ; edited
-	call Route25Script_515e1
+	call Route25ToggleBillsScript
 	ret
 
 Route25OpenPathToHauntedHouse: ; new
@@ -50,7 +50,10 @@ Route25OpenPathToHauntedHouse_Core:
 
 	ret
 
-Route25Script_515e1:
+Route25ToggleBillsScript: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+; BTV
 	ld hl, wd492
 	res 2, [hl]
 	res 3, [hl]

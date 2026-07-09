@@ -10,7 +10,9 @@ AskName:
 	cp HAUNTED_ISLAND_OF_NUMBERS
 	jr nz, .vanilla
 .noRenaming
-	CheckEvent EVENT_RP_SPECIAL_BILL_RENAMING
+	push hl
+	CheckAndResetEvent EVENT_RP_SPECIAL_BILL_RENAMING
+	pop hl
 	jr z, .notBillsHouse
 ; Bill's House
 	push hl
