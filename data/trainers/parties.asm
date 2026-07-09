@@ -1062,7 +1062,7 @@ MistyData:
 	db 1, DITTO, 0 ; 5, proxy
 	db 1, DITTO, 0 ; 6, proxy
 	db 1, DITTO, 0 ; 7, proxy
-	db 1, DITTO, 0 ; 8, proxy
+	db $FF, 54, GOLDUCK, 54, VAPOREON, 54, BLASTOISE, 54, GYARADOS, 54, LAPRAS, 55, STARMIE, 0 ; 8 ; for RP
 	db 70, GYARADOS, LAPRAS, POLITOED, VAPOREON, STARMIE, MBLASTOISE, 0 ; 9, rematch
 
 LtSurgeData:

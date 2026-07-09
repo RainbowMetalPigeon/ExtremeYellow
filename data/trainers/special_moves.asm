@@ -795,6 +795,39 @@ SpecialTrainerMoves:
 	db 6, 4, LIGHT_SCREEN
 	db $FE
 
+	db MISTY, 8
+	; GOLDUCK
+	db 1, 1, HYDRO_PUMP
+	db 1, 2, PSYCHIC_M
+	db 1, 3, DIG
+	db 1, 4, IRON_TAIL
+	; VAPOREON
+	db 2, 1, SAND_ATTACK
+	db 2, 2, ACID_ARMOR
+	db 2, 3, HYDRO_PUMP
+	db 2, 4, REST
+	; BLASTOISE
+	db 3, 1, FLASH_CANNON
+	db 3, 2, BULLET_SEED
+	db 3, 3, HYDRO_CANNON
+	db 3, 4, OUTRAGE
+	; GYARADOS
+	db 4, 1, DRAGON_DANCE
+	db 4, 2, HURRICANE
+	db 4, 3, STONE_EDGE
+	db 4, 4, HYDRO_PUMP
+	; LAPRAS
+	db 5, 1, HYDRO_PUMP
+	db 5, 2, FREEZE_DRY
+	db 5, 3, CONFUSE_RAY
+	db 5, 4, THUNDERBOLT
+	; STARMIE
+	db 6, 1, PSYCHO_CUT
+	db 6, 2, MINIMIZE
+	db 6, 3, HYDRO_PUMP
+	db 6, 4, RECOVER
+	db $FE
+
 	db MISTY, 9
 	; GYARADOS
 	db 1, 1, DRAGON_DANCE
