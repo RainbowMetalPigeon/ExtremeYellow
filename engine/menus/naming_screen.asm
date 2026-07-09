@@ -2,13 +2,38 @@ AskName:
 	call SaveScreenTilesToBuffer2
 	call GetPredefRegisters
 ; new, to avoid nicknaming MISSINGNO
-	push hl
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .noRenaming
 	CheckEvent EVENT_IN_SEVII
+	jr nz, .vanilla
+	ld a, [wCurMap]
+	cp HAUNTED_ISLAND_OF_NUMBERS
+	jr nz, .vanilla
+.noRenaming
+	CheckEvent EVENT_RP_SPECIAL_BILL_RENAMING
+	jr z, .notBillsHouse
+; Bill's House
+	push hl
+	ld hl, wcd6d
+	ld a, "B"
+	ld [hli], a
+	ld a, "I"
+	ld [hli], a
+	ld a, "L"
+	ld [hli], a
+	ld a, "L"
+	ld [hli], a
+	ld a, "@"
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
 	pop hl
-	jr nz, .vanilla
-	ld a, [wCurMap] ; temp, testing
-	cp HAUNTED_ISLAND_OF_NUMBERS ; temp, testing
-	jr nz, .vanilla
+	jr .declinedNickname
+.notBillsHouse
 	ld a, [wcf91]
 	ld [wd11e], a
 	call GetMonName

@@ -274,10 +274,10 @@ BillsHouseScript9:
 	ret
 
 BillsHouse_TextPointers:
-	dw BillsHouseText1
-	dw BillsHouseText2
+	dw BillsHouseText1 ; Mon
+	dw BillsHouseText2 ; Bill right after rescue
 	dw BillsHouseText3 ; Bill after having saved them
-	dw BillsHouseText4
+	dw BillsHouseText4 ; unused?
 
 BillsHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; TBE

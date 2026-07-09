@@ -2462,6 +2462,10 @@ UseBagItem:
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRP
+; is it a trainer battle?
+	ld a, [wIsInBattle]
+	cp 2
+	jr nz, .notRP
 ; we stole a trainer's mon
 	xor a
 	ld [wCapturedMonSpecies], a

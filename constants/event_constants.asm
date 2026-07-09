@@ -1046,7 +1046,8 @@
 	const EVENT_BEAT_MRAYQUAZA
 	const EVENT_BEAT_EETERNATUS
 	const EVENT_BEAT_ARCEUS
-	const_skip 3 ; edited for anomalies and Snorlax Den
+	const_skip 2
+	const EVENT_RP_SPECIAL_BILL_RENAMING ; new
 	const EVENT_BEAT_SNORLAX_DEN ; new, testing
 	const EVENT_HAUNTED_HOUSE_BETWEEN_BEDS ; new
 	const EVENT_INTERACTED_WITH_DAD_PICTURE ; new
