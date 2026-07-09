@@ -2460,7 +2460,7 @@ UseBagItem:
 
 .returnAfterCapturingMon
 ; new for RP
-	CheckEvent EVENT_ROCKET_PATH
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
 	jr z, .notRP
 ; is it a trainer battle?
 	ld a, [wIsInBattle]
