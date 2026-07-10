@@ -84,5 +84,5 @@ TypeNames_TCG:
 .TCGLightning:	db "LIGHTNING@"
 .TCGPsychic:	db "PSYCHIC@"
 .TCGDragon:		db "DRAGON@"
-.TCGDark:		db "DARK@"
+.TCGDark:		db "DARKNESS@"
 .TCGWater2:		db "WATER@"
