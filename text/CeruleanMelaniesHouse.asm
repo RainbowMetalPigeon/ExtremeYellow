@@ -198,3 +198,35 @@ _CeruleanHouse1Sign2::
 	cont "way? Adorable!!!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP -------------
+
+_CeruleanHousesMelanieText_RP_GotBulbasaurPreviously::
+	text "You?! A ROCKET?!"
+	line "Oh my... what did"
+	cont "I do? How could"
+	cont "you deceive me"
+	cont "so badly?"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur::
+	text "BULBASAUR..."
+	line "You monster..."
+	cont "I will never"
+	cont "forgive you!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanHousesMelanieText_RP_BeatMelanie::
+	text "A ROCKET? What do"
+	line "you want from me?"
+
+	para "Argh! Ouch! Aaah!"
+	line "No! Stop! Stop!"
+	cont "Help! Help!!!"
+
+	para "...no... please"
+	line "don't take it..."
+;	xxxx "123456789012345678"
+	prompt

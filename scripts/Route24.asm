@@ -434,9 +434,9 @@ Route24Text8:
 	call PrintText
 	jp TextScriptEnd
 
-Route24Text8_RP: ; new
+Route24Text8_RP: ; new for RP
 	text_asm
-	CheckEvent EVENT_RP_GOT_CHARMANDER
+	CheckEvent EVENT_GOT_GIFT_CHARMANDER
 	jr nz, .alreadyGotCharmander
 	ld hl, Route24Text_RP_BeatCharmanderGuy
 	call PrintText
@@ -454,7 +454,7 @@ Route24Text8_RP: ; new
 	call z, WaitForTextScrollButtonPress
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	SetEvent EVENT_RP_GOT_CHARMANDER
+	SetEvent EVENT_GOT_GIFT_CHARMANDER
 	jp TextScriptEnd
 .alreadyGotCharmander
 	ld hl, Route24Text_RP_AlreadyGotCharmander
@@ -479,10 +479,10 @@ Route24Text_515ee:
 	text_far _Route24DamianText4
 	text_end
 
-Route24Text_RP_BeatCharmanderGuy: ; new
+Route24Text_RP_BeatCharmanderGuy: ; new for RP
 	text_far _Route24Text_RP_BeatCharmanderGuy
 	text_end
 
-Route24Text_RP_AlreadyGotCharmander: ; new
+Route24Text_RP_AlreadyGotCharmander: ; new for RP
 	text_far _Route24Text_RP_AlreadyGotCharmander
 	text_end
