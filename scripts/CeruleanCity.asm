@@ -396,11 +396,11 @@ CeruleanCity_TextPointers:
 
 CeruleanCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; BLUE: irrelevant as it's hidden if we are in RP
-	dw GenericNPCText_RocketPath ; TBE ROCKET
+	dw RocketNPCText_RocketPath ; ROCKET
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw CeruleanCityText6_RP_Jenny ; TBE JENNY
+	dw CeruleanCityText6_RP_Jenny ; JENNY
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath

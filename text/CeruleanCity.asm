@@ -247,27 +247,35 @@ _CeruleanCityText17::
 ; new ---------------------------------
 
 _CeruleanCityText_RP_Script1::
-	text "stop"
+	text "JENNY: Freeze!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeruleanCityText_RP_Script2::
-	text "you criminal!"
+	text "JENNY: You filthy"
+	line "criminal! You"
+	cont "won't run away!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeruleanCityText_RP_Script3::
-	text "won battle not war"
+	text "JENNY: You may've"
+	line "won this battle,"
+	cont "but you won't win"
+	cont "the war!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeruleanCityText_RP_JennyAfterBattle::
-	text "we'll get yous!"
+	text "JENNY: Stay"
+	line "assured, we will"
+	cont "eventually get"
+	cont "all of you!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeruleanCityText_AfterFightJenny::
-	text "i'm not"
-	line "enough!"
+	text "I'm not"
+	line "good enough...!"
 ;	xxxx "123456789012345678"
 	prompt

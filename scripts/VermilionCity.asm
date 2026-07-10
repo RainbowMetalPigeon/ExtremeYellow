@@ -60,8 +60,40 @@ VermilionCity_ScriptPointers:
 	dw VermilionScript_Traveler ; new, for traveler
 	dw VermilionCityScript6 ; new, for Sevii ferry
 	dw VermilionCityScript7 ; new, for Sevii ferry
+	dw VermilionCityScript8 ; new, for RP
+	dw VermilionCityScript9 ; new, for RP
+	dw VermilionCityScript10 ; new, for RP
 
-VermilionCityScript0:
+VermilionCityScript0: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; are we at the Jenny's coordinates?
+	ld hl, VermilionJennyCheckCoords
+	call ArePlayerCoordsInArray
+	jr nc, .notRP ; normal stuff for dock
+; already beat Jenny?
+	CheckEvent EVENT_RP_DEFEAT_JENNY_VERMILION
+	jr nz, .notRP
+; Jenny sees and approaches us
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, [wXCoord]
+	ld de, VermilionCityMovement_Jenny_18
+	cp 18
+	jr z, .gotJennyMovements
+	ld de, VermilionCityMovement_Jenny_19
+.gotJennyMovements
+	ld a, 8
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, 8
+	jr .changeScript
+.notRP
+; BTV
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
 	ret nz ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
@@ -88,8 +120,6 @@ VermilionCityScript0:
 	ret nz ; new
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .accessDenied
-;	ld b, S_S_TICKET
-;	call IsItemInBag ; set zero flag if item isn't in player's bag
 	CheckEvent EVENT_FLASHED_SS_TICKET
 	ret nz
 .accessDenied
@@ -99,11 +129,25 @@ VermilionCityScript0:
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 	ld a, $1
+.changeScript ; new
 	ld [wVermilionCityCurScript], a
 	ret
 
 SSAnneTicketCheckCoords:
 	dbmapcoord 18, 30
+	db -1 ; end
+
+VermilionJennyCheckCoords: ; new
+	dbmapcoord 18, 11
+	dbmapcoord 19, 11
+	db -1 ; end
+
+VermilionCityMovement_Jenny_18: ; new for RP
+	db NPC_FAST_MOVEMENT_LEFT
+VermilionCityMovement_Jenny_19:
+	db NPC_FAST_MOVEMENT_UP
+	db NPC_FAST_MOVEMENT_UP
+	db NPC_FAST_MOVEMENT_UP
 	db -1 ; end
 
 VermilionCityScript4:
@@ -148,7 +192,7 @@ VermilionCityScript1:
 	ld [wVermilionCityCurScript], a
 	ret
 
-VermilionCityScript6: ; new, TBE
+VermilionCityScript6: ; new
 	ld a, $ff
 	ld [wJoyIgnore], a
 ; choose player movement depending on Y
@@ -195,6 +239,81 @@ VermilionCityScript7: ; new
 	ld [wVermilionCityCurScript], a
 	ret
 
+VermilionCityScript8: ; new for RP
+; wait for Jenny to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; finished walking
+	call VermilionCity_PlayerAndJennyFacings
+	ld a, 9
+	ld [wVermilionCityCurScript], a
+	ret
+
+VermilionCityScript9: ; new for RP
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 20
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, VermilionCityText_AfterFightJenny
+	ld de, VermilionCityText_AfterFightJenny
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, OPP_JENNY
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 10
+	ld [wVermilionCityCurScript], a
+	ret
+
+VermilionCityScript10: ; new for RP
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, VermilionCityResetScripts
+; we won
+	xor a
+	ld [wIsTrainerBattle], a
+	call VermilionCity_PlayerAndJennyFacings
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_RP_DEFEAT_JENNY_VERMILION
+	ld a, 21
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; if we already got SQUIRTLE, do nothing
+	CheckEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
+	jr nz, VermilionCityResetScripts
+; steal SQUIRTLE
+	call VermilionCityResetScripts
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	jp DisplayTextID
+
+VermilionCityResetScripts: ; new
+	xor a
+	ld [wJoyIgnore], a
+	ld [wVermilionCityCurScript], a
+	ret
+
+VermilionCity_PlayerAndJennyFacings: ; new
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, 8
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	jp ChangeSpriteMovementBytes ; new from Engeze
+
+; texts =========================================================
+
 VermilionCity_TextPointers:
 	dw VermilionCityText1
 	dw VermilionCityText2
@@ -221,12 +340,12 @@ VermilionCity_TextPointers:
 VermilionCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw VermilionCityText3 ; SS Anne Guardian TBE
-	dw VermilionCityText4 ; Battle Facility boss TBE
+	dw VermilionCityText3 ; SS Anne Guardian
+	dw VermilionCityText4_RP ; Battle Facility boss
 	dw VermilionCityText5 ; Machoke
 	dw VermilionCityText5PG ; Machamp
 	dw GenericNPCText_RocketPath
-	dw VermilionCityText7 ; Jenny TBE
+	dw VermilionCityText7_RP ; Jenny
 	dw TextPreBattle_VermilionTraveler ; Traveler
 	dw PickUpItemText ; 10=$A
 	; signs
@@ -237,7 +356,11 @@ VermilionCity_TextPointers_Rocket:
 	dw VermilionCityText12
 	dw VermilionCityText13
 	dw VermilionCityText14
-	dw VermilionCityText16
+	dw VermilionCityText16 ; 18
+	; scripts
+	dw VermilionCityText_RP_Script1 ; 19
+	dw VermilionCityText_RP_Script2 ; 20
+	dw VermilionCityText_RP_Script3 ; 21
 
 VermilionCityText1:
 	text_far _VermilionCityText1
@@ -721,3 +844,62 @@ Text_WhatWasThat_VermilionTraveler:
 	text_end
 
 ; ================================
+
+VermilionCityText_AfterFightJenny:
+	text_far _VermilionCityText_AfterFightJenny
+	text_end
+
+VermilionCityText_RP_Script1:
+	text_far _VermilionCityText_RP_Script1
+	text_end
+
+VermilionCityText_RP_Script2:
+	text_far _VermilionCityText_RP_Script2
+	text_end
+
+VermilionCityText_RP_Script3:
+	text_far _VermilionCityText_RP_Script3
+	text_end
+
+VermilionCityText7_RP:
+	text_asm
+	CheckEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
+	jr z, .tryToGetSquirtle
+	ld hl, VermilionCityText7_RP_PoorSquirtle
+	jr .printAndEnd
+.tryToGetSquirtle
+	ld hl, VermilionCityText7_RP_OhNoSquirtle
+	call PrintText
+	call TryToGiveSquirtle
+	ret nc
+	SetEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
+	ld hl, VermilionCityText7_RP_DamnYou
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VermilionCityText7_RP_PoorSquirtle:
+	text_far _VermilionCityText7_RP_PoorSquirtle
+	text_end
+
+VermilionCityText7_RP_OhNoSquirtle:
+	text_far _VermilionCityText7_RP_OhNoSquirtle
+	text_end
+
+VermilionCityText7_RP_DamnYou:
+	text_far _VermilionCityText7_RP_DamnYou
+	text_end
+
+TryToGiveSquirtle:
+	ld a, SQUIRTLE
+	ld [wd11e], a
+	ld [wcf91], a
+	call GetMonName
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	lb bc, SQUIRTLE, 15
+	jp GivePokemon
+
+VermilionCityText4_RP:
+	text_far _VermilionCityText4_RP
+	text_end

@@ -356,3 +356,73 @@ _VermilionSailorRegisterSeviiTravelerText::
 	cont "traveler."
 ;	xxxx "123456789012345678"
 	prompt
+
+; RP -----
+
+_VermilionCityText_RP_Script1::
+	text "JENNY: A ROCKET?"
+	line "Not a step more!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText_RP_Script2::
+	text "JENNY: We've been"
+	line "suspecting you"
+	cont "folks for traf-"
+	cont "ficking for a"
+	cont "while now."
+	
+	para "I'll beat you and"
+	line "bring you to HQ"
+	cont "for interrogation!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText_AfterFightJenny::
+	text "I"
+	line "shamed the whole"
+	cont "KANTO police."
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionCityText_RP_Script3::
+	text "JENNY: I'm so"
+	line "pathetic. Losing"
+	cont "to a criminal!"
+	cont "My colleagues'll"
+	cont "do what I didn't!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText7_RP_PoorSquirtle::
+	text "JENNY: That poor"
+	line "SQUIRTLE... What"
+	cont "did I do?!"
+
+	para "I'm so shameful..."
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText7_RP_OhNoSquirtle::
+	text "JENNY: What do you"
+	line "want from me yet?"
+	
+	para "?! No! Wait! Stop!"
+	line "STOP! Leave it"
+	cont "alone, monster!"
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionCityText7_RP_DamnYou::
+	text "JENNY: May your"
+	line "evil and my weak-"
+	cont "ness be damned!"
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionCityText4_RP::
+	text "There's nothing"
+	line "here for the"
+	cont "likes of you."
+;	xxxx "123456789012345678"
+	done

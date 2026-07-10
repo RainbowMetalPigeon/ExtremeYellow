@@ -1270,6 +1270,7 @@
 	const EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_VAPOREON ; new
 	const EVENT_BEAT_MEWTWO
 	const EVENT_RP_DEFEAT_JENNY_CERULEAN ; new
+	const EVENT_RP_DEFEAT_JENNY_VERMILION ; new
 
 ; Indigo Plateau events
 	const_next $8E0
