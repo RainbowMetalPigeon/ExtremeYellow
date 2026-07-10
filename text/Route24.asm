@@ -328,3 +328,31 @@ _Route24DamianText4::
 	text "How's CHARMANDER"
 	line "doing?"
 	done
+
+_Route24Text_RP_BeatCharmanderGuy::
+	text "Uh? What does TEAM"
+	line "ROCKET want from"
+	cont "me...?"
+
+	para "Ouch! Wow! Uff!"
+	line "Stop it! Stop it!"
+	cont "Aaah! Help!!!"
+	cont "What did I do?!"
+	cont "What do you want?"
+
+	para "Stop please, stop!"
+	line "Here, here, take"
+	cont "it, but leave me"
+	cont "alone!" 
+;	xxxx "123456789012345678"
+	prompt
+
+_Route24Text_RP_AlreadyGotCharmander::
+	text "What else do you"
+	line "want from me?"
+
+	para "I already gave you"
+	line "my one and only"
+	cont "#MON!"
+;	xxxx "123456789012345678"
+	done

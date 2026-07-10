@@ -102,7 +102,7 @@ Route24_TextPointers_Rocket:
 	dw Route24Text7
 	dw PickUpItemText
 	dw PickUpItemText
-	dw Route24Text8 ; TBE
+	dw Route24Text8_RP
 
 Route24TrainerHeaders:
 	def_trainers 2
@@ -399,14 +399,14 @@ Route24AfterBattleText6:
 
 Route24Text8:
 	text_asm
-	CheckEvent EVENT_54F
-	jr nz, .asm_515d5
+	CheckEvent EVENT_GOT_GIFT_CHARMANDER
+	jr nz, .alreadyGotCharmander
 	ld hl, Route24Text_515de
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .asm_515d0
+	jr nz, .declined
 	ld a, CHARMANDER
 	ld [wd11e], a
 	ld [wcf91], a
@@ -423,16 +423,42 @@ Route24Text8:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, Route24Text_515e3
 	call PrintText
-	SetEvent EVENT_54F
+	SetEvent EVENT_GOT_GIFT_CHARMANDER
+	jp TextScriptEnd
+.declined
+	ld hl, Route24Text_515e9
+	jr .printAndEnd
+.alreadyGotCharmander
+	ld hl, Route24Text_515ee
+.printAndEnd
+	call PrintText
 	jp TextScriptEnd
 
-.asm_515d0
-	ld hl, Route24Text_515e9
-	jr .asm_515d8
-
-.asm_515d5
-	ld hl, Route24Text_515ee
-.asm_515d8
+Route24Text8_RP: ; new
+	text_asm
+	CheckEvent EVENT_RP_GOT_CHARMANDER
+	jr nz, .alreadyGotCharmander
+	ld hl, Route24Text_RP_BeatCharmanderGuy
+	call PrintText
+	ld a, CHARMANDER
+	ld [wd11e], a
+	ld [wcf91], a
+	call GetMonName
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	lb bc, CHARMANDER, 15
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, [wAddedToParty]
+	and a
+	call z, WaitForTextScrollButtonPress
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	SetEvent EVENT_RP_GOT_CHARMANDER
+	jp TextScriptEnd
+.alreadyGotCharmander
+	ld hl, Route24Text_RP_AlreadyGotCharmander
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
@@ -451,4 +477,12 @@ Route24Text_515e9:
 
 Route24Text_515ee:
 	text_far _Route24DamianText4
+	text_end
+
+Route24Text_RP_BeatCharmanderGuy: ; new
+	text_far _Route24Text_RP_BeatCharmanderGuy
+	text_end
+
+Route24Text_RP_AlreadyGotCharmander: ; new
+	text_far _Route24Text_RP_AlreadyGotCharmander
 	text_end

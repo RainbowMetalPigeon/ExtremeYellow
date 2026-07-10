@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	ld a, ~(1 << BIT_EARTHBADGE)
 	ld a, %11111110
 ;	ld a, %00010000
-	ld a, %00000000
+;	ld a, %00000000
 ;	ld a, %11111100
 	ld [wObtainedBadges], a
 
