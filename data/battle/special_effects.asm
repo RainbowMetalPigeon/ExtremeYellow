@@ -8,7 +8,6 @@ SpecialEffects:
 	db PAY_DAY_EFFECT
 	db SWIFT_EFFECT
 	db TWO_TO_FIVE_ATTACKS_EFFECT
-;	db EFFECT_1E ; REMOVED because never used?
 	db CHARGE_EFFECT
 	db SUPER_FANG_EFFECT
 	db SPECIAL_DAMAGE_EFFECT
@@ -16,19 +15,21 @@ SpecialEffects:
 	db ATTACK_TWICE_EFFECT
 	db JUMP_KICK_EFFECT
 	db RECOIL_EFFECT
-	db ATTACK_UP_SIDE_EFF1	; new, testing
-	db DEFENSE_UP_SIDE_EFF1	; new, testing
-	db ATTACK_UP_SIDE_EFF2	; new, testing
-	db ATTACK_SELFDOWN1		; new, proxy testing
-	db DEFENSE_SELFDOWN1		; new, proxy testing
-	db SPEED_SELFDOWN1		; new, proxy testing
-	db SPECIAL_SELFDOWN1		; new, proxy testing
-	db ATTACK_SELFDOWN2		; new, proxy testing
-	db DEFENSE_SELFDOWN2		; new, proxy testing
-	db SPEED_SELFDOWN2		; new, proxy testing
-	db SPECIAL_SELFDOWN2		; new, proxy testing
-	db ATTACK_DEFENSE_SELFDOWN1	; new, proxy testing
-	db DEFENSE_SPECIAL_SELFDOWN1	; new, proxy testing
+; new
+	db ATTACK_UP_SIDE_EFF1
+	db DEFENSE_UP_SIDE_EFF1
+	db ATTACK_UP_SIDE_EFF2
+	db ATTACK_SELFDOWN1
+	db DEFENSE_SELFDOWN1
+	db SPEED_SELFDOWN1
+	db SPECIAL_SELFDOWN1
+	db ATTACK_SELFDOWN2
+	db DEFENSE_SELFDOWN2
+	db SPEED_SELFDOWN2
+	db SPECIAL_SELFDOWN2
+	db ATTACK_DEFENSE_SELFDOWN1
+	db DEFENSE_SPECIAL_SELFDOWN1
+	db RAPID_SPIN_EFFECT
 	; fallthrough
 SpecialEffectsCont:
 ; damaging moves whose effect is executed prior to damage calculation
