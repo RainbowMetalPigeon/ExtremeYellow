@@ -243,3 +243,31 @@ _CeruleanCityText17::
 	para "The Fighter"
 	line "Mermaid!"
 	done
+
+; new ---------------------------------
+
+_CeruleanCityText_RP_Script1::
+	text "stop"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_RP_Script2::
+	text "you criminal!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_RP_Script3::
+	text "won battle not war"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_RP_JennyAfterBattle::
+	text "we'll get yous!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_AfterFightJenny::
+	text "i'm not"
+	line "enough!"
+;	xxxx "123456789012345678"
+	prompt

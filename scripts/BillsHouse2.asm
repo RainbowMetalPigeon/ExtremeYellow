@@ -40,12 +40,13 @@ Func_f244a::
 	ld hl, BillsHouseText_f2491
 	call PrintText
 	SetEvent EVENT_GOT_SS_TICKET
-	ld a, HS_CERULEAN_GUARD_1
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	ld a, HS_CERULEAN_GUARD_2
-	ld [wMissableObjectIndex], a
-	predef HideObject
+; edited away
+;	ld a, HS_CERULEAN_GUARD_1
+;	ld [wMissableObjectIndex], a
+;	predef ShowObject
+;	ld a, HS_CERULEAN_GUARD_2
+;	ld [wMissableObjectIndex], a
+;	predef HideObject
 .asm_f247e
 	ld hl, BillsHouseText_f249d
 	call PrintText

@@ -35,12 +35,16 @@ CeruleanCity_Script:
 	jp CallFunctionInTable
 
 CeruleanCityScript_1948c:
-	xor a
-	ld [wJoyIgnore], a
-	ld [wCeruleanCityCurScript], a
+	call CeruleanCityResetScripts ; edited
 	ld a, HS_CERULEAN_RIVAL
 	ld [wMissableObjectIndex], a
 	predef_jump HideObject
+
+CeruleanCityResetScripts: ; new
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCeruleanCityCurScript], a
+	ret
 
 CeruleanCity_ScriptPointers:
 	dw CeruleanCityScript0
@@ -49,6 +53,9 @@ CeruleanCity_ScriptPointers:
 	dw CeruleanCityScript3
 	dw CeruleanCityScript4
 	dw CeruleanScript_Traveler ; new, for traveler
+	dw CeruleanCityScript6 ; new for RP
+	dw CeruleanCityScript7 ; new for RP
+	dw CeruleanCityScript8 ; new for RP
 
 CeruleanCityScript4:
 	ld a, [wIsInBattle]
@@ -60,16 +67,53 @@ CeruleanCityScript4:
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	xor a
-	ld [wJoyIgnore], a
-	ld [wCeruleanCityCurScript], a
+	call CeruleanCityResetScripts ; edited
 	ret
 
-CeruleanCityScript0:
+CeruleanCityScript0: ; edited for RP
 IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; did we defeat Jenny?
+	CheckEvent EVENT_RP_DEFEAT_JENNY_CERULEAN
+	ret nz
+; are we in the right coordinates?
+	ld hl, CeruleanCityCoords_RP_Jenny
+	call ArePlayerCoordsInArray
+	ret nc
+; music and Jenny dialogue
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; move Jenny properly
+	ld a, [wXCoord]
+	ld de, CeruleanCityMovement_Jenny_23
+	cp 23
+	jr z, .gotJennyMovements
+	ld de, CeruleanCityMovement_Jenny_24
+	cp 24
+	jr z, .gotJennyMovements
+	ld de, CeruleanCityMovement_Jenny_25
+	cp 25
+	jr z, .gotJennyMovements
+; Jenny doesn't walk, just turns
+	ld a, 7
+	jp .changeScript
+.gotJennyMovements
+	ld a, 6
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, 6
+	jr .changeScript
+.notRP
+; BTV
 	CheckEvent EVENT_BEAT_CERULEAN_ROCKET_THIEF
 	jr nz, .skipRocketThiefEncounter
 	ld hl, CeruleanCityCoords1
@@ -126,6 +170,7 @@ ENDC
 	ldh [hSpriteIndex], a
 	call MoveSprite
 	ld a, $1
+.changeScript ; new label
 	ld [wCeruleanCityCurScript], a
 	ret
 
@@ -139,10 +184,28 @@ CeruleanCityCoords2:
 	dbmapcoord 21,  6
 	db -1 ; end
 
+CeruleanCityCoords_RP_Jenny: ; new for RP
+	dbmapcoord 23, 10
+	dbmapcoord 24, 10
+	dbmapcoord 25, 10
+	dbmapcoord 27, 12
+	db -1 ; end
+
 CeruleanCityMovement1:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+
+CeruleanCityMovement_Jenny_23: ; new for RP
+	db NPC_FAST_MOVEMENT_LEFT
+CeruleanCityMovement_Jenny_24:
+	db NPC_FAST_MOVEMENT_LEFT
+CeruleanCityMovement_Jenny_25:
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_LEFT
+	db NPC_FAST_MOVEMENT_UP
 	db -1 ; end
 
 CeruleanCityScript_1955d:
@@ -247,6 +310,68 @@ CeruleanCityScript3:
 	ld [wCeruleanCityCurScript], a
 	ret
 
+CeruleanCityScript6: ; new for RP
+; wait for Jenny to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; finished walking
+	call CeruleanCity_PlayerAndJennyFacings
+	ld a, 7
+	ld [wCeruleanCityCurScript], a
+	ret
+
+CeruleanCityScript7: ; new for RP
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, CeruleanCityText_AfterFightJenny
+	ld de, CeruleanCityText_AfterFightJenny
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, OPP_JENNY
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 8
+	ld [wCeruleanCityCurScript], a
+	ret
+
+CeruleanCityScript8: ; new for RP
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, CeruleanCityResetScripts
+; we won
+	xor a
+	ld [wIsTrainerBattle], a
+	call CeruleanCity_PlayerAndJennyFacings
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_RP_DEFEAT_JENNY_CERULEAN
+	ld a, 20
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	jp CeruleanCityResetScripts
+
+CeruleanCity_PlayerAndJennyFacings:
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, 6
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	jp ChangeSpriteMovementBytes ; new from Engeze
+
+; texts ===================================================
+
 CeruleanCity_TextPointers:
 	dw CeruleanCityText1
 	dw CeruleanCityText2
@@ -258,28 +383,28 @@ CeruleanCity_TextPointers:
 	dw CeruleanCityText8
 	dw CeruleanCityText9
 	dw CeruleanCityText10
-	dw CeruleanCityText11
 	dw TextPreBattle_CeruleanTraveler ; new, for traveler
+	; signs
 	dw CeruleanCityText12
 	dw CeruleanCityText13
 	dw MartSignText
 	dw PokeCenterSignText
 	dw CeruleanCityText16
 	dw CeruleanCityText17
-	dw TextPostBattle_CeruleanTraveler ; $13=19, new, for traveler
+	; scripts
+	dw TextPostBattle_CeruleanTraveler ; $12=18, new, for traveler
 
 CeruleanCity_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE BLUE
+	dw GenericNPCText_RocketPath ; BLUE: irrelevant as it's hidden if we are in RP
 	dw GenericNPCText_RocketPath ; TBE ROCKET
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath ; TBE JENNY
+	dw CeruleanCityText6_RP_Jenny ; TBE JENNY
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath ; TBE JENNY
 	dw GenericNPCText_RocketPath ; TBE? TRAVELER
 	; signs
 	dw CeruleanCityText12
@@ -288,6 +413,10 @@ CeruleanCity_TextPointers_Rocket:
 	dw PokeCenterSignText
 	dw CeruleanCityText16
 	dw CeruleanCityText17
+	; scripts
+	dw CeruleanCityText_RP_Script1 ; 18
+	dw CeruleanCityText_RP_Script2 ; 19
+	dw CeruleanCityText_RP_Script3 ; 20
 
 CeruleanCityText1:
 	text_asm
@@ -392,7 +521,6 @@ CeruleanCityText5:
 	text_far _CeruleanCityText5
 	text_end
 
-CeruleanCityText11:
 CeruleanCityText6:
 	text_far _CeruleanCityText6
 	text_end
@@ -558,9 +686,7 @@ TextPostBattle_CeruleanTraveler:
 	ld hl, Text_WhatWasThat_CeruleanTraveler
 	call PrintText
 	; script handling
-	xor a
-	ld [wCeruleanCityCurScript], a ; city-specific
-	ld [wCurMapScript], a
+	call CeruleanCityResetScripts ; edited
 	jp TextScriptEnd
 
 ; --------------------------------
@@ -569,10 +695,7 @@ CeruleanScript_Traveler:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr nz, .notDefeated
-	xor a
-	ld [wCeruleanCityCurScript], a ; city-specific
-	ld [wCurMapScript], a
-	ret
+	jp CeruleanCityResetScripts ; edited
 .notDefeated
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
@@ -580,7 +703,7 @@ CeruleanScript_Traveler:
     ld a, HS_CERULEAN_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, $13 ; city-specific
+	ld a, 18 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo
@@ -626,3 +749,40 @@ Text_WhatWasThat_CeruleanTraveler:
 	text_end
 
 ; ================================
+
+CeruleanCityText6_RP_Jenny:
+	text_asm
+	CheckEvent EVENT_RP_DEFEAT_JENNY_CERULEAN
+	jr z, .preBattle
+	ld hl, CeruleanCityText_RP_JennyAfterBattle
+	jr .printAndEnd
+.preBattle
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld a, 7
+	ld [wCeruleanCityCurScript], a
+	ld hl, CeruleanCityText_RP_Script1
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CeruleanCityText_RP_Script1:
+	text_far _CeruleanCityText_RP_Script1
+	text_end
+
+CeruleanCityText_RP_Script2:
+	text_far _CeruleanCityText_RP_Script2
+	text_end
+
+CeruleanCityText_RP_Script3:
+	text_far _CeruleanCityText_RP_Script3
+	text_end
+
+CeruleanCityText_RP_JennyAfterBattle:
+	text_far _CeruleanCityText_RP_JennyAfterBattle
+	text_end
+
+CeruleanCityText_AfterFightJenny:
+	text_far _CeruleanCityText_AfterFightJenny
+	text_end

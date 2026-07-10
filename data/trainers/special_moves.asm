@@ -5840,6 +5840,22 @@ SpecialTrainerMoves:
 
 ; ===============================================================
 
+	db JENNY, 1
+	; PARAS
+	db 1, 1, STICKY_WEB
+	db 1, 2, SPORE
+	db 1, 3, LEECH_LIFE
+	db 1, 4, MEGA_DRAIN
+	db $FE
+
+	db JENNY, 2
+	; PARAS
+	db 1, 1, STICKY_WEB
+	db 1, 2, LEECH_LIFE
+	db 1, 3, MEGA_DRAIN
+	db 1, 4, SPORE
+	db $FE
+
 ; ===============================================================
 
 ; ===============================================================

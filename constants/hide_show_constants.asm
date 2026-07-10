@@ -15,9 +15,7 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_CITY_TRAVELER        ; new
 	const HS_CERULEAN_RIVAL                ; 06
 	const HS_CERULEAN_ROCKET               ; 07
-	const HS_CERULEAN_GUARD_1              ; 08
 	const HS_CERULEAN_CAVE_GUY             ; 09
-	const HS_CERULEAN_GUARD_2              ; 0A
 	const HS_CERULEAN_CITY_TRAVELER        ; new
 	const HS_VERMILION_MACHOKE             ; new
 	const HS_VERMILION_MACHAMP             ; new

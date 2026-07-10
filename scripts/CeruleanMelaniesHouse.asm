@@ -20,8 +20,8 @@ CeruleanMelaniesHouse_TextPointers:
 	dw CeruleanHouse1Text10
 	dw CeruleanHouse1Text11
 	; trashed
-	dw CeruleanHouseTrashedText1
-	dw CeruleanHouseTrashedText2
+	dw CeruleanHouseTrashedText1 ; old
+	dw CeruleanHouseTrashedText2 ; young
 	; signs
 	dw CeruleanHouse1Sign1
 	dw CeruleanHouse1Sign2
@@ -44,8 +44,8 @@ CeruleanMelaniesHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; trashed
-	dw GenericNPCText_RocketPath ; TBE
-	dw GenericNPCText_RocketPath ; TBE
+	dw CeruleanHouseTrashedText1_RP ; old
+	dw CeruleanHouseTrashedText2_RP ; young
 	; signs
 	dw CeruleanHouse1Sign1
 	dw CeruleanHouse1Sign2
@@ -269,4 +269,12 @@ CeruleanHouseTrashedText2:
 
 CeruleanHouseTrashedText3:
 	text_far _CeruleanHouseTrashedText3
+	text_end
+
+CeruleanHouseTrashedText1_RP: ; new for RP
+	text_far _CeruleanHouseTrashedText1_RP
+	text_end
+
+CeruleanHouseTrashedText2_RP: ; new for RP
+	text_far _CeruleanHouseTrashedText2_RP
 	text_end

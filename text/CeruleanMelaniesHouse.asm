@@ -230,3 +230,26 @@ _CeruleanHousesMelanieText_RP_BeatMelanie::
 	line "don't take it..."
 ;	xxxx "123456789012345678"
 	prompt
+
+_CeruleanHouseTrashedText1_RP::
+	text "TEAM ROCKET! Are"
+	line "you the one who"
+	cont "stole my TM?!"
+
+	para "...umph. It doesn't"
+	line "matter... I don't"
+	cont "have the strength"
+	cont "to fight you"
+	cont "anyhow..."
+
+	para "May you be damned!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanHouseTrashedText2_RP::
+	text "A ROCKET?! Again?!"
+
+	para "Why did the police"
+	line "let you in?!"
+;	xxxx "123456789012345678"
+	done
