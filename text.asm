@@ -23,12 +23,12 @@ INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/SilphCo2F.asm"
 INCLUDE "text/SilphCo3F.asm"
 INCLUDE "text/SilphCo4F.asm"
-INCLUDE "text/SilphCo5F.asm"
-INCLUDE "text/SilphCo6F.asm"
 
 
 SECTION "Text 2", ROMX
 INCLUDE "text/ChampionsRoom.asm"
+INCLUDE "text/SilphCo6F.asm"
+INCLUDE "text/SilphCo5F.asm"
 
 
 SECTION "Text 3", ROMX
@@ -264,7 +264,6 @@ INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/CeruleanMelaniesHouse.asm"
-INCLUDE "text/Route9.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -288,6 +287,7 @@ INCLUDE "text/Route19.asm"
 INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
+INCLUDE "text/Route9.asm"
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones

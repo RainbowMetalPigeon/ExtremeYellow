@@ -62,7 +62,7 @@ PokemonTower5F_TextPointers:
 	dw PokemonTower5Text7
 
 PokemonTower5F_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; non-trainer, TBE?
+	dw PokemonTower5Text1_RP ; non-trainer
 	dw PokemonTower5Text2
 	dw PokemonTower5Text3
 	dw PokemonTower5Text4
@@ -83,6 +83,10 @@ PokemonTower5TrainerHeader3:
 
 PokemonTower5Text1:
 	text_far _PokemonTower5Text1
+	text_end
+
+PokemonTower5Text1_RP: ; new for RP
+	text_far _PokemonTower5Text1_RP
 	text_end
 
 PokemonTower5Text2:

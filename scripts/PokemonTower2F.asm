@@ -21,6 +21,8 @@ IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	ret nz ; new for RP
 	CheckEvent EVENT_BEAT_POKEMON_TOWER_RIVAL
 	ret nz
 	ld hl, CoordsData_6055e
@@ -157,7 +159,6 @@ PokemonTower2Text1:
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-
 	ld a, $1
 	ld [wCurMapScript], a
 .asm_41852

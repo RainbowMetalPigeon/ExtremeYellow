@@ -12,6 +12,25 @@ _PokemonTower2Text_60c24::
 	line "the afterlife!"
 	done
 
+_PokemonTower2Text_60c24_RP:: ; new for RP
+	text "Being defeated"
+	line "again by the same"
+	cont "people that"
+	cont "killed her and"
+	cont "hunted her kid"
+	cont "tainted her"
+	cont "spirit with dark"
+	cont "fury and thirst"
+	cont "for vengeange."
+
+	para "The soul, unable"
+	line "to ever find"
+	cont "peace, got dragged"
+	cont "down to the depths"
+	cont "of Hell."
+;	xxxx "123456789012345678"
+	done
+
 _PokemonTower6BattleText1::
 	text "Give...me..."
 	line "blood..."

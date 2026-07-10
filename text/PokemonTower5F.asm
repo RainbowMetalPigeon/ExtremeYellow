@@ -6,6 +6,14 @@ _PokemonTower5Text1::
 	para "You can rest here!"
 	done
 
+_PokemonTower5Text1_RP:: ; new for RP
+	text "Bleah. My white"
+	line "magic will never"
+	cont "serve the forces"
+	cont "of evil!"
+;	xxxx "123456789012345678"
+	done
+
 _PokemonTower5BattleText1::
 	text "Give...me..."
 	line "your...soul..."

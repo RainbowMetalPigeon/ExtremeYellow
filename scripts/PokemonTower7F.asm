@@ -154,6 +154,7 @@ PokemonTower7Script7:
 	ld hl, PokemonTower7JessieJamesEndBattleText
 	ld de, PokemonTower7JessieJamesEndBattleText
 	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES ; for RP
 	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
 	ld a, 3 ; edited
@@ -262,14 +263,18 @@ PokemonTower7F_TextPointers:
 	dw PokemonTower7Text2
 	dw PokemonTower7Text3
 	; scripts
-	dw PokemonTower7Text4
-	dw PokemonTower7Text5
-	dw PokemonTower7Text6
+	dw PokemonTower7Text4 ; stop right there + bubble
+	dw PokemonTower7Text5 ; old geezer not happy with methods
+	dw PokemonTower7Text6 ; ciao
 
 PokemonTower7F_TextPointers_Rocket:
-	dw PokemonTower7Text1 ; Jessie TBE
-	dw PokemonTower7Text2 ; James TBE
-	dw PokemonTower7Text3 ; Fuji TBE
+	dw PokemonTower7Text1 ; Jessie (useless)
+	dw PokemonTower7Text2 ; James (useless)
+	dw PokemonTower7Text3_RP ; Fuji TBE
+	; scripts
+	dw PokemonTower7Text4_RP ; stop right there + bubble
+	dw PokemonTower7Text5_RP ; old geezer not happy with methods
+	dw PokemonTower7Text6_RP ; ciao
 
 PokemonTower7Text1:
 PokemonTower7Text2:
@@ -318,13 +323,59 @@ PokemonTower7Text3:
 	ld a, HS_SAFFRON_CITY_E
 	ld [wMissableObjectIndex], a
 	predef HideObject
-;	ld a, HS_SAFFRON_CITY_F			; does not exist?
-;	ld [wMissableObjectIndex], a	; does not exist?
-;	predef ShowObject				; does not exist?
 	ld a, $b
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 PokemonTower7Text_60f75:
 	text_far _TowerRescueFujiText
+	text_end
+
+; new for RP ====================================
+
+PokemonTower7Text4_RP:
+	text_far _PokemonTowerJessieJamesText1_RP
+	text_asm
+	ld c, 10
+	call DelayFrames
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+	ld a, $0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ld c, 20
+	call DelayFrames
+	jp TextScriptEnd
+
+PokemonTower7Text5_RP:
+	text_far _PokemonTowerJessieJamesText2_RP
+	text_end
+
+PokemonTower7Text6_RP:
+	text_far _PokemonTowerJessieJamesText4_RP
+	text_asm
+	ld c, 64
+	call DelayFrames
+	jp TextScriptEnd
+
+PokemonTower7Text3_RP:
+	text_asm
+	CheckEvent EVENT_RP_REACHED_MX_FUJI
+	ld hl, PokemonTower7Text3_RP_After
+	jr nz, .printAndEnd
+; first time
+	SetEvent EVENT_RP_REACHED_MX_FUJI
+	ld hl, PokemonTower7Text3_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PokemonTower7Text3_RP_Before:
+	text_far _PokemonTower7Text3_RP_Before
+	text_end
+
+PokemonTower7Text3_RP_After:
+	text_far _PokemonTower7Text3_RP_After
 	text_end

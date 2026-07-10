@@ -100,8 +100,8 @@ PokemonTower6F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	; scripts
-	dw PokemonTower6Text6
-	dw PokemonTower6Text7
+	dw PokemonTower6Text6 ; be gone
+	dw PokemonTower6Text7 ; the ghost was - was calmed
 	dw PokemonTower6FTextAgathaPostBattle ; 9, new, map-dependent
 
 PokemonTower6F_TextPointers_Rocket:
@@ -111,6 +111,9 @@ PokemonTower6F_TextPointers_Rocket:
 	dw PokemonTower6Text3
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
+	dw PokemonTower6Text6 ; be gone
+	dw PokemonTower6Text7_RP
 
 PokemonTower6TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Agatha
@@ -153,12 +156,29 @@ PokemonTower6Text7:
 	call PrintText
 	jp TextScriptEnd
 
+PokemonTower6Text7_RP: ; new for RP
+	text_asm
+	ld hl, PokemonTower2Text_60c1f
+	call PrintText
+	ld a, RESTLESS_SOUL
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 30
+	call DelayFrames
+	ld hl, PokemonTower2Text_60c24_RP
+	call PrintText
+	jp TextScriptEnd
+
 PokemonTower2Text_60c1f:
 	text_far _PokemonTower2Text_60c1f
 	text_end
 
 PokemonTower2Text_60c24:
 	text_far _PokemonTower2Text_60c24
+	text_end
+
+PokemonTower2Text_60c24_RP: ; new
+	text_far _PokemonTower2Text_60c24_RP
 	text_end
 
 PokemonTower6BattleText1:

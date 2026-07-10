@@ -216,6 +216,9 @@ Route24Text1: ; edited
 	ld [wWalkBikeSurfState], a ; change player state to walking
 	call PlayDefaultMusic ; play walking music
 .notOnBike
+	ld a, HS_POKEMON_TOWER_2F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
 ; TBE: fade out, event music?
 
 	ld hl, Route24Text_GreatWelcome

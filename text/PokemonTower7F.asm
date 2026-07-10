@@ -50,3 +50,44 @@ _TowerRescueFujiText::
 	cont "HOUSE at the foot"
 	cont "of this tower."
 	done
+
+; new for RP ===============================
+
+_PokemonTowerJessieJamesText1_RP::
+	text "You again?!@"
+	text_end
+
+_PokemonTowerJessieJamesText2_RP::
+	text "Why did the BOSS"
+	line "send YOU here?!"
+	cont "Do they not trust"
+	cont "us? Do they think"
+	cont "higher of you"
+	cont "than of us?!"
+
+	para "You! We don't trust"
+	line "you one bit!"
+	cont "And now that we're"
+	cont "alone: prepare"
+	cont "for troubles!"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTowerJessieJamesText4_RP::
+	text "You may have won"
+	line "again, but we'll"
+	cont "find out what is"
+	cont "that you're"
+	cont "scheming!@"
+;	xxxx "123456789012345678"
+	text_end
+
+_PokemonTower7Text3_RP_Before::
+	text "poor you"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTower7Text3_RP_After::
+	text "oh no"
+;	xxxx "123456789012345678"
+	done
