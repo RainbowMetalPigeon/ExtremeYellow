@@ -139,9 +139,9 @@ GameCorner_TextPointers:
 	dw CeladonGameCornerText13 ; now it's 14=$e
 
 GameCorner_TextPointers_Rocket:
-	dw CeladonGameCornerText1 ; TBE
-	dw CeladonGameCornerText2 ; TBE
-	dw CeladonGameCornerText2Bis ; TBE
+	dw CeladonGameCornerText1_RP
+	dw CeladonGameCornerText2
+	dw CeladonGameCornerText2Bis
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -150,7 +150,7 @@ GameCorner_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw CeladonGameCornerText11 ; Rocket TBE
+	dw CeladonGameCornerText11_RP ; Rocket
 	; signs
 	dw CeladonGameCornerText12
 
@@ -236,12 +236,10 @@ CeladonGameCornerText2Bis: ; new
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refusedCoins
-;	ld b, COIN_CASE
-;	call IsItemInBag
 	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .noCoinCase
 .wantsToBuyMoreCoins ; new, from Vortiene
-	call Has9990Coins ; TBE?
+	call Has9990Coins
 	jr nc, .coinCaseFull
 	xor a
 	ldh [hMoney], a
@@ -489,8 +487,6 @@ CeladonGameCornerText10:
 	jr nz, .asm_48e75
 	ld hl, CeladonGameCornerText_48e88
 	call PrintText
-;	ld b, COIN_CASE
-;	call IsItemInBag
 	CheckEvent EVENT_GOT_COIN_CASE ; edited
 	jr z, .asm_48e7f
 	call Has9990Coins
@@ -576,15 +572,7 @@ CeladonGameCornerText12:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, CeladonGameCornerText_SwitchBehindPoster
 	call PrintText
-	call WaitForSoundToFinish
-	ld a, SFX_GO_INSIDE
-	call PlaySound
-	call WaitForSoundToFinish
-	SetEvent EVENT_FOUND_ROCKET_HIDEOUT
-	ld a, $43
-	ld [wNewTileBlockID], a
-	lb bc, 2, 8
-	predef ReplaceTileBlock
+	call OpenSecretDoor ; edited
 	jp TextScriptEnd
 
 CeladonGameCornerText_SwitchBehindPoster:
@@ -651,3 +639,77 @@ Has9990Coins:
 	ld a, $90
 	ldh [hCoins + 1], a
 	jp HasEnoughCoins
+
+; new for RP ------------------------------
+
+CeladonGameCornerText11_RP:
+	text_asm
+	CheckEvent EVENT_ROCKET_DROPPED_LIFT_KEY ; abused
+	jr z, .giveKey
+; already have key
+	CheckEvent EVENT_RP_SPOKEN_WITH_GAME_CORNER_GIOVANNI
+	ld hl, CeladonGameCornerText_TheBossIsGreat
+	jr nz, .printAndEnd
+	ld hl, CeladonGameCornerText_GoToTheBoss
+	jr .printAndEnd
+.giveKey
+	ld hl, CeladonGameCornerText_HiNewbie
+	call PrintText
+	lb bc, LIFT_KEY, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_ROCKET_DROPPED_LIFT_KEY
+	ld hl, CeladonGameCornerText_ReceivedLiftKey
+	call PrintText
+	ld hl, CeladonGameCornerText_GoToTheBoss
+	call PrintText
+	call WaitForTextScrollButtonPress
+	call OpenSecretDoor
+	ld hl, CeladonGameCornerText_OpenDoorForYou
+	call PrintText
+	jp TextScriptEnd
+.bagFull
+	ld hl, CeladonGameCornerText_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CeladonGameCornerText1_RP:
+	text_far _CeladonGameCornerText1_RP
+	text_end
+
+OpenSecretDoor:
+	call WaitForSoundToFinish
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+	call WaitForSoundToFinish
+	SetEvent EVENT_FOUND_ROCKET_HIDEOUT
+	ld a, $43
+	ld [wNewTileBlockID], a
+	lb bc, 2, 8
+	predef_jump ReplaceTileBlock
+
+CeladonGameCornerText_HiNewbie:
+	text_far _CeladonGameCornerText_HiNewbie
+	text_end
+
+CeladonGameCornerText_GoToTheBoss:
+	text_far _CeladonGameCornerText_GoToTheBoss
+	text_end
+
+CeladonGameCornerText_TheBossIsGreat:
+	text_far _CeladonGameCornerText_TheBossIsGreat
+	text_end
+
+CeladonGameCornerText_BagFull:
+	text_far _CeladonGameCornerText_BagFull
+	text_end
+
+CeladonGameCornerText_OpenDoorForYou:
+	text_far _CeladonGameCornerText_OpenDoorForYou
+	text_end
+
+CeladonGameCornerText_ReceivedLiftKey:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
+	text_end

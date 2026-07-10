@@ -416,7 +416,7 @@ DebugItemsList:
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db REVIVE, 99
-	db LIFT_KEY, 1
+;	db LIFT_KEY, 1
 ;	db GOLD_TEETH, 1
 ;	db SILPH_SCOPE, 1
 ;	db ICE_ORB, 1

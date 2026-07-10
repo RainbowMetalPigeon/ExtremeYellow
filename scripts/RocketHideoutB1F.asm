@@ -1,6 +1,6 @@
 RocketHideoutB1F_Script:
 	RPTextChooser RocketHideoutB1F_TextPointers, RocketHideoutB1F_TextPointers_Rocket
-	call RocketHideout1Script_44be0
+	call RocketHideout1Script_OpenOrCloseLiftDoor
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout1TrainerHeaders
 	ld de, RocketHideoutB1F_ScriptPointers
@@ -9,26 +9,25 @@ RocketHideoutB1F_Script:
 	ld [wCurMapScript], a ; edited
 	ret
 
-RocketHideout1Script_44be0:
+RocketHideout1Script_OpenOrCloseLiftDoor:
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEvent EVENT_677 ; never set???
-	jr nz, .asm_44c01
-	CheckEvent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI	; new, testing
-	jr nz, .asm_44c01								; new, testing
+	CheckEvent EVENT_ROCKET_PATH ; edited
+	jr nz, .freeBlock
+	CheckEvent EVENT_BEAT_ROCKET_HIDEOUT_GIOVANNI	; new
+	jr nz, .freeBlock								; new
 	CheckEventReuseA EVENT_BEAT_ROCKET_HIDEOUT_1_TRAINER_4
-	jr nz, .asm_44bf7
-	ld a, $54
-	jr .asm_44c03
-.asm_44bf7
+	jr nz, .playSound
+	ld a, $54 ; 84, closed
+	jr .changeBlock
+.playSound
 	ld a, SFX_GO_INSIDE
 	call PlaySound
-	CheckEventHL EVENT_677 ; never set???
-.asm_44c01
-	ld a, $e
-.asm_44c03
+.freeBlock
+	ld a, $e ; free
+.changeBlock
 	ld [wNewTileBlockID], a
 	lb bc, 8, 12
 	predef_jump ReplaceTileBlock

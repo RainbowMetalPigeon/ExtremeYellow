@@ -202,3 +202,61 @@ _CeladonGameCornerText_SwitchBehindPoster::
 	line "the poster!?"
 	cont "Let's push it!@"
 	text_end
+
+; new for RP ------------------------------
+
+_CeladonGameCornerText1_RP::
+	text "Greetings, master."
+	line "As you are surely"
+	cont "aware, the BOSS"
+	cont "ordered that even"
+	cont "members need to"
+	cont "pay for prizes"
+	cont "and coins."
+
+	para "I wish you happy"
+	line "gambling!"
+;	xxxx "123456789012345678"
+	done
+
+_CeladonGameCornerText_HiNewbie::
+	text "Oh, you're the"
+	line "newbie they told"
+	cont "me about!"
+
+	para "Welcome onboard!"
+	line "I know you must"
+	cont "meet the BOSS."
+
+	para "Here, have this,"
+	line "you'll need it."
+;	xxxx "123456789012345678"
+	prompt
+
+_CeladonGameCornerText_GoToTheBoss::
+	text "Don't waste time!"
+	line "Go to the BOSS."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonGameCornerText_TheBossIsGreat::
+	text "How did it go,"
+	line "newbie? The BOSS's"
+	cont "amazing, yeah?!"
+;	xxxx "123456789012345678"
+	done
+
+_CeladonGameCornerText_BagFull::
+	text "Your bag is full."
+	line "Quick, throw away"
+	cont "some garbage."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonGameCornerText_OpenDoorForYou::
+	text "I opened all the"
+	line "doors. You can go"
+	cont "straight to B4F."
+;	xxxx "123456789012345678"
+	done
+
