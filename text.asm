@@ -140,7 +140,6 @@ INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's so
 
 
 SECTION "Text 8", ROMX
-INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/CeruleanCity.asm"
 INCLUDE "text/LavenderTown.asm"
 INCLUDE "text/VermilionCity.asm"
@@ -183,6 +182,7 @@ INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
+INCLUDE "text/ViridianCity.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones

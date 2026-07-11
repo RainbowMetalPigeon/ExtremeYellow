@@ -49,7 +49,7 @@ CeladonCityScript2:
 
 CeladonCity_TextPointers:
 	dw CeladonCityText1
-	dw CeladonCityText2
+	dw CeladonCityText2 ; Uni guard
 	dw CeladonCityText3
 	dw CeladonCityText4
 	dw CeladonCityText5
@@ -86,7 +86,7 @@ CeladonCity_TextPointers:
 
 CeladonCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw CeladonCityText2_RP ; Uni guard
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -94,8 +94,8 @@ CeladonCity_TextPointers_Rocket:
 	dw CeladonCityText7 ; monster
 	dw RocketNPCText_RocketPath ; Rocket
 	dw RocketNPCText_RocketPath ; Rocket
-	dw CeladonCityText10New ; Rocket guards TBE
-	dw CeladonCityText11New ; Rocket guards TBE
+	dw CeladonCityText10New_RP ; Rocket guards
+	dw CeladonCityText11New_RP ; Rocket guards
 	dw TextPreBattle_CeladonTraveler ; new, for traveler
 	dw PickUpItemText ; new, Rare Candy for Lunar Shrine teasing
 	; signs
@@ -119,6 +119,14 @@ CeladonCityText10New:
 
 CeladonCityText11New:
 	text_far _CeladonCityText11New
+	text_end
+
+CeladonCityText10New_RP: ; new for RP
+	text_far _CeladonCityText10New_RP
+	text_end
+
+CeladonCityText11New_RP: ; new for RP
+	text_far _CeladonCityText11New_RP
 	text_end
 
 CeladonCityText1:
@@ -444,3 +452,16 @@ Text_WhatWasThat_CeladonTraveler:
 	text_end
 
 ; ================================
+
+CeladonCityText2_RP:
+	text_asm
+	ld hl, CeladonCityText2_RP_Beating
+	call PrintText
+; script handling
+	ld a, 2
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+CeladonCityText2_RP_Beating:
+	text_far _CeladonCityText2_RP_Beating
+	text_end
