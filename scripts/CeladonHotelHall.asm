@@ -37,7 +37,7 @@ CeladonHotelHall_TextPointers_Rocket:
 	dw CeladonHotelHallText2 ; trainer
 	dw CeladonHotelHallText3 ; trainer
 	dw CeladonHotelHallText4 ; trainer
-	dw GenericNPCText_RocketPath ; boss TBE?
+	dw CeladonHotelHallText5_RP ; boss
 	; signs hotel
 	dw CeladonHotelHallSign1
 	dw CeladonHotelHallSign2
@@ -244,4 +244,8 @@ CeladonHotelHallSign7:
 
 CeladonHotelHallSign8:
 	text_far _CeladonHotelHallSign8
+	text_end
+
+CeladonHotelHallText5_RP: ; new for RP
+	text_far _CeladonHotelHallText5_RP
 	text_end

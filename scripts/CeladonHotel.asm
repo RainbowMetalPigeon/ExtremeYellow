@@ -3,18 +3,18 @@ CeladonHotel_Script:
 	jp EnableAutoTextBoxDrawing
 
 CeladonHotel_TextPointers:
-	dw CeladonHotelText1
+	dw CeladonHotelText1 ; owner
 	dw CeladonHotelText2
 	dw CeladonHotelText3
 	dw CeladonHotelText4 ; new, blocking guard
 	dw CeladonHotelText5 ; new, allowing guard
 
 CeladonHotel_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE?
+	dw CeladonHotelText1_RP ; owner
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw CeladonHotelText4_RP ; new, blocking guard
+	dw CeladonHotelText5_RP ; new, allowing guard
 
 CeladonHotelText1: ; edited
 	text_asm
@@ -139,3 +139,41 @@ CeladonHotelText4: ; new
 CeladonHotelText5: ; new
 	text_far _CeladonHotelText5
 	text_end
+
+; new for RP =============================================
+
+CeladonHotelText1_RP: ; edited
+	text_asm
+	CheckEvent EVENT_CELADON_HOTEL_PAID_ROOM ; abused
+	ld hl, CeladonHotelText1_RP_WhatElse
+	jp nz, .printAndEnd
+; extort the room
+	SetEvent EVENT_CELADON_HOTEL_PAID_ROOM
+	ld a, HS_CELADON_HOTEL_GUARD_BLOCKING
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_CELADON_HOTEL_GUARD_ALLOWING
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld hl, CeladonHotelText1_RP_DemandRoom
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+CeladonHotelText1_RP_WhatElse:
+	text_far _CeladonHotelText1_RP_WhatElse
+	text_end
+
+CeladonHotelText1_RP_DemandRoom:
+	text_far _CeladonHotelText1_RP_DemandRoom
+	text_end
+
+CeladonHotelText4_RP:
+	text_far _CeladonHotelText4_RP
+	text_end
+	
+CeladonHotelText5_RP:
+	text_far _CeladonHotelText5_RP
+	text_end
+	

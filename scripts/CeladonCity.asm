@@ -96,7 +96,7 @@ CeladonCity_TextPointers_Rocket:
 	dw RocketNPCText_RocketPath ; Rocket
 	dw CeladonCityText10New_RP ; Rocket guards
 	dw CeladonCityText11New_RP ; Rocket guards
-	dw TextPreBattle_CeladonTraveler ; new, for traveler
+	dw TextPreBattle_CeladonTraveler ; TBE, for traveler
 	dw PickUpItemText ; new, Rare Candy for Lunar Shrine teasing
 	; signs
 	dw CeladonCityText10

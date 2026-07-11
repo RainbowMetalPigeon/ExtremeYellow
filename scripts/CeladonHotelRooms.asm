@@ -144,7 +144,7 @@ CeladonHotelRooms_TextPointers:
 	dw CeladonHotelRoomsSign8
 
 CeladonHotelRooms_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; Looker (Bellocchio) TBE?
+	dw CeladonHotelRoomsText1_RP ; Looker (Bellocchio)
 	dw GenericNPCText_RocketPath ; Traveler (not yet used)
 	dw CeladonHotelRoomsText3 ; Trophy 1
 	dw CeladonHotelRoomsText4 ; Trophy 2
@@ -226,4 +226,10 @@ CeladonHotelRoomsSign7:
 
 CeladonHotelRoomsSign8:
 	text_far _CeladonHotelRoomsSign8
+	text_end
+
+; new for RP -----------------
+
+CeladonHotelRoomsText1_RP:
+	text_far _CeladonHotelRoomsText1_RP
 	text_end
