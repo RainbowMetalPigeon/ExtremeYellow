@@ -120,3 +120,51 @@ _CeladonMansion3Text8::
 	text "GAME FREAK"
 	line "Development Room"
 	done
+
+_ProgrammerText_RP::
+	text "What...?"
+
+	para "I don't recall"
+	line "having programmed"
+	cont "anything like you."
+;	xxxx "123456789012345678"
+	done
+
+_GraphicArtistText_RP::
+	text "What...?"
+
+	para "I never drew an"
+	line "abomination like"
+	cont "you!"
+;	xxxx "123456789012345678"
+	done
+
+_WriterText_RP::
+	text "What...?"
+
+	para "Who even wrote"
+	line "your story?"
+	cont "What problems do"
+	cont "they have?!"
+;	xxxx "123456789012345678"
+	done
+
+_DirectorText_RP::
+	text "What...?"
+
+	para "Who even designed"
+	line "these mechanics?"
+	cont "They're sick!"
+
+	para "Kicking birbs,"
+	line "stealing #MON,"
+	cont "extorting..."
+;	xxxx "123456789012345678"
+	done
+
+/*
+_XXX_RP::
+	text ""
+;	xxxx "123456789012345678"
+	done
+*/

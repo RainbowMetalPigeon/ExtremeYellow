@@ -84,14 +84,14 @@ CeladonMansion2F_TextPointers:
 
 CeladonMansion2F_TextPointers_Rocket: ; TBE?
 	; NPCs
-	dw GenericNPCText_RocketPath ; PIGEON
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw CeladonMansion2Text1 ; PIGEON
+	dw CeladonMansion2Text2
+	dw CeladonMansion2Text3
+	dw CeladonMansion2Text4
+	dw CeladonMansion2Text5
+	dw CeladonMansion2Text6
+	dw CeladonMansion2Text7
+	dw CeladonMansion2Text8
 	; signs
 	dw CeladonMansion2TextSign1
 	dw CeladonMansion2TextSign2

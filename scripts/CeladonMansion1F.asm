@@ -26,10 +26,10 @@ CeladonMansion1F_TextPointers_Rocket:
 	dw CeladonMansion1Text3 ; mon
 	dw CeladonMansion1Text4 ; mon
 	; 3F
-	dw GenericNPCText_RocketPath ; programmers TBE
-	dw GenericNPCText_RocketPath ; programmers TBE
-	dw GenericNPCText_RocketPath ; programmers TBE
-	dw GenericNPCText_RocketPath ; programmers TBE
+	dw ProgrammerText_RP ; programmers
+	dw GraphicArtistText_RP ; programmers
+	dw WriterText_RP ; programmers
+	dw DirectorText_RP ; programmers
 	; signs
 	dw CeladonMansion1Text5
 	dw GameFreakPCText1
@@ -237,4 +237,22 @@ GameFreakPCText3:
 
 GameFreakSignText:
 	text_far _CeladonMansion3Text8
+	text_end
+
+; new for RP ---------------------
+
+ProgrammerText_RP:
+	text_far _ProgrammerText_RP
+	text_end
+
+GraphicArtistText_RP:
+	text_far _GraphicArtistText_RP
+	text_end
+
+WriterText_RP:
+	text_far _WriterText_RP
+	text_end
+
+DirectorText_RP:
+	text_far _DirectorText_RP
 	text_end

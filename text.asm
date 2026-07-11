@@ -119,7 +119,6 @@ INCLUDE "text/CeladonMansionRoof.asm"
 INCLUDE "text/CeladonMansionRoofHouse.asm"
 INCLUDE "text/CeladonPokecenter.asm"
 INCLUDE "text/CeladonGym.asm"
-INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text 7", ROMX
@@ -137,6 +136,7 @@ INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "data/text/text_7.asm"
 INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
+INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text 8", ROMX
