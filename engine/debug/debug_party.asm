@@ -418,7 +418,6 @@ DebugItemsList:
 	db REVIVE, 99
 ;	db LIFT_KEY, 1
 ;	db GOLD_TEETH, 1
-;	db SILPH_SCOPE, 1
 ;	db ICE_ORB, 1
 ;	db THUNDER_ORB, 1
 ;	db FIRE_ORB, 1
@@ -454,6 +453,7 @@ DebugItemsList:
 ;	db MAX_ELIXER, 7
 	db PP_UP, 7
 	db BICYCLE, 1
+	db SILPH_SCOPE, 1
 	db -1 ; end
 
 ELSE

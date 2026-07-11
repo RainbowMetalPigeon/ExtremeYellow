@@ -23,11 +23,11 @@ _PokemonTower2Text_60c24_RP:: ; new for RP
 	cont "fury and thirst"
 	cont "for vengeange."
 
-	para "The soul, unable"
-	line "to ever find"
-	cont "peace, got dragged"
-	cont "down to the depths"
-	cont "of Hell."
+	para "The soul, doomed"
+	line "to never find"
+	cont "peace, got"
+	cont "dragged down to"
+	cont "depths of Hell."
 ;	xxxx "123456789012345678"
 	done
 

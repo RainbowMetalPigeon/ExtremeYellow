@@ -132,7 +132,7 @@ PokemonTower2F_TextPointers:
 	dw PokemonTower2FSignText1 ; new
 
 PokemonTower2F_TextPointers_Rocket:
-	dw PokemonTower2Text1 ; Blue TBE
+	dw PokemonTower2Text1 ; Blue (useless)
 	dw GenericNPCText_RocketPath ; Channeler
 	; signs
 	dw PokemonTower2FSignText1

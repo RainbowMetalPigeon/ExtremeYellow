@@ -82,12 +82,67 @@ _PokemonTowerJessieJamesText4_RP::
 ;	xxxx "123456789012345678"
 	text_end
 
-_PokemonTower7Text3_RP_Before::
-	text "poor you"
+_PokemonTower7Text3_RP_After::
+	text "MX.FUJI: If you"
+	line "didn't disgust me,"
+	cont "I'd feel pity for"
+	cont "your soul."
+
+	para "What did you see"
+	line "in TEAM ROCKET?"
+
+	para "...yet, who am I"
+	line "to speak? I, too,"
+	cont "was lured in by"
+	cont "that GIOVANNI..."
 ;	xxxx "123456789012345678"
 	done
 
-_PokemonTower7Text3_RP_After::
-	text "oh no"
+_PokemonTower7Text3_RP_Before::
+	text "MX.FUJI: Was that"
+	line "an inside fight?"
+	cont "What side are yo-"
+	
+	para "AAARGH! Why?!"
+	line "What did I do to"
+	cont "you?! Aaahhh!"
+
+	para "You sicko... You"
+	line "make those two"
+	cont "look like angels"
+	cont "by comparison!"
+	cont "But if you think"
+	cont "violence will be"
+	cont "enough to make m-"
+	
+	para "Wha-what did you"
+	line "just say?"
+	cont "The volunteers?!"
+	cont "NO! Leave them"
+	cont "out of this!"
+	cont "They've nothing to"
+	cont "do with my past!"
+
+	para "If... if it comes"
+	line "down to this,"
+	cont "I can do nothing"
+	cont "but fight to"
+	cont "defend them!"
 ;	xxxx "123456789012345678"
 	done
+
+_PokemonTower7Text7_RP::
+	text "...FINE! You won,"
+	line "you disgusting"
+	cont "monster. Go tell"
+	cont "your BOSS that I"
+	cont "surrender."
+	cont "I'll help them."
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTower7FujiEndBattleText::
+	text "I am"
+	line "powerless..."
+;	xxxx "123456789012345678"
+	prompt
