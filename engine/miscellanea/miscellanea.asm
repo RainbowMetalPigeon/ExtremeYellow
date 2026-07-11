@@ -2032,6 +2032,7 @@ DisplayPokemartDialogue_Far::
 	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_6
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
+	SetEvent EVENT_REACHED_FORBIDDEN_MERCHANT
 	ld hl, ForbiddenMerchantGreetingText
 	jr .noSpecialMerchant
 .sevii

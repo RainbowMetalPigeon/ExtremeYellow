@@ -12,15 +12,19 @@ CeruleanCaveExtraFinal_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText ; 10
-;	dw BoulderText
 	dw RockSmashText
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
-	dw CeruleanCaveExtraFinalSign ; 15
+	dw CeruleanCaveExtraFinalSign1 ; 15
+	dw CeruleanCaveExtraFinalSign2 ; 16
 
-CeruleanCaveExtraFinalSign:
-	text_far _CeruleanCaveExtraFinalSign
+CeruleanCaveExtraFinalSign1:
+	text_far _CeruleanCaveExtraFinalSign1
+	text_end
+
+CeruleanCaveExtraFinalSign2:
+	text_far _CeruleanCaveExtraFinalSign2
 	text_end
 
 CeruleanCaveExtraFinalTextSeller:

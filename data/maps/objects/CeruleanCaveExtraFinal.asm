@@ -4,10 +4,11 @@ CeruleanCaveExtraFinal_Object:
 	def_warp_events
 	warp_event 28, 59, CERULEAN_CAVE_EXTRA_MIDDLE, 2
 	warp_event 29, 59, CERULEAN_CAVE_EXTRA_MIDDLE, 3
-;	warp_event 2, 2, CERULEAN_CAVE_EXTRA_FINAL, 3 ; testing
+	warp_event 0, 3, CERULEAN_CITY, 7
 
 	def_bg_events
 	bg_event  3,  0, 15 ; sign
+	bg_event  0,  2, 16 ; sign
 
 	def_object_events
 	object_event  2,  0, SPRITE_GRANNY, STAY, DOWN, 1 ; person
