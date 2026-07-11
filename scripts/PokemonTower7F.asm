@@ -270,7 +270,7 @@ PokemonTower7F_TextPointers:
 PokemonTower7F_TextPointers_Rocket:
 	dw PokemonTower7Text1 ; Jessie (useless)
 	dw PokemonTower7Text2 ; James (useless)
-	dw PokemonTower7Text3_RP ; Fuji TBE
+	dw PokemonTower7Text3_RP ; Fuji
 	; scripts
 	dw PokemonTower7Text4_RP ; stop right there + bubble
 	dw PokemonTower7Text5_RP ; old geezer not happy with methods

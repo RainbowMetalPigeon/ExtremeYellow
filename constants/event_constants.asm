@@ -1275,6 +1275,8 @@
 	const EVENT_RP_RECEIVED_SILPH_SCOPE ; new
 	const EVENT_RP_BEAT_ROCKET_HIDEOUT_4_RIVAL ; new
 	const EVENT_RP_CONVINCED_MX_FUJI ; new
+	const EVENT_RP_SPOKEN_WITH_GIOVANNI_POST_FUJI ; new
+	const EVENT_RP_RECEIVED_SEVII_TICKET_1_3 ; new
 
 ; Indigo Plateau events
 	const_next $8E0

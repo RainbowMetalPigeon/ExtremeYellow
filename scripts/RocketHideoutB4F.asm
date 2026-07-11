@@ -499,6 +499,33 @@ RocketHideoutRockets:
 
 RocketHideout4Text0_RP:
 	text_asm
+
+	CheckEvent EVENT_RP_RECEIVED_SEVII_TICKET_1_3
+	ld hl, RocketHideout4Text0_RP_GoToSeviiSummary
+	jr nz, .printAndEnd
+; we don't have the ticket; did we try to get it but bag was full?
+	CheckEvent EVENT_RP_SPOKEN_WITH_GIOVANNI_POST_FUJI
+	jr nz, .giveSeviiTicket13
+	CheckEvent EVENT_RP_CONVINCED_MX_FUJI
+	jr z, .checkSilphScope
+; first time we report after convincing Fuji
+	SetEvent EVENT_RP_SPOKEN_WITH_GIOVANNI_POST_FUJI
+	ld hl, RocketHideout4Text0_RP_WellDoneWithFuji
+	call PrintText
+.giveSeviiTicket13
+	ld hl, RocketHideout4Text0_RP_TakeTicket
+	call PrintText
+	lb bc, SEVII_TICKET, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually getting the Ticket
+	SetEvent EVENT_RP_RECEIVED_SEVII_TICKET_1_3
+	ld hl, RocketHideout4Text0_RP_GotItem
+	call PrintText
+	ld hl, RocketHideout4Text0_RP_GoToSevii
+	jr .printAndEnd
+
+.checkSilphScope
 	CheckEvent EVENT_RP_RECEIVED_SILPH_SCOPE
 	ld hl, RocketHideout4Text0_RP_GoToTowerSummary
 	jr nz, .printAndEnd
@@ -517,16 +544,31 @@ RocketHideout4Text0_RP:
 	jr nc, .bagFull
 ; actually getting the Scope
 	SetEvent EVENT_RP_RECEIVED_SILPH_SCOPE
-	ld hl, RocketHideout4Text0_RP_GotScope
+	ld hl, RocketHideout4Text0_RP_GotItem
 	call PrintText
 	ld hl, RocketHideout4Text0_RP_GoToTower
-	call PrintText
-	jp TextScriptEnd
+	jr .printAndEnd
 .bagFull
 	ld hl, RocketHideout4Text0_RP_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
+
+RocketHideout4Text0_RP_GoToSevii:
+	text_far _RocketHideout4Text0_RP_GoToSevii
+	text_end
+
+RocketHideout4Text0_RP_WellDoneWithFuji:
+	text_far _RocketHideout4Text0_RP_WellDoneWithFuji
+	text_end
+
+RocketHideout4Text0_RP_TakeTicket:
+	text_far _RocketHideout4Text0_RP_TakeTicket
+	text_end
+
+RocketHideout4Text0_RP_GoToSeviiSummary:
+	text_far _RocketHideout4Text0_RP_GoToSeviiSummary
+	text_end
 
 RocketHideout4Text0_RP_GoToTowerSummary:
 	text_far _RocketHideout4Text0_RP_GoToTowerSummary
@@ -544,7 +586,7 @@ RocketHideout4Text0_RP_BagFull:
 	text_far _RocketHideout4Text0_RP_BagFull
 	text_end
 
-RocketHideout4Text0_RP_GotScope:
+RocketHideout4Text0_RP_GotItem:
 	text_far _ReceivedHM01Text
 	sound_get_key_item
 	text_end

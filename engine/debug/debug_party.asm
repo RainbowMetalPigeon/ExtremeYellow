@@ -364,6 +364,8 @@ IF DEF(_DEBUG)
 	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
 	SetEvent EVENT_GOT_HM01
 
+	SetEvent EVENT_RP_CONVINCED_MX_FUJI
+
 	ret
 
 DebugSetPokedexEntries:
@@ -442,7 +444,6 @@ DebugItemsList:
 ;	db TOPAZ, 1
 ;	db TIGERS_EYE, 1
 	db S_S_TICKET, 1
-	db SEVII_TICKET, 1
 ;	db PEARL, 7
 ;	db ROOM_KEY_34, 1
 ;	db ROOM_KEY_37, 1
@@ -454,6 +455,7 @@ DebugItemsList:
 	db PP_UP, 7
 	db BICYCLE, 1
 	db SILPH_SCOPE, 1
+;	db SEVII_TICKET, 1
 	db -1 ; end
 
 ELSE

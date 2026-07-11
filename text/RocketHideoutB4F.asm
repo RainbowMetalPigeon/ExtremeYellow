@@ -199,6 +199,8 @@ _RocketHideout4Text0_RP_GoToTowerSummary::
 	cont "king and help us"
 	cont "rescuing that"
 	cont "failed project."
+
+	para "Now go. Hurry."
 ;	xxxx "123456789012345678"
 	done
 
@@ -261,5 +263,88 @@ _RocketHideout4Text16::
 	para "I'll be back, and"
 	line "I'll put you out"
 	cont "of your misery!"
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_WellDoneWithFuji::
+	text "GIOVANNI: How did"
+	line "it go with FUJI?"
+
+	para "...Oh, I see!"
+	line "Well done!"
+
+	para "You exorcised that"
+	line "annoying ghost"
+	cont "and you brought"
+	cont "that even more"
+	cont "annoying FUJI to"
+	cont "better reason."
+	cont "A job well done!"
+
+	para "I'm starting to"
+	line "take a liking to"
+	cont "you, <PLAYER>."
+	cont "Don't disappoint"
+	cont "me during your"
+	cont "next quest." 
+;	xxxx "123456789012345678"
+	prompt
+	
+_RocketHideout4Text0_RP_TakeTicket::
+	text "Take this, you'll"
+	line "need it for your"
+	cont "next assignment."
+;	xxxx "123456789012345678"
+	prompt
+
+_RocketHideout4Text0_RP_GoToSevii::
+	text "GIOVANNI: There's a"
+	line "person in KNOT"
+	cont "ISLAND, CELIO,"
+	cont "that I want to"
+	cont "use for the good"
+	cont "of TEAM ROCKET."
+
+	para "It seems like they"
+	line "need a bit of"
+	cont "convincing."
+	cont "Unfortunately,"
+	cont "the negotations"
+	cont "aren't proceeding"
+	cont "as planned."
+
+	para "I already sent a"
+	line "trusted member"
+	cont "there, but I want"
+	cont "you to join and"
+	cont "work with them."
+
+	para "Push what needs to"
+	line "be pushed. I know"
+	cont "you'll find the"
+	cont "right way."
+
+	para "When you're done,"
+	line "come reporting to"
+	cont "me at SILPH CO."
+;	xxxx "123456789012345678"
+	done
+	
+_RocketHideout4Text0_RP_GoToSeviiSummary::
+	text "GIOVANNI: Go to"
+	line "KNOT ISLAND and"
+	cont "convince CELIO"
+	cont "to work for us."
+
+	para "You'll act with a"
+	line "senior. I'm sure"
+	cont "you'll find a way"
+	cont "to solve this."
+
+	para "When you're done,"
+	line "come reporting to"
+	cont "me at SILPH CO."
+
+	para "Now go. Hurry."
 ;	xxxx "123456789012345678"
 	done
