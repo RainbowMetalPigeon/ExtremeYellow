@@ -315,7 +315,6 @@ _SeviiOnlyOneIslandText::
 
 	para "You're most"
 	line "welcome on board."
-;	xxxx "123456789012345678"
 
 	para "Unfortunately, the"
 	line "ferry is low on"
@@ -351,7 +350,7 @@ _SSAnneWelcomeEnjoyFreelyText::
 _VermilionSailorRegisterSeviiTravelerText::
 	text "Great! Let me"
 	line "take your TICKET"
-	line "and register you"
+	cont "and register you"
 	cont "as an allowed"
 	cont "traveler."
 ;	xxxx "123456789012345678"
@@ -424,5 +423,36 @@ _VermilionCityText4_RP::
 	text "There's nothing"
 	line "here for the"
 	cont "likes of you."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOnlyOneIslandText_RP::
+	text "Oh. You have a"
+	line "SEVII TICKET."
+
+	para "The ferry's low on"
+	line "fuel, so right"
+	cont "now we can only"
+	cont "reach ONE ISLAND."
+
+	para "Still want to go?"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionSailorLetsGoText_RP::
+	text "Let's go then."
+;	xxxx "123456789012345678"
+	done
+
+_VermilionSailorRegisterSeviiTravelerText_RP::
+	text "I'll take your"
+	line "TICKET and regis-"
+	cont "ter you as an al-"
+	cont "lowed traveler."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiWhichDestinationText_RP::
+	text "Where?"
 ;	xxxx "123456789012345678"
 	done

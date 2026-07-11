@@ -429,6 +429,7 @@ VermilionCityTextAnneReturned: ; new
 
 VermilionCityText3: ; edited
 	text_asm
+
 ; post-League: SS returned
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 	jr z, .beforePostLeague
@@ -440,6 +441,7 @@ VermilionCityText3: ; edited
 	and a
 	ld hl, SSAnneWelcomeEnjoyFreelyText
 	jp nz, .printAndEnd
+
 ; we want to travel to the Sevii
 	jr .normalSeviiDestinations
 ; SS Anne has not returned yet
@@ -452,25 +454,43 @@ VermilionCityText3: ; edited
 	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jp z, .noSeviiTicket
 ; we have the Sevii Ticket, propose special first trip to Sevii
+	
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, SeviiOnlyOneIslandText_RP
+	jr nz, .printRPText1
 	ld hl, SeviiOnlyOneIslandText
+.printRPText1
 	call PrintText
+
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .exit
+	jp nz, .exit
 ; traveling to One Island
 	SetEvent EVENT_TRAVELED_TO_SEVII_AT_LEAST_ONCE
 	ld a, SEVII_TICKET
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
+	
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VermilionSailorRegisterSeviiTravelerText_RP
+	jr nz, .printRPText2
 	ld hl, VermilionSailorRegisterSeviiTravelerText
+.printRPText2
 	call PrintText
+
 	ld a, FERRY_SEVII_ONE
 	jr .destinationChosen
 ; print the list of destinations
 .normalSeviiDestinations
+	
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, SeviiWhichDestinationText_RP
+	jr nz, .printRPText3
 	ld hl, SeviiWhichDestinationText
+.printRPText3
 	call PrintText
+
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wListScrollOffset], a
@@ -499,22 +519,31 @@ VermilionCityText3: ; edited
 	ld a, [wcf91]
 .destinationChosen
 	ld [wUniQuizAnswer], a
+
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VermilionSailorLetsGoText_RP
+	jr nz, .printRPText4
 	ld hl, VermilionSailorLetsGoText
+.printRPText4
 	call PrintText
+
 	SetEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY
 	ld a, 6 ; VermilionCityScript6
 	ld [wVermilionCityCurScript], a
 	jp .end
+
 ; we canceled with B
 .exit
 	xor a
 	ld [wListScrollOffset], a
 	ld hl, VermilionSailorCanceledText
 	jr .printAndEnd
+
 ; has the SS already departed?
 .noSeviiTicket
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .shipHasDeparted
+
 ; SS anne not departed
 ; new RP
 	CheckEvent EVENT_ROCKET_PATH
@@ -843,7 +872,7 @@ Text_WhatWasThat_VermilionTraveler:
 	text_far _TextTraveler_WhatWasThat
 	text_end
 
-; ================================
+; new for RP ================================
 
 VermilionCityText_AfterFightJenny:
 	text_far _VermilionCityText_AfterFightJenny
@@ -902,4 +931,20 @@ TryToGiveSquirtle:
 
 VermilionCityText4_RP:
 	text_far _VermilionCityText4_RP
+	text_end
+
+SeviiOnlyOneIslandText_RP:
+	text_far _SeviiOnlyOneIslandText_RP
+	text_end
+
+VermilionSailorLetsGoText_RP:
+	text_far _VermilionSailorLetsGoText_RP
+	text_end
+
+VermilionSailorRegisterSeviiTravelerText_RP:
+	text_far _VermilionSailorRegisterSeviiTravelerText_RP
+	text_end
+
+SeviiWhichDestinationText_RP:
+	text_far _SeviiWhichDestinationText_RP
 	text_end

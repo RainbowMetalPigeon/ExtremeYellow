@@ -455,7 +455,7 @@ DebugItemsList:
 	db PP_UP, 7
 	db BICYCLE, 1
 	db SILPH_SCOPE, 1
-;	db SEVII_TICKET, 1
+	db SEVII_TICKET, 1
 	db -1 ; end
 
 ELSE
