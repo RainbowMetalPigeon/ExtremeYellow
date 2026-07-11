@@ -32,7 +32,7 @@ LakeOfMist_TextPointers:
 	dw LakeOfMistSignText1
 
 LakeOfMist_TextPointers_Rocket:
-	dw LakeOfMistText1 ; TBE
+	dw LakeOfMistText1_RP
 	; trainers
 	dw LakeOfMistTrainerText1
 	dw LakeOfMistTrainerText2
@@ -68,7 +68,7 @@ LakeOfMistSignText1:
 ; ---------------------------------------------------
 
 LakeOfMistTrainerHeaders:
-	def_trainers 2 ; TBE
+	def_trainers 2
 LakeOfMistTrainerHeader0:
 	trainer EVENT_BEAT_LAKE_OF_MIST_TRAINER_0, 1, LakeOfMistBattleText1, LakeOfMistEndBattleText1, LakeOfMistAfterBattleText1
 LakeOfMistTrainerHeader1:
@@ -230,3 +230,33 @@ LakeOfMistText1_ReceiveForlornCoordinates:
 LakeOfMistText1_PostForlornCoordinates:
 	text_far _LakeOfMistText1_PostForlornCoordinates
 	text_end
+
+; new for RP --------------------------
+
+LakeOfMistText1_RP:
+	text_asm
+; already done here?
+	CheckEvent EVENT_LAKE_OF_MIST_GAVE_FLAME_PLUME ; abused
+	ld hl, LakeOfMistText1_RP_PostCoordinates
+	jp nz, .printAndEnd
+; extort the item
+	ld hl, LakeOfMistText1_RP_PreCoordinates
+	call PrintText
+	SetEvent EVENT_LAKE_OF_MIST_GAVE_FLAME_PLUME
+	ld c, 15
+	ld b, FLAG_SET
+	ld hl, wTownVisitedFlag ; mark Forlorn Valley as visited (for flying)
+	predef FlagActionPredef
+	ld hl, LakeOfMistText1_ReceiveForlornCoordinates
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+LakeOfMistText1_RP_PreCoordinates:
+	text_far _LakeOfMistText1_RP_PreCoordinates
+	text_end
+
+LakeOfMistText1_RP_PostCoordinates:
+	text_far _LakeOfMistText1_RP_PostCoordinates
+	text_end
+	

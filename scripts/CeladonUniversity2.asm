@@ -723,12 +723,12 @@ CeladonUniversity2Text8_RP:
 	call PrintText
 	jp TextScriptEnd
 
-CeladonUniversity2Text8_RP_PostOrb:
-	text_far _CeladonUniversity2Text8_RP_PostOrb
-	text_end
-	
 CeladonUniversity2Text8_RP_PreOrb:
 	text_far _CeladonUniversity2Text8_RP_PreOrb
+	text_end
+
+CeladonUniversity2Text8_RP_PostOrb:
+	text_far _CeladonUniversity2Text8_RP_PostOrb
 	text_end
 
 CeladonUniversity2Text8_RP_BagFull:
