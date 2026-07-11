@@ -220,8 +220,8 @@ CeladonMartRoof_TextPointers:
 	dw CeladonMartRoofText6
 
 CeladonMartRoof_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
-	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath
+	dw CeladonMartRoofText2_RP
 	; signs
 	dw CeladonMartRoofText5
 	dw CeladonMartRoofText5
@@ -267,4 +267,75 @@ CeladonMartRoofText5:
 
 CeladonMartRoofText6:
 	text_far _CeladonMartRoofText6
+	text_end
+
+; new for RP -----------------------------------
+
+CeladonMartRoofText2_RP:
+	text_asm
+
+	CheckEvent EVENT_RP_GOT_ALL_ROOF_TMS
+	ld hl, CeladonMartRoofText2_RP_AllTaken
+	jr nz, .printAndEnd
+
+; we didn't steal everything, check one by one
+
+	ld hl, CeladonMartRoofText2_RP_Intro
+	call PrintText
+
+; check TM 13
+	CheckEvent EVENT_GOT_TM13
+	jr nz, .checkTM48
+	lb bc, TM_ICE_BEAM, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, CeladonMartRoofText2_RP_GotItem
+	call PrintText
+	SetEvent EVENT_GOT_TM13
+
+.checkTM48
+	CheckEvent EVENT_GOT_TM48
+	jr nz, .checkTM49
+	lb bc, TM_ROCK_SLIDE, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, CeladonMartRoofText2_RP_GotItem
+	call PrintText
+	SetEvent EVENT_GOT_TM48
+
+.checkTM49
+	lb bc, TM_SHADOW_BALL, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, CeladonMartRoofText2_RP_GotItem
+	call PrintText
+	SetEvent EVENT_GOT_TM48
+	SetEvent EVENT_RP_GOT_ALL_ROOF_TMS
+	jr .done
+
+.bagFull
+	ld hl, CeladonMartRoofText2_RP_BagFull
+
+.printAndEnd
+	call PrintText
+
+.done
+	jp TextScriptEnd
+
+
+CeladonMartRoofText2_RP_Intro:
+	text_far _CeladonMartRoofText2_RP_Intro
+	text_end
+
+CeladonMartRoofText2_RP_GotItem:
+	text_far _ReceivedHM01Text
+	sound_get_item_1
+	text_end
+
+CeladonMartRoofText2_RP_AllTaken:
+	text_far _CeladonMartRoofText2_RP_AllTaken
+	text_end
+
+CeladonMartRoofText2_RP_BagFull:
+	text_far _CeladonMartRoofText2_RP_BagFull
 	text_end

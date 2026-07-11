@@ -161,10 +161,3 @@ _DirectorText_RP::
 	cont "extorting..."
 ;	xxxx "123456789012345678"
 	done
-
-/*
-_XXX_RP::
-	text ""
-;	xxxx "123456789012345678"
-	done
-*/
