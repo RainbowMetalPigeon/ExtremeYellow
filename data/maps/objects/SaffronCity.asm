@@ -27,19 +27,19 @@ SaffronCity_Object:
 	bg_event 29, 21, 25 ; SaffronCityText26
 
 	def_object_events
-	object_event  7,  6, SPRITE_ROCKET, STAY, NONE, 1 ; person
-	object_event 20,  8, SPRITE_ROCKET, WALK, LEFT_RIGHT, 2 ; person
-	object_event 29, 30, SPRITE_ROCKET, STAY, NONE, 3 ; person, edited, blocks Mx Psychic's house rather than the gym
-	object_event 13, 12, SPRITE_ROCKET, STAY, NONE, 4 ; person
-	object_event  7, 22, SPRITE_ROCKET, STAY, DOWN, 5 ; edited
+	object_event  7,  6, SPRITE_ROCKET, STAY, NONE, 1 ; blocking
+	object_event 20,  8, SPRITE_ROCKET, WALK, LEFT_RIGHT, 2
+	object_event 29, 30, SPRITE_ROCKET, STAY, NONE, 3 ; blocking, edited, blocks Mx Psychic's house rather than the gym
+	object_event 13, 12, SPRITE_ROCKET, STAY, NONE, 4 ; blocking
+	object_event  7, 22, SPRITE_ROCKET, STAY, DOWN, 5 ; blocking
 	object_event 32, 13, SPRITE_TRAVELER, STAY, ANY_DIR, 6 ; new, traveler
-	object_event 18, 30, SPRITE_ROCKET, WALK, LEFT_RIGHT, 7 ; person
-	object_event  8, 14, SPRITE_SCIENTIST, WALK, ANY_DIR, 8 ; person
-	object_event 23, 23, SPRITE_SILPH_WORKER, STAY, NONE, 9 ; person
-	object_event 17, 30, SPRITE_ERIKA, WALK, LEFT_RIGHT, 10 ; person
-	object_event 30, 12, SPRITE_GENTLEMAN, STAY, DOWN, 11 ; person
-	object_event 31, 12, SPRITE_BIRD, STAY, DOWN, 12 ; person
-	object_event 18,  8, SPRITE_ERIKA, STAY, UP, 13 ; person ; was SPRITE_ROCKER
-	object_event 18, 22, SPRITE_ROCKET, STAY, DOWN, 14 ; person
+	object_event 18, 30, SPRITE_ROCKET, WALK, LEFT_RIGHT, 7
+	object_event  8, 14, SPRITE_SCIENTIST, WALK, ANY_DIR, 8
+	object_event 23, 23, SPRITE_SILPH_WORKER, STAY, NONE, 9
+	object_event 17, 30, SPRITE_ERIKA, WALK, LEFT_RIGHT, 10
+	object_event 30, 12, SPRITE_GENTLEMAN, STAY, DOWN, 11
+	object_event 31, 12, SPRITE_BIRD, STAY, DOWN, 12
+	object_event 18,  8, SPRITE_ERIKA, STAY, UP, 13 ; was SPRITE_ROCKER
+	object_event 18, 22, SPRITE_ROCKET, STAY, DOWN, 14 ; blocking Silph
 
 	def_warps_to SAFFRON_CITY

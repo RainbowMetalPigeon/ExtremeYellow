@@ -231,3 +231,27 @@ _SaffronClimbClubText5::
 	para "Uh? Resting is"
 	line "important too!"
 	done
+
+; new for RP -----------------
+
+_SaffronCityText_BlockingRocket_RP::
+	text "Oh, the rookie."
+	line "Yeah, sorry, no"
+	cont "access till the"
+	cont "BOSS says so."
+
+	para "Gotta prove"
+	line "yourself!"
+;	xxxx "123456789012345678"
+	done
+
+_SaffronCityText_BlockingSilph_RP::
+	text "Newcomer, know"
+	line "that the BOSS has"
+	cont "plans for the"
+	cont "SILPH CO.."
+
+	para "But you're too"
+	line "green for that!"
+;	xxxx "123456789012345678"
+	done

@@ -502,7 +502,7 @@ RocketHideout4Text0_RP:
 
 	CheckEvent EVENT_RP_RECEIVED_SEVII_TICKET_1_3
 	ld hl, RocketHideout4Text0_RP_GoToSeviiSummary
-	jr nz, .printAndEnd
+	jp nz, .printAndEnd
 ; we don't have the ticket; did we try to get it but bag was full?
 	CheckEvent EVENT_RP_SPOKEN_WITH_GIOVANNI_POST_FUJI
 	jr nz, .giveSeviiTicket13
@@ -518,7 +518,15 @@ RocketHideout4Text0_RP:
 	lb bc, SEVII_TICKET, 1
 	call GiveItem
 	jr nc, .bagFull
-; actually getting the Ticket
+; actually getting the Ticket and remove some Rockets from Saffron
+	ld a, HS_SAFFRON_CITY_1
+	call RocketHideout4Script_HideObject
+	ld a, HS_SAFFRON_CITY_3
+	call RocketHideout4Script_HideObject
+	ld a, HS_SAFFRON_CITY_4
+	call RocketHideout4Script_HideObject
+	ld a, HS_SAFFRON_CITY_5
+	call RocketHideout4Script_HideObject
 	SetEvent EVENT_RP_RECEIVED_SEVII_TICKET_1_3
 	ld hl, RocketHideout4Text0_RP_GotItem
 	call PrintText

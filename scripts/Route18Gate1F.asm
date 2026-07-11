@@ -14,7 +14,7 @@ Route18Gate1F_ScriptPointers:
 	dw Route18GateScript3
 
 Route18GateScript0:
-	call Route16GateScript_49755
+	call Route16GateScript_CheckIfHaveBike
 	ret nz
 	ld hl, CoordsData_498cc
 	call ArePlayerCoordsInArray
@@ -103,7 +103,7 @@ Route18Gate1F_TextPointers_Rocket:
 
 Route18GateText1:
 	text_asm
-	call Route16GateScript_49755
+	call Route16GateScript_CheckIfHaveBike
 	jr z, .asm_3c84d
 	ld hl, Route18GateText_4992d
 	call PrintText

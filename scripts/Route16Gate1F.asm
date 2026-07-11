@@ -14,7 +14,7 @@ Route16Gate1F_ScriptPointers:
 	dw Route16GateScript3
 
 Route16GateScript0:
-	call Route16GateScript_49755
+	call Route16GateScript_CheckIfHaveBike
 	ret nz
 	ld hl, CoordsData_49714
 	call ArePlayerCoordsInArray
@@ -83,7 +83,7 @@ Route16GateScript3:
 	ld [wCurMapScript], a ; edited
 	ret
 
-Route16GateScript_49755:
+Route16GateScript_CheckIfHaveBike:
 	ld b, BICYCLE
 	jp IsItemInBag
 
@@ -111,7 +111,7 @@ Route16Gate1F_TextPointers_Rocket:
 
 Route16GateText1:
 	text_asm
-	call Route16GateScript_49755
+	call Route16GateScript_CheckIfHaveBike
 	jr z, .asm_0bdf3
 	ld hl, Route16GateText_4977c
 	call PrintText

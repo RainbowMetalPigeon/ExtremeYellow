@@ -46,20 +46,20 @@ SaffronCity_TextPointers:
 	dw TextPostBattle_SaffronTraveler ; new, for traveler
 
 SaffronCity_TextPointers_Rocket:
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
 	dw RocketNPCText_RocketPath
-	dw RocketNPCText_RocketPath
-	dw RocketNPCText_RocketPath
-	dw RocketNPCText_RocketPath
-	dw RocketNPCText_RocketPath
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
 	dw TextPreBattle_SaffronTraveler ; TBE
-	dw GenericNPCText_RocketPath
+	dw RocketNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw SaffronCityText12 ; Mon
 	dw GenericNPCText_RocketPath
-	dw RocketNPCText_RocketPath
+	dw SaffronCityText_BlockingSilph_RP ; blocking Silph
 	; signs
 	dw SaffronCityText16
 	dw SaffronCityText17
@@ -295,4 +295,12 @@ Text_WhatWasThat_SaffronTraveler:
 	text_far _TextTraveler_WhatWasThat
 	text_end
 
-; ================================
+; new for RP ================================
+
+SaffronCityText_BlockingRocket_RP:
+	text_far _SaffronCityText_BlockingRocket_RP
+	text_end
+
+SaffronCityText_BlockingSilph_RP:
+	text_far _SaffronCityText_BlockingSilph_RP
+	text_end
