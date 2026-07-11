@@ -416,7 +416,8 @@ _CeladonUniversity2SignBook12::
 
 _CeladonUniversity2SignBook13::
     text "GEOLOGICAL HISTORY"
-    line "OF KANTO"
+    line "OF KANTO AND"
+    cont "SEVII ISLANDS"
     done
 
 _CeladonUniversity2SignBook14::
@@ -585,7 +586,7 @@ _CeladonUniversity2SignBook38::
     done
 
 _CeladonUniversity2SignBook39::
-    text "#MON FROM SPACE"
+    text "SPACE #MON:"
     line "FROM MYTHS TO THE"
     cont "SCIENTIFIC"
     cont "ANALYSIS"
@@ -614,9 +615,9 @@ _CeladonUniversity2SignBook43::
     done
 
 _CeladonUniversity2SignBook44::
-    text "COULD WILD #MON"
-    line "EVOLVE WITHOUT"
-    cont "LEVELING UP?"
+    text "#MON WITH"
+    line "ANOMALOUS TYPES:"
+    cont "MYTH OR TRUTH?"
     done
 
 _CeladonUniversity2SignBook45::
@@ -684,3 +685,31 @@ _CeladonUniversity2SignMagnaPC::
     cont "anyone following"
     cont "remotely!"
     done
+
+; new for RP -----------------
+
+_CeladonUniversity2Text8_RP_PreOrb::
+    text "I'm working on my"
+    line "PhD thes-"
+
+    para "Uh? Are you from"
+    line "TEAM ROCKET? Why"
+    cont "are you even he-"
+
+    para "ARGH! Stop!"
+    line "Help! Help! Aaah!"
+    
+    para "Wh-why is nobody"
+    line "helping me...?"
+
+    para "Here! Take this"
+    line "and leave me"
+    cont "alone!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CeladonUniversity2Text8_RP_PostOrb::
+	text "Stop!!! What else"
+    line "do you want?!"
+;	xxxx "123456789012345678"
+	done

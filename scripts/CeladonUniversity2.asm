@@ -242,7 +242,7 @@ CeladonUniversity2_TextPointers_Rocket:
 	; library & study room
 	dw GenericNPCText_RocketPath ; researcher
 	dw GenericNPCText_RocketPath ; student
-	dw CeladonUniversity2Text8_Rocket ; student, Lapras one TBE
+	dw CeladonUniversity2Text8_RP ; student, Lapras one
 	dw GenericNPCText_RocketPath ; student
 	dw GenericNPCText_RocketPath ; student
 	dw GenericNPCText_RocketPath ; student
@@ -348,7 +348,6 @@ CeladonUniversity2Text7:
 
 ; ------------------------
 
-CeladonUniversity2Text8_Rocket: ; TBE
 CeladonUniversity2Text8:
 	text_asm
 	CheckEvent EVENT_ALREADY_SPOKEN_WITH_CELADON_PHD
@@ -698,4 +697,45 @@ CeladonUniversity2SignWhiteboard:
 
 CeladonUniversity2SignMagnaPC:
 	text_far _CeladonUniversity2SignMagnaPC
+	text_end
+
+; new for RP -----------------------------
+
+CeladonUniversity2Text8_RP:
+	text_asm
+; already done here?
+	CheckEvent EVENT_ALREADY_REWARDED_ORB_CELADON_PHD ; abused
+	ld hl, CeladonUniversity2Text8_RP_PostOrb
+	jp nz, .printAndEnd
+; extort the item
+	ld hl, CeladonUniversity2Text8_RP_PreOrb
+	call PrintText
+	lb bc, ICE_ORB, 1
+	call GiveItem
+	jr nc, .bagFull
+; successfully stolen (bag not full)
+	SetEvent EVENT_ALREADY_REWARDED_ORB_CELADON_PHD
+	ld hl, CeladonUniversity2Text8_RP_GotItem
+	jr .printAndEnd
+.bagFull
+	ld hl, CeladonUniversity2Text8_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CeladonUniversity2Text8_RP_PostOrb:
+	text_far _CeladonUniversity2Text8_RP_PostOrb
+	text_end
+	
+CeladonUniversity2Text8_RP_PreOrb:
+	text_far _CeladonUniversity2Text8_RP_PreOrb
+	text_end
+
+CeladonUniversity2Text8_RP_BagFull:
+	text_far _CeladonMartRoofText2_RP_BagFull
+	text_end
+
+CeladonUniversity2Text8_RP_GotItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
 	text_end
