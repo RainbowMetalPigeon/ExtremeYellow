@@ -7,7 +7,7 @@ Route16FlyHouse_TextPointers:
 	dw Route16HouseText2 ; Mon
 
 Route16FlyHouse_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
+	dw Route16HouseText1_RP
 	dw Route16HouseText2 ; Mon
 
 Route16HouseText1: ; edited
@@ -83,4 +83,45 @@ Route16HouseText2:
 
 Route16HouseText_1e652:
 	text_far _Route16HouseText_1e652
+	text_end
+
+; new for RP --------------------
+
+Route16HouseText1_RP:
+	text_asm
+; already done here?
+	CheckEvent EVENT_GOT_HM02 ; abused
+	ld hl, Route16HouseText1_RP_PostFly
+	jp nz, .printAndEnd
+; extort the item
+	ld hl, Route16HouseText1_RP_PreFly
+	call PrintText
+	lb bc, HM_FLY, 1
+	call GiveItem
+	jr nc, .bagFull
+; successfully stolen (bag not full)
+	SetEvent EVENT_GOT_HM02
+	ld hl, Route16HouseText1_RP_GotItem
+	jr .printAndEnd
+.bagFull
+	ld hl, Route16HouseText1_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Route16HouseText1_RP_PostFly:
+	text_far _Route16HouseText1_RP_PostFly
+	text_end
+	
+Route16HouseText1_RP_PreFly:
+	text_far _Route16HouseText1_RP_PreFly
+	text_end
+
+Route16HouseText1_RP_BagFull:
+	text_far _CeladonMartRoofText2_RP_BagFull
+	text_end
+
+Route16HouseText1_RP_GotItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
 	text_end
