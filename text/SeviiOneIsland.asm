@@ -1215,3 +1215,12 @@ _SeviiRoute32DiveAfterBattleText3::
 	line "diving equipment?)"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===================================
+
+_SeviiOneIslandDockSailorText_NeedAMoment_RP::
+	text "We must refuel."
+	line "Can't leave now."
+;	xxxx "123456789012345678"
+	done
+

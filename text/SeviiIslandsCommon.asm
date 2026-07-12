@@ -123,3 +123,26 @@ _SeviiUndergroundScriptText2::
 	line "nearby!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===================================
+
+_SeviiIslandsDockSailorText_Intro_RP::
+	text "Where to?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiIslandsDockSailorText_LetsGo_RP::
+	text "Ok."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiIslandsDockSailorText_Canceled_RP::
+	text "Sure."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiIslandsDockSailorText_PleaseGetOnThePier_RP::
+	text "You can't board"
+	line "from there."
+;	xxxx "123456789012345678"
+	done

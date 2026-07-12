@@ -142,7 +142,7 @@ SeviiSevenIslandDock_TextPointers:
 	dw SeviiSevenIslandDockBgText3
 
 SeviiSevenIslandDock_TextPointers_Rocket:
-	dw SeviiSevenIslandDockSpriteText1 ; TBE
+	dw SeviiSevenIslandDockSpriteText1_RP
 	dw SeviiSevenIslandDockBgText1
 	dw SeviiSevenIslandDockBgText2
 	dw SeviiSevenIslandDockBgText3
@@ -221,7 +221,6 @@ SeviiSevenIslandDockSailorText_Canceled:
 
 ; ----------------------------------------------
 
-; TBE
 SeviiSevenIslandDockBgText2:
 SeviiSevenIslandDockBgText3:
 	text_asm
@@ -254,4 +253,67 @@ SeviiSevenIslandDockBgText1:
 
 SeviiSevenIslandDockSailorText_PleaseGetOnThePier:
 	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier
+	text_end
+
+; new for RP ===================================
+
+SeviiSevenIslandDockSpriteText1_RP:
+	text_asm
+; print intro
+	ld hl, SeviiSevenIslandDockSailorText_PleaseGetOnThePier_RP
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr nz, .printAndEnd
+; right direction
+	ld hl, SeviiSevenIslandDockSailorText_Intro_RP
+	call PrintText
+; print the list of destinations
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+	ld hl, FerryDesinationsList_SevenIsland_UpTo8
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .exit
+; we chose a destination
+	ld a, [wcf91]
+	ld [wUniQuizAnswer], a
+	ld hl, SeviiSevenIslandDockSailorText_LetsGo_RP
+	call PrintText
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; we canceled with B
+.exit
+	xor a
+	ld [wListScrollOffset], a
+	ld hl, SeviiSevenIslandDockSailorText_Canceled_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiSevenIslandDockSailorText_Intro_RP:
+	text_far _SeviiIslandsDockSailorText_Intro_RP
+	text_end
+
+SeviiSevenIslandDockSailorText_LetsGo_RP:
+	text_far _SeviiIslandsDockSailorText_LetsGo_RP
+	text_end
+
+SeviiSevenIslandDockSailorText_Canceled_RP:
+	text_far _SeviiIslandsDockSailorText_Canceled_RP
+	text_end
+
+SeviiSevenIslandDockSailorText_PleaseGetOnThePier_RP:
+	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier_RP
 	text_end

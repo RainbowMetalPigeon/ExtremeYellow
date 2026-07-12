@@ -147,7 +147,7 @@ SeviiOneIslandDock_TextPointers:
 	dw SeviiOneIslandDockBgText3
 
 SeviiOneIslandDock_TextPointers_Rocket:
-	dw SeviiOneIslandDockSpriteText1 ; TBE
+	dw SeviiOneIslandDockSpriteText1_RP
 	dw SeviiOneIslandDockBgText1
 	dw SeviiOneIslandDockBgText2
 	dw SeviiOneIslandDockBgText3
@@ -261,7 +261,6 @@ SeviiOneIslandDockSailorText_Canceled:
 
 ; ----------------------------------------------
 
-; TBE
 SeviiOneIslandDockBgText2:
 SeviiOneIslandDockBgText3:
 	text_asm
@@ -294,4 +293,84 @@ SeviiOneIslandDockBgText1:
 
 SeviiOneIslandDockSailorText_PleaseGetOnThePier:
 	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier
+	text_end
+
+; new for RP ===================================
+
+SeviiOneIslandDockSpriteText1_RP:
+	text_asm
+; disallow embarking if we didn't witness to the Celio-Jenny scene
+	CheckEvent EVENT_SEVII_ONE_ISLAND_CELIO_JENNY_DIALOGUE
+	jr nz, .normalDialogue
+	ld hl, SeviiOneIslandDockSailorText_NeedAMoment_RP
+	jr .printAndEnd
+.normalDialogue
+; print intro
+	ld hl, SeviiOneIslandDockSailorText_PleaseGetOnThePier_RP
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr nz, .printAndEnd
+; right direction
+	ld hl, SeviiOneIslandDockSailorText_Intro_RP
+	call PrintText
+; print the list of destinations
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, FerryDesinationsList_OneIsland_UpTo8
+	jr nz, .loadDestinations
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+	ld hl, FerryDesinationsList_OneIsland_UpTo5
+	jr nz, .loadDestinations
+	ld hl, FerryDesinationsList_OneIsland_UpTo3
+.loadDestinations
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .exit
+; we chose a destination
+	ld a, [wcf91]
+	ld [wUniQuizAnswer], a
+	ld hl, SeviiOneIslandDockSailorText_LetsGo_RP
+	call PrintText
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; we canceled with B
+.exit
+	xor a
+	ld [wListScrollOffset], a
+	ld hl, SeviiOneIslandDockSailorText_Canceled_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiOneIslandDockSailorText_NeedAMoment_RP:
+	text_far _SeviiOneIslandDockSailorText_NeedAMoment_RP
+	text_end
+
+SeviiOneIslandDockSailorText_Intro_RP:
+	text_far _SeviiIslandsDockSailorText_Intro_RP
+	text_end
+
+SeviiOneIslandDockSailorText_LetsGo_RP:
+	text_far _SeviiIslandsDockSailorText_LetsGo_RP
+	text_end
+
+SeviiOneIslandDockSailorText_Canceled_RP:
+	text_far _SeviiIslandsDockSailorText_Canceled_RP
+	text_end
+
+SeviiOneIslandDockSailorText_PleaseGetOnThePier_RP:
+	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier_RP
 	text_end

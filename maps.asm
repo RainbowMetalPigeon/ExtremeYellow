@@ -1572,16 +1572,6 @@ INCLUDE "scripts/SeviiRoute33.asm"
 INCLUDE "data/maps/objects/SeviiRoute33.asm"
 SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute34.asm"
-INCLUDE "scripts/SeviiRoute34.asm"
-INCLUDE "data/maps/objects/SeviiRoute34.asm"
-SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute35.asm"
-INCLUDE "scripts/SeviiRoute35.asm"
-INCLUDE "data/maps/objects/SeviiRoute35.asm"
-SeviiRoute35_Blocks: INCBIN "maps/SeviiRoute35.blk"
-
 
 SECTION "Maps Sevii 2", ROMX ; new
 
@@ -1814,6 +1804,16 @@ INCLUDE "data/maps/headers/SeviiRoute44.asm"
 INCLUDE "scripts/SeviiRoute44.asm"
 INCLUDE "data/maps/objects/SeviiRoute44.asm"
 SeviiRoute44_Blocks: INCBIN "maps/SeviiRoute44.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute35.asm"
+INCLUDE "scripts/SeviiRoute35.asm"
+INCLUDE "data/maps/objects/SeviiRoute35.asm"
+SeviiRoute35_Blocks: INCBIN "maps/SeviiRoute35.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute34.asm"
+INCLUDE "scripts/SeviiRoute34.asm"
+INCLUDE "data/maps/objects/SeviiRoute34.asm"
+SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
 
 
 SECTION "Maps Sevii 4", ROMX ; new

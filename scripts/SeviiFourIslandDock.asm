@@ -142,7 +142,7 @@ SeviiFourIslandDock_TextPointers:
 	dw SeviiFourIslandDockBgText3
 
 SeviiFourIslandDock_TextPointers_Rocket:
-	dw SeviiFourIslandDockSpriteText1 ; TBE
+	dw SeviiFourIslandDockSpriteText1_RP
 	dw SeviiFourIslandDockBgText1
 	dw SeviiFourIslandDockBgText2
 	dw SeviiFourIslandDockBgText3
@@ -235,7 +235,6 @@ SeviiFourIslandDockSailorText_Canceled:
 
 ; ----------------------------------------------
 
-; TBE
 SeviiFourIslandDockBgText2:
 SeviiFourIslandDockBgText3:
 	text_asm
@@ -268,4 +267,71 @@ SeviiFourIslandDockBgText1:
 
 SeviiFourIslandDockSailorText_PleaseGetOnThePier:
 	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier
+	text_end
+
+; new for RP ===================================
+
+SeviiFourIslandDockSpriteText1_RP:
+	text_asm
+; print intro
+	ld hl, SeviiFourIslandDockSailorText_PleaseGetOnThePier_RP
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr nz, .printAndEnd
+; right direction
+	ld hl, SeviiFourIslandDockSailorText_Intro_RP
+	call PrintText
+; print the list of destinations
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, FerryDesinationsList_FourIsland_UpTo8
+	jr nz, .loadDestinations
+	ld hl, FerryDesinationsList_FourIsland_UpTo5
+.loadDestinations
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .exit
+; we chose a destination
+	ld a, [wcf91]
+	ld [wUniQuizAnswer], a
+	ld hl, SeviiFourIslandDockSailorText_LetsGo_RP
+	call PrintText
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; we canceled with B
+.exit
+	xor a
+	ld [wListScrollOffset], a
+	ld hl, SeviiFourIslandDockSailorText_Canceled_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFourIslandDockSailorText_Intro_RP:
+	text_far _SeviiIslandsDockSailorText_Intro_RP
+	text_end
+
+SeviiFourIslandDockSailorText_LetsGo_RP:
+	text_far _SeviiIslandsDockSailorText_LetsGo_RP
+	text_end
+
+SeviiFourIslandDockSailorText_Canceled_RP:
+	text_far _SeviiIslandsDockSailorText_Canceled_RP
+	text_end
+
+SeviiFourIslandDockSailorText_PleaseGetOnThePier_RP:
+	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier_RP
 	text_end
