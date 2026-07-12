@@ -26,7 +26,7 @@ _PokemonTower2Text_60c24_RP:: ; new for RP
 	para "The soul, doomed"
 	line "to never find"
 	cont "peace, got"
-	cont "dragged down to"
+	cont "dragged to the"
 	cont "depths of Hell."
 ;	xxxx "123456789012345678"
 	done
