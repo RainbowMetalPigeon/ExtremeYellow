@@ -5856,6 +5856,14 @@ SpecialTrainerMoves:
 	db 1, 4, SPORE
 	db $FE
 
+	db JENNY, 3
+	; PARAS
+	db 1, 1, SLASH
+	db 1, 2, MEGA_DRAIN
+	db 1, 3, SPORE
+	db 1, 4, STICKY_WEB
+	db $FE
+
 ; ===============================================================
 
 ; ===============================================================

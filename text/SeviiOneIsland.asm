@@ -1224,3 +1224,44 @@ _SeviiOneIslandDockSailorText_NeedAMoment_RP::
 ;	xxxx "123456789012345678"
 	done
 
+; 18 ; Celio and Jenny
+_SeviiOneIslandCityScriptText1_RP::
+	text "JENNY and CELIO"
+;	xxxx "123456789012345678"
+	done
+
+; 19 ; Jenny sees you
+_SeviiOneIslandCityScriptText2_RP::
+	text "Oh a rocket!"
+;	xxxx "123456789012345678"
+	done
+
+; 20 ; Jenny challenges you
+_SeviiOneIslandCityScriptText3_RP::
+	text "I'll interrogate u"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandCityText_AfterFightJenny::
+	text "Damn!"
+	line "I lost!"
+;	xxxx "123456789012345678"
+	prompt
+
+; 21 ; Jenny defeated
+_SeviiOneIslandCityScriptText4_RP::
+	text "I need to report"
+;	xxxx "123456789012345678"
+	done
+
+; 22 ; Celio scared
+_SeviiOneIslandCityScriptText5_RP::
+	text "Oh no what now"
+;	xxxx "123456789012345678"
+	done
+
+; 23 ; Celio mega scared
+_SeviiOneIslandCityScriptText6_RP::
+	text "Scare scare scare"
+;	xxxx "123456789012345678"
+	done
