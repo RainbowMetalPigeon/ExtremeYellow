@@ -50,8 +50,8 @@ DEF SPECIAL_TCG EQU const_value
 	const TCG_GRASS        ; $06
 	const TCG_LIGHTNING    ; $07
 	const TCG_PSYCHIC      ; $08
-	const TCG_DRAGON       ; $0A
-	const TCG_DARK         ; $0B
-	const TCG_WATER2       ; $0D
+	const TCG_DRAGON       ; $09
+	const TCG_DARK         ; $0A
+	const TCG_WATER2       ; $0B
 
 DEF NUM_TYPES_TCG EQU const_value - PHYSICAL_TCG

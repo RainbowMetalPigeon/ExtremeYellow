@@ -140,12 +140,12 @@ TryingToLearn:
 	ldh [hUILayoutFlags], a
 	call PlaceString
 ; new, old-move info boxes borders
-	hlcoord 10, 0 ; 0, 3
-	lb bc, 3, 8
+	hlcoord 9, 0
+	lb bc, 3, 9
 	call TextBoxBorder ; draws a c×b text box at hl
 ; new, new-move info boxes borders
-	hlcoord 10, 4 ; 10, 3
-	lb bc, 3, 8
+	hlcoord 9, 4
+	lb bc, 3, 9
 	call TextBoxBorder ; draws a c×b text box at hl
 ; print info for new move
 	call PrintInfoNewMove
@@ -434,8 +434,8 @@ PrintInfoCurrentMove: ; new
 	ldh [hAutoBGTransferEnabled], a
 
 ; clear screen area of the old move before printing its info
-	hlcoord 11, 1 ; 1, 4
-	lb bc, 3, 8
+	hlcoord 10, 1
+	lb bc, 3, 9
 	call ClearScreenArea
 
 	ld hl, wPartyMon1Moves
@@ -454,21 +454,21 @@ PrintInfoCurrentMove: ; new
 	ld de, wPlayerMoveNum
 	callfar MoveInfoCopier ; new
 
-	hlcoord 11, 3 ; 1, 6
+	hlcoord 10, 3
 	ld de, PPText2
 	call PlaceString
 
-	hlcoord 18, 2 ; 8, 5
+	hlcoord 17, 2
 	ld [hl], "%"
 
-	hlcoord 13, 2 ; 3, 5
+	hlcoord 12, 2
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
 	ld a, [wPlayerMovePower]
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
-	hlcoord 11, 2 ; 1, 5
+	hlcoord 10, 2
 	ld de, wPlayerMovePower
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
@@ -480,7 +480,7 @@ PrintInfoCurrentMove: ; new
 	ld [hl], "?"
 .afterDamagePrinting
 
-	hlcoord 15, 2 ; 5, 5
+	hlcoord 14, 2
 	xor a
 	ld b, a
 	ld a, [wPlayerMoveAccuracy]
@@ -504,19 +504,19 @@ PrintInfoCurrentMove: ; new
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 
-	hlcoord 17, 3 ; 7, 6
+	hlcoord 16, 3
 	ld de, wPlayerMoveMaxPP ; wMaxPP
 	lb bc, 1, 2
 	call PrintNumber
 
 ;	callfar GetCurrentMove
-	hlcoord 11, 1 ; 1, 4
+	hlcoord 10, 1
 	predef PrintMoveType
 
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 
-	hlcoord 11, 4
+	hlcoord 10, 4
 	ld a, "<SELINFO1>"
 	ld [hli], a
 	ld a, "<SELINFO2>"
@@ -526,7 +526,7 @@ PrintInfoCurrentMove: ; new
 	ld a, "<SELINFO4>"
 	ld [hl], a
 
-	hlcoord 11, 8
+	hlcoord 10, 8
 	ld a, "<STAINFO1>"
 	ld [hli], a
 	ld a, "<STAINFO2>"
@@ -548,7 +548,7 @@ PPText2:
 
 ; ==============================================================================
 
-PrintInfoNewMove: ; new, TBE with stuff from core?
+PrintInfoNewMove: ; new
 	push hl
 	push bc
 	push de
@@ -563,21 +563,21 @@ PrintInfoNewMove: ; new, TBE with stuff from core?
 	ld c, a ; new
 	callfar MoveInfoCopier ; new
 
-	hlcoord 11, 7 ; 11, 6
+	hlcoord 10, 7
 	ld de, PPText2
 	call PlaceString
 
-	hlcoord 18, 6 ; 18, 5
+	hlcoord 17, 6
 	ld [hl], "%"
 
-	hlcoord 13, 6 ; 13, 5
+	hlcoord 12, 6
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
 	ld a, [wPlayerMovePower]
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT / GYRO_BALL
 	jr z, .specialDamage
-	hlcoord 11, 6 ; 11, 5
+	hlcoord 10, 6
 	ld de, wPlayerMovePower
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
@@ -589,7 +589,7 @@ PrintInfoNewMove: ; new, TBE with stuff from core?
 	ld [hl], "?"
 .afterDamagePrinting
 
-	hlcoord 15, 6 ; 15, 5
+	hlcoord 14, 6
 	xor a
 	ld b, a
 	ld a, [wPlayerMoveAccuracy]
@@ -613,13 +613,13 @@ PrintInfoNewMove: ; new, TBE with stuff from core?
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 
-	hlcoord 17, 7 ; 17, 6
+	hlcoord 16, 7
 	ld de, wPlayerMoveMaxPP ; wMaxPP
 	lb bc, 1, 2
 	call PrintNumber
 
 ;	callfar GetCurrentMove
-	hlcoord 11, 5 ; 11, 4
+	hlcoord 10, 5
 	predef PrintMoveType
 
 	ld a, $1
