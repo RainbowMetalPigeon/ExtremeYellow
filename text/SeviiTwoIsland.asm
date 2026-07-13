@@ -936,6 +936,41 @@ _SeviiTwoIsletHousesSignText2_Core::
 	line "Fated One: @"
 	text_decimal wUniQuizAnswer, 2, 4 ; address to read from, number of bytes to read, number of digits to display
 	text ".'"
+;	xxxx "123456789012345678"
 	done
+
+; new for RP ===========================================
+
+_SeviiTwoIslandCityText5_RP::
+	text "We don't business"
+	line "with criminals."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityText6_RP::
+	text "Criminals are not"
+	line "welcome at our"
+	cont "lottery."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityText8_RP::
+	text "Oh! Master!"
+	line "It's a... pleasure"
+	cont "to see you here."
+	cont "How... can I be"
+	cont "of help?"
+
+	para "The kid? I'm not"
+	line "sure, but your..."
+	cont "colleague told us"
+	cont "to guard the"
+	cont "bridge to DREAM"
+	cont "FOREST, west of"
+	cont "FAMILY."
+
+	para "Didn't tell us"
+	line "what business had"
+	cont "there, though..."
 ;	xxxx "123456789012345678"
 	done

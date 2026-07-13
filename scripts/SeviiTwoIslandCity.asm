@@ -39,10 +39,10 @@ SeviiTwoIslandCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw SeviiTwoIslandCityText5 ; Market TBE
-	dw SeviiTwoIslandCityText6 ; Lottery TBE
+	dw SeviiTwoIslandCityText5_RP ; Market
+	dw SeviiTwoIslandCityText6_RP ; Lottery
 	dw GenericNPCText_RocketPath
-	dw SeviiTwoIslandCityText8 ; Biker TBE
+	dw SeviiTwoIslandCityText8_RP ; Biker
 	dw SeviiTwoIslandCityText9  ; Tauros
 	dw SeviiTwoIslandCityText10 ; Tauros
 	dw RockSmashText
@@ -318,4 +318,18 @@ SeviiTwoIslandCityScriptText1:
 
 SeviiTwoIslandCityText14:
 	text_far _SeviiUndergroundCaveGuardText
+	text_end
+
+; new for RP ===========================================
+
+SeviiTwoIslandCityText5_RP:
+	text_far _SeviiTwoIslandCityText5_RP
+	text_end
+
+SeviiTwoIslandCityText6_RP:
+	text_far _SeviiTwoIslandCityText6_RP
+	text_end
+
+SeviiTwoIslandCityText8_RP:
+	text_far _SeviiTwoIslandCityText8_RP
 	text_end

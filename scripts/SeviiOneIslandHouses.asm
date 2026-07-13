@@ -199,14 +199,14 @@ SeviiOneIslandHouses_TextPointers:
 
 SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesText1 ; weather move tutor TBE
-	dw SeviiOneIslandHousesText2 ; Celio before rescue TBE
+	dw SeviiOneIslandHousesText2_RP ; Celio before rescue
 	dw SeviiOneIslandHousesText3 ; Celio right after rescue TBE
 	dw SeviiOneIslandHousesText4 ; Celio after rescue TBE
 	dw SeviiOneIslandHousesText5 ; Mayoi right after rescue TBE
 	dw SeviiOneIslandHousesText6 ; Mayoi after rescue TBE
 	dw SeviiOneIslandHousesText7 ; Pink TBE
-	dw SeviiOneIslandHousesText8 ; plushie TBE
-	dw SeviiOneIslandHousesText9 ; Snorlax fan? TBE
+	dw SeviiOneIslandHousesText8_RP ; plushie
+	dw SeviiOneIslandHousesText9_RP ; Snorlax fan
 	dw GenericNPCText_RocketPath ; x
 	dw GenericNPCText_RocketPath ; x
 	; signs
@@ -586,4 +586,18 @@ CeliosHousePinkBeatYouText:
 
 SeviiOneIslandHousesScriptText3:
 	text_far _SeviiOneIslandHousesScriptText3
+	text_end
+
+; new for RP ===========================================
+
+SeviiOneIslandHousesText2_RP:
+	text_far _SeviiOneIslandHousesText2_RP
+	text_end
+
+SeviiOneIslandHousesText8_RP:
+	text_far _SeviiOneIslandHousesText8_RP
+	text_end
+
+SeviiOneIslandHousesText9_RP:
+	text_far _SeviiOneIslandHousesText9
 	text_end

@@ -1265,3 +1265,30 @@ _SeviiOneIslandCityScriptText6_RP::
 	text "Scare scare scare"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiOneIslandHousesText2_RP::
+	text "oh no MAYOI"
+	line "FAMILY ISL"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText8_RP::
+	text "Not a #MON,"
+	line "just a plushie."
+
+	para "Can't fight."
+	line "Hence, useless."
+	done
+
+_SeviiOneIslandHousesText9::
+	text "Gnam...?"
+
+	para "What's a ROCKET"
+	line "doing here?"
+	cont "As if people like"
+	cont "you could under-"
+	cont "stand the joy of"
+	cont "eating and"
+	cont "sleeping..."
+;	xxxx "123456789012345678"
+	done
