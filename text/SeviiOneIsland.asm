@@ -1226,49 +1226,94 @@ _SeviiOneIslandDockSailorText_NeedAMoment_RP::
 
 ; 18 ; Celio and Jenny
 _SeviiOneIslandCityScriptText1_RP::
-	text "JENNY and CELIO"
+	text "JENNY: CELIO, I"
+	line "must ask you to"
+	cont "stay calm."
+
+	para "CELIO: Calm?!"
+	line "My kid has been"
+	cont "kidnapped, and"
+	cont "you ask me to"
+	cont "stay calm?!"
+
+	para "JENNY: We are"
+	line "investigating the"
+	cont "suspects, TEAM"
+	cont "ROCKET, and..."
 ;	xxxx "123456789012345678"
 	done
 
 ; 19 ; Jenny sees you
 _SeviiOneIslandCityScriptText2_RP::
-	text "Oh a rocket!"
+	text "JENNY: Speak of"
+	line "the devil!"
 ;	xxxx "123456789012345678"
 	done
 
 ; 20 ; Jenny challenges you
 _SeviiOneIslandCityScriptText3_RP::
-	text "I'll interrogate u"
+	text "JENNY: You're"
+	line "coming with me."
+	cont "I've a looot of"
+	cont "questions for you!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandCityText_AfterFightJenny::
 	text "Damn!"
-	line "I lost!"
+	line "How could I lose?"
 ;	xxxx "123456789012345678"
 	prompt
 
 ; 21 ; Jenny defeated
 _SeviiOneIslandCityScriptText4_RP::
-	text "I need to report"
+	text "JENNY: Tsk. This"
+	line "is out of my"
+	cont "league. I must"
+	cont "report to the"
+	cont "central."
 ;	xxxx "123456789012345678"
 	done
 
 ; 22 ; Celio scared
 _SeviiOneIslandCityScriptText5_RP::
-	text "Oh no what now"
+	text "CELIO: JE-JENNY?!"
+	line "They just left?!"
+	cont "If not even the"
+	cont "police can do"
+	cont "anything..."
 ;	xxxx "123456789012345678"
 	done
 
 ; 23 ; Celio mega scared
 _SeviiOneIslandCityScriptText6_RP::
-	text "Scare scare scare"
+	text "CELIO: Stop! Don't"
+	line "come any closer!"
+
+	para "AAAHHH! I can't!"
+	line "I can't take this"
+	cont "anymore! No!!!"
+
+	para "I only want my kid"
+	line "back! What did I"
+	cont "do to deserve"
+	cont "any of this?!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesText2_RP::
-	text "oh no MAYOI"
-	line "FAMILY ISL"
+	text "CELIO: MAYOI..."
+	line "How are you..."
+	cont "What can I do..."
+	cont "FAMILY..."
+	cont "ROCKET..."
+
+	para "Illegal, immoral,"
+	line "blasphemous,"
+	cont "can't do..."
+
+	para "MAYOI..."
+	line "Must do..."
 ;	xxxx "123456789012345678"
 	done
 

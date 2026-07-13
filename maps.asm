@@ -1730,11 +1730,6 @@ INCLUDE "scripts/SeviiThreeIslandCaves.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandCaves.asm"
 SeviiThreeIslandCaves_Blocks: INCBIN "maps/SeviiThreeIslandCaves.blk"
 
-INCLUDE "data/maps/headers/SeviiThreeIslandSecretGarden.asm"
-INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
-INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
-SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
-
 INCLUDE "data/maps/headers/SeviiBerryForest.asm"
 INCLUDE "scripts/SeviiBerryForest.asm"
 INCLUDE "data/maps/objects/SeviiBerryForest.asm"
@@ -1804,11 +1799,6 @@ INCLUDE "data/maps/headers/SeviiRoute35.asm"
 INCLUDE "scripts/SeviiRoute35.asm"
 INCLUDE "data/maps/objects/SeviiRoute35.asm"
 SeviiRoute35_Blocks: INCBIN "maps/SeviiRoute35.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute34.asm"
-INCLUDE "scripts/SeviiRoute34.asm"
-INCLUDE "data/maps/objects/SeviiRoute34.asm"
-SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
 
 INCLUDE "data/maps/headers/SeviiRoute33.asm"
 INCLUDE "scripts/SeviiRoute33.asm"
@@ -1947,6 +1937,16 @@ INCLUDE "data/maps/headers/SeviiRoute39Dive.asm"
 INCLUDE "scripts/SeviiRoute39Dive.asm"
 INCLUDE "data/maps/objects/SeviiRoute39Dive.asm"
 SeviiRoute39Dive_Blocks: INCBIN "maps/SeviiRoute39Dive.blk"
+
+INCLUDE "data/maps/headers/SeviiThreeIslandSecretGarden.asm"
+INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
+SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute34.asm"
+INCLUDE "scripts/SeviiRoute34.asm"
+INCLUDE "data/maps/objects/SeviiRoute34.asm"
+SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
 
 
 SECTION "Maps Sevii 5", ROMX ; new

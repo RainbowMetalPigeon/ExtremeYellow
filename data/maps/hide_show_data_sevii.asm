@@ -300,7 +300,7 @@ SeviiBerryForestHS:
 	db SEVII_BERRY_FOREST, 2, SHOW ; Mayoi
 	db SEVII_BERRY_FOREST, 3, SHOW ; ball
 	db SEVII_BERRY_FOREST, 4, SHOW ; ball
-	db SEVII_BERRY_FOREST, 5, SHOW ; ball
+	db SEVII_BERRY_FOREST, 5, HIDE ; Blue
 SeviiRoute33DiveHS:
 	db SEVII_ROUTE_33_DIVE, 1, SHOW ; verbose diver
 	db SEVII_ROUTE_33_DIVE, 6, SHOW ; ball

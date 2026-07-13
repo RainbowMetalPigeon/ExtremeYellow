@@ -1272,11 +1272,7 @@ _SeviiRoute33SignText2::
 ; Dream Forest ------------------------------------
 
 _SeviiBerryForestText1::
-	text "ORM: proxy"
-	done
-
-_SeviiBerryForestText2::
-	text "MAYOI: proxy"
+	text "!"
 	done
 
 _SeviiBerryForestScriptText1::
@@ -1476,5 +1472,247 @@ _SeviiRoute33DiveAfterBattleText4::
 	text "Glub."
 
 	para "(Bye. Save air.)"
+;	xxxx "123456789012345678"
+	done
+
+; new for RP ============================================
+
+_SeviiThreeIslandHousesText2_RP_Before::
+	text "Why are you here?"
+
+	para "?! NO! Don't you"
+	line "dare hurting my"
+	cont "kid!!!"
+
+	para "...I know how big"
+	line "your organization"
+	cont "is..."
+
+	para "You won. Go, take"
+	line "my HM. I hope you"
+	cont "will make good"
+	cont "use of it in Hell."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText2_RP_After::
+	text "What else do you"
+	line "want from me?!"
+
+	para "Take my books if"
+	line "you want! I have"
+	cont "nothing else of"
+	cont "value!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText3_RP::
+	text "Stay away, you"
+	line "baddie, or my"
+	cont "mapa'll make you"
+	cont "SWIRL SWIRL away!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute33Text1_RP::
+	text "Uh! We... are"
+	line "supposed to guard"
+	cont "this bridge..."
+
+	para "But uh... if the"
+	line "boss' master"
+	cont "wants to go"
+	cont "through..."
+
+	para "Uh, well, we're"
+	line "working for you"
+	cont "ROCKETs, right?"
+	cont "So uh, of course"
+	cont "you can pass!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText1_RP:: ; Orm & Mayoi
+	text "ORM: Be a good"
+	line "kiddo. Our dear"
+	cont "CELIO is almost"
+	cont "ready to give in."
+
+	para "MAYOI: WAAAHHH!"
+	line "I hate it here!"
+	cont "I hate you!"
+	cont "I wanna go home!"
+
+	para "ORM: That depends"
+	line "on how reasonable"
+	cont "CELIO will be."
+	cont "But they're surely"
+	cont "taking their time"
+	cont "choosing..."
+	cont "Maybe they just"
+	cont "don't love you"
+	cont "enough?"
+
+	para "MAYOI: WAAAHHH!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText2_RP:: ; Orm
+	text "ORM: Oh, you've"
+	line "arrived! You're"
+	cont "<PLAYER>, right?"
+	cont "The BOSS told me"
+	cont "of your arrival."
+
+	para "So, as you may've"
+	line "seen, we've a bit"
+	cont "of a situation"
+	cont "here. This kid's"
+	cont "being naughty."
+
+	para "Oh? You already"
+	line "met CELIO and"
+	cont "even beat a cop"
+	cont "if front of 'em?"
+	cont "Good job! That's"
+	cont "for sure crushed"
+	cont "their morale!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText3_RP:: ; Blue
+	text "???: You fucking"
+	line "disgusting piece"
+	cont "of shit..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText4_RP:: ; Blue, Orm, Mayoi
+	text "<RIVAL>: You..."
+	line "<PLAYER>..."
+	cont "I don't even know"
+	cont "what's greater:"
+	cont "my disgust or my"
+	cont "hate towards you."
+
+	para "ORM: Oh? We have"
+	line "a wannabe hero?"
+	cont "So cute!"
+
+	para "MAYOI: WAAAHHH!"
+	line "Help me, I just"
+	cont "wanna go home!!!"
+
+	para "<RIVAL>: Don't you"
+	line "worry, kid. I'm"
+	cont "here to rescue"
+	cont "you and to kick"
+	cont "ROCKET's asses."
+
+	para "ORM: So amusing!"
+	line "And it seems you"
+	cont "two know each"
+	cont "other, right?"
+	cont "Then, we'll do"
+	cont "like this: go,"
+	cont "<PLAYER>, get rid"
+	cont "of your friend,"
+	cont "for the glory of"
+	cont "the BOSS!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestBlueDefeatText::
+	text "ARGH!"
+	line "It's frustrating"
+	cont "beyond belief!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiBerryForestBlueWonText::
+	text "..."
+	line "Pathetic."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiBerryForestScriptText5_RP:: ; Blue
+	text "<RIVAL>: Damn you!"
+	line "Damn you <PLAYER>!"
+	cont "And to think that"
+	cont "I used to..."
+
+	para "FORGET IT! You're"
+	line "dead to me. And"
+	cont "I'll make sure"
+	cont "you'll soon be so"
+	cont "for good!"
+
+	para "You may have won"
+	line "this time, but"
+	cont "watch your back."
+	cont "I'll never, ever"
+	cont "forgive you."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestScriptText6_RP:: ; Orm
+	text "ORM: Well done!"
+	line "It's a pity they"
+	cont "managed to run"
+	cont "away, but oh"
+	cont "well, we can't"
+	cont "have everything."
+
+	para "And it'll be even"
+	line "more fun to crush"
+	cont "them again, even"
+	cont "more brutally."
+
+	para "Back to business!"
+	line "I think CELIO's"
+	cont "well cooked."
+	cont "I'll guard this"
+	cont "little pest while"
+	cont "you tell 'em that"
+	cont "there are only"
+	cont "two ways they can"
+	cont "have their kid"
+	cont "back:"
+
+	para "Either they decide"
+	line "to obey us and do"
+	cont "what the BOSS"
+	cont "orders..."
+
+	para "Or they refuse,"
+	line "in which case"
+	cont "they'll get their"
+	cont "brat back, sure,"
+	cont "but one piece at"
+	cont "the time."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestText1_RP::
+	text "ORM: To go CELIO"
+	line "and tell 'em that"
+	cont "they can have"
+	cont "their kid back"
+	cont "in two ways."
+
+	para "Healthy, by being"
+	line "reasonable and"
+	cont "working with us."
+
+	para "Or not so healthy,"
+	line "if they oppose us."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiBerryForestText2_RP::
+	text "MAYOI: WAAAHHH!!!"
+	line "AAAHHH!!!"
+
+	para "Sigh... sob..."
 ;	xxxx "123456789012345678"
 	done

@@ -144,8 +144,8 @@ SeviiThreeIslandHouses_TextPointers:
 
 SeviiThreeIslandHouses_TextPointers_Rocket:
 	dw SeviiThreeIslandHousesText1 ; Tutor TBE
-	dw SeviiThreeIslandHousesText2 ; Magician TBE
-	dw GenericNPCText_RocketPath
+	dw SeviiThreeIslandHousesText2_RP ; Magician
+	dw SeviiThreeIslandHousesText3_RP ; Magician's kid
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; signs
@@ -383,11 +383,11 @@ SeviiThreeIslandHousesBookshelfTextCommon_WhichBook:
 
 SeviiThreeIslandHousesBookshelfText1:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText1_ItsAboutCard ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText1_ItsAboutCard
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_CARD_MENU, 11 ; TBE
+	lb de, BOOKSHELF_MAGIC_CARD_MENU, 11
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -486,8 +486,8 @@ SeviiThreeIslandHousesBookshelfText1:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText1_ItsAboutCard: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText1_ItsAboutCard ; TBE
+SeviiThreeIslandHousesBookshelfText1_ItsAboutCard:
+	text_far _SeviiThreeIslandHousesBookshelfText1_ItsAboutCard
 	text_end
 
 SeviiThreeIslandHousesBookshelfText1_Shelf1_Book1:
@@ -533,11 +533,11 @@ SeviiThreeIslandHousesBookshelfText1_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText2:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_COIN_MENU, 8 ; TBE
+	lb de, BOOKSHELF_MAGIC_COIN_MENU, 8
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -636,8 +636,8 @@ SeviiThreeIslandHousesBookshelfText2:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins ; TBE
+SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins:
+	text_far _SeviiThreeIslandHousesBookshelfText2_ItsAboutCoins
 	text_end
 
 SeviiThreeIslandHousesBookshelfText2_Shelf1_Book1:
@@ -683,11 +683,11 @@ SeviiThreeIslandHousesBookshelfText2_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText3:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText3_ItsAboutRope ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText3_ItsAboutRope
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_ROPE_MENU, 8 ; TBE
+	lb de, BOOKSHELF_MAGIC_ROPE_MENU, 8
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -786,8 +786,8 @@ SeviiThreeIslandHousesBookshelfText3:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText3_ItsAboutRope: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText3_ItsAboutRope ; TBE
+SeviiThreeIslandHousesBookshelfText3_ItsAboutRope:
+	text_far _SeviiThreeIslandHousesBookshelfText3_ItsAboutRope
 	text_end
 
 SeviiThreeIslandHousesBookshelfText3_Shelf1_Book1:
@@ -833,11 +833,11 @@ SeviiThreeIslandHousesBookshelfText3_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText4:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText4_ItsAboutRing ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText4_ItsAboutRing
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_RING_MENU, 9 ; TBE
+	lb de, BOOKSHELF_MAGIC_RING_MENU, 9
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -936,8 +936,8 @@ SeviiThreeIslandHousesBookshelfText4:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText4_ItsAboutRing: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText4_ItsAboutRing ; TBE
+SeviiThreeIslandHousesBookshelfText4_ItsAboutRing:
+	text_far _SeviiThreeIslandHousesBookshelfText4_ItsAboutRing
 	text_end
 
 SeviiThreeIslandHousesBookshelfText4_Shelf1_Book1:
@@ -983,11 +983,11 @@ SeviiThreeIslandHousesBookshelfText4_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText5:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_LEVITATION_MENU, 12 ; TBE
+	lb de, BOOKSHELF_MAGIC_LEVITATION_MENU, 12
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -1086,8 +1086,8 @@ SeviiThreeIslandHousesBookshelfText5:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation ; TBE
+SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation:
+	text_far _SeviiThreeIslandHousesBookshelfText5_ItsAboutLevitation
 	text_end
 
 SeviiThreeIslandHousesBookshelfText5_Shelf1_Book1:
@@ -1133,11 +1133,11 @@ SeviiThreeIslandHousesBookshelfText5_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText6:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_VANISH_MENU, 11 ; TBE
+	lb de, BOOKSHELF_MAGIC_VANISH_MENU, 11
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -1249,8 +1249,8 @@ SeviiThreeIslandHousesBookshelfText6:
 .done
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish ; TBE
+SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish:
+	text_far _SeviiThreeIslandHousesBookshelfText6_ItsAboutVanish
 	text_end
 
 SeviiThreeIslandHousesBookshelfText6_Shelf1_Book1:
@@ -1296,11 +1296,11 @@ SeviiThreeIslandHousesBookshelfText6_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText7:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_MENTALISM_MENU, 12 ; TBE
+	lb de, BOOKSHELF_MAGIC_MENTALISM_MENU, 12
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -1399,8 +1399,8 @@ SeviiThreeIslandHousesBookshelfText7:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism ; TBE
+SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism:
+	text_far _SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism
 	text_end
 
 SeviiThreeIslandHousesBookshelfText7_Shelf1_Book1:
@@ -1446,11 +1446,11 @@ SeviiThreeIslandHousesBookshelfText7_Shelf3_Book4:
 
 SeviiThreeIslandHousesBookshelfText8:
 	text_asm
-	ld hl, SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea ; TBE
+	ld hl, SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea
 	call PrintText
 	ld hl, SeviiThreeIslandHousesBookshelfTextCommon_WhichShelf
 	call PrintText
-	lb de, BOOKSHELF_MAGIC_MISCELLANEA_MENU, 11 ; TBE
+	lb de, BOOKSHELF_MAGIC_MISCELLANEA_MENU, 11
 	call BookshelfShelfChoiceCommon
 
 	ld a, [wCurrentMenuItem]
@@ -1549,8 +1549,8 @@ SeviiThreeIslandHousesBookshelfText8:
 	call PrintText
 	jp TextScriptEnd
 
-SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea: ; TBE
-	text_far _SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea ; TBE
+SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea:
+	text_far _SeviiThreeIslandHousesBookshelfText8_ItsAboutMiscellanea
 	text_end
 
 SeviiThreeIslandHousesBookshelfText8_Shelf1_Book1:
@@ -1602,4 +1602,36 @@ SeviiThreeIslandHousesScriptText1:
 
 SeviiThreeIslandHousesScriptText2:
 	text_far _SeviiThreeIslandHousesScriptText2
+	text_end
+
+; new for RP ============================================
+
+SeviiThreeIslandHousesText2_RP:
+	text_asm
+	CheckEvent EVENT_SEVII_THREE_ISLAND_FOUND_SECRET_EXIT
+	ld hl, SeviiThreeIslandHousesText2_RP_After
+	jr nz, .afterOpening
+; first interaction
+	ld hl, SeviiThreeIslandHousesText2_RP_Before
+	call PrintText
+	SetEvent EVENT_SEVII_THREE_ISLAND_FOUND_SECRET_EXIT
+	ld a, $09 ; exit block
+	ld [wNewTileBlockID], a
+	lb bc,  0, 10
+	predef ReplaceTileBlock
+	jp TextScriptEnd
+.afterOpening
+	call PrintText
+	jp TextScriptEnd
+
+SeviiThreeIslandHousesText2_RP_Before:
+	text_far _SeviiThreeIslandHousesText2_RP_Before
+	text_end
+
+SeviiThreeIslandHousesText2_RP_After:
+	text_far _SeviiThreeIslandHousesText2_RP_After
+	text_end
+
+SeviiThreeIslandHousesText3_RP:
+	text_far _SeviiThreeIslandHousesText3_RP
 	text_end
