@@ -372,15 +372,13 @@ ObsidianWarehouse_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
 	dw ObsidianWarehouseStatueText
 
-ObsidianWarehouse_TextPointers_Rocket: ; TBE? They're identical.
-	dw ObsidianWarehouseTrainerText1
-	dw ObsidianWarehouseTrainerText2
-	dw ObsidianWarehouseTrainerText3
-	dw ObsidianWarehouseTrainerText4
-	dw PickUpItemText
+ObsidianWarehouse_TextPointers_Rocket:
+	dw ObsidianWarehouseTrainerText1_RP
+	dw ObsidianWarehouseTrainerText2_RP
+	dw ObsidianWarehouseTrainerText3_RP
+	dw ObsidianWarehouseTrainerText4_RP
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -500,11 +498,6 @@ ObsidianWarehouseStatueText:
     ld [wNewTileBlockID], a
     lb bc, 3, 24
     predef ReplaceTileBlock
-	ld a, HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; gift escape rope
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-    ld hl, ObsidianWarehouseStatueText_Click1Post2
-    call PrintText
     jr .done
 .secondTry
 ; second click at the statue, door already open, switch broken
@@ -525,14 +518,28 @@ ObsidianWarehouseStatueText_Click1Post1:
 	text_far _ObsidianWarehouseStatueText_Click1Post1
 	text_end
 
-ObsidianWarehouseStatueText_Click1Post2:
-	text_far _ObsidianWarehouseStatueText_Click1Post2
-	text_end
-
 ObsidianWarehouseStatueText_Click1Not:
 	text_far _ObsidianWarehouseStatueText_Click1Not
 	text_end
 
 ObsidianWarehouseStatueText_Click2:
 	text_far _ObsidianWarehouseStatueText_Click2
+	text_end
+
+; new for RP ==========================
+
+ObsidianWarehouseTrainerText1_RP:
+	text_far _ObsidianWarehouseTrainerText1_RP
+	text_end
+
+ObsidianWarehouseTrainerText2_RP:
+	text_far _ObsidianWarehouseTrainerText2_RP
+	text_end
+
+ObsidianWarehouseTrainerText3_RP:
+	text_far _ObsidianWarehouseTrainerText3_RP
+	text_end
+
+ObsidianWarehouseTrainerText4_RP:
+	text_far _ObsidianWarehouseTrainerText4_RP
 	text_end

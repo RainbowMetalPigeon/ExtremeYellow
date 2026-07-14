@@ -500,6 +500,52 @@ RocketHideoutRockets:
 RocketHideout4Text0_RP:
 	text_asm
 
+	CheckEvent EVENT_GOT_POKE_FLUTE
+	ld hl, RocketHideout4Text0_RP_GoToWarehousesSummary
+	jp nz, .printAndEnd
+; we don't have the Flute; did we try to get it but bag was full?
+	CheckEvent EVENT_TRIED_TO_GIFT_POKE_FLUTE
+	jr nz, .givePokeFlute
+	CheckEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
+	jr z, .checkSeviiTicket13
+; first time we report after convincing Celio
+	ld hl, RocketHideout4Text0_RP_WellDoneWithCelio
+	call PrintText
+.givePokeFlute
+	SetEvent EVENT_TRIED_TO_GIFT_POKE_FLUTE
+	ld hl, RocketHideout4Text0_RP_TakeFlute
+	call PrintText
+	lb bc, POKE_FLUTE, 1
+	call GiveItem
+	jp nc, .bagFull
+; actually getting the Flute
+	SetEvent EVENT_GOT_POKE_FLUTE
+	ld hl, RocketHideout4Text0_RP_GotItem
+	call PrintText
+; tell about problems at warehouses
+	ld hl, RocketHideout4Text0_RP_ProblemsAtWarehouses
+	call PrintText
+; upgrad Sevii Ticket
+	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_5
+	ld hl, RocketHideout4Text0_RP_UpgradeTicket
+	call PrintText
+; unlock Obsidian
+	ld a, HS_CELADON_ROCKET_GUARD_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_CELADON_ROCKET_GUARD_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld hl, RocketHideout4Text0_RP_GoToWarehouses
+	jp .printAndEnd
+
+.checkSeviiTicket13
 	CheckEvent EVENT_RP_RECEIVED_SEVII_TICKET_1_3
 	ld hl, RocketHideout4Text0_RP_GoToSeviiSummary
 	jp nz, .printAndEnd
@@ -518,7 +564,9 @@ RocketHideout4Text0_RP:
 	lb bc, SEVII_TICKET, 1
 	call GiveItem
 	jr nc, .bagFull
-; actually getting the Ticket and remove some Rockets from Saffron
+; actually getting the Ticket and remove some Rockets from Saffron as well as Fuji from Tower
+	ld a, HS_POKEMON_TOWER_7F_MR_FUJI
+	call RocketHideout4Script_HideObject
 	ld a, HS_SAFFRON_CITY_1
 	call RocketHideout4Script_HideObject
 	ld a, HS_SAFFRON_CITY_3
@@ -561,6 +609,31 @@ RocketHideout4Text0_RP:
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
+
+RocketHideout4Text0_RP_UpgradeTicket:
+	text_far _WardenUpgradeTicket
+	sound_get_key_item
+	text_end
+
+RocketHideout4Text0_RP_WellDoneWithCelio:
+	text_far _RocketHideout4Text0_RP_WellDoneWithCelio
+	text_end
+
+RocketHideout4Text0_RP_TakeFlute:
+	text_far _RocketHideout4Text0_RP_TakeFlute
+	text_end
+
+RocketHideout4Text0_RP_ProblemsAtWarehouses:
+	text_far _RocketHideout4Text0_RP_ProblemsAtWarehouses
+	text_end
+
+RocketHideout4Text0_RP_GoToWarehouses:
+	text_far _RocketHideout4Text0_RP_GoToWarehouses
+	text_end
+
+RocketHideout4Text0_RP_GoToWarehousesSummary:
+	text_far _RocketHideout4Text0_RP_GoToWarehousesSummary
+	text_end
 
 RocketHideout4Text0_RP_GoToSevii:
 	text_far _RocketHideout4Text0_RP_GoToSevii

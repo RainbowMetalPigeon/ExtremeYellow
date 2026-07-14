@@ -1338,32 +1338,217 @@ _SeviiOneIslandHousesText9::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiOneIslandHousesText3_RP_BeforePink::
+	text "CELIO: Why are you"
+	line "back? What do y-"
+
+	para "WHAT?!"
+
+	para "MAYOI... One piece"
+	line "at the tim..."
+	cont "Ugh... I don't"
+	cont "feel well..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText3_RP_AfterPink::
+	text "CELIO: Stop..."
+	line "Please, stop..."
+
+	para "I give in."
+	line "I surrender."
+	cont "I'll do anything"
+	cont "you want."
+	cont "I'll work to death"
+	cont "on the system"
+	cont "that your BOSS"
+	cont "demands to force-"
+	cont "fully raise"
+	cont "#MON's LVL."
+
+	para "Hacking life."
+	line "Playing god."
+
+	para "I'll do it."
+	line "I'll stain myself"
+	cont "with this"
+	cont "abominable sin."
+	cont "I'll do anything,"
+	cont "but please,"
+	cont "I BEG YOU,"
+	cont "stop hurting my"
+	cont "family."
+
+	para "I don't want to"
+	line "see PINK hurt,"
+	cont "and I want to"
+	cont "hug MAYOI..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText12_RP_BeforePink::
+	text "???: Are you the"
+	line "the scum that"
+	cont "kidnapped MAYOI?"
+
+	para "No? Oh, so you"
+	line "'just' beat that"
+	cont "officer and a kid"
+	cont "that tried to"
+	cont "rescue my nephew."
+
+	para "You filthy..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText12_RP_AfterPink::
+	text "PINK's DAD: How"
+	line "do you dare!"
+	cont "MAYOI is but a"
+	cont "small kid, and"
+	cont "PINK has never"
+	cont "fought before!"
+
+	para "If only I was a"
+	line "trainer... but I'm"
+	cont "so powerless."
+;	xxxx "123456789012345678"
+	done
+
 _SeviiOneIslandHousesScriptText1_RP::
-	text ""
+	text "???: Auncle CELIO!"
+	line "How is MAYOI?!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText2_RP::
-	text ""
+	text "???: Who are you?!"
+	line "Where's MAYOI?!"
+
+	para "CELIO: PINK! What"
+	line "are you doing"
+	cont "here?!"
+
+	para "PINK's DAD: PINK!"
+	line "I told you to"
+	cont "stay home! It's"
+	cont "dangerous here!"
+
+	para "PINK: That's why"
+	line "I had to come!"
+	cont "My cousin's been"
+	cont "kidnapped and my"
+	cont "auncle black-"
+	cont "mailed, how could"
+	cont "I stand still?"
+
+	para "CELIO: PINK..."
+	line "Please leave now."
+	cont "This person is"
+	cont "dangerous."
+	cont "Don't worry, I'll"
+	cont "do what they ask."
+	cont "MAYOI won't get"
+	cont "hurt."
+
+	para "PINK's DAD: PINK,"
+	line "I understand how"
+	cont "you feel, but..."
+
+	para "PINK: No buts!"
+	line "You! You monster!"
+	cont "I'll destroy you,"
+	cont "here and now!"
+
+	para "PINK's DAD: No!"
+	line "Wait! You never"
+	cont "battled before!"
+
+	para "PINK: It doesn't"
+	line "matter! I can't"
+	cont "have this"
+	cont "criminal in front"
+	cont "of me and do"
+	cont "nothing!"
+	cont "You! You're going"
+	cont "down!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeliosHousePinkDefeatedText_RP::
-	text ""
+	text "Damn!"
+	line "It can't be!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _CeliosHousePinkBeatYouText_RP::
-	text ""
+	text "I did it!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiOneIslandHousesScriptText3_RP::
-	text ""
+	text "PINK: ...grrr."
+	line "I am too weak."
+
+	para "You won this time,"
+	line "but stay assured,"
+	cont "you made yourself"
+	cont "an enemy for life!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText4_RP::
-	text ""
+	text "CELIO: ...PINK..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP::
+	text "CELIO: I'm already"
+	line "working on your"
+	cont "BOSS' demands."
+	cont "Please, return me"
+	cont "MAYOI. Please."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText1_After_RP::
+	text "If you relaxed..."
+	line "You wouldn't have"
+	cont "su much anger..."
+	cont "And then...."
+	cont "You wouldn't be"
+	cont "in TEAM ROCKET..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText1_HaveThis_RP::
+	text "You want this...?"
+	line "Sure..."
+	cont "I don't need it..."
+	cont "And I don't want"
+	cont "problems..."
+	cont "I just want to"
+	cont "relax..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText2_RP::
+	text "Why doing evil..."
+	line "When can relax?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText3_RP::
+	text "Relax is..."
+	line "Better than crime."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText4_RP::
+	text "Bad? No..."
+	line "Bed? Yes..."
+
+	para "Bat? No..."
+	line "Bath? Yes..."
 ;	xxxx "123456789012345678"
 	done

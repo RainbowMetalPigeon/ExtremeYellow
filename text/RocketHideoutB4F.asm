@@ -134,20 +134,20 @@ _RocketHideout4Text0_RP_WelcomeNewbie::
 	cont "shall we?"
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _RocketHideout4Text0_RP_TakeScope::
 	text "Take this. You'll"
 	line "need it for your"
 	cont "next quest."
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _RocketHideout4Text0_RP_BagFull::
 	text "You have no space."
 	line "Hurry and free it."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _RocketHideout4Text0_RP_GoToTower::
 	text "GIOVANNI: We have"
 	line "an operation run-"
@@ -186,7 +186,7 @@ _RocketHideout4Text0_RP_GoToTower::
 	line "fix the situation."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _RocketHideout4Text0_RP_GoToTowerSummary::
 	text "GIOVANNI: The"
 	line "situation at"
@@ -250,7 +250,7 @@ _RocketHideout4RivalEndBattleText_Defeat::
 
 _RocketHideout4Text16::
 	text "<RIVAL>: I- I-..."
-	
+
 	para "<PLAYER>! I will"
 	line "annihilate you!"
 	cont "I'll destroy you!"
@@ -286,10 +286,10 @@ _RocketHideout4Text0_RP_WellDoneWithFuji::
 	cont "you, <PLAYER>."
 	cont "Don't disappoint"
 	cont "me during your"
-	cont "next quest." 
+	cont "next quest."
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _RocketHideout4Text0_RP_TakeTicket::
 	text "Take this, you'll"
 	line "need it for your"
@@ -324,12 +324,12 @@ _RocketHideout4Text0_RP_GoToSevii::
 	cont "you'll find the"
 	cont "right way."
 
-	para "When you're done,"
-	line "come reporting to"
-	cont "me at SILPH CO."
+	para "As soon as you"
+	line "are done, come"
+	cont "reporting to me."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _RocketHideout4Text0_RP_GoToSeviiSummary::
 	text "GIOVANNI: Go to"
 	line "KNOT ISLAND and"
@@ -341,10 +341,104 @@ _RocketHideout4Text0_RP_GoToSeviiSummary::
 	cont "you'll find a way"
 	cont "to solve this."
 
-	para "When you're done,"
-	line "come reporting to"
-	cont "me at SILPH CO."
+	para "As soon as you"
+	line "are done, come"
+	cont "reporting to me."
 
 	para "Now go. Hurry."
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_WellDoneWithCelio::
+	text "GIOVANNI: Another"
+	line "task well done."
+	cont "ORM already told"
+	cont "me how you helped"
+	cont "convincing CELIO."
+
+	para "You're proving to"
+	line "be a great asset."
+;	xxxx "123456789012345678"
+	prompt
+
+_RocketHideout4Text0_RP_TakeFlute::
+	text "While 'speaking'"
+	line "with FUJI, this"
+	cont "thing came up."
+
+	para "I have no use for"
+	line "it, while it may"
+	cont "benefit you."
+;	xxxx "123456789012345678"
+	prompt
+
+_RocketHideout4Text0_RP_ProblemsAtWarehouses::
+	text "Alas, problems"
+	line "never end for"
+	cont "TEAM ROCKET."
+	cont "I already have a"
+	cont "new assignment"
+	cont "for you."
+	cont "Two, actually."
+
+	para "Both of our ware-"
+	line "houses, in"
+	cont "OBSIDIAN and"
+	cont "CHRONO, are"
+	cont "troubled by some"
+	cont "individuals."
+
+	para "I already"
+	line "dispatched some"
+	cont "personnel at both"
+	cont "locations, but"
+	cont "I want you to go"
+	cont "to both places"
+	cont "and help fix"
+	cont "the situations."
+
+	para "I'll let the guards"
+	line "in CELADON know"
+	cont "that you can go"
+	cont "through to reach"
+	cont "OBSIDIAN, and I'll"
+	cont "update your SEVII"
+	cont "TICKET so you can"
+	cont "sail to CHRONO."
+;	xxxx "123456789012345678"
+	prompt
+
+_RocketHideout4Text0_RP_GoToWarehouses::
+	text "Now, go to our"
+	line "warehouses in"
+	cont "OBSIDIAN and"
+	cont "CHRONO and deal"
+	cont "with the"
+	cont "intruders."
+
+	para "I soon have busi-"
+	line "ness to attend at"
+	cont "SILPH CO.."
+	cont "When you're done"
+	cont "with your quests,"
+	cont "report to me"
+	cont "directly there."
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_GoToWarehousesSummary::
+	text "GIOVANNI: Both"
+	line "OBSIDIAN and"
+	cont "CHRONO WAREHOUSE"
+	cont "are plagued by"
+	cont "intruders. Go to"
+	cont "both locations"
+	cont "and work with"
+	cont "your colleagues"
+	cont "to handle them."
+
+	para "Once done, report"
+	line "to me directly"
+	cont "at SILPH CO.."
 ;	xxxx "123456789012345678"
 	done

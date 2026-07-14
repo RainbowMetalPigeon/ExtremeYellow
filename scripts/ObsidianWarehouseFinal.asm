@@ -10,35 +10,40 @@ ObsidianWarehouseFinal_Script:
 
 ObsidianWarehouseFinal_ScriptPointers:
 	dw ObsidianWarehouseFinalScript0
-;	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
-	dw EndTrainerBattle_Custom ; TBV
-	dw ObsidianWarehouseFinalScript_JessieJamesMovement1 ; TBV
-	dw ObsidianWarehouseFinalScript_JessieJamesMovement2 ; TBV
-	dw ObsidianWarehouseFinalScript_JessieJamesFight ; TBV
-	dw ObsidianWarehouseFinalScript_JessieJamesVictory ; TBV
+	dw EndTrainerBattle_Custom
+	dw ObsidianWarehouseFinalScript_JessieJamesMovement1
+	dw ObsidianWarehouseFinalScript_JessieJamesMovement2
+	dw ObsidianWarehouseFinalScript_JessieJamesFight
+	dw ObsidianWarehouseFinalScript_JessieJamesVictory
+	; for RP
+	dw ObsidianWarehouseFinalScript_PostBattleBlue ; 7
 
 ObsidianWarehouseFinal_TextPointers:
-	dw ObsidianWarehouseFinalText1 ; proxies for J&J?
-	dw ObsidianWarehouseFinalText2 ; proxies for J&J?
+	dw ObsidianWarehouseFinalText1 ; proxies for J&J
+	dw ObsidianWarehouseFinalText2 ; proxies for J&J
 	dw ObsidianWarehouseFinalText3
 	dw ObsidianWarehouseFinalText4
 	dw ObsidianWarehouseFinalText5
 	dw ObsidianWarehouseFinalText6
-	dw ObsidianWarehouseFinalText7 ; Giovanni?
-	dw ObsidianWarehouseFinalText8_JessieJames1
-	dw ObsidianWarehouseFinalText9_JessieJames2
-	dw ObsidianWarehouseFinalText10_JessieJames3
+	dw ObsidianWarehouseFinalText7 ; Giovanni
+	dw ObsidianWarehouseFinalText1 ; Blue, only for RP
+	; scripts
+	dw ObsidianWarehouseFinalText9_JessieJames1
+	dw ObsidianWarehouseFinalText10_JessieJames2
 	dw ObsidianWarehouseFinalText11_JessieJames4
 
 ObsidianWarehouseFinal_TextPointers_Rocket:
-	dw ObsidianWarehouseFinalText1 ; James
-	dw ObsidianWarehouseFinalText2 ; Jessie
-	dw ObsidianWarehouseFinalText3 ; Proton
-	dw ObsidianWarehouseFinalText4 ; Petrel
-	dw ObsidianWarehouseFinalText5 ; Ariana
-	dw ObsidianWarehouseFinalText6 ; Archer
-	dw ObsidianWarehouseFinalText7 ; Giovanni
+	dw ObsidianWarehouseFinalText1_RP ; James
+	dw ObsidianWarehouseFinalText2_RP ; Jessie
+	dw ObsidianWarehouseFinalText3_RP ; Proton
+	dw ObsidianWarehouseFinalText4_RP ; Petrel
+	dw ObsidianWarehouseFinalText5_RP ; Ariana
+	dw ObsidianWarehouseFinalText6_RP ; Archer
+	dw ObsidianWarehouseFinalText7 ; Giovanni (unnecessary)
+	dw ObsidianWarehouseFinalText8_RP ; Blue
+	; scripts
+	dw ObsidianWarehouseFinalText9_Blue1
 
 ; ================= scripts, beginning =================
 
@@ -49,10 +54,12 @@ EndTrainerBattle_Custom:
 	ld a, [wYCoord]
 	cp 1
 	ret nz
+; not by Giovanni
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ObsidianWarehouseFinalScript_ResetScript
-	ld a, $7
+; we won
+	ld a, 7 ; Giovanni's text
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	; hide Obsidian Rockets, Fuchsia Rocket, and show Obsidian citizens, as well as people in Fuchsia Meeting Room
@@ -86,10 +93,11 @@ IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, CheckFightingMapTrainers ; actually unnecessary in RP because no actual "seeing" trainers
 	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_JESSIEJAMES
 	call z, ObsidianWarehouseFinalScript_JessieJamesTrigger
-	jp CheckFightingMapTrainers ; TBV - seems ok
-	ret
+	jp CheckFightingMapTrainers
 
 ObsidianWarehouseFinalScript_JessieJamesTrigger:
 	ld a, [wYCoord]
@@ -106,7 +114,7 @@ ObsidianWarehouseFinalScript_JessieJamesTrigger:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, $8
+	ld a, 9
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -158,7 +166,7 @@ ObsidianWarehouseFinalScript_JessieJamesMovement2:
 	jr z, .playerX4
 	cp $5
 	jr z, .playerX5
-; if it's neither 4 or 5, must be 6, walk-through-walla aside
+; if it's neither 4 or 5, must be 6, walk-through-walls aside
 .playerX6 ; TBE
 	ld [hl], SPRITE_FACING_RIGHT
 	ld de, ObsidianWarehouseFinalData_JessieX6
@@ -229,7 +237,7 @@ ObsidianWarehouseFinalScript_JessieJamesFight:
 	call Delay3
 	ld a, $fc
 	ld [wJoyIgnore], a
-	ld a, $9 ; TBV
+	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d
@@ -269,7 +277,7 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, $b ; TBV
+	ld a, 11
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -419,14 +427,11 @@ ObsidianWarehouseFinalTrainerHeader4:
 ; ----------------- Jessie & James -----------------
 
 ObsidianWarehouseFinalText1:
+ObsidianWarehouseFinalText2:
 	text_far _ObsidianWarehouseFinalText1
 	text_end
 
-ObsidianWarehouseFinalText2:
-	text_far _ObsidianWarehouseFinalText2
-	text_end
-
-ObsidianWarehouseFinalText8_JessieJames1:
+ObsidianWarehouseFinalText9_JessieJames1:
 	text_far _ObsidianWarehouseFinalJessieJamesText1
 	text_asm
 	ld c, 10
@@ -442,7 +447,7 @@ ObsidianWarehouseFinalText8_JessieJames1:
 	call DelayFrames
 	jp TextScriptEnd
 
-ObsidianWarehouseFinalText9_JessieJames2:
+ObsidianWarehouseFinalText10_JessieJames2:
 	text_far _ObsidianWarehouseFinalJessieJamesText2
 	text_end
 
@@ -547,3 +552,186 @@ ObsidianWarehouseFinalEndBattleText5:
 ObsidianWarehouseFinalAfterBattleText5:
 	text_far _ObsidianWarehouseFinalAfterBattleText5
 	text_end
+
+; new for RP ==================================
+
+ObsidianWarehouseFinalText1_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText1_RP_After
+	jr nz, .printAndEnd
+	ld hl, ObsidianWarehouseFinalText1_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText1_RP_Before:
+	text_far _ObsidianWarehouseFinalText1_RP_Before
+	text_end
+
+ObsidianWarehouseFinalText1_RP_After:
+	text_far _ObsidianWarehouseFinalText1_RP_After
+	text_end
+
+ObsidianWarehouseFinalText2_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText2_RP_After
+	jr nz, .printAndEnd
+	ld hl, ObsidianWarehouseFinalText2_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText2_RP_Before:
+	text_far _ObsidianWarehouseFinalText2_RP_Before
+	text_end
+
+ObsidianWarehouseFinalText2_RP_After:
+	text_far _ObsidianWarehouseFinalText2_RP_After
+	text_end
+
+ObsidianWarehouseFinalText3_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText3_RP_After
+	jr nz, .printAndEnd
+	ld hl, ObsidianWarehouseFinalText3_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText3_RP_Before:
+	text_far _ObsidianWarehouseFinalText3_RP_Before
+	text_end
+
+ObsidianWarehouseFinalText3_RP_After:
+	text_far _ObsidianWarehouseFinalText3_RP_After
+	text_end
+
+ObsidianWarehouseFinalText4_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText4_RP_After
+	jr nz, .printAndEnd
+	ld hl, ObsidianWarehouseFinalText4_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText4_RP_Before:
+	text_far _ObsidianWarehouseFinalText4_RP_Before
+	text_end
+
+ObsidianWarehouseFinalText4_RP_After:
+	text_far _ObsidianWarehouseFinalText4_RP_After
+	text_end
+
+ObsidianWarehouseFinalText5_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText5_RP_After
+	jr nz, .printAndEnd
+	ld hl, ObsidianWarehouseFinalText5_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText5_RP_Before:
+	text_far _ObsidianWarehouseFinalText5_RP_Before
+	text_end
+
+ObsidianWarehouseFinalText5_RP_After:
+	text_far _ObsidianWarehouseFinalText5_RP_After
+	text_end
+
+ObsidianWarehouseFinalText6_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText6_RP_After
+	jr nz, .printAndEnd
+	ld hl, ObsidianWarehouseFinalText6_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText6_RP_Before:
+	text_far _ObsidianWarehouseFinalText6_RP_Before
+	text_end
+
+ObsidianWarehouseFinalText6_RP_After:
+	text_far _ObsidianWarehouseFinalText6_RP_After
+	text_end
+
+ObsidianWarehouseFinalText8_RP:
+	text_asm
+	ld hl, ObsidianWarehouseFinalText8_RP_PreBattle
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, ObsidianWarehouseFinalBlue_VictoryText
+	ld de, ObsidianWarehouseFinalBlue_DefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, 7
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+ObsidianWarehouseFinalText8_RP_PreBattle:
+	text_far _ObsidianWarehouseFinalText8_RP_PreBattle
+	text_end
+
+ObsidianWarehouseFinalBlue_VictoryText:
+	text_far _ObsidianWarehouseFinalBlue_VictoryText
+	text_end
+
+ObsidianWarehouseFinalBlue_DefeatText:
+	text_far _ObsidianWarehouseFinalBlue_DefeatText
+	text_end
+
+ObsidianWarehouseFinalText9_Blue1:
+	text_far _ObsidianWarehouseFinalText9_Blue1
+	text_end
+
+ObsidianWarehouseFinalScript_PostBattleBlue:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	SetEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 9
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide Blue and Hideout Giovanni (and Mines guard)
+	call GBFadeOutToBlack
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_ISLAND_ROCKET_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_ROCKET_HIDEOUT_B4F_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; if also beat Pink in Chrono, open Silph
+	CheckEvent EVENT_RP_BEAT_CHRONO_PINK
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+	ld a, HS_SAFFRON_CITY_E
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	jp ObsidianWarehouseFinalScript_ResetScript

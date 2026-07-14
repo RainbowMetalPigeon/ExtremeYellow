@@ -47,6 +47,5 @@ ObsidianWarehouse_Object:
 	object_event 56, 11, SPRITE_POKE_BALL, STAY, NONE, 11, MAX_REVIVE
 	object_event 50, 10, SPRITE_POKE_BALL, STAY, NONE, 12, GOLD_TEETH ; fundamental!!!
 	object_event 58, 42, SPRITE_POKE_BALL, STAY, NONE, 13, RARE_CANDY
-	object_event 56,  3, SPRITE_POKE_BALL, STAY, NONE, 14, ESCAPE_ROPE
 
 	def_warps_to OBSIDIAN_WAREHOUSE

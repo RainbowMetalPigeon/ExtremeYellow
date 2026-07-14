@@ -13,12 +13,27 @@ CheckForCeliosHouseHideShow:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
-	CheckEvent EVENT_ROCKET_PATH
-	ret nz
-	CheckEvent EVENT_GOT_POKE_FLUTE
-	ret z
 	CheckEvent EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE
 	ret nz
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; Rocket Path
+	CheckEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
+	ret z
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_RIGHT_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_PINKS_DAD
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	SetEvent EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE
+	ret
+.notRP
+	CheckEvent EVENT_GOT_POKE_FLUTE
+	ret z
 	ld a, HS_SEVII_ONE_ISLAND_HOUSES_MAYOI_RIGHT_AFTER_RESCUE
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii

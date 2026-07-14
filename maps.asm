@@ -239,6 +239,11 @@ INCLUDE "scripts/LavenderTown.asm"
 INCLUDE "data/maps/objects/LavenderTown.asm"
 LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
+INCLUDE "data/maps/headers/RocketHideoutB1F.asm"
+INCLUDE "scripts/RocketHideoutB1F.asm"
+INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
+RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
+
 
 SECTION "Maps 6", ROMX
 
@@ -256,11 +261,6 @@ INCLUDE "data/maps/headers/VictoryRoad3F.asm"
 INCLUDE "scripts/VictoryRoad3F.asm"
 INCLUDE "data/maps/objects/VictoryRoad3F.asm"
 VictoryRoad3F_Blocks: INCBIN "maps/VictoryRoad3F.blk"
-
-INCLUDE "data/maps/headers/RocketHideoutB1F.asm"
-INCLUDE "scripts/RocketHideoutB1F.asm"
-INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
-RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
 
 INCLUDE "data/maps/headers/RocketHideoutB2F.asm"
 INCLUDE "scripts/RocketHideoutB2F.asm"
@@ -1321,16 +1321,6 @@ INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
 CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
 
-INCLUDE "data/maps/headers/SilphCoElevator.asm"
-INCLUDE "scripts/SilphCoElevator.asm"
-INCLUDE "data/maps/objects/SilphCoElevator.asm"
-SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
-
-INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
-INCLUDE "scripts/RocketHideoutElevator.asm"
-INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
-RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
-
 
 SECTION "Maps New 2", ROMX ; new
 
@@ -1418,6 +1408,16 @@ INCLUDE "data/maps/headers/Route21DiveCavern.asm"
 INCLUDE "scripts/Route21DiveCavern.asm"
 INCLUDE "data/maps/objects/Route21DiveCavern.asm"
 Route21DiveCavern_Blocks: INCBIN "maps/Route21DiveCavern.blk"
+
+INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
+INCLUDE "scripts/RocketHideoutElevator.asm"
+INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
+RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
+
+INCLUDE "data/maps/headers/SilphCoElevator.asm"
+INCLUDE "scripts/SilphCoElevator.asm"
+INCLUDE "data/maps/objects/SilphCoElevator.asm"
+SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
 
 
 SECTION "Maps New 3", ROMX ; new

@@ -579,7 +579,6 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0B, SHOW
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
-	db OBSIDIAN_WAREHOUSE, $0E, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -598,6 +597,7 @@ ObsidianWarehouseFinalHS: ; new
 	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
 	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
+	db OBSIDIAN_WAREHOUSE_FINAL, $08, HIDE ; Blue, for RP
 PokemonMansion2FHS: ; edited because of rematch Blaine
 	db POKEMON_MANSION_2F, $01, HIDE
 	db POKEMON_MANSION_2F, $03, SHOW
