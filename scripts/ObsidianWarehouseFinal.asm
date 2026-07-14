@@ -167,7 +167,7 @@ ObsidianWarehouseFinalScript_JessieJamesMovement2:
 	cp $5
 	jr z, .playerX5
 ; if it's neither 4 or 5, must be 6, walk-through-walls aside
-.playerX6 ; TBE
+.playerX6
 	ld [hl], SPRITE_FACING_RIGHT
 	ld de, ObsidianWarehouseFinalData_JessieX6
 	jr .continueWithJessieMovement

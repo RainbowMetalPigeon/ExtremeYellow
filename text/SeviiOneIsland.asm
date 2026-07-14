@@ -1,10 +1,6 @@
 _SeviiOneIslandCityText1::
-	text "Celio"
-;	xxxx "123456789012345678"
-	done
-
 _SeviiOneIslandCityText2::
-	text "Jenny"
+	text "!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -1032,7 +1028,7 @@ _SeviiEmberSpaText1_HaveThis::
 
 	para "I just want to"
 	line "relax..."
-	done
+	prompt
 
 _SeviiEmberSpaText1_GotHM::
 	text "<PLAYER> received"
