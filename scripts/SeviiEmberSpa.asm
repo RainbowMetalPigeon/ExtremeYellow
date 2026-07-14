@@ -11,10 +11,10 @@ SeviiEmberSpa_TextPointers:
 	dw PickUpItemText
 
 SeviiEmberSpa_TextPointers_Rocket:
-	dw SeviiEmberSpaText1 ; TBE
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw SeviiEmberSpaText1_RP
+	dw SeviiEmberSpaText2_RP
+	dw SeviiEmberSpaText3_RP
+	dw SeviiEmberSpaText4_RP
 	dw PickUpItemText
 	dw PickUpItemText
 
@@ -66,4 +66,47 @@ SeviiEmberSpaText3:
 
 SeviiEmberSpaText4:
 	text_far _SeviiEmberSpaText4
+	text_end
+
+; new for RP ==========================
+
+SeviiEmberSpaText1_RP: ; Rock Smash gifter
+	text_asm
+	CheckEvent EVENT_GOT_HM06
+	jr z, .didntGetInvitationYet
+	ld hl, SeviiEmberSpaText1_After_RP
+	jr .printAndEnd
+.didntGetInvitationYet
+	ld hl, SeviiEmberSpaText1_HaveThis_RP
+	call PrintText
+	lb bc, HM_ROCK_SMASH, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_GOT_HM06
+	ld hl, SeviiEmberSpaText1_GotHM
+	jr .printAndEnd
+.bagFull
+	ld hl, SeviiEmberSpaText1_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiEmberSpaText1_After_RP:
+	text_far _SeviiEmberSpaText1_After_RP
+	text_end
+
+SeviiEmberSpaText1_HaveThis_RP:
+	text_far _SeviiEmberSpaText1_HaveThis_RP
+	text_end
+
+SeviiEmberSpaText2_RP:
+	text_far _SeviiEmberSpaText2_RP
+	text_end
+
+SeviiEmberSpaText3_RP:
+	text_far _SeviiEmberSpaText3_RP
+	text_end
+
+SeviiEmberSpaText4_RP:
+	text_far _SeviiEmberSpaText4_RP
 	text_end

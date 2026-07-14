@@ -1337,3 +1337,45 @@ _SeviiOneIslandHousesText9::
 	cont "sleeping..."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiEmberSpaText1_After_RP::
+	text "If you relaxed..."
+	line "You wouldn't have"
+	cont "su much anger..."
+	cont "And then...."
+	cont "You wouldn't be"
+	cont "in TEAM ROCKET..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText1_HaveThis_RP::
+	text "You want this...?"
+	line "Sure..."
+	cont "I don't need it..."
+	cont "And I don't want"
+	cont "problems..."
+	cont "I just want to"
+	cont "relax..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText2_RP::
+	text "Why doing evil..."
+	line "When can relax?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText3_RP::
+	text "Relax is..."
+	line "Better than crime."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText4_RP::
+	text "Bad? No..."
+	line "Bed? Yes..."
+
+	para "Bat? No..."
+	line "Bath? Yes..."
+;	xxxx "123456789012345678"
+	done
