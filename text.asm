@@ -21,14 +21,14 @@ INCLUDE "text/RocketHideoutB3F.asm"
 INCLUDE "text/RocketHideoutB4F.asm"
 INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/SilphCo2F.asm"
-INCLUDE "text/SilphCo3F.asm"
-INCLUDE "text/SilphCo4F.asm"
 
 
 SECTION "Text 2", ROMX
 INCLUDE "text/ChampionsRoom.asm"
 INCLUDE "text/SilphCo6F.asm"
 INCLUDE "text/SilphCo5F.asm"
+INCLUDE "text/SilphCo4F.asm"
+INCLUDE "text/SilphCo3F.asm"
 
 
 SECTION "Text 3", ROMX

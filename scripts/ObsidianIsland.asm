@@ -88,8 +88,8 @@ ObsidianIsland_TextPointers_Rocket:
 	dw RocketNPCText_RocketPath ; mines TBE?
 	dw RocketNPCText_RocketPath ; south bridge TBE?
 	dw RocketNPCText_RocketPath ; south bridge TBE?
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw ObsidianIslandText5_SouthBridgeSlave1
+	dw ObsidianIslandText6_SouthBridgeSlave2
 	; after Giovanni's defeat -> none? TBE
 	dw ObsidianIslandText7_Scientist1
 	dw ObsidianIslandText8_Scientist2

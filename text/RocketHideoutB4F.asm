@@ -350,30 +350,95 @@ _RocketHideout4Text0_RP_GoToSeviiSummary::
 	done
 
 _RocketHideout4Text0_RP_WellDoneWithCelio::
-	text "GIOVANNI: well"
-	line "done w Celio"
+	text "GIOVANNI: Another"
+	line "task well done."
+	cont "ORM already told"
+	cont "me how you helped"
+	cont "convincing CELIO."
+
+	para "You're proving to"
+	line "be a great asset."
 ;	xxxx "123456789012345678"
 	prompt
 
 _RocketHideout4Text0_RP_TakeFlute::
-	text "got this from Fuji"
+	text "While 'speaking'"
+	line "with FUJI, this"
+	cont "thing came up."
+
+	para "I have no use for"
+	line "it, while it may"
+	cont "benefit you."
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _RocketHideout4Text0_RP_ProblemsAtWarehouses::
-	text "problems at"
-	line "warehouses"
+	text "Alas, problems"
+	line "never end for"
+	cont "TEAM ROCKET."
+	cont "I already have a"
+	cont "new assignment"
+	cont "for you."
+	cont "Two, actually."
 
-	para "upgrade ticket"
+	para "Both of our ware-"
+	line "houses, in"
+	cont "OBSIDIAN and"
+	cont "CHRONO, are"
+	cont "troubled by some"
+	cont "individuals."
+
+	para "I already"
+	line "dispatched some"
+	cont "personnel at both"
+	cont "locations, but"
+	cont "I want you to go"
+	cont "to both places"
+	cont "and help fix"
+	cont "the situations."
+
+	para "I'll let the guards"
+	line "in CELADON know"
+	cont "that you can go"
+	cont "through to reach"
+	cont "OBSIDIAN, and I'll"
+	cont "update your SEVII"
+	cont "TICKET so you can"
+	cont "sail to CHRONO."
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _RocketHideout4Text0_RP_GoToWarehouses::
-	text "go to warehouses"
+	text "Now, go to our"
+	line "warehouses in"
+	cont "OBSIDIAN and"
+	cont "CHRONO and deal"
+	cont "with the"
+	cont "intruders."
+
+	para "I soon have busi-"
+	line "ness to attend at"
+	cont "SILPH CO.."
+	cont "When you're done"
+	cont "with your quests,"
+	cont "report to me"
+	cont "directly there."
 ;	xxxx "123456789012345678"
 	done
 
 _RocketHideout4Text0_RP_GoToWarehousesSummary::
-	text "go to WH"
+	text "GIOVANNI: Both"
+	line "OBSIDIAN and"
+	cont "CHRONO WAREHOUSE"
+	cont "are plagued by"
+	cont "intruders. Go to"
+	cont "both locations"
+	cont "and work with"
+	cont "your colleagues"
+	cont "to handle them."
+
+	para "Once done, report"
+	line "to me directly"
+	cont "at SILPH CO.."
 ;	xxxx "123456789012345678"
 	done

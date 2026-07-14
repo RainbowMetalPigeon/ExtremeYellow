@@ -18,5 +18,7 @@ ObsidianWarehouseFinal_Object:
 	object_event  8,  5, SPRITE_ARCHER, STAY, LEFT, 6, OPP_ARCHER, 1
 	; Giovanni
 	object_event  6,  1, SPRITE_GIOVANNI, STAY, DOWN, 7, OPP_GIOVANNI, 3
+	; Blue
+	object_event  7,  5, SPRITE_BLUE, STAY, RIGHT, 8 ; for RP
 
 	def_warps_to OBSIDIAN_WAREHOUSE_FINAL

@@ -536,6 +536,12 @@ RocketHideout4Text0_RP:
 	ld a, HS_CELADON_ROCKET_GUARD_2
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 	ld hl, RocketHideout4Text0_RP_GoToWarehouses
 	jp .printAndEnd
 
@@ -558,7 +564,9 @@ RocketHideout4Text0_RP:
 	lb bc, SEVII_TICKET, 1
 	call GiveItem
 	jr nc, .bagFull
-; actually getting the Ticket and remove some Rockets from Saffron
+; actually getting the Ticket and remove some Rockets from Saffron as well as Fuji from Tower
+	ld a, HS_POKEMON_TOWER_7F_MR_FUJI
+	call RocketHideout4Script_HideObject
 	ld a, HS_SAFFRON_CITY_1
 	call RocketHideout4Script_HideObject
 	ld a, HS_SAFFRON_CITY_3

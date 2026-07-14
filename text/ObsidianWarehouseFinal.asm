@@ -1,9 +1,5 @@
 _ObsidianWarehouseFinalText1::
-	text "James text"
-	done
-
-_ObsidianWarehouseFinalText2::
-	text "Jessie text"
+	text "!"
 	done
 
 _ObsidianWarehouseFinalJessieJamesText1::
@@ -279,4 +275,86 @@ _ObsidianWarehouseFinalAfterBattleText5::
 	cont "aspirations, but"
 	cont "I won't let you"
 	cont "take my life too!"
+	done
+
+; new for RP ======================== TBE
+
+_ObsidianWarehouseFinalText1_RP_Before::
+	text "1 Before"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText2_RP_Before::
+	text "2 Before"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText3_RP_Before::
+	text "3 Before"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText4_RP_Before::
+	text "4 Before"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText5_RP_Before::
+	text "5 Before"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText6_RP_Before::
+	text "6 Before"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText1_RP_After::
+	text "1 After"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText2_RP_After::
+	text "2 After"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText3_RP_After::
+	text "3 After"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText4_RP_After::
+	text "4 After"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText5_RP_After::
+	text "5 After"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText6_RP_After::
+	text "6 After"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText8_RP_PreBattle::
+	text "GRRR"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalBlue_VictoryText::
+	text "ARGH!"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalBlue_DefeatText::
+	text "JA!"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalText9_Blue1::
+	text "Fuck you"
+;	xxxx "123456789012345678"
 	done

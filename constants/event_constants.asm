@@ -663,6 +663,8 @@
 	const_next $3D8
 	const EVENT_GOT_HM05
 	const EVENT_RP_BEAT_HM05_AID ; new
+	const EVENT_RP_BEAT_OBSIDIAN_BLUE ; new
+	const EVENT_RP_BEAT_CHRONO_PINK ; new
 
 ; Route 3 events
 	const_next $3E0
