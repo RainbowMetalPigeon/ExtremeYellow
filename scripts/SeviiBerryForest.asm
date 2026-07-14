@@ -396,11 +396,17 @@ SeviiBerryForest_Script9:
 	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; hide Blue
+; hide Blue and swap the Celios
 	call GBFadeOutToBlack
 	ld a, HS_SEVII_BERRY_FOREST_BLUE
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_BEFORE_RESCUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_CELIO_RIGHT_AFTER_RESCUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack

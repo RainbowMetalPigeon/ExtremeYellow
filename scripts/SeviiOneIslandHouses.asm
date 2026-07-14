@@ -13,6 +13,13 @@ SeviiOneIslandHouses_ScriptPointers:
 	dw SeviiOneIslandHouses_PinkLeaves2 ; 4
 	dw SeviiOneIslandHouses_PostPinkBattle ; 5
 	dw SeviiOneIslandHouses_PostPinkBattle2 ; 6
+	; new for RP
+	dw SeviiOneIslandHouses_PinkAppears_RP ; 7
+	dw SeviiOneIslandHouses_PinkMovementsAndBattle_RP ; 8
+	dw SeviiOneIslandHouses_PinkLeaves_RP ; 9
+	dw SeviiOneIslandHouses_PinkLeaves2_RP ; 10
+	dw SeviiOneIslandHouses_PostPinkBattle_RP ; 11
+	dw SeviiOneIslandHouses_PostPinkBattle2_RP ; 12
 
 ; scripts =========================================
 
@@ -31,13 +38,13 @@ SeviiOneIslandHouses_PinkAppears:
 	call CheckPikachuFollowingPlayer
 	jr nz, .notFollowingPikachu
 	call DisablePikachuOverworldSpriteDrawing
+.notFollowingPikachu ; TBE?
 	ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
 	lb de, 3, SPRITE_FACING_DOWN
 	callfar ChangeSpriteFacing
 	lb de, 5, SPRITE_FACING_DOWN
 	callfar ChangeSpriteFacing
-.notFollowingPikachu
 ; Pink dialogue
 	ld c, 30
 	call DelayFrames
@@ -200,11 +207,11 @@ SeviiOneIslandHouses_TextPointers:
 SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesText1 ; weather move tutor TBE
 	dw SeviiOneIslandHousesText2_RP ; Celio before rescue
-	dw SeviiOneIslandHousesText3 ; Celio right after rescue TBE
-	dw SeviiOneIslandHousesText4 ; Celio after rescue TBE
-	dw SeviiOneIslandHousesText5 ; Mayoi right after rescue TBE
-	dw SeviiOneIslandHousesText6 ; Mayoi after rescue TBE
-	dw SeviiOneIslandHousesText7 ; Pink TBE
+	dw SeviiOneIslandHousesText3_RP ; Celio right after rescue (unused?)
+	dw SeviiOneIslandHousesText4 ; Celio after rescue (unused?)
+	dw SeviiOneIslandHousesText5 ; Mayoi right after rescue (unused?)
+	dw SeviiOneIslandHousesText6 ; Mayoi after rescue (unused?)
+	dw SeviiOneIslandHousesText7 ; Pink
 	dw SeviiOneIslandHousesText8_RP ; plushie
 	dw SeviiOneIslandHousesText9_RP ; Snorlax fan
 	dw GenericNPCText_RocketPath ; x
@@ -216,6 +223,11 @@ SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesSignText4 ; 15
 	dw SeviiOneIslandHousesSignText5 ; 16
 	dw SeviiOneIslandHousesSignText6 ; 17
+	; scripts
+	dw SeviiOneIslandHousesScriptText1_RP ; 18
+	dw SeviiOneIslandHousesScriptText2_RP ; 19
+	dw SeviiOneIslandHousesScriptText3_RP ; 20
+	dw SeviiOneIslandHousesScriptText4_RP ; 21
 
 SeviiOneIslandHousesText1:
 	text_asm
@@ -600,4 +612,185 @@ SeviiOneIslandHousesText8_RP:
 
 SeviiOneIslandHousesText9_RP:
 	text_far _SeviiOneIslandHousesText9
+	text_end
+
+SeviiOneIslandHousesText3_RP:
+	text_asm
+	CheckEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
+	jr z, .beforePinkBattle
+
+; after Pink Battle ---------
+	ld hl, SeviiOneIslandHousesText3_RP_AfterPink
+	jr .printAndEnd
+
+.beforePinkBattle ; --------
+	ld hl, SeviiOneIslandHousesText3_RP_BeforePink
+; load next script
+	ld a, 1
+	ld [wCurMapScript], a
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+
+
+
+
+
+
+SeviiOneIslandHouses_PinkAppears_RP: ; 7
+	ld a, SFX_GO_INSIDE
+	call PlaySound
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_PINK
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	lb de, 7, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing
+; player and Celio turn
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+; Pink dialogue
+	ld c, 30
+	call DelayFrames
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Pink movement
+	ld de, CeliosHousePinkEntranceMovements
+	ld a, 7
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; load next script
+	ld a, 8
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneIslandHouses_PinkMovementsAndBattle_RP: ; 8
+; wait for Pink to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; turn Celio
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+; Pink dialogue and battle
+	ld a, $0
+	ld [wJoyIgnore], a
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_PINK
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, CeliosHousePinkDefeatedText_RP
+	ld de, CeliosHousePinkBeatYouText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 9
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneIslandHouses_PinkLeaves_RP: ; 9
+; did we win?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiOneIslandHousesResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	lb de, 7, SPRITE_FACING_UP
+	callfar ChangeSpriteFacing
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+	SetEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
+; load next script
+	ld a, 10
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneIslandHouses_PinkLeaves2_RP: ; 10
+	ld a, 20
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Pink movement
+	ld de, CeliosHousePinkLeaveMovements
+	ld a, 7
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; load next script
+	ld a, 11
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneIslandHouses_PostPinkBattle_RP: ; 11
+; wait for Pink to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; hide Pink
+	ld a, SFX_GO_OUTSIDE
+	call PlaySound
+	ld a, HS_SEVII_ONE_ISLAND_HOUSES_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	xor a
+	ld [wJoyIgnore], a
+; turn towards Celio
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+	ld a, SPRITE_FACING_UP
+	ld [wSpritePlayerStateData1FacingDirection], a
+; load next script
+	ld a, 12
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneIslandHouses_PostPinkBattle2_RP: ; 12
+	lb de, 3, SPRITE_FACING_DOWN
+	callfar ChangeSpriteFacing
+; dialogue
+	ld a, 21
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	; fallthrough
+
+SeviiOneIslandHousesResetScripts:
+	ld a, 0
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+SeviiOneIslandHousesScriptText1_RP:
+	text_far _SeviiOneIslandHousesScriptText1_RP
+	text_end
+
+SeviiOneIslandHousesScriptText2_RP:
+	text_far _SeviiOneIslandHousesScriptText2_RP
+	text_end
+
+CeliosHousePinkDefeatedText_RP:
+	text_far _CeliosHousePinkDefeatedText_RP
+	text_end
+
+CeliosHousePinkBeatYouText_RP:
+	text_far _CeliosHousePinkBeatYouText_RP
+	text_end
+
+SeviiOneIslandHousesScriptText3_RP:
+	text_far _SeviiOneIslandHousesScriptText3_RP
+	text_end
+
+SeviiOneIslandHousesScriptText4_RP:
+	text_far _SeviiOneIslandHousesScriptText4_RP
 	text_end

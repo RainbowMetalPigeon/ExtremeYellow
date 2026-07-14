@@ -330,7 +330,7 @@ _SeviiOneIslandHousesText6::
 	done
 
 _SeviiOneIslandHousesText7::
-	text "PINK: proxy"
+	text "!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -1335,5 +1335,35 @@ _SeviiOneIslandHousesText9::
 	cont "stand the joy of"
 	cont "eating and"
 	cont "sleeping..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText1_RP::
+	text ""
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText2_RP::
+	text ""
+;	xxxx "123456789012345678"
+	done
+
+_CeliosHousePinkDefeatedText_RP::
+	text ""
+;	xxxx "123456789012345678"
+	prompt
+
+_CeliosHousePinkBeatYouText_RP::
+	text ""
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesScriptText3_RP::
+	text ""
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText4_RP::
+	text ""
 ;	xxxx "123456789012345678"
 	done

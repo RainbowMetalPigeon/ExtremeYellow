@@ -13,6 +13,8 @@ CheckForCeliosHouseHideShow:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	CheckEvent EVENT_GOT_POKE_FLUTE
 	ret z
 	CheckEvent EVENT_SEVII_FINALIZED_HS_CELIO_HOUSE
