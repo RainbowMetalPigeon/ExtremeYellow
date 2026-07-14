@@ -366,6 +366,8 @@ IF DEF(_DEBUG)
 
 	SetEvent EVENT_RP_CONVINCED_MX_FUJI
 
+	SetEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
+
 	ret
 
 DebugSetPokedexEntries:

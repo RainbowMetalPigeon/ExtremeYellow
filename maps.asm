@@ -239,6 +239,11 @@ INCLUDE "scripts/LavenderTown.asm"
 INCLUDE "data/maps/objects/LavenderTown.asm"
 LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
+INCLUDE "data/maps/headers/RocketHideoutB1F.asm"
+INCLUDE "scripts/RocketHideoutB1F.asm"
+INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
+RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
+
 
 SECTION "Maps 6", ROMX
 
@@ -256,11 +261,6 @@ INCLUDE "data/maps/headers/VictoryRoad3F.asm"
 INCLUDE "scripts/VictoryRoad3F.asm"
 INCLUDE "data/maps/objects/VictoryRoad3F.asm"
 VictoryRoad3F_Blocks: INCBIN "maps/VictoryRoad3F.blk"
-
-INCLUDE "data/maps/headers/RocketHideoutB1F.asm"
-INCLUDE "scripts/RocketHideoutB1F.asm"
-INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
-RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
 
 INCLUDE "data/maps/headers/RocketHideoutB2F.asm"
 INCLUDE "scripts/RocketHideoutB2F.asm"

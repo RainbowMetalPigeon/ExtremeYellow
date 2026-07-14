@@ -134,20 +134,20 @@ _RocketHideout4Text0_RP_WelcomeNewbie::
 	cont "shall we?"
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _RocketHideout4Text0_RP_TakeScope::
 	text "Take this. You'll"
 	line "need it for your"
 	cont "next quest."
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _RocketHideout4Text0_RP_BagFull::
 	text "You have no space."
 	line "Hurry and free it."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _RocketHideout4Text0_RP_GoToTower::
 	text "GIOVANNI: We have"
 	line "an operation run-"
@@ -186,7 +186,7 @@ _RocketHideout4Text0_RP_GoToTower::
 	line "fix the situation."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _RocketHideout4Text0_RP_GoToTowerSummary::
 	text "GIOVANNI: The"
 	line "situation at"
@@ -250,7 +250,7 @@ _RocketHideout4RivalEndBattleText_Defeat::
 
 _RocketHideout4Text16::
 	text "<RIVAL>: I- I-..."
-	
+
 	para "<PLAYER>! I will"
 	line "annihilate you!"
 	cont "I'll destroy you!"
@@ -286,10 +286,10 @@ _RocketHideout4Text0_RP_WellDoneWithFuji::
 	cont "you, <PLAYER>."
 	cont "Don't disappoint"
 	cont "me during your"
-	cont "next quest." 
+	cont "next quest."
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 _RocketHideout4Text0_RP_TakeTicket::
 	text "Take this, you'll"
 	line "need it for your"
@@ -324,12 +324,12 @@ _RocketHideout4Text0_RP_GoToSevii::
 	cont "you'll find the"
 	cont "right way."
 
-	para "When you're done,"
-	line "come reporting to"
-	cont "me at SILPH CO."
+	para "As soon as you"
+	line "are done, come"
+	cont "reporting to me."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _RocketHideout4Text0_RP_GoToSeviiSummary::
 	text "GIOVANNI: Go to"
 	line "KNOT ISLAND and"
@@ -341,10 +341,39 @@ _RocketHideout4Text0_RP_GoToSeviiSummary::
 	cont "you'll find a way"
 	cont "to solve this."
 
-	para "When you're done,"
-	line "come reporting to"
-	cont "me at SILPH CO."
+	para "As soon as you"
+	line "are done, come"
+	cont "reporting to me."
 
 	para "Now go. Hurry."
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_WellDoneWithCelio::
+	text "GIOVANNI: well"
+	line "done w Celio"
+;	xxxx "123456789012345678"
+	prompt
+
+_RocketHideout4Text0_RP_TakeFlute::
+	text "got this from Fuji"
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_ProblemsAtWarehouses::
+	text "problems at"
+	line "warehouses"
+
+	para "upgrade ticket"
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_GoToWarehouses::
+	text "go to warehouses"
+;	xxxx "123456789012345678"
+	done
+
+_RocketHideout4Text0_RP_GoToWarehousesSummary::
+	text "go to WH"
 ;	xxxx "123456789012345678"
 	done
