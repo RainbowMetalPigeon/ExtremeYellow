@@ -7,8 +7,7 @@ SecludedAtollSW_Script:
 	bit 4, [hl]
 	res 4, [hl]
 	call nz, SecludedAtollSWHideShowCaveEntrance
-	call EnableAutoTextBoxDrawing
-	ret
+	jp EnableAutoTextBoxDrawing
 
 SecludedAtollSW_TextPointers:
 	dw BoulderText

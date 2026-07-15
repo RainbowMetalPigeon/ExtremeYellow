@@ -209,6 +209,8 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
 	cp LAVENDER_HOUSES									; new
 	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
+	cp OBSIDIAN_ISLAND									; new
+	jp z, IsObsidianIslandWarpTileInFrontOfPlayer		; new
 ; new for Sevii
 	jr .postMapChecks
 .sevii
@@ -327,6 +329,16 @@ IsObsidianWarehouseWarpTileInFrontOfPlayer: ; new
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
+IsObsidianIslandWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $50
+	jr nz, .notObsidianIslandWarp
+	scf
+	jp IsWarpTileInFrontOfPlayer.done
+.notObsidianIslandWarp
+	and a
+	jp IsWarpTileInFrontOfPlayer.done
+
 IsHauntedHouseExtraWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $10
@@ -410,6 +422,8 @@ IsPlayerStandingOnDoorTileOrWarpTile::
 INCLUDE "data/tilesets/warp_tile_ids.asm"
 
 PrintSafariZoneSteps::
+	CheckEvent EVENT_ROCKET_PATH ; new
+	ret nz ; new
 	CheckEvent EVENT_IN_SEVII ; new
 	ret nz ; new
 	ld a, [wCurMap]
@@ -732,6 +746,8 @@ ExtraWarpCheck::
 	cp VIRIDIAN_NICKNAME_HOUSE		; new
 	jr z, .useFunction2				; new
 	cp LAVENDER_HOUSES				; new
+	jr z, .useFunction2				; new
+	cp OBSIDIAN_ISLAND				; new
 	jr z, .useFunction2				; new
 ; new for Sevii
 	jr .checkByTileset ; new

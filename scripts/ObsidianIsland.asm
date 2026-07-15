@@ -1,11 +1,36 @@
 ObsidianIsland_Script:
 	RPTextChooser ObsidianIsland_TextPointers, ObsidianIsland_TextPointers_Rocket
+	ld hl, wCurrentMapScriptFlags ; for the bridge
+	bit 6, [hl]
+	res 6, [hl]
+	call nz, ObsidianIslandHideShowBridge
+	ld hl, wCurrentMapScriptFlags ; for the bridge
+	bit 4, [hl]
+	res 4, [hl]
+	call nz, ObsidianIslandHideShowBridge
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianIsland_ScriptPointers
 	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
+
+ObsidianIslandHideShowBridge:
+	CheckEvent EVENT_RP_BRIDGE_COMPLETED
+	ret z
+; replace blocks
+	ld a, 84			; bridge block ID
+	ld [wNewTileBlockID], a
+	lb bc, 18, 14 ; Y and X coordinates - opposite as usual
+	predef ReplaceTileBlock
+;	ld a, 84
+;	ld [wNewTileBlockID], a
+	lb bc, 19, 14
+	predef ReplaceTileBlock
+;	ld a, 84
+;	ld [wNewTileBlockID], a
+	lb bc, 20, 14
+	predef_jump ReplaceTileBlock
 
 ObsidianIsland_ScriptPointers:
 	dw ObsidianIslandScript0
@@ -32,6 +57,9 @@ ObsidianIslandScript0:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
+
+	callfar OpenUpSouthObsidianBridge ; TBE
+
 	ld a, $1
 	ld [wCurMapScript], a
 	ret

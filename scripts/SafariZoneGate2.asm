@@ -105,9 +105,13 @@ Func_f203e::
 	ld a, [wCurrentMenuItem]
 	and a
 	ld hl, .RegularText
-	jr nz, .Explanation
-	ld hl, .ExplanationText
-.Explanation
+	jr nz, .printText
+; before or after League?
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ld hl, .ExplanationTextPreLeague
+	jr z, .printText
+	ld hl, .ExplanationTextPostLeague
+.printText
 	call PrintText
 	ret
 
@@ -115,8 +119,12 @@ Func_f203e::
 	text_far _SafariZoneEntranceText_753e6
 	text_end
 
-.ExplanationText
-	text_far _SafariZoneEntranceText_753eb
+.ExplanationTextPreLeague
+	text_far _SafariZoneEntranceText_ExplanationPreLeague
+	text_end
+
+.ExplanationTextPostLeague
+	text_far _SafariZoneEntranceText_ExplanationPostLeague
 	text_end
 
 .RegularText

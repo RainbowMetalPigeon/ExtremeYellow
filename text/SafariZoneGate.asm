@@ -3,11 +3,11 @@ _SafariZoneEntranceText1::
 	line "SAFARI ZONE!"
 	done
 
-SafariZoneEntranceText_9e814::
+SafariZoneEntranceText_LeavingEarly::
 	text "Leaving early?@"
 	text_end
 
-_SafariZoneEntranceText_753bb::
+_SafariZoneEntranceText_PleaseReturnBalls::
 	text "Please return any"
 	line "SAFARI BALLs you"
 	cont "have left."
@@ -71,7 +71,7 @@ _SafariZoneEntranceText_753e6::
 	line "first time here?"
 	done
 
-_SafariZoneEntranceText_753eb::
+_SafariZoneEntranceText_ExplanationPreLeague:: ; edited
 	text "SAFARI ZONE has 4"
 	line "zones in it."
 
@@ -91,6 +91,35 @@ _SafariZoneEntranceText_753eb::
 	cont "#MON BOX so"
 	cont "there's room for"
 	cont "new #MON!"
+
+	para "We're developing a"
+	line "5th zone, but it's"
+	cont "not ready. Look"
+	cont "forward to it!"
+;	xxxx "123456789012345678"
+	done
+
+_SafariZoneEntranceText_ExplanationPostLeague:: ; new
+	text "SAFARI ZONE has 5"
+	line "zones in it."
+
+	para "Each zone has"
+	line "different kinds"
+	cont "of #MON. Use"
+	cont "SAFARI BALLs to"
+	cont "catch them!"
+
+	para "When you run out"
+	line "of time or SAFARI"
+	cont "BALLs, it's game"
+	cont "over for you!"
+
+	para "Before you go,"
+	line "open an unused"
+	cont "#MON BOX so"
+	cont "there's room for"
+	cont "new #MON!"
+;	xxxx "123456789012345678"
 	done
 
 _SafariZoneEntranceText_753f0::

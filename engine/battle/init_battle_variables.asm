@@ -46,6 +46,8 @@ InitBattleVariables::
 	ld [wTestBattlePlayerSelectedMove], a
 	CheckEvent EVENT_IN_SEVII ; new
 	jr nz, .notSafariBattle ; new
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .notSafariBattle ; new
 	ld a, [wCurMap]
 	cp SAFARI_ZONE_EXTRA ; new
 	jr z, .yesSafariBattle ; new

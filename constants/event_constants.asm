@@ -1281,6 +1281,7 @@
 	const EVENT_RP_SPOKEN_WITH_GIOVANNI_POST_FUJI ; new
 	const EVENT_RP_RECEIVED_SEVII_TICKET_1_3 ; new
 	const EVENT_RP_GOT_ALL_ROOF_TMS ; new
+	const EVENT_RP_BRIDGE_COMPLETED ; new
 
 ; Indigo Plateau events
 	const_next $8E0

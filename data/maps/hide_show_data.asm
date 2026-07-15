@@ -166,7 +166,7 @@ MapHSPointers:
 	dw NoHS ; FUCHSIA_BILLS_GRANDPAS_HOUSE
 	dw NoHS ; FUCHSIA_POKECENTER
 	dw WardensHouseHS
-	dw NoHS ; SAFARI_ZONE_GATE
+	dw SafariZoneGateHS ; SAFARI_ZONE_GATE ; new
 	dw FuchsiaGymHS ; new
 	dw FuchsiaMeetingRoomHS ; new
 	dw SeafoamIslandsB1FHS
@@ -579,6 +579,10 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0B, SHOW
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
+SafariZoneGateHS: ; new
+	db SAFARI_ZONE_GATE, $01, SHOW
+	db SAFARI_ZONE_GATE, $02, SHOW
+	
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it

@@ -13,6 +13,8 @@ ObsidianIsland_Object:
 	warp_event  8,  5, OBSIDIAN_MINES, 1 ; mines
 	warp_event 17, 23, OBSIDIAN_WAREHOUSE, 1 ; warehouse1
 	warp_event 20, 23, OBSIDIAN_WAREHOUSE, 3 ; warehouse2
+	warp_event 28, 47, SAFARI_ZONE_EXTRA, 3 ; Safari Zone
+	warp_event 29, 47, SAFARI_ZONE_EXTRA, 4 ; Safari Zone
 
 	def_bg_events
 	bg_event 27,  3, 15 ; welcome to city
@@ -27,11 +29,11 @@ ObsidianIsland_Object:
 	def_object_events
 	; seen before Giovanni's defeat
 	object_event  8,  6, SPRITE_ROCKET, STAY, DOWN, 1 ; guarding the mines
-	object_event 28, 32, SPRITE_ROCKET, STAY, DOWN, 2 ; guarding the south bridge
-	object_event 29, 32, SPRITE_ROCKET, STAY, DOWN, 3 ; guarding the south bridge
+	object_event 28, 34, SPRITE_ROCKET, STAY, DOWN, 2 ; guarding the south bridge
+	object_event 29, 34, SPRITE_ROCKET, STAY, DOWN, 3 ; guarding the south bridge
 ;	object_event 39, 16 ; former Rocket guarding east bridge, nice spot for Traveler?
-	object_event 28, 33, SPRITE_YOUNGSTER, STAY, DOWN, 4 ; enslaved at the bridge
-	object_event 29, 33, SPRITE_COOLTRAINER_M, STAY, DOWN, 5 ; enslaved at the bridge
+	object_event 28, 35, SPRITE_YOUNGSTER, STAY, DOWN, 4 ; enslaved at the bridge
+	object_event 29, 35, SPRITE_COOLTRAINER_M, STAY, DOWN, 5 ; enslaved at the bridge
 	; seen after Giovanni's defeat
 	object_event 14, 32, SPRITE_SCIENTIST, WALK, LEFT_RIGHT, 6 ; platform
 	object_event  6, 36, SPRITE_SCIENTIST, STAY, RIGHT, 7 ; platform
