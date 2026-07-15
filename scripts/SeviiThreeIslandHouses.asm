@@ -143,7 +143,7 @@ SeviiThreeIslandHouses_TextPointers:
 	dw SeviiThreeIslandHousesScriptText2 ; 19 ; post-battle
 
 SeviiThreeIslandHouses_TextPointers_Rocket:
-	dw SeviiThreeIslandHousesText1 ; Tutor TBE
+	dw SeviiThreeIslandHousesText1_RP ; Tutor
 	dw SeviiThreeIslandHousesText2_RP ; Magician
 	dw SeviiThreeIslandHousesText3_RP ; Magician's kid
 	dw GenericNPCText_RocketPath
@@ -161,6 +161,9 @@ SeviiThreeIslandHouses_TextPointers_Rocket:
 	dw SeviiThreeIslandHousesBookshelfText6 ; 15
 	dw SeviiThreeIslandHousesBookshelfText7 ; 16
 	dw SeviiThreeIslandHousesBookshelfText8 ; 17
+	; scripts
+	dw SeviiThreeIslandHousesScriptText1_RP ; 18 ; pre-battle
+	dw SeviiThreeIslandHousesScriptText2_RP ; 19 ; post-battle
 
 SeviiThreeIslandHousesText1: ; tutor
 	text_asm
@@ -1634,4 +1637,73 @@ SeviiThreeIslandHousesText2_RP_After:
 
 SeviiThreeIslandHousesText3_RP:
 	text_far _SeviiThreeIslandHousesText3_RP
+	text_end
+
+SeviiThreeIslandHousesText1_RP:
+	text_asm
+	CheckEvent EVENT_SEVII_BEAT_TERRAIN_TUTOR
+	jr z, .notDefeatedYet
+; we have unlocked the tutor already
+	call SaveScreenTilesToBuffer2 ; this must always be here before calling Tutor, and should always be at a point when text is not on the screen
+	ld hl, SeviiThreeIslandHousesText1_Question_RP
+	call PrintText
+	call MoveTutorTerrainChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .grassy
+	dec a
+	jr z, .electric
+	dec a
+	jr z, .misty
+	dec a
+	jr z, .psychic
+; decline
+	ld hl, SeviiThreeIslandHousesText1_Refused_RP
+	jr .printAndEnd
+.electric
+	ld a, ELECTRIC_TERRAIN
+	jr .learnMove
+.grassy
+	ld a, GRASSY_TERRAIN
+	jr .learnMove
+.psychic
+	ld a, PSYCHIC_TERRAIN
+	jr .learnMove
+.misty
+	ld a, MISTY_TERRAIN
+.learnMove
+	ld [wMoveNum], a
+	farcall Tutor
+	ld hl, SeviiThreeIslandHousesText1_Done_RP
+	jr .printAndEnd
+.notDefeatedYet
+	ld a, 1
+	ld [wCurMapScript], a
+	ld hl, SeviiThreeIslandHousesText1_Intro_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiThreeIslandHousesText1_Question_RP:
+	text_far _SeviiThreeIslandHousesText1_Question_RP
+	text_end
+
+SeviiThreeIslandHousesText1_Refused_RP:
+	text_far _SeviiThreeIslandHousesText1_Refused_RP
+	text_end
+
+SeviiThreeIslandHousesText1_Done_RP:
+	text_far _SeviiThreeIslandHousesText1_Done_RP
+	text_end
+
+SeviiThreeIslandHousesText1_Intro_RP:
+	text_far _SeviiThreeIslandHousesText1_Intro_RP
+	text_end
+
+SeviiThreeIslandHousesScriptText1_RP:
+	text_far _SeviiThreeIslandHousesScriptText1_RP
+	text_end
+
+SeviiThreeIslandHousesScriptText2_RP:
+	text_far _SeviiThreeIslandHousesScriptText2_RP
 	text_end

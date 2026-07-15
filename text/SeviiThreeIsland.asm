@@ -1716,3 +1716,50 @@ _SeviiBerryForestText2_RP::
 	para "Sigh... sob..."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiThreeIslandHousesText1_Intro_RP::
+	text "I lllooovvveee"
+	line "the soils!"
+	cont "...and I haaate"
+	cont "criminals."
+	cont "My expertise is"
+	cont "not for you."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesScriptText1_RP::
+	text "What? Halt! You"
+	line "think I cannot"
+	cont "defend myself?!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesScriptText2_RP::
+	text "...tsk. I looost."
+	line "Still, I won't"
+	cont "teach you a"
+	cont "terrain move."
+	
+	para "I'll teach it to"
+	line "your #MON."
+	cont "They are as much"
+	cont "victims as me..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText1_Question_RP::
+	text "So, waaant a"
+	line "TERRAIN move?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText1_Refused_RP::
+	text "Fareweeell."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiThreeIslandHousesText1_Done_RP::
+	text "Doneee."
+;	xxxx "123456789012345678"
+	done
+
