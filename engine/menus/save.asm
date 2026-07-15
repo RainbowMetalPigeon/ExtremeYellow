@@ -34,7 +34,8 @@ FileDataDestroyedText:
 LoadSAV0:
 	call EnableSRAMAndLatchClockData
 	ld a, $1
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 ; This vc_hook does not have to be in any particular location.
 ; It is defined here because it refers to the same labels as the two lines below.
 	vc_hook Unknown_save_limit
@@ -82,7 +83,8 @@ LoadSAV0:
 LoadSAV1:
 	call EnableSRAMAndLatchClockData
 	ld a, $1
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld hl, sGameData
 	ld bc, sGameDataEnd - sGameData
 	call SAVCheckSum
@@ -100,7 +102,8 @@ LoadSAV1:
 LoadSAV2:
 	call EnableSRAMAndLatchClockData
 	ld a, $1
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld hl, sGameData
 	ld bc, sGameDataEnd - sGameData
 	call SAVCheckSum
@@ -197,7 +200,8 @@ OlderFileWillBeErasedText:
 SaveSAVtoSRAM0:
 	call EnableSRAMAndLatchClockData
 	ld a, $1
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld hl, wPlayerName
 	ld de, sPlayerName
 	ld bc, NAME_LENGTH
@@ -227,7 +231,8 @@ SaveSAVtoSRAM1:
 ; stored pokémon
 	call EnableSRAMAndLatchClockData
 	ld a, $1
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld hl, wBoxDataStart
 	ld de, sCurBoxData
 	ld bc, wBoxDataEnd - wBoxDataStart
@@ -242,7 +247,8 @@ SaveSAVtoSRAM1:
 SaveSAVtoSRAM2:
 	call EnableSRAMAndLatchClockData
 	ld a, $1
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld hl, wPartyDataStart
 	ld de, sPartyData
 	ld bc, wPartyDataEnd - wPartyDataStart
@@ -388,7 +394,8 @@ CopyBoxToOrFromSRAM:
 	push hl
 	call EnableSRAMAndLatchClockData
 	ld a, b
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld bc, wBoxDataEnd - wBoxDataStart
 	call CopyData
 	pop hl
@@ -502,10 +509,12 @@ EmptyAllSRAMBoxes:
 ; player changes the box)
 	call EnableSRAMAndLatchClockData
 	ld a, 2
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	call EmptySRAMBoxesInBank
 	ld a, 3
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	call EmptySRAMBoxesInBank
 	call DisableSRAMAndPrepareClockData
 	ret
@@ -543,10 +552,12 @@ GetMonCountsForAllBoxes:
 	push hl
 	call EnableSRAMAndLatchClockData
 	ld a, $2
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	call GetMonCountsForBoxesInBank
 	ld a, $3
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	call GetMonCountsForBoxesInBank
 	call DisableSRAMAndPrepareClockData
 	pop hl
@@ -583,7 +594,8 @@ SAVCheckRandomID:
 ; (which are stored at wPlayerID)s
 	call EnableSRAMAndLatchClockData
 	ld a, $01
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld a, [sPlayerName]
 	and a
 	jr z, .next
@@ -648,7 +660,8 @@ LoadHallOfFameTeams:
 HallOfFame_Copy:
 	call EnableSRAMAndLatchClockData
 	xor a
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	call CopyData ; copies bc bytes from hl to de
 	call DisableSRAMAndPrepareClockData
 	ret
@@ -666,7 +679,8 @@ ClearSAV:
 	ret
 
 PadSRAM_FF:
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld hl, SRAM_Begin
 	ld bc, SRAM_End - SRAM_Begin
 	ld a, $ff

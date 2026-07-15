@@ -209,11 +209,11 @@ ENDC
 IF DEF(_DEBUG)
 	ld a, b
 	bit BIT_SELECT, a
-	jp z, MainMenu
+	jp z, MainMenu_ChooseSaveSlot ; edited
 	callfar DebugMenu
 	jp hl
 ELSE
-	jp MainMenu
+	jp MainMenu_ChooseSaveSlot ; edited
 ENDC
 
 .asm_42f0

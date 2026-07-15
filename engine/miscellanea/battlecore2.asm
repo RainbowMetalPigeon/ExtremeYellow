@@ -860,7 +860,8 @@ SaveEnemyPartyIntoSpecialSRAM::
 	ld [MBC1SRamEnable], a
 	ld a, $1
 	ld [MBC1SRamBankingMode], a
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 ; copy data
 	ld hl, wEnemyPartyCount ; origin
 	ld de, sTemporarySaveForSeviiSages ; destination

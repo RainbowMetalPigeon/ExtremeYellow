@@ -1602,7 +1602,8 @@ Func_ff2f3:
 	push hl
 	call Func_ff316
 	ld a, b
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld bc, sBox2 - sBox1
 	call CopyData
 	pop hl

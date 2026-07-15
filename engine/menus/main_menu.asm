@@ -284,7 +284,8 @@ CheckForPlayerNameInSRAM:
 	ld [MBC1SRamEnable], a
 	ld a, $1
 	ld [MBC1SRamBankingMode], a
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ld b, NAME_LENGTH
 	ld hl, sPlayerName
 .loop
@@ -305,3 +306,58 @@ CheckForPlayerNameInSRAM:
 	ld [MBC1SRamBankingMode], a
 	scf
 	ret
+
+; new for multi save slots ===========
+
+MainMenu_ChooseSaveSlot::
+	call ClearScreen
+	call UpdateSprites
+	call Delay3
+	
+	call LoadTextBoxTilePatterns
+	call LoadFontTilePatterns
+
+	hlcoord 2, 2
+	ld de, ChooseSaveSlotText
+	call PlaceString
+
+	hlcoord 5, 4
+	lb bc, 9, 8
+	call TextBoxBorder
+
+	hlcoord 7, 6
+	ld de, SaveSlotMenuText
+	call PlaceString
+
+	ld a, 3 ; Maximum number of items (-1)
+	ld [wMaxMenuItem], a
+	ld a, 6
+	ld [wTopMenuItemY], a
+	ld a, 6
+	ld [wTopMenuItemX], a
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wLastMenuItem], a
+	ld a, A_BUTTON | B_BUTTON
+	ld [wMenuWatchedKeys], a
+
+	call HandleMenuInput
+	
+	bit BIT_B_BUTTON, a
+	jp nz, DisplayTitleScreen ; if so, go back to the title screen
+
+	ld a, [wCurrentMenuItem]
+	ld [wCurrentSaveSlot], a
+
+	jp MainMenu
+
+; ----------------------
+
+ChooseSaveSlotText:
+	db "CHOOSE SAVE SLOT:@"
+
+SaveSlotMenuText:
+	db   "SLOT 1"
+	next "SLOT 2"
+	next "SLOT 3"
+	next "SLOT 4@"

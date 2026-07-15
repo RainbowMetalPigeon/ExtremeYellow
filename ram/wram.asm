@@ -2485,8 +2485,10 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 ;wRoute15Gate2FCurScript:: db ; new
 ;wRoute28CurScript:: db ; new
 ;wRoute27CurScript:: db ; new
-	ds 10 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts - 10 for wObtainedHiddenItemsFlagsSevii
+	ds 9 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts - 10 for wObtainedHiddenItemsFlagsSevii
 wGameProgressFlagsEnd::
+
+wCurrentSaveSlot:: db ; new, for multi save slots
 
 ; new for sevii
 ; bit array of missable objects. set = removed

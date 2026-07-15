@@ -7,6 +7,8 @@ SetDefaultNames:
 	push af
 	ld a, [wPrinterSettings]
 	push af
+	ld a, [wCurrentSaveSlot] ; new for multi save slots
+	push af ; new for multi save slots
 	ld hl, wPlayerName
 	ld bc, wBoxDataEnd - wPlayerName
 	xor a
@@ -19,6 +21,8 @@ SetDefaultNames:
 	ld [wSurfingMinigameHiScore], a
 	ld [wSurfingMinigameHiScore + 1], a
 	ld [wSurfingMinigameHiScore + 2], a
+	pop af ; new for multi save slots
+	ld [wCurrentSaveSlot], a ; new for multi save slots
 	pop af
 	ld [wPrinterSettings], a
 	pop af

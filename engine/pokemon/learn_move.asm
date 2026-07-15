@@ -639,8 +639,10 @@ SaveScreenTilesToSSpriteBuffer:
 	ld a, SRAM_ENABLE
 	ld [MBC1SRamEnable], a
 	xor a
-	ld [MBC1SRamBank], a
-	inc a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
+;	inc a
+	ld a, 1
 	ld [MBC1SRamBankingMode], a
 ; copy data
 	hlcoord 0, 0
@@ -660,8 +662,10 @@ LoadScreenTilesFromSSpriteBuffer:
 	ld a, SRAM_ENABLE
 	ld [MBC1SRamEnable], a
 	xor a
-	ld [MBC1SRamBank], a
-	inc a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
+;	inc a
+	ld a, 1
 	ld [MBC1SRamBankingMode], a
 ; copy data
 	ld hl, sSpriteBuffer0

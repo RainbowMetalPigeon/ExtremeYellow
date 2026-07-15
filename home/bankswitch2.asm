@@ -27,7 +27,8 @@ SwitchSRAMBankAndLatchClockData::
 	ld a, SRAM_ENABLE
 	ld [MBC1SRamEnable], a
 	pop af
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 	ret
 
 PrepareRTCDataAndDisableSRAM::

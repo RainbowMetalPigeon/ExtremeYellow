@@ -123,7 +123,8 @@ SaveBagIntoSpecialSRAM:
 	ld [MBC1SRamEnable], a
 	ld a, $1
 	ld [MBC1SRamBankingMode], a
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 ; copy data
 	ld hl, wNumBagItems ; origin
 	ld de, sTemporarySaveForSeviiSages ; destination
@@ -142,7 +143,8 @@ ReloadBagFromSpecialSRAM:
 	ld [MBC1SRamEnable], a
 	ld a, $1
 	ld [MBC1SRamBankingMode], a
-	ld [MBC1SRamBank], a
+;	ld [MBC1SRamBank], a
+	switch_sram_bank ; edited
 ; copy data
 	ld hl, sTemporarySaveForSeviiSages ; origin
 	ld de, wNumBagItems ; destination
