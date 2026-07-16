@@ -35,14 +35,31 @@ SpecialTrainerMoves:
 	db 2, 1, GRASSY_TERRAIN
 	; EXEGGUTOR
 	db 3, 1, GRASSY_TERRAIN
-	db 3, 1, PSYCHIC_TERRAIN
+	db 3, 2, PSYCHIC_TERRAIN
 	; HYPNO
 	db 4, 1, PSYCHIC_TERRAIN
 	; MR_MIME
 	db 5, 1, PSYCHIC_TERRAIN
-	db 5, 1, MISTY_TERRAIN
+	db 5, 2, MISTY_TERRAIN
 	; WIGGLYTUFF
 	db 6, 1, MISTY_TERRAIN
+	db $FE
+
+	db FISHER, 14
+	; SEADRA
+	db 1, 1, RAIN_DANCE
+	; BELLOSSOM
+	db 2, 1, SUNNY_DAY
+	; GRAVELER
+	db 3, 1, SANDSTORM
+	; CLOYSTER
+	db 4, 1, HAIL
+	; CHANSEY
+	db 5, 1, RAIN_DANCE
+	db 5, 2, SUNNY_DAY
+	; KANGASKHAN
+	db 6, 1, SANDSTORM
+	db 6, 1, HAIL
 	db $FE
 
 	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')

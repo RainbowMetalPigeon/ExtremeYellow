@@ -20,6 +20,7 @@ SeviiOneIslandHouses_ScriptPointers:
 	dw SeviiOneIslandHouses_PinkLeaves2_RP ; 10
 	dw SeviiOneIslandHouses_PostPinkBattle_RP ; 11
 	dw SeviiOneIslandHouses_PostPinkBattle2_RP ; 12
+	dw SeviiOneIslandHouses_PostBattleTutor_RP ; 13
 
 ; scripts =========================================
 
@@ -206,7 +207,7 @@ SeviiOneIslandHouses_TextPointers:
 	dw SeviiOneIslandHousesScriptText3 ; 21
 
 SeviiOneIslandHouses_TextPointers_Rocket:
-	dw SeviiOneIslandHousesText1 ; weather move tutor TBE
+	dw SeviiOneIslandHousesText1_RP ; weather move tutor TBE
 	dw SeviiOneIslandHousesText2_RP ; Celio before battle vs Blue
 	dw SeviiOneIslandHousesText3_RP ; Celio after battle vs Blue
 	dw SeviiOneIslandHousesText4_RP ; Celio after battle vs Pink
@@ -230,6 +231,7 @@ SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesScriptText2_RP ; 20
 	dw SeviiOneIslandHousesScriptText3_RP ; 21
 	dw SeviiOneIslandHousesScriptText4_RP ; 22
+	dw SeviiOneIslandHousesScriptText5_RP ; 23
 
 SeviiOneIslandHousesText1:
 	text_asm
@@ -826,4 +828,105 @@ SeviiOneIslandHousesText12_RP_BeforePink:
 
 SeviiOneIslandHousesText4_RP:
 	text_far _SeviiOneIslandHousesText4_RP
+	text_end
+
+
+
+
+
+SeviiOneIslandHousesText1_RP:
+	text_asm
+	call SaveScreenTilesToBuffer2 ; this must always be here before calling Tutor, and should always be at a point when text is not on the screen
+	CheckEvent EVENT_GAVE_DRINK_TO_WEATHER_TUTOR ; abused
+	jr nz, .alreadyBeated
+; still haven't beaten
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_FISHER
+	ld [wCurOpponent], a
+	ld a, 14
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	; no need for the SaveEndBattleTextPointers, as it's RP
+	ld a, 13
+	ld [wCurMapScript], a
+	ld hl, SeviiOneIslandHousesText1_Intro_RP
+	jr .printAndEnd
+.alreadyBeated
+	ld hl, SeviiOneIslandHousesText1_Question_RP
+	call PrintText
+	call MoveTutorWeatherChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .sunnyDay
+	dec a
+	jr z, .rainDance
+	dec a
+	jr z, .sandstorm
+	dec a
+	jr z, .hail
+; decline
+	ld hl, SeviiOneIslandHousesText1_Refused_RP
+	jr .printAndEnd
+.sunnyDay
+	ld a, SUNNY_DAY
+	jr .learnMove
+.rainDance
+	ld a, RAIN_DANCE
+	jr .learnMove
+.sandstorm
+	ld a, SANDSTORM
+	jr .learnMove
+.hail
+	ld a, HAIL
+.learnMove
+	ld [wMoveNum], a
+	farcall Tutor
+	ld hl, SeviiOneIslandHousesText1_Done_RP
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SeviiOneIslandHouses_PostBattleTutor_RP: ; 13
+; did we win?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiOneIslandHousesResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_GAVE_DRINK_TO_WEATHER_TUTOR
+	ld a, 23
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; load next script
+	jp SeviiOneIslandHousesResetScripts
+
+SeviiOneIslandHousesScriptText5_RP:
+	text_far _SeviiOneIslandHousesScriptText5_RP
+	text_end
+
+SeviiOneIslandHousesText1_Intro_RP:
+	text_far _SeviiOneIslandHousesText1_Intro_RP
+	text_end
+
+SeviiOneIslandHousesText1_Question_RP:
+	text_far _SeviiOneIslandHousesText1_Question_RP
+	text_end
+
+SeviiOneIslandHousesText1_Refused_RP:
+	text_far _SeviiOneIslandHousesText1_Refused_RP
+	text_end
+
+SeviiOneIslandHousesText1_Done_RP:
+	text_far _SeviiOneIslandHousesText1_Done_RP
 	text_end

@@ -1548,3 +1548,41 @@ _SeviiEmberSpaText4_RP::
 	line "Bath? Yes..."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiOneIslandHousesScriptText5_RP::
+	text "Tch..."
+	line "Let's just get"
+	cont "done quickly."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Intro_RP::
+	text "Rain or shine, it's"
+	line "always a bad day"
+	cont "when a ROCKET"
+	cont "shows up."
+	cont "My moves are not"
+	cont "for you. Leave."
+
+	para "What?! You want"
+	line "them by force?!"
+	cont "You think I'm"
+	cont "defenseless?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Question_RP::
+	text "WEATHER move?"
+	line "If not, leave."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Refused_RP::
+	text "Better this way."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Done_RP::
+	text "Done."
+;	xxxx "123456789012345678"
+	done

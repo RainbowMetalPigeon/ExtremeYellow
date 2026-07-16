@@ -427,6 +427,8 @@ FisherData:
 	db 43, SEAKING, POLITOED, CLOYSTER, KINGDRA, GYARADOS, 0 ; 12
 ; Lake of Mist, new
 	db $FF, 21, STARMIE, 22, CLOYSTER, 21, GYARADOS, 25, POLITOED, 19, SLOWKING, 0 ; 13
+; Sevii One Island Houses - Weather Tutor
+	db 32, SEADRA, BELLOSSOM, GRAVELER, CLOYSTER, CHANSEY, KANGASKHAN, 0 ; 14
 
 SwimmerData:
 ; Cerulean Gym

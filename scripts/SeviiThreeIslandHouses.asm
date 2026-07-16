@@ -62,9 +62,9 @@ SeviiThreeIslandHouses_PostBattle:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SeviiThreeIslandHousesResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
-; we won
 	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
