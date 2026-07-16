@@ -366,3 +366,50 @@ CountHowManyUndergroundButtonsArePressed::
 	ld a, b
 	ld [wUniQuizAnswer], a
 	ret
+
+; for RP ================================
+
+HideAllUndergroundGuards_RP::
+	ld hl, HideAllUndergroundGuards_RP_Text1
+	call PrintText
+	call GBFadeOutToBlack
+; do the hiding loop
+	SetEvent EVENT_HID_UNDERGROUND_GUARDS
+	ld hl, UndergoundGuardsToHideSevii
+.hideSeviiLoop
+	ld a, [hli]
+	cp $ff
+	jr z, .doneHiding
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	pop hl
+	jr .hideSeviiLoop
+.doneHiding
+	ld a, SFX_GO_OUTSIDE
+	call PlaySound
+	call WaitForSoundToFinish
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	ld hl, HideAllUndergroundGuards_RP_Text2
+	call PrintText
+	ret
+
+UndergoundGuardsToHideSevii:
+	db HS_SEVII_TWO_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_THREE_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_FOUR_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_32_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_34_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_39_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_42_UNDERGROUND_GUARD
+	db $ff
+
+HideAllUndergroundGuards_RP_Text1:
+	text_far _HideAllUndergroundGuards_RP_Text1
+	text_end
+
+HideAllUndergroundGuards_RP_Text2:
+	text_far _HideAllUndergroundGuards_RP_Text2
+	text_end

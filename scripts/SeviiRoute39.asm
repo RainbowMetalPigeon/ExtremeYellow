@@ -28,7 +28,7 @@ SeviiRoute39_TextPointers:
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
 	dw PickUpItemText ; 12
-	dw SeviiRoute39Text13 ; 13
+	dw SeviiRoute39Text13 ; 13 underground guard
 	; signs
 	dw SeviiRoute39SignText1 ; 14
 
@@ -47,7 +47,7 @@ SeviiRoute39_TextPointers_Rocket:
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
 	dw PickUpItemText ; 12
-	dw SeviiRoute39Text13 ; 13
+	dw SeviiRoute39Text13_RP ; 13 underground guard
 	; signs
 	dw SeviiRoute39SignText1 ; 14
 
@@ -202,3 +202,10 @@ SeviiRoute39EndBattleText6:
 SeviiRoute39AfterBattleText6:
 	text_far _SeviiRoute39AfterBattleText6
 	text_end
+
+; new for RP ========================
+
+SeviiRoute39Text13_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

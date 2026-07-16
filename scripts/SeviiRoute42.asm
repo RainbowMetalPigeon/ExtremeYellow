@@ -43,7 +43,7 @@ SeviiRoute42_TextPointers_Rocket:
 	dw RockSmashText      ; 11 rock
 	dw PickUpItemText     ; 12
 	dw PickUpItemText     ; 13
-	dw SeviiRoute42Text14 ; 14 underground guard TBE
+	dw SeviiRoute42Text14_RP ; 14 underground guard
 
 SeviiRoute42Text1:
 	text_far _SeviiRoute42Text1
@@ -249,3 +249,10 @@ SeviiRoute42EndBattleText9:
 SeviiRoute42AfterBattleText9:
 	text_far _SeviiRoute42AfterBattleText9
 	text_end
+
+; new for RP =======================
+
+SeviiRoute42Text14_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

@@ -47,7 +47,7 @@ SeviiFourIslandCity_TextPointers_Rocket:
 	dw PickUpItemText ; 11
 	dw PickUpItemText ; 12
 	dw PickUpItemText ; 13
-	dw SeviiFourIslandCityText14 ; 14 Underground guard TBE
+	dw SeviiFourIslandCityText14_RP ; 14 Underground guard
 	; signs
 	dw SeviiFourIslandCitySignText1 ; 15
 	dw SeviiFourIslandCitySignText2 ; 16
@@ -60,8 +60,8 @@ SeviiFourIslandCity_TextPointers_Rocket:
 
 SeviiFourIslandCity_ScriptPointers:
 	dw SeviiFourIslandCityScript0
-	dw SeviiFourIslandCityScript1 ; tbe
-	dw SeviiFourIslandCityScript2 ; tbe
+	dw SeviiFourIslandCityScript1
+	dw SeviiFourIslandCityScript2
 
 ; --------------------------------------------
 
@@ -310,3 +310,10 @@ SeviiFourIslandCitySignText3:
 SeviiFourIslandCitySignText4:
 	text_far _SeviiFourIslandCitySignText4
 	text_end
+
+; new for RP =================================
+
+SeviiFourIslandCityText14_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

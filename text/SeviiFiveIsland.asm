@@ -1898,3 +1898,24 @@ _SeviiFiveIslandCityDiveAfterBattleText4::
 	cont "It depends.)"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ==============================
+
+_SeviiRoute34Text1_RP::
+	text "Friends. Are the"
+	line "most important"
+	cont "thing in life."
+
+	para "...but by looking"
+	line "at you, you won't"
+	cont "just repeat my"
+	cont "same mistakes,"
+	cont "you'll do so much"
+	cont "worse..."
+
+	para "I'd pray for your"
+	line "soul, but I think"
+	cont "by now it's far"
+	cont "too late..."
+;	xxxx "123456789012345678"
+	done

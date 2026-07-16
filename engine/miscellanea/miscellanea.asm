@@ -2769,7 +2769,7 @@ HideUndegroundGuard::
 ; do the hiding loop
 	SetEvent EVENT_HID_UNDERGROUND_GUARDS
 	ld hl, ObjectsToHideSevii
-.hideExtraLoop
+.hideSeviiLoop
 	ld a, [hli]
 	cp $ff
 	ret z
@@ -2777,7 +2777,7 @@ HideUndegroundGuard::
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
 	pop hl
-	jr .hideExtraLoop
+	jr .hideSeviiLoop
 
 ObjectsToHideSevii:
 	db HS_SEVII_TWO_ISLAND_CITY_UNDERGROUND_GUARD

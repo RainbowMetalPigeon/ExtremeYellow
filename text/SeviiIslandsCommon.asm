@@ -146,3 +146,32 @@ _SeviiIslandsDockSailorText_PleaseGetOnThePier_RP::
 	line "from there."
 ;	xxxx "123456789012345678"
 	done
+
+_HideAllUndergroundGuards_RP_Text1::
+	text "Measurements are"
+	line "being tak-"
+
+	para "ARGH! What? Why?!"
+	line "I'm just guarding"
+	cont "this entrance!"
+	cont "Why hurting me?"
+
+	para "You know what?"
+	line "I'm just a PhD"
+	cont "student! I really"
+	cont "don't get paid"
+	cont "enough to stand"
+	cont "up against"
+	cont "criminals!"
+
+	para "You wanna go in?"
+	line "Go in!"
+;	xxxx "123456789012345678"
+	done
+
+_HideAllUndergroundGuards_RP_Text2::
+	text "The guard ran"
+	line "away swearing"
+	cont "profusely."
+;	xxxx "123456789012345678"
+	done

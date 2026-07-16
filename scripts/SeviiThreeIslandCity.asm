@@ -35,7 +35,7 @@ SeviiThreeIslandCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; 9
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
-	dw SeviiThreeIslandCityText12 ; 12 Underground guard TBE
+	dw SeviiThreeIslandCityText12_RP ; 12 Underground guard
 	; signs
 	dw SeviiThreeIslandCitySignText1 ; 13
 	dw SeviiThreeIslandCitySignText2 ; 14
@@ -152,3 +152,10 @@ SeviiThreeIslandCitySignText3:
 SeviiThreeIslandCitySignText4:
 	text_far _SeviiThreeIslandCitySignText4
 	text_end
+
+; new for RP ============================
+
+SeviiThreeIslandCityText12_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

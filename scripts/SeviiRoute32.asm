@@ -31,7 +31,7 @@ SeviiRoute32_TextPointers_Rocket:
 	dw SeviiRoute32Text3 ; trainer
 	dw PickUpItemText
 	dw PickUpItemText
-	dw GenericNPCText_RocketPath
+	dw SeviiRoute32Text6_RP ; underground guard
 	; signs
 	dw SeviiRoute32SignText1
 
@@ -118,3 +118,10 @@ SeviiRoute32SignText1:
 TreasureBeachSignText:
 	text_far _TreasureBeachSignText
 	text_end
+
+; new for RP ====================
+
+SeviiRoute32Text6_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

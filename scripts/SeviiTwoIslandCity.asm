@@ -48,7 +48,7 @@ SeviiTwoIslandCity_TextPointers_Rocket:
 	dw RockSmashText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw SeviiTwoIslandCityText14 ; Underground guard TBE
+	dw SeviiTwoIslandCityText14_RP ; Underground guard
 	; signs
 	dw SeviiTwoIslandCitySignText1 ; 15
 	dw SeviiTwoIslandCitySignText2 ; 16
@@ -333,3 +333,8 @@ SeviiTwoIslandCityText6_RP:
 SeviiTwoIslandCityText8_RP:
 	text_far _SeviiTwoIslandCityText8_RP
 	text_end
+
+SeviiTwoIslandCityText14_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd
