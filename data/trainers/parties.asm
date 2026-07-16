@@ -177,6 +177,8 @@ LassData:
 	db 6, NIDORAN_F, NIDORAN_M, 0 ; pokeyellow only
 ; Sevii Route 31
 	db 32, WIGGLYTUFF, PIDGEOTTO, BELLOSSOM, CLEFABLE, NIDOQUEEN, 0 ; 20
+; Sevii Two Island Houses - Ball Tutor
+	db 32, PARASECT, RATICATE, WIGGLYTUFF, VICTREEBEL, PERSIAN, NIDOKING, 0 ; 21
 
 SailorData:
 ; SS Anne Stern
@@ -1023,6 +1025,8 @@ CooltrainerData:
 	db 51, RAICHU, KLEAVOR, PORYGONZ, GENGAR, TAUROS, STARMIE, 0 ; 103
 ; Route 21 Dive, new
 	db 46, GOLEM, CHARIZARD, STEELIX, KLEAVOR, RAPIDASH, 0 ; 104
+; Sevii Two Island Houses - Ball Tutor
+	db 32, SCYTHER, ARBOK, KINGLER, NINETALES, TANGELA, RAICHU, 0 ; 105
 
 ;PORYGON2	3
 ;POLITOED 	5

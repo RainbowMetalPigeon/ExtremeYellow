@@ -1282,6 +1282,8 @@
 	const EVENT_RP_RECEIVED_SEVII_TICKET_1_3 ; new
 	const EVENT_RP_GOT_ALL_ROOF_TMS ; new
 	const EVENT_RP_BRIDGE_COMPLETED ; new
+	const EVENT_RP_BEAT_WEATHER_BALL_TUTOR ; new
+	const EVENT_RP_BEAT_TERRAIN_PULSE_TUTOR ; new
 
 ; Indigo Plateau events
 	const_next $8E0

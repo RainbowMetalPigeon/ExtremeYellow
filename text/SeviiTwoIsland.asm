@@ -974,3 +974,74 @@ _SeviiTwoIslandCityText8_RP::
 	cont "there, though..."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiTwoIslandHousesText2_Intro_RP::
+	text "Get lost, ROCKET."
+
+	para "Wha-?! How do you"
+	line "even know that..."
+	cont "Doesn't matter!"
+	cont "Don't you think"
+	cont "I'll give up"
+	cont "without a fight!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Question_RP::
+	text "WEATHER BALL."
+	line "Take it or leave."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Refused_RP::
+	text "See you never."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Done_RP::
+	text "Done."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesScriptText1_RP::
+	text "Tsk... Congrats,"
+	line "you won. I'll"
+	cont "teach you my move."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Intro_RP::
+	text "Fuck off, scum."
+
+	para "The hell?! How do"
+	line "you even know I"
+	cont "can teach that..."
+	cont "Well, forget it!"
+	cont "The only thing"
+	cont "I'll teach you is"
+	cont "your place!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Question_RP::
+	text "Does your lone"
+	line "neuron even know"
+	cont "how to use"
+	cont "TERRAIN PULSE?" 
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Refused_RP::
+	text "Get lost."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Done_RP::
+	text "Tsk."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesScriptText2_RP::
+	text "Piece of..."
+;	xxxx "123456789012345678"
+	done

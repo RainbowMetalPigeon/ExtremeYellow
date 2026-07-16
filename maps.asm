@@ -1650,11 +1650,6 @@ INCLUDE "scripts/SeviiThreeIslandGym.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandGym.asm"
 SeviiThreeIslandGym_Blocks: INCBIN "maps/SeviiThreeIslandGym.blk"
 
-INCLUDE "data/maps/headers/SeviiFourIslandGym.asm"
-INCLUDE "scripts/SeviiFourIslandGym.asm"
-INCLUDE "data/maps/objects/SeviiFourIslandGym.asm"
-SeviiFourIslandGym_Blocks: INCBIN "maps/SeviiFourIslandGym.blk"
-
 ; --- these three need to be together
 INCLUDE "data/maps/headers/SeviiSixIslandGym1.asm"
 INCLUDE "scripts/SeviiSixIslandGym1.asm"
@@ -1947,6 +1942,11 @@ INCLUDE "data/maps/headers/SeviiRoute34.asm"
 INCLUDE "scripts/SeviiRoute34.asm"
 INCLUDE "data/maps/objects/SeviiRoute34.asm"
 SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandGym.asm"
+INCLUDE "scripts/SeviiFourIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandGym.asm"
+SeviiFourIslandGym_Blocks: INCBIN "maps/SeviiFourIslandGym.blk"
 
 
 SECTION "Maps Sevii 5", ROMX ; new
