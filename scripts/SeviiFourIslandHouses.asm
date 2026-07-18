@@ -313,7 +313,7 @@ SeviiFourIslandHouses_TextPointers_Rocket:
 	dw SeviiFourIslandHousesSignText4_Paper2
 	dw SeviiFourIslandHousesSignText5_Paper3
 	dw SeviiFourIslandHousesSignText6_Switch
-	dw SeviiFourIslandHousesSignText7_PC
+	dw SeviiFourIslandHousesSignText7_PC ; TBE
 	dw SeviiFourIslandHousesSignText8_Cheater ; 17
 	dw SeviiFourIslandHousesSignText9_FakeBooks ; 18
 	dw SeviiFourIslandHousesSignText10_FakeBooks ; 19
