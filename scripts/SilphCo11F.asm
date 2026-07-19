@@ -1,6 +1,6 @@
 SilphCo11F_Script:
 	RPTextChooser SilphCo11F_TextPointers, SilphCo11F_TextPointers_Rocket
-	call SilphCo11Script_62127
+	call SilphCo11Script_HandleDoors
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo11TrainerHeaders
 	ld de, SilphCo11F_ScriptPointers
@@ -9,7 +9,7 @@ SilphCo11F_Script:
 	ld [wCurMapScript], a ; edited
 	ret
 
-SilphCo11Script_62127:
+SilphCo11Script_HandleDoors:
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -72,10 +72,10 @@ SilphCo11Script_6217b:
 	SetEvent EVENT_SILPH_CO_11_UNLOCKED_DOOR
 	ret
 
-SilphCo11Script_62185:
+SilphCo11Script_ResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-SilphCo11Script_62189:
+SilphCo11Script_ScriptChanger:
 	ld [wCurMapScript], a
 	ret
 
@@ -95,22 +95,32 @@ SilphCo11F_ScriptPointers:
 	dw SilphCo11Script12
 	dw SilphCo11Script13
 	dw SilphCo11Script14
+	; new for RP
+	dw SilphCo11Script15 ; non-fight with JJ
 
 SilphCo11Script0:
 IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
 	CheckEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_0
-	call z, SilphCo11Script_6229c
+	call z, SilphCo11Script_TriggerJessieAndJames
+	ret
+.notRP
+; BTV
+	CheckEvent EVENT_BEAT_SILPH_CO_11F_TRAINER_0
+	call z, SilphCo11Script_TriggerJessieAndJames
 	CheckEvent EVENT_782
 	ret nz
 	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
-	call z, SilphCo11Script_621c5
+	call z, SilphCo11Script_TriggerGiovanni
 	ret
 
-SilphCo11Script_621c5:
-	ld hl, CoordsData_62211
+SilphCo11Script_TriggerGiovanni:
+	ld hl, CoordsData_TriggerGiovanni
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
 	ld a, [wCoordIndex]
@@ -128,10 +138,10 @@ SilphCo11Script_621c5:
 	ld de, MovementData_62216
 	call MoveSprite
 	ld a, $4
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
-CoordsData_62211:
+CoordsData_TriggerGiovanni:
 	dbmapcoord  6, 13
 	dbmapcoord  7, 12
 	db -1 ; end
@@ -153,7 +163,8 @@ SilphCo11Script_621ff:
 SilphCo11Script3:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, SilphCo11Script_62185
+	jp z, SilphCo11Script_ResetScripts
+; we won
 	ld a, [wcf0d]
 	cp $1
 	jr z, .asm_6223c
@@ -178,7 +189,7 @@ SilphCo11Script3:
 	SetEvent EVENT_BEAT_SILPH_CO_GIOVANNI
 	xor a
 	ld [wJoyIgnore], a
-	jp SilphCo11Script_62189
+	jp SilphCo11Script_ScriptChanger
 
 SilphCo11Script4:
 	ld a, [wd730]
@@ -212,9 +223,9 @@ SilphCo11Script4:
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
 	ld a, $3
-	jp SilphCo11Script_62189
+	jp SilphCo11Script_ScriptChanger
 
-SilphCo11Script_6229c:
+SilphCo11Script_TriggerJessieAndJames:
 	ld a, [wYCoord]
 	cp $3
 	ret nz
@@ -242,7 +253,13 @@ SilphCo11Script_6229c:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld a, 10
+	jr nz, .dialogueFound
 	ld a, 11 ; edited
+.dialogueFound
+; BTV
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -251,7 +268,7 @@ SilphCo11Script_6229c:
 	ld [wJoyIgnore], a
 	SetEvent EVENT_782
 	ld a, $5
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11MovementData_622f5:
@@ -317,7 +334,7 @@ SilphCo11Script5:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $6
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11Script6:
@@ -326,6 +343,7 @@ SilphCo11Script6:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
+	; fallthrough
 SilphCo11Script7:
 	ld a, $2
 	ld [wSprite04StateData1MovementStatus], a
@@ -339,6 +357,7 @@ SilphCo11Script7:
 	call Delay3
 	ld a, $fc
 	ld [wJoyIgnore], a
+	; fallthrough
 SilphCo11Script8:
 	ld de, SilphCo11MovementData_622fb
 	CheckEitherEventSet EVENT_780, EVENT_781
@@ -355,7 +374,7 @@ SilphCo11Script8:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $9
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11Script9:
@@ -366,6 +385,7 @@ SilphCo11Script9:
 	ret nz
 	ld a, $fc
 	ld [wJoyIgnore], a
+	; fallthrough
 SilphCo11Script10:
 	ld a, $2
 	ld [wSprite06StateData1MovementStatus], a
@@ -377,9 +397,20 @@ SilphCo11Script10:
 	ld [hl], SPRITE_FACING_LEFT
 .asm_623b1
 	call Delay3
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld a, 11
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 15
+	jp SilphCo11Script_ScriptChanger
+.notRP
+; BTV
 	ld a, 12 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+	; fallthrough
 SilphCo11Script11:
 	ld hl, wd72d
 	set 6, [hl]
@@ -397,7 +428,7 @@ SilphCo11Script11:
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
 	ld a, $c
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11Script12:
@@ -405,7 +436,8 @@ SilphCo11Script12:
 	ld [wJoyIgnore], a
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, SilphCo11Script_62185
+	jp z, SilphCo11Script_ResetScripts
+; we won
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
@@ -430,7 +462,7 @@ SilphCo11Script12:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $d
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11Script13:
@@ -438,14 +470,14 @@ SilphCo11Script13:
 	ld [wJoyIgnore], a
 	call GBFadeOutToBlack
 	ld a, HS_SILPH_CO_11F_JAMES
-	call SilphCo11Script_6246d
+	call SilphCo11Script_HideObject
 	ld a, HS_SILPH_CO_11F_JESSIE
-	call SilphCo11Script_6246d
+	call SilphCo11Script_HideObject
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
 	ld a, $e
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11Script14:
@@ -456,7 +488,7 @@ SilphCo11Script14:
 	ResetEvent EVENT_782
 	SetEventReuseHL EVENT_BEAT_SILPH_CO_11F_TRAINER_0
 	ld a, $0
-	call SilphCo11Script_62189
+	call SilphCo11Script_ScriptChanger
 	ret
 
 SilphCo11Script_6245e:
@@ -466,7 +498,7 @@ SilphCo11Script_6245e:
 	call Delay3
 	ret
 
-SilphCo11Script_6246d:
+SilphCo11Script_HideObject:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	ret
@@ -483,10 +515,10 @@ SilphCo11F_TextPointers:
 	dw SilphCo11SignText1 ; new
 	dw SilphCo11SignText2 ; new
 	; scripts
-	dw SilphCo11Text7  ; 10
-	dw SilphCo11Text8  ; 11
-	dw SilphCo11Text9  ; 12
-	dw SilphCo11Text10 ; 13
+	dw SilphCo11Text7  ; 10 ; post-Battle Giovanni
+	dw SilphCo11Text8  ; 11 ; JJ stop you
+	dw SilphCo11Text9  ; 12 ; JJ second dialogue
+	dw SilphCo11Text10 ; 13 ; JJ last dialogue
 
 SilphCo11F_TextPointers_Rocket:
 	dw SilphCo11Text1 ; President TBE
@@ -499,6 +531,10 @@ SilphCo11F_TextPointers_Rocket:
 	; signs
 	dw SilphCo11SignText1
 	dw SilphCo11SignText2
+	; scripts
+	dw SilphCo11ScriptText1_RP ; 10
+	dw SilphCo11ScriptText2_RP ; 11
+	dw SilphCo11ScriptText3_RP ; 12
 
 SilphCo11TrainerHeaders:
 	def_trainers 5
@@ -815,3 +851,24 @@ PlayFusionEffects:
 	ld a, SFX_TELEPORT_ENTER_2
 	call PlaySound
 	ret
+
+; new for RP =============================
+
+SilphCo11ScriptText1_RP:
+	text_far _SilphCo11ScriptText1_RP
+	text_end
+
+SilphCo11ScriptText2_RP:
+	text_far _SilphCo11ScriptText2_RP
+	text_end
+
+SilphCo11ScriptText3_RP:
+	text_far _SilphCo11ScriptText3_RP
+	text_end
+
+SilphCo11Script15:
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 13
+	jp SilphCo11Script_ScriptChanger
