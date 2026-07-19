@@ -28,7 +28,7 @@ SpecialTrainerMoves:
 	db 6, 4, FISSURE
 	db $FE
 
-	db SUPER_NERD, 17
+	db SUPER_NERD, 17 ; terrain tutor
 	; ELECTABUZZ
 	db 1, 1, ELECTRIC_TERRAIN
 	; TANGELA
@@ -45,7 +45,7 @@ SpecialTrainerMoves:
 	db 6, 1, MISTY_TERRAIN
 	db $FE
 
-	db FISHER, 14
+	db FISHER, 14 ; weather tutor
 	; SEADRA
 	db 1, 1, RAIN_DANCE
 	; BELLOSSOM
@@ -60,6 +60,25 @@ SpecialTrainerMoves:
 	; KANGASKHAN
 	db 6, 1, SANDSTORM
 	db 6, 1, HAIL
+	db $FE
+
+	db BEAUTY, 16 ; hazards tutor
+	; PARASECT
+	db 1, 1, STICKY_WEB
+	; CLOYSTER
+	db 2, 1, SPIKES
+	db 2, 2, TOXIC_SPIKES
+	; PINSIR
+	db 3, 1, STEALTH_ROCK
+	; OMASTAR
+	db 4, 1, SPIKES
+	db 4, 2, TOXIC_SPIKES
+	db 4, 3, STEALTH_ROCK
+	db 4, 3, HYDRO_PUMP
+	; TENTACRUEL
+	db 5, 1, TOXIC_SPIKES
+	; KABUTOPS
+	db 6, 1, STEALTH_ROCK
 	db $FE
 
 	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')

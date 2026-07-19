@@ -1284,6 +1284,7 @@
 	const EVENT_RP_BRIDGE_COMPLETED ; new
 	const EVENT_RP_BEAT_WEATHER_BALL_TUTOR ; new
 	const EVENT_RP_BEAT_TERRAIN_PULSE_TUTOR ; new
+	const EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE ; new
 
 ; Indigo Plateau events
 	const_next $8E0

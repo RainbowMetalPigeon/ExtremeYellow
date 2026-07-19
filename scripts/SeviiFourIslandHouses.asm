@@ -50,6 +50,8 @@ SeviiFourIslandHouses_ScriptPointers:
 	dw SeviiFourIslandHouses_Script3 ; 3
 	dw SeviiFourIslandHouses_Script4 ; 4
 	dw SeviiFourIslandHouses_Script5 ; 5
+	; for RP
+	dw SeviiFourIslandHouses_Script6 ; 6
 
 SeviiFourIslandHouses_Script0:
 	CheckEvent EVENT_SEVII_CLEARED_CHRONO_WAREHOUSE
@@ -297,11 +299,11 @@ SeviiFourIslandHouses_TextPointers:
 	dw SeviiFourIslandHousesScriptText6 ; 26
 
 SeviiFourIslandHouses_TextPointers_Rocket:
-	dw SeviiFourIslandHousesText1 ; Pink TBE
-	dw SeviiFourIslandHousesText2 ; Dad TBE
-	dw SeviiFourIslandHousesText3 ; Papa TBE
-	dw SeviiFourIslandHousesText4 ; Mama TBE
-	dw SeviiFourIslandHousesText5 ; Tutor TBE
+	dw SeviiFourIslandHousesText1 ; Pink (unnecessary?)
+	dw SeviiFourIslandHousesText2_RP ; Dad
+	dw SeviiFourIslandHousesText3_RP ; Papa
+	dw SeviiFourIslandHousesText4_RP ; Mama
+	dw SeviiFourIslandHousesText5_RP ; Tutor
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -313,11 +315,13 @@ SeviiFourIslandHouses_TextPointers_Rocket:
 	dw SeviiFourIslandHousesSignText4_Paper2
 	dw SeviiFourIslandHousesSignText5_Paper3
 	dw SeviiFourIslandHousesSignText6_Switch
-	dw SeviiFourIslandHousesSignText7_PC ; TBE
+	dw SeviiFourIslandHousesSignText7_PC_RP
 	dw SeviiFourIslandHousesSignText8_Cheater ; 17
 	dw SeviiFourIslandHousesSignText9_FakeBooks ; 18
 	dw SeviiFourIslandHousesSignText10_FakeBooks ; 19
 	dw SeviiFourIslandHousesSignText11_Paper4 ; 20
+	; scripts
+	dw SeviiFourIslandHousesScriptText1_RP ; 21
 
 ; texts ===========================
 
@@ -437,10 +441,6 @@ SeviiFourIslandHousesText5: ; Entry Hazards Tutor
 .alreadyWon
 	ld hl, SeviiFourIslandHousesText5_Question
 	call PrintText
-;	call YesNoChoice
-;	ld a, [wCurrentMenuItem]
-;	and a
-;	jr z, .learnMove
 	call MoveTutorHazardChoice
 	ld a, [wCurrentMenuItem]
 	and a
@@ -616,3 +616,159 @@ PinksHousePinkDefeatedText:
 PinksHousePinkBeatYouText:
 	text_far _PinksHousePinkBeatYouText
 	text_end
+
+; new for RP ==============================
+
+SeviiFourIslandHousesText2_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE
+	ld hl, SeviiFourIslandHousesText2_RP_After
+	jr nz, .printAndEnd
+	ld hl, SeviiFourIslandHousesText2_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFourIslandHousesText3_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE
+	ld hl, SeviiFourIslandHousesText3_RP_After
+	jr nz, .printAndEnd
+	ld hl, SeviiFourIslandHousesText3_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFourIslandHousesText4_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE
+	ld hl, SeviiFourIslandHousesText4_RP_After
+	jr nz, .printAndEnd
+	ld hl, SeviiFourIslandHousesText4_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFourIslandHousesSignText7_PC_RP:
+	text_far _SeviiFourIslandHousesSignText7_PC_RP
+	text_end
+
+SeviiFourIslandHousesText2_RP_Before:
+	text_far _SeviiFourIslandHousesText2_RP_Before
+	text_end
+
+SeviiFourIslandHousesText2_RP_After:
+	text_far _SeviiFourIslandHousesText2_RP_After
+	text_end
+
+SeviiFourIslandHousesText3_RP_Before:
+	text_far _SeviiFourIslandHousesText3_RP_Before
+	text_end
+
+SeviiFourIslandHousesText3_RP_After:
+	text_far _SeviiFourIslandHousesText3_RP_After
+	text_end
+
+SeviiFourIslandHousesText4_RP_Before:
+	text_far _SeviiFourIslandHousesText4_RP_Before
+	text_end
+
+SeviiFourIslandHousesText4_RP_After:
+	text_far _SeviiFourIslandHousesText4_RP_After
+	text_end
+
+SeviiFourIslandHousesText5_RP:
+	text_asm
+	call SaveScreenTilesToBuffer2 ; this must always be here before calling Tutor, and should always be at a point when text is not on the screen
+	CheckEvent EVENT_SEVII_HAZARD_ROOM_WON ; abused
+	jr nz, .alreadyBeated
+; still haven't beaten
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BEAUTY
+	ld [wCurOpponent], a
+	ld a, 16
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	; no need for the SaveEndBattleTextPointers, as it's RP
+	ld a, 6
+	ld [wCurMapScript], a
+	ld hl, SeviiFourIslandHousesText5_Intro_RP
+	jr .printAndEnd
+.alreadyBeated
+	ld hl, SeviiFourIslandHousesText5_Question_RP
+	call PrintText
+	call MoveTutorHazardChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .spikes
+	dec a
+	jr z, .toxicSpikes
+	dec a
+	jr z, .stickyWeb
+	dec a
+	jr z, .stealthRocks
+; decline
+	ld hl, SeviiFourIslandHousesText5_Refused_RP
+	jr .printAndEnd
+.spikes
+	ld a, SPIKES
+	jr .learnMove
+.toxicSpikes
+	ld a, TOXIC_SPIKES
+	jr .learnMove
+.stickyWeb
+	ld a, STICKY_WEB
+	jr .learnMove
+.stealthRocks
+	ld a, STEALTH_ROCK
+.learnMove
+	ld [wMoveNum], a
+	farcall Tutor
+	ld hl, SeviiFourIslandHousesText5_Done_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFourIslandHousesText5_Intro_RP:
+	text_far _SeviiFourIslandHousesText5_Intro_RP
+	text_end
+
+SeviiFourIslandHousesText5_Question_RP:
+	text_far _SeviiFourIslandHousesText5_Question_RP
+	text_end
+
+SeviiFourIslandHousesText5_Refused_RP:
+	text_far _SeviiFourIslandHousesText5_Refused_RP
+	text_end
+
+SeviiFourIslandHousesText5_Done_RP:
+	text_far _SeviiFourIslandHousesText5_Done_RP
+	text_end
+
+SeviiFourIslandHousesScriptText1_RP:
+	text_far _SeviiFourIslandHousesScriptText1_RP
+	text_end
+
+SeviiFourIslandHouses_Script6:
+; did we win?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiFourIslandHousesResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_SEVII_HAZARD_ROOM_WON ; abused
+	ld a, 21
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 5
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; load next script
+	jp SeviiFourIslandHousesResetScripts

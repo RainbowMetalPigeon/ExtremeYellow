@@ -913,3 +913,166 @@ _SeviiFourIslandCityDiveAfterBattleText4::
 	cont "speleodiving? It's"
 	cont "super dangerous!)"
 	done
+
+; new for RP ============================
+
+_SeviiFourIslandHousesText2_RP_Before::
+	text "PINK's DAD: YOU!"
+	line "You are the one"
+	cont "that beat PINK in"
+	cont "KNOT! Why are you"
+	cont "here? What do you"
+	cont "want from us?!"
+
+	para "First my sibling"
+	line "and my nephew,"
+	cont "then my kid,"
+	cont "now us! Leave my"
+	cont "family alone!"
+	cont "What did we do"
+	cont "do deserve this?!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText2_RP_After::
+	text "PINK's DAD: What?!"
+	line "You went to"
+	cont "CHRONO and beat"
+	cont "PINK again?!"
+
+	para "You monster..."
+	line "If only I wasn't"
+	cont "so weak...!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText3_RP_Before::
+	text "PINK's PAPA: Are"
+	line "you... the one"
+	cont "that collaborated"
+	cont "in MAYOI's kid-"
+	cont "napping?!"
+
+	para "You filthy...!"
+	line "If only I was a"
+	cont "TRAINER...!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText3_RP_After::
+	text "PINK's PAPA: Why?!"
+	line "Why did you have"
+	cont "to beat PINK one"
+	cont "more time?!"
+
+	para "PINK... forgive my"
+	line "weakness... I"
+	cont "can't protect you."
+	cont "I'm pathetic."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText4_RP_Before::
+	text "PINK's MAMA: You"
+	line "are that criminal"
+	cont "that tortured"
+	cont "CELIO and PINK..."
+
+	para "Why? What did we"
+	line "do to you? How"
+	cont "can other people"
+	cont "matter so little"
+	cont "to you?!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText4_RP_After::
+	text "PINK's MAMA: No!"
+	line "Why?! Why did you"
+	cont "chase after PINK"
+	cont "again? They're"
+	cont "just trying to"
+	cont "save us all!"
+
+	para "Forgive me, my"
+	line "child, if you"
+	cont "can. I failed you"
+	cont "as a parent..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesSignText7_PC_RP::
+	text "PINK's PC."
+	line "Full of crap on"
+	cont "how to train as"
+	cont "quickly and"
+	cont "effectively as"
+	cont "possible."
+
+	para "Also some sort of"
+	line "diary:"
+
+	para "'...I feel so weak"
+	line "and uselss."
+	cont "I AM weak and"
+	cont "useless. I want"
+	cont "to punch the wall"
+	cont "till the bones"
+	cont "show up. I let"
+	cont "MAYOI be kid-"
+	cont "napped, and now"
+	cont "auncle CELIO is"
+	cont "a ROCKET's slave."
+	cont "I disgust myself."
+	cont "And that kid..."
+	cont "A pure monster."
+	cont "A fiend that must"
+	cont "be eradicated"
+	cont "from this world,"
+	cont "at any cost."
+	cont "No sacrifice'll"
+	cont "be too much."
+	cont "They must die."
+	cont "Every ROCKET."
+	cont "I swear, I'll"
+	cont "purge the world"
+	cont "from that plague,"
+	cont "may it cost me"
+	cont "my own life.'"
+;	xxxx "123456789012345678"
+	done
+	
+_SeviiFourIslandHousesText5_Intro_RP::
+	text "...a ROCKET?"
+	line "I don't feel like"
+	cont "laughing."
+
+	para "Wha-?! No! I won't"
+	line "teach you moves!"
+
+	para "Force me?"
+	line "Only if you can!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText5_Question_RP::
+	text "An ENTRY HAZARD or"
+	line "will you scram?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText5_Refused_RP::
+	text "Good."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesText5_Done_RP::
+	text "We're done here."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesScriptText1_RP::
+	text "...fuck."
+	line "You won."
+;	xxxx "123456789012345678"
+	done

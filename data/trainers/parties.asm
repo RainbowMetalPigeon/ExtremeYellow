@@ -546,6 +546,8 @@ BeautyData:
 	db 41, STARMIE, STARMIE, STARMIE, 0
 ; Route 20 ; updated
 	db 41, HORSEA, SEADRA, KINGDRA, 0
+; Sevii Four Island Houses - Hazards Tutor
+	db 39, PARASECT, CLOYSTER, PINSIR, OMASTAR, TENTACRUEL, KABUTOPS, 0 ; 16
 
 PsychicData:
 ; Saffron Gym
