@@ -307,11 +307,41 @@ _SeviiFiveIslandWarehouse2FText5_RP::
 ;	xxxx "123456789012345678"
 	done
 
-/*
+_SeviiFiveIslandHousesText1_Intro_RP::
+	text "Why is a criminal"
+	line "here? What"
+	cont "interest may you"
+	cont "have in the"
+	cont "science of time?"
 
-::
-	text ""
+	para "My results?!"
+	line "Not without a"
+	cont "fight!"
 ;	xxxx "123456789012345678"
 	done
 
-*/
+_SeviiFiveIslandHousesText1_Question_RP::
+	text "Soyoudemandfrommet"
+	line "oteachyour#MON"
+	cont "themoveTRICKROOM?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText1_Refused_RP::
+	text "Better this way."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText1_Done_RP::
+	text "We're done."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesScriptsText1::
+	text "Ohdamnhowcouldyouh"
+	line "avepossiblywonImu"
+	cont "stfocusmoreonmytr"
+	cont "ainingandmaybeles"
+	cont "sonmystudies?!"
+;	xxxx "123456789012345678"
+	done

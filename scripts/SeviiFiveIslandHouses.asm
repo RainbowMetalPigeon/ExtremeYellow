@@ -1,6 +1,19 @@
 SeviiFiveIslandHouses_Script:
 	RPTextChooser SeviiFiveIslandHouses_TextPointers, SeviiFiveIslandHouses_TextPointers_Rocket
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld hl, SeviiFiveIslandHouses_ScriptPointers
+	ld a, [wCurMapScript]
+	jp CallFunctionInTable
+
+SeviiFiveIslandHouses_ScriptPointers:
+	; new for RP
+	dw SeviiFiveIslandHouses_Null_RP ; 0
+	dw SeviiFiveIslandHouses_PostBattleTutor_RP ; 1
+
+SeviiFiveIslandHouses_Null_RP:
+	ret
+
+; texts ================================
 
 SeviiFiveIslandHouses_TextPointers:
 	dw SeviiFiveIslandHousesText1 ; Trick Room tutor
@@ -15,10 +28,9 @@ SeviiFiveIslandHouses_TextPointers:
 	dw SeviiFiveIslandHousesSignText2
 	dw SeviiFiveIslandHousesSignText3
 	dw SeviiFiveIslandHousesSignText4
-	; scripts
 
 SeviiFiveIslandHouses_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; Trick Room tutor TBE
+	dw SeviiFiveIslandHousesText1_RP ; Trick Room tutor
 	dw GenericNPCText_RocketPath ; Biker
 	dw SeviiFiveIslandHousesText3 ; Mon
 	dw SeviiFiveIslandHousesText4 ; Mon
@@ -30,6 +42,8 @@ SeviiFiveIslandHouses_TextPointers_Rocket:
 	dw SeviiFiveIslandHousesSignText2
 	dw SeviiFiveIslandHousesSignText3
 	dw SeviiFiveIslandHousesSignText4
+	; scripts for RP
+	dw SeviiFiveIslandHousesScriptsText1 ; 12
 
 SeviiFiveIslandHousesText1:
 	text_asm
@@ -201,11 +215,11 @@ SeviiFiveIslandHousesText7: ; PAPER
 
 BackupTextSpeed::
 	ld a, [wOptions]
-	ld [wUniQuizAnswer], a
+	ld [wUniQuizAnswer+5], a
 	ret
 
 RestoreTextSpeed::
-	ld a, [wUniQuizAnswer]
+	ld a, [wUniQuizAnswer+5]
 	ld [wOptions], a
 	ret
 
@@ -224,3 +238,96 @@ MakeTextTemporarilyMid:
 	or b
 	ld [wOptions], a
 	ret
+
+; new for RP ================================
+
+SeviiFiveIslandHousesText1_RP:
+	text_asm
+	call BackupTextSpeed
+	call SaveScreenTilesToBuffer2 ; this must always be here before calling Tutor, and should always be at a point when text is not on the screen
+	CheckEvent EVENT_SEVII_SHOWED_MONS_TO_TRICK_ROOM_TUTOR ; abused
+	jr nz, .alreadyBeated
+; still haven't beaten
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_SCIENTIST
+	ld [wCurOpponent], a
+	ld a, 20
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	; no need for the SaveEndBattleTextPointers, as it's RP
+	ld a, 1
+	ld [wCurMapScript], a
+	call MakeTextTemporarilyMid
+	ld hl, SeviiFiveIslandHousesText1_Intro_RP
+	jr .printAndEnd
+.alreadyBeated
+	call MakeTextTemporarilyInstant
+	ld hl, SeviiFiveIslandHousesText1_Question_RP
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .learnMove
+.declineMove
+	call MakeTextTemporarilyMid
+	ld hl, SeviiFiveIslandHousesText1_Refused_RP
+	jr .printAndEnd
+.learnMove
+	ld a, TRICK_ROOM
+	ld [wMoveNum], a
+	farcall Tutor
+	call MakeTextTemporarilyMid
+	ld hl, SeviiFiveIslandHousesText1_Done_RP
+.printAndEnd
+	call PrintText
+	call RestoreTextSpeed
+	jp TextScriptEnd
+
+SeviiFiveIslandHouses_PostBattleTutor_RP:
+; did we win?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiFourIslandHousesResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_SEVII_SHOWED_MONS_TO_TRICK_ROOM_TUTOR ; abused
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; load next script
+	; fallthrough
+SeviiFiveIslandHousesResetScripts:
+	ld a, 0
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+SeviiFiveIslandHousesText1_Intro_RP:
+	text_far _SeviiFiveIslandHousesText1_Intro_RP
+	text_end
+
+SeviiFiveIslandHousesText1_Question_RP:
+	text_far _SeviiFiveIslandHousesText1_Question_RP
+	text_end
+
+SeviiFiveIslandHousesText1_Refused_RP:
+	text_far _SeviiFiveIslandHousesText1_Refused_RP
+	text_end
+
+SeviiFiveIslandHousesText1_Done_RP:
+	text_far _SeviiFiveIslandHousesText1_Done_RP
+	text_end
+
+SeviiFiveIslandHousesScriptsText1:
+	text_far _SeviiFiveIslandHousesScriptsText1
+	text_end

@@ -7,9 +7,9 @@ SeviiTwoIslandHouses_Script:
 
 SeviiTwoIslandHouses_ScriptPointers:
 	; new for RP
-	dw SeviiOneIslandHouses_Null_RP ; 0
-	dw SeviiOneIslandHouses_PostBattleTutorBall_RP ; 1
-	dw SeviiOneIslandHouses_PostBattleTutorPulse_RP ; 2
+	dw SeviiTwoIslandHouses_Null_RP ; 0
+	dw SeviiTwoIslandHouses_PostBattleTutorBall_RP ; 1
+	dw SeviiTwoIslandHouses_PostBattleTutorPulse_RP ; 2
 
 ; texts ================================
 
@@ -294,10 +294,10 @@ SeviiTwoIslandHousesScriptText2_RP:
 	text_far _SeviiTwoIslandHousesScriptText2_RP
 	text_end
 
-SeviiOneIslandHouses_Null_RP:
+SeviiTwoIslandHouses_Null_RP:
 	ret
 
-SeviiOneIslandHouses_PostBattleTutorBall_RP:
+SeviiTwoIslandHouses_PostBattleTutorBall_RP:
 ; did we win?
 	ld a, [wIsInBattle]
 	cp $ff
@@ -317,7 +317,7 @@ SeviiOneIslandHouses_PostBattleTutorBall_RP:
 ; load next script
 	jp SeviiTwoIslandHousesResetScripts
 
-SeviiOneIslandHouses_PostBattleTutorPulse_RP:
+SeviiTwoIslandHouses_PostBattleTutorPulse_RP:
 ; did we win?
 	ld a, [wIsInBattle]
 	cp $ff

@@ -741,6 +741,8 @@ ScientistData:
 	db 25, POLIWAG, WEEDLE, PIKACHU, LICKITUNG, CUBONE, 0 ; 18
 ; HM05, for RP
 	db 24, MAGNEMITE, KOFFING, KADABRA, VOLTORB, 0 ; 19
+; Sevii Five Island Houses - Trick Room Tutor
+	db 39, ALAKAZAM, SLOWBRO, SNORLAX, EXEGGUTOR, PORYGON2, LICKILICKY, 0 ; 20
 
 GentlemanData:
 ; SS Anne 1F Rooms

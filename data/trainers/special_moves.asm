@@ -81,6 +81,18 @@ SpecialTrainerMoves:
 	db 6, 1, STEALTH_ROCK
 	db $FE
 
+	db SCIENTIST, 20 ; trick room tutor
+	; ALAKAZAM
+	db 1, 1, RECOVER
+	db 1, 3, TRICK_ROOM
+	; SLOWBRO
+	db 2, 4, TRICK_ROOM
+	; EXEGGUTOR
+	db 4, 2, TRICK_ROOM
+	; PORYGON2
+	db 5, 2, TRICK_ROOM
+	db $FE
+
 	db JUGGLER, 4 ; evil exploding Juggler in Fuchsia Gym :')
 	; WEEZING
 	db 1, 1, EXPLOSION
