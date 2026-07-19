@@ -213,27 +213,6 @@ SafariZoneEntranceText2:
 
 OpenUpSouthObsidianBridge::
 	SetEvent EVENT_RP_BRIDGE_COMPLETED
-	call HideNPCs_SafariPoaching_RP
-	jp HideNPCsExtra_SafariPoaching_RP ; could fallthrough but this way it's cleaner
-
-HideNPCs_SafariPoaching_RP:
-	ld hl, NPCsToHideSafariPoaching
-.hideLoop
-	ld a, [hli]
-	cp $ff ; have we run out of NPCs to hide?
-	ret z ; if so, we're done
-	push hl
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	pop hl
-	jr .hideLoop
-
-NPCsToHideSafariPoaching:
-	db HS_SAFARI_ZONE_GATE_GUARD_1
-	db HS_SAFARI_ZONE_GATE_GUARD_2
-	db $ff
-
-HideNPCsExtra_SafariPoaching_RP:
 	ld hl, NPCsToHideSafariPoachingExtra
 .hideLoop
 	ld a, [hli]

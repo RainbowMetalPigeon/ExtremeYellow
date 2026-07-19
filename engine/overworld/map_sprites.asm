@@ -16,6 +16,20 @@ _InitMapSprites::
 	call InitOutsideMapSprites
 	ret c ; return if the map is an outside map (already handled by above call)
 ; if the map is an inside map (i.e. mapID >= $25)
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .noSpecialRPHiding
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .noSpecialRPHiding
+	ld a, [wCurMap]
+	cp SAFARI_ZONE_QUADRUPLE_REST_HOUSE
+	ret z
+	cp SAFARI_ZONE_SECRET_HOUSE
+	ret z
+	cp SAFARI_ZONE_GATE
+	ret z
+.noSpecialRPHiding
+; BTV
 	call LoadSpriteSetFromMapHeader
 	call LoadMapSpriteTilePatterns
 	call Func_14150
