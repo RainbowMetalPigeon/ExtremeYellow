@@ -331,8 +331,11 @@ IsObsidianWarehouseWarpTileInFrontOfPlayer: ; new
 
 IsObsidianIslandWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
+	cp $12
+	jr z, .yesObsidianIslandWarp
 	cp $50
 	jr nz, .notObsidianIslandWarp
+.yesObsidianIslandWarp
 	scf
 	jp IsWarpTileInFrontOfPlayer.done
 .notObsidianIslandWarp

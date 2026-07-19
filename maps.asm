@@ -1795,11 +1795,6 @@ INCLUDE "scripts/SeviiRoute35.asm"
 INCLUDE "data/maps/objects/SeviiRoute35.asm"
 SeviiRoute35_Blocks: INCBIN "maps/SeviiRoute35.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute33.asm"
-INCLUDE "scripts/SeviiRoute33.asm"
-INCLUDE "data/maps/objects/SeviiRoute33.asm"
-SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"
-
 
 SECTION "Maps Sevii 4", ROMX ; new
 
@@ -2148,3 +2143,8 @@ INCLUDE "data/maps/headers/SeviiTanobyChambers.asm"
 INCLUDE "scripts/SeviiTanobyChambers.asm"
 INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
 SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute33.asm"
+INCLUDE "scripts/SeviiRoute33.asm"
+INCLUDE "data/maps/objects/SeviiRoute33.asm"
+SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"

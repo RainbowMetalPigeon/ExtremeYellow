@@ -210,15 +210,24 @@ Route24Text1: ; edited
 
 	ld a, [wWalkBikeSurfState]
 	dec a
-	jr nz, .notOnBike
+	jr nz, .hideObjects
 	callfar ItemUseReloadOverworldData
 	xor a
 	ld [wWalkBikeSurfState], a ; change player state to walking
 	call PlayDefaultMusic ; play walking music
-.notOnBike
+.hideObjects
 	ld a, HS_POKEMON_TOWER_2F_RIVAL
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
 ; TBE: fade out, event music?
 
 	ld hl, Route24Text_GreatWelcome

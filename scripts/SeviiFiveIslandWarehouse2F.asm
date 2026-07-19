@@ -45,6 +45,10 @@ SeviiFiveIslandWarehouse2F_ScriptPointers:
 	dw EndTrainerBattle
 	dw SeviiFiveIslandWarehouse2F_Script3
 	dw SeviiFiveIslandWarehouse2F_Script4
+	; for RP
+	dw SeviiFiveIslandWarehouse2F_Script5
+	dw SeviiFiveIslandWarehouse2F_Script6
+	dw SeviiFiveIslandWarehouse2F_Script7
 
 SeviiFiveIslandWarehouse2F_Script3:
 	ld a, [wIsInBattle]
@@ -203,6 +207,7 @@ SeviiFiveIslandWarehouse2F_Script4:
 ; fallthrough only for last script
 SeviiFiveIslandWarehouse2FResetScripts:
 	xor a
+	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
 	ret
 
@@ -231,7 +236,7 @@ SeviiFiveIslandWarehouse2F_TextPointers:
 	dw SeviiFiveIslandWarehouse2FScriptText3 ; 19
 
 SeviiFiveIslandWarehouse2F_TextPointers_Rocket: ; TBE
-	dw SeviiFiveIslandWarehouse2FText1 ; Carr
+	dw SeviiFiveIslandWarehouse2FText1_RP ; Carr
 	dw SeviiFiveIslandWarehouse2FText2 ; Pink before-end
 	dw SeviiFiveIslandWarehouse2FText3 ; Pink after-end
 	dw SeviiFiveIslandWarehouse2FText4 ; Pink after-end
@@ -247,6 +252,11 @@ SeviiFiveIslandWarehouse2F_TextPointers_Rocket: ; TBE
 	dw SeviiFiveIslandWarehouse2FSignText4 ; door 1
 	dw SeviiFiveIslandWarehouse2FSignText5 ; door 4
 	dw SeviiFiveIslandWarehouse2FSignText6 ; door 4
+	; scripts
+	dw SeviiFiveIslandWarehouse2FScriptText1_RP ; 17
+	dw SeviiFiveIslandWarehouse2FScriptText2_RP ; 18
+	dw SeviiFiveIslandWarehouse2FScriptText3_RP ; 19
+	dw SeviiFiveIslandWarehouse2FScriptText4_RP ; 20
 
 SeviiFiveIslandWarehouse2FTrainerHeaders:
 	def_trainers 5
@@ -442,4 +452,178 @@ SeviiFiveIslandWarehouse2FScriptText2:
 
 SeviiFiveIslandWarehouse2FScriptText3:
 	text_far _SeviiFiveIslandWarehouse2FScriptText3
+	text_end
+
+; new for RP =============================
+
+SeviiFiveIslandWarehouse2FText1_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE
+	ld hl, SeviiFiveIslandWarehouse2FText1_RP_After
+	jr nz, .printAndEnd
+	ld a, 5
+	ld [wCurMapScript], a
+	ld hl, SeviiFiveIslandWarehouse2FText1_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFiveIslandWarehouse2F_Script5:
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+; show appropriate Pink and dialogues
+	ld a, [wYCoord]
+	cp 5
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_2F_PINK_AFTER_2
+	jr z, .spawnSouthPink
+; spawn North Pink
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_2F_PINK_AFTER_1
+.spawnSouthPink
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; walk Pink
+; determine which movement to apply depending on player's position
+	ld a, [wYCoord]
+	cp 5
+	ld de, SeviiWarehousePinkIfPlayerUpMovements
+	jr z, .playerUp
+	cp 6
+	ld de, SeviiWarehousePinkIfPlayerMidMovements
+	jr z, .playerDown
+	ld de, SeviiWarehousePinkIfPlayerDownMovements
+.playerDown
+	push de
+	ld a, 3
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
+	ld [wSpritePlayerStateData1FacingDirection], a
+	jr .movePink
+.playerUp
+	push de
+	ld a, 4
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+.movePink
+	pop de
+	call MoveSprite
+; load next script
+	ld a, 6
+	ld [wCurMapScript], a
+	ret
+
+SeviiFiveIslandWarehouse2F_Script6:
+; wait for Pink to have moved
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; turn Pink if appropriate
+	ld a, [wYCoord]
+	cp 6
+	jr z, .noTurnPink
+; determine which Pink to turn
+	cp 5
+	lb de, 4, SPRITE_FACING_LEFT
+	jr z, .turnPink
+	lb de, 3, SPRITE_FACING_LEFT
+.turnPink
+	callfar ChangeSpriteFacing ; new Pigeon approach
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSpritePlayerStateData1FacingDirection], a
+.noTurnPink
+; Pink dialogue
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_PINK
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiFiveIslandWarehouse2PinkDefeatText
+	ld de, SeviiFiveIslandWarehouse2PinkVictoryText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 7
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+SeviiFiveIslandWarehouse2F_Script7:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiFiveIslandWarehouse2FResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	SetEvent EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE
+; pink's dialogue
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide Pink
+	call GBFadeOutToBlack
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_2F_PINK_AFTER_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_2F_PINK_AFTER_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; Carr dialogue
+	ld a, 20
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; if also beat Blue in Obsidian, open Silph
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	jp z, SeviiFiveIslandWarehouse2FResetScripts
+	ld a, HS_SAFFRON_CITY_E
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	jp SeviiFiveIslandWarehouse2FResetScripts
+
+SeviiFiveIslandWarehouse2FText1_RP_Before:
+	text_far _SeviiFiveIslandWarehouse2FText1_RP_Before
+	text_end
+
+SeviiFiveIslandWarehouse2FText1_RP_After:
+	text_far _SeviiFiveIslandWarehouse2FText1_RP_After
+	text_end
+
+SeviiFiveIslandWarehouse2FScriptText1_RP:
+	text_far _SeviiFiveIslandWarehouse2FScriptText1_RP
+	text_end
+
+SeviiFiveIslandWarehouse2FScriptText2_RP:
+	text_far _SeviiFiveIslandWarehouse2FScriptText2_RP
+	text_end
+
+SeviiFiveIslandWarehouse2FScriptText3_RP:
+	text_far _SeviiFiveIslandWarehouse2FScriptText3_RP
+	text_end
+
+SeviiFiveIslandWarehouse2FScriptText4_RP:
+	text_far _SeviiFiveIslandWarehouse2FScriptText4_RP
+	text_end
+
+SeviiFiveIslandWarehouse2PinkDefeatText:
+	text_far _SeviiFiveIslandWarehouse2PinkDefeatText
+	text_end
+
+SeviiFiveIslandWarehouse2PinkVictoryText:
+	text_far _SeviiFiveIslandWarehouse2PinkVictoryText
 	text_end

@@ -371,6 +371,24 @@ PalletTownText7: ; sign by Blue's house ; edited
 IF DEF(_DEBUG)
 	SetEvent EVENT_ROCKET_PATH
 	call DisablePikachuOverworldSpriteDrawing
+	ld a, HS_POKEMON_TOWER_2F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 ENDC
 	jp TextScriptEnd
 
