@@ -185,3 +185,33 @@ _MistyRematchDefeatedText::
 	cont "Well done, you"
 	cont "sweetie!"
 	prompt
+
+; new for RP =======================
+
+_MistyPreBattleText_RP::
+	text "i'll fight full"
+	line "force"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedCascadeBadgeText_RP::
+	text "get badge and TM"
+	line "and leave"
+;	xxxx "123456789012345678"
+	prompt
+
+_MistyCascadeBadgeInfoText_RP::
+	text "1234567 obtained"
+	line "CASCADEBADGE!"
+;	xxxx "123456789012345678"
+	done
+
+_TM11NoRoomText_RP::
+	text "no room"
+;	xxxx "123456789012345678"
+	done
+
+_MistyPostBattleText_RP::
+	text "leave or else"
+;	xxxx "123456789012345678"
+	done

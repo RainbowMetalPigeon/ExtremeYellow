@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MARODACTYL, 96 ; 255
-	db GOLDUCK, 99
+	db MALAKAZAM, 99
 	db STARTER_PIKACHU, 1
 ;	db CHARMELEON, 100
 ;	db BULBASAUR, 42
@@ -40,25 +40,25 @@ IF DEF(_DEBUG)
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
 	ld a, %11111110
-;	ld a, %00010000
+	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
-	ld a, %01111111
+;	ld a, %01111111
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, RAPID_SPIN
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ROCK_CLIMB
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, WHIRLWIND ; ANCESTOR_PWR
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -288,7 +288,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 ;	callfar HideUndegroundGuard.hideGuards
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH

@@ -112,11 +112,15 @@ CeruleanGym_TextPointers:
 	dw MistyPostRematchText; new, $9
 
 CeruleanGym_TextPointers_Rocket:
-	dw MistyText ; TBE
+	dw MistyText_RP
 	dw CeruleanGymTrainerText1
 	dw CeruleanGymTrainerText2
 	dw CeruleanGymTrainerText3
 	dw GenericNPCText_RocketPath ; TBE
+	; scripts
+	dw MistyCascadeBadgeInfoText_RP
+	dw ReceivedTM11Text
+	dw TM11NoRoomText_RP
 
 CeruleanGymTrainerHeaders:
 	def_trainers 2
@@ -308,4 +312,69 @@ MistyRematchDefeatedText:
 
 MistyPostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP ==============================
+
+MistyText_RP:
+	text_asm
+
+	CheckEvent EVENT_BEAT_MISTY
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_GOT_TM11
+	jr nz, .afterBeat
+	call z, CeruleanGymReceiveTM11
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, MistyPostBattleText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, MistyPreBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedCascadeBadgeText_RP
+	ld de, ReceivedCascadeBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+	
+	ld a, $2
+	ld [wGymLeaderNo], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $3
+	ld [wCurMapScript], a ; edited
+.done
+	jp TextScriptEnd
+
+MistyPostBattleText_RP:
+	text_far _MistyPostBattleText_RP
+	text_end
+
+MistyPreBattleText_RP:
+	text_far _MistyPreBattleText_RP
+	text_end
+
+ReceivedCascadeBadgeText_RP:
+	text_far _ReceivedCascadeBadgeText_RP
+	text_end
+
+MistyCascadeBadgeInfoText_RP:
+	text_far _MistyCascadeBadgeInfoText_RP
+	sound_get_key_item
+	text_end
+
+TM11NoRoomText_RP:
+	text_far _TM11NoRoomText_RP
 	text_end

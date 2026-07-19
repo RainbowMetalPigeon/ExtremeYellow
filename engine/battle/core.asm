@@ -4534,7 +4534,7 @@ CheckForDisobedience:
 ; what level might disobey? - modified, added threshold at every badge and for post-League
 ; modified further to add CAP options
 	CheckEvent EVENT_ROCKET_PATH ; new
-	jp z, .canUseMove ; new
+	jp nz, .canUseMove ; new
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
 	jp nz, .canUseMove ; edited
 ; now we check how many badges we have and set the cap accordingly
