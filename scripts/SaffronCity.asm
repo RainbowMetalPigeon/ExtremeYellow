@@ -312,13 +312,16 @@ SaffronCityText_BlockingSilph_RP:
 	lb bc, CARD_KEY, 1
 	call GiveItem
 	jr nc, .bagFull
-; actually give the card
+; actually give the card, hide the card key item in 5F, hide the guard
 	ld hl, SaffronCityText_BlockingSilph_RP_After_ObtainItem
 	call PrintText
 	ld hl, SaffronCityText_BlockingSilph_RP_After_NowGo
 	call PrintText
 	call GBFadeOutToBlack
 	ld a, HS_SAFFRON_CITY_E
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_SILPH_CO_5F_ITEM_3
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	call UpdateSprites

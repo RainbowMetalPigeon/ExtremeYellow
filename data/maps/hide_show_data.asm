@@ -527,7 +527,7 @@ SilphCo5FHS:						; updated, +1
 	db SILPH_CO_5F, $06, SHOW
 	db SILPH_CO_5F, $07, SHOW
 	db SILPH_CO_5F, $08, SHOW
-	db SILPH_CO_5F, $09, SHOW
+	db SILPH_CO_5F, $09, SHOW ; CARD_KEY
 SilphCo6FHS:
 	db SILPH_CO_6F, $06, SHOW
 	db SILPH_CO_6F, $07, SHOW

@@ -102,10 +102,10 @@ SilphCo7Text_51bf4:
 	SetEventAfterBranchReuseHL EVENT_SILPH_CO_7_UNLOCKED_DOOR3, EVENT_SILPH_CO_7_UNLOCKED_DOOR1
 	ret
 
-SilphCo7Text_51c0c:
+SilphCo7Text_ResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-
+	; fallthrough
 SilphCo7Text_ScriptChanger:
 	ld [wCurMapScript], a
 	ret
@@ -117,12 +117,15 @@ SilphCo7F_ScriptPointers:
 	dw SilphCo7Script3
 	dw SilphCo7Script4
 	dw SilphCo7Script5
-	dw SilphCo7Script6 ; new, post-give Porygon, testing
+	dw SilphCo7Script6 ; new, post-give Porygon
+	; for RP
+	dw SilphCo7Script7
+	dw SilphCo7Script8
 
 SilphCo7Script0:
 	CheckEvent EVENT_BEAT_SILPH_CO_RIVAL
 	jp nz, CheckFightingMapTrainers
-	ld hl, CoordsData_51c78
+	ld hl, CoordsData_RivalFight
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
 	xor a
@@ -151,10 +154,15 @@ SilphCo7Script0:
 	ld a, $9
 	ldh [hSpriteIndex], a
 	call MoveSprite
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld a, 7
+	jp nz, SilphCo7Text_ScriptChanger
+; BTV
 	ld a, $3
 	jp SilphCo7Text_ScriptChanger
 
-CoordsData_51c78:
+CoordsData_RivalFight:
 	dbmapcoord  3,  2
 	dbmapcoord  3,  3
 	db -1 ; end
@@ -201,7 +209,7 @@ SilphCo7Script3:
 SilphCo7Script4:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, SilphCo7Text_51c0c
+	jp z, SilphCo7Text_ResetScripts
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
@@ -270,7 +278,7 @@ HeresYourPorygonText: ; edited
 	text_end
 
 SilphCo7F_TextPointers: ; edited
-	dw SilphCo7Text1
+	dw SilphCo7Text1 ; porygon guy
 	dw SilphCo7Text2
 	dw SilphCo7Text3
 	dw SilphCo7Text4
@@ -287,7 +295,7 @@ SilphCo7F_TextPointers: ; edited
 	dw HeresYourPorygonText ; 14, new
 
 SilphCo7F_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath
+	dw SilphCo7Text1_RP ; porygon guy
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -295,9 +303,12 @@ SilphCo7F_TextPointers_Rocket:
 	dw SilphCo7Text6
 	dw SilphCo7Text7
 	dw SilphCo7Text8
-	dw SilphCo7Text9 ; Blue TBE
+	dw SilphCo7Text9_RP ; Blue
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
+	dw SilphCo7ScriptText1_RP ; 12, pre-battle Blue
+	dw SilphCo7ScriptText2_RP ; 13, post-battle Blue
 
 SilphCo7TrainerHeaders:
 	def_trainers 5
@@ -488,12 +499,6 @@ SilphCo7AfterBattleText4:
 	text_end
 
 SilphCo7Text9:
-	text_asm
-	ld hl, SilphCo7Text_51ebe
-	call PrintText
-	jp TextScriptEnd
-
-SilphCo7Text_51ebe:
 	text_far _SilphCo7Text_51ebe
 	text_end
 
@@ -512,4 +517,113 @@ SilphCo7Text_LostVsRivalText:
 
 SilphCo7Text15:
 	text_far _SilphCo7Text_51ed2
+	text_end
+
+; new for RP ===========================
+
+SilphCo7Text9_RP:
+	text_far _SilphCo7Text9_RP
+	text_end
+
+SilphCo7Script7:
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Delay3
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, SilphCo7Text_WonVsRivalText_RP
+	ld de, SilphCo7Text_LostVsRivalText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld a, 6
+	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld a, 8
+	call SilphCo7Text_ScriptChanger
+	ret
+
+SilphCo7Script8:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SilphCo7Text_ResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_BEAT_SILPH_CO_RIVAL
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide Blue
+	call GBFadeOutToBlack
+	ld a, HS_SILPH_CO_7F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jp SilphCo7Text_ResetScripts
+
+SilphCo7ScriptText1_RP:
+	text_far _SilphCo7ScriptText1_RP
+	text_end
+
+SilphCo7Text_WonVsRivalText_RP:
+	text_far _SilphCo7Text_WonVsRivalText_RP
+	text_end
+
+SilphCo7Text_LostVsRivalText_RP:
+	text_far _SilphCo7Text_LostVsRivalText_RP
+	text_end
+
+SilphCo7ScriptText2_RP:
+	text_far _SilphCo7ScriptText2_RP
+	text_end
+
+SilphCo7Text1_RP:
+	text_asm
+	CheckEvent EVENT_RP_GOT_PORYGON
+	jr nz, .alreadyGotPorygon
+; not gotten yet
+	ld hl, SilphCo7Text_RP_NotGottenPorygon
+	call PrintText
+	ld a, PORYGON
+	ld [wd11e], a
+	ld [wcf91], a
+	call GetMonName
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	lb bc, PORYGON, 35
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, [wAddedToParty]
+	and a
+	call z, WaitForTextScrollButtonPress
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	SetEvent EVENT_RP_GOT_PORYGON
+	jp TextScriptEnd
+.alreadyGotPorygon
+	ld hl, SilphCo7Text_RP_AlreadyGotPorygon
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SilphCo7Text_RP_NotGottenPorygon:
+	text_far _SilphCo7Text_RP_NotGottenPorygon
+	text_end
+
+SilphCo7Text_RP_AlreadyGotPorygon:
+	text_far _SilphCo7Text_RP_AlreadyGotPorygon
 	text_end

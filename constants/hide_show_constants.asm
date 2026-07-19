@@ -212,7 +212,7 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_5F_4                 ; 9E
 	const HS_SILPH_CO_5F_ITEM_1            ; 9F
 	const HS_SILPH_CO_5F_ITEM_2            ; A0
-	const HS_SILPH_CO_5F_ITEM_3            ; A1
+	const HS_SILPH_CO_5F_ITEM_3            ; A1 CARD_KEY
 	const HS_SILPH_CO_6F_1                 ; A2
 	const HS_SILPH_CO_6F_2                 ; A3
 	const HS_SILPH_CO_6F_3                 ; A4

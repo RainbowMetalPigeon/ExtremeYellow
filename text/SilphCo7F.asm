@@ -277,3 +277,40 @@ _SilphCo7Text_51ed2::
 	cont "what you did on"
 	cont "the S.S.ANNE!"
 	done
+
+; new for RP =========================
+
+_SilphCo7Text9_RP::
+	text "ofc you're here"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo7ScriptText1_RP::
+	text "die"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo7Text_WonVsRivalText_RP::
+	text "i lost"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo7Text_LostVsRivalText_RP::
+	text "i won"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo7ScriptText2_RP::
+	text "ciao"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo7Text_RP_NotGottenPorygon::
+	text "ahia oh no PORYGON"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo7Text_RP_AlreadyGotPorygon::
+	text "poor PORYGON"
+;	xxxx "123456789012345678"
+	done

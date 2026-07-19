@@ -343,7 +343,7 @@ _Route24Text_RP_BeatCharmanderGuy::
 	para "Stop please, stop!"
 	line "Here, here, take"
 	cont "it, but leave me"
-	cont "alone!" 
+	cont "alone!"
 ;	xxxx "123456789012345678"
 	prompt
 
