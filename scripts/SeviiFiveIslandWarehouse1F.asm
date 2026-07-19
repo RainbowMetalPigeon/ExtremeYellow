@@ -280,8 +280,8 @@ SeviiFiveIslandWarehouse1F_TextPointers:
 	dw SeviiFiveIslandWarehouse1FSignText2
 
 SeviiFiveIslandWarehouse1F_TextPointers_Rocket:
-	dw SeviiFiveIslandWarehouse1FText1 ; Rocket TBE
-	dw SeviiFiveIslandWarehouse1FText2 ; Rocket fainted TBE
+	dw SeviiFiveIslandWarehouse1FText1_RP ; Rocket
+	dw SeviiFiveIslandWarehouse1FText2 ; Rocket fainted
 	dw PickUpItemText
 	dw PickUpItemText
 	; metalheads to spawn
@@ -375,4 +375,10 @@ SeviiFiveIslandWarehouse1FText7:
 
 SeviiFiveIslandWarehouse1FText8:
 	text_far _SeviiFiveIslandWarehouse1FText8
+	text_end
+
+; new for RP ==================
+
+SeviiFiveIslandWarehouse1FText1_RP:
+	text_far _SeviiFiveIslandWarehouse1FText1_RP
 	text_end

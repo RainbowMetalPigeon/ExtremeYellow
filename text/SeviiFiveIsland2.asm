@@ -125,54 +125,187 @@ _SeviiRoute34Text1_RP::
 	done
 
 _SeviiFiveIslandCityText5_RP_Core::
-	text "ah rinforzi"
+	text "Finally! The"
+	line "reinforcements!"
+
+	para "A kid stormed in"
+	line "and started to"
+	cont "beat us all."
+	cont "Nobody could stop"
+	cont "that lil demon!"
+
+	para "They're probably"
+	line "going for the"
+	cont "BOSS. I know that"
+	cont "you need three"
+	cont "passwords to"
+	cont "reach their room."
+
+	para "Unfortunately I"
+	line "don't recall"
+	cont "them all. I only"
+	cont "remember that"
+	cont "they form a"
+	cont "sentence like"
+	cont "TAKE ALL STRENGTH"
+	cont "or the so."
+
+	para "The folks inside"
+	line "should help you."
+	cont "Now go! Smash"
+	cont "that kid and"
+	cont "avenge us! For"
+	cont "TEAM ROCKET!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2FText1_RP_Before::
-	text "CARR: ah there you"
-	line "are"
+	text "CARR: Ah. There"
+	line "you are. Mph."
+	cont "I told GIOVANNI"
+	cont "that I could"
+	cont "handle this"
+	cont "myself... Tsk."
+	cont "Always micro-"
+	cont "managing me."
+	cont "What a pain."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2FText1_RP_After::
-	text "CARR: not bad"
-	line "can go back"
+	text "CARR: You've been"
+	line "a good pet."
+	cont "I mean, kid."
+	cont "Not that I needed"
+	cont "your help..."
+
+	para "Now leave, doesn't"
+	line "GIOVANNI wait for"
+	cont "you? It's not good"
+	cont "to make your BOSS"
+	cont "wait, isn't it?"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2FScriptText1_RP::
-	text "PINK: you shit"
+	text "PINK: You bastard!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2FScriptText2_RP::
-	text "PINK: I'll rip"
-	line "your ass"
+	text "PINK: You! You are"
+	line "the piece of shit"
+	cont "that kidnapped"
+	cont "my cousin and"
+	cont "beat me in KNOT!"
+
+	para "Oh, you've NO IDEA"
+	line "how gruesome and"
+	cont "atrocious was my"
+	cont "training."
+	cont "I vomited blood,"
+	cont "all for the sole"
+	cont "purpose of"
+	cont "destroying every"
+	cont "single ROCKET,"
+	cont "and YOU, you most"
+	cont "than any one!"
+
+	para "Ready or not,"
+	line "I will kill you!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2FScriptText3_RP::
-	text "PINK: shitty shit"
-	line "gotta run"
+	text "PINK: You..."
+	line "Fucking..."
+	cont "Bastard..."
+
+	para "NO! It can't be!"
+	line "WHY?! Why? Why"
+	cont "the fuck I had to"
+	cont "lose again?!"
+
+	para "...fuck! But no,"
+	line "don't you think"
+	cont "it's over. I"
+	cont "swear on my life,"
+	cont "I'll kill you!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2FScriptText4_RP::
-	text "CARR: well done"
+	text "CARR: Well..."
+	line "It's a pity that"
+	cont "shitty brat"
+	cont "managed to"
+	cont "escape, but I"
+	cont "gotta say, you"
+	cont "took care of a"
+	cont "nuisance for me."
+
+	para "Well done,"
+	line "I guess."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiFiveIslandWarehouse2PinkDefeatText::
-	text "PINK: I lost"
+	text "No..."
+	line "NO NO NO NOOO!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiFiveIslandWarehouse2PinkVictoryText::
-	text "PINK: I won"
+	text "Yes!"
+	line "Now die, bastard!"
 ;	xxxx "123456789012345678"
 	prompt
 
+_SeviiFiveIslandWarehouse1FText1_RP::
+	text "The BOSS's crazy..."
+	line "They're so scary."
+
+	para "But that kid which"
+	line "just arrived and"
+	cont "stormed everyone?"
+	cont "They are even"
+	cont "scarier, trust me."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouseBFText1_RP::
+	text "Dear goddess,"
+	line "that kid was a"
+	cont "real fury."
+
+	para "I'm glad you're"
+	line "here, but be"
+	cont "careful!"
+
+	para "I know only one"
+	line "of the three"
+	cont "passwords, I hope"
+	cont "it'll be useful:"
+	cont "'ALL'."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandWarehouse2FText5_RP::
+	text "Ugh, finally,"
+	line "somebody from the"
+	cont "mainland!"
+
+	para "Here we got our"
+	line "ass whooped by a"
+	cont "random kid..."
+
+	para "Go reach the BOSS."
+	line "You can organize"
+	cont "revenge! The only"
+	cont "password I know"
+	cont "is 'POWER'."
+;	xxxx "123456789012345678"
+	done
 
 /*
 

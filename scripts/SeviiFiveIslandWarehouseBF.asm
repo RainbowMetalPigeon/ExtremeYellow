@@ -33,8 +33,8 @@ SeviiFiveIslandWarehouseBF_TextPointers:
 	dw SeviiFiveIslandWarehouseBFSignText2
 
 SeviiFiveIslandWarehouseBF_TextPointers_Rocket:
-	dw SeviiFiveIslandWarehouseBFText1 ; Rocket TBE
-	dw SeviiFiveIslandWarehouseBFText2 ; Rocket fainted TBE
+	dw SeviiFiveIslandWarehouseBFText1_RP ; Rocket
+	dw SeviiFiveIslandWarehouseBFText2 ; Rocket fainted
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -114,4 +114,10 @@ SeviiFiveIslandWarehouseBFSignText1_Right:
 
 SeviiFiveIslandWarehouseBFSignText1_DoorIsOpen:
 	text_far _SeviiFiveIslandWarehouse_DoorIsOpen
+	text_end
+
+; new for RP =======================
+
+SeviiFiveIslandWarehouseBFText1_RP:
+	text_far _SeviiFiveIslandWarehouseBFText1_RP
 	text_end

@@ -235,12 +235,12 @@ SeviiFiveIslandWarehouse2F_TextPointers:
 	dw SeviiFiveIslandWarehouse2FScriptText2 ; 18
 	dw SeviiFiveIslandWarehouse2FScriptText3 ; 19
 
-SeviiFiveIslandWarehouse2F_TextPointers_Rocket: ; TBE
+SeviiFiveIslandWarehouse2F_TextPointers_Rocket:
 	dw SeviiFiveIslandWarehouse2FText1_RP ; Carr
 	dw SeviiFiveIslandWarehouse2FText2 ; Pink before-end
 	dw SeviiFiveIslandWarehouse2FText3 ; Pink after-end
 	dw SeviiFiveIslandWarehouse2FText4 ; Pink after-end
-	dw SeviiFiveIslandWarehouse2FText5 ; rocket (fight)
+	dw SeviiFiveIslandWarehouse2FText5_RP ; rocket (fight)
 	dw SeviiFiveIslandWarehouse2FText6 ; rocket (fainted)
 	dw PickUpItemText
 	dw PickUpItemText
@@ -626,4 +626,8 @@ SeviiFiveIslandWarehouse2PinkDefeatText:
 
 SeviiFiveIslandWarehouse2PinkVictoryText:
 	text_far _SeviiFiveIslandWarehouse2PinkVictoryText
+	text_end
+
+SeviiFiveIslandWarehouse2FText5_RP:
+	text_far _SeviiFiveIslandWarehouse2FText5_RP
 	text_end
