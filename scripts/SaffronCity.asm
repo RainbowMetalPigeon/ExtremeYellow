@@ -302,5 +302,53 @@ SaffronCityText_BlockingRocket_RP:
 	text_end
 
 SaffronCityText_BlockingSilph_RP:
-	text_far _SaffronCityText_BlockingSilph_RP
+	text_asm
+	CheckEvent EVENT_RP_UNLOCKED_SILPH
+	ld hl, SaffronCityText_BlockingSilph_RP_Before
+	jr z, .printAndEnd
+; silph unlocked: give CARD_KEY
+	ld hl, SaffronCityText_BlockingSilph_RP_After_GoodTakeThis
+	call PrintText
+	lb bc, CARD_KEY, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually give the card
+	ld hl, SaffronCityText_BlockingSilph_RP_After_ObtainItem
+	call PrintText
+	ld hl, SaffronCityText_BlockingSilph_RP_After_NowGo
+	call PrintText
+	call GBFadeOutToBlack
+	ld a, HS_SAFFRON_CITY_E
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jr .done
+.bagFull
+	ld hl, SaffronCityText_BlockingSilph_RP_After_RP_BagFull
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SaffronCityText_BlockingSilph_RP_Before:
+	text_far _SaffronCityText_BlockingSilph_RP_Before
+	text_end
+
+SaffronCityText_BlockingSilph_RP_After_GoodTakeThis:
+	text_far _SaffronCityText_BlockingSilph_RP_After_GoodTakeThis
+	text_end
+
+SaffronCityText_BlockingSilph_RP_After_ObtainItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
+	text_end
+
+SaffronCityText_BlockingSilph_RP_After_RP_BagFull:
+	text_far _SaffronCityText_BlockingSilph_RP_After_RP_BagFull
+	text_end
+
+SaffronCityText_BlockingSilph_RP_After_NowGo:
+	text_far _SaffronCityText_BlockingSilph_RP_After_NowGo
 	text_end

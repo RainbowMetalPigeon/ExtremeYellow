@@ -591,9 +591,7 @@ SeviiFiveIslandWarehouse2F_Script7:
 ; if also beat Blue in Obsidian, open Silph
 	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
 	jp z, SeviiFiveIslandWarehouse2FResetScripts
-	ld a, HS_SAFFRON_CITY_E
-	ld [wMissableObjectIndex], a
-	predef HideObject
+	SetEvent EVENT_RP_UNLOCKED_SILPH
 	jp SeviiFiveIslandWarehouse2FResetScripts
 
 SeviiFiveIslandWarehouse2FText1_RP_Before:

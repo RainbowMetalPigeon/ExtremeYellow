@@ -103,9 +103,7 @@ Route2GateText1_RP:
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a
-;	ld hl, TerrainTutorDefeatText
-;	ld de, TerrainTutorDefeatText
-;	call SaveEndBattleTextPointers ; unnecessary in RP?
+;	call SaveEndBattleTextPointers ; unnecessary in RP
 	ld a, 1
 	ld [wCurMapScript], a
 	ld hl, Route2GateText1_RP_MustStopYou

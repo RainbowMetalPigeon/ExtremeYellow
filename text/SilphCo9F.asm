@@ -60,3 +60,13 @@ _SilphCo9AfterBattleText3::
 	text "My siblings will"
 	line "avenge me!"
 	done
+
+; new for RP =======================
+
+_SilphCo9Text1_RP::
+	text "...I'd rather die"
+	line "than help a"
+	cont "filthy criminal"
+	cont "like you."
+;	xxxx "123456789012345678"
+	done

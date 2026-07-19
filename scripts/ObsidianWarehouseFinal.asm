@@ -731,7 +731,5 @@ ObsidianWarehouseFinalScript_PostBattleBlue:
 ; if also beat Pink in Chrono, open Silph
 	CheckEvent EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE
 	jp z, ObsidianWarehouseFinalScript_ResetScript
-	ld a, HS_SAFFRON_CITY_E
-	ld [wMissableObjectIndex], a
-	predef HideObject
+	SetEvent EVENT_RP_UNLOCKED_SILPH
 	jp ObsidianWarehouseFinalScript_ResetScript

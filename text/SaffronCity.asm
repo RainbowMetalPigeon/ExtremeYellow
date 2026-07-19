@@ -232,7 +232,7 @@ _SaffronClimbClubText5::
 	line "important too!"
 	done
 
-; new for RP -----------------
+; new for RP =========================
 
 _SaffronCityText_BlockingRocket_RP::
 	text "Oh, the rookie."
@@ -245,7 +245,7 @@ _SaffronCityText_BlockingRocket_RP::
 ;	xxxx "123456789012345678"
 	done
 
-_SaffronCityText_BlockingSilph_RP::
+_SaffronCityText_BlockingSilph_RP_Before::
 	text "Newcomer, know"
 	line "that the BOSS has"
 	cont "plans for the"
@@ -253,5 +253,20 @@ _SaffronCityText_BlockingSilph_RP::
 
 	para "But you're too"
 	line "green for that!"
+;	xxxx "123456789012345678"
+	done
+
+_SaffronCityText_BlockingSilph_RP_After_GoodTakeThis::
+	text "Good take this"
+;	xxxx "123456789012345678"
+	prompt
+
+_SaffronCityText_BlockingSilph_RP_After_RP_BagFull::
+	text "bag full"
+;	xxxx "123456789012345678"
+	done
+
+_SaffronCityText_BlockingSilph_RP_After_NowGo::
+	text "now go"
 ;	xxxx "123456789012345678"
 	done

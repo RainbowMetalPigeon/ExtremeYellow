@@ -368,6 +368,8 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
 
+	SetEvent EVENT_RP_UNLOCKED_SILPH
+
 	ret
 
 DebugSetPokedexEntries:
