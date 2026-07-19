@@ -43,6 +43,7 @@ IF DEF(_DEBUG)
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
+	ld a, %01111111
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam

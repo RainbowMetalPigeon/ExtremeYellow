@@ -256,7 +256,12 @@ _SilphCoJessieJamesText4::
 ; new for RP =====================================
 
 _SpecialDoorSilphCo11FText::
-	text "Special Door"
+	text "This door is"
+	line "different from"
+	cont "the others."
+
+	para "The CARD KEY"
+	line "can't open it."
 ;	xxxx "123456789012345678"
 	done
 
@@ -291,5 +296,59 @@ _SilphCo11TextGiovanni_RP::
 	cont "lore drop"
 	cont "badge quest"
 	cont "oh also poaching"
+;	xxxx "123456789012345678"
+	done
+
+
+
+_SilphCo11TextGiovanni_RP_GoodJobTakeThis::
+	text "good job warehouse"
+	line "take this HM"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_NoRoom::
+	text "you have no space"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_LoreDrop::
+	text "lore drop"
+	line "mewtwo thufizer"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_BadgeQuest::
+	text "go fetch all badge"
+	line "why think i leader"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_Poaching::
+	text "if you want stronk"
+	line "go poaching"
+	cont "can from Obsidian"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_DoYouHaveNewBadgesForMe::
+	text "do you have new"
+	line "badges for me?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_NewBadgeWellDone::
+	text "new badge well"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_ComeBackWhenHaveBadges::
+	text "come back when"
+	line "have new badges"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_BroughtAllBadges::
+	text "you brought all 7"
 ;	xxxx "123456789012345678"
 	done

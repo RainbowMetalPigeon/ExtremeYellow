@@ -82,8 +82,6 @@ VermilionGymReceiveTM24:
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_THUNDERBADGE, [hl]
-	ld hl, wBeatGymFlags
-	set BIT_THUNDERBADGE, [hl]
 
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_3
@@ -326,7 +324,7 @@ VermilionGymAfterBattleText4:
 
 VermilionGymGuideText:
 	text_asm
-	ld a, [wBeatGymFlags]
+	ld a, [wObtainedBadges] ; edited
 	bit BIT_THUNDERBADGE, a
 	jr nz, .afterBeat
 	ld hl, VermilionGymGuidePreBattleText

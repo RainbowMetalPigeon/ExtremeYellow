@@ -63,8 +63,6 @@ CeladonGymReceiveTM21:
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_RAINBOWBADGE, [hl]
-	ld hl, wBeatGymFlags
-	set BIT_RAINBOWBADGE, [hl]
 
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_CELADON_GYM_TRAINER_0, EVENT_BEAT_CELADON_GYM_TRAINER_7

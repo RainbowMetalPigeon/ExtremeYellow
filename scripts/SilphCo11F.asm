@@ -14,6 +14,7 @@ SilphCo11Script_HandleDoors:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+	call SilphCo11Script_HandleSpecialDoor ; new
 	ld hl, SilphCo11GateCoords
 	call SilphCo11Script_6214f
 	call SilphCo11Script_6217b
@@ -71,6 +72,20 @@ SilphCo11Script_6217b:
 	ret z
 	SetEvent EVENT_SILPH_CO_11_UNLOCKED_DOOR
 	ret
+
+SilphCo11Script_HandleSpecialDoor: ; new
+	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
+	ret nz
+	ld a, $41
+	ld [wNewTileBlockID], a
+	lb bc, 4, 6
+	predef_jump ReplaceTileBlock
+
+SilphCo11Script_OpenSpecialDoor: ; new
+	ld a, $03
+	ld [wNewTileBlockID], a
+	lb bc, 4, 6
+	predef_jump ReplaceTileBlock
 
 SilphCo11Script_ResetScripts:
 	xor a
@@ -187,6 +202,7 @@ SilphCo11Script3:
 	call Delay3
 	call GBFadeInFromBlack
 	SetEvent EVENT_BEAT_SILPH_CO_GIOVANNI
+	call SilphCo11Script_OpenSpecialDoor ; new
 	xor a
 	ld [wJoyIgnore], a
 	jp SilphCo11Script_ScriptChanger
@@ -882,6 +898,219 @@ SilphCo11Text2_RP:
 	text_end
 
 SilphCo11TextGiovanni_RP: ; TBE
-	text_far _SilphCo11TextGiovanni_RP
+	text_asm
+	CheckEvent EVENT_GOT_HM03
+	jr nz, .checkBadges
+; not gotten Surf yet
+	SetEvent EVENT_BEAT_SILPH_CO_GIOVANNI
+	call SilphCo11Script_OpenSpecialDoor
+; dialogue 1 good job take this
+	ld hl, SilphCo11TextGiovanni_RP_GoodJobTakeThis
+	call PrintText
+; try to give Surf
+	lb bc, HM_SURF, 1
+	call GiveItem
+	jr c, .bagNotFull
+; bag full
+	ld hl, SilphCo11TextGiovanni_RP_NoRoom
+	jp .printAndEnd
+.bagNotFull
+	callfar OpenUpSouthObsidianBridge
+	SetEvent EVENT_GOT_HM03
+	ld hl, SilphCo11TextGiovanni_RP_GotItem
+	call PrintText
+; dialogue 2 discussing with president for ball and badge machine -> lore for Mewtwo and THU_FI_ZER
+	ld hl, SilphCo11TextGiovanni_RP_LoreDrop
+	call PrintText
+; dialogue 3 badge quest
+	ld hl, SilphCo11TextGiovanni_RP_BadgeQuest
+	call PrintText
+; dialogue 4 oh if you need mons go poaching in Safari
+	ld hl, SilphCo11TextGiovanni_RP_Poaching
+	jp .printAndEnd
+
+; consecutive checks for the 7 badges to give STEAL_BALL
+.checkBadges
+
+	ld a, [wRPStealBallsForBadges]
+	cp %01111111
+	jr nz, .notAllBadges
+
+	ld hl, SilphCo11TextGiovanni_RP_BroughtAllBadges ; TBE!
+	jp .printAndEnd
+
+.notAllBadges
+	ld hl, SilphCo11TextGiovanni_RP_DoYouHaveNewBadgesForMe
+	call PrintText
+
+.checkBOULDER
+	ld hl, wRPStealBallsForBadges
+	bit BIT_BOULDERBADGE, [hl]
+	jr nz, .checkCASCADE
+    ld hl, wObtainedBadges
+	bit BIT_BOULDERBADGE, [hl]
+	jr z, .checkCASCADE
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jp nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_BOULDERBADGE, [hl]
+	jp .done
+
+.checkCASCADE
+	ld hl, wRPStealBallsForBadges
+	bit BIT_CASCADEBADGE, [hl]
+	jr nz, .checkTHUNDER
+    ld hl, wObtainedBadges
+	bit BIT_CASCADEBADGE, [hl]
+	jr z, .checkTHUNDER
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jp nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_CASCADEBADGE, [hl]
+	jp .done
+
+.checkTHUNDER
+	ld hl, wRPStealBallsForBadges
+	bit BIT_THUNDERBADGE, [hl]
+	jr nz, .checkRAINBOW
+    ld hl, wObtainedBadges
+	bit BIT_THUNDERBADGE, [hl]
+	jr z, .checkRAINBOW
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jp nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_THUNDERBADGE, [hl]
+	jp .done
+
+.checkRAINBOW
+	ld hl, wRPStealBallsForBadges
+	bit BIT_RAINBOWBADGE, [hl]
+	jr nz, .checkSOUL
+    ld hl, wObtainedBadges
+	bit BIT_RAINBOWBADGE, [hl]
+	jr z, .checkSOUL
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jr nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_RAINBOWBADGE, [hl]
+	jr .done
+
+.checkSOUL
+	ld hl, wRPStealBallsForBadges
+	bit BIT_SOULBADGE, [hl]
+	jr nz, .checkMARSH
+    ld hl, wObtainedBadges
+	bit BIT_SOULBADGE, [hl]
+	jr z, .checkMARSH
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jr nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_SOULBADGE, [hl]
+	jr .done
+
+.checkMARSH
+	ld hl, wRPStealBallsForBadges
+	bit BIT_MARSHBADGE, [hl]
+	jr nz, .checkVOLCANO
+    ld hl, wObtainedBadges
+	bit BIT_MARSHBADGE, [hl]
+	jr z, .checkVOLCANO
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jr nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_MARSHBADGE, [hl]
+	jr .done
+
+.checkVOLCANO
+	ld hl, wRPStealBallsForBadges
+	bit BIT_VOLCANOBADGE, [hl]
+	jr nz, .noNewBadges
+    ld hl, wObtainedBadges
+	bit BIT_VOLCANOBADGE, [hl]
+	jr z, .noNewBadges
+	; this badge is new
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
+	call TryToRewardStealBall
+	jr nc, .printAndEnd ; bag full
+	ld hl, wRPStealBallsForBadges
+	set BIT_VOLCANOBADGE, [hl]
+	jr .done
+
+.noNewBadges
+	ld hl, SilphCo11TextGiovanni_RP_ComeBackWhenHaveBadges
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SilphCo11TextGiovanni_RP_GotItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
 	text_end
 
+SilphCo11TextGiovanni_RP_GoodJobTakeThis:
+	text_far _SilphCo11TextGiovanni_RP_GoodJobTakeThis
+	text_end
+
+SilphCo11TextGiovanni_RP_NoRoom:
+	text_far _SilphCo11TextGiovanni_RP_NoRoom
+	text_end
+
+SilphCo11TextGiovanni_RP_LoreDrop:
+	text_far _SilphCo11TextGiovanni_RP_LoreDrop
+	text_end
+
+SilphCo11TextGiovanni_RP_BadgeQuest:
+	text_far _SilphCo11TextGiovanni_RP_BadgeQuest
+	text_end
+
+SilphCo11TextGiovanni_RP_Poaching:
+	text_far _SilphCo11TextGiovanni_RP_Poaching
+	text_end
+
+SilphCo11TextGiovanni_RP_DoYouHaveNewBadgesForMe:
+	text_far _SilphCo11TextGiovanni_RP_DoYouHaveNewBadgesForMe
+	text_end
+
+SilphCo11TextGiovanni_RP_NewBadgeWellDone:
+	text_far _SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	text_end
+
+SilphCo11TextGiovanni_RP_ComeBackWhenHaveBadges:
+	text_far _SilphCo11TextGiovanni_RP_ComeBackWhenHaveBadges
+	text_end
+
+SilphCo11TextGiovanni_RP_BroughtAllBadges:
+	text_far _SilphCo11TextGiovanni_RP_BroughtAllBadges
+	text_end
+
+TryToRewardStealBall:
+	lb bc, STEAL_BALL, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, SilphCo11TextGiovanni_RP_GotItem
+	call PrintText
+	scf
+	ret
+.bagFull
+	ld hl, SilphCo11TextGiovanni_RP_NoRoom
+	ret

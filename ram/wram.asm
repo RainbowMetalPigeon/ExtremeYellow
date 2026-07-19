@@ -2652,11 +2652,10 @@ wd728:: db
 
 ;	ds 1
 wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII + 1 ; new, for Sevii
-;	ds 1
+	ds 1 ; restored, buffer?
 
-; redundant because it matches wObtainedBadges
-; used to determine whether to show name on statue and in two NPC text scripts
-wBeatGymFlags:: db
+; repurposed from a redundant byte
+wRPStealBallsForBadges:: db ; edited/new
 
 ; bit 0: if not set, the 3 minimum steps between random battles have passed
 ; bit 1: prevent audio fade out

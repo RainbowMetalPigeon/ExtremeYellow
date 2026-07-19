@@ -65,8 +65,6 @@ FuchsiaGymReceiveTM06:
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_SOULBADGE, [hl]
-	ld hl, wBeatGymFlags
-	set BIT_SOULBADGE, [hl]
 
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, EVENT_BEAT_FUCHSIA_GYM_TRAINER_5

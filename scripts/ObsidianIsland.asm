@@ -57,9 +57,6 @@ ObsidianIslandScript0:
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld [wJoyIgnore], a
 	ldh [hJoyHeld], a
-
-	callfar OpenUpSouthObsidianBridge ; TBE
-
 	ld a, $1
 	ld [wCurMapScript], a
 	ret

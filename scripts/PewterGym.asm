@@ -64,8 +64,6 @@ PewterGymScriptReceiveTM34:
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_BOULDERBADGE, [hl]
-	ld hl, wBeatGymFlags
-	set BIT_BOULDERBADGE, [hl]
 
 ; edited, commented out, don't hide the gym guy anymore
 ; edited, commented out, don't hide the rival either anymore, this caused a bug if one wanted to fight Rival R22 AFTER beating Brock
@@ -273,7 +271,7 @@ PewterGymAfterBattleText2:
 
 PewterGymGuideText:
 	text_asm
-	ld a, [wBeatGymFlags]
+	ld a, [wObtainedBadges] ; edited
 	bit BIT_BOULDERBADGE, a
 	jr nz, .afterBeat
 	ld hl, PewterGymGuidePreAdviceText

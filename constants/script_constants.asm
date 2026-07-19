@@ -44,7 +44,7 @@ DEF NUM_NPC_TRADES EQU const_value
 	const TRADE_DIALOGSET_HAPPY
 
 ; badges
-; wObtainedBadges and wBeatGymFlags bits
+; wObtainedBadges and wRPStealBallsForBadges bits ; edited
 	const_def
 	const BIT_BOULDERBADGE ; 0
 	const BIT_CASCADEBADGE ; 1
