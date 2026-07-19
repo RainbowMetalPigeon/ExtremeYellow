@@ -255,6 +255,11 @@ _SilphCoJessieJamesText4::
 
 ; new for RP =====================================
 
+_SpecialDoorSilphCo11FText::
+	text "Special Door"
+;	xxxx "123456789012345678"
+	done
+
 _SilphCo11ScriptText1_RP::
 	text "stoppete"
 ;	xxxx "123456789012345678"
@@ -267,5 +272,24 @@ _SilphCo11ScriptText2_RP::
 
 _SilphCo11ScriptText3_RP::
 	text "ciauz"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11Text1_RP::
+	text "plz save us money"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11Text2_RP::
+	text "so sad..."
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP::
+	text "well done here"
+	line "SURF"
+	cont "lore drop"
+	cont "badge quest"
+	cont "oh also poaching"
 ;	xxxx "123456789012345678"
 	done

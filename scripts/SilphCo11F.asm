@@ -521,12 +521,12 @@ SilphCo11F_TextPointers:
 	dw SilphCo11Text10 ; 13 ; JJ last dialogue
 
 SilphCo11F_TextPointers_Rocket:
-	dw SilphCo11Text1 ; President TBE
-	dw SilphCo11Text2 ; Secretary TBE
-	dw SilphCo11Text3 ; Giovanni TBE
-	dw SilphCo11Text4 ; James TBE
+	dw SilphCo11Text1_RP ; President
+	dw SilphCo11Text2_RP ; Secretary
+	dw SilphCo11TextGiovanni_RP ; Giovanni
+	dw SilphCo11Text4 ; James
 	dw SilphCo11Text5 ; Rocket
-	dw SilphCo11Text6 ; Jessie TBE
+	dw SilphCo11Text6 ; Jessie
 	dw SilphCo11TextBadgeMachine
 	; signs
 	dw SilphCo11SignText1
@@ -872,3 +872,16 @@ SilphCo11Script15:
 	call DisplayTextID
 	ld a, 13
 	jp SilphCo11Script_ScriptChanger
+
+SilphCo11Text1_RP:
+	text_far _SilphCo11Text1_RP
+	text_end
+
+SilphCo11Text2_RP:
+	text_far _SilphCo11Text2_RP
+	text_end
+
+SilphCo11TextGiovanni_RP: ; TBE
+	text_far _SilphCo11TextGiovanni_RP
+	text_end
+

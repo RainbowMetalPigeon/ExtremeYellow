@@ -124,3 +124,15 @@ GetCoordsInFrontOfPlayer:
 ; facing right
 	inc e
 	ret
+
+; new for special door in SilphCo11F =========================
+
+SpecialDoorSilphCo11F::
+	CheckEvent EVENT_BEAT_SILPH_CO_GIOVANNI
+	ret nz
+	call EnableAutoTextBoxDrawing
+	tx_pre_jump SpecialDoorSilphCo11FText
+
+SpecialDoorSilphCo11FText::
+	text_far _SpecialDoorSilphCo11FText
+	text_end
