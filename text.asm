@@ -111,7 +111,6 @@ INCLUDE "text/CeladonMart1F.asm"
 INCLUDE "text/CeladonMart2F.asm"
 INCLUDE "text/CeladonMart3F.asm"
 INCLUDE "text/CeladonMart4F.asm"
-INCLUDE "text/CeladonMartRoof.asm"
 INCLUDE "text/CeladonMansion1F.asm"
 INCLUDE "text/CeladonMansion2F.asm"
 INCLUDE "text/CeladonMansion3F.asm"
@@ -183,6 +182,7 @@ INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/ViridianCity.asm"
+INCLUDE "text/CeladonMartRoof.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones

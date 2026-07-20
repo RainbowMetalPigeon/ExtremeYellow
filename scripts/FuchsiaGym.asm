@@ -119,7 +119,7 @@ FuchsiaGym_TextPointers:
 	dw KogaPostRematchText; new, $d = 13
 
 FuchsiaGym_TextPointers_Rocket:
-	dw KogaText ; TBE
+	dw KogaText_RP
 	dw FuchsiaGymTrainerText1
 	dw FuchsiaGymTrainerText2
 	dw FuchsiaGymTrainerText3
@@ -127,7 +127,11 @@ FuchsiaGym_TextPointers_Rocket:
 	dw FuchsiaGymTrainerText5
 	dw FuchsiaGymTrainerText6
 	dw FuchsiaGymTrainerText7
-	dw FuchsiaGymGuideText ; 9 TBE
+	dw FuchsiaGymGuideText_RP ; 9
+	; scripts
+	dw KogaSoulBadgeInfoText_RP
+	dw ReceivedTM06Text_RP
+	dw TM06NoRoomText_RP
 
 FuchsiaGymTrainerHeaders:
 	def_trainers 2
@@ -233,7 +237,7 @@ KogaSoulBadgeInfoText:
 
 ReceivedTM06Text:
 	text_far _ReceivedTM06Text
-	sound_get_key_item
+	sound_get_item_1 ; edited
 
 TM06ExplanationText:
 	text_far _TM06ExplanationText
@@ -408,4 +412,76 @@ KogaRematchDefeatedText:
 
 KogaPostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP ======================
+
+KogaText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_KOGA
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_GOT_TM06
+	jr nz, .afterBeat
+	call z, FuchsiaGymReceiveTM06
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, KogaPostBattleText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, KogaBeforeBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedSoulBadgeText_RP
+	ld de, ReceivedSoulBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+
+	ld a, $5
+	ld [wGymLeaderNo], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $3
+	ld [wCurMapScript], a
+.done
+	jp TextScriptEnd
+
+KogaPostBattleText_RP:
+	text_far _KogaPostBattleText_RP
+	text_end
+
+KogaBeforeBattleText_RP:
+	text_far _KogaBeforeBattleText_RP
+	text_end
+
+ReceivedSoulBadgeText_RP:
+	text_far _ReceivedSoulBadgeText_RP
+	text_end
+
+KogaSoulBadgeInfoText_RP:
+	text_far _KogaSoulBadgeInfoText_RP
+	text_end
+
+TM06NoRoomText_RP:
+	text_far _TM06NoRoomText_RP
+	text_end
+
+ReceivedTM06Text_RP:
+	text_far _ReceivedTM06Text
+	sound_get_item_1
+	text_end
+
+FuchsiaGymGuideText_RP:
+	text_far _GymGuideText_RocketPath
 	text_end

@@ -17,8 +17,15 @@ CinnabarGymGuidePostBattleText:
 	text_far _CinnabarGymGuidePostBattleText
 	text_end
 
-Func_f2150::
-	ld hl, TextPointers_f215d
+Func_PrintPreQuizTexts:: ; edited
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld hl, CinnabarGymText_PreQuiz_RP
+	jp PrintText
+.notRP
+; BTV
+	ld hl, TextPointers_PreQuizTexts
 	ld d, 0
 	add hl, de
 	add hl, de
@@ -27,7 +34,11 @@ Func_f2150::
 	ld l, a
 	jp PrintText
 
-TextPointers_f215d:
+CinnabarGymText_PreQuiz_RP: ; new for RP
+	text_far _CinnabarGymText_PreQuiz_RP
+	text_end
+
+TextPointers_PreQuizTexts:
 	dw CinnabarGymText_f2169
 	dw CinnabarGymText_f216e
 	dw CinnabarGymText_f2173

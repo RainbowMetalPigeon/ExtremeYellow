@@ -1,5 +1,5 @@
-CinnabarGymScript_753de:
-	callfar Func_f2150
+CinnabarGymScript_PrintPreQuizTexts:
+	callfar Func_PrintPreQuizTexts
 	jp TextScriptEnd
 
 CinnabarGymScript_753e9:
@@ -10,7 +10,7 @@ CinnabarGymScript_753e9:
 	pop hl
 	ret
 
-CinnabarGymScript_753f3:
+CinnabarGymScript_CheckBit7Ofwd475: ; edited
 	push hl
 	ld hl, wd475
 	bit 7, [hl]

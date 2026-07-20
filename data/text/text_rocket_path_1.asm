@@ -124,6 +124,21 @@ _RocketNPCText_RocketPath_2::
 
 ; -------------
 
+_GymGuideText_RocketPath::
+	text "Oh, like hell I'm"
+	line "helping someone"
+	cont "like YOU."
+
+	para "You're in this on"
+	line "your own. And I'm"
+	cont "sure that all GYM"
+	cont "LEADERs'll come at"
+	cont "you at full power."
+;	xxxx "123456789012345678"
+	done
+
+; -------------
+
 _ProxyText::
 	text ""
 ;	xxxx "123456789012345678"

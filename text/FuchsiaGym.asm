@@ -296,3 +296,30 @@ _KogaRematchDefeatedText::
 	line "half bad, not"
 	cont "half bad at all."
 	prompt
+
+; new for RP ========================
+
+_KogaPostBattleText_RP::
+	text "leave"
+;	xxxx "123456789012345678"
+	done
+
+_KogaBeforeBattleText_RP::
+	text "max force"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedSoulBadgeText_RP::
+	text "get and leave"
+;	xxxx "123456789012345678"
+	prompt
+
+_KogaSoulBadgeInfoText_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done
+
+_TM06NoRoomText_RP::
+	text "no room"
+;	xxxx "123456789012345678"
+	done

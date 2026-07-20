@@ -118,7 +118,7 @@ CeladonGym_TextPointers:
 	dw ErikaPostRematchText; new, $e=14
 
 CeladonGym_TextPointers_Rocket:
-	dw ErikaText ; TBE
+	dw ErikaText_RP
 	dw CeladonGymTrainerText1
 	dw CeladonGymTrainerText2
 	dw CeladonGymTrainerText3
@@ -127,7 +127,11 @@ CeladonGym_TextPointers_Rocket:
 	dw CeladonGymTrainerText6
 	dw CeladonGymTrainerText7
 	dw CeladonGymTrainerText8 ; 9
-	dw GenericNPCText_RocketPath ; 10 TBE
+	dw CeladonGymGuideText_RP ; 10
+	; scripts
+	dw ErikaRainbowBadgeInfoText_RP ; $b=11
+	dw ReceivedTM21Text_RP ; $c=12
+	dw TM21NoRoomText_RP ; $d=13
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
@@ -421,4 +425,75 @@ ErikaRematchDefeatedText:
 
 ErikaPostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP =======================
+
+ErikaText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_ERIKA
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_GOT_TM21
+	jr nz, .afterBeat
+	call z, CeladonGymReceiveTM21
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, ErikaPostBattleAdviceText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, ErikaPreBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedRainbowBadgeText_RP
+	ld de, ReceivedRainbowBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+
+	ld a, $4
+	ld [wGymLeaderNo], a
+	ld a, $3
+	ld [wCurMapScript], a
+.done
+	jp TextScriptEnd
+
+
+ErikaPostBattleAdviceText_RP:
+	text_far _ErikaPostBattleAdviceText_RP
+	text_end
+
+ErikaPreBattleText_RP:
+	text_far _ErikaPreBattleText_RP
+	text_end
+
+ReceivedRainbowBadgeText_RP:
+	text_far _ReceivedRainbowBadgeText_RP
+	text_end
+
+ErikaRainbowBadgeInfoText_RP:
+	text_far _ErikaRainbowBadgeInfoText_RP
+	text_end
+
+ReceivedTM21Text_RP:
+	text_far _ReceivedTM21Text
+	sound_get_item_1
+	text_end
+
+TM21NoRoomText_RP:
+	text_far _TM21NoRoomText_RP
+	text_end
+
+CeladonGymGuideText_RP:
+	text_far _GymGuideText_RocketPath
 	text_end

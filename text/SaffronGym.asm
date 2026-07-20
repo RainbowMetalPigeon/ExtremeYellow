@@ -37,7 +37,7 @@ _SabrinaPostBattleAdviceText::
 	cont "realize it!"
 	done
 
-_KogaMarshBadgeInfoText:: ; edited
+_SabrinaMarshBadgeInfoText:: ; edited
 	text "The MARSHBADGE"
 	line "allows you to use"
 	cont "WHIRLPOOL outside"
@@ -299,3 +299,30 @@ _SabrinaRematchDefeatedText::
 	cont "I also foresaw my"
 	cont "defeat."
 	prompt
+
+; new for RP =====================
+
+_SabrinaPostBattleText_RP::
+	text "schoo"
+;	xxxx "123456789012345678"
+	done
+
+_SabrinaPreBattleText_RP::
+	text "i saw you coming"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedMarshBadgeText_RP::
+	text "take and ciao"
+;	xxxx "123456789012345678"
+	prompt
+
+_SabrinaMarshBadgeInfoText_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done
+
+_TM46NoRoomText_RP::
+	text "no space"
+;	xxxx "123456789012345678"
+	done

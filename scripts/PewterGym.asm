@@ -64,21 +64,8 @@ PewterGymScriptReceiveTM34:
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_BOULDERBADGE, [hl]
-
-; edited, commented out, don't hide the gym guy anymore
-; edited, commented out, don't hide the rival either anymore, this caused a bug if one wanted to fight Rival R22 AFTER beating Brock
-;	ld a, HS_GYM_GUY
-;	ld [wMissableObjectIndex], a
-;	predef HideObject
-;	ld a, HS_ROUTE_22_RIVAL_1
-;	ld [wMissableObjectIndex], a
-;	predef HideObject
-
-;	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE ; edited, moved to Cerulean entry
-
 	; deactivate gym trainers
 	SetEvents EVENT_BEAT_PEWTER_GYM_TRAINER_0, EVENT_BEAT_PEWTER_GYM_TRAINER_1
-
 	jp PewterGymResetScripts
 
 PewterGymBrockPostBattleRematch: ; new
@@ -124,10 +111,14 @@ PewterGym_TextPointers:
 	dw BrockPostRematchText; new, $8
 
 PewterGym_TextPointers_Rocket:
-	dw BrockText ; TBE
+	dw BrockText_RP
 	dw PewterGymTrainerText1
 	dw PewterGymTrainerText2
-	dw PewterGymGuideText ; TBE
+	dw PewterGymGuideText_RP
+	; scripts
+	dw BeforeReceivedTM34Text_RP
+	dw ReceivedTM34Text_RP
+	dw TM34NoRoomText_RP
 
 PewterGymTrainerHeaders:
 	def_trainers 2
@@ -339,4 +330,76 @@ BrockRematchDefeatedText:
 
 BrockPostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP ======================
+
+BrockText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_BROCK
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_GOT_TM34
+	jr nz, .afterBeat
+	call z, PewterGymScriptReceiveTM34
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, BrockPostBattleText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, BrockPreBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedBoulderBadgeText_RP
+	ld de, ReceivedBoulderBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+
+	ld a, $1
+	ld [wGymLeaderNo], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $3
+	ld [wCurMapScript], a
+.done
+	jp TextScriptEnd
+
+BrockPostBattleText_RP:
+	text_far _BrockPostBattleText_RP
+	text_end
+
+BrockPreBattleText_RP:
+	text_far _BrockPreBattleText_RP
+	text_end
+
+ReceivedBoulderBadgeText_RP:
+	text_far _ReceivedBoulderBadgeText_RP
+	text_end
+
+BeforeReceivedTM34Text_RP:
+	text_far _BeforeReceivedTM34Text_RP
+	text_end
+
+ReceivedTM34Text_RP:
+	text_far _ReceivedTM34Text
+	sound_get_item_1
+	text_end
+
+TM34NoRoomText_RP:
+	text_far _TM34NoRoomText_RP
+	text_end
+
+PewterGymGuideText_RP:
+	text_far _GymGuideText_RocketPath
 	text_end

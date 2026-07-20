@@ -133,17 +133,16 @@ VermilionGym_TextPointers:
 	dw LtSurgePostRematchText ; new, $a=10
 
 VermilionGym_TextPointers_Rocket:
-	dw LTSurgeText ; TBE
+	dw LTSurgeText_RP
 	dw VermilionGymTrainerText1
 	dw VermilionGymTrainerText2
 	dw VermilionGymTrainerText3
 	dw VermilionGymTrainerText4
-	dw VermilionGymGuideText ; TBE
+	dw VermilionGymGuideText_RP
 	; scripts
-	dw LTSurgeThunderBadgeInfoText ; TBE
-	dw ReceivedTM24Text ; TBE
-	dw TM24NoRoomText ; TBE
-	dw LtSurgePostRematchText ; TBE
+	dw LTSurgeThunderBadgeInfoText_RP
+	dw ReceivedTM24Text_RP
+	dw TM24NoRoomText_RP
 
 VermilionGymTrainerHeaders:
 	def_trainers 2
@@ -356,4 +355,76 @@ LtSurgeRematchDefeatedText:
 
 LtSurgePostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP ======================
+
+LTSurgeText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_LT_SURGE
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_GOT_TM24
+	jr nz, .afterBeat
+	call z, VermilionGymReceiveTM24
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, LTSurgePostBattleText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, LTSurgePreBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedThunderBadgeText_RP
+	ld de, ReceivedThunderBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+
+	ld a, $3
+	ld [wGymLeaderNo], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $3 ; set script index to LT Surge post-battle script
+	ld [wCurMapScript], a
+.done
+	jp TextScriptEnd
+
+LTSurgePostBattleText_RP:
+	text_far _LTSurgePostBattleText_RP
+	text_end
+
+LTSurgePreBattleText_RP:
+	text_far _LTSurgePreBattleText_RP
+	text_end
+
+ReceivedThunderBadgeText_RP:
+	text_far _ReceivedThunderBadgeText_RP
+	text_end
+
+LTSurgeThunderBadgeInfoText_RP:
+	text_far _LTSurgeThunderBadgeInfoText_RP
+	text_end
+
+ReceivedTM24Text_RP:
+	text_far _ReceivedTM24Text
+	sound_get_item_1
+	text_end
+
+TM24NoRoomText_RP:
+	text_far _TM24NoRoomText_RP
+	text_end
+
+VermilionGymGuideText_RP:
+	text_far _GymGuideText_RocketPath
 	text_end

@@ -116,7 +116,7 @@ CeruleanGym_TextPointers_Rocket:
 	dw CeruleanGymTrainerText1
 	dw CeruleanGymTrainerText2
 	dw CeruleanGymTrainerText3
-	dw GenericNPCText_RocketPath ; TBE
+	dw CeruleanGymGuideText_RP
 	; scripts
 	dw MistyCascadeBadgeInfoText_RP
 	dw ReceivedTM11Text
@@ -348,7 +348,7 @@ MistyText_RP:
 
 	ld a, 8
 	ld [wTrainerNo], a
-	
+
 	ld a, $2
 	ld [wGymLeaderNo], a
 	xor a
@@ -372,9 +372,12 @@ ReceivedCascadeBadgeText_RP:
 
 MistyCascadeBadgeInfoText_RP:
 	text_far _MistyCascadeBadgeInfoText_RP
-	sound_get_key_item
 	text_end
 
 TM11NoRoomText_RP:
 	text_far _TM11NoRoomText_RP
+	text_end
+
+CeruleanGymGuideText_RP:
+	text_far _GymGuideText_RocketPath
 	text_end

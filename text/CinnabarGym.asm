@@ -324,3 +324,53 @@ _BlaineRematchDefeatedText::
 	cont "sun in the middle"
 	cont "of July!"
 	prompt
+
+; new for RP =====================
+
+_CinnabarGymBattleText_RP::
+	text "Ugh. Why must I"
+	line "battle you?"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarGymAfterBattleText_RP::
+	text "Just get the"
+	line "answers right"
+	cont "and leave us"
+	cont "alone, will you?"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarGymText_PreQuiz_RP::
+	text "This GYM may host"
+	line "thieves, but what"
+	cont "are even those"
+	cont "compared to a"
+	cont "mafia like you?"
+;	xxxx "123456789012345678"
+	done
+
+_BlainePostBattleText_RP::
+	text "raus"
+;	xxxx "123456789012345678"
+	done
+
+_BlainePreBattleText_RP::
+	text "max powaaa"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedVolcanoBadgeText_RP::
+	text "take and farebad"
+;	xxxx "123456789012345678"
+	prompt
+
+_BlaineVolcanoBadgeInfoText_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done
+
+_TM38NoRoomText_RP::
+	text "no space"
+;	xxxx "123456789012345678"
+	done

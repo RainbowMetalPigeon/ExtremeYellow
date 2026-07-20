@@ -83,7 +83,7 @@ CinnabarIslandScript0: ; edited
 ; BTV
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, 19
+	ld a, 20 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -159,6 +159,13 @@ CinnabarIsland_TextPointers_Rocket:
 	dw CinnabarIslandText7
 	dw CinnabarIslandTextVulcano
 	dw CinnabarIslandTextSeismic ; 19
+	; scripts
+	dw CinnabarIslandTextGymDoor ; 20
+	dw TextPostBattle_CinnabarTraveler ; 21 for traveler, unnecessary? TBE?
+	dw CinnabarIslandTextHotSprings ; 22
+	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 23
+	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 24
+	dw CinnabarIslandScriptText6 ; 25, TBE, for birdkeeper
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor

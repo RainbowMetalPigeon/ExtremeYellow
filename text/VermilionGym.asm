@@ -247,3 +247,30 @@ _LtSurgeRematchDefeatedText::
 	cont "respects to your"
 	cont "victory."
 	prompt
+
+; new for RP ====================
+
+_LTSurgePostBattleText_RP::
+	text "leave now"
+;	xxxx "123456789012345678"
+	done
+
+_LTSurgePreBattleText_RP::
+	text "full powa"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedThunderBadgeText_RP::
+	text "take and ciao"
+;	xxxx "123456789012345678"
+	prompt
+
+_LTSurgeThunderBadgeInfoText_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done
+
+_TM24NoRoomText_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done

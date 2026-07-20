@@ -315,3 +315,30 @@ _ErikaRematchDefeatedText::
 	para "You are superbly"
 	line "powerful."
 	prompt
+
+; new for RP ==================
+
+_ErikaPostBattleAdviceText_RP::
+	text "leave"
+;	xxxx "123456789012345678"
+	done
+
+_ErikaPreBattleText_RP::
+	text "full power"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedRainbowBadgeText_RP::
+	text "get and raus"
+;	xxxx "123456789012345678"
+	prompt
+
+_ErikaRainbowBadgeInfoText_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done
+
+_TM21NoRoomText_RP::
+	text "no space"
+;	xxxx "123456789012345678"
+	done

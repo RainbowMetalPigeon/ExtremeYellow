@@ -112,13 +112,13 @@ SaffronGym_TextPointers:
 	dw SaffronGymTrainerText8
 	dw SaffronGymGuideText
 	; scripts
-	dw KogaMarshBadgeInfoText ; why Koga lol
+	dw SabrinaMarshBadgeInfoText ; edited
 	dw ReceivedTM46Text
 	dw TM46NoRoomText
 	dw SabrinaPostRematchText; new, $e
 
 SaffronGym_TextPointers_Rocket:
-	dw SabrinaText ; TBE
+	dw SabrinaText_RP
 	dw SaffronGymTrainerText1
 	dw SaffronGymTrainerText2
 	dw SaffronGymTrainerText3
@@ -127,7 +127,11 @@ SaffronGym_TextPointers_Rocket:
 	dw SaffronGymTrainerText6
 	dw SaffronGymTrainerText7
 	dw SaffronGymTrainerText8
-	dw SaffronGymGuideText ; TBE
+	dw SaffronGymGuideText_RP
+	; scripts
+	dw SabrinaMarshBadgeInfoText_RP
+	dw ReceivedTM46Text_RP
+	dw TM46NoRoomText_RP
 
 SaffronGymTrainerHeaders:
 	def_trainers 2
@@ -229,8 +233,8 @@ SabrinaPostBattleAdviceText:
 	text_far _SabrinaPostBattleAdviceText
 	text_end
 
-KogaMarshBadgeInfoText:
-	text_far _KogaMarshBadgeInfoText
+SabrinaMarshBadgeInfoText:
+	text_far _SabrinaMarshBadgeInfoText
 	text_end
 
 ReceivedTM46Text:
@@ -420,4 +424,74 @@ SabrinaRematchDefeatedText:
 
 SabrinaPostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP =======================
+
+SabrinaText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_SABRINA
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_GOT_TM46
+	jr nz, .afterBeat
+	call z, SaffronGymReceiveTM46
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, SabrinaPostBattleText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, SabrinaPreBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedMarshBadgeText_RP
+	ld de, ReceivedMarshBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+
+	ld a, $6
+	ld [wGymLeaderNo], a
+	ld a, $3
+	ld [wCurMapScript], a ; edited
+.done
+	jp TextScriptEnd
+
+SabrinaPostBattleText_RP:
+	text_far _SabrinaPostBattleText_RP
+	text_end
+
+SabrinaPreBattleText_RP:
+	text_far _SabrinaPreBattleText_RP
+	text_end
+
+ReceivedMarshBadgeText_RP:
+	text_far _ReceivedMarshBadgeText_RP
+	text_end
+
+SabrinaMarshBadgeInfoText_RP:
+	text_far _SabrinaMarshBadgeInfoText_RP
+	text_end
+
+TM46NoRoomText_RP:
+	text_far _TM46NoRoomText_RP
+	text_end
+
+ReceivedTM46Text_RP:
+	text_far _ReceivedTM46Text
+	sound_get_item_1
+	text_end
+
+SaffronGymGuideText_RP:
+	text_far _GymGuideText_RocketPath
 	text_end

@@ -250,3 +250,30 @@ _BrockRematchDefeatedText::
 
 	para "Well done!"
 	prompt
+
+; new for RP ===================
+
+_BrockPostBattleText_RP::
+	text "leave or else"
+;	xxxx "123456789012345678"
+	done
+
+_BrockPreBattleText_RP::
+	text "fight full powa"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedBoulderBadgeText_RP::
+	text "take these & ciao"
+;	xxxx "123456789012345678"
+	prompt
+
+_BeforeReceivedTM34Text_RP::
+	text "got badge"
+;	xxxx "123456789012345678"
+	done
+
+_TM34NoRoomText_RP::
+	text "no room"
+;	xxxx "123456789012345678"
+	done
