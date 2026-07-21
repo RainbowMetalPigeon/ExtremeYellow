@@ -426,3 +426,30 @@ _OrageRematchDefeatedText::
 	cont "ourselves even"
 	cont "further!"
 	prompt
+
+; new for RP =======================
+
+_OragePostBattleText_RP::
+	text "leave and ciao"
+;	xxxx "123456789012345678"
+	done
+
+_OragePreBattleText_RP::
+	text "max strg"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedNoBadgeText_RP::
+	text "bg"
+;	xxxx "123456789012345678"
+	prompt
+
+_OrageNoBadgeInfoText_RP::
+	text "what else u want"
+;	xxxx "123456789012345678"
+	done
+
+_GiftNoRoomText_RP::
+	text "no space"
+;	xxxx "123456789012345678"
+	done

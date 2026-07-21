@@ -211,7 +211,7 @@ OchreGym_TextPointers:
 	dw OragePostRematchText; new, 18=$12
 
 OchreGym_TextPointers_Rocket:
-	dw OrageText ; TBE
+	dw OrageText_RP
 	dw OchreGymTrainerText1
 	dw OchreGymTrainerText2
 	dw OchreGymTrainerText3
@@ -226,6 +226,10 @@ OchreGym_TextPointers_Rocket:
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
 	dw OchreGymTrashBinText
+	; scripts
+	dw OrageNoBadgeInfoText_RP ; 15
+	dw ReceivedGiftText_RP ; 16
+	dw GiftNoRoomText_RP ; 17
 
 OchreGymTrainerHeaders:
 	def_trainers 2
@@ -533,4 +537,68 @@ OrageRematchDefeatedText:
 
 OragePostRematchText:
 	text_far _GymLeaderPostRematchText
+	text_end
+
+; new for RP ==============================
+
+OrageText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
+	jr z, .beforeBeat
+	CheckEventReuseA EVENT_OCHRE_GYM_GOT_GIFT
+	jr nz, .afterBeat
+	call z, OchreGymReceiveGift
+	call DisableWaitingAfterTextDisplay
+	jr .done
+
+.afterBeat
+	ld hl, OragePostBattleText_RP
+	call PrintText
+	jr .done
+.beforeBeat
+	ld hl, OragePreBattleText_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ReceivedNoBadgeText_RP
+	ld de, ReceivedNoBadgeText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+
+	ld a, 8
+	ld [wTrainerNo], a
+
+	ld a, $3
+	ld [wCurMapScript], a ; edited
+.done
+	jp TextScriptEnd
+
+OragePostBattleText_RP:
+	text_far _OragePostBattleText_RP
+	text_end
+
+OragePreBattleText_RP:
+	text_far _OragePreBattleText_RP
+	text_end
+
+ReceivedNoBadgeText_RP:
+	text_far _ReceivedNoBadgeText_RP
+	text_end
+
+OrageNoBadgeInfoText_RP:
+	text_far _OrageNoBadgeInfoText_RP
+	text_end
+
+ReceivedGiftText_RP:
+	text_far _ReceivedGiftText
+	sound_get_item_1
+	text_end
+
+GiftNoRoomText_RP:
+	text_far _GiftNoRoomText_RP
 	text_end
