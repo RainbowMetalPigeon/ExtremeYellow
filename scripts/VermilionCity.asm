@@ -219,7 +219,6 @@ VermilionCityText1:
 
 VermilionCityText2: ; edited
 	text_asm
-	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; for debugging
 	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 	jr z, .beforeShipReturn
 	ld hl, VermilionCityTextAnneReturned
