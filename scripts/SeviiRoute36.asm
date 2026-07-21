@@ -15,9 +15,12 @@ SeviiRoute36_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw SeviiRoute36Script3
+	; for RP
+	dw SeviiRoute36Script4
+	dw SeviiRoute36Script5
 
 SeviiRoute36Script3:
-; exclamatin bubble
+; exclamation bubble
 	ld a, 1
 	ld [wEmotionBubbleSpriteIndex], a
 	ld a, EXCLAMATION_BUBBLE
@@ -62,7 +65,7 @@ SeviiRoute36_TextPointers:
 	dw SeviiRoute36SignText1 ; 15
 
 SeviiRoute36_TextPointers_Rocket:
-	dw SeviiRoute36Text1  ;  1 person TBE
+	dw SeviiRoute36Text1_RP  ;  1 person
 	dw SeviiRoute36Text2  ;  2 trainer
 	dw SeviiRoute36Text3  ;  3 trainer
 	dw SeviiRoute36Text4  ;  4 trainer
@@ -77,7 +80,9 @@ SeviiRoute36_TextPointers_Rocket:
 	dw SeviiRoute36Text13 ; 13 trainer
 	dw PickUpItemText ; 14
 	; signs
-	dw SeviiRoute36SignText1 ; 15
+	dw SeviiRoute36SignText1_RP ; 15
+	; scripts
+	dw SeviiRoute36ScriptsText1_RP ; 16
 
 SeviiRoute36TrainerHeaders:
 	def_trainers 2
@@ -453,4 +458,161 @@ SeviiRoute36SignText1_PostOffer:
 
 SeviiRoute36SignText1_WrongSide:
 	text_far _SeviiRoute36SignText1_WrongSide
+	text_end
+
+; new for RP =========================================
+
+SeviiRoute36Text1_RP:
+	text_asm
+	CheckEvent EVENT_GOT_HM09
+	ld hl, SeviiRoute36Text1_RP_PostHM
+	jr nz, .printAndEnd
+; we didn't get Dive, check if we already desecrated the grave
+	CheckEvent EVENT_SEVII_OFFERED_LEMONADE_TO_GRAVE
+	ld hl, SeviiRoute36Text1_RP_PreDesecration
+	jr z, .printAndEnd
+; we desecrated already but didn't get HM yet (just did or bag full)
+	ld hl, SeviiRoute36Text1_RP_TryGiveHM
+	call PrintText
+	lb bc, HM_DIVE, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_GOT_HM09
+	ld hl, SeviiRoute36Text1_ReceivedHM09
+	jr .printAndEnd
+.bagFull
+	ld hl, SeviiRoute36Text1_RP_NoRoom
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiRoute36Text1_RP_PostHM:
+	text_far _SeviiRoute36Text1_RP_PostHM
+	text_end
+
+SeviiRoute36Text1_RP_PreDesecration:
+	text_far _SeviiRoute36Text1_RP_PreDesecration
+	text_end
+
+SeviiRoute36Text1_RP_TryGiveHM:
+	text_far _SeviiRoute36Text1_RP_TryGiveHM
+	text_end
+
+SeviiRoute36Text1_RP_NoRoom:
+	text_far _SeviiRoute36Text1_RP_NoRoom
+	text_end
+
+; ---------------------------------------
+
+SeviiRoute36SignText1_RP:
+	text_asm
+	ld hl, SeviiRoute36SignText1_WrongSide
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jp nz, .printAndEnd
+; right direction
+	CheckEvent EVENT_SEVII_OFFERED_LEMONADE_TO_GRAVE ; very much abused
+	ld hl, SeviiRoute36SignText1_RP_PostDesecration
+	jr nz, .printAndEnd
+; not desecrated yet
+	ld hl, SeviiRoute36SignText1_RP_PreDesecration
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SeviiRoute36SignText1_RP_DoNotDesecrate
+	jr nz, .printAndEnd
+; desecrated
+	ld hl, SeviiRoute36SignText1_RP_TryToPick
+; load script
+	ld a, 4
+	ld [wCurMapScript], a
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiRoute36SignText1_RP_PostDesecration:
+	text_far _SeviiRoute36SignText1_RP_PostDesecration
+	text_end
+
+SeviiRoute36SignText1_RP_PreDesecration:
+	text_far _SeviiRoute36SignText1_RP_PreDesecration
+	text_end
+
+SeviiRoute36SignText1_RP_DoNotDesecrate:
+	text_far _SeviiRoute36SignText1_RP_DoNotDesecrate
+	text_end
+
+SeviiRoute36SignText1_RP_TryToPick:
+	text_far _SeviiRoute36SignText1_RP_TryToPick
+	text_end
+
+; -----------------------------
+
+SeviiRoute36Script4:
+; exclamation bubble
+	ld a, 1
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+; turn person and player
+	lb bc, STAY, LEFT
+	ld a, 1
+	ldh [hSpriteIndex], a
+	call ChangeSpriteMovementBytes ; Engeze approach
+	lb de, 1, SPRITE_FACING_LEFT
+	callfar ChangeSpriteFacing ; new Pigeon approach
+	ld a, SPRITE_FACING_RIGHT
+	ld [wSpritePlayerStateData1FacingDirection], a
+; dialogue
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; load battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_TAMER
+	ld [wCurOpponent], a
+	ld a, 8
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiRoute36PostBattleTectonix_VictoryText
+	ld de, SeviiRoute36PostBattleTectonix_VictoryText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; handle scripts
+	ld a, 5
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute36Script5:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiRoute36_ResetScript
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	SetEvent EVENT_SEVII_OFFERED_LEMONADE_TO_GRAVE
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	; fallthrough
+SeviiRoute36_ResetScript:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute36ScriptsText1_RP:
+	text_far _SeviiRoute36ScriptsText1_RP
+	text_end
+
+SeviiRoute36PostBattleTectonix_VictoryText:
+	text_far _SeviiRoute36PostBattleTectonix_VictoryText
 	text_end

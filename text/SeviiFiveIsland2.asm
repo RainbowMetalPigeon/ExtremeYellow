@@ -453,3 +453,87 @@ _SeviiLostCave2Text1_RP_AfterWaterfall::
 	cont "No! Help! HELP!!!"
 ;   xxxx "123456789012345678"
 	done
+
+_SeviiRoute36Text1_RP_PostHM::
+	text "Leave."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36Text1_RP_PreDesecration::
+	text "Please leave me"
+	line "alone. There's"
+	cont "nothing for you"
+	cont "to gain here."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36Text1_RP_TryGiveHM::
+	text "...grrr..."
+	line "Just take this"
+	cont "and leave!"
+	cont "It's my only thing"
+	cont "of value!"
+	cont "But don't disturb"
+	cont "my friend's rest"
+	cont "any longer."
+;   xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute36Text1_RP_NoRoom::
+	text "No space for this."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36SignText1_RP_PostDesecration::
+	text "The grave you"
+	line "defiled."
+
+	para "If one didn't know"
+	line "better, would say"
+	cont "that it's crying."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36SignText1_RP_PreDesecration::
+	text "There is an"
+	line "epitaph: 'Here"
+	cont "lies TECTONIX'."
+
+	para "A LEMONADE lies"
+	line "at the base of"
+	cont "the grave."
+
+	para "Steal it?"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36SignText1_RP_DoNotDesecrate::
+	text "Not thirsty!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36SignText1_RP_TryToPick::
+	text "<PLAYER> tries to"
+	line "grab the LEMONADE."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36ScriptsText1_RP::
+	text "The hell you"
+	line "doing?!"
+
+	para "I won't let you"
+	line "desecrate the"
+	cont "tomb of my"
+	cont "beloved TECTONIX,"
+	cont "you bastard scum!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute36PostBattleTectonix_VictoryText::
+	text "...no..."
+	line "TECTONIX..."
+	cont "Forgive me, for"
+	cont "I failed you..."
+;   xxxx "123456789012345678"
+	prompt
