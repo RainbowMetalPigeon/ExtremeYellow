@@ -20,7 +20,7 @@ CeruleanCaveExtraFinal_TextPointers:
 	dw CeruleanCaveExtraFinalSign ; 15
 
 CeruleanCaveExtraFinal_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE?
+	dw CeruleanCaveExtraFinalTextSeller_RP
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
@@ -42,3 +42,9 @@ CeruleanCaveExtraFinalSign:
 
 CeruleanCaveExtraFinalTextSeller:
 	script_mart MASTER_BALL, MEGA_STONE_X, MEGA_STONE_Y, RARE_CANDY, LEGEND_CANDY, ESCAPE_ROPE
+
+; new for RP =======================
+
+CeruleanCaveExtraFinalTextSeller_RP:
+	text_far _CeruleanCaveExtraFinalTextSeller_RP
+	text_end

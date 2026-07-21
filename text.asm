@@ -180,7 +180,6 @@ INCLUDE "text/VictoryRoad1F.asm"
 INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
-INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/CeladonMartRoof.asm"
 
@@ -231,6 +230,7 @@ INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/BattleFacility.asm" ; new
+INCLUDE "text/BrunosRoom.asm"
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones

@@ -696,15 +696,19 @@ _CeladonUniversity2Text8_RP_PreOrb::
     line "TEAM ROCKET? Why"
     cont "are you even he-"
 
-    para "ARGH! Stop!"
-    line "Help! Help! Aaah!"
-    
+    para "NO! My notes! My"
+    line "computer! All my"
+    cont "data! Years of"
+    cont "work! No! Stop!"
+    cont "Help! Help!!!"
+
     para "Wh-why is nobody"
     line "helping me...?"
 
-    para "Here! Take this"
-    line "and leave me"
-    cont "alone!"
+    para "Here! Take this,"
+    line "but I beg you,"
+    cont "stop destroying"
+    cont "my research!"
 ;	xxxx "123456789012345678"
 	prompt
 
