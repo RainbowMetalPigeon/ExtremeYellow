@@ -131,6 +131,8 @@ TalkToTrainer::
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRocketPath_AfterBattle
+	CheckAndResetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jr nz, .notRocketPath_AfterBattle
 	jpfar PrintAfterBattleText_RocketPath
 .notRocketPath_AfterBattle
 ; BTV
@@ -145,6 +147,8 @@ TalkToTrainer::
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRocketPath_BeforeBattle
+	CheckEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jr nz, .notRocketPath_BeforeBattle
 	callfar PrintBeforeBattleText_RocketPath
 	jr .postBeforeBattleText
 .notRocketPath_BeforeBattle

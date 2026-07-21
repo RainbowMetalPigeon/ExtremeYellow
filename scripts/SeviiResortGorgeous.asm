@@ -21,8 +21,8 @@ SeviiResortGorgeous_TextPointers:
 	dw SeviiResortGorgeousText14
 
 SeviiResortGorgeous_TextPointers_Rocket:
-	dw SeviiResortGorgeousText1 ; Selphy TBE
-	dw SeviiResortGorgeousText2 ; Butler TBE
+	dw SeviiResortGorgeousText1 ; Selphy (will never return)
+	dw SeviiResortGorgeousText2_RP ; Butler
 	dw SeviiResortGorgeousText15 ; Paper, numbering is off but whatever
 	; signs (numbering in names is off by 1)
 	dw SeviiResortGorgeousText3
@@ -70,6 +70,7 @@ SeviiResortGorgeousText1_BagFull:
 
 SeviiResortGorgeousText1_GotWaterfall:
 	text_far _SeviiResortGorgeousText1_GotWaterfall
+	sound_get_key_item
 	text_end
 
 SeviiResortGorgeousText1_AfterWaterfall:
@@ -141,4 +142,10 @@ SeviiResortGorgeousText14:
 
 SeviiResortGorgeousText15:
 	text_far _SeviiResortGorgeousText15
+	text_end
+
+; new for RP =======================
+
+SeviiResortGorgeousText2_RP:
+	text_far _SeviiResortGorgeousText2_RP
 	text_end

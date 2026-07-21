@@ -1139,19 +1139,19 @@ _SeviiRoute34Text1_BagFull::
 
 ; Route 35 ------------------------------------
 
-_SeviiRoute35BattleText1::
+_SeviiRoute35BattleText1_HP::
 	text "Ah! A traveler!"
 	line "Beat me, and I'll"
 	cont "translate this"
 	cont "text for you!"
 	done
 
-_SeviiRoute35EndBattleText1::
+_SeviiRoute35EndBattleText1_HP::
 	text "A promise"
 	line "is a promise!"
 	prompt
 
-_SeviiRoute35AfterBattleText1::
+_SeviiRoute35AfterBattleText1_HP::
 	text "The text on this"
 	line "wall reads like:"
 
@@ -1260,12 +1260,13 @@ _SeviiLostCave2Text1::
 	cont "maze!"
 
 	para "Thank you, oh my"
-	line "saviour. Meet me"
-	cont "at my humble"
+	line "saviour. Let us"
+	cont "head to my humble"
 	cont "RESORT GORGEOUS"
 	cont "and I'll know how"
 	cont "to reward you"
 	cont "appropriately."
+;   xxxx "123456789012345678"
 	done
 
 _SeviiResortGorgeousText3::

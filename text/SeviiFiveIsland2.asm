@@ -345,3 +345,111 @@ _SeviiFiveIslandHousesScriptsText1::
 	cont "sonmystudies?!"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiRoute35BattleText1_RP::
+	text "Uh? Helping a"
+	line "ROCKET by trans-"
+	cont "lating this?"
+	cont "Over my dead body!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiRoute35EndBattleText1_RP::
+	text "Spare me!"
+	prompt
+
+_SeviiRoute35AfterBattleText1_RP::
+	text "Don't kill me!"
+	line "I'll tell you all!"
+	cont "The text reads:"
+
+	para "POWER IN NUMBERS"
+	line "ADD AND SUBTRACT"
+	cont "BEGIN AS THE SUN"
+	cont "ALL ENDS SOUTH"
+	cont "PRIME REBELLION"
+
+	para "I know no more!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiResortGorgeousText2_RP::
+	text "Oh my gracious!"
+	line "First master"
+	cont "SELPHY gets lost,"
+	cont "now TEAM ROCKET"
+	cont "invades us!"
+
+	para "Will there ever"
+	line "be an end to our"
+	cont "misfortunes?!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiLostCave2Text1_RP_BeforeWaterfall::
+	text "SELPHY: Finally,"
+	line "someone came to"
+	cont "rescue m-"
+
+	para "Oh! What a bizarre"
+	line "twist of fate!"
+	cont "A ROCKET, of all"
+	cont "people, be the"
+	cont "first to find"
+	cont "their way to me."
+
+	para "But, let us fret"
+	line "not, as I have"
+	cont "found a solution"
+	cont "most beneficial"
+	cont "to us both!"
+
+	para "I will gift you"
+	line "this precious"
+	cont "item, and in"
+	cont "return, you will"
+	cont "lead me to safety"
+	cont "out from here!"
+	cont "Sounds good?"
+;   xxxx "123456789012345678"
+	prompt
+
+_SeviiLostCave2Text1_RP_BagFull::
+	text "Oh, this won't do!"
+	line "Your bag is full."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiLostCave2Text1_RP_AfterWaterfall::
+	text "SELPHY: Well, my"
+	line "fate companion,"
+	cont "now that you got"
+	cont "my precious gift,"
+	cont "it's time to hold"
+	cont "up to your part"
+	cont "of our agreeme-"
+
+	para "Wh... what?"
+	line "What do you..."
+	cont "What means 'No'?!"
+
+	para "Would you leave me"
+	line "here, alone and"
+	cont "lost, in this"
+	cont "dark cave?!"
+	cont "No! Wait! No!"
+	cont "What does it even"
+	cont "cost you? I won't"
+	cont "hold you back!"
+
+	para "PLEASE!"
+	line "I'M SCARED!"
+	cont "Bring me home!"
+	cont "It's been too"
+	cont "long, I beg you!"
+
+	para "AAAHHH!"
+	line "But why? WHY?!"
+	cont "No! Help! HELP!!!"
+;   xxxx "123456789012345678"
+	done

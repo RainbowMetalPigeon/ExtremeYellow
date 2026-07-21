@@ -8,6 +8,9 @@ GainExperience:
 	cp BATTLE_FACILITY ; new
 	ret z ; new
 .notBattleFacility ; new
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .normalExpGain
 ; new, to handle the Exp Gain option
 	ld a, [wExpGainOption]
 	cp 2 ; "NOTHING" exp gain is set

@@ -857,45 +857,7 @@ Func_07c4::
 	ret
 
 LoadPlayerSpriteGraphics::
-; Load sprite graphics based on whether the player is standing, biking, or surfing.
-
-	; 0: standing
-	; 1: biking
-	; 2: surfing
-	; 3: diving
-
-	ld a, [wWalkBikeSurfState]
-	cp 3 ; new for dive
-	jp z, LoadSurfingPlayerSpriteGraphics ; new for Dive
-	dec a
-	jr z, .ridingBike
-
-	ldh a, [hTileAnimations]
-	and a
-	jr nz, .determineGraphics
-	jr .startWalking
-
-.ridingBike
-	; If the bike can't be used,
-	; start walking instead.
-	call IsBikeRidingAllowed
-	jr c, .determineGraphics
-
-.startWalking
-	xor a
-	ld [wWalkBikeSurfState], a
-	ld [wWalkBikeSurfStateCopy], a
-	jp LoadWalkingPlayerSpriteGraphics
-
-.determineGraphics
-	ld a, [wWalkBikeSurfState]
-	and a
-	jp z, LoadWalkingPlayerSpriteGraphics
-	dec a
-	jp z, LoadBikePlayerSpriteGraphics
-	dec a
-	jp z, LoadSurfingPlayerSpriteGraphics2
-	jp LoadWalkingPlayerSpriteGraphics
+	jpfar _LoadPlayerSpriteGraphics ; edited
 
 IsBikeRidingAllowed::
 ; The bike can be used on Route 23 and Indigo Plateau,
@@ -1831,7 +1793,7 @@ LoadWalkingPlayerSpriteGraphics::
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .nonRocketPath
-	
+
 	ld b, BANK(RedRocketSprite)
 	ld de, RedRocketSprite
 	ld a, [wPlayerGender] ; from Vortiene

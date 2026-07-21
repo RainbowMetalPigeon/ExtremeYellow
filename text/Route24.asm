@@ -154,6 +154,11 @@ _Route24Text_NextQuest:: ; new
 	cont "SAFFRON to let"
 	cont "you pass."
 
+	para "Also, forget about"
+	line "any dumb LVL CAP"
+	cont "shit. ROCKETs do"
+	cont "not care!"
+
 	para "Last but not"
 	line "least: as a TEAM"
 	cont "ROCKET member,"
