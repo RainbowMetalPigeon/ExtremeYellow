@@ -228,7 +228,7 @@ _ObsidianIslandText7_Scientist1_Intro_NoPrompt::
 	line "young and"
 	cont "stronger, and"
 	cont "surely a powerful"
-	cont "trainer!"
+	cont "TRAINER!"
 
 	para "Could you please"
 	line "bring me 3"
@@ -285,7 +285,7 @@ _ObsidianIslandText7_Scientist1_Intro_WithPrompt::
 	line "young and"
 	cont "stronger, and"
 	cont "surely a powerful"
-	cont "trainer!"
+	cont "TRAINER!"
 
 	para "Could you please"
 	line "bring me 3"
@@ -335,7 +335,7 @@ _ObsidianIslandText7_Scientist1_FoundThisYouCanHaveIt::
 	cont "just before"
 	cont "giving up."
 
-	para "A trainer like you"
+	para "A TRAINER like you"
 	line "may have a good"
 	cont "use for it!"
 	prompt

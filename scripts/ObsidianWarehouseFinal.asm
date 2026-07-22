@@ -647,20 +647,46 @@ ObsidianWarehouseFinalText5_RP_After:
 
 ObsidianWarehouseFinalText6_RP:
 	text_asm
-	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
-	ld hl, ObsidianWarehouseFinalText6_RP_After
+	CheckEvent EVENT_ALREADY_REWARDED_ORB_OBSIDIAN_SCIENTIST ; abused
+	ld hl, ObsidianWarehouseFinalText6_RP_AfterOrb
 	jr nz, .printAndEnd
-	ld hl, ObsidianWarehouseFinalText6_RP_Before
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
+	ld hl, ObsidianWarehouseFinalText6_RP_BeforeBlue
+	jr z, .printAndEnd
+; Beat Blue but not Orb yet: first time or bag full
+	ld hl, ObsidianWarehouseFinalText6_RP_AfterBlue
+	call PrintText
+	lb bc, FIRE_ORB, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_ALREADY_REWARDED_ORB_OBSIDIAN_SCIENTIST
+	ld hl, ObsidianWarehouseFinalText6_RP_AfterBlue_ReceivedIceOrb
+	jr .printAndEnd
+.bagFull
+	ld hl, ObsidianWarehouseFinalText6_RP_AfterBlue_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
-ObsidianWarehouseFinalText6_RP_Before:
-	text_far _ObsidianWarehouseFinalText6_RP_Before
+ObsidianWarehouseFinalText6_RP_BeforeBlue:
+	text_far _ObsidianWarehouseFinalText6_RP_BeforeBlue
 	text_end
 
-ObsidianWarehouseFinalText6_RP_After:
-	text_far _ObsidianWarehouseFinalText6_RP_After
+ObsidianWarehouseFinalText6_RP_AfterBlue:
+	text_far _ObsidianWarehouseFinalText6_RP_AfterBlue
+	text_end
+
+ObsidianWarehouseFinalText6_RP_AfterOrb:
+	text_far _ObsidianWarehouseFinalText6_RP_AfterOrb
+	text_end
+
+ObsidianWarehouseFinalText6_RP_AfterBlue_ReceivedIceOrb:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
+	text_end
+
+ObsidianWarehouseFinalText6_RP_AfterBlue_BagFull:
+	text_far _ObsidianWarehouseFinalText6_RP_AfterBlue_BagFull
 	text_end
 
 ObsidianWarehouseFinalText8_RP:

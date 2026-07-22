@@ -166,7 +166,7 @@ _OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt::
 	cont "much to do."
 
 	para "You look like a"
-	line "powerful trainer!"
+	line "powerful TRAINER!"
 	cont "I have a favour"
 	cont "to ask you: could"
 	cont "you get rid of"
@@ -179,7 +179,7 @@ _OchreResearchCenter1Text_Power_Windworks_Intro_NoPrompt::
 	line "that ourselves,"
 	cont "but none of us is"
 	cont "a good enough"
-	cont "trainer to handle"
+	cont "TRAINER to handle"
 	cont "them all."
 
 	para "We'll reward you"
@@ -206,7 +206,7 @@ _OchreResearchCenter1Text_Power_Windworks_Intro_WithPrompt::
 	cont "much to do."
 
 	para "You look like a"
-	line "powerful trainer!"
+	line "powerful TRAINER!"
 	cont "I have a favour"
 	cont "to ask you: could"
 	cont "you get rid of"
@@ -219,7 +219,7 @@ _OchreResearchCenter1Text_Power_Windworks_Intro_WithPrompt::
 	line "that ourselves,"
 	cont "but none of us is"
 	cont "a good enough"
-	cont "trainer to handle"
+	cont "TRAINER to handle"
 	cont "them all."
 
 	para "We'll reward you"
@@ -234,7 +234,7 @@ _OchreResearchCenter1Text_Power_Windworks_WowAlreadyDefeated::
 
 	para "Wonderful! You"
 	line "indeed do be a"
-	cont "powerful trainer!"
+	cont "powerful TRAINER!"
 
 	para "Thanks so much,"
 	line "this will help a"
@@ -311,3 +311,33 @@ _OchreResearchCenter1Text_Power_Windworks_ReceivedThunderOrb::
 	text_ram wStringBuffer
 	text "!@"
 	text_end
+
+; new for RP =======================
+
+_OchreResearchCenter1Text_Power_Windworks_RP_PreOrb::
+	text "Why a ROCKET...?"
+	line "I have something"
+	cont "you want? I don't"
+	cont "think so, I'm"
+	cont "just an engineer"
+	cont "trying to h-"
+
+	para "WHA?! No! Don't"
+	line "order your #-"
+	cont "MON to attack me!"
+	cont "No, wait, I'm not"
+	cont "even a TRAINER!"
+
+	para "AAAHHH!!!"
+	line "Yes, yes take it,"
+	cont "but don't hurt me!"
+;	xxxx "123456789012345678"
+	prompt
+
+_OchreResearchCenter1Text_Power_Windworks_RP_PostOrb::
+	text "I already gave you"
+	line "what you wanted!"
+	cont "Why are you"
+	cont "still here?!"
+;	xxxx "123456789012345678"
+	done

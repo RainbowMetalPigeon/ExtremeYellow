@@ -304,8 +304,8 @@ _ObsidianWarehouseFinalText5_RP_Before::
 ;	xxxx "123456789012345678"
 	done
 
-_ObsidianWarehouseFinalText6_RP_Before::
-	text "6 Before"
+_ObsidianWarehouseFinalText6_RP_BeforeBlue::
+	text "6 Before Blue"
 ;	xxxx "123456789012345678"
 	done
 
@@ -334,8 +334,19 @@ _ObsidianWarehouseFinalText5_RP_After::
 ;	xxxx "123456789012345678"
 	done
 
-_ObsidianWarehouseFinalText6_RP_After::
-	text "6 After"
+_ObsidianWarehouseFinalText6_RP_AfterBlue::
+	text "6 After Blue"
+	line "take this"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalText6_RP_AfterOrb::
+	text "6 After Orb"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText6_RP_AfterBlue_BagFull::
+	text "bag full"
 ;	xxxx "123456789012345678"
 	done
 

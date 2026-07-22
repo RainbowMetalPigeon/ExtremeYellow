@@ -32,7 +32,7 @@ OchreResearchCenter1_TextPointers_Rocket:
 	dw OchreResearchCenter1Text_Ball_Fast
 	; power
 	dw GenericNPCText_RocketPath
-	dw OchreResearchCenter1Text_Power_Windworks ; TBE
+	dw OchreResearchCenter1Text_Power_Windworks_RP
 	dw GenericNPCText_RocketPath
 	; signs
 	dw OchreResearchCenterSign_Hall
@@ -237,3 +237,44 @@ CheckIfDefeatedAllVoltorbs:
 	xor a
 .end
 	ret
+
+; new for RP ===========================
+
+OchreResearchCenter1Text_Power_Windworks_RP:
+	text_asm
+; already done here?
+	CheckEvent EVENT_ALREADY_REWARDED_ORB_OCHRE_POWER_ENGINEER ; abused
+	ld hl, OchreResearchCenter1Text_Power_Windworks_RP_PostOrb
+	jp nz, .printAndEnd
+; extort the item
+	ld hl, OchreResearchCenter1Text_Power_Windworks_RP_PreOrb
+	call PrintText
+	lb bc, THUNDER_ORB, 1
+	call GiveItem
+	jr nc, .bagFull
+; successfully stolen (bag not full)
+	SetEvent EVENT_ALREADY_REWARDED_ORB_OCHRE_POWER_ENGINEER
+	ld hl, OchreResearchCenter1Text_Power_Windworks_RP_GotItem
+	jr .printAndEnd
+.bagFull
+	ld hl, OchreResearchCenter1Text_Power_Windworks_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OchreResearchCenter1Text_Power_Windworks_RP_PreOrb:
+	text_far _OchreResearchCenter1Text_Power_Windworks_RP_PreOrb
+	text_end
+
+OchreResearchCenter1Text_Power_Windworks_RP_PostOrb:
+	text_far _OchreResearchCenter1Text_Power_Windworks_RP_PostOrb
+	text_end
+
+OchreResearchCenter1Text_Power_Windworks_RP_BagFull:
+	text_far _CeladonMartRoofText2_RP_BagFull
+	text_end
+
+OchreResearchCenter1Text_Power_Windworks_RP_GotItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
+	text_end

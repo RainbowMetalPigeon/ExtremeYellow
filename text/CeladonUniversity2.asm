@@ -105,7 +105,7 @@ _CeladonUniversity2Text8_Intro_NoPrompt::
     cont "environment."
 
     para "I'm not that good"
-    line "of a trainer, so"
+    line "of a TRAINER, so"
     cont "I wasn't able to"
     cont "venture very"
     cont "deep..."
@@ -154,7 +154,7 @@ _CeladonUniversity2Text8_Intro_WithPrompt::
     cont "environment."
 
     para "I'm not that good"
-    line "of a trainer, so"
+    line "of a TRAINER, so"
     cont "I wasn't able to"
     cont "venture very"
     cont "deep..."
@@ -207,7 +207,7 @@ _CeladonUniversity2Text8_FoundThisYouCanHaveIt::
     cont "I happened to"
     cont "find this."
 
-    para "Maybe a trainer of"
+    para "Maybe a TRAINER of"
     line "your caliber may"
     cont "find a good use"
     cont "for it!"
