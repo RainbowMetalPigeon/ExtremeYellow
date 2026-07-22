@@ -200,9 +200,9 @@ _FuchsiaGymAfterBattleText6::
 	done
 
 _FuchsiaGymBattleText7::
-	text "Before reaching..."
-	line "KOGA, you'll need"
-	cont "to..."
+	text "Before reaching my"
+	line "da- I mean, KOGA,"
+	cont "you'll need to..."
 
 	para "Yes, defeat me,"
 	line "indeed...!"
@@ -296,6 +296,18 @@ _KogaRematchDefeatedText::
 	line "half bad, not"
 	cont "half bad at all."
 	prompt
+
+_FuchsiaGymAfterBattleText_Common::
+	text "What do you think"
+	line "of your secret"
+	cont "ninjutsu of"
+	cont "substitution?"
+
+	para "You can't tell us"
+	line "apart, you don't"
+	cont "know who is KOGA!"
+;	xxxx "123456789012345678"
+	done
 
 ; new for RP ========================
 

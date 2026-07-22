@@ -62,7 +62,7 @@ FuchsiaCity_TextPointers_Rocket:
 	dw FuchsiaCityText8 ; Mon
 	dw FuchsiaCityText9 ; Mon
 	dw FuchsiaCityText10 ; Mon
-	dw FuchsiaCityTextRocket ; TBE
+	dw FuchsiaCityTextRocket_RP
 	dw FuchsiaCityTextErikHappy ; useless?
 	dw FuchsiaCityTextSaraHappy ; useless?
 	dw TextPreBattle_FuchsiaTraveler ; traveler, TBE
@@ -499,4 +499,8 @@ Text_WhatWasThat_FuchsiaTraveler:
 	text_far _TextTraveler_WhatWasThat
 	text_end
 
-; ================================
+; new for RP ================================
+
+FuchsiaCityTextRocket_RP:
+	text_far _FuchsiaCityTextRocket_RP
+	text_end

@@ -130,3 +130,29 @@ _FuchsiaMeetingRoomTextKoga::
 
 	para "See you soon."
 	done
+
+; new for RP ======================
+
+_FuchsiaMeetingRoomTextKoga_RP::
+	text "KOGA: ! A ROCKET?!"
+	line "How dare you...!"
+	cont "You're ruining our"
+	cont "city, and you"
+	cont "have the audacity"
+	cont "to show up here?!"
+
+	para "...what? You"
+	line "actually want to"
+	cont "challenge me?"
+	cont "A GYM challenge?"
+
+	para "Hahaha! I couldn't"
+	line "ask for anything"
+	cont "better!"
+	cont "Come to my GYM,"
+	cont "and I'll have the"
+	cont "pleasure to beat"
+	cont "you filthy scum"
+	cont "to a bloody pulp!"
+;	xxxx "123456789012345678"
+	done

@@ -2462,7 +2462,7 @@ wBillsHouseCurScript:: db
 ;wCeladonUniversity2CurScript:: db ; new
 ;	ds 1
 ;wSSAnne2FCurScript:: db
-	ds 4 ; new, from optimizing the scripts, UNUSED
+	ds 2 ; new, from optimizing the scripts, UNUSED
 
 wSeafoamIslandsB3FCurScript:: db
 ;wRoute23CurScript:: db
@@ -2499,6 +2499,10 @@ wPlayerGender::
 	; $01 = female
 	; $02 = enby
 	ds 1
+
+wHowManyTrainersBeforeKoga:: db ; new
+
+wKogaSpriteIndex:: db ; new
 
 wTyrogueEvolutions::
 	; stores directly the number/name of the chosen Hitmon

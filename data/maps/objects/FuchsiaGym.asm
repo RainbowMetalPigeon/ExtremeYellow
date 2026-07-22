@@ -7,15 +7,15 @@ FuchsiaGym_Object:
 
 	def_bg_events
 
-	def_object_events
+	def_object_events ; edited all trainer sprites
 	object_event  4, 10, SPRITE_KOGA_GL, STAY, DOWN, 1, OPP_KOGA, 1 ; edited
-	object_event  8, 13, SPRITE_ROCKER, STAY, DOWN, 2, OPP_JUGGLER, 7
-	object_event  7,  8, SPRITE_ROCKER, STAY, RIGHT, 3, OPP_JUGGLER, 3
-	object_event  1, 12, SPRITE_ROCKER, STAY, DOWN, 4, OPP_JUGGLER, 8
-	object_event  3,  5, SPRITE_ROCKER, STAY, UP, 5, OPP_TAMER, 1
-	object_event  8,  2, SPRITE_ROCKER, STAY, DOWN, 6, OPP_TAMER, 2
-	object_event  2,  7, SPRITE_ROCKER, STAY, LEFT, 7, OPP_JUGGLER, 4
-	object_event  0,  9, SPRITE_COOLTRAINER_F, STAY, RIGHT, 8, OPP_COOLTRAINER, 33 ; new
+	object_event  8, 13, SPRITE_KOGA_GL, STAY, DOWN, 2, OPP_JUGGLER, 7
+	object_event  7,  8, SPRITE_KOGA_GL, STAY, RIGHT, 3, OPP_JUGGLER, 3
+	object_event  1, 12, SPRITE_KOGA_GL, STAY, DOWN, 4, OPP_JUGGLER, 8
+	object_event  3,  5, SPRITE_KOGA_GL, STAY, UP, 5, OPP_TAMER, 1
+	object_event  8,  2, SPRITE_KOGA_GL, STAY, DOWN, 6, OPP_TAMER, 2
+	object_event  2,  7, SPRITE_KOGA_GL, STAY, LEFT, 7, OPP_JUGGLER, 4
+	object_event  0,  9, SPRITE_KOGA_GL, STAY, RIGHT, 8, OPP_COOLTRAINER, 33 ; new
 	object_event  7, 15, SPRITE_GYM_GUIDE, STAY, DOWN, 9 ; person
 
 	def_warps_to FUCHSIA_GYM

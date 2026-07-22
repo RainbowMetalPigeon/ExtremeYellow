@@ -614,15 +614,15 @@ JugglerData:
 ; Victory Road 2F
 	db 55, ELECTRODE, GOLEM, CLOYSTER, DITTO, GENGAR, ALAKAZAM, 0 ; updated, spherical mons (Golem and Gengar are stretches) and Alakazam
 ; Fuchsia Gym
-	db 38, MUK, WEEZING, ARBOK, HAUNTER, 0 ; updated
-	db 37, WEEZING, ELECTRODE, GOLEM, CLOYSTER, LICKILICKY, SNORLAX, 0 ; updated
+	db 38, MUK, WEEZING, ARBOK, HAUNTER, 0 ; 3, updated
+	db 37, WEEZING, ELECTRODE, GOLEM, CLOYSTER, LICKILICKY, SNORLAX, 0 ; 4, updated
 ; Victory Road 2F
 	db 55, MIME_JR, HYPNO, SLOWBRO, SLOWKING, JYNX, MR_MIME, 0 ; updated, most psychic
 ; Unused
 	db 33, HYPNO, 0
 ; Fuchsia Gym
-	db 38, BEEDRILL, TENTACRUEL, GOLBAT, VENUSAUR, 0 ; updated
-	db 38, HYPNO, KADABRA, HAUNTER, VENUSAUR, 0 ; updated
+	db 38, BEEDRILL, TENTACRUEL, GOLBAT, VENUSAUR, 0 ; 7, updated
+	db 38, HYPNO, KADABRA, HAUNTER, VENUSAUR, 0 ; 8, updated
 ; Victory Road 3F ; new
 	db 55, HYPNO, CLEFAIRY, ALAKAZAM, WIGGLYTUFF, MR_MIME, GENGAR, 0 ; 9, metronome trainer
 

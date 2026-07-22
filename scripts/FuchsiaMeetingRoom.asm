@@ -23,7 +23,7 @@ FuchsiaMeetingRoom_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw FuchsiaMeetingRoomText7 ; Koga TBE
+	dw FuchsiaMeetingRoomText7_RP ; Koga
 
 FuchsiaMeetingRoomText1:
 	text_far _FuchsiaMeetingRoomText1
@@ -63,6 +63,7 @@ FuchsiaMeetingRoomText7: ; Koga
 	ld a, HS_FUCHSIA_GYM_KOGA
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
+	call RandomizeHowManyTrainersBeforeKoga
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -70,4 +71,37 @@ FuchsiaMeetingRoomText7: ; Koga
 
 FuchsiaMeetingRoomTextKoga:
 	text_far _FuchsiaMeetingRoomTextKoga
+	text_end
+
+RandomizeHowManyTrainersBeforeKoga:
+	call Random
+	and %00000111 ; a is in [0,7]
+	cp 7
+	jr z, RandomizeHowManyTrainersBeforeKoga ; we can't start directly with Koga, at least the COOLTRAINER
+	ld a, 5 ; for debugging
+	ld [wHowManyTrainersBeforeKoga], a
+	ret
+
+; new for RP =======================
+
+FuchsiaMeetingRoomText7_RP:
+	text_asm
+	ld hl, FuchsiaMeetingRoomTextKoga_RP
+	call PrintText
+	call GBFadeOutToBlack
+	SetEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld a, HS_FUCHSIA_MEETING_ROOM_BEFORE_KOGA
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_FUCHSIA_GYM_KOGA
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	call RandomizeHowManyTrainersBeforeKoga
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jp TextScriptEnd
+
+FuchsiaMeetingRoomTextKoga_RP:
+	text_far _FuchsiaMeetingRoomTextKoga_RP
 	text_end
