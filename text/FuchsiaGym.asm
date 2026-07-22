@@ -309,6 +309,16 @@ _FuchsiaGymAfterBattleText_Common::
 ;	xxxx "123456789012345678"
 	done
 
+_FuchsiaGymNoBattleText_Common::
+	cont "We may all look"
+	line "like KOGA, but"
+	cont "our master is not"
+	cont "here. We won't"
+	cont "engage in battle"
+	cont "without them."
+;	xxxx "123456789012345678"
+	done
+
 ; new for RP ========================
 
 _KogaPostBattleText_RP::
@@ -333,5 +343,46 @@ _KogaSoulBadgeInfoText_RP::
 
 _TM06NoRoomText_RP::
 	text "no room"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymTrainerText_RP_AfterBeatKoga::
+	text "I won't accept it!"
+	line "Master KOGA can't"
+	cont "have lost against"
+	cont "a scum like you!"
+
+	para "You must have"
+	line "played dirty!"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymTrainerText_RP_AfterMeetingRoom::
+	text "Our master is back"
+	line "and ready to take"
+	cont "you on."
+
+	para "You, are you ready"
+	line "to be utterly"
+	cont "demolished by"
+	cont "their terrifying"
+	cont "ninja techniques?"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymTrainerText_RP_BeforeMeetingRoom::
+	text "Our master told us"
+	line "not to fight"
+	cont "without their"
+	cont "supervision."
+
+	para "And while I'd be"
+	line "glad to beat your"
+	cont "criminal ass, I'll"
+	cont "obey them."
+
+	para "But I can't wait"
+	line "to see them"
+	cont "beating you!"
 ;	xxxx "123456789012345678"
 	done

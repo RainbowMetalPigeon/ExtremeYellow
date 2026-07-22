@@ -121,13 +121,13 @@ FuchsiaGym_TextPointers:
 
 FuchsiaGym_TextPointers_Rocket:
 	dw KogaText_RP
-	dw FuchsiaGymTrainerText1
-	dw FuchsiaGymTrainerText2
-	dw FuchsiaGymTrainerText3
-	dw FuchsiaGymTrainerText4
-	dw FuchsiaGymTrainerText5
-	dw FuchsiaGymTrainerText6
-	dw FuchsiaGymTrainerText7
+	dw FuchsiaGymTrainerText_RP
+	dw FuchsiaGymTrainerText_RP
+	dw FuchsiaGymTrainerText_RP
+	dw FuchsiaGymTrainerText_RP
+	dw FuchsiaGymTrainerText_RP
+	dw FuchsiaGymTrainerText_RP
+	dw FuchsiaGymTrainerText_RP
 	dw FuchsiaGymGuideText_RP ; 9
 	; scripts
 	dw KogaSoulBadgeInfoText_RP
@@ -209,7 +209,7 @@ KogaText:
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
-	ld a, OPP_KOGA
+	ld a, OPP_KOGA ; repeated for new multi-Koga gimmick
 	ld [wCurOpponent], a
 ; new, for the adaptive gym teams
 	callfar CountHowManyBadges ; d=#badges
@@ -429,6 +429,9 @@ DumbFunction:
 FuchsiaGymRandomizeTrainersText1:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -437,6 +440,7 @@ FuchsiaGymRandomizeTrainersText1:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -455,6 +459,9 @@ FuchsiaGymRandomizeTrainersText1:
 FuchsiaGymRandomizeTrainersText2:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -463,6 +470,7 @@ FuchsiaGymRandomizeTrainersText2:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -481,6 +489,9 @@ FuchsiaGymRandomizeTrainersText2:
 FuchsiaGymRandomizeTrainersText3:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -489,6 +500,7 @@ FuchsiaGymRandomizeTrainersText3:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -507,6 +519,9 @@ FuchsiaGymRandomizeTrainersText3:
 FuchsiaGymRandomizeTrainersText4:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -515,6 +530,7 @@ FuchsiaGymRandomizeTrainersText4:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -533,6 +549,9 @@ FuchsiaGymRandomizeTrainersText4:
 FuchsiaGymRandomizeTrainersText5:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -541,6 +560,7 @@ FuchsiaGymRandomizeTrainersText5:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -559,6 +579,9 @@ FuchsiaGymRandomizeTrainersText5:
 FuchsiaGymRandomizeTrainersText6:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -567,6 +590,7 @@ FuchsiaGymRandomizeTrainersText6:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -585,6 +609,9 @@ FuchsiaGymRandomizeTrainersText6:
 FuchsiaGymRandomizeTrainersText7:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -593,6 +620,7 @@ FuchsiaGymRandomizeTrainersText7:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -611,6 +639,9 @@ FuchsiaGymRandomizeTrainersText7:
 FuchsiaGymRandomizeTrainersText8:
 	text_asm
 	call DumbFunction
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymNoBattleText_Common
+	jr z, .printAndEnd
 	CheckEvent EVENT_BEAT_KOGA
 	jr z, .kogaNotYetBeaten
 	ld a, [wKogaSpriteIndex]
@@ -619,6 +650,7 @@ FuchsiaGymRandomizeTrainersText8:
 	cp b
 	jr nz, .commonPostBattle
 	ld hl, KogaText
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 .kogaNotYetBeaten
@@ -731,6 +763,10 @@ FuchsiaGymAfterBattleText_Common:
 	text_far _FuchsiaGymAfterBattleText_Common
 	text_end
 
+FuchsiaGymNoBattleText_Common:
+	text_far _FuchsiaGymNoBattleText_Common
+	text_end
+
 ; new for RP =====================================
 
 KogaText_RP:
@@ -801,4 +837,29 @@ ReceivedTM06Text_RP:
 
 FuchsiaGymGuideText_RP:
 	text_far _GymGuideText_RocketPath
+	text_end
+
+FuchsiaGymTrainerText_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_KOGA
+	ld hl, FuchsiaGymTrainerText_RP_AfterBeatKoga
+	jr nz, .printAndEnd
+	CheckEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM
+	ld hl, FuchsiaGymTrainerText_RP_AfterMeetingRoom
+	jr nz, .printAndEnd
+	ld hl, FuchsiaGymTrainerText_RP_BeforeMeetingRoom
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaGymTrainerText_RP_AfterBeatKoga::
+	text_far _FuchsiaGymTrainerText_RP_AfterBeatKoga
+	text_end
+
+FuchsiaGymTrainerText_RP_AfterMeetingRoom::
+	text_far _FuchsiaGymTrainerText_RP_AfterMeetingRoom
+	text_end
+
+FuchsiaGymTrainerText_RP_BeforeMeetingRoom::
+	text_far _FuchsiaGymTrainerText_RP_BeforeMeetingRoom
 	text_end
