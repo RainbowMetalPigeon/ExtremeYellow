@@ -1293,6 +1293,7 @@
 	const EVENT_RP_BEAT_PINK_CHRONO_WAREHOUSE ; new
 	const EVENT_RP_UNLOCKED_SILPH ; new
 	const EVENT_RP_GOT_PORYGON ; new
+	const EVENT_RP_ROBBED_ANTIQUE_SHOP ; new
 
 ; Indigo Plateau events
 	const_next $8E0

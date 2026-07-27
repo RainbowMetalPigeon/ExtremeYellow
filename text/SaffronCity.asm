@@ -153,7 +153,7 @@ _SaffronCityText25::
 
 _SaffronCityText26::
 	text "CLIMB CLUB"
-	
+
 	para "Access allowed"
 	line "only to members"
 ;	xxxx "123456789012345678"
@@ -268,5 +268,39 @@ _SaffronCityText_BlockingSilph_RP_After_RP_BagFull::
 
 _SaffronCityText_BlockingSilph_RP_After_NowGo::
 	text "now go"
+;	xxxx "123456789012345678"
+	done
+
+_SaffronClimbClubText1_RP_Before::
+	text "This premise is"
+	line "only for mem-"
+
+	para "Y-you are with"
+	line "TEAM ROCKET...!"
+
+	para "I can't let you"
+	line "enter this..."
+
+	para "...?! My family?!"
+	line "Yes, it lives"
+	cont "here in SAFFRON,"
+	cont "but what has it"
+	cont "to do with..."
+
+	para "! You wouldn't...!"
+	line "...you would?!"
+
+	para "You... fucking"
+	line "bast..."
+
+	para "...you won."
+	line "Come in, take"
+	cont "this and never"
+	cont "speak to me again."
+;	xxxx "123456789012345678"
+	prompt
+
+_SaffronClimbClubText1_RP_After::
+	text "Don't speak to me."
 ;	xxxx "123456789012345678"
 	done

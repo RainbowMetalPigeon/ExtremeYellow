@@ -503,7 +503,7 @@ _SeviiRoute36SignText1_RP_PreDesecration::
 	line "at the base of"
 	cont "the grave."
 
-	para "Steal it?"
+	para "Drink it?"
 ;   xxxx "123456789012345678"
 	done
 

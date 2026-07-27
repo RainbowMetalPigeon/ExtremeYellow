@@ -221,7 +221,6 @@ INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/Route24.asm"
 INCLUDE "text/Route25.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/VermilionDock.asm"
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -231,6 +230,7 @@ INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/BattleFacility.asm" ; new
 INCLUDE "text/BrunosRoom.asm"
+INCLUDE "text/VermilionDock.asm"
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones

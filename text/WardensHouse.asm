@@ -374,3 +374,57 @@ _FuchsiaHouse2AntiquitiesSign8::
 
 	para "Price: ¥9999999999"
 	done
+
+; new for RP ========================
+
+_FuchsiaHouse2Text1_RP_PostTeeth::
+	text "WARDEN: post"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2Text1_RP_PreTeeth::
+	text "WARDEN: pre"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2Text1_RP_ShowTeeth::
+	text "show teeth"
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2Text1_RP_WardenHappy::
+	text "WARDEN: yay!"
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2Text1_RP_SmashTeeth::
+	text "smash teeth"
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2Text1_RP_WardenShocked::
+	text "WARDEN: de fuck"
+;	xxxx "123456789012345678"
+	done
+
+; ---
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post::
+	text "you monster"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag::
+	text "we're closed"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag::
+	text "force to sell"
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks::
+	text "ARTIFACT breaks"
+;	xxxx "123456789012345678"
+	done

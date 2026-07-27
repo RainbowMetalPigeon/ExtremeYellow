@@ -27,7 +27,7 @@ SaffronClimbClub_0:
 	call ChangeSpriteMovementBytes
 	lb de, 1, SPRITE_FACING_RIGHT
 	callfar ChangeSpriteFacing ; new Pigeon approach
-	ld a, 1
+	ld a, 1 ; the CC_INVITE is checked in the dialogue
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; load next script
@@ -94,7 +94,7 @@ SaffronClimbClub_TextPointers:
 ;	dw SaffronClimbClubScriptText1 ; 9
 
 SaffronClimbClub_TextPointers_Rocket:
-	dw SaffronClimbClubText1 ; 1 Guide TBE
+	dw SaffronClimbClubText1_RP ; 1 Guide
 	dw GenericNPCText_RocketPath ; 2 Hiker
 	dw GenericNPCText_RocketPath ; 3 Hiker
 	dw GenericNPCText_RocketPath ; 4 Hiker
@@ -165,4 +165,35 @@ SaffronClimbClubText4:
 
 SaffronClimbClubText5:
 	text_far _SaffronClimbClubText5
+	text_end
+
+; new for RP ============================
+
+SaffronClimbClubText1_RP:
+	text_asm
+	CheckEvent EVENT_GOT_HM07
+	ld hl, SaffronClimbClubText1_RP_After
+	jr nz, .printAndEnd
+; not got HM yet
+	ld hl, SaffronClimbClubText1_RP_Before
+	call PrintText
+; we just demand the HM
+	lb bc, HM_ROCK_CLIMB, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_GOT_HM07
+	ld hl, SaffronClimbClubText1_GotHM07
+	jr .printAndEnd
+.bagFull
+	ld hl, Route2GateText1_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SaffronClimbClubText1_RP_Before:
+	text_far _SaffronClimbClubText1_RP_Before
+	text_end
+
+SaffronClimbClubText1_RP_After:
+	text_far _SaffronClimbClubText1_RP_After
 	text_end

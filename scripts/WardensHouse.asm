@@ -26,8 +26,8 @@ WardensHouse_TextPointers:
 
 WardensHouse_TextPointers_Rocket:
 	; people ---
-	dw FuchsiaHouse2Text1 ; TBE
-	dw FuchsiaHouse2AntiquitiesTextShopOwner ; TBE
+	dw FuchsiaHouse2Text1_RP
+	dw FuchsiaHouse2AntiquitiesTextShopOwner_RP
 	dw FuchsiaHouse2AntiquitiesText2
 	dw FuchsiaHouse2AntiquitiesText3
 	dw FuchsiaHouse2AntiquitiesText4
@@ -294,4 +294,110 @@ FuchsiaHouse2AntiquitiesSign7:
 
 FuchsiaHouse2AntiquitiesSign8:
 	text_far _FuchsiaHouse2AntiquitiesSign8
+	text_end
+
+; new for RP ======================================
+
+FuchsiaHouse2Text1_RP:
+	text_asm
+	CheckEvent EVENT_GAVE_GOLD_TEETH ; ironically abused
+	ld hl, FuchsiaHouse2Text1_RP_PostTeeth
+	jr nz, .printAndEnd
+; before giving teeth
+	ld hl, FuchsiaHouse2Text1_RP_PreTeeth
+	call PrintText
+	ld b, GOLD_TEETH
+	call IsItemInBag
+	jr z, .done
+; have teeth
+	call WaitForTextScrollButtonPress
+	ld hl, FuchsiaHouse2Text1_RP_ShowTeeth
+	call PrintText
+	ld a, GOLD_TEETH
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_GAVE_GOLD_TEETH
+	ld hl, FuchsiaHouse2Text1_RP_WardenHappy
+	call PrintText
+	ld hl, FuchsiaHouse2Text1_RP_SmashTeeth
+	call PrintText
+	ld hl, FuchsiaHouse2Text1_RP_WardenShocked
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+FuchsiaHouse2Text1_RP_PostTeeth:
+	text_far _FuchsiaHouse2Text1_RP_PostTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_PreTeeth:
+	text_far _FuchsiaHouse2Text1_RP_PreTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_ShowTeeth:
+	text_far _FuchsiaHouse2Text1_RP_ShowTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_WardenHappy:
+	text_far _FuchsiaHouse2Text1_RP_WardenHappy
+	text_end
+
+FuchsiaHouse2Text1_RP_SmashTeeth:
+	text_far _FuchsiaHouse2Text1_RP_SmashTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_WardenShocked:
+	text_far _FuchsiaHouse2Text1_RP_WardenShocked
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP:
+	text_asm
+	CheckEvent EVENT_RP_ROBBED_ANTIQUE_SHOP
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post
+	jr nz, .printAndEnd
+; we haven't yet forced the "sell"
+; do we have the ARTIFACT?
+	ld b, ARTIFACT
+	call IsItemInBag
+	jr nz, .ArtifactInBag
+; no artifact in bag
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag
+	jr .printAndEnd
+.ArtifactInBag
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag
+	call PrintText
+	ld a, ARTIFACT
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+; give money
+    xor a
+    ld [hMoney + 1], a
+    ld [hMoney + 2], a
+    ld a, $10
+    ld [hMoney], a
+	ld hl, hMoney + 2
+	ld de, wPlayerMoney + 2
+	ld c, $3
+	predef AddBCDPredef ; add HL to DE with length C
+	SetEvent EVENT_RP_ROBBED_ANTIQUE_SHOP
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks
 	text_end
