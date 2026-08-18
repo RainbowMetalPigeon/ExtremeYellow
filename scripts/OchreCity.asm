@@ -61,7 +61,7 @@ OchreCity_TextPointers:
 	dw OchreCity_SignResearch
 	dw OchreCity_SignBirbFan
 	dw OchreCity_LooseFence
-	; non-NPC dialogues
+	; scripts
 	dw TextPostBattle_OchreTraveler ; 24, new, for traveler
 
 OchreCity_TextPointers_Rocket:
@@ -75,7 +75,7 @@ OchreCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw TextPreBattle_OchreTraveler ; traveler, TBE
+	dw TextPreBattle_OchreTraveler_RP ; traveler
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw OchreCity_NPCText13 ; BIRD
@@ -90,6 +90,8 @@ OchreCity_TextPointers_Rocket:
 	dw OchreCity_SignResearch
 	dw OchreCity_SignBirbFan
 	dw OchreCity_LooseFence
+	; scripts
+	dw TextPostBattle_OchreTraveler_RP ; 24, for traveler
 
 ; -------------- NPCs texts --------------
 
@@ -243,35 +245,8 @@ OchreCity_LooseFence_BetterNotTo:
 
 TextPreBattle_OchreTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_OchreTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_OchreTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_OchreTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_OchreTraveler
-	ld de, Text_VictoryPostBattle_OchreTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 1 ; city-specific
 	ld [wCurMapScript], a
@@ -279,26 +254,8 @@ TextPreBattle_OchreTraveler: ; new
 
 TextPostBattle_OchreTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_OchreTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_OchreTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -334,36 +291,6 @@ OchreScript_Traveler:
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
-
-Text_Intro_OchreTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_OchreTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_OchreTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_OchreTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_OchreTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_OchreTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_OchreTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
-
 ; ================================
 
 DontTouchTheBribs:
@@ -397,3 +324,21 @@ DontTouchTheBribs:
 	ld hl, wd72d
 	set 3, [hl] ; do scripted warp
 	ret
+
+; new for RP =============================
+
+TextPreBattle_OchreTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 1 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_OchreTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd

@@ -38,9 +38,6 @@ LavenderScript_Traveler:
 	call GBFadeOutToBlack
     callfar LoopHideTraveler
     callfar LoopHideTravelerExtra
-	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -67,7 +64,7 @@ LavenderTown_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw TextPreBattle_LavenderTraveler ; traveler TBE
+	dw TextPreBattle_LavenderTraveler_RP
 	; signs
 	dw LavenderTownText4
 	dw LavenderTownText5
@@ -75,40 +72,15 @@ LavenderTown_TextPointers_Rocket:
 	dw PokeCenterSignText
 	dw LavenderTownText8
 	dw LavenderTownText9 ; $0a
+	; scripts
+	dw TextPostBattle_LavenderTraveler_RP ; $0b
 
 ; ================================
 
 TextPreBattle_LavenderTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_LavenderTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_LavenderTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_LavenderTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, TextDefeatPostBattle_LavenderTraveler
-	ld de, TextVictoryPostBattle_LavenderTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 1 ; city-specific
 	ld [wCurMapScript], a
@@ -116,59 +88,11 @@ TextPreBattle_LavenderTraveler: ; new
 
 TextPostBattle_LavenderTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_LavenderTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_LavenderTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
-
-; --------------------------------
-
-Text_Intro_LavenderTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_LavenderTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_LavenderTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-TextDefeatPostBattle_LavenderTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-TextVictoryPostBattle_LavenderTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_LavenderTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_LavenderTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
 
 ; ================================
 
@@ -221,3 +145,21 @@ LavenderTownText8:
 LavenderTownText9:
 	text_far _LavenderTownText9
 	text_end
+
+; new for RP ============================
+
+TextPreBattle_LavenderTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 1 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_LavenderTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd

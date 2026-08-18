@@ -165,12 +165,12 @@ INCLUDE "engine/menus/pc.asm"
 SECTION "Doors and Ledges", ROMX
 
 INCLUDE "engine/overworld/auto_movement.asm"
-INCLUDE "engine/overworld/doors.asm"
 
 
 SECTION "Doors and Ledges 2", ROMX ; new, moved the ledges file here
 
 INCLUDE "engine/overworld/ledges.asm"
+INCLUDE "engine/overworld/doors.asm"
 
 
 SECTION "bank7", ROMX

@@ -65,7 +65,7 @@ FuchsiaCity_TextPointers_Rocket:
 	dw FuchsiaCityTextRocket_RP
 	dw FuchsiaCityTextErikHappy ; useless?
 	dw FuchsiaCityTextSaraHappy ; useless?
-	dw TextPreBattle_FuchsiaTraveler ; traveler, TBE
+	dw TextPreBattle_FuchsiaTraveler_RP ; traveler
 	; signs
 	dw FuchsiaCityText12
 	dw FuchsiaCityText13
@@ -81,6 +81,8 @@ FuchsiaCity_TextPointers_Rocket:
 	dw FuchsiaCityText23
 	dw FuchsiaCityText24
 	dw FuchsiaCityTextAntiquities ; 28
+	; extra
+	dw TextPostBattle_FuchsiaTraveler_RP ; for traveler, 29
 
 FuchsiaCityText1:
 	text_asm
@@ -378,35 +380,8 @@ FuchsiaCityTextSaraHappy: ; new
 
 TextPreBattle_FuchsiaTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_FuchsiaTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_FuchsiaTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_FuchsiaTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_FuchsiaTraveler
-	ld de, Text_VictoryPostBattle_FuchsiaTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 1 ; city-specific
 	ld [wCurMapScript], a
@@ -414,26 +389,8 @@ TextPreBattle_FuchsiaTraveler: ; new
 
 TextPostBattle_FuchsiaTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_FuchsiaTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_FuchsiaTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -469,38 +426,24 @@ FuchsiaScript_Traveler:
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
-
-Text_Intro_FuchsiaTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_FuchsiaTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_FuchsiaTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_FuchsiaTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_FuchsiaTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_FuchsiaTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_FuchsiaTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
-
 ; new for RP ================================
 
 FuchsiaCityTextRocket_RP:
 	text_far _FuchsiaCityTextRocket_RP
 	text_end
+
+TextPreBattle_FuchsiaTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 1 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_FuchsiaTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd

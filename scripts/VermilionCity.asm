@@ -78,7 +78,7 @@ VermilionCityScript0: ; edited for RP
 	ld c, BANK(Music_MeetFemaleTrainer)
 	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
-	ld a, 19
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, [wXCoord]
@@ -253,7 +253,7 @@ VermilionCityScript8: ; new for RP
 VermilionCityScript9: ; new for RP
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 20
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d
@@ -286,7 +286,7 @@ VermilionCityScript10: ; new for RP
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_RP_DEFEAT_JENNY_VERMILION
-	ld a, 21
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; if we already got SQUIRTLE, do nothing
@@ -346,7 +346,7 @@ VermilionCity_TextPointers_Rocket:
 	dw VermilionCityText5PG ; Machamp
 	dw GenericNPCText_RocketPath
 	dw VermilionCityText7_RP ; Jenny
-	dw TextPreBattle_VermilionTraveler ; Traveler
+	dw TextPreBattle_VermilionTraveler_RP ; Traveler
 	dw PickUpItemText ; 10=$A
 	; signs
 	dw VermilionCityText8
@@ -358,9 +358,10 @@ VermilionCity_TextPointers_Rocket:
 	dw VermilionCityText14
 	dw VermilionCityText16 ; 18
 	; scripts
-	dw VermilionCityText_RP_Script1 ; 19
-	dw VermilionCityText_RP_Script2 ; 20
-	dw VermilionCityText_RP_Script3 ; 21
+	dw TextPostBattle_VermilionTraveler_RP ; 19, for traveler
+	dw VermilionCityText_RP_Script1 ; 20
+	dw VermilionCityText_RP_Script2 ; 21
+	dw VermilionCityText_RP_Script3 ; 22
 
 VermilionCityText1:
 	text_far _VermilionCityText1
@@ -454,7 +455,7 @@ VermilionCityText3: ; edited
 	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jp z, .noSeviiTicket
 ; we have the Sevii Ticket, propose special first trip to Sevii
-	
+
 	CheckEvent EVENT_ROCKET_PATH
 	ld hl, SeviiOnlyOneIslandText_RP
 	jr nz, .printRPText1
@@ -471,7 +472,7 @@ VermilionCityText3: ; edited
 	ld a, SEVII_TICKET
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
-	
+
 	CheckEvent EVENT_ROCKET_PATH
 	ld hl, VermilionSailorRegisterSeviiTravelerText_RP
 	jr nz, .printRPText2
@@ -483,7 +484,7 @@ VermilionCityText3: ; edited
 	jr .destinationChosen
 ; print the list of destinations
 .normalSeviiDestinations
-	
+
 	CheckEvent EVENT_ROCKET_PATH
 	ld hl, SeviiWhichDestinationText_RP
 	jr nz, .printRPText3
@@ -751,64 +752,21 @@ VermilionCityText16: ; new
 
 TextPreBattle_VermilionTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_VermilionTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_VermilionTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_VermilionTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_VermilionTraveler
-	ld de, Text_VictoryPostBattle_VermilionTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 5 ; city-specific
 	ld [wVermilionCityCurScript], a
+	ld [wCurMapScript], a ; unnecessary?
 	jp TextScriptEnd
 
 TextPostBattle_VermilionTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_VermilionTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_VermilionTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wVermilionCityCurScript], a
+	ld [wCurMapScript], a ; unnecessary?
 	jp TextScriptEnd
 
 ; --------------------------------
@@ -819,6 +777,7 @@ VermilionScript_Traveler:
 	jr nz, .notDefeated
 	xor a
 	ld [wVermilionCityCurScript], a
+	ld [wCurMapScript], a ; unnecessary?
 	ret
 .notDefeated
 	xor a                            ; new, to go beyond 200
@@ -841,36 +800,6 @@ VermilionScript_Traveler:
 	call Delay3
 	call GBFadeInFromBlack
 	ret
-
-; --------------------------------
-
-Text_Intro_VermilionTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_VermilionTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_VermilionTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_VermilionTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_VermilionTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_VermilionTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_VermilionTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
 
 ; new for RP ================================
 
@@ -948,3 +877,21 @@ VermilionSailorRegisterSeviiTravelerText_RP:
 SeviiWhichDestinationText_RP:
 	text_far _SeviiWhichDestinationText_RP
 	text_end
+
+TextPreBattle_VermilionTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 5 ; city-specific
+	ld [wVermilionCityCurScript], a ; city-specific
+	ld [wCurMapScript], a ; unnecessary?
+	jp TextScriptEnd
+
+TextPostBattle_VermilionTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wVermilionCityCurScript], a ; city-specific
+	ld [wCurMapScript], a ; unnecessary?
+	jp TextScriptEnd

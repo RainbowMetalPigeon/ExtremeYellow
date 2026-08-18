@@ -51,7 +51,7 @@ SaffronCity_TextPointers_Rocket:
 	dw SaffronCityText_BlockingRocket_RP ; blocking building
 	dw SaffronCityText_BlockingRocket_RP ; blocking building
 	dw SaffronCityText_BlockingRocket_RP ; blocking building
-	dw TextPreBattle_SaffronTraveler ; TBE
+	dw TextPreBattle_SaffronTraveler_RP ; traveler
 	dw RocketNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -72,6 +72,8 @@ SaffronCity_TextPointers_Rocket:
 	dw SaffronCityText24
 	dw SaffronCityText25
 	dw SaffronCityText26
+	; scripts
+	dw TextPostBattle_SaffronTraveler_RP ; for traveler
 
 SaffronCityText1:
 	text_far _SaffronCityText1
@@ -174,35 +176,8 @@ SaffronCityText26:
 
 TextPreBattle_SaffronTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_SaffronTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_SaffronTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_SaffronTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_SaffronTraveler
-	ld de, Text_VictoryPostBattle_SaffronTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 1 ; city-specific
 	ld [wCurMapScript], a
@@ -210,26 +185,8 @@ TextPreBattle_SaffronTraveler: ; new
 
 TextPostBattle_SaffronTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_SaffronTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_SaffronTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -264,36 +221,6 @@ SaffronScript_Traveler:
 	call Delay3
 	call GBFadeInFromBlack
 	ret
-
-; --------------------------------
-
-Text_Intro_SaffronTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_SaffronTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_SaffronTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_SaffronTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_SaffronTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_SaffronTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_SaffronTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
 
 ; new for RP ================================
 
@@ -355,3 +282,19 @@ SaffronCityText_BlockingSilph_RP_After_RP_BagFull:
 SaffronCityText_BlockingSilph_RP_After_NowGo:
 	text_far _SaffronCityText_BlockingSilph_RP_After_NowGo
 	text_end
+
+TextPreBattle_SaffronTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 1 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_SaffronTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd

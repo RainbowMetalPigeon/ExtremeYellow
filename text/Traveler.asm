@@ -260,3 +260,36 @@ _TextTraveler_WhatWasThat::
 	cont "whole multiverse."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ==========================
+
+_TextTraveler_Intro_RP::
+	text "i search"
+	line "you bad"
+;	xxxx "123456789012345678"
+	prompt
+
+_TextTraveler_ForceToFight_RP::
+	text "force me fight"
+;	xxxx "123456789012345678"
+	done
+
+_TextTraveler_DefeatPostBattle_RP::
+	text "you won"
+;	xxxx "123456789012345678"
+	prompt
+
+_TextTraveler_VictoryPostBattle_RP::
+	text "i won"
+;	xxxx "123456789012345678"
+	prompt
+
+_TextTraveler_Dammit_RP::
+	text "dammit you meanie"
+;	xxxx "123456789012345678"
+	prompt
+
+_TextTraveler_WhatWasThat_RP::
+	text "what was that"
+;	xxxx "123456789012345678"
+	done

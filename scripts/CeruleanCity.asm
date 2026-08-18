@@ -89,7 +89,7 @@ ENDC
 	ld c, BANK(Music_MeetFemaleTrainer)
 	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
-	ld a, 18
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; move Jenny properly
@@ -324,7 +324,7 @@ CeruleanCityScript6: ; new for RP
 CeruleanCityScript7: ; new for RP
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 19
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d
@@ -357,7 +357,7 @@ CeruleanCityScript8: ; new for RP
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_RP_DEFEAT_JENNY_CERULEAN
-	ld a, 20
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	jp CeruleanCityResetScripts
@@ -405,7 +405,7 @@ CeruleanCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath ; TBE? TRAVELER
+	dw TextPreBattle_CeruleanTraveler_RP ; traveler
 	; signs
 	dw CeruleanCityText12
 	dw CeruleanCityText13
@@ -414,9 +414,10 @@ CeruleanCity_TextPointers_Rocket:
 	dw CeruleanCityText16
 	dw CeruleanCityText17
 	; scripts
-	dw CeruleanCityText_RP_Script1 ; 18
-	dw CeruleanCityText_RP_Script2 ; 19
-	dw CeruleanCityText_RP_Script3 ; 20
+	dw TextPostBattle_CeruleanTraveler_RP ; 18, for traveler
+	dw CeruleanCityText_RP_Script1 ; 19
+	dw CeruleanCityText_RP_Script2 ; 20
+	dw CeruleanCityText_RP_Script3 ; 21
 
 CeruleanCityText1:
 	text_asm
@@ -629,35 +630,8 @@ CeruleanCityText17:
 
 TextPreBattle_CeruleanTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_CeruleanTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_CeruleanTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_CeruleanTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_CeruleanTraveler
-	ld de, Text_VictoryPostBattle_CeruleanTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 5 ; city-specific
 	ld [wCeruleanCityCurScript], a ; city-specific
@@ -666,26 +640,8 @@ TextPreBattle_CeruleanTraveler: ; new
 
 TextPostBattle_CeruleanTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_CeruleanTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_CeruleanTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	call CeruleanCityResetScripts ; edited
 	jp TextScriptEnd
 
@@ -710,45 +666,12 @@ CeruleanScript_Traveler:
 	call GBFadeOutToBlack
     callfar LoopHideTraveler
     callfar LoopHideTravelerExtra
-	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
-
-Text_Intro_CeruleanTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_CeruleanTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_CeruleanTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_CeruleanTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_CeruleanTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_CeruleanTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_CeruleanTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
-
-; ================================
+; new for RP ================================
 
 CeruleanCityText6_RP_Jenny:
 	text_asm
@@ -786,3 +709,23 @@ CeruleanCityText_RP_JennyAfterBattle:
 CeruleanCityText_AfterFightJenny:
 	text_far _CeruleanCityText_AfterFightJenny
 	text_end
+
+; ================================
+
+TextPreBattle_CeruleanTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 5 ; city-specific
+	ld [wCeruleanCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_CeruleanTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCeruleanCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd

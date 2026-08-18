@@ -277,7 +277,7 @@ ViridianCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; 6
 	dw GenericNPCText_RocketPath ; 7 ; dialogue for second catching tutorial
 	dw GenericNPCText_RocketPath ; 8 ; dialogue for first catching tutorial
-	dw TextPreBattle_ViridianTraveler ; 9, Traveler TBE
+	dw TextPreBattle_ViridianTraveler_RP ; 9, Traveler
 	; signs
 	dw ViridianCityText_8 ; $A=10
 	dw ViridianCityText_9 ; $B=11
@@ -289,7 +289,7 @@ ViridianCity_TextPointers_Rocket:
 	; scripts
 	dw ViridianCityText_12 ; $10=17 ; Gym's doors closed
 	dw ViridianCityText_13 ; $11=18 ; first you need to weak target mon
-	dw TextPostBattle_ViridianTraveler ; $12=19 new, for traveler
+	dw TextPostBattle_ViridianTraveler_RP ; $12=19 new, for traveler
 
 ViridianCityText_0:
 	text_asm
@@ -418,35 +418,8 @@ ViridianCityText_14_School: ; end
 
 TextPreBattle_ViridianTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_ViridianTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_ViridianTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_ViridianTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_ViridianTraveler
-	ld de, Text_VictoryPostBattle_ViridianTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 9 ; city-specific
 	ld [wViridianCityCurScript], a ; city-specific
@@ -455,60 +428,12 @@ TextPreBattle_ViridianTraveler: ; new
 
 TextPostBattle_ViridianTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_ViridianTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_ViridianTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wViridianCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
 	jp TextScriptEnd
-
-; --------------------------------
-
-Text_Intro_ViridianTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_ViridianTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_ViridianTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_ViridianTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_ViridianTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_ViridianTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_ViridianTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
 
 ; --------------------------------
 
@@ -534,12 +459,27 @@ ViridianScript_Traveler:
 	call GBFadeOutToBlack
     callfar LoopHideTraveler
     callfar LoopHideTravelerExtra
-	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
 	ret
 
-; ================================
+; new for RP ================================
+
+TextPreBattle_ViridianTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 9 ; city-specific
+	ld [wViridianCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_ViridianTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wViridianCityCurScript], a ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
