@@ -244,3 +244,8 @@ _CinnabarIslandScriptText6::
 	cont "quest. See ya!"
 ;	xxxx "123456789012345678"
 	done
+
+_CinnabarIslandScriptText6_RP::
+	text "TBE"
+;	xxxx "123456789012345678"
+	done

@@ -134,3 +134,37 @@ _Route4ScriptText3::
 	line "again! See ya!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ========================
+
+_Route4SpecialBirdKeeperText_Pre_RP::
+	text "You... You are NOT"
+	line "a birb lover!"
+
+	para "I must fight to"
+	line "defend all birbs!"
+;	xxxx "123456789012345678"
+	done
+
+_Route4SpecialBirdKeeperText_AfterBattle_RP::
+	text "I"
+	line "failed all birbs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route4ScriptText1_RP::
+	text "You monster!"
+	line "Your hatred for"
+	cont "birbs won't be"
+	cont "unpunished!"
+
+	para "...WHAT?!"
+	line "You do WHAT to"
+	cont "birbs?! You are"
+	cont "not a monster,"
+	cont "you're sick!"
+
+	para "I swear it, we"
+	line "will meet again!"
+;	xxxx "123456789012345678"
+	done

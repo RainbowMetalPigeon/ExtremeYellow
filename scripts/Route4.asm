@@ -13,6 +13,7 @@ Route4_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 	dw Route4Script_PostSpecialBirdKeeper
+	dw Route4Script_PostSpecialBirdKeeper_RP ; for RP
 
 Route4_TextPointers:
 	dw Route4Text1
@@ -46,11 +47,13 @@ Route4_TextPointers_Rocket:
 	dw BoulderText ; irrelevant
 	dw BoulderText ; irrelevant
 	dw BoulderText ; irrelevant
-	dw Route4SpecialBirdKeeperText ; TBE
+	dw Route4SpecialBirdKeeperText_RP
 	; signs
 	dw PokeCenterSignText
 	dw Route4Text5
 	dw Route4Text6
+	; scripts
+	dw Route4ScriptText1_RP ; 15
 
 Route4TrainerHeaders:
 	def_trainers 4 ; edited, was 2
@@ -188,4 +191,78 @@ Route4ScriptText2:
 
 Route4ScriptText3:
 	text_far _Route4ScriptText3
+	text_end
+
+; new for RP ====================================
+
+Route4SpecialBirdKeeperText_RP:
+	text_asm
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, Route4SpecialBirdKeeperText_Pre_RP
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIRD_KEEPER
+	ld [wCurOpponent], a
+	ld a, 26
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, Route4SpecialBirdKeeperText_AfterBattle_RP
+	ld de, Route4SpecialBirdKeeperText_AfterBattle_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 3 ; Hard mode (+10%)
+	ld [wLevelScaling], a
+	ld a, 4
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+Route4SpecialBirdKeeperText_Pre_RP:
+	text_far _Route4SpecialBirdKeeperText_Pre_RP
+	text_end
+
+Route4SpecialBirdKeeperText_AfterBattle_RP:
+	text_far _Route4SpecialBirdKeeperText_AfterBattle_RP
+	text_end
+
+Route4Script_PostSpecialBirdKeeper_RP:
+	ld a, [wLevelScalingBackup] ; restore level scaling
+	ld [wLevelScaling], a
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route4ResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call GBFadeOutToBlack
+	ld a, HS_ROUTE_4_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_ROUTE_10_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_ROUTE_20_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	SetEvent EVENT_RP_BEAT_SPECIAL_BIRDKEEPER_AS_ROCKET
+	jp Route4ResetScripts
+
+Route4ScriptText1_RP:
+	text_far _Route4ScriptText1_RP
 	text_end
