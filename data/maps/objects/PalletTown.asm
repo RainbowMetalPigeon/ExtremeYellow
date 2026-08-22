@@ -11,7 +11,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 1 ; 1-2 entrance, 3 testing near merchant
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
-	warp_event  5,  5, CERULEAN_CAVE_1F, 10
+;	warp_event  5,  5, CERULEAN_CAVE_1F, 10
 ;	warp_event  5,  5, SAFARI_ZONE_GATE, 1
 ;	warp_event  5,  5, POKEMON_MANSION_2F, 1
 ;	warp_event  5,  5, SECLUDED_ATOLL_SW, 1
@@ -21,7 +21,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, MT_MOON_1F, 1
 ;	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
-;	warp_event  5,  5, COPYCATS_HOUSE_1F, 1
+	warp_event  5,  5, COPYCATS_HOUSE_1F, 1
 ; 	warp_event  5,  5, BILLS_HOUSE, 1
 ;	warp_event  5,  5, VICTORY_ROAD_2F, 6
 ;	warp_event  5,  5, OBSIDIAN_MINES, 1
@@ -48,14 +48,14 @@ PalletTown_Object:
 ;	warp_event 13,  5, SECLUDED_ATOLL_SE, 1
 ;	warp_event 13,  5, SILPH_CO_9F, 1
 ;	warp_event 13,  5, HALL_OF_FAME, 1
-	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
+;	warp_event 13,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 ;	warp_event 13,  5, BATTLE_FACILITY, 1
 ;	warp_event 13,  5, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 13,  5, SECLUDED_CAVES, 4
 ;	warp_event 13,  5, SEAFOAM_ISLANDS_B4F, 3
 ;	warp_event 13,  5, VICTORY_ROAD_1F, 1
 ;	warp_event 13,  5, POKEMON_TOWER_7F, 1
-;	warp_event 13,  5, MR_PSYCHICS_HOUSE, 5
+	warp_event 13,  5, MR_PSYCHICS_HOUSE, 1
 ;	warp_event 13,  5, VIRIDIAN_GYM, 1
 ;	warp_event 13,  5, ROCKET_HIDEOUT_B4F, 2
 ;	warp_event 13,  5, SAFARI_ZONE_GATE, 1

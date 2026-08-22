@@ -152,3 +152,53 @@ _CopycatsHouse2FText_BattleAccepted::
 	cont "you've never had"
 	cont "before!"
 	done
+
+; new for RP ==========================
+
+_CopycatsHouse2FText1_RP_TMAlreadyGot::
+	text "...I don't want"
+	line "to mimic the"
+	cont "likes of you."
+	cont "Really not."
+;	xxxx "123456789012345678"
+	done
+
+_CopycatsHouse2FText1_RP_PreBattle::
+	text "<PLAYER>: Give me"
+	line "all you have!"
+
+	para "<PLAYER>: What?"
+	line "You dare oppose"
+	cont "TEAM ROCKET?"
+	cont "I'll make you"
+	cont "regret it deeply!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CopycatText_PostBattleText_RP::
+	text "<PLAYER>: Now give"
+	line "me everything"
+	cont "valuable you"
+	cont "have, or I'll make"
+	cont "you sleep with"
+	cont "the fish."
+;	xxxx "123456789012345678"
+	prompt
+
+_CopycatsHouse2FText1_RP_GiveTM::
+	text "<PLAYER>: Will you"
+	line "be a good kid and"
+	cont "obey, or...?"
+
+	para "...I can't keep"
+	line "this up. Mimic is"
+	cont "my greatest"
+	cont "passion, but to"
+	cont "mimic YOU?"
+	cont "That's just"
+	cont "disgusting."
+
+	para "You want this?"
+	line "Take it."
+;	xxxx "123456789012345678"
+	prompt

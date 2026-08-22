@@ -35,8 +35,8 @@ MrPsychicsHouse_TextPointers:
 	dw MrPsychicsHouseTextSabrinaPostBattle ; 14, new, map-dependent
 
 MrPsychicsHouse_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
-	dw GenericNPCText_RocketPath ; TBE
+	dw SaffronHouse2Text1_RP
+	dw GenericNPCText_RocketPath ; no inverse rematches
 	; poly pidgey house
 	dw GenericNPCText_RocketPath
 	dw SaffronHouse1Text2
@@ -240,4 +240,45 @@ SaffronNewApartmentsSignText1_FromBelow:
 
 SaffronNewApartmentsSignText1_NotFromBelow:
 	text_far _SaffronNewApartmentsSignText1_NotFromBelow
+	text_end
+
+; new for RP ====================
+
+SaffronHouse2Text1_RP:
+	text_asm
+	CheckEvent EVENT_GOT_TM29
+	ld hl, TM29ExplanationText_RP
+	jr nz, .printAndEnd
+; not received it yet
+	ld hl, TM29PreReceiveText_RP
+	call PrintText
+	lb bc, TM_PSYCHIC_M, 1
+	call GiveItem
+	ld hl, TM29NoRoomText_RP
+	jr nc, .printAndEnd
+; bag not full
+	SetEvent EVENT_GOT_TM29
+	ld hl, ReceivedTM29Text_RP
+	jr .printAndEnd
+.bag_full
+	call PrintText
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+TM29ExplanationText_RP:
+	text_far _TM29ExplanationText_RP
+	text_end
+
+TM29PreReceiveText_RP:
+	text_far _TM29PreReceiveText_RP
+	text_end
+
+TM29NoRoomText_RP:
+	text_far _BagFullText_RP
+	text_end
+
+ReceivedTM29Text_RP:
+	text_far _ReceivedTM29Text
+	sound_get_item_1
 	text_end

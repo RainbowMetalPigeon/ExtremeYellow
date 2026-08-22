@@ -132,6 +132,7 @@ Route4Script_PostSpecialBirdKeeper:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route4ResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 15

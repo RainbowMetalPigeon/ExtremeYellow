@@ -47,8 +47,11 @@ InitBattleCommon:
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_1F
 	jr nz, .normalReading
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .copycatTeamCopying
 	CheckEvent EVENT_GOT_TM31
 	jr z, .normalReading
+.copycatTeamCopying
 	callfar ReadTrainer_CopyPlayersTeam
 	jr .continueFromCopycat
 .normalReading
@@ -316,11 +319,11 @@ _LoadTrainerPic:
 .pseudoGreen
 	ld a, BANK(GreenPicFront)
 	ld de, GreenPicFront
-	jr .loadSprite
+	jp .loadSprite
 .pseudoRed
 	ld a, BANK(RedPicFront)
 	ld de, RedPicFront
-	jr .loadSprite
+	jp .loadSprite
 .pseudoYellow
 	ld a, BANK(YellowPicFront)
 	ld de, YellowPicFront
@@ -332,13 +335,31 @@ _LoadTrainerPic:
 .notPseudoMangaProtagonists
 
 ; now check if it's Copycat battle
-	push hl
 	CheckEvent EVENT_IN_SEVII
-	pop hl
 	jr nz, .notCopycat
 	ld a, [wCurMap]
 	cp COPYCATS_HOUSE_1F
 	jr nz, .notCopycat
+; yes copycat, split between Hero and Rocket Path
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .noRP
+	ld a, [wPlayerGender] ; 00 = male, 01 = female, 02 = enby
+	and a ; = cp 0
+	jr z, .maleTrainerPic_RP
+	cp 1
+	jr z, .femaleTrainerPic_RP
+	ld a, BANK(YellowRocketPicFront)
+	ld de, YellowRocketPicFront
+	jr .loadSprite
+.femaleTrainerPic_RP
+	ld a, BANK(GreenRocketPicFront)
+	ld de, GreenRocketPicFront
+	jr .loadSprite
+.maleTrainerPic_RP
+	ld a, BANK(RedRocketPicFront)
+	ld de, RedRocketPicFront
+	jr .loadSprite
+.noRP
 	ld a, [wPlayerGender] ; 00 = male, 01 = female, 02 = enby
 	and a ; = cp 0
 	jr z, .maleTrainerPic

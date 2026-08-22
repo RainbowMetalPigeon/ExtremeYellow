@@ -139,6 +139,12 @@ _GymGuideText_RocketPath::
 
 ; -------------
 
+_BagFullText_RP::
+	text "No space to steal"
+	line "anything more!"
+;	xxxx "123456789012345678"
+	done
+
 _ProxyText::
 	text ""
 ;	xxxx "123456789012345678"
