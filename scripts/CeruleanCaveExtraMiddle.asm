@@ -27,7 +27,7 @@ CeruleanCaveExtraMiddle_TextPointers:
 	dw CeruleanCaveExtraMiddleTextLancePostBattle ; 2, new, map-dependent
 
 CeruleanCaveExtraMiddle_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE?
+	dw GenericNPCText_RocketPath ; no inverse rematches
 
 ; new ------------------------------------------------
 

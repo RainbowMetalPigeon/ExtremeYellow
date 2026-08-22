@@ -27,7 +27,7 @@ RockTunnelB1F_TextPointers:
 	dw RockTunnel2TextBrockPostBattle ; 10, new, map-dependent
 
 RockTunnelB1F_TextPointers_Rocket:
-	dw RockTunnel2TextBrock ; TBE
+	dw RockTunnel2TextBrock ; no inverse rematches
 	dw RockTunnel2Text1
 	dw RockTunnel2Text2
 	dw RockTunnel2Text3

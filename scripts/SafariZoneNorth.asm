@@ -78,11 +78,11 @@ SafariZoneNorth_TextPointers:
 	dw SafariZoneNorthText7
 
 SafariZoneNorth_TextPointers_Rocket:
-	dw GiovanniSafariText1 ; TBE
+	dw GiovanniSafariText1 ; unused
 	dw PickUpItemText
 	dw PickUpItemText
-	dw SafariZoneNorthGuardText ; TBE
-	dw SafariZoneNorthGuardText ; TBE
+	dw SafariZoneNorthGuardText ; unused
+	dw SafariZoneNorthGuardText ; unused
 	; signs
 	dw SafariZoneNorthText3
 	dw SafariZoneNorthText4

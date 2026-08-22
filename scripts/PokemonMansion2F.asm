@@ -68,7 +68,7 @@ PokemonMansion2F_TextPointers:
 	dw PokemonMansion2FTextBlainePostBattle ; 7, new, map-dependent
 
 PokemonMansion2F_TextPointers_Rocket:
-	dw Mansion2TextBlaine ; TBE
+	dw Mansion2TextBlaine ; no inverse rematches
 	dw Mansion2Text1
 	dw PickUpItemText
 	dw Mansion2Text3

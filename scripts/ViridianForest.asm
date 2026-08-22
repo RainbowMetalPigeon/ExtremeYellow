@@ -41,7 +41,7 @@ ViridianForest_TextPointers:
 	dw ViridianForestTextStrongTrainerPostBattle ; 21, new
 
 ViridianForest_TextPointers_Rocket:
-	dw ViridianForestTextErika ; TBE
+	dw ViridianForestTextErika ; no inverse rematches
 	dw GenericNPCText_RocketPath
 	dw ViridianForestText2
 	dw ViridianForestText3
@@ -62,7 +62,7 @@ ViridianForest_TextPointers_Rocket:
 	dw ViridianForestText15
 	dw ViridianForestText16
 	; scripts
-	dw ViridianForestTextErikaPostBattle ; 20, TBE
+	dw ViridianForestTextErikaPostBattle ; 20, unused
 	dw ViridianForestTextStrongTrainerPostBattle ; 21, TBE
 
 ViridianForestTrainerHeaders:

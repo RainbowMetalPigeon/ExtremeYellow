@@ -36,7 +36,7 @@ ObsidianWood_TextPointers_Rocket:
 	dw ObsidianWoodText2
 	dw ObsidianWoodText3
 	dw ObsidianWoodText4
-	dw ObsidianWoodTextOrage ; TBE
+	dw ObsidianWoodTextOrage ; no inverse rematches
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

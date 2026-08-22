@@ -103,7 +103,7 @@ VictoryRoad2F_TextPointers_Rocket:
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
-	dw VictoryRoad2TextKoga ; TBE
+	dw VictoryRoad2TextKoga ; no inverse rematches
 
 VictoryRoad2TrainerHeaders:
 	def_trainers

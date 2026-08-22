@@ -85,7 +85,7 @@ Route20_TextPointers:
 	dw Route20ScriptText2 ; 16, new
 
 Route20_TextPointers_Rocket:
-	dw Route20TextMisty ; TBE
+	dw Route20TextMisty ; no inverse rematches
 	dw Route20Text1
 	dw Route20Text2
 	dw Route20Text3

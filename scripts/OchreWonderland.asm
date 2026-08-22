@@ -17,7 +17,7 @@ OchreWonderland_TextPointers:
 	dw OchreWonderland_Sign2
 
 OchreWonderland_TextPointers_Rocket:
-	dw OchreWonderlandTextBlue ; TBE
+	dw OchreWonderlandTextBlue ; no (inverse) rematches
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

@@ -57,7 +57,7 @@ VictoryRoad1F_TextPointers_Rocket:
 	dw VictoryRoad1Text1 ; Manga Green TBE
 	dw VictoryRoad1Text2 ; Manga Red TBE
 	dw VictoryRoad1Text3 ; Manga Yellow TBE
-	dw VictoryRoad1Text4 ; Manga Blue
+	dw VictoryRoad1Text4 ; Manga Blue TBE
 	dw PickUpItemText
 	dw PickUpItemText
 	dw BoulderText

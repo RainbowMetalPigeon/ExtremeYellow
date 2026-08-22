@@ -15,7 +15,6 @@ INCLUDE "text/SSAnne1FRooms.asm"
 INCLUDE "text/SSAnne2FRooms.asm"
 INCLUDE "text/SSAnneB1FRooms.asm"
 INCLUDE "text/VictoryRoad3F.asm"
-INCLUDE "text/RocketHideoutB1F.asm"
 INCLUDE "text/RocketHideoutB2F.asm"
 INCLUDE "text/RocketHideoutB3F.asm"
 INCLUDE "text/RocketHideoutB4F.asm"
@@ -29,6 +28,7 @@ INCLUDE "text/SilphCo6F.asm"
 INCLUDE "text/SilphCo5F.asm"
 INCLUDE "text/SilphCo4F.asm"
 INCLUDE "text/SilphCo3F.asm"
+INCLUDE "text/RocketHideoutB1F.asm"
 
 
 SECTION "Text 3", ROMX

@@ -64,7 +64,7 @@ Route21_TextPointers:
 	dw Route21ScriptText3 ; 13
 
 Route21_TextPointers_Rocket:
-	dw Route21TextOak ; TBE
+	dw Route21TextOak ; unused
 	dw Route21Text1
 	dw Route21Text2
 	dw Route21Text3

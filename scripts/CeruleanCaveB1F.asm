@@ -27,7 +27,7 @@ CeruleanCaveB1F_TextPointers_Rocket:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw GenericNPCText_RocketPath ; TBE? Traveler
+	dw GenericNPCText_RocketPath ; Traveler, unused, no rematch
 
 CeruleanCaveB1FTrainerHeaders:
 	def_trainers

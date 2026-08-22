@@ -145,7 +145,7 @@ SeafoamIslandsB4F_TextPointers:
 	dw SeafoamIslandB4FTextLoreleiPostBattle ; 7, new, map-dependent
 
 SeafoamIslandsB4F_TextPointers_Rocket:
-	dw SeafoamIslandB4FTextLorelei ; TBE
+	dw SeafoamIslandB4FTextLorelei ; no inverse rematches
 	dw BoulderText
 	dw BoulderText
 	dw ArticunoText
