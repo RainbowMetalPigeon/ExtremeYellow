@@ -1,4 +1,4 @@
-_FightingDojoText_5ce8e::
+_FightingDojoText_KarateMaster_PreBattle::
 	text "Grunt!"
 
 	para "I am the KARATE"
@@ -12,12 +12,12 @@ _FightingDojoText_5ce8e::
 	para "Fwaaa!"
 	done
 
-_FightingDojoText_5ce93::
+_FightingDojoText_KarateMaster_EndOfBattle::
 	text "Hwa!"
 	line "Arrgh! Beaten!"
 	prompt
 
-_FightingDojoText_5ce98::
+_FightingDojoText_KarateMaster_TakeAHitmon::
 	text "Indeed, I have"
 	line "lost!"
 
@@ -34,7 +34,7 @@ _FightingDojoText_5ce98::
 	line "one you like!"
 	done
 
-_FightingDojoText_5ce9d::
+_FightingDojoText_KarateMaster_TrainWithUs::
 	text "Ho!"
 
 	para "Stay and train at"
@@ -174,3 +174,44 @@ _FightingDojoBrunoPostBattleText::
 	cont "of an experience!"
 	cont "Thank you!"
 	prompt
+
+; new for RP ===========================
+
+_FightingDojoText_KarateMaster_RP_PreBattle::
+	text "Grunt!"
+
+	para "I am the KARATE"
+	line "MASTER! I am the"
+	cont "LEADER here!"
+
+	para "You dare defile"
+	line "our sacred DOJO?"
+	cont "I'll make you pay"
+	cont "with my fists!"
+;	xxxx "123456789012345678"
+	done
+
+_FightingDojoText_KarateMaster_RP_EndOfBattle::
+	text "Hwa!"
+	line "No! I'm beaten!"
+;	xxxx "123456789012345678"
+	prompt
+
+_FightingDojoText_KarateMaster_RP_TheShame::
+	text "The shame!"
+	line "The shame!"
+	cont "To lose to a"
+	cont "mere criminal..."
+
+	para "I beg of you,"
+	line "do not take"
+	cont "our emblem as"
+	cont "your trophy!"
+
+	para "Take one of our"
+	line "prized FIGHTING"
+	cont "#MON instead."
+	cont "But please,"
+	cont "only one!"
+;	xxxx "123456789012345678"
+	done

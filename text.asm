@@ -262,7 +262,6 @@ INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
-INCLUDE "text/CeruleanMelaniesHouse.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,6 +315,7 @@ INCLUDE "text/OchreWonderland.asm" ; new
 
 SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
+INCLUDE "text/CeruleanMelaniesHouse.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new

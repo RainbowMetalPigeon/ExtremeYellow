@@ -94,20 +94,21 @@ FightingDojo_TextPointers:
 	dw FightingDojoText7
 	dw FightingDojoText8 ; new/edited
 	; scripts
-	dw FightingDojoText9 ; new
+	dw FightingDojoText_KarateMaster_TakeAHitmon ; new
 	dw FightingDojoTextBrunoPostBattle ; 11, new, map-dependent
 
 FightingDojo_TextPointers_Rocket:
-	dw FightingDojoTextBruno ; TBE
-	dw FightingDojoText1 ; TBE
+	dw FightingDojoTextBruno ; no inverse rematches
+	dw FightingDojoText1_RP
 	dw FightingDojoText2
 	dw FightingDojoText3
 	dw FightingDojoText4
 	dw FightingDojoText5
-	dw FightingDojoText6 ; balls, TBE
-	dw FightingDojoText7 ; balls, TBE
-	dw FightingDojoText8 ; balls, TBE
+	dw FightingDojoText6_RP ; balls
+	dw FightingDojoText7_RP ; balls
+	dw FightingDojoText8_RP ; balls
 	; scripts
+	dw FightingDojoText_KarateMaster_RP_TheShame
 
 FightingDojoTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Bruno
@@ -127,13 +128,13 @@ FightingDojoText1:
 	jp nz, .continue1
 	CheckEventReuseA EVENT_BEAT_KARATE_MASTER
 	jp nz, .continue2
-	ld hl, FightingDojoText_5ce8e
+	ld hl, FightingDojoText_KarateMaster_PreBattle
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
-	ld hl, FightingDojoText_5ce93
-	ld de, FightingDojoText_5ce93
+	ld hl, FightingDojoText_KarateMaster_EndOfBattle
+	ld de, FightingDojoText_KarateMaster_EndOfBattle
 	call SaveEndBattleTextPointers
 	ldh a, [hSpriteIndexOrTextID]
 	ld [wSpriteIndex], a
@@ -141,31 +142,31 @@ FightingDojoText1:
 	call InitBattleEnemyParameters
 	ld a, $3
 	ld [wCurMapScript], a
-	jr .asm_9dba4
+	jr .done
 .continue1
-	ld hl, FightingDojoText_5ce9d
+	ld hl, FightingDojoText_KarateMaster_TrainWithUs
 	call PrintText
-	jr .asm_9dba4
+	jr .done
 .continue2
-	ld hl, FightingDojoText9
+	ld hl, FightingDojoText_KarateMaster_TakeAHitmon
 	call PrintText
-.asm_9dba4
+.done
 	jp TextScriptEnd
 
-FightingDojoText_5ce8e:
-	text_far _FightingDojoText_5ce8e
+FightingDojoText_KarateMaster_PreBattle:
+	text_far _FightingDojoText_KarateMaster_PreBattle
 	text_end
 
-FightingDojoText_5ce93:
-	text_far _FightingDojoText_5ce93
+FightingDojoText_KarateMaster_EndOfBattle:
+	text_far _FightingDojoText_KarateMaster_EndOfBattle
 	text_end
 
-FightingDojoText9:
-	text_far _FightingDojoText_5ce98
+FightingDojoText_KarateMaster_TakeAHitmon:
+	text_far _FightingDojoText_KarateMaster_TakeAHitmon
 	text_end
 
-FightingDojoText_5ce9d:
-	text_far _FightingDojoText_5ce9d
+FightingDojoText_KarateMaster_TrainWithUs:
+	text_far _FightingDojoText_KarateMaster_TrainWithUs
 	text_end
 
 FightingDojoText2:
@@ -417,3 +418,88 @@ FightingDojoResetScripts: ; map-dependent ; redundant
 FightingDojoTextBrunoPostBattle:
 	text_far _GymLeaderElite4PostRematchInverseText
 	text_end
+
+; new for RP ===============================
+
+FightingDojoText1_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_KARATE_MASTER
+	ld hl, FightingDojoText_KarateMaster_RP_TheShame
+	jp nz, .printAndEnd
+	ld hl, FightingDojoText_KarateMaster_RP_PreBattle
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, FightingDojoText_KarateMaster_RP_EndOfBattle
+	ld de, FightingDojoText_KarateMaster_RP_EndOfBattle
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ldh a, [hSpriteIndexOrTextID]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+	ld a, $3
+	ld [wCurMapScript], a
+	jr .done
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+FightingDojoText_KarateMaster_RP_PreBattle:
+	text_far _FightingDojoText_KarateMaster_RP_PreBattle
+	text_end
+
+FightingDojoText_KarateMaster_RP_EndOfBattle:
+	text_far _FightingDojoText_KarateMaster_RP_EndOfBattle
+	text_end
+
+FightingDojoText_KarateMaster_RP_TheShame:
+	text_far _FightingDojoText_KarateMaster_RP_TheShame
+	text_end
+
+FightingDojoText6_RP:
+; Hitmonlee Poké Ball
+	text_asm
+	ld b, HITMONLEE
+	ld c, 35 ; new, increased levels for the gift hitmons
+	call GivePokemon
+	jr nc, .done
+; once Poké Ball is taken, hide sprite
+	ld a, HS_FIGHTING_DOJO_GIFT_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvents EVENT_GOT_A_HITMON, EVENT_DEFEATED_FIGHTING_DOJO
+.done
+	jp TextScriptEnd
+
+FightingDojoText7_RP:
+; Hitmonchan Poké Ball
+	text_asm
+	ld b, HITMONCHAN
+	ld c, 35 ; new, increased levels for the gift hitmons
+	call GivePokemon
+	jr nc, .done
+; once Poké Ball is taken, hide sprite
+	ld a, HS_FIGHTING_DOJO_GIFT_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvents EVENT_GOT_A_HITMON, EVENT_DEFEATED_FIGHTING_DOJO
+.done
+	jp TextScriptEnd
+
+FightingDojoText8_RP:
+; Hitmontop Poké Ball
+	text_asm
+	ld b, HITMONTOP
+	ld c, 35 ; new, increased levels for the gift hitmons
+	call GivePokemon
+	jr nc, .done
+; once Poké Ball is taken, hide sprite
+	ld a, HS_FIGHTING_DOJO_GIFT_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvents EVENT_GOT_A_HITMON, EVENT_DEFEATED_FIGHTING_DOJO
+.done
+	jp TextScriptEnd
