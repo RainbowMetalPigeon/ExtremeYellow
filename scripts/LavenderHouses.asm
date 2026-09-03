@@ -26,13 +26,13 @@ LavenderHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw LavenderHouse1Text3 ; Pokemon
 	dw LavenderHouse1Text4 ; Pokemon
-	dw LavenderHouse1Text5 ; Fuji TBE
+	dw LavenderHouse1Text5 ; Fuji, unused, never re-shown
 	dw LavenderHouse1Text6
 	; Cubone house
 	dw LavenderHouse2Text1 ; Pokemon
 	dw GenericNPCText_RocketPath
 	; Name rater house
-	dw NameRaterText1 ; Name Rater TBE
+	dw NameRaterText1_RP ; Name Rater
 	; house gate
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -327,4 +327,10 @@ LavenderHouseGateText1:
 
 LavenderHouseGateText2:
 	text_far _LavenderHouseGateText2
+	text_end
+
+; new for RP =============================
+
+NameRaterText1_RP:
+	text_far _NameRaterText1_RP
 	text_end

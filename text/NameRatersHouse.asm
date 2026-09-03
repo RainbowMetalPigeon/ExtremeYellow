@@ -58,3 +58,17 @@ _NameRaterText_1dad1::
 	text_ram wcd6d
 	text "!"
 	done
+
+; new for RP =============================
+
+_NameRaterText1_RP::
+	text "Tsk! No way I'll"
+	line "help you rename"
+	cont "your #MON!"
+
+	para "After all, for you"
+	line "ROCKETs, they are"
+	cont "nothing but mere"
+	cont "tools, aren't they?"
+;	xxxx "123456789012345678"
+	done
