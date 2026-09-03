@@ -1,7 +1,21 @@
-_MewtwoBattleText::
-	text "How do you dare,"
-	line "human?!@"
-	text_end
+_MewtwoBattleText_Core::
+	text "How dare you,"
+	line "human?!"
+	done
+
+_MewtwoBattleText_Core_RP::
+	text "You... you are"
+	line "one of those"
+	cont "humans that"
+	cont "tortured me!"
+
+	para "You won't enslave"
+	line "me again!"
+	cont "I am free, and I"
+	cont "will fight for"
+	cont "my freedom!"
+;	xxxx "123456789012345678"
+	done
 
 ; new --------------------------
 

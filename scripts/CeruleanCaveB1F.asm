@@ -22,7 +22,7 @@ CeruleanCaveB1F_TextPointers:
 	dw CeruleanCaveB1FTextTraveler ; new
 
 CeruleanCaveB1F_TextPointers_Rocket:
-	dw MewtwoText ; TBE?
+	dw MewtwoText
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -37,17 +37,31 @@ MewtwoTrainerHeader:
 
 MewtwoText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, MewtwoTrainerHeader
 	call TalkToTrainer
 	jp TextScriptEnd
 
-MewtwoBattleText:
-	text_far _MewtwoBattleText
+MewtwoBattleText: ; edited for RP
 	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, MewtwoBattleText_Core
+	jr z, .print
+	ld hl, MewtwoBattleText_Core_RP
+.print
+	call PrintText
 	ld a, ARM_MEWTWO
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd
+
+MewtwoBattleText_Core:
+	text_far _MewtwoBattleText_Core
+	text_end
+
+MewtwoBattleText_Core_RP:
+	text_far _MewtwoBattleText_Core_RP
+	text_end
 
 ; Traveler rematch, new ------------------------------------------------
 
