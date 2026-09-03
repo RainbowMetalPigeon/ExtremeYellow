@@ -245,7 +245,22 @@ _CinnabarIslandScriptText6::
 ;	xxxx "123456789012345678"
 	done
 
+; new for RP ============================
+
+_CinnabarIslandSpecialBirdKeeperText_Pre_RP::
+	text "pre"
+	line "you filth"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP::
+	text "after"
+	line "you shit"
+;	xxxx "123456789012345678"
+	prompt
+
 _CinnabarIslandScriptText6_RP::
-	text "TBE"
+	text "post-battle"
+	line "cinnabar"
 ;	xxxx "123456789012345678"
 	done

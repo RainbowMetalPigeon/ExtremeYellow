@@ -332,6 +332,7 @@ CinnabarIslandScript_PostSpecialBirdKeeper:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CinnabarIslandResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 25
@@ -384,14 +385,19 @@ TextPostBattle_CinnabarTraveler_RP:
 
 CinnabarIslandSpecialBirdKeeperText_RP:
 	text_asm
+	call SpecialBirdKeeper_RP_CommonPreBattleText
+	ld a, 27
+	ld [wTrainerNo], a
+; script handling
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+SpecialBirdKeeper_RP_CommonPreBattleText::
 	ld c, BANK(Music_MeetFemaleTrainer)
 	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
-	CheckEvent EVENT_RP_BEAT_SPECIAL_BIRDKEEPER_AS_ROCKET
-	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsRocket
-	jr nz, .print1
-	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero
-.print1
+	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
@@ -399,32 +405,26 @@ CinnabarIslandSpecialBirdKeeperText_RP:
 	call Delay3
 	ld a, OPP_BIRD_KEEPER
 	ld [wCurOpponent], a
-	ld a, 27
-	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a
-	CheckEvent EVENT_RP_BEAT_SPECIAL_BIRDKEEPER_AS_ROCKET
-	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsRocket
-	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsRocket
-	jr nz, .print2
-	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
-	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
-.print2
+	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
 	call SaveEndBattleTextPointers
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld a, [wLevelScaling]
 	ld [wLevelScalingBackup], a
 	ld a, 3 ; Hard mode (+10%)
 	ld [wLevelScaling], a
-	ld a, 3
-	ld [wCurMapScript], a
-	jp TextScriptEnd
+	ret
 
-; TBE
-CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsRocket:
-CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero:
-CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsRocket:
-CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero:
+CinnabarIslandSpecialBirdKeeperText_Pre_RP:
+	text_far _CinnabarIslandSpecialBirdKeeperText_Pre_RP
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP:
+	text_far _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	text_end
+
 CinnabarIslandScriptText6_RP:
 	text_far _CinnabarIslandScriptText6_RP
 	text_end
