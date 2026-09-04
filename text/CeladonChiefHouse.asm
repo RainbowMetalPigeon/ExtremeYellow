@@ -534,3 +534,99 @@ _LunarShrineTextTourist4::
 	done
 
 ; new for RP ========================
+
+_LunarShrineTextMonk_RP_BeforeBlue::
+	text "Go away"
+	line "I have nothing"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextMonk_RP_AfterBlue::
+	text "Damn take this"
+;	xxxx "123456789012345678"
+	prompt
+
+_LunarShrineTextMonk_RP_StoleHM::
+	text "<PLAYER> stole"
+	line "HM04!"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextMonk_RP_PostSteal::
+	text "Go away"
+	line "I hate everything"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextMonk_RP_YouADemon::
+	text "You... are the"
+	line "embodiment of"
+	cont "true evil."
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextTemple_RP_StartsDemolishing::
+	text "<PLAYER> starts"
+	line "demolishing the"
+	cont "SHRINE!"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextTemple_RP_IsDamaged::
+	text "The SHRINE is"
+	line "damaged."
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextTemple_RP_FullyDestroys::
+	text "<PLAYER> ravages"
+	line "and defiles the"
+	cont "SHRINE!"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextTemple_RP_FullyDestroyed::
+	text "The SHRINE is"
+	line "destroyed beyond"
+	cont "repair."
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextScripts1_RP::
+	text "MONK: What are you"
+	line "doing?! Stop!"
+	cont "Stop, you monster!"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextBlue::
+	text "???: Stop indeed,"
+	line "you MONSTER."
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextScripts2_RP::
+	text "<RIVAL>: I kill u"
+;	xxxx "123456789012345678"
+	done
+
+_LunarTempleBlueDefeatText::
+	text "1234567: I lost"
+;	xxxx "123456789012345678"
+	prompt
+
+_LunarTempleBlueWonText::
+	text "1234567: I won"
+;	xxxx "123456789012345678"
+	prompt
+
+_LunarShrineTextScripts3_RP::
+	text "<RIVAL>: Damn"
+	line "I'm useless"
+;	xxxx "123456789012345678"
+	done
+
+_LunarShrineTextScripts4_RP::
+	text "MONK: no worry kid"
+;	xxxx "123456789012345678"
+	done

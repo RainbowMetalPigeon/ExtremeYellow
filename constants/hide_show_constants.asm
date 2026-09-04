@@ -255,7 +255,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_7     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
-	
+
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---
@@ -398,6 +398,7 @@ DEF SHOW EQU $15
 	const HS_LUNAR_SHRINE_TOURIST_2        ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_LUNAR_SHRINE_TOURIST_3        ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_LUNAR_SHRINE_TOURIST_4        ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_BLUE             ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_SAFARI_REST_HOUSE_SARA_WAITING ; new
 	const HS_SAFARI_REST_HOUSE_SARA_HAPPY   ; new
 	const HS_SAFARI_REST_HOUSE_ERIK_HAPPY   ; new

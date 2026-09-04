@@ -23,6 +23,11 @@ CeladonChiefHouse_ScriptPointers: ; new
 	dw LunarShrineScript12
 	dw LunarShrineScript13
 	dw LunarShrineScript14
+	; new for RP
+	dw LunarShrineScript15_RP
+	dw LunarShrineScript16_RP
+	dw LunarShrineScript17_RP
+	dw LunarShrineScript18_RP
 
 LunarShrineScript0:
 	ret
@@ -36,7 +41,7 @@ LunarShrineScript1:
 	ldh [hJoyHeld], a
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 14
+	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; player looks down
@@ -125,7 +130,7 @@ LunarShrineScript3:
 ; dialogue
 	ld a, $0 ; return controls to the player?
 	ld [wJoyIgnore], a
-	ld a, 15
+	ld a, 16
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; script handling
@@ -141,9 +146,6 @@ LunarShrineScript4:
 	call Rocket3FaceUp
 	call Rocket4FaceUp
 ; dialogues
-	ld a, 16
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
 	ld a, 17
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -151,6 +153,9 @@ LunarShrineScript4:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; script handling
@@ -241,7 +246,7 @@ LunarShrineScript8:
 ; trigger 2nd battle
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 20
+	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -281,7 +286,7 @@ LunarShrineScript9:
 ; trigger 3rd battle
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 21
+	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -321,7 +326,7 @@ LunarShrineScript10:
 ; trigger 4th battle
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 22
+	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d ; nobody knows what it does lol
@@ -361,7 +366,7 @@ LunarShrineScript11:
 	call Rocket1FaceRight
 	call Rocket2FaceLeft
 ; dialogue
-	ld a, 23
+	ld a, 24
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff ; testing
@@ -399,7 +404,7 @@ LunarShrineScript12:
 	ld [wPlayerMovingDirection], a
 	ld a, $f0 ; testing
 	ld [wJoyIgnore], a
-	ld a, 24
+	ld a, 25
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; script handling
@@ -417,7 +422,7 @@ LunarShrineScript13:
 	ld [wPlayerMovingDirection], a
 	ld a, $f0 ; testing
 	ld [wJoyIgnore], a
-	ld a, 25
+	ld a, 26
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, LUNAR_RELIC
@@ -437,15 +442,15 @@ LunarShrineScript14:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
-	ld a, 26
+	ld a, 27
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	lb bc, HM_STRENGTH, 1
 	call GiveItem
-	ld a, 27
+	ld a, 28
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	ld a, 28
+	ld a, 29
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; end stuff
@@ -467,6 +472,9 @@ HandleDefeat:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 	ld a, HS_LUNAR_SHRINE_5
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_LUNAR_SHRINE_BLUE ; only for RP
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 	ret
@@ -492,6 +500,22 @@ MonkFacesDown:
 	ld a, 4
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+MonkFacesLeft: ; for RP
+	ld a, 4
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay ; face object
+	ret
+
+BlueFacesUp: ; for RP
+	ld a, 13
+	ldh [hSpriteIndex], a
+	ld a, SPRITE_FACING_UP
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ret
@@ -561,31 +585,33 @@ CeladonChiefHouse_TextPointers:
 	dw LunarShrineTextTourist2 ; tourist 2
 	dw LunarShrineTextTourist3 ; tourist 3
 	dw LunarShrineTextTourist4 ; tourist 4
+	; Blue for RP
+	dw LunarShrineTextBlue ; 13, Blue, unused in HP
 	; signs
-	dw LunarShrineTextTemple ; 13, shrine
+	dw LunarShrineTextTemple ; 14, shrine
 	; non-NPC dialogues
-	dw LunarShrineTextRockets1 ; 14
-	dw LunarShrineTextRockets2 ; 15, Monk
-	dw LunarShrineTextRockets3 ; 16, Rocket 1
-	dw LunarShrineTextRockets4 ; 17, Rocket 2
-	dw LunarShrineTextRockets5 ; 18, Rocket 3
-	dw LunarShrineTextRockets6 ; 19, Rocket 4
-	dw LunarShrineTextRockets7 ; 20, post-battle 1
-	dw LunarShrineTextRockets8 ; 21, post-battle 2
-	dw LunarShrineTextRockets9 ; 22, post-battle 3
-	dw LunarShrineTextRockets10 ; 23, post-battle 4
-	dw LunarShrineTextRockets11 ; 24, Monk thanks and let's place Relic
-	dw LunarShrineTextRockets12 ; 25, Monk and Player place Relic
-	dw LunarShrineTextRockets13 ; 26, Monk wants to reward Player
-	dw LunarShrineTextRockets14 ; 27, Monk gifts STRENGTH
-	dw LunarShrineTextRockets15 ; 28, Monk explains STRENGTH
+	dw LunarShrineTextRockets1 ; 15
+	dw LunarShrineTextRockets2 ; 16, Monk
+	dw LunarShrineTextRockets3 ; 17, Rocket 1
+	dw LunarShrineTextRockets4 ; 18, Rocket 2
+	dw LunarShrineTextRockets5 ; 19, Rocket 3
+	dw LunarShrineTextRockets6 ; 20, Rocket 4
+	dw LunarShrineTextRockets7 ; 21, post-battle 1
+	dw LunarShrineTextRockets8 ; 22, post-battle 2
+	dw LunarShrineTextRockets9 ; 23, post-battle 3
+	dw LunarShrineTextRockets10 ; 24, post-battle 4
+	dw LunarShrineTextRockets11 ; 25, Monk thanks and let's place Relic
+	dw LunarShrineTextRockets12 ; 26, Monk and Player place Relic
+	dw LunarShrineTextRockets13 ; 27, Monk wants to reward Player
+	dw LunarShrineTextRockets14 ; 28, Monk gifts STRENGTH
+	dw LunarShrineTextRockets15 ; 29, Monk explains STRENGTH
 
 CeladonChiefHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw RocketNPCText_RocketPath
 	dw RocketNPCText_RocketPath
 	; Shrine
-	dw LunarShrineTextMonk_RP ; monk TBE
+	dw LunarShrineTextMonk_RP ; monk
 	dw GenericNPCText_RocketPath ; Rockets, unused
 	dw GenericNPCText_RocketPath ; Rockets, unused
 	dw GenericNPCText_RocketPath ; Rockets, unused
@@ -595,9 +621,15 @@ CeladonChiefHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; unused
 	dw GenericNPCText_RocketPath ; unused
 	dw GenericNPCText_RocketPath ; unused
+	; Blue for RP
+	dw LunarShrineTextBlue ; 13, Blue, only for RP
 	; signs
-	dw LunarShrineTextTemple_RP ; TBE
+	dw LunarShrineTextTemple_RP ; 14
 	; scripts
+	dw LunarShrineTextScripts1_RP ; 15, Monk pre
+	dw LunarShrineTextScripts2_RP ; 16, Blue pre
+	dw LunarShrineTextScripts3_RP ; 17, Blue post
+	dw LunarShrineTextScripts4_RP ; 18, Monk post
 
 CeladonHouseText1:
 	text_far _CeladonHouseText1
@@ -823,8 +855,239 @@ LunarShrineTextTourist4:
 
 ; new for RP ========================
 
-; TBE
 LunarShrineTextMonk_RP:
+	text_asm
+	CheckEvent EVENT_RP_FULLY_DESTROYS_SHRINE
+	ld hl, LunarShrineTextMonk_RP_YouADemon
+	jr nz, .printAndEnd
+	CheckEvent EVENT_RP_STOLE_HM_04
+	ld hl, LunarShrineTextMonk_RP_PostSteal
+	jr nz, .printAndEnd
+; didn't steal Strength yet
+	CheckEvent EVENT_RP_BEAT_LUNAR_TEMPLE_BLUE
+	ld hl, LunarShrineTextMonk_RP_BeforeBlue
+	jr z, .printAndEnd
+; defeated Blue but didn't get Strength yet
+	ld hl, LunarShrineTextMonk_RP_AfterBlue
+	call PrintText
+	lb bc, HM_STRENGTH, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually take the HM
+	SetEvent EVENT_RP_STOLE_HM_04
+	ld hl, LunarShrineTextMonk_RP_StoleHM
+	jr .printAndEnd
+.bagFull
+	ld hl, LunarShrineTextMonk_RP_AfterBlue_NoRoom
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+LunarShrineTextMonk_RP_YouADemon:
+	text_far _LunarShrineTextMonk_RP_YouADemon
+	text_end
+
+LunarShrineTextMonk_RP_PostSteal:
+	text_far _LunarShrineTextMonk_RP_PostSteal
+	text_end
+
+LunarShrineTextMonk_RP_BeforeBlue:
+	text_far _LunarShrineTextMonk_RP_BeforeBlue
+	text_end
+
+LunarShrineTextMonk_RP_AfterBlue:
+	text_far _LunarShrineTextMonk_RP_AfterBlue
+	text_end
+
+LunarShrineTextMonk_RP_StoleHM:
+	text_far _LunarShrineTextMonk_RP_StoleHM
+	sound_get_key_item
+	text_end
+
+LunarShrineTextMonk_RP_AfterBlue_NoRoom:
+	text_far _BagFullText_RP
+	text_end
+
 LunarShrineTextTemple_RP:
-	text_far _LunarShrineTextTourist4
+	text_asm
+	CheckEvent EVENT_RP_FULLY_DESTROYS_SHRINE
+	ld hl, LunarShrineTextTemple_RP_FullyDestroyed
+	jr nz, .printAndEnd
+	CheckEvent EVENT_RP_STOLE_HM_04
+	jr nz, .fullyDestroys
+	CheckEvent EVENT_RP_BEAT_LUNAR_TEMPLE_BLUE
+	ld hl, LunarShrineTextTemple_RP_IsDamaged
+	jr nz, .printAndEnd
+; first interaction
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+	ld a, 15
+	ld [wCurMapScript], a
+	ld hl, LunarShrineTextTemple_RP_StartsDemolishing
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+.fullyDestroys
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+	SetEvent EVENT_RP_FULLY_DESTROYS_SHRINE
+	ld hl, LunarShrineTextTemple_RP_FullyDestroys
+	jr .printAndEnd
+
+LunarShrineTextTemple_RP_StartsDemolishing:
+	text_far _LunarShrineTextTemple_RP_StartsDemolishing
+	text_end
+
+LunarShrineTextTemple_RP_IsDamaged:
+	text_far _LunarShrineTextTemple_RP_IsDamaged
+	text_end
+
+LunarShrineTextTemple_RP_FullyDestroys:
+	text_far _LunarShrineTextTemple_RP_FullyDestroys
+	text_end
+
+LunarShrineTextTemple_RP_FullyDestroyed:
+	text_far _LunarShrineTextTemple_RP_FullyDestroyed
+	text_end
+
+; --------------------------
+
+LunarShrineScript15_RP:
+; turn Monk
+	call MonkFacesLeft
+; Monk dialogue
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Blue dialogue
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; start music
+	ld c, BANK(Music_MeetRival)
+	ld a, MUSIC_MEET_RIVAL
+	call PlayMusic
+; show Blue
+	ld a, HS_LUNAR_SHRINE_BLUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+; script handling
+	ld a, 16
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript16_RP:
+; turn monk and player
+	call MonkFacesDown
+	ld a, PLAYER_DIR_DOWN
+	ld [wPlayerMovingDirection], a
+; start moving Blue
+	ld a, 13
+	ldh [hSpriteIndex], a
+	ld de, LunarTempleBlueMovements
+	call MoveSprite
+; script handling
+	ld a, 17
+	ld [wCurMapScript], a
+	ret
+
+LunarTempleBlueMovements:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+LunarShrineScript17_RP:
+; wait for Blue
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; Blue dialogues
+	call MonkFacesDown
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld a, 7
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, LunarTempleBlueDefeatText
+	ld de, LunarTempleBlueWonText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; script handling
+	ld a, 18
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineScript18_RP:
+; check if we won
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, HandleDefeat
+; we won
+	SetEvent EVENT_RP_BEAT_LUNAR_TEMPLE_BLUE
+	xor a
+	ld [wIsTrainerBattle], a
+; fix facings?
+	call BlueFacesUp
+	call MonkFacesDown
+; Blue dialogue
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Monk dialogue
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; hide Blue
+	call GBFadeOutToBlack
+	ld a, HS_LUNAR_SHRINE_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; script handling
+	ld a, 0
+	ld [wCurMapScript], a
+	ret
+
+LunarShrineTextScripts1_RP:
+	text_far _LunarShrineTextScripts1_RP
+	text_end
+
+LunarShrineTextBlue:
+	text_far _LunarShrineTextBlue
+	text_end
+
+LunarShrineTextScripts2_RP:
+	text_far _LunarShrineTextScripts2_RP
+	text_end
+
+LunarTempleBlueDefeatText:
+	text_far _LunarTempleBlueDefeatText
+	text_end
+
+LunarTempleBlueWonText:
+	text_far _LunarTempleBlueWonText
+	text_end
+
+LunarShrineTextScripts3_RP:
+	text_far _LunarShrineTextScripts3_RP
+	text_end
+
+LunarShrineTextScripts4_RP:
+	text_far _LunarShrineTextScripts4_RP
 	text_end

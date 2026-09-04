@@ -368,6 +368,7 @@ CinnabarVolcanoBF_Blocks: INCBIN "maps/CinnabarVolcanoBF.blk"
 SECTION "Maps 7", ROMX
 
 INCLUDE "data/maps/headers/Route7.asm"
+INCLUDE "scripts/Route7.asm"
 INCLUDE "data/maps/objects/Route7.asm"
 Route7_Blocks: INCBIN "maps/Route7.blk"
 
@@ -386,8 +387,6 @@ Route18Gate1F_Blocks:
 Route15Gate1F_Blocks: INCBIN "maps/EastWestGate2Floors.blk"
 
 SECTION "Maps 8", ROMX
-
-INCLUDE "scripts/Route7.asm"
 
 INCLUDE "data/maps/headers/RedsHouse1F.asm"
 INCLUDE "scripts/RedsHouse1F.asm"
@@ -408,11 +407,6 @@ INCLUDE "data/maps/headers/CeladonMartRoof.asm"
 INCLUDE "scripts/CeladonMartRoof.asm"
 INCLUDE "data/maps/objects/CeladonMartRoof.asm"
 CeladonMartRoof_Blocks: INCBIN "maps/CeladonMartRoof.blk"
-
-INCLUDE "data/maps/headers/CeladonMartElevator.asm"
-INCLUDE "scripts/CeladonMartElevator.asm"
-INCLUDE "data/maps/objects/CeladonMartElevator.asm"
-CeladonMartElevator_Blocks: INCBIN "maps/CeladonMartElevator.blk"
 
 INCLUDE "data/maps/headers/CeladonMansion1F.asm"
 INCLUDE "scripts/CeladonMansion1F.asm"
@@ -529,16 +523,6 @@ INCLUDE "data/maps/objects/MtMoonB2F.asm"
 MtMoonB2F_Blocks: INCBIN "maps/MtMoonB2F.blk"
 INCLUDE "scripts/MtMoonB2F_2.asm"
 
-INCLUDE "data/maps/headers/SafariZoneWest.asm"
-INCLUDE "scripts/SafariZoneWest.asm"
-INCLUDE "data/maps/objects/SafariZoneWest.asm"
-SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
-
-INCLUDE "data/maps/headers/SafariZoneSecretHouse.asm"
-INCLUDE "scripts/SafariZoneSecretHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneSecretHouse.asm"
-SafariZoneSecretHouse_Blocks: INCBIN "maps/SafariZoneSecretHouse.blk"
-
 
 SECTION "Maps 9", ROMX
 
@@ -551,6 +535,16 @@ INCLUDE "data/maps/headers/Colosseum.asm"
 INCLUDE "scripts/Colosseum.asm"
 INCLUDE "data/maps/objects/Colosseum.asm"
 Colosseum_Blocks: INCBIN "maps/Colosseum.blk"
+
+INCLUDE "data/maps/headers/CeladonMartElevator.asm"
+INCLUDE "scripts/CeladonMartElevator.asm"
+INCLUDE "data/maps/objects/CeladonMartElevator.asm"
+CeladonMartElevator_Blocks: INCBIN "maps/CeladonMartElevator.blk"
+
+INCLUDE "data/maps/headers/SafariZoneSecretHouse.asm"
+INCLUDE "scripts/SafariZoneSecretHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneSecretHouse.asm"
+SafariZoneSecretHouse_Blocks: INCBIN "maps/SafariZoneSecretHouse.blk"
 
 
 SECTION "Maps 10", ROMX
@@ -683,6 +677,11 @@ INCLUDE "data/maps/headers/SunkenShipRooms.asm"
 INCLUDE "scripts/SunkenShipRooms.asm"
 INCLUDE "data/maps/objects/SunkenShipRooms.asm"
 SunkenShipRooms_Blocks: INCBIN "maps/SunkenShipRooms.blk"
+
+INCLUDE "data/maps/headers/SafariZoneWest.asm"
+INCLUDE "scripts/SafariZoneWest.asm"
+INCLUDE "data/maps/objects/SafariZoneWest.asm"
+SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
 
 
 SECTION "Maps 12", ROMX

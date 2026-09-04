@@ -1297,6 +1297,9 @@
 	const EVENT_RP_RETRIEVED_OTHER_FOSSIL ; new
 	const EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; new
 	const EVENT_RP_BEAT_ROUTE_3_JENNY ; new
+	const EVENT_RP_BEAT_LUNAR_TEMPLE_BLUE ; new
+	const EVENT_RP_STOLE_HM_04 ; new
+	const EVENT_RP_FULLY_DESTROYS_SHRINE ; new
 
 ; Indigo Plateau events
 	const_next $8E0

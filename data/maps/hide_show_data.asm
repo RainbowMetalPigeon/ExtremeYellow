@@ -579,7 +579,7 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0B, SHOW
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
-	
+
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -753,14 +753,15 @@ CeladonChiefHouseHS: ; new, most of it is practically the Lunar Shrine
 	db CELADON_CHIEF_HOUSE, $01, SHOW
 	db CELADON_CHIEF_HOUSE, $02, SHOW
 	db CELADON_CHIEF_HOUSE, $03, SHOW
-	db CELADON_CHIEF_HOUSE, $05, HIDE
-	db CELADON_CHIEF_HOUSE, $06, HIDE
-	db CELADON_CHIEF_HOUSE, $07, HIDE
-	db CELADON_CHIEF_HOUSE, $08, HIDE
-	db CELADON_CHIEF_HOUSE, $09, HIDE
-	db CELADON_CHIEF_HOUSE, $0A, HIDE
-	db CELADON_CHIEF_HOUSE, $0B, HIDE
-	db CELADON_CHIEF_HOUSE, $0C, HIDE
+	db CELADON_CHIEF_HOUSE, $05, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $06, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $07, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $08, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $09, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0A, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0B, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0C, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0D, HIDE ; Blue
 SafariZoneQuadrupleRestHouseHS: ; new
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $03, HIDE ; Sara happy with Erik
