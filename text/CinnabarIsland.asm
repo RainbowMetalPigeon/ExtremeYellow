@@ -259,6 +259,18 @@ _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP::
 ;	xxxx "123456789012345678"
 	prompt
 
+_CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero::
+	text "pre as hero"
+	line "you filth"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero::
+	text "after as hero"
+	line "you shit"
+;	xxxx "123456789012345678"
+	prompt
+
 _CinnabarIslandScriptText6_RP::
 	text "post-battle"
 	line "cinnabar"

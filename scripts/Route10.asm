@@ -210,6 +210,7 @@ Route10SpecialBirdKeeperText:
 	jp TextScriptEnd
 
 Route10Script_PostSpecialBirdKeeper:
+	ResetEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; for RP, regardless if we won or lost
 	ld a, [wLevelScalingBackup] ; restore level scaling
 	ld [wLevelScaling], a
 	ld a, [wIsInBattle]

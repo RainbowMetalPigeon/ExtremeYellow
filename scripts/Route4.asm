@@ -134,6 +134,7 @@ Route4Script_PostSpecialBirdKeeper:
 	cp $ff
 	jp z, Route4ResetScripts
 ; we won
+	SetEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; for RP
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 15
@@ -190,5 +191,3 @@ Route4ScriptText2:
 Route4ScriptText3:
 	text_far _Route4ScriptText3
 	text_end
-
-; new for RP ====================================

@@ -1295,6 +1295,7 @@
 	const EVENT_RP_GOT_PORYGON ; new
 	const EVENT_RP_ROBBED_ANTIQUE_SHOP ; new
 	const EVENT_RP_RETRIEVED_OTHER_FOSSIL ; new
+	const EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; new
 
 ; Indigo Plateau events
 	const_next $8E0

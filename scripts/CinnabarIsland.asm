@@ -327,6 +327,7 @@ CinnabarIslandSpecialBirdKeeperText:
 	jp TextScriptEnd
 
 CinnabarIslandScript_PostSpecialBirdKeeper:
+	ResetEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; for RP, regardless if we won or lost
 	ld a, [wLevelScalingBackup] ; restore level scaling
 	ld [wLevelScaling], a
 	ld a, [wIsInBattle]
@@ -398,6 +399,10 @@ SpecialBirdKeeper_RP_CommonPreBattleText::
 	ld a, MUSIC_MEET_FEMALE_TRAINER
 	call PlayMusic
 	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP
+	CheckEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO
+	jr z, .print1
+	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero
+.print1
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
@@ -409,6 +414,11 @@ SpecialBirdKeeper_RP_CommonPreBattleText::
 	ld [wIsTrainerBattle], a
 	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
 	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	CheckEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO
+	jr z, .print2
+	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
+	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
+.print2
 	call SaveEndBattleTextPointers
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld a, [wLevelScaling]
@@ -423,6 +433,14 @@ CinnabarIslandSpecialBirdKeeperText_Pre_RP:
 
 CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP:
 	text_far _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero:
+	text_far _CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero:
+	text_far _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
 	text_end
 
 CinnabarIslandScriptText6_RP:
