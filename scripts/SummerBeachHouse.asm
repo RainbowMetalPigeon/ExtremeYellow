@@ -12,7 +12,7 @@ SummerBeachHouse_TextPointers:
 	dw SummerBeachHouseSign4Text
 
 SummerBeachHouse_TextPointers_Rocket:
-	dw SurfinDudeText ; TBE
+	dw SurfinDudeText_RP
 	dw SummerBeachHousePikachuText ; TBE?
 	dw SummerBeachHouseSign1Text
 	dw SummerBeachHouseSign2Text
@@ -216,4 +216,10 @@ ENDC
 
 .SummerBeachHousePrinterText4
 	text_far _SummerBeachHousePrinterText4
+	text_end
+
+; new for RP ====================
+
+SurfinDudeText_RP:
+	text_far _SurfinDudeText_RP
 	text_end

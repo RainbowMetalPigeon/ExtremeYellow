@@ -27,7 +27,7 @@ _SurfinDudeText4::
 	done
 
 _SummerBeachHousePikachuText::
-	text "PIKACHU: Pikaa"
+	text "PIKACHU: Pikaa!"
 	done
 
 _SummerBeachHouseSign1Text1:: ; edited
@@ -105,3 +105,14 @@ _SummerBeachHousePrinterText5::
 _SummerBeachHousePrinterText6::
 	text "PRINT error!@"
 	text_end
+
+; new for RP ====================
+
+_SurfinDudeText_RP::
+	text "Whoa! A gabbo"
+	line "you is really"
+	cont "not good 'nough"
+	cont "to be SURF with"
+	cont "the COOL!"
+;	xxxx "123456789012345678"
+	done

@@ -152,7 +152,6 @@ INCLUDE "text/Route27.asm" ; new
 INCLUDE "text/OaksLab.asm"
 INCLUDE "text/ViridianForest.asm"
 INCLUDE "text/SaffronPidgeyHouse.asm"
-INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
@@ -182,6 +181,7 @@ INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/CeladonMartRoof.asm"
+INCLUDE "text/SaffronMart.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones

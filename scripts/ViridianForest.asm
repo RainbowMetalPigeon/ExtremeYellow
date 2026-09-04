@@ -53,7 +53,7 @@ ViridianForest_TextPointers_Rocket:
 	dw PickUpItemText
 	dw ViridianForestText10
 	dw RockSmashText
-	dw ViridianForestTextStrongTrainer ; TBE
+	dw ViridianForestTextStrongTrainer_RP
 	; signs
 	dw ViridianForestText11
 	dw ViridianForestText12
@@ -63,7 +63,7 @@ ViridianForest_TextPointers_Rocket:
 	dw ViridianForestText16
 	; scripts
 	dw ViridianForestTextErikaPostBattle ; 20, unused
-	dw ViridianForestTextStrongTrainerPostBattle ; 21, TBE
+	dw ViridianForestTextStrongTrainerPostBattle_RP ; 21
 
 ViridianForestTrainerHeaders:
 	def_trainers 3 ; edited because of rematch Erika
@@ -280,6 +280,7 @@ ViridianForestScriptPostStrongTrainer:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ViridianForestResetScripts
+; we won
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
@@ -350,4 +351,52 @@ ViridianForestTextStrongTrainerPostBattle:
 
 ViridianForestTextStrongTrainer_AlreadyFought:
 	text_far _ViridianForestTextStrongTrainer_AlreadyFought
+	text_end
+
+; new for RP ========================
+
+ViridianForestTextStrongTrainer_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_STRONG_TRAINER_EARLY_ROUTE
+	ld hl, ViridianForestTextStrongTrainer_AlreadyFought_RP
+	jr nz, .printAndEnd
+	ld hl, ViridianForestTextStrongTrainer_Intro_RP
+	call PrintText
+; yes battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_COOLTRAINER
+	ld [wCurOpponent], a
+	ld a, 103
+	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	ld hl, ViridianForestStrongTrainerPostBattleText_RP
+	ld de, ViridianForestStrongTrainerPostBattleText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; script handling
+	ld a, 4
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianForestTextStrongTrainer_Intro_RP:
+	text_far _ViridianForestTextStrongTrainer_Intro_RP
+	text_end
+
+ViridianForestStrongTrainerPostBattleText_RP:
+	text_far _ViridianForestStrongTrainerPostBattleText_RP
+	text_end
+
+ViridianForestTextStrongTrainerPostBattle_RP:
+	text_far _ViridianForestTextStrongTrainerPostBattle_RP
+	text_end
+
+ViridianForestTextStrongTrainer_AlreadyFought_RP:
+	text_far _ViridianForestTextStrongTrainer_AlreadyFought_RP
 	text_end
