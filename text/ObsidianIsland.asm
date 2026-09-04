@@ -408,3 +408,54 @@ _ObsidianIslandText7_Scientist1_ReceivedFireOrb::
 	text_ram wStringBuffer
 	text "!@"
 	text_end
+
+; new for RP ==============================
+
+_ObsidianIslandText1_RocketMines_RP::
+	text "It seems that the"
+	line "cadres have some"
+	cont "troubles with a"
+	cont "kid at the"
+	cont "WAREHOUSE."
+
+	para "The BOSS sent you"
+	line "as reinforcement,"
+	cont "right? First fix"
+	cont "this mess, then"
+	cont "you can access"
+	cont "the MINES!"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianIslandText2_RocketSouthBridge1_RP::
+	text "Faster! Faster!"
+	line "You need to"
+	cont "complete this"
+	cont "bridge too, or"
+	cont "you won't see"
+	cont "your family"
+	cont "ever again!"
+
+	para "Ha ha ha!"
+	line "Hey rookie, wanna"
+	cont "give it a go?"
+	cont "It's TOO fun!"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianIslandText3_RocketSouthBridge2_RP::
+	text "Harder! Harder!"
+	line "You need to reach"
+	cont "the SAFARI ZONE"
+	cont "so that we can"
+	cont "transfer the"
+	cont "#MON to the"
+	cont "CASINO more"
+	cont "efficiently!"
+
+	para "Yah yah yah!"
+	line "This is the best!"
+	cont "Newbie, wanna do"
+	cont "some whipping too?"
+;	xxxx "123456789012345678"
+	done

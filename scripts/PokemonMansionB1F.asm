@@ -256,6 +256,8 @@ PokemonMansionB1F_ScriptPointers:
 ; ==============================================
 
 Mansion4Script0: ; new
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	jp nz, CheckFightingMapTrainers ; new for RP
 	CheckEvent EVENT_BEAT_MANSION_RIVAL
 	jp nz, CheckFightingMapTrainers
 	ld hl, MansionB1FCoords
@@ -429,10 +431,10 @@ PokemonMansionB1F_TextPointers:
 	dw PickUpItemText
 	dw Mansion4TextRival ; new, 10
 	; signs
-	dw PokemonMansionB1FTextSign1
-	dw PokemonMansionB1FTextSign1
-	; scripts
-	dw Mansion3Text6 ; 13
+	dw PokemonMansionB1FTextSign1 ; new, for BERSERK_GENE
+	dw PokemonMansionB1FTextSign1 ; new, for BERSERK_GENE
+	; others
+	dw Mansion3Text6 ; 13, statue switch
 
 PokemonMansionB1F_TextPointers_Rocket:
 	dw Mansion4Text1
@@ -444,10 +446,12 @@ PokemonMansionB1F_TextPointers_Rocket:
 	dw PickUpItemText
 	dw Mansion4Text7
 	dw PickUpItemText
-	dw Mansion4TextRival ; TBE, 10
+	dw Mansion4TextRival ; 10, unused
 	; signs
-	dw PokemonMansionB1FTextSign1
-	dw PokemonMansionB1FTextSign1
+	dw PokemonMansionB1FTextSign1_RP ; for BERSERK_GENE
+	dw PokemonMansionB1FTextSign1_RP ; for BERSERK_GENE
+	; others
+	dw Mansion3Text6 ; 13, statue switch
 
 Mansion4TrainerHeaders:
 	def_trainers
@@ -532,24 +536,6 @@ Mansion4TextRival: ; new
 .end
 	jp TextScriptEnd
 
-/*
-Mansion4RivalText_PreBattle_BothBattles:
-	text_far _Mansion4RivalText_PreBattle_BothBattles
-	text_end
-
-Mansion4RivalText_PostBattle_BothBattles:
-	text_far _Mansion4RivalText_PostBattle_BothBattles
-	text_end
-
-Mansion4RivalText_Win_BothBattles:
-	text_far _Mansion4RivalText_Win_BothBattles
-	text_end
-
-Mansion4RivalText_Lose_BothBattles:
-	text_far _Mansion4RivalText_Lose_BothBattles
-	text_end
-*/
-
 Mansion4RivalText_PreBattle_FirstBattle:
 	text_far _Mansion4RivalText_PreBattle_FirstBattle
 	text_end
@@ -601,5 +587,38 @@ PokemonMansionB1FTextSign1_BagFull:
 PokemonMansionB1FTextSign1_GotGene:
 	text_far _PokemonMansionB1FTextSign1_GotGene
 	sound_get_item_1
-;	sound_get_key_item
+	text_end
+
+; new for RP =========================
+
+PokemonMansionB1FTextSign1_RP:
+	text_asm
+	ld hl, PokemonMansionB1FTextSign1_Intro_RP
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, PokemonMansionB1FTextSign1_No_RP
+	jp nz, .printAndEnd ; chose no
+	lb bc, BERSERK_GENE, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, PokemonMansionB1FTextSign1_GotGene
+	jr .printAndEnd
+.bagFull
+	ld hl, PokemonMansionB1FTextSign1_BagFull_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PokemonMansionB1FTextSign1_Intro_RP:
+	text_far _PokemonMansionB1FTextSign1_Intro_RP
+	text_end
+
+PokemonMansionB1FTextSign1_No_RP:
+	text_far _PokemonMansionB1FTextSign1_No_RP
+	text_end
+
+PokemonMansionB1FTextSign1_BagFull_RP:
+	text_far _PokemonMansionB1FTextSign1_BagFull_RP
 	text_end

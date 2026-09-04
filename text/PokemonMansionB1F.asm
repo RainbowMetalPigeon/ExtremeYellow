@@ -254,3 +254,41 @@ _PokemonMansionB1FTextSign1_GotGene::
 	line "BERSERK GENE!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ==========================
+
+_PokemonMansionB1FTextSign1_Intro_RP::
+	text "The machine is a"
+	line "total wreck,"
+	cont "nothing but bent"
+	cont "metal and broken"
+	cont "glass. Useless."
+;	xxxx "123456789012345678"
+
+	para "It is dotted with"
+	line "what look like"
+	cont "biological"
+	cont "remnants. They"
+	cont "seem to miserably"
+	cont "wriggle and flail"
+	cont "around, in a vain"
+	cont "show of their"
+	cont "powerlessness."
+;	xxxx "123456789012345678"
+
+	para "Do you want to"
+	line "pick one up?"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonMansionB1FTextSign1_No_RP::
+	text "Too pathetic."
+;	xxxx "123456789012345678"
+	done
+
+_PokemonMansionB1FTextSign1_BagFull_RP::
+	text "Your bag is full."
+
+	para "Not a big loss."
+;	xxxx "123456789012345678"
+	done

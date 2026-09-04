@@ -244,6 +244,9 @@ Route24Text1: ; edited
 	ld a, HS_ROUTE_20_SPECIAL_BIRDKEEPER
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	ld a, HS_POKEMON_MANSION_B1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 ; TBE: fade out, event music?
 
 	ld hl, Route24Text_GreatWelcome

@@ -324,9 +324,9 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
 	const HS_MR_PSYCHIC_SABRINA            ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new, guarding mines
+	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new, guarding south bridge
+	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new, guarding south bridge
 	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
 	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
 	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new

@@ -104,18 +104,18 @@ ObsidianIsland_TextPointers:
 	dw ObsidianIslandTextWoodWest ; wood
 	dw ObsidianIslandTextMines ; mines
 	dw ObsidianIslandTextWarehouse ; warehouse
-	; other
+	; scripts
 	dw ObsidianIslandTextClosedHouse ; 23 = $17
 	dw TextPostBattle_ObsidianTraveler ; 24, new, for traveler
 
 ObsidianIsland_TextPointers_Rocket:
 	; before Giovanni's defeat
-	dw RocketNPCText_RocketPath ; mines TBE?
-	dw RocketNPCText_RocketPath ; south bridge TBE?
-	dw RocketNPCText_RocketPath ; south bridge TBE?
+	dw ObsidianIslandText1_RocketMines_RP ; mines
+	dw ObsidianIslandText2_RocketSouthBridge1_RP ; south bridge
+	dw ObsidianIslandText3_RocketSouthBridge2_RP ; south bridge
 	dw ObsidianIslandText5_SouthBridgeSlave1
 	dw ObsidianIslandText6_SouthBridgeSlave2
-	; after Giovanni's defeat -> none? TBE
+	; after Giovanni's defeat -> all unused in RP
 	dw ObsidianIslandText7_Scientist1
 	dw ObsidianIslandText8_Scientist2
 	dw ObsidianIslandText9_Officier
@@ -135,8 +135,8 @@ ObsidianIsland_TextPointers_Rocket:
 	dw ObsidianIslandTextWoodWest ; wood
 	dw ObsidianIslandTextMines ; mines
 	dw ObsidianIslandTextWarehouse ; warehouse
-	; other
-	dw ObsidianIslandTextClosedHouse ; 23 = $17 TBE
+	; scripts
+	dw ObsidianIslandTextClosedHouse ; 23 = $17 TBE?
 	dw TextPostBattle_ObsidianTraveler_RP ; 24 for traveler
 
 ; ----------------- people -----------------
@@ -422,3 +422,15 @@ TextPostBattle_ObsidianTraveler_RP:
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
+
+ObsidianIslandText1_RocketMines_RP:
+	text_far _ObsidianIslandText1_RocketMines_RP
+	text_end
+
+ObsidianIslandText2_RocketSouthBridge1_RP:
+	text_far _ObsidianIslandText2_RocketSouthBridge1_RP
+	text_end
+
+ObsidianIslandText3_RocketSouthBridge2_RP:
+	text_far _ObsidianIslandText3_RocketSouthBridge2_RP
+	text_end
