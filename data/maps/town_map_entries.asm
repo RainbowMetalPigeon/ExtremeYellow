@@ -124,6 +124,7 @@ InternalMapEntries:
 	internal_map CINNABAR_POKECENTER,            2, 15, CinnabarIslandName ; edited also because of MERGING
 	internal_map OBSIDIAN_HOUSES,                7,  9, ObsidianIslandName ; new
 	internal_map INDIGO_PLATEAU_LOBBY,           0,  2, IndigoPlateauName
+	internal_map SAFFRON_GYM,                   10,  5, SaffronCityName ; new
 	internal_map SAFARI_ZONE_EXTRA,              8, 12, SafariZoneName ; new
 	internal_map CELADON_HOTEL_HALL,             7,  5, CeladonCityName ; new
 	internal_map MR_PSYCHICS_HOUSE,             10,  5, SaffronCityName
