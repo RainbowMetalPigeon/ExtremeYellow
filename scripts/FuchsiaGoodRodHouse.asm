@@ -6,7 +6,7 @@ FuchsiaGoodRodHouse_TextPointers:
 	dw FuchsiaHouse3Text1
 
 FuchsiaGoodRodHouse_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath
+	dw FuchsiaHouse3Text1_RP
 
 FuchsiaHouse3Text1:
 	text_asm
@@ -57,4 +57,10 @@ FuchsiaHouse3Text_56217:
 
 FuchsiaHouse3Text_5621c:
 	text_far _FuchsiaHouse3Text_5621c
+	text_end
+
+; new for RP ====================
+
+FuchsiaHouse3Text1_RP:
+	text_far _FuchsiaHouse3Text1_RP
 	text_end

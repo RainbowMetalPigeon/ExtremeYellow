@@ -130,7 +130,6 @@ INCLUDE "text/FuchsiaPokecenter.asm"
 INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
-INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "data/text/text_7.asm"
 INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
 
@@ -158,6 +157,7 @@ INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
 INCLUDE "text/PokemonMansion2F.asm"
+INCLUDE "text/PokemonMansion1F.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones

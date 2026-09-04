@@ -6,7 +6,7 @@ Route12SuperRodHouse_TextPointers:
 	dw Route12HouseText1
 
 Route12SuperRodHouse_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE?
+	dw Route12HouseText1_RP
 
 Route12HouseText1:
 	text_asm
@@ -58,4 +58,10 @@ Route12HouseText_564d4:
 
 Route12HouseText_564d9:
 	text_far _Route12HouseText_564d9
+	text_end
+
+; new for RP ====================
+
+Route12HouseText1_RP:
+	text_far _Route12HouseText1_RP
 	text_end
