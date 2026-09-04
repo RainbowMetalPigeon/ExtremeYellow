@@ -30,3 +30,52 @@ _PokemonTower1Text5:: ; edited
 	cont "restless spirits"
 	cont "wandering around."
 	done
+
+; new for RP =======================
+
+_PokemonTower1Text1_RP::
+	text "Tsk. Your presence"
+	line "defiles this"
+	cont "graveyard."
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTower1Text2_RP::
+	text "How... how can you"
+	line "walk around like"
+	cont "this, amongst us"
+	cont "who are paying"
+	cont "our respects?!"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTower1Text3_RP::
+	text "Sniff... Are you"
+	line "even capable of"
+	cont "feeling love?"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTower1Text4_RP::
+	text "My GROWLITHE died,"
+	line "and you just"
+	cont "stroll around"
+	cont "with a smirk on"
+	cont "your face?!"
+;	xxxx "123456789012345678"
+	done
+
+_PokemonTower1Text5_RP::
+	text "Have you no shame?"
+
+	para "All these restless"
+	line "spirits... Do you"
+	cont "have an idea just"
+	cont "how many died"
+	cont "because of TEAM"
+	cont "ROCKET's deeds?"
+
+	para "You're a harbinger"
+	line "of Hell...!"
+;	xxxx "123456789012345678"
+	done

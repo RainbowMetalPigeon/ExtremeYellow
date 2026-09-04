@@ -20,8 +20,8 @@ OchreHouses_TextPointers:
 	dw OchreHousesTextNotebook
 
 OchreHouses_TextPointers_Rocket:
-	dw MoveDeleterText1 ; OchreHousesTextDeleter TBE
-	dw MoveRelearnerText1 ; OchreHousesTextRelearner TBE
+	dw MoveDeleterText1 ; OchreHousesTextDeleter
+	dw MoveRelearnerText1_RP ; OchreHousesTextRelearner
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath

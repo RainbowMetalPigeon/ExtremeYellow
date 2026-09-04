@@ -1250,16 +1250,6 @@ INCLUDE "data/maps/objects/Route30.asm"
 Route30_Blocks: INCBIN "maps/Route30.blk"
 INCLUDE "scripts/Route30.asm"
 
-INCLUDE "data/maps/headers/ElectricRavine.asm"
-INCLUDE "data/maps/objects/ElectricRavine.asm"
-ElectricRavine_Blocks: INCBIN "maps/ElectricRavine.blk"
-INCLUDE "scripts/ElectricRavine.asm"
-
-INCLUDE "data/maps/headers/PikachuGrotto.asm"
-INCLUDE "data/maps/objects/PikachuGrotto.asm"
-PikachuGrotto_Blocks: INCBIN "maps/PikachuGrotto.blk"
-INCLUDE "scripts/PikachuGrotto.asm"
-
 INCLUDE "data/maps/headers/CeladonUniversity1.asm"
 INCLUDE "data/maps/objects/CeladonUniversity1.asm"
 CeladonUniversity1_Blocks: INCBIN "maps/CeladonUniversity1.blk"
@@ -1315,7 +1305,6 @@ OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 INCLUDE "scripts/MoveDeleter.asm"
 INCLUDE "scripts/MoveRelearner.asm"
 
-; moved from Maps 6/5
 INCLUDE "data/maps/headers/CeladonMart1F.asm"
 INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
@@ -1472,6 +1461,16 @@ INCLUDE "data/maps/headers/SaffronClimbClub.asm"
 INCLUDE "scripts/SaffronClimbClub.asm"
 INCLUDE "data/maps/objects/SaffronClimbClub.asm"
 SaffronClimbClub_Blocks: INCBIN "maps/SaffronClimbClub.blk"
+
+INCLUDE "data/maps/headers/ElectricRavine.asm"
+INCLUDE "data/maps/objects/ElectricRavine.asm"
+ElectricRavine_Blocks: INCBIN "maps/ElectricRavine.blk"
+INCLUDE "scripts/ElectricRavine.asm"
+
+INCLUDE "data/maps/headers/PikachuGrotto.asm"
+INCLUDE "data/maps/objects/PikachuGrotto.asm"
+PikachuGrotto_Blocks: INCBIN "maps/PikachuGrotto.blk"
+INCLUDE "scripts/PikachuGrotto.asm"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

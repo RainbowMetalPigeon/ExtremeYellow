@@ -47,7 +47,7 @@ PewterCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw TextPreBattle_PewterTraveler_RP
-	dw PewterCityCoinCaseMeowthText ; Meowth TBE?
+	dw PewterCityCoinCaseMeowthText ; Meowth, unused
 	; signs
 	dw PewterCityText6
 	dw PewterCityText7

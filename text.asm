@@ -203,7 +203,6 @@ INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
-INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -262,6 +261,7 @@ INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
+INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones

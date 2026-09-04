@@ -97,14 +97,11 @@ MoveRelearnerText1:
 	ld de, wPlayerMoney + 2
 	ld c, $3
 	predef SubBCDPredef
-	ld hl, MoveRelearnerByeText
-	jr .printAndEnd
 .exit
 	ld hl, MoveRelearnerByeText
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
-
 
 MoveRelearnerGreetingText:
 	text_far _MoveRelearnerGreetingText
@@ -128,4 +125,108 @@ MoveRelearnerByeText:
 
 MoveRelearnerNoMovesText:
 	text_far _MoveRelearnerNoMovesText
+	text_end
+
+; new for RP ===============================
+
+MoveRelearnerText1_RP:
+	text_asm
+; Display the list of moves to the player.
+	ld hl, MoveRelearnerGreetingText_RP
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, .exit
+	ld hl, MoveRelearnerSaidYesText_RP
+	call PrintText
+	; Select pokemon from party.
+	call SaveScreenTilesToBuffer2
+	xor a
+	ld [wListScrollOffset], a
+	ld [wPartyMenuTypeOrMessageID], a
+	ld [wUpdateSpritesEnabled], a
+	ld [wMenuItemToSwap], a
+	call DisplayPartyMenu
+	push af
+	call GBPalWhiteOutWithDelay3
+	call RestoreScreenTilesAndReloadTilePatterns
+	call LoadGBPal
+	pop af
+	jp c, .exit
+	ld a, [wWhichPokemon]
+	ld b, a
+	push bc
+	ld hl, PrepareRelearnableMoveList
+	ld b, Bank(PrepareRelearnableMoveList)
+	call Bankswitch
+	ld a, [wMoveBuffer]
+	and a
+	jr nz, .chooseMove
+	pop bc
+	ld hl, MoveRelearnerNoMovesText_RP
+	jr .printAndEnd
+.chooseMove
+	ld hl, MoveRelearnerWhichMoveText_RP
+	call PrintText
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wLastMenuItem], a
+	ld a, MOVESLISTMENU
+	ld [wListMenuID], a
+	ld de, wMoveBuffer
+	ld hl, wListPointer
+	ld [hl], e
+	inc hl
+	ld [hl], d
+	xor a
+	ld [wPrintItemPrices], a ; don't print prices
+	call DisplayListMenuID
+	pop bc
+	jr c, .exit  ; exit if player chose cancel
+	push bc
+	call LoadScreenTilesFromBuffer2 ; new from Phoenix
+	; Save the selected move id.
+	ld a, [wcf91]
+	ld [wMoveNum], a
+	ld [wd11e], a
+	ld [wUniQuizAnswer], a
+	call GetMoveName
+	call CopyToStringBuffer ; copy name to wcf4b
+	pop bc
+	ld a, b
+	ld [wWhichPokemon], a
+	ld a, [wLetterPrintingDelayFlags]
+	push af
+	xor a
+	ld [wLetterPrintingDelayFlags], a
+	predef LearnMove
+	pop af
+	ld [wLetterPrintingDelayFlags], a
+	ld a, b
+	and a
+.exit
+	ld hl, MoveRelearnerByeText_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+MoveRelearnerGreetingText_RP:
+	text_far _MoveRelearnerGreetingText_RP
+	text_end
+
+MoveRelearnerSaidYesText_RP:
+	text_far _MoveRelearnerSaidYesText_RP
+	text_end
+
+MoveRelearnerWhichMoveText_RP:
+	text_far _MoveRelearnerWhichMoveText_RP
+	text_end
+
+MoveRelearnerByeText_RP:
+	text_far _MoveRelearnerByeText_RP
+	text_end
+
+MoveRelearnerNoMovesText_RP:
+	text_far _MoveRelearnerNoMovesText_RP
 	text_end
