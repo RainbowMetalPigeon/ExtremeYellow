@@ -13,7 +13,9 @@ PewterCity_ScriptPointers:
 	dw PewterCityScript0
 	dw PewterScript_Traveler ; new, for traveler
 
-PewterCityScript0:
+PewterCityScript0: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	xor a
 	ld [wMuseum1FCurScript], a
 	ResetEvent EVENT_BOUGHT_MUSEUM_TICKET

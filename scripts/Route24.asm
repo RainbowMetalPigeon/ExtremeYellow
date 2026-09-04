@@ -207,7 +207,8 @@ Route24Text1: ; edited
 	xor a
 	ld [wPikachuHappiness], a
 	ld [wPikachuMood], a
-
+	inc a ; a=1
+	ld [wMuseum1FCurScript], a ; doesn't check ticket
 	ld a, [wWalkBikeSurfState]
 	dec a
 	jr nz, .hideAndShowObjects
