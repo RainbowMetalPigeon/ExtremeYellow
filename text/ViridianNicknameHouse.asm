@@ -81,3 +81,19 @@ _ViridianHouseText7_Meowth:: ; new
 	cont "MEOWTH!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ==========================
+
+_ViridianHouseText5_RP::
+	text "Why would a ROCKET"
+	line "even care about"
+	cont "#MON BADGEs?"
+
+	para "They're testaments"
+	line "of honor battles,"
+	cont "something you're"
+	cont "surely incapable"
+	cont "of! Leave, I've"
+	cont "nothing for you."
+;	xxxx "123456789012345678"
+	done

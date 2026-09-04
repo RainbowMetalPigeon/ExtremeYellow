@@ -44,7 +44,7 @@ ViridianNicknameHouse_TextPointers_Rocket:
 	dw ViridianHouseText3 ; Mon
 	dw ViridianHouseText4 ; Clipboard
 	; new, relocated Badge Expert
-	dw ViridianHouseText5 ; TBE
+	dw ViridianHouseText5_RP
 	; new, gate
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -237,4 +237,10 @@ ViridianHouseText7_Otherwise:
 
 ViridianHouseText7_Meowth:
 	text_far _ViridianHouseText7_Meowth
+	text_end
+
+; new for RP ==========================
+
+ViridianHouseText5_RP:
+	text_far _ViridianHouseText5_RP
 	text_end

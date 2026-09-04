@@ -1,6 +1,8 @@
 OaksLab_Script:
 	CheckEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS_2
-	call nz, OaksLabScript_1d076
+	call nz, OaksLabLoadTextPointers2Script
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	call nz, OaksLabLoadTextPointersRPScript ; new for RP
 	ld a, TRUE
 	ld [wAutoTextBoxDrawingControl], a
 	xor a
@@ -686,8 +688,16 @@ OaksLabScript_1c8b9:
 	call SetSpritePosition1
 	ret
 
-OaksLabScript_1d076:
+OaksLabLoadTextPointers2Script:
 	ld hl, OaksLab_TextPointers2
+	ld a, l
+	ld [wMapTextPtr], a
+	ld a, h
+	ld [wMapTextPtr + 1], a
+	ret
+
+OaksLabLoadTextPointersRPScript: ; new
+	ld hl, OaksLab_TextPointers_Rocket
 	ld a, l
 	ld [wMapTextPtr], a
 	ld a, h
@@ -705,6 +715,7 @@ OaksLab_TextPointers:
 	dw OaksLabText8
 	dw OaksLabText9
 	dw OaksLabTextGiovanni ; new, testing
+; scripts
 	dw OaksLabText10
 	dw OaksLabText11
 	dw OaksLabText12
@@ -726,16 +737,28 @@ OaksLab_TextPointers:
 	dw OaksLabTextMeds ; new
 
 OaksLab_TextPointers2:
-	dw OaksLabText1
-	dw OaksLabText2
-	dw OaksLabText3
-	dw OaksLabText4
-	dw OaksLabText5
-	dw OaksLabText6
-	dw OaksLabText7
-	dw OaksLabText8
-	dw OaksLabText9
-	dw OaksLabTextGiovanni ; new, testing
+	dw OaksLabText1 ; Blue
+	dw OaksLabText2 ; Ball
+	dw OaksLabText3 ; Oak 1
+	dw OaksLabText4 ; DEX
+	dw OaksLabText5 ; DEX
+	dw OaksLabText6 ; Oak 2
+	dw OaksLabText7 ; Girl
+	dw OaksLabText8 ; Scientist
+	dw OaksLabText9 ; Scientist
+	dw OaksLabTextGiovanni ; new
+
+OaksLab_TextPointers_Rocket: ; new
+	dw OaksLabText1 ; Blue, unused
+	dw OaksLabText2 ; Ball, unused
+	dw OaksLabText3 ; Oak 1, unused
+	dw OaksLabText4 ; DEX, unused
+	dw OaksLabText5 ; DEX, unused
+	dw OaksLabText6 ; Oak 2, unused
+	dw OaksLabText7_RP ; Girl
+	dw OaksLabText8_RP ; Scientist
+	dw OaksLabText9_RP ; Scientist
+	dw OaksLabTextGiovanni ; Giovanni, unused
 
 OaksLabText1:
 	text_asm
@@ -1289,4 +1312,36 @@ GiovanniBeforeBattleText2:
 
 GiovanniPostBattleText:
 	text_far _GiovanniPostBattleText
+	text_end
+
+; new for RP ========================
+
+OaksLabText7_RP:
+	text_asm
+	ld hl, OaksLabText7_RP_Core
+	call PrintText
+	jp TextScriptEnd
+
+OaksLabText7_RP_Core:
+	text_far _OaksLabText7_RP_Core
+	text_end
+
+OaksLabText8_RP:
+	text_asm
+	ld hl, OaksLabText8_RP_Core
+	call PrintText
+	jp TextScriptEnd
+
+OaksLabText8_RP_Core:
+	text_far _OaksLabText8_RP_Core
+	text_end
+
+OaksLabText9_RP:
+	text_asm
+	ld hl, OaksLabText9_RP_Core
+	call PrintText
+	jp TextScriptEnd
+
+OaksLabText9_RP_Core:
+	text_far _OaksLabText9_RP_Core
 	text_end

@@ -155,8 +155,6 @@ INCLUDE "text/SaffronPidgeyHouse.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
-INCLUDE "text/PokemonMansion2F.asm"
-INCLUDE "text/PokemonMansion1F.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -182,6 +180,7 @@ INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/CeladonMartRoof.asm"
 INCLUDE "text/SaffronMart.asm"
+INCLUDE "text/PokemonMansion1F.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -189,6 +188,7 @@ INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 INCLUDE "text/PalletTown.asm"
+INCLUDE "text/PokemonMansion2F.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
