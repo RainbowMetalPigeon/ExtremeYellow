@@ -1041,7 +1041,7 @@ _SeviiFourIslandHousesSignText7_PC_RP::
 	cont "my own life.'"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiFourIslandHousesText5_Intro_RP::
 	text "...a ROCKET?"
 	line "I don't feel like"
@@ -1074,5 +1074,56 @@ _SeviiFourIslandHousesText5_Done_RP::
 _SeviiFourIslandHousesScriptText1_RP::
 	text "...fuck."
 	line "You won."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesSignText6_Switch_RP::
+	text "Some dumb hunter"
+	line "wields a stupidly"
+	cont "gigantic weapons"
+	cont "and wears flashy"
+	cont "armours full of"
+	cont "horns and spikes"
+	cont "to fight forever"
+	cont "against totally"
+	cont "unrealistic"
+	cont "creatures."
+;	xxxx "123456789012345678"
+
+	para "So infuriatingly"
+	line "impractical."
+	cont "Killing is much"
+	cont "simpler and"
+	cont "faster."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesSignText1_TV_RP::
+	text "A dumb musician"
+	line "committed suicide"
+	cont "because they made"
+	cont "the best music"
+	cont "they ever could,"
+	cont "and they could"
+	cont "never reach that"
+	cont "peak again."
+
+	para "Ridiculous!"
+	line "Reach the peak,"
+	cont "stay there, and"
+	cont "keep enjoying"
+	cont "money and power!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandHousesSignText2_Picture_RP::
+	text "Three adults and a"
+	line "kid, all smiling."
+
+	para "Clearly fake"
+	line "smiles, like all"
+	cont "those which don't"
+	cont "come from money"
+	cont "or power."
 ;	xxxx "123456789012345678"
 	done

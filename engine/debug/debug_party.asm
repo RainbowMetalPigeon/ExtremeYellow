@@ -35,7 +35,6 @@ IF DEF(_DEBUG)
 
 	ld a, %11111111
 ;	ld a, %00000111
-	xor a
 	ld [wTownVisitedFlag_Sevii], a ; new, for sevii
 	ld [wTownVisitedFlag_Sevii + 1], a ; new, for sevii
 

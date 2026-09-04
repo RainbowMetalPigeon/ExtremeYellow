@@ -111,3 +111,4 @@ TextPredefs::
 	add_tx_pre SleepBagText                         ; new
 	add_tx_pre SleepTillNextPhaseText               ; new
 	add_tx_pre SpecialDoorSilphCo11FText			; new
+	add_tx_pre RedBedroomSNESText_RP                ; new

@@ -677,6 +677,22 @@ _RedBedroomSNESText:: ; edited
 	cont "great adventure!"
 	done
 
+_RedBedroomSNESText_RP:: ; new for RP
+	text "A stupid game"
+	line "about exploring,"
+	cont "gliding around,"
+	cont "riding horses,"
+	cont "finding mummies"
+	cont "and seeds, and"
+	cont "climbing towers."
+
+	para "Bah! Who needs any"
+	line "of that, when"
+	cont "real life offers"
+	cont "money and power!"
+;	xxxx "123456789012345678"
+	done
+
 _AerodactylFossilText::
 	text "AERODACTYL Fossil"
 	line "A primitive and"

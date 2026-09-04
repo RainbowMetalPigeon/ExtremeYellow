@@ -2,7 +2,7 @@ PalletTown_Object:
 	db $b ; border block
 
 	def_warp_events
-;	warp_event  5,  5, REDS_HOUSE_1F, 1
+	warp_event  5,  5, REDS_HOUSE_1F, 1
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE_FINAL, 1
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE, 1
 ;	warp_event  5,  5, VIRIDIAN_GYM, 1
@@ -19,7 +19,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, OCHRE_HOUSES, 3
 ;	warp_event  5,  5, OBSIDIAN_HOUSES, 4
 ;	warp_event  5,  5, MT_MOON_1F, 1
-	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
+;	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
 ;	warp_event  5,  5, COPYCATS_HOUSE_1F, 1
 ; 	warp_event  5,  5, BILLS_HOUSE, 1
@@ -60,7 +60,7 @@ PalletTown_Object:
 ;	warp_event 13,  5, ROCKET_HIDEOUT_B4F, 2
 ;	warp_event 13,  5, SAFARI_ZONE_GATE, 1
 
-	warp_event 12, 11, OAKS_LAB, 2
+;	warp_event 12, 11, OAKS_LAB, 2
 ;	warp_event 12, 11, POKEMON_TOWER_6F, 1
 ;	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 12, 11, HAUNTED_PALLET_TOWN, 1
@@ -71,7 +71,7 @@ PalletTown_Object:
 ;	warp_event 12, 11, HALL_OF_FAME, 1
 ;	warp_event 12, 11, CHAMPIONS_ROOM, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_2, 1
-;	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
+	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
 ;	warp_event 12, 11, SECLUDED_ATOLL_SW, 1
 ;	warp_event 12, 11, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
 

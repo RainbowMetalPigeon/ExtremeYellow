@@ -202,3 +202,25 @@ _CopycatsHouse2FText1_RP_GiveTM::
 	line "Take it."
 ;	xxxx "123456789012345678"
 	prompt
+
+_CopycatsHouse2FText6_RP::
+	text "A dumb game with"
+	line "some stereotyped"
+	cont "plumber throwing"
+	cont "a stupid hat and"
+	cont "killing grotesque"
+	cont "creatures."
+
+	para "Who needs games"
+	line "when they can"
+	cont "exert violence"
+	cont "in real life?!"
+;	xxxx "123456789012345678"
+	done
+
+_CopycatsHouse2FText3_RP::
+	text "This is a rare"
+	line "#MON! Huh?"
+	cont "It's only a doll!"
+	cont "What a waste!"
+	done

@@ -211,7 +211,6 @@ INCLUDE "text/CinnabarGym.asm"
 INCLUDE "text/CinnabarLab.asm"
 INCLUDE "text/CinnabarLabTradeRoom.asm"
 INCLUDE "text/CinnabarLabMetronomeRoom.asm"
-INCLUDE "text/CinnabarLabFossilRoom.asm"
 INCLUDE "text/CinnabarPokecenter.asm"
 INCLUDE "text/CinnabarMart.asm"
 INCLUDE "text/IndigoPlateauLobby.asm"
@@ -262,6 +261,7 @@ INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
+INCLUDE "text/CinnabarLabFossilRoom.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones

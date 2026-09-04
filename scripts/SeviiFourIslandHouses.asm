@@ -309,12 +309,12 @@ SeviiFourIslandHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; signs
-	dw SeviiFourIslandHousesSignText1_TV ; 10
-	dw SeviiFourIslandHousesSignText2_Picture
+	dw SeviiFourIslandHousesSignText1_TV_RP ; 10
+	dw SeviiFourIslandHousesSignText2_Picture_RP
 	dw SeviiFourIslandHousesSignText3_Paper1
 	dw SeviiFourIslandHousesSignText4_Paper2
 	dw SeviiFourIslandHousesSignText5_Paper3
-	dw SeviiFourIslandHousesSignText6_Switch
+	dw SeviiFourIslandHousesSignText6_Switch_RP
 	dw SeviiFourIslandHousesSignText7_PC_RP
 	dw SeviiFourIslandHousesSignText8_Cheater ; 17
 	dw SeviiFourIslandHousesSignText9_FakeBooks ; 18
@@ -651,6 +651,18 @@ SeviiFourIslandHousesText4_RP:
 
 SeviiFourIslandHousesSignText7_PC_RP:
 	text_far _SeviiFourIslandHousesSignText7_PC_RP
+	text_end
+
+SeviiFourIslandHousesSignText6_Switch_RP:
+	text_far _SeviiFourIslandHousesSignText6_Switch_RP
+	text_end
+
+SeviiFourIslandHousesSignText1_TV_RP:
+	text_far _SeviiFourIslandHousesSignText1_TV_RP
+	text_end
+
+SeviiFourIslandHousesSignText2_Picture_RP:
+	text_far _SeviiFourIslandHousesSignText2_Picture_RP
 	text_end
 
 SeviiFourIslandHousesText2_RP_Before:

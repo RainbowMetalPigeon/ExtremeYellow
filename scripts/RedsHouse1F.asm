@@ -74,9 +74,9 @@ RedsHouse1F_TextPointers:
 
 RedsHouse1F_TextPointers_Rocket:
 	dw RedsHouse1FMomText ; TBE
-	dw RedsHouse1FDadText ; TBE
+	dw RedsHouse1FDadText ; unused
 	; signs
-	dw RedsHouse1FTVText
+	dw RedsHouse1FTVText ; TBE
 	dw RedsHouse1FPictureText ; TBE
 
 RedsHouse1FMomText:

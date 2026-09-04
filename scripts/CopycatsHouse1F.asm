@@ -58,14 +58,14 @@ CopycatsHouse1F_TextPointers_Rocket:
 	dw CopycatsHouse1FText3 ; chansey
 	; 2F
 	dw CopycatsHouse2FText1_RP ; Copycat TBE
-	dw GenericNPCText_RocketPath ; Doduo
-	dw GenericNPCText_RocketPath ; doll
-	dw GenericNPCText_RocketPath ; doll
-	dw GenericNPCText_RocketPath ; doll
+	dw CopycatsHouse2FText2 ; Doduo
+	dw CopycatsHouse2FText3_RP ; doll
+	dw CopycatsHouse2FText4_RP ; doll
+	dw CopycatsHouse2FText5_RP ; doll
 	; signs
-	dw CopycatsHouse2FText6 ; Switch
+	dw CopycatsHouse2FText6_RP ; Switch
 	dw CopycatsHouse2FText7 ; PC
-	dw CopycatsHouse2FText8
+	dw CopycatsHouse2FText8_RP
 
 CopycatsHouse1FText1:
 	text_far _CopycatsHouse1FText1
@@ -322,4 +322,15 @@ CopycatsHouse2FText1_RP_BagFull:
 CopycatsHouse2FText1_RP_ReceivedTM:
 	text_far _ReceivedTM31Text
 	sound_get_item_1
+	text_end
+
+CopycatsHouse2FText6_RP:
+	text_far _CopycatsHouse2FText6_RP
+	text_end
+
+CopycatsHouse2FText5_RP:
+CopycatsHouse2FText4_RP:
+CopycatsHouse2FText3_RP:
+CopycatsHouse2FText8_RP:
+	text_far _CopycatsHouse2FText3_RP
 	text_end

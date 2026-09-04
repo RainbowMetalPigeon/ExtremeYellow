@@ -239,7 +239,7 @@ PalletTown_TextPointers:
 	dw PalletTownText8
 
 PalletTown_TextPointers_Rocket:
-	dw PalletTownText1 ; Oak, unnecessary TBE?
+	dw PalletTownText1 ; Oak, unused
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw PalletTownTextDarkGuide ; TBE?
