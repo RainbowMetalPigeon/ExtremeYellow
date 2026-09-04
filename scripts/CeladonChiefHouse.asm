@@ -585,18 +585,19 @@ CeladonChiefHouse_TextPointers_Rocket:
 	dw RocketNPCText_RocketPath
 	dw RocketNPCText_RocketPath
 	; Shrine
-	dw GenericNPCText_RocketPath ; TBE
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw LunarShrineTextMonk_RP ; monk TBE
+	dw GenericNPCText_RocketPath ; Rockets, unused
+	dw GenericNPCText_RocketPath ; Rockets, unused
+	dw GenericNPCText_RocketPath ; Rockets, unused
+	dw GenericNPCText_RocketPath ; Rockets, unused
 	; tourists
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
 	; signs
-	dw LunarShrineTextTemple ; TBE
+	dw LunarShrineTextTemple_RP ; TBE
+	; scripts
 
 CeladonHouseText1:
 	text_far _CeladonHouseText1
@@ -817,5 +818,13 @@ LunarShrineTextTourist3:
 	text_end
 
 LunarShrineTextTourist4:
+	text_far _LunarShrineTextTourist4
+	text_end
+
+; new for RP ========================
+
+; TBE
+LunarShrineTextMonk_RP:
+LunarShrineTextTemple_RP:
 	text_far _LunarShrineTextTourist4
 	text_end

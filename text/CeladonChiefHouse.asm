@@ -532,3 +532,5 @@ _LunarShrineTextTourist4::
 	line "unbelievably"
 	cont "gorgeous..."
 	done
+
+; new for RP ========================
