@@ -36,7 +36,7 @@ _PokemonTower1Text5:: ; edited
 _PokemonTower1Text1_RP::
 	text "Tsk. Your presence"
 	line "defiles this"
-	cont "graveyard."
+	cont "sacred graveyard."
 ;	xxxx "123456789012345678"
 	done
 
