@@ -122,3 +122,54 @@ _Museum2FText8_2:: ; new
 	para "...what would you"
 	line "do?"
 	done
+
+; new for RP =====================
+
+_Museum2FText8_RP_BeforeTheft::
+	text "Tsk! I don't need"
+	line "to do like you to"
+	cont "earn big money!"
+
+	para "I'll do like my"
+	line "Gramps instead:"
+	cont "I'll find a big"
+	cont "treasure and"
+	cont "get rich honestly!"
+;	xxxx "123456789012345678"
+	done
+
+_Museum2FText8_RP_Battle::
+	text "...?! You!"
+	line "My Gramps just"
+	cont "called me to tell"
+	cont "me that a ROCKET"
+	cont "kid stole their"
+	cont "ARTIFACT!"
+
+	para "And you, you fit"
+	line "the description"
+	cont "perfectly!"
+
+	para "I'll avenge my"
+	line "Gramps and get"
+	cont "back their goods!"
+;	xxxx "123456789012345678"
+	done
+
+_Museum2FGrankidDefeatedText_RP::
+	text "Ugh..."
+	line "Too strong..."
+;	xxxx "123456789012345678"
+	prompt
+
+_Museum2FText8_RP_AfterBattle::
+	text "You may have won"
+	line "this fight, and"
+	cont "you may have"
+	cont "stolen my Gramps'"
+	cont "treasure, but you"
+	cont "will never take"
+	cont "our honesty and"
+	cont "hope from us!"
+;	xxxx "123456789012345678"
+	done

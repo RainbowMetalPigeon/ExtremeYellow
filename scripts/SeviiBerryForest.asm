@@ -188,8 +188,7 @@ SeviiBerryForest_Script4:
 	predef ShowObjectSevii
 
 	SetEvent EVENT_SEVII_RESCUED_MAYOI
-	call SeviiBerryForestResetScripts
-	ret
+	; fallthrough
 
 SeviiBerryForestResetScripts:
 	xor a

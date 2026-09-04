@@ -1300,6 +1300,7 @@
 	const EVENT_RP_BEAT_LUNAR_TEMPLE_BLUE ; new
 	const EVENT_RP_STOLE_HM_04 ; new
 	const EVENT_RP_FULLY_DESTROYS_SHRINE ; new
+	const EVENT_RP_BEAT_ARCHEOLOGIST_GRANKID_MUSEUM ; new
 
 ; Indigo Plateau events
 	const_next $8E0
