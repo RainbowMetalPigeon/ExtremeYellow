@@ -170,6 +170,18 @@ StartMenu_Pokemon::
 	call PrintText
 	jp .loop
 .canFly
+; new to prevent FLYing when we have no possible destinations: can happen only in RP before landing on One Island's ground
+	CheckEvent EVENT_IN_SEVII
+	jr z, .canFlyVanilla
+	ld a, [wTownVisitedFlag_Sevii]
+	and a
+	jr nz, .canFlyVanilla
+; actually we have no destinations
+	ld hl, .cannotFlyYetText
+	call PrintText
+	jp .loop
+.canFlyVanilla
+; BTV
 	call ChooseFlyDestination
 	ld a, [wd732]
 	bit 3, a ; did the player decide to fly?
@@ -302,6 +314,9 @@ StartMenu_Pokemon::
 	text_end
 .cannotFlyHereText
 	text_far _CannotFlyHereText
+	text_end
+.cannotFlyYetText ; new for RP
+	text_far _CannotFlyYetText
 	text_end
 ; new field moves
 .dive

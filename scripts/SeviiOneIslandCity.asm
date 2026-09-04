@@ -122,6 +122,11 @@ SeviiOneIslandCityScript0:
 	ld hl, SeviiOneIslandCity_Coordinates_CelioJennyDialogue
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	ret nc
+; new, set now the Fly destination
+	ld c, SEVII_ONE_ISLAND_CITY
+	ld b, FLAG_SET
+	ld hl, wTownVisitedFlag_Sevii   ; mark town as visited (for flying)
+	predef FlagActionPredef
 ; RP?
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRP
@@ -606,6 +611,13 @@ SeviiOneIslandCityResetScripts: ; new
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
+; in case we lost, to avoid weird plot stuff
+	ld a, HS_SEVII_ONE_ISLAND_CITY_CELIO
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ONE_ISLAND_CITY_JENNY
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
 	ret
 
 SeviiOneIslandCityScriptText1_RP: ; 18 ; Celio and Jenny

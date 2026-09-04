@@ -59,6 +59,12 @@ _CannotFlyHereText::
 	line "FLY here."
 	prompt
 
+_CannotFlyYetText:: ; new for RP
+	text "You can't FLY"
+;	xxxx "123456789012345678"
+	line "right now."
+	prompt
+
 _NotHealthyEnoughText::
 	text "Not healthy"
 	line "enough."

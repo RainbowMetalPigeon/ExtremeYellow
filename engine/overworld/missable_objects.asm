@@ -58,6 +58,11 @@ MarkTownVisitedAndLoadMissableObjects::
 	ld a, [wCurMap]
 	cp FIRST_ROUTE_MAP_SEVII
 	jr nc, .notInTownSevii
+; in town
+; new, special case for One Island, for RP, to avoid plot skipping
+	cp SEVII_ONE_ISLAND_CITY
+	jr z, .notInTownSevii
+; BTV
 	ld c, a
 	ld b, FLAG_SET
 	ld hl, wTownVisitedFlag_Sevii   ; mark town as visited (for flying)
