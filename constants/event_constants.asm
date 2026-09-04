@@ -1296,6 +1296,7 @@
 	const EVENT_RP_ROBBED_ANTIQUE_SHOP ; new
 	const EVENT_RP_RETRIEVED_OTHER_FOSSIL ; new
 	const EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; new
+	const EVENT_RP_BEAT_ROUTE_3_JENNY ; new
 
 ; Indigo Plateau events
 	const_next $8E0

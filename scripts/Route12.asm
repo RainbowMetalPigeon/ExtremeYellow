@@ -34,6 +34,9 @@ AroundSnorlaxRoute12Coords: ; new
 
 Route12Script0:
 ; new, for Rival Snorlax battle
+; new, for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, .vanillaCode
 ; we need to: NOT have faced this rival already; be around Snorlax; have the flute in the bag
 	CheckEvent EVENT_FACED_SNORLAX_RIVAL
 	jp nz, .vanillaCode
@@ -427,11 +430,14 @@ Route12_TextPointers_Rocket:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw Route12TextRival ; TBE, rival left; ID=13
-	dw Route12TextRival ; TBE, rival right; ID=14
+	dw Route12TextRival ; unused, rival left; ID=13
+	dw Route12TextRival ; unused, rival right; ID=14
 	; signs
 	dw Route12Text11 ; 15
 	dw Route12Text12 ; 16
+	; scritps
+	dw Route12Text13 ; 17 snorlax pre
+	dw Route12Text14 ; 18 snorlax post
 
 Route12TrainerHeaders:
 	def_trainers 3 ; edited, +1 for new Hiker

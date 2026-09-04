@@ -5905,7 +5905,15 @@ SpecialTrainerMoves:
 	db $FE
 
 	db JENNY, 3
-	; PARAS
+	; PARASECT
+	db 1, 1, SLASH
+	db 1, 2, MEGA_DRAIN
+	db 1, 3, SPORE
+	db 1, 4, STICKY_WEB
+	db $FE
+
+	db JENNY, 4
+	; PARASECT
 	db 1, 1, SLASH
 	db 1, 2, MEGA_DRAIN
 	db 1, 3, SPORE

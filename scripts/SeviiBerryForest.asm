@@ -147,9 +147,9 @@ SeviiBerryForest_Script4:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SeviiBerryForestResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
-; we won
 	ld a, 9
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -386,9 +386,9 @@ SeviiBerryForest_Script9:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, SeviiBerryForestResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
-; we won
 	lb de, 5, SPRITE_FACING_LEFT
 	callfar ChangeSpriteFacing ; new Pigeon approach
 	SetEvent EVENT_SEVII_RESCUED_MAYOI ; abused (very much so lol)

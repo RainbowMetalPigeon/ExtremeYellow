@@ -1,6 +1,8 @@
 Route16_Script:
 	RPTextChooser Route16_TextPointers, Route16_TextPointers_Rocket
 ; new, to remove Route 3 Jenny
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .continue
 	CheckEvent EVENT_REMOVED_ROUTE_3_JENNY
 	jr nz, .continue
 	ld a, HS_ROUTE_3_JENNY
@@ -41,6 +43,9 @@ AroundSnorlaxRoute16Coords: ; new
 
 Route16Script0:
 ; new, for Rival Snorlax battle
+; new, for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, .vanillaCode
 ; we need to: NOT have faced this rival already; be around Snorlax; have the flute in the bag
 	CheckEvent EVENT_FACED_SNORLAX_RIVAL
 	jp nz, .vanillaCode
@@ -335,10 +340,13 @@ Route16_TextPointers_Rocket:
 	dw Route16Text5
 	dw Route16Text6
 	dw Route16Text7 ; SNORLAX
-	dw GenericNPCText_RocketPath ; TBE
+	dw Route16TextRival ; unused
 	; signs
 	dw Route16Text8
 	dw Route16Text9
+	; scripts
+	dw Route16Text10 ; Snorlax-related text
+	dw Route16Text11 ; Snorlax-related text
 
 Route16TrainerHeaders:
 	def_trainers

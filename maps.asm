@@ -707,10 +707,6 @@ INCLUDE "data/maps/headers/FuchsiaGoodRodHouse.asm"
 INCLUDE "scripts/FuchsiaGoodRodHouse.asm"
 INCLUDE "data/maps/objects/FuchsiaGoodRodHouse.asm"
 
-INCLUDE "data/maps/headers/Daycare.asm"
-INCLUDE "scripts/Daycare.asm"
-INCLUDE "data/maps/objects/Daycare.asm"
-
 INCLUDE "data/maps/headers/Route12SuperRodHouse.asm"
 INCLUDE "scripts/Route12SuperRodHouse.asm"
 INCLUDE "data/maps/objects/Route12SuperRodHouse.asm"
@@ -755,7 +751,11 @@ INCLUDE "data/maps/headers/Route18.asm"
 INCLUDE "data/maps/objects/Route18.asm"
 Route18_Blocks: INCBIN "maps/Route18.blk"
 
-	INCBIN "maps/UnusedPokecenterCopy.blk"
+;	INCBIN "maps/UnusedPokecenterCopy.blk" ; edited as unused
+
+INCLUDE "data/maps/headers/Daycare.asm"
+INCLUDE "scripts/Daycare.asm"
+INCLUDE "data/maps/objects/Daycare.asm"
 
 
 SECTION "Maps 14", ROMX

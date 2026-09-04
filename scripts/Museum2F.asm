@@ -20,7 +20,7 @@ Museum2F_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; TBE, battle if we stole ARTIFACT?
 	; signs
 	dw Museum2FText6
 	dw Museum2FText7

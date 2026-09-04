@@ -501,7 +501,7 @@ SeviiOneIslandCityScript7:
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld a, OPP_JENNY
 	ld [wCurOpponent], a
-	ld a, 3
+	ld a, 4
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a
