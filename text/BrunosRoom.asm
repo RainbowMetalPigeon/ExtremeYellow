@@ -111,3 +111,23 @@ _BrunoAfterBattleTextRematch2::
 	cont "INDIGO ORDEAL!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_BrunoBeforeBattleText_RP::
+	text "before"
+	line "Bruno"
+;	xxxx "123456789012345678"
+	done
+
+_BrunoEndBattleText_RP::
+	text "end"
+	line "Bruno"
+;	xxxx "123456789012345678"
+	prompt
+
+_BrunoAfterBattleText_RP::
+	text "after"
+	line "Bruno"
+;	xxxx "123456789012345678"
+	done

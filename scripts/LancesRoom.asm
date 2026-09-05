@@ -131,7 +131,7 @@ LancesRoom_TextPointers:
 	dw LanceText1
 
 LancesRoom_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
+	dw LanceText1_RP
 
 LancesRoomTrainerHeaders:
 	def_trainers
@@ -141,6 +141,8 @@ LancesRoomTrainerHeader1:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_1, 0, LanceBeforeBattleTextRematch, LanceEndBattleTextRematch, LanceAfterBattleTextRematch
 LancesRoomTrainerHeader2:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_2, 0, LanceBeforeBattleTextRematch2, LanceEndBattleTextRematch2, LanceAfterBattleTextRematch2
+LancesRoomTrainerHeader3:
+	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_3, 0, LanceBeforeBattleText_RP, LanceEndBattleText_RP, LanceAfterBattleText_RP
 	db -1 ; end
 
 LanceText1:
@@ -209,6 +211,31 @@ LanceEndBattleTextRematch2:
 
 LanceAfterBattleTextRematch2:
 	text_far _LanceAfterBattleTextRematch2
+	text_asm
+	SetEvent EVENT_BEAT_LANCE
+	jp TextScriptEnd
+
+; new for RP =======================
+
+LanceText1_RP:
+	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld hl, LancesRoomTrainerHeader3
+	call TalkToTrainer
+	ld a, 4
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+
+LanceBeforeBattleText_RP:
+	text_far _LanceBeforeBattleText_RP
+	text_end
+
+LanceEndBattleText_RP:
+	text_far _LanceEndBattleText_RP
+	text_end
+
+LanceAfterBattleText_RP:
+	text_far _LanceAfterBattleText_RP
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd

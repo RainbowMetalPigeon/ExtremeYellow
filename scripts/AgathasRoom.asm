@@ -21,6 +21,8 @@ AgathaShowOrHideExitBlock:
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_1
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_2
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_3
 ; BTV
 	jr z, .blockExitToNextRoom
 .freeExitToNextRoom ; new
@@ -129,7 +131,7 @@ AgathasRoom_TextPointers:
 	dw AgathaDontRunAwayText
 
 AgathasRoom_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
+	dw AgathaText1_RP
 	dw AgathaDontRunAwayText
 
 AgathasRoomTrainerHeaders:
@@ -140,6 +142,8 @@ AgathasRoomTrainerHeader1:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, AgathaBeforeBattleTextRematch, AgathaEndBattleTextRematch, AgathaAfterBattleTextRematch
 AgathasRoomTrainerHeader2:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_2, 0, AgathaBeforeBattleTextRematch2, AgathaEndBattleTextRematch2, AgathaAfterBattleTextRematch2
+AgathasRoomTrainerHeader3:
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_3, 0, AgathaBeforeBattleText_RP, AgathaEndBattleText_RP, AgathaAfterBattleText_RP
 	db -1 ; end
 
 AgathaText1:
@@ -208,4 +212,27 @@ AgathaEndBattleTextRematch2:
 
 AgathaAfterBattleTextRematch2:
 	text_far _AgathaAfterBattleTextRematch2
+	text_end
+
+; new for RP =======================
+
+AgathaText1_RP:
+	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld hl, AgathasRoomTrainerHeader3
+	call TalkToTrainer
+	ld a, 4
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+
+AgathaBeforeBattleText_RP:
+	text_far _AgathaBeforeBattleText_RP
+	text_end
+
+AgathaEndBattleText_RP:
+	text_far _AgathaEndBattleText_RP
+	text_end
+
+AgathaAfterBattleText_RP:
+	text_far _AgathaAfterBattleText_RP
 	text_end

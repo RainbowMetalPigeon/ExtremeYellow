@@ -21,6 +21,8 @@ BrunoShowOrHideExitBlock:
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_1
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_2
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_3
 ; BTV
 	jr z, .blockExitToNextRoom
 .freeExitToNextRoom ; new
@@ -126,7 +128,7 @@ BrunosRoom_TextPointers:
 	dw BrunoDontRunAwayText
 
 BrunosRoom_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
+	dw BrunoText1_RP
 	dw BrunoDontRunAwayText
 
 BrunosRoomTrainerHeaders:
@@ -137,6 +139,8 @@ BrunosRoomTrainerHeader1:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_1, 0, BrunoBeforeBattleTextRematch, BrunoEndBattleTextRematch, BrunoAfterBattleTextRematch
 BrunosRoomTrainerHeader2:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_2, 0, BrunoBeforeBattleTextRematch2, BrunoEndBattleTextRematch2, BrunoAfterBattleTextRematch2
+BrunosRoomTrainerHeader3:
+	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_3, 0, BrunoBeforeBattleText_RP, BrunoEndBattleText_RP, BrunoAfterBattleText_RP
 	db -1 ; end
 
 BrunoText1:
@@ -205,4 +209,27 @@ BrunoEndBattleTextRematch2:
 
 BrunoAfterBattleTextRematch2:
 	text_far _BrunoAfterBattleTextRematch2
+	text_end
+
+; new for RP =======================
+
+BrunoText1_RP:
+	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld hl, BrunosRoomTrainerHeader3
+	call TalkToTrainer
+	ld a, 4
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+
+BrunoBeforeBattleText_RP:
+	text_far _BrunoBeforeBattleText_RP
+	text_end
+
+BrunoEndBattleText_RP:
+	text_far _BrunoEndBattleText_RP
+	text_end
+
+BrunoAfterBattleText_RP:
+	text_far _BrunoAfterBattleText_RP
 	text_end

@@ -129,18 +129,18 @@ _LoreleiAfterBattleTextRematch2::
 
 _LoreleiBeforeBattleText_RP::
 	text "before"
-	line "lorelei"
+	line "Lorelei"
 ;	xxxx "123456789012345678"
 	done
 
 _LoreleiEndBattleText_RP::
 	text "end"
-	line "lorelei"
+	line "Lorelei"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LoreleiAfterBattleText_RP::
 	text "after"
-	line "lorelei"
+	line "Lorelei"
 ;	xxxx "123456789012345678"
 	done

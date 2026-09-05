@@ -196,3 +196,23 @@ _LanceAfterBattleTextRematch2::
 	cont "the INDIGO ORDEAL."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_LanceBeforeBattleText_RP::
+	text "before"
+	line "Lance"
+;	xxxx "123456789012345678"
+	done
+
+_LanceEndBattleText_RP::
+	text "end"
+	line "Lance"
+;	xxxx "123456789012345678"
+	prompt
+
+_LanceAfterBattleText_RP::
+	text "after"
+	line "Lance"
+;	xxxx "123456789012345678"
+	done
