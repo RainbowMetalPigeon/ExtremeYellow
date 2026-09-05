@@ -128,7 +128,7 @@ MapHSPointers:
 	dw ObsidianWarehouseHS ; OBSIDIAN_WAREHOUSE
 	dw ObsidianWarehouseFinalHS ; OBSIDIAN_WAREHOUSE_FINAL
 	dw ObsidianMinesHS ; OBSIDIAN_MINES
-	dw NoHS ; HALL_OF_FAME
+	dw HallOfFameHS ; new, HALL_OF_FAME
 	dw NoHS
 	dw ChampionsRoomHS
 	dw NoHS
@@ -890,5 +890,8 @@ ViridianGymHS:
 	db VIRIDIAN_GYM, 14, HIDE ; new, FISSURE
 Route29HS:
 	db ROUTE_29, 10, SHOW ; Slowking
+HallOfFameHS:
+	db HALL_OF_FAME, 1, SHOW ; Oak
+	db HALL_OF_FAME, 2, SHOW ; Blue
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -239,3 +239,5 @@ LanceAfterBattleText_RP:
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd
+
+; EVENT_BEAT_CHAMPION_RIVAL

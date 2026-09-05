@@ -3748,6 +3748,39 @@ SpecialTrainerMoves:
 	db 6, 4, EARTHQUAKE
 	db $FE
 
+	db PROF_OAK, 2
+	; TAUROS
+	db 1, 1, HYPER_BEAM
+	db 1, 2, BODY_SLAM
+	db 1, 3, EARTHQUAKE
+	db 1, 4, BLIZZARD
+	; EXEGGUTOR
+	db 2, 1, SLEEP_POWDER
+	db 2, 2, LEECH_SEED
+	db 2, 3, GRASSY_TERRAIN
+	db 2, 4, GIGA_DRAIN
+	; ARCANINE
+	db 3, 1, FLARE_BLITZ
+	db 3, 2, EXTREMESPEED
+	db 3, 3, OUTRAGE
+	db 3, 4, CLOSE_COMBAT
+	; RAICHU
+	db 4, 1, PETAL_DANCE
+	db 4, 2, PSYCHIC_M
+	db 4, 3, VOLT_TACKLE
+	db 4, 4, SURF
+	; ESPEON
+	db 5, 1, PSYCHIC_M
+	db 5, 2, PSYCHIC_TERRAIN
+	db 5, 3, REFLECT
+	db 5, 4, ZAP_CANNON
+	; GYARADOS
+	db 6, 1, IRON_TAIL
+	db 6, 2, HYDRO_PUMP
+	db 6, 3, HYPER_BEAM
+	db 6, 4, EARTHQUAKE
+	db $FE
+
 ; ===============================================================
 
 	db ORAGE, 2

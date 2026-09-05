@@ -116,3 +116,25 @@ _HallofFameRoomText4::
 	para "Now! <PLAYER>!"
 	line "It's your turn!"
 	done
+
+; new for RP =============================
+
+_HallofFameRoomText1_RP::
+	text "OAK: There you are"
+;	xxxx "123456789012345678"
+	done
+
+_HoFOakDefeatText::
+	text "prof.oak: I lost"
+;	xxxx "123456789012345678"
+	prompt
+
+_HoFOakWonText::
+	text "prof.oak: I won"
+;	xxxx "123456789012345678"
+	prompt
+
+_HallofFameRoomTextScript1_RP::
+	text "OAK: GG"
+;	xxxx "123456789012345678"
+	done

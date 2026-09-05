@@ -1,4 +1,4 @@
-AnimateHallOfFame:
+AnimateHallOfFame::
 	call HoFFadeOutScreenAndMusic
 	call ClearScreen
 	ld c, 100
@@ -213,22 +213,58 @@ HoFMonInfoText:
 	next "TYPE1/"
 	next "TYPE2/@"
 
-HoFLoadPlayerPics:
-;	ld de, RedPicFront
-;	ld a, BANK(RedPicFront)
-;	call UncompressSpriteFromDE
-;	ld a, $0 								; not in pokered
-;	call SwitchSRAMBankAndLatchClockData	; not in pokered
-;	ld hl, sSpriteBuffer1
-;	ld de, sSpriteBuffer0
-;	ld bc, $310
-;	call CopyData
-;	call PrepareRTCDataAndDisableSRAM 		; not in pokered
-;	ld de, vFrontPic
-;	call InterlaceMergeSpriteBuffers
-;	ld de, RedPicBack
-;	ld a, BANK(RedPicBack)
-;	call UncompressSpriteFromDE
+HoFLoadPlayerPics: ; new wrapper
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, HoFLoadPlayerPics_HP
+	; fallthrough
+
+HoFLoadPlayerPics_RP:
+	ld a, [wPlayerGender] 	; load gender
+	and a      				; check if male
+	jr z, .BoyStuff1
+	cp a, 2					; check if enby
+	jr z, .EnbyStuff1
+	ld de, GreenRocketPicFront
+	ld a, BANK(GreenRocketPicFront)
+	jr .Routine ; skip the enby and boy stuff and go to main routine1
+.EnbyStuff1
+	ld de, YellowRocketPicFront
+	ld a, BANK(YellowRocketPicFront)
+	jr .Routine ; skip the boy stuff and go to main routine1
+.BoyStuff1
+	ld de, RedRocketPicFront
+	ld a, BANK(RedRocketPicFront)
+.Routine ; resume original routine
+	call UncompressSpriteFromDE
+	ld a, $0								; these are needed in Yellow
+	call SwitchSRAMBankAndLatchClockData	; these are needed in Yellow
+	ld hl, sSpriteBuffer1
+	ld de, sSpriteBuffer0
+	ld bc, $310
+	call CopyData
+	call PrepareRTCDataAndDisableSRAM		; these are needed in Yellow
+	ld de, vFrontPic
+	call InterlaceMergeSpriteBuffers
+	ld a, [wPlayerGender]	; load gender
+	and a					; check if male
+	jr z, .BoyStuff2
+	cp a, 2					; check if enby
+	jr z, .EnbyStuff2
+	ld de, GreenRocketPicBack
+	ld a, BANK(GreenRocketPicBack)
+	jr .Routine2 ; skip the enby and boy stuff and go to the main routine2
+.EnbyStuff2
+	ld de, YellowRocketPicBack
+	ld a, BANK(YellowRocketPicBack)
+	jr .Routine2 ; skip the boy stuff and go to the main routine2
+.BoyStuff2
+	ld de, RedRocketPicBack
+	ld a, BANK(RedRocketPicBack)
+.Routine2 ; original routine
+	call UncompressSpriteFromDE ; end of new gender stuff
+	jp HoFLoadPlayerPics_Shared
+
+HoFLoadPlayerPics_HP:
 	ld a, [wPlayerGender] 	; load gender
 	and a      				; check if male
 	jr z, .BoyStuff1
@@ -272,11 +308,14 @@ HoFLoadPlayerPics:
 	ld a, BANK(RedPicBack)
 .Routine2 ; original routine
 	call UncompressSpriteFromDE ; end of new gender stuff
+	; fallthrough
 
+HoFLoadPlayerPics_Shared: ; new label
 	predef ScaleSpriteByTwo
 	ld de, vBackPic
 	call InterlaceMergeSpriteBuffers
 	ld c, $1
+	; fallthrough
 
 HoFLoadMonPlayerPicTileIDs:
 ; c = base tile ID
@@ -315,6 +354,10 @@ HoFDisplayPlayerStats:
 	ld de, wPlayerMoney
 	ld c, $a3
 	call PrintBCDNumber
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, HoFDelay
+; BTV
 	ld hl, DexSeenOwnedText
 	call HoFPrintTextAndDelay
 	ld hl, DexRatingText
@@ -323,6 +366,7 @@ HoFDisplayPlayerStats:
 
 HoFPrintTextAndDelay:
 	call PrintText
+HoFDelay: ; new for RP
 	ld c, 120
 	jp DelayFrames
 

@@ -389,6 +389,9 @@ IF DEF(_DEBUG)
 	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
+	ld a, HS_HALL_OF_FAME_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 ENDC
 	jp TextScriptEnd
 

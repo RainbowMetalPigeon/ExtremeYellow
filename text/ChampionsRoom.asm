@@ -831,3 +831,92 @@ _GaryVictoryText2ndBattle_AG_FR::
 	cont "face you again!"
 ;	xxxx "123456789012345678"
 	prompt
+
+; new for RP =============================
+
+_GaryText1_RP::
+	text "<RIVAL>: I ran out"
+	line "of anything to"
+	cont "tell you."
+
+	para "Fight."
+;	xxxx "123456789012345678"
+	done
+
+_ChampionsRoomGaryDefeatedText_RP::
+	text "I..."
+	line "Lost again..."
+	cont "To YOU..."
+;	xxxx "123456789012345678"
+	prompt
+
+_ChampionsRoomGaryVictoryText_RP::
+	text "YES!"
+	line "Yes finally, yes!"
+	cont "And now, now I"
+	cont "can cleanse the"
+	cont "world from the"
+	cont "abomination which"
+	cont "is you!"
+;	xxxx "123456789012345678"
+	prompt
+
+_GaryTextScript1_RP::
+	text "<RIVAL>: NO!"
+	line "I DO NOT accept"
+	cont "to lose AGAIN to"
+	cont "a shit like you!"
+
+	para "You decided to"
+	line "join TEAM ROCKET?"
+	cont "You turned into a"
+	cont "criminal? You"
+	cont "follow no rules?"
+	cont "Then me neither!" 
+;	xxxx "123456789012345678"
+	done
+
+_ChampionsRoomGaryDefeatedText2_RP::
+	text "ARGH!"
+	line "NO! NO! NO!!!"
+;	xxxx "123456789012345678"
+	prompt
+
+_ChampionsRoomGaryVictoryText2_RP::
+	text "Yes!"
+	line "It took me every-"
+	cont "thing and more,"
+	cont "but I did it!"
+	cont "And now I can get"
+	cont "rid of you once"
+	cont "and for all!"
+;	xxxx "123456789012345678"
+	prompt
+
+_GaryTextScript2_RP::
+	text "<RIVAL>: This..."
+	line "This is absurd!"
+	cont "I can't accept it!"
+
+	para "You betrayed me!"
+	line "Your MOM!"
+	cont "My Gramps!"
+	cont "You betrayed"
+	cont "EVERYONE!"
+
+	para "You... you are"
+	line "a monster!"
+	cont "You disgust me!"
+
+	para "My #MON may be"
+	line "K.O., but I can"
+	cont "still take you"
+	cont "down PERSONALLY!"
+;	xxxx "123456789012345678"
+	done
+
+_GaryTextScript3_RP::
+	text "AAAAAARRRGGGHHH!!"
+;	xxxx "123456789012345678"
+	done
+

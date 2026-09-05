@@ -14,7 +14,7 @@ ResetGaryScript:
 
 ChampionsRoom_ScriptPointers:
 	dw GaryScript0
-	dw GaryScript1
+	dw GaryScript1 ; it starts here because of AgatasRoom
 	dw GaryScript2
 	dw GaryScript3
 	dw GaryScript4
@@ -25,6 +25,10 @@ ChampionsRoom_ScriptPointers:
 	dw GaryScript9
 	dw GaryScript10
 	dw GaryScript2ndBattle ; 11
+	; new for RP
+	dw GaryScriptRP1 ; 12
+	dw GaryScriptRP2 ; 13
+	dw GaryScriptRP3 ; 14
 
 ; ==================================
 
@@ -33,7 +37,7 @@ GaryScript0:
 
 ; ==================================
 
-GaryScript1:
+GaryScript1: ; it starts here because of AgatasRoom
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
@@ -42,7 +46,13 @@ GaryScript1:
 	dec a
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
-	ld a, $2
+; new/edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld a,  2 ; HP
+	jr z, .changeScript
+	ld a, 12 ; RP -> GaryScriptRP1
+.changeScript
+; BTV
 	ld [wChampionsRoomCurScript], a
 	ret
 
@@ -451,6 +461,7 @@ GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 ChampionsRoom_TextPointers: ; goddess, the order is such a mess xD
 	dw GaryText1				; 1 - before/after first battle(s, including rematches)
 	dw GaryText2				; 2 - simply Oak that calls you
+	; scripts
 	dw GaryText3				; 3 - Oak compliments Rival, Rival embarassed
 	dw GaryText4				; 4 - Oak compliments Player, Rival silent
 	dw GaryText5				; 5 - Oak come with me to HoF
@@ -458,13 +469,17 @@ ChampionsRoom_TextPointers: ; goddess, the order is such a mess xD
 	dw GaryText2ndBattle_AG		; 7 - second battle, post game, asking if we want to do it
 	dw GaryText2ndBattle_AG_BGL	; 8 - second battle accepted, before gym leaders' rematches
 	dw GaryText2ndBattle_AG_AGL	; 9 - second battle accepted, after gym leaders' rematches
-	dw GaryText2ndBattle_AG_Refused	; 0a - second battle refused
-	dw GaryText6                ; 0b - long emotional conversation between Oak and Rival
-	dw GaryText7				; 0c - Oak compliments Rival and Player for having repeated their achievements
+	dw GaryText2ndBattle_AG_Refused	; 0a=10 - second battle refused
+	dw GaryText6                ; 0b=11 - long emotional conversation between Oak and Rival
+	dw GaryText7				; 0c=12 - Oak compliments Rival and Player for having repeated their achievements
 
 ChampionsRoom_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
-	dw GenericNPCText_RocketPath ; TBE
+	dw GaryText1_RP
+	dw GenericNPCText_RocketPath ; unused
+	; scripts
+	dw GaryTextScript1_RP
+	dw GaryTextScript2_RP
+	dw GaryTextScript3_RP
 
 ; ==================================
 
@@ -844,4 +859,161 @@ GaryDefeatedText2ndBattle_AG_FR:
 
 GaryVictoryText2ndBattle_AG_FR:
 	text_far _GaryVictoryText2ndBattle_AG_FR
+	text_end
+
+; new for RP ======================================================
+
+GaryScriptRP1:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; finished waiting movement
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, wOptions
+	res 7, [hl] ; Turn on battle animations to make the battle feel more epic.
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Delay3
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ChampionsRoomGaryDefeatedText_RP
+	ld de, ChampionsRoomGaryVictoryText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, OPP_RIVAL3
+	ld [wCurOpponent], a
+	ld a, 35
+	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 13
+	ld [wChampionsRoomCurScript], a
+	ret
+
+; ---------------------
+
+GaryScriptRP2:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetGaryScript
+; we won
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 3
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld hl, ChampionsRoomGaryDefeatedText2_RP
+	ld de, ChampionsRoomGaryVictoryText2_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, $2
+	ld [wTrainerNo], a
+	ld a, 1                          ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	call Delay3
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld a, OPP_RIVAL3
+	ld [wCurOpponent], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 14
+	ld [wChampionsRoomCurScript], a
+	ret
+
+; ---------------------
+
+GaryScriptRP3:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetGaryScript
+; we won
+	xor a                            ; new, to go beyond 200
+	ld [wIsTrainerBattle], a         ; new, to go beyond 200
+	SetEvent EVENT_BEAT_CHAMPION_RIVAL
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 4
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; flash, hide Blues
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+	
+	ld a, 5
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+	
+    call GBFadeOutToBlack
+	
+	call StopMusic
+
+    ld c, 80
+    call DelayFrames
+
+	ld c, BANK(SFX_Push_Boulder_1) ; SFX_Push_Boulder_1 ; SFX_Collision_1
+	ld a, SFX_PUSH_BOULDER ; SFX_PUSH_BOULDER ; SFX_COLLISION
+	call PlayMusic
+	
+	ld a, HS_CHAMPIONS_ROOM_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HALL_OF_FAME_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+
+	call UpdateSprites
+
+    ld c, 120
+    call DelayFrames
+
+    call GBFadeInFromBlack
+
+	jp ResetGaryScript
+
+; ---------------------
+
+GaryText1_RP:
+	text_far _GaryText1_RP
+	text_end
+
+ChampionsRoomGaryDefeatedText_RP:
+	text_far _ChampionsRoomGaryDefeatedText_RP
+	text_end
+
+ChampionsRoomGaryVictoryText_RP:
+	text_far _ChampionsRoomGaryVictoryText_RP
+	text_end
+
+GaryTextScript1_RP:
+	text_far _GaryTextScript1_RP
+	text_end
+
+ChampionsRoomGaryDefeatedText2_RP:
+	text_far _ChampionsRoomGaryDefeatedText2_RP
+	text_end
+
+ChampionsRoomGaryVictoryText2_RP:
+	text_far _ChampionsRoomGaryVictoryText2_RP
+	text_end
+
+GaryTextScript2_RP:
+	text_far _GaryTextScript2_RP
+	text_end
+
+GaryTextScript3_RP:
+	text_far _GaryTextScript3_RP
 	text_end

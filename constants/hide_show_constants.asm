@@ -491,3 +491,5 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_GYM_ITEM_1           ; 32
 	const HS_VIRIDIAN_GYM_ITEM_2           ; new
 	const HS_ROUTE_29_SLOWKING             ; new
+	const HS_HALL_OF_FAME_OAK              ; new
+	const HS_HALL_OF_FAME_BLUE             ; new
