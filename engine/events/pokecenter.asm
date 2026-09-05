@@ -104,7 +104,7 @@ DisplayPokemonCenterDialogue_::
 	jr z, .printText3
 	ld hl, PokemonFightingFitText_RocketPath
 	call PrintText
-	jr .postSleepBag
+	jp .postSleepBag
 .printText3
 	call PrintText
 	callfar IsStarterPikachuInOurParty
@@ -130,6 +130,10 @@ DisplayPokemonCenterDialogue_::
 	call LoadScreenTilesFromBuffer1 ; restore screen
 .done
 	ld hl, PokemonCenterFarewellText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printText4
+	ld hl, PokemonCenterFarewellText_RocketPath
+.printText4
 	call PrintText
 	call UpdateSprites
 ; new
@@ -233,4 +237,8 @@ NeedYourPokemonText_RocketPath: ; new
 
 PokemonFightingFitText_RocketPath: ; new
 	text_far _PokemonFightingFitText_RocketPath
+	text_end
+
+PokemonCenterFarewellText_RocketPath: ; new
+	text_far _PokemonCenterFarewellText_RocketPath
 	text_end

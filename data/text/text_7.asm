@@ -325,6 +325,12 @@ _PokemonCenterFarewellText::
 	line "you again!"
 	done
 
+_PokemonCenterFarewellText_RocketPath:: ; new
+	text "Please never come"
+	line "back again."
+;	xxxx "123456789012345678"
+	done
+
 _PokemonCenterSleepBagText::
 	text "It's your first"
 	line "time here, right?"

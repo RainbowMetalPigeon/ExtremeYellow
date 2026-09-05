@@ -36,7 +36,7 @@ Route22GateScriptCoords:
 	dbmapcoord  5,  2
 	db -1 ; end
 
-Route22GateScript_1e6ba:
+Route22GateScript_PushDown:
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
 	ld a, D_DOWN
@@ -61,40 +61,78 @@ Route22Gate_TextPointers:
 	dw Route22GateText1
 
 Route22Gate_TextPointers_Rocket:
-	dw Route22GateText1 ; TBE
+	dw Route22GateText1_RP
 
 Route22GateText1:
 	text_asm
 	ld a, [wObtainedBadges]
 	bit BIT_BOULDERBADGE, a
 	jr nz, .asm_1e6f6
-	ld hl, Route22GateText_1e704
+	ld hl, Route22GateText_DontHaveBoulderBadgeYet
 	call PrintText
-	call Route22GateScript_1e6ba
+	call Route22GateScript_PushDown
 	ld a, $1
 	jr .asm_1e6fe
 .asm_1e6f6
-	ld hl, Route22GateText_1e71a
+	ld hl, Route22GateText_OhItIsPass
 	call PrintText
 	ld a, $2
 .asm_1e6fe
 	ld [wRoute22GateCurScript], a
 	jp TextScriptEnd
 
-Route22GateText_1e704:
-	text_far _Route22GateText_1e704
+Route22GateText_DontHaveBoulderBadgeYet:
+	text_far _Route22GateText_DontHaveBoulderBadgeYet
 	text_asm
 	ld a, SFX_DENIED
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-	ld hl, Route22GateText_1e715
+	ld hl, Route22GateText_RulesCantPass
 	ret
 
-Route22GateText_1e715:
-	text_far _Route22GateText_1e715
+Route22GateText_RulesCantPass:
+	text_far _Route22GateText_RulesCantPass
 	text_end
 
-Route22GateText_1e71a:
-	text_far _Route22GateText_1e71a
+Route22GateText_OhItIsPass:
+	text_far _Route22GateText_OhItIsPass
+	sound_get_item_1
+	text_end
+
+; new for RP =========================
+
+Route22GateText1_RP:
+	text_asm
+	ld a, [wObtainedBadges]
+	bit BIT_BOULDERBADGE, a
+	jr nz, .asm_1e6f6
+	ld hl, Route22GateText_DontHaveBoulderBadgeYet_RP
+	call PrintText
+	call Route22GateScript_PushDown
+	ld a, $1
+	jr .asm_1e6fe
+.asm_1e6f6
+	ld hl, Route22GateText_OhItIsPass_RP
+	call PrintText
+	ld a, $2
+.asm_1e6fe
+	ld [wRoute22GateCurScript], a
+	jp TextScriptEnd
+
+Route22GateText_DontHaveBoulderBadgeYet_RP:
+	text_far _Route22GateText_DontHaveBoulderBadgeYet_RP
+	text_asm
+	ld a, SFX_DENIED
+	call PlaySoundWaitForCurrent
+	call WaitForSoundToFinish
+	ld hl, Route22GateText_RulesCantPass_RP
+	ret
+
+Route22GateText_RulesCantPass_RP:
+	text_far _Route22GateText_RulesCantPass_RP
+	text_end
+
+Route22GateText_OhItIsPass_RP:
+	text_far _Route22GateText_OhItIsPass_RP
 	sound_get_item_1
 	text_end

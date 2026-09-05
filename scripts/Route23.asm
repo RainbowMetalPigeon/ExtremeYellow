@@ -84,7 +84,7 @@ Route23Script0:
 	ld a, c
 	and a
 	ret nz
-	call Route23Script_5125d
+	call Route23Script_BadgeNameFetcher
 	call DisplayTextID
 	xor a
 	ldh [hJoyHeld], a
@@ -100,7 +100,7 @@ YCoordsData_51255:
 	db 136
 	db -1 ; end
 
-Route23Script_5125d:
+Route23Script_BadgeNameFetcher:
 	ld hl, BadgeTextPointers
 	ld a, [wWhichBadge]
 	ld c, a
@@ -149,7 +149,7 @@ ThunderBadgeText:
 CascadeBadgeText:
 	db "CASCADEBADGE@"
 
-Route23Script_512d8:
+Route23Script_PushDown:
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
 	ld a, D_DOWN
@@ -221,9 +221,15 @@ Route23Script4: ; new for Pink
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, Route23PinkDefeatedText_RP
+	ld de, Route23PinkBeatYouText_RP
+	jr nz, .print
 	ld hl, Route23PinkDefeatedText
 	ld de, Route23PinkBeatYouText
+.print
 	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES ; for RP
 ; script handling
 	ld a, 5
 	ld [wCurMapScript], a
@@ -305,56 +311,59 @@ Route23_TextPointers_Rocket:
 	dw Route23Text5
 	dw Route23Text6
 	dw Route23Text7
-	dw Route23TextPink ; TBE
+	dw Route23TextPink_RP
 	; signs
 	dw Route23Text8
 	dw Route23Text9
+	; scripts
+	dw Route23ScriptText1_RP ; 11
+	dw Route23ScriptText2_RP ; 12
 
 Route23Text1:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_EARTHBADGE_CHECK, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
 Route23Text2:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_VOLCANOBADGE_CHECK, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
 Route23Text3:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_MARSHBADGE_CHECK, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
 Route23Text4:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_SOULBADGE_CHECK, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
 Route23Text5:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_RAINBOWBADGE_CHECK, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
 Route23Text6:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_THUNDERBADGE_CHECK, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
 Route23Text7:
 	text_asm
 	EventFlagBit a, EVENT_PASSED_CASCADEBADGE_CHECK
-	call Route23Script_51346
+	call Route23Script_BadgeChecker
 	jp TextScriptEnd
 
-Route23Script_51346:
+Route23Script_BadgeChecker: ; edited for RP
 	ld [wWhichBadge], a
-	call Route23Script_5125d
+	call Route23Script_BadgeNameFetcher
 	ld a, [wWhichBadge]
 	inc a
 	ld c, a
@@ -363,15 +372,24 @@ Route23Script_51346:
 	predef FlagActionPredef
 	ld a, c
 	and a
-	jr nz, .asm_5136e
-	ld hl, VictoryRoadGuardText1
+	jr nz, .haveBadge
+; don't have the right badge
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VictoryRoadGuardText1_CannotPass_RP
+	jr nz, .print1
+	ld hl, VictoryRoadGuardText1_CannotPass
+.print1
 	call PrintText
-	call Route23Script_512d8
+	call Route23Script_PushDown
 	ld a, $1
 	ld [wCurMapScript], a ; edited
 	ret
-.asm_5136e
-	ld hl, VictoryRoadGuardText2
+.haveBadge
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VictoryRoadGuardText2_CanPass_RP
+	jr nz, .print2
+	ld hl, VictoryRoadGuardText2_CanPass
+.print2
 	call PrintText
 	ld a, [wWhichBadge]
 	ld c, a
@@ -382,22 +400,22 @@ Route23Script_51346:
 	ld [wCurMapScript], a ; edited
 	ret
 
-Route23Script_51388:
-	ld hl, VictoryRoadGuardText2
+Route23Script_CanPassPrinter: ; unused?
+	ld hl, VictoryRoadGuardText2_CanPass
 	jp PrintText
 
-VictoryRoadGuardText1:
-	text_far _VictoryRoadGuardText1
+VictoryRoadGuardText1_CannotPass:
+	text_far _VictoryRoadGuardText_YouNeedIt
 	text_asm
 	ld a, SFX_DENIED
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
 	jp TextScriptEnd
 
-VictoryRoadGuardText2:
-	text_far _VictoryRoadGuardText2
+VictoryRoadGuardText2_CanPass:
+	text_far _VictoryRoadGuardText_OhYouHaveIt
 	sound_get_item_1
-	text_far _VictoryRoadGuardText_513a3
+	text_far _VictoryRoadGuardText_CanPass
 	text_end
 
 Route23Text8:
@@ -428,4 +446,40 @@ Route23PinkBeatYouText:
 
 Route23ScriptText2:
 	text_far _Route23ScriptText2
+	text_end
+
+; new for RP ======================================
+
+VictoryRoadGuardText1_CannotPass_RP:
+	text_far _VictoryRoadGuardText_YouNeedIt_RP
+	text_asm
+	ld a, SFX_DENIED
+	call PlaySoundWaitForCurrent
+	call WaitForSoundToFinish
+	jp TextScriptEnd
+
+VictoryRoadGuardText2_CanPass_RP:
+	text_far _VictoryRoadGuardText_OhYouHaveIt_RP
+	sound_get_item_1
+	text_far _VictoryRoadGuardText_CanPass_RP
+	text_end
+
+Route23TextPink_RP:
+	text_far _Route23TextPink_RP
+	text_end
+
+Route23ScriptText1_RP:
+	text_far _Route23ScriptText1_RP
+	text_end
+
+Route23PinkDefeatedText_RP:
+	text_far _Route23PinkDefeatedText_RP
+	text_end
+
+Route23PinkBeatYouText_RP:
+	text_far _Route23PinkBeatYouText_RP
+	text_end
+
+Route23ScriptText2_RP:
+	text_far _Route23ScriptText2_RP
 	text_end

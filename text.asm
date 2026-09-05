@@ -124,7 +124,6 @@ INCLUDE "text/CeladonMart5F.asm"
 INCLUDE "text/GameCornerPrizeRoom.asm"
 INCLUDE "text/CeladonChiefHouse.asm"
 INCLUDE "text/CeladonHotel.asm"
-INCLUDE "text/FuchsiaMart.asm"
 INCLUDE "text/FuchsiaPokecenter.asm"
 INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
@@ -296,7 +295,6 @@ INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
-INCLUDE "text/BikeShop.asm"
 INCLUDE "text/Route23.asm"
 
 
@@ -316,6 +314,8 @@ INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
+INCLUDE "text/BikeShop.asm"
+INCLUDE "text/FuchsiaMart.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new
