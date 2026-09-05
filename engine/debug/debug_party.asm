@@ -16,9 +16,9 @@ DebugTeam:
 	db MEWTWO, 96 ; 255
 	db MALAKAZAM, 99
 	db STARTER_PIKACHU, 1
-	db ARTICUNO, 100
-	db ZAPDOS, 42
-	db MOLTRES, 68
+;	db ARTICUNO, 100
+;	db ZAPDOS, 42
+;	db MOLTRES, 68
 	db -1 ; end
 
 DebugStart:
@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
-	ld a, %01111111
+;	ld a, %01111111
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam

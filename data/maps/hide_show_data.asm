@@ -44,7 +44,7 @@ MapHSPointers:
 	dw NoHS ; new, Route26
 	dw Route27HS ; new, Route27
 	dw Route28HS ; new, Route28
-	dw NoHS ; new, ROUTE_29
+	dw Route29HS ; new, ROUTE_29
 	dw Route30HS ; new, ROUTE_30
 	dw NoHS ; ELECTRIC_RAVINE ; new ; TBE
 	dw LakeOfMistHS ; LAKE_OF_MIST ; new
@@ -888,5 +888,7 @@ ViridianGymHS:
 	db VIRIDIAN_GYM, 12, HIDE ; new, gym challenger
 	db VIRIDIAN_GYM, 13, SHOW ; REVIVE
 	db VIRIDIAN_GYM, 14, HIDE ; new, FISSURE
+Route29HS:
+	db ROUTE_29, 10, SHOW ; Slowking
 
 	db $FF, $01, SHOW ; end, list terminator

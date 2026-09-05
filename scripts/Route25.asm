@@ -240,6 +240,11 @@ Route25_TextPointers_Rocket:
 	dw Route25TextLockedAndAbandoned2 ; 17
 	dw Route25TextLockedAndAbandoned3 ; 18
 	dw Route25TextLockedAndAbandoned4 ; 19
+	; scripts
+	dw Route25TextCompleted666Steps ; 20 TBE
+	dw Route25TextToHauntedHouseMessage1 ; 21 TBE
+	dw Route25TextToHauntedHouseMessage2 ; 22 TBE
+	dw Route25TextToHauntedHouseMessage3 ; 23 TBE
 
 Route25TrainerHeaders:
 	def_trainers

@@ -829,7 +829,7 @@ VermilionCityText7_RP:
 	ld hl, VermilionCityText7_RP_OhNoSquirtle
 	call PrintText
 	call TryToGiveSquirtle
-	ret nc
+	jp nc, TextScriptEnd
 	SetEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 	ld hl, VermilionCityText7_RP_DamnYou
 .printAndEnd

@@ -175,9 +175,6 @@ INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/ViridianCity.asm"
-INCLUDE "text/CeladonMartRoof.asm"
-INCLUDE "text/SaffronMart.asm"
-INCLUDE "text/PokemonMansion1F.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -223,7 +220,6 @@ INCLUDE "text/WardensHouse.asm" ; moved from Text 7
 INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/BattleFacility.asm" ; new
-INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/VermilionDock.asm"
 
 
@@ -316,6 +312,10 @@ INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
 INCLUDE "text/BikeShop.asm"
 INCLUDE "text/FuchsiaMart.asm"
+INCLUDE "text/BrunosRoom.asm"
+INCLUDE "text/CeladonMartRoof.asm"
+INCLUDE "text/SaffronMart.asm"
+INCLUDE "text/PokemonMansion1F.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new

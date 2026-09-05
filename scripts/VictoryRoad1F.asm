@@ -76,74 +76,313 @@ VictoryRoad1TrainerHeader3: ; pseudo-BLUE
 	trainer EVENT_BEAT_VICTORY_ROAD_1_TRAINER_3, 1, VictoryRoad1BattleText4, VictoryRoad1EndBattleText4, VictoryRoad1AfterBattleText4
 	db -1 ; end
 
+; -------------------------------
+
 VictoryRoad1Text1:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, VictoryRoad1TrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
 
+; ---
+
+VictoryRoad1BattleText1:
+	text_asm
+	ld hl, VictoryRoad1BattleText1_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 1
+	ld hl, VictoryRoad1BattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1BattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1BattleText1_HP:
+	text_far _VictoryRoad1BattleText1_HP
+	text_end
+
+VictoryRoad1BattleText_RP_YesUs:
+	text_far _VictoryRoad1BattleText_RP_YesUs
+	text_end
+
+VictoryRoad1BattleText_RP_NotUs:
+	text_far _VictoryRoad1BattleText_RP_NotUs
+	text_end
+
+; ---
+
+VictoryRoad1EndBattleText1:
+	text_asm
+	ld hl, VictoryRoad1EndBattleText1_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 1
+	ld hl, VictoryRoad1EndBattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1EndBattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1EndBattleText1_HP:
+	text_far _VictoryRoad1EndBattleText1_HP
+	text_end
+
+VictoryRoad1EndBattleText_RP_YesUs:
+	text_far _VictoryRoad1EndBattleText_RP_YesUs
+	text_end
+
+VictoryRoad1EndBattleText_RP_NotUs:
+	text_far _VictoryRoad1EndBattleText_RP_NotUs
+	text_end
+
+; ---
+
+VictoryRoad1AfterBattleText1:
+	text_asm
+	ld hl, VictoryRoad1AfterBattleText1_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 1
+	ld hl, VictoryRoad1AfterBattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1AfterBattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1AfterBattleText1_HP:
+	text_far _VictoryRoad1AfterBattleText1_HP
+	text_end
+
+VictoryRoad1AfterBattleText_RP_YesUs:
+	text_far _VictoryRoad1AfterBattleText_RP_YesUs
+	text_end
+
+VictoryRoad1AfterBattleText_RP_NotUs:
+	text_far _VictoryRoad1AfterBattleText_RP_NotUs
+	text_end
+
+; -------------------------------
+
 VictoryRoad1Text2:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, VictoryRoad1TrainerHeader1
 	call TalkToTrainer
 	jp TextScriptEnd
 
+; ---
+
+VictoryRoad1BattleText2:
+	text_asm
+	ld hl, VictoryRoad1BattleText2_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 0
+	ld hl, VictoryRoad1BattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1BattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1BattleText2_HP:
+	text_far _VictoryRoad1BattleText2_HP
+	text_end
+
+; ---
+
+VictoryRoad1EndBattleText2:
+	text_asm
+	ld hl, VictoryRoad1EndBattleText2_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 0
+	ld hl, VictoryRoad1EndBattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1EndBattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1EndBattleText2_HP:
+	text_far _VictoryRoad1EndBattleText2_HP
+	text_end
+
+; ---
+
+VictoryRoad1AfterBattleText2:
+	text_asm
+	ld hl, VictoryRoad1AfterBattleText2_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 0
+	ld hl, VictoryRoad1AfterBattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1AfterBattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1AfterBattleText2_HP:
+	text_far _VictoryRoad1AfterBattleText2_HP
+	text_end
+
+; -------------------------------
+
 VictoryRoad1Text3:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, VictoryRoad1TrainerHeader2
 	call TalkToTrainer
 	jp TextScriptEnd
 
+; ---
+
+VictoryRoad1BattleText3:
+	text_asm
+	ld hl, VictoryRoad1BattleText3_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 2
+	ld hl, VictoryRoad1BattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1BattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1BattleText3_HP:
+	text_far _VictoryRoad1BattleText3_HP
+	text_end
+
+; ---
+
+VictoryRoad1EndBattleText3:
+	text_asm
+	ld hl, VictoryRoad1EndBattleText3_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 2
+	ld hl, VictoryRoad1EndBattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1EndBattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1EndBattleText3_HP:
+	text_far _VictoryRoad1EndBattleText3_HP
+	text_end
+
+; ---
+
+VictoryRoad1AfterBattleText3:
+	text_asm
+	ld hl, VictoryRoad1AfterBattleText3_HP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd
+; RP, check if it's our alter ego
+	ld a, [wPlayerGender] ; 0=Red, 1=Green, 2=Yellow
+	cp 2
+	ld hl, VictoryRoad1AfterBattleText_RP_YesUs
+	jr z, .printAndEnd
+	ld hl, VictoryRoad1AfterBattleText_RP_NotUs
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1AfterBattleText3_HP:
+	text_far _VictoryRoad1AfterBattleText3_HP
+	text_end
+
+; -------------------------------
+
 VictoryRoad1Text4:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, VictoryRoad1TrainerHeader3
 	call TalkToTrainer
 	jp TextScriptEnd
 
-VictoryRoad1BattleText1:
-	text_far _VictoryRoad1BattleText1
-	text_end
-
-VictoryRoad1EndBattleText1:
-	text_far _VictoryRoad1EndBattleText1
-	text_end
-
-VictoryRoad1AfterBattleText1:
-	text_far _VictoryRoad1AfterBattleText1
-	text_end
-
-VictoryRoad1BattleText2:
-	text_far _VictoryRoad1BattleText2
-	text_end
-
-VictoryRoad1EndBattleText2:
-	text_far _VictoryRoad1EndBattleText2
-	text_end
-
-VictoryRoad1AfterBattleText2:
-	text_far _VictoryRoad1AfterBattleText2
-	text_end
-
-VictoryRoad1BattleText3:
-	text_far _VictoryRoad1BattleText3
-	text_end
-
-VictoryRoad1EndBattleText3:
-	text_far _VictoryRoad1EndBattleText3
-	text_end
-
-VictoryRoad1AfterBattleText3:
-	text_far _VictoryRoad1AfterBattleText3
-	text_end
+; ---
 
 VictoryRoad1BattleText4:
-	text_far _VictoryRoad1BattleText4
+	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VictoryRoad1BattleText4_RP
+	jr nz, .printAndEnd
+	ld hl, VictoryRoad1BattleText4_HP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1BattleText4_HP:
+	text_far _VictoryRoad1BattleText4_HP
 	text_end
+
+VictoryRoad1BattleText4_RP:
+	text_far _VictoryRoad1BattleText4_RP
+	text_end
+
+; ---
 
 VictoryRoad1EndBattleText4:
-	text_far _VictoryRoad1EndBattleText4
+	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VictoryRoad1EndBattleText4_RP
+	jr nz, .printAndEnd
+	ld hl, VictoryRoad1EndBattleText4_HP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1EndBattleText4_HP:
+	text_far _VictoryRoad1EndBattleText4_HP
 	text_end
 
-VictoryRoad1AfterBattleText4:
-	text_far _VictoryRoad1AfterBattleText4
+VictoryRoad1EndBattleText4_RP:
+	text_far _VictoryRoad1EndBattleText4_RP
 	text_end
+
+; ---
+
+VictoryRoad1AfterBattleText4:
+	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VictoryRoad1AfterBattleText4_RP
+	jr nz, .printAndEnd
+	ld hl, VictoryRoad1AfterBattleText4_HP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VictoryRoad1AfterBattleText4_HP:
+	text_far _VictoryRoad1AfterBattleText4_HP
+	text_end
+
+VictoryRoad1AfterBattleText4_RP:
+	text_far _VictoryRoad1AfterBattleText4_RP
+	text_end
+
+; -------------------------------

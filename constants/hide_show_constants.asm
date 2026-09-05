@@ -490,3 +490,4 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_GYM_CHALLENGER       ; new
 	const HS_VIRIDIAN_GYM_ITEM_1           ; 32
 	const HS_VIRIDIAN_GYM_ITEM_2           ; new
+	const HS_ROUTE_29_SLOWKING             ; new

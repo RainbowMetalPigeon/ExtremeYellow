@@ -492,3 +492,25 @@ _Route29TextOrbsVanish2::
     cont "got channeled in"
     cont "three locations!"
     done
+
+; new for RP =========================
+
+_Route29TextSlowking_RP_Core::
+    text "SLOWKING: ..."
+    line "You, young one,"
+    cont "are clearly unfit"
+    cont "to fulfill the"
+    cont "fated legend."
+
+    para "You should desist"
+    line "and instead"
+    cont "reconsider the"
+    cont "turns of your"
+    cont "life that led you"
+    cont "walk down the"
+    cont "path of evi-"
+
+    para "HEY! What are you"
+    line "doing?! No! Stop!"
+;	xxxx "123456789012345678"
+	prompt

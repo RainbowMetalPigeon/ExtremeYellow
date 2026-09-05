@@ -96,7 +96,7 @@ Route29_TextPointers_Rocket:
 	dw Route29Text8                ; 8
 	dw Route29Text9                ; 9
 	; non-trainers
-	dw Route29TextSlowking         ; 10 TBE
+	dw Route29TextSlowking_RP      ; 10
 	; signs
 	dw Route29TextIceOrbRecess     ; 11
 	dw Route29TextThunderOrbRecess ; 12
@@ -616,4 +616,23 @@ Route29TextOrbsVanish1:
 
 Route29TextOrbsVanish2:
 	text_far _Route29TextOrbsVanish2
+	text_end
+
+; new for RP =============================
+
+Route29TextSlowking_RP:
+	text_asm
+	ld hl, Route29TextSlowking_RP_Core
+	call PrintText
+	ld c, 35
+	ld b, SLOWKING
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_ROUTE_29_SLOWKING
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+Route29TextSlowking_RP_Core:
+	text_far _Route29TextSlowking_RP_Core
 	text_end
