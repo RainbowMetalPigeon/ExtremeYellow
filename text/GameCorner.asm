@@ -205,7 +205,23 @@ _CeladonGameCornerText_SwitchBehindPoster::
 
 ; new for RP ------------------------------
 
-_CeladonGameCornerText1_RP::
+_CeladonGameCornerText1_RP_Pre::
+	text "Greetings, master."
+	line "As you are surely"
+	cont "aware, the BOSS"
+	cont "ordered that even"
+	cont "members need to"
+	cont "pay for prizes"
+	cont "and coins."
+
+	para "I see this is your"
+	line "first time here!"
+	cont "Allow me to offer"
+	cont "you a COIN CASE."
+;	xxxx "123456789012345678"
+	prompt
+
+_CeladonGameCornerText1_RP_Post::
 	text "Greetings, master."
 	line "As you are surely"
 	cont "aware, the BOSS"

@@ -106,7 +106,7 @@ _Route22RivalDefeatedText2::
 	cont "anymore..."
 	prompt
 
-_Route22Text_511d0::
+_Route22RivalWonText2::
 	text "Hahaha!"
 
 	para "Yes, yes! Weep and"
@@ -247,3 +247,35 @@ _Route22RandomizedPokemonGiverText_ComeBackWhenReady::
 	cont "If you'll ever be."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_Route22Text2_RP_Before::
+	text "<RIVAL>: before"
+;	xxxx "123456789012345678"
+	done
+
+_Route22Text2_RP_After::
+	text "<RIVAL>: after"
+;	xxxx "123456789012345678"
+	done
+
+_Route22RandomizedPokemonGiverText_RP::
+	text "You are absolutely"
+	line "disgusting."
+
+	para "There's no way"
+	line "in hell that I'll"
+	cont "lend you my power."
+;	xxxx "123456789012345678"
+	done
+
+_Route22RivalDefeatedText2_RP::
+	text "1234567: I lost"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route22RivalWonText2_RP::
+	text "1234567: I won"
+;	xxxx "123456789012345678"
+	prompt

@@ -15,7 +15,7 @@ Route22_ScriptPointers:
 	dw Route22Script6
 	dw Route22Script7
 
-Route22Script_50ece:
+Route22ResetScripts:
 Route22Script7:
 	xor a
 	ld [wJoyIgnore], a
@@ -32,7 +32,7 @@ Route22Script_50ed6:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ret
 
-Route22Script_50ee1:
+Route22Script_SetUpSecondRivalBattle:
 	ld a, OPP_RIVAL2
 	ld [wCurOpponent], a
 	ld a, $4				; edited
@@ -77,7 +77,7 @@ Route22Script0:
 	CheckEvent EVENT_1ST_ROUTE22_RIVAL_BATTLE
 	jr nz, .firstRivalBattle
 	CheckEventReuseA EVENT_2ND_ROUTE22_RIVAL_BATTLE ; is this the rival at the end of the game?
-	jp nz, Route22Script_5104e
+	jp nz, Route22Script_SecondRivalEncounter
 	ret
 
 .Route22RivalBattleCoords
@@ -151,7 +151,8 @@ Route22Text_511bc:
 Route22Script2:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, Route22Script_50ece
+	jp z, Route22ResetScripts
+; we won
 	xor a							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ld a, [wSpritePlayerStateData1FacingDirection]
@@ -235,7 +236,7 @@ Route22Script3:
 	ld [wCurMapScript], a
 	ret
 
-Route22Script_5104e:
+Route22Script_SecondRivalEncounter:
 	ld a, $2
 	ld [wEmotionBubbleSpriteIndex], a
 	xor a ; EXCLAMATION_BUBBLE
@@ -283,10 +284,18 @@ Route22Script4:
 	ld hl, wd72d
 	set 6, [hl]
 	set 7, [hl]
+; new/edited for RP
+	CheckEvent EVENT_ROCKET_PATH
 	ld hl, Route22RivalDefeatedText2
-	ld de, Route22Text_511d0
+	ld de, Route22RivalWonText2
+	jr z, .notRP
+	ld hl, Route22RivalDefeatedText2_RP
+	ld de, Route22RivalWonText2_RP
+.notRP
 	call SaveEndBattleTextPointers
-	call Route22Script_50ee1
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; BTV
+	call Route22Script_SetUpSecondRivalBattle
 	ld a, $5
 	ld [wCurMapScript], a
 	ret
@@ -295,14 +304,15 @@ Route22RivalDefeatedText2:
 	text_far _Route22RivalDefeatedText2
 	text_end
 
-Route22Text_511d0:
-	text_far _Route22Text_511d0
+Route22RivalWonText2:
+	text_far _Route22RivalWonText2
 	text_end
 
 Route22Script5:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, Route22Script_50ece
+	jp z, Route22ResetScripts
+; we won
 	xor a								; new, to go beyond 200
 	ld [wIsTrainerBattle], a			; new, to go beyond 200
 	ld a, $2
@@ -325,9 +335,12 @@ Route22Script5:
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
 ; new
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .dontShowTurist
 	ld a, HS_LUNAR_SHRINE_TOURIST_1
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
+.dontShowTurist
 ; back to vanilla
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
@@ -391,11 +404,11 @@ Route22_TextPointers:
 	dw Route22FrontGateText
 
 Route22_TextPointers_Rocket:
-	dw Route22Text1 ; Blue TBE
-	dw Route22Text2 ; Blue TBE
-	dw Route22CoinCaseMeowthText ; Coin-Case Meowth TBE
+	dw Route22Text1 ; Blue unused
+	dw Route22Text2_RP ; Blue
+	dw Route22CoinCaseMeowthText ; Coin-Case Meowth, unused
 	dw PickUpItemText
-	dw Route22RandomizedPokemonGiverText ; TBE
+	dw Route22RandomizedPokemonGiverText_RP
 	; signs
 	dw Route22FrontGateText
 
@@ -843,3 +856,35 @@ ARCEUS
 
 MISSINGNO
 */
+
+; new for RP ===============================
+
+Route22Text2_RP:
+	text_asm
+	CheckEvent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
+	ld hl, Route22Text2_RP_After
+	jr nz, .printAndEnd
+	ld hl, Route22Text2_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Route22Text2_RP_Before:
+	text_far _Route22Text2_RP_Before
+	text_end
+
+Route22Text2_RP_After:
+	text_far _Route22Text2_RP_After
+	text_end
+
+Route22RandomizedPokemonGiverText_RP:
+	text_far _Route22RandomizedPokemonGiverText_RP
+	text_end
+
+Route22RivalDefeatedText2_RP:
+	text_far _Route22RivalDefeatedText2_RP
+	text_end
+
+Route22RivalWonText2_RP:
+	text_far _Route22RivalWonText2_RP
+	text_end

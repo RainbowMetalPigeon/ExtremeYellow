@@ -272,7 +272,6 @@ INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route21.asm"
-INCLUDE "text/VermilionPidgeyHouse.asm"
 
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,6 +315,7 @@ INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
+INCLUDE "text/VermilionPidgeyHouse.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new

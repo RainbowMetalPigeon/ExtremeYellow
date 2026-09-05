@@ -142,6 +142,10 @@ SeviiFourIslandCityScript2:
 	ld a, HS_SEVII_FOUR_ISLAND_CITY_POST_LEAGUE_PINK
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
+; also spawn another tourist
+	ld a, HS_LUNAR_SHRINE_TOURIST_4
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 ; reset scripts
 	; fallthrough
 SeviiFourIslandCityResetScripts:

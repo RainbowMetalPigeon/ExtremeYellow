@@ -96,7 +96,7 @@ ROMX $11
 	                 ; basically, everything with holes
 ROMX $12
 	"Maps 7"
-	"Maps 8"
+;	"Maps 8" ; edited, unlinked
 ROMX $13
 	"Pics 6"
 ;	"Maps 9" ; try to disentangle from Pics 6?

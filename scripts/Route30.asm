@@ -11,7 +11,7 @@ Route30_TextPointers:
 
 Route30_TextPointers_Rocket:
 	dw BoulderText
-	dw Route30CoinCaseMeowthText ; TBE
+	dw Route30CoinCaseMeowthText ; unused
 	; signs
 	dw Route30SignText1
 

@@ -675,7 +675,30 @@ CeladonGameCornerText11_RP:
 	jp TextScriptEnd
 
 CeladonGameCornerText1_RP:
-	text_far _CeladonGameCornerText1_RP
+	text_asm
+	CheckEvent EVENT_GOT_COIN_CASE
+	ld hl, CeladonGameCornerText1_RP_Post
+	jr nz, .printAndEnd
+; first time
+	SetEvent EVENT_GOT_COIN_CASE
+	ld hl, CeladonGameCornerText1_RP_Pre
+	call PrintText
+	ld hl, ReceivedCoinCaseText2
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CeladonGameCornerText1_RP_Pre:
+	text_far _CeladonGameCornerText1_RP_Pre
+	text_end
+
+CeladonGameCornerText1_RP_Post:
+	text_far _CeladonGameCornerText1_RP_Post
+	text_end
+
+ReceivedCoinCaseText2:
+	text_far _ReceivedCoinCaseText
+	sound_get_key_item
 	text_end
 
 OpenSecretDoor:

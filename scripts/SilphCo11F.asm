@@ -994,6 +994,8 @@ SilphCo11TextGiovanni_RP: ; TBE
 ; give the birbs to Giovanni
 	ld hl, SilphCo11TextGiovanni_RP_GimmeTheBirbs
 	call PrintText
+	xor a
+	ld [wRemoveMonFromBox], a
 	ld d, ARTICUNO
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call RemovePokemon
