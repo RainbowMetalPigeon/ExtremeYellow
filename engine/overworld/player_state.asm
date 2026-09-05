@@ -79,14 +79,20 @@ CheckForceBikeOrSurfOrDive:: ; edited
 	ld a, $2
 	ld [wSeafoamIslandsB4FCurScript], a
 	jr z, .forceSurfing
-	;force bike riding
+; force bike riding
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .nonRP
+	SetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD
+	ret
+.nonRP
+; BTV
 	ld hl, wd732
 	set 5, [hl]
 	ld a, $1
 	ld [wWalkBikeSurfState], a
 	ld [wWalkBikeSurfStateCopy], a
-	call ForceBikeOrSurf
-	ret
+	jp ForceBikeOrSurf
 .incorrectMap
 	inc hl
 .incorrectY
@@ -96,8 +102,7 @@ CheckForceBikeOrSurfOrDive:: ; edited
 	ld a, $2
 	ld [wWalkBikeSurfState], a
 	ld [wWalkBikeSurfStateCopy], a
-	call ForceBikeOrSurf
-	ret
+	jp ForceBikeOrSurf
 
 INCLUDE "data/maps/force_bike_surf.asm"
 

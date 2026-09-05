@@ -27,6 +27,10 @@ IsSurfingAllowed:
 	ld a, [wd732]
 	bit 5, a
 	jr nz, .forcedToRideBike
+; new for RP
+	CheckEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD
+	jr nz, .forcedToRideBike2
+; BTV
 	CheckEvent EVENT_IN_SEVII ; new
 	ret nz ; new
 	ld a, [wCurMap]
@@ -46,6 +50,11 @@ IsSurfingAllowed:
 	res 1, [hl]
 	ld hl, CyclingIsFunText
 	jp PrintText
+.forcedToRideBike2
+	ld hl, wd728
+	res 1, [hl]
+	ld hl, CantSurfHereText
+	jp PrintText
 
 SeafoamIslandsB4FStairsCoords:
 	dbmapcoord  7, 11
@@ -57,6 +66,10 @@ CurrentTooFastText:
 
 CyclingIsFunText:
 	text_far _CyclingIsFunText
+	text_end
+
+CantSurfHereText: ; new for RP
+	text_far _CantSurfHereText
 	text_end
 
 ; new ===============================================

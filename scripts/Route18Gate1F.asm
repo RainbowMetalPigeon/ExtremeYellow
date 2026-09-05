@@ -2,6 +2,7 @@ Route18Gate1F_Script:
 	RPTextChooser Route18Gate1F_TextPointers, Route18Gate1F_TextPointers_Rocket
 	ld hl, wd732
 	res 5, [hl]
+	ResetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD ; new for RP
 	call EnableAutoTextBoxDrawing
 	ld a, [wCurMapScript] ; edited
 	ld hl, Route18Gate1F_ScriptPointers
@@ -14,6 +15,8 @@ Route18Gate1F_ScriptPointers:
 	dw Route18GateScript3
 
 Route18GateScript0:
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	ret nz ; new for RP
 	call Route16GateScript_CheckIfHaveBike
 	ret nz
 	ld hl, CoordsData_498cc
@@ -94,7 +97,7 @@ Route18Gate1F_TextPointers:
 	dw Route18GateText2
 
 Route18Gate1F_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath
+	dw Route18GateText1_RP
 	; 2F
 	dw GenericNPCText_RocketPath
 	; signs
@@ -151,4 +154,10 @@ Route18GateUpstairsText3:
 
 Route18GateUpstairsText_4999f:
 	text_far _Route18GateUpstairsText_4999f
+	text_end
+
+; new for RP =========================
+
+Route18GateText1_RP:
+	text_far _Route18And16GateText1_RP
 	text_end

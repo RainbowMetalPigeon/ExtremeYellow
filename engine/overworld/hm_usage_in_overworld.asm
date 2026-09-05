@@ -625,6 +625,10 @@ IsSurfingAllowed2:
 	ld a, [wd732]
 	bit 5, a
 	jr nz, .forcedToRideBike
+; new for RP
+	CheckEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD
+	jr nz, .forcedToRideBike2
+; BTV
 	CheckEvent EVENT_IN_SEVII ; new
 	ret nz ; new
 	ld a, [wCurMap]
@@ -642,6 +646,10 @@ IsSurfingAllowed2:
 	ld hl, wd728
 	res 1, [hl]
 	tx_pre_jump CyclingIsFunText2
+.forcedToRideBike2
+	ld hl, wd728
+	res 1, [hl]
+	tx_pre_jump CantSurfHereText2
 
 SeafoamIslandsB4FStairsCoords2:
 	dbmapcoord  7, 11
@@ -663,6 +671,14 @@ CyclingIsFunText2::
 _CyclingIsFunText2::
 	text "Cycling is fun!"
 	line "Forget SURFing!"
+	done
+
+CantSurfHereText2:: ; for RP
+	text_far _CantSurfHereText2
+	text_end
+
+_CantSurfHereText2:: ; for RP
+	text "Can't SURF here!"
 	done
 
 ; --------------------------------------------

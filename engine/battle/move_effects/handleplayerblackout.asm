@@ -84,6 +84,7 @@ _HandlePlayerBlackOut:
 	ld a, [wd732]
 	res 5, a
 	ld [wd732], a
+	ResetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD ; new for RP
 	call ClearScreen
 	scf ; useless?
 	ret

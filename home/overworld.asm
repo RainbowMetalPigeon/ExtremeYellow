@@ -834,6 +834,7 @@ HandleFlyWarpOrDungeonWarp::
 	ld hl, wd732
 	set 2, [hl] ; fly warp or dungeon warp
 	res 5, [hl] ; forced to ride bike
+	ResetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD ; new for RP
 	call LeaveMapAnim
 	call Func_07c4
 	ld a, BANK(SpecialWarpIn)

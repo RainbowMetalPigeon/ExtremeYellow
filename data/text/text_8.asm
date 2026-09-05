@@ -112,6 +112,10 @@ _CyclingIsFunText::
 	line "Forget SURFing!"
 	prompt
 
+_CantSurfHereText:: ; for RP
+	text "Can't SURF here!"
+	prompt
+
 _GotMonText::
 	text "<PLAYER> got"
 	line "@"
