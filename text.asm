@@ -153,7 +153,6 @@ INCLUDE "text/SaffronPidgeyHouse.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
-INCLUDE "text/FuchsiaGoodRodHouse.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,6 +315,7 @@ SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that beca
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/RedsHouse1F.asm"
+INCLUDE "text/FuchsiaGoodRodHouse.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new

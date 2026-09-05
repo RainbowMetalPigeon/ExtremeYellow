@@ -342,5 +342,86 @@ _SilphCo11TextGiovanni_RP_ComeBackWhenHaveBadges::
 
 _SilphCo11TextGiovanni_RP_BroughtAllBadges::
 	text "you brought all 7"
+	line "now the birbs"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_NotAllBirbs::
+	text "not all birbs"
 ;	xxxx "123456789012345678"
 	done
+
+_SilphCo11TextGiovanni_RP_GoBecomeChampion::
+	text "go become champ"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_DidYouBringGene::
+	text "did you bring gene"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_NoGene::
+	text "no gene"
+	line "go get it"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_PlayerGivesGene::
+	text "<PLAYER> gives"
+	line "the BERSERK GENE"
+	cont "to GIOVANNI!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_MewtwoIsThereGoChampion::
+	text "hahaha mewtwo da"
+	line "go become champ!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_GotEarthBadge::
+	text "<PLAYER> receives"
+	line "the EARTH BADGE!@"
+;	xxxx "123456789012345678"
+	text_end
+
+_SilphCo11TextGiovanni_RP_NowGoBecomeChampion::
+	text "with this you can"
+	line "reach league"
+	cont "go become champ"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_FujiToldUs::
+	text "fuji told us"
+	line "radar, bio remnant"
+	cont "go get BERSERK"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_PlayerGivesBirbs::
+	text "<PLAYER> gives"
+	line "ARTICUNO, ZAPDOS"
+	cont "and MOLTRES to"
+	cont "GIOVANNI!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_GimmeTheBirbs::
+	text "now gimme the"
+	line "birbs"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_GetAnotherMon::
+	text "get 1 more mon"
+	line "can't be without"
+	cont "weapons at any t."
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_YesAllBirbs::
+	text "you caught 'em all"
+;	xxxx "123456789012345678"
+	prompt

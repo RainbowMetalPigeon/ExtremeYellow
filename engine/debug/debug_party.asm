@@ -16,9 +16,9 @@ DebugTeam:
 	db MEWTWO, 96 ; 255
 	db MALAKAZAM, 99
 	db STARTER_PIKACHU, 1
-;	db CHARMELEON, 100
-;	db BULBASAUR, 42
-;	db JOLTEON, 68
+	db ARTICUNO, 100
+	db ZAPDOS, 42
+	db MOLTRES, 68
 	db -1 ; end
 
 DebugStart:
@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
-;	ld a, %01111111
+	ld a, %01111111
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
@@ -430,7 +430,7 @@ DebugItemsList:
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
 	db S_S_TICKET, 1
-	db PP_UP, 7
+	db BERSERK_GENE, 7
 	db SILPH_SCOPE, 1
 	db SEVII_TICKET, 1
 	db BICYCLE, 1

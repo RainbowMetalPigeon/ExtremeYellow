@@ -1303,6 +1303,8 @@
 	const EVENT_RP_BEAT_ARCHEOLOGIST_GRANKID_MUSEUM ; new
 	const EVENT_RP_RIPPED_DADS_PHOTO ; new
 	const EVENT_RP_CANT_SURF_ON_CYCLING_ROAD ; new
+	const EVENT_RP_GAVE_BIRBS_TO_GIOVANNI ; new
+	const EVENT_RP_GAVE_BERSERK_GENE ; new
 
 ; Indigo Plateau events
 	const_next $8E0

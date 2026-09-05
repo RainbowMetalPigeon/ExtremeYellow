@@ -753,7 +753,7 @@ SilphCo11TextBadgeMachine:
 	call RemovePokemon
 	ld a, [wUniQuizAnswer]
 	ld c, a
-	ld b, MAGIKARP
+	ld b, THU_FI_ZER
 	call GivePokemon
 	jr .done
 
@@ -899,6 +899,11 @@ SilphCo11Text2_RP:
 
 SilphCo11TextGiovanni_RP: ; TBE
 	text_asm
+	CheckEvent EVENT_RP_GAVE_BERSERK_GENE
+	ld hl, SilphCo11TextGiovanni_RP_GoBecomeChampion
+	jp nz, .printAndEnd
+	CheckEvent EVENT_RP_GAVE_BIRBS_TO_GIOVANNI
+	jr nz, .checkBerserkGene
 	CheckEvent EVENT_GOT_HM03
 	jr nz, .checkBadges
 ; not gotten Surf yet
@@ -929,6 +934,31 @@ SilphCo11TextGiovanni_RP: ; TBE
 	ld hl, SilphCo11TextGiovanni_RP_Poaching
 	jp .printAndEnd
 
+; check if we brought the BERSERK_GENE to Giovanni
+.checkBerserkGene
+	ld hl, SilphCo11TextGiovanni_RP_DidYouBringGene
+	call PrintText
+	ld b, BERSERK_GENE
+	call IsItemInBag
+	ld hl, SilphCo11TextGiovanni_RP_NoGene
+	jp z, .printAndEnd
+; we have the Gene, give it to Giovanni
+	ld a, BERSERK_GENE
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_RP_GAVE_BERSERK_GENE
+	ld hl, SilphCo11TextGiovanni_RP_PlayerGivesGene
+	call PrintText
+	ld hl, SilphCo11TextGiovanni_RP_MewtwoIsThereGoChampion
+	call PrintText
+; obtain badge
+	ld hl, wObtainedBadges
+	set BIT_EARTHBADGE, [hl]
+	ld hl, SilphCo11TextGiovanni_RP_GotEarthBadge
+	call PrintText
+	ld hl, SilphCo11TextGiovanni_RP_NowGoBecomeChampion
+	jp .printAndEnd
+
 ; consecutive checks for the 7 badges to give STEAL_BALL
 .checkBadges
 
@@ -936,7 +966,49 @@ SilphCo11TextGiovanni_RP: ; TBE
 	cp %01111111
 	jr nz, .notAllBadges
 
-	ld hl, SilphCo11TextGiovanni_RP_BroughtAllBadges ; TBE!
+; we got all badges, now check for the birbs
+	ld hl, SilphCo11TextGiovanni_RP_BroughtAllBadges
+	call PrintText
+
+	ld d, ARTICUNO
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextGiovanni_RP_NotAllBirbs
+	jp nc, .printAndEnd
+	ld d, ZAPDOS
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextGiovanni_RP_NotAllBirbs
+	jp nc, .printAndEnd
+	ld d, MOLTRES
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextGiovanni_RP_NotAllBirbs
+	jp nc, .printAndEnd
+
+; we have all birbs
+	ld hl, SilphCo11TextGiovanni_RP_YesAllBirbs
+	call PrintText
+; check if we have at least 4 pokemon total
+	ld a, [wPartyCount]
+	cp 4
+	ld hl, SilphCo11TextGiovanni_RP_GetAnotherMon
+	jp c, .printAndEnd
+; give the birbs to Giovanni
+	ld hl, SilphCo11TextGiovanni_RP_GimmeTheBirbs
+	call PrintText
+	ld d, ARTICUNO
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call RemovePokemon
+	ld d, ZAPDOS
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call RemovePokemon
+	ld d, MOLTRES
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call RemovePokemon
+	ld hl, SilphCo11TextGiovanni_RP_PlayerGivesBirbs
+	call PrintText
+	SetEvent EVENT_RP_GAVE_BIRBS_TO_GIOVANNI
+
+; be told to fetch the BERSERK_GENE
+	ld hl, SilphCo11TextGiovanni_RP_FujiToldUs
 	jp .printAndEnd
 
 .notAllBadges
@@ -1101,6 +1173,59 @@ SilphCo11TextGiovanni_RP_ComeBackWhenHaveBadges:
 
 SilphCo11TextGiovanni_RP_BroughtAllBadges:
 	text_far _SilphCo11TextGiovanni_RP_BroughtAllBadges
+	text_end
+
+SilphCo11TextGiovanni_RP_NotAllBirbs:
+	text_far _SilphCo11TextGiovanni_RP_NotAllBirbs
+	text_end
+
+SilphCo11TextGiovanni_RP_GoBecomeChampion:
+	text_far _SilphCo11TextGiovanni_RP_GoBecomeChampion
+	text_end
+
+SilphCo11TextGiovanni_RP_DidYouBringGene:
+	text_far _SilphCo11TextGiovanni_RP_DidYouBringGene
+	text_end
+
+SilphCo11TextGiovanni_RP_NoGene:
+	text_far _SilphCo11TextGiovanni_RP_NoGene
+	text_end
+
+SilphCo11TextGiovanni_RP_PlayerGivesGene:
+	text_far _SilphCo11TextGiovanni_RP_PlayerGivesGene
+	text_end
+
+SilphCo11TextGiovanni_RP_MewtwoIsThereGoChampion:
+	text_far _SilphCo11TextGiovanni_RP_MewtwoIsThereGoChampion
+	text_end
+
+SilphCo11TextGiovanni_RP_GotEarthBadge:
+	text_far _SilphCo11TextGiovanni_RP_GotEarthBadge
+	sound_get_key_item
+	text_end
+
+SilphCo11TextGiovanni_RP_NowGoBecomeChampion:
+	text_far _SilphCo11TextGiovanni_RP_NowGoBecomeChampion
+	text_end
+
+SilphCo11TextGiovanni_RP_FujiToldUs:
+	text_far _SilphCo11TextGiovanni_RP_FujiToldUs
+	text_end
+
+SilphCo11TextGiovanni_RP_PlayerGivesBirbs:
+	text_far _SilphCo11TextGiovanni_RP_PlayerGivesBirbs
+	text_end
+
+SilphCo11TextGiovanni_RP_GimmeTheBirbs:
+	text_far _SilphCo11TextGiovanni_RP_GimmeTheBirbs
+	text_end
+
+SilphCo11TextGiovanni_RP_GetAnotherMon:
+	text_far _SilphCo11TextGiovanni_RP_GetAnotherMon
+	text_end
+
+SilphCo11TextGiovanni_RP_YesAllBirbs:
+	text_far _SilphCo11TextGiovanni_RP_YesAllBirbs
 	text_end
 
 TryToRewardStealBall:
