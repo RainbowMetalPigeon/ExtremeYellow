@@ -161,11 +161,27 @@ TrainersShinyMons:
 	db 1
 	db $FE
 
+	db LORELEI, 3
+	db 1
+	db $FE
+
+	db LORELEI, 4
+	db 1
+	db $FE
+
 	db BRUNO, 1
 	db 1
 	db $FE
 
 	db BRUNO, 2
+	db 1
+	db $FE
+
+	db BRUNO, 3
+	db 1
+	db $FE
+
+	db BRUNO, 4
 	db 1
 	db $FE
 
@@ -177,11 +193,27 @@ TrainersShinyMons:
 	db 1
 	db $FE
 
+	db AGATHA, 3
+	db 1
+	db $FE
+
+	db AGATHA, 4
+	db 1
+	db $FE
+
 	db LANCE, 1
 	db 1
 	db $FE
 
 	db LANCE, 2
+	db 1
+	db $FE
+
+	db LANCE, 3
+	db 1
+	db $FE
+
+	db LANCE, 4
 	db 1
 	db $FE
 

@@ -23,6 +23,8 @@ LoreleiShowOrHideExitBlock:
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_1
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_2
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_3
 ; BTV
 	jr z, .blockExitToNextRoom
 .freeExitToNextRoom ; new
@@ -128,7 +130,7 @@ LoreleisRoom_TextPointers:
 	dw LoreleiDontRunAwayText
 
 LoreleisRoom_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
+	dw LoreleiText1_RP
 	dw LoreleiDontRunAwayText
 
 LoreleisRoomTrainerHeaders:
@@ -139,6 +141,8 @@ LoreleisRoomTrainerHeader1:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_1, 0, LoreleiBeforeBattleTextRematch, LoreleiEndBattleTextRematch, LoreleiAfterBattleTextRematch
 LoreleisRoomTrainerHeader2:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_2, 0, LoreleiBeforeBattleTextRematch2, LoreleiEndBattleTextRematch2, LoreleiAfterBattleTextRematch2
+LoreleisRoomTrainerHeader3: ; for RP
+	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_3, 0, LoreleiBeforeBattleText_RP, LoreleiEndBattleText_RP, LoreleiAfterBattleText_RP
 	db -1 ; end
 
 LoreleiText1: ; edited
@@ -207,4 +211,27 @@ LoreleiEndBattleTextRematch2:
 
 LoreleiAfterBattleTextRematch2:
 	text_far _LoreleiAfterBattleTextRematch2
+	text_end
+
+; new for RP =======================
+
+LoreleiText1_RP:
+	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld hl, LoreleisRoomTrainerHeader3
+	call TalkToTrainer
+	ld a, 4
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+
+LoreleiBeforeBattleText_RP:
+	text_far _LoreleiBeforeBattleText_RP
+	text_end
+
+LoreleiEndBattleText_RP:
+	text_far _LoreleiEndBattleText_RP
+	text_end
+
+LoreleiAfterBattleText_RP:
+	text_far _LoreleiAfterBattleText_RP
 	text_end

@@ -279,3 +279,14 @@ _CeruleanCityText_AfterFightJenny::
 	line "good enough...!"
 ;	xxxx "123456789012345678"
 	prompt
+
+_CeruleanCityText10_RP::
+	text "Only #MON"
+	line "LEAGUE CHAMPIONs"
+	cont "are allowed here."
+
+	para "And I surely won't"
+	line "make an exception"
+	cont "for some scum."
+;	xxxx "123456789012345678"
+	done

@@ -141,7 +141,6 @@ INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
 INCLUDE "text/CeladonPokecenter.asm"
 INCLUDE "text/CeruleanPokecenter.asm"
-INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,6 +315,7 @@ INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/CeladonMartRoof.asm"
 INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/PokemonMansion1F.asm"
+INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new

@@ -124,3 +124,23 @@ _LoreleiAfterBattleTextRematch2::
 	cont "if you want!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_LoreleiBeforeBattleText_RP::
+	text "before"
+	line "lorelei"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiEndBattleText_RP::
+	text "end"
+	line "lorelei"
+;	xxxx "123456789012345678"
+	prompt
+
+_LoreleiAfterBattleText_RP::
+	text "after"
+	line "lorelei"
+;	xxxx "123456789012345678"
+	done

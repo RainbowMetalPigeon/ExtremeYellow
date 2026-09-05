@@ -382,7 +382,7 @@ CeruleanCity_TextPointers:
 	dw CeruleanCityText7
 	dw CeruleanCityText8
 	dw CeruleanCityText9
-	dw CeruleanCityText10
+	dw CeruleanCityText10 ; Cerulean Cave Guard
 	dw TextPreBattle_CeruleanTraveler ; new, for traveler
 	; signs
 	dw CeruleanCityText12
@@ -404,7 +404,7 @@ CeruleanCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw CeruleanCityText10_RP ; Cerulean Cave Guard
 	dw TextPreBattle_CeruleanTraveler_RP ; traveler
 	; signs
 	dw CeruleanCityText12
@@ -708,6 +708,10 @@ CeruleanCityText_RP_JennyAfterBattle:
 
 CeruleanCityText_AfterFightJenny:
 	text_far _CeruleanCityText_AfterFightJenny
+	text_end
+
+CeruleanCityText10_RP:
+	text_far _CeruleanCityText10_RP
 	text_end
 
 ; ================================

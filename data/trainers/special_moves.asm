@@ -2474,6 +2474,39 @@ SpecialTrainerMoves:
 	db 6, 4, HYDRO_PUMP
 	db $FE
 
+	db LORELEI, 4
+	; DEWGONG
+	db 1, 1, HAIL
+	db 1, 2, AQUA_JET
+	db 1, 3, REST
+	db 1, 4, BLIZZARD
+	; CLOYSTER
+	db 2, 1, EXPLOSION
+	db 2, 2, PIN_MISSILE
+	db 2, 3, TOXIC_SPIKES
+	db 2, 4, ICICLE_SPEAR
+	; JYNX
+	db 3, 1, BLIZZARD
+	db 3, 2, LOVELY_KISS
+	db 3, 3, DRAININGKISS
+	db 3, 4, PSYCHO_CUT
+	; GLACEON
+	db 4, 1, BLIZZARD
+	db 4, 2, HAIL ; MIRROR_COAT?
+	db 4, 3, WATER_PULSE
+	db 4, 4, BARRIER
+	; LAPRAS
+	db 5, 1, PSYCHIC_M
+	db 5, 2, BLIZZARD
+	db 5, 3, HYDRO_PUMP
+	db 5, 4, REST
+	; MSLOWBRO
+	db 6, 1, AMNESIA
+	db 6, 2, PSYCHIC_M
+	db 6, 3, REST
+	db 6, 4, SCALD ; THUNDER_WAVE?
+	db $FE
+
 ; ===============================================================
 
 	db BRUNO, 1
@@ -2575,6 +2608,39 @@ SpecialTrainerMoves:
 	db 6, 4, STONE_EDGE
 	db $FE
 
+	db BRUNO, 4
+	; HITMONTOP
+	db 1, 1, FOCUS_ENERGY
+	db 1, 2, STONE_EDGE
+	db 1, 3, EARTHQUAKE
+	db 1, 3, HI_JUMP_KICK
+	; HITMONCHAN
+	db 2, 1, DRAIN_PUNCH
+	db 2, 2, SHADOW_PUNCH
+	db 2, 3, DIZZY_PUNCH
+	db 2, 4, BULLET_PUNCH
+	; HITMONLEE
+	db 3, 1, HI_JUMP_KICK
+	db 3, 2, CLOSE_COMBAT
+	db 3, 3, ROLLING_KICK
+	db 3, 4, STONE_EDGE
+	; POLIWRATH
+	db 4, 1, ROCK_SLIDE
+	db 4, 2, CLOSE_COMBAT
+	db 4, 3, SCALD
+	db 4, 4, LOVELY_KISS
+	; MACHAMP
+ 	db 5, 1, STONE_EDGE
+	db 5, 2, FISSURE
+	db 5, 3, CLOSE_COMBAT
+	db 5, 4, DRAIN_PUNCH
+	; MSTEELIX
+ 	db 6, 1, METEOR_MASH
+	db 6, 2, EARTHQUAKE
+	db 6, 3, EXPLOSION
+	db 6, 4, DRAGON_DANCE
+	db $FE
+
 ; ===============================================================
 
 	db AGATHA, 1
@@ -2669,6 +2735,39 @@ SpecialTrainerMoves:
 	db 5, 2, SLEEP_POWDER
 	db 5, 3, AMNESIA
 	db 5, 4, SYNTHESIS
+	; MGENGAR
+	db 6, 1, DRAININGKISS
+	db 6, 2, NIGHT_SLASH
+	db 6, 3, THUNDERBOLT
+	db 6, 4, ENERGY_BALL
+	db $FE
+
+	db AGATHA, 4
+	; GENGAR 1
+	db 1, 1, THUNDER_WAVE
+	db 1, 2, CONFUSE_RAY
+	db 1, 3, MINIMIZE
+	db 1, 4, DARK_PULSE
+	; CROBAT
+	db 2, 1, AIR_SLASH
+	db 2, 2, ROOST
+	db 2, 3, GUNK_SHOT
+	db 2, 4, LEECH_LIFE
+	; GENGAR 2
+	db 3, 1, PSYCHIC_M
+	db 3, 2, NIGHT_SLASH
+	db 3, 3, WILL_O_WISP ; THUNDERBOLT?
+	db 3, 4, CURSE ; GIGA_DRAIN?
+	; ANNIHILAPE
+	db 4, 1, CLOSE_COMBAT
+	db 4, 2, SHADOW_PUNCH
+	db 4, 3, STONE_EDGE
+	db 4, 4, GUNK_SHOT
+	; UMBREON
+	db 5, 1, REST
+	db 5, 2, DARK_PULSE
+	db 5, 3, DOUBLE_TEAM
+	db 5, 4, TOXIC
 	; MGENGAR
 	db 6, 1, DRAININGKISS
 	db 6, 2, NIGHT_SLASH
@@ -2775,6 +2874,39 @@ SpecialTrainerMoves:
 	db 6, 2, MOONBLAST
 	db 6, 3, OUTRAGE
 	db 6, 4, FIRE_BLAST
+	db $FE
+
+	db LANCE, 4
+	; GYARADOS
+	db 1, 1, HURRICANE
+	db 1, 2, FIRE_BLAST ; DRAGON_DANCE?
+	db 1, 3, OUTRAGE ; STONE_EDGE?
+	db 1, 4, HYPER_BEAM ; EARTHQUAKE?
+	; DRAGONITE 1
+	db 2, 1, DRAGON_DANCE
+	db 2, 2, AIR_SLASH
+	db 2, 3, STEEL_WING
+	db 2, 4, EARTHQUAKE
+	; AERODACTYL
+	db 3, 1, AIR_CUTTER
+	db 3, 2, HEAD_SMASH
+	db 3, 3, EARTHQUAKE
+	db 3, 4, HYPER_BEAM
+	; KINGDRA
+	db 4, 1, FLASH_CANNON
+	db 4, 2, OUTRAGE
+	db 4, 3, HYPER_BEAM
+	db 4, 4, HYDRO_PUMP
+	; CHARIZARD
+	db 5, 1, HYPER_BEAM
+	db 5, 2, SHADOW_CLAW
+	db 5, 3, DRAGON_DANCE
+	db 5, 4, STEEL_WING
+	; MDRAGONITE
+	db 6, 1, ROOST
+	db 6, 2, THUNDER_WAVE
+	db 6, 3, WRAP
+	db 6, 4, OUTRAGE
 	db $FE
 
 ; ===============================================================
@@ -3312,6 +3444,39 @@ SpecialTrainerMoves:
 	db 6, 2, DOUBLE_TEAM
 	db 6, 3, TOXIC
 	db 6, 4, REST
+	db $FE
+
+	db RIVAL3, 35
+	; MPIDGEOT
+	db 1, 1, THUNDER
+	db 1, 2, BLIZZARD
+	db 1, 3, HEAT_WAVE
+	db 1, 4, HURRICANE
+	; MALAKAZAM
+	db 2, 1, PSYCHIC_M
+	db 2, 2, DARK_PULSE
+	db 2, 3, MOONBLAST
+	db 2, 4, ZAP_CANNON
+	; MSCIZOR
+	db 3, 1, METEOR_MASH
+	db 3, 2, STEEL_WING
+	db 3, 3, LEECH_LIFE
+	db 3, 4, CLOSE_COMBAT
+	; MVENUSAUR
+	db 4, 1, DOUBLE_EDGE
+	db 4, 2, GUNK_SHOT
+	db 4, 3, EARTHQUAKE
+	db 4, 4, FRENZY_PLANT
+	; MCHARZARDY
+	db 5, 1, HURRICANE ; ?
+	db 5, 2, DRAGON_CLAW
+	db 5, 3, CRUNCH
+	db 5, 4, BLAST_BURN
+	; MBLASTOISE
+	db 6, 1, ZAP_CANNON
+	db 6, 2, OUTRAGE
+	db 6, 3, BLIZZARD
+	db 6, 4, HYDRO_CANNON
 	db $FE
 
 ; ===============================================================
