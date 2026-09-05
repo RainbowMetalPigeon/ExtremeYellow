@@ -28,18 +28,18 @@ BluesHouse_TextPointers:
 	dw BluesHouseSignText4
 
 BluesHouse_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath ; TBE
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw DaisyText_RP
+	dw DaisyText_RP
+	dw BluesHouseTownMapText_RP
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
 	; signs
-	dw BluesHouseSignText1
+	dw BluesHouseSignText1_RP
 	dw BluesHouseSignText2
 	dw BluesHouseSignText3
-	dw BluesHouseSignText4
+	dw BluesHouseSignText4_RP
 
 BluesHouseDaisySittingText: ; TBE
 	text_asm
@@ -249,4 +249,22 @@ BluesHouseSignText3:
 
 BluesHouseSignText4:
 	text_far _BluesHouseSignText4
+	text_end
+
+; new for RP ============================
+
+DaisyText_RP:
+	text_far _DaisyText_RP
+	text_end
+
+BluesHouseTownMapText_RP:
+	text_far _BluesHouseTownMapText_RP
+	text_end
+
+BluesHouseSignText1_RP:
+	text_far _BluesHouseSignText1_RP
+	text_end
+
+BluesHouseSignText4_RP:
+	text_far _BluesHouseSignText4_RP
 	text_end

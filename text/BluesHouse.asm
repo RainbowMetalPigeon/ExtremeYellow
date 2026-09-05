@@ -393,3 +393,73 @@ _BluesHouseSignText4::
 	cont "dust."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ========================
+
+_DaisyText_RP::
+	text "<PLAYER>...?!"
+	line "What happened?!"
+
+	para "You did WHAT?!"
+	line "TEAM ROCKET?"
+	cont "Are you nuts?!"
+	cont "...it's a bad"
+	cont "joke, isn't it?"
+
+	para "...it's not."
+
+	para "What will your"
+	line "MOM think?"
+	cont "She will be"
+	cont "devastated."
+	cont "And <RIVAL>..."
+	cont "And Gramps..."
+
+	para "We all had such"
+	line "high expectations"
+	cont "for you."
+	cont "We respected you."
+
+	para "We loved you."
+
+	para "And you..."
+	line "You became a"
+	cont "filthy criminal."
+
+	para "...leave."
+
+	para "I don't want to see"
+	line "you ever again."
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseTownMapText_RP::
+	text "A map of KANTO!"
+	line "Soon it will"
+	cont "entirely belong"
+	cont "to TEAM ROCKET,"
+	cont "as well as every"
+	cont "other region!"
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseSignText1_RP::
+	text "Two adults and"
+	line "two kids."
+
+	para "Family. Who needs"
+	line "it, when one has"
+	cont "the power of an"
+	cont "organization?"
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseSignText4_RP::
+	text "It's a Switch"
+	line "covered by a"
+	cont "thick layer of"
+	cont "dust, as it"
+	cont "should be, given"
+	cont "its uselessness."
+;	xxxx "123456789012345678"
+	done

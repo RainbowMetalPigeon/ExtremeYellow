@@ -1301,6 +1301,7 @@
 	const EVENT_RP_STOLE_HM_04 ; new
 	const EVENT_RP_FULLY_DESTROYS_SHRINE ; new
 	const EVENT_RP_BEAT_ARCHEOLOGIST_GRANKID_MUSEUM ; new
+	const EVENT_RP_RIPPED_DADS_PHOTO ; new
 
 ; Indigo Plateau events
 	const_next $8E0

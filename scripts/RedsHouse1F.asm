@@ -73,11 +73,11 @@ RedsHouse1F_TextPointers:
 	dw RedsHouse1FMomRunningShoes ; new
 
 RedsHouse1F_TextPointers_Rocket:
-	dw RedsHouse1FMomText ; TBE
+	dw RedsHouse1FMomText_RP
 	dw RedsHouse1FDadText ; unused
 	; signs
-	dw RedsHouse1FTVText ; TBE
-	dw RedsHouse1FPictureText ; TBE
+	dw RedsHouse1FTVText_RP
+	dw RedsHouse1FPictureText_RP
 
 RedsHouse1FMomText:
 	text_asm
@@ -113,4 +113,55 @@ RedsHouse1FPictureText_AfterMissingno: ; new
 
 RedsHouse1FMomRunningShoes: ; new
 	text_far _RedsHouse1FMomRunningShoes
+	text_end
+
+; new for RP =========================
+
+RedsHouse1FMomText_RP:
+	text_asm
+	call StopAllMusic
+	ld hl, RedsHouse1FMomText_RP_Core
+	call PrintText
+	jp TextScriptEnd
+
+RedsHouse1FMomText_RP_Core:
+	text_far _RedsHouse1FMomText_RP_Core
+	text_end
+
+RedsHouse1FTVText_RP:
+	text_asm
+	ld hl, RedsHouse1FTVText_RP_Side
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jp nz, .got_text
+	ld hl, RedsHouse1FTVText_RP_Front
+.got_text
+	call PrintText
+	jp TextScriptEnd
+
+RedsHouse1FTVText_RP_Side:
+	text_far _RedsHouse1FTVText_RP_Side
+	text_end
+
+RedsHouse1FTVText_RP_Front:
+	text_far _RedsHouse1FTVText_RP_Front
+	text_end
+
+RedsHouse1FPictureText_RP:
+	text_asm
+	CheckEvent EVENT_RP_RIPPED_DADS_PHOTO
+	ld hl, RedsHouse1FPictureText_RP_Post
+	jr nz, .printAndEnd
+	SetEvent EVENT_RP_RIPPED_DADS_PHOTO
+	ld hl, RedsHouse1FPictureText_RP_Pre
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+RedsHouse1FPictureText_RP_Post:
+	text_far _RedsHouse1FPictureText_RP_Post
+	text_end
+
+RedsHouse1FPictureText_RP_Pre:
+	text_far _RedsHouse1FPictureText_RP_Pre
 	text_end

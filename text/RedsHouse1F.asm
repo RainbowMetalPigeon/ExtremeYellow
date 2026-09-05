@@ -119,3 +119,99 @@ _MomPostMissingnoText:: ; new
 	line "back! We're a"
 	cont "family again!"
 	done
+
+; new for RP =======================
+
+_RedsHouse1FMomText_RP_Core::
+	text "<PLAYER>...?!"
+	line "What... WHAT"
+	cont "ARE YOU DOING?!"
+
+	para "You... joined"
+	line "TEAM ROCKET?!"
+	cont "They... you..."
+	cont "are criminals..."
+
+	para "NO! NO!!!"
+	line "WHY?!"
+	cont "How could you?!"
+	cont "What did I do"
+	cont "wrong?!"
+
+	para "Is... it because"
+	line "your DAD... died?"
+	cont "Was I not a good"
+	cont "enough MOM"
+	cont "to you?"
+	cont "I... failed as a"
+	cont "parent. I let you"
+	cont "down. I let you"
+	cont "stray away from"
+	cont "honesty."
+
+	para "I'm... oh no."
+	line "First your DAD."
+	cont "Now you."
+	cont "My life is a"
+	cont "failure."
+
+	para "No."
+	line "I am the failure."
+;	xxxx "123456789012345678"
+	done
+
+_RedsHouse1FTVText_RP_Side::
+	text "Totally useless."
+;	xxxx "123456789012345678"
+	done
+
+_RedsHouse1FTVText_RP_Front::
+	text "Some dumb old"
+	line "movie nobody"
+	cont "knows nor care"
+	cont "for. Does it"
+	cont "bring money or"
+	cont "power? No?"
+	cont "Then it's useless."
+;	xxxx "123456789012345678"
+	done
+
+_RedsHouse1FPictureText_RP_Post::
+	text "A ripped photo."
+
+	para "...that sensation"
+	line "is not gone."
+
+	para "The chest hurts."
+	line "Throat is tight."
+	cont "Eyes, wet."
+
+	para "Grrr! Pathetic!"
+
+	para "<PLAYER> spits"
+	line "on the photo!"
+;	xxxx "123456789012345678"
+	done
+
+_RedsHouse1FPictureText_RP_Pre::
+	text "A picture of DAD."
+
+	para "...what... what is"
+	line "this sensation?"
+
+	para "It... hurts."
+
+	para "...no! A ROCKET"
+	line "can't give in to"
+	cont "such pathetic"
+	cont "emotions!"
+
+	para "TEAM ROCKET is"
+	line "tough! Strong!"
+	cont "There's no space"
+	cont "for weakness!"
+
+	para "<PLAYER> rips"
+	line "the photo apart!"
+;	xxxx "123456789012345678"
+	done

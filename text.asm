@@ -87,7 +87,6 @@ INCLUDE "text/Route5.asm"
 
 SECTION "Text 5", ROMX
 INCLUDE "data/text/text_5.asm"
-INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/RedsHouse2F.asm" ; new
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/ViridianPokecenter.asm"
@@ -316,6 +315,7 @@ INCLUDE "text/OchreWonderland.asm" ; new
 SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/CeruleanMelaniesHouse.asm"
+INCLUDE "text/RedsHouse1F.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new
