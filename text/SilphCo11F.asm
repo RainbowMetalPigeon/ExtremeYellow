@@ -154,7 +154,7 @@ _SilphCo11SignText1::
 	cont "than in person."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SilphCo11SignText2_1::
 	text "It contains info"
 	line "on the latest"
@@ -290,15 +290,6 @@ _SilphCo11Text2_RP::
 ;	xxxx "123456789012345678"
 	done
 
-_SilphCo11TextGiovanni_RP::
-	text "well done here"
-	line "SURF"
-	cont "lore drop"
-	cont "badge quest"
-	cont "oh also poaching"
-;	xxxx "123456789012345678"
-	done
-
 
 
 _SilphCo11TextGiovanni_RP_GoodJobTakeThis::
@@ -321,6 +312,7 @@ _SilphCo11TextGiovanni_RP_LoreDrop::
 _SilphCo11TextGiovanni_RP_BadgeQuest::
 	text "go fetch all badge"
 	line "why think i leader"
+	cont "also birbs"
 ;	xxxx "123456789012345678"
 	prompt
 
