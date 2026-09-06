@@ -6,6 +6,7 @@ HallOfFame_Object:
 	warp_event  5,  7, CHAMPIONS_ROOM, 4
 
 	def_bg_events
+	bg_event  4,  1, 3 ; HallofFameRoomSignText1, new for RP
 
 	def_object_events
 	object_event  5,  2, SPRITE_OAK, STAY, DOWN, 1 ; person

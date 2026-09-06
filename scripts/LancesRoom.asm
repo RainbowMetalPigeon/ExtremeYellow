@@ -235,9 +235,23 @@ LanceEndBattleText_RP:
 	text_end
 
 LanceAfterBattleText_RP:
-	text_far _LanceAfterBattleText_RP
 	text_asm
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	ld hl, LanceAfterBattleText_RP_After
+	jr nz, .printAndEnd
+; didn't beat Blue yet
+	ld a, $1
+	ld [wChampionsRoomCurScript], a
 	SetEvent EVENT_BEAT_LANCE
+	ld hl, LanceAfterBattleText_RP_Before
+.printAndEnd
+	call PrintText
 	jp TextScriptEnd
 
-; EVENT_BEAT_CHAMPION_RIVAL
+LanceAfterBattleText_RP_Before:
+	text_far _LanceAfterBattleText_RP_Before
+	text_end
+
+LanceAfterBattleText_RP_After:
+	text_far _LanceAfterBattleText_RP_After
+	text_end

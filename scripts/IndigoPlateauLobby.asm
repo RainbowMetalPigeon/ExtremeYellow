@@ -23,6 +23,7 @@ IndigoPlateauLobby_TextPointers:
 	dw IndigoCashier2Text
 	dw IndigoTradeNurseText
 	dw IndigoPlateauLobbyText6
+	dw IndigoPlateauLobbyText8_RP ; new, unused
 
 IndigoPlateauLobby_TextPointers_Rocket:
 	dw IndigoHealNurseText
@@ -32,6 +33,7 @@ IndigoPlateauLobby_TextPointers_Rocket:
 	dw IndigoCashier2Text
 	dw IndigoTradeNurseText
 	dw IndigoPlateauLobbyText6
+	dw IndigoPlateauLobbyText8_RP ; new
 
 IndigoHealNurseText:
 	script_pokecenter_nurse
@@ -59,3 +61,9 @@ IndigoCashier2Text: ; testing
     text_asm
 	callfar TMMartClerkDialogue
     jp TextScriptEnd
+
+; new for RP ===========================
+
+IndigoPlateauLobbyText8_RP:
+	text_far _IndigoPlateauLobbyText8_RP
+	text_end

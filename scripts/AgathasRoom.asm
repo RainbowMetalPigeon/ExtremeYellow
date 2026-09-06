@@ -121,10 +121,11 @@ AgathaScript2:
 	jp z, ResetAgathaScript
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	ld a, $1
-	ld [wChampionsRoomCurScript], a
-	ret
+	jp DisplayTextID ; edited into a jp
+; edited, moved to LancesRoom
+;	ld a, $1
+;	ld [wChampionsRoomCurScript], a
+;	ret
 
 AgathasRoom_TextPointers:
 	dw AgathaText1

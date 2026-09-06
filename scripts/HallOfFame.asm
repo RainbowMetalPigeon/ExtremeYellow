@@ -5,12 +5,6 @@ HallOfFame_Script:
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
 
-;HallofFameRoomScript_5a4aa: ; is this even for anything?
-;	xor a
-;	ld [wJoyIgnore], a
-;	ld [wCurMapScript], a
-;	ret
-
 HallOfFame_ScriptPointers:
 	dw HallofFameRoomScript0
 	dw HallofFameRoomScript1
@@ -23,12 +17,8 @@ HallOfFame_ScriptPointers:
 	dw HallofFameRoomScript1_RP ; 7
 	dw HallofFameRoomScript2_RP ; 8
 	dw HallofFameRoomScript3_RP ; 9
-	dw HallofFameRoomScript4_RP ; 10
 
 ; ==================================
-
-;HallofFameRoomScript3: ; is this even ever used?
-;	ret
 
 HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 	ld a, $f0
@@ -44,6 +34,9 @@ HallofFameRoomScript0: ; makes player walk up to Rival and Oak
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRP
+; yes RP
+	CheckEvent EVENT_RP_BEAT_HOF_OAK
+	ret nz
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
@@ -147,24 +140,7 @@ HallofFameRoomScript1:
 	call LoopShow
 	call LoopShowExtra
 	call LoopShowSevii
-	ResetEvent EVENT_BEAT_MEWTWO
-; re-spawn the birds only if we spawn them the first time
-	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
-	jr z, .dontShowLegendaryBirbs
-	ld a, HS_ARTICUNO
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ResetEvent EVENT_BEAT_ARTICUNO
-	ld a, HS_ZAPDOS
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	ResetEvent EVENT_BEAT_ZAPDOS
-	ld a, HS_MOLTRES
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ResetEvent EVENT_BEAT_MOLTRES
-.dontShowLegendaryBirbs
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	call SetBeatLeagueAndRespawnMons
 ; let's also heal the party, why not
 	predef HealParty
 ; load next script
@@ -185,7 +161,7 @@ HallofFameRoomScript2:
 ; delay
 	call Delay3
 ; Oaks talk
-	ld a, $4
+	ld a, $5
 	ldh [hSpriteIndexOrTextID], a
 	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; load next script
@@ -276,7 +252,7 @@ HallofFameRoomScript5:
 ; delay
 	call Delay3
 ; Oaks talk
-	ld a, $3
+	ld a, $4
 	ldh [hSpriteIndexOrTextID], a
 	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; delay lol
@@ -309,7 +285,7 @@ HallofFameRoomScript6:
 	inc hl
 	set 0, [hl]
 	xor a
-	ld hl, wLoreleisRoomCurScript ; TBE (?)
+	ld hl, wLoreleisRoomCurScript
 	ld [hli], a ; wLoreleisRoomCurScript
 	ld [hli], a ; wBrunosRoomCurScript
 	ld [hl], a ; wAgathasRoomCurScript
@@ -336,15 +312,19 @@ HallofFameRoomScript6:
 HallOfFame_TextPointers:
 	dw HallofFameRoomText1
 	dw HallofFameRoomText2 ; just a proxy to avoid issues with indexing
+	; signs
+	dw HallofFameRoomSignText1 ; 3, unused
 	; scripts
-	dw HallofFameRoomText3
-	dw HallofFameRoomText4
+	dw HallofFameRoomText3 ; 4
+	dw HallofFameRoomText4 ; 5
 
 HallOfFame_TextPointers_Rocket:
 	dw HallofFameRoomText1_RP
 	dw HallofFameRoomText2 ; unused
+	; signs
+	dw HallofFameRoomSignText1 ; 3
 	; scripts
-	dw HallofFameRoomTextScript1_RP ; 3
+	dw HallofFameRoomTextScript1_RP ; 4
 
 HallofFameRoomText1:
 	text_asm
@@ -506,7 +486,30 @@ ObjectsToShowSevii:
 	db HS_SEVII_FOUR_ISLAND_CITY_POST_LEAGUE_PINK
 	db $ff
 
-; new for RP ===========================================
+; ---------------
+
+SetBeatLeagueAndRespawnMons:
+	ResetEvent EVENT_BEAT_MEWTWO
+; re-spawn the birds only if we spawn them the first time
+	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
+	jr z, .dontShowLegendaryBirbs
+	ld a, HS_ARTICUNO
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ResetEvent EVENT_BEAT_ARTICUNO
+	ld a, HS_ZAPDOS
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ResetEvent EVENT_BEAT_ZAPDOS
+	ld a, HS_MOLTRES
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ResetEvent EVENT_BEAT_MOLTRES
+.dontShowLegendaryBirbs
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ret
+
+; new for RP =========================================================
 
 HallofFameRoomScript1_RP:
 	ld a, [wSimulatedJoypadStatesIndex]
@@ -548,11 +551,12 @@ HallofFameRoomScript2_RP:
 	cp $ff
 	jp z, HoFResetScripts
 ; we won
+	SetEvent EVENT_RP_BEAT_HOF_OAK
 	ld a, $f0
 	ld [wJoyIgnore], a
 	call HoFOakFaceLeft
 ; Oak dialogue
-	ld a, 3
+	ld a, 4
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; Kill Oak
@@ -573,13 +577,8 @@ HallofFameRoomScript2_RP:
     ld c, 150
     call DelayFrames
     call GBFadeInFromBlack
-; player faces up
-	ld a, SPRITE_FACING_UP
-	ld [wSpritePlayerStateData1FacingDirection], a
 ; load next script
-	ld a, 9
-	ld [wCurMapScript], a
-	ret
+	jr HoFResetScripts
 
 HallofFameRoomText1_RP:
 	text_far _HallofFameRoomText1_RP
@@ -598,18 +597,11 @@ HallofFameRoomTextScript1_RP:
 	text_end
 
 HallofFameRoomScript3_RP:
-; player faces up
-	ld a, SPRITE_FACING_UP
-	ld [wSpritePlayerStateData1FacingDirection], a
-	call Delay3
-; load next script
-	ld a, 10
-	ld [wCurMapScript], a
-	ret
-
-HallofFameRoomScript4_RP:
-; TBE: appropriate hide/show
-
+; appropriate hide/show
+	call LoopHide_RP
+	call LoopShow_RP
+	call LoopShowExtra_RP
+	call SetBeatLeagueAndRespawnMons
 ; HoF PC
     ld c, 120
     call DelayFrames
@@ -617,10 +609,8 @@ HallofFameRoomScript4_RP:
 	call ClearScreen
 	ld c, 100
 	call DelayFrames
-	
 ; reset INDIGO events
 	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END, 1
-
 ; warp player back to entrance of Indigo League
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
@@ -634,7 +624,9 @@ HallofFameRoomScript4_RP:
 	ld [wIsInBattle], a
 	ld hl, wd72d
 	set 3, [hl] ; do scripted warp
-	call PlayDefaultMusic
+	ld c, BANK(Music_IndigoPlateau) ; SFX_Push_Boulder_1
+	ld a, MUSIC_INDIGO_PLATEAU ; SFX_PUSH_BOULDER
+	call PlayMusic
 	; fallthrough
 
 HoFResetScripts:
@@ -656,111 +648,81 @@ HoFOakFaceLeft:
 	ld [wSprite01StateData1FacingDirection], a
 	ret
 
-
-
-
-
-
-
-/*
-
-HallofFameRoomScript6:
-	call Delay3
-	ld a, [wLetterPrintingDelayFlags]
-	push af
-	xor a
-	ld [wJoyIgnore], a
-	predef HallOfFamePC ; this, in credits.asm, callfars AnimateHallOfFame, which is in movie/hall_of_fame.asm
-	                    ; and after showing the part, it call(far)s SaveHallOfFameTeams which is in save.asm
-						; also (???), it calls AnimateHallOfFame, which jumps to HoFRecordMonInfo, which saves level, species, and nickname
-	pop af
-	ld [wLetterPrintingDelayFlags], a
-	ld hl, wFlags_D733
-	res 1, [hl]
-	inc hl
-	set 0, [hl]
-	xor a
-	ld hl, wLoreleisRoomCurScript ; TBE (?)
-	ld [hli], a ; wLoreleisRoomCurScript
-	ld [hli], a ; wBrunosRoomCurScript
-	ld [hl], a ; wAgathasRoomCurScript
-	ld [wLancesRoomCurScript], a
+HallofFameRoomSignText1:
+	text_asm
+	ld hl, HallofFameRoomSignText1_Wrong
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jp nz, .printAndEnd
+; right side
+	ld a, 9
 	ld [wCurMapScript], a
-	; Elite 4 events
-	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END, 1
-;	xor a ; useless
-;	ld [wCurMapScript], a ; useless, done above
-	ld a, PALLET_TOWN
-	ld [wLastBlackoutMap], a
-	farcall SaveSAVtoSRAM
-	ld b, 5
-.delayLoop
-	ld c, 600 / 5
-	call DelayFrames
-	dec b
-	jr nz, .delayLoop
-	call WaitForTextScrollButtonPress
-	jp Init
+	ld hl, HallofFameRoomSignText1_Right
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
 
-*/
+HallofFameRoomSignText1_Wrong:
+	text_far _HallofFameRoomSignText1_Wrong
+	text_end
 
+HallofFameRoomSignText1_Right:
+	text_far _HallofFameRoomSignText1_Right
+	text_end
 
+; ---------------
 
-
-
-
-
-
-/*
-
-	ld a, $2
-	ld [wSprite02StateData1MovementStatus], a
-	ld a, SPRITE_FACING_UP
-	ld [wSprite02StateData1FacingDirection], a
-; player faces up
-	ld a, PLAYER_DIR_UP
-	ld [wPlayerMovingDirection], a
-; Oak faces left (should be redundant but maybe is not?)
-	ld a, $1
-	ldh [hSpriteIndex], a
-	call SetSpriteMovementBytesToFF
-	ld a, SPRITE_FACING_LEFT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
-
-	ld a, $2
-	ld [wSprite01StateData1MovementStatus], a
-	ld a, SPRITE_FACING_LEFT
-	ld [wSprite01StateData1FacingDirection], a
-; new code for HS and to re/set the event that we beat the game at least once
-	call LoopHide
-	call LoopHideExtra
-	call LoopShow
-	call LoopShowExtra
-	call LoopShowSevii
-	ResetEvent EVENT_BEAT_MEWTWO
-; re-spawn the birds only if we spawn them the first time
-	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
-	jr z, .dontShowLegendaryBirbs
-	ld a, HS_ARTICUNO
+LoopHide_RP:
+	ld hl, ObjectsToHide_RP
+.hideLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
 	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ResetEvent EVENT_BEAT_ARTICUNO
-	ld a, HS_ZAPDOS
+	predef HideObject
+	pop hl
+	jr .hideLoop
+
+ObjectsToHide_RP:
+	db HS_CERULEAN_CAVE_GUY
+	db $ff
+
+; ---------------
+
+LoopShow_RP:
+	ld hl, ObjectsToShow_RP
+.showLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-	ResetEvent EVENT_BEAT_ZAPDOS
-	ld a, HS_MOLTRES
+	pop hl
+	jr .showLoop
+
+ObjectsToShow_RP:
+	db HS_PALLET_TOWN_DARK_GUIDE
+	db $ff
+
+; ---------------
+
+LoopShowExtra_RP:
+	ld hl, ObjectsToShowExtra_RP
+.showExtraLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
-	ResetEvent EVENT_BEAT_MOLTRES
-.dontShowLegendaryBirbs
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
-; let's also heal the party, why not
-	predef HealParty
-; load next script
-	ld a, $2
-	ld [wCurMapScript], a
-	ret
+	pop hl
+	jr .showExtraLoop
 
-*/
+ObjectsToShowExtra_RP:
+	db HS_MEWTWO
+	db HS_INDIGO_PLATEAU_LOBBY_GUARD
+	db HS_ONIX_BURROWING_SNORLAX_DEN ; TBE?
+	db HS_CELADON_HOTEL_ROOMS_TROPHY_1 ; TBE?
+	db $ff

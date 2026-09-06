@@ -138,3 +138,14 @@ _HallofFameRoomTextScript1_RP::
 	text "OAK: GG"
 ;	xxxx "123456789012345678"
 	done
+
+_HallofFameRoomSignText1_Wrong::
+	text "Wrong side."
+;	xxxx "123456789012345678"
+	done
+
+_HallofFameRoomSignText1_Right::
+	text "<PLAYER> accesses"
+	line "HALL OF FAME's PC."
+;	xxxx "123456789012345678"
+	done

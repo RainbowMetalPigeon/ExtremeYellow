@@ -493,3 +493,4 @@ DEF SHOW EQU $15
 	const HS_ROUTE_29_SLOWKING             ; new
 	const HS_HALL_OF_FAME_OAK              ; new
 	const HS_HALL_OF_FAME_BLUE             ; new
+	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new

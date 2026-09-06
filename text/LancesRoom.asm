@@ -211,8 +211,14 @@ _LanceEndBattleText_RP::
 ;	xxxx "123456789012345678"
 	prompt
 
-_LanceAfterBattleText_RP::
+_LanceAfterBattleText_RP_Before::
 	text "after"
 	line "Lance"
+;	xxxx "123456789012345678"
+	done
+
+_LanceAfterBattleText_RP_After::
+	text "I heard screaming"
+	line "what happened?"
 ;	xxxx "123456789012345678"
 	done

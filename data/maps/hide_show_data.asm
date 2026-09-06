@@ -184,7 +184,7 @@ MapHSPointers:
 	dw NoHS ; CINNABAR_POKECENTER
 	dw HauntedIslandOfNumbersHS ; new
 	dw NoHS ; OBSIDIAN_HOUSES
-	dw NoHS ; INDIGO_PLATEAU_LOBBY
+	dw IndigoPlateauLobbyHS ; new, INDIGO_PLATEAU_LOBBY
 	dw NoHS ; COPYCATS_HOUSE_1F
 	dw FightingDojoHS
 	dw NoHS ; SAFFRON_GYM
@@ -893,5 +893,7 @@ Route29HS:
 HallOfFameHS:
 	db HALL_OF_FAME, 1, SHOW ; Oak
 	db HALL_OF_FAME, 2, SHOW ; Blue
+IndigoPlateauLobbyHS: ; new
+	db INDIGO_PLATEAU_LOBBY, 8, HIDE ; Guard
 
 	db $FF, $01, SHOW ; end, list terminator
