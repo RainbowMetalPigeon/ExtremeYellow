@@ -456,3 +456,10 @@ _SeviiWhichDestinationText_RP::
 	text "Where?"
 ;	xxxx "123456789012345678"
 	done
+
+_VermilionCityText15_RP::
+	text_start
+	para "MACHOKE clearly"
+	line "dislikes you."
+;	xxxx "123456789012345678"
+	done

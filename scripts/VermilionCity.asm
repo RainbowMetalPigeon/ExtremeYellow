@@ -342,7 +342,7 @@ VermilionCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw VermilionCityText3 ; SS Anne Guardian
 	dw VermilionCityText4_RP ; Battle Facility boss
-	dw VermilionCityText5 ; Machoke
+	dw VermilionCityText5_RP ; Machoke
 	dw VermilionCityText5PG ; Machamp
 	dw GenericNPCText_RocketPath
 	dw VermilionCityText7_RP ; Jenny
@@ -895,3 +895,16 @@ TextPostBattle_VermilionTraveler_RP:
 	ld [wVermilionCityCurScript], a ; city-specific
 	ld [wCurMapScript], a ; unnecessary?
 	jp TextScriptEnd
+
+VermilionCityText5_RP:
+	text_far _VermilionCityText5
+	text_asm
+	ld a, MACHOKE
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, VermilionCityText15_RP
+	ret
+
+VermilionCityText15_RP:
+	text_far _VermilionCityText15_RP
+	text_end
