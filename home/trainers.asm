@@ -483,6 +483,12 @@ GetSavedEndBattleTextPointer::
 	and a
 	jr nz, .lostBattleRP
 ; won battle
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+	ld hl, EndBattleTextUnderwater_RocketPath_Victory
+	ret
+.notUnderwater
 	ld a, [wCurOpponent]
 	ld hl, EndBattleText_RocketPath_Victory_VsRocket
 	cp OPP_ROCKET
@@ -524,6 +530,10 @@ EndBattleText_RocketPath_Victory: ; new
 
 EndBattleText_RocketPath_Victory_VsRocket: ; new
 	text_far _EndBattleText_RocketPath_Victory_VsRocket
+	text_end
+
+EndBattleTextUnderwater_RocketPath_Victory: ; new
+	text_far _EndBattleTextUnderwater_RocketPath_Victory
 	text_end
 
 EndBattleText_RocketPath_Defeat: ; new

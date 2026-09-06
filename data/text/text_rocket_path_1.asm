@@ -1,9 +1,29 @@
-_EndBattleText_RocketPath_Victory::
-	text "Tsk."
-	line "Are you satisfied"
-	cont "now, or what?"
+_BeforeBattleText_RocketPath_VsRocket::
+	text "Oh, the rookie I"
+	line "heard of! Do you"
+	cont "want to train?"
+	cont "Fine for me!"
 ;	xxxx "123456789012345678"
-	prompt
+	done
+
+_BeforeBattleText_RocketPath_VsNotRocket::
+	text "Ugh! What do you"
+	line "want from me, you"
+	cont "ROCKET scum?!"
+;	xxxx "123456789012345678"
+	done
+
+_BeforeBattleTextUnderwater_RocketPath_VsNotRocket::
+	text "Glguubglbl!"
+
+	para "(Why are you"
+	line "polluting the"
+	cont "sea floor with"
+	cont "your filth?!)"
+;	xxxx "123456789012345678"
+	done
+
+; ----------------------------
 
 _EndBattleText_RocketPath_Victory_VsRocket::
 	text "It seems"
@@ -12,7 +32,23 @@ _EndBattleText_RocketPath_Victory_VsRocket::
 ;	xxxx "123456789012345678"
 	prompt
 
-_EndBattleText_RocketPath_Defeat::
+_EndBattleText_RocketPath_Victory::
+	text "Tsk."
+	line "Are you satisfied"
+	cont "now, or what?"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleTextUnderwater_RocketPath_Victory::
+	text "Blgb."
+
+	para "(Tsk. Can't beat a"
+	line "ROCKET even in"
+	cont "my element...)"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Defeat:: ; never used?
 	text "Ah!"
 	line "Good riddance,"
 	cont "you ROCKET scum!"
@@ -35,20 +71,11 @@ _AfterBattleText_RocketPath_VsNotRocket::
 ;	xxxx "123456789012345678"
 	done
 
-; ----------------------------
+_AfterBattleTextUnderwater_RocketPath_VsNotRocket::
+	text "Blglg..."
 
-_BeforeBattleText_RocketPath_VsRocket::
-	text "Oh, the rookie I"
-	line "heard of! Do you"
-	cont "want to train?"
-	cont "Fine for me!"
-;	xxxx "123456789012345678"
-	done
-
-_BeforeBattleText_RocketPath_VsNotRocket::
-	text "Ugh! What do you"
-	line "want from me, you"
-	cont "ROCKET scum?!"
+	para "(I hope you won't"
+	line "emerge in time.)"
 ;	xxxx "123456789012345678"
 	done
 
@@ -106,6 +133,25 @@ _GenericNPCText_RocketPath_8::
 	done
 
 ; -------------
+
+_GenericNPCTextUnderwater_RocketPath_1::
+	text "Blubgb!"
+
+	para "(What the hell are"
+	line "you doing HERE?!)"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCTextUnderwater_RocketPath_2::
+	text "Bglubg!!"
+
+	para "(Not even under-"
+	line "water we are safe"
+	cont "from TEAM ROCKET!)"
+;	xxxx "123456789012345678"
+	done
+
+; =============================================================
 
 _RocketNPCText_RocketPath_1::
 	text "Don't forget your"

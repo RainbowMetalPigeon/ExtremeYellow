@@ -49,6 +49,13 @@ INCLUDE "data/trainers/encounter_types.asm"
 ; ----------------------------------------
 
 PrintAfterBattleText_RocketPath::
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+; underwater
+	ld hl, AfterBattleTextUnderwater_RocketPath_VsNotRocket
+	jp PrintText
+.notUnderwater
 	callfar EngageMapTrainer_Internal_FindTrainerClass
 	ld a, [wEngagedTrainerClass]
 	ld hl, AfterBattleText_RocketPath_VsRocket
@@ -65,9 +72,20 @@ AfterBattleText_RocketPath_VsNotRocket: ; new
 	text_far _AfterBattleText_RocketPath_VsNotRocket
 	text_end
 
+AfterBattleTextUnderwater_RocketPath_VsNotRocket: ; new
+	text_far _AfterBattleTextUnderwater_RocketPath_VsNotRocket
+	text_end
+
 ; ----------------------------------------
 
 PrintBeforeBattleText_RocketPath::
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+; underwater
+	ld hl, BeforeBattleTextUnderwater_RocketPath_VsNotRocket
+	jp PrintText
+.notUnderwater
 	callfar EngageMapTrainer_Internal_FindTrainerClass
 	ld a, [wEngagedTrainerClass]
 	ld hl, BeforeBattleText_RocketPath_VsRocket
@@ -82,4 +100,8 @@ BeforeBattleText_RocketPath_VsRocket: ; new
 
 BeforeBattleText_RocketPath_VsNotRocket: ; new
 	text_far _BeforeBattleText_RocketPath_VsNotRocket
+	text_end
+
+BeforeBattleTextUnderwater_RocketPath_VsNotRocket: ; new
+	text_far _BeforeBattleTextUnderwater_RocketPath_VsNotRocket
 	text_end

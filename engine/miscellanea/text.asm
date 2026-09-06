@@ -1,6 +1,22 @@
 RandomizeGenericNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections to be adapted
 	call EnableAutoTextBoxDrawing
-
+; above or under water?
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+; underwater
+	call Random
+	and %00000001
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, GenericNPCTextUnderwater_RocketPath_Pointers
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a ; hl = address of the text
+	jr .printAndEnd
+.notUnderwater
 	call Random
 	and %00000111
 	add a
@@ -11,9 +27,8 @@ RandomizeGenericNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selection
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a ; hl = address of the text
-
-	call PrintText
-	ret
+.printAndEnd
+	jp PrintText
 
 GenericNPCText_RocketPath_Pointers:
 	dw GenericNPCText_RocketPath_1
@@ -57,6 +72,18 @@ GenericNPCText_RocketPath_8:
 	text_far _GenericNPCText_RocketPath_8
 	text_end
 
+GenericNPCTextUnderwater_RocketPath_Pointers:
+	dw GenericNPCTextUnderwater_RocketPath_1
+	dw GenericNPCTextUnderwater_RocketPath_2
+
+GenericNPCTextUnderwater_RocketPath_1:
+	text_far _GenericNPCTextUnderwater_RocketPath_1
+	text_end
+
+GenericNPCTextUnderwater_RocketPath_2:
+	text_far _GenericNPCTextUnderwater_RocketPath_2
+	text_end
+	
 ; ===============================================
 
 RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections to be adapted
