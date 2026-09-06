@@ -2373,6 +2373,138 @@ SpecialTrainerMoves:
 	db 6, 4, SLASH ; TOXIC? PAY_DAY?
 	db $FE
 
+	db GIOVANNI, 7
+	; PERSIAN
+	db 1, 1, HYPNOSIS
+	db 1, 2, SLASH
+	db 1, 3, HYPER_BEAM
+	db 1, 4, SHADOW_CLAW
+	; NIDOKING
+	db 2, 1, MEGAHORN
+	db 2, 2, THUNDER
+	db 2, 3, EARTHQUAKE
+	db 2, 4, GUNK_SHOT
+	; MSTEELIX
+	db 3, 1, STONE_EDGE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, IRON_TAIL
+	db 3, 4, DRAGON_DANCE
+	; MKANGASKAN
+	db 4, 1, SHADOW_CLAW
+	db 4, 2, ICICLE_SPEAR
+	db 4, 3, BONEMERANG
+	db 4, 4, BODY_SLAM
+	; THU_FI_ZER
+	db 5, 1, TRI_ATTACK
+	db 5, 2, THUNDER
+	db 5, 3, FIRE_BLAST
+	db 5, 4, BLIZZARD
+	; ARM_MEWTWO
+	db 6, 1, PSYSTRIKE
+	db 6, 2, RECOVER
+	db 6, 3, AMNESIA
+	db 6, 4, THUNDER_WAVE
+	db $FE
+
+	db GIOVANNI, 8
+	; PERSIAN
+	db 1, 1, HYPNOSIS
+	db 1, 2, SLASH
+	db 1, 3, HYPER_BEAM
+	db 1, 4, SHADOW_CLAW
+	; NIDOKING
+	db 2, 1, MEGAHORN
+	db 2, 2, THUNDER
+	db 2, 3, EARTHQUAKE
+	db 2, 4, GUNK_SHOT
+	; MSTEELIX
+	db 3, 1, STONE_EDGE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, IRON_TAIL
+	db 3, 4, DRAGON_DANCE
+	; MKANGASKAN
+	db 4, 1, SHADOW_CLAW
+	db 4, 2, ICICLE_SPEAR
+	db 4, 3, BONEMERANG
+	db 4, 4, BODY_SLAM
+	; THU_FI_ZER
+	db 5, 1, TRI_ATTACK
+	db 5, 2, THUNDER
+	db 5, 3, FIRE_BLAST
+	db 5, 4, BLIZZARD
+	; MEWTWO
+	db 6, 1, PSYSTRIKE
+	db 6, 2, RECOVER
+	db 6, 3, AMNESIA
+	db 6, 4, BLIZZARD
+	db $FE
+
+	db GIOVANNI, 9
+	; PERSIAN
+	db 1, 1, HYPNOSIS
+	db 1, 2, SLASH
+	db 1, 3, HYPER_BEAM
+	db 1, 4, SHADOW_CLAW
+	; NIDOKING
+	db 2, 1, MEGAHORN
+	db 2, 2, THUNDER
+	db 2, 3, EARTHQUAKE
+	db 2, 4, GUNK_SHOT
+	; MSTEELIX
+	db 3, 1, STONE_EDGE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, IRON_TAIL
+	db 3, 4, DRAGON_DANCE
+	; MKANGASKAN
+	db 4, 1, SHADOW_CLAW
+	db 4, 2, ICICLE_SPEAR
+	db 4, 3, BONEMERANG
+	db 4, 4, BODY_SLAM
+	; THU_FI_ZER
+	db 5, 1, TRI_ATTACK
+	db 5, 2, THUNDER
+	db 5, 3, FIRE_BLAST
+	db 5, 4, BLIZZARD
+	; MMEWTWOX
+	db 6, 1, PSYCHO_CUT
+	db 6, 2, RECOVER
+	db 6, 3, CLOSE_COMBAT
+	db 6, 4, METEOR_MASH
+	db $FE
+
+	db GIOVANNI, 10
+	; PERSIAN
+	db 1, 1, HYPNOSIS
+	db 1, 2, SLASH
+	db 1, 3, HYPER_BEAM
+	db 1, 4, SHADOW_CLAW
+	; NIDOKING
+	db 2, 1, MEGAHORN
+	db 2, 2, THUNDER
+	db 2, 3, EARTHQUAKE
+	db 2, 4, GUNK_SHOT
+	; MSTEELIX
+	db 3, 1, STONE_EDGE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, IRON_TAIL
+	db 3, 4, DRAGON_DANCE
+	; MKANGASKAN
+	db 4, 1, SHADOW_CLAW
+	db 4, 2, ICICLE_SPEAR
+	db 4, 3, BONEMERANG
+	db 4, 4, BODY_SLAM
+	; THU_FI_ZER
+	db 5, 1, TRI_ATTACK
+	db 5, 2, THUNDER
+	db 5, 3, FIRE_BLAST
+	db 5, 4, BLIZZARD
+	; MMEWTWOX
+	db 6, 1, PSYSTRIKE
+	db 6, 2, RECOVER
+	db 6, 3, MOONBLAST
+	db 6, 4, FIRE_BLAST
+	db $FE
+
 ; ===============================================================
 
 	db LORELEI, 1

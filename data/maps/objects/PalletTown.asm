@@ -66,7 +66,7 @@ PalletTown_Object:
 ;	warp_event 12, 11, HAUNTED_REDS_HOUSE, 5
 ;	warp_event 12, 11, HAUNTED_PALLET_TOWN, 1
 ;	warp_event 12, 11, HAUNTED_HOUSE_3, 9
-;	warp_event 12, 11, HAUNTED_ISLAND_OF_NUMBERS, 1
+	warp_event 12, 11, HAUNTED_ISLAND_OF_NUMBERS, 2 ; 1 entrance, 2 exit
 ;	warp_event 12, 11, BILLS_HOUSE, 1
 ;	warp_event 12, 11, BATTLE_FACILITY, 1
 ;	warp_event 12, 11, HALL_OF_FAME, 1
@@ -75,7 +75,7 @@ PalletTown_Object:
 ;	warp_event 12, 11, COPYCATS_HOUSE_1F, 1
 ;	warp_event 12, 11, SECLUDED_ATOLL_SW, 1
 ;	warp_event 12, 11, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
-	warp_event 12, 11, SILPH_CO_11F, 4
+;	warp_event 12, 11, SILPH_CO_11F, 4
 
 	def_bg_events
 	bg_event 13, 13, 5 ; PalletTownText4

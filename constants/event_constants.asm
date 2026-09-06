@@ -1307,6 +1307,7 @@
 	const EVENT_RP_GAVE_BERSERK_GENE ; new
 	const EVENT_RP_BEAT_HOF_OAK ; new
 	const EVENT_RP_CREDITS ; new
+	const EVENT_RP_KILLED_GIOVANNI ; new
 
 ; Indigo Plateau events
 	const_next $8E0

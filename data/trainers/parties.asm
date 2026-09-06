@@ -48,8 +48,6 @@ TrainerDataPointers:
 	dw LanceData
 ; new classes
 	dw DiverData
-
-; TBE
 	dw ProtonData
 	dw PetrelData
 	dw ArianaData
@@ -69,7 +67,6 @@ TrainerDataPointers:
 	dw YoungOakData
 	dw JennyData
 	dw ChallengerData
-
 	dw JessieJamesData
 	dw OrageData
 	dw PigeonData
@@ -1435,13 +1432,13 @@ PinkData:
 YoungOakData:
 	db 100, TAUROS, MGYARADOS, MMEWTWOX, MMEWTWOY, VENUSTOISE, THU_FI_ZER, 0
 
-JennyData: ; new, TBE
+JennyData: ; new
 	db 19, PARAS, GROWLITHE, PIDGEY, TANGELA, 0 ; 1, Cerulean
 	db 21, PARAS, PIDGEOTTO, GROWLITHE, TANGELA, SQUIRTLE, 0 ; 2, Vermilion
 	db 28, PARASECT, PIDGEOTTO, TANGELA, HAUNTER, GROWLITHE, 0 ; 3, Route 3
 	db 32, PARASECT, PIDGEOTTO, ARCANINE, TANGELA, WARTORTLE, HAUNTER, 0 ; 4, Sevii One
 
-ChallengerData: ; new, TBE
+ChallengerData: ; new
 	db  50, PIKACHU, 0 ; CHARIZARD, BLASTOISE, VENUSAUR, SNORLAX, PIDGEOT, 0 ; plain attempt
 	db  75, PIKACHU, 0 ; CHARIZARD, BLASTOISE, VENUSAUR, SNORLAX, PIDGEOT, 0 ; after some grind
 	db 100, CHARIZARD, 0 ; BLASTOISE, VENUSAUR, ZAPDOS, MOLTRES, ARTICUNO, 0 ; after a lot of grind, start using a lot of items

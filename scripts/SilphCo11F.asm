@@ -1227,6 +1227,7 @@ SilphCo11Script16:
 	cp $ff
 	jp z, SilphCo11Script_ResetScripts
 ; we won
+	SetEvent EVENT_RP_KILLED_GIOVANNI
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 13
