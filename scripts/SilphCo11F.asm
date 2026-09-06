@@ -1311,6 +1311,7 @@ SilphCo11Script16:
 	dec b
 	jr nz, .delayLoop
 	call WaitForTextScrollButtonPress
+	call PlayDefaultMusic
 	jp Init
 
 ; ----------------------------------------------------
