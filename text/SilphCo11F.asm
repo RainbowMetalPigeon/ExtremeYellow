@@ -425,3 +425,67 @@ _SilphCo11TextGiovanni_RP_YesAllBirbs::
 	text "you caught 'em all"
 ;	xxxx "123456789012345678"
 	prompt
+
+_SilphCo11TextGiovanni_RP_ChampionGreatDoYouHaveMewtwo::
+	text "u r champion"
+	line "good job"
+	cont "do u have Mewtwo?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_NoMewtwos::
+	text "Go catch Mewtwo"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete::
+	text "you did it!"
+	line "my team's complete!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11TextGiovanni_RP_NowBegone::
+	text "now i dont need u"
+	line "begone"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11FGiovanniRPDefeatText::
+	text "GIOVANNI: bakana"
+;	xxxx "123456789012345678"
+	prompt
+
+_SilphCo11ScriptText4_RP::
+	text "n-no, i was"
+	line "joking of course"
+	cont "testing you"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11ScriptText5_RP::
+	text "AAARGH!"
+	line "Wait, listen!"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11ScriptText6_RP::
+	text "No, wait, I beg u!"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11ScriptText7_RP::
+	text "It... hurts..."
+	line "AAAHHH!"
+	cont "It hurst so much!"
+;	xxxx "123456789012345678"
+	done
+
+_SilphCo11ScriptText8_RP::
+	text "I... no..."
+	line "I feel cold..."
+	cont "all this blood..."
+	cont "Is it..."
+	cont "really..."
+	cont "...mine...?"
+;	xxxx "123456789012345678"
+	done

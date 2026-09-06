@@ -14,7 +14,7 @@ SetDebugTeam:
 
 DebugTeam:
 	db MEWTWO, 96 ; 255
-	db MALAKAZAM, 99
+	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 1
 ;	db ARTICUNO, 100
 ;	db ZAPDOS, 42

@@ -116,7 +116,15 @@ MainMenu:
 	jp nz, SpecialEnterMap ; new
 	ld a, [wCurMap] ; map ID
 	cp HALL_OF_FAME
+; edited for RP
+	jr z, .respawnInPallet
+	cp SILPH_CO_11F
 	jp nz, SpecialEnterMap
+; is it the RP Credits?
+	CheckAndResetEvent EVENT_RP_CREDITS
+	jp z, SpecialEnterMap
+; BTV
+.respawnInPallet
 ; we autosaved in the HoF after winning the League: need to set special warp to Pallet
 	xor a
 	ld [wDestinationMap], a

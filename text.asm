@@ -149,7 +149,6 @@ INCLUDE "text/OaksLab.asm"
 INCLUDE "text/ViridianForest.asm"
 INCLUDE "text/SaffronPidgeyHouse.asm"
 INCLUDE "text/SaffronPokecenter.asm"
-INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
 
 
@@ -316,6 +315,7 @@ INCLUDE "text/CeladonMartRoof.asm"
 INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
+INCLUDE "text/MrPsychicsHouse.asm"
 
 
 SECTION "Text Rocket Path 1", ROMX ; new

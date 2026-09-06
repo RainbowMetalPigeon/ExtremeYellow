@@ -599,7 +599,6 @@ HallofFameRoomTextScript1_RP:
 HallofFameRoomScript3_RP:
 ; appropriate hide/show
 	call LoopHide_RP
-	call LoopShow_RP
 	call LoopShowExtra_RP
 	call SetBeatLeagueAndRespawnMons
 ; HoF PC
@@ -686,24 +685,6 @@ LoopHide_RP:
 
 ObjectsToHide_RP:
 	db HS_CERULEAN_CAVE_GUY
-	db $ff
-
-; ---------------
-
-LoopShow_RP:
-	ld hl, ObjectsToShow_RP
-.showLoop
-	ld a, [hli]
-	cp $ff
-	ret z
-	push hl
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	pop hl
-	jr .showLoop
-
-ObjectsToShow_RP:
-	db HS_PALLET_TOWN_DARK_GUIDE
 	db $ff
 
 ; ---------------

@@ -112,6 +112,7 @@ SilphCo11F_ScriptPointers:
 	dw SilphCo11Script14
 	; new for RP
 	dw SilphCo11Script15 ; non-fight with JJ
+	dw SilphCo11Script16 ; post-fight with Giovanni
 
 SilphCo11Script0:
 IF DEF(_DEBUG)
@@ -551,6 +552,11 @@ SilphCo11F_TextPointers_Rocket:
 	dw SilphCo11ScriptText1_RP ; 10
 	dw SilphCo11ScriptText2_RP ; 11
 	dw SilphCo11ScriptText3_RP ; 12
+	dw SilphCo11ScriptText4_RP ; 13
+	dw SilphCo11ScriptText5_RP ; 14
+	dw SilphCo11ScriptText6_RP ; 15
+	dw SilphCo11ScriptText7_RP ; 16
+	dw SilphCo11ScriptText8_RP ; 17
 
 SilphCo11TrainerHeaders:
 	def_trainers 5
@@ -899,6 +905,74 @@ SilphCo11Text2_RP:
 
 SilphCo11TextGiovanni_RP: ; TBE
 	text_asm
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	jp z, .notChampionYet
+; we are champion; check if we have a Mewtwo or not
+	ld hl, SilphCo11TextGiovanni_RP_ChampionGreatDoYouHaveMewtwo
+	call PrintText
+	ld d, MMEWTWOY
+	callfar CheckIfOneGivenMonIsInParty
+	jr nc, .checkMMewtwoX
+	ld d, MMEWTWOY
+	ld a, 10
+	ld [wTrainerNo], a
+	jr .commonRemove
+.checkMMewtwoX
+	ld d, MMEWTWOX
+	callfar CheckIfOneGivenMonIsInParty
+	jr nc, .checkMewtwo
+	ld d, MMEWTWOX
+	ld a, 9
+	ld [wTrainerNo], a
+	jr .commonRemove
+.checkMewtwo
+	ld d, MEWTWO
+	callfar CheckIfOneGivenMonIsInParty
+	jr nc, .checkArmMewtwo
+	ld d, MEWTWO
+	ld a, 8
+	ld [wTrainerNo], a
+	jr .commonRemove
+.checkArmMewtwo
+	ld d, ARM_MEWTWO
+	callfar CheckIfOneGivenMonIsInParty
+	ld hl, SilphCo11TextGiovanni_RP_NoMewtwos
+	jp nc, .printAndEnd
+	ld d, ARM_MEWTWO
+	ld a, 7
+	ld [wTrainerNo], a
+.commonRemove
+	ld a, [wPartyCount]
+	dec a
+	ld hl, SilphCo11TextGiovanni_RP_GetAnotherMon
+	jp z, .printAndEnd
+; we have enough mons
+	xor a
+	ld [wRemoveMonFromBox], a
+	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
+	call RemovePokemon
+	ld hl, SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete
+	call PrintText
+	ld hl, SilphCo11TextGiovanni_RP_NowBegone
+	call PrintText
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_GIOVANNI
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SilphCo11FGiovanniRPDefeatText
+	ld de, SilphCo11FGiovanniRPDefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 16
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.notChampionYet
 	CheckEvent EVENT_RP_GAVE_BERSERK_GENE
 	ld hl, SilphCo11TextGiovanni_RP_GoBecomeChampion
 	jp nz, .printAndEnd
@@ -1136,6 +1210,110 @@ SilphCo11TextGiovanni_RP: ; TBE
 .done
 	jp TextScriptEnd
 
+TryToRewardStealBall:
+	lb bc, STEAL_BALL, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, SilphCo11TextGiovanni_RP_GotItem
+	call PrintText
+	scf
+	ret
+.bagFull
+	ld hl, SilphCo11TextGiovanni_RP_NoRoom
+	ret
+
+SilphCo11Script16:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SilphCo11Script_ResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill Giovanni
+    call GBFadeOutToWhite
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    call GBFadeInFromWhite
+	call StopMusic
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+    call GBFadeOutToWhite
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    call GBFadeInFromWhite
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+    call GBFadeOutToBlack
+    ld c, 30
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    ld c, 30
+    call DelayFrames
+    call GBFadeInFromBlack
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+    call GBFadeOutToBlack
+    ld c, 60
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    ld c, 60
+    call DelayFrames
+    call GBFadeInFromBlack
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+    call GBFadeOutToBlack
+    ld c, 180
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	ld a, HS_SILPH_CO_11F_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+    ld c, 240
+    call DelayFrames
+    call GBFadeInFromBlack
+    ld c, 120
+    call DelayFrames
+	call SilphCo11Script_ResetScripts
+; roll credits and respawn in Pallet
+	ld a, HS_PALLET_TOWN_DARK_GUIDE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	SetEvent EVENT_RP_CREDITS
+	call GBPalWhiteOutWithDelay3
+	call ClearSprites
+	xor a
+	ld [wUpdateSpritesEnabled], a
+	callfar PostHallOfFamePC_Credits
+	ld a, PALLET_TOWN
+	ld [wLastBlackoutMap], a
+	farcall SaveSAVtoSRAM
+	ld b, 5
+.delayLoop
+	ld c, 600 / 5
+	call DelayFrames
+	dec b
+	jr nz, .delayLoop
+	call WaitForTextScrollButtonPress
+	jp Init
+
+; ----------------------------------------------------
+
 SilphCo11TextGiovanni_RP_GotItem:
 	text_far _ReceivedHM01Text
 	sound_get_key_item
@@ -1230,14 +1408,42 @@ SilphCo11TextGiovanni_RP_YesAllBirbs:
 	text_far _SilphCo11TextGiovanni_RP_YesAllBirbs
 	text_end
 
-TryToRewardStealBall:
-	lb bc, STEAL_BALL, 1
-	call GiveItem
-	jr nc, .bagFull
-	ld hl, SilphCo11TextGiovanni_RP_GotItem
-	call PrintText
-	scf
-	ret
-.bagFull
-	ld hl, SilphCo11TextGiovanni_RP_NoRoom
-	ret
+SilphCo11TextGiovanni_RP_ChampionGreatDoYouHaveMewtwo:
+	text_far _SilphCo11TextGiovanni_RP_ChampionGreatDoYouHaveMewtwo
+	text_end
+
+SilphCo11TextGiovanni_RP_NoMewtwos:
+	text_far _SilphCo11TextGiovanni_RP_NoMewtwos
+	text_end
+
+SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete:
+	text_far _SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete
+	text_end
+
+SilphCo11TextGiovanni_RP_NowBegone:
+	text_far _SilphCo11TextGiovanni_RP_NowBegone
+	text_end
+
+SilphCo11FGiovanniRPDefeatText:
+	text_far _SilphCo11FGiovanniRPDefeatText
+	text_end
+
+SilphCo11ScriptText4_RP:
+	text_far _SilphCo11ScriptText4_RP
+	text_end
+
+SilphCo11ScriptText5_RP:
+	text_far _SilphCo11ScriptText5_RP
+	text_end
+
+SilphCo11ScriptText6_RP:
+	text_far _SilphCo11ScriptText6_RP
+	text_end
+
+SilphCo11ScriptText7_RP:
+	text_far _SilphCo11ScriptText7_RP
+	text_end
+
+SilphCo11ScriptText8_RP:
+	text_far _SilphCo11ScriptText8_RP
+	text_end

@@ -1,5 +1,6 @@
 HallOfFamePC:
 	callfar AnimateHallOfFame
+PostHallOfFamePC_Credits:: ; new label
 	call ClearScreen
 	ld c, 100
 	call DelayFrames
@@ -21,7 +22,12 @@ HallOfFamePC:
 	call FillFourRowsWithBlack
 	ld a, %11000000
 	ldh [rBGP], a
+; new/edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .skipUpdateGBCPal
 	call UpdateGBCPal_BGP
+.skipUpdateGBCPal
+; BTV
 	call EnableLCD
 	call StopAllMusic
 	ld hl, vBGMap1
