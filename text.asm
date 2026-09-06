@@ -191,7 +191,6 @@ INCLUDE "text/MoveRelearner.asm" ; new
 INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
-INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
 
@@ -316,6 +315,7 @@ INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/PokemonMansion2F.asm"
+INCLUDE "text/MrFujisHouse.asm"
 
 
 SECTION "Text Extra 14", ROMX ; new

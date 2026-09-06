@@ -1313,11 +1313,6 @@ INCLUDE "data/maps/objects/CeladonUniversity2.asm"
 CeladonUniversity2_Blocks: INCBIN "maps/CeladonUniversity2.blk"
 INCLUDE "scripts/CeladonUniversity2.asm"
 
-INCLUDE "data/maps/headers/ObsidianWood.asm"
-INCLUDE "data/maps/objects/ObsidianWood.asm"
-ObsidianWood_Blocks: INCBIN "maps/ObsidianWood.blk"
-INCLUDE "scripts/ObsidianWood.asm"
-
 INCLUDE "data/maps/headers/ObsidianWarehouse.asm"
 INCLUDE "data/maps/objects/ObsidianWarehouse.asm"
 ObsidianWarehouse_Blocks: INCBIN "maps/ObsidianWarehouse.blk"
@@ -1468,6 +1463,11 @@ INCLUDE "data/maps/headers/LakeOfMist.asm"
 INCLUDE "scripts/LakeOfMist.asm"
 INCLUDE "data/maps/objects/LakeOfMist.asm"
 LakeOfMist_Blocks: INCBIN "maps/LakeOfMist.blk"
+
+INCLUDE "data/maps/headers/ObsidianWood.asm"
+INCLUDE "data/maps/objects/ObsidianWood.asm"
+ObsidianWood_Blocks: INCBIN "maps/ObsidianWood.blk"
+INCLUDE "scripts/ObsidianWood.asm"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

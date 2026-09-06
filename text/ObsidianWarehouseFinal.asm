@@ -369,3 +369,59 @@ _ObsidianWarehouseFinalText9_Blue1::
 	text "Fuck you"
 ;	xxxx "123456789012345678"
 	done
+
+_ObsidianWarehouseFinalText_CadresStart::
+	text "stop there"
+	line "you traitor"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText9_RP::
+	text "PROTON: !"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalProtonDefeatText::
+	text "PROTON: damn"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalText10_RP::
+	text "PETREL: !"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalPetrelDefeatText::
+	text "PETREL: damn"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalText11_RP::
+	text "ARIANA: !"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalArianaDefeatText::
+	text "ARIANA: damn"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalText12_RP::
+	text "ARCHER: !"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalArcherDefeatText::
+	text "ARCHER: damn"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianWarehouseFinalText_CadresEnd1::
+	text "oh no"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseFinalText_CadresEnd2::
+	text "aaahhh"
+;	xxxx "123456789012345678"
+	done

@@ -1388,6 +1388,7 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_UNLOCKED_SEVII ; new for sevii
 	const EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii
 	const EVENT_BEAT_ARTICUNO
+	const EVENT_RP_BEAT_OBSIDIAN_CADRES ; new
 
 ; Ochre City events ; new, and then scattered around
 	const_next $9F0

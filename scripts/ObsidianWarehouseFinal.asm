@@ -18,6 +18,11 @@ ObsidianWarehouseFinal_ScriptPointers:
 	dw ObsidianWarehouseFinalScript_JessieJamesVictory
 	; for RP
 	dw ObsidianWarehouseFinalScript_PostBattleBlue ; 7
+	dw ObsidianWarehouseFinalScript_TriggerCadreBattle1 ; 8
+	dw ObsidianWarehouseFinalScript_TriggerCadreBattle2 ; 9
+	dw ObsidianWarehouseFinalScript_TriggerCadreBattle3 ; 10
+	dw ObsidianWarehouseFinalScript_TriggerCadreBattle4 ; 11
+	dw ObsidianWarehouseFinalScript_PostCadreBattles ; 12
 
 ObsidianWarehouseFinal_TextPointers:
 	dw ObsidianWarehouseFinalText1 ; proxies for J&J
@@ -27,11 +32,16 @@ ObsidianWarehouseFinal_TextPointers:
 	dw ObsidianWarehouseFinalText5
 	dw ObsidianWarehouseFinalText6
 	dw ObsidianWarehouseFinalText7 ; Giovanni
-	dw ObsidianWarehouseFinalText1 ; Blue, only for RP
+	; only for RP
+	dw ObsidianWarehouseFinalText1 ; Blue, unused
+	dw ObsidianWarehouseFinalText1 ; Proton, unused
+	dw ObsidianWarehouseFinalText1 ; Petrel, unused
+	dw ObsidianWarehouseFinalText1 ; Ariana, unused
+	dw ObsidianWarehouseFinalText1 ; Archer, unused
 	; scripts
-	dw ObsidianWarehouseFinalText9_JessieJames1 ; 9
-	dw ObsidianWarehouseFinalText10_JessieJames2 ; 10
-	dw ObsidianWarehouseFinalText11_JessieJames4 ; 11
+	dw ObsidianWarehouseFinalText9_JessieJames1 ; 13
+	dw ObsidianWarehouseFinalText10_JessieJames2 ; 14
+	dw ObsidianWarehouseFinalText11_JessieJames4 ; 15
 
 ObsidianWarehouseFinal_TextPointers_Rocket:
 	dw ObsidianWarehouseFinalText1_RP ; James
@@ -41,9 +51,17 @@ ObsidianWarehouseFinal_TextPointers_Rocket:
 	dw ObsidianWarehouseFinalText5_RP ; Ariana
 	dw ObsidianWarehouseFinalText6_RP ; Archer
 	dw ObsidianWarehouseFinalText7 ; Giovanni (unnecessary)
-	dw ObsidianWarehouseFinalText8_RP ; Blue
+	; only for RP
+	dw ObsidianWarehouseFinalText8_RP ; 8, Blue
+	dw ObsidianWarehouseFinalText9_RP ; 9 Proton
+	dw ObsidianWarehouseFinalText10_RP ; 10, Petrel
+	dw ObsidianWarehouseFinalText11_RP ; 11, Ariana
+	dw ObsidianWarehouseFinalText12_RP ; 12, Archer
 	; scripts
-	dw ObsidianWarehouseFinalText9_Blue1 ; 9
+	dw ObsidianWarehouseFinalText9_Blue1 ; 13
+	dw ObsidianWarehouseFinalText_CadresStart ; 14
+	dw ObsidianWarehouseFinalText_CadresEnd1 ; 15
+	dw ObsidianWarehouseFinalText_CadresEnd2 ; 16
 
 ; ================= scripts, beginning =================
 
@@ -94,7 +112,17 @@ IF DEF(_DEBUG)
 	ret nz
 ENDC
 	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; RP
+	CheckEvent EVENT_RP_BEAT_OBSIDIAN_CADRES
 	jp nz, CheckFightingMapTrainers ; actually unnecessary in RP because no actual "seeing" trainers
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	jp z, CheckFightingMapTrainers
+; unnecessary to check the coordinates, because it happens immediately as soon as we arrive
+	ld a, 8
+	ld [wCurMapScript], a
+	ret
+.notRP
 	CheckEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_JESSIEJAMES
 	call z, ObsidianWarehouseFinalScript_JessieJamesTrigger
 	jp CheckFightingMapTrainers
@@ -114,7 +142,7 @@ ObsidianWarehouseFinalScript_JessieJamesTrigger:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, 9
+	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -237,7 +265,7 @@ ObsidianWarehouseFinalScript_JessieJamesFight:
 	call Delay3
 	ld a, $fc
 	ld [wJoyIgnore], a
-	ld a, 10
+	ld a, 14
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wd72d
@@ -277,7 +305,7 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 	ld [wJoyIgnore], a
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, 11
+	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -553,7 +581,7 @@ ObsidianWarehouseFinalAfterBattleText5:
 	text_far _ObsidianWarehouseFinalAfterBattleText5
 	text_end
 
-; new for RP ==================================
+; new for RP ================================================
 
 ObsidianWarehouseFinalText1_RP:
 	text_asm
@@ -737,7 +765,7 @@ ObsidianWarehouseFinalScript_PostBattleBlue:
 	SetEvent EVENT_RP_BEAT_OBSIDIAN_BLUE
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 9
+	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; hide Blue and Hideout Giovanni (and Mines guard)
@@ -759,3 +787,257 @@ ObsidianWarehouseFinalScript_PostBattleBlue:
 	jp z, ObsidianWarehouseFinalScript_ResetScript
 	SetEvent EVENT_RP_UNLOCKED_SILPH
 	jp ObsidianWarehouseFinalScript_ResetScript
+
+; post-Giovanni's death -----------------------------------
+
+ObsidianWarehouseFinalScript_TriggerCadreBattle1:
+; print dialogue
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; exclamation bubble
+	ld a, 0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+; fade out
+	call GBFadeOutToBlack
+; show cadres
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_PROTON2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_PETREL2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_ARIANA2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_ARCHER2
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+; fade in
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; dialogue Proton
+	ld a, 9
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_PROTON
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, ObsidianWarehouseFinalProtonDefeatText
+	ld de, ObsidianWarehouseFinalProtonDefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; handle script
+	ld a, 9
+	ld [wCurMapScript], a
+	ret
+
+ObsidianWarehouseFinalScript_TriggerCadreBattle2:
+; check if we lost
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+; we won
+	xor a
+	ld [wJoyIgnore], a
+; dialogue Petrel
+	ld a, 10
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_PETREL
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, ObsidianWarehouseFinalPetrelDefeatText
+	ld de, ObsidianWarehouseFinalPetrelDefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; handle script
+	ld a, 10
+	ld [wCurMapScript], a
+	ret
+
+ObsidianWarehouseFinalScript_TriggerCadreBattle3:
+; check if we lost
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+; we won
+	xor a
+	ld [wJoyIgnore], a
+; dialogue Ariana
+	ld a, 11
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_ARIANA
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, ObsidianWarehouseFinalArianaDefeatText
+	ld de, ObsidianWarehouseFinalArianaDefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; handle script
+	ld a, 11
+	ld [wCurMapScript], a
+	ret
+
+ObsidianWarehouseFinalScript_TriggerCadreBattle4:
+; check if we lost
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+; we won
+	xor a
+	ld [wJoyIgnore], a
+; dialogue Archer
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_ARCHER
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, ObsidianWarehouseFinalArcherDefeatText
+	ld de, ObsidianWarehouseFinalArcherDefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; handle script
+	ld a, 12
+	ld [wCurMapScript], a
+	ret
+
+ObsidianWarehouseFinalScript_PostCadreBattles:
+; check if we lost
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ObsidianWarehouseFinalScript_ResetScript
+; we won
+	SetEvent EVENT_RP_BEAT_OBSIDIAN_CADRES
+	SetEvent EVENT_SS_ANNE_RETURNED
+	xor a
+	ld [wJoyIgnore], a
+; dialogue
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; flash
+    call GBFadeOutToWhite
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    call GBFadeInFromWhite
+; dialogue
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; fade black and hide cadres
+    call GBFadeOutToBlack
+    ld c, 30
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	call WaitForSoundToFinish
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    ld c, 30
+    call DelayFrames
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_PROTON2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_PETREL2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_ARIANA2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_ARCHER2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call UpdateSprites
+    call GBFadeInFromBlack
+;	ld c, BANK(Music_Dungeon1)
+;	ld a, MUSIC_DUNGEON1
+;	call PlayMusic
+	call PlayDefaultMusic
+; handle script
+	jp ObsidianWarehouseFinalScript_ResetScript
+
+ObsidianWarehouseFinalText_CadresStart:
+	text_far _ObsidianWarehouseFinalText_CadresStart
+	text_end
+
+ObsidianWarehouseFinalText9_RP:
+	text_far _ObsidianWarehouseFinalText9_RP
+	text_end
+
+ObsidianWarehouseFinalProtonDefeatText:
+	text_far _ObsidianWarehouseFinalProtonDefeatText
+	text_end
+
+ObsidianWarehouseFinalText10_RP:
+	text_far _ObsidianWarehouseFinalText10_RP
+	text_end
+
+ObsidianWarehouseFinalPetrelDefeatText:
+	text_far _ObsidianWarehouseFinalPetrelDefeatText
+	text_end
+
+ObsidianWarehouseFinalText11_RP:
+	text_far _ObsidianWarehouseFinalText11_RP
+	text_end
+
+ObsidianWarehouseFinalArianaDefeatText:
+	text_far _ObsidianWarehouseFinalArianaDefeatText
+	text_end
+
+ObsidianWarehouseFinalText12_RP:
+	text_far _ObsidianWarehouseFinalText12_RP
+	text_end
+
+ObsidianWarehouseFinalArcherDefeatText:
+	text_far _ObsidianWarehouseFinalArcherDefeatText
+	text_end
+
+ObsidianWarehouseFinalText_CadresEnd1:
+	text_far _ObsidianWarehouseFinalText_CadresEnd1
+	text_end
+
+ObsidianWarehouseFinalText_CadresEnd2:
+	text_far _ObsidianWarehouseFinalText_CadresEnd2
+	text_end

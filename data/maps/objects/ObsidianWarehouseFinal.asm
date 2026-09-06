@@ -18,7 +18,12 @@ ObsidianWarehouseFinal_Object:
 	object_event  8,  5, SPRITE_ARCHER, STAY, LEFT, 6, OPP_ARCHER, 1
 	; Giovanni
 	object_event  6,  1, SPRITE_GIOVANNI, STAY, DOWN, 7, OPP_GIOVANNI, 3
-	; Blue
+	; Blue for RP
 	object_event  7,  5, SPRITE_BLUE, STAY, RIGHT, 8 ; for RP
+	; copies of cadres for RP
+	object_event  5, 18, SPRITE_PROTON, STAY, DOWN, 9 ; for RP
+	object_event  4, 19, SPRITE_PETREL, STAY, RIGHT, 10 ; for RP
+	object_event  6, 19, SPRITE_ARIANA, STAY, LEFT, 11 ; for RP
+	object_event  5, 20, SPRITE_ARCHER, STAY, UP, 12 ; for RP
 
 	def_warps_to OBSIDIAN_WAREHOUSE_FINAL

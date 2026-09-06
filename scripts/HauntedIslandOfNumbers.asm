@@ -37,6 +37,7 @@ HauntedIslandOfNumbersScript_StartMissingNoTrainerBattle:
 	ld hl, MissingNoTrainerText_Win  ; text if player wins
 	ld de, MissingNoTrainerText_Lose ; text if player loses
 	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld a, OPP_MISSINGNO_T
 	ld [wCurOpponent], a
 	ld a, 1

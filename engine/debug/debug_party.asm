@@ -372,6 +372,8 @@ IF DEF(_DEBUG)
 
 	SetEvent EVENT_RP_UNLOCKED_SILPH
 
+	SetEvent EVENT_RP_KILLED_GIOVANNI
+
 	ret
 
 DebugSetPokedexEntries:

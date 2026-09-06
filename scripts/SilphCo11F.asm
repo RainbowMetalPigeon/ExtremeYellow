@@ -1291,6 +1291,8 @@ SilphCo11Script16:
     ld c, 120
     call DelayFrames
 	call SilphCo11Script_ResetScripts
+; hide/show stuff
+	call HideExtraNPCsAfterKillingGiovanni
 ; roll credits and respawn in Pallet
 	ld a, HS_PALLET_TOWN_DARK_GUIDE
 	ld [wMissableObjectIndex], a
@@ -1313,6 +1315,27 @@ SilphCo11Script16:
 	call WaitForTextScrollButtonPress
 	call PlayDefaultMusic
 	jp Init
+
+HideExtraNPCsAfterKillingGiovanni:
+	ld hl, NPCsToHideExtra_AfterKillGiovanni
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of NPCs to hide?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	pop hl
+	jr .hideLoop
+
+NPCsToHideExtra_AfterKillGiovanni:
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_2
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3
+	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4
+	db $ff
 
 ; ----------------------------------------------------
 
