@@ -28,7 +28,7 @@ VermilionDock_Script:
 ; BTV
 	CheckEventHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	jr nz, .walking_out_of_dock
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
+	CheckEvent EVENT_SS_ANNE_RETURNED ; new
 	ret nz ; new
 	CheckEventReuseHL EVENT_GOT_HM01
 	ret z

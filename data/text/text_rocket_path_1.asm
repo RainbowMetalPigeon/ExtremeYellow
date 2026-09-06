@@ -168,6 +168,17 @@ _RocketNPCText_RocketPath_2::
 
 ; ROOKIET
 
+_RocketNPCText_RocketPath_Boss::
+	text "You... got rid of"
+	line "the BO- GIOVANNI."
+
+	para "That... makes you"
+	line "the new BOSS."
+
+	para "I-I'll follow you!"
+;	xxxx "123456789012345678"
+	done
+
 ; -------------
 
 _GymGuideText_RocketPath::

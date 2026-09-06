@@ -29,9 +29,9 @@ ObsidianWarehouseFinal_TextPointers:
 	dw ObsidianWarehouseFinalText7 ; Giovanni
 	dw ObsidianWarehouseFinalText1 ; Blue, only for RP
 	; scripts
-	dw ObsidianWarehouseFinalText9_JessieJames1
-	dw ObsidianWarehouseFinalText10_JessieJames2
-	dw ObsidianWarehouseFinalText11_JessieJames4
+	dw ObsidianWarehouseFinalText9_JessieJames1 ; 9
+	dw ObsidianWarehouseFinalText10_JessieJames2 ; 10
+	dw ObsidianWarehouseFinalText11_JessieJames4 ; 11
 
 ObsidianWarehouseFinal_TextPointers_Rocket:
 	dw ObsidianWarehouseFinalText1_RP ; James
@@ -43,7 +43,7 @@ ObsidianWarehouseFinal_TextPointers_Rocket:
 	dw ObsidianWarehouseFinalText7 ; Giovanni (unnecessary)
 	dw ObsidianWarehouseFinalText8_RP ; Blue
 	; scripts
-	dw ObsidianWarehouseFinalText9_Blue1
+	dw ObsidianWarehouseFinalText9_Blue1 ; 9
 
 ; ================= scripts, beginning =================
 

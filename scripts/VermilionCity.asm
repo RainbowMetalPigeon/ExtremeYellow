@@ -40,8 +40,8 @@ VermilionCity_Script:
 .initCityScript
 	CheckEvent EVENT_VERMILION_DOCK_AUTOWALKING_SEVII_FERRY ; new
 	ret nz ; new
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new, testing
-	ret nz ; new, testing
+	CheckEvent EVENT_SS_ANNE_RETURNED ; new
+	ret nz ; new
 	CheckEventHL EVENT_SS_ANNE_LEFT
 	ret z
 	CheckEventReuseHL EVENT_WALKED_PAST_GUARD_AFTER_SS_ANNE_LEFT
@@ -94,7 +94,7 @@ VermilionCityScript0: ; edited for RP
 	jr .changeScript
 .notRP
 ; BTV
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
+	CheckEvent EVENT_SS_ANNE_RETURNED ; new
 	ret nz ; new
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	and a ; cp SPRITE_FACING_DOWN
@@ -369,8 +369,7 @@ VermilionCityText1:
 
 VermilionCityText2: ; edited
 	text_asm
-	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; for debugging
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	CheckEvent EVENT_SS_ANNE_RETURNED
 	jr z, .beforeShipReturn
 	ld hl, VermilionCityTextAnneReturned
 	jr .end
@@ -432,7 +431,7 @@ VermilionCityText3: ; edited
 	text_asm
 
 ; post-League: SS returned
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	CheckEvent EVENT_SS_ANNE_RETURNED
 	jr z, .beforePostLeague
 ; post-League: choose between SS and Sevii
 	ld hl, SSAnneWelcomeTextPostReturn

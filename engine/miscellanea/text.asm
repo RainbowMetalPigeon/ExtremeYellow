@@ -88,7 +88,12 @@ GenericNPCTextUnderwater_RocketPath_2:
 
 RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections to be adapted
 	call EnableAutoTextBoxDrawing
-
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	jr z, .preKillGiovanni
+; we are the new BOSS
+	ld hl, RocketNPCText_RocketPath_Boss
+	jr .printAndEnd
+.preKillGiovanni
 	call Random
 	and %00000001
 	add a
@@ -99,7 +104,7 @@ RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a ; hl = address of the text
-
+.printAndEnd
 	call PrintText
 	ret
 
@@ -113,4 +118,8 @@ RocketNPCText_RocketPath_1:
 
 RocketNPCText_RocketPath_2:
 	text_far _RocketNPCText_RocketPath_2
+	text_end
+
+RocketNPCText_RocketPath_Boss:
+	text_far _RocketNPCText_RocketPath_Boss
 	text_end

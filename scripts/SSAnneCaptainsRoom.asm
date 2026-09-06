@@ -103,7 +103,7 @@ SSAnneCaptainsRoom_TextPointers_Rocket: ; TBE
 SSAnne7Text1:
 	text_asm
 ; --- beginning, new code for battle vs Captain ---
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
+	CheckEvent EVENT_SS_ANNE_RETURNED
 	jr z, .preExtraBattle
 	ld c, BANK(Music_MeetEvilTrainer)
 	ld a, MUSIC_MEET_EVIL_TRAINER

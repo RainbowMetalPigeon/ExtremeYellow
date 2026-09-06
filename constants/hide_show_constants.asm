@@ -255,6 +255,7 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_7     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
+	; total = 248
 
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
@@ -494,3 +495,4 @@ DEF SHOW EQU $15
 	const HS_HALL_OF_FAME_OAK              ; new
 	const HS_HALL_OF_FAME_BLUE             ; new
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
+	; total = 232
