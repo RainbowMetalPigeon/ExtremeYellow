@@ -160,3 +160,26 @@ _SSAnne7Text5::
 	text "CAPTAIN: May you"
 	line "be damned!!!"
 	done
+
+; new for RP ===========================
+
+_SSAnne7Text1_RP::
+	text "CAPTAIN: Oh, it's"
+	line "really you?!"
+
+	para "I heard the new."
+	line "So now that"
+	cont "GIOVANNI is..."
+	cont "Well, yes, now"
+	cont "YOU are TEAM"
+	cont "ROCKET's new BOSS."
+
+	para "I pay respect."
+	line "Unless you order"
+	cont "differently, I'll"
+	cont "keep carrying on"
+	cont "the deliveries"
+	cont "according to the"
+	cont "old directions."
+;	xxxx "123456789012345678"
+	done

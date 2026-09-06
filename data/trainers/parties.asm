@@ -545,6 +545,8 @@ BeautyData:
 	db 41, HORSEA, SEADRA, KINGDRA, 0
 ; Sevii Four Island Houses - Hazards Tutor
 	db 39, PARASECT, CLOYSTER, PINSIR, OMASTAR, TENTACRUEL, KABUTOPS, 0 ; 16
+; Bird Fan Club
+	db 36, DODRIO, CROBAT, BUTTERFREE, 0 ; 17
 
 PsychicData:
 ; Saffron Gym
@@ -685,6 +687,8 @@ BirdKeeperData:
 	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, DRAGONITE, 0 ; 28, special birdkeeper
 ; Route 20 ; new
 	db  1, PIDGEOT, FEAROW, FARFETCHD, DODRIO, AERODACTYL, 0 ; 29, special birdkeeper
+; Bird Fan Club
+	db 36, PIDGEOT, FARFETCHD, SCYTHER, 0 ; 30
 
 BlackbeltData:
 ; Fighting Dojo ; all updated
@@ -1030,6 +1034,8 @@ CooltrainerData:
 	db 46, GOLEM, CHARIZARD, STEELIX, KLEAVOR, RAPIDASH, 0 ; 104
 ; Sevii Two Island Houses - Ball Tutor
 	db 32, SCYTHER, ARBOK, KINGLER, NINETALES, TANGELA, RAICHU, 0 ; 105
+; Bird Fan Club
+	db 36, FEAROW, CHARIZARD, GYARADOS, 0 ; 106
 
 ;PORYGON2	3
 ;POLITOED 	5

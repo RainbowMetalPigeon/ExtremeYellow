@@ -18,7 +18,6 @@ INCLUDE "text/VictoryRoad3F.asm"
 INCLUDE "text/RocketHideoutB2F.asm"
 INCLUDE "text/RocketHideoutB3F.asm"
 INCLUDE "text/RocketHideoutB4F.asm"
-INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/SilphCo2F.asm"
 
 
@@ -29,6 +28,7 @@ INCLUDE "text/SilphCo5F.asm"
 INCLUDE "text/SilphCo4F.asm"
 INCLUDE "text/SilphCo3F.asm"
 INCLUDE "text/RocketHideoutB1F.asm"
+INCLUDE "text/RocketHideoutElevator.asm"
 
 
 SECTION "Text 3", ROMX

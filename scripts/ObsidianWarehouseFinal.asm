@@ -768,7 +768,7 @@ ObsidianWarehouseFinalScript_PostBattleBlue:
 	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; hide Blue and Hideout Giovanni (and Mines guard)
+; hide Blue, Hideout Giovanni, Mines guard, and two bridge guards
 	call GBFadeOutToBlack
 	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE
 	ld [wMissableObjectIndex], a
@@ -779,6 +779,12 @@ ObsidianWarehouseFinalScript_PostBattleBlue:
 	ld a, HS_ROCKET_HIDEOUT_B4F_GIOVANNI
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	ld a, HS_ROUTE_28_ROCKET_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_ROUTE_28_ROCKET_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack

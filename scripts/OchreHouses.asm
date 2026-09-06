@@ -1,7 +1,15 @@
 OchreHouses_Script:
 	RPTextChooser OchreHouses_TextPointers, OchreHouses_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
-	ret
+	ld hl, OchreHouses_ScriptPointers
+	ld a, [wCurMapScript]
+	jp CallFunctionInTable
+
+OchreHouses_ScriptPointers: ; for RP
+	dw OchreHouses_Script0
+	dw OchreHouses_Script1
+	dw OchreHouses_Script2
+	dw OchreHouses_Script3
 
 OchreHouses_TextPointers:
 	dw MoveDeleterText1 ; OchreHousesTextDeleter
@@ -22,16 +30,16 @@ OchreHouses_TextPointers:
 OchreHouses_TextPointers_Rocket:
 	dw MoveDeleterText1 ; OchreHousesTextDeleter
 	dw MoveRelearnerText1_RP ; OchreHousesTextRelearner
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; reactivater
+	dw GenericNPCText_RocketPath ; Magikarp tutor
+	dw OchreHousesTextBirbFan1_RP ; birb fan 1
+	dw OchreHousesTextBirbFan2_RP ; birb fan 2
+	dw OchreHousesTextBirbFan3_RP ; birb fan 3
 	dw OchreHousesTextBirb1 ; FEAROW
 	dw OchreHousesTextBirb2 ; FARFETCHD
 	dw OchreHousesTextBirb3 ; PIDGEOT
 	dw OchreHousesTextBirb4 ; DODRIO
-	dw OchreHousesTextMapPiece
+	dw OchreHousesTextMapPiece_RP
 	; signs
 	dw OchreHousesTextNotebook
 
@@ -460,4 +468,212 @@ CheckMemberOrPresidentAndSetDialogue:
 .defaultText
 	ld h, d
 	ld l, e
+	ret
+
+; new for RP =========================================
+
+OchreHouses_Script0:
+	ret
+
+OchreHousesTextBirbFan1_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_1
+	ld hl, OchreHousesTextBirbFan1_RP_After
+	jr nz, .printAndEnd
+; set up battle
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, OchreHousesTextBirbFan1_RP_Before
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BEAUTY
+	ld [wCurOpponent], a
+	ld a, 17
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, OchreBirdFanClubDefeatText1
+	ld de, OchreBirdFanClubDefeatText1
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OchreHousesTextBirbFan1_RP_Before:
+	text_far _OchreHousesTextBirbFan1_RP_Before
+	text_end
+
+OchreBirdFanClubDefeatText1:
+	text_far _OchreBirdFanClubDefeatText1
+	text_end
+
+OchreHousesTextBirbFan1_RP_After:
+	text_far _OchreHousesTextBirbFan1_RP_After
+	text_end
+
+OchreHouses_Script1:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, OchreHousesResetScripts
+; we won
+	SetEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_1
+	jp OchreHousesResetScripts
+
+; --------------
+
+OchreHousesTextBirbFan2_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_2
+	ld hl, OchreHousesTextBirbFan2_RP_After
+	jr nz, .printAndEnd
+; set up battle
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, OchreHousesTextBirbFan2_RP_Before
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIRD_KEEPER
+	ld [wCurOpponent], a
+	ld a, 30
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, OchreBirdFanClubDefeatText2
+	ld de, OchreBirdFanClubDefeatText2
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 2
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OchreHousesTextBirbFan2_RP_Before:
+	text_far _OchreHousesTextBirbFan2_RP_Before
+	text_end
+
+OchreBirdFanClubDefeatText2:
+	text_far _OchreBirdFanClubDefeatText2
+	text_end
+
+OchreHousesTextBirbFan2_RP_After:
+	text_far _OchreHousesTextBirbFan2_RP_After
+	text_end
+
+OchreHouses_Script2:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, OchreHousesResetScripts
+; we won
+	SetEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_2
+	jp OchreHousesResetScripts
+
+; --------------
+
+OchreHousesTextBirbFan3_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_3
+	ld hl, OchreHousesTextBirbFan3_RP_After
+	jr nz, .printAndEnd
+; set up battle
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, OchreHousesTextBirbFan3_RP_Before
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_COOLTRAINER
+	ld [wCurOpponent], a
+	ld a, 106
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, OchreBirdFanClubDefeatText3
+	ld de, OchreBirdFanClubDefeatText3
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OchreHousesTextBirbFan3_RP_Before:
+	text_far _OchreHousesTextBirbFan3_RP_Before
+	text_end
+
+OchreBirdFanClubDefeatText3:
+	text_far _OchreBirdFanClubDefeatText3
+	text_end
+
+OchreHousesTextBirbFan3_RP_After:
+	text_far _OchreHousesTextBirbFan3_RP_After
+	text_end
+
+OchreHouses_Script3:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, OchreHousesResetScripts
+; we won
+	SetEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_3
+	jp OchreHousesResetScripts
+
+; --------------
+
+OchreHousesTextMapPiece_RP:
+	text_asm
+	ld hl, OchreHousesTextMapPiece_RP_CannotPick
+	CheckEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_1
+	jr z, .printAndEnd
+	CheckEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_2
+	jr z, .printAndEnd
+	CheckEvent EVENT_RP_BEAT_OCHRE_BIRB_FAN_3
+	jr z, .printAndEnd
+; we can pick the map
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .alreadyHaveAPiece
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .alreadyHaveAPiece
+	ld hl, OchreHousesTextMapPiece_BagFull
+	jr .printAndEnd
+.alreadyHaveAPiece
+	ld a, HS_OCHRE_HOUSES_MAP_PIECE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	SetEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	ld hl, OchreHousesTextMapPiece_President
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+OchreHousesTextMapPiece_RP_CannotPick:
+	text_far _OchreHousesTextMapPiece_RP_CannotPick
+	text_end
+
+OchreHousesResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
 	ret

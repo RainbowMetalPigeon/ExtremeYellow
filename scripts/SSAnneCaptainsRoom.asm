@@ -89,16 +89,18 @@ SSAnne7Script_6189b:
 SSAnneCaptainsRoom_TextPointers:
 	dw SSAnne7Text1 ; captain
 	dw SSAnne7TextJenny ; new, Jenny
+	; signs
 	dw SSAnne7Text2 ; trash
 	dw SSAnne7Text3 ; book
+	; scripts
 	dw SSAnne7Text5 ; defeated captain
 
-SSAnneCaptainsRoom_TextPointers_Rocket: ; TBE
-	dw SSAnne7Text1 ; captain
-	dw SSAnne7TextJenny ; new, Jenny
+SSAnneCaptainsRoom_TextPointers_Rocket:
+	dw SSAnne7Text1_RP ; captain
+	dw SSAnne7TextJenny ; Jenny, unused
+	; signs
 	dw SSAnne7Text2 ; trash
 	dw SSAnne7Text3 ; book
-	dw SSAnne7Text5 ; defeated captain
 
 SSAnne7Text1:
 	text_asm
@@ -240,4 +242,10 @@ SSAnne7TextCaptain_PreBattle:
 
 SSAnne7TextCaptain_Defeat:
 	text_far _SSAnne7TextCaptain_Defeat
+	text_end
+
+; new for RP =================================
+
+SSAnne7Text1_RP:
+	text_far _SSAnne7Text1_RP
 	text_end
