@@ -180,7 +180,6 @@ INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
 INCLUDE "text/PalletTown.asm"
-INCLUDE "text/PokemonMansion2F.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,9 +315,10 @@ INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
+INCLUDE "text/PokemonMansion2F.asm"
 
 
-SECTION "Text Rocket Path 1", ROMX ; new
+SECTION "Text Extra 14", ROMX ; new
 INCLUDE "data/text/text_rocket_path_1.asm"
 
 

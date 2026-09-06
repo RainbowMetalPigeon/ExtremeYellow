@@ -429,7 +429,13 @@ _SilphCo11TextGiovanni_RP_YesAllBirbs::
 _SilphCo11TextGiovanni_RP_ChampionGreatDoYouHaveMewtwo::
 	text "u r champion"
 	line "good job"
-	cont "do u have Mewtwo?"
+
+	para "Oh you killed OAK?"
+	line "...Samuel..."
+	cont "...what's needed"
+	cont "is needed."
+
+	para "do u have Mewtwo?"
 ;	xxxx "123456789012345678"
 	prompt
 

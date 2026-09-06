@@ -396,7 +396,7 @@ _BluesHouseSignText4::
 
 ; new for RP ========================
 
-_DaisyText_RP::
+_DaisyText_RP_Before::
 	text "<PLAYER>...?!"
 	line "What happened?!"
 
@@ -430,6 +430,40 @@ _DaisyText_RP::
 
 	para "I don't want to see"
 	line "you ever again."
+;	xxxx "123456789012345678"
+	done
+
+_DaisyText_RP_After::
+	text "<PLAYER>...?!"
+	line "W-what..."
+	
+	para "What did you..."
+
+	para "What did you"
+	line "just say...?"
+
+	para "No... It... You..."
+	line "It's a joke, yes."
+	cont "It's a horrib-"
+
+	para "...No...?"
+
+	para "AAAAAHHHHH!!!!!"
+	line "WHY?!"
+	cont "HOW COULD YOU"
+	cont "KILL THEM?!"
+
+	para "<RIVAL>!"
+	line "Gramps!"
+
+	para "YOU MONSTER!!!"
+;	xxxx "123456789012345678"
+	done
+
+_BluesHouseScriptText1::
+	text "AAAHHH!"
+
+	para "No! No, no, WHY?!"
 ;	xxxx "123456789012345678"
 	done
 

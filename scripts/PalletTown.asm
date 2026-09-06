@@ -242,7 +242,7 @@ PalletTown_TextPointers_Rocket:
 	dw PalletTownText1 ; Oak, unused
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw PalletTownTextDarkGuide ; TBE?
+	dw PalletTownTextDarkGuide_RP
 	; signs
 	dw PalletTownText4
 	dw PalletTownText5
@@ -866,4 +866,33 @@ DarkGuideHints_Hint12_Details:
 
 DarkGuideHints_Hint12_Solution:
 	text_far _DarkGuideHints_Hint12_Solution
+	text_end
+
+; new for RP =================================
+
+PalletTownTextDarkGuide_RP:
+	text_asm
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, PalletTownTextDarkGuide_RP_After
+	jr nz, .printAndEnd
+; first time
+	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, PalletTownTextDarkGuide_RP_Before
+	call PrintText
+	ld hl, PalletTownTextDarkGuide_RP_GetTicket
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PalletTownTextDarkGuide_RP_Before:
+	text_far _PalletTownTextDarkGuide_RP_Before
+	text_end
+
+PalletTownTextDarkGuide_RP_GetTicket:
+	text_far _PalletTownTextDarkGuide_RP_GetTicket
+	sound_get_key_item
+	text_end
+
+PalletTownTextDarkGuide_RP_After:
+	text_far _PalletTownTextDarkGuide_RP_After
 	text_end
