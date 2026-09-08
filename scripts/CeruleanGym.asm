@@ -372,6 +372,7 @@ ReceivedCascadeBadgeText_RP:
 
 MistyCascadeBadgeInfoText_RP:
 	text_far _MistyCascadeBadgeInfoText_RP
+	sound_get_key_item
 	text_end
 
 TM11NoRoomText_RP:

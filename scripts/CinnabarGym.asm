@@ -778,6 +778,7 @@ ReceivedVolcanoBadgeText_RP:
 
 BlaineVolcanoBadgeInfoText_RP:
 	text_far _BlaineVolcanoBadgeInfoText_RP
+	sound_get_key_item
 	text_end
 
 ReceivedTM38Text_RP:

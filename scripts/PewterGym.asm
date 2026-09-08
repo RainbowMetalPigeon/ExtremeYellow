@@ -64,7 +64,7 @@ PewterGymScriptReceiveTM34:
 .gymVictory
 	ld hl, wObtainedBadges
 	set BIT_BOULDERBADGE, [hl]
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEvents EVENT_BEAT_PEWTER_GYM_TRAINER_0, EVENT_BEAT_PEWTER_GYM_TRAINER_1
 	jp PewterGymResetScripts
 
@@ -389,6 +389,7 @@ ReceivedBoulderBadgeText_RP:
 
 BeforeReceivedTM34Text_RP:
 	text_far _BeforeReceivedTM34Text_RP
+	sound_get_key_item
 	text_end
 
 ReceivedTM34Text_RP:

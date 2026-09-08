@@ -318,27 +318,35 @@ _ErikaRematchDefeatedText::
 
 ; new for RP ==================
 
-_ErikaPostBattleAdviceText_RP::
-	text "leave"
-;	xxxx "123456789012345678"
-	done
-
 _ErikaPreBattleText_RP::
-	text "full power"
+	text "...a ROCKET."
+	line "The worst way to"
+	cont "wake up."
+	cont "But stay assured,"
+	cont "I'll use all of my"
+	cont "ability to put"
+	cont "YOU to sleep"
+	cont "forever with my"
+	cont "GRASS #MON."
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedRainbowBadgeText_RP::
-	text "get and raus"
+	text "The balance"
+	line "of my flower"
+	cont "composition."
+	cont "The peace of my"
+	cont "garden. All that"
+	cont "you touch rots."
+	cont "Take these, and"
+	cont "wither in your"
+	cont "loneliness."
 ;	xxxx "123456789012345678"
 	prompt
 
 _ErikaRainbowBadgeInfoText_RP::
-	text "got badge"
-;	xxxx "123456789012345678"
-	done
-
-_TM21NoRoomText_RP::
-	text "no space"
+	text "ERIKA throws"
+	line "the RAINBOWBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done

@@ -414,6 +414,7 @@ ReceivedThunderBadgeText_RP:
 
 LTSurgeThunderBadgeInfoText_RP:
 	text_far _LTSurgeThunderBadgeInfoText_RP
+	sound_get_key_item
 	text_end
 
 ReceivedTM24Text_RP:

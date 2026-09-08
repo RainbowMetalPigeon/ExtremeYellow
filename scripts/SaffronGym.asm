@@ -481,6 +481,7 @@ ReceivedMarshBadgeText_RP:
 
 SabrinaMarshBadgeInfoText_RP:
 	text_far _SabrinaMarshBadgeInfoText_RP
+	sound_get_key_item
 	text_end
 
 TM46NoRoomText_RP:
