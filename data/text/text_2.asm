@@ -1629,4 +1629,15 @@ _PikachuResisted::
 	line "<TARGET> holds!"
 	prompt
 
+_GenericNPCPokecenterBenchGuyText_RP::
+	text "Ugh... For as much"
+	line "as right now I'd"
+	cont "love to, I can't"
+	cont "exactly get up"
+	cont "and leave, so can"
+	cont "you just leave me"
+	cont "alone...?"
+;	xxxx "123456789012345678"
+	done
+
 ;	xxxx "123456789012345678"

@@ -1,5 +1,12 @@
 PrintBenchGuyText:
 	call EnableAutoTextBoxDrawing
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld a, (GenericNPCPokecenterBenchGuyText_RP_id-TextPredefs)/2+1
+	jr .printAndEnd
+.notRP
+; BTV
 	ld hl, BenchGuyTextPointers
 	ld a, [wCurMap]
 	ld b, a
@@ -19,6 +26,7 @@ PrintBenchGuyText:
 	cp b
 	jr nz, .loop ; player isn't facing the bench guy
 	ld a, [hl]
+.printAndEnd ; new label
 	jp PrintPredefTextID
 
 INCLUDE "data/events/bench_guys.asm"
@@ -91,4 +99,8 @@ SaffronCityPokecenterBenchGuyText2:
 
 CeladonCityHotelText::
 	text_far _CeladonCityHotelText
+	text_end
+
+GenericNPCPokecenterBenchGuyText_RP::
+	text_far _GenericNPCPokecenterBenchGuyText_RP
 	text_end

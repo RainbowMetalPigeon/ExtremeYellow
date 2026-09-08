@@ -113,3 +113,4 @@ TextPredefs::
 	add_tx_pre SpecialDoorSilphCo11FText			; new
 	add_tx_pre RedBedroomSNESText_RP                ; new
 	add_tx_pre CantSurfHereText2                    ; new
+	add_tx_pre GenericNPCPokecenterBenchGuyText_RP  ; new
