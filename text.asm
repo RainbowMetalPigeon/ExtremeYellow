@@ -47,7 +47,6 @@ INCLUDE "text/UndergroundPathRoute7Copy.asm"
 INCLUDE "text/UndergroundPathRoute8.asm"
 INCLUDE "text/RockTunnelPokecenter.asm"
 INCLUDE "text/RockTunnel1F.asm"
-INCLUDE "text/PowerPlant.asm"
 INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/Route11Gate2F.asm"
 INCLUDE "text/DiglettsCaveRoute11.asm"
@@ -320,6 +319,7 @@ INCLUDE "text/Route25.asm"
 SECTION "Text Extra 14", ROMX ; new
 INCLUDE "data/text/text_rocket_path_1.asm"
 INCLUDE "text/OchreGym.asm" ; new
+INCLUDE "text/PowerPlant.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

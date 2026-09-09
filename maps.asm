@@ -488,11 +488,6 @@ INCLUDE "scripts/GameCorner.asm"
 INCLUDE "data/maps/objects/GameCorner.asm"
 GameCorner_Blocks: INCBIN "maps/GameCorner.blk"
 
-INCLUDE "data/maps/headers/CeladonMart5F.asm"
-INCLUDE "scripts/CeladonMart5F.asm"
-INCLUDE "data/maps/objects/CeladonMart5F.asm"
-CeladonMart5F_Blocks: INCBIN "maps/CeladonMart5F.blk"
-
 INCLUDE "data/maps/headers/GameCornerPrizeRoom.asm"
 INCLUDE "scripts/GameCornerPrizeRoom.asm"
 INCLUDE "data/maps/objects/GameCornerPrizeRoom.asm"
@@ -1468,6 +1463,11 @@ INCLUDE "data/maps/headers/ObsidianWood.asm"
 INCLUDE "data/maps/objects/ObsidianWood.asm"
 ObsidianWood_Blocks: INCBIN "maps/ObsidianWood.blk"
 INCLUDE "scripts/ObsidianWood.asm"
+
+INCLUDE "data/maps/headers/CeladonMart5F.asm"
+INCLUDE "scripts/CeladonMart5F.asm"
+INCLUDE "data/maps/objects/CeladonMart5F.asm"
+CeladonMart5F_Blocks: INCBIN "maps/CeladonMart5F.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

@@ -10,6 +10,8 @@ Route15Gate1F_Script:
 Route15Gate1F_ScriptPointers:
 	dw Route15Gate1FScript0
 	dw Route15Gate1FScript1
+	; for RP
+	dw Route15Gate1F_PostBattle
 
 Route15Gate1FScript0:
 	ret
@@ -29,14 +31,14 @@ Route15Gate1FScript1:
 
 Route15Gate1F_TextPointers:
 	dw Route15GateText1
-	dw Route15GateUpstairsText1
+	dw Route15GateUpstairsText1 ; EXP_ALL AID
 	; signs
 	dw Route15GateUpstairsTextArticuno ; new
 	dw Route15GateUpstairsText2
 
 Route15Gate1F_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw Route15GateUpstairsText1_RP ; EXP_ALL AID
 	; signs
 	dw Route15GateUpstairsTextArticuno
 	dw Route15GateUpstairsText2
@@ -129,3 +131,83 @@ Route15GateUpstairsText_Articuno_1:
 RestoreOverworld:
 	call LoadCurrentMapView
 	jp UpdateSprites
+
+; new for RP ========================
+
+Route15GateUpstairsText1_RP:
+	text_asm
+	CheckEvent EVENT_GOT_EXP_ALL
+	ld hl, Route15Gate1FText1_RP_PostHM
+	jr nz, .printAndEnd
+	CheckEvent EVENT_RP_BEAT_EXPALL_AID
+	jr nz, .giveHM05
+; set up the battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_SCIENTIST
+	ld [wCurOpponent], a
+	ld a, 22
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld a, 2
+	ld [wCurMapScript], a
+	ld hl, Route15Gate1FText1_RP_MustStopYou
+	jr .printAndEnd
+.giveHM05
+	ld hl, Route15Gate1FText1_RP_TakeThis
+	call PrintText
+	lb bc, EXP_ALL, 1
+	call GiveItem
+	jr nc, .bagFull
+	SetEvent EVENT_GOT_EXP_ALL
+	ld hl, Route15Gate1FText1_RP_ObtainItem
+	jr .printAndEnd
+.bagFull
+	ld hl, Route15Gate1FText1_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Route15Gate1FText1_RP_PostHM:
+	text_far _RouteAnyGateText1_RP_PostHM
+	text_end
+
+Route15Gate1FText1_RP_MustStopYou:
+	text_far _RouteAnyGateText1_RP_MustStopYou
+	text_end
+
+Route15Gate1FText1_RP_TakeThis:
+	text_far _RouteAnyGateText1_RP_TakeThis
+	text_end
+
+Route15Gate1FText1_RP_ObtainItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
+	text_end
+
+Route15Gate1FText1_RP_BagFull:
+	text_far _RouteAnyGateText1_RP_BagFull
+	text_end
+
+Route15Gate1F_PostBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, Route15Gate1FResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	SetEvent EVENT_RP_BEAT_EXPALL_AID
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 2
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	; fallthrough
+Route15Gate1FResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
