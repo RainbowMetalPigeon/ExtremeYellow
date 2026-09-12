@@ -32,7 +32,7 @@ WardensHouse_TextPointers_Rocket:
 	dw FuchsiaHouse2AntiquitiesText3
 	dw FuchsiaHouse2AntiquitiesText4
 	dw FuchsiaHouse2AntiquitiesText5
-	dw FuchsiaHouse2AntiquitiesTextMapPiece
+	dw FuchsiaHouse2AntiquitiesTextMapPiece_RP
 	; signs ---
 	dw FuchsiaHouse2Text4
 	dw FuchsiaHouse2Text5
@@ -345,6 +345,7 @@ FuchsiaHouse2Text1_RP_WardenHappy:
 
 FuchsiaHouse2Text1_RP_SmashTeeth:
 	text_far _FuchsiaHouse2Text1_RP_SmashTeeth
+	sound_get_key_item
 	text_end
 
 FuchsiaHouse2Text1_RP_WardenShocked:
@@ -400,4 +401,36 @@ FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag:
 
 FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks:
 	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks
+	sound_get_key_item
+	text_end
+
+; new for RP ==========================
+
+FuchsiaHouse2AntiquitiesTextMapPiece_RP:
+	text_asm
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .alreadyHaveAPiece
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .alreadyHaveAPiece
+	ld hl, FuchsiaHouse2AntiquitiesTextMapPiece_RP_BagFull
+	jr .printAndEnd
+.alreadyHaveAPiece
+	ld a, HS_WARDENS_ANTIQUITIES_MAP_PIECE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	ld hl, FuchsiaHouse2AntiquitiesTextMapPiece_RP_StoleMap
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaHouse2AntiquitiesTextMapPiece_RP_StoleMap:
+	text_far _ObsidianMinesText3_RP_StoleMap
+	sound_get_key_item
+	text_end
+
+FuchsiaHouse2AntiquitiesTextMapPiece_RP_BagFull:
+	text_far _BagFullText_RP
 	text_end

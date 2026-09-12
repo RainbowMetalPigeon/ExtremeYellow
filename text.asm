@@ -211,10 +211,8 @@ INCLUDE "text/Route24.asm"
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
-INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/BattleFacility.asm" ; new
-INCLUDE "text/VermilionDock.asm"
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -320,6 +318,8 @@ SECTION "Text Extra 14", ROMX ; new
 INCLUDE "data/text/text_rocket_path_1.asm"
 INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/PowerPlant.asm"
+INCLUDE "text/VermilionDock.asm"
+INCLUDE "text/SilphCo10F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
