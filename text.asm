@@ -360,7 +360,6 @@ INCLUDE "text/SeviiFiveIsland1.asm"
 
 SECTION "Text Sevii 3", ROMX
 INCLUDE "text/SeviiFourIsland.asm"
-INCLUDE "text/SeviiEightIsland.asm"
 
 
 SECTION "Text Sevii 4", ROMX
@@ -379,3 +378,7 @@ INCLUDE "text/SeviiSixIsland1.asm"
 SECTION "Text Sevii 7", ROMX
 INCLUDE "text/SeviiTwoIsland.asm"
 INCLUDE "text/SeviiSixIsland2.asm"
+
+
+SECTION "Text Sevii 8", ROMX
+INCLUDE "text/SeviiEightIsland.asm"

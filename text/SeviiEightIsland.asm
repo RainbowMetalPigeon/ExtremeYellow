@@ -507,7 +507,7 @@ _SeviiEightIslandCavePinkBeatYouText::
 ;	xxxx "123456789012345678"
 	prompt
 
-; ten island --------------------------------------- TBE
+; ten island ---------------------------------------
 
 _SeviiTenIslandText1_Intro::
 	text "What is this?"
@@ -612,10 +612,96 @@ _SeviiTenIslandYoungOakDefeatedText::
 	prompt
 
 _SeviiTenIslandYoungOakBeatYouText::
-	text "samuel: I won!"
+	text "I won!"
 	line "It seems I didn't"
 	cont "earn my title for"
 	cont "nothing, after"
 	cont "all!"
 ;	xxxx "123456789012345678"
 	prompt
+
+; new for RP ===================================
+
+_SeviiTenIslandScriptText2_RP::
+	text "SAMUEL: What just"
+	line "happened?!"
+	cont "Where am I?"
+	cont "Who are you?"
+
+	para "I was checking"
+	line "that shrine in"
+	cont "ILEX FOREST..."
+
+	para "...?"
+
+	para "You are what?"
+
+	para "I never heard of"
+	line "TEAM ROCKET. What"
+	cont "are you up to?"
+
+	para "...Oh my goddess."
+	line "You use #MON"
+	cont "for evil? You"
+	cont "traffic #MON?"
+	cont "You'd do anything"
+	cont "for gold?"
+	cont "And YOU are the"
+	cont "BOSS of the whole"
+	cont "organization?!"
+
+	para "This is atrocious."
+	line "It is my duty as"
+	cont "the new INDIGO"
+	cont "LEAGUE CHAMPION"
+	cont "to put a stop to"
+	cont "your madness."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTenIslandYoungOakDefeatedText_RP::
+	text "What's the"
+	line "point of being"
+	cont "crowned the"
+	cont "strongest trainer"
+	cont "if I can't even"
+	cont "stop one single"
+	cont "criminal?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTenIslandYoungOakBeatYouText_RP::
+	text "See where"
+	line "evil led you?"
+	cont "But it's not too"
+	cont "late to change."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTenIslandScriptText3_RP::
+	text "SAMUEL: No...!"
+
+	para "This must be"
+	line "CELEBI's doing,"
+	cont "but why? Why was"
+	cont "I brought to the"
+	cont "future, if I"
+	cont "couldn't do any-"
+	cont "thing to save it?"
+
+	para "Did I just fail"
+	line "my timeline?"
+	cont "Does this mean"
+	cont "the future can't"
+	cont "be changed?"
+
+	para "No! I refuse to"
+	line "believe so."
+	cont "I'll remember this"
+	cont "fight, believe"
+	cont "me, and I will"
+	cont "make sure that MY"
+	cont "future won't be"
+	cont "like this!"
+;	xxxx "123456789012345678"
+	done
