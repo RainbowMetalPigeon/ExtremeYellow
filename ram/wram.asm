@@ -2362,6 +2362,8 @@ wCeruleanCityCurScript:: db
 ;wViridianForestCurScript:: db
 
 wShinyRitualSeconds:: db ; new
+wParkourPathSeconds:: db ; new
+wParkourPathSeconds_Record:: db ; new
 wAlteringCaveLoopNumber:: db ; new
 
 wMuseum1FCurScript:: db
@@ -2370,7 +2372,7 @@ wMuseum1FCurScript:: db
 ;wRoute17CurScript:: db
 ;wRoute19CurScript:: db
 ;wRoute21CurScript:: db
-	ds 5 ; new, from optimizing the scripts, UNUSED
+	ds 3 ; new, from optimizing the scripts, UNUSED
 
 wSafariZoneGateCurScript:: db
 ;wRockTunnelB1FCurScript:: db

@@ -134,3 +134,22 @@ TrackPlayTime_ShinyRitual:: ; new
 ; if we are here: 240 seconds passed
 	ResetEvent EVENT_SHINY_RITUAL_ACTIVE
 	ret
+
+TrackPlayTime_ParkourPath:: ; new
+	CheckEvent EVENT_PARKOUR_TRACKING_TIME
+	ret z
+; the event was triggered
+	ld a, [wPlayTimeFrames]
+	and a
+	ret nz
+; if frames=0, then 60 are passed, ergo 1 second
+; increase the dedicated second counter
+	ld a, [wParkourPathSeconds]
+	inc a
+	ld [wParkourPathSeconds], a
+	cp 240
+	ret nz
+; if we are here: 240 seconds passed
+	ResetEvent EVENT_PARKOUR_TRACKING_TIME
+	SetEvent EVENT_PARKOUR_OVERTIME
+	ret

@@ -157,6 +157,9 @@ SeviiOneIslandCityScript0:
 	ld a, 1
 .changeScript
 	ld [wCurMapScript], a
+; also set now the record for the Parkour Path
+	ld a, 241
+	ld [wParkourPathSeconds_Record], a
 	ret
 
 SeviiOneIslandCity_Coordinates_CelioJennyDialogue:

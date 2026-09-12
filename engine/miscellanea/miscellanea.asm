@@ -2397,6 +2397,8 @@ MarkBirbAsFed::
 	jp z, .seviiRoute43
 	cp SEVII_ROUTE_44
 	jp z, .seviiRoute44
+	cp SEVII_FOUR_ISLAND_PARKOUR_PATH
+	jp z, .seviiParkourPath
 
 	cp SEVII_EIGHT_ISLAND_CITY
 	jp z, .seviiEight
@@ -2502,6 +2504,9 @@ MarkBirbAsFed::
 	ret
 .seviiRoute44
 	SetEvent EVENT_BIRB_SEVII_ROUTE44
+	ret
+.seviiParkourPath
+	SetEvent EVENT_BIRB_SEVII_PARKOUR_PATH
 	ret
 
 CheckIfAllBirbsHaveBeenFed::
@@ -2666,6 +2671,8 @@ CheckIfAllBirbsHaveBeenFed::
 	CheckEvent EVENT_BIRB_SEVII_ROUTE43
 	ret z
 	CheckEvent EVENT_BIRB_SEVII_ROUTE44
+	ret z
+	CheckEvent EVENT_BIRB_SEVII_PARKOUR_PATH
 	ret z
 ; set overall event
 	SetEvent EVENT_FED_ALL_BIRBS

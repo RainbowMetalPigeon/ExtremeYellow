@@ -914,6 +914,73 @@ _SeviiFourIslandCityDiveAfterBattleText4::
 	cont "super dangerous!)"
 	done
 
+; parkour path ------------------------------------
+
+_SeviiFourIslandParkourPathText1::
+	text "Parkour!!!"
+
+	para "I made this path"
+	line "to challenge my"
+	cont "speed & agility."
+
+	para "The rule is only"
+	line "one, & as simple"
+	cont "as it gets:"
+	cont "Go fast!"
+	cont "Go from start to"
+	cont "end in as little"
+	cont "time as possible."
+
+	para "The signs keep"
+	line "track of your"
+	cont "best time."
+
+	para "Enjoy the speed!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandParkourPathText1_RP::
+	text "...what does a"
+	line "ROCKET know 'bout"
+	cont "challenging"
+	cont "ourselves, sport,"
+	cont "and the strive"
+	cont "to improvement?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiFourIslandParkourPathSignText1_Intro::
+	text "The timer starts"
+	line "as soon as you"
+	cont "stand on the"
+	cont "white spot!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiFourIslandParkourPathSignText2_Normal::
+	text "Your record is:"
+	line "@"
+	text_decimal wParkourPathSeconds_Record, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "s!"
+	done
+
+_SeviiFourIslandParkourPathSignText2_Capped::
+	text "Your record is:"
+	line "240s or more!"
+	done
+
+_SeviiFourIslandParkourPathScriptText1_Normal::
+	text "Your time is:"
+	line "@"
+	text_decimal wParkourPathSeconds, 1, 3 ; address to read from, number of bytes to read, number of digits to display
+	text "s!"
+	done
+
+_SeviiFourIslandParkourPathScriptText1_Overtime::
+	text "Your time is:"
+	line "240s or more!"
+	done
+
 ; new for RP ============================
 
 _SeviiFourIslandHousesText2_RP_Before::
