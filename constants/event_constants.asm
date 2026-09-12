@@ -1392,6 +1392,7 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_RP_BEAT_OCHRE_BIRB_FAN_1 ; new
 	const EVENT_RP_BEAT_OCHRE_BIRB_FAN_2 ; new
 	const EVENT_RP_BEAT_OCHRE_BIRB_FAN_3 ; new
+	const EVENT_RP_STOLE_BIG_NUGGET_OBSIDIAN_HIKER ; new
 
 ; Ochre City events ; new, and then scattered around
 	const_next $9F0

@@ -96,3 +96,56 @@ _ObsidianMinesText3_BagFull::
     para "I can't not"
     line "reward you!"
     done
+
+; new for RP =================================
+
+_ObsidianMinesText3_RP_StealNugget::
+    text "Oh goddess, yes,"
+    line "someone!!!"
+
+    para "I've been lost for"
+    line "days! I ne-"
+
+    para "You're a ROCKET?"
+    line "Well... you won't"
+    cont "leave me dying"
+    cont "here, right?"
+    cont "I can even pay"
+    cont "you to get me"
+    cont "out of thi-"
+
+    para "AAARGH!"
+    line "No! Wait! Stop!"
+    cont "What're you doing?"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianMinesText3_RP_StoleNugget::
+	text "<PLAYER> steals a"
+    line "BIG NUGGET!"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianMinesText3_RP_StealMap::
+	text "...No... please..."
+    line "Have mercy..."
+
+    para "Agh! What else do"
+    line "you still want"
+    cont "from me? No!!!"
+;	xxxx "123456789012345678"
+	prompt
+
+_ObsidianMinesText3_RP_StoleMap::
+	text "<PLAYER> steals a"
+	line "piece of the"
+	cont "MYSTERY MAP!"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianMinesText3_RP_PostMap::
+	text "You are the worst"
+    line "piece of shit of"
+    cont "the whole world..."
+;	xxxx "123456789012345678"
+	done

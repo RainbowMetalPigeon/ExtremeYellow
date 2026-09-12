@@ -46,7 +46,7 @@ ObsidianMines_TextPointers:
 ObsidianMines_TextPointers_Rocket:
 	dw ObsidianMinesText1
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw ObsidianMinesText3_RP ; TBE
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -161,4 +161,72 @@ ObsidianMinesText3_Asshole:
 
 ObsidianMinesText3_BagFull:
 	text_far _ObsidianMinesText3_BagFull
+	text_end
+
+; new for RP =================================
+
+ObsidianMinesText3_RP:
+	text_asm
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	ld hl, ObsidianMinesText3_RP_PostMap
+	jr nz, .printAndEnd
+; we didn't get the map; did we get the nugget? If not, first time we speak or the bag was full
+	CheckEvent EVENT_RP_STOLE_BIG_NUGGET_OBSIDIAN_HIKER
+	jr nz, .tryGetMapPiece
+; we didn't even get the nugget
+	ld hl, ObsidianMinesText3_RP_StealNugget
+	call PrintText
+	lb bc, BIG_NUGGET, 1
+	call GiveItem
+	jr nc, .bagFull
+; bag is not full
+	SetEvent EVENT_RP_STOLE_BIG_NUGGET_OBSIDIAN_HIKER
+	ld hl, ObsidianMinesText3_RP_StoleNugget
+	call PrintText
+.tryGetMapPiece
+	ld hl, ObsidianMinesText3_RP_StealMap
+	call PrintText
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .setMapPieceEvent
+; first piece we ever obtain, we need to try to give the item as well
+.tryGivingMap
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually give map
+.setMapPieceEvent
+	SetEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	ld hl, ObsidianMinesText3_RP_StoleMap
+	jr .printAndEnd
+.bagFull
+	ld hl, ObsidianMinesText3_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ObsidianMinesText3_RP_StealNugget:
+	text_far _ObsidianMinesText3_RP_StealNugget
+	text_end
+
+ObsidianMinesText3_RP_StoleNugget:
+	text_far _ObsidianMinesText3_RP_StoleNugget
+	sound_get_item_1
+	text_end
+
+ObsidianMinesText3_RP_StealMap:
+	text_far _ObsidianMinesText3_RP_StealMap
+	text_end
+
+ObsidianMinesText3_RP_StoleMap:
+	text_far _ObsidianMinesText3_RP_StoleMap
+	sound_get_key_item
+	text_end
+
+ObsidianMinesText3_RP_PostMap:
+	text_far _ObsidianMinesText3_RP_PostMap
+	text_end
+
+ObsidianMinesText3_RP_BagFull:
+	text_far _BagFullText_RP
 	text_end
