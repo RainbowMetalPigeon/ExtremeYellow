@@ -19,7 +19,7 @@
 	map_const SEVII_ONE_ISLAND_CITY,         20, 20 ; $00
 	map_const SEVII_TWO_ISLAND_CITY,         20, 22 ; $01
 	map_const SEVII_THREE_ISLAND_CITY,       16, 25 ; $02
-	map_const SEVII_FOUR_ISLAND_CITY,        20, 20 ; $03
+	map_const SEVII_FOUR_ISLAND_CITY,        23, 22 ; $03
 	map_const SEVII_FIVE_ISLAND_CITY,        20, 20 ; $04
 	map_const SEVII_SIX_ISLAND_CITY,         10, 10 ; $05
 	map_const SEVII_SEVEN_ISLAND_CITY,       12, 10 ; $06
@@ -41,6 +41,7 @@ DEF FIRST_ROUTE_MAP_SEVII EQU const_value
 	map_const SEVII_ROUTE_42,                14, 30 ; $14
 	map_const SEVII_ROUTE_43,                19, 46 ; $15
 	map_const SEVII_ROUTE_44,                50, 15 ; $16
+	map_const SEVII_FOUR_ISLAND_PARKOUR_PATH, 9, 80 ; $TBE
 DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 ; 1-island-related maps
 	map_const SEVII_ONE_ISLAND_DOCK,                         10,  6 ; $17
@@ -101,7 +102,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_FOUR_ISLAND_HAZARD_ROOM,                  9, 12 ; $4B
 	map_const SEVII_ICEFALL_CAVE_1F,                         19, 20 ; $4C
 	map_const SEVII_ICEFALL_CAVE_2F,                         11, 11 ; $4D
-	map_const SEVII_FOUR_ISLAND_CITY_DIVE,                   20, 20 ; $4E
+	map_const SEVII_FOUR_ISLAND_CITY_DIVE,                   23, 22 ; $4E
 	map_const SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,            33, 27 ; $4F
 	map_const SEVII_UNDERGROUND_FOUR,                        28, 16 ; $50
 ; 5-island-related maps

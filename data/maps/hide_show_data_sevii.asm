@@ -28,6 +28,7 @@ MapHSPointers_Sevii:
 	dw SeviiRoute42HS ; SEVII_ROUTE_42
 	dw SeviiRoute43HS ; SEVII_ROUTE_43
 	dw NoHSSevii ; SEVII_ROUTE_44
+	dw NoHSSevii ; SEVII_FOUR_ISLAND_PARKOUR_PATH
 ; indoors
 ; 1-island
 	dw SeviiOneIslandDockHS ; SEVII_ONE_ISLAND_DOCK

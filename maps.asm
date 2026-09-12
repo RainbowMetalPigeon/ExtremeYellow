@@ -1879,11 +1879,6 @@ INCLUDE "scripts/SeviiTwoIslandCityDive.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandCityDive.asm"
 SeviiTwoIslandCityDive_Blocks: INCBIN "maps/SeviiTwoIslandCityDive.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute33Dive.asm"
-INCLUDE "scripts/SeviiRoute33Dive.asm"
-INCLUDE "data/maps/objects/SeviiRoute33Dive.asm"
-SeviiRoute33Dive_Blocks: INCBIN "maps/SeviiRoute33Dive.blk"
-
 INCLUDE "data/maps/headers/SeviiRoute33DiveCavernF1.asm"
 INCLUDE "scripts/SeviiRoute33DiveCavernF1.asm"
 INCLUDE "data/maps/objects/SeviiRoute33DiveCavernF1.asm"
@@ -2144,3 +2139,16 @@ INCLUDE "data/maps/headers/SeviiRoute33.asm"
 INCLUDE "scripts/SeviiRoute33.asm"
 INCLUDE "data/maps/objects/SeviiRoute33.asm"
 SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandParkourPath.asm"
+INCLUDE "scripts/SeviiFourIslandParkourPath.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandParkourPath.asm"
+SeviiFourIslandParkourPath_Blocks: INCBIN "maps/SeviiFourIslandParkourPath.blk"
+
+
+SECTION "Maps Sevii 7", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiRoute33Dive.asm"
+INCLUDE "scripts/SeviiRoute33Dive.asm"
+INCLUDE "data/maps/objects/SeviiRoute33Dive.asm"
+SeviiRoute33Dive_Blocks: INCBIN "maps/SeviiRoute33Dive.blk"

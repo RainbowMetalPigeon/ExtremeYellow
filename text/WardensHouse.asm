@@ -337,7 +337,7 @@ _FuchsiaHouse2AntiquitiesSign2::
 
 _FuchsiaHouse2AntiquitiesSign3::
 	text "BLEATING COW"
-	line "PLUSHIE, 24 Y.A."
+	line "PLUSHIE, 26 Y.A."
 
 	para "Price: ¥INFINITE"
 	done

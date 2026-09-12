@@ -25,6 +25,7 @@ MapSpriteSets_Sevii:
 	db $07 ; SEVII_ROUTE_42
 	db $07 ; SEVII_ROUTE_43
 	db $07 ; SEVII_ROUTE_44
+	db $04 ; SEVII_FOUR_ISLAND_PARKOUR_PATH
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 
 ;DEF EAST_WEST   EQU 1
