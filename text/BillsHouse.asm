@@ -310,3 +310,23 @@ _BillsHouseWhatAreYouDoingText:: ; RP
 	cont "FOR THE LOVE OF-"
 ;	xxxx "123456789012345678"
 	prompt
+
+_BillsHouseText5_RP:: ; RP
+	text "The air feels"
+	line "weird."
+
+	para "Something changed."
+
+	para "It's almost as if a"
+	line "portal to another"
+	cont "dimension opened."
+
+	para "A twisted"
+	line "dimension."
+
+	para "If one listens"
+	line "carefully, can"
+	cont "hear like an"
+	cont "entity calling..."
+;	xxxx "123456789012345678"
+	done

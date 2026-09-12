@@ -219,3 +219,39 @@ _Route25TextLockedAndAbandoned::
 	line "long abandoned..."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP =================================
+
+_Route25TextCompleted666Steps_RP::
+	text "Forces from beyond"
+	line "this world alter"
+	cont "the reality in"
+	cont "front of you."
+
+	para "They seem to be"
+	line "inviting you..."
+;	xxxx "123456789012345678"
+	done
+
+_Route25TextToHauntedHouseMessage1_RP::
+	text "Go ahead."
+	line "Do not hesitate."
+;	xxxx "123456789012345678"
+	done
+
+_Route25TextToHauntedHouseMessage2_RP::
+	text "Keep going"
+	line "forward."
+
+	para "Marvels beyond"
+	line "believe lie"
+	cont "in front of you."
+;	xxxx "123456789012345678"
+	done
+
+_Route25TextToHauntedHouseMessage3_RP::
+	text "You're almost"
+	line "there:"
+	cont "ONE. MORE. STEP."	
+;	xxxx "123456789012345678"
+	done

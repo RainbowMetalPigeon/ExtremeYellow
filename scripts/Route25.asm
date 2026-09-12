@@ -241,10 +241,10 @@ Route25_TextPointers_Rocket:
 	dw Route25TextLockedAndAbandoned3 ; 18
 	dw Route25TextLockedAndAbandoned4 ; 19
 	; scripts
-	dw Route25TextCompleted666Steps ; 20 TBE
-	dw Route25TextToHauntedHouseMessage1 ; 21 TBE
-	dw Route25TextToHauntedHouseMessage2 ; 22 TBE
-	dw Route25TextToHauntedHouseMessage3 ; 23 TBE
+	dw Route25TextCompleted666Steps_RP ; 20
+	dw Route25TextToHauntedHouseMessage1_RP ; 21
+	dw Route25TextToHauntedHouseMessage2_RP ; 22
+	dw Route25TextToHauntedHouseMessage3_RP ; 23
 
 Route25TrainerHeaders:
 	def_trainers
@@ -461,4 +461,22 @@ Route25TextLockedAndAbandoned2:
 Route25TextLockedAndAbandoned3:
 Route25TextLockedAndAbandoned4:
 	text_far _Route25TextLockedAndAbandoned
+	text_end
+
+; new for RP =============================
+
+Route25TextCompleted666Steps_RP:
+	text_far _Route25TextCompleted666Steps_RP
+	text_end
+
+Route25TextToHauntedHouseMessage1_RP:
+	text_far _Route25TextToHauntedHouseMessage1_RP
+	text_end
+
+Route25TextToHauntedHouseMessage2_RP:
+	text_far _Route25TextToHauntedHouseMessage2_RP
+	text_end
+
+Route25TextToHauntedHouseMessage3_RP:
+	text_far _Route25TextToHauntedHouseMessage3_RP
 	text_end

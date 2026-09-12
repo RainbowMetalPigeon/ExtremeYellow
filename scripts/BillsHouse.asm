@@ -74,7 +74,31 @@ BillsHouseScript0: ; edited for RP
 	ld [wBillsHouseCurScript], a
 	ret
 
-BillsHouseScript1:
+BillsHouseScript1: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret z
+; we are in RP
+	CheckEvent EVENT_SHOWN_COMPLETE_MAP_TO_BILL ; abused
+	ret nz
+; we have not "shown" the map yet
+	ld b, MYSTERY_MAP
+	call IsItemInBag
+	ret z
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_1_BIRD_FAN_CLUB
+	ret z
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
+	ret z
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	ret z
+	CheckEvent EVENT_OBTAIN_MAP_PIECE_4_RESCUED_TRAVELER
+	ret z
+; we have the complete map
+	ld a, 5
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 10 ; BillsHouseScript10
+	ld [wCurMapScript], a
+	ld [wBillsHouseCurScript], a
 	ret
 
 BillsHouseScript2:
@@ -287,6 +311,7 @@ BillsHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; scripts
 	dw BillsHouseText4_RP
+	dw BillsHouseText5_RP
 
 BillsHouseText1:
 	text_asm
@@ -350,6 +375,20 @@ BillsHouseScript10: ; new
 	ld a, 1
 	ld [wBillsHouseCurScript], a
 	ret
+
+BillsHouseText3_MapAlreadyShown: ; new
+	text_far _BillsHouseText3_MapAlreadyShown
+	text_end
+
+BillsHouseText3_YouHaveThatMap: ; new
+	text_far _BillsHouseText3_YouHaveThatMap
+	text_end
+
+BillsHouseText3_MissingnoDefeated: ; new
+	text_far _BillsHouseText3_MissingnoDefeated
+	text_end
+
+; new for RP =========================================
 
 BillsHouseScript11: ; new for RP
 	ld a, 4
@@ -465,18 +504,6 @@ BillsHouseText4_RP:
 .done ; script handling
 	jp TextScriptEnd
 
-BillsHouseText3_MapAlreadyShown: ; new
-	text_far _BillsHouseText3_MapAlreadyShown
-	text_end
-
-BillsHouseText3_YouHaveThatMap: ; new
-	text_far _BillsHouseText3_YouHaveThatMap
-	text_end
-
-BillsHouseText3_MissingnoDefeated: ; new
-	text_far _BillsHouseText3_MissingnoDefeated
-	text_end
-
 BillsHouseSnatchEverythingText:: ; new
 	text_far _BillsHouseSnatchEverythingText
 	text_end
@@ -487,4 +514,8 @@ BillsHousePCEmptyText:: ; new
 
 BillsHouseWhatAreYouDoingText:: ; new
 	text_far _BillsHouseWhatAreYouDoingText
+	text_end
+
+BillsHouseText5_RP:
+	text_far _BillsHouseText5_RP
 	text_end

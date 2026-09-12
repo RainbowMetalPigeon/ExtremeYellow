@@ -221,7 +221,6 @@ INCLUDE "text/CeladonUniversity2.asm" ; new
 INCLUDE "text/BillsHouse.asm" ; moved from Text 3
 INCLUDE "text/SafariZoneCenter.asm"
 INCLUDE "text/SafariZoneWest.asm"
-INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo8F.asm"
@@ -320,6 +319,7 @@ INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/PowerPlant.asm"
 INCLUDE "text/VermilionDock.asm"
 INCLUDE "text/SilphCo10F.asm"
+INCLUDE "text/SafariZoneEast.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
