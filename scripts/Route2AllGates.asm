@@ -14,7 +14,7 @@ Route2AllGates_Null:
 
 Route2AllGates_TextPointers:
 	; Route 2 Gate
-	dw Route2GateText1
+	dw Route2GateText1 ; Flash AID
 	dw Route2GateText2
 	; Viridian Forest South Gate
 	dw ViridianForestEntranceText1
@@ -124,15 +124,15 @@ Route2GateText1_RP:
 	jp TextScriptEnd
 
 Route2GateText1_RP_PostHM:
-	text_far _Route2GateText1_RP_PostHM
+	text_far _RouteAnyGateText1_RP_PostHM
 	text_end
 
 Route2GateText1_RP_MustStopYou:
-	text_far _Route2GateText1_RP_MustStopYou
+	text_far _RouteAnyGateText1_RP_MustStopYou
 	text_end
 
 Route2GateText1_RP_TakeThis:
-	text_far _Route2GateText1_RP_TakeThis
+	text_far _RouteAnyGateText1_RP_TakeThis
 	text_end
 
 Route2GateText1_RP_ObtainItem:
@@ -141,7 +141,7 @@ Route2GateText1_RP_ObtainItem:
 	text_end
 
 Route2GateText1_RP_BagFull:
-	text_far _Route2GateText1_RP_BagFull
+	text_far _RouteAnyGateText1_RP_BagFull
 	text_end
 
 Route2AllGates_PostBattle:

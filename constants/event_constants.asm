@@ -664,6 +664,8 @@
 	const EVENT_GOT_HM05
 	const EVENT_RP_BEAT_HM05_AID ; new
 	const EVENT_RP_BEAT_OBSIDIAN_BLUE ; new
+	const EVENT_RP_BEAT_EXPALL_AID ; new
+	const EVENT_RP_BEAT_ITEMFINDER_AID ; new
 
 ; Route 3 events
 	const_next $3E0

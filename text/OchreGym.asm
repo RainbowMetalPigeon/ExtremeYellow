@@ -429,27 +429,39 @@ _OrageRematchDefeatedText::
 
 ; new for RP =======================
 
-_OragePostBattleText_RP::
-	text "leave and ciao"
-;	xxxx "123456789012345678"
-	done
-
 _OragePreBattleText_RP::
-	text "max strg"
+	text "A ROCKET."
+	line "Disgusting."
+	cont "I will certainly"
+	cont "not face some"
+	cont "shit like you in"
+	cont "a honor battle."
+	cont "I'll face you with"
+	cont "my max-power team."
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedNoBadgeText_RP::
-	text "bg"
+	text "...really"
+	line "disgusting."
 ;	xxxx "123456789012345678"
 	prompt
 
 _OrageNoBadgeInfoText_RP::
-	text "what else u want"
-;	xxxx "123456789012345678"
-	done
+	text "What else do you"
+	line "even want?!"
+	cont "This is not an"
+	cont "official INDIGO"
+	cont "GYM. No BADGE for"
+	cont "your, nor fancy"
+	cont "gift TM."
 
-_GiftNoRoomText_RP::
-	text "no space"
+	para "It's the first time"
+	line "ever I'm glad to"
+	cont "say this..."
+
+	para "Now leave. There's"
+	line "nothing at all"
+	cont "here for you."
 ;	xxxx "123456789012345678"
 	done

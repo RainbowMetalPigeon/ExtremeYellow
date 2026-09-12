@@ -321,28 +321,47 @@ _FuchsiaGymNoBattleText_Common::
 
 ; new for RP ========================
 
-_KogaPostBattleText_RP::
-	text "leave"
-;	xxxx "123456789012345678"
-	done
-
 _KogaBeforeBattleText_RP::
-	text "max force"
+	text "You! You filthy,"
+	line "repulsive ROCKET"
+	cont "bastard scum!"
+	cont "You dare facing"
+	cont "me, KOGA, the GYM"
+	cont "leader of the"
+	cont "city you torture"
+	cont "with your grip."
+	cont "You're bold, or"
+	cont "totally insane."
+	cont "In any case, it'll"
+	cont "be my pleasure to"
+	cont "torment you to a"
+	cont "pulp with my"
+	cont "deadly POISON"
+	cont "ninja techniques!"
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedSoulBadgeText_RP::
-	text "get and leave"
+	text "You..."
+	line "Fucking..."
+	cont "Damn... Little!!!"
+	cont "I-I failed my"
+	cont "city again..."
+	cont "Can't I do any-"
+	cont "thing against"
+	cont "TEAM ROCKET?!"
+	cont "I... just take"
+	cont "these and vanish,"
+	cont "before I commit"
+	cont "seppuku for the"
+	cont "dishonor."
 ;	xxxx "123456789012345678"
 	prompt
 
 _KogaSoulBadgeInfoText_RP::
-	text "got badge"
-;	xxxx "123456789012345678"
-	done
-
-_TM06NoRoomText_RP::
-	text "no room"
+	text "KOGA throws"
+	line "the SOULBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done
 

@@ -250,27 +250,38 @@ _LtSurgeRematchDefeatedText::
 
 ; new for RP ====================
 
-_LTSurgePostBattleText_RP::
-	text "leave now"
-;	xxxx "123456789012345678"
-	done
-
 _LTSurgePreBattleText_RP::
-	text "full powa"
+	text "I've seen my fair"
+	line "share of horrors"
+	cont "during the war,"
+	cont "but you ROCKETs"
+	cont "are the worst."
+	cont "I'll make you face"
+	cont "the maximum power"
+	cont "of my war-honed"
+	cont "ELECTRIC strength!"
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedThunderBadgeText_RP::
-	text "take and ciao"
+	text "I doesn't"
+	line "make any sense!"
+	cont "My war-polished"
+	cont "strategies!"
+	cont "My battlefield"
+	cont "tactics! They"
+	cont "failed against a"
+	cont "miserable thief"
+	cont "like you..."
+	cont "Take these and"
+	cont "disappear, before"
+	cont "I nuke you!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LTSurgeThunderBadgeInfoText_RP::
-	text "got badge"
-;	xxxx "123456789012345678"
-	done
-
-_TM24NoRoomText_RP::
-	text "got badge"
+	text "LT.SURGE throws"
+	line "the THUNDERBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done

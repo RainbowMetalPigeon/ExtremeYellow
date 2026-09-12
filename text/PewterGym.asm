@@ -253,27 +253,31 @@ _BrockRematchDefeatedText::
 
 ; new for RP ===================
 
-_BrockPostBattleText_RP::
-	text "leave or else"
-;	xxxx "123456789012345678"
-	done
-
 _BrockPreBattleText_RP::
-	text "fight full powa"
+	text "A ROCKET? Here?!"
+	line "Don't expect me to"
+	cont "hold back! I'll"
+	cont "use my strongest"
+	cont "ROCK team and be"
+	cont "the wall you won't"
+	cont "ever surpass!"
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedBoulderBadgeText_RP::
-	text "take these & ciao"
+	text "How could"
+	line "you breach my"
+	cont "ultimate defense?"
+	cont "Tsk! You want"
+	cont "these, right?"
+	cont "Take them and"
+	cont "disappear!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _BeforeReceivedTM34Text_RP::
-	text "got badge"
-;	xxxx "123456789012345678"
-	done
-
-_TM34NoRoomText_RP::
-	text "no room"
+	text "BROCK throws"
+	line "the BOULDERBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done

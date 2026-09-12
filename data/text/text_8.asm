@@ -220,3 +220,55 @@ _CannotUseRockSmashText3::
 	line "ROCK SMASH here!"
 ;	xxxx "123456789012345678"
 	prompt
+
+; new for RP =========================
+
+_CableClubNPCPleaseWaitText_RP::
+	text "Wait.@"
+	text_end
+
+_CableClubNPCLinkClosedBecauseOfInactivityText_RP::
+	text "The link has been"
+	line "closed because of"
+	cont "inactivity."
+	done
+
+_CableClubNPCPleaseComeAgainText_RP::
+	text "Please do not"
+	line "come again."
+;	xxxx "123456789012345678"
+	done
+
+_CableClubNPCMakingPreparationsText_RP::
+	text "Just wait."
+;	xxxx "123456789012345678"
+	done
+
+_CableClubNPCAreaReservedFor2FriendsLinkedByCableText_RP::
+	text "This area is"
+	line "reserved for 2"
+	cont "friends who are"
+	cont "linked by cable."
+
+	para "So what are you"
+	line "even doing here?"
+	cont "I really doubt"
+	cont "a scum like you"
+	cont "has any friend."
+;	xxxx "123456789012345678"
+	done
+
+_CableClubNPCWelcomeText_RP::
+	text "This is the"
+	line "Cable Club."
+;	xxxx "123456789012345678"
+	done
+
+_CableClubNPCPleaseApplyHereHaveToSaveText_RP::
+	text "Must apply here."
+
+	para "Before opening"
+	line "the link, we have"
+	cont "to save the game."
+;	xxxx "123456789012345678"
+	done

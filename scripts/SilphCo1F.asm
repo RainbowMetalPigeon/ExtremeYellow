@@ -6,7 +6,7 @@ SilphCo1F_TextPointers:
 	dw SilphCo1Text1
 
 SilphCo1F_TextPointers_Rocket:
-	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; unused in RP
 
 SilphCo1Text1:
 	text_far _SilphCo1Text1

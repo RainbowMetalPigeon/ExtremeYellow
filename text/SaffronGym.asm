@@ -302,27 +302,51 @@ _SabrinaRematchDefeatedText::
 
 ; new for RP =====================
 
-_SabrinaPostBattleText_RP::
-	text "schoo"
-;	xxxx "123456789012345678"
-	done
-
 _SabrinaPreBattleText_RP::
-	text "i saw you coming"
+	text "I saw you coming."
+	line "I foresaw your"
+	cont "arrival from the"
+	cont "moment you"
+	cont "pronounced that"
+	cont "fated 'YES' there"
+	cont "on NUGGET BRIDGE."
+	cont "And since then, I"
+	cont "knew I was going"
+	cont "to face you by"
+	cont "unleashing the"
+	cont "unbridled PSYCHIC"
+	cont "ESP powers."
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedMarshBadgeText_RP::
-	text "take and ciao"
+	text "I had"
+	line "a vision of this"
+	cont "outcome as well."
+	cont "Yet, that didn't"
+	cont "make it any less"
+	cont "bitter. If any-"
+	cont "thing, the power-"
+	cont "lessness of being"
+	cont "able to see my"
+	cont "future but being"
+	cont "unable to modify"
+	cont "it is ultimately"
+	cont "frustrating."
+	cont "Continue on your"
+	cont "destruction path."
+	cont "I am not the one"
+	cont "that'll stand in"
+	cont "your way."
+	cont "And I can't even"
+	cont "see if anyone"
+	cont "will ever do..."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SabrinaMarshBadgeInfoText_RP::
-	text "got badge"
-;	xxxx "123456789012345678"
-	done
-
-_TM46NoRoomText_RP::
-	text "no space"
+	text "SABRINA throws"
+	line "the MARSHBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done

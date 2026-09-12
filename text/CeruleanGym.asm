@@ -189,29 +189,28 @@ _MistyRematchDefeatedText::
 ; new for RP =======================
 
 _MistyPreBattleText_RP::
-	text "i'll fight full"
-	line "force"
+	text "What's a criminal"
+	line "doing in my GYM?!"
+	cont "I'll fight at max"
+	cont "power and release"
+	cont "a WATER onslaught"
+	cont "like never before!"
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedCascadeBadgeText_RP::
-	text "get badge and TM"
-	line "and leave"
+	text "I can't"
+	line "believe you"
+	cont "resisted my"
+	cont "ultimate assault!"
+	cont "Tch! Take these"
+	cont "and scram!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _MistyCascadeBadgeInfoText_RP::
-	text "1234567 obtained"
-	line "CASCADEBADGE!"
-;	xxxx "123456789012345678"
-	done
-
-_TM11NoRoomText_RP::
-	text "no room"
-;	xxxx "123456789012345678"
-	done
-
-_MistyPostBattleText_RP::
-	text "leave or else"
+	text "MISTY throws"
+	line "the CASCADEBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done

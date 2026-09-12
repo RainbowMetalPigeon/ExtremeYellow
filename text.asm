@@ -47,7 +47,6 @@ INCLUDE "text/UndergroundPathRoute7Copy.asm"
 INCLUDE "text/UndergroundPathRoute8.asm"
 INCLUDE "text/RockTunnelPokecenter.asm"
 INCLUDE "text/RockTunnel1F.asm"
-INCLUDE "text/PowerPlant.asm"
 INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/Route11Gate2F.asm"
 INCLUDE "text/DiglettsCaveRoute11.asm"
@@ -176,10 +175,10 @@ INCLUDE "text/ViridianCity.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
-INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
+INCLUDE "text/Traveler.asm" ; new
 INCLUDE "text/PalletTown.asm"
+INCLUDE "text/Route23.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -207,7 +206,6 @@ INCLUDE "text/IndigoPlateauLobby.asm"
 INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/Route24.asm"
-INCLUDE "text/Route25.asm"
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -287,7 +285,6 @@ INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
-INCLUDE "text/Route23.asm"
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,10 +313,13 @@ INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/MrFujisHouse.asm"
+INCLUDE "text/Route25.asm"
 
 
 SECTION "Text Extra 14", ROMX ; new
 INCLUDE "data/text/text_rocket_path_1.asm"
+INCLUDE "text/OchreGym.asm" ; new
+INCLUDE "text/PowerPlant.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

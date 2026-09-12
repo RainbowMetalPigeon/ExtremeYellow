@@ -1,5 +1,9 @@
-CableClubNPC::
+CableClubNPC:: ; edited for RP
 	ld hl, CableClubNPCWelcomeText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP1
+	ld hl, CableClubNPCWelcomeText_RP
+.printRP1
 	call PrintText
 	call CheckPikachuFollowingPlayer
 	jr nz, .asm_7048
@@ -10,6 +14,10 @@ CableClubNPC::
 	ld c, 60
 	call DelayFrames
 	ld hl, CableClubNPCMakingPreparationsText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP2
+	ld hl, CableClubNPCMakingPreparationsText_RP
+.printRP2
 	call PrintText
 	jp .didNotConnect
 .receivedPokedex
@@ -43,7 +51,7 @@ CableClubNPC::
 	ld a, [wLinkTimeoutCounter]
 	dec a
 	ld [wLinkTimeoutCounter], a
-	jr z, .failedToEstablishConnection
+	jp z, .failedToEstablishConnection
 	ld a, ESTABLISH_CONNECTION_WITH_INTERNAL_CLOCK
 	ldh [rSB], a
 	ld a, START_TRANSFER_INTERNAL_CLOCK
@@ -57,6 +65,10 @@ CableClubNPC::
 	ld c, 50
 	call DelayFrames
 	ld hl, CableClubNPCPleaseApplyHereHaveToSaveText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP3
+	ld hl, CableClubNPCPleaseApplyHereHaveToSaveText_RP
+.printRP3
 	call PrintText
 	xor a
 	ld [wMenuJoypadPollCount], a
@@ -72,6 +84,10 @@ CableClubNPC::
 	ld a, SFX_SAVE
 	call PlaySoundWaitForCurrent
 	ld hl, CableClubNPCPleaseWaitText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP4
+	ld hl, CableClubNPCPleaseWaitText_RP
+.printRP4
 	call PrintText
 	ld hl, wUnknownSerialCounter
 	ld a, $3
@@ -98,15 +114,27 @@ CableClubNPC::
 	jr nz, .syncLoop
 	call CloseLinkConnection
 	ld hl, CableClubNPCLinkClosedBecauseOfInactivityText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP5
+	ld hl, CableClubNPCLinkClosedBecauseOfInactivityText_RP
+.printRP5
 	call PrintText
 	jr .didNotConnect
 .failedToEstablishConnection
 	ld hl, CableClubNPCAreaReservedFor2FriendsLinkedByCableText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP6
+	ld hl, CableClubNPCAreaReservedFor2FriendsLinkedByCableText_RP
+.printRP6
 	call PrintText
 	jr .didNotConnect
 .choseNo
 	call CloseLinkConnection
 	ld hl, CableClubNPCPleaseComeAgainText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP7
+	ld hl, CableClubNPCPleaseComeAgainText_RP
+.printRP7
 	call PrintText
 .didNotConnect
 	xor a
@@ -218,3 +246,34 @@ CloseLinkConnection:
 	ld a, START_TRANSFER_EXTERNAL_CLOCK
 	ldh [rSC], a
 	ret
+
+; new for RP ==================================
+
+CableClubNPCAreaReservedFor2FriendsLinkedByCableText_RP:
+	text_far _CableClubNPCAreaReservedFor2FriendsLinkedByCableText_RP
+	text_end
+
+CableClubNPCWelcomeText_RP:
+	text_far _CableClubNPCWelcomeText_RP
+	text_end
+
+CableClubNPCPleaseApplyHereHaveToSaveText_RP:
+	text_far _CableClubNPCPleaseApplyHereHaveToSaveText_RP
+	text_end
+
+CableClubNPCPleaseWaitText_RP:
+	text_far _CableClubNPCPleaseWaitText_RP
+	text_pause
+	text_end
+
+CableClubNPCLinkClosedBecauseOfInactivityText_RP:
+	text_far _CableClubNPCLinkClosedBecauseOfInactivityText_RP
+	text_end
+
+CableClubNPCPleaseComeAgainText_RP:
+	text_far _CableClubNPCPleaseComeAgainText_RP
+	text_end
+
+CableClubNPCMakingPreparationsText_RP:
+	text_far _CableClubNPCMakingPreparationsText_RP
+	text_end

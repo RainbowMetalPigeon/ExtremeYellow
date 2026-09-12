@@ -824,6 +824,7 @@ ReceivedSoulBadgeText_RP:
 
 KogaSoulBadgeInfoText_RP:
 	text_far _KogaSoulBadgeInfoText_RP
+	sound_get_key_item
 	text_end
 
 TM06NoRoomText_RP:

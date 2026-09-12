@@ -206,3 +206,33 @@ _ProxyText::
 	text ""
 ;	xxxx "123456789012345678"
 	done
+
+; =============================================================
+
+_BrockPostBattleText_RP::
+_MistyPostBattleText_RP::
+_LTSurgePostBattleText_RP::
+_ErikaPostBattleAdviceText_RP::
+_KogaPostBattleText_RP::
+_SabrinaPostBattleText_RP::
+_BlainePostBattleText_RP::
+_OragePostBattleText_RP::
+	text "Leave now."
+	line "Don't dirty my"
+	cont "GYM any one"
+	cont "more second."
+;	xxxx "123456789012345678"
+	done
+
+_TM34NoRoomText_RP::
+_TM11NoRoomText_RP::
+_TM24NoRoomText_RP::
+_TM21NoRoomText_RP::
+_TM06NoRoomText_RP::
+_TM46NoRoomText_RP::
+_TM38NoRoomText_RP::
+_GiftNoRoomText_RP::
+	text "Not enough space"
+	line "for these spoils!"
+;	xxxx "123456789012345678"
+	done

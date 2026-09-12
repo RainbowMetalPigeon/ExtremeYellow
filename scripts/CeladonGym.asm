@@ -483,6 +483,7 @@ ReceivedRainbowBadgeText_RP:
 
 ErikaRainbowBadgeInfoText_RP:
 	text_far _ErikaRainbowBadgeInfoText_RP
+	sound_get_key_item
 	text_end
 
 ReceivedTM21Text_RP:

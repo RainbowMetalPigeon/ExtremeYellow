@@ -350,27 +350,39 @@ _CinnabarGymText_PreQuiz_RP::
 ;	xxxx "123456789012345678"
 	done
 
-_BlainePostBattleText_RP::
-	text "raus"
-;	xxxx "123456789012345678"
-	done
-
 _BlainePreBattleText_RP::
-	text "max powaaa"
+	text "YOU! You ROCKET"
+	line "criminal!"
+	cont "I don't know if"
+	cont "you're here for"
+	cont "matters of the"
+	cont "past or for new"
+	cont "crimes, but be"
+	cont "sure that I'll"
+	cont "meet your filthy"
+	cont "goals with raging"
+	cont "determination!"
+	cont "My maxfueled FIRE"
+	cont "team will burn"
+	cont "you to a crisp!"
 ;	xxxx "123456789012345678"
 	done
 
 _ReceivedVolcanoBadgeText_RP::
-	text "take and farebad"
+	text "How could"
+	line "you withstand my"
+	cont "burning flames?!"
+	cont "I... just want to"
+	cont "live in peace."
+	cont "My past is in the"
+	cont "past. Take these,"
+	cont "and don't be back."
 ;	xxxx "123456789012345678"
 	prompt
 
 _BlaineVolcanoBadgeInfoText_RP::
-	text "got badge"
-;	xxxx "123456789012345678"
-	done
-
-_TM38NoRoomText_RP::
-	text "no space"
+	text "BLAINE throws"
+	line "the VOLCANOBADGE"
+	cont "to <PLAYER>!"
 ;	xxxx "123456789012345678"
 	done
