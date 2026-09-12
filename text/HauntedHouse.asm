@@ -292,3 +292,98 @@ _HauntedIslandOfNumbersText_PostPokemonBattle::
     para ""
     line "    ..scared...   "
     done
+
+; new for RP =================================================================
+
+_HauntedIslandOfNumbersText_MissingNo_RP_NotFirstTime::
+    text "    N   O         "
+
+    para "    w h    yyyyyyyy"
+    line " ddd 0 ''''n t"
+
+    para "  .   !"
+
+    para " yY0UuuU d1333?!?!?!"
+;   xxxx "123456789012345678"
+    done
+
+_HauntedIslandOfNumbersText_MissingNo_RP_FirstTime::
+    text ""
+    line "  yyO0ouuuww aRRe"
+
+    para ""
+    line ""
+    cont ""
+    cont ""
+    cont "     MONSTER     "
+
+    para "       DIE       "
+    line "DIe    DiE dIE   "
+    cont "   Die dIe    diE"
+    cont "       die       "
+
+    para ""
+
+    para "  y yy yyy    yyyyyy"
+    line " ooooo oo oo ooooo oo"
+    cont " uu  uu u u u u uu u u"
+
+    para "ARE"
+    line "             THE"
+
+    para " a B0  mm1 NAZ 10n"
+
+    para ""
+
+    para " fF1l  tttt h 0y"
+
+    para ""
+    line " C R 1 M ! N 4 L 3"
+
+    para " t RT r PaP DDD ed"
+    line "  333hhheeerrrr33"
+    cont " f 0r 3 vvv    Er"
+
+    para " Iiii1iiII11!!!iii"
+    line "W1lL t0RtuR3 y0u"
+    cont " 3 v Er L 4 s71ng"
+
+;   xxxx "123456789012345678"
+    done
+
+_HauntedIslandOfNumbersText_PostTrainerBattle_RP::
+    text "      N O         "
+
+    para "    yY        Uu  "
+    line "        O0        "
+
+    para " mm mm mmm mm must"
+    line "1000100101110010001001001001"
+    cont " BBBBB b BBBBBE3E3"
+    cont " TRAAAPPPPPEEEDDDDddd"
+;   xxxx "123456789012345678"
+
+    para ""
+    line "    F1G  HT"
+    done
+
+_HauntedIslandOfNumbersText_PostPokemonBattle_RP::
+    text " IiIIIIIIIIi111110000"
+
+    para ""
+
+    para ""
+    cont "fffFFf44A4i11l3dD"
+
+    para "              YOU"
+    line "            ANGEL"
+    cont "            DEATH"
+;   xxxx "123456789012345678"
+
+    para "     N  O  !!!!!!!!!!!!!"
+
+    para ""
+
+    para ""
+    line "    ..scared...   "
+    done

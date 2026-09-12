@@ -1,4 +1,5 @@
 HauntedIslandOfNumbers_Script:
+	RPTextChooser HauntedIslandOfNumbers_TextPointers, HauntedIslandOfNumbers_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -165,8 +166,55 @@ HauntedIslandOfNumbers_TextPointers:
 	dw HauntedIslandOfNumbersText_PostTrainerBattle
 	dw HauntedIslandOfNumbersText_PostPokemonBattle
 
+HauntedIslandOfNumbers_TextPointers_Rocket:
+	dw HauntedIslandOfNumbersText_MissingNo_RP
+	dw HauntedIslandOfNumbersText_PostTrainerBattle_RP
+	dw HauntedIslandOfNumbersText_PostPokemonBattle_RP
+
 HauntedIslandOfNumbersText_MissingNo:
 	text_asm
+	call PlayGlitchSounds
+; load the right dialogue
+	CheckAndSetEvent EVENT_FACED_MISSINGNO_AT_LEAST_ONCE
+	ld hl, HauntedIslandOfNumbersText_MissingNo_FirstTime
+	jr z, .printAndEnd
+	ld hl, HauntedIslandOfNumbersText_MissingNo_NotFirstTime
+.printAndEnd
+	call PrintText
+; script handling
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+; ============================
+
+HauntedIslandOfNumbersText_MissingNo_NotFirstTime:
+	text_far _HauntedIslandOfNumbersText_MissingNo_NotFirstTime
+	text_end
+
+HauntedIslandOfNumbersText_MissingNo_FirstTime:
+	text_far _HauntedIslandOfNumbersText_MissingNo_FirstTime
+	text_end
+
+MissingNoTrainerText_Win:
+	text_far _MissingNoTrainerText_Win
+	text_end
+
+MissingNoTrainerText_Lose:
+	text_far _MissingNoTrainerText_Lose
+	text_end
+
+HauntedIslandOfNumbersText_PostTrainerBattle:
+	text_far _HauntedIslandOfNumbersText_PostTrainerBattle
+	text_end
+
+HauntedIslandOfNumbersText_PostPokemonBattle:
+	text_far _HauntedIslandOfNumbersText_PostPokemonBattle
+	text_end
+
+; ============================
+
+PlayGlitchSounds:
 ; play a bunch of sounds
 
 	ld a, SFX_SS_ANNE_HORN
@@ -209,47 +257,37 @@ HauntedIslandOfNumbersText_MissingNo:
 	call PlaySound
 ;	ld c, 50
 ;	call DelayFrames
-	call WaitForSoundToFinish
+	jp WaitForSoundToFinish
 
+; new for RP =============================
+
+HauntedIslandOfNumbersText_MissingNo_RP:
+	text_asm
+	call PlayGlitchSounds
 ; load the right dialogue
 	CheckAndSetEvent EVENT_FACED_MISSINGNO_AT_LEAST_ONCE
-	jr z, .firstTime
-	ld hl, HauntedIslandOfNumbersText_MissingNo_NotFirstTime
+	ld hl, HauntedIslandOfNumbersText_MissingNo_RP_FirstTime
+	jr z, .printAndEnd
+	ld hl, HauntedIslandOfNumbersText_MissingNo_RP_NotFirstTime
+.printAndEnd
 	call PrintText
-	jr .continue
-.firstTime
-	ld hl, HauntedIslandOfNumbersText_MissingNo_FirstTime
-	call PrintText
-.continue
 ; script handling
 	ld a, 1
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
-; ============================
-
-HauntedIslandOfNumbersText_MissingNo_NotFirstTime:
-	text_far _HauntedIslandOfNumbersText_MissingNo_NotFirstTime
+HauntedIslandOfNumbersText_MissingNo_RP_FirstTime:
+	text_far _HauntedIslandOfNumbersText_MissingNo_RP_FirstTime
 	text_end
 
-HauntedIslandOfNumbersText_MissingNo_FirstTime:
-	text_far _HauntedIslandOfNumbersText_MissingNo_FirstTime
+HauntedIslandOfNumbersText_MissingNo_RP_NotFirstTime:
+	text_far _HauntedIslandOfNumbersText_MissingNo_RP_NotFirstTime
 	text_end
 
-MissingNoTrainerText_Win:
-	text_far _MissingNoTrainerText_Win
+HauntedIslandOfNumbersText_PostTrainerBattle_RP:
+	text_far _HauntedIslandOfNumbersText_PostTrainerBattle_RP
 	text_end
 
-MissingNoTrainerText_Lose:
-	text_far _MissingNoTrainerText_Lose
+HauntedIslandOfNumbersText_PostPokemonBattle_RP:
+	text_far _HauntedIslandOfNumbersText_PostPokemonBattle_RP
 	text_end
-
-HauntedIslandOfNumbersText_PostTrainerBattle:
-	text_far _HauntedIslandOfNumbersText_PostTrainerBattle
-	text_end
-
-HauntedIslandOfNumbersText_PostPokemonBattle:
-	text_far _HauntedIslandOfNumbersText_PostPokemonBattle
-	text_end
-
-; ============================

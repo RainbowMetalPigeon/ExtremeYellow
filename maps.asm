@@ -1446,11 +1446,6 @@ INCLUDE "scripts/RocketHideoutElevator.asm"
 INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
 RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
 
-INCLUDE "data/maps/headers/SilphCoElevator.asm"
-INCLUDE "scripts/SilphCoElevator.asm"
-INCLUDE "data/maps/objects/SilphCoElevator.asm"
-SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
-
 
 SECTION "Maps New 3", ROMX ; new
 
@@ -1468,6 +1463,11 @@ INCLUDE "data/maps/headers/CeladonMart5F.asm"
 INCLUDE "scripts/CeladonMart5F.asm"
 INCLUDE "data/maps/objects/CeladonMart5F.asm"
 CeladonMart5F_Blocks: INCBIN "maps/CeladonMart5F.blk"
+
+INCLUDE "data/maps/headers/SilphCoElevator.asm"
+INCLUDE "scripts/SilphCoElevator.asm"
+INCLUDE "data/maps/objects/SilphCoElevator.asm"
+SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------
