@@ -45,11 +45,11 @@ SeviiFourIslandParkourPathScript0:
 	jp DisplayTextID
 
 SeviiFourIslandParkourPath_StartCoordinates:
-	dbmapcoord  6, 11
+	dbmapcoord  6,  11
 	db -1 ; end
 
 SeviiFourIslandParkourPath_EndCoordinates:
-	dbmapcoord  6, 38
+	dbmapcoord 10, 146
 	db -1 ; end
 
 ; texts ============================================

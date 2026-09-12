@@ -666,6 +666,7 @@
 	const EVENT_RP_BEAT_OBSIDIAN_BLUE ; new
 	const EVENT_RP_BEAT_EXPALL_AID ; new
 	const EVENT_RP_BEAT_ITEMFINDER_AID ; new
+	const EVENT_RP_BEAT_DIVER_EXPERT ; new
 
 ; Route 3 events
 	const_next $3E0

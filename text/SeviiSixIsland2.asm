@@ -289,3 +289,47 @@ _PlantYesWaterText::
 	cont "'GLU GLU'?"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===========================
+
+_SeviiRoute38HousesText1_RP_PostTank::
+	text "You got what you"
+	line "wanted, no?"
+	cont "Now scram."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_RP_BeforeTank::
+	text "Out of my house,"
+	line "you disgusting"
+	cont "ROCKET!"
+
+	para "You think I can't"
+	line "fight? Oh, you're"
+	cont "sorely mistaken!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_RP_TakeThis::
+	text "...I may be able"
+	line "to fight, but"
+	cont "evidently not"
+	cont "well enough to"
+	cont "keep up with a"
+	cont "filth like you."
+
+	para "You wanted this,"
+	line "didn't you?"
+	cont "Just take it and"
+	cont "leave for good."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute38HousesText2_RP::
+	text "I l-l-love to"
+	line "mimic others,"
+	cont "but y-y-you?"
+
+	para "N-n-no way!"
+;	xxxx "123456789012345678"
+	done
