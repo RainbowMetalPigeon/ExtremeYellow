@@ -175,3 +175,8 @@ _HideAllUndergroundGuards_RP_Text2::
 	cont "profusely."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiGyms_SageRefusedYourEntryText_RP::
+	text "Entry denied"
+;	xxxx "123456789012345678"
+	done

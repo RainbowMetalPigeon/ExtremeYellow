@@ -12,9 +12,13 @@ SeviiFourIslandGym_Script:
 SeviiFourIslandGym_ScriptPointers:
 	dw SeviiFourIslandGymScript0
 	dw SeviiFourIslandGymScriptPostBattle
+	dw SeviiFourIslandGymScriptPushRP
 
 SeviiFourIslandGymScript0:
-	ret
+	ld d,  4 ; x in front of the door
+	ld e, 13 ; y in front of the door
+	ld c,  2 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
 
 SeviiFourIslandGymScriptPostBattle:
 	xor a
@@ -225,3 +229,8 @@ SeviiFourIslandGymText4_Reward3:
 SeviiFourIslandGymText4_NoReward:
 	text_far _SeviiFourIslandGymText4_NoReward
 	text_end
+
+; new for RP ================================
+
+SeviiFourIslandGymScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms

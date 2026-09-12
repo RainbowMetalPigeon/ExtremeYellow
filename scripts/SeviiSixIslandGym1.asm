@@ -10,8 +10,16 @@ SeviiSixIslandGym1_Script:
 
 SeviiSixIslandGym1_ScriptPointers:
 	dw SeviiSixIslandGym1Script0
+	dw SeviiSixIslandGym1ScriptPushRP
 
 SeviiSixIslandGym1Script0:
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld d,  4 ; x in front of the door
+	ld e,  3 ; y in front of the door
+	ld c,  1 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
+.notRP
 	ld a, [wIsInBattle]
 	cp $ff
 	jp nz, .warningMessage
@@ -287,3 +295,8 @@ ApplyRandomStatDebuff:
 	dec a
 	ld [hl], a
 	ret
+
+; new for RP ================================
+
+SeviiSixIslandGym1ScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms

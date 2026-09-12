@@ -10,8 +10,16 @@ SeviiSevenIslandGym1_Script:
 
 SeviiSevenIslandGym1_ScriptPointers:
 	dw SeviiSevenIslandGym1Script0
+	dw SeviiSevenIslandGym1ScriptPushRP
 
 SeviiSevenIslandGym1Script0:
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld d,  4 ; x in front of the door
+	ld e,  1 ; y in front of the door
+	ld c,  1 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
+.notRP
 ; already warned?
 	CheckEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
 	ret nz
@@ -170,3 +178,8 @@ ClearPlayersBag:
 	ret
 
 ; -------------------------------------
+
+; new for RP ================================
+
+SeviiSevenIslandGym1ScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms

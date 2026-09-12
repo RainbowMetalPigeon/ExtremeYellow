@@ -1,6 +1,22 @@
 SeviiOneIslandGym1_Script:
 	RPTextChooser SeviiOneIslandGym1_TextPointers, SeviiOneIslandGym1_TextPointers_Rocket
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld hl, SeviiOneIslandGym1_ScriptPointers
+	ld a, [wCurMapScript] ; edited
+	jp CallFunctionInTable
+
+SeviiOneIslandGym1_ScriptPointers:
+	dw SeviiOneIslandGym1Script0
+	dw SeviiOneIslandGym1Script1
+
+SeviiOneIslandGym1Script0:
+	ld d,  4 ; x in front of the door
+	ld e,  1 ; y in front of the door
+	ld c,  1 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
+
+SeviiOneIslandGym1Script1:
+	jpfar WaitForPlayerAutomovementSeviiGyms
 
 SeviiOneIslandGym1_TextPointers:
 	dw SeviiOneIslandGym1Text1

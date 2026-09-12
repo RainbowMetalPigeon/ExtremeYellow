@@ -25,9 +25,13 @@ ChooseNiuesTeam:
 SeviiTwoIslandGym_ScriptPointers:
 	dw SeviiTwoIslandGymScript0
 	dw SeviiTwoIslandGymScriptPostBattle
+	dw SeviiTwoIslandGymScriptPushRP
 
 SeviiTwoIslandGymScript0:
-	ret
+	ld d,  4 ; x in front of the door
+	ld e, 13 ; y in front of the door
+	ld c,  2 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
 
 SeviiTwoIslandGymScriptPostBattle:
 	xor a
@@ -325,3 +329,8 @@ RandomizePlayersTeamForNiueBattle::
 	ld a, b
 	ld [de], a ; saves Mon in wBattleFacilityMonNumberN
 	ret
+
+; new for RP ================================
+
+SeviiTwoIslandGymScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms

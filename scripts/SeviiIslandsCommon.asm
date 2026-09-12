@@ -413,3 +413,53 @@ HideAllUndergroundGuards_RP_Text1:
 HideAllUndergroundGuards_RP_Text2:
 	text_far _HideAllUndergroundGuards_RP_Text2
 	text_end
+
+; new for RP ===========================================
+
+; Inputs:
+; d = wXCoord
+; e = wYCoord
+; c = wCurMapScript
+PushAwayFromGymDoorIfRP::
+	CheckEvent EVENT_ROCKET_PATH
+	ret z
+; if it's RP: block entry
+	ld a, [wYCoord]
+	cp e
+	ret nz
+	ld a, [wXCoord]
+	cp d
+	ret nz
+; front of the door
+	push bc
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+    call EnableAutoTextBoxDrawing
+    tx_pre SeviiGyms_SageRefusedYourEntryText_RP
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_DOWN | B_BUTTON
+	ld [wSimulatedJoypadStatesEnd], a
+	call StartSimulatingJoypadStates
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	pop bc
+	ld a, c
+	ld [wCurMapScript], a
+	ret
+
+SeviiGyms_SageRefusedYourEntryText_RP::
+	text_far _SeviiGyms_SageRefusedYourEntryText_RP
+	text_end
+
+WaitForPlayerAutomovementSeviiGyms::
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, 0
+	ld [wCurMapScript], a
+	ret
