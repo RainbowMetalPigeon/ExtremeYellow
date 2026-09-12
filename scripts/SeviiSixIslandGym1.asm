@@ -152,7 +152,7 @@ SeviiSixIslandGym1_TextPointers:
 	dw SeviiSixIslandGym1Text11_PostBlackout ; 11
 
 SeviiSixIslandGym1_TextPointers_Rocket:
-	dw SeviiSixIslandGym1Text1 ; TBE
+	dw SeviiSixIslandGym1Text1_RP
 	; signs
 	dw SeviiSixIslandGym1SignText1
 	dw SeviiSixIslandGym1SignText2
@@ -300,3 +300,7 @@ ApplyRandomStatDebuff:
 
 SeviiSixIslandGym1ScriptPushRP:
 	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiSixIslandGym1Text1_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

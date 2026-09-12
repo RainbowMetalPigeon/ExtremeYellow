@@ -88,9 +88,9 @@ SeviiThreeIslandGym_TextPointers:
 	dw SeviiThreeIslandGymText4_Reward3 ; 7
 	dw SeviiThreeIslandGymText4_NoReward ; 8
 
-SeviiThreeIslandGym_TextPointers_Rocket: ; TBE
-	dw SeviiThreeIslandGymText1
-	dw SeviiThreeIslandGymText2
+SeviiThreeIslandGym_TextPointers_Rocket:
+	dw SeviiThreeIslandGymText1 ; unused
+	dw SeviiThreeIslandGymText2_RP
 	; scripts
 	dw SeviiThreeIslandGymText3_Victory ; 3
 	dw SeviiThreeIslandGymText4_Defeat ; 4
@@ -275,3 +275,7 @@ SeviiThreeIslandGymText4_NoReward:
 
 SeviiThreeIslandGymScriptPushRP:
 	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiThreeIslandGymText2_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

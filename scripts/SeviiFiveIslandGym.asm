@@ -89,8 +89,8 @@ SeviiFiveIslandGym_TextPointers:
 	dw SeviiFiveIslandGymText4_NoReward ; 8
 
 SeviiFiveIslandGym_TextPointers_Rocket:
-	dw SeviiFiveIslandGymText1 ; TBE
-	dw SeviiFiveIslandGymText2 ; TBE
+	dw SeviiFiveIslandGymText1 ; unused
+	dw SeviiFiveIslandGymText2_RP
 
 SeviiFiveIslandGymText1:
 	text_asm
@@ -219,3 +219,7 @@ SeviiFiveIslandGymText4_NoReward:
 
 SeviiFiveIslandGymScriptPushRP:
 	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiFiveIslandGymText2_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

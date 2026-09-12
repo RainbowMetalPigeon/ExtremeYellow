@@ -98,8 +98,8 @@ SeviiTwoIslandGym_TextPointers:
 	dw SeviiTwoIslandGymText4_Reward3 ; 7
 
 SeviiTwoIslandGym_TextPointers_Rocket:
-	dw SeviiTwoIslandGymText1 ; TBE
-	dw SeviiTwoIslandGymText2 ; TBE
+	dw SeviiTwoIslandGymText1 ; unused
+	dw SeviiTwoIslandGymText2_RP
 	; scripts
 	dw SeviiTwoIslandGymText3_Victory ; 3
 	dw SeviiTwoIslandGymText4_Defeat ; 4
@@ -334,3 +334,7 @@ RandomizePlayersTeamForNiueBattle::
 
 SeviiTwoIslandGymScriptPushRP:
 	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiTwoIslandGymText2_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

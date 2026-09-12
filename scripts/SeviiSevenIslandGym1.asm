@@ -53,7 +53,7 @@ SeviiSevenIslandGym1_TextPointers:
 	dw SeviiSevenIslandGym1Text2
 
 SeviiSevenIslandGym1_TextPointers_Rocket:
-	dw SeviiSevenIslandGym1Text1 ; TBE
+	dw SeviiSevenIslandGym1Text1_RP
 	; scripts
 	dw SeviiSevenIslandGym1Text2
 
@@ -183,3 +183,7 @@ ClearPlayersBag:
 
 SeviiSevenIslandGym1ScriptPushRP:
 	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiSevenIslandGym1Text1_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

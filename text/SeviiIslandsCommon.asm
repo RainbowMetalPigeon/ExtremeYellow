@@ -177,6 +177,28 @@ _HideAllUndergroundGuards_RP_Text2::
 	done
 
 _SeviiGyms_SageRefusedYourEntryText_RP::
-	text "Entry denied"
+	text "The entry to the"
+	line "inner part of the"
+	cont "SHRINE is denied."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiGymsGuideRefusedText_RP::
+	text "Tsk. There's no"
+	line "bloody way on"
+	cont "Earth and beyond"
+	cont "that any one of"
+	cont "the seven SAGEs"
+	cont "will accept some-"
+	cont "one like YOU as"
+	cont "a challenger."
+
+	para "A ROCKET taking on"
+	line "the SEVII TRIAL?"
+	cont "That would shame"
+	cont "all of us."
+
+	para "Go away. This is"
+	line "no place for you."
 ;	xxxx "123456789012345678"
 	done
