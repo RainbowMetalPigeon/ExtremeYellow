@@ -58,14 +58,21 @@ PrintAfterBattleText_RocketPath::
 .notUnderwater
 	callfar EngageMapTrainer_Internal_FindTrainerClass
 	ld a, [wEngagedTrainerClass]
-	ld hl, AfterBattleText_RocketPath_VsRocket
-	cp OPP_ROCKET
-	jp z, PrintText
 	ld hl, AfterBattleText_RocketPath_VsNotRocket
+	cp OPP_ROCKET
+	jp nz, PrintText
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, AfterBattleText_RocketPath_VsRocket
+	jp z, PrintText
+	ld hl, AfterBattleText_RocketPath_VsRocket_Boss
 	jp PrintText
 
 AfterBattleText_RocketPath_VsRocket: ; new
 	text_far _AfterBattleText_RocketPath_VsRocket
+	text_end
+
+AfterBattleText_RocketPath_VsRocket_Boss: ; new
+	text_far _AfterBattleText_RocketPath_VsRocket_Boss
 	text_end
 
 AfterBattleText_RocketPath_VsNotRocket: ; new
@@ -88,14 +95,21 @@ PrintBeforeBattleText_RocketPath::
 .notUnderwater
 	callfar EngageMapTrainer_Internal_FindTrainerClass
 	ld a, [wEngagedTrainerClass]
-	ld hl, BeforeBattleText_RocketPath_VsRocket
-	cp OPP_ROCKET
-	jp z, PrintText
 	ld hl, BeforeBattleText_RocketPath_VsNotRocket
+	cp OPP_ROCKET
+	jp nz, PrintText
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, BeforeBattleText_RocketPath_VsRocket
+	jp z, PrintText
+	ld hl, BeforeBattleText_RocketPath_VsRocket_Boss
 	jp PrintText
 
 BeforeBattleText_RocketPath_VsRocket: ; new
 	text_far _BeforeBattleText_RocketPath_VsRocket
+	text_end
+
+BeforeBattleText_RocketPath_VsRocket_Boss: ; new
+	text_far _BeforeBattleText_RocketPath_VsRocket_Boss
 	text_end
 
 BeforeBattleText_RocketPath_VsNotRocket: ; new

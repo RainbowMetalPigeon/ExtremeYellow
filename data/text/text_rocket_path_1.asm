@@ -2,7 +2,17 @@ _BeforeBattleText_RocketPath_VsRocket::
 	text "Oh, the rookie I"
 	line "heard of! Do you"
 	cont "want to train?"
-	cont "Fine for me!"
+	cont "Fine with me!"
+;	xxxx "123456789012345678"
+	done
+
+_BeforeBattleText_RocketPath_VsRocket_Boss::
+	text "BOSS! What an"
+	line "honour! You wish"
+	cont "to train with me?"
+
+	para "I-I hope to be"
+	line "of some use!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -29,6 +39,12 @@ _EndBattleText_RocketPath_Victory_VsRocket::
 	text "It seems"
 	line "we did well in"
 	cont "recruiting you!"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Victory_VsRocket_Boss::
+	text "You're"
+	line "invincible, BOSS!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -60,6 +76,17 @@ _EndBattleText_RocketPath_Defeat:: ; never used?
 _AfterBattleText_RocketPath_VsRocket::
 	text "You're really cut"
 	line "for this job, kid!"
+;	xxxx "123456789012345678"
+	done
+
+_AfterBattleText_RocketPath_VsRocket_Boss::
+	text "BOSS, you're the"
+	line "strongest trainer"
+	cont "of KANTO!"
+
+	para "No! What am I"
+	line "saying! Of the"
+	cont "whole world!"
 ;	xxxx "123456789012345678"
 	done
 

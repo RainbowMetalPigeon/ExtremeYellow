@@ -490,10 +490,13 @@ GetSavedEndBattleTextPointer::
 	ret
 .notUnderwater
 	ld a, [wCurOpponent]
-	ld hl, EndBattleText_RocketPath_Victory_VsRocket
-	cp OPP_ROCKET
-	ret z
 	ld hl, EndBattleText_RocketPath_Victory
+	cp OPP_ROCKET
+	ret nz
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, EndBattleText_RocketPath_Victory_VsRocket
+	ret z
+	ld hl, EndBattleText_RocketPath_Victory_VsRocket_Boss
 	ret
 .lostBattleRP
 	ld hl, EndBattleText_RocketPath_Defeat
@@ -530,6 +533,10 @@ EndBattleText_RocketPath_Victory: ; new
 
 EndBattleText_RocketPath_Victory_VsRocket: ; new
 	text_far _EndBattleText_RocketPath_Victory_VsRocket
+	text_end
+
+EndBattleText_RocketPath_Victory_VsRocket_Boss: ; new
+	text_far _EndBattleText_RocketPath_Victory_VsRocket_Boss
 	text_end
 
 EndBattleTextUnderwater_RocketPath_Victory: ; new
