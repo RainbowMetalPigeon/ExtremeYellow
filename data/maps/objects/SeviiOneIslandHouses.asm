@@ -13,12 +13,12 @@ SeviiOneIslandHouses_Object:
 	warp_event 45,  7, SEVII_ONE_ISLAND_CITY, 10
 
 	def_bg_events
-	bg_event  0,  7, 13 ; SeviiOneIslandHousesSignText1
-	bg_event 19,  3, 14 ; SeviiOneIslandHousesSignText2
-	bg_event 14,  1, 15 ; SeviiOneIslandHousesSignText3
-	bg_event 21,  1, 16 ; SeviiOneIslandHousesSignText4
-	bg_event 48,  1, 17 ; SeviiOneIslandHousesSignText5
-	bg_event 45,  5, 18 ; SeviiOneIslandHousesSignText6
+	bg_event  0,  7, 14 ; SeviiOneIslandHousesSignText1
+	bg_event 19,  3, 15 ; SeviiOneIslandHousesSignText2
+	bg_event 14,  1, 16 ; SeviiOneIslandHousesSignText3
+	bg_event 21,  1, 17 ; SeviiOneIslandHousesSignText4
+	bg_event 48,  1, 18 ; SeviiOneIslandHousesSignText5
+	bg_event 45,  5, 19 ; SeviiOneIslandHousesSignText6
 
 	def_object_events
 	object_event  2,  3, SPRITE_FISHING_GURU, STAY, LEFT, 1 ; weather move tutor
@@ -37,6 +37,6 @@ SeviiOneIslandHouses_Object:
 	object_event 48,  2, SPRITE_LITTLE_GIRL, STAY, UP, 11
 	; Celio's house again
 	object_event 16,  3, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 12 ; Pink's Dad = Celio's sib, after fight vs Blue, only for RP
-;	object_event 17,  6, SPRITE_ORM, STAY, UP, 13
+	object_event 17,  6, SPRITE_ORM, STAY, UP, 13
 
 	def_warps_to SEVII_ONE_ISLAND_HOUSES

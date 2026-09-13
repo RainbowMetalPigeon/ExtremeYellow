@@ -269,6 +269,7 @@ SeviiOneIslandHousesHS:
 	db SEVII_ONE_ISLAND_HOUSES,  6, HIDE ; Mayoi after rescue
 	db SEVII_ONE_ISLAND_HOUSES,  7, HIDE ; Pink
 	db SEVII_ONE_ISLAND_HOUSES, 12, HIDE ; Pink's Dad
+	db SEVII_ONE_ISLAND_HOUSES, 13, HIDE ; Orm
 SeviiEmberSpaHS:
 	db SEVII_EMBER_SPA, 5, SHOW ; ball
 	db SEVII_EMBER_SPA, 6, SHOW ; ball

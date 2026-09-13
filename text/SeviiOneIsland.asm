@@ -1,5 +1,6 @@
 _SeviiOneIslandCityText1::
 _SeviiOneIslandCityText2::
+_SeviiOneIslandHousesText13_RP::
 	text "!"
 ;	xxxx "123456789012345678"
 	done
@@ -1498,12 +1499,74 @@ _SeviiOneIslandHousesScriptText4_RP::
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText4_RP::
+_SeviiOneIslandHousesText4_RP_PreGiovanni::
 	text "CELIO: I'm already"
 	line "working on your"
 	cont "BOSS' demands."
 	cont "Please, return me"
 	cont "MAYOI. Please."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostGiovanni::
+	text "CELIO: i'm kinda"
+	line "done"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostOrm::
+	text "CELIO: what now?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText6_RP::
+	text "ORM: you assassin"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText7_RP::
+	text "ORM: i kill u"
+;	xxxx "123456789012345678"
+	done
+
+_CeliosHouseOrmDefeatedText_RP::
+	text "orm: urgh!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesScriptText8_RP::
+	text "ORM: giova i"
+	line "failed you again"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText9_RP::
+	text "ORM: aaauuughhh!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_AccessPC::
+	text "<PLAYER> accesses"
+	line "CELIO's hacked"
+	cont "network!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_GotCandy::
+	text "<PLAYER> downloads"
+	line "6 LEGEND CANDY!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesSignText4_RP_GotPerfecters::
+	text "<PLAYER> downloads"
+	line "6 PERFECTER!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_NoRoom::
+	text "No more space to"
+	line "download anything!"
 ;	xxxx "123456789012345678"
 	done
 

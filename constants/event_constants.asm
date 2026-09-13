@@ -667,6 +667,7 @@
 	const EVENT_RP_BEAT_EXPALL_AID ; new
 	const EVENT_RP_BEAT_ITEMFINDER_AID ; new
 	const EVENT_RP_BEAT_DIVER_EXPERT ; new
+	const EVENT_RP_BEAT_ORM_CELIOS_HOUSE ; new
 
 ; Route 3 events
 	const_next $3E0

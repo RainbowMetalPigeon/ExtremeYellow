@@ -292,7 +292,7 @@ ENDC
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call PlayDefaultMusic
-	; TBE
+	; TBE (?)
 	ret
 
 SeviiTanobyChambers_Chamber6_Coordinates_Step0_Ini:
@@ -666,7 +666,7 @@ SeviiTanobyChambers_TextPointers:
 	dw SeviiTanobyChambersScriptText9  ; 18 : Beasts Sird pre-battle dialogue
 	dw SeviiTanobyChambersScriptText10 ; 19 : Beasts final dialogue
 
-SeviiTanobyChambers_TextPointers_Rocket: ; TBE
+SeviiTanobyChambers_TextPointers_Rocket:
 	dw SeviiTanobyChambersText1 ; proxy
 	dw SeviiTanobyChambersText2 ; proxy
 	dw SeviiTanobyChambersText3 ; proxy
@@ -680,7 +680,6 @@ SeviiTanobyChambers_TextPointers_Rocket: ; TBE
 	; scripts
 	dw SeviiTanobyChambersScriptText1  ; 10 : Solved one Chamber
 	dw SeviiTanobyChambersScriptText2  ; 11 : Solved all Chambers
-	; TBE
 	dw SeviiTanobyChambersScriptText3_RP  ; 12 : Carr&Sird 1st dialogue
 	dw SeviiTanobyChambersScriptText4_RP  ; 13 : Carr 1st dialogue
 	dw SeviiTanobyChambersScriptText5_RP  ; 14 : Sird 1st dialogue
