@@ -1383,7 +1383,7 @@ _SeviiOneIslandHousesText3_RP_AfterPink::
 	done
 
 _SeviiOneIslandHousesText12_RP_BeforePink::
-	text "???: Are you the"
+	text "???: Are you"
 	line "the scum that"
 	cont "kidnapped MAYOI?"
 

@@ -68,6 +68,12 @@ SeviiTanobyChambers_ScriptPointers:
 	dw SeviiTanobyChambers_RocketBeasts_SirdPreBattle ; 8
 	dw SeviiTanobyChambers_RocketBeasts_SirdBattle ; 9
 	dw SeviiTanobyChambers_RocketBeasts_End ; 10
+	; for RP
+	dw SeviiTanobyChambers_RocketBeasts_RP_MoveBeastsUp1 ; 11
+	dw SeviiTanobyChambers_RocketBeasts_RP_MoveBeastsUp2 ; 12
+	dw SeviiTanobyChambers_RocketBeasts_RP_DialoguesAndCarrBattle ; 13
+	dw SeviiTanobyChambers_RocketBeasts_RP_SirdBattle ; 14
+	dw SeviiTanobyChambers_RocketBeasts_RP_End ; 15
 
 SeviiTanobyChambers_Base:
 	CheckEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
@@ -96,7 +102,11 @@ ENDC
 	ld [wSimulatedJoypadStatesIndex], a
 	call StartSimulatingJoypadStates
 ; script handling
+	CheckEvent EVENT_ROCKET_PATH
 	ld a, 2
+	jr z, .gotScriptNumber
+	ld a, 11
+.gotScriptNumber
 	ld [wCurMapScript], a
 	ret
 
@@ -368,7 +378,7 @@ ResetChamber6PathEvents:
 	ResetEvent EVENT_SEVII_TANOBY_TRACK_PATH_7
 	ret
 
-; Rocket Beasts scripts =========================
+; Rocket Beasts scripts ==================================================
 
 SeviiTanobyChambers_Coordinates_RocketBeastsScene:
 	dbmapcoord 78,  7
@@ -670,14 +680,15 @@ SeviiTanobyChambers_TextPointers_Rocket: ; TBE
 	; scripts
 	dw SeviiTanobyChambersScriptText1  ; 10 : Solved one Chamber
 	dw SeviiTanobyChambersScriptText2  ; 11 : Solved all Chambers
-	dw SeviiTanobyChambersScriptText3  ; 12 : Beasts 1st dialogue
-	dw SeviiTanobyChambersScriptText4  ; 13 : Beasts 2nd dialogue
-	dw SeviiTanobyChambersScriptText5  ; 14 : Beasts 3rd dialogue
-	dw SeviiTanobyChambersScriptText6  ; 15 : Beasts 4th dialogue
-	dw SeviiTanobyChambersScriptText7  ; 16 : Beasts Orm pre-battle dialogue
-	dw SeviiTanobyChambersScriptText8  ; 17 : Beasts Carr pre-battle dialogue
-	dw SeviiTanobyChambersScriptText9  ; 18 : Beasts Sird pre-battle dialogue
-	dw SeviiTanobyChambersScriptText10 ; 19 : Beasts final dialogue
+	; TBE
+	dw SeviiTanobyChambersScriptText3_RP  ; 12 : Carr&Sird 1st dialogue
+	dw SeviiTanobyChambersScriptText4_RP  ; 13 : Carr 1st dialogue
+	dw SeviiTanobyChambersScriptText5_RP  ; 14 : Sird 1st dialogue
+	dw SeviiTanobyChambersScriptText6_RP  ; 15 : Carr pre-B dialogue
+	dw SeviiTanobyChambersScriptText7_RP  ; 16 : Carr post-B dialogue
+	dw SeviiTanobyChambersScriptText8_RP  ; 17 : Sird pre-B dialogue
+	dw SeviiTanobyChambersScriptText9_RP  ; 18 : Sird post-B dialogue
+	dw SeviiTanobyChambersScriptText10_RP ; 19 : Carr&Sird final dialogue
 
 SeviiTanobyChambersSignText1:
 	text_asm
@@ -954,4 +965,222 @@ SeviiTanobyChambersCarrDefeatText:
 
 SeviiTanobyChambersSirdDefeatText:
 	text_far _SeviiTanobyChambersSirdDefeatText
+	text_end
+
+; new for RP ======================================================
+
+SeviiTanobyChambers_RocketBeasts_RP_MoveBeastsUp1:
+; wait for player to have moved
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; show and move Beasts
+	ld a, HS_SEVII_TANOBY_CHAMBERS_CARR
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	ld de, SeviiTanobyChambers_RocketBeastsMovements_RP_Carr
+	ld a, 2
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, HS_SEVII_TANOBY_CHAMBERS_SIRD
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+; script handling
+	ld a, 12
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeastsMovements_RP_Carr:
+	db NPC_MOVEMENT_LEFT
+	db -1 ; end
+
+SeviiTanobyChambers_RocketBeastsMovements_RP:
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
+	db -1 ; end
+
+SeviiTanobyChambers_RocketBeasts_RP_MoveBeastsUp2:
+; wait for Carr pre-movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; show and move Beasts
+	ld de, SeviiTanobyChambers_RocketBeastsMovements_RP
+	ld a, 2
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld de, SeviiTanobyChambers_RocketBeastsMovements_RP
+	ld a, 3
+	ldh [hSpriteIndex], a
+	call MoveSprite
+; script handling
+	ld a, 13
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_RP_DialoguesAndCarrBattle:
+; wait for Beasts movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; fix Beasts facings
+	ld a, 2
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new from Engeze
+	ld a, 3
+	ldh [hSpriteIndex], a
+	lb bc, STAY, UP
+	call ChangeSpriteMovementBytes ; new from Engeze
+; dialogues
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Carr dialogue pre battle
+	ld a, 15
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle Carr
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_CARR
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiTanobyChambersCarrDefeatText_RP
+	ld de, SeviiTanobyChambersCarrDefeatText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; script handling
+	ld a, 14
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_RP_SirdBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiTanobyChambersResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won, turn player
+	ld a, SPRITE_FACING_DOWN
+	ld [wSpritePlayerStateData1FacingDirection], a
+; Carr dialogue post battle
+	ld a, 16
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Sird dialogue pre battle
+	ld a, 17
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_SIRD
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiTanobyChambersSirdDefeatText_RP
+	ld de, SeviiTanobyChambersSirdDefeatText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; script handling
+	ld a, 15
+	ld [wCurMapScript], a
+	ret
+
+SeviiTanobyChambers_RocketBeasts_RP_End:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiTanobyChambersResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; Sird dialogue post battle
+	ld a, 18
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; last dialogue
+    call GBFadeOutToWhite
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+    call GBFadeInFromWhite
+	ld a, 19
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill Carr and Sird
+	SetEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
+	call GBFadeOutToBlack
+	ld a, HS_SEVII_TANOBY_CHAMBERS_CARR
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_TANOBY_CHAMBERS_SIRD
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+    ld c, 60
+    call DelayFrames
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+    ld c, 60
+    call DelayFrames
+	call GBFadeInFromBlack
+	jp SeviiTanobyChambersResetScripts
+
+SeviiTanobyChambersScriptText3_RP:  ; 12 : Carr&Sird 1st dialogue
+	text_far _SeviiTanobyChambersScriptText3_RP
+	text_end
+
+SeviiTanobyChambersScriptText4_RP:  ; 13 : Carr 1st dialogue
+	text_far _SeviiTanobyChambersScriptText4_RP
+	text_end
+
+SeviiTanobyChambersScriptText5_RP:  ; 14 : Sird 1st dialogue
+	text_far _SeviiTanobyChambersScriptText5_RP
+	text_end
+
+SeviiTanobyChambersScriptText6_RP:  ; 15 : Carr pre-B dialogue
+	text_far _SeviiTanobyChambersScriptText6_RP
+	text_end
+
+SeviiTanobyChambersCarrDefeatText_RP:
+	text_far _SeviiTanobyChambersCarrDefeatText_RP
+	text_end
+
+SeviiTanobyChambersScriptText7_RP:  ; 16 : Carr post-B dialogue
+	text_far _SeviiTanobyChambersScriptText7_RP
+	text_end
+
+SeviiTanobyChambersScriptText8_RP:  ; 17 : Sird pre-B dialogue
+	text_far _SeviiTanobyChambersScriptText8_RP
+	text_end
+
+SeviiTanobyChambersSirdDefeatText_RP:
+	text_far _SeviiTanobyChambersSirdDefeatText_RP
+	text_end
+
+SeviiTanobyChambersScriptText9_RP:  ; 18 : Sird post-B dialogue
+	text_far _SeviiTanobyChambersScriptText9_RP
+	text_end
+
+SeviiTanobyChambersScriptText10_RP: ; 19 : Carr&Sird final dialogue
+	text_far _SeviiTanobyChambersScriptText10_RP
 	text_end

@@ -1522,3 +1522,58 @@ _SeviiTanobyGardenMewText::
 	text "Meee-eh-eh-eeew!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ==================================
+
+_SeviiTanobyChambersScriptText3_RP::
+	text "found ya"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText4_RP::
+	text "CARR: wanna seat"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText5_RP::
+	text "SIRD: wanna intel"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText6_RP::
+	text "CARR: get team"
+	line "from ur corpse"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersCarrDefeatText_RP::
+	text "carr: fuck!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTanobyChambersScriptText7_RP::
+	text "CARR: i see how"
+	line "you beat GIOVA"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText8_RP::
+	text "SIRD: we teamed up"
+	line "for a reason"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersSirdDefeatText_RP::
+	text "sird: absurd!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiTanobyChambersScriptText9_RP::
+	text "SIRD: even 2 vs 1"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTanobyChambersScriptText10_RP::
+	text "CARR&SIRD: AAAHHH!"
+;	xxxx "123456789012345678"
+	done

@@ -210,7 +210,7 @@ SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesText1_RP ; weather move tutor TBE
 	dw SeviiOneIslandHousesText2_RP ; Celio before battle vs Blue
 	dw SeviiOneIslandHousesText3_RP ; Celio after battle vs Blue
-	dw SeviiOneIslandHousesText4_RP ; Celio after battle vs Pink
+	dw SeviiOneIslandHousesText4_RP ; Celio after battle vs Pink TBE
 	dw SeviiOneIslandHousesText5 ; Mayoi right after rescue (unused?)
 	dw SeviiOneIslandHousesText6 ; Mayoi after rescue (unused?)
 	dw SeviiOneIslandHousesText7 ; Pink
@@ -223,7 +223,7 @@ SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesSignText1
 	dw SeviiOneIslandHousesSignText2
 	dw SeviiOneIslandHousesSignText3
-	dw SeviiOneIslandHousesSignText4 ; 16
+	dw SeviiOneIslandHousesSignText4 ; 16 ; TBE
 	dw SeviiOneIslandHousesSignText5 ; 17
 	dw SeviiOneIslandHousesSignText6 ; 18
 	; scripts
@@ -830,9 +830,11 @@ SeviiOneIslandHousesText4_RP:
 	text_far _SeviiOneIslandHousesText4_RP
 	text_end
 
+; ----------------------------------------
 
+; TBE: Orm, end-game Celio, PC
 
-
+; ----------------------------------------
 
 SeviiOneIslandHousesText1_RP:
 	text_asm
@@ -899,7 +901,7 @@ SeviiOneIslandHouses_PostBattleTutor_RP: ; 13
 ; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
-	SetEvent EVENT_GAVE_DRINK_TO_WEATHER_TUTOR
+	SetEvent EVENT_GAVE_DRINK_TO_WEATHER_TUTOR ; abused
 	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID

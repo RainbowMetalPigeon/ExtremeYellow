@@ -30,9 +30,13 @@ SeviiOneIslandHouses_Object:
 	object_event 16,  4, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, 6 ; Mayoi after rescue
 	object_event 17,  7, SPRITE_PINK, STAY, UP, 7 ; Pink
 	object_event 15,  2, SPRITE_MONSTER, STAY, DOWN, 8 ; plushie
+	; Snorlax fan
 	object_event 33,  3, SPRITE_FISHER, STAY, RIGHT, 9 ; Snorlax fan?
+	; small family
 	object_event 45,  3, SPRITE_MIDDLE_AGED_MAN, STAY, DOWN, 10
-	object_event 48,  2, SPRITE_GAMEBOY_KID, STAY, UP, 11
+	object_event 48,  2, SPRITE_LITTLE_GIRL, STAY, UP, 11
+	; Celio's house again
 	object_event 16,  3, SPRITE_MIDDLE_AGED_MAN, STAY, RIGHT, 12 ; Pink's Dad = Celio's sib, after fight vs Blue, only for RP
+;	object_event 17,  6, SPRITE_ORM, STAY, UP, 13
 
 	def_warps_to SEVII_ONE_ISLAND_HOUSES

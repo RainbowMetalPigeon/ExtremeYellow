@@ -2135,11 +2135,6 @@ INCLUDE "scripts/SeviiRoute33.asm"
 INCLUDE "data/maps/objects/SeviiRoute33.asm"
 SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"
 
-INCLUDE "data/maps/headers/SeviiFourIslandParkourPath.asm"
-INCLUDE "scripts/SeviiFourIslandParkourPath.asm"
-INCLUDE "data/maps/objects/SeviiFourIslandParkourPath.asm"
-SeviiFourIslandParkourPath_Blocks: INCBIN "maps/SeviiFourIslandParkourPath.blk"
-
 
 SECTION "Maps Sevii 7", ROMX ; new
 
@@ -2152,3 +2147,8 @@ INCLUDE "data/maps/headers/SeviiIcefallCave2F.asm"
 INCLUDE "scripts/SeviiIcefallCave2F.asm"
 INCLUDE "data/maps/objects/SeviiIcefallCave2F.asm"
 SeviiIcefallCave2F_Blocks: INCBIN "maps/SeviiIcefallCave2F.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandParkourPath.asm"
+INCLUDE "scripts/SeviiFourIslandParkourPath.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandParkourPath.asm"
+SeviiFourIslandParkourPath_Blocks: INCBIN "maps/SeviiFourIslandParkourPath.blk"
