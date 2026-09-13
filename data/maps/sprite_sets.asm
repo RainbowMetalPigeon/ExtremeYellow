@@ -273,7 +273,7 @@ DEF SPRITE_SET_LENGTH EQU 9 + 2
 ; sprite set $0e ; new, copy of $01 for Pallet Town
 	table_width 1
 	db SPRITE_PIKACHU
-	db SPRITE_BLUE
+	db SPRITE_TRAVELER
 	db SPRITE_YOUNGSTER
 	db SPRITE_GIRL
 	db SPRITE_FISHER
