@@ -411,7 +411,7 @@ SeviiDottedHole_TextPointers:
 	dw SeviiDottedHoleTextScript7  ; 16
 	dw SeviiDottedHoleTextScript8  ; 17
 
-SeviiDottedHole_TextPointers_Rocket: ; TBE
+SeviiDottedHole_TextPointers_Rocket:
 	dw SeviiDottedHoleMeltanText ; Meltan
 	dw SeviiDottedHoleTextProxy
 	dw SeviiDottedHoleTextProxy

@@ -978,12 +978,12 @@ SeviiOneIslandHousesSignText4_RP:
 	ld hl, SeviiOneIslandHousesSignText4_RP_AccessPC
 	call PrintText
 	call WaitForTextScrollButtonPress
-	lb bc, LEGEND_CANDY, 6
+	lb bc, LEGEND_CANDY, 1
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, SeviiOneIslandHousesSignText4_RP_GotCandy
 	call PrintText
-	lb bc, PERFECTER, 6
+	lb bc, PERFECTER, 1
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, SeviiOneIslandHousesSignText4_RP_GotPerfecters

@@ -1554,13 +1554,13 @@ _SeviiOneIslandHousesSignText4_RP_AccessPC::
 
 _SeviiOneIslandHousesSignText4_RP_GotCandy::
 	text "<PLAYER> downloads"
-	line "6 LEGEND CANDY!"
+	line "a LEGEND CANDY!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiOneIslandHousesSignText4_RP_GotPerfecters::
 	text "<PLAYER> downloads"
-	line "6 PERFECTER!"
+	line "a PERFECTER!"
 ;	xxxx "123456789012345678"
 	done
 

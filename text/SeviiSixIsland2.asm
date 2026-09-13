@@ -390,3 +390,28 @@ _SeviiDottedHoleTextScript4_RP::
 	line "NOOO!!! AAAHHH!!!"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiSixIslandCityText4::
+	text "???: you!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandCityScriptText1::
+	text "PINK: die"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandCityPinkDefeatedText::
+	text "pink: shit"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiSixIslandCityPinkWonText::
+	text "pink: purge time"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiSixIslandCityScriptText2::
+	text "PINK: go to top"
+;	xxxx "123456789012345678"
+	done

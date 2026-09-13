@@ -9,7 +9,7 @@ MapHSPointers_Sevii:
 	dw SeviiThreeIslandCityHS ; SEVII_THREE_ISLAND_CITY
 	dw SeviiFourIslandCityHS ; SEVII_FOUR_ISLAND_CITY
 	dw SeviiFiveIslandCityHS ; SEVII_FIVE_ISLAND_CITY
-	dw NoHSSevii ; SEVII_SIX_ISLAND_CITY
+	dw SeviiSixIslandCityHS ; SEVII_SIX_ISLAND_CITY
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_CITY
 ; routes
 	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CITY
@@ -195,6 +195,8 @@ SeviiFiveIslandCityHS:
 	db SEVII_FIVE_ISLAND_CITY, 12, SHOW ; ball
 	db SEVII_FIVE_ISLAND_CITY, 13, SHOW ; ball
 	db SEVII_FIVE_ISLAND_CITY, 14, SHOW ; ball
+SeviiSixIslandCityHS:
+	db SEVII_SIX_ISLAND_CITY,  4, HIDE ; Pink
 
 ; routes ----------------------------------
 
