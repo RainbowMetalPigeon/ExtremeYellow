@@ -19,7 +19,10 @@ SeviiRoute43_ScriptPointers:
 	dw SeviiRoute43Script5
 
 SeviiRoute43Script0:
-; check if sird event completed
+; on RP, Sird doesn't show up here
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, CheckFightingMapTrainers
+; on Hero Path; check if Sird event completed
 	CheckEvent EVENT_SEVII_BEAT_SIRD
 	jp nz, CheckFightingMapTrainers
 ; if not, check if in coordinates
@@ -183,7 +186,7 @@ SeviiRoute43_TextPointers_Rocket:
 	dw SeviiRoute43Text11 ; 11 trainer
 	dw RockSmashText ; 12
 	dw PickUpItemText ; 13
-	dw SeviiRoute43TextSird ; 14 Sird TBE
+	dw SeviiRoute43TextSird ; 14 Sird, unused
 
 SeviiRoute43Text1:
 	text_far _SeviiRoute43Text1
