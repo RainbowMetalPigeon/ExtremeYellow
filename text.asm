@@ -47,7 +47,6 @@ INCLUDE "text/UndergroundPathRoute7Copy.asm"
 INCLUDE "text/UndergroundPathRoute8.asm"
 INCLUDE "text/RockTunnelPokecenter.asm"
 INCLUDE "text/RockTunnel1F.asm"
-INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/Route11Gate2F.asm"
 INCLUDE "text/DiglettsCaveRoute11.asm"
 INCLUDE "text/Route12Gate1F.asm"
@@ -320,6 +319,7 @@ INCLUDE "text/VermilionDock.asm"
 INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
+INCLUDE "text/Route11Gate1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

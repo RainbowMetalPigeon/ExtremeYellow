@@ -698,3 +698,23 @@ _PerishCountText:: ; new
 	text_decimal wAnotherTemporaryStorageVariable2, 1, 1
 	text "!"
 	prompt
+
+; new for RP ===================
+
+_OaksPCWasteOfTimeText::
+	text "Tsk! Who cares"
+	line "how many #MON"
+	cont "one got!"
+
+	para "It matters only"
+	line "how much money"
+	cont "can be squeezed"
+	cont "out of them."
+;	xxxx "123456789012345678"
+	prompt
+
+_OaksPCEvenMoreUselessText::
+	text "...this is even"
+	line "more useless now."
+;	xxxx "123456789012345678"
+	prompt
