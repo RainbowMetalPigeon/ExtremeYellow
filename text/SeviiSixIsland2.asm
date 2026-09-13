@@ -333,3 +333,60 @@ _SeviiRoute38HousesText2_RP::
 	para "N-n-no way!"
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiDottedHoleTextScript2_RP::
+	text "JESSIE&JAMES: You!"
+	line "You... Are the..."
+
+	para "You... GIOVANNI..."
+
+	para "...YOU ARE THE"
+	line "ONE WHO KILLED"
+	cont "GIOVANNI!"
+
+	para "How could you?!"
+	line "We... TEAM ROCKET"
+	cont "for us..."
+
+	para "Grr! Get ready,"
+	line "we will avenge"
+	cont "our one and only"
+	cont "true BOSS!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiDottedHoleJessieJamesDefeatText::
+	text "No!"
+	line "This can't be!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiDottedHoleTextScript3_RP::
+	text "JESSIE&JAMES: ..."
+
+	para "...TEAM ROCKET has"
+	line "always been like"
+	cont "a family to us."
+	cont "GIOVANNI took us"
+	cont "in when no-one"
+	cont "else wanted us."
+
+	para "And you..."
+	line "You..."
+
+	para "..."
+	line "...why?"
+
+	para "Uh? AGH! Why?!"
+	line "Why attacking us"
+	cont "instead of answe-"
+
+	cont "AHHH! No!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiDottedHoleTextScript4_RP::
+	text "JESSIE&JAMES: NO!"
+	line "NOOO!!! AAAHHH!!!"
+;	xxxx "123456789012345678"
+	done

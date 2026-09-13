@@ -1468,6 +1468,7 @@ JessieJamesData: ; new
 	db 32, ARBOK, LICKITUNG, WEEZING, WEEPINBELL, MEOWTH, 0 ; Pokemon Tower ; 3
 	db 36, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MEOWTH, 0 ; Silph Co ; 4
 	db 39, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MEOWTH, 0 ; Obsidian Warehouse ; 5
+	db 89, ARBOK, LICKILICKY, WEEZING, VICTREEBEL, MAGNEZONE, MEOWTH, 0 ; for RP, Dotted Hole ; 6
 
 OrageData:
 	db 1, DITTO, 0 ; 1, proxy

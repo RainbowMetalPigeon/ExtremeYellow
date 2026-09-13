@@ -37,6 +37,7 @@ SeviiTanobyDenInitStaticEncounterBattle:
 
 SeviiTanobyDenArmMewtwoText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, SeviiTanobyDenArmMewtwoTrainerHeader
 	jr SeviiTanobyDenInitStaticEncounterBattle
 
@@ -50,6 +51,7 @@ SeviiTanobyDenArmMewtwoBattleText:
 
 SeviiTanobyDenMewText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, SeviiTanobyDenMewTrainerHeader
 	jr SeviiTanobyDenInitStaticEncounterBattle
 
