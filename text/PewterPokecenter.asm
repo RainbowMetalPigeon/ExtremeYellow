@@ -25,3 +25,14 @@ _PewterJigglypuffText::
 	text "JIGGLYPUFF: Puu"
 	line "pupuu!"
 	done
+
+; new for RP ============================
+
+_PewterJigglypuffText_RP::
+	text "JIGGLYPUFF stares"
+	line "at you extremely"
+	cont "angrily and"
+	cont "begins to bloat"
+	cont "menacingly."
+;	xxxx "123456789012345678"
+	done

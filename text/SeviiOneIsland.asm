@@ -1508,6 +1508,10 @@ _SeviiOneIslandHousesText4_RP_PreGiovanni::
 ;	xxxx "123456789012345678"
 	done
 
+
+
+
+
 _SeviiOneIslandHousesText4_RP_PostGiovanni::
 	text "CELIO: i'm kinda"
 	line "done"
@@ -1544,6 +1548,10 @@ _SeviiOneIslandHousesScriptText9_RP::
 	text "ORM: aaauuughhh!!!"
 ;	xxxx "123456789012345678"
 	done
+
+
+
+
 
 _SeviiOneIslandHousesSignText4_RP_AccessPC::
 	text "<PLAYER> accesses"

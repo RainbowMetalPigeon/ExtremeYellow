@@ -24,7 +24,7 @@ PewterPokecenter_TextPointers:
 PewterPokecenter_TextPointers_Rocket:
 	dw PewterHealNurseText
 	dw GenericNPCText_RocketPath
-	dw PewterJigglypuffText ; TBE?
+	dw PewterJigglypuffText_RP
 	dw PewterTradeNurseText
 	dw GenericNPCText_RocketPath
 	dw PewterPokecenterText6
@@ -88,3 +88,9 @@ PewterCashierTextTM: ; testing
     text_asm
 	callfar TMMartClerkDialogue
     jp TextScriptEnd
+
+; new for RP ============================
+
+PewterJigglypuffText_RP:
+	text_far _PewterJigglypuffText_RP
+	text_end
