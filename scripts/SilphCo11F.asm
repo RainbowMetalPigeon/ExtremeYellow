@@ -905,6 +905,8 @@ SilphCo11Text2_RP:
 
 SilphCo11TextGiovanni_RP: ; TBE
 	text_asm
+	CheckEvent EVENT_RP_GAVE_MEWTWO_TO_GIOVANNI
+	jr nz, .startFight
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	jp z, .notChampionYet
 ; we are champion; check if we have a Mewtwo or not
@@ -947,12 +949,14 @@ SilphCo11TextGiovanni_RP: ; TBE
 	ld hl, SilphCo11TextGiovanni_RP_GetAnotherMon
 	jp z, .printAndEnd
 ; we have enough mons
+	SetEvent EVENT_RP_GAVE_MEWTWO_TO_GIOVANNI
 	xor a
 	ld [wRemoveMonFromBox], a
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call RemovePokemon
 	ld hl, SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete
 	call PrintText
+.startFight
 	ld hl, SilphCo11TextGiovanni_RP_NowBegone
 	call PrintText
 ; set up battle
@@ -1099,8 +1103,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_BOULDERBADGE, [hl]
 	jr z, .checkCASCADE
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jp nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1115,8 +1117,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_CASCADEBADGE, [hl]
 	jr z, .checkTHUNDER
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jp nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1131,8 +1131,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_THUNDERBADGE, [hl]
 	jr z, .checkRAINBOW
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jp nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1147,8 +1145,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_RAINBOWBADGE, [hl]
 	jr z, .checkSOUL
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jr nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1163,8 +1159,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_SOULBADGE, [hl]
 	jr z, .checkMARSH
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jr nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1179,8 +1173,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_MARSHBADGE, [hl]
 	jr z, .checkVOLCANO
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jr nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1195,8 +1187,6 @@ SilphCo11TextGiovanni_RP: ; TBE
 	bit BIT_VOLCANOBADGE, [hl]
 	jr z, .noNewBadges
 	; this badge is new
-	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
-	call PrintText
 	call TryToRewardStealBall
 	jr nc, .printAndEnd ; bag full
 	ld hl, wRPStealBallsForBadges
@@ -1211,11 +1201,22 @@ SilphCo11TextGiovanni_RP: ; TBE
 	jp TextScriptEnd
 
 TryToRewardStealBall:
+	ld hl, SilphCo11TextGiovanni_RP_NewBadgeWellDone
+	call PrintText
 	lb bc, STEAL_BALL, 1
 	call GiveItem
 	jr nc, .bagFull
 	ld hl, SilphCo11TextGiovanni_RP_GotItem
 	call PrintText
+; print steal ball explanation only once
+	CheckEvent EVENT_RP_GOT_A_STEAL_BALL
+	jr nz, .conclude
+	call WaitForTextScrollButtonPress
+	ld hl, SilphCo11TextGiovanni_RP_StealBallExplanation
+	call PrintText
+	SetEvent EVENT_RP_GOT_A_STEAL_BALL
+.conclude
+; BTV
 	scf
 	ret
 .bagFull
@@ -1447,6 +1448,10 @@ SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete:
 
 SilphCo11TextGiovanni_RP_NowBegone:
 	text_far _SilphCo11TextGiovanni_RP_NowBegone
+	text_end
+
+SilphCo11TextGiovanni_RP_StealBallExplanation:
+	text_far _SilphCo11TextGiovanni_RP_StealBallExplanation
 	text_end
 
 SilphCo11FGiovanniRPDefeatText:

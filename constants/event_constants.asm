@@ -664,6 +664,8 @@
 	const EVENT_RP_ELIMINATED_AGATHA ; new
 	const EVENT_RP_ELIMINATED_LANCE ; new
 	const EVENT_RP_ENTERED_LANCES_ROOM_ONCE ; new
+	const EVENT_RP_GAVE_MEWTWO_TO_GIOVANNI ; new
+	const EVENT_RP_GOT_A_STEAL_BALL ; new
 
 ; Route 2 events
 	const_next $3D8

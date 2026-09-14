@@ -546,7 +546,7 @@ _SeviiOneIslandHousesScriptText2::
 _CeliosHousePinkDefeatedText::
 	text "I see."
 	line "So this is the"
-	cont "minimum strenght"
+	cont "minimum strength"
 	cont "I must acquire."
 	prompt
 

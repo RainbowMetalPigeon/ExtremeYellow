@@ -142,11 +142,7 @@ INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/Route27.asm" ; new
 INCLUDE "text/OaksLab.asm"
-INCLUDE "text/ViridianForest.asm"
-INCLUDE "text/SaffronPidgeyHouse.asm"
-INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/SilphCo11F.asm"
 
 
@@ -171,6 +167,7 @@ INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/ViridianCity.asm"
+INCLUDE "text/SaffronPokecenter.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -178,6 +175,8 @@ INCLUDE "text/OchreCity.asm" ; new
 INCLUDE "text/Traveler.asm" ; new
 INCLUDE "text/PalletTown.asm"
 INCLUDE "text/Route23.asm"
+INCLUDE "text/SaffronPidgeyHouse.asm"
+INCLUDE "text/ViridianForest.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -205,6 +204,7 @@ INCLUDE "text/IndigoPlateauLobby.asm"
 INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/Route24.asm"
+INCLUDE "text/Route27.asm" ; new
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones

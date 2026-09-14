@@ -40,11 +40,11 @@ IF DEF(_DEBUG)
 
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
-	ld a, %11111110
+;	ld a, %11111110
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
-;	ld a, %01111111
+	ld a, %01111111
 	ld [wObtainedBadges], a
 
 	call SetDebugTeam
