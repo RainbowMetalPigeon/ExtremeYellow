@@ -222,3 +222,21 @@ _LanceAfterBattleText_RP_After::
 	line "what happened?"
 ;	xxxx "123456789012345678"
 	done
+
+_LanceBeforeBattleText_RP_Pink::
+	text "before"
+	line "Lance Pink"
+;	xxxx "123456789012345678"
+	done
+
+_LanceEndBattleText_RP_Pink::
+	text "end"
+	line "Lance Pink"
+;	xxxx "123456789012345678"
+	prompt
+
+_LanceAfterBattleText_RP_Pink_Core::
+	text "after"
+	line "Lance Pink"
+;	xxxx "123456789012345678"
+	done

@@ -255,7 +255,11 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_7     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
-	; total = 248
+	const HS_LORELEIS_ROOM_LORELEI         ; new
+	const HS_BRUNOS_ROOM_BRUNO             ; new
+	const HS_AGATHAS_ROOM_AGATHA           ; new
+	const HS_LANCES_ROOM_LANCE             ; new
+	; total = 252
 
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
@@ -314,6 +318,7 @@ DEF SHOW EQU $15
 	const HS_SECLUDED_ATOLL_NW_ROCK_1      ; new
 	const HS_CHAMPIONS_ROOM_RIVAL          ; new
 	const HS_CHAMPIONS_ROOM_OAK            ; DE
+	const HS_CHAMPIONS_ROOM_PINK           ; new
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_1  ; DF
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_2  ; E0
 	const HS_SEAFOAM_ISLANDS_B1F_BOULDER_1 ; E1
@@ -499,4 +504,4 @@ DEF SHOW EQU $15
 	const HS_HALL_OF_FAME_OAK              ; new
 	const HS_HALL_OF_FAME_BLUE             ; new
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
-	; total = 236
+	; total = 237

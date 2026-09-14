@@ -144,3 +144,26 @@ _LoreleiAfterBattleText_RP::
 	line "Lorelei"
 ;	xxxx "123456789012345678"
 	done
+
+_LoreleiBeforeBattleText_RP_Pink::
+	text "before"
+	line "Lorelei Pink"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiEndBattleText_RP_Pink::
+	text "end"
+	line "Lorelei Pink"
+;	xxxx "123456789012345678"
+	prompt
+
+_LoreleiAfterBattleText_RP_Pink::
+	text "after"
+	line "Lorelei Pink"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiDeathText_RP::
+	text "AAAAHHH!!!"
+;	xxxx "123456789012345678"
+	done

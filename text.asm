@@ -287,7 +287,6 @@ INCLUDE "data/text/text_2.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
-INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/OchreWonderland.asm" ; new
 
@@ -320,6 +319,7 @@ INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/Route11Gate1F.asm"
+INCLUDE "text/VermilionMart.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

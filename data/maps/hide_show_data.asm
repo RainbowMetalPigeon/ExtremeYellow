@@ -123,7 +123,7 @@ MapHSPointers:
 	dw NoHS ; SECLUDED_ATOLL_NE
 	dw NoHS ; SECLUDED_ATOLL_SE
 	dw NoHS ; SECLUDED_ATOLL_SW
-	dw NoHS ; LANCES_ROOM
+	dw LancesRoomHS ; new, LANCES_ROOM
 	dw ObsidianWoodHS ; OBSIDIAN_WOOD
 	dw ObsidianWarehouseHS ; OBSIDIAN_WAREHOUSE
 	dw ObsidianWarehouseFinalHS ; OBSIDIAN_WAREHOUSE_FINAL
@@ -254,9 +254,9 @@ MapHSPointers:
 	dw CeruleanCaveExtraMiddleHS ; new
 	dw CeruleanCaveExtraBottomHS ; new
 	dw CeruleanCaveExtraFinalHS ; new
-	dw NoHS ; LORELEIS_ROOM
-	dw NoHS ; BRUNOS_ROOM
-	dw NoHS ; AGATHAS_ROOM
+	dw LoreleisRoomHS ; new, LORELEIS_ROOM
+	dw BrunosRoomHS ; new, BRUNOS_ROOM
+	dw AgathasRoomHS ; new, AGATHAS_ROOM
 	dw NoHS ; SUMMER_BEACH_HOUSE
 	assert_table_length NUM_MAPS
 	dw -1 ; end
@@ -579,7 +579,14 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0B, SHOW
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
-
+LoreleisRoomHS: ; new
+	db LORELEIS_ROOM,  1, SHOW
+BrunosRoomHS: ; new
+	db BRUNOS_ROOM,    1, SHOW
+AgathasRoomHS: ; new
+	db AGATHAS_ROOM,   1, SHOW
+LancesRoomHS: ; new
+	db LANCES_ROOM,    1, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -654,6 +661,7 @@ SecludedAtollNWHS:
 ChampionsRoomHS:
 	db CHAMPIONS_ROOM, $01, SHOW ; new, to later hide the Rival when goes to HoF
 	db CHAMPIONS_ROOM, $02, HIDE
+	db CHAMPIONS_ROOM, $03, HIDE ; new, Pink
 SeafoamIslands1FHS:
 	db SEAFOAM_ISLANDS_1F, $01, SHOW
 	db SEAFOAM_ISLANDS_1F, $02, SHOW

@@ -65,5 +65,19 @@ IndigoCashier2Text: ; testing
 ; new for RP ===========================
 
 IndigoPlateauLobbyText8_RP:
-	text_far _IndigoPlateauLobbyText8_RP
+	text_asm
+	CheckEvent EVENT_RP_BEAT_CHAMPION_PINK
+	ld hl, IndigoPlateauLobbyText8_RP_Before
+	jr z, .printAndEnd
+	ld hl, IndigoPlateauLobbyText8_RP_After
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+IndigoPlateauLobbyText8_RP_Before:
+	text_far _IndigoPlateauLobbyText8_RP_Before
+	text_end
+
+IndigoPlateauLobbyText8_RP_After:
+	text_far _IndigoPlateauLobbyText8_RP_After
 	text_end

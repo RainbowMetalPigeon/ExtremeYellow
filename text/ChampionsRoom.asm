@@ -920,3 +920,27 @@ _GaryTextScript3_RP::
 ;	xxxx "123456789012345678"
 	done
 
+_GaryText3_RP::
+	text "PINK: badcome"
+;	xxxx "123456789012345678"
+	done
+
+_ChampionsRoomPinkDefeatedText_RP::
+	text "pink: i lost"
+;	xxxx "123456789012345678"
+	prompt
+
+_ChampionsRoomPinkVictoryText_RP::
+	text "pink: i won"
+;	xxxx "123456789012345678"
+	prompt
+
+_GaryTextScript4_RP::
+	text "PINK: you bastard"
+;	xxxx "123456789012345678"
+	done
+
+_GaryTextScript5_RP::
+	text "PINK: AAAHHH"
+;	xxxx "123456789012345678"
+	done

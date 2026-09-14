@@ -137,7 +137,7 @@ ROMX $1D
 	"Maps 19"
 	"Itemfinder 1"
 	"Maps 20"
-	"Vending Machine"
+;	"Vending Machine" ; removed, unnecessary
 	"Maps 21"
 	"Itemfinder 2"
 ROMX $1E

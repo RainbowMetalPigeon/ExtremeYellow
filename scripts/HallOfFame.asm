@@ -1,5 +1,6 @@
 HallOfFame_Script:
 	RPTextChooser HallOfFame_TextPointers, HallOfFame_TextPointers_Rocket
+	callfar ChampionsRoomAndHoFStopMusic_RP ; new for RP
 	call EnableAutoTextBoxDrawing
 	ld hl, HallOfFame_ScriptPointers
 	ld a, [wCurMapScript]
@@ -577,6 +578,9 @@ HallofFameRoomScript2_RP:
     ld c, 150
     call DelayFrames
     call GBFadeInFromBlack
+; reset victory music flag
+	ld hl, wFlags_D733 ; was set by ChampionsRoom, prevents music from changing when changing map
+	res 1, [hl]
 ; load next script
 	jr HoFResetScripts
 

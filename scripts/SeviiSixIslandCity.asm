@@ -83,6 +83,9 @@ SeviiSixIslandCity_Script0:
 	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
 	ret nc
 ; trigger event
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
 ; exclamation bubble
 	ld a, 4
 	ld [wEmotionBubbleSpriteIndex], a
@@ -123,6 +126,9 @@ SeviiSixIslandCity_Script1:
 	ld a, [wd730]
 	bit 0, a
 	ret nz
+; fix Pink's facing
+	lb de, 4, SPRITE_FACING_LEFT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 ; dialogue
 	xor a
 	ld [wJoyIgnore], a
@@ -154,13 +160,15 @@ SeviiSixIslandCity_Script2:
 	cp $ff
 	jp z, SeviiSixIslandCityResetScripts
 ; we won
+	lb de, 4, SPRITE_FACING_LEFT
+	callfar ChangeSpriteFacing ; new Pigeon approach
 	SetEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 11
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-; hide Pink and League guard
+; hide Pink and League guard, show champion Pink
 	call GBFadeOutToBlack
 	ld a, HS_SEVII_SIX_ISLAND_CITY_PINK
 	ld [wMissableObjectIndex], a
@@ -168,6 +176,9 @@ SeviiSixIslandCity_Script2:
 	ld a, HS_INDIGO_PLATEAU_LOBBY_GUARD
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
+	ld a, HS_CHAMPIONS_ROOM_PINK
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
 	call UpdateSprites
 	call GBFadeInFromBlack
 	; fallthrough

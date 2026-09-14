@@ -1,5 +1,6 @@
 ChampionsRoom_Script:
 	RPTextChooser ChampionsRoom_TextPointers, ChampionsRoom_TextPointers_Rocket
+	call ChampionsRoomAndHoFStopMusic_RP ; new for RP
 	call EnableAutoTextBoxDrawing
 	ld hl, ChampionsRoom_ScriptPointers
 	ld a, [wChampionsRoomCurScript]
@@ -29,6 +30,9 @@ ChampionsRoom_ScriptPointers:
 	dw GaryScriptRP1 ; 12
 	dw GaryScriptRP2 ; 13
 	dw GaryScriptRP3 ; 14
+	; for RP Pink
+	dw GaryScriptRP4 ; 15
+	dw GaryScriptRP5 ; 16
 
 ; ==================================
 
@@ -50,7 +54,10 @@ GaryScript1: ; it starts here because of AgatasRoom
 	CheckEvent EVENT_ROCKET_PATH
 	ld a,  2 ; HP
 	jr z, .changeScript
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
 	ld a, 12 ; RP -> GaryScriptRP1
+	jr z, .changeScript
+	ld a, 15 ; RP, vs Pink -> GaryScriptRP4
 .changeScript
 ; BTV
 	ld [wChampionsRoomCurScript], a
@@ -151,12 +158,12 @@ GaryScript2ndBattle:
 	jr z, .firstTimeAtLeague
 ; we are here if it's post-game. We need to display the question for the second battle,
 ; and if we agree, we choose the team depending on the rematches with the gym leaders
-	ld a, $7 ; all the other checks and text displaying are left to this text
+	ld a, 8 ; all the other checks and text displaying are left to this text
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	jr .postTextNotFirstTimeAtLeague
 .firstTimeAtLeague
-	ld a, $6
+	ld a, 7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, GaryDefeatedText2ndBattle_BG
@@ -297,7 +304,7 @@ GaryScript5:
 	ret
 .notPostGame ; --------------------
 ; Oak & Rival talk
-	ld a, $3
+	ld a, 4
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Oak facing Player
@@ -311,7 +318,7 @@ GaryScript5:
 	lb de, 2, SPRITE_FACING_DOWN
 	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak talks
-	ld a, $4
+	ld a, 5
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Oak facing Rival
@@ -325,7 +332,7 @@ GaryScript5:
 	lb de, 2, SPRITE_FACING_RIGHT
 	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak and Rival talk
-	ld a, $0b
+	ld a, 9
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; let the hug sink in for a bit... :)
@@ -341,7 +348,7 @@ GaryScript5:
 ; all changes of direction and talkings here, postgame only
 GaryScript6:
 ; Oak talks
-	ld a, $0c
+	ld a, 10
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; load next script
@@ -373,7 +380,7 @@ GaryScript7: ; Oak faces and talks to Player and then leaves the room for the Ho
 	lb de, 2, SPRITE_FACING_DOWN
 	callfar ChangeSpriteFacing ; new Pigeon approach
 ; Oak talks
-	ld a, $5
+	ld a, 6
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Oak walks towards HoF
@@ -460,27 +467,28 @@ GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ChampionsRoom_TextPointers: ; goddess, the order is such a mess xD
-	dw GaryText1				; 1 - before/after first battle(s, including rematches)
-	dw GaryText2				; 2 - simply Oak that calls you
+	dw GaryText1				;  1 - before/after first battle(s, including rematches)
+	dw GaryText2				;  2 - simply Oak that calls you
+	dw GaryText3_RP				;  3 - new, Pink, only for RP
 	; scripts
-	dw GaryText3				; 3 - Oak compliments Rival, Rival embarassed
-	dw GaryText4				; 4 - Oak compliments Player, Rival silent
-	dw GaryText5				; 5 - Oak come with me to HoF
-	dw GaryText2ndBattle_BG		; 6 - second battle, before post game
-	dw GaryText2ndBattle_AG		; 7 - second battle, post game, asking if we want to do it
-	dw GaryText2ndBattle_AG_BGL	; 8 - second battle accepted, before gym leaders' rematches
-	dw GaryText2ndBattle_AG_AGL	; 9 - second battle accepted, after gym leaders' rematches
-	dw GaryText2ndBattle_AG_Refused	; 0a=10 - second battle refused
-	dw GaryText6                ; 0b=11 - long emotional conversation between Oak and Rival
-	dw GaryText7				; 0c=12 - Oak compliments Rival and Player for having repeated their achievements
+	dw GaryText3				;  4 - Oak compliments Rival, Rival embarassed
+	dw GaryText4				;  5 - Oak compliments Player, Rival silent
+	dw GaryText5				;  6 - Oak come with me to HoF
+	dw GaryText2ndBattle_BG		;  7 - second battle, before post game
+	dw GaryText2ndBattle_AG		;  8 - second battle, post game, asking if we want to do it
+	dw GaryText6                ;  9 - long emotional conversation between Oak and Rival
+	dw GaryText7				; 10 - Oak compliments Rival and Player for having repeated their achievements
 
 ChampionsRoom_TextPointers_Rocket:
 	dw GaryText1_RP
 	dw GenericNPCText_RocketPath ; unused
+	dw GaryText3_RP				 ; 3 - new, Pink, only for RP
 	; scripts
-	dw GaryTextScript1_RP
-	dw GaryTextScript2_RP
-	dw GaryTextScript3_RP
+	dw GaryTextScript1_RP ; 4
+	dw GaryTextScript2_RP ; 5
+	dw GaryTextScript3_RP ; 6
+	dw GaryTextScript4_RP ; 7
+	dw GaryTextScript5_RP ; 8
 
 ; ==================================
 
@@ -909,7 +917,7 @@ GaryScriptRP2:
 	call Delay3
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 3
+	ld a, 4
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, ChampionsRoomGaryDefeatedText2_RP
@@ -944,14 +952,14 @@ GaryScriptRP3:
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, 4
+	ld a, 5
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; flash, hide Blues
     call GBFadeOutToWhite
     call GBFadeInFromWhite
 	
-	ld a, 5
+	ld a, 6
 	ldh [hSpriteIndexOrTextID], a
 	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
 
@@ -1018,3 +1026,112 @@ GaryTextScript2_RP:
 GaryTextScript3_RP:
 	text_far _GaryTextScript3_RP
 	text_end
+
+; for RP PINK ==================================
+
+GaryScriptRP4:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; finished waiting movement
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld hl, wOptions
+	res 7, [hl] ; Turn on battle animations to make the battle feel more epic.
+	ld a, 3
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	call Delay3
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, ChampionsRoomPinkDefeatedText_RP
+	ld de, ChampionsRoomPinkVictoryText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, OPP_PINK
+	ld [wCurOpponent], a
+	ld a, 5
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 16
+	ld [wChampionsRoomCurScript], a
+	ret
+
+; ---------------------
+
+GaryScriptRP5:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetGaryScript
+; we won
+	xor a
+	ld [wIsTrainerBattle], a
+	SetEvent EVENT_RP_BEAT_CHAMPION_PINK
+	ld a, $f0
+	ld [wJoyIgnore], a
+	ld a, 7
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; flash, kill Pink
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+	ld a, 8
+	ldh [hSpriteIndexOrTextID], a
+	call GaryScript_f0JoyIgnoreDisplayTextffJoyIgnore
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToBlack
+	call StopMusic
+    ld c, 80
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1) ; SFX_Push_Boulder_1 ; SFX_Collision_1
+	ld a, SFX_PUSH_BOULDER ; SFX_PUSH_BOULDER ; SFX_COLLISION
+	call PlayMusic
+	ld a, HS_CHAMPIONS_ROOM_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call UpdateSprites
+    ld c, 120
+    call DelayFrames
+    call GBFadeInFromBlack
+	jp ResetGaryScript
+
+; ---------------------
+
+GaryText3_RP:
+	text_far _GaryText3_RP
+	text_end
+
+ChampionsRoomPinkDefeatedText_RP:
+	text_far _ChampionsRoomPinkDefeatedText_RP
+	text_end
+
+ChampionsRoomPinkVictoryText_RP:
+	text_far _ChampionsRoomPinkVictoryText_RP
+	text_end
+
+GaryTextScript4_RP:
+	text_far _GaryTextScript4_RP
+	text_end
+
+GaryTextScript5_RP:
+	text_far _GaryTextScript5_RP
+	text_end
+
+ChampionsRoomAndHoFStopMusic_RP::
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	ret z
+	CheckEvent EVENT_ROCKET_PATH
+	ret z
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	ret z
+	CheckEvent EVENT_RP_BEAT_CHAMPION_PINK
+	ret z
+	jp StopAllMusic

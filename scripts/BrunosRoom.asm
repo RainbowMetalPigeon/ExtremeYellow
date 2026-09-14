@@ -15,6 +15,16 @@ BrunoShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_ELIMINATED_BRUNO
+	jr z, .dontStopMusic
+	call StopAllMusic
+.dontStopMusic
+; BTV
 ; new
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
 	jr nz, .freeExitToNextRoom
@@ -23,6 +33,8 @@ BrunoShowOrHideExitBlock:
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_2
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_3
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_4
 ; BTV
 	jr z, .blockExitToNextRoom
 .freeExitToNextRoom ; new
@@ -38,6 +50,7 @@ BrunoShowOrHideExitBlock:
 ResetBrunoScript:
 	xor a
 	ld [wBrunosRoomCurScript], a
+	ld [wCurMapScript], a ; new, maybe unnecessary
 	ret
 
 BrunosRoom_ScriptPointers:
@@ -46,6 +59,8 @@ BrunosRoom_ScriptPointers:
 	dw BrunoScript2
 	dw BrunoScript3
 	dw BrunoScript4
+	; new for RP
+	dw BrunoScript5
 
 BrunoScript4:
 	ret
@@ -83,6 +98,13 @@ BrunoScript0:
 	CheckAndSetEvent EVENT_AUTOWALKED_INTO_BRUNOS_ROOM
 	jr z, BrunoScriptWalkIntoRoom
 .stopPlayerFromLeaving
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .vanilla
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	ret nz
+.vanilla
+; BTV
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID  ; "Don't run away!"
@@ -119,6 +141,15 @@ BrunoScript2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetBrunoScript
+; we won
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .notChampionPink
+; champion Pink
+	ld a, 5
+	ld [wBrunosRoomCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notChampionPink
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
@@ -141,6 +172,8 @@ BrunosRoomTrainerHeader2:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_2, 0, BrunoBeforeBattleTextRematch2, BrunoEndBattleTextRematch2, BrunoAfterBattleTextRematch2
 BrunosRoomTrainerHeader3:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_3, 0, BrunoBeforeBattleText_RP, BrunoEndBattleText_RP, BrunoAfterBattleText_RP
+BrunosRoomTrainerHeader4:
+	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_4, 0, BrunoBeforeBattleText_RP_Pink, BrunoEndBattleText_RP_Pink, BrunoAfterBattleText_RP_Pink
 	db -1 ; end
 
 BrunoText1:
@@ -216,9 +249,18 @@ BrunoAfterBattleTextRematch2:
 BrunoText1_RP:
 	text_asm
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr nz, .championPink
+; pre-Giovanni death
 	ld hl, BrunosRoomTrainerHeader3
 	call TalkToTrainer
 	ld a, 4
+	jr .gotTrainerNumber
+.championPink
+	ld hl, BrunosRoomTrainerHeader4
+	call TalkToTrainer
+	ld a, 3
+.gotTrainerNumber
 	ld [wTrainerNo], a
 	jp TextScriptEnd
 
@@ -233,3 +275,41 @@ BrunoEndBattleText_RP:
 BrunoAfterBattleText_RP:
 	text_far _BrunoAfterBattleText_RP
 	text_end
+
+BrunoBeforeBattleText_RP_Pink:
+	text_far _BrunoBeforeBattleText_RP_Pink
+	text_end
+
+BrunoEndBattleText_RP_Pink:
+	text_far _BrunoEndBattleText_RP_Pink
+	text_end
+
+BrunoAfterBattleText_RP_Pink:
+	text_far _BrunoAfterBattleText_RP_Pink
+	text_end
+
+BrunoScript5:
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill Bruno
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToBlack
+	call StopMusic
+    ld c, 60
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	ld a, HS_BRUNOS_ROOM_BRUNO
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+    ld c, 100
+    call DelayFrames
+    call GBFadeInFromBlack
+	SetEvent EVENT_RP_ELIMINATED_BRUNO
+	jp ResetBrunoScript

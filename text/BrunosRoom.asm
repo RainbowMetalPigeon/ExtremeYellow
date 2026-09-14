@@ -131,3 +131,21 @@ _BrunoAfterBattleText_RP::
 	line "Bruno"
 ;	xxxx "123456789012345678"
 	done
+
+_BrunoBeforeBattleText_RP_Pink::
+	text "before"
+	line "Bruno Pink"
+;	xxxx "123456789012345678"
+	done
+
+_BrunoEndBattleText_RP_Pink::
+	text "end"
+	line "Bruno Pink"
+;	xxxx "123456789012345678"
+	prompt
+
+_BrunoAfterBattleText_RP_Pink::
+	text "after"
+	line "Bruno Pink"
+;	xxxx "123456789012345678"
+	done

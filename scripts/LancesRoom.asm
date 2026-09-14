@@ -14,6 +14,23 @@ LanceShowOrHideEntranceBlocks:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_ELIMINATED_LANCE
+	jr z, .dontStopMusic
+	call StopAllMusic
+.dontStopMusic
+; BTV
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .vanilla
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	ret nz
+.vanilla
+; BTV
 	CheckEvent EVENT_LANCES_ROOM_LOCK_DOOR
 	jr nz, .closeEntrance
 	; open entrance
@@ -39,6 +56,7 @@ LanceShowOrHideEntranceBlocks:
 ResetLanceScript:
 	xor a
 	ld [wLancesRoomCurScript], a
+	ld [wCurMapScript], a ; new, maybe unnecessary
 	ret
 
 LancesRoom_ScriptPointers:
@@ -47,6 +65,8 @@ LancesRoom_ScriptPointers:
 	dw LanceScript2
 	dw LanceScript3
 	dw LanceScript4
+	; new for RP
+	dw LanceScript5
 
 LanceScript4:
 	ret
@@ -68,7 +88,6 @@ LanceScript0:
 .notStandingNextToLance
 	cp $5  ; Is player standing on the entrance staircase?
 	jr z, WalkToLance
-.test
 	CheckAndSetEvent EVENT_LANCES_ROOM_LOCK_DOOR
 	ret nz
 	ld hl, wCurrentMapScriptFlags
@@ -90,12 +109,25 @@ LanceScript2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLanceScript
+; we won
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .notChampionPink
+; champion Pink
+	ld a, 5
+	ld [wLancesRoomCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notChampionPink
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
 WalkToLance:
 ; Moves the player down the hallway to Lance's room.
+; new for RP
+	CheckEvent EVENT_RP_ENTERED_LANCES_ROOM_ONCE
+	ret nz
+; BTV
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
@@ -107,6 +139,13 @@ WalkToLance:
 	ld a, $3
 	ld [wLancesRoomCurScript], a
 	ld [wCurMapScript], a
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret z
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	ret z
+	SetEvent EVENT_RP_ENTERED_LANCES_ROOM_ONCE
+; BTV
 	ret
 
 WalkToLance_RLEList:
@@ -143,6 +182,8 @@ LancesRoomTrainerHeader2:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_2, 0, LanceBeforeBattleTextRematch2, LanceEndBattleTextRematch2, LanceAfterBattleTextRematch2
 LancesRoomTrainerHeader3:
 	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_3, 0, LanceBeforeBattleText_RP, LanceEndBattleText_RP, LanceAfterBattleText_RP
+LancesRoomTrainerHeader4:
+	trainer EVENT_BEAT_LANCES_ROOM_TRAINER_4, 0, LanceBeforeBattleText_RP_Pink, LanceEndBattleText_RP_Pink, LanceAfterBattleText_RP_Pink
 	db -1 ; end
 
 LanceText1:
@@ -220,9 +261,18 @@ LanceAfterBattleTextRematch2:
 LanceText1_RP:
 	text_asm
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr nz, .championPink
+; pre-Giovanni death
 	ld hl, LancesRoomTrainerHeader3
 	call TalkToTrainer
 	ld a, 4
+	jr .gotTrainerNumber
+.championPink
+	ld hl, LancesRoomTrainerHeader4
+	call TalkToTrainer
+	ld a, 3
+.gotTrainerNumber
 	ld [wTrainerNo], a
 	jp TextScriptEnd
 
@@ -255,3 +305,50 @@ LanceAfterBattleText_RP_Before:
 LanceAfterBattleText_RP_After:
 	text_far _LanceAfterBattleText_RP_After
 	text_end
+
+LanceBeforeBattleText_RP_Pink:
+	text_far _LanceBeforeBattleText_RP_Pink
+	text_end
+
+LanceEndBattleText_RP_Pink:
+	text_far _LanceEndBattleText_RP_Pink
+	text_end
+
+LanceAfterBattleText_RP_Pink:
+	text_asm
+	ld a, $1
+	ld [wChampionsRoomCurScript], a
+	SetEvent EVENT_BEAT_LANCE
+	ld hl, LanceAfterBattleText_RP_Pink_Core
+	call PrintText
+	jp TextScriptEnd
+
+LanceAfterBattleText_RP_Pink_Core:
+	text_far _LanceAfterBattleText_RP_Pink_Core
+	text_end
+
+LanceScript5:
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill Lance
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToBlack
+	call StopMusic
+    ld c, 60
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	ld a, HS_LANCES_ROOM_LANCE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+    ld c, 100
+    call DelayFrames
+    call GBFadeInFromBlack
+	SetEvent EVENT_RP_ELIMINATED_LANCE
+	jp ResetLanceScript
