@@ -485,6 +485,7 @@ LoopShowSevii:
 
 ObjectsToShowSevii:
 	db HS_SEVII_FOUR_ISLAND_CITY_POST_LEAGUE_PINK
+	db HS_SEVII_DOTTED_HOLE_MELTAN
 	db $ff
 
 ; ---------------

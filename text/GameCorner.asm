@@ -276,3 +276,12 @@ _CeladonGameCornerText_OpenDoorForYou::
 ;	xxxx "123456789012345678"
 	done
 
+_CeladonGameCornerText_NewBoss::
+	text "G-greetings, BOSS!"
+	line "Of course I'll"
+	cont "serve you!"
+	cont "TEAM ROCKET would"
+	cont "be nothing"
+	cont "without you...!"
+;	xxxx "123456789012345678"
+	done

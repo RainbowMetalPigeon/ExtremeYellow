@@ -644,6 +644,9 @@ Has9990Coins:
 
 CeladonGameCornerText11_RP:
 	text_asm
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, CeladonGameCornerText_NewBoss
+	jr nz, .printAndEnd
 	CheckEvent EVENT_ROCKET_DROPPED_LIFT_KEY ; abused
 	jr z, .giveKey
 ; already have key
@@ -735,4 +738,8 @@ CeladonGameCornerText_OpenDoorForYou:
 CeladonGameCornerText_ReceivedLiftKey:
 	text_far _ReceivedHM01Text
 	sound_get_key_item
+	text_end
+
+CeladonGameCornerText_NewBoss:
+	text_far _CeladonGameCornerText_NewBoss
 	text_end

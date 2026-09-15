@@ -159,7 +159,184 @@ _GenericNPCText_RocketPath_8::
 ;	xxxx "123456789012345678"
 	done
 
-; -------------
+_GenericNPCText_RocketPath_9::
+	text "I saw nothing."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_10::
+	text "Aaahhh!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_11::
+	text "Where's the police"
+	line "when you need it?!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_12::
+	text "It's atrocious..."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_13::
+	text "If only I was"
+	line "stronger...!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_14::
+	text "Agh! What did I"
+	line "do to you?!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_15::
+	text "I have nothing!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_16::
+	text "Wh-what do you"
+	line "w-want from me?!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_17::
+	text "..."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_18::
+	text "Scram."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_19::
+	text "Why?"
+	line "Just why?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_20::
+	text "Please!"
+	line "Don't hurt me!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_21::
+	text "Have you ever"
+	line "stopped and"
+	cont "considered what"
+	cont "are the true"
+	cont "motivations that"
+	cont "led you down"
+	cont "this path?"
+
+	para "Sure, money and"
+	line "power. That's"
+	cont "what everyone"
+	cont "says. But why?"
+	cont "Why do you seek"
+	cont "money and power?"
+	cont "Do they bring you"
+	cont "happiness?"
+	cont "Does your life"
+	cont "feel more full?"
+
+	para "Was it maybe"
+	line "curiosity or,"
+	cont "goddess forbid,"
+	cont "boredom?"
+	cont "Maybe a sense of"
+	cont "directionless,"
+	cont "which let you"
+	cont "grab the first"
+	cont "floating debris"
+	cont "in the stormy sea"
+	cont "that is Life?"
+
+	para "...why are you"
+	line "looking at me"
+	cont "like that?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_22::
+	text "Ah, the youths"
+	line "nowadays! Where"
+	cont "will we end up!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_23::
+	text "You... look scary,"
+	line "but also... kinda"
+	cont "cool?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_24::
+	text "Why do you carry"
+	line "that whip arou-"
+
+	para "AAARGHHH!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_25::
+	text "Do you really feel"
+	line "satisfied now?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_26::
+	text "Have you ever"
+	line "thought just how"
+	cont "much pain you're"
+	cont "inflicting to"
+	cont "your dear ones?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_27::
+	text "No! No! Please,"
+	line "for the sake of"
+	cont "everything, no!!!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_28::
+	text "I beg you!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_29::
+	text "I've no money!"
+	line "I've no #MON!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_30::
+	text "...what?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_31::
+	text "Do I feel more"
+	line "pity or contempt?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_32::
+	text "You're nothing but"
+	line "trash, you scum"
+	cont "of a vermin."
+;	xxxx "123456789012345678"
+	done
+
+; ----------------------------------------------------
 
 _GenericNPCTextUnderwater_RocketPath_1::
 	text "Blubgb!"
@@ -193,7 +370,22 @@ _RocketNPCText_RocketPath_2::
 ;	xxxx "123456789012345678"
 	done
 
-; ROOKIET
+_RocketNPCText_RocketPath_3::
+	text "You're a ROCKET"
+	line "rookie..."
+
+	para "Does that make"
+	line "you a ROOKIET?!"
+;	xxxx "123456789012345678"
+	done
+
+_RocketNPCText_RocketPath_4::
+	text "Hey, newcomer!"
+	line "Keep working hard"
+	cont "and you'll be"
+	cont "rewarder!"
+;	xxxx "123456789012345678"
+	done
 
 _RocketNPCText_RocketPath_Boss::
 	text "You... got rid of"

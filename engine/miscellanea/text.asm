@@ -18,7 +18,7 @@ RandomizeGenericNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selection
 	jr .printAndEnd
 .notUnderwater
 	call Random
-	and %00000111 ; TBE
+	and %00011111 ; TBE?
 	add a
 	ld e, a
 	ld d, 0
@@ -30,7 +30,7 @@ RandomizeGenericNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selection
 .printAndEnd
 	jp PrintText
 
-GenericNPCText_RocketPath_Pointers: ; TBE
+GenericNPCText_RocketPath_Pointers: ; TBE?
 	dw GenericNPCText_RocketPath_1
 	dw GenericNPCText_RocketPath_2
 	dw GenericNPCText_RocketPath_3
@@ -39,6 +39,30 @@ GenericNPCText_RocketPath_Pointers: ; TBE
 	dw GenericNPCText_RocketPath_6
 	dw GenericNPCText_RocketPath_7
 	dw GenericNPCText_RocketPath_8
+	dw GenericNPCText_RocketPath_9
+	dw GenericNPCText_RocketPath_10
+	dw GenericNPCText_RocketPath_11
+	dw GenericNPCText_RocketPath_12
+	dw GenericNPCText_RocketPath_13
+	dw GenericNPCText_RocketPath_14
+	dw GenericNPCText_RocketPath_15
+	dw GenericNPCText_RocketPath_16
+	dw GenericNPCText_RocketPath_17
+	dw GenericNPCText_RocketPath_18
+	dw GenericNPCText_RocketPath_19
+	dw GenericNPCText_RocketPath_20
+	dw GenericNPCText_RocketPath_21
+	dw GenericNPCText_RocketPath_22
+	dw GenericNPCText_RocketPath_23
+	dw GenericNPCText_RocketPath_24
+	dw GenericNPCText_RocketPath_25
+	dw GenericNPCText_RocketPath_26
+	dw GenericNPCText_RocketPath_27
+	dw GenericNPCText_RocketPath_28
+	dw GenericNPCText_RocketPath_29
+	dw GenericNPCText_RocketPath_30
+	dw GenericNPCText_RocketPath_31
+	dw GenericNPCText_RocketPath_32
 
 GenericNPCText_RocketPath_1:
 	text_far _GenericNPCText_RocketPath_1
@@ -72,6 +96,104 @@ GenericNPCText_RocketPath_8:
 	text_far _GenericNPCText_RocketPath_8
 	text_end
 
+GenericNPCText_RocketPath_9:
+	text_far _GenericNPCText_RocketPath_9
+	text_end
+
+GenericNPCText_RocketPath_10:
+	text_far _GenericNPCText_RocketPath_10
+	text_end
+
+GenericNPCText_RocketPath_11:
+	text_far _GenericNPCText_RocketPath_11
+	text_end
+
+GenericNPCText_RocketPath_12:
+	text_far _GenericNPCText_RocketPath_12
+	text_end
+
+GenericNPCText_RocketPath_13:
+	text_far _GenericNPCText_RocketPath_13
+	text_end
+
+GenericNPCText_RocketPath_14:
+	text_far _GenericNPCText_RocketPath_14
+	text_end
+
+GenericNPCText_RocketPath_15:
+	text_far _GenericNPCText_RocketPath_15
+	text_end
+
+GenericNPCText_RocketPath_16:
+	text_far _GenericNPCText_RocketPath_16
+	text_end
+
+GenericNPCText_RocketPath_17:
+	text_far _GenericNPCText_RocketPath_17
+	text_end
+
+GenericNPCText_RocketPath_18:
+	text_far _GenericNPCText_RocketPath_18
+	text_end
+
+GenericNPCText_RocketPath_19:
+	text_far _GenericNPCText_RocketPath_19
+	text_end
+
+GenericNPCText_RocketPath_20:
+	text_far _GenericNPCText_RocketPath_20
+	text_end
+
+GenericNPCText_RocketPath_21:
+	text_far _GenericNPCText_RocketPath_21
+	text_end
+
+GenericNPCText_RocketPath_22:
+	text_far _GenericNPCText_RocketPath_22
+	text_end
+
+GenericNPCText_RocketPath_23:
+	text_far _GenericNPCText_RocketPath_23
+	text_end
+
+GenericNPCText_RocketPath_24:
+	text_far _GenericNPCText_RocketPath_24
+	text_end
+
+GenericNPCText_RocketPath_25:
+	text_far _GenericNPCText_RocketPath_25
+	text_end
+
+GenericNPCText_RocketPath_26:
+	text_far _GenericNPCText_RocketPath_26
+	text_end
+
+GenericNPCText_RocketPath_27:
+	text_far _GenericNPCText_RocketPath_27
+	text_end
+
+GenericNPCText_RocketPath_28:
+	text_far _GenericNPCText_RocketPath_28
+	text_end
+
+GenericNPCText_RocketPath_29:
+	text_far _GenericNPCText_RocketPath_29
+	text_end
+
+GenericNPCText_RocketPath_30:
+	text_far _GenericNPCText_RocketPath_30
+	text_end
+
+GenericNPCText_RocketPath_31:
+	text_far _GenericNPCText_RocketPath_31
+	text_end
+
+GenericNPCText_RocketPath_32:
+	text_far _GenericNPCText_RocketPath_32
+	text_end
+
+; ---------------------------------------------------------
+
 GenericNPCTextUnderwater_RocketPath_Pointers:
 	dw GenericNPCTextUnderwater_RocketPath_1
 	dw GenericNPCTextUnderwater_RocketPath_2
@@ -86,7 +208,7 @@ GenericNPCTextUnderwater_RocketPath_2:
 	
 ; ===============================================
 
-RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections to be adapted
+RandomizeRocketNPCText_RocketPath::
 	call EnableAutoTextBoxDrawing
 	CheckEvent EVENT_RP_KILLED_GIOVANNI
 	jr z, .preKillGiovanni
@@ -95,7 +217,7 @@ RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections
 	jr .printAndEnd
 .preKillGiovanni
 	call Random
-	and %00000001
+	and %00000011 ; TBE?
 	add a
 	ld e, a
 	ld d, 0
@@ -108,9 +230,11 @@ RandomizeRocketNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selections
 	call PrintText
 	ret
 
-RocketNPCText_RocketPath_Pointers:
+RocketNPCText_RocketPath_Pointers: ; TBE?
 	dw RocketNPCText_RocketPath_1
 	dw RocketNPCText_RocketPath_2
+	dw RocketNPCText_RocketPath_3
+	dw RocketNPCText_RocketPath_4
 
 RocketNPCText_RocketPath_1:
 	text_far _RocketNPCText_RocketPath_1
@@ -118,6 +242,14 @@ RocketNPCText_RocketPath_1:
 
 RocketNPCText_RocketPath_2:
 	text_far _RocketNPCText_RocketPath_2
+	text_end
+
+RocketNPCText_RocketPath_3:
+	text_far _RocketNPCText_RocketPath_3
+	text_end
+
+RocketNPCText_RocketPath_4:
+	text_far _RocketNPCText_RocketPath_4
 	text_end
 
 RocketNPCText_RocketPath_Boss:

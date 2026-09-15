@@ -185,14 +185,35 @@ _Route24Text_NextQuestSummary:: ; new
 	cont "through now."
 
 	para "And forget about"
-	line "BADGEs! No need"
-	cont "for them in order"
-	cont "to use HMs out of"
-	cont "battle."
+	line "BADGEs! Useless"
+	cont "both for using"
+	cont "HMs out of battle"
+	cont "and for LVL CAPs."
 
 	para "There are only"
 	line "benefits from"
 	cont "being a ROCKET!"
+;	xxxx "123456789012345678"
+	done
+
+_Route24Text_NewBoss:: ; new
+	text "Wow..."
+	line "You're the new"
+	cont "BOSS now."
+
+	para "To think it was ME"
+	line "recruiting you..."
+	cont "It seems like it"
+	cont "happened only"
+	cont "few hours ago!"
+	cont "And yet, look at"
+	cont "you now..."
+
+	para "Ops! I apologize"
+	line "BOSS. I'll speak"
+	cont "to you in a more"
+	cont "adequate manner"
+	cont "from now on."
 ;	xxxx "123456789012345678"
 	done
 

@@ -93,7 +93,7 @@ Route24_TextPointers:
 	dw Route24Text8
 
 Route24_TextPointers_Rocket:
-	dw Route24Text1 ; TBE special!
+	dw Route24Text1
 	dw Route24Text2
 	dw Route24Text3
 	dw Route24Text4
@@ -124,6 +124,9 @@ Route24Text1: ; edited
 	text_asm
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .notRP
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, Route24Text_NewBoss
+	jp nz, .printAndEnd
 	CheckEvent EVENT_RP_GOT_HM01
 	ld hl, Route24Text_NextQuestSummary
 	jp nz, .printAndEnd
@@ -310,6 +313,10 @@ Route24Text_NextQuestSummary: ; new
 ReceivedHM01Text_RP: ; new
 	text_far _ReceivedHM01Text
 	sound_get_key_item
+	text_end
+
+Route24Text_NewBoss: ; new
+	text_far _Route24Text_NewBoss
 	text_end
 
 Route24Text_PostVictoryDialogue:
