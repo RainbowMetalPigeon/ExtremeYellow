@@ -280,148 +280,270 @@ _ObsidianWarehouseFinalAfterBattleText5::
 ; new for RP ======================== TBE
 
 _ObsidianWarehouseFinalText1_RP_Before::
-	text "1 Before"
+	text "JAMES: It's you!"
+	line "You came to stab"
+	cont "us in the back?!"
+
+	para "...oh, you're here"
+	line "to help us?"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText2_RP_Before::
-	text "2 Before"
+	text "JESSIE: I knew!"
+	line "You came to help"
+	cont "your friend!"
+
+	para "...ah, the BOSS"
+	line "sent you to"
+	cont "rescue us?"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText3_RP_Before::
-	text "3 Before"
+	text "PROTON: Damn, that"
+	line "kid is a fury!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText4_RP_Before::
-	text "4 Before"
+	text "PETREL: I never"
+	line "saw a kid so"
+	cont "boiling with rage!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText5_RP_Before::
-	text "5 Before"
+	text "ARIANA: That kid's"
+	line "really something."
+	
+	para "GIOVANNI sent you"
+	line "to help us?"
+	cont "Tsk. Be careful."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText6_RP_BeforeBlue::
-	text "6 Before Blue"
+	text "ARCHER: Finally,"
+	line "the reinforcement"
+	cont "the BOSS promised!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText1_RP_After::
-	text "1 After"
+	text "JAMES: You saved"
+	line "us... maybe we"
+	cont "misjudged you."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText2_RP_After::
-	text "2 After"
+	text "JESSIE: So you"
+	line "actually came to"
+	cont "help TEAM ROCKET."
+	cont "That's... good."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText3_RP_After::
-	text "3 After"
+	text "PROTON: You're even"
+	line "more of a fury!"
+	cont "Congrats!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText4_RP_After::
-	text "4 After"
+	text "PETREL: That was"
+	line "a brutal battle."
+	cont "Good recruitment."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText5_RP_After::
-	text "5 After"
+	text "ARIANA: Not bad."
+	line "Not bad at all."
+
+	para "Keep on like this,"
+	line "kid, and you'll"
+	cont "rank up no time."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText6_RP_AfterBlue::
-	text "6 After Blue"
-	line "take this"
+	text "ARCHER: Took you"
+	line "long enough."
+	cont "But at least you"
+	cont "solved the issue."
+
+	para "Here, help your-"
+	line "self out with"
+	cont "this... treasure"
+	cont "we found while"
+	cont "raiding OBSIDIAN."
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalText6_RP_AfterOrb::
-	text "6 After Orb"
+	text "ARCHER: You did"
+	line "your job, got a"
+	cont "freebie, what are"
+	cont "you lingering"
+	cont "around for?"
+
+	para "Go report to the"
+	line "BOSS. We handle"
+	cont "stuff here now."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText6_RP_AfterBlue_BagFull::
-	text "bag full"
+	text "Your bag's full!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText8_RP_PreBattle::
-	text "GRRR"
+	text "<RIVAL>: YOU!"
+	line "I KNEW!"
+	cont "I knew you'd show"
+	cont "up! <PLAYER>!"
+	
+	para "Fight me! I'll beat"
+	line "some sense into"
+	cont "that rotten brain"
+	cont "of yours!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalBlue_VictoryText::
-	text "ARGH!"
+	text "Argh!"
+	line "Why? How?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalBlue_DefeatText::
-	text "JA!"
+	text "Ah!"
+	line "Do you see now?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalText9_Blue1::
-	text "Fuck you"
+	text "<RIVAL>: You..."
+	line "You're... ENJOYING"
+	cont "yourself?!"
+
+	para "You draw pleasure"
+	line "from being a"
+	cont "FUCKED CRIMINAL?"
+
+	para "...I still held"
+	line "hopes, but now..."
+
+	para "<PLAYER>."
+	line "I swear I'll make"
+	cont "you regret what"
+	cont "you're doing."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText_CadresStart::
-	text "stop there"
-	line "you traitor"
+	text "You traitor!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText9_RP::
-	text "PROTON: !"
+	text "PROTON: You killed"
+	line "the BOSS!"
+	cont "You betrayed our"
+	cont "trust and stabbed"
+	cont "us in the back!"
+
+	para "Oh, you're SO NOT"
+	line "getting out of"
+	cont "here in one piece."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalProtonDefeatText::
-	text "PROTON: damn"
+	text "You"
+	line "are strong...!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalText10_RP::
-	text "PETREL: !"
+	text "PETREL: Oh, you"
+	line "thought was gonna"
+	cont "be easy?"
+
+	para "You played dirty,"
+	line "we'll play dirty"
+	cont "too! Go BOOM!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalPetrelDefeatText::
-	text "PETREL: damn"
+	text "Why did"
+	line "you betray us?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalText11_RP::
-	text "ARIANA: !"
+	text "ARIANA: The BOSS"
+	line "lead us all."
+	cont "We won't let you"
+	cont "get away with"
+	cont "this unpunished."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalArianaDefeatText::
-	text "ARIANA: damn"
+	text "How can"
+	line "you still stand?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalText12_RP::
-	text "ARCHER: !"
+	text "ARCHER: GIOVANNI"
+	line "built TEAM"
+	cont "ROCKET and showed"
+	cont "us the way."
+
+	para "We'll follow it,"
+	line "and getting rid"
+	cont "of traitors is"
+	cont "the first rule."
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalArcherDefeatText::
-	text "ARCHER: damn"
+	text "This"
+	line "cannot be!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ObsidianWarehouseFinalText_CadresEnd1::
-	text "oh no"
+	text "PROTON: Not even"
+	line "ARCHER managed to"
+	cont "defeat you...?!"
+
+	para "PETREL: I gave my"
+	line "all! I did every-"
+	cont "thing I could!"
+
+	para "ARIANA: As if"
+	line "that meant much"
+	cont "at all, you damn"
+	cont "weakling! Look"
+	cont "where your weak-"
+	cont "ness brought us!"
+
+	para "ARCHER: No..."
+	line "GIOVANNI!"
+	cont "What will be of"
+	cont "TEAM ROCKET now?!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseFinalText_CadresEnd2::
-	text "aaahhh"
+	text "AAAAAHHHHH!!!"
 ;	xxxx "123456789012345678"
 	done

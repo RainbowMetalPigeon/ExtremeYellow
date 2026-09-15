@@ -482,10 +482,16 @@ SilphCo11Script12:
 	call SilphCo11Script_ScriptChanger
 	ret
 
-SilphCo11Script13:
+SilphCo11Script13: ; hide Jessie&James both here and from Obsidian Warehouse
 	ld a, $ff
 	ld [wJoyIgnore], a
 	call GBFadeOutToBlack
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
 	ld a, HS_SILPH_CO_11F_JAMES
 	call SilphCo11Script_HideObject
 	ld a, HS_SILPH_CO_11F_JESSIE
@@ -1330,8 +1336,6 @@ HideExtraNPCsAfterKillingGiovanni:
 	jr .hideLoop
 
 NPCsToHideExtra_AfterKillGiovanni:
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES
-	db HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_2
 	db HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3

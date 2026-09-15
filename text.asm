@@ -144,6 +144,7 @@ INCLUDE "text/CeruleanPokecenter.asm"
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OaksLab.asm"
 INCLUDE "text/SilphCo11F.asm"
+INCLUDE "text/Route26.asm" ; new
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -183,13 +184,8 @@ INCLUDE "text/ObsidianWarehouseFinal.asm" ; new
 INCLUDE "text/OchreHouses.asm" ; new
 INCLUDE "text/MoveDeleter.asm" ; new
 INCLUDE "text/MoveRelearner.asm" ; new
-INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/ObsidianPokecenter.asm" ; new
-INCLUDE "text/Route26.asm" ; new
-INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
-INCLUDE "text/SaffronPokecenter.asm"
-INCLUDE "text/SeafoamIslandsB4F.asm"
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -223,6 +219,9 @@ INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo8F.asm"
 INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
+INCLUDE "text/SeafoamIslandsB4F.asm"
+INCLUDE "text/SaffronPokecenter.asm"
+INCLUDE "text/VermilionPokecenter.asm"
 
 
 SECTION "Text Extra 8", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -279,6 +278,7 @@ INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
 INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/CinnabarLabFossilRoom.asm"
+INCLUDE "text/OchrePokecenter.asm" ; new
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
