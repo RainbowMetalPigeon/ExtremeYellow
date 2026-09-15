@@ -9,7 +9,7 @@ SpawnTraveler::
 	CheckEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
 	ret nz
 	call Random
-	cp 130 ; 13 normally, 130 for debug
+	cp 13 ; 13 normally, 130 for debug
 	jr c, .makeAppear
     call LoopHideTraveler
     call LoopHideTravelerExtra
