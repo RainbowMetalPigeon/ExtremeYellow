@@ -666,6 +666,8 @@
 	const EVENT_RP_ENTERED_LANCES_ROOM_ONCE ; new
 	const EVENT_RP_GAVE_MEWTWO_TO_GIOVANNI ; new
 	const EVENT_RP_GOT_A_STEAL_BALL ; new
+	const EVENT_RP_USED_CELIOS_PC_FIRST_TIME ; new
+	const EVENT_RP_REVEALED_MAYOI_FATE ; new
 
 ; Route 2 events
 	const_next $3D8

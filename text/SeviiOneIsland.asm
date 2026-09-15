@@ -1513,45 +1513,159 @@ _SeviiOneIslandHousesText4_RP_PreGiovanni::
 
 
 _SeviiOneIslandHousesText4_RP_PostGiovanni::
-	text "CELIO: i'm kinda"
-	line "done"
+	text "CELIO: You are"
+	line "here..."
+
+	para "I did it."
+	line "I fulfilled the"
+	cont "ungodly request"
+	cont "of your BOSS at"
+	cont "the best of my"
+	cont "possibilities."
+
+	para "Go check my PC."
 ;	xxxx "123456789012345678"
 	done
 
-_SeviiOneIslandHousesText4_RP_PostOrm::
-	text "CELIO: what now?"
+_SeviiOneIslandHousesText4_RP_PostOrmPrePC::
+	text "CELIO: So there"
+	line "was a... change"
+	cont "of direction in"
+	cont "TEAM ROCKET?"
+
+	para "This won't alter"
+	line "our agreement,"
+	cont "right...?"
+	cont "I did what your"
+	cont "BO- I mean, what"
+	cont "GIOVANNI asked"
+	cont "me, so now you"
+	cont "will return me"
+	cont "MAYOI, right...?"
+
+	para "...phew. I see."
+	line "Yes, of course,"
+	cont "check my PC."
+	cont "It's how GIOVANNI"
+	cont "demanded."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostPC::
+	text "CELIO: ...?!"
+	line "What do you mean"
+	cont "'It's not what"
+	cont "we asked'?!"
+
+	para "It's physically"
+	line "impossible to"
+	cont "alter the data of"
+	cont "stored #MON!"
+
+	para "The only thing I"
+	line "could do was to"
+	cont "hack an infinite"
+	cont "amount of those"
+	cont "items, which"
+	cont "together have the"
+	cont "same effect as..."
+
+	para "...I... didn't"
+	line "hold my part of"
+	cont "the agreement...?"
+
+	para "I... will never"
+	line "see MAYOI again?!"
+
+	para "WHAT? AND YOU ANY-"
+	line "HOW HAVE NO IDEA"
+	cont "WHERE THEY ARE?!"
+
+	para "No... this is a"
+	line "joke, right?"
+
+	para "...GIOVANNI was"
+	line "the only one"
+	cont "knowing, and now"
+	cont "they're dead...?"
+
+	para "...I..."
+	line "Don't feel well..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostMayoi::
+	text "CELIO: MAYOI..."
+
+	para "MAYOI..."
+
+	para "MAYOI..."
+
+	para "MAYOI..."
+
+	para "MAYOI..."
+
+	para "It seems their"
+	line "mind's completely"
+	cont "broken."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText6_RP::
-	text "ORM: you assassin"
+	text "ORM: YOU FUCKING"
+	line "BASTARD ASSASSIN!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText7_RP::
-	text "ORM: i kill u"
+	text "ORM: You..."
+	line "You dared to..."
+
+	para "KILL GIOVANNI!"
+	
+	para "GIOVANNI was the"
+	line "most astounding"
+	cont "person to have"
+	cont "ever lived!"
+
+	para "They were my guide"
+	line "and my goal in"
+	cont "life! And you..."
+
+	para "YOU TOOK THEM"
+	line "AWAY FROM ME!"
+
+	para "I'LL KILL YOU!!!"
 ;	xxxx "123456789012345678"
 	done
 
 _CeliosHouseOrmDefeatedText_RP::
-	text "orm: urgh!"
+	text "Urrrgh!"
+	line "So this is HOW"
+	cont "you managed to"
+	cont "beat GIOVANNI...!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiOneIslandHousesScriptText8_RP::
-	text "ORM: giova i"
-	line "failed you again"
+	text "ORM: GIOVANNI, I"
+	line "failed you again."
+	cont "I failed you in"
+	cont "life and in"
+	cont "revenge."
+
+	para "<PLAYER>, you will"
+	line "NEVER be my BOSS!"
+	cont "Do your worst,"
+	cont "I will NEVER"
+	cont "betray GIOVANNI!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandHousesScriptText9_RP::
-	text "ORM: aaauuughhh!!!"
+	text "ORM: AAUUURRRGGGH!"
 ;	xxxx "123456789012345678"
 	done
-
-
-
-
 
 _SeviiOneIslandHousesSignText4_RP_AccessPC::
 	text "<PLAYER> accesses"

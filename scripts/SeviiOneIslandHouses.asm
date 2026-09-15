@@ -938,8 +938,13 @@ SeviiOneIslandHousesText1_Done_RP:
 
 SeviiOneIslandHousesText4_RP:
 	text_asm
+	CheckEvent EVENT_RP_REVEALED_MAYOI_FATE
+	ld hl, SeviiOneIslandHousesText4_RP_PostMayoi
+	jr nz, .printAndEnd
+	CheckEvent EVENT_RP_USED_CELIOS_PC_FIRST_TIME
+	jr nz, .mayoiRevelation
 	CheckEvent EVENT_RP_BEAT_ORM_CELIOS_HOUSE
-	ld hl, SeviiOneIslandHousesText4_RP_PostOrm
+	ld hl, SeviiOneIslandHousesText4_RP_PostOrmPrePC
 	jr nz, .printAndEnd
 	CheckEvent EVENT_RP_KILLED_GIOVANNI
 	ld hl, SeviiOneIslandHousesText4_RP_PostGiovanni
@@ -948,6 +953,10 @@ SeviiOneIslandHousesText4_RP:
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
+.mayoiRevelation
+	SetEvent EVENT_RP_REVEALED_MAYOI_FATE
+	ld hl, SeviiOneIslandHousesText4_RP_PostPC
+	jr .printAndEnd
 
 SeviiOneIslandHousesText4_RP_PreGiovanni:
 	text_far _SeviiOneIslandHousesText4_RP_PreGiovanni
@@ -957,8 +966,16 @@ SeviiOneIslandHousesText4_RP_PostGiovanni:
 	text_far _SeviiOneIslandHousesText4_RP_PostGiovanni
 	text_end
 
-SeviiOneIslandHousesText4_RP_PostOrm:
-	text_far _SeviiOneIslandHousesText4_RP_PostOrm
+SeviiOneIslandHousesText4_RP_PostOrmPrePC:
+	text_far _SeviiOneIslandHousesText4_RP_PostOrmPrePC
+	text_end
+
+SeviiOneIslandHousesText4_RP_PostPC:
+	text_far _SeviiOneIslandHousesText4_RP_PostPC
+	text_end
+
+SeviiOneIslandHousesText4_RP_PostMayoi:
+	text_far _SeviiOneIslandHousesText4_RP_PostMayoi
 	text_end
 
 SeviiOneIslandHousesText13_RP: ; just a proxy
@@ -975,6 +992,7 @@ SeviiOneIslandHousesSignText4_RP:
 	CheckEvent EVENT_RP_BEAT_ORM_CELIOS_HOUSE
 	jr z, .triggerOrmEvent
 ; post-Orm, give PERFECTER and LEGEND_CANDY
+	SetEvent EVENT_RP_USED_CELIOS_PC_FIRST_TIME
 	ld hl, SeviiOneIslandHousesSignText4_RP_AccessPC
 	call PrintText
 	call WaitForTextScrollButtonPress
@@ -1029,6 +1047,10 @@ SeviiOneIslandHouses_OrmAppears_RP: ; 14
 ; player and Celio turn
 	ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
+; change music
+	ld c, BANK(Music_MeetEvilTrainer)
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	call PlayMusic
 ; Orm dialogue
 	ld a, 25
 	ldh [hSpriteIndexOrTextID], a

@@ -518,7 +518,13 @@ RocketHideout4Text0_RP:
 	lb bc, POKE_FLUTE, 1
 	call GiveItem
 	jp nc, .bagFull
-; actually getting the Flute
+; actually getting the Flute, and hide Orm and Mayoi
+	ld a, HS_SEVII_BERRY_FOREST_ORM
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_BERRY_FOREST_MAYOI
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
 	SetEvent EVENT_GOT_POKE_FLUTE
 	ld hl, RocketHideout4Text0_RP_GotItem
 	call PrintText
