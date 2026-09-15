@@ -117,21 +117,25 @@ _ObsidianWarehouseStatueText_Click2::
 ; new for RP ========================== TBE
 
 _ObsidianWarehouseTrainerText1_RP::
-	text "fury 1"
+	text "That brat was such"
+    line "a fury!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseTrainerText2_RP::
-	text "fury 2"
+	text "That brat had such"
+    line "a wrath!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseTrainerText3_RP::
-	text "fury 3"
+	text "That brat had such"
+    line "a rage!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseTrainerText4_RP::
-	text "fury 4"
+	text "That brat was so"
+    line "mad!"
 ;	xxxx "123456789012345678"
 	done
