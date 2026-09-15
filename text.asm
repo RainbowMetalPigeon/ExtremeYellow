@@ -29,6 +29,7 @@ INCLUDE "text/SilphCo4F.asm"
 INCLUDE "text/SilphCo3F.asm"
 INCLUDE "text/RocketHideoutB1F.asm"
 INCLUDE "text/RocketHideoutElevator.asm"
+INCLUDE "text/Route22Gate.asm"
 
 
 SECTION "Text 3", ROMX
@@ -60,7 +61,6 @@ INCLUDE "text/Route16FlyHouse.asm"
 INCLUDE "text/Route18Gate1F.asm"
 INCLUDE "text/Route18Gate2F.asm"
 INCLUDE "text/SummerBeachHouse.asm"
-INCLUDE "text/Route22Gate.asm"
 INCLUDE "text/VictoryRoad2F.asm"
 INCLUDE "text/Route2.asm"
 INCLUDE "text/Route3.asm"
@@ -138,7 +138,6 @@ INCLUDE "text/FuchsiaCity.asm"
 INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
 INCLUDE "text/CeladonPokecenter.asm"
-INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -258,7 +257,6 @@ SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that beca
 INCLUDE "text/SilphCo7F.asm"
 INCLUDE "data/text/text_8.asm"
 INCLUDE "text/LakeOfMist.asm"
-INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/Route19.asm"
 INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
@@ -320,6 +318,8 @@ INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
+INCLUDE "text/CeruleanPokecenter.asm"
+INCLUDE "text/SunkenShip.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

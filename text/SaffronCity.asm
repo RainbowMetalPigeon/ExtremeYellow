@@ -257,17 +257,30 @@ _SaffronCityText_BlockingSilph_RP_Before::
 	done
 
 _SaffronCityText_BlockingSilph_RP_After_GoodTakeThis::
-	text "Good take this"
+	text "Newcomer! I heard"
+	line "the good news."
+	cont "Congrats for"
+	cont "earning the BOSS's"
+	cont "approval."
+
+	para "Before entering,"
+	line "here, take this."
+	cont "From the BOSS."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SaffronCityText_BlockingSilph_RP_After_RP_BagFull::
-	text "bag full"
+	text "Ah damn, your bag"
+	line "is full! The BOSS"
+	cont "ordered me to"
+	cont "give you this."
 ;	xxxx "123456789012345678"
 	done
 
 _SaffronCityText_BlockingSilph_RP_After_NowGo::
-	text "now go"
+	text "Very well. Now go!"
+	line "The BOSS's waiting"
+	cont "for you."
 ;	xxxx "123456789012345678"
 	done
 

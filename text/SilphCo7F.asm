@@ -281,36 +281,71 @@ _SilphCo7Text_51ed2::
 ; new for RP =========================
 
 _SilphCo7Text9_RP::
-	text "ofc you're here"
+	text "<RIVAL>: Of course"
+	line "you're here: TEAM"
+	cont "ROCKET seized the"
+	cont "city and made"
+	cont "SILPH into its"
+	cont "HQ, where else"
+	cont "could you be?"
+
+	para "You traitor."
 ;	xxxx "123456789012345678"
 	done
 
 _SilphCo7ScriptText1_RP::
-	text "die"
+	text "Would YOU like"
+	line "some concrete"
+	cont "shoes to sleep"
+	cont "with the fish?"
 ;	xxxx "123456789012345678"
 	done
 
 _SilphCo7Text_WonVsRivalText_RP::
-	text "i lost"
+	text "How can I"
+	line "possibly keep"
+	cont "losing against"
+	cont "a lowlife?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SilphCo7Text_LostVsRivalText_RP::
-	text "i won"
+	text "Now tell"
+	line "me: what did you"
+	cont "gain from joining"
+	cont "TEAM ROCKET?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SilphCo7ScriptText2_RP::
-	text "ciao"
+	text "<RIVAL>: I swear"
+	line "it on my life,"
+	cont "<PLAYER>: I'll make"
+	cont "you regret your"
+	cont "choices."
 ;	xxxx "123456789012345678"
 	done
 
 _SilphCo7Text_RP_NotGottenPorygon::
-	text "ahia oh no PORYGON"
+	text "I-I'm just an"
+	line "armless bystander"
+	cont "who has nothing"
+	cont "to do with any"
+	cont "of thi-"
+
+	para "ARGH! Aaah!"
+	line "Stop! Stop!"
+	cont "How did you know"
+	cont "of it?! Take it,"
+	cont "take it and stop!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SilphCo7Text_RP_AlreadyGotPorygon::
-	text "poor PORYGON"
+	text "Poor PORYGON..."
+	line "I pity any #-"
+	cont "MON forced to"
+	cont "follow an evil"
+	cont "TRAINER..."
 ;	xxxx "123456789012345678"
 	done

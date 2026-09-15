@@ -533,7 +533,7 @@ _LunarShrineTextTourist4::
 	cont "gorgeous..."
 	done
 
-; new for RP ========================
+; new for RP ================================================
 
 _LunarShrineTextMonk_RP_BeforeBlue::
 	text "Go away"

@@ -164,21 +164,32 @@ _Route3TextJenny::
 ; new for RP ======================
 
 _Route3TextJenny_RP::
-	text "before"
+	text "So we WERE right!"
+	line "TEAM ROCKET is"
+	cont "indeed traffick-"
+	cont "ing around here!"
+
+	para "Surrender, or get"
+	line "ready to fight!"
 ;	xxxx "123456789012345678"
 	done
 
 _Route3JennyDefeatedText::
-	text "lost"
+	text "No! I lost"
+	line "to a ROCKET!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _Route3TextScript1::
-	text "hey"
+	text "JENNY: Hey, you!"
 ;	xxxx "123456789012345678"
 	done
 
 _Route3TextScript2::
-	text "gg"
+	text "JENNY: Grrr! You"
+	line "won this time,"
+	cont "but you have the"
+	cont "whole KANTO"
+	cont "police at you!"
 ;	xxxx "123456789012345678"
 	done

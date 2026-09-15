@@ -18,7 +18,7 @@ RandomizeGenericNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selection
 	jr .printAndEnd
 .notUnderwater
 	call Random
-	and %00000111
+	and %00000111 ; TBE
 	add a
 	ld e, a
 	ld d, 0
@@ -30,7 +30,7 @@ RandomizeGenericNPCText_RocketPath:: ; TBE: (many?) more texts (2^n?), selection
 .printAndEnd
 	jp PrintText
 
-GenericNPCText_RocketPath_Pointers:
+GenericNPCText_RocketPath_Pointers: ; TBE
 	dw GenericNPCText_RocketPath_1
 	dw GenericNPCText_RocketPath_2
 	dw GenericNPCText_RocketPath_3
