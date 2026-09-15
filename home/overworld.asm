@@ -1789,114 +1789,42 @@ RunMapScript::
 	ret
 
 LoadWalkingPlayerSpriteGraphics::
-	xor a
-	ld [wd473], a
-; new for RP
-	CheckEvent EVENT_ROCKET_PATH
-	jr z, .nonRocketPath
-
-	ld b, BANK(RedRocketSprite)
-	ld de, RedRocketSprite
-	ld a, [wPlayerGender] ; from Vortiene
-	and a			; check if boy
-	jr z, .ContinueLoadSpritesRP
-	cp a, 2			; check if enby
-	jr z, .AreEnbyRP
-	ld de, GreenRocketSprite
-	jr .ContinueLoadSpritesRP
-.AreEnbyRP
-	ld de, YellowRocketSprite
-.ContinueLoadSpritesRP
-	ld hl, vNPCSprites
-	jr LoadPlayerSpriteGraphicsCommon
-
-.nonRocketPath
-; new sprite copy stuff
-	ld b, BANK(RedSprite)
-	ld de, RedSprite
-	ld a, [wPlayerGender] ; from Vortiene
-	and a			; check if boy
-	jr z, .ContinueLoadSprites1
-	cp a, 2			; check if enby
-	jr z, .AreEnby1
-	ld de, GreenSprite
-	jr .ContinueLoadSprites1
-.AreEnby1
-	ld de, YellowSprite
-.ContinueLoadSprites1
-	ld hl, vNPCSprites
-	jr LoadPlayerSpriteGraphicsCommon
+	jpfar LoadWalkingPlayerSpriteGraphics_
 
 LoadGlitchyPlayerSpriteGraphics:: ; new, for Haunted House
-	xor a
-	ld [wd473], a
-	ld b, BANK(GlitchyPlayerSprite)
-	ld de, GlitchyPlayerSprite
-	jr LoadPlayerSpriteGraphicsCommon
+	jpfar LoadGlitchyPlayerSpriteGraphics_
 
 LoadTransparentPlayerSpriteGraphics:: ; new, for Haunted House
-	xor a
-	ld [wd473], a
-	ld b, BANK(TransparentSprite)
-	ld de, TransparentSprite
-	jr LoadPlayerSpriteGraphicsCommon
+	jpfar LoadTransparentPlayerSpriteGraphics_
 
 LoadSurfingPlayerSpriteGraphics2::
-	ld a, [wd473]
-	and a
-	jr z, .asm_0d75
-	dec a
-	jr z, LoadSurfingPlayerSpriteGraphics
-	dec a
-	jr z, .asm_0d7c
-.asm_0d75
-	ld a, [wd472]
-	bit 6, a
-	jr z, LoadSurfingPlayerSpriteGraphics
-.asm_0d7c
-	ld b, BANK(SurfingPikachuSprite)
-	ld de, SurfingPikachuSprite
-	jr LoadPlayerSpriteGraphicsCommon
+	jpfar LoadSurfingPlayerSpriteGraphics2_
 
 LoadSurfingPlayerSpriteGraphics::
-	ld b, BANK(SeelSprite)
-	ld de, SeelSprite
-	jr LoadPlayerSpriteGraphicsCommon
+	jpfar LoadSurfingPlayerSpriteGraphics_
 
 LoadBikePlayerSpriteGraphics::
-	ld b, BANK(RedBikeSprite)
-	ld de, RedBikeSprite
-	ld a, [wPlayerGender]
-	and a
-	jr z, .ContinueLoadSprites2
-	cp a, 2			; check if enby
-	jr z, .AreEnby2
-	ld de, GreenBikeSprite
-	jr .ContinueLoadSprites2
-.AreEnby2
-	ld de, YellowBikeSprite
-.ContinueLoadSprites2
-	ld hl, vNPCSprites
+	jpfar LoadBikePlayerSpriteGraphics_
 
-LoadPlayerSpriteGraphicsCommon::
-	ld hl, vNPCSprites
-	push de
-	push hl
-	push bc
-	ld c, $c
-	call CopyVideoData
-	pop bc
-	pop hl
-	pop de
-	ld a, $c0
-	add e
-	ld e, a
-	jr nc, .noCarry
-	inc d
-.noCarry
-	set 3, h
-	ld c, $c
-	jp CopyVideoData
+;LoadPlayerSpriteGraphicsCommon::
+;	ld hl, vNPCSprites
+;	push de
+;	push hl
+;	push bc
+;	ld c, $c
+;	call CopyVideoData
+;	pop bc
+;	pop hl
+;	pop de
+;	ld a, $c0
+;	add e
+;	ld e, a
+;	jr nc, .noCarry
+;	inc d
+;.noCarry
+;	set 3, h
+;	ld c, $c
+;	jp CopyVideoData
 
 ; function to load data from the map header
 LoadMapHeader::

@@ -2,14 +2,14 @@ HiddenObjectMaps_Sevii:
 ; cities
 	dbw SEVII_ONE_ISLAND_CITY,                           SeviiOneIslandCityHiddenObjects
 	dbw SEVII_TWO_ISLAND_CITY,                           SeviiTwoIslandCityHiddenObjects
-	dbw SEVII_THREE_ISLAND_CITY,                         SeviiThreeIslandCityHiddenObjects ; TBE
-	dbw SEVII_FOUR_ISLAND_CITY,                          SeviiFourIslandCityHiddenObjects ; TBE
-	dbw SEVII_FIVE_ISLAND_CITY,                          SeviiFiveIslandCityHiddenObjects ; TBE
-	dbw SEVII_SIX_ISLAND_CITY,                           SeviiSixIslandCityHiddenObjects ; TBE
-	dbw SEVII_SEVEN_ISLAND_CITY,                         SeviiSevenIslandCityHiddenObjects ; TBE
+	dbw SEVII_THREE_ISLAND_CITY,                         SeviiThreeIslandCityHiddenObjects
+	dbw SEVII_FOUR_ISLAND_CITY,                          SeviiFourIslandCityHiddenObjects
+	dbw SEVII_FIVE_ISLAND_CITY,                          SeviiFiveIslandCityHiddenObjects
+	dbw SEVII_SIX_ISLAND_CITY,                           SeviiSixIslandCityHiddenObjects
+	dbw SEVII_SEVEN_ISLAND_CITY,                         SeviiSevenIslandCityHiddenObjects
 ; routes
-	dbw SEVII_ROUTE_31,                                  SeviiRoute31HiddenObjects ; TBE
-	dbw SEVII_ROUTE_32,                                  SeviiRoute32HiddenObjects ; TBE
+	dbw SEVII_ROUTE_31,                                  SeviiRoute31HiddenObjects
+	dbw SEVII_ROUTE_32,                                  SeviiRoute32HiddenObjects
 	dbw SEVII_ROUTE_33,                                  SeviiRoute33HiddenObjects
 	dbw SEVII_ROUTE_36,                                  SeviiRoute36HiddenObjects
 	dbw SEVII_ROUTE_37,                                  SeviiRoute37HiddenObjects
@@ -18,7 +18,6 @@ HiddenObjectMaps_Sevii:
 	dbw SEVII_ROUTE_41,                                  SeviiRoute41HiddenObjects
 ; indoors
 ; 1-island
-	dbw SEVII_ONE_ISLAND_DOCK,                           SeviiOneIslandDockHiddenObjects ; TBE
 	dbw SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART,        SeviiOneIslandPokemonCenterAndMartHiddenObjects
 	dbw SEVII_ONE_ISLAND_GYM_1,                          SeviiOneIslandGym1HiddenObjects
 ; 2-island
@@ -253,7 +252,8 @@ SeviiSevenIslandGym1HiddenObjects:
 
 SeviiOneIslandCityHiddenObjects:
 	hidden_object  6,  6, MAX_ELIXER, HiddenItems
-	hidden_object 19,  5, FULL_RESTORE, HiddenItems
+	hidden_object 35, 35, SUB_BALL, HiddenItems
+	hidden_object 12, 22, FULL_RESTORE, HiddenItems
 	hidden_object  3, 32, IRON, HiddenItems
 	db -1 ; end
 
@@ -261,34 +261,40 @@ SeviiTwoIslandCityHiddenObjects:
 	hidden_object 31, 16, MAX_ETHER, HiddenItems
 	hidden_object 36,  8, PP_UP, HiddenItems
 	hidden_object 21,  5, RARE_CANDY, HiddenItems
+	hidden_object  1, 26, SUB_BALL, HiddenItems
 	db -1 ; end
 
 SeviiThreeIslandCityHiddenObjects:
-	hidden_object  0,  1, SPRITE_FACING_UP, OpenRedsPC
-	hidden_object  3,  5, ANY_FACING, PrintRedSNESText
+	hidden_object 26, 34, ETHER, HiddenItems
+	hidden_object  5, 39, SUB_BALL, HiddenItems
 	db -1 ; end
 
 SeviiFourIslandCityHiddenObjects:
-	hidden_object  1,  4, SPRITE_FACING_UP, BillsHousePC
+	hidden_object  3, 20, ELIXER, HiddenItems
+	hidden_object 37, 16, SUB_BALL, HiddenItems
 	db -1 ; end
 
 SeviiFiveIslandCityHiddenObjects:
-	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
-	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object 28, 21, CARBOS, HiddenItems
+	hidden_object 34,  6, RARE_CANDY, HiddenItems
+	hidden_object 29, 17, CALCIUM, HiddenItems
+	hidden_object  1, 38, SUB_BALL, HiddenItems
 	db -1 ; end
 
 SeviiSixIslandCityHiddenObjects:
-	hidden_object 13,  5, SPRITE_FACING_DOWN, PrintTrashText
-	hidden_object 13,  7, SPRITE_FACING_DOWN, PrintTrashText
-	hidden_object 13,  9, GREAT_BALL, HiddenItems
+	hidden_object  8,  9, PROTEIN, HiddenItems
+	hidden_object  8,  3, SUB_BALL, HiddenItems
 	db -1 ; end
 
 SeviiSevenIslandCityHiddenObjects:
-	hidden_object 12,  3, ELIXER, HiddenItems
+	hidden_object 17, 18, MAX_REVIVE, HiddenItems
+	hidden_object  2, 14, SUB_BALL, HiddenItems
 	db -1 ; end
 
 SeviiRoute31HiddenObjects:
-	hidden_object 12,  3, ELIXER, HiddenItems
+	hidden_object 14, 91, ULTRA_BALL, HiddenItems
+	hidden_object  9, 28, ELIXER, HiddenItems
+	hidden_object 11, 58, METAL_COAT, HiddenItems
 	db -1 ; end
 
 SeviiRoute32HiddenObjects:
@@ -301,10 +307,6 @@ SeviiRoute32HiddenObjects:
 	hidden_object 22, 39, FULL_RESTORE, HiddenItems
 	hidden_object 11, 44, ETHER, HiddenItems
 	hidden_object 18, 49, KINGS_ROCK, HiddenItems
-	db -1 ; end
-
-SeviiOneIslandDockHiddenObjects:
-	hidden_object 15, 15, ELIXER, HiddenItems
 	db -1 ; end
 
 SeviiTanobyGardenHiddenObjects:

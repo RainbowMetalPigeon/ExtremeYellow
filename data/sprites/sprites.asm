@@ -121,14 +121,14 @@ SpriteSheetPointerTable:
 	overworld_sprite CarrSprite, 12             ; SPRITE_CARR ; new
 	overworld_sprite OrmSprite, 12              ; SPRITE_ORM ; new
 	overworld_sprite SirdSprite, 12             ; SPRITE_SIRD ; new
-	overworld_sprite IchinoSprite, 12           ; SPRITE_ICHINO ; new - TBE
-	overworld_sprite NiueSprite, 12             ; SPRITE_NIUE ; new - TBE
-	overworld_sprite SantreSprite, 12           ; SPRITE_SANTRE ; new - TBE
-	overworld_sprite YottroSprite, 12           ; SPRITE_YOTTRO ; new - TBE
-	overworld_sprite GonqueSprite, 12           ; SPRITE_GONQUE ; new - TBE
-	overworld_sprite RokuseiSprite, 12          ; SPRITE_ROKUSEI ; new - TBE
-	overworld_sprite NanetteSprite, 12          ; SPRITE_NANETTE ; new - TBE
-	overworld_sprite SuujeroSprite, 12          ; SPRITE_SUUJERO ; new - TBE
+	overworld_sprite IchinoSprite, 12           ; SPRITE_ICHINO ; new
+	overworld_sprite NiueSprite, 12             ; SPRITE_NIUE ; new
+	overworld_sprite SantreSprite, 12           ; SPRITE_SANTRE ; new
+	overworld_sprite YottroSprite, 12           ; SPRITE_YOTTRO ; new
+	overworld_sprite GonqueSprite, 12           ; SPRITE_GONQUE ; new
+	overworld_sprite RokuseiSprite, 12          ; SPRITE_ROKUSEI ; new
+	overworld_sprite NanetteSprite, 12          ; SPRITE_NANETTE ; new
+	overworld_sprite SuujeroSprite, 12          ; SPRITE_SUUJERO ; new
 	overworld_sprite PinkSprite, 12             ; SPRITE_PINK ; new
 	overworld_sprite YoungOakSprite, 12         ; SPRITE_YOUNG_OAK ; new
 	overworld_sprite ChrisSprite, 12            ; SPRITE_CHRIS ; new

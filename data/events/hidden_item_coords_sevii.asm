@@ -5,19 +5,30 @@
 HiddenItemCoords_Sevii:
 	; map id, x, y
 ; cities
-	hidden_item SEVII_ONE_ISLAND_CITY,               6,  6
-	hidden_item SEVII_ONE_ISLAND_CITY,              19,  5
-	hidden_item SEVII_ONE_ISLAND_CITY,               3, 32
+	hidden_item SEVII_ONE_ISLAND_CITY,               6,  6 ; MAX_ELIXER
+	hidden_item SEVII_ONE_ISLAND_CITY,              35, 35 ; SUB_BALL
+	hidden_item SEVII_ONE_ISLAND_CITY,              12, 22 ; FULL_RESTORE
+	hidden_item SEVII_ONE_ISLAND_CITY,               3, 32 ; IRON
 	hidden_item SEVII_TWO_ISLAND_CITY,              31, 16 ; MAX_ETHER
 	hidden_item SEVII_TWO_ISLAND_CITY,              36,  8 ; PP_UP
 	hidden_item SEVII_TWO_ISLAND_CITY,              21,  5 ; RARE_CANDY
-	hidden_item SEVII_THREE_ISLAND_CITY,            12,  3 ; TBE
-	hidden_item SEVII_FOUR_ISLAND_CITY,             12,  3 ; TBE
-	hidden_item SEVII_FIVE_ISLAND_CITY,             12,  3 ; TBE
-	hidden_item SEVII_SIX_ISLAND_CITY,              12,  3 ; TBE
-	hidden_item SEVII_SEVEN_ISLAND_CITY,            12,  3 ; TBE
+	hidden_item SEVII_TWO_ISLAND_CITY,               1, 26 ; SUB_BALL
+	hidden_item SEVII_THREE_ISLAND_CITY,            26, 34 ; ETHER
+	hidden_item SEVII_THREE_ISLAND_CITY,             5, 39 ; SUB_BALL
+	hidden_item SEVII_FOUR_ISLAND_CITY,              3, 20 ; ELIXER
+	hidden_item SEVII_FOUR_ISLAND_CITY,             37, 16 ; SUB_BALL
+	hidden_item SEVII_FIVE_ISLAND_CITY,             28, 21 ; CARBOS
+	hidden_item SEVII_FIVE_ISLAND_CITY,             34,  6 ; RARE_CANDY
+	hidden_item SEVII_FIVE_ISLAND_CITY,             29, 17 ; CALCIUM
+	hidden_item SEVII_FIVE_ISLAND_CITY,              1, 38 ; SUB_BALL
+	hidden_item SEVII_SIX_ISLAND_CITY,              8,   9 ; PROTEIN
+	hidden_item SEVII_SIX_ISLAND_CITY,              8,   3 ; SUB_BALL
+	hidden_item SEVII_SEVEN_ISLAND_CITY,            17, 18 ; MAX_REVIVE
+	hidden_item SEVII_SEVEN_ISLAND_CITY,             2, 14 ; SUB_BALL
 ; routes
-	hidden_item SEVII_ROUTE_31,                     12,  3 ; TBE
+	hidden_item SEVII_ROUTE_31,                     14, 91 ; ULTRA_BALL
+	hidden_item SEVII_ROUTE_31,                      9, 28 ; ELIXER
+	hidden_item SEVII_ROUTE_31,                     11, 58 ; METAL_COAT
 	hidden_item SEVII_ROUTE_32,                     16, 33 ; POKE_BALL
 	hidden_item SEVII_ROUTE_32,                     10, 34 ; POTION
 	hidden_item SEVII_ROUTE_32,                     14, 32 ; ESCAPE_ROPE
@@ -60,7 +71,6 @@ HiddenItemCoords_Sevii:
 	hidden_item SEVII_ROUTE_41,                     17,  3 ; OLD_AMBER
 	hidden_item SEVII_ROUTE_41,                      3, 12 ; DOME_FOSSIL
 ; indoors
-	hidden_item SEVII_ONE_ISLAND_DOCK,              12,  3 ; TBE
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         37, 26 ; RARE_CANDY
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 39 ; HP_UP
 	hidden_item SEVII_TWO_ISLAND_CITY_DIVE,         32, 35 ; PP_UP
