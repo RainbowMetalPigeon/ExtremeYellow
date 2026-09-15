@@ -507,7 +507,7 @@ RocketHideout4Text0_RP:
 	CheckEvent EVENT_TRIED_TO_GIFT_POKE_FLUTE
 	jr nz, .givePokeFlute
 	CheckEvent EVENT_SEVII_FACE_PINK_CELIOS_HOUSE
-	jr z, .checkSeviiTicket13
+	jp z, .checkSeviiTicket13
 ; first time we report after convincing Celio
 	ld hl, RocketHideout4Text0_RP_WellDoneWithCelio
 	call PrintText
@@ -518,7 +518,10 @@ RocketHideout4Text0_RP:
 	lb bc, POKE_FLUTE, 1
 	call GiveItem
 	jp nc, .bagFull
-; actually getting the Flute, and hide Orm and Mayoi
+; actually getting the Flute, and hide Orm and Mayoi and gift Rocket
+	ld a, HS_CELADON_MART_4F_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	ld a, HS_SEVII_BERRY_FOREST_ORM
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii

@@ -131,13 +131,13 @@ MapHSPointers:
 	dw HallOfFameHS ; new, HALL_OF_FAME
 	dw NoHS
 	dw ChampionsRoomHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw NoHS ; UNDERGROUND_PATH_WEST_EAST
+	dw NoHS ; CELADON_MART_1F
+	dw NoHS ; CELADON_MART_2F
+	dw NoHS ; CELADON_MART_3F
+	dw CeladonMart4FHS ; new, CELADON_MART_4F
+	dw NoHS ; CELADON_MART_ROOF
+	dw NoHS ; CELADON_MART_ELEVATOR
 	dw NoHS ; CELADON_MANSION_1F
 	dw CeladonMansion2FHS ; new, CELADON_MANSION_2F
 	dw Route19DiveHS ; new, ROUTE_19_DIVE
@@ -587,6 +587,8 @@ AgathasRoomHS: ; new
 	db AGATHAS_ROOM,   1, SHOW
 LancesRoomHS: ; new
 	db LANCES_ROOM,    1, SHOW
+CeladonMart4FHS: ; new
+	db CELADON_MART_4F,  4, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it

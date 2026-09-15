@@ -259,7 +259,8 @@ DEF SHOW EQU $15
 	const HS_BRUNOS_ROOM_BRUNO             ; new
 	const HS_AGATHAS_ROOM_AGATHA           ; new
 	const HS_LANCES_ROOM_LANCE             ; new
-	; total = 252
+	const HS_CELADON_MART_4F_ROCKET        ; new
+	; total = 253
 
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 

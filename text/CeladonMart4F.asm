@@ -18,7 +18,19 @@ _CeladonMart4Text3::
 	cont "with a # DOLL!"
 	done
 
-_CeladonMart4Text4::
+_CeladonMart4Text4:: ; new
+	text "Don't hurry me!"
+	line "I'm choosing a"
+	cont "nice gift for my"
+	cont "partner!"
+
+	para "Uh? What's that?"
+	line "Why couldn't a"
+	cont "ROCKET be in love?"
+;	xxxx "123456789012345678"
+	done
+
+_CeladonMart4Text5::
 	text "Express yourself"
 	line "with gifts!"
 
@@ -27,4 +39,20 @@ _CeladonMart4Text4::
 	para "Evolution Special!"
 	line "Element STONEs on"
 	cont "sale now!"
+	done
+
+; new for RP =========================
+
+_CeladonMart4Text4_RP::
+	text "Hey, rookie,"
+	line "be a pal and"
+	cont "gimme some time,"
+	cont "will ya?"
+
+	para "I'm choosing a"
+	line "gift for my"
+	cont "partner. Our"
+	cont "anniversary"
+	cont "is coming soon!"
+;	xxxx "123456789012345678"
 	done

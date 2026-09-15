@@ -244,6 +244,9 @@ PokemonTower7Script11:
 	ld a, HS_POKEMON_TOWER_7F_MR_FUJI
 	ld [wMissableObjectIndex], a
 	predef HideObject
+	ld a, HS_CELADON_MART_4F_ROCKET ; new
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
 	ld a, LAVENDER_HOUSES ; edited because of map merging
@@ -324,7 +327,7 @@ PokemonTower7Text3:
 	ld a, HS_SAFFRON_CITY_E
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	ld a, $b
+	ld a, 11 ; =$b
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
