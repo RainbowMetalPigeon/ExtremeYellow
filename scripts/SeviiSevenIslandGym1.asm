@@ -1,4 +1,5 @@
 SeviiSevenIslandGym1_Script:
+	RPTextChooser SeviiSevenIslandGym1_TextPointers, SeviiSevenIslandGym1_TextPointers_Rocket
 	call ResetGymDungeon
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSevenIslandGym1_ScriptPointers
@@ -9,8 +10,16 @@ SeviiSevenIslandGym1_Script:
 
 SeviiSevenIslandGym1_ScriptPointers:
 	dw SeviiSevenIslandGym1Script0
+	dw SeviiSevenIslandGym1ScriptPushRP
 
 SeviiSevenIslandGym1Script0:
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld d,  4 ; x in front of the door
+	ld e,  1 ; y in front of the door
+	ld c,  1 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
+.notRP
 ; already warned?
 	CheckEvent EVENT_SEVII_ALREADY_WARNED_ABOUT_ANOMALIES
 	ret nz
@@ -40,6 +49,11 @@ SeviiSevenIslandGym1InFrontOfDoorCoords:
 
 SeviiSevenIslandGym1_TextPointers:
 	dw SeviiSevenIslandGym1Text1
+	; scripts
+	dw SeviiSevenIslandGym1Text2
+
+SeviiSevenIslandGym1_TextPointers_Rocket:
+	dw SeviiSevenIslandGym1Text1_RP
 	; scripts
 	dw SeviiSevenIslandGym1Text2
 
@@ -166,3 +180,12 @@ ClearPlayersBag:
 	ret
 
 ; -------------------------------------
+
+; new for RP ================================
+
+SeviiSevenIslandGym1ScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiSevenIslandGym1Text1_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

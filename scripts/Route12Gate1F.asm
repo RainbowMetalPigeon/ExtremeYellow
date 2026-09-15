@@ -1,10 +1,20 @@
 Route12Gate1F_Script:
+	RPTextChooser Route12Gate1F_TextPointers, Route12Gate1F_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route12Gate1F_TextPointers:
 	dw Route12GateText1
 	; 2F
 	dw Route12GateUpstairsText1
+	; signs
+	dw Route12GateUpstairsText2
+	dw Route12GateUpstairsText3
+
+Route12Gate1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	; 2F
+	dw GenericNPCText_RocketPath
+	; signs
 	dw Route12GateUpstairsText2
 	dw Route12GateUpstairsText3
 

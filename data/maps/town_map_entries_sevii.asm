@@ -30,6 +30,7 @@ ExternalMapEntries_Sevii:
 	external_map  4, 13, Route42Name
 	external_map  5, 14, Route43Name
 	external_map  4, 15, Route44Name
+	external_map  3,  8, SeviiFourIslandParkourPathName
 	assert_table_length FIRST_INDOOR_MAP_SEVII
 
 

@@ -1,4 +1,5 @@
 CinnabarLab_Script:
+	RPTextChooser CinnabarLab_TextPointers, CinnabarLab_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -27,6 +28,35 @@ CinnabarLab_TextPointers:
 	dw Lab1ArcheologistSign4 ; new
 	dw Lab1ArcheologistSign5 ; new
 	dw Lab1SeismologySign1 ; new
+	dw Lab3Text3
+	dw Lab3Text4
+	dw Lab3Text5
+
+CinnabarLab_TextPointers_Rocket:
+	; people
+	dw GenericNPCText_RocketPath
+	dw Lab1Text2_Archeologist_RP
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw Lab1Text5_Treasure_RP
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Lab1Text2
+	dw Lab1Text3
+	dw Lab1Text4
+	dw Lab1Text5
+	dw Lab1ArcheologistSign1
+	dw Lab1ArcheologistSign2
+	dw Lab1ArcheologistSign3
+	dw Lab1ArcheologistSign4
+	dw Lab1ArcheologistSign5
+	dw Lab1SeismologySign1
 	dw Lab3Text3
 	dw Lab3Text4
 	dw Lab3Text5
@@ -341,3 +371,57 @@ Lab4Text2:
 
 LoadFossilItemAndMonNameBank1D:
 	farjp LoadFossilItemAndMonName
+
+; new for RP =========================
+
+Lab1Text2_Archeologist_RP::
+	text_asm
+	CheckEvent EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT ; abused
+	ld hl, Lab1Text2_Archeologist_RP_After
+	jr nz, .printAndEnd
+; before
+	ld hl, Lab1Text2_Archeologist_RP_Before
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Lab1Text5_Treasure_RP::
+	text_asm
+	ld hl, Lab1Text5_Treasure_RP_Core
+	call PrintText
+	lb bc, ARTIFACT, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld a, HS_CINNABAR_LAB_ARTIFACT
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	SetEvent EVENT_GIVEN_CINNABAR_ARCHEOLOGIST_ARTIFACT
+	call WaitForTextScrollButtonPress
+	ld hl, Lab1Text5_Treasure_RP_StoleArtifact
+	jr .printAndEnd
+.bagFull
+	ld hl, Lab1Text5_Treasure_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Lab1Text2_Archeologist_RP_After:
+	text_far _Lab1Text2_Archeologist_RP_After
+	text_end
+
+Lab1Text2_Archeologist_RP_Before:
+	text_far _Lab1Text2_Archeologist_RP_Before
+	text_end
+
+Lab1Text5_Treasure_RP_Core:
+	text_far _Lab1Text5_Treasure_RP_Core
+	text_end
+
+Lab1Text5_Treasure_RP_StoleArtifact:
+	text_far _Lab1Text5_Treasure_RP_StoleArtifact
+	sound_get_key_item
+	text_end
+
+Lab1Text5_Treasure_RP_BagFull:
+	text_far _CeladonMartRoofText2_RP_BagFull
+	text_end

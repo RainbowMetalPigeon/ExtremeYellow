@@ -1,4 +1,5 @@
 SeviiSevenIslandGym3_Script:
+	RPTextChooser SeviiSevenIslandGym3_TextPointers, SeviiSevenIslandGym3_TextPointers_Rocket
 	call HandleBoulderAndFlags_SSIG3
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiSevenIslandGym3TrainerHeaders
@@ -128,6 +129,30 @@ SeviiSevenIslandGym3ScriptPostBattle:
 
 SeviiSevenIslandGym3_TextPointers:
 	dw SeviiSevenIslandGym3Text1 ; Nanette
+	dw SeviiSevenIslandGym3Text2
+	dw SeviiSevenIslandGym3Text3
+	dw SeviiSevenIslandGym3Text4
+	dw SeviiSevenIslandGym3Text5
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	; scripts
+	dw SeviiSevenIslandGym3Text5_Victory ; 15
+	dw SeviiSevenIslandGym3Text5_Defeat ; 16
+	dw SeviiSevenIslandGym3Text16_PostBlackOut ; 17
+	dw SeviiSevenIslandGym3Text16_Reward1 ; 18
+	dw SeviiSevenIslandGym3Text16_Reward2 ; 19
+	dw SeviiSevenIslandGym3Text16_Reward3 ; 20
+	dw SeviiSevenIslandGym3Text16_NoReward ; 21
+
+SeviiSevenIslandGym3_TextPointers_Rocket:
+	dw SeviiSevenIslandGym3Text1 ; Nanette TBE
 	dw SeviiSevenIslandGym3Text2
 	dw SeviiSevenIslandGym3Text3
 	dw SeviiSevenIslandGym3Text4

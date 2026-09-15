@@ -104,13 +104,6 @@ _ObsidianWarehouseStatueText_Click1Post1::
     cont "heard nearby!"
     prompt
 
-_ObsidianWarehouseStatueText_Click1Post2::
-    text "Oh! Something fell"
-    line "out from a secret"
-    cont "compartment of"
-    cont "the statue!"
-    done
-
 _ObsidianWarehouseStatueText_Click1Not::
     text "Better not to..."
     done
@@ -119,4 +112,26 @@ _ObsidianWarehouseStatueText_Click2::
     text "The button seems"
     line "to not be working"
     cont "anymore..."
-    done    
+    done
+
+; new for RP ========================== TBE
+
+_ObsidianWarehouseTrainerText1_RP::
+	text "fury 1"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseTrainerText2_RP::
+	text "fury 2"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseTrainerText3_RP::
+	text "fury 3"
+;	xxxx "123456789012345678"
+	done
+
+_ObsidianWarehouseTrainerText4_RP::
+	text "fury 4"
+;	xxxx "123456789012345678"
+	done

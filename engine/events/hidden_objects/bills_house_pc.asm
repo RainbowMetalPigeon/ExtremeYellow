@@ -1,8 +1,10 @@
-BillsHousePC:
+BillsHousePC: ; edited for RP
 	call EnableAutoTextBoxDrawing
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_UP
 	ret nz
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	jr nz, .rocketPath ; new for RP
 	CheckEvent EVENT_LEFT_BILLS_HOUSE_AFTER_HELPING
 	jr nz, .displayBillsHousePokemonList
 	CheckEventReuseA EVENT_USED_CELL_SEPARATOR_ON_BILL
@@ -42,6 +44,10 @@ BillsHousePC:
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	tx_pre BillsHousePokemonList
+	ret
+.rocketPath ; new for RP
+	ld a, 11
+	ld [wBillsHouseCurScript], a
 	ret
 
 BillsHouseMonitorText::

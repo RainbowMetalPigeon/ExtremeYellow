@@ -1,4 +1,5 @@
 SeviiRoute44_Script:
+	RPTextChooser SeviiRoute44_TextPointers, SeviiRoute44_TextPointers_Rocket
 	call HideOrShowTanobyChambers
 	jp EnableAutoTextBoxDrawing
 
@@ -46,6 +47,9 @@ HideOrShowTanobyChambers_Core:
 
 SeviiRoute44_TextPointers:
 	dw SeviiRoute44Text1
+
+SeviiRoute44_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 
 SeviiRoute44Text1:
 	text_far _SeviiRoute44Text1

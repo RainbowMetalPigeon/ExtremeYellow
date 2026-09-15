@@ -200,9 +200,9 @@ _FuchsiaGymAfterBattleText6::
 	done
 
 _FuchsiaGymBattleText7::
-	text "Before reaching..."
-	line "KOGA, you'll need"
-	cont "to..."
+	text "Before reaching my"
+	line "da- I mean, KOGA,"
+	cont "you'll need to..."
 
 	para "Yes, defeat me,"
 	line "indeed...!"
@@ -296,3 +296,112 @@ _KogaRematchDefeatedText::
 	line "half bad, not"
 	cont "half bad at all."
 	prompt
+
+_FuchsiaGymAfterBattleText_Common::
+	text "What do you think"
+	line "of your secret"
+	cont "ninjutsu of"
+	cont "substitution?"
+
+	para "You can't tell us"
+	line "apart, you don't"
+	cont "know who is KOGA!"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymNoBattleText_Common::
+	cont "We may all look"
+	line "like KOGA, but"
+	cont "our master is not"
+	cont "here. We won't"
+	cont "engage in battle"
+	cont "without them."
+;	xxxx "123456789012345678"
+	done
+
+; new for RP ========================
+
+_KogaBeforeBattleText_RP::
+	text "You! You filthy,"
+	line "repulsive ROCKET"
+	cont "bastard scum!"
+	cont "You dare facing"
+	cont "me, KOGA, the GYM"
+	cont "leader of the"
+	cont "city you torture"
+	cont "with your grip."
+	cont "You're bold, or"
+	cont "totally insane."
+	cont "In any case, it'll"
+	cont "be my pleasure to"
+	cont "torment you to a"
+	cont "pulp with my"
+	cont "deadly POISON"
+	cont "ninja techniques!"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedSoulBadgeText_RP::
+	text "You..."
+	line "Fucking..."
+	cont "Damn... Little!!!"
+	cont "I-I failed my"
+	cont "city again..."
+	cont "Can't I do any-"
+	cont "thing against"
+	cont "TEAM ROCKET?!"
+	cont "I... just take"
+	cont "these and vanish,"
+	cont "before I commit"
+	cont "seppuku for the"
+	cont "dishonor."
+;	xxxx "123456789012345678"
+	prompt
+
+_KogaSoulBadgeInfoText_RP::
+	text "KOGA throws"
+	line "the SOULBADGE"
+	cont "to <PLAYER>!"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymTrainerText_RP_AfterBeatKoga::
+	text "I won't accept it!"
+	line "Master KOGA can't"
+	cont "have lost against"
+	cont "a scum like you!"
+
+	para "You must have"
+	line "played dirty!"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymTrainerText_RP_AfterMeetingRoom::
+	text "Our master is back"
+	line "and ready to take"
+	cont "you on."
+
+	para "You, are you ready"
+	line "to be utterly"
+	cont "demolished by"
+	cont "their terrifying"
+	cont "ninja techniques?"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaGymTrainerText_RP_BeforeMeetingRoom::
+	text "Our master told us"
+	line "not to fight"
+	cont "without their"
+	cont "supervision."
+
+	para "And while I'd be"
+	line "glad to beat your"
+	cont "criminal ass, I'll"
+	cont "obey them."
+
+	para "But I can't wait"
+	line "to see them"
+	cont "beating you!"
+;	xxxx "123456789012345678"
+	done

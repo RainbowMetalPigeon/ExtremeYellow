@@ -426,3 +426,42 @@ _OrageRematchDefeatedText::
 	cont "ourselves even"
 	cont "further!"
 	prompt
+
+; new for RP =======================
+
+_OragePreBattleText_RP::
+	text "A ROCKET."
+	line "Disgusting."
+	cont "I will certainly"
+	cont "not face some"
+	cont "shit like you in"
+	cont "a honor battle."
+	cont "I'll face you with"
+	cont "my max-power team."
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedNoBadgeText_RP::
+	text "...really"
+	line "disgusting."
+;	xxxx "123456789012345678"
+	prompt
+
+_OrageNoBadgeInfoText_RP::
+	text "What else do you"
+	line "even want?!"
+	cont "This is not an"
+	cont "official INDIGO"
+	cont "GYM. No BADGE for"
+	cont "your, nor fancy"
+	cont "gift TM."
+
+	para "It's the first time"
+	line "ever I'm glad to"
+	cont "say this..."
+
+	para "Now leave. There's"
+	line "nothing at all"
+	cont "here for you."
+;	xxxx "123456789012345678"
+	done

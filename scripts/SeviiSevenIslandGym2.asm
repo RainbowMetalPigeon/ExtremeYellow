@@ -1,4 +1,5 @@
 SeviiSevenIslandGym2_Script:
+	RPTextChooser SeviiSevenIslandGym2_TextPointers, SeviiSevenIslandGym2_TextPointers_Rocket
 	call HandleBagAndFlags_SSIG2
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiSevenIslandGym2TrainerHeaders
@@ -49,6 +50,24 @@ SeviiSevenIslandGym2Script0:
 	ret
 
 SeviiSevenIslandGym2_TextPointers:
+	dw SeviiSevenIslandGym2Text1
+	dw SeviiSevenIslandGym2Text2
+	dw SeviiSevenIslandGym2Text3
+	dw SeviiSevenIslandGym2Text4
+	dw SeviiSevenIslandGym2Text5
+	dw SeviiSevenIslandGym2Text6
+	dw SeviiSevenIslandGym2Text7
+	dw RockSmashText
+	dw RockSmashText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	; scripts
+	dw SeviiSevenIslandGym2Text15_PostBlackOut
+
+SeviiSevenIslandGym2_TextPointers_Rocket:
 	dw SeviiSevenIslandGym2Text1
 	dw SeviiSevenIslandGym2Text2
 	dw SeviiSevenIslandGym2Text3

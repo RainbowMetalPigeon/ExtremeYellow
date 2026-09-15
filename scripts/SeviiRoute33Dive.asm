@@ -1,4 +1,5 @@
 SeviiRoute33Dive_Script:
+	RPTextChooser SeviiRoute33Dive_TextPointers, SeviiRoute33Dive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute33DiveTrainerHeaders
 	ld de, SeviiRoute33Dive_ScriptPointers
@@ -14,6 +15,15 @@ SeviiRoute33Dive_ScriptPointers:
 
 SeviiRoute33Dive_TextPointers:
 	dw SeviiRoute33DiveText0
+	dw SeviiRoute33DiveText1
+	dw SeviiRoute33DiveText2
+	dw SeviiRoute33DiveText3
+	dw SeviiRoute33DiveText4
+	dw PickUpItemText
+	dw PickUpItemText
+
+SeviiRoute33Dive_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 	dw SeviiRoute33DiveText1
 	dw SeviiRoute33DiveText2
 	dw SeviiRoute33DiveText3

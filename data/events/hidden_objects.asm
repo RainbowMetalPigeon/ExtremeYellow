@@ -97,6 +97,7 @@ HiddenObjectMaps:
 	dbw SS_ANNE_1F_ROOMS,             SSAnne1FRoomsHiddenObjects ; new
 	dbw LAKE_OF_MIST,                 LakeOfMistHiddenObjects ; new
 	dbw ROUTE_8,                      Route8HiddenObjects ; new
+	dbw SILPH_CO_11F,                 SilphCo11FHiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -707,4 +708,9 @@ LakeOfMistHiddenObjects: ; new
 
 Route8HiddenObjects: ; new
 	hidden_object 33,  9, SCREWDRIVER, HiddenItems
+	db -1 ; end
+
+SilphCo11FHiddenObjects: ; new
+	hidden_object 13,  8, SPRITE_FACING_LEFT, SpecialDoorSilphCo11F
+	hidden_object 13,  9, SPRITE_FACING_LEFT, SpecialDoorSilphCo11F
 	db -1 ; end

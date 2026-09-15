@@ -1,4 +1,5 @@
 PokemonTower4F_Script:
+	RPTextChooser PokemonTower4F_TextPointers, PokemonTower4F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower4TrainerHeaders
 	ld de, PokemonTower4F_ScriptPointers
@@ -13,6 +14,14 @@ PokemonTower4F_ScriptPointers:
 	dw EndTrainerBattle
 
 PokemonTower4F_TextPointers:
+	dw PokemonTower4Text1
+	dw PokemonTower4Text2
+	dw PokemonTower4Text3
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+
+PokemonTower4F_TextPointers_Rocket:
 	dw PokemonTower4Text1
 	dw PokemonTower4Text2
 	dw PokemonTower4Text3

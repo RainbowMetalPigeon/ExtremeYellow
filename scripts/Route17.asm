@@ -1,4 +1,5 @@
 Route17_Script:
+	RPTextChooser Route17_TextPointers, Route17_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route17TrainerHeaders
 	ld de, Route17_ScriptPointers
@@ -23,6 +24,26 @@ Route17_TextPointers:
 	dw Route17Text8
 	dw Route17Text9
 	dw Route17Text10
+	; signs
+	dw Route17Text11
+	dw Route17Text12
+	dw Route17Text13
+	dw Route17Text14
+	dw Route17Text15
+	dw Route17Text16
+
+Route17_TextPointers_Rocket:
+	dw Route17Text1
+	dw Route17Text2
+	dw Route17Text3
+	dw Route17Text4
+	dw Route17Text5
+	dw Route17Text6
+	dw Route17Text7
+	dw Route17Text8
+	dw Route17Text9
+	dw Route17Text10
+	; signs
 	dw Route17Text11
 	dw Route17Text12
 	dw Route17Text13

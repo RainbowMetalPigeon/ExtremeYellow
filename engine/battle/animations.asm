@@ -757,6 +757,8 @@ INCLUDE "data/battle_anims/special_effects.asm"
 
 DoBallTossSpecialEffects:
 	ld a, [wcf91]
+	cp STEAL_BALL ; new
+	jr z, .flashingEffect ; new
 	cp ULTRA_BALL + 1 ; is it a Master Ball or Ultra Ball?
 	jr nc, .skipFlashingEffect
 .flashingEffect ; do a flashing effect if it's Master Ball or Ultra Ball
@@ -2858,9 +2860,18 @@ BattleAnimCopyTileMapToVRAM:
 	jp Delay3
 
 TossBallAnimation:
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .checkIfTrainerBattle
+	ld a, [wcf91]
+	cp STEAL_BALL
+	jr z, .notNormalTrainerBattle
+.checkIfTrainerBattle
+; BTV
 	ld a, [wIsInBattle]
 	cp 2
 	jr z, .BlockBall ; if in trainer battle, play different animation
+.notNormalTrainerBattle ; new
 ; new, to handle MissingNo
 	push hl
 	CheckEvent EVENT_IN_SEVII

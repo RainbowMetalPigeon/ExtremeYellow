@@ -1,4 +1,5 @@
 SeviiSixIslandGym1_Script:
+	RPTextChooser SeviiSixIslandGym1_TextPointers, SeviiSixIslandGym1_TextPointers_Rocket
 	call ApplyMalusOnEntry1
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiSixIslandGym1_ScriptPointers
@@ -9,8 +10,16 @@ SeviiSixIslandGym1_Script:
 
 SeviiSixIslandGym1_ScriptPointers:
 	dw SeviiSixIslandGym1Script0
+	dw SeviiSixIslandGym1ScriptPushRP
 
 SeviiSixIslandGym1Script0:
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld d,  4 ; x in front of the door
+	ld e,  3 ; y in front of the door
+	ld c,  1 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
+.notRP
 	ld a, [wIsInBattle]
 	cp $ff
 	jp nz, .warningMessage
@@ -129,6 +138,21 @@ ApplyMalusOnEntry1:
 
 SeviiSixIslandGym1_TextPointers:
 	dw SeviiSixIslandGym1Text1
+	; signs
+	dw SeviiSixIslandGym1SignText1
+	dw SeviiSixIslandGym1SignText2
+	dw SeviiSixIslandGym1SignText3
+	dw SeviiSixIslandGym1SignText4
+	; scripts
+	dw SeviiSixIslandGym1PopUpMessageStatDebuff ; 6
+	dw SeviiSixIslandGym1PopUpMessagePoison ; 7
+	dw SeviiSixIslandGym1PopUpMessageBurn ; 8
+	dw SeviiSixIslandGym1PopUpMessageParalysis ; 9
+	dw SeviiSixIslandGym1Text10 ; 10
+	dw SeviiSixIslandGym1Text11_PostBlackout ; 11
+
+SeviiSixIslandGym1_TextPointers_Rocket:
+	dw SeviiSixIslandGym1Text1_RP
 	; signs
 	dw SeviiSixIslandGym1SignText1
 	dw SeviiSixIslandGym1SignText2
@@ -271,3 +295,12 @@ ApplyRandomStatDebuff:
 	dec a
 	ld [hl], a
 	ret
+
+; new for RP ================================
+
+SeviiSixIslandGym1ScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiSixIslandGym1Text1_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

@@ -936,6 +936,112 @@ _SeviiTwoIsletHousesSignText2_Core::
 	line "Fated One: @"
 	text_decimal wUniQuizAnswer, 2, 4 ; address to read from, number of bytes to read, number of digits to display
 	text ".'"
+;	xxxx "123456789012345678"
 	done
+
+; new for RP ===========================================
+
+_SeviiTwoIslandCityText5_RP::
+	text "We don't business"
+	line "with criminals."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityText6_RP::
+	text "Criminals are not"
+	line "welcome at our"
+	cont "lottery."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandCityText8_RP::
+	text "Oh! Master!"
+	line "It's a... pleasure"
+	cont "to see you here."
+	cont "How... can I be"
+	cont "of help?"
+
+	para "The kid? I'm not"
+	line "sure, but your..."
+	cont "colleague told us"
+	cont "to guard the"
+	cont "bridge to DREAM"
+	cont "FOREST, west of"
+	cont "FAMILY."
+
+	para "Didn't tell us"
+	line "what business had"
+	cont "there, though..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Intro_RP::
+	text "Get lost, ROCKET."
+
+	para "Wha-?! How do you"
+	line "even know that..."
+	cont "Doesn't matter!"
+	cont "Don't you think"
+	cont "I'll give up"
+	cont "without a fight!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Question_RP::
+	text "WEATHER BALL."
+	line "Take it or leave."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Refused_RP::
+	text "See you never."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText2_Done_RP::
+	text "Done."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesScriptText1_RP::
+	text "Tsk... Congrats,"
+	line "you won. I'll"
+	cont "teach you my move."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Intro_RP::
+	text "Fuck off, scum."
+
+	para "The hell?! How do"
+	line "you even know I"
+	cont "can teach that..."
+	cont "Well, forget it!"
+	cont "The only thing"
+	cont "I'll teach you is"
+	cont "your place!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Question_RP::
+	text "Does your lone"
+	line "neuron even know"
+	cont "how to use"
+	cont "TERRAIN PULSE?" 
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Refused_RP::
+	text "Get lost."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesText3_Done_RP::
+	text "Tsk."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiTwoIslandHousesScriptText2_RP::
+	text "Piece of..."
 ;	xxxx "123456789012345678"
 	done

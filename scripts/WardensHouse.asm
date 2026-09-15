@@ -1,4 +1,5 @@
 WardensHouse_Script:
+	RPTextChooser WardensHouse_TextPointers, WardensHouse_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 WardensHouse_TextPointers:
@@ -10,8 +11,28 @@ WardensHouse_TextPointers:
 	dw FuchsiaHouse2AntiquitiesText4 ; new
 	dw FuchsiaHouse2AntiquitiesText5 ; new
 	dw FuchsiaHouse2AntiquitiesTextMapPiece ; new
-;	dw PickUpItemText
-;	dw BoulderText
+	; signs ---
+	dw FuchsiaHouse2Text4
+	dw FuchsiaHouse2Text5
+	; new
+	dw FuchsiaHouse2AntiquitiesSign1
+	dw FuchsiaHouse2AntiquitiesSign2
+	dw FuchsiaHouse2AntiquitiesSign3
+	dw FuchsiaHouse2AntiquitiesSign4
+	dw FuchsiaHouse2AntiquitiesSign5
+	dw FuchsiaHouse2AntiquitiesSign6
+	dw FuchsiaHouse2AntiquitiesSign7
+	dw FuchsiaHouse2AntiquitiesSign8
+
+WardensHouse_TextPointers_Rocket:
+	; people ---
+	dw FuchsiaHouse2Text1_RP
+	dw FuchsiaHouse2AntiquitiesTextShopOwner_RP
+	dw FuchsiaHouse2AntiquitiesText2
+	dw FuchsiaHouse2AntiquitiesText3
+	dw FuchsiaHouse2AntiquitiesText4
+	dw FuchsiaHouse2AntiquitiesText5
+	dw FuchsiaHouse2AntiquitiesTextMapPiece_RP
 	; signs ---
 	dw FuchsiaHouse2Text4
 	dw FuchsiaHouse2Text5
@@ -273,4 +294,143 @@ FuchsiaHouse2AntiquitiesSign7:
 
 FuchsiaHouse2AntiquitiesSign8:
 	text_far _FuchsiaHouse2AntiquitiesSign8
+	text_end
+
+; new for RP ======================================
+
+FuchsiaHouse2Text1_RP:
+	text_asm
+	CheckEvent EVENT_GAVE_GOLD_TEETH ; ironically abused
+	ld hl, FuchsiaHouse2Text1_RP_PostTeeth
+	jr nz, .printAndEnd
+; before giving teeth
+	ld hl, FuchsiaHouse2Text1_RP_PreTeeth
+	call PrintText
+	ld b, GOLD_TEETH
+	call IsItemInBag
+	jr z, .done
+; have teeth
+	call WaitForTextScrollButtonPress
+	ld hl, FuchsiaHouse2Text1_RP_ShowTeeth
+	call PrintText
+	ld a, GOLD_TEETH
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_GAVE_GOLD_TEETH
+	ld hl, FuchsiaHouse2Text1_RP_WardenHappy
+	call PrintText
+	ld hl, FuchsiaHouse2Text1_RP_SmashTeeth
+	call PrintText
+	ld hl, FuchsiaHouse2Text1_RP_WardenShocked
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+FuchsiaHouse2Text1_RP_PostTeeth:
+	text_far _FuchsiaHouse2Text1_RP_PostTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_PreTeeth:
+	text_far _FuchsiaHouse2Text1_RP_PreTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_ShowTeeth:
+	text_far _FuchsiaHouse2Text1_RP_ShowTeeth
+	text_end
+
+FuchsiaHouse2Text1_RP_WardenHappy:
+	text_far _FuchsiaHouse2Text1_RP_WardenHappy
+	text_end
+
+FuchsiaHouse2Text1_RP_SmashTeeth:
+	text_far _FuchsiaHouse2Text1_RP_SmashTeeth
+	sound_get_key_item
+	text_end
+
+FuchsiaHouse2Text1_RP_WardenShocked:
+	text_far _FuchsiaHouse2Text1_RP_WardenShocked
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP:
+	text_asm
+	CheckEvent EVENT_RP_ROBBED_ANTIQUE_SHOP
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post
+	jr nz, .printAndEnd
+; we haven't yet forced the "sell"
+; do we have the ARTIFACT?
+	ld b, ARTIFACT
+	call IsItemInBag
+	jr nz, .ArtifactInBag
+; no artifact in bag
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag
+	jr .printAndEnd
+.ArtifactInBag
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag
+	call PrintText
+	ld a, ARTIFACT
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+; give money
+    xor a
+    ld [hMoney + 1], a
+    ld [hMoney + 2], a
+    ld a, $10
+    ld [hMoney], a
+	ld hl, hMoney + 2
+	ld de, wPlayerMoney + 2
+	ld c, $3
+	predef AddBCDPredef ; add HL to DE with length C
+	SetEvent EVENT_RP_ROBBED_ANTIQUE_SHOP
+	ld hl, FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag
+	text_end
+
+FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks:
+	text_far _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks
+	sound_get_key_item
+	text_end
+
+; new for RP ==========================
+
+FuchsiaHouse2AntiquitiesTextMapPiece_RP:
+	text_asm
+	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	jr nz, .alreadyHaveAPiece
+	lb bc, MYSTERY_MAP, 1
+	call GiveItem
+	jr c, .alreadyHaveAPiece
+	ld hl, FuchsiaHouse2AntiquitiesTextMapPiece_RP_BagFull
+	jr .printAndEnd
+.alreadyHaveAPiece
+	ld a, HS_WARDENS_ANTIQUITIES_MAP_PIECE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvent EVENT_OBTAIN_MAP_PIECE_3_TREASURE_HUNTER
+	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
+	ld hl, FuchsiaHouse2AntiquitiesTextMapPiece_RP_StoleMap
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+FuchsiaHouse2AntiquitiesTextMapPiece_RP_StoleMap:
+	text_far _ObsidianMinesText3_RP_StoleMap
+	sound_get_key_item
+	text_end
+
+FuchsiaHouse2AntiquitiesTextMapPiece_RP_BagFull:
+	text_far _BagFullText_RP
 	text_end

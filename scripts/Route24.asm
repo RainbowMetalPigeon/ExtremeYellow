@@ -1,4 +1,5 @@
 Route24_Script:
+	RPTextChooser Route24_TextPointers, Route24_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route24TrainerHeaders
 	ld de, Route24_ScriptPointers
@@ -26,6 +27,8 @@ IF DEF(_DEBUG) ; new
 	jp nz, CheckFightingMapTrainers
 ENDC
 	CheckEvent EVENT_BEAT_ROUTE24_ROCKET ; edited, was EVENT_GOT_NUGGET
+	jp nz, CheckFightingMapTrainers
+	CheckEvent EVENT_ROCKET_PATH ; new
 	jp nz, CheckFightingMapTrainers
 	ld hl, CoordsData_FrontOfNuggetRocket
 	call ArePlayerCoordsInArray
@@ -89,6 +92,18 @@ Route24_TextPointers:
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route24Text8
 
+Route24_TextPointers_Rocket:
+	dw Route24Text1 ; TBE special!
+	dw Route24Text2
+	dw Route24Text3
+	dw Route24Text4
+	dw Route24Text5
+	dw Route24Text6
+	dw Route24Text7
+	dw PickUpItemText
+	dw PickUpItemText
+	dw Route24Text8_RP
+
 Route24TrainerHeaders:
 	def_trainers 2
 Route24TrainerHeader0:
@@ -105,17 +120,39 @@ Route24TrainerHeader5:
 	trainer EVENT_BEAT_ROUTE_24_TRAINER_5, 1, Route24BattleText6, Route24EndBattleText6, Route24AfterBattleText6
 	db -1 ; end
 
-Route24Text1:
+Route24Text1: ; edited
 	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	CheckEvent EVENT_RP_GOT_HM01
+	ld hl, Route24Text_NextQuestSummary
+	jp nz, .printAndEnd
+	CheckEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	ld hl, Route24Text_FirstQuestSummary
+	jp z, .printAndEnd
+; message relyed to the captain, give HM CUT and tell to go to Celadon
+	ld hl, Route24Text_MessageRelyed
+	call PrintText
+	lb bc, HM_CUT, 1
+	call GiveItem
+	jr nc, .bagFull
+	ld hl, ReceivedHM01Text_RP
+	call PrintText
+	SetEvent EVENT_RP_GOT_HM01
+	ld hl, Route24Text_NextQuest
+	jp .printAndEnd
+.bagFull
+	ld hl, Route24Text_NoRoom
+	jp .printAndEnd
+.notRP
 	ResetEvent EVENT_NUGGET_REWARD_AVAILABLE
 	CheckEvent EVENT_GOT_NUGGET
 	jr z, .notGotNugget
-; new
 	CheckEvent EVENT_BEAT_ROUTE24_ROCKET
 	jr nz, .got_item
-	jr .wannaJoin
+	jr .wannaJoin1
 .notGotNugget
-; BTV
+; vanilla
 	ld hl, Route24Text_CongratsBeat5Trainers
 	call PrintText
 	lb bc, NUGGET, 1
@@ -124,8 +161,20 @@ Route24Text1:
 	SetEvent EVENT_GOT_NUGGET
 	ld hl, Route24Text_PlayerReceivedNugget
 	call PrintText
-.wannaJoin
-	ld hl, Route24Text_WannaJoinOffer
+.wannaJoin1
+	ld hl, Route24Text_WannaJoinOffer1
+	call PrintText
+	call NoYesChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .weWannaJoin
+	ld hl, Route24Text_WannaJoinOffer2 ; are you sure
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .wannaJoin1
+	ld hl, Route24Text_WannaJoinOffer3
 	call PrintText
 	ld hl, wd72d
 	set 6, [hl]
@@ -147,9 +196,63 @@ Route24Text1:
 	call PrintText
 	jp TextScriptEnd
 .bag_full
-	ld hl, Route24Text_NoRoom
-	call PrintText
 	SetEvent EVENT_NUGGET_REWARD_AVAILABLE
+	ld hl, Route24Text_NoRoom
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+.weWannaJoin ; beginning of ROCKET PATH!
+	SetEvent EVENT_ROCKET_PATH
+	call DisablePikachuOverworldSpriteDrawing
+	xor a
+	ld [wPikachuHappiness], a
+	ld [wPikachuMood], a
+	inc a ; a=1
+	ld [wMuseum1FCurScript], a ; doesn't check ticket
+	ld a, [wWalkBikeSurfState]
+	dec a
+	jr nz, .hideAndShowObjects
+	callfar ItemUseReloadOverworldData
+	xor a
+	ld [wWalkBikeSurfState], a ; change player state to walking
+	call PlayDefaultMusic ; play walking music
+.hideAndShowObjects
+	ld a, HS_OAKS_LAB_OAK_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_POKEMON_TOWER_2F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_ROUTE_4_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_ROUTE_10_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_ROUTE_20_SPECIAL_BIRDKEEPER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_POKEMON_MANSION_B1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+; TBE: fade out, event music?
+
+	ld hl, Route24Text_GreatWelcome
+	call PrintText
+	ld hl, Route24Text_FirstQuest
+	call PrintText
 	jp TextScriptEnd
 
 Route24Text_CongratsBeat5Trainers:
@@ -168,8 +271,45 @@ Route24Text_NoRoom:
 	text_far _Route24Text_NoRoom
 	text_end
 
-Route24Text_WannaJoinOffer:
-	text_far _Route24Text_WannaJoinOffer
+Route24Text_WannaJoinOffer1:
+	text_far _Route24Text_WannaJoinOffer1
+	text_end
+
+Route24Text_WannaJoinOffer2:
+	text_far _Route24Text_WannaJoinOffer2
+	text_end
+
+Route24Text_WannaJoinOffer3:
+	text_far _Route24Text_WannaJoinOffer3
+	text_end
+
+Route24Text_GreatWelcome: ; new
+	text_far _Route24Text_GreatWelcome
+	text_end
+
+Route24Text_FirstQuest: ; new
+	text_far _Route24Text_FirstQuest
+	text_end
+
+Route24Text_FirstQuestSummary: ; new
+	text_far _Route24Text_FirstQuestSummary
+	text_end
+
+Route24Text_MessageRelyed: ; new
+	text_far _Route24Text_MessageRelyed
+	text_end
+
+Route24Text_NextQuest: ; new
+	text_far _Route24Text_NextQuest
+	text_end
+
+Route24Text_NextQuestSummary: ; new
+	text_far _Route24Text_NextQuestSummary
+	text_end
+
+ReceivedHM01Text_RP: ; new
+	text_far _ReceivedHM01Text
+	sound_get_key_item
 	text_end
 
 Route24Text_PostVictoryDialogue:
@@ -290,14 +430,14 @@ Route24AfterBattleText6:
 
 Route24Text8:
 	text_asm
-	CheckEvent EVENT_54F
-	jr nz, .asm_515d5
+	CheckEvent EVENT_GOT_GIFT_CHARMANDER
+	jr nz, .alreadyGotCharmander
 	ld hl, Route24Text_515de
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .asm_515d0
+	jr nz, .declined
 	ld a, CHARMANDER
 	ld [wd11e], a
 	ld [wcf91], a
@@ -314,16 +454,42 @@ Route24Text8:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, Route24Text_515e3
 	call PrintText
-	SetEvent EVENT_54F
+	SetEvent EVENT_GOT_GIFT_CHARMANDER
+	jp TextScriptEnd
+.declined
+	ld hl, Route24Text_515e9
+	jr .printAndEnd
+.alreadyGotCharmander
+	ld hl, Route24Text_515ee
+.printAndEnd
+	call PrintText
 	jp TextScriptEnd
 
-.asm_515d0
-	ld hl, Route24Text_515e9
-	jr .asm_515d8
-
-.asm_515d5
-	ld hl, Route24Text_515ee
-.asm_515d8
+Route24Text8_RP: ; new for RP
+	text_asm
+	CheckEvent EVENT_GOT_GIFT_CHARMANDER
+	jr nz, .alreadyGotCharmander
+	ld hl, Route24Text_RP_BeatCharmanderGuy
+	call PrintText
+	ld a, CHARMANDER
+	ld [wd11e], a
+	ld [wcf91], a
+	call GetMonName
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	lb bc, CHARMANDER, 15
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, [wAddedToParty]
+	and a
+	call z, WaitForTextScrollButtonPress
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	SetEvent EVENT_GOT_GIFT_CHARMANDER
+	jp TextScriptEnd
+.alreadyGotCharmander
+	ld hl, Route24Text_RP_AlreadyGotCharmander
+.printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
@@ -342,4 +508,12 @@ Route24Text_515e9:
 
 Route24Text_515ee:
 	text_far _Route24DamianText4
+	text_end
+
+Route24Text_RP_BeatCharmanderGuy: ; new for RP
+	text_far _Route24Text_RP_BeatCharmanderGuy
+	text_end
+
+Route24Text_RP_AlreadyGotCharmander: ; new for RP
+	text_far _Route24Text_RP_AlreadyGotCharmander
 	text_end

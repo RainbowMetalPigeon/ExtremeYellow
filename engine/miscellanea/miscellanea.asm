@@ -1477,11 +1477,19 @@ TMMartClerkDialogue::
 
 .noTMsFound
 	ld hl, TMPokemartGreetingTextFoundNone
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd1
+	ld hl, TMPokemartGreetingTextFoundNone_RocketPath
+.printAndEnd1
 	call PrintText
 	ret
 
 .atLeastOneTM
-	ld hl, TMPokemartGreetingText
+	ld hl, TMPokemartGreetingTextFoundNone
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printAndEnd2
+	ld hl, TMPokemartGreetingTextFoundNone_RocketPath
+.printAndEnd2
 	call PrintText
 
 	ld a, PRICEDITEMLISTMENU
@@ -1498,6 +1506,14 @@ TMPokemartGreetingTextFoundNone:
 
 TMPokemartGreetingText:
     text_far _TMPokemartGreetingText
+    text_end
+
+TMPokemartGreetingTextFoundNone_RocketPath:
+    text_far _TMPokemartGreetingTextFoundNone_RocketPath
+    text_end
+
+TMPokemartGreetingText_RocketPath:
+    text_far _TMPokemartGreetingText_RocketPath
     text_end
 
 ; =====================================
@@ -2019,6 +2035,11 @@ TrainerSentOutText2:
 ; =====================================
 
 DisplayPokemartDialogue_Far::
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, PokemartGreetingText_RocketPath
+	jr nz, .printMessage
+; BTV
 	ld hl, PokemartGreetingText
 ; new, for the taboo/forbidden merchant and Sevii Two Island Market
 	push hl
@@ -2027,21 +2048,21 @@ DisplayPokemartDialogue_Far::
 	jr nz, .sevii
 	ld a, [wCurMap]
 	cp CERULEAN_CAVE_EXTRA_FINAL
-	jr nz, .noSpecialMerchant
+	jr nz, .printMessage
 ; we are talking to the forbidden merchant
 	ld a, HS_CELADON_HOTEL_ROOMS_TROPHY_6
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
 	SetEvent EVENT_REACHED_FORBIDDEN_MERCHANT
 	ld hl, ForbiddenMerchantGreetingText
-	jr .noSpecialMerchant
+	jr .printMessage
 .sevii
 	ld a, [wCurMap]
 	cp SEVII_TWO_ISLAND_CITY
-	jr nz, .noSpecialMerchant
+	jr nz, .printMessage
 ; we are talking to the 2-Island merchant
 	ld hl, SeviiTwoIslandMerchantGreetingText
-.noSpecialMerchant
+.printMessage
 ; back to vanilla
 	call PrintText
 	ret
@@ -2056,6 +2077,10 @@ ForbiddenMerchantGreetingText:: ; new
 
 SeviiTwoIslandMerchantGreetingText:: ; new
 	text_far _SeviiTwoIslandMerchantGreetingText
+	text_end
+
+PokemartGreetingText_RocketPath: ; new
+	text_far _PokemartGreetingText_RocketPath
 	text_end
 
 ; =====================================
@@ -2373,6 +2398,8 @@ MarkBirbAsFed::
 	jp z, .seviiRoute43
 	cp SEVII_ROUTE_44
 	jp z, .seviiRoute44
+	cp SEVII_FOUR_ISLAND_PARKOUR_PATH
+	jp z, .seviiParkourPath
 
 	cp SEVII_EIGHT_ISLAND_CITY
 	jp z, .seviiEight
@@ -2478,6 +2505,9 @@ MarkBirbAsFed::
 	ret
 .seviiRoute44
 	SetEvent EVENT_BIRB_SEVII_ROUTE44
+	ret
+.seviiParkourPath
+	SetEvent EVENT_BIRB_SEVII_PARKOUR_PATH
 	ret
 
 CheckIfAllBirbsHaveBeenFed::
@@ -2643,6 +2673,8 @@ CheckIfAllBirbsHaveBeenFed::
 	ret z
 	CheckEvent EVENT_BIRB_SEVII_ROUTE44
 	ret z
+	CheckEvent EVENT_BIRB_SEVII_PARKOUR_PATH
+	ret z
 ; set overall event
 	SetEvent EVENT_FED_ALL_BIRBS
 	ret
@@ -2745,7 +2777,7 @@ HideUndegroundGuard::
 ; do the hiding loop
 	SetEvent EVENT_HID_UNDERGROUND_GUARDS
 	ld hl, ObjectsToHideSevii
-.hideExtraLoop
+.hideSeviiLoop
 	ld a, [hli]
 	cp $ff
 	ret z
@@ -2753,7 +2785,7 @@ HideUndegroundGuard::
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
 	pop hl
-	jr .hideExtraLoop
+	jr .hideSeviiLoop
 
 ObjectsToHideSevii:
 	db HS_SEVII_TWO_ISLAND_CITY_UNDERGROUND_GUARD
@@ -2764,3 +2796,27 @@ ObjectsToHideSevii:
 	db HS_SEVII_ROUTE_39_UNDERGROUND_GUARD
 	db HS_SEVII_ROUTE_42_UNDERGROUND_GUARD
 	db $ff
+
+; =====================================================================
+
+ResetPlayerSpriteData_::
+	ld hl, wSpriteStateData1
+	call ResetPlayerSpriteData_ClearSpriteData
+	ld hl, wSpriteStateData2
+	call ResetPlayerSpriteData_ClearSpriteData
+	ld a, $1
+	ld [wSpritePlayerStateData1PictureID], a
+	ld [wSpritePlayerStateData2ImageBaseOffset], a
+	ld hl, wSpritePlayerStateData1YPixels
+	ld [hl], $3c     ; set Y screen pos
+	inc hl
+	inc hl
+	ld [hl], $40     ; set X screen pos
+	ret
+
+; overwrites sprite data with zeroes
+ResetPlayerSpriteData_ClearSpriteData::
+	ld bc, $10
+	xor a
+	call FillMemory
+	ret

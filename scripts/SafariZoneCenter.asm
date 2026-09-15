@@ -3,6 +3,7 @@ SafariZoneCenter_Script:
 
 SafariZoneCenter_TextPointers:
 	dw PickUpItemText
+	; signs
 	dw SafariZoneCenterText2
 	dw SafariZoneCenterText3
 

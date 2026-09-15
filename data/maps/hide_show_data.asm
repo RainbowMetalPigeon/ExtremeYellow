@@ -44,7 +44,7 @@ MapHSPointers:
 	dw NoHS ; new, Route26
 	dw Route27HS ; new, Route27
 	dw Route28HS ; new, Route28
-	dw NoHS ; new, ROUTE_29
+	dw Route29HS ; new, ROUTE_29
 	dw Route30HS ; new, ROUTE_30
 	dw NoHS ; ELECTRIC_RAVINE ; new ; TBE
 	dw LakeOfMistHS ; LAKE_OF_MIST ; new
@@ -123,12 +123,12 @@ MapHSPointers:
 	dw NoHS ; SECLUDED_ATOLL_NE
 	dw NoHS ; SECLUDED_ATOLL_SE
 	dw NoHS ; SECLUDED_ATOLL_SW
-	dw NoHS ; LANCES_ROOM
+	dw LancesRoomHS ; new, LANCES_ROOM
 	dw ObsidianWoodHS ; OBSIDIAN_WOOD
 	dw ObsidianWarehouseHS ; OBSIDIAN_WAREHOUSE
 	dw ObsidianWarehouseFinalHS ; OBSIDIAN_WAREHOUSE_FINAL
 	dw ObsidianMinesHS ; OBSIDIAN_MINES
-	dw NoHS ; HALL_OF_FAME
+	dw HallOfFameHS ; new, HALL_OF_FAME
 	dw NoHS
 	dw ChampionsRoomHS
 	dw NoHS
@@ -184,7 +184,7 @@ MapHSPointers:
 	dw NoHS ; CINNABAR_POKECENTER
 	dw HauntedIslandOfNumbersHS ; new
 	dw NoHS ; OBSIDIAN_HOUSES
-	dw NoHS ; INDIGO_PLATEAU_LOBBY
+	dw IndigoPlateauLobbyHS ; new, INDIGO_PLATEAU_LOBBY
 	dw NoHS ; COPYCATS_HOUSE_1F
 	dw FightingDojoHS
 	dw NoHS ; SAFFRON_GYM
@@ -254,9 +254,9 @@ MapHSPointers:
 	dw CeruleanCaveExtraMiddleHS ; new
 	dw CeruleanCaveExtraBottomHS ; new
 	dw CeruleanCaveExtraFinalHS ; new
-	dw NoHS ; LORELEIS_ROOM
-	dw NoHS ; BRUNOS_ROOM
-	dw NoHS ; AGATHAS_ROOM
+	dw LoreleisRoomHS ; new, LORELEIS_ROOM
+	dw BrunosRoomHS ; new, BRUNOS_ROOM
+	dw AgathasRoomHS ; new, AGATHAS_ROOM
 	dw NoHS ; SUMMER_BEACH_HOUSE
 	assert_table_length NUM_MAPS
 	dw -1 ; end
@@ -280,10 +280,8 @@ ViridianCityHS:
 CeruleanCityHS:
 	db CERULEAN_CITY, $01, HIDE
 	db CERULEAN_CITY, $02, SHOW
-	db CERULEAN_CITY, $06, HIDE
 	db CERULEAN_CITY, $0A, SHOW
-	db CERULEAN_CITY, $0B, SHOW
-	db CERULEAN_CITY, $0C, HIDE ; Traveler
+	db CERULEAN_CITY, $0B, HIDE ; Traveler
 VermilionCityHS: ; new
 	db VERMILION_CITY, $05, SHOW
 	db VERMILION_CITY, $06, HIDE
@@ -501,11 +499,11 @@ RocketHideoutB4FHS:
 	db ROCKET_HIDEOUT_B4F, $02, HIDE ; James
 	db ROCKET_HIDEOUT_B4F, $03, HIDE ; Jessie
 	db ROCKET_HIDEOUT_B4F, $04, SHOW ; new, Rocket grunt
-	db ROCKET_HIDEOUT_B4F, $05, SHOW
-	db ROCKET_HIDEOUT_B4F, $06, SHOW
-	db ROCKET_HIDEOUT_B4F, $07, SHOW
-	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Silph Scope
-	db ROCKET_HIDEOUT_B4F, $09, HIDE ; Lift Key
+	db ROCKET_HIDEOUT_B4F, $05, SHOW ; item
+	db ROCKET_HIDEOUT_B4F, $06, SHOW ; item
+	db ROCKET_HIDEOUT_B4F, $07, HIDE ; Silph Scope
+	db ROCKET_HIDEOUT_B4F, $08, HIDE ; Lift Key
+	db ROCKET_HIDEOUT_B4F, $09, HIDE ; new, Blue
 SilphCo2FHS:
 	db SILPH_CO_2F, $02, SHOW
 	db SILPH_CO_2F, $03, SHOW
@@ -529,7 +527,7 @@ SilphCo5FHS:						; updated, +1
 	db SILPH_CO_5F, $06, SHOW
 	db SILPH_CO_5F, $07, SHOW
 	db SILPH_CO_5F, $08, SHOW
-	db SILPH_CO_5F, $09, SHOW
+	db SILPH_CO_5F, $09, SHOW ; CARD_KEY
 SilphCo6FHS:
 	db SILPH_CO_6F, $06, SHOW
 	db SILPH_CO_6F, $07, SHOW
@@ -581,7 +579,14 @@ ObsidianWarehouseHS: ; new
 	db OBSIDIAN_WAREHOUSE, $0B, SHOW
 	db OBSIDIAN_WAREHOUSE, $0C, SHOW
 	db OBSIDIAN_WAREHOUSE, $0D, SHOW
-	db OBSIDIAN_WAREHOUSE, $0E, HIDE
+LoreleisRoomHS: ; new
+	db LORELEIS_ROOM,  1, SHOW
+BrunosRoomHS: ; new
+	db BRUNOS_ROOM,    1, SHOW
+AgathasRoomHS: ; new
+	db AGATHAS_ROOM,   1, SHOW
+LancesRoomHS: ; new
+	db LANCES_ROOM,    1, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 ;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
@@ -593,13 +598,18 @@ MissableObjectsExtra: ; new, it's the "Extra" block
 	table_width 3, MissableObjectsExtra ; new, it's the "Extra" block
 ; format: map id, object id, HIDE/SHOW
 ObsidianWarehouseFinalHS: ; new
-	db OBSIDIAN_WAREHOUSE_FINAL, $01, SHOW ; James
-	db OBSIDIAN_WAREHOUSE_FINAL, $02, SHOW ; Jessie
-	db OBSIDIAN_WAREHOUSE_FINAL, $03, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $04, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $05, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $06, SHOW
-	db OBSIDIAN_WAREHOUSE_FINAL, $07, SHOW ; Giovanni
+	db OBSIDIAN_WAREHOUSE_FINAL, 01, SHOW ; James
+	db OBSIDIAN_WAREHOUSE_FINAL, 02, SHOW ; Jessie
+	db OBSIDIAN_WAREHOUSE_FINAL, 03, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, 04, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, 05, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, 06, SHOW
+	db OBSIDIAN_WAREHOUSE_FINAL, 07, SHOW ; Giovanni
+	db OBSIDIAN_WAREHOUSE_FINAL, 08, HIDE ; Blue, for RP
+	db OBSIDIAN_WAREHOUSE_FINAL, 09, HIDE ; Proton, for RP
+	db OBSIDIAN_WAREHOUSE_FINAL, 10, HIDE ; Petrel, for RP
+	db OBSIDIAN_WAREHOUSE_FINAL, 11, HIDE ; Ariana, for RP
+	db OBSIDIAN_WAREHOUSE_FINAL, 12, HIDE ; Archer, for RP
 PokemonMansion2FHS: ; edited because of rematch Blaine
 	db POKEMON_MANSION_2F, $01, HIDE
 	db POKEMON_MANSION_2F, $03, SHOW
@@ -651,6 +661,7 @@ SecludedAtollNWHS:
 ChampionsRoomHS:
 	db CHAMPIONS_ROOM, $01, SHOW ; new, to later hide the Rival when goes to HoF
 	db CHAMPIONS_ROOM, $02, HIDE
+	db CHAMPIONS_ROOM, $03, HIDE ; new, Pink
 SeafoamIslands1FHS:
 	db SEAFOAM_ISLANDS_1F, $01, SHOW
 	db SEAFOAM_ISLANDS_1F, $02, SHOW
@@ -754,14 +765,15 @@ CeladonChiefHouseHS: ; new, most of it is practically the Lunar Shrine
 	db CELADON_CHIEF_HOUSE, $01, SHOW
 	db CELADON_CHIEF_HOUSE, $02, SHOW
 	db CELADON_CHIEF_HOUSE, $03, SHOW
-	db CELADON_CHIEF_HOUSE, $05, HIDE
-	db CELADON_CHIEF_HOUSE, $06, HIDE
-	db CELADON_CHIEF_HOUSE, $07, HIDE
-	db CELADON_CHIEF_HOUSE, $08, HIDE
-	db CELADON_CHIEF_HOUSE, $09, HIDE
-	db CELADON_CHIEF_HOUSE, $0A, HIDE
-	db CELADON_CHIEF_HOUSE, $0B, HIDE
-	db CELADON_CHIEF_HOUSE, $0C, HIDE
+	db CELADON_CHIEF_HOUSE, $05, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $06, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $07, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $08, HIDE ; Rocket
+	db CELADON_CHIEF_HOUSE, $09, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0A, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0B, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0C, HIDE ; tourist
+	db CELADON_CHIEF_HOUSE, $0D, HIDE ; Blue
 SafariZoneQuadrupleRestHouseHS: ; new
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $01, SHOW ; Sara waiting for Erik
 	db SAFARI_ZONE_QUADRUPLE_REST_HOUSE, $03, HIDE ; Sara happy with Erik
@@ -888,5 +900,12 @@ ViridianGymHS:
 	db VIRIDIAN_GYM, 12, HIDE ; new, gym challenger
 	db VIRIDIAN_GYM, 13, SHOW ; REVIVE
 	db VIRIDIAN_GYM, 14, HIDE ; new, FISSURE
+Route29HS:
+	db ROUTE_29, 10, SHOW ; Slowking
+HallOfFameHS:
+	db HALL_OF_FAME, 1, SHOW ; Oak
+	db HALL_OF_FAME, 2, SHOW ; Blue
+IndigoPlateauLobbyHS: ; new
+	db INDIGO_PLATEAU_LOBBY, 8, HIDE ; Guard
 
 	db $FF, $01, SHOW ; end, list terminator

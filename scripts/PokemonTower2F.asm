@@ -1,4 +1,5 @@
 PokemonTower2F_Script:
+	RPTextChooser PokemonTower2F_TextPointers, PokemonTower2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower2F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -20,6 +21,8 @@ IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	ret nz ; new for RP
 	CheckEvent EVENT_BEAT_POKEMON_TOWER_RIVAL
 	ret nz
 	ld hl, CoordsData_6055e
@@ -128,6 +131,12 @@ PokemonTower2F_TextPointers:
 	; signs
 	dw PokemonTower2FSignText1 ; new
 
+PokemonTower2F_TextPointers_Rocket:
+	dw PokemonTower2Text1 ; Blue (useless)
+	dw GenericNPCText_RocketPath ; Channeler
+	; signs
+	dw PokemonTower2FSignText1
+
 PokemonTower2Text1:
 	text_asm
 	CheckEvent EVENT_BEAT_POKEMON_TOWER_RIVAL
@@ -150,7 +159,6 @@ PokemonTower2Text1:
 	ld [wTrainerNo], a
 	ld a, 1                          ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-
 	ld a, $1
 	ld [wCurMapScript], a
 .asm_41852

@@ -19,6 +19,8 @@ MACRO dict
 	jp z, \2
 ENDM
 
+; new =====================================
+
 MACRO switch_sram_bank
 ; assumes that the requested bank (0-3) is in register a
 	push bc
@@ -29,4 +31,16 @@ MACRO switch_sram_bank
 	add b ; add the requested bank
 	ld [MBC1SRamBank], a ; write to hardware register $4000
 	pop bc
+ENDM
+
+MACRO RPTextChooser
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, \2
+	jr nz, .pointersFound
+	ld hl, \1
+.pointersFound
+	ld a, l
+	ld [wMapTextPtr], a
+	ld a, h
+	ld [wMapTextPtr+1], a
 ENDM

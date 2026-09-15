@@ -1,4 +1,5 @@
 SSAnne1FRooms_Script:
+	RPTextChooser SSAnne1FRooms_TextPointers, SSAnne1FRooms_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SSAnne8TrainerHeaders
 	ld de, SSAnne1FRooms_ScriptPointers
@@ -11,20 +12,37 @@ SSAnne1FRooms_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw SSAnne1FRooms_Script3 ; new for RP
 
 SSAnne1FRooms_TextPointers:
-	dw SSAnne8Text1
-	dw SSAnne8Text2
-	dw SSAnne8Text3
-	dw SSAnne8Text4
+	dw SSAnne8Text1 ; trainer
+	dw SSAnne8Text2 ; trainer
+	dw SSAnne8Text3 ; trainer
+	dw SSAnne8Text4 ; trainer
 	dw SSAnne8Text5
 	dw SSAnne8Text6
 	dw SSAnne8Text7
-	dw SSAnne8Text8
+	dw SSAnne8Text8 ; Mon
 	dw SSAnne8Text9
 	dw PickUpItemText
-	dw SSAnne8Text11
+	dw SSAnne8Text11 ; detective
 	dw SSAnne8Text12 ; new
+
+SSAnne1FRooms_TextPointers_Rocket:
+	dw SSAnne8Text1 ; trainer
+	dw SSAnne8Text2 ; trainer
+	dw SSAnne8Text3 ; trainer
+	dw SSAnne8Text4 ; trainer
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SSAnne8Text8 ; Mon
+	dw GenericNPCText_RocketPath
+	dw PickUpItemText
+	dw SSAnne8Text11_RP ; detective
+	dw SSAnne8Text12_NP ; nurse
+	; scripts
+	dw SSAnne8Text13_RP ; detective post-battle
 
 SSAnne8TrainerHeaders:
 	def_trainers
@@ -175,3 +193,75 @@ SSAnne8Text12_BeforeHeal:
 SSAnne8Text12_AfterHeal:
 	text_far _SSAnne8Text12_AfterHeal
 	text_end
+
+SSAnne8Text12_NP:
+	text_far _SSAnne8Text12_NP
+	text_end
+
+SSAnne8Text11_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_SS_ANNE_AGENT
+	ld hl, SSAnne8Text11_RP_PostBattle
+	jr nz, .printAndEnd
+; battle
+	ld c, BANK(Music_MeetMaleTrainer)
+	ld a, MUSIC_MEET_MALE_TRAINER
+	call PlayMusic
+	ld hl, SSAnne8Text11_RP_BeforeBattle
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_GENTLEMAN
+	ld [wCurOpponent], a
+	ld a, 9
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SSAnne8Text11_RP_AfterVictory
+	ld de, SSAnne8Text11_RP_AfterVictory
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, 3
+	ld [wCurMapScript], a
+	jr .done
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SSAnne8Text11_RP_PostBattle:
+	text_far _SSAnne8Text11_RP_PostBattle
+	text_end
+
+SSAnne8Text11_RP_BeforeBattle:
+	text_far _SSAnne8Text11_RP_BeforeBattle
+	text_end
+
+SSAnne8Text11_RP_AfterVictory:
+	text_far _SSAnne8Text11_RP_AfterVictory
+	text_end
+
+SSAnne8Text13_RP:
+	text_far _SSAnne8Text13_RP
+	text_end
+
+SSAnne1FRooms_Script3:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SSAnne1FRoomsResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	SetEvent EVENT_RP_BEAT_SS_ANNE_AGENT
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	jp SSAnne1FRoomsResetScripts
+
+SSAnne1FRoomsResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret

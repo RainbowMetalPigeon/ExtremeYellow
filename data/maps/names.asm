@@ -118,6 +118,7 @@ TwoIsletName:             db "BOON ISLET@"
 TwoIsletDiveName:         db "SUB BOON ISLET@"
 TwoIsletRockMazeName:     db "PELAGIC MAZE@"
 TwoIsletRockMazeDiveName: db "SUB PELAGIC MAZE@"
+SeviiFourIslandParkourPathName: db "PARKOUR PATH@"
 
 OneUndergroundName:       db "KNOT UNDERGRO.@"
 TwoUndergroundName:       db "BOON UNDERGRO.@"

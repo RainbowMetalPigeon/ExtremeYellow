@@ -10,15 +10,16 @@ SeviiSixIslandCity_Object:
 	warp_event 15,  5, SEVII_SIX_ISLAND_HOUSES, 1
 
 	def_bg_events
-	bg_event  9,  9,  4 ; SeviiSixIslandCitySignText1
-	bg_event 15, 13,  5 ; SeviiSixIslandCitySignText2
-	bg_event 18,  7,  6 ; SeviiSixIslandCitySignText3
-	bg_event  6,  5,  7 ; PokeCenterSignText
-	bg_event 12,  5,  8 ; MartSignText
+	bg_event  9,  9,  5 ; SeviiSixIslandCitySignText1
+	bg_event 15, 13,  6 ; SeviiSixIslandCitySignText2
+	bg_event 18,  7,  7 ; SeviiSixIslandCitySignText3
+	bg_event  6,  5,  8 ; PokeCenterSignText
+	bg_event 12,  5,  9 ; MartSignText
 
 	def_object_events
-	object_event  7, 10, SPRITE_BEAUTY, WALK, UP_DOWN, 1
-	object_event  9,  6, SPRITE_BRUNETTE_GIRL, WALK, LEFT_RIGHT, 2
+	object_event  7, 10, SPRITE_BEAUTY, WALK, LEFT_RIGHT, 1
+	object_event 10,  8, SPRITE_BRUNETTE_GIRL, WALK, UP_DOWN, 2
 	object_event 13,  7, SPRITE_HIKER, STAY, RIGHT, 3
+	object_event 19,  6, SPRITE_PINK, STAY, LEFT, 4
 
 	def_warps_to SEVII_SIX_ISLAND_CITY

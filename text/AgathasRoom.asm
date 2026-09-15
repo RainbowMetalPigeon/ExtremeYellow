@@ -125,3 +125,41 @@ _AgathaAfterBattleTextRematch2::
 	cont "our INDIGO ORDEAL."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_AgathaBeforeBattleText_RP::
+	text "before"
+	line "Agatha"
+;	xxxx "123456789012345678"
+	done
+
+_AgathaEndBattleText_RP::
+	text "end"
+	line "Agatha"
+;	xxxx "123456789012345678"
+	prompt
+
+_AgathaAfterBattleText_RP::
+	text "after"
+	line "Agatha"
+;	xxxx "123456789012345678"
+	done
+
+_AgathaBeforeBattleText_RP_Pink::
+	text "before"
+	line "Agatha Pink"
+;	xxxx "123456789012345678"
+	done
+
+_AgathaEndBattleText_RP_Pink::
+	text "end"
+	line "Agatha Pink"
+;	xxxx "123456789012345678"
+	prompt
+
+_AgathaAfterBattleText_RP_Pink::
+	text "after"
+	line "Agatha Pink"
+;	xxxx "123456789012345678"
+	done

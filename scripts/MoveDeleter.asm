@@ -1,6 +1,10 @@
 MoveDeleterText1:
 	text_asm
 	ld hl, MoveDeleterGreetingText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP1
+	ld hl, MoveDeleterGreetingText_RP
+.printRP1
 	call PrintText
 .jumpback
 	call YesNoChoice
@@ -8,6 +12,10 @@ MoveDeleterText1:
 	and a
 	jp nz, .exit
 	ld hl, MoveDeleterSaidYesText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP2
+	ld hl, MoveDeleterSaidYesText_RP
+.printRP2
 	call PrintText
 	; Select pokemon from party.
 	call SaveScreenTilesToBuffer2
@@ -32,6 +40,10 @@ MoveDeleterText1:
 	cp 2
 	jr nc, .chooseMove
 	ld hl, MoveDeleterOneMoveText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP3
+	ld hl, MoveDeleterOneMoveText_RP
+.printRP3
 	call PrintText
 	jr .jumpback
 .chooseMove
@@ -40,6 +52,10 @@ MoveDeleterText1:
 	ld [wListScrollOffset], a
 	ld [wCurrentMenuItem], a
 	ld hl, MoveDeleterWhichMoveText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP4
+	ld hl, MoveDeleterWhichMoveText_RP
+.printRP4
 	call PrintText
 	ld a, MOVESLISTMENU
 	ld [wListMenuID], a
@@ -63,6 +79,10 @@ MoveDeleterText1:
 	call GetMoveName
 	call CopyToStringBuffer ; copy name to wcf4b
 	ld hl, MoveDeleterConfirmText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP5
+	ld hl, MoveDeleterConfirmText_RP
+.printRP5
 	call PrintText
 	call YesNoChoice
 	pop bc
@@ -80,9 +100,17 @@ MoveDeleterText1:
 	pop de ; d = move id
 	call DeleteMove
 	ld hl, MoveDeleterForgotText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP6
+	ld hl, MoveDeleterForgotText_RP
+.printRP6
 	call PrintText
 .exit
 	ld hl, MoveDeleterByeText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printRP7
+	ld hl, MoveDeleterByeText_RP
+.printRP7
 	call PrintText
 	jp TextScriptEnd
 
@@ -175,4 +203,34 @@ MoveDeleterByeText:
 
 MoveDeleterOneMoveText:
 	text_far _MoveDeleterOneMoveText
+	text_end
+
+; new for RP ===============================
+
+MoveDeleterGreetingText_RP:
+	text_far _MoveDeleterGreetingText_RP
+	text_end
+
+MoveDeleterSaidYesText_RP:
+	text_far _MoveDeleterSaidYesText_RP
+	text_end
+
+MoveDeleterWhichMoveText_RP:
+	text_far _MoveDeleterWhichMoveText_RP
+	text_end
+
+MoveDeleterConfirmText_RP:
+	text_far _MoveDeleterConfirmText_RP
+	text_end
+
+MoveDeleterForgotText_RP:
+	text_far _MoveDeleterForgotText_RP
+	text_end
+
+MoveDeleterByeText_RP:
+	text_far _MoveDeleterByeText_RP
+	text_end
+
+MoveDeleterOneMoveText_RP:
+	text_far _MoveDeleterOneMoveText_RP
 	text_end

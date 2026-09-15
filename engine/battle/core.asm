@@ -185,6 +185,8 @@ MainInBattleLoop:
 ; the player is neither thrashing about nor charging for an attack
 	call DisplayBattleMenu ; show battle menu
 	ret c ; return if player ran from battle
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON ; new for RP
+	jp nz, HandleEnemyMonFainted ; new for RP
 	ld a, [wEscapedFromBattle]
 	and a
 	ret nz ; return if pokedoll was used to escape from battle
@@ -584,6 +586,10 @@ FaintEnemyPokemon:
 	ld a, d
 	and a
 	ret z
+; new for RP
+	CheckAndResetEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jp nz, SaveScreenTilesToBuffer1
+; BTV
 	ld hl, EnemyMonFaintedText
 	call PrintText
 	call PrintEmptyString
@@ -801,10 +807,14 @@ TrainerBattleVictory:
 	ret z ; does ret work?
 ; win money
 ; new, to implement Amulet Coin
+; new, double money also if we are on Rocket Path
 .giveMoney ; new
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .doubleMoney
 	ld b, AMULET_COIN
 	call IsItemInBag ; set zero flag if item isn't in player's bag
 	jr z, .noAmuletCoin
+.doubleMoney
 	ld de, wAmountMoneyWon + 2
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3
@@ -2385,6 +2395,8 @@ DisplayPlayerBag:
 	ld [wListPointer + 1], a
 
 DisplayBagMenu:
+	ld a, [wWhichPokemon] ; new for RP
+	ld [wWhichPokemonBackup], a ; new for RP
 	xor a
 	ld [wPrintItemPrices], a
 	ld a, ITEMLISTMENU
@@ -2400,7 +2412,7 @@ DisplayBagMenu:
 	jp c, DisplayBattleMenu ; go back to battle menu if an item was not selected
 
 UseBagItem:
-	; either use an item from the bag or use a safari zone item
+; either use an item from the bag or use a safari zone item
 	ld a, [wcf91]
 	ld [wd11e], a
 	call GetItemName
@@ -2442,12 +2454,24 @@ UseBagItem:
 	call DrawHUDsAndHPBars
 	call Delay3
 .returnAfterUsingItem_NoCapture
-
 	call GBPalNormal
 	and a ; reset carry
 	ret
 
 .returnAfterCapturingMon
+; new for RP
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jr z, .notRP
+; is it a trainer battle?
+	ld a, [wIsInBattle]
+	cp 2
+	jr nz, .notRP
+; we stole a trainer's mon
+	xor a
+	ld [wCapturedMonSpecies], a
+	jr .returnAfterUsingItem_NoCapture
+.notRP
+; BTV
 	call GBPalNormal
 	xor a
 	ld [wCapturedMonSpecies], a
@@ -4445,6 +4469,10 @@ CheckForDisobedience:
 	jr nc, .notStarterPikachu
 ; check for Pikachu happiness, using same thresholds as for the overworld emotions (see engine/pikachu/pikachu_pic_animation.asm)
 ; 50 - 100 - 130 - 160 - 200 - 250 - 255
+; if RP: Pikachu just disobeys
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .pikachuDisobeyed
+; not RP
 	call BattleRandom
 	ld b, a ; now b holds a random number
 	ld a, [wPikachuHappiness]
@@ -4505,10 +4533,10 @@ CheckForDisobedience:
 .notStarterPikachu
 ; what level might disobey? - modified, added threshold at every badge and for post-League
 ; modified further to add CAP options
-	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; having this check here before wLevelCapOption makes so that MissignNo will disobey regardless
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jp nz, .canUseMove ; new
+	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE ; new
 	jp nz, .canUseMove ; edited
-;	ld a, 101
-;	jr nz, .next
 ; now we check how many badges we have and set the cap accordingly
 	ld a, [wLevelCapOption] ; 0 obed loose, 1 obed tight, 2 level loose, 3 level tight, 4 none
 	cp 2
@@ -7118,8 +7146,13 @@ LoadEnemyMonData:
 	ld [wEnemyMonHP + 1], a
 .nottrainer2
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; new/edited for RP
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jr nz, .skipRewrite
 	ld a, [wWhichPokemon]
 	ld [wEnemyMonPartyPos], a
+.skipRewrite
+; BTV
 	inc hl
 	ld a, [hl]
 	ld [wEnemyMonStatus], a

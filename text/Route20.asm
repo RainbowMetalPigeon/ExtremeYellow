@@ -296,3 +296,11 @@ _Route20ScriptText2::
 	cont "quest. See ya!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP =====================
+
+_Route20ScriptText2_RP::
+	text "post-battle"
+	line "R 20"
+;	xxxx "123456789012345678"
+	done

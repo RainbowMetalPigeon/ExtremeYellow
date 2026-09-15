@@ -1,11 +1,32 @@
 SeviiRoute38Houses_Script:
-	jp EnableAutoTextBoxDrawing
+	RPTextChooser SeviiRoute38Houses_TextPointers, SeviiRoute38Houses_TextPointers_Rocket
+	call EnableAutoTextBoxDrawing
+	ld hl, SeviiRoute38Houses_ScriptPointers
+	ld a, [wCurMapScript]
+	jp CallFunctionInTable
+
+SeviiRoute38Houses_ScriptPointers:
+	dw SeviiRoute38Houses_Null ; 0
+	dw SeviiRoute38Houses_PostBattle ; 1
+
+SeviiRoute38Houses_Null:
+	ret
 
 SeviiRoute38Houses_TextPointers:
-	dw SeviiRoute38HousesText1
-	dw SeviiRoute38HousesText2
-	dw SeviiRoute38HousesText3
-	dw SeviiRoute38HousesText4
+	dw SeviiRoute38HousesText1 ; Dive Expert
+	dw SeviiRoute38HousesText2 ; Imposter
+	dw SeviiRoute38HousesText3 ; person
+	dw SeviiRoute38HousesText4 ; paper
+	; signs
+	dw SeviiRoute38HousesSignText1
+	dw SeviiRoute38HousesSignText2
+	dw SeviiRoute38HousesSignText3
+
+SeviiRoute38Houses_TextPointers_Rocket:
+	dw SeviiRoute38HousesText1_RP ; Dive Expert
+	dw SeviiRoute38HousesText2_RP ; Imposter
+	dw GenericNPCText_RocketPath ; person
+	dw SeviiRoute38HousesText4 ; paper
 	; signs
 	dw SeviiRoute38HousesSignText1
 	dw SeviiRoute38HousesSignText2
@@ -206,4 +227,80 @@ SeviiRoute38HousesSignText2:
 
 SeviiRoute38HousesSignText3:
 	text_far _SeviiRoute38HousesSignText3
+	text_end
+
+; new for RP =================================
+
+SeviiRoute38HousesText1_RP:
+	text_asm
+	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	ld hl, SeviiRoute38HousesText1_RP_PostTank
+	jr nz, .printAndEnd
+; before tank
+	CheckEvent EVENT_RP_BEAT_DIVER_EXPERT
+	jr nz, .giveTank
+; set up the battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_DIVER
+	ld [wCurOpponent], a
+	ld a, 42
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+;	call SaveEndBattleTextPointers ; unnecessary in RP
+	ld a, 1
+	ld [wCurMapScript], a
+	ld hl, SeviiRoute38HousesText1_RP_BeforeTank
+	jr .printAndEnd
+.giveTank
+	ld hl, SeviiRoute38HousesText1_RP_TakeThis
+	call PrintText
+	SetEvent EVENT_DIVE_GOT_OXYGEN_TANK
+	ld hl, SeviiRoute38HousesText1_RP_ObtainTank
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiRoute38HousesText1_RP_PostTank:
+	text_far _SeviiRoute38HousesText1_RP_PostTank
+	text_end
+
+SeviiRoute38HousesText1_RP_BeforeTank:
+	text_far _SeviiRoute38HousesText1_RP_BeforeTank
+	text_end
+
+SeviiRoute38HousesText1_RP_TakeThis:
+	text_far _SeviiRoute38HousesText1_RP_TakeThis
+	text_end
+
+SeviiRoute38HousesText1_RP_ObtainTank:
+	text_far _SeviiRoute38HousesText1_GetsTank
+	sound_get_item_2
+	text_end
+
+SeviiRoute38Houses_PostBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiRoute38HousesResetScripts
+	ld a, $f0
+	ld [wJoyIgnore], a
+; we won
+	SetEvent EVENT_RP_BEAT_DIVER_EXPERT
+	xor a
+	ld [wJoyIgnore], a
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	; fallthrough
+SeviiRoute38HousesResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+SeviiRoute38HousesText2_RP:
+	text_far _SeviiRoute38HousesText2_RP
 	text_end

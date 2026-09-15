@@ -1,4 +1,5 @@
 SilphCo10F_Script:
+	RPTextChooser SilphCo10F_TextPointers, SilphCo10F_TextPointers_Rocket
 	call SilphCo10Script_5a14f
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo10TrainerHeaders
@@ -43,6 +44,14 @@ SilphCo10F_TextPointers:
 	dw SilphCo10Text1
 	dw SilphCo10Text2
 	dw SilphCo10Text3
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+
+SilphCo10F_TextPointers_Rocket:
+	dw SilphCo10Text1
+	dw SilphCo10Text2
+	dw SilphCo10F_TextPointers
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText

@@ -1,4 +1,5 @@
 Route25_Script:
+	RPTextChooser Route25_TextPointers, Route25_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags ; new
 	bit 5, [hl]
 	res 5, [hl]
@@ -9,7 +10,7 @@ Route25_Script:
 	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
 	ld [wCurMapScript], a ; edited
-	call Route25Script_515e1
+	call Route25ToggleBillsScript
 	ret
 
 Route25OpenPathToHauntedHouse: ; new
@@ -49,7 +50,10 @@ Route25OpenPathToHauntedHouse_Core:
 
 	ret
 
-Route25Script_515e1:
+Route25ToggleBillsScript: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+; BTV
 	ld hl, wd492
 	res 2, [hl]
 	res 3, [hl]
@@ -214,6 +218,33 @@ Route25_TextPointers:
 	dw Route25TextToHauntedHouseMessage1 ; 21
 	dw Route25TextToHauntedHouseMessage2 ; 22
 	dw Route25TextToHauntedHouseMessage3 ; 23
+
+Route25_TextPointers_Rocket:
+	dw Route25Text1
+	dw Route25Text2
+	dw Route25Text3
+	dw Route25Text4
+	dw Route25Text5
+	dw Route25Text6
+	dw Route25Text7
+	dw Route25Text8
+	dw Route25Text9
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Route25Text11 ; 15
+	dw Route25TextLockedAndAbandoned1 ; 16
+	dw Route25TextLockedAndAbandoned2 ; 17
+	dw Route25TextLockedAndAbandoned3 ; 18
+	dw Route25TextLockedAndAbandoned4 ; 19
+	; scripts
+	dw Route25TextCompleted666Steps_RP ; 20
+	dw Route25TextToHauntedHouseMessage1_RP ; 21
+	dw Route25TextToHauntedHouseMessage2_RP ; 22
+	dw Route25TextToHauntedHouseMessage3_RP ; 23
 
 Route25TrainerHeaders:
 	def_trainers
@@ -430,4 +461,22 @@ Route25TextLockedAndAbandoned2:
 Route25TextLockedAndAbandoned3:
 Route25TextLockedAndAbandoned4:
 	text_far _Route25TextLockedAndAbandoned
+	text_end
+
+; new for RP =============================
+
+Route25TextCompleted666Steps_RP:
+	text_far _Route25TextCompleted666Steps_RP
+	text_end
+
+Route25TextToHauntedHouseMessage1_RP:
+	text_far _Route25TextToHauntedHouseMessage1_RP
+	text_end
+
+Route25TextToHauntedHouseMessage2_RP:
+	text_far _Route25TextToHauntedHouseMessage2_RP
+	text_end
+
+Route25TextToHauntedHouseMessage3_RP:
+	text_far _Route25TextToHauntedHouseMessage3_RP
 	text_end

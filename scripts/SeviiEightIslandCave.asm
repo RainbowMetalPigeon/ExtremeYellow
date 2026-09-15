@@ -1,4 +1,5 @@
 SeviiEightIslandCave_Script:
+	RPTextChooser SeviiEightIslandCave_TextPointers, SeviiEightIslandCave_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiEightCave_ScriptPointers
 	ld a, [wCurMapScript]
@@ -441,6 +442,11 @@ SeviiEightIslandCave_TextPointers:
 	dw SeviiEightIslandCaveTextScript16 ; 16, Pink goes away
 	dw SeviiEightIslandCaveTextScript17 ; 17, Suujero comment
 	dw SeviiEightIslandCaveTextScript18 ; 18, Suujero congratulates
+
+SeviiEightIslandCave_TextPointers_Rocket:
+	dw SeviiEightIslandCaveText1 ; Suujero TBE
+	dw SeviiEightIslandCaveText2 ; Blue TBE
+	dw SeviiEightIslandCaveText3 ; Pink TBE
 
 ; Suujero ------------------------------------
 

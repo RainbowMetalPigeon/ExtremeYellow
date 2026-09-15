@@ -1,4 +1,5 @@
 SeviiRoute34_Script:
+	RPTextChooser SeviiRoute34_TextPointers, SeviiRoute34_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute34TrainerHeaders
 	ld de, SeviiRoute34_ScriptPointers
@@ -19,6 +20,14 @@ SeviiRoute34_TextPointers:
 	dw SeviiRoute34Text4 ; trainer
 	dw SeviiRoute34Text5 ; trainer
 	dw SeviiRoute34Text6 ; underground guard
+
+SeviiRoute34_TextPointers_Rocket:
+	dw SeviiRoute34Text1_RP ; Amulet Coin gifter
+	dw SeviiRoute34Text2 ; trainer
+	dw SeviiRoute34Text3 ; trainer
+	dw SeviiRoute34Text4 ; trainer
+	dw SeviiRoute34Text5 ; trainer
+	dw SeviiRoute34Text6_RP ; underground guard
 
 SeviiRoute34TrainerHeaders:
 	def_trainers 2
@@ -175,4 +184,15 @@ SeviiRoute34Text1_BagFull:
 
 SeviiRoute34Text6:
 	text_far _SeviiUndergroundCaveGuardText
+	text_end
+
+; new for RP ======================
+
+SeviiRoute34Text6_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd
+
+SeviiRoute34Text1_RP:
+	text_far _SeviiRoute34Text1_RP
 	text_end

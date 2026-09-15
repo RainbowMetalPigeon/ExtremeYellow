@@ -1,10 +1,7 @@
 _SeviiOneIslandCityText1::
-	text "Celio"
-;	xxxx "123456789012345678"
-	done
-
 _SeviiOneIslandCityText2::
-	text "Jenny"
+_SeviiOneIslandHousesText13_RP::
+	text "!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -330,7 +327,7 @@ _SeviiOneIslandHousesText6::
 	done
 
 _SeviiOneIslandHousesText7::
-	text "PINK: proxy"
+	text "!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -549,7 +546,7 @@ _SeviiOneIslandHousesScriptText2::
 _CeliosHousePinkDefeatedText::
 	text "I see."
 	line "So this is the"
-	cont "minimum strenght"
+	cont "minimum strength"
 	cont "I must acquire."
 	prompt
 
@@ -1032,7 +1029,7 @@ _SeviiEmberSpaText1_HaveThis::
 
 	para "I just want to"
 	line "relax..."
-	done
+	prompt
 
 _SeviiEmberSpaText1_GotHM::
 	text "<PLAYER> received"
@@ -1213,5 +1210,564 @@ _SeviiRoute32DiveAfterBattleText3::
 
 	para "(Where's your"
 	line "diving equipment?)"
+;	xxxx "123456789012345678"
+	done
+
+; new for RP ===================================
+
+_SeviiOneIslandDockSailorText_NeedAMoment_RP::
+	text "We must refuel."
+	line "Can't leave now."
+;	xxxx "123456789012345678"
+	done
+
+; 18 ; Celio and Jenny
+_SeviiOneIslandCityScriptText1_RP::
+	text "JENNY: CELIO, I"
+	line "must ask you to"
+	cont "stay calm."
+
+	para "CELIO: Calm?!"
+	line "My kid has been"
+	cont "kidnapped, and"
+	cont "you ask me to"
+	cont "stay calm?!"
+
+	para "JENNY: We are"
+	line "investigating the"
+	cont "suspects, TEAM"
+	cont "ROCKET, and..."
+;	xxxx "123456789012345678"
+	done
+
+; 19 ; Jenny sees you
+_SeviiOneIslandCityScriptText2_RP::
+	text "JENNY: Speak of"
+	line "the devil!"
+;	xxxx "123456789012345678"
+	done
+
+; 20 ; Jenny challenges you
+_SeviiOneIslandCityScriptText3_RP::
+	text "JENNY: You're"
+	line "coming with me."
+	cont "I've a looot of"
+	cont "questions for you!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandCityText_AfterFightJenny::
+	text "Damn!"
+	line "How could I lose?"
+;	xxxx "123456789012345678"
+	prompt
+
+; 21 ; Jenny defeated
+_SeviiOneIslandCityScriptText4_RP::
+	text "JENNY: Tsk. This"
+	line "is out of my"
+	cont "league. I must"
+	cont "report to the"
+	cont "central."
+;	xxxx "123456789012345678"
+	done
+
+; 22 ; Celio scared
+_SeviiOneIslandCityScriptText5_RP::
+	text "CELIO: JE-JENNY?!"
+	line "They just left?!"
+	cont "If not even the"
+	cont "police can do"
+	cont "anything..."
+;	xxxx "123456789012345678"
+	done
+
+; 23 ; Celio mega scared
+_SeviiOneIslandCityScriptText6_RP::
+	text "CELIO: Stop! Don't"
+	line "come any closer!"
+
+	para "AAAHHH! I can't!"
+	line "I can't take this"
+	cont "anymore! No!!!"
+
+	para "I only want my kid"
+	line "back! What did I"
+	cont "do to deserve"
+	cont "any of this?!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText2_RP::
+	text "CELIO: MAYOI..."
+	line "How are you..."
+	cont "What can I do..."
+	cont "FAMILY..."
+	cont "ROCKET..."
+
+	para "Illegal, immoral,"
+	line "blasphemous,"
+	cont "can't do..."
+
+	para "MAYOI..."
+	line "Must do..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText8_RP::
+	text "Not a #MON,"
+	line "just a plushie."
+
+	para "Can't fight."
+	line "Hence, useless."
+	done
+
+_SeviiOneIslandHousesText9::
+	text "Gnam...?"
+
+	para "What's a ROCKET"
+	line "doing here?"
+	cont "As if people like"
+	cont "you could under-"
+	cont "stand the joy of"
+	cont "eating and"
+	cont "sleeping..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText3_RP_BeforePink::
+	text "CELIO: Why are you"
+	line "back? What do y-"
+
+	para "WHAT?!"
+
+	para "MAYOI... One piece"
+	line "at the tim..."
+	cont "Ugh... I don't"
+	cont "feel well..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText3_RP_AfterPink::
+	text "CELIO: Stop..."
+	line "Please, stop..."
+
+	para "I give in."
+	line "I surrender."
+	cont "I'll do anything"
+	cont "you want."
+	cont "I'll work to death"
+	cont "on the system"
+	cont "that your BOSS"
+	cont "demands to force-"
+	cont "fully raise"
+	cont "#MON's LVL."
+
+	para "Hacking life."
+	line "Playing god."
+
+	para "I'll do it."
+	line "I'll stain myself"
+	cont "with this"
+	cont "abominable sin."
+	cont "I'll do anything,"
+	cont "but please,"
+	cont "I BEG YOU,"
+	cont "stop hurting my"
+	cont "family."
+
+	para "I don't want to"
+	line "see PINK hurt,"
+	cont "and I want to"
+	cont "hug MAYOI..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText12_RP_BeforePink::
+	text "???: Are you"
+	line "the scum that"
+	cont "kidnapped MAYOI?"
+
+	para "No? Oh, so you"
+	line "'just' beat that"
+	cont "officer and a kid"
+	cont "that tried to"
+	cont "rescue my nephew."
+
+	para "You filthy..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText12_RP_AfterPink::
+	text "PINK's DAD: How"
+	line "do you dare!"
+	cont "MAYOI is but a"
+	cont "small kid, and"
+	cont "PINK has never"
+	cont "fought before!"
+
+	para "If only I was a"
+	line "trainer... but I'm"
+	cont "so powerless."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText1_RP::
+	text "???: Auncle CELIO!"
+	line "How is MAYOI?!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText2_RP::
+	text "???: Who are you?!"
+	line "Where's MAYOI?!"
+
+	para "CELIO: PINK! What"
+	line "are you doing"
+	cont "here?!"
+
+	para "PINK's DAD: PINK!"
+	line "I told you to"
+	cont "stay home! It's"
+	cont "dangerous here!"
+
+	para "PINK: That's why"
+	line "I had to come!"
+	cont "My cousin's been"
+	cont "kidnapped and my"
+	cont "auncle black-"
+	cont "mailed, how could"
+	cont "I stand still?"
+
+	para "CELIO: PINK..."
+	line "Please leave now."
+	cont "This person is"
+	cont "dangerous."
+	cont "Don't worry, I'll"
+	cont "do what they ask."
+	cont "MAYOI won't get"
+	cont "hurt."
+
+	para "PINK's DAD: PINK,"
+	line "I understand how"
+	cont "you feel, but..."
+
+	para "PINK: No buts!"
+	line "You! You monster!"
+	cont "I'll destroy you,"
+	cont "here and now!"
+
+	para "PINK's DAD: No!"
+	line "Wait! You never"
+	cont "battled before!"
+
+	para "PINK: It doesn't"
+	line "matter! I can't"
+	cont "have this"
+	cont "criminal in front"
+	cont "of me and do"
+	cont "nothing!"
+	cont "You! You're going"
+	cont "down!"
+;	xxxx "123456789012345678"
+	done
+
+_CeliosHousePinkDefeatedText_RP::
+	text "Damn!"
+	line "It can't be!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CeliosHousePinkBeatYouText_RP::
+	text "I did it!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesScriptText3_RP::
+	text "PINK: ...grrr."
+	line "I am too weak."
+
+	para "You won this time,"
+	line "but stay assured,"
+	cont "you made yourself"
+	cont "an enemy for life!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText4_RP::
+	text "CELIO: ...PINK..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PreGiovanni::
+	text "CELIO: I'm already"
+	line "working on your"
+	cont "BOSS' demands."
+	cont "Please, return me"
+	cont "MAYOI. Please."
+;	xxxx "123456789012345678"
+	done
+
+
+
+
+
+_SeviiOneIslandHousesText4_RP_PostGiovanni::
+	text "CELIO: You are"
+	line "here..."
+
+	para "I did it."
+	line "I fulfilled the"
+	cont "ungodly request"
+	cont "of your BOSS at"
+	cont "the best of my"
+	cont "possibilities."
+
+	para "Go check my PC."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostOrmPrePC::
+	text "CELIO: So there"
+	line "was a... change"
+	cont "of direction in"
+	cont "TEAM ROCKET?"
+
+	para "This won't alter"
+	line "our agreement,"
+	cont "right...?"
+	cont "I did what your"
+	cont "BO- I mean, what"
+	cont "GIOVANNI asked"
+	cont "me, so now you"
+	cont "will return me"
+	cont "MAYOI, right...?"
+
+	para "...phew. I see."
+	line "Yes, of course,"
+	cont "check my PC."
+	cont "It's how GIOVANNI"
+	cont "demanded."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostPC::
+	text "CELIO: ...?!"
+	line "What do you mean"
+	cont "'It's not what"
+	cont "we asked'?!"
+
+	para "It's physically"
+	line "impossible to"
+	cont "alter the data of"
+	cont "stored #MON!"
+
+	para "The only thing I"
+	line "could do was to"
+	cont "hack an infinite"
+	cont "amount of those"
+	cont "items, which"
+	cont "together have the"
+	cont "same effect as..."
+
+	para "...I... didn't"
+	line "hold my part of"
+	cont "the agreement...?"
+
+	para "I... will never"
+	line "see MAYOI again?!"
+
+	para "WHAT? AND YOU ANY-"
+	line "HOW HAVE NO IDEA"
+	cont "WHERE THEY ARE?!"
+
+	para "No... this is a"
+	line "joke, right?"
+
+	para "...GIOVANNI was"
+	line "the only one"
+	cont "knowing, and now"
+	cont "they're dead...?"
+
+	para "...I..."
+	line "Don't feel well..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText4_RP_PostMayoi::
+	text "CELIO: MAYOI..."
+
+	para "MAYOI..."
+
+	para "MAYOI..."
+
+	para "MAYOI..."
+
+	para "MAYOI..."
+
+	para "It seems their"
+	line "mind's completely"
+	cont "broken."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText6_RP::
+	text "ORM: YOU FUCKING"
+	line "BASTARD ASSASSIN!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText7_RP::
+	text "ORM: You..."
+	line "You dared to..."
+
+	para "KILL GIOVANNI!"
+	
+	para "GIOVANNI was the"
+	line "most astounding"
+	cont "person to have"
+	cont "ever lived!"
+
+	para "They were my guide"
+	line "and my goal in"
+	cont "life! And you..."
+
+	para "YOU TOOK THEM"
+	line "AWAY FROM ME!"
+
+	para "I'LL KILL YOU!!!"
+;	xxxx "123456789012345678"
+	done
+
+_CeliosHouseOrmDefeatedText_RP::
+	text "Urrrgh!"
+	line "So this is HOW"
+	cont "you managed to"
+	cont "beat GIOVANNI...!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesScriptText8_RP::
+	text "ORM: GIOVANNI, I"
+	line "failed you again."
+	cont "I failed you in"
+	cont "life and in"
+	cont "revenge."
+
+	para "<PLAYER>, you will"
+	line "NEVER be my BOSS!"
+	cont "Do your worst,"
+	cont "I will NEVER"
+	cont "betray GIOVANNI!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText9_RP::
+	text "ORM: AAUUURRRGGGH!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_AccessPC::
+	text "<PLAYER> accesses"
+	line "CELIO's hacked"
+	cont "network!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_GotCandy::
+	text "<PLAYER> downloads"
+	line "a LEGEND CANDY!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiOneIslandHousesSignText4_RP_GotPerfecters::
+	text "<PLAYER> downloads"
+	line "a PERFECTER!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_NoRoom::
+	text "No more space to"
+	line "download anything!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText1_After_RP::
+	text "If you relaxed..."
+	line "You wouldn't have"
+	cont "su much anger..."
+	cont "And then...."
+	cont "You wouldn't be"
+	cont "in TEAM ROCKET..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText1_HaveThis_RP::
+	text "You want this...?"
+	line "Sure..."
+	cont "I don't need it..."
+	cont "And I don't want"
+	cont "problems..."
+	cont "I just want to"
+	cont "relax..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText2_RP::
+	text "Why doing evil..."
+	line "When can relax?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText3_RP::
+	text "Relax is..."
+	line "Better than crime."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiEmberSpaText4_RP::
+	text "Bad? No..."
+	line "Bed? Yes..."
+
+	para "Bat? No..."
+	line "Bath? Yes..."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesScriptText5_RP::
+	text "Tch..."
+	line "Let's just get"
+	cont "done quickly."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Intro_RP::
+	text "Rain or shine, it's"
+	line "always a bad day"
+	cont "when a ROCKET"
+	cont "shows up."
+	cont "My moves are not"
+	cont "for you. Leave."
+
+	para "What?! You want"
+	line "them by force?!"
+	cont "You think I'm"
+	cont "defenseless?"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Question_RP::
+	text "WEATHER move?"
+	line "If not, leave."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Refused_RP::
+	text "Better this way."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesText1_Done_RP::
+	text "Done."
 ;	xxxx "123456789012345678"
 	done

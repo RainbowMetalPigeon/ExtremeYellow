@@ -10,7 +10,7 @@ MapHSPointers_Sevii:
 	dw SeviiFourIslandCityHS ; SEVII_FOUR_ISLAND_CITY
 	dw SeviiFiveIslandCityHS ; SEVII_FIVE_ISLAND_CITY
 	dw SeviiSixIslandCityHS ; SEVII_SIX_ISLAND_CITY
-	dw SeviiSevenIslandCityHS ; SEVII_SEVEN_ISLAND_CITY
+	dw NoHSSevii ; SEVII_SEVEN_ISLAND_CITY
 ; routes
 	dw NoHSSevii ; SEVII_EIGHT_ISLAND_CITY
 	dw SeviiRoute31HS ; SEVII_ROUTE_31
@@ -28,6 +28,7 @@ MapHSPointers_Sevii:
 	dw SeviiRoute42HS ; SEVII_ROUTE_42
 	dw SeviiRoute43HS ; SEVII_ROUTE_43
 	dw NoHSSevii ; SEVII_ROUTE_44
+	dw NoHSSevii ; SEVII_FOUR_ISLAND_PARKOUR_PATH
 ; indoors
 ; 1-island
 	dw SeviiOneIslandDockHS ; SEVII_ONE_ISLAND_DOCK
@@ -194,10 +195,8 @@ SeviiFiveIslandCityHS:
 	db SEVII_FIVE_ISLAND_CITY, 12, SHOW ; ball
 	db SEVII_FIVE_ISLAND_CITY, 13, SHOW ; ball
 	db SEVII_FIVE_ISLAND_CITY, 14, SHOW ; ball
-SeviiSevenIslandCityHS:
-	db SEVII_SIX_ISLAND_CITY,  1, SHOW ; TBE
 SeviiSixIslandCityHS:
-	db SEVII_SEVEN_ISLAND_CITY,  1, SHOW ; TBE
+	db SEVII_SIX_ISLAND_CITY,  4, HIDE ; Pink
 
 ; routes ----------------------------------
 
@@ -265,12 +264,14 @@ SeviiRoute43HS:
 SeviiOneIslandDockHS:
 	db SEVII_ONE_ISLAND_DOCK, 1, SHOW ; sailor
 SeviiOneIslandHousesHS:
-	db SEVII_ONE_ISLAND_HOUSES, 2, SHOW ; Celio before rescue
-	db SEVII_ONE_ISLAND_HOUSES, 3, HIDE ; Celio right after rescue
-	db SEVII_ONE_ISLAND_HOUSES, 4, HIDE ; Celio after rescue
-	db SEVII_ONE_ISLAND_HOUSES, 5, HIDE ; Mayoi right after rescue
-	db SEVII_ONE_ISLAND_HOUSES, 6, HIDE ; Mayoi after rescue
-	db SEVII_ONE_ISLAND_HOUSES, 7, HIDE ; Pink
+	db SEVII_ONE_ISLAND_HOUSES,  2, SHOW ; Celio before rescue
+	db SEVII_ONE_ISLAND_HOUSES,  3, HIDE ; Celio right after rescue
+	db SEVII_ONE_ISLAND_HOUSES,  4, HIDE ; Celio after rescue
+	db SEVII_ONE_ISLAND_HOUSES,  5, HIDE ; Mayoi right after rescue
+	db SEVII_ONE_ISLAND_HOUSES,  6, HIDE ; Mayoi after rescue
+	db SEVII_ONE_ISLAND_HOUSES,  7, HIDE ; Pink
+	db SEVII_ONE_ISLAND_HOUSES, 12, HIDE ; Pink's Dad
+	db SEVII_ONE_ISLAND_HOUSES, 13, HIDE ; Orm
 SeviiEmberSpaHS:
 	db SEVII_EMBER_SPA, 5, SHOW ; ball
 	db SEVII_EMBER_SPA, 6, SHOW ; ball
@@ -300,7 +301,7 @@ SeviiBerryForestHS:
 	db SEVII_BERRY_FOREST, 2, SHOW ; Mayoi
 	db SEVII_BERRY_FOREST, 3, SHOW ; ball
 	db SEVII_BERRY_FOREST, 4, SHOW ; ball
-	db SEVII_BERRY_FOREST, 5, SHOW ; ball
+	db SEVII_BERRY_FOREST, 5, HIDE ; Blue
 SeviiRoute33DiveHS:
 	db SEVII_ROUTE_33_DIVE, 1, SHOW ; verbose diver
 	db SEVII_ROUTE_33_DIVE, 6, SHOW ; ball

@@ -1,4 +1,5 @@
 ObsidianWarehouse_Script:
+	RPTextChooser ObsidianWarehouse_TextPointers, ObsidianWarehouse_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -185,7 +186,7 @@ ObsidianWarehouseArrowTilePlayerMovement:
 	map_coord_movement 43, 29, Spinner_RIGHT_3
 	map_coord_movement 47, 29, Spinner_RIGHT_3
 	map_coord_movement 50, 29, Spinner_UP_2
-	
+
 	map_coord_movement 35, 30, Spinner_RIGHT_2
 	map_coord_movement 37, 30, Spinner_UP_1
 	map_coord_movement 43, 30, Spinner_LEFT_6
@@ -371,6 +372,21 @@ ObsidianWarehouse_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
+	dw ObsidianWarehouseStatueText
+
+ObsidianWarehouse_TextPointers_Rocket:
+	dw ObsidianWarehouseTrainerText1_RP
+	dw ObsidianWarehouseTrainerText2_RP
+	dw ObsidianWarehouseTrainerText3_RP
+	dw ObsidianWarehouseTrainerText4_RP
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
 	dw PickUpItemText
 	dw ObsidianWarehouseStatueText
 
@@ -482,11 +498,6 @@ ObsidianWarehouseStatueText:
     ld [wNewTileBlockID], a
     lb bc, 3, 24
     predef ReplaceTileBlock
-	ld a, HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; gift escape rope
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-    ld hl, ObsidianWarehouseStatueText_Click1Post2
-    call PrintText
     jr .done
 .secondTry
 ; second click at the statue, door already open, switch broken
@@ -507,14 +518,28 @@ ObsidianWarehouseStatueText_Click1Post1:
 	text_far _ObsidianWarehouseStatueText_Click1Post1
 	text_end
 
-ObsidianWarehouseStatueText_Click1Post2:
-	text_far _ObsidianWarehouseStatueText_Click1Post2
-	text_end
-
 ObsidianWarehouseStatueText_Click1Not:
 	text_far _ObsidianWarehouseStatueText_Click1Not
 	text_end
 
 ObsidianWarehouseStatueText_Click2:
 	text_far _ObsidianWarehouseStatueText_Click2
+	text_end
+
+; new for RP ==========================
+
+ObsidianWarehouseTrainerText1_RP:
+	text_far _ObsidianWarehouseTrainerText1_RP
+	text_end
+
+ObsidianWarehouseTrainerText2_RP:
+	text_far _ObsidianWarehouseTrainerText2_RP
+	text_end
+
+ObsidianWarehouseTrainerText3_RP:
+	text_far _ObsidianWarehouseTrainerText3_RP
+	text_end
+
+ObsidianWarehouseTrainerText4_RP:
+	text_far _ObsidianWarehouseTrainerText4_RP
 	text_end

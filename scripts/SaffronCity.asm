@@ -1,4 +1,5 @@
 SaffronCity_Script:
+	RPTextChooser SaffronCity_TextPointers, SaffronCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld de, SaffronCity_ScriptPointers
@@ -29,7 +30,7 @@ SaffronCity_TextPointers:
 	dw SaffronCityText12
 	dw SaffronCityText13
 	dw SaffronCityText14
-;	dw SaffronCityText15 ; doesn't exist in yellow, only in RB
+	; signs
 	dw SaffronCityText16
 	dw SaffronCityText17
 	dw SaffronCityText18
@@ -41,7 +42,38 @@ SaffronCity_TextPointers:
 	dw SaffronCityText24
 	dw SaffronCityText25
 	dw SaffronCityText26 ; new sign for Climb Club
+	; scripts
 	dw TextPostBattle_SaffronTraveler ; new, for traveler
+
+SaffronCity_TextPointers_Rocket:
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
+	dw RocketNPCText_RocketPath
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
+	dw SaffronCityText_BlockingRocket_RP ; blocking building
+	dw TextPreBattle_SaffronTraveler_RP ; traveler
+	dw RocketNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SaffronCityText12 ; Mon
+	dw GenericNPCText_RocketPath
+	dw SaffronCityText_BlockingSilph_RP ; blocking Silph
+	; signs
+	dw SaffronCityText16
+	dw SaffronCityText17
+	dw SaffronCityText18
+	dw MartSignText
+	dw SaffronCityText20
+	dw SaffronCityText21
+	dw SaffronCityText22
+	dw PokeCenterSignText
+	dw SaffronCityText24
+	dw SaffronCityText25
+	dw SaffronCityText26
+	; scripts
+	dw TextPostBattle_SaffronTraveler_RP ; for traveler
 
 SaffronCityText1:
 	text_far _SaffronCityText1
@@ -144,35 +176,8 @@ SaffronCityText26:
 
 TextPreBattle_SaffronTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_SaffronTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_SaffronTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_SaffronTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_SaffronTraveler
-	ld de, Text_VictoryPostBattle_SaffronTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 1 ; city-specific
 	ld [wCurMapScript], a
@@ -180,26 +185,8 @@ TextPreBattle_SaffronTraveler: ; new
 
 TextPostBattle_SaffronTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_SaffronTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_SaffronTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -235,34 +222,79 @@ SaffronScript_Traveler:
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
+; new for RP ================================
 
-Text_Intro_SaffronTraveler:
-	text_far _TextTraveler_Intro
+SaffronCityText_BlockingRocket_RP:
+	text_far _SaffronCityText_BlockingRocket_RP
 	text_end
 
-Text_YesMMewtwo_SaffronTraveler:
-	text_far _TextTraveler_YesMMewtwo
+SaffronCityText_BlockingSilph_RP:
+	text_asm
+	CheckEvent EVENT_RP_UNLOCKED_SILPH
+	ld hl, SaffronCityText_BlockingSilph_RP_Before
+	jr z, .printAndEnd
+; silph unlocked: give CARD_KEY
+	ld hl, SaffronCityText_BlockingSilph_RP_After_GoodTakeThis
+	call PrintText
+	lb bc, CARD_KEY, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually give the card, hide the card key item in 5F, hide the guard
+	ld hl, SaffronCityText_BlockingSilph_RP_After_ObtainItem
+	call PrintText
+	ld hl, SaffronCityText_BlockingSilph_RP_After_NowGo
+	call PrintText
+	call GBFadeOutToBlack
+	ld a, HS_SAFFRON_CITY_E
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_SILPH_CO_5F_ITEM_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	jr .done
+.bagFull
+	ld hl, SaffronCityText_BlockingSilph_RP_After_RP_BagFull
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SaffronCityText_BlockingSilph_RP_Before:
+	text_far _SaffronCityText_BlockingSilph_RP_Before
 	text_end
 
-Text_NoMMewtwo_SaffronTraveler:
-	text_far _TextTraveler_NoMMewtwo
+SaffronCityText_BlockingSilph_RP_After_GoodTakeThis:
+	text_far _SaffronCityText_BlockingSilph_RP_After_GoodTakeThis
 	text_end
 
-Text_DefeatPostBattle_SaffronTraveler:
-	text_far _TextTraveler_DefeatPostBattle
+SaffronCityText_BlockingSilph_RP_After_ObtainItem:
+	text_far _ReceivedHM01Text
+	sound_get_key_item
 	text_end
 
-Text_VictoryPostBattle_SaffronTraveler:
-	text_far _TextTraveler_VictoryPostBattle
+SaffronCityText_BlockingSilph_RP_After_RP_BagFull:
+	text_far _SaffronCityText_BlockingSilph_RP_After_RP_BagFull
 	text_end
 
-Text_Compliments_SaffronTraveler:
-	text_far _TextTraveler_Compliments
+SaffronCityText_BlockingSilph_RP_After_NowGo:
+	text_far _SaffronCityText_BlockingSilph_RP_After_NowGo
 	text_end
 
-Text_WhatWasThat_SaffronTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
+TextPreBattle_SaffronTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 1 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
 
-; ================================
+TextPostBattle_SaffronTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd

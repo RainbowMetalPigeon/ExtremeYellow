@@ -143,7 +143,7 @@ StartMenu_Pokemon::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [wObtainedBadges] ; badges obtained
+;	ld a, [wObtainedBadges] ; badges obtained ; unnecessary here because of RP edits
 	jp hl
 .outOfBattleMovePointers
 	dw .cut
@@ -170,6 +170,18 @@ StartMenu_Pokemon::
 	call PrintText
 	jp .loop
 .canFly
+; new to prevent FLYing when we have no possible destinations: can happen only in RP before landing on One Island's ground
+	CheckEvent EVENT_IN_SEVII
+	jr z, .canFlyVanilla
+	ld a, [wTownVisitedFlag_Sevii]
+	and a
+	jr nz, .canFlyVanilla
+; actually we have no destinations
+	ld hl, .cannotFlyYetText
+	call PrintText
+	jp .loop
+.canFlyVanilla
+; BTV
 	call ChooseFlyDestination
 	ld a, [wd732]
 	bit 3, a ; did the player decide to fly?
@@ -182,16 +194,24 @@ StartMenu_Pokemon::
 	call Func_1510
 	jp .goBackToMap
 .cut
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .cutOk
+	ld a, [wObtainedBadges]
 	bit BIT_CASCADEBADGE, a ; MISTY
 	jp z, .newBadgeRequired
+.cutOk
 	predef UsedCut
 	ld a, [wActionResultOrTookBattleTurn]
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
 .surf
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .surfOk
+	ld a, [wObtainedBadges]
 	bit BIT_SOULBADGE, a ; KOGA
 	jp z, .newBadgeRequired
+.surfOk
 	farcall IsSurfingAllowed
 	ld hl, wd728
 	bit 1, [hl]
@@ -220,14 +240,22 @@ StartMenu_Pokemon::
 	ld [wd473], a
 	jp .loop
 .strength
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .strengthOk
+	ld a, [wObtainedBadges]
 	bit BIT_EARTHBADGE, a ; GIOVANNI; edited, was the BIT_RAINBOWBADGE
 	jp z, .newBadgeRequired
+.strengthOk
 	predef PrintStrengthTxt
 	call GBPalWhiteOutWithDelay3
 	jp .goBackToMap
 .flash
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .flashOk
+	ld a, [wObtainedBadges]
 	bit BIT_BOULDERBADGE, a ; BROCK
 	jp z, .newBadgeRequired
+.flashOk
 ; new
 	CheckEvent EVENT_IN_SEVII
 	jr z, .vanilla
@@ -287,10 +315,17 @@ StartMenu_Pokemon::
 .cannotFlyHereText
 	text_far _CannotFlyHereText
 	text_end
+.cannotFlyYetText ; new for RP
+	text_far _CannotFlyYetText
+	text_end
 ; new field moves
 .dive
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .diveOk
+	ld a, [wObtainedBadges]
 	bit BIT_RAINBOWBADGE, a ; ERIKA
 	jp z, .newBadgeRequired
+.diveOk
 	callfar IsDivingAllowed
 	ld a, [wMultipurposeTemporaryStorage2] ; 0=cannot; 1=go down; 2=go up
 	dec a
@@ -301,22 +336,32 @@ StartMenu_Pokemon::
 	call PrintText
 	jp .loop
 .whirlpool
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .whirlpoolOk
+	ld a, [wObtainedBadges]
     bit BIT_MARSHBADGE, a ; SABRINA
 	jp z, .newBadgeRequired
+.whirlpoolOk
 	callfar UsedWhirlpool
 	ld a, [wActionResultOrTookBattleTurn]
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
 .waterfall
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .waterfallOk
+	ld a, [wObtainedBadges]
 	bit BIT_VOLCANOBADGE, a ; BLAINE
 	jp z, .newBadgeRequired
+.waterfallOk
 	callfar UsedWaterfall
 	ld a, [wActionResultOrTookBattleTurn]
 	and a
 	jp z, .loop
 	jp CloseTextDisplay
 .rocksmash
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .canUseRockSmash
 	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 	jr nz, .canUseRockSmash
 	ld hl, CannotUseRockSmashText2
@@ -328,8 +373,12 @@ StartMenu_Pokemon::
 	jp z, .loop
 	jp CloseTextDisplay
 .rockclimb
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .rockclimbOk
+	ld a, [wObtainedBadges]
 	bit BIT_THUNDERBADGE, a ; SURGE
 	jp z, .newBadgeRequired
+.rockclimbOk
 	callfar UsedRockClimb
 	ld a, [wActionResultOrTookBattleTurn]
 	and a
@@ -706,10 +755,28 @@ StartMenu_TrainerInfo::
 
 ; loads tile patterns and draws everything except for gym leader faces / badges
 DrawTrainerInfo:
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; yes RP
+	ld de, RedRocketPicFront
+	lb bc, BANK(RedRocketPicFront), $01
+	ld a, [wPlayerGender]
+	and a
+	jr z, .ContinueWithLoading
+	cp a, 2
+	jr z, .AreEnbyRP
+	ld de, GreenRocketPicFront
+	lb bc, BANK(GreenRocketPicFront), $01
+	jr .ContinueWithLoading
+.AreEnbyRP
+	ld de, YellowRocketPicFront
+	lb bc, BANK(YellowRocketPicFront), $01
+	jr .ContinueWithLoading
+.notRP
+; BTV
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $01
-;	predef DisplayPicCenteredOrUpperRight
-
 	ld a, [wPlayerGender]
 	and a
 	jr z, .ContinueWithLoading

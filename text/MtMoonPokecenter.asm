@@ -50,3 +50,25 @@ _MagikarpSalesmanText2::
 _MtMoonPokecenterText8b:: ; new
 	text "MAGIKARP: Kaaaarp!"
 	done
+
+; new for RP =======================
+
+_MagikarpSalesmanText_RP_Before::
+	text "Ugh! I don't do"
+	line "business with"
+	cont "TEAM ROCKET!"
+;	xxxx "123456789012345678"
+	done
+
+_MagikarpSalesmanText_RP_After::
+	text "...but I guess"
+	line "TEAM ROCKET does"
+	cont "business with me."
+;	xxxx "123456789012345678"
+	done
+
+_MtMoonPokecenterText8_RP_TakeTheKarp::
+	text "<PLAYER> snatches"
+	line "the MAGIKARP!"
+;	xxxx "123456789012345678"
+	prompt

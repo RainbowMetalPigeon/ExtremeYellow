@@ -167,3 +167,23 @@ _SaffronNewApartmentsSignText1_NotFromBelow::
 	cont "watch TV."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ==================================
+
+_TM29ExplanationText_RP::
+	text "You ROCKET scum..."
+	line "Even if I foresaw"
+	cont "the arrival of"
+	cont "you garbage, I"
+	cont "couldn't do"
+	cont "anything..."
+;	xxxx "123456789012345678"
+	done
+
+_TM29PreReceiveText_RP::
+	text "...I know what you"
+	line "demand from me."
+	cont "Just take it and"
+	cont "leave me alone."
+;	xxxx "123456789012345678"
+	prompt

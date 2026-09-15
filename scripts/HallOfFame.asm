@@ -1,14 +1,10 @@
 HallOfFame_Script:
+	RPTextChooser HallOfFame_TextPointers, HallOfFame_TextPointers_Rocket
+	callfar ChampionsRoomAndHoFStopMusic_RP ; new for RP
 	call EnableAutoTextBoxDrawing
 	ld hl, HallOfFame_ScriptPointers
 	ld a, [wCurMapScript]
 	jp CallFunctionInTable
-
-;HallofFameRoomScript_5a4aa: ; is this even for anything?
-;	xor a
-;	ld [wJoyIgnore], a
-;	ld [wCurMapScript], a
-;	ret
 
 HallOfFame_ScriptPointers:
 	dw HallofFameRoomScript0
@@ -18,11 +14,12 @@ HallOfFame_ScriptPointers:
 	dw HallofFameRoomScript4
 	dw HallofFameRoomScript5
 	dw HallofFameRoomScript6
+	; new for RP
+	dw HallofFameRoomScript1_RP ; 7
+	dw HallofFameRoomScript2_RP ; 8
+	dw HallofFameRoomScript3_RP ; 9
 
 ; ==================================
-
-;HallofFameRoomScript3: ; is this even ever used?
-;	ret
 
 HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 	ld a, $f0
@@ -35,10 +32,29 @@ HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore:
 ; ==================================
 
 HallofFameRoomScript0: ; makes player walk up to Rival and Oak
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; yes RP
+	CheckEvent EVENT_RP_BEAT_HOF_OAK
+	ret nz
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
-	ld de, RLEMovement5a528
+	ld de, RLEMovement_TillPC
+	call DecodeRLEList
+	dec a
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+	ld a, 7
+	ld [wCurMapScript], a
+	ret
+.notRP
+; BTV
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ld hl, wSimulatedJoypadStatesEnd
+	ld de, RLEMovement_OneBeforePC
 	call DecodeRLEList
 	dec a
 	ld [wSimulatedJoypadStatesIndex], a
@@ -47,7 +63,9 @@ HallofFameRoomScript0: ; makes player walk up to Rival and Oak
 	ld [wCurMapScript], a
 	ret
 
-RLEMovement5a528:
+RLEMovement_TillPC: ; new for RP
+	db D_UP, 1
+RLEMovement_OneBeforePC:
 	db D_UP, 4 ; edited, was 5, stop before Rival
 	db -1 ; end
 
@@ -123,24 +141,7 @@ HallofFameRoomScript1:
 	call LoopShow
 	call LoopShowExtra
 	call LoopShowSevii
-	ResetEvent EVENT_BEAT_MEWTWO
-; re-spawn the birds only if we spawn them the first time
-	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
-	jr z, .dontShowLegendaryBirbs
-	ld a, HS_ARTICUNO
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ResetEvent EVENT_BEAT_ARTICUNO
-	ld a, HS_ZAPDOS
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	ResetEvent EVENT_BEAT_ZAPDOS
-	ld a, HS_MOLTRES
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ResetEvent EVENT_BEAT_MOLTRES
-.dontShowLegendaryBirbs
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	call SetBeatLeagueAndRespawnMons
 ; let's also heal the party, why not
 	predef HealParty
 ; load next script
@@ -161,7 +162,7 @@ HallofFameRoomScript2:
 ; delay
 	call Delay3
 ; Oaks talk
-	ld a, $4
+	ld a, $5
 	ldh [hSpriteIndexOrTextID], a
 	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; load next script
@@ -252,7 +253,7 @@ HallofFameRoomScript5:
 ; delay
 	call Delay3
 ; Oaks talk
-	ld a, $3
+	ld a, $4
 	ldh [hSpriteIndexOrTextID], a
 	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; delay lol
@@ -285,7 +286,7 @@ HallofFameRoomScript6:
 	inc hl
 	set 0, [hl]
 	xor a
-	ld hl, wLoreleisRoomCurScript ; TBE
+	ld hl, wLoreleisRoomCurScript
 	ld [hli], a ; wLoreleisRoomCurScript
 	ld [hli], a ; wBrunosRoomCurScript
 	ld [hl], a ; wAgathasRoomCurScript
@@ -312,8 +313,19 @@ HallofFameRoomScript6:
 HallOfFame_TextPointers:
 	dw HallofFameRoomText1
 	dw HallofFameRoomText2 ; just a proxy to avoid issues with indexing
-	dw HallofFameRoomText3
-	dw HallofFameRoomText4
+	; signs
+	dw HallofFameRoomSignText1 ; 3, unused
+	; scripts
+	dw HallofFameRoomText3 ; 4
+	dw HallofFameRoomText4 ; 5
+
+HallOfFame_TextPointers_Rocket:
+	dw HallofFameRoomText1_RP
+	dw HallofFameRoomText2 ; unused
+	; signs
+	dw HallofFameRoomSignText1 ; 3
+	; scripts
+	dw HallofFameRoomTextScript1_RP ; 4
 
 HallofFameRoomText1:
 	text_asm
@@ -402,7 +414,6 @@ ObjectsToHideExtra:
 
 ; ---------------
 
-
 LoopShow:
 	ld hl, ObjectsToShow
 .showLoop
@@ -477,3 +488,226 @@ ObjectsToShowSevii:
 	db $ff
 
 ; ---------------
+
+SetBeatLeagueAndRespawnMons:
+	ResetEvent EVENT_BEAT_MEWTWO
+; re-spawn the birds only if we spawn them the first time
+	CheckEvent EVENT_PLACED_ALL_ORBS_IN_RECESSES
+	jr z, .dontShowLegendaryBirbs
+	ld a, HS_ARTICUNO
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ResetEvent EVENT_BEAT_ARTICUNO
+	ld a, HS_ZAPDOS
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ResetEvent EVENT_BEAT_ZAPDOS
+	ld a, HS_MOLTRES
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ResetEvent EVENT_BEAT_MOLTRES
+.dontShowLegendaryBirbs
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	ret
+
+; new for RP =========================================================
+
+HallofFameRoomScript1_RP:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+; player faces right
+	ld a, PLAYER_DIR_RIGHT
+	ld [wPlayerMovingDirection], a
+; Oak faces left
+	call HoFOakFaceLeft
+; delay
+	call Delay3
+; Oak talks
+	ld a, 1
+	ldh [hSpriteIndexOrTextID], a
+	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_PROF_OAK
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, HoFOakDefeatText
+	ld de, HoFOakWonText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; load next script
+	ld a, 8
+	ld [wCurMapScript], a
+	ret
+
+HallofFameRoomScript2_RP:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, HoFResetScripts
+; we won
+	SetEvent EVENT_RP_BEAT_HOF_OAK
+	ld a, $f0
+	ld [wJoyIgnore], a
+	call HoFOakFaceLeft
+; Oak dialogue
+	ld a, 4
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; Kill Oak
+    call GBFadeOutToWhite
+    ld c, 10
+    call DelayFrames
+    call GBFadeOutToBlack
+	call StopMusic
+    ld c, 100
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1) ; SFX_Push_Boulder_1 ; SFX_Collision_1
+	ld a, SFX_PUSH_BOULDER ; SFX_PUSH_BOULDER ; SFX_COLLISION
+	call PlayMusic
+	ld a, HS_HALL_OF_FAME_OAK
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call UpdateSprites
+    ld c, 150
+    call DelayFrames
+    call GBFadeInFromBlack
+; reset victory music flag
+	ld hl, wFlags_D733 ; was set by ChampionsRoom, prevents music from changing when changing map
+	res 1, [hl]
+; load next script
+	jr HoFResetScripts
+
+HallofFameRoomText1_RP:
+	text_far _HallofFameRoomText1_RP
+	text_end
+
+HoFOakDefeatText:
+	text_far _HoFOakDefeatText
+	text_end
+
+HoFOakWonText:
+	text_far _HoFOakWonText
+	text_end
+
+HallofFameRoomTextScript1_RP:
+	text_far _HallofFameRoomTextScript1_RP
+	text_end
+
+HallofFameRoomScript3_RP:
+; appropriate hide/show
+	call LoopHide_RP
+	call LoopShowExtra_RP
+	call SetBeatLeagueAndRespawnMons
+; HoF PC
+    ld c, 120
+    call DelayFrames
+	callfar AnimateHallOfFame
+	call ClearScreen
+	ld c, 100
+	call DelayFrames
+; reset INDIGO events
+	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END, 1
+; warp player back to entrance of Indigo League
+	ld a, SPRITE_FACING_UP
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld a, INDIGO_PLATEAU
+	ldh [hWarpDestinationMap], a
+	ld a, 0 ; -1 wrt the normal numbering
+	ld [wDestinationWarpID], a
+	ld a, INDIGO_PLATEAU
+	ld [wLastMap], a
+	xor a
+	ld [wIsInBattle], a
+	ld hl, wd72d
+	set 3, [hl] ; do scripted warp
+	ld c, BANK(Music_IndigoPlateau) ; SFX_Push_Boulder_1
+	ld a, MUSIC_INDIGO_PLATEAU ; SFX_PUSH_BOULDER
+	call PlayMusic
+	; fallthrough
+
+HoFResetScripts:
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+HoFOakFaceLeft:
+	ld a, $1
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, SPRITE_FACING_LEFT
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, $2
+	ld [wSprite01StateData1MovementStatus], a
+	ld a, SPRITE_FACING_LEFT
+	ld [wSprite01StateData1FacingDirection], a
+	ret
+
+HallofFameRoomSignText1:
+	text_asm
+	ld hl, HallofFameRoomSignText1_Wrong
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	jp nz, .printAndEnd
+; right side
+	ld a, 9
+	ld [wCurMapScript], a
+	ld hl, HallofFameRoomSignText1_Right
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+HallofFameRoomSignText1_Wrong:
+	text_far _HallofFameRoomSignText1_Wrong
+	text_end
+
+HallofFameRoomSignText1_Right:
+	text_far _HallofFameRoomSignText1_Right
+	text_end
+
+; ---------------
+
+LoopHide_RP:
+	ld hl, ObjectsToHide_RP
+.hideLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	pop hl
+	jr .hideLoop
+
+ObjectsToHide_RP:
+	db HS_CERULEAN_CAVE_GUY
+	db $ff
+
+; ---------------
+
+LoopShowExtra_RP:
+	ld hl, ObjectsToShowExtra_RP
+.showExtraLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	pop hl
+	jr .showExtraLoop
+
+ObjectsToShowExtra_RP:
+	db HS_MEWTWO
+	db HS_INDIGO_PLATEAU_LOBBY_GUARD
+	db HS_ONIX_BURROWING_SNORLAX_DEN ; TBE?
+	db HS_CELADON_HOTEL_ROOMS_TROPHY_1 ; TBE?
+	db $ff

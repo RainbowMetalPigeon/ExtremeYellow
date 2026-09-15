@@ -1,4 +1,5 @@
 SeviiOneIslandGym2_Script:
+	RPTextChooser SeviiOneIslandGym2_TextPointers, SeviiOneIslandGym2_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiOneIslandGym2_ScriptPointers
 	ld a, [wCurMapScript]
@@ -81,6 +82,9 @@ SeviiOneIslandGym2_TextPointers:
 	dw SeviiOneIslandGym2Text3_Reward2 ; 5
 	dw SeviiOneIslandGym2Text3_Reward3 ; 6
 	dw SeviiOneIslandGym2Text3_NoReward ; 7
+
+SeviiOneIslandGym2_TextPointers_Rocket:
+	dw SeviiOneIslandGym2Text1 ; TBE
 
 SeviiOneIslandGym2Text1:
 	text_asm

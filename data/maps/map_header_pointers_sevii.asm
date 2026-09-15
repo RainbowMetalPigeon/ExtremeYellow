@@ -26,6 +26,7 @@ MapHeaderPointers_Sevii::
 	dw SeviiRoute42_h
 	dw SeviiRoute43_h
 	dw SeviiRoute44_h
+	dw SeviiFourIslandParkourPath_h
 ; indoors
 ; 1-island
 	dw SeviiOneIslandDock_h

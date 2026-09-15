@@ -15,9 +15,7 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_CITY_TRAVELER        ; new
 	const HS_CERULEAN_RIVAL                ; 06
 	const HS_CERULEAN_ROCKET               ; 07
-	const HS_CERULEAN_GUARD_1              ; 08
 	const HS_CERULEAN_CAVE_GUY             ; 09
-	const HS_CERULEAN_GUARD_2              ; 0A
 	const HS_CERULEAN_CITY_TRAVELER        ; new
 	const HS_VERMILION_MACHOKE             ; new
 	const HS_VERMILION_MACHAMP             ; new
@@ -194,7 +192,7 @@ DEF SHOW EQU $15
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_2     ; 89
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_3     ; 8A
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_4     ; 8B
-	const HS_ROCKET_HIDEOUT_B4F_ITEM_5     ; 8C
+	const HS_ROCKET_HIDEOUT_B4F_BLUE       ; edited
 	const HS_SILPH_CO_2F_2                 ; 8E
 	const HS_SILPH_CO_2F_3                 ; 8F
 	const HS_SILPH_CO_2F_4                 ; 90
@@ -214,7 +212,7 @@ DEF SHOW EQU $15
 	const HS_SILPH_CO_5F_4                 ; 9E
 	const HS_SILPH_CO_5F_ITEM_1            ; 9F
 	const HS_SILPH_CO_5F_ITEM_2            ; A0
-	const HS_SILPH_CO_5F_ITEM_3            ; A1
+	const HS_SILPH_CO_5F_ITEM_3            ; A1 CARD_KEY
 	const HS_SILPH_CO_6F_1                 ; A2
 	const HS_SILPH_CO_6F_2                 ; A3
 	const HS_SILPH_CO_6F_3                 ; A4
@@ -257,7 +255,12 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_7     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_8     ; new
 	const HS_OBSIDIAN_WAREHOUSE_ITEM_9     ; new
-	const HS_OBSIDIAN_WAREHOUSE_ITEM_EXTRA ; new
+	const HS_LORELEIS_ROOM_LORELEI         ; new
+	const HS_BRUNOS_ROOM_BRUNO             ; new
+	const HS_AGATHAS_ROOM_AGATHA           ; new
+	const HS_LANCES_ROOM_LANCE             ; new
+	; total = 252
+
 ;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
 
 ; --- start of the variables moved to the extra block ---
@@ -271,6 +274,11 @@ DEF SHOW EQU $15
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_3  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_4  ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE   ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_PROTON2 ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_PETREL2 ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_ARIANA2 ; new
+	const HS_OBSIDIAN_WAREHOUSE_FINAL_ARCHER2 ; new
 	const HS_POKEMON_MANSION_2F_BLAINE     ; new
 	const HS_POKEMON_MANSION_2F_ITEM       ; C0
 	const HS_POKEMON_MANSION_3F_ITEM_1     ; C1
@@ -310,6 +318,7 @@ DEF SHOW EQU $15
 	const HS_SECLUDED_ATOLL_NW_ROCK_1      ; new
 	const HS_CHAMPIONS_ROOM_RIVAL          ; new
 	const HS_CHAMPIONS_ROOM_OAK            ; DE
+	const HS_CHAMPIONS_ROOM_PINK           ; new
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_1  ; DF
 	const HS_SEAFOAM_ISLANDS_1F_BOULDER_2  ; E0
 	const HS_SEAFOAM_ISLANDS_B1F_BOULDER_1 ; E1
@@ -325,9 +334,9 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
 	const HS_MR_PSYCHIC_SABRINA            ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new
-	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new
+	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new, guarding mines
+	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new, guarding south bridge
+	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new, guarding south bridge
 	const HS_OBSIDIAN_ISLAND_SLAVE_1       ; new
 	const HS_OBSIDIAN_ISLAND_SLAVE_2       ; new
 	const HS_OBSIDIAN_ISLAND_SCIENTIST_1   ; new
@@ -399,6 +408,7 @@ DEF SHOW EQU $15
 	const HS_LUNAR_SHRINE_TOURIST_2        ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_LUNAR_SHRINE_TOURIST_3        ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_LUNAR_SHRINE_TOURIST_4        ; new, secretly part of CELADON_CHIEF_HOUSE
+	const HS_LUNAR_SHRINE_BLUE             ; new, secretly part of CELADON_CHIEF_HOUSE
 	const HS_SAFARI_REST_HOUSE_SARA_WAITING ; new
 	const HS_SAFARI_REST_HOUSE_SARA_HAPPY   ; new
 	const HS_SAFARI_REST_HOUSE_ERIK_HAPPY   ; new
@@ -490,3 +500,8 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_GYM_CHALLENGER       ; new
 	const HS_VIRIDIAN_GYM_ITEM_1           ; 32
 	const HS_VIRIDIAN_GYM_ITEM_2           ; new
+	const HS_ROUTE_29_SLOWKING             ; new
+	const HS_HALL_OF_FAME_OAK              ; new
+	const HS_HALL_OF_FAME_BLUE             ; new
+	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
+	; total = 237

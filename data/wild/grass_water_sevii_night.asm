@@ -25,6 +25,7 @@ WildDataPointers_SeviiNight:
 	dw SeviiRoute42WildMonsNight          ; SEVII_ROUTE_42
 	dw SeviiRoute43WildMonsNight          ; SEVII_ROUTE_43
 	dw SeviiRoute44WildMonsNight          ; SEVII_ROUTE_44
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_PARKOUR_PATH
 ; indoors
 ; 1-island
 	dw SeviiShipDockWildMonsNight         ; SEVII_ONE_ISLAND_DOCK

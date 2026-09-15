@@ -1,8 +1,27 @@
 CeruleanCaveExtraFinal_Script:
+	RPTextChooser CeruleanCaveExtraFinal_TextPointers, CeruleanCaveExtraFinal_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 CeruleanCaveExtraFinal_TextPointers:
 	dw CeruleanCaveExtraFinalTextSeller
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText ; 5
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText ; 10
+	dw RockSmashText
+	dw BoulderText
+	dw BoulderText
+	dw BoulderText
+	dw CeruleanCaveExtraFinalSign1 ; 15
+	dw CeruleanCaveExtraFinalSign2 ; 16
+
+CeruleanCaveExtraFinal_TextPointers_Rocket:
+	dw CeruleanCaveExtraFinalTextSeller_RP
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
@@ -29,3 +48,9 @@ CeruleanCaveExtraFinalSign2:
 
 CeruleanCaveExtraFinalTextSeller:
 	script_mart MASTER_BALL, MEGA_STONE_X, MEGA_STONE_Y, RARE_CANDY, LEGEND_CANDY, ESCAPE_ROPE
+
+; new for RP =======================
+
+CeruleanCaveExtraFinalTextSeller_RP:
+	text_far _CeruleanCaveExtraFinalTextSeller_RP
+	text_end

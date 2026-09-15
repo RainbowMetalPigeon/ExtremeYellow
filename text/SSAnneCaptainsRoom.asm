@@ -66,6 +66,34 @@ _SSAnne7Text3::
 
 ; new ----------------------
 
+_SSAnneCaptainsRoomText_RP_MessageDelivered::
+	text "CAPTAIN: You can"
+	line "report to your"
+	cont "bosses that the"
+	cont "goods will arrive"
+	cont "in JOHTO as soon"
+	cont "as possible."
+;	xxxx "123456789012345678"
+	done
+
+_SSAnneCaptainsRoomText_RP_Answer::
+	text "CAPTAIN: Oh,"
+	line "welcome. I was"
+	cont "waiting for one"
+	cont "of you. Do you"
+	cont "have instructions"
+	cont "for me?"
+
+	para "..."
+
+	para "Yes, I see."
+	line "Roger, I'll depart"
+	cont "immediately to"
+	cont "deliver the goods"
+	cont "to JOHTO."
+;	xxxx "123456789012345678"
+	done
+
 _SSAnne7TextCaptain_PreBattle::
 	text "CAPTAIN: Oh? Look"
 	line "who's there! How"
@@ -131,4 +159,27 @@ _SSAnne7TextJenny::
 _SSAnne7Text5::
 	text "CAPTAIN: May you"
 	line "be damned!!!"
+	done
+
+; new for RP ===========================
+
+_SSAnne7Text1_RP::
+	text "CAPTAIN: Oh, it's"
+	line "really you?!"
+
+	para "I heard the new."
+	line "So now that"
+	cont "GIOVANNI is..."
+	cont "Well, yes, now"
+	cont "YOU are TEAM"
+	cont "ROCKET's new BOSS."
+
+	para "I pay respect."
+	line "Unless you order"
+	cont "differently, I'll"
+	cont "keep carrying on"
+	cont "the deliveries"
+	cont "according to the"
+	cont "old directions."
+;	xxxx "123456789012345678"
 	done

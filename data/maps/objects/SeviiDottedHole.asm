@@ -3,11 +3,9 @@ SeviiDottedHole_Object:
 
 	def_warp_events
 	warp_event 10, 13, SEVII_ROUTE_40, 1
-;	warp_event  9, 13, SEVII_ROUTE_40, 1
 
 	def_bg_events
 ;	bg_event  5, 65, 4 ; Route2Text3
-;	bg_event 11, 11, 5 ; Route2Text4
 
 	def_object_events
 	object_event 10,  5, SPRITE_MONSTER, STAY, DOWN, 1, MELTAN, 50 | OW_POKEMON ; edited, to go beyond 200

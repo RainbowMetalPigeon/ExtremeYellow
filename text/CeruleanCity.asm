@@ -243,3 +243,50 @@ _CeruleanCityText17::
 	para "The Fighter"
 	line "Mermaid!"
 	done
+
+; new ---------------------------------
+
+_CeruleanCityText_RP_Script1::
+	text "JENNY: Freeze!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_RP_Script2::
+	text "JENNY: You filthy"
+	line "criminal! You"
+	cont "won't run away!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_RP_Script3::
+	text "JENNY: You may've"
+	line "won this battle,"
+	cont "but you won't win"
+	cont "the war!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_RP_JennyAfterBattle::
+	text "JENNY: Stay"
+	line "assured, we will"
+	cont "eventually get"
+	cont "all of you!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanCityText_AfterFightJenny::
+	text "I'm not"
+	line "good enough...!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CeruleanCityText10_RP::
+	text "Only #MON"
+	line "LEAGUE CHAMPIONs"
+	cont "are allowed here."
+
+	para "And I surely won't"
+	line "make an exception"
+	cont "for some scum."
+;	xxxx "123456789012345678"
+	done

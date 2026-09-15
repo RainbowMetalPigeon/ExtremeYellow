@@ -1,4 +1,5 @@
 Route18_Script:
+	RPTextChooser Route18_TextPointers, Route18_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route18TrainerHeaders
 	ld de, Route18_ScriptPointers
@@ -16,6 +17,15 @@ Route18_TextPointers:
 	dw Route18Text1
 	dw Route18Text2
 	dw Route18Text3
+	; signs
+	dw Route18Text4
+	dw Route18Text5
+
+Route18_TextPointers_Rocket:
+	dw Route18Text1
+	dw Route18Text2
+	dw Route18Text3
+	; signs
 	dw Route18Text4
 	dw Route18Text5
 

@@ -1,4 +1,5 @@
 SeviiThreeIslandCity_Script:
+	RPTextChooser SeviiThreeIslandCity_TextPointers, SeviiThreeIslandCity_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiThreeIslandCity_TextPointers:
@@ -14,6 +15,27 @@ SeviiThreeIslandCity_TextPointers:
 	dw PickUpItemText ; 10
 	dw PickUpItemText ; 11
 	dw SeviiThreeIslandCityText12 ; 12
+	; signs
+	dw SeviiThreeIslandCitySignText1 ; 13
+	dw SeviiThreeIslandCitySignText2 ; 14
+	dw SeviiThreeIslandCitySignText3 ; 15
+	dw SeviiThreeIslandCitySignText4 ; 16
+	dw PokeCenterSignText ; 17
+	dw MartSignText ; 18
+
+SeviiThreeIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; 1
+	dw GenericNPCText_RocketPath ; 2
+	dw GenericNPCText_RocketPath ; 3
+	dw GenericNPCText_RocketPath ; 4
+	dw GenericNPCText_RocketPath ; 5
+	dw GenericNPCText_RocketPath ; 6
+	dw GenericNPCText_RocketPath ; 7
+	dw GenericNPCText_RocketPath ; 8
+	dw GenericNPCText_RocketPath ; 9
+	dw PickUpItemText ; 10
+	dw PickUpItemText ; 11
+	dw SeviiThreeIslandCityText12_RP ; 12 Underground guard
 	; signs
 	dw SeviiThreeIslandCitySignText1 ; 13
 	dw SeviiThreeIslandCitySignText2 ; 14
@@ -130,3 +152,10 @@ SeviiThreeIslandCitySignText3:
 SeviiThreeIslandCitySignText4:
 	text_far _SeviiThreeIslandCitySignText4
 	text_end
+
+; new for RP ============================
+
+SeviiThreeIslandCityText12_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

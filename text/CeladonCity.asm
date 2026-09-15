@@ -269,3 +269,41 @@ _CeladonCityTextUniQuizCorrect::
 	line "it to your"
 	cont "heart's content!"
 	done
+
+; new for RP -----------------------------
+
+_CeladonCityText10New_RP::
+	text "Oh, the newbie."
+	line "Can't pass, the"
+	cont "BOSS didn't give"
+	cont "you the OK yet."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonCityText11New_RP::
+	text "Oh, the rookie."
+	line "Must get the"
+	cont "authorization"
+	cont "from the BOSS"
+	cont "to go through."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonCityText2_RP_Beating::
+	text "To enter the"
+	line "UNIVERSITY, you"
+	cont "must fir-"
+
+	para "Uh? What's a ROCKET"
+	line "doing HERE?"
+
+	para "AAAHHH! No! Wait!"
+	line "Stop! You can't!"
+	cont "Help! Help!"
+	cont "Why nobody...?!"
+
+	para "I give in! I give!"
+	line "Go, go through!"
+	cont "May you be damned!"
+;	xxxx "123456789012345678"
+	done

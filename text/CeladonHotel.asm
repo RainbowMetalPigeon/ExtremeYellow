@@ -502,3 +502,65 @@ _CeladonHotelHallAfterBattleText3::
 ;	xxxx "123456789012345678"
 	done
 
+_CeladonHotelHallText5_RP:: ; for RP
+	text "Got na business"
+	line "here, ya scum."
+	cont "We can fix a lot"
+	cont "of stuff, but"
+	cont "not you."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonHotelText1_RP_DemandRoom:: ; for RP
+	text "Was? We haben no"
+	line "Zimmer fur"
+	cont "criminals."
+	cont "Raus."
+
+	para "...What did you"
+	line "say?! Set fire"
+	cont "to the whole...?!"
+
+	para "YOU SHIT!"
+	line "You can't do that!"
+	cont "Ich... I can't..."
+
+	para "...du win."
+	line "Go und take your"
+	cont "Zimmer."
+
+	para "Damals gab's sowas"
+	line "nicht..."
+;	xxxx "123456789012345678"
+	done
+	
+_CeladonHotelText1_RP_WhatElse:: ; for RP
+	text "Was else do you"
+	line "want from mich?"
+
+	para "You hast dein"
+	line "Zimmer. Enjoy it."
+
+	para "Arschloch..."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonHotelText4_RP:: ; for RP
+	text "Get lost, scumbag."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonHotelText5_RP:: ; for RP
+	text "Grrr... just go."
+	line "And not a word."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonHotelRoomsText1_RP:: ; for RP
+	text "A ROCKET..."
+	line "Unfortunately,"
+	cont "handling you"
+	cont "is out of my"
+	cont "jurisdiction."
+;	xxxx "123456789012345678"
+	done

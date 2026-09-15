@@ -53,8 +53,8 @@ ROMX $5
 	"Battle Engine 2"
 ROMX $6
 	"Maps 1"
-	"Maps 2"
-	"Doors and Ledges"
+;	"Maps 2" ; edited, no need anymore to be together
+	"Doors and Ledges" ; edited, no need to be together?
 ROMX $7
 	"Maps 3"
 	"bank7"
@@ -96,13 +96,13 @@ ROMX $11
 	                 ; basically, everything with holes
 ROMX $12
 	"Maps 7"
-	"Maps 8"
+;	"Maps 8" ; edited, unlinked
 ROMX $13
 	"Pics 6"
 ;	"Maps 9" ; try to disentangle from Pics 6?
 ROMX $14
 	"Maps 10"
-	"Hidden Objects 2"
+;	"Hidden Objects 2"
 ROMX $15
 	"Maps 11"
 ;	"Battle Engine 7"
@@ -137,7 +137,7 @@ ROMX $1D
 	"Maps 19"
 	"Itemfinder 1"
 	"Maps 20"
-	"Vending Machine"
+;	"Vending Machine" ; removed, unnecessary
 	"Maps 21"
 	"Itemfinder 2"
 ROMX $1E
@@ -222,7 +222,7 @@ ROMX $3C
 ROMX $3D
 	"Battle Engine 8"
 ;	"Pics 7"
-	"Battle Engine 9"
+;	"Battle Engine 9" ; testing
 ROMX $3E
 	"Surfing Minigame"
 ROMX $3F

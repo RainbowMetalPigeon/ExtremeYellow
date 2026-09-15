@@ -249,3 +249,17 @@ _FuchsiaCityTextSaraHappy:: ; new
 	para "I am so happy to"
 	line "be with ERIK!"
 	done
+
+; new for RP ======================
+
+_FuchsiaCityTextRocket_RP::
+	text "Pipsqueak! The"
+	line "BOSS has not"
+	cont "allowed you yet"
+	cont "to access our"
+	cont "SAFARI ZONE."
+
+	para "Be back when they"
+	line "authorize you."
+;	xxxx "123456789012345678"
+	done

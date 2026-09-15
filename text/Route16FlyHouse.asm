@@ -55,3 +55,29 @@ _HM02NoRoomText::
 _Route16HouseText_1e652::
 	text "FEAROW: Kyueen!"
 	done
+
+; new for RP ---------------------
+
+_Route16HouseText1_RP_PostFly::
+	text "You have nothing"
+	line "more to earn"
+	cont "from me! Now"
+	cont "leave us alone!"
+;	xxxx "123456789012345678"
+	done
+
+_Route16HouseText1_RP_PreFly::
+	text "Hey! How did you"
+	line "find this place?"
+
+	para "?! No!!!"
+	line "My FEAROW!"
+	cont "Leave it alone!"
+	cont "Don't you dare"
+	cont "hurting it!"
+
+	para "FINE! Take this"
+	line "and leave us in"
+	cont "peace, monster!"
+;	xxxx "123456789012345678"
+	prompt

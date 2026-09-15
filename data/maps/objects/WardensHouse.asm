@@ -29,7 +29,5 @@ WardensHouse_Object:
 	object_event 17,  5, SPRITE_FOSSIL, STAY, NONE, 5 ; new, antique stuff
 	object_event 24,  5, SPRITE_FOSSIL, STAY, NONE, 6 ; new, antique stuff
 	object_event 21,  0, SPRITE_PAPER, STAY, NONE, 7 ; new, piece of map
-;	object_event  8,  3, SPRITE_POKE_BALL, STAY, NONE, 8, RARE_CANDY
-;	object_event  8,  4, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 9
 
 	def_warps_to WARDENS_HOUSE

@@ -79,14 +79,20 @@ CheckForceBikeOrSurfOrDive:: ; edited
 	ld a, $2
 	ld [wSeafoamIslandsB4FCurScript], a
 	jr z, .forceSurfing
-	;force bike riding
+; force bike riding
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .nonRP
+	SetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD
+	ret
+.nonRP
+; BTV
 	ld hl, wd732
 	set 5, [hl]
 	ld a, $1
 	ld [wWalkBikeSurfState], a
 	ld [wWalkBikeSurfStateCopy], a
-	call ForceBikeOrSurf
-	ret
+	jp ForceBikeOrSurf
 .incorrectMap
 	inc hl
 .incorrectY
@@ -96,8 +102,7 @@ CheckForceBikeOrSurfOrDive:: ; edited
 	ld a, $2
 	ld [wWalkBikeSurfState], a
 	ld [wWalkBikeSurfStateCopy], a
-	call ForceBikeOrSurf
-	ret
+	jp ForceBikeOrSurf
 
 INCLUDE "data/maps/force_bike_surf.asm"
 
@@ -209,6 +214,8 @@ IsWarpTileInFrontOfPlayer::
 	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
 	cp LAVENDER_HOUSES									; new
 	jp z, IsHouseGateWarpTileInFrontOfPlayer			; new
+	cp OBSIDIAN_ISLAND									; new
+	jp z, IsObsidianIslandWarpTileInFrontOfPlayer		; new
 ; new for Sevii
 	jr .postMapChecks
 .sevii
@@ -327,6 +334,19 @@ IsObsidianWarehouseWarpTileInFrontOfPlayer: ; new
 	and a
 	jr IsWarpTileInFrontOfPlayer.done
 
+IsObsidianIslandWarpTileInFrontOfPlayer: ; new
+	ld a, [wTileInFrontOfPlayer]
+	cp $12
+	jr z, .yesObsidianIslandWarp
+	cp $50
+	jr nz, .notObsidianIslandWarp
+.yesObsidianIslandWarp
+	scf
+	jp IsWarpTileInFrontOfPlayer.done
+.notObsidianIslandWarp
+	and a
+	jp IsWarpTileInFrontOfPlayer.done
+
 IsHauntedHouseExtraWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $10
@@ -410,6 +430,8 @@ IsPlayerStandingOnDoorTileOrWarpTile::
 INCLUDE "data/tilesets/warp_tile_ids.asm"
 
 PrintSafariZoneSteps::
+	CheckEvent EVENT_ROCKET_PATH ; new
+	ret nz ; new
 	CheckEvent EVENT_IN_SEVII ; new
 	ret nz ; new
 	ld a, [wCurMap]
@@ -732,6 +754,8 @@ ExtraWarpCheck::
 	cp VIRIDIAN_NICKNAME_HOUSE		; new
 	jr z, .useFunction2				; new
 	cp LAVENDER_HOUSES				; new
+	jr z, .useFunction2				; new
+	cp OBSIDIAN_ISLAND				; new
 	jr z, .useFunction2				; new
 ; new for Sevii
 	jr .checkByTileset ; new

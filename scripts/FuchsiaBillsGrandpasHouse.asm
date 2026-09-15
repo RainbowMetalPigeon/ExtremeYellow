@@ -1,4 +1,5 @@
 FuchsiaBillsGrandpasHouse_Script:
+	RPTextChooser FuchsiaBillsGrandpasHouse_TextPointers, FuchsiaBillsGrandpasHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -6,6 +7,11 @@ FuchsiaBillsGrandpasHouse_TextPointers:
 	dw FuchsiaHouse1Text1
 	dw FuchsiaHouse1Text2
 	dw FuchsiaHouse1Text3
+
+FuchsiaBillsGrandpasHouse_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 FuchsiaHouse1Text1:
 	text_far _FuchsiaHouse1Text1

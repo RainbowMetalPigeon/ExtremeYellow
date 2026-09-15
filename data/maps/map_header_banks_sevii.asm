@@ -26,6 +26,7 @@ MapHeaderBanks_Sevii::
 	db BANK(SeviiRoute42_h)
 	db BANK(SeviiRoute43_h)
 	db BANK(SeviiRoute44_h)
+	db BANK(SeviiFourIslandParkourPath_h)
 ; indoors
 ; 1-island
 	db BANK(SeviiOneIslandDock_h)

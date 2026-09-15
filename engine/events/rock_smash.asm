@@ -1,6 +1,8 @@
 RockSmash::
 	call EnableAutoTextBoxDrawing
 
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .canUseRockSmash
 	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 	jr nz, .canUseRockSmash
 ; we haven't beaten Orage yet

@@ -18,6 +18,18 @@ ResetStatusAndHalveMoneyOnBlackout::
 	call HasEnoughMoney
 	jr c, .lostmoney ; never happens
 
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+; 0-ify player's money
+	xor a
+	ld [wPlayerMoney], a
+	ld [wPlayerMoney + 1], a
+	ld [wPlayerMoney + 2], a
+	jr .lostmoney
+.notRP
+; BTV
+
 	; Halve the player's money.
 	ld a, [wPlayerMoney]
 	ldh [hMoney], a

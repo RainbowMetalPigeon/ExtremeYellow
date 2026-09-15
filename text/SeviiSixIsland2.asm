@@ -289,3 +289,129 @@ _PlantYesWaterText::
 	cont "'GLU GLU'?"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===========================
+
+_SeviiRoute38HousesText1_RP_PostTank::
+	text "You got what you"
+	line "wanted, no?"
+	cont "Now scram."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_RP_BeforeTank::
+	text "Out of my house,"
+	line "you disgusting"
+	cont "ROCKET!"
+
+	para "You think I can't"
+	line "fight? Oh, you're"
+	cont "sorely mistaken!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiRoute38HousesText1_RP_TakeThis::
+	text "...I may be able"
+	line "to fight, but"
+	cont "evidently not"
+	cont "well enough to"
+	cont "keep up with a"
+	cont "filth like you."
+
+	para "You wanted this,"
+	line "didn't you?"
+	cont "Just take it and"
+	cont "leave for good."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiRoute38HousesText2_RP::
+	text "I l-l-love to"
+	line "mimic others,"
+	cont "but y-y-you?"
+
+	para "N-n-no way!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiDottedHoleTextScript2_RP::
+	text "JESSIE&JAMES: You!"
+	line "You... Are the..."
+
+	para "You... GIOVANNI..."
+
+	para "...YOU ARE THE"
+	line "ONE WHO KILLED"
+	cont "GIOVANNI!"
+
+	para "How could you?!"
+	line "We... TEAM ROCKET"
+	cont "for us..."
+
+	para "Grr! Get ready,"
+	line "we will avenge"
+	cont "our one and only"
+	cont "true BOSS!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiDottedHoleJessieJamesDefeatText::
+	text "No!"
+	line "This can't be!"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiDottedHoleTextScript3_RP::
+	text "JESSIE&JAMES: ..."
+
+	para "...TEAM ROCKET has"
+	line "always been like"
+	cont "a family to us."
+	cont "GIOVANNI took us"
+	cont "in when no-one"
+	cont "else wanted us."
+
+	para "And you..."
+	line "You..."
+
+	para "..."
+	line "...why?"
+
+	para "Uh? AGH! Why?!"
+	line "Why attacking us"
+	cont "instead of answe-"
+
+	cont "AHHH! No!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiDottedHoleTextScript4_RP::
+	text "JESSIE&JAMES: NO!"
+	line "NOOO!!! AAAHHH!!!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandCityText4::
+	text "???: you!"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandCityScriptText1::
+	text "PINK: die"
+;	xxxx "123456789012345678"
+	done
+
+_SeviiSixIslandCityPinkDefeatedText::
+	text "pink: shit"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiSixIslandCityPinkWonText::
+	text "pink: purge time"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiSixIslandCityScriptText2::
+	text "PINK: go to top"
+;	xxxx "123456789012345678"
+	done

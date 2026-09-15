@@ -1,4 +1,5 @@
 SeviiThreeIslandGym_Script:
+	RPTextChooser SeviiThreeIslandGym_TextPointers, SeviiThreeIslandGym_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiThreeIslandGym_ScriptPointers
 	ld a, [wCurMapScript]
@@ -11,9 +12,13 @@ SeviiThreeIslandGym_Script:
 SeviiThreeIslandGym_ScriptPointers:
 	dw SeviiThreeIslandGymScript0
 	dw SeviiThreeIslandGymScriptPostBattle
+	dw SeviiThreeIslandGymScriptPushRP
 
 SeviiThreeIslandGymScript0:
-	ret
+	ld d,  4 ; x in front of the door
+	ld e, 17 ; y in front of the door
+	ld c,  2 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
 
 SeviiThreeIslandGymScriptPostBattle:
 	xor a
@@ -75,6 +80,17 @@ SeviiThreeIslandGymScriptPostBattle:
 SeviiThreeIslandGym_TextPointers:
 	dw SeviiThreeIslandGymText1
 	dw SeviiThreeIslandGymText2
+	; scripts
+	dw SeviiThreeIslandGymText3_Victory ; 3
+	dw SeviiThreeIslandGymText4_Defeat ; 4
+	dw SeviiThreeIslandGymText4_Reward1 ; 5
+	dw SeviiThreeIslandGymText4_Reward2 ; 6
+	dw SeviiThreeIslandGymText4_Reward3 ; 7
+	dw SeviiThreeIslandGymText4_NoReward ; 8
+
+SeviiThreeIslandGym_TextPointers_Rocket:
+	dw SeviiThreeIslandGymText1 ; unused
+	dw SeviiThreeIslandGymText2_RP
 	; scripts
 	dw SeviiThreeIslandGymText3_Victory ; 3
 	dw SeviiThreeIslandGymText4_Defeat ; 4
@@ -253,4 +269,13 @@ SeviiThreeIslandGymText4_Reward3:
 
 SeviiThreeIslandGymText4_NoReward:
 	text_far _SeviiThreeIslandGymText4_NoReward
+	text_end
+
+; new for RP ================================
+
+SeviiThreeIslandGymScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiThreeIslandGymText2_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
 	text_end

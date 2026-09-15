@@ -677,6 +677,22 @@ _RedBedroomSNESText:: ; edited
 	cont "great adventure!"
 	done
 
+_RedBedroomSNESText_RP:: ; new for RP
+	text "A stupid game"
+	line "about exploring,"
+	cont "gliding around,"
+	cont "riding horses,"
+	cont "finding mummies"
+	cont "and seeds, and"
+	cont "climbing towers."
+
+	para "Bah! Who needs any"
+	line "of that, when"
+	cont "real life offers"
+	cont "money and power!"
+;	xxxx "123456789012345678"
+	done
+
 _AerodactylFossilText::
 	text "AERODACTYL Fossil"
 	line "A primitive and"
@@ -1612,5 +1628,16 @@ _PikachuResisted::
 	text "It's not over yet!"
 	line "<TARGET> holds!"
 	prompt
+
+_GenericNPCPokecenterBenchGuyText_RP::
+	text "Ugh... For as much"
+	line "as right now I'd"
+	cont "love to, I can't"
+	cont "exactly get up"
+	cont "and leave, so can"
+	cont "you just leave me"
+	cont "alone...?"
+;	xxxx "123456789012345678"
+	done
 
 ;	xxxx "123456789012345678"

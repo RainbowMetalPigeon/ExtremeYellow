@@ -1,4 +1,5 @@
 SeviiDottedHole_Script:
+	RPTextChooser SeviiDottedHole_TextPointers, SeviiDottedHole_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiDottedHole_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -20,6 +21,9 @@ SeviiDottedHole_ScriptPointers:
 	dw SeviiDottedHoleScript8
 	dw SeviiDottedHoleScript9
 	dw SeviiDottedHoleScript10
+	; for RP
+	dw SeviiDottedHoleScript11
+	dw SeviiDottedHoleScript12
 
 SeviiDottedHoleScript0:
 	CheckEvent EVENT_SEVII_BEAT_ROCKETS_DOTTED_HOLE
@@ -108,7 +112,11 @@ SeviiDottedHoleScript5:
 	ldh [hSpriteIndex], a
 	call MoveSprite
 ; script handling
+	CheckEvent EVENT_ROCKET_PATH
 	ld a, 6
+	jr z, .scriptFound
+	ld a, 11
+.scriptFound
 	ld [wCurMapScript], a
 	ret
 
@@ -369,6 +377,7 @@ SeviiDottedHoleInitStaticEncounterBattle:
 
 SeviiDottedHoleMeltanText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, SeviiDottedHoleMeltanTrainerHeader
 	jr SeviiDottedHoleInitStaticEncounterBattle
 
@@ -401,6 +410,22 @@ SeviiDottedHole_TextPointers:
 	dw SeviiDottedHoleTextScript6  ; 15
 	dw SeviiDottedHoleTextScript7  ; 16
 	dw SeviiDottedHoleTextScript8  ; 17
+
+SeviiDottedHole_TextPointers_Rocket:
+	dw SeviiDottedHoleMeltanText ; Meltan
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy
+	dw SeviiDottedHoleTextProxy ; 9
+	; scripts
+	dw SeviiDottedHoleTextScript1     ; 10
+	dw SeviiDottedHoleTextScript2_RP  ; 11
+	dw SeviiDottedHoleTextScript3_RP  ; 12
+	dw SeviiDottedHoleTextScript4_RP  ; 13
 
 SeviiDottedHoleTextProxy:
 	text_far _SeviiDottedHoleText1
@@ -452,4 +477,102 @@ SeviiDottedHoleArianaDefeatText:
 
 SeviiDottedHoleArcherDefeatText:
 	text_far _SeviiDottedHoleArcherDefeatText
+	text_end
+
+; new for RP =========================================
+
+SeviiDottedHoleScript11:
+; wait for James movements
+	ld a, [wd730]
+	bit 0, a
+	ret nz
+; fix Jessie facings
+	ld a, 2
+	ldh [hSpriteIndex], a
+	lb bc, STAY, RIGHT
+	call ChangeSpriteMovementBytes ; new from Engeze
+; fix Jessie facings
+	ld a, 3
+	ldh [hSpriteIndex], a
+	lb bc, STAY, LEFT
+	call ChangeSpriteMovementBytes ; new from Engeze
+; restore joypad control
+	ld a, $0
+	ld [wJoyIgnore], a
+; dialogue JJ
+	ld a, 11
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_JESSIEJAMES
+	ld [wCurOpponent], a
+	ld a, 6
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, SeviiDottedHoleJessieJamesDefeatText
+	ld de, SeviiDottedHoleJessieJamesDefeatText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+; script handling
+	ld a, 12
+	ld [wCurMapScript], a
+	ret
+
+SeviiDottedHoleScript12:
+; did we lose?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiDottedHoleResetScripts
+; we won
+	SetEvent EVENT_SEVII_BEAT_ROCKETS_DOTTED_HOLE
+; dialogues
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; last dialogue
+    call GBFadeOutToWhite
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+    call GBFadeInFromWhite
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill J&J
+	SetEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
+	call GBFadeOutToBlack
+	ld a, HS_SEVII_DOTTED_HOLE_JAMES_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_DOTTED_HOLE_JESSIE_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+    ld c, 60
+    call DelayFrames
+	ld a, SFX_PUSH_BOULDER
+	call PlaySound
+    ld c, 60
+    call DelayFrames
+	call GBFadeInFromBlack
+	jp SeviiDottedHoleResetScripts
+
+SeviiDottedHoleTextScript2_RP:
+	text_far _SeviiDottedHoleTextScript2_RP
+	text_end
+
+SeviiDottedHoleJessieJamesDefeatText:
+	text_far _SeviiDottedHoleJessieJamesDefeatText
+	text_end
+
+SeviiDottedHoleTextScript3_RP:
+	text_far _SeviiDottedHoleTextScript3_RP
+	text_end
+
+SeviiDottedHoleTextScript4_RP:
+	text_far _SeviiDottedHoleTextScript4_RP
 	text_end

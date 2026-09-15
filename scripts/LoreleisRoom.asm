@@ -1,4 +1,5 @@
 LoreleisRoom_Script:
+	RPTextChooser LoreleisRoom_TextPointers, LoreleisRoom_TextPointers_Rocket
 	call LoreleiShowOrHideExitBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, LoreleisRoomTrainerHeaders
@@ -14,6 +15,16 @@ LoreleiShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_ELIMINATED_LORELEI
+	jr z, .dontStopMusic
+	call StopAllMusic
+.dontStopMusic
+; BTV
 	ld hl, wBeatLorelei
 	set 1, [hl]
 ; new
@@ -22,6 +33,10 @@ LoreleiShowOrHideExitBlock:
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_1
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_2
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_3
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_4
 ; BTV
 	jr z, .blockExitToNextRoom
 .freeExitToNextRoom ; new
@@ -37,6 +52,7 @@ LoreleiShowOrHideExitBlock:
 ResetLoreleiScript:
 	xor a
 	ld [wLoreleisRoomCurScript], a
+	ld [wCurMapScript], a ; new, maybe unnecessary
 	ret
 
 LoreleisRoom_ScriptPointers:
@@ -45,6 +61,8 @@ LoreleisRoom_ScriptPointers:
 	dw LoreleiScript2
 	dw LoreleiScript3
 	dw LoreleiScript4
+	; new for RP
+	dw LoreleiScript5
 
 LoreleiScript4:
 	ret
@@ -118,12 +136,25 @@ LoreleiScript2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLoreleiScript
+; we won
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .notChampionPink
+; champion Pink
+	ld a, 5
+	ld [wLoreleisRoomCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notChampionPink
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
 
 LoreleisRoom_TextPointers:
 	dw LoreleiText1
+	dw LoreleiDontRunAwayText
+
+LoreleisRoom_TextPointers_Rocket:
+	dw LoreleiText1_RP
 	dw LoreleiDontRunAwayText
 
 LoreleisRoomTrainerHeaders:
@@ -134,6 +165,10 @@ LoreleisRoomTrainerHeader1:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_1, 0, LoreleiBeforeBattleTextRematch, LoreleiEndBattleTextRematch, LoreleiAfterBattleTextRematch
 LoreleisRoomTrainerHeader2:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_2, 0, LoreleiBeforeBattleTextRematch2, LoreleiEndBattleTextRematch2, LoreleiAfterBattleTextRematch2
+LoreleisRoomTrainerHeader3: ; for RP
+	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_3, 0, LoreleiBeforeBattleText_RP, LoreleiEndBattleText_RP, LoreleiAfterBattleText_RP
+LoreleisRoomTrainerHeader4: ; for RP
+	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_4, 0, LoreleiBeforeBattleText_RP_Pink, LoreleiEndBattleText_RP_Pink, LoreleiAfterBattleText_RP_Pink
 	db -1 ; end
 
 LoreleiText1: ; edited
@@ -203,3 +238,73 @@ LoreleiEndBattleTextRematch2:
 LoreleiAfterBattleTextRematch2:
 	text_far _LoreleiAfterBattleTextRematch2
 	text_end
+
+; new for RP =======================
+
+LoreleiText1_RP:
+	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr nz, .championPink
+; pre-Giovanni death
+	ld hl, LoreleisRoomTrainerHeader3
+	call TalkToTrainer
+	ld a, 4
+	jr .gotTrainerNumber
+.championPink
+	ld hl, LoreleisRoomTrainerHeader4
+	call TalkToTrainer
+	ld a, 3
+.gotTrainerNumber
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+
+LoreleiBeforeBattleText_RP:
+	text_far _LoreleiBeforeBattleText_RP
+	text_end
+
+LoreleiEndBattleText_RP:
+	text_far _LoreleiEndBattleText_RP
+	text_end
+
+LoreleiAfterBattleText_RP:
+	text_far _LoreleiAfterBattleText_RP
+	text_end
+
+LoreleiBeforeBattleText_RP_Pink:
+	text_far _LoreleiBeforeBattleText_RP_Pink
+	text_end
+
+LoreleiEndBattleText_RP_Pink:
+	text_far _LoreleiEndBattleText_RP_Pink
+	text_end
+
+LoreleiAfterBattleText_RP_Pink:
+	text_far _LoreleiAfterBattleText_RP_Pink
+	text_end
+
+LoreleiScript5:
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill Lorelei
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToBlack
+	call StopMusic
+    ld c, 60
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	ld a, HS_LORELEIS_ROOM_LORELEI
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+    ld c, 100
+    call DelayFrames
+    call GBFadeInFromBlack
+	SetEvent EVENT_RP_ELIMINATED_LORELEI
+	jp ResetLoreleiScript

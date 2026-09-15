@@ -1,4 +1,5 @@
 SeviiSevenIslandHouses_Script:
+	RPTextChooser SeviiSevenIslandHouses_TextPointers, SeviiSevenIslandHouses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiSevenIslandHouses_TextPointers:
@@ -7,6 +8,21 @@ SeviiSevenIslandHouses_TextPointers:
 	dw SeviiSevenIslandHousesText3 ; person
 	dw SeviiSevenIslandHousesText4 ; person
 	dw SeviiSevenIslandHousesText5 ; person
+	dw SeviiSevenIslandHousesSignText1
+	dw SeviiSevenIslandHousesSignText2
+	dw SeviiSevenIslandHousesSignText3
+	dw SeviiSevenIslandHousesSignText4
+	dw SeviiSevenIslandHousesSignText5
+	dw SeviiSevenIslandHousesSignText6
+	dw SeviiSevenIslandHousesSignText7
+	dw SeviiSevenIslandHousesSignText8 ; PC
+
+SeviiSevenIslandHouses_TextPointers_Rocket:
+	dw SeviiSevenIslandHousesText1 ; letter
+	dw GenericNPCText_RocketPath ; person
+	dw GenericNPCText_RocketPath ; person
+	dw GenericNPCText_RocketPath ; person
+	dw GenericNPCText_RocketPath ; person
 	dw SeviiSevenIslandHousesSignText1
 	dw SeviiSevenIslandHousesSignText2
 	dw SeviiSevenIslandHousesSignText3

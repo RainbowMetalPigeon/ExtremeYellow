@@ -1,12 +1,13 @@
 BluesHouse_Script:
+	RPTextChooser BluesHouse_TextPointers, BluesHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, BluesHouse_ScriptPointers
-	xor a
-	call CallFunctionInTable
-	ret
+	ld a, [wCurMapScript]
+	jp CallFunctionInTable
 
 BluesHouse_ScriptPointers: ; edited
 	dw BluesHouseScript0
+	dw BluesHouseScript1
 
 BluesHouseScript0: ; edited
 	SetEvent EVENT_ENTERED_BLUES_HOUSE
@@ -25,6 +26,22 @@ BluesHouse_TextPointers:
 	dw BluesHouseSignText2
 	dw BluesHouseSignText3
 	dw BluesHouseSignText4
+
+BluesHouse_TextPointers_Rocket:
+	dw DaisyText_RP
+	dw DaisyText_RP
+	dw BluesHouseTownMapText_RP
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	dw GenericNPCText_RocketPath ; unused
+	; signs
+	dw BluesHouseSignText1_RP
+	dw BluesHouseSignText2
+	dw BluesHouseSignText3
+	dw BluesHouseSignText4_RP
+	; scripts
+	dw BluesHouseScriptText1 ; 12
 
 BluesHouseDaisySittingText: ; TBE
 	text_asm
@@ -223,16 +240,87 @@ BluesHouseOakText:
 BluesHouseSignText1:
 	text_far _BluesHouseSignText1
 	text_end
-	
+
 BluesHouseSignText2:
 	text_far _BluesHouseSignText2
 	text_end
-	
+
 BluesHouseSignText3:
 	text_far _BluesHouseSignText3
 	text_end
-	
+
 BluesHouseSignText4:
 	text_far _BluesHouseSignText4
 	text_end
-	
+
+; new for RP ============================
+
+DaisyText_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_HOF_OAK
+	jr z, .beforeKillingOak
+; after
+	ld hl, DaisyText_RP_After
+	call PrintText
+; load next script
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.beforeKillingOak
+	ld hl, DaisyText_RP_Before
+	call PrintText
+	jp TextScriptEnd
+
+DaisyText_RP_Before:
+	text_far _DaisyText_RP_Before
+	text_end
+
+DaisyText_RP_After:
+	text_far _DaisyText_RP_After
+	text_end
+
+BluesHouseTownMapText_RP:
+	text_far _BluesHouseTownMapText_RP
+	text_end
+
+BluesHouseSignText1_RP:
+	text_far _BluesHouseSignText1_RP
+	text_end
+
+BluesHouseSignText4_RP:
+	text_far _BluesHouseSignText4_RP
+	text_end
+
+BluesHouseScriptText1:
+	text_far _BluesHouseScriptText1
+	text_end
+
+BluesHouseScript1:
+    call GBFadeOutToWhite
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+    call GBFadeInFromWhite
+	ld a, 12
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+    call GBFadeOutToBlack
+    ld c, 30
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	ld a, HS_DAISY_SITTING
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_DAISY_WALKING
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+    ld c, 30
+    call DelayFrames
+    call GBFadeInFromBlack
+; load next script
+	xor a
+	ld [wCurMapScript], a
+	ret

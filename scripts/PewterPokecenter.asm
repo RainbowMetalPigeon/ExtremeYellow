@@ -1,4 +1,5 @@
 PewterPokecenter_Script:
+	RPTextChooser PewterPokecenter_TextPointers, PewterPokecenter_TextPointers_Rocket
 	ld hl, wd492
 	set 7, [hl]
 	call Serial_TryEstablishingExternallyClockedConnection
@@ -19,6 +20,19 @@ PewterPokecenter_TextPointers:
 	dw PewterMartText2
 	dw PewterMartText3
 	dw PewterCashierTextTM ; new, TM seller
+
+PewterPokecenter_TextPointers_Rocket:
+	dw PewterHealNurseText
+	dw GenericNPCText_RocketPath
+	dw PewterJigglypuffText_RP
+	dw PewterTradeNurseText
+	dw GenericNPCText_RocketPath
+	dw PewterPokecenterText6
+	; from Mart
+	dw PewterCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw PewterCashierTextTM
 
 PewterHealNurseText:
 	script_pokecenter_nurse
@@ -74,3 +88,9 @@ PewterCashierTextTM: ; testing
     text_asm
 	callfar TMMartClerkDialogue
     jp TextScriptEnd
+
+; new for RP ============================
+
+PewterJigglypuffText_RP:
+	text_far _PewterJigglypuffText_RP
+	text_end

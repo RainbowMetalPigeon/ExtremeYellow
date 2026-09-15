@@ -26,6 +26,7 @@ RedsHouse2FScript0: ; edited, to tell us about the options
 ; boring technical stuff
 	SetEvent EVENT_INFORMED_ABOUT_OPTIONS
 	ret
+
 RedsHouse2FScript1:
 RedsHouse2FScript2:
 RedsHouse2FScript3:
@@ -173,4 +174,3 @@ RedsHouse2FLayoutOptions_Outro:
 RedsHouse2FInfoAboutOptions:
 	text_far _RedsHouse2FInfoAboutOptions
 	text_end
-	

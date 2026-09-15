@@ -1,4 +1,5 @@
 SeviiTwoIslandCity_Script:
+	RPTextChooser SeviiTwoIslandCity_TextPointers, SeviiTwoIslandCity_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiTwoIslandCity_ScriptPointers
 	ld a, [wCurMapScript]
@@ -32,6 +33,29 @@ SeviiTwoIslandCity_TextPointers:
 	dw PokeCenterSignText ; 20
 	; scripts
 	dw SeviiTwoIslandCityScriptText1 ; 21 ; Boss post defeat
+
+SeviiTwoIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw SeviiTwoIslandCityText5_RP ; Market
+	dw SeviiTwoIslandCityText6_RP ; Lottery
+	dw GenericNPCText_RocketPath
+	dw SeviiTwoIslandCityText8_RP ; Biker
+	dw SeviiTwoIslandCityText9  ; Tauros
+	dw SeviiTwoIslandCityText10 ; Tauros
+	dw RockSmashText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw SeviiTwoIslandCityText14_RP ; Underground guard
+	; signs
+	dw SeviiTwoIslandCitySignText1 ; 15
+	dw SeviiTwoIslandCitySignText2 ; 16
+	dw SeviiTwoIslandCitySignText3 ; 17
+	dw SeviiTwoIslandCitySignText4 ; 18
+	dw SeviiTwoIslandCitySignText5 ; 19
+	dw PokeCenterSignText ; 20
 
 ; scripts =========================================
 
@@ -295,3 +319,22 @@ SeviiTwoIslandCityScriptText1:
 SeviiTwoIslandCityText14:
 	text_far _SeviiUndergroundCaveGuardText
 	text_end
+
+; new for RP ===========================================
+
+SeviiTwoIslandCityText5_RP:
+	text_far _SeviiTwoIslandCityText5_RP
+	text_end
+
+SeviiTwoIslandCityText6_RP:
+	text_far _SeviiTwoIslandCityText6_RP
+	text_end
+
+SeviiTwoIslandCityText8_RP:
+	text_far _SeviiTwoIslandCityText8_RP
+	text_end
+
+SeviiTwoIslandCityText14_RP:
+	text_asm
+	callfar HideAllUndergroundGuards_RP
+	jp TextScriptEnd

@@ -388,3 +388,82 @@ _OchreHousesTextNotebook::
 	cont "the lyrics of a"
 	cont "love song!"
 	done
+
+; new for RP ================================
+
+_OchreHousesTextBirbFan1_RP_Before::
+	text "I won't let you"
+	line "taint the"
+	cont "honour of BIRDs!"
+;	xxxx "123456789012345678"
+	done
+
+_OchreBirdFanClubDefeatText1::
+	text "No!"
+	line "Glorious BIRDs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_OchreHousesTextBirbFan1_RP_After::
+	text "I failed my"
+	line "agile, light,"
+	cont "fast BIRDs!"
+;	xxxx "123456789012345678"
+	done
+
+; --------------
+
+_OchreHousesTextBirbFan2_RP_Before::
+	text "I won't let you"
+	line "desecrate the"
+	cont "honour of BIRDs!"
+;	xxxx "123456789012345678"
+	done
+
+_OchreBirdFanClubDefeatText2::
+	text "No!"
+	line "Splendid BIRDs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_OchreHousesTextBirbFan2_RP_After::
+	text "I failed my"
+	line "elegant,"
+	cont "beautiful,"
+	cont "colorful BIRDs!"
+;	xxxx "123456789012345678"
+	done
+
+; --------------
+
+_OchreHousesTextBirbFan3_RP_Before::
+	text "I won't let you"
+	line "tarnish the"
+	cont "honour of BIRDs!"
+;	xxxx "123456789012345678"
+	done
+
+_OchreBirdFanClubDefeatText3::
+	text "No!"
+	line "Superb BIRDs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_OchreHousesTextBirbFan3_RP_After::
+	text "I failed my"
+	line "strong, fierce,"
+	cont "potent BIRDs!"
+;	xxxx "123456789012345678"
+	done
+
+; --------------
+
+_OchreHousesTextMapPiece_RP_CannotPick::
+	text "Those BIRD geeks"
+	line "won't let anyone"
+	cont "pick this map."
+
+	para "They need to be"
+	line "reasoned with..."
+;	xxxx "123456789012345678"
+	done

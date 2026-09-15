@@ -1436,7 +1436,8 @@ wUsedItemOnWhichPokemon:: db ; edited/new
 
 wTrainerPicPointer:: dw
 
-	ds 1
+;	ds 1 ; edited
+wWhichPokemonBackup:: db ; new
 
 UNION
 wTempMoveNameBuffer:: ds 14
@@ -2361,6 +2362,8 @@ wCeruleanCityCurScript:: db
 ;wViridianForestCurScript:: db
 
 wShinyRitualSeconds:: db ; new
+wParkourPathSeconds:: db ; new
+wParkourPathSeconds_Record:: db ; new
 wAlteringCaveLoopNumber:: db ; new
 
 wMuseum1FCurScript:: db
@@ -2369,7 +2372,7 @@ wMuseum1FCurScript:: db
 ;wRoute17CurScript:: db
 ;wRoute19CurScript:: db
 ;wRoute21CurScript:: db
-	ds 5 ; new, from optimizing the scripts, UNUSED
+	ds 3 ; new, from optimizing the scripts, UNUSED
 
 wSafariZoneGateCurScript:: db
 ;wRockTunnelB1FCurScript:: db
@@ -2461,7 +2464,7 @@ wBillsHouseCurScript:: db
 ;wCeladonUniversity2CurScript:: db ; new
 ;	ds 1
 ;wSSAnne2FCurScript:: db
-	ds 4 ; new, from optimizing the scripts, UNUSED
+	ds 2 ; new, from optimizing the scripts, UNUSED
 
 wSeafoamIslandsB3FCurScript:: db
 ;wRoute23CurScript:: db
@@ -2500,6 +2503,10 @@ wPlayerGender::
 	; $01 = female
 	; $02 = enby
 	ds 1
+
+wHowManyTrainersBeforeKoga:: db ; new
+
+wKogaSpriteIndex:: db ; new
 
 wTyrogueEvolutions::
 	; stores directly the number/name of the chosen Hitmon
@@ -2653,11 +2660,10 @@ wd728:: db
 
 ;	ds 1
 wTownVisitedFlag_Sevii:: flag_array NUM_CITY_MAPS_SEVII + 1 ; new, for Sevii
-;	ds 1
+	ds 1 ; restored, buffer?
 
-; redundant because it matches wObtainedBadges
-; used to determine whether to show name on statue and in two NPC text scripts
-wBeatGymFlags:: db
+; repurposed from a redundant byte
+wRPStealBallsForBadges:: db ; edited/new
 
 ; bit 0: if not set, the 3 minimum steps between random battles have passed
 ; bit 1: prevent audio fade out

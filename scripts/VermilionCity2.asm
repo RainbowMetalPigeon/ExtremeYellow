@@ -37,7 +37,7 @@ ElderBattleFacilityText2:
 Func_f1a0f::
 	CheckEvent EVENT_GOT_SQUIRTLE_FROM_OFFICER_JENNY
 	jr nz, .asm_f1a69
-	ld a, [wBeatGymFlags]
+	ld a, [wObtainedBadges] ; edited
 	bit 2, a ; THUNDERBADGE
 	jr nz, .asm_f1a24
 	ld hl, OfficerJennyText1

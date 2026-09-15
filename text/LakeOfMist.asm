@@ -275,3 +275,40 @@ _LakeOfMistAfterBattleText5::
 	cont "in LAVENDER."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP -----------------
+
+_LakeOfMistText1_RP_PreCoordinates::
+    text "...what may a"
+	line "filthy ROCKET"
+	cont "know about the"
+	cont "wonders of life"
+	cont "and the magic of"
+	cont "traveling?"
+
+	para "Wha- NO! AAAH!"
+	line "It hurts! Hurts!"
+	cont "I'll shut up,"
+	cont "anything you"
+	cont "want, but stop"
+	cont "beating me!"
+
+	para "What did you say?"
+	line "But how did you"
+	cont "even know that"
+	cont "I have them?"
+
+	para "OK OK! I got it!"
+	line "No questions!"
+	cont "Here, take them!"
+;	xxxx "123456789012345678"
+	prompt
+
+_LakeOfMistText1_RP_PostCoordinates::
+	text "...do what you"
+	line "want with those"
+	cont "coordinates."
+	cont "I don't care nor"
+	cont "want to know."
+;	xxxx "123456789012345678"
+	done

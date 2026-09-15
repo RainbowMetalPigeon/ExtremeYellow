@@ -1,4 +1,5 @@
 RocketHideoutB3F_Script:
+	RPTextChooser RocketHideoutB3F_TextPointers, RocketHideoutB3F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout3TrainerHeaders
 	ld de, RocketHideoutB3F_ScriptPointers
@@ -125,6 +126,12 @@ RocketHideout3Script3:
 	ret
 
 RocketHideoutB3F_TextPointers:
+	dw RocketHideout3Text1
+	dw RocketHideout3Text2
+	dw PickUpItemText
+	dw PickUpItemText
+
+RocketHideoutB3F_TextPointers_Rocket:
 	dw RocketHideout3Text1
 	dw RocketHideout3Text2
 	dw PickUpItemText

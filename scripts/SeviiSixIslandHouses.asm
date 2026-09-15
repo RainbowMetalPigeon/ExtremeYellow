@@ -1,4 +1,5 @@
 SeviiSixIslandHouses_Script:
+	RPTextChooser SeviiSixIslandHouses_TextPointers, SeviiSixIslandHouses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 SeviiSixIslandHouses_TextPointers:
@@ -6,6 +7,13 @@ SeviiSixIslandHouses_TextPointers:
 	dw SeviiSixIslandHousesText2
 	dw SeviiSixIslandHousesText3
 	dw SeviiSixIslandHousesText4
+	dw SeviiSixIslandHousesText5
+
+SeviiSixIslandHouses_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw SeviiSixIslandHousesText5
 
 SeviiSixIslandHousesText1:

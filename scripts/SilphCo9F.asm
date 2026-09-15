@@ -1,4 +1,5 @@
 SilphCo9F_Script:
+	RPTextChooser SilphCo9F_TextPointers, SilphCo9F_TextPointers_Rocket
 	call SilphCo9Script_5d7d1
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo9TrainerHeaders
@@ -129,6 +130,12 @@ SilphCo9F_TextPointers:
 	dw SilphCo9Text3
 	dw SilphCo9Text4
 
+SilphCo9F_TextPointers_Rocket:
+	dw SilphCo9Text1_RP ; Nurse
+	dw SilphCo9Text2
+	dw SilphCo9Text3
+	dw SilphCo9Text4
+
 SilphCo9TrainerHeaders:
 	def_trainers 2
 SilphCo9TrainerHeader0:
@@ -222,4 +229,10 @@ SilphCo9EndBattleText3:
 
 SilphCo9AfterBattleText3:
 	text_far _SilphCo9AfterBattleText3
+	text_end
+
+; new for RP =====================
+
+SilphCo9Text1_RP:
+	text_far _SilphCo9Text1_RP
 	text_end

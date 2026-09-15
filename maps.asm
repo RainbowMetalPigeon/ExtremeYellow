@@ -6,52 +6,53 @@ SECTION "Maps 1", ROMX
 INCLUDE "data/maps/headers/CeladonCity.asm"
 INCLUDE "data/maps/objects/CeladonCity.asm"
 CeladonCity_Blocks: INCBIN "maps/CeladonCity.blk"
+INCLUDE "scripts/CeladonCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/PalletTown.asm"
 INCLUDE "data/maps/objects/PalletTown.asm"
 PalletTown_Blocks: INCBIN "maps/PalletTown.blk"
+INCLUDE "scripts/PalletTown.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/ViridianCity.asm"
 INCLUDE "data/maps/objects/ViridianCity.asm"
 ViridianCity_Blocks: INCBIN "maps/ViridianCity.blk"
+INCLUDE "scripts/ViridianCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/PewterCity.asm"
-	ds 1
+;	ds 1 ; edited, removed
 INCLUDE "data/maps/objects/PewterCity.asm"
 PewterCity_Blocks: INCBIN "maps/PewterCity.blk"
+INCLUDE "scripts/PewterCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/CeruleanCity.asm"
 INCLUDE "data/maps/objects/CeruleanCity.asm"
 CeruleanCity_Blocks: INCBIN "maps/CeruleanCity.blk"
+INCLUDE "scripts/CeruleanCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/VermilionCity.asm"
 INCLUDE "data/maps/objects/VermilionCity.asm"
 VermilionCity_Blocks: INCBIN "maps/VermilionCity.blk"
+INCLUDE "scripts/VermilionCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/FuchsiaCity.asm"
 INCLUDE "data/maps/objects/FuchsiaCity.asm"
 FuchsiaCity_Blocks: INCBIN "maps/FuchsiaCity.blk"
+INCLUDE "scripts/FuchsiaCity.asm" ; moved from Maps 2
 
 INCLUDE "data/maps/headers/OchreCity.asm"		; new
 INCLUDE "data/maps/objects/OchreCity.asm"		; new
 OchreCity_Blocks: INCBIN "maps/OchreCity.blk"	; new
+INCLUDE "scripts/OchreCity.asm"					; new
 
-INCLUDE "data/maps/headers/ObsidianIsland.asm"			; new, testing
-INCLUDE "data/maps/objects/ObsidianIsland.asm"			; new, testing
-ObsidianIsland_Blocks: INCBIN "maps/ObsidianIsland.blk"	; new, testing
+INCLUDE "data/maps/headers/ObsidianIsland.asm"			; new
+INCLUDE "data/maps/objects/ObsidianIsland.asm"			; new
+ObsidianIsland_Blocks: INCBIN "maps/ObsidianIsland.blk"	; new
+INCLUDE "scripts/ObsidianIsland.asm"					; new
 
 
 SECTION "Maps 2", ROMX
 
-INCLUDE "scripts/PalletTown.asm"
-INCLUDE "scripts/ViridianCity.asm"
-INCLUDE "scripts/PewterCity.asm"
-INCLUDE "scripts/CeruleanCity.asm"
-INCLUDE "scripts/VermilionCity.asm"
-INCLUDE "scripts/CeladonCity.asm"
-INCLUDE "scripts/FuchsiaCity.asm"
-INCLUDE "scripts/OchreCity.asm"					; new
-INCLUDE "scripts/ObsidianIsland.asm"			; new
+; edited, moved all scripts together with their correspinding maps
 
 INCLUDE "data/maps/headers/SilphCo4F.asm"
 INCLUDE "scripts/SilphCo4F.asm"
@@ -238,6 +239,11 @@ INCLUDE "scripts/LavenderTown.asm"
 INCLUDE "data/maps/objects/LavenderTown.asm"
 LavenderTown_Blocks: INCBIN "maps/LavenderTown.blk"
 
+INCLUDE "data/maps/headers/RocketHideoutB1F.asm"
+INCLUDE "scripts/RocketHideoutB1F.asm"
+INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
+RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
+
 
 SECTION "Maps 6", ROMX
 
@@ -245,11 +251,6 @@ INCLUDE "data/maps/headers/PokemonMansion1F.asm"
 INCLUDE "scripts/PokemonMansion1F.asm"
 INCLUDE "data/maps/objects/PokemonMansion1F.asm"
 PokemonMansion1F_Blocks: INCBIN "maps/PokemonMansion1F.blk"
-
-INCLUDE "data/maps/headers/RockTunnel1F.asm"
-INCLUDE "scripts/RockTunnel1F.asm"
-INCLUDE "data/maps/objects/RockTunnel1F.asm"
-RockTunnel1F_Blocks: INCBIN "maps/RockTunnel1F.blk"
 
 INCLUDE "data/maps/headers/SeafoamIslands1F.asm"
 INCLUDE "scripts/SeafoamIslands1F.asm"
@@ -260,11 +261,6 @@ INCLUDE "data/maps/headers/VictoryRoad3F.asm"
 INCLUDE "scripts/VictoryRoad3F.asm"
 INCLUDE "data/maps/objects/VictoryRoad3F.asm"
 VictoryRoad3F_Blocks: INCBIN "maps/VictoryRoad3F.blk"
-
-INCLUDE "data/maps/headers/RocketHideoutB1F.asm"
-INCLUDE "scripts/RocketHideoutB1F.asm"
-INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
-RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
 
 INCLUDE "data/maps/headers/RocketHideoutB2F.asm"
 INCLUDE "scripts/RocketHideoutB2F.asm"
@@ -372,26 +368,68 @@ CinnabarVolcanoBF_Blocks: INCBIN "maps/CinnabarVolcanoBF.blk"
 SECTION "Maps 7", ROMX
 
 INCLUDE "data/maps/headers/Route7.asm"
+INCLUDE "scripts/Route7.asm"
 INCLUDE "data/maps/objects/Route7.asm"
 Route7_Blocks: INCBIN "maps/Route7.blk"
 
-CeladonPokecenter_Blocks:
-RockTunnelPokecenter_Blocks: INCBIN "maps/RockTunnelPokecenter.blk" ; testing
-MtMoonPokecenter_Blocks: INCBIN "maps/MtMoonPokecenter.blk"
+INCLUDE "data/maps/headers/SafariZoneExtra.asm"
+INCLUDE "scripts/SafariZoneExtra.asm"
+INCLUDE "data/maps/objects/SafariZoneExtra.asm"
+SafariZoneExtra_Blocks: INCBIN "maps/SafariZoneExtra.blk"
 
-Route11Gate2F_Blocks: ; UNUSED
-Route18Gate2F_Blocks: ; UNUSED
-;Route16Gate2F_Blocks: ; UNUSED
-;Route15Gate2F_Blocks: ; UNUSED
-Route12Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
+INCLUDE "data/maps/headers/ForlornValley.asm"
+INCLUDE "scripts/ForlornValley.asm"
+INCLUDE "data/maps/objects/ForlornValley.asm"
+ForlornValley_Blocks: INCBIN "maps/ForlornValley.blk"
 
-Route11Gate1F_Blocks:
-Route18Gate1F_Blocks:
-Route15Gate1F_Blocks: INCBIN "maps/EastWestGate2Floors.blk"
+INCLUDE "data/maps/headers/BluesHouse.asm"
+INCLUDE "scripts/BluesHouse.asm"
+INCLUDE "data/maps/objects/BluesHouse.asm"
+BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
+
+; new/edited because of MERGING
+INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
+SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
+
+INCLUDE "data/maps/headers/ViridianPokecenter.asm"
+INCLUDE "scripts/ViridianPokecenter.asm"
+INCLUDE "data/maps/objects/ViridianPokecenter.asm"
+ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
+
+INCLUDE "data/maps/headers/SSAnne3F.asm"
+INCLUDE "scripts/SSAnne3F.asm"
+INCLUDE "data/maps/objects/SSAnne3F.asm"
+SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
+
+INCLUDE "data/maps/headers/ObsidianHouses.asm"
+INCLUDE "scripts/ObsidianHouses.asm"
+INCLUDE "data/maps/objects/ObsidianHouses.asm"
+ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
+
+INCLUDE "data/maps/headers/RockTunnel1F.asm"
+INCLUDE "scripts/RockTunnel1F.asm"
+INCLUDE "data/maps/objects/RockTunnel1F.asm"
+RockTunnel1F_Blocks: INCBIN "maps/RockTunnel1F.blk"
+
+INCLUDE "data/maps/headers/SaffronClimbClub.asm"
+INCLUDE "scripts/SaffronClimbClub.asm"
+INCLUDE "data/maps/objects/SaffronClimbClub.asm"
+SaffronClimbClub_Blocks: INCBIN "maps/SaffronClimbClub.blk"
+
+INCLUDE "data/maps/headers/ElectricRavine.asm"
+INCLUDE "data/maps/objects/ElectricRavine.asm"
+ElectricRavine_Blocks: INCBIN "maps/ElectricRavine.blk"
+INCLUDE "scripts/ElectricRavine.asm"
+
+INCLUDE "data/maps/headers/PikachuGrotto.asm"
+INCLUDE "data/maps/objects/PikachuGrotto.asm"
+PikachuGrotto_Blocks: INCBIN "maps/PikachuGrotto.blk"
+INCLUDE "scripts/PikachuGrotto.asm"
+
 
 SECTION "Maps 8", ROMX
-
-INCLUDE "scripts/Route7.asm"
 
 INCLUDE "data/maps/headers/RedsHouse1F.asm"
 INCLUDE "scripts/RedsHouse1F.asm"
@@ -412,11 +450,6 @@ INCLUDE "data/maps/headers/CeladonMartRoof.asm"
 INCLUDE "scripts/CeladonMartRoof.asm"
 INCLUDE "data/maps/objects/CeladonMartRoof.asm"
 CeladonMartRoof_Blocks: INCBIN "maps/CeladonMartRoof.blk"
-
-INCLUDE "data/maps/headers/CeladonMartElevator.asm"
-INCLUDE "scripts/CeladonMartElevator.asm"
-INCLUDE "data/maps/objects/CeladonMartElevator.asm"
-CeladonMartElevator_Blocks: INCBIN "maps/CeladonMartElevator.blk"
 
 INCLUDE "data/maps/headers/CeladonMansion1F.asm"
 INCLUDE "scripts/CeladonMansion1F.asm"
@@ -442,6 +475,8 @@ CeladonMansionRoof_Blocks: INCBIN "maps/CeladonMansionRoof.blk"
 INCLUDE "data/maps/headers/CeladonPokecenter.asm"
 INCLUDE "scripts/CeladonPokecenter.asm"
 INCLUDE "data/maps/objects/CeladonPokecenter.asm"
+CeladonPokecenter_Blocks:
+RockTunnelPokecenter_Blocks: INCBIN "maps/RockTunnelPokecenter.blk" ; testing
 
 INCLUDE "data/maps/headers/CeladonGym.asm"
 INCLUDE "scripts/CeladonGym.asm"
@@ -452,11 +487,6 @@ INCLUDE "data/maps/headers/GameCorner.asm"
 INCLUDE "scripts/GameCorner.asm"
 INCLUDE "data/maps/objects/GameCorner.asm"
 GameCorner_Blocks: INCBIN "maps/GameCorner.blk"
-
-INCLUDE "data/maps/headers/CeladonMart5F.asm"
-INCLUDE "scripts/CeladonMart5F.asm"
-INCLUDE "data/maps/objects/CeladonMart5F.asm"
-CeladonMart5F_Blocks: INCBIN "maps/CeladonMart5F.blk"
 
 INCLUDE "data/maps/headers/GameCornerPrizeRoom.asm"
 INCLUDE "scripts/GameCornerPrizeRoom.asm"
@@ -481,6 +511,7 @@ CeladonHotel_Blocks: INCBIN "maps/CeladonHotel.blk"
 INCLUDE "data/maps/headers/MtMoonPokecenter.asm"
 INCLUDE "scripts/MtMoonPokecenter.asm"
 INCLUDE "data/maps/objects/MtMoonPokecenter.asm"
+MtMoonPokecenter_Blocks: INCBIN "maps/MtMoonPokecenter.blk"
 
 INCLUDE "data/maps/headers/RockTunnelPokecenter.asm"
 INCLUDE "scripts/RockTunnelPokecenter.asm"
@@ -502,26 +533,26 @@ Route12Gate1F_Blocks: INCBIN "maps/Route12Gate1F.blk"
 INCLUDE "data/maps/headers/Route12Gate2F.asm"
 INCLUDE "scripts/Route12Gate2F.asm"
 INCLUDE "data/maps/objects/Route12Gate2F.asm"
+Route11Gate2F_Blocks: ; UNUSED
+Route18Gate2F_Blocks: ; UNUSED
+;Route16Gate2F_Blocks: ; UNUSED
+;Route15Gate2F_Blocks: ; UNUSED
+Route12Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
 
 INCLUDE "data/maps/headers/Route15Gate1F.asm"
 INCLUDE "scripts/Route15Gate1F.asm"
 INCLUDE "data/maps/objects/Route15Gate1F.asm"
+Route11Gate1F_Blocks:
+Route18Gate1F_Blocks:
+Route15Gate1F_Blocks: INCBIN "maps/EastWestGate2Floors.blk"
 
-; UNUSED
-;INCLUDE "data/maps/headers/Route15Gate2F.asm"
-;INCLUDE "scripts/Route15Gate2F.asm"
-;INCLUDE "data/maps/objects/Route15Gate2F.asm"
-
+; this and the next need to be together
 INCLUDE "data/maps/headers/Route16Gate1F.asm"
 INCLUDE "scripts/Route16Gate1F.asm"
 INCLUDE "data/maps/objects/Route16Gate1F.asm"
 Route16Gate1F_Blocks: INCBIN "maps/Route16Gate1F.blk"
 
-; UNUSED
-;INCLUDE "data/maps/headers/Route16Gate2F.asm"
-;INCLUDE "scripts/Route16Gate2F.asm"
-;INCLUDE "data/maps/objects/Route16Gate2F.asm"
-
+; this and the previous need to be together
 INCLUDE "data/maps/headers/Route18Gate1F.asm"
 INCLUDE "scripts/Route18Gate1F.asm"
 INCLUDE "data/maps/objects/Route18Gate1F.asm"
@@ -541,16 +572,6 @@ INCLUDE "data/maps/objects/MtMoonB2F.asm"
 MtMoonB2F_Blocks: INCBIN "maps/MtMoonB2F.blk"
 INCLUDE "scripts/MtMoonB2F_2.asm"
 
-INCLUDE "data/maps/headers/SafariZoneWest.asm"
-INCLUDE "scripts/SafariZoneWest.asm"
-INCLUDE "data/maps/objects/SafariZoneWest.asm"
-SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
-
-INCLUDE "data/maps/headers/SafariZoneSecretHouse.asm"
-INCLUDE "scripts/SafariZoneSecretHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneSecretHouse.asm"
-SafariZoneSecretHouse_Blocks: INCBIN "maps/SafariZoneSecretHouse.blk"
-
 
 SECTION "Maps 9", ROMX
 
@@ -563,6 +584,16 @@ INCLUDE "data/maps/headers/Colosseum.asm"
 INCLUDE "scripts/Colosseum.asm"
 INCLUDE "data/maps/objects/Colosseum.asm"
 Colosseum_Blocks: INCBIN "maps/Colosseum.blk"
+
+INCLUDE "data/maps/headers/CeladonMartElevator.asm"
+INCLUDE "scripts/CeladonMartElevator.asm"
+INCLUDE "data/maps/objects/CeladonMartElevator.asm"
+CeladonMartElevator_Blocks: INCBIN "maps/CeladonMartElevator.blk"
+
+INCLUDE "data/maps/headers/SafariZoneSecretHouse.asm"
+INCLUDE "scripts/SafariZoneSecretHouse.asm"
+INCLUDE "data/maps/objects/SafariZoneSecretHouse.asm"
+SafariZoneSecretHouse_Blocks: INCBIN "maps/SafariZoneSecretHouse.blk"
 
 
 SECTION "Maps 10", ROMX
@@ -622,11 +653,6 @@ INCLUDE "data/maps/headers/PokemonMansion2F.asm"
 INCLUDE "scripts/PokemonMansion2F.asm"
 INCLUDE "data/maps/objects/PokemonMansion2F.asm"
 PokemonMansion2F_Blocks: INCBIN "maps/PokemonMansion2F.blk"
-
-INCLUDE "data/maps/headers/PokemonMansion3F.asm"
-INCLUDE "scripts/PokemonMansion3F.asm"
-INCLUDE "data/maps/objects/PokemonMansion3F.asm"
-PokemonMansion3F_Blocks: INCBIN "maps/PokemonMansion3F.blk"
 
 INCLUDE "data/maps/headers/PokemonMansionB1F.asm"
 INCLUDE "scripts/PokemonMansionB1F.asm"
@@ -696,6 +722,11 @@ INCLUDE "scripts/SunkenShipRooms.asm"
 INCLUDE "data/maps/objects/SunkenShipRooms.asm"
 SunkenShipRooms_Blocks: INCBIN "maps/SunkenShipRooms.blk"
 
+INCLUDE "data/maps/headers/SafariZoneWest.asm"
+INCLUDE "scripts/SafariZoneWest.asm"
+INCLUDE "data/maps/objects/SafariZoneWest.asm"
+SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
+
 
 SECTION "Maps 12", ROMX
 
@@ -718,10 +749,6 @@ CeladonMart2F_Blocks: INCBIN "maps/CeladonMart2F.blk"
 INCLUDE "data/maps/headers/FuchsiaGoodRodHouse.asm"
 INCLUDE "scripts/FuchsiaGoodRodHouse.asm"
 INCLUDE "data/maps/objects/FuchsiaGoodRodHouse.asm"
-
-INCLUDE "data/maps/headers/Daycare.asm"
-INCLUDE "scripts/Daycare.asm"
-INCLUDE "data/maps/objects/Daycare.asm"
 
 INCLUDE "data/maps/headers/Route12SuperRodHouse.asm"
 INCLUDE "scripts/Route12SuperRodHouse.asm"
@@ -767,7 +794,11 @@ INCLUDE "data/maps/headers/Route18.asm"
 INCLUDE "data/maps/objects/Route18.asm"
 Route18_Blocks: INCBIN "maps/Route18.blk"
 
-	INCBIN "maps/UnusedPokecenterCopy.blk"
+;	INCBIN "maps/UnusedPokecenterCopy.blk" ; edited as unused
+
+INCLUDE "data/maps/headers/Daycare.asm"
+INCLUDE "scripts/Daycare.asm"
+INCLUDE "data/maps/objects/Daycare.asm"
 
 
 SECTION "Maps 14", ROMX
@@ -831,6 +862,11 @@ Route2AllGates_Blocks: INCBIN "maps/Route2AllGates.blk" ; new, merge of all Rout
 INCLUDE "data/maps/headers/RedsHouse2F.asm"
 INCLUDE "scripts/RedsHouse2F.asm"
 INCLUDE "data/maps/objects/RedsHouse2F.asm"
+
+INCLUDE "data/maps/headers/PokemonMansion3F.asm"
+INCLUDE "scripts/PokemonMansion3F.asm"
+INCLUDE "data/maps/objects/PokemonMansion3F.asm"
+PokemonMansion3F_Blocks: INCBIN "maps/PokemonMansion3F.blk"
 
 
 SECTION "Maps 16", ROMX
@@ -1262,16 +1298,6 @@ INCLUDE "data/maps/objects/Route30.asm"
 Route30_Blocks: INCBIN "maps/Route30.blk"
 INCLUDE "scripts/Route30.asm"
 
-INCLUDE "data/maps/headers/ElectricRavine.asm"
-INCLUDE "data/maps/objects/ElectricRavine.asm"
-ElectricRavine_Blocks: INCBIN "maps/ElectricRavine.blk"
-INCLUDE "scripts/ElectricRavine.asm"
-
-INCLUDE "data/maps/headers/PikachuGrotto.asm"
-INCLUDE "data/maps/objects/PikachuGrotto.asm"
-PikachuGrotto_Blocks: INCBIN "maps/PikachuGrotto.blk"
-INCLUDE "scripts/PikachuGrotto.asm"
-
 INCLUDE "data/maps/headers/CeladonUniversity1.asm"
 INCLUDE "data/maps/objects/CeladonUniversity1.asm"
 CeladonUniversity1_Blocks: INCBIN "maps/CeladonUniversity1.blk"
@@ -1281,11 +1307,6 @@ INCLUDE "data/maps/headers/CeladonUniversity2.asm"
 INCLUDE "data/maps/objects/CeladonUniversity2.asm"
 CeladonUniversity2_Blocks: INCBIN "maps/CeladonUniversity2.blk"
 INCLUDE "scripts/CeladonUniversity2.asm"
-
-INCLUDE "data/maps/headers/ObsidianWood.asm"
-INCLUDE "data/maps/objects/ObsidianWood.asm"
-ObsidianWood_Blocks: INCBIN "maps/ObsidianWood.blk"
-INCLUDE "scripts/ObsidianWood.asm"
 
 INCLUDE "data/maps/headers/ObsidianWarehouse.asm"
 INCLUDE "data/maps/objects/ObsidianWarehouse.asm"
@@ -1327,36 +1348,10 @@ OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 INCLUDE "scripts/MoveDeleter.asm"
 INCLUDE "scripts/MoveRelearner.asm"
 
-; moved from Maps 6/5
 INCLUDE "data/maps/headers/CeladonMart1F.asm"
 INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
 CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
-
-INCLUDE "data/maps/headers/ObsidianHouses.asm"
-INCLUDE "scripts/ObsidianHouses.asm"
-INCLUDE "data/maps/objects/ObsidianHouses.asm"
-ObsidianHouses_Blocks: INCBIN "maps/ObsidianHouses.blk"
-
-INCLUDE "data/maps/headers/SilphCoElevator.asm"
-INCLUDE "scripts/SilphCoElevator.asm"
-INCLUDE "data/maps/objects/SilphCoElevator.asm"
-SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
-
-INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
-INCLUDE "scripts/RocketHideoutElevator.asm"
-INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
-RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
-
-INCLUDE "data/maps/headers/SSAnne3F.asm"
-INCLUDE "scripts/SSAnne3F.asm"
-INCLUDE "data/maps/objects/SSAnne3F.asm"
-SSAnne3F_Blocks: INCBIN "maps/SSAnne3F.blk"
-
-INCLUDE "data/maps/headers/ViridianPokecenter.asm"
-INCLUDE "scripts/ViridianPokecenter.asm"
-INCLUDE "data/maps/objects/ViridianPokecenter.asm"
-ViridianPokecenter_Blocks: INCBIN "maps/ViridianPokecenter.blk"
 
 
 SECTION "Maps New 2", ROMX ; new
@@ -1426,11 +1421,6 @@ INCLUDE "data/maps/objects/Route27.asm"
 Route27_Blocks: INCBIN "maps/Route27.blk"
 INCLUDE "scripts/Route27.asm"
 
-INCLUDE "data/maps/headers/SaffronClimbClub.asm"
-INCLUDE "scripts/SaffronClimbClub.asm"
-INCLUDE "data/maps/objects/SaffronClimbClub.asm"
-SaffronClimbClub_Blocks: INCBIN "maps/SaffronClimbClub.blk"
-
 INCLUDE "data/maps/headers/Route19Dive.asm"
 INCLUDE "scripts/Route19Dive.asm"
 INCLUDE "data/maps/objects/Route19Dive.asm"
@@ -1451,6 +1441,11 @@ INCLUDE "scripts/Route21DiveCavern.asm"
 INCLUDE "data/maps/objects/Route21DiveCavern.asm"
 Route21DiveCavern_Blocks: INCBIN "maps/Route21DiveCavern.blk"
 
+INCLUDE "data/maps/headers/RocketHideoutElevator.asm"
+INCLUDE "scripts/RocketHideoutElevator.asm"
+INCLUDE "data/maps/objects/RocketHideoutElevator.asm"
+RocketHideoutElevator_Blocks: INCBIN "maps/RocketHideoutElevator.blk"
+
 
 SECTION "Maps New 3", ROMX ; new
 
@@ -1459,26 +1454,20 @@ INCLUDE "scripts/LakeOfMist.asm"
 INCLUDE "data/maps/objects/LakeOfMist.asm"
 LakeOfMist_Blocks: INCBIN "maps/LakeOfMist.blk"
 
-INCLUDE "data/maps/headers/SafariZoneExtra.asm"
-INCLUDE "scripts/SafariZoneExtra.asm"
-INCLUDE "data/maps/objects/SafariZoneExtra.asm"
-SafariZoneExtra_Blocks: INCBIN "maps/SafariZoneExtra.blk"
+INCLUDE "data/maps/headers/ObsidianWood.asm"
+INCLUDE "data/maps/objects/ObsidianWood.asm"
+ObsidianWood_Blocks: INCBIN "maps/ObsidianWood.blk"
+INCLUDE "scripts/ObsidianWood.asm"
 
-INCLUDE "data/maps/headers/ForlornValley.asm"
-INCLUDE "scripts/ForlornValley.asm"
-INCLUDE "data/maps/objects/ForlornValley.asm"
-ForlornValley_Blocks: INCBIN "maps/ForlornValley.blk"
+INCLUDE "data/maps/headers/CeladonMart5F.asm"
+INCLUDE "scripts/CeladonMart5F.asm"
+INCLUDE "data/maps/objects/CeladonMart5F.asm"
+CeladonMart5F_Blocks: INCBIN "maps/CeladonMart5F.blk"
 
-INCLUDE "data/maps/headers/BluesHouse.asm"
-INCLUDE "scripts/BluesHouse.asm"
-INCLUDE "data/maps/objects/BluesHouse.asm"
-BluesHouse_Blocks: INCBIN "maps/BluesHouse.blk"
-
-; new/edited because of MERGING
-INCLUDE "data/maps/headers/SafariZoneQuadrupleRestHouse.asm"
-INCLUDE "scripts/SafariZoneQuadrupleRestHouse.asm"
-INCLUDE "data/maps/objects/SafariZoneQuadrupleRestHouse.asm"
-SafariZoneQuadrupleRestHouse_Blocks: INCBIN "maps/SafariZoneQuadrupleRestHouse.blk" ; new/edited because of MERGING
+INCLUDE "data/maps/headers/SilphCoElevator.asm"
+INCLUDE "scripts/SilphCoElevator.asm"
+INCLUDE "data/maps/objects/SilphCoElevator.asm"
+SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------
@@ -1574,21 +1563,6 @@ SeviiThreeIslandDock_Blocks:
 SeviiTwoIslandDock_Blocks:
 SeviiOneIslandDock_Blocks: INCBIN "maps/SeviiShipDock.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute33.asm"
-INCLUDE "scripts/SeviiRoute33.asm"
-INCLUDE "data/maps/objects/SeviiRoute33.asm"
-SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute34.asm"
-INCLUDE "scripts/SeviiRoute34.asm"
-INCLUDE "data/maps/objects/SeviiRoute34.asm"
-SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
-
-INCLUDE "data/maps/headers/SeviiRoute35.asm"
-INCLUDE "scripts/SeviiRoute35.asm"
-INCLUDE "data/maps/objects/SeviiRoute35.asm"
-SeviiRoute35_Blocks: INCBIN "maps/SeviiRoute35.blk"
-
 
 SECTION "Maps Sevii 2", ROMX ; new
 
@@ -1626,11 +1600,6 @@ INCLUDE "data/maps/headers/SeviiIcefallCave1F.asm"
 INCLUDE "scripts/SeviiIcefallCave1F.asm"
 INCLUDE "data/maps/objects/SeviiIcefallCave1F.asm"
 SeviiIcefallCave1F_Blocks: INCBIN "maps/SeviiIcefallCave1F.blk"
-
-INCLUDE "data/maps/headers/SeviiIcefallCave2F.asm"
-INCLUDE "scripts/SeviiIcefallCave2F.asm"
-INCLUDE "data/maps/objects/SeviiIcefallCave2F.asm"
-SeviiIcefallCave2F_Blocks: INCBIN "maps/SeviiIcefallCave2F.blk"
 
 INCLUDE "data/maps/headers/SeviiTwoIslandPokemonCenter.asm"
 INCLUDE "scripts/SeviiTwoIslandPokemonCenter.asm"
@@ -1671,11 +1640,6 @@ INCLUDE "data/maps/headers/SeviiThreeIslandGym.asm"
 INCLUDE "scripts/SeviiThreeIslandGym.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandGym.asm"
 SeviiThreeIslandGym_Blocks: INCBIN "maps/SeviiThreeIslandGym.blk"
-
-INCLUDE "data/maps/headers/SeviiFourIslandGym.asm"
-INCLUDE "scripts/SeviiFourIslandGym.asm"
-INCLUDE "data/maps/objects/SeviiFourIslandGym.asm"
-SeviiFourIslandGym_Blocks: INCBIN "maps/SeviiFourIslandGym.blk"
 
 ; --- these three need to be together
 INCLUDE "data/maps/headers/SeviiSixIslandGym1.asm"
@@ -1752,11 +1716,6 @@ INCLUDE "scripts/SeviiThreeIslandCaves.asm"
 INCLUDE "data/maps/objects/SeviiThreeIslandCaves.asm"
 SeviiThreeIslandCaves_Blocks: INCBIN "maps/SeviiThreeIslandCaves.blk"
 
-INCLUDE "data/maps/headers/SeviiThreeIslandSecretGarden.asm"
-INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
-INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
-SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
-
 INCLUDE "data/maps/headers/SeviiBerryForest.asm"
 INCLUDE "scripts/SeviiBerryForest.asm"
 INCLUDE "data/maps/objects/SeviiBerryForest.asm"
@@ -1822,10 +1781,10 @@ INCLUDE "scripts/SeviiRoute44.asm"
 INCLUDE "data/maps/objects/SeviiRoute44.asm"
 SeviiRoute44_Blocks: INCBIN "maps/SeviiRoute44.blk"
 
-INCLUDE "data/maps/headers/SeviiTanobyChambers.asm"
-INCLUDE "scripts/SeviiTanobyChambers.asm"
-INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
-SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
+INCLUDE "data/maps/headers/SeviiRoute35.asm"
+INCLUDE "scripts/SeviiRoute35.asm"
+INCLUDE "data/maps/objects/SeviiRoute35.asm"
+SeviiRoute35_Blocks: INCBIN "maps/SeviiRoute35.blk"
 
 
 SECTION "Maps Sevii 4", ROMX ; new
@@ -1915,11 +1874,6 @@ INCLUDE "scripts/SeviiTwoIslandCityDive.asm"
 INCLUDE "data/maps/objects/SeviiTwoIslandCityDive.asm"
 SeviiTwoIslandCityDive_Blocks: INCBIN "maps/SeviiTwoIslandCityDive.blk"
 
-INCLUDE "data/maps/headers/SeviiRoute33Dive.asm"
-INCLUDE "scripts/SeviiRoute33Dive.asm"
-INCLUDE "data/maps/objects/SeviiRoute33Dive.asm"
-SeviiRoute33Dive_Blocks: INCBIN "maps/SeviiRoute33Dive.blk"
-
 INCLUDE "data/maps/headers/SeviiRoute33DiveCavernF1.asm"
 INCLUDE "scripts/SeviiRoute33DiveCavernF1.asm"
 INCLUDE "data/maps/objects/SeviiRoute33DiveCavernF1.asm"
@@ -1960,15 +1914,20 @@ INCLUDE "scripts/SeviiRoute39Dive.asm"
 INCLUDE "data/maps/objects/SeviiRoute39Dive.asm"
 SeviiRoute39Dive_Blocks: INCBIN "maps/SeviiRoute39Dive.blk"
 
-INCLUDE "data/maps/headers/SeviiFourIslandCityDiveCavern.asm"
-INCLUDE "scripts/SeviiFourIslandCityDiveCavern.asm"
-INCLUDE "data/maps/objects/SeviiFourIslandCityDiveCavern.asm"
-SeviiFourIslandCityDiveCavern_Blocks: INCBIN "maps/SeviiFourIslandCityDiveCavern.blk"
+INCLUDE "data/maps/headers/SeviiThreeIslandSecretGarden.asm"
+INCLUDE "scripts/SeviiThreeIslandSecretGarden.asm"
+INCLUDE "data/maps/objects/SeviiThreeIslandSecretGarden.asm"
+SeviiThreeIslandSecretGarden_Blocks: INCBIN "maps/SeviiThreeIslandSecretGarden.blk"
 
-INCLUDE "data/maps/headers/SeviiFiveIslandCityDiveCavern.asm"
-INCLUDE "scripts/SeviiFiveIslandCityDiveCavern.asm"
-INCLUDE "data/maps/objects/SeviiFiveIslandCityDiveCavern.asm"
-SeviiFiveIslandCityDiveCavern_Blocks: INCBIN "maps/SeviiFiveIslandCityDiveCavern.blk"
+INCLUDE "data/maps/headers/SeviiRoute34.asm"
+INCLUDE "scripts/SeviiRoute34.asm"
+INCLUDE "data/maps/objects/SeviiRoute34.asm"
+SeviiRoute34_Blocks: INCBIN "maps/SeviiRoute34.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandGym.asm"
+INCLUDE "scripts/SeviiFourIslandGym.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandGym.asm"
+SeviiFourIslandGym_Blocks: INCBIN "maps/SeviiFourIslandGym.blk"
 
 
 SECTION "Maps Sevii 5", ROMX ; new
@@ -2155,3 +2114,41 @@ INCLUDE "data/maps/headers/SeviiRoute36.asm"
 INCLUDE "scripts/SeviiRoute36.asm"
 INCLUDE "data/maps/objects/SeviiRoute36.asm"
 SeviiRoute36_Blocks: INCBIN "maps/SeviiRoute36.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandCityDiveCavern.asm"
+INCLUDE "scripts/SeviiFourIslandCityDiveCavern.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandCityDiveCavern.asm"
+SeviiFourIslandCityDiveCavern_Blocks: INCBIN "maps/SeviiFourIslandCityDiveCavern.blk"
+
+INCLUDE "data/maps/headers/SeviiFiveIslandCityDiveCavern.asm"
+INCLUDE "scripts/SeviiFiveIslandCityDiveCavern.asm"
+INCLUDE "data/maps/objects/SeviiFiveIslandCityDiveCavern.asm"
+SeviiFiveIslandCityDiveCavern_Blocks: INCBIN "maps/SeviiFiveIslandCityDiveCavern.blk"
+
+INCLUDE "data/maps/headers/SeviiTanobyChambers.asm"
+INCLUDE "scripts/SeviiTanobyChambers.asm"
+INCLUDE "data/maps/objects/SeviiTanobyChambers.asm"
+SeviiTanobyChambers_Blocks: INCBIN "maps/SeviiTanobyChambers.blk"
+
+INCLUDE "data/maps/headers/SeviiRoute33.asm"
+INCLUDE "scripts/SeviiRoute33.asm"
+INCLUDE "data/maps/objects/SeviiRoute33.asm"
+SeviiRoute33_Blocks: INCBIN "maps/SeviiRoute33.blk"
+
+
+SECTION "Maps Sevii 7", ROMX ; new
+
+INCLUDE "data/maps/headers/SeviiRoute33Dive.asm"
+INCLUDE "scripts/SeviiRoute33Dive.asm"
+INCLUDE "data/maps/objects/SeviiRoute33Dive.asm"
+SeviiRoute33Dive_Blocks: INCBIN "maps/SeviiRoute33Dive.blk"
+
+INCLUDE "data/maps/headers/SeviiIcefallCave2F.asm"
+INCLUDE "scripts/SeviiIcefallCave2F.asm"
+INCLUDE "data/maps/objects/SeviiIcefallCave2F.asm"
+SeviiIcefallCave2F_Blocks: INCBIN "maps/SeviiIcefallCave2F.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandParkourPath.asm"
+INCLUDE "scripts/SeviiFourIslandParkourPath.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandParkourPath.asm"
+SeviiFourIslandParkourPath_Blocks: INCBIN "maps/SeviiFourIslandParkourPath.blk"

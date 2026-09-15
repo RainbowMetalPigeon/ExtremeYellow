@@ -15,20 +15,20 @@ INCLUDE "text/SSAnne1FRooms.asm"
 INCLUDE "text/SSAnne2FRooms.asm"
 INCLUDE "text/SSAnneB1FRooms.asm"
 INCLUDE "text/VictoryRoad3F.asm"
-INCLUDE "text/RocketHideoutB1F.asm"
 INCLUDE "text/RocketHideoutB2F.asm"
 INCLUDE "text/RocketHideoutB3F.asm"
 INCLUDE "text/RocketHideoutB4F.asm"
-INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/SilphCo2F.asm"
-INCLUDE "text/SilphCo3F.asm"
-INCLUDE "text/SilphCo4F.asm"
-INCLUDE "text/SilphCo5F.asm"
-INCLUDE "text/SilphCo6F.asm"
 
 
 SECTION "Text 2", ROMX
 INCLUDE "text/ChampionsRoom.asm"
+INCLUDE "text/SilphCo6F.asm"
+INCLUDE "text/SilphCo5F.asm"
+INCLUDE "text/SilphCo4F.asm"
+INCLUDE "text/SilphCo3F.asm"
+INCLUDE "text/RocketHideoutB1F.asm"
+INCLUDE "text/RocketHideoutElevator.asm"
 
 
 SECTION "Text 3", ROMX
@@ -47,8 +47,6 @@ INCLUDE "text/UndergroundPathRoute7Copy.asm"
 INCLUDE "text/UndergroundPathRoute8.asm"
 INCLUDE "text/RockTunnelPokecenter.asm"
 INCLUDE "text/RockTunnel1F.asm"
-INCLUDE "text/PowerPlant.asm"
-INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/Route11Gate2F.asm"
 INCLUDE "text/DiglettsCaveRoute11.asm"
 INCLUDE "text/Route12Gate1F.asm"
@@ -64,11 +62,9 @@ INCLUDE "text/Route18Gate2F.asm"
 INCLUDE "text/SummerBeachHouse.asm"
 INCLUDE "text/Route22Gate.asm"
 INCLUDE "text/VictoryRoad2F.asm"
-INCLUDE "text/Route1.asm"
 INCLUDE "text/Route2.asm"
 INCLUDE "text/Route3.asm"
 INCLUDE "text/Route4.asm"
-INCLUDE "text/Route5.asm"
 
 
 SECTION "Text 4", ROMX
@@ -83,11 +79,12 @@ INCLUDE "text/Route16.asm"
 INCLUDE "text/Route17.asm"
 INCLUDE "text/Route18.asm"
 INCLUDE "text/Route20.asm"
+INCLUDE "text/Route5.asm"
+INCLUDE "text/Route1.asm"
 
 
 SECTION "Text 5", ROMX
 INCLUDE "data/text/text_5.asm"
-INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/RedsHouse2F.asm" ; new
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/ViridianPokecenter.asm"
@@ -111,15 +108,12 @@ INCLUDE "text/CeladonMart1F.asm"
 INCLUDE "text/CeladonMart2F.asm"
 INCLUDE "text/CeladonMart3F.asm"
 INCLUDE "text/CeladonMart4F.asm"
-INCLUDE "text/CeladonMartRoof.asm"
 INCLUDE "text/CeladonMansion1F.asm"
 INCLUDE "text/CeladonMansion2F.asm"
 INCLUDE "text/CeladonMansion3F.asm"
 INCLUDE "text/CeladonMansionRoof.asm"
 INCLUDE "text/CeladonMansionRoofHouse.asm"
-INCLUDE "text/CeladonPokecenter.asm"
 INCLUDE "text/CeladonGym.asm"
-INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text 7", ROMX
@@ -128,19 +122,14 @@ INCLUDE "text/CeladonMart5F.asm"
 INCLUDE "text/GameCornerPrizeRoom.asm"
 INCLUDE "text/CeladonChiefHouse.asm"
 INCLUDE "text/CeladonHotel.asm"
-INCLUDE "text/FuchsiaMart.asm"
-INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "text/FuchsiaPokecenter.asm"
 INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
-INCLUDE "text/FuchsiaGoodRodHouse.asm"
-INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "data/text/text_7.asm"
 INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
 
 
 SECTION "Text 8", ROMX
-INCLUDE "text/ViridianCity.asm"
 INCLUDE "text/CeruleanCity.asm"
 INCLUDE "text/LavenderTown.asm"
 INCLUDE "text/VermilionCity.asm"
@@ -148,18 +137,13 @@ INCLUDE "text/CeladonCity.asm"
 INCLUDE "text/FuchsiaCity.asm"
 INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
+INCLUDE "text/CeladonPokecenter.asm"
+INCLUDE "text/CeruleanPokecenter.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/Route27.asm" ; new
 INCLUDE "text/OaksLab.asm"
-INCLUDE "text/ViridianForest.asm"
-INCLUDE "text/SaffronPidgeyHouse.asm"
-INCLUDE "text/SaffronMart.asm"
-INCLUDE "text/SaffronPokecenter.asm"
-INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/SilphCo11F.asm"
-INCLUDE "text/PokemonMansion2F.asm"
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -182,14 +166,17 @@ INCLUDE "text/VictoryRoad1F.asm"
 INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
-INCLUDE "text/BrunosRoom.asm"
+INCLUDE "text/ViridianCity.asm"
+INCLUDE "text/SaffronPokecenter.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/OchreGym.asm" ; new
 INCLUDE "text/OchreCity.asm" ; new
-INCLUDE "text/Traveler.asm" ; new, not really a map but whatever lol
+INCLUDE "text/Traveler.asm" ; new
 INCLUDE "text/PalletTown.asm"
+INCLUDE "text/Route23.asm"
+INCLUDE "text/SaffronPidgeyHouse.asm"
+INCLUDE "text/ViridianForest.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -201,10 +188,8 @@ INCLUDE "text/MoveRelearner.asm" ; new
 INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
-INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
-INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -213,22 +198,18 @@ INCLUDE "text/CinnabarGym.asm"
 INCLUDE "text/CinnabarLab.asm"
 INCLUDE "text/CinnabarLabTradeRoom.asm"
 INCLUDE "text/CinnabarLabMetronomeRoom.asm"
-INCLUDE "text/CinnabarLabFossilRoom.asm"
 INCLUDE "text/CinnabarPokecenter.asm"
 INCLUDE "text/CinnabarMart.asm"
 INCLUDE "text/IndigoPlateauLobby.asm"
 INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/Route24.asm"
-INCLUDE "text/Route25.asm"
-INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/VermilionDock.asm"
+INCLUDE "text/Route27.asm" ; new
 
 
 SECTION "Text Extra 6", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/Route29.asm" ; new
 INCLUDE "text/WardensHouse.asm" ; moved from Text 7
-INCLUDE "text/SilphCo10F.asm"
 INCLUDE "text/VermilionGym.asm" ; moved from Text 2
 INCLUDE "text/BattleFacility.asm" ; new
 
@@ -239,8 +220,6 @@ INCLUDE "text/CeladonUniversity2.asm" ; new
 INCLUDE "text/BillsHouse.asm" ; moved from Text 3
 INCLUDE "text/SafariZoneCenter.asm"
 INCLUDE "text/SafariZoneWest.asm"
-INCLUDE "text/SafariZoneEast.asm"
-INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo8F.asm"
 INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
@@ -263,8 +242,8 @@ INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
-INCLUDE "text/CeruleanMelaniesHouse.asm"
-INCLUDE "text/Route9.asm"
+INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
+INCLUDE "text/CinnabarLabFossilRoom.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -288,6 +267,7 @@ INCLUDE "text/Route19.asm"
 INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
+INCLUDE "text/Route9.asm"
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -300,8 +280,6 @@ INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
-INCLUDE "text/BikeShop.asm"
-INCLUDE "text/Route23.asm"
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -309,13 +287,39 @@ INCLUDE "data/text/text_2.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
-INCLUDE "text/VermilionMart.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/OchreWonderland.asm" ; new
 
 
 SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
+INCLUDE "text/CeruleanMelaniesHouse.asm"
+INCLUDE "text/RedsHouse1F.asm"
+INCLUDE "text/FuchsiaGoodRodHouse.asm"
+INCLUDE "text/VermilionPidgeyHouse.asm"
+INCLUDE "text/BikeShop.asm"
+INCLUDE "text/FuchsiaMart.asm"
+INCLUDE "text/BrunosRoom.asm"
+INCLUDE "text/CeladonMartRoof.asm"
+INCLUDE "text/SaffronMart.asm"
+INCLUDE "text/PokemonMansion1F.asm"
+INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
+INCLUDE "text/MrPsychicsHouse.asm"
+INCLUDE "text/PokemonMansion2F.asm"
+INCLUDE "text/MrFujisHouse.asm"
+INCLUDE "text/Route25.asm"
+
+
+SECTION "Text Extra 14", ROMX ; new
+INCLUDE "data/text/text_rocket_path_1.asm"
+INCLUDE "text/OchreGym.asm" ; new
+INCLUDE "text/PowerPlant.asm"
+INCLUDE "text/VermilionDock.asm"
+INCLUDE "text/SilphCo10F.asm"
+INCLUDE "text/SafariZoneEast.asm"
+INCLUDE "text/SafariZoneNorth.asm"
+INCLUDE "text/Route11Gate1F.asm"
+INCLUDE "text/VermilionMart.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
@@ -351,11 +355,12 @@ INCLUDE "text/SeviiIslandsCommon.asm"
 
 
 SECTION "Text Sevii 2", ROMX
-INCLUDE "text/SeviiFiveIsland.asm"
+INCLUDE "text/SeviiFiveIsland1.asm"
 
 
 SECTION "Text Sevii 3", ROMX
 INCLUDE "text/SeviiFourIsland.asm"
+INCLUDE "text/SeviiFiveIsland2.asm"
 
 
 SECTION "Text Sevii 4", ROMX
@@ -364,7 +369,6 @@ INCLUDE "text/SeviiSevenIsland.asm"
 
 SECTION "Text Sevii 5", ROMX
 INCLUDE "text/SeviiThreeIsland.asm"
-INCLUDE "text/SeviiSixIsland2.asm"
 
 
 SECTION "Text Sevii 6", ROMX
@@ -373,4 +377,8 @@ INCLUDE "text/SeviiSixIsland1.asm"
 
 SECTION "Text Sevii 7", ROMX
 INCLUDE "text/SeviiTwoIsland.asm"
+INCLUDE "text/SeviiSixIsland2.asm"
+
+
+SECTION "Text Sevii 8", ROMX
 INCLUDE "text/SeviiEightIsland.asm"

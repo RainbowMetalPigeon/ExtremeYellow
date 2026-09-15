@@ -1,4 +1,5 @@
 SeviiTwoIslandPokemonCenter_Script:
+	RPTextChooser SeviiTwoIslandPokemonCenter_TextPointers, SeviiTwoIslandPokemonCenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -7,6 +8,12 @@ SeviiTwoIslandPokemonCenter_TextPointers:
 	dw SeviiTwoIslandPokemonCenter_ChanseyText
 	dw SeviiTwoIslandPokemonCenter_Text1
 	dw SeviiTwoIslandPokemonCenter_Text2
+
+SeviiTwoIslandPokemonCenter_TextPointers_Rocket:
+	dw SeviiTwoIslandPokemonCenter_HealNurseText
+	dw SeviiTwoIslandPokemonCenter_ChanseyText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 SeviiTwoIslandPokemonCenter_HealNurseText:
 	script_pokecenter_nurse

@@ -1,4 +1,5 @@
 ViridianPokecenter_Script:
+	RPTextChooser ViridianPokecenter_TextPointers, ViridianPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -9,6 +10,14 @@ ViridianPokecenter_TextPointers:
 	dw ViridianTradeNurseText
 	dw ViridianPokeCenterText5
 	dw ViridianPokeCenterText6 ; new
+
+ViridianPokecenter_TextPointers_Rocket:
+	dw ViridianHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw ViridianTradeNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 ViridianHealNurseText:
 	script_pokecenter_nurse

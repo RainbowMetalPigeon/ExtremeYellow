@@ -1,4 +1,5 @@
 Route5_Script:
+	RPTextChooser Route5_TextPointers, Route5_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 Route5_TextPointers:
@@ -7,6 +8,15 @@ Route5_TextPointers:
 	dw Route5Text3 ; new
 	dw Route5Text4 ; new
 	dw Route5Text5 ; new
+	; sign
+	dw Route5Text6
+
+Route5_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	; sign
 	dw Route5Text6
 

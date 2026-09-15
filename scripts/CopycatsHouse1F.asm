@@ -1,4 +1,5 @@
 CopycatsHouse1F_Script:
+	RPTextChooser CopycatsHouse1F_TextPointers, CopycatsHouse1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, CopycatsHouse1F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -37,18 +38,34 @@ CopycatsHouse1FScriptPostBattle:
 ; ===============================
 
 CopycatsHouse1F_TextPointers:
-	dw CopycatsHouse1FText1
-	dw CopycatsHouse1FText2
-	dw CopycatsHouse1FText3
+	dw CopycatsHouse1FText1 ; parent
+	dw CopycatsHouse1FText2 ; parent
+	dw CopycatsHouse1FText3 ; chansey
 	; 2F
-	dw CopycatsHouse2FText1
-	dw CopycatsHouse2FText2
-	dw CopycatsHouse2FText3
-	dw CopycatsHouse2FText4
-	dw CopycatsHouse2FText5
-	dw CopycatsHouse2FText6
-	dw CopycatsHouse2FText7
+	dw CopycatsHouse2FText1 ; Copycat
+	dw CopycatsHouse2FText2 ; Doduo
+	dw CopycatsHouse2FText3 ; doll
+	dw CopycatsHouse2FText4 ; doll
+	dw CopycatsHouse2FText5 ; doll
+	; signs
+	dw CopycatsHouse2FText6 ; Switch
+	dw CopycatsHouse2FText7 ; PC
 	dw CopycatsHouse2FText8 ; new
+
+CopycatsHouse1F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; parent
+	dw GenericNPCText_RocketPath ; parent
+	dw CopycatsHouse1FText3 ; chansey
+	; 2F
+	dw CopycatsHouse2FText1_RP ; Copycat TBE
+	dw CopycatsHouse2FText2 ; Doduo
+	dw CopycatsHouse2FText3_RP ; doll
+	dw CopycatsHouse2FText4_RP ; doll
+	dw CopycatsHouse2FText5_RP ; doll
+	; signs
+	dw CopycatsHouse2FText6_RP ; Switch
+	dw CopycatsHouse2FText7 ; PC
+	dw CopycatsHouse2FText8_RP
 
 CopycatsHouse1FText1:
 	text_far _CopycatsHouse1FText1
@@ -226,4 +243,94 @@ CopycatsHouse2FText_BattleRefused: ; new
 
 CopycatsHouse2FText_BattleAccepted: ; new
 	text_far _CopycatsHouse2FText_BattleAccepted
+	text_end
+
+; new for RP ===============================
+
+CopycatsHouse2FText1_RP:
+	text_asm
+	CheckEvent EVENT_GOT_TM31
+	ld hl, CopycatsHouse2FText1_RP_TMAlreadyGot
+	jr nz, .printAndEnd
+	CheckEvent EVENT_DEFEATED_COPYCAT
+	jr nz, .defatedCopycatButNotGotTMYet
+; copycat not faced yet
+	ld a, TRUE
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	ld hl, CopycatsHouse2FText1_RP_PreBattle
+	call PrintText
+; backup the current Level Scaling option choice to restore it after the battle
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 1
+	ld [wLevelScaling], a
+; set up the battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, CopycatText_PostBattleText_RP
+	ld de, CopycatText_PostBattleText_RP
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, OPP_PSYCHIC_TR
+	ld [wCurOpponent], a
+	ld a, 5
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.defatedCopycatButNotGotTMYet
+	ld hl, CopycatsHouse2FText1_RP_GiveTM
+	call PrintText
+	lb bc, TM_MIMIC, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually get the TM
+	SetEvent EVENT_GOT_TM31
+	ld hl, CopycatsHouse2FText1_RP_ReceivedTM
+	jr .printAndEnd
+.bagFull
+	ld hl, CopycatsHouse2FText1_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CopycatsHouse2FText1_RP_TMAlreadyGot:
+	text_far _CopycatsHouse2FText1_RP_TMAlreadyGot
+	text_end
+
+CopycatsHouse2FText1_RP_PreBattle:
+	text_far _CopycatsHouse2FText1_RP_PreBattle
+	text_end
+
+CopycatText_PostBattleText_RP:
+	text_far _CopycatText_PostBattleText_RP
+	text_end
+
+CopycatsHouse2FText1_RP_GiveTM:
+	text_far _CopycatsHouse2FText1_RP_GiveTM
+	text_end
+
+CopycatsHouse2FText1_RP_BagFull:
+	text_far _BagFullText_RP
+	text_end
+
+CopycatsHouse2FText1_RP_ReceivedTM:
+	text_far _ReceivedTM31Text
+	sound_get_item_1
+	text_end
+
+CopycatsHouse2FText6_RP:
+	text_far _CopycatsHouse2FText6_RP
+	text_end
+
+CopycatsHouse2FText5_RP:
+CopycatsHouse2FText4_RP:
+CopycatsHouse2FText3_RP:
+CopycatsHouse2FText8_RP:
+	text_far _CopycatsHouse2FText3_RP
 	text_end

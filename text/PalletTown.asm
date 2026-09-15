@@ -646,3 +646,63 @@ _DarkGuideHints_Hint12_Solution::
 	para "W-what is"
 	line "going on...?!"
 	prompt
+
+; new for RP ===========================
+
+_PalletTownTextDarkGuide_RP_Before::
+	text "You are pretty"
+	line "disgusting."
+
+	para "And I mean both"
+	line "'you' and YOU."
+
+	para "Did YOU have fun"
+	line "playing the"
+	cont "ROCKET PATH,"
+	cont "and demolishing"
+	cont "the dreams and"
+	cont "hopes of every"
+	cont "and anyone in"
+	cont "the whole KANTO?"
+
+	para "Good for YOU."
+
+	para "Uh? YOU wanna know"
+	line "if there's more"
+	cont "content?"
+
+	para "Yes, damn, yes"
+	line "there is!"
+	cont "But this time YOU"
+	cont "are on your own."
+	cont "YOU won't get any"
+	cont "hint from me, no."
+
+	para "I'll give 'you'"
+	line "only one single"
+	cont "thing. I guess"
+	cont "YOU were too busy"
+	cont "killing GIOVANNI"
+	cont "to check their"
+	cont "corpse, uh?"
+	cont "They had this on"
+	cont "them. Take it."
+;	xxxx "123456789012345678"
+	prompt
+
+_PalletTownTextDarkGuide_RP_GetTicket::
+	text "<PLAYER>'s"
+	line "SEVII TICKET"
+	cont "got upgraded!@"
+	text_end
+
+_PalletTownTextDarkGuide_RP_After::
+	text "Keep torturing"
+	line "peolpe and having"
+	cont "fun, as YOU have"
+	cont "done till now."
+
+	para "But don't YOU hope"
+	line "I'll help YOU."
+;	xxxx "123456789012345678"
+	done

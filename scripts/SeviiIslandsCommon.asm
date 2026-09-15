@@ -366,3 +366,100 @@ CountHowManyUndergroundButtonsArePressed::
 	ld a, b
 	ld [wUniQuizAnswer], a
 	ret
+
+; for RP ================================
+
+HideAllUndergroundGuards_RP::
+	ld hl, HideAllUndergroundGuards_RP_Text1
+	call PrintText
+	call GBFadeOutToBlack
+; do the hiding loop
+	SetEvent EVENT_HID_UNDERGROUND_GUARDS
+	ld hl, UndergoundGuardsToHideSevii
+.hideSeviiLoop
+	ld a, [hli]
+	cp $ff
+	jr z, .doneHiding
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	pop hl
+	jr .hideSeviiLoop
+.doneHiding
+	ld a, SFX_GO_OUTSIDE
+	call PlaySound
+	call WaitForSoundToFinish
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+	ld hl, HideAllUndergroundGuards_RP_Text2
+	call PrintText
+	ret
+
+UndergoundGuardsToHideSevii:
+	db HS_SEVII_TWO_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_THREE_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_FOUR_ISLAND_CITY_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_32_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_34_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_39_UNDERGROUND_GUARD
+	db HS_SEVII_ROUTE_42_UNDERGROUND_GUARD
+	db $ff
+
+HideAllUndergroundGuards_RP_Text1:
+	text_far _HideAllUndergroundGuards_RP_Text1
+	text_end
+
+HideAllUndergroundGuards_RP_Text2:
+	text_far _HideAllUndergroundGuards_RP_Text2
+	text_end
+
+; new for RP ===========================================
+
+; Inputs:
+; d = wXCoord
+; e = wYCoord
+; c = wCurMapScript
+PushAwayFromGymDoorIfRP::
+	CheckEvent EVENT_ROCKET_PATH
+	ret z
+; if it's RP: block entry
+	ld a, [wYCoord]
+	cp e
+	ret nz
+	ld a, [wXCoord]
+	cp d
+	ret nz
+; front of the door
+	push bc
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+    call EnableAutoTextBoxDrawing
+    tx_pre SeviiGyms_SageRefusedYourEntryText_RP
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_DOWN | B_BUTTON
+	ld [wSimulatedJoypadStatesEnd], a
+	call StartSimulatingJoypadStates
+	xor a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	pop bc
+	ld a, c
+	ld [wCurMapScript], a
+	ret
+
+SeviiGyms_SageRefusedYourEntryText_RP::
+	text_far _SeviiGyms_SageRefusedYourEntryText_RP
+	text_end
+
+WaitForPlayerAutomovementSeviiGyms::
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	ld a, 0
+	ld [wCurMapScript], a
+	ret

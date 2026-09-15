@@ -1,4 +1,5 @@
 RockTunnel1F_Script:
+	RPTextChooser RockTunnel1F_TextPointers, RockTunnel1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, RockTunnel1TrainerHeaders
 	ld de, RockTunnel1F_ScriptPointers
@@ -13,6 +14,16 @@ RockTunnel1F_ScriptPointers:
 	dw EndTrainerBattle
 
 RockTunnel1F_TextPointers:
+	dw RockTunnel1Text1
+	dw RockTunnel1Text2
+	dw RockTunnel1Text3
+	dw RockTunnel1Text4
+	dw RockTunnel1Text5
+	dw RockTunnel1Text6
+	dw RockTunnel1Text7
+	dw RockTunnel1Text8
+
+RockTunnel1F_TextPointers_Rocket:
 	dw RockTunnel1Text1
 	dw RockTunnel1Text2
 	dw RockTunnel1Text3

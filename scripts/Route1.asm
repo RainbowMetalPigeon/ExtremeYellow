@@ -1,10 +1,16 @@
 Route1_Script:
+	RPTextChooser Route1_TextPointers, Route1_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
 Route1_TextPointers:
 	dw Route1Text1
 	dw Route1Text2
+	dw Route1Text3
+
+Route1_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw Route1Text3
 
 Route1Text1:

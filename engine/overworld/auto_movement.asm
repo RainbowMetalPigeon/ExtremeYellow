@@ -1,7 +1,7 @@
 PlayerStepOutFromDoor::
 	ld hl, wd730
 	res 1, [hl]
-	call IsPlayerStandingOnDoorTile
+	callfar IsPlayerStandingOnDoorTile ; edited into a callfar
 	jr nc, .notStandingOnDoor
 	ld a, $fc
 	ld [wJoyIgnore], a

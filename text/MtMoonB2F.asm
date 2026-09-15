@@ -166,3 +166,37 @@ _MtMoon3AfterBattleText5::
 	line "here long before"
 	cont "people came."
 	done
+
+; new for RP =====================
+
+_MtMoon3Text1_RP_Intro::
+	text "Uh? Aren't you that"
+	line "kid with whom I"
+	cont "wrest- evenly and"
+	cont "nicely split the"
+	cont "two fossils?"
+
+	para "Why... why are you"
+	line "wearing those"
+	cont "clothes? Mind"
+	cont "what you do,"
+	cont "they are no joke!"
+
+	para "Wh-"
+	line "AAAHHH!"
+	cont "You ARE with"
+	cont "TEAM ROCKET?!"
+	cont "Oh no! ARGH!"
+	cont "Yes! Yes! I give!"
+	cont "You already beat"
+	cont "me once, I give!"
+
+	para "Take it, take it!"
+;	xxxx "123456789012345678"
+	done
+
+_MtMoon3Text1_RP_PostFossil::
+	text "Why... why did you"
+	line "join TEAM ROCKET?"
+;	xxxx "123456789012345678"
+	done

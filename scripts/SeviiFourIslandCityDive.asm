@@ -1,4 +1,5 @@
 SeviiFourIslandCityDive_Script:
+	RPTextChooser SeviiFourIslandCityDive_TextPointers, SeviiFourIslandCityDive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiFourIslandCityDiveTrainerHeaders
 	ld de, SeviiFourIslandCityDive_ScriptPointers
@@ -8,6 +9,12 @@ SeviiFourIslandCityDive_Script:
 	ret
 
 SeviiFourIslandCityDive_TextPointers:
+	dw SeviiFourIslandCityDiveText1
+	dw SeviiFourIslandCityDiveText2
+	dw SeviiFourIslandCityDiveText3
+	dw SeviiFourIslandCityDiveText4
+
+SeviiFourIslandCityDive_TextPointers_Rocket:
 	dw SeviiFourIslandCityDiveText1
 	dw SeviiFourIslandCityDiveText2
 	dw SeviiFourIslandCityDiveText3

@@ -1,4 +1,5 @@
 SeviiRoute33_Script:
+	RPTextChooser SeviiRoute33_TextPointers, SeviiRoute33_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiRoute33TrainerHeaders
 	ld de, SeviiRoute33_ScriptPointers
@@ -11,12 +12,32 @@ SeviiRoute33_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
+	dw SeviiRoute33_Script3 ; for RP
 
 SeviiRoute33_TextPointers:
 	dw SeviiRoute33Text1 ; 1 Biker grunt
 	dw SeviiRoute33Text2 ; 2 Biker grunt
-	dw SeviiRoute33Text3 ; 3 Biker grunt
-	dw SeviiRoute33Text4 ; 4 Biker grunt
+	dw SeviiRoute33Text3 ; 3 Biker grunt back
+	dw SeviiRoute33Text4 ; 4 Biker grunt back
+	dw SeviiRoute33Text5 ; 5 trainer
+	dw SeviiRoute33Text6 ; 6 trainer
+	dw SeviiRoute33Text7 ; 7 trainer
+	dw SeviiRoute33Text8 ; 8 trainer
+	dw SeviiRoute33Text9 ; 9 trainer
+	dw RockSmashText ; 10
+	dw RockSmashText ; 11
+	dw PickUpItemText ; 12
+	dw PickUpItemText ; 13
+	dw PickUpItemText ; 14
+	; signs
+	dw SeviiRoute33SignText1 ; 15
+	dw SeviiRoute33SignText2 ; 16
+
+SeviiRoute33_TextPointers_Rocket:
+	dw SeviiRoute33Text1_RP ; 1 Biker grunt
+	dw SeviiRoute33Text1_RP ; 2 Biker grunt
+	dw SeviiRoute33Text3 ; 3 Biker grunt back
+	dw SeviiRoute33Text4 ; 4 Biker grunt back
 	dw SeviiRoute33Text5 ; 5 trainer
 	dw SeviiRoute33Text6 ; 6 trainer
 	dw SeviiRoute33Text7 ; 7 trainer
@@ -182,3 +203,45 @@ SeviiRoute33SignText1:
 SeviiRoute33SignText2:
 	text_far _SeviiRoute33SignText2
 	text_end
+
+; new for RP ============================================
+
+SeviiRoute33Text1_RP:
+	text_asm
+	ld hl, SeviiRoute33Text1_RP_WeGo
+	call PrintText
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+SeviiRoute33Text1_RP_WeGo:
+	text_far _SeviiRoute33Text1_RP
+	text_end
+
+SeviiRoute33_Script3:
+; hide all the bikers
+	call GBFadeOutToBlack
+	SetEvent EVENT_SEVII_CLEARED_ROUTE_33
+	ld a, HS_SEVII_ROUTE_33_BIKER_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ROUTE_33_BIKER_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ROUTE_33_BIKER_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_ROUTE_33_BIKER_4
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_TWO_ISLAND_CITY_BIKER
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; reset script
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret

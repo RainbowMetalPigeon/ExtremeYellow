@@ -103,3 +103,12 @@ _DayCareCantTakeThisMon:: ; new
 	para "I cannot take"
 	line "care of it!!!"
 	done
+
+_DayCareMText1_Rocket:: ; new
+	text "Ugh! There's no way"
+	line "I'll ever take"
+	cont "care of the #-"
+	cont "MON of a ROCKET"
+	cont "scum! Get lost!"
+;	xxxx "123456789012345678"
+	done

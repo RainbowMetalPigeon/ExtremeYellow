@@ -1,4 +1,5 @@
 Route10_Script:
+	RPTextChooser Route10_TextPointers, Route10_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route10TrainerHeaders
 	ld de, Route10_ScriptPointers
@@ -28,6 +29,22 @@ Route10_TextPointers:
 	dw Route10Text10
 	; scripts
 	dw Route10ScriptText1 ; 12
+
+Route10_TextPointers_Rocket:
+	dw Route10Text1
+	dw Route10Text2
+	dw Route10Text3
+	dw Route10Text4
+	dw Route10Text5
+	dw Route10Text6
+	dw Route10SpecialBirdKeeperText_RP
+	; signs
+	dw Route10Text7
+	dw PokeCenterSignText
+	dw Route10Text9
+	dw Route10Text10
+	; scripts
+	dw Route10ScriptText1_RP ; 12
 
 Route10TrainerHeaders:
 	def_trainers
@@ -193,11 +210,13 @@ Route10SpecialBirdKeeperText:
 	jp TextScriptEnd
 
 Route10Script_PostSpecialBirdKeeper:
+	ResetEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; for RP, regardless if we won or lost
 	ld a, [wLevelScalingBackup] ; restore level scaling
 	ld [wLevelScaling], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route10ResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 12
@@ -228,4 +247,20 @@ Route10SpecialBirdKeeperText_AfterBattle:
 
 Route10ScriptText1:
 	text_far _Route10ScriptText1
+	text_end
+
+; new for RP =================================
+
+Route10SpecialBirdKeeperText_RP:
+	text_asm
+	callfar SpecialBirdKeeper_RP_CommonPreBattleText
+	ld a, 29
+	ld [wTrainerNo], a
+; script handling
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+Route10ScriptText1_RP:
+	text_far _Route10ScriptText1_RP
 	text_end

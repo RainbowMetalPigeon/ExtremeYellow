@@ -196,3 +196,47 @@ _LanceAfterBattleTextRematch2::
 	cont "the INDIGO ORDEAL."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_LanceBeforeBattleText_RP::
+	text "before"
+	line "Lance"
+;	xxxx "123456789012345678"
+	done
+
+_LanceEndBattleText_RP::
+	text "end"
+	line "Lance"
+;	xxxx "123456789012345678"
+	prompt
+
+_LanceAfterBattleText_RP_Before::
+	text "after"
+	line "Lance"
+;	xxxx "123456789012345678"
+	done
+
+_LanceAfterBattleText_RP_After::
+	text "I heard screaming"
+	line "what happened?"
+;	xxxx "123456789012345678"
+	done
+
+_LanceBeforeBattleText_RP_Pink::
+	text "before"
+	line "Lance Pink"
+;	xxxx "123456789012345678"
+	done
+
+_LanceEndBattleText_RP_Pink::
+	text "end"
+	line "Lance Pink"
+;	xxxx "123456789012345678"
+	prompt
+
+_LanceAfterBattleText_RP_Pink_Core::
+	text "after"
+	line "Lance Pink"
+;	xxxx "123456789012345678"
+	done

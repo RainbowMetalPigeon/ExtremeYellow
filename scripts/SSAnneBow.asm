@@ -1,4 +1,5 @@
 SSAnneBow_Script:
+	RPTextChooser SSAnneBow_TextPointers, SSAnneBow_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SSAnne5TrainerHeaders
 	ld de, SSAnneBow_ScriptPointers
@@ -16,6 +17,13 @@ SSAnneBow_TextPointers:
 	dw SSAnne5Text1
 	dw SSAnne5Text2
 	dw SSAnne5Text3
+	dw SSAnne5Text4
+	dw SSAnne5Text5
+
+SSAnneBow_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw SSAnne5Text4
 	dw SSAnne5Text5
 

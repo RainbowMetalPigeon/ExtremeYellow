@@ -373,15 +373,26 @@ RefusedOnigiriBoxText: ; new
 ItemUseBall:
 
 ; Balls can't be used out of battle.
-	ld a, [wIsInBattle]
+	ld a, [wIsInBattle] ; lost=-1=$FF, no-battle=0, wild=1, trainer=2
 	and a
 	jp z, ItemUseNotTime
 
 ; Balls can't catch trainers' Pokémon.
-	dec a
+; new/edited for Rocket Path
+	cp 2
+	jr nz, .noTrainerBattle
+; we're using a ball in a trainer battle:
+; are we on RP and using a Steal Ball?
+	CheckEvent EVENT_ROCKET_PATH
+	jp z, ThrowBallAtTrainerMon
+	ld a, [wcf91]
+	cp STEAL_BALL
 	jp nz, ThrowBallAtTrainerMon
+	; TBE: are there trainers against whom we shouldn't be able to catch no matter what? E.G. E4, Rival, MissingNo?
+	jr .canUseBall
 
 ; new, to handle MissingNo and Master Ball
+.noTrainerBattle
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .notMissingnoWithMaster
 	ld a, [wCurMap]
@@ -503,6 +514,12 @@ ItemUseBall:
 ; The Master Ball always succeeds.
 	cp MASTER_BALL
 	jp z, .captured
+; new: same for the Steal Ball
+	cp STEAL_BALL
+	jp nz, .checkOtherBalls
+	SetEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jp .captured
+.checkOtherBalls
 
 ; Checks for FAST_BALL
 	cp FAST_BALL
@@ -997,11 +1014,23 @@ ItemUseBall:
 .monCaughtPrintAndSaveMon ; new label
 
 ; Save current HP.
+; edited/new for Rocket Path: if Steal Ball, 0-ify the HP
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
 	ld hl, wEnemyMonHP
+	jr z, .vanillaHPSaving
+; caught enemy mon with Steal Ball
+	inc hl
+	inc hl
+	xor a
+	push af
+	push af
+	jr .postHPSaving
+.vanillaHPSaving
 	ld a, [hli]
 	push af
 	ld a, [hli]
 	push af
+.postHPSaving
 
 ; Save status ailment.
 	inc hl
@@ -1099,8 +1128,11 @@ ItemUseBall:
 .skipShowingPokedexData
 	ld a, $1
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .noMoodModifier ; new
 	ld a, $85
 	ld [wPikachuMood], a
+.noMoodModifier ; new
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH ; is party full?
 	jr z, .sendToBox
@@ -1231,8 +1263,11 @@ ItemUseBicycle:
 	call PlayDefaultMusic ; play walking music
 	ld hl, GotOffBicycleText
 	jp PrintText
-
 .tryToGetOnBike
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, NotARocketThing
+; BTV
 	call IsBikeRidingAllowed
 	jp nc, NoCyclingAllowedHere
 	call ItemUseReloadOverworldData
@@ -1373,6 +1408,8 @@ ItemUseEvoStone:
 	call PrintText
 	ld a, $4
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .canceledItemUse ; new
 	ld a, $82
 	ld [wPikachuMood], a
 	jr .canceledItemUse
@@ -3144,8 +3181,14 @@ FishingInit:
 	jr z, .notInBattle
 	scf ; can't fish during battle
 	ret
-
 .notInBattle
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	scf ; can't fish during battle
+	ret
+.notRP
+; BTV
 	call IsNextTileShoreOrWater
 	jr nc, .cannotFish
 	ld a, [wWalkBikeSurfState]
@@ -3164,7 +3207,6 @@ FishingInit:
 	call DelayFrames
 	and a
 	ret
-
 .cannotFish
 	scf ; can't fish when surfing
 	ret
@@ -3561,6 +3603,8 @@ ItemUseTMHM:
 .teachingThunderboltOrThunderToPlayerPikachu
 	ld a, $5
 	ld [wd49c], a
+	CheckEvent EVENT_ROCKET_PATH ; new
+	jr nz, .notTeachingThunderboltOrThunderToPikachu ; new
 	ld a, $85
 	ld [wPikachuMood], a
 .notTeachingThunderboltOrThunderToPikachu
@@ -3605,8 +3649,13 @@ ItemUseNoEffect:
 	ld hl, ItemUseNoEffectText
 	jr ItemUseFailed
 
-ItemUseNotTime:
+ItemUseNotTime: ; edited
+	CheckEvent EVENT_ROCKET_PATH
 	ld hl, ItemUseNotTimeText
+	jr z, ItemUseFailed
+	; fallthrough
+NotARocketThing: ; new
+	ld hl, NotARocketThingText
 	jr ItemUseFailed
 
 ItemUseNotYoursToUse:
@@ -3663,6 +3712,10 @@ ItemUseFailed:
 
 ItemUseNotTimeText:
 	text_far _ItemUseNotTimeText
+	text_end
+
+NotARocketThingText: ; new
+	text_far _NotARocketThingText
 	text_end
 
 ItemUseNotYoursToUseText:
@@ -4220,7 +4273,7 @@ ShoreTilesCavern: ; new
 
 ; reloads map view and processes sprite data
 ; for items that cause the overworld to be displayed
-ItemUseReloadOverworldData:
+ItemUseReloadOverworldData::
 	call LoadCurrentMapView
 	jp UpdateSprites
 

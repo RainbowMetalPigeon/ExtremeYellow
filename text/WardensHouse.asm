@@ -337,7 +337,7 @@ _FuchsiaHouse2AntiquitiesSign2::
 
 _FuchsiaHouse2AntiquitiesSign3::
 	text "BLEATING COW"
-	line "PLUSHIE, 24 Y.A."
+	line "PLUSHIE, 26 Y.A."
 
 	para "Price: ¥INFINITE"
 	done
@@ -373,4 +373,130 @@ _FuchsiaHouse2AntiquitiesSign8::
 	line "#MON GREEN"
 
 	para "Price: ¥9999999999"
+	done
+
+; new for RP ========================
+
+_FuchsiaHouse2Text1_RP_PostTeeth:: ; you fucking rocket shit... you all deserve to die a painful death and burn in hell forever
+	text "WARDEN: Fow fufih"
+	line "fofeh fiwh..."
+	
+	para "Fhw hah fehfeffe"
+	line "fo fye ha fahyfuf"
+	cont "fehafw hafh fuwfh"
+	cont "fyi feff fofefefh."
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2Text1_RP_PreTeeth:: ; what's a rocket doing here?!
+	text "WARDEN: Fwhafh hah"
+	line "fofeh fohiw hewe?!"
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2Text1_RP_ShowTeeth::
+	text "<PLAYER> showed"
+	line "the GOLD TEETH"
+	cont "to the WARDEN."
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2Text1_RP_WardenHappy:: ; what?! those are my teeth! did you bring them back to me? did you have a change of heart?
+	text "WARDEN: Fhwa?!"
+	line "Fhof ah fhy fehf!"
+	cont "Fif fu fif fef"
+	cont "fawh fo fewh?"
+	cont "Fif fw hafh hah"
+	cont "fahfw ohf hehafh?"
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2Text1_RP_SmashTeeth::
+	text "<PLAYER> smashed"
+	line "the GOLD TEETH"
+	cont "in front of the"
+	cont "WARDEN's eyes!"
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2Text1_RP_WardenShocked:: ; what the fuck?! you piece of garbage!
+	text "WARDEN: Fhaf fef"
+	line "fuwfk?! Fuw fiehfh"
+	cont "hofh fahffafwh!"
+;	xxxx "123456789012345678"
+	done
+
+; ---
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_Post::
+	text "...the geezer"
+	line "mumbles something"
+	cont "that sounds like"
+	cont "the most"
+	cont "passionate curse"
+	cont "ever..."
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_NoArtifactInBag::
+	text "We're closed."
+;	xxxx "123456789012345678"
+
+	para "...the geezer"
+	line "mumbles something"
+	cont "about degenerate"
+	cont "youths..."
+;	xxxx "123456789012345678"
+
+	para "Especially for"
+	line "TEAM ROCKET."
+	cont "Don't come back."
+;	xxxx "123456789012345678"
+	done
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag::
+	text "That... ARTIFACT?"
+	line "Is that what I"
+	cont "think it is...?"
+
+	para "Uh? Buying it?"
+	line "But I have little"
+	cont "money, sales are"
+	cont "not going well."
+
+	para "...the geezer"
+	line "mumbles something"
+	cont "about how that's"
+	cont "entirely TEAM"
+	cont "ROCKET's fault..."
+
+	para "...Wh-what do you"
+	line "mean I don't have"
+	cont "a choice...?!"
+	cont "NO! My shop!"
+	cont "You wouldn't dare"
+	cont "setting it on fi-"
+
+	para "...You WOULD dare."
+
+	para "You won, you"
+	line "bastard criminal."
+	cont "Take this, it's"
+	cont "all the money I've"
+	cont "left. I hope you"
+	cont "will use it all"
+	cont "for your grave." 
+;	xxxx "123456789012345678"
+	prompt
+
+_FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks::
+	text "<PLAYER> gives"
+	line "the ARTIFACT to"
+	cont "the seller."
+
+	para "But ACCIDENTALLY"
+	line "it falls and"
+	cont "breaks into a"
+	cont "million pieces."
+;	xxxx "123456789012345678"
 	done

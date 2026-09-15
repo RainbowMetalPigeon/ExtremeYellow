@@ -6,4 +6,3 @@ SeviiLostCave3_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-;	text_end

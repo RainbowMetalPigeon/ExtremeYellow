@@ -124,3 +124,46 @@ _LoreleiAfterBattleTextRematch2::
 	cont "if you want!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_LoreleiBeforeBattleText_RP::
+	text "before"
+	line "Lorelei"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiEndBattleText_RP::
+	text "end"
+	line "Lorelei"
+;	xxxx "123456789012345678"
+	prompt
+
+_LoreleiAfterBattleText_RP::
+	text "after"
+	line "Lorelei"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiBeforeBattleText_RP_Pink::
+	text "before"
+	line "Lorelei Pink"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiEndBattleText_RP_Pink::
+	text "end"
+	line "Lorelei Pink"
+;	xxxx "123456789012345678"
+	prompt
+
+_LoreleiAfterBattleText_RP_Pink::
+	text "after"
+	line "Lorelei Pink"
+;	xxxx "123456789012345678"
+	done
+
+_LoreleiDeathText_RP::
+	text "AAAAHHH!!!"
+;	xxxx "123456789012345678"
+	done

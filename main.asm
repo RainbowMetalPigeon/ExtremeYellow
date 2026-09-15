@@ -131,6 +131,9 @@ INCLUDE "engine/overworld/emotion_bubbles.asm" ; from bank10
 INCLUDE "engine/miscellanea/delta_species.asm" ; new
 INCLUDE "engine/miscellanea/menus.asm" ; new
 INCLUDE "data/types/type_matchups.asm" ; moved out of battle/core.asm
+INCLUDE "engine/miscellanea/trainers.asm" ; new
+INCLUDE "engine/miscellanea/text.asm" ; new
+
 
 SECTION "bank4", ROMX
 
@@ -162,11 +165,12 @@ INCLUDE "engine/menus/pc.asm"
 SECTION "Doors and Ledges", ROMX
 
 INCLUDE "engine/overworld/auto_movement.asm"
-INCLUDE "engine/overworld/doors.asm"
+
 
 SECTION "Doors and Ledges 2", ROMX ; new, moved the ledges file here
 
 INCLUDE "engine/overworld/ledges.asm"
+INCLUDE "engine/overworld/doors.asm"
 
 
 SECTION "bank7", ROMX

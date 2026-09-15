@@ -126,11 +126,25 @@ LoadPlayerBackPic::
 	ld de, ProfOakPicBack
 	cp BATTLE_TYPE_PIKACHU ; is it the pikachu battle at the beginning of the game?
 	jr z, .next
-;	ld de, RedPicBack
-;.next
-;	ld a, BANK(RedPicBack)
-;	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
-;	ASSERT BANK(RedPicBack) == BANK(ProfOakPicBack)
+
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	ld a, [wPlayerGender]
+	and a
+	jr z, .RedBackRP
+	cp a, 2			; check if enby
+	jr z, .YellowBackRP
+	ld de, GreenRocketPicBack
+	jr .next
+.YellowBackRP
+	ld de, YellowRocketPicBack
+	jr .next
+.RedBackRP
+	ld de, RedRocketPicBack
+	jr .next
+.notRP
+; BTV
 
 	ld a, [wPlayerGender]
 	and a
@@ -149,6 +163,9 @@ LoadPlayerBackPic::
 	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
 	ASSERT BANK(GreenPicBack) == BANK(OldManPicBack)
 	ASSERT BANK(YellowPicBack) == BANK(OldManPicBack)
+	ASSERT BANK(RedRocketPicBack) == BANK(OldManPicBack) ; new for RP
+	ASSERT BANK(GreenRocketPicBack) == BANK(OldManPicBack) ; new for RP
+	ASSERT BANK(YellowRocketPicBack) == BANK(OldManPicBack) ; new for RP
 	ASSERT BANK(RedPicBack) == BANK(ProfOakPicBack)
 
 	call UncompressSpriteFromDE

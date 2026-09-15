@@ -1,4 +1,5 @@
 CeladonMansion2F_Script:
+	RPTextChooser CeladonMansion2F_TextPointers, CeladonMansion2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, CeladonMansion2F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -25,12 +26,12 @@ CeladonMansion2FScript1:
 	CheckEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
 	jr z, .noPieceObtained
 ; piece already obtained
-	ld a, 13 ; TBE, normal dialogue, map-unrelated
+	ld a, 13 ; normal dialogue, map-unrelated
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	jr .endScript
 .noPieceObtained
-	ld a, 14 ; TBE, pre-give map piece
+	ld a, 14 ; pre-give map piece
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	CheckEvent EVENT_OBTAIN_ANY_MAP_PIECE
@@ -41,7 +42,7 @@ CeladonMansion2FScript1:
 	jr c, .alreadyHaveAPiece
 ; bag is full
 	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
-	ld a, 16 ; TBE, failed to obtain map piece (bag full)
+	ld a, 16 ; failed to obtain map piece (bag full)
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	jr .endScript
@@ -49,7 +50,7 @@ CeladonMansion2FScript1:
 	SetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON
 	SetEvent EVENT_OBTAIN_ANY_MAP_PIECE
 	ResetEvent EVENT_OBTAIN_MAP_PIECE_2_PIGEON_FAILED
-	ld a, 15 ; TBE, successfully given a piece
+	ld a, 15 ; successfully given a piece
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .endScript
@@ -79,7 +80,22 @@ CeladonMansion2F_TextPointers:
 	dw CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece ; 14
 	dw CeladonMansion2TextPigeon_PostBattleGivenMapPiece ; 15
 	dw CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece ; 16
-	dw CeladonMansion2TextPigeon_AreYouBackForYourReward ; 17
+
+CeladonMansion2F_TextPointers_Rocket:
+	; NPCs
+	dw CeladonMansion2Text1 ; PIGEON
+	dw CeladonMansion2Text2
+	dw CeladonMansion2Text3
+	dw CeladonMansion2Text4
+	dw CeladonMansion2Text5
+	dw CeladonMansion2Text6
+	dw CeladonMansion2Text7
+	dw CeladonMansion2Text8
+	; signs
+	dw CeladonMansion2TextSign1
+	dw CeladonMansion2TextSign2
+	dw CeladonMansion2TextSign3
+	dw CeladonMansion2TextSign4
 
 ; NPCs =========================
 
@@ -149,7 +165,7 @@ CeladonMansion2Text1:
 	ld hl, PigeonPostBattlePlayerWinsText ; text if player wins
 	ld de, PigeonPostBattlePlayerLosesText ; text if player loses
 
-	; handle scripts
+; handle scripts
 	ld a, 1
 	ld [wCurMapScript], a ; edited
 

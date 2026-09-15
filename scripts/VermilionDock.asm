@@ -28,7 +28,7 @@ VermilionDock_Script:
 ; BTV
 	CheckEventHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	jr nz, .walking_out_of_dock
-	CheckEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH ; new
+	CheckEvent EVENT_SS_ANNE_RETURNED ; new
 	ret nz ; new
 	CheckEventReuseHL EVENT_GOT_HM01
 	ret z
@@ -264,9 +264,13 @@ VermilionDock_TextPointers:
 
 VermilionDockText1:
 	text_asm
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, VermilionDockNoteText_RP
+	jr nz, .print
 	ld hl, VermilionDockNoteText
+.print
 	call PrintText
-	; let's make PIGEON appear in Celadon
+; let's make PIGEON appear in Celadon
 	ld a, HS_CELADON_MANSION_PIGEON
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra
@@ -274,6 +278,10 @@ VermilionDockText1:
 
 VermilionDockNoteText: ; new
 	text_far _VermilionDockNoteText
+	text_end
+
+VermilionDockNoteText_RP: ; new
+	text_far _VermilionDockNoteText_RP
 	text_end
 
 ; special ferry warp to sevii ---------------------------------

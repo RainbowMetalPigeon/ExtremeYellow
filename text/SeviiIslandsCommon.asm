@@ -123,3 +123,82 @@ _SeviiUndergroundScriptText2::
 	line "nearby!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===================================
+
+_SeviiIslandsDockSailorText_Intro_RP::
+	text "Where to?"
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiIslandsDockSailorText_LetsGo_RP::
+	text "Ok."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiIslandsDockSailorText_Canceled_RP::
+	text "Sure."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiIslandsDockSailorText_PleaseGetOnThePier_RP::
+	text "You can't board"
+	line "from there."
+;	xxxx "123456789012345678"
+	done
+
+_HideAllUndergroundGuards_RP_Text1::
+	text "Measurements are"
+	line "being tak-"
+
+	para "ARGH! What? Why?!"
+	line "I'm just guarding"
+	cont "this entrance!"
+	cont "Why hurting me?"
+
+	para "You know what?"
+	line "I'm just a PhD"
+	cont "student! I really"
+	cont "don't get paid"
+	cont "enough to stand"
+	cont "up against"
+	cont "criminals!"
+
+	para "You wanna go in?"
+	line "Go in!"
+;	xxxx "123456789012345678"
+	done
+
+_HideAllUndergroundGuards_RP_Text2::
+	text "The guard ran"
+	line "away swearing"
+	cont "profusely."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiGyms_SageRefusedYourEntryText_RP::
+	text "The entry to the"
+	line "inner part of the"
+	cont "SHRINE is denied."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiGymsGuideRefusedText_RP::
+	text "Tsk. There's no"
+	line "bloody way on"
+	cont "Earth and beyond"
+	cont "that any one of"
+	cont "the seven SAGEs"
+	cont "will accept some-"
+	cont "one like YOU as"
+	cont "a challenger."
+
+	para "A ROCKET taking on"
+	line "the SEVII TRIAL?"
+	cont "That would shame"
+	cont "all of us."
+
+	para "Go away. This is"
+	line "no place for you."
+;	xxxx "123456789012345678"
+	done

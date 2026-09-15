@@ -109,8 +109,6 @@
 	const SPRITE_ORAGE                   ; new
 	const SPRITE_DIVER                   ; new
 	const SPRITE_TAUROS                  ; new
-
-; TBE
 	const SPRITE_PROTON                  ; new
 	const SPRITE_PETREL                  ; new
 	const SPRITE_ARIANA                  ; new
@@ -118,18 +116,21 @@
 	const SPRITE_CARR                    ; new
 	const SPRITE_ORM                     ; new
 	const SPRITE_SIRD                    ; new
-	const SPRITE_ICHINO                  ; new
-	const SPRITE_NIUE                    ; new
-	const SPRITE_SANTRE                  ; new
-	const SPRITE_YOTTRO                  ; new
-	const SPRITE_GONQUE                  ; new
-	const SPRITE_ROKUSEI                 ; new
-	const SPRITE_NANETTE                 ; new
-	const SPRITE_SUUJERO                 ; new
+	const SPRITE_ICHINO                  ; new - TBE
+	const SPRITE_NIUE                    ; new - TBE
+	const SPRITE_SANTRE                  ; new - TBE
+	const SPRITE_YOTTRO                  ; new - TBE
+	const SPRITE_GONQUE                  ; new - TBE
+	const SPRITE_ROKUSEI                 ; new - TBE
+	const SPRITE_NANETTE                 ; new - TBE
+	const SPRITE_SUUJERO                 ; new - TBE
 	const SPRITE_PINK                    ; new
 	const SPRITE_YOUNG_OAK               ; new
 	const SPRITE_CHRIS                   ; new
 	const SPRITE_KRIS                    ; new
+	const SPRITE_RED_ROCKET              ; new
+	const SPRITE_GREEN_ROCKET            ; new
+	const SPRITE_YELLOW_ROCKET           ; new
 
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47

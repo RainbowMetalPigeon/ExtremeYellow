@@ -1,4 +1,5 @@
 OchreResearchCenter2_Script:
+	RPTextChooser OchreResearchCenter2_TextPointers, OchreResearchCenter2_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -16,6 +17,26 @@ OchreResearchCenter2_TextPointers:
 	dw OchreResearchCenter2Text_Dreams_Devon
 	dw OchreResearchCenter2Text_Dreams_Unova
 	dw OchreResearchCenter2Text_Dreams_Interim
+	dw OchreResearchCenter2Text_Dreams_Clefairy
+	; signs
+	dw OchreResearchCenterSign_Fossil
+	dw OchreResearchCenterSign_Dreams
+	dw OchreResearchCenterSign_Monitor
+
+OchreResearchCenter2_TextPointers_Rocket:
+	; fossil
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw OchreResearchCenter2Text_Fossils_Fossil
+	; dreams
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw OchreResearchCenter2Text_Dreams_Clefairy
 	; signs
 	dw OchreResearchCenterSign_Fossil

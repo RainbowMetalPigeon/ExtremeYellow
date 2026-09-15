@@ -8,7 +8,6 @@ Route20Dive_Object:
 ;	bg_event 51,  7, 12 ; Route20Text11
 
 	def_object_events
-;	object_event 61,  4, SPRITE_MISTY, STAY, ANY_DIR, 1 ; new, TBE
 	object_event 43, 12, SPRITE_DIVER, STAY, UP, 1, OPP_DIVER,  8
 	object_event 74,  8, SPRITE_DIVER, STAY, UP, 2, OPP_DIVER,  9
 	object_event 24,  9, SPRITE_DIVER, STAY, RIGHT, 3, OPP_DIVER, 10

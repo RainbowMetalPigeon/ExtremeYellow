@@ -198,3 +198,58 @@ _CeruleanHouse1Sign2::
 	cont "way? Adorable!!!"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP -------------
+
+_CeruleanHousesMelanieText_RP_GotBulbasaurPreviously::
+	text "You?! A ROCKET?!"
+	line "Oh my... what did"
+	cont "I do? How could"
+	cont "you deceive me"
+	cont "so badly?"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur::
+	text "BULBASAUR..."
+	line "You monster..."
+	cont "I will never"
+	cont "forgive you!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanHousesMelanieText_RP_BeatMelanie::
+	text "A ROCKET? What do"
+	line "you want from me?"
+
+	para "Argh! Ouch! Aaah!"
+	line "No! Stop! Stop!"
+	cont "Help! Help!!!"
+
+	para "...no... please"
+	line "don't take it..."
+;	xxxx "123456789012345678"
+	prompt
+
+_CeruleanHouseTrashedText1_RP::
+	text "TEAM ROCKET! Are"
+	line "you the one who"
+	cont "stole my TM?!"
+
+	para "...umph. It doesn't"
+	line "matter... I don't"
+	cont "have the strength"
+	cont "to fight you"
+	cont "anyhow..."
+
+	para "May you be damned!"
+;	xxxx "123456789012345678"
+	done
+
+_CeruleanHouseTrashedText2_RP::
+	text "A ROCKET?! Again?!"
+
+	para "Why did the police"
+	line "let you in?!"
+;	xxxx "123456789012345678"
+	done

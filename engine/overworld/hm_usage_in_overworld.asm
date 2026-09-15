@@ -23,11 +23,11 @@ CheckIfCanSurfOrCutFromOverworld::
     cp PLATEAU
     jr z, .kantoTileCheck
     cp ISLAND
-    jr nz, .checkIfAreaDark
+    jp nz, .checkIfAreaDark
 .kantoTileCheck
     ld a, [wTileInFrontOfPlayer]
     cp $76
-    jr nz, .checkIfAreaDark
+    jp nz, .checkIfAreaDark
     jr .doBirbStuff
 
 .seviiCheck
@@ -42,7 +42,8 @@ CheckIfCanSurfOrCutFromOverworld::
     jr nz, .checkIfAreaDark
 ; birb in front of us
 .doBirbStuff
-; TBE: conditional if we are rocket
+    CheckEvent EVENT_ROCKET_PATH
+    jr nz, .rocketPath
 	CheckEvent EVENT_OBTAINED_SEEDS_BAG
 	jr nz, .weHaveSeedsBag
 ; no seeds, can't feed the birbs, everyone is sad
@@ -69,8 +70,18 @@ CheckIfCanSurfOrCutFromOverworld::
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
     call AnimateBirbTile_Resting_Wrapper
-	callfar MarkBirbAsFed
-    ret ; TBE
+	jpfar MarkBirbAsFed
+.rocketPath
+    call EnableAutoTextBoxDrawing
+    tx_pre PlayerKicksTheBirbText
+    ld a, SFX_DENIED
+    call PlaySound
+    callfar BirbEmotionBubble
+	ld a, 0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, SKULL_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef_jump EmotionBubble
 
 .checkIfAreaDark
 ; check if area is dark
@@ -78,9 +89,12 @@ CheckIfCanSurfOrCutFromOverworld::
     and a
     jr z, .areaNotDark
 ; area is dark
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .flashOk
     ld a, [wObtainedBadges] ; badges obtained
     bit BIT_BOULDERBADGE, a ; BROCK
 	jp z, .newBadgeRequired
+.flashOk
 ; we have the right badge, do we have a mon with Flash in team?
     ld d, FLASH
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
@@ -133,9 +147,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notSurfInTeam
 ; we have a Pokemon with SURF in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .surfOk
     ld a, [wObtainedBadges]
     bit BIT_SOULBADGE, a ; KOGA
 	jp z, .newBadgeRequired
+.surfOk
 ; we have the right badge
     callfar IsSurfingPikachuInThePlayersParty ; nc if it's not
     jr c, .surfingPikachu
@@ -200,9 +217,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notCutInTeam
 ; we have a Pokemon with CUT in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .cutOk
     ld a, [wObtainedBadges]
     bit BIT_CASCADEBADGE, a ; MISTY
 	jp z, .newBadgeRequired ; backjump actually, no reasons not to share the same text and code
+.cutOk
 ; we have the badge to cut it
 ; is this even necessary?
     ld a, 1
@@ -250,9 +270,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notWhirlpoolInTeam
 ; we have a Pokemon with WHIRLPOOL in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .whirlpoolOk
     ld a, [wObtainedBadges]
     bit BIT_MARSHBADGE, a ; SABRINA
 	jp z, .newBadgeRequired
+.whirlpoolOk
 ; we have the badge to undo the whirlpool
     ld a, 1
     ld [wActionResultOrTookBattleTurn], a ; useless?
@@ -304,9 +327,12 @@ CheckIfCanSurfOrCutFromOverworld::
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
     jr z, .notDiveInTeam
 ; we have a Pokemon with DIVE in the team
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .diveOk
     ld a, [wObtainedBadges]
     bit BIT_RAINBOWBADGE, a ; ERIKA
 	jp z, .newBadgeRequired
+.diveOk
 ; we have the right badge
 ; we can actually dive
     ; how many underwater steps we can take
@@ -599,6 +625,10 @@ IsSurfingAllowed2:
 	ld a, [wd732]
 	bit 5, a
 	jr nz, .forcedToRideBike
+; new for RP
+	CheckEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD
+	jr nz, .forcedToRideBike2
+; BTV
 	CheckEvent EVENT_IN_SEVII ; new
 	ret nz ; new
 	ld a, [wCurMap]
@@ -616,6 +646,10 @@ IsSurfingAllowed2:
 	ld hl, wd728
 	res 1, [hl]
 	tx_pre_jump CyclingIsFunText2
+.forcedToRideBike2
+	ld hl, wd728
+	res 1, [hl]
+	tx_pre_jump CantSurfHereText2
 
 SeafoamIslandsB4FStairsCoords2:
 	dbmapcoord  7, 11
@@ -639,6 +673,14 @@ _CyclingIsFunText2::
 	line "Forget SURFing!"
 	done
 
+CantSurfHereText2:: ; for RP
+	text_far _CantSurfHereText2
+	text_end
+
+_CantSurfHereText2:: ; for RP
+	text "Can't SURF here!"
+	done
+
 ; --------------------------------------------
 
 TryToClimbWall:
@@ -647,6 +689,8 @@ TryToClimbWall:
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
     jr z, .noRockClimbInTeam
 ; we have the move, check if we have the badge
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, ClimbWallUp
     ld a, [wObtainedBadges]
     bit BIT_THUNDERBADGE, a ; SURGE
 	jp nz, ClimbWallUp
@@ -739,6 +783,8 @@ TryToRideWaterfall:
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (nz = match found)
     jr z, .noWaterfallInTeam
 ; we have the move, check if we have the badge
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, RideWaterfall
     ld a, [wObtainedBadges]
     bit BIT_VOLCANOBADGE, a ; BLAINE
 	jp nz, RideWaterfall

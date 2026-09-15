@@ -1,4 +1,5 @@
 RockTunnelPokecenter_Script:
+	RPTextChooser RockTunnelPokecenter_TextPointers, RockTunnelPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -6,6 +7,13 @@ RockTunnelPokecenter_TextPointers:
 	dw RockTunnelHealNurseText
 	dw RockTunnelPokecenterText2
 	dw RockTunnelPokecenterText3
+	dw RockTunnelTradeNurseText
+	dw RockTunnelPokecenterText5
+
+RockTunnelPokecenter_TextPointers_Rocket:
+	dw RockTunnelHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	dw RockTunnelTradeNurseText
 	dw RockTunnelPokecenterText5
 

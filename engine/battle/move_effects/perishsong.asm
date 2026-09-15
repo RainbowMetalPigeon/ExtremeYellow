@@ -126,6 +126,7 @@ PerishEndOfTurn:
 	ld [hl], a ; set mon's status to 0
 	ld a, [de]
 	res SEEDED, a ; clear mon's leech seed status
+	res BEING_CURSED, a ; clear mon's curse status
 	ld [de], a
 	
 .enemyFaint
@@ -147,6 +148,7 @@ PerishEndOfTurn:
 	ld [hl], a ; set mon's status to 0
 	ld a, [de]
 	res SEEDED, a ; clear mon's leech seed status
+	res BEING_CURSED, a ; clear mon's curse status
 	ld [de], a
 
 	ret

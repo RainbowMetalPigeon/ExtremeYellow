@@ -1,4 +1,5 @@
 CeruleanMelaniesHouse_Script:
+	RPTextChooser CeruleanMelaniesHouse_TextPointers, CeruleanMelaniesHouse_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -19,8 +20,32 @@ CeruleanMelaniesHouse_TextPointers:
 	dw CeruleanHouse1Text10
 	dw CeruleanHouse1Text11
 	; trashed
-	dw CeruleanHouseTrashedText1
-	dw CeruleanHouseTrashedText2
+	dw CeruleanHouseTrashedText1 ; old
+	dw CeruleanHouseTrashedText2 ; young
+	; signs
+	dw CeruleanHouse1Sign1
+	dw CeruleanHouse1Sign2
+	dw CeruleanHouseTrashedText3
+
+CeruleanMelaniesHouse_TextPointers_Rocket:
+	dw CeruleanHouse1Text1_RP ; Melanie
+	dw CeruleanHouse1Text2 ; Mon
+	dw CeruleanHouse1Text3 ; Mon
+	dw CeruleanHouse1Text4 ; Mon
+	; new, trade house
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; new, sad elder
+	dw GenericNPCText_RocketPath
+	; new, baby expert
+	dw GenericNPCText_RocketPath
+	; new, Misty's siblings
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; trashed
+	dw CeruleanHouseTrashedText1_RP ; old
+	dw CeruleanHouseTrashedText2_RP ; young
 	; signs
 	dw CeruleanHouse1Sign1
 	dw CeruleanHouse1Sign2
@@ -75,6 +100,51 @@ CeruleanHouse1Text1:
 	ld hl, CeruleanHouse1Text_1cfd9
 	call PrintText
 	jp TextScriptEnd
+
+CeruleanHouse1Text1_RP: ; new for RP
+	text_asm
+	CheckEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
+	ld hl, CeruleanHousesMelanieText_RP_GotBulbasaurPreviously
+	jr nz, .printAndEnd
+	CheckEvent EVENT_RP_GOT_BULBASAUR
+	ld hl, CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur
+	jr nz, .printAndEnd
+	ld hl, CeruleanHousesMelanieText_RP_BeatMelanie
+	call PrintText
+	ld a, BULBASAUR
+	ld [wd11e], a
+	ld [wcf91], a
+	call GetMonName
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	lb bc, BULBASAUR, 15
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, [wAddedToParty]
+	and a
+	call z, WaitForTextScrollButtonPress
+	ld a, $1
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	ld a, HS_CERULEAN_BULBASAUR
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvent EVENT_RP_GOT_BULBASAUR
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CeruleanHousesMelanieText_RP_GotBulbasaurPreviously: ; new for RP
+	text_far _CeruleanHousesMelanieText_RP_GotBulbasaurPreviously
+	text_end
+
+CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur: ; new for RP
+	text_far _CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur
+	text_end
+
+CeruleanHousesMelanieText_RP_BeatMelanie: ; new for RP
+	text_far _CeruleanHousesMelanieText_RP_BeatMelanie
+	text_end
 
 CeruleanHouse1Text_1cfc8:
 	text_far MelanieText1
@@ -199,4 +269,12 @@ CeruleanHouseTrashedText2:
 
 CeruleanHouseTrashedText3:
 	text_far _CeruleanHouseTrashedText3
+	text_end
+
+CeruleanHouseTrashedText1_RP: ; new for RP
+	text_far _CeruleanHouseTrashedText1_RP
+	text_end
+
+CeruleanHouseTrashedText2_RP: ; new for RP
+	text_far _CeruleanHouseTrashedText2_RP
 	text_end

@@ -293,3 +293,45 @@ _Lab1SeismologySign1::
 	cont "area labelled"
 	cont "with 'DANGER!'..."
 	done
+
+; new for RP ========================
+
+_Lab1Text2_Archeologist_RP_After::
+	text "No...!"
+	line "My ARTIFACT!"
+
+	para "My only memento of"
+	line "of my past glory!"
+	cont "Why?!"
+
+	para "I'm left with"
+	line "nothing at all..."
+;	xxxx "123456789012345678"
+	done
+
+_Lab1Text2_Archeologist_RP_Before::
+	text "What's a ROCKET"
+	line "doing here?"
+	cont "What may you"
+	cont "want from me?"
+;	xxxx "123456789012345678"
+	done
+
+_Lab1Text5_Treasure_RP_Core::
+	text "A mesmerizing"
+	line "ARTIFACT."
+
+	para "It is as beautiful"
+	line "as it looks"
+	cont "ancient."
+
+	para "Definitely wasted"
+	line "in the hands of"
+	cont "an old mummy."
+	done
+
+_Lab1Text5_Treasure_RP_StoleArtifact::
+	text "<PLAYER> snatches"
+	line "the ARTIFACT!"
+;	xxxx "123456789012345678"
+	done

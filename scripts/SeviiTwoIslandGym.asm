@@ -1,4 +1,5 @@
 SeviiTwoIslandGym_Script:
+	RPTextChooser SeviiTwoIslandGym_TextPointers, SeviiTwoIslandGym_TextPointers_Rocket
 	call ChooseNiuesTeam
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiTwoIslandGym_ScriptPointers
@@ -24,9 +25,13 @@ ChooseNiuesTeam:
 SeviiTwoIslandGym_ScriptPointers:
 	dw SeviiTwoIslandGymScript0
 	dw SeviiTwoIslandGymScriptPostBattle
+	dw SeviiTwoIslandGymScriptPushRP
 
 SeviiTwoIslandGymScript0:
-	ret
+	ld d,  4 ; x in front of the door
+	ld e, 13 ; y in front of the door
+	ld c,  2 ; "wait-for-movement" script
+	jpfar PushAwayFromGymDoorIfRP
 
 SeviiTwoIslandGymScriptPostBattle:
 	xor a
@@ -85,6 +90,16 @@ SeviiTwoIslandGymScriptPostBattle:
 SeviiTwoIslandGym_TextPointers:
 	dw SeviiTwoIslandGymText1
 	dw SeviiTwoIslandGymText2
+	; scripts
+	dw SeviiTwoIslandGymText3_Victory ; 3
+	dw SeviiTwoIslandGymText4_Defeat ; 4
+	dw SeviiTwoIslandGymText4_Reward1 ; 5
+	dw SeviiTwoIslandGymText4_Reward2 ; 6
+	dw SeviiTwoIslandGymText4_Reward3 ; 7
+
+SeviiTwoIslandGym_TextPointers_Rocket:
+	dw SeviiTwoIslandGymText1 ; unused
+	dw SeviiTwoIslandGymText2_RP
 	; scripts
 	dw SeviiTwoIslandGymText3_Victory ; 3
 	dw SeviiTwoIslandGymText4_Defeat ; 4
@@ -316,3 +331,12 @@ RandomizePlayersTeamForNiueBattle::
 	ld a, b
 	ld [de], a ; saves Mon in wBattleFacilityMonNumberN
 	ret
+
+; new for RP ================================
+
+SeviiTwoIslandGymScriptPushRP:
+	jpfar WaitForPlayerAutomovementSeviiGyms
+
+SeviiTwoIslandGymText2_RP:
+	text_far _SeviiGymsGuideRefusedText_RP
+	text_end

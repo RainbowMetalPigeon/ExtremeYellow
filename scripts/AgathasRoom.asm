@@ -1,4 +1,5 @@
 AgathasRoom_Script:
+	RPTextChooser AgathasRoom_TextPointers, AgathasRoom_TextPointers_Rocket
 	call AgathaShowOrHideExitBlock
 	call EnableAutoTextBoxDrawing
 	ld hl, AgathasRoomTrainerHeaders
@@ -14,12 +15,26 @@ AgathaShowOrHideExitBlock:
 	bit 5, [hl]
 	res 5, [hl]
 	ret z
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .dontStopMusic
+	CheckEvent EVENT_RP_ELIMINATED_AGATHA
+	jr z, .dontStopMusic
+	call StopAllMusic
+.dontStopMusic
+; BTV
 ; new
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_1
 	jr nz, .freeExitToNextRoom
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_2
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_3
+	jr nz, .freeExitToNextRoom
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_4
 ; BTV
 	jr z, .blockExitToNextRoom
 .freeExitToNextRoom ; new
@@ -35,6 +50,7 @@ AgathaShowOrHideExitBlock:
 ResetAgathaScript:
 	xor a
 	ld [wAgathasRoomCurScript], a
+	ld [wCurMapScript], a ; new, maybe unnecessary
 	ret
 
 AgathasRoom_ScriptPointers:
@@ -43,6 +59,8 @@ AgathasRoom_ScriptPointers:
 	dw AgathaScript2
 	dw AgathaScript3
 	dw AgathaScript4
+	; new for RP
+	dw AgathaScript5
 
 AgathaScript4:
 	ret
@@ -80,6 +98,13 @@ AgathaScript0:
 	CheckAndSetEvent EVENT_AUTOWALKED_INTO_AGATHAS_ROOM
 	jr z, AgathaScriptWalkIntoRoom
 .stopPlayerFromLeaving
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .vanilla
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	ret nz
+.vanilla
+; BTV
 	ld a, $2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID  ; "Don't run away!"
@@ -116,15 +141,25 @@ AgathaScript2:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetAgathaScript
+; we won
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr z, .notChampionPink
+; champion Pink
+	ld a, 5
+	ld [wAgathasRoomCurScript], a
+	ld [wCurMapScript], a
+	ret
+.notChampionPink
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	ld a, $1
-	ld [wChampionsRoomCurScript], a
-	ret
+	jp DisplayTextID
 
 AgathasRoom_TextPointers:
 	dw AgathaText1
+	dw AgathaDontRunAwayText
+
+AgathasRoom_TextPointers_Rocket:
+	dw AgathaText1_RP
 	dw AgathaDontRunAwayText
 
 AgathasRoomTrainerHeaders:
@@ -135,6 +170,10 @@ AgathasRoomTrainerHeader1:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, AgathaBeforeBattleTextRematch, AgathaEndBattleTextRematch, AgathaAfterBattleTextRematch
 AgathasRoomTrainerHeader2:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_2, 0, AgathaBeforeBattleTextRematch2, AgathaEndBattleTextRematch2, AgathaAfterBattleTextRematch2
+AgathasRoomTrainerHeader3:
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_3, 0, AgathaBeforeBattleText_RP, AgathaEndBattleText_RP, AgathaAfterBattleText_RP
+AgathasRoomTrainerHeader4:
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_4, 0, AgathaBeforeBattleText_RP_Pink, AgathaEndBattleText_RP_Pink, AgathaAfterBattleText_RP_Pink
 	db -1 ; end
 
 AgathaText1:
@@ -204,3 +243,73 @@ AgathaEndBattleTextRematch2:
 AgathaAfterBattleTextRematch2:
 	text_far _AgathaAfterBattleTextRematch2
 	text_end
+
+; new for RP =======================
+
+AgathaText1_RP:
+	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
+	jr nz, .championPink
+; pre-Giovanni death
+	ld hl, AgathasRoomTrainerHeader3
+	call TalkToTrainer
+	ld a, 4
+	jr .gotTrainerNumber
+.championPink
+	ld hl, AgathasRoomTrainerHeader4
+	call TalkToTrainer
+	ld a, 3
+.gotTrainerNumber
+	ld [wTrainerNo], a
+	jp TextScriptEnd
+
+AgathaBeforeBattleText_RP:
+	text_far _AgathaBeforeBattleText_RP
+	text_end
+
+AgathaEndBattleText_RP:
+	text_far _AgathaEndBattleText_RP
+	text_end
+
+AgathaAfterBattleText_RP:
+	text_far _AgathaAfterBattleText_RP
+	text_end
+
+AgathaBeforeBattleText_RP_Pink:
+	text_far _AgathaBeforeBattleText_RP_Pink
+	text_end
+
+AgathaEndBattleText_RP_Pink:
+	text_far _AgathaEndBattleText_RP_Pink
+	text_end
+
+AgathaAfterBattleText_RP_Pink:
+	text_far _AgathaAfterBattleText_RP_Pink
+	text_end
+
+AgathaScript5:
+	ld a, $1
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; kill Agatha
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToWhite
+    call GBFadeInFromWhite
+    call GBFadeOutToBlack
+	call StopMusic
+    ld c, 60
+    call DelayFrames
+	ld c, BANK(SFX_Push_Boulder_1)
+	ld a, SFX_PUSH_BOULDER
+	call PlayMusic
+	ld a, HS_AGATHAS_ROOM_AGATHA
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call UpdateSprites
+    ld c, 100
+    call DelayFrames
+    call GBFadeInFromBlack
+	SetEvent EVENT_RP_ELIMINATED_AGATHA
+	jp ResetAgathaScript

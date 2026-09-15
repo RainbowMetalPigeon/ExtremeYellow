@@ -1,4 +1,5 @@
 RocketHideoutB2F_Script:
+	RPTextChooser RocketHideoutB2F_TextPointers, RocketHideoutB2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, RocketHideout2TrainerHeaders
 	ld de, RocketHideoutB2F_ScriptPointers
@@ -270,6 +271,13 @@ RocketHideout2Script3:
 INCLUDE "engine/overworld/spinners.asm"
 
 RocketHideoutB2F_TextPointers:
+	dw RocketHideout2Text1
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+
+RocketHideoutB2F_TextPointers_Rocket:
 	dw RocketHideout2Text1
 	dw PickUpItemText
 	dw PickUpItemText

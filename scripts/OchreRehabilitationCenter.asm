@@ -1,4 +1,5 @@
 OchreRehabilitationCenter_Script:
+	RPTextChooser OchreRehabilitationCenter_TextPointers, OchreRehabilitationCenter_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, OchreRehabilitationCenter_ScriptPointers
 	ld a, [wOchreRehabilitationCenterCurScript]
@@ -69,10 +70,26 @@ OchreRehabilitationCenter_TextPointers:
 	dw OchreRehabilitationCenterText5 ; boss copy, only for scolding
 	; house 1
 	dw OchreRehabilitationCenterText6 ; battle enthusiast
-	; house 1
+	; house 2
 	dw OchreRehabilitationCenterText7 ; parent
 	dw OchreRehabilitationCenterText8 ; parent
 	dw OchreRehabilitationCenterText9 ; urban legend kid
+	; signs
+	dw OchreRehabilitationCenterSign1
+	dw OchreRehabilitationCenterSign2
+
+OchreRehabilitationCenter_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath ; bird
+	dw GenericNPCText_RocketPath ; boss copy
+	; house 1
+	dw GenericNPCText_RocketPath ; battle enthusiast
+	; house 2
+	dw GenericNPCText_RocketPath ; parent
+	dw GenericNPCText_RocketPath ; parent
+	dw GenericNPCText_RocketPath ; urban legend kid
 	; signs
 	dw OchreRehabilitationCenterSign1
 	dw OchreRehabilitationCenterSign2

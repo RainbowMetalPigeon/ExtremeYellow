@@ -1139,19 +1139,19 @@ _SeviiRoute34Text1_BagFull::
 
 ; Route 35 ------------------------------------
 
-_SeviiRoute35BattleText1::
+_SeviiRoute35BattleText1_HP::
 	text "Ah! A traveler!"
 	line "Beat me, and I'll"
 	cont "translate this"
 	cont "text for you!"
 	done
 
-_SeviiRoute35EndBattleText1::
+_SeviiRoute35EndBattleText1_HP::
 	text "A promise"
 	line "is a promise!"
 	prompt
 
-_SeviiRoute35AfterBattleText1::
+_SeviiRoute35AfterBattleText1_HP::
 	text "The text on this"
 	line "wall reads like:"
 
@@ -1260,12 +1260,13 @@ _SeviiLostCave2Text1::
 	cont "maze!"
 
 	para "Thank you, oh my"
-	line "saviour. Meet me"
-	cont "at my humble"
+	line "saviour. Let us"
+	cont "head to my humble"
 	cont "RESORT GORGEOUS"
 	cont "and I'll know how"
 	cont "to reward you"
 	cont "appropriately."
+;   xxxx "123456789012345678"
 	done
 
 _SeviiResortGorgeousText3::
@@ -1792,109 +1793,4 @@ _SeviiRoute36SignText1_WrongSide::
 	text "There is an"
 	line "inscription on"
 	cont "the other side."
-	done
-
-; dive --------------------------------- TBE
-
-_SeviiFiveIslandCityDiveBattleText1:: ; DIVER
-	text "Bluglu! Bluuu?"
-
-	para "(This place is a"
-	line "real maze! Don't"
-	cont "you think so?)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveEndBattleText1::
-	text "Bub! Glu?"
-
-	para "(You're too"
-	line "strong! Don't you"
-	cont "think so?)"
-;	xxxx "123456789012345678"
-	prompt
-
-_SeviiFiveIslandCityDiveAfterBattleText1::
-	text "Bbbbllbbub... B!"
-
-	para "(To be honest, I'm"
-	line "bad at both"
-	cont "orienting and"
-	cont "battling..."
-	cont "But I'm good at"
-	cont "diving!)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveBattleText2:: ; DIVER
-	text "B."
-
-	para "(This is a quiet"
-	line "corner.)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveEndBattleText2::
-	text "G."
-
-	para "(Not so quiet"
-	line "now.)"
-;	xxxx "123456789012345678"
-	prompt
-
-_SeviiFiveIslandCityDiveAfterBattleText2::
-	text "L."
-
-	para "(I just wish for"
-	line "quietness.)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveBattleText3:: ; COOLTRAINER
-	text "Blubglub!"
-
-	para "(You! Me! Fight!)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveEndBattleText3::
-	text "Bglb!"
-
-	para "(I! Lost!)"
-;	xxxx "123456789012345678"
-	prompt
-
-_SeviiFiveIslandCityDiveAfterBattleText3::
-	text "Glubblubgb!"
-
-	para "(I! More! Train!)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveBattleText4:: ; DIVER
-	text "Bbluuuuuuuuuub?"
-
-	para "(How long can you"
-	line "hold your breath?)"
-;	xxxx "123456789012345678"
-	done
-
-_SeviiFiveIslandCityDiveEndBattleText4::
-	text "Bluuuuub..."
-
-	para "(I'm better at"
-	line "breath-holding"
-	cont "than at battles.)"
-;	xxxx "123456789012345678"
-	prompt
-
-_SeviiFiveIslandCityDiveAfterBattleText4::
-	text "Glubglubglub!"
-
-	para "(I can hold my"
-	line "breath for 10"
-	cont "minutes! Though,"
-	cont "sometimes only 8."
-	cont "It depends.)"
-;	xxxx "123456789012345678"
 	done

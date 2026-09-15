@@ -1,4 +1,5 @@
 CeruleanPokecenter_Script:
+	RPTextChooser CeruleanPokecenter_TextPointers, CeruleanPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ CeruleanPokecenter_TextPointers:
 	dw CeruleanMartText2
 	dw CeruleanMartText3
 	dw CeruleanCashierTextTM ; new, TM seller
+
+CeruleanPokecenter_TextPointers_Rocket:
+	dw CeruleanHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CeruleanTradeNurseText ; TBE?
+	dw CeruleanPokecenterText5
+	; from Mart
+	dw CeruleanCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw CeruleanCashierTextTM
 
 CeruleanTradeNurseText:
 	script_cable_club_receptionist

@@ -817,3 +817,39 @@ _GiovanniPostBattleText::
 	para "Thank you,"
 	line "<PLAYER>. Really."
 	prompt
+
+; new for RP =======================
+
+_OaksLabText7_RP_Core::
+	text "You... Oh no."
+	line "Dear goddess."
+	cont "What have you"
+	cont "done?!"
+;	xxxx "123456789012345678"
+	done
+
+_OaksLabText8_RP_Core::
+	text "?!"
+
+	para "<PLAYER>! You"
+	line "became a ROCKET?!"
+
+	para "I saw you growing,"
+	line "and now you"
+	cont "turned into this"
+	cont "abomination..."
+;	xxxx "123456789012345678"
+	done
+
+_OaksLabText9_RP_Core::
+	text "<PLAYER>?! You?!"
+	line "A ROCKET?!"
+
+	para "That's..."
+	line "Oh dear. Luckily"
+	cont "PROF.OAK is not"
+	cont "here now, or they"
+	cont "may die of"
+	cont "brocken heart..."
+;	xxxx "123456789012345678"
+	done

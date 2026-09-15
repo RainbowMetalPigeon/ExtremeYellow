@@ -1,4 +1,5 @@
 PalletTown_Script:
+	RPTextChooser PalletTown_TextPointers, PalletTown_TextPointers_Rocket
 	CheckEvent EVENT_GOT_POKEBALLS_FROM_OAK
 	jr z, .next
 	SetEvent EVENT_PALLET_AFTER_GETTING_POKEBALLS
@@ -229,12 +230,24 @@ PalletTown_TextPointers:
 	dw PalletTownText2
 	dw PalletTownText3
 	dw PalletTownTextDarkGuide ; can't be bothered to rename everything lol
-	; signs from here onward
+	; signs
 	dw PalletTownText4
 	dw PalletTownText5
 	dw PalletTownText6
 	dw PalletTownText7
+	; scripts
 	dw PalletTownText8
+
+PalletTown_TextPointers_Rocket:
+	dw PalletTownText1 ; Oak, unused
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw PalletTownTextDarkGuide_RP
+	; signs
+	dw PalletTownText4
+	dw PalletTownText5
+	dw PalletTownText6
+	dw PalletTownText7
 
 PalletTownText1:
 	text_asm
@@ -351,7 +364,38 @@ PalletTownText6b:
 	text_far _PalletTownText6
 	text_end
 
-PalletTownText7: ; sign by Blue's house
+PalletTownText7: ; sign by Blue's house ; edited
+	text_asm
+	ld hl, PalletTownText7b
+	call PrintText
+IF DEF(_DEBUG)
+	SetEvent EVENT_ROCKET_PATH
+	call DisablePikachuOverworldSpriteDrawing
+	ld a, HS_POKEMON_TOWER_2F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_MONSTER_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_PINK
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_BLUE
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	ld a, HS_HALL_OF_FAME_BLUE
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+ENDC
+	jp TextScriptEnd
+
+PalletTownText7b:
 	text_far _PalletTownText7
 	text_end
 
@@ -822,4 +866,33 @@ DarkGuideHints_Hint12_Details:
 
 DarkGuideHints_Hint12_Solution:
 	text_far _DarkGuideHints_Hint12_Solution
+	text_end
+
+; new for RP =================================
+
+PalletTownTextDarkGuide_RP:
+	text_asm
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, PalletTownTextDarkGuide_RP_After
+	jr nz, .printAndEnd
+; first time
+	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, PalletTownTextDarkGuide_RP_Before
+	call PrintText
+	ld hl, PalletTownTextDarkGuide_RP_GetTicket
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PalletTownTextDarkGuide_RP_Before:
+	text_far _PalletTownTextDarkGuide_RP_Before
+	text_end
+
+PalletTownTextDarkGuide_RP_GetTicket:
+	text_far _PalletTownTextDarkGuide_RP_GetTicket
+	sound_get_key_item
+	text_end
+
+PalletTownTextDarkGuide_RP_After:
+	text_far _PalletTownTextDarkGuide_RP_After
 	text_end

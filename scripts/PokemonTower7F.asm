@@ -1,14 +1,15 @@
 PokemonTower7F_Script:
+	RPTextChooser PokemonTower7F_TextPointers, PokemonTower7F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, PokemonTower7F_ScriptPointers
 	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
 
-PokemonTower7Script_60d01:
+PokemonTower7Script_ResetScripts:
 	xor a
 	ld [wJoyIgnore], a
-PokemonTower7Script_60d05:
+PokemonTower7Script_ChangeScript:
 	ld [wCurMapScript], a
 	ret
 
@@ -25,6 +26,7 @@ PokemonTower7F_ScriptPointers:
 	dw PokemonTower7Script9
 	dw PokemonTower7Script10
 	dw PokemonTower7Script11
+	dw PokemonTower7Script12 ; for RP
 
 PokemonTower7Script0:
 IF DEF(_DEBUG)
@@ -68,7 +70,7 @@ PokemonTower7Script_60d2a:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $1
-	call PokemonTower7Script_60d05
+	call PokemonTower7Script_ChangeScript
 	ret
 
 PokemonTower7MovementData_60d7a:
@@ -91,7 +93,7 @@ PokemonTower7Script1:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $2
-	call PokemonTower7Script_60d05
+	call PokemonTower7Script_ChangeScript
 	ret
 
 PokemonTower7Script2:
@@ -122,7 +124,7 @@ PokemonTower7Script4:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $5
-	call PokemonTower7Script_60d05
+	call PokemonTower7Script_ChangeScript
 	ret
 PokemonTower7Script5:
 	ld a, $ff
@@ -153,6 +155,7 @@ PokemonTower7Script7:
 	ld hl, PokemonTower7JessieJamesEndBattleText
 	ld de, PokemonTower7JessieJamesEndBattleText
 	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES ; for RP
 	ld a, OPP_JESSIEJAMES ; edited
 	ld [wCurOpponent], a
 	ld a, 3 ; edited
@@ -162,16 +165,15 @@ PokemonTower7Script7:
 	xor a
 	ldh [hJoyHeld], a
 	ld [wJoyIgnore], a
-	ld a, $8
-	call PokemonTower7Script_60d05
-	ret
+	ld a, 8
+	jp PokemonTower7Script_ChangeScript
 
 PokemonTower7Script8:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, PokemonTower7Script_60d01
+	jp z, PokemonTower7Script_ResetScripts
 	xor a                            ; new, to go beyond 200
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $2
@@ -196,7 +198,7 @@ PokemonTower7Script8:
 	ld a, $ff
 	ld [wJoyIgnore], a
 	ld a, $9
-	call PokemonTower7Script_60d05
+	call PokemonTower7Script_ChangeScript
 	ret
 
 PokemonTower7Script9:
@@ -211,7 +213,7 @@ PokemonTower7Script9:
 	call Delay3
 	call GBFadeInFromBlack
 	ld a, $a
-	call PokemonTower7Script_60d05
+	call PokemonTower7Script_ChangeScript
 	ret
 
 PokemonTower7Script10:
@@ -221,7 +223,7 @@ PokemonTower7Script10:
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_POKEMONTOWER_7_TRAINER_0
 	ld a, $0
-	call PokemonTower7Script_60d05
+	call PokemonTower7Script_ChangeScript
 	ret
 
 PokemonTower7Script_60eaf:
@@ -260,9 +262,20 @@ PokemonTower7F_TextPointers:
 	dw PokemonTower7Text1
 	dw PokemonTower7Text2
 	dw PokemonTower7Text3
-	dw PokemonTower7Text4
-	dw PokemonTower7Text5
-	dw PokemonTower7Text6
+	; scripts
+	dw PokemonTower7Text4 ; stop right there + bubble
+	dw PokemonTower7Text5 ; old geezer not happy with methods
+	dw PokemonTower7Text6 ; ciao
+
+PokemonTower7F_TextPointers_Rocket:
+	dw PokemonTower7Text1 ; Jessie (useless)
+	dw PokemonTower7Text2 ; James (useless)
+	dw PokemonTower7Text3_RP ; Fuji
+	; scripts
+	dw PokemonTower7Text4_RP ; stop right there + bubble
+	dw PokemonTower7Text5_RP ; old geezer not happy with methods
+	dw PokemonTower7Text6_RP ; ciao
+	dw PokemonTower7Text7_RP ; Fuji surrenders
 
 PokemonTower7Text1:
 PokemonTower7Text2:
@@ -311,9 +324,6 @@ PokemonTower7Text3:
 	ld a, HS_SAFFRON_CITY_E
 	ld [wMissableObjectIndex], a
 	predef HideObject
-;	ld a, HS_SAFFRON_CITY_F			; does not exist?
-;	ld [wMissableObjectIndex], a	; does not exist?
-;	predef ShowObject				; does not exist?
 	ld a, $b
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -321,3 +331,96 @@ PokemonTower7Text3:
 PokemonTower7Text_60f75:
 	text_far _TowerRescueFujiText
 	text_end
+
+; new for RP ====================================
+
+PokemonTower7Text4_RP:
+	text_far _PokemonTowerJessieJamesText1_RP
+	text_asm
+	ld c, 10
+	call DelayFrames
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+	ld a, $0
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+	ld c, 20
+	call DelayFrames
+	jp TextScriptEnd
+
+PokemonTower7Text5_RP:
+	text_far _PokemonTowerJessieJamesText2_RP
+	text_end
+
+PokemonTower7Text6_RP:
+	text_far _PokemonTowerJessieJamesText4_RP
+	text_asm
+	ld c, 64
+	call DelayFrames
+	jp TextScriptEnd
+
+PokemonTower7Text3_RP:
+	text_asm
+	CheckEvent EVENT_RP_CONVINCED_MX_FUJI
+	ld hl, PokemonTower7Text3_RP_After
+	jr nz, .printAndEnd
+; first time
+	ld hl, PokemonTower7Text3_RP_Before
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, PokemonTower7FujiEndBattleText
+	ld de, PokemonTower7FujiEndBattleText
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES ; for RP
+	ld a, OPP_SCIENTIST ; TBE?
+	ld [wCurOpponent], a
+	ld a, 18 ; TBE?
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	xor a
+	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
+	ld a, 12
+	call PokemonTower7Script_ChangeScript
+	jp TextScriptEnd
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PokemonTower7Text3_RP_Before:
+	text_far _PokemonTower7Text3_RP_Before
+	text_end
+
+PokemonTower7FujiEndBattleText:
+	text_far _PokemonTower7FujiEndBattleText
+	text_end
+
+PokemonTower7Text7_RP:
+	text_far _PokemonTower7Text7_RP
+	text_end
+
+PokemonTower7Text3_RP_After:
+	text_far _PokemonTower7Text3_RP_After
+	text_end
+
+PokemonTower7Script12:
+	xor a
+	ld [wJoyIgnore], a
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, PokemonTower7Script_ResetScripts
+; we won
+	SetEvent EVENT_RP_CONVINCED_MX_FUJI
+	xor a
+	ld [wIsTrainerBattle], a
+	ld a, 7
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+	xor a
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	jp PokemonTower7Script_ResetScripts

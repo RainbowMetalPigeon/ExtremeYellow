@@ -1,10 +1,36 @@
 ObsidianIsland_Script:
+	RPTextChooser ObsidianIsland_TextPointers, ObsidianIsland_TextPointers_Rocket
+	ld hl, wCurrentMapScriptFlags ; for the bridge
+	bit 6, [hl]
+	res 6, [hl]
+	call nz, ObsidianIslandHideShowBridge
+	ld hl, wCurrentMapScriptFlags ; for the bridge
+	bit 4, [hl]
+	res 4, [hl]
+	call nz, ObsidianIslandHideShowBridge
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, ObsidianIsland_ScriptPointers
 	ld a, [wCurMapScript] ; edited
 	call CallFunctionInTable
 	ret
+
+ObsidianIslandHideShowBridge:
+	CheckEvent EVENT_RP_BRIDGE_COMPLETED
+	ret z
+; replace blocks
+	ld a, 84			; bridge block ID
+	ld [wNewTileBlockID], a
+	lb bc, 18, 14 ; Y and X coordinates - opposite as usual
+	predef ReplaceTileBlock
+;	ld a, 84
+;	ld [wNewTileBlockID], a
+	lb bc, 19, 14
+	predef ReplaceTileBlock
+;	ld a, 84
+;	ld [wNewTileBlockID], a
+	lb bc, 20, 14
+	predef_jump ReplaceTileBlock
 
 ObsidianIsland_ScriptPointers:
 	dw ObsidianIslandScript0
@@ -78,9 +104,40 @@ ObsidianIsland_TextPointers:
 	dw ObsidianIslandTextWoodWest ; wood
 	dw ObsidianIslandTextMines ; mines
 	dw ObsidianIslandTextWarehouse ; warehouse
-	; other
+	; scripts
 	dw ObsidianIslandTextClosedHouse ; 23 = $17
 	dw TextPostBattle_ObsidianTraveler ; 24, new, for traveler
+
+ObsidianIsland_TextPointers_Rocket:
+	; before Giovanni's defeat
+	dw ObsidianIslandText1_RocketMines_RP ; mines
+	dw ObsidianIslandText2_RocketSouthBridge1_RP ; south bridge
+	dw ObsidianIslandText3_RocketSouthBridge2_RP ; south bridge
+	dw ObsidianIslandText5_SouthBridgeSlave1
+	dw ObsidianIslandText6_SouthBridgeSlave2
+	; after Giovanni's defeat -> all unused in RP
+	dw ObsidianIslandText7_Scientist1
+	dw ObsidianIslandText8_Scientist2
+	dw ObsidianIslandText9_Officier
+	dw ObsidianIslandText10_Citizen1
+	dw ObsidianIslandText11_Citizen2
+	dw ObsidianIslandText12_Citizen3
+	dw ObsidianIslandText13_Citizen4
+	dw TextPreBattle_ObsidianTraveler_RP ; traveler
+	; item
+	dw PickUpItemText
+	; signs
+	dw ObsidianIslandTextWelcome ; welcome
+	dw PokeCenterSignText
+	dw MartSignText
+	dw ObsidianIslandTextPier ; pier
+	dw ObsidianIslandTextWoodNorth ; wood
+	dw ObsidianIslandTextWoodWest ; wood
+	dw ObsidianIslandTextMines ; mines
+	dw ObsidianIslandTextWarehouse ; warehouse
+	; scripts
+	dw ObsidianIslandTextClosedHouse ; 23 = $17 TBE?
+	dw TextPostBattle_ObsidianTraveler_RP ; 24 for traveler
 
 ; ----------------- people -----------------
 
@@ -282,35 +339,8 @@ ObsidianIslandTextClosedHouse:
 
 TextPreBattle_ObsidianTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_ObsidianTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_ObsidianTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_ObsidianTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_ObsidianTraveler
-	ld de, Text_VictoryPostBattle_ObsidianTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 2 ; city-specific
 	ld [wCurMapScript], a
@@ -318,26 +348,8 @@ TextPreBattle_ObsidianTraveler: ; new
 
 TextPostBattle_ObsidianTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_ObsidianTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_ObsidianTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -373,36 +385,6 @@ ObsidianScript_Traveler:
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
-
-Text_Intro_ObsidianTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_ObsidianTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_ObsidianTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_ObsidianTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_ObsidianTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_ObsidianTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_ObsidianTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
-
 ; ================================
 
 ; carry flag is set if all Volcanic Stones are collected, otherwise not
@@ -422,3 +404,33 @@ CheckIfCollectedAllVolcanicStones:
 	xor a
 .end
 	ret
+
+; new for RP ===========================
+
+TextPreBattle_ObsidianTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 2 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_ObsidianTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+ObsidianIslandText1_RocketMines_RP:
+	text_far _ObsidianIslandText1_RocketMines_RP
+	text_end
+
+ObsidianIslandText2_RocketSouthBridge1_RP:
+	text_far _ObsidianIslandText2_RocketSouthBridge1_RP
+	text_end
+
+ObsidianIslandText3_RocketSouthBridge2_RP:
+	text_far _ObsidianIslandText3_RocketSouthBridge2_RP
+	text_end

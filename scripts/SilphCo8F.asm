@@ -1,4 +1,5 @@
 SilphCo8F_Script:
+	RPTextChooser SilphCo8F_TextPointers, SilphCo8F_TextPointers_Rocket
 	call SilphCo8Script_5651a
 	call EnableAutoTextBoxDrawing
 	ld hl, SilphCo8TrainerHeaders
@@ -77,6 +78,12 @@ SilphCo8F_ScriptPointers:
 
 SilphCo8F_TextPointers:
 	dw SilphCo8Text1
+	dw SilphCo8Text2
+	dw SilphCo8Text3
+	dw SilphCo8Text4
+
+SilphCo8F_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 	dw SilphCo8Text2
 	dw SilphCo8Text3
 	dw SilphCo8Text4

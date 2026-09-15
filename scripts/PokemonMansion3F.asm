@@ -1,4 +1,5 @@
 PokemonMansion3F_Script:
+	RPTextChooser PokemonMansion3F_TextPointers, PokemonMansion3F_TextPointers_Rocket
 	call Mansion3Script_52204
 	call EnableAutoTextBoxDrawing
 	ld hl, Mansion3TrainerHeaders
@@ -88,7 +89,15 @@ PokemonMansion3F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw Mansion3Text5
-	dw Mansion3Text6
+	dw Mansion3Text6 ; statue, another file
+
+PokemonMansion3F_TextPointers_Rocket:
+	dw Mansion3Text1
+	dw Mansion3Text2
+	dw PickUpItemText
+	dw PickUpItemText
+	dw Mansion3Text5
+	dw Mansion3Text6 ; statue, another file
 
 Mansion3TrainerHeaders:
 	def_trainers

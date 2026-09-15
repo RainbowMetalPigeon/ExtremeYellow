@@ -329,6 +329,9 @@ CheckIfWeAreInAGym: ; z flag if we are, nz otherwise
 	ret ; except Viridian, because Giovanni's gym doesn't scale
 
 DetermineGymTrainersLevels: ; returns in a the level of basic gym trainers
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .badges7
+; not RP, actual badge-scaling
 	call CountHowManyBadgesWrapped
 	cp 0
 	jr z, .badges0
@@ -344,7 +347,7 @@ DetermineGymTrainersLevels: ; returns in a the level of basic gym trainers
 	jr z, .badges5
 	cp 6
 	jr z, .badges6
-;.badges7
+.badges7
 	ld a, 52
 	ret
 .badges6

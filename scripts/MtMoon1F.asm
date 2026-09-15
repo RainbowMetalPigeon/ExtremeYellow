@@ -1,4 +1,5 @@
 MtMoon1F_Script:
+	RPTextChooser MtMoon1F_TextPointers, MtMoon1F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, MtMoon1TrainerHeaders
 	ld de, MtMoon1F_ScriptPointers
@@ -23,6 +24,8 @@ IF DEF(_DEBUG)
 	call DebugPressedOrHeldB
 	ret nz
 ENDC
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, CheckFightingMapTrainers
 	CheckEvent EVENT_BEAT_MT_MOON_1_RIVAL
 	jp nz, CheckFightingMapTrainers
 	ld hl, MtMoon1FCoords
@@ -40,11 +43,11 @@ ENDC
 	ldh [hJoyHeld], a
 	ld a, $f0
 	ld [wJoyIgnore], a
-
+; show rival
 	ld a, HS_MT_MOON_1F_RIVAL
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-
+; choose rival's movements
 	ld a, [wXCoord]
 	cp 36 ; is the player standing on the left of the post-water corridor?
 	jr z, .playerOnLeftSideOfCorridor
@@ -103,16 +106,6 @@ MtMoon1Script3: ; new
 	ld a, 4
 	ld [wCurMapScript], a
 	ret
-
-/*
-MtMoon1FRivalText_Win_FirstBattle:
-	text_far _MtMoon1FRivalText_Win_FirstBattle
-	text_end
-
-MtMoon1FRivalText_Lose_FirstBattle:
-	text_far _MtMoon1FRivalText_Lose_FirstBattle
-	text_end
-*/
 
 MtMoon1FRivalText_Win_BothBattles:
 	text_far _MtMoon1FRivalText_Win_BothBattles
@@ -207,6 +200,25 @@ MtMoon1F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw MtMoon1TextRival ; new, 14
+	; signs
+	dw MtMoon1Text14 ; 15
+
+MtMoon1F_TextPointers_Rocket:
+	dw MtMoon1Text1 ; trainer
+	dw MtMoon1Text2 ; trainer
+	dw MtMoon1Text3 ; trainer
+	dw MtMoon1Text4 ; trainer
+	dw MtMoon1Text5 ; trainer
+	dw MtMoon1Text6 ; trainer
+	dw MtMoon1Text7 ; trainer
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw PickUpItemText
+	dw MtMoon1TextRival ; unused
+	; signs
 	dw MtMoon1Text14 ; 15
 
 MtMoon1TrainerHeaders:

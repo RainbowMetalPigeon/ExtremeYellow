@@ -1121,8 +1121,8 @@ _SeviiRoute38HousesText4::
 	cont "the no(i)sy"
 	cont "tourists, how one"
 	cont "can't just take a"
-	cont "due to the wild"
-	cont "#MON..."
+	cont "walk due to the"
+	cont "wild #MON..."
 
 	para "Somehow feels like"
 	line "the author enjoys"

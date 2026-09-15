@@ -1,4 +1,5 @@
 Route20_Script:
+	RPTextChooser Route20_TextPointers, Route20_TextPointers_Rocket
 	CheckAndResetEvent EVENT_IN_SEAFOAM_ISLANDS
 	call nz, Route20Script_50cc6
 	call EnableAutoTextBoxDrawing
@@ -82,6 +83,26 @@ Route20_TextPointers:
 	; scripts
 	dw Route20TextMistyPostBattle ; 15, new, map-dependent
 	dw Route20ScriptText2 ; 16, new
+
+Route20_TextPointers_Rocket:
+	dw Route20TextMisty ; no inverse rematches
+	dw Route20Text1
+	dw Route20Text2
+	dw Route20Text3
+	dw Route20Text4
+	dw Route20Text5
+	dw Route20Text6
+	dw Route20Text7
+	dw Route20Text8
+	dw Route20Text9
+	dw Route20Text10
+	dw Route20SpecialBirdKeeperText_RP ; 12
+	; signs
+	dw Route20Text11
+	dw Route20Text12
+	; scripts
+	dw Route20TextMistyPostBattle ; 15, unused
+	dw Route20ScriptText2_RP ; 16
 
 Route20TrainerHeaders:
 	def_trainers 2 ; edited because of rematch Misty
@@ -392,11 +413,13 @@ Route20SpecialBirdKeeperText:
 	jp TextScriptEnd
 
 Route20Script_PostSpecialBirdKeeper:
+	ResetEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; for RP, regardless if we won or lost
 	ld a, [wLevelScalingBackup] ; restore level scaling
 	ld [wLevelScaling], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route20ResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 16
@@ -421,4 +444,20 @@ Route20SpecialBirdKeeperText_AfterBattle:
 
 Route20ScriptText2:
 	text_far _Route20ScriptText2
+	text_end
+
+; new for RP =================================
+
+Route20SpecialBirdKeeperText_RP:
+	text_asm
+	callfar SpecialBirdKeeper_RP_CommonPreBattleText
+	ld a, 28
+	ld [wTrainerNo], a
+; script handling
+	ld a, 4
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+Route20ScriptText2_RP:
+	text_far _Route20ScriptText2_RP
 	text_end

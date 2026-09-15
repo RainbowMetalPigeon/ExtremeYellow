@@ -1,4 +1,5 @@
 BattleFacility_Script:
+	RPTextChooser BattleFacility_TextPointers, BattleFacility_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, BattleFacility_ScriptPointers
 	ld a, [wCurMapScript] ; edited
@@ -698,6 +699,21 @@ BattleFacility_TextPointers:
 	dw BattleFacilityText_HealAndSmolPrize ; 16
 	dw BattleFacilityText_ReceivedItem     ; 17
 	dw BattleFacilityText_BagFull          ; 18
+
+BattleFacility_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; TBE
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; other NPCs' texts
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw BattleFacilityTextSignRecordsNormal ; 9, tabellone segnapunti
+	dw BattleFacilityTextSignRecordsInverse ; 10, tabellone segnapunti
+	dw BattleFacilityTextGuide_Info
 
 ; NPCs texts --------------------------
 

@@ -164,6 +164,11 @@ GetSpriteDataPointer:
 TrainerEngage:
 	push hl
 	push de
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld a, 0
+	jr nz, .noEngage
+; BTV
 	ld a, [wTrainerSpriteOffset]
 	add SPRITESTATEDATA1_IMAGEINDEX
 	ld d, $0

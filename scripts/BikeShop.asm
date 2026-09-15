@@ -1,4 +1,5 @@
 BikeShop_Script:
+	RPTextChooser BikeShop_TextPointers, BikeShop_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -6,6 +7,11 @@ BikeShop_TextPointers:
 	dw BikeShopText1
 	dw BikeShopText2
 	dw BikeShopText3
+
+BikeShop_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 BikeShopText1:
 	text_asm

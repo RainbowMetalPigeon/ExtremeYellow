@@ -1,4 +1,5 @@
 SeviiTenIsland_Script:
+	RPTextChooser SeviiTenIsland_TextPointers, SeviiTenIsland_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiTenIsland_ScriptPointers
 	ld a, [wCurMapScript]
@@ -13,7 +14,7 @@ SeviiTenIsland_ScriptPointers:
 	dw SeviiTenIslandScript_TimeTravelEffects ;  1
 	dw SeviiTenIslandScript_YoungOakDialogueAndBattle ;  2
 	dw SeviiTenIslandScript_PostBattle ;  3
-	
+
 SeviiTenIslandScript_0: ; 0
 	ret
 
@@ -172,9 +173,15 @@ SeviiTenIslandScript_YoungOakDialogueAndBattle:
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, SeviiTenIslandYoungOakDefeatedText_RP
+	ld de, SeviiTenIslandYoungOakBeatYouText_RP
+	jr nz, .print
 	ld hl, SeviiTenIslandYoungOakDefeatedText
 	ld de, SeviiTenIslandYoungOakBeatYouText
+.print
 	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 ; load next script
 	ld a, 3
 	ld [wCurMapScript], a
@@ -280,6 +287,18 @@ SeviiTenIsland_TextPointers:
 	dw SeviiTenIslandScriptText2 ; 8, Young Oak pre-battle
 	dw SeviiTenIslandScriptText3 ; 9, Young Oak post-battle
 
+SeviiTenIsland_TextPointers_Rocket:
+	dw SeviiTenIslandText1 ; 1
+	dw SeviiTenIslandTextProxy ; 2
+	dw SeviiTenIslandTextProxy ; 3
+	dw SeviiTenIslandTextProxy ; 4
+	dw SeviiTenIslandTextProxy ; 5
+	dw SeviiTenIslandTextProxy ; 6
+	; scripts
+	dw SeviiTenIslandScriptText1 ; 7, Celebi cry
+	dw SeviiTenIslandScriptText2_RP ; 8, Young Oak pre-battle
+	dw SeviiTenIslandScriptText3_RP ; 9, Young Oak post-battle
+
 SeviiTenIslandText1:
 	text_asm
 	ld hl, SeviiTenIslandText1_Intro
@@ -315,4 +334,22 @@ SeviiTenIslandYoungOakDefeatedText:
 
 SeviiTenIslandYoungOakBeatYouText:
 	text_far _SeviiTenIslandYoungOakBeatYouText
+	text_end
+
+; new for RP =======================================
+
+SeviiTenIslandScriptText2_RP:
+	text_far _SeviiTenIslandScriptText2_RP
+	text_end
+
+SeviiTenIslandYoungOakDefeatedText_RP:
+	text_far _SeviiTenIslandYoungOakDefeatedText_RP
+	text_end
+
+SeviiTenIslandYoungOakBeatYouText_RP:
+	text_far _SeviiTenIslandYoungOakBeatYouText_RP
+	text_end
+
+SeviiTenIslandScriptText3_RP:
+	text_far _SeviiTenIslandScriptText3_RP
 	text_end

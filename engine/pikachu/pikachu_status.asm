@@ -157,6 +157,8 @@ asm_fce21_bis: ; renamed label
 UpdatePikachuMoodAfterBattle::
 ; because d is always $82 at this function, it serves to
 ; ensure Pikachu's mood is at least 130 after battle
+	CheckEvent EVENT_ROCKET_PATH ; new
+	ret nz ; new
 	push de
 	call IsStarterPikachuInOurParty
 	pop de

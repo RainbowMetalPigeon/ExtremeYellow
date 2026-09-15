@@ -250,3 +250,34 @@ _BrockRematchDefeatedText::
 
 	para "Well done!"
 	prompt
+
+; new for RP ===================
+
+_BrockPreBattleText_RP::
+	text "A ROCKET? Here?!"
+	line "Don't expect me to"
+	cont "hold back! I'll"
+	cont "use my strongest"
+	cont "ROCK team and be"
+	cont "the wall you won't"
+	cont "ever surpass!"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedBoulderBadgeText_RP::
+	text "How could"
+	line "you breach my"
+	cont "ultimate defense?"
+	cont "Tsk! You want"
+	cont "these, right?"
+	cont "Take them and"
+	cont "disappear!"
+;	xxxx "123456789012345678"
+	prompt
+
+_BeforeReceivedTM34Text_RP::
+	text "BROCK throws"
+	line "the BOULDERBADGE"
+	cont "to <PLAYER>!"
+;	xxxx "123456789012345678"
+	done

@@ -243,3 +243,38 @@ _ViridianForestTextStrongTrainer_AlreadyFought::
 	cont "already so strong?"
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ===============================
+
+_ViridianForestTextStrongTrainer_Intro_RP::
+	text "What's a ROCKET"
+	line "doing here?!"
+
+	para "Well, you'll serve"
+	line "to check if I'm"
+	cont "ready for the"
+	cont "LEAGUE, may you"
+	cont "agree or not!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianForestStrongTrainerPostBattleText_RP::
+	text "Argh!"
+	line "I'm not strong"
+	cont "enough yet..."
+;	xxxx "123456789012345678"
+	prompt
+
+_ViridianForestTextStrongTrainerPostBattle_RP::
+	text "Tsk! I need to"
+	line "train more!"
+	cont "I can't lose to"
+	cont "your kind!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianForestTextStrongTrainer_AlreadyFought_RP::
+	text "What else do you"
+	line "want? Leave."
+;	xxxx "123456789012345678"
+	done

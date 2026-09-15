@@ -160,3 +160,25 @@ _Route3TextJenny::
 	cont "further notice."
 ;	xxxx "123456789012345678"
 	done
+
+; new for RP ======================
+
+_Route3TextJenny_RP::
+	text "before"
+;	xxxx "123456789012345678"
+	done
+
+_Route3JennyDefeatedText::
+	text "lost"
+;	xxxx "123456789012345678"
+	prompt
+
+_Route3TextScript1::
+	text "hey"
+;	xxxx "123456789012345678"
+	done
+
+_Route3TextScript2::
+	text "gg"
+;	xxxx "123456789012345678"
+	done

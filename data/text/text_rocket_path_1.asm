@@ -1,0 +1,265 @@
+_BeforeBattleText_RocketPath_VsRocket::
+	text "Oh, the rookie I"
+	line "heard of! Do you"
+	cont "want to train?"
+	cont "Fine with me!"
+;	xxxx "123456789012345678"
+	done
+
+_BeforeBattleText_RocketPath_VsRocket_Boss::
+	text "BOSS! What an"
+	line "honour! You wish"
+	cont "to train with me?"
+
+	para "I-I hope to be"
+	line "of some use!"
+;	xxxx "123456789012345678"
+	done
+
+_BeforeBattleText_RocketPath_VsNotRocket::
+	text "Ugh! What do you"
+	line "want from me, you"
+	cont "ROCKET scum?!"
+;	xxxx "123456789012345678"
+	done
+
+_BeforeBattleTextUnderwater_RocketPath_VsNotRocket::
+	text "Glguubglbl!"
+
+	para "(Why are you"
+	line "polluting the"
+	cont "sea floor with"
+	cont "your filth?!)"
+;	xxxx "123456789012345678"
+	done
+
+; ----------------------------
+
+_EndBattleText_RocketPath_Victory_VsRocket::
+	text "It seems"
+	line "we did well in"
+	cont "recruiting you!"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Victory_VsRocket_Boss::
+	text "You're"
+	line "invincible, BOSS!"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Victory::
+	text "Tsk."
+	line "Are you satisfied"
+	cont "now, or what?"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleTextUnderwater_RocketPath_Victory::
+	text "Blgb."
+
+	para "(Tsk. Can't beat a"
+	line "ROCKET even in"
+	cont "my element...)"
+;	xxxx "123456789012345678"
+	prompt
+
+_EndBattleText_RocketPath_Defeat:: ; never used?
+	text "Ah!"
+	line "Good riddance,"
+	cont "you ROCKET scum!"
+;	xxxx "123456789012345678"
+	prompt
+
+; ----------------------------
+
+_AfterBattleText_RocketPath_VsRocket::
+	text "You're really cut"
+	line "for this job, kid!"
+;	xxxx "123456789012345678"
+	done
+
+_AfterBattleText_RocketPath_VsRocket_Boss::
+	text "BOSS, you're the"
+	line "strongest trainer"
+	cont "of KANTO!"
+
+	para "No! What am I"
+	line "saying! Of the"
+	cont "whole world!"
+;	xxxx "123456789012345678"
+	done
+
+_AfterBattleText_RocketPath_VsNotRocket::
+	text "You beat me, you"
+	line "got all my money,"
+	cont "what else do you"
+	cont "want from me?!"
+;	xxxx "123456789012345678"
+	done
+
+_AfterBattleTextUnderwater_RocketPath_VsNotRocket::
+	text "Blglg..."
+
+	para "(I hope you won't"
+	line "emerge in time.)"
+;	xxxx "123456789012345678"
+	done
+
+; =============================================================
+
+_GenericNPCText_RocketPath_1::
+	text "Argh! Leave me"
+	line "alone!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_2::
+	text "I want nothing to"
+	line "do with TEAM"
+	cont "ROCKET!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_3::
+	text "...disgusting."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_4::
+	text "You really have no"
+	line "shame, have you?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_5::
+	text "So young and"
+	line "already on the"
+	cont "path of evil..."
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_6::
+	text "What will your"
+	line "parents think"
+	cont "of your doing?"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_7::
+	text "Anything you say!"
+	line "Anything!"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCText_RocketPath_8::
+	text "Is there any trace"
+	line "of humanity left"
+	cont "in you?"
+;	xxxx "123456789012345678"
+	done
+
+; -------------
+
+_GenericNPCTextUnderwater_RocketPath_1::
+	text "Blubgb!"
+
+	para "(What the hell are"
+	line "you doing HERE?!)"
+;	xxxx "123456789012345678"
+	done
+
+_GenericNPCTextUnderwater_RocketPath_2::
+	text "Bglubg!!"
+
+	para "(Not even under-"
+	line "water we are safe"
+	cont "from TEAM ROCKET!)"
+;	xxxx "123456789012345678"
+	done
+
+; =============================================================
+
+_RocketNPCText_RocketPath_1::
+	text "Don't forget your"
+	line "place, rookie!"
+;	xxxx "123456789012345678"
+	done
+
+_RocketNPCText_RocketPath_2::
+	text "Ah! The rookie!"
+	line "How do you like"
+	cont "your ROCKET life?"
+;	xxxx "123456789012345678"
+	done
+
+; ROOKIET
+
+_RocketNPCText_RocketPath_Boss::
+	text "You... got rid of"
+	line "the BO- GIOVANNI."
+
+	para "That... makes you"
+	line "the new BOSS."
+
+	para "I-I'll follow you!"
+;	xxxx "123456789012345678"
+	done
+
+; -------------
+
+_GymGuideText_RocketPath::
+	text "Oh, like hell I'm"
+	line "helping someone"
+	cont "like YOU."
+
+	para "You're in this on"
+	line "your own. And I'm"
+	cont "sure that all GYM"
+	cont "LEADERs'll come at"
+	cont "you at full power."
+;	xxxx "123456789012345678"
+	done
+
+; -------------
+
+_BagFullText_RP::
+	text "No space to steal"
+	line "anything more!"
+;	xxxx "123456789012345678"
+	done
+
+_ProxyText::
+	text ""
+;	xxxx "123456789012345678"
+	done
+
+; =============================================================
+
+_BrockPostBattleText_RP::
+_MistyPostBattleText_RP::
+_LTSurgePostBattleText_RP::
+_ErikaPostBattleAdviceText_RP::
+_KogaPostBattleText_RP::
+_SabrinaPostBattleText_RP::
+_BlainePostBattleText_RP::
+_OragePostBattleText_RP::
+	text "Leave now."
+	line "Don't dirty my"
+	cont "GYM any one"
+	cont "more second."
+;	xxxx "123456789012345678"
+	done
+
+_TM34NoRoomText_RP::
+_TM11NoRoomText_RP::
+_TM24NoRoomText_RP::
+_TM21NoRoomText_RP::
+_TM06NoRoomText_RP::
+_TM46NoRoomText_RP::
+_TM38NoRoomText_RP::
+_GiftNoRoomText_RP::
+	text "Not enough space"
+	line "for these spoils!"
+;	xxxx "123456789012345678"
+	done

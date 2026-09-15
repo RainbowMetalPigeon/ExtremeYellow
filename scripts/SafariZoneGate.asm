@@ -1,4 +1,5 @@
 SafariZoneGate_Script:
+	RPTextChooser SafariZoneGate_TextPointers, SafariZoneGate_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SafariZoneGate_ScriptPointers
 	ld a, [wSafariZoneGateCurScript]
@@ -15,6 +16,10 @@ SafariZoneGate_ScriptPointers:
 	dw .SafariZoneEntranceScript6
 
 .SafariZoneEntranceScript0
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+; BTV
 	ld hl, .CoordsData_75221
 	call ArePlayerCoordsInArray
 	ret nc
@@ -49,7 +54,7 @@ SafariZoneGate_ScriptPointers:
 	db -1 ; end
 
 .SafariZoneEntranceScript1
-	call SafariZoneEntranceScript_752b4
+	call SafariZoneEntranceScript_DidWeFinishAutowalking
 	ret nz
 .SafariZoneEntranceScript2
 	xor a
@@ -64,7 +69,7 @@ SafariZoneGate_ScriptPointers:
 	ret
 
 .SafariZoneEntranceScript3
-	call SafariZoneEntranceScript_752b4
+	call SafariZoneEntranceScript_DidWeFinishAutowalking
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
@@ -87,7 +92,6 @@ SafariZoneGate_ScriptPointers:
 	xor a
 	ld [wNumSafariBalls], a
 	ld [wSafariSteps], a
-;	ld [wSafariSteps], a ; ????? ; edited, unnecessary
 	ld a, D_DOWN
 	ld c, $3
 	call SafariZoneEntranceAutoWalk
@@ -95,14 +99,14 @@ SafariZoneGate_ScriptPointers:
 	ld [wSafariZoneGateCurScript], a
 	jr .asm_75286
 .asm_7527f
-	ld a, $5
+	ld a, $5 ; leaving early?
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 .asm_75286
 	ret
 
 .SafariZoneEntranceScript4
-	call SafariZoneEntranceScript_752b4
+	call SafariZoneEntranceScript_DidWeFinishAutowalking
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
@@ -111,7 +115,7 @@ SafariZoneGate_ScriptPointers:
 	ret
 
 .SafariZoneEntranceScript6
-	call SafariZoneEntranceScript_752b4
+	call SafariZoneEntranceScript_DidWeFinishAutowalking
 	ret nz
 	call Delay3
 	ld a, [wcf0d]
@@ -128,36 +132,41 @@ SafariZoneEntranceAutoWalk:
 	call FillMemory
 	jp StartSimulatingJoypadStates
 
-SafariZoneEntranceScript_752b4:
+SafariZoneEntranceScript_DidWeFinishAutowalking:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret
 
 SafariZoneGate_TextPointers:
-	dw .SafariZoneEntranceText1
-	dw .SafariZoneEntranceText2
-	dw .SafariZoneEntranceText1
-	dw .SafariZoneEntranceText4
-	dw .SafariZoneEntranceText5
-	dw .SafariZoneEntranceText6
+	dw SafariZoneEntranceText1
+	dw SafariZoneEntranceText2
+	; scripts
+	dw SafariZoneEntranceText1
+	dw SafariZoneEntranceText4
+	dw SafariZoneEntranceText5
+	dw SafariZoneEntranceText6
 
-.SafariZoneEntranceText1
+SafariZoneGate_TextPointers_Rocket:
+	dw SafariZoneEntranceText1 ; TBE
+	dw SafariZoneEntranceText2 ; TBE
+
+SafariZoneEntranceText1:
 	text_far _SafariZoneEntranceText1
 	text_end
 
-.SafariZoneEntranceText4
+SafariZoneEntranceText4:
 	text_asm
 	callfar Func_f1f77
 	jp TextScriptEnd
 
-.SafariZoneEntranceText5
-	text_far SafariZoneEntranceText_9e814
+SafariZoneEntranceText5:
+	text_far SafariZoneEntranceText_LeavingEarly
 	text_asm
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .asm_7539c
-	ld hl, .SafariZoneEntranceText_753bb
+	jr nz, .notLeavingEarly
+	ld hl, SafariZoneEntranceText_PleaseReturnBalls
 	call PrintText
 	xor a
 	ld [wSpritePlayerStateData1FacingDirection], a
@@ -167,9 +176,9 @@ SafariZoneGate_TextPointers:
 	ResetEvents EVENT_SAFARI_GAME_OVER, EVENT_IN_SAFARI_ZONE
 	ld a, $0
 	ld [wcf0d], a
-	jr .asm_753b3
-.asm_7539c
-	ld hl, .SafariZoneEntranceText_753c0
+	jr .loadNextScript
+.notLeavingEarly
+	ld hl, SafariZoneEntranceText_753c0
 	call PrintText
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
@@ -178,24 +187,49 @@ SafariZoneGate_TextPointers:
 	call SafariZoneEntranceAutoWalk
 	ld a, $5
 	ld [wcf0d], a
-.asm_753b3
+.loadNextScript
 	ld a, $6
 	ld [wSafariZoneGateCurScript], a
 	jp TextScriptEnd
 
-.SafariZoneEntranceText_753bb
-	text_far _SafariZoneEntranceText_753bb
+SafariZoneEntranceText_PleaseReturnBalls:
+	text_far _SafariZoneEntranceText_PleaseReturnBalls
 	text_end
 
-.SafariZoneEntranceText_753c0
+SafariZoneEntranceText_753c0:
 	text_far _SafariZoneEntranceText_753c0
 	text_end
 
-.SafariZoneEntranceText6
+SafariZoneEntranceText6:
 	text_far _SafariZoneEntranceText_753c5
 	text_end
 
-.SafariZoneEntranceText2
+SafariZoneEntranceText2:
 	text_asm
 	callfar Func_f203e
 	jp TextScriptEnd
+
+; new for RP ====================================
+
+OpenUpSouthObsidianBridge::
+	SetEvent EVENT_RP_BRIDGE_COMPLETED
+	ld hl, NPCsToHideSafariPoachingExtra
+.hideLoop
+	ld a, [hli]
+	cp $ff ; have we run out of NPCs to hide?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	pop hl
+	jr .hideLoop
+
+NPCsToHideSafariPoachingExtra:
+	db HS_OBSIDIAN_ISLAND_ROCKET_2
+	db HS_OBSIDIAN_ISLAND_ROCKET_3
+	db HS_OBSIDIAN_ISLAND_SLAVE_1
+	db HS_OBSIDIAN_ISLAND_SLAVE_2
+	db HS_SAFARI_ZONE_NORTH_GUARD_1
+	db HS_SAFARI_ZONE_NORTH_GUARD_2
+	db HS_FUCHSIA_CITY_ROCKET_SAFARI
+	db $ff

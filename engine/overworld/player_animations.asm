@@ -594,13 +594,6 @@ FishingAnim::
 	ld hl, wd736
 	set 6, [hl] ; reserve the last 4 OAM entries
 	ld hl, vNPCSprites ; ???
-;	ld de, RedSprite
-;	ld b, BANK(RedSprite)
-;	ld c, 12
-;	call CopyVideoData
-;	ld a, $4
-;	ld hl, RedFishingTiles
-;	call LoadAnimSpriteGfx
 
 	ld a, [wPlayerGender]	; load gender
 	and a					; check if gender=male

@@ -103,20 +103,20 @@ TalkToTrainer::
 ; --- beginning new block to reactivate trainers ---
 	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS
 	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-; no rematches vs specific trainers
-	ld a, [wTrainerClass]
-	cp GIOVANNI
-	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-	cp ORAGE ; prolly unnecessary, but just to be safe
-	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-	cp LORELEI
-	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-	cp BRUNO
-	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-	cp AGATHA
-	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-	cp LANCE
-	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+; no rematches vs specific trainers -> TBE: doesn't work
+;	ld a, [wTrainerClass]
+;	cp GIOVANNI
+;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+;	cp ORAGE ; prolly unnecessary, but just to be safe
+;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+;	cp LORELEI
+;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+;	cp BRUNO
+;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+;	cp AGATHA
+;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+;	cp LANCE
+;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
 ; back to normal rematch code
 	ld hl, TextAskRematch
 	call PrintText
@@ -128,6 +128,14 @@ TalkToTrainer::
 	jr .rematchTheTrainer
 .trainerAlreadyFoughtAndNotGonnaRefight
 ; --- end new block to reactivate trainers ---
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRocketPath_AfterBattle
+	CheckAndResetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jr nz, .notRocketPath_AfterBattle
+	jpfar PrintAfterBattleText_RocketPath
+.notRocketPath_AfterBattle
+; BTV
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
 	jp PrintText
@@ -136,9 +144,19 @@ TalkToTrainer::
 	ResetEvent EVENT_REMATCHING_TRAINER
 .rematchTheTrainer
 ; --- end second new block to reactivate trainers ---
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRocketPath_BeforeBattle
+	CheckEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jr nz, .notRocketPath_BeforeBattle
+	callfar PrintBeforeBattleText_RocketPath
+	jr .postBeforeBattleText
+.notRocketPath_BeforeBattle
+; BTV
 	ld a, $4
 	call ReadTrainerHeaderInfo     ; print before battle text
 	call PrintText
+.postBeforeBattleText
 	ld a, $a
 	call ReadTrainerHeaderInfo     ; (?) does nothing apparently (maybe bug in ReadTrainerHeaderInfo)
 	push de
@@ -382,9 +400,7 @@ SaveEndBattleTextPointers::
 	ld [wEndBattleLoseTextPointer + 1], a
 	ret
 
-; loads data of some trainer on the current map and plays pre-battle music
-; [wSpriteIndex]: sprite ID of trainer who is engaged
-EngageMapTrainer::
+EngageMapTrainer_Internal_FindTrainerClass:: ; new
 	ld hl, wMapSpriteExtraData
 	ld d, $0
 	ld a, [wSpriteIndex]
@@ -394,13 +410,19 @@ EngageMapTrainer::
 	add hl, de     ; seek to engaged trainer data
 	ld a, [hli]    ; load trainer class
 	ld [wEngagedTrainerClass], a
+	ret
+
+; loads data of some trainer on the current map and plays pre-battle music
+; [wSpriteIndex]: sprite ID of trainer who is engaged
+EngageMapTrainer::
+	call EngageMapTrainer_Internal_FindTrainerClass ; new
 	ld a, [hl]     ; load trainer mon set
 	bit 7, a						; new, to go beyond 200
 	jr nz, .pokemon					; new, to go beyond 200
 	ld [wEngagedTrainerSet], a		; new, to go beyond 200
 	ld a, 1							; new, to go beyond 200
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
-	jp PlayTrainerMusic				; new, to go beyond 200
+	jpfar PlayTrainerMusic			; new, to go beyond 200
 .pokemon							; new, to go beyond 200
 	and $7F							; new, to go beyond 200
 	ld [wEngagedTrainerSet], a
@@ -408,7 +430,7 @@ EngageMapTrainer::
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	SetEvent EVENT_CHECK_SHINY_FOR_TRADING_STATIC_SMASH ; new
 	callfar RollForShiny            ; new, for the shiny
-	jp PlayTrainerMusic
+	jpfar PlayTrainerMusic
 
 PrintEndBattleText::
 ; edited, to handle surrender from a trainer
@@ -451,10 +473,40 @@ PrintEndBattleText::
 	jp WaitForSoundToFinish
 
 GetSavedEndBattleTextPointer::
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRocketPath
+	CheckAndResetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	jr nz, .notRocketPath
+; RP
 	ld a, [wBattleResult]
 	and a
+	jr nz, .lostBattleRP
 ; won battle
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+	ld hl, EndBattleTextUnderwater_RocketPath_Victory
+	ret
+.notUnderwater
+	ld a, [wCurOpponent]
+	ld hl, EndBattleText_RocketPath_Victory
+	cp OPP_ROCKET
+	ret nz
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, EndBattleText_RocketPath_Victory_VsRocket
+	ret z
+	ld hl, EndBattleText_RocketPath_Victory_VsRocket_Boss
+	ret
+.lostBattleRP
+	ld hl, EndBattleText_RocketPath_Defeat
+	ret
+.notRocketPath
+; BTV
+	ld a, [wBattleResult]
+	and a
 	jr nz, .lostBattle
+; won battle
 	ld a, [wEndBattleWinTextPointer]
 	ld h, a
 	ld a, [wEndBattleWinTextPointer + 1]
@@ -475,48 +527,22 @@ TrainerEndBattleTextNameless:: ; new
 	call TextCommandProcessor
 	jp TextScriptEnd
 
-PlayTrainerMusic::
-	ld a, [wEngagedTrainerClass]
-	cp OPP_RIVAL1
-	ret z
-	cp OPP_RIVAL2
-	ret z
-	cp OPP_RIVAL3
-	ret z
-	ld a, [wGymLeaderNo]
-	and a
-	ret nz
-	xor a
-	ld [wAudioFadeOutControl], a
-	call StopAllMusic
-	ld a, BANK(Music_MeetEvilTrainer)
-	ld [wAudioROMBank], a
-	ld [wAudioSavedROMBank], a
-	ld a, [wEngagedTrainerClass]
-	ld b, a
-	ld hl, EvilTrainerList
-.evilTrainerListLoop
-	ld a, [hli]
-	cp $ff
-	jr z, .noEvilTrainer
-	cp b
-	jr nz, .evilTrainerListLoop
-	ld a, MUSIC_MEET_EVIL_TRAINER
-	jr .PlaySound
-.noEvilTrainer
-	ld hl, FemaleTrainerList
-.femaleTrainerListLoop
-	ld a, [hli]
-	cp $ff
-	jr z, .maleTrainer
-	cp b
-	jr nz, .femaleTrainerListLoop
-	ld a, MUSIC_MEET_FEMALE_TRAINER
-	jr .PlaySound
-.maleTrainer
-	ld a, MUSIC_MEET_MALE_TRAINER
-.PlaySound
-	ld [wNewSoundID], a
-	jp PlaySound
+EndBattleText_RocketPath_Victory: ; new
+	text_far _EndBattleText_RocketPath_Victory
+	text_end
 
-INCLUDE "data/trainers/encounter_types.asm"
+EndBattleText_RocketPath_Victory_VsRocket: ; new
+	text_far _EndBattleText_RocketPath_Victory_VsRocket
+	text_end
+
+EndBattleText_RocketPath_Victory_VsRocket_Boss: ; new
+	text_far _EndBattleText_RocketPath_Victory_VsRocket_Boss
+	text_end
+
+EndBattleTextUnderwater_RocketPath_Victory: ; new
+	text_far _EndBattleTextUnderwater_RocketPath_Victory
+	text_end
+
+EndBattleText_RocketPath_Defeat: ; new
+	text_far _EndBattleText_RocketPath_Defeat
+	text_end

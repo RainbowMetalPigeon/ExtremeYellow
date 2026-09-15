@@ -1,4 +1,5 @@
 SeviiFiveIslandDock_Script:
+	RPTextChooser SeviiFiveIslandDock_TextPointers, SeviiFiveIslandDock_TextPointers_Rocket
 	ld hl, wCurrentMapScriptFlags
 	bit 5, [hl]
 	res 5, [hl]
@@ -139,7 +140,12 @@ SeviiFiveIslandDock_TextPointers:
 	dw SeviiFiveIslandDockBgText1
 	dw SeviiFiveIslandDockBgText2
 	dw SeviiFiveIslandDockBgText3
-	text_end
+
+SeviiFiveIslandDock_TextPointers_Rocket:
+	dw SeviiFiveIslandDockSpriteText1_RP
+	dw SeviiFiveIslandDockBgText1
+	dw SeviiFiveIslandDockBgText2
+	dw SeviiFiveIslandDockBgText3
 
 ; ----------------------------------------------
 
@@ -229,7 +235,6 @@ SeviiFiveIslandDockSailorText_Canceled:
 
 ; ----------------------------------------------
 
-; TBE
 SeviiFiveIslandDockBgText2:
 SeviiFiveIslandDockBgText3:
 	text_asm
@@ -262,4 +267,71 @@ SeviiFiveIslandDockBgText1:
 
 SeviiFiveIslandDockSailorText_PleaseGetOnThePier:
 	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier
+	text_end
+
+; new for RP ===================================
+
+SeviiFiveIslandDockSpriteText1_RP:
+	text_asm
+; print intro
+	ld hl, SeviiFiveIslandDockSailorText_PleaseGetOnThePier_RP
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_DOWN
+	jr nz, .printAndEnd
+; right direction
+	ld hl, SeviiFiveIslandDockSailorText_Intro_RP
+	call PrintText
+; print the list of destinations
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+	CheckEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
+	ld hl, FerryDesinationsList_FiveIsland_UpTo8
+	jr nz, .loadDestinations
+	ld hl, FerryDesinationsList_FiveIsland_UpTo5
+.loadDestinations
+	call LoadItemList
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+	jr c, .exit
+; we chose a destination
+	ld a, [wcf91]
+	ld [wUniQuizAnswer], a
+	ld hl, SeviiFiveIslandDockSailorText_LetsGo_RP
+	call PrintText
+	ld a, 1
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; we canceled with B
+.exit
+	xor a
+	ld [wListScrollOffset], a
+	ld hl, SeviiFiveIslandDockSailorText_Canceled_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFiveIslandDockSailorText_Intro_RP:
+	text_far _SeviiIslandsDockSailorText_Intro_RP
+	text_end
+
+SeviiFiveIslandDockSailorText_LetsGo_RP:
+	text_far _SeviiIslandsDockSailorText_LetsGo_RP
+	text_end
+
+SeviiFiveIslandDockSailorText_Canceled_RP:
+	text_far _SeviiIslandsDockSailorText_Canceled_RP
+	text_end
+
+SeviiFiveIslandDockSailorText_PleaseGetOnThePier_RP:
+	text_far _SeviiIslandsDockSailorText_PleaseGetOnThePier_RP
 	text_end

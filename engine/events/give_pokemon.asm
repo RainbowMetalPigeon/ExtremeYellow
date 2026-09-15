@@ -62,6 +62,13 @@ _GivePokemon::
 	ld [wEnemyBattleStatus3], a
 	ld a, [wcf91]
 	ld [wEnemyMonSpecies2], a
+; new for RP
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jr z, .notStealBall
+	ld a, [wWhichPokemonBackup]
+	ld [wWhichPokemon], a
+.notStealBall
+; BTV
 	callfar LoadEnemyMonData
 	call SetPokedexOwnedFlag
 	callfar SendNewMonToBox

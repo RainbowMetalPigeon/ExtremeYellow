@@ -385,6 +385,7 @@ RocketAdminFPic::  INCBIN "gfx/trainers/rocketadminf.pic"
 Traveler2Pic::     INCBIN "gfx/trainers/traveler2.pic"
 MissingNoTPic::    INCBIN "gfx/trainers/missingno.pic"
 
+
 SECTION "Pics 7", ROMX
 
 RedPicBack::       INCBIN "gfx/player/redb.pic"
@@ -392,6 +393,10 @@ GreenPicBack::     INCBIN "gfx/player/greenb.pic"
 YellowPicBack::    INCBIN "gfx/player/yellowb.pic"
 OldManPicBack::    INCBIN "gfx/battle/oldmanb.pic"
 ProfOakPicBack::   INCBIN "gfx/battle/prof.oakb.pic"
+; new for RP
+RedRocketPicBack::    INCBIN "gfx/player/red_rocketb.pic"
+GreenRocketPicBack::  INCBIN "gfx/player/green_rocketb.pic"
+YellowRocketPicBack:: INCBIN "gfx/player/yellow_rocketb.pic"
 
 
 SECTION "Pics 8", ROMX

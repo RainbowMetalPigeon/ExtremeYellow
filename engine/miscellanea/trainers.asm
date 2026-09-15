@@ -1,0 +1,121 @@
+; moved from home
+
+PlayTrainerMusic::
+	ld a, [wEngagedTrainerClass]
+	cp OPP_RIVAL1
+	ret z
+	cp OPP_RIVAL2
+	ret z
+	cp OPP_RIVAL3
+	ret z
+	ld a, [wGymLeaderNo]
+	and a
+	ret nz
+	xor a
+	ld [wAudioFadeOutControl], a
+	call StopAllMusic
+	ld a, BANK(Music_MeetEvilTrainer)
+	ld [wAudioROMBank], a
+	ld [wAudioSavedROMBank], a
+	ld a, [wEngagedTrainerClass]
+	ld b, a
+	ld hl, EvilTrainerList
+.evilTrainerListLoop
+	ld a, [hli]
+	cp $ff
+	jr z, .noEvilTrainer
+	cp b
+	jr nz, .evilTrainerListLoop
+	ld a, MUSIC_MEET_EVIL_TRAINER
+	jr .PlaySound
+.noEvilTrainer
+	ld hl, FemaleTrainerList
+.femaleTrainerListLoop
+	ld a, [hli]
+	cp $ff
+	jr z, .maleTrainer
+	cp b
+	jr nz, .femaleTrainerListLoop
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	jr .PlaySound
+.maleTrainer
+	ld a, MUSIC_MEET_MALE_TRAINER
+.PlaySound
+	ld [wNewSoundID], a
+	jp PlaySound
+
+INCLUDE "data/trainers/encounter_types.asm"
+
+; ----------------------------------------
+
+PrintAfterBattleText_RocketPath::
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+; underwater
+	ld hl, AfterBattleTextUnderwater_RocketPath_VsNotRocket
+	jp PrintText
+.notUnderwater
+	callfar EngageMapTrainer_Internal_FindTrainerClass
+	ld a, [wEngagedTrainerClass]
+	ld hl, AfterBattleText_RocketPath_VsNotRocket
+	cp OPP_ROCKET
+	jp nz, PrintText
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, AfterBattleText_RocketPath_VsRocket
+	jp z, PrintText
+	ld hl, AfterBattleText_RocketPath_VsRocket_Boss
+	jp PrintText
+
+AfterBattleText_RocketPath_VsRocket: ; new
+	text_far _AfterBattleText_RocketPath_VsRocket
+	text_end
+
+AfterBattleText_RocketPath_VsRocket_Boss: ; new
+	text_far _AfterBattleText_RocketPath_VsRocket_Boss
+	text_end
+
+AfterBattleText_RocketPath_VsNotRocket: ; new
+	text_far _AfterBattleText_RocketPath_VsNotRocket
+	text_end
+
+AfterBattleTextUnderwater_RocketPath_VsNotRocket: ; new
+	text_far _AfterBattleTextUnderwater_RocketPath_VsNotRocket
+	text_end
+
+; ----------------------------------------
+
+PrintBeforeBattleText_RocketPath::
+	ld a, [wCurMapTileset]
+	cp UNDERWATER
+	jr nz, .notUnderwater
+; underwater
+	ld hl, BeforeBattleTextUnderwater_RocketPath_VsNotRocket
+	jp PrintText
+.notUnderwater
+	callfar EngageMapTrainer_Internal_FindTrainerClass
+	ld a, [wEngagedTrainerClass]
+	ld hl, BeforeBattleText_RocketPath_VsNotRocket
+	cp OPP_ROCKET
+	jp nz, PrintText
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, BeforeBattleText_RocketPath_VsRocket
+	jp z, PrintText
+	ld hl, BeforeBattleText_RocketPath_VsRocket_Boss
+	jp PrintText
+
+BeforeBattleText_RocketPath_VsRocket: ; new
+	text_far _BeforeBattleText_RocketPath_VsRocket
+	text_end
+
+BeforeBattleText_RocketPath_VsRocket_Boss: ; new
+	text_far _BeforeBattleText_RocketPath_VsRocket_Boss
+	text_end
+
+BeforeBattleText_RocketPath_VsNotRocket: ; new
+	text_far _BeforeBattleText_RocketPath_VsNotRocket
+	text_end
+
+BeforeBattleTextUnderwater_RocketPath_VsNotRocket: ; new
+	text_far _BeforeBattleTextUnderwater_RocketPath_VsNotRocket
+	text_end

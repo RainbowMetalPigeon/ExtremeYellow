@@ -2,9 +2,5 @@ MtMoonB1F_Script:
 	call EnableAutoTextBoxDrawing
 	ret
 
-MtMoonB1F_TextPointers:
-	dw MtMoonText1
-
-MtMoonText1:
-	text_far _MtMoonText1
+MtMoonB1F_TextPointers: ; edited
 	text_end

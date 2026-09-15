@@ -1,4 +1,5 @@
 Route21Dive_Script:
+	RPTextChooser Route21Dive_TextPointers, Route21Dive_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route21DiveTrainerHeaders
 	ld de, Route21Dive_ScriptPointers
@@ -22,6 +23,17 @@ Route21Dive_TextPointers:
 	dw Route21DiveText7 ; 6x MAGIKARP
 	dw Route21DiveText8 ; Cooltrainer
 	dw Route21DiveText9 ; non-trainer
+
+Route21Dive_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ; non-trainer
+	dw Route21DiveText2
+	dw Route21DiveText3
+	dw Route21DiveText4
+	dw Route21DiveText5
+	dw Route21DiveText6
+	dw Route21DiveText7
+	dw Route21DiveText8
+	dw GenericNPCText_RocketPath ; non-trainer
 
 Route21DiveTrainerHeaders:
 	def_trainers 2

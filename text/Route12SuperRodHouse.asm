@@ -60,3 +60,16 @@ _Route12HouseText_564d9::
 	line "you, but you have"
 	cont "no room for it!"
 	done
+
+; new for RP ====================
+
+_Route12HouseText1_RP::
+	text "What? Don't make"
+	line "me laugh!"
+
+	para "There's no way I'm"
+	line "giving a precious"
+	cont "ROD of mine to"
+	cont "a ROCKET scum!"
+;	xxxx "123456789012345678"
+	done

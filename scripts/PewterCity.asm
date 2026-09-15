@@ -1,4 +1,5 @@
 PewterCity_Script:
+	RPTextChooser PewterCity_TextPointers, PewterCity_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 	ld hl, wd492
@@ -12,7 +13,9 @@ PewterCity_ScriptPointers:
 	dw PewterCityScript0
 	dw PewterScript_Traveler ; new, for traveler
 
-PewterCityScript0:
+PewterCityScript0: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	xor a
 	ld [wMuseum1FCurScript], a
 	ResetEvent EVENT_BOUGHT_MUSEUM_TICKET
@@ -37,6 +40,26 @@ PewterCity_TextPointers:
 	dw PewterCityText12
 	; scripts
 	dw TextPostBattle_PewterTraveler ; 16, new, for traveler
+
+PewterCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw TextPreBattle_PewterTraveler_RP
+	dw PewterCityCoinCaseMeowthText ; Meowth, unused
+	; signs
+	dw PewterCityText6
+	dw PewterCityText7
+	dw MartSignText
+	dw PokeCenterSignText
+	dw PewterCityText10
+	dw PewterCityText11
+	dw PewterCityText12 ; 15
+	; scripts
+	dw TextPostBattle_PewterTraveler_RP ; 16, for traveler
 
 PewterCityText1:
 	text_far _PewterCityText1
@@ -187,35 +210,8 @@ PewterCityText12:
 
 TextPreBattle_PewterTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_PewterTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_PewterTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_PewterTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_PewterTraveler
-	ld de, Text_VictoryPostBattle_PewterTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 1 ; city-specific
 	ld [wCurMapScript], a
@@ -223,26 +219,8 @@ TextPreBattle_PewterTraveler: ; new
 
 TextPostBattle_PewterTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_PewterTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_PewterTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -270,43 +248,10 @@ PewterScript_Traveler:
 	call GBFadeOutToBlack
     callfar LoopHideTraveler
     callfar LoopHideTravelerExtra
-	ld a, HS_CERULEAN_CAVE_B1F_TRAVELER
-    ld [wMissableObjectIndex], a
-    predef ShowObjectExtra
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
 	ret
-
-; --------------------------------
-
-Text_Intro_PewterTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_PewterTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_PewterTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_PewterTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_PewterTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_PewterTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_PewterTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
 
 ; ================================
 
@@ -317,7 +262,7 @@ PewterCityCoinCaseMeowthText:
 	call PlayCry
 	call WaitForSoundToFinish
 	call WaitForTextScrollButtonPress
-	
+
 	call GBFadeOutToBlack
 
 	ld a, HS_PEWTER_CITY_COIN_CASE_MEOWTH
@@ -340,3 +285,21 @@ PewterCityCoinCaseMeowthText:
 PewterCityCoinCaseMeowthText_HintNext:
 	text_far _PewterCityCoinCaseMeowthText_HintNext
 	text_end
+
+; new for RP ============================
+
+TextPreBattle_PewterTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 1 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_PewterTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd

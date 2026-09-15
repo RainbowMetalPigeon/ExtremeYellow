@@ -1,6 +1,8 @@
 Route16Gate1F_Script:
+	RPTextChooser Route16Gate1F_TextPointers, Route16Gate1F_TextPointers_Rocket
 	ld hl, wd732
 	res 5, [hl]
+	ResetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD ; new for RP
 	call EnableAutoTextBoxDrawing
 	ld a, [wCurMapScript] ; edited
 	ld hl, Route16Gate1F_ScriptPointers
@@ -13,7 +15,9 @@ Route16Gate1F_ScriptPointers:
 	dw Route16GateScript3
 
 Route16GateScript0:
-	call Route16GateScript_49755
+	CheckEvent EVENT_ROCKET_PATH ; new for RP
+	ret nz ; new for RP
+	call Route16GateScript_CheckIfHaveBike
 	ret nz
 	ld hl, CoordsData_49714
 	call ArePlayerCoordsInArray
@@ -82,7 +86,7 @@ Route16GateScript3:
 	ld [wCurMapScript], a ; edited
 	ret
 
-Route16GateScript_49755:
+Route16GateScript_CheckIfHaveBike:
 	ld b, BICYCLE
 	jp IsItemInBag
 
@@ -92,14 +96,25 @@ Route16Gate1F_TextPointers:
 	; 2F
 	dw Route16GateUpstairsText1
 	dw Route16GateUpstairsText2
+	; signs
 	dw Route16GateUpstairsText3
 	dw Route16GateUpstairsText4
 	; scripts texts
 	dw Route16GateText3
 
+Route16Gate1F_TextPointers_Rocket:
+	dw Route16GateText1_RP
+	dw GenericNPCText_RocketPath
+	; 2F
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; signs
+	dw Route16GateUpstairsText3
+	dw Route16GateUpstairsText4
+
 Route16GateText1:
 	text_asm
-	call Route16GateScript_49755
+	call Route16GateScript_CheckIfHaveBike
 	jr z, .asm_0bdf3
 	ld hl, Route16GateText_4977c
 	call PrintText
@@ -164,4 +179,10 @@ Route16GateUpstairsText4:
 
 Route16GateUpstairsText_49847:
 	text_far _Route16GateUpstairsText_49847
+	text_end
+
+; new for RP =========================
+
+Route16GateText1_RP:
+	text_far _Route18And16GateText1_RP
 	text_end

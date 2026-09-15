@@ -42,3 +42,13 @@ _FuchsiaHouse3Text_5621c::
 	para "You have no room"
 	line "for my gift!"
 	done
+
+; new for RP ====================
+
+_FuchsiaHouse3Text1_RP::
+	text "Tsk! Sure! As if a"
+	line "filthy ROCKET as"
+	cont "you was worthy of"
+	cont "my valuable ROD!"
+;	xxxx "123456789012345678"
+	done

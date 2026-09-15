@@ -1,4 +1,5 @@
 SeviiEightIslandCity_Script:
+	RPTextChooser SeviiEightIslandCity_TextPointers, SeviiEightIslandCity_TextPointers_Rocket
 	call HideOrShowEightIslandCaveEntrance
 	call EnableAutoTextBoxDrawing
 	ld de, SeviiEightIslandCity_ScriptPointers
@@ -89,6 +90,9 @@ SeviiEightIslandCity_TextPointers:
 	dw SeviiEightIslandCityText1
 	; scripts
 	dw SeviiEightIslandCityText1_SomethingOpened
+
+SeviiEightIslandCity_TextPointers_Rocket:
+	dw SeviiEightIslandCityText1 ; TBE
 
 SeviiEightIslandCityText1:
 	text_asm

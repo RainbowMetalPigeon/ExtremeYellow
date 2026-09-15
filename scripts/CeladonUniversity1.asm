@@ -1,4 +1,5 @@
 CeladonUniversity1_Script:
+	RPTextChooser CeladonUniversity1_TextPointers, CeladonUniversity1_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -18,6 +19,30 @@ CeladonUniversity1_TextPointers:
 	dw CeladonUniversity1TextPool1 ; Swimmer
 	dw CeladonUniversity1TextPool2 ; Swimmer
 	dw CeladonUniversity1TextPool3 ; Bench
+	; signs
+	dw CeladonUniversity1Door1
+	dw CeladonUniversity1Door2
+	dw CeladonUniversity1Door3
+	dw CeladonUniversity1Door4
+	dw CeladonUniversity1Constitution1
+	dw CeladonUniversity1Constitution2
+
+CeladonUniversity1_TextPointers_Rocket:
+	; people
+	; hall
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; pool
+	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw GenericNPCText_RocketPath ; Swimmer
+	dw GenericNPCText_RocketPath ; Swimmer
+	dw GenericNPCText_RocketPath ; Bench
 	; signs
 	dw CeladonUniversity1Door1
 	dw CeladonUniversity1Door2

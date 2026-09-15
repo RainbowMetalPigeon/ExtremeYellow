@@ -25,7 +25,7 @@ ENDM
 	map_const CELADON_CITY,                  25, 28 ; $06 ; edited
 	map_const OCHRE_CITY,                    23, 23 ; $07 ; new
 	map_const FUCHSIA_CITY,                  20, 18 ; $08
-	map_const OBSIDIAN_ISLAND,               20, 20 ; $09 ; new
+	map_const OBSIDIAN_ISLAND,               20, 26 ; $09 ; new
 	map_const CINNABAR_ISLAND,               25, 15 ; $0A ; edited
 	map_const INDIGO_PLATEAU,                12, 11 ; $0B
 	map_const SAFFRON_CITY,                  20, 18 ; $0C

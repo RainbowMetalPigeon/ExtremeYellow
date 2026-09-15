@@ -1,4 +1,5 @@
 SeafoamIslandsB4F_Script:
+	RPTextChooser SeafoamIslandsB4F_TextPointers, SeafoamIslandsB4F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld a, [wSeafoamIslandsB4FCurScript]
 	ld hl, SeafoamIslandsB4F_ScriptPointers
@@ -137,9 +138,20 @@ SeafoamIslandsB4F_TextPointers:
 	dw BoulderText
 	dw BoulderText
 	dw ArticunoText
+	; signs
 	dw SeafoamIslands5Text4
 	dw SeafoamIslands5Text5
+	; scripts
 	dw SeafoamIslandB4FTextLoreleiPostBattle ; 7, new, map-dependent
+
+SeafoamIslandsB4F_TextPointers_Rocket:
+	dw SeafoamIslandB4FTextLorelei ; no inverse rematches
+	dw BoulderText
+	dw BoulderText
+	dw ArticunoText
+	; signs
+	dw SeafoamIslands5Text4
+	dw SeafoamIslands5Text5
 
 ; Articuno is object 3, but its event flag is bit 2.
 ; This is not a problem because its sight range is 0, and
@@ -151,6 +163,7 @@ ArticunoTrainerHeader:
 
 ArticunoText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, ArticunoTrainerHeader
 	call TalkToTrainer
 	ld a, $4

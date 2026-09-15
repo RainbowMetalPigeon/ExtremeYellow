@@ -114,27 +114,28 @@ SpriteSheetPointerTable:
 	overworld_sprite OrageSprite, 12            ; SPRITE_ORAGE ; new
 	overworld_sprite DiverSprite, 12            ; SPRITE_DIVER ; new
 	overworld_sprite TaurosSprite, 12           ; SPRITE_TAUROS ; new
-
-; TBE
-	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON ; new - done
-	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL ; new - done
-	overworld_sprite ArianaSprite, 12           ; SPRITE_ARIANA ; new - done
-	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER ; new - done
-	overworld_sprite CarrSprite, 12             ; SPRITE_CARR ; new - done
-	overworld_sprite OrmSprite, 12              ; SPRITE_ORM ; new - done
-	overworld_sprite SirdSprite, 12             ; SPRITE_SIRD ; new - done
-	overworld_sprite IchinoSprite, 12           ; SPRITE_ICHINO ; new
-	overworld_sprite NiueSprite, 12             ; SPRITE_NIUE ; new
-	overworld_sprite SantreSprite, 12           ; SPRITE_SANTRE ; new
-	overworld_sprite YottroSprite, 12           ; SPRITE_YOTTRO ; new
-	overworld_sprite GonqueSprite, 12           ; SPRITE_GONQUE ; new
-	overworld_sprite RokuseiSprite, 12          ; SPRITE_ROKUSEI ; new
-	overworld_sprite NanetteSprite, 12          ; SPRITE_NANETTE ; new
-	overworld_sprite SuujeroSprite, 12          ; SPRITE_SUUJERO ; new
-	overworld_sprite PinkSprite, 12             ; SPRITE_PINK ; new - done
+	overworld_sprite ProtonSprite, 12           ; SPRITE_PROTON ; new
+	overworld_sprite PetrelSprite, 12           ; SPRITE_PETREL ; new
+	overworld_sprite ArianaSprite, 12           ; SPRITE_ARIANA ; new
+	overworld_sprite ArcherSprite, 12           ; SPRITE_ARCHER ; new
+	overworld_sprite CarrSprite, 12             ; SPRITE_CARR ; new
+	overworld_sprite OrmSprite, 12              ; SPRITE_ORM ; new
+	overworld_sprite SirdSprite, 12             ; SPRITE_SIRD ; new
+	overworld_sprite IchinoSprite, 12           ; SPRITE_ICHINO ; new - TBE
+	overworld_sprite NiueSprite, 12             ; SPRITE_NIUE ; new - TBE
+	overworld_sprite SantreSprite, 12           ; SPRITE_SANTRE ; new - TBE
+	overworld_sprite YottroSprite, 12           ; SPRITE_YOTTRO ; new - TBE
+	overworld_sprite GonqueSprite, 12           ; SPRITE_GONQUE ; new - TBE
+	overworld_sprite RokuseiSprite, 12          ; SPRITE_ROKUSEI ; new - TBE
+	overworld_sprite NanetteSprite, 12          ; SPRITE_NANETTE ; new - TBE
+	overworld_sprite SuujeroSprite, 12          ; SPRITE_SUUJERO ; new - TBE
+	overworld_sprite PinkSprite, 12             ; SPRITE_PINK ; new
 	overworld_sprite YoungOakSprite, 12         ; SPRITE_YOUNG_OAK ; new
-	overworld_sprite ChrisSprite, 12            ; SPRITE_CHRIS ; new - done
-	overworld_sprite KrisSprite, 12             ; SPRITE_KRIS ; new - done
+	overworld_sprite ChrisSprite, 12            ; SPRITE_CHRIS ; new
+	overworld_sprite KrisSprite, 12             ; SPRITE_KRIS ; new
+	overworld_sprite RedRocketSprite, 12        ; SPRITE_RED_ROCKET ; new
+	overworld_sprite GreenRocketSprite, 12      ; SPRITE_GREEN_ROCKET ; new
+	overworld_sprite YellowRocketSprite, 12     ; SPRITE_YELLOW_ROCKET ; new
 
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL

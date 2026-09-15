@@ -1,4 +1,5 @@
 PewterHouses_Script:
+	RPTextChooser PewterHouses_TextPointers, PewterHouses_TextPointers_Rocket
 	jp EnableAutoTextBoxDrawing
 
 PewterHouses_TextPointers:
@@ -11,6 +12,17 @@ PewterHouses_TextPointers:
 	dw PewterHouse1Text1
 	dw PewterHouse1Text2
 	dw PewterHouse1Text3
+
+PewterHouses_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; new
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; Nidoran house
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 
 PewterHouse2Text1:
 	text_far _PewterHouse2Text1
@@ -25,7 +37,7 @@ PewterHouse2Text2:
 PewterHouse2Text3:
 	text_far _PewterHouse2Text3
 	text_end
-	
+
 PewterHouse2Text4:
 	text_far _PewterHouse2Text4
 	text_end

@@ -29,3 +29,35 @@ _IndigoPlateauLobbyText3:: ; edited
 ;	xxxx "123456789012345678"
 	para "Good luck!"
 	done
+
+; new for RP ==============================
+
+_IndigoPlateauLobbyText8_RP_Before::
+	text "The ELITE FOUR"
+	line "is currently"
+	cont "unavailable."
+
+	para "It is unknown when"
+	line "they'll be back."
+
+	para "And even if knew,"
+	line "I surely wouldn't"
+	cont "tell a ROCKET."
+;	xxxx "123456789012345678"
+	done
+
+_IndigoPlateauLobbyText8_RP_After::
+	text "..."
+
+	para "The ELITE FOUR"
+	line "is unavailable."
+
+	para "...probably"
+	line "forever."
+
+	para "..."
+
+	para "...because of you,"
+	line "you MONSTER."
+;	xxxx "123456789012345678"
+	done

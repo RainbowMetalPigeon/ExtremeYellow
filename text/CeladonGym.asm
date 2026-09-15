@@ -315,3 +315,38 @@ _ErikaRematchDefeatedText::
 	para "You are superbly"
 	line "powerful."
 	prompt
+
+; new for RP ==================
+
+_ErikaPreBattleText_RP::
+	text "...a ROCKET."
+	line "The worst way to"
+	cont "wake up."
+	cont "But stay assured,"
+	cont "I'll use all of my"
+	cont "ability to put"
+	cont "YOU to sleep"
+	cont "forever with my"
+	cont "GRASS #MON."
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedRainbowBadgeText_RP::
+	text "The balance"
+	line "of my flower"
+	cont "composition."
+	cont "The peace of my"
+	cont "garden. All that"
+	cont "you touch rots."
+	cont "Take these, and"
+	cont "wither in your"
+	cont "loneliness."
+;	xxxx "123456789012345678"
+	prompt
+
+_ErikaRainbowBadgeInfoText_RP::
+	text "ERIKA throws"
+	line "the RAINBOWBADGE"
+	cont "to <PLAYER>!"
+;	xxxx "123456789012345678"
+	done

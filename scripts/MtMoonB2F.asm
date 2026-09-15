@@ -1,4 +1,5 @@
 MtMoonB2F_Script:
+	RPTextChooser MtMoonB2F_TextPointers, MtMoonB2F_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, MtMoon3TrainerHeaders
 	ld de, MtMoonB2F_ScriptPointers
@@ -416,20 +417,33 @@ MtMoon3Script_49f93:
 	ret
 
 MtMoonB2F_TextPointers:
-	dw MtMoon3Text1
-	dw MtMoon3Text2
-	dw MtMoon3Text3
-	dw MtMoon3Text4
-	dw MtMoon3Text5
-	dw MtMoon3Text6
-	dw MtMoon3Text7
-	dw MtMoon3Text8
+	dw MtMoon3Text1 ; Super Nerd
+	dw MtMoon3Text2 ; Jessie
+	dw MtMoon3Text3 ; Rocket
+	dw MtMoon3Text4 ; Rocket
+	dw MtMoon3Text5 ; Rocket
+	dw MtMoon3Text6 ; James
+	dw MtMoon3Text7 ; fossil
+	dw MtMoon3Text8 ; fossil
 	dw PickUpItemText
 	dw PickUpItemText
+	; scripts
 	dw MtMoon3Text11
 	dw MtMoon3Text12
 	dw MtMoon3Text13
 	dw MtMoon3Text14
+
+MtMoonB2F_TextPointers_Rocket:
+	dw MtMoon3Text1_RP ; Super Nerd
+	dw MtMoon3Text2 ; Jessie, gone, unused
+	dw MtMoon3Text3 ; Rocket
+	dw MtMoon3Text4 ; Rocket
+	dw MtMoon3Text5 ; Rocket
+	dw MtMoon3Text6 ; James, gone, unused
+	dw MtMoon3Text7 ; fossil, gone, unused
+	dw MtMoon3Text8 ; fossil, gone, unused
+	dw PickUpItemText
+	dw PickUpItemText
 
 MtMoon3TrainerHeaders:
 	def_trainers 3
@@ -657,4 +671,49 @@ MtMoon3EndBattleText5:
 
 MtMoon3AfterBattleText5:
 	text_far _MtMoon3AfterBattleText5
+	text_end
+
+; new for RP ====================
+
+MtMoon3Text1_RP:
+	text_asm
+	CheckEvent EVENT_RP_RETRIEVED_OTHER_FOSSIL
+	ld hl, MtMoon3Text1_RP_PostFossil
+	jr nz, .printAndEnd
+	ld hl, MtMoon3Text1_RP_Intro
+	call PrintText
+; choose right fossil to retrieve
+	CheckEvent EVENT_GOT_HELIX_FOSSIL
+	ld b, DOME_FOSSIL
+	jr nz, .fossilSelected
+	ld b, HELIX_FOSSIL
+.fossilSelected
+	ld c, 1
+	call GiveItem
+	jr nc, .bagFull
+; actually get the fossil
+	SetEvent EVENT_RP_RETRIEVED_OTHER_FOSSIL
+	ld hl, MtMoon3Text1_RP_ReceivedItem
+	jr .printAndEnd
+.bagFull
+	ld hl, MtMoon3Text1_RP_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+MtMoon3Text1_RP_Intro:
+	text_far _MtMoon3Text1_RP_Intro
+	text_end
+
+MtMoon3Text1_RP_PostFossil:
+	text_far _MtMoon3Text1_RP_PostFossil
+	text_end
+
+MtMoon3Text1_RP_BagFull:
+	text_far _BagFullText_RP
+	text_end
+
+MtMoon3Text1_RP_ReceivedItem:
+	text_far _MtMoon3Text_49f6f
+	sound_get_key_item
 	text_end

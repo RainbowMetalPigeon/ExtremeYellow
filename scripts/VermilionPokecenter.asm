@@ -1,4 +1,5 @@
 VermilionPokecenter_Script:
+	RPTextChooser VermilionPokecenter_TextPointers, VermilionPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ VermilionPokecenter_TextPointers:
 	dw VermilionMartText2
 	dw VermilionMartText3
 	dw VermilionCashierTextTM ; new, TM seller
+
+VermilionPokecenter_TextPointers_Rocket:
+	dw VermilionHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw VermilionTradeNurseText
+	dw VermilionPokecenterText5
+	; new, from Mart
+	dw VermilionCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw VermilionCashierTextTM
 
 VermilionHealNurseText:
 	script_pokecenter_nurse

@@ -1,12 +1,17 @@
 ViridianMart_Script:
-	call ViridianMartScript_1d47d
+	call ViridianMartCheckParcelDeliveredScript
 	call EnableAutoTextBoxDrawing
 	ld hl, ViridianMart_ScriptPointers
 	ld a, [wViridianMartCurScript]
 	call CallFunctionInTable
 	ret
 
-ViridianMartScript_1d47d:
+ViridianMartCheckParcelDeliveredScript:
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ld hl, ViridianMart_TextPointers_Rocket
+	jr nz, .done
+; BTV
 	CheckEvent EVENT_OAK_GOT_PARCEL
 	jr nz, .delivered_parcel
 	ld hl, ViridianMart_TextPointers
@@ -86,6 +91,12 @@ ViridianMart_TextPointers2:
 	dw ViridianMartText2
 	dw ViridianMartText3
 	dw ViridianCashierTextTM ; new, TM seller
+
+ViridianMart_TextPointers_Rocket: ; new for RP
+	dw ViridianCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw ViridianCashierTextTM
 
 ViridianMartText1:
 	text_far _ViridianMartText1

@@ -47,7 +47,13 @@ DisplayPokemartDialogue_::
 	ld a, [wNumBagItems]
 	and a
 	jp z, .bagEmpty
+; new/edited for RP
 	ld hl, PokemonSellingGreetingText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printSellText
+	ld hl, PokemonSellingGreetingText_RocketPath
+.printSellText
+; BTV
 	call PrintText
 	call SaveScreenTilesToBuffer1 ; save screen
 .sellMenuLoop
@@ -81,7 +87,13 @@ DisplayPokemartDialogue_::
 	call DisplayChooseQuantityMenu
 	inc a
 	jr z, .sellMenuLoop ; if the player closed the choose quantity menu with the B button
+; new/edited for RP
 	ld hl, PokemartTellSellPriceText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printSellMessage
+	ld hl, PokemartTellSellPriceText_RocketPath
+.printSellMessage
+; BTV
 	lb bc, 14, 1 ; location that PrintText always prints to, this is useless
 	call PrintText
 	hlcoord 14, 7
@@ -128,7 +140,13 @@ DisplayPokemartDialogue_::
 	ld [wInitListType], a
 	callfar InitList
 
+; new/edited for RP
 	ld hl, PokemartBuyingGreetingText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printMidText
+	ld hl, PokemartBuyingGreetingText_RocketPath
+.printMidText
+; BTV
 	call PrintText
 	call SaveScreenTilesToBuffer1
 .buyMenuLoop
@@ -160,7 +178,13 @@ DisplayPokemartDialogue_::
 	ld [wd11e], a ; store item ID for GetItemName
 	call GetItemName
 	call CopyToStringBuffer
+; new/edited for RP
 	ld hl, PokemartTellBuyPriceText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printPrice
+	ld hl, PokemartTellBuyPriceText_RocketPath
+.printPrice
+; BTV
 	call PrintText
 	hlcoord 14, 7
 	lb bc, 8, 15
@@ -193,7 +217,13 @@ DisplayPokemartDialogue_::
 	ld a, SFX_PURCHASE
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
+; new/edited for RP
 	ld hl, PokemartBoughtItemText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printThanks
+	ld hl, PokemartBoughtItemText_RocketPath
+.printThanks
+; BTV
 	call PrintText
 	jp .buyMenuLoop
 .returnToMainPokemartMenu
@@ -201,7 +231,13 @@ DisplayPokemartDialogue_::
 	ld a, MONEY_BOX
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
+; new/edited for RP
 	ld hl, PokemartAnythingElseText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printSecondLastText
+	ld hl, PokemartAnythingElseText_RocketPath
+.printSecondLastText
+; BTV
 	call PrintText
 	jp .loop
 .isThereEnoughMoney
@@ -218,7 +254,13 @@ DisplayPokemartDialogue_::
 	call PrintText
 	jr .returnToMainPokemartMenu
 .done
+; new/edited for RP
 	ld hl, PokemartThankYouText
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .printEndText
+	ld hl, PokemartThankYouText_RocketPath
+.printEndText
+; BTV
 	call PrintText
 	ld a, 1
 	ld [wUpdateSpritesEnabled], a
@@ -231,12 +273,24 @@ PokemartBuyingGreetingText:
 	text_far _PokemartBuyingGreetingText
 	text_end
 
+PokemartBuyingGreetingText_RocketPath: ; new
+	text_far _PokemartBuyingGreetingText_RocketPath
+	text_end
+
 PokemartTellBuyPriceText:
 	text_far _PokemartTellBuyPriceText
 	text_end
 
+PokemartTellBuyPriceText_RocketPath: ; new
+	text_far _PokemartTellBuyPriceText_RocketPath
+	text_end
+
 PokemartBoughtItemText:
 	text_far _PokemartBoughtItemText
+	text_end
+
+PokemartBoughtItemText_RocketPath: ; new
+	text_far _PokemartBoughtItemText_RocketPath
 	text_end
 
 PokemartNotEnoughMoneyText:
@@ -251,8 +305,16 @@ PokemonSellingGreetingText:
 	text_far _PokemonSellingGreetingText
 	text_end
 
+PokemonSellingGreetingText_RocketPath: ; new
+	text_far _PokemonSellingGreetingText_RocketPath
+	text_end
+
 PokemartTellSellPriceText:
 	text_far _PokemartTellSellPriceText
+	text_end
+
+PokemartTellSellPriceText_RocketPath: ; new
+	text_far _PokemartTellSellPriceText_RocketPath
 	text_end
 
 PokemartItemBagEmptyText:
@@ -267,6 +329,14 @@ PokemartThankYouText:
 	text_far _PokemartThankYouText
 	text_end
 
+PokemartThankYouText_RocketPath: ; new
+	text_far _PokemartThankYouText_RocketPath
+	text_end
+
 PokemartAnythingElseText:
 	text_far _PokemartAnythingElseText
+	text_end
+
+PokemartAnythingElseText_RocketPath: ; new for RP
+	text_far _PokemartAnythingElseText_RocketPath
 	text_end

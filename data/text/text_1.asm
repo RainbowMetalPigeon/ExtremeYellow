@@ -161,14 +161,16 @@ _NurseChanseyText::
 	line "sey!"
 	done
 
-_GymLeaderPostRematchText:: ; new
+; new =======================================
+
+_GymLeaderPostRematchText::
 	text "Now that you're"
 	line "CHAMPION, we can"
 	cont "battle again any"
 	cont "time you want!"
 	done
 
-_RockSmashedText:: ; new for Rock Smash
+_RockSmashedText::
 	text "<PLAYER>'s #MON"
 	line "smashes the rock!"
 	done
@@ -182,4 +184,3 @@ _APokemonCouldSmashThisText::
 	text "A #MON could"
 	line "SMASH this rock!"
 	done
-	

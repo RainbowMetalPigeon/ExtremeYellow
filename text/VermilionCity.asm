@@ -66,6 +66,14 @@ _SSAnneWelcomeText4::
 	line "ANNE!"
 	done
 
+_SSAnneRocketPathText:: ; new
+	text "...just go."
+	line "You know we've"
+	cont "been told to let"
+	cont "you pass."
+;	xxxx "123456789012345678"
+	done
+
 _SSAnneWelcomeText9::
 	text "Welcome to S.S."
 	line "ANNE!"
@@ -300,14 +308,13 @@ _SeviiWhichDestinationText::
 	line "destination today?"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SeviiOnlyOneIslandText::
 	text "Oh, you have a"
 	line "SEVII TICKET!"
 
 	para "You're most"
 	line "welcome on board."
-;	xxxx "123456789012345678"
 
 	para "Unfortunately, the"
 	line "ferry is low on"
@@ -319,18 +326,18 @@ _SeviiOnlyOneIslandText::
 	line "depart now?"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _VermilionSailorLetsGoText::
 	text "Let's set sail!"
 ;	xxxx "123456789012345678"
 	done
-	
+
 _VermilionSailorCanceledText::
 	text "Come back when-"
 	line "ever you're ready."
 ;	xxxx "123456789012345678"
 	done
-	
+
 _SSAnneWelcomeEnjoyFreelyText::
 	text "Feel free to enjoy"
 	line "the atmosphere of"
@@ -343,8 +350,116 @@ _SSAnneWelcomeEnjoyFreelyText::
 _VermilionSailorRegisterSeviiTravelerText::
 	text "Great! Let me"
 	line "take your TICKET"
-	line "and register you"
+	cont "and register you"
 	cont "as an allowed"
 	cont "traveler."
 ;	xxxx "123456789012345678"
 	prompt
+
+; RP -----
+
+_VermilionCityText_RP_Script1::
+	text "JENNY: A ROCKET?"
+	line "Not a step more!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText_RP_Script2::
+	text "JENNY: We've been"
+	line "suspecting you"
+	cont "folks for traf-"
+	cont "ficking for a"
+	cont "while now."
+	
+	para "I'll beat you and"
+	line "bring you to HQ"
+	cont "for interrogation!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText_AfterFightJenny::
+	text "I"
+	line "shamed the whole"
+	cont "KANTO police."
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionCityText_RP_Script3::
+	text "JENNY: I'm so"
+	line "pathetic. Losing"
+	cont "to a criminal!"
+	cont "My colleagues'll"
+	cont "do what I didn't!"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText7_RP_PoorSquirtle::
+	text "JENNY: That poor"
+	line "SQUIRTLE... What"
+	cont "did I do?!"
+
+	para "I'm so shameful..."
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText7_RP_OhNoSquirtle::
+	text "JENNY: What do you"
+	line "want from me yet?"
+	
+	para "?! No! Wait! Stop!"
+	line "STOP! Leave it"
+	cont "alone, monster!"
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionCityText7_RP_DamnYou::
+	text "JENNY: May your"
+	line "evil and my weak-"
+	cont "ness be damned!"
+;	xxxx "123456789012345678"
+	prompt
+
+_VermilionCityText4_RP::
+	text "There's nothing"
+	line "here for the"
+	cont "likes of you."
+;	xxxx "123456789012345678"
+	done
+
+_SeviiOnlyOneIslandText_RP::
+	text "Oh. You have a"
+	line "SEVII TICKET."
+
+	para "The ferry's low on"
+	line "fuel, so right"
+	cont "now we can only"
+	cont "reach ONE ISLAND."
+
+	para "Still want to go?"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionSailorLetsGoText_RP::
+	text "Let's go then."
+;	xxxx "123456789012345678"
+	done
+
+_VermilionSailorRegisterSeviiTravelerText_RP::
+	text "I'll take your"
+	line "TICKET and regis-"
+	cont "ter you as an al-"
+	cont "lowed traveler."
+;	xxxx "123456789012345678"
+	prompt
+
+_SeviiWhichDestinationText_RP::
+	text "Where?"
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText15_RP::
+	text_start
+	para "MACHOKE clearly"
+	line "dislikes you."
+;	xxxx "123456789012345678"
+	done

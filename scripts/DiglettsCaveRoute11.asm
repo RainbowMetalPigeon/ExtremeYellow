@@ -1,4 +1,5 @@
 DiglettsCaveRoute11_Script:
+	RPTextChooser DiglettsCaveRoute11_TextPointers, DiglettsCaveRoute11_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld a, ROUTE_11
 	ld [wLastMap], a
@@ -9,6 +10,9 @@ DiglettsCaveRoute11_Script:
 
 DiglettsCaveRoute11_TextPointers:
 	dw DiglettsCaveEntranceRoute11Text1
+
+DiglettsCaveRoute11_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 
 DiglettsCaveEntranceRoute11Text1: ; edited
 	text_asm

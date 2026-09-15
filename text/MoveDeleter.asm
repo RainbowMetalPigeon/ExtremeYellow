@@ -53,3 +53,60 @@ _MoveDeleterOneMoveText::
 	line "has one move."
 	cont "Pick another?"
 	done
+
+; new for RP ===============================
+
+_MoveDeleterGreetingText_RP::
+	text "I don't remember"
+	line "having ever said"
+	cont "I help criminals."
+
+	para "Yet, at my age,"
+	line "I know better"
+	cont "than opposing a"
+	cont "violent stronger"
+	cont "than me."
+
+	para "So: want to have"
+	line "a #MON forget"
+	cont "a move?"
+;	xxxx "123456789012345678"
+	done
+
+_MoveDeleterSaidYesText_RP::
+	text "Which #MON?"
+	prompt
+
+_MoveDeleterWhichMoveText_RP::
+	text "Which move?"
+	done
+
+_MoveDeleterConfirmText_RP::
+	text "Forget"
+	line "@"
+	text_ram wStringBuffer
+	text "?"
+	prompt
+
+_MoveDeleterForgotText_RP::
+	text "@"
+	text_ram wStringBuffer
+	text " was"
+	line "forgotten."
+	prompt
+
+_MoveDeleterByeText_RP::
+	text "We're done."
+	line "And I ask you to"
+	cont "forget about me."
+;	xxxx "123456789012345678"
+	done
+
+_MoveDeleterOneMoveText_RP::
+	text "Can't do."
+	line "That #MON"
+	cont "has one move."
+	cont "Are we done, or"
+	cont "wanna do another?"
+;	xxxx "123456789012345678"
+	done

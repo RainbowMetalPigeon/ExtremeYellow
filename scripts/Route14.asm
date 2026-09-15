@@ -1,4 +1,5 @@
 Route14_Script:
+	RPTextChooser Route14_TextPointers, Route14_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route14TrainerHeaders
 	ld de, Route14_ScriptPointers
@@ -23,6 +24,21 @@ Route14_TextPointers:
 	dw Route14Text8
 	dw Route14Text9
 	dw Route14Text10
+	; signs
+	dw Route14Text11
+
+Route14_TextPointers_Rocket:
+	dw Route14Text1
+	dw Route14Text2
+	dw Route14Text3
+	dw Route14Text4
+	dw Route14Text5
+	dw Route14Text6
+	dw Route14Text7
+	dw Route14Text8
+	dw Route14Text9
+	dw Route14Text10
+	; signs
 	dw Route14Text11
 
 Route14TrainerHeaders:

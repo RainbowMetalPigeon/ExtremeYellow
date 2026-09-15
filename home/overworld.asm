@@ -834,6 +834,7 @@ HandleFlyWarpOrDungeonWarp::
 	ld hl, wd732
 	set 2, [hl] ; fly warp or dungeon warp
 	res 5, [hl] ; forced to ride bike
+	ResetEvent EVENT_RP_CANT_SURF_ON_CYCLING_ROAD ; new for RP
 	call LeaveMapAnim
 	call Func_07c4
 	ld a, BANK(SpecialWarpIn)
@@ -857,45 +858,7 @@ Func_07c4::
 	ret
 
 LoadPlayerSpriteGraphics::
-; Load sprite graphics based on whether the player is standing, biking, or surfing.
-
-	; 0: standing
-	; 1: biking
-	; 2: surfing
-	; 3: diving
-
-	ld a, [wWalkBikeSurfState]
-	cp 3 ; new for dive
-	jp z, LoadSurfingPlayerSpriteGraphics ; new for Dive
-	dec a
-	jr z, .ridingBike
-
-	ldh a, [hTileAnimations]
-	and a
-	jr nz, .determineGraphics
-	jr .startWalking
-
-.ridingBike
-	; If the bike can't be used,
-	; start walking instead.
-	call IsBikeRidingAllowed
-	jr c, .determineGraphics
-
-.startWalking
-	xor a
-	ld [wWalkBikeSurfState], a
-	ld [wWalkBikeSurfStateCopy], a
-	jp LoadWalkingPlayerSpriteGraphics
-
-.determineGraphics
-	ld a, [wWalkBikeSurfState]
-	and a
-	jp z, LoadWalkingPlayerSpriteGraphics
-	dec a
-	jp z, LoadBikePlayerSpriteGraphics
-	dec a
-	jp z, LoadSurfingPlayerSpriteGraphics2
-	jp LoadWalkingPlayerSpriteGraphics
+	jpfar _LoadPlayerSpriteGraphics ; edited
 
 IsBikeRidingAllowed::
 ; The bike can be used on Route 23 and Indigo Plateau,
@@ -1826,12 +1789,31 @@ RunMapScript::
 	ret
 
 LoadWalkingPlayerSpriteGraphics::
-; new sprite copy stuff
 	xor a
 	ld [wd473], a
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .nonRocketPath
+
+	ld b, BANK(RedRocketSprite)
+	ld de, RedRocketSprite
+	ld a, [wPlayerGender] ; from Vortiene
+	and a			; check if boy
+	jr z, .ContinueLoadSpritesRP
+	cp a, 2			; check if enby
+	jr z, .AreEnbyRP
+	ld de, GreenRocketSprite
+	jr .ContinueLoadSpritesRP
+.AreEnbyRP
+	ld de, YellowRocketSprite
+.ContinueLoadSpritesRP
+	ld hl, vNPCSprites
+	jr LoadPlayerSpriteGraphicsCommon
+
+.nonRocketPath
+; new sprite copy stuff
 	ld b, BANK(RedSprite)
 	ld de, RedSprite
-;	jr LoadPlayerSpriteGraphicsCommon
 	ld a, [wPlayerGender] ; from Vortiene
 	and a			; check if boy
 	jr z, .ContinueLoadSprites1
@@ -1845,14 +1827,14 @@ LoadWalkingPlayerSpriteGraphics::
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 
-LoadGlitchyPlayerSpriteGraphics:: ; new, testing, for Haunted House
+LoadGlitchyPlayerSpriteGraphics:: ; new, for Haunted House
 	xor a
 	ld [wd473], a
 	ld b, BANK(GlitchyPlayerSprite)
 	ld de, GlitchyPlayerSprite
 	jr LoadPlayerSpriteGraphicsCommon
 
-LoadTransparentPlayerSpriteGraphics:: ; new, testing, for Haunted House
+LoadTransparentPlayerSpriteGraphics:: ; new, for Haunted House
 	xor a
 	ld [wd473], a
 	ld b, BANK(TransparentSprite)

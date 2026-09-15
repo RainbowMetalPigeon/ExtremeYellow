@@ -1,4 +1,5 @@
 ObsidianHouses_Script:
+	RPTextChooser ObsidianHouses_TextPointers, ObsidianHouses_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ret
 
@@ -10,6 +11,19 @@ ObsidianHouses_TextPointers:
 	dw ObsidianHousesTextFamily3
 	dw ObsidianHousesTextFamily4
 	dw ObsidianHousesTextFamily5
+	; signs
+	dw ObsidianHousesTextFlowerNotes
+	dw ObsidianHousesTextFishingBoard
+	dw ObsidianHousesTextFishingBoard
+
+ObsidianHouses_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
 	; signs
 	dw ObsidianHousesTextFlowerNotes
 	dw ObsidianHousesTextFishingBoard

@@ -50,6 +50,7 @@ InitStaticEncounterBattle:
 
 MZygardeText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, MZygardeTrainerHeader
 	jr InitStaticEncounterBattle
 
@@ -63,6 +64,7 @@ MZygardeBattleText:
 
 UNecrozmaText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, UNecrozmaTrainerHeader
 	jr InitStaticEncounterBattle
 
@@ -76,6 +78,7 @@ UNecrozmaBattleText:
 
 MRayquazaText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, MRayquazaTrainerHeader
 	jr InitStaticEncounterBattle
 
@@ -89,6 +92,7 @@ MRayquazaBattleText:
 
 EEternatusText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, EEternatusTrainerHeader
 	jr InitStaticEncounterBattle
 
@@ -102,6 +106,7 @@ EEternatusBattleText:
 
 ArceusText:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, ArceusTrainerHeader
 	jr InitStaticEncounterBattle
 

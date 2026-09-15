@@ -53,6 +53,7 @@ VBlank::
 	call TrackPlayTime ; keep track of time played
 	call TrackPlayTime_Tanoby ; new
 	call TrackPlayTime_ShinyRitual ; new
+	call TrackPlayTime_ParkourPath ; new
 
 	call Random
 	call ReadJoypad

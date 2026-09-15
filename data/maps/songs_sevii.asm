@@ -25,6 +25,7 @@ MapSongBanks_Sevii::
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; SEVII_ROUTE_42
 	db MUSIC_ROUTES2, BANK(Music_Routes2) ; SEVII_ROUTE_43
 	db MUSIC_SAFARI_ZONE, BANK(Music_SafariZone) ; SEVII_ROUTE_44
+	db MUSIC_GAME_CORNER, BANK(Music_GameCorner)       ; SEVII_FOUR_ISLAND_PARKOUR_PATH
 ; indoors
 ; 1-island
 	db MUSIC_CINNABAR, BANK(Music_Cinnabar)            ; SEVII_ONE_ISLAND_DOCK

@@ -1,10 +1,14 @@
 UndergroundPathRoute6_Script:
+	RPTextChooser UndergroundPathRoute6_TextPointers, UndergroundPathRoute6_TextPointers_Rocket
 	ld a, ROUTE_6
 	ld [wLastMap], a
 	jp EnableAutoTextBoxDrawing
 
 UndergroundPathRoute6_TextPointers:
 	dw UndergroundPathEntranceRoute6Text1
+
+UndergroundPathRoute6_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 
 UndergroundPathEntranceRoute6Text1:
 	text_far _UndergrdTunnelEntRoute6Text1

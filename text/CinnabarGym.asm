@@ -324,3 +324,65 @@ _BlaineRematchDefeatedText::
 	cont "sun in the middle"
 	cont "of July!"
 	prompt
+
+; new for RP =====================
+
+_CinnabarGymBattleText_RP::
+	text "Ugh. Why must I"
+	line "battle you?"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarGymAfterBattleText_RP::
+	text "Just get the"
+	line "answers right"
+	cont "and leave us"
+	cont "alone, will you?"
+;	xxxx "123456789012345678"
+	done
+
+_CinnabarGymText_PreQuiz_RP::
+	text "This GYM may host"
+	line "thieves, but what"
+	cont "are even those"
+	cont "compared to a"
+	cont "mafia like you?"
+;	xxxx "123456789012345678"
+	done
+
+_BlainePreBattleText_RP::
+	text "YOU! You ROCKET"
+	line "criminal!"
+	cont "I don't know if"
+	cont "you're here for"
+	cont "matters of the"
+	cont "past or for new"
+	cont "crimes, but be"
+	cont "sure that I'll"
+	cont "meet your filthy"
+	cont "goals with raging"
+	cont "determination!"
+	cont "My maxfueled FIRE"
+	cont "team will burn"
+	cont "you to a crisp!"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedVolcanoBadgeText_RP::
+	text "How could"
+	line "you withstand my"
+	cont "burning flames?!"
+	cont "I... just want to"
+	cont "live in peace."
+	cont "My past is in the"
+	cont "past. Take these,"
+	cont "and don't be back."
+;	xxxx "123456789012345678"
+	prompt
+
+_BlaineVolcanoBadgeInfoText_RP::
+	text "BLAINE throws"
+	line "the VOLCANOBADGE"
+	cont "to <PLAYER>!"
+;	xxxx "123456789012345678"
+	done

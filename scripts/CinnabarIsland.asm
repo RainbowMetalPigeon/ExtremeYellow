@@ -1,4 +1,5 @@
 CinnabarIsland_Script:
+	RPTextChooser CinnabarIsland_TextPointers, CinnabarIsland_TextPointers_Rocket
 	callfar SpawnTraveler ; new, for traveler
 	call EnableAutoTextBoxDrawing
 ;	ld hl, wCurrentMapScriptFlags	; unused
@@ -82,7 +83,7 @@ CinnabarIslandScript0: ; edited
 ; BTV
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, 19
+	ld a, 20 ; edited
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -136,6 +137,35 @@ CinnabarIsland_TextPointers:
 	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 23, new
 	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 24, new
 	dw CinnabarIslandScriptText6 ; 25, new
+
+CinnabarIsland_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw TextPreBattle_CinnabarTraveler_RP ; traveler
+	dw CinnabarIslandSpecialBirdKeeperText_RP ; 12 special birdkeeper
+	; signs
+	dw CinnabarIslandText3
+	dw MartSignText
+	dw PokeCenterSignText
+	dw CinnabarIslandText6
+	dw CinnabarIslandText7
+	dw CinnabarIslandTextVulcano
+	dw CinnabarIslandTextSeismic ; 19
+	; scripts
+	dw CinnabarIslandTextGymDoor ; 20
+	dw TextPostBattle_CinnabarTraveler_RP ; 21 for traveler
+	dw CinnabarIslandTextHotSprings ; 22
+	dw CinnabarIslandTextGymDoorKeyEmbedded1 ; 23
+	dw CinnabarIslandTextGymDoorKeyEmbedded2 ; 24
+	dw CinnabarIslandScriptText6_RP ; 25, for birdkeeper
 
 CinnabarIslandTextGymDoor:
 	text_far _CinnabarIslandTextGymDoor
@@ -220,35 +250,8 @@ CinnabarIslandTextGymDoorKeyEmbedded2:
 
 TextPreBattle_CinnabarTraveler: ; new
 	text_asm
-	ld hl, Text_Intro_CinnabarTraveler
-	call PrintText
-	callfar CheckIfMegaMewtwoInParty
-	jr c, .MMewtwoIsInParty
-	ld hl, Text_NoMMewtwo_CinnabarTraveler
-	call PrintText
-	jp TextScriptEnd
-.MMewtwoIsInParty
-	ld c, BANK(Music_MeetMaleTrainer)
-	ld a, MUSIC_MEET_MALE_TRAINER
-	call PlayMusic
-	ld hl, Text_YesMMewtwo_CinnabarTraveler
-	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
-	ld hl, wOptions
-	res 7, [hl]	; Turn on battle animations to make the battle feel more epic
-	set 6, [hl] ; battle style set
-	call Delay3
-	ld a, OPP_TRAVELER
-	ld [wCurOpponent], a
-	ld a, 1
-	ld [wTrainerNo], a
-	ld a, 1                          ; new, to go beyond 200
-	ld [wIsTrainerBattle], a         ; new, to go beyond 200
-	ld hl, Text_DefeatPostBattle_CinnabarTraveler
-	ld de, Text_VictoryPostBattle_CinnabarTraveler
-	call SaveEndBattleTextPointers
+	callfar TravelerCommonPreBattleText
+	jp c, TextScriptEnd
 ; script handling
 	ld a, 2 ; city-specific
 	ld [wCurMapScript], a
@@ -256,26 +259,8 @@ TextPreBattle_CinnabarTraveler: ; new
 
 TextPostBattle_CinnabarTraveler:
 	text_asm
-	SetEvent EVENT_BEAT_INTERDIMENSIONAL_TRAVELER
-	ld hl, Text_Compliments_CinnabarTraveler
-	call PrintText
-	call GBFadeOutToBlack
-    ld a, SFX_PUSH_BOULDER
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-	call GBFadeInFromBlack
-	call GBFadeOutToBlack
-    ld a, SFX_GO_INSIDE
-    call PlaySound
-	ld c, 50
-	call DelayFrames
-	call GBFadeInFromBlack
-	ld hl, Text_WhatWasThat_CinnabarTraveler
-	call PrintText
-	; script handling
+	callfar TravelerCommonPostBattleText
+; script handling
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
@@ -311,36 +296,6 @@ CinnabarScript_Traveler:
 	call GBFadeInFromBlack
 	ret
 
-; --------------------------------
-
-Text_Intro_CinnabarTraveler:
-	text_far _TextTraveler_Intro
-	text_end
-
-Text_YesMMewtwo_CinnabarTraveler:
-	text_far _TextTraveler_YesMMewtwo
-	text_end
-
-Text_NoMMewtwo_CinnabarTraveler:
-	text_far _TextTraveler_NoMMewtwo
-	text_end
-
-Text_DefeatPostBattle_CinnabarTraveler:
-	text_far _TextTraveler_DefeatPostBattle
-	text_end
-
-Text_VictoryPostBattle_CinnabarTraveler:
-	text_far _TextTraveler_VictoryPostBattle
-	text_end
-
-Text_Compliments_CinnabarTraveler:
-	text_far _TextTraveler_Compliments
-	text_end
-
-Text_WhatWasThat_CinnabarTraveler:
-	text_far _TextTraveler_WhatWasThat
-	text_end
-
 ; ================================
 
 CinnabarIslandSpecialBirdKeeperText:
@@ -372,11 +327,13 @@ CinnabarIslandSpecialBirdKeeperText:
 	jp TextScriptEnd
 
 CinnabarIslandScript_PostSpecialBirdKeeper:
+	ResetEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO ; for RP, regardless if we won or lost
 	ld a, [wLevelScalingBackup] ; restore level scaling
 	ld [wLevelScaling], a
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, CinnabarIslandResetScripts
+; we won
 	ld a, $f0
 	ld [wJoyIgnore], a
 	ld a, 25
@@ -407,4 +364,85 @@ CinnabarIslandSpecialBirdKeeperText_AfterBattle:
 
 CinnabarIslandScriptText6:
 	text_far _CinnabarIslandScriptText6
+	text_end
+
+; new for RP =================================
+
+TextPreBattle_CinnabarTraveler_RP:
+	text_asm
+	callfar TravelerCommonPreBattleText_RP
+; script handling
+	ld a, 2 ; city-specific
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+TextPostBattle_CinnabarTraveler_RP:
+	text_asm
+	callfar TravelerCommonPostBattleText_RP
+; script handling
+	xor a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+CinnabarIslandSpecialBirdKeeperText_RP:
+	text_asm
+	call SpecialBirdKeeper_RP_CommonPreBattleText
+	ld a, 27
+	ld [wTrainerNo], a
+; script handling
+	ld a, 3
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+SpecialBirdKeeper_RP_CommonPreBattleText::
+	ld c, BANK(Music_MeetFemaleTrainer)
+	ld a, MUSIC_MEET_FEMALE_TRAINER
+	call PlayMusic
+	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP
+	CheckEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO
+	jr z, .print1
+	ld hl, CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero
+.print1
+	call PrintText
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIRD_KEEPER
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	CheckEvent EVENT_RP_SPECIAL_BIRDKEEPER_SPOKE_AS_HERO
+	jr z, .print2
+	ld hl, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
+	ld de, CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
+.print2
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld a, [wLevelScaling]
+	ld [wLevelScalingBackup], a
+	ld a, 3 ; Hard mode (+10%)
+	ld [wLevelScaling], a
+	ret
+
+CinnabarIslandSpecialBirdKeeperText_Pre_RP:
+	text_far _CinnabarIslandSpecialBirdKeeperText_Pre_RP
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP:
+	text_far _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero:
+	text_far _CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero
+	text_end
+
+CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero:
+	text_far _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero
+	text_end
+
+CinnabarIslandScriptText6_RP:
+	text_far _CinnabarIslandScriptText6_RP
 	text_end

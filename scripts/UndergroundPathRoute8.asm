@@ -1,10 +1,14 @@
 UndergroundPathRoute8_Script:
+	RPTextChooser UndergroundPathRoute8_TextPointers, UndergroundPathRoute8_TextPointers_Rocket
 	ld a, ROUTE_8
 	ld [wLastMap], a
 	jp EnableAutoTextBoxDrawing
 
 UndergroundPathRoute8_TextPointers:
 	dw UndergroundPathEntranceRoute8Text1
+
+UndergroundPathRoute8_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath
 
 UndergroundPathEntranceRoute8Text1:
 	text_far _UndergroundPathEntRoute8Text1

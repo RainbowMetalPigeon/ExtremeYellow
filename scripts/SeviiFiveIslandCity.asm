@@ -1,4 +1,5 @@
 SeviiFiveIslandCity_Script:
+	RPTextChooser SeviiFiveIslandCity_TextPointers, SeviiFiveIslandCity_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, SeviiFiveIslandCityTrainerHeaders
 	ld de, SeviiFiveIslandCity_ScriptPointers
@@ -14,10 +15,14 @@ SeviiFiveIslandCity_ScriptPointers:
 	dw SeviiFiveIslandCity_Script3 ; 3
 	dw SeviiFiveIslandCity_Script4 ; 4
 	dw SeviiFiveIslandCity_Script5 ; 5
+	; for RP
+	dw SeviiFiveIslandCity_Script6 ; 6
 
 ; scripts =========================================
 
 SeviiFiveIslandCity_Script0:
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, CheckFightingMapTrainers
 	CheckEvent EVENT_SEVII_FIVE_ISLAND_PINK_ROCKET_FIGHT_OVER
 	jp nz, CheckFightingMapTrainers
 	ld hl, SeviiFiveIslandCity_Coordinates_PinkRocketScene
@@ -221,6 +226,30 @@ SeviiFiveIslandCity_TextPointers:
 	dw SeviiFiveIslandCityScriptText4 ; 25 ; pink sees you
 	dw SeviiFiveIslandCityScriptText5 ; 26 ; pink asks help
 
+SeviiFiveIslandCity_TextPointers_Rocket:
+	dw GenericNPCText_RocketPath ;  1 person
+	dw GenericNPCText_RocketPath ;  2 person
+	dw SeviiFiveIslandCityText3  ;  3 Monster Rocket
+	dw SeviiFiveIslandCityText4  ;  4 Monster Pink
+	dw SeviiFiveIslandCityText5_RP  ;  5 Rocket
+	dw SeviiFiveIslandCityText6  ;  6 Pink
+	dw SeviiFiveIslandCityText7  ;  7 trainer
+	dw SeviiFiveIslandCityText8  ;  8 trainer
+	dw SeviiFiveIslandCityText9  ;  9 trainer
+	dw SeviiFiveIslandCityText10 ; 10 trainer
+	dw RockSmashText ; 11
+	dw PickUpItemText ; 12
+	dw PickUpItemText ; 13
+	dw PickUpItemText ; 14
+	; signs
+	dw SeviiFiveIslandCitySignText1 ; 15
+	dw SeviiFiveIslandCitySignText2 ; 16
+	dw SeviiFiveIslandCitySignText3 ; 17
+	dw SeviiFiveIslandCitySignText4 ; 18
+	dw SeviiFiveIslandCitySignText5 ; 19
+	dw PokeCenterSignText ; 20
+	dw MartSignText ; 21
+
 SeviiFiveIslandCityTrainerHeaders:
 	def_trainers 7
 SeviiFiveIslandCityTrainerHeader1:
@@ -381,4 +410,36 @@ SeviiFiveIslandCityScriptText4:
 
 SeviiFiveIslandCityScriptText5:
 	text_far _SeviiFiveIslandCityScriptText5
+	text_end
+
+; new for RP =========================
+
+SeviiFiveIslandCityText5_RP:
+	text_asm
+	ld hl, SeviiFiveIslandCityText5_RP_Core
+	call PrintText
+; load next script
+	ld a, 6
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+SeviiFiveIslandCity_Script6:
+	call GBFadeOutToBlack
+	ld a, HS_SEVII_FIVE_ISLAND_CITY_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	ld a, HS_SEVII_FIVE_ISLAND_WAREHOUSE_2F_PINK_BEFORE
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+; load next script and return controls
+	xor a
+	ld [wCurMapScript], a
+	ld [wJoyIgnore], a
+	ret
+
+SeviiFiveIslandCityText5_RP_Core:
+	text_far _SeviiFiveIslandCityText5_RP_Core
 	text_end

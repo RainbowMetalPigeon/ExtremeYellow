@@ -15,6 +15,8 @@ SmartSelectButton:: ; SELECT was pressed
     tx_pre_jump CoinCaseNumCoinsText2
 
 .cannotCoinCase
+	CheckEvent EVENT_ROCKET_PATH
+	jp nz, .cannotBike
 ; rod: super -> good -> old
 	predef GetTileAndCoordsInFrontOfPlayer
 	callfar IsNextTileShoreOrWater

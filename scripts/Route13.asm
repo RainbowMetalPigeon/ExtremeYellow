@@ -1,4 +1,5 @@
 Route13_Script:
+	RPTextChooser Route13_TextPointers, Route13_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
 	ld hl, Route13TrainerHeaders
 	ld de, Route13_ScriptPointers
@@ -23,6 +24,23 @@ Route13_TextPointers:
 	dw Route13Text8
 	dw Route13Text9
 	dw Route13Text10
+	; signs
+	dw Route13Text11
+	dw Route13Text12
+	dw Route13Text13
+
+Route13_TextPointers_Rocket:
+	dw Route13Text1
+	dw Route13Text2
+	dw Route13Text3
+	dw Route13Text4
+	dw Route13Text5
+	dw Route13Text6
+	dw Route13Text7
+	dw Route13Text8
+	dw Route13Text9
+	dw Route13Text10
+	; signs
 	dw Route13Text11
 	dw Route13Text12
 	dw Route13Text13

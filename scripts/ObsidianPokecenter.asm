@@ -1,4 +1,5 @@
 ObsidianPokecenter_Script:
+	RPTextChooser ObsidianPokecenter_TextPointers, ObsidianPokecenter_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
 
@@ -13,6 +14,18 @@ ObsidianPokecenter_TextPointers:
 	dw ObsidianMartText2
 	dw ObsidianMartText3
 	dw ObsidianCashierTextTM ; new, TM seller
+
+ObsidianPokecenter_TextPointers_Rocket:
+	dw ObsidianHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw ObsidianTradeNurseText
+	dw ObsidianPokecenterText5
+	; mart
+	dw ObsidianCashierText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw ObsidianCashierTextTM
 
 ObsidianHealNurseText:
 	script_pokecenter_nurse

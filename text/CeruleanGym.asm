@@ -185,3 +185,32 @@ _MistyRematchDefeatedText::
 	cont "Well done, you"
 	cont "sweetie!"
 	prompt
+
+; new for RP =======================
+
+_MistyPreBattleText_RP::
+	text "What's a criminal"
+	line "doing in my GYM?!"
+	cont "I'll fight at max"
+	cont "power and release"
+	cont "a WATER onslaught"
+	cont "like never before!"
+;	xxxx "123456789012345678"
+	done
+
+_ReceivedCascadeBadgeText_RP::
+	text "I can't"
+	line "believe you"
+	cont "resisted my"
+	cont "ultimate assault!"
+	cont "Tch! Take these"
+	cont "and scram!"
+;	xxxx "123456789012345678"
+	prompt
+
+_MistyCascadeBadgeInfoText_RP::
+	text "MISTY throws"
+	line "the CASCADEBADGE"
+	cont "to <PLAYER>!"
+;	xxxx "123456789012345678"
+	done

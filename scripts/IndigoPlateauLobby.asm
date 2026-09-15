@@ -1,4 +1,5 @@
 IndigoPlateauLobby_Script:
+	RPTextChooser IndigoPlateauLobby_TextPointers, IndigoPlateauLobby_TextPointers_Rocket
 	call Serial_TryEstablishingExternallyClockedConnection
 	call EnableAutoTextBoxDrawing
 	ld hl, wCurrentMapScriptFlags
@@ -22,6 +23,17 @@ IndigoPlateauLobby_TextPointers:
 	dw IndigoCashier2Text
 	dw IndigoTradeNurseText
 	dw IndigoPlateauLobbyText6
+	dw IndigoPlateauLobbyText8_RP ; new, unused
+
+IndigoPlateauLobby_TextPointers_Rocket:
+	dw IndigoHealNurseText
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw IndigoCashier1Text
+	dw IndigoCashier2Text
+	dw IndigoTradeNurseText
+	dw IndigoPlateauLobbyText6
+	dw IndigoPlateauLobbyText8_RP ; new
 
 IndigoHealNurseText:
 	script_pokecenter_nurse
@@ -49,3 +61,23 @@ IndigoCashier2Text: ; testing
     text_asm
 	callfar TMMartClerkDialogue
     jp TextScriptEnd
+
+; new for RP ===========================
+
+IndigoPlateauLobbyText8_RP:
+	text_asm
+	CheckEvent EVENT_RP_BEAT_CHAMPION_PINK
+	ld hl, IndigoPlateauLobbyText8_RP_Before
+	jr z, .printAndEnd
+	ld hl, IndigoPlateauLobbyText8_RP_After
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+IndigoPlateauLobbyText8_RP_Before:
+	text_far _IndigoPlateauLobbyText8_RP_Before
+	text_end
+
+IndigoPlateauLobbyText8_RP_After:
+	text_far _IndigoPlateauLobbyText8_RP_After
+	text_end

@@ -150,3 +150,36 @@ _VendingMachineText6::
 _VendingMachineText7::
 	text "Not thirsty!"
 	done
+
+; new for RP ----------------------
+
+_CeladonMartRoofText2_RP_Intro::
+	text "I'm thirsty!"
+	line "I want som-"
+
+	para "AAAH! Ouch! Why?!"
+	line "Are you stupid?!"
+	cont "Ach! Ow! Ah!"
+	cont "Stop! Stop!"
+	cont "Waaaahhh!"
+
+	para "Stop! Just take"
+	line "my TMs and leave"
+	cont "me alone!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CeladonMartRoofText2_RP_AllTaken::
+	text "Sniff..."
+	line "You already took"
+	cont "everything I"
+	cont "had... Leave me"
+	cont "alone, please."
+;	xxxx "123456789012345678"
+	done
+
+_CeladonMartRoofText2_RP_BagFull::
+	text "Your bag is full."
+	line "Can't steal more!"
+;	xxxx "123456789012345678"
+	done
