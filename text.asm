@@ -30,6 +30,7 @@ INCLUDE "text/SilphCo3F.asm"
 INCLUDE "text/RocketHideoutB1F.asm"
 INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/Route22Gate.asm"
+INCLUDE "text/ViridianForest.asm"
 
 
 SECTION "Text 3", ROMX
@@ -81,6 +82,7 @@ INCLUDE "text/Route18.asm"
 INCLUDE "text/Route20.asm"
 INCLUDE "text/Route5.asm"
 INCLUDE "text/Route1.asm"
+INCLUDE "text/SafariZoneGate.asm"
 
 
 SECTION "Text 5", ROMX
@@ -123,7 +125,6 @@ INCLUDE "text/GameCornerPrizeRoom.asm"
 INCLUDE "text/CeladonChiefHouse.asm"
 INCLUDE "text/CeladonHotel.asm"
 INCLUDE "text/FuchsiaPokecenter.asm"
-INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
 INCLUDE "data/text/text_7.asm"
 INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
@@ -174,7 +175,6 @@ INCLUDE "text/Traveler.asm" ; new
 INCLUDE "text/PalletTown.asm"
 INCLUDE "text/Route23.asm"
 INCLUDE "text/SaffronPidgeyHouse.asm"
-INCLUDE "text/ViridianForest.asm"
 
 
 SECTION "Text Extra 4", ROMX ; new, to accomodate all .asm text files that became too big and new ones

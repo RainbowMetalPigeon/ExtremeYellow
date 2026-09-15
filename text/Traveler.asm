@@ -264,32 +264,134 @@ _TextTraveler_WhatWasThat::
 ; new for RP ==========================
 
 _TextTraveler_Intro_RP::
-	text "i search"
-	line "you bad"
+	text "Were the boundary"
+	line "conditions of our"
+	cont "encounter"
+	cont "meaningfully"
+	cont "altered from the"
+	cont "present situation"
+	cont "I would profess"
+	cont "myself as pleased"
+	cont "in acquainting"
+	cont "your person."
+
+	para "Alas, it proves"
+	line "of a difficulty"
+	cont "grazing the"
+	cont "impossibility for"
+	cont "me to state such"
+	cont "a confession,"
+	cont "given that it is"
+	cont "painfully clear"
+	cont "that you are a"
+	cont "doer of evil."
+
+	para "Hence, I request"
+	line "that you abstain"
+	cont "from approaching"
+	cont "me any further."
+	cont "I hold a null"
+	cont "interest in"
+	cont "mendling with"
+	cont "people who chose"
+	cont "such life paths."
 ;	xxxx "123456789012345678"
 	prompt
 
 _TextTraveler_ForceToFight_RP::
-	text "force me fight"
+	text "How is that?"
+	line "You claim your-"
+	cont "self as both"
+	cont "outraged and"
+	cont "confused by my"
+	cont "wording, and"
+	cont "therefore will"
+	cont "to enforce a"
+	cont "battle on me?"
+
+	para "Such a disgrace."
+	line "It seems most"
+	cont "unfortunate, but"
+	cont "detouring you"
+	cont "from your ill-"
+	cont "placed intents"
+	cont "apparently is an"
+	cont "action beyond my"
+	cont "capabilities."
+
+	para "Very bad. I will"
+	line "fight you, and"
+	cont "I will fight you"
+	cont "with the declared"
+	cont "intent of"
+	cont "destroying you."
 ;	xxxx "123456789012345678"
 	done
 
 _TextTraveler_DefeatPostBattle_RP::
-	text "you won"
+	text "Were my"
+	line "travels pointless"
+	cont "in face of my"
+	cont "inability to"
+	cont "fend off the"
+	cont "assault of such"
+	cont "an evildoer?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _TextTraveler_VictoryPostBattle_RP::
-	text "i won"
+	text "You had"
+	line "indeed been"
+	cont "warned."
 ;	xxxx "123456789012345678"
 	prompt
 
 _TextTraveler_Dammit_RP::
-	text "dammit you meanie"
+	text "This brings upon"
+	line "me a considerable"
+	cont "amount of unjoy."
+	cont "After all my"
+	cont "searches and"
+	cont "efforts, still I"
+	cont "am to lose a"
+	cont "battle of such"
+	cont "pivotal meaning?"
+
+	para "Does this mean"
+	line "my actions have"
+	cont "proven pointless?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _TextTraveler_WhatWasThat_RP::
-	text "what was that"
+	text "What was the"
+	line "source of such a"
+	cont "peculiarly"
+	cont "bizarre event?"
+
+	para "A working"
+	line "hypothesis of"
+	cont "mine is that..."
+
+	para "Yes, yes indeed,"
+	line "it seems to have"
+	cont "been caused by..."
+
+	para "Well! Not that you"
+	line "need to know,"
+	cont "nor that I wish"
+	cont "to perpetuate"
+	cont "our unpleasant"
+	cont "proximity any"
+	cont "further."
+
+	para "Other situations"
+	line "would call for a"
+	cont "farewell, but I"
+	cont "assume this"
+	cont "current status"
+	cont "sees as more"
+	cont "befitting a"
+	cont "'farebad'."
 ;	xxxx "123456789012345678"
 	done

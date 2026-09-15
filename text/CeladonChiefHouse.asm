@@ -536,13 +536,28 @@ _LunarShrineTextTourist4::
 ; new for RP ================================================
 
 _LunarShrineTextMonk_RP_BeforeBlue::
-	text "Go away"
-	line "I have nothing"
+	text "MONK: Go away."
+	line "I have nothing of"
+	cont "interest for the"
+	cont "likes of you."
+	cont "I've already been"
+	cont "robbed of any-"
+	cont "thing of value."
 ;	xxxx "123456789012345678"
 	done
 
 _LunarShrineTextMonk_RP_AfterBlue::
-	text "Damn take this"
+	text "MONK: Your soul"
+	line "really is as"
+	cont "black as the"
+	cont "darkest depth"
+	cont "of Hell."
+
+	para "You knew all"
+	line "along, didn't you?"
+	cont "Then take this,"
+	cont "leave, and never"
+	cont "be seen again."
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -553,8 +568,9 @@ _LunarShrineTextMonk_RP_StoleHM::
 	done
 
 _LunarShrineTextMonk_RP_PostSteal::
-	text "Go away"
-	line "I hate everything"
+	text "MONK: Go away."
+	line "I hate you."
+	cont "I hate everything."
 ;	xxxx "123456789012345678"
 	done
 
@@ -606,27 +622,61 @@ _LunarShrineTextBlue::
 	done
 
 _LunarShrineTextScripts2_RP::
-	text "<RIVAL>: I kill u"
+	text "<RIVAL>: Your"
+	line "shamelessness"
+	cont "will never not"
+	cont "make me puke."
+
+	para "I'm... wow."
+	line "Every time we"
+	cont "meet, you've"
+	cont "fallen an even"
+	cont "lower low."
 ;	xxxx "123456789012345678"
 	done
 
 _LunarTempleBlueDefeatText::
-	text "1234567: I lost"
+	text "How"
+	line "can one believe"
+	cont "in justice, when"
+	cont "subhumans like"
+	cont "YOU keep winning?"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LunarTempleBlueWonText::
-	text "1234567: I won"
+	text "As you"
+	line "deserved. Scum."
 ;	xxxx "123456789012345678"
 	prompt
 
 _LunarShrineTextScripts3_RP::
-	text "<RIVAL>: Damn"
-	line "I'm useless"
+	text "<RIVAL>: Damn it!"
+	line "Damn it all!"
+	cont "I'm so completely"
+	cont "utterly useless!"
+
+	para "My ineptitude"
+	line "sickens me!"
 ;	xxxx "123456789012345678"
 	done
 
 _LunarShrineTextScripts4_RP::
-	text "MONK: no worry kid"
+	text "MONK: Worry not,"
+	line "kind young soul."
+
+	para "You are not the"
+	line "one at blame."
+
+	para "This demon, they"
+	line "are the root of"
+	cont "all evil."
+
+	para "Now run. Find"
+	line "shelter, before"
+	cont "who knows what"
+	cont "may happen."
+	cont "I'll handle this"
+	cont "scoundrel."
 ;	xxxx "123456789012345678"
 	done
