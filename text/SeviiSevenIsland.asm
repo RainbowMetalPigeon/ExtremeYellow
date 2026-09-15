@@ -1526,50 +1526,93 @@ _SeviiTanobyGardenMewText::
 ; new for RP ==================================
 
 _SeviiTanobyChambersScriptText3_RP::
-	text "found ya"
+	text "???: We found you!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersScriptText4_RP::
-	text "CARR: wanna seat"
+	text "CARR: I never gave"
+	line "a shit about"
+	cont "GIOVANNI. So I"
+	cont "couldn't care less"
+	cont "that they died."
+
+	para "All I want is to"
+	line "TEAM ROCKET."
+	cont "I want to be the"
+	cont "new & only BOSS!"
+	cont "And you, you are"
+	cont "in the way."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersScriptText5_RP::
-	text "SIRD: wanna intel"
+	text "SIRD: To me,"
+	line "neither GIOVANNI"
+	cont "nor TEAM ROCKET"
+	cont "have any value."
+
+	para "What I'm after is"
+	line "exclusively the"
+	cont "intel that TEAM"
+	cont "ROCKET gathered"
+	cont "over the years."
+	cont "That is the only"
+	cont "thing my BOSS"
+	cont "wants."
+
+	para "So, CARR's goals"
+	line "align with mine:"
+	cont "we kill you, they"
+	cont "get TEAM ROCKET,"
+	cont "and I obtain all"
+	cont "of its intel."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersScriptText6_RP::
-	text "CARR: get team"
-	line "from ur corpse"
+	text "CARR: Enough"
+	line "chatting!"
+	cont "Nothing personal,"
+	cont "kid, but I'll get"
+	cont "TEAM ROCKET from"
+	cont "your dead hands!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersCarrDefeatText_RP::
-	text "carr: fuck!"
+	text "Fuck!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiTanobyChambersScriptText7_RP::
-	text "CARR: i see how"
-	line "you beat GIOVA"
+	text "CARR: Shit..."
+	line "I see how you"
+	cont "beat GIOVANNI."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersScriptText8_RP::
-	text "SIRD: we teamed up"
-	line "for a reason"
+	text "SIRD: Well, we"
+	line "DID team up for"
+	cont "a reason, right?"
+	cont "We knew that they"
+	cont "are strong."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiTanobyChambersSirdDefeatText_RP::
-	text "sird: absurd!"
+	text "Absurd!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiTanobyChambersScriptText9_RP::
-	text "SIRD: even 2 vs 1"
+	text "SIRD: Even teaming"
+	line "up... even two"
+	cont "against one...!"
+
+	para "This was NOT part"
+	line "of the plan!"
 ;	xxxx "123456789012345678"
 	done
 
