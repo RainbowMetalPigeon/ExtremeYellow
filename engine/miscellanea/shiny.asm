@@ -159,41 +159,48 @@ RollForShiny::
     ret
 
 CountHowManyBadges:: ; returns in d the number of badges we own
-    ld d, 0
     ld hl, wObtainedBadges
-	bit BIT_EARTHBADGE, [hl]
-	jr z, .next1
-    inc d
-.next1
-	bit BIT_VOLCANOBADGE, [hl]
-	jr z, .next2
-    inc d
-.next2
-	bit BIT_MARSHBADGE, [hl]
-	jr z, .next3
-    inc d
-.next3
-	bit BIT_SOULBADGE, [hl]
-	jr z, .next4
-    inc d
-.next4
-	bit BIT_RAINBOWBADGE, [hl]
-	jr z, .next5
-    inc d
-.next5
-	bit BIT_THUNDERBADGE, [hl]
-	jr z, .next6
-    inc d
-.next6
-	bit BIT_CASCADEBADGE, [hl]
-	jr z, .next7
-    inc d
-.next7
-	bit BIT_BOULDERBADGE, [hl]
-	jr z, .next8
-    inc d
-.next8
+    ld b, 1
+    call CountSetBits
+    ld a, [wNumSetBits]
+    ld d, a
     ret
+; it used to be:
+;    ld d, 0
+;    ld hl, wObtainedBadges
+;    bit BIT_EARTHBADGE, [hl]
+;    jr z, .next1
+;    inc d
+;.next1
+;    bit BIT_VOLCANOBADGE, [hl]
+;    jr z, .next2
+;    inc d
+;.next2
+;    bit BIT_MARSHBADGE, [hl]
+;    jr z, .next3
+;    inc d
+;.next3
+;    bit BIT_SOULBADGE, [hl]
+;    jr z, .next4
+;    inc d
+;.next4
+;    bit BIT_RAINBOWBADGE, [hl]
+;    jr z, .next5
+;    inc d
+;.next5
+;    bit BIT_THUNDERBADGE, [hl]
+;    jr z, .next6
+;    inc d
+;.next6
+;    bit BIT_CASCADEBADGE, [hl]
+;    jr z, .next7
+;    inc d
+;.next7
+;    bit BIT_BOULDERBADGE, [hl]
+;    jr z, .next8
+;    inc d
+;.next8
+;    ret
 
 ConvertNumberOfBadgesIntoCapLoose: ; returns in d the loose level/obedience cap
     call CountHowManyBadges ; d holds the number of badges

@@ -663,49 +663,64 @@ PokemonMansionB1F_Blocks: INCBIN "maps/PokemonMansionB1F.blk"
 SECTION "Maps 11", ROMX
 
 INCLUDE "data/maps/headers/Route2.asm"
+INCLUDE "scripts/Route2.asm"
 INCLUDE "data/maps/objects/Route2.asm"
 Route2_Blocks: INCBIN "maps/Route2.blk"
 
 INCLUDE "data/maps/headers/Route3.asm"
+INCLUDE "scripts/Route3.asm"
 INCLUDE "data/maps/objects/Route3.asm"
 Route3_Blocks: INCBIN "maps/Route3.blk"
 
 INCLUDE "data/maps/headers/Route4.asm"
+INCLUDE "scripts/Route4.asm"
 INCLUDE "data/maps/objects/Route4.asm"
 Route4_Blocks: INCBIN "maps/Route4.blk"
 
 INCLUDE "data/maps/headers/Route5.asm"
+INCLUDE "scripts/Route5.asm"
 INCLUDE "data/maps/objects/Route5.asm"
 Route5_Blocks: INCBIN "maps/Route5.blk"
 
 INCLUDE "data/maps/headers/Route9.asm"
+INCLUDE "scripts/Route9.asm"
 INCLUDE "data/maps/objects/Route9.asm"
 Route9_Blocks: INCBIN "maps/Route9.blk"
 
 INCLUDE "data/maps/headers/Route13.asm"
+INCLUDE "scripts/Route13.asm"
 INCLUDE "data/maps/objects/Route13.asm"
 Route13_Blocks: INCBIN "maps/Route13.blk"
 
 INCLUDE "data/maps/headers/Route14.asm"
+INCLUDE "scripts/Route14.asm"
 INCLUDE "data/maps/objects/Route14.asm"
 Route14_Blocks: INCBIN "maps/Route14.blk"
 
 INCLUDE "data/maps/headers/Route17.asm"
+INCLUDE "scripts/Route17.asm"
 INCLUDE "data/maps/objects/Route17.asm"
 Route17_Blocks: INCBIN "maps/Route17.blk"
 
 INCLUDE "data/maps/headers/Route19.asm"
+INCLUDE "scripts/Route19.asm"
 INCLUDE "data/maps/objects/Route19.asm"
 Route19_Blocks: INCBIN "maps/Route19.blk"
 
 INCLUDE "data/maps/headers/Route21.asm"
+INCLUDE "scripts/Route21.asm"
 INCLUDE "data/maps/objects/Route21.asm"
 Route21_Blocks: INCBIN "maps/Route21.blk"
 
 Route12SuperRodHouse_Blocks:
 Daycare_Blocks: INCBIN "maps/Daycare.blk"
-
-FuchsiaGoodRodHouse_Blocks: INCBIN "maps/FuchsiaGoodRodHouse.blk"
+INCLUDE "data/maps/headers/Daycare.asm"
+INCLUDE "scripts/Daycare.asm"
+INCLUDE "data/maps/objects/Daycare.asm"
+; together with the above
+INCLUDE "data/maps/headers/Route12SuperRodHouse.asm"
+INCLUDE "scripts/Route12SuperRodHouse.asm"
+INCLUDE "data/maps/objects/Route12SuperRodHouse.asm"
 
 INCLUDE "data/maps/headers/Route21Dive.asm"
 INCLUDE "scripts/Route21Dive.asm"
@@ -730,17 +745,6 @@ SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
 
 SECTION "Maps 12", ROMX
 
-INCLUDE "scripts/Route2.asm"
-INCLUDE "scripts/Route3.asm"
-INCLUDE "scripts/Route4.asm"
-INCLUDE "scripts/Route5.asm"
-INCLUDE "scripts/Route9.asm"
-INCLUDE "scripts/Route13.asm"
-INCLUDE "scripts/Route14.asm"
-INCLUDE "scripts/Route17.asm"
-INCLUDE "scripts/Route19.asm"
-INCLUDE "scripts/Route21.asm"
-
 INCLUDE "data/maps/headers/CeladonMart2F.asm"
 INCLUDE "scripts/CeladonMart2F.asm"
 INCLUDE "data/maps/objects/CeladonMart2F.asm"
@@ -749,10 +753,7 @@ CeladonMart2F_Blocks: INCBIN "maps/CeladonMart2F.blk"
 INCLUDE "data/maps/headers/FuchsiaGoodRodHouse.asm"
 INCLUDE "scripts/FuchsiaGoodRodHouse.asm"
 INCLUDE "data/maps/objects/FuchsiaGoodRodHouse.asm"
-
-INCLUDE "data/maps/headers/Route12SuperRodHouse.asm"
-INCLUDE "scripts/Route12SuperRodHouse.asm"
-INCLUDE "data/maps/objects/Route12SuperRodHouse.asm"
+FuchsiaGoodRodHouse_Blocks: INCBIN "maps/FuchsiaGoodRodHouse.blk"
 
 INCLUDE "data/maps/headers/SilphCo8F.asm"
 INCLUDE "scripts/SilphCo8F.asm"
@@ -763,54 +764,47 @@ SilphCo8F_Blocks: INCBIN "maps/SilphCo8F.blk"
 SECTION "Maps 13", ROMX
 
 INCLUDE "data/maps/headers/Route6.asm"
+INCLUDE "scripts/Route6.asm"
 INCLUDE "data/maps/objects/Route6.asm"
 Route6_Blocks: INCBIN "maps/Route6.blk"
 
 INCLUDE "data/maps/headers/Route8.asm"
+INCLUDE "scripts/Route8.asm"
 INCLUDE "data/maps/objects/Route8.asm"
 Route8_Blocks: INCBIN "maps/Route8.blk"
 
 INCLUDE "data/maps/headers/Route10.asm"
+INCLUDE "scripts/Route10.asm"
 INCLUDE "data/maps/objects/Route10.asm"
 Route10_Blocks: INCBIN "maps/Route10.blk"
 
 INCLUDE "data/maps/headers/Route11.asm"
+INCLUDE "scripts/Route11.asm"
 INCLUDE "data/maps/objects/Route11.asm"
 Route11_Blocks: INCBIN "maps/Route11.blk"
 
 INCLUDE "data/maps/headers/Route12.asm"
+INCLUDE "scripts/Route12.asm"
 INCLUDE "data/maps/objects/Route12.asm"
 Route12_Blocks: INCBIN "maps/Route12.blk"
 
 INCLUDE "data/maps/headers/Route15.asm"
+INCLUDE "scripts/Route15.asm"
 INCLUDE "data/maps/objects/Route15.asm"
 Route15_Blocks: INCBIN "maps/Route15.blk"
 
 INCLUDE "data/maps/headers/Route16.asm"
+INCLUDE "scripts/Route16.asm"
 INCLUDE "data/maps/objects/Route16.asm"
 Route16_Blocks: INCBIN "maps/Route16.blk"
 
 INCLUDE "data/maps/headers/Route18.asm"
+INCLUDE "scripts/Route18.asm"
 INCLUDE "data/maps/objects/Route18.asm"
 Route18_Blocks: INCBIN "maps/Route18.blk"
 
-;	INCBIN "maps/UnusedPokecenterCopy.blk" ; edited as unused
-
-INCLUDE "data/maps/headers/Daycare.asm"
-INCLUDE "scripts/Daycare.asm"
-INCLUDE "data/maps/objects/Daycare.asm"
-
 
 SECTION "Maps 14", ROMX
-
-INCLUDE "scripts/Route6.asm"
-INCLUDE "scripts/Route8.asm"
-INCLUDE "scripts/Route10.asm"
-INCLUDE "scripts/Route11.asm"
-INCLUDE "scripts/Route12.asm"
-INCLUDE "scripts/Route15.asm"
-INCLUDE "scripts/Route16.asm"
-INCLUDE "scripts/Route18.asm"
 
 INCLUDE "data/maps/headers/PokemonFanClub.asm"
 INCLUDE "scripts/PokemonFanClub.asm"

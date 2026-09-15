@@ -889,6 +889,7 @@ ListOfTrainersWithGymLeaderDefeatMusic: ; new
 	db KOGA
 	db SABRINA
 	db BLAINE
+	db GIOVANNI
 	db LORELEI
 	db BRUNO
 	db AGATHA

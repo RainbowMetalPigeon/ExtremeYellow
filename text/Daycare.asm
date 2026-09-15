@@ -1,8 +1,15 @@
-_DayCareIntroText::
+_DayCareIntroText:: ; edited
 	text "I run a DAYCARE."
-	line "Would you like me"
-	cont "to raise one of"
+	line "The more BADGEs"
+	cont "you have, the"
+	cont "more effective"
+	cont "my cares are!"
+	cont "Exponentially so!"
+
+	para "Would you like me"
+	line "to raise one of"
 	cont "your #MON?"
+;	xxxx "123456789012345678"
 	done
 
 _DayCareWhichMonText::
