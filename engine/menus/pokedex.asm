@@ -1154,6 +1154,10 @@ PrintEvoInfo:
 .checkArmoredMewtwo
 	cp ARM_MEWTWO
 	jr nz, .checkMega
+; it's Armored Mewtwo; don't hide anything if we actually do HAVE a Mewtwo
+	call HaveWeAMewtwo
+	jr nz, .evolutionsVisible
+; hide evo page
 	hlcoord 1, 4
 	ld de, ArmoredMewtwoDedicatedEvoListText1
 	call PlaceString
@@ -1514,6 +1518,29 @@ AllMegaMons:
 	db MMEWTWOX
 	db MMEWTWOY
 	db -1
+
+HaveWeAMewtwo:
+	push bc
+	push de
+	push hl
+	;
+	ld a, [wd11e]
+	ld b, a
+	push bc
+	;
+	ld a, MEWTWO
+	ld [wd11e], a
+	ld hl, wPokedexSeen
+	call IsPokemonBitSet ; z=not seen; nz=seen
+	;
+	pop bc
+	ld a, b
+	ld [wd11e], a
+	;
+	pop hl
+	pop de
+	pop bc
+	ret
 
 SetHLToEvosMovesPointer:
 	ld hl, EvosMovesPointerTable
