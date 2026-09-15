@@ -1,4 +1,4 @@
-_LanceBeforeBattleText::
+_LanceBeforeBattleText:: ; edited
 	text "Ah! I heard about"
 	line "you, <PLAYER>!"
 
@@ -7,17 +7,30 @@ _LanceBeforeBattleText::
 	cont "call me LANCE the"
 	cont "dragon trainer!"
 
-	para "You know that"
-	line "dragons are"
-	cont "mythical #MON!"
+;	para "You know that"
+;	line "dragons are"
+;	cont "mythical #MON!"
+;
+;	para "They're hard to"
+;	line "catch and raise,"
+;	cont "but their powers"
+;	cont "are superior!"
 
-	para "They're hard to"
-	line "catch and raise,"
-	cont "but their powers"
-	cont "are superior!"
+;	para "They're virtually"
+;	line "indestructible!"
 
-	para "They're virtually"
-	line "indestructible!"
+	para "My legendary"
+	line "DRAGONs are"
+	cont "powerful engines"
+	cont "of destruction!"
+	cont "Virtually"
+	cont "invincible, very"
+	cont "few have faced"
+	cont "these awesome"
+	cont "creatures and"
+	cont "lived to tell"
+	cont "the tale!"
+;	xxxx "123456789012345678"
 
 	para "Well, are you"
 	line "ready to lose?"
@@ -200,43 +213,96 @@ _LanceAfterBattleTextRematch2::
 ; new for RP ===============================
 
 _LanceBeforeBattleText_RP::
-	text "before"
-	line "Lance"
+	text "I am LANCE of"
+	line "the ELITE FOUR."
+
+	para "If you managed to"
+	line "reach me it means"
+	cont "you're up to what"
+	cont "I heard of you."
+
+	para "But your path ends"
+	line "here and now,"
+	cont "because I, the"
+	cont "DRAGON master,"
+	cont "will stop you in"
+	cont "your way, once"
+	cont "and for all!"
 ;	xxxx "123456789012345678"
 	done
 
 _LanceEndBattleText_RP::
-	text "end"
-	line "Lance"
+	text "No! It"
+	line "cannot be!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LanceAfterBattleText_RP_Before::
-	text "after"
-	line "Lance"
+	text "I can't believe my"
+	line "DRAGONs lost!"
+	cont "That I lost!"
+
+	para "...umph. Normally"
+	line "it'd pain me to"
+	cont "admit it, but"
+	cont "in this moment I'm"
+	cont "glad that there's"
+	cont "someone even"
+	cont "stronger than me."
+
+	para "They WILL stop"
+	line "you, I'm sure of"
+	cont "that. Go on,"
+	cont "and face them."
 ;	xxxx "123456789012345678"
 	done
 
 _LanceAfterBattleText_RP_After::
-	text "I heard screaming"
-	line "what happened?"
+	text "I heard screaming!"
+	line "What happened in"
+	cont "there...?"
+
+	para "What did you do?!"
 ;	xxxx "123456789012345678"
 	done
 
 _LanceBeforeBattleText_RP_Pink::
-	text "before"
-	line "Lance Pink"
+	text "You."
+
+	para "You dare to show"
+	line "your face here"
+	cont "one more time."
+
+	para "I'll prevent our"
+	line "new leader from"
+	cont "being forced to"
+	cont "look at your"
+	cont "face once again."
+
+	para "You're going down"
+	line "by my ultimate"
+	cont "power."
 ;	xxxx "123456789012345678"
 	done
 
 _LanceEndBattleText_RP_Pink::
-	text "end"
-	line "Lance Pink"
+	text "This doesn't"
+	line "make any sense!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LanceAfterBattleText_RP_Pink_Core::
-	text "after"
-	line "Lance Pink"
+	text "How could I lose"
+	line "again to a filthy"
+	cont "criminal?!"
+
+	para "After all that"
+	line "we've trained!"
+	cont "I thought I"
+	cont "achieved"
+	cont "perfection!"
+
+	para "What are yo-? No!"
+	line "AAAAHHH!!!"
 ;	xxxx "123456789012345678"
 	done

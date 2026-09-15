@@ -115,37 +115,76 @@ _BrunoAfterBattleTextRematch2::
 ; new for RP ===============================
 
 _BrunoBeforeBattleText_RP::
-	text "before"
-	line "Bruno"
+	text "I am BRUNO of"
+	line "the ELITE FOUR."
+
+	para "You seek power,"
+	line "that is clear."
+	cont "But strength"
+	cont "acquired via"
+	cont "cheating is a"
+	cont "feeble thing."
+	cont "Real force only"
+	cont "comes from hard"
+	cont "work and effort."
+
+	para "Let's FIGHTING!"
+	line "I'll show the"
+	cont "difference"
+	cont "between our paths!"
 ;	xxxx "123456789012345678"
 	done
 
 _BrunoEndBattleText_RP::
-	text "end"
-	line "Bruno"
+	text "No!"
+	line "It can't be!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _BrunoAfterBattleText_RP::
-	text "after"
-	line "Bruno"
+	text "You overcame the"
+	line "power I built"
+	cont "with my years of"
+	cont "efforts!"
+
+	para "I can only tell"
+	line "you to proceed."
+	cont "But be sure, your"
+	cont "path'll eventually"
+	cont "crumble under you."
 ;	xxxx "123456789012345678"
 	done
 
 _BrunoBeforeBattleText_RP_Pink::
-	text "before"
-	line "Bruno Pink"
+	text "You're back!"
+	line "But this time"
+	cont "it will be"
+	cont "different!"
+	
+	para "We trained like"
+	line "crazy under our"
+	cont "new leader,"
+	cont "and awoke a power"
+	cont "as anything else!"
+
+	para "Fight!"
+	line "OOH-AAH!"
 ;	xxxx "123456789012345678"
 	done
 
 _BrunoEndBattleText_RP_Pink::
-	text "end"
-	line "Bruno Pink"
+	text "How could"
+	line "I lose again?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _BrunoAfterBattleText_RP_Pink::
-	text "after"
-	line "Bruno Pink"
+	text "Despite all our"
+	line "training, I still"
+	cont "lost? Is your way"
+	cont "really superior?"
+
+	para "Agh! What?! No!"
+	line "AAAAHHH!!!"
 ;	xxxx "123456789012345678"
 	done

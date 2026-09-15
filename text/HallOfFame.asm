@@ -120,22 +120,109 @@ _HallofFameRoomText4::
 ; new for RP =============================
 
 _HallofFameRoomText1_RP::
-	text "OAK: There you are"
+	text "OAK: ...<PLAYER>."
+
+	para "I... I didn't want"
+	line "to believe what"
+	cont "I heard."
+
+	para "I couldn't. I've"
+	line "known you for all"
+	cont "of your life."
+	cont "I couldn't accept"
+	cont "that you joined"
+	cont "TEAM ROCKET."
+	cont "That you became"
+	cont "a criminal."
+	
+	para "Even when it"
+	line "became painfully"
+	cont "undeniable..."
+	cont "I wanted to"
+	cont "believe you could"
+	cont "still redeem."
+	cont "Change your ways."
+	cont "Come back."
+	
+	para "I didn't want to"
+	line "interfere,"
+	cont "because sometimes"
+	cont "people need to"
+	cont "take a wrong"
+	cont "turn in life"
+	cont "and realize it"
+	cont "themselves to"
+	cont "truly grow."
+
+	para "But now you"
+	line "crossed a line."
+
+	para "I regret so deeply"
+	line "not to have step"
+	cont "down before."
+	cont "I could have"
+	cont "prevented this."
+	cont "I could have"
+	cont "saved <RIVAL>..."
+
+	para "Do I look calm"
+	line "to you?"
+
+	para "I am not."
+
+	para "I am boiling with"
+	line "rage. I've never"
+	cont "been so furious"
+	cont "in all my life."
+
+	para "But I know that"
+	line "in order to take"
+	cont "you down and"
+	cont "avenge <RIVAL>"
+	cont "I can't let myself"
+	cont "be led astray"
+	cont "by my wrath, or"
+	cont "I won't be able"
+	cont "to beat you."
+
+	para "You are a monster."
+	line "You disgust me."
+	cont "Farewell, <PLAYER>."
 ;	xxxx "123456789012345678"
 	done
 
 _HoFOakDefeatText::
-	text "prof.oak: I lost"
+	text "No..."
 ;	xxxx "123456789012345678"
 	prompt
 
 _HoFOakWonText::
-	text "prof.oak: I won"
+	text "..."
+	line "Disgusting and"
+	cont "pathetic."
 ;	xxxx "123456789012345678"
 	prompt
 
 _HallofFameRoomTextScript1_RP::
-	text "OAK: GG"
+	text "No..."
+	line "Even my last"
+	cont "standing was"
+	cont "useless?"
+
+	para "I let you grow"
+	line "into a monster."
+	cont "I didn't step in"
+	cont "in time."
+	cont "I let you kill"
+	cont "my grankid."
+
+	para "I'm no better"
+	line "than you."
+
+	para "You are an"
+	line "abomination, and"
+	cont "I am a complete"
+	cont "failure."
 ;	xxxx "123456789012345678"
 	done
 
@@ -145,7 +232,7 @@ _HallofFameRoomSignText1_Wrong::
 	done
 
 _HallofFameRoomSignText1_Right::
-	text "<PLAYER> accesses"
+	text "<PLAYER> accessed"
 	line "HALL OF FAME's PC."
 ;	xxxx "123456789012345678"
 	done

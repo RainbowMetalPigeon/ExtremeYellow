@@ -164,10 +164,8 @@ INCLUDE "text/SafariZoneNorthRestHouse.asm"
 INCLUDE "text/CeruleanCaveB1F.asm"
 INCLUDE "text/VictoryRoad1F.asm"
 INCLUDE "text/RockTunnelB1F.asm"
-INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/ViridianCity.asm"
-INCLUDE "text/SaffronPokecenter.asm"
 
 
 SECTION "Text Extra 3", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -190,6 +188,8 @@ INCLUDE "text/ObsidianPokecenter.asm" ; new
 INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/VermilionPokecenter.asm"
 INCLUDE "text/CeruleanBadgeHouse.asm" ; moved from Text 5
+INCLUDE "text/SaffronPokecenter.asm"
+INCLUDE "text/SeafoamIslandsB4F.asm"
 
 
 SECTION "Text Extra 5", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -230,20 +230,16 @@ INCLUDE "text/FightingDojo.asm"
 INCLUDE "text/SaffronGym.asm"
 INCLUDE "text/SilphCo9F.asm"
 INCLUDE "text/Route30.asm" ; new
-INCLUDE "text/PikachuGrotto.asm" ; new
 INCLUDE "text/ObsidianHouses.asm" ; new
 INCLUDE "text/PokemonTower7F.asm"
 INCLUDE "text/PokemonTower6F.asm"
 INCLUDE "text/PewterMart.asm"
-INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/CeruleanMart.asm"
-INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/LavenderCuboneHouse.asm"
 INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
-INCLUDE "text/CinnabarLabFossilRoom.asm"
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -256,6 +252,7 @@ INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route21.asm"
+INCLUDE "text/PikachuGrotto.asm" ; new
 
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -280,11 +277,12 @@ INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
+INCLUDE "text/ViridianMart.asm"
+INCLUDE "text/CinnabarLabFossilRoom.asm"
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "data/text/text_2.asm"
-INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/SilphCo1F.asm"
@@ -320,6 +318,8 @@ INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/VermilionMart.asm"
+INCLUDE "text/LavenderMart.asm"
+INCLUDE "text/PokemonMansionB1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

@@ -921,26 +921,64 @@ _GaryTextScript3_RP::
 	done
 
 _GaryText3_RP::
-	text "PINK: badcome"
+	text "PINK: <PLAYER>."
+
+	para "I hate you."
+	line "I hate you with"
+	cont "all my strength."
+
+	para "I never felt so"
+	line "strongly anything"
+	cont "for anyone."
+
+	para "You're disgusting."
+	line "Horrible. The"
+	cont "embodiment of"
+	cont "everything that's"
+	cont "wrong in this"
+	cont "fucked world."
+
+	para "But I reach the"
+	line "pinnacle, as I"
+	cont "promised."
+	cont "I'm the strongest"
+	cont "TRAINER in the"
+	cont "whole planet."
+
+	para "And now, I'll purge"
+	line "you from this"
+	cont "existence."
 ;	xxxx "123456789012345678"
 	done
 
 _ChampionsRoomPinkDefeatedText_RP::
-	text "pink: i lost"
+	text "No..."
+	line "No. NO NO NO!!!"
+	cont "AAARRRGGGHHH!!!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _ChampionsRoomPinkVictoryText_RP::
-	text "pink: i won"
+	text "YES! YES!"
+	line "And now you DIE!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _GaryTextScript4_RP::
-	text "PINK: you bastard"
+	text "PINK: You..."
+	line "Fucking..."
+	cont "Revolting..."
+	cont "Disg-"
+
+	para "ARGH!"
+	line "No! Stop!"
+	cont "No!!!"
+	cont "Aaah!"
+	cont "Don't!"
 ;	xxxx "123456789012345678"
 	done
 
 _GaryTextScript5_RP::
-	text "PINK: AAAHHH"
+	text "AAAHHH!!!"
 ;	xxxx "123456789012345678"
 	done

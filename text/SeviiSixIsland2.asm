@@ -392,26 +392,72 @@ _SeviiDottedHoleTextScript4_RP::
 	done
 
 _SeviiSixIslandCityText4::
-	text "???: you!"
+	text "???: You!"
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandCityScriptText1::
-	text "PINK: die"
+	text "PINK: I heard the"
+	line "that you killed"
+	cont "the previous BOSS"
+	cont "of TEAM ROCKET"
+	cont "and took their"
+	cont "place."
+
+	para "You're disgusting"
+	line "beyond words."
+
+	para "You're devastating"
+	line "my land and"
+	cont "so many lives!"
+
+	para "It's time to put"
+	line "you in your"
+	cont "place: down."
+	cont "Forever." 
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiSixIslandCityPinkDefeatedText::
-	text "pink: shit"
+	text "That's...!"
+	line "It can't be!"
+	cont "Not after all"
+	cont "my training!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSixIslandCityPinkWonText::
-	text "pink: purge time"
+	text "Yes!"
+	line "Finally!"
+	cont "And now, it's"
+	cont "purge time."
 ;	xxxx "123456789012345678"
 	prompt
 
 _SeviiSixIslandCityScriptText2::
-	text "PINK: go to top"
+	text "PINK: I can't"
+	line "believe it!"
+	cont "I can't ACCEPT it!"
+	cont "Is there no"
+	cont "justice in this"
+	cont "rotten world?!"
+
+	para "How can you do"
+	line "so much arm and"
+	cont "go unpunished?!"
+
+	para "But it's not the"
+	line "end! You rose to"
+	cont "the top of your"
+	cont "mafia group?"
+	cont "I'll rise to the"
+	cont "top too! To the"
+	cont "absolute peak!"
+	
+	para "And then we will"
+	line "see whose top is"
+	cont "higher: your"
+	cont "criminal one, or"
+	cont "my justice one!"
 ;	xxxx "123456789012345678"
 	done

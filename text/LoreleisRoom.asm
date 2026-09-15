@@ -128,42 +128,65 @@ _LoreleiAfterBattleTextRematch2::
 ; new for RP ===============================
 
 _LoreleiBeforeBattleText_RP::
-	text "before"
-	line "Lorelei"
+	text "I am LORELEI of"
+	line "the ELITE FOUR."
+
+	para "And you're an"
+	line "unwelcome"
+	cont "challenger."
+
+	para "The glacier that"
+	line "is your heart is"
+	cont "even colder than"
+	cont "my ICE, but I'll"
+	cont "make sure to see"
+	cont "frozen for good."
 ;	xxxx "123456789012345678"
 	done
 
 _LoreleiEndBattleText_RP::
-	text "end"
-	line "Lorelei"
+	text "That"
+	line "is unfair!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LoreleiAfterBattleText_RP::
-	text "after"
-	line "Lorelei"
+	text "Tsk. What can I"
+	line "say? Go through."
+	
+	para "But stay assure,"
+	line "my colleagues'll"
+	cont "destroy you."
 ;	xxxx "123456789012345678"
 	done
 
 _LoreleiBeforeBattleText_RP_Pink::
-	text "before"
-	line "Lorelei Pink"
+	text "You again!"
+	line "But this time we"
+	cont "have a new leader"
+	cont "that will guide"
+	cont "us against you."
+
+	para "Get ready to be"
+	line "demolished! We're"
+	cont "stronger than"
+	cont "ever before!"
 ;	xxxx "123456789012345678"
 	done
 
 _LoreleiEndBattleText_RP_Pink::
-	text "end"
-	line "Lorelei Pink"
+	text "It's"
+	line "impossible!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _LoreleiAfterBattleText_RP_Pink::
-	text "after"
-	line "Lorelei Pink"
-;	xxxx "123456789012345678"
-	done
+	text "How...? How did I"
+	line "lose again? We"
+	cont "all trained so"
+	cont "much... How?!"
 
-_LoreleiDeathText_RP::
-	text "AAAAHHH!!!"
+	para "What? No!"
+	line "AAAAHHH!!!"
 ;	xxxx "123456789012345678"
 	done
