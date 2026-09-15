@@ -84,7 +84,7 @@ _SeviiOneIslandCitySignText3::
 _SeviiOneIslandCitySignText4::
 	text "East: ROUTE 31,"
 	line "EMBER SPA,"
-	cont "MT EMBER"
+	cont "MT.EMBER"
 	done
 
 _SeviiOneIslandCitySignText5::
@@ -606,7 +606,7 @@ _SeviiOneIslandPokemonCenterAndMart_Text3::
 _SeviiOneIslandPokemonCenterAndMart_Text4::
 	text "I need REPELs and"
 	line "POTIONs to go to"
-	cont "MT EMBER."
+	cont "MT.EMBER."
 ;	xxxx "123456789012345678"
 	done
 
@@ -791,7 +791,7 @@ _SeviiIslandsDockTruckMessage_One_Braille::
 _SeviiRoute31Text1::
 	text "I tried for days"
 	line "solving the maze"
-	cont "of MT EMBER."
+	cont "of MT.EMBER."
 
 	para "Still no results."
 	line "So I'm taking a"
@@ -888,7 +888,7 @@ _SeviiRoute31EndBattleText5::
 
 _SeviiRoute31AfterBattleText5::
 	text "Ahead from here"
-	line "there's MT EMBER."
+	line "there's MT.EMBER."
 
 	para "It's said to be a"
 	line "crazy maze hiding"
@@ -930,7 +930,7 @@ _SeviiRoute31EndBattleText7::
 	prompt
 
 _SeviiRoute31AfterBattleText7::
-	text "MT EMBER view,"
+	text "MT.EMBER view,"
 	line "EMBER SPA nearby,"
 	cont "the sound of the"
 	cont "waves, the"

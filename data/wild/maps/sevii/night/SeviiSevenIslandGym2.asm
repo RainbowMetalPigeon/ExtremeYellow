@@ -1,5 +1,5 @@
 SeviiSevenIslandGym2WildMonsNight:
-	def_grass_wildmons 25 ; encounter rate
+	def_grass_wildmons 15 ; encounter rate
 	db  99, ELECTRODE	; 19.9%
 	db  99, ELECTRODE	; 19.9%
 	db  99, MRAICHUY	; 15.2%
@@ -16,7 +16,7 @@ SeviiSevenIslandGym2WildMonsNight:
 	db	 1, MEW			;  0.4%
 	end_grass_wildmons
 
-	def_water_wildmons 10 ; encounter rate
+	def_water_wildmons 5 ; encounter rate
 	db  99, MGYARADOS	; 19.9%
 	db  99, MGYARADOS	; 19.9%
 	db  99, MGYARADOS	; 15.2%

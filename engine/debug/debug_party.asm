@@ -163,7 +163,25 @@ IF DEF(_DEBUG)
     ; Set some attacks as seen
     ld hl, wAttackdexSeen
     ld a, %11001101
+    ld a, %11111111
     ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hli], a
+    ld [hl], a
 
 	; Rival chose Jolteon. ; edited, unused
 ;	ld hl, wRivalStarter

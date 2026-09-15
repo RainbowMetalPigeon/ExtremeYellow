@@ -308,6 +308,7 @@ _SeviiSevenIslandHousesSignText8_Empty::
 
 _SeviiSevenIslandGym1Text1::
 	text "Welcome, CHAMPION!"
+;	xxxx "123456789012345678"
 	line "I'm your guide for"
 	cont "this SHRINE."
 
@@ -555,7 +556,7 @@ _SeviiSevenIslandGym2DiveAfterBattleText5::
 
 _SeviiSevenIslandGym3Text1_Intro::
 	text "NANETTE: Ahahah!"
-	line "Welcome, CHAMPION!"
+	line "Welcome CHAMPION!"
 	cont "I hope you had a"
 	cont "good adventure"
 	cont "through my dunge-"
@@ -803,7 +804,7 @@ _SeviiRoute42AfterBattleText2::
 	text "Have you visited"
 	line "FORTUNE already?"
 	cont "Do you prefer it"
-	line "or QUEST?"
+	cont "or QUEST?"
 	done
 
 ; -----

@@ -194,7 +194,7 @@ _Lab1Text3_Seismologist::
 
 	para "And they also told"
 	line "me to keep an eye"
-	cont "on MT EMBER!"
+	cont "on MT.EMBER!"
 	cont "That's too much!"
 	done
 

@@ -76,7 +76,7 @@ SixIslandName:       db "FORTUNE ISLAND@"
 SevenIslandName:     db "QUEST ISLAND@"
 EightIslandName:     db "GENESIS ISLAND@" ; BIRTH-NAVEL
 Route31Name:         db "ROUTE 31@"
-MtEmberName:         db "MT. EMBER@"
+MtEmberName:         db "MT.EMBER@"
 EmberSpaName:        db "EMBER SPA@"
 Route32Name:         db "ROUTE 32@"
 Route32DiveName:     db "SUB ROUTE 32@"

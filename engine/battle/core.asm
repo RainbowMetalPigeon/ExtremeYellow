@@ -2353,7 +2353,6 @@ TrainersAgainstWhomBagIsForbidden: ; new
 	db OPP_YOTTRO
 	db OPP_SANTRE
 	db OPP_ROKUSEI
-	db OPP_NANETTE
 	db OPP_SUUJERO
 	db -1
 

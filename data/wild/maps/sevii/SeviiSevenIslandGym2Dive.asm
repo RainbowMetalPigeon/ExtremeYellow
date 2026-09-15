@@ -1,5 +1,5 @@
 SeviiSevenIslandGym2DiveWildMons:
-	def_grass_wildmons 25 ; encounter rate
+	def_grass_wildmons 15 ; encounter rate
 	db  99, MSTARMIE	; 19.9%
 	db  99, MSTARMIE	; 19.9%
 	db  99, MSTARMIE	; 15.2%

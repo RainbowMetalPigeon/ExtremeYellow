@@ -466,7 +466,7 @@ _DarkGuideHints_Hint8_Solution::
 	cont "which you need to"
 	cont "bring the FLAME"
 	cont "PLUME, found in"
-	cont "MT.EMBER, to LAKE"
+	cont "MT. EMBER, to LAKE"
 	cont "OF MIST."
 
 	para "The TOPAZ's in the"

@@ -1191,21 +1191,21 @@ SpecialTrainerMoves:
 	db 3, 2, THUNDER
 	db 3, 3, ICE_PUNCH
 	db 3, 4, CLOSE_COMBAT
-	; TANGROWTH
-	db 4, 1, EARTHQUAKE
-	db 4, 2, HYPER_BEAM
-	db 4, 3, LEAF_STORM
-	db 4, 4, ROCK_SLIDE
 	; JOLTEON
-	db 5, 1, THUNDER
-	db 5, 2, DOUBLE_KICK
-	db 5, 3, HYPER_BEAM
-	db 5, 4, SHADOW_BALL
-	; RAICHU
-	db 6, 1, VOLT_TACKLE
-	db 6, 2, SURF
-	db 6, 3, MEGA_PUNCH
-	db 6, 4, PSYCHIC_M
+	db 4, 1, THUNDER
+	db 4, 2, DOUBLE_KICK
+	db 4, 3, HYPER_BEAM
+	db 4, 4, SHADOW_BALL
+	; MRAICHUX
+	db 5, 1, METEOR_MASH
+	db 5, 2, VOLT_TACKLE
+	db 5, 3, EXTREMESPEED
+	db 5, 4, CLOSE_COMBAT
+	; MRAICHUY
+	db 6, 1, THUNDER
+	db 6, 2, OUTRAGE
+	db 6, 3, SURF
+	db 6, 4, DRAININGKISS
 	db $FE
 
 ; ERIKA's teams -------------------------------------------------
