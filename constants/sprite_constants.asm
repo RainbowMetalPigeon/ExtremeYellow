@@ -150,4 +150,5 @@ DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_ROCKET_FAINTED          ; new
 	const SPRITE_BADGE_MACHINE           ; new
 	const SPRITE_CELEBI                  ; new
+	const SPRITE_TRIANGULAR_STONE        ; new
 DEF NUM_SPRITES EQU const_value - 1

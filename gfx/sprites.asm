@@ -137,6 +137,7 @@ CarrSprite::             INCBIN "gfx/sprites/carr.2bpp"
 OrmSprite::              INCBIN "gfx/sprites/orm.2bpp"
 SirdSprite::             INCBIN "gfx/sprites/sird.2bpp"
 PinkSprite::             INCBIN "gfx/sprites/pink.2bpp"
+TriangularStoneSprite::  INCBIN "gfx/sprites/triangular_stone.2bpp"
 
 
 SECTION "NPC Sprites 5", ROMX ; new

@@ -6,9 +6,11 @@ _AttackdexText_PROXY::
 
 _AttackdexText_SwitchEffect::
 	text "Wild battles: ends"
-	next "the fight; it can"
-	next "fail. VS trainers:"
-	next "forces a switch"
+	next "fight, can fail."
+;	xxxx "123456789012345678"
+	next "VS trainers: force"
+	next "a switch. Prio -6"
+;	xxxx "123456789012345678"
 	dex
 
 _AttackdexText_PerishSongEffect::

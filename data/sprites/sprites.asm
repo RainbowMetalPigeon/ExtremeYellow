@@ -155,4 +155,5 @@ SpriteSheetPointerTable:
 	overworld_sprite RocketFaintedSprite, 4     ; SPRITE_ROCKET_FAINTED ; new
 	overworld_sprite BadgeMachineSprite, 4      ; SPRITE_BADGE_MACHINE ; new
 	overworld_sprite CelebiSprite, 4            ; SPRITE_CELEBI ; new
+	overworld_sprite TriangularStoneSprite, 4   ; SPRITE_TRIANGULAR_STONE ; new
 	assert_table_length NUM_SPRITES
