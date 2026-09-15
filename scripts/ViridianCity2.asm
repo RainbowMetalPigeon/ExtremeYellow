@@ -13,8 +13,7 @@ Func_f18c7:: ; edited
 	jr nz, .done
 	ld hl, ViridianCityText_19122 ; pre-Obsidian
 .done
-	call PrintText
-	ret
+	jp PrintText
 
 ViridianCityText_19122:
 	text_far _ViridianCityText_19122
