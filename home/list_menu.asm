@@ -230,7 +230,37 @@ DisplayChooseQuantityMenu::
 	jr nz, .incrementQuantity
 	bit BIT_D_DOWN, a
 	jr nz, .decrementQuantity
-	jr .waitForKeyPressLoop
+; new for +-10 from ZetaPhoenix
+	bit BIT_D_RIGHT, a
+	jr nz, .incrementQuantityBy10
+	bit BIT_D_LEFT, a
+	jr nz, .decrementQuantityBy10
+	jr .waitForKeyPressLoop ; inherited from vanilla
+.incrementQuantityBy10
+	ld a, [wMaxItemQuantity]
+	ld c, a
+	inc a
+	ld b, a
+	ld hl, wItemQuantity ; current quantity
+	ld a, [hl]
+	cp c
+	jr z, .wrapTo1
+	add a, 10
+	ld [hl], a
+	cp b
+	jr c, .handleNewQuantity
+	jr .wrapToMaxItemQuantity
+.decrementQuantityBy10
+	ld hl, wItemQuantity ; current quantity
+	ld a, [hl]
+	cp 1
+	jr z, .wrapToMaxItemQuantity
+	sub a, 10
+	ld [hl], a
+	jr z, .wrapTo1
+	jr c, .wrapTo1
+	jr .handleNewQuantity
+; BTV
 .incrementQuantity
 	ld a, [wMaxItemQuantity]
 	inc a
@@ -240,6 +270,7 @@ DisplayChooseQuantityMenu::
 	ld a, [hl]
 	cp b
 	jr nz, .handleNewQuantity
+.wrapTo1 ; new label for +-10
 ; wrap to 1 if the player goes above the max quantity
 	ld a, 1
 	ld [hl], a
@@ -248,6 +279,7 @@ DisplayChooseQuantityMenu::
 	ld hl, wItemQuantity ; current quantity
 	dec [hl]
 	jr nz, .handleNewQuantity
+.wrapToMaxItemQuantity ; new label for +-10
 ; wrap to the max quantity if the player goes below 1
 	ld a, [wMaxItemQuantity]
 	ld [hl], a
