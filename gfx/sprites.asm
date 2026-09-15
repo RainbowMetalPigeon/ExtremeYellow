@@ -136,14 +136,6 @@ ArcherSprite::           INCBIN "gfx/sprites/archer.2bpp"
 CarrSprite::             INCBIN "gfx/sprites/carr.2bpp"
 OrmSprite::              INCBIN "gfx/sprites/orm.2bpp"
 SirdSprite::             INCBIN "gfx/sprites/sird.2bpp"
-IchinoSprite::           ; TBE
-NiueSprite::             ; TBE
-SantreSprite::           ; TBE
-YottroSprite::           ; TBE
-GonqueSprite::           ; TBE
-RokuseiSprite::          ; TBE
-NanetteSprite::          ; TBE
-SuujeroSprite::          INCBIN "gfx/sprites/darkguide.2bpp" ; TBE
 PinkSprite::             INCBIN "gfx/sprites/pink.2bpp"
 
 
@@ -167,3 +159,11 @@ CelebiSprite::           INCBIN "gfx/sprites/celebi.2bpp"
 RedRocketSprite::        INCBIN "gfx/sprites/red_rocket.2bpp"
 GreenRocketSprite::      INCBIN "gfx/sprites/green_rocket.2bpp"
 YellowRocketSprite::     INCBIN "gfx/sprites/yellow_rocket.2bpp"
+IchinoSprite::           INCBIN "gfx/sprites/ichino.2bpp"
+NiueSprite::             INCBIN "gfx/sprites/niue.2bpp"
+SantreSprite::           INCBIN "gfx/sprites/santre.2bpp"
+YottroSprite::           INCBIN "gfx/sprites/yottro.2bpp"
+GonqueSprite::           INCBIN "gfx/sprites/gonque.2bpp"
+RokuseiSprite::          INCBIN "gfx/sprites/rokusei.2bpp"
+NanetteSprite::          INCBIN "gfx/sprites/nanette.2bpp"
+SuujeroSprite::          INCBIN "gfx/sprites/suujero.2bpp"
