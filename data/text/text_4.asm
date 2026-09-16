@@ -197,6 +197,44 @@ _RandomizationInfoTextEvolutions::
 	cont "at every level."
 	prompt
 
+_RandomizationInfoTextChaosMode::
+	text "At the chosen time"
+	line "interval (every"
+	cont "frame, second,"
+	cont "minute, or hour)"
+	cont "a random value is"
+	cont "inserted into a"
+	cont "random memory"
+	cont "address."
+
+	para "ATTENTION!"
+	line "Can result in"
+	cont "unplayable games!"
+	cont "Meant only for"
+	cont "joke runs!"
+	cont "Game can crash"
+	cont "at any time!"
+;	xxxx "123456789012345678"
+
+	para "BOXes & savefiles"
+	line "are unaffected."
+	cont "As long as you do"
+	cont "NOT save, the"
+	cont "effects are"
+	cont "reversible."
+;	xxxx "123456789012345678"
+	prompt
+
+_RandomizationChaosModeWarningText::
+	text "DANGEROUS!!!"
+	line "Changing this"
+	cont "option can glitch"
+	cont "the current run."
+	cont "Press A or SELECT"
+	cont "for more info."
+;	xxxx "123456789012345678"
+	prompt
+
 ; battle luck --------
 
 _LuckInfoTextAccuracy::

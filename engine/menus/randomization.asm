@@ -21,6 +21,7 @@ DisplayRandomizationMenu::
 	call DelayFrame
 	jr .randomizationMenuLoop
 .exitRandomizationMenu
+	ResetEvent EVENT_DO_NOT_WARN_ABOUT_CHAOS_MODE
 ; to inizialite the random address needed for the wild encounters and type chart option
 ; see commens about the other part for more info
 	ldh a, [hRandomAdd]
@@ -48,7 +49,7 @@ RandomizationMenuJumpTable:
 	dw RandomizationMenu_TypeChart
 	dw RandomizationMenu_Items
 	dw RandomizationMenu_Evolutions
-	dw RandomizationMenu_Dummy
+	dw RandomizationMenu_ChaosMode
 	dw RandomizationMenu_Dummy
 	dw RandomizationMenu_Cancel
 
@@ -274,6 +275,66 @@ RandomizationMenu_Evolutions:
 
 ; ---------------------------------------------
 
+RandomizationMenu_ChaosMode:
+	ld a, [wRandomizationChaosMode]
+	ld c, a
+	ldh a, [hJoy5]
+	
+	bit 4, a ; right
+	jr nz, .pressedLeftOrRight
+	bit 5, a
+	jr z, .nonePressed
+.pressedLeftOrRight
+	CheckEvent EVENT_DO_NOT_WARN_ABOUT_CHAOS_MODE
+	jr nz, .actuallyChangeChoice
+	SetEvent EVENT_DO_NOT_WARN_ABOUT_CHAOS_MODE
+	ld hl, RandomizationChaosModeWarningText
+	call PrintText
+	call InitRandomizationMenu_Redo
+	jr RandomizationMenu_ChaosMode
+.actuallyChangeChoice
+	ldh a, [hJoy5]
+
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $4
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $5
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wRandomizationChaosMode], a
+.nonePressed
+	ld b, $0
+	ld hl, RandomizationStringsPointerTableChaosMode
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 13, 12
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
 ; unused
 RandomizationMenu_Warps:
 	ld a, [wOptions] ; TBE
@@ -360,7 +421,7 @@ RandomizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 4 ; number of options - 1
+	cp 5 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -371,7 +432,7 @@ RandomizationControl:
 	ld a, [hl]
 	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 4 ; number of options - 1
+	ld [hl], 5 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -386,7 +447,7 @@ RandomizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wMultipurposeTemporaryStorage], a
-	cp 5 ; number of options
+	cp 6 ; number of options
 	ret nc
 	add a ; doubles a
 	ld e, a
@@ -398,8 +459,7 @@ RandomizationControl:
 	ld l, a
 	call PrintText
 	SetEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
-	call InitRandomizationMenu_Redo
-	ret
+	jp InitRandomizationMenu_Redo
 
 RandomizationMenu_UpdateCursorPosition:
 	hlcoord 1, 2
@@ -445,7 +505,7 @@ InitRandomizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through
 .loop
 	push bc
 	call GetRandomizationPointer ; updates the next option
@@ -473,7 +533,7 @@ InitRandomizationMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 5 ; the number of options to loop through
+	ld c, 6 ; the number of options to loop through
 .loop
 	push bc
 	call GetRandomizationPointer ; updates the next option
@@ -493,7 +553,8 @@ AllRandomizationText:
 	next "ENEMY TEAMS :"
 	next "TYPE CHART  :"
 	next "ITEMS:"
-	next "EVOLUTIONS:@"
+	next "EVOLUTIONS:"
+	next "CHAOS MODE:@"
 
 RandomizationTitleText:
 	db "RANDOMIZATION@"
@@ -510,6 +571,24 @@ NoText:
 YesText:
 	db "YES@"
 
+RandomizationStringsPointerTableChaosMode:
+	dw No2Text
+	dw HourText
+	dw MinuteText
+	dw SecondText
+	dw FrameText
+
+No2Text:
+	db "NO    @"
+HourText:
+	db "HOUR  @"
+MinuteText:
+	db "MINUTE@"
+SecondText:
+	db "SECOND@"
+FrameText:
+	db "FRAME @"
+
 ; new, for info
 
 RandomizationInfoTexts:
@@ -518,6 +597,7 @@ RandomizationInfoTexts:
 	dw RandomizationInfoTextTypeChart
 	dw RandomizationInfoTextItems
 	dw RandomizationInfoTextEvolutions
+	dw RandomizationInfoTextChaosMode
 
 RandomizationInfoTextWildMons:
 	text_far _RandomizationInfoTextWildMons
@@ -537,4 +617,12 @@ RandomizationInfoTextItems:
 
 RandomizationInfoTextEvolutions:
 	text_far _RandomizationInfoTextEvolutions
+	text_end
+
+RandomizationInfoTextChaosMode:
+	text_far _RandomizationInfoTextChaosMode
+	text_end
+
+RandomizationChaosModeWarningText:
+	text_far _RandomizationChaosModeWarningText
 	text_end

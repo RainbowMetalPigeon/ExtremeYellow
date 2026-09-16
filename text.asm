@@ -262,6 +262,8 @@ INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
 INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/Route9.asm"
+INCLUDE "text/ViridianMart.asm"
+INCLUDE "text/OchrePokecenter.asm" ; new
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -274,9 +276,7 @@ INCLUDE "text/PewterPokecenter.asm"
 INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
-INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/CinnabarLabFossilRoom.asm"
-INCLUDE "text/OchrePokecenter.asm" ; new
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones

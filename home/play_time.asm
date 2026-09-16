@@ -8,12 +8,12 @@ TrackPlayTime::
 	ld a, [wd732]
 	bit 0, a
 	ret z
-;; if wram variable for play time maxed is set: return and do nothing
-;; this is redundant with the first variable above
-;	ld a, [wPlayTimeMaxed]
-;	and a
-;	ret nz
 ; handle frames
+; new for Chaos Mode
+	ld a, [wRandomizationChaosMode]
+	cp 4 ; frames
+	call z, RandomizeMainDataByte
+; BTV
 	ld a, [wPlayTimeFrames]
 	inc a
 	ld [wPlayTimeFrames], a
@@ -22,6 +22,11 @@ TrackPlayTime::
 ; handle seconds
 	xor a
 	ld [wPlayTimeFrames], a
+; new for Chaos Mode
+	ld a, [wRandomizationChaosMode]
+	cp 3 ; seconds
+	call z, RandomizeMainDataByte
+; BTV
 	ld a, [wPlayTimeSeconds]
 	inc a
 	ld [wPlayTimeSeconds], a
@@ -30,6 +35,11 @@ TrackPlayTime::
 ; handle minutes
 	xor a
 	ld [wPlayTimeSeconds], a
+; new for Chaos Mode
+	ld a, [wRandomizationChaosMode]
+	cp 2 ; minutes
+	call z, RandomizeMainDataByte
+; BTV
 ; new, for day-night cycle
 	ld a, [wDayNightCycle]
 	add 1 << 1 ; 2 : 1 shifted one bit to the left
@@ -49,6 +59,11 @@ TrackPlayTime::
 .hours
 	xor a
 	ld [wPlayTimeMinutes], a
+; new for Chaos Mode
+	ld a, [wRandomizationChaosMode]
+	cp 1 ; hours
+	call z, RandomizeMainDataByte
+; BTV
 	ld a, [wPlayTimeHours+1]
 	inc a
 	ld [wPlayTimeHours+1], a
@@ -153,3 +168,32 @@ TrackPlayTime_ParkourPath:: ; new
 	ResetEvent EVENT_PARKOUR_TRACKING_TIME
 	SetEvent EVENT_PARKOUR_OVERTIME
 	ret
+
+RandomizeMainDataByte: ; new
+	CheckEvent EVENT_DO_NOT_WARN_ABOUT_CHAOS_MODE
+	ret nz ; do NOT deploy Chaos Mode while the player if looking at it
+.loop
+    call Random
+; We only need 14 bits because a bank is maximum 16 kB
+; bc = random value from $0000-$4000 = 0-16384 = %0-00111111'11111111
+    ldh a, [hRandomAdd]
+    and %00111111
+    ld b, a ; high byte
+    ldh a, [hRandomSub]
+    ld c, a ; low byte
+; reject values >= Main Data size
+; check high byte
+    ld a, b
+    cp HIGH(wMainDataEnd - wMainDataStart)
+    jr c, .gotOffset
+    jr nz, .loop
+; check low byte
+    ld a, c
+    cp LOW(wMainDataEnd - wMainDataStart)
+    jr nc, .loop
+.gotOffset
+    ld hl, wMainDataStart
+    add hl, bc
+    call Random
+    ld [hl], a
+    ret

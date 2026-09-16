@@ -395,8 +395,7 @@ PersonalizationControl:
 	call PrintText
 .conclude
 	SetEvent EVENT_PRESSED_FOR_INFO_IN_OPTIONS
-	call InitPersonalizationMenu_Redo
-	ret
+	jp InitPersonalizationMenu_Redo
 .alteredTypes ; hard-coded exception
 	ld hl, PersonalizationInfoTextTypes
 	call PrintText
