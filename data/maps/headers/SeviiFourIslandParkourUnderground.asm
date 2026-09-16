@@ -1,0 +1,2 @@
+	map_header SeviiFourIslandParkourUnderground, SEVII_FOUR_ISLAND_PARKOUR_UNDERGROUND, GATE, 0
+	end_map_header

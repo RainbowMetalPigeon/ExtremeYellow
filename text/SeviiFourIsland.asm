@@ -936,10 +936,8 @@ _SeviiFourIslandParkourPathText1::
 	cont "best time."
 
 	para "My personal best"
-	line "time is 57s!"
+	line "time is 54s!"
 	cont "Can you beat it?"
-
-	para "Enjoy the speed!"
 ;	xxxx "123456789012345678"
 	done
 

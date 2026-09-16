@@ -104,6 +104,7 @@ DEF FIRST_INDOOR_MAP_SEVII EQU const_value
 	map_const SEVII_ICEFALL_CAVE_2F,                         11, 11 ; $4E
 	map_const SEVII_FOUR_ISLAND_CITY_DIVE,                   23, 22 ; $4F
 	map_const SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN,            33, 27 ; $50
+	map_const SEVII_FOUR_ISLAND_PARKOUR_UNDERGROUND,         18, 12 ; $TBE
 	map_const SEVII_UNDERGROUND_FOUR,                        28, 16 ; $51
 ; 5-island-related maps
 	map_const SEVII_FIVE_ISLAND_DOCK,                        10,  6 ; $52

@@ -2146,3 +2146,8 @@ INCLUDE "data/maps/headers/SeviiFourIslandParkourPath.asm"
 INCLUDE "scripts/SeviiFourIslandParkourPath.asm"
 INCLUDE "data/maps/objects/SeviiFourIslandParkourPath.asm"
 SeviiFourIslandParkourPath_Blocks: INCBIN "maps/SeviiFourIslandParkourPath.blk"
+
+INCLUDE "data/maps/headers/SeviiFourIslandParkourUnderground.asm"
+INCLUDE "scripts/SeviiFourIslandParkourUnderground.asm"
+INCLUDE "data/maps/objects/SeviiFourIslandParkourUnderground.asm"
+SeviiFourIslandParkourUnderground_Blocks: INCBIN "maps/SeviiFourIslandParkourUnderground.blk"

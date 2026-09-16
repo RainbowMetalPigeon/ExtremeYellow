@@ -49,7 +49,7 @@ SeviiFourIslandParkourPath_StartCoordinates:
 	db -1 ; end
 
 SeviiFourIslandParkourPath_EndCoordinates:
-	dbmapcoord 10, 146
+	dbmapcoord 10, 148
 	db -1 ; end
 
 ; texts ============================================

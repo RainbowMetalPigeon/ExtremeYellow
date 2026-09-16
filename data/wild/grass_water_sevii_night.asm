@@ -88,6 +88,7 @@ WildDataPointers_SeviiNight:
 	dw SeviiIcefallCave2FWildMonsNight    ; SEVII_ICEFALL_CAVE_2F
 	dw SeviiFourIslandCityDiveWildMonsNight ; SEVII_FOUR_ISLAND_CITY_DIVE
 	dw NothingWildMons               ; SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN
+	dw NothingWildMons               ; SEVII_FOUR_ISLAND_PARKOUR_UNDERGROUND
 	dw NothingWildMons               ; SEVII_UNDERGROUND_FOUR
 ; 5-island
 	dw SeviiShipDockWildMonsNight         ; SEVII_FIVE_ISLAND_DOCK
