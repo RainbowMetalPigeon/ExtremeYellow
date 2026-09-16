@@ -165,6 +165,7 @@ OverworldLoopLessDelay::
 	jp OverworldLoop
 
 .noDirectionButtonsPressed
+	call LoadWalkingPlayerSpriteGraphics ; new
 	call UpdateSprites
 	ld hl, wFlags_0xcd60
 	res 2, [hl]
@@ -277,10 +278,13 @@ OverworldLoopLessDelay::
 	ld a, [hJoyHeld]                   ; run only if pressing B
 	and B_BUTTON                       ; run only if pressing B
 	jr z, .slowPlayerSpriteAdvancement ; run only if pressing B
+	call LoadRunningPlayerSpriteGraphics ; new, testing
 	call DoBikeSpeedup ; new, makes you go faster than vanilla
+	jr .continueStep ; new label
 ; unless you're jumping down a ledge, otherwise bugs may happen, like getting into walls or Pikachu glitching
 .slowPlayerSpriteAdvancement
-
+	call LoadWalkingPlayerSpriteGraphics
+.continueStep
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
 	and a
@@ -1790,6 +1794,9 @@ RunMapScript::
 
 LoadWalkingPlayerSpriteGraphics::
 	jpfar LoadWalkingPlayerSpriteGraphics_
+
+LoadRunningPlayerSpriteGraphics::
+	jpfar LoadRunningPlayerSpriteGraphics_
 
 LoadGlitchyPlayerSpriteGraphics:: ; new, for Haunted House
 	jpfar LoadGlitchyPlayerSpriteGraphics_

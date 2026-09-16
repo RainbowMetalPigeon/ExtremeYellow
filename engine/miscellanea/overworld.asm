@@ -1045,12 +1045,16 @@ _LoadPlayerSpriteGraphics::
 ; player graphics ===================================================
 
 LoadWalkingPlayerSpriteGraphics_::
+	CheckEvent EVENT_CURRENTLY_WALKING
+	ret nz
+	ResetEvent EVENT_CURRENTLY_RUNNING
+	SetEvent EVENT_CURRENTLY_WALKING
 	xor a
 	ld [wd473], a
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .nonRocketPath
-
+; Hero Path
 	ld b, BANK(RedRocketSprite)
 	ld de, RedRocketSprite
 	ld a, [wPlayerGender] ; from Vortiene
@@ -1064,13 +1068,54 @@ LoadWalkingPlayerSpriteGraphics_::
 	ld de, YellowRocketSprite
 .ContinueLoadSpritesRP
 	ld hl, vNPCSprites
-	jr LoadPlayerSpriteGraphicsCommon
-
+	jp LoadPlayerSpriteGraphicsCommon
 .nonRocketPath
 ; new sprite copy stuff
 	ld b, BANK(RedSprite)
 	ld de, RedSprite
 	ld a, [wPlayerGender] ; from Vortiene
+	and a			; check if boy
+	jr z, .ContinueLoadSprites1
+	cp a, 2			; check if enby
+	jr z, .AreEnby1
+	ld de, GreenSprite
+	jr .ContinueLoadSprites1
+.AreEnby1
+	ld de, YellowSprite
+.ContinueLoadSprites1
+	ld hl, vNPCSprites
+	jp LoadPlayerSpriteGraphicsCommon
+
+LoadRunningPlayerSpriteGraphics_::
+	CheckEvent EVENT_CURRENTLY_RUNNING
+	ret nz
+	SetEvent EVENT_CURRENTLY_RUNNING
+	ResetEvent EVENT_CURRENTLY_WALKING
+	xor a
+	ld [wd473], a
+; new for RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .nonRocketPath
+; Hero Path
+	ld b, BANK(RedRocketSprite)
+	ld de, RedRocketSprite
+	ld a, [wPlayerGender]
+	and a			; check if boy
+	jr z, .ContinueLoadSpritesRP
+	cp a, 2			; check if enby
+	jr z, .AreEnbyRP
+	ld de, GreenRocketSprite
+	jr .ContinueLoadSpritesRP
+.AreEnbyRP
+	ld de, YellowRocketSprite
+.ContinueLoadSpritesRP
+	ld hl, vNPCSprites
+	jr LoadPlayerSpriteGraphicsCommon
+.nonRocketPath
+; new sprite copy stuff
+	ld b, BANK(RedRunningSprite)
+	ld de, RedRunningSprite
+	ld a, [wPlayerGender]
 	and a			; check if boy
 	jr z, .ContinueLoadSprites1
 	cp a, 2			; check if enby
