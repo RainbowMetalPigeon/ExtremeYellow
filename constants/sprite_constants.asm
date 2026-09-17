@@ -132,6 +132,11 @@
 	const SPRITE_GREEN_ROCKET            ; new
 	const SPRITE_YELLOW_ROCKET           ; new
 	const SPRITE_RED_RUNNING             ; new
+	const SPRITE_GREEN_RUNNING           ; new
+	const SPRITE_YELLOW_RUNNING          ; new
+	const SPRITE_RED_ROCKET_RUNNING      ; new
+	const SPRITE_GREEN_ROCKET_RUNNING    ; new
+	const SPRITE_YELLOW_ROCKET_RUNNING   ; new
 
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $47

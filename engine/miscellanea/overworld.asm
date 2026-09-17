@@ -93,7 +93,7 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 ; handle fake poison
 	call Random
-	cp 25 ; 10% chance of fake poison ; TBE
+	cp 25 ; 10% chance of fake poison
 	jr c, .setFakePoison
 	ResetEvent EVENT_HAUNTED_HOUSE_FAKE_POISON
 	jr .handleLowHealthAlarm
@@ -102,7 +102,7 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 .handleLowHealthAlarm
 	call Random
-	cp 25 ; 10% chance of low-health alarm ; TBE
+	cp 25 ; 10% chance of low-health alarm
 	jr c, .lowHealthAlarm
 	call PlayDefaultMusic
 	ld hl, wLowHealthAlarm
@@ -115,7 +115,7 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 .handleSpinning
 	call Random
-	cp 25 ; 10% chance of moving by spinning ; TBE
+	cp 25 ; 10% chance of moving by spinning
 	ld hl, wd736 ; bit 7: spinning; bit 6: jumping, but requires much more work
 	jr c, .spinning
 	res 7, [hl]
@@ -125,7 +125,7 @@ HauntedHouseHandleRandomGlitchyBehaviours::
 
 .handlePlayerSprite
 	call Random
-	cp 25 ; 10% chance of glitchy sprite ; TBE
+	cp 25 ; 10% chance of glitchy sprite
 	jr c, .setGlitchySprite
 	jp LoadWalkingPlayerSpriteGraphics ; needed?
 .setGlitchySprite
@@ -1054,7 +1054,7 @@ LoadWalkingPlayerSpriteGraphics_::
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .nonRocketPath
-; Hero Path
+; Rocket Path
 	ld b, BANK(RedRocketSprite)
 	ld de, RedRocketSprite
 	ld a, [wPlayerGender] ; from Vortiene
@@ -1096,18 +1096,18 @@ LoadRunningPlayerSpriteGraphics_::
 ; new for RP
 	CheckEvent EVENT_ROCKET_PATH
 	jr z, .nonRocketPath
-; Hero Path
-	ld b, BANK(RedRocketSprite)
-	ld de, RedRocketSprite
+; Rocket Path
+	ld b, BANK(RedRocketRunningSprite)
+	ld de, RedRocketRunningSprite
 	ld a, [wPlayerGender]
-	and a			; check if boy
+	and a
 	jr z, .ContinueLoadSpritesRP
-	cp a, 2			; check if enby
+	cp a, 2
 	jr z, .AreEnbyRP
-	ld de, GreenRocketSprite
+	ld de, GreenRocketRunningSprite
 	jr .ContinueLoadSpritesRP
 .AreEnbyRP
-	ld de, YellowRocketSprite
+	ld de, YellowRocketRunningSprite
 .ContinueLoadSpritesRP
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
@@ -1116,14 +1116,14 @@ LoadRunningPlayerSpriteGraphics_::
 	ld b, BANK(RedRunningSprite)
 	ld de, RedRunningSprite
 	ld a, [wPlayerGender]
-	and a			; check if boy
+	and a
 	jr z, .ContinueLoadSprites1
-	cp a, 2			; check if enby
+	cp a, 2
 	jr z, .AreEnby1
-	ld de, GreenSprite
+	ld de, GreenRunningSprite
 	jr .ContinueLoadSprites1
 .AreEnby1
-	ld de, YellowSprite
+	ld de, YellowRunningSprite
 .ContinueLoadSprites1
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon

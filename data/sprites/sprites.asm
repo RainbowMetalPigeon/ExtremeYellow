@@ -137,6 +137,11 @@ SpriteSheetPointerTable:
 	overworld_sprite GreenRocketSprite, 12      ; SPRITE_GREEN_ROCKET ; new
 	overworld_sprite YellowRocketSprite, 12     ; SPRITE_YELLOW_ROCKET ; new
 	overworld_sprite RedRunningSprite, 12       ; SPRITE_RED_RUNNING ; new
+	overworld_sprite GreenRunningSprite, 12     ; SPRITE_GREEN_RUNNING ; new
+	overworld_sprite YellowRunningSprite, 12    ; SPRITE_YELLOW_RUNNING ; new
+	overworld_sprite RedRocketRunningSprite, 12     ; SPRITE_RED_ROCKET_RUNNING ; new
+	overworld_sprite GreenRocketRunningSprite, 12   ; SPRITE_GREEN_ROCKET_RUNNING ; new
+	overworld_sprite YellowRocketRunningSprite, 12  ; SPRITE_YELLOW_ROCKET_RUNNING ; new
 
 ; --- the following are the STILL sprites, they don't move ---
 	overworld_sprite PokeBallSprite, 4          ; SPRITE_POKE_BALL
