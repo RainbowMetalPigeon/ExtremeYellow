@@ -983,6 +983,42 @@ Bar60MinsText: ; new
 
 ; ===========================================================
 
+PrintToggleRunWindow::
+; border
+	hlcoord  0, 14
+	lb bc, 2, 8 ; height, width
+	call TextBoxBorder
+; print static strings
+	hlcoord  1, 15
+	ld de, ToggleRunText1
+	call PlaceString
+	hlcoord  1, 16
+	ld de, ToggleRunText2
+	call PlaceString
+; print dynamic string
+	CheckEvent EVENT_RUN_TOGGLE
+	ld de, ToggleRunOnText
+	jr nz, .stringFound
+	ld de, ToggleRunOffText
+.stringFound
+	hlcoord  6, 15
+	call PlaceString
+	ret
+
+ToggleRunText1:
+	db "RUN: @"
+
+ToggleRunText2:
+	db "(SELECT)@"
+
+ToggleRunOnText:
+	db "ON @"
+
+ToggleRunOffText:
+	db "OFF@"
+
+; ===========================================================
+
 LoadFontTilePatternsBraille:: ; new
 	ldh a, [rLCDC]
 	bit 7, a ; is the LCD enabled?
@@ -1045,10 +1081,7 @@ _LoadPlayerSpriteGraphics::
 ; player graphics ===================================================
 
 LoadWalkingPlayerSpriteGraphics_::
-	CheckEvent EVENT_CURRENTLY_WALKING
-	ret nz
 	ResetEvent EVENT_CURRENTLY_RUNNING
-	SetEvent EVENT_CURRENTLY_WALKING
 	xor a
 	ld [wd473], a
 ; new for RP
@@ -1087,10 +1120,7 @@ LoadWalkingPlayerSpriteGraphics_::
 	jp LoadPlayerSpriteGraphicsCommon
 
 LoadRunningPlayerSpriteGraphics_::
-	CheckEvent EVENT_CURRENTLY_RUNNING
-	ret nz
 	SetEvent EVENT_CURRENTLY_RUNNING
-	ResetEvent EVENT_CURRENTLY_WALKING
 	xor a
 	ld [wd473], a
 ; new for RP
@@ -1110,7 +1140,7 @@ LoadRunningPlayerSpriteGraphics_::
 	ld de, YellowRocketRunningSprite
 .ContinueLoadSpritesRP
 	ld hl, vNPCSprites
-	jr LoadPlayerSpriteGraphicsCommon
+	jp LoadPlayerSpriteGraphicsCommon
 .nonRocketPath
 ; new sprite copy stuff
 	ld b, BANK(RedRunningSprite)
@@ -1129,6 +1159,7 @@ LoadRunningPlayerSpriteGraphics_::
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadGlitchyPlayerSpriteGraphics_:: ; new, for Haunted House
+	ResetEvent EVENT_CURRENTLY_RUNNING
 	xor a
 	ld [wd473], a
 	ld b, BANK(GlitchyPlayerSprite)
@@ -1136,6 +1167,7 @@ LoadGlitchyPlayerSpriteGraphics_:: ; new, for Haunted House
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadTransparentPlayerSpriteGraphics_:: ; new, for Haunted House
+	ResetEvent EVENT_CURRENTLY_RUNNING
 	xor a
 	ld [wd473], a
 	ld b, BANK(TransparentSprite)
@@ -1143,6 +1175,7 @@ LoadTransparentPlayerSpriteGraphics_:: ; new, for Haunted House
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadSurfingPlayerSpriteGraphics2_::
+	ResetEvent EVENT_CURRENTLY_RUNNING
 	ld a, [wd473]
 	and a
 	jr z, .asm_0d75
@@ -1160,11 +1193,13 @@ LoadSurfingPlayerSpriteGraphics2_::
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadSurfingPlayerSpriteGraphics_::
+	ResetEvent EVENT_CURRENTLY_RUNNING
 	ld b, BANK(SeelSprite)
 	ld de, SeelSprite
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadBikePlayerSpriteGraphics_::
+	ResetEvent EVENT_CURRENTLY_RUNNING
 	ld b, BANK(RedBikeSprite)
 	ld de, RedBikeSprite
 	ld a, [wPlayerGender]
@@ -1199,3 +1234,41 @@ LoadPlayerSpriteGraphicsCommon::
 	set 3, h
 	ld c, $c
 	jp CopyVideoData
+
+; ===================================================
+
+StepCountCheck:: ; moved from home
+	ld a, [wd730]
+	bit 7, a
+	jr nz, .doneStepCounting ; if button presses are being simulated, don't count steps
+; step counting
+	ld hl, wStepCounter
+	dec [hl]
+	ld a, [wd72c]
+	bit 0, a
+	jr z, .doneStepCounting
+	ld hl, wNumberOfNoRandomBattleStepsLeft
+	dec [hl]
+	jr nz, .doneStepCounting
+	ld hl, wd72c
+	res 0, [hl] ; indicate that the player has stepped thrice since the last battle
+.doneStepCounting
+	ret
+
+AreWeSpeedingUp:: ; new, c flag if going fast
+	CheckEvent EVENT_RUN_TOGGLE
+	jr nz, .runIsToggled
+	ld a, [hJoyHeld]
+	and B_BUTTON
+	jr z, .noSpeedUp
+	jr .yesSpeedUp
+.runIsToggled
+	ld a, [hJoyHeld]
+	and B_BUTTON
+	jr nz, .noSpeedUp
+.yesSpeedUp
+	scf
+	ret
+.noSpeedUp
+	xor a
+	ret

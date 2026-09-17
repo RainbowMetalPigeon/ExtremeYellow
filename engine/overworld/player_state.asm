@@ -429,7 +429,7 @@ IsPlayerStandingOnDoorTileOrWarpTile::
 
 INCLUDE "data/tilesets/warp_tile_ids.asm"
 
-PrintSafariZoneSteps::
+PrintSafariZoneSteps:: ; edited, made more compact
 	CheckEvent EVENT_ROCKET_PATH ; new
 	ret nz ; new
 	CheckEvent EVENT_IN_SEVII ; new
@@ -443,7 +443,7 @@ PrintSafariZoneSteps::
 	ret nc
 .yesSafariZone ; new and edited all hlcoordinates in y by +3
 	hlcoord 0, 3
-	lb bc, 3, 7
+	lb bc, 2, 7
 	call TextBoxBorder
 	hlcoord 1, 4
 	ld de, wSafariSteps
@@ -452,17 +452,17 @@ PrintSafariZoneSteps::
 	hlcoord 4, 4
 	ld de, SafariSteps
 	call PlaceString
-	hlcoord 1, 6
+	hlcoord 1, 5
 	ld de, SafariBallText
 	call PlaceString
 	ld a, [wNumSafariBalls]
 	cp 10
 	jr nc, .tenOrMore
-	hlcoord 5, 6
+	hlcoord 5, 5
 	ld a, " "
 	ld [hl], a
 .tenOrMore
-	hlcoord 6, 6
+	hlcoord 6, 5
 	ld de, wNumSafariBalls
 	lb bc, 1, 2
 	jp PrintNumber

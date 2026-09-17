@@ -10,6 +10,7 @@ RedisplayStartMenu::
 	farcall DrawStartMenu
 RedisplayStartMenu_DoNotDrawStartMenu::
 	callfar PrintDayNightStatus ; new
+	callfar PrintToggleRunWindow ; new
 	farcall PrintSafariZoneSteps ; print Safari Zone info, if in Safari Zone
 	callfar PrintDiveSteps ; new for dive ; TBE if will add a Diveable area in the Safari Zone, as they print in the same part of the screen
 	call UpdateSprites
@@ -51,11 +52,26 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	ld [wCurrentMenuItem], a
 	call EraseMenuCursor
 	jr .loop
-.buttonPressed ; A, B, or Start button pressed
-	call PlaceUnfilledArrowMenuCursor
+.buttonPressed ; A, B, or Start button pressed ; edited: or Select
+;	call PlaceUnfilledArrowMenuCursor ; why? edited away
 	ld a, [wCurrentMenuItem]
 	ld [wBattleAndStartSavedMenuItem], a ; save current menu selection
 	ld a, b
+; new for Select
+	and SELECT
+	jr z, .checkStartAB
+	CheckEvent EVENT_RUN_TOGGLE
+	jr z, .setRunToggle
+	ResetEvent EVENT_RUN_TOGGLE
+	jr .concludeRunToggle
+.setRunToggle
+	SetEvent EVENT_RUN_TOGGLE
+.concludeRunToggle
+	callfar PrintToggleRunWindow
+	jr .loop
+.checkStartAB
+	ld a, b
+; BTV
 	and B_BUTTON | START ; was the Start button or B button pressed?
 	jp nz, CloseStartMenu
 	call SaveScreenTilesToBuffer2 ; copy background from wTileMap to wTileMapBackup2

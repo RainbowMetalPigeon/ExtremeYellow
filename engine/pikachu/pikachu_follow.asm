@@ -540,9 +540,10 @@ Func_fc7aa:
 	cp $4
 	jp z, Func_fca0a
 ; edited, to handle running with following Pikachu
-	ld a, [hJoyHeld]   ; run only if pressing B
-	and B_BUTTON       ; run only if pressing B
-	jr z, .notRunning  ; run only if pressing B
+	push bc
+	callfar AreWeSpeedingUp ; c flag if going fast
+	pop bc
+	jr nc, .notRunning  ; run only if pressing B
 	jp FastPikachuFollow ; new, default speed is doubled
 .notRunning
 	call AreThereAtLeastTwoStepsInPikachuFollowCommandBuffer ; commented, default speed is doubled

@@ -10,7 +10,7 @@ DrawStartMenu::
 	lb bc, 12, 8
 .drawTextBoxBorder
 	call TextBoxBorder
-	ld a, D_DOWN | D_UP | START | B_BUTTON | A_BUTTON
+	ld a, D_DOWN | D_UP | START | B_BUTTON | A_BUTTON | SELECT ; edited, added the last
 	ld [wMenuWatchedKeys], a
 	ld a, $02
 	ld [wTopMenuItemY], a ; Y position of first menu choice
@@ -31,7 +31,7 @@ DrawStartMenu::
 ; case for having pokedex + portablePC
 	ld de, StartMenuPokedexText
 	call PrintStartMenuItem
-	ld a, $08 ; edited for portablePC, TBC
+	ld a, $08 ; edited for portablePC
 .storeMenuItemCount
 	ld [wMaxMenuItem], a ; number of menu items
 	ld de, StartMenuPokemonText

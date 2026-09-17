@@ -165,7 +165,14 @@ OverworldLoopLessDelay::
 	jp OverworldLoop
 
 .noDirectionButtonsPressed
-	call LoadWalkingPlayerSpriteGraphics ; new
+; new for running
+	ld a, [wWalkBikeSurfState]
+	and a ; WALKING?
+	jr nz, .doNotReloadWalkingGraphics ; if not walking, do nothing
+	CheckEvent EVENT_CURRENTLY_RUNNING
+	call nz, LoadWalkingPlayerSpriteGraphics
+.doNotReloadWalkingGraphics
+; BTV
 	call UpdateSprites
 	ld hl, wFlags_0xcd60
 	res 2, [hl]
@@ -253,7 +260,7 @@ OverworldLoopLessDelay::
 	call IsSpinning
 	call UpdateSprites
 
-.moveAhead2
+.moveAhead2 ; edited for running and run toggle
 ;	ld hl, wFlags_0xcd60
 ;	res 2, [hl]
 ;	xor a
@@ -268,29 +275,37 @@ OverworldLoopLessDelay::
 	ld a, [wWalkBikeSurfState]
 	and a ; edited, walking?
 	jr z, .normalPlayerSpriteAdvancement ; edited, walking?
+; bike and surf
 	call DoBikeSpeedup ; if riding a bike and not jumping a ledge
-	ld a, [hJoyHeld]                     ; bike-run only if pressing B
-	and B_BUTTON                         ; bike-run only if pressing B
-	jr z, .normalPlayerSpriteAdvancement ; bike-run only if pressing B
+
+	callfar AreWeSpeedingUp
+	jr nc, .normalPlayerSpriteAdvancement
 	call DoBikeSpeedup ; if riding a bike and not jumping a ledge, new
+
 .normalPlayerSpriteAdvancement
-; now you surf at previous bike speed = new walking speed ; IF you're pressing B
-	ld a, [hJoyHeld]                   ; run only if pressing B
-	and B_BUTTON                       ; run only if pressing B
-	jr z, .slowPlayerSpriteAdvancement ; run only if pressing B
-	call LoadRunningPlayerSpriteGraphics ; new, testing
+	callfar AreWeSpeedingUp
+	jr nc, .slowPlayerSpriteAdvancement
+
+	ld a, [wWalkBikeSurfState]
+	and a
+	jr nz, .doNotLoadRunningSpriteWhileBiking
+	CheckEvent EVENT_CURRENTLY_RUNNING
+	call z, LoadRunningPlayerSpriteGraphics ; new, conditional loading of the running graphics
+.doNotLoadRunningSpriteWhileBiking
 	call DoBikeSpeedup ; new, makes you go faster than vanilla
 	jr .continueStep ; new label
 ; unless you're jumping down a ledge, otherwise bugs may happen, like getting into walls or Pikachu glitching
+
 .slowPlayerSpriteAdvancement
-	call LoadWalkingPlayerSpriteGraphics
+	CheckEvent EVENT_CURRENTLY_RUNNING
+	call nz, LoadWalkingPlayerSpriteGraphics ; new, restore walking graphics only if we were running
 .continueStep
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
 	and a
 	jp nz, CheckMapConnections ; it seems like this check will never succeed (the other place where CheckMapConnections is run works)
 ; walking animation finished
-	call StepCountCheck
+	callfar StepCountCheck ; edited into a callfar
 	CheckEvent EVENT_IN_SAFARI_ZONE ; in the safari zone?
 	jr z, .notSafariZone
 	farcall SafariZoneCheckSteps
@@ -382,24 +397,6 @@ OverworldLoopLessDelay::
 	ld [wSurrenderedFromTrainerBattle], a ; new
 	jr .noFaintCheck
 ; back to vanilla
-
-StepCountCheck::
-	ld a, [wd730]
-	bit 7, a
-	jr nz, .doneStepCounting ; if button presses are being simulated, don't count steps
-; step counting
-	ld hl, wStepCounter
-	dec [hl]
-	ld a, [wd72c]
-	bit 0, a
-	jr z, .doneStepCounting
-	ld hl, wNumberOfNoRandomBattleStepsLeft
-	dec [hl]
-	jr nz, .doneStepCounting
-	ld hl, wd72c
-	res 0, [hl] ; indicate that the player has stepped thrice since the last battle
-.doneStepCounting
-	ret
 
 AllPokemonFainted::
 	ld a, $ff
