@@ -1,7 +1,7 @@
 	db DEX_MVENUSAUR ; pokedex id
 
-	db  80, 100, 123,  80, 122
-	;   hp  atk  def  spd  spc
+	db  80, 100, 123,  80, 122, 122
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
 	db 45 ; catch rate

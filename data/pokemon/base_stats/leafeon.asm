@@ -1,7 +1,7 @@
 	db DEX_LEAFEON ; pokedex id
 
-	db  65, 110, 130,  95,  65
-	;   hp  atk  def  spd  spc
+	db  65, 110, 130,  95,  65, 65
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
 	db 45 ; catch rate

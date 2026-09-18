@@ -1,7 +1,7 @@
 	db DEX_MCLEFABLE ; pokedex id
 
-	db  95,  80,  93,  70, 135
-	;   hp  atk  def  spd  spc
+	db  95,  80,  93,  70, 135, 135
+	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FLYING ; type
 	db 25 ; catch rate

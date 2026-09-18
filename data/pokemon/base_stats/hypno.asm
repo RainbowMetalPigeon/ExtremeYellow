@@ -1,7 +1,7 @@
 	db DEX_HYPNO ; pokedex id
 
-	db  85,  73,  70,  67, 115
-	;   hp  atk  def  spd  spc
+	db  85,  73,  70,  67, 115, 115
+	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
 	db 75 ; catch rate

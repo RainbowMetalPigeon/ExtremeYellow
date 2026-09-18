@@ -1,7 +1,7 @@
 	db DEX_ZUBAT ; pokedex id
 
-	db  40,  45,  35,  55,  40
-	;   hp  atk  def  spd  spc
+	db  40,  45,  35,  55,  40, 40
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, FLYING ; type
 	db 255 ; catch rate

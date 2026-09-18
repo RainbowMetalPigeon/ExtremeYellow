@@ -1,7 +1,7 @@
 	db DEX_THU_FI_ZER ; pokedex id
 
-	db 105, 116, 116, 116, 145
-	;   hp  atk  def  spd  spc
+	db 105, 116, 116, 116, 145, 145
+	;   hp  atk  def  spd  sat  sdf
 
 	db FLYING, FLYING ; type
 	db 3 ; catch rate

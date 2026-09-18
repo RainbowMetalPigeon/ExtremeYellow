@@ -1,7 +1,7 @@
 	db DEX_MUNCHLAX ; pokedex id
 
-	db 135,  85,  40,   5,  40
-	;   hp  atk  def  spd  spc
+	db 135,  85,  40,   5,  40, 40
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 25 ; catch rate

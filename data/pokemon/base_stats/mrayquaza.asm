@@ -1,7 +1,7 @@
 	db DEX_MRAYQUAZA ; pokedex id
 
-	db 105, 180, 100, 115, 180
-	;   hp  atk  def  spd  spc
+	db 105, 180, 100, 115, 180, 180
+	;   hp  atk  def  spd  sat  sdf
 
 	db DRAGON, FLYING ; type
 	db 3 ; catch rate

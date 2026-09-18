@@ -1,7 +1,7 @@
 	db DEX_GOLBAT ; pokedex id
 
-	db  75,  80,  70,  90,  75
-	;   hp  atk  def  spd  spc
+	db  75,  80,  70,  90,  75, 75
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, FLYING ; type
 	db 90 ; catch rate

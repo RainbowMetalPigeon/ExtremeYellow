@@ -1,7 +1,7 @@
 	db DEX_ELECTIVIRE ; pokedex id
 
-	db  75, 123,  67,  95,  90
-	;   hp  atk  def  spd  spc
+	db  75, 123,  67,  95,  90, 90
+	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type
 	db 45 ; catch rate

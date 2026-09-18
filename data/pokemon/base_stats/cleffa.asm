@@ -1,7 +1,7 @@
 	db DEX_CLEFFA ; pokedex id
 
-	db  50,  25,  28,  15,  45
-	;   hp  atk  def  spd  spc
+	db  50,  25,  28,  15,  45, 45
+	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FAIRY ; type
 	db 150 ; catch rate

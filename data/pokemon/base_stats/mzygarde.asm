@@ -1,7 +1,7 @@
 	db DEX_MZYGARDE ; pokedex id
 
-	db 216,  70,  91, 100, 216
-	;   hp  atk  def  spd  spc
+	db 216,  70,  91, 100, 216, 216
+	;   hp  atk  def  spd  sat  sdf
 
 	db DRAGON, GROUND ; type
 	db 3 ; catch rate

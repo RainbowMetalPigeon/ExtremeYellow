@@ -1,7 +1,7 @@
 	db DEX_MVICTREBEL ; pokedex id
 
-	db  80, 125,  85,  70, 135
-	;   hp  atk  def  spd  spc
+	db  80, 125,  85,  70, 135, 135
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
 	db 45 ; catch rate

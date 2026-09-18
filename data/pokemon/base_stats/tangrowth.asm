@@ -1,7 +1,7 @@
 	db DEX_TANGROWTH ; pokedex id
 
-	db 100, 100, 125,  50, 110
-	;   hp  atk  def  spd  spc
+	db 100, 100, 125,  50, 110, 110
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
 	db 35 ; catch rate

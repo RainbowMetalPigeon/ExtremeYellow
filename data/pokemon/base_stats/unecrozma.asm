@@ -1,7 +1,7 @@
 	db DEX_UNECROZMA ; pokedex id
 
-	db  97, 167,  97, 129, 167
-	;   hp  atk  def  spd  spc
+	db  97, 167,  97, 129, 167, 167
+	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, DRAGON ; type
 	db 3 ; catch rate

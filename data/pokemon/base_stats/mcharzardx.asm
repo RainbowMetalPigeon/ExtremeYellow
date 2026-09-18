@@ -1,7 +1,7 @@
 	db DEX_MCHARZARDX ; pokedex id
 
-	db  78, 130, 111, 100,  85
-	;   hp  atk  def  spd  spc
+	db  78, 130, 111, 100,  85, 85
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, DRAGON ; type
 	db 45 ; catch rate

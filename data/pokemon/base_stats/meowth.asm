@@ -1,7 +1,7 @@
 	db DEX_MEOWTH ; pokedex id
 
-	db  40,  45,  35,  90,  40
-	;   hp  atk  def  spd  spc
+	db  40,  45,  35,  90,  40, 40
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 255 ; catch rate

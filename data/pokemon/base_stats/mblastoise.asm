@@ -1,7 +1,7 @@
 	db DEX_MBLASTOISE ; pokedex id
 
-	db  79, 103, 120,  78, 135
-	;   hp  atk  def  spd  spc
+	db  79, 103, 120,  78, 135, 135
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
 	db 45 ; catch rate

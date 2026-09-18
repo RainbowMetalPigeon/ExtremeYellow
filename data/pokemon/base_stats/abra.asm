@@ -1,7 +1,7 @@
 	db DEX_ABRA ; pokedex id
 
-	db  25,  20,  15,  90, 105
-	;   hp  atk  def  spd  spc
+	db  25,  20,  15,  90, 105, 105
+	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
 	db 200 ; catch rate

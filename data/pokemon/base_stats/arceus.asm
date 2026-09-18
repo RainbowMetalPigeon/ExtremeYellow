@@ -1,7 +1,7 @@
 	db DEX_ARCEUS ; pokedex id
 
-	db 120, 120, 120, 120, 120
-	;   hp  atk  def  spd  spc
+	db 120, 120, 120, 120, 120, 120
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 3 ; catch rate

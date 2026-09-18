@@ -1,7 +1,7 @@
 	db DEX_MAGMORTAR ; pokedex id
 
-	db  75,  95,  67,  83, 125
-	;   hp  atk  def  spd  spc
+	db  75,  95,  67,  83, 125, 125
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type
 	db 45 ; catch rate

@@ -1,7 +1,7 @@
 	db DEX_SMOOCHUM ; pokedex id
 
-	db  45,  30,  15,  65,  65
-	;   hp  atk  def  spd  spc
+	db  45,  30,  15,  65,  65, 65
+	;   hp  atk  def  spd  sat  sdf
 
 	db ICE, PSYCHIC_TYPE ; type
 	db 45 ; catch rate

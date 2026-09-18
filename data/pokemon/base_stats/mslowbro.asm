@@ -1,7 +1,7 @@
 	db DEX_MSLOWBRO ; pokedex id
 
-	db  95,  75, 180,  30, 105
-	;   hp  atk  def  spd  spc
+	db  95,  75, 180,  30, 105, 105
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, PSYCHIC_TYPE ; type
 	db 45 ; catch rate

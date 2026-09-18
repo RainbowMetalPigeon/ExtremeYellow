@@ -1,7 +1,7 @@
 	db DEX_MISSINGNO ; pokedex id
 
-	db  33, 136,   0,  29,   6
-	;   hp  atk  def  spd  spc
+	db  33, 136,   0,  29,   6, 6
+	;   hp  atk  def  spd  sat  sdf
 
 	db BIRD, NORMAL ; type
 	db 29 ; catch rate

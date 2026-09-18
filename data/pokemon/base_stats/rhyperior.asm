@@ -1,7 +1,7 @@
 	db DEX_RHYPERIOR ; pokedex id
 
-	db 115, 140, 130,  40,  55
-	;   hp  atk  def  spd  spc
+	db 115, 140, 130,  40,  55, 55
+	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, ROCK ; type
 	db 35 ; catch rate

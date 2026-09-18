@@ -1,7 +1,7 @@
 	db DEX_CLEFAIRY ; pokedex id
 
-	db  70,  45,  48,  35,  60
-	;   hp  atk  def  spd  spc
+	db  70,  45,  48,  35,  60, 60
+	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FAIRY ; type
 	db 150 ; catch rate

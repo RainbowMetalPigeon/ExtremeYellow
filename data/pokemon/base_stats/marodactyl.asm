@@ -1,7 +1,7 @@
 	db DEX_MARODACTYL ; pokedex id
 
-	db  80, 135,  85, 150,  70
-	;   hp  atk  def  spd  spc
+	db  80, 135,  85, 150,  70, 70
+	;   hp  atk  def  spd  sat  sdf
 
 	db ROCK, FLYING ; type
 	db 45 ; catch rate

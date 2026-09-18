@@ -1,7 +1,7 @@
 	db DEX_SYLVEON ; pokedex id
 
-	db  95,  65,  65,  60, 130
-	;   hp  atk  def  spd  spc
+	db  95,  65,  65,  60, 130, 130
+	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FAIRY ; type
 	db 45 ; catch rate

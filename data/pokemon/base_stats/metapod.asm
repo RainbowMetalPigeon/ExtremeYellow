@@ -1,7 +1,7 @@
 	db DEX_METAPOD ; pokedex id
 
-	db  50,  20,  55,  30,  25
-	;   hp  atk  def  spd  spc
+	db  50,  20,  55,  30,  25, 25
+	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, BUG ; type
 	db 120 ; catch rate

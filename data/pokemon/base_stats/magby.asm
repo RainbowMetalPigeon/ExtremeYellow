@@ -1,7 +1,7 @@
 	db DEX_MAGBY ; pokedex id
 
-	db  45,  75,  37,  83,  55
-	;   hp  atk  def  spd  spc
+	db  45,  75,  37,  83,  55, 55
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type
 	db 45 ; catch rate

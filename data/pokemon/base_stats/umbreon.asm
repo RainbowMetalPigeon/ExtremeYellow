@@ -1,7 +1,7 @@
 	db DEX_UMBREON ; pokedex id
 
-	db  95,  65, 110,  65, 130
-	;   hp  atk  def  spd  spc
+	db  95,  65, 110,  65, 130, 130
+	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, DARK ; type
 	db 45 ; catch rate

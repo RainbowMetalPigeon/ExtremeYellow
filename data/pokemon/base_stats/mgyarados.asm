@@ -1,7 +1,7 @@
 	db DEX_MGYARADOS ; pokedex id
 
-	db  95, 155, 109,  81, 130
-	;   hp  atk  def  spd  spc
+	db  95, 155, 109,  81, 130, 130
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, DARK ; type
 	db 45 ; catch rate

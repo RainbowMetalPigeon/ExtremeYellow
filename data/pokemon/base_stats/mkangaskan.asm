@@ -1,7 +1,7 @@
 	db DEX_MKANGASKAN ; pokedex id
 
-	db 105, 125, 100, 100,  80
-	;   hp  atk  def  spd  spc
+	db 105, 125, 100, 100,  80, 80
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 45 ; catch rate

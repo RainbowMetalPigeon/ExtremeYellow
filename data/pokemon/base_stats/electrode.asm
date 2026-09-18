@@ -1,7 +1,7 @@
 	db DEX_ELECTRODE ; pokedex id
 
-	db  60,  50,  70, 150,  80
-	;   hp  atk  def  spd  spc
+	db  60,  50,  70, 150,  80, 80
+	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type
 	db 60 ; catch rate

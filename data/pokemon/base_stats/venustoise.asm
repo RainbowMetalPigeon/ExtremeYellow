@@ -1,7 +1,7 @@
 	db DEX_VENUSTOISE ; pokedex id
 
-	db 105, 109, 131, 104, 131
-	;   hp  atk  def  spd  spc
+	db 105, 109, 131, 104, 131, 131
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, WATER ; type
 	db 3 ; catch rate

@@ -1,7 +1,7 @@
 	db DEX_KADABRA ; pokedex id
 
-	db  40,  35,  30, 105, 120
-	;   hp  atk  def  spd  spc
+	db  40,  35,  30, 105, 120, 120
+	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
 	db 100 ; catch rate

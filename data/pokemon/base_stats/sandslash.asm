@@ -1,7 +1,7 @@
 	db DEX_SANDSLASH ; pokedex id
 
-	db  75, 100, 110,  65,  55
-	;   hp  atk  def  spd  spc
+	db  75, 100, 110,  65,  55, 55
+	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, GROUND ; type
 	db 90 ; catch rate

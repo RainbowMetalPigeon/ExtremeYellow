@@ -1,7 +1,7 @@
 	db DEX_MDRAGONITE ; pokedex id
 
-	db  91, 124, 115, 100, 145
-	;   hp  atk  def  spd  spc
+	db  91, 124, 115, 100, 145, 145
+	;   hp  atk  def  spd  sat  sdf
 
 	db DRAGON, FLYING ; type
 	db 9 ; catch rate

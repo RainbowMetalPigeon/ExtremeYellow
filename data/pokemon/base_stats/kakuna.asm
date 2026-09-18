@@ -1,7 +1,7 @@
 	db DEX_KAKUNA ; pokedex id
 
-	db  45,  25,  50,  35,  25
-	;   hp  atk  def  spd  spc
+	db  45,  25,  50,  35,  25, 25
+	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, POISON ; type
 	db 120 ; catch rate

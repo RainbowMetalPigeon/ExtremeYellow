@@ -1,7 +1,7 @@
 	db DEX_ARM_MEWTWO ; pokedex id
 
-	db 106,  90, 110, 130,  90
-	;   hp  atk  def  spd  spc
+	db 106,  90, 110, 130,  90, 90
+	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, STEEL ; type
 	db 9 ; catch rate

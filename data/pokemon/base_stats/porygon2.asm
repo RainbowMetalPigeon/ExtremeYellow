@@ -1,7 +1,7 @@
 	db DEX_PORYGON2 ; pokedex id
 
-	db  85,  80,  90,  60, 105
-	;   hp  atk  def  spd  spc
+	db  85,  80,  90,  60, 105, 105
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 45 ; catch rate

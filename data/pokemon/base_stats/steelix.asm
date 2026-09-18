@@ -1,7 +1,7 @@
 	db DEX_STEELIX ; pokedex id
 
-	db  75,  85, 200,  30,  65
-	;   hp  atk  def  spd  spc
+	db  75,  85, 200,  30,  65, 65
+	;   hp  atk  def  spd  sat  sdf
 
 	db STEEL, GROUND ; type
 	db 45 ; catch rate

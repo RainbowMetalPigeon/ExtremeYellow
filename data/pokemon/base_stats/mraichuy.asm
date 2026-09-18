@@ -1,7 +1,7 @@
 	db DEX_MRAICHUY ; pokedex id
 
-	db  60, 100,  55, 130, 160
-	;   hp  atk  def  spd  spc
+	db  60, 100,  55, 130, 160, 160
+	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type
 	db 75 ; catch rate

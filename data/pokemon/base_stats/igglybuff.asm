@@ -1,7 +1,7 @@
 	db DEX_IGGLYBUFF ; pokedex id
 
-	db  90,  30,  15,  15,  20
-	;   hp  atk  def  spd  spc
+	db  90,  30,  15,  15,  20, 20
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FAIRY ; type
 	db 170 ; catch rate

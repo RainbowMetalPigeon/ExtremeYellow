@@ -1,7 +1,7 @@
 	db DEX_MMEWTWOX ; pokedex id
 
-	db 106, 190, 100, 130, 154
-	;   hp  atk  def  spd  spc
+	db 106, 190, 100, 130, 154, 154
+	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, FIGHTING ; type
 	db 3 ; catch rate

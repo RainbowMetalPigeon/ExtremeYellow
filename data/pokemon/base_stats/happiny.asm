@@ -1,7 +1,7 @@
 	db DEX_HAPPINY ; pokedex id
 
-	db 100,   5,   5,  30,  65
-	;   hp  atk  def  spd  spc
+	db 100,   5,   5,  30,  65, 65
+	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 31 ; catch rate

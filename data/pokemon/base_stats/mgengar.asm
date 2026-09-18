@@ -1,7 +1,7 @@
 	db DEX_MGENGAR ; pokedex id
 
-	db  60,  65,  80, 130, 170
-	;   hp  atk  def  spd  spc
+	db  60,  65,  80, 130, 170, 170
+	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, POISON ; type
 	db 45 ; catch rate

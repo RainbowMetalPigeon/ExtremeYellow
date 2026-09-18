@@ -1,7 +1,7 @@
 	db DEX_EXEGGUTOR ; pokedex id
 
-	db  95,  95,  85,  55, 125
-	;   hp  atk  def  spd  spc
+	db  95,  95,  85,  55, 125, 125
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, PSYCHIC_TYPE ; type
 	db 45 ; catch rate

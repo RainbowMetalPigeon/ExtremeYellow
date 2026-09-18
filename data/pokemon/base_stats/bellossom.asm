@@ -1,7 +1,7 @@
 	db DEX_BELLOSSOM ; pokedex id
 
-	db  75,  80,  95,  50,  90
-	;   hp  atk  def  spd  spc
+	db  75,  80,  95,  50,  90, 90
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
 	db 45 ; catch rate

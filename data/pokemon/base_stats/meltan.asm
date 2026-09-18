@@ -1,7 +1,7 @@
 	db DEX_MELTAN ; pokedex id
 
-	db  46,  65,  65,  34,  55
-	;   hp  atk  def  spd  spc
+	db  46,  65,  65,  34,  55, 55
+	;   hp  atk  def  spd  sat  sdf
 
 	db STEEL, STEEL ; type
 	db 3 ; catch rate

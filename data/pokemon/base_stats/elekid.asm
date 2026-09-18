@@ -1,7 +1,7 @@
 	db DEX_ELEKID ; pokedex id
 
-	db  45,  63,  37,  95,  55
-	;   hp  atk  def  spd  spc
+	db  45,  63,  37,  95,  55, 55
+	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type
 	db 45 ; catch rate

@@ -1,7 +1,7 @@
 	db DEX_MCHARZARDY ; pokedex id
 
-	db  78, 104,  78, 100, 159
-	;   hp  atk  def  spd  spc
+	db  78, 104,  78, 100, 159, 159
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FLYING ; type
 	db 45 ; catch rate

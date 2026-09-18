@@ -1,7 +1,7 @@
 	db DEX_MELMETAL ; pokedex id
 
-	db 135, 143, 143,  34,  80
-	;   hp  atk  def  spd  spc
+	db 135, 143, 143,  34,  80, 80
+	;   hp  atk  def  spd  sat  sdf
 
 	db STEEL, STEEL ; type
 	db 3 ; catch rate

@@ -1,7 +1,7 @@
 	db DEX_POLITOED ; pokedex id
 
-	db  90,  75,  75,  70,  90
-	;   hp  atk  def  spd  spc
+	db  90,  75,  75,  70,  90, 90
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
 	db 45 ; catch rate

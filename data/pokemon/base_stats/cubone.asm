@@ -1,7 +1,7 @@
 	db DEX_CUBONE ; pokedex id
 
-	db  50,  50,  95,  35,  40
-	;   hp  atk  def  spd  spc
+	db  50,  50,  95,  35,  40, 40
+	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, GROUND ; type
 	db 190 ; catch rate

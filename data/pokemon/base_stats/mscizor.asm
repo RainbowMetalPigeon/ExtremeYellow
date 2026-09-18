@@ -1,7 +1,7 @@
 	db DEX_MSCIZOR ; pokedex id
 
-	db  70, 150, 140,  75,  83
-	;   hp  atk  def  spd  spc
+	db  70, 150, 140,  75,  83, 83
+	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, STEEL ; type
 	db 45 ; catch rate

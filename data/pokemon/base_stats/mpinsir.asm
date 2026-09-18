@@ -1,7 +1,7 @@
 	db DEX_MPINSIR ; pokedex id
 
-	db  65, 155, 120, 105,  78
-	;   hp  atk  def  spd  spc
+	db  65, 155, 120, 105,  78, 78
+	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, FLYING ; type
 	db 45 ; catch rate

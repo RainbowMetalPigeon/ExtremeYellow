@@ -1,7 +1,7 @@
 	db DEX_CROBAT ; pokedex id
 
-	db  85,  90,  80, 130,  80
-	;   hp  atk  def  spd  spc
+	db  85,  90,  80, 130,  80, 80
+	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, FLYING ; type
 	db 47 ; catch rate

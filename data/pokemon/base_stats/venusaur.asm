@@ -1,7 +1,7 @@
 	db DEX_VENUSAUR ; pokedex id
 
-	db  80,  82,  83,  80, 100
-	;   hp  atk  def  spd  spc
+	db  80,  82,  83,  80, 100, 100
+	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
 	db 45 ; catch rate

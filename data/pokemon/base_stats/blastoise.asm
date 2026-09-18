@@ -1,7 +1,7 @@
 	db DEX_BLASTOISE ; pokedex id
 
-	db  79,  83, 100,  78,  85
-	;   hp  atk  def  spd  spc
+	db  79,  83, 100,  78,  85, 85
+	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
 	db 45 ; catch rate

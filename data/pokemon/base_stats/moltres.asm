@@ -1,7 +1,7 @@
 	db DEX_MOLTRES ; pokedex id
 
-	db  90, 100,  90,  90, 125
-	;   hp  atk  def  spd  spc
+	db  90, 100,  90,  90, 125, 125
+	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FLYING ; type
 	db 3 ; catch rate
