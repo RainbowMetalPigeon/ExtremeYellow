@@ -1944,7 +1944,9 @@ PrintBaseStatsInfo:
 	call PrintStatDex
 	ld de, wMonHBaseSpeed
 	call PrintStatDex
-	ld de, wMonHBaseSpecial
+	ld de, wMonHBaseSpecialAttack
+	call PrintStatDex
+	ld de, wMonHBaseSpecialDefense
 	call PrintStatDex
 
 	ret
@@ -1965,4 +1967,5 @@ StatsNameText:
 	next "ATTACK  : "
 	next "DEFENSE : "
 	next "SPEED   : "
-	next "SPECIAL : @"
+	next "SPC.ATK : "
+	next "SPC.DEF : @"

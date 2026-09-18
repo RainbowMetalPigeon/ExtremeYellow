@@ -10,7 +10,7 @@ _CalcStats::
 	ld [de], a
 	inc de
 	ld a, c
-	cp NUM_STATS
+	cp NUM_CURRENT_STATS
 	jr nz, .statsLoop
 	ret
 
@@ -28,6 +28,13 @@ _CalcStat::
 	ld e, a
 	pop hl
 	push hl
+	ld a, c
+; new for special split
+	cp $6
+	jr nz, .noStatExpSlotAlias
+	dec c ; special defense (c=6) reuses special attack's (c=5) single shared stat-exp word
+.noStatExpSlotAlias
+; BTV
 	sla c
 	ld a, d
 	and a
@@ -68,6 +75,8 @@ _CalcStat::
 	cp $4
 	jr z, .getSpeedIV
 	cp $5
+	jr z, .getSpecialIV
+	cp $6 ; special defense shares the same DV nibble as special attack - probably unnecessary after the edit
 	jr z, .getSpecialIV
 .getHpIV
 	push bc

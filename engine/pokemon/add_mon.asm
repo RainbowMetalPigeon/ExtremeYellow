@@ -316,7 +316,7 @@ _AddPartyMon::
 	dec a
 	jr nz, .calcFreshStats
 	ld hl, wEnemyMonMaxHP
-	ld bc, $a
+	ld bc, NUM_CURRENT_STATS * 2 ; was hardcoded $a (5 stats), missing SpecialDefense entirely
 	call CopyData          ; copy stats of cur enemy mon
 	pop hl
 	jr .done

@@ -263,7 +263,18 @@ SeviiSixIslandGym3Text10_NoReward:
 ; ----------------------------------
 
 LoadStatModifiersForRokusei::
+; wUniQuizAnswer+0..5 hold the puzzle's 6 debuff slots (Attack,Defense,Speed,
+; Special,Accuracy,Evasion - see ApplyRandomStatDebuff in SeviiSixIslandGym1.asm,
+; which only ever picks index 0-5). wUniQuizAnswer+6 onward is unrelated hazard
+; state (Rocks/Spikes/ToxicSpikes/Web) for the same room - NOT a spare stat slot,
+; so this can't just be widened to a 7-byte copy.
 	ld hl, wUniQuizAnswer
 	ld de, wPlayerMonAttackMod ; = wPlayerMonStatMods
-	ld bc, 6
+	ld bc, 4 ; Attack, Defense, Speed, SpecialAttack (old "Special" slot maps directly onto the new SpecialAttack slot)
+	call CopyData
+	ld a, [wPlayerMonSpecialAttackMod]
+	ld [wPlayerMonSpecialDefenseMod], a ; always mirrors SpecialAttack, matching every other stat-mod change in this feature
+	ld hl, wUniQuizAnswer + 4 ; puzzle's Accuracy, Evasion values
+	ld de, wPlayerMonAccuracyMod
+	ld bc, 2
 	jp CopyData ; copies bc bytes from hl to de

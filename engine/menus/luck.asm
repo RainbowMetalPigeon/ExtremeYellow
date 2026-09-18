@@ -303,7 +303,7 @@ LuckControl:
 	ret
 .pressedDown
 	ld a, [hl]
-	cp 7 ; option position of CANCEL: 78h, but is #6 because we start from 0
+	cp 7 ; option position of CANCEL: 8th, but is #6 because we start from 0
 	jr nz, .doNotWrapAround
 	ld [hl], $0
 	scf

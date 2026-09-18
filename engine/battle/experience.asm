@@ -344,7 +344,7 @@ GainExperience:
 	add hl, bc
 	push hl
 	ld de, wBattleMonLevel
-	ld bc, 1 + NUM_STATS * 2 ; size of stats
+	ld bc, 1 + NUM_CURRENT_STATS * 2 ; size of stats
 	call CopyData
 	pop hl
 	ld a, [wPlayerBattleStatus3]
@@ -352,7 +352,7 @@ GainExperience:
 	jr nz, .recalcStatChanges
 ; the mon is not transformed, so update the unmodified stats
 	ld de, wPlayerMonUnmodifiedLevel
-	ld bc, 1 + NUM_STATS * 2
+	ld bc, 1 + NUM_CURRENT_STATS * 2
 	call CopyData
 .recalcStatChanges
 	xor a ; battle mon

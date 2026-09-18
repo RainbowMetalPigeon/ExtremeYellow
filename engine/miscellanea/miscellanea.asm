@@ -1756,7 +1756,7 @@ PrintBattleInfoCore::
 	ld a, [wPlayerMonSpeedMod]
 	call PrintHumanStringFromStatModifier
 	hlcoord 6, 14
-	ld a, [wPlayerMonSpecialMod]
+	ld a, [wPlayerMonSpecialAttackMod] ; SpecialAttack and SpecialDefense should always be identical
 	call PrintHumanStringFromStatModifier
 	hlcoord 6, 15
 	ld a, [wPlayerMonAccuracyMod]
@@ -1775,7 +1775,7 @@ PrintBattleInfoCore::
 	ld a, [wEnemyMonSpeedMod]
 	call PrintHumanStringFromStatModifier
 	hlcoord 11, 14
-	ld a, [wEnemyMonSpecialMod]
+	ld a, [wEnemyMonSpecialAttackMod] ; SpecialAttack and SpecialDefense should always be identical
 	call PrintHumanStringFromStatModifier
 	hlcoord 11, 15
 	ld a, [wEnemyMonAccuracyMod]
@@ -1785,6 +1785,209 @@ PrintBattleInfoCore::
 	call PrintHumanStringFromStatModifier
 
 	ret
+
+; ------------------------
+
+; secret page, hardcore-player/debug tool, reached from the Battle Info page
+; via Start+Select+Up: shows nominal (pre-badge/status/stage, i.e. what the
+; party STATS screen would show) vs actual (live, post-badge/status/stage,
+; i.e. what damage calc actually uses) values for every stat, one side at a
+; time. wPlayerMonUnmodified*/wBattleMon* and wEnemyMonUnmodified*/wEnemyMon*
+; already hold exactly these two tiers - no computation needed, just reads.
+PrintExtendedBattleInfoCore_Player::
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+	hlcoord 1, 1
+	ld de, ExtendedBattleInfoPlayerTitleText
+	call PlaceString
+	hlcoord 9, 3
+	ld de, ExtendedBattleInfoNomText
+	call PlaceString
+	hlcoord 15, 3
+	ld de, ExtendedBattleInfoActText
+	call PlaceString
+
+	hlcoord 1, 5
+	ld de, ExtendedBattleInfoHPText
+	call PlaceString
+	hlcoord 9, 5
+	ld de, wPlayerMonUnmodifiedMaxHP
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 5
+	ld de, wBattleMonMaxHP
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 7
+	ld de, ExtendedBattleInfoAtkText
+	call PlaceString
+	hlcoord 9, 7
+	ld de, wPlayerMonUnmodifiedAttack
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 7
+	ld de, wBattleMonAttack
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 9
+	ld de, ExtendedBattleInfoDefText
+	call PlaceString
+	hlcoord 9, 9
+	ld de, wPlayerMonUnmodifiedDefense
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 9
+	ld de, wBattleMonDefense
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 11
+	ld de, ExtendedBattleInfoSpdText
+	call PlaceString
+	hlcoord 9, 11
+	ld de, wPlayerMonUnmodifiedSpeed
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 11
+	ld de, wBattleMonSpeed
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 13
+	ld de, ExtendedBattleInfoSatText
+	call PlaceString
+	hlcoord 9, 13
+	ld de, wPlayerMonUnmodifiedSpecialAttack
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 13
+	ld de, wBattleMonSpecialAttack
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 15
+	ld de, ExtendedBattleInfoSdfText
+	call PlaceString
+	hlcoord 9, 15
+	ld de, wPlayerMonUnmodifiedSpecialDefense
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 15
+	ld de, wBattleMonSpecialDefense
+	lb bc, 2, 3
+	call PrintNumber
+	ret
+
+PrintExtendedBattleInfoCore_Enemy::
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
+	call TextBoxBorder
+	hlcoord 1, 1
+	ld de, ExtendedBattleInfoEnemyTitleText
+	call PlaceString
+	hlcoord 9, 3
+	ld de, ExtendedBattleInfoNomText
+	call PlaceString
+	hlcoord 15, 3
+	ld de, ExtendedBattleInfoActText
+	call PlaceString
+
+	hlcoord 1, 5
+	ld de, ExtendedBattleInfoHPText
+	call PlaceString
+	hlcoord 9, 5
+	ld de, wEnemyMonUnmodifiedMaxHP
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 5
+	ld de, wEnemyMonMaxHP
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 7
+	ld de, ExtendedBattleInfoAtkText
+	call PlaceString
+	hlcoord 9, 7
+	ld de, wEnemyMonUnmodifiedAttack
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 7
+	ld de, wEnemyMonAttack
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 9
+	ld de, ExtendedBattleInfoDefText
+	call PlaceString
+	hlcoord 9, 9
+	ld de, wEnemyMonUnmodifiedDefense
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 9
+	ld de, wEnemyMonDefense
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 11
+	ld de, ExtendedBattleInfoSpdText
+	call PlaceString
+	hlcoord 9, 11
+	ld de, wEnemyMonUnmodifiedSpeed
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 11
+	ld de, wEnemyMonSpeed
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 13
+	ld de, ExtendedBattleInfoSatText
+	call PlaceString
+	hlcoord 9, 13
+	ld de, wEnemyMonUnmodifiedSpecialAttack
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 13
+	ld de, wEnemyMonSpecialAttack
+	lb bc, 2, 3
+	call PrintNumber
+
+	hlcoord 1, 15
+	ld de, ExtendedBattleInfoSdfText
+	call PlaceString
+	hlcoord 9, 15
+	ld de, wEnemyMonUnmodifiedSpecialDefense
+	lb bc, 2, 3
+	call PrintNumber
+	hlcoord 15, 15
+	ld de, wEnemyMonSpecialDefense
+	lb bc, 2, 3
+	call PrintNumber
+	ret
+
+ExtendedBattleInfoPlayerTitleText:
+	db "   PLAYER STATS@"
+ExtendedBattleInfoEnemyTitleText:
+	db "    ENEMY STATS@"
+ExtendedBattleInfoNomText:
+	db "NOM@"
+ExtendedBattleInfoActText:
+	db "ACT@"
+ExtendedBattleInfoHPText:
+	db "HP   :@"
+ExtendedBattleInfoAtkText:
+	db "ATK  :@"
+ExtendedBattleInfoDefText:
+	db "DEF  :@"
+ExtendedBattleInfoSpdText:
+	db "SPEED:@"
+ExtendedBattleInfoSatText:
+	db "SP.AT:@"
+ExtendedBattleInfoSdfText:
+	db "SP.DF:@"
 
 ; ------------------------
 
@@ -2819,4 +3022,70 @@ ResetPlayerSpriteData_ClearSpriteData::
 	ld bc, $10
 	xor a
 	call FillMemory
+	ret
+
+PrintBattleInfoCore_Omnni::
+	call PrintBattleInfoCore
+.keepWaiting
+	call WaitForBattleInfoInput
+	ld b, a ; b temporarily holds the button pressed
+	and D_UP | SELECT | START
+	cp D_UP | SELECT | START
+	jr z, .secretPages
+	ld a, b
+	bit BIT_B_BUTTON, a
+	jr nz, .close
+	bit BIT_A_BUTTON, a
+	jr nz, .close
+	bit BIT_SELECT, a
+	jr nz, .close
+	jr .keepWaiting
+.secretPages
+; secret page, hardcore-player/debug tool: Start+Select+Up while viewing
+; Battle Info opens the extended nominal-vs-actual stat page, player then
+; enemy; A/B advances/closes exactly like the ordinary Battle Info page
+	call PrintExtendedBattleInfoCore_Player
+	call WaitForTextScrollButtonPress
+	call PrintExtendedBattleInfoCore_Enemy
+	call WaitForTextScrollButtonPress
+.close
+	ret
+
+; like WaitForTextScrollButtonPress, but also watches for the Start+Select+Up
+; combo (to open the extended stat page) alongside A/B, and returns the
+; matched, masked press in a instead of discarding it
+WaitForBattleInfoInput:
+	ldh a, [hDownArrowBlinkCount1]
+	push af
+	ldh a, [hDownArrowBlinkCount2]
+	push af
+	xor a
+	ldh [hDownArrowBlinkCount1], a
+	ld a, $6
+	ldh [hDownArrowBlinkCount2], a
+.loop
+	push hl
+	ld a, [wTownMapSpriteBlinkingEnabled]
+	and a
+	jr z, .skipAnimation
+	push de
+	push bc
+	callfar TownMapSpriteBlinkingAnimation
+	pop bc
+	pop de
+.skipAnimation
+	hlcoord 18, 16
+	call HandleDownArrowBlinkTiming
+	pop hl
+	call JoypadLowSensitivity
+	predef CableClub_Run
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON | START | SELECT | D_UP
+	jr z, .loop
+	ld c, a ; preserve the matched press across the counter restore below, which clobbers a
+	pop af
+	ldh [hDownArrowBlinkCount2], a
+	pop af
+	ldh [hDownArrowBlinkCount1], a
+	ld a, c
 	ret

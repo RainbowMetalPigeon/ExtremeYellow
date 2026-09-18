@@ -126,6 +126,13 @@ _PersonalizationInfoTextOverworldSpeedup::
 ;	xxxx "123456789012345678"
 	prompt
 
+_PersonalizationInfoTextSpecialSplit::
+	text "If selected, gen2"
+	line "SPC ATK/SPC DEF"
+	cont "split is applied."
+;	xxxx "123456789012345678"
+	prompt
+
 _LayoutInfoTextDayNightPalettes::
 	text "Toggles the NIGHT"
 	line "palette. Does not"

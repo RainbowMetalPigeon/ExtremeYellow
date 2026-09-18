@@ -59,7 +59,7 @@ CureVolatileStatuses:
 	ret
 
 ResetStatMods:
-	ld b, $8
+	ld b, $8 ; 7 stat mod bytes + 1 padding byte (unchanged total size)
 .loop
 	ld [hli], a
 	dec b
@@ -67,7 +67,7 @@ ResetStatMods:
 	ret
 
 ResetStats:
-	ld b, $8
+	ld b, $A ; 5 stat words: Attack, Defense, Speed, SpecialAttack, SpecialDefense
 .loop
 	ld a, [hli]
 	ld [de], a

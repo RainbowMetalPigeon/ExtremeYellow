@@ -596,6 +596,23 @@ FaintEnemyPokemon:
 	call SaveScreenTilesToBuffer1
 	xor a
 	ld [wBattleResult], a
+; new, for the Special split: Stat Exp must always be granted from the
+; unified (pre-split) Special value, regardless of the split toggle, so
+; permanent stat growth never depends on toggle state (past or present).
+; This must run before the EXP_ALL halving below, so that halving (when
+; applicable) is applied consistently to Special the same as it is to
+; HP/Atk/Def/Spd - GainExperience (experience.asm) trusts this is already
+; correct and does no special-casing of its own.
+	ld a, [wPersonalizationSpecialSplit]
+	and a
+	jr z, .noSpecialOverrideNeeded
+	ld a, [wEnemyMonSpecies]
+	ld c, a
+	callfar FindUnifiedSpecialValue ; input: c, output: d
+	ld a, d
+	ld [wEnemyMonBaseStats + 4], a ; Sp.Atk slot (0-indexed: HP,Atk,Def,Spd,SpAtk,SpDef) - the only slot GainExperience's loop reads
+.noSpecialOverrideNeeded
+; BTV
 	ld b, EXP_ALL
 	call IsItemInBag
 	push af
@@ -606,7 +623,7 @@ FaintEnemyPokemon:
 ; the enemy mon base stats are added to stat exp, so they are halved
 ; the base exp (which determines normal exp) is also halved
 	ld hl, wEnemyMonBaseStats
-	ld b, $7
+	ld b, $8 ; wEnemyMonBaseStats (NUM_CURRENT_STATS) + wEnemyMonActualCatchRate + wEnemyMonBaseExp
 .halveExpDataLoop
 	srl [hl]
 	inc hl
@@ -669,7 +686,7 @@ TryMidBattleEvolution: ; new
 	call CopyData
 	ld hl, wBattleMonLevel
 	ld de, wPlayerMonUnmodifiedLevel ; block of memory used for unmodified stats
-	ld bc, 1 + NUM_STATS * 2
+	ld bc, 1 + NUM_CURRENT_STATS * 2
 	call CopyData
 	ld a, 0
 	ld [wCalculateWhoseStats], a
@@ -1682,7 +1699,7 @@ LoadBattleMonFromParty:
 
 	ld hl, wBattleMonLevel
 	ld de, wPlayerMonUnmodifiedLevel ; block of memory used for unmodified stats
-	ld bc, 1 + NUM_STATS * 2
+	ld bc, 1 + NUM_CURRENT_STATS * 2
 	call CopyData
 
 	call ApplyBurnAndParalysisPenaltiesToPlayer
@@ -1739,12 +1756,12 @@ LoadEnemyMonFromParty:
 	call CopyData ; Copy bc bytes from hl to de.
 	ld hl, wEnemyMonLevel
 	ld de, wEnemyMonUnmodifiedLevel ; block of memory used for unmodified stats
-	ld bc, 1 + NUM_STATS * 2
+	ld bc, 1 + NUM_CURRENT_STATS * 2
 	call CopyData
 	call ApplyBurnAndParalysisPenaltiesToEnemy
 	ld hl, wMonHBaseStats
 	ld de, wEnemyMonBaseStats
-	ld b, NUM_STATS
+	ld b, NUM_CURRENT_STATS
 .copyBaseStatsLoop
 	ld a, [hli]
 	ld [de], a
@@ -3058,12 +3075,7 @@ ShowMoveInfoInMenu: ; new
 
 PrintBattleInfo: ; new
 	call SaveScreenTilesToBuffer2
-	callfar PrintBattleInfoCore
-	call WaitForTextScrollButtonPress
-;	ld a, [wBattleMonSpecies]
-;	ld [wd0b5], a
-;	call GetMonHeader
-;	predef LoadMonBackPic
+	callfar PrintBattleInfoCore_Omnni
 	call LoadScreenTilesFromBuffer2
 	call LoadHudAndHpBarAndStatusTilePatterns
 	jp DisplayBattleMenu
@@ -4842,7 +4854,7 @@ GetDamageVarsForPlayerAttack:
 	cp PSYSTRIKE
 	ld hl, wEnemyMonDefense
 	jr z, .yesPsystrike
-	ld hl, wEnemyMonSpecial ; vanilla bit
+	ld hl, wEnemyMonSpecialDefense ; vanilla bit
 .yesPsystrike
 ; back to vanilla
 
@@ -4889,19 +4901,19 @@ GetDamageVarsForPlayerAttack:
 	ld c, l
 ; BTV
 .specialAttackCritCheck
-	ld hl, wBattleMonSpecial
+	ld hl, wBattleMonSpecialAttack
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
-; in the case of a critical hit, reset the player's and enemy's specials to their base values
-	ld c, 5 ; special stat
+; in the case of a critical hit, reset the player's special attack and the enemy's special defense to their base values
+	ld c, 6 ; special defense stat
 	call GetEnemyMonStat
 	ldh a, [hProduct + 2]
 	ld b, a
 	ldh a, [hProduct + 3]
 	ld c, a
 	push bc
-	ld hl, wPartyMon1Special
+	ld hl, wPartyMon1SpecialAttack
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
@@ -5068,7 +5080,7 @@ GetDamageVarsForEnemyAttack:
 	cp PSYSTRIKE
 	ld hl, wBattleMonDefense
 	jr z, .yesPsystrike
-	ld hl, wBattleMonSpecial ; vanilla bit
+	ld hl, wBattleMonSpecialDefense
 .yesPsystrike
 ; back to vanilla
 
@@ -5115,12 +5127,12 @@ GetDamageVarsForEnemyAttack:
 	ld c, l
 ; BTV
 .specialAttackCritCheck
-	ld hl, wEnemyMonSpecial
+	ld hl, wEnemyMonSpecialAttack
 	ld a, [wCriticalHitOrOHKO]
 	and a ; check for critical hit
 	jr z, .scaleStats
-; in the case of a critical hit, reset the player's and enemy's specials to their base values
-	ld hl, wPartyMon1Special
+; in the case of a critical hit, reset the player's special defense and the enemy's special attack to their base values
+	ld hl, wPartyMon1SpecialDefense
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes
@@ -5128,7 +5140,7 @@ GetDamageVarsForEnemyAttack:
 	ld b, a
 	ld c, [hl]
 	push bc
-	ld c, 5 ; special stat
+	ld c, 5 ; special attack stat
 	call GetEnemyMonStat
 	ld hl, hProduct + 2
 	pop bc
@@ -7084,9 +7096,9 @@ LoadEnemyMonData:
 	ld d, a		; EY, load max stats
 	ld e, a		; EY, load max stats
 	pop hl
-	push hl	;save position for party data wEnemyMon<x>HPExp - 1
+	push hl	; save position for party data wEnemyMon<x>HPExp - 1
 	inc hl ; move hl forward one position to MSB of first stat exp
-	ld b, 5	;load loops into b to loop through the five stats
+	ld b, NUM_STATS	; load loops into b to loop through the five stats
 .writeStatExp_loop
 	ld a, d	;set some statExp for MSB
 	ld [hli], a		;load MSB and point hl to the LSB position
@@ -7214,7 +7226,7 @@ LoadEnemyMonData:
 	predef LoadMovePPs
 	ld hl, wMonHBaseStats
 	ld de, wEnemyMonBaseStats
-	ld b, NUM_STATS
+	ld b, NUM_CURRENT_STATS
 .copyBaseStatsLoop
 	ld a, [hli]
 	ld [de], a
@@ -7259,7 +7271,7 @@ LoadEnemyMonData:
 	predef FlagActionPredef ; mark this mon as seen in the pokedex
 	ld hl, wEnemyMonLevel
 	ld de, wEnemyMonUnmodifiedLevel
-	ld bc, 1 + NUM_STATS * 2
+	ld bc, 1 + NUM_CURRENT_STATS * 2
 	call CopyData
 	ld a, $7 ; default stat mod
 	ld b, NUM_STAT_MODS ; number of stat mods
@@ -7404,11 +7416,11 @@ CalculateModifiedStats:
 	call CalculateModifiedStat
 	inc c
 	ld a, c
-	cp NUM_STATS - 1
+	cp NUM_CURRENT_STATS - 1
 	jr nz, .loop
 	ret
 
-; calculate modified stat for stat c (0 = attack, 1 = defense, 2 = speed, 3 = special)
+; calculate modified stat for stat c (0 = attack, 1 = defense, 2 = speed, 3 = special attack, 4 = special defense)
 CalculateModifiedStat:
 	push bc
 	push bc
@@ -7509,6 +7521,13 @@ ApplyBadgeStatBoosts:
 	srl b
 	dec c
 	jr nz, .loop
+; new, for the Special split: Volcano Badge must also boost SpecialDefense,
+; mirroring SpecialAttack - the loop above only ever reaches SpecialAttack.
+; hl is now at wBattleMonSpecialDefense (4 iterations * 2 bytes = +8 from
+; wBattleMonAttack), so no extra addressing work is needed here.
+	ld a, [wObtainedBadges]
+	bit BIT_VOLCANOBADGE, a
+	call nz, .applyBoostToStat
 	ret
 
 ; multiply stat at hl by 1.125

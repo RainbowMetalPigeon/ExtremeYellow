@@ -1,13 +1,14 @@
 ; base data struct members (see data/pokemon/base_stats/*.asm)
 rsreset
 DEF BASE_DEX_NO      rb
-DEF BASE_STATS       rb NUM_STATS
+DEF BASE_STATS       rb NUM_CURRENT_STATS
 rsset BASE_STATS
 DEF BASE_HP          rb
 DEF BASE_ATK         rb
 DEF BASE_DEF         rb
 DEF BASE_SPD         rb
-DEF BASE_SPC         rb
+DEF BASE_SPC_ATK     rb
+DEF BASE_SPC_DEF     rb
 DEF BASE_TYPES       rw
 rsset BASE_TYPES
 DEF BASE_TYPE_1      rb
@@ -46,13 +47,14 @@ DEF MON_DVS        rw
 DEF MON_PP         rb NUM_MOVES
 DEF BOXMON_STRUCT_LENGTH EQU _RS
 DEF MON_LEVEL      rb
-DEF MON_STATS      rw NUM_STATS
+DEF MON_STATS      rw NUM_CURRENT_STATS
 rsset MON_STATS
 DEF MON_MAXHP      rw
 DEF MON_ATK        rw
 DEF MON_DEF        rw
 DEF MON_SPD        rw
-DEF MON_SPC        rw
+DEF MON_SPC_ATK    rw
+DEF MON_SPC_DEF    rw
 DEF PARTYMON_STRUCT_LENGTH EQU _RS
 
 DEF PARTY_LENGTH EQU 6

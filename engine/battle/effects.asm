@@ -169,9 +169,15 @@ StatModifierUpEffect:
 	jr c, .incrementStatMod
 	sub ATTACK_UP2_EFFECT - ATTACK_UP1_EFFECT ; map +2 effects to equivalent +1 effect
 .incrementStatMod
-	ld c, a
+	ld c, a ; c = logical stat index (0=Atk,1=Def,2=Spd,3=SpAtk,4=Acc,5=Eva), never mutated below
 	ld b, $0
-	add hl, bc
+	push bc
+	cp $4
+	jr c, .noStorageShift
+	inc c ; storage shift: SpecialDefenseMod occupies physical slot 4, pushing Accuracy/Evasion down by one
+.noStorageShift
+	add hl, bc ; hl = &StatMods + storage offset for this stat
+	pop bc ; c = logical stat index again
 	ld b, [hl]
 	inc b ; increment corresponding stat mod
 	ld a, $d
@@ -190,6 +196,78 @@ StatModifierUpEffect:
 .ok
 	ld [hl], b
 	ld a, c
+	cp $3
+	jr nz, .noSpecialDefenseMirror
+	inc hl
+	ld [hl], b ; mirror the same result into SpecialDefenseMod - always moves in lockstep with SpecialAttackMod
+	dec hl
+.noSpecialDefenseMirror
+	ld a, c
+	cp $3
+	jr nz, .noSpecialDefenseRecalc
+; new, recalculate SpecialDefense's live stat too - the mirror above only
+; updated its mod byte. Unlike the primary check below, this never aborts
+; the move (that decision already happened for SpecialAttack); it just
+; skips SpecialDefense's own update if it's independently already at 999.
+	push hl ; preserve the mod-byte address - the existing code right after this block expects to find it here
+	push bc
+	ld hl, wBattleMonSpecialDefense + 1
+	ld de, wPlayerMonUnmodifiedSpecialDefense
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .pointToSpecialDefense
+	ld hl, wEnemyMonSpecialDefense + 1
+	ld de, wEnemyMonUnmodifiedSpecialDefense
+.pointToSpecialDefense
+	ld a, [hld]
+	sub LOW(MAX_STAT_VALUE)
+	jr nz, .recalculateSpecialDefense
+	ld a, [hl]
+	sbc HIGH(MAX_STAT_VALUE)
+	jr z, .skipSpecialDefenseRecalc ; already at 999
+.recalculateSpecialDefense
+	push hl
+	ld hl, StatModifierRatios
+	dec b
+	sla b
+	ld c, b
+	ld b, $0
+	add hl, bc
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [de]
+	ldh [hMultiplicand + 1], a
+	inc de
+	ld a, [de]
+	ldh [hMultiplicand + 2], a
+	ld a, [hli]
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld b, $4
+	call Divide
+	pop hl
+	ldh a, [hProduct + 3]
+	sub LOW(MAX_STAT_VALUE)
+	ldh a, [hProduct + 2]
+	sbc HIGH(MAX_STAT_VALUE)
+	jr c, .storeSpecialDefense
+	ld a, HIGH(MAX_STAT_VALUE)
+	ldh [hMultiplicand + 1], a
+	ld a, LOW(MAX_STAT_VALUE)
+	ldh [hMultiplicand + 2], a
+.storeSpecialDefense
+	ldh a, [hProduct + 2]
+	ld [hli], a
+	ldh a, [hProduct + 3]
+	ld [hl], a
+.skipSpecialDefenseRecalc
+	pop bc
+	pop hl ; restore the mod-byte address for the existing code below
+.noSpecialDefenseRecalc
+	ld a, c
+; BTV
 	cp $4
 	jr nc, UpdateStatDone ; jump if mod affected is evasion/accuracy
 	push hl
@@ -481,9 +559,15 @@ StatModifierDownEffect:
 	jr c, .decrementStatMod
 	sub ATTACK_DOWN2_EFFECT - ATTACK_DOWN1_EFFECT ; map -2 effects to corresponding -1 effect
 .decrementStatMod
-	ld c, a
+	ld c, a ; c = logical stat index (0=Atk,1=Def,2=Spd,3=SpAtk,4=Acc,5=Eva), never mutated below
 	ld b, $0
-	add hl, bc
+	push bc
+	cp $4
+	jr c, .noStorageShift
+	inc c ; storage shift: SpecialDefenseMod occupies physical slot 4, pushing Accuracy/Evasion down by one
+.noStorageShift
+	add hl, bc ; hl = &StatMods + storage offset for this stat
+	pop bc ; c = logical stat index again
 	ld b, [hl]
 	dec b ; dec corresponding stat mod
 	jp z, CantLowerAnymore ; if stat mod is 1 (-6), can't lower anymore
@@ -498,6 +582,79 @@ StatModifierDownEffect:
 .ok
 	ld [hl], b ; save modified mod
 	ld a, c
+	cp $3
+	jr nz, .noSpecialDefenseMirror
+	inc hl
+	ld [hl], b ; mirror the same result into SpecialDefenseMod - always moves in lockstep with SpecialAttackMod
+	dec hl
+.noSpecialDefenseMirror
+	ld a, c
+	cp $3
+	jr nz, .noSpecialDefenseRecalc
+; new, recalculate SpecialDefense's live stat too - the mirror above only
+; updated its mod byte. Unlike the primary check below, this never aborts
+; the move (that decision already happened for SpecialAttack); it just
+; skips SpecialDefense's own update if it's independently already at 1.
+	push hl ; preserve the mod-byte address - the existing code right after this block expects to find it here
+	push de ; preserve the move-effect pointer - UpdateLoweredStatDone reads [de] right after PrintStatText
+	push bc
+	ld hl, wEnemyMonSpecialDefense + 1
+	ld de, wEnemyMonUnmodifiedSpecialDefense
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .pointToSpecialDefenseLowered
+	ld hl, wBattleMonSpecialDefense + 1
+	ld de, wPlayerMonUnmodifiedSpecialDefense
+.pointToSpecialDefenseLowered
+	ld a, [hld]
+	sub $1 ; can't lower stat below 1 (-6)
+	jr nz, .recalculateSpecialDefenseLowered
+	ld a, [hl]
+	and a
+	jr z, .skipSpecialDefenseRecalcLowered ; already at 1
+.recalculateSpecialDefenseLowered
+	push hl
+	ld hl, StatModifierRatios
+	dec b
+	sla b
+	ld c, b
+	ld b, $0
+	add hl, bc
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [de]
+	ldh [hMultiplicand + 1], a
+	inc de
+	ld a, [de]
+	ldh [hMultiplicand + 2], a
+	ld a, [hli]
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld b, $4
+	call Divide
+	pop hl
+	ldh a, [hProduct + 3]
+	ld b, a
+	ldh a, [hProduct + 2]
+	or b
+	jr nz, .storeSpecialDefenseLowered
+	ldh [hMultiplicand + 1], a
+	ld a, $1
+	ldh [hMultiplicand + 2], a
+.storeSpecialDefenseLowered
+	ldh a, [hProduct + 2]
+	ld [hli], a
+	ldh a, [hProduct + 3]
+	ld [hl], a
+.skipSpecialDefenseRecalcLowered
+	pop bc
+	pop de ; restore the move-effect pointer for the existing code below
+	pop hl ; restore the mod-byte address for the existing code below
+.noSpecialDefenseRecalc
+	ld a, c
+; BTV
 	cp $4
 	jr nc, UpdateLoweredStatDone ; jump for evasion/accuracy
 	push hl
@@ -778,9 +935,15 @@ StatModifierSelfDownEffect:
 ;	sub ATTACK_DOWN2_EFFECT - ATTACK_DOWN1_EFFECT ; map -2 effects to corresponding -1 effect
 ;.decrementStatMod
 .continueWithDebuff
-	ld c, a
+	ld c, a ; c = logical stat index (0=Atk,1=Def,2=Spd,3=SpAtk - no Acc/Eva self-down exists), never mutated below
 	ld b, $0
-	add hl, bc
+	push bc
+	cp $4
+	jr c, .noStorageShift
+	inc c ; storage shift: SpecialDefenseMod occupies physical slot 4, pushing Accuracy/Evasion down by one
+.noStorageShift
+	add hl, bc ; hl = &StatMods + storage offset for this stat
+	pop bc ; c = logical stat index again
 	ld b, [hl]
 	dec b ; dec corresponding stat mod
 	jp z, CantLowerAnymore ; if stat mod is 1 (-6), can't lower anymore
@@ -793,7 +956,80 @@ StatModifierSelfDownEffect:
 .ok
 	ld [hl], b ; save modified mod
 	ld a, c
+	cp $3
+	jr nz, .noSpecialDefenseMirror
+	inc hl
+	ld [hl], b ; mirror the same result into SpecialDefenseMod - always moves in lockstep with SpecialAttackMod
+	dec hl
+.noSpecialDefenseMirror
+	ld a, c
+	cp $3
+	jr nz, .noSpecialDefenseRecalc
+; new, recalculate SpecialDefense's live stat too - the mirror above only
+; updated its mod byte. Unlike the primary check below, this never aborts
+; the move (that decision already happened for SpecialAttack); it just
+; skips SpecialDefense's own update if it's independently already at 1.
+	push hl ; preserve the mod-byte address - the existing code right after this block expects to find it here
+	push de ; preserve the move-effect pointer - UpdateLoweredStatDone reads [de] right after PrintStatText
+	push bc
+	ld hl, wBattleMonSpecialDefense + 1 ; self-targeting: default (player's turn) affects the player's own mon, opposite of StatModifierDownEffect
+	ld de, wPlayerMonUnmodifiedSpecialDefense
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .pointToSpecialDefenseLowered
+	ld hl, wEnemyMonSpecialDefense + 1
+	ld de, wEnemyMonUnmodifiedSpecialDefense
+.pointToSpecialDefenseLowered
+	ld a, [hld]
+	sub $1 ; can't lower stat below 1 (-6)
+	jr nz, .recalculateSpecialDefenseLowered
+	ld a, [hl]
+	and a
+	jr z, .skipSpecialDefenseRecalcLowered ; already at 1
+.recalculateSpecialDefenseLowered
+	push hl
+	ld hl, StatModifierRatios
+	dec b
+	sla b
+	ld c, b
+	ld b, $0
+	add hl, bc
+	xor a
+	ldh [hMultiplicand], a
+	ld a, [de]
+	ldh [hMultiplicand + 1], a
+	inc de
+	ld a, [de]
+	ldh [hMultiplicand + 2], a
+	ld a, [hli]
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld b, $4
+	call Divide
+	pop hl
+	ldh a, [hProduct + 3]
+	ld b, a
+	ldh a, [hProduct + 2]
+	or b
+	jr nz, .storeSpecialDefenseLowered
+	ldh [hMultiplicand + 1], a
+	ld a, $1
+	ldh [hMultiplicand + 2], a
+.storeSpecialDefenseLowered
+	ldh a, [hProduct + 2]
+	ld [hli], a
+	ldh a, [hProduct + 3]
+	ld [hl], a
+.skipSpecialDefenseRecalcLowered
+	pop bc
+	pop de ; restore the move-effect pointer for the existing code below
+	pop hl ; restore the mod-byte address for the existing code below
+.noSpecialDefenseRecalc
+	ld a, c
 	cp $4
+; BTV
 	jp nc, UpdateLoweredStatDone ; jump for evasion/accuracy - why?
 	push hl
 	push de

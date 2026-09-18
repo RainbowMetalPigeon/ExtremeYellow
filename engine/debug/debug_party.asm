@@ -16,7 +16,7 @@ DebugTeam:
 	db MEWTWO, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 1
-;	db ARTICUNO, 100
+	db BLISSEY, 60
 ;	db ZAPDOS, 42
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -91,15 +91,15 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-;	ld a, SOFTBOILED ; CONFUSE_RAY ; DIG
-;	ld hl, wPartyMon4Moves
-;	ld [hli], a
-;	ld a, SMOG ; WILL_O_WISP ; TELEPORT
-;	ld [hli], a
-;	ld a, TAKE_DOWN ; RECOVER ; SOFTBOILED
-;	ld [hli], a
-;	ld a, DOUBLE_EDGE ; SCREECH ; FLASH
-;	ld [hl], a
+	ld a, GROWTH ; CONFUSE_RAY ; DIG
+	ld hl, wPartyMon4Moves
+	ld [hli], a
+	ld a, PSYCHIC_M ; WILL_O_WISP ; TELEPORT
+	ld [hli], a
+	ld a, AMNESIA ; RECOVER ; SOFTBOILED
+	ld [hli], a
+	ld a, CLOSE_COMBAT ; SCREECH ; FLASH
+	ld [hl], a
 
 ;	; moves to other members
 ;	ld a, SCALD

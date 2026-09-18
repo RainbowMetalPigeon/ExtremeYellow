@@ -22,6 +22,7 @@ DisplayPersonalizationMenu::
 	jr .personalizationMenuLoop
 .exitPersonalizationMenu
 	callfar UpdatePartyMonTypesAfterPersonalization
+	callfar UpdatePartyMonSpecialStatsAfterPersonalization ; TBE?
 	callfar RestoreTextSpeed
 	ret
 
@@ -44,7 +45,7 @@ PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_TypeChart
 	dw PersonalizationMenu_TCGMode
 	dw PersonalizationMenu_OverworldSpeedup
-	dw PersonalizationMenu_Dummy
+	dw PersonalizationMenu_SpecialSplit
 	dw PersonalizationMenu_Cancel
 
 ; ---------------------------------------------
@@ -313,7 +314,45 @@ PersonalizationMenu_OverworldSpeedup:
 
 ; ---------------------------------------------
 
-PersonalizationMenu_Dummy:
+PersonalizationMenu_SpecialSplit:
+	ld a, [wPersonalizationSpecialSplit]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $2
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationSpecialSplit], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationSpecialSplitStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 13, 14
+	call PlaceString
 	and a
 	ret
 
@@ -354,7 +393,7 @@ PersonalizationControl:
 	scf
 	ret
 .doNotWrapAround
-	cp 5 ; number of options - 1
+	cp 6 ; number of options - 1
 	jr c, .regularIncrement
 	ld [hl], 6 ; option position of CANCEL - 1, because it will be increased by 1 next step
 .regularIncrement
@@ -365,7 +404,7 @@ PersonalizationControl:
 	ld a, [hl]
 	cp 7 ; option position of CANCEL
 	jr nz, .doNotMoveCursorToLastValidOption
-	ld [hl], 5 ; number of options - 1
+	ld [hl], 6 ; number of options - 1
 	scf
 	ret
 .doNotMoveCursorToLastValidOption
@@ -380,7 +419,7 @@ PersonalizationControl:
 .pressedSelectOrA
 	ld a, [hl]
 	ld [wMultipurposeTemporaryStorage], a
-	cp 6 ; number of options
+	cp 7 ; number of options
 	ret nc
 	cp 0 ; first option is special as it doesn't just print one dialogue
 	jr z, .alteredTypes
@@ -437,7 +476,7 @@ InitPersonalizationMenu:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 6 ; the number of options to loop through
+	ld c, 7 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -465,7 +504,7 @@ InitPersonalizationMenu_Redo:
 	call PlaceString
 	xor a
 	ld [wOptionsCursorLocation], a
-	ld c, 6 ; the number of options to loop through
+	ld c, 7 ; the number of options to loop through
 .loop
 	push bc
 	call GetPersonalizationPointer ; updates the next option
@@ -486,7 +525,8 @@ AllPersonalizationText:
 	next "SWAP BATTLE:"
 	next "TYPECHART:"
 	next "TCG MODE:"
-	next "SPEED-UP:@"
+	next "SPEED-UP:"
+	next "SPEC SPLIT:@"
 
 PersonalizationTitleText:
 	db "PERSONALIZATION@"
@@ -531,6 +571,7 @@ CustomText:
 
 PersonalizationTCGModeStringsPointerTable:
 PersonalizationOverworldSpeedupStringsPointerTable:
+PersonalizationSpecialSplitStringsPointerTable:
 	dw NoText
 	dw YesText
 
@@ -543,6 +584,7 @@ PersonalizationInfoTexts:
 	dw PersonalizationInfoTextTypeChart
 	dw PersonalizationInfoTextTCGMode
 	dw PersonalizationInfoTextOverworldSpeedup
+	dw PersonalizationInfoTextSpecialSplit
 
 PersonalizationInfoTextTypes:
 	text_far _PersonalizationInfoTextTypes
@@ -574,4 +616,8 @@ PersonalizationInfoTextTCGMode:
 
 PersonalizationInfoTextOverworldSpeedup:
 	text_far _PersonalizationInfoTextOverworldSpeedup
+	text_end
+
+PersonalizationInfoTextSpecialSplit:
+	text_far _PersonalizationInfoTextSpecialSplit
 	text_end

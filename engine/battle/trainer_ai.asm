@@ -446,25 +446,25 @@ AIMoveChoiceModification1:
 	inc [hl]
 	; fallthrough
 .checkBuffed
-	call CalculateSumOfStatsModifiersForPlayer ; returns sum in a, 42 is default
-	cp 44
+	call CalculateSumOfStatsModifiersForPlayer ; returns sum in a, 49 is default
+	cp 51
 	jr c, .buffCheckPlayerModifers41
 	dec [hl]
-	cp 46
+	cp 53
 	jr c, .checkReflect
 	dec [hl]
-	cp 48
+	cp 55
 	jr c, .checkReflect
 	dec [hl]
 	jr .checkReflect
 .buffCheckPlayerModifers41
-	cp 41 ; just one less than base
+	cp 48 ; just one less than base
 	jr nc, .checkReflect
 	inc [hl]
-	cp 39
+	cp 46
 	jr nc, .checkReflect
 	inc [hl]
-	cp 37
+	cp 44
 	jr nc, .checkReflect
 	inc [hl]
 	; fallthrough
@@ -626,13 +626,13 @@ AIMoveChoiceModification1:
 	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_SpeedSpecial ; whichever is lower is the one dominating
 	push bc
-	ld a, [wEnemyMonSpecialMod]
+	ld a, [wEnemyMonSpecialAttackMod] ; SpecialAttackMod/SpecialDefenseMod are always mirrored (Phase 5), either works
 	ld b, a
 	ld a, [wEnemyMonSpeedMod]
 	cp b ; speedMod-specialMod
 	pop bc
 	jr c, .modifierComparisons_SelfBuff_NotEvasion
-	ld a, [wEnemyMonSpecialMod]
+	ld a, [wEnemyMonSpecialAttackMod]
 	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Curse ; whichever is lower between atk and def, if not GHOST, is the one dominating
 	ld a, [wPersonalizationTCGMode] ; 0=NO, 1=YES
@@ -669,7 +669,7 @@ AIMoveChoiceModification1:
 	ld a, [wEnemyMonDefenseMod]
 	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Special
-	ld a, [wEnemyMonSpecialMod]
+	ld a, [wEnemyMonSpecialAttackMod] ; SpecialAttackMod/SpecialDefenseMod are always mirrored (Phase 5), either works
 	jr .modifierComparisons_SelfBuff_NotEvasion
 .selfBoost_Evasion
 	ld a, [wEnemyMonEvasionMod]
@@ -702,7 +702,7 @@ AIMoveChoiceModification1:
 	ld a, [wPlayerMonSpeedMod]
 	jr .modifierComparisons_Debuff_NotAccuracy
 .debuff_Special
-	ld a, [wPlayerMonSpecialMod]
+	ld a, [wPlayerMonSpecialAttackMod] ; SpecialAttackMod/SpecialDefenseMod are always mirrored (Phase 5), either works
 	jr .modifierComparisons_Debuff_NotAccuracy
 .debuff_Evasion
 	ld a, [wPlayerMonEvasionMod]
@@ -862,47 +862,47 @@ AIMoveChoiceModification2:
 ; - player and enemy stats modifiers
 ; - player and enemy status
 ; - player and enemy volatile conditions
-	call CalculateSumOfStatsModifiersForEnemy ; returns sum in a, 42 is default
-	cp 44
+	call CalculateSumOfStatsModifiersForEnemy ; returns sum in a, 49 is default
+	cp 51
 	jr c, .hazeCheckEnemyModifers41
 	inc [hl]
-	cp 46
+	cp 53
 	jr c, .hazeCheckPlayerModifiers
 	inc [hl]
-	cp 48
+	cp 55
 	jr c, .hazeCheckPlayerModifiers
 	inc [hl]
 	jr .hazeCheckPlayerModifiers
 .hazeCheckEnemyModifers41
-	cp 41 ; just one less than base
+	cp 48 ; just one less than base
 	jr nc, .hazeCheckPlayerModifiers
 	dec [hl]
-	cp 39
+	cp 46
 	jr nc, .hazeCheckPlayerModifiers
 	dec [hl]
-	cp 37
+	cp 44
 	jr nc, .hazeCheckPlayerModifiers
 	dec [hl]
 .hazeCheckPlayerModifiers
-	call CalculateSumOfStatsModifiersForPlayer ; returns sum in a, 42 is default
-	cp 44
+	call CalculateSumOfStatsModifiersForPlayer ; returns sum in a, 49 is default
+	cp 51
 	jr c, .hazeCheckPlayerModifers41
 	dec [hl]
-	cp 46
+	cp 53
 	jr c, .hazeCheckEnemyStatus
 	dec [hl]
-	cp 48
+	cp 55
 	jr c, .hazeCheckEnemyStatus
 	dec [hl]
 	jr .hazeCheckEnemyStatus
 .hazeCheckPlayerModifers41
-	cp 41 ; just one less than base
+	cp 48 ; just one less than base
 	jr nc, .hazeCheckEnemyStatus
 	inc [hl]
-	cp 39
+	cp 46
 	jr nc, .hazeCheckEnemyStatus
 	inc [hl]
-	cp 37
+	cp 44
 	jr nc, .hazeCheckEnemyStatus
 	inc [hl]
 .hazeCheckEnemyStatus
@@ -1926,17 +1926,17 @@ AIMoveChoiceModification4:
 	ld a, 6
 	call AddToBCapped
 .checkNerfed ; -----------------------------------------------------------------
-	call CalculateSumOfStatsModifiersForEnemy ; returns sum of modifiers in a
-	cp 42
+	call CalculateSumOfStatsModifiersForEnemy ; returns sum of modifiers in a, 49 is default
+	cp 49
 	jr nc, .checkEncouragement
-; it's 41 or less
-	cp 41
+; it's 48 or less
+	cp 48
 	jr z, .debuffedBy1
-	cp 40
+	cp 47
 	jr z, .debuffedBy2
-	cp 39
+	cp 46
 	jr z, .debuffedBy3
-; 38 or less, i.e. debuffed by 4 or more
+; 45 or less, i.e. debuffed by 4 or more
 	ld a, 32
 	call AddToBCapped
 	jr .checkEncouragement
@@ -2824,10 +2824,12 @@ CalculateSumOfStatsModifiersForEnemy:
 	; fallthrough
 CalculateSumOfStatsModifiersForHL: ; returns sum of modifiers in a
 ; for the modifiers: values can range from 1 - 13 ($1 to $D): 7 is normal
+; sums all 7 mod bytes (Attack/Defense/Speed/SpecialAttack/SpecialDefense/
+; Accuracy/Evasion) - default (all neutral) is 7*7=49
 	push bc
 	ld a, [hli]
 	ld b, a ; b holds atk mod
-	ld c, 5
+	ld c, 6
 .modifierLoop
 	ld a, [hli]
 	add b

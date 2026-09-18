@@ -101,14 +101,14 @@ TransformEffect_:
 	ld a, [hli]
 	ld [de], a
 	inc de
-; Attack, Defense, Speed, and Special stats
+; Attack, Defense, Speed, SpecialAttack, and SpecialDefense stats
 	inc hl
 	inc hl
 	inc hl
 	inc de
 	inc de
 	inc de
-	ld bc, $8
+	ld bc, $A ; 5 stat words - hl/de must land exactly on PP below, not 2 bytes short on SpecialDefense
 	call CopyData
 	ld bc, wBattleMonMoves - wBattleMonPP
 	add hl, bc ; ld hl, wBattleMonMoves
@@ -132,9 +132,11 @@ TransformEffect_:
 	call GetMonName
 	ld hl, wEnemyMonUnmodifiedAttack
 	ld de, wPlayerMonUnmodifiedAttack
+	ld bc, $A ; 5 stat words: Attack, Defense, Speed, SpecialAttack, SpecialDefense
 	call .copyBasedOnTurn ; original (unmodified) stats
 	ld hl, wEnemyMonStatMods
 	ld de, wPlayerMonStatMods
+	ld bc, $8 ; 7 stat mod bytes + 1 padding byte (unchanged total size)
 	call .copyBasedOnTurn ; stat mods
 	ld hl, TransformedText
 	jp PrintText
@@ -148,7 +150,6 @@ TransformEffect_:
 	ld l, e
 	pop de
 .gotStatsOrModsToCopy
-	ld bc, $8
 	jp CopyData
 
 .failed

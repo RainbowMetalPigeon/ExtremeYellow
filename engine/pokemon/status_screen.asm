@@ -364,81 +364,116 @@ PrintStatsBox:
 	ld a, d
 	and a ; a is 0 from the status screen
 	jr nz, .DifferentBox
+; status screen info
 	hlcoord 0, 8
 	lb bc, 8, 8
 	call TextBoxBorder ; Draws the box
-; new, print label that these are the CURRENT stats
-	hlcoord 1, 17
-	ld a, $31 ; "<CUR1>"
-	ld [hli], a
-	ld a, $32 ; "<CUR2>"
-	ld [hl], a
-; back to vanilla
-	hlcoord 1, 9 ; Start printing stats from here
-	ld bc, $19 ; Number offset
-	jr .PrintStats
-.DifferentBox
-	hlcoord 9, 2
-	lb bc, 8, 9
-	call TextBoxBorder
-	hlcoord 11, 3
-	ld bc, $18
-.PrintStats
-	push bc
-	push hl
-	ld de, StatsText
+; print title
+	hlcoord 1,  9
+	ld de, StatsTextTitle_Current1
 	call PlaceString
-	pop hl
-	pop bc
-	add hl, bc
+	hlcoord 1, 10
+	ld de, StatsTextTitle_Current2
+	call PlaceString
+; print stats name only once
+	hlcoord 1, 12
+	ld de, StatsText_Atk
+	call PlaceString
+	hlcoord 1, 13
+	ld de, StatsText_Def
+	call PlaceString
+	hlcoord 1, 14
+	ld de, StatsText_Spd
+	call PlaceString
+	hlcoord 1, 15
+	ld de, StatsText_SpcAtk
+	call PlaceString
+	hlcoord 1, 16
+	ld de, StatsText_SpcDef
+	call PlaceString
+; print values
 	lb bc, 2, 3
+	hlcoord 6, 12
 	ld de, wLoadedMonAttack
-	call PrintStat
-	ld de, wLoadedMonDefense
-	call PrintStat
-	ld de, wLoadedMonSpeed
-	call PrintStat
-	ld de, wLoadedMonSpecial
-	jp PrintNumber
-PrintStat:
-	push hl
 	call PrintNumber
-	pop hl
-	ld de, SCREEN_WIDTH * 2
-	add hl, de
-	ret
+	hlcoord 6, 13
+	ld de, wLoadedMonDefense
+	call PrintNumber
+	hlcoord 6, 14
+	ld de, wLoadedMonSpeed
+	call PrintNumber
+	hlcoord 6, 15
+	ld de, wLoadedMonSpecialAttack
+	call PrintNumber
+	hlcoord 6, 16
+	ld de, wLoadedMonSpecialDefense
+	jp PrintNumber
+.DifferentBox ; level-up info
+	hlcoord 9, 5
+	lb bc, 5, 9
+	call TextBoxBorder
+; print stats name only once
+	hlcoord 10,  6
+	ld de, StatsText_Atk
+	call PlaceString
+	hlcoord 10,  7
+	ld de, StatsText_Def
+	call PlaceString
+	hlcoord 10,  8
+	ld de, StatsText_Spd
+	call PlaceString
+	hlcoord 10,  9
+	ld de, StatsText_SpcAtk
+	call PlaceString
+	hlcoord 10, 10
+	ld de, StatsText_SpcDef
+	call PlaceString
+; print values
+	lb bc, 2, 3
+	hlcoord 15,  6
+	ld de, wLoadedMonAttack
+	call PrintNumber
+	hlcoord 15,  7
+	ld de, wLoadedMonDefense
+	call PrintNumber
+	hlcoord 15,  8
+	ld de, wLoadedMonSpeed
+	call PrintNumber
+	hlcoord 15,  9
+	ld de, wLoadedMonSpecialAttack
+	call PrintNumber
+	hlcoord 15, 10
+	ld de, wLoadedMonSpecialDefense
+	jp PrintNumber
 
 PrintStatsBox_Base: ; new
 	call ClearStatsValues
-; print label that these are the BASE stats
-	hlcoord 1, 17
-	ld a, $33 ; "<BASE1>"
-	ld [hli], a
-	ld a, $34 ; "<BASE2>"
-	ld [hl], a
-; vanilla-like stuff
-	hlcoord 1, 9 ; Start printing stats from here
-	ld bc, $19 ; Number offset
-.PrintStats
-;	push bc
-;	push hl
-;	ld de, StatsText
-;	call PlaceString
-;	pop hl
-;	pop bc
-	add hl, bc
+; print title
+	hlcoord 1,  9
+	ld de, StatsTextTitle_Base1
+	call PlaceString
+	hlcoord 1, 10
+	ld de, StatsTextTitle_Base2
+	call PlaceString
+; print values
 	lb bc, 1, 3
+	hlcoord 6, 12
 	ld de, wMonHBaseAttack
-	call PrintStat
-	ld de, wMonHBaseDefense
-	call PrintStat
-	ld de, wMonHBaseSpeed
-	call PrintStat
-	ld de, wMonHBaseSpecial
 	call PrintNumber
-; clear CurHP/MaxHP
+	hlcoord 6, 13
+	ld de, wMonHBaseDefense
+	call PrintNumber
+	hlcoord 6, 14
+	ld de, wMonHBaseSpeed
+	call PrintNumber
+	hlcoord 6, 15
+	ld de, wMonHBaseSpecialAttack
+	call PrintNumber
+	hlcoord 6, 16
+	ld de, wMonHBaseSpecialDefense
+	call PrintNumber
+; clear CurHP/MaxHP and print new appropriate value
 	call ClearCurHpMaxHP
-; print Base HP
 	hlcoord 13, 4
 	ld de, wMonHBaseHP
 	lb bc, 1, 3
@@ -446,24 +481,15 @@ PrintStatsBox_Base: ; new
 
 PrintStatsBox_DVs: ; new
 	call ClearStatsValues
-; print label that these are the IV stats
-	hlcoord 1, 17
-	ld a, $35 ; "<IV1>"
-	ld [hli], a
-	ld a, $36 ; "<IV2>"
-	ld [hl], a
-; vanilla-like stuff
-	hlcoord 1, 9 ; Start printing stats from here
-	ld bc, $19 ; Number offset
-.PrintStats
-;	push bc
-;	push hl
-;	ld de, StatsText
-;	call PlaceString
-;	pop hl
-;	pop bc
-	add hl, bc
-	lb bc, 1, 2
+; print title
+	hlcoord 1,  9
+	ld de, StatsTextTitle_DV1
+	call PlaceString
+	hlcoord 1, 10
+	ld de, StatsTextTitle_DV2
+	call PlaceString
+; print values
+	lb bc, 1, 3
 ; ATK DV
 	ld de, wLoadedMonDVs
 	ld a, [de]
@@ -471,14 +497,16 @@ PrintStatsBox_DVs: ; new
 	and $f
 	ld [wMultiUseBuffer], a
 	ld de, wMultiUseBuffer
-	call PrintStat
+	hlcoord 6, 12
+	call PrintNumber
 ; DEF DV
 	ld de, wLoadedMonDVs
 	ld a, [de]
 	and $f
 	ld [wMultiUseBuffer], a
 	ld de, wMultiUseBuffer
-	call PrintStat
+	hlcoord 6, 13
+	call PrintNumber
 ; SPEED DV
 	ld de, wLoadedMonDVs
 	inc de
@@ -487,7 +515,8 @@ PrintStatsBox_DVs: ; new
 	and $f
 	ld [wMultiUseBuffer], a
 	ld de, wMultiUseBuffer
-	call PrintStat
+	hlcoord 6, 14
+	call PrintNumber
 ; SPECIAL DV
 	ld de, wLoadedMonDVs
 	inc de
@@ -495,6 +524,16 @@ PrintStatsBox_DVs: ; new
 	and $f
 	ld [wMultiUseBuffer], a
 	ld de, wMultiUseBuffer
+	hlcoord 6, 15
+	call PrintNumber
+; SPECIAL DV (yes the same as above)
+	ld de, wLoadedMonDVs
+	inc de
+	ld a, [de]
+	and $f
+	ld [wMultiUseBuffer], a
+	ld de, wMultiUseBuffer
+	hlcoord 6, 16
 	call PrintNumber
 ; clear CurHP/MaxHP
 	call ClearCurHpMaxHP
@@ -531,62 +570,59 @@ PrintStatsBox_DVs: ; new
 
 PrintStatsBox_StatExp: ; new
 	call ClearStatsValues
-; print label that these are the EV stats
-	hlcoord 1, 17
-	ld a, $37 ; "<EV1>"
-	ld [hli], a
-	ld a, $38 ; "<EV2>"
-	ld [hl], a
-; vanilla-like stuff
-	hlcoord 1, 9 ; Start printing stats from here
-	ld bc, $19 ; Number offset
-.PrintStats
-;	push bc
-;	push hl
-;	ld de, StatsText
-;	call PlaceString
-;	pop hl
-;	pop bc
-	add hl, bc
+; print title
+	hlcoord 1,  9
+	ld de, StatsTextTitle_StatExp1
+	call PlaceString
+	hlcoord 1, 10
+	ld de, StatsTextTitle_StatExp2
+	call PlaceString
 ; print ATK stat exp
 	push hl
 	ld hl, wLoadedMonAttackExp
 	ld a, [hli]
 	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	ld a, [de]
 	pop hl
-	lb bc, 1, 2
-	call PrintStat
+	lb bc, 1, 3
+	hlcoord 6, 12
+	call PrintNumber
 ; print DEF stat exp
 	push hl
 	ld hl, wLoadedMonDefenseExp
 	ld a, [hli]
 	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	ld a, [de]
 	pop hl
-	lb bc, 1, 2
-	call PrintStat
+	lb bc, 1, 3
+	hlcoord 6, 13
+	call PrintNumber
 ; print SPEED stat exp
 	push hl
 	ld hl, wLoadedMonSpeedExp
 	ld a, [hli]
 	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	ld a, [de]
 	pop hl
-	lb bc, 1, 2
-	call PrintStat
+	lb bc, 1, 3
+	hlcoord 6, 14
+	call PrintNumber
 ; print SPECIAL stat exp
 	push hl
 	ld hl, wLoadedMonSpecialExp
 	ld a, [hli]
 	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	ld a, [de]
 	pop hl
-	lb bc, 1, 2
+	lb bc, 1, 3
+	hlcoord 6, 15
+	push de
+	call PrintNumber
+	pop de
+; print SPECIAL stat exp (yes, again, same as above)
+; skipping useless time-consuming part
+	lb bc, 1, 3
+	hlcoord 6, 16
 	call PrintNumber
 ; clear CurHP/MaxHP
 	call ClearCurHpMaxHP
@@ -600,11 +636,16 @@ PrintStatsBox_StatExp: ; new
 	lb bc, 1, 2
 	jp PrintNumber
 
-StatsText:
-	db   "ATTACK"
-	next "DEFENSE"
-	next "SPEED"
-	next "SPECIAL@"
+StatsText_Atk:
+	db   "ATK  @"
+StatsText_Def:
+	db   "DEF  @"
+StatsText_Spd:
+	db   "SPED @"
+StatsText_SpcAtk:
+	db   "S.AT @"
+StatsText_SpcDef:
+	db   "S.DF @"
 
 ClearCurHpMaxHP: ; new
 	ld a, " "
@@ -620,15 +661,19 @@ ClearCurHpMaxHP: ; new
 
 ClearStatsValues: ; new
 	ld a, " "
-	hlcoord 6, 10
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
 	hlcoord 6, 12
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
+	hlcoord 6, 13
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
 	hlcoord 6, 14
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	hlcoord 6, 15
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
@@ -942,11 +987,33 @@ HandleStatusInfoBlinkTiming::
 	call PrintSelectForInfo
 	ret
 
-	charmap "<CUR1>",    $C0
-	charmap "<CUR2>",    $C1
-	charmap "<BASE1>",   $C2
-	charmap "<BASE2>",   $C3
-	charmap "<IV1>",     $C4
-	charmap "<IV2>",     $C5
-	charmap "<EV1>",     $C6
-	charmap "<EV2>",     $C7
+; new ----------------------
+
+StatsTextTitle_Current1:
+	db   "CURRENT @"
+;	xx   "12345678@"
+
+StatsTextTitle_Current2:
+StatsTextTitle_Base2:
+	db   "STATS   @"
+;	xx   "12345678@"
+
+StatsTextTitle_Base1:
+	db   "BASE    @"
+;	xx   "12345678@"
+
+StatsTextTitle_DV1:
+	db   "DV      @"
+;	xx   "12345678@"
+
+StatsTextTitle_DV2:
+	db   "(AKA IV)@"
+;	xx   "12345678@"
+
+StatsTextTitle_StatExp1:
+	db   "STAT EXP@"
+;	xx   "12345678@"
+
+StatsTextTitle_StatExp2:
+	db   "(AKA EV)@"
+;	xx   "12345678@"

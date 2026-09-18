@@ -3,7 +3,7 @@ DEF MAX_LEVEL_2 EQU 255 ; new
 
 DEF NUM_MOVES EQU 4
 
-; VitaminStats indexes (see data/battle/stat_names.asm)
+; VitaminStats / Stat Exp array indexes (single shared Special field)
 	const_def
 	const STAT_HEALTH
 	const STAT_ATTACK
@@ -11,6 +11,11 @@ DEF NUM_MOVES EQU 4
 	const STAT_SPEED
 	const STAT_SPECIAL
 DEF NUM_STATS EQU const_value
+
+; base/current-stat array size (HP, Atk, Def, Spd, SpAtk, SpDef) - separate
+; from NUM_STATS because Stat Exp stays a single shared Special field while
+; base/current stats are genuinely split into Sp.Atk/Sp.Def
+DEF NUM_CURRENT_STATS EQU 6
 
 ; StatModTextStrings indexes (see data/battle/stat_mod_names.asm)
 	const_def

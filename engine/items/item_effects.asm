@@ -152,6 +152,7 @@ ItemUsePtrTable:
 	dw ItemUseVitamin    ; LIMIT_BREAKER, new
 	dw ItemUseEvoStone   ; BERSERK_GENE, new
 	dw ItemUseBall       ; STEAL_BALL, new, testing
+	dw UnusableItem      ; ZINC, new, placeholder
 
 ; new: code for SLEEP_BAG, beginning --------------------------
 
@@ -1625,7 +1626,7 @@ ItemUseMedicine:
 	ld bc, wPartyMon1Stats - wPartyMon1Status
 	add hl, bc ; hl now points to party stats
 	ld de, wBattleMonStats
-	ld bc, NUM_STATS * 2
+	ld bc, NUM_CURRENT_STATS * 2
 	call CopyData ; copy party stats to in-battle stat data
 	predef DoubleOrHalveSelectedStats
 	jp .doneHealing
@@ -2972,7 +2973,7 @@ ItemUsePokeflute:
 ; OUTPUT:
 ; [wWereAnyMonsAsleep]: set to 1 if any pokemon were asleep
 WakeUpEntireParty:
-	ld de, 44
+	ld de, PARTYMON_STRUCT_LENGTH ; edited for special split
 	ld c, 6
 .loop
 	ld a, [hl]

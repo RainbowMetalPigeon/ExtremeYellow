@@ -552,7 +552,7 @@ wAnimPalette:: db
 NEXTU
 	ds 60
 ; temporary buffer when swapping party mon data
-wSwitchPartyMonTempBuffer:: ds 44 ; party_struct size
+wSwitchPartyMonTempBuffer:: ds PARTYMON_STRUCT_LENGTH ; was 44, edited for special split
 
 NEXTU
 	ds 120
@@ -710,7 +710,8 @@ wPlayerMonUnmodifiedMaxHP:: dw
 wPlayerMonUnmodifiedAttack:: dw
 wPlayerMonUnmodifiedDefense:: dw
 wPlayerMonUnmodifiedSpeed:: dw
-wPlayerMonUnmodifiedSpecial:: dw
+wPlayerMonUnmodifiedSpecialAttack:: dw
+wPlayerMonUnmodifiedSpecialDefense:: dw
 
 ; stat modifiers for the player's current pokemon
 ; value can range from 1 - 13 ($1 to $D)
@@ -719,10 +720,11 @@ wPlayerMonStatMods::
 wPlayerMonAttackMod:: db
 wPlayerMonDefenseMod:: db
 wPlayerMonSpeedMod:: db
-wPlayerMonSpecialMod:: db
+wPlayerMonSpecialAttackMod:: db
+wPlayerMonSpecialDefenseMod:: db
 wPlayerMonAccuracyMod:: db
 wPlayerMonEvasionMod:: db
-	ds 2
+	ds 1
 wPlayerMonStatModsEnd::
 
 	ds 1
@@ -732,7 +734,8 @@ wEnemyMonUnmodifiedMaxHP:: dw
 wEnemyMonUnmodifiedAttack:: dw
 wEnemyMonUnmodifiedDefense:: dw
 wEnemyMonUnmodifiedSpeed:: dw
-wEnemyMonUnmodifiedSpecial:: dw
+wEnemyMonUnmodifiedSpecialAttack:: dw
+wEnemyMonUnmodifiedSpecialDefense:: dw
 
 ; stat modifiers for the enemy's current pokemon
 ; value can range from 1 - 13 ($1 to $D)
@@ -741,10 +744,11 @@ wEnemyMonStatMods::
 wEnemyMonAttackMod:: db
 wEnemyMonDefenseMod:: db
 wEnemyMonSpeedMod:: db
-wEnemyMonSpecialMod:: db
+wEnemyMonSpecialAttackMod:: db
+wEnemyMonSpecialDefenseMod:: db
 wEnemyMonAccuracyMod:: db
 wEnemyMonEvasionMod:: db
-	ds 2
+	ds 1
 wEnemyMonStatModsEnd::
 
 NEXTU
@@ -1421,7 +1425,7 @@ wEnemyMonNick:: ds NAME_LENGTH
 
 wEnemyMon:: battle_struct wEnemyMon
 
-wEnemyMonBaseStats:: ds NUM_STATS
+wEnemyMonBaseStats:: ds NUM_CURRENT_STATS
 wEnemyMonActualCatchRate:: db
 wEnemyMonBaseExp:: db
 
@@ -1780,7 +1784,8 @@ wMonHBaseHP:: db
 wMonHBaseAttack:: db
 wMonHBaseDefense:: db
 wMonHBaseSpeed:: db
-wMonHBaseSpecial:: db
+wMonHBaseSpecialAttack:: db
+wMonHBaseSpecialDefense:: db
 wMonHTypes::
 wMonHType1:: db
 wMonHType2:: db
@@ -1798,7 +1803,7 @@ wMonHeaderEnd::
 ; saved at the start of a battle and then written back at the end of the battle
 wSavedTileAnimations:: db
 
-	ds 1 ; edited, it was 2, reduced for increased TMs
+;	ds 2 ; edited, reduced for increased TMs and special split
 
 wDamage:: dw
 
@@ -1969,7 +1974,6 @@ wPseudoItemID:: db
 
 wEnemyStatEXPStore:: ; shinpokerednote: ADDED: store for EVs applied to the opponent's pokemon if the option is turned on
 wUnusedD153:: db
-
 	ds 2 ; this needs to stay free for the EVs-to-opponents to work fine, because I didn't declare wEnemyStatEXPStore as a dw?!
 	     ; restored to 2 from 1 as it was in the third commit ever
 
@@ -2334,7 +2338,10 @@ wFanClubCurScript:: db
 ;	ds 1
 ;wOchreGymCurScript:: db ; new
 ;wRedsHouse2FCurScript:: db
-	ds 6 ; new, from optimizing the scripts, UNUSED
+;	ds 6 ; from optimizing the scripts, commented for special split
+
+wPersonalizationSpecialSplit:: db ; new
+
 wRandomizedMon1_Type1:: db ; new
 wRandomizedMon1_Type2:: db ; new
 wRandomizedMon2_Type1:: db ; new
@@ -2372,7 +2379,7 @@ wMuseum1FCurScript:: db
 ;wRoute17CurScript:: db
 ;wRoute19CurScript:: db
 ;wRoute21CurScript:: db
-	ds 3 ; new, from optimizing the scripts, UNUSED
+;	ds 3 ; from optimizing the scripts, commented for special split
 
 wSafariZoneGateCurScript:: db
 ;wRockTunnelB1FCurScript:: db
@@ -2423,8 +2430,9 @@ wVermilionCityCurScript:: db
 ;wSilphCo8FCurScript:: db
 ;wSilphCo9FCurScript:: db
 ;wHallOfFameCurScript:: db
-	ds 11 ; new, from optimizing the scripts, UNUSED
+;	ds 11 ; new, from optimizing the scripts
 		  ; it was 44, but -32 for the wMissableObjectFlagsSevii added below
+		  ; commented for special split
 
 wChampionsRoomCurScript:: db
 wLoreleisRoomCurScript:: db
@@ -2434,13 +2442,13 @@ wAgathasRoomCurScript:: db
 ;wVictoryRoad1FCurScript:: db
 ;wCeladonChiefHouseCurScript:: db ; new
 ;	ds 1
-	ds 3 ; new, from optimizing the scripts, UNUSED
+;	ds 3 ; from optimizing the scripts, commented for special split
 
 wLancesRoomCurScript:: db
 ;wCopycatsHouse2FCurScript:: db ; new
 ;wSafariZoneRestHouseCurScript:: db ; new
 ;wCinnabarVolcanoBFCurScript:: db ; new
-	ds 3 ; new, from optimizing the scripts, UNUSED
+;	ds 3 ; from optimizing the scripts, commented for special split
 
 wOchreRehabilitationCenterCurScript:: db ; new
 ;	ds 4
@@ -2480,7 +2488,8 @@ wSeafoamIslandsB4FCurScript:: db
 ;wHauntedPalletTownCurScript:: db ; new
 ;wHauntedIslandOfNumbersCurScript:: db ; new
 ;wHauntedHouse4CurScript:: db ; new
-	ds 7 ; new, from optimizing the scripts, UNUSED
+	ds 3 ; new, was ds 7, from optimizing the scripts, UNUSED
+		 ; partly commented for special split
 
 wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok
 ;wMrPsychicsHouseCurScript:: db ; new

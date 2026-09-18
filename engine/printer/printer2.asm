@@ -171,7 +171,7 @@ Printer_GetMonStats:
 	db   "ATTACK"
 	next "DEFENSE"
 	next "SPEED"
-	next "SPECIAL@"
+	next "SP.ATK@" ; this loop only ever reaches Attack/Defense/Speed/SpecialAttack, never SpecialDefense TBE
 
 .Blank:
 	db "--------------@"

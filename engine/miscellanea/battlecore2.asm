@@ -935,7 +935,8 @@ SuujeroSpecialBoost::
 	ld [hli], a ; wEnemyMonAttackMod
 	ld [hli], a ; wEnemyMonDefenseMod
 	ld [hli], a ; wEnemyMonSpeedMod
-	ld [hli], a ; wEnemyMonSpecialMod
+	ld [hli], a ; wEnemyMonSpecialAttackMod
+	ld [hli], a ; wEnemyMonSpecialDefenseMod
 	ld [hli], a ; wEnemyMonAccuracyMod
 	ld [hl], a ; wEnemyMonEvasionMod
 

@@ -16,6 +16,18 @@ BaseStatsCopying::
 	ld de, wMonHeader
 	call CopyData ; function that copies hl to de for bc amount of bytes = so BaseStats is copied into wMonHeader for BASE_DATA_SIZE amount of bytes
 
+; new, to personalize the Special split
+	ld a, [wPersonalizationSpecialSplit] ; 0=OFF (unified), 1=ON (split)
+	and a
+	jr nz, .specialSplitDone
+	ld a, [wd11e]
+	ld c, a
+	call FindUnifiedSpecialValue ; input: c, output: d
+	ld a, d
+	ld [wMonHBaseSpecialAttack], a
+	ld [wMonHBaseSpecialDefense], a
+.specialSplitDone
+
 ; new, for for randomized mons
 	CheckAndResetEvent EVENT_LOAD_RANDOMIZED_1_TYPES
 	jr nz, .loadRandomizedTypesOne
@@ -187,6 +199,253 @@ ListOfMonsAndTypesToChange_Altered:
 	db MDRAGONITE, DRAGON, FAIRY ; V2
 	db -1
 
+; input: c = species
+; output: d = that species' unified (pre-split) Special value
+; (input in c and output in d, not a/b/hl, since this is farcall'd from
+; another bank for the Stat Exp hook in GainExperience - callfar's own
+; bankswitch setup clobbers a, b and hl, but preserves c, d, e and flags)
+; used both to force Sp.Atk/Sp.Def equal when the split is off, and to keep
+; Stat Exp gain from a defeated mon toggle-independent (see GainExperience)
+FindUnifiedSpecialValue::
+	ld hl, ListOfMonsAndUnifiedSpecial
+.loop
+	ld a, [hli]
+	cp -1 ; terminator - shouldn't happen if the table is complete
+	ret z
+	cp c
+	jr nz, .skip
+	ld a, [hl]
+	ld d, a
+	ret
+.skip
+	inc hl
+	jr .loop
+
+ListOfMonsAndUnifiedSpecial:
+	db BULBASAUR, 65
+	db IVYSAUR, 80
+	db VENUSAUR, 100
+	db MVENUSAUR, 122
+	db CHARMANDER, 50
+	db CHARMELEON, 65
+	db CHARIZARD, 85
+	db MCHARZARDX, 85
+	db MCHARZARDY, 159
+	db SQUIRTLE, 50
+	db WARTORTLE, 65
+	db BLASTOISE, 85
+	db MBLASTOISE, 135
+	db CATERPIE, 20
+	db METAPOD, 25
+	db BUTTERFREE, 90
+	db WEEDLE, 20
+	db KAKUNA, 25
+	db BEEDRILL, 45
+	db MBEEDRILL, 48
+	db PIDGEY, 35
+	db PIDGEOTTO, 50
+	db PIDGEOT, 70
+	db MPIDGEOT, 135
+	db RATTATA, 25
+	db RATICATE, 50
+	db SPEAROW, 31
+	db FEAROW, 61
+	db EKANS, 40
+	db ARBOK, 65
+	db PICHU, 35
+	db PIKACHU, 50
+	db RAICHU, 90
+	db MRAICHUX, 95
+	db MRAICHUY, 160
+	db SANDSHREW, 30
+	db SANDSLASH, 55
+	db NIDORAN_F, 40
+	db NIDORINA, 55
+	db NIDOQUEEN, 75
+	db NIDORAN_M, 40
+	db NIDORINO, 55
+	db NIDOKING, 75
+	db CLEFFA, 45
+	db CLEFAIRY, 60
+	db CLEFABLE, 95
+	db MCLEFABLE, 135
+	db VULPIX, 65
+	db NINETALES, 100
+	db IGGLYBUFF, 20
+	db JIGGLYPUFF, 25
+	db WIGGLYTUFF, 68
+	db ZUBAT, 40
+	db GOLBAT, 75
+	db CROBAT, 80
+	db ODDISH, 75
+	db GLOOM, 85
+	db VILEPLUME, 110
+	db BELLOSSOM, 90
+	db PARAS, 55
+	db PARASECT, 80
+	db VENONAT, 40
+	db VENOMOTH, 90
+	db DIGLETT, 45
+	db DUGTRIO, 70
+	db MEOWTH, 40
+	db PERSIAN, 65
+	db PSYDUCK, 50
+	db GOLDUCK, 80
+	db MANKEY, 35
+	db PRIMEAPE, 60
+	db ANNIHILAPE, 70
+	db GROWLITHE, 50
+	db ARCANINE, 80
+	db POLIWAG, 40
+	db POLIWHIRL, 50
+	db POLIWRATH, 70
+	db POLITOED, 90
+	db ABRA, 105
+	db KADABRA, 120
+	db ALAKAZAM, 135
+	db MALAKAZAM, 175
+	db MACHOP, 35
+	db MACHOKE, 50
+	db MACHAMP, 65
+	db BELLSPROUT, 70
+	db WEEPINBELL, 85
+	db VICTREEBEL, 100
+	db MVICTREBEL, 135
+	db TENTACOOL, 100
+	db TENTACRUEL, 120
+	db GEODUDE, 30
+	db GRAVELER, 45
+	db GOLEM, 55
+	db PONYTA, 65
+	db RAPIDASH, 80
+	db SLOWPOKE, 40
+	db SLOWBRO, 80
+	db MSLOWBRO, 105
+	db SLOWKING, 105
+	db MAGNEMITE, 95
+	db MAGNETON, 120
+	db MAGNEZONE, 130
+	db FARFETCHD, 58
+	db DODUO, 35
+	db DODRIO, 60
+	db SEEL, 70
+	db DEWGONG, 95
+	db GRIMER, 40
+	db MUK, 65
+	db SHELLDER, 45
+	db CLOYSTER, 85
+	db GASTLY, 100
+	db HAUNTER, 115
+	db GENGAR, 130
+	db MGENGAR, 170
+	db ONIX, 30
+	db STEELIX, 65
+	db MSTEELIX, 75
+	db DROWZEE, 90
+	db HYPNO, 115
+	db KRABBY, 25
+	db KINGLER, 50
+	db VOLTORB, 55
+	db ELECTRODE, 80
+	db EXEGGCUTE, 60
+	db EXEGGUTOR, 125
+	db CUBONE, 40
+	db MAROWAK, 50
+	db TYROGUE, 35
+	db HITMONLEE, 35
+	db HITMONCHAN, 35
+	db HITMONTOP, 35
+	db LICKITUNG, 60
+	db LICKILICKY, 80
+	db KOFFING, 60
+	db WEEZING, 85
+	db RHYHORN, 30
+	db RHYDON, 45
+	db RHYPERIOR, 55
+	db HAPPINY, 65
+	db CHANSEY, 105
+	db BLISSEY, 135
+	db TANGELA, 100
+	db TANGROWTH, 110
+	db KANGASKHAN, 40
+	db MKANGASKAN, 80
+	db HORSEA, 70
+	db SEADRA, 95
+	db KINGDRA, 95
+	db GOLDEEN, 50
+	db SEAKING, 80
+	db STARYU, 70
+	db STARMIE, 100
+	db MSTARMIE, 130
+	db MIME_JR, 70
+	db MR_MIME, 100
+	db SCYTHER, 55
+	db SCIZOR, 68
+	db MSCIZOR, 83
+	db KLEAVOR, 70
+	db SMOOCHUM, 65
+	db JYNX, 95
+	db ELEKID, 55
+	db ELECTABUZZ, 85
+	db ELECTIVIRE, 90
+	db MAGBY, 55
+	db MAGMAR, 85
+	db MAGMORTAR, 125
+	db PINSIR, 55
+	db MPINSIR, 78
+	db TAUROS, 70
+	db MAGIKARP, 20
+	db GYARADOS, 100
+	db MGYARADOS, 130
+	db LAPRAS, 95
+	db DITTO, 48
+	db EEVEE, 65
+	db VAPOREON, 110
+	db JOLTEON, 110
+	db FLAREON, 110
+	db ESPEON, 130
+	db UMBREON, 130
+	db LEAFEON, 65
+	db GLACEON, 130
+	db SYLVEON, 130
+	db PORYGON, 75
+	db PORYGON2, 105
+	db PORYGONZ, 135
+	db OMANYTE, 90
+	db OMASTAR, 115
+	db KABUTO, 45
+	db KABUTOPS, 70
+	db AERODACTYL, 60
+	db MARODACTYL, 70
+	db MUNCHLAX, 40
+	db SNORLAX, 65
+	db ARTICUNO, 125
+	db ZAPDOS, 125
+	db MOLTRES, 125
+	db DRATINI, 50
+	db DRAGONAIR, 70
+	db DRAGONITE, 100
+	db MDRAGONITE, 145
+	db ARM_MEWTWO, 90
+	db MEWTWO, 154
+	db MMEWTWOX, 154
+	db MMEWTWOY, 194
+	db MEW, 100
+	db MELTAN, 55
+	db MELMETAL, 80
+	db VENUSTOISE, 131
+	db THU_FI_ZER, 145
+	db MZYGARDE, 216
+	db UNECROZMA, 167
+	db MRAYQUAZA, 180
+	db EETERNATUS, 250
+	db ARCEUS, 120
+	db MISSINGNO, 6
+	db BLUESDAD, 255
+	db BLUESMOM, 255
+	db DAD, 255
+	db -1
+
 UpdatePartyMonTypesAfterPersonalization:
 ; do nothing if we don't have a party
 	ld a, [wPartyCount]
@@ -292,6 +551,58 @@ UpdatePartyMonTypesAfterPersonalization:
 	pop bc
 	dec c
 	jr nz, .loopUpdateVanilla
+	ret
+
+; new, called on Personalization menu exit to refresh every party mon's
+; Sp.Atk/Sp.Def immediately after toggling the split, in either direction -
+; unlike the Types equivalent above, every mon is affected (not just ones
+; with an entry in a table), so no per-mon "does this need treatment" check
+; is needed: just refresh wMonHeader then recompute stats for each mon
+UpdatePartyMonSpecialStatsAfterPersonalization::
+	ld a, [wPartyCount]
+	and a
+	ret z ; do nothing if we don't have a party
+	ld c, a ; c is the counter
+.loop
+	ld a, [wPartyCount]
+	sub c ; a-c
+	push bc
+
+; get the base address of the mon of this round of the party loop
+	ld hl, wPartyMon1
+	ld bc, wPartyMon2 - wPartyMon1
+	call AddNTimes ; hl points to the base of the "a-c"th mon in the party
+	push hl ; keep the base address around for later
+
+; refresh wMonHeader (types+stats, toggle-aware) for this mon's species
+	ld bc, wPartyMon1Species - wPartyMon1
+	add hl, bc
+	ld a, [hl]
+	ld [wd11e], a
+	call BaseStatsCopying
+
+; recalculate this mon's actual stats (incl. stat exp), now that wMonHeader is fresh
+	pop hl ; hl = base address of this mon again
+	push hl
+	ld bc, wPartyMon1Level - wPartyMon1
+	add hl, bc
+	ld a, [hl]
+	ld [wCurEnemyLVL], a ; CalcStat reads the level to use from here, not from the mon's own struct - was missing entirely, causing every party mon's stats to be recalculated at whatever level was last left in this global
+	pop hl
+	push hl
+	ld bc, wPartyMon1Stats - wPartyMon1
+	add hl, bc
+	ld d, h
+	ld e, l ; de = this mon's Stats block start (CalcStats output pointer)
+	pop hl
+	ld bc, wPartyMon1HPExp - 1 - wPartyMon1
+	add hl, bc ; hl = this mon's (HPExp - 1) (CalcStats' stat-exp-relative input)
+	ld b, $1 ; consider stat exp
+	call CalcStats
+
+	pop bc
+	dec c
+	jr nz, .loop
 	ret
 
 ; input: mon species in d

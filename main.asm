@@ -82,14 +82,12 @@ INCLUDE "engine/overworld/use_another_repel.asm" ; new, from Vortiene
 INCLUDE "engine/overworld/check_map_connections.asm" ; new, from Vortiene
 INCLUDE "engine/miscellanea/miscellanea.asm" ; new
 INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new
-INCLUDE "engine/events/heat_damage.asm" ; new
 INCLUDE "engine/link/print_waiting_text.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
 INCLUDE "engine/miscellanea/overworld.asm" ; new
 INCLUDE "engine/math/bcd.asm" ; moved from bank3
 INCLUDE "engine/miscellanea/shiny.asm" ; new
-INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
 
 
 SECTION "bankGarage2", ROMX ; new
@@ -133,6 +131,8 @@ INCLUDE "engine/miscellanea/menus.asm" ; new
 INCLUDE "data/types/type_matchups.asm" ; moved out of battle/core.asm
 INCLUDE "engine/miscellanea/trainers.asm" ; new
 INCLUDE "engine/miscellanea/text.asm" ; new
+INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
+INCLUDE "engine/events/heat_damage.asm" ; new
 
 
 SECTION "bank4", ROMX
