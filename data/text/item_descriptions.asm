@@ -598,6 +598,11 @@ _StealBallDescription::
 ;	xxxx "123456789012345678
 	prompt
 
+_TMCaseDescription::
+	text "A case containing"
+	line "every TM found."
+;	xxxx "123456789012345678
+	prompt
 
 ; HMs --------------------------------------------------------------------------
 

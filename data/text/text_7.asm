@@ -36,6 +36,16 @@ _TMPokemartGreetingText_RocketPath:: ; new
 ;	xxxx "123456789012345678"
 	done
 
+_TMPokemartGreetingText_Proxy::
+	text "...proxy..."
+;	xxxx "123456789012345678"
+	done
+
+_ItemTMCase_Empty::
+	text "Empty."
+;	xxxx "123456789012345678"
+	prompt
+
 _ForbiddenMerchantGreetingText:: ; new
 	text "Oh oh oh!"
 	line "You did amazingly"

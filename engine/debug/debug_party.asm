@@ -16,7 +16,7 @@ DebugTeam:
 	db MEWTWO, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 1
-	db BLISSEY, 60
+	db PIDGEY, 60
 ;	db ZAPDOS, 42
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -417,6 +417,8 @@ SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for p
 
 DebugItemsList:
 	db TOWN_MAP, 1
+	db TM_CASE, 1
+	db TM_DOUBLE_TEAM, 3
 	db MASTER_BALL, 11
 	db STEAL_BALL, 99
 	db MEGA_STONE_Y, 99
@@ -446,7 +448,6 @@ DebugItemsList:
 ;	db ICE_ORB, 1
 ;	db THUNDER_ORB, 1
 ;	db FIRE_ORB, 1
-	db TM_GYRO_BALL, 3
 	db MAX_REPEL, 3
 	db LUNAR_RELIC, 1
 ;	db EXP_ALL, 1

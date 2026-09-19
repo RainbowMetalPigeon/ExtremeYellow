@@ -134,6 +134,7 @@ ItemNames::
 	li "LIM. BREAKER" ; new
 	li "BERSERK GENE" ; new
 	li "STEAL BALL" ; new
+	li "TM CASE" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

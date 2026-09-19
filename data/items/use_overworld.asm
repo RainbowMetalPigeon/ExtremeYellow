@@ -8,4 +8,5 @@ UsableItems_CloseMenu:
 	db SUPER_ROD
 	db MYSTERY_MAP ; new
 	db SLEEP_BAG ; new
+;	db TM_CASE ; new TBE?
 	db -1 ; end

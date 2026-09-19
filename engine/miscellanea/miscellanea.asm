@@ -956,8 +956,12 @@ RandomizeTeamForRandomizationOption::
 ; =====================================
 
 TMMartClerkDialogue::
+	text_far _TMPokemartGreetingText
+	text_end
+
+CreateListOfFoundTMs::
 	ld a, 1
-	ld [wUpdateSpritesEnabled], a
+	ld [wUpdateSpritesEnabled], a ; TBE?
 
 	ld de, wItemList
 
@@ -1454,47 +1458,23 @@ TMMartClerkDialogue::
 
 	; TM55
 	CheckHideShow HS_ROUTE_4_ITEM_2
-	jr z, .checkTMDONE
+	jr z, .checkHM01
 	ld a, TM_CURSE
 	ld [de], a
 	inc de
 	inc b
-.checkTMDONE
+.checkHM01
+
+; TBE, check the 10 HMs
 
 ; ender of the custom itemlist load function -----------------------------------
 	ld a, -1
 	ld [de], a
 
-; check if already 1 TM is loaded
-	ld a, b ; a should contain the number of TMs loaded
-	and a
-	jr z, .noTMsFound
-
-; there is at least 1 TM in the least, let's load this value in the right place
+; let's load the number of found TMs at the beginning of the list
+	ld a, b ; a contains the number of TMs loaded
 	ld de, wItemList
 	ld [de], a
-	jr .atLeastOneTM
-
-.noTMsFound
-	ld hl, TMPokemartGreetingTextFoundNone
-	CheckEvent EVENT_ROCKET_PATH
-	jr z, .printAndEnd1
-	ld hl, TMPokemartGreetingTextFoundNone_RocketPath
-.printAndEnd1
-	call PrintText
-	ret
-
-.atLeastOneTM
-	ld hl, TMPokemartGreetingTextFoundNone
-	CheckEvent EVENT_ROCKET_PATH
-	jr z, .printAndEnd2
-	ld hl, TMPokemartGreetingTextFoundNone_RocketPath
-.printAndEnd2
-	call PrintText
-
-	ld a, PRICEDITEMLISTMENU
-	ld [wListMenuID], a
-	callfar DisplayPokemartDialogue_
 
 	ret
 
