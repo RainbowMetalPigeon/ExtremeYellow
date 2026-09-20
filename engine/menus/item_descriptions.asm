@@ -282,6 +282,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _StealBallDescription      ; STEAL_BALL
 	text_end
+	text_far _TMCaseDescription         ; TM_CASE
+	text_end
 
 
 ; HMs

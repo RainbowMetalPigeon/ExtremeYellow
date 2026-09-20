@@ -134,7 +134,7 @@ ItemPrices::
 	bcd3 0     ; LIMIT_BREAKER
 	bcd3 0     ; BERSERK_GENE
 	bcd3 0     ; STEAL_BALL
-	bcd3 9800  ; ZINC, placeholder
+	bcd3 0     ; TM_CASE
 
 	assert_table_length NUM_ITEMS
 	bcd3 0     ; FLOOR_B2F

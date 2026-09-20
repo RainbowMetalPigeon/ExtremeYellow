@@ -151,8 +151,8 @@ ItemUsePtrTable:
 	dw ItemSleepBag      ; SLEEP_BAG, new
 	dw ItemUseVitamin    ; LIMIT_BREAKER, new
 	dw ItemUseEvoStone   ; BERSERK_GENE, new
-	dw ItemUseBall       ; STEAL_BALL, new, testing
-	dw UnusableItem      ; ZINC, new, placeholder
+	dw ItemUseBall       ; STEAL_BALL, new
+	dw ItemTMCase        ; TM_CASE ; new
 
 ; new: code for SLEEP_BAG, beginning --------------------------
 
@@ -3574,6 +3574,7 @@ ItemUseTMHM:
 .checkIfAlreadyLearnedMove
 	callfar CheckIfMoveIsKnown ; check if the pokemon already knows the move
 	jr c, .chooseMon
+; mon can learn and doesn't already know the move
 	ld hl, wNewFlags
 	set 0, [hl]
 	predef LearnMove ; teach move
@@ -3612,10 +3613,12 @@ ItemUseTMHM:
 	pop af
 	ld [wWhichPokemon], a
 
-	ld a, [wcf91]
-	call IsItemHM
-	ret c
-	jp RemoveUsedItem
+; edited for TM_CASE
+	ret
+;	ld a, [wcf91]
+;	call IsItemHM
+;	ret c
+;	jp RemoveUsedItem
 
 BootedUpTMText:
 	text_far _BootedUpTMText
@@ -4399,3 +4402,69 @@ SmashBallSuccessProbabilityDependingOnInputs: ; c flag if fail
 	cp c ; a-c = CatchRate - [0,threshold)/(1or2or4)
 ;	ret c ; capture failed
 	ret
+
+; new for TM_CASE =================================================
+
+ItemTMCase:
+; store variables
+	ld a, [wcf91]
+	ld [wArrayForTemporaryStorage], a
+	ld a, [wListScrollOffset]
+	ld [wArrayForTemporaryStorage+1], a
+	ld a, [wBagSavedMenuItem]
+	ld [wArrayForTemporaryStorage+2], a
+; select from the available TMs
+
+	callfar CreateListOfFoundTMs
+	ld a, [wItemList]
+	and a
+	jr z, .noTMsFound
+
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wListScrollOffset], a
+	ld hl, wItemList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wPrintItemPrices], a
+	ld [wMenuItemToSwap], a
+	ld a, SPECIALLISTMENU
+	ld [wListMenuID], a
+	call DisplayListMenuID
+
+	call nc, ItemUseTMHM
+
+.close
+; restore variables
+	ld a, [wArrayForTemporaryStorage]
+	ld [wcf91], a
+	ld a, [wArrayForTemporaryStorage+1]
+	ld [wListScrollOffset], a
+	ld a, [wArrayForTemporaryStorage+2]
+	ld [wBagSavedMenuItem], a
+; handle sprite weirdnesses
+	ld a, 1
+	ld [wUpdateSpritesEnabled], a
+	call GBPalWhiteOut
+	jp ReloadMapSpriteTilePatterns
+.noTMsFound
+	ld hl, ItemTMCase_Empty
+	call PrintText
+	jr .close
+
+ItemTMCase_Empty:
+	text_far _ItemTMCase_Empty
+	text_end
+
+TMCaseTMsProxyList:
+	db 6 ; #
+	db TM_MIMIC
+	db TM_CURSE
+	db TM_BODY_SLAM
+	db TM_EARTHQUAKE
+	db TM_THUNDERBOLT
+	db HM_SURF
+	db -1 ; end
