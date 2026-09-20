@@ -75,7 +75,7 @@ SeviiLostCave2Text1_RP:
 	call PrintText
 	jp TextScriptEnd
 .bagNotFull
-	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY ; unnecessary?
+	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY
 	ld hl, SeviiLostCave2Text1_RP_GotWaterfall
 	call PrintText
 	ld a, 2

@@ -4403,6 +4403,11 @@ ItemTMCase:
 
 	SetEvent EVENT_USING_TM_CASE
 
+; debugging
+;	ld hl, TMCaseTMsProxyList
+;	call LoadItemList
+;	ld hl, wItemList
+
 	ld a, [wItemList]
 	and a
 	jr z, .close ; no TMs found yet
@@ -4442,3 +4447,14 @@ ItemTMCase:
 ItemTMCase_OpeningDialogue:
 	text_far _ItemTMCase_OpeningDialogue
 	text_end
+
+TMCaseTMsProxyList:
+	db 7 ; #
+	db TM_MIMIC
+	db TM_CURSE
+	db TM_BODY_SLAM
+	db TM_EARTHQUAKE
+	db TM_THUNDERBOLT
+	db HM_SURF
+	db HM_FLASH
+	db -1 ; end

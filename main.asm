@@ -85,7 +85,6 @@ INCLUDE "engine/overworld/hm_usage_in_overworld.asm" ; new
 INCLUDE "engine/link/print_waiting_text.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club.asm" ; moved from bank1
 INCLUDE "engine/link/cable_club_npc.asm" ; moved from bank1
-INCLUDE "engine/miscellanea/overworld.asm" ; new
 INCLUDE "engine/math/bcd.asm" ; moved from bank3
 INCLUDE "engine/miscellanea/shiny.asm" ; new
 
@@ -133,6 +132,7 @@ INCLUDE "engine/miscellanea/trainers.asm" ; new
 INCLUDE "engine/miscellanea/text.asm" ; new
 INCLUDE "engine/miscellanea/evolve_temp.asm" ; new
 INCLUDE "engine/events/heat_damage.asm" ; new
+INCLUDE "engine/miscellanea/overworld.asm" ; new
 
 
 SECTION "bank4", ROMX

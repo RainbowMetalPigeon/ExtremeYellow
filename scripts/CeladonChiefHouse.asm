@@ -447,6 +447,7 @@ LunarShrineScript14:
 	call DisplayTextID
 	lb bc, HM_STRENGTH, 1
 	call GiveItem
+	SetEvent EVENT_OBTAINED_HM04
 	ld a, 28
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
@@ -860,7 +861,7 @@ LunarShrineTextMonk_RP:
 	CheckEvent EVENT_RP_FULLY_DESTROYS_SHRINE
 	ld hl, LunarShrineTextMonk_RP_YouADemon
 	jr nz, .printAndEnd
-	CheckEvent EVENT_RP_STOLE_HM_04
+	CheckEvent EVENT_OBTAINED_HM04
 	ld hl, LunarShrineTextMonk_RP_PostSteal
 	jr nz, .printAndEnd
 ; didn't steal Strength yet
@@ -874,7 +875,7 @@ LunarShrineTextMonk_RP:
 	call GiveItem
 	jr nc, .bagFull
 ; actually take the HM
-	SetEvent EVENT_RP_STOLE_HM_04
+	SetEvent EVENT_OBTAINED_HM04
 	ld hl, LunarShrineTextMonk_RP_StoleHM
 	jr .printAndEnd
 .bagFull
@@ -913,7 +914,7 @@ LunarShrineTextTemple_RP:
 	CheckEvent EVENT_RP_FULLY_DESTROYS_SHRINE
 	ld hl, LunarShrineTextTemple_RP_FullyDestroyed
 	jr nz, .printAndEnd
-	CheckEvent EVENT_RP_STOLE_HM_04
+	CheckEvent EVENT_OBTAINED_HM04
 	jr nz, .fullyDestroys
 	CheckEvent EVENT_RP_BEAT_LUNAR_TEMPLE_BLUE
 	ld hl, LunarShrineTextTemple_RP_IsDamaged

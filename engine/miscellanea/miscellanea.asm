@@ -966,7 +966,8 @@ CreateListOfFoundTMs::
 	ld de, wItemList
 
 	inc de ; needed later to write down the number of TMs available
-	ld b, 0 ; used as a counter of the number of TMs on sale
+	ld b, 0 ; used as a counter of the number of TMs/HMs
+	ld c, 0 ; used as a counter of the number of HMs only
 
 ; 55 custom additions ----------------------------------------------------
 
@@ -1465,7 +1466,111 @@ CreateListOfFoundTMs::
 	inc b
 .checkHM01
 
-; TBE, check the 10 HMs
+	ld a, b
+	ld [wArrayForTemporaryStorage+3], a
+
+	; HM01 - special case
+	CheckEvent EVENT_GOT_HM01
+	jr nz, .gotHM01
+	CheckEvent EVENT_RP_GOT_HM01
+	jr z, .checkHM02
+.gotHM01
+	ld a, HM_CUT
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM02
+
+	; HM02
+	CheckEvent EVENT_GOT_HM02
+	jr z, .checkHM03
+	ld a, HM_FLY
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM03
+
+	; HM03
+	CheckEvent EVENT_GOT_HM03
+	jr z, .checkHM04
+	ld a, HM_SURF
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM04
+
+	; HM04
+	CheckEvent EVENT_OBTAINED_HM04
+	jr z, .checkHM05
+	ld a, HM_STRENGTH
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM05
+
+	; HM05
+	CheckEvent EVENT_GOT_HM05
+	jr z, .checkHM06
+	ld a, HM_FLASH
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM06
+
+	; HM06
+	CheckEvent EVENT_GOT_HM06
+	jr z, .checkHM07
+	ld a, HM_ROCK_SMASH
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM07
+
+	; HM07
+	CheckEvent EVENT_GOT_HM07
+	jr z, .checkHM08
+	ld a, HM_ROCK_CLIMB
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM08
+
+	; HM08
+	CheckEvent EVENT_GOT_WATERFALL_FROM_SELPHY
+	jr z, .checkHM09
+	ld a, HM_WATERFALL
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM09
+
+	; HM09
+	CheckEvent EVENT_GOT_HM09
+	jr z, .checkHM10
+	ld a, HM_DIVE
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHM10
+
+	; HM10
+	CheckHideShowSevii HS_SEVII_THREE_ISLAND_SECRET_GARDEN_ITEM_1
+	jr z, .checkHMDone
+	ld a, HM_WHIRLPOOL
+	ld [de], a
+	inc de
+	inc b
+	inc c
+.checkHMDone
 
 ; ender of the custom itemlist load function -----------------------------------
 	ld a, -1
@@ -1476,9 +1581,8 @@ CreateListOfFoundTMs::
 	ld de, wItemList
 	ld [de], a
 
-; TBE:
-	ld [wArrayForTemporaryStorage+3], a
-	xor a
+; loads the number of HMs owned
+	ld a, c
 	ld [wArrayForTemporaryStorage+4], a
 
 	ret
@@ -3078,7 +3182,6 @@ WaitForBattleInfoInput:
 GetTMNameAsTMMove:: ; new for TM_CASE
 	ld a, [wd11e] ; was wcf91
 	sub TM01 ; underflows below 0 for HM items (before TM items)
-	push af
 	jr nc, .skipAdding
 	add NUM_TMS + NUM_HMS ; adjust HM IDs to come after TM IDs
 .skipAdding
