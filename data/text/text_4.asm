@@ -111,7 +111,7 @@ _PersonalizationInfoTextTCGMode::
 	line "types are used"
 	cont "for moves, chart,"
 	cont "and pokeMON."
-	cont "This overrrides"
+	cont "This over-rides"
 	cont "CUSTOM type chart"
 	cont "& ALTERED types."
 ;	xxxx "123456789012345678"

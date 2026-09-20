@@ -40,12 +40,12 @@ GetPersonalizationPointer:
 
 PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_Types
+	dw PersonalizationMenu_SpecialSplit
 	dw PersonalizationMenu_PhySpeSplit
-	dw PersonalizationMenu_SwapBattles
 	dw PersonalizationMenu_TypeChart
 	dw PersonalizationMenu_TCGMode
 	dw PersonalizationMenu_OverworldSpeedup
-	dw PersonalizationMenu_SpecialSplit
+	dw PersonalizationMenu_SwapBattles
 	dw PersonalizationMenu_Cancel
 
 ; ---------------------------------------------
@@ -94,6 +94,50 @@ PersonalizationMenu_Types:
 
 ; ---------------------------------------------
 
+PersonalizationMenu_SpecialSplit:
+	ld a, [wPersonalizationSpecialSplit]
+	ld c, a
+	ldh a, [hJoy5]
+	bit 4, a ; right
+	jr nz, .pressedRight
+	bit 5, a
+	jr nz, .pressedLeft
+	jr .nonePressed
+.pressedRight
+	ld a, c
+	cp $1
+	jr c, .increase
+	ld c, $ff
+.increase
+	inc c
+	ld a, e
+	jr .save
+.pressedLeft
+	ld a, c
+	and a
+	jr nz, .decrease
+	ld c, $2
+.decrease
+	dec c
+	ld a, d
+.save
+	ld a, c
+	ld [wPersonalizationSpecialSplit], a
+.nonePressed
+	ld b, $0
+	ld hl, PersonalizationSpecialSplitStringsPointerTable
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	hlcoord 13, 4
+	call PlaceString
+	and a
+	ret
+
+; ---------------------------------------------
+
 PersonalizationMenu_PhySpeSplit:
 	ld a, [wPersonalizationPhySpeSplit]
 	ld c, a
@@ -131,51 +175,7 @@ PersonalizationMenu_PhySpeSplit:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 16, 4
-	call PlaceString
-	and a
-	ret
-
-; ---------------------------------------------
-
-PersonalizationMenu_SwapBattles:
-	ld a, [wPersonalizationSwapBattles]
-	ld c, a
-	ldh a, [hJoy5]
-	bit 4, a ; right
-	jr nz, .pressedRight
-	bit 5, a
-	jr nz, .pressedLeft
-	jr .nonePressed
-.pressedRight
-	ld a, c
-	cp 3 ; number of options - 1
-	jr c, .increase
-	ld c, $ff
-.increase
-	inc c
-	ld a, e
-	jr .save
-.pressedLeft
-	ld a, c
-	and a
-	jr nz, .decrease
-	ld c, 4 ; number of options
-.decrease
-	dec c
-	ld a, d
-.save
-	ld a, c
-	ld [wPersonalizationSwapBattles], a
-.nonePressed
-	ld b, $0
-	ld hl, PersonalizationSwapBattlesStringsPointerTable
-	add hl, bc
-	add hl, bc
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	hlcoord 14, 6
+	hlcoord 16, 6
 	call PlaceString
 	and a
 	ret
@@ -314,8 +314,8 @@ PersonalizationMenu_OverworldSpeedup:
 
 ; ---------------------------------------------
 
-PersonalizationMenu_SpecialSplit:
-	ld a, [wPersonalizationSpecialSplit]
+PersonalizationMenu_SwapBattles:
+	ld a, [wPersonalizationSwapBattles]
 	ld c, a
 	ldh a, [hJoy5]
 	bit 4, a ; right
@@ -325,7 +325,7 @@ PersonalizationMenu_SpecialSplit:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp $1
+	cp 3 ; number of options - 1
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -336,22 +336,22 @@ PersonalizationMenu_SpecialSplit:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, $2
+	ld c, 4 ; number of options
 .decrease
 	dec c
 	ld a, d
 .save
 	ld a, c
-	ld [wPersonalizationSpecialSplit], a
+	ld [wPersonalizationSwapBattles], a
 .nonePressed
 	ld b, $0
-	ld hl, PersonalizationSpecialSplitStringsPointerTable
+	ld hl, PersonalizationSwapBattlesStringsPointerTable
 	add hl, bc
 	add hl, bc
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 13, 14
+	hlcoord 14, 14
 	call PlaceString
 	and a
 	ret
@@ -521,12 +521,12 @@ InitPersonalizationMenu_Redo:
 
 AllPersonalizationText:
 	db   "TYPES:"
+	next "SPEC SPLIT:"
 	next "PHY/SPE SPLIT:"
-	next "SWAP BATTLE:"
 	next "TYPECHART:"
 	next "TCG MODE:"
 	next "SPEED-UP:"
-	next "SPEC SPLIT:@"
+	next "SWAP BATTLE:@"
 
 PersonalizationTitleText:
 	db "PERSONALIZATION@"
@@ -579,12 +579,12 @@ PersonalizationSpecialSplitStringsPointerTable:
 
 PersonalizationInfoTexts:
 	dw PersonalizationInfoTextTypes
+	dw PersonalizationInfoTextSpecialSplit
 	dw PersonalizationInfoTextPhySpeSplit
-	dw PersonalizationInfoTextSwapBattles
 	dw PersonalizationInfoTextTypeChart
 	dw PersonalizationInfoTextTCGMode
 	dw PersonalizationInfoTextOverworldSpeedup
-	dw PersonalizationInfoTextSpecialSplit
+	dw PersonalizationInfoTextSwapBattles
 
 PersonalizationInfoTextTypes:
 	text_far _PersonalizationInfoTextTypes
