@@ -41,8 +41,14 @@ _TMPokemartGreetingText_Proxy::
 ;	xxxx "123456789012345678"
 	done
 
-_ItemTMCase_Empty:: ; new
-	text "Empty."
+_ItemTMCase_OpeningDialogue:: ; new
+	text "TM: @"
+	text_decimal wArrayForTemporaryStorage+3, 1, 2 ; address to read from, number of bytes to read, number of digits to display
+	text "/55 found."
+
+	line "HM: @"
+	text_decimal wArrayForTemporaryStorage+4, 1, 2
+	text "/10 found."
 ;	xxxx "123456789012345678"
 	prompt
 

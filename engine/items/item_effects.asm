@@ -3506,12 +3506,6 @@ ItemUseTMHM:
     ld [wNameListType], a	; new, if you decide not to use the machine, change the list type back to item list. FIXES THE TM CRASH BUG! Thanks Zangoose! + Pigeon edit, it was on another line, still had some edge cases of crash
 	call CopyToStringBuffer
 	pop af
-; removed for TM_CASE
-;	ld hl, BootedUpTMText
-;	jr nc, .printBootedUpMachineText
-;	ld hl, BootedUpHMText
-;.printBootedUpMachineText
-;	call PrintText
 	ld hl, TeachMachineMoveText
 	call PrintText
 	hlcoord 14, 7
@@ -3613,23 +3607,8 @@ ItemUseTMHM:
 .notTeachingThunderboltOrThunderToPikachu
 	pop af
 	ld [wWhichPokemon], a
-
 ; edited for TM_CASE
 	ret
-;	ld a, [wcf91]
-;	call IsItemHM
-;	ret c
-;	jp RemoveUsedItem
-
-; removed for TM_CASE
-;BootedUpTMText:
-;	text_far _BootedUpTMText
-;	text_end
-
-; removed for TM_CASE
-;BootedUpHMText:
-;	text_far _BootedUpHMText
-;	text_end
 
 TeachMachineMoveText:
 	text_far _TeachMachineMoveText
@@ -4417,13 +4396,16 @@ ItemTMCase:
 	ld a, [wBagSavedMenuItem]
 	ld [wArrayForTemporaryStorage+2], a
 ; select from the available TMs
+	callfar CreateListOfFoundTMs
+
+	ld hl, ItemTMCase_OpeningDialogue
+	call PrintText
 
 	SetEvent EVENT_USING_TM_CASE
 
-	callfar CreateListOfFoundTMs
 	ld a, [wItemList]
 	and a
-	jr z, .noTMsFound
+	jr z, .close ; no TMs found yet
 
 	xor a
 	ld [wCurrentMenuItem], a
@@ -4456,11 +4438,7 @@ ItemTMCase:
 	ld [wUpdateSpritesEnabled], a
 	call GBPalWhiteOut
 	jp ReloadMapSpriteTilePatterns
-.noTMsFound
-	ld hl, ItemTMCase_Empty
-	call PrintText
-	jr .close
 
-ItemTMCase_Empty:
-	text_far _ItemTMCase_Empty
+ItemTMCase_OpeningDialogue:
+	text_far _ItemTMCase_OpeningDialogue
 	text_end

@@ -1476,6 +1476,11 @@ CreateListOfFoundTMs::
 	ld de, wItemList
 	ld [de], a
 
+; TBE:
+	ld [wArrayForTemporaryStorage+3], a
+	xor a
+	ld [wArrayForTemporaryStorage+4], a
+
 	ret
 
 ; ------------------------
