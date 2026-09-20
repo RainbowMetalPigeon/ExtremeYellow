@@ -16,5 +16,23 @@ _PickUpItemText_TM_SWORDS_DANCE::
 ;	xxxx "123456789012345678"
 	done
 
+_PickUpItemText_TM_COUNTER::
+	text "<PLAYER> found"
+	line "TM04 COUNTER!"
+;	xxxx "123456789012345678"
+	done
 
+
+
+
+
+
+
+
+
+_PickUpItemText_TM_CURSE::
+	text "<PLAYER> found"
+	line "TM55 CURSE!"
+;	xxxx "123456789012345678"
+	done
 

@@ -19,8 +19,8 @@ Route4_TextPointers:
 	dw Route4TextHiker1 ; new
 	dw Route4TextHiker2 ; new
 	dw Route4Text2 ; trainer
-	dw PickUpItemText
-	dw PickUpItemText ; new
+	dw PickUpItemText_TM_COUNTER
+	dw PickUpItemText_TM_CURSE ; new
 	dw BoulderText ; new
 	dw BoulderText ; new
 	dw BoulderText ; new
@@ -40,8 +40,8 @@ Route4_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; irrelevant
 	dw GenericNPCText_RocketPath ; irrelevant
 	dw Route4Text2 ; trainer
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_COUNTER
+	dw PickUpItemText_TM_CURSE
 	dw BoulderText ; irrelevant
 	dw BoulderText ; irrelevant
 	dw BoulderText ; irrelevant
@@ -191,3 +191,23 @@ Route4ScriptText2:
 Route4ScriptText3:
 	text_far _Route4ScriptText3
 	text_end
+
+PickUpItemText_TM_COUNTER:
+	text_far _PickUpItemText_TM_COUNTER
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_4_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+PickUpItemText_TM_CURSE:
+	text_far _PickUpItemText_TM_CURSE
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_4_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
