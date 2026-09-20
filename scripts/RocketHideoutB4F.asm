@@ -312,7 +312,7 @@ RocketHideoutB4F_TextPointers:
 	dw RocketHideout4Text1
 	dw RocketHideout4Text2
 	dw RocketHideout4Text3
-	dw PickUpItemText
+	dw PickUpItemText_TM_MEGAHORN
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText ; 8
@@ -328,7 +328,7 @@ RocketHideoutB4F_TextPointers_Rocket:
 	dw RocketHideout4Text1 ; James
 	dw RocketHideout4Text2 ; Jessie
 	dw RocketHideout4Text3
-	dw PickUpItemText
+	dw PickUpItemText_TM_MEGAHORN
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText ; 8
@@ -494,6 +494,16 @@ RocketHideoutRockets:
 	db HS_CELADON_ROCKET_1
 	db HS_CELADON_ROCKET_2
 	db $ff
+
+PickUpItemText_TM_MEGAHORN:
+	text_far _PickUpItemText_TM_MEGAHORN
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROCKET_HIDEOUT_B4F_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new for RP ===================================================
 

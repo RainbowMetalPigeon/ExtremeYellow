@@ -320,6 +320,7 @@ INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/CeruleanPokecenter.asm"
 INCLUDE "text/SunkenShip.asm"
+INCLUDE "text/PickUpTMsHMs.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

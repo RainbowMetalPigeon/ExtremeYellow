@@ -426,7 +426,7 @@ MtMoonB2F_TextPointers:
 	dw MtMoon3Text7 ; fossil
 	dw MtMoon3Text8 ; fossil
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_MEGA_PUNCH
 	; scripts
 	dw MtMoon3Text11
 	dw MtMoon3Text12
@@ -443,7 +443,7 @@ MtMoonB2F_TextPointers_Rocket:
 	dw MtMoon3Text7 ; fossil, gone, unused
 	dw MtMoon3Text8 ; fossil, gone, unused
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_MEGA_PUNCH
 
 MtMoon3TrainerHeaders:
 	def_trainers 3
@@ -672,6 +672,16 @@ MtMoon3EndBattleText5:
 MtMoon3AfterBattleText5:
 	text_far _MtMoon3AfterBattleText5
 	text_end
+
+PickUpItemText_TM_MEGA_PUNCH:
+	text_far _PickUpItemText_TM_MEGA_PUNCH
+	sound_get_item_1
+	text_asm
+	ld a, HS_MT_MOON_B2F_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new for RP ====================
 

@@ -977,7 +977,7 @@ CreateListOfFoundTMs::
 .checkTM02
 
 	; TM02
-	CheckHideShow HS_ROCKET_HIDEOUT_B4F_ITEM_2
+	CheckHideShow HS_ROCKET_HIDEOUT_B4F_ITEM_1
 	jr z, .checkTM03
 	ld a, TM_MEGAHORN
 	ld [de], a

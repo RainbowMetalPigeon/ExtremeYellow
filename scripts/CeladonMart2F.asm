@@ -28,8 +28,8 @@ CeladonMart2Text5:
 	text_far _CeladonMart2Text5
 	text_end
 
-CeladonMart2Clerk1Text: ; moved
-	script_mart GREAT_BALL, SUPER_POTION, REVIVE, SUPER_REPEL, ANTIDOTE, BURN_HEAL, ICE_HEAL, AWAKENING, PARLYZ_HEAL
+CeladonMart2Clerk1Text: ; edited
+	script_mart SUPER_POTION, REVIVE, SUPER_REPEL, ANTIDOTE, BURN_HEAL, ICE_HEAL, AWAKENING, PARLYZ_HEAL
 
-CeladonMart2Clerk2Text: ; moved
-	script_mart TM_MEGA_PUNCH, TM_COUNTER, TM_BODY_SLAM, TM_BUBBLEBEAM, TM_METRONOME, TM_THUNDERBOLT, TM_DIG, TM_BIDE, TM_X_SCISSOR ; TBE
+CeladonMart2Clerk2Text: ; edited
+	script_mart POKE_BALL, GREAT_BALL, SMASH_BALL, ESCAPE_ROPE
