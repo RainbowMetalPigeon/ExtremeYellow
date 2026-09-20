@@ -170,21 +170,22 @@ _PPRestoredText::
 	text "PP was restored."
 	prompt
 
-_BootedUpTMText::
-	text "Booted up a TM!"
-	prompt
+; removed for TM_CASE
+;_BootedUpTMText::
+;	text "Booted up a TM!"
+;	prompt
 
-_BootedUpHMText::
-	text "Booted up an HM!"
-	prompt
+; removed for TM_CASE
+;_BootedUpHMText::
+;	text "Booted up an HM!"
+;	prompt
 
-_TeachMachineMoveText::
-	text "It contained"
-	line "@"
-	text_ram wStringBuffer
-	text "!"
-
-	para "Teach @"
+_TeachMachineMoveText:: ; edited for TM_CASE
+;	text "It contained"
+;	line "@"
+;	text_ram wStringBuffer
+;	text "!"
+	text "Teach @"
 	text_ram wStringBuffer
 	text_start
 	line "to a #MON?"

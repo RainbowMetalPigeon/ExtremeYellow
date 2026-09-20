@@ -3506,11 +3506,12 @@ ItemUseTMHM:
     ld [wNameListType], a	; new, if you decide not to use the machine, change the list type back to item list. FIXES THE TM CRASH BUG! Thanks Zangoose! + Pigeon edit, it was on another line, still had some edge cases of crash
 	call CopyToStringBuffer
 	pop af
-	ld hl, BootedUpTMText
-	jr nc, .printBootedUpMachineText
-	ld hl, BootedUpHMText
-.printBootedUpMachineText
-	call PrintText
+; removed for TM_CASE
+;	ld hl, BootedUpTMText
+;	jr nc, .printBootedUpMachineText
+;	ld hl, BootedUpHMText
+;.printBootedUpMachineText
+;	call PrintText
 	ld hl, TeachMachineMoveText
 	call PrintText
 	hlcoord 14, 7
@@ -3620,13 +3621,15 @@ ItemUseTMHM:
 ;	ret c
 ;	jp RemoveUsedItem
 
-BootedUpTMText:
-	text_far _BootedUpTMText
-	text_end
+; removed for TM_CASE
+;BootedUpTMText:
+;	text_far _BootedUpTMText
+;	text_end
 
-BootedUpHMText:
-	text_far _BootedUpHMText
-	text_end
+; removed for TM_CASE
+;BootedUpHMText:
+;	text_far _BootedUpHMText
+;	text_end
 
 TeachMachineMoveText:
 	text_far _TeachMachineMoveText
