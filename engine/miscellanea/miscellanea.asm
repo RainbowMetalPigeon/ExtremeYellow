@@ -3170,3 +3170,35 @@ GetTMNameAsTMMove:: ; new for TM_CASE
 	ld [wUniQuizAnswer], a ; new, testing
 	ld [wMoveNum], a
 	jp GetMoveName
+
+PrintHowManyOfThisItemAreOwned::
+	hlcoord 7, 11
+	lb bc, 1, 11  ; height and width
+	call TextBoxBorder
+; print "Owned" text
+	hlcoord 8, 12
+	ld de, OwnedText
+	call PlaceString
+; determins how many we have and print accordingly
+	ld a, [wcf91]
+	ld b, a
+	predef GetQuantityOfItemInBag
+	ld a, b
+	cp 99
+	jr nc, .bigNumber
+; 0-98 of the item
+	ld [wArrayForTemporaryStorage], a
+	hlcoord 15, 12
+	ld de, wArrayForTemporaryStorage ; current quantity
+	lb bc, 1, 2 ; 1 byte, 2 digits
+	jp PrintNumber
+.bigNumber
+	hlcoord 15, 12
+	ld de, ManyItemsText
+	jp PlaceString
+
+OwnedText::
+	db "Owned: @"
+
+ManyItemsText::
+	db "99+@"

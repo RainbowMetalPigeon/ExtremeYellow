@@ -197,6 +197,7 @@ DisplayListMenuIDLoop::
 	jp DisplayListMenuIDLoop
 
 DisplayChooseQuantityMenu::
+	callfar PrintHowManyOfThisItemAreOwned ; new
 ; text box dimensions/coordinates for just quantity
 	hlcoord 15, 9
 	lb bc, 1, 3 ; height and width
