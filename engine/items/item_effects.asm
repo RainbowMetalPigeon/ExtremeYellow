@@ -4415,6 +4415,8 @@ ItemTMCase:
 	ld [wArrayForTemporaryStorage+2], a
 ; select from the available TMs
 
+	SetEvent EVENT_USING_TM_CASE
+
 	callfar CreateListOfFoundTMs
 	ld a, [wItemList]
 	and a
@@ -4438,6 +4440,7 @@ ItemTMCase:
 	call nc, ItemUseTMHM
 
 .close
+	ResetEvent EVENT_USING_TM_CASE
 ; restore variables
 	ld a, [wArrayForTemporaryStorage]
 	ld [wcf91], a
@@ -4458,13 +4461,3 @@ ItemTMCase:
 ItemTMCase_Empty:
 	text_far _ItemTMCase_Empty
 	text_end
-
-TMCaseTMsProxyList:
-	db 6 ; #
-	db TM_MIMIC
-	db TM_CURSE
-	db TM_BODY_SLAM
-	db TM_EARTHQUAKE
-	db TM_THUNDERBOLT
-	db HM_SURF
-	db -1 ; end

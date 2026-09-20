@@ -66,8 +66,18 @@ GetMachineName::
 	push hl
 	push de
 	push bc
+; new for TM_CASE
+	CheckEvent EVENT_USING_TM_CASE
 	ld a, [wd11e]
 	push af
+	jr z, .vanillaCode
+; indeed using the case
+
+	callfar GetTMNameAsTMMove
+	jr .doThePops
+
+.vanillaCode
+; BTV
 	cp TM01 ; is this a TM? [not HM]
 	jr nc, .WriteTM
 ; if HM, then write "HM" and add NUM_HMS to the item ID, so we can reuse the
@@ -106,6 +116,7 @@ GetMachineName::
 	inc de
 	ld a, "@"
 	ld [de], a
+.doThePops ; new label
 	pop af
 	ld [wd11e], a
 	pop bc

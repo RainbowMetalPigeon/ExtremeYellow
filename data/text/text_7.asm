@@ -41,7 +41,7 @@ _TMPokemartGreetingText_Proxy::
 ;	xxxx "123456789012345678"
 	done
 
-_ItemTMCase_Empty::
+_ItemTMCase_Empty:: ; new
 	text "Empty."
 ;	xxxx "123456789012345678"
 	prompt

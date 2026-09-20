@@ -3069,3 +3069,18 @@ WaitForBattleInfoInput:
 	ldh [hDownArrowBlinkCount1], a
 	ld a, c
 	ret
+
+GetTMNameAsTMMove:: ; new for TM_CASE
+	ld a, [wd11e] ; was wcf91
+	sub TM01 ; underflows below 0 for HM items (before TM items)
+	push af
+	jr nc, .skipAdding
+	add NUM_TMS + NUM_HMS ; adjust HM IDs to come after TM IDs
+.skipAdding
+	inc a
+	ld [wd11e], a
+	predef TMToMove ; get move ID from TM/HM ID
+	ld a, [wd11e]
+	ld [wUniQuizAnswer], a ; new, testing
+	ld [wMoveNum], a
+	jp GetMoveName
