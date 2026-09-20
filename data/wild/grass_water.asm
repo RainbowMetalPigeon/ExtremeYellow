@@ -1,6 +1,6 @@
 WildDataPointers:
 	table_width 2, WildDataPointers
-	dw NothingWildMons         ; PALLET_TOWN
+	dw PalletTownWildMons      ; PALLET_TOWN, new
 	dw NothingWildMons         ; VIRIDIAN_CITY
 	dw NothingWildMons         ; PEWTER_CITY
 	dw NothingWildMons         ; CERULEAN_CITY
@@ -353,3 +353,4 @@ INCLUDE "data/wild/maps/Route21Dive.asm" ; new
 INCLUDE "data/wild/maps/LakeOfMist.asm" ; new
 INCLUDE "data/wild/maps/SafariZoneExtra.asm" ; new
 INCLUDE "data/wild/maps/ForlornValley.asm" ; new
+INCLUDE "data/wild/maps/PalletTown.asm" ; new

@@ -386,3 +386,16 @@ PlayMoveAnimationCopy:
 	predef MoveAnimation
 	callfar Func_78e98
 	ret
+
+; ====================================
+
+MakePalletFieldsPokemonShiny::
+    CheckEvent EVENT_IN_SEVII
+    ret nz
+    ld a, [wCurMap]
+    cp PALLET_TOWN
+    ret nz
+    ld a, [wOpponentMonShiny]
+    set BIT_MON_SHINY, a
+    ld [wOpponentMonShiny], a
+    ret

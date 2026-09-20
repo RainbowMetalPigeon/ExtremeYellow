@@ -127,7 +127,8 @@ TryDoWildEncounter:
 	and a
 	ret
 .willEncounter
-	callfar DetermineIfWildMonIsDeltaSpecies ; new, testing
+	callfar DetermineIfWildMonIsDeltaSpecies ; new
+	callfar MakePalletFieldsPokemonShiny ; new
 	xor a
 	ld [wIsTrainerBattle], a		; new, to go beyond 200
 	ret

@@ -23,6 +23,19 @@ PalletTown_ScriptPointers:
 	dw PalletTownScript10 ; new, for debugging
 
 PalletTownScript0:
+; new for Pallet Fields
+	ld a, [wXCoord]
+	cp 16 ; somewhere between north path and Fields to the east
+	jr c, .noEncounters 
+.yesEncounters
+	ld hl, wd72e
+	res 4, [hl]
+	jr .postSettingEncounters
+.noEncounters
+	ld hl, wd72e
+	set 4, [hl]
+.postSettingEncounters
+; BTV
 	CheckEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	ret nz
 	ld a, [wYCoord]
@@ -118,7 +131,7 @@ PalletTownScript3:
 	ld a, 1
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	; oak faces the horizontally adjacent patch of grass to face pikachu
+; oak faces the horizontally adjacent patch of grass to face pikachu
 	ld a, $FF
 	ld [wJoyIgnore], a
 	ld a, $2
@@ -129,8 +142,11 @@ PalletTownScript3:
 	ld a, SPRITE_FACING_LEFT
 .asm_18f01
 	ld [wSprite01StateData1FacingDirection], a
-
-	; trigger the next script
+; new for Pallet Fields
+	ld hl, wd72e
+	res 4, [hl]
+; BTV
+; trigger the next script
 	ld a, 4
 	ld [wPalletTownCurScript], a
 	ret
