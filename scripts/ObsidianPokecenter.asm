@@ -13,7 +13,6 @@ ObsidianPokecenter_TextPointers:
 	dw ObsidianCashierText
 	dw ObsidianMartText2
 	dw ObsidianMartText3
-	dw ObsidianCashierTextTM ; new, TM seller
 
 ObsidianPokecenter_TextPointers_Rocket:
 	dw ObsidianHealNurseText
@@ -25,7 +24,6 @@ ObsidianPokecenter_TextPointers_Rocket:
 	dw ObsidianCashierText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw ObsidianCashierTextTM
 
 ObsidianHealNurseText:
 	script_pokecenter_nurse
@@ -56,8 +54,3 @@ ObsidianMartText3:
 
 ObsidianCashierText: ; moved
 	script_mart GREAT_BALL, ULTRA_BALL, HYPER_POTION, REVIVE, FULL_HEAL, MAX_REPEL, ESCAPE_ROPE
-
-ObsidianCashierTextTM: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd

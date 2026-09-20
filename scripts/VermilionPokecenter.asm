@@ -13,7 +13,6 @@ VermilionPokecenter_TextPointers:
 	dw VermilionCashierText
 	dw VermilionMartText2
 	dw VermilionMartText3
-	dw VermilionCashierTextTM ; new, TM seller
 
 VermilionPokecenter_TextPointers_Rocket:
 	dw VermilionHealNurseText
@@ -25,7 +24,6 @@ VermilionPokecenter_TextPointers_Rocket:
 	dw VermilionCashierText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw VermilionCashierTextTM
 
 VermilionHealNurseText:
 	script_pokecenter_nurse
@@ -58,8 +56,3 @@ VermilionMartText3:
 
 VermilionCashierText: ; moved
 	script_mart POKE_BALL, SUPER_POTION, ICE_HEAL, AWAKENING, PARLYZ_HEAL, REPEL
-
-VermilionCashierTextTM: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd

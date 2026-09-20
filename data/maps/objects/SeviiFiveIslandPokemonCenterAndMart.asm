@@ -17,8 +17,7 @@ SeviiFiveIslandPokemonCenterAndMart_Object:
 	object_event  5,  4, SPRITE_COOLTRAINER_F, STAY, DOWN, 4
 	; Mart sprites
 	object_event 14,  5, SPRITE_CLERK, STAY, RIGHT, 5
-	object_event 14,  6, SPRITE_CLERK, STAY, RIGHT, 6
-	object_event 19,  6, SPRITE_MIDDLE_AGED_WOMAN, WALK, UP_DOWN, 7
-	object_event 18,  2, SPRITE_BRUNETTE_GIRL, WALK, LEFT_RIGHT, 8
+	object_event 19,  6, SPRITE_MIDDLE_AGED_WOMAN, WALK, UP_DOWN, 6
+	object_event 18,  2, SPRITE_BRUNETTE_GIRL, WALK, LEFT_RIGHT, 7
 
 	def_warps_to SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART

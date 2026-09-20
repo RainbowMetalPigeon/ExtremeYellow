@@ -13,7 +13,6 @@ CinnabarPokecenter_TextPointers:
 	dw CinnabarCashierText
 	dw CinnabarMartText2
 	dw CinnabarMartText3
-	dw CinnabarCashierTextTM ; new, TM seller
 
 CinnabarPokecenter_TextPointers_Rocket:
 	dw CinnabarHealNurseText
@@ -25,7 +24,6 @@ CinnabarPokecenter_TextPointers_Rocket:
 	dw CinnabarCashierText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw CinnabarCashierTextTM
 
 CinnabarHealNurseText:
 	script_pokecenter_nurse
@@ -58,8 +56,3 @@ CinnabarMartText3:
 
 CinnabarCashierText: ; moved
 	script_mart ULTRA_BALL, GREAT_BALL, HYPER_POTION, MAX_REPEL, ESCAPE_ROPE, FULL_HEAL, REVIVE
-
-CinnabarCashierTextTM: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd

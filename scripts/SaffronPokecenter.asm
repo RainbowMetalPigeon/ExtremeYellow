@@ -13,7 +13,6 @@ SaffronPokecenter_TextPointers:
 	dw SaffronCashierText
 	dw SaffronMartText2
 	dw SaffronMartText3
-	dw SaffronCashierTextTM ; new, TM seller
 
 SaffronPokecenter_TextPointers_Rocket:
 	dw SaffronHealNurseText
@@ -25,7 +24,6 @@ SaffronPokecenter_TextPointers_Rocket:
 	dw SaffronCashierText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw SaffronCashierTextTM
 
 SaffronHealNurseText:
 	script_pokecenter_nurse
@@ -58,8 +56,3 @@ SaffronMartText3:
 
 SaffronCashierText: ; moved
 	script_mart GREAT_BALL, HYPER_POTION, MAX_REPEL, ESCAPE_ROPE, FULL_HEAL, REVIVE
-
-SaffronCashierTextTM: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd

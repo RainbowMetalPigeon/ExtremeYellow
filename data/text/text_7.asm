@@ -7,40 +7,6 @@ _PokemartGreetingText::
 	next "May I help you?"
 	done
 
-_TMPokemartGreetingTextFoundNone:: ; new
-	text "Hi! Here we sell"
-	line "TMs that you have"
-	cont "already found."
-
-	para "Come back when you"
-	line "have got some!"
-	done
-
-_TMPokemartGreetingTextFoundNone_RocketPath:: ; new
-	text "...I sell TMs you"
-	line "already found."
-
-	para "You found none."
-;	xxxx "123456789012345678"
-	done
-
-_TMPokemartGreetingText:: ; new
-	text "Hi! I sell TMs you"
-	line "already found!"
-;	xxxx "123456789012345678"
-	done
-
-_TMPokemartGreetingText_RocketPath:: ; new
-	text "...I sell TMs you"
-	line "already found."
-;	xxxx "123456789012345678"
-	done
-
-_TMPokemartGreetingText_Proxy::
-	text "...proxy..."
-;	xxxx "123456789012345678"
-	done
-
 _ItemTMCase_OpeningDialogue:: ; new
 	text "TM: @"
 	text_decimal wArrayForTemporaryStorage+3, 1, 2 ; address to read from, number of bytes to read, number of digits to display

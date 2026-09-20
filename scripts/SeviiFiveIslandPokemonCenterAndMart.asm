@@ -10,7 +10,6 @@ SeviiFiveIslandPokemonCenterAndMart_TextPointers:
 	dw SeviiFiveIslandPokemonCenterAndMart_Text2
 	; from Mart
 	dw SeviiFiveIslandPokemonCenterAndMart_CashierText
-	dw SeviiFiveIslandPokemonCenterAndMart_CashierTMText
 	dw SeviiFiveIslandPokemonCenterAndMart_Text3
 	dw SeviiFiveIslandPokemonCenterAndMart_Text4
 
@@ -21,7 +20,6 @@ SeviiFiveIslandPokemonCenterAndMart_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; from Mart
 	dw SeviiFiveIslandPokemonCenterAndMart_CashierText
-	dw SeviiFiveIslandPokemonCenterAndMart_CashierTMText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 
@@ -47,11 +45,6 @@ SeviiFiveIslandPokemonCenterAndMart_Text2:
 
 SeviiFiveIslandPokemonCenterAndMart_CashierText:
 	script_mart ULTRA_BALL, GREAT_BALL, HYPER_POTION, REVIVE, FULL_HEAL, SUPER_REPEL
-
-SeviiFiveIslandPokemonCenterAndMart_CashierTMText:
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd
 
 SeviiFiveIslandPokemonCenterAndMart_Text3:
 	text_far _SeviiFiveIslandPokemonCenterAndMart_Text3

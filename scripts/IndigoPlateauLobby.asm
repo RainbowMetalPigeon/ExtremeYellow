@@ -20,7 +20,6 @@ IndigoPlateauLobby_TextPointers:
 	dw IndigoPlateauLobbyText2
 	dw IndigoPlateauLobbyText3
 	dw IndigoCashier1Text
-	dw IndigoCashier2Text
 	dw IndigoTradeNurseText
 	dw IndigoPlateauLobbyText6
 	dw IndigoPlateauLobbyText8_RP ; new, unused
@@ -30,7 +29,6 @@ IndigoPlateauLobby_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw IndigoCashier1Text
-	dw IndigoCashier2Text
 	dw IndigoTradeNurseText
 	dw IndigoPlateauLobbyText6
 	dw IndigoPlateauLobbyText8_RP ; new
@@ -56,11 +54,6 @@ IndigoPlateauLobbyText6:
 
 IndigoCashier1Text: ; moved and renamed
 	script_mart ULTRA_BALL, GREAT_BALL, FULL_RESTORE, MAX_POTION, FULL_HEAL, REVIVE, MAX_REPEL
-
-IndigoCashier2Text: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd
 
 ; new for RP ===========================
 

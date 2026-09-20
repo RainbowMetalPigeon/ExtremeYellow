@@ -13,9 +13,8 @@ IndigoPlateauLobby_Object:
 	object_event  4,  9, SPRITE_GYM_GUIDE, STAY, RIGHT, 2 ; person
 	object_event  5,  1, SPRITE_COOLTRAINER_F, STAY, DOWN, 3 ; person
 	object_event  0,  5, SPRITE_CLERK, STAY, RIGHT, 4 ; person
-	object_event  0,  6, SPRITE_CLERK, STAY, RIGHT, 5 ; person, new cashier
-	object_event 13,  6, SPRITE_LINK_RECEPTIONIST, STAY, DOWN, 6 ; person
-	object_event  8,  5, SPRITE_CHANSEY, STAY, DOWN, 7 ; person
-	object_event  8,  1, SPRITE_GUARD, STAY, DOWN, 8 ; new, for RP
+	object_event 13,  6, SPRITE_LINK_RECEPTIONIST, STAY, DOWN, 5 ; person
+	object_event  8,  5, SPRITE_CHANSEY, STAY, DOWN, 6 ; person
+	object_event  8,  1, SPRITE_GUARD, STAY, DOWN, 7 ; new, for RP
 
 	def_warps_to INDIGO_PLATEAU_LOBBY

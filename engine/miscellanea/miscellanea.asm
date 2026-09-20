@@ -955,10 +955,6 @@ RandomizeTeamForRandomizationOption::
 
 ; =====================================
 
-TMMartClerkDialogue::
-	text_far _TMPokemartGreetingText
-	text_end
-
 CreateListOfFoundTMs::
 	ld a, 1
 	ld [wUpdateSpritesEnabled], a ; TBE?
@@ -1586,24 +1582,6 @@ CreateListOfFoundTMs::
 	ld [wArrayForTemporaryStorage+4], a
 
 	ret
-
-; ------------------------
-
-TMPokemartGreetingTextFoundNone:
-    text_far _TMPokemartGreetingTextFoundNone
-    text_end
-
-TMPokemartGreetingText:
-    text_far _TMPokemartGreetingText
-    text_end
-
-TMPokemartGreetingTextFoundNone_RocketPath:
-    text_far _TMPokemartGreetingTextFoundNone_RocketPath
-    text_end
-
-TMPokemartGreetingText_RocketPath:
-    text_far _TMPokemartGreetingText_RocketPath
-    text_end
 
 ; =====================================
 

@@ -32,7 +32,7 @@ ViridianMart_ScriptPointers:
 
 ViridianMartScript0:
 	call UpdateSprites
-	ld a, $5 ; edited, +1 for TM seller
+	ld a, $4
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wSimulatedJoypadStatesEnd
@@ -55,7 +55,7 @@ ViridianMartScript1:
 	and a
 	ret nz
 	call Delay3
-	ld a, $6 ; edited, +1 for TM seller
+	ld a, $5
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	lb bc, OAKS_PARCEL, 1
@@ -82,7 +82,6 @@ ViridianMart_TextPointers:
 	dw ViridianMartText1
 	dw ViridianMartText2
 	dw ViridianMartText3
-	dw ViridianCashierTextTM ; new, TM seller
 	dw ViridianMartText4
 	dw ViridianMartText5
 
@@ -90,13 +89,11 @@ ViridianMart_TextPointers2:
 	dw ViridianCashierText
 	dw ViridianMartText2
 	dw ViridianMartText3
-	dw ViridianCashierTextTM ; new, TM seller
 
 ViridianMart_TextPointers_Rocket: ; new for RP
 	dw ViridianCashierText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw ViridianCashierTextTM
 
 ViridianMartText1:
 	text_far _ViridianMartText1
@@ -121,8 +118,3 @@ ViridianMartText3:
 
 ViridianCashierText: ; moved
 	script_mart POKE_BALL, POTION, ANTIDOTE, PARLYZ_HEAL, BURN_HEAL
-
-ViridianCashierTextTM: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd

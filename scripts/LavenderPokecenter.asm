@@ -13,7 +13,6 @@ LavenderPokecenter_TextPointers:
 	dw LavenderCashierText
 	dw LavenderMartText2
 	dw LavenderMartText3
-	dw LavenderCashierTextTM ; new, TM seller
 
 LavenderPokecenter_TextPointers_Rocket:
 	dw LavenderHealNurseText
@@ -25,7 +24,6 @@ LavenderPokecenter_TextPointers_Rocket:
 	dw LavenderCashierText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw LavenderCashierTextTM
 
 LavenderTradeNurseText:
 	script_cable_club_receptionist
@@ -106,8 +104,3 @@ LavenderMartText3:
 
 LavenderCashierText: ; moved
 	script_mart GREAT_BALL, SUPER_POTION, REVIVE, ESCAPE_ROPE, SUPER_REPEL, ANTIDOTE, BURN_HEAL, ICE_HEAL, PARLYZ_HEAL
-
-LavenderCashierTextTM: ; testing
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd

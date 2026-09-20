@@ -10,7 +10,6 @@ SeviiThreeIslandPokemonCenterAndMart_TextPointers:
 	dw SeviiThreeIslandPokemonCenterAndMart_Text2
 	; from Mart
 	dw SeviiThreeIslandPokemonCenterAndMart_CashierText
-	dw SeviiThreeIslandPokemonCenterAndMart_CashierTMText
 	dw SeviiThreeIslandPokemonCenterAndMart_Text3
 	dw SeviiThreeIslandPokemonCenterAndMart_Text4
 
@@ -21,7 +20,6 @@ SeviiThreeIslandPokemonCenterAndMart_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; from Mart
 	dw SeviiThreeIslandPokemonCenterAndMart_CashierText
-	dw SeviiThreeIslandPokemonCenterAndMart_CashierTMText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 
@@ -47,11 +45,6 @@ SeviiThreeIslandPokemonCenterAndMart_Text2:
 
 SeviiThreeIslandPokemonCenterAndMart_CashierText:
 	script_mart GREAT_BALL, SUPER_POTION, REVIVE, ESCAPE_ROPE, SUPER_REPEL, ANTIDOTE, BURN_HEAL, ICE_HEAL, PARLYZ_HEAL
-
-SeviiThreeIslandPokemonCenterAndMart_CashierTMText:
-    text_asm
-	callfar TMMartClerkDialogue
-    jp TextScriptEnd
 
 SeviiThreeIslandPokemonCenterAndMart_Text3:
 	text_far _SeviiThreeIslandPokemonCenterAndMart_Text3
