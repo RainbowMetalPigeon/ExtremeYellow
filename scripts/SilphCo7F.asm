@@ -288,7 +288,7 @@ SilphCo7F_TextPointers: ; edited
 	dw SilphCo7Text8
 	dw SilphCo7Text9
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_SWORDS_DANCE
 	; scripts
 	dw SilphCo7Text13 ; 12, pre-battle Blue
 	dw SilphCo7Text15 ; 13, post-battle Blue
@@ -305,7 +305,7 @@ SilphCo7F_TextPointers_Rocket:
 	dw SilphCo7Text8
 	dw SilphCo7Text9_RP ; Blue
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_SWORDS_DANCE
 	; scripts
 	dw SilphCo7ScriptText1_RP ; 12, pre-battle Blue
 	dw SilphCo7ScriptText2_RP ; 13, post-battle Blue
@@ -518,6 +518,16 @@ SilphCo7Text_LostVsRivalText:
 SilphCo7Text15:
 	text_far _SilphCo7Text_51ed2
 	text_end
+
+PickUpItemText_TM_SWORDS_DANCE:
+	text_far _PickUpItemText_TM_SWORDS_DANCE
+	sound_get_item_1
+	text_asm
+	ld a, HS_SILPH_CO_7F_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new for RP ===========================
 
