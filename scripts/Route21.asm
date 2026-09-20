@@ -1,6 +1,8 @@
 Route21_Script:
 	RPTextChooser Route21_TextPointers, Route21_TextPointers_Rocket
 	call EnableAutoTextBoxDrawing
+	ld hl, wd72e ; new for Pallet Fields
+	res 4, [hl] ; new for Pallet Fields
 	ld hl, Route21TrainerHeaders
 	ld de, Route21_ScriptPointers
 	ld a, [wCurMapScript] ; edited

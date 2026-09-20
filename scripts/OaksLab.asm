@@ -819,7 +819,20 @@ OaksLabScript_1c9ac:
 
 OaksLabText3: ; edited
 	text_asm
-;	--- new block to handle post-redemption Giovanni
+	call Delay3
+; new for Pallet Fields
+	CheckEvent EVENT_CAN_OPEN_PALLET_FIELDS
+	jr nz, .noPalletFieldsPart
+	CheckHideShowSevii HS_SEVII_TEN_ISLAND_GS_BALL ; z flag if is SHOW, nz if is HIDE
+	jr z, .noPalletFieldsPart
+; we beat Young Oak and didn't open the Fields yet
+	SetEvent EVENT_CAN_OPEN_PALLET_FIELDS
+	ld hl, OaksLabText3_TimeParadox
+	call PrintText
+	jp .concludeScript
+.noPalletFieldsPart
+; BTV
+; new block to handle post-redemption Giovanni
 ; first check if we have been gifted the SHINY CHARM
 	CheckEvent EVENT_OAK_GIFTED_SHINY_CHARM
 	jr nz, .postRedemption ; if yes, normal post-Giovanni-redemption dialogue
@@ -1312,6 +1325,10 @@ GiovanniBeforeBattleText2:
 
 GiovanniPostBattleText:
 	text_far _GiovanniPostBattleText
+	text_end
+
+OaksLabText3_TimeParadox:
+	text_far _PalletFields_OakText_TimeParadox
 	text_end
 
 ; new for RP ========================

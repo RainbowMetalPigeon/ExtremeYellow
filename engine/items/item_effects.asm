@@ -4388,6 +4388,9 @@ SmashBallSuccessProbabilityDependingOnInputs: ; c flag if fail
 ; new for TM_CASE =================================================
 
 ItemTMCase:
+	ld a, [wIsInBattle]
+	and a
+	jp nz, ItemUseNotTime
 ; store variables
 	ld a, [wcf91]
 	ld [wArrayForTemporaryStorage], a

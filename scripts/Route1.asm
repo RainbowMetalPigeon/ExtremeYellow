@@ -1,5 +1,7 @@
 Route1_Script:
 	RPTextChooser Route1_TextPointers, Route1_TextPointers_Rocket
+	ld hl, wd72e ; new for Pallet Fields
+	res 4, [hl] ; new for Pallet Fields
 	call EnableAutoTextBoxDrawing
 	ret
 

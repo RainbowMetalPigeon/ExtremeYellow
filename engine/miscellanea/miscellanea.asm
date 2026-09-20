@@ -968,7 +968,7 @@ CreateListOfFoundTMs::
 ; 55 custom additions ----------------------------------------------------
 
 	; TM01
-	CheckHideShow HS_MT_MOON_B2F_ITEM_2
+	CheckHideShow HS_MT_MOON_B2F_ITEM_2 ; z flag if is SHOW, nz if is HIDE
 	jr z, .checkTM02
 	ld a, TM_MEGA_PUNCH
 	ld [de], a
@@ -1559,7 +1559,7 @@ CreateListOfFoundTMs::
 .checkHM10
 
 	; HM10
-	CheckHideShowSevii HS_SEVII_THREE_ISLAND_SECRET_GARDEN_ITEM_1
+	CheckHideShowSevii HS_SEVII_THREE_ISLAND_SECRET_GARDEN_ITEM_1 ; z flag if is SHOW, nz if is HIDE
 	jr z, .checkHMDone
 	ld a, HM_WHIRLPOOL
 	ld [de], a

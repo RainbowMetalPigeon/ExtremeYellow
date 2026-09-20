@@ -1,4 +1,8 @@
 PalletTown_Script:
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	call nz, PalletTownHideShowEntranceToPalletFields
 	RPTextChooser PalletTown_TextPointers, PalletTown_TextPointers_Rocket
 	CheckEvent EVENT_GOT_POKEBALLS_FROM_OAK
 	jr z, .next
@@ -184,7 +188,7 @@ PalletTownScript5:
 	ld [wSprite01StateData1MovementStatus], a
 	ld a, SPRITE_FACING_UP
 	ld [wSprite01StateData1FacingDirection], a
-	ld a, $9 ; edited because Dark Guide
+	ld a, 10 ; edited because Dark Guide and Pallet Fields
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, $ff
@@ -251,8 +255,9 @@ PalletTown_TextPointers:
 	dw PalletTownText5
 	dw PalletTownText6
 	dw PalletTownText7
+	dw PalletTownSignText_PalletFieldsGate ; 9, new
 	; scripts
-	dw PalletTownText8
+	dw PalletTownText8 ; 10
 
 PalletTown_TextPointers_Rocket:
 	dw PalletTownText1 ; Oak, unused
@@ -264,6 +269,7 @@ PalletTown_TextPointers_Rocket:
 	dw PalletTownText5
 	dw PalletTownText6
 	dw PalletTownText7
+	dw PalletTownSignText_PalletFieldsGate
 
 PalletTownText1:
 	text_asm
@@ -883,6 +889,56 @@ DarkGuideHints_Hint12_Details:
 DarkGuideHints_Hint12_Solution:
 	text_far _DarkGuideHints_Hint12_Solution
 	text_end
+
+; new for Pallet Fields ======================
+
+PalletTownSignText_PalletFieldsGate:
+	text_asm
+	CheckEvent EVENT_OPENED_PALLET_FIELDS
+	ld hl, PalletTownSignText_PalletFieldsGate_Opened
+	jr nz, .printAndEnd
+	CheckEvent EVENT_CAN_OPEN_PALLET_FIELDS
+	ld hl, PalletTownSignText_PalletFieldsGate_CannotOpen
+	jr z, .printAndEnd
+; let's open the Pallet Fields!
+	SetEvent EVENT_OPENED_PALLET_FIELDS
+	ld hl, PalletTownSignText_PalletFieldsGate_Open1
+	call PrintText
+	ld a, SFX_GET_ITEM_2
+	call PlaySound
+	call PalletTownHideShowEntranceToPalletFields
+	ld hl, PalletTownSignText_PalletFieldsGate_Open2
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PalletTownSignText_PalletFieldsGate_Opened:
+	text_far _PalletTownSignText_PalletFieldsGate_Opened
+	text_end
+
+PalletTownSignText_PalletFieldsGate_CannotOpen:
+	text_far _PalletTownSignText_PalletFieldsGate_CannotOpen
+	text_end
+
+PalletTownSignText_PalletFieldsGate_Open1:
+	text_far _PalletTownSignText_PalletFieldsGate_Open1
+	text_end
+
+PalletTownSignText_PalletFieldsGate_Open2:
+	text_far _PalletTownSignText_PalletFieldsGate_Open2
+	text_end
+
+PalletTownHideShowEntranceToPalletFields:
+	CheckEvent EVENT_OPENED_PALLET_FIELDS
+	jr nz, .fieldsOpen	; if yes, fence open
+	ld a, 77			; full-fence block ID
+	jr .replaceBlock
+.fieldsOpen
+	ld a, 230			; semi-open fence entrance block ID
+.replaceBlock
+	ld [wNewTileBlockID], a
+	lb bc, 6, 9 ; Y and X coordinates - opposite as usual
+	predef_jump ReplaceTileBlock
 
 ; new for RP =================================
 

@@ -647,6 +647,76 @@ _DarkGuideHints_Hint12_Solution::
 	line "going on...?!"
 	prompt
 
+_PalletTownSignText_PalletFieldsGate_Opened::
+	text "The most secret of"
+	line "all the passages!"
+;	xxxx "123456789012345678"
+	done
+
+_PalletTownSignText_PalletFieldsGate_CannotOpen::
+	text "Uh?"
+;	xxxx "123456789012345678"
+	done
+
+_PalletTownSignText_PalletFieldsGate_Open1::
+	text "PROF.OAK was"
+	line "right! By doing"
+	cont "this and this..."
+	prompt
+
+_PalletTownSignText_PalletFieldsGate_Open2::
+	text "The fence opens!"
+;	xxxx "123456789012345678"
+	done
+
+_PalletFields_OakText_TimeParadox::
+	text "OAK: Nice to see"
+	line "you, <PLAYER>!"
+
+	para "...you met WHOM?!"
+
+	para "! I... I remember!"
+	line "I could I forget"
+	cont "that battle..."
+
+	para "But it seems that"
+	line "memory stayed"
+	cont "alive in a"
+	cont "recess of my"
+	cont "mind, albeit"
+	cont "so well hidden."
+
+	para "This is fantastic!"
+	line "Life is such a"
+	cont "marvel, isn't it?"
+
+	para "Oh, you have a"
+	line "message..."
+	cont "From me for me?"
+	cont "Let's hear me!"
+
+	para "...I see!"
+	line "Well, if this"
+	cont "isn't almost a"
+	cont "time paradox!"
+	cont "But may I be"
+	cont "damned, if I won't"
+	cont "do as I wanted!"
+
+	para "<PLAYER>, as soon"
+	line "as you leave the"
+	cont "LAB, go east."
+	cont "Do as I tell you"
+	cont "to the fence and"
+	cont "you'll..."
+	cont "Well, you'll see!"
+
+	para "Ahahah, what a"
+	line "marvel, what a"
+	cont "marvel indeed!"
+;	xxxx "123456789012345678"
+	done
+
 ; new for RP ===========================
 
 _PalletTownTextDarkGuide_RP_Before::

@@ -83,6 +83,7 @@ PalletTown_Object:
 	bg_event  7,  9, 6 ; PalletTownText5
 	bg_event  3,  5, 7 ; PalletTownText6
 	bg_event 11,  5, 8 ; PalletTownText7
+	bg_event 19, 12, 9 ; PalletTownSignText_PalletFieldsGate ; new
 
 	def_object_events
 	object_event 10,  4, SPRITE_OAK, STAY, NONE, 1 ; person

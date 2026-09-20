@@ -234,7 +234,28 @@ BluesHouseBluesMomText:
 	text_end
 
 BluesHouseOakText:
+	text_asm
+; for Pallet Fields
+	CheckEvent EVENT_CAN_OPEN_PALLET_FIELDS
+	jr nz, .noPalletFieldsPart
+	CheckHideShowSevii HS_SEVII_TEN_ISLAND_GS_BALL ; z flag if is SHOW, nz if is HIDE
+	jr z, .noPalletFieldsPart
+; we beat Young Oak and didn't open the Fields yet
+	SetEvent EVENT_CAN_OPEN_PALLET_FIELDS
+	ld hl, BluesHouseOakText_TimeParadox
+	jr .printAndEnd
+.noPalletFieldsPart
+	ld hl, BluesHouseOakText_Core
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+BluesHouseOakText_Core:
 	text_far _BluesHouseOakText
+	text_end
+
+BluesHouseOakText_TimeParadox:
+	text_far _PalletFields_OakText_TimeParadox
 	text_end
 
 BluesHouseSignText1:
