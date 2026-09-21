@@ -128,6 +128,42 @@ _PickUpItemText_TM_FISSURE::
 ;	xxxx "123456789012345678"
 	done
 
+; TM28 TBE
+
+; TM29 TBE
+
+_PickUpItemText_TM_MOONBLAST::
+	text "<PLAYER> found"
+	line "TM30 MOONBLAST!"
+;	xxxx "123456789012345678"
+	done
+
+; TM31 TBE
+
+_PickUpItemText_TM_DOUBLE_TEAM::
+	text "<PLAYER> found"
+	line "TM32 DOUBLE TEAM!"
+;	xxxx "123456789012345678"
+	done
+
+
+_PickUpItemText_TM_CLOSE_COMBAT::
+	text "<PLAYER> found"
+	line "TM37 CLOSE COMBAT!"
+;	xxxx "123456789012345678"
+	done
+
+
+_PickUpItemText_TM_OUTRAGE::
+	text "<PLAYER> found"
+	line "TM40 OUTRAGE!"
+;	xxxx "123456789012345678"
+	done
+
+
+
+
+
 
 
 

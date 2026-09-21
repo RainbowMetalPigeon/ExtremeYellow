@@ -24,7 +24,7 @@ SafariZoneNorth_Object:
 	def_object_events
 	object_event 26, 15, SPRITE_GIOVANNI, STAY, ANY_DIR, 1, OPP_GIOVANNI, 5 ; new, testing
 	object_event 25,  1, SPRITE_POKE_BALL, STAY, NONE, 2, PROTEIN
-	object_event 19,  7, SPRITE_POKE_BALL, STAY, NONE, 3, TM_OUTRAGE
+	object_event 19,  7, SPRITE_POKE_BALL, STAY, NONE, 3
 	object_event 18,  1, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, 4 ; new
 	object_event 19,  1, SPRITE_SAFARI_ZONE_WORKER, STAY, DOWN, 5 ; new
 

@@ -1201,7 +1201,9 @@ CreateListOfFoundTMs::
 	inc b
 .checkTM27
 
-	; TM27
+	; TM27 - special handling
+	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
+	jr z, .checkTM28
 	CheckHideShowExtra HS_VIRIDIAN_GYM_ITEM_2
 	jr z, .checkTM28
 	ld a, TM_FISSURE
@@ -1211,7 +1213,7 @@ CreateListOfFoundTMs::
 .checkTM28
 
 	; TM28
-	CheckHideShow HS_CERULEAN_ROCKET
+	CheckEvent EVENT_GOT_TM_DIG
 	jr z, .checkTM29
 	ld a, TM_DIG
 	ld [de], a

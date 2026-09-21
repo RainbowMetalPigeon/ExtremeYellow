@@ -18,7 +18,7 @@ SafariZoneWest_Object:
 
 	def_object_events
 	object_event  8, 20, SPRITE_POKE_BALL, STAY, NONE, 1, MAX_POTION
-	object_event  9,  7, SPRITE_POKE_BALL, STAY, NONE, 2, TM_DOUBLE_TEAM
+	object_event  9,  7, SPRITE_POKE_BALL, STAY, NONE, 2
 	object_event 18, 18, SPRITE_POKE_BALL, STAY, NONE, 3, MAX_REVIVE
 	object_event 22, 12, SPRITE_POKE_BALL, STAY, NONE, 4, NUGGET ; edited: moved and changed, no longer GOLD_TEETH
 

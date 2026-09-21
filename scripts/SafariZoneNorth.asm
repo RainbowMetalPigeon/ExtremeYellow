@@ -67,7 +67,7 @@ SafariZoneNorthScript2:
 SafariZoneNorth_TextPointers:
 	dw GiovanniSafariText1 ; new
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_OUTRAGE
 	dw SafariZoneNorthGuardText ; new
 	dw SafariZoneNorthGuardText ; new
 	; signs
@@ -80,7 +80,7 @@ SafariZoneNorth_TextPointers:
 SafariZoneNorth_TextPointers_Rocket:
 	dw GiovanniSafariText1 ; unused
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_OUTRAGE
 	dw SafariZoneNorthGuardText ; unused
 	dw SafariZoneNorthGuardText ; unused
 	; signs
@@ -141,3 +141,13 @@ GiovanniSafariAfterBattleText:
 SafariZoneNorthGuardText:
 	text_far _SafariZoneNorthGuardText
 	text_end
+
+PickUpItemText_TM_OUTRAGE:
+	text_far _PickUpItemText_TM_OUTRAGE
+	sound_get_item_1
+	text_asm
+	ld a, HS_SAFARI_ZONE_NORTH_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

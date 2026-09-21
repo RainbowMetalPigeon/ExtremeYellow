@@ -483,7 +483,12 @@ CeruleanCityText2:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, ReceivedTM28Text
 	call PrintText
-	farcall CeruleanHideRocket
+	call GBFadeOutToBlack
+	ld a, HS_CERULEAN_ROCKET
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvent EVENT_GOT_TM_DIG ; new
+	call GBFadeInFromBlack
 .Done
 	jp TextScriptEnd
 

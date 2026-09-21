@@ -23,7 +23,7 @@ Route9_TextPointers:
 	dw Route9Text7
 	dw Route9Text8
 	dw Route9Text9
-	dw PickUpItemText
+	dw PickUpItemText_TM_MOONBLAST
 	; signs
 	dw Route9Text11
 
@@ -37,7 +37,7 @@ Route9_TextPointers_Rocket:
 	dw Route9Text7
 	dw Route9Text8
 	dw Route9Text9
-	dw PickUpItemText
+	dw PickUpItemText_TM_MOONBLAST
 	; signs
 	dw Route9Text11
 
@@ -221,3 +221,13 @@ Route9AfterBattleText9:
 Route9Text11:
 	text_far _Route9Text11
 	text_end
+
+PickUpItemText_TM_MOONBLAST:
+	text_far _PickUpItemText_TM_MOONBLAST
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_9_ITEM
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

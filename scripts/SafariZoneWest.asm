@@ -3,7 +3,7 @@ SafariZoneWest_Script:
 
 SafariZoneWest_TextPointers:
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_DOUBLE_TEAM
 	dw PickUpItemText
 	dw PickUpItemText
 	; signs
@@ -26,3 +26,13 @@ SafariZoneWestText7:
 SafariZoneWestText8:
 	text_far _SafariZoneWestText8
 	text_end
+
+PickUpItemText_TM_DOUBLE_TEAM:
+	text_far _PickUpItemText_TM_DOUBLE_TEAM
+	sound_get_item_1
+	text_asm
+	ld a, HS_SAFARI_ZONE_WEST_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
