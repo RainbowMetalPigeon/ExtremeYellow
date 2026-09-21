@@ -44,7 +44,7 @@ SilphCo10F_TextPointers:
 	dw SilphCo10Text1
 	dw SilphCo10Text2
 	dw SilphCo10Text3
-	dw PickUpItemText
+	dw PickUpItemText_TM_EARTHQUAKE
 	dw PickUpItemText
 	dw PickUpItemText
 
@@ -52,7 +52,7 @@ SilphCo10F_TextPointers_Rocket:
 	dw SilphCo10Text1
 	dw SilphCo10Text2
 	dw SilphCo10F_TextPointers
-	dw PickUpItemText
+	dw PickUpItemText_TM_EARTHQUAKE
 	dw PickUpItemText
 	dw PickUpItemText
 
@@ -117,3 +117,13 @@ SilphCo10EndBattleText2:
 SilphCo10AfterBattleText2:
 	text_far _SilphCo10AfterBattleText2
 	text_end
+
+PickUpItemText_TM_EARTHQUAKE:
+	text_far _PickUpItemText_TM_EARTHQUAKE
+	sound_get_item_1
+	text_asm
+	ld a, HS_SILPH_CO_10F_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

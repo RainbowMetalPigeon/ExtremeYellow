@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
 ;	ld a, %11111110
-	ld a, %11111111
+;	ld a, %11111111
 ;	ld a, %00010000
 ;	ld a, %00000000
 ;	ld a, %11111100
@@ -233,17 +233,17 @@ IF DEF(_DEBUG)
 ;	ld [wMissableObjectIndex], a
 ;	predef ShowObject
 
-	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8
-;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
-	ld a, HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ld a, HS_VIRIDIAN_GYM_ITEM_2
-	ld [wMissableObjectIndex], a
-	predef ShowObjectExtra
-	ld a, HS_VIRIDIAN_GYM_GIOVANNI
-	ld [wMissableObjectIndex], a
-	predef HideObjectExtra
+;	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_8
+;;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+;	ld a, HS_VIRIDIAN_GYM_GUIDE_POST_LEAGUE
+;	ld [wMissableObjectIndex], a
+;	predef ShowObjectExtra
+;	ld a, HS_VIRIDIAN_GYM_ITEM_2
+;	ld [wMissableObjectIndex], a
+;	predef ShowObjectExtra
+;	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+;	ld [wMissableObjectIndex], a
+;	predef HideObjectExtra
 
 ;	ld a, HS_ROUTE_21_OAK
 ;	ld [wMissableObjectIndex], a
@@ -319,7 +319,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_BEAT_AT_LEAST_ONE_SHRINE_SAGE
 
 ;   SetEvent EVENT_BEAT_SAFARI_ZONE_NORTH_TRAINER_0
-;	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
+	SetEvent EVENT_BEAT_OBSIDIAN_WAREHOUSE_FINAL_TRAINER_4
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
 ;	SetEvent EVENT_GOT_HM01
 ;	SetEvent EVENT_SS_ANNE_LEFT

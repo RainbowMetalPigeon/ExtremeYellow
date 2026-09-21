@@ -116,6 +116,21 @@ _PickUpItemText_TM_THUNDER::
 ;	xxxx "123456789012345678"
 	done
 
+_PickUpItemText_TM_EARTHQUAKE::
+	text "<PLAYER> found"
+	line "TM26 EARTHQUAKE!"
+;	xxxx "123456789012345678"
+	done
+
+_PickUpItemText_TM_FISSURE::
+	text "<PLAYER> found"
+	line "TM27 FISSURE!"
+;	xxxx "123456789012345678"
+	done
+
+
+
+
 
 
 

@@ -21,6 +21,6 @@ ViridianGym_Object:
 	object_event  3,  1, SPRITE_GYM_GUIDE, STAY, DOWN, 11 ; new
 	object_event  6,  5, SPRITE_RED, STAY, UP, 12 ; new, challenger
 	object_event 16,  9, SPRITE_POKE_BALL, STAY, NONE, 13, REVIVE
-	object_event  1,  1, SPRITE_POKE_BALL, STAY, NONE, 14, TM_FISSURE ; new
+	object_event  1,  1, SPRITE_POKE_BALL, STAY, NONE, 14
 
 	def_warps_to VIRIDIAN_GYM

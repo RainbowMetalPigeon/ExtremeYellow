@@ -1202,7 +1202,7 @@ CreateListOfFoundTMs::
 .checkTM27
 
 	; TM27
-	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_GIOVANNI
+	CheckHideShowExtra HS_VIRIDIAN_GYM_ITEM_2
 	jr z, .checkTM28
 	ld a, TM_FISSURE
 	ld [de], a

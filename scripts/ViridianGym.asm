@@ -416,14 +416,14 @@ ViridianGym_TextPointers:
 	dw ViridianGymGuideText_PostLeague ; $b=11
 	dw ViridianGymChallengerText ; $c=12
 	dw PickUpItemText ; $d=13
-	dw PickUpItemText ; new, $e=14
+	dw PickUpItemText_TM_FISSURE ; new, $e=14
 	; scripts
 	dw ViridianGymGiovanniPostBattleText ; $d=15
 	dw ViridianGymChallengerPreBattleText ; 16
 	dw ViridianGymChallengerPostBattleText ; 17
 
-ViridianGym_TextPointers_Rocket:
-	dw GiovanniText ; TBE
+ViridianGym_TextPointers_Rocket: ; all unused
+	dw GiovanniText
 	; trainers
 	dw ViridianGymTrainerText2
 	dw ViridianGymTrainerText3
@@ -434,11 +434,11 @@ ViridianGym_TextPointers_Rocket:
 	dw ViridianGymTrainerText8
 	dw ViridianGymTrainerText9 ; 9
 	; guides
-	dw ViridianGymGuideText_PreLeague ; $a=10 TBE
-	dw ViridianGymGuideText_PostLeague ; $b=11 TBE (unnecessary?)
-	dw ViridianGymChallengerText ; $c=12 TBE (unnecessary?)
+	dw ViridianGymGuideText_PreLeague ; $a=10
+	dw ViridianGymGuideText_PostLeague ; $b=11
+	dw ViridianGymChallengerText ; $c=12
 	dw PickUpItemText ; $d=13
-	dw PickUpItemText ; new, $e=14
+	dw PickUpItemText_TM_FISSURE ; new, $e=14
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -805,3 +805,13 @@ ViridianGymChallengerPostBattleText_5:
 ViridianGymChallengerDefeatedText:
 	text_far _ViridianGymChallengerDefeatedText
 	text_end
+
+PickUpItemText_TM_FISSURE:
+	text_far _PickUpItemText_TM_FISSURE
+	sound_get_item_1
+	text_asm
+	ld a, HS_VIRIDIAN_GYM_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
