@@ -24,7 +24,7 @@ SSAnne1FRooms_TextPointers:
 	dw SSAnne8Text7
 	dw SSAnne8Text8 ; Mon
 	dw SSAnne8Text9
-	dw PickUpItemText
+	dw PickUpItemText_TM_BODY_SLAM
 	dw SSAnne8Text11 ; detective
 	dw SSAnne8Text12 ; new
 
@@ -38,7 +38,7 @@ SSAnne1FRooms_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw SSAnne8Text8 ; Mon
 	dw GenericNPCText_RocketPath
-	dw PickUpItemText
+	dw PickUpItemText_TM_BODY_SLAM
 	dw SSAnne8Text11_RP ; detective
 	dw SSAnne8Text12_NP ; nurse
 	; scripts
@@ -197,6 +197,18 @@ SSAnne8Text12_AfterHeal:
 SSAnne8Text12_NP:
 	text_far _SSAnne8Text12_NP
 	text_end
+
+PickUpItemText_TM_BODY_SLAM:
+	text_far _PickUpItemText_TM_BODY_SLAM
+	sound_get_item_1
+	text_asm
+	ld a, HS_SS_ANNE_1F_ROOMS_ITEM
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+; new for RP =====================================
 
 SSAnne8Text11_RP:
 	text_asm

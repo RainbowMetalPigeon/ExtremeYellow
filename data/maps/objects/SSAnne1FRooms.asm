@@ -21,7 +21,7 @@ SSAnne1FRooms_Object:
 	object_event  2, 11, SPRITE_LITTLE_GIRL, STAY, DOWN, 7                 ; room 3
 	object_event  3, 11, SPRITE_JIGGLYPUFF, STAY, DOWN, 8                  ; room 3
 	object_event 10, 13, SPRITE_GIRL, STAY, RIGHT, 9                       ; room 2
-	object_event 12, 15, SPRITE_POKE_BALL, STAY, NONE, 10, TM_BODY_SLAM    ; room 2
+	object_event 12, 15, SPRITE_POKE_BALL, STAY, NONE, 10                  ; room 2
 	object_event 11,  3, SPRITE_GENTLEMAN, WALK, LEFT_RIGHT, 11            ; room 5 ; edited
 	object_event 23, 13, SPRITE_NURSE, STAY, DOWN, 12                      ; room 1 (leftmost) ; new
 

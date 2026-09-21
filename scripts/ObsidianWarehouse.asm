@@ -364,9 +364,9 @@ ObsidianWarehouse_TextPointers:
 	dw ObsidianWarehouseTrainerText3
 	dw ObsidianWarehouseTrainerText4
 	dw PickUpItemText
+	dw PickUpItemText_TM_METEOR_MASH
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_GYRO_BALL
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -380,9 +380,9 @@ ObsidianWarehouse_TextPointers_Rocket:
 	dw ObsidianWarehouseTrainerText3_RP
 	dw ObsidianWarehouseTrainerText4_RP
 	dw PickUpItemText
+	dw PickUpItemText_TM_METEOR_MASH
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_GYRO_BALL
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -525,6 +525,26 @@ ObsidianWarehouseStatueText_Click1Not:
 ObsidianWarehouseStatueText_Click2:
 	text_far _ObsidianWarehouseStatueText_Click2
 	text_end
+
+PickUpItemText_TM_METEOR_MASH:
+	text_far _PickUpItemText_TM_METEOR_MASH
+	sound_get_item_1
+	text_asm
+	ld a, HS_OBSIDIAN_WAREHOUSE_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+PickUpItemText_TM_GYRO_BALL:
+	text_far _PickUpItemText_TM_GYRO_BALL
+	sound_get_item_1
+	text_asm
+	ld a, HS_OBSIDIAN_WAREHOUSE_ITEM_4
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new for RP ==========================
 

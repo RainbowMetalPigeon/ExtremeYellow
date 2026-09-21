@@ -28,7 +28,25 @@ _PickUpItemText_TM_DRAGON_CLAW::
 ;	xxxx "123456789012345678"
 	done
 
+; TM06
 
+_PickUpItemText_TM_DARK_PULSE::
+	text "<PLAYER> found"
+	line "TM07 DARK PULSE!"
+;	xxxx "123456789012345678"
+	done
+
+_PickUpItemText_TM_BODY_SLAM::
+	text "<PLAYER> found"
+	line "TM08 BODY SLAM!"
+;	xxxx "123456789012345678"
+	done
+
+_PickUpItemText_TM_METEOR_MASH::
+	text "<PLAYER> found"
+	line "TM09 METEOR MASH!"
+;	xxxx "123456789012345678"
+	done
 
 
 
@@ -43,6 +61,12 @@ _PickUpItemText_TM_DRAININGKISS::
 	done
 
 
+
+_PickUpItemText_TM_GYRO_BALL::
+	text "<PLAYER> found"
+	line "TM52 GYRO BALL!"
+;	xxxx "123456789012345678"
+	done
 
 _PickUpItemText_TM_CURSE::
 	text "<PLAYER> found"

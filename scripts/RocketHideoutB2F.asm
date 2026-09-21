@@ -274,14 +274,14 @@ RocketHideoutB2F_TextPointers:
 	dw RocketHideout2Text1
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_DARK_PULSE
 	dw PickUpItemText
 
 RocketHideoutB2F_TextPointers_Rocket:
 	dw RocketHideout2Text1
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_DARK_PULSE
 	dw PickUpItemText
 
 RocketHideout2TrainerHeaders:
@@ -307,3 +307,13 @@ RocketHideout2EndBattleText2:
 RocketHideout2AfterBattleTxt2:
 	text_far _RocketHideout2AfterBattleTxt2
 	text_end
+
+PickUpItemText_TM_DARK_PULSE:
+	text_far _PickUpItemText_TM_DARK_PULSE
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROCKET_HIDEOUT_B2F_ITEM_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
