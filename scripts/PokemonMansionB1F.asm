@@ -425,8 +425,8 @@ PokemonMansionB1F_TextPointers:
 	dw Mansion4Text3 ; new
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_BLIZZARD
+	dw PickUpItemText_TM_STONE_EDGE
 	dw Mansion4Text7
 	dw PickUpItemText
 	dw Mansion4TextRival ; new, 10
@@ -442,8 +442,8 @@ PokemonMansionB1F_TextPointers_Rocket:
 	dw Mansion4Text3
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_BLIZZARD
+	dw PickUpItemText_TM_STONE_EDGE
 	dw Mansion4Text7
 	dw PickUpItemText
 	dw Mansion4TextRival ; 10, unused
@@ -588,6 +588,26 @@ PokemonMansionB1FTextSign1_GotGene:
 	text_far _PokemonMansionB1FTextSign1_GotGene
 	sound_get_item_1
 	text_end
+
+PickUpItemText_TM_BLIZZARD:
+	text_far _PickUpItemText_TM_BLIZZARD
+	sound_get_item_1
+	text_asm
+	ld a, HS_POKEMON_MANSION_B1F_ITEM_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+PickUpItemText_TM_STONE_EDGE:
+	text_far _PickUpItemText_TM_STONE_EDGE
+	sound_get_item_1
+	text_asm
+	ld a, HS_POKEMON_MANSION_B1F_ITEM_4
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new for RP =========================
 

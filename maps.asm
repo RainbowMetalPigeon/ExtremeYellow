@@ -244,13 +244,28 @@ INCLUDE "scripts/RocketHideoutB1F.asm"
 INCLUDE "data/maps/objects/RocketHideoutB1F.asm"
 RocketHideoutB1F_Blocks: INCBIN "maps/RocketHideoutB1F.blk"
 
-
-SECTION "Maps 6", ROMX
-
 INCLUDE "data/maps/headers/PokemonMansion1F.asm"
 INCLUDE "scripts/PokemonMansion1F.asm"
 INCLUDE "data/maps/objects/PokemonMansion1F.asm"
 PokemonMansion1F_Blocks: INCBIN "maps/PokemonMansion1F.blk"
+
+INCLUDE "data/maps/headers/PokemonMansion2F.asm"
+INCLUDE "scripts/PokemonMansion2F.asm"
+INCLUDE "data/maps/objects/PokemonMansion2F.asm"
+PokemonMansion2F_Blocks: INCBIN "maps/PokemonMansion2F.blk"
+
+INCLUDE "data/maps/headers/PokemonMansionB1F.asm"
+INCLUDE "scripts/PokemonMansionB1F.asm"
+INCLUDE "data/maps/objects/PokemonMansionB1F.asm"
+PokemonMansionB1F_Blocks: INCBIN "maps/PokemonMansionB1F.blk"
+
+INCLUDE "data/maps/headers/PokemonMansion3F.asm"
+INCLUDE "scripts/PokemonMansion3F.asm"
+INCLUDE "data/maps/objects/PokemonMansion3F.asm"
+PokemonMansion3F_Blocks: INCBIN "maps/PokemonMansion3F.blk"
+
+
+SECTION "Maps 6", ROMX
 
 INCLUDE "data/maps/headers/SeafoamIslands1F.asm"
 INCLUDE "scripts/SeafoamIslands1F.asm"
@@ -649,16 +664,6 @@ INCLUDE "scripts/SilphCo7F.asm"
 INCLUDE "data/maps/objects/SilphCo7F.asm"
 SilphCo7F_Blocks: INCBIN "maps/SilphCo7F.blk"
 
-INCLUDE "data/maps/headers/PokemonMansion2F.asm"
-INCLUDE "scripts/PokemonMansion2F.asm"
-INCLUDE "data/maps/objects/PokemonMansion2F.asm"
-PokemonMansion2F_Blocks: INCBIN "maps/PokemonMansion2F.blk"
-
-INCLUDE "data/maps/headers/PokemonMansionB1F.asm"
-INCLUDE "scripts/PokemonMansionB1F.asm"
-INCLUDE "data/maps/objects/PokemonMansionB1F.asm"
-PokemonMansionB1F_Blocks: INCBIN "maps/PokemonMansionB1F.blk"
-
 
 SECTION "Maps 11", ROMX
 
@@ -856,11 +861,6 @@ Route2AllGates_Blocks: INCBIN "maps/Route2AllGates.blk" ; new, merge of all Rout
 INCLUDE "data/maps/headers/RedsHouse2F.asm"
 INCLUDE "scripts/RedsHouse2F.asm"
 INCLUDE "data/maps/objects/RedsHouse2F.asm"
-
-INCLUDE "data/maps/headers/PokemonMansion3F.asm"
-INCLUDE "scripts/PokemonMansion3F.asm"
-INCLUDE "data/maps/objects/PokemonMansion3F.asm"
-PokemonMansion3F_Blocks: INCBIN "maps/PokemonMansion3F.blk"
 
 
 SECTION "Maps 16", ROMX

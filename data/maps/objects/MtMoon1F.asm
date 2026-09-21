@@ -58,7 +58,7 @@ MtMoon1F_Object:
 	object_event 35, 55, SPRITE_POKE_BALL, STAY, NONE, 10, RARE_CANDY
 	object_event 36, 47, SPRITE_POKE_BALL, STAY, NONE, 11, ESCAPE_ROPE
 	object_event 20, 57, SPRITE_POKE_BALL, STAY, NONE, 12, POTION
-	object_event  5, 56, SPRITE_POKE_BALL, STAY, NONE, 13, TM_METRONOME
+	object_event  5, 56, SPRITE_POKE_BALL, STAY, NONE, 13
 	object_event 36, 23, SPRITE_BLUE, STAY, DOWN, 14 ; new
 
 	def_warps_to MT_MOON_1F

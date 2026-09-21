@@ -198,7 +198,7 @@ MtMoon1F_TextPointers:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_METRONOME
 	dw MtMoon1TextRival ; new, 14
 	; signs
 	dw MtMoon1Text14 ; 15
@@ -216,7 +216,7 @@ MtMoon1F_TextPointers_Rocket:
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_METRONOME
 	dw MtMoon1TextRival ; unused
 	; signs
 	dw MtMoon1Text14 ; 15
@@ -420,3 +420,13 @@ MtMoon1AfterBattleText8:
 MtMoon1Text14:
 	text_far _MtMoon1Text14
 	text_end
+
+PickUpItemText_TM_METRONOME:
+	text_far _PickUpItemText_TM_METRONOME
+	sound_get_item_1
+	text_asm
+	ld a, HS_MT_MOON_1F_ITEM_6
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

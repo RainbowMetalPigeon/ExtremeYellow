@@ -128,13 +128,13 @@ RocketHideout3Script3:
 RocketHideoutB3F_TextPointers:
 	dw RocketHideout3Text1
 	dw RocketHideout3Text2
-	dw PickUpItemText
+	dw PickUpItemText_TM_DOUBLE_EDGE
 	dw PickUpItemText
 
 RocketHideoutB3F_TextPointers_Rocket:
 	dw RocketHideout3Text1
 	dw RocketHideout3Text2
-	dw PickUpItemText
+	dw PickUpItemText_TM_DOUBLE_EDGE
 	dw PickUpItemText
 
 RocketHideout3TrainerHeaders:
@@ -180,3 +180,13 @@ RocketHideout3EndBattleText3:
 RocketHideout3AfterBattleText3:
 	text_far _RocketHide3AfterBattleText3
 	text_end
+
+PickUpItemText_TM_DOUBLE_EDGE:
+	text_far _PickUpItemText_TM_DOUBLE_EDGE
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROCKET_HIDEOUT_B3F_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

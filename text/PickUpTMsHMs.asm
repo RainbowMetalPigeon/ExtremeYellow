@@ -28,7 +28,7 @@ _PickUpItemText_TM_DRAGON_CLAW::
 ;	xxxx "123456789012345678"
 	done
 
-; TM06
+; TM06 TBE
 
 _PickUpItemText_TM_DARK_PULSE::
 	text "<PLAYER> found"
@@ -48,6 +48,29 @@ _PickUpItemText_TM_METEOR_MASH::
 ;	xxxx "123456789012345678"
 	done
 
+_PickUpItemText_TM_DOUBLE_EDGE::
+	text "<PLAYER> found"
+	line "TM10 DOUBLE EDGE!"
+;	xxxx "123456789012345678"
+	done
+
+; TM11 TBE
+
+_PickUpItemText_TM_METRONOME::
+	text "<PLAYER> found"
+	line "TM12 METRONOME!"
+;	xxxx "123456789012345678"
+	done
+
+; TM13 TBE
+
+_PickUpItemText_TM_BLIZZARD::
+	text "<PLAYER> found"
+	line "TM14 BLIZZARD!"
+;	xxxx "123456789012345678"
+	done
+
+
 
 
 
@@ -59,6 +82,16 @@ _PickUpItemText_TM_DRAININGKISS::
 	line "TM17 DRAININGKISS!"
 ;	xxxx "123456789012345678"
 	done
+
+
+_PickUpItemText_TM_STONE_EDGE::
+	text "<PLAYER> found"
+	line "TM22 STONE EDGE!"
+;	xxxx "123456789012345678"
+	done
+
+
+
 
 
 
