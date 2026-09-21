@@ -202,7 +202,7 @@ Route25_TextPointers:
 	dw Route25Text7
 	dw Route25Text8
 	dw Route25Text9
-	dw PickUpItemText
+	dw PickUpItemText_TM_SEISMIC_TOSS
 	dw PickUpItemText ; new
 	dw PickUpItemText ; new
 	dw PickUpItemText ; new
@@ -229,7 +229,7 @@ Route25_TextPointers_Rocket:
 	dw Route25Text7
 	dw Route25Text8
 	dw Route25Text9
-	dw PickUpItemText
+	dw PickUpItemText_TM_SEISMIC_TOSS
 	dw PickUpItemText
 	dw PickUpItemText
 	dw PickUpItemText
@@ -462,6 +462,16 @@ Route25TextLockedAndAbandoned3:
 Route25TextLockedAndAbandoned4:
 	text_far _Route25TextLockedAndAbandoned
 	text_end
+
+PickUpItemText_TM_SEISMIC_TOSS:
+	text_far _PickUpItemText_TM_SEISMIC_TOSS
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_25_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new for RP =============================
 

@@ -70,18 +70,35 @@ _PickUpItemText_TM_BLIZZARD::
 ;	xxxx "123456789012345678"
 	done
 
+; TM15 TBE
 
-
-
-
-
-
+_PickUpItemText_TM_MIRROR_COAT::
+	text "<PLAYER> found"
+	line "TM16 MIRROR COAT!"
+;	xxxx "123456789012345678"
+	done
 
 _PickUpItemText_TM_DRAININGKISS::
 	text "<PLAYER> found"
 	line "TM17 DRAININGKISS!"
 ;	xxxx "123456789012345678"
 	done
+
+; TM18 TBE
+
+_PickUpItemText_TM_SEISMIC_TOSS::
+	text "<PLAYER> found"
+	line "TM19 SEISMIC TOSS!"
+;	xxxx "123456789012345678"
+	done
+
+
+
+
+
+
+
+
 
 
 _PickUpItemText_TM_STONE_EDGE::

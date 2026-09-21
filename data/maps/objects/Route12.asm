@@ -21,7 +21,7 @@ Route12_Object:
 	object_event 12, 40, SPRITE_FISHER, STAY, LEFT, 7, OPP_FISHER, 5
 	object_event  9, 52, SPRITE_FISHER, STAY, RIGHT, 8, OPP_FISHER, 6
 	object_event  6, 87, SPRITE_FISHER, STAY, DOWN, 9, OPP_FISHER, 11
-	object_event 14, 35, SPRITE_POKE_BALL, STAY, NONE, 10, TM_MIRROR_COAT
+	object_event 14, 35, SPRITE_POKE_BALL, STAY, NONE, 10
 	object_event  5, 89, SPRITE_POKE_BALL, STAY, NONE, 11, IRON
 	object_event  4, 107, SPRITE_POKE_BALL, STAY, NONE, 12, LINK_CABLE ; new
 	object_event  4, 62, SPRITE_BLUE, STAY, RIGHT, 13 ; new, rival left

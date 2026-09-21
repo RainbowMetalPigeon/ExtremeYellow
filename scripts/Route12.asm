@@ -401,7 +401,7 @@ Route12_TextPointers:
 	dw Route12Text6
 	dw Route12Text7
 	dw Route12Text8
-	dw PickUpItemText
+	dw PickUpItemText_TM_MIRROR_COAT
 	dw PickUpItemText
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route12TextRival ; new, rival left; ID=13
@@ -427,7 +427,7 @@ Route12_TextPointers_Rocket:
 	dw Route12Text6
 	dw Route12Text7
 	dw Route12Text8
-	dw PickUpItemText
+	dw PickUpItemText_TM_MIRROR_COAT
 	dw PickUpItemText
 	dw PickUpItemText
 	dw Route12TextRival ; unused, rival left; ID=13
@@ -689,3 +689,13 @@ Route12RivalText_Lose: ; new
 Route12TextRivalStop: ; new
 	text_far _Route12TextRivalStop
 	text_end
+
+PickUpItemText_TM_MIRROR_COAT:
+	text_far _PickUpItemText_TM_MIRROR_COAT
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_12_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
