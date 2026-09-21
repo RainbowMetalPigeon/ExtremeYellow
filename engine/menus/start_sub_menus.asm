@@ -365,7 +365,9 @@ StartMenu_Pokemon::
 	CheckEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 	jr nz, .canUseRockSmash
 	ld hl, CannotUseRockSmashText2
-	jp PrintText
+	call PrintText
+	call WaitForTextScrollButtonPress
+	jp .loop
 .canUseRockSmash
 	callfar UsedRockSmash
 	ld a, [wActionResultOrTookBattleTurn]
