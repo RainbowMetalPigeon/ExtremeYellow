@@ -184,14 +184,11 @@ _PickUpItemText_TM_GUNK_SHOT::
 ;	xxxx "123456789012345678"
 	done
 
-
-
-
-
-
-
-
-
+_PickUpItemText_TM_X_SCISSOR::
+	text "<PLAYER> found"
+	line "TM44 X SCISSOR!"
+;	xxxx "123456789012345678"
+	done
 
 _PickUpItemText_TM_THUNDER_WAVE::
 	text "<PLAYER> found"
@@ -199,7 +196,7 @@ _PickUpItemText_TM_THUNDER_WAVE::
 ;	xxxx "123456789012345678"
 	done
 
-
+; TM46 TBE
 
 _PickUpItemText_TM_EXPLOSION::
 	text "<PLAYER> found"
@@ -207,13 +204,27 @@ _PickUpItemText_TM_EXPLOSION::
 ;	xxxx "123456789012345678"
 	done
 
+; TM48 TBE
 
+; TM49 TBE
+
+; TM50 TBE
+
+; TM51 TBE
 
 _PickUpItemText_TM_GYRO_BALL::
 	text "<PLAYER> found"
 	line "TM52 GYRO BALL!"
 ;	xxxx "123456789012345678"
 	done
+
+_PickUpItemText_TM_BODY_PRESS::
+	text "<PLAYER> found"
+	line "TM53 BODY PRESS!"
+;	xxxx "123456789012345678"
+	done
+
+; TM54 TBE
 
 _PickUpItemText_TM_CURSE::
 	text "<PLAYER> found"

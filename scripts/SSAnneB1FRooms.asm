@@ -23,7 +23,7 @@ SSAnneB1FRooms_TextPointers:
 	dw SSAnne10Text7
 	dw SSAnne10Text8
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_X_SCISSOR
 	dw PickUpItemText
 
 SSAnneB1FRooms_TextPointers_Rocket:
@@ -36,7 +36,7 @@ SSAnneB1FRooms_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_X_SCISSOR
 	dw PickUpItemText
 
 SSAnne10TrainerHeaders:
@@ -173,3 +173,13 @@ SSAnne10AfterBattleText6:
 SSAnne10Text7:
 	text_far _SSAnne10Text7
 	text_end
+
+PickUpItemText_TM_X_SCISSOR:
+	text_far _PickUpItemText_TM_X_SCISSOR
+	sound_get_item_1
+	text_asm
+	ld a, HS_SS_ANNE_B1F_ROOMS_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

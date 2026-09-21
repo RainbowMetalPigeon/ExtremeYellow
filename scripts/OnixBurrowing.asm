@@ -42,7 +42,7 @@ CoordsData_AroundSnorlax:
 	db -1 ; end
 
 OnixBurrowing_TextPointers:
-	dw PickUpItemText
+	dw PickUpItemText_TM_BODY_PRESS
 	dw SnorlaxDenText
 
 OnixBurrowingTrainerHeaders:
@@ -65,4 +65,14 @@ SnorlaxDenBattleText:
 	ld a, SNORLAX
 	call PlayCry
 	call WaitForSoundToFinish
+	jp TextScriptEnd
+
+PickUpItemText_TM_BODY_PRESS:
+	text_far _PickUpItemText_TM_BODY_PRESS
+	sound_get_item_1
+	text_asm
+	ld a, HS_ONIX_BURROWING_ITEM
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
 	jp TextScriptEnd
