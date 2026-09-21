@@ -21,8 +21,8 @@ PowerPlant_Object:
 	object_event  4,  9, SPRITE_ZAPDOS, STAY, DOWN, 10, ZAPDOS, 50 | OW_POKEMON ; edited, to go beyond 200
 	object_event  7, 25, SPRITE_POKE_BALL, STAY, NONE, 11, CARBOS
 	object_event 34,  3, SPRITE_POKE_BALL, STAY, NONE, 12, RARE_CANDY
-	object_event 26, 32, SPRITE_POKE_BALL, STAY, NONE, 13, TM_THUNDER
-	object_event 20, 32, SPRITE_POKE_BALL, STAY, NONE, 14, TM_THUNDER_WAVE ; edited
+	object_event 26, 32, SPRITE_POKE_BALL, STAY, NONE, 13
+	object_event 20, 32, SPRITE_POKE_BALL, STAY, NONE, 14
 	; removed the HP_UP at 28,  3!
 
 	def_warps_to POWER_PLANT

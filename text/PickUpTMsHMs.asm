@@ -110,11 +110,21 @@ _PickUpItemText_TM_STONE_EDGE::
 
 ; TM24 TBE
 
+_PickUpItemText_TM_THUNDER::
+	text "<PLAYER> found"
+	line "TM25 THUNDER!"
+;	xxxx "123456789012345678"
+	done
 
 
 
 
 
+_PickUpItemText_TM_THUNDER_WAVE::
+	text "<PLAYER> found"
+	line "TM45 THUNDER WAVE!"
+;	xxxx "123456789012345678"
+	done
 
 
 

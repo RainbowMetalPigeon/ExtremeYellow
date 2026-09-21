@@ -27,8 +27,8 @@ PowerPlant_TextPointers:
 	dw ZapdosText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_THUNDER
+	dw PickUpItemText_TM_THUNDER_WAVE
 	dw PowerPlantTextLtSurgePostBattle ; 15, new, map-dependent
 
 PowerPlant_TextPointers_Rocket:
@@ -44,8 +44,8 @@ PowerPlant_TextPointers_Rocket:
 	dw ZapdosText
 	dw PickUpItemText
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_THUNDER
+	dw PickUpItemText_TM_THUNDER_WAVE
 
 PowerPlantTrainerHeaders:
 	def_trainers
@@ -201,3 +201,23 @@ PowerPlantResetScripts: ; map-dependent
 PowerPlantTextLtSurgePostBattle:
 	text_far _GymLeaderElite4PostRematchInverseText
 	text_end
+
+PickUpItemText_TM_THUNDER:
+	text_far _PickUpItemText_TM_THUNDER
+	sound_get_item_1
+	text_asm
+	ld a, HS_POWER_PLANT_ITEM_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+PickUpItemText_TM_THUNDER_WAVE:
+	text_far _PickUpItemText_TM_THUNDER_WAVE
+	sound_get_item_1
+	text_asm
+	ld a, HS_POWER_PLANT_ITEM_4
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
