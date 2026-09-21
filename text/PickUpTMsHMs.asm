@@ -22,11 +22,25 @@ _PickUpItemText_TM_COUNTER::
 ;	xxxx "123456789012345678"
 	done
 
+_PickUpItemText_TM_DRAGON_CLAW::
+	text "<PLAYER> found"
+	line "TM05 DRAGON CLAW!"
+;	xxxx "123456789012345678"
+	done
 
 
 
 
 
+
+
+
+
+_PickUpItemText_TM_DRAININGKISS::
+	text "<PLAYER> found"
+	line "TM17 DRAININGKISS!"
+;	xxxx "123456789012345678"
+	done
 
 
 

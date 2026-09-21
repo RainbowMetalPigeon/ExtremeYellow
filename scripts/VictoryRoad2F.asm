@@ -78,9 +78,9 @@ VictoryRoad2F_TextPointers:
 	dw VictoryRoad2Text4
 	dw VictoryRoad2Text5
 	dw VictoryRoad2Text6 ; new, Bird Keeper instead of Moltres
+	dw PickUpItemText_TM_DRAININGKISS
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_DRAGON_CLAW
 	dw PickUpItemText
 	dw BoulderText
 	dw BoulderText
@@ -96,9 +96,9 @@ VictoryRoad2F_TextPointers_Rocket:
 	dw VictoryRoad2Text4
 	dw VictoryRoad2Text5
 	dw VictoryRoad2Text6 ; Bird Keeper instead of Moltres
+	dw PickUpItemText_TM_DRAININGKISS
 	dw PickUpItemText
-	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_DRAGON_CLAW
 	dw PickUpItemText
 	dw BoulderText
 	dw BoulderText
@@ -244,6 +244,26 @@ VictoryRoad2EndBattleText6: ; new
 VictoryRoad2AfterBattleText6: ; new
 	text_far _VictoryRoad2AfterBattleText6
 	text_end
+
+PickUpItemText_TM_DRAININGKISS:
+	text_far _PickUpItemText_TM_DRAININGKISS
+	sound_get_item_1
+	text_asm
+	ld a, HS_VICTORY_ROAD_2F_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+PickUpItemText_TM_DRAGON_CLAW:
+	text_far _PickUpItemText_TM_DRAGON_CLAW
+	sound_get_item_1
+	text_asm
+	ld a, HS_VICTORY_ROAD_2F_ITEM_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
 
 ; new ------------------------------------------------
 
