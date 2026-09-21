@@ -98,18 +98,21 @@ _PickUpItemText_TM_FEINT_ATTACK::
 ;	xxxx "123456789012345678"
 	done
 
-
-
-
-
-
-
+; TM21 TBE
 
 _PickUpItemText_TM_STONE_EDGE::
 	text "<PLAYER> found"
 	line "TM22 STONE EDGE!"
 ;	xxxx "123456789012345678"
 	done
+
+; TM23 TBE
+
+; TM24 TBE
+
+
+
+
 
 
 

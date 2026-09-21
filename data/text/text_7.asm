@@ -205,21 +205,19 @@ _DidNotLearnText::
 	text "!"
 	prompt
 
-_TryingToLearnText::
-	text_ram wLearnMoveMonName
-	text " is"
-	line "trying to learn"
-	cont "@"
-	text_ram wStringBuffer
-	text "!"
-
-	para "But, @"
-	text_ram wLearnMoveMonName
-	text_start
-	line "can't learn more"
-	cont "than 4 moves!"
-
-	para "Delete an older"
+_TryingToLearnText:: ; edited
+;	text_ram wLearnMoveMonName
+;	text " is"
+;	line "trying to learn"
+;	cont "@"
+;	text_ram wStringBuffer
+;	text "!"
+;	para "But, @"
+;	text_ram wLearnMoveMonName
+;	text_start
+;	line "can't learn more"
+;	cont "than 4 moves!"
+	text "Delete an older"
 	line "move to make room"
 	cont "for @"
 	text_ram wStringBuffer
