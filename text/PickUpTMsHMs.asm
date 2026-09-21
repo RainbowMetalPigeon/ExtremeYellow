@@ -146,6 +146,17 @@ _PickUpItemText_TM_DOUBLE_TEAM::
 ;	xxxx "123456789012345678"
 	done
 
+_PickUpItemText_TM_REFLECT::
+	text "<PLAYER> found"
+	line "TM33 REFLECT!"
+;	xxxx "123456789012345678"
+	done
+
+; TM34 TBE
+
+; TM35 TBE
+
+; TM36 TBE
 
 _PickUpItemText_TM_CLOSE_COMBAT::
 	text "<PLAYER> found"
@@ -153,6 +164,9 @@ _PickUpItemText_TM_CLOSE_COMBAT::
 ;	xxxx "123456789012345678"
 	done
 
+; TM38 TBE
+
+; TM39 TBE
 
 _PickUpItemText_TM_OUTRAGE::
 	text "<PLAYER> found"
@@ -160,7 +174,15 @@ _PickUpItemText_TM_OUTRAGE::
 ;	xxxx "123456789012345678"
 	done
 
+; TM41 TBE
 
+; TM42 TBE
+
+_PickUpItemText_TM_GUNK_SHOT::
+	text "<PLAYER> found"
+	line "TM43 GUNK SHOT!"
+;	xxxx "123456789012345678"
+	done
 
 
 
@@ -177,6 +199,13 @@ _PickUpItemText_TM_THUNDER_WAVE::
 ;	xxxx "123456789012345678"
 	done
 
+
+
+_PickUpItemText_TM_EXPLOSION::
+	text "<PLAYER> found"
+	line "TM47 EXPLOSION!"
+;	xxxx "123456789012345678"
+	done
 
 
 

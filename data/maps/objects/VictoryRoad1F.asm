@@ -13,7 +13,7 @@ VictoryRoad1F_Object:
 	object_event  3,  2, SPRITE_RED, STAY, ANY_DIR, 2, OPP_COOLTRAINER, 65 ; edited, pseudo-red
 	object_event 14,  0, SPRITE_YELLOW, STAY, ANY_DIR, 3, OPP_COOLTRAINER, 67 ; edited, pseudo-yellow
 	object_event  0, 13, SPRITE_BLUE, STAY, ANY_DIR, 4, OPP_COOLTRAINER, 66 ; edited, pseudo-blue
-	object_event 11,  0, SPRITE_POKE_BALL, STAY, NONE, 5, TM_GUNK_SHOT
+	object_event 11,  0, SPRITE_POKE_BALL, STAY, NONE, 5
 	object_event  9,  2, SPRITE_POKE_BALL, STAY, NONE, 6, RARE_CANDY
 	object_event  5, 15, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 7 ; person
 	object_event 14,  2, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 8 ; person

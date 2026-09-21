@@ -47,7 +47,7 @@ VictoryRoad1F_TextPointers:
 	dw VictoryRoad1Text2 ; Manga Red
 	dw VictoryRoad1Text3 ; Manga Yellow
 	dw VictoryRoad1Text4 ; Manga Blue
-	dw PickUpItemText
+	dw PickUpItemText_TM_GUNK_SHOT
 	dw PickUpItemText
 	dw BoulderText
 	dw BoulderText
@@ -58,7 +58,7 @@ VictoryRoad1F_TextPointers_Rocket:
 	dw VictoryRoad1Text2 ; Manga Red TBE
 	dw VictoryRoad1Text3 ; Manga Yellow TBE
 	dw VictoryRoad1Text4 ; Manga Blue TBE
-	dw PickUpItemText
+	dw PickUpItemText_TM_GUNK_SHOT
 	dw PickUpItemText
 	dw BoulderText
 	dw BoulderText
@@ -386,3 +386,13 @@ VictoryRoad1AfterBattleText4_RP:
 	text_end
 
 ; -------------------------------
+
+PickUpItemText_TM_GUNK_SHOT:
+	text_far _PickUpItemText_TM_GUNK_SHOT
+	sound_get_item_1
+	text_asm
+	ld a, HS_VICTORY_ROAD_1F_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

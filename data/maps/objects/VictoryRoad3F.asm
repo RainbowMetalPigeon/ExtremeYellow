@@ -19,7 +19,7 @@ VictoryRoad3F_Object:
 	object_event 17, 15, SPRITE_YOUNGSTER, STAY, ANY_DIR, 7, OPP_PSYCHIC_TR, 6 ; new, full psychic team
 	object_event 27,  9, SPRITE_YOUNGSTER, STAY, ANY_DIR, 8, OPP_BUG_CATCHER, 17 ; new, bug prodigy
 	object_event 26,  5, SPRITE_POKE_BALL, STAY, NONE, 9, MAX_REVIVE
-	object_event  7,  7, SPRITE_POKE_BALL, STAY, NONE, 10, TM_EXPLOSION
+	object_event  7,  7, SPRITE_POKE_BALL, STAY, NONE, 10
 	object_event 22,  3, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 11
 	object_event 13, 12, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 12
 	object_event 24, 10, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 13

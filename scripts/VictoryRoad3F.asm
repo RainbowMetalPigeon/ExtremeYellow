@@ -88,7 +88,7 @@ VictoryRoad3F_TextPointers:
 	dw VictoryRoad3Text7 ; new
 	dw VictoryRoad3Text8 ; new
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_EXPLOSION
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
@@ -104,7 +104,7 @@ VictoryRoad3F_TextPointers_Rocket:
 	dw VictoryRoad3Text7
 	dw VictoryRoad3Text8
 	dw PickUpItemText
-	dw PickUpItemText
+	dw PickUpItemText_TM_EXPLOSION
 	dw BoulderText
 	dw BoulderText
 	dw BoulderText
@@ -282,3 +282,13 @@ VictoryRoad3EndBattleText9:
 VictoryRoad3AfterBattleText9:
 	text_far _VictoryRoad3AfterBattleText9
 	text_end
+
+PickUpItemText_TM_EXPLOSION:
+	text_far _PickUpItemText_TM_EXPLOSION
+	sound_get_item_1
+	text_asm
+	ld a, HS_VICTORY_ROAD_3F_ITEM_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd

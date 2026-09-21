@@ -88,7 +88,7 @@ Route24_TextPointers:
 	dw Route24Text5
 	dw Route24Text6
 	dw Route24Text7
-	dw PickUpItemText
+	dw PickUpItemText_TM_REFLECT
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route24Text8
 
@@ -100,7 +100,7 @@ Route24_TextPointers_Rocket:
 	dw Route24Text5
 	dw Route24Text6
 	dw Route24Text7
-	dw PickUpItemText
+	dw PickUpItemText_TM_REFLECT
 	dw PickUpItemText
 	dw Route24Text8_RP
 
@@ -516,6 +516,18 @@ Route24Text_515e9:
 Route24Text_515ee:
 	text_far _Route24DamianText4
 	text_end
+
+PickUpItemText_TM_REFLECT:
+	text_far _PickUpItemText_TM_REFLECT
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_24_ITEM_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+; new for RP ======================================
 
 Route24Text_RP_BeatCharmanderGuy: ; new for RP
 	text_far _Route24Text_RP_BeatCharmanderGuy

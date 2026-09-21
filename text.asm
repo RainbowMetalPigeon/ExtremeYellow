@@ -264,6 +264,7 @@ INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/Route9.asm"
 INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/OchrePokecenter.asm" ; new
+INCLUDE "text/LavenderMart.asm"
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -316,7 +317,6 @@ INCLUDE "text/SafariZoneEast.asm"
 INCLUDE "text/SafariZoneNorth.asm"
 INCLUDE "text/Route11Gate1F.asm"
 INCLUDE "text/VermilionMart.asm"
-INCLUDE "text/LavenderMart.asm"
 INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/CeruleanPokecenter.asm"
 INCLUDE "text/SunkenShip.asm"
