@@ -31,6 +31,7 @@ INCLUDE "text/RocketHideoutB1F.asm"
 INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/Route22Gate.asm"
 INCLUDE "text/ViridianForest.asm"
+INCLUDE "text/Route26.asm" ; new
 
 
 SECTION "Text 3", ROMX
@@ -144,7 +145,6 @@ INCLUDE "text/CeladonPokecenter.asm"
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/OaksLab.asm"
 INCLUDE "text/SilphCo11F.asm"
-INCLUDE "text/Route26.asm" ; new
 
 
 SECTION "Text Extra 2", ROMX ; new, to accomodate all .asm text files that became too big and new ones

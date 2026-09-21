@@ -417,7 +417,40 @@ _OaksLabTextMeds:: ; new
 
 	para "And please, don't"
 	line "let <RIVAL> know"
-	cont "of it."
+	cont "about it."
+	prompt
+
+_OaksLabTextTMCase1::
+	text "Oh! I almost"
+	line "forgot! This will"
+	cont "be fundamental in"
+	cont "your #MON"
+	cont "journey. I'll give"
+	cont "one to <RIVAL>"
+	cont "when they're back."
+;	xxxx "123456789012345678"
+	prompt
+
+_OaksLabTextTMCase2::
+	text "<PLAYER> obtained"
+	line "a TM CASE!"
+;	xxxx "123456789012345678"
+	done
+
+_OaksLabTextTMCase3::
+	text "OAK: A TM CASE"
+	line "holds every TM"
+	cont "and HM you get."
+	cont "It's all nice"
+	cont "and sorted!"
+
+	para "And we finally"
+	line "managed to port"
+	cont "the HM technology"
+	cont "to TM: they too"
+	cont "can be used"
+	cont "repeatedly!" 
+;	xxxx "123456789012345678"
 	done
 
 _OaksLabText21::

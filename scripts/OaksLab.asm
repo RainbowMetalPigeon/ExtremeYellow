@@ -734,7 +734,7 @@ OaksLab_TextPointers:
 	dw OaksLabText25
 	dw OaksLabText26
 	dw OaksLabText27
-	dw OaksLabTextMeds ; new
+	dw OaksLabTextMedsAndTMCase ; new
 
 OaksLab_TextPointers2:
 	dw OaksLabText1 ; Blue
@@ -1224,14 +1224,35 @@ OaksLabText25:
 	text_far _OaksLabText27
 	text_end
 
-OaksLabTextMeds: ; new
+OaksLabTextMedsAndTMCase: ; new
 	text_asm
-	ld hl, OaksLabTextMedsInternal
+	ld hl, OaksLabTextMeds
+	call PrintText
+	ld hl, OaksLabTextTMCase1
+	call PrintText
+	lb bc, TM_CASE, 1
+	call GiveItem
+	ld hl, OaksLabTextTMCase2
+	call PrintText
+	ld hl, OaksLabTextTMCase3
 	call PrintText
 	jp TextScriptEnd
 
-OaksLabTextMedsInternal: ; new
+OaksLabTextMeds: ; new
 	text_far _OaksLabTextMeds
+	text_end
+
+OaksLabTextTMCase1: ; new
+	text_far _OaksLabTextTMCase1
+	text_end
+
+OaksLabTextTMCase2: ; new
+	text_far _OaksLabTextTMCase2
+	sound_get_key_item
+	text_end
+
+OaksLabTextTMCase3: ; new
+	text_far _OaksLabTextTMCase3
 	text_end
 
 OaksLabText8: ; edited
