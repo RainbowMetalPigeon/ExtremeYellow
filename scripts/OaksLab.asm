@@ -1303,6 +1303,10 @@ OaksLabTextGiovanni:
 	call PrintText
 	SetEvent EVENT_1ST_SPOKE_WITH_OAKSLAB_GIOVANNI
 
+	; restore battles if they were disabled from being in Pallet
+	ld hl, wd72e
+	res 4, [hl]
+
 	callfar NormalInverseChoice
 	ld a, [wCurrentMenuItem]
 	ld [wInverseBattle], a
