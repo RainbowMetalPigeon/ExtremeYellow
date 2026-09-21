@@ -92,7 +92,11 @@ _PickUpItemText_TM_SEISMIC_TOSS::
 ;	xxxx "123456789012345678"
 	done
 
-
+_PickUpItemText_TM_FEINT_ATTACK::
+	text "<PLAYER> found"
+	line "TM20 FEINT ATTACK!"
+;	xxxx "123456789012345678"
+	done
 
 
 

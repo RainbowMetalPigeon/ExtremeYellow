@@ -24,7 +24,7 @@ Route15_TextPointers:
 	dw Route15Text8
 	dw Route15Text9
 	dw Route15Text10
-	dw PickUpItemText
+	dw PickUpItemText_TM_FEINT_ATTACK
 	; signs
 	dw Route15Text12
 
@@ -39,7 +39,7 @@ Route15_TextPointers_Rocket:
 	dw Route15Text8
 	dw Route15Text9
 	dw Route15Text10
-	dw PickUpItemText
+	dw PickUpItemText_TM_FEINT_ATTACK
 	; signs
 	dw Route15Text12
 
@@ -256,3 +256,13 @@ Route15AfterBattleText10:
 Route15Text12:
 	text_far _Route15Text12
 	text_end
+
+PickUpItemText_TM_FEINT_ATTACK:
+	text_far _PickUpItemText_TM_FEINT_ATTACK
+	sound_get_item_1
+	text_asm
+	ld a, HS_ROUTE_15_ITEM
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
