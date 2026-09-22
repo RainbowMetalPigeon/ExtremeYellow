@@ -1,6 +1,6 @@
 	db DEX_BLUESMOM ; pokedex id
 
-	db 150,   1, 150, 255, 255, 255
+	db 150,   1, 150, 255,   1, 255
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

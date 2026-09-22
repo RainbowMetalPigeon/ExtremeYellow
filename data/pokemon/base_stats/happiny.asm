@@ -1,6 +1,6 @@
 	db DEX_HAPPINY ; pokedex id
 
-	db 100,   5,   5,  30,  65, 65
+	db 100,   5,   5,  30,  15, 65
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

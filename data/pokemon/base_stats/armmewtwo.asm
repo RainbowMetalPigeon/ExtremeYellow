@@ -1,6 +1,6 @@
 	db DEX_ARM_MEWTWO ; pokedex id
 
-	db 106,  90, 110, 130,  90, 90
+	db 106,  90, 110, 130,  90, 110
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, STEEL ; type

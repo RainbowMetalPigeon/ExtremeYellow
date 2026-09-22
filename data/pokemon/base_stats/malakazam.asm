@@ -1,6 +1,6 @@
 	db DEX_MALAKAZAM ; pokedex id
 
-	db  55,  50,  65, 150, 175, 175
+	db  55,  50,  65, 150, 175, 105
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

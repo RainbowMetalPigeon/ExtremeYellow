@@ -1,6 +1,6 @@
 	db DEX_IGGLYBUFF ; pokedex id
 
-	db  90,  30,  15,  15,  20, 20
+	db  90,  30,  15,  15,  40, 20
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FAIRY ; type

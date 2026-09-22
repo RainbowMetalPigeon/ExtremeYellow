@@ -1,6 +1,6 @@
 	db DEX_UMBREON ; pokedex id
 
-	db  95,  65, 110,  65, 130, 130
+	db  95,  65, 110,  65, 60, 130
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, DARK ; type

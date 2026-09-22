@@ -1,6 +1,6 @@
 	db DEX_JIGGLYPUFF ; pokedex id
 
-	db 115,  45,  20,  20,  25, 25
+	db 115,  45,  20,  20,  45, 25
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FAIRY ; type

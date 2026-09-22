@@ -1,6 +1,6 @@
 	db DEX_TENTACRUEL ; pokedex id
 
-	db  80,  70,  65, 100, 120, 120
+	db  80,  70,  65, 100, 80, 120
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, POISON ; type

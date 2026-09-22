@@ -1,6 +1,6 @@
 	db DEX_PORYGONZ ; pokedex id
 
-	db  85,  80,  70,  90, 135, 135
+	db  85,  80,  70,  90, 135, 75
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

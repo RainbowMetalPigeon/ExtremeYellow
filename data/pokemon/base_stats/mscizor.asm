@@ -1,6 +1,6 @@
 	db DEX_MSCIZOR ; pokedex id
 
-	db  70, 150, 140,  75,  83, 83
+	db  70, 150, 140,  75,  65, 100
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, STEEL ; type

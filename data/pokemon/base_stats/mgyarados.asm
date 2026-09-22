@@ -1,6 +1,6 @@
 	db DEX_MGYARADOS ; pokedex id
 
-	db  95, 155, 109,  81, 130, 130
+	db  95, 155, 109,  81, 70, 130
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, DARK ; type

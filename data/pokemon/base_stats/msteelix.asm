@@ -1,6 +1,6 @@
 	db DEX_MSTEELIX ; pokedex id
 
-	db  75, 125, 230,  30,  75, 75
+	db  75, 125, 230,  30,  55, 95
 	;   hp  atk  def  spd  sat  sdf
 
 	db STEEL, GROUND ; type

@@ -1,6 +1,6 @@
 	db DEX_MPINSIR ; pokedex id
 
-	db  65, 155, 120, 105,  78, 78
+	db  65, 155, 120, 105,  65, 90
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, FLYING ; type

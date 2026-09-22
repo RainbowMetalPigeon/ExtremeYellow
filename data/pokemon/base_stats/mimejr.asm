@@ -1,6 +1,6 @@
 	db DEX_MIME_JR ; pokedex id
 
-	db  20,  25,  45,  60,  70, 70
+	db  20,  25,  45,  60,  70, 90
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, FAIRY ; type

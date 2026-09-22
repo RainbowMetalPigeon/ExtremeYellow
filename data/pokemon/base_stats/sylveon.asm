@@ -1,6 +1,6 @@
 	db DEX_SYLVEON ; pokedex id
 
-	db  95,  65,  65,  60, 130, 130
+	db  95,  65,  65,  60, 110, 130
 	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FAIRY ; type

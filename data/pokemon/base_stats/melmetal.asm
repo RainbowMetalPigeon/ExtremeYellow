@@ -1,6 +1,6 @@
 	db DEX_MELMETAL ; pokedex id
 
-	db 135, 143, 143,  34,  80, 80
+	db 135, 143, 143,  34,  80, 65
 	;   hp  atk  def  spd  sat  sdf
 
 	db STEEL, STEEL ; type

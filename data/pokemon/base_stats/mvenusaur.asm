@@ -1,6 +1,6 @@
 	db DEX_MVENUSAUR ; pokedex id
 
-	db  80, 100, 123,  80, 122, 122
+	db  80, 100, 123,  80, 122, 120
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type

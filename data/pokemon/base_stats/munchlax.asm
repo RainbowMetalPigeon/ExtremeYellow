@@ -1,6 +1,6 @@
 	db DEX_MUNCHLAX ; pokedex id
 
-	db 135,  85,  40,   5,  40, 40
+	db 135,  85,  40,   5,  40, 85
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

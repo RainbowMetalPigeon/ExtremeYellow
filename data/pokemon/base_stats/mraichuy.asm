@@ -1,6 +1,6 @@
 	db DEX_MRAICHUY ; pokedex id
 
-	db  60, 100,  55, 130, 160, 160
+	db  60, 100,  55, 130, 160, 80
 	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type

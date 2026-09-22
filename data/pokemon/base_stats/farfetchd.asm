@@ -1,6 +1,6 @@
 	db DEX_FARFETCHD ; pokedex id
 
-	db  52,  95,  55,  60,  58, 58
+	db  52,  95,  55,  60,  58, 62
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FLYING ; type

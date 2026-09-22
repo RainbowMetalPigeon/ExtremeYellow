@@ -1,6 +1,6 @@
 	db DEX_TANGELA ; pokedex id
 
-	db  65,  55, 115,  60, 100, 100
+	db  65,  55, 115,  60, 100, 40
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type

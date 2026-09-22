@@ -1,6 +1,6 @@
 	db DEX_EEVEE ; pokedex id
 
-	db  55,  55,  50,  55,  65, 65
+	db  55,  55,  50,  55,  45, 65
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

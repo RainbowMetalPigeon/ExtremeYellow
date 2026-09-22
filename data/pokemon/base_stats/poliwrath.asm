@@ -1,6 +1,6 @@
 	db DEX_POLIWRATH ; pokedex id
 
-	db  90,  95,  95,  70,  70, 70
+	db  90,  95,  95,  70,  70, 90
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, FIGHTING ; type

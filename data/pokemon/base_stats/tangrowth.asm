@@ -1,6 +1,6 @@
 	db DEX_TANGROWTH ; pokedex id
 
-	db 100, 100, 125,  50, 110, 110
+	db 100, 100, 125,  50, 110, 50
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type

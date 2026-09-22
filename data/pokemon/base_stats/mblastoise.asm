@@ -1,6 +1,6 @@
 	db DEX_MBLASTOISE ; pokedex id
 
-	db  79, 103, 120,  78, 135, 135
+	db  79, 103, 120,  78, 135, 115
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type

@@ -1,6 +1,6 @@
 	db DEX_MCHARZARDX ; pokedex id
 
-	db  78, 130, 111, 100,  85, 85
+	db  78, 130, 111, 100,  130, 85
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, DRAGON ; type

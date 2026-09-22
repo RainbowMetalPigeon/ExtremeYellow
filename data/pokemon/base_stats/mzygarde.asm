@@ -1,6 +1,6 @@
 	db DEX_MZYGARDE ; pokedex id
 
-	db 216,  70,  91, 100, 216, 216
+	db 216,  70,  91, 100, 216, 85
 	;   hp  atk  def  spd  sat  sdf
 
 	db DRAGON, GROUND ; type

@@ -1,6 +1,6 @@
 	db DEX_THU_FI_ZER ; pokedex id
 
-	db 105, 116, 116, 116, 145, 145
+	db 105, 116, 116, 116, 133, 116
 	;   hp  atk  def  spd  sat  sdf
 
 	db FLYING, FLYING ; type

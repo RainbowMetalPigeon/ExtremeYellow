@@ -1,6 +1,6 @@
 	db DEX_MKANGASKAN ; pokedex id
 
-	db 105, 125, 100, 100,  80, 80
+	db 105, 125, 100, 100,  60, 100
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

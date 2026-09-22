@@ -1,6 +1,6 @@
 	db DEX_MSTARMIE ; pokedex id
 
-	db  60, 140, 105, 120, 130, 130
+	db  60, 140, 105, 120, 130, 105
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, PSYCHIC_TYPE ; type

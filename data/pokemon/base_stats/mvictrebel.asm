@@ -1,6 +1,6 @@
 	db DEX_MVICTREBEL ; pokedex id
 
-	db  80, 125,  85,  70, 135, 135
+	db  80, 125,  85,  70, 135, 95
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type

@@ -1,6 +1,6 @@
 	db DEX_MGENGAR ; pokedex id
 
-	db  60,  65,  80, 130, 170, 170
+	db  60,  65,  80, 130, 170, 95
 	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, POISON ; type

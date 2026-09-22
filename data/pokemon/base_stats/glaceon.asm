@@ -1,6 +1,6 @@
 	db DEX_GLACEON ; pokedex id
 
-	db  65,  60, 110,  65, 130, 130
+	db  65,  60, 110,  65, 130, 95
 	;   hp  atk  def  spd  sat  sdf
 
 	db ICE, ICE ; type

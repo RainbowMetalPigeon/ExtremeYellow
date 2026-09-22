@@ -1,6 +1,6 @@
 	db DEX_MCLEFABLE ; pokedex id
 
-	db  95,  80,  93,  70, 135, 135
+	db  95,  80,  93,  70, 135, 110
 	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FLYING ; type

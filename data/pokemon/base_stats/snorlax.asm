@@ -1,6 +1,6 @@
 	db DEX_SNORLAX ; pokedex id
 
-	db 160, 110,  65,  30,  65, 65
+	db 160, 110,  65,  30,  65, 110
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

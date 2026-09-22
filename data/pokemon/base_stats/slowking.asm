@@ -1,6 +1,6 @@
 	db DEX_SLOWKING ; pokedex id
 
-	db  95,  75,  80,  30, 105, 105
+	db  95,  75,  80,  30, 100, 110
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, PSYCHIC_TYPE ; type

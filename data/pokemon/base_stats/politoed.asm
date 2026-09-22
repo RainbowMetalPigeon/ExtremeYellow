@@ -1,6 +1,6 @@
 	db DEX_POLITOED ; pokedex id
 
-	db  90,  75,  75,  70,  90, 90
+	db  90,  75,  75,  70,  90, 100
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type

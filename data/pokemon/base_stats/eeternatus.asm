@@ -1,6 +1,6 @@
 	db DEX_EETERNATUS ; pokedex id
 
-	db 255, 115, 250, 130, 250, 250
+	db 255, 115, 250, 130, 125, 250
 	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, DRAGON ; type

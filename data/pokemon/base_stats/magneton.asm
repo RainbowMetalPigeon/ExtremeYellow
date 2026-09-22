@@ -1,6 +1,6 @@
 	db DEX_MAGNETON ; pokedex id
 
-	db  50,  60,  95,  70, 120, 120
+	db  50,  60,  95,  70, 120, 70
 	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, STEEL ; type

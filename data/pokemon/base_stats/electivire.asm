@@ -1,6 +1,6 @@
 	db DEX_ELECTIVIRE ; pokedex id
 
-	db  75, 123,  67,  95,  90, 90
+	db  75, 123,  67,  95,  95, 85
 	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type
