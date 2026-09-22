@@ -152,20 +152,13 @@ Route29EndBattleText1:
 
 Route29AfterBattleText1:
 	text_asm
-	CheckEvent EVENT_GOT_TM51 ; FLAIL
+	CheckEvent EVENT_GOT_TM51
 	jr nz, .gotItem
 	ld hl, Route29AfterBattleText1_TM51PreReceiveText
 	call PrintText
-	lb bc, TM_FREEZE_DRY, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, Route29AfterBattleText1_TM51ReceivedText
 	call PrintText
 	SetEvent EVENT_GOT_TM51
-	jr .done
-.bagFull
-	ld hl, Route29AfterBattleText1_TM51NoRoomText
-	call PrintText
 	jr .done
 .gotItem
 	ld hl, Route29AfterBattleText1_TM51PostReceiveText
@@ -180,10 +173,6 @@ Route29AfterBattleText1_TM51PreReceiveText:
 Route29AfterBattleText1_TM51ReceivedText:
 	text_far _Route29AfterBattleText1_TM51ReceivedText
 	sound_get_item_1
-	text_end
-
-Route29AfterBattleText1_TM51NoRoomText:
-	text_far _Route29AfterBattleText1_TM51NoRoomText
 	text_end
 
 Route29AfterBattleText1_TM51PostReceiveText:

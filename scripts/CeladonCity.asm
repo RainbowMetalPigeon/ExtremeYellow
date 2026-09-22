@@ -206,13 +206,6 @@ CeladonCityText5:
 	jr nz, .asm_7053f
 	ld hl, TM41PreText
 	call PrintText
-	lb bc, TM_BRAVE_BIRD, 1
-	call GiveItem
-	jr c, .Success
-	ld hl, TM41NoRoomText
-	call PrintText
-	jr .Done
-.Success
 	ld hl, ReceivedTM41Text
 	call PrintText
 	SetEvent EVENT_GOT_TM41
@@ -234,10 +227,6 @@ ReceivedTM41Text:
 
 TM41ExplanationText:
 	text_far _TM41ExplanationText
-	text_end
-
-TM41NoRoomText:
-	text_far _TM41NoRoomText
 	text_end
 
 CeladonCityText6:

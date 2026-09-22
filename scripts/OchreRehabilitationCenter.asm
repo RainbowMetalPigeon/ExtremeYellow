@@ -136,16 +136,9 @@ OchreRehabilitationCenterText6:
 	jr nz, .gotItem
 	ld hl, OchreRehabilitationCenterText6_TM54PreReceiveText
 	call PrintText
-	lb bc, TM_FLAIL, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, OchreRehabilitationCenterText6_TM54ReceivedText
 	call PrintText
 	SetEvent EVENT_GOT_TM54
-	jr .done
-.bagFull
-	ld hl, OchreRehabilitationCenterText6_TM54NoRoomText
-	call PrintText
 	jr .done
 .gotItem
 	ld hl, OchreRehabilitationCenterText6_TM54PostReceiveText
@@ -160,10 +153,6 @@ OchreRehabilitationCenterText6_TM54PreReceiveText:
 OchreRehabilitationCenterText6_TM54ReceivedText:
 	text_far _OchreRehabilitationCenterText6_TM54ReceivedText
 	sound_get_item_1
-	text_end
-
-OchreRehabilitationCenterText6_TM54NoRoomText:
-	text_far _OchreRehabilitationCenterText6_TM54NoRoomText
 	text_end
 
 OchreRehabilitationCenterText6_TM54PostReceiveText:

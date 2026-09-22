@@ -100,13 +100,8 @@ _OchreRehabilitationCenterText6_TM54PreReceiveText::
 
 _OchreRehabilitationCenterText6_TM54ReceivedText::
 	text "<PLAYER> received"
-	line "TM54!@"
+	line "TM54 FLAIL!@"
 	text_end
-
-_OchreRehabilitationCenterText6_TM54NoRoomText::
-	text "Oh! You have no"
-	line "space for my TM."
-	done
 
 _OchreRehabilitationCenterText6_TM54PostReceiveText::
 	text "OCHRE GYM is the"

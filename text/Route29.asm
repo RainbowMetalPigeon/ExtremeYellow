@@ -31,13 +31,8 @@ _Route29AfterBattleText1_TM51PreReceiveText::
 
 _Route29AfterBattleText1_TM51ReceivedText::
 	text "<PLAYER> received"
-	line "TM51!@"
+	line "TM51 FREEZE DRY!@"
 	text_end
-
-_Route29AfterBattleText1_TM51NoRoomText::
-    text "Too bad! Make"
-    line "space for this!"
-    done
 
 _Route29AfterBattleText1_TM51PostReceiveText::
     text "TM51 is the new"

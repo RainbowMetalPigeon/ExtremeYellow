@@ -86,16 +86,9 @@ Func_f194a::
 	jr nz, .got_item
 	ld hl, ViridianCityText_191ca
 	call PrintText
-	lb bc, TM_REST, 1
-	call GiveItem
-	jr nc, .bag_full
 	ld hl, ReceivedTM42Text
 	call PrintText
 	SetEvent EVENT_GOT_TM42
-	ret
-.bag_full
-	ld hl, TM42NoRoomText
-	call PrintText
 	ret
 .got_item
 	ld hl, TM42Explanation
@@ -108,15 +101,11 @@ ViridianCityText_191ca:
 
 ReceivedTM42Text:
 	text_far _ReceivedTM42Text
-	sound_get_item_2
+	sound_get_item_1
 	text_end
 
 TM42Explanation:
 	text_far _TM42Explanation
-	text_end
-
-TM42NoRoomText:
-	text_far _TM42NoRoomText
 	text_end
 
 Func_f198e::

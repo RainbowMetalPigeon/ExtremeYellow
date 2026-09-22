@@ -150,7 +150,7 @@ _ViridianCityText_191ca::
 
 _ReceivedTM42Text::
 	text "<PLAYER> received"
-	line "TM42!@"
+	line "TM42 REST!@"
 	text_end
 
 _TM42Explanation::
@@ -159,11 +159,6 @@ _TM42Explanation::
 	cont "Resting is very"
 	cont "important for y..."
 	cont "...Snore..."
-	done
-
-_TM42NoRoomText::
-	text "You have too much"
-	line "stuff already."
 	done
 
 _OldManAgainText1::

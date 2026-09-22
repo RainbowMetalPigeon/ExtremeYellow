@@ -156,7 +156,7 @@ _PickUpItemText_TM_REFLECT::
 
 ; TM35
 
-; TM36 TBE
+; TM36
 
 _PickUpItemText_TM_CLOSE_COMBAT::
 	text "<PLAYER> found"
@@ -166,7 +166,7 @@ _PickUpItemText_TM_CLOSE_COMBAT::
 
 ; TM38
 
-; TM39 TBE
+; TM39
 
 _PickUpItemText_TM_OUTRAGE::
 	text "<PLAYER> found"
@@ -174,9 +174,9 @@ _PickUpItemText_TM_OUTRAGE::
 ;	xxxx "123456789012345678"
 	done
 
-; TM41 TBE
+; TM41
 
-; TM42 TBE
+; TM42
 
 _PickUpItemText_TM_GUNK_SHOT::
 	text "<PLAYER> found"
@@ -210,7 +210,7 @@ _PickUpItemText_TM_EXPLOSION::
 
 ; TM50
 
-; TM51 TBE
+; TM51
 
 _PickUpItemText_TM_GYRO_BALL::
 	text "<PLAYER> found"
@@ -231,4 +231,3 @@ _PickUpItemText_TM_CURSE::
 	line "TM55 CURSE!"
 ;	xxxx "123456789012345678"
 	done
-

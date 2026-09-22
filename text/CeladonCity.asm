@@ -46,9 +46,7 @@ _TM41PreText::
 
 _ReceivedTM41Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM41 BRAVE BIRD!@"
 	text_end
 
 _TM41ExplanationText::
@@ -63,11 +61,6 @@ _TM41ExplanationText::
 	line "using it, though,"
 	cont "because the user"
 	cont "too takes damage!"
-	done
-
-_TM41NoRoomText::
-	text "Oh, your pack is"
-	line "full of items!"
 	done
 
 _CeladonCityText6::
