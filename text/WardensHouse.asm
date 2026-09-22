@@ -77,9 +77,7 @@ _WardenThankYouText::
 
 _ReceivedHM03Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "HM03 SURF!@"
 	text_end
 
 _WardenUpgradeTicket::

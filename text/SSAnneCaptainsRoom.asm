@@ -33,9 +33,7 @@ _ReceivingHM01Text::
 
 _ReceivedHM01Text::
 	text "<PLAYER> got"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "HM01 CUT!@"
 	text_end
 
 _SSAnne7Text_61932:: ; edited
@@ -45,11 +43,6 @@ _SSAnne7Text_61932:: ; edited
 	line "bit better, I"
 	cont "guess it's time"
 	cont "to depart!"
-	done
-
-_HM01NoRoomText::
-	text "Oh no! You have"
-	line "no room for this!"
 	done
 
 _SSAnne7Text2::

@@ -21,27 +21,17 @@ Route16HouseText1: ; edited
 ; check if have cookie
 	ld b, SEVII_COOKIE
 	call IsItemInBag ; set zero flag if item isn't in player's bag
-	jr nz, .haveCookie
-; no cookie
-	jr .done
-;	ld hl, Route16HouseText_NoCookie
-;	jr .printAndEnd
-.haveCookie
+	jr z, .done ; no cookie
+;.haveCookie
 	call WaitForTextScrollButtonPress
 	ld hl, Route16HouseText_YesCookie
 	call PrintText
-	lb bc, HM_FLY, 1
-	call GiveItem
-	jr nc, .bagFull
 ; bag not full
 	ld a, SEVII_COOKIE
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
 	SetEvent EVENT_GOT_HM02
 	ld hl, ReceivedHM02Text
-	jr .printAndEnd
-.bagFull
-	ld hl, HM02NoRoomText
 .printAndEnd
 	call PrintText
 .done
@@ -68,10 +58,6 @@ HM02ExplanationText:
 	text_far _HM02ExplanationText
 	text_end
 
-HM02NoRoomText:
-	text_far _HM02NoRoomText
-	text_end
-
 Route16HouseText2:
 	text_asm
 	ld hl, Route16HouseText_1e652
@@ -96,15 +82,9 @@ Route16HouseText1_RP:
 ; extort the item
 	ld hl, Route16HouseText1_RP_PreFly
 	call PrintText
-	lb bc, HM_FLY, 1
-	call GiveItem
-	jr nc, .bagFull
 ; successfully stolen (bag not full)
 	SetEvent EVENT_GOT_HM02
 	ld hl, Route16HouseText1_RP_GotItem
-	jr .printAndEnd
-.bagFull
-	ld hl, Route16HouseText1_RP_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -115,10 +95,6 @@ Route16HouseText1_RP_PostFly:
 	
 Route16HouseText1_RP_PreFly:
 	text_far _Route16HouseText1_RP_PreFly
-	text_end
-
-Route16HouseText1_RP_BagFull:
-	text_far _CeladonMartRoofText2_RP_BagFull
 	text_end
 
 Route16HouseText1_RP_GotItem:

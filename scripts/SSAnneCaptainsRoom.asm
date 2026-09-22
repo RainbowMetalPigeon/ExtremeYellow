@@ -150,18 +150,12 @@ SSAnne7Text1:
 	call PrintText
 	ld hl, ReceivingHM01Text
 	call PrintText
-	lb bc, HM_CUT, 1
-	call GiveItem
-	jr nc, .bag_full
 	ld hl, ReceivedHM01Text
 	call PrintText
 	SetEvent EVENT_GOT_HM01
 	ld hl, wd72d
 	res 5, [hl]
 	jr .done
-.bag_full
-	ld hl, HM01NoRoomText
-	jr .printAndEnd ; edited
 .got_item
 	ld hl, SSAnne7Text_61932
 .printAndEnd
@@ -204,10 +198,6 @@ ReceivedHM01Text:
 
 SSAnne7Text_61932:
 	text_far _SSAnne7Text_61932
-	text_end
-
-HM01NoRoomText:
-	text_far _HM01NoRoomText
 	text_end
 
 SSAnne7Text2:

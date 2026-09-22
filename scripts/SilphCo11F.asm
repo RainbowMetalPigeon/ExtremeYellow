@@ -996,17 +996,9 @@ SilphCo11TextGiovanni_RP: ; TBE
 ; dialogue 1 good job take this
 	ld hl, SilphCo11TextGiovanni_RP_GoodJobTakeThis
 	call PrintText
-; try to give Surf
-	lb bc, HM_SURF, 1
-	call GiveItem
-	jr c, .bagNotFull
-; bag full
-	ld hl, SilphCo11TextGiovanni_RP_NoRoom
-	jp .printAndEnd
-.bagNotFull
 	callfar OpenUpSouthObsidianBridge
 	SetEvent EVENT_GOT_HM03
-	ld hl, SilphCo11TextGiovanni_RP_GotItem
+	ld hl, SilphCo11TextGiovanni_RP_GotHMSurf
 	call PrintText
 ; dialogue 2 discussing with president for ball and badge machine -> lore for Mewtwo and THU_FI_ZER
 	ld hl, SilphCo11TextGiovanni_RP_LoreDrop
@@ -1212,7 +1204,7 @@ TryToRewardStealBall:
 	lb bc, STEAL_BALL, 1
 	call GiveItem
 	jr nc, .bagFull
-	ld hl, SilphCo11TextGiovanni_RP_GotItem
+	ld hl, SilphCo11TextGiovanni_RP_GotStealBall
 	call PrintText
 ; print steal ball explanation only once
 	CheckEvent EVENT_RP_GOT_A_STEAL_BALL
@@ -1344,9 +1336,14 @@ NPCsToHideExtra_AfterKillGiovanni:
 
 ; ----------------------------------------------------
 
-SilphCo11TextGiovanni_RP_GotItem:
-	text_far _ReceivedHM01Text
+SilphCo11TextGiovanni_RP_GotHMSurf:
+	text_far _SilphCo11TextGiovanni_RP_GotHMSurf
 	sound_get_key_item
+	text_end
+
+SilphCo11TextGiovanni_RP_GotStealBall:
+	text_far _SilphCo11TextGiovanni_RP_GotStealBall
+	sound_get_item_2
 	text_end
 
 SilphCo11TextGiovanni_RP_GoodJobTakeThis:

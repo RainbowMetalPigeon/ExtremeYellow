@@ -328,11 +328,6 @@ _SeviiFourIslandHousesText4_TryGiveHM::
 	cont "please have this."
 	prompt
 
-_SeviiFourIslandHousesText4_NoRoom::
-	text "PINK's MAMA: Oh,"
-	line "your bag is full."
-	done
-
 _SeviiFourIslandHousesText4_PostHM::
 	text "PINK's MAMA: Lately"
 	line "our kid's so much"

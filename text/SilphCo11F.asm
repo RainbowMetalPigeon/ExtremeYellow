@@ -26,6 +26,16 @@ _ReceivedSilphCoMasterBallText::
 	text "!@"
 	text_end
 
+_SilphCo11TextGiovanni_RP_GotStealBall::
+	text "<PLAYER> got a"
+	line "STEAL BALL!@"
+	text_end
+
+_SilphCo11TextGiovanni_RP_GotHMSurf::
+	text "<PLAYER> got"
+	line "HM03 SURF!@"
+	text_end
+
 _SilphCo10Text_6231c:: ; edited
 	text "PRESIDENT: You"
 	line "can't buy that"

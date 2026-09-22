@@ -42,7 +42,7 @@ IF DEF(_DEBUG)
 	ld a, ~(1 << BIT_EARTHBADGE)
 ;	ld a, %11111110
 ;	ld a, %11111111
-	ld a, %00010000
+	ld a, %00000010
 ;	ld a, %00000000
 ;	ld a, %11111100
 ;	ld a, %01111111
@@ -387,11 +387,16 @@ IF DEF(_DEBUG)
     ld [wBattleFacilityBacklogChromogenes], a
 */
 
+	ld a, HS_SEVII_FOUR_ISLAND_HOUSE_PINK
+	ld [wMissableObjectIndex], a
+	predef ShowObjectSevii
+	SetEvent EVENT_SEVII_CLEARED_CHRONO_WAREHOUSE
+
 ;	callfar SaffronCityHideRocketsShowCitizens
 
 ;	ROCKET PATH EVENTS
 
-	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+;	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
 ;	SetEvent EVENT_GOT_HM01
 
 ;	SetEvent EVENT_RP_CONVINCED_MX_FUJI

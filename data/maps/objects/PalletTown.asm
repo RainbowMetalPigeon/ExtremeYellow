@@ -7,7 +7,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, OBSIDIAN_WAREHOUSE, 1
 ;	warp_event  5,  5, VIRIDIAN_GYM, 1
 ;	warp_event  5,  5, HALL_OF_FAME, 1
-;	warp_event  5,  5, SILPH_CO_11F, 4
+	warp_event  5,  5, SILPH_CO_11F, 4
 ;	warp_event  5,  5, OBSIDIAN_ISLAND, 1
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_FINAL, 3 ; 1-2 entrance, 3 testing near merchant
 ;	warp_event  5,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 4 ; 23 entrance, 4 exit, 7 Lance
@@ -41,7 +41,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, SS_ANNE_1F_ROOMS, 6
 ;	warp_event  5,  5, SAFFRON_GYM, 33
 ;	warp_event  5,  5, ROCKET_HIDEOUT_B4F, 2
-	warp_event  5,  5, SILPH_CO_1F, 1
+;	warp_event  5,  5, SILPH_CO_1F, 1
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23

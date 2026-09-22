@@ -35,7 +35,7 @@ _Route16HouseText_NoCookie::
 
 _ReceivedHM02Text::
 	text "<PLAYER> received"
-	line "HM02!@"
+	line "HM02 FLY!@"
 	text_end
 
 _HM02ExplanationText::
@@ -45,11 +45,6 @@ _HM02ExplanationText::
 
 	para "Put it to good"
 	line "use!"
-	done
-
-_HM02NoRoomText::
-	text "You don't have any"
-	line "room for this."
 	done
 
 _Route16HouseText_1e652::

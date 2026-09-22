@@ -380,15 +380,10 @@ SeviiFourIslandHousesText4: ; Mama
 .tryGiveHM
 	ld hl, SeviiFourIslandHousesText4_TryGiveHM
 	call PrintText
-	lb bc, HM_SURF, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, ReceivedHM03Text
 	call PrintText
 	SetEvent EVENT_GOT_HM03
 	jr .done
-.bagFull
-	ld hl, SeviiFourIslandHousesText4_NoRoom
 .printAndEnd
 	call PrintText
 .done
@@ -405,10 +400,6 @@ SeviiFourIslandHousesText4_TryGiveHM:
 ReceivedHM03Text:
 	text_far _ReceivedHM03Text
 	sound_get_key_item
-	text_end
-
-SeviiFourIslandHousesText4_NoRoom:
-	text_far _SeviiFourIslandHousesText4_NoRoom
 	text_end
 
 SeviiFourIslandHousesText4_PostHM:
