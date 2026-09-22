@@ -82,6 +82,8 @@ RightWrtJennyCoord:
 SSAnne7Script_6189b:
 	CheckEvent EVENT_GOT_HM01
 	ret nz
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	ld hl, wd72d
 	set 5, [hl]
 	ret
@@ -107,6 +109,7 @@ SSAnne7Text1:
 ; --- beginning, new code for battle vs Captain ---
 	CheckEvent EVENT_SS_ANNE_RETURNED
 	jr z, .preExtraBattle
+; set up post-League battle
 	ld c, BANK(Music_MeetEvilTrainer)
 	ld a, MUSIC_MEET_EVIL_TRAINER
 	call PlayMusic
@@ -131,18 +134,6 @@ SSAnne7Text1:
 	jp TextScriptEnd
 .preExtraBattle ; back to vanilla
 ; --- end, new code for battle vs Captain ---
-; new RP
-	CheckEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
-	ld hl, SSAnneCaptainsRoomText_RP_MessageDelivered
-	jr nz, .printAndEnd
-	CheckEvent EVENT_ROCKET_PATH
-	jr z, .vanilla
-; RP, but we didn't deliver the message yet
-	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
-	SetEvent EVENT_GOT_HM01 ; abused, but to keep scripts simpler
-	ld hl, SSAnneCaptainsRoomText_RP_Answer
-	jr .printAndEnd
-.vanilla
 ; BTV
 	CheckEvent EVENT_GOT_HM01
 	jr nz, .got_item
@@ -157,7 +148,7 @@ SSAnne7Text1:
 	res 5, [hl]
 	jr .done
 .got_item
-	ld hl, SSAnne7Text_61932
+	ld hl, SSAnne7Text_FeelBetter
 .printAndEnd
 	call PrintText
 .done
@@ -196,8 +187,8 @@ ReceivedHM01Text:
 	sound_get_key_item
 	text_end
 
-SSAnne7Text_61932:
-	text_far _SSAnne7Text_61932
+SSAnne7Text_FeelBetter:
+	text_far _SSAnne7Text_FeelBetter
 	text_end
 
 SSAnne7Text2:
@@ -209,14 +200,6 @@ SSAnne7Text3:
 	text_end
 
 ; new ----------------------------
-
-SSAnneCaptainsRoomText_RP_MessageDelivered:
-	text_far _SSAnneCaptainsRoomText_RP_MessageDelivered
-	text_end
-
-SSAnneCaptainsRoomText_RP_Answer:
-	text_far _SSAnneCaptainsRoomText_RP_Answer
-	text_end
 
 SSAnne7TextJenny:
 	text_far _SSAnne7TextJenny
@@ -237,5 +220,31 @@ SSAnne7TextCaptain_Defeat:
 ; new for RP =================================
 
 SSAnne7Text1_RP:
-	text_far _SSAnne7Text1_RP
+	text_asm
+	CheckEvent EVENT_RP_KILLED_GIOVANNI
+	ld hl, SSAnne7Text1_RP_PostGiovanni
+	jr nz, .printAndEnd
+; pre-Giovanni
+	CheckEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	ld hl, SSAnneCaptainsRoomText_RP_MessageDelivered
+	jr nz, .printAndEnd
+; RP, but we didn't deliver the message yet
+	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
+	SetEvent EVENT_GOT_HM01 ; abused
+	ld hl, SSAnneCaptainsRoomText_RP_Answer
+.printAndEnd
+	call PrintText
+.done
+	jp TextScriptEnd
+
+SSAnneCaptainsRoomText_RP_MessageDelivered:
+	text_far _SSAnneCaptainsRoomText_RP_MessageDelivered
+	text_end
+
+SSAnneCaptainsRoomText_RP_Answer:
+	text_far _SSAnneCaptainsRoomText_RP_Answer
+	text_end
+
+SSAnne7Text1_RP_PostGiovanni:
+	text_far _SSAnne7Text1_RP_PostGiovanni
 	text_end

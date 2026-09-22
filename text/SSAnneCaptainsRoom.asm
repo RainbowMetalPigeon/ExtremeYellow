@@ -36,7 +36,7 @@ _ReceivedHM01Text::
 	line "HM01 CUT!@"
 	text_end
 
-_SSAnne7Text_61932:: ; edited
+_SSAnne7Text_FeelBetter:: ; edited
 	text "CAPTAIN: Whew!"
 
 	para "Now that I feel a"
@@ -58,34 +58,6 @@ _SSAnne7Text3::
 	done
 
 ; new ----------------------
-
-_SSAnneCaptainsRoomText_RP_MessageDelivered::
-	text "CAPTAIN: You can"
-	line "report to your"
-	cont "bosses that the"
-	cont "goods will arrive"
-	cont "in JOHTO as soon"
-	cont "as possible."
-;	xxxx "123456789012345678"
-	done
-
-_SSAnneCaptainsRoomText_RP_Answer::
-	text "CAPTAIN: Oh,"
-	line "welcome. I was"
-	cont "waiting for one"
-	cont "of you. Do you"
-	cont "have instructions"
-	cont "for me?"
-
-	para "..."
-
-	para "Yes, I see."
-	line "Roger, I'll depart"
-	cont "immediately to"
-	cont "deliver the goods"
-	cont "to JOHTO."
-;	xxxx "123456789012345678"
-	done
 
 _SSAnne7TextCaptain_PreBattle::
 	text "CAPTAIN: Oh? Look"
@@ -156,7 +128,35 @@ _SSAnne7Text5::
 
 ; new for RP ===========================
 
-_SSAnne7Text1_RP::
+_SSAnneCaptainsRoomText_RP_MessageDelivered::
+	text "CAPTAIN: You can"
+	line "report to your"
+	cont "bosses that the"
+	cont "goods will arrive"
+	cont "in JOHTO as soon"
+	cont "as possible."
+;	xxxx "123456789012345678"
+	done
+
+_SSAnneCaptainsRoomText_RP_Answer::
+	text "CAPTAIN: Oh,"
+	line "welcome. I was"
+	cont "waiting for one"
+	cont "of you. Do you"
+	cont "have instructions"
+	cont "for me?"
+
+	para "..."
+
+	para "Yes, I see."
+	line "Roger, I'll depart"
+	cont "immediately to"
+	cont "deliver the goods"
+	cont "to JOHTO."
+;	xxxx "123456789012345678"
+	done
+
+_SSAnne7Text1_RP_PostGiovanni::
 	text "CAPTAIN: Oh, it's"
 	line "really you?!"
 

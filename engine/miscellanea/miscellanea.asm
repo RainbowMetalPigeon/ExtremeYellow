@@ -1464,13 +1464,20 @@ CreateListOfFoundTMs::
 	inc b
 .checkHM01
 
+; done with TMs, start with HMs
+; save how many TMs we have for the printing
 	ld a, b
 	ld [wArrayForTemporaryStorage+3], a
 
 	; HM01 - special case
-	CheckEvent EVENT_GOT_HM01
-	jr nz, .gotHM01
-	CheckEvent EVENT_RP_GOT_HM01
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .checkHM01_RP
+; Hero Path
+	CheckEvent EVENT_GOT_HM01 ; it's abused in RP, can't be used for the check here
+	jr z, .checkHM02
+	jr .gotHM01
+.checkHM01_RP
+	CheckEvent EVENT_RP_GOT_HM01 ; set by the Nugget Rocket
 	jr z, .checkHM02
 .gotHM01
 	ld a, HM_CUT

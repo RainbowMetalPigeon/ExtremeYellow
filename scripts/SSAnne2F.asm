@@ -23,6 +23,10 @@ SSAnne2Script4:
 	ret
 
 SSAnne2Script0:
+IF DEF(_DEBUG) ; new
+	call DebugPressedOrHeldB
+	ret nz
+ENDC
 	CheckEvent EVENT_BEAT_RIVAL_SS_ANNE ; new
 	ret nz ; new
 	ld hl, CoordsData_61411
