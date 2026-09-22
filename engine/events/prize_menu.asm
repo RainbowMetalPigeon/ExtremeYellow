@@ -1,7 +1,5 @@
 CeladonPrizeMenu::
-;	ld b, COIN_CASE
-;	call IsItemInBag
-	CheckEvent EVENT_GOT_COIN_CASE ; edited
+	CheckEvent EVENT_GOT_COIN_CASE ; new
 	jr nz, .havingCoinCase
 	ld hl, RequireCoinCaseTextPtr
 	jp PrintText
@@ -24,7 +22,7 @@ CeladonPrizeMenu::
 	ld [wTopMenuItemX], a
 	call PrintPrizePrice
 	hlcoord 0, 2
-	lb bc, 8, 16
+	lb bc, 8, 17
 	call TextBoxBorder
 	call GetPrizeMenuId
 	call UpdateSprites
@@ -90,19 +88,22 @@ GetPrizeMenuId:
 	ld a, [wWhichPrizeWindow]
 	cp 2        ;is TM_menu?
 	jr nz, .putMonName
-	ld a, [wPrize1]
-	ld [wd11e], a
-	call GetItemName
+;	ld a, [wPrize1]
+;	ld [wd11e], a
+;	call GetItemName
+	ld de, TM23PrizeText ; new
 	hlcoord 2, 4
 	call PlaceString
-	ld a, [wPrize2]
-	ld [wd11e], a
-	call GetItemName
+;	ld a, [wPrize2]
+;	ld [wd11e], a
+;	call GetItemName
+	ld de, TM15PrizeText ; new
 	hlcoord 2, 6
 	call PlaceString
-	ld a, [wPrize3]
-	ld [wd11e], a
-	call GetItemName
+;	ld a, [wPrize3]
+;	ld [wd11e], a
+;	call GetItemName
+	ld de, TM50PrizeText ; new
 	hlcoord 2, 8
 	call PlaceString
 	jr .putNoThanksText
@@ -128,20 +129,29 @@ GetPrizeMenuId:
 	call PlaceString
 ; put prices on the right side of the textbox
 	ld de, wPrize1Price
-	hlcoord 13, 5
+	hlcoord 14, 5
 ; reg. c:
 ; [low nybble] number of bytes
 ; [bits 765 = %100] space-padding (not zero-padding)
 	ld c, (1 << 7 | 2)
 	call PrintBCDNumber
 	ld de, wPrize2Price
-	hlcoord 13, 7
+	hlcoord 14, 7
 	ld c, (1 << 7 | 2)
 	call PrintBCDNumber
 	ld de, wPrize3Price
-	hlcoord 13, 9
+	hlcoord 14, 9
 	ld c, (1 << 7 | 2)
 	jp PrintBCDNumber
+
+TM23PrizeText: ; new
+	db "TM23 WILL-O-WISP@"
+
+TM15PrizeText: ; new
+	db "TM15 HYPER BEAM@"
+
+TM50PrizeText: ; new
+	db "TM50 SUBSTITUTE@"
 
 NoThanksText:
 	db "NO THANKS@"
@@ -208,21 +218,14 @@ HandlePrizeChoice:
 	call YesNoChoice
 	ld a, [wCurrentMenuItem] ; yes/no answer (Y=0, N=1)
 	and a
-	jr nz, .printOhFineThen
+	jp nz, .printOhFineThen
 	call LoadCoinsToSubtract
 	call HasEnoughCoins
 	jr c, .notEnoughCoins
 	ld a, [wWhichPrizeWindow]
 	cp $02
-	jr nz, .giveMon
-	ld a, [wd11e]
-	ld b, a
-	ld a, 1
-	ld c, a
-	call GiveItem
-	jr nc, .bagFull
-	jr .subtractCoins
-.giveMon
+	jr z, .subtractCoins
+;giveMon
 	ld a, [wd11e]
 	ld [wcf91], a
 	push af
@@ -270,10 +273,20 @@ HandlePrizeChoice:
 	SetEvent EVENT_OBTAINED_PRIZE_TM_3
 .vanilla
 ; back to vanilla
+; new to print and play something when the player gets a TM
+	ld hl, HereYouGoTextPtr
+	call PrintText
+	ld a, [wWhichPrizeWindow]
+	cp 2 ; is TM_menu?
+	jr nz, .noTMMenu
+	ld a, SFX_GET_ITEM_1
+	call PlaySound
+	call WaitForSoundToFinish
 	jp PrintPrizePrice
-.bagFull
-	ld hl, PrizeRoomBagIsFullTextPtr
-	jp PrintText
+.noTMMenu
+	call WaitForTextScrollButtonPress
+; BTV
+	jp PrintPrizePrice
 .notEnoughCoins
 	ld hl, SorryNeedMoreCoinsText
 	jp PrintText
@@ -287,7 +300,6 @@ UnknownPrizeData:
 
 HereYouGoTextPtr:
 	text_far _HereYouGoText
-	text_waitbutton
 	text_end
 
 SoYouWantPrizeTextPtr:
@@ -296,11 +308,6 @@ SoYouWantPrizeTextPtr:
 
 SorryNeedMoreCoinsText:
 	text_far _SorryNeedMoreCoinsText
-	text_waitbutton
-	text_end
-
-PrizeRoomBagIsFullTextPtr:
-	text_far _OopsYouDontHaveEnoughRoomText
 	text_waitbutton
 	text_end
 

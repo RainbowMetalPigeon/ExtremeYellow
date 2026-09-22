@@ -264,6 +264,10 @@ IF DEF(_DEBUG)
 
 ;	callfar ShowExtraNPCsAfterObsidianGiovanni
 
+	SetEvent EVENT_GOT_COIN_CASE
+	ld a, 120
+	ld [wPlayerCoins], a
+
 	SetEvent EVENT_PIKACHU_SASH_ENABLED
 
 	SetEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA

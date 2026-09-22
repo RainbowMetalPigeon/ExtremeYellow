@@ -398,11 +398,6 @@ _SorryNeedMoreCoinsText::
 	line "more coins.@"
 	text_end
 
-_OopsYouDontHaveEnoughRoomText::
-	text "Oops! You don't"
-	line "have enough room.@"
-	text_end
-
 _OhFineThenText::
 	text "Oh, fine then.@"
 	text_end
