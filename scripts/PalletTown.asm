@@ -73,6 +73,8 @@ PalletTown_Coordinates_NoGrassEncounters:
 	dbmapcoord 11,  0
 	dbmapcoord 10,  1
 	dbmapcoord 11,  1
+	dbmapcoord 10,  2
+	dbmapcoord 11,  2
 	db -1 ; end
 
 PalletTownScript1:
@@ -233,6 +235,19 @@ PalletTownScript7:
 	ret
 
 PalletTownScript8:
+; new for Pallet Fields
+	ld hl, PalletTown_Coordinates_NoGrassEncounters
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jr c, .noEncounters
+.yesEncounters
+	ld hl, wd72e
+	res 4, [hl]
+	jr .postSettingEncounters
+.noEncounters
+	ld hl, wd72e
+	set 4, [hl]
+.postSettingEncounters
+; BTV
 	CheckEvent EVENT_DAISY_WALKING
 	jr nz, .next
 	CheckBothEventsSet EVENT_GOT_TOWN_MAP, EVENT_ENTERED_BLUES_HOUSE, 1
