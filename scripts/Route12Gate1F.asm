@@ -30,16 +30,9 @@ Route12GateUpstairsText1:
 	jr c, .got_item
 	ld hl, TM39PreReceiveText
 	call PrintText
-	lb bc, TM_SHADOW_SNEAK, 1
-	call GiveItem
-	jr nc, .bag_full
 	ld hl, ReceivedTM39Text
 	call PrintText
 	SetEvent EVENT_GOT_TM39
-	jr .done
-.bag_full
-	ld hl, TM39NoRoomText
-	call PrintText
 	jr .done
 .got_item
 	ld hl, TM39ExplanationText
@@ -58,10 +51,6 @@ ReceivedTM39Text:
 
 TM39ExplanationText:
 	text_far _TM39ExplanationText
-	text_end
-
-TM39NoRoomText:
-	text_far _TM39NoRoomText
 	text_end
 
 Route12GateUpstairsText2: ; edited

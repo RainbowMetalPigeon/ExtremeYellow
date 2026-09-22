@@ -10,7 +10,7 @@ _TM39PreReceiveText::
 
 _ReceivedTM39Text::
 	text "<PLAYER> received"
-	line "TM39!@"
+	line "TM39 SHADOW SNEAK!@"
 	text_end
 
 _TM39ExplanationText::
@@ -20,11 +20,6 @@ _TM39ExplanationText::
 	para "It allows the user"
 	line "to move before"
 	cont "its opponent."
-	done
-
-_TM39NoRoomText::
-	text "You don't have"
-	line "room for this."
 	done
 
 _Route12GateUpstairsText_LeftBinocular_Before:: ; new
