@@ -445,8 +445,6 @@ LunarShrineScript14:
 	ld a, 27
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
-	lb bc, HM_STRENGTH, 1
-	call GiveItem
 	SetEvent EVENT_OBTAINED_HM04
 	ld a, 28
 	ldh [hSpriteIndexOrTextID], a
@@ -871,15 +869,8 @@ LunarShrineTextMonk_RP:
 ; defeated Blue but didn't get Strength yet
 	ld hl, LunarShrineTextMonk_RP_AfterBlue
 	call PrintText
-	lb bc, HM_STRENGTH, 1
-	call GiveItem
-	jr nc, .bagFull
-; actually take the HM
 	SetEvent EVENT_OBTAINED_HM04
 	ld hl, LunarShrineTextMonk_RP_StoleHM
-	jr .printAndEnd
-.bagFull
-	ld hl, LunarShrineTextMonk_RP_AfterBlue_NoRoom
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -903,10 +894,6 @@ LunarShrineTextMonk_RP_AfterBlue:
 LunarShrineTextMonk_RP_StoleHM:
 	text_far _LunarShrineTextMonk_RP_StoleHM
 	sound_get_key_item
-	text_end
-
-LunarShrineTextMonk_RP_AfterBlue_NoRoom:
-	text_far _BagFullText_RP
 	text_end
 
 LunarShrineTextTemple_RP:

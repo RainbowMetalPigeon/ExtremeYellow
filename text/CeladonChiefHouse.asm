@@ -441,9 +441,7 @@ _LunarShrineTextRockets13::
 
 _LunarShrineTextRockets14::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "HM04 STRENGTH!@"
 	text_end
 
 _LunarShrineTextRockets15::
@@ -563,7 +561,7 @@ _LunarShrineTextMonk_RP_AfterBlue::
 
 _LunarShrineTextMonk_RP_StoleHM::
 	text "<PLAYER> stole"
-	line "HM04!"
+	line "HM04 STRENGTH!"
 ;	xxxx "123456789012345678"
 	done
 

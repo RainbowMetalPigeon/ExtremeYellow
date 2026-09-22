@@ -122,8 +122,6 @@ SaffronClimbClubText1:
 	ld a, CC_INVITE
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
-	lb bc, HM_ROCK_CLIMB, 1
-	call GiveItem
 	SetEvent EVENT_GOT_HM07
 	ld hl, SaffronClimbClubText1_GotHM07
 .printAndEnd
@@ -177,15 +175,8 @@ SaffronClimbClubText1_RP:
 ; not got HM yet
 	ld hl, SaffronClimbClubText1_RP_Before
 	call PrintText
-; we just demand the HM
-	lb bc, HM_ROCK_CLIMB, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_HM07
 	ld hl, SaffronClimbClubText1_GotHM07
-	jr .printAndEnd
-.bagFull
-	ld hl, Route2GateText1_RP_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd

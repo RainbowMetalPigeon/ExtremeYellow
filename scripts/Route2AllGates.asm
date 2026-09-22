@@ -111,14 +111,8 @@ Route2GateText1_RP:
 .giveHM05
 	ld hl, Route2GateText1_RP_TakeThis
 	call PrintText
-	lb bc, HM_FLASH, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_HM05
 	ld hl, Route2GateText1_RP_ObtainItem
-	jr .printAndEnd
-.bagFull
-	ld hl, Route2GateText1_RP_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -136,12 +130,8 @@ Route2GateText1_RP_TakeThis:
 	text_end
 
 Route2GateText1_RP_ObtainItem:
-	text_far _ReceivedHM01Text
+	text_far _Route2GateText1_RP_ObtainItem
 	sound_get_key_item
-	text_end
-
-Route2GateText1_RP_BagFull:
-	text_far _RouteAnyGateText1_RP_BagFull
 	text_end
 
 Route2AllGates_PostBattle:

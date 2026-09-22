@@ -57,3 +57,15 @@ _RouteAnyGateText1_RP_BagFull::
 	line "full to rob more!"
 ;	xxxx "123456789012345678"
 	done
+
+_OaksAideGotItemText_HM05::
+	text "<PLAYER> got"
+	line "HM05 FLASH!"
+;	xxxx "123456789012345678"
+	done
+
+_Route2GateText1_RP_ObtainItem::
+	text "<PLAYER> obtained"
+	line "HM05 FLASH!"
+;	xxxx "123456789012345678"
+	done

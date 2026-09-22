@@ -175,7 +175,7 @@ _SaffronClimbClubText1_OhWelcomeHaveThis::
 
 _SaffronClimbClubText1_GotHM07::
 	text "<PLAYER> received"
-	line "HM07!"
+	line "HM07 ROCK CLIMB!"
 	done
 
 _SaffronClimbClubText1_NoInviteSorryCiao::

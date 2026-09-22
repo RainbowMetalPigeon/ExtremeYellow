@@ -18,6 +18,15 @@ OaksAideScript:
 .giveItem
 	ld hl, OaksAideHereYouGoText
 	call PrintText
+; new for TM CASE
+	ld a, [wCurMap]
+	cp ROUTE_2_ALL_GATES
+	jr nz, .vanilla
+	ld hl, OaksAideGotItemText_HM05
+	call PrintText
+	jr .success
+.vanilla
+; BTV
 	ldh a, [hOaksAideRewardItem]
 	ld b, a
 	ld c, 1
@@ -25,6 +34,7 @@ OaksAideScript:
 	jr nc, .bagFull
 	ld hl, OaksAideGotItemText
 	call PrintText
+.success ; new label
 	ld a, OAKS_AIDE_GOT_ITEM
 	jr .done
 .bagFull
@@ -68,4 +78,9 @@ OaksAideGotItemText:
 
 OaksAideNoRoomText:
 	text_far _OaksAideNoRoomText
+	text_end
+
+OaksAideGotItemText_HM05:
+	text_far _OaksAideGotItemText_HM05
+	sound_get_key_item
 	text_end
