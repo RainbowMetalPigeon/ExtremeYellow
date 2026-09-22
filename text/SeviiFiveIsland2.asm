@@ -414,12 +414,6 @@ _SeviiLostCave2Text1_RP_BeforeWaterfall::
 ;   xxxx "123456789012345678"
 	prompt
 
-_SeviiLostCave2Text1_RP_BagFull::
-	text "Oh, this won't do!"
-	line "Your bag is full."
-;   xxxx "123456789012345678"
-	done
-
 _SeviiLostCave2Text1_RP_AfterWaterfall::
 	text "SELPHY: Well, my"
 	line "fate companion,"
@@ -478,11 +472,6 @@ _SeviiRoute36Text1_RP_TryGiveHM::
 	cont "any longer."
 ;   xxxx "123456789012345678"
 	prompt
-
-_SeviiRoute36Text1_RP_NoRoom::
-	text "No space for this."
-;   xxxx "123456789012345678"
-	done
 
 _SeviiRoute36SignText1_RP_PostDesecration::
 	text "The grave you"

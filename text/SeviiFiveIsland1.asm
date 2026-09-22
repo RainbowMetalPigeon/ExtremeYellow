@@ -1194,15 +1194,9 @@ _SeviiResortGorgeousText1_BeforeWaterfall::
 	cont "of my wonderings."
 	prompt
 
-_SeviiResortGorgeousText1_BagFull::
-	text "Alas, your bag is"
-	line "full! Please be"
-	cont "back for my gift."
-	done
-
 _SeviiResortGorgeousText1_GotWaterfall::
 	text "<PLAYER> received"
-	line "HM08!"
+	line "HM08 WATERFALL!"
 	done
 
 _SeviiResortGorgeousText1_AfterWaterfall::
@@ -1213,7 +1207,7 @@ _SeviiResortGorgeousText1_AfterWaterfall::
 	cont "exploration?"
 
 	para "What do you think"
-	line "of MT. EMBER?"
+	line "of MT.EMBER?"
 	cont "I heard it holds"
 	cont "untold treasures!"
 	done
@@ -1710,12 +1704,6 @@ _SeviiRoute36Text1_TryGiveHM::
 ;   xxxx "123456789012345678"
 	prompt
 
-_SeviiRoute36Text1_NoRoom::
-	text "Oh, you have no"
-	line "space for this."
-;   xxxx "123456789012345678"
-	done
-
 _SeviiRoute36Text1_PreLemonade::
 	text "...my beloved"
 	line "TECTONIX rests"
@@ -1746,7 +1734,7 @@ _SeviiRoute36Text1_PostHM::
 
 _SeviiRoute36Text1_ReceivedHM09::
 	text "<PLAYER> received"
-	line "HM09!"
+	line "HM09 DIVE!"
 ;   xxxx "123456789012345678"
 	done
 

@@ -68,13 +68,6 @@ SeviiLostCave2Text1_RP:
 	text_asm
 	ld hl, SeviiLostCave2Text1_RP_BeforeWaterfall
 	call PrintText
-	lb bc, HM_WATERFALL, 1
-	call GiveItem
-	jr c, .bagNotFull
-	ld hl, SeviiLostCave2Text1_RP_BagFull
-	call PrintText
-	jp TextScriptEnd
-.bagNotFull
 	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY
 	ld hl, SeviiLostCave2Text1_RP_GotWaterfall
 	call PrintText
@@ -84,10 +77,6 @@ SeviiLostCave2Text1_RP:
 
 SeviiLostCave2Text1_RP_BeforeWaterfall:
 	text_far _SeviiLostCave2Text1_RP_BeforeWaterfall
-	text_end
-
-SeviiLostCave2Text1_RP_BagFull:
-	text_far _SeviiLostCave2Text1_RP_BagFull
 	text_end
 
 SeviiLostCave2Text1_RP_GotWaterfall:

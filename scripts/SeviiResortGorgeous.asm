@@ -48,24 +48,14 @@ SeviiResortGorgeousText1: ; Selphy
 .beforeWaterfall
 	ld hl, SeviiResortGorgeousText1_BeforeWaterfall
 	call PrintText
-	lb bc, HM_WATERFALL, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY
 	ld hl, SeviiResortGorgeousText1_GotWaterfall
-	jr .printAndEnd
-.bagFull
-	ld hl, SeviiResortGorgeousText1_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
 
 SeviiResortGorgeousText1_BeforeWaterfall:
 	text_far _SeviiResortGorgeousText1_BeforeWaterfall
-	text_end
-
-SeviiResortGorgeousText1_BagFull:
-	text_far _SeviiResortGorgeousText1_BagFull
 	text_end
 
 SeviiResortGorgeousText1_GotWaterfall:

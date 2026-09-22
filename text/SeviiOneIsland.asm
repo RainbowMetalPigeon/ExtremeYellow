@@ -1033,12 +1033,7 @@ _SeviiEmberSpaText1_HaveThis::
 
 _SeviiEmberSpaText1_GotHM::
 	text "<PLAYER> received"
-	line "HM06!"
-	done
-
-_SeviiEmberSpaText1_BagFull::
-	text "Oh... you've too"
-	line "much stuff..."
+	line "HM06 ROCK SMASH!"
 	done
 
 _SeviiEmberSpaText2::
@@ -1711,7 +1706,7 @@ _SeviiEmberSpaText1_HaveThis_RP::
 	cont "I just want to"
 	cont "relax..."
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SeviiEmberSpaText2_RP::
 	text "Why doing evil..."

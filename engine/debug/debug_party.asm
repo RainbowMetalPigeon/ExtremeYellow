@@ -45,7 +45,7 @@ IF DEF(_DEBUG)
 	ld a, %00000010
 ;	ld a, %00000000
 ;	ld a, %11111100
-;	ld a, %01111111
+	ld a, %01111111
 ;	ld a, %01111011
 	ld [wObtainedBadges], a
 

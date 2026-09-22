@@ -27,14 +27,8 @@ SeviiEmberSpaText1: ; Rock Smash gifter
 .didntGetInvitationYet
 	ld hl, SeviiEmberSpaText1_HaveThis
 	call PrintText
-	lb bc, HM_ROCK_SMASH, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_HM06
 	ld hl, SeviiEmberSpaText1_GotHM
-	jr .printAndEnd
-.bagFull
-	ld hl, SeviiEmberSpaText1_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -50,10 +44,6 @@ SeviiEmberSpaText1_HaveThis:
 SeviiEmberSpaText1_GotHM:
 	text_far _SeviiEmberSpaText1_GotHM
 	sound_get_key_item
-	text_end
-
-SeviiEmberSpaText1_BagFull:
-	text_far _SeviiEmberSpaText1_BagFull
 	text_end
 
 SeviiEmberSpaText2:
@@ -79,14 +69,8 @@ SeviiEmberSpaText1_RP: ; Rock Smash gifter
 .didntGetInvitationYet
 	ld hl, SeviiEmberSpaText1_HaveThis_RP
 	call PrintText
-	lb bc, HM_ROCK_SMASH, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_HM06
 	ld hl, SeviiEmberSpaText1_GotHM
-	jr .printAndEnd
-.bagFull
-	ld hl, SeviiEmberSpaText1_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd

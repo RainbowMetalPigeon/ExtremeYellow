@@ -362,14 +362,8 @@ SeviiRoute36Text1:
 ; we offered lemonade but didn't get HM yet (just did or bag full)
 	ld hl, SeviiRoute36Text1_TryGiveHM
 	call PrintText
-	lb bc, HM_DIVE, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_HM09
 	ld hl, SeviiRoute36Text1_ReceivedHM09
-	jr .printAndEnd
-.bagFull
-	ld hl, SeviiRoute36Text1_NoRoom
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -381,10 +375,6 @@ SeviiRoute36Text1_ReceivedHM09:
 
 SeviiRoute36Text1_TryGiveHM:
 	text_far _SeviiRoute36Text1_TryGiveHM
-	text_end
-
-SeviiRoute36Text1_NoRoom:
-	text_far _SeviiRoute36Text1_NoRoom
 	text_end
 
 SeviiRoute36Text1_PreLemonade:
@@ -474,14 +464,8 @@ SeviiRoute36Text1_RP:
 ; we desecrated already but didn't get HM yet (just did or bag full)
 	ld hl, SeviiRoute36Text1_RP_TryGiveHM
 	call PrintText
-	lb bc, HM_DIVE, 1
-	call GiveItem
-	jr nc, .bagFull
 	SetEvent EVENT_GOT_HM09
 	ld hl, SeviiRoute36Text1_ReceivedHM09
-	jr .printAndEnd
-.bagFull
-	ld hl, SeviiRoute36Text1_RP_NoRoom
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -496,10 +480,6 @@ SeviiRoute36Text1_RP_PreDesecration:
 
 SeviiRoute36Text1_RP_TryGiveHM:
 	text_far _SeviiRoute36Text1_RP_TryGiveHM
-	text_end
-
-SeviiRoute36Text1_RP_NoRoom:
-	text_far _SeviiRoute36Text1_RP_NoRoom
 	text_end
 
 ; ---------------------------------------
