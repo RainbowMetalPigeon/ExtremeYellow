@@ -47,6 +47,7 @@ TrainerDataPointers:
 	dw AgathaData
 	dw LanceData
 ; new classes
+	dw AshData
 	dw FujiData
 	dw DiverData
 	dw ProtonData
@@ -1262,6 +1263,9 @@ ProfOakData:
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, RAICHU, 69, ESPEON, 70, GYARADOS, 0 ; for RP
 
 ; new ones
+
+AshData:
+	db 99, PIKACHU, 0 ; proxy
 
 FujiData:
 	db 25, POLIWAG, WEEDLE, PIKACHU, LICKITUNG, CUBONE, 0 ; 1

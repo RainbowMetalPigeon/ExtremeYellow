@@ -64,6 +64,7 @@ ENDM
 	trainer_const LANCE          ; $2F
 ; new classes -------------------
 ; V2
+	trainer_const ASH            ; self-explanatory
 	trainer_const FUJI           ; self-explanatory
 	trainer_const DIVER          ; self-explanatory
 	trainer_const PROTON         ; rocket executive/admin

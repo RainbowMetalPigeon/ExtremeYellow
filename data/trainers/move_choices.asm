@@ -57,6 +57,7 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1, 2, 3, 4 ; AGATHA ; edited
 	move_choices 1, 2, 3, 4 ; LANCE ; edited
 ; new classes
+	move_choices 1, 2, 4    ; ASH
 	move_choices 1, 4       ; FUJI
 	move_choices 1, 2, 3    ; DIVER
 

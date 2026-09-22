@@ -55,6 +55,7 @@ TrainerPicAndMoneyPointers::
 	pic_money AgathaPic,       15000 ; edited
 	pic_money LancePic,        15000 ; edited
 ; new classes
+	pic_money AshPic,            10
 	pic_money FujiPic,          500
 	pic_money DiverPic,        1000
 	pic_money ProtonPic,       8000
