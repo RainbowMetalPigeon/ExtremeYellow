@@ -240,27 +240,22 @@ CeruleanHouse1Sign2:
 
 ; trashed --------------------------------------
 
-CeruleanHouseTrashedText1:
+CeruleanHouseTrashedText1: ; edited
 	text_asm
-	ld b, TM_DIG
-	predef GetQuantityOfItemInBag
-	and b
-	jr z, .no_dig_tm
-	ld hl, CeruleanHouseTrashedText_1d6b0
+	CheckEvent EVENT_GOT_TM_DIG
+	ld hl, CeruleanHouseTrashedText_AfterDigTM
+	jr nz, .printAndEnd
+	ld hl, CeruleanHouseTrashedText_BeforeDigTM
+.printAndEnd
 	call PrintText
-	jr .done
-.no_dig_tm
-	ld hl, CeruleanHouseTrashedText_1d6ab
-	call PrintText
-.done
 	jp TextScriptEnd
 
-CeruleanHouseTrashedText_1d6ab:
-	text_far _CeruleanTrashedText_1d6ab
+CeruleanHouseTrashedText_BeforeDigTM:
+	text_far _CeruleanHouseTrashedText_BeforeDigTM
 	text_end
 
-CeruleanHouseTrashedText_1d6b0:
-	text_far _CeruleanTrashedText_1d6b0
+CeruleanHouseTrashedText_AfterDigTM:
+	text_far _CeruleanHouseTrashedText_AfterDigTM
 	text_end
 
 CeruleanHouseTrashedText2:

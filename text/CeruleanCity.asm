@@ -74,7 +74,7 @@ _CeruleanCityText_196d9::
 
 _ReceivedTM28Text::
 	text "<PLAYER> recovered"
-	line "TM28!@"
+	line "TM28 DIG!@"
 	text_end
 
 _ReceivedTM28Text2::
@@ -83,17 +83,6 @@ _ReceivedTM28Text2::
 	para "I better get"
 	line "moving! Bye!@"
 	text_end
-
-_TM28NoRoomText:: ; edited
-	text "Make room for"
-	line "this!"
-
-	para "I can't run until"
-	line "I give it to you!"
-
-	para "...what do you"
-	line "mean 'why?'?"
-	done
 
 _CeruleanCityText_196ee::
 	text "Stop!"

@@ -472,13 +472,6 @@ CeruleanCityText2:
 .beatRocketThief
 	ld hl, CeruleanCityText_196f3
 	call PrintText
-	lb bc, TM_DIG, 1
-	call GiveItem
-	jr c, .Success
-	ld hl, TM28NoRoomText
-	call PrintText
-	jr .Done
-.Success
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, ReceivedTM28Text
@@ -489,7 +482,6 @@ CeruleanCityText2:
 	predef HideObject
 	SetEvent EVENT_GOT_TM_DIG ; new
 	call GBFadeInFromBlack
-.Done
 	jp TextScriptEnd
 
 CeruleanCityText_196d9:
@@ -501,10 +493,6 @@ ReceivedTM28Text:
 	sound_get_item_1
 	text_far _ReceivedTM28Text2
 	text_waitbutton
-	text_end
-
-TM28NoRoomText:
-	text_far _TM28NoRoomText
 	text_end
 
 CeruleanCityText_196ee:

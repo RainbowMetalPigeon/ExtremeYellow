@@ -84,7 +84,7 @@ _PickUpItemText_TM_DRAININGKISS::
 ;	xxxx "123456789012345678"
 	done
 
-; TM18 TBE
+; TM18
 
 _PickUpItemText_TM_SEISMIC_TOSS::
 	text "<PLAYER> found"

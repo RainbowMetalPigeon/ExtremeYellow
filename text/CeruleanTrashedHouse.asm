@@ -1,4 +1,4 @@
-_CeruleanTrashedText_1d6ab::
+_CeruleanHouseTrashedText_BeforeDigTM::
 	text "Those miserable"
 	line "ROCKETs!"
 
@@ -14,7 +14,7 @@ _CeruleanTrashedText_1d6ab::
 	line "bundle, it did!"
 	done
 
-_CeruleanTrashedText_1d6b0::
+_CeruleanHouseTrashedText_AfterDigTM::
 	text "I figure what's"
 	line "lost is lost!"
 
