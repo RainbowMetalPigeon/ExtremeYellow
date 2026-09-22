@@ -231,3 +231,9 @@ _PickUpItemText_TM_CURSE::
 	line "TM55 CURSE!"
 ;	xxxx "123456789012345678"
 	done
+
+_PickUpItemText_HM_WHIRLPOOL::
+	text "<PLAYER> found"
+	line "HM10 WHIRLPOOL!"
+;	xxxx "123456789012345678"
+	done

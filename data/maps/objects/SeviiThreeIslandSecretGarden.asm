@@ -12,6 +12,6 @@ SeviiThreeIslandSecretGarden_Object:
 
 	def_object_events
 ;	object_event 21, 24, SPRITE_YOUNGSTER, STAY, RIGHT, 1 ; person
-	object_event  8,  8, SPRITE_POKE_BALL, STAY, NONE, 1, HM_WHIRLPOOL
+	object_event  8,  8, SPRITE_POKE_BALL, STAY, NONE, 1
 
 	def_warps_to SEVII_THREE_ISLAND_SECRET_GARDEN
