@@ -58,16 +58,9 @@ SaffronHouse2Text1:
 	jr nz, .got_item
 	ld hl, TM29PreReceiveText
 	call PrintText
-	lb bc, TM_PSYCHIC_M, 1
-	call GiveItem
-	jr nc, .bag_full
 	ld hl, ReceivedTM29Text
 	call PrintText
 	SetEvent EVENT_GOT_TM29
-	jr .done
-.bag_full
-	ld hl, TM29NoRoomText
-	call PrintText
 	jr .done
 .got_item
 	ld hl, TM29ExplanationText
@@ -86,10 +79,6 @@ ReceivedTM29Text:
 
 TM29ExplanationText:
 	text_far _TM29ExplanationText
-	text_end
-
-TM29NoRoomText:
-	text_far _TM29NoRoomText
 	text_end
 
 ; new ------------------------------------------------

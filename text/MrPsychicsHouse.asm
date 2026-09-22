@@ -7,9 +7,7 @@ _TM29PreReceiveText::
 
 _ReceivedTM29Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM29 PSYCHIC!@"
 	text_end
 
 _TM29ExplanationText::
@@ -18,11 +16,6 @@ _TM29ExplanationText::
 	para "It can lower the"
 	line "target's SPECIAL"
 	cont "abilities."
-	done
-
-_TM29NoRoomText::
-	text "Where do you plan"
-	line "to put this?"
 	done
 
 ; new ------------------------------------------------

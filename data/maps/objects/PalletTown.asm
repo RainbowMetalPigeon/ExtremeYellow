@@ -55,10 +55,10 @@ PalletTown_Object:
 ;	warp_event 13,  5, SEAFOAM_ISLANDS_B4F, 3
 ;	warp_event 13,  5, VICTORY_ROAD_1F, 1
 ;	warp_event 13,  5, POKEMON_TOWER_7F, 1
-;	warp_event 13,  5, MR_PSYCHICS_HOUSE, 1
+	warp_event 13,  5, MR_PSYCHICS_HOUSE, 1
 ;	warp_event 13,  5, VIRIDIAN_GYM, 1
 ;	warp_event 13,  5, ROCKET_HIDEOUT_B4F, 2
-	warp_event 13,  5, SAFARI_ZONE_GATE, 1
+;	warp_event 13,  5, SAFARI_ZONE_GATE, 1
 ;	warp_event 13,  5, SILPH_CO_11F, 4
 
 	warp_event 12, 11, OAKS_LAB, 2
