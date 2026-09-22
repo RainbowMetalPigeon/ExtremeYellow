@@ -92,9 +92,6 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	ld hl, CeladonMartRoofText_48515
 	call PrintText
 	call RemoveItemByIDBank12
-	lb bc, TM_SHADOW_BALL, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, ReceivedTM49Text
 	call PrintText
 	SetEvent EVENT_GOT_TM49
@@ -105,9 +102,6 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	ld hl, CeladonMartRoofText_48504
 	call PrintText
 	call RemoveItemByIDBank12
-	lb bc, TM_ROCK_SLIDE, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, CeladonMartRoofText_4850a
 	call PrintText
 	SetEvent EVENT_GOT_TM48
@@ -118,16 +112,9 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	ld hl, CeladonMartRoofText_484f3
 	call PrintText
 	call RemoveItemByIDBank12
-	lb bc, TM_ICE_BEAM, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, CeladonMartRoofText_484f9
 	call PrintText
 	SetEvent EVENT_GOT_TM13
-	ret
-.bagFull
-	ld hl, CeladonMartRoofText_48526
-	call PrintText
 	ret
 .alreadyGaveDrink
 	ld hl, CeladonMartRoofText_4852c
@@ -175,11 +162,6 @@ ReceivedTM49Text:
 	text_far _ReceivedTM49Text
 	sound_get_item_1
 	text_far _CeladonMartRoofText_48520
-	text_waitbutton
-	text_end
-
-CeladonMartRoofText_48526:
-	text_far _CeladonMartRoofText_48526
 	text_waitbutton
 	text_end
 
@@ -273,55 +255,31 @@ CeladonMartRoofText6:
 
 CeladonMartRoofText2_RP:
 	text_asm
-
 	CheckEvent EVENT_RP_GOT_ALL_ROOF_TMS
 	ld hl, CeladonMartRoofText2_RP_AllTaken
 	jr nz, .printAndEnd
-
 ; we didn't steal everything, check one by one
-
+; no need to check anymore with TM CASE, we cannot not have enough space
 	ld hl, CeladonMartRoofText2_RP_Intro
 	call PrintText
-
-; check TM 13
-	CheckEvent EVENT_GOT_TM13
-	jr nz, .checkTM48
-	lb bc, TM_ICE_BEAM, 1
-	call GiveItem
-	jr nc, .bagFull
+; steal TM 13
 	ld hl, CeladonMartRoofText2_RP_GotItem
 	call PrintText
 	SetEvent EVENT_GOT_TM13
-
-.checkTM48
-	CheckEvent EVENT_GOT_TM48
-	jr nz, .checkTM49
-	lb bc, TM_ROCK_SLIDE, 1
-	call GiveItem
-	jr nc, .bagFull
+; steal TM 48
 	ld hl, CeladonMartRoofText2_RP_GotItem
 	call PrintText
 	SetEvent EVENT_GOT_TM48
-
-.checkTM49
-	lb bc, TM_SHADOW_BALL, 1
-	call GiveItem
-	jr nc, .bagFull
+; steal TM 49
 	ld hl, CeladonMartRoofText2_RP_GotItem
 	call PrintText
 	SetEvent EVENT_GOT_TM48
 	SetEvent EVENT_RP_GOT_ALL_ROOF_TMS
 	jr .done
-
-.bagFull
-	ld hl, CeladonMartRoofText2_RP_BagFull
-
 .printAndEnd
 	call PrintText
-
 .done
 	jp TextScriptEnd
-
 
 CeladonMartRoofText2_RP_Intro:
 	text_far _CeladonMartRoofText2_RP_Intro
@@ -334,8 +292,4 @@ CeladonMartRoofText2_RP_GotItem:
 
 CeladonMartRoofText2_RP_AllTaken:
 	text_far _CeladonMartRoofText2_RP_AllTaken
-	text_end
-
-CeladonMartRoofText2_RP_BagFull:
-	text_far _CeladonMartRoofText2_RP_BagFull
 	text_end

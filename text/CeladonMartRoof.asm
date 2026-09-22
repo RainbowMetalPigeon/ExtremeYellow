@@ -16,17 +16,12 @@ _CeladonMartRoofText_484f3::
 
 _CeladonMartRoofText_484f9::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM13 ICE BEAM!@"
 	text_end
 
 _CeladonMartRoofText_484fe::
 	text_start
-
-	para "@"
-	text_ram wStringBuffer
-	text " contains"
+	para "TM13 contains"
 	line "ICE BEAM!"
 
 	para "It can freeze the"
@@ -46,18 +41,16 @@ _CeladonMartRoofText_48504::
 
 _CeladonMartRoofText_4850a::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM48 ROCK SLIDE!@"
 	text_end
 
 _CeladonMartRoofText_4850f::
 	text_start
+	para "TM48 contains"
+	line "ROCK SLIDE!"
 
-	para "@"
-	text_ram wStringBuffer
-	text " contains"
-	line "ROCK SLIDE!@"
+	para "It can flinch the"
+	line "target sometimes!@"
 	text_end
 
 _CeladonMartRoofText_48515::
@@ -73,19 +66,17 @@ _CeladonMartRoofText_48515::
 
 _ReceivedTM49Text::
 	text "<PLAYER> received"
-	line "TM49!@"
+	line "TM49 SHADOW BALL!@"
 	text_end
 
 _CeladonMartRoofText_48520::
 	text_start
 
 	para "TM49 contains"
-	line "SHADOW BALL!@"
-	text_end
+	line "SHADOW BALL!"
 
-_CeladonMartRoofText_48526::
-	text "You don't have"
-	line "space for this!@"
+	para "It can reduce the"
+	line "target's SPECIAL!@"
 	text_end
 
 _CeladonMartRoofText_4852c::
