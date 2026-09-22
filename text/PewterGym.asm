@@ -45,7 +45,7 @@ _BeforeReceivedTM34Text::
 
 _ReceivedTM34Text::
 	text "<PLAYER> received"
-	line "TM34!@"
+	line "TM34 BIDE!@"
 	text_end
 
 _TM34ExplanationText::
@@ -56,19 +56,10 @@ _TM34ExplanationText::
 	cont "can be taught to"
 	cont "#MON!"
 
-	para "A TM is good only"
-	line "once! So when you"
-	cont "use one to teach"
-	cont "a new technique,"
-	cont "pick the #MON"
-	cont "carefully!"
-
-	para "Although, no need" ; new
-	line "to be too"
-	cont "conservative, as"
-	cont "you can buy again"
-	cont "TMs you have"
-	cont "already acquired!"
+	para "TMs can be used as"
+	line "many times as you"
+	cont "want. Experiment"
+	cont "freely with them!"
 
 	para "TM34 contains"
 	line "BIDE!"

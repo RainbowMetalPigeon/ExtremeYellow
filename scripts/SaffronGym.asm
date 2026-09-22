@@ -48,25 +48,14 @@ SaffronGymReceiveTM46:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA
-	lb bc, TM_PSYWAVE, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $c
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM46
-	jr .gymVictory
-.BagFull
-	ld a, $d
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_MARSHBADGE, [hl]
-
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEventRange EVENT_BEAT_SAFFRON_GYM_TRAINER_0, EVENT_BEAT_SAFFRON_GYM_TRAINER_6
-
 	jp SaffronGymResetScripts
 
 SaffronGymSabrinaPostBattleRematch: ; new
@@ -77,7 +66,7 @@ SaffronGymSabrinaPostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $e
+	ld a, $d
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_SABRINA_REMATCH
@@ -114,8 +103,7 @@ SaffronGym_TextPointers:
 	; scripts
 	dw SabrinaMarshBadgeInfoText ; edited
 	dw ReceivedTM46Text
-	dw TM46NoRoomText
-	dw SabrinaPostRematchText; new, $e
+	dw SabrinaPostRematchText; new, $d
 
 SaffronGym_TextPointers_Rocket:
 	dw SabrinaText_RP
@@ -131,7 +119,6 @@ SaffronGym_TextPointers_Rocket:
 	; scripts
 	dw SabrinaMarshBadgeInfoText_RP
 	dw ReceivedTM46Text_RP
-	dw TM46NoRoomText_RP
 
 SaffronGymTrainerHeaders:
 	def_trainers 2
@@ -241,10 +228,6 @@ ReceivedTM46Text:
 	text_far _ReceivedTM46Text
 	sound_get_item_1
 	text_far _TM46ExplanationText
-	text_end
-
-TM46NoRoomText:
-	text_far _TM46NoRoomText
 	text_end
 
 SaffronGymTrainerText1:
@@ -482,10 +465,6 @@ ReceivedMarshBadgeText_RP:
 SabrinaMarshBadgeInfoText_RP:
 	text_far _SabrinaMarshBadgeInfoText_RP
 	sound_get_key_item
-	text_end
-
-TM46NoRoomText_RP:
-	text_far _TM46NoRoomText_RP
 	text_end
 
 ReceivedTM46Text_RP:

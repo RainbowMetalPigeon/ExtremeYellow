@@ -78,7 +78,6 @@ RandomizeHowManyTrainersBeforeKoga:
 	and %00000111 ; a is in [0,7]
 	cp 7
 	jr z, RandomizeHowManyTrainersBeforeKoga ; we can't start directly with Koga, at least the COOLTRAINER
-	ld a, 5 ; for debugging
 	ld [wHowManyTrainersBeforeKoga], a
 	ret
 

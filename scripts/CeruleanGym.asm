@@ -48,25 +48,14 @@ CeruleanGymReceiveTM11:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY
-	lb bc, TM_BUBBLEBEAM, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM11
-	jr .gymVictory
-.BagFull
-	ld a, $8
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_CASCADEBADGE, [hl]
-
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEventRange EVENT_BEAT_CERULEAN_GYM_TRAINER_0, EVENT_BEAT_CERULEAN_GYM_TRAINER_2 ; new
-
 	jp CeruleanGymResetScripts
 
 CeruleanGymMistyPostBattleRematch: ; new
@@ -77,7 +66,7 @@ CeruleanGymMistyPostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $9
+	ld a, $8
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_MISTY_REMATCH
@@ -108,8 +97,7 @@ CeruleanGym_TextPointers:
 	dw CeruleanGymGuideText
 	dw MistyCascadeBadgeInfoText
 	dw ReceivedTM11Text
-	dw TM11NoRoomText
-	dw MistyPostRematchText; new, $9
+	dw MistyPostRematchText; new, $8
 
 CeruleanGym_TextPointers_Rocket:
 	dw MistyText_RP
@@ -120,7 +108,6 @@ CeruleanGym_TextPointers_Rocket:
 	; scripts
 	dw MistyCascadeBadgeInfoText_RP
 	dw ReceivedTM11Text
-	dw TM11NoRoomText_RP
 
 CeruleanGymTrainerHeaders:
 	def_trainers 2
@@ -215,10 +202,6 @@ MistyCascadeBadgeInfoText:
 ReceivedTM11Text:
 	text_far _ReceivedTM11Text
 	sound_get_item_1
-	text_end
-
-TM11NoRoomText:
-	text_far _TM11NoRoomText
 	text_end
 
 ReceivedCascadeBadgeText:
@@ -373,10 +356,6 @@ ReceivedCascadeBadgeText_RP:
 MistyCascadeBadgeInfoText_RP:
 	text_far _MistyCascadeBadgeInfoText_RP
 	sound_get_key_item
-	text_end
-
-TM11NoRoomText_RP:
-	text_far _TM11NoRoomText_RP
 	text_end
 
 CeruleanGymGuideText_RP:

@@ -59,9 +59,7 @@ _ErikaRainbowBadgeInfoText:: ; edited
 
 _ReceivedTM21Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM21 GIGA DRAIN!@"
 	text_end
 
 _TM21ExplanationText::
@@ -74,11 +72,6 @@ _TM21ExplanationText::
 	line "it inflicts is"
 	cont "drained to heal"
 	cont "your #MON!"
-	done
-
-_TM21NoRoomText::
-	text "You should make"
-	line "room for this."
 	done
 
 _CeladonGymBattleText2:: ; edited

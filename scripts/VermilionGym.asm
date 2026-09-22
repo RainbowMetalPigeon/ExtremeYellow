@@ -67,25 +67,14 @@ VermilionGymReceiveTM24:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_LT_SURGE
-	lb bc, TM_THUNDERBOLT, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $8
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM24
-	jr .gymVictory
-.BagFull
-	ld a, $9
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_THUNDERBADGE, [hl]
-
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_3
-
 	jp VermilionGymResetScripts
 
 VermilionGymLTSurgePostBattleRematch: ; new
@@ -96,7 +85,7 @@ VermilionGymLTSurgePostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $a
+	ld a, $9
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_LT_SURGE_REMATCH
@@ -129,8 +118,7 @@ VermilionGym_TextPointers:
 	; scripts
 	dw LTSurgeThunderBadgeInfoText
 	dw ReceivedTM24Text
-	dw TM24NoRoomText
-	dw LtSurgePostRematchText ; new, $a=10
+	dw LtSurgePostRematchText ; new, $9
 
 VermilionGym_TextPointers_Rocket:
 	dw LTSurgeText_RP
@@ -142,7 +130,6 @@ VermilionGym_TextPointers_Rocket:
 	; scripts
 	dw LTSurgeThunderBadgeInfoText_RP
 	dw ReceivedTM24Text_RP
-	dw TM24NoRoomText_RP
 
 VermilionGymTrainerHeaders:
 	def_trainers 2
@@ -237,12 +224,8 @@ LTSurgeThunderBadgeInfoText:
 
 ReceivedTM24Text:
 	text_far _ReceivedTM24Text
-	sound_get_key_item
+	sound_get_item_1
 	text_far _TM24ExplanationText
-	text_end
-
-TM24NoRoomText:
-	text_far _TM24NoRoomText
 	text_end
 
 ReceivedThunderBadgeText:
@@ -420,10 +403,6 @@ LTSurgeThunderBadgeInfoText_RP:
 ReceivedTM24Text_RP:
 	text_far _ReceivedTM24Text
 	sound_get_item_1
-	text_end
-
-TM24NoRoomText_RP:
-	text_far _TM24NoRoomText_RP
 	text_end
 
 VermilionGymGuideText_RP:

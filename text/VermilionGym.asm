@@ -47,10 +47,8 @@ _LTSurgeThunderBadgeInfoText:: ; edited
 	done
 
 _ReceivedTM24Text::
-	text "<PLAYER> received "
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	text "<PLAYER> received"
+	line "TM24 THUNDERBOLT!@"
 	text_end
 
 _TM24ExplanationText:: ; edited
@@ -60,11 +58,6 @@ _TM24ExplanationText:: ; edited
 
 	para "Teach it to an"
 	line "ELECTRIC #MON!"
-	done
-
-_TM24NoRoomText::
-	text "Yo kid, make room"
-	line "in your pack!"
 	done
 
 _ReceivedThunderBadgeText::

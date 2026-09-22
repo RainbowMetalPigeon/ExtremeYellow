@@ -55,9 +55,7 @@ _KogaSoulBadgeInfoText::
 
 _ReceivedTM06Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM06 TOXIC!@"
 	text_end
 
 _TM06ExplanationText::
@@ -68,11 +66,6 @@ _TM06ExplanationText::
 	para "It is a secret"
 	line "technique over"
 	cont "400 years old!"
-	done
-
-_TM06NoRoomText::
-	text "Make space for"
-	line "this, child!"
 	done
 
 _FuchsiaGymBattleText1::
@@ -310,7 +303,7 @@ _FuchsiaGymAfterBattleText_Common::
 	done
 
 _FuchsiaGymNoBattleText_Common::
-	cont "We may all look"
+	text "We may all look"
 	line "like KOGA, but"
 	cont "our master is not"
 	cont "here. We won't"

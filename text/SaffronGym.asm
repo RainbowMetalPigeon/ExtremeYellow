@@ -50,7 +50,7 @@ _SabrinaMarshBadgeInfoText:: ; edited
 
 _ReceivedTM46Text::
 	text "<PLAYER> received"
-	line "TM46!@"
+	line "TM46 PSYWAVE!@"
 	text_end
 
 _TM46ExplanationText::
@@ -60,11 +60,6 @@ _TM46ExplanationText::
 	line "It uses powerful"
 	cont "psychic waves to"
 	cont "inflict damage!"
-	done
-
-_TM46NoRoomText::
-	text "Your pack is full"
-	line "of other items!"
 	done
 
 _SaffronGymGuidePreBattleText:: ; edited

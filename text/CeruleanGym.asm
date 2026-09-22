@@ -43,13 +43,8 @@ _MistyCascadeBadgeInfoText::
 
 _ReceivedTM11Text::
 	text "<PLAYER> received"
-	line "TM11!@"
+	line "TM11 BUBBLEBEAM!@"
 	text_end
-
-_TM11NoRoomText::
-	text "You better make"
-	line "room for this!"
-	done
 
 _ReceivedCascadeBadgeText::
 	text "I can't"

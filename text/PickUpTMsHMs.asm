@@ -28,7 +28,7 @@ _PickUpItemText_TM_DRAGON_CLAW::
 ;	xxxx "123456789012345678"
 	done
 
-; TM06 TBE
+; TM06
 
 _PickUpItemText_TM_DARK_PULSE::
 	text "<PLAYER> found"
@@ -54,7 +54,7 @@ _PickUpItemText_TM_DOUBLE_EDGE::
 ;	xxxx "123456789012345678"
 	done
 
-; TM11 TBE
+; TM11
 
 _PickUpItemText_TM_METRONOME::
 	text "<PLAYER> found"
@@ -98,7 +98,7 @@ _PickUpItemText_TM_FEINT_ATTACK::
 ;	xxxx "123456789012345678"
 	done
 
-; TM21 TBE
+; TM21
 
 _PickUpItemText_TM_STONE_EDGE::
 	text "<PLAYER> found"
@@ -108,7 +108,7 @@ _PickUpItemText_TM_STONE_EDGE::
 
 ; TM23 TBE
 
-; TM24 TBE
+; TM24
 
 _PickUpItemText_TM_THUNDER::
 	text "<PLAYER> found"
@@ -152,7 +152,7 @@ _PickUpItemText_TM_REFLECT::
 ;	xxxx "123456789012345678"
 	done
 
-; TM34 TBE
+; TM34
 
 ; TM35 TBE
 
@@ -164,7 +164,7 @@ _PickUpItemText_TM_CLOSE_COMBAT::
 ;	xxxx "123456789012345678"
 	done
 
-; TM38 TBE
+; TM38
 
 ; TM39 TBE
 
@@ -196,7 +196,7 @@ _PickUpItemText_TM_THUNDER_WAVE::
 ;	xxxx "123456789012345678"
 	done
 
-; TM46 TBE
+; TM46
 
 _PickUpItemText_TM_EXPLOSION::
 	text "<PLAYER> found"

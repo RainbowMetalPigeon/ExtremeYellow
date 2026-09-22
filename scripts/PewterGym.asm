@@ -49,19 +49,10 @@ PewterGymScriptReceiveTM34:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BROCK
-	lb bc, TM_BIDE, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $6
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM34
-	jr .gymVictory
-.BagFull
-	ld a, $7
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_BOULDERBADGE, [hl]
 ; deactivate gym trainers
@@ -76,7 +67,7 @@ PewterGymBrockPostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $8
+	ld a, $7
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BROCK_REMATCH
@@ -107,8 +98,7 @@ PewterGym_TextPointers:
 	; scripts
 	dw BeforeReceivedTM34Text
 	dw ReceivedTM34Text
-	dw TM34NoRoomText
-	dw BrockPostRematchText; new, $8
+	dw BrockPostRematchText; new, $7
 
 PewterGym_TextPointers_Rocket:
 	dw BrockText_RP
@@ -118,7 +108,6 @@ PewterGym_TextPointers_Rocket:
 	; scripts
 	dw BeforeReceivedTM34Text_RP
 	dw ReceivedTM34Text_RP
-	dw TM34NoRoomText_RP
 
 PewterGymTrainerHeaders:
 	def_trainers 2
@@ -212,10 +201,6 @@ ReceivedTM34Text:
 	text_far _ReceivedTM34Text
 	sound_get_item_1
 	text_far _TM34ExplanationText
-	text_end
-
-TM34NoRoomText:
-	text_far _TM34NoRoomText
 	text_end
 
 ReceivedBoulderBadgeText:
@@ -395,10 +380,6 @@ BeforeReceivedTM34Text_RP:
 ReceivedTM34Text_RP:
 	text_far _ReceivedTM34Text
 	sound_get_item_1
-	text_end
-
-TM34NoRoomText_RP:
-	text_far _TM34NoRoomText_RP
 	text_end
 
 PewterGymGuideText_RP:

@@ -206,28 +206,16 @@ CinnabarGymReceiveTM38:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BLAINE
-	lb bc, TM_FIRE_BLAST, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $b
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM38
-	jr .gymVictory
-.BagFull
-	ld a, $c
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_VOLCANOBADGE, [hl]
-
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEventRange EVENT_BEAT_CINNABAR_GYM_TRAINER_0, EVENT_BEAT_CINNABAR_GYM_TRAINER_6
-
 	ld hl, wCurrentMapScriptFlags
 	set 5, [hl]
-
 	jp CinnabarGymResetScripts
 
 CinnabarGymBlainePostBattleRematch: ; new
@@ -238,7 +226,7 @@ CinnabarGymBlainePostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $d
+	ld a, $c
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_BLAINE_REMATCH
@@ -274,8 +262,7 @@ CinnabarGym_TextPointers:
 	; scripts
 	dw BlaineVolcanoBadgeInfoText
 	dw ReceivedTM38Text
-	dw TM38NoRoomText
-	dw BlainePostRematchText; new, $d
+	dw BlainePostRematchText; new, $c
 
 CinnabarGym_TextPointers_Rocket:
 	dw BlaineText_RP
@@ -290,7 +277,6 @@ CinnabarGym_TextPointers_Rocket:
 	; scripts
 	dw BlaineVolcanoBadgeInfoText_RP
 	dw ReceivedTM38Text_RP
-	dw TM38NoRoomText_RP
 
 CinnabarGymScript_750c3:
 	ldh a, [hSpriteIndexOrTextID]
@@ -389,10 +375,6 @@ ReceivedTM38Text:
 	text_far _ReceivedTM38Text
 	sound_get_item_1
 	text_far _TM38ExplanationText
-	text_end
-
-TM38NoRoomText:
-	text_far _TM38NoRoomText
 	text_end
 
 CinnabarGymTrainerText1:
@@ -784,10 +766,6 @@ BlaineVolcanoBadgeInfoText_RP:
 ReceivedTM38Text_RP:
 	text_far _ReceivedTM38Text
 	sound_get_item_1
-	text_end
-
-TM38NoRoomText_RP:
-	text_far _TM38NoRoomText_RP
 	text_end
 
 CinnabarGymGuideText_RP:

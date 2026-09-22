@@ -53,9 +53,7 @@ _BlaineVolcanoBadgeInfoText:: ; edited
 
 _ReceivedTM38Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM38 FIRE BLAST!@"
 	text_end
 
 _TM38ExplanationText::
@@ -70,11 +68,6 @@ _TM38ExplanationText::
 	para "CHARIZARD or"
 	line "MAGMORTAR would"
 	cont "be good bets!"
-	done
-
-_TM38NoRoomText::
-	text "Make room for my"
-	line "gift!"
 	done
 
 _CinnabarGymBattleText2::

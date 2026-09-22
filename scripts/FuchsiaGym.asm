@@ -51,25 +51,14 @@ FuchsiaGymReceiveTM06:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_KOGA
-	lb bc, TM_TOXIC, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $b
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM06
-	jr .gymVictory
-.BagFull
-	ld a, $c
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_SOULBADGE, [hl]
-
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEventRange EVENT_BEAT_FUCHSIA_GYM_TRAINER_0, EVENT_BEAT_FUCHSIA_GYM_TRAINER_5
-
 	jp FuchsiaGymResetScripts
 
 FuchsiaGymKogaPostBattleRematch: ; new
@@ -80,7 +69,7 @@ FuchsiaGymKogaPostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $d
+	ld a, $c
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_KOGA_REMATCH
@@ -116,8 +105,7 @@ FuchsiaGym_TextPointers:
 	; scripts
 	dw KogaSoulBadgeInfoText
 	dw ReceivedTM06Text
-	dw TM06NoRoomText
-	dw KogaPostRematchText; new, $d = 13
+	dw KogaPostRematchText; new, $c = 13
 
 FuchsiaGym_TextPointers_Rocket:
 	dw KogaText_RP
@@ -132,7 +120,6 @@ FuchsiaGym_TextPointers_Rocket:
 	; scripts
 	dw KogaSoulBadgeInfoText_RP
 	dw ReceivedTM06Text_RP
-	dw TM06NoRoomText_RP
 
 FuchsiaGymTrainerHeaders:
 	def_trainers 2
@@ -248,10 +235,6 @@ ReceivedTM06Text:
 
 TM06ExplanationText:
 	text_far _TM06ExplanationText
-	text_end
-
-TM06NoRoomText:
-	text_far _TM06NoRoomText
 	text_end
 
 FuchsiaGymTrainerText1:
@@ -825,10 +808,6 @@ ReceivedSoulBadgeText_RP:
 KogaSoulBadgeInfoText_RP:
 	text_far _KogaSoulBadgeInfoText_RP
 	sound_get_key_item
-	text_end
-
-TM06NoRoomText_RP:
-	text_far _TM06NoRoomText_RP
 	text_end
 
 ReceivedTM06Text_RP:

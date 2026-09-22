@@ -48,25 +48,14 @@ CeladonGymReceiveTM21:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA
-	lb bc, TM_GIGA_DRAIN, 1
-	call GiveItem
-	jr nc, .BagFull
 	ld a, $c ; +1 for gym guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM21
-	jr .gymVictory
-.BagFull
-	ld a, $d ; +1 for gym guide
-	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
 	ld hl, wObtainedBadges
 	set BIT_RAINBOWBADGE, [hl]
-
-	; deactivate gym trainers
+; deactivate gym trainers
 	SetEventRange EVENT_BEAT_CELADON_GYM_TRAINER_0, EVENT_BEAT_CELADON_GYM_TRAINER_7
-
 	jp CeladonGymResetScripts
 
 CeladonGymErikaPostBattleRematch: ; new
@@ -77,7 +66,7 @@ CeladonGymErikaPostBattleRematch: ; new
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	ld a, $f0
 	ld [wJoyIgnore], a
-	ld a, $e ; +1 for gym guide
+	ld a, $d ; +1 for gym guide
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	SetEvent EVENT_BEAT_ERIKA_REMATCH
@@ -114,8 +103,7 @@ CeladonGym_TextPointers:
 	; scripts
 	dw ErikaRainbowBadgeInfoText ; $b=11
 	dw ReceivedTM21Text ; $c=12
-	dw TM21NoRoomText ; $d=13
-	dw ErikaPostRematchText; new, $e=14
+	dw ErikaPostRematchText; new, $d=13
 
 CeladonGym_TextPointers_Rocket:
 	dw ErikaText_RP
@@ -131,7 +119,6 @@ CeladonGym_TextPointers_Rocket:
 	; scripts
 	dw ErikaRainbowBadgeInfoText_RP ; $b=11
 	dw ReceivedTM21Text_RP ; $c=12
-	dw TM21NoRoomText_RP ; $d=13
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
@@ -242,10 +229,6 @@ ReceivedTM21Text:
 	text_far _ReceivedTM21Text
 	sound_get_item_1
 	text_far _TM21ExplanationText
-	text_end
-
-TM21NoRoomText:
-	text_far _TM21NoRoomText
 	text_end
 
 CeladonGymTrainerText1:
@@ -489,10 +472,6 @@ ErikaRainbowBadgeInfoText_RP:
 ReceivedTM21Text_RP:
 	text_far _ReceivedTM21Text
 	sound_get_item_1
-	text_end
-
-TM21NoRoomText_RP:
-	text_far _TM21NoRoomText_RP
 	text_end
 
 CeladonGymGuideText_RP:

@@ -443,13 +443,6 @@ _OragePostBattleText_RP::
 ;	xxxx "123456789012345678"
 	done
 
-_TM34NoRoomText_RP::
-_TM11NoRoomText_RP::
-_TM24NoRoomText_RP::
-_TM21NoRoomText_RP::
-_TM06NoRoomText_RP::
-_TM46NoRoomText_RP::
-_TM38NoRoomText_RP::
 _GiftNoRoomText_RP::
 	text "Not enough space"
 	line "for these spoils!"
