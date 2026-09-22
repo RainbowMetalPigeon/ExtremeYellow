@@ -11,9 +11,7 @@ _SilphCo2Text_59ded::
 
 _ReceivedTM36Text::
 	text "<PLAYER> got"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM36 SELFDESTRUCT!@"
 	text_end
 
 _TM36ExplanationText::
@@ -24,11 +22,6 @@ _TM36ExplanationText::
 	line "the #MON that"
 	cont "uses it faints!"
 	cont "Be careful."
-	done
-
-_TM36NoRoomText::
-	text "You don't have any"
-	line "room for this."
 	done
 
 _SilphCo2BattleText1::

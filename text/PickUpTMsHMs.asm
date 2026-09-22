@@ -138,7 +138,7 @@ _PickUpItemText_TM_MOONBLAST::
 ;	xxxx "123456789012345678"
 	done
 
-; TM31 TBE
+; TM31
 
 _PickUpItemText_TM_DOUBLE_TEAM::
 	text "<PLAYER> found"
@@ -154,7 +154,7 @@ _PickUpItemText_TM_REFLECT::
 
 ; TM34
 
-; TM35 TBE
+; TM35
 
 ; TM36 TBE
 

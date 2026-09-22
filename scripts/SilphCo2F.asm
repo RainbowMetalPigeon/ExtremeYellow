@@ -124,10 +124,6 @@ SilphCo2Text1:
 	jr nz, .asm_59de4
 	ld hl, SilphCo2Text_59ded
 	call PrintText
-	lb bc, TM_SELFDESTRUCT, 1
-	call GiveItem
-	ld hl, TM36NoRoomText
-	jr nc, .asm_59de7
 	SetEvent EVENT_GOT_TM36
 	ld hl, ReceivedTM36Text
 	jr .asm_59de7
@@ -148,10 +144,6 @@ ReceivedTM36Text:
 
 TM36ExplanationText:
 	text_far _TM36ExplanationText
-	text_end
-
-TM36NoRoomText:
-	text_far _TM36NoRoomText
 	text_end
 
 SilphCo2Text2:
