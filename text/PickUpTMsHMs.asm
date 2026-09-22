@@ -70,7 +70,7 @@ _PickUpItemText_TM_BLIZZARD::
 ;	xxxx "123456789012345678"
 	done
 
-; TM15 TBE
+; TM15
 
 _PickUpItemText_TM_MIRROR_COAT::
 	text "<PLAYER> found"
@@ -106,7 +106,7 @@ _PickUpItemText_TM_STONE_EDGE::
 ;	xxxx "123456789012345678"
 	done
 
-; TM23 TBE
+; TM23
 
 ; TM24
 
@@ -208,7 +208,7 @@ _PickUpItemText_TM_EXPLOSION::
 
 ; TM49
 
-; TM50 TBE
+; TM50
 
 ; TM51 TBE
 

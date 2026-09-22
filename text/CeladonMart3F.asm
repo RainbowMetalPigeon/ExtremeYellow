@@ -69,7 +69,7 @@ _CeladonMart3Text14::
 _CeladonMart3Text15:: ; edited
 	text "RED, BLUE, YELLOW!"
 
-	para "GOLD, SILVER"
+	para "GOLD, SILVER,"
 	line "CRYSTAL!"
 
 	para "RUBY, SAPPHIRE,"
@@ -97,9 +97,7 @@ _TM18PreReceiveText::
 
 _ReceivedTM18Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM18 FLASH CANNON!@"
 	text_end
 
 _TM18ExplanationText::
@@ -109,9 +107,4 @@ _TM18ExplanationText::
 	cont "discovered move,"
 	cont "and may help you"
 	cont "greatly!"
-	done
-
-_TM18NoRoomText::
-	text "Your pack is full"
-	line "of items!"
 	done

@@ -44,7 +44,16 @@ CeladonMart3F_TextPointers_Rocket:
 
 CeladonMart3Text1:
 	text_asm
-	callfar Func_f1e30
+	CheckEvent EVENT_GOT_TM18
+	ld hl, TM18ExplanationText
+	jr nz, .printAndEnd
+	ld hl, TM18PreReceiveText
+	call PrintText
+	SetEvent EVENT_GOT_TM18
+	ld hl, ReceivedTM18Text
+	jr .printAndEnd
+.printAndEnd
+	call PrintText
 	jp TextScriptEnd
 
 CeladonMart3Text2:
@@ -94,4 +103,17 @@ CeladonMart3Text17:
 CeladonMart3Text16:
 CeladonMart3Text15:
 	text_far _CeladonMart3Text15
+	text_end
+
+TM18PreReceiveText:
+	text_far _TM18PreReceiveText
+	text_end
+
+ReceivedTM18Text:
+	text_far _ReceivedTM18Text
+	sound_get_item_1
+	text_end
+
+TM18ExplanationText:
+	text_far _TM18ExplanationText
 	text_end
