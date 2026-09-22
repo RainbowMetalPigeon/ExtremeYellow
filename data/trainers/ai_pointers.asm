@@ -52,6 +52,7 @@ TrainerAIPointers:
 	dbw 2, AgathaAI ; AGATHA
 	dbw 1, LanceAI ; LANCE
 ; new classes
+	dbw 3, GenericAI ; FUJI
 	dbw 3, GenericAI ; DIVER
 
 ; TBE

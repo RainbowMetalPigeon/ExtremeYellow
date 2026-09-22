@@ -47,6 +47,7 @@ TrainerDataPointers:
 	dw AgathaData
 	dw LanceData
 ; new classes
+	dw FujiData
 	dw DiverData
 	dw ProtonData
 	dw PetrelData
@@ -740,7 +741,7 @@ ScientistData:
 	db 85, MAGNEZONE, MR_MIME, PORYGONZ, WEEZING, UMBREON, KABUTOPS, 0 ; 16
 ; Lake of Mist, new
 	db 23, GRIMER, MAGNETON, KADABRA, KOFFING, 0 ; 17
-; Fuji, TBE?
+; unused
 	db 25, POLIWAG, WEEDLE, PIKACHU, LICKITUNG, CUBONE, 0 ; 18
 ; HM05, for RP
 	db 24, MAGNEMITE, KOFFING, KADABRA, VOLTORB, DROWZEE, 0 ; 19
@@ -1261,6 +1262,9 @@ ProfOakData:
 	db $FF, 66, TAUROS, 67, EXEGGUTOR, 68, ARCANINE, 69, RAICHU, 69, ESPEON, 70, GYARADOS, 0 ; for RP
 
 ; new ones
+
+FujiData:
+	db 25, POLIWAG, WEEDLE, PIKACHU, LICKITUNG, CUBONE, 0 ; 1
 
 DiverData:
 ; Sevii Route 32 (continues)

@@ -379,9 +379,9 @@ _LoadTrainerPic:
 .notCopycat
 
 ; now check if it's one of the trainers that need bank "Pics 6b" but is otherwise normally handled
-; this means from DIVER to TRAVELER (but it requires a double check) and MISSINGNO_T
+; this means from FUJI to TRAVELER (but it requires a double check) and MISSINGNO_T
 	ld a, [wTrainerClass]
-	cp DIVER
+	cp FUJI
 	jr c, .notNewNormalClasses
 ; now check if it's rematch vs Traveler
 	cp TRAVELER

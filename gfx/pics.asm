@@ -353,10 +353,9 @@ LancePic::         INCBIN "gfx/trainers/lance.pic"
 SECTION "Pics 6b", ROMX ; new
 
 ; new trainer classes, "init_battle" has been modified to handle this bank too
+FujiPic::          INCBIN "gfx/trainers/fuji.pic"
 DiverPic::         INCBIN "gfx/trainers/diver.pic"
 OragePic::         INCBIN "gfx/trainers/orage.pic"
-
-; TBE
 ProtonPic::        INCBIN "gfx/trainers/proton.pic"
 PetrelPic::        INCBIN "gfx/trainers/petrel.pic"
 ArianaPic::        INCBIN "gfx/trainers/ariana.pic"

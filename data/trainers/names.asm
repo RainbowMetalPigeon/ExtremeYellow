@@ -47,6 +47,7 @@ TrainerNames::
 	db "AGATHA@"
 	db "LANCE@"
 ; new classes
+	db "MX.FUJI@"
 	db "DIVER@"
 	db "PROTON@"
 	db "PETREL@"

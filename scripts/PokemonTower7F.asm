@@ -379,9 +379,9 @@ PokemonTower7Text3_RP:
 	ld de, PokemonTower7FujiEndBattleText
 	call SaveEndBattleTextPointers
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES ; for RP
-	ld a, OPP_SCIENTIST ; TBE?
+	ld a, OPP_FUJI
 	ld [wCurOpponent], a
-	ld a, 18 ; TBE?
+	ld a, 1
 	ld [wTrainerNo], a
 	ld a, 1
 	ld [wIsTrainerBattle], a
