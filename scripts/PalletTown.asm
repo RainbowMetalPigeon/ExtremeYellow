@@ -28,9 +28,9 @@ PalletTown_ScriptPointers:
 
 PalletTownScript0:
 ; new for Pallet Fields
-	ld a, [wXCoord]
-	cp 16 ; somewhere between north path and Fields to the east
-	jr c, .noEncounters 
+	ld hl, PalletTown_Coordinates_NoGrassEncounters
+	call ArePlayerCoordsInArray ; sets carry if the coordinates are in the array, clears carry if not
+	jr c, .noEncounters
 .yesEncounters
 	ld hl, wd72e
 	res 4, [hl]
@@ -63,11 +63,17 @@ PalletTownScript0:
 	ld a, MUSIC_MEET_PROF_OAK ; "oak appears" music
 	call PlayMusic
 	SetEvent EVENT_OAK_APPEARED_IN_PALLET
-
-	; trigger the next script
+; trigger the next script
 	ld a, 1
 	ld [wPalletTownCurScript], a
 	ret
+
+PalletTown_Coordinates_NoGrassEncounters:
+	dbmapcoord 10,  0
+	dbmapcoord 11,  0
+	dbmapcoord 10,  1
+	dbmapcoord 11,  1
+	db -1 ; end
 
 PalletTownScript1:
 	ld a, ~(A_BUTTON | B_BUTTON)
