@@ -40,6 +40,9 @@ CeladonMartRoofDrinkList:
 	db FRESH_WATER
 	db SODA_POP
 	db LEMONADE
+	db COFFEE
+	db BEER
+	db MATCHA_TEA
 	db 0 ; end
 
 CeladonMartRoofScript_GiveDrinkToGirl:
@@ -86,6 +89,14 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	jr z, .gaveFreshWater
 	cp SODA_POP
 	jr z, .gaveSodaPop
+; new section for new drinks
+	cp COFFEE
+	jr z, .offeredCoffee
+	cp BEER
+	jr z, .offeredBeer
+	cp MATCHA_TEA
+	jr z, .offeredMatchTea
+; BTV
 ; gave Lemonade
 	CheckEvent EVENT_GOT_TM49
 	jr nz, .alreadyGaveDrink
@@ -120,6 +131,15 @@ CeladonMartRoofScript_GiveDrinkToGirl:
 	ld hl, CeladonMartRoofText_4852c
 	call PrintText
 	ret
+.offeredCoffee
+	ld hl, CeladonMartRoofText_Coffee
+	jp PrintText
+.offeredBeer
+	ld hl, CeladonMartRoofText_Beer
+	jp PrintText
+.offeredMatchTea
+	ld hl, CeladonMartRoofText_MatchaTea
+	jp PrintText
 
 RemoveItemByIDBank12:
 	farcall RemoveItemByID
@@ -249,6 +269,20 @@ CeladonMartRoofText5:
 
 CeladonMartRoofText6:
 	text_far _CeladonMartRoofText6
+	text_end
+
+; new drinks -------------------
+
+CeladonMartRoofText_Coffee:
+	text_far _CeladonMartRoofText_Coffee
+	text_end
+
+CeladonMartRoofText_Beer:
+	text_far _CeladonMartRoofText_Beer
+	text_end
+
+CeladonMartRoofText_MatchaTea:
+	text_far _CeladonMartRoofText_MatchaTea
 	text_end
 
 ; new for RP -----------------------------------

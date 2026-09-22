@@ -142,6 +142,33 @@ _VendingMachineText7::
 	text "Not thirsty!"
 	done
 
+; new drinks -------------------
+
+_CeladonMartRoofText_Coffee::
+	text "Bleah! It's bitter"
+	line "and makes my"
+	cont "heart go BUM BUM!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CeladonMartRoofText_Beer::
+	text "'NO!'"
+
+	para "My parents taught"
+	line "me to say 'NO'"
+	cont "to drugs!"
+;	xxxx "123456789012345678"
+	prompt
+
+_CeladonMartRoofText_MatchaTea::
+	text "Ugh! It smells"
+	line "like grass!"
+	
+	para "I want some real"
+	line "fancy drink!"
+;	xxxx "123456789012345678"
+	prompt
+
 ; new for RP ----------------------
 
 _CeladonMartRoofText2_RP_Intro::

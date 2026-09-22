@@ -32,6 +32,7 @@ INCLUDE "text/RocketHideoutElevator.asm"
 INCLUDE "text/Route22Gate.asm"
 INCLUDE "text/ViridianForest.asm"
 INCLUDE "text/Route26.asm" ; new
+INCLUDE "text/BikeShop.asm"
 
 
 SECTION "Text 3", ROMX
@@ -294,7 +295,6 @@ INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/BikeShop.asm"
 INCLUDE "text/FuchsiaMart.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/CeladonMartRoof.asm"

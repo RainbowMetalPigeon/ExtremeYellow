@@ -62,7 +62,7 @@ _PickUpItemText_TM_METRONOME::
 ;	xxxx "123456789012345678"
 	done
 
-; TM13 TBE
+; TM13
 
 _PickUpItemText_TM_BLIZZARD::
 	text "<PLAYER> found"
@@ -204,9 +204,9 @@ _PickUpItemText_TM_EXPLOSION::
 ;	xxxx "123456789012345678"
 	done
 
-; TM48 TBE
+; TM48
 
-; TM49 TBE
+; TM49
 
 ; TM50 TBE
 
