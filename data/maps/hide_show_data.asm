@@ -908,6 +908,6 @@ HallOfFameHS:
 	db HALL_OF_FAME, 1, SHOW ; Oak
 	db HALL_OF_FAME, 2, SHOW ; Blue
 IndigoPlateauLobbyHS: ; new
-	db INDIGO_PLATEAU_LOBBY, 8, HIDE ; Guard
+	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
 
 	db $FF, $01, SHOW ; end, list terminator

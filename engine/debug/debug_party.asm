@@ -55,13 +55,13 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ROAR
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, DIVE
+	ld a, ANCESTOR_PWR ; DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, ROCK_CLIMB
+	ld a, ANCESTOR_PWR ; ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 

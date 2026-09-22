@@ -96,6 +96,9 @@ INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/ViridianGym.asm"
 INCLUDE "text/Museum1F.asm"
 INCLUDE "text/Museum2F.asm"
+INCLUDE "text/CeladonMansionRoofHouse.asm"
+INCLUDE "text/CeladonMansionRoof.asm"
+INCLUDE "text/VermilionOldRodHouse.asm"
 
 
 SECTION "Text 6", ROMX
@@ -107,7 +110,6 @@ INCLUDE "text/PokemonTower3F.asm"
 INCLUDE "text/PokemonTower4F.asm"
 INCLUDE "text/PokemonTower5F.asm"
 INCLUDE "data/text/text_6.asm"
-INCLUDE "text/VermilionOldRodHouse.asm"
 INCLUDE "text/CeladonMart1F.asm"
 INCLUDE "text/CeladonMart2F.asm"
 INCLUDE "text/CeladonMart3F.asm"
@@ -115,8 +117,6 @@ INCLUDE "text/CeladonMart4F.asm"
 INCLUDE "text/CeladonMansion1F.asm"
 INCLUDE "text/CeladonMansion2F.asm"
 INCLUDE "text/CeladonMansion3F.asm"
-INCLUDE "text/CeladonMansionRoof.asm"
-INCLUDE "text/CeladonMansionRoofHouse.asm"
 INCLUDE "text/CeladonGym.asm"
 
 
