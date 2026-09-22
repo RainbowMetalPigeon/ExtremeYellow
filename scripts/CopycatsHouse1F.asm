@@ -125,16 +125,9 @@ CopycatsHouse2FText1: ; edited
 .defatedCopycatButNotGotTMYet
 	ld hl, PostBattleAndGiveTMText
 	call PrintText
-	lb bc, TM_MIMIC, 1
-	call GiveItem
-	jr nc, .bag_full
 	ld hl, ReceivedTM31Text
 	call PrintText
 	SetEvent EVENT_GOT_TM31
-	jr .done
-.bag_full
-	ld hl, TM31NoRoomText
-	call PrintText
 	jr .done
 .got_item
 	ld hl, TM31ExplanationText2
@@ -184,11 +177,6 @@ TM31ExplanationText1:
 
 TM31ExplanationText2:
 	text_far _TM31ExplanationText2
-	text_end
-
-TM31NoRoomText:
-	text_far _TM31NoRoomText
-	text_waitbutton
 	text_end
 
 CopycatsHouse2FText2:
@@ -286,15 +274,8 @@ CopycatsHouse2FText1_RP:
 .defatedCopycatButNotGotTMYet
 	ld hl, CopycatsHouse2FText1_RP_GiveTM
 	call PrintText
-	lb bc, TM_MIMIC, 1
-	call GiveItem
-	jr nc, .bagFull
-; actually get the TM
 	SetEvent EVENT_GOT_TM31
 	ld hl, CopycatsHouse2FText1_RP_ReceivedTM
-	jr .printAndEnd
-.bagFull
-	ld hl, CopycatsHouse2FText1_RP_BagFull
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
@@ -313,10 +294,6 @@ CopycatText_PostBattleText_RP:
 
 CopycatsHouse2FText1_RP_GiveTM:
 	text_far _CopycatsHouse2FText1_RP_GiveTM
-	text_end
-
-CopycatsHouse2FText1_RP_BagFull:
-	text_far _BagFullText_RP
 	text_end
 
 CopycatsHouse2FText1_RP_ReceivedTM:

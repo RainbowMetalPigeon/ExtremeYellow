@@ -44,9 +44,7 @@ _PostBattleAndGiveTMText::
 
 _ReceivedTM31Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM31 MIMIC!@"
 	text_end
 
 _TM31ExplanationText1::
@@ -80,11 +78,6 @@ _TM31ExplanationText2::
 	cont "ultimate mimicry"
 	cont "skills!"
 	done
-
-_TM31NoRoomText:: ; edited
-	text "Oh, you don't have"
-	line "enough space.@"
-	text_end
 
 _CopycatsHouse2FText2::
 	text "DODUO: Giiih!"

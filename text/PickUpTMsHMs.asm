@@ -128,9 +128,9 @@ _PickUpItemText_TM_FISSURE::
 ;	xxxx "123456789012345678"
 	done
 
-; TM28 TBE
+; TM28
 
-; TM29 TBE
+; TM29
 
 _PickUpItemText_TM_MOONBLAST::
 	text "<PLAYER> found"

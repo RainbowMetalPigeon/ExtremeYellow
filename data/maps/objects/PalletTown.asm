@@ -21,7 +21,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, MT_MOON_1F, 1
 ;	warp_event  5,  5, CELADON_CHIEF_HOUSE, 3
 ;	warp_event  5,  5, SS_ANNE_CAPTAINS_ROOM, 1
-;	warp_event  5,  5, COPYCATS_HOUSE_1F, 1
+	warp_event  5,  5, COPYCATS_HOUSE_1F, 1
 ; 	warp_event  5,  5, BILLS_HOUSE, 1
 ;	warp_event  5,  5, VICTORY_ROAD_2F, 6
 ;	warp_event  5,  5, OBSIDIAN_MINES, 1
@@ -41,7 +41,7 @@ PalletTown_Object:
 ;	warp_event  5,  5, SS_ANNE_1F_ROOMS, 6
 ;	warp_event  5,  5, SAFFRON_GYM, 33
 ;	warp_event  5,  5, ROCKET_HIDEOUT_B4F, 2
-	warp_event  5,  5, SILPH_CO_1F, 1
+;	warp_event  5,  5, SILPH_CO_1F, 1
 
 ;	warp_event 13,  5, BLUES_HOUSE, 1
 ;	warp_event 13,  5, CERULEAN_CAVE_EXTRA_MIDDLE, 23

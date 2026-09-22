@@ -387,6 +387,8 @@ IF DEF(_DEBUG)
     ld [wBattleFacilityBacklogChromogenes], a
 */
 
+;	callfar SaffronCityHideRocketsShowCitizens
+
 ;	ROCKET PATH EVENTS
 
 	SetEvent EVENT_RP_RELYED_MESSAGE_CAPTAIN
@@ -463,6 +465,7 @@ DebugItemsList:
 	db SILPH_SCOPE, 1
 	db SEVII_TICKET, 1
 	db BICYCLE, 1
+	db POKE_DOLL, 3
 	db -1 ; end
 
 ELSE
