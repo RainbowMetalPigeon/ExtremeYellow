@@ -220,16 +220,9 @@ Lab3Text1:
 	jr nz, .got_item
 	ld hl, TM35PreReceiveText
 	call PrintText
-	lb bc, TM_HYDRO_PUMP, 1
-	call GiveItem
-	jr nc, .bag_full
 	ld hl, ReceivedTM35Text
 	call PrintText
 	SetEvent EVENT_GOT_TM35
-	jr .done
-.bag_full
-	ld hl, TM35NoRoomText
-	call PrintText
 	jr .done
 .got_item
 	ld hl, TM35ExplanationText
@@ -248,10 +241,6 @@ ReceivedTM35Text:
 
 TM35ExplanationText:
 	text_far _TM35ExplanationText
-	text_end
-
-TM35NoRoomText:
-	text_far _TM35NoRoomText
 	text_end
 
 Lab3Text2:

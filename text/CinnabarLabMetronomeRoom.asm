@@ -14,9 +14,7 @@ _TM35PreReceiveText::
 
 _ReceivedTM35Text::
 	text "<PLAYER> received "
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM38 HYDRO PUMP!@"
 	text_end
 
 _TM35ExplanationText::
@@ -33,11 +31,6 @@ _TM35ExplanationText::
 	cont "but I, like,"
 	cont "don't really"
 	cont "believe that..."
-	done
-
-_TM35NoRoomText::
-	text "Your pack is"
-	line "crammed full!"
 	done
 
 _Lab3Text2::
