@@ -924,7 +924,7 @@ _SeviiRoute31BattleText7::
 	done
 
 _SeviiRoute31EndBattleText7::
-	text "JR.TRAINER: Wow!"
+	text "Wow!"
 	line "Better camping"
 	cont "than battling."
 	prompt
