@@ -53,7 +53,7 @@ _SchoolText4::
 	cont "SELECT Button is!"
 
 	para "At the end of a"
-	cont "#MON page in"
+	line "#MON page in"
 	cont "the #DEX, it"
 	cont "shows its shiny!"
 
