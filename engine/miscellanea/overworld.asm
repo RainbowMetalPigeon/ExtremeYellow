@@ -1272,3 +1272,25 @@ AreWeSpeedingUp:: ; new, c flag if going fast
 .noSpeedUp
 	xor a
 	ret
+
+CheckIfInOutsideMap_::
+; If the player is in an outside map (a town or route), set the z flag
+	ld a, [wCurMapTileset]
+	and a ; most towns/routes have tileset 0 (OVERWORLD)
+	ret z
+	cp PLATEAU ; Route 23 / Indigo Plateau
+	ret z ; new
+	cp ISLAND ; new
+	ret z
+	cp OVERWORLD_SEVII ; new for sevii
+	ret nz
+; if it's Overworld Sevii, need to check if it's the 7th Shrine
+	ld a, [wCurMap]
+	cp SEVII_SEVEN_ISLAND_GYM_2
+	jr z, .setNZFlag
+	xor a
+	ret
+.setNZFlag
+	ld a, 1
+	and a
+	ret

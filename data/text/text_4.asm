@@ -140,6 +140,14 @@ _LayoutInfoTextDayNightPalettes::
 ;	xxxx "123456789012345678"
 	prompt
 
+_LayoutInfoTextRunningSprites::
+	text "Toggles the"
+	line "running sprites."
+	cont "Does not affect"
+	cont "gameplay."
+;	xxxx "123456789012345678"
+	prompt
+
 ; randomization ------
 
 _RandomizationInfoTextWildMons::

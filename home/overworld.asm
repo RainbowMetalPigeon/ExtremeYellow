@@ -166,6 +166,9 @@ OverworldLoopLessDelay::
 
 .noDirectionButtonsPressed
 ; new for running
+	ld a, [wLayoutRunningSprites]
+	and a
+	jr nz, .doNotReloadWalkingGraphics
 	ld a, [wWalkBikeSurfState]
 	and a ; WALKING?
 	jr nz, .doNotReloadWalkingGraphics ; if not walking, do nothing
@@ -261,12 +264,6 @@ OverworldLoopLessDelay::
 	call UpdateSprites
 
 .moveAhead2 ; edited for running and run toggle
-;	ld hl, wFlags_0xcd60
-;	res 2, [hl]
-;	xor a
-;	ld [wd435], a
-;	call DoBikeSpeedup
-
 	ld hl, wFlags_0xcd60
 	res 2, [hl]
 	ld a, [wd736]
@@ -286,6 +283,9 @@ OverworldLoopLessDelay::
 	callfar AreWeSpeedingUp
 	jr nc, .slowPlayerSpriteAdvancement
 
+	ld a, [wLayoutRunningSprites]
+	and a
+	jr nz, .doNotLoadRunningSpriteWhileBiking
 	ld a, [wWalkBikeSurfState]
 	and a
 	jr nz, .doNotLoadRunningSpriteWhileBiking
@@ -422,13 +422,6 @@ NewBattle::
 
 ; function to make bikes twice as fast as walking
 DoBikeSpeedup::
-; edited: moved back these checks in the main function, a la pokered
-;	ld a, [wWalkBikeSurfState]
-;	dec a ; riding a bike?
-;	ret nz
-;	ld a, [wd736]
-;	bit 6, a
-;	ret nz
 	ld a, [wNPCMovementScriptPointerTableNum]
 	and a
 	ret nz
@@ -760,26 +753,15 @@ PlayMapChangeSound::
 	ret nz
 	jp GBFadeOutToBlack
 
-CheckIfInOutsideMap::
+CheckIfInOutsideMap:: ; edited
 ; If the player is in an outside map (a town or route), set the z flag
-	ld a, [wCurMapTileset]
-	and a ; most towns/routes have tileset 0 (OVERWORLD)
-	ret z
-	cp PLATEAU ; Route 23 / Indigo Plateau
-	ret z ; new
-	cp ISLAND ; new
-	ret z
-	cp OVERWORLD_SEVII ; new for sevii
-	ret nz
-; if it's Overworld Sevii, need to check if it's the 7th Shrine
-	ld a, [wCurMap]
-	cp SEVII_SEVEN_ISLAND_GYM_2
-	jr z, .setNZFlag
-	xor a
-	ret
-.setNZFlag
-	ld a, 1
-	and a
+	push bc
+	push de
+	push hl
+	callfar CheckIfInOutsideMap_
+	pop hl
+	pop de
+	pop bc
 	ret
 
 MapEntryAfterBattle::

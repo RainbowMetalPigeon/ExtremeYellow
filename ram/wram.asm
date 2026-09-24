@@ -2472,7 +2472,8 @@ wBillsHouseCurScript:: db
 ;wCeladonUniversity2CurScript:: db ; new
 ;	ds 1
 ;wSSAnne2FCurScript:: db
-	ds 1 ; new, from optimizing the scripts, UNUSED
+
+wLayoutRunningSprites:: db ; new
 wRandomizationChaosMode:: db ; new
 
 wSeafoamIslandsB3FCurScript:: db
