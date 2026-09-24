@@ -29,7 +29,7 @@ ObsidianWarehouse_Object:
 	warp_event 49,  9, OBSIDIAN_WAREHOUSE_FINAL, 1	; 21
 
 	def_bg_events
-	bg_event 55,  3, 15 ; ObsidianWarehouseStatueText
+	bg_event 55,  3, 14 ; ObsidianWarehouseStatueText
 
 	def_object_events
 	; trainers
