@@ -206,18 +206,20 @@ _DidNotLearnText::
 	prompt
 
 _TryingToLearnText:: ; edited
-;	text_ram wLearnMoveMonName
-;	text " is"
-;	line "trying to learn"
-;	cont "@"
-;	text_ram wStringBuffer
-;	text "!"
+	text_ram wLearnMoveMonName
+	text " is"
+	line "trying to learn"
+	cont "@"
+	text_ram wStringBuffer
+	text "!"
+
 ;	para "But, @"
 ;	text_ram wLearnMoveMonName
 ;	text_start
 ;	line "can't learn more"
 ;	cont "than 4 moves!"
-	text "Delete an older"
+
+	para "Delete an older"
 	line "move to make room"
 	cont "for @"
 	text_ram wStringBuffer
