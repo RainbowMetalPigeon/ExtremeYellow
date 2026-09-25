@@ -37,9 +37,6 @@ CeladonMart4Text5:
 CeladonMart4ClerkText: ; moved
 	script_mart POKE_DOLL, FIRE_STONE, THUNDER_STONE, WATER_STONE, LEAF_STONE, ICE_STONE, SUN_STONE, KINGS_ROCK, METAL_COAT
 
-CeladonMart5Clerk1Text: ; moved
-	script_mart X_ACCURACY, GUARD_SPEC, DIRE_HIT, X_ATTACK, X_DEFEND, X_SPEED, X_SPECIAL
-
 ; new for RP ======================
 
 CeladonMart4Text4_RP:

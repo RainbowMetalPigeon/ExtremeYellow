@@ -29,5 +29,8 @@ CeladonMart5Text5:
 	text_far _CeladonMart5Text5
 	text_end
 
+CeladonMart5Clerk1Text: ; moved
+	script_mart X_ACCURACY, GUARD_SPEC, DIRE_HIT, X_ATTACK, X_DEFEND, X_SPEED, X_SPECIAL
+
 CeladonMart5Clerk2Text: ; moved
 	script_mart HP_UP, PROTEIN, IRON, CARBOS, CALCIUM
