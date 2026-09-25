@@ -206,9 +206,9 @@ PokemonTower7Script9:
 	ld [wJoyIgnore], a
 	call GBFadeOutToBlack
 	ld a, HS_POKEMON_TOWER_7F_JESSIE
-	call PokemonTower7Script_60ebe
+	call PokemonTower7Script_HideObject
 	ld a, HS_POKEMON_TOWER_7F_JAMES
-	call PokemonTower7Script_60ebe
+	call PokemonTower7Script_HideObject
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
@@ -233,7 +233,7 @@ PokemonTower7Script_60eaf:
 	call Delay3
 	ret
 
-PokemonTower7Script_60ebe:
+PokemonTower7Script_HideObject:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	ret

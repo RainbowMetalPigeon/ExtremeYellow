@@ -482,16 +482,20 @@ SilphCo11Script12:
 	call SilphCo11Script_ScriptChanger
 	ret
 
-SilphCo11Script13: ; hide Jessie&James both here and from Obsidian Warehouse
+SilphCo11Script13: ; hide Jessie&James here, and in RP also from Obsidian Warehouse
 	ld a, $ff
 	ld [wJoyIgnore], a
 	call GBFadeOutToBlack
+; only in RP
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .doNotHideObsidianWarehouseJJ
 	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 	ld a, HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
+.doNotHideObsidianWarehouseJJ
 	ld a, HS_SILPH_CO_11F_JAMES
 	call SilphCo11Script_HideObject
 	ld a, HS_SILPH_CO_11F_JESSIE
