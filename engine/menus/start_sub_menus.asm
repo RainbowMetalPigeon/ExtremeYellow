@@ -1570,27 +1570,23 @@ DiveUnder:
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
-	call GBPalWhiteOutWithDelay3
-	call ClearSprites
-	call RestoreScreenTilesAndReloadTilePatterns
-;	call ReloadMapData ; new, to expand tileset
+;	call GBPalWhiteOutWithDelay3
+;	call ClearSprites
+;	call RestoreScreenTilesAndReloadTilePatterns
 
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	call Delay3
-	call LoadGBPal
-	call LoadCurrentMapView
-;	call SaveScreenTilesToBuffer2
-	call Delay3
-	xor a
-	ldh [hWY], a
+;	ld a, SCREEN_HEIGHT_PX
+;	ldh [hWY], a
+;	call Delay3
+;	call LoadGBPal
+;	call LoadCurrentMapView
+;	call Delay3
+;	xor a
+;	ldh [hWY], a
 
 	ld hl, DiveMessageGoUnderText2
 	call PrintText
-	ld hl, EmptyTextForDive
-	call PrintText
-;	call CloseTextDisplay
-;	call LoadScreenTilesFromBuffer2
+;	ld hl, EmptyTextForDive
+;	call PrintText
 
 ; how many underwater steps we can take
 	CheckEvent EVENT_DIVE_GOT_OXYGEN_TANK
@@ -1610,54 +1606,61 @@ DiveUnder:
     ld a, [wYCoord]
     ld [wDiveFromWhichY], a
 
-	call InitMapSprites
-	xor a
-	ld [wFontLoaded], a
-	call UpdateSprites
-
     SetEvent EVENT_DIVE_GO_UNDER
     callfar FindDiveDestinationMap_FromAboveToSub
-    jp WarpFound2
+    SetEvent EVENT_GONNA_DIVE
+
+;	call InitMapSprites
+;	xor a
+;	ld [wFontLoaded], a
+;	call UpdateSprites
+
+	call GBPalWhiteOutWithDelay3
+
+	jp StartMenu_Pokemon.goBackToMap
 
 DiveReemerge:
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName
-	call GBPalWhiteOutWithDelay3
-	call ClearSprites
-	call RestoreScreenTilesAndReloadTilePatterns
-;	call ReloadMapData ; new, to expand tileset
-
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	call Delay3
-	call LoadGBPal
-	call LoadCurrentMapView
-	call Delay3
-	xor a
-	ldh [hWY], a
-
-	ld hl, DiveMessageGoAboveText2
-	call PrintText
-	ld hl, EmptyTextForDive
-	call PrintText
-
-	call InitMapSprites
-	xor a
-	ld [wFontLoaded], a
-	call UpdateSprites
+;	call GBPalWhiteOutWithDelay3
+;	call ClearSprites
+;	call RestoreScreenTilesAndReloadTilePatterns
 
     SetEvent EVENT_DIVE_GO_ABOVE
     callfar FindDiveDestinationMap_FromSubToAbove
-    jp WarpFound2
+    SetEvent EVENT_GONNA_DIVE
+
+;	ld a, SCREEN_HEIGHT_PX
+;	ldh [hWY], a
+;	call Delay3
+;	call LoadGBPal
+;	call LoadCurrentMapView
+;	call Delay3
+;	xor a
+;	ldh [hWY], a
+
+	ld hl, DiveMessageGoAboveText2
+	call PrintText
+;	ld hl, EmptyTextForDive
+;	call PrintText
+
+;	call InitMapSprites
+;	xor a
+;	ld [wFontLoaded], a
+;	call UpdateSprites
+
+	call GBPalWhiteOutWithDelay3
+
+	jp StartMenu_Pokemon.goBackToMap
 
 DiveMessageGoUnderText2::
 	text_far _DiveMessageGoUnderText2
 	text_end
 
-EmptyTextForDive:
-	text_far _SeviiIslandsDockEmptykMessage
-	text_end
+;EmptyTextForDive:
+;	text_far _SeviiIslandsDockEmptykMessage
+;	text_end
 
 DiveMessageGoAboveText2:
 	text_far _DiveMessageGoAboveText2

@@ -79,6 +79,10 @@ OverworldLoopLessDelay::
 	ld a, [wd732]
 	and 1 << 4 | 1 << 3 ; fly warp or dungeon warp
 	jp nz, HandleFlyWarpOrDungeonWarp
+; new for Diving from start menu
+	CheckAndResetEvent EVENT_GONNA_DIVE
+	jp nz, WarpFound2
+; BTV
 	ld a, [wCurOpponent]
 	and a
 	jp nz, .newBattle
