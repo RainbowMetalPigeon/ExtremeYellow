@@ -123,6 +123,7 @@ OverworldLoopLessDelay::
 	bit BIT_A_BUTTON, a
 	jp z, .checkIfDirectionalButtonIsPressed ; edited, was checkIfDownButtonIsPressed
 ; if A is pressed
+.AButtonActuallyPressed ; new label for debugging
 	ld a, [wd730]
 	bit 2, a
 	jp nz, .noDirectionButtonsPressed
@@ -134,8 +135,12 @@ OverworldLoopLessDelay::
 	call FuncIsPlayerTalkingToPikachu
 	ldh a, [hSpriteIndexOrTextID]
 	and a
-	jr nz, .displayDialogue ; edited, testing
-	callfar CheckIfCanSurfOrCutFromOverworld ; new, testing
+	jr nz, .displayDialogue ; edited
+; new
+	callfar CheckIfCanSurfOrCutFromOverworld 
+	CheckAndResetEvent EVENT_GONNA_DIVE
+	jp nz, WarpFound2
+; BTV
 	call CheckForHiddenObjectOrBookshelfOrCardKeyDoor
 	ldh a, [hItemAlreadyFound]
 	and a

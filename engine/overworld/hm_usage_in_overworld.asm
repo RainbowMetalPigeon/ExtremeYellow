@@ -318,7 +318,6 @@ CheckIfCanSurfOrCutFromOverworld::
     jp TryToRideWaterfall
 
 .checkForDive
-;	lda_coord 8, 9 ; tile the player is on
 	ld a, [wTilePlayerStandingOn]
 	cp $45
 	ret nz ; we're not standing on a dive-able spot
@@ -356,16 +355,19 @@ CheckIfCanSurfOrCutFromOverworld::
 	tx_pre DiveMessageGoUnderText
     SetEvent EVENT_DIVE_GO_UNDER
     call FindDiveDestinationMap_FromAboveToSub
-    jp WarpFound2
+;    jp WarpFound2
+    SetEvent EVENT_GONNA_DIVE
+    ret
 .checkForReemerging
-;	lda_coord 8, 9 ; tile the player is on
 	ld a, [wTilePlayerStandingOn]
 	cp $32
 	ret nz ; we're not standing on a re-emerge-able spot
 	tx_pre DiveMessageGoAboveText
     SetEvent EVENT_DIVE_GO_ABOVE
     call FindDiveDestinationMap_FromSubToAbove
-    jp WarpFound2
+;    jp WarpFound2
+    SetEvent EVENT_GONNA_DIVE
+    ret
 .notDiveInTeam
     call EnableAutoTextBoxDrawing
     tx_pre_jump ThisWaterIsDiveableText
