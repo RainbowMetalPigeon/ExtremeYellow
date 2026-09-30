@@ -322,6 +322,8 @@ OverworldLoopLessDelay::
 	callfar Route32RespawnItemsCheckSteps
 ; new to countdown steps while diving
 	callfar DiveCheckSteps
+	CheckAndResetEvent EVENT_GONNA_DIVE
+	jp nz, WarpFound2
 ; new, to handle Route 25 for Haunted House
 	CheckEvent EVENT_IN_TALL_GRASS_IN_BILLS_SECRET_GARDEN
 	jr z, .checkHauntedPallet
@@ -2309,7 +2311,6 @@ LoadSprite::
 	ld [hl], a
 	pop hl
 	ret
-
 .trainerSprite
 	ld a, [hli]
 	ldh [hLoadSpriteTemp1], a ; save trainer class
@@ -2324,7 +2325,6 @@ LoadSprite::
 	ld [hl], a ; store trainer number in byte 1 of the entry
 	pop hl
 	ret
-
 .itemBallSprite
 	ld a, [hli]
 	ldh [hLoadSpriteTemp1], a ; save item number

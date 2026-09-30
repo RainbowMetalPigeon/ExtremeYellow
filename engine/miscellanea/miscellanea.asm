@@ -3211,3 +3211,23 @@ OwnedText::
 
 ManyItemsText::
 	db "99+@"
+
+; -----------------------------------
+
+ReloadMapSpriteTilePatterns_::
+	ld hl, wFontLoaded
+	ld a, [hl]
+	push af
+	res 0, [hl]
+	push hl
+	xor a
+	ld [wSpriteSetID], a
+	call DisableLCD
+	call InitMapSprites
+	call EnableLCD
+	pop hl
+	pop af
+	ld [hl], a
+	call LoadPlayerSpriteGraphics
+	call LoadFontTilePatterns
+	jp UpdateSprites
