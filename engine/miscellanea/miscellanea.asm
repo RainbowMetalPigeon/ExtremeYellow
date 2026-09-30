@@ -1892,7 +1892,7 @@ PrintExtendedBattleInfoCore_Player::
 	lb bc, 2, 3
 	call PrintNumber
 	hlcoord 15, 5
-	ld de, wBattleMonMaxHP
+	ld de, wBattleMonHP
 	lb bc, 2, 3
 	call PrintNumber
 
@@ -1979,7 +1979,7 @@ PrintExtendedBattleInfoCore_Enemy::
 	lb bc, 2, 3
 	call PrintNumber
 	hlcoord 15, 5
-	ld de, wEnemyMonMaxHP
+	ld de, wEnemyMonHP
 	lb bc, 2, 3
 	call PrintNumber
 
