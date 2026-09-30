@@ -540,6 +540,8 @@ StatModifierDownEffect:
 	sub ATTACK_DOWN_SIDE_EFFECT2 	; new ; map each stat to 0-5 (it said 3 because there was nothing lower accuracy or evasion?)
 	jr .decrementStatMod
 .nonSideEffect ; non-side effects only
+	CheckEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB ; new for Sticky Web
+	jr nz, .skipHitTest ; new
 	push hl
 	push de
 	push bc
@@ -550,6 +552,7 @@ StatModifierDownEffect:
 	ld a, [wMoveMissed]
 	and a
 	jp nz, MoveMissed
+.skipHitTest ; new label
 	ld a, [bc]
 	bit INVULNERABLE, a ; fly/dig
 	jp nz, MoveMissed
@@ -740,7 +743,14 @@ UpdateLoweredStatDone:
 .nonSelfDebuffingMoves ; vanilla code
 	cp ATTACK_DOWN_SIDE_EFFECT1 ; new, edited, it was $44, hard-coded number for the no-longer-existing ATTACK_DOWN_SIDE_EFFECT
 	jr nc, .ApplyBadgeBoostsAndStatusPenalties
+; new for Sticky Web
+	push af
+	CheckAndResetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB
+	jr nz, .skipAnimation
 	call PlayCurrentMoveAnimation2
+.skipAnimation
+	pop af
+; BTV
 .ApplyBadgeBoostsAndStatusPenalties
     cp ATTACK_SELFDOWN1
     jr nc, .selfDebuffingMoves
@@ -1274,27 +1284,11 @@ BurnEffect:					; new
 SubstituteEffect:
 	jpfar SubstituteEffect_
 
-HyperBeamEffect:
-	ld hl, wPlayerBattleStatus2
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .hyperBeamEffect
-	ld hl, wEnemyBattleStatus2
-.hyperBeamEffect
-	set NEEDS_TO_RECHARGE, [hl] ; mon now needs to recharge
-	ret
+HyperBeamEffect: ; edited
+	jpfar HyperBeamEffect_
 
-ClearHyperBeam:
-	push hl
-	ld hl, wEnemyBattleStatus2
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .playerTurn
-	ld hl, wPlayerBattleStatus2
-.playerTurn
-	res NEEDS_TO_RECHARGE, [hl] ; mon no longer needs to recharge
-	pop hl
-	ret
+ClearHyperBeam: ; edited
+	jpfar ClearHyperBeam_
 
 MimicEffect:				; made into a jpfar to save space
 	jpfar MimicEffect_		; made into a jpfar to save space

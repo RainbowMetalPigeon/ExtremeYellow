@@ -55,13 +55,13 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, ANCESTOR_PWR
+	ld a, STICKY_WEB
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, ANCESTOR_PWR ; DIVE
+	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, ANCESTOR_PWR ; ROCK_CLIMB
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
@@ -94,7 +94,7 @@ IF DEF(_DEBUG)
 	ld a, GROWTH ; CONFUSE_RAY ; DIG
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, PSYCHIC_M ; WILL_O_WISP ; TELEPORT
+	ld a, HYPER_BEAM ; WILL_O_WISP ; TELEPORT
 	ld [hli], a
 	ld a, AMNESIA ; RECOVER ; SOFTBOILED
 	ld [hli], a

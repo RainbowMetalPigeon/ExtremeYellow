@@ -575,6 +575,7 @@ INCLUDE "engine/battle/move_effects/weathers.asm" ; new
 INCLUDE "engine/battle/move_effects/trickroomandentryhazards.asm" ; new
 INCLUDE "engine/battle/move_effects/terrains.asm" ; new
 INCLUDE "engine/battle/move_effects/handlepoisonburnleechseed.asm" ; new
+INCLUDE "engine/battle/move_effects/hyperbeam.asm" ; new
 ; these can prolly be moved away
 INCLUDE "engine/menus/unused_input.asm"
 INCLUDE "engine/overworld/field_move_messages.asm"

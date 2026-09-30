@@ -207,8 +207,10 @@ ApplyEntryHazardsPlayer::
 ; apply STICKY_WEB
 	ld hl, StuckInWebText
 	call PrintText
-	ld a, 6
-	ld [wPlayerMonSpeedMod], a
+	SetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB
+	ld a, SPEED_DOWN1_EFFECT
+	ld [wEnemyMoveEffect], a
+	callfar StatModifierDownEffect
 	; fallthrough
 
 .checkStealthRock
@@ -354,8 +356,10 @@ ApplyEntryHazardsEnemy::
 ; apply STICKY_WEB
 	ld hl, StuckInWebText
 	call PrintText
-	ld a, 6
-	ld [wEnemyMonSpeedMod], a
+	SetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB
+	ld a, SPEED_DOWN1_EFFECT
+	ld [wPlayerMoveEffect], a
+	callfar StatModifierDownEffect
 	; fallthrough
 
 .checkStealthRock
