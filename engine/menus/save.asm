@@ -139,10 +139,13 @@ SaveSAV:
 	farcall PrintSaveScreenText
 	ld c, 10
 	call DelayFrames
+	ld a, [wCurrentSaveSlot] ; new for multi save slots
+	ld [wCurrentSaveSlotBackup], a ; new for multi save slots
 	ld hl, WouldYouLikeToSaveText
 	call SaveSAVConfirm
 	and a   ;|0 = Yes|1 = No|
-	ret nz
+	jr nz, .chooseSaveSlot ; edited, was ret nz
+.saveInCurrentSlot ; new
 	ld c, 10
 	call DelayFrames
 	ld a, [wSaveFileStatus]
@@ -158,7 +161,7 @@ SaveSAV:
 	call SaveSAVtoSRAM
 	ld hl, SavingText
 	call PrintText
-	ld c, 128
+	ld c, 20 ; edited, reduced
 	call DelayFrames
 	ld hl, GameSavedText
 	call PrintText
@@ -167,9 +170,132 @@ SaveSAV:
 	ld a, SFX_SAVE
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-	ld c, 30
+	ld c, 10 ; edited, reduced
 	call DelayFrames
 	ret
+; new for multi save slots ===========
+.chooseSaveSlot
+	call SaveSAV_ChooseSaveSlotMenu
+	jr c, .restoreSaveSlotAndQuit ; B was pressed
+	ld [wCurrentSaveSlot], a
+	ld b, a
+	ld a, [wCurrentSaveSlotBackup]
+	cp b
+	jr nz, .differentSaveSlot
+; same save slot as the current one
+	ld hl, ThisIsCurrentSaveSlotText
+	call SaveSAVConfirm
+	and a
+	jr nz, .chooseSaveSlot ; wCurrentSaveSlot is still unchanged
+	jp .saveInCurrentSlot
+.differentSaveSlot
+	ld hl, SaveSlotWillBeOverwrittenText
+	call SaveSAVConfirm
+	and a
+	jr nz, .restoreSaveSlotAndChooseAgain
+; carry over all the data not saved by SaveSAVtoSRAM (boxes, HoF, Sevii temporary data)
+	call CopySaveSlotBanks
+	jp .save ; no need to check for an older file, the player already confirmed
+.restoreSaveSlotAndChooseAgain
+	ld a, [wCurrentSaveSlotBackup]
+	ld [wCurrentSaveSlot], a
+	jr .chooseSaveSlot
+.restoreSaveSlotAndQuit
+	ld a, [wCurrentSaveSlotBackup]
+	ld [wCurrentSaveSlot], a
+	ret
+
+SaveSAV_ChooseSaveSlotMenu:
+; output: carry if B was pressed, otherwise a = chosen save slot (0-3)
+	call LoadScreenTilesFromBuffer2 ; remove the save info box
+	ld hl, ChooseSaveSlotToSaveText
+	call PrintText
+	hlcoord 0, 0
+	lb bc, 4, 8
+	call TextBoxBorder
+	ld hl, hUILayoutFlags
+	set 2, [hl] ; single spacing
+	ld de, SaveSAV_SaveSlotNamesText
+	hlcoord 2, 1
+	call PlaceString
+	ld hl, hUILayoutFlags
+	res 2, [hl]
+	ld a, 3 ; max menu item (4 slots)
+	ld [wMaxMenuItem], a
+	ld a, 1
+	ld [wTopMenuItemY], a
+	ld [wTopMenuItemX], a
+	xor a
+	ld [wLastMenuItem], a
+	ld [wMenuWatchMovingOutOfBounds], a
+	ld a, [wCurrentSaveSlotBackup] ; cursor starts on the current slot
+	ld [wCurrentMenuItem], a
+	ld a, A_BUTTON | B_BUTTON
+	ld [wMenuWatchedKeys], a
+	ld hl, hUILayoutFlags
+	set 1, [hl] ; single spacing
+	call HandleMenuInput
+	ld hl, hUILayoutFlags
+	res 1, [hl]
+	bit BIT_B_BUTTON, a
+	scf
+	ret nz
+	ld a, [wCurrentMenuItem]
+	and a ; clear carry
+	ret
+
+SaveSAV_SaveSlotNamesText:
+	db   "SLOT 1"
+	next "SLOT 2"
+	next "SLOT 3"
+	next "SLOT 4@"
+
+CopySaveSlotBanks:
+; copy all 4 SRAM banks of the save slot in wCurrentSaveSlotBackup
+; to the save slot in wCurrentSaveSlot
+; does not use switch_sram_bank, since it depends on wCurrentSaveSlot
+	call EnableSRAMAndLatchClockData
+	ld a, [wCurrentSaveSlotBackup]
+	add a
+	add a
+	ld b, a ; source bank
+	ld a, [wCurrentSaveSlot]
+	add a
+	add a
+	ld c, a ; destination bank
+	ld d, 4 ; banks per save slot
+.bankLoop
+	ld hl, SRAM_Begin
+.byteLoop
+	ld a, b
+	ld [MBC1SRamBank], a
+	ld e, [hl]
+	ld a, c
+	ld [MBC1SRamBank], a
+	ld [hl], e
+	inc hl
+	ld a, h
+	cp HIGH(SRAM_End)
+	jr nz, .byteLoop
+	inc b
+	inc c
+	dec d
+	jr nz, .bankLoop
+	jp DisableSRAMAndPrepareClockData
+
+ChooseSaveSlotToSaveText:
+	text_far _ChooseSaveSlotToSaveText
+	text_end
+
+ThisIsCurrentSaveSlotText:
+	text_far _ThisIsCurrentSaveSlotText
+	text_end
+
+SaveSlotWillBeOverwrittenText:
+	text_far _SaveSlotWillBeOverwrittenText
+	text_end
+
+; ====================================
 
 SaveSAVConfirm:
 	call PrintText

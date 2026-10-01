@@ -1931,6 +1931,7 @@ wEphemerealTempBuffer2ByteStorage:: ; new
 wIsTrainerBattle:: db  ; new, to go beyond 200
 wWasTrainerBattle:: db ; new, to go beyond 200
 
+wCurrentSaveSlotBackup:: ; new
 wWhichPrize:: db
 
 ; counts downward each frame

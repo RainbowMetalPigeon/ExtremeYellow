@@ -4,8 +4,28 @@ _FileDataDestroyedText::
 	prompt
 
 _WouldYouLikeToSaveText::
-	text "Would you like to"
-	line "SAVE the game?"
+	text "SAVE in the"
+	line "current SAVE SLOT?"
+	done
+
+; new for multi save slots
+_ChooseSaveSlotToSaveText::
+	text "Choose a"
+	line "SAVE SLOT."
+	done
+
+_ThisIsCurrentSaveSlotText::
+	text "This is the"
+	line "current SAVE"
+	cont "SLOT. Proceed?"
+	done
+
+_SaveSlotWillBeOverwrittenText::
+	text "Data in the chosen"
+	line "SAVE SLOT will be"
+	cont "permanently"
+	cont "overwritten."
+	cont "Proceed?"
 	done
 
 _SavingText::
