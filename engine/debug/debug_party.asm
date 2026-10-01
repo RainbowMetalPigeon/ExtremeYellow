@@ -13,10 +13,10 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db MEWTWO, 96 ; 255
+	db ARCEUS, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
-	db PIDGEY, 60
+;	db PIDGEY, 60
 ;	db ZAPDOS, 42
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -268,7 +268,7 @@ IF DEF(_DEBUG)
 	ld a, 120
 	ld [wPlayerCoins], a
 
-	SetEvent EVENT_ENHANCED_RODS
+;	SetEvent EVENT_ENHANCED_RODS
 
 	SetEvent EVENT_PIKACHU_SASH_ENABLED
 
