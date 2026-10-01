@@ -745,8 +745,8 @@ DisplayWildLocations:
 	ld a, [wd11e]				; new
 	cp MEW						; new
 	jr z, .printMysterious		; new
-	cp MAROWAK					; new, testing
-	jr z, .printMysterious		; new, testing
+	cp MAROWAK					; new
+	jr z, .printMysterious		; new
 	farcall FindWildLocationsOfMon
 	call ZeroOutDuplicatesInList
 	ld hl, wShadowOAM
@@ -825,9 +825,9 @@ DisplayWildLocations:
 	ld a, [wd11e]				; new
 	cp MEW						; new
 	jr z, .notUnknownText		; new
-	ld de, AreaExtinctText		; new, testing
-	cp MAROWAK					; new, testing
-	jr z, .notUnknownText		; new, testing
+	ld de, AreaExtinctText		; new
+	cp MAROWAK					; new
+	jr z, .notUnknownText		; new
 	ld de, AreaUnknownText
 .notUnknownText					; new
 	call PlaceString
