@@ -8,6 +8,7 @@ ReadSuperRodData:
 	CheckEvent EVENT_ENHANCED_RODS
 	jr z, .loop
 	ld hl, SuperRodFishingSlots_Sevii_Enhanced
+	jr .loop
 .noSevii
 ; back to vanilla
 	ld hl, SuperRodFishingSlots
@@ -56,3 +57,113 @@ GenerateRandomFishingEncounter:
 
 INCLUDE "data/wild/super_rod.asm"
 INCLUDE "data/wild/super_rod_sevii.asm"
+
+; new --------------------------------------------
+
+; creates a list at wBuffer of maps where the mon in [wd11e] can be found.
+; this is used by the pokedex to display locations the mon can be found on the map.
+; especially for Super Rod fishing locations 
+FindWildLocationsOfMon_SuperRod::
+; choose list to use
+	CheckEvent EVENT_IN_SEVII
+	jr z, .noSevii
+; yes Sevii
+	ld hl, SuperRodFishingSlots_Sevii
+	CheckEvent EVENT_ENHANCED_RODS
+	jr z, .gotRodList
+	ld hl, SuperRodFishingSlots_Sevii_Enhanced
+	jr .gotRodList
+.noSevii
+; back to vanilla
+	ld hl, SuperRodFishingSlots
+	CheckEvent EVENT_ENHANCED_RODS
+	jr z, .gotRodList
+	ld hl, SuperRodFishingSlots_Enhanced
+.gotRodList
+
+; fill wBuffer = wTownMapCoords
+	ld de, wBuffer
+	ld a, [wd11e]
+	ld b, a ; b has the mon we are checking
+
+.loop
+	ld a, [hli] ; a has the map index, and now hl points to first mon
+	ld [de], a ; de holds the maps; may be emptied later
+	cp $FF ; = -1
+	ret z
+
+;checkMon1
+	ld a, [hli] ; a has the pokemon
+	inc hl ; now hl points to second mon
+	cp b
+	jr nz, .checkMon2
+; confirm this map, check the next, advance hl appropriately
+; hl +8
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc de
+	jr .loop
+
+.checkMon2
+	ld a, [hli] ; a has the pokemon
+	inc hl ; now hl points to third mon
+	cp b
+	jr nz, .checkMon3
+; confirm this map, check the next, advance hl appropriately
+; hl +6
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc de
+	jr .loop
+
+.checkMon3
+	ld a, [hli] ; a has the pokemon
+	inc hl ; now hl points to fourth mon
+	cp b
+	jr nz, .checkMon4
+; confirm this map, check the next, advance hl appropriately
+; hl +4
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	inc de
+	jr .loop
+
+.checkMon4
+	ld a, [hli] ; a has the pokemon
+	inc hl ; now hl points to fifth mon
+	cp b
+	jr nz, .checkMon5
+; confirm this map, check the next, advance hl appropriately
+; hl +2
+	inc hl
+	inc hl
+	inc de
+	jr .loop
+
+.checkMon5
+	ld a, [hli] ; a has the pokemon
+	inc hl ; now hl points to fifth mon
+	cp b
+	jr nz, .noMatchThisMap
+; confirm this map, check the next, advance hl appropriately
+; hl +0
+	inc de
+	jr .loop
+
+.noMatchThisMap
+; empty the value currently held in de, and do not advance it
+	xor a
+	ld [de], a
+	jr .loop

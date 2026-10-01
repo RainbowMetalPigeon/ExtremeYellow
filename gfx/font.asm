@@ -49,5 +49,8 @@ WorldMapZoomTileGraphicsEnd::
 AToZoomGraphics:: INCBIN "gfx/town_map/a_to_zoom.2bpp"
 AToZoomGraphicsEnd::
 
-CurrentBaseDVEVGraphics:: INCBIN "gfx/font/font_status_screen.2bpp"
-CurrentBaseDVEVGraphicsEnd::
+;CurrentBaseDVEVGraphics:: INCBIN "gfx/font/font_status_screen.2bpp"
+;CurrentBaseDVEVGraphicsEnd::
+
+SelectStartDexNestGraphics:: INCBIN "gfx/font/select_start_dex_nest.2bpp"
+SelectStartDexNestGraphicsEnd::

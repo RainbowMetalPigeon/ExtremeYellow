@@ -226,7 +226,14 @@ TownMapCursor:
 TownMapCursorEnd:
 
 LoadTownMap_Nest:
+; new
+	ld de, SelectStartDexNestGraphics
+	ld hl, vChars2 tile $31
+	lb bc, BANK(SelectStartDexNestGraphics), (SelectStartDexNestGraphicsEnd - SelectStartDexNestGraphics) / $10
+	call GoodCopyVideoData
+; BTV
 	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST ; new
+	ResetEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST ; new
 	ld hl, wUpdateSpritesEnabled
 	ld a, [hl]
 	push af
@@ -243,24 +250,39 @@ LoadTownMap_Nest:
 	ld de, MonsNestText
 	call PlaceString
 ; new/edited
-	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	ld a, "<DAY>"
-	jr z, .gotSymbol
-	ld a, "<NIGHT>"
-.gotSymbol
+; check first walking/fishing
+	CheckEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST
+	jr z, .checkDayNight
+; fishing is the same at day and night, overwrites the day/night symbol
+	ld a, "<ROD>"
 	hlcoord 18, 0
 	ld [hl], a
+	jr .doneWithSymbols
+.checkDayNight
+	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
+	ld a, "<DAY>"
+	jr z, .gotSymbolDayNight
+	ld a, "<NIGHT>"
+.gotSymbolDayNight
+	hlcoord 18, 0
+	ld [hl], a
+.doneWithSymbols
 ; BTV
 ; new
 	hlcoord 0, 17
-	ld a, "<SELINFO1>"
+	ld a, $31
 	ld [hli], a
-	ld a, "<SELINFO2>"
+	ld a, $32
 	ld [hli], a
-	ld a, "<SELINFO3>"
+	ld a, $33
 	ld [hli], a
-	ld a, "<SELINFO4>"
-	ld [hl], a
+	ld [hl], $34
+	hlcoord 17, 17
+	ld a, $35
+	ld [hli], a
+	ld a, $36
+	ld [hli], a
+	ld [hl], $37
 
 	ldh a, [hDownArrowBlinkCount1]
 	push af
@@ -287,7 +309,7 @@ LoadTownMap_Nest:
 	call JoypadLowSensitivity
 ;	predef CableClub_Run ; useless?
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT
+	and A_BUTTON | B_BUTTON | SELECT | START
 	jr z, .waitForButtonPress
 	pop af
 	ldh [hDownArrowBlinkCount2], a
@@ -296,15 +318,29 @@ LoadTownMap_Nest:
 
 	ldh a, [hJoy5]
 	bit BIT_SELECT, a
+	jr nz, .selectButton
+	bit BIT_START, a
 	jp z, .postButton
+
+.startButton ; if we pressed START: toggle between walking and fishing
+	CheckEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST
+	jr nz, .resetFishing
+	SetEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST
+	jr .backToCore1
+.resetFishing
+	ResetEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST
+.backToCore1
+	call ClearSprites
+	jp .core
+
 .selectButton ; if we pressed SELECT: toggle between day and night
 	CheckEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
 	jr nz, .resetNight
 	SetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-	jr .backToCore
+	jr .backToCore2
 .resetNight
 	ResetEvent EVENT_POKEDEX_DISPLAY_NIGHT_NEST
-.backToCore
+.backToCore2
 	call ClearSprites
 	jp .core
 
@@ -747,10 +783,10 @@ DisplayWildLocations:
 	jr z, .printMysterious		; new
 	cp MAROWAK					; new
 	jr z, .printMysterious		; new
-	farcall FindWildLocationsOfMon
+	call FindWildLocationsOfMon_Wrapper ; edited
 	call ZeroOutDuplicatesInList
 	ld hl, wShadowOAM
-	ld de, wTownMapCoords
+	ld de, wTownMapCoords ; = wBuffer
 .loop
 	ld a, [de]
 	cp $ff
@@ -1403,3 +1439,13 @@ IsCurrentlyPointedMapFlyable:
 	pop af
 	ld a, SEVII_TWO_ISLAND_CITY
 	ret
+
+; -----------------------------------------
+
+FindWildLocationsOfMon_Wrapper:
+	CheckEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST
+	jr z, .walking
+; fishing
+	jpfar FindWildLocationsOfMon_SuperRod
+.walking
+	jpfar FindWildLocationsOfMon

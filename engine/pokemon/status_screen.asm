@@ -90,12 +90,12 @@ StatusScreen:
 	call ClearScreen
 	call UpdateSprites
 	call LoadHpBarAndStatusTilePatterns
-; new
-	ld de, CurrentBaseDVEVGraphics
-	ld hl, vChars2 tile $31
-	lb bc, BANK(CurrentBaseDVEVGraphics), (CurrentBaseDVEVGraphicsEnd - CurrentBaseDVEVGraphics) / $10
-	call GoodCopyVideoData
-; BTV
+;; new
+;	ld de, CurrentBaseDVEVGraphics
+;	ld hl, vChars2 tile $31
+;	lb bc, BANK(CurrentBaseDVEVGraphics), (CurrentBaseDVEVGraphicsEnd - CurrentBaseDVEVGraphics) / $10
+;	call GoodCopyVideoData
+;; BTV
 	ld de, BattleHudTiles1  ; source
 	ld hl, vChars2 tile $6d ; dest
 	lb bc, BANK(BattleHudTiles1), 3
