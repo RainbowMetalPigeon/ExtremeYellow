@@ -101,7 +101,7 @@ _PersonalizationInfoTextTypeChart::
 	line "custom type chart"
 	cont "crafted by the"
 	cont "author is used."
-	cont "In can be viewed"
+	cont "It can be viewed"
 	cont "in the #DEX."
 ;	xxxx "123456789012345678"
 	prompt
@@ -110,7 +110,7 @@ _PersonalizationInfoTextTCGMode::
 	text "If selected, TCG"
 	line "types are used"
 	cont "for moves, chart,"
-	cont "and pokeMON."
+	cont "and #MON."
 	cont "This over-rides"
 	cont "CUSTOM type chart"
 	cont "& ALTERED types."
@@ -353,7 +353,7 @@ _OptionsInfoTextBattleStyle::
 	text "SHIFT: you're"
 	line "prompted to"
 	cont "switch #MON"
-	cont "before opponent"
+	cont "before the enemy"
 	cont "sends a new one."
 	prompt
 
@@ -410,7 +410,7 @@ _OptionsInfoTextExpGain::
 	cont "earn no EXP."
 
 	para "NOTHING: no battle"
-	line "earn any EXP."
+	line "earns any EXP."
 	prompt
 
 _PersonalizationInfoTextTypes_WannaKnowThemAll::

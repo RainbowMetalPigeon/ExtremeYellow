@@ -480,7 +480,7 @@ _SeviiTicketDescription::
 	prompt
 
 _PearlDescription::
-	text "Fabolous pearl."
+	text "Fabulous pearl."
 	next "Sought by some."
 	prompt
 
@@ -628,7 +628,7 @@ _HM04Description::
 
 _HM05Description::
 	text "FLASH"
-	next "Brigthen caves"
+	next "Brighten caves"
 	prompt
 
 _HM06Description::

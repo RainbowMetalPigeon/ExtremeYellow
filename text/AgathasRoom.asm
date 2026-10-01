@@ -51,7 +51,7 @@ _AgathaBeforeBattleTextRematch::
 	line "back, CHAMPION."
 
 	para "You and SAMUEL's"
-	line "grankid have done"
+	line "grandkid've done"
 	cont "amazing things."
 
 	para "You reignited the"
@@ -60,8 +60,8 @@ _AgathaBeforeBattleTextRematch::
 	cont "hope you will be"
 	cont "able to witness"
 	cont "the old duff's"
-	cont "too... because is"
-	cont "marvelous..."
+	cont "too... because it"
+	cont "is marvelous..."
 
 	para "But for now, you"
 	line "will see how even"
@@ -79,7 +79,7 @@ _AgathaAfterBattleTextRematch::
 	text "Glorious! Your"
 	line "battle spirit is"
 	cont "maybe even"
-	cont "brigther than"
+	cont "brighter than"
 	cont "theirs!"
 
 	para "But don't stop"
@@ -168,7 +168,7 @@ _AgathaAfterBattleText_RP::
 	line "in my long life."
 	cont "But never such a"
 	cont "disdain for what's"
-	cont "good and worth."
+	cont "good and worthy."
 
 	para "Go on. Keep"
 	line "disappointing"
@@ -184,7 +184,7 @@ _AgathaBeforeBattleText_RP_Pink::
 	text "You returned."
 	line "I've been haunted"
 	cont "by nightmares"
-	cont "since you ruiend"
+	cont "since you ruined"
 	cont "our lives."
 
 	para "How could you do"

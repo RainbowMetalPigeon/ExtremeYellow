@@ -191,7 +191,7 @@ _UsedWaterfallText2::
 
 _CannotUseWaterfallText::
 	text "You cannot use"
-	line "WATEFALL here!"
+	line "WATERFALL here!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -254,7 +254,7 @@ _CableClubNPCAreaReservedFor2FriendsLinkedByCableText_RP::
 	line "even doing here?"
 	cont "I really doubt"
 	cont "a scum like you"
-	cont "has any friend."
+	cont "has any friends."
 ;	xxxx "123456789012345678"
 	done
 

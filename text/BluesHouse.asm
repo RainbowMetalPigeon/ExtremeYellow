@@ -5,9 +5,8 @@ _DaisyInitialText::
 
 	para "Since our parents"
 	line "disappeared, they"
-	cont "closed quite a"
-	cont "lot in"
-	cont "themselves..."
+	cont "closed off quite"
+	cont "a lot..."
 
 	para "On top of that,"
 	line "Gramps' condition"
@@ -69,7 +68,7 @@ _DaisyPostGiveMapText::
 	cont "confusion under a"
 	cont "mask of arrogance"
 	cont "and fake"
-	cont "selfconfidence..."
+	cont "self-confidence..."
 	done
 
 _GotMapText::
@@ -118,7 +117,7 @@ _BluesHouseClues_Intro::
 
 	para "Anyway! While I"
 	line "was doing some"
-	cont "researches, I"
+	cont "researche, I"
 	cont "stumbled upon"
 	cont "these cryptic"
 	cont "messages."
@@ -307,7 +306,7 @@ _BluesHouseBluesMomText::
 	cont "unreal."
 
 	para "I never thought"
-	line "I'd ever seen my"
+	line "I'd ever see my"
 	cont "old one and my"
 	cont "kids again..."
 
@@ -357,7 +356,7 @@ _BluesHouseSignText1::
 
 	para "It looks like a"
 	line "happy family, but"
-	cont "for some reasons"
+	cont "for some reason"
 	cont "it has a sad"
 	cont "feeling on it."
 ;	xxxx "123456789012345678"
@@ -365,7 +364,7 @@ _BluesHouseSignText1::
 
 _BluesHouseSignText2::
 	text "There are two open"
-	line "broswer tabs."
+	line "browser tabs."
 
 	para "One is about how"
 	line "to treat a"

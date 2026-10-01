@@ -654,8 +654,8 @@ _NoPokemonText::
 
 _HurtByUnderwaterText:: ; new
 	text "<USER>"
-	line "suffers for being"
-	cont "underwater!"
+	line "suffers from"
+	cont "being underwater!"
 ;	xxxx "123456789012345678"
 	prompt
 

@@ -49,8 +49,8 @@ _BattleFacilityTextGuide_Battle3::
 _BattleFacilityTextGuide_Info::
 	text "Our BATTLE"
 	line "FACILITY, or B.F."
-	cont "for short, offers"
-	cont "you to play with"
+	cont "for short, lets"
+	cont "you play with"
 	cont "and face"
 	cont "different pools"
 	cont "of #MON."
@@ -98,7 +98,7 @@ _BattleFacilityTextGuide_Info::
 	cont "team will be"
 	cont "healed and you"
 	cont "will be rewarded"
-	cont "a PP UP."
+	cont "with a PP UP."
 
 	para "If you complete a"
 	line "SESSION, you are"
@@ -123,7 +123,7 @@ _BattleFacilityTextGuide_Info::
 	cont "#MON!"
 
 	para "No prizes are"
-	line "given off in this"
+	line "given out in this"
 	cont "mode, except the"
 	cont "glory of"
 	cont "overcoming the"
@@ -298,7 +298,7 @@ _BattleFacilityTextGuide_InfoFull::
 	cont "team will be"
 	cont "healed and you"
 	cont "will be rewarded"
-	cont "a PP UP."
+	cont "with a PP UP."
 
 	para "If you complete a"
 	line "SESSION, you are"
@@ -323,7 +323,7 @@ _BattleFacilityTextGuide_InfoFull::
 	cont "#MON!"
 
 	para "No prizes are"
-	line "given off in this"
+	line "given out in this"
 	cont "mode, except the"
 	cont "glory of"
 	cont "overcoming the"
@@ -374,7 +374,7 @@ _BattleFacilityTextGuide_InfoFull::
 	cont "BATTLE FACILITY!"
 
 	para "You can find all"
-	line "these info on the"
+	line "this info on the"
 	cont "sign near the PC."
 
 	para "For a brief"
@@ -405,7 +405,7 @@ _BattleFacilityTextOpponent_PostBattleLoss::
 _BattleFacilityTextPerson1::
 	text "I'm so excited! I"
 	line "wanna dive"
-	cont "completely in"
+	cont "completely into"
 	cont "INVERSE battles,"
 	cont "they are my"
 	cont "specialty!"

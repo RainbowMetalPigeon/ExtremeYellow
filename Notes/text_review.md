@@ -8,32 +8,6 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 
 | File | Label | Original | Suggested Fix | Note |
 | --- | --- | --- | --- | --- |
-| data/text/item_descriptions.asm | _PearlDescription | "Fabolous pearl." | "Fabulous pearl." |  |
-| data/text/item_descriptions.asm | _HM05Description | "Brigthen caves" | "Brighten caves" |  |
-| data/text/item_descriptions.asm | _TM17Description | "DRAININGKISS" | "DRAINING KISS" | missing space; every other multi-word move name in the list has a space |
-| data/text/item_descriptions.asm | _MaxElixerDescription | "Fully restores the" "PP of one #MON." | "Fully restores the" "PP of all moves." | PP belongs to moves, not #MON; ElixerDescription (non-Max) correctly says "of all moves" |
-| data/text/text_2.asm | _DiglettSculptureText | "It's a buddhist" "altar." | "It's a Buddhist altar." | capitalization |
-| data/text/text_2.asm | _ViridianBlackboardBurnText | "the #MON max" "HP at every turn." | "the #MON's max HP at every turn." | missing possessive; may need re-wrap |
-| data/text/text_3.asm | _BoxFullText | "This Box is full of #MON." | "This BOX is full of #MON." | inconsistent with "BOX" used fully capitalized elsewhere |
-| data/text/text_3.asm | _MonWasStoredText | "was stored in Box @" | "was stored in BOX @" | inconsistent with "BOX" used fully capitalized elsewhere |
-| data/text/text_4.asm | _PersonalizationInfoTextTypeChart | "In can be viewed in the #DEX." | "It can be viewed in the #DEX." |  |
-| data/text/text_4.asm | _PersonalizationInfoTextTCGMode | "for moves, chart, and pokeMON." | "for moves, chart, and #MON." | inconsistent with placeholder token used elsewhere |
-| data/text/text_4.asm | _RandomizationInfoTextEvolutions | "Every #MON evolves randomly in any other one at every level." | "Every #MON evolves randomly into any other one at every level." |  |
-| data/text/text_8.asm | _CannotUseWaterfallText | "You cannot use WATEFALL here!" | "You cannot use WATERFALL here!" |  |
-| data/text/text_rocket_path_1.asm | _RocketNPCText_RocketPath_4 | "you'll be rewarder!" | "you'll be rewarded!" |  |
-| data/text/text_rocket_path_1.asm | _GenericNPCText_RocketPath_21 | "Maybe a sense of directionless," | "Maybe a sense of directionlessness," | may need re-wrap |
-| text/AgathasRoom.asm | _AgathaAfterBattleTextRematch2 | "maybe even brigther than theirs!" | "maybe even brighter than theirs!" |  |
-| text/AgathasRoom.asm | _AgathaBeforeBattleText_RP_Pink | "since you ruiend our lives" | "since you ruined our lives" |  |
-| text/AgathasRoom.asm | _AgathaBeforeBattleTextRematch | "SAMUEL's grankid have done" | "SAMUEL's grandkid have done" | same file later spells it "grandkid" correctly |
-| text/AgathasRoom.asm | _AgathaAfterBattleText_RP | "such a disdain for what's good and worth." | "...what's good and worthy." |  |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_Info | "No prizes are given off in this mode" | "No prizes are given out in this mode" |  |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_InfoFull | "No prizes are given off in this mode" | "No prizes are given out in this mode" |  |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_InfoFull | "You can find all these info on the sign near the PC." | "all this info on the sign" |  |
-| text/BattleFacility.asm | _BattleFacilityText_NextBattle | "Let's continue with battle N. @" | "battle No. @" | may need re-wrap |
-| text/BluesHouse.asm | _DaisyPostGiveMapText | "under a mask of arrogance and fake selfconfidence..." | "...fake self-confidence..." |  |
-| text/BluesHouse.asm | _DaisyInitialText | "While I was doing some researches, I stumbled upon" | "While I was doing some research, I stumbled upon" |  |
-| text/BluesHouse.asm | _BluesHouseSignText1 | "for some reasons it has a sad feeling on it" | "for some reason it has a sad feeling on it" |  |
-| text/BluesHouse.asm | _BluesHouseSignText2 | "There are two open broswer tabs." | "There are two open browser tabs." |  |
 | text/BrunosRoom.asm | _BrunoBeforeBattleText_RP | "Let's FIGHTING!" | "Let's FIGHT!" |  |
 | text/BrunosRoom.asm | _BrunoBeforeBattleTextRematch2 | "you're working to become even more strong." | "you're working to become even stronger." |  |
 | text/CeladonChiefHouse.asm | _LunarShrineMonkText_RelicNotInBag | "Well, I would invite to leave, if you please." | "Well, I would invite you to leave, if you please." | "you" missing (compare sibling text "_RelicInBag_FirstTime" which has it correctly); may need re-wrap |
@@ -240,40 +214,9 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 
 | File | Label | Original | Suggested Fix | Note |
 | --- | --- | --- | --- | --- |
-| data/text/item_descriptions.asm | _SeviiTicketDescription | "Allows to travel" "to SEVII ISLANDS." | "Allows you to travel" "to SEVII ISLANDS." | missing "you"; may need re-wrap |
-| data/text/item_descriptions.asm | _FlamePlumeDescription | "burning divine." | "burning divinely." | "divine" used where an adverb is needed |
-| data/text/item_descriptions.asm | _SmashBallDescription | "A BALL better if" "mash A button." | "A BALL better if" "you mash the A button." | missing "you" and "the"; may need re-wrap |
-| data/text/item_descriptions.asm | _FastBallDescription, _HeavyBallDescription | "A BALL optimal on" "fast #MON." / "heavy #MON." | "A BALL optimal for" "fast #MON." / "heavy #MON." | "optimal on" is nonstandard; appears in both descriptions |
-| data/text/item_descriptions.asm | _HM10Description | "Summons whirlpool" | "Summons a whirlpool" | missing article |
-| data/text/text_2.asm | _CeruleanPokecenterGuyText | "They collects rare" "ones too!" | "They collect rare ones too!" | subject-verb agreement |
-| data/text/text_2.asm | _ObsidianPokecenterGuyText | "how difficult was" "to get me here." | "how difficult it was to get me here." | missing "it" |
-| data/text/text_2.asm | _ViridianBlackboardPoisonText | "of its max HP at" "the end of every" "of its turns." | "...at the end of each of its turns." | extra "of" |
-| data/text/text_2.asm | _AreYouSureText | "Are you sure to" "surrender?" | "Are you sure you want to surrender?" | may need re-wrap |
-| data/text/text_2.asm | _SeviiTicketUpTo3 | "Allows to travel" "to the first 3 of" "SEVII ISLANDS!" | "Allows you to travel to the first 3 of SEVII ISLANDS!" | missing "you"; may need re-wrap |
-| data/text/text_2.asm | _SeviiTicketUpTo5 | "Allows to travel" "to the first 5 of" "SEVII ISLANDS!" | "Allows you to travel to the first 5 of SEVII ISLANDS!" | missing "you"; may need re-wrap |
-| data/text/text_2.asm | _SeviiTicketUpTo8 | "Allows to travel" "to all of the" "SEVII ISLANDS!" | "Allows you to travel to all of the SEVII ISLANDS!" | missing "you"; may need re-wrap |
-| data/text/text_3.asm | _HurtByUnderwaterText | "<USER> suffers for being underwater!" | "<USER> suffers from being underwater!" | may need re-wrap |
-| data/text/text_4.asm | _OptionsInfoTextExpGain | "NOTHING: no battle earn any EXP." | "NOTHING: no battle earns any EXP." | subject-verb agreement |
-| data/text/text_4.asm | _OptionsInfoTextBattleStyle | "before opponent sends a new one." | "before the opponent sends a new one." | missing article; may need re-wrap |
-| data/text/text_4.asm | _OptionsInfoTextCap | "LOOSE: slightly above next GYM LEADER's ace." | "LOOSE: slightly above the next GYM LEADER's ace." | missing article, inconsistent with the "TIGHT" entry above it which has "the"; may need re-wrap |
-| data/text/text_8.asm | _CableClubNPCAreaReservedFor2FriendsLinkedByCableText_RP | "I really doubt a scum like you has any friend." | "I really doubt a scum like you has any friends." |  |
-| data/text/text_rocket_path_1.asm | _GenericNPCText_RocketPath_6 | "What will your parents think of your doing?" | "What will your parents think of what you're doing?" | may need re-wrap |
-| data/text/text_rocket_path_1.asm | _GenericNPCText_RocketPath_26 | "inflicting to your dear ones" | "inflicting on your dear ones" |  |
-| data/text/text_rocket_path_1.asm | _GenericNPCTextUnderwater_RocketPath_2 | "Not even under-water we are safe from TEAM ROCKET!" | "Not even underwater are we safe from TEAM ROCKET!" |  |
-| data/text/text_rocket_path_1.asm | _BrockPostBattleText_RP (+7 aliases incl. _OragePostBattleText_RP) | "Don't dirty my GYM any one more second." | "Don't dirty my GYM one more second." |  |
-| text/AgathasRoom.asm | _AgathaBeforeBattleTextRematch | "I hope you will be able to witness the old duff's too... because is marvelous..." | "...because it is marvelous..." | missing "it" |
-| text/AgathasRoom.asm | _AgathaBeforeBattleTextRematch2 | "It was also what made us better ourselves." | "It was also what helped us better ourselves." |  |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_Info | "B.F. for short, offers you to play with and face different pools of #MON." | "lets you play with and face different pools" | may need re-wrap |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_Info | "your team will be healed and you will be rewarded a PP UP." | "rewarded with a PP UP." |  |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_InfoFull | "your team will be healed and you will be rewarded a PP UP." | "rewarded with a PP UP." |  |
-| text/BattleFacility.asm | _BattleFacilityTextGuide_Info | "We wish you best of fun at our BATTLE FACILITY!" | "We wish you the best of fun" | may need re-wrap |
-| text/BattleFacility.asm | _BattleFacilityTextPerson1 | "I wanna dive completely in INVERSE battles" | "dive completely into INVERSE battles" |  |
-| text/BattleFacility.asm | _BattleFacilityText_AfterWarpDefeat | "You anyhow did great!" | "Anyhow, you did great!" |  |
 | text/BillsHouse.asm | _BillsHouseText3_MapAlreadyShown | "found out the map... I didn't manage to convince them" | "found the map... I didn't manage to convince them" | "found out" fits facts/info, not a physical object; may need re-wrap |
 | text/BillsHouse.asm | _BillsHouseText3_MapAlreadyShown | "things were going well and smooth" | "things were going well and smoothly" | adjective/adverb mismatch; may need re-wrap |
 | text/BillsHouse.asm | _BillsHouseText3_MapAlreadyShown | "in a split second was a nightmare." | "in a split second it was a nightmare." | missing subject "it"; may need re-wrap |
-| text/BluesHouse.asm | _DaisyInitialText | "Since our parents disappeared, they closed quite a lot in themselves..." | "...they closed off quite a lot..." (or "closed in on themselves quite a lot") |  |
-| text/BluesHouse.asm | _BluesHouseBluesMomText | "I never thought I'd ever seen my old one and my kids again..." | "I never thought I'd ever see my old one and my kids again..." | tense mismatch |
 | text/BrunosRoom.asm | _BrunoBeforeBattleText_RP_Pink | "and awoke a power as anything else!" | "and awoke a power unlike anything else!" |  |
 | text/CeladonChiefHouse.asm | _LunarShrineMonkText_AlreadyReturnedRelic | "I... I think I'm ready to open again the TEMPLE to the visitors." | "I... I think I'm ready to open the TEMPLE to visitors again." | unnatural word order; may need re-wrap |
 | text/CeladonChiefHouse.asm | _LunarShrineTextRockets11 | "and so should be the whole of KANTO." | "and so should the whole of KANTO." | inverted auxiliary/verb order |
@@ -552,7 +495,5 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/ViridianSchoolHouse.asm | _SchoolText9 | "so-called Same Type Attack Bonus or STAB in short." | "so-called Same Type Attack Bonus or STAB for short." |  |
 | text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoArtifact | "If you really wish something but you can't afford it" | "If you really wish for something" |  |
 | text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesArtifact | "Could I interest you with a trade?" | "Could I interest you in a trade?" |  |
-| text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesTrade | "You made this old antique dealer so really happy!" | "so happy!" / "really happy!" |  |
-| text/WardensHouse.asm | _BeatGiovanniAmazementText | "Thank you so immensely much!!!" | "Thank you so much, immensely!!!" |  |
 | text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag | "You wouldn't dare setting it on fi-" | "You wouldn't dare set it on fi-" |  |
 | text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks | "<PLAYER> gives the ARTIFACT to the seller. But ACCIDENTALLY it falls and breaks into a million pieces." | "gave...it fell and broke" (tense mismatch with other narration lines, which use past tense) |  |

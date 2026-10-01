@@ -250,7 +250,7 @@ _GenericNPCText_RocketPath_21::
 	cont "goddess forbid,"
 	cont "boredom?"
 	cont "Maybe a sense of"
-	cont "directionless,"
+	cont "directionlessness"
 	cont "which let you"
 	cont "grab the first"
 	cont "floating debris"
@@ -295,7 +295,7 @@ _GenericNPCText_RocketPath_26::
 	text "Have you ever"
 	line "thought just how"
 	cont "much pain you're"
-	cont "inflicting to"
+	cont "inflicting on"
 	cont "your dear ones?"
 ;	xxxx "123456789012345678"
 	done
@@ -383,7 +383,7 @@ _RocketNPCText_RocketPath_4::
 	text "Hey, newcomer!"
 	line "Keep working hard"
 	cont "and you'll be"
-	cont "rewarder!"
+	cont "rewarded!"
 ;	xxxx "123456789012345678"
 	done
 

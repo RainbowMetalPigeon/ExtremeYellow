@@ -192,7 +192,7 @@ _CeruleanPokecenterGuyText:: ; edited
 	text "BILL has lots of"
 	line "#MON!"
 
-	para "They collects rare"
+	para "They collect rare"
 	line "ones too!"
 	done
 
@@ -780,7 +780,7 @@ _ViridianBlackboardPoisonText::
 	text "When poisoned, a" ; edited
 	line "#MON loses 1/8"
 	cont "of its max HP at"
-	cont "the end of every"
+	cont "the end of each"
 	cont "of its turns."
 
 	para "If a #MON is" ; new
@@ -817,7 +817,7 @@ _ViridianBlackboardBurnText::
 	para "It also causes"
 	line "ongoing damage"
 	cont "equal to 1/8 of"
-	cont "the #MON max"
+	cont "the #MON's max"
 	cont "HP at every turn."
 
 	para "Use BURN HEAL to"
@@ -928,7 +928,7 @@ _PokemonBooksText::
 	done
 
 _DiglettSculptureText:: ; edited
-	text "It's a buddhist"
+	text "It's a Buddhist"
 	line "altar."
 	done
 
