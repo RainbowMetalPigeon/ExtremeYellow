@@ -484,6 +484,7 @@ DisplayDepositWithdrawMenu:
 	call ReloadTilesetTilePatterns
 	call RunDefaultPaletteCommand
 	call LoadGBPal
+	call LoadHpBarAndStatusTilePatterns ; new
 	jr .loop
 
 DepositPCText:  db "DEPOSIT@"
