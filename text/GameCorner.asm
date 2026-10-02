@@ -249,6 +249,12 @@ _CeladonGameCornerText_HiNewbie::
 ;	xxxx "123456789012345678"
 	prompt
 
+_CeladonGameCornerText_ReceivedLiftKey::
+	text "<PLAYER> received"
+	line "LIFT KEY!"
+;	xxxx "123456789012345678"
+	done
+
 _CeladonGameCornerText_GoToTheBoss::
 	text "Don't waste time!"
 	line "Go to the BOSS."

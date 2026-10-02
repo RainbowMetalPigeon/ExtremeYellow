@@ -136,16 +136,10 @@ Route24Text1: ; edited
 ; message relyed to the captain, give HM CUT and tell to go to Celadon
 	ld hl, Route24Text_MessageRelyed
 	call PrintText
-	lb bc, HM_CUT, 1
-	call GiveItem
-	jr nc, .bagFull
 	ld hl, ReceivedHM01Text_RP
 	call PrintText
 	SetEvent EVENT_RP_GOT_HM01
 	ld hl, Route24Text_NextQuest
-	jp .printAndEnd
-.bagFull
-	ld hl, Route24Text_NoRoom
 	jp .printAndEnd
 .notRP
 	ResetEvent EVENT_NUGGET_REWARD_AVAILABLE

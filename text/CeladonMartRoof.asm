@@ -163,13 +163,28 @@ _CeladonMartRoofText_Beer::
 _CeladonMartRoofText_MatchaTea::
 	text "Ugh! It smells"
 	line "like grass!"
-	
+
 	para "I want some real"
 	line "fancy drink!"
 ;	xxxx "123456789012345678"
 	prompt
 
 ; new for RP ----------------------
+
+_CeladonMartRoofText2_RP_GotTM13::
+	text "<PLAYER> stole"
+	line "TM13 ICE BEAM!"
+	done
+
+_CeladonMartRoofText2_RP_GotTM48::
+	text "<PLAYER> stole"
+	line "TM48 ROCK SLIDE!"
+	done
+
+_CeladonMartRoofText2_RP_GotTM49::
+	text "<PLAYER> stole"
+	line "TM49 SHADOW BALL!"
+	done
 
 _CeladonMartRoofText2_RP_Intro::
 	text "I'm thirsty!"

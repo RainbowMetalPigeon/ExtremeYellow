@@ -297,17 +297,17 @@ CeladonMartRoofText2_RP:
 	ld hl, CeladonMartRoofText2_RP_Intro
 	call PrintText
 ; steal TM 13
-	ld hl, CeladonMartRoofText2_RP_GotItem
+	ld hl, CeladonMartRoofText2_RP_GotTM13
 	call PrintText
 	SetEvent EVENT_GOT_TM13
 ; steal TM 48
-	ld hl, CeladonMartRoofText2_RP_GotItem
+	ld hl, CeladonMartRoofText2_RP_GotTM48
 	call PrintText
 	SetEvent EVENT_GOT_TM48
 ; steal TM 49
-	ld hl, CeladonMartRoofText2_RP_GotItem
+	ld hl, CeladonMartRoofText2_RP_GotTM49
 	call PrintText
-	SetEvent EVENT_GOT_TM48
+	SetEvent EVENT_GOT_TM49
 	SetEvent EVENT_RP_GOT_ALL_ROOF_TMS
 	jr .done
 .printAndEnd
@@ -319,8 +319,18 @@ CeladonMartRoofText2_RP_Intro:
 	text_far _CeladonMartRoofText2_RP_Intro
 	text_end
 
-CeladonMartRoofText2_RP_GotItem:
-	text_far _ReceivedHM01Text
+CeladonMartRoofText2_RP_GotTM13:
+	text_far _CeladonMartRoofText2_RP_GotTM13
+	sound_get_item_1
+	text_end
+
+CeladonMartRoofText2_RP_GotTM48:
+	text_far _CeladonMartRoofText2_RP_GotTM48
+	sound_get_item_1
+	text_end
+
+CeladonMartRoofText2_RP_GotTM49:
+	text_far _CeladonMartRoofText2_RP_GotTM49
 	sound_get_item_1
 	text_end
 

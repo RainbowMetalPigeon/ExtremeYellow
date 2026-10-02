@@ -736,7 +736,7 @@ CeladonGameCornerText_OpenDoorForYou:
 	text_end
 
 CeladonGameCornerText_ReceivedLiftKey:
-	text_far _ReceivedHM01Text
+	text_far _CeladonGameCornerText_ReceivedLiftKey
 	sound_get_key_item
 	text_end
 
