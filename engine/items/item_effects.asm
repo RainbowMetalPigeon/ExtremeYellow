@@ -4442,6 +4442,8 @@ ItemTMCase:
 	ld a, 1
 	ld [wUpdateSpritesEnabled], a
 	call GBPalWhiteOut
+	call LoadCurrentMapView
+	call ReloadTilesetTilePatterns
 	jp ReloadMapSpriteTilePatterns
 
 ItemTMCase_OpeningDialogue:
