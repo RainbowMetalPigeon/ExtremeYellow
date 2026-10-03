@@ -271,7 +271,7 @@ SaffronCityText_BlockingSilph_RP_After_GoodTakeThis:
 	text_end
 
 SaffronCityText_BlockingSilph_RP_After_ObtainItem:
-	text_far _ReceivedHM01Text
+	text_far _GenericPlayerReceivedItem
 	sound_get_key_item
 	text_end
 

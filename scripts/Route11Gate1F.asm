@@ -156,7 +156,7 @@ Route11Gate1FText1_RP_TakeThis:
 	text_end
 
 Route11Gate1FText1_RP_ObtainItem:
-	text_far _ReceivedHM01Text
+	text_far _GenericPlayerGotItem
 	sound_get_key_item
 	text_end
 

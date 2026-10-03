@@ -709,7 +709,7 @@ ObsidianWarehouseFinalText6_RP_AfterOrb:
 	text_end
 
 ObsidianWarehouseFinalText6_RP_AfterBlue_ReceivedIceOrb:
-	text_far _ReceivedHM01Text
+	text_far _GenericPlayerReceivedItem
 	sound_get_key_item
 	text_end
 

@@ -736,6 +736,6 @@ CeladonUniversity2Text8_RP_BagFull:
 	text_end
 
 CeladonUniversity2Text8_RP_GotItem:
-	text_far _ReceivedHM01Text
+	text_far _GenericPlayerGotItem
 	sound_get_key_item
 	text_end

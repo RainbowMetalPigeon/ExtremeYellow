@@ -161,6 +161,20 @@ _NurseChanseyText::
 	line "sey!"
 	done
 
+_GenericPlayerGotItem:: ; new
+	text "<PLAYER> got"
+	line "@"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
+
+_GenericPlayerReceivedItem:: ; new
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer
+	text "!@"
+	text_end
+
 ; new =======================================
 
 _GymLeaderPostRematchText::
@@ -179,7 +193,7 @@ _CannotUseRockSmashText::
 	text "No! You can't SMASH"
 	line "rocks just yet!"
 	done
-	
+
 _APokemonCouldSmashThisText::
 	text "A #MON could"
 	line "SMASH this rock!"
