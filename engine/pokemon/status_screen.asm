@@ -260,6 +260,8 @@ StatusScreen:
 	jr z, .advanceTo2
 	cp 2
 	jr z, .advanceTo3
+	cp 3
+	jr z, .advanceTo4
 ; return to 0
 	call ClearStatsValues
 	hlcoord 11, 3
@@ -283,6 +285,11 @@ StatusScreen:
 	inc a
 	ld [wDumbByteToToggleStatusScreen], a
 	call PrintStatsBox_StatExp
+	jr .continue
+.advanceTo4
+	inc a
+	ld [wDumbByteToToggleStatusScreen], a
+	call PrintStatsBox_StatExpRaw
 	jr .continue
 .vanilla
 ; back to vanilla
@@ -375,7 +382,7 @@ PrintStatsBox:
 	hlcoord 1, 10
 	ld de, StatsTextTitle_Current2
 	call PlaceString
-; print stats name only once
+; print stats name only once, except for StatExpRaw
 	hlcoord 1, 12
 	ld de, StatsText_Atk
 	call PlaceString
@@ -575,45 +582,29 @@ PrintStatsBox_StatExp: ; new
 	ld de, StatsTextTitle_StatExp1
 	call PlaceString
 	hlcoord 1, 10
-	ld de, StatsTextTitle_StatExp2
+	ld de, StatsTextTitle_StatExp2_EV
 	call PlaceString
 ; print ATK stat exp
-	push hl
 	ld hl, wLoadedMonAttackExp
-	ld a, [hli]
-	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	pop hl
 	lb bc, 1, 3
 	hlcoord 6, 12
 	call PrintNumber
 ; print DEF stat exp
-	push hl
 	ld hl, wLoadedMonDefenseExp
-	ld a, [hli]
-	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	pop hl
 	lb bc, 1, 3
 	hlcoord 6, 13
 	call PrintNumber
 ; print SPEED stat exp
-	push hl
 	ld hl, wLoadedMonSpeedExp
-	ld a, [hli]
-	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	pop hl
 	lb bc, 1, 3
 	hlcoord 6, 14
 	call PrintNumber
 ; print SPECIAL stat exp
-	push hl
 	ld hl, wLoadedMonSpecialExp
-	ld a, [hli]
-	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	pop hl
 	lb bc, 1, 3
 	hlcoord 6, 15
 	push de
@@ -628,12 +619,69 @@ PrintStatsBox_StatExp: ; new
 	call ClearCurHpMaxHP
 ; print HP stat exp
 	ld hl, wLoadedMonHPExp
-	ld a, [hli]
-	ld a, [hld]
 	call CalculateHumanReadableStatExp
-	ld a, [de]
 	hlcoord 13, 4
-	lb bc, 1, 2
+	lb bc, 1, 3
+	jp PrintNumber
+
+PrintStatsBox_StatExpRaw: ; new
+	call ClearStatsValues
+; print short stats name
+	hlcoord 1, 12
+	ld de, StatsText_Atk_Short
+	call PlaceString
+	hlcoord 1, 13
+	ld de, StatsText_Def_Short
+	call PlaceString
+	hlcoord 1, 14
+	ld de, StatsText_Spd_Short
+	call PlaceString
+	hlcoord 1, 15
+	ld de, StatsText_SpcAtk_Short
+	call PlaceString
+	hlcoord 1, 16
+	ld de, StatsText_SpcDef_Short
+	call PlaceString
+; print title
+	hlcoord 1,  9
+	ld de, StatsTextTitle_StatExp1
+	call PlaceString
+	hlcoord 1, 10
+	ld de, StatsTextTitle_StatExp2_Raw
+	call PlaceString
+; print ATK stat exp
+	ld de, wLoadedMonAttackExp
+	lb bc, 2, 5
+	hlcoord 4, 12
+	call PrintNumber
+; print DEF stat exp
+	ld de, wLoadedMonDefenseExp
+	lb bc, 2, 5
+	hlcoord 4, 13
+	call PrintNumber
+; print SPEED stat exp
+	ld de, wLoadedMonSpeedExp
+	lb bc, 2, 5
+	hlcoord 4, 14
+	call PrintNumber
+; print SPECIAL stat exp
+	ld de, wLoadedMonSpecialExp
+	lb bc, 2, 5
+	hlcoord 4, 15
+	push de
+	call PrintNumber
+	pop de
+; print SPECIAL stat exp (yes, again, same as above)
+; skipping useless time-consuming part
+	lb bc, 2, 5
+	hlcoord 4, 16
+	call PrintNumber
+; clear CurHP/MaxHP
+	call ClearCurHpMaxHP
+; print HP stat exp
+	ld de, wLoadedMonHPExp
+	hlcoord 13, 4
+	lb bc, 2, 5
 	jp PrintNumber
 
 StatsText_Atk:
@@ -646,6 +694,17 @@ StatsText_SpcAtk:
 	db   "S.AT @"
 StatsText_SpcDef:
 	db   "S.DF @"
+
+StatsText_Atk_Short:
+	db   "AT  @"
+StatsText_Def_Short:
+	db   "DE  @"
+StatsText_Spd_Short:
+	db   "SP  @"
+StatsText_SpcAtk_Short:
+	db   "SA  @"
+StatsText_SpcDef_Short:
+	db   "SD  @"
 
 ClearCurHpMaxHP: ; new
 	ld a, " "
@@ -685,11 +744,14 @@ ClearStatsValues: ; new
 
 ; input: wLoadedMonSTATExp in hl
 ; output: human-readable value of stat exp loaded in de via wMultiUseBuffer
+; specifically, a la EV: 0-255, so no quartering happening here anymore
 CalculateHumanReadableStatExp: ; new
 ; calculates ceil(Sqrt(stat exp)) in b
 	ld b, 0
-	ld a, [hli] ; for debugging
-	ld a, [hld] ; for debugging
+	ld a, [hli]
+	or [hl]
+	jr z, .statExpDone
+	dec hl
 .startLoop
 	xor a
 	ldh [hMultiplicand], a
@@ -718,12 +780,12 @@ CalculateHumanReadableStatExp: ; new
 	jr z, .statExpDone ; exact match, no need to reduce b by 1
 
 .MSBBigger
-	dec b
+;	dec b
 
 .statExpDone
 	ld a, b
-	srl a
-	srl a ; divide by 4 with the operation above
+;	srl a
+;	srl a ; divide by 4 with the operation above
 	ld [wMultiUseBuffer], a
 	ld de, wMultiUseBuffer
 	ret
@@ -1007,13 +1069,17 @@ StatsTextTitle_DV1:
 ;	xx   "12345678@"
 
 StatsTextTitle_DV2:
-	db   "(AKA IV)@"
+	db   "(aka IV)@"
 ;	xx   "12345678@"
 
 StatsTextTitle_StatExp1:
 	db   "STAT EXP@"
 ;	xx   "12345678@"
 
-StatsTextTitle_StatExp2:
-	db   "(AKA EV)@"
+StatsTextTitle_StatExp2_EV:
+	db   "(sim EV)@"
+;	xx   "12345678@"
+
+StatsTextTitle_StatExp2_Raw:
+	db   "(raw)   @"
 ;	xx   "12345678@"
