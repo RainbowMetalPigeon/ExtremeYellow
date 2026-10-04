@@ -338,6 +338,10 @@ IsObsidianIslandWarpTileInFrontOfPlayer: ; new
 	ld a, [wTileInFrontOfPlayer]
 	cp $12
 	jr z, .yesObsidianIslandWarp
+	cp $0F
+	jr z, .yesObsidianIslandWarp
+	cp $4E
+	jr z, .yesObsidianIslandWarp
 	cp $50
 	jr nz, .notObsidianIslandWarp
 .yesObsidianIslandWarp
