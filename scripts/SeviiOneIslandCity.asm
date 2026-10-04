@@ -523,7 +523,11 @@ SeviiOneIslandCityScript7:
 SeviiOneIslandCityScript8:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp z, SeviiOneIslandCityResetScripts
+	jr nz, .weWon
+; we lost
+	SetEvent EVENT_RP_LOST_TO_ONE_ISLAND_JENNY
+	jp SeviiOneIslandCityResetScripts
+.weWon
 ; we won
 	xor a
 	ld [wIsTrainerBattle], a
@@ -614,13 +618,6 @@ SeviiOneIslandCityResetScripts: ; new
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
-; in case we lost, to avoid weird plot stuff
-	ld a, HS_SEVII_ONE_ISLAND_CITY_CELIO
-	ld [wMissableObjectIndex], a
-	predef HideObjectSevii
-	ld a, HS_SEVII_ONE_ISLAND_CITY_JENNY
-	ld [wMissableObjectIndex], a
-	predef HideObjectSevii
 	ret
 
 SeviiOneIslandCityScriptText1_RP: ; 18 ; Celio and Jenny

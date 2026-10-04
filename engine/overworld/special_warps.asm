@@ -130,6 +130,10 @@ LoadSpecialWarpData:
 	res 6, [hl]
 	jr z, .otherDestination
 ; return to last pokemon center or player's house
+; new for special warp if lost again Jenny in One Island in RP
+	CheckAndResetEvent EVENT_RP_LOST_TO_ONE_ISLAND_JENNY
+	jr nz, .sevii1
+; BTV
 	ld a, [wLastBlackoutMap]
 	jr .usedFlyWarp
 .usedDunegonWarp

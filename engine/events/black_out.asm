@@ -52,9 +52,9 @@ ResetStatusAndHalveMoneyOnBlackout::
 
 .lostmoney
 	ld hl, wd732
-	set 2, [hl]
-	res 3, [hl]
-	set 6, [hl]
+	set 2, [hl] ; "the target warp is a fly warp (bit 3 set or blacked out) or a dungeon warp (bit 4 set)"
+	res 3, [hl] ; NOT "used warp pad, escape rope, dig, teleport, or fly, so the target warp is a "fly warp""
+	set 6, [hl] ; "map destination is [wLastBlackoutMap] (usually the last used pokemon center, but could be the player's house)"
 	ld a, %11111111
 	ld [wJoyIgnore], a
 	predef_jump HealParty
