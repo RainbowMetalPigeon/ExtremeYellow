@@ -388,6 +388,11 @@ UpdateStatDone:
 .notMinimize
 	call PlayCurrentMoveAnimation
 .skipAnimation	; adapted from Vortiene
+; new
+	ld a, [wAltAnimationID]
+	and a
+	jr nz, .applyBadgeBoostsAndStatusPenalties
+; BTV
 	ld a, [de]
 	cp MINIMIZE
 	jr nz, .applyBadgeBoostsAndStatusPenalties
