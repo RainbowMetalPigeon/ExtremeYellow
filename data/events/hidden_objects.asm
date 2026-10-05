@@ -384,7 +384,7 @@ IndigoPlateauLobbyHiddenObjects:
 	db -1 ; end
 
 CopycatsHouse1FHiddenObjects:
-	hidden_object  1,  1, NUGGET, HiddenItems
+	hidden_object 15,  1, NUGGET, HiddenItems ; edited
 	db -1 ; end
 
 FightingDojoHiddenObjects:

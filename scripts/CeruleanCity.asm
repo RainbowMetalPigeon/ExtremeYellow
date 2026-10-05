@@ -373,15 +373,15 @@ CeruleanCity_PlayerAndJennyFacings:
 ; texts ===================================================
 
 CeruleanCity_TextPointers:
-	dw CeruleanCityText1
-	dw CeruleanCityText2
-	dw CeruleanCityText3
-	dw CeruleanCityText4
-	dw CeruleanCityText5
-	dw CeruleanCityText6
-	dw CeruleanCityText7
-	dw CeruleanCityText8
-	dw CeruleanCityText9
+	dw CeruleanCityText1 ; BLUE
+	dw CeruleanCityText2 ; ROCKET
+	dw CeruleanCityText3 ; person
+	dw CeruleanCityText4 ; person
+	dw CeruleanCityText5 ; person
+	dw CeruleanCityText6 ; JENNY
+	dw CeruleanCityText7 ; person
+	dw CeruleanCityText8 ; ELECTRODE
+	dw CeruleanCityText9 ; person
 	dw CeruleanCityText10 ; Cerulean Cave Guard
 	dw TextPreBattle_CeruleanTraveler ; new, for traveler
 	; signs
@@ -402,7 +402,7 @@ CeruleanCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw CeruleanCityText6_RP_Jenny ; JENNY
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw CeruleanCityText8 ; ELECTRODE
 	dw GenericNPCText_RocketPath
 	dw CeruleanCityText10_RP ; Cerulean Cave Guard
 	dw TextPreBattle_CeruleanTraveler_RP ; traveler
