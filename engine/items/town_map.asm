@@ -474,6 +474,22 @@ LoadTownMap_Fly::
 	call PlaySound
 	ld a, [hl]
 	ld [wDestinationMap], a
+; new to handle inter-regional blackouts
+	ld a, [wOriginallyInKantoOrSevii]
+	cp 1 ; Sevii
+	jr z, .originallyInSevii
+; originally in Kanto
+	CheckEvent EVENT_IN_SEVII
+	jr z, .noSpecialBlackoutWarpHandling
+.specialBlackoutWarpHandling
+	ld a, [wDestinationMap]
+	ld [wLastBlackoutMap], a
+	jr .noSpecialBlackoutWarpHandling
+.originallyInSevii
+	CheckEvent EVENT_IN_SEVII
+	jr z, .specialBlackoutWarpHandling
+.noSpecialBlackoutWarpHandling
+; BTV	
 	ld hl, wd732
 	set 3, [hl]
 	inc hl
