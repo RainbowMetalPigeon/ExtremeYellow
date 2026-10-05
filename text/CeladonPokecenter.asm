@@ -21,5 +21,5 @@ _CeladonPokecenterText3:: ; edited
 
 	para "I heard there's a"
 	line "path going"
-	cont "through MT MOON?"
+	cont "through MT.MOON?"
 	done

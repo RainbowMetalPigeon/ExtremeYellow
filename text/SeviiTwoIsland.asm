@@ -690,7 +690,7 @@ _SeviiTwoIsletText1::
 
 _SeviiTwoIsletText2::
 	text "Have you visited"
-	line "MT. EMBER?"
+	line "MT.EMBER?"
 
 	para "It's a volcano,"
 	line "but... doesn't it"
@@ -1027,7 +1027,7 @@ _SeviiTwoIslandHousesText3_Question_RP::
 	text "Does your lone"
 	line "neuron even know"
 	cont "how to use"
-	cont "TERRAIN PULSE?" 
+	cont "TERRAIN PULSE?"
 ;	xxxx "123456789012345678"
 	done
 

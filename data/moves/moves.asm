@@ -33,7 +33,7 @@ Moves:
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,       100, 35 ; power 35->60
 	move WHIRLWIND,    SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,        85, 20
 	move FLY,          FLY_EFFECT,                  90, FLYING,        95, 15 ; power 70->90
-;	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        85, 20 ; accuracy 75->85 - REMOVED
+;	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        70, 20 ; accuracy 75->85 - REMOVED
 	move SLAM,         NO_ADDITIONAL_EFFECT,        80, NORMAL,        75, 20
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        45, GRASS,        100, 25 ; power 35->45, PP 10->25
 	move STOMP,        FLINCH_SIDE_EFFECT3,         65, NORMAL,       100, 20
@@ -48,7 +48,7 @@ Moves:
 	move HORN_DRILL,   OHKO_EFFECT,                  1, NORMAL,        30,  5
 	move TACKLE,       NO_ADDITIONAL_EFFECT,        50, NORMAL,       100, 35 ; power 35->50, accuracy 95->100
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       85, NORMAL,       100, 15 ; [TM08]
-	move WRAP,         TRAPPING_EFFECT,             15, NORMAL,        90, 20 ; accuracy 85->90
+	move WRAP,         TRAPPING_EFFECT,             15, NORMAL,        70, 20 ; accuracy 85->90
 	move TAKE_DOWN,    RECOIL_EFFECT,               90, NORMAL,        85, 20
 	move THRASH,       THRASH_PETAL_DANCE_EFFECT,  120, NORMAL,       100, 20 ; power 90->120
 	move DOUBLE_EDGE,  RECOIL_EFFECT,              120, NORMAL,       100, 15 ; [TM10] power 100->120
@@ -141,7 +141,7 @@ Moves:
 	move BONE_CLUB,    FLINCH_SIDE_EFFECT1,         65, GROUND,        85, 20
 	move FIRE_BLAST,   BURN_SIDE_EFFECT2,          120, FIRE,          85,  5 ; [TM38]
 	move WATERFALL,    FLINCH_SIDE_EFFECT2,         80, WATER,        100, 15 ; 20% chance flinch
-	move CLAMP,        TRAPPING_EFFECT,             35, WATER,         85, 10 ; acc 75->85
+	move CLAMP,        TRAPPING_EFFECT,             35, WATER,         70, 10 ; acc 75->85
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,       100, 20
 ;	move SKULL_BASH,   CHARGE_EFFECT,              100, NORMAL,       100, 15
 	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  20, NORMAL,       100, 15
@@ -181,7 +181,7 @@ Moves:
 
 	move MEGAHORN,	   NO_ADDITIONAL_EFFECT,	   120,	BUG,		   85, 10 ; [TM02] done
 	move X_SCISSOR,	   NO_ADDITIONAL_EFFECT,	    80,	BUG,	      100, 15 ; [TM44] done
-	move INFESTATION,  TRAPPING_EFFECT,	            20,	BUG,	       80, 20 ; done
+	move INFESTATION,  TRAPPING_EFFECT,	            20,	BUG,	       70, 20 ; done
 
 	move FEINT_ATTACK, SWIFT_EFFECT,	            60,	DARK,	      100, 20 ; [TM20] done
 	move CRUNCH,	   SPECIAL_DOWN_SIDE_EFFECT2,   80,	DARK,	      100, 15 ; done
@@ -275,7 +275,7 @@ Moves:
 	move DRILL_RUN,    NO_ADDITIONAL_EFFECT,        80, GROUND,        95, 10 ; done - high crit rate
 	move ROCK_SMASH,   DEFENSE_DOWN_SIDE_EFFECT5,   40, FIGHTING,     100, 15 ; done
 	move DIVE,         CHARGE_EFFECT,               80, WATER,        100, 10 ; done
-	move WHIRLPOOL,    TRAPPING_EFFECT,             35, WATER,         85, 15 ; done
+	move WHIRLPOOL,    TRAPPING_EFFECT,             35, WATER,         70, 15 ; done
 	move ROCK_CLIMB,   CONFUSION_SIDE_EFFECT2,      90, NORMAL,        85, 20 ; done
 	move SUNNY_DAY,    SUNNY_DAY_EFFECT,             0, FIRE,         100,  5 ; done
 	move RAIN_DANCE,   RAIN_DANCE_EFFECT,            0, WATER,        100,  5 ; done

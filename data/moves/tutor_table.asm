@@ -662,6 +662,8 @@ TutorMoveData::
 
 	tutor_move TOXIC_SPIKES, EKANS
 	tutor_move TOXIC_SPIKES, ARBOK
+	tutor_move TOXIC_SPIKES, BEEDRILL
+	tutor_move TOXIC_SPIKES, MBEEDRILL
 	tutor_move TOXIC_SPIKES, NIDORAN_F
 	tutor_move TOXIC_SPIKES, NIDORINA
 	tutor_move TOXIC_SPIKES, NIDOQUEEN
