@@ -7698,12 +7698,11 @@ PlayMoveAnimation:
 	ret
 
 ; new: call this subroutine if we are playing an alternative animation.
-PlayAltAnimation: ; TBV
+PlayAltAnimation:
 	ld [wAltAnimationID], a
+	xor a
+	ld [wAnimationID], a
 	predef_jump MoveAnimation
-;	predef MoveAnimation
-;	callfar Func_78e98
-;	ret
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;shinpokerednote: ADDED: custom functions for determining which trainerAI pkmn have already been sent out before
