@@ -1617,7 +1617,7 @@ _SeviiOneIslandHousesScriptText7_RP::
 	line "You dared to..."
 
 	para "KILL GIOVANNI!"
-	
+
 	para "GIOVANNI was the"
 	line "most astounding"
 	cont "person to have"
@@ -1765,4 +1765,19 @@ _SeviiOneIslandHousesText1_Refused_RP::
 _SeviiOneIslandHousesText1_Done_RP::
 	text "Done."
 ;	xxxx "123456789012345678"
+	done
+
+_SeviiOneIslandHousesSignText2_RP::
+	text "A manual about"
+	line "networks."
+
+	para "Boring!"
+	done
+
+_SeviiOneIslandHousesSignText4_RP_Before::
+	text "A histogram, a"
+	line "graph, and tons"
+	cont "of lines of code."
+
+	para "Nerd crap!"
 	done

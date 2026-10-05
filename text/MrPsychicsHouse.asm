@@ -180,3 +180,11 @@ _TM29PreReceiveText_RP::
 	cont "leave me alone."
 ;	xxxx "123456789012345678"
 	prompt
+
+_SaffronNewApartmentsSignText1_FromBelow_RP::
+	text "Ducks. Living"
+	line "adventures?"
+
+	para "That's just dumb."
+;	xxxx "123456789012345678"
+	done

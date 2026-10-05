@@ -226,7 +226,7 @@ SeviiOneIslandHouses_TextPointers_Rocket:
 	dw SeviiOneIslandHousesText13_RP ; 13, Orm, used only in RP
 	; signs
 	dw SeviiOneIslandHousesSignText1 ; 14
-	dw SeviiOneIslandHousesSignText2
+	dw SeviiOneIslandHousesSignText2_RP
 	dw SeviiOneIslandHousesSignText3
 	dw SeviiOneIslandHousesSignText4_RP ; 17
 	dw SeviiOneIslandHousesSignText5 ; 18
@@ -986,7 +986,7 @@ SeviiOneIslandHousesSignText4_RP:
 	text_asm
 	CheckEvent EVENT_RP_KILLED_GIOVANNI
 	jr nz, .postGiovanni
-	ld hl, SeviiOneIslandHousesSignText4
+	ld hl, SeviiOneIslandHousesSignText4_RP_Before
 	jr .printAndEnd
 .postGiovanni
 	CheckEvent EVENT_RP_BEAT_ORM_CELIOS_HOUSE
@@ -1163,3 +1163,10 @@ SeviiOneIslandHousesScriptText9_RP:
 	text_far _SeviiOneIslandHousesScriptText9_RP
 	text_end
 
+SeviiOneIslandHousesSignText2_RP:
+	text_far _SeviiOneIslandHousesSignText2_RP
+	text_end
+
+SeviiOneIslandHousesSignText4_RP_Before:
+	text_far _SeviiOneIslandHousesSignText4_RP_Before
+	text_end

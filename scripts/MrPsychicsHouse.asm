@@ -50,7 +50,7 @@ MrPsychicsHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; signs
-	dw SaffronNewApartmentsSignText1
+	dw SaffronNewApartmentsSignText1_RP
 
 SaffronHouse2Text1:
 	text_asm
@@ -270,4 +270,19 @@ TM29NoRoomText_RP:
 ReceivedTM29Text_RP:
 	text_far _ReceivedTM29Text
 	sound_get_item_1
+	text_end
+
+SaffronNewApartmentsSignText1_RP:
+	text_asm
+	ld a, [wSpritePlayerStateData1FacingDirection]
+	cp SPRITE_FACING_UP
+	ld hl, SaffronNewApartmentsSignText1_FromBelow_RP
+	jr z, .printAndEnd
+	ld hl, SaffronNewApartmentsSignText1_NotFromBelow
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SaffronNewApartmentsSignText1_FromBelow_RP:
+	text_far _SaffronNewApartmentsSignText1_FromBelow_RP
 	text_end
