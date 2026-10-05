@@ -11,6 +11,7 @@ DisplayMonFrontSpriteInBox::
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	call UpdateSprites
+	call Delay3
 	ld a, [wcf91]
 	ld [wd0b5], a
 	call GetMonHeader
