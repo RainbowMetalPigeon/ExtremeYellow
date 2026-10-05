@@ -38,8 +38,8 @@ _LTSurgeThunderBadgeInfoText:: ; edited
 	cont "#MON's SPEED,"
 	cont "if you wanna!"
 
-	para "It also lets your"
-	line "#MON ROCK CLIMB"
+	para "It also lets you"
+	line "use ROCK CLIMB"
 	cont "anytime, kid!"
 
 	para "You're special,"

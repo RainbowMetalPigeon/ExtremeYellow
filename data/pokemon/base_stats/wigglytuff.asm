@@ -20,7 +20,7 @@
 	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     SELFDESTRUCT, FIRE_BLAST,   REST,         THUNDER_WAVE, PSYWAVE,      \
 	     SHADOW_BALL,  SUBSTITUTE,   GYRO_BALL,    BODY_PRESS,   STRENGTH,     \
-	     FLASH,        CURSE         
+	     FLASH,        CURSE,        MOONBLAST         
 	; end
 
 	db BANK(WigglytuffPicFront)
