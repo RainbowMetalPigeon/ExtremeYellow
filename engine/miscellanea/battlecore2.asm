@@ -919,6 +919,10 @@ RenameTradedTeamWithDefaultNicks::
 ; ==========================================================
 
 SuujeroSpecialBoost::
+	ld a, [wCurOpponent]
+	cp OPP_SUUJERO
+	ret nz
+; animation
 	ld a, $1
 	ldh [hWhoseTurn], a
 	xor a
@@ -926,14 +930,14 @@ SuujeroSpecialBoost::
 	ld a, XSTATITEM_ANIM
 	ld [wAltAnimationID], a
 	predef MoveAnimation
-
+; text
 	ld hl, WrappedInTerrifyingAura
 	call PrintText
-
+; screens
 	ld hl, wEnemyBattleStatus3
 	set HAS_LIGHT_SCREEN_UP, [hl]
 	set HAS_REFLECT_UP, [hl]
-
+; stat modifiers
 	ld a, 13
 	ld hl, wEnemyMonStatMods
 	ld [hli], a ; wEnemyMonAttackMod
@@ -943,7 +947,27 @@ SuujeroSpecialBoost::
 	ld [hli], a ; wEnemyMonSpecialDefenseMod
 	ld [hli], a ; wEnemyMonAccuracyMod
 	ld [hl], a ; wEnemyMonEvasionMod
-
+; actually modify stats
+	ld hl, wEnemyMonAttack
+	ld [hl], $3
+	inc hl
+	ld [hl], $E7
+	ld hl, wEnemyMonDefense
+	ld [hl], $3
+	inc hl
+	ld [hl], $E7
+	ld hl, wEnemyMonSpeed
+	ld [hl], $3
+	inc hl
+	ld [hl], $E7
+	ld hl, wEnemyMonSpecialAttack
+	ld [hl], $3
+	inc hl
+	ld [hl], $E7
+	ld hl, wEnemyMonSpecialDefense
+	ld [hl], $3
+	inc hl
+	ld [hl], $E7
 	ret
 
 WrappedInTerrifyingAura:
