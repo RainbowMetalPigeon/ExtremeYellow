@@ -6,7 +6,7 @@ _SeviiFiveIslandCityText1::
 
 	para "They say wherever"
 	line "you go you always"
-	cont "come back at the"
+	cont "come back to the"
 	cont "entrance!"
 
 	para "I don't believe it,"
@@ -137,7 +137,7 @@ _SeviiFiveIslandCityEndBattleText4::
 _SeviiFiveIslandCityAfterBattleText4::
 	text "I'd throw them all"
 	line "away to gaze on"
-	cont "you face"
+	cont "your face"
 	cont "once more..."
 	done
 
@@ -203,7 +203,7 @@ _SeviiFiveIslandCityScriptText3::
 	line "riddance!"
 
 	para "You talk big, but"
-	line "but you're only a"
+	line "you're only a"
 	cont "pathetic weakling."
 ;	xxxx "123456789012345678"
 	done
@@ -211,7 +211,7 @@ _SeviiFiveIslandCityScriptText3::
 _SeviiFiveIslandCityScriptText4::
 	text "PINK: <PLAYER>!"
 	line "You are here?!"
-	cont "What a timing!"
+	cont "What timing!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -221,10 +221,10 @@ _SeviiFiveIslandCityScriptText5::
 	cont "no good."
 
 	para "By what I got,"
-	line "they took possess"
-	cont "of this WAREHOUSE"
+	line "they appropriated"
+	cont "this WAREHOUSE"
 	cont "as a base for"
-	cont "their traffics."
+	cont "trafficking."
 	cont "Regardless, they"
 	cont "must be stopped."
 
@@ -236,7 +236,8 @@ _SeviiFiveIslandCityScriptText5::
 	cont "but I don't want"
 	cont "to take any risk"
 	cont "when it comes to"
-	cont "protect my home."
+	cont "protecting"
+	cont "my home."
 
 	para "Will you help me?"
 ;	xxxx "123456789012345678"
@@ -340,8 +341,8 @@ _SeviiFiveIslandHousesText1_MissingSomething::
 	done
 
 _SeviiFiveIslandHousesText1_Question::
-	text "Would you like me"
-	line "me to teach to"
+	text "Would you like"
+	line "me to teach"
 	cont "your #MON the"
 	cont "move TRICK ROOM?"
 ;	xxxx "123456789012345678"
@@ -395,7 +396,7 @@ _SeviiFiveIslandHousesSignText2::
 	line "to the wave"
 	cont "function under"
 	cont "these unheard"
-	cont "hypothesis?"
+	cont "hypotheses?"
 	cont "Fascinating!"
 ;	xxxx "123456789012345678"
 	done
@@ -464,7 +465,7 @@ _SeviiFiveIslandHousesText6::
 
 _SeviiFiveIslandHousesTextMonsCommon::
 	text "It looks happy"
-	line "and well-cared!"
+	line "and well cared!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -545,7 +546,7 @@ _SeviiFiveIslandGymText4_Reward1::
 
 _SeviiFiveIslandGymText4_Reward2::
 	text "<PLAYER> receives"
-	line "the SEVII TRAIL"
+	line "the SEVII TRIAL"
 	cont "SCROLL of"
 	cont "CHRONO ISLAND!"
 ;	xxxx "123456789012345678"
@@ -814,7 +815,7 @@ _SeviiFiveIslandWarehouse1FText1::
 	cont "the fish."
 
 	para "I hope they won't"
-	line "gift me concret"
+	line "gift me concrete"
 	cont "shoes for losing"
 	cont "to that kid..."
 	done
@@ -827,8 +828,8 @@ _SeviiFiveIslandWarehouse2FText1_Inner::
 	cont "that infiltrated!"
 
 	para "I won't let you"
-	line "in the ways of"
-	cont "my goal."
+	line "stand in the way"
+	cont "of my goal."
 
 	para "GIOVANNI's falling,"
 	line "and I can't miss"
@@ -1057,7 +1058,7 @@ _SeviiRoute34AfterBattleText3::
 	para "You walk and"
 	line "walk, and yet you"
 	cont "keep coming back"
-	cont "at the entrance."
+	cont "to the entrance."
 	done
 
 _SeviiRoute34BattleText4::
@@ -1105,7 +1106,7 @@ _SeviiRoute34Text1_BeforeAmuletCoin::
 	cont "thing in life."
 
 	para "Do you nurture"
-	line "your friedships?"
+	line "your friendships?"
 	prompt
 
 _SeviiRoute34Text1_NotMaxHappiness::
@@ -1347,7 +1348,7 @@ _SeviiResortGorgeousText11::
 	text "It's a console"
 	line "with a vast"
 	cont "library of never-"
-	cont "began games."
+	cont "begun games."
 	done
 
 _SeviiResortGorgeousText12::
@@ -1507,7 +1508,7 @@ _SeviiRoute36BattleText5::
 	text "These metalheads're"
 	line "fun and all, but"
 	cont "they are no"
-	cont "match to me."
+	cont "match for me."
 
 	para "Will you be up to"
 	line "the challenge?"
@@ -1527,7 +1528,7 @@ _SeviiRoute36AfterBattleText5::
 	para "They lost their"
 	line "dear #MON."
 
-	para "I cannot phatom"
+	para "I cannot fathom"
 	line "how I'd feel if I"
 	cont "lost my beloved"
 	cont "friends..."
@@ -1681,7 +1682,7 @@ _SeviiRoute36AfterBattleText12::
 	text "I love swimming"
 	line "with my WATER"
 	cont "#MON. It's the"
-	cont "best wat to enjoy"
+	cont "best way to enjoy"
 	cont "a trip!"
 	done
 

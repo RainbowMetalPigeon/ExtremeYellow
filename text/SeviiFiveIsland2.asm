@@ -148,7 +148,7 @@ _SeviiFiveIslandCityText5_RP_Core::
 	cont "they form a"
 	cont "sentence like"
 	cont "TAKE ALL STRENGTH"
-	cont "or the so."
+	cont "or so."
 
 	para "The folks inside"
 	line "should help you."
@@ -183,7 +183,7 @@ _SeviiFiveIslandWarehouse2FText1_RP_After::
 	line "GIOVANNI wait for"
 	cont "you? It's not good"
 	cont "to make your BOSS"
-	cont "wait, isn't it?"
+	cont "wait, is it?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -201,15 +201,15 @@ _SeviiFiveIslandWarehouse2FScriptText2_RP::
 
 	para "Oh, you've NO IDEA"
 	line "how gruesome and"
-	cont "atrocious was my"
-	cont "training."
+	cont "atrocious my"
+	cont "training was."
 	cont "I vomited blood,"
 	cont "all for the sole"
 	cont "purpose of"
 	cont "destroying every"
 	cont "single ROCKET,"
 	cont "and YOU, you most"
-	cont "than any one!"
+	cont "of all!"
 
 	para "Ready or not,"
 	line "I will kill you!"
@@ -222,9 +222,10 @@ _SeviiFiveIslandWarehouse2FScriptText3_RP::
 	cont "Bastard..."
 
 	para "NO! It can't be!"
-	line "WHY?! Why? Why"
-	cont "the fuck I had to"
-	cont "lose again?!"
+	line "WHY?! Why the"
+	cont "fuck did I have"
+	cont "to lose again?!"
+;	xxxx "123456789012345678"
 
 	para "...fuck! But no,"
 	line "don't you think"
@@ -265,7 +266,7 @@ _SeviiFiveIslandWarehouse1FText1_RP::
 	text "The BOSS's crazy..."
 	line "They're so scary."
 
-	para "But that kid which"
+	para "But that kid who"
 	line "just arrived and"
 	cont "stormed everyone?"
 	cont "They are even"
@@ -409,7 +410,7 @@ _SeviiLostCave2Text1_RP_BeforeWaterfall::
 	cont "item, and in"
 	cont "return, you will"
 	cont "lead me to safety"
-	cont "out from here!"
+	cont "out of here!"
 	cont "Sounds good?"
 ;   xxxx "123456789012345678"
 	prompt
@@ -420,7 +421,7 @@ _SeviiLostCave2Text1_RP_AfterWaterfall::
 	cont "now that you got"
 	cont "my precious gift,"
 	cont "it's time to hold"
-	cont "up to your part"
+	cont "up to your end"
 	cont "of our agreeme-"
 
 	para "Wh... what?"

@@ -170,7 +170,7 @@ _SaffronClimbClubText1_OhWelcomeHaveThis::
 	cont "CLIMB CLUB!"
 
 	para "Please, have this"
-	line "as welcome gift."
+	line "welcome gift."
 	prompt
 
 _SaffronClimbClubText1_GotHM07::
@@ -259,7 +259,7 @@ _SaffronCityText_BlockingSilph_RP_Before::
 _SaffronCityText_BlockingSilph_RP_After_GoodTakeThis::
 	text "Newcomer! I heard"
 	line "the good news."
-	cont "Congrats for"
+	cont "Congrats on"
 	cont "earning the BOSS's"
 	cont "approval."
 

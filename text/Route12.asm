@@ -277,7 +277,7 @@ _Route12RivalText_Lose::
 
 	para "This SNORLAX is"
 	line "mine now, and"
-	cont "I'll you use to"
+	cont "I'll use it to"
 	cont "squash you even"
 	cont "harder next time"
 	cont "we meet!"

@@ -31,7 +31,7 @@ _HeresYourPorygonText::
 	cont "give it too much"
 	cont "credit..."
 
-	para "Rumors said that"
+	para "Rumors say that"
 	line "in another"
 	cont "department, they"
 	cont "are working on"
@@ -40,7 +40,7 @@ _HeresYourPorygonText::
 	cont "adorable fella!"
 
 	para "Sorry, I got lost"
-	line "in thoughts. I"
+	line "in thought. I"
 	cont "think you will be"
 	cont "a great trainer"
 	cont "for PORYGON!"
@@ -55,7 +55,7 @@ _HeresYourPorygonText::
 	cont "creeps."
 
 	para "Geez, would you"
-	line "listen at me,"
+	line "listen to me,"
 	cont "these shouldn't"
 	cont "be the words of a"
 	cont "person of science"
@@ -217,7 +217,7 @@ _SilphCo7Text_51ec3::
 	cont "TEAM ROCKET in"
 	cont "the hope of get-"
 	cont "ting my Gramps'"
-	cont "attentions?"
+	cont "attention?"
 
 	para "Enough talking!"
 	line "Get ready to be"
@@ -327,8 +327,8 @@ _SilphCo7ScriptText2_RP::
 	done
 
 _SilphCo7Text_RP_NotGottenPorygon::
-	text "I-I'm just an"
-	line "armless bystander"
+	text "I-I'm just a harm-"
+	line "less bystander"
 	cont "who has nothing"
 	cont "to do with any"
 	cont "of thi-"

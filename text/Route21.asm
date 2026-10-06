@@ -447,7 +447,7 @@ _Route21DiveEndBattleText4::
 	text "B..."
 
 	para "(I'm better at"
-	line "diving that at"
+	line "diving than at"
 	cont "battling!)"
 ;	xxxx "123456789012345678"
 	prompt
@@ -462,7 +462,7 @@ _Route21DiveAfterBattleText4::
 
 	para "(...I'd like. But"
 	line "I heard of some"
-	cont "gears that can"
+	cont "gear that can"
 	cont "help you dive"
 	cont "for longer!)"
 ;	xxxx "123456789012345678"

@@ -17,15 +17,15 @@ _Route18GateText_49932::
 
 _Route18And16GateText1_RP::
 	text "What?"
-	line "Only bike would"
+	line "Only BICYCLEs'd"
 	cont "be allowed on"
 	cont "CYCLING ROAD."
 
 	para "But I've never seen"
 	line "a ROCKET on a"
-	cont "bike nor follwing"
-	cont "rules, so do what"
-	cont "you want."
+	cont "bike nor follow-"
+	cont "ing rules, so do"
+	cont "what you want."
 	cont "Not that I could"
 	cont "stop you."
 ;	xxxx "123456789012345678"

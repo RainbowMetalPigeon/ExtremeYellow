@@ -43,7 +43,7 @@ _SSAnneRivalDefeatedText::
 	para "No no no no!!!"
 
 	para "How? Why?! It"
-	line "should have not"
+	line "should not have"
 	cont "gone like this!!!"
 	prompt
 
@@ -127,7 +127,7 @@ _SSAnneRivalBeforeBattleText_RP::
 
 	para "...you won't back"
 	line "down? What a"
-	cont "disappointement"
+	cont "disappointment"
 	cont "you are."
 
 	para "Then I'm left with"

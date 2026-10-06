@@ -109,7 +109,7 @@ _Route24Text_FirstQuestSummary:: ; new
 	cont "first quest?"
 
 	para "Go to the S.S.ANNE"
-	line "CAPTAIN and rely"
+	line "CAPTAIN and relay"
 	cont "them the message"
 	cont "I told you!"
 	cont "No need for any"
@@ -127,7 +127,7 @@ _Route24Text_MessageRelyed:: ; new
 	line "You delivered the"
 	cont "message to the"
 	cont "CAPTAIN and they"
-	cont "took sail?"
+	cont "set sail?"
 	cont "Great job!"
 
 	para "Here, have this as"
@@ -209,7 +209,7 @@ _Route24Text_NewBoss:: ; new
 	cont "And yet, look at"
 	cont "you now..."
 
-	para "Ops! I apologize"
+	para "Ops! I apologize,"
 	line "BOSS. I'll speak"
 	cont "to you in a more"
 	cont "adequate manner"

@@ -23,7 +23,7 @@ _SeviiDottedHoleTextScript2::
 	cont "didn't you?!"
 
 	para "GIOVANNI may have"
-	line "quitted, but we,"
+	line "quit, but we,"
 	cont "we have not lost"
 	cont "faith in TEAM"
 	cont "ROCKET! We'll beat"
@@ -105,7 +105,7 @@ _SeviiDottedHoleTextScript5::
 	text "PROTON: Damn! It's"
 	line "so frustrating!"
 	cont "How did this brat"
-	cont "made their #-"
+	cont "make their #-"
 	cont "MON so strong?"
 	cont "How cruel was"
 	cont "their training?"
@@ -125,7 +125,7 @@ _SeviiDottedHoleTextScript6::
 	line "PETREL, how"
 	cont "useless can you"
 	cont "be?! Why did we"
-	cont "even bothered"
+	cont "even bother"
 	cont "bringing you with"
 	cont "us? Ugh. Fine,"
 	cont "I'll handle it."
@@ -139,12 +139,12 @@ _SeviiDottedHoleTextScript7::
 	para "ARCHER: ...Tsk."
 	line "I hope you three"
 	cont "garbage proved"
-	cont "yourself not"
+	cont "yourselves not"
 	cont "completely worth-"
 	cont "less by AT LEAST"
-	cont "weaking this brat"
-	cont "enough for me"
-	cont "to deal the"
+	cont "weakening this"
+	cont "brat enough for"
+	cont "me to deal the"
 	cont "finishing blow."
 ;	xxxx "123456789012345678"
 	done
@@ -315,7 +315,7 @@ _SeviiRoute38HousesText1_RP_TakeThis::
 	line "to fight, but"
 	cont "evidently not"
 	cont "well enough to"
-	cont "keep up with a"
+	cont "keep up with"
 	cont "filth like you."
 
 	para "You wanted this,"
@@ -397,7 +397,7 @@ _SeviiSixIslandCityText4::
 	done
 
 _SeviiSixIslandCityScriptText1::
-	text "PINK: I heard the"
+	text "PINK: I heard"
 	line "that you killed"
 	cont "the previous BOSS"
 	cont "of TEAM ROCKET"
@@ -442,8 +442,8 @@ _SeviiSixIslandCityScriptText2::
 	cont "justice in this"
 	cont "rotten world?!"
 
-	para "How can you do"
-	line "so much arm and"
+	para "How can you cause"
+	line "so much harm and"
 	cont "go unpunished?!"
 
 	para "But it's not the"

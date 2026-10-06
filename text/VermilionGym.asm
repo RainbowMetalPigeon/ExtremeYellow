@@ -114,7 +114,7 @@ _VermilionGymEndBattleText2:: ; edited
 	line "him for he was"
 	cont "wrong!"
 
-	para "I saw wanders"
+	para "I saw wonders,"
 	line "poetry and song!"
 ;	xxxx "123456789012345678"
 	prompt
@@ -257,7 +257,7 @@ _LTSurgePreBattleText_RP::
 	done
 
 _ReceivedThunderBadgeText_RP::
-	text "I doesn't"
+	text "It doesn't"
 	line "make any sense!"
 	cont "My war-polished"
 	cont "strategies!"

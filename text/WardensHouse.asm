@@ -167,9 +167,9 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoArtifact::
 	cont "their time..."
 
 	para "If you really wish"
-	line "something but you"
-	cont "can't afford it,"
-	cont "I could reduce"
+	line "for something but"
+	cont "you can't afford"
+	cont "it, I could lower"
 	cont "its price if you"
 	cont "bring me some"
 	cont "valuable antique"
@@ -209,7 +209,7 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesArtifact::
 	cont "me right now."
 
 	para "Could I interest"
-	line "you with a trade?"
+	line "you in a trade?"
 	cont "What about that"
 	cont "mysterious map"
 	cont "fragment there on"
@@ -473,7 +473,7 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag::
 	cont "a choice...?!"
 	cont "NO! My shop!"
 	cont "You wouldn't dare"
-	cont "setting it on fi-"
+	cont "set it on fir-"
 
 	para "...You WOULD dare."
 
@@ -488,13 +488,13 @@ _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag::
 	prompt
 
 _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks::
-	text "<PLAYER> gives"
+	text "<PLAYER> gave"
 	line "the ARTIFACT to"
 	cont "the seller."
 
 	para "But ACCIDENTALLY"
-	line "it falls and"
-	cont "breaks into a"
+	line "it fell and"
+	cont "broke into a"
 	cont "million pieces."
 ;	xxxx "123456789012345678"
 	done

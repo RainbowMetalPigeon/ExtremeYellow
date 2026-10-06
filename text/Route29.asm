@@ -143,9 +143,9 @@ _Route29AfterBattleText5::
     line "overlaid, and"
     cont "one's reality"
     cont "can't avoid but"
-    cont "swinging like a"
+    cont "swing like a"
     cont "pendulum between"
-    cont "them, seen how"
+    cont "them, seeing how"
     cont "all is linked."
     done
 
@@ -195,10 +195,10 @@ _Route29EndBattleText7::
 _Route29AfterBattleText7::
     text "I've spent so long"
     line "trying to figure"
-    cont "something out of"
-    cont "these ancient"
-    cont "words, to no"
-    cont "avail at all."
+    cont "something out"
+    cont "from these"
+    cont "ancient words, to"
+    cont "no avail at all."
 
     para "This is getting"
     line "quite"
@@ -484,7 +484,7 @@ _Route29TextOrbsVanish2::
     text "Three immense"
     line "flows of power"
     cont "have erupted and"
-    cont "got channeled in"
+    cont "been channeled in"
     cont "three locations!"
     done
 
@@ -502,7 +502,7 @@ _Route29TextSlowking_RP_Core::
     cont "reconsider the"
     cont "turns of your"
     cont "life that led you"
-    cont "walk down the"
+    cont "to walk down the"
     cont "path of evi-"
 
     para "HEY! What are you"

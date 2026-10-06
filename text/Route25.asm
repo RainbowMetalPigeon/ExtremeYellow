@@ -201,12 +201,20 @@ _Route25Text14::
 	para "And the CLIMB CLUB"
 	line "in SAFFRON only"
 	cont "accepts members"
-	cont "on invitation..."
+	cont "by invitation..."
 
 	para "Not to mention"
 	line "that it seems it's"
-	cont "tough to get in"
+	cont "tough to get into"
 	cont "the city lately."
+
+	para "Cheery on the top,"
+	line "I heard that"
+	cont "climbing fans"
+	cont "gather somewhere"
+	cont "south of CERULEAN"
+	cont "but I can't find"
+	cont "them!"
 
 	para "Ugh, everything's"
 	line "against me!"
@@ -244,7 +252,7 @@ _Route25TextToHauntedHouseMessage2_RP::
 	line "forward."
 
 	para "Marvels beyond"
-	line "believe lie"
+	line "belief lie"
 	cont "in front of you."
 ;	xxxx "123456789012345678"
 	done

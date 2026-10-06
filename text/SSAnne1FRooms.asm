@@ -42,7 +42,7 @@ _SSAnne8BattleText3::
 	done
 
 _SSAnne8EndBattleText3::
-	text "Wow! "
+	text "Wow!"
 	line "You're great!"
 	prompt
 

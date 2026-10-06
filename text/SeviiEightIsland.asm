@@ -362,8 +362,8 @@ _SeviiEightIslandCaveTextScript14::
 	cont "themselves to the"
 	cont "utmost extreme in"
 	cont "order to be able"
-	cont "overcome any and"
-	cont "adversity."
+	cont "to overcome any"
+	cont "and all adversity."
 ;	xxxx "123456789012345678"
 	done
 

@@ -196,7 +196,7 @@ _Route23ScriptText2_RP::
 	text "PINK: ...you..."
 	line "I... can't..."
 
-	para "I CAN'T BE!!!"
+	para "IT CAN'T BE!!!"
 
 	para "Why?! Why do you"
 	line "keep winning, why"

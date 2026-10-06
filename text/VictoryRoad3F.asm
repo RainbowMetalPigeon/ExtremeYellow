@@ -122,7 +122,7 @@ _VictoryRoad3EndBattleText8::
 _VictoryRoad3AfterBattleText8::
 	text "I trained under"
 	line "SABRINA, and I"
-	cont "illuded myself to"
+	cont "deluded myself to"
 	cont "have surpassed"
 	cont "them and being"
 	cont "ready for the"
@@ -162,7 +162,7 @@ _VictoryRoad3AfterBattleText9::
 	cont "defeat the ELITE"
 	cont "FOUR, but I'm"
 	cont "already so happy"
-	cont "of what my bugs"
-	cont "and I have"
+	cont "about what my"
+	cont "BUGs and I have"
 	cont "achieved so far!"
 	done

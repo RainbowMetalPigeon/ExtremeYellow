@@ -66,10 +66,10 @@ _SSAnne7TextCaptain_PreBattle::
 	cont "doing?"
 
 	para "...wait, what do"
-	line "you mean? Police"
-	cont "is investigating"
-	cont "to find TEAM"
-	cont "ROCKET's"
+	line "you mean? The"
+	cont "police is"
+	cont "investigating to"
+	cont "find TEAM ROCKET's"
 	cont "accomplice in"
 	cont "their poaching in"
 	cont "the SAFARI ZONE?"
@@ -114,9 +114,9 @@ _SSAnne7TextJenny::
 	cont "cleansing KANTO"
 	cont "from this scum."
 
-	para "As soon as you'll"
-	line "be of age, what"
-	cont "about joining the"
+	para "Once you're of"
+	line "age, what about"
+	cont "joining the"
 	cont "police force"
 	cont "officially?"
 	done
@@ -160,7 +160,7 @@ _SSAnne7Text1_RP_PostGiovanni::
 	text "CAPTAIN: Oh, it's"
 	line "really you?!"
 
-	para "I heard the new."
+	para "I heard the news."
 	line "So now that"
 	cont "GIOVANNI is..."
 	cont "Well, yes, now"

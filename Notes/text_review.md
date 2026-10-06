@@ -8,46 +8,6 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 
 | File | Label | Original | Suggested Fix | Note |
 | --- | --- | --- | --- | --- |
-| text/Route12.asm | _Route12RivalText_Lose | "and I'll you use to squash you" | "and I'll use you to squash you" | scrambled word order |
-| text/Route18Gate1F.asm | _Route18And16GateText1_RP | "nor follwing rules" | "nor following rules" |  |
-| text/Route20.asm | _Route20ScriptText2 | "This's the coldest" | "That's the coldest" |  |
-| text/Route21.asm | _Route21DiveEndBattleText4 | "(I'm better at diving that at battling!)" | "(I'm better at diving than at battling!)" | that/than mix-up |
-| text/Route21.asm | _Route21DiveAfterBattleText4 | "I heard of some gears that can help you dive for longer!" | "I heard of some gear that can help you dive for longer!" | "gear" is uncountable |
-| text/Route21.asm | _Route21DiveAfterBattleText3 | "(The ROUTEs around CINNABAR've been altered by recent intense volcanic activity.)" | "(The ROUTEs around CINNABAR have been altered by recent intense volcanic activity.)" | contracting a place name reads as a typo, inconsistent with fluent translated dialogue elsewhere |
-| text/Route21.asm | _Route21ScriptText1 | "It reminded me a lot another great fight I had a long, long time ago." | "It reminded me a lot of another great fight I had a long, long time ago." | missing "of" |
-| text/Route23.asm | _Route23ScriptText2_RP | "I CAN'T BE!!!" | "IT CAN'T BE!!!" | parallels "It... can't be!!!" in _Route23PinkDefeatedText_RP |
-| text/Route24.asm | _Route24Text_FirstQuestSummary | "CAPTAIN and rely them the message" | "CAPTAIN and relay them the message" |  |
-| text/Route24.asm | _Route24Text_MessageRelyed | "and they took sail? Great job!" | "and they set sail? Great job!" |  |
-| text/Route24.asm | _Route24Text_NewBoss | "Ops! I apologize BOSS." | "Oops! I apologize, BOSS." |  |
-| text/Route25.asm | _Route25AfterBattleText7 | "from MT.MOON," | "from MT. MOON," | inconsistent with "MT." / "MOON" split elsewhere in file |
-| text/Route25.asm | _Route25TextToHauntedHouseMessage2_RP | "Marvels beyond believe lie" | "Marvels beyond belief lie" |  |
-| text/Route29.asm | _Route29TextSlowking_RP_Core | "reconsider the turns of your life that led you walk down the path of evi-" | "...that led you to walk down the path of evi-" | may need re-wrap |
-| text/Route7.asm | _Route7RepairPersonText_FirstTime | "my gramparents," | "my grandparents," |  |
-| text/SSAnne1FRooms.asm | _SSAnne8EndBattleText3 | "Wow! " | "Wow!" | stray trailing space in source |
-| text/SSAnne2F.asm | _SSAnneRivalBeforeBattleText_RP | "...you won't back down? What a disappointement you are." | "...you won't back down? What a disappointment you are." |  |
-| text/SSAnneCaptainsRoom.asm | _SSAnne7Text1_RP | "I heard the new." | "I heard the news." |  |
-| text/SafariZoneCenterRestHouse.asm | _SafariZoneRestHouseTextSaraHappy | "could have costed us the whole day." | "could have cost us the whole day." |  |
-| text/SafariZoneCenterRestHouse.asm | _SafariZoneRestHouseTextErikHappy | "could have costed us the whole day." | "could have cost us the whole day." |  |
-| text/SaffronCity.asm | _SaffronCityText_BlockingSilph_RP_Before | "plans for the SILPH CO.." | "plans for the SILPH CO." | double period |
-| text/SaffronPokecenter.asm | _SaffronPokecenterText2 | "differ from specie to specie." | "differ from species to species." | may need re-wrap |
-| text/SeviiEightIsland.asm | _SeviiEightIslandCaveTextScript14 | "one must muster themselves to the utmost extreme in order to be able overcome any and adversity." | "one must muster themselves to the utmost extreme in order to be able to overcome any and all adversity." | missing "to" and "all"; may need re-wrap |
-| text/SeviiEightIsland.asm | _SeviiTenIslandScriptText3 | "I definitely won't forget of this battle, trust me!" | "I definitely won't forget this battle, trust me!" | wrong preposition |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityScriptText3 | "You talk big, but but you're only a pathetic weakling." | "You talk big, but you're only a pathetic weakling." | duplicated "but"; may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityScriptText5 | "they took possess" | "they took possession" | may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityScriptText5 | "their traffics." | "their trafficking." | may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityAfterBattleText4 | "gaze on you face once more..." | "gaze on your face once more..." |  |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandHousesText1_Question | "Would you like me me to teach to your #MON the move TRICK ROOM?" | "Would you like me to teach your #MON the move TRICK ROOM?" | duplicated "me" + extra "to"; may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandHousesSignText2 | "these unheard hypothesis?" | "these unheard hypotheses?" |  |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandGymText4_Reward2 | "the SEVII TRAIL SCROLL" | "the SEVII TRIAL SCROLL" | inconsistent with "SEVII TRIAL" used elsewhere |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandWarehouse1FText1 | "gift me concret shoes" | "gift me concrete shoes" |  |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandWarehouse2FScriptText3 | "out here, uh?" | "out here, huh?" |  |
-| text/SeviiFiveIsland1.asm | _SeviiRoute34Text1_BeforeAmuletCoin | "your friedships?" | "your friendships?" |  |
-| text/SeviiFiveIsland1.asm | _SeviiRoute36AfterBattleText5 | "I cannot phatom" | "I cannot fathom" |  |
-| text/SeviiFiveIsland1.asm | _SeviiRoute36AfterBattleText12 | "the best wat to enjoy" | "the best way to enjoy" |  |
-| text/SeviiFiveIsland1.asm | _SeviiResortGorgeousText11 | "never-began games." | "never-begun games." |  |
-| text/SeviiFiveIsland2.asm | _SeviiRoute35BattleText1_RP | "Uh? Helping a ROCKET by translating this?" | "Huh? Helping a ROCKET by translating this?" |  |
-| text/SeviiFiveIsland2.asm | _SeviiFiveIslandCityText5_RP_Core | "TAKE ALL STRENGTH or the so." | "TAKE ALL STRENGTH or so." |  |
-| text/SeviiFiveIsland2.asm | _SeviiRoute34Text1_RP | "Friends. Are the most important thing in life." | "Friends... are the most important thing in life." |  |
 | text/SeviiFourIsland.asm | _SeviiFourIslandHousesText9 | "They're are, like, ultra strong" | "They're, like, ultra strong" | may need re-wrap |
 | text/SeviiFourIsland.asm | _SeviiFourIslandPokemonCenterAndMart_Text4 | "the MARKET ran by those two adorable grampies" | "the MARKET run by those two adorable grampies" |  |
 | text/SeviiFourIsland.asm | _SeviiFourIslandHousesText4_PreChrono | "It's unconceivable that little kids exert justice" | "It's inconceivable that little kids exert justice" |  |
@@ -79,13 +39,6 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/SeviiSixIsland1.asm | _SeviiRoute39BattleText2 | "unworhty hands on" | "unworthy hands on" |  |
 | text/SeviiSixIsland1.asm | _SeviiRoute39EndBattleText2 | "Has we reached" | "Have we reached" | subject-verb agreement |
 | text/SeviiSixIsland1.asm | _SeviiPatternBushBattleText1 | "Do you any hint about" | "Do you have any hint about" | missing verb |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript2 | "GIOVANNI may have quitted, but we..." | "GIOVANNI may have quit, but we..." |  |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript5 | "How did this brat made their #MON so strong?" | "How did this brat make their #MON so strong?" |  |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript6 | "Why did we even bothered bringing you with us?" | "Why did we even bother bringing you with us?" |  |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript7 | "AT LEAST weaking this brat enough" | "AT LEAST weakening this brat enough" |  |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript8 | "So I'd be useless, uh?" | "So I'd be useless, huh?" |  |
-| text/SeviiSixIsland2.asm | _SeviiSixIslandCityScriptText1 | "PINK: I heard the that you killed the previous BOSS" | "PINK: I heard that you killed the previous BOSS" | extra "the" |
-| text/SeviiSixIsland2.asm | _SeviiSixIslandCityScriptText2 | "How can you do so much arm and go unpunished?!" | "How can you do so much harm and go unpunished?!" |  |
 | text/SeviiThreeIsland.asm | _SeviiThreeIslandCityText3 | "the DREAM FOREST on the west're kinda creepy places." | "...on the west are kinda creepy places." |  |
 | text/SeviiThreeIsland.asm | _SeviiThreeIslandPokemonCenterAndMart_Text2 | "I think it's just semantic, it does not matter at all." | "I think it's just semantics, it does not matter at all." |  |
 | text/SeviiThreeIsland.asm | _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book3 | "Trasfer Coins" | "Transfer Coins" |  |
@@ -109,14 +62,6 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/SeviiTwoIsland.asm | _SeviiTwoIsletHousesSignText2_Core | "Advance, complex algorithms run through silicon synapses." | "Advanced, complex algorithms run through silicon synapses." |  |
 | text/SeviiTwoIsland.asm | _SeviiTwoIslandCityText5_RP | "We don't business with criminals." | "We don't do business with criminals." |  |
 | text/SeviiTwoIsland.asm | _SeviiTwoIsletText2 | "Have you visited MT. EMBER?" | "Have you visited MT.EMBER?" | inconsistent with "MT.EMBER" spelling used elsewhere (no space) |
-| text/SilphCo5F.asm | _SilphCo5Text1b_NoGotPorygonYesGiovanni | "You saved my months of studies!" | "You saved months of my studies!" |  |
-| text/SilphCo7F.asm | _HeresYourPorygonText | "Geez, would you listen at me," | "Geez, would you listen to me," | wrong preposition |
-| text/SilphCo7F.asm | _SilphCo7Text_51ec3 | "get-ting my Gramps' attentions?" | "get-ting my Gramps' attention?" | uncountable noun |
-| text/SilphCo7F.asm | _SilphCo7Text_RP_NotGottenPorygon | "I-I'm just an armless bystander" | "I-I'm just a harmless bystander" | dropped "h"; article also changes to "a"; may need re-wrap |
-| text/VermilionCity.asm | _SSAnneFlashedTicketText / _SSAnneNoTicketText | "the S.S.TICKET!" ... "I'll take your S.S. TICKET" ... "The S.S. TICKET" ... "S.S.TICKET." | Standardize to one spacing convention (e.g. "S.S.TICKET" throughout) | inconsistent naming within/across labels |
-| text/VermilionGym.asm | _VermilionGymEndBattleText2 | "I saw wanders" "poetry and song!" | "I saw wonders, poetry and song!" | likely typo for "wonders" |
-| text/VermilionGym.asm | _ReceivedThunderBadgeText_RP | "I doesn't" "make any sense!" | "It doesn't make any sense!" |  |
-| text/VictoryRoad3F.asm | _VictoryRoad3AfterBattleText8 | "I trained under SABRINA, and I illuded myself to have surpassed them and being ready for the #MON LEAGUE..." | "...and I deluded myself into thinking I had surpassed them and was ready for the #MON LEAGUE..." | wrong word "illuded"; may need re-wrap |
 
 ## Awkward Grammar
 
@@ -162,49 +107,12 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/PokemonTower2F.asm | _PokemonTower2Text_6062d | "How do" "you dare showing" "your face, HERE" | "How dare you show your face, HERE" |  |
 | text/RedsHouse1F.asm | _RedsHouse1FTVText_RP_Front | "Some dumb old movie nobody knows nor care for." | "...nobody knows nor cares for." | subject-verb agreement |
 | text/Route16FlyHouse.asm | _Route16HouseText1_RP_PreFly | "Don't you dare" "hurting it!" | "Don't you dare hurt it!" |  |
-| text/Route18Gate1F.asm | _Route18And16GateText1_RP | "Only bike would be allowed on CYCLING ROAD." | "Only bikes would be allowed on CYCLING ROAD." | missing plural |
-| text/Route20.asm | _Route20AfterBattleText1 | "But I find super scary!" | "But I find it super scary!" | missing "it" |
-| text/Route20.asm | _Route20SpecialBirdKeeperText_AfterBattle | "dedication to birbs' unwavering as a glacier!" | "dedication to birbs is unwavering as a glacier!" | missing "is"; stray apostrophe on "birbs'" |
-| text/Route20.asm | _Route20DiveAfterBattleText2 | "(What do you mean with 'Steps'?)" | "(What do you mean by 'Steps'?)" |  |
 | text/Route22.asm | _Route22RivalBeforeBattleText2 | "never has had a more" "fitting team!" | "has never had a more fitting team!" |  |
-| text/Route24.asm | _Route24Text_WannaJoinOffer1 | "dedicated to evil using #MON!" | "dedicated to using #MON for evil!" | may need re-wrap |
-| text/Route25.asm | _Route25Text14 | "it seems it's tough to get in the city lately." | "...tough to get into the city lately." |  |
-| text/Route25.asm | _Route25Text14 | "only accepts members on invitation..." | "only accepts members by invitation..." |  |
-| text/Route25.asm | _Route25TextToHauntedHouseMessage1 | "Stop in your way. Do not proceed." | "Stop where you are. Do not proceed." | phrasing doesn't parse naturally; possibly intentional cryptic voice |
 | text/Route26.asm | _Route26BattleText1 | "Hey! Are you wanna steal my special ONIX?!" | "Hey! You wanna steal my special ONIX?!" |  |
-| text/Route29.asm | _Route29AfterBattleText5 | "one's reality can't avoid but swinging like a pendulum between them" | "can't help but swing like a pendulum" | may need re-wrap |
-| text/Route29.asm | _Route29AfterBattleText5 | "them, seen how all is linked." | "them, seeing how all is linked." |  |
-| text/Route29.asm | _Route29AfterBattleText7 | "trying to figure something out of these ancient words" | "figure something out from these ancient words" |  |
-| text/Route29.asm | _Route29TextOrbsVanish2 | "Three immense flows of power have erupted and got channeled in three locations!" | "have erupted and been channeled" |  |
 | text/Route3.asm | _Route3TextJenny | "TEAM ROCKET uses this ROUTE for its traffics." | "TEAM ROCKET uses this ROUTE for its trafficking." |  |
 | text/Route9.asm | _Route9BattleText4 | "Don't you dare" "condescend me!" | "Don't you dare condescend to me!" | may need re-wrap |
-| text/SSAnne2F.asm | _SSAnneRivalDefeatedText | "How? Why?! It should have not gone like this!!!" | "How? Why?! It should not have gone like this!!!" |  |
-| text/SSAnneCaptainsRoom.asm | _SSAnne7TextCaptain_PreBattle | "Police is investigating to find TEAM ROCKET's accomplice" | "The police are investigating to find TEAM ROCKET's accomplice" |  |
-| text/SSAnneCaptainsRoom.asm | _SSAnne7TextJenny | "As soon as you'll be of age, what about joining the police force officially?" | "Once you're of age, what about joining the police force officially?" |  |
-| text/SaffronCity.asm | _SaffronCityText_BlockingSilph_RP_After_GoodTakeThis | "Congrats for earning the BOSS's approval." | "Congrats on earning the BOSS's approval." | wrong preposition |
-| text/SaffronCity.asm | _SaffronClimbClubText1_OhWelcomeHaveThis | "Please, have this as welcome gift." | "Please, have this as a welcome gift." | missing article; may need re-wrap |
 | text/SaffronGym.asm | _SaffronGymBattleText8 | "like SABRINA, but despite so I can foresee" | "like SABRINA, but even so I can foresee" | "despite so" is not standard phrasing |
 | text/SaffronPidgeyHouse.asm | _SaffronHouse1Text1 | "At least with my partner is much easier, as we live together!" | "At least with my partner, it's much easier, as we live together!" | missing subject "it" |
-| text/SeviiEightIsland.asm | _SeviiEightIslandCaveTextScript9 | "We'll do like this: show your skills." | "We'll do it like this: show your skills." | missing "it" |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityText2 | "repurposed as concert hall." | "repurposed as a concert hall." | missing article; may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityText1 | "you always come back at the entrance!" | "you always come back to the entrance!" |  |
-| text/SeviiFiveIsland1.asm | _SeviiRoute34AfterBattleText3 | "keep coming back at the entrance." | "keep coming back to the entrance." | same recurring slip as above |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityScriptText4 | "What a timing!" | "What timing!" |  |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandCityScriptText5 | "when it comes to protect my home." | "when it comes to protecting my home." | missing gerund; may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandHousesTextMonsCommon | "and well-cared!" | "and well cared for!" | may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandWarehouse2FText1_Inner | "I won't let you in the ways of my goal." | "I won't let you stand in the way of my goal." | may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiFiveIslandWarehouse2FScriptText3 | "I felt I relied again on you to solve our mess." | "I felt like I relied on you again to solve our mess." | may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiRoute35AfterBattleText1_HP | "What it means? Beats me!" | "What does it mean? Beats me!" | may need re-wrap |
-| text/SeviiFiveIsland1.asm | _SeviiRoute36BattleText5 | "they are no match to me." | "they are no match for me." |  |
-| text/SeviiFiveIsland2.asm | _SeviiRoute34Text1_RP | "you won't just repeat my same mistakes" | "repeat my own mistakes" / "the same mistakes I made" |  |
-| text/SeviiFiveIsland2.asm | _SeviiFiveIslandWarehouse2FText1_RP_After | "It's not good to make your BOSS wait, isn't it?" | "...wait, is it?" |  |
-| text/SeviiFiveIsland2.asm | _SeviiFiveIslandWarehouse2FScriptText2_RP | "Oh, you've NO IDEA how gruesome and atrocious was my training." | "how gruesome and atrocious my training was." |  |
-| text/SeviiFiveIsland2.asm | _SeviiFiveIslandWarehouse2FScriptText2_RP | "and YOU, you most than any one!" | "and YOU, you most of all!" / "more than anyone!" |  |
-| text/SeviiFiveIsland2.asm | _SeviiFiveIslandWarehouse2FScriptText3_RP | "Why the fuck I had to lose again?!" | "Why the fuck did I have to lose again?!" |  |
-| text/SeviiFiveIsland2.asm | _SeviiFiveIslandWarehouse1FText1_RP | "that kid which just arrived and stormed everyone?" | "that kid who just arrived" |  |
-| text/SeviiFiveIsland2.asm | _SeviiLostCave2Text1_RP_BeforeWaterfall | "A ROCKET, of all people, be the first to find their way to me." | "...is the first to find their way to me." |  |
-| text/SeviiFiveIsland2.asm | _SeviiLostCave2Text1_RP_BeforeWaterfall | "I will gift you this precious item...you will lead me to safety out from here!" | "lead me to safety out of here!" |  |
-| text/SeviiFiveIsland2.asm | _SeviiLostCave2Text1_RP_AfterWaterfall | "it's time to hold up to your part of our agreeme-" | "time to hold up your end of our agreeme-" |  |
 | text/SeviiFiveIsland2.asm | _SeviiLostCave2Text1_RP_AfterWaterfall | "Wh... what? What do you... What means 'No'?!" | "What do you mean, 'No'?!" |  |
 | text/SeviiFiveIsland2.asm | _SeviiRoute36SignText1_RP_PostDesecration | "If one didn't know better, would say that it's crying." | "one would say that it's crying." |  |
 | text/SeviiFourIsland.asm | _SeviiFourIslandHousesText4_PreChrono | "Why is the police up to nothing?" | "Why are the police up to nothing?" |  |
@@ -255,10 +163,6 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/SeviiSixIsland1.asm | _SeviiRoute39Text2 | "When I wish some-" "where more lively" | "When I want to be" "somewhere more lively" | "wish somewhere" is missing a verb/preposition; may need re-wrap |
 | text/SeviiSixIsland1.asm | _SeviiRoute40AfterBattleText3 | "Rumors have that" "it's somehow" | "Rumor has it that" "it's somehow" | mixed idiom ("rumor has it" vs "rumors say") |
 | text/SeviiSixIsland1.asm | _SeviiRoute40EndBattleText4 | "Seven sins for" "his reborn!" | "Seven sins for" "his rebirth!" | "reborn" used as a noun |
-| text/SeviiSixIsland2.asm | _SeviiSecretBeachHouseText3 | "You or your team are tired? Please use the bed..." | "Are you or your team tired? Please use the bed..." | statement/question mismatch |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript7 | "I hope you three garbage proved yourself not completely worthless" | "...proved yourselves not completely worthless" | plural agreement ("you three") |
-| text/SeviiSixIsland2.asm | _SeviiRoute38HousesText1_RP_TakeThis | "not well enough to keep up with a filth like you" | "...to keep up with filth like you" | "filth" is uncountable |
-| text/SeviiSixIsland2.asm | _SeviiDottedHoleTextScript3_RP | "Why attacking us instead of answe-" | "Why are you attacking us instead of answe-" | missing auxiliary verb (low confidence — may be intentional interrupted speech) |
 | text/SeviiThreeIsland.asm | _SeviiThreeIslandHousesText5 | "so moving it's not a problem for me" | "so moving isn't a problem for me" |  |
 | text/SeviiThreeIsland.asm | _SeviiThreeIslandHousesBookshelfText6_Shelf3_Book3 | "three adult and one old humanoid beagles" | "three adult humanoid beagles and one old one" | may need re-wrap |
 | text/SeviiThreeIsland.asm | _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book2 | "the characters're awesome" | "the characters are awesome" |  |
@@ -283,18 +187,9 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/SeviiTwoIsland.asm | _SeviiTwoIsletHousesText2_Intro | "your #MON SPEED'll go at its lowest!" | "your #MON SPEED'll drop to its lowest!" |  |
 | text/SeviiTwoIsland.asm | _SeviiTwoIsletHousesSignText1 | "There's written about a rumored SHINY CHARM" | "There's something written about a rumored SHINY CHARM" | may need re-wrap |
 | text/SeviiTwoIsland.asm | _SeviiTwoIslandCityText8_AfterRiders (RP block) | "Didn't tell us what business had there, though..." | "Didn't tell us what business they had there, though..." |  |
-| text/SilphCo7F.asm | _HeresYourPorygonText | "traveling through the cyberspace!" | "traveling through cyberspace!" | extra article |
-| text/SilphCo7F.asm | _HeresYourPorygonText | "Sorry, I got lost in thoughts." | "Sorry, I got lost in thought." | idiom is "lost in thought" |
-| text/SilphCo7F.asm | _HeresYourPorygonText | "Rumors said that in another department" | "Rumors say that in another department" | tense mismatch |
-| text/SilphCo7F.asm | _SilphCo7Text_51ec3 | "I came here at SILPH to try to" | "I came to SILPH to try to" | "here at" is redundant/odd; may need re-wrap |
-| text/VermilionCity.asm | _ElderBattleFacilityText2 | "Come and enjoy at your fullest my BATTLE FACILITY!" | "Come and enjoy my BATTLE FACILITY to the fullest!" | awkward word order |
-| text/VermilionCity.asm | _VermilionCityText7_RP_PoorSquirtle | "I'm so shameful..." | "I'm so ashamed..." | wrong word (shameful describes the act, not the feeling) |
-| text/VermilionCity.asm | _VermilionCityText7_RP_OhNoSquirtle | "JENNY: What do you want from me yet?" | "JENNY: What more do you want from me?" |  |
 | text/VictoryRoad1F.asm | _VictoryRoad1AfterBattleText_RP_YesUs | "Short ago, someone who looked so eerily like me stormed by" | "Not long ago, someone who looked so eerily like me stormed by" |  |
 | text/VictoryRoad1F.asm | _VictoryRoad1AfterBattleText4_RP | "My alter ego looked like was devoured by sadness and anger" | "My alter ego looked like he was devoured by sadness and anger" | missing pronoun |
-| text/VictoryRoad3F.asm | _VictoryRoad3AfterBattleText9 | "I'm already so happy of what my bugs and I have achieved so far!" | "I'm already so happy about what my bugs and I have achieved so far!" | wrong preposition |
 | text/ViridianCity.asm | _ViridianCityText_19175 | "we have to wait until they sobers up." | "...until they sober up." | subject-verb agreement |
-| text/ViridianForest.asm | _ViridianForestErikaBeforeBattleText | "I jogged" "till here all the" "way from CELADON," | "I jogged all the way here from CELADON," | redundant "till here" + "all the way"; may need re-wrap |
 | text/ViridianGym.asm | _ViridianGymGiovanniPostBattleText | "...I see... you remind me the myself of so, so many, too many years ago..." | "...you remind me of myself, so, so many, too many years ago..." | garbled phrasing |
 | text/ViridianGym.asm | _ViridianGymGuideText_PostLeague_Intro_Long | "And also quite a luck." | "And also quite a stroke of luck." | "luck" uncountable; may need re-wrap |
 | text/ViridianGym.asm | _ViridianGymGuideText_PostLeague_AmazingLetsGo | "Thanks a ton, it's huge help for us!" | "...it's a huge help for us!" | missing article; may need re-wrap |
@@ -304,7 +199,3 @@ Full sweep of `text/*.asm` and the dialogue-bearing files in `data/text/*.asm` (
 | text/ViridianSchoolHouse.asm | _SchoolText6 | "LEECH SEED drain 1/8 of its max HP and give them to the opponent." | "LEECH SEED drains 1/8 of its max HP and gives it to the opponent." | subject-verb agreement |
 | text/ViridianSchoolHouse.asm | _SchoolText7 | "But if they do that on me, I learned I just need to switch" | "But if they do that to me, I learned I just need to switch" |  |
 | text/ViridianSchoolHouse.asm | _SchoolText9 | "so-called Same Type Attack Bonus or STAB in short." | "so-called Same Type Attack Bonus or STAB for short." |  |
-| text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_PG_NoArtifact | "If you really wish something but you can't afford it" | "If you really wish for something" |  |
-| text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_PG_YesArtifact | "Could I interest you with a trade?" | "Could I interest you in a trade?" |  |
-| text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactInBag | "You wouldn't dare setting it on fi-" | "You wouldn't dare set it on fi-" |  |
-| text/WardensHouse.asm | _FuchsiaHouse2AntiquitiesTextShopOwner_RP_ArtifactBreaks | "<PLAYER> gives the ARTIFACT to the seller. But ACCIDENTALLY it falls and breaks into a million pieces." | "gave...it fell and broke" (tense mismatch with other narration lines, which use past tense) |  |

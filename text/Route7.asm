@@ -23,7 +23,7 @@ _Route7RepairPersonText_FirstTime::
 	cont "SCREWDRIVER!"
 
 	para "It was a gift from"
-	line "my gramparents,"
+	line "my grandparents,"
 	cont "AND I need it"
 	cont "for my job!"
 

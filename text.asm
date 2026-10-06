@@ -129,7 +129,7 @@ INCLUDE "text/CeladonHotel.asm"
 INCLUDE "text/FuchsiaPokecenter.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
 INCLUDE "data/text/text_7.asm"
-INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally lol)
+INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally)
 
 
 SECTION "Text 8", ROMX
@@ -213,12 +213,12 @@ INCLUDE "text/BattleFacility.asm" ; new
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/CeladonUniversity2.asm" ; new
-INCLUDE "text/BillsHouse.asm" ; moved from Text 3
+INCLUDE "text/BillsHouse.asm"
 INCLUDE "text/SafariZoneCenter.asm"
 INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo8F.asm"
-INCLUDE "text/PewterNidoranHouse.asm" ; from Text 5
+INCLUDE "text/PewterNidoranHouse.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/VermilionPokecenter.asm"
@@ -239,19 +239,19 @@ INCLUDE "text/HallOfFame.asm"
 INCLUDE "text/CeruleanGym.asm"
 INCLUDE "text/CeruleanTrashedHouse.asm"
 INCLUDE "text/ViridianNicknameHouse.asm" ; from Text 5
+INCLUDE "text/CinnabarVolcano.asm" ; new
+INCLUDE "text/CinnabarVolcanoBF.asm" ; new
+INCLUDE "text/PikachuGrotto.asm" ; new
 
 
 SECTION "Text Extra 9", ROMX ; new, to accomodate all .asm text files that became too big and new ones
 INCLUDE "data/text/text_9.asm"
 INCLUDE "text/PokemonFanClub.asm"
-INCLUDE "text/CinnabarVolcano.asm" ; new
-INCLUDE "text/CinnabarVolcanoBF.asm" ; new
 INCLUDE "text/NameRatersHouse.asm"
 INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route21.asm"
-INCLUDE "text/PikachuGrotto.asm" ; new
 
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -261,7 +261,6 @@ INCLUDE "text/LakeOfMist.asm"
 INCLUDE "text/Route19.asm"
 INCLUDE "text/CeladonDiner.asm"
 INCLUDE "text/Route6.asm"
-INCLUDE "text/GameCorner.asm" ; moved from Text 6
 INCLUDE "text/Route9.asm"
 INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/OchrePokecenter.asm" ; new
@@ -271,6 +270,7 @@ INCLUDE "text/PokemonMansion1F.asm"
 INCLUDE "text/FuchsiaMart.asm"
 INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
+INCLUDE "text/PewterGym.asm"
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -280,10 +280,9 @@ INCLUDE "data/text/text_4.asm"
 INCLUDE "text/PokemonMansion3F.asm"
 INCLUDE "text/pokedex_ratings.asm"
 INCLUDE "text/PewterPokecenter.asm"
-INCLUDE "text/PewterGym.asm"
 INCLUDE "text/PewterCity.asm"
 INCLUDE "text/Route8.asm"
-INCLUDE "text/CinnabarLabFossilRoom.asm"
+INCLUDE "text/BrunosRoom.asm"
 
 
 SECTION "Text Extra 12", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -299,11 +298,11 @@ INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/RedsHouse1F.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/CeladonMartRoof.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/Route25.asm"
+INCLUDE "text/CinnabarLabFossilRoom.asm"
 
 
 SECTION "Text Extra 14", ROMX ; new
@@ -321,6 +320,10 @@ INCLUDE "text/CeruleanPokecenter.asm"
 INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/PickUpTMsHMs.asm"
 INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
+
+
+SECTION "Text Extra 15", ROMX ; new
+INCLUDE "text/GameCorner.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

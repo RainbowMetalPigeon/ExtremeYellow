@@ -90,7 +90,7 @@ _SSAnneFlashedTicketText:: ; edited
 	line "S.S.ANNE!"
 
 	para "I'll take your"
-	line "S.S. TICKET and"
+	line "S.S.TICKET and"
 	cont "register you as"
 	cont "an allowed guest."
 
@@ -98,7 +98,7 @@ _SSAnneFlashedTicketText:: ; edited
 	line "can board the"
 	cont "S.S.ANNE anytime."
 
-	para "The S.S. TICKET"
+	para "The S.S.TICKET"
 	line "got embedded into"
 	cont "the back of the"
 	cont "TRAINER CARD."
@@ -403,8 +403,8 @@ _VermilionCityText7_RP_PoorSquirtle::
 	done
 
 _VermilionCityText7_RP_OhNoSquirtle::
-	text "JENNY: What do you"
-	line "want from me yet?"
+	text "JENNY: What more"
+	line "do you want now?"
 	
 	para "?! No! Wait! Stop!"
 	line "STOP! Leave it"

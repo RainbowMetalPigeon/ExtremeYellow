@@ -14,7 +14,7 @@ _Route20AfterBattleText1:: ; edited
 	line "patch of deep"
 	cont "water. People can"
 	cont "DIVE there. But I"
-	cont "find super scary!"
+	cont "find it too scary!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -228,7 +228,7 @@ _Route20DiveAfterBattleText2::
 	text "Bgblbuuu?"
 
 	para "(What do you mean"
-	line "with 'Steps'?)"
+	line "by 'Steps'?)"
 	done
 
 _Route20DiveBattleText3::
@@ -258,8 +258,8 @@ _Route20DiveAfterBattleText3::
 _Route20SpecialBirdKeeperText_AfterBattle::
 	text "Your"
 	line "dedication to"
-	cont "birbs' unwavering"
-	cont "as a glacier!"
+	cont "birbs is unwaver-"
+	cont "ing as a glacier!"
 ;	xxxx "123456789012345678"
 	prompt
 
