@@ -1087,6 +1087,9 @@ AIMoveChoiceModification3:
 	pop de
 	pop hl
 	jp nc, .discourageMoveByFive1
+	ld a, 5
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jr c, .discourageMoveByFive1
 ; otherwise, extremely encourage the move (-5)
 	dec [hl]
 	dec [hl]
@@ -1106,6 +1109,9 @@ AIMoveChoiceModification3:
 	pop de
 	pop hl
 	jp c, .discourageMoveByFive1
+	ld a, 5
+	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
+	jr c, .discourageMoveByFive1
 ; otherwise, extremely encourage the move (-5)
 	dec [hl]
 	dec [hl]
