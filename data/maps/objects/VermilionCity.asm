@@ -12,6 +12,8 @@ VermilionCity_Object:
 	warp_event 15, 13, VERMILION_HOUSES, 3 ; edited because of map merging
 	warp_event  7,  3, VERMILION_HOUSES, 1 ; edited because of map merging
 	warp_event 30,  7, BATTLE_FACILITY, 1 ; new
+	warp_event 15,  3, VERMILION_HOUSES, 7 ; new
+	warp_event 21,  3, VERMILION_HOUSES, 9 ; new
 
 	def_bg_events
 	bg_event 17,  5, 11 ; VermilionCityText8 ; moved to the left

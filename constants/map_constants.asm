@@ -119,7 +119,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const POKEMON_FAN_CLUB,               4,  4 ; $60
 	map_const BATTLE_FACILITY,               15,  4 ; $61 ; mew
 	map_const VERMILION_GYM,                  5,  9 ; $62
-	map_const VERMILION_HOUSES,              18,  4 ; $63 ; new, merge of all Vermilion houses
+	map_const VERMILION_HOUSES,              32,  4 ; $63 ; new, merge of all Vermilion houses
 	map_const VERMILION_DOCK,                14,  6 ; $64
 	map_const SS_ANNE_1F,                    20,  9 ; $65
 	map_const SS_ANNE_2F,                    20,  9 ; $66

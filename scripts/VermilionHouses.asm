@@ -11,6 +11,16 @@ VermilionHouses_TextPointers:
 	dw VermilionHouse1Text1
 	dw VermilionHouse1Text2
 	dw VermilionHouse1Text3
+	; new house 1
+	dw VermilionHousesText6
+	dw VermilionHousesText7
+	; new house 2
+	dw VermilionHousesText8 ; BIRD
+	dw VermilionHousesText9 ; YOUNGSTER
+	dw VermilionHousesText10 ; BEAUTY
+	dw VermilionHousesText11 ; PAPER
+	dw VermilionHousesText12 ; POKE_BALL
+	dw VermilionHousesText13 ; FISHING_GURU
 
 VermilionHouses_TextPointers_Rocket:
 	; old rod
@@ -21,6 +31,16 @@ VermilionHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw VermilionHouse1Text2 ; Mon
 	dw VermilionHouse1Text3 ; Paper
+	; new house 1
+	dw VermilionHousesText6_RP
+	dw VermilionHousesText7_RP
+	; new house 2
+	dw VermilionHousesText8 ; BIRD
+	dw GenericNPCText_RocketPath ; YOUNGSTER
+	dw GenericNPCText_RocketPath ; BEAUTY
+	dw VermilionHousesText11 ; PAPER
+	dw VermilionHousesText12_RP ; POKE_BALL
+	dw VermilionHousesText13_RP ; FISHING_GURU
 
 ; old rod ----------------------------
 
@@ -98,4 +118,71 @@ VermilionHouse1Text2:
 
 VermilionHouse1Text3:
 	text_far _VermilionHouse1Text3
+	text_end
+
+; new houses --------------------------
+
+VermilionHousesText6:
+	text_far _VermilionHousesText6
+	text_end
+
+VermilionHousesText7:
+	text_far _VermilionHousesText7
+	text_end
+
+VermilionHousesText8:
+	text_asm
+	ld hl, VermilionHousesText8_1
+	call PrintText
+	ld a, DODUO
+	call PlayCry
+	call WaitForSoundToFinish
+	ld hl, VermilionHousesText8_2
+	call PrintText
+	jp TextScriptEnd
+
+VermilionHousesText8_1:
+	text_far _VermilionHousesText8_1
+	text_end
+
+VermilionHousesText8_2:
+	text_far _VermilionHousesText8_2
+	text_end
+
+VermilionHousesText9:
+	text_far _VermilionHousesText9
+	text_end
+
+VermilionHousesText10:
+	text_far _VermilionHousesText10
+	text_end
+
+VermilionHousesText11:
+	text_far _VermilionHousesText11
+	text_end
+
+VermilionHousesText12:
+	text_far _VermilionHousesText12
+	text_end
+
+VermilionHousesText13:
+	text_far _VermilionHousesText13
+	text_end
+
+; new for RP ===========================
+
+VermilionHousesText6_RP:
+	text_far _VermilionHousesText6_RP
+	text_end
+
+VermilionHousesText7_RP:
+	text_far _VermilionHousesText7_RP
+	text_end
+
+VermilionHousesText12_RP:
+	text_far _VermilionHousesText12_RP
+	text_end
+
+VermilionHousesText13_RP:
+	text_far _VermilionHousesText13_RP
 	text_end

@@ -266,6 +266,11 @@ INCLUDE "text/Route9.asm"
 INCLUDE "text/ViridianMart.asm"
 INCLUDE "text/OchrePokecenter.asm" ; new
 INCLUDE "text/LavenderMart.asm"
+INCLUDE "text/PokemonMansion2F.asm"
+INCLUDE "text/PokemonMansion1F.asm"
+INCLUDE "text/FuchsiaMart.asm"
+INCLUDE "text/SaffronMart.asm"
+INCLUDE "text/FuchsiaGoodRodHouse.asm"
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -293,16 +298,10 @@ SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that beca
 INCLUDE "text/OchreRehabilitationCenter.asm" ; new
 INCLUDE "text/CeruleanMelaniesHouse.asm"
 INCLUDE "text/RedsHouse1F.asm"
-INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/VermilionPidgeyHouse.asm"
-INCLUDE "text/FuchsiaMart.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/CeladonMartRoof.asm"
-INCLUDE "text/SaffronMart.asm"
-INCLUDE "text/PokemonMansion1F.asm"
-INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 INCLUDE "text/MrPsychicsHouse.asm"
-INCLUDE "text/PokemonMansion2F.asm"
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/Route25.asm"
 
@@ -321,6 +320,7 @@ INCLUDE "text/PokemonMansionB1F.asm"
 INCLUDE "text/CeruleanPokecenter.asm"
 INCLUDE "text/SunkenShip.asm"
 INCLUDE "text/PickUpTMsHMs.asm"
+INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections
