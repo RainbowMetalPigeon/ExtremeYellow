@@ -72,7 +72,7 @@ _LoreleiEndBattleTextRematch::
 _LoreleiAfterBattleTextRematch::
 	text "Well done! You"
 	line "didn't disappoint"
-	cont "me for the"
+	cont "me in the"
 	cont "slightest."
 
 	para "Go on now! The"
@@ -93,7 +93,7 @@ _LoreleiBeforeBattleTextRematch2::
 	cont "Nothing less!"
 
 	para "We couldn't slack"
-	line "back while you"
+	line "off while you"
 	cont "keep becoming"
 	cont "stronger and"
 	cont "stronger."
@@ -101,7 +101,7 @@ _LoreleiBeforeBattleTextRematch2::
 	para "That's why today's"
 	line "challenge to the"
 	cont "INDIGO PLATEAU is"
-	cont "of another level!"
+	cont "on another level!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -139,7 +139,7 @@ _LoreleiBeforeBattleText_RP::
 	line "is your heart is"
 	cont "even colder than"
 	cont "my ICE, but I'll"
-	cont "make sure to see"
+	cont "ensure to see you"
 	cont "frozen for good."
 ;	xxxx "123456789012345678"
 	done
@@ -154,7 +154,7 @@ _LoreleiAfterBattleText_RP::
 	text "Tsk. What can I"
 	line "say? Go through."
 	
-	para "But stay assure,"
+	para "But stay assured,"
 	line "my colleagues'll"
 	cont "destroy you."
 ;	xxxx "123456789012345678"

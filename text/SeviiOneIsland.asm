@@ -242,7 +242,7 @@ _SeviiOneIslandHousesText3_CelioBeforePink::
 _SeviiOneIslandHousesText3_RightAfterPink::
 	text "CELIO: As you must"
 	line "have guessed,"
-	cont "PINK's my nephew."
+	cont "PINK's my nibling."
 
 	para "They live in FLOE"
 	line "ISLAND with their"
@@ -1386,8 +1386,8 @@ _SeviiOneIslandHousesText12_RP_BeforePink::
 	para "No? Oh, so you"
 	line "'just' beat that"
 	cont "officer and a kid"
-	cont "that tried to"
-	cont "rescue my nephew."
+	cont "who tried to"
+	cont "rescue MAYOI."
 
 	para "You filthy..."
 ;	xxxx "123456789012345678"

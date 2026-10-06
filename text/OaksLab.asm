@@ -574,7 +574,7 @@ _OaksLabText_AidPikachuInfo1:: ; new
 	cont "about this."
 
 	para "This PIKACHU,"
-	line "although, only"
+	line "however, only"
 	cont "respects trainers"
 	cont "that it likes."
 
@@ -743,7 +743,7 @@ _GiovanniBeforeBattleText::
 	cont "changed my life."
 
 	para "You saved me from"
-	line "a life a crime,"
+	line "a life of crime,"
 	cont "and gave me"
 	cont "another chance"
 	cont "at life, when not"
@@ -761,7 +761,7 @@ _GiovanniBeforeBattleText::
 	para "And my neverending"
 	line "gratitude also"
 	cont "goes to SAMUEL,"
-	cont "which welcomed me"
+	cont "who welcomed me"
 	cont "back with open"
 	cont "arms and tears in"
 	cont "their eyes, ready"
@@ -781,7 +781,7 @@ _GiovanniBeforeBattleText::
 
 	para "Now... now I can"
 	line "finally return to"
-	cont "my researches,"
+	cont "my research,"
 	cont "which I abandoned"
 	cont "so long ago to"
 	cont "pursue a life of"
@@ -797,7 +797,7 @@ _GiovanniBeforeBattleText::
 	cont "there is a favour"
 	cont "I would love to"
 	cont "ask you: would"
-	cont "you honor me by"
+	cont "you honour me by"
 	cont "battling with me"
 	cont "once again?"
 
@@ -830,8 +830,8 @@ _GiovanniBeforeBattleTextShort::
 	line "a fun battle"
 	cont "with you."
 
-	para "Would battle mode"
-	line "do you prefer?"
+	para "Which battle mode"
+	line "would you prefer?"
 	prompt
 
 _GiovanniBeforeBattleText2::
@@ -883,6 +883,6 @@ _OaksLabText9_RP_Core::
 	cont "PROF.OAK is not"
 	cont "here now, or they"
 	cont "may die of"
-	cont "brocken heart..."
+	cont "broken heart..."
 ;	xxxx "123456789012345678"
 	done

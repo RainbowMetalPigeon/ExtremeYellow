@@ -139,7 +139,7 @@ _OtherHitmonText::
 
 _FightingDojoBrunoBeforeBattleText::
 	text "BRUNO: CHAMPION!"
-	line "You visit honors"
+	line "Your visit honors"
 	cont "this DOJO!"
 
 	para "I used to train"
@@ -163,7 +163,7 @@ _FightingDojoBrunoBeforeBattleText::
 	cont "strategy too. I"
 	cont "would be deeply"
 	cont "pleased if you"
-	cont "helped me trainig"
+	cont "helped me train"
 	cont "my wit with an"
 	cont "INVERSE BATTLE!"
 	done

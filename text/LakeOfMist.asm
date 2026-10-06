@@ -24,7 +24,7 @@ _LakeOfMistText1_HaveMoltres::
 	para "This is a deed"
 	line "without peer."
 	cont "Yet, I cannot"
-	cont "even phatom to"
+	cont "even fathom to"
 	cont "control the Deity"
 	cont "myself."
 

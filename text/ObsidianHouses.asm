@@ -136,7 +136,7 @@ _ObsidianHousesTextFamily4::
 	text "None of us was"
 	line "good enough of a"
 	cont "trainer to face"
-	cont "them off, so we"
+	cont "them down, so we"
 	cont "had to do as they"
 	cont "said, or their"
 	cont "fangs and poison"

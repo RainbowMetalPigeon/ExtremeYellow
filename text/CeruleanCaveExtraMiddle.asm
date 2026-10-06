@@ -21,7 +21,7 @@ _CeruleanCaveExtraMiddleLanceBeforeBattleText::
 	cont "This maze"
 	cont "continues north"
 	cont "into a"
-	cont "terrifingly"
+	cont "terrifyingly"
 	cont "complex"
 	cont "labyrinth."
 

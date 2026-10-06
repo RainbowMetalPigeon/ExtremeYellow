@@ -296,7 +296,7 @@ _Route21ScriptText1::
 	cont "had, if I recall"
 	cont "correctly, took"
 	cont "place in the"
-	cont "SEVII ISLANDs."
+	cont "SEVII ISLANDS."
 ;	xxxx "123456789012345678"
 
 	para "I know! <PLAYER>!"

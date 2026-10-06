@@ -98,7 +98,7 @@ _ObsidianIslandText10_Citizen1::
 
 _ObsidianIslandText11_Citizen2::
 	text "OBSIDIAN ISLAND"
-	line "prides itself in"
+	line "prides itself on"
 	cont "its respect"
 	cont "towards the"
 	cont "environment."
@@ -216,13 +216,13 @@ _ObsidianIslandText7_Scientist1_Intro_NoPrompt::
 	cont "found."
 
 	para "Alas, the"
-	line "environment"
+	line "environment is"
 	cont "prohibitively"
 	cont "harsh. I tried"
 	cont "exploring it"
 	cont "myself, and had"
 	cont "to run away after"
-	cont "few steps."
+	cont "a few steps."
 
 	para "But you, you are"
 	line "young and"
@@ -273,13 +273,13 @@ _ObsidianIslandText7_Scientist1_Intro_WithPrompt::
 	cont "found."
 
 	para "Alas, the"
-	line "environment"
+	line "environment is"
 	cont "prohibitively"
 	cont "harsh. I tried"
 	cont "exploring it"
 	cont "myself, and had"
 	cont "to run away after"
-	cont "few steps."
+	cont "a few steps."
 
 	para "But you, you are"
 	line "young and"
@@ -353,7 +353,7 @@ _ObsidianIslandText7_Scientist1_AlreadyRewardedOrb::
 	cont "brought me!"
 
 	para "Who knows, maybe"
-	line "if few years"
+	line "in a few years"
 	cont "we'll have a"
 	cont "clean energy"
 	cont "source thanks to"
@@ -362,7 +362,7 @@ _ObsidianIslandText7_Scientist1_AlreadyRewardedOrb::
 
 _ObsidianIslandText7_Scientist1_HiBackHaveYouDone::
 	text "Hi hi! Have you"
-	line "already found out"
+	line "already found"
 	cont "3 special"
 	cont "FIRESTONEs in"
 	cont "CINNABAR VOLCANO"
@@ -396,7 +396,7 @@ _ObsidianIslandText7_Scientist1_ThanksHereIsReward::
 	cont "energy source!"
 
 	para "Here, please have"
-	line "the reward you I"
+	line "the reward I"
 	cont "promised you,"
 	cont "together with my"
 	cont "thanks!"

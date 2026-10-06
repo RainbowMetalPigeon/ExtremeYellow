@@ -38,8 +38,8 @@ _GiveRoomKey34Text_FoundItem::
 
 _SunkenShipLoreText_33::
     text "Vacation equipment"
-    line "including beach"
-    cont "kid toys."
+    line "including kids'"
+    cont "beach toys."
 
     para "They emanate a"
     line "sense of point-"
@@ -114,7 +114,7 @@ _SunkenShipCaptainsLogText_Page0::
     para "April 27"
     line "Passengers got on"
     cont "board smoothly."
-    cont "Forecasts're good."
+    cont "Forecasts's good."
     cont "I foresee a"
     cont "relaxed trip."
 ;   xxxx "123456789012345678"
@@ -126,18 +126,19 @@ _SunkenShipCaptainsLogText_Page1::
     cont "movements between"
     cont "rooms. Company"
     cont "policy forbids"
-    cont "staying in other's"
-    cont "cabins, but I'll"
-    cont "not get in the"
-    cont "way of friends"
-    cont "and lovers."
+    cont "staying in"
+;   xxxx "123456789012345678"
+    cont "others' cabins,"
+    cont "but I'll not get"
+    cont "in the way of"
+    cont "friends or lovers."
 ;   xxxx "123456789012345678"
     prompt
 
 _SunkenShipCaptainsLogText_Page2::
     text "April 30"
-    line "Updated forecasts"
-    cont "mention the"
+    line "Updated forecast"
+    cont "mentions the"
     cont "possibility of"
     cont "bad weather along"
     cont "our route and"
@@ -187,7 +188,7 @@ _SunkenShipCaptainsLogText_Page5::
     cont "should still go"
     cont "well, as long as"
     cont "it doesn't push us"
-    cont "out of path and"
+    cont "off cpurse and"
     cont "into the rocks."
     cont "I'll make an"
     cont "announcement to"
@@ -237,7 +238,7 @@ _SunkenShipLoreText_22::
 
 _SunkenShipLoreText_26::
     text "Work tools, now"
-    line "covered in algaes"
+    line "covered in algae"
     cont "and barnacles."
 
     para "They'll never fix"
@@ -275,7 +276,7 @@ _GiveShipTreasureText_FoundTopaz::
     line "time underwater,"
     cont "the stronghold"
     cont "gives in with no"
-    cont "effor whatsoever."
+    cont "effort at all."
 
     para "Inside, a single"
     line "box. Within it,"
@@ -306,7 +307,7 @@ _GivePassword22Text::
     para "Out of them all,"
     line "one undamaged"
     cont "paper shines in"
-    cont "its red writings:"
+    cont "its red writing:"
 
     para "'-O,]eA"
     line "Reverse Truth'"
@@ -343,8 +344,8 @@ _SunkenShipLoreText_13::
     text "The chest is"
     line "covered by so"
     cont "much sediment"
-    cont "that can't be"
-    cont "opened."
+    cont "that it can't"
+    cont "be opened."
 
     para "Maybe it's better"
     line "this way..."

@@ -106,7 +106,7 @@ _TextTraveler_VictoryPostBattle::
 	cont "that the"
 	cont "abilities of"
 	cont "MEGA MEWTWO have"
-	cont "appared somehow"
+	cont "appeared somehow"
 	cont "disappointing."
 
 	para "Maybe this is not"
@@ -292,7 +292,7 @@ _TextTraveler_Intro_RP::
 	cont "me any further."
 	cont "I hold a null"
 	cont "interest in"
-	cont "mendling with"
+	cont "meddling with"
 	cont "people who chose"
 	cont "such life paths."
 ;	xxxx "123456789012345678"

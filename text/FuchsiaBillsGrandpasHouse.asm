@@ -11,7 +11,8 @@ _FuchsiaHouse1Text2::
 	text "Hmm? You've met"
 	line "BILL?"
 
-	para "They're my grankid!"
+	para "They're my"
+	line "grandkid!"
 
 	para "They always liked"
 	line "collecting things"

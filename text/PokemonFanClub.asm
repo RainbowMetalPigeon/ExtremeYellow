@@ -10,8 +10,8 @@ PikachuFanBetterText::
 	cont "as that one!"
 	done
 
-PikachuFanPrintText::
-	text "Our CHAIRMAN's new"
+PikachuFanPrintText:: ; edited
+	text "Our CHAIRPERSON's"
 	line "hobby is taking"
 	cont "#MON photos."
 

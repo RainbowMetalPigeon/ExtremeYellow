@@ -72,8 +72,9 @@ _PewterHouse2Text4::
 	line "1 in 4 to shrug"
 	cont "off all evils."
 
-	para "250: trascend that"
-	line "four critical"
+	para "250: transcend"
+	line "that four"
+	cont "critical"
 	cont "ascension."
 
 	para "...the hell is"

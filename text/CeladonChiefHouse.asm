@@ -27,8 +27,8 @@ _LunarShrineMonkText_RelicNotInBag::
 	text "How did you arrive"
 	line "here?"
 
-	para "Well, I would"
-	line "invite to leave,"
+	para "Well, I'd invite"
+	line "you to leave,"
 	cont "if you please."
 	cont "I don't enjoy"
 	cont "visitors and"
@@ -98,10 +98,11 @@ _LunarShrineMonkText_RelicInBag_NotFirstTime::
 	line "LUNAR RELIC to"
 	cont "its SHRINE."
 
-	para "It has been more"
-	line "than half a"
-	cont "century it has"
-	cont "been missing..."
+	para "It has been"
+	line "missing for more"
+	cont "than half a"
+	cont "century now..."
+;	xxxx "123456789012345678"
 	done
 
 _LunarShrineMonkText_AlreadyReturnedRelic::
@@ -115,9 +116,9 @@ _LunarShrineMonkText_AlreadyReturnedRelic::
 	cont "of a lifetime."
 
 	para "I... I think I'm"
-	line "ready to open"
-	cont "again the TEMPLE"
-	cont "to the visitors."
+	line "ready to the"
+	cont "TEMPLE to the"
+	cont "visitors again."
 
 	para "I want to return"
 	line "not only your"
@@ -394,9 +395,8 @@ _LunarShrineTextRockets11::
 	para "You're a hero! I"
 	line "am immensely"
 	cont "grateful to you,"
-	cont "and so should be"
-	cont "the whole of"
-	cont "KANTO."
+	cont "and so should the"
+	cont "whole of KANTO."
 
 	para "Now... let's put"
 	line "an end to this"

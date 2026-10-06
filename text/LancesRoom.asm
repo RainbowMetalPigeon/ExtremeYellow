@@ -112,7 +112,7 @@ _LanceBeforeBattleTextRematch::
 	line "measure myself"
 	cont "with you again."
 	cont "I, LANCE,"
-	cont "challenge with"
+	cont "challenge you"
 	cont "with my ultimate"
 	cont "dragons!"
 	done
@@ -161,9 +161,9 @@ _LanceBeforeBattleTextRematch2::
 	cont "on this sacred"
 	cont "battlefield!"
 
-	para "We were struck in"
-	line "awe when we heard"
-	cont "of your"
+	para "We were struck"
+	line "with awe when we"
+	cont "heard of your"
 	cont "achievements in"
 	cont "the SEVII TRIAL."
 
@@ -198,7 +198,7 @@ _LanceAfterBattleTextRematch2::
 
 	para "As you probably"
 	line "have suspected,"
-	cont "us ELITE FOUR"
+	cont "we ELITE FOUR"
 	cont "were not the only"
 	cont "ones who heard of"
 	cont "your deeds and"

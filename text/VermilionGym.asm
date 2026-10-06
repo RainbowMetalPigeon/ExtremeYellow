@@ -212,7 +212,7 @@ _VermilionGymGuidePostBattleText:: ; edited
 
 _LtSurgeRematchPreBattleText::
 	text "Woah, CHAMPION!"
-	line "It's an honor to"
+	line "It's an honour to"
 	cont "see you again!"
 
 	para "You defeated me"

@@ -145,7 +145,7 @@ _ObsidianWarehouseFinalEndBattleText3::
 	prompt
 
 _ObsidianWarehouseFinalAfterBattleText3::
-	text "Grrr... you fucked"
+	text "Grrr! You fucking"
 	line "cockroach. Don't"
 	cont "get too cocky!"
 
@@ -249,7 +249,7 @@ _ObsidianWarehouseFinalAfterBattleText5::
 	para "I made them"
 	line "undergo the most"
 	cont "excruciating"
-	cont "trainings, I"
+	cont "training, I"
 	cont "purged all the"
 	cont "inferior ones..."
 
@@ -264,8 +264,8 @@ _ObsidianWarehouseFinalAfterBattleText5::
 	cont "again, further-"
 	cont "more in front of"
 	cont "my ADMINs!"
-	cont "Nobody will any"
-	cont "more follow me."
+	cont "Nobody'll follow"
+	cont "me anymore."
 	cont "TEAM ROCKET is"
 	cont "finished..."
 
@@ -363,9 +363,9 @@ _ObsidianWarehouseFinalText5_RP_After::
 	text "ARIANA: Not bad."
 	line "Not bad at all."
 
-	para "Keep on like this,"
-	line "kid, and you'll"
-	cont "rank up no time."
+	para "Keep on like this"
+	line "and you'll rank"
+	cont "up in no time."
 ;	xxxx "123456789012345678"
 	done
 
@@ -471,8 +471,8 @@ _ObsidianWarehouseFinalProtonDefeatText::
 
 _ObsidianWarehouseFinalText10_RP::
 	text "PETREL: Oh, you"
-	line "thought was gonna"
-	cont "be easy?"
+	line "thought it was"
+	cont "gonna be easy?"
 
 	para "You played dirty,"
 	line "we'll play dirty"
@@ -488,7 +488,7 @@ _ObsidianWarehouseFinalPetrelDefeatText::
 
 _ObsidianWarehouseFinalText11_RP::
 	text "ARIANA: The BOSS"
-	line "lead us all."
+	line "led us all."
 	cont "We won't let you"
 	cont "get away with"
 	cont "this unpunished."

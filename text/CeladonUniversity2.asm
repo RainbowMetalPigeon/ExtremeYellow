@@ -5,7 +5,7 @@ _CeladonUniversity2Text1:: ; prof
     line "for the lecture."
     cont "As per usual, we"
     cont "start 15 minutes"
-    cont "after o'clock."
+    cont "after the hour."
 
     para "Don't tell the"
     line "students, but"
@@ -30,7 +30,7 @@ _CeladonUniversity2Text2:: ; student
 
 _CeladonUniversity2Text3:: ; lovebirds
     text "Uh? What about"
-    line "leaving as alone?"
+    line "leaving us alone?"
     done
 
 _CeladonUniversity2Text4:: ; lovebirds
@@ -64,7 +64,7 @@ _CeladonUniversity2Text6:: ; researcher
     line "specific book on"
     cont "microprocessor"
     cont "architecture, but"
-    cont "I can't happen to"
+    cont "I can't seem to"
     cont "find it."
     done
 
@@ -94,9 +94,9 @@ _CeladonUniversity2Text8_Intro_NoPrompt::
     line "my thesis without"
     cont "info on it, but"
     cont "it lives only in"
-    cont "the deepest depth"
-    cont "of the SEAFOAM"
-    cont "ISLANDS."
+    cont "the deepest"
+    cont "depths of the"
+    cont "SEAFOAM ISLANDS."
 
     para "That place is"
     line "treacherous, with"
@@ -113,7 +113,7 @@ _CeladonUniversity2Text8_Intro_NoPrompt::
     para "I heard it dwells"
     line "also somewhere in"
     cont "SEVII, but I've no"
-    cont "mean to go there."
+    cont "way to go there."
 
     para "You seem strong!"
     line "Could you catch a"
@@ -143,14 +143,14 @@ _CeladonUniversity2Text8_Intro_WithPrompt::
     cont "complete without"
     cont "info on it, but"
     cont "it lives only in"
-    cont "the deepest depth"
-    cont "of the SEAFOAM"
-    cont "ISLANDS."
+    cont "the deepest"
+    cont "depths of the"
+    cont "SEAFOAM ISLANDS."
 
     para "That place is"
     line "treacherous, with"
     cont "strong #MON"
-    cont "and an harsh"
+    cont "and a harsh"
     cont "environment."
 
     para "I'm not that good"
@@ -159,7 +159,7 @@ _CeladonUniversity2Text8_Intro_WithPrompt::
     cont "venture very"
     cont "deep..."
 
-    para "You, although,"
+    para "You, however,"
     line "seem quite"
     cont "strong! May I ask"
     cont "you to catch a"

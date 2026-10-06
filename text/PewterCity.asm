@@ -3,7 +3,7 @@ _PewterCityText1::
 	line "CLEFAIRYs came"
 	cont "from the moon!"
 
-	para "They appeared "
+	para "They appeared"
 	line "after MOON STONE"
 	cont "fell on MT.MOON."
 	done
@@ -160,6 +160,6 @@ _PewterCityText12::
 
 _PewterCityCoinCaseMeowthText_HintNext::
     text "MEOWTH ran towards"
-    line "south!"
+    line "the south!"
 ;	xxxx "123456789012345678"
     done

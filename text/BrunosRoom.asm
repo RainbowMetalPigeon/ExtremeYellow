@@ -78,7 +78,7 @@ _BrunoBeforeBattleTextRematch2::
 	text "Powerful CHAMPION!"
 	line "We know you're"
 	cont "working to become"
-	cont "even more strong."
+	cont "even stronger."
 
 	para "But we are the"
 	line "INDIGO PLATEAU!"
@@ -165,8 +165,9 @@ _BrunoBeforeBattleText_RP_Pink::
 	line "crazy under our"
 	cont "new leader,"
 	cont "and awoke a power"
-	cont "as anything else!"
-
+	cont "unlike anything"
+	cont "else!"
+	
 	para "Fight!"
 	line "OOH-AAH!"
 ;	xxxx "123456789012345678"

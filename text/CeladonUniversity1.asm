@@ -103,7 +103,7 @@ _CeladonUniversity1TextPool2::
 	line "MAGIKARP expert"
 	cont "lives in OCHRE"
 	cont "CITY, and is an"
-	cont "ex student of"
+	cont "ex-student of"
 	cont "this UNIVERSITY!"
 	done
 

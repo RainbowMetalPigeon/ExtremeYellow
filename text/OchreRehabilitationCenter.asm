@@ -17,8 +17,8 @@ _OchreRehabilitationCenterText1::
 	para "The #MON that"
 	line "are there are"
 	cont "ready to be"
-	cont "released back in"
-	cont "to the wild!"
+	cont "released back"
+	cont "into the wild!"
 	done
 
 _OchreRehabilitationCenterText2::

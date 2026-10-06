@@ -4,8 +4,8 @@ _RocketHideoutJessieJamesText1::
 	text_end
 
 _RocketHideoutJessieJamesText2::
-	text "How did you dare"
-	line "humiliating us at"
+	text "How dare you"
+	line "humiliate us at"
 	cont "MT.MOON!"
 
 	para "It's payback time,"
@@ -97,7 +97,7 @@ _RocketHideout4Text_455ec::
 
 _RocketHideoutJessieJamesText4_RP::
 	text "The higher up may"
-	line "have welcome you,"
+	line "have welcomed you,"
 	cont "but we don't trust"
 	cont "you one bit!"
 
@@ -197,7 +197,7 @@ _RocketHideout4Text0_RP_GoToTowerSummary::
 	cont "not interfere"
 	cont "with our traffic-"
 	cont "king and help us"
-	cont "rescuing that"
+	cont "rescue that"
 	cont "failed project."
 
 	para "Now go. Hurry."
@@ -309,7 +309,7 @@ _RocketHideout4Text0_RP_GoToSevii::
 	line "need a bit of"
 	cont "convincing."
 	cont "Unfortunately,"
-	cont "the negotations"
+	cont "the negotiations"
 	cont "aren't proceeding"
 	cont "as planned."
 
@@ -326,7 +326,7 @@ _RocketHideout4Text0_RP_GoToSevii::
 
 	para "As soon as you"
 	line "are done, come"
-	cont "reporting to me."
+	cont "report to me."
 ;	xxxx "123456789012345678"
 	done
 
@@ -343,7 +343,7 @@ _RocketHideout4Text0_RP_GoToSeviiSummary::
 
 	para "As soon as you"
 	line "are done, come"
-	cont "reporting to me."
+	cont "report to me."
 
 	para "Now go. Hurry."
 ;	xxxx "123456789012345678"
@@ -354,7 +354,7 @@ _RocketHideout4Text0_RP_WellDoneWithCelio::
 	line "task well done."
 	cont "ORM already told"
 	cont "me how you helped"
-	cont "convincing CELIO."
+	cont "convince CELIO."
 
 	para "You're proving to"
 	line "be a great asset."
@@ -390,7 +390,7 @@ _RocketHideout4Text0_RP_ProblemsAtWarehouses::
 
 	para "I already"
 	line "dispatched some"
-	cont "personnel at both"
+	cont "personnel to both"
 	cont "locations, but"
 	cont "I want you to go"
 	cont "to both places"

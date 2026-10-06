@@ -158,8 +158,8 @@ _HallofFameRoomText1_RP::
 	line "crossed a line."
 
 	para "I regret so deeply"
-	line "not to have step"
-	cont "down before."
+	line "not to have step-"
+	cont "ped down before."
 	cont "I could have"
 	cont "prevented this."
 	cont "I could have"
@@ -214,7 +214,7 @@ _HallofFameRoomTextScript1_RP::
 	cont "I didn't step in"
 	cont "in time."
 	cont "I let you kill"
-	cont "my grankid."
+	cont "my grandkid."
 
 	para "I'm no better"
 	line "than you."

@@ -9,7 +9,7 @@ _RockTunnel2EndBattleText2::
 	prompt
 
 _RockTunnel2AfterBattleText2::
-	text "I want to go "
+	text "I want to go"
 	line "home!"
 	done
 

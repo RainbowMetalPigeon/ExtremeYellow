@@ -53,7 +53,7 @@ _ObsidianMinesText3_ThanksHereGift::
     text "Oh, my saviour!!!"
     line "Thank you, thank"
     cont "you, a thousand"
-    cont "time thank you!"
+    cont "times thank you!"
 
     para "Here, please"
     line "accept this gift!"
@@ -121,7 +121,7 @@ _ObsidianMinesText3_RP_StealNugget::
 	prompt
 
 _ObsidianMinesText3_RP_StoleNugget::
-	text "<PLAYER> steals a"
+	text "<PLAYER> stole a"
     line "BIG NUGGET!"
 ;	xxxx "123456789012345678"
 	done
@@ -137,7 +137,7 @@ _ObsidianMinesText3_RP_StealMap::
 	prompt
 
 _ObsidianMinesText3_RP_StoleMap::
-	text "<PLAYER> steals a"
+	text "<PLAYER> stole a"
 	line "piece of the"
 	cont "MYSTERY MAP!"
 ;	xxxx "123456789012345678"

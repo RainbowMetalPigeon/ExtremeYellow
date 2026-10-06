@@ -551,7 +551,7 @@ _SeviiFourIslandHousesScriptText2::
 	line "told us every-"
 	cont "thing: you're the"
 	cont "saviour of my"
-	cont "nephew!"
+	cont "nibling!"
 
 	para "PINK's PAPA: And"
 	line "now you helped"
@@ -989,7 +989,7 @@ _SeviiFourIslandHousesText2_RP_Before::
 	cont "want from us?!"
 
 	para "First my sibling"
-	line "and my nephew,"
+	line "and my nibling,"
 	cont "then my kid,"
 	cont "now us! Leave my"
 	cont "family alone!"

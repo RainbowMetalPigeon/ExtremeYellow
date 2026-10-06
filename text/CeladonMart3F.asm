@@ -81,7 +81,7 @@ _CeladonMart3Text15:: ; edited
 	para "BLACK, WHITE,"
 	line "BLACK2, WHITE2!"
 
-	para "...aftewards they"
+	para "...afterwards they"
 	line "become a bit"
 	cont "lame."
 	done

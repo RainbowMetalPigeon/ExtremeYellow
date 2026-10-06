@@ -22,8 +22,8 @@ _OchreHousesTextReactivater_Intro::
 
 	para "If you want me to,"
 	line "I can cast it and"
-	cont "make so that you"
-	cont "can approach"
+	cont "make it so that"
+	cont "you can approach"
 	cont "again every"
 	cont "trainer you"
 	cont "already defeated,"
@@ -98,7 +98,7 @@ _OchreHousesTextReactivater_Done::
 	para "Mind, though, that"
 	line "there are a"
 	cont "handful of elite"
-	cont "trainers which"
+	cont "trainers who"
 	cont "have not been"
 	cont "affected by my"
 	cont "spell."
@@ -351,7 +351,7 @@ _OchreHousesTextMapPiece_BagFull::
 ; signs ---------------------------
 
 _OchreHousesTextNotebook::
-	text "Is a notebook from"
+	text "A notebook from"
 	line "CELADON"
 	cont "UNIVERSITY full"
 	cont "of notes about"

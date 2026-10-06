@@ -123,6 +123,6 @@ _LavenderHouse1Text6:: ; edited
 	cont "funny creatures."
 
 	para "One of them looks"
-	line "like a bit like a"
+	line "a bit like a"
 	cont "familiar mouse..."
 	done

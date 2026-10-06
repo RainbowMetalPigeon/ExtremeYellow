@@ -170,7 +170,7 @@ _OchreGymBattleText6::
 	cont "boring..."
 
 	para "Nothing more wrong"
-	line "that that!!!"
+	line "than that!!!"
 
 	para "NORMAL is secretly"
 	line "the strongest"
@@ -258,7 +258,7 @@ _OragePreBattleText::
 	cont "they deserve."
 
 	para "Despite so, this"
-	line "is GYM is not..."
+	line "GYM is not..."
 	cont "Nevermind, doesn't"
 	cont "matter."
 
@@ -347,7 +347,7 @@ _GiftNoRoomText::
 
 _OchreGymStatueText::
 	text "OCHRE CITY"
-	line "#MON gym"
+	line "#MON GYM"
 	cont "Leader: ORAGE"
 
 	para "...the style is"
@@ -435,7 +435,7 @@ _OragePreBattleText_RP::
 	cont "I will certainly"
 	cont "not face some"
 	cont "shit like you in"
-	cont "a honor battle."
+	cont "an honour battle."
 	cont "I'll face you with"
 	cont "my max-power team."
 ;	xxxx "123456789012345678"
@@ -453,7 +453,7 @@ _OrageNoBadgeInfoText_RP::
 	cont "This is not an"
 	cont "official INDIGO"
 	cont "GYM. No BADGE for"
-	cont "your, nor fancy"
+	cont "you, nor fancy"
 	cont "gift TM."
 
 	para "It's the first time"

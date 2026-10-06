@@ -16,7 +16,7 @@ _Mansion2AfterBattleText1::
 	done
 
 _Mansion2Text3::
-	text "Diary: July 5"
+	text "Diary: July 5."
 	line "Guyana,"
 	cont "South America."
 
@@ -51,12 +51,12 @@ _Mansion2Text_520cc::
 _Mansion2BlaineBeforeBattleText::
 	text "BLAINE: ...oh,"
 	line "hello. I was..."
-	cont "lost in thoughts."
+	cont "lost in thought."
 
 	para "This place holds a"
 	line "special meaning"
 	cont "to me. Many"
-	cont "memories ties me"
+	cont "memories tie me"
 	cont "to it... And not"
 	cont "all of them are"
 	cont "pleasant..."

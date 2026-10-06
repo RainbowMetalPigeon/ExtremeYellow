@@ -13,9 +13,9 @@ _CeladonHotelText2:: ; edited
 
 _CeladonHotelText3:: ; edited
 	text "It's the first"
-	line "time I go on a"
-	cont "vacation with my"
-	cont "partner!"
+	line "time I've gone on"
+	cont "a vacation with"
+	cont "my partner!"
 
 	para "We still live with"
 	line "our parents in"
@@ -169,8 +169,8 @@ _CeladonHotelRoomsText3::
 	line "for overcoming"
 	cont "any and every"
 	cont "challenge and"
-	cont "rise to the rank"
-	cont "of CHAMPION!"
+	cont "rising to the"
+	cont "rank of CHAMPION!"
 	done
 
 _CeladonHotelRoomsText4::
@@ -306,7 +306,7 @@ _CeladonHotelHallText5_FixedMatchaMachine::
 
 	para "Now, please leave,"
 	line "I'm very busy."
-	cont "I've a businnes"
+	cont "I've a business"
 	cont "to run here,"
 	cont "don't you see?!"
 ;	xxxx "123456789012345678"
@@ -482,7 +482,7 @@ _CeladonHotelHallAfterBattleText2::
 ; ------
 
 _CeladonHotelHallBattleText3::
-	text "I'm the BOSS's"
+	text "I'm the BOSS'"
 	line "right hand."
 ;	xxxx "123456789012345678"
 	done

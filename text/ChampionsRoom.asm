@@ -511,9 +511,9 @@ _GaryText6_OakSorrow::
 	para "I hate so much"
 	line "having to ask"
 	cont "other people to"
-	cont "remind me it, and"
-	cont "the mere idea of"
-	cont "having to ask"
+	cont "remind me of it,"
+	cont "and the mere idea"
+	cont "of having to ask"
 	cont "you... it kills"
 	cont "me inside."
 
@@ -745,7 +745,7 @@ _GaryDefeatedText2ndBattle_AG_BGL::
 	line "are really in"
 	cont "top shape."
 
-	para "Not even my birds"
+	para "Not even my BIRDs"
 	line "of legends could"
 	cont "take you down!"
 	prompt
@@ -828,7 +828,7 @@ _GaryVictoryText2ndBattle_AG_FR::
 	cont "was seeking, as"
 	cont "it was unfair."
 	cont "I look forward to"
-	cont "face you again!"
+	cont "facing you again!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -938,11 +938,11 @@ _GaryText3_RP::
 	cont "wrong in this"
 	cont "fucked world."
 
-	para "But I reach the"
+	para "But I reached the"
 	line "pinnacle, as I"
 	cont "promised."
 	cont "I'm the strongest"
-	cont "TRAINER in the"
+	cont "TRAINER on the"
 	cont "whole planet."
 
 	para "And now, I'll purge"

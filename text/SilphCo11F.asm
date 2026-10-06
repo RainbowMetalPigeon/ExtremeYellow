@@ -292,7 +292,7 @@ _SilphCo11ScriptText2_RP::
 	cont "of TEAM ROCKET,"
 	cont "and... well, if"
 	cont "the BOSS trusts"
-	cont "you, why shoulnd't"
+	cont "you, why shouldn't"
 	cont "we do the same?"
 ;	xxxx "123456789012345678"
 	done
@@ -318,10 +318,10 @@ _SilphCo11ScriptText3_RP::
 	done
 
 _SilphCo11Text1_RP::
-	text "PRESIDET: Please!"
+	text "PRESIDENT: Please!"
 	line "Save us! I can"
-	cont "give you lot of"
-	cont "money!"
+	cont "give you a lot"
+	cont "of money!"
 
 	para "...what do you"
 	line "mean, you'd earn"
@@ -369,10 +369,10 @@ _SilphCo11TextGiovanni_RP_LoreDrop::
 	cont "#MON ever."
 
 	para "In a way, it"
-	line "succeded. But the"
-	cont "result, MEWTWO,"
-	cont "escaped control"
-	cont "and ran away."
+	line "succeeded. But"
+	cont "the result,"
+	cont "MEWTWO, escaped"
+	cont "control and ran."
 
 	para "Remember that FUJI"
 	line "guy you got me?"
@@ -579,7 +579,7 @@ _SilphCo11TextGiovanni_RP_NowGoBecomeChampion::
 
 _SilphCo11TextGiovanni_RP_FujiToldUs::
 	text "GIOVANNI: And the"
-	line "good news keep"
+	line "good news keeps"
 	cont "coming!"
 
 	para "I 'convinced' FUJI"
@@ -717,7 +717,7 @@ _SilphCo11TextGiovanni_RP_NowBegone::
 
 	para "Somebody who grew"
 	line "so quickly and"
-	cont "become so strong."
+	cont "became so strong."
 
 	para "It would be a"
 	line "liability to"
@@ -820,7 +820,7 @@ _SilphCo11TextGiovanni_RP_StealBallExplanation::
 	cont "target, thus the"
 	cont "newly acquired"
 	cont "weapon'll be out"
-	cont "of ammonitions."
+	cont "of ammunition."
 	cont "Keep that in mind."
 ;	xxxx "123456789012345678"
 	done

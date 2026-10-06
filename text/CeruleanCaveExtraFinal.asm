@@ -1,7 +1,8 @@
 _CeruleanCaveExtraFinalSign1::
 	text "FORBIDDEN MERCHANT"
 	line "For all of your"
-	cont "taboo puchases!"
+	cont "taboo purchases!"
+;	xxxx "123456789012345678"
 	done
 
 _CeruleanCaveExtraFinalSign2::

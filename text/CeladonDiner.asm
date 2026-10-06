@@ -16,7 +16,7 @@ _CeladonDinerText1_OnigiriObtained:: ; new
 
 _CeladonDinerText1_OhYouHaveGutschein:: ; new
 	text "Oh! You have a"
-	line "GUTSCHEIN -I"
+	line "GUTSCHEIN - I"
 	cont "mean, a voucher"
 	cont "from the HOTEL."
 
@@ -88,7 +88,8 @@ _CeladonDinerText2_MachineBroken::
 	text "Unfortunately,"
 	line "the machine that"
 	cont "we use to make"
-	cont "MATCHA TEA's out."
+	cont "MATCHA TEA is"
+	cont "out of order."
 
 	para "We called the"
 	line "REPAIR SHOP quite"
@@ -160,7 +161,7 @@ _CeladonDinerText_ImRuined:: ; edited
 	line "to injury, a damn"
 	cont "MEOWTH stole my"
 	cont "COIN CASE with"
-	cont "last couple of"
+	cont "the last couple"
 	cont "coins I had in."
 
 	para "I chased it until"

@@ -40,7 +40,7 @@ _IndigoPlateauLobbyText8_RP_Before::
 	para "It is unknown when"
 	line "they'll be back."
 
-	para "And even if knew,"
+	para "And even if I knew"
 	line "I surely wouldn't"
 	cont "tell a ROCKET."
 ;	xxxx "123456789012345678"

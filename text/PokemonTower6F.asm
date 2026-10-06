@@ -21,7 +21,7 @@ _PokemonTower2Text_60c24_RP:: ; new for RP
 	cont "tainted her"
 	cont "spirit with dark"
 	cont "fury and thirst"
-	cont "for vengeange."
+	cont "for vengeance."
 
 	para "The soul, doomed"
 	line "to never find"
@@ -84,7 +84,7 @@ _PokemonTower6Text6::
 _PokemonTower6AgathaBeforeBattleText::
 	text "AGATHA: CHAMPION!"
 	line "Are you here to"
-	cont "pay respect to"
+	cont "pay respects to"
 	cont "the spirits?"
 
 	para "...after battling"
@@ -104,10 +104,10 @@ _PokemonTower6AgathaBeforeBattleText::
 	cont "saddened me, but"
 	cont "they told me that"
 	cont "since after you"
-	cont "and their grankid"
-	cont "embarked on your"
-	cont "journey, they are"
-	cont "doing much"
+	cont "and their grand-"
+	cont "kid embarked on"
+	cont "your journey they"
+	cont "are doing much"
 	cont "better."
 
 	para "I am glad I"

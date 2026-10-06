@@ -254,9 +254,9 @@ _FuchsiaCityTextSaraHappy:: ; new
 
 _FuchsiaCityTextRocket_RP::
 	text "Pipsqueak! The"
-	line "BOSS has not"
-	cont "allowed you yet"
-	cont "to access our"
+	line "BOSS has not yet"
+	cont "allowed you to"
+	cont "access our"
 	cont "SAFARI ZONE."
 
 	para "Be back when they"
