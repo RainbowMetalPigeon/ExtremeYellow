@@ -59,7 +59,7 @@ _SeviiTwoIslandCityText6_NotEnoughMoney::
 
 _SeviiTwoIslandCityText6_LetsGamble::
 	text "Amazing! I wish"
-	line "best of luck!"
+	line "you best of luck!"
 
 	para "I'll roll the"
 	line "numbers...!"
@@ -160,8 +160,8 @@ _SeviiTwoIslandCitySignText5::
 	done
 
 _SeviiTwoIslandCityScriptText1::
-	text "Oh, screw to all."
-	line "I should've not"
+	text "Oh, screw it all."
+	line "I shouldn't have"
 	cont "accepted to work"
 	cont "with TEAM ROCKET."
 
@@ -190,7 +190,7 @@ _SeviiTwoIslandPokemonCenter_Text2_Intro::
 	cont "Me, I'm a fan of"
 	cont "ROCK and GHOST."
 
-	para "If only there was"
+	para "If only there were"
 	line "a #MON with"
 	cont "both these types!"
 	done
@@ -226,7 +226,7 @@ _SeviiTwoIslandHousesText2_Question::
 	cont "my partner."
 
 	para "My sibling and I"
-	line "are both expert"
+	line "are both experts"
 	cont "in meteorology."
 
 	para "I can teach one of"
@@ -316,7 +316,7 @@ _SeviiTwoIslandHousesText7::
 
 	para "It's one of the"
 	line "very few open-sea"
-	cont "area in SEVII"
+	cont "areas in SEVII"
 	cont "where you can go"
 	cont "without a boat,"
 	cont "but be careful if"
@@ -338,7 +338,7 @@ _SeviiTwoIslandHousesText9::
 	text "We both study"
 	line "History."
 	cont "My specialization"
-	cont "is on ancient"
+	cont "is in ancient"
 	cont "populations."
 ;	xxxx "123456789012345678"
 	done
@@ -432,9 +432,9 @@ _SeviiTwoIslandGymText1_Intro1::
 	cont "brand-new team!"
 
 	para "Will you be able"
-	line "to draw out the"
-	cont "best out of what"
-	cont "Fate'll offer you?"
+	line "to draw the best"
+	cont "out of what Fate"
+	cont "will offer you?"
 
 	para "Give me just a"
 	line "few seconds to"
@@ -490,7 +490,7 @@ _SeviiTwoIslandGymText4_Reward1::
 
 _SeviiTwoIslandGymText4_Reward2::
 	text "<PLAYER> receives"
-	line "the SEVII TRAIL"
+	line "the SEVII TRIAL"
 	cont "SCROLL of"
 	cont "BOON ISLAND!"
 ;	xxxx "123456789012345678"
@@ -503,7 +503,7 @@ _SeviiTwoIslandGymText4_Reward3::
 	cont "SEVII TRIAL will"
 	cont "go great."
 
-	para "Once you'll have"
+	para "Once you have"
 	line "defeated all my"
 	cont "colleagues -coz"
 	cont "yeah, I KNOW"
@@ -676,12 +676,13 @@ _SeviiTwoIsletText1::
 	cont "But neither I nor"
 	cont "my #MON can!"
 
-	para "I heard that in"
-	line "SAFFRON CITY is a"
-	cont "CLIMB CLUB, and"
-	cont "some of its"
+	para "I heard that there"
+	line "is a CLIMB CLUB"
+	cont "in SAFFRON CITY,"
+	cont "and some of its"
 	cont "members train"
 	cont "nearby."
+;	xxxx "123456789012345678"
 
 	para "Maybe they could"
 	line "help me!"
@@ -898,8 +899,9 @@ _SeviiTwoIsletHousesSignText1::
 	cont "8 badges: 1/ 978."
 ;	xxxx "123456789012345678"
 
-	para "There's written"
-	line "about a rumored"
+	para "There's also"
+	line "written something"
+	cont "about a rumored"
 	cont "SHINY CHARM that"
 	cont "should attract"
 	cont "shiny #MON."
@@ -907,7 +909,7 @@ _SeviiTwoIsletHousesSignText1::
 	done
 
 _SeviiTwoIsletHousesSignText2_Core::
-	text "Advance, complex"
+	text "Advanced, complex"
 	line "algorithms run"
 	cont "through silicon"
 	cont "synapses. Bits"
@@ -942,8 +944,8 @@ _SeviiTwoIsletHousesSignText2_Core::
 ; new for RP ===========================================
 
 _SeviiTwoIslandCityText5_RP::
-	text "We don't business"
-	line "with criminals."
+	text "No business with"
+	line "criminals here."
 ;	xxxx "123456789012345678"
 	done
 

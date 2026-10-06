@@ -62,14 +62,14 @@ _SeviiSevenIslandPokemonCenterAndMart_Text1::
 	cont "diverged over the"
 	cont "eras. Yet, from"
 	cont "a social and"
-	cont "antropological"
+	cont "anthropological"
 	cont "standpoint, their"
 	cont "history is deeply"
 	cont "intertwined."
 
 	para "...what? I learned"
 	line "this at school."
-	cont "It's easy stuf."
+	cont "It's easy stuff."
 ;	xxxx "123456789012345678"
 	done
 
@@ -511,7 +511,7 @@ _SeviiSevenIslandGym2DiveAfterBattleText3::
 	line "the ground items"
 	cont "does not change"
 	cont "between attempts."
-	cont "If you'll try"
+	cont "If you try again,"
 	cont "again, you'll"
 	cont "know what to pick"
 	cont "up and where.)"
@@ -636,7 +636,7 @@ _SeviiSevenIslandGym3Text16_Reward3::
 	cont "adventure you'll"
 	cont "embark on next!"
 
-	para "If you'll go on and"
+	para "If you go on and"
 	line "conquer every"
 	cont "SHRINE, then you"
 	cont "should venture to"
@@ -649,13 +649,13 @@ _SeviiSevenIslandGym3Text16_Reward3::
 	done
 
 _SeviiSevenIslandGym3Text16_NoReward::
-	text "I pains me, but as"
-	line "you were warned,"
-	cont "I cannot reward"
-	cont "you, as you"
-	cont "adventured with"
-	cont "some exceptional"
-	cont "#MON."
+	text "It pains me, but"
+	line "as you were"
+	cont "warned, I cannot"
+	cont "reward you, as"
+	cont "you adventured"
+	cont "with some excep-"
+	cont "tional #MON."
 ;	xxxx "123456789012345678"
 	done
 
@@ -900,7 +900,7 @@ _SeviiRoute42AfterBattleText6::
 
 _SeviiRoute42BattleText7::
 	text "How dare you"
-	line "invading my"
+	line "invade my"
 	cont "secret special"
 	cont "hunting ground?!"
 ;	xxxx "123456789012345678"
@@ -954,7 +954,7 @@ _SeviiRoute42AfterBattleText8::
 ; -----
 
 _SeviiRoute42BattleText9::
-	text "This rocky hikes"
+	text "These rocky hikes"
 	line "are just the best!"
 ;	xxxx "123456789012345678"
 	done
@@ -1184,7 +1184,7 @@ _SeviiRoute43AfterBattleText8::
 	line "like you're at the"
 	cont "top of the world,"
 	cont "the pinnacle of"
-	cont "existance?"
+	cont "existence?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -1421,7 +1421,7 @@ _SeviiTanobyChambersScriptText5::
 
 _SeviiTanobyChambersScriptText6::
 	text "SIRD: You got in"
-	line "my ways, but my"
+	line "my way, but my"
 	cont "BOSS won't hear a"
 	cont "failure from me"
 	cont "due to a brat"
@@ -1431,7 +1431,7 @@ _SeviiTanobyChambersScriptText6::
 
 _SeviiTanobyChambersScriptText7::
 	text "ORM: I and those"
-	line "two may not go"
+	line "two may not get"
 	cont "along the best,"
 	cont "yet I can totally"
 	cont "ally with them to"
@@ -1439,7 +1439,7 @@ _SeviiTanobyChambersScriptText7::
 
 	para "Not that there'll"
 	line "be much left to"
-	cont "smash once I'll be"
+	cont "smash once I'm"
 	cont "done grinding you!"
 ;	xxxx "123456789012345678"
 	done
@@ -1539,7 +1539,7 @@ _SeviiTanobyChambersScriptText4_RP::
 	cont "that they died."
 
 	para "All I want is to"
-	line "TEAM ROCKET."
+	line "rule TEAM ROCKET."
 	cont "I want to be the"
 	cont "new & only BOSS!"
 	cont "And you, you are"
@@ -1551,7 +1551,7 @@ _SeviiTanobyChambersScriptText5_RP::
 	text "SIRD: To me,"
 	line "neither GIOVANNI"
 	cont "nor TEAM ROCKET"
-	cont "have any value."
+	cont "has any value."
 
 	para "What I'm after is"
 	line "exclusively the"

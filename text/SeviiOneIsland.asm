@@ -21,9 +21,10 @@ _SeviiOneIslandCityText4::
 	cont "cool moves, if"
 	cont "they like ya."
 
-	para "Why didn't teach me"
-	line "anything?! That"
-	cont "old dumb fool!"
+	para "Why didn't they"
+	line "teach anything?!"
+	cont "Ah! Old dumb fool!"
+;	xxxx "123456789012345678"
 	done
 
 _SeviiOneIslandCityText5::
@@ -123,9 +124,9 @@ _SeviiOneIslandCityScriptText1::
 	line "We're working hard"
 	cont "on this case."
 
-	para "Now, if you excuse"
-	line "me, I have to go"
-	cont "back to work."
+	para "Now, if you'll"
+	line "excuse me, I must"
+	cont "go back to work."
 	done
 
 _SeviiOneIslandCityScriptText2::
@@ -255,14 +256,14 @@ _SeviiOneIslandHousesText3_RightAfterPink::
 
 	para "Well, anyway, we"
 	line "got interrupted"
-	cont "halfway along"
+	cont "halfway through"
 	cont "something!"
 	prompt
 
 _SeviiOneIslandHousesText3_TryToGiftFlute::
 	text "CELIO: As I was"
 	line "saying, please"
-	cont "accept this is a"
+	cont "accept this as a"
 	cont "humble token of"
 	cont "my gratitude!"
 	prompt
@@ -440,7 +441,7 @@ _SeviiOneIslandHousesText11::
 	cont "#MON're strong"
 	cont "and dangerous, so"
 	cont "they can't go"
-	cont "much outside."
+	cont "outside much."
 ;	xxxx "123456789012345678"
 	done
 
@@ -687,7 +688,7 @@ _SeviiOneIslandGym2Text1_Intro::
 	para "In my SHRINE,"
 	line "you'll have to"
 	cont "pierce darkness"
-	cont "with knownledge."
+	cont "with knowledge."
 	cont "Are you up to"
 	cont "the challenge?"
 ;	xxxx "123456789012345678"
@@ -717,7 +718,7 @@ _SeviiOneIslandGym2Text3_Reward1::
 
 _SeviiOneIslandGym2Text3_Reward2::
 	text "<PLAYER> receives"
-	line "the SEVII TRAIL"
+	line "the SEVII TRIAL"
 	cont "SCROLL of"
 	cont "KNOT ISLAND!"
 ;	xxxx "123456789012345678"
@@ -747,7 +748,7 @@ _SeviiOneIslandGym2Text3_NoReward::
 	text "Alas, as I did"
 	line "beforehand say,"
 	cont "I cannot award"
-	cont "you to due the"
+	cont "you due to the"
 	cont "presence of some"
 	cont "exceptional #-"
 	cont "MON in your team."
@@ -1042,7 +1043,7 @@ _SeviiEmberSpaText2::
 	done
 
 _SeviiEmberSpaText3::
-	text "Bathing in these"
+	text "Bathing in this"
 	line "spa is the most"
 	cont "relaxing thing..."
 	done
@@ -1263,7 +1264,7 @@ _SeviiOneIslandCityScriptText4_RP::
 	line "is out of my"
 	cont "league. I must"
 	cont "report to the"
-	cont "central."
+	cont "headquarters."
 ;	xxxx "123456789012345678"
 	done
 
@@ -1401,7 +1402,7 @@ _SeviiOneIslandHousesText12_RP_AfterPink::
 	cont "PINK has never"
 	cont "fought before!"
 
-	para "If only I was a"
+	para "If only I were a"
 	line "trainer... but I'm"
 	cont "so powerless."
 ;	xxxx "123456789012345678"
@@ -1483,7 +1484,7 @@ _SeviiOneIslandHousesScriptText3_RP::
 	line "I am too weak."
 
 	para "You won this time,"
-	line "but stay assured,"
+	line "but rest assured,"
 	cont "you made yourself"
 	cont "an enemy for life!"
 ;	xxxx "123456789012345678"
@@ -1502,10 +1503,6 @@ _SeviiOneIslandHousesText4_RP_PreGiovanni::
 	cont "MAYOI. Please."
 ;	xxxx "123456789012345678"
 	done
-
-
-
-
 
 _SeviiOneIslandHousesText4_RP_PostGiovanni::
 	text "CELIO: You are"
@@ -1690,7 +1687,7 @@ _SeviiOneIslandHousesSignText4_RP_NoRoom::
 _SeviiEmberSpaText1_After_RP::
 	text "If you relaxed..."
 	line "You wouldn't have"
-	cont "su much anger..."
+	cont "so much anger..."
 	cont "And then...."
 	cont "You wouldn't be"
 	cont "in TEAM ROCKET..."

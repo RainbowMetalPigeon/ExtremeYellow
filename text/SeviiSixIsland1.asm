@@ -474,7 +474,7 @@ _SeviiSixIslandGym3Text1_Intro::
 	para "CHAMPION. You are"
 	line "now standing in"
 	cont "front of me,"
-	cont "after taking many"
+	cont "after making many"
 	cont "choices."
 
 	para "Will they turn"
@@ -493,7 +493,7 @@ _RokuseiText_PostBattleText::
 _SeviiSixIslandGym3Text5_Victory::
 	text "ROKUSEI: Your"
 	line "chain of choices"
-	cont "lead you to beat"
+	cont "led you to beat"
 	cont "the SHRINE of"
 	cont "FORTUNE ISLAND."
 ;	xxxx "123456789012345678"
@@ -524,7 +524,7 @@ _SeviiSixIslandGym3Text10_Reward1::
 
 _SeviiSixIslandGym3Text10_Reward2::
 	text "<PLAYER> receives"
-	line "the SEVII TRAIL"
+	line "the SEVII TRIAL"
 	cont "SCROLL of"
 	cont "FORTUNE ISLAND!"
 ;	xxxx "123456789012345678"
@@ -809,7 +809,7 @@ _SeviiRoute37EndBattleText10::
 	prompt
 
 _SeviiRoute37AfterBattleText10::
-	text "One stroke at the"
+	text "One stroke at a"
 	line "time, and you can"
 	cont "reach anywhere!"
 ;	xxxx "123456789012345678"
@@ -862,7 +862,7 @@ _SeviiRoute37AfterBattleText12::
 	para "I heard the sea's"
 	line "beautiful there,"
 	cont "but the path to"
-	cont "it impervious."
+	cont "it is impervious."
 ;	xxxx "123456789012345678"
 	done
 
@@ -893,6 +893,7 @@ _SeviiRoute38Text2::
 
 	para "And ALTERING CAVE?"
 	line "Noone can map it!"
+;	xxxx "123456789012345678"
 
 	para "And then DOTTED"
 	line "HOLE, with its"
@@ -962,7 +963,7 @@ _SeviiRoute38HousesText1_GetsTank::
 
 _SeviiRoute38HousesText1_TankExplanation::
 	text "Now you can DIVE"
-	line "double as long!"
+	line "twice as long!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -974,7 +975,7 @@ _SeviiRoute38HousesText1_PostTank::
 
 _SeviiRoute38HousesText2_Intro::
 	text "D-d-do you know"
-	line "COPYPCAT from"
+	line "COPYCAT from"
 	cont "SAFFRON? I'm their"
 	cont "biggest fan ever!"
 
@@ -1462,8 +1463,8 @@ _SeviiPatternBushText4:: ; SPRITE_COOK
 
 _SeviiPatternBushBattleText1:: ; OPP_GENTLEMAN
 	text "Young one! Do you"
-	line "any hint about"
-	cont "these lines?"
+	line "have any hint"
+	cont "about these lines?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -1505,7 +1506,7 @@ _SeviiPatternBushEndBattleText2::
 _SeviiPatternBushAfterBattleText2::
 	text "I've two decades"
 	line "of navigation"
-	cont "under by belt,"
+	cont "under my belt,"
 	cont "yet I can't get"
 	cont "a thing outta"
 	cont "these lines."
@@ -1547,9 +1548,9 @@ _SeviiPatternBushAfterBattleText3::
 _SeviiPatternBushBattleText4:: ; OPP_GAMBLER
 	text "I challenge you to"
 	line "a #MON battle"
-	cont "with a ante: let's"
-	cont "stake the truth"
-	cont "hidden behind"
+	cont "with an ante: let"
+	cont "us stake the"
+	cont "hidden truth of"
 	cont "these lines!"
 ;	xxxx "123456789012345678"
 	done
@@ -1601,12 +1602,13 @@ _SeviiRoute39Text1::
 _SeviiRoute39Text2::
 	text "I like it here."
 	line "It's one of the"
-	cont "most tranquill"
+	cont "most tranquil"
 	cont "corners in SEVII."
 
-	para "When I wish some-"
-	line "where more lively"
-	cont "I go to KNOT or"
+	para "When I wish to be"
+	line "somewhere more"
+	line "lively, I go to"
+	cont "KNOT ISLAND or"
 	cont "to a concert in"
 	cont "CHRONO WAREHOUSE!"
 ;	xxxx "123456789012345678"
@@ -1660,7 +1662,7 @@ _SeviiRoute39BattleText2::
 
 	para "I cannot allow you"
 	line "to lay your"
-	cont "unworhty hands on"
+	cont "unworthy hands on"
 	cont "It, as only I am"
 	cont "High and Mighty"
 	cont "enough to"
@@ -1672,7 +1674,7 @@ _SeviiRoute39EndBattleText2::
 	line "What will happen"
 	cont "now?!"
 
-	para "Has we reached"
+	para "Have we reached"
 	line "the Midnight?!"
 	prompt
 
@@ -1905,8 +1907,8 @@ _SeviiRoute40AfterBattleText3::
 	cont "But DOTTED HOLE,"
 	cont "of course!"
 
-	para "Rumors have that"
-	line "it's somehow"
+	para "Rumors have it"
+	line "that it's somehow"
 	cont "related to a"
 	cont "STEEL #MON."
 	cont "If that's true,"

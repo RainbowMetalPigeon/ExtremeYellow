@@ -329,7 +329,7 @@ _SeviiThreeIslandHousesText5::
 	cont "a huge mess!"
 
 	para "I work remotely,"
-	line "so moving it's not"
+	line "so moving is not"
 	cont "a problem for me"
 	cont "as long as I have"
 	cont "connection..."
@@ -459,7 +459,7 @@ _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book2::
 	cont "with banknotes)"
 	done
 _SeviiThreeIslandHousesBookshelfText2_Shelf1_Book3::
-	text "Trasfer Coins"
+	text "Transfer Coins"
 	line "From Spectators'"
 	cont "Pockets to Yours"
 	para "...hey, wait!"
@@ -560,7 +560,7 @@ _SeviiThreeIslandHousesBookshelfText3_Shelf2_Book4::
 
 _SeviiThreeIslandHousesBookshelfText3_Shelf3_Book1::
 	text "Knots, but Only"
-	line "in Apparence"
+	line "in Appearance"
 	done
 _SeviiThreeIslandHousesBookshelfText3_Shelf3_Book2::
 	text "Rope Through Rope"
@@ -623,14 +623,14 @@ _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book3::
 	done
 _SeviiThreeIslandHousesBookshelfText4_Shelf2_Book4::
 	text "Routines With and"
-	line "Without Cloack"
+	line "Without Cloak"
 	done
 
 _SeviiThreeIslandHousesBookshelfText4_Shelf3_Book1::
 	text "Topology of Closed"
 	line "Loops and of"
 	cont "Open Spaces."
-	para "Just glimpsing at"
+	para "Just glimpsing"
 	line "at the images is"
 	cont "enough to send"
 	cont "the head spinning!"
@@ -814,14 +814,14 @@ _SeviiThreeIslandHousesBookshelfText7_ItsAboutMentalism::
 _SeviiThreeIslandHousesBookshelfText7_Shelf1_Book1::
 	text "100 and 1 Codes"
 	line "to Communicate"
-	cont "In Plain Earing"
+	cont "In Plain Hearing"
 	cont "With Your Partner"
 	para "Volume 1"
 	done
 _SeviiThreeIslandHousesBookshelfText7_Shelf1_Book2::
 	text "100 and 1 Codes"
 	line "to Communicate"
-	cont "In Plain Earing"
+	cont "In Plain Hearing"
 	cont "With Your Partner"
 	para "Volume 2"
 	done
@@ -908,7 +908,7 @@ _SeviiThreeIslandHousesBookshelfText8_Shelf1_Book4::
 _SeviiThreeIslandHousesBookshelfText8_Shelf2_Book1::
 	text "Teleportation Made"
 	line "Easy: Just Find"
-	cont "A Dopplegaenger"
+	cont "A Doppelegaenger"
 	para "...the book is"
 	line "one page long."
 	done
@@ -943,13 +943,13 @@ _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book2::
 	cont "gets kidnapped"
 	cont "every other arc,"
 	cont "but the main"
-	cont "theme of figthing"
+	cont "theme of fighting"
 	cont "for Knowledge and"
 	cont "Freedom is so"
 	cont "well delivered,"
 	cont "the characters're"
 	cont "awesome, and the"
-	cont "plot captivating"
+	cont "plot's captivating"
 	cont "as nothing else."
 	para "Damn, how does"
 	line "it continue?!"
@@ -968,7 +968,7 @@ _SeviiThreeIslandHousesBookshelfText8_Shelf3_Book4::
 	cont "Splendor and"
 	cont "Shocking Surprise"
 	para "...the book goes"
-	line "goes on for"
+	line "on for several"
 	cont "hundreds of pages"
 	cont "before saying it's"
 	cont "all just about"
@@ -1143,7 +1143,7 @@ _SeviiRoute33Text2_Core::
 	text "Don't ya try and"
 	line "mess with us kid,"
 	cont "or our boss'll"
-	cont "will storm here"
+	cont "storm here"
 	cont "from BOON to"
 	cont "destroy ya!"
 	done
@@ -1221,7 +1221,7 @@ _SeviiRoute33AfterBattleText3::
 	done
 
 _SeviiRoute33BattleText4::
-	text "I'm in vacation."
+	text "I'm on vacation."
 	line "Let's battle!"
 	done
 
@@ -1280,9 +1280,9 @@ _SeviiBerryForestScriptText1::
 	line "we stay here all"
 	cont "nice and calm"
 	cont "until our dear"
-	cont "CELIO doesn't"
-	cont "turn reasonable"
-	cont "and work with us."
+	cont "CELIO turns"
+	cont "reasonable and"
+	cont "works with us."
 
 	para "MAYOI: Sniff..."
 	line "I don't like it"
@@ -1334,7 +1334,7 @@ _SeviiBerryForestOrmDefeatText::
 	para "GIOVANNI will be"
 	line "furious..."
 	cont "Damned brat!"
-	cont "How do you dare"
+	cont "How dare you"
 	cont "upset our BOSS?!"
 ;	xxxx "123456789012345678"
 	prompt
@@ -1367,7 +1367,7 @@ _SeviiRoute33DiveText0::
 	cont "submarine plain"
 	cont "of seaweeds in"
 	cont "the middle of a"
-	cont "rocky scenario!"
+	cont "rocky scenery!"
 
 	para "Uh? How do I deal"
 	line "with wild #MON"
@@ -1481,8 +1481,7 @@ _SeviiThreeIslandHousesText2_RP_Before::
 	text "Why are you here?"
 
 	para "?! NO! Don't you"
-	line "dare hurting my"
-	cont "kid!!!"
+	line "dare hurt my kid!"
 
 	para "...I know how big"
 	line "your organization"
@@ -1573,7 +1572,7 @@ _SeviiBerryForestScriptText2_RP:: ; Orm
 	para "Oh? You already"
 	line "met CELIO and"
 	cont "even beat a cop"
-	cont "if front of 'em?"
+	cont "in front of 'em?"
 	cont "Good job! That's"
 	cont "for sure crushed"
 	cont "their morale!"
@@ -1689,12 +1688,12 @@ _SeviiBerryForestScriptText6_RP:: ; Orm
 	cont "they'll get their"
 	cont "brat back, sure,"
 	cont "but one piece at"
-	cont "the time."
+	cont "a time."
 ;	xxxx "123456789012345678"
 	done
 
 _SeviiBerryForestText1_RP::
-	text "ORM: To go CELIO"
+	text "ORM: Go to CELIO"
 	line "and tell 'em that"
 	cont "they can have"
 	cont "their kid back"

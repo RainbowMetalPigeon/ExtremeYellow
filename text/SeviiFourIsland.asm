@@ -233,7 +233,7 @@ _SeviiFourIslandPokemonCenterAndMart_Text4::
 	text "BOON doesn't have"
 	line "a traditional"
 	cont "#MON MART, but"
-	cont "the MARKET ran by"
+	cont "the MARKET run by"
 	cont "those two"
 	cont "adorable grampies"
 	cont "sells stuff found"
@@ -309,7 +309,7 @@ _SeviiFourIslandHousesText4_PreChrono::
 	line "is the police up"
 	cont "to nothing?"
 
-	para "It's unconceivable"
+	para "It's inconceivable"
 	line "that little kids"
 	cont "exert justice"
 	cont "more efficiently"
@@ -378,8 +378,8 @@ _SeviiFourIslandHousesText6::
 
 	para "Whenever I go to"
 	line "YCHOU, I cannot"
-	cont "help myself but"
-	cont "buy more and more"
+	cont "help but buy"
+	cont "more and more"
 	cont "furniture..."
 	done
 
@@ -408,7 +408,7 @@ _SeviiFourIslandHousesText8::
 
 _SeviiFourIslandHousesText9::
 	text "My big sib is"
-	line "amazing!!! They're"
+	line "amazing!!! They"
 	cont "are, like, ultra"
 	cont "strong, and now"
 	cont "they beat people"
@@ -587,7 +587,7 @@ _SeviiFourIslandHousesScriptText5::
 	cont "help. Really."
 
 	para "But I can't accept"
-	line "to not know if I'm"
+	line "not knowing if I'm"
 	cont "now strong enough"
 	cont "to protect our"
 	cont "land myself."
@@ -624,7 +624,7 @@ _PinksHousePinkDefeatedText::
 _PinksHousePinkBeatYouText::
 	text "...really?"
 	line "Is this all?"
-	cont "Am I already"
+	cont "Have I already"
 	cont "arrived? No more"
 	cont "need for me to"
 	cont "improve any more?"
@@ -772,7 +772,7 @@ _SeviiFourIslandGymText4_Reward3::
 	cont "SEVII TRIAL will"
 	cont "sail smooth!"
 
-	para "Once you'll beat"
+	para "Once you beat"
 	line "every other SAGE,"
 	cont "ya shoulda go and"
 	cont "throw yarself at"
@@ -942,7 +942,7 @@ _SeviiFourIslandParkourPathText1_RP::
 	cont "challenging"
 	cont "ourselves, sport,"
 	cont "and the strive"
-	cont "to improvement?"
+	cont "to improve?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -994,7 +994,7 @@ _SeviiFourIslandHousesText2_RP_Before::
 	cont "now us! Leave my"
 	cont "family alone!"
 	cont "What did we do"
-	cont "do deserve this?!"
+	cont "to deserve this?!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -1077,7 +1077,7 @@ _SeviiFourIslandHousesSignText7_PC_RP::
 	line "diary:"
 
 	para "'...I feel so weak"
-	line "and uselss."
+	line "and useless."
 	cont "I AM weak and"
 	cont "useless. I want"
 	cont "to punch the wall"
@@ -1100,7 +1100,7 @@ _SeviiFourIslandHousesSignText7_PC_RP::
 	cont "Every ROCKET."
 	cont "I swear, I'll"
 	cont "purge the world"
-	cont "from that plague,"
+	cont "of that plague,"
 	cont "may it cost me"
 	cont "my own life.'"
 ;	xxxx "123456789012345678"
@@ -1144,7 +1144,7 @@ _SeviiFourIslandHousesScriptText1_RP::
 _SeviiFourIslandHousesSignText6_Switch_RP::
 	text "Some dumb hunter"
 	line "wields a stupidly"
-	cont "gigantic weapons"
+	cont "gigantic weapon"
 	cont "and wears flashy"
 	cont "armours full of"
 	cont "horns and spikes"

@@ -95,7 +95,7 @@ _VermilionHousesText10::
 _VermilionHousesText11::
 	text "'Dear JANDRO,"
 	line "here everybody is"
-	cont "compeltely nuts."
+	cont "Completely nuts."
 
 	para "I'm turning crazy."
 	line "The other day,"
@@ -168,7 +168,7 @@ _VermilionHousesText12::
 _VermilionHousesText13::
 	text "Have you ever"
 	line "considered that"
-	cont "by accouting for"
+	cont "by accounting for"
 	cont "the obligation"
 	cont "deemed disturbed"
 	cont "as if they did"
