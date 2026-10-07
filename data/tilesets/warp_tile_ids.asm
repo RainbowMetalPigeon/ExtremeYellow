@@ -54,8 +54,8 @@ ENDM
 	warp_tiles $1A, $1C
 
 .MartWarpTileIDs:
-.PokecenterWarpTileIDs:
-	warp_tiles $5E
+.PokecenterWarpTileIDs: ; edited
+	warp_tiles $5E, $3D
 
 .ForestWarpTileIDs:
 	warp_tiles $5A, $5C, $3A

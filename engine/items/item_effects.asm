@@ -4227,6 +4227,8 @@ IsNextTileShoreOrWater::
 	jr z, .skipShoreTiles
 	cp DOJO ; usual eastern shore tile
 	jr z, .skipShoreTiles
+	cp POKECENTER ; new
+	jr z, .skipShoreTiles
 ; new
 	cp CAVERN
 	jr nz, .vanilla

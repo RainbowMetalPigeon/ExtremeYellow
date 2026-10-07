@@ -4,6 +4,18 @@ ViridianPokecenter_Object:
 	def_warp_events
 	warp_event  3,  7, LAST_MAP, 1
 	warp_event  4,  7, LAST_MAP, 1
+	; villa, 1F
+	warp_event 23,  7, VIRIDIAN_CITY, 9 ; 3
+	warp_event 24,  7, VIRIDIAN_CITY, 9 ; 4
+	warp_event 26,  0, VIRIDIAN_POKECENTER, 6 ; 5
+	; villa, 2F
+	warp_event 40,  0, VIRIDIAN_POKECENTER, 5 ; 6
+	warp_event 35,  0, VIRIDIAN_POKECENTER, 8 ; 7
+	; villa, 3F
+	warp_event 49,  0, VIRIDIAN_POKECENTER, 7 ; 8
+	warp_event 54,  0, VIRIDIAN_POKECENTER, 10 ; 9
+	; villa, 4F
+	warp_event 68,  0, VIRIDIAN_POKECENTER, 9 ; 10
 
 	def_bg_events
 

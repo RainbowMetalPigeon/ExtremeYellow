@@ -10,6 +10,8 @@ ViridianCity_Object:
 	warp_event 31, 25, VIRIDIAN_NICKNAME_HOUSE, 3 ; new, relocated Badge Expert
 	warp_event  2, 16, VIRIDIAN_NICKNAME_HOUSE, 5 ; 7
 	warp_event  2, 17, VIRIDIAN_NICKNAME_HOUSE, 6 ; 8
+	; new
+	warp_event  9,  9, VIRIDIAN_POKECENTER, 3 ; 9
 
 	def_bg_events
 	bg_event 17, 17, 10 ; ViridianCityText8

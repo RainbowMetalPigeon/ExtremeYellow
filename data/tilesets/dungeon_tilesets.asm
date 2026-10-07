@@ -15,4 +15,5 @@ DungeonTilesets:
 	db HOUSE ; new
 	db INTERIOR ; new
 	db CLUB ; new
+	db POKECENTER ; new
 	db -1 ; end

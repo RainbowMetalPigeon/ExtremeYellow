@@ -52,7 +52,11 @@ ViridianCityScript_CheckIfGymIsOpen:
 	ld [wViridianCityCurScript], a
 	ret
 
-ViridianCityScript_CheckIfElderStopsUs:
+ViridianCityScript_CheckIfElderStopsUs: ; edited
+IF DEF(_DEBUG)
+	call DebugPressedOrHeldB
+	ret nz
+ENDC
 	ld a, [wYCoord]
 	cp 9
 	ret nz
