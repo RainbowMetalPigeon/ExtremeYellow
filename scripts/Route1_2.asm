@@ -50,5 +50,5 @@ Func_f1b1b::
 	ret
 
 Route1Text_f1b22:
-	text_far _Route1Text3
+	text_far _Route1SignText1
 	text_end

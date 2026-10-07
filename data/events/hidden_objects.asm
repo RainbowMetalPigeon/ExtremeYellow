@@ -98,6 +98,7 @@ HiddenObjectMaps:
 	dbw LAKE_OF_MIST,                 LakeOfMistHiddenObjects ; new
 	dbw ROUTE_8,                      Route8HiddenObjects ; new
 	dbw SILPH_CO_11F,                 SilphCo11FHiddenObjects ; new
+	dbw ROUTE_1,                      Route1HiddenObjects ; new
 	db -1 ; end
 
 MACRO hidden_object
@@ -713,4 +714,9 @@ Route8HiddenObjects: ; new
 SilphCo11FHiddenObjects: ; new
 	hidden_object 13,  8, SPRITE_FACING_LEFT, SpecialDoorSilphCo11F
 	hidden_object 13,  9, SPRITE_FACING_LEFT, SpecialDoorSilphCo11F
+	db -1 ; end
+
+Route1HiddenObjects: ; new
+	hidden_object  9, 22, PERFECTER, HiddenItems
+	hidden_object 13,  8, CHROMOGENE, HiddenItems
 	db -1 ; end

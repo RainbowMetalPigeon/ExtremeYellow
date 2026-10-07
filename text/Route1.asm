@@ -44,8 +44,41 @@ _Route1Text2::
 	cont "quicker that way."
 	done
 
-_Route1Text3::
+_Route1SignText1::
 	text "ROUTE 1"
 	line "PALLET TOWN -"
 	cont "VIRIDIAN CITY"
+	done
+
+; new ------------------------
+
+_Route1Text3::
+	text "...uh? Oh no! You"
+	line "found my secret"
+	cont "napping spot!"
+
+	para "...ok, maybe it's"
+	line "not SO secret."
+	cont "But it's comfy!"
+;	xxxx "123456789012345678"
+	done
+
+_Route1Text4::
+	text "That birb over"
+	line "there looks"
+	cont "hungry, but I"
+	cont "have nothing to"
+	cont "give it."
+;	xxxx "123456789012345678"
+	done
+
+_Route1Text5::
+	text "Listen, we all"
+	line "need to start"
+	cont "from somewhere!"
+
+	para "I like swimming,"
+	line "but the sea is"
+	cont "far too scary."
+;	xxxx "123456789012345678"
 	done

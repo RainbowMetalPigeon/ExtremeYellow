@@ -8,12 +8,18 @@ Route1_Script:
 Route1_TextPointers:
 	dw Route1Text1
 	dw Route1Text2
-	dw Route1Text3
+	dw Route1Text3 ; new FISHER
+	dw Route1Text4 ; new GIRL
+	dw Route1Text5 ; new SWIMMER
+	dw Route1SignText1
 
 Route1_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw Route1Text3
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	dw Route1SignText1
 
 Route1Text1:
 	text_asm
@@ -25,7 +31,21 @@ Route1Text2:
 	farcall Func_f1b0f
 	jp TextScriptEnd
 
-Route1Text3:
+Route1SignText1:
 	text_asm
 	farcall Func_f1b1b
 	jp TextScriptEnd
+
+; new NPCs ---------------------------
+
+Route1Text3:
+	text_far _Route1Text3
+	text_end
+
+Route1Text4:
+	text_far _Route1Text4
+	text_end
+
+Route1Text5:
+	text_far _Route1Text5
+	text_end

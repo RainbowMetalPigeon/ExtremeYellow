@@ -93,4 +93,6 @@ HiddenItemCoords:
 	hidden_item LAKE_OF_MIST,                   8,  43 ; new, MAX_ETHER
 	hidden_item LAKE_OF_MIST,                  19,  45 ; new, REVIVE
 	hidden_item ROUTE_8,                       33,   9 ; new, SCREWDRIVER
+	hidden_item ROUTE_1,                        9,  22 ; new, PERFECTER
+	hidden_item ROUTE_1,                       13,   8 ; new, CHROMOGENE
 	db -1 ; end
