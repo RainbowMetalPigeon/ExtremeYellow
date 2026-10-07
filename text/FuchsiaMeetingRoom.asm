@@ -90,7 +90,7 @@ _FuchsiaMeetingRoomText6::
 	cont "even for them."
 
 	para "The WARDEN tried"
-	line "to face off TEAM"
+	line "to face TEAM"
 	cont "ROCKET alone,"
 	cont "when everyone"
 	cont "else was too"
@@ -123,7 +123,7 @@ _FuchsiaMeetingRoomTextKoga::
 	cont "LEADER."
 
 	para "Very well. I will"
-	line "abide to my"
+	line "abide by my"
 	cont "duties. Not that"
 	cont "I'm of any help"
 	cont "here, really..."

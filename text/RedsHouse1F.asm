@@ -168,7 +168,7 @@ _RedsHouse1FTVText_RP_Side::
 _RedsHouse1FTVText_RP_Front::
 	text "Some dumb old"
 	line "movie nobody"
-	cont "knows nor care"
+	cont "knows nor cares"
 	cont "for. Does it"
 	cont "bring money or"
 	cont "power? No?"

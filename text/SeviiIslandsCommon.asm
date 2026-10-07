@@ -40,8 +40,8 @@ _SeviiIslandGymText_NoRewardWannaFight::
 
 	para "I will gladly face"
 	line "you, but alas, I"
-	cont "cannot reward you"
-	cont "if you won."
+	cont "could not reward"
+	cont "you if you won."
 
 	para "Do you want to"
 	line "proceed anyhow?"

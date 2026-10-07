@@ -87,7 +87,7 @@ _OchreResearchCenter2Text_Fossils_Unova::
 	line "invite our GALAR"
 	cont "'colleague', so"
 	cont "they could get a"
-	cont "good idea at how"
+	cont "good idea of how"
 	cont "living beings"
 	cont "really look"
 	cont "like..."
@@ -171,7 +171,7 @@ _OchreResearchCenter2Text_Dreams_Devon::
 	cont "visualize"
 	cont "#MON's dreams."
 
-	para "To think at all"
+	para "To think of all"
 	line "the time we could"
 	cont "have saved if we"
 	cont "had collaborated"

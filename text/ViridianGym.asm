@@ -268,7 +268,7 @@ _ViridianGymGuideText_PostLeague_Intro_Long::
 	text "CHAMPION! What an"
 	line "honor to have you"
 	cont "here! And also"
-	cont "quite a luck."
+	cont "what a luck."
 
 	para "I'll cut to the"
 	line "point: this GYM"
@@ -389,7 +389,7 @@ _ViridianGymChallengerPreBattleText_4:: ; megas
 	text "This is getting"
 	line "ridiculous."
 	cont "But now, NOW I"
-	cont "went all out my"
+	cont "went out of my"
 	cont "way to fetch all"
 	cont "the secret items"
 	cont "I need to have"
@@ -453,7 +453,7 @@ _ViridianGymChallengerPostBattleText_4::
 	line "I need to obtain"
 	cont "my last BADGE?"
 	cont "I just want to"
-	cont "finished this"
+	cont "finish this"
 	cont "damn adventure!"
 ;	xxxx "123456789012345678"
 	done

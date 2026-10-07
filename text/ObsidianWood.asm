@@ -48,7 +48,7 @@ _ObsidianWoodBattleText3::
 	cont "but I stumbled"
 	cont "upon TEAM ROCKET."
 
-	para "Help me training,"
+	para "Help me train,"
 	line "so I can go and"
 	cont "defeat them!"
 	done
@@ -68,7 +68,7 @@ _ObsidianWoodAfterBattleText3::
 	line "the fauna in this"
 	cont "wood is peculiar"
 	cont "because a number"
-	cont "of #MON swims"
+	cont "of #MON swim"
 	cont "from the SAFARI"
 	cont "ZONE till here."
 
@@ -138,7 +138,7 @@ _ObsidianWoodOrageBeforeBattleText::
 	cont "bump into you!"
 
 	para "I am weirdly"
-	line "attracted by"
+	line "attracted to"
 	cont "OBSIDIAN ISLAND."
 	cont "I kinda feel it"
 	cont "has some sort of"
@@ -147,7 +147,7 @@ _ObsidianWoodOrageBeforeBattleText::
 
 	para "Today I feel..."
 	line "bizarre. Would"
-	cont "you like break"
+	cont "you like to break"
 	cont "the rules and"
 	cont "indulge in an"
 	cont "INVERSE BATTLE?"

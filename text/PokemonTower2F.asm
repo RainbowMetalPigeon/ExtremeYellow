@@ -2,7 +2,7 @@ _PokemonTower2Text_6062d::
 	text "<RIVAL>: ..."
 
 	para "<PLAYER>. How do"
-	line "you dare showing"
+	line "you dare show"
 	cont "your face, HERE"
 	cont "of all places?"
 	cont "You really have"

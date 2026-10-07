@@ -153,7 +153,7 @@ _Route3TextJenny::
 	line "believe that"
 	cont "TEAM ROCKET uses"
 	cont "this ROUTE for"
-	cont "its traffics."
+	cont "its trafficking."
 
 	para "Passage is"
 	line "interdicted until"

@@ -158,7 +158,7 @@ _CinnabarIslandTextNewPerson8::
 	cont "PALLET TOWN from"
 	cont "here, and even"
 	cont "INDIGO PLATEAU"
-	cont "in the clearest"
+	cont "on the clearest"
 	cont "days!"
 	done
 

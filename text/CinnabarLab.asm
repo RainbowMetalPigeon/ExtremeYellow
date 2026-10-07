@@ -100,7 +100,7 @@ _Lab1Text2_Archeologist_PostReturnRelic_FirstTime::
 	cont "long gone."
 
 	para "It is the greatest"
-	line "testament of my"
+	line "testament to my"
 	cont "life"
 	cont "achievements."
 	cont "Yet, it is almost"

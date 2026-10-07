@@ -104,7 +104,7 @@ _ViridianCityText_19175::
 	para "It can't be"
 	line "helped... We have"
 	cont "to wait until"
-	cont "they sobers up."
+	cont "they sober up."
 	done
 
 _ViridianCityText_1917a::

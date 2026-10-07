@@ -26,11 +26,11 @@ _CeladonCityText4:: ; edited
 	cont "within CELADON"
 	cont "limits."
 
-	para "Despite so, it"
-	line "feels so"
-	cont "isolated, and"
+	para "Even so, it feels"
+	line "so isolated, and"
 	cont "it's very tough"
 	cont "to reach."
+;	xxxx "123456789012345678"
 	done
 
 _TM41PreText::
@@ -60,7 +60,7 @@ _TM41ExplanationText::
 	para "Be careful when"
 	line "using it, though,"
 	cont "because the user"
-	cont "too takes damage!"
+	cont "also takes damage!"
 	done
 
 _CeladonCityText6::

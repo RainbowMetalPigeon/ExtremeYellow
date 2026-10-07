@@ -147,7 +147,7 @@ _Museum1FText_RP_NoOurAmber_Before::
 	text "What are you doing"
 	line "here? Hey! You're"
 	cont "not gonna touch"
-	cont "that AMBER, aren't"
+	cont "that AMBER, are"
 	cont "you? It's valuable!"
 ;	xxxx "123456789012345678"
 	done

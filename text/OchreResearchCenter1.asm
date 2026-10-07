@@ -233,7 +233,7 @@ _OchreResearchCenter1Text_Power_Windworks_WowAlreadyDefeated::
 	cont "already?!"
 
 	para "Wonderful! You"
-	line "indeed do be a"
+	line "indeed are a"
 	cont "powerful TRAINER!"
 
 	para "Thanks so much,"

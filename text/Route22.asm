@@ -91,8 +91,8 @@ _Route22RivalBeforeBattleText2::
 	cont "and for all."
 
 	para "My soulmate, my"
-	line "starter, never"
-	cont "has had a more"
+	line "starter, has"
+	cont "never had a more"
 ;	xxxx "123456789012345678"
 	cont "fitting team!"
 

@@ -69,7 +69,7 @@ _Route16HouseText1_RP_PreFly::
 	line "My FEAROW!"
 	cont "Leave it alone!"
 	cont "Don't you dare"
-	cont "hurting it!"
+	cont "hurt it!"
 
 	para "FINE! Take this"
 	line "and leave us in"

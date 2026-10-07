@@ -59,7 +59,7 @@ _SchoolText4::
 
 	para "In the OPTION"
 	line "menus, it gives"
-	cont "you extra infos!"
+	cont "you extra info!"
 
 	para "In battle, shows"
 	line "useful info too!"
@@ -111,7 +111,7 @@ _SchoolText6::
 	cont "physical move of"
 	cont "base power 40."
 
-	para "LEECH SEED drain"
+	para "LEECH SEED drains"
 	line "1/8 of its max HP"
 	cont "and give them to"
 	cont "the opponent."
@@ -139,7 +139,7 @@ _SchoolText7::
 	cont "battles!"
 
 	para "But if they do"
-	line "that on me, I"
+	line "that to me, I"
 	cont "learned I just"
 	cont "need to switch"
 	cont "to reset them!"

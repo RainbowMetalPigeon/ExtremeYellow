@@ -42,7 +42,7 @@ _KogaSoulBadgeInfoText::
 	cont "may have the"
 	cont "DEFENSE of your"
 	cont "#MON increase,"
-	cont "if you desire so."
+	cont "if you so desire."
 ;	xxxx "123456789012345678"
 
 	para "It also lets you"
@@ -298,7 +298,7 @@ _FuchsiaGymAfterBattleText_Common::
 
 	para "You can't tell us"
 	line "apart, you don't"
-	cont "know who is KOGA!"
+	cont "know who KOGA is!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -318,8 +318,8 @@ _KogaBeforeBattleText_RP::
 	text "You! You filthy,"
 	line "repulsive ROCKET"
 	cont "bastard scum!"
-	cont "You dare facing"
-	cont "me, KOGA, the GYM"
+	cont "You dare face me,"
+	cont "KOGA, the GYM"
 	cont "leader of the"
 	cont "city you torture"
 	cont "with your grip."

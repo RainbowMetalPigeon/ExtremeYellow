@@ -124,13 +124,13 @@ _ObsidianWarehouseTrainerText1_RP::
 
 _ObsidianWarehouseTrainerText2_RP::
 	text "That brat had such"
-    line "a wrath!"
+    line "wrath!"
 ;	xxxx "123456789012345678"
 	done
 
 _ObsidianWarehouseTrainerText3_RP::
 	text "That brat had such"
-    line "a rage!"
+    line "rage!"
 ;	xxxx "123456789012345678"
 	done
 

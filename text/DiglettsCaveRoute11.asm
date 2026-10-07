@@ -3,7 +3,7 @@ _DiglettsCaveEntRoute11Text1_BeforeSurge:: ; new
 	line "machines went"
 	cont "into the"
 	cont "DIGLETT's CAVE"
-	cont "short ago"
+	cont "short while ago"
 	cont "to take some"
 	cont "measurements, and"
 	cont "now all #MON"
@@ -12,7 +12,7 @@ _DiglettsCaveEntRoute11Text1_BeforeSurge:: ; new
 	para "They should come"
 	line "back shortly, as"
 	cont "soon as the fear"
-	cont "will pass."
+	cont "passes."
 	done
 
 _DiglettsCaveEntRoute11Text1_AfterSurge:: ; edited
