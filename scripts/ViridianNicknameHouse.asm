@@ -35,6 +35,9 @@ ViridianNicknameHouse_TextPointers:
 	; new, gate
 	dw ViridianHouseText6
 	dw ViridianHouseText7
+	; new house
+	dw ViridianHouseText8
+	dw ViridianHouseText9
 	; signs
 	dw ViridianHouseTextSign1
 
@@ -48,6 +51,9 @@ ViridianNicknameHouse_TextPointers_Rocket:
 	; new, gate
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
+	; new house
+	dw GenericNPCText_RocketPath
+	dw ViridianHouseText9
 	; signs
 	dw ViridianHouseTextSign1
 
@@ -238,6 +244,18 @@ ViridianHouseText7_Otherwise:
 ViridianHouseText7_Meowth:
 	text_far _ViridianHouseText7_Meowth
 	text_end
+
+ViridianHouseText8:
+	text_far _ViridianHouseText8
+	text_end
+
+ViridianHouseText9:
+	text_far _ViridianHouseText9
+	text_asm
+	ld a, ANNIHILAPE
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
 
 ; new for RP ==========================
 

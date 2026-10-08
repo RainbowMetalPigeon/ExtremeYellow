@@ -22,6 +22,8 @@ _ViridianHouseText4::
 	line "Name: SPEARY"
 	done
 
+; new ==============================
+
 _ViridianHouseTextSign1::
 	text "The notebook is"
 	line "full of notes..."
@@ -33,7 +35,7 @@ _ViridianHouseTextSign1::
 	cont "read!"
 	done
 
-_ViridianHouseText6:: ; new
+_ViridianHouseText6::
 	text "Many trainers pass"
 	line "by this gate to"
 	cont "challenge the"
@@ -41,7 +43,7 @@ _ViridianHouseText6:: ; new
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianHouseText7_Rival1:: ; new
+_ViridianHouseText7_Rival1::
 	text "I just saw a youth"
 	line "full of energy"
 	cont "storming towards"
@@ -49,7 +51,7 @@ _ViridianHouseText7_Rival1:: ; new
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianHouseText7_Rival2:: ; new
+_ViridianHouseText7_Rival2::
 	text "I just saw a youth"
 	line "full of rage"
 	cont "storming towards"
@@ -57,7 +59,7 @@ _ViridianHouseText7_Rival2:: ; new
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianHouseText7_Champion:: ; new
+_ViridianHouseText7_Champion::
 	text "Uh? But aren't"
 	line "you...?"
 
@@ -66,19 +68,38 @@ _ViridianHouseText7_Champion:: ; new
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianHouseText7_Otherwise:: ; new
+_ViridianHouseText7_Otherwise::
 	text "I like observing"
 	line "those who pass by."
 ;	xxxx "123456789012345678"
 	done
 
-_ViridianHouseText7_Meowth:: ; new
+_ViridianHouseText7_Meowth::
 	text "I saw people of"
 	line "all kinds walking"
 	cont "through here, but"
 	cont "it's the first"
 	cont "time I see a"
 	cont "MEOWTH!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText8::
+	text "No, there's been"
+	line "no robbery."
+
+	para "I'm simply not a"
+	line "good-enough"
+	cont "TRAINER, and my"
+	cont "#MON is full"
+	cont "of energy and"
+	cont "won't obey me!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianHouseText9::
+	text "ANNIHILAPE: Skkk-"
+	line "huahuahua!!!"
 ;	xxxx "123456789012345678"
 	done
 

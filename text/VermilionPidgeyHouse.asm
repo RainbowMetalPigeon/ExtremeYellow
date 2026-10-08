@@ -83,7 +83,7 @@ _VermilionHousesText9::
 	para "What do you mean"
 	line "I shouldn't play"
 	cont "with water bombs"
-	cont "indoor?"
+	cont "indoors?"
 ;	xxxx "123456789012345678"
 	done
 

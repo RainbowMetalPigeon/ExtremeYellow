@@ -1,5 +1,5 @@
 CeruleanCaveExtraBottom_Script:
-	call RespawnItem ; new, testing
+	call RespawnItem ; new
 	call EnableAutoTextBoxDrawing
 	ret
 

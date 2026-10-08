@@ -1738,7 +1738,7 @@ CollisionCheckOnWater::
 	ld a, [wCurMapTileset] ; tileset
 	cp SHIP_PORT ; Vermilion Dock tileset
 	jr nz, .noCollision ; keep surfing if it's not the boarding platform tile
-	jr .stopSurfing ; if it is the boarding platform tile, stop surfing
+;	jr .stopSurfing ; if it is the boarding platform tile, stop surfing ; commented as useless jump
 .stopSurfing ; based game freak
 	ld a, $3
 	ld [wPikachuSpawnState], a
@@ -1748,8 +1748,7 @@ CollisionCheckOnWater::
 	ld [wWalkBikeSurfState], a
 	call LoadPlayerSpriteGraphics
 	call PlayDefaultMusic
-	jr .noCollision
-
+;	jr .noCollision ; ; commented as useless jump
 .noCollision ; ...and they do the same mistake twice
 	and a
 .done

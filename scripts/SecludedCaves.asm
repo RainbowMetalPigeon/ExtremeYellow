@@ -11,7 +11,7 @@ SecludedCaves_ScriptPointers:
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
 
-SecludedCavesScript0: ; testing
+SecludedCavesScript0:
 	ld a, [wYCoord]
 	cp 22
 	ret nc

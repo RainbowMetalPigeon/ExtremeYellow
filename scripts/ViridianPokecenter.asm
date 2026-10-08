@@ -1,7 +1,15 @@
 ViridianPokecenter_Script:
 	RPTextChooser ViridianPokecenter_TextPointers, ViridianPokecenter_TextPointers_Rocket
+	call ViridianPokecenterCheckTurning ; new
 	call Serial_TryEstablishingExternallyClockedConnection
 	jp EnableAutoTextBoxDrawing
+
+ViridianPokecenterCheckTurning: ; new
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
+	ld hl, wd72d
+	set 5, [hl]
+	ret
 
 ViridianPokecenter_TextPointers:
 	dw ViridianHealNurseText

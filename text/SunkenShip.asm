@@ -1,5 +1,3 @@
-; TBE
-
 ; top floor ---------------------------------
 
 _GiveCombination12Text::
@@ -114,7 +112,7 @@ _SunkenShipCaptainsLogText_Page0::
     para "April 27"
     line "Passengers got on"
     cont "board smoothly."
-    cont "Forecasts's good."
+    cont "Forecast's good."
     cont "I foresee a"
     cont "relaxed trip."
 ;   xxxx "123456789012345678"
@@ -188,7 +186,7 @@ _SunkenShipCaptainsLogText_Page5::
     cont "should still go"
     cont "well, as long as"
     cont "it doesn't push us"
-    cont "off cpurse and"
+    cont "off course and"
     cont "into the rocks."
     cont "I'll make an"
     cont "announcement to"
