@@ -505,4 +505,5 @@ DEF SHOW EQU $15
 	const HS_HALL_OF_FAME_OAK              ; new
 	const HS_HALL_OF_FAME_BLUE             ; new
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
-	; total = 237
+	const HS_VIRIDIAN_POKECENTER_ROCK_1    ; new
+	; total = 238

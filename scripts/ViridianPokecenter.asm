@@ -10,6 +10,14 @@ ViridianPokecenter_TextPointers:
 	dw ViridianTradeNurseText
 	dw ViridianPokeCenterText5
 	dw ViridianPokeCenterText6 ; new
+	; new, villa
+	dw RockSmashText
+	dw BoulderText
+	dw ViridianPokeCenter_VillaText1
+	dw ViridianPokeCenter_VillaSignText1
+	dw ViridianPokeCenter_VillaSignText2
+	dw ViridianPokeCenter_VillaSignText3
+	dw ViridianPokeCenter_VillaSignText4
 
 ViridianPokecenter_TextPointers_Rocket:
 	dw ViridianHealNurseText
@@ -18,6 +26,14 @@ ViridianPokecenter_TextPointers_Rocket:
 	dw ViridianTradeNurseText
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
+	; new, villa
+	dw RockSmashText
+	dw BoulderText
+	dw ViridianPokeCenter_VillaText1_RP
+	dw ViridianPokeCenter_VillaSignText1
+	dw ViridianPokeCenter_VillaSignText2
+	dw ViridianPokeCenter_VillaSignText3
+	dw ViridianPokeCenter_VillaSignText4
 
 ViridianHealNurseText:
 	script_pokecenter_nurse
@@ -40,4 +56,30 @@ ViridianPokeCenterText5:
 
 ViridianPokeCenterText6: ; new
 	text_far _ViridianPokeCenterText6
+	text_end
+
+; new for villa =============================
+
+ViridianPokeCenter_VillaText1:
+	text_far _ViridianPokeCenter_VillaText1
+	text_end
+
+ViridianPokeCenter_VillaText1_RP:
+	text_far _ViridianPokeCenter_VillaText1_RP
+	text_end
+
+ViridianPokeCenter_VillaSignText1:
+	text_far _ViridianPokeCenter_VillaSignText1
+	text_end
+
+ViridianPokeCenter_VillaSignText2:
+	text_far _ViridianPokeCenter_VillaSignText2
+	text_end
+
+ViridianPokeCenter_VillaSignText3:
+	text_far _ViridianPokeCenter_VillaSignText3
+	text_end
+
+ViridianPokeCenter_VillaSignText4:
+	text_far _ViridianPokeCenter_VillaSignText4
 	text_end

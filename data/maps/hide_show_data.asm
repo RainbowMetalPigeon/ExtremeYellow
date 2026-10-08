@@ -52,11 +52,11 @@ MapHSPointers:
 	dw NoHS ; REDS_HOUSE_2F
 	dw BluesHouseHS
 	dw OaksLabHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw ViridianGymHS
+	dw ViridianPokecenterHS ; VIRIDIAN_POKECENTER new
+	dw NoHS ; VIRIDIAN_MART
+	dw NoHS ; VIRIDIAN_SCHOOL_HOUSE
+	dw NoHS ; VIRIDIAN_NICKNAME_HOUSE
+	dw ViridianGymHS ; VIRIDIAN_GYM
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -909,5 +909,7 @@ HallOfFameHS:
 	db HALL_OF_FAME, 2, SHOW ; Blue
 IndigoPlateauLobbyHS: ; new
 	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
+ViridianPokecenterHS: ; new
+	db VIRIDIAN_POKECENTER, 7, SHOW ; Rock
 
 	db $FF, $01, SHOW ; end, list terminator

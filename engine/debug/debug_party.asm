@@ -41,11 +41,11 @@ IF DEF(_DEBUG)
 	; Get all badges except Earth Badge.
 	ld a, ~(1 << BIT_EARTHBADGE)
 ;	ld a, %11111110
-;	ld a, %11111111
-	ld a, %00000010
+	ld a, %11111111
+;	ld a, %00000010
 ;	ld a, %00000000
 ;	ld a, %11111100
-	ld a, %01111111
+;	ld a, %01111111
 ;	ld a, %01111011
 	ld [wObtainedBadges], a
 
@@ -291,7 +291,7 @@ IF DEF(_DEBUG)
 
 ;	SetEvent EVENT_ENABLED_IMPOSTER
 
-;	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
+	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 
 	SetEvent EVENT_EIGHT_ISLAND_CAVE_BEAT_BOTH_BLUE_AND_PINK
 
