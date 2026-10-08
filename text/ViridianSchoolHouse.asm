@@ -187,3 +187,254 @@ _SchoolText9::
 	line "whopping 50%"
 	cont "extra damage!"
 	done
+
+; new house =============================
+
+_School_PhilosophyText1:: ; metalhead
+	text "Uh? No, I'm not a"
+	line "philosopher. I'm"
+	cont "a metalhead. Why?"
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophyText2:: ; metalhead
+	text "Psychology? Why?"
+	line "I just like metal."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophyText3:: ; clipboard
+	text "Sometimes when I"
+	line "take a step back"
+	cont "and look at my"
+	cont "life it seems"
+	cont "like a cycle"
+	cont "repeating itself"
+	cont "over and over,"
+	cont "with loss and"
+	cont "stress and hunger"
+	cont "and hopelessness,"
+	cont "all building up"
+	cont "to a brief moment"
+	cont "of triumph that"
+	cont "seems to grow"
+	cont "briefer with"
+	cont "every repetition."
+
+	para "And then after"
+	line "that moment fades"
+	cont "away I realize I"
+	cont "haven't undergone"
+	cont "any great"
+	cont "transformation."
+
+	para "I'm left hopeless"
+	line "and disappointed"
+	cont "in myself for"
+	cont "failing to live"
+	cont "up to my own"
+	cont "expectations,"
+	cont "which is where"
+	cont "the cycle"
+	cont "repeats."
+	
+	para "Does it just go on"
+	line "forever?"
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophyText4:: ; philosopher
+	text "Why would I be a"
+	line "metalhead? I'm a"
+	cont "philosopher!"
+
+	para "...I mean, not"
+	line "like the two"
+	cont "things are"
+	cont "mutually"
+	cont "exclusive."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText1:: ; notes
+	text "As we carelessly"
+	line "propel forward we"
+	cont "leave behind"
+	cont "a trail of"
+	cont "destruction in"
+	cont "our wake."
+
+	para "Subconsciously"
+	line "this fact"
+	cont "accelerates our"
+	cont "trajectory"
+	cont "forward in order"
+	cont "to escape the"
+	cont "undesirable"
+	cont "realization of"
+	cont "responsibility."
+
+	para "Inevitably we"
+	line "crash into a wall"
+	cont "where realization"
+	cont "will be the"
+	cont "smallest hurdle"
+	cont "to overcome."
+
+	para "Cause and effect,"
+	line "act and"
+	cont "consequence: as"
+	cont "we sin we begin"
+	cont "to suffer."
+
+	para "The higher we fly"
+	line "the further we"
+	cont "must fall."
+
+	para "As we crash and"
+	line "burn we have the"
+	cont "choice to rise"
+	cont "and to learn."
+
+	para "In the end all is"
+	line "within the grasp"
+	cont "of our mind:"
+
+	para "Overcome or"
+	line "succumb, rise"
+	cont "or fall further."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText2:: ; TV
+	text "A little-known"
+	line "music channel"
+	cont "broadcasts a"
+	cont "beautiful,"
+	cont "inspiring, yet"
+	cont "melancholic song."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText3:: ; notes
+	text "Does the entirety"
+	line "of our existences"
+	cont "consist in a"
+	cont "desperate attempt"
+	cont "at escaping the"
+	cont "unavoidable grim"
+	cont "grasp of"
+	cont "entropy?"
+
+	para "Are we wired to"
+	line "fight a useless"
+	cont "struggle against"
+	cont "the Universal Law"
+	cont "of Chaos,"
+	cont "flailing through"
+	cont "the brief blink"
+	cont "that is our life,"
+	cont "nothing but a"
+	cont "delusion of"
+	cont "victory against"
+	cont "the disorder?"
+
+	para "Is every one of"
+	line "our actions"
+	cont "doomed to obey"
+	cont "the greatest"
+	cont "fear, Death, the"
+	cont "end of our own"
+	cont "consciousness?"
+
+	para "Is every one of"
+	line "our needs, hopes,"
+	cont "desires, goals"
+	cont "nothing but a"
+	cont "hidden shriek"
+	cont "of horror while"
+	cont "we fight a battle"
+	cont "destined to be"
+	cont "inevitably lost?"
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText4:: ; PC
+	text "If every action of"
+	line "ours is dictated"
+	cont "by egoism, does"
+	cont "that imply that"
+	cont "we can set that"
+	cont "as a new zero?"
+
+	para "Can we offset the"
+	line "defition of"
+	cont "self-centeredness"
+	cont "to this new"
+	cont "starting line,"
+	cont "and define the"
+	cont "moralistic value"
+	cont "of our factual"
+	cont "actions from"
+	cont "there onward?"
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText5:: ; blackboard
+	text "A graph: on the"
+	line "X-axis is"
+	cont "intelligence,"
+	cont "on the Y-axis"
+	cont "is happiness."
+
+	para "It grows for a"
+	line "while, then it"
+	cont "plummets down."
+
+	para "At the right end,"
+	line "a question mark."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText6:: ; blackboard
+	text "A Venn diagram"
+	line "intersecting"
+	cont "morality,"
+	cont "legality, and"
+	cont "feasibility."
+
+	para "The number of"
+	line "outliers sits"
+	cont "between worrisome"
+	cont "and depressing."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophySignText7:: ; trash bin
+	text "A crumbled essay"
+	line "titled 'The"
+	cont "meaning of Life'."
+
+	para "It's torn to"
+	line "pieces just"
+	cont "before reaching"
+	cont "the conclusion."
+;	xxxx "123456789012345678"
+	done
+
+; new for RP ===========
+
+_School_PhilosophyText_Useless_RP::
+	text "Useless garbage."
+;	xxxx "123456789012345678"
+	done
+
+_School_PhilosophyText4_RP::
+	text "You..."
+
+	para "..."
+
+	para "Nevermind. It'd"
+	line "be pointless."
+;	xxxx "123456789012345678"
+	done
