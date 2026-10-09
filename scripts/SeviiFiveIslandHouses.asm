@@ -9,6 +9,8 @@ SeviiFiveIslandHouses_ScriptPointers:
 	; new for RP
 	dw SeviiFiveIslandHouses_Null_RP ; 0
 	dw SeviiFiveIslandHouses_PostBattleTutor_RP ; 1
+	dw SeviiFiveIslandHouses_PreBattleBiker_RP ; 2
+	dw SeviiFiveIslandHouses_PostBattleBiker_RP ; 3
 
 SeviiFiveIslandHouses_Null_RP:
 	ret
@@ -31,11 +33,11 @@ SeviiFiveIslandHouses_TextPointers:
 
 SeviiFiveIslandHouses_TextPointers_Rocket:
 	dw SeviiFiveIslandHousesText1_RP ; Trick Room tutor
-	dw GenericNPCText_RocketPath ; Biker
-	dw SeviiFiveIslandHousesText3 ; Mon
-	dw SeviiFiveIslandHousesText4 ; Mon
-	dw SeviiFiveIslandHousesText5 ; Mon
-	dw SeviiFiveIslandHousesText6 ; Mon
+	dw SeviiFiveIslandHousesText2_RP ; Biker
+	dw SeviiFiveIslandHousesText3_RP ; Mon SANDSHREW
+	dw SeviiFiveIslandHousesText4_RP ; Mon ODDISH
+	dw SeviiFiveIslandHousesText5_RP ; Mon JIGGLYPUFF
+	dw SeviiFiveIslandHousesText6_RP ; Mon CLEFAIRY
 	dw SeviiFiveIslandHousesText7 ; Paper
 	; signs
 	dw SeviiFiveIslandHousesSignText1
@@ -44,6 +46,8 @@ SeviiFiveIslandHouses_TextPointers_Rocket:
 	dw SeviiFiveIslandHousesSignText4
 	; scripts for RP
 	dw SeviiFiveIslandHousesScriptsText1 ; 12
+	dw SeviiFiveIslandHousesScriptsText2 ; 13
+	dw SeviiFiveIslandHousesScriptsText3 ; 14
 
 SeviiFiveIslandHousesText1:
 	text_asm
@@ -330,4 +334,212 @@ SeviiFiveIslandHousesText1_Done_RP:
 
 SeviiFiveIslandHousesScriptsText1:
 	text_far _SeviiFiveIslandHousesScriptsText1
+	text_end
+
+; ----------------
+
+SeviiFiveIslandHousesText3_RP: ; SANDSHREW
+	text_far _SeviiFiveIslandHousesText3
+	text_asm
+	ld a, SANDSHREW
+	call PlayCry
+	call WaitForSoundToFinish
+; beat caring Biker already?
+	CheckEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
+	jr nz, .stealMon
+; trigger battle
+	ld hl, SeviiFiveIslandHousesTextMonsCommon_RP
+	call PrintText
+	ld a, 2
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; steal mon
+.stealMon
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 42
+	ld b, SANDSHREW
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SEVII_FIVE_ISLAND_HOUSES_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	jp TextScriptEnd
+
+SeviiFiveIslandHousesText4_RP: ; ODDISH
+	text_far _SeviiFiveIslandHousesText4
+	text_asm
+	ld a, ODDISH
+	call PlayCry
+	call WaitForSoundToFinish
+; beat caring Biker already?
+	CheckEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
+	jr nz, .stealMon
+; trigger battle
+	ld hl, SeviiFiveIslandHousesTextMonsCommon_RP
+	call PrintText
+	ld a, 2
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; steal mon
+.stealMon
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 42
+	ld b, ODDISH
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SEVII_FIVE_ISLAND_HOUSES_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	jp TextScriptEnd
+
+SeviiFiveIslandHousesText5_RP: ; JIGGLYPUFF
+	text_far _SeviiFiveIslandHousesText5
+	text_asm
+	ld a, JIGGLYPUFF
+	call PlayCry
+	call WaitForSoundToFinish
+; beat caring Biker already?
+	CheckEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
+	jr nz, .stealMon
+; trigger battle
+	ld hl, SeviiFiveIslandHousesTextMonsCommon_RP
+	call PrintText
+	ld a, 2
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; steal mon
+.stealMon
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 42
+	ld b, JIGGLYPUFF
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SEVII_FIVE_ISLAND_HOUSES_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	jp TextScriptEnd
+
+SeviiFiveIslandHousesText6_RP: ; CLEFAIRY
+	text_far _SeviiFiveIslandHousesText6
+	text_asm
+	ld a, CLEFAIRY
+	call PlayCry
+	call WaitForSoundToFinish
+; beat caring Biker already?
+	CheckEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
+	jr nz, .stealMon
+; trigger battle
+	ld hl, SeviiFiveIslandHousesTextMonsCommon_RP
+	call PrintText
+	ld a, 2
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+; steal mon
+.stealMon
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 42
+	ld b, CLEFAIRY
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SEVII_FIVE_ISLAND_HOUSES_MON_4
+	ld [wMissableObjectIndex], a
+	predef HideObjectSevii
+	jp TextScriptEnd
+
+SeviiFiveIslandHousesTextMonsCommon_RP:
+	text_far _SeviiFiveIslandHousesTextMonsCommon_RP
+	text_end
+
+SeviiFiveIslandHouses_PreBattleBiker_RP:
+; exclamation bubble
+	ld a, 2
+	ld [wEmotionBubbleSpriteIndex], a
+	ld a, EXCLAMATION_BUBBLE
+	ld [wWhichEmotionBubble], a
+	predef EmotionBubble
+; dialogue
+	ld a, 13
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; set up battle
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	call Delay3
+	ld a, OPP_BIKER
+	ld [wCurOpponent], a
+	ld a, 18
+	ld [wTrainerNo], a
+	ld a, 1
+	ld [wIsTrainerBattle], a
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	ld hl, SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText
+	ld de, SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText
+	call SaveEndBattleTextPointers
+; load next script
+	ld a, 3
+	ld [wCurMapScript], a
+	ret
+
+SeviiFiveIslandHouses_PostBattleBiker_RP:
+; did we win?
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, SeviiFourIslandHousesResetScripts
+; we won
+	ld a, $f0
+	ld [wJoyIgnore], a
+	SetEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
+	ld a, 14
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; load next script
+	jp SeviiFiveIslandHousesResetScripts
+
+SeviiFiveIslandHousesScriptsText2: ; 13
+	text_far _SeviiFiveIslandHousesScriptsText2
+	text_end
+
+SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText:
+	text_far _SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText
+	text_end
+
+SeviiFiveIslandHousesScriptsText3: ; 14
+	text_far _SeviiFiveIslandHousesScriptsText3
+	text_end
+
+SeviiFiveIslandHousesText2_RP:
+	text_asm
+; stole any mon?
+	CheckHideShowSevii HS_SEVII_FIVE_ISLAND_HOUSES_MON_1 ; z flag if is SHOW, nz if is HIDE
+	jr nz, .stolenAtLeastAMon
+	CheckHideShowSevii HS_SEVII_FIVE_ISLAND_HOUSES_MON_2
+	jr nz, .stolenAtLeastAMon
+	CheckHideShowSevii HS_SEVII_FIVE_ISLAND_HOUSES_MON_3
+	jr nz, .stolenAtLeastAMon
+	CheckHideShowSevii HS_SEVII_FIVE_ISLAND_HOUSES_MON_4
+	jr z, .stolenNoMonsYet
+.stolenAtLeastAMon
+	ld hl, SeviiFiveIslandHousesText2_RP_PostStealing
+	jr .printAndEnd
+.stolenNoMonsYet
+	CheckEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
+	ld hl, SeviiFiveIslandHousesText2_RP_PostBeating
+	jr nz, .printAndEnd
+; before engaging
+	ld hl, SeviiFiveIslandHousesText2_RP_BeforeBeating
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SeviiFiveIslandHousesText2_RP_PostStealing:
+	text_far _SeviiFiveIslandHousesText2_RP_PostStealing
+	text_end
+
+SeviiFiveIslandHousesText2_RP_PostBeating:
+	text_far _SeviiFiveIslandHousesText2_RP_PostBeating
+	text_end
+
+SeviiFiveIslandHousesText2_RP_BeforeBeating:
+	text_far _SeviiFiveIslandHousesText2_RP_BeforeBeating
 	text_end

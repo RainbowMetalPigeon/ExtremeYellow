@@ -555,3 +555,81 @@ _SeviiRoute36PostBattleTectonix_VictoryText::
 	cont "I failed you..."
 ;   xxxx "123456789012345678"
 	prompt
+
+_SeviiFiveIslandHousesTextMonsCommon_RP::
+	text "The #MON cries"
+	line "in fear!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesScriptsText2::
+	text "WHAT THE FUCK YOU"
+	line "THINK YOU DOING?!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText::
+	text "NO!"
+	line "OH NO! PLEASE NO!"
+;   xxxx "123456789012345678"
+	prompt
+
+_SeviiFiveIslandHousesScriptsText3::
+	text "NO...!"
+	line "PLEASE!"
+
+	para "Please, I beg you,"
+	line "take anything,"
+	cont "take EVERTHING"
+	cont "from me, but"
+	cont "please, do NOT"
+	cont "hurt the #MON!"
+
+	para "Do not take them"
+	line "away from me..."
+
+	para "...please..."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText2_RP_PostStealing::
+	text "...ugh..."
+	line "...I..."
+
+	para "..."
+
+	para "WAAAH-AHHH!"
+
+	para "Sob! My dear ones!"
+	line "No! Sigh! Sob!"
+
+	para "I failed you!"
+	line "I let them hurt"
+	cont "you! Waaahhh!!!"
+	cont "Nooooo!!!"
+;   xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText2_RP_PostBeating::
+	text "...please..."
+
+	para "Anything, ANYTHING"
+	line "but the #MON."
+
+	para "I beg you, do not"
+	line "touch them..."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesText2_RP_BeforeBeating::
+	text "YOU..."
+	line "LIVE AT THE EDGE"
+	cont "OF SOCIETY TOO,"
+	cont "EH?"
+
+	para "YOU... ROCK-ET!"
+
+	para "...DON'T BOTHER"
+	line "THE #MON THO!"
+;   xxxx "123456789012345678"
+	done

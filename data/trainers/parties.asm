@@ -386,6 +386,8 @@ BikerData:
 	db 85, WEEZING, ELECTRODE, MUK, CROBAT, VENOMOTH, GENGAR, 0 ; 16
 ; Lake of Mist, new
 	db 23, GRIMER, WEEZING, NIDOKING, BEEDRILL, 0 ; 17
+; Sevii Five Houses, RP
+	db 42, CROBAT, WEEZING, ELECTRODE, MUK, GENGAR, 0 ; 18
 
 BurglarData:
 ; Unused
