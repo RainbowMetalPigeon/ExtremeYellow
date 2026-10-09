@@ -367,8 +367,6 @@ OaksLabHS:
 	db OAKS_LAB, $0A, HIDE ; new, Giovanni, testing
 Museum1FHS:
 	db MUSEUM_1F, $05, SHOW
-CeruleanMelaniesHouseHS:
-	db CERULEAN_MELANIES_HOUSE, $02, SHOW
 CeruleanCaveHS:
 	db CERULEAN_CAVE_1F, $01, SHOW
 	db CERULEAN_CAVE_1F, $02, SHOW
@@ -956,5 +954,9 @@ CeladonUniversity1HS:
 CopycatsHouse1FHS:
 	db COPYCATS_HOUSE_1F,  3, SHOW ; Mon
 	db COPYCATS_HOUSE_1F,  5, SHOW ; Mon
+CeruleanMelaniesHouseHS:
+	db CERULEAN_MELANIES_HOUSE, $02, SHOW ; Mon
+	db CERULEAN_MELANIES_HOUSE, $03, SHOW ; Mon
+	db CERULEAN_MELANIES_HOUSE, $04, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

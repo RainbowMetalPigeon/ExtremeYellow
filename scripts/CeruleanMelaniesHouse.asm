@@ -29,9 +29,9 @@ CeruleanMelaniesHouse_TextPointers:
 
 CeruleanMelaniesHouse_TextPointers_Rocket:
 	dw CeruleanHouse1Text1_RP ; Melanie
-	dw CeruleanHouse1Text2 ; Mon
-	dw CeruleanHouse1Text3 ; Mon
-	dw CeruleanHouse1Text4 ; Mon
+	dw CeruleanHouse1Text2_RP ; Mon
+	dw CeruleanHouse1Text3_RP ; Mon
+	dw CeruleanHouse1Text4_RP ; Mon
 	; new, trade house
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -86,9 +86,9 @@ CeruleanHouse1Text1:
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
 	ld hl, CeruleanHouse1Text_1cfd3
 	call PrintText
-	ld a, HS_CERULEAN_BULBASAUR
+	ld a, HS_MELANIES_HOUSE_MON_1
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra2
 	SetEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
 .asm_1cfb3
 	jp TextScriptEnd
@@ -100,51 +100,6 @@ CeruleanHouse1Text1:
 	ld hl, CeruleanHouse1Text_1cfd9
 	call PrintText
 	jp TextScriptEnd
-
-CeruleanHouse1Text1_RP: ; new for RP
-	text_asm
-	CheckEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
-	ld hl, CeruleanHousesMelanieText_RP_GotBulbasaurPreviously
-	jr nz, .printAndEnd
-	CheckEvent EVENT_RP_GOT_BULBASAUR
-	ld hl, CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur
-	jr nz, .printAndEnd
-	ld hl, CeruleanHousesMelanieText_RP_BeatMelanie
-	call PrintText
-	ld a, BULBASAUR
-	ld [wd11e], a
-	ld [wcf91], a
-	call GetMonName
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	lb bc, BULBASAUR, 15
-	call GivePokemon
-	jp nc, TextScriptEnd
-	ld a, [wAddedToParty]
-	and a
-	call z, WaitForTextScrollButtonPress
-	ld a, $1
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld a, HS_CERULEAN_BULBASAUR
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	SetEvent EVENT_RP_GOT_BULBASAUR
-	jp TextScriptEnd
-.printAndEnd
-	call PrintText
-	jp TextScriptEnd
-
-CeruleanHousesMelanieText_RP_GotBulbasaurPreviously: ; new for RP
-	text_far _CeruleanHousesMelanieText_RP_GotBulbasaurPreviously
-	text_end
-
-CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur: ; new for RP
-	text_far _CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur
-	text_end
-
-CeruleanHousesMelanieText_RP_BeatMelanie: ; new for RP
-	text_far _CeruleanHousesMelanieText_RP_BeatMelanie
-	text_end
 
 CeruleanHouse1Text_1cfc8:
 	text_far MelanieText1
@@ -266,6 +221,41 @@ CeruleanHouseTrashedText3:
 	text_far _CeruleanHouseTrashedText3
 	text_end
 
+; new for RP ==================================
+
+CeruleanHouse1Text1_RP: ; new for RP TBE
+	text_asm
+; got BULBASAUR in HP
+	CheckEvent EVENT_GOT_BULBASAUR_IN_CERULEAN
+	ld hl, CeruleanHousesMelanieText_RP_GotBulbasaurPreviously
+	jr nz, .printAndEnd
+; not got BULBASAUR in HP
+	CheckHideShowExtra2 HS_MELANIES_HOUSE_MON_1 ; z flag if is SHOW, nz if is HIDE
+	jr nz, .stolenAtLeastAMon
+	CheckHideShowExtra2 HS_MELANIES_HOUSE_MON_2
+	jr nz, .stolenAtLeastAMon
+	CheckHideShowExtra2 HS_MELANIES_HOUSE_MON_3
+	jr nz, .stolenAtLeastAMon
+; stolen no mons yet
+	ld hl, CeruleanHouse1Text1_RP_BeforeStealing
+	jr .printAndEnd
+.stolenAtLeastAMon
+	ld hl, CeruleanHouse1Text1_RP_AfterStealing
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+CeruleanHousesMelanieText_RP_GotBulbasaurPreviously:
+	text_far _CeruleanHousesMelanieText_RP_GotBulbasaurPreviously
+	text_end
+CeruleanHouse1Text1_RP_BeforeStealing:
+	text_far _CeruleanHouse1Text1_RP_BeforeStealing
+	text_end
+
+CeruleanHouse1Text1_RP_AfterStealing:
+	text_far _CeruleanHouse1Text1_RP_AfterStealing
+	text_end
+
 CeruleanHouseTrashedText1_RP: ; new for RP
 	text_far _CeruleanHouseTrashedText1_RP
 	text_end
@@ -273,3 +263,48 @@ CeruleanHouseTrashedText1_RP: ; new for RP
 CeruleanHouseTrashedText2_RP: ; new for RP
 	text_far _CeruleanHouseTrashedText2_RP
 	text_end
+
+CeruleanHouse1Text2_RP:
+	text_far MelanieBulbasaurText
+	text_asm
+	ld a, BULBASAUR
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 15
+	ld b, BULBASAUR
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MELANIES_HOUSE_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CeruleanHouse1Text3_RP:
+	text_far MelanieOddishText
+	text_asm
+	ld a, ODDISH
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 5
+	ld b, ODDISH
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MELANIES_HOUSE_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CeruleanHouse1Text4_RP:
+	text_far MelanieSandshrewText
+	text_asm
+	ld a, SANDSHREW
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 5
+	ld b, SANDSHREW
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MELANIES_HOUSE_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd

@@ -87,7 +87,6 @@ DEF SHOW EQU $15
 	const HS_OAKS_LAB_OAK_2                ; 30
 	const HS_OAKS_LAB_GIOVANNI             ; new
 	const HS_OLD_AMBER                     ; 33
-	const HS_CERULEAN_BULBASAUR            ; 34
 	const HS_CERULEAN_CAVE_1F_ITEM_1       ; 35
 	const HS_CERULEAN_CAVE_1F_ITEM_2       ; 36
 	const HS_CERULEAN_CAVE_1F_ITEM_3       ; 37
@@ -260,7 +259,7 @@ DEF SHOW EQU $15
 	const HS_AGATHAS_ROOM_AGATHA           ; new
 	const HS_LANCES_ROOM_LANCE             ; new
 	const HS_CELADON_MART_4F_ROCKET        ; new
-	; total = 254/255
+	; total = 253/255
 
 ; --- start of the variables moved to the extra block ---
 
@@ -537,4 +536,7 @@ DEF SHOW EQU $15
 	const HS_CELADON_UNIVERSITY_1_MON_3
 	const HS_COPYCATS_HOUSE_1F_MON_1
 	const HS_COPYCATS_HOUSE_1F_MON_2
-	; total = 18/48
+	const HS_MELANIES_HOUSE_MON_1
+	const HS_MELANIES_HOUSE_MON_2
+	const HS_MELANIES_HOUSE_MON_3
+	; total = 21/48

@@ -210,26 +210,34 @@ _CeruleanHousesMelanieText_RP_GotBulbasaurPreviously::
 ;	xxxx "123456789012345678"
 	done
 
-_CeruleanHousesMelanieText_RP_AlreadyStolenBulbasaur::
-	text "BULBASAUR..."
-	line "You monster..."
-	cont "I will never"
-	cont "forgive you!"
+_CeruleanHouse1Text1_RP_BeforeStealing::
+	text "What's TEAM ROCKET"
+	line "doing here?!"
+
+	para "These poor #MON"
+	line "have been"
+	cont "abandoned because"
+	cont "they're weak."
+
+	para "They're of no"
+	line "interest to you!"
 ;	xxxx "123456789012345678"
 	done
 
-_CeruleanHousesMelanieText_RP_BeatMelanie::
-	text "A ROCKET? What do"
-	line "you want from me?"
+_CeruleanHouse1Text1_RP_AfterStealing::
+	text "Why?! You monster!"
+	line "These poor souls"
+	cont "have no value to"
+	cont "the likes of you!"
 
-	para "Argh! Ouch! Aaah!"
-	line "No! Stop! Stop!"
-	cont "Help! Help!!!"
+	para "Why did you kid-"
+	line "nap them?! Just"
+	cont "out of cruelty?!"
 
-	para "...no... please"
-	line "don't take it..."
+	para "You monster!"
+	line "No! No!!!"
 ;	xxxx "123456789012345678"
-	prompt
+	done
 
 _CeruleanHouseTrashedText1_RP::
 	text "TEAM ROCKET! Are"
