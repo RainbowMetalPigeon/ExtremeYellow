@@ -257,7 +257,7 @@ _LTSurgePreBattleText_RP::
 	done
 
 _ReceivedThunderBadgeText_RP::
-	text "It doesn't"
+	text "Doesn't"
 	line "make any sense!"
 	cont "My war-polished"
 	cont "strategies!"
