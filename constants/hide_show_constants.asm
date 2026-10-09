@@ -22,6 +22,7 @@ DEF SHOW EQU $15
 	const HS_VERMILION_CITY_TRAVELER       ; new
 	const HS_VERMILION_CITY_ITEM_1         ; new
 	const HS_CELADON_UNI_GUARD             ; new
+	const HS_CELADON_MON_1                 ; new
 	const HS_CELADON_ROCKET_1			   ; new
 	const HS_CELADON_ROCKET_2			   ; new
 	const HS_CELADON_ROCKET_GUARD_1		   ; new
@@ -259,7 +260,7 @@ DEF SHOW EQU $15
 	const HS_AGATHAS_ROOM_AGATHA           ; new
 	const HS_LANCES_ROOM_LANCE             ; new
 	const HS_CELADON_MART_4F_ROCKET        ; new
-	; total = 253/255
+	; total = 254/255
 
 ; --- start of the variables moved to the extra block ---
 

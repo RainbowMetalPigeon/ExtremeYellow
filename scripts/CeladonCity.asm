@@ -91,7 +91,7 @@ CeladonCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw CeladonCityText7 ; monster
+	dw CeladonCityText7_RP ; monster
 	dw RocketNPCText_RocketPath ; Rocket
 	dw RocketNPCText_RocketPath ; Rocket
 	dw CeladonCityText10New_RP ; Rocket guards
@@ -396,4 +396,18 @@ TextPostBattle_CeladonTraveler_RP:
 ; script handling
 	xor a
 	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+CeladonCityText7_RP:
+	text_far _CeladonCityText7
+	text_asm
+	ld a, POLIWRATH
+	call PlayCry
+	ld c, 26
+	ld b, POLIWRATH
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	jp TextScriptEnd
