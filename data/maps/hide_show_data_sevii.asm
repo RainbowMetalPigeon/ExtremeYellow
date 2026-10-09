@@ -114,7 +114,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_1
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_2
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_3
-	dw NoHSSevii ; SEVII_SIX_ISLAND_HOUSES
+	dw SeviiSixIslandHousesHS ; SEVII_SIX_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_ROUTE_38_HOUSES
 	dw NoHSSevii ; SEVII_PATTERN_BUSH
 	dw HSSeviiAlteringCave ; SEVII_ALTERING_CAVE
@@ -362,6 +362,8 @@ SeviiFiveIslandCityDiveCavernHS:
 	db SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 2, SHOW ; ball
 SeviiSixIslandDockHS:
 	db SEVII_SIX_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiSixIslandHousesHS:
+	db SEVII_SIX_ISLAND_HOUSES, 5, SHOW ; Mon
 HSSeviiAlteringCave:
 	db SEVII_ALTERING_CAVE, 1, SHOW ; boulder
 	db SEVII_ALTERING_CAVE, 3, SHOW ; rock

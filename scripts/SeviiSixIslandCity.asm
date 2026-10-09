@@ -75,6 +75,10 @@ SeviiSixIslandCity_ScriptPointers:
 	dw SeviiSixIslandCity_Script2
 
 SeviiSixIslandCity_Script0:
+IF DEF(_DEBUG)
+	call DebugPressedOrHeldB
+	ret nz
+ENDC
 	CheckEvent EVENT_RP_BEAT_PINK_SIX_ISLAND
 	ret nz
 	CheckEvent EVENT_ROCKET_PATH
