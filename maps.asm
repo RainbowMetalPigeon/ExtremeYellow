@@ -1339,11 +1339,6 @@ OchreHouses_Blocks: INCBIN "maps/OchreHouses.blk"
 INCLUDE "scripts/MoveDeleter.asm"
 INCLUDE "scripts/MoveRelearner.asm"
 
-INCLUDE "data/maps/headers/CeladonMart1F.asm"
-INCLUDE "scripts/CeladonMart1F.asm"
-INCLUDE "data/maps/objects/CeladonMart1F.asm"
-CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
-
 
 SECTION "Maps New 2", ROMX ; new
 
@@ -1459,6 +1454,11 @@ INCLUDE "data/maps/headers/SilphCoElevator.asm"
 INCLUDE "scripts/SilphCoElevator.asm"
 INCLUDE "data/maps/objects/SilphCoElevator.asm"
 SilphCoElevator_Blocks: INCBIN "maps/SilphCoElevator.blk"
+
+INCLUDE "data/maps/headers/CeladonMart1F.asm"
+INCLUDE "scripts/CeladonMart1F.asm"
+INCLUDE "data/maps/objects/CeladonMart1F.asm"
+CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

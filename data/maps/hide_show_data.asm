@@ -239,7 +239,7 @@ MapHSPointers:
 	dw CeruleanCaveHS
 ;	dw NoHS ; NAME_RATERS_HOUSE ; removed
 	dw NoHS ; CERULEAN_BADGE_HOUSE
-	dw NoHS ; CELADON_UNIVERSITY_1 ; new
+	dw CeladonUniversity1HS ; CELADON_UNIVERSITY_1 ; new
 	dw NoHS ; CELADON_UNIVERSITY_2 ; new
 	dw RockTunnelB1FHS ; new because of Brock
 	dw SilphCo9FHS
@@ -944,5 +944,9 @@ CeladonMansion1FHS:
 	db CELADON_MANSION_1F,  1, SHOW ; Mon
 	db CELADON_MANSION_1F,  3, SHOW ; Mon
 	db CELADON_MANSION_1F,  4, SHOW ; Mon
+CeladonUniversity1HS:
+	db CELADON_UNIVERSITY_1,  7, SHOW ; Mon
+	db CELADON_UNIVERSITY_1,  8, SHOW ; Mon
+	db CELADON_UNIVERSITY_1,  9, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

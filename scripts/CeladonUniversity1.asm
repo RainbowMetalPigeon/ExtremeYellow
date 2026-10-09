@@ -37,9 +37,9 @@ CeladonUniversity1_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; pool
-	dw CeladonUniversity1TextMagikarp ; Magikarp
-	dw CeladonUniversity1TextMagikarp ; Magikarp
-	dw CeladonUniversity1TextMagikarp ; Magikarp
+	dw CeladonUniversity1TextMagikarp1_RP ; Magikarp
+	dw CeladonUniversity1TextMagikarp2_RP ; Magikarp
+	dw CeladonUniversity1TextMagikarp3_RP ; Magikarp
 	dw GenericNPCText_RocketPath ; Swimmer
 	dw GenericNPCText_RocketPath ; Swimmer
 	dw GenericNPCText_RocketPath ; Bench
@@ -124,3 +124,53 @@ CeladonUniversity1Constitution1:
 CeladonUniversity1Constitution2:
 	text_far _CeladonUniversity1Constitution2
 	text_end
+
+; new for RP ==========================
+
+CeladonUniversity1TextMagikarp1_RP:
+	text_far _CeladonUniversity1TextMagikarp
+	text_asm
+	ld a, MAGIKARP
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 25
+	ld b, MAGIKARP
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_UNIVERSITY_1_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CeladonUniversity1TextMagikarp2_RP:
+	text_far _CeladonUniversity1TextMagikarp
+	text_asm
+	ld a, MAGIKARP
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 15
+	ld b, MAGIKARP
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_UNIVERSITY_1_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CeladonUniversity1TextMagikarp3_RP:
+	text_far _CeladonUniversity1TextMagikarp
+	text_asm
+	ld a, MAGIKARP
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 5
+	ld b, MAGIKARP
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_UNIVERSITY_1_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
