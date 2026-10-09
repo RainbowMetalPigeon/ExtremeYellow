@@ -7,6 +7,13 @@ _GivePokemon::
 ; new, for the shiny (starter pikachu and fusion machine)
 	CheckEvent EVENT_GIVING_RANDOM_MON
 	jr nz, .randomizedMon
+	CheckAndResetEvent EVENT_GIVING_GUARANTEED_SHINY_MON
+	jr z, .otherShinyChecks
+	ld a, [wOpponentMonShiny]
+	set BIT_MON_SHINY, a
+	ld [wOpponentMonShiny], a
+	jr .skipTheNormalShinyRoll
+.otherShinyChecks
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .notOaksLab
 	ld a, [wCurMap]
@@ -20,11 +27,11 @@ _GivePokemon::
 .randomizedMon ; TBE for second randomized mon
 	CheckEvent EVENT_RECEIVED_RANDOMIZED_POKEMON_1
 	jr z, .firstTime
-	ld a, [wOpponentMonShiny] ; TBV
+	ld a, [wOpponentMonShiny]
 	set BIT_MON_RANDOMIZED_2, a
 	jr .setFlag
 .firstTime
-	ld a, [wOpponentMonShiny] ; TBV
+	ld a, [wOpponentMonShiny]
 	set BIT_MON_RANDOMIZED_1, a
 .setFlag
 	ld [wOpponentMonShiny], a

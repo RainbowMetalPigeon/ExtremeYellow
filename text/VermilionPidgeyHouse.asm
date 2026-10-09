@@ -199,10 +199,10 @@ _VermilionHousesText7_RP::
 	done
 
 _VermilionHousesText12_RP::
-	text "A sleeping weapon."
-	line "Useless."
+	text "A free VOLTORB!"
+	line "Shiny, at that!"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _VermilionHousesText13_RP::
 	text "Have you blinded"

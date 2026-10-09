@@ -29,13 +29,13 @@ VermilionHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; pidgey
 	dw GenericNPCText_RocketPath
-	dw VermilionHouse1Text2 ; Mon
+	dw VermilionHouse1Text2_RP ; Mon
 	dw VermilionHouse1Text3 ; Paper
 	; new house 1
 	dw VermilionHousesText6_RP
 	dw VermilionHousesText7_RP
 	; new house 2
-	dw VermilionHousesText8 ; BIRD
+	dw VermilionHousesText8_RP ; BIRD
 	dw GenericNPCText_RocketPath ; YOUNGSTER
 	dw GenericNPCText_RocketPath ; BEAUTY
 	dw VermilionHousesText11 ; PAPER
@@ -179,10 +179,54 @@ VermilionHousesText7_RP:
 	text_far _VermilionHousesText7_RP
 	text_end
 
-VermilionHousesText12_RP:
-	text_far _VermilionHousesText12_RP
-	text_end
-
 VermilionHousesText13_RP:
 	text_far _VermilionHousesText13_RP
+	text_end
+
+VermilionHouse1Text2_RP:
+	text_far _VermilionHouse1Text2
+	text_asm
+	ld a, PIDGEY
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 18
+	ld b, PIDGEY
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_VERMILION_HOUSES_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+VermilionHousesText8_RP:
+	text_asm
+	ld hl, VermilionHousesText8_1
+	call PrintText
+	ld a, DODUO
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 21
+	ld b, DODUO
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_VERMILION_HOUSES_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+VermilionHousesText12_RP:
+	text_far _VermilionHousesText12_RP
+	text_asm
+	SetEvent EVENT_GIVING_GUARANTEED_SHINY_MON
+	ld c, 20
+	ld b, VOLTORB
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_VERMILION_HOUSES_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+VermilionHousesText12_RP_Core:
+	text_far _VermilionHousesText12_RP
 	text_end

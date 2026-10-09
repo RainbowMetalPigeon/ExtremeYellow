@@ -725,12 +725,10 @@ AddPartyMonRental::
 	call Random
 	cp 39
 	jr nc, .noShiny
-;	ld a, 1
 	ld a, [wOpponentMonShiny]
 	set BIT_MON_SHINY, a
 	jr .loadShinyness
 .noShiny
-;	xor a
 	ld a, [wOpponentMonShiny]
 	res BIT_MON_SHINY, a
 .loadShinyness

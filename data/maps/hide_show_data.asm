@@ -103,7 +103,7 @@ MapHSPointers:
 	dw NoHS ; POKEMON_FAN_CLUB
 	dw BattleFacilityHS ; new
 	dw NoHS ; VERMILION_GYM
-	dw NoHS ; VERMILION_HOUSES ; edited due to merging
+	dw VermilionHousesHS ; VERMILION_HOUSES new
 	dw NoHS ; VERMILION_DOCK
 	dw NoHS ; SS_ANNE_1F
 	dw SSAnne2FHS
@@ -921,5 +921,9 @@ MissableObjectsExtra2: ; new, it's the "Extra2" block
 ; format: map id, object id, HIDE/SHOW
 Route1HS:
 	db ROUTE_1, 6, SHOW ; item
+VermilionHousesHS:
+	db VERMILION_HOUSES,  4, SHOW ; Mon
+	db VERMILION_HOUSES,  8, SHOW ; Mon
+	db VERMILION_HOUSES, 12, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

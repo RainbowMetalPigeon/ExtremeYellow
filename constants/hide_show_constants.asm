@@ -510,4 +510,7 @@ DEF SHOW EQU $15
 ; new ; this block now corresponds to MissableObjectsExtra2
 	const_def							   ; equivalent to "const_value=0"
 	const HS_ROUTE_1_ITEM_1
+	const HS_VERMILION_HOUSES_MON_1
+	const HS_VERMILION_HOUSES_MON_2
+	const HS_VERMILION_HOUSES_MON_3
 	; total = 1
