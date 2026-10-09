@@ -356,7 +356,8 @@ _SeviiRoute35BattleText1_RP::
 	done
 
 _SeviiRoute35EndBattleText1_RP::
-	text "Spare me!"
+	text "HIKER: Spare me!"
+;   xxxx "123456789012345678"
 	prompt
 
 _SeviiRoute35AfterBattleText1_RP::

@@ -1148,7 +1148,7 @@ _SeviiRoute35BattleText1_HP::
 	done
 
 _SeviiRoute35EndBattleText1_HP::
-	text "A promise"
+	text "HIKER: A promise"
 	line "is a promise!"
 	prompt
 
