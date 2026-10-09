@@ -71,47 +71,53 @@ ZapdosTrainerHeader:
 
 InitVoltorbBattle:
 	call TalkToTrainer
-;	ld a, [wCurMapScript] ; useless now, right?
-;	ld [wCurMapScript], a ; useless now, right?
 	jp TextScriptEnd
 
 Voltorb0Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb0TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb1Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb1TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb2Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb2TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb3Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb3TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb4Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb4TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb5Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb5TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb6Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb6TrainerHeader
 	jr InitVoltorbBattle
 
 Voltorb7Text:
 	text_asm
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 	ld hl, Voltorb7TrainerHeader
 	jr InitVoltorbBattle
 
