@@ -55,10 +55,10 @@ CopycatsHouse1F_TextPointers:
 CopycatsHouse1F_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; parent
 	dw GenericNPCText_RocketPath ; parent
-	dw CopycatsHouse1FText3 ; chansey
+	dw CopycatsHouse1FText3_RP ; chansey
 	; 2F
-	dw CopycatsHouse2FText1_RP ; Copycat TBE
-	dw CopycatsHouse2FText2 ; Doduo
+	dw CopycatsHouse2FText1_RP ; Copycat
+	dw CopycatsHouse2FText2_RP ; Doduo
 	dw CopycatsHouse2FText3_RP ; doll
 	dw CopycatsHouse2FText4_RP ; doll
 	dw CopycatsHouse2FText5_RP ; doll
@@ -311,3 +311,33 @@ CopycatsHouse2FText3_RP:
 CopycatsHouse2FText8_RP:
 	text_far _CopycatsHouse2FText3_RP
 	text_end
+
+CopycatsHouse1FText3_RP:
+	text_far _CopycatsHouse1FText3
+	text_asm
+	ld a, CHANSEY
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 37
+	ld b, CHANSEY
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_COPYCATS_HOUSE_1F_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CopycatsHouse2FText2_RP:
+	text_far _CopycatsHouse2FText2_RP
+	text_asm
+	ld a, DODUO
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 32
+	ld b, DODUO
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_COPYCATS_HOUSE_1F_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd

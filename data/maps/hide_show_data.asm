@@ -185,7 +185,7 @@ MapHSPointers:
 	dw HauntedIslandOfNumbersHS ; new
 	dw NoHS ; OBSIDIAN_HOUSES
 	dw IndigoPlateauLobbyHS ; new, INDIGO_PLATEAU_LOBBY
-	dw NoHS ; COPYCATS_HOUSE_1F
+	dw CopycatsHouse1FHS ; COPYCATS_HOUSE_1F new
 	dw FightingDojoHS
 	dw NoHS ; SAFFRON_GYM
 	dw SafariZoneExtraHS ; SAFARI_ZONE_EXTRA ; new
@@ -952,5 +952,8 @@ CeladonUniversity1HS:
 	db CELADON_UNIVERSITY_1,  7, SHOW ; Mon
 	db CELADON_UNIVERSITY_1,  8, SHOW ; Mon
 	db CELADON_UNIVERSITY_1,  9, SHOW ; Mon
+CopycatsHouse1FHS:
+	db COPYCATS_HOUSE_1F,  3, SHOW ; Mon
+	db COPYCATS_HOUSE_1F,  5, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -217,3 +217,7 @@ _CopycatsHouse2FText3_RP::
 	cont "It's only a doll!"
 	cont "What a waste!"
 	done
+
+_CopycatsHouse2FText2_RP::
+	text "DODUO: Giiih!@"
+	text_end
