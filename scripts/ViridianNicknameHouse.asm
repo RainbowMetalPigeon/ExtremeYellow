@@ -44,7 +44,7 @@ ViridianNicknameHouse_TextPointers:
 ViridianNicknameHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw ViridianHouseText3 ; Mon
+	dw ViridianHouseText3_RP ; Mon
 	dw ViridianHouseText4 ; Clipboard
 	; new, relocated Badge Expert
 	dw ViridianHouseText5_RP
@@ -53,7 +53,7 @@ ViridianNicknameHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; new house
 	dw GenericNPCText_RocketPath
-	dw ViridianHouseText9
+	dw ViridianHouseText9_RP ; Mon
 	; signs
 	dw ViridianHouseTextSign1
 
@@ -262,3 +262,35 @@ ViridianHouseText9:
 ViridianHouseText5_RP:
 	text_far _ViridianHouseText5_RP
 	text_end
+
+ViridianHouseText3_RP:
+	text_asm
+	ld hl, ViridianHouseText_1d5b1
+	call PrintText
+	ld a, SPEAROW
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_SPECIAL_SPEARY_RENAMING
+	ld c, 22
+	ld b, SPEAROW
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_VIRIDIAN_NICKNAME_HOUSE_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+ViridianHouseText9_RP:
+	text_far _ViridianHouseText9
+	text_asm
+	ld a, ANNIHILAPE
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 35
+	ld b, ANNIHILAPE
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_VIRIDIAN_NICKNAME_HOUSE_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd

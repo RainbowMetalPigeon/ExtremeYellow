@@ -55,7 +55,7 @@ MapHSPointers:
 	dw ViridianPokecenterHS ; VIRIDIAN_POKECENTER new
 	dw NoHS ; VIRIDIAN_MART
 	dw NoHS ; VIRIDIAN_SCHOOL_HOUSE
-	dw NoHS ; VIRIDIAN_NICKNAME_HOUSE
+	dw ViridianNicknameHouseHS ; VIRIDIAN_NICKNAME_HOUSE new
 	dw ViridianGymHS ; VIRIDIAN_GYM
 	dw NoHS
 	dw NoHS
@@ -67,7 +67,7 @@ MapHSPointers:
 	dw NoHS ; MUSEUM_2F
 	dw NoHS ; PEWTER_GYM
 	dw NoHS ; ROUTE_21_DIVE, new ; TBE
-	dw NoHS ; PEWTER_HOUSES
+	dw PewterHousesHS ; PEWTER_HOUSES new
 	dw NoHS ; PEWTER_POKECENTER
 	dw MtMoon1FHS
 	dw NoHS
@@ -928,5 +928,10 @@ VermilionHousesHS:
 PokemonFanClubHS:
 	db POKEMON_FAN_CLUB,  3, SHOW ; Mon
 	db POKEMON_FAN_CLUB,  4, SHOW ; Mon
+ViridianNicknameHouseHS:
+	db VIRIDIAN_NICKNAME_HOUSE,  3, SHOW ; Mon
+	db VIRIDIAN_NICKNAME_HOUSE,  9, SHOW ; Mon
+PewterHousesHS:
+	db PEWTER_HOUSES,  5, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -11,6 +11,36 @@ AskName:
 	jr nz, .vanilla
 .noRenaming
 	push hl
+	CheckAndResetEvent EVENT_RP_SPECIAL_SPEARY_RENAMING
+	pop hl
+	jr z, .checkBillsHouse
+; SPEARY
+	push hl
+	ld hl, wcd6d
+	ld a, "S"
+	ld [hli], a
+	ld a, "P"
+	ld [hli], a
+	ld a, "E"
+	ld [hli], a
+	ld a, "A"
+	ld [hli], a
+	ld a, "R"
+	ld [hli], a
+	ld a, "Y"
+	ld [hli], a
+	ld a, "@"
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	pop hl
+	jp .declinedNickname
+.checkBillsHouse
+	push hl
 	CheckAndResetEvent EVENT_RP_SPECIAL_BILL_RENAMING
 	pop hl
 	jr z, .notBillsHouse

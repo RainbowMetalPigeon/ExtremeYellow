@@ -20,7 +20,7 @@ PewterHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; Nidoran house
-	dw PewterHouse1Text1
+	dw PewterHouse1Text1_RP
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 
@@ -59,3 +59,20 @@ PewterHouse1Text2:
 PewterHouse1Text3:
 	text_far _PewterHouse1Text3
 	text_end
+
+; new for RP ==============================
+
+PewterHouse1Text1_RP:
+	text_far _PewterHouse1Text1
+	text_asm
+	ld a, NIDORAN_M
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 14
+	ld b, NIDORAN_M
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_PEWTER_HOUSES_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd

@@ -57,9 +57,9 @@ ROMX $6
 	"Doors and Ledges" ; edited, no need to be together?
 ROMX $7
 	"Maps 3"
-	"bank7"
+;	"bank7" ; edited, no need to be together?
 	"Maps 4"
-	"Hidden Objects 1"
+;	"Hidden Objects 1" ; edited, no need to be together?
 ROMX $8
 	"Sound Effect Headers 2"
 	"Music Headers 2"
