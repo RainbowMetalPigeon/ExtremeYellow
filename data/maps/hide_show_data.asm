@@ -789,6 +789,10 @@ CinnabarVolcanoBFHS: ; new
 OchreRehabilitationCenterHS: ; new
 	db OCHRE_REHABILITATION_CENTER, $05, HIDE
 OchreHousesHS: ; new
+	db OCHRE_HOUSES, $08, SHOW ; Mon
+	db OCHRE_HOUSES, $09, SHOW ; Mon
+	db OCHRE_HOUSES, $0A, SHOW ; Mon
+	db OCHRE_HOUSES, $0B, SHOW ; Mon
 	db OCHRE_HOUSES, $0C, SHOW
 PikachuGrottoHS: ; new
 	db PIKACHU_GROTTO, $01, SHOW

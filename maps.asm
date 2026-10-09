@@ -1315,11 +1315,6 @@ INCLUDE "scripts/OnixBurrowing.asm"
 INCLUDE "data/maps/objects/OnixBurrowing.asm"
 OnixBurrowing_Blocks: INCBIN "maps/OnixBurrowing.blk"
 
-INCLUDE "data/maps/headers/SecludedCaves.asm"
-INCLUDE "scripts/SecludedCaves.asm"
-INCLUDE "data/maps/objects/SecludedCaves.asm"
-SecludedCaves_Blocks: INCBIN "maps/SecludedCaves.blk"
-
 INCLUDE "data/maps/headers/OchreRehabilitationCenter.asm"
 INCLUDE "scripts/OchreRehabilitationCenter.asm"
 INCLUDE "data/maps/objects/OchreRehabilitationCenter.asm"
@@ -1459,6 +1454,11 @@ INCLUDE "data/maps/headers/CeladonMart1F.asm"
 INCLUDE "scripts/CeladonMart1F.asm"
 INCLUDE "data/maps/objects/CeladonMart1F.asm"
 CeladonMart1F_Blocks: INCBIN "maps/CeladonMart1F.blk"
+
+INCLUDE "data/maps/headers/SecludedCaves.asm"
+INCLUDE "scripts/SecludedCaves.asm"
+INCLUDE "data/maps/objects/SecludedCaves.asm"
+SecludedCaves_Blocks: INCBIN "maps/SecludedCaves.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

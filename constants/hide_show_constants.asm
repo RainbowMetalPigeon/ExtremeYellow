@@ -418,6 +418,10 @@ DEF SHOW EQU $15
 	const HS_CINNABAR_VOLCANO_BF_ITEM_4    ; new
 	const HS_CINNABAR_VOLCANO_BF_ITEM_5    ; new
 	const HS_OCHRE_REHABILITATION_GURU_2   ; new
+	const HS_OCHRE_HOUSES_MON_1            ; new
+	const HS_OCHRE_HOUSES_MON_2            ; new
+	const HS_OCHRE_HOUSES_MON_3            ; new
+	const HS_OCHRE_HOUSES_MON_4            ; new
 	const HS_OCHRE_HOUSES_MAP_PIECE        ; new
 	const HS_PIKACHU_GROTTO_ITEM_1         ; new, LIGHT_BALL
 	const HS_FUCHSIA_MEETING_ROOM_AFTER_1  ; new
@@ -508,7 +512,7 @@ DEF SHOW EQU $15
 	const HS_MR_FUJIS_HOUSE_MON_2          ; new
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited
 	const HS_MR_FUJIS_HOUSE_MON_3          ; new
-	; total = 239/255
+	; total = 243/255
 
 ; --- start of the variables moved to the extra2 block ---
 

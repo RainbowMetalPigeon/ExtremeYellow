@@ -35,10 +35,10 @@ OchreHouses_TextPointers_Rocket:
 	dw OchreHousesTextBirbFan1_RP ; birb fan 1
 	dw OchreHousesTextBirbFan2_RP ; birb fan 2
 	dw OchreHousesTextBirbFan3_RP ; birb fan 3
-	dw OchreHousesTextBirb1 ; FEAROW
-	dw OchreHousesTextBirb2 ; FARFETCHD
-	dw OchreHousesTextBirb3 ; PIDGEOT
-	dw OchreHousesTextBirb4 ; DODRIO
+	dw OchreHousesTextBirb1_RP ; FEAROW
+	dw OchreHousesTextBirb2_RP ; FARFETCHD
+	dw OchreHousesTextBirb3_RP ; PIDGEOT
+	dw OchreHousesTextBirb4_RP ; DODRIO
 	dw OchreHousesTextMapPiece_RP
 	; signs
 	dw OchreHousesTextNotebook
@@ -677,3 +677,67 @@ OchreHousesResetScripts:
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
 	ret
+
+OchreHousesTextBirb1_RP:
+	text_far _OchreHousesTextBirb1
+	text_asm
+	ld a, FEAROW
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 35
+	ld b, FEAROW
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_OCHRE_HOUSES_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+OchreHousesTextBirb2_RP:
+	text_far _OchreHousesTextBirb2
+	text_asm
+	ld a, FARFETCHD
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 35
+	ld b, FARFETCHD
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_OCHRE_HOUSES_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+OchreHousesTextBirb3_RP:
+	text_far _OchreHousesTextBirb3
+	text_asm
+	ld a, PIDGEOT
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 35
+	ld b, PIDGEOT
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_OCHRE_HOUSES_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+OchreHousesTextBirb4_RP:
+	text_far _OchreHousesTextBirb4
+	text_asm
+	ld a, DODRIO
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 35
+	ld b, DODRIO
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_OCHRE_HOUSES_MON_4
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
