@@ -3231,3 +3231,24 @@ ReloadMapSpriteTilePatterns_::
 	call LoadPlayerSpriteGraphics
 	call LoadFontTilePatterns
 	jp UpdateSprites
+
+; yes/no stuff ===============================
+
+InitYesNoTextBoxParameters_Core::
+	hlcoord 14, 7
+	lb bc, 8, 15
+	jr DisplayYesNoChoice
+
+_YesNoChoicePokeCenter::
+	call SaveScreenTilesToBuffer1
+	ld a, HEAL_CANCEL_MENU
+	ld [wTwoOptionMenuID], a
+	hlcoord 11, 6
+	lb bc, 8, 12
+	; fallthrough
+
+DisplayYesNoChoice::
+	ld a, TWO_OPTION_MENU
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	jp LoadScreenTilesFromBuffer1
