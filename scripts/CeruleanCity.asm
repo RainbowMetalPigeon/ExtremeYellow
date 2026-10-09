@@ -733,6 +733,7 @@ CeruleanCityText8_RP:
 	ld a, ELECTRODE
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 22
 	ld b, ELECTRODE
 	call GivePokemon

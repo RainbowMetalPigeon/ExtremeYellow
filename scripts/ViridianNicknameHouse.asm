@@ -270,6 +270,7 @@ ViridianHouseText3_RP:
 	ld a, SPEAROW
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	SetEvent EVENT_RP_SPECIAL_SPEARY_RENAMING
 	ld c, 22
 	ld b, SPEAROW
@@ -286,6 +287,7 @@ ViridianHouseText9_RP:
 	ld a, ANNIHILAPE
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 35
 	ld b, ANNIHILAPE
 	call GivePokemon

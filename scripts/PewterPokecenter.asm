@@ -90,6 +90,7 @@ PewterJigglypuffText_RP:
 	ld a, JIGGLYPUFF
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 19
 	ld b, JIGGLYPUFF
 	call GivePokemon

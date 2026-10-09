@@ -340,6 +340,7 @@ LavenderHouse2Text1_RP:
 	text_asm
 	ld a, CUBONE
 	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 4
 	ld b, CUBONE
 	call GivePokemon
@@ -354,6 +355,7 @@ LavenderHouse1Text3_RP:
 	text_asm
 	ld a, PSYDUCK
 	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 24
 	ld b, PSYDUCK
 	call GivePokemon
@@ -368,6 +370,7 @@ LavenderHouse1Text4_RP:
 	text_asm
 	ld a, NIDORINO
 	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 25
 	ld b, NIDORINO
 	call GivePokemon

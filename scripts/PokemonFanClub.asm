@@ -326,6 +326,7 @@ FanClubText3_RP:
 	ld a, CLEFAIRY
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 16
 	ld b, CLEFAIRY
 	call GivePokemon
@@ -346,6 +347,7 @@ FanClubText4_RP:
 	ld a, SEEL
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 16
 	ld b, SEEL
 	call GivePokemon

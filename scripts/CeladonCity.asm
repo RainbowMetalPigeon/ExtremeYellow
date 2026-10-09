@@ -403,6 +403,7 @@ CeladonCityText7_RP:
 	text_asm
 	ld a, POLIWRATH
 	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 26
 	ld b, POLIWRATH
 	call GivePokemon

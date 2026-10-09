@@ -189,6 +189,7 @@ VermilionHouse1Text2_RP:
 	ld a, PIDGEY
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 18
 	ld b, PIDGEY
 	call GivePokemon
@@ -205,6 +206,7 @@ VermilionHousesText8_RP:
 	ld a, DODUO
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 21
 	ld b, DODUO
 	call GivePokemon
@@ -218,6 +220,7 @@ VermilionHousesText12_RP:
 	text_far _VermilionHousesText12_RP
 	text_asm
 	SetEvent EVENT_GIVING_GUARANTEED_SHINY_MON
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 20
 	ld b, VOLTORB
 	call GivePokemon

@@ -68,6 +68,7 @@ PewterHouse1Text1_RP:
 	ld a, NIDORAN_M
 	call PlayCry
 	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 14
 	ld b, NIDORAN_M
 	call GivePokemon
