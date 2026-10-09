@@ -1191,3 +1191,10 @@ _SeviiFourIslandHousesSignText2_Picture_RP::
 	cont "or power."
 ;	xxxx "123456789012345678"
 	done
+
+_SeviiFourIslandHousesText7_RP::
+	text "A LAPRAS doll."
+
+	para "Tsk. Pathetic."
+;	xxxx "123456789012345678"
+	done

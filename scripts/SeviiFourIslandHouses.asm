@@ -305,7 +305,7 @@ SeviiFourIslandHouses_TextPointers_Rocket:
 	dw SeviiFourIslandHousesText4_RP ; Mama
 	dw SeviiFourIslandHousesText5_RP ; Tutor
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw SeviiFourIslandHousesText7_RP ; Lapras Doll
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; signs
@@ -775,3 +775,7 @@ SeviiFourIslandHouses_Script6:
 	call DisplayTextID
 ; load next script
 	jp SeviiFourIslandHousesResetScripts
+
+SeviiFourIslandHousesText7_RP:
+	text_far _SeviiFourIslandHousesText7_RP
+	text_end
