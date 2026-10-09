@@ -13,6 +13,7 @@ DisplayPokemonCenterDialogue_::
 	ret
 ; new, for setting Route 4 and Route 10 Pokecenters fly locations
 .checkRouteCenters
+	ld a, [wCurMap]
 	cp MT_MOON_POKECENTER
 	jr nz, .checkRockTunnelPokecenter
 	ld c, 13
