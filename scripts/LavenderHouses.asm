@@ -24,12 +24,12 @@ LavenderHouses_TextPointers_Rocket:
 	; Fuji house
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw LavenderHouse1Text3 ; Pokemon
-	dw LavenderHouse1Text4 ; Pokemon
+	dw LavenderHouse1Text3_RP ; Psyduck
+	dw LavenderHouse1Text4_RP ; Nidorino
 	dw LavenderHouse1Text5 ; Fuji, unused, never re-shown
 	dw LavenderHouse1Text6
 	; Cubone house
-	dw LavenderHouse2Text1 ; Pokemon
+	dw LavenderHouse2Text1_RP ; Cubone
 	dw GenericNPCText_RocketPath
 	; Name rater house
 	dw NameRaterText1_RP ; Name Rater
@@ -334,3 +334,45 @@ LavenderHouseGateText2:
 NameRaterText1_RP:
 	text_far _NameRaterText1_RP
 	text_end
+
+LavenderHouse2Text1_RP:
+	text_far _LavenderHouse2Text1
+	text_asm
+	ld a, CUBONE
+	call PlayCry
+	ld c, 4
+	ld b, CUBONE
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MR_FUJIS_HOUSE_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+LavenderHouse1Text3_RP:
+	text_far _LavenderHouse1Text3
+	text_asm
+	ld a, PSYDUCK
+	call PlayCry
+	ld c, 24
+	ld b, PSYDUCK
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MR_FUJIS_HOUSE_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd
+
+LavenderHouse1Text4_RP:
+	text_far _LavenderHouse1Text4
+	text_asm
+	ld a, NIDORINO
+	call PlayCry
+	ld c, 25
+	ld b, NIDORINO
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MR_FUJIS_HOUSE_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd

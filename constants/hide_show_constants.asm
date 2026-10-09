@@ -103,7 +103,6 @@ DEF SHOW EQU $15
 	const HS_POKEMON_TOWER_7F_JESSIE       ; 41
 	const HS_POKEMON_TOWER_7F_JAMES        ; 42
 	const HS_POKEMON_TOWER_7F_MR_FUJI      ; 43
-	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; 44
 	const HS_CELADON_MANSION_EEVEE_GIFT    ; 45
 	const HS_GAME_CORNER_ROCKET            ; 46
 	const HS_WARDENS_ANTIQUITIES_MAP_PIECE ; new
@@ -260,7 +259,7 @@ DEF SHOW EQU $15
 	const HS_AGATHAS_ROOM_AGATHA           ; new
 	const HS_LANCES_ROOM_LANCE             ; new
 	const HS_CELADON_MART_4F_ROCKET        ; new
-	; total = 254/255
+	; total = 253/255
 
 ; --- start of the variables moved to the extra block ---
 
@@ -504,7 +503,11 @@ DEF SHOW EQU $15
 	const HS_HALL_OF_FAME_BLUE             ; new
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
 	const HS_VIRIDIAN_POKECENTER_ROCK_1    ; new
-	; total = 238/255
+	const HS_MR_FUJIS_HOUSE_MON_1          ; new
+	const HS_MR_FUJIS_HOUSE_MON_2          ; new
+	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited
+	const HS_MR_FUJIS_HOUSE_MON_3          ; new
+	; total = 239/255
 
 ; --- start of the variables moved to the extra2 block ---
 

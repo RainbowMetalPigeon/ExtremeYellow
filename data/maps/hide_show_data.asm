@@ -391,8 +391,6 @@ PokemonTower7FHS:
 	db POKEMON_TOWER_7F, $01, HIDE ; jessie & james?
 	db POKEMON_TOWER_7F, $02, HIDE
 	db POKEMON_TOWER_7F, $03, SHOW
-LavenderHousesHS: ; edited because of map merging
-	db LAVENDER_HOUSES, $05, HIDE
 CeladonMansionRoofHouseHS:
 	db CELADON_MANSION_ROOF_HOUSE, $02, SHOW
 GameCornerHS:
@@ -911,6 +909,11 @@ IndigoPlateauLobbyHS: ; new
 	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
 ViridianPokecenterHS: ; new
 	db VIRIDIAN_POKECENTER, 7, SHOW ; Rock
+LavenderHousesHS: ; edited because of map merging
+	db LAVENDER_HOUSES, $03, SHOW
+	db LAVENDER_HOUSES, $04, SHOW
+	db LAVENDER_HOUSES, $05, HIDE
+	db LAVENDER_HOUSES, $07, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 
