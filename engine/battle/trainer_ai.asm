@@ -2235,6 +2235,9 @@ ChallengerAI: ; new
 
 ; new: for all gym leaders, except Giovanni (and Orage)
 GymLeadersCommonAI:
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .badges7or8
+; not in RP
 	callfar CountHowManyBadges ; returns in d the number of badges we own
 	ld a, d
 	and a
@@ -2251,8 +2254,8 @@ GymLeadersCommonAI:
 	jr z, .badges5
 	dec a
 	jr z, .badges6
-;.badges7or8
-	ld a, 6
+.badges7or8
+	ld a, 5
 	call AICheckIfHPBelowFraction
 	ret nc
 	jp AIUseFullRestore
