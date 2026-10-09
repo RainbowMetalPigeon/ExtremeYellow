@@ -32,7 +32,7 @@ OchreResearchCenter2_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw OchreResearchCenter2Text_Fossils_Fossil
+	dw OchreResearchCenter2Text_Fossils_Fossil_RP
 	; dreams
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
@@ -41,7 +41,7 @@ OchreResearchCenter2_TextPointers_Rocket:
 	; signs
 	dw OchreResearchCenterSign_Fossil
 	dw OchreResearchCenterSign_Dreams
-	dw OchreResearchCenterSign_Monitor
+	dw OchreResearchCenterSign_Monitor_RP
 
 OchreResearchCenter2Text_Fossils_Cinnabar:
 	text_far _OchreResearchCenter2Text_Fossils_Cinnabar
@@ -101,4 +101,14 @@ OchreResearchCenterSign_Dreams:
 
 OchreResearchCenterSign_Monitor:
 	text_far _OchreResearchCenterSign_Monitor
+	text_end
+
+; new for RP =======================================
+
+OchreResearchCenter2Text_Fossils_Fossil_RP:
+	text_far _OchreResearchCenter2Text_Fossils_Fossil_RP
+	text_end
+
+OchreResearchCenterSign_Monitor_RP:
+	text_far _OchreResearchCenterSign_Monitor_RP
 	text_end

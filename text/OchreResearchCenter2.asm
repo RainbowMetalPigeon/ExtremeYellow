@@ -254,3 +254,21 @@ _OchreResearchCenterSign_Monitor::
 	cont "together with"
 	cont "many friends!"
 	done
+
+; new for RP =======================================
+
+_OchreResearchCenter2Text_Fossils_Fossil_RP::
+	text "It's an exhaust"
+	line "weapon."
+;	xxxx "123456789012345678"
+	done
+
+_OchreResearchCenterSign_Monitor_RP::
+	text "The monitor"
+	line "displays"
+	cont "CLEFAIRY's dream."
+
+	para "...what's even"
+	line "the point?"
+;	xxxx "123456789012345678"
+	done
