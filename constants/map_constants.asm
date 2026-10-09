@@ -31,7 +31,7 @@ ENDM
 	map_const SAFFRON_CITY,                  20, 18 ; $0C
 DEF NUM_CITY_MAPS EQU const_value
 DEF FIRST_ROUTE_MAP EQU const_value
-	map_const ROUTE_1,                       10, 24 ; $0D
+	map_const ROUTE_1,                       10, 27 ; $0D
 	map_const ROUTE_2,                       10, 36 ; $0E
 	map_const ROUTE_3,                       35, 10 ; $0F ; edited
 	map_const ROUTE_4,                       45, 19 ; $10 ; edited

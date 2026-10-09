@@ -259,7 +259,7 @@ DEF SHOW EQU $15
 	const HS_AGATHAS_ROOM_AGATHA           ; new
 	const HS_LANCES_ROOM_LANCE             ; new
 	const HS_CELADON_MART_4F_ROCKET        ; new
-	; total = 253
+	; total = 253/255
 
 ; --- start of the variables moved to the extra block ---
 
@@ -503,7 +503,7 @@ DEF SHOW EQU $15
 	const HS_HALL_OF_FAME_BLUE             ; new
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
 	const HS_VIRIDIAN_POKECENTER_ROCK_1    ; new
-	; total = 238
+	; total = 238/255
 
 ; --- start of the variables moved to the extra2 block ---
 
@@ -513,4 +513,4 @@ DEF SHOW EQU $15
 	const HS_VERMILION_HOUSES_MON_1
 	const HS_VERMILION_HOUSES_MON_2
 	const HS_VERMILION_HOUSES_MON_3
-	; total = 1
+	; total = 4/48
