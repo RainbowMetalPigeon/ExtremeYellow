@@ -3,8 +3,8 @@ _CeladonMansion1Text1::
 	text_end
 
 _CeladonMansion1Text3::
-	text "CLEFAIRY: Pi"
-	line "pippippi!@"
+	text "VULPIX: Awww-"
+	line "uhooooho!@"
 	text_end
 
 _CeladonMansion1Text4::

@@ -21,10 +21,10 @@ CeladonMansion1F_TextPointers:
 	dw GameFreakSignText
 
 CeladonMansion1F_TextPointers_Rocket:
-	dw CeladonMansion1Text1 ; mon
+	dw CeladonMansion1Text1_RP ; mon
 	dw GenericNPCText_RocketPath ; granny
-	dw CeladonMansion1Text3 ; mon
-	dw CeladonMansion1Text4 ; mon
+	dw CeladonMansion1Text3_RP ; mon
+	dw CeladonMansion1Text4_RP ; mon
 	; 3F
 	dw ProgrammerText_RP ; programmers
 	dw GraphicArtistText_RP ; programmers
@@ -62,7 +62,7 @@ CeladonMansion1Text2:
 CeladonMansion1Text3:
 	text_far _CeladonMansion1Text3
 	text_asm
-	ld a, CLEFAIRY
+	ld a, VULPIX
 	call PlayCry
 	jp TextScriptEnd
 
@@ -239,7 +239,7 @@ GameFreakSignText:
 	text_far _CeladonMansion3Text8
 	text_end
 
-; new for RP ---------------------
+; new for RP ==============================
 
 ProgrammerText_RP:
 	text_far _ProgrammerText_RP
@@ -256,3 +256,48 @@ WriterText_RP:
 DirectorText_RP:
 	text_far _DirectorText_RP
 	text_end
+
+CeladonMansion1Text1_RP:
+	text_far _CeladonMansion1Text1
+	text_asm
+	ld a, MEOWTH
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 21
+	ld b, MEOWTH
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_MANSION_1F_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CeladonMansion1Text3_RP:
+	text_far _CeladonMansion1Text3
+	text_asm
+	ld a, VULPIX
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 21
+	ld b, VULPIX
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_MANSION_1F_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+CeladonMansion1Text4_RP:
+	text_far _CeladonMansion1Text4
+	text_asm
+	ld a, NIDORAN_F
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 21
+	ld b, NIDORAN_F
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CELADON_MANSION_1F_MON_3
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd

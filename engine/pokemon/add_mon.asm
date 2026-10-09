@@ -64,6 +64,14 @@ _AddPartyMon::
 	ld d, h
 	ld e, l
 	ld hl, wPlayerName
+; new for RP
+	push hl
+	CheckEvent EVENT_RP_STEALING_POKEMON
+	pop hl
+	jr z, .checkOaksPikachu
+	ld hl, LoserNameForRPStolenMon
+	jr .vanilla
+.checkOaksPikachu
 ; new, to give STARTER_PIKACHU the OT of SAMUEL
 	push hl
 	CheckEvent EVENT_IN_SEVII
@@ -260,7 +268,21 @@ _AddPartyMon::
 .donNotWriteDefaultMoves ; new
 	pop de
 ; new, to give STARTER_PIKACHU the ID of 00000
+; and to give stolen Pokemon the ID of 10538=LOSER
 	inc de
+; check for stolen mons
+	push hl
+	CheckEvent EVENT_RP_STEALING_POKEMON
+	pop hl
+	jr z, .checkSamulesPikachuForID
+	ld a, $29
+	ld [de], a
+	inc de
+	ld a, $2A
+	ld [de], a
+	jr .doneWithSpecialID
+.checkSamulesPikachuForID
+; check for Samuel's Pikachu
 	push hl
 	CheckEvent EVENT_IN_SEVII
 	pop hl
@@ -269,7 +291,6 @@ _AddPartyMon::
 	cp OAKS_LAB
 	jr nz, .vanilla2
 	xor a
-;	inc de
 	ld [de], a
 	inc de
 	ld [de], a
@@ -277,12 +298,16 @@ _AddPartyMon::
 .vanilla2
 ; back to vanilla
 	ld a, [wPlayerID]  ; set trainer ID to player ID
-;	inc de ; increased above
 	ld [de], a
 	ld a, [wPlayerID + 1]
 	inc de
 	ld [de], a
 .doneWithSpecialID ; new
+; new
+	push hl
+	ResetEvent EVENT_RP_STEALING_POKEMON
+	pop hl
+; BTV
 	push de
 	ld a, [wCurEnemyLVL]
 	ld d, a
@@ -622,6 +647,8 @@ _MoveMon::
 	ret
 
 SamuelNameForPikachu: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
+
+LoserNameForRPStolenMon: db "LOSER @" ; new
 
 ; =======================================================================
 

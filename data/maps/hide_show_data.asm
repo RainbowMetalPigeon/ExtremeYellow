@@ -138,7 +138,7 @@ MapHSPointers:
 	dw CeladonMart4FHS ; new, CELADON_MART_4F
 	dw NoHS ; CELADON_MART_ROOF
 	dw NoHS ; CELADON_MART_ELEVATOR
-	dw NoHS ; CELADON_MANSION_1F
+	dw CeladonMansion1FHS ; CELADON_MANSION_1F, new
 	dw CeladonMansion2FHS ; new, CELADON_MANSION_2F
 	dw Route19DiveHS ; new, ROUTE_19_DIVE
 	dw NoHS ; CELADON_MANSION_ROOF
@@ -940,5 +940,9 @@ PewterHousesHS:
 	db PEWTER_HOUSES,  5, SHOW ; Mon
 PewterPokecenterHS:
 	db PEWTER_POKECENTER,  3, SHOW ; Mon
+CeladonMansion1FHS:
+	db CELADON_MANSION_1F,  1, SHOW ; Mon
+	db CELADON_MANSION_1F,  3, SHOW ; Mon
+	db CELADON_MANSION_1F,  4, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator
