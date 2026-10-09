@@ -86,4 +86,15 @@ PewterCashierText: ; moved
 
 PewterJigglypuffText_RP:
 	text_far _PewterJigglypuffText_RP
-	text_end
+	text_asm
+	ld a, JIGGLYPUFF
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 19
+	ld b, JIGGLYPUFF
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_PEWTER_POKECENTER_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd

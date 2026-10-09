@@ -402,7 +402,7 @@ CeruleanCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw CeruleanCityText6_RP_Jenny ; JENNY
 	dw GenericNPCText_RocketPath
-	dw CeruleanCityText8 ; ELECTRODE
+	dw CeruleanCityText8_RP ; ELECTRODE
 	dw GenericNPCText_RocketPath
 	dw CeruleanCityText10_RP ; Cerulean Cave Guard
 	dw TextPreBattle_CeruleanTraveler_RP ; traveler
@@ -725,4 +725,19 @@ TextPostBattle_CeruleanTraveler_RP:
 	xor a
 	ld [wCeruleanCityCurScript], a ; city-specific
 	ld [wCurMapScript], a
+	jp TextScriptEnd
+
+CeruleanCityText8_RP:
+	text_far _CeruleanCityText8_RP
+	text_asm
+	ld a, ELECTRODE
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 22
+	ld b, ELECTRODE
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_CERULEAN_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	jp TextScriptEnd

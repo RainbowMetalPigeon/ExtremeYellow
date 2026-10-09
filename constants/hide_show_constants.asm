@@ -14,6 +14,7 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_CITY_TRAVELER        ; new
 	const HS_CERULEAN_RIVAL                ; 06
 	const HS_CERULEAN_ROCKET               ; 07
+	const HS_CERULEAN_MON_1                ; new
 	const HS_CERULEAN_CAVE_GUY             ; 09
 	const HS_CERULEAN_CITY_TRAVELER        ; new
 	const HS_VERMILION_MACHOKE             ; new
@@ -259,7 +260,7 @@ DEF SHOW EQU $15
 	const HS_AGATHAS_ROOM_AGATHA           ; new
 	const HS_LANCES_ROOM_LANCE             ; new
 	const HS_CELADON_MART_4F_ROCKET        ; new
-	; total = 253/255
+	; total = 254/255
 
 ; --- start of the variables moved to the extra block ---
 
@@ -518,4 +519,5 @@ DEF SHOW EQU $15
 	const HS_VIRIDIAN_NICKNAME_HOUSE_MON_1
 	const HS_VIRIDIAN_NICKNAME_HOUSE_MON_2
 	const HS_PEWTER_HOUSES_MON_1
-	; total = 9/48
+	const HS_PEWTER_POKECENTER_MON_1
+	; total = 10/48

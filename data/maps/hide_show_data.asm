@@ -68,7 +68,7 @@ MapHSPointers:
 	dw NoHS ; PEWTER_GYM
 	dw NoHS ; ROUTE_21_DIVE, new ; TBE
 	dw PewterHousesHS ; PEWTER_HOUSES new
-	dw NoHS ; PEWTER_POKECENTER
+	dw PewterPokecenterHS ; PEWTER_POKECENTER new
 	dw MtMoon1FHS
 	dw NoHS
 	dw MtMoonB2FHS
@@ -280,6 +280,7 @@ ViridianCityHS:
 CeruleanCityHS:
 	db CERULEAN_CITY, $01, HIDE
 	db CERULEAN_CITY, $02, SHOW
+	db CERULEAN_CITY, $08, SHOW ; Electrode, new
 	db CERULEAN_CITY, $0A, SHOW
 	db CERULEAN_CITY, $0B, HIDE ; Traveler
 VermilionCityHS: ; new
@@ -933,5 +934,7 @@ ViridianNicknameHouseHS:
 	db VIRIDIAN_NICKNAME_HOUSE,  9, SHOW ; Mon
 PewterHousesHS:
 	db PEWTER_HOUSES,  5, SHOW ; Mon
+PewterPokecenterHS:
+	db PEWTER_POKECENTER,  3, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -34,5 +34,9 @@ _PewterJigglypuffText_RP::
 	cont "angrily and"
 	cont "begins to bloat"
 	cont "menacingly."
+
+	para "Tsk! As if!"
+	line "But that's a good"
+	cont "attitude."
 ;	xxxx "123456789012345678"
 	done

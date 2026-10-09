@@ -279,3 +279,9 @@ _CeruleanCityText10_RP::
 	cont "for some scum."
 ;	xxxx "123456789012345678"
 	done
+
+_CeruleanCityText8_RP::
+	text "ELECTRODE: Bzzzz-"
+	line "aaaazzz!"
+;	xxxx "123456789012345678"
+	done
