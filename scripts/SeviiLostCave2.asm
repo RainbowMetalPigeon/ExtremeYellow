@@ -12,6 +12,7 @@ SeviiLostCave2_ScriptPointers:
 	dw SeviiLostCave2_Script1
 	; for RP
 	dw SeviiLostCave2_Script2
+	dw SeviiLostCave2_Script3
 
 SeviiLostCave2_Script0:
 	ret
@@ -66,12 +67,21 @@ SeviiLostCave2Text1_1:
 
 SeviiLostCave2Text1_RP:
 	text_asm
+	CheckEvent EVENT_GOT_WATERFALL_FROM_SELPHY
+	jr z, .beforeGettingHM
+; returned to torture psychologically Selphy
+	ld hl, SeviiLostCave2Text1_RP_AfterReturn
+	call PrintText
+	ld a, 3
+	jr .changeScript
+.beforeGettingHM
 	ld hl, SeviiLostCave2Text1_RP_BeforeWaterfall
 	call PrintText
 	SetEvent EVENT_GOT_WATERFALL_FROM_SELPHY
 	ld hl, SeviiLostCave2Text1_RP_GotWaterfall
 	call PrintText
 	ld a, 2
+.changeScript
 	ld [wCurMapScript], a
 	jp TextScriptEnd
 
@@ -88,10 +98,15 @@ SeviiLostCave2Text1_RP_AfterWaterfall:
 	text_far _SeviiLostCave2Text1_RP_AfterWaterfall
 	text_end
 
+SeviiLostCave2Text1_RP_AfterReturn:
+	text_far _SeviiLostCave2Text1_RP_AfterReturn
+	text_end
+
 SeviiLostCave2_Script2:
 	ld a, 2
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
+SeviiLostCave2_Script3:
 ; set scripts warp
 	ld a, $ff
 	ld [wJoyIgnore], a

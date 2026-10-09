@@ -449,6 +449,33 @@ _SeviiLostCave2Text1_RP_AfterWaterfall::
 ;   xxxx "123456789012345678"
 	done
 
+_SeviiLostCave2Text1_RP_AfterReturn::
+	text "SELPHY: You...!"
+	line "You returned!"
+	cont "I knew! You had a"
+	cont "change of heart!"
+
+	para "Nobody could be so"
+	line "vile as to leave"
+	cont "someone to their"
+	cont "own destiny, when"
+	cont "helping them"
+	cont "costed no effort"
+	cont "at all! Not even"
+	cont "a ROCKET member!"
+
+	para "...wh-wha..."
+	line "What do..."
+
+	para "'NO'?!"
+
+	para "No! No, please!"
+	line "Don't leave me"
+	cont "here alone!"
+	cont "I beg you!!!"
+;   xxxx "123456789012345678"
+	done
+
 _SeviiRoute36Text1_RP_PostHM::
 	text "Leave."
 ;   xxxx "123456789012345678"
