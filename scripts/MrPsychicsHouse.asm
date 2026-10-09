@@ -241,16 +241,9 @@ SaffronHouse2Text1_RP:
 ; not received it yet
 	ld hl, TM29PreReceiveText_RP
 	call PrintText
-	lb bc, TM_PSYCHIC_M, 1
-	call GiveItem
-	ld hl, TM29NoRoomText_RP
-	jr nc, .printAndEnd
-; bag not full
 	SetEvent EVENT_GOT_TM29
 	ld hl, ReceivedTM29Text_RP
 	jr .printAndEnd
-.bag_full
-	call PrintText
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
