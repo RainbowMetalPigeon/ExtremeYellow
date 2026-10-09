@@ -33,7 +33,9 @@ FanClubScript_59a39:
 	call c, FanClubScript_59a44
 	ret
 
-FanClubScript_59a44:
+FanClubScript_59a44: ; edited for RP
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 	ld a, [wd472]
 	bit 7, a
 	ret z

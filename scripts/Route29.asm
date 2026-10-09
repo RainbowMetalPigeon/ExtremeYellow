@@ -111,6 +111,9 @@ Route29_TextPointers_Rocket:
 	dw Route29TextRuin4			   ; 21
 	dw Route29TextRuin5			   ; 22
 	dw Route29TextRuin5			   ; 23
+	; non-NPCs/signs
+	dw Route29TextOrbsVanish1      ; 24
+	dw Route29TextOrbsVanish2      ; 25
 
 Route29TrainerHeaders:
 	def_trainers
