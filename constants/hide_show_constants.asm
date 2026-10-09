@@ -333,6 +333,7 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; EA
 	const HS_ARTICUNO                      ; EB
 	const HS_MR_PSYCHIC_SABRINA            ; new
+	const HS_MR_PSYCHIC_MON_1              ; new
 	const HS_OBSIDIAN_ISLAND_ROCKET_1      ; new, guarding mines
 	const HS_OBSIDIAN_ISLAND_ROCKET_2      ; new, guarding south bridge
 	const HS_OBSIDIAN_ISLAND_ROCKET_3      ; new, guarding south bridge
@@ -512,7 +513,7 @@ DEF SHOW EQU $15
 	const HS_MR_FUJIS_HOUSE_MON_2          ; new
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited
 	const HS_MR_FUJIS_HOUSE_MON_3          ; new
-	; total = 243/255
+	; total = 244/255
 
 ; --- start of the variables moved to the extra2 block ---
 

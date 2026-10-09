@@ -18,7 +18,9 @@ _SaffronHouse1Text1:: ; edited
 	done
 
 _SaffronHouse1Text2::
-	text "PIDGEY: Kurukkoo!@"
+	text "PIDGEOTTO: Kuruuu-"
+	line "kkoooh!@"
+;	xxxx "123456789012345678"
 	text_end
 
 _SaffronHouse1Text3:: ; edited

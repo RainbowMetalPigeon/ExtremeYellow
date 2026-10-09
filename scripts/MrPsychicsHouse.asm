@@ -39,7 +39,7 @@ MrPsychicsHouse_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; no inverse rematches
 	; poly pidgey house
 	dw GenericNPCText_RocketPath
-	dw SaffronHouse1Text2
+	dw SaffronHouse1Text2_RP
 	dw GenericNPCText_RocketPath
 	dw SaffronHouse1Text4
 	; apartments, new
@@ -159,7 +159,7 @@ SaffronHouse1Text1:
 SaffronHouse1Text2:
 	text_far _SaffronHouse1Text2
 	text_asm
-	ld a, PIDGEY
+	ld a, PIDGEOTTO
 	call PlayCry
 	jp TextScriptEnd
 
@@ -279,3 +279,18 @@ SaffronNewApartmentsSignText1_RP:
 SaffronNewApartmentsSignText1_FromBelow_RP:
 	text_far _SaffronNewApartmentsSignText1_FromBelow_RP
 	text_end
+
+SaffronHouse1Text2_RP:
+	text_far _SaffronHouse1Text2
+	text_asm
+	ld a, PIDGEOTTO
+	call PlayCry
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 34
+	ld b, PIDGEOTTO
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_MR_PSYCHIC_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd

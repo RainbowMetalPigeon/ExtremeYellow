@@ -684,6 +684,7 @@ SeafoamIslandsB4FHS: ; edited because of rematch Lorelei
 	db SEAFOAM_ISLANDS_B4F, $04, HIDE ; edited, hide ARTICUNO initially
 MrPsychicsHouseHS: ; new for rematch Sabrina
 	db MR_PSYCHICS_HOUSE, $02, HIDE
+	db MR_PSYCHICS_HOUSE, $04, SHOW ; Mon
 ObsidianIslandHS: ; new
 	db OBSIDIAN_ISLAND, $01, SHOW
 	db OBSIDIAN_ISLAND, $02, SHOW
@@ -922,7 +923,7 @@ LavenderHousesHS: ; edited because of map merging
 
 	db $FF, $01, SHOW ; end, list terminator
 
-; --- start of the variables moved to the extra block ---
+; --- start of the variables moved to the extra2 block ---
 
 MissableObjectsExtra2: ; new, it's the "Extra2" block
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
