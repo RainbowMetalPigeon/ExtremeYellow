@@ -100,7 +100,7 @@ MapHSPointers:
 	dw NoHS ; ROUTE_12_GATE_1F
 	dw BillsHouseHS
 	dw NoHS ; VERMILION_POKECENTER
-	dw NoHS ; POKEMON_FAN_CLUB
+	dw PokemonFanClubHS ; POKEMON_FAN_CLUB new
 	dw BattleFacilityHS ; new
 	dw NoHS ; VERMILION_GYM
 	dw VermilionHousesHS ; VERMILION_HOUSES new
@@ -925,5 +925,8 @@ VermilionHousesHS:
 	db VERMILION_HOUSES,  4, SHOW ; Mon
 	db VERMILION_HOUSES,  8, SHOW ; Mon
 	db VERMILION_HOUSES, 12, SHOW ; Mon
+PokemonFanClubHS:
+	db POKEMON_FAN_CLUB,  3, SHOW ; Mon
+	db POKEMON_FAN_CLUB,  4, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

@@ -82,8 +82,8 @@ PokemonFanClub_TextPointers:
 PokemonFanClub_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw FanClubText3 ; mon
-	dw FanClubText4 ; mon
+	dw FanClubText3_RP ; mon
+	dw FanClubText4_RP ; mon
 	dw GenericNPCText_RocketPath ; president
 	dw GenericNPCText_RocketPath
 
@@ -314,4 +314,46 @@ Text_59c2e:
 
 FanClubText6:
 	text_far _FanClubText6
+	text_end
+
+; new for RP ============================
+
+FanClubText3_RP:
+; pikachu
+	text_asm
+	ld hl, .text
+	call PrintText
+	ld a, CLEFAIRY
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 16
+	ld b, CLEFAIRY
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_POKEMON_FAN_CLUB_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+.text
+	text_far FanClubPikachuText
+	text_end
+
+FanClubText4_RP:
+; seel
+	text_asm
+	ld hl, .text
+	call PrintText
+	ld a, SEEL
+	call PlayCry
+	call WaitForSoundToFinish
+	ld c, 16
+	ld b, SEEL
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_POKEMON_FAN_CLUB_MON_2
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+.text
+	text_far FanClubSeelText
 	text_end
