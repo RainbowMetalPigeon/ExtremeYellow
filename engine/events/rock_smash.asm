@@ -167,12 +167,17 @@ BagFullText:
 ProperHide:
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .sevii
+	CheckEvent EVENT_USE_EXTRA2_HIDESHOW
+	jr nz, .hideExtra2
 	CheckEvent EVENT_USE_EXTRA_HIDESHOW
 	jr nz, .hideExtra
 	predef HideObject
 	ret
 .hideExtra
 	predef HideObjectExtra
+	ret
+.hideExtra2
+	predef HideObjectExtra2
 	ret
 .sevii
 	predef HideObjectSevii
@@ -181,12 +186,17 @@ ProperHide:
 ProperShow:
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .sevii
+	CheckEvent EVENT_USE_EXTRA2_HIDESHOW
+	jr nz, .showExtra2
 	CheckEvent EVENT_USE_EXTRA_HIDESHOW
 	jr nz, .showExtra
 	predef ShowObject
 	ret
 .showExtra
 	predef ShowObjectExtra
+	ret
+.showExtra2
+	predef ShowObjectExtra2
 	ret
 .sevii
 	predef ShowObjectSevii

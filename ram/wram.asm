@@ -2283,12 +2283,12 @@ wPlayerCoins:: ds 2 ; BCD
 wMissableObjectFlags:: flag_array $100
 wMissableObjectFlagsEnd::
 
-; new for splitting HS - careful: may break a stuff because 100 bits are "a lot"
+; new for splitting HS
 ; bit array of missable objects. set = removed
 wMissableObjectFlagsExtra:: flag_array $100 ; it's $100=256 (bits = 32 bytes) new HS variables
 wMissableObjectFlagsExtraEnd::
 
-;	ds 7		; new - commented to try to save space to be able to add all new mons
+;	ds 7		; new - commented to save space to be able to add all new mons
 
 ; temp copy of SPRITESTATEDATA1_IMAGEINDEX (used for sprite facing/anim)
 wd5cd:: db
@@ -2500,7 +2500,7 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 ;wRoute15Gate2FCurScript:: db ; new
 ;wRoute28CurScript:: db ; new
 ;wRoute27CurScript:: db ; new
-	ds 9 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts - 10 for wObtainedHiddenItemsFlagsSevii
+	ds 3 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts - 10 for wObtainedHiddenItemsFlagsSevii
 wGameProgressFlagsEnd::
 
 wCurrentSaveSlot:: db ; new, for multi save slots
@@ -2509,6 +2509,11 @@ wCurrentSaveSlot:: db ; new, for multi save slots
 ; bit array of missable objects. set = removed
 wMissableObjectFlagsSevii:: flag_array $100 ; it's $100=256 (bits = 32 bytes) new HS variables
 wMissableObjectFlagsSeviiEnd::
+
+; new for splitting HS2
+; bit array of missable objects. set = removed
+wMissableObjectFlagsExtra2:: flag_array 48 ; it's 48 bits = 6 bytes new HS variables
+wMissableObjectFlagsExtra2End::
 
 wPlayerGender::
 	; $00 = male

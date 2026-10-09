@@ -1,9 +1,8 @@
 MarkTownVisitedAndLoadMissableObjects::
 ; new for sevii
-;	CheckEvent EVENT_IN_SEVII
 	ld a, [wOriginallyInKantoOrSevii]
 	and a
-	jr nz, .sevii
+	jp nz, .sevii
 ; back to vanilla / Kanto
 	ld a, [wCurMap]
 	cp FIRST_ROUTE_MAP
@@ -25,6 +24,18 @@ MarkTownVisitedAndLoadMissableObjects::
 	push hl
 
 ; new block of code for splitting the HS
+; added a second new block of extra HS
+	ld de, MissableObjectsExtra2
+	ld a, d
+	sub h
+	jr c, .useExtra2
+	jr nz, .checkExtraOrNormal
+	ld a, e
+	sub l
+	jr z, .useExtra2
+	jr c, .useExtra2
+.checkExtraOrNormal
+; Vortiene's check
 	ld de, MissableObjectsExtra
 	ld a, d
 	sub h
@@ -35,16 +46,26 @@ MarkTownVisitedAndLoadMissableObjects::
 	jr z, .useExtra
 	jr c, .useExtra
 .useNormal
+	ResetEventA EVENT_USE_EXTRA2_HIDESHOW
 	ResetEventA EVENT_USE_EXTRA_HIDESHOW
-;	ld de, MissableObjectsBase
 	ld a, l
 	sub LOW(MissableObjectsBase)   ; calculate difference between out pointer and the base pointer
 	ld l, a
 	ld a, h
 	sbc HIGH(MissableObjectsBase)
 	jr .addressSelected
+.useExtra2
+	SetEventA EVENT_USE_EXTRA2_HIDESHOW
+	ResetEventA EVENT_USE_EXTRA_HIDESHOW
+	ld a, l
+	sub LOW(MissableObjectsExtra2)   ; calculate difference between out pointer and the base pointer
+	ld l, a
+	ld a, h
+	sbc HIGH(MissableObjectsExtra2)
+	jr .addressSelected
 .useExtra
 	SetEventA EVENT_USE_EXTRA_HIDESHOW
+	ResetEventA EVENT_USE_EXTRA2_HIDESHOW
 	ld a, l
 	sub LOW(MissableObjectsExtra)   ; calculate difference between out pointer and the base pointer
 	ld l, a
@@ -233,16 +254,21 @@ IsObjectHidden:
 	jr nz, .loop
 	ld c, a
 	ld b, FLAG_TEST
-;	CheckEvent EVENT_IN_SEVII ; new for sevii
 	ld a, [wOriginallyInKantoOrSevii]
 	and a
-	ld hl, wMissableObjectFlagsSevii ; new for sevii
-	jr nz, .callAction ; new for sevii
-	CheckEvent EVENT_USE_EXTRA_HIDESHOW		; new for splitting HS
+; new/edited for Sevii and new HSs
+	ld hl, wMissableObjectFlagsSevii
+	jr nz, .callAction
+; extra2, extra, or base?
+	CheckEvent EVENT_USE_EXTRA2_HIDESHOW
+	ld hl, wMissableObjectFlagsExtra2
+	jr nz, .callAction
+	CheckEvent EVENT_USE_EXTRA_HIDESHOW
 	ld hl, wMissableObjectFlags
-	jr z, .callAction						; new for splitting HS
-	ld hl, wMissableObjectFlagsExtra		; new for splitting HS
-.callAction									; new for splitting HS
+	jr z, .callAction
+	ld hl, wMissableObjectFlagsExtra
+.callAction
+; BTV
 	call MissableObjectFlagAction
 	ld a, c
 	and a
@@ -264,6 +290,10 @@ ShowObjectExtra: ; new for splitting HS
 	ld hl, wMissableObjectFlagsExtra
 	jr ShowObjectCommon
 
+ShowObjectExtra2: ; new for splitting HS
+	ld hl, wMissableObjectFlagsExtra2
+	jr ShowObjectCommon
+
 ShowObjectSevii: ; new for sevii
 	ld hl, wMissableObjectFlagsSevii
 	jr ShowObjectCommon
@@ -283,6 +313,10 @@ HideObject: ; edited for splitting HS
 
 HideObjectExtra: ; new for splitting HS
 	ld hl, wMissableObjectFlagsExtra
+	jr HideObjectCommon
+
+HideObjectExtra2: ; new for splitting HS
+	ld hl, wMissableObjectFlagsExtra2
 	jr HideObjectCommon
 
 HideObjectSevii: ; new for sevii

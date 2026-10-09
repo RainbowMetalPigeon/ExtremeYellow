@@ -3,7 +3,6 @@ DEF SHOW EQU $15
 
 ; MissableObjects indexes (see data/maps/hide_show_data.asm)
 ; this is a list of the sprites that can be enabled/disabled during the game
-; TODO: mark sprite constants with an X that are never used
 ; new: this first block now corresponds to MissableObjectsBase
 
 	const_def							   ; equivalent to "const_value=0"
@@ -262,12 +261,10 @@ DEF SHOW EQU $15
 	const HS_CELADON_MART_4F_ROCKET        ; new
 	; total = 253
 
-;DEF NUM_HS_OBJECTS EQU const_value ; TODO: verify that this is indeed no longer necessary and removed everywhere else is used
-
 ; --- start of the variables moved to the extra block ---
 
 ; new ; this block now corresponds to MissableObjectsExtra
-	const_def							   ; equivalent to "const_value=0" ; TODO: verify that this works as intended
+	const_def							   ; equivalent to "const_value=0"
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_JAMES    ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_JESSIE   ; new
 	const HS_OBSIDIAN_WAREHOUSE_FINAL_ADMIN_1  ; new
@@ -507,3 +504,10 @@ DEF SHOW EQU $15
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
 	const HS_VIRIDIAN_POKECENTER_ROCK_1    ; new
 	; total = 238
+
+; --- start of the variables moved to the extra2 block ---
+
+; new ; this block now corresponds to MissableObjectsExtra2
+	const_def							   ; equivalent to "const_value=0"
+	const HS_ROUTE_1_ITEM_1
+	; total = 1

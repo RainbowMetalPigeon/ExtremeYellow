@@ -1,5 +1,5 @@
 PlayPikachuPCM::
-	vc_hook Unknown_PlayPikachuPCM
+;	vc_hook Unknown_PlayPikachuPCM ; edited, don't care about VC, save space
 	ldh a, [hLoadedROMBank]
 	push af
 	ld a, b

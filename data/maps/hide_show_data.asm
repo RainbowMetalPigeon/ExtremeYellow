@@ -16,7 +16,7 @@ MapHSPointers:
 	dw CinnabarIslandHS ; CINNABAR_ISLAND
 	dw NoHS ; INDIGO_PLATEAU
 	dw SaffronCityHS ; SAFFRON_CITY
-	dw NoHS
+	dw Route1HS ; new
 	dw Route2HS
 	dw Route3HS ; new
 	dw Route4HS
@@ -591,7 +591,6 @@ CeladonMart4FHS: ; new
 	db CELADON_MART_4F,  4, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
-;	assert_table_length NUM_HS_OBJECTS + 1 ; commented away, as unnecessary, otherwise I need to double it
 
 ; --- start of the variables moved to the extra block ---
 
@@ -911,5 +910,16 @@ IndigoPlateauLobbyHS: ; new
 	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
 ViridianPokecenterHS: ; new
 	db VIRIDIAN_POKECENTER, 7, SHOW ; Rock
+
+	db $FF, $01, SHOW ; end, list terminator
+
+; --- start of the variables moved to the extra block ---
+
+MissableObjectsExtra2: ; new, it's the "Extra2" block
+; entries correspond to HS_* constants (see constants/hide_show_constants)
+	table_width 3, MissableObjectsExtra2
+; format: map id, object id, HIDE/SHOW
+Route1HS:
+	db ROUTE_1, 6, SHOW ; item
 
 	db $FF, $01, SHOW ; end, list terminator

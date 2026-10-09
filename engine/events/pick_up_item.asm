@@ -65,9 +65,14 @@ PickUpItem:
 ; new and edited, for second block of HideShow variables and for sevii
 	CheckEvent EVENT_IN_SEVII
 	jr nz, .inSevii
+	CheckEvent EVENT_USE_EXTRA2_HIDESHOW
+	jr nz, .hideExtra2
 	CheckEvent EVENT_USE_EXTRA_HIDESHOW
 	jr nz, .hideExtra
 	predef HideObject
+	jr .hidden
+.hideExtra2
+	predef HideObjectExtra2
 	jr .hidden
 .hideExtra
 	predef HideObjectExtra

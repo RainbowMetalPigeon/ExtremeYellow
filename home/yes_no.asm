@@ -10,12 +10,6 @@ NoYesChoice:: ; new
 	call InitNoYesTextBoxParameters
 	jr DisplayYesNoChoice
 
-;TwoOptionMenu:: ; unreferenced
-;	ld a, TWO_OPTION_MENU
-;	ld [wTextBoxID], a
-;	call InitYesNoTextBoxParameters
-;	jp DisplayTextBoxID
-
 InitNoYesTextBoxParameters:: ; new
 	ld a, NO_YES_MENU
 	jr InitYesNoTextBoxParameters_Core
@@ -34,14 +28,7 @@ YesNoChoicePokeCenter::
 	ld [wTwoOptionMenuID], a
 	hlcoord 11, 6
 	lb bc, 8, 12
-	jr DisplayYesNoChoice
-
-;WideYesNoChoice:: ; unused
-;	call SaveScreenTilesToBuffer1
-;	ld a, WIDE_YES_NO_MENU
-;	ld [wTwoOptionMenuID], a
-;	hlcoord 12, 7
-;	lb bc, 8, 13
+	; fallthrough
 
 DisplayYesNoChoice::
 	ld a, TWO_OPTION_MENU

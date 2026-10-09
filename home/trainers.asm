@@ -267,21 +267,28 @@ EndTrainerBattle::
 	inc hl
 	ld a, [hl]
 	ld [wMissableObjectIndex], a               ; load corresponding missable object index and remove it
-	CheckEvent EVENT_IN_SEVII			; new
-	jr nz, .sevii						; new
-	CheckEvent EVENT_USE_EXTRA_HIDESHOW ; new
-	jr nz, .hideExtra 					; new
+; new/edited for Sevii and new HS lists
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .sevii
+	CheckEvent EVENT_USE_EXTRA2_HIDESHOW
+	jr nz, .hideExtra2
+	CheckEvent EVENT_USE_EXTRA_HIDESHOW
+	jr nz, .hideExtra
 	predef HideObject
-	jr .hidden							; new
-.hideExtra								; new
-	predef HideObjectExtra				; new
-	jr .hidden							; new
+	jr .hidden
+.hideExtra
+	predef HideObjectExtra
+	jr .hidden
+.hideExtra2
+	predef HideObjectExtra2
+	jr .hidden
 .sevii
-	predef HideObjectSevii				; new
-.hidden									; new
+	predef HideObjectSevii
+.hidden
 .skipRemoveSprite
 	xor a									; new, to go beyond 200
 	ld [wWasTrainerBattle], a				; new, to go beyond 200
+; BTV
 	ld hl, wd730
 	bit 4, [hl]
 	res 4, [hl]
