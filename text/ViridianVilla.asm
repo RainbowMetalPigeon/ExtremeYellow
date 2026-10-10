@@ -7,7 +7,7 @@ _ViridianVilla_SignText1::
 	para "Prune the trees..."
 
 	para "Check the"
-	line "lights..."
+	line "lightsbulbs..."
 
 	para "Repair the water"
 	line "pipes..."
