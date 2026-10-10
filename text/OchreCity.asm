@@ -165,19 +165,6 @@ _OchreCity_NPCText11:: ; ochre city so great
 	cont "of KANTO!"
 	done
 
-;_OchreCity_NPCText11:: ; zoning
-;	text "This city has a"
-;	line "lot going for it,"
-;	cont "tho it suffers a"
-;	cont "bit from zoning."
-;
-;	para "Zoning is a pretty"
-;	line "bad idea for any"
-;	cont "city which wants"
-;	cont "to be liveable"
-;	cont "and enjoyable."
-;	done
-
 _OchreCity_NPCText12:: ; wait friends walk park
 	text "I am waiting for"
 	line "my friends!"
@@ -255,4 +242,15 @@ _OchreCity_SignBirbFan::
 	line "'B' over the 'D',"
 	cont "and a 'U' over"
 	cont "the 'A'!"
+	done
+
+_OchreCity_PatheticBirbText_RP::
+	text "Weak and wounded."
+	line "Disgusting."
+
+	para "So pathetic that"
+	line "it's not even"
+	cont "worth getting"
+	cont "rid of them."
+;	xxxx "123456789012345678"
 	done

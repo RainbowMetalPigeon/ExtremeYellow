@@ -16,7 +16,7 @@ DebugTeam:
 	db ARCEUS, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
-;	db PIDGEY, 60
+	db MAGNETON, 60
 ;	db ZAPDOS, 42
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -44,7 +44,7 @@ IF DEF(_DEBUG)
 ;	ld a, %11111110
 	ld a, %11111111
 ;	ld a, %00000010
-	ld a, %00000000
+;	ld a, %00000000
 ;	ld a, %11111100
 ;	ld a, %01111111
 ;	ld a, %01111011
@@ -92,14 +92,14 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-	ld a, GROWTH ; CONFUSE_RAY ; DIG
+	ld a, PSYCHIC_TERRAIN ; CONFUSE_RAY ; DIG
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, HYPER_BEAM ; WILL_O_WISP ; TELEPORT
+	ld a, MISTY_TERRAIN ; WILL_O_WISP ; TELEPORT
 	ld [hli], a
-	ld a, AMNESIA ; RECOVER ; SOFTBOILED
+	ld a, QUICK_ATTACK ; RECOVER ; SOFTBOILED
 	ld [hli], a
-	ld a, CLOSE_COMBAT ; SCREECH ; FLASH
+	ld a, CONFUSE_RAY ; SCREECH ; FLASH
 	ld [hl], a
 
 ;	; moves to other members

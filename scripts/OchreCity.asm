@@ -78,8 +78,8 @@ OchreCity_TextPointers_Rocket:
 	dw TextPreBattle_OchreTraveler_RP ; traveler
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw OchreCity_NPCText13 ; BIRD
-	dw OchreCity_NPCText14 ; BIRD
+	dw OchreCity_NPCText13_RP ; BIRD
+	dw OchreCity_NPCText14_RP ; BIRD
 	; signs
 	dw MartSignText
 	dw PokeCenterSignText
@@ -220,7 +220,11 @@ OchreCity_LooseFence:
     call PrintText
 	jr .done
 .notOpen
-    ld hl, OchreCity_LooseFence_BetterNotTo
+	CheckEvent EVENT_ROCKET_PATH
+    ld hl, OchreCity_LooseFence_BetterNotTo_RP
+	jr nz, .printAndEnd
+	ld hl, OchreCity_LooseFence_BetterNotTo
+.printAndEnd
     call PrintText
 .done
     jp TextScriptEnd
@@ -342,3 +346,27 @@ TextPostBattle_OchreTraveler_RP:
 	xor a
 	ld [wCurMapScript], a
 	jp TextScriptEnd
+
+OchreCity_NPCText13_RP:
+	text_asm
+	ld hl, OchreCity_NPCText13_Bird
+	call PrintText
+	ld hl, OchreCity_PatheticBirbText_RP
+	call PrintText
+    jp TextScriptEnd
+
+OchreCity_NPCText14_RP:
+	text_asm
+	ld hl, OchreCity_NPCText14_Bird
+	call PrintText
+	ld hl, OchreCity_PatheticBirbText_RP
+	call PrintText
+    jp TextScriptEnd
+
+OchreCity_PatheticBirbText_RP:
+	text_far _OchreCity_PatheticBirbText_RP
+	text_end
+
+OchreCity_LooseFence_BetterNotTo_RP:
+	text_far _OchreCity_LooseFence_BetterNotTo_RP
+	text_end

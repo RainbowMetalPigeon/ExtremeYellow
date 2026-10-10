@@ -247,3 +247,11 @@ _OchreCity_LooseFence_BetterNotTo::
 	para "It seems a pretty"
 	line "terrible idea."
 	done
+
+_OchreCity_LooseFence_BetterNotTo_RP::
+	text "Nah. Only a waste"
+	line "of time. There's"
+	cont "nothing valuable"
+	cont "to steal."
+;	xxxx "123456789012345678"
+	done
