@@ -717,6 +717,6 @@ SilphCo11FHiddenObjects: ; new
 	db -1 ; end
 
 Route1HiddenObjects: ; new
-	hidden_object  9, 22, PERFECTER, HiddenItems
-	hidden_object 13,  8, CHROMOGENE, HiddenItems
+	hidden_object  9, 28, PERFECTER, HiddenItems
+	hidden_object 13, 14, CHROMOGENE, HiddenItems
 	db -1 ; end
