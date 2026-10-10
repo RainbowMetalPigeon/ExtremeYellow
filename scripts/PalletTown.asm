@@ -40,6 +40,10 @@ PalletTownScript0:
 	set 4, [hl]
 .postSettingEncounters
 ; BTV
+IF DEF(_DEBUG) ; new
+	call DebugPressedOrHeldB
+	ret nz
+ENDC
 	CheckEvent EVENT_FOLLOWED_OAK_INTO_LAB
 	ret nz
 	ld a, [wYCoord]

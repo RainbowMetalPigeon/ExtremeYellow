@@ -442,14 +442,12 @@ ViridianGym_TextPointers_Rocket: ; all unused
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
-;ViridianGymTrainerHeader0:
-;	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0, 4, ViridianGymBattleText1, ViridianGymEndBattleText1, ViridianGymAfterBattleText1
 ViridianGymTrainerHeader1:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_1, 4, ViridianGymBattleText2, ViridianGymEndBattleText2, ViridianGymAfterBattleText2
 ViridianGymTrainerHeader2:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_2, 1, ViridianGymBattleText3, ViridianGymEndBattleText3, ViridianGymAfterBattleText3
 ViridianGymTrainerHeader3:
-	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_3, 2, ViridianGymBattleText4, ViridianGymEndBattleText4, ViridianGymAfterBattleText4
+	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_3, 1, ViridianGymBattleText4, ViridianGymEndBattleText4, ViridianGymAfterBattleText4
 ViridianGymTrainerHeader4:
 	trainer EVENT_BEAT_VIRIDIAN_GYM_TRAINER_4, 3, ViridianGymBattleText5, ViridianGymEndBattleText5, ViridianGymAfterBattleText5
 ViridianGymTrainerHeader5:
