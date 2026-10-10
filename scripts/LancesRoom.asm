@@ -223,7 +223,7 @@ LanceEndBattleText:
 LanceAfterBattleText:
 	text_far _LanceAfterBattleText
 	text_asm
-	SetEvent EVENT_BEAT_LANCE
+	call SetLanceAsBeatenAndSetChampionsScript
 	jp TextScriptEnd
 
 ; new -------------------------------
@@ -239,7 +239,7 @@ LanceEndBattleTextRematch:
 LanceAfterBattleTextRematch:
 	text_far _LanceAfterBattleTextRematch
 	text_asm
-	SetEvent EVENT_BEAT_LANCE
+	call SetLanceAsBeatenAndSetChampionsScript
 	jp TextScriptEnd
 
 LanceBeforeBattleTextRematch2:
@@ -253,7 +253,7 @@ LanceEndBattleTextRematch2:
 LanceAfterBattleTextRematch2:
 	text_far _LanceAfterBattleTextRematch2
 	text_asm
-	SetEvent EVENT_BEAT_LANCE
+	call SetLanceAsBeatenAndSetChampionsScript
 	jp TextScriptEnd
 
 ; new for RP =======================
@@ -290,9 +290,7 @@ LanceAfterBattleText_RP:
 	ld hl, LanceAfterBattleText_RP_After
 	jr nz, .printAndEnd
 ; didn't beat Blue yet
-	ld a, $1
-	ld [wChampionsRoomCurScript], a
-	SetEvent EVENT_BEAT_LANCE
+	call SetLanceAsBeatenAndSetChampionsScript
 	ld hl, LanceAfterBattleText_RP_Before
 .printAndEnd
 	call PrintText
@@ -316,9 +314,7 @@ LanceEndBattleText_RP_Pink:
 
 LanceAfterBattleText_RP_Pink:
 	text_asm
-	ld a, $1
-	ld [wChampionsRoomCurScript], a
-	SetEvent EVENT_BEAT_LANCE
+	call SetLanceAsBeatenAndSetChampionsScript
 	ld hl, LanceAfterBattleText_RP_Pink_Core
 	call PrintText
 	jp TextScriptEnd
@@ -352,3 +348,9 @@ LanceScript5:
     call GBFadeInFromBlack
 	SetEvent EVENT_RP_ELIMINATED_LANCE
 	jp ResetLanceScript
+
+SetLanceAsBeatenAndSetChampionsScript:
+	ld a, $1
+	ld [wChampionsRoomCurScript], a
+	SetEvent EVENT_BEAT_LANCE
+	ret

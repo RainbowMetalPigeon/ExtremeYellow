@@ -212,8 +212,8 @@ IF DEF(_DEBUG)
     ld [wPikachuHappiness], a
     ld [wPikachuMood], a
 
-	ld a, $1
-	ld [wChampionsRoomCurScript], a
+;	ld a, $1
+;	ld [wChampionsRoomCurScript], a
 
 ;	ld a, $FE
 ;	ld [wPlayTimeHours], a
@@ -318,7 +318,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 ;	callfar HideUndegroundGuard.hideGuards
 
-	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
