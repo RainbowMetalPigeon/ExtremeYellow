@@ -38,6 +38,8 @@ _ViridianGymGiovanniPostBattleText::
 	cont "make any sense!"
 	cont "Why?!"
 
+	para "..."
+
 	para "...I see... you"
 	line "remind me the"
 	cont "myself of so, so"

@@ -5,11 +5,37 @@ AskName:
 	CheckEvent EVENT_ROCKET_PATH
 	jr nz, .noRenaming
 	CheckEvent EVENT_IN_SEVII
-	jr nz, .vanilla
+	jp nz, .vanilla
 	ld a, [wCurMap]
 	cp HAUNTED_ISLAND_OF_NUMBERS
-	jr nz, .vanilla
+	jp nz, .vanilla
 .noRenaming
+	push hl
+	CheckAndResetEvent EVENT_RP_SPECIAL_COOL_RENAMING
+	pop hl
+	jr z, .checkViridianHouse
+; COOL
+	push hl
+	ld hl, wcd6d
+	ld a, "C"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld a, "L"
+	ld [hli], a
+	ld a, "@"
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	pop hl
+	jp .declinedNickname
+.checkViridianHouse
 	push hl
 	CheckAndResetEvent EVENT_RP_SPECIAL_SPEARY_RENAMING
 	pop hl
@@ -30,8 +56,6 @@ AskName:
 	ld a, "Y"
 	ld [hli], a
 	ld a, "@"
-	ld [hli], a
-	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a

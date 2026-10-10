@@ -108,11 +108,20 @@ _SummerBeachHousePrinterText6::
 
 ; new for RP ====================
 
-_SurfinDudeText_RP::
+_SurfinDudeText_RP_BeforeSteal::
 	text "Whoa! A gabbo"
 	line "you is really"
 	cont "not good 'nough"
 	cont "to be SURF with"
 	cont "the COOL!"
+;	xxxx "123456789012345678"
+	done
+
+_SurfinDudeText_RP_AfterSteal::
+	text "Aawoha! No!"
+	line "The COOL!"
+	
+	para "You digusting"
+	line "scum!"
 ;	xxxx "123456789012345678"
 	done

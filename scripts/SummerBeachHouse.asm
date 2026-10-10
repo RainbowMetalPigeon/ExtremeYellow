@@ -13,7 +13,7 @@ SummerBeachHouse_TextPointers:
 
 SummerBeachHouse_TextPointers_Rocket:
 	dw SurfinDudeText_RP
-	dw SummerBeachHousePikachuText ; TBE?
+	dw SummerBeachHousePikachuText_RP
 	dw SummerBeachHouseSign1Text
 	dw SummerBeachHouseSign2Text
 	dw SummerBeachHouseSign3Text
@@ -221,5 +221,41 @@ ENDC
 ; new for RP ====================
 
 SurfinDudeText_RP:
-	text_far _SurfinDudeText_RP
+	text_asm
+	CheckHideShowExtra2 HS_SUMMER_BEACH_HOUSE_MON_1 ; z flag if is SHOW, nz if is HIDE
+	ld hl, SurfinDudeText_RP_AfterSteal
+	jr nz, .printAndEnd
+	ld hl, SurfinDudeText_RP_BeforeSteal
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+SurfinDudeText_RP_BeforeSteal:
+	text_far _SurfinDudeText_RP_BeforeSteal
+	text_end
+
+SurfinDudeText_RP_AfterSteal:
+	text_far _SurfinDudeText_RP_AfterSteal
+	text_end
+
+SummerBeachHousePikachuText_RP:
+	text_asm
+	ld hl, .SummerBeachHousePikachuText
+	call PrintText
+	ld a, PIKACHU
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	SetEvent EVENT_RP_SPECIAL_COOL_RENAMING
+	ld c, 39
+	ld b, PIKACHU
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SUMMER_BEACH_HOUSE_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	jp TextScriptEnd
+
+.SummerBeachHousePikachuText
+	text_far _SummerBeachHousePikachuText
 	text_end

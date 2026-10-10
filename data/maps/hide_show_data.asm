@@ -257,7 +257,7 @@ MapHSPointers:
 	dw LoreleisRoomHS ; new, LORELEIS_ROOM
 	dw BrunosRoomHS ; new, BRUNOS_ROOM
 	dw AgathasRoomHS ; new, AGATHAS_ROOM
-	dw NoHS ; SUMMER_BEACH_HOUSE
+	dw SummerBeachHouseHS ; SUMMER_BEACH_HOUSE new
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 
@@ -958,5 +958,7 @@ CeruleanMelaniesHouseHS:
 	db CERULEAN_MELANIES_HOUSE, $02, SHOW ; Mon
 	db CERULEAN_MELANIES_HOUSE, $03, SHOW ; Mon
 	db CERULEAN_MELANIES_HOUSE, $04, SHOW ; Mon
+SummerBeachHouseHS:
+	db SUMMER_BEACH_HOUSE, 2, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator
