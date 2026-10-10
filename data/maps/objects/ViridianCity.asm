@@ -16,16 +16,17 @@ ViridianCity_Object:
 	warp_event 37, 23, VIRIDIAN_NICKNAME_HOUSE, 9 ; 11
 
 	def_bg_events
-	bg_event 17, 17, 10 ; ViridianCityText8
-	bg_event 19,  1, 11 ; ViridianCityText9
-	bg_event 21, 29, 12 ; ViridianCityText10
-	bg_event 30, 19, 13 ; MartSignText
-	bg_event 24, 25, 14; PokeCenterSignText
-	bg_event 27,  7, 15 ; ViridianCityText13
-	bg_event 21, 17, 16 ; ViridianCityText14 ; new
+	bg_event 17, 17, 11 ; ViridianCityText8
+	bg_event 19,  1, 12 ; ViridianCityText9
+	bg_event 21, 29, 13 ; ViridianCityText10
+	bg_event 30, 19, 14 ; MartSignText
+	bg_event 24, 25, 15; PokeCenterSignText
+	bg_event 27,  7, 16 ; ViridianCityText13
+	bg_event 21, 17, 17 ; school sign ; new
+	bg_event  5, 14, 18 ; villa sign ; new
 
 	def_object_events
-	object_event 13, 20, SPRITE_YOUNGSTER, WALK, ANY_DIR, 1 ; person
+	object_event 14, 21, SPRITE_YOUNGSTER, WALK, ANY_DIR, 1 ; person
 	object_event 30,  8, SPRITE_GAMBLER, STAY, NONE, 2 ; person
 	object_event 28, 22, SPRITE_YOUNGSTER, WALK, ANY_DIR, 3 ; person; edited
 	object_event 17,  9, SPRITE_GIRL, STAY, RIGHT, 4 ; person
@@ -34,5 +35,6 @@ ViridianCity_Object:
 	object_event 17,  5, SPRITE_GAMBLER, WALK, LEFT_RIGHT, 7 ; person
 	object_event 18,  9, SPRITE_GAMBLER, STAY, NONE, 8
 	object_event 25, 18, SPRITE_TRAVELER, STAY, ANY_DIR, 9 ; new, traveler
+	object_event 10, 17, SPRITE_GIRL, WALK, LEFT_RIGHT, 10 ; new
 
 	def_warps_to VIRIDIAN_CITY

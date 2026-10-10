@@ -22,9 +22,17 @@ ViridianMartParcelQuestText::
 	text_end
 
 _ViridianMartText2::
-	text "This shop sells a"
-	line "lot of PARLYZ"
-	cont "HEALs."
+	text "Everybody in town"
+	line "hates that villa."
+
+	para "So huge, so ugly,"
+	line "and the mummy"
+	cont "living there is"
+	cont "like super evil!"
+
+	para "How do I know?"
+	line "Everyone says so!"
+;	xxxx "123456789012345678"
 	done
 
 _ViridianMartText3::

@@ -12,6 +12,8 @@ Route1_TextPointers:
 	dw Route1Text4 ; new GIRL
 	dw Route1Text5 ; new SWIMMER
 	dw PickUpItemText ; new item
+	dw Route1Text7 ; new GAMBLER
+	; signs
 	dw Route1SignText1
 
 Route1_TextPointers_Rocket:
@@ -21,6 +23,8 @@ Route1_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw PickUpItemText ; new item
+	dw GenericNPCText_RocketPath
+	; signs
 	dw Route1SignText1
 
 Route1Text1:
@@ -50,4 +54,8 @@ Route1Text4:
 
 Route1Text5:
 	text_far _Route1Text5
+	text_end
+
+Route1Text7:
+	text_far _Route1Text7
 	text_end

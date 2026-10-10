@@ -162,7 +162,6 @@ INCLUDE "text/SafariZoneSecretHouse.asm"
 INCLUDE "text/SafariZoneWestRestHouse.asm"
 INCLUDE "text/SafariZoneEastRestHouse.asm"
 INCLUDE "text/SafariZoneNorthRestHouse.asm"
-INCLUDE "text/CeruleanCaveB1F.asm"
 INCLUDE "text/VictoryRoad1F.asm"
 INCLUDE "text/RockTunnelB1F.asm"
 INCLUDE "text/LoreleisRoom.asm"
@@ -324,6 +323,7 @@ INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 SECTION "Text Extra 15", ROMX ; new
 INCLUDE "text/GameCorner.asm"
 INCLUDE "text/ViridianSchoolHouse.asm"
+INCLUDE "text/CeruleanCaveB1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

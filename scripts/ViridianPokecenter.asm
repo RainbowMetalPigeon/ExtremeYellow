@@ -7,6 +7,11 @@ ViridianPokecenter_Script:
 ViridianPokecenterCheckTurning: ; new
 	CheckEvent EVENT_ROCKET_PATH
 	ret nz
+; right coordinates?
+	ld a, [wXCoord]
+	cp 17
+	ret c
+; prevent turning
 	ld hl, wd72d
 	set 5, [hl]
 	ret
@@ -18,6 +23,7 @@ ViridianPokecenter_TextPointers:
 	dw ViridianTradeNurseText
 	dw ViridianPokeCenterText5
 	dw ViridianPokeCenterText6 ; new
+	dw ViridianPokeCenterText7 ; new
 	; new, villa
 	dw RockSmashText
 	dw BoulderText
@@ -32,6 +38,7 @@ ViridianPokecenter_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw ViridianTradeNurseText
+	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	; new, villa
@@ -64,6 +71,10 @@ ViridianPokeCenterText5:
 
 ViridianPokeCenterText6: ; new
 	text_far _ViridianPokeCenterText6
+	text_end
+
+ViridianPokeCenterText7: ; new
+	text_far _ViridianPokeCenterText7
 	text_end
 
 ; new for villa =============================

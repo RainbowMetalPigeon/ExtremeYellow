@@ -36,7 +36,7 @@ ViridianCityScript_CheckIfGymIsOpen:
 	ld a, [wXCoord]
 	cp 32
 	ret nz
-	ld a, 17 ; +1 because of traveler, +1 because new school sign
+	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	call StartSimulatingJoypadStates
@@ -110,7 +110,7 @@ ViridianCityScript2:
 	SetEvent EVENT_02E ; useless
 	xor a
 	ld [wJoyIgnore], a
-	ld a, 18 ; +1 because of traveler, +1 because new school sign
+	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -259,18 +259,20 @@ ViridianCity_TextPointers:
 	dw ViridianCityText_6 ; 7 ; dialogue for second catching tutorial
 	dw ViridianCityText_7 ; 8 ; dialogue for first catching tutorial
 	dw TextPreBattle_ViridianTraveler ; 9, new, for traveler
+	dw ViridianCityText_NewNPC1 ; 10
 	; signs
-	dw ViridianCityText_8 ; $A=10
-	dw ViridianCityText_9 ; $B=11
-	dw ViridianCityText_10 ; $C=12
-	dw MartSignText ; $D=13
-	dw PokeCenterSignText ; $E=14
-	dw ViridianCityText_11 ; $F=15 ; sign
-	dw ViridianCityText_14_School ; $10=16 ; new sign
+	dw ViridianCityText_8 ; $B=11
+	dw ViridianCityText_9 ; $C=12
+	dw ViridianCityText_10 ; $D=13
+	dw MartSignText ; $E=14
+	dw PokeCenterSignText ; $F=15
+	dw ViridianCityText_11 ; $10=16 ; sign
+	dw ViridianCityText_14_School ; $11=17 ; new sign
+	dw ViridianCityText_15_Villa ; $12=18 ; new sign
 	; scripts
-	dw ViridianCityText_12 ; $10=17 ; Gym's doors closed
-	dw ViridianCityText_13 ; $11=18 ; first you need to weak target mon
-	dw TextPostBattle_ViridianTraveler ; $12=19 new, for traveler
+	dw ViridianCityText_12 ; $13=19 ; Gym's doors closed
+	dw ViridianCityText_13 ; $14=20 ; first you need to weak target mon
+	dw TextPostBattle_ViridianTraveler ; $15=21 new, for traveler
 
 ViridianCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; 1
@@ -282,18 +284,20 @@ ViridianCity_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath ; 7 ; dialogue for second catching tutorial
 	dw GenericNPCText_RocketPath ; 8 ; dialogue for first catching tutorial
 	dw TextPreBattle_ViridianTraveler_RP ; 9, Traveler
+	dw GenericNPCText_RocketPath ; 10
 	; signs
-	dw ViridianCityText_8 ; $A=10
-	dw ViridianCityText_9 ; $B=11
-	dw ViridianCityText_10 ; $C=12
-	dw MartSignText ; $D=13
-	dw PokeCenterSignText ; $E=14
-	dw ViridianCityText_11 ; $F=15 ; sign
-	dw ViridianCityText_14_School ; $10=16 ; new sign
+	dw ViridianCityText_8 ; $B=11
+	dw ViridianCityText_9 ; $C=12
+	dw ViridianCityText_10 ; $D=13
+	dw MartSignText ; $E=14
+	dw PokeCenterSignText ; $F=15
+	dw ViridianCityText_11 ; $10=16; sign
+	dw ViridianCityText_14_School ; $11=17 ; new sign
+	dw ViridianCityText_15_Villa ; $12=18 ; new sign
 	; scripts
-	dw ViridianCityText_12 ; $10=17 ; Gym's doors closed
-	dw ViridianCityText_13 ; $11=18 ; first you need to weak target mon
-	dw TextPostBattle_ViridianTraveler_RP ; $12=19 new, for traveler
+	dw ViridianCityText_12 ; $13=19 ; Gym's doors closed
+	dw ViridianCityText_13 ; $14=20 ; first you need to weak target mon
+	dw TextPostBattle_ViridianTraveler_RP ; $15=21 new, for traveler
 
 ViridianCityText_0:
 	text_asm
@@ -414,8 +418,16 @@ ViridianCityText_12:
 	farcall Func_f19f5
 	jp TextScriptEnd
 
-ViridianCityText_14_School: ; end
+ViridianCityText_14_School: ; new
 	text_far _ViridianCityText_14_School
+	text_end
+
+ViridianCityText_NewNPC1: ; new
+	text_far _ViridianCityText_NewNPC1
+	text_end
+
+ViridianCityText_15_Villa: ; new
+	text_far _ViridianCityText_15_Villa
 	text_end
 
 ; ================================
@@ -456,7 +468,7 @@ ViridianScript_Traveler:
     ld a, HS_VIRIDIAN_CITY_TRAVELER ; city-specific
     ld [wMissableObjectIndex], a
     predef ShowObject ; city-specific
-	ld a, 19 ; city-specific
+	ld a, 21 ; city-specific
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; make the traveler run away to search Mega Mewtwo

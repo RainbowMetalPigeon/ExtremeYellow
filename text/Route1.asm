@@ -82,3 +82,15 @@ _Route1Text5::
 	cont "far too scary."
 ;	xxxx "123456789012345678"
 	done
+
+_Route1Text7::
+	text "In VIRIDIAN there's"
+	line "a huge villa that"
+	cont "everybody hates."
+
+	para "It's dilapidated,"
+	line "old, ugly, and"
+	cont "the owner never"
+	cont "show themselves."
+;	xxxx "123456789012345678"
+	done

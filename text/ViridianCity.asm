@@ -107,12 +107,20 @@ _ViridianCityText_19175::
 	cont "they sober up."
 	done
 
-_ViridianCityText_1917a::
-	text "When I go shop in"
-	line "PEWTER CITY, I"
-	cont "have to take the"
-	cont "winding trail in"
-	cont "VIRIDIAN FOREST."
+_ViridianCityText_1917a:: ; edited
+	text "This huge villa"
+	line "is so ugly, and"
+	cont "occupies a much"
+	cont "needed space."
+
+	para "Wouldn't a park"
+	line "be better? Or a"
+	cont "shopping center?"
+
+	para "And the owner"
+	line "never joins the"
+	cont "city activities!"
+;	xxxx "123456789012345678"
 	done
 
 _ViridianCityText_19191::
@@ -226,4 +234,27 @@ _ViridianCityText_14_School::
 	para "We nurture the"
 	line "trainers of"
 	cont "tomorrow!"
+	done
+
+_ViridianCityText_NewNPC1::
+	text "Look! What a"
+	line "waste of space!"
+
+	para "This gargantuan"
+	line "villa takes up"
+	cont "such a big area,"
+	cont "and for what?"
+
+	para "An old someone"
+	line "that never shows"
+	cont "their face!"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianCityText_15_Villa::
+	text "VIRIDIAN VILLA"
+
+	para "'Visitors are"
+	line "NOT welcome!'"
+;	xxxx "123456789012345678"
 	done

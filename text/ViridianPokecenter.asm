@@ -34,6 +34,28 @@ _ViridianPokeCenterText6:: ; new
 ;	xxxx "123456789012345678"
 	done
 
+_ViridianPokeCenterText7:: ; new
+	text "Have you seen the"
+	line "huge villa near"
+	cont "ROUTE 22?"
+
+	para "No? Figures. It"
+	line "has such a huge"
+	cont "hedge around it"
+	cont "that it's almost"
+	cont "a little forest."
+
+	para "Yeah, is in there."
+	line "Years ago the"
+	cont "owner used to"
+	cont "show their face."
+	cont "But who has ever"
+	cont "seen them lately?"
+
+	para "Such a Scrooge!"
+;	xxxx "123456789012345678"
+	done
+
 ; new villa ==================================
 
 _ViridianPokeCenter_VillaText1::
