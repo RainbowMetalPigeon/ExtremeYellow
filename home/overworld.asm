@@ -575,15 +575,18 @@ WarpFound2::
 	ld [wCurMap], a
 ; new
 	CheckEvent EVENT_IN_SEVII
-	jr nz, .notRockTunnel
+	jr nz, .notRockTunnelNorVilla
 	ld a, [wCurMap]
 ; BTV
 	cp ROCK_TUNNEL_1F
-	jr nz, .notRockTunnel
+	jr z, .actuallyDarken
+	cp VIRIDIAN_VILLA
+	jr nz, .notRockTunnelNorVilla
+.actuallyDarken
 	ld a, $06
 	ld [wMapPalOffset], a
 	call GBFadeOutToBlack
-.notRockTunnel
+.notRockTunnelNorVilla
 	callfar SetPikachuSpawnOutside
 	call PlayMapChangeSound
 	jr .done

@@ -549,9 +549,6 @@ INCLUDE "data/maps/headers/Route12Gate2F.asm"
 INCLUDE "scripts/Route12Gate2F.asm"
 INCLUDE "data/maps/objects/Route12Gate2F.asm"
 Route11Gate2F_Blocks: ; UNUSED
-Route18Gate2F_Blocks: ; UNUSED
-;Route16Gate2F_Blocks: ; UNUSED
-;Route15Gate2F_Blocks: ; UNUSED
 Route12Gate2F_Blocks: INCBIN "maps/Route11Gate2F.blk"
 
 INCLUDE "data/maps/headers/Route15Gate1F.asm"
@@ -571,10 +568,6 @@ Route16Gate1F_Blocks: INCBIN "maps/Route16Gate1F.blk"
 INCLUDE "data/maps/headers/Route18Gate1F.asm"
 INCLUDE "scripts/Route18Gate1F.asm"
 INCLUDE "data/maps/objects/Route18Gate1F.asm"
-
-INCLUDE "data/maps/headers/Route18Gate2F.asm"
-INCLUDE "scripts/Route18Gate2F.asm"
-INCLUDE "data/maps/objects/Route18Gate2F.asm"
 
 INCLUDE "data/maps/headers/MtMoon1F.asm"
 INCLUDE "scripts/MtMoon1F.asm"
@@ -1459,6 +1452,11 @@ INCLUDE "data/maps/headers/SecludedCaves.asm"
 INCLUDE "scripts/SecludedCaves.asm"
 INCLUDE "data/maps/objects/SecludedCaves.asm"
 SecludedCaves_Blocks: INCBIN "maps/SecludedCaves.blk"
+
+INCLUDE "data/maps/headers/ViridianVilla.asm"
+INCLUDE "scripts/ViridianVilla.asm"
+INCLUDE "data/maps/objects/ViridianVilla.asm"
+ViridianVilla_Blocks: INCBIN "maps/ViridianVilla.blk"
 
 
 ; --------------------- NEW FOR SEVII ----------------------------

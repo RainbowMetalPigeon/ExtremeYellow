@@ -52,7 +52,7 @@ MapHSPointers:
 	dw NoHS ; REDS_HOUSE_2F
 	dw BluesHouseHS
 	dw OaksLabHS
-	dw ViridianPokecenterHS ; VIRIDIAN_POKECENTER new
+	dw NoHS ; VIRIDIAN_POKECENTER
 	dw NoHS ; VIRIDIAN_MART
 	dw NoHS ; VIRIDIAN_SCHOOL_HOUSE
 	dw ViridianNicknameHouseHS ; VIRIDIAN_NICKNAME_HOUSE new
@@ -200,7 +200,7 @@ MapHSPointers:
 	dw NoHS ; ROUTE_16_FLY_HOUSE
 	dw NoHS ; ROUTE_12_SUPER_ROD_HOUSE
 	dw NoHS ; ROUTE_18_GATE_1F
-	dw NoHS ; ROUTE_18_GATE_2F ; UNUSED
+	dw ViridianVillaHS ; VIRIDIAN_VILLA ; new
 	dw SeafoamIslands1FHS
 	dw NoHS ; ROUTE_22_GATE
 	dw VictoryRoad2FHS
@@ -911,8 +911,8 @@ HallOfFameHS:
 	db HALL_OF_FAME, 2, SHOW ; Blue
 IndigoPlateauLobbyHS: ; new
 	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
-ViridianPokecenterHS: ; new
-	db VIRIDIAN_POKECENTER, 7, SHOW ; Rock
+ViridianVillaHS: ; new
+	db VIRIDIAN_VILLA, 1, SHOW ; Rock
 LavenderHousesHS: ; edited because of map merging
 	db LAVENDER_HOUSES, $03, SHOW
 	db LAVENDER_HOUSES, $04, SHOW

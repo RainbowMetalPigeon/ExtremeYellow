@@ -507,7 +507,7 @@ DEF SHOW EQU $15
 	const HS_HALL_OF_FAME_OAK              ; new
 	const HS_HALL_OF_FAME_BLUE             ; new
 	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
-	const HS_VIRIDIAN_POKECENTER_ROCK_1    ; new
+	const HS_VIRIDIAN_VILLA_ROCK_1         ; new
 	const HS_MR_FUJIS_HOUSE_MON_1          ; new
 	const HS_MR_FUJIS_HOUSE_MON_2          ; new
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited

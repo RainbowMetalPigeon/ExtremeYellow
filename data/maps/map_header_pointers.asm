@@ -198,7 +198,7 @@ MapHeaderPointers::
 	dw Route16FlyHouse_h
 	dw Route12SuperRodHouse_h
 	dw Route18Gate1F_h
-	dw Route18Gate2F_h ; UNUSED
+	dw ViridianVilla_h ; new
 	dw SeafoamIslands1F_h
 	dw Route22Gate_h
 	dw VictoryRoad2F_h

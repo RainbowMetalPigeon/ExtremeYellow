@@ -135,6 +135,7 @@ InternalMapEntries:
 	internal_map ROUTE_16_FLY_HOUSE,             4,  5, Route16Name
 	internal_map ROUTE_12_SUPER_ROD_HOUSE,      14, 10, Route12Name
 	internal_map ROUTE_18_GATE_1F,               7, 13, Route18Name ; edited due to MERGING
+	internal_map VIRIDIAN_VILLA,                 2,  8, ViridianCityName ; new
 	internal_map SEAFOAM_ISLANDS_1F,             5, 15, SeafoamIslandsName
 	internal_map ROUTE_22_GATE,                  0,  7, Route22Name
 	internal_map VICTORY_ROAD_2F,                0,  4, VictoryRoadName

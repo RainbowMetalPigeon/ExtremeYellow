@@ -198,7 +198,7 @@ MapHeaderBanks::
 	db BANK(Route16FlyHouse_h)
 	db BANK(Route12SuperRodHouse_h)
 	db BANK(Route18Gate1F_h)
-	db BANK(Route18Gate2F_h) ; UNUSED
+	db BANK(ViridianVilla_h) ; new
 	db BANK(SeafoamIslands1F_h)
 	db BANK(Route22Gate_h)
 	db BANK(VictoryRoad2F_h)

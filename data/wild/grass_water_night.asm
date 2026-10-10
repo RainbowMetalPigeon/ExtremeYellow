@@ -197,7 +197,7 @@ WildDataPointersNight:
 	dw NothingWildMons ; ROUTE_16_FLY_HOUSE
 	dw NothingWildMons ; ROUTE_12_SUPER_ROD_HOUSE
 	dw NothingWildMons ; ROUTE_18_GATE_1F
-	dw NothingWildMons ; ROUTE_18_GATE_2F
+	dw NothingWildMons ; VIRIDIAN_VILLA, new
 	dw SeafoamIslands1FWildMonsNight
 	dw NothingWildMons ; ROUTE_22_GATE
 	dw VictoryRoad2FWildMonsNight

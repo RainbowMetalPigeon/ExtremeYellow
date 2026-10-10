@@ -55,35 +55,3 @@ _ViridianPokeCenterText7:: ; new
 	para "Such a Scrooge!"
 ;	xxxx "123456789012345678"
 	done
-
-; new villa ==================================
-
-_ViridianPokeCenter_VillaText1::
-	text "dead"
-;	xxxx "123456789012345678"
-	done
-
-_ViridianPokeCenter_VillaText1_RP::
-	text "alive"
-;	xxxx "123456789012345678"
-	done
-
-_ViridianPokeCenter_VillaSignText1::
-	text "sign 1"
-;	xxxx "123456789012345678"
-	done
-
-_ViridianPokeCenter_VillaSignText2::
-	text "sign 2"
-;	xxxx "123456789012345678"
-	done
-
-_ViridianPokeCenter_VillaSignText3::
-	text "sign 3"
-;	xxxx "123456789012345678"
-	done
-
-_ViridianPokeCenter_VillaSignText4::
-	text "sign 4"
-;	xxxx "123456789012345678"
-	done

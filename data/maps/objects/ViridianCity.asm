@@ -11,7 +11,7 @@ ViridianCity_Object:
 	warp_event  2, 16, VIRIDIAN_NICKNAME_HOUSE, 5 ; 7
 	warp_event  2, 17, VIRIDIAN_NICKNAME_HOUSE, 6 ; 8
 	; new
-	warp_event  9,  9, VIRIDIAN_POKECENTER, 3 ; 9
+	warp_event  9,  9, VIRIDIAN_VILLA, 1 ; 9
 	warp_event 37, 17, VIRIDIAN_SCHOOL_HOUSE, 3 ; 10
 	warp_event 37, 23, VIRIDIAN_NICKNAME_HOUSE, 9 ; 11
 

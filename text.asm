@@ -92,6 +92,7 @@ INCLUDE "data/text/text_5.asm"
 INCLUDE "text/RedsHouse2F.asm" ; new
 INCLUDE "text/BluesHouse.asm"
 INCLUDE "text/ViridianPokecenter.asm"
+INCLUDE "text/ViridianVilla.asm"
 INCLUDE "text/ViridianGym.asm"
 INCLUDE "text/Museum1F.asm"
 INCLUDE "text/Museum2F.asm"

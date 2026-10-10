@@ -68,7 +68,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const REDS_HOUSE_2F,                  4,  4 ; $2D
 	map_const BLUES_HOUSE,                   11,  4 ; $2E ; edited
 	map_const OAKS_LAB,                       5,  6 ; $2F
-	map_const VIRIDIAN_POKECENTER,           35,  4 ; $30
+	map_const VIRIDIAN_POKECENTER,            7,  4 ; $30
 	map_const VIRIDIAN_MART,                  4,  4 ; $31
 	map_const VIRIDIAN_SCHOOL_HOUSE,         19,  4 ; $32
 	map_const VIRIDIAN_NICKNAME_HOUSE,       26,  4 ; $33 ; edited
@@ -216,7 +216,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROUTE_16_FLY_HOUSE,             4,  4 ; $C1
 	map_const ROUTE_12_SUPER_ROD_HOUSE,       4,  4 ; $C2
 	map_const ROUTE_18_GATE_1F,               4, 11 ; $C3 ; edited because of MERGING
-	map_const ROUTE_18_GATE_2F,               4,  4 ; $C4 ; UNUSED
+	map_const VIRIDIAN_VILLA,                25,  4 ; $C4 ; new, it was ROUTE_18_GATE_2F
 	map_const SEAFOAM_ISLANDS_1F,            15,  9 ; $C5
 	map_const ROUTE_22_GATE,                  5,  4 ; $C6
 	map_const VICTORY_ROAD_2F,               15,  9 ; $C7
