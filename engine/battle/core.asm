@@ -1579,7 +1579,12 @@ TryRunningFromBattle:
 	ld hl, NoRunningFromMissingnoText
 	jr .printCantEscapeOrNoRunningText
 .trainerBattle ; edited
-;	ld hl, NoRunningText
+IF DEF(_DEBUG)
+	call FaintEnemyPokemon
+	call TrainerBattleVictory
+	scf
+	ret
+ENDC
 	callfar WantToSurrenderFromTrainerBattle
 .test
 	jr nz, .noSurrender
