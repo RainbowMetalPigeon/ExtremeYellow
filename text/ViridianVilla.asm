@@ -1,13 +1,3 @@
-_ViridianVilla_Text1::
-	text "dead"
-;	xxxx "123456789012345678"
-	done
-
-_ViridianVilla_Text1_RP::
-	text "alive"
-;	xxxx "123456789012345678"
-	done
-
 _ViridianVilla_SignText1::
 	text "It's a TO-DO list"
 	line "of repairs and"
@@ -234,5 +224,46 @@ _ViridianVilla_SignText4::
 	para "Can't."
 
 	para "...too much..."
+;	xxxx "123456789012345678"
+	done
+
+_ViridianVilla_Text1_AfterMonji::
+	text "..."
+
+	para "...loneliness,"
+	line "tiredness, and"
+	cont "pain are not"
+	cont "haunting them"
+	cont "any more."
+;	xxxx "123456789012345678"
+	done
+
+_ViridianVilla_Text1_BeforeMonji::
+	text "...they are..."
+
+	para "..."
+
+	para "...there's a #-"
+	line "BALL at their"
+	cont "side. Within it,"
+	cont "a #MON they'll"
+	cont "never be able to"
+	cont "care for again."
+
+	para "Take care of it"
+	line "in their place?"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianVilla_Text1_GotMonji::
+	text "Let's give this"
+	line "#MON a second"
+	cont "chance."
+;	xxxx "123456789012345678"
+	prompt
+
+_ViridianVilla_Text1_NoMonji::
+	text "Let's leave it by"
+	line "their side."
 ;	xxxx "123456789012345678"
 	done

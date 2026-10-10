@@ -24,6 +24,6 @@ ViridianVilla_Object:
 	def_object_events
 	object_event  6,  3, SPRITE_ROCKSMASHABLE_ROCK, STAY, ROCKSMASHABLE_ROCK_MOVEMENT_BYTE_2, 1
 	object_event 33,  4, SPRITE_BOULDER, STAY, BOULDER_MOVEMENT_BYTE_2, 2
-	object_event 42,  6, SPRITE_GENTLEMAN, STAY, DOWN, 3
+	object_event 42,  6, SPRITE_GRAMPS, STAY, DOWN, 3
 
 	def_warps_to VIRIDIAN_VILLA

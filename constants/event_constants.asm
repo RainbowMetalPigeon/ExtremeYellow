@@ -668,6 +668,8 @@
 	const EVENT_RP_USED_CELIOS_PC_FIRST_TIME ; new
 	const EVENT_RP_REVEALED_MAYOI_FATE ; new
 	const EVENT_RP_SPECIAL_COOL_RENAMING ; new
+	const EVENT_GOT_MONJI ; new
+	const EVENT_SPECIAL_MONJI_RENAMING ; new
 
 ; Route 2 events
 	const_next $3D8

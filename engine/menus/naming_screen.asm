@@ -1,7 +1,34 @@
 AskName:
 	call SaveScreenTilesToBuffer2
 	call GetPredefRegisters
-; new, to avoid nicknaming MISSINGNO
+; new, to handle special nicknaming (MISSINGNO, special mons, RP)
+	push hl
+	CheckAndResetEvent EVENT_SPECIAL_MONJI_RENAMING
+	pop hl
+	jr z, .notMonji
+; MONJI
+	push hl
+	ld hl, wcd6d
+	ld a, "M"
+	ld [hli], a
+	ld a, "O"
+	ld [hli], a
+	ld a, "N"
+	ld [hli], a
+	ld a, "J"
+	ld [hli], a
+	ld a, "I"
+	ld [hli], a
+	ld a, "@"
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	pop hl
+	jp .declinedNickname
+.notMonji
 	CheckEvent EVENT_ROCKET_PATH
 	jr nz, .noRenaming
 	CheckEvent EVENT_IN_SEVII
