@@ -53,6 +53,12 @@ _Route24Text_WannaJoinOffer3:: ; edited
 	cont "refuse!"
 	done
 
+_Route24Text_WannaJoinOfferTakeYourTime:: ; new
+	text "Take your time,"
+	line "and choose us!"
+;	xxxx "123456789012345678"
+	done
+
 _Route24Text_GreatWelcome:: ; new
 	text "Great! Welcome on"
 	line "board! Here,"

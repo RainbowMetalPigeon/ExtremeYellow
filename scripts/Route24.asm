@@ -20,6 +20,7 @@ Route24_ScriptPointers:
 	dw EndTrainerBattle
 	dw Route24Script3
 	dw Route24Script4
+	dw Route24Script5 ; new, wait for pushing player down done
 
 Route24Script0:
 IF DEF(_DEBUG) ; new
@@ -147,7 +148,7 @@ Route24Text1: ; edited
 	jr z, .notGotNugget
 	CheckEvent EVENT_BEAT_ROUTE24_ROCKET
 	jr nz, .got_item
-	jr .wannaJoin1
+	jr .wannaJoin
 .notGotNugget
 ; vanilla
 	ld hl, Route24Text_CongratsBeat5Trainers
@@ -158,19 +159,21 @@ Route24Text1: ; edited
 	SetEvent EVENT_GOT_NUGGET
 	ld hl, Route24Text_PlayerReceivedNugget
 	call PrintText
-.wannaJoin1
+.wannaJoin
 	ld hl, Route24Text_WannaJoinOffer1
 	call PrintText
 	call NoYesChoice
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .weWannaJoin
+; sure?
 	ld hl, Route24Text_WannaJoinOffer2 ; are you sure
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jr nz, .wannaJoin1
+	jp nz, .notSureIfJoinOrNot
+; sure we don't wanna join
 	ld hl, Route24Text_WannaJoinOffer3
 	call PrintText
 	ld hl, wd72d
@@ -245,11 +248,26 @@ Route24Text1: ; edited
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 ; TBE: fade out, event music?
-
 	ld hl, Route24Text_GreatWelcome
 	call PrintText
 	ld hl, Route24Text_FirstQuest
 	call PrintText
+	jp TextScriptEnd
+.notSureIfJoinOrNot
+	ld hl, Route24Text_WannaJoinOfferTakeYourTime
+	call PrintText
+; push player down
+	ld hl, wd730
+	set 7, [hl]
+	ld a, D_DOWN | B_BUTTON ; edited
+	ld [wSimulatedJoypadStatesEnd], a
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	xor a
+	ld [wSpritePlayerStateData2MovementByte1], a
+	ld [wOverrideSimulatedJoypadStatesMask], a
+	ld a, 5
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 
 Route24Text_CongratsBeat5Trainers:
@@ -278,6 +296,10 @@ Route24Text_WannaJoinOffer2:
 
 Route24Text_WannaJoinOffer3:
 	text_far _Route24Text_WannaJoinOffer3
+	text_end
+
+Route24Text_WannaJoinOfferTakeYourTime:
+	text_far _Route24Text_WannaJoinOfferTakeYourTime
 	text_end
 
 Route24Text_GreatWelcome: ; new
@@ -530,3 +552,13 @@ Route24Text_RP_BeatCharmanderGuy: ; new for RP
 Route24Text_RP_AlreadyGotCharmander: ; new for RP
 	text_far _Route24Text_RP_AlreadyGotCharmander
 	text_end
+
+Route24Script5:
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	ret nz
+	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
