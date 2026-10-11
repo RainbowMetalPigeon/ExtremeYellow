@@ -73,6 +73,7 @@ HandlePokedexSideMenu:
 	add b
 	inc a
 	ld [wd11e], a
+	ld [wDexCurrentMon], a ; new, for cycling with UP/DOWN in the INFO/DATA/AREA views
 	ld a, [wd11e]
 	push af
 	ld a, [wDexMaxSeenMon]
@@ -98,6 +99,7 @@ HandlePokedexSideMenu:
 	ld [hli], a ; old menu item ID
 	ld [wMenuWatchMovingOutOfBounds], a
 	ldh [hJoy7], a
+	SetEvent EVENT_POKEDEX_CAN_CYCLE ; new, reset in .exitSideMenu
 .handleMenuInput
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
@@ -133,6 +135,8 @@ ENDC
 	ld [wLastMenuItem], a
 	pop af
 	ld [wCurrentMenuItem], a
+	ResetEvent EVENT_POKEDEX_CAN_CYCLE ; new
+	call Pokedex_SyncListCursorWithCurrentMon ; new, the views may have cycled to another mon
 	ld a, $1
 	ldh [hJoy7], a
 	push bc
@@ -452,6 +456,113 @@ IsPokemonBitSet:
 	and a
 	ret
 
+; new, for cycling mons with UP/DOWN in the INFO, DATA and AREA views
+
+Pokedex_CycleToAdjacentSeenMon::
+; [hJoy5] = buttons just pressed (D_UP goes to the previous mon, anything else to the next one)
+; If cycling is enabled and there is a previous/next seen mon relative to the dex number in
+; [wDexCurrentMon] (no wrapping, unseen mons are skipped), then [wDexCurrentMon] becomes its
+; dex number, [wd11e] its species index, and carry is set.
+; Otherwise carry is clear and [wd11e] is unchanged.
+; Reads hJoy5 itself (not a) so that it can be callfar-ed from the AREA view.
+	ldh a, [hJoy5]
+	ld b, a
+	CheckEvent EVENT_POKEDEX_CAN_CYCLE
+	jr z, .noCycle
+	ld a, [wd11e]
+	push af ; species index of the mon currently shown
+	ld a, [wDexCurrentMon]
+	ld e, a ; dex number being tested
+.scan
+	bit BIT_D_UP, b
+	jr z, .next
+	dec e
+	jr z, .notFound ; we were at dex number 1
+	jr .test
+.next
+	inc e
+	ld a, e
+	cp NUM_POKEMON + 1
+	jr z, .notFound
+.test
+	ld a, e
+	ld [wd11e], a
+	ld hl, wPokedexSeen
+	push bc
+	push de
+	call IsPokemonBitSet
+	pop de
+	pop bc
+	jr z, .scan ; not seen, skip it
+	ld a, e
+	ld [wDexCurrentMon], a
+	call PokedexToIndex ; [wd11e] = species index of the new mon
+	pop af ; discard the old species index
+	scf
+	ret
+.notFound
+	pop af
+	ld [wd11e], a
+.noCycle
+	and a
+	ret
+
+Pokedex_WaitForAorBOrCycle::
+; Waits for A or B to be pressed, preserving bc, de and hl.
+; UP/DOWN instead restart ShowPokedexInfo from its first page for the previous/next seen mon, if any:
+; the stack pointer is restored to the value saved by ShowPokedexInfo.
+	push hl
+	push de
+	push bc
+.wait
+	call JoypadLowSensitivity
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON | D_UP | D_DOWN
+	jr z, .wait
+	and A_BUTTON | B_BUTTON
+	jr nz, .done
+	call Pokedex_CycleToAdjacentSeenMon
+	jr nc, .wait
+	ld hl, wDexInfoSavedSP
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld sp, hl
+	jp ShowPokedexInfo.restart
+.done
+	pop bc
+	pop de
+	pop hl
+	ret
+
+Pokedex_SyncListCursorWithCurrentMon:
+; Puts the cursor of the list (and scrolls it if needed) on the dex number in [wDexCurrentMon],
+; which differs from the one selected in the list if the player cycled with UP/DOWN.
+; Preserves b.
+	ld a, [wDexCurrentMon]
+	dec a
+	ld d, a ; position of the mon in the list
+	ld a, [wListScrollOffset]
+	ld c, a
+	ld a, d
+	sub c ; position relative to the first visible entry
+	jr c, .above
+	cp 7 ; the list shows 7 entries
+	jr c, .store ; it is already visible
+; below the visible entries: scroll so that it's the last one
+	ld a, d
+	sub 6
+	ld [wListScrollOffset], a
+	ld a, 6
+	jr .store
+.above
+	ld a, d
+	ld [wListScrollOffset], a
+	xor a
+.store
+	ld [wCurrentMenuItem], a
+	ret
+
 ; function to display pokedex data from outside the pokedex
 ShowPokedexData:
 	call GBPalWhiteOutWithDelay3
@@ -461,8 +572,6 @@ ShowPokedexData:
 
 ; function to display pokedex data from inside the pokedex
 ShowPokedexDataInternal:
-	xor a ; new
-	ld [wShinyAndOrDeltaPokedexPalette], a ; new
 	ld hl, wd72c
 	set 1, [hl]
 	ld a, $33 ; 3/7 volume
@@ -471,6 +580,9 @@ ShowPokedexDataInternal:
 	push af
 	xor a
 	ldh [hTileAnimations], a
+.redraw ; new, we come back here when cycling to another mon with UP/DOWN: the stack is kept
+	xor a ; new, back to the base form (no shiny, no delta)
+	ld [wShinyAndOrDeltaPokedexPalette], a ; new
 	call GBPalWhiteOut ; zero all palettes
 	ld a, [wd11e] ; pokemon ID
 	ld [wcf91], a
@@ -495,12 +607,20 @@ ShowPokedexDataInternal:
 .waitForButtonPress
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT ; edited for shiny and delta
+	and A_BUTTON | B_BUTTON | SELECT | D_UP | D_DOWN ; edited for shiny and delta, and for cycling
 	jr z, .waitForButtonPress
 
 ; new, for the shiny and delta
 	bit BIT_SELECT, a
-	jp z, .vanilla
+	jr nz, .selectPressed
+	and A_BUTTON | B_BUTTON
+	jp nz, .vanilla
+; UP or DOWN: go to the previous/next seen mon, if any
+	call Pokedex_CycleToAdjacentSeenMon
+	jr nc, .waitForButtonPress
+	jp .redraw
+
+.selectPressed
 
 	CheckEvent EVENT_CAUGHT_AT_LEAST_ONE_DELTA
 	jr z, .weHaveNoDelta
@@ -628,6 +748,9 @@ ShowPokedexInfo:
 	push af
 	xor a
 	ldh [hTileAnimations], a
+	ld [wDexInfoSavedSP], sp ; new, so that Pokedex_WaitForAorBOrCycle can restart from .restart for another mon
+.restart ; new, UP/DOWN in any INFO page come back here with the stack as it is now
+	ResetEvent EVENT_AT_LEAST_ONE_EVOLUTION_TO_PRINT_IN_DEX ; an aborted page may have left it set
 	call GBPalWhiteOut ; zero all palettes
 
 	ld a, [wd11e] ; pokemon ID
@@ -640,11 +763,7 @@ ShowPokedexInfo:
 
 	call DrawMonInfoOnScreen
 
-.waitForButtonPress
-	call JoypadLowSensitivity
-	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
-	jr z, .waitForButtonPress
+	call Pokedex_WaitForAorBOrCycle ; edited, was a plain wait for A or B
 
 	pop af
 	ldh [hTileAnimations], a
@@ -1040,27 +1159,15 @@ DrawMonInfoOnScreen:
 
 	call PrintEvoInfo
 
-.waitForButtonPress1
-	call JoypadLowSensitivity
-	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
-	jr z, .waitForButtonPress1
+	call Pokedex_WaitForAorBOrCycle ; edited in all the waits of the INFO pages, to allow cycling mons
 
 	call PrintLevelUpMovesInfo
 
-.waitForButtonPress2
-	call JoypadLowSensitivity
-	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
-	jr z, .waitForButtonPress2
+	call Pokedex_WaitForAorBOrCycle
 
 	call PrintTMHMsMovesInfo
 
-.waitForButtonPress3
-	call JoypadLowSensitivity
-	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
-	jr z, .waitForButtonPress3
+	call Pokedex_WaitForAorBOrCycle
 
 	call PrintBaseStatsInfo
 
@@ -1654,11 +1761,7 @@ PrintLevelUpMovesInfo:
 	and a ; is the next entry 0 = the terminator?
 	jr z, .popIncAndReloop
 
-.waitForButtonPress
-	call JoypadLowSensitivity
-	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
-	jr z, .waitForButtonPress
+	call Pokedex_WaitForAorBOrCycle ; edited, allows cycling mons
 
 	call ClearScreenExceptBorders_OnlyBody
 	call InitializeHLSpecialCoordinatesAndInterationsCounter
@@ -1848,11 +1951,7 @@ PrintTMHMNumberAndName:
 	cp 14
 	jr nz, .noNewPage
 
-.waitForButtonPress
-	call JoypadLowSensitivity
-	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON
-	jr z, .waitForButtonPress
+	call Pokedex_WaitForAorBOrCycle ; edited, allows cycling mons
 
 	call ClearScreenExceptBorders_OnlyBody
 	hlcoord 1, 2

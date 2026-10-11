@@ -309,8 +309,19 @@ LoadTownMap_Nest:
 	call JoypadLowSensitivity
 ;	predef CableClub_Run ; useless?
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT | START
+	and A_BUTTON | B_BUTTON | SELECT | START | D_UP | D_DOWN
 	jr z, .waitForButtonPress
+; new, UP/DOWN go to the previous/next seen mon (if any), keeping the current day/night and walking/fishing selection
+	and D_UP | D_DOWN
+	jr z, .noCycling
+	callfar Pokedex_CycleToAdjacentSeenMon
+	jr nc, .waitForButtonPress
+	pop af
+	ldh [hDownArrowBlinkCount2], a
+	pop af
+	ldh [hDownArrowBlinkCount1], a
+	jr .backToCore1
+.noCycling
 	pop af
 	ldh [hDownArrowBlinkCount2], a
 	pop af

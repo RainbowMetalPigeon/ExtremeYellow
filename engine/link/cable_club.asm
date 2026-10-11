@@ -632,6 +632,7 @@ TradeCenter_PlaceSelectedEnemyMonMenuCursor:
 TradeCenter_DisplayStats:
 	ld a, [wCurrentMenuItem]
 	ld [wWhichPokemon], a
+	SetEvent EVENT_STATUS_SCREEN_NO_CYCLE ; new, no UP/DOWN cycling here (reset by StatusScreen2)
 	predef StatusScreen
 	predef StatusScreen2
 	call Delay3

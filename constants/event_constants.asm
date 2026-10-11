@@ -1415,7 +1415,11 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const_skip 6
 	const EVENT_SEAFOAM4_BOULDER1_DOWN_HOLE
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
-	const_skip 5
+	const EVENT_STATUS_SCREEN_NO_CYCLE ; new, transient: set by callers where UP/DOWN must not cycle mons in the status screen (Trade Center)
+	const EVENT_STATUS_SCREEN_REDRAW ; new, transient: StatusScreen is redrawing after cycling (skips the slow parts)
+	const EVENT_STATUS_SCREEN_REDRAW_ONLY ; new, transient: StatusScreen redraws and returns without waiting for input
+	const EVENT_POKEDEX_CAN_CYCLE ; new, transient: UP/DOWN cycles mons in the Pokedex sub-views
+	const_skip 1 ; was EVENT_POKEDEX_SILENT_REDRAW, unused now, kept as a gap so that the events below don't move
 	const EVENT_REACHED_FORBIDDEN_MERCHANT ; new
 	const EVENT_UNLOCKED_SEVII ; new for sevii
 	const EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii

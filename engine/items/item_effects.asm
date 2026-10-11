@@ -1359,9 +1359,10 @@ ItemUseSurfboard:
 .storeSimulatedButtonPress
 	ld a, b
 	ld [wSimulatedJoypadStatesEnd], a
-	xor a
-	ld [wWastedByteCD39], a
-	inc a
+;	xor a
+;	ld [wWastedByteCD39], a
+;	inc a
+	ld a, 1 ; instead of the above
 	ld [wSimulatedJoypadStatesIndex], a
 	ret
 

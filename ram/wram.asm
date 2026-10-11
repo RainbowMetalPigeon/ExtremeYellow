@@ -407,6 +407,7 @@ wTradeCenterPointerTableIndex:: db
 wTemporarySpritexIndexHolder:: db ; new
 ;	ds 1
 
+wDexInfoSavedSP:: ; new
 ; destination pointer for text output
 ; this variable is written to, but is never read from
 wTextDest:: dw
@@ -769,8 +770,9 @@ wFilteredBagItemsCount:: db
 ; 0 if the joypad state is not being simulated
 wSimulatedJoypadStatesIndex:: db
 
-; written to but nothing ever reads it
-wWastedByteCD39:: db
+; new, was wWastedByteCD39 (neither written nor read anywhere)
+; Pokedex number of the mon shown by INFO/DATA/AREA, kept up to date when cycling with UP/DOWN
+wDexCurrentMon:: db
 
 ; written to but nothing ever reads it
 wWastedByteCD3A:: db

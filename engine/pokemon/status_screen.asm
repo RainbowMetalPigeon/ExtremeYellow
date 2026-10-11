@@ -69,6 +69,12 @@ StatusScreen:
 	ld a, 6
 	ldh [hDownArrowBlinkCount2], a ; blinking down arrow timing value 2
 ; BTV
+	ldh a, [hTileAnimations]
+	push af
+	xor a
+	ldh [hTileAnimations], a
+	ld [wDumbByteToToggleStatusScreen], a ; new, to cycle through the different stat printers
+.redraw ; new, we come back here when cycling to another mon with UP/DOWN: the page and the stack are kept
 	call LoadMonData
 	ld a, [wMonDataLocation]
 	cp BOX_DATA
@@ -86,9 +92,14 @@ StatusScreen:
 	set 1, [hl]
 	ld a, $33
 	ldh [rNR50], a ; Reduce the volume
-	call GBPalWhiteOutWithDelay3
+	call GBPalWhiteOut ; edited, the 3 frames of delay are only needed on the first entry, not when cycling
+	CheckEvent EVENT_STATUS_SCREEN_REDRAW
+	call z, Delay3
 	call ClearScreen
 	call UpdateSprites
+; new, when cycling the tiles loaded below are still in VRAM, so skip the (slow) copies
+	CheckEvent EVENT_STATUS_SCREEN_REDRAW
+	jr nz, .tilesAlreadyLoaded
 	call LoadHpBarAndStatusTilePatterns
 ;; new
 ;	ld de, CurrentBaseDVEVGraphics
@@ -112,11 +123,7 @@ StatusScreen:
 	ld hl, vChars2 tile $72
 	lb bc, BANK(PTile), 1
 	call CopyVideoDataDouble ; bold P (for PP)
-	ldh a, [hTileAnimations]
-	push af
-	xor a
-	ldh [hTileAnimations], a
-	ld [wDumbByteToToggleStatusScreen], a ; new, to cycle through the different stat printers
+.tilesAlreadyLoaded
 	hlcoord 19, 1
 	lb bc, 6, 10
 	call DrawLineBox ; Draws the box around name, HP and status
@@ -219,37 +226,37 @@ StatusScreen:
 	call PrintNumber ; ID Number
 	ld d, $0
 	call PrintStatsBox
+	call StatusScreen_PrintCurrentPage ; new, keeps the page we were on when cycling to another mon
+	CheckEvent EVENT_STATUS_SCREEN_REDRAW_ONLY
+	jr nz, .keepScreenWhite ; new, the moves page is about to be drawn: StatusScreen2 will show the screen
 	call Delay3
 	call GBPalNormal
+.keepScreenWhite
 	hlcoord 1, 0
 	call LoadFlippedFrontSpriteByMonIndex ; draw Pokémon picture
-	ld a, [wMonDataLocation]
-	cp ENEMY_PARTY_DATA
-	jr z, .playRegularCry
-	cp BOX_DATA
-	jr z, .checkBoxData
-	callfar IsThisPartymonStarterPikachu_Party
-	jr nc, .playRegularCry
-	jr .playPikachuSoundClip
-.checkBoxData
-	callfar IsThisPartymonStarterPikachu_Box
-	jr nc, .playRegularCry
-.playPikachuSoundClip
-	ld e, 16
-	callfar PlayPikachuSoundClip
-	jr .continue
-.playRegularCry
-	ld a, [wcf91]
-	call PlayCry ; play Pokémon cry
+; new, end of a redraw caused by cycling
+	ResetEvent EVENT_STATUS_SCREEN_REDRAW
+	CheckEvent EVENT_STATUS_SCREEN_REDRAW_ONLY
+	jp nz, .vanilla ; the moves page is about to be drawn: it will show the screen and play the cry
+; back to vanilla, but the cry code is now a routine
+	call StatusScreen_PlayCry
 .continue
 ; new, to cycle through the different stat printers
 	call HandleStatusInfoBlinkTiming ; testing
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
-	and A_BUTTON | B_BUTTON | SELECT
+	and A_BUTTON | B_BUTTON | SELECT | D_UP | D_DOWN
 	jr z, .continue
 	bit BIT_SELECT, a
-	jr z, .vanilla
+	jr nz, .test
+	and A_BUTTON | B_BUTTON
+	jr nz, .vanilla
+; UP or DOWN: go to the previous/next mon, if possible
+	ldh a, [hJoy5]
+	call StatusScreen_CycleMon
+	jr nc, .continue
+	SetEvent EVENT_STATUS_SCREEN_REDRAW
+	jp .redraw
 ; we call the next stat printer
 .test
 	SetEvent EVENT_PRESSED_FOR_INFO_IN_STATUS_SCREEN
@@ -795,6 +802,8 @@ StatusScreen2:
 	push af
 	xor a
 	ldh [hTileAnimations], a
+.redraw ; new, we come back here when cycling to another mon with UP/DOWN: the stack is kept
+	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld bc, NUM_MOVES + 1
 	ld hl, wMoves
@@ -923,7 +932,21 @@ StatusScreen2:
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3
-	call WaitForTextScrollButtonPress ; wait for button
+	call GBPalNormal ; new, shows the screen after a redraw caused by cycling (no-op on the first entry)
+	CheckEvent EVENT_STATUS_SCREEN_REDRAW_ONLY
+	jr z, .noCry ; first entry: StatusScreen has already played the cry
+	ResetEvent EVENT_STATUS_SCREEN_REDRAW_ONLY
+	call StatusScreen_PlayCry ; redraw caused by cycling: now that the screen is visible
+.noCry
+	call StatusScreen2_WaitForButtonOrCycle ; wait for button, edited to allow cycling mons
+	jr nc, .exit
+; UP/DOWN moved to another mon: redraw the left part of the screen with StatusScreen, then the moves
+	SetEvent EVENT_STATUS_SCREEN_REDRAW
+	SetEvent EVENT_STATUS_SCREEN_REDRAW_ONLY
+	predef StatusScreen
+	jp .redraw
+.exit
+	ResetEvent EVENT_STATUS_SCREEN_NO_CYCLE ; the Trade Center sets it, everyone else cycles
 	pop af
 	ldh [hTileAnimations], a
 	ld hl, wd72c
@@ -980,6 +1003,115 @@ StatusScreen_PrintPP:
 	ret
 
  ; ---------------- new ------------------
+
+StatusScreen_PlayCry:
+; plays the cry (or the Pikachu sound clip) of the mon being shown
+	ld a, [wMonDataLocation]
+	cp ENEMY_PARTY_DATA
+	jr z, .playRegularCry
+	cp BOX_DATA
+	jr z, .checkBoxData
+	callfar IsThisPartymonStarterPikachu_Party
+	jr nc, .playRegularCry
+	jr .playPikachuSoundClip
+.checkBoxData
+	callfar IsThisPartymonStarterPikachu_Box
+	jr nc, .playRegularCry
+.playPikachuSoundClip
+	ld e, 16
+	callfar PlayPikachuSoundClip
+	ret
+.playRegularCry
+	ld a, [wcf91]
+	jp PlayCry ; play Pokémon cry
+
+StatusScreen_PrintCurrentPage:
+; reprints the stats box page selected in [wDumbByteToToggleStatusScreen], after PrintStatsBox with d = 0
+; (page 0) has been drawn, so that the page is kept when cycling to another mon
+	ld a, [wDumbByteToToggleStatusScreen]
+	and a
+	ret z
+	dec a
+	jp z, PrintStatsBox_Base
+	dec a
+	jp z, PrintStatsBox_DVs
+	dec a
+	jp z, PrintStatsBox_StatExp
+	jp PrintStatsBox_StatExpRaw
+
+StatusScreen_CycleMon:
+; a = buttons just pressed (D_UP or D_DOWN)
+; If cycling is enabled and there is a previous/next mon in the party or box being viewed,
+; moves [wWhichPokemon] to it and returns carry set. Otherwise returns carry clear.
+; The party menu cursor is moved along, so that it lands on the mon we finished on
+; (harmless in Bill's PC, which resets [wPartyAndBillsPCSavedMenuItem] before using it again).
+	ld b, a
+	CheckEvent EVENT_STATUS_SCREEN_NO_CYCLE
+	jr nz, .noCycle
+	ld a, [wMonDataLocation]
+	and a ; PLAYER_PARTY_DATA?
+	jr z, .party
+	cp BOX_DATA
+	jr nz, .noCycle ; enemy party and daycare mons don't cycle
+	ld a, [wBoxCount]
+	jr .gotCount
+.party
+	ld a, [wPartyCount]
+.gotCount
+	ld c, a ; number of mons in the list
+	ld a, [wWhichPokemon]
+	bit BIT_D_UP, b
+	jr z, .down
+	and a
+	jr z, .noCycle ; already at the first mon
+	dec a
+	jr .store
+.down
+	inc a
+	cp c
+	jr nc, .noCycle ; already at the last mon
+.store
+	ld [wWhichPokemon], a
+	ld [wPartyAndBillsPCSavedMenuItem], a
+	scf
+	ret
+.noCycle
+	and a
+	ret
+
+StatusScreen2_WaitForButtonOrCycle:
+; Same as WaitForTextScrollButtonPress, but UP/DOWN also end the wait when they move to another mon.
+; Returns carry set if [wWhichPokemon] was changed that way, carry clear if A or B was pressed.
+	ldh a, [hDownArrowBlinkCount1]
+	push af
+	ldh a, [hDownArrowBlinkCount2]
+	push af
+	xor a
+	ldh [hDownArrowBlinkCount1], a
+	ld a, $6
+	ldh [hDownArrowBlinkCount2], a
+.loop
+	hlcoord 18, 16
+	call HandleDownArrowBlinkTiming
+	call JoypadLowSensitivity
+	predef CableClub_Run
+	ldh a, [hJoy5]
+	and A_BUTTON | B_BUTTON | D_UP | D_DOWN
+	jr z, .loop
+	and A_BUTTON | B_BUTTON
+	jr nz, .buttonPressed
+	ldh a, [hJoy5]
+	call StatusScreen_CycleMon
+	jr nc, .loop ; no previous/next mon
+.buttonPressed
+; carry is clear if A or B was pressed, set if the mon was changed (pop and ld don't affect it)
+	pop bc
+	ld a, b
+	ldh [hDownArrowBlinkCount2], a
+	pop bc
+	ld a, b
+	ldh [hDownArrowBlinkCount1], a
+	ret
 
 PrintSelectForInfo:
 	hlcoord 16, 17

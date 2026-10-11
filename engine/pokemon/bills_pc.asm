@@ -421,20 +421,7 @@ HMMoveArray:
 INCLUDE "data/moves/hm_moves.asm"
 
 DisplayDepositWithdrawMenu:
-	hlcoord 9, 10
-	lb bc, 6, 9
-	call TextBoxBorder
-	ld a, [wParentMenuItem]
-	and a ; was the Deposit or Withdraw item selected in the parent menu?
-	ld de, DepositPCText
-	jr nz, .next
-	ld de, WithdrawPCText
-.next
-	hlcoord 11, 12
-	call PlaceString
-	hlcoord 11, 14
-	ld de, StatsCancelPCText
-	call PlaceString
+	call DrawDepositWithdrawMenuBox ; edited, moved to a routine
 	ld hl, wTopMenuItemY
 	ld a, 12
 	ld [hli], a ; wTopMenuItemY
@@ -478,14 +465,95 @@ DisplayDepositWithdrawMenu:
 	ld a, BOX_DATA
 .next2
 	ld [wMonDataLocation], a
+	ld a, [wWhichPokemon] ; new
+	push af ; new, to know if the status screens cycled to another mon
 	predef StatusScreen
 	predef StatusScreen2
 	call LoadScreenTilesFromBuffer1
 	call ReloadTilesetTilePatterns
+; edited: everything below is done while the screen is still white (the status screens whited it out),
+; and LoadGBPal comes last, so that the player never sees the old list or a wrong "L:" tile
+	call LoadHpBarAndStatusTilePatterns ; new, was after LoadGBPal
+	pop af ; new
+	ld hl, wWhichPokemon
+	cp [hl]
+	call nz, BillsPC_MoveListCursorToWhichPokemon ; new
 	call RunDefaultPaletteCommand
 	call LoadGBPal
-	call LoadHpBarAndStatusTilePatterns ; new
 	jr .loop
+
+DrawDepositWithdrawMenuBox: ; new, was at the start of DisplayDepositWithdrawMenu
+	hlcoord 9, 10
+	lb bc, 6, 9
+	call TextBoxBorder
+	ld a, [wParentMenuItem]
+	and a ; was the Deposit or Withdraw item selected in the parent menu?
+	ld de, DepositPCText
+	jr nz, .next
+	ld de, WithdrawPCText
+.next
+	hlcoord 11, 12
+	call PlaceString
+	hlcoord 11, 14
+	ld de, StatsCancelPCText
+	jp PlaceString
+
+BillsPC_MoveListCursorToWhichPokemon: ; new
+; The status screens can cycle to another mon. The mon list is still on screen behind the
+; Withdraw/Deposit menu, with the arrow on the mon that was originally selected: scroll the list
+; and move the arrow to [wWhichPokemon], which is also the mon the menu will act on.
+	ld a, [wMonDataLocation]
+	and a ; PLAYER_PARTY_DATA?
+	ld hl, wPartyCount
+	jr z, .gotList
+	ld hl, wBoxCount
+.gotList
+	ld a, l
+	ld [wListPointer], a
+	ld a, h
+	ld [wListPointer + 1], a
+	xor a
+	ld [wListMenuID], a ; PCPOKEMONLISTMENU
+	ld [wPrintItemPrices], a
+	ld a, [hl] ; number of mons
+	sub 3 ; the list can't scroll further than this (see DisplayListMenuID)
+	jr nc, .gotMaxScroll
+	xor a
+.gotMaxScroll
+	ld e, a ; maximum scroll offset
+	ld a, [wWhichPokemon]
+	ld d, a ; index of the mon in the list
+	and a
+	jr z, .gotScroll
+	dec a ; scroll so that the mon is on the second row, if possible
+	cp e
+	jr c, .gotScroll
+	ld a, e
+.gotScroll
+	ld [wListScrollOffset], a
+	ld c, a
+	ld a, d
+	sub c
+	ld e, a ; row of the arrow (0-2)
+	push de
+	xor a
+	ldh [hAutoBGTransferEnabled], a
+	call PrintListMenuEntries ; clobbers wWhichPokemon and wcf91, and erases the top of the menu below
+	call DrawDepositWithdrawMenuBox
+	pop de
+	ld a, d
+	ld [wWhichPokemon], a
+	push de
+	call LoadMonData ; restores wcf91 to the species of the mon (wMonDataLocation is still correct)
+	pop de
+	hlcoord 5, 4
+	ld bc, 2 * SCREEN_WIDTH
+	ld a, e
+	call AddNTimes
+	ld [hl], "▷" ; the arrow, as left by the list menu when the player chose a mon
+	ld a, 1
+	ldh [hAutoBGTransferEnabled], a
+	jp Delay3
 
 DepositPCText:  db "DEPOSIT@"
 WithdrawPCText: db "WITHDRAW@"
