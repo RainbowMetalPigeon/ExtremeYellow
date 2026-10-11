@@ -74,7 +74,7 @@ SurfingPikachuMinigame::
 SurfingPikachuLoop:
 	call SurfingPikachuMinigame_LoadGFXAndLayout
 	call DelayFrame
-	ld b, $10 ; edited because added new palettes instructions
+	ld b, SET_PAL_SURFING_PIKACHU_TITLE ; edited: was hardcoded and drifted when new palette commands were added
 	call RunPaletteCommand
 .loop
 	ld a, [wSurfingMinigameRoutineNumber]
@@ -2374,7 +2374,7 @@ SurfingPikachuMinigameIntro:
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hWY], a
-	ld b, $11 ; edited because added new palettes instructions
+	ld b, SET_PAL_SURFING_PIKACHU_MINIGAME ; edited: was hardcoded and drifted when new palette commands were added
 	call RunPaletteCommand
 	ld a, $e3
 	ldh [rLCDC], a

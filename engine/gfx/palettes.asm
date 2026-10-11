@@ -747,6 +747,7 @@ SetPalFunctions:
 	dw SetPal_TrainerCardBack; new
 	dw SendUnknownPalPacket_7205d ; related to engine/minigame/surfing_pikachu.asm
 	dw SendUnknownPalPacket_72064 ; related to engine/minigame/surfing_pikachu.asm
+	ASSERT @ - SetPalFunctions == (SET_PAL_SURFING_PIKACHU_MINIGAME + 1) * 2, "SetPalFunctions out of sync with SET_PAL_* constants"
 
 ; The length of the blk data of each badge on the Trainer Card.
 ; The Rainbow Badge has 3 entries because of its many colors.

@@ -8,7 +8,7 @@ Audio4_PlaySound::
 	cp MAX_SFX_ID_4
 	jp z, .playSfx
 	jp c, .playSfx
-	cp $a3
+	cp MUSIC_GB_PRINTER ; edited: was hardcoded $a3 (vanilla value), broke when new SFX_*_4 headers shifted the music IDs
 	jr z, .playMusic
 	jp nc, .playSfx
 

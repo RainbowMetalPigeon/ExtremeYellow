@@ -34,6 +34,8 @@ DEF NUM_ACTIVE_PALS EQU 4
 	const SET_PAL_POKEDEX_DELTA        ; new
 	const SET_PAL_POKEDEX_SHINY_DELTA  ; new
 	const SET_PAL_TRAINER_CARD_BACK    ; new
+	const SET_PAL_SURFING_PIKACHU_TITLE    ; vanilla $0E, moved after the new ones
+	const SET_PAL_SURFING_PIKACHU_MINIGAME ; vanilla $0F, moved after the new ones
 
 DEF SET_PAL_PARTY_MENU_HP_BARS EQU $fc
 DEF SET_PAL_DEFAULT EQU $ff
