@@ -391,8 +391,6 @@ DEF SHOW EQU $15
 	const HS_OCHRE_CITY_TRAVELER           ; new
 	const HS_CINNABAR_ISLAND_TRAVELER      ; new
 	const HS_CINNABAR_ISLAND_SPECIAL_BIRDKEEPER ; new
-	const HS_OBSIDIAN_POKECENTER_NPC_1     ; new
-	const HS_OBSIDIAN_POKECENTER_NPC_2     ; new
 	const HS_CERULEAN_CAVE_EXTRA_BOTTOM_ITEM_1	; new
 	const HS_SS_ANNE_CAPTAINS_ROOM_CAPTAIN ; new
 	const HS_SS_ANNE_CAPTAINS_ROOM_JENNY   ; new
@@ -506,13 +504,12 @@ DEF SHOW EQU $15
 	const HS_ROUTE_29_SLOWKING             ; new
 	const HS_HALL_OF_FAME_OAK              ; new
 	const HS_HALL_OF_FAME_BLUE             ; new
-	const HS_INDIGO_PLATEAU_LOBBY_GUARD    ; new
 	const HS_VIRIDIAN_VILLA_ROCK_1         ; new
 	const HS_MR_FUJIS_HOUSE_MON_1          ; new
 	const HS_MR_FUJIS_HOUSE_MON_2          ; new
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited
 	const HS_MR_FUJIS_HOUSE_MON_3          ; new
-	; total = 244/255
+	; total = 241/255
 
 ; --- start of the variables moved to the extra2 block ---
 
@@ -540,4 +537,16 @@ DEF SHOW EQU $15
 	const HS_MELANIES_HOUSE_MON_2
 	const HS_MELANIES_HOUSE_MON_3
 	const HS_SUMMER_BEACH_HOUSE_MON_1
-	; total = 22/48
+	const HS_OBSIDIAN_POKECENTER_NPC_1
+	const HS_OBSIDIAN_POKECENTER_NPC_2
+	const HS_OBSIDIAN_POKECENTER_MON_1
+	const HS_INDIGO_PLATEAU_LOBBY_MON_1
+	const HS_INDIGO_PLATEAU_LOBBY_GUARD
+	const HS_LAVENDER_POKECENTER_MON_1
+	const HS_VERMILION_POKECENTER_MON_1
+	const HS_CELADON_POKECENTER_MON_1
+	const HS_OCHRE_POKECENTER_MON_1
+	const HS_CINNABAR_POKECENTER_MON_1
+	const HS_SAFFRON_POKECENTER_MON_1
+	const HS_ROCK_TUNNEL_POKECENTER_MON_1
+	; total = 34/48

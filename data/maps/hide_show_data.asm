@@ -91,7 +91,7 @@ MapHSPointers:
 	dw OchreHousesHS ; new
 	dw NoHS ; ROUTE_8_GATE
 	dw NoHS ; UNDERGROUND_PATH_ROUTE_8
-	dw NoHS ; ROCK_TUNNEL_POKECENTER
+	dw RockTunnelPokecenterHS ; ROCK_TUNNEL_POKECENTER new
 	dw NoHS ; ROCK_TUNNEL_1F
 	dw PowerPlantHS
 	dw NoHS ; ROUTE_11_GATE_1F
@@ -99,7 +99,7 @@ MapHSPointers:
 	dw SaffronClimbClubHS ; SAFFRON_CLIMB_CLUB
 	dw NoHS ; ROUTE_12_GATE_1F
 	dw BillsHouseHS
-	dw NoHS ; VERMILION_POKECENTER
+	dw VermilionPokecenterHS ; VERMILION_POKECENTER new
 	dw PokemonFanClubHS ; POKEMON_FAN_CLUB new
 	dw BattleFacilityHS ; new
 	dw NoHS ; VERMILION_GYM
@@ -143,15 +143,15 @@ MapHSPointers:
 	dw Route19DiveHS ; new, ROUTE_19_DIVE
 	dw NoHS ; CELADON_MANSION_ROOF
 	dw CeladonMansionRoofHouseHS ; CELADON_MANSION_ROOF_HOUSE
-	dw NoHS
-	dw NoHS
+	dw CeladonPokecenterHS ; CELADON_POKECENTER new
+	dw NoHS ; CELADON_GYM
 	dw GameCornerHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw CeladonChiefHouseHS ; new
 	dw CeladonHotelHS ; new
-	dw NoHS ; LAVENDER_POKECENTER
+	dw LavenderPokecenterHS ; LAVENDER_POKECENTER new
 	dw NoHS ; POKEMON_TOWER_1F
 	dw PokemonTower2FHS
 	dw PokemonTower3FHS
@@ -181,7 +181,7 @@ MapHSPointers:
 	dw NoHS ; new, ROUTE_20_DIVE
 	dw Route19DiveCavernHS ; ROUTE_19_DIVE_CAVERN
 	dw Route21DiveCavernHS ; ROUTE_21_DIVE_CAVERN
-	dw NoHS ; CINNABAR_POKECENTER
+	dw CinnabarPokecenterHS ; CINNABAR_POKECENTER new
 	dw HauntedIslandOfNumbersHS ; new
 	dw NoHS ; OBSIDIAN_HOUSES
 	dw IndigoPlateauLobbyHS ; new, INDIGO_PLATEAU_LOBBY
@@ -191,7 +191,7 @@ MapHSPointers:
 	dw SafariZoneExtraHS ; SAFARI_ZONE_EXTRA ; new
 	dw NoHS ; CELADON_HOTEL_HALL
 	dw SilphCo1FHS
-	dw NoHS ; SAFFRON_POKECENTER
+	dw SaffronPokecenterHS ; SAFFRON_POKECENTER new
 	dw MrPsychicsHouseHS ; new
 	dw NoHS ; ROUTE_15_GATE_1F
 	dw ForlornValleyHS ; FORLORN_VALLEY ; new
@@ -214,7 +214,7 @@ MapHSPointers:
 	dw RocketHideoutB4FHS
 	dw NoHS ; ROCKET_HIDEOUT_ELEVATOR
 	dw OchreRehabilitationCenterHS ; new
-	dw NoHS ; OCHRE_POKECENTER
+	dw OchrePokecenterHS ; OCHRE_POKECENTER new
 	dw ObsidianPokecenterHS ; new
 	dw SilphCo2FHS
 	dw SilphCo3FHS
@@ -753,9 +753,6 @@ OchreCityHS: ; new
 CinnabarIslandHS: ; new
 	db CINNABAR_ISLAND, $0B, HIDE ; Traveler
 	db CINNABAR_ISLAND, $0C, HIDE ; special birdkeeper
-ObsidianPokecenterHS: ; new
-	db OBSIDIAN_POKECENTER, $02, HIDE
-	db OBSIDIAN_POKECENTER, $03, HIDE
 CeruleanCaveExtraBottomHS: ; new
 	db CERULEAN_CAVE_EXTRA_BOTTOM, $01, SHOW
 SSAnneCaptainsRoomHS: ; new
@@ -909,8 +906,6 @@ Route29HS:
 HallOfFameHS:
 	db HALL_OF_FAME, 1, SHOW ; Oak
 	db HALL_OF_FAME, 2, SHOW ; Blue
-IndigoPlateauLobbyHS: ; new
-	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
 ViridianVillaHS: ; new
 	db VIRIDIAN_VILLA, 1, SHOW ; Rock
 LavenderHousesHS: ; edited because of map merging
@@ -960,5 +955,26 @@ CeruleanMelaniesHouseHS:
 	db CERULEAN_MELANIES_HOUSE, $04, SHOW ; Mon
 SummerBeachHouseHS:
 	db SUMMER_BEACH_HOUSE, 2, SHOW ; Mon
+ObsidianPokecenterHS:
+	db OBSIDIAN_POKECENTER, $02, HIDE
+	db OBSIDIAN_POKECENTER, $03, HIDE
+	db OBSIDIAN_POKECENTER, $05, SHOW ; Mon
+IndigoPlateauLobbyHS:
+	db INDIGO_PLATEAU_LOBBY, 6, SHOW ; Mon
+	db INDIGO_PLATEAU_LOBBY, 7, HIDE ; Guard
+LavenderPokecenterHS:
+	db LAVENDER_POKECENTER, 5, SHOW ; Mon
+VermilionPokecenterHS:
+	db VERMILION_POKECENTER, 5, SHOW ; Mon
+CeladonPokecenterHS:
+	db CELADON_POKECENTER, 5, SHOW ; Mon
+OchrePokecenterHS:
+	db OCHRE_POKECENTER, 5, SHOW ; Mon
+CinnabarPokecenterHS:
+	db CINNABAR_POKECENTER, 5, SHOW ; Mon
+SaffronPokecenterHS:
+	db SAFFRON_POKECENTER, 5, SHOW ; Mon
+RockTunnelPokecenterHS:
+	db ROCK_TUNNEL_POKECENTER, 5, SHOW ; Mon
 
 	db $FF, $01, SHOW ; end, list terminator

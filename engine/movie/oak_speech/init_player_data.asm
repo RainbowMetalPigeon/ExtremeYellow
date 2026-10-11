@@ -60,6 +60,7 @@ DEF START_MONEY EQU $3000
 ; back to vanilla
 
 	callfar InitializeMissableObjectsFlagsExtra ; new for splitting HS
+	callfar InitializeMissableObjectsFlagsExtra2 ; new for splitting HS
 	callfar InitializeMissableObjectsFlags_Sevii ; new for sevii
 	jpfar InitializeMissableObjectsFlags
 

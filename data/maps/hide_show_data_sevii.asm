@@ -32,7 +32,7 @@ MapHSPointers_Sevii:
 ; indoors
 ; 1-island
 	dw SeviiOneIslandDockHS ; SEVII_ONE_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
+	dw SeviiOneIslandPokemonCenterAndMartHS ; SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM_1
 	dw NoHSSevii ; SEVII_ONE_ISLAND_GYM_2
 	dw SeviiOneIslandHousesHS ; SEVII_ONE_ISLAND_HOUSES
@@ -56,7 +56,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_ONE
 ; 2-island
 	dw SeviiTwoIslandDockHS ; SEVII_TWO_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_TWO_ISLAND_POKEMON_CENTER
+	dw SeviiTwoIslandPokemonCenterHS ; SEVII_TWO_ISLAND_POKEMON_CENTER
 	dw NoHSSevii ; SEVII_TWO_ISLAND_GYM
 	dw NoHSSevii ; SEVII_TWO_ISLAND_HOUSES
 	dw SeviiTwoIslandCityDiveHS ; SEVII_TWO_ISLAND_CITY_DIVE
@@ -69,7 +69,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_TWO
 ; 3-island
 	dw SeviiThreeIslandDockHS ; SEVII_THREE_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+	dw SeviiThreeIslandPokemonCenterAndMartHS ; SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_THREE_ISLAND_GYM
 	dw NoHSSevii ; SEVII_THREE_ISLAND_HOUSES
 	dw SeviiThreeIslandSecretGardenHS ; SEVII_THREE_ISLAND_SECRET_GARDEN
@@ -83,7 +83,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_THREE
 ; 4-island
 	dw SeviiFourIslandDockHS ; SEVII_FOUR_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
+	dw SeviiFourIslandPokemonCenterAndMartHS ; SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_GYM
 	dw SeviiFourIslandHousesHS ; SEVII_FOUR_ISLAND_HOUSES
 	dw NoHSSevii ; SEVII_FOUR_ISLAND_HAZARD_ROOM
@@ -95,7 +95,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_FOUR
 ; 5-island
 	dw SeviiFiveIslandDockHS ; SEVII_FIVE_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+	dw SeviiFiveIslandPokemonCenterAndMartHS ; SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_FIVE_ISLAND_GYM
 	dw SeviiFiveIslandHousesHS ; SEVII_FIVE_ISLAND_HOUSES
 	dw SeviiFiveIslandWarehouseBFHS ; SEVII_FIVE_ISLAND_WAREHOUSE_BF
@@ -110,7 +110,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_FIVE
 ; 6-island
 	dw SeviiSixIslandDockHS ; SEVII_SIX_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+	dw SeviiSixIslandPokemonCenterAndMartHS ; SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_1
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_2
 	dw NoHSSevii ; SEVII_SIX_ISLAND_GYM_3
@@ -131,7 +131,7 @@ MapHSPointers_Sevii:
 	dw NoHSSevii ; SEVII_UNDERGROUND_SIX
 ; 7-island
 	dw SeviiSevenIslandDockHS ; SEVII_SEVEN_ISLAND_DOCK
-	dw NoHSSevii ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+	dw SeviiSevenIslandPokemonCenterAndMartHS ; SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
 	dw NoHSSevii ; SEVII_SEVEN_ISLAND_GYM_1
 	dw SeviiSevenIslandGym2HS ; SEVII_SEVEN_ISLAND_GYM_2
 	dw SeviiSevenIslandGym2DiveHS ; SEVII_SEVEN_ISLAND_GYM_2_DIVE
@@ -264,6 +264,8 @@ SeviiRoute43HS:
 
 SeviiOneIslandDockHS:
 	db SEVII_ONE_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiOneIslandPokemonCenterAndMartHS:
+	db SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART, 2, SHOW ; Mon
 SeviiOneIslandHousesHS:
 	db SEVII_ONE_ISLAND_HOUSES,  2, SHOW ; Celio before rescue
 	db SEVII_ONE_ISLAND_HOUSES,  3, HIDE ; Celio right after rescue
@@ -280,6 +282,8 @@ SeviiMtEmber4BFHS:
 	db SEVII_MT_EMBER_4BF, 1, SHOW ; ball
 SeviiTwoIslandDockHS:
 	db SEVII_TWO_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiTwoIslandPokemonCenterHS:
+	db SEVII_TWO_ISLAND_POKEMON_CENTER, 2, SHOW ; Mon
 SeviiTwoIslandCityDiveHS:
 	db SEVII_TWO_ISLAND_CITY_DIVE,  5, SHOW ; ball
 	db SEVII_TWO_ISLAND_CITY_DIVE,  6, SHOW ; ball
@@ -293,6 +297,8 @@ SeviiTwoIsletHS:
 	db SEVII_TWO_ISLET,  5, SHOW ; rock
 SeviiThreeIslandDockHS:
 	db SEVII_THREE_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiThreeIslandPokemonCenterAndMartHS:
+	db SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART, 2, SHOW ; Mon
 SeviiThreeIslandSecretGardenHS:
 	db SEVII_THREE_ISLAND_SECRET_GARDEN, 1, SHOW ; ball
 SeviiThreeIslandCavesHS:
@@ -311,6 +317,8 @@ SeviiRoute33DiveCavernF4HS:
 	db SEVII_ROUTE_33_DIVE_CAVERN_F4,  1, SHOW ; ball
 SeviiFourIslandDockHS:
 	db SEVII_FOUR_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiFourIslandPokemonCenterAndMartHS:
+	db SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART, 2, SHOW ; Mon
 SeviiFourIslandHousesHS:
 	db SEVII_FOUR_ISLAND_HOUSES, 1, HIDE ; Pink
 SeviiIcefallCave1FHS:
@@ -321,6 +329,8 @@ SeviiFourIslandCityDiveCavernHS:
 	db SEVII_FOUR_ISLAND_CITY_DIVE_CAVERN, 1, SHOW ; pearl
 SeviiFiveIslandDockHS:
 	db SEVII_FIVE_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiFiveIslandPokemonCenterAndMartHS:
+	db SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART, 2, SHOW ; Mon
 SeviiFiveIslandHousesHS:
 	db SEVII_FIVE_ISLAND_HOUSES, 3, SHOW ; Mon
 	db SEVII_FIVE_ISLAND_HOUSES, 4, SHOW ; Mon
@@ -367,6 +377,8 @@ SeviiFiveIslandCityDiveCavernHS:
 	db SEVII_FIVE_ISLAND_CITY_DIVE_CAVERN, 2, SHOW ; ball
 SeviiSixIslandDockHS:
 	db SEVII_SIX_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiSixIslandPokemonCenterAndMartHS:
+	db SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART, 2, SHOW ; Mon
 SeviiSixIslandHousesHS:
 	db SEVII_SIX_ISLAND_HOUSES, 5, SHOW ; Mon
 HSSeviiAlteringCave:
@@ -412,6 +424,8 @@ SeviiRoute38DiveCavernHS:
 	db SEVII_ROUTE_38_DIVE_CAVERN, 11, SHOW ; pearl
 SeviiSevenIslandDockHS:
 	db SEVII_SEVEN_ISLAND_DOCK, 1, SHOW ; sailor
+SeviiSevenIslandPokemonCenterAndMartHS:
+	db SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART, 2, SHOW ; Mon
 SeviiSevenIslandGym2HS:
 	db SEVII_SEVEN_ISLAND_GYM_2,  8, SHOW ; Rock
 	db SEVII_SEVEN_ISLAND_GYM_2,  9, SHOW ; Rock

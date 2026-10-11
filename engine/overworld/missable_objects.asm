@@ -208,6 +208,37 @@ InitializeMissableObjectsFlagsExtra::
 	inc hl
 	jr .missableObjectsLoop
 
+; new function for splitting the HS
+InitializeMissableObjectsFlagsExtra2::
+	ld hl, wMissableObjectFlagsExtra2
+	ld bc, wMissableObjectFlagsExtra2End - wMissableObjectFlagsExtra2
+	xor a
+	call FillMemory ; clear missable objects flags
+	ld hl, MissableObjectsExtra2
+	xor a
+	ld [wMissableObjectCounter], a
+.missableObjectsLoop
+	ld a, [hli]
+	cp $ff          ; end of list
+	ret z
+	push hl
+	inc hl
+	ld a, [hl]
+	cp HIDE
+	jr nz, .skip
+	ld hl, wMissableObjectFlagsExtra2
+	ld a, [wMissableObjectCounter]
+	ld c, a
+	ld b, FLAG_SET
+	call MissableObjectFlagAction ; set flag if Item is hidden
+.skip
+	ld hl, wMissableObjectCounter
+	inc [hl]
+	pop hl
+	inc hl
+	inc hl
+	jr .missableObjectsLoop
+
 ; new for sevii
 InitializeMissableObjectsFlags_Sevii::
 	ld hl, wMissableObjectFlagsSevii

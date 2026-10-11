@@ -370,3 +370,12 @@ _SwapAndAgainText:: ; new
 	line "and fight again!"
 ;	xxxx "123456789012345678"
 	done
+
+_PokemonCenterWelcomeText_RocketPath_StolenChansey:: ; new for RP
+	text "You steal our"
+	line "healing CHANSEY,"
+	cont "and then you even"
+	cont "dare demanding"
+	cont "our services?!"
+;	xxxx "123456789012345678"
+	done

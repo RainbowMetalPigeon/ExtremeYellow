@@ -32,21 +32,16 @@ DisplayPokemonCenterDialogue_::
 .regularCenter
 	call SaveScreenTilesToBuffer1 ; save screen
 ; edited
-	ld hl, PokemonCenterWelcomeText
 	CheckEvent EVENT_ROCKET_PATH
+	ld hl, PokemonCenterWelcomeText
 	jr z, .printText1
+; in RP
+	call CheckIfLocalChanseyWasStolen_RP ; new
+	ld hl, PokemonCenterWelcomeText_RocketPath_StolenChansey
+	jp nz, .printAndEnd
 	ld hl, PokemonCenterWelcomeText_RocketPath
 .printText1
 	call PrintText
-;	ld hl, wd72e
-;	bit 2, [hl]
-;	set 1, [hl]
-;	set 2, [hl]
-;	jr nz, .skipShallWeHealYourPokemon
-;	ld hl, ShallWeHealYourPokemonText
-;	call PrintText
-;.skipShallWeHealYourPokemon
-; BTV
 	call YesNoChoicePokeCenter ; yes/no menu
 	call UpdateSprites
 	ld a, [wCurrentMenuItem]
@@ -158,21 +153,12 @@ ENDC
 	jr .postSleepBag
 .bagFull
 	ld hl, PokemonCenterBagFullText
+.printAndEnd
 	call PrintText
 .postSleepBag
 	ld a, PLAYER_DIR_DOWN
 	ld [wPlayerMovingDirection], a
 	ret
-
-;Func_6eaa: ; edited
-;	ld a, $1
-;	ldh [hSpriteIndex], a
-;	ld a, $4
-;	ldh [hSpriteImageIndex], a
-;	call SpriteFunc_34a1
-;	ld c, 1 ; edited
-;	call DelayFrames
-;	ret
 
 PokemonCenterSleepBagText: ; new
 	text_far _PokemonCenterSleepBagText
@@ -206,11 +192,6 @@ PokemonCenterWelcomeText:
 	text_far _PokemonCenterWelcomeText
 	text_end
 
-;ShallWeHealYourPokemonText:
-;	text_pause
-;	text_far _ShallWeHealYourPokemonText
-;	text_end
-
 NeedYourPokemonText:
 	text_far _NeedYourPokemonText
 	text_end
@@ -220,7 +201,6 @@ PokemonFightingFitText:
 	text_end
 
 PokemonCenterFarewellText:
-;	text_pause
 	text_far _PokemonCenterFarewellText
 	text_end
 
@@ -228,18 +208,131 @@ LooksContentText:
 	text_far _LooksContentText
 	text_end
 
-PokemonCenterWelcomeText_RocketPath: ; new
+; new for RP =======================================
+
+PokemonCenterWelcomeText_RocketPath:
 	text_far _PokemonCenterWelcomeText_RocketPath
 	text_end
 
-NeedYourPokemonText_RocketPath: ; new
+NeedYourPokemonText_RocketPath:
 	text_far _NeedYourPokemonText_RocketPath
 	text_end
 
-PokemonFightingFitText_RocketPath: ; new
+PokemonFightingFitText_RocketPath:
 	text_far _PokemonFightingFitText_RocketPath
 	text_end
 
-PokemonCenterFarewellText_RocketPath: ; new
+PokemonCenterFarewellText_RocketPath:
 	text_far _PokemonCenterFarewellText_RocketPath
 	text_end
+
+PokemonCenterWelcomeText_RocketPath_StolenChansey:
+	text_far _PokemonCenterWelcomeText_RocketPath_StolenChansey
+	text_end
+
+CheckIfLocalChanseyWasStolen_RP: ; nz if we stole the local Chansey
+	CheckEvent EVENT_IN_SEVII
+	ld a, [wCurMap]
+	jr nz, .sevii
+
+; Kanto ---------------------------
+
+	cp VERMILION_POKECENTER
+	jr nz, .LAVENDER_POKECENTER
+	CheckHideShowExtra2 HS_VERMILION_POKECENTER_MON_1 ; z flag if is SHOW, nz if is HIDE
+	ret
+.LAVENDER_POKECENTER
+
+	cp LAVENDER_POKECENTER
+	jr nz, .CELADON_POKECENTER
+	CheckHideShowExtra2 HS_LAVENDER_POKECENTER_MON_1
+	ret
+.CELADON_POKECENTER
+
+	cp CELADON_POKECENTER
+	jr nz, .OCHRE_POKECENTER
+	CheckHideShowExtra2 HS_CELADON_POKECENTER_MON_1
+	ret
+.OCHRE_POKECENTER
+
+	cp OCHRE_POKECENTER
+	jr nz, .OBSIDIAN_POKECENTER
+	CheckHideShowExtra2 HS_OCHRE_POKECENTER_MON_1
+	ret
+.OBSIDIAN_POKECENTER
+
+	cp OBSIDIAN_POKECENTER
+	jr nz, .CINNABAR_POKECENTER
+	CheckHideShowExtra2 HS_OBSIDIAN_POKECENTER_MON_1
+	ret
+.CINNABAR_POKECENTER
+
+	cp CINNABAR_POKECENTER
+	jr nz, .INDIGO_PLATEAU_LOBBY
+	CheckHideShowExtra2 HS_CINNABAR_POKECENTER_MON_1
+	ret
+.INDIGO_PLATEAU_LOBBY
+
+	cp INDIGO_PLATEAU_LOBBY
+	jr nz, .SAFFRON_POKECENTER
+	CheckHideShowExtra2 HS_INDIGO_PLATEAU_LOBBY_MON_1
+	ret
+.SAFFRON_POKECENTER
+
+	cp SAFFRON_POKECENTER
+	jr nz, .ROCK_TUNNEL_POKECENTER
+	CheckHideShowExtra2 HS_SAFFRON_POKECENTER_MON_1
+	ret
+.ROCK_TUNNEL_POKECENTER
+
+	cp ROCK_TUNNEL_POKECENTER
+	jr nz, .noMatch
+	CheckHideShowExtra2 HS_ROCK_TUNNEL_POKECENTER_MON_1
+	ret
+
+.noMatch
+	xor a
+	ret
+
+.sevii ; ---------------------------
+
+	cp SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART
+	jr nz, .SEVII_TWO_ISLAND_POKEMON_CENTER
+	CheckHideShowSevii HS_SEVII_ONE_ISLAND_POKEMON_CENTER_AND_MART_MON_1 ; z flag if is SHOW, nz if is HIDE
+	ret
+.SEVII_TWO_ISLAND_POKEMON_CENTER
+
+	cp SEVII_TWO_ISLAND_POKEMON_CENTER
+	jr nz, .SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+	CheckHideShowSevii HS_SEVII_TWO_ISLAND_POKEMON_CENTER_MON_1
+	ret
+.SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+
+	cp SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART
+	jr nz, .SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
+	CheckHideShowSevii HS_SEVII_THREE_ISLAND_POKEMON_CENTER_AND_MART_MON_1
+	ret
+.SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
+
+	cp SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART
+	jr nz, .SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+	CheckHideShowSevii HS_SEVII_FOUR_ISLAND_POKEMON_CENTER_AND_MART_MON_1
+	ret
+.SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+
+	cp SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART
+	jr nz, .SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+	CheckHideShowSevii HS_SEVII_FIVE_ISLAND_POKEMON_CENTER_AND_MART_MON_1
+	ret
+.SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+
+	cp SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART
+	jr nz, .SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+	CheckHideShowSevii HS_SEVII_SIX_ISLAND_POKEMON_CENTER_AND_MART_MON_1
+	ret
+.SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+
+	cp SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART
+	jr nz, .noMatch
+	CheckHideShowSevii HS_SEVII_SEVEN_ISLAND_POKEMON_CENTER_AND_MART_MON_1
+	ret

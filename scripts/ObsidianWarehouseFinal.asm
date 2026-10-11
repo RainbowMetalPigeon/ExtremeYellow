@@ -87,6 +87,7 @@ EndTrainerBattle_Custom:
 	call HideExtraNPCsAfterObsidianGiovanni
 ;	call ShowNPCsAfterObsidianGiovanni ; unnecessary right now, so not written
 	call ShowExtraNPCsAfterObsidianGiovanni
+	call ShowExtra2NPCsAfterObsidianGiovanni
 	SetEvent EVENT_SPOKEN_WITH_KOGA_IN_MEETING_ROOM ; just in case we cleared Obsidian before speaking with Koga
 
 	call UpdateSprites
@@ -341,7 +342,7 @@ ObsidianWarehouseFinalScript_JessieJamesVictory:
 
 HideNPCsAfterObsidianGiovanni:
 	ld hl, NPCsToHide
-.hideLoop
+.loop
 	ld a, [hli]
 	cp $ff ; have we run out of NPCs to hide?
 	ret z ; if so, we're done
@@ -349,7 +350,7 @@ HideNPCsAfterObsidianGiovanni:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	pop hl
-	jr .hideLoop
+	jr .loop
 
 NPCsToHide:
 	db HS_OBSIDIAN_WAREHOUSE_TRAINER_1
@@ -361,7 +362,7 @@ NPCsToHide:
 
 HideExtraNPCsAfterObsidianGiovanni:
 	ld hl, NPCsToHideExtra
-.hideLoop
+.loop
 	ld a, [hli]
 	cp $ff ; have we run out of NPCs to hide?
 	ret z ; if so, we're done
@@ -369,7 +370,7 @@ HideExtraNPCsAfterObsidianGiovanni:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra
 	pop hl
-	jr .hideLoop
+	jr .loop
 
 NPCsToHideExtra:
 	db HS_OBSIDIAN_ISLAND_ROCKET_1
@@ -398,7 +399,7 @@ NPCsToHideExtra:
 
 ShowExtraNPCsAfterObsidianGiovanni:
 	ld hl, NPCsToShowExtra
-.hideLoop
+.loop
 	ld a, [hli]
 	cp $ff ; have we run out of NPCs to show?
 	ret z ; if so, we're done
@@ -406,7 +407,7 @@ ShowExtraNPCsAfterObsidianGiovanni:
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra ; NB: they must all be in the Extra HS section, otherwise I need to duplicate this function
 	pop hl
-	jr .hideLoop
+	jr .loop
 
 NPCsToShowExtra:
 	db HS_OBSIDIAN_ISLAND_SCIENTIST_1
@@ -416,8 +417,6 @@ NPCsToShowExtra:
 	db HS_OBSIDIAN_ISLAND_CITIZEN_2
 	db HS_OBSIDIAN_ISLAND_CITIZEN_3
 	db HS_OBSIDIAN_ISLAND_CITIZEN_4
-	db HS_OBSIDIAN_POKECENTER_NPC_1
-	db HS_OBSIDIAN_POKECENTER_NPC_2
 	db HS_FUCHSIA_MEETING_ROOM_AFTER_1
 	db HS_FUCHSIA_MEETING_ROOM_AFTER_2
 	db HS_FUCHSIA_MEETING_ROOM_AFTER_3
@@ -433,6 +432,22 @@ NPCsToShowExtra:
 	db HS_ROUTE_27_CITIZEN_5
 	db HS_ROUTE_27_CITIZEN_6
 	db $ff
+
+ShowExtra2NPCsAfterObsidianGiovanni:
+	ld hl, NPCsToShowExtra
+.loop
+	ld a, [hli]
+	cp $ff ; have we run out of NPCs to show?
+	ret z ; if so, we're done
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra2 ; NB: they must all be in the Extra2 HS section, otherwise I need to duplicate this function
+	pop hl
+	jr .loop
+
+NPCsToShowExtra2:
+	db HS_OBSIDIAN_POKECENTER_NPC_1
+	db HS_OBSIDIAN_POKECENTER_NPC_2
 
 ; ================= scripts, end =================
 
