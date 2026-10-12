@@ -300,7 +300,15 @@ _Route20ScriptText2::
 ; new for RP =====================
 
 _Route20ScriptText2_RP::
-	text "post-battle"
-	line "R 20"
+	text "You may have won,"
+	line "but there's no way"
+	cont "that the legendary"
+	cont "ARTICUNO'll show"
+	cont "itself to someone"
+	cont "as vile as you."
+
+	para "Your horribleness"
+	line "will freeze your"
+	cont "soul forever!"
 ;	xxxx "123456789012345678"
 	done

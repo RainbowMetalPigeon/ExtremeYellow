@@ -130,6 +130,7 @@ INCLUDE "text/FuchsiaPokecenter.asm"
 INCLUDE "text/FuchsiaMeetingRoom.asm"
 INCLUDE "data/text/text_7.asm"
 INCLUDE "engine/battle/just_slot_machine_stuff.asm" ; implementing Vortiene's solution (suboptimally)
+INCLUDE "text/CeladonPokecenter.asm"
 
 
 SECTION "Text 8", ROMX
@@ -140,7 +141,6 @@ INCLUDE "text/CeladonCity.asm"
 INCLUDE "text/FuchsiaCity.asm"
 INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
-INCLUDE "text/CeladonPokecenter.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones

@@ -161,7 +161,7 @@ _SeviiSixIslandHousesText2::
 
 _SeviiSixIslandHousesText3::
 	text "Do you know"
-	line "MT. EMBER, north"
+	line "MT.EMBER, north"
 	cont "of KNOT ISLAND?"
 
 	para "There are rumors"
@@ -900,7 +900,7 @@ _SeviiRoute38Text2::
 	cont "unknown language!"
 
 	para "Oh, and the unex-"
-	line "plored MT. EMBER"
+	line "plored MT.EMBER"
 	cont "near KNOT!"
 
 	para "ICEFALL in FLOE!"

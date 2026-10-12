@@ -151,7 +151,15 @@ _Route10ScriptText1::
 ; new for RP =====================
 
 _Route10ScriptText1_RP::
-	text "post-battle"
-	line "R 10"
+	text "You may have won,"
+	line "but there's no way"
+	cont "that the legendary"
+	cont "ZAPDOS will show"
+	cont "itself to someone"
+	cont "as vile as you."
+
+	para "Your horribleness"
+	line "will electrocute"
+	cont "your deeds!"
 ;	xxxx "123456789012345678"
 	done

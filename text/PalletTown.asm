@@ -316,9 +316,6 @@ _DarkGuideHints_Hint3_Solution::
 	para "LANCE:"
 	line "CERULEAN CAVE"
 
-	para "RIVAL:"
-	line "WONDERLAND"
-
 	para "PROF.OAK:"
 	line "ROUTE 21"
 	prompt
@@ -465,7 +462,7 @@ _DarkGuideHints_Hint8_Solution::
 	cont "which you need to"
 	cont "bring the FLAME"
 	cont "PLUME, found in"
-	cont "MT. EMBER, to LAKE"
+	cont "MT.EMBER, to LAKE"
 	cont "OF MIST."
 
 	para "The TOPAZ's in the"

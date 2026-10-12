@@ -230,7 +230,7 @@ _CinnabarIslandScriptText6::
 	line "rumors, it should"
 	cont "dwell here. But"
 	cont "others say it is"
-	cont "in MT. EMBER, in"
+	cont "in MT.EMBER, in"
 	cont "SEVII ISLANDS."
 
 	para "Alas, I have no"
@@ -248,31 +248,56 @@ _CinnabarIslandScriptText6::
 ; new for RP ============================
 
 _CinnabarIslandSpecialBirdKeeperText_Pre_RP::
-	text "pre"
-	line "you filth"
+	text "You do WHAT to"
+	line "birbs?! You"
+	cont "disgusting filth!"
+
+	para "I won't ever let"
+	line "you near any birb!"
 ;	xxxx "123456789012345678"
 	done
 
 _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP::
-	text "after"
-	line "you shit"
+	text "No!"
+	line "The birbs!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _CinnabarIslandSpecialBirdKeeperText_Pre_RP_AsHero::
-	text "pre as hero"
-	line "you filth"
+	text "But...! You are?!"
+
+	para "No! Oh no! How"
+	line "could I possibly"
+	cont "trust a ROCKET to"
+	cont "be a birb lover?!"
+
+	para "And I even gave"
+	line "you seeds..."
+
+	para "I must stop you"
+	line "here and now!"
 ;	xxxx "123456789012345678"
 	done
 
 _CinnabarIslandSpecialBirdKeeperText_AfterBattle_RP_AsHero::
-	text "after as hero"
-	line "you shit"
+	text "No!"
+	line "How could you"
+	cont "deceive and"
+	cont "betray me like"
+	cont "this?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _CinnabarIslandScriptText6_RP::
-	text "post-battle"
-	line "cinnabar"
+	text "You may have won,"
+	line "but there's no way"
+	cont "that the legendary"
+	cont "MOLTRES will show"
+	cont "itself to someone"
+	cont "as vile as you."
+
+	para "Your horribleness"
+	line "will have you"
+	cont "burned to ashes!"
 ;	xxxx "123456789012345678"
 	done
