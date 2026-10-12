@@ -105,31 +105,26 @@ AIGetTypeEffectiveness::
 	ld a, [hl]
 	ld [wTypeEffectiveness], a ; store damage multiplier
 .exitLoop1
-
-	ld a, 5 ; we divide by 5
-	ldh [hDivisor], a
-	ld a, [wTypeEffectiveness]
-	ldh [hDividend], a
-	ld b, 1
-	call Divide ; we divide the type effectivness by 5: 0 for not effective, 1 for not very, 2 for normal, 4 for super
-	; now [hQuotient + 3] contains the scaled-down effectiveness
-
 	pop bc ; to restore the type 1
 	pop hl ; restore the pointer to the effectiveness chart
 
+	ld a, [wTypeEffectiveness]
+	ld c, a ; c = E1, kept for the final immunity check (Multiply/Divide preserve bc)
+	ldh [hMultiplicand + 2], a
+	xor a
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
+
+	ld a, 10
+	ld [wTypeEffectiveness], a ; effectiveness2 = neutral by default (also covers monotypes)
+
 	ld a, [wBattleMonType2]
 	cp b
-	jr nz, .secondTypeCheck
-; we don't check the same type twice for a monotype mon
-	ldh a, [hQuotient+3]
-	add a ; we double the current value, i.e. we multiply by 2, which happens to be the neutral damage of the "copy" of the only one type we have
-	jr .completing
+	jr z, .exitLoop2 ; monotype: don't check the same type twice
 
 .secondTypeCheck
 	ld b, a ; b = type 2 of player's pokemon
 
-	ld a, 10
-	ld [wTypeEffectiveness], a ; initialize to neutral effectiveness (in case we find no matches)
 .loop2
 	ld a, [hli]
 	cp $ff
@@ -149,27 +144,33 @@ AIGetTypeEffectiveness::
 	ld a, [hl]
 	ld [wTypeEffectiveness], a ; store damage multiplier
 .exitLoop2
-
-	xor a
-	ldh [hMultiplicand], a
 	ld a, [wTypeEffectiveness]
 	ldh [hMultiplier], a
-	call Multiply ; we have Effectivness1 / 5 * Effectivness2, which is at most 4*20=80<255, so still 1 byte
-
-	ld a, 5
+	call Multiply ; E1 * E2, at most 80 * 20 = 1600
+	ld a, 25
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
-
-	ldh a, [hQuotient + 3] ; now a contains Effectivness1 / 5 * Effectivness2 / 5:
-						   ; 0 for not effective
-						   ; 1 for 1/4
-						   ; 2 for 1/2
-						   ; 4 for 1
-						   ; 8 for 2
-						   ; 16 for 4
+	ldh a, [hQuotient + 3]
+	and a
+	jr nz, .completing
+; quotient is 0: truly immune only if one of the two factors was 0
+	ld a, c ; E1
+	and a
+	jr z, .completing
+	ld a, [wTypeEffectiveness] ; E2
+	and a
+	jr z, .completing
+	ld a, 1 ; not immune, just very resisted: round up
 .completing
-	ld [wTypeEffectiveness], a
+	ld [wTypeEffectiveness], a	; now a contains Effectiveness1 * Effectiveness2 / 25:
+						 		; 0 for not effective
+						 		; 1 for x1/4 (or less)
+						 		; 2 for x1/2
+						 		; 4 for x1
+						 		; 8 for x2
+						 		; 16 for x4
+						 		; 32 for x8
 	ret
 
 ; ====================================================================
@@ -370,6 +371,30 @@ TypeEffects:
 	db STEEL,        ELECTRIC,     NOT_VERY_EFFECTIVE
 	db STEEL,        STEEL,        NOT_VERY_EFFECTIVE
 
+	db TRIPLE,       GROUND,       NO_EFFECT
+	db TRIPLE,       FIRE,         DOUBLE_NOT_VERY_EFFECTIVE
+	db TRIPLE,       WATER,        NOT_VERY_EFFECTIVE
+	db TRIPLE,       ROCK,         NOT_VERY_EFFECTIVE
+	db TRIPLE,       DRAGON,       NOT_VERY_EFFECTIVE
+	db TRIPLE,       ELECTRIC,     NOT_VERY_EFFECTIVE
+	db TRIPLE,       GRASS,        SUPER_EFFECTIVE
+	db TRIPLE,       BUG,          SUPER_EFFECTIVE
+	db TRIPLE,       FLYING,       DOUBLE_SUPER_EFFECTIVE
+
+	db ICE,          TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+	db ELECTRIC,     TRIPLE,       NOT_VERY_EFFECTIVE
+	db GRASS,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db FLYING,       TRIPLE,       NOT_VERY_EFFECTIVE
+	db BUG,          TRIPLE,       NOT_VERY_EFFECTIVE
+	db STEEL,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db FAIRY,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db WATER,        TRIPLE,       SUPER_EFFECTIVE
+	db FIGHTING,     TRIPLE,       SUPER_EFFECTIVE
+	db GROUND,       TRIPLE,       DOUBLE_SUPER_EFFECTIVE
+	db ROCK,         TRIPLE,       DOUBLE_SUPER_EFFECTIVE
+
+	db TRIPLE,       TRIPLE,       TRIPLE_NOT_VERY_EFFECTIVE
+
 	db -1 ; end
 
 TypeEffectsInverse:
@@ -530,6 +555,31 @@ TypeEffectsInverse:
 	db STEEL,        WATER,        SUPER_EFFECTIVE
 	db STEEL,        ELECTRIC,     SUPER_EFFECTIVE
 	db STEEL,        STEEL,        SUPER_EFFECTIVE
+
+
+
+	db TRIPLE,       FIRE,         DOUBLE_SUPER_EFFECTIVE
+	db TRIPLE,       WATER,        SUPER_EFFECTIVE
+	db TRIPLE,       ROCK,         SUPER_EFFECTIVE
+	db TRIPLE,       DRAGON,       SUPER_EFFECTIVE
+	db TRIPLE,       ELECTRIC,     SUPER_EFFECTIVE
+	db TRIPLE,       GRASS,        NOT_VERY_EFFECTIVE
+	db TRIPLE,       BUG,          NOT_VERY_EFFECTIVE
+	db TRIPLE,       FLYING,       DOUBLE_NOT_VERY_EFFECTIVE
+
+	db ICE,          TRIPLE,       DOUBLE_SUPER_EFFECTIVE
+	db ELECTRIC,     TRIPLE,       SUPER_EFFECTIVE
+	db GRASS,        TRIPLE,       SUPER_EFFECTIVE
+	db FLYING,       TRIPLE,       SUPER_EFFECTIVE
+	db BUG,          TRIPLE,       SUPER_EFFECTIVE
+	db STEEL,        TRIPLE,       SUPER_EFFECTIVE
+	db FAIRY,        TRIPLE,       SUPER_EFFECTIVE
+	db WATER,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db FIGHTING,     TRIPLE,       NOT_VERY_EFFECTIVE
+	db GROUND,       TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+	db ROCK,         TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+
+	db TRIPLE,       TRIPLE,       TRIPLE_SUPER_EFFECTIVE
 
 	db -1 ; end
 
@@ -716,6 +766,30 @@ TypeEffects_Pigeon:
 	db FAIRY,        BUG,          NOT_VERY_EFFECTIVE
 	db FAIRY,        STEEL,        NOT_VERY_EFFECTIVE
 
+	db TRIPLE,       DRAGON,       TRIPLE_NOT_VERY_EFFECTIVE
+	db TRIPLE,       FIGHTING,     DOUBLE_NOT_VERY_EFFECTIVE
+	db TRIPLE,       FIRE,         NOT_VERY_EFFECTIVE
+	db TRIPLE,       WATER,        NOT_VERY_EFFECTIVE
+	db TRIPLE,       ELECTRIC,     NOT_VERY_EFFECTIVE
+	db TRIPLE,       ROCK,         NOT_VERY_EFFECTIVE
+	db TRIPLE,       GROUND,       SUPER_EFFECTIVE
+	db TRIPLE,       STEEL,        SUPER_EFFECTIVE
+	db TRIPLE,       GRASS,        DOUBLE_SUPER_EFFECTIVE
+	db TRIPLE,       BUG,          DOUBLE_SUPER_EFFECTIVE
+	db TRIPLE,       GHOST,        TRIPLE_SUPER_EFFECTIVE
+
+	db ELECTRIC,     TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+	db BUG,          TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+	db GRASS,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db PSYCHIC_TYPE, TRIPLE,       NOT_VERY_EFFECTIVE
+	db STEEL,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db FAIRY,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db WATER,        TRIPLE,       SUPER_EFFECTIVE
+	db GROUND,       TRIPLE,       DOUBLE_SUPER_EFFECTIVE
+	db DRAGON,       TRIPLE,       TRIPLE_SUPER_EFFECTIVE
+
+	db TRIPLE,       TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+
 	db -1 ; end
 
 ; ====================================================================
@@ -900,6 +974,30 @@ TypeEffects_PigeonInverse:
 	db FAIRY,        GRASS,        SUPER_EFFECTIVE
 	db FAIRY,        BUG,          SUPER_EFFECTIVE
 	db FAIRY,        STEEL,        SUPER_EFFECTIVE
+
+	db TRIPLE,       DRAGON,       TRIPLE_SUPER_EFFECTIVE
+	db TRIPLE,       FIGHTING,     DOUBLE_SUPER_EFFECTIVE
+	db TRIPLE,       FIRE,         SUPER_EFFECTIVE
+	db TRIPLE,       WATER,        SUPER_EFFECTIVE
+	db TRIPLE,       ELECTRIC,     SUPER_EFFECTIVE
+	db TRIPLE,       ROCK,         SUPER_EFFECTIVE
+	db TRIPLE,       GROUND,       NOT_VERY_EFFECTIVE
+	db TRIPLE,       STEEL,        NOT_VERY_EFFECTIVE
+	db TRIPLE,       GRASS,        DOUBLE_NOT_VERY_EFFECTIVE
+	db TRIPLE,       BUG,          DOUBLE_NOT_VERY_EFFECTIVE
+	db TRIPLE,       GHOST,        TRIPLE_NOT_VERY_EFFECTIVE
+
+	db ELECTRIC,     TRIPLE,       DOUBLE_SUPER_EFFECTIVE
+	db BUG,          TRIPLE,       DOUBLE_SUPER_EFFECTIVE
+	db GRASS,        TRIPLE,       SUPER_EFFECTIVE
+	db PSYCHIC_TYPE, TRIPLE,       SUPER_EFFECTIVE
+	db STEEL,        TRIPLE,       SUPER_EFFECTIVE
+	db FAIRY,        TRIPLE,       SUPER_EFFECTIVE
+	db WATER,        TRIPLE,       NOT_VERY_EFFECTIVE
+	db GROUND,       TRIPLE,       DOUBLE_NOT_VERY_EFFECTIVE
+	db DRAGON,       TRIPLE,       TRIPLE_NOT_VERY_EFFECTIVE
+
+	db TRIPLE,       TRIPLE,       DOUBLE_SUPER_EFFECTIVE
 
 	db -1 ; end
 

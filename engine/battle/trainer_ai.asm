@@ -550,8 +550,12 @@ AIMoveChoiceModification1:
 	ld a, [wBattleMonType1]
 	cp FIRE
 	jp z, .veryHeavilyDiscourage
+	cp TRIPLE
+	jp z, .veryHeavilyDiscourage
 	ld a, [wBattleMonType2]
 	cp FIRE
+	jp z, .veryHeavilyDiscourage
+	cp TRIPLE
 	jp z, .veryHeavilyDiscourage
 	jp .nextMove
 
@@ -1056,7 +1060,7 @@ AIMoveChoiceModification3:
 	jr z, .notVeryEffective
 	cp 8
 	jr z, .superEffective
-	; if we are here, it's double super effective
+	; if we are here, it's double (or triple) super effective
 	dec [hl]
 	dec [hl]
 .superEffective
@@ -1250,7 +1254,7 @@ AIMoveChoiceModification3:
 	ld a, [wTypeEffectiveness] ; 0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective
 	cp 4 ; compare with neutral
 	jp c, .nextMove4 ; we don't encourage a priority move that is not at least neutral
-; if we are here, it's a neutral or (double)super effective damaging priority move
+; if we are here, it's a neutral or (double/triple)super effective damaging priority move
 ; let's now check if the opponent is slower than us
 	call CheckIfOpponentIsFasterThanPlayer ; c flag if opponent is faster
 	jp c, .nextMove4 ; don't encourage if opponent is faster
@@ -1520,8 +1524,12 @@ AIMoveChoiceModification3:
 	ld a, [wEnemyMonType1]
 	cp ICE
 	jr z, .encourageByOne_H
+	cp TRIPLE
+	jr z, .encourageByOne_H
 	ld a, [wEnemyMonType2]
 	cp ICE
+	jr z, .encourageByOne_H
+	cp TRIPLE
 	jr nz, .postEncourageByOne_H
 .encourageByOne_H
 	dec [hl]

@@ -29,16 +29,24 @@ BurnEffect_:
 	ld a, [wBattleMonType1]
 	cp FIRE
 	jr z, .didntAffect
+	cp TRIPLE
+	jr z, .didntAffect
 	ld a, [wBattleMonType2]
 	cp FIRE
+	jr z, .didntAffect
+	cp TRIPLE
 	jr z, .didntAffect
 	jr .hitTest
 .playersTurn
 	ld a, [wEnemyMonType1]
 	cp FIRE
 	jr z, .didntAffect
+	cp TRIPLE
+	jr z, .didntAffect
 	ld a, [wEnemyMonType2]
 	cp FIRE
+	jr z, .didntAffect
+	cp TRIPLE
 	jr z, .didntAffect
 .hitTest
 	push hl

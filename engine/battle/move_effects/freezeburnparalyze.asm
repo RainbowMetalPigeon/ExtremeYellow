@@ -24,6 +24,21 @@ FreezeBurnParalyzeEffect_::
 	ld a, [wEnemyMonType2]
 	cp b ; do target type 2 and move type match?
 	ret z  ; return if they match
+; new for TRIPLE
+	cp TRIPLE
+	jr z, .checkTripleTypePlayer
+	ld a, [wEnemyMonType1]
+	cp TRIPLE
+	jr nz, .notTripleTypePlayer
+.checkTripleTypePlayer
+	ld a, [wPlayerMoveType]
+	cp FIRE
+	ret z
+	cp ICE
+	ret z
+	cp ELECTRIC
+	ret z
+.notTripleTypePlayer
 	ld a, [wPlayerMoveEffect]
 	cp PARALYZE_SIDE_EFFECT_CERT	; new
 	jr z, .paralyze1				; new
@@ -82,6 +97,7 @@ FreezeBurnParalyzeEffect_::
 	call PlayAlternativeAnimationCopy ; edited ; edited into the copy
 	ld hl, FrozenText
 	jp PrintText
+
 .opponentAttacker
 	ld a, [wBattleMonStatus] ; mostly same as above with addresses swapped for opponent
 	and a
@@ -101,6 +117,21 @@ FreezeBurnParalyzeEffect_::
 	ld a, [wBattleMonType2]
 	cp b
 	ret z
+; new for TRIPLE
+	cp TRIPLE
+	jr z, .checkTripleTypeEnemy
+	ld a, [wBattleMonType1]
+	cp TRIPLE
+	jr nz, .notTripleTypeEnemy
+.checkTripleTypeEnemy
+	ld a, [wEnemyMoveType]
+	cp FIRE
+	ret z
+	cp ICE
+	ret z
+	cp ELECTRIC
+	ret z
+.notTripleTypeEnemy
 ; new, to handle luck: secondary effects
 	ld a, [wLuckSecondaryEffects] ; 0=NORMAL, 1=PLAYER MIN, 2=ENEMY MAX, 3=BOTH
 	and a

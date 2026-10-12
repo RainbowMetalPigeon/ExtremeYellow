@@ -292,7 +292,7 @@ HandlePoisonBurnLeechSeed::
 	jp .checkUnderwater ; noDamagingWeathers
 .checkHail
 	CheckEvent EVENT_WEATHER_HAIL
-	jr z, .checkUnderwater ; noDamagingWeathers
+	jp z, .checkUnderwater ; noDamagingWeathers
 ; Hail, player
 ; check if player invulnerable
 	ld hl, wPlayerBattleStatus1
@@ -315,8 +315,12 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hli] ; a=type1, hl->type2
 	cp ICE
 	jr z, .hailCheckEnemy
+	cp TRIPLE
+	jr z, .hailCheckEnemy
 	ld a, [hl]
 	cp ICE
+	jr z, .hailCheckEnemy
+	cp TRIPLE
 	jr z, .hailCheckEnemy
 .playerDamaged_Hail
 ; player damaged by Hail
@@ -352,8 +356,12 @@ HandlePoisonBurnLeechSeed::
 	ld a, [hli] ; a=type1, hl->type2
 	cp ICE
 	jr z, .checkUnderwater
+	cp TRIPLE
+	jr z, .checkUnderwater
 	ld a, [hl]
 	cp ICE
+	jr z, .checkUnderwater
+	cp TRIPLE
 	jr z, .checkUnderwater
 .enemyDamaged_Hail
 ; enemy damaged by Hail
@@ -763,19 +771,6 @@ HurtByHailText:
 HurtByUnderwaterText:
 	text_far _HurtByUnderwaterText
 	text_end
-
-;SwapTurns: ; has always to be used twice
-;	ldh a, [hWhoseTurn]
-;	and a
-;	jr z, .currentlyPlayersTurn
-;; currently enemy's turn
-;	dec a
-;	jr .conclude
-;.currentlyPlayersTurn
-;	inc a
-;.conclude
-;	ldh [hWhoseTurn], a
-;	ret
 
 MakeTurnIntoPlayersTurn::
 	ldh a, [hWhoseTurn]

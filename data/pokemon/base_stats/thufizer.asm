@@ -3,7 +3,7 @@
 	db 105, 116, 116, 116, 133, 116
 	;   hp  atk  def  spd  sat  sdf
 
-	db FLYING, FLYING ; type
+	db TRIPLE, FLYING ; type
 	db 3 ; catch rate
 	db 254 ; base exp
 

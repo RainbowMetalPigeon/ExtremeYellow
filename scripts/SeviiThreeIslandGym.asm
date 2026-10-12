@@ -161,12 +161,19 @@ SeviiThreeIslandGymText1:
 	ld [wCurOpponent], a
 
 	ld a, [wMultipurposeBuffer]
+; if TRIPLE, use the same team as against BIRD 
+	cp TRIPLE
+	jr nz, .nonTriple
+	ld a, 7
+	jr .gotTeamIndex
+.nonTriple
 	cp 13 ; between physical and special types
 	jr c, .physical
 ; special type
 	sub 10
 .physical
 	inc a
+.gotTeamIndex
 	ld [wTrainerNo], a
 
 	ld a, 1
@@ -179,7 +186,7 @@ SeviiThreeIslandGymText1:
 
 .type1NotNull
 	cp e
-	jr z, .oneMatchFound ; type1=type2
+	jp z, .oneMatchFound ; type1=type2
 	ld a, e
 	cp $FF
 	ld a, d ; load correct value in a in case e=$FF so we're ready for the .oneMatchFound

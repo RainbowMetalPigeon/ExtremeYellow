@@ -29,7 +29,8 @@ DEF SPECIAL EQU const_value
 	const DRAGON       ; $1A=26
 	const DARK         ; $1B=27
 	const FAIRY        ; $1C=28
-	const ICE2         ; $1D=29 ; new, for FREEZE_DRY
+	const TRIPLE       ; $1D=29 ; new, for THU_FI_ZER and TRI_ATTACK
+	const ICE2         ; $1E=30 ; new, for FREEZE_DRY
 
 DEF NUM_TYPES EQU const_value
 

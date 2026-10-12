@@ -3219,7 +3219,7 @@ PrintMenuItem:
 	dec a
 	ld c, a ; new
 	callfar MoveInfoCopier ; new
-	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
+	callfar CheckTripleAndWeathersAndTerrainsForBallAndPulse ; new
 
 ; print TYPE/<type> and <curPP>/<maxPP>
 
@@ -3633,7 +3633,7 @@ PlayerCalcMoveDamage:
 	call CalculateDamage
 	jp z, playerCheckIfFlyOrChargeEffect ; for moves with 0 BP, skip any further damage calculation and, for now, skip MoveHitTest
 	               ; for these moves, accuracy tests will only occur if they are called as part of the effect itself
-	call AdjustDamageForMoveType
+	callfar AdjustDamageForMoveType ; edited into a callfar
 	callfar RandomizeDamage ; edited into a callfar
 .moveHitTest
 	call MoveHitTest
@@ -4766,7 +4766,7 @@ GetDamageVarsForPlayerAttack:
 	push de ; unnecessary?
 	call IsMoveSpecialOrPhysical_Player ; new: c=physical, nc=special
 	pop de
-	jr nc, .specialAttack
+	jp nc, .specialAttack
 
 .physicalAttack
 	ld hl, wEnemyMonDefense
@@ -4798,8 +4798,12 @@ GetDamageVarsForPlayerAttack:
 .checkHailNoTCG
 	cp ICE
 	jr z, .targetIsIce
+	cp TRIPLE
+	jr z, .targetIsIce
 	ld a, [wEnemyMonType2]
 	cp ICE
+	jr z, .targetIsIce
+	cp TRIPLE
 	jr nz, .physicalAttackCritCheck
 .targetIsIce
 	ld h, b
@@ -4993,7 +4997,7 @@ GetDamageVarsForEnemyAttack:
 	push de ; unnecessary?
 	call IsMoveSpecialOrPhysical_Enemy ; new: c=physical, nc=special
 	pop de
-	jr nc, .specialAttack
+	jp nc, .specialAttack
 
 .physicalAttack
 	ld hl, wBattleMonDefense
@@ -5025,8 +5029,12 @@ GetDamageVarsForEnemyAttack:
 .checkHailNoTCG
 	cp ICE
 	jr z, .targetIsIce
+	cp TRIPLE
+	jr z, .targetIsIce
 	ld a, [wBattleMonType2]
 	cp ICE
+	jr z, .targetIsIce
+	cp TRIPLE
 	jr nz, .physicalAttackCritCheck
 .targetIsIce
 	ld h, b
@@ -5917,7 +5925,7 @@ ReloadMoveData:
 	dec a
 	ld c, a ; new
 	callfar MoveInfoCopier ; new
-	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
+	callfar CheckTripleAndWeathersAndTerrainsForBallAndPulse ; new
 	call IncrementMovePP
 ; the follow two function calls are used to reload the move name
 	call GetMoveName
@@ -5986,193 +5994,6 @@ IncrementMovePP:
 	ld bc, wEnemyMon2 - wEnemyMon1
 	call AddNTimes
 	inc [hl] ; increment PP in the party memory location
-	ret
-
-; function to adjust the base damage of an attack to account for type effectiveness
-AdjustDamageForMoveType:
-; values for player turn
-	ld hl, wBattleMonType
-	ld a, [hli]
-	ld b, a    ; b = type 1 of attacker
-	ld c, [hl] ; c = type 2 of attacker
-	ld hl, wEnemyMonType
-	ld a, [hli]
-	ld d, a    ; d = type 1 of defender
-	ld e, [hl] ; e = type 2 of defender
-	ld a, [wPlayerMoveType]
-	ld [wMoveType], a
-	ldh a, [hWhoseTurn]
-	and a
-	jr z, .next
-; values for enemy turn
-	ld hl, wEnemyMonType
-	ld a, [hli]
-	ld b, a    ; b = type 1 of attacker
-	ld c, [hl] ; c = type 2 of attacker
-	ld hl, wBattleMonType
-	ld a, [hli]
-	ld d, a    ; d = type 1 of defender
-	ld e, [hl] ; e = type 2 of defender
-	ld a, [wEnemyMoveType]
-	ld [wMoveType], a
-.next
-	ld a, [wMoveType]
-; new block of code to handle ThousandArrows and FreezeDry
-	cp GROUND2
-	jr nz, .notThousandArrows
-	ld a, GROUND
-	jr .continueWithSTABExamine
-.notThousandArrows
-	cp ICE2
-	jr nz, .continueWithSTABExamine
-	ld a, ICE
-.continueWithSTABExamine
-; back to vanilla
-	cp b ; does the move type match type 1 of the attacker?
-	jr z, .sameTypeAttackBonus
-	cp c ; does the move type match type 2 of the attacker?
-	jr z, .sameTypeAttackBonus
-	jr .skipSameTypeAttackBonus
-.sameTypeAttackBonus
-; if the move type matches one of the attacker's types
-	ld hl, wDamage + 1
-	ld a, [hld]
-	ld h, [hl]
-	ld l, a    ; hl = damage
-	ld b, h
-	ld c, l    ; bc = damage
-	srl b
-	rr c      ; bc = floor(0.5 * damage)
-	add hl, bc ; hl = floor(1.5 * damage)
-; store damage
-	ld a, h
-	ld [wDamage], a
-	ld a, l
-	ld [wDamage + 1], a
-	ld hl, wDamageMultipliers
-	set 7, [hl]
-.skipSameTypeAttackBonus
-
-; new block of code to handle Judgment & Ancestor_Pwr (always super effective)
-	ldh a, [hWhoseTurn]
-	and a
-	ld a, [wPlayerMoveNum]
-	jr z, .player
-	ld a, [wEnemyMoveNum]
-.player
-	cp JUDGMENT
-	jr z, .isDivine
-	cp ANCESTOR_PWR
-	jr nz, .notTheAttackOfGod
-.isDivine
-	ld a, [wDamageMultipliers]
-	and $80
-	ld b, a ; to store a piece of info necessary for effectiveness displaying
-	ld a, SUPER_EFFECTIVE
-	jr .isTheAttackOfGod
-.notTheAttackOfGod
-
-; new, to handle randomization: type chart
-	ld a, [wCurOpponent]
-	cp OPP_GONQUE
-	jr nz, .noGonque
-.randomizeTheChart
-	jpfar CalculateDamageAndMessageForRandomizatedTypeChart
-.noGonque
-	ld a, [wRandomizationTypeChart]
-	and a
-	jr nz, .randomizeTheChart
-;.notRandomizedTypeChart
-
-; back to vanilla
-
-; new, to disentangle the type_matchups.asm file
-	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
-.pseudoLoop
-	push de
-	callfar TypeEffectivenessMatchFinder
-	pop de
-	ld a, [wMultipurposeTemporaryStorage]
-	cp $FF
-	jr z, .done
-; BTV
-
-	ld a, [wDamageMultipliers]
-	and $80
-	ld b, a
-	ld a, [wMultipurposeTemporaryStorage] ; a = damage multiplier
-.isTheAttackOfGod ; new, to handle Judgment
-	ldh [hMultiplier], a
-
-; new block of code, bugfix for super-not-very effective moves effectiveness display bug
-	and a ; cp NO_EFFECT
-	jr z, .gotMultiplier
-	cp NOT_VERY_EFFECTIVE
-	jr nz, .nothalf
-	ld a, [wDamageMultipliers]
-	and $7f
-	srl a
-	jr .gotMultiplier
-.nothalf
-	cp SUPER_EFFECTIVE
-	jr nz, .gotMultiplier
-	ld a, [wDamageMultipliers]
-	and $7f
-	sla a
-.gotMultiplier
-
-	add b
-	ld [wDamageMultipliers], a
-
-	xor a
-	ldh [hMultiplicand], a
-	ld hl, wDamage
-	ld a, [hli]
-	ldh [hMultiplicand + 1], a
-	ld a, [hld]
-	ldh [hMultiplicand + 2], a
-	call Multiply
-
-	ld a, 10 ; this is the "normal effectiveness", I edited it in another hackrom, and actually also did a PR
-	ldh [hDivisor], a
-	ld b, $04
-	call Divide
-
-	ldh a, [hQuotient + 2]
-	ld [hli], a
-	ld b, a
-	ldh a, [hQuotient + 3]
-	ld [hl], a
-	or b ; is damage 0?
-	jr nz, .skipTypeImmunity
-.typeImmunity
-; if damage is 0, make the move miss
-; this only occurs if a move that would do 2 or 3 damage is 0.25x effective against the target
-	inc a
-	ld [wMoveMissed], a
-.skipTypeImmunity
-
-; new block of code to handle Judgment and Ancestor_Pwr (always super effective)
-; this second block is here to prevent counting multiple times its effectiveness
-; we already made it super effective once regardless of defender's type(s)
-	ldh a, [hWhoseTurn]
-	and a
-	ld a, [wPlayerMoveNum]
-	jr z, .player2
-	ld a, [wEnemyMoveNum]
-.player2
-	cp JUDGMENT
-	ret z
-	cp ANCESTOR_PWR
-	ret z
-
-.nextTypePair
-	CheckEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
-	jr nz, .done
-	jr .pseudoLoop
-.done
-	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
-	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
 	ret
 
 ; some tests that need to pass for a move to hit
@@ -6506,7 +6327,7 @@ EnemyCalcMoveDamage:
 	call SwapPlayerAndEnemyLevels
 	call CalculateDamage
 	jp z, EnemyCheckIfFlyOrChargeEffect
-	call AdjustDamageForMoveType
+	callfar AdjustDamageForMoveType ; edited into a callfar
 	callfar RandomizeDamage ; edited into a callfar
 
 EnemyMoveHitTest::
@@ -7017,7 +6838,7 @@ GetCurrentMove:
 	dec a
 	ld c, a ; new
 	callfar MoveInfoCopier ; new
-	callfar CheckWeathersAndTerrainsForBallAndPulse ; new
+	callfar CheckTripleAndWeathersAndTerrainsForBallAndPulse ; new
 	ld a, BANK(MoveNames)
 	ld [wPredefBank], a
 	ld a, MOVE_NAME

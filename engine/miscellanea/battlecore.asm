@@ -206,7 +206,7 @@ AreYouSureText:
 ; function to tell how effective the type of an enemy attack is on the player's current pokemon
 ; when the type chart is randomized
 ; the result is stored in [wTypeEffectiveness]
-; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+; (0 is not effective, 1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective, 32 triple super effective)
 AIGetTypeEffectivenessRandomizedChart::
 	ld a, [wEnemyMoveType]
 	ld b, a                    ; b = type of enemy move
@@ -419,7 +419,7 @@ GetRandomizedTypeMatchup:
     push bc
     push de ; preserve the original types for the final "special type check"
     call RescaleTypes ; a contains the re-scaled offensive type
-    ld bc, 19
+    ld bc, 20 ; number of used types (includes BIRD and TRIPLE, does not include ICE2 and GROUND2)
     call AddNTimes ; add bc to hl a times
     ld a, d
     call RescaleTypes ; a contains the re-scaled defensive type
@@ -617,6 +617,8 @@ PerformChecks:
 	ret
 .noTCGMode ; -----
 	cp FIRE
+	jr z, .fire
+	cp TRIPLE
 	jr z, .fire
 	cp WATER
 	jr z, .water
@@ -986,4 +988,272 @@ CheckIfSkippingInvulnerability::
 	ret
 .resetCarryFlagToNotSkipInvulnerability
 	xor a
+	ret
+
+; ===================================================
+
+; function to adjust the base damage of an attack to account for type effectiveness
+AdjustDamageForMoveType::
+; values for player turn
+	ld hl, wBattleMonType
+	ld a, [hli]
+	ld b, a    ; b = type 1 of attacker
+	ld c, [hl] ; c = type 2 of attacker
+	ld hl, wEnemyMonType
+	ld a, [hli]
+	ld d, a    ; d = type 1 of defender
+	ld e, [hl] ; e = type 2 of defender
+	ld a, [wPlayerMoveType]
+	ld [wMoveType], a
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .next
+; values for enemy turn
+	ld hl, wEnemyMonType
+	ld a, [hli]
+	ld b, a    ; b = type 1 of attacker
+	ld c, [hl] ; c = type 2 of attacker
+	ld hl, wBattleMonType
+	ld a, [hli]
+	ld d, a    ; d = type 1 of defender
+	ld e, [hl] ; e = type 2 of defender
+	ld a, [wEnemyMoveType]
+	ld [wMoveType], a
+.next
+	ld a, [wMoveType]
+; new block of code to handle ThousandArrows and FreezeDry
+	cp GROUND2
+	jr nz, .checkIce2
+	ld a, GROUND
+	jr .continueWithSTABExamine
+.checkIce2
+	cp ICE2
+	jr nz, .continueWithSTABExamine
+	ld a, ICE
+.continueWithSTABExamine
+	push af ; save the updated move type
+
+; new for TRIPLE
+	ld a, b
+	cp TRIPLE
+	jr z, .attackerIsTripleType
+	ld a, c
+	cp TRIPLE
+	jr nz, .attackerNotTripleType
+.attackerIsTripleType
+	pop af ; restore the move type from earlier
+	call IsTripleComponentType ; input = a, output = z if one of the 3
+	jr z, .sameTypeAttackBonus
+	jr .continueWithSTABExamine2 ; if the move is not fire/electric/ice, continue check STAB
+.attackerNotTripleType
+	pop af ; restore the move type from earlier (other branch)
+
+.continueWithSTABExamine2
+; back to vanilla
+	cp b ; does the move type match type 1 of the attacker?
+	jr z, .sameTypeAttackBonus
+	cp c ; does the move type match type 2 of the attacker?
+	jr z, .sameTypeAttackBonus
+	jr .skipSameTypeAttackBonus
+.sameTypeAttackBonus
+; if the move type matches one of the attacker's types
+	ld hl, wDamage + 1
+	ld a, [hld]
+	ld h, [hl]
+	ld l, a    ; hl = damage
+	ld b, h
+	ld c, l    ; bc = damage
+	srl b
+	rr c      ; bc = floor(0.5 * damage)
+	add hl, bc ; hl = floor(1.5 * damage)
+; store damage
+	ld a, h
+	ld [wDamage], a
+	ld a, l
+	ld [wDamage + 1], a
+	ld hl, wDamageMultipliers
+	set 7, [hl]
+.skipSameTypeAttackBonus
+
+; new block of code to handle Judgment & Ancestor_Pwr (always super effective)
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveNum]
+	jr z, .player
+	ld a, [wEnemyMoveNum]
+.player
+	cp JUDGMENT
+	jr z, .isDivine
+	cp ANCESTOR_PWR
+	jr nz, .notTheAttackOfGod
+.isDivine
+	ld a, [wDamageMultipliers]
+	and $80
+	ld b, a ; to store a piece of info necessary for effectiveness displaying
+	ld a, SUPER_EFFECTIVE
+	jr .isTheAttackOfGod
+.notTheAttackOfGod
+
+; new, to handle randomization: type chart
+	ld a, [wCurOpponent]
+	cp OPP_GONQUE
+	jr nz, .noGonque
+.randomizeTheChart
+	jp CalculateDamageAndMessageForRandomizatedTypeChart
+.noGonque
+	ld a, [wRandomizationTypeChart]
+	and a
+	jr nz, .randomizeTheChart
+;.notRandomizedTypeChart
+
+; back to vanilla
+
+; new, to disentangle the type_matchups.asm file
+	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+.pseudoLoop
+	push de
+	callfar TypeEffectivenessMatchFinder
+	pop de
+	ld a, [wMultipurposeTemporaryStorage]
+	cp $FF
+	jp z, .done
+; BTV
+
+	ld a, [wDamageMultipliers]
+	and $80
+	ld b, a
+	ld a, [wMultipurposeTemporaryStorage] ; a = damage multiplier
+.isTheAttackOfGod ; new, to handle Judgment
+	ldh [hMultiplier], a
+
+; new block of code, bugfix for super-not-very effective moves effectiveness display bug
+	and a ; cp NO_EFFECT
+	jr z, .gotMultiplier
+; not 0, but was it 0 already?
+	ld a, [wDamageMultipliers]
+	and $7f
+	jr z, .gotMultiplier
+; it wasn't 0 already
+	ldh a, [hMultiplier]
+	cp EFFECTIVE
+	jr nz, .notNeutral
+; neutral
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	jr .gotMultiplier
+.notNeutral
+; not neutrally effective, something needs to be done
+	cp TRIPLE_NOT_VERY_EFFECTIVE
+	jr z, .tripleNotVeryEffective
+	cp DOUBLE_NOT_VERY_EFFECTIVE
+	jr z, .doubleNotVeryEffective
+	cp NOT_VERY_EFFECTIVE
+	jr z, .notVeryEffective
+	cp SUPER_EFFECTIVE
+	jr z, .superEffective
+	cp DOUBLE_SUPER_EFFECTIVE
+	jr z, .doubleSuperEffective
+; triple super effective
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	sla a
+	sla a
+	sla a
+	jr .gotMultiplier
+.doubleSuperEffective
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	sla a
+	sla a
+	jr .gotMultiplier
+.superEffective
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	sla a
+	jr .gotMultiplier
+.notVeryEffective
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	srl a
+	jr .preGotMultiplier
+.doubleNotVeryEffective
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	srl a
+	srl a
+	jr .preGotMultiplier
+.tripleNotVeryEffective
+	ld a, [wDamageMultipliers]
+	and $7f ; we got rid of the STAB bit
+	srl a
+	srl a
+	srl a
+.preGotMultiplier
+	and a
+	jr nz, .gotMultiplier
+	inc a ; to prevent this from going to 0
+.gotMultiplier
+
+	add b
+	ld [wDamageMultipliers], a
+
+	xor a
+	ldh [hMultiplicand], a
+	ld hl, wDamage
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hld]
+	ldh [hMultiplicand + 2], a
+	call Multiply
+
+	ld a, 10 ; this is the "normal effectiveness", I edited it in another hackrom, and actually also did a PR
+	ldh [hDivisor], a
+	ld b, $04
+	call Divide
+
+	ldh a, [hQuotient + 2]
+	ld [hli], a
+	ld b, a
+	ldh a, [hQuotient + 3]
+	ld [hl], a
+	or b ; is damage 0?
+	jr nz, .skipTypeImmunity
+.typeImmunity
+; if damage is 0, make the move miss
+; this only occurs if a move that would do 2 or 3 damage is 0.25x effective against the target
+	inc a
+	ld [wMoveMissed], a
+.skipTypeImmunity
+
+; new block of code to handle Judgment and Ancestor_Pwr (always super effective)
+; this second block is here to prevent counting multiple times its effectiveness
+; we already made it super effective once regardless of defender's type(s)
+	ldh a, [hWhoseTurn]
+	and a
+	ld a, [wPlayerMoveNum]
+	jr z, .player2
+	ld a, [wEnemyMoveNum]
+.player2
+	cp JUDGMENT
+	ret z
+	cp ANCESTOR_PWR
+	ret z
+
+.nextTypePair
+	CheckEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
+	jr nz, .done
+	jp .pseudoLoop
+.done
+	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER
+	ResetEvent EVENT_ALREADY_ENTERED_TYPE_CHART_MATCHFINDER_AGAIN
+	ret
+
+; ===========================================================================
+
+IsTripleComponentType: ; returns z if a is ICE, FIRE, or ELECTRIC
+	cp ICE
+	ret z
+	cp FIRE
+	ret z
+	cp ELECTRIC
 	ret

@@ -13,7 +13,7 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db ARCEUS, 96 ; 255
+	db THU_FI_ZER, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
 	db MSTARMIE, 60
@@ -56,7 +56,7 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, STICKY_WEB
+	ld a, TRI_ATTACK
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, DIVE
@@ -92,7 +92,7 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-	ld a, PSYCHIC_TERRAIN ; CONFUSE_RAY ; DIG
+	ld a, TRI_ATTACK ; CONFUSE_RAY ; DIG
 	ld hl, wPartyMon4Moves
 	ld [hli], a
 	ld a, MISTY_TERRAIN ; WILL_O_WISP ; TELEPORT
@@ -197,7 +197,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 2
+	ld a, 0
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -318,7 +318,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 ;	callfar HideUndegroundGuard.hideGuards
 
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH

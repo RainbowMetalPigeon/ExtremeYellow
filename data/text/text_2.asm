@@ -1414,13 +1414,13 @@ _NotVeryEffectiveText::
 	prompt
 
 _ReallyNotVeryEffectiveText:: ; new
-	text "It's double not"
-	line "very effective..."
+	text "It's mostly"
+	line "ineffective..."
 	prompt
 
 _DoubleSuperEffectiveText:: ; new
-	text "It's double"
-	line "super effective!"
+	text "It's extremely"
+	line "effective!"
 	prompt
 
 _SafariZoneEatingText::

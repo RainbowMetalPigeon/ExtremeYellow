@@ -1144,6 +1144,8 @@ ConvertVanillaTypeToTCGType:
 	jr z, .convertToTCG_Fighting
 	cp FLYING
 	jr z, .convertToTCG_Colorless
+	cp TRIPLE
+	jr z, .convertToTCG_Colorless
 	cp POISON
 	jr z, .convertToTCG_Grass
 	cp GROUND

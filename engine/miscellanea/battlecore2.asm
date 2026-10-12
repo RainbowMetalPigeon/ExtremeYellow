@@ -27,7 +27,7 @@ EnemyRanText:
 
 ; ==========================================================
 
-CheckWeathersAndTerrainsForBallAndPulse:
+CheckTripleAndWeathersAndTerrainsForBallAndPulse:
 	ldh a, [hWhoseTurn]
 	and a
 	ld hl, wPlayerMoveNum
@@ -79,7 +79,7 @@ CheckWeathersAndTerrainsForBallAndPulse:
 
 .checkTerrainPulse
 	cp TERRAIN_PULSE
-	ret nz
+	jr nz, .checkTriAttack
 ; it's Terrain Pulse: check if the user is FLYING
 	push hl
 	callfar CheckIfTurnPokemonIsFlying ; z flag = FLYING
@@ -121,6 +121,32 @@ CheckWeathersAndTerrainsForBallAndPulse:
 .terrain
 	ld [hl], 100
 	inc hl ; now hl points to the move type
+	ld [hl], a
+	ret
+
+.checkTriAttack
+	cp TRI_ATTACK
+	ret nz
+; is the user a TRIPLE type?
+	ldh a, [hWhoseTurn]
+	and a
+	ld de, wBattleMonType1
+	jr z, .playersVariables
+	ld de, wEnemyMonType1
+.playersVariables
+	ld a, [de]
+	cp TRIPLE
+	jr z, .attackerIsTripleType
+	inc de
+	ld a, [de]
+	cp TRIPLE
+	ret nz
+.attackerIsTripleType
+	inc hl
+	inc hl ; now hl points to the move power
+	ld [hl], 120
+	inc hl ; now hl points to the move type
+	ld a, TRIPLE
 	ld [hl], a
 	ret
 
@@ -222,36 +248,25 @@ ApplyEntryHazardsPlayer::
 	ld [wEnemyMoveType], a
 	callfar AIGetTypeEffectiveness ; abused, but if it works it works
 	                               ; result stored in [wTypeEffectiveness]
-	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
+	ld a, [wTypeEffectiveness] ; (1 double not effective (or less), 2 not effective, 4 neutral, 8 super effective, 16 double super effective, 32 triple super effective)
 	and a
 	ret z ; effectiveness = 0, possible only with randomizer, do nothing, we're done here
 	push af
 	ld hl, HurtByRocksText
 	call PrintText
 	pop af
+	cp 32
+	jp z, HandleHazards_DecreaseHP_1o1
 	cp 16
-	jr z, .effDoubleSuper
+	jp z, HandleHazards_DecreaseHP_1o2
 	cp 8
-	jr z, .effSuper
+	jp z, HandleHazards_DecreaseHP_1o4
 	cp 4
-	jr z, .effNormal
+	jp z, HandleHazards_DecreaseHP_1o8
 	cp 2
-	jr z, .effNotVery
+	jp z, HandleHazards_DecreaseHP_1o16
 ; double not very effective
-	call HandleHazards_DecreaseHP_1o32
-	ret
-.effNotVery
-	call HandleHazards_DecreaseHP_1o16
-	ret
-.effNormal
-	call HandleHazards_DecreaseHP_1o8
-	ret
-.effSuper
-	call HandleHazards_DecreaseHP_1o4
-	ret
-.effDoubleSuper
-	call HandleHazards_DecreaseHP_1o2
-	ret
+	jp HandleHazards_DecreaseHP_1o32
 
 HurtBySpikesText::
 	text_far _HurtBySpikesText
@@ -394,29 +409,18 @@ ApplyEntryHazardsEnemy::
 	ld hl, HurtByRocksText
 	call PrintText
 	pop af
+	cp 32
+	jp z, HandleHazards_DecreaseHP_1o1
 	cp 16
-	jr z, .effDoubleSuper
+	jp z, HandleHazards_DecreaseHP_1o2
 	cp 8
-	jr z, .effSuper
+	jp z, HandleHazards_DecreaseHP_1o4
 	cp 4
-	jr z, .effNormal
+	jp z, HandleHazards_DecreaseHP_1o8
 	cp 2
-	jr z, .effNotVery
+	jp z, HandleHazards_DecreaseHP_1o16
 ; double not very effective
-	call HandleHazards_DecreaseHP_1o32
-	ret
-.effNotVery
-	call HandleHazards_DecreaseHP_1o16
-	ret
-.effNormal
-	call HandleHazards_DecreaseHP_1o8
-	ret
-.effSuper
-	call HandleHazards_DecreaseHP_1o4
-	ret
-.effDoubleSuper
-	call HandleHazards_DecreaseHP_1o2
-	ret
+	jp HandleHazards_DecreaseHP_1o32
 
 ; ==========================================================
 
@@ -444,6 +448,34 @@ CheckIfEnemyPokemonIsCertainType:: ; z flag = FLYING
 ; ==========================================================
 
 ; expects EVENT_HAZARDS_DAMAGING_PLAYER to be properly set or reset
+HandleHazards_DecreaseHP_1o1:: ; instakill
+	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
+	ld hl, wBattleMonHP
+	jr nz, .victimIsPlayer
+	ld hl, wEnemyMonHP
+.victimIsPlayer
+	push hl
+	ld bc, $e      ; skip to max HP
+	add hl, bc
+	ld a, [hli]    ; load max HP
+	ld [wHPBarMaxHP+1], a
+	ld b, a
+	ld a, [hl]
+	ld [wHPBarMaxHP], a
+	pop hl
+	inc hl
+	ld a, [hl]    ; subtract total damage from current HP
+	ld [wHPBarOldHP], a
+	dec hl
+	ld a, [hl]
+	ld [wHPBarOldHP+1], a
+	xor a         ; kill: zero HP
+	ld [hli], a
+	ld [hl], a
+	ld [wHPBarNewHP], a
+	ld [wHPBarNewHP+1], a
+	jp UpdateAppropriateMonHPBar
+
 HandleHazards_DecreaseHP_1o2::
 	ld d, 1
 	jr HandleHazards_DecreaseHP_Core
@@ -503,8 +535,7 @@ HandleHazards_DecreaseHP_Core:
 	ld [wHPBarNewHP], a
 	ld [wHPBarNewHP+1], a
 .noOverkill
-	call UpdateAppropriateMonHPBar
-	ret
+	jp UpdateAppropriateMonHPBar
 
 HandleHazards_DecreaseHP_1o6:
 	CheckEvent EVENT_HAZARDS_DAMAGING_PLAYER
