@@ -4,7 +4,7 @@ _DayCareIntroText:: ; edited
 	cont "you have, the"
 	cont "more effective"
 	cont "my cares are!"
-	cont "Exponentially so!"
+	cont "Quadratically so!"
 
 	para "Would you like me"
 	line "to raise one of"

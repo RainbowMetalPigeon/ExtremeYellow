@@ -16,7 +16,7 @@ DebugTeam:
 	db ARCEUS, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
-	db MAGNETON, 60
+	db MSTARMIE, 60
 ;	db ZAPDOS, 42
 ;	db MOLTRES, 68
 	db -1 ; end

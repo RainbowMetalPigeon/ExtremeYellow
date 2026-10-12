@@ -1,4 +1,4 @@
-IncrementDayCareMonExp: ; edited, it's exponential with number of badges
+IncrementDayCareMonExp: ; edited, it's quadratic with number of badges
 ;	ld a, [wDayCareInUse]
 ;	and a
 ;	ret z
@@ -52,13 +52,24 @@ IncrementDayCareMonExp: ; edited, it's exponential with number of badges
 	ret
 
 
+;LookUpTableForDaycareStepExp:
+;	db 1	; 0 badges
+;	db 2	; 1 badges
+;	db 4	; 2 badges
+;	db 8	; 3 badges
+;	db 16	; 4 badges
+;	db 32	; 5 badges
+;	db 64	; 6 badges
+;	db 128	; 7 badges
+;	db 255	; 8 badges
+
 LookUpTableForDaycareStepExp:
 	db 1	; 0 badges
-	db 2	; 1 badges
-	db 4	; 2 badges
-	db 8	; 3 badges
-	db 16	; 4 badges
-	db 32	; 5 badges
-	db 64	; 6 badges
-	db 128	; 7 badges
-	db 255	; 8 badges
+	db 4	; 1 badges
+	db 9	; 2 badges
+	db 16	; 3 badges
+	db 25	; 4 badges
+	db 36	; 5 badges
+	db 49	; 6 badges
+	db 64	; 7 badges
+	db 81	; 8 badges
