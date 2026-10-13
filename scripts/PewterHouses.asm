@@ -12,6 +12,10 @@ PewterHouses_TextPointers:
 	dw PewterHouse1Text1
 	dw PewterHouse1Text2
 	dw PewterHouse1Text3
+	; new
+	dw PewterHouse3Text1
+	dw PewterHouse3Text2
+	dw PewterHouse3Text3
 
 PewterHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
@@ -21,6 +25,10 @@ PewterHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; Nidoran house
 	dw PewterHouse1Text1_RP
+	dw GenericNPCText_RocketPath
+	dw GenericNPCText_RocketPath
+	; new
+	dw PewterHouse3Text1_RP
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 
@@ -60,6 +68,43 @@ PewterHouse1Text3:
 	text_far _PewterHouse1Text3
 	text_end
 
+; new ---------------------------------
+
+PewterHouse3Text1:
+	text_far _PewterHouse3Text1
+	text_asm
+	lb bc, COFFEE, 1 ; TBE
+	call GiveItem
+	jr nc, .bagFull
+; give the item
+	ld a, HS_PEWTER_HOUSES_PAMPHLET
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	ld hl, PewterHouse3Text1_GotPamphlet
+	jr .printAndEnd
+.bagFull
+	ld hl, PewterHouse3Text1_BagFull
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PewterHouse3Text1_GotPamphlet:
+	text_far _PewterHouse3Text1_GotPamphlet
+	sound_get_item_2
+	text_end
+
+PewterHouse3Text1_BagFull:
+	text_far _PewterHouse3Text1_BagFull
+	text_end
+
+PewterHouse3Text2:
+	text_far _PewterHouse3Text2
+	text_end
+
+PewterHouse3Text3:
+	text_far _PewterHouse3Text3
+	text_end
+
 ; new for RP ==============================
 
 PewterHouse1Text1_RP:
@@ -68,7 +113,6 @@ PewterHouse1Text1_RP:
 	ld a, NIDORAN_M
 	call PlayCry
 	call WaitForSoundToFinish
-	SetEvent EVENT_RP_STEALING_POKEMON
 	ld c, 14
 	ld b, NIDORAN_M
 	call GivePokemon
@@ -77,3 +121,7 @@ PewterHouse1Text1_RP:
 	ld [wMissableObjectIndex], a
 	predef HideObjectExtra2
 	jp TextScriptEnd
+
+PewterHouse3Text1_RP:
+	text_far _PewterHouse3Text1_RP
+	text_end

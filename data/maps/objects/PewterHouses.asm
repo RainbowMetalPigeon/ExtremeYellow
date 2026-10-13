@@ -8,6 +8,8 @@ PewterHouses_Object:
 	warp_event 17,  7, LAST_MAP, 8
 	warp_event 30,  7, LAST_MAP, 4
 	warp_event 31,  7, LAST_MAP, 4
+	warp_event 44,  7, LAST_MAP, 9
+	warp_event 45,  7, LAST_MAP, 9
 
 	def_bg_events
 
@@ -21,5 +23,9 @@ PewterHouses_Object:
 	object_event 32,  5, SPRITE_MONSTER, STAY, LEFT, 5 ; person
 	object_event 31,  5, SPRITE_LITTLE_BOY, STAY, RIGHT, 6 ; person
 	object_event 29,  2, SPRITE_MIDDLE_AGED_MAN, STAY, NONE, 7 ; person
+	; new
+	object_event 46,  4, SPRITE_CLIPBOARD, STAY, NONE, 8
+	object_event 47,  6, SPRITE_MIDDLE_AGED_MAN, WALK, ANY_DIR, 9
+	object_event 45,  2, SPRITE_GAMEBOY_KID, STAY, DOWN, 10
 
 	def_warps_to PEWTER_HOUSES

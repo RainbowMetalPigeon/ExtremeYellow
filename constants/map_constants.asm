@@ -83,7 +83,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MUSEUM_2F,                      7,  4 ; $3C
 	map_const PEWTER_GYM,                     5,  7 ; $3D
 	map_const ROUTE_21_DIVE,                 10, 45 ; $3E ; new
-	map_const PEWTER_HOUSES,                 18,  4 ; $3F ; edited
+	map_const PEWTER_HOUSES,                 25,  4 ; $3F ; edited
 	map_const PEWTER_POKECENTER,             14,  4 ; $40 ; edited, Center+Mart
 	map_const MT_MOON_1F,                    30, 30 ; $41 ; edited
 	map_const MT_MOON_B1F,                   30, 30 ; $42 ; edited

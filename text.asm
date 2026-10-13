@@ -219,7 +219,6 @@ INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo8F.asm"
 INCLUDE "text/PewterNidoranHouse.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
-INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/VermilionPokecenter.asm"
 
 
@@ -325,6 +324,7 @@ SECTION "Text Extra 15", ROMX ; new
 INCLUDE "text/GameCorner.asm"
 INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/CeruleanCaveB1F.asm"
+INCLUDE "text/SaffronPokecenter.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

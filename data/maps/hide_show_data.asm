@@ -936,6 +936,7 @@ ViridianNicknameHouseHS:
 	db VIRIDIAN_NICKNAME_HOUSE,  9, SHOW ; Mon
 PewterHousesHS:
 	db PEWTER_HOUSES,  5, SHOW ; Mon
+	db PEWTER_HOUSES,  8, SHOW ; Pamphlet
 PewterPokecenterHS:
 	db PEWTER_POKECENTER,  3, SHOW ; Mon
 CeladonMansion1FHS:

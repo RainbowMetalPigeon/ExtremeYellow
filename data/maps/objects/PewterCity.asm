@@ -10,6 +10,7 @@ PewterCity_Object:
 	warp_event  7, 29, PEWTER_HOUSES, 1
 	warp_event 13, 25, PEWTER_POKECENTER, 1
 	warp_event 29, 21, PEWTER_HOUSES, 3 ; new
+	warp_event  5, 17, PEWTER_HOUSES, 7 ; new
 
 	def_bg_events
 	bg_event 19, 29,  9 ; PewterCityText6
@@ -21,12 +22,12 @@ PewterCity_Object:
 	bg_event 25, 23, 15 ; PewterCityText12
 
 	def_object_events
-	object_event  8, 15, SPRITE_COOLTRAINER_F, STAY, NONE, 1 ; person
+	object_event  6, 24, SPRITE_COOLTRAINER_F, STAY, NONE, 1 ; person
 	object_event 17, 25, SPRITE_COOLTRAINER_M, STAY, NONE, 2 ; person
 	object_event 27, 17, SPRITE_HIKER, STAY, NONE, 3 ; person, edited, was SPRITE_SUPER_NERD
 	object_event 26, 25, SPRITE_COOLTRAINER_M, WALK, LEFT_RIGHT, 4 ; person, edited, was SPRITE_SUPER_NERD
 	object_event 35, 16, SPRITE_COOLTRAINER_M, STAY, DOWN, 5 ; person, edited, was SPRITE_YOUNGSTER
-	object_event 10, 10, SPRITE_HIKER, WALK, LEFT_RIGHT, 6 ; new
+	object_event  9, 12, SPRITE_HIKER, WALK, LEFT_RIGHT, 6 ; new
 	object_event 25, 10, SPRITE_TRAVELER, STAY, ANY_DIR, 7 ; new, traveler
 	object_event 24, 27, SPRITE_MONSTER, STAY, ANY_DIR, 8 ; new, Coin-Case Meowth
 
