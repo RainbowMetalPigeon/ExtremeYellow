@@ -1154,22 +1154,25 @@ AdjustDamageForMoveType::
 	cp DOUBLE_SUPER_EFFECTIVE
 	jr z, .doubleSuperEffective
 ; triple super effective
-	ld a, [wDamageMultipliers]
-	and $7f ; we got rid of the STAB bit
-	sla a
-	sla a
-	sla a
-	jr .gotMultiplier
+	ld c, 3
+	jr .applySuperEffectiveness
 .doubleSuperEffective
-	ld a, [wDamageMultipliers]
-	and $7f ; we got rid of the STAB bit
-	sla a
-	sla a
-	jr .gotMultiplier
+	ld c, 2
+	jr .applySuperEffectiveness
 .superEffective
+	ld c, 1
+.applySuperEffectiveness
+; c = how many times to double; clamp at 80 so the value never reaches bit 7 (STAB bit)
 	ld a, [wDamageMultipliers]
 	and $7f ; we got rid of the STAB bit
+.doublingLoop
 	sla a
+	cp TRIPLE_SUPER_EFFECTIVE + 1
+	jr c, .noClamp
+	ld a, TRIPLE_SUPER_EFFECTIVE ; 80 is the highest value we keep track of
+.noClamp
+	dec c
+	jr nz, .doublingLoop
 	jr .gotMultiplier
 .notVeryEffective
 	ld a, [wDamageMultipliers]
