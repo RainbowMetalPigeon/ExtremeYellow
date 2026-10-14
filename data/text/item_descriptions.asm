@@ -604,6 +604,12 @@ _TMCaseDescription::
 ;	xxxx "123456789012345678
 	prompt
 
+_PamphletDescription::
+	text "Latest new about"
+	line "#MON raising."
+;	xxxx "123456789012345678
+	prompt
+
 ; HMs --------------------------------------------------------------------------
 
 _HM01Description::

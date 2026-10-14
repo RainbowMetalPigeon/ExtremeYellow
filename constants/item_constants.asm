@@ -145,6 +145,7 @@ DEF SAFARI_ROCK EQU $16 ; overload
 	const BERSERK_GENE  ; new
 	const STEAL_BALL    ; new
 	const TM_CASE       ; new
+	const PAMPHLET      ; new
 DEF NUM_ITEMS EQU const_value - 1
 
 ; elevator floors use item IDs

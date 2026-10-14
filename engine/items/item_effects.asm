@@ -153,6 +153,7 @@ ItemUsePtrTable:
 	dw ItemUseEvoStone   ; BERSERK_GENE, new
 	dw ItemUseBall       ; STEAL_BALL, new
 	dw ItemTMCase        ; TM_CASE ; new
+	dw UnusableItem      ; PAMPHLET, new
 
 ; new: code for SLEEP_BAG, beginning --------------------------
 

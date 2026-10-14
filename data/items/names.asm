@@ -135,6 +135,7 @@ ItemNames::
 	li "BERSERK GENE" ; new
 	li "STEAL BALL" ; new
 	li "TM CASE" ; new
+	li "PAMPHLET" ; new
 
 	assert_list_length NUM_ITEMS
 	li "B2F"

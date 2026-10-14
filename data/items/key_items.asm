@@ -135,4 +135,5 @@ KeyItemFlags:
 	dbit FALSE ; BERSERK_GENE   - new
 	dbit FALSE ; STEAL_BALL     - new
 	dbit TRUE  ; TM_CASE        - new
+	dbit TRUE  ; PAMPHLET       - new
 	end_bit_array NUM_ITEMS

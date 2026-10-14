@@ -284,6 +284,8 @@ ItemDescriptionPointers:
 	text_end
 	text_far _TMCaseDescription         ; TM_CASE
 	text_end
+	text_far _PamphletDescription       ; PAMPHLET
+	text_end
 
 
 ; HMs
