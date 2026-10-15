@@ -137,9 +137,8 @@ _DayCareText2_EverythingGiven::
 
 _DayCareText2_ChoseToGiveNoMon::
 	text "No? No problem."
-
-	para "If you change your"
-	line "mind, I'm here!"
+	line "If you change your"
+	cont "mind, I'm here!"
 ;	xxxx "123456789012345678"
 	done
 

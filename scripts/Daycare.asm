@@ -377,7 +377,6 @@ DayCareText2:
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
 	jr nz, .alreadyGaveMe
 	ld hl, wMonHBaseHP
-	push hl
 	call DayCareCheckAndTakeStrongMon
 	jr c, .printAndEnd
 	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
@@ -388,7 +387,6 @@ DayCareText2:
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
 	jr nz, .alreadyGaveMe
 	ld hl, wMonHBaseAttack
-	push hl
 	call DayCareCheckAndTakeStrongMon
 	jr c, .printAndEnd
 	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
@@ -399,7 +397,6 @@ DayCareText2:
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_DEF
 	jr nz, .alreadyGaveMe
 	ld hl, wMonHBaseDefense
-	push hl
 	call DayCareCheckAndTakeStrongMon
 	jr c, .printAndEnd
 	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_DEF
@@ -410,7 +407,6 @@ DayCareText2:
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPD
 	jr nz, .alreadyGaveMe
 	ld hl, wMonHBaseSpeed
-	push hl
 	call DayCareCheckAndTakeStrongMon
 	jr c, .printAndEnd
 	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPD
@@ -421,7 +417,6 @@ DayCareText2:
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPC
 	jr nz, .alreadyGaveMe
 	ld hl, wMonHBaseSpecialAttack ; TBE
-	push hl
 	call DayCareCheckAndTakeStrongMon
 	jr c, .printAndEnd
 	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPC
@@ -435,6 +430,12 @@ DayCareText2:
 	jp TextScriptEnd
 
 DayCareCheckAndTakeStrongMon:
+; save the pointer
+	ld a, h
+	ld [wArrayForTemporaryStorage], a
+	ld a, l
+	ld [wArrayForTemporaryStorage+1], a
+; print the menu
 	call SaveScreenTilesToBuffer2
 	xor a ; NORMAL_PARTY_MENU
 	ld [wPartyMenuTypeOrMessageID], a
@@ -444,14 +445,18 @@ DayCareCheckAndTakeStrongMon:
 	push af
 	callfar InGameTrade_RestoreScreen ; this includes LoadScreenTilesFromBuffer2
 	pop af
-	jr c, .choseToGiveNoMon
+	ld hl, DayCareText2_ChoseToGiveNoMon
+	jr c, .setUpToEndAndPrint
 ; load the stats of the mon
 	ld a, [wcf91]
 	ld [wd0b5], a
 	call GetMonHeader
 	; TBE: special case for Special
 ; retrieve the pointer to the base stat
-	pop hl
+	ld a, [wArrayForTemporaryStorage]
+	ld h, a
+	ld a, [wArrayForTemporaryStorage+1]
+	ld l, a
 	ld a, [hl]
 ; compare with 100: is it good enough?
 	cp 100
@@ -479,9 +484,6 @@ DayCareCheckAndTakeStrongMon:
 	call RemovePokemon
 	xor a ; to ensure c flag is not set
 	ret
-.choseToGiveNoMon
-	pop hl
-	ld hl, DayCareText2_ChoseToGiveNoMon
 .setUpToEndAndPrint
 	scf
 	ret
