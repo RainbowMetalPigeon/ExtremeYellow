@@ -82,7 +82,7 @@ MapHSPointers:
 	dw OnixBurrowingHS ; ONIX_BURROWING
 	dw NoHS ; ROUTE_5_GATE
 	dw NoHS ; UNDERGROUND_PATH_ROUTE_5
-	dw NoHS ; DAYCARE
+	dw DayCareHS ; DAYCARE new
 	dw NoHS ; ROUTE_6_GATE
 	dw NoHS ; UNDERGROUND_PATH_ROUTE_6
 	dw SecludedCavesHS ; new
@@ -913,6 +913,8 @@ LavenderHousesHS: ; edited because of map merging
 	db LAVENDER_HOUSES, $04, SHOW
 	db LAVENDER_HOUSES, $05, HIDE
 	db LAVENDER_HOUSES, $07, SHOW
+DayCareHS: ; new
+	db DAYCARE, 2, HIDE
 
 	db $FF, $01, SHOW ; end, list terminator
 
@@ -925,6 +927,7 @@ MissableObjectsExtra2: ; new, it's the "Extra2" block
 Route1HS:
 	db ROUTE_1, 6, SHOW ; item
 VermilionHousesHS:
+	db VERMILION_HOUSES,  2, SHOW ; future daycare assistant
 	db VERMILION_HOUSES,  4, SHOW ; Mon
 	db VERMILION_HOUSES,  8, SHOW ; Mon
 	db VERMILION_HOUSES, 12, SHOW ; Mon

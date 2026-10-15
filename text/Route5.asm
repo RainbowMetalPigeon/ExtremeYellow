@@ -70,3 +70,21 @@ _Route5Text6::
 	line "CERULEAN CITY -"
 	cont "VERMILION CITY"
 	done
+
+_Route5Text7_Pre::
+	text "#MON DAYCARE"
+	line "We take care of"
+	cont "your friends!"
+
+	para "An extra note:"
+	line "'Looking for an"
+	cont "assistant.'"
+;	xxxx "123456789012345678"
+	done
+
+_Route5Text7_Post::
+	text "#MON DAYCARE"
+	line "We take care of"
+	cont "your friends!"
+;	xxxx "123456789012345678"
+	done

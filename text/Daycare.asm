@@ -12,6 +12,15 @@ _DayCareIntroText:: ; edited
 ;	xxxx "123456789012345678"
 	done
 
+_DayCareIntroText_New::
+	text "We run a DAYCARE."
+
+	para "Would you like us"
+	line "to raise one of"
+	cont "your #MON?"
+;	xxxx "123456789012345678"
+	done
+
 _DayCareWhichMonText::
 	text "Which #MON"
 	line "should I raise?"
@@ -105,7 +114,7 @@ _DayCareNotEnoughMoneyText::
 
 ; new ----------------------------------------
 
-_DayCareCantTakeThisMon:: ; new
+_DayCareCantTakeThisMon::
 	text "What... what is"
 	line "this THING???"
 
@@ -113,14 +122,38 @@ _DayCareCantTakeThisMon:: ; new
 	line "care of it!!!"
 	done
 
-_DayCareText2_Intro::
-	text "gimme a pokemon"
-	line "to train a stat"
+_DayCareMText1_CoolPamphlet::
+	text "pamphlet for me?"
+	line "thanks!"
+;	xxxx "123456789012345678"
+	prompt
+
+_DayCareMText1_GivePamphlet::
+	text "<PLAYER> gifted"
+	line "the PAMPHLET to"
+	cont "the DAYCARE owner!"
 ;	xxxx "123456789012345678"
 	done
 
-_DayCareText2_Declined::
-	text "i'm here come back"
+_DayCareText2_CanHaveMega::
+	text "hey mega stone"
+	line "gimme for DV"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_NoGiveMega::
+	text "no? sadge"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_GottenMega::
+	text "yay! DVs!"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_Intro::
+	text "gimme a pokemon"
+	line "to train a stat"
 ;	xxxx "123456789012345678"
 	done
 

@@ -23,14 +23,14 @@ VermilionHouses_Object:
 	def_object_events
 	object_event  2,  4, SPRITE_FISHING_GURU, STAY, RIGHT, 1 ; person
 	; "trade", +14
-	object_event 17,  5, SPRITE_GIRL, STAY, UP, 2 ; person
+	object_event 16,  4, SPRITE_SCIENTIST_F, STAY, RIGHT, 2 ; person
 	; pidgey, +28
 	object_event 33,  3, SPRITE_YOUNGSTER, STAY, LEFT, 3 ; person
 	object_event 31,  5, SPRITE_BIRD, WALK, LEFT_RIGHT, 4 ; person
 	object_event 32,  3, SPRITE_PAPER, STAY, NONE, 5 ; person
 	; new house 1
 	object_event 44,  3, SPRITE_SAILOR, STAY, DOWN, 6
-	object_event 44,  4, SPRITE_WAITER, STAY, UP, 7
+	object_event 44,  4, SPRITE_FISHING_GURU, STAY, UP, 7
 	; new house 2
 	object_event 58,  6, SPRITE_BIRD, WALK, ANY_DIR, 8
 	object_event 61,  5, SPRITE_YOUNGSTER, WALK, ANY_DIR, 9

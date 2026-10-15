@@ -133,6 +133,7 @@ CeladonHotelRooms_TextPointers:
 	dw CeladonHotelRoomsText6 ; Trophy 4
 	dw CeladonHotelRoomsText7 ; Trophy 5, Mega Stones
 	dw CeladonHotelRoomsText8 ; Trophy 6
+	dw CeladonHotelRoomsText9 ; person
 	; signs
 	dw CeladonHotelRoomsSign1
 	dw CeladonHotelRoomsSign2
@@ -152,6 +153,7 @@ CeladonHotelRooms_TextPointers_Rocket:
 	dw CeladonHotelRoomsText6 ; Trophy 4
 	dw CeladonHotelRoomsText7 ; Trophy 5, Mega Stones
 	dw CeladonHotelRoomsText8 ; Trophy 6
+	dw GenericNPCText_RocketPath ; person
 	; signs
 	dw CeladonHotelRoomsSign1
 	dw CeladonHotelRoomsSign2
@@ -192,6 +194,10 @@ CeladonHotelRoomsText7:
 
 CeladonHotelRoomsText8:
 	text_far _CeladonHotelRoomsText8
+	text_end
+
+CeladonHotelRoomsText9:
+	text_far _TeachingHMsText
 	text_end
 
 ; signs ----------------------------

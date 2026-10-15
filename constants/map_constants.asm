@@ -221,7 +221,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const ROUTE_22_GATE,                  5,  4 ; $C6
 	map_const VICTORY_ROAD_2F,               15,  9 ; $C7
 	map_const ROUTE_12_GATE_2F,               4,  4 ; $C8 ; UNUSED
-	map_const CELADON_HOTEL_ROOMS,           29,  4 ; $C9 ; new, was VERMILION_TRADE_HOUSE
+	map_const CELADON_HOTEL_ROOMS,           36,  4 ; $C9 ; new, was VERMILION_TRADE_HOUSE
 	map_const DIGLETTS_CAVE,                 20, 18 ; $CA
 	map_const VICTORY_ROAD_3F,               15,  9 ; $CB
 	map_const ROCKET_HIDEOUT_B1F,            15, 14 ; $CC

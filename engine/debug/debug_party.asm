@@ -16,9 +16,9 @@ DebugTeam:
 	db THU_FI_ZER, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
-	db MSTARMIE, 60
-	db ZAPDOS, 42
-	db MOLTRES, 68
+;	db MSTARMIE, 60
+;	db ZAPDOS, 42
+;	db MOLTRES, 68
 	db -1 ; end
 
 DebugStart:

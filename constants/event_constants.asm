@@ -1173,7 +1173,8 @@
 	const EVENT_BEAT_SILPH_CO_2F_TRAINER_1
 	const EVENT_BEAT_SILPH_CO_2F_TRAINER_2
 	const EVENT_BEAT_SILPH_CO_2F_TRAINER_3
-	const_skip 7
+	const_skip 6
+	const EVENT_DAYCARE_HAS_ASSISTANT ; new
 	const EVENT_SILPH_CO_2_UNLOCKED_DOOR1
 	const EVENT_SILPH_CO_2_UNLOCKED_DOOR2
 	const EVENT_GOT_TM36
@@ -1181,7 +1182,7 @@
 	const EVENT_RP_BEAT_SS_ANNE_AGENT ; new
 	const EVENT_BEAT_SILPH_CO_3F_TRAINER_0
 	const EVENT_BEAT_SILPH_CO_3F_TRAINER_1
-	const_skip 1
+	const EVENT_INTERACTED_WITH_DAYCARE_SIGN ; new
 	const EVENT_UNLOCKED_DAYCARE_DV_IMPROVEMENT ; new
 	const EVENT_RP_SEVII_BEAT_CARING_BIKER ; new
 	const EVENT_GIVING_GUARANTEED_SHINY_MON ; new
@@ -1425,7 +1426,7 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_STATUS_SCREEN_REDRAW ; new, transient: StatusScreen is redrawing after cycling (skips the slow parts)
 	const EVENT_STATUS_SCREEN_REDRAW_ONLY ; new, transient: StatusScreen redraws and returns without waiting for input
 	const EVENT_POKEDEX_CAN_CYCLE ; new, transient: UP/DOWN cycles mons in the Pokedex sub-views
-	const_skip 1 ; was EVENT_POKEDEX_SILENT_REDRAW, unused now, kept as a gap so that the events below don't move
+	const EVENT_AUTHORIZED_TO_TAKE_PAMPHLET ; new
 	const EVENT_REACHED_FORBIDDEN_MERCHANT ; new
 	const EVENT_UNLOCKED_SEVII ; new for sevii
 	const EVENT_FLYING_BETWEEN_KANTO_AND_SEVII ; new for sevii

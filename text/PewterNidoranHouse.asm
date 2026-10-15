@@ -21,10 +21,15 @@ _PewterHouse1Text3:: ; edited
 
 ; new house ======================
 
-_PewterHouse3Text1::
+_PewterHouse3Text1_Intro::
 	text "pamphlet"
 ;	xxxx "123456789012345678"
 	prompt
+
+_PewterHouse3Text1_NotYet::
+	text "not yet"
+;	xxxx "123456789012345678"
+	done
 
 _PewterHouse3Text1_GotPamphlet::
 	text "got thing"
@@ -36,8 +41,13 @@ _PewterHouse3Text1_BagFull::
 ;	xxxx "123456789012345678"
 	done
 
-_PewterHouse3Text2::
+_PewterHouse3Text2_Pre::
 	text "take it"
+;	xxxx "123456789012345678"
+	done
+
+_PewterHouse3Text2_Post::
+	text "took it?"
 ;	xxxx "123456789012345678"
 	done
 

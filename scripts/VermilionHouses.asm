@@ -1,11 +1,21 @@
 VermilionHouses_Script:
 	RPTextChooser VermilionHouses_TextPointers, VermilionHouses_TextPointers_Rocket
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld hl, VermilionHouses_ScriptPointers
+	ld a, [wCurMapScript]
+	jp CallFunctionInTable
+
+VermilionHouses_ScriptPointers:
+	dw VermilionHousesScript0
+	dw VermilionHousesScript1
+
+VermilionHousesScript0: ; edited
+	ret
 
 VermilionHouses_TextPointers:
 	; old rod
 	dw VermilionHouse2Text1
-	; "trade"
+	; future daycare assistant
 	dw VermilionHouse3Text1
 	; pidgey
 	dw VermilionHouse1Text1
@@ -96,10 +106,45 @@ VermilionHouse2Text_560ca:
 	text_far _VermilionHouse2Text_560ca
 	text_end
 
-; "trade" ----------------------------
+; new: future daycare assistant ----------------------------
 
 VermilionHouse3Text1:
-	text_far TeachingHMsText
+	text_asm
+	ld hl, VermilionHouse3Text1_NoDayCareSignInteraction
+	call PrintText
+; did we interact with the sign?
+	CheckEvent EVENT_INTERACTED_WITH_DAYCARE_SIGN
+	jr z, .done
+; yes: hide them here and show them there
+	call WaitForTextScrollButtonPress
+	ld a, 1
+	ld [wCurMapScript], a
+	ld hl, VermilionHouse3Text1_YesDayCareSignInteraction
+	call PrintText
+.done
+	jp TextScriptEnd
+
+VermilionHousesScript1:
+    call GBFadeOutToBlack
+	ld a, HS_VERMILION_HOUSES_FUTURE_DAYCARE_ASSISTANT
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra2
+	ld a, HS_DAYCARE_DAYCARE_ASSISTANT
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra
+	call Delay3
+	SetEvent EVENT_DAYCARE_HAS_ASSISTANT
+    call GBFadeInFromBlack
+	xor a
+	ld [wCurMapScript], a
+	ret
+
+VermilionHouse3Text1_NoDayCareSignInteraction:
+	text_far _VermilionHouse3Text1_NoDayCareSignInteraction
+	text_end
+
+VermilionHouse3Text1_YesDayCareSignInteraction:
+	text_far _VermilionHouse3Text1_YesDayCareSignInteraction
 	text_end
 
 ; pidgey ----------------------------

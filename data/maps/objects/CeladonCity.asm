@@ -18,6 +18,7 @@ CeladonCity_Object: ; edited, +14 on the y coordinate of everything pre-LUNAR_SH
 	warp_event 12,  7, MT_MOON_B2F, 29 ; new, 14
 	warp_event 36,  8, CELADON_CHIEF_HOUSE, 3 ; LUNAR_SHRINE, 15
 	warp_event 33, 23, CELADON_HOTEL_HALL, 7 ; repair shop, 16
+	warp_event 43, 33, CELADON_HOTEL_ROOMS, 9 ; new small house, 17
 
 	def_bg_events
 	bg_event 27, 29, 14 ; CeladonCityText10

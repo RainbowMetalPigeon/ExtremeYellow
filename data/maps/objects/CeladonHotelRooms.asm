@@ -10,16 +10,18 @@ CeladonHotelRooms_Object:
 	warp_event 35,  7, CELADON_HOTEL_HALL, 5 ; 6
 	warp_event 50,  7, CELADON_HOTEL_HALL, 6 ; 7
 	warp_event 51,  7, CELADON_HOTEL_HALL, 6 ; 8
+	warp_event 66,  7, CELADON_CITY, 17 ;  9
+	warp_event 67,  7, CELADON_CITY, 17 ; 10
 
 	def_bg_events
-	bg_event 16,  4,  9 ; CeladonHotelRoomsSign1
-	bg_event 16,  5, 10 ; CeladonHotelRoomsSign2
-	bg_event 16,  1, 11 ; CeladonHotelRoomsSign3
-	bg_event 23,  1, 12 ; CeladonHotelRoomsSign4
-	bg_event 25,  6, 13 ; CeladonHotelRoomsSign5
-	bg_event 39,  1, 14 ; CeladonHotelRoomsSign6
-	bg_event 32,  1, 15 ; CeladonHotelRoomsSign7
-	bg_event 25,  5, 16 ; CeladonHotelRoomsSign8
+	bg_event 16,  4, 10 ; CeladonHotelRoomsSign1
+	bg_event 16,  5, 11 ; CeladonHotelRoomsSign2
+	bg_event 16,  1, 12 ; CeladonHotelRoomsSign3
+	bg_event 23,  1, 13 ; CeladonHotelRoomsSign4
+	bg_event 25,  6, 14 ; CeladonHotelRoomsSign5
+	bg_event 39,  1, 15 ; CeladonHotelRoomsSign6
+	bg_event 32,  1, 16 ; CeladonHotelRoomsSign7
+	bg_event 25,  5, 17 ; CeladonHotelRoomsSign8
 
 	def_object_events
 	object_event 39,  4, SPRITE_HIKER, STAY, LEFT, 1 ; Looker (Bellocchio)
@@ -30,5 +32,7 @@ CeladonHotelRooms_Object:
 	object_event  6,  4, SPRITE_TROPHY_INVERSE, STAY, DOWN, 6 ; Trophy 4, Inverse rematches, proxy
 	object_event  5,  5, SPRITE_TROPHY_MEGA, STAY, DOWN, 7 ; Trophy 5, Mega Stones, proxy
 	object_event  1,  1, SPRITE_TROPHY_MERCHANT, STAY, DOWN, 8 ; Trophy 6, Forbidden Merchant, proxy
+	; small new house
+	object_event 69,  4, SPRITE_HIKER, STAY, LEFT, 9
 
 	def_warps_to CELADON_HOTEL_ROOMS

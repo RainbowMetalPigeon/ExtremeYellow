@@ -71,9 +71,14 @@ PewterHouse1Text3:
 ; new ---------------------------------
 
 PewterHouse3Text1:
-	text_far _PewterHouse3Text1
 	text_asm
-	lb bc, COFFEE, 1 ; TBE
+	ld hl, PewterHouse3Text1_Intro
+	call PrintText
+	CheckEvent EVENT_AUTHORIZED_TO_TAKE_PAMPHLET
+	ld hl, PewterHouse3Text1_NotYet
+	jr z, .printAndEnd
+; we can take it
+	lb bc, PAMPHLET, 1
 	call GiveItem
 	jr nc, .bagFull
 ; give the item
@@ -88,6 +93,14 @@ PewterHouse3Text1:
 	call PrintText
 	jp TextScriptEnd
 
+PewterHouse3Text1_Intro:
+	text_far _PewterHouse3Text1_Intro
+	text_end
+
+PewterHouse3Text1_NotYet:
+	text_far _PewterHouse3Text1_NotYet
+	text_end
+
 PewterHouse3Text1_GotPamphlet:
 	text_far _PewterHouse3Text1_GotPamphlet
 	sound_get_item_2
@@ -98,7 +111,23 @@ PewterHouse3Text1_BagFull:
 	text_end
 
 PewterHouse3Text2:
-	text_far _PewterHouse3Text2
+	text_asm
+	CheckEvent EVENT_AUTHORIZED_TO_TAKE_PAMPHLET
+	ld hl, PewterHouse3Text2_Post
+	jr nz, .printAndEnd
+; before
+	SetEvent EVENT_AUTHORIZED_TO_TAKE_PAMPHLET
+	ld hl, PewterHouse3Text2_Pre
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+PewterHouse3Text2_Pre:
+	text_far _PewterHouse3Text2_Pre
+	text_end
+
+PewterHouse3Text2_Post:
+	text_far _PewterHouse3Text2_Post
 	text_end
 
 PewterHouse3Text3:

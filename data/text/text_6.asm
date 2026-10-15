@@ -1,4 +1,4 @@
-TeachingHMsText:: ; edited
+_TeachingHMsText:: ; edited
 	text "Once a #MON"
 	line "learns an HM,"
 	cont "it's not easy to"

@@ -12,11 +12,35 @@ Daycare_TextPointers_Rocket:
 
 DayCareMText1:
 	text_asm
+; new for increase exp/step
+	CheckEvent EVENT_UNLOCKED_DAYCARE_MORE_EXP
+	jr nz, .vanilla
+; still base exp/step, check if we have the pamphlet
+	ld b, PAMPHLET
+	call IsItemInBag
+	jr z, .vanilla
+; we have it, give it
+	ld hl, DayCareMText1_CoolPamphlet
+	call PrintText
+	ld a, PAMPHLET
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_UNLOCKED_DAYCARE_MORE_EXP
+	ld hl, DayCareMText1_GivePamphlet
+	jp .done
+.vanilla
+; BTV
 	call SaveScreenTilesToBuffer2
 	ld a, [wDayCareInUse]
 	and a
 	jp nz, .daycareInUse
+; new
+	CheckEvent EVENT_DAYCARE_HAS_ASSISTANT
 	ld hl, DayCareIntroText
+	jr z, .printIntro
+	ld hl, DayCareIntroText_New
+.printIntro
+; BTV
 	call PrintText
 	call YesNoChoice
 	ld a, [wCurrentMenuItem]
@@ -277,6 +301,10 @@ DayCareIntroText:
 	text_far _DayCareIntroText
 	text_end
 
+DayCareIntroText_New:
+	text_far _DayCareIntroText_New
+	text_end
+
 DayCareWhichMonText:
 	text_far _DayCareWhichMonText
 	text_end
@@ -333,14 +361,55 @@ DayCareNotEnoughMoneyText:
 
 ; new ----------------------------------------
 
+DayCareMText1_CoolPamphlet:
+	text_far _DayCareMText1_CoolPamphlet
+	text_end
+
+DayCareMText1_GivePamphlet:
+	text_far _DayCareMText1_GivePamphlet
+	text_end
+
 DayCareCantTakeThisMon:
 	text_far _DayCareCantTakeThisMon
 	text_end
 
 DayCareText2:
 	text_asm
-; TBE: check for Mega stone
-; anything still to give?
+; check for Mega stone
+	CheckEvent EVENT_UNLOCKED_DAYCARE_DV_IMPROVEMENT
+	jr nz, .postDV
+; do we have a mega stone?
+	ld b, MEGA_STONE_X
+	call IsItemInBag
+	jr nz, .hasMegaX
+	ld b, MEGA_STONE_Y
+	call IsItemInBag
+	jr z, .postDV
+; has Mega Y
+	ld b, MEGA_STONE_Y
+	push bc
+	jr .hasMegaCommon
+.hasMegaX
+	ld b, MEGA_STONE_X
+	push bc
+.hasMegaCommon
+	ld hl, DayCareText2_CanHaveMega
+	call PrintText
+	call YesNoChoice
+	pop bc
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, DayCareText2_NoGiveMega
+	jp nz, .printAndEnd
+; give stone and set event
+	ld a, b
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	SetEvent EVENT_UNLOCKED_DAYCARE_DV_IMPROVEMENT
+	ld hl, DayCareText2_GottenMega
+	jp .printAndEnd
+.postDV
+; stat exp: anything still to give?
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
 	jr z, .showMenu
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
@@ -371,7 +440,7 @@ DayCareText2:
 	dec a
 	jr z, .special
 ; decline
-	ld hl, DayCareText2_Declined
+	ld hl, DayCareText2_ChoseToGiveNoMon
 	jp .printAndEnd
 .hp
 	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
@@ -488,12 +557,20 @@ DayCareCheckAndTakeStrongMon:
 	scf
 	ret
 
-DayCareText2_Intro:
-	text_far _DayCareText2_Intro
+DayCareText2_CanHaveMega:
+	text_far _DayCareText2_CanHaveMega
 	text_end
 
-DayCareText2_Declined:
-	text_far _DayCareText2_Declined
+DayCareText2_NoGiveMega:
+	text_far _DayCareText2_NoGiveMega
+	text_end
+
+DayCareText2_GottenMega:
+	text_far _DayCareText2_GottenMega
+	text_end
+
+DayCareText2_Intro:
+	text_far _DayCareText2_Intro
 	text_end
 
 DayCareText2_AlreadyGaveMe:

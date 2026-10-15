@@ -509,13 +509,15 @@ DEF SHOW EQU $15
 	const HS_MR_FUJIS_HOUSE_MON_2          ; new
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited
 	const HS_MR_FUJIS_HOUSE_MON_3          ; new
-	; total = 241/255
+	const HS_DAYCARE_DAYCARE_ASSISTANT     ; new
+	; total = 242/255
 
 ; --- start of the variables moved to the extra2 block ---
 
 ; new ; this block now corresponds to MissableObjectsExtra2
 	const_def							   ; equivalent to "const_value=0"
 	const HS_ROUTE_1_ITEM_1
+	const HS_VERMILION_HOUSES_FUTURE_DAYCARE_ASSISTANT
 	const HS_VERMILION_HOUSES_MON_1
 	const HS_VERMILION_HOUSES_MON_2
 	const HS_VERMILION_HOUSES_MON_3
@@ -550,4 +552,4 @@ DEF SHOW EQU $15
 	const HS_CINNABAR_POKECENTER_MON_1
 	const HS_SAFFRON_POKECENTER_MON_1
 	const HS_ROCK_TUNNEL_POKECENTER_MON_1
-	; total = 34/48
+	; total = 35/48

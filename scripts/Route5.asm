@@ -10,6 +10,7 @@ Route5_TextPointers:
 	dw Route5Text5 ; new
 	; sign
 	dw Route5Text6
+	dw Route5Text7 ; new
 
 Route5_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
@@ -19,6 +20,7 @@ Route5_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; sign
 	dw Route5Text6
+	dw Route5Text7
 
 Route5Text1:
 	text_asm
@@ -93,4 +95,23 @@ Route5Text5:
 
 Route5Text6:
 	text_far _Route5Text6
+	text_end
+
+Route5Text7:
+	text_asm
+	SetEvent EVENT_INTERACTED_WITH_DAYCARE_SIGN
+	CheckEvent EVENT_DAYCARE_HAS_ASSISTANT
+	ld hl, Route5Text7_Pre
+	jr z, .printAndEnd
+	ld hl, Route5Text7_Post
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+Route5Text7_Pre:
+	text_far _Route5Text7_Pre
+	text_end
+
+Route5Text7_Post:
+	text_far _Route5Text7_Post
 	text_end

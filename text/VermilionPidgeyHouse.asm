@@ -23,6 +23,39 @@ _VermilionHouse1Text3::
 
 ; new houses -----------------------
 
+_VermilionHouse3Text1_NoDayCareSignInteraction::
+	text "Sigh..."
+
+	para "I just graduated"
+	line "magna cum laude"
+	cont "from CELADON"
+	cont "UNIVERSITY, with"
+	cont "a revolutionary"
+	cont "thesis on #-"
+	cont "MON growth, and"
+	cont "yet I'm utterly"
+	cont "unemployed..."
+;	xxxx "123456789012345678"
+	done
+
+_VermilionHouse3Text1_YesDayCareSignInteraction::
+	text "What did you say?"
+
+	para "You heard that a"
+	line "DAYCARE WHERE is"
+	cont "looking for WHAT?"
+
+	para "But that's a match"
+	line "made in heaven!"
+	cont "I'll go there"
+	cont "right away!"
+	
+	para "Thanks, kid!"
+	line "You have my"
+	cont "highest gratitude!"
+;	xxxx "123456789012345678"
+	done
+
 _VermilionHousesText6::
 	text "Love is indeed"
 	line "passion, but is"

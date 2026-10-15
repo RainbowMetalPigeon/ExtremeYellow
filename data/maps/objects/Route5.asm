@@ -10,6 +10,7 @@ Route5_Object:
 
 	def_bg_events
 	bg_event 37, 29, 6 ; Route5Text6
+	bg_event 29, 23, 7 ; Route5Text7, new
 
 	def_object_events
 	object_event  8, 22, SPRITE_HIKER, STAY, ANY_DIR, 1 ; Climb Clumb invitation guy
