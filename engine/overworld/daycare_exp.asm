@@ -1,75 +1,83 @@
 IncrementDayCareMonExp: ; edited, it's quadratic with number of badges
-;	ld a, [wDayCareInUse]
-;	and a
-;	ret z
-;	ld hl, wDayCareMonExp + 2
-;	inc [hl]
-;	ret nz
-;
-;	dec hl
-;	inc [hl]
-;	ret nz
-;	
-;	dec hl
-;	inc [hl]
-;	ld a, [hl]
-;	cp $50
-;	ret c
-;
-;	ld a, $50
-;	ld [hl], a
-;	ret
-
 	ld a, [wDayCareInUse]
 	and a
 	ret z
-	callfar CountHowManyBadges ; returns in d the number of badges we own
-	ld b, 0
-	ld c, d
-	ld hl, LookUpTableForDaycareStepExp
-	add hl, bc
-	ld a, [hl]
-	ld b, a ; b holds the "how much we increase the exp"
-
 	ld hl, wDayCareMonExp + 2
+; edited
+	CheckEvent EVENT_UNLOCKED_DAYCARE_MORE_EXP
+	jr z, .normalDayCare
 	ld a, [hl]
-	add b ; a = a + b, c flag if we overflow from bit 7
+	add 4
+	ld [hl], a
+	jr c, .overflow
+	jr .checkStatExp_HP
+.normalDayCare
+; BTV
+	inc [hl]
+	jr nz, .checkStatExp_HP
+
+.overflow ; new label
+
+	dec hl
+	inc [hl]
+	jr nz, .checkStatExp_HP
+
+	dec hl
+	inc [hl]
+	ld a, [hl]
+	cp $50
+	jr c, .checkStatExp_HP
+
+	ld a, $50
+	ld [hl], a
+
+.checkStatExp_HP
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
+	jr z, .checkStatExp_Attack
+	ld hl, wDayCareMonHPExp
+	call DayCareIncreaseStatExp
+
+.checkStatExp_Attack
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
+	jr z, .checkStatExp_Defense
+	ld hl, wDayCareMonAttackExp
+	call DayCareIncreaseStatExp
+
+.checkStatExp_Defense
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_DEF
+	jr z, .checkStatExp_Speed
+	ld hl, wDayCareMonDefenseExp
+	call DayCareIncreaseStatExp
+
+.checkStatExp_Speed
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPD
+	jr z, .checkStatExp_Special
+	ld hl, wDayCareMonSpeedExp
+	call DayCareIncreaseStatExp
+
+.checkStatExp_Special
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPC
+	ret z
+	ld hl, wDayCareMonSpecialExp
+	jp DayCareIncreaseStatExp
+
+; new ----------------------------
+
+; expects hl = wDayCareMon[X]Exp, with [X] = HP, Attack, Defense, Speed, or Special
+DayCareIncreaseStatExp:
+	inc hl ; little endian?
+	ld a, [hl]
+	add 10 ; we increase the stat by 10 per step
 	ld [hl], a
 	ret nc
 
+; there's an overflow: we must increase also the big endian by 1
 	dec hl
 	inc [hl]
 	ret nz
-	
-	dec hl
-	inc [hl]
-	ld a, [hl]
-	cp $50 ; unnecessarily big?
-	ret c
 
-	ld a, $50 ; unnecessarily big?
+; there's a big endian overflow: just set both to $FF
+	ld a, $FF
+	ld [hli], a
 	ld [hl], a
 	ret
-
-
-;LookUpTableForDaycareStepExp:
-;	db 1	; 0 badges
-;	db 2	; 1 badges
-;	db 4	; 2 badges
-;	db 8	; 3 badges
-;	db 16	; 4 badges
-;	db 32	; 5 badges
-;	db 64	; 6 badges
-;	db 128	; 7 badges
-;	db 255	; 8 badges
-
-LookUpTableForDaycareStepExp:
-	db 1	; 0 badges
-	db 4	; 1 badges
-	db 9	; 2 badges
-	db 16	; 3 badges
-	db 25	; 4 badges
-	db 36	; 5 badges
-	db 49	; 6 badges
-	db 64	; 7 badges
-	db 81	; 8 badges

@@ -735,11 +735,6 @@ INCLUDE "scripts/SunkenShipRooms.asm"
 INCLUDE "data/maps/objects/SunkenShipRooms.asm"
 SunkenShipRooms_Blocks: INCBIN "maps/SunkenShipRooms.blk"
 
-INCLUDE "data/maps/headers/SafariZoneWest.asm"
-INCLUDE "scripts/SafariZoneWest.asm"
-INCLUDE "data/maps/objects/SafariZoneWest.asm"
-SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
-
 
 SECTION "Maps 12", ROMX
 
@@ -757,6 +752,11 @@ INCLUDE "data/maps/headers/SilphCo8F.asm"
 INCLUDE "scripts/SilphCo8F.asm"
 INCLUDE "data/maps/objects/SilphCo8F.asm"
 SilphCo8F_Blocks: INCBIN "maps/SilphCo8F.blk"
+
+INCLUDE "data/maps/headers/SafariZoneWest.asm"
+INCLUDE "scripts/SafariZoneWest.asm"
+INCLUDE "data/maps/objects/SafariZoneWest.asm"
+SafariZoneWest_Blocks: INCBIN "maps/SafariZoneWest.blk"
 
 
 SECTION "Maps 13", ROMX

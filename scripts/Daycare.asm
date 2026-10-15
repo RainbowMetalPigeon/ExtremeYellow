@@ -4,9 +4,11 @@ Daycare_Script:
 
 Daycare_TextPointers:
 	dw DayCareMText1
+	dw DayCareText2 ; new
 
 Daycare_TextPointers_Rocket:
-	dw DayCareMText1_Rocket
+	dw DayCareMText1_RP
+	dw DayCareText2_RP
 
 DayCareMText1:
 	text_asm
@@ -196,6 +198,7 @@ DayCareMText1:
 	call DisplayTextBoxID
 	ld hl, DayCareHeresYourMonText
 	call PrintText
+	call DayCareImproveBadDVs ; new
 	ld a, DAYCARE_TO_PARTY
 	ld [wMoveMonType], a
 	call MoveMon
@@ -328,10 +331,271 @@ DayCareNotEnoughMoneyText:
 	text_far _DayCareNotEnoughMoneyText
 	text_end
 
-DayCareCantTakeThisMon: ; new
+; new ----------------------------------------
+
+DayCareCantTakeThisMon:
 	text_far _DayCareCantTakeThisMon
 	text_end
 
-DayCareMText1_Rocket: ; new
-	text_far _DayCareMText1_Rocket
+DayCareText2:
+	text_asm
+; TBE: check for Mega stone
+; anything still to give?
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
+	jr z, .showMenu
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
+	jr z, .showMenu
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_DEF
+	jr z, .showMenu
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPD
+	jr z, .showMenu
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPC
+	jr z, .showMenu
+; gave everything
+	ld hl, DayCareText2_EverythingGiven
+	jp .printAndEnd
+; at least one stat missing
+.showMenu
+	ld hl, DayCareText2_Intro
+	call PrintText
+	call DayCareStatMonChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .hp
+	dec a
+	jr z, .attack
+	dec a
+	jr z, .defense
+	dec a
+	jr z, .speed
+	dec a
+	jr z, .special
+; decline
+	ld hl, DayCareText2_Declined
+	jp .printAndEnd
+.hp
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
+	jr nz, .alreadyGaveMe
+	ld hl, wMonHBaseHP
+	push hl
+	call DayCareCheckAndTakeStrongMon
+	jr c, .printAndEnd
+	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_HP
+	ld hl, DayCareText2_UnlockedStatTraining
+	jr .printAndEnd
+
+.attack
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
+	jr nz, .alreadyGaveMe
+	ld hl, wMonHBaseAttack
+	push hl
+	call DayCareCheckAndTakeStrongMon
+	jr c, .printAndEnd
+	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_ATK
+	ld hl, DayCareText2_UnlockedStatTraining
+	jr .printAndEnd
+
+.defense
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_DEF
+	jr nz, .alreadyGaveMe
+	ld hl, wMonHBaseDefense
+	push hl
+	call DayCareCheckAndTakeStrongMon
+	jr c, .printAndEnd
+	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_DEF
+	ld hl, DayCareText2_UnlockedStatTraining
+	jr .printAndEnd
+
+.speed
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPD
+	jr nz, .alreadyGaveMe
+	ld hl, wMonHBaseSpeed
+	push hl
+	call DayCareCheckAndTakeStrongMon
+	jr c, .printAndEnd
+	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPD
+	ld hl, DayCareText2_UnlockedStatTraining
+	jr .printAndEnd
+
+.special
+	CheckEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPC
+	jr nz, .alreadyGaveMe
+	ld hl, wMonHBaseSpecialAttack ; TBE
+	push hl
+	call DayCareCheckAndTakeStrongMon
+	jr c, .printAndEnd
+	SetEvent EVENT_UNLOCKED_DAYCARE_STAT_EXP_SPC
+	ld hl, DayCareText2_UnlockedStatTraining
+	jr .printAndEnd
+
+.alreadyGaveMe
+	ld hl, DayCareText2_AlreadyGaveMe
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+DayCareCheckAndTakeStrongMon:
+	call SaveScreenTilesToBuffer2
+	xor a ; NORMAL_PARTY_MENU
+	ld [wPartyMenuTypeOrMessageID], a
+	dec a
+	ld [wUpdateSpritesEnabled], a
+	call DisplayPartyMenu ; c flag if nothing was selected
+	push af
+	callfar InGameTrade_RestoreScreen ; this includes LoadScreenTilesFromBuffer2
+	pop af
+	jr c, .choseToGiveNoMon
+; load the stats of the mon
+	ld a, [wcf91]
+	ld [wd0b5], a
+	call GetMonHeader
+	; TBE: special case for Special
+; retrieve the pointer to the base stat
+	pop hl
+	ld a, [hl]
+; compare with 100: is it good enough?
+	cp 100
+	ld hl, DayCareText2_TooWeak
+	jr c, .setUpToEndAndPrint
+; base stat >= 100
+	ld hl, DayCareText2_WannaGiveMeThis
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, DayCareText2_ChoseToGiveNoMon
+	jr nz, .setUpToEndAndPrint
+; we want to give the mon
+; do we have more than 1 mon?
+	ld a, [wPartyCount]
+	dec a
+	ld hl, DayCareText2_OnlyOneMon
+	jr z, .setUpToEndAndPrint
+; remove the mon
+	ld a, [wWhichPokemon]
+	xor a
+	ld [wMonDataLocation], a ; not used
+	ld [wRemoveMonFromBox], a
+	call RemovePokemon
+	xor a ; to ensure c flag is not set
+	ret
+.choseToGiveNoMon
+	pop hl
+	ld hl, DayCareText2_ChoseToGiveNoMon
+.setUpToEndAndPrint
+	scf
+	ret
+
+DayCareText2_Intro:
+	text_far _DayCareText2_Intro
+	text_end
+
+DayCareText2_Declined:
+	text_far _DayCareText2_Declined
+	text_end
+
+DayCareText2_AlreadyGaveMe:
+	text_far _DayCareText2_AlreadyGaveMe
+	text_end
+
+DayCareText2_EverythingGiven:
+	text_far _DayCareText2_EverythingGiven
+	text_end
+
+DayCareText2_ChoseToGiveNoMon:
+	text_far _DayCareText2_ChoseToGiveNoMon
+	text_end
+
+DayCareText2_WannaGiveMeThis:
+	text_far _DayCareText2_WannaGiveMeThis
+	text_end
+
+DayCareText2_TooWeak:
+	text_far _DayCareText2_TooWeak
+	text_end
+
+DayCareText2_OnlyOneMon:
+	text_far _DayCareText2_OnlyOneMon
+	text_end
+
+DayCareText2_UnlockedStatTraining:
+	text_far _DayCareText2_UnlockedStatTraining
+	text_end
+
+DayCareStatMonChoice:
+	call SaveScreenTilesToBuffer1
+	ld a, DAYCARE_STAT_MON_MENU
+	ld [wTextBoxID], a
+	call DisplayTextBoxID
+	ld hl, wTopMenuItemY
+	ld a, 3
+	ld [hli], a ; top menu item Y
+	ld a, 11
+	ld [hli], a ; top menu item X
+	xor a
+	ld [hli], a ; current menu item ID
+	inc hl
+	ld a, 4 ; number of options - 1
+	ld [hli], a ; wMaxMenuItem
+	ld a, B_BUTTON | A_BUTTON
+	ld [hli], a ; wMenuWatchedKeys
+	xor a
+	ld [hl], a ; wLastMenuItem
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .decline ; if B was pressed
+; A was pressed
+	call PlaceUnfilledArrowMenuCursor
+	ld a, [wCurrentMenuItem]
+	jp LoadScreenTilesFromBuffer1
+.decline
+	ld a, 5
+	ld [wCurrentMenuItem], a
+	jp LoadScreenTilesFromBuffer1
+
+DayCareImproveBadDVs:
+	CheckEvent EVENT_UNLOCKED_DAYCARE_DV_IMPROVEMENT
+	ret z
+	ld hl, wDayCareMonDVs
+	ld a, [hl]
+	ld b, a ; b has the original DV pair
+	and %00001111
+	ld c, a ; c holds the rightmost nybble
+	cp 9
+	jr nc, .checkOtherHalf1
+	ld c, 9
+.checkOtherHalf1
+	ld a, b
+	and %11110000
+	cp 9<<4 ; 9 shifted to the left by 4 positions
+	jr nc, .doneWithThisDVPair1
+	ld a, 9<<4
+.doneWithThisDVPair1
+	add c ; add the other nybble
+	ld [hl], a
+; second DV pairs
+	inc hl
+	ld a, [hl]
+	ld b, a ; b has the original DV pair
+	and %00001111
+	ld c, a ; c holds the rightmost nybble
+	cp 9
+	jr nc, .checkOtherHalf2
+	ld c, 9
+.checkOtherHalf2
+	ld a, b
+	and %11110000
+	cp 9<<4 ; 9 shifted to the left by 4 positions
+	jr nc, .doneWithThisDVPair2
+	ld a, 9<<4
+.doneWithThisDVPair2
+	add c ; add the other nybble
+	ld [hl], a
+	ret
+
+; new for RP =================================
+
+DayCareMText1_RP:
+DayCareText2_RP:
+	text_far _DayCareMText1_RP
 	text_end

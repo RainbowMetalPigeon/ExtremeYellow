@@ -9,5 +9,6 @@ Daycare_Object:
 
 	def_object_events
 	object_event  2,  3, SPRITE_GENTLEMAN, STAY, RIGHT, 1 ; person
+	object_event  5,  3, SPRITE_SCIENTIST_F, STAY, LEFT, 2 ; new
 
 	def_warps_to DAYCARE

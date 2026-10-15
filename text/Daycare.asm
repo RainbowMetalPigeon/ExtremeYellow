@@ -1,10 +1,10 @@
 _DayCareIntroText:: ; edited
 	text "I run a DAYCARE."
-	line "The more BADGEs"
-	cont "you have, the"
-	cont "more effective"
-	cont "my cares are!"
-	cont "Quadratically so!"
+;	line "The more BADGEs"
+;	cont "you have, the"
+;	cont "more effective"
+;	cont "my cares are!"
+;	cont "Quadratically so!"
 
 	para "Would you like me"
 	line "to raise one of"
@@ -103,6 +103,8 @@ _DayCareNotEnoughMoneyText::
 	line "have enough ¥!"
 	done
 
+; new ----------------------------------------
+
 _DayCareCantTakeThisMon:: ; new
 	text "What... what is"
 	line "this THING???"
@@ -111,7 +113,62 @@ _DayCareCantTakeThisMon:: ; new
 	line "care of it!!!"
 	done
 
-_DayCareMText1_Rocket:: ; new
+_DayCareText2_Intro::
+	text "gimme a pokemon"
+	line "to train a stat"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_Declined::
+	text "i'm here come back"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_AlreadyGaveMe::
+	text "you already gave"
+	line "me smth for this"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_EverythingGiven::
+	text "we're all done!"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_ChoseToGiveNoMon::
+	text "No? No problem."
+
+	para "If you change your"
+	line "mind, I'm here!"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_WannaGiveMeThis::
+	text "So you give me"
+	line "this #MON?"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_TooWeak::
+	text "too weak"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_OnlyOneMon::
+	text "only 1 mon"
+;	xxxx "123456789012345678"
+	done
+
+_DayCareText2_UnlockedStatTraining::
+	text "unlocked this"
+	line "stat training!"
+;	xxxx "123456789012345678"
+	done
+
+
+; new for RP =================================
+
+_DayCareMText1_RP::
 	text "Ugh! There's no way"
 	line "I'll ever take"
 	cont "care of the #-"

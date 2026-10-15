@@ -56,6 +56,7 @@ TextBoxTextAndCoordTable:
 	text_box_text BOOKSHELF_BOOK_1_2_3_4_MENU,       10,  4, 19, 12, BookshelfBooks1234Text,  12,  5 ; new
 	text_box_text COMBINATION_LOCK_MENU,              7,  6, 19, 12, CombinationLockMenuText,  9,  7 ; new
 	text_box_text SUUJERO_CHOICES_MENU ,              5,  4, 19, 12, SuujeroChoicesMenu,       7,  5 ; new
+	text_box_text DAYCARE_STAT_MON_MENU,             10,  2, 19, 12, DayCareStatMonMenuText,  12,  3 ; new
 
 BuySellQuitText:
 	db   "BUY"
@@ -122,6 +123,13 @@ MoveTutorHazardText: ; new
 	next "TOXIC SPIKES"
 	next "STICKY WEB"
 	next "STEALTH ROCK@"
+
+DayCareStatMonMenuText: ; new
+	db   "HP"
+	next "ATTACK"
+	next "DEFENSE"
+	next "SPEED"
+	next "SPECIAL@"
 
 SuujeroChoicesMenu: ; new
 	db   "LIM. BREAKER"

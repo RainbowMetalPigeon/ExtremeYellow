@@ -65,7 +65,6 @@ INCLUDE "text/Route18Gate1F.asm"
 INCLUDE "text/Route18Gate2F.asm"
 INCLUDE "text/SummerBeachHouse.asm"
 INCLUDE "text/VictoryRoad2F.asm"
-INCLUDE "text/Route2.asm"
 INCLUDE "text/Route3.asm"
 INCLUDE "text/Route4.asm"
 
@@ -86,6 +85,7 @@ INCLUDE "text/Route5.asm"
 INCLUDE "text/Route1.asm"
 INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/ViridianPokecenter.asm"
+INCLUDE "text/Route2.asm"
 
 
 SECTION "Text 5", ROMX
