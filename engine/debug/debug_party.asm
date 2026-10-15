@@ -16,7 +16,7 @@ DebugTeam:
 	db THU_FI_ZER, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
-;	db MSTARMIE, 60
+	db ELECTRODE, 50
 ;	db ZAPDOS, 42
 ;	db MOLTRES, 68
 	db -1 ; end
@@ -92,10 +92,10 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 	; moves to other members
-	ld a, TRI_ATTACK ; CONFUSE_RAY ; DIG
+	ld a, PETAL_DANCE ; CONFUSE_RAY ; DIG
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, MISTY_TERRAIN ; WILL_O_WISP ; TELEPORT
+	ld a, SOLARBEAM ; WILL_O_WISP ; TELEPORT
 	ld [hli], a
 	ld a, QUICK_ATTACK ; RECOVER ; SOFTBOILED
 	ld [hli], a

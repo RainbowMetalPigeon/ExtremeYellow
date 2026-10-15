@@ -975,8 +975,14 @@ CheckWaterEffectiveness_AgainstPlayer:
 ; battling mon is not TCG_WATER
 	ld a, TCG_WATER
 .notTCGMode
+	ld b, a ; b = WATER or TCG_WATER
+	ld a, [wEnemyMoveType]
+	push af ; save the real enemy move type, multi-turn moves (thrash, charging) don't reload it
+	ld a, b
 	ld [wEnemyMoveType], a
 	callfar AIGetTypeEffectiveness ; abused, but if it works it works, result stored in [wTypeEffectiveness]
+	pop af
+	ld [wEnemyMoveType], a ; restore the real enemy move type
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 	ret
 
@@ -1000,6 +1006,10 @@ CheckWaterEffectiveness_AgainstEnemy:
 ; enemy mon is not TCG_WATER
 	ld a, TCG_WATER
 .notTCGMode
+	ld b, a ; b = WATER or TCG_WATER
+	ld a, [wEnemyMoveType]
+	push af ; save the real enemy move type, multi-turn moves (thrash, charging) don't reload it
+	ld a, b
 	ld [wEnemyMoveType], a
 ; we need to fake the types of battle/enemy mon for the AI function to work as intended
 	ld a, [wBattleMonType1]
@@ -1017,6 +1027,8 @@ CheckWaterEffectiveness_AgainstEnemy:
 	ld [wBattleMonType1], a
 	ld a, [wUniQuizAnswer+1]
 	ld [wBattleMonType2], a
+	pop af
+	ld [wEnemyMoveType], a ; restore the real enemy move type
 ; back on track
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 	ret

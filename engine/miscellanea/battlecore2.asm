@@ -244,10 +244,14 @@ ApplyEntryHazardsPlayer::
 	and a
 	ret z
 ; apply STEALTH_ROCK
+	ld a, [wEnemyMoveType]
+	push af ; save the real enemy move type, multi-turn moves (thrash, charging) don't reload it
 	ld a, ROCK
 	ld [wEnemyMoveType], a
 	callfar AIGetTypeEffectiveness ; abused, but if it works it works
 	                               ; result stored in [wTypeEffectiveness]
+	pop af
+	ld [wEnemyMoveType], a ; restore the real enemy move type
 	ld a, [wTypeEffectiveness] ; (1 double not effective (or less), 2 not effective, 4 neutral, 8 super effective, 16 double super effective, 32 triple super effective)
 	and a
 	ret z ; effectiveness = 0, possible only with randomizer, do nothing, we're done here
@@ -382,6 +386,8 @@ ApplyEntryHazardsEnemy::
 	and a
 	ret z
 ; apply STEALTH_ROCK
+	ld a, [wEnemyMoveType]
+	push af ; save the real enemy move type, for consistency with the player-side version
 	ld a, ROCK
 	ld [wEnemyMoveType], a
 ; we need to fake the types of battle/enemy mon for the AI function to work as intended
@@ -401,6 +407,8 @@ ApplyEntryHazardsEnemy::
 	ld [wBattleMonType1], a
 	ld a, [wUniQuizAnswer+1]
 	ld [wBattleMonType2], a
+	pop af
+	ld [wEnemyMoveType], a ; restore the real enemy move type
 ; back on track
 	ld a, [wTypeEffectiveness] ; (1 double not effective, 2 not effective, 4 neutral, 8 super effective, 16 double super effective)
 	and a
