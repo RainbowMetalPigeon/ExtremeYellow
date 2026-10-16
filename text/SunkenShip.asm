@@ -129,7 +129,7 @@ _SunkenShipCaptainsLogText_Page1::
     cont "others' cabins,"
     cont "but I'll not get"
     cont "in the way of"
-    cont "friends or lovers."
+    cont "friends & lovers."
 ;   xxxx "123456789012345678"
     prompt
 
