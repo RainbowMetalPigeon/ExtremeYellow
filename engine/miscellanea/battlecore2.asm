@@ -234,9 +234,16 @@ ApplyEntryHazardsPlayer::
 	ld hl, StuckInWebText
 	call PrintText
 	SetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB
+	ldh a, [hWhoseTurn]
+	push af
+	ld a, 1
+	ldh [hWhoseTurn], a ; enemy's "turn", so StatModifierDownEffect reads wEnemyMoveEffect and targets the player
 	ld a, SPEED_DOWN1_EFFECT
 	ld [wEnemyMoveEffect], a
 	callfar StatModifierDownEffect
+	pop af
+	ldh [hWhoseTurn], a
+	ResetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB ; in case the stat couldn't be lowered
 	; fallthrough
 
 .checkStealthRock
@@ -376,9 +383,16 @@ ApplyEntryHazardsEnemy::
 	ld hl, StuckInWebText
 	call PrintText
 	SetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB
+	ldh a, [hWhoseTurn]
+	push af
+	xor a
+	ldh [hWhoseTurn], a ; player's "turn", so StatModifierDownEffect reads wPlayerMoveEffect and targets the enemy
 	ld a, SPEED_DOWN1_EFFECT
 	ld [wPlayerMoveEffect], a
 	callfar StatModifierDownEffect
+	pop af
+	ldh [hWhoseTurn], a
+	ResetEvent EVENT_SKIP_HIT_TEST_FOR_STICKY_WEB ; in case the stat couldn't be lowered
 	; fallthrough
 
 .checkStealthRock

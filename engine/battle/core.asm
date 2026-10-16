@@ -321,6 +321,8 @@ MainInBattleLoop:
 	jp z, HandlePlayerMonFainted
 ; we don't do the following if the enemy KOed the player
 .AIActionUsedEnemyFirst
+	ld a, $1
+	ldh [hWhoseTurn], a ; new: an AI switch leaves hWhoseTurn=0 (LoadEnemyMonData), restore enemy's turn
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
 	jp z, HandleEnemyMonFainted
 	call DrawHUDsAndHPBars
@@ -374,6 +376,8 @@ MainInBattleLoop:
 	and a
 	jp z, HandlePlayerMonFainted
 .AIActionUsedPlayerFirst
+	ld a, $1
+	ldh [hWhoseTurn], a ; new: an AI switch leaves hWhoseTurn=0 (LoadEnemyMonData), restore enemy's turn
 	SetEvent EVENT_ENABLE_WEATHER_DAMAGE ; new, only at the very end of the turn (intended as player+enemy full actions)
 	SetEvent EVENT_ENABLE_TERRAIN_HEALING ; new, only at the very end of the turn (intended as player+enemy full actions)
 	call HandlePoisonBurnLeechSeed_Wrapper; edited ; for enemy
