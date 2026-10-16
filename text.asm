@@ -209,11 +209,8 @@ INCLUDE "text/BattleFacility.asm" ; new
 
 
 SECTION "Text Extra 7", ROMX ; new, to accomodate all .asm text files that became too big and new ones
-INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/CeladonUniversity2.asm" ; new
 INCLUDE "text/BillsHouse.asm"
-INCLUDE "text/SafariZoneCenter.asm"
-INCLUDE "text/SafariZoneWest.asm"
 INCLUDE "text/OchreResearchCenter2.asm"
 INCLUDE "text/SilphCo8F.asm"
 INCLUDE "text/PewterNidoranHouse.asm"
@@ -249,6 +246,7 @@ INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route21.asm"
+INCLUDE "text/SafariZoneCenter.asm"
 
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -288,6 +286,7 @@ INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/LancesRoom.asm"
 INCLUDE "text/SilphCo1F.asm"
 INCLUDE "text/OchreWonderland.asm" ; new
+INCLUDE "text/SafariZoneWest.asm"
 
 
 SECTION "Text Extra 13", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -325,6 +324,7 @@ INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/CeruleanCaveB1F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/Route4.asm"
+INCLUDE "text/HauntedHouse.asm" ; new
 
 
 ; new: splitted the Pokédex text into two separate sections

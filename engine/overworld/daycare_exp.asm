@@ -67,7 +67,7 @@ IncrementDayCareMonExp: ; edited, it's quadratic with number of badges
 DayCareIncreaseStatExp:
 	inc hl ; little endian?
 	ld a, [hl]
-	add 10 ; we increase the stat by 10 per step
+	add 1 ; we increase the stat by 1 per step ; inefficient for 1 increase, but keeps this generic in case of edits
 	ld [hl], a
 	ret nc
 

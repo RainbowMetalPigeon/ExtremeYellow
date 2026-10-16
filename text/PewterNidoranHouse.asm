@@ -22,41 +22,65 @@ _PewterHouse1Text3:: ; edited
 ; new house ======================
 
 _PewterHouse3Text1_Intro::
-	text "pamphlet"
+	text "It's a PAMPHLET"
+	line "with the latest"
+	cont "news about #-"
+	cont "MON raising."
+
+	para "It's very technical"
+	line "but looks quite"
+	cont "intriguing. Maybe"
+	cont "someone can make"
+	cont "good use of it."
 ;	xxxx "123456789012345678"
 	prompt
 
 _PewterHouse3Text1_NotYet::
-	text "not yet"
+	text "But it can't be"
+	line "just taken with-"
+	cont "out permission!"
 ;	xxxx "123456789012345678"
 	done
 
 _PewterHouse3Text1_GotPamphlet::
-	text "got thing"
+	text "<PLAYER> got"
+	line "PAMPHLET!"
 ;	xxxx "123456789012345678"
 	done
 
 _PewterHouse3Text1_BagFull::
-	text "bag full"
+	text "The bag is full."
 ;	xxxx "123456789012345678"
 	done
 
 _PewterHouse3Text2_Pre::
-	text "take it"
+	text "Oh? That PAMPHLET"
+	line "over there?"
+
+	para "Please help your-"
+	line "self, I already"
+	cont "read it."
 ;	xxxx "123456789012345678"
 	done
 
 _PewterHouse3Text2_Post::
-	text "took it?"
+	text "Did you take the"
+	line "PAMPHLET already?"
+	cont "It's advanced, but"
+	line "quite interesting!"
 ;	xxxx "123456789012345678"
 	done
 
 _PewterHouse3Text3::
-	text "unsub"
+	text "If only we could"
+	line "unsub from paper"
+	cont "ads as easily as"
+	cont "from an online"
+	cont "channel!"
 ;	xxxx "123456789012345678"
 	done
 
 _PewterHouse3Text1_RP::
-	text "waste of paper"
+	text "Waste of paper."
 ;	xxxx "123456789012345678"
 	done
