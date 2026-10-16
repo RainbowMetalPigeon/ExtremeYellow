@@ -33,16 +33,15 @@ INCLUDE "text/Route22Gate.asm"
 INCLUDE "text/ViridianForest.asm"
 INCLUDE "text/Route26.asm" ; new
 INCLUDE "text/BikeShop.asm"
+INCLUDE "text/MtMoonPokecenter.asm"
+INCLUDE "text/Route2TradeHouse.asm"
 
 
 SECTION "Text 3", ROMX
 INCLUDE "data/text/text_3.asm"
-INCLUDE "text/DiglettsCaveRoute2.asm"
 INCLUDE "text/ViridianForestNorthGate.asm"
-INCLUDE "text/Route2TradeHouse.asm"
 INCLUDE "text/Route2Gate.asm"
 INCLUDE "text/ViridianForestSouthGate.asm"
-INCLUDE "text/MtMoonPokecenter.asm"
 INCLUDE "text/SaffronGates.asm"
 INCLUDE "text/Daycare.asm"
 INCLUDE "text/UndergroundPathRoute6.asm"
@@ -66,7 +65,6 @@ INCLUDE "text/Route18Gate2F.asm"
 INCLUDE "text/SummerBeachHouse.asm"
 INCLUDE "text/VictoryRoad2F.asm"
 INCLUDE "text/Route3.asm"
-INCLUDE "text/Route4.asm"
 
 
 SECTION "Text 4", ROMX
@@ -86,6 +84,7 @@ INCLUDE "text/Route1.asm"
 INCLUDE "text/SafariZoneGate.asm"
 INCLUDE "text/ViridianPokecenter.asm"
 INCLUDE "text/Route2.asm"
+INCLUDE "text/DiglettsCaveRoute2.asm"
 
 
 SECTION "Text 5", ROMX
@@ -325,6 +324,7 @@ INCLUDE "text/GameCorner.asm"
 INCLUDE "text/ViridianSchoolHouse.asm"
 INCLUDE "text/CeruleanCaveB1F.asm"
 INCLUDE "text/SaffronPokecenter.asm"
+INCLUDE "text/Route4.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

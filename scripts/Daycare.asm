@@ -520,7 +520,13 @@ DayCareCheckAndTakeStrongMon:
 	ld a, [wcf91]
 	ld [wd0b5], a
 	call GetMonHeader
-	; TBE: special case for Special
+; special case for Special
+	ld a, [wcf91]
+	ld c, a
+	callfar FindUnifiedSpecialValue ; input: c, output: d
+	ld a, d
+	ld [wMonHBaseSpecialAttack], a
+;	ld [wMonHBaseSpecialDefense], a ; unnecessary in this case
 ; retrieve the pointer to the base stat
 	ld a, [wArrayForTemporaryStorage]
 	ld h, a

@@ -16,7 +16,7 @@ DebugTeam:
 	db THU_FI_ZER, 96 ; 255
 	db MMEWTWOX, 99
 	db STARTER_PIKACHU, 100
-	db EETERNATUS, 100
+	db NINETALES, 100
 ;	db EETERNATUS, 100
 ;	db MOLTRES, 68
 	db -1 ; end

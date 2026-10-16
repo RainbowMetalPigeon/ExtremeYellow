@@ -123,8 +123,21 @@ _DayCareCantTakeThisMon::
 	done
 
 _DayCareMText1_CoolPamphlet::
-	text "pamphlet for me?"
-	line "thanks!"
+	text "Uh? A PAMPHLET on"
+	line "new #MON"
+	cont "rising methods?"
+
+	para "I wasn't updated!"
+	line "With this, I can"
+	cont "make #MON grow"
+	cont "faster & better!"
+
+	para "Is it for me?"
+	line "Thanks a ton!"
+	cont "This will help me"
+	cont "so much! I'll"
+	cont "probably be four"
+	cont "times better!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -136,35 +149,93 @@ _DayCareMText1_GivePamphlet::
 	done
 
 _DayCareText2_CanHaveMega::
-	text "hey mega stone"
-	line "gimme for DV"
+	text "?! What's that?!"
+	line "That item can"
+	cont "alter the genetic"
+	cont "properties of"
+	cont "#MON. It's like"
+	cont "an evolutionary"
+	cont "stone cranked to"
+	cont "the max!"
+
+	para "If you gave me it,"
+	line "I could try out a"
+	cont "revolutionary"
+	cont "technique I've"
+	cont "studied recently:"
+	cont "I should be able"
+	cont "to improve the"
+	cont "weakest DNA"
+	cont "traits of a #-"
+	cont "you leave us."
+
+	para "What do you think?"
+	line "A small price now"
+	cont "for a huge gain"
+	cont "later! Can I have"
+	cont "your MEGA STONE?"
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_NoGiveMega::
-	text "no? sadge"
+	text "No? That's a pity."
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_GottenMega::
-	text "yay! DVs!"
+	text "Yay! With this, I"
+	line "can test that"
+	cont "paper, help my"
+	cont "boss, AND benefit"
+	cont "you! Win-win-win!"
+
+	para "<PLAYER> gave the"
+	line "MEGA STONE!"
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_Intro::
-	text "gimme a pokemon"
-	line "to train a stat"
+	text "I researched a way"
+	line "to improve #-"
+	cont "MON raising:"
+
+	para "If you leave me a"
+	line "strong #MON,"
+	cont "it can influence"
+	cont "the growth of"
+	cont "the ones we care"
+	cont "for! A strong"
+	cont "ATTACKer, for"
+	cont "example, will"
+	cont "steadily increase"
+	cont "the ATTACK of"
+	cont "the cared one."
+
+	para "Do you want to"
+	line "leave a strong"
+	cont "#MON with me?"
+	cont "It needs to have"
+	cont "a BASE STAT of"
+	cont "100 or higher."
+	cont "Mind that I can't"
+	cont "return it to you."
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_AlreadyGaveMe::
-	text "you already gave"
-	line "me smth for this"
+	text "You already gave"
+	line "me a #MON for"
+	cont "this STAT."
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_EverythingGiven::
-	text "we're all done!"
+	text "Thanks to the"
+	line "#MON you gave"
+	cont "me, our raising"
+	cont "now increases"
+	cont "every STAT!"
+	cont "Thanks!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -182,21 +253,27 @@ _DayCareText2_WannaGiveMeThis::
 	done
 
 _DayCareText2_TooWeak::
-	text "too weak"
+	text "Its BASE STAT is"
+	line "not high enough."
+	cont "It needs to be"
+	cont "100 or more."
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_OnlyOneMon::
-	text "only 1 mon"
+	text "Oh, you can't give"
+	line "me a #MON when"
+	cont "you have only one."
 ;	xxxx "123456789012345678"
 	done
 
 _DayCareText2_UnlockedStatTraining::
-	text "unlocked this"
-	line "stat training!"
+	text "Yay! With it I can"
+	line "unlock another"
+	cont "STAT training!"
+	cont "Thanks!"
 ;	xxxx "123456789012345678"
 	done
-
 
 ; new for RP =================================
 
