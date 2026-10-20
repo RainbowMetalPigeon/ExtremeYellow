@@ -142,7 +142,7 @@ InitOptions:
 	ld [wPrinterSettings], a
 	xor a ; new
 	ld [wLevelScaling], a ; new
-	ld [wExpGainOption], a ; new
+	ld [wEnemyEVsOption], a ; new
 	ld [wBadgeBoostOption], a ; new
 	ret
 
@@ -321,7 +321,7 @@ MainMenu_ChooseSaveSlot::
 	call ClearScreen
 	call UpdateSprites
 	call Delay3
-	
+
 	call LoadTextBoxTilePatterns
 	call LoadFontTilePatterns
 
@@ -350,7 +350,7 @@ MainMenu_ChooseSaveSlot::
 	ld [wMenuWatchedKeys], a
 
 	call HandleMenuInput
-	
+
 	bit BIT_B_BUTTON, a
 	jp nz, DisplayTitleScreen ; if so, go back to the title screen
 

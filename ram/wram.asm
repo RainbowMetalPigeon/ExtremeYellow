@@ -2199,7 +2199,7 @@ wd492:: db
 wLevelScaling:: db ; new: if 0, no level scaling; if 1, yes
 ;	ds 1 ; edited, commented out for var above
 wSurfingMinigameHiScore:: dw ; little-endian BCD
-wExpGainOption:: db ; new
+wPersonalizationExpGain:: db ; new
 ;	ds 1 ; edited, commented out for var above
 wPrinterSettings:: db
 wUnknownSerialFlag_d499:: db
@@ -2354,7 +2354,7 @@ wSpinnerTileFrameCount:: db ; new
 wDayNightCycle:: db ; new
 wPersonalizationTypeChart:: db ; new
 wPersonalizationTCGMode:: db ; new
-wPersonalizationOverworldSpeedup:: db ; new
+wLayoutOverworldSpeedup:: db ; new
 wLayoutDayNightPalettes:: db ; new
 
 wViridianMartCurScript:: db
@@ -2492,7 +2492,7 @@ wSeafoamIslandsB4FCurScript:: db
 ;wHauntedPalletTownCurScript:: db ; new
 ;wHauntedIslandOfNumbersCurScript:: db ; new
 ;wHauntedHouse4CurScript:: db ; new
-	ds 3 ; new, was ds 7, from optimizing the scripts, UNUSED
+	ds 2 ; new, was ds 7, from optimizing the scripts, UNUSED
 		 ; partly commented for special split
 
 wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also kinda ok
@@ -2506,6 +2506,7 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 wGameProgressFlagsEnd::
 
 wCurrentSaveSlot:: db ; new, for multi save slots
+wEnemyEVsOption:: db ; new
 
 ; new for sevii
 ; bit array of missable objects. set = removed

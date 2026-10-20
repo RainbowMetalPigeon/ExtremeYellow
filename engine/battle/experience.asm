@@ -12,7 +12,7 @@ GainExperience:
 	CheckEvent EVENT_ROCKET_PATH
 	jr nz, .normalExpGain
 ; new, to handle the Exp Gain option
-	ld a, [wExpGainOption]
+	ld a, [wPersonalizationExpGain]
 	cp 2 ; "NOTHING" exp gain is set
 	ret z
 	cp 1 ; "LIMITED" exp gain is set

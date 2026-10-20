@@ -40,7 +40,7 @@ OptionMenuJumpTable:
 	dw OptionsMenu_LevelCap ; new, it was OptionsMenu_SpeakerSettings, moved into the Personalization options
 	dw OptionsMenu_BadgeBoost ; new, it was OptionsMenu_GBPrinterBrightness
 	dw OptionsMenu_LevelScaling
-	dw OptionsMenu_ExpGain
+	dw OptionsMenu_EnemyEVs ; new
 	dw OptionsMenu_Cancel
 
 ; ---------------------------------------------
@@ -373,8 +373,8 @@ ImpossibleScaling:
 
 ; ---------------------------------------------
 
-OptionsMenu_ExpGain:
-	ld a, [wExpGainOption]
+OptionsMenu_EnemyEVs:
+	ld a, [wEnemyEVsOption]
 	ld c, a
 	ldh a, [hJoy5]
 	bit 4, a ; right
@@ -384,7 +384,7 @@ OptionsMenu_ExpGain:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp $2
+	cp 1
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -395,37 +395,34 @@ OptionsMenu_ExpGain:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, $3
+	ld c, 2
 .decrease
 	dec c
 	ld a, d
 .save
 	ld a, c
-	ld [wExpGainOption], a
+	ld [wEnemyEVsOption], a
 .nonePressed
 	ld b, $0
-	ld hl, ExpGainStringsPointerTable
+	ld hl, EnemyEVsStringsPointerTable
 	add hl, bc
 	add hl, bc
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 14
+	hlcoord 12, 14
 	call PlaceString
 	and a
 	ret
 
-ExpGainStringsPointerTable:
-	dw NormalGain
-	dw LimitedGain
-	dw NothingGain
+EnemyEVsStringsPointerTable:
+	dw MaxDVs
+	dw ZeroDVs
 
-NormalGain:
-	db "NORMAL @"
-LimitedGain:
-	db "LIMITED@"
-NothingGain:
-	db "NOTHING@"
+MaxDVs:
+	db "MAX @"
+ZeroDVs:
+	db "ZERO@"
 
 ; ---------------------------------------------
 
@@ -679,7 +676,7 @@ AllOptionsText:
 	next "CAP:" ; new, it was SOUND
 	next "BADGE BST:" ; new, it was PRINT
 	next "LVL SCALE:" ; new
-	next "EXP GAIN:@" ; new
+	next "ENEMY EVs:@" ; new
 
 OptionMenuCancelText:
 	db "EXIT@" ; edited
@@ -693,7 +690,7 @@ OptionsInfoTexts:
 	dw OptionsInfoTextCap
 	dw OptionsInfoTextBadgeBoost
 	dw OptionsInfoTextLevelScale
-	dw OptionsInfoTextExpGain
+	dw OptionsInfoTextEnemyEVs
 
 OptionsInfoTextTextSpeed:
 	text_far _OptionsInfoTextTextSpeed
@@ -719,8 +716,8 @@ OptionsInfoTextLevelScale:
 	text_far _OptionsInfoTextLevelScale
 	text_end
 
-OptionsInfoTextExpGain:
-	text_far _OptionsInfoTextExpGain
+OptionsInfoTextEnemyEVs:
+	text_far _OptionsInfoTextEnemyEVs
 	text_end
 
 PrintLabelAboutInfo::

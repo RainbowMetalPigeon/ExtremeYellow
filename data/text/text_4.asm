@@ -137,7 +137,7 @@ _PersonalizationInfoTextTCGMode::
 ;	xxxx "123456789012345678"
 	prompt
 
-_PersonalizationInfoTextOverworldSpeedup::
+_LayoutInfoTextOverworldSpeedup::
 	text "EXPERIMENTAL!"
 	line "Doubles the over-"
 	cont "world movement"
@@ -399,9 +399,20 @@ _OptionsInfoTextCap::
 
 _OptionsInfoTextBadgeBoost::
 	text "CLASSIC: as in the"
-	line "original games,"
-	cont "including badge"
+	line "original games:"
+	cont "certain BADGEs"
+	cont "give +12.5% to"
+	cont "a STAT."
+;	xxxx "123456789012345678"
+	cont "Includes badge"
 	cont "boost glitch."
+	prompt
+
+_OptionsInfoTextEnemyEVs::
+	text "Enemy can have"
+	line "MAX or ZERO EVs"
+	cont "(STAT EXP)."
+;	xxxx "123456789012345678"
 	prompt
 
 _OptionsInfoTextLevelScale::
@@ -423,7 +434,7 @@ _OptionsInfoTextLevelScale::
 	cont "is always 100."
 	prompt
 
-_OptionsInfoTextExpGain::
+_PersonalizationInfoTextExpGain::
 	text "LIMITED: wild"
 	line "#MON and"
 	cont "trainer rematches"

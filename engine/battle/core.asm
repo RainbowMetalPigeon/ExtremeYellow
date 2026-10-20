@@ -6893,7 +6893,10 @@ LoadEnemyMonData:
 ;is this a trainer battle? Wild pkmn do not have statexp
 	ld a, [wIsInBattle]
 	cp $2 ; is it a trainer battle?
-	jr nz, .nottrainer	;not a trainer battle, so hl will continue to point to wEnemyMonHP and b=0 for CalcStats
+	jr nz, .nottrainer	; not a trainer battle, so hl will continue to point to wEnemyMonHP and b=0 for CalcStats
+	ld a, [wEnemyEVsOption]
+	dec a
+	jr z, .nottrainer ; if the option = 1, then = ZERO, then we don't give Stat Exp
 
 ;this is a trainer battle, so point hl to the HP statExp address of the correct mon in the enemy party data
 	ld hl, wEnemyMon1HPExp	;make hl point to HP statExp of the first enemy party mon

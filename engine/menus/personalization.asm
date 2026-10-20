@@ -44,7 +44,7 @@ PersonalizationMenuJumpTable:
 	dw PersonalizationMenu_PhySpeSplit
 	dw PersonalizationMenu_TypeChart
 	dw PersonalizationMenu_TCGMode
-	dw PersonalizationMenu_OverworldSpeedup
+	dw PersonalizationMenu_ExpGain
 	dw PersonalizationMenu_SwapBattles
 	dw PersonalizationMenu_Cancel
 
@@ -270,8 +270,8 @@ PersonalizationMenu_TCGMode:
 
 ; ---------------------------------------------
 
-PersonalizationMenu_OverworldSpeedup:
-	ld a, [wPersonalizationOverworldSpeedup]
+PersonalizationMenu_ExpGain:
+	ld a, [wPersonalizationExpGain]
 	ld c, a
 	ldh a, [hJoy5]
 	bit 4, a ; right
@@ -281,7 +281,7 @@ PersonalizationMenu_OverworldSpeedup:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp 1 ; number of options - 1
+	cp $2
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -292,16 +292,16 @@ PersonalizationMenu_OverworldSpeedup:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, 2 ; number of options
+	ld c, $3
 .decrease
 	dec c
 	ld a, d
 .save
 	ld a, c
-	ld [wPersonalizationOverworldSpeedup], a
+	ld [wPersonalizationExpGain], a
 .nonePressed
 	ld b, $0
-	ld hl, PersonalizationOverworldSpeedupStringsPointerTable
+	ld hl, ExpGainStringsPointerTable
 	add hl, bc
 	add hl, bc
 	ld e, [hl]
@@ -311,6 +311,18 @@ PersonalizationMenu_OverworldSpeedup:
 	call PlaceString
 	and a
 	ret
+
+ExpGainStringsPointerTable:
+	dw NormalGain
+	dw LimitedGain
+	dw NothingGain
+
+NormalGain:
+	db "NORMAL @"
+LimitedGain:
+	db "LIMITED@"
+NothingGain:
+	db "NOTHING@"
 
 ; ---------------------------------------------
 
@@ -525,7 +537,7 @@ AllPersonalizationText:
 	next "PHY/SPE SPLIT:"
 	next "TYPECHART:"
 	next "TCG MODE:"
-	next "SPEED-UP:"
+	next "EXP.GAIN:"
 	next "SWAP BATTLE:@"
 
 PersonalizationTitleText:
@@ -570,7 +582,6 @@ CustomText:
 	db "CUSTOM @" ; TBE: PIGEON's?
 
 PersonalizationTCGModeStringsPointerTable:
-PersonalizationOverworldSpeedupStringsPointerTable:
 PersonalizationSpecialSplitStringsPointerTable:
 	dw NoText
 	dw YesText
@@ -583,7 +594,7 @@ PersonalizationInfoTexts:
 	dw PersonalizationInfoTextPhySpeSplit
 	dw PersonalizationInfoTextTypeChart
 	dw PersonalizationInfoTextTCGMode
-	dw PersonalizationInfoTextOverworldSpeedup
+	dw PersonalizationInfoTextExpGain
 	dw PersonalizationInfoTextSwapBattles
 
 PersonalizationInfoTextTypes:
@@ -614,8 +625,8 @@ PersonalizationInfoTextTCGMode:
 	text_far _PersonalizationInfoTextTCGMode
 	text_end
 
-PersonalizationInfoTextOverworldSpeedup:
-	text_far _PersonalizationInfoTextOverworldSpeedup
+PersonalizationInfoTextExpGain:
+	text_far _PersonalizationInfoTextExpGain
 	text_end
 
 PersonalizationInfoTextSpecialSplit:

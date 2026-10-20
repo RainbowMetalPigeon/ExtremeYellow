@@ -54,7 +54,7 @@ EnterMap::
 	ld [wJoyIgnore], a
 
 OverworldLoop::
-	ld a, [wPersonalizationOverworldSpeedup]
+	ld a, [wLayoutOverworldSpeedup]
 	and a
 	jr nz, .yesSpeedUp
 	call DelayFrame
@@ -141,7 +141,7 @@ OverworldLoopLessDelay::
 	and a
 	jr nz, .displayDialogue ; edited
 ; new
-	callfar CheckIfCanSurfOrCutFromOverworld 
+	callfar CheckIfCanSurfOrCutFromOverworld
 	CheckAndResetEvent EVENT_GONNA_DIVE
 	jp nz, WarpFound2
 ; BTV
