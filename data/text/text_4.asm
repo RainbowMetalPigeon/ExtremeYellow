@@ -409,9 +409,11 @@ _OptionsInfoTextBadgeBoost::
 	prompt
 
 _OptionsInfoTextEnemyEVs::
-	text "Enemy can have"
-	line "MAX or ZERO EVs"
-	cont "(STAT EXP)."
+	text "Enemy's STAT EXP"
+	line "(aka EVs). If"
+	cont "SCALE, it scales"
+	cont "with number of"
+	cont "BADGEs obtained."
 ;	xxxx "123456789012345678"
 	prompt
 

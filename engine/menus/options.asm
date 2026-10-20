@@ -384,7 +384,7 @@ OptionsMenu_EnemyEVs:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp 1
+	cp 2
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -395,7 +395,7 @@ OptionsMenu_EnemyEVs:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, 2
+	ld c, 3
 .decrease
 	dec c
 	ld a, d
@@ -416,13 +416,16 @@ OptionsMenu_EnemyEVs:
 	ret
 
 EnemyEVsStringsPointerTable:
-	dw MaxDVs
-	dw ZeroDVs
+	dw MaxEVs
+	dw ScaleEVs
+	dw ZeroEVs
 
-MaxDVs:
-	db "MAX @"
-ZeroDVs:
-	db "ZERO@"
+MaxEVs:
+	db "MAX  @"
+ScaleEVs:
+	db "SCALE@"
+ZeroEVs:
+	db "ZERO @"
 
 ; ---------------------------------------------
 

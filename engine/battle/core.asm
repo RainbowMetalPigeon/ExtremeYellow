@@ -6893,10 +6893,10 @@ LoadEnemyMonData:
 ;is this a trainer battle? Wild pkmn do not have statexp
 	ld a, [wIsInBattle]
 	cp $2 ; is it a trainer battle?
-	jr nz, .nottrainer	; not a trainer battle, so hl will continue to point to wEnemyMonHP and b=0 for CalcStats
+	jp nz, .nottrainer	; not a trainer battle, so hl will continue to point to wEnemyMonHP and b=0 for CalcStats
 	ld a, [wEnemyEVsOption]
-	dec a
-	jr z, .nottrainer ; if the option = 1, then = ZERO, then we don't give Stat Exp
+	cp 2
+	jr z, .nottrainer ; if the option = 2, then = ZERO, then we don't give Stat Exp
 
 ;this is a trainer battle, so point hl to the HP statExp address of the correct mon in the enemy party data
 	ld hl, wEnemyMon1HPExp	;make hl point to HP statExp of the first enemy party mon
@@ -6917,13 +6917,64 @@ LoadEnemyMonData:
 ;the pkmn is out for the first time, so give it some statExp
 	push de	;preserve de
 	push hl
+
+; it's a trainer battle and wEnemyEVsOption does not say to give 0 StatExp: choose how much
 	CheckEvent EVENT_SECOND_BATTLE_IN_SWAP_BATTLE
-	ld a, $FF	; EY, load max stats
-	jr z, .chosenStatExpToLoad
-	xor a ; if swap battle
+	jr nz, .load0
+	ld a, [wEnemyEVsOption]
+	and a
+	jr z, .load8
+; if we're here: wEnemyEVsOption -> StatExp depends on how many badges we have
+	callfar CountHowManyBadges ; returns in d the number of badges we own
+	ld a, d
+	and a
+	jr z, .load0
+	dec a
+	jr z, .load1
+	dec a
+	jr z, .load2
+	dec a
+	jr z, .load3
+	dec a
+	jr z, .load4
+	dec a
+	jr z, .load5
+	dec a
+	jr z, .load6
+	dec a
+	jr z, .load7
+.load8
+	ld a, $FF
+	jr .chosenStatExpToLoad
+.load7
+	ld a, $C4
+	jr .chosenStatExpToLoad
+.load6
+	ld a, $90
+	jr .chosenStatExpToLoad
+.load5
+	ld a, $64
+	jr .chosenStatExpToLoad
+.load4
+	ld a, $40
+	jr .chosenStatExpToLoad
+.load3
+	ld a, $24
+	jr .chosenStatExpToLoad
+.load2
+	ld a, $10
+	jr .chosenStatExpToLoad
+.load1
+	ld a, $04
+	jr .chosenStatExpToLoad
+.load0
+	xor a
+	; fallthrough
 .chosenStatExpToLoad
-	ld d, a		; EY, load max stats
-	ld e, a		; EY, load max stats
+	ld d, a
+	ld e, a
+; set Stat Exp to load in de
+
 	pop hl
 	push hl	; save position for party data wEnemyMon<x>HPExp - 1
 	inc hl ; move hl forward one position to MSB of first stat exp

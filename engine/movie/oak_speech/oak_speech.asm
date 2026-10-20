@@ -1,11 +1,15 @@
-SetDefaultNames:
+SetDefaultNames: ; edited: added new options as to be not initialized, removed unused wPrinterSettings
 	ld a, [wLetterPrintingDelayFlags]
 	push af
 	ld a, [wOptions]
 	push af
 	ld a, [wd732]
 	push af
-	ld a, [wPrinterSettings]
+	ld a, [wBadgeBoostOption]
+	push af
+	ld a, [wLevelScaling]
+	push af
+	ld a, [wEnemyEVsOption]
 	push af
 	ld a, [wCurrentSaveSlot] ; new for multi save slots
 	push af ; new for multi save slots
@@ -24,13 +28,19 @@ SetDefaultNames:
 	pop af ; new for multi save slots
 	ld [wCurrentSaveSlot], a ; new for multi save slots
 	pop af
-	ld [wPrinterSettings], a
+	ld [wEnemyEVsOption], a
+	pop af
+	ld [wLevelScaling], a
+	pop af
+	ld [wBadgeBoostOption], a
 	pop af
 	ld [wd732], a
 	pop af
 	ld [wOptions], a
 	pop af
 	ld [wLetterPrintingDelayFlags], a
+	ld a, 64 ; new, normal printer brightness, same as InitOptions
+	ld [wPrinterSettings], a ; new
 	ld a, [wOptionsInitialized]
 	and a
 	call z, InitOptions
