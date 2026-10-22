@@ -121,6 +121,7 @@ SeviiSevenIslandGym3ScriptPostBattle:
 	ld [wDestinationWarpID], a
 	xor a
 	ld [wIsInBattle], a
+	ld [wMapPalOffset], a
 	ld hl, wd72d
 	set 3, [hl] ; do scripted warp
 	ret
