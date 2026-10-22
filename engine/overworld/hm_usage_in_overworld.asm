@@ -93,12 +93,12 @@ CheckIfCanSurfOrCutFromOverworld::
 	jr nz, .flashOk
     ld a, [wObtainedBadges] ; badges obtained
     bit BIT_BOULDERBADGE, a ; BROCK
-	jp z, .newBadgeRequired
+	jp z, .areaNotDark
 .flashOk
 ; we have the right badge, do we have a mon with Flash in team?
     ld d, FLASH
     call IsMoveInParty ; output: d = how many matches, z flag = whether a match was found (set = match found)
-    ret z ; no message printed?
+    jr z, .areaNotDark
 ; we can brigthen, special check for Ichino gym
 	CheckEvent EVENT_IN_SEVII
 	jr z, .kantoFlash
