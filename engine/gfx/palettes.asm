@@ -1563,6 +1563,8 @@ DMGPalToGBCPal::
 	ldh a, [rOBP1]
 	ld [wLastOBP1], a
 .convert
+	and a ; new: fully whited out?
+	jr z, .whiteOut ; new
 	FOR color_index, NUM_PAL_COLORS
 		ld b, a
 		and %11
@@ -1578,6 +1580,20 @@ DMGPalToGBCPal::
 			rrca
 		ENDC
 	ENDR
+	ret
+
+.whiteOut ; new
+; a fully whited-out palette is always pure white, also with night palettes
+; (whose color 0 is grey), so that it matches the menus and the player's sprite
+	ld hl, wGBCPal
+	ld b, NUM_PAL_COLORS
+.whiteOutLoop
+	ld a, LOW(31 | 31 << 5 | 31 << 10)
+	ld [hli], a
+	ld a, HIGH(31 | 31 << 5 | 31 << 10)
+	ld [hli], a
+	dec b
+	jr nz, .whiteOutLoop
 	ret
 
 .GetColorAddress:
