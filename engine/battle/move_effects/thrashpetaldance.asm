@@ -21,9 +21,7 @@ ThrashPetalDanceEffect_::
 	ld a, [wEnemyMoveNum]
 .continue
 	cp OUTRAGE
-	ld a, 0
-	jr z, .skipExtraAnimation
+	ret z
 	ldh a, [hWhoseTurn]	; vanilla code
 	add ANIM_B0			; vanilla code
-.skipExtraAnimation
 	jp PlayAlternativeAnimation2Copy ; edited twice
