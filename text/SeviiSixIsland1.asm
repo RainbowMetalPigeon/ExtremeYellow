@@ -1003,7 +1003,7 @@ _SeviiRoute38HousesText2_WannaGiveTM::
 	cont "the single best"
 	cont "move ever!"
 
-	para "C-c-can I have it?"
+	para "C-c-can I see it?"
 	line "Pretty please?!"
 	done
 
@@ -1011,11 +1011,13 @@ _SeviiRoute38HousesText2_NoGiveTM::
 	text "This is the worst"
 	line "d-d-day ever..."
 
-	para "Seeing COPYCAT's"
+	para "Being so close"
+	line "to COPYCAT's"
 	line "favourite TM and"
-	cont "being d-d-denied"
-	cont "it is super"
-	cont "tantalizing..."
+	cont "being unable to"
+	cont "see it is super"
+	cont "t-t-tantalizing..."
+;	xxxx "123456789012345678"
 	done
 
 _SeviiRoute38HousesText2_ThanksATon::

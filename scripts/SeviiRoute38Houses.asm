@@ -127,10 +127,9 @@ SeviiRoute38HousesText2: ; Imposter "tutor"
 	ld hl, SeviiRoute38HousesText2_HaveDitto
 	call PrintText
 ; check if have TM for Mimic
-	ld b, TM_MIMIC
-	call IsItemInBag ; set zero flag if item isn't in player's bag
+	CheckEvent EVENT_GOT_TM31
 	jr z, .done
-; we have it in bag
+; we have it in the Case
 	call WaitForTextScrollButtonPress
 	ld hl, SeviiRoute38HousesText2_WannaGiveTM
 	call PrintText
@@ -139,10 +138,7 @@ SeviiRoute38HousesText2: ; Imposter "tutor"
 	and a
 	ld hl, SeviiRoute38HousesText2_NoGiveTM
 	jr nz, .printAndEnd
-; we give the TM
-	ld a, TM_MIMIC
-	ldh [hItemToRemoveID], a
-	farcall RemoveItemByID
+; we show the TM
 	SetEvent EVENT_SEVII_GAVE_TM_MIMIC_TO_IMPOSTER_TUTOR
 	ld hl, SeviiRoute38HousesText2_ThanksATon
 	call PrintText
