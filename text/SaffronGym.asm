@@ -308,7 +308,7 @@ _SabrinaPreBattleText_RP::
 	cont "And since then, I"
 	cont "knew I was going"
 	cont "to face you by"
-	cont "unleashing the"
+	cont "unleashing my"
 	cont "unbridled PSYCHIC"
 	cont "ESP powers."
 ;	xxxx "123456789012345678"

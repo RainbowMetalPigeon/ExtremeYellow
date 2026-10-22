@@ -244,9 +244,8 @@ _DarkGuideHints_Hint2_Solution::
 
 _DarkGuideHints_Hint3_Base::
 	text "Derettacs"
-	line "sehctamer fo emaf"
-	cont "gnirb a ykcul"
-	cont "noissim."
+	line "emaf sehctamer."
+;	xxxx "123456789012345678"
 	prompt
 
 _DarkGuideHints_Hint3_Details::
@@ -258,8 +257,6 @@ _DarkGuideHints_Hint3_Details::
 	cont "well as your"
 	cont "flexibility and"
 	cont "knowledge."
-	cont "This'll unlock a"
-	cont "fortune quest."
 	prompt
 
 _DarkGuideHints_Hint3_Solution::
@@ -274,7 +271,11 @@ _DarkGuideHints_Hint3_Solution::
 	cont "INVERSE BATTLEs."
 	cont "When all of them"
 	cont "are beaten, PROF."
-	cont "OAK will appear."
+	cont "OAK will appear,"
+	cont "and after winning"
+	cont "against them, the"
+	cont "SEVII TICKET'll be"
+	cont "upgraded to max."
 ;	xxxx "123456789012345678"
 
 	para "The locations are"
@@ -578,7 +579,7 @@ _DarkGuideHints_Hint10_Solution::
 	cont "fight awaits you."
 ;	xxxx "123456789012345678"
 	prompt
-	
+
 ; ----------- Viridian Gym Leader
 
 _DarkGuideHints_Hint11_Base::

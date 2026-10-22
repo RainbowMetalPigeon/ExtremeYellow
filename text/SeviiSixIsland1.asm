@@ -1736,7 +1736,7 @@ _SeviiRoute39EndBattleText4::
 
 _SeviiRoute39AfterBattleText4::
 	text "I'll give in to the"
-	line "sea 'n' just relax."
+	line "sea & just relax."
 ;	xxxx "123456789012345678"
 	done
 
