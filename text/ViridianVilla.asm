@@ -12,7 +12,7 @@ _ViridianVilla_SignText1::
 	para "Repair the water"
 	line "pipes..."
 
-	para "Control the"
+	para "Inspect the"
 	line "walls..."
 
 	para "Fix the roof"
