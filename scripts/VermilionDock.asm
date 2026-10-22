@@ -47,6 +47,7 @@ VermilionDock_Script:
 .notFollowingPikachu0
 	SetEventReuseHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	call Delay3
+	callfar ShowSeviiDockSailors
 	ld hl, wd730
 	set 7, [hl]
 	ld hl, wSimulatedJoypadStatesEnd
