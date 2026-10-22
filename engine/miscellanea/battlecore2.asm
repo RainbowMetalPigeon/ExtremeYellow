@@ -253,7 +253,15 @@ ApplyEntryHazardsPlayer::
 ; apply STEALTH_ROCK
 	ld a, [wEnemyMoveType]
 	push af ; save the real enemy move type, multi-turn moves (thrash, charging) don't reload it
+; TCG mode?
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .stealthRockNotTCG
+	ld a, TCG_FIGHTING
+	jr .stealthRockTypeGotten
+.stealthRockNotTCG
 	ld a, ROCK
+.stealthRockTypeGotten
 	ld [wEnemyMoveType], a
 	callfar AIGetTypeEffectiveness ; abused, but if it works it works
 	                               ; result stored in [wTypeEffectiveness]
