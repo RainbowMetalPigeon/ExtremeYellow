@@ -104,19 +104,8 @@ TalkToTrainer::
 	CheckEvent EVENT_REACTIVATE_ALL_TRAINERS
 	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
 ; no rematches vs specific trainers -> TBE: doesn't work
-;	ld a, [wTrainerClass]
-;	cp GIOVANNI
-;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-;	cp ORAGE ; prolly unnecessary, but just to be safe
-;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-;	cp LORELEI
-;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-;	cp BRUNO
-;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-;	cp AGATHA
-;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
-;	cp LANCE
-;	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
+	callfar DoNotRematchSomeTrainers ; z flag if we do not want to rematch
+	jr z, .trainerAlreadyFoughtAndNotGonnaRefight
 ; back to normal rematch code
 	ld hl, TextAskRematch
 	call PrintText

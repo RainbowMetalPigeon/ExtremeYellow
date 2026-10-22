@@ -3252,3 +3252,26 @@ DisplayYesNoChoice::
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	jp LoadScreenTilesFromBuffer1
+
+; =====================================================================
+
+DoNotRematchSomeTrainers:: ; z flag if we do not want to rematch
+	CheckEvent EVENT_IN_SEVII
+	ld a, [wCurMap]
+	jr nz, .sevii
+; kanto
+	cp LORELEIS_ROOM
+	ret z
+	cp BRUNOS_ROOM
+	ret z
+	cp AGATHAS_ROOM
+	ret z
+	cp LANCES_ROOM
+	ret z
+	cp CHAMPIONS_ROOM
+	ret z
+	cp SAFARI_ZONE_NORTH
+	ret
+.sevii
+	; TBE if there are Sevii maps with trainers not to be insta-rematched
+	ret
