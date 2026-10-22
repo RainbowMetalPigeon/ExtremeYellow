@@ -267,3 +267,47 @@ _ViridianVilla_Text1_NoMonji::
 	line "their side."
 ;	xxxx "123456789012345678"
 	done
+
+; for RP =============================
+
+_ViridianVilla_Text1_AfterMonji_RP::
+	text "..."
+
+	para "...they are..."
+
+	para "..."
+
+	para "...harmless."
+;	xxxx "123456789012345678"
+	done
+
+_ViridianVilla_Text1_BeforeMonji_RP::
+	text "...they are..."
+
+	para "..."
+
+	para "...there's a #-"
+	line "BALL at their"
+	cont "side. Within it,"
+	cont "an unguarded"
+	cont "#MON."
+;	xxxx "123456789012345678"
+
+	para "Take care of-"
+	line "Take it?"
+;	xxxx "123456789012345678"
+	done
+
+_ViridianVilla_Text1_GotMonji_RP::
+	text "Let's take this"
+	line "#MON... in."
+;	xxxx "123456789012345678"
+	prompt
+
+_ViridianVilla_Text1_NoMonji_RP::
+	text "Unworthy."
+
+	para "...it. It is not"
+	line "worthy."
+;	xxxx "123456789012345678"
+	done

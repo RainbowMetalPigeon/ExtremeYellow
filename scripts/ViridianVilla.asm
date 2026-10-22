@@ -30,7 +30,6 @@ ViridianVilla_TextPointers_Rocket:
 	dw ViridianVilla_SignText4
 
 ViridianVilla_Text1:
-ViridianVilla_Text1_RP: ; TBE?
 	text_asm
 	CheckEvent EVENT_GOT_MONJI
 	jr z, .beforeMonji
@@ -224,4 +223,53 @@ ViridianVilla_SignText3:
 
 ViridianVilla_SignText4:
 	text_far _ViridianVilla_SignText4
+	text_end
+
+; for RP =============================
+
+ViridianVilla_Text1_RP:
+	text_asm
+	CheckEvent EVENT_GOT_MONJI
+	jr z, .beforeMonji
+; after MONJI
+	ld hl, ViridianVilla_Text1_AfterMonji_RP
+	jr .printAndEnd
+.beforeMonji
+	ld hl, ViridianVilla_Text1_BeforeMonji_RP
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, .doNotTakeMonji ; if player chose No
+; take Monji
+	ld hl, ViridianVilla_Text1_GotMonji_RP
+	call PrintText
+	SetEvent EVENT_GIVING_GUARANTEED_SHINY_MON
+	SetEvent EVENT_SPECIAL_MONJI_RENAMING
+	ld c, 50
+	ld b, TANGELA
+	call GivePokemon
+	jp nc, TextScriptEnd
+	SetEvent EVENT_GOT_MONJI
+	jp TextScriptEnd
+.doNotTakeMonji
+	ld hl, ViridianVilla_Text1_NoMonji_RP
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+ViridianVilla_Text1_AfterMonji_RP:
+	text_far _ViridianVilla_Text1_AfterMonji_RP
+	text_end
+
+ViridianVilla_Text1_BeforeMonji_RP:
+	text_far _ViridianVilla_Text1_BeforeMonji_RP
+	text_end
+
+ViridianVilla_Text1_GotMonji_RP:
+	text_far _ViridianVilla_Text1_GotMonji_RP
+	text_end
+
+ViridianVilla_Text1_NoMonji_RP:
+	text_far _ViridianVilla_Text1_NoMonji_RP
 	text_end
