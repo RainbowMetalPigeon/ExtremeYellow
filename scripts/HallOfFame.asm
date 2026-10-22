@@ -259,7 +259,7 @@ HallofFameRoomScript5:
 ; delay lol
 	call Delay3
 ; non-moving step of player?
-	xor a
+	ld a, $ff ; edited
 	ld [wJoyIgnore], a
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
@@ -274,7 +274,7 @@ HallofFameRoomScript6:
 	call Delay3
 	ld a, [wLetterPrintingDelayFlags]
 	push af
-	xor a
+	ld a, $ff ; edited
 	ld [wJoyIgnore], a
 	predef HallOfFamePC ; this, in credits.asm, callfars AnimateHallOfFame, which is in movie/hall_of_fame.asm
 	                    ; and after showing the part, it call(far)s SaveHallOfFameTeams which is in save.asm
@@ -560,7 +560,7 @@ HallofFameRoomScript2_RP:
 ; Oak dialogue
 	ld a, 4
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call HoFScript_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Kill Oak
     call GBFadeOutToWhite
     ld c, 10

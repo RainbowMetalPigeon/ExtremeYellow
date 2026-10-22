@@ -1,4 +1,6 @@
 HallOfFamePC:
+	xor a ; edited
+	ld [wJoyIgnore], a ; edited
 	callfar AnimateHallOfFame
 PostHallOfFamePC_Credits:: ; new label
 	call ClearScreen
