@@ -29,6 +29,14 @@ CeladonChiefHouse_ScriptPointers: ; new
 	dw LunarShrineScript17_RP
 	dw LunarShrineScript18_RP
 
+LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore:
+	ld a, $f0
+	ld [wJoyIgnore], a
+	call DisplayTextID
+	ld a, $ff
+	ld [wJoyIgnore], a
+	ret
+
 LunarShrineScript0:
 	ret
 
@@ -39,11 +47,9 @@ LunarShrineScript1:
 	call PlayMusic
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $f0
-	ld [wJoyIgnore], a
 	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; player looks down
 	ld a, PLAYER_DIR_DOWN
 	ld [wPlayerMovingDirection], a
@@ -132,7 +138,7 @@ LunarShrineScript3:
 	ld [wJoyIgnore], a
 	ld a, 16
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; script handling
 	ld a, $4
 	ld [wCurMapScript], a
@@ -148,16 +154,16 @@ LunarShrineScript4:
 ; dialogues
 	ld a, 17
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld a, 19
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld a, 20
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; script handling
 	ld a, $5
 	ld [wCurMapScript], a
@@ -207,9 +213,7 @@ LunarShrineScript7:
 	call Rocket1FaceRight
 	call Rocket2FaceLeft
 ; trigger 1st battle
-	xor a
-	ld [wJoyIgnore], a
-	ld hl, wd72d ; nobody knows what it does lol
+	ld hl, wd72d ; nobody knows what it does
 	set 6, [hl]
 	set 7, [hl]
 	ld hl, LunarShrineRocket1Text_Win ; text if player wins
@@ -223,6 +227,7 @@ LunarShrineScript7:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
 ; script handling
 	ld a, $8
 	ld [wCurMapScript], a
@@ -244,11 +249,9 @@ LunarShrineScript8:
 	call Rocket1FaceRight
 	call Rocket2FaceLeft
 ; trigger 2nd battle
-	xor a
-	ld [wJoyIgnore], a
 	ld a, 21
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld hl, wd72d ; nobody knows what it does lol
 	set 6, [hl]
 	set 7, [hl]
@@ -263,6 +266,7 @@ LunarShrineScript8:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
 ; script handling
 	ld a, $9
 	ld [wCurMapScript], a
@@ -284,11 +288,9 @@ LunarShrineScript9:
 	call Rocket1FaceRight
 	call Rocket2FaceLeft
 ; trigger 3rd battle
-	xor a
-	ld [wJoyIgnore], a
 	ld a, 22
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld hl, wd72d ; nobody knows what it does lol
 	set 6, [hl]
 	set 7, [hl]
@@ -303,6 +305,7 @@ LunarShrineScript9:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
 ; script handling
 	ld a, 10
 	ld [wCurMapScript], a
@@ -324,11 +327,9 @@ LunarShrineScript10:
 	call Rocket1FaceRight
 	call Rocket2FaceLeft
 ; trigger 4th battle
-	xor a
-	ld [wJoyIgnore], a
 	ld a, 23
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld hl, wd72d ; nobody knows what it does lol
 	set 6, [hl]
 	set 7, [hl]
@@ -343,6 +344,7 @@ LunarShrineScript10:
 	ld [wIsTrainerBattle], a         ; new, to go beyond 200
 	xor a
 	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
 ; script handling
 	ld a, 11
 	ld [wCurMapScript], a
@@ -368,9 +370,7 @@ LunarShrineScript11:
 ; dialogue
 	ld a, 24
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	ld a, $ff ; testing
-	ld [wJoyIgnore], a
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; hide Rocket siblings
 	call GBFadeOutToBlack
 	ld a, HS_LUNAR_SHRINE_2
@@ -402,11 +402,9 @@ LunarShrineScript12:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ld a, PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
-	ld a, $f0 ; testing
-	ld [wJoyIgnore], a
 	ld a, 25
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; script handling
 	ld a, 13
 	ld [wCurMapScript], a
@@ -420,11 +418,9 @@ LunarShrineScript13:
 	call SetSpriteFacingDirectionAndDelay ; face object
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
-	ld a, $f0 ; testing
-	ld [wJoyIgnore], a
 	ld a, 26
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld a, LUNAR_RELIC
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
@@ -444,16 +440,16 @@ LunarShrineScript14:
 	ld [wPlayerMovingDirection], a
 	ld a, 27
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	SetEvent EVENT_OBTAINED_HM04
 	ld a, 28
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 	ld a, 29
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; end stuff
-	ld a, $0 ; return controls to the player?
+	ld a, $0 ; return controls to the player
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
 	ret
@@ -946,11 +942,11 @@ LunarShrineScript15_RP:
 ; Monk dialogue
 	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Blue dialogue
 	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; start music
 	ld c, BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
@@ -992,11 +988,9 @@ LunarShrineScript17_RP:
 	ret nz
 ; Blue dialogues
 	call MonkFacesDown
-	xor a
-	ld [wJoyIgnore], a
 	ld a, 16
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; set up battle
 	ld hl, wd72d
 	set 6, [hl]
@@ -1012,6 +1006,9 @@ LunarShrineScript17_RP:
 	ld de, LunarTempleBlueWonText
 	call SaveEndBattleTextPointers
 	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
+	xor a
+	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
 ; script handling
 	ld a, 18
 	ld [wCurMapScript], a
@@ -1030,15 +1027,13 @@ LunarShrineScript18_RP:
 	call BlueFacesUp
 	call MonkFacesDown
 ; Blue dialogue
-	xor a
-	ld [wJoyIgnore], a
 	ld a, 17
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; Monk dialogue
 	ld a, 18
 	ldh [hSpriteIndexOrTextID], a
-	call DisplayTextID
+	call LunarShrine_f0JoyIgnoreDisplayTextffJoyIgnore
 ; hide Blue
 	call GBFadeOutToBlack
 	ld a, HS_LUNAR_SHRINE_BLUE
@@ -1048,7 +1043,9 @@ LunarShrineScript18_RP:
 	call Delay3
 	call GBFadeInFromBlack
 ; script handling
-	ld a, 0
+	xor a
+	ldh [hJoyHeld], a
+	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
 	ret
 
