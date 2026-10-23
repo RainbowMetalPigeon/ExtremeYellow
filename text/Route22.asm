@@ -231,7 +231,7 @@ _Route22RandomizedPokemonGiverText_IntroSecond::
 	line "ritual: this time"
 	cont "the creature will"
 	cont "be more powerful"
-	cont "than ever before!" 
+	cont "than ever before!"
 ;	xxxx "123456789012345678"
 	prompt
 
@@ -250,16 +250,6 @@ _Route22RandomizedPokemonGiverText_ComeBackWhenReady::
 
 ; new for RP ===============================
 
-_Route22Text2_RP_Before::
-	text "<RIVAL>: before"
-;	xxxx "123456789012345678"
-	done
-
-_Route22Text2_RP_After::
-	text "<RIVAL>: after"
-;	xxxx "123456789012345678"
-	done
-
 _Route22RandomizedPokemonGiverText_RP::
 	text "You are absolutely"
 	line "disgusting."
@@ -270,12 +260,44 @@ _Route22RandomizedPokemonGiverText_RP::
 ;	xxxx "123456789012345678"
 	done
 
+_Route22Text2_RP_Before::
+	text "<RIVAL>: Why?"
+	line "Why are you here?"
+	cont "Why are you doing"
+	cont "all of this?"
+	cont "Why did you join"
+	cont "TEAM ROCKET?"
+
+	para "...no. I don't"
+	line "care anymore."
+
+	para "You are repulsive."
+	line "I must stop you."
+	cont "For good."
+;	xxxx "123456789012345678"
+	done
+
+_Route22Text2_RP_After::
+	text "<RIVAL>: N-no..."
+
+	para "...<PLAYER>..."
+	line "I used to..."
+
+	para "FORGET IT! You're a"
+	line "menace, and I WILL"
+	cont "annihilate you!"
+	cont "Mark my words!"
+;	xxxx "123456789012345678"
+	done
+
 _Route22RivalDefeatedText2_RP::
-	text "1234567: I lost"
+	text "NO!"
+	line "How? Why?"
+	cont "<PLAYER>, WHY?!"
 ;	xxxx "123456789012345678"
 	prompt
 
 _Route22RivalWonText2_RP::
-	text "1234567: I won"
+	text "...why?"
 ;	xxxx "123456789012345678"
 	prompt
