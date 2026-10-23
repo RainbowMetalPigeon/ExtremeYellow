@@ -13,12 +13,12 @@ SetDebugTeam:
 	jr .loop
 
 DebugTeam:
-	db THU_FI_ZER, 96 ; 255
-	db MMEWTWOX, 99
+	db MEW, 100
+	db MGENGAR, 100
+	db MVENUSAUR, 100
 	db STARTER_PIKACHU, 100
-	db NINETALES, 100
-;	db EETERNATUS, 100
-;	db MOLTRES, 68
+	db MGENGAR, 100
+	db MEW, 100
 	db -1 ; end
 
 DebugStart:
@@ -53,59 +53,74 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, ANCESTOR_PWR
+	ld a, STEALTH_ROCK ; ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TRI_ATTACK
+	ld a, SPIKES ; TRI_ATTACK
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, DIVE
+	ld a, HYPNOSIS ; DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, ROCK_CLIMB
+	ld a, CONFUSE_RAY ; ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, WHIRLPOOL
+	ld a, CURSE ; WHIRLPOOL
 	ld [hli], a
-	ld a, WATERFALL
+	ld a, DOUBLE_TEAM ; WATERFALL
 	ld [hli], a
-	ld a, ROCK_SMASH
+	ld a, HYPNOSIS ; ROCK_SMASH
 	ld [hli], a
-	ld a, STRENGTH
+	ld a, REST ; STRENGTH
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash
-	ld a, FLY
+	ld a, SLEEP_POWDER ; FLY
 	ld hl, wPartyMon3Moves
 	ld [hl], a
-	ld a, CUT
+	ld a, LEECH_SEED ; CUT
 	ld hl, wPartyMon3Moves + 1
 	ld [hl], a
-	ld a, SURF
+	ld a, TOXIC ; SURF
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
-	ld a, FLASH
+	ld a, ROAR ; FLASH
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
-	; moves to other members
-	ld a, PERISH_SONG ; CONFUSE_RAY ; DIG
+; moves to other members
+	ld a, THUNDER_WAVE
 	ld hl, wPartyMon4Moves
 	ld [hli], a
-	ld a, RECOVER ; WILL_O_WISP ; TELEPORT
+	ld a, REST
 	ld [hli], a
-	ld a, EXPLOSION ; RECOVER ; SOFTBOILED
+	ld a, DOUBLE_TEAM
 	ld [hli], a
-	ld a, STICKY_WEB ; SCREECH ; FLASH
+	ld a, MIMIC
 	ld [hl], a
 
-;	; moves to other members
-;	ld a, SCALD
-;	ld hl, wPartyMon5Moves
-;	ld [hl], a
+	ld a, PERISH_SONG
+	ld hl, wPartyMon5Moves
+	ld [hli], a
+	ld a, CURSE
+	ld [hli], a
+	ld a, TOXIC_SPIKES
+	ld [hli], a
+	ld a, CONFUSE_RAY
+	ld [hl], a
+
+	ld a, WHIRLWIND
+	ld hl, wPartyMon6Moves
+	ld [hli], a
+	ld a, ROOST
+	ld [hli], a
+	ld a, CONFUSE_RAY
+	ld [hli], a
+	ld a, METRONOME
+	ld [hl], a
 
 	; Pikachu get transformed into Starter Pikachu
 	ld de, wPartyMon3OT
@@ -440,6 +455,7 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
+	db PERFECTER, 99
 	db TOWN_MAP, 1
 	db TM_CASE, 1
 	db MASTER_BALL, 11
@@ -455,7 +471,6 @@ DebugItemsList:
 	db POKE_FLUTE, 1
 	db SUPER_ROD, 1
 	db ITEMFINDER, 1
-	db PERFECTER, 99
 	db LEGEND_CANDY, 42
 	db RARE_CANDY, 42
 ;	db CHEAT_CANDY, 1

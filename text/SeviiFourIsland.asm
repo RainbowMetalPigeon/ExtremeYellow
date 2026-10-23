@@ -725,7 +725,7 @@ _SeviiFourIslandGymText2_PostLeague::
 
 _YottroText_PostBattleText::
 	text "Yooo!!!"
-	line "I knew you had it!"
+	line "I knew ya had it!"
 ;	xxxx "123456789012345678"
 	prompt
 
