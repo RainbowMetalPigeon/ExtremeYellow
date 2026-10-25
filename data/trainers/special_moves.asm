@@ -4295,8 +4295,8 @@ SpecialTrainerMoves:
 
 	db ICHINO, 1
 	; MRAICHUY
-	db 1, 1, THUNDER
-	db 1, 2, OUTRAGE ; PPS
+	db 1, 1, VOLT_TACKLE
+	db 1, 2, OUTRAGE
 	db 1, 3, SURF
 	db 1, 4, DRAININGKISS
 	; MCLEFABLE
@@ -4690,7 +4690,7 @@ SpecialTrainerMoves:
 	db 2, 3, SANDSTORM
 	db 2, 4, NO_MOVE
 	; MRAICHUY
-	db 3, 1, VOLT_TACKLE ; PPS THUNDER
+	db 3, 1, VOLT_TACKLE
 	db 3, 2, DRAININGKISS
 	db 3, 3, FIRE_BLAST
 	db 3, 4, SURF
@@ -4728,7 +4728,7 @@ SpecialTrainerMoves:
 	db 3, 1, SWORDS_DANCE
 	db 3, 2, SUBSTITUTE
 	db 3, 3, BULLET_PUNCH
-	db 3, 4, BODY_SLAM ; PPS PSYCHO_CUT
+	db 3, 4, BODY_SLAM
 	; MSTEELIX
 	db 4, 1, EARTHQUAKE
 	db 4, 2, IRON_TAIL
@@ -4788,7 +4788,7 @@ SpecialTrainerMoves:
 	db 1, 1, STONE_EDGE
 	db 1, 2, EARTHQUAKE
 	db 1, 3, SHADOW_CLAW
-	db 1, 4, FEINT_ATTACK ; PPS NIGHT_SLASH
+	db 1, 4, FEINT_ATTACK
 	; MACHAMP
 	db 2, 1, STONE_EDGE
 	db 2, 2, EARTHQUAKE
@@ -4890,8 +4890,8 @@ SpecialTrainerMoves:
 
 	db SANTRE, 9 ; vs GHOST
 	; MGENGAR
-	db 1, 1, NIGHT_SLASH ; PPS DARK_PULSE
-	db 1, 2, PSYCHIC_M ; PPS SHADOW_BALL
+	db 1, 1, NIGHT_SLASH
+	db 1, 2, PSYCHIC_M
 	db 1, 3, HYPNOSIS
 	db 1, 4, CONFUSE_RAY
 	; UMBREON
@@ -4910,13 +4910,13 @@ SpecialTrainerMoves:
 	db 4, 3, HYDRO_PUMP
 	db 4, 4, REST
 	; SNORLAX
-	db 5, 1, PSYCHIC_M ; PPS ZEN_HEADBUTT
+	db 5, 1, PSYCHIC_M
 	db 5, 2, EARTHQUAKE
-	db 5, 3, SHADOW_BALL ; PPS CRUNCH
+	db 5, 3, SHADOW_BALL
 	db 5, 4, LOVELY_KISS
 	; MALAKAZAM
-	db 6, 1, PSYCHO_CUT ; PPS PSYCHIC_M
-	db 6, 2, NIGHT_SLASH ; PPS SHADOW_BALL
+	db 6, 1, PSYCHO_CUT
+	db 6, 2, NIGHT_SLASH
 	db 6, 3, MOONBLAST
 	db 6, 4, RECOVER
 	db $FE
@@ -5051,7 +5051,7 @@ SpecialTrainerMoves:
 	db 4, 4, MIRROR_COAT
 	; JYNX
 	db 5, 1, BLIZZARD
-	db 5, 2, PSYCHO_CUT ; PPS PSYCHIC_M
+	db 5, 2, PSYCHO_CUT
 	db 5, 3, LOVELY_KISS
 	db 5, 4, DRAININGKISS
 	; MOLTRES
@@ -5540,7 +5540,7 @@ SpecialTrainerMoves:
 	db 5, 3, MEGAHORN
 	db 5, 4, AIR_SLASH
 	; CLEFABLE
-	db 6, 1, PLAY_ROUGH ; PPS MOONBLAST
+	db 6, 1, PLAY_ROUGH
 	db 6, 2, METEOR_MASH
 	db 6, 3, ICE_BEAM
 	db 6, 4, PSYCHIC_M
@@ -5633,7 +5633,7 @@ SpecialTrainerMoves:
 	db 3, 1, CLOSE_COMBAT
 	db 3, 2, STONE_EDGE
 	db 3, 3, LEECH_LIFE
-	db 3, 4, SHADOW_CLAW ; PPS PSYCHO_CUT
+	db 3, 4, SHADOW_CLAW
 	; MMEWTWOY
 	db 4, 1, PSYSTRIKE
 	db 4, 2, FIRE_BLAST
@@ -6157,7 +6157,7 @@ SpecialTrainerMoves:
 	; STARMIE
 	db 2, 1, MINIMIZE
 	db 2, 2, RECOVER
-	db 2, 3, PSYCHO_CUT ; PPS PSYCHIC_M
+	db 2, 3, PSYCHO_CUT
 	db 2, 4, HYDRO_PUMP
 	; GENGAR
 	db 3, 1, PERISH_SONG
@@ -6170,7 +6170,7 @@ SpecialTrainerMoves:
 	db 4, 3, REST
 	db 4, 4, DARK_PULSE
 	; ALAKAZAM
-	db 5, 1, PSYCHO_CUT ; PPS PSYCHIC_M
+	db 5, 1, PSYCHO_CUT
 	db 5, 2, THUNDER_WAVE
 	db 5, 3, RECOVER
 	db 5, 4, REFLECT
@@ -6200,7 +6200,7 @@ SpecialTrainerMoves:
 	db 3, 3, REST
 	db 3, 4, DARK_PULSE
 	; ALAKAZAM
-	db 4, 1, PSYCHO_CUT ; PPS PSYCHIC_M
+	db 4, 1, PSYCHO_CUT
 	db 4, 2, THUNDER_WAVE
 	db 4, 3, RECOVER
 	db 4, 4, REFLECT

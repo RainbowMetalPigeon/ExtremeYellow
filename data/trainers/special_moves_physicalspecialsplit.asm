@@ -505,4 +505,66 @@ SpecialTrainerMoves_PhysicalSpecialSplit:
 	db 5, 4, BLIZZARD
 	db $FE
 
-	db -1 ; end
+	db ICHINO, 1
+	; MRAICHUY
+	db 1, 1, THUNDER
+	db 1, 2, FIRE_BLAST
+	db $FE
+
+	db SANTRE, 3
+	; MRAICHUY
+	db 3, 1, THUNDER
+	db $FE
+
+	db SANTRE, 4
+	db 3, 4, PSYCHO_CUT
+	db $FE
+
+	db SANTRE, 6
+	; DUGTRIO
+	db 1, 4, NIGHT_SLASH
+	db $FE
+
+	db SANTRE, 9
+	; MGENGAR
+	db 1, 1, DARK_PULSE
+	db 1, 2, SHADOW_BALL
+	; SNORLAX
+	db 5, 1, ZEN_HEADBUTT
+	db 5, 3, CRUNCH
+	; MALAKAZAM
+	db 6, 1, PSYCHIC_M
+	db 6, 2, SHADOW_BALL
+	db $FE
+
+	db SANTRE, 13
+	; JYNX
+	db 5, 2, PSYCHIC_M
+	db $FE
+
+	db PINK, 3
+	; CLEFABLE
+	db 6, 1, MOONBLAST
+	db $FE
+
+	db YOUNG_OAK, 1
+	; MMEWTWOX
+	db 3, 4, PSYCHO_CUT
+	db $FE
+
+	db SIRD, 1
+	; STARMIE
+	db 2, 3, PSYCHIC_M
+	; ALAKAZAM
+	db 5, 1, PSYCHIC_M
+	db $FE
+
+	db SIRD, 2
+	; ALAKAZAM
+	db 4, 1, PSYCHIC_M
+	db $FE
+
+	db PINK, 5
+	; MGYARADOS
+	db 1, 4, CRUNCH
+	db $FE
