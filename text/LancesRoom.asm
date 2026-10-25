@@ -269,8 +269,8 @@ _LanceAfterBattleText_RP_After::
 _LanceBeforeBattleText_RP_Pink::
 	text "You."
 
-	para "You dare to show"
-	line "your face here"
+	para "You dare show"
+	line "yourself here"
 	cont "one more time."
 
 	para "I'll prevent our"
