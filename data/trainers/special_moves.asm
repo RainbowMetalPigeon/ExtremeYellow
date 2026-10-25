@@ -2734,10 +2734,10 @@ SpecialTrainerMoves:
 	db 5, 3, BODY_PRESS
 	db 5, 4, STONE_EDGE
 	; MPINSIR ; delta
- 	db 6, 1, GYRO_BALL
-	db 6, 2, EARTHQUAKE
-	db 6, 3, BODY_PRESS
-	db 6, 4, STONE_EDGE
+ 	db 6, 1, EARTHQUAKE
+	db 6, 2, MEGAHORN
+	db 6, 3, STONE_EDGE
+	db 6, 4, CLOSE_COMBAT
 	db $FE
 
 	db BRUNO, 4
