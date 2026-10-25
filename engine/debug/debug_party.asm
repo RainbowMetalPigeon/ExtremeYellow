@@ -16,8 +16,8 @@ DebugTeam:
 	db MEW, 100
 	db MGENGAR, 100
 	db STARTER_PIKACHU, 100
-	db PORYGON, 100
-	db KABUTO, 100
+;	db PORYGON, 100
+;	db KABUTO, 100
 ;	db MEW, 100
 	db -1 ; end
 
@@ -56,7 +56,7 @@ IF DEF(_DEBUG)
 	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, TRI_ATTACK
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
 	ld a, DIVE

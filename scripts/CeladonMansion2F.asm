@@ -96,6 +96,11 @@ CeladonMansion2F_TextPointers_Rocket:
 	dw CeladonMansion2TextSign2
 	dw CeladonMansion2TextSign3
 	dw CeladonMansion2TextSign4
+	; non-NPC dialogues
+	dw CeladonMansion2TextPigeon_PostBattleMapUnrelated ; 13
+	dw CeladonMansion2TextPigeon_PostBattlePreGiveMapPiece ; 14
+	dw CeladonMansion2TextPigeon_PostBattleGivenMapPiece ; 15
+	dw CeladonMansion2TextPigeon_PostBattleFailedGiveMapPiece ; 16
 
 ; NPCs =========================
 
@@ -164,12 +169,13 @@ CeladonMansion2Text1:
 
 	ld hl, PigeonPostBattlePlayerWinsText ; text if player wins
 	ld de, PigeonPostBattlePlayerLosesText ; text if player loses
+	call SaveEndBattleTextPointers
+	SetEvent EVENT_RP_USE_VANILLA_BATTLE_MESSAGES
 
 ; handle scripts
 	ld a, 1
 	ld [wCurMapScript], a ; edited
 
-	call SaveEndBattleTextPointers
 	jp TextScriptEnd
 
 PigeonBeforeBattleText:

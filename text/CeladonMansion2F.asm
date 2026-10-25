@@ -55,7 +55,7 @@ _PigeonPostBattlePlayerWinsText::
 
 	para "Thanks for it,"
 	line "<PLAYER>!"
-	done
+	prompt
 
 _PigeonPostBattlePlayerLosesText::
 	text "Woah! :D"
@@ -67,7 +67,7 @@ _PigeonPostBattlePlayerLosesText::
 
 	para "Come back soon,"
 	line "<PLAYER>!"
-	done
+	prompt
 
 _CeladonMansion2TextPigeon_PostBattleMapUnrelated::
 	text "Come back any"
