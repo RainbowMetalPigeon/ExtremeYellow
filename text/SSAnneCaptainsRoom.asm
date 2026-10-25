@@ -161,7 +161,7 @@ _SSAnne7Text1_RP_PostGiovanni::
 	line "really you?!"
 
 	para "I heard the news."
-	line "So now that"
+	line "So, now that"
 	cont "GIOVANNI is..."
 	cont "Well, yes, now"
 	cont "YOU are TEAM"
