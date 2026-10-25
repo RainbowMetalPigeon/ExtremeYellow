@@ -48,6 +48,7 @@ EndOfBattle:
 	ld d, $82
 	callfar UpdatePikachuMoodAfterBattle
 .resetVariables
+	ResetEvent EVENT_JUST_CAUGHT_TRAINER_MON ; new for RP, never let a steal leak into the next battle
 	ld a, [wBattleType] ; new for swap battles
 	ld [wMultipurposeTemporaryStorage2], a ; new for swap battles
 	xor a

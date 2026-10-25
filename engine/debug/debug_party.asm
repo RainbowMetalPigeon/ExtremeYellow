@@ -15,10 +15,10 @@ SetDebugTeam:
 DebugTeam:
 	db MEW, 100
 	db MGENGAR, 100
-	db MVENUSAUR, 100
 	db STARTER_PIKACHU, 100
-	db MGENGAR, 100
-	db MEW, 100
+;	db RAICHU, 100
+;	db MGENGAR, 100
+;	db MEW, 100
 	db -1 ; end
 
 DebugStart:
@@ -53,41 +53,41 @@ IF DEF(_DEBUG)
 	call SetDebugTeam
 
 	; Mewtwo/Arceus gets test moves
-	ld a, STEALTH_ROCK ; ANCESTOR_PWR
+	ld a, ANCESTOR_PWR
 	ld hl, wPartyMon1Moves
 	ld [hl], a
-	ld a, SPIKES ; TRI_ATTACK
+	ld a, TRI_ATTACK
 	ld hl, wPartyMon1Moves + 1
 	ld [hl], a
-	ld a, HYPNOSIS ; DIVE
+	ld a, DIVE
 	ld hl, wPartyMon1Moves + 2
 	ld [hl], a
-	ld a, CONFUSE_RAY ; ROCK_CLIMB
+	ld a, ROCK_CLIMB
 	ld hl, wPartyMon1Moves + 3
 	ld [hl], a
 
 	; Mew gets four HM moves.
 	ld hl, wPartyMon2Moves
-	ld a, CURSE ; WHIRLPOOL
+	ld a, WHIRLPOOL
 	ld [hli], a
-	ld a, DOUBLE_TEAM ; WATERFALL
+	ld a, WATERFALL
 	ld [hli], a
-	ld a, HYPNOSIS ; ROCK_SMASH
+	ld a, ROCK_SMASH
 	ld [hli], a
-	ld a, REST ; STRENGTH
+	ld a, STRENGTH
 	ld [hl], a
 
 	; Pikachu gets Surf and Fly and Flash
-	ld a, SLEEP_POWDER ; FLY
+	ld a, FLY
 	ld hl, wPartyMon3Moves
 	ld [hl], a
-	ld a, LEECH_SEED ; CUT
+	ld a, CUT
 	ld hl, wPartyMon3Moves + 1
 	ld [hl], a
-	ld a, TOXIC ; SURF
+	ld a, SURF
 	ld hl, wPartyMon3Moves + 2
 	ld [hl], a
-	ld a, ROAR ; FLASH
+	ld a, FLASH
 	ld hl, wPartyMon3Moves + 3
 	ld [hl], a
 
@@ -437,9 +437,9 @@ IF DEF(_DEBUG)
 
 DebugSetPokedexEntries:
 ; only the first 3 mons
-;	ld a, %00000111
-;	ld [hl], a
-;	ret
+	ld a, %00000111
+	ld [hl], a
+	ret
 ; normal
 	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
 	ld a, %11111111
@@ -455,13 +455,13 @@ DebugSetPokedexEntries:
 SamuelNameForPikachu3: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
 DebugItemsList:
-	db PERFECTER, 99
 	db TOWN_MAP, 1
 	db TM_CASE, 1
 	db MASTER_BALL, 11
 	db STEAL_BALL, 99
 	db MEGA_STONE_Y, 99
 ;	db SLEEP_BAG, 1
+	db PERFECTER, 99
 	db GOLD_TEETH, 1
 	db FULL_RESTORE, 99
 	db MATCHA_TEA, 10

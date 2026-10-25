@@ -391,7 +391,7 @@ ItemUseBall:
 	cp STEAL_BALL
 	jp nz, ThrowBallAtTrainerMon
 	; TBE: are there trainers against whom we shouldn't be able to catch no matter what? E.G. E4, Rival, MissingNo?
-	jr .canUseBall
+	jr .checkPartyAndBoxFull ; edited, was .canUseBall
 
 ; new, to handle MissingNo and Master Ball
 .noTrainerBattle
@@ -413,6 +413,7 @@ ItemUseBall:
 	cp BATTLE_TYPE_PIKACHU
 	jr z, .canUseBall
 
+.checkPartyAndBoxFull ; new
 	ld a, [wPartyCount] ; is party full?
 	cp PARTY_LENGTH
 	jr nz, .canUseBall
@@ -519,6 +520,9 @@ ItemUseBall:
 ; new: same for the Steal Ball
 	cp STEAL_BALL
 	jp nz, .checkOtherBalls
+	ld a, [wIsInBattle] ; only flag a steal in trainer battles, wild battles end on capture
+	cp 2
+	jp nz, .captured
 	SetEvent EVENT_JUST_CAUGHT_TRAINER_MON
 	jp .captured
 .checkOtherBalls
@@ -1065,11 +1069,20 @@ ItemUseBall:
 .skip6
 	ld a, [wcf91]
 	push af
+; new for RP: in trainer battles LoadEnemyMonData uses wWhichPokemon as the enemy party slot,
+; but here it still holds the bag index of the ball, so point it to the caught mon's slot
+	ld a, [wWhichPokemon]
+	push af
+	ld a, [wEnemyMonPartyPos]
+	ld [wWhichPokemon], a
+; BTV
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
 	ld a, [wEnemyMonLevel]
 	ld [wCurEnemyLVL], a
 	callfar LoadEnemyMonData
+	pop af ; new for RP
+	ld [wWhichPokemon], a ; new for RP
 	pop af
 	ld [wcf91], a
 	pop hl
@@ -1123,9 +1136,24 @@ ItemUseBall:
 	ld hl, ItemUseBallText06
 	call PrintText
 	call ClearSprites
+	call SaveScreenTilesToBuffer2 ; new for RP: post-catch battle screen
 	ld a, [wEnemyMonSpecies]
 	ld [wd11e], a
 	predef ShowPokedexData
+; new for RP: a trainer battle continues after a Steal Ball catch, so restore the battle screen
+	CheckEvent EVENT_JUST_CAUGHT_TRAINER_MON
+	jr z, .skipShowingPokedexData
+	ld a, [wcf91] ; caught species; LoadMonBackPic overwrites wcf91
+	push af
+	ld a, [wBattleMonSpecies]
+	ld [wd0b5], a
+	call GetMonHeader
+	predef LoadMonBackPic
+	call LoadScreenTilesFromBuffer2
+	callfar LoadHudAndHpBarAndStatusTilePatterns
+	pop af
+	ld [wcf91], a
+; BTV
 
 .skipShowingPokedexData
 	ld a, $1
@@ -1142,14 +1170,25 @@ ItemUseBall:
 	ld [wMonDataLocation], a
 	call ClearSprites
 	SetEvent EVENT_FLAG_DELTA_SPECIES_ENEMY_EVENT ; new for delta
+; edited: the empty box is only wanted when the battle goes on (Steal Ball); in wild battles
+; AskName draws its own box for the nickname offer, and on RP there's no offer at all
+	ld a, [wIsInBattle]
+	cp 2
+	jr nz, .skipEmptyBox
+; BTV
 	ld hl, .emptyString
 	call PrintText
+.skipEmptyBox ; new label
 	call AddPartyMon
 	jr .done
 
 .sendToBox
 	call ClearSprites
+	ld a, [wEnemyMonPartyPos] ; new for RP: SendNewMonToBox writes wEnemyMonBoxLevel,
+	push af                   ; which shares its byte with wEnemyMonPartyPos
 	call SendNewMonToBox
+	pop af                    ; new for RP
+	ld [wEnemyMonPartyPos], a ; new for RP
 	ld hl, ItemUseBallText07
 	CheckEvent EVENT_MET_BILL
 	jr nz, .printTransferredToPCText
