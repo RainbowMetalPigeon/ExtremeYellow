@@ -820,7 +820,11 @@ _SilphCo11TextGiovanni_RP_StealBallExplanation::
 	cont "target, thus the"
 	cont "newly acquired"
 	cont "weapon'll be out"
-	cont "of ammunition."
+	cont "of ammunition and"
+	cont "will lose any-"
+	cont "thing that it got"
+	cont "from its previous"
+	cont "user, both moves"
+	cont "and experience."
 	cont "Keep that in mind."
-;	xxxx "123456789012345678"
 	done
