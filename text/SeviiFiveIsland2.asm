@@ -633,3 +633,14 @@ _SeviiFiveIslandHousesText2_RP_BeforeBeating::
 	line "THE #MON THO!"
 ;   xxxx "123456789012345678"
 	done
+
+_SeviiFiveIslandHousesSignText1_RP::
+	text "Boring, useless,"
+	line "nerd shit."
+;   xxxx "123456789012345678"
+	done
+
+_SeviiFiveIslandHousesSignText5_RP::
+	text "Literal garbage."
+;   xxxx "123456789012345678"
+	done

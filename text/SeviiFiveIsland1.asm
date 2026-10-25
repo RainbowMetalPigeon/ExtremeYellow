@@ -421,6 +421,16 @@ _SeviiFiveIslandHousesSignText4::
 ;	xxxx "123456789012345678"
 	done
 
+_SeviiFiveIslandHousesSignText5::
+	text "A bill for #-"
+	line "MON food, meds,"
+	cont "toys, and so on."
+
+	para "Wow! The total is"
+	line "astronomical!"
+;	xxxx "123456789012345678"
+	done
+
 _SeviiFiveIslandHousesText2::
 	text "MY HOUSE,"
 	line "MY RULES!"

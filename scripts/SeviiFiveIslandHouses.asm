@@ -30,6 +30,7 @@ SeviiFiveIslandHouses_TextPointers:
 	dw SeviiFiveIslandHousesSignText2
 	dw SeviiFiveIslandHousesSignText3
 	dw SeviiFiveIslandHousesSignText4
+	dw SeviiFiveIslandHousesSignText5
 
 SeviiFiveIslandHouses_TextPointers_Rocket:
 	dw SeviiFiveIslandHousesText1_RP ; Trick Room tutor
@@ -40,14 +41,15 @@ SeviiFiveIslandHouses_TextPointers_Rocket:
 	dw SeviiFiveIslandHousesText6_RP ; Mon CLEFAIRY
 	dw SeviiFiveIslandHousesText7 ; Paper
 	; signs
-	dw SeviiFiveIslandHousesSignText1
-	dw SeviiFiveIslandHousesSignText2
-	dw SeviiFiveIslandHousesSignText3
-	dw SeviiFiveIslandHousesSignText4
+	dw SeviiFiveIslandHousesSignText1_RP
+	dw SeviiFiveIslandHousesSignText1_RP
+	dw SeviiFiveIslandHousesSignText1_RP
+	dw SeviiFiveIslandHousesSignText1_RP
+	dw SeviiFiveIslandHousesSignText5_RP
 	; scripts for RP
-	dw SeviiFiveIslandHousesScriptsText1 ; 12
-	dw SeviiFiveIslandHousesScriptsText2 ; 13
-	dw SeviiFiveIslandHousesScriptsText3 ; 14
+	dw SeviiFiveIslandHousesScriptsText1 ; 13
+	dw SeviiFiveIslandHousesScriptsText2 ; 14
+	dw SeviiFiveIslandHousesScriptsText3 ; 15
 
 SeviiFiveIslandHousesText1:
 	text_asm
@@ -161,6 +163,10 @@ SeviiFiveIslandHousesSignText3:
 
 SeviiFiveIslandHousesSignText4:
 	text_far _SeviiFiveIslandHousesSignText4
+	text_end
+
+SeviiFiveIslandHousesSignText5:
+	text_far _SeviiFiveIslandHousesSignText5
 	text_end
 
 SeviiFiveIslandHousesText2:
@@ -300,7 +306,7 @@ SeviiFiveIslandHouses_PostBattleTutor_RP:
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_SEVII_SHOWED_MONS_TO_TRICK_ROOM_TUTOR ; abused
-	ld a, 12
+	ld a, 13
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	xor a
@@ -458,7 +464,7 @@ SeviiFiveIslandHouses_PreBattleBiker_RP:
 	ld [wWhichEmotionBubble], a
 	predef EmotionBubble
 ; dialogue
-	ld a, 13
+	ld a, 14
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; set up battle
@@ -490,13 +496,13 @@ SeviiFiveIslandHouses_PostBattleBiker_RP:
 	ld a, $f0
 	ld [wJoyIgnore], a
 	SetEvent EVENT_RP_SEVII_BEAT_CARING_BIKER
-	ld a, 14
+	ld a, 15
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; load next script
 	jp SeviiFiveIslandHousesResetScripts
 
-SeviiFiveIslandHousesScriptsText2: ; 13
+SeviiFiveIslandHousesScriptsText2: ; 14
 	text_far _SeviiFiveIslandHousesScriptsText2
 	text_end
 
@@ -504,7 +510,7 @@ SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText:
 	text_far _SeviiFiveIslandHouses_PreBattleBiker_RP_EndOfBattleText
 	text_end
 
-SeviiFiveIslandHousesScriptsText3: ; 14
+SeviiFiveIslandHousesScriptsText3: ; 15
 	text_far _SeviiFiveIslandHousesScriptsText3
 	text_end
 
@@ -542,4 +548,12 @@ SeviiFiveIslandHousesText2_RP_PostBeating:
 
 SeviiFiveIslandHousesText2_RP_BeforeBeating:
 	text_far _SeviiFiveIslandHousesText2_RP_BeforeBeating
+	text_end
+
+SeviiFiveIslandHousesSignText1_RP:
+	text_far _SeviiFiveIslandHousesSignText1_RP
+	text_end
+
+SeviiFiveIslandHousesSignText5_RP:
+	text_far _SeviiFiveIslandHousesSignText5_RP
 	text_end

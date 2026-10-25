@@ -8,10 +8,11 @@ SeviiFiveIslandHouses_Object:
 	warp_event 17,  7, SEVII_FIVE_ISLAND_CITY, 8
 
 	def_bg_events
-	bg_event  2,  0,  8 ; SeviiFiveIslandHousesSignText1
-	bg_event  3,  0,  9 ; SeviiFiveIslandHousesSignText2
-	bg_event  0,  1, 10 ; SeviiFiveIslandHousesSignText3
-	bg_event  1,  1, 11 ; SeviiFiveIslandHousesSignText4
+	bg_event   2,  0,  8 ; SeviiFiveIslandHousesSignText1
+	bg_event   3,  0,  9 ; SeviiFiveIslandHousesSignText2
+	bg_event   0,  1, 10 ; SeviiFiveIslandHousesSignText3
+	bg_event   1,  1, 11 ; SeviiFiveIslandHousesSignText4
+	bg_event  14,  7, 12 ; SeviiFiveIslandHousesSignText5
 
 	def_object_events
 	object_event  2,  4, SPRITE_LITTLE_GIRL, STAY, RIGHT, 1 ; Trick Room Tutor

@@ -16,8 +16,8 @@ DebugTeam:
 	db MEW, 100
 	db MGENGAR, 100
 	db STARTER_PIKACHU, 100
-;	db RAICHU, 100
-;	db MGENGAR, 100
+	db PORYGON, 100
+	db KABUTO, 100
 ;	db MEW, 100
 	db -1 ; end
 
