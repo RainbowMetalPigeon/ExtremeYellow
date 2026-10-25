@@ -698,7 +698,7 @@ _OaksLabText_OakShinyCharm_Offer::
 _OaksLabText_OakShinyCharm_Received::
 	text "<PLAYER> received"
 	line "SHINY CHARM!"
-	prompt
+	done
 
 _OaksLabText_OakShinyCharm_Explanation::
 	text "This is the reward"

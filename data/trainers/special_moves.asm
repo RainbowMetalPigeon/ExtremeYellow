@@ -3591,7 +3591,7 @@ SpecialTrainerMoves:
 	db 2, 4, ZAP_CANNON
 	; MSCIZOR
 	db 3, 1, METEOR_MASH
-	db 3, 2, STEEL_WING
+	db 3, 2, ROOST
 	db 3, 3, LEECH_LIFE
 	db 3, 4, CLOSE_COMBAT
 	; MVENUSAUR

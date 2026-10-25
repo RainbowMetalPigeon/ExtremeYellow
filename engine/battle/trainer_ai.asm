@@ -1162,6 +1162,9 @@ AIMoveChoiceModification3:
 	jr c, .encourage1Times
 	jp .nextMove2
 .explodeEffect
+	ld a, [wPlayerBattleStatus1]
+	bit INVULNERABLE, a
+	jp nz, .discourage6Times
 	ld a, 8
 	call AICheckIfHPBelowFractionPushesPops ; c flag if enemy trainer's current HP is < 1/a of MaxHP
 	jr c, .encourage3Times
@@ -1178,6 +1181,14 @@ AIMoveChoiceModification3:
 	dec [hl]
 .encourage1Times
 	dec [hl]
+	jp .nextMove2
+.discourage6Times
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
 	jp .nextMove2
 
 .modification3Part3 ; STAB
