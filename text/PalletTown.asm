@@ -673,7 +673,8 @@ _PalletFields_OakText_TimeParadox::
 	para "...you met WHOM?!"
 
 	para "! I... I remember!"
-	line "I could I forget"
+
+	para "How could I forget"
 	cont "that battle..."
 
 	para "But it seems that"
