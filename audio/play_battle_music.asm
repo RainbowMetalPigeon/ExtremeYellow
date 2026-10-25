@@ -9,7 +9,15 @@ PlayBattleMusic::
 	; new, to go beyond 200
 	ld a, [wIsTrainerBattle]
 	and a
-	jr z, .wildBattle
+	jp z, .wildBattle
+; not wild battle
+	CheckEvent EVENT_IN_SEVII
+	jr nz, .checkOpponent
+	ld a, [wCurMap]
+	cp CHAMPIONS_ROOM
+	jr z, .finalBattle
+
+.checkOpponent
 	ld a, [wCurOpponent]
 
 	; Rival3, Oak(s), Pigeon, the Sages, and Traveler are the most epic

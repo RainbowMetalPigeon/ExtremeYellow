@@ -179,7 +179,7 @@ SeviiSixIslandCity_Script2:
 	predef HideObjectSevii
 	ld a, HS_INDIGO_PLATEAU_LOBBY_GUARD
 	ld [wMissableObjectIndex], a
-	predef HideObjectExtra
+	predef HideObjectExtra2
 	ld a, HS_CHAMPIONS_ROOM_PINK
 	ld [wMissableObjectIndex], a
 	predef ShowObjectExtra

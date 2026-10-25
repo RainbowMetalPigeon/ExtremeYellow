@@ -605,6 +605,7 @@ HallofFameRoomScript3_RP:
 ; appropriate hide/show
 	call LoopHide_RP
 	call LoopShowExtra_RP
+	call LoopShowExtra2_RP
 	call SetBeatLeagueAndRespawnMons
 ; HoF PC
     ld c, 120
@@ -708,7 +709,24 @@ LoopShowExtra_RP:
 
 ObjectsToShowExtra_RP:
 	db HS_MEWTWO
-	db HS_INDIGO_PLATEAU_LOBBY_GUARD
 	db HS_ONIX_BURROWING_SNORLAX_DEN ; TBE?
 	db HS_CELADON_HOTEL_ROOMS_TROPHY_1 ; TBE?
+	db $ff
+
+; ---------------
+
+LoopShowExtra2_RP:
+	ld hl, ObjectsToShowExtra2_RP
+.showExtraLoop
+	ld a, [hli]
+	cp $ff
+	ret z
+	push hl
+	ld [wMissableObjectIndex], a
+	predef ShowObjectExtra2
+	pop hl
+	jr .showExtraLoop
+
+ObjectsToShowExtra2_RP:
+	db HS_INDIGO_PLATEAU_LOBBY_GUARD
 	db $ff
