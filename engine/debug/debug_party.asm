@@ -212,7 +212,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 0
+	ld a, 2
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -309,7 +309,7 @@ IF DEF(_DEBUG)
 
 	SetEvent EVENT_BEAT_OCHRE_GYM_ORAGE
 
-	SetEvent EVENT_EIGHT_ISLAND_CAVE_BEAT_BOTH_BLUE_AND_PINK
+;	SetEvent EVENT_EIGHT_ISLAND_CAVE_BEAT_BOTH_BLUE_AND_PINK
 
 	SetEvent EVENT_SEVII_TICKET_UNLOCKED_UP_TO_8
 

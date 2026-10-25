@@ -72,6 +72,9 @@ SeviiEightIslandCaveScript_ShowAndMoveBlue: ; 2
 ; turn player
 	ld a, SPRITE_FACING_DOWN
 	ld [wSpritePlayerStateData1FacingDirection], a
+; Pikachu scared and hide
+	call CheckPikachuFollowingPlayer
+	call z, DisablePikachuOverworldSpriteDrawing
 ; show and move Blue
 	ld a, HS_SEVII_EIGHT_ISLAND_CAVE_BLUE
 	ld [wMissableObjectIndex], a
@@ -364,6 +367,13 @@ SeviiEightIslandCaveScript_WaitAndHidePink: ; 17
 	ld a, HS_SEVII_EIGHT_ISLAND_CAVE_PINK
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
+; Show Pikachu
+	call CheckPikachuFollowingPlayer
+	jr nz, .notFollowingPikachu
+	ld a, $1
+	ld [wPikachuSpawnState], a
+	call EnablePikachuOverworldSpriteDrawing
+.notFollowingPikachu
 ; turn player
 	ld a, SPRITE_FACING_UP
 	ld [wSpritePlayerStateData1FacingDirection], a
@@ -384,6 +394,7 @@ SeviiEightIslandCaveResetScripts:
 	ld [wMissableObjectIndex], a
 	predef HideObjectSevii
 SeviiEightIslandCaveResetScriptsInner:
+	call EnablePikachuOverworldSpriteDrawing
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
