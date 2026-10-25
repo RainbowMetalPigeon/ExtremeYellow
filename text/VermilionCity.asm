@@ -282,13 +282,15 @@ _SSAnneWelcomeTextPostReturn::
 	line "travel to the"
 	cont "SEVII ISLANDS?"
 ;	xxxx "123456789012345678"
+	done
 
-;	para "We changed policy:"
-;	line "now the entrance"
-;	cont "is free for"
-;	cont "everyone, you"
-;	cont "don't need to"
-;	cont "have a TICKET."
+_SSAnneWelcomeEnjoyFreelyText::
+	text "Feel free to enjoy"
+	line "the atmosphere of"
+	cont "the S.S.ANNE at"
+	cont "your heart's"
+	cont "content!"
+;	xxxx "123456789012345678"
 	done
 
 _MachampAnnoyedText::
@@ -335,15 +337,6 @@ _VermilionSailorLetsGoText::
 _VermilionSailorCanceledText::
 	text "Come back when-"
 	line "ever you're ready."
-;	xxxx "123456789012345678"
-	done
-
-_SSAnneWelcomeEnjoyFreelyText::
-	text "Feel free to enjoy"
-	line "the atmosphere of"
-	cont "the S.S.ANNE at"
-	cont "your heart's"
-	cont "content!"
 ;	xxxx "123456789012345678"
 	done
 
@@ -461,5 +454,21 @@ _VermilionCityText15_RP::
 	text_start
 	para "MACHOKE clearly"
 	line "dislikes you."
+;	xxxx "123456789012345678"
+	done
+
+_SSAnneWelcomeTextPostReturn_RP::
+	text "The S.S.ANNE is"
+	line "back in port."
+
+	para "Want to go to the"
+	line "SEVII ISLANDS?"
+;	xxxx "123456789012345678"
+	done
+
+_SSAnneWelcomeEnjoyFreelyText_RP::
+	text "Then go to the"
+	line "S.S.ANNE. I won't"
+	cont "stop you."
 ;	xxxx "123456789012345678"
 	done

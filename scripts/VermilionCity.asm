@@ -434,6 +434,9 @@ VermilionCityText3: ; edited
 	CheckEvent EVENT_SS_ANNE_RETURNED
 	jr z, .beforePostLeague
 ; post-League: choose between SS and Sevii
+	CheckEvent EVENT_ROCKET_PATH
+	jr nz, .postLeagueRP
+; post-League Hero Path
 	ld hl, SSAnneWelcomeTextPostReturn
 	call PrintText
 	call YesNoChoice
@@ -441,9 +444,19 @@ VermilionCityText3: ; edited
 	and a
 	ld hl, SSAnneWelcomeEnjoyFreelyText
 	jp nz, .printAndEnd
-
 ; we want to travel to the Sevii
 	jr .normalSeviiDestinations
+.postLeagueRP
+	ld hl, SSAnneWelcomeTextPostReturn_RP
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	ld hl, SSAnneWelcomeEnjoyFreelyText_RP
+	jp nz, .printAndEnd
+; we want to travel to the Sevii
+	jr .normalSeviiDestinations
+
 ; SS Anne has not returned yet
 .beforePostLeague
 ; have we already traveled to Sevii?
@@ -906,4 +919,12 @@ VermilionCityText5_RP:
 
 VermilionCityText15_RP:
 	text_far _VermilionCityText15_RP
+	text_end
+
+SSAnneWelcomeTextPostReturn_RP:
+	text_far _SSAnneWelcomeTextPostReturn_RP
+	text_end
+
+SSAnneWelcomeEnjoyFreelyText_RP:
+	text_far _SSAnneWelcomeEnjoyFreelyText_RP
 	text_end
