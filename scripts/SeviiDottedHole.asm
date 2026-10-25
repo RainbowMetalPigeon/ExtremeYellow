@@ -543,7 +543,6 @@ SeviiDottedHoleScript12:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 ; kill J&J
-	SetEvent EVENT_SEVII_BEAT_ROCKET_BEASTS_TANOBY
 	call GBFadeOutToBlack
 	ld a, HS_SEVII_DOTTED_HOLE_JAMES_1
 	ld [wMissableObjectIndex], a
