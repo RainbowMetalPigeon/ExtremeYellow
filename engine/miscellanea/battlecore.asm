@@ -449,16 +449,10 @@ RescaleTypes:
 	jr z, .noTCGMode
 ; TCG mode
 	pop af
-    cp GROUND2
-    jr nz, .notGround2_TCG
-    ld a, TCG_FIGHTING
-    jr .continueRescaling_TCG
-.notGround2_TCG
-    cp ICE2
-    jr nz, .continueRescaling_TCG
-    ld a, TCG_WATER2
-.continueRescaling_TCG
-	; here nothing because there's no gap
+    cp TCG_WATER2
+    ret nz
+    ld a, TCG_WATER
+; here nothing because there's no gap
     ret
 .noTCGMode ; -------------
 	pop af
@@ -524,7 +518,26 @@ ConvertRandomNumberIntoEffectiveness:
 ; -------------------------------------------------------
 
 ; inputs: b=offensive type; d=defensive type, BEFORE rescaling
+; output: a=effectiveness
 HandleSpecialTypeCombos:
+	ld a, [wPersonalizationTCGMode]
+	and a
+	jr z, .noTCGMode
+; yes TCG Mode
+    ld a, b ; a holds the offensive type
+    cp TCG_WATER2
+    jr nz, .notSpecialComboTCG
+; offensive is TCG_WATER2, let's check if defensive is TCG_WATER
+    ld a, d
+    cp TCG_WATER
+    jr nz, .notSpecialCombo
+; offensive TCG_WATER2, defensive TCG_WATER, make this SUPER_EFFECTIVE
+    ld a, SUPER_EFFECTIVE
+    ret
+.notSpecialComboTCG
+    ld a, [wMultipurposeTemporaryStorage]
+    ret
+.noTCGMode ; --------------------------------
     ld a, b ; a holds the offensive type
     cp GROUND2
     jr nz, .notGround2
@@ -1020,7 +1033,18 @@ AdjustDamageForMoveType::
 	ld a, [wEnemyMoveType]
 	ld [wMoveType], a
 .next
+; new for TCG Mode
+	ld a, [wPersonalizationTCGMode]
+	and a
 	ld a, [wMoveType]
+	jr z, .noTCGMode
+; TCG Mode
+	cp TCG_WATER2
+	jr nz, .continueWithSTABExamine2
+	ld a, TCG_WATER
+	jr .continueWithSTABExamine2
+
+.noTCGMode
 ; new block of code to handle ThousandArrows and FreezeDry
 	cp GROUND2
 	jr nz, .checkIce2
