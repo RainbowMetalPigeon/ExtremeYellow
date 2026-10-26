@@ -747,11 +747,11 @@ AddPartyMonRental::
 	ld [de], a
 
 ; randomize shinyness
-; TBE for delta species-ness
 	inc de
 	call Random
 	cp 39
 	jr nc, .noShiny
+; yes shiny
 	ld a, [wOpponentMonShiny]
 	set BIT_MON_SHINY, a
 	jr .loadShinyness
@@ -759,6 +759,26 @@ AddPartyMonRental::
 	ld a, [wOpponentMonShiny]
 	res BIT_MON_SHINY, a
 .loadShinyness
+	ld [de], a
+
+; randomize deltaness
+	call Random
+	cp 100 ; 39%
+	jr nc, .noDelta
+	push de
+	ld a, [wMonHIndex] ; Mon ID
+	ld d, a
+	callfar CheckIfMonHasDeltaSpecies ; mon ID in d, c flag if match found
+	pop de
+	jr nc, .noDelta
+; yes delta
+	ld a, [wOpponentMonShiny]
+	set BIT_MON_DELTA, a
+	jr .loadDeltaness
+.noDelta
+	ld a, [wOpponentMonShiny]
+	res BIT_MON_DELTA, a
+.loadDeltaness
 	ld [de], a
 
 	ld hl, wMonHMoves
