@@ -871,19 +871,25 @@ ChooseEndOfBattleMusic: ; new
 	ld de, 1
 	call IsInArray ; Search an array at hl for the value in a. Entry size is de bytes. Return count b and carry if found.
 	jr c, .specialEndMusic
+; check by map
+	CheckEvent EVENT_IN_SEVII
+	ld a, [wCurMap]
+	jr z, .checkKanto
+	cp SEVII_EIGHT_ISLAND_CAVE
+	jr z, .specialEndMusic
+	jr .checkByTrainer
+.checkKanto
+	cp CHAMPIONS_ROOM
+	jr z, .specialEndMusic_Champion
+.checkByTrainer
 ; special checks for Giovanni and Rival3
 	ld a, [wTrainerClass]
 	cp RIVAL3
 	jr nz, .checkGiovanni
-; check map
-	CheckEvent EVENT_IN_SEVII
-	jr nz, .normalEndMusic
+; Rival3, check map
 	ld a, [wCurMap]
-	cp CHAMPIONS_ROOM
-	jr nz, .normalEndMusic
-; special for Champion Blue
-	ld hl, wFlags_D733
-	set 1, [hl]
+	cp OCHRE_WONDERLAND
+	jr z, .normalEndMusic
 	jr .specialEndMusic
 .checkGiovanni
 	cp GIOVANNI
@@ -898,6 +904,10 @@ ChooseEndOfBattleMusic: ; new
 .normalEndMusic
 	ld b, MUSIC_DEFEATED_TRAINER
 	ret
+.specialEndMusic_Champion
+	ld hl, wFlags_D733
+	set 1, [hl]
+	; fallthrough
 .specialEndMusic
 	ld b, MUSIC_DEFEATED_GYM_LEADER
 	ret
