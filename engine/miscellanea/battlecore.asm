@@ -413,9 +413,18 @@ GetRandomizedTypeMatchup:
 ; (scaled) offensive type is multiplied by 19 (BIRD too), (scaled) defensive type by 1
 ; both are added to the address
 .addressFound
+	ld a, [wPersonalizationTCGMode]
+	and a
     ld a, b
+	jr nz, .tcgMode
+; not TCG Mode
     cp TYPELESS ; TYPELESS is always neutral towards everything
     jr z, .handleTypeless
+	jr .postTypeless
+.tcgMode
+    cp TCG_TYPELESS
+    jr z, .handleTypeless
+.postTypeless
     push bc
     push de ; preserve the original types for the final "special type check"
     call RescaleTypes ; a contains the re-scaled offensive type
@@ -526,16 +535,13 @@ HandleSpecialTypeCombos:
 ; yes TCG Mode
     ld a, b ; a holds the offensive type
     cp TCG_WATER2
-    jr nz, .notSpecialComboTCG
+    jr nz, .notSpecialCombo
 ; offensive is TCG_WATER2, let's check if defensive is TCG_WATER
     ld a, d
     cp TCG_WATER
     jr nz, .notSpecialCombo
 ; offensive TCG_WATER2, defensive TCG_WATER, make this SUPER_EFFECTIVE
     ld a, SUPER_EFFECTIVE
-    ret
-.notSpecialComboTCG
-    ld a, [wMultipurposeTemporaryStorage]
     ret
 .noTCGMode ; --------------------------------
     ld a, b ; a holds the offensive type
@@ -618,6 +624,8 @@ PerformChecks:
 	cp TCG_FIRE
 	jr z, .fire
 	cp TCG_WATER
+	jr z, .water
+	cp TCG_WATER2
 	jr z, .water
 	cp TCG_LIGHTNING
 	jr z, .electric

@@ -746,20 +746,18 @@ AddPartyMonRental::
 	ld a, [hli]       ; type 2
 	ld [de], a
 
-; randomize shinyness
+; randomize shinyness (and delta right afterwards)
 	inc de
+	xor a
+	ld [de], a ; initialize shiny and delta as 0
 	call Random
 	cp 39
 	jr nc, .noShiny
 ; yes shiny
-	ld a, [wOpponentMonShiny]
+	ld a, [de]
 	set BIT_MON_SHINY, a
-	jr .loadShinyness
-.noShiny
-	ld a, [wOpponentMonShiny]
-	res BIT_MON_SHINY, a
-.loadShinyness
 	ld [de], a
+.noShiny
 
 ; randomize deltaness
 	call Random
@@ -772,14 +770,10 @@ AddPartyMonRental::
 	pop de
 	jr nc, .noDelta
 ; yes delta
-	ld a, [wOpponentMonShiny]
+	ld a, [de]
 	set BIT_MON_DELTA, a
-	jr .loadDeltaness
-.noDelta
-	ld a, [wOpponentMonShiny]
-	res BIT_MON_DELTA, a
-.loadDeltaness
 	ld [de], a
+.noDelta
 
 	ld hl, wMonHMoves
 	ld a, [hli]
