@@ -98,6 +98,6 @@ Route16HouseText1_RP_PreFly:
 	text_end
 
 Route16HouseText1_RP_GotItem:
-	text_far _GenericPlayerGotItem
+	text_far _ReceivedHM02Text
 	sound_get_key_item
 	text_end

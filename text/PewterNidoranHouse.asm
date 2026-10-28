@@ -67,7 +67,7 @@ _PewterHouse3Text2_Post::
 	text "Did you take the"
 	line "PAMPHLET already?"
 	cont "It's advanced, but"
-	line "quite interesting!"
+	cont "quite interesting!"
 ;	xxxx "123456789012345678"
 	done
 
