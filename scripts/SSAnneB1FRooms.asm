@@ -20,8 +20,8 @@ SSAnneB1FRooms_TextPointers:
 	dw SSAnne10Text4 ; trainer
 	dw SSAnne10Text5 ; trainer
 	dw SSAnne10Text6 ; trainer
-	dw SSAnne10Text7
-	dw SSAnne10Text8
+	dw SSAnne10Text7 ; non-trainer
+	dw SSAnne10Text8 ; mon
 	dw PickUpItemText
 	dw PickUpItemText_TM_X_SCISSOR
 	dw PickUpItemText
