@@ -434,7 +434,7 @@ NPCsToShowExtra:
 	db $ff
 
 ShowExtra2NPCsAfterObsidianGiovanni:
-	ld hl, NPCsToShowExtra
+	ld hl, NPCsToShowExtra2
 .loop
 	ld a, [hli]
 	cp $ff ; have we run out of NPCs to show?
@@ -448,6 +448,7 @@ ShowExtra2NPCsAfterObsidianGiovanni:
 NPCsToShowExtra2:
 	db HS_OBSIDIAN_POKECENTER_NPC_1
 	db HS_OBSIDIAN_POKECENTER_NPC_2
+	db $ff
 
 ; ================= scripts, end =================
 
