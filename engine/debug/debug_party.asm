@@ -492,12 +492,12 @@ DebugItemsList:
 	db LUNAR_RELIC, 1
 ;	db EXP_ALL, 1
     db SHINY_CHARM, 1
-	db S_S_TICKET, 1
 	db BERSERK_GENE, 7
 	db SILPH_SCOPE, 1
-	db SEVII_TICKET, 1
 	db BICYCLE, 1
 	db POKE_DOLL, 3
+	db S_S_TICKET, 1
+	db SEVII_TICKET, 1
 	db -1 ; end
 
 ELSE
