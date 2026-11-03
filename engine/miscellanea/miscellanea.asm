@@ -3105,8 +3105,8 @@ PrintBattleInfoCore_Omnni::
 .keepWaiting
 	call WaitForBattleInfoInput
 	ld b, a ; b temporarily holds the button pressed
-	and D_UP | SELECT | START
-	cp D_UP | SELECT | START
+	and D_UP | START
+	cp D_UP | START
 	jr z, .secretPages
 	ld a, b
 	bit BIT_B_BUTTON, a
