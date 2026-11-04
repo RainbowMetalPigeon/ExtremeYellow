@@ -29,10 +29,10 @@ DisplayRandomizationMenu::
 	call Random
 	ld [wRandomMemoryAddressForWildRandomization+1], a
 
-;	; for debugging
-;	ld a, 11
-;	ld [wRandomMemoryAddressForWildRandomization], a
-;	ld [wRandomMemoryAddressForWildRandomization+1], a
+	; for debugging
+	ld a, 11
+	ld [wRandomMemoryAddressForWildRandomization], a
+	ld [wRandomMemoryAddressForWildRandomization+1], a
 
 	callfar RestoreTextSpeed
 	ret

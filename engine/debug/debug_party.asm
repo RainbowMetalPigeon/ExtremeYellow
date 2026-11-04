@@ -439,9 +439,9 @@ IF DEF(_DEBUG)
 
 DebugSetPokedexEntries:
 ; only the first 3 mons
-	ld a, %00000111
-	ld [hl], a
-	ret
+;	ld a, %00000111
+;	ld [hl], a
+;	ret
 ; normal
 	ld b, wPokedexOwnedEnd - wPokedexOwned - 1
 	ld a, %11111111

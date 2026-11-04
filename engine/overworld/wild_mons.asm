@@ -1,4 +1,10 @@
 LoadWildData::
+; new code to temporarily store current map
+	ld a, [wCurMap]
+	ld [wArrayForTemporaryStorage], a
+
+LoadWildData_Core: ; new
+
 	ResetEvent EVENT_RANDOM_WILD_BOTH_GRASS_AND_WATER ; new, for randomization
 
 ; new, for sevii
@@ -18,8 +24,8 @@ LoadWildData::
 	jr z, .wildListFound
 	ld hl, WildDataPointersNight
 .wildListFound
-; back to vanilla
-	ld a, [wCurMap]
+; BTV
+	ld a, [wArrayForTemporaryStorage] ; edited, was wCurMap
 
 ; get wild data for current map
 	ld c, a
@@ -45,7 +51,7 @@ LoadWildData::
 	pop hl
 	jr .continueWithWaterEncounters
 .noRandomization
-; back to vanilla
+; BTV
 	push hl
 	ld de, wGrassMons ; otherwise, load grass data
 	ld bc, $1C ; = 28 = 14x2, edited, it was $14=20=10x2, needed to be increased by 8=4x2 as I modified the encounter maps and probabilities
@@ -82,6 +88,10 @@ INCLUDE "data/wild/grass_water_sevii_night.asm" ; new, for day-night cycle
 ; target copy is de = wGrassMons or wWaterMons
 ; we need hl too as it points to the table and we use that for the levels
 CustomRandomizedCopyData:
+	ld a, [wCurMap]
+	ld [wArrayForTemporaryStorage], a
+
+CustomRandomizedCopyData_Core:
 	ld c, 0 ; we need 14x2 info: level and randomly read pokemon species
 	        ; the levels are read from the hard-coded tables
 			; the species are read from a random point in (this? a?) ROM bank
@@ -102,7 +112,7 @@ CustomRandomizedCopyData:
 	jr nz, .landSevii
 	ld bc, 31 ; arbitrary number, bare minimum is 14, but bigger to allow for higher-than-threshold values, also better be a prime for the reason above
 .landSevii
-	ld a, [wCurMap]
+	ld a, [wArrayForTemporaryStorage] ; holds the map ID, wCurMap if not in Nest
 	call AddNTimes ; add bc to hl a times
 	jr .continueWithReading
 .waterToo
@@ -112,7 +122,7 @@ CustomRandomizedCopyData:
 	ld c, 17 ; arbitrary number, bigger than 14, and preferably prime
 .waterSevii
 	ld b, 0
-	ld a, [wCurMap]
+	ld a, [wArrayForTemporaryStorage] ; holds the map ID, wCurMap if not in Nest
 	call AddNTimes ; add bc to hl a times
 .continueWithReading
 	; now hl is the randomized starting address for the current map
