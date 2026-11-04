@@ -206,6 +206,11 @@ FindWildLocationsOfMon::
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
+; new
+	push hl
+	ResetEvent EVENT_SKIP_NEST_CHECK
+	pop hl
+; BTV
 	and a
 	call nz, CheckMapForMon ; land
 	ld a, [hli]
@@ -222,6 +227,10 @@ FindWildLocationsOfMon::
 	ret
 
 CheckMapForMon:
+; new
+	CheckEvent EVENT_SKIP_NEST_CHECK
+	ret nz
+; BTV
 	inc hl
 	ld b, NUM_WILDMONS
 .loop
@@ -233,6 +242,7 @@ CheckMapForMon:
 	inc de
 ; new, to make this function more efficient and fix the Tentacool bug
 	inc hl
+	SetEvent EVENT_SKIP_NEST_CHECK ; new
 	ret
 ; back to vanilla
 .nextEntry
