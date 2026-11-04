@@ -2348,6 +2348,10 @@ DisplayBattleMenu::
 	cp $2
 	jp nz, PartyMenuOrRockOrRun
 
+; new, special check for items in battle
+	CheckEvent EVENT_CANNOT_USE_ITEMS_IN_BATTLE
+	jr nz, .cannotUseItemsInBattle
+
 ; new: can't use bag items against Traveler nor Battle Facility Trainers nor Sevii Sages
 	ld a, [wCurOpponent]
 	ld hl, TrainersAgainstWhomBagIsForbidden

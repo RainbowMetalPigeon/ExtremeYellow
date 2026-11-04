@@ -512,7 +512,8 @@ DEF SHOW EQU $15
 	const HS_DAYCARE_DAYCARE_ASSISTANT     ; new
 	const HS_SS_ANNE_1F_ROOMS_MON_1        ; new
 	const HS_SS_ANNE_1F_ROOMS_ITEM         ; edited
-	; total = 247/255
+	const HS_ROUTE_16_FLY_HOUSE_MON_1      ; new
+	; total = 248/255
 
 ; --- start of the variables moved to the extra2 block ---
 

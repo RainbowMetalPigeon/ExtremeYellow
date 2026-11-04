@@ -197,7 +197,7 @@ MapHSPointers:
 	dw ForlornValleyHS ; FORLORN_VALLEY ; new
 	dw NoHS ; ROUTE_16_GATE_1F
 	dw NoHS ; SUNKEN_SHIP_ROOMS ; new
-	dw NoHS ; ROUTE_16_FLY_HOUSE
+	dw Route16FlyHouseHS ; ROUTE_16_FLY_HOUSE new
 	dw NoHS ; ROUTE_12_SUPER_ROD_HOUSE
 	dw NoHS ; ROUTE_18_GATE_1F
 	dw ViridianVillaHS ; VIRIDIAN_VILLA ; new
@@ -917,6 +917,8 @@ DayCareHS: ; new
 SSAnne1FRoomsHS:
 	db SS_ANNE_1F_ROOMS, $08, SHOW
 	db SS_ANNE_1F_ROOMS, $0A, SHOW
+Route16FlyHouseHS:
+	db ROUTE_16_FLY_HOUSE, $02, SHOW ; mon
 
 	db $FF, $01, SHOW ; end, list terminator
 
