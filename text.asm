@@ -138,8 +138,8 @@ INCLUDE "text/LavenderTown.asm"
 INCLUDE "text/VermilionCity.asm"
 INCLUDE "text/CeladonCity.asm"
 INCLUDE "text/FuchsiaCity.asm"
-INCLUDE "text/CinnabarIsland.asm"
 INCLUDE "text/SaffronCity.asm"
+INCLUDE "text/GameCorner.asm"
 
 
 SECTION "Text Extra 1", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -319,12 +319,12 @@ INCLUDE "text/FuchsiaBillsGrandpasHouse.asm"
 
 
 SECTION "Text Extra 15", ROMX ; new
-INCLUDE "text/GameCorner.asm"
-INCLUDE "text/ViridianSchoolHouse.asm"
-INCLUDE "text/CeruleanCaveB1F.asm"
+INCLUDE "text/CinnabarIsland.asm"
+INCLUDE "text/HauntedHouse.asm" ; new
 INCLUDE "text/SaffronPokecenter.asm"
 INCLUDE "text/Route4.asm"
-INCLUDE "text/HauntedHouse.asm" ; new
+INCLUDE "text/ViridianSchoolHouse.asm"
+INCLUDE "text/CeruleanCaveB1F.asm"
 
 
 ; new: splitted the Pokédex text into two separate sections

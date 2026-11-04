@@ -871,7 +871,21 @@ TryToGiveSquirtle:
 	jp GivePokemon
 
 VermilionCityText4_RP:
-	text_far _VermilionCityText4_RP
+	text_asm
+	CheckHideShow HS_VERMILION_MACHOKE ; z flag if is SHOW, nz if is HIDE
+	ld hl, VermilionCityText4_RP_Pre
+	jr z, .printAndEnd
+	ld hl, VermilionCityText4_RP_Post
+.printAndEnd
+	call PrintText
+	jp TextScriptEnd
+
+VermilionCityText4_RP_Pre:
+	text_far _VermilionCityText4_RP_Pre
+	text_end
+
+VermilionCityText4_RP_Post:
+	text_far _VermilionCityText4_RP_Post
 	text_end
 
 SeviiOnlyOneIslandText_RP:
@@ -915,7 +929,16 @@ VermilionCityText5_RP:
 	call PlayCry
 	call WaitForSoundToFinish
 	ld hl, VermilionCityText15_RP
-	ret
+	call PrintText
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 24
+	ld b, MACHOKE
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_VERMILION_MACHOKE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	jp TextScriptEnd
 
 VermilionCityText15_RP:
 	text_far _VermilionCityText15_RP

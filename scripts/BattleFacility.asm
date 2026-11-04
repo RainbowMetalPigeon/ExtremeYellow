@@ -1,11 +1,21 @@
 BattleFacility_Script:
 	RPTextChooser BattleFacility_TextPointers, BattleFacility_TextPointers_Rocket
+	call BattleFacilityStopMusic_RP
 	call EnableAutoTextBoxDrawing
 	ld de, BattleFacility_ScriptPointers
 	ld a, [wCurMapScript] ; edited
 	call ExecuteCurMapScriptInTable
 	ld [wCurMapScript], a ; edited
 	ret
+
+BattleFacilityStopMusic_RP::
+	ld hl, wCurrentMapScriptFlags
+	bit 5, [hl]
+	res 5, [hl]
+	ret z
+	CheckEvent EVENT_ROCKET_PATH
+	ret z
+	jp StopMusic
 
 ; =====================================
 
@@ -28,6 +38,8 @@ BattleFacility_ScriptPointers:
 ; -------------------------------------
 
 BattleFacilityScript0:
+	CheckEvent EVENT_ROCKET_PATH
+	ret nz
 ; is the player standing on the entrance of the Arena room?
 	ld a, [wXCoord]
 	cp 21

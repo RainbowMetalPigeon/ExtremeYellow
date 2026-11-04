@@ -412,10 +412,25 @@ _VermilionCityText7_RP_DamnYou::
 ;	xxxx "123456789012345678"
 	prompt
 
-_VermilionCityText4_RP::
-	text "There's nothing"
-	line "here for the"
-	cont "likes of you."
+_VermilionCityText4_RP_Pre::
+	text "Why are you even"
+	line "here? The place's"
+	cont "not even open yet"
+	cont "and it'll be all"
+	cont "about battling"
+	cont "fair and square."
+
+	para "Nothing to do with"
+	line "TEAM ROCKET."
+;	xxxx "123456789012345678"
+	done
+
+_VermilionCityText4_RP_Post::
+	text "Why?!"
+	line "What did I do to"
+	cont "you to deserve"
+	cont "getting my dreams"
+	cont "shattered forever?"
 ;	xxxx "123456789012345678"
 	done
 
@@ -451,11 +466,14 @@ _SeviiWhichDestinationText_RP::
 	done
 
 _VermilionCityText15_RP::
-	text_start
-	para "MACHOKE clearly"
+	text "MACHOKE clearly"
 	line "dislikes you."
+
+	para "Tsk! As if that"
+	line "was of any"
+	cont "relevance!"
 ;	xxxx "123456789012345678"
-	done
+	prompt
 
 _SSAnneWelcomeTextPostReturn_RP::
 	text "The S.S.ANNE is"

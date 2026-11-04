@@ -28,6 +28,8 @@ _InitMapSprites::
 	ret z
 	cp SAFARI_ZONE_GATE
 	ret z
+	cp BATTLE_FACILITY
+	ret z
 .noSpecialRPHiding
 ; BTV
 	call LoadSpriteSetFromMapHeader
