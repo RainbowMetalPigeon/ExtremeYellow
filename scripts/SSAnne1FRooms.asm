@@ -36,7 +36,7 @@ SSAnne1FRooms_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
 	dw GenericNPCText_RocketPath
-	dw SSAnne8Text8 ; Mon
+	dw SSAnne8Text8_RP ; Mon
 	dw GenericNPCText_RocketPath
 	dw PickUpItemText_TM_BODY_SLAM
 	dw SSAnne8Text11_RP ; detective
@@ -277,3 +277,19 @@ SSAnne1FRoomsResetScripts:
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a
 	ret
+
+SSAnne8Text8_RP:
+	text_far _SSAnne8Text8
+	text_asm
+	ld a, WIGGLYTUFF
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 21
+	ld b, WIGGLYTUFF
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SS_ANNE_1F_ROOMS_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObjectExtra
+	jp TextScriptEnd

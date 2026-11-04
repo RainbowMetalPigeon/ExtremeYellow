@@ -34,7 +34,7 @@ SSAnneB1FRooms_TextPointers_Rocket:
 	dw SSAnne10Text5 ; trainer
 	dw SSAnne10Text6 ; trainer
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw SSAnne10Text8_RP ; mon
 	dw PickUpItemText
 	dw PickUpItemText_TM_X_SCISSOR
 	dw PickUpItemText
@@ -182,4 +182,22 @@ PickUpItemText_TM_X_SCISSOR:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	call DisableWaitingAfterTextDisplay
+	jp TextScriptEnd
+
+; new for RP ===============================
+
+SSAnne10Text8_RP:
+	text_far _SSAnne10Text8
+	text_asm
+	ld a, MACHOKE
+	call PlayCry
+	call WaitForSoundToFinish
+	SetEvent EVENT_RP_STEALING_POKEMON
+	ld c, 21
+	ld b, MACHOKE
+	call GivePokemon
+	jp nc, TextScriptEnd
+	ld a, HS_SS_ANNE_B1F_ROOMS_MON_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	jp TextScriptEnd

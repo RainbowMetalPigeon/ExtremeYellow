@@ -158,9 +158,9 @@ DEF SHOW EQU $15
 	const HS_MT_MOON_B2F_ITEM_1            ; 71
 	const HS_MT_MOON_B2F_ITEM_2            ; 72
 	const HS_SS_ANNE_2F_RIVAL              ; 73
-	const HS_SS_ANNE_1F_ROOMS_ITEM         ; 74
 	const HS_SS_ANNE_2F_ROOMS_ITEM_1       ; 75
 	const HS_SS_ANNE_2F_ROOMS_ITEM_2       ; 76
+	const HS_SS_ANNE_B1F_ROOMS_MON_1       ; new
 	const HS_SS_ANNE_B1F_ROOMS_ITEM_1      ; 77
 	const HS_SS_ANNE_B1F_ROOMS_ITEM_2      ; 78
 	const HS_SS_ANNE_B1F_ROOMS_ITEM_3      ; 79
@@ -510,7 +510,9 @@ DEF SHOW EQU $15
 	const HS_MR_FUJIS_HOUSE_MR_FUJI        ; edited
 	const HS_MR_FUJIS_HOUSE_MON_3          ; new
 	const HS_DAYCARE_DAYCARE_ASSISTANT     ; new
-	; total = 242/255
+	const HS_SS_ANNE_1F_ROOMS_MON_1        ; new
+	const HS_SS_ANNE_1F_ROOMS_ITEM         ; edited
+	; total = 244/255
 
 ; --- start of the variables moved to the extra2 block ---
 

@@ -460,12 +460,11 @@ MtMoonB2FHS:
 	db MT_MOON_B2F, $0A, SHOW
 SSAnne2FHS:
 	db SS_ANNE_2F, $02, HIDE
-SSAnne1FRoomsHS:
-	db SS_ANNE_1F_ROOMS, $0A, SHOW
 SSAnne2FRoomsHS:
 	db SS_ANNE_2F_ROOMS, $06, SHOW
 	db SS_ANNE_2F_ROOMS, $09, SHOW
 SSAnneB1FRoomsHS:
+	db SS_ANNE_B1F_ROOMS, $08, SHOW ; new, mon
 	db SS_ANNE_B1F_ROOMS, $09, SHOW
 	db SS_ANNE_B1F_ROOMS, $0A, SHOW
 	db SS_ANNE_B1F_ROOMS, $0B, SHOW
@@ -915,6 +914,9 @@ LavenderHousesHS: ; edited because of map merging
 	db LAVENDER_HOUSES, $07, SHOW
 DayCareHS: ; new
 	db DAYCARE, 2, HIDE
+SSAnne1FRoomsHS:
+	db SS_ANNE_1F_ROOMS, $08, SHOW
+	db SS_ANNE_1F_ROOMS, $0A, SHOW
 
 	db $FF, $01, SHOW ; end, list terminator
 
