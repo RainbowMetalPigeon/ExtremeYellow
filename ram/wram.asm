@@ -2791,12 +2791,12 @@ wEventFlags:: flag_array NUM_EVENTS
 
 UNION
 wGrassRate:: db
-wGrassMons:: ds 10 * 2
+wGrassMons:: ds 14 * 2 ; edited
 
-	ds 8
+;	ds 8 ; edited
 
 wWaterRate:: db
-wWaterMons:: ds 10 * 2
+wWaterMons:: ds 14 * 2 ; edited
 
 NEXTU
 ; linked game's trainer name
