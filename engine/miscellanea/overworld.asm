@@ -982,15 +982,12 @@ Bar60MinsText: ; new
 
 PrintToggleRunWindow::
 ; border
-	hlcoord  0, 14
-	lb bc, 2, 8 ; height, width
+	hlcoord  0, 15
+	lb bc, 1, 8 ; height, width
 	call TextBoxBorder
-; print static strings
-	hlcoord  1, 15
-	ld de, ToggleRunText1
-	call PlaceString
+; print static string
 	hlcoord  1, 16
-	ld de, ToggleRunText2
+	ld de, ToggleRunText1
 	call PlaceString
 ; print dynamic string
 	CheckEvent EVENT_RUN_TOGGLE
@@ -998,15 +995,18 @@ PrintToggleRunWindow::
 	jr nz, .stringFound
 	ld de, ToggleRunOffText
 .stringFound
-	hlcoord  6, 15
+	hlcoord  6, 16
 	call PlaceString
-	ret
+; banner over the bottom border, tiles loaded by LoadStartMenuToggleTiles
+	hlcoord  2, 17
+	ld de, ToggleRunBannerTiles
+	jp PlaceString
 
 ToggleRunText1:
 	db "RUN: @"
 
-ToggleRunText2:
-	db "(SELECT)@"
+ToggleRunBannerTiles:
+	db $C0, $C1, $C2, $C3, $C4, $C5, "@"
 
 ToggleRunOnText:
 	db "ON @"
@@ -1018,15 +1018,12 @@ ToggleRunOffText:
 
 PrintToggleConstaRepelWindow::
 ; border
-	hlcoord  0, 10
-	lb bc, 2, 8 ; height, width
+	hlcoord  0, 12
+	lb bc, 1, 8 ; height, width
 	call TextBoxBorder
-; print static strings
-	hlcoord  1, 11
+; print static string
+	hlcoord  1, 13
 	ld de, ToggleConstaRepelText1
-	call PlaceString
-	hlcoord  1, 12
-	ld de, ToggleConstaRepelText2
 	call PlaceString
 ; print dynamic string
 	CheckEvent EVENT_CONSTAREPEL_TOGGLE
@@ -1034,15 +1031,58 @@ PrintToggleConstaRepelWindow::
 	jr nz, .stringFound
 	ld de, ToggleRunOnText
 .stringFound
-	hlcoord  6, 11
+	hlcoord  6, 13
 	call PlaceString
-	ret
+; banner over the bottom border, tiles loaded by LoadStartMenuToggleTiles
+	hlcoord  2, 14
+	ld de, ToggleConstaRepelBannerTiles
+	jp PlaceString
 
 ToggleConstaRepelText1:
 	db "WILD:@"
 
-ToggleConstaRepelText2:
-	db "(RIGHT)@"
+ToggleConstaRepelBannerTiles:
+	db $C6, $C7, $C8, $C9, $D9, $DA, "@"
+
+; ===========================================================
+
+; new: loads the banners of the two toggle windows into the blank font slots $C0-$C9 and $D9-$DA
+; must run on every start menu redraw, because the party and status screens overwrite $C0-$C8 with the EXP bar
+LoadStartMenuToggleTiles::
+	ld de, SelectToggleGraphics
+	ld hl, vChars1 tile $40 ; tiles $C0-$C5
+	ld c, 6
+	call .copy
+	ld de, RightToggleGraphics
+	ld hl, vChars1 tile $46 ; tiles $C6-$C9
+	ld c, 4
+	call .copy
+	ld de, RightToggleGraphics + 4 * LEN_1BPP_TILE
+	ld hl, vChars1 tile $59 ; tiles $D9-$DA
+	ld c, 2
+	; fallthrough
+.copy ; de = source, hl = destination, c = number of 1bpp tiles
+	ldh a, [rLCDC]
+	bit rLCDC_ENABLE, a
+	jr z, .lcdOff
+	ld b, BANK(SelectToggleGraphics)
+	jp CopyVideoDataDouble ; LCD on: transfer during V-blank
+.lcdOff ; same as LoadFontTilePatterns: copy all at once, with source and destination swapped
+	push hl
+	ld h, d
+	ld l, e
+	pop de
+	ld a, c
+	add a
+	add a
+	add a ; a = c * LEN_1BPP_TILE
+	ld c, a
+	ld b, 0
+	ld a, BANK(SelectToggleGraphics)
+	jp FarCopyDataDouble
+
+SelectToggleGraphics: INCBIN "gfx/font/select_toggle.1bpp"
+RightToggleGraphics:  INCBIN "gfx/font/right_toggle.1bpp"
 
 ; ===========================================================
 

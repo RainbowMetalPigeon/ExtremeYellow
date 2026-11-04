@@ -10,6 +10,7 @@ RedisplayStartMenu::
 	farcall DrawStartMenu
 RedisplayStartMenu_DoNotDrawStartMenu::
 	callfar PrintDayNightStatus ; new
+	callfar LoadStartMenuToggleTiles ; new, banners for the two toggle windows
 	callfar PrintToggleRunWindow ; new
 	callfar PrintToggleConstaRepelWindow ; new
 	farcall PrintSafariZoneSteps ; print Safari Zone info, if in Safari Zone
