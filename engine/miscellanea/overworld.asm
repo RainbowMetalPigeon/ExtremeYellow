@@ -1016,6 +1016,36 @@ ToggleRunOffText:
 
 ; ===========================================================
 
+PrintToggleConstaRepelWindow::
+; border
+	hlcoord  0, 10
+	lb bc, 2, 8 ; height, width
+	call TextBoxBorder
+; print static strings
+	hlcoord  1, 11
+	ld de, ToggleConstaRepelText1
+	call PlaceString
+	hlcoord  1, 12
+	ld de, ToggleConstaRepelText2
+	call PlaceString
+; print dynamic string
+	CheckEvent EVENT_CONSTAREPEL_TOGGLE
+	ld de, ToggleRunOffText
+	jr nz, .stringFound
+	ld de, ToggleRunOnText
+.stringFound
+	hlcoord  6, 11
+	call PlaceString
+	ret
+
+ToggleConstaRepelText1:
+	db "WILD:@"
+
+ToggleConstaRepelText2:
+	db "(RIGHT)@"
+
+; ===========================================================
+
 LoadFontTilePatternsBraille:: ; new
 	ldh a, [rLCDC]
 	bit 7, a ; is the LCD enabled?

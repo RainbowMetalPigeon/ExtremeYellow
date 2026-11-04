@@ -7,6 +7,10 @@ TryDoWildEncounter:
 	ld a, [wd736]
 	and a
 	ret nz
+; new for Constant Repel Toggle
+	CheckEvent EVENT_CONSTAREPEL_TOGGLE
+	ret nz
+; BTV
 	callfar IsPlayerStandingOnDoorTileOrWarpTile
 	jr nc, .notStandingOnDoorOrWarpTile
 .CantEncounter

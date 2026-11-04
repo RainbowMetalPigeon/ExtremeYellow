@@ -10,7 +10,7 @@ DrawStartMenu::
 	lb bc, 12, 8
 .drawTextBoxBorder
 	call TextBoxBorder
-	ld a, D_DOWN | D_UP | START | B_BUTTON | A_BUTTON | SELECT ; edited, added the last
+	ld a, D_RIGHT | D_DOWN | D_UP | START | B_BUTTON | A_BUTTON | SELECT ; edited, added SELECT and RIGHT
 	ld [wMenuWatchedKeys], a
 	ld a, $02
 	ld [wTopMenuItemY], a ; Y position of first menu choice
