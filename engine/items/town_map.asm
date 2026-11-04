@@ -796,20 +796,19 @@ DrawPlayerOrBirdSprite:
 	jp CopyData
 
 DisplayWildLocations:
-;; new, initialize wBuffer
-;	ld b, 30
-;	xor a
-;	ld hl, wBuffer
-;.wBufferLoop
-;	ld [hli], a
-;	dec b
-;	jr nz, .wBufferLoop
-;; BTV
-	ld a, [wd11e]				; new
-	cp MEW						; new
-	jr z, .printMysterious		; new
-	cp MAROWAK					; new
-	jr z, .printMysterious		; new
+; new
+	CheckEvent EVENT_POKEDEX_DISPLAY_FISHING_NEST
+	jr nz, .notRandomized
+	ld a, [wRandomizationWildEncounters]
+	and a
+	jp nz, .printRandomized
+.notRandomized
+	ld a, [wd11e]
+	cp MEW
+	jr z, .printMysterious
+	cp MAROWAK
+	jr z, .printMysterious
+; BTV
 	call FindWildLocationsOfMon_Wrapper ; edited
 	call ZeroOutDuplicatesInList
 	ld hl, wShadowOAM
@@ -895,6 +894,13 @@ DisplayWildLocations:
 .notUnknownText					; new
 	call PlaceString
 	jr .done
+.printRandomized
+	hlcoord 1, 7
+	lb bc, 2, 15
+	call TextBoxBorder
+	hlcoord 2, 9
+	ld de, AreaRandomizedText
+	jr .notUnknownText
 .drawPlayerSprite
 	ld a, [wCurMap]
 	ld b, $0
@@ -916,6 +922,9 @@ AreaExtinctText:				; new
 
 AreaQuestionMarksText:          ; new
 	db " ?????????????@"        ; new
+
+AreaRandomizedText:             ; new
+	db "  RANDOMIZED@"          ; new
 
 TownMapCoordsToOAMCoords:
 ; in: lower nybble of a = x, upper nybble of a = y
