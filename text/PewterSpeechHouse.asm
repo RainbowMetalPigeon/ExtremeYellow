@@ -69,7 +69,7 @@ _PewterHouse2Text4::
 	cont "will be reached."
 
 	para "200: beyond here,"
-	line "1 in 4 to shrug"
+	line "1 in 3 to shrug"
 	cont "off all evils."
 
 	para "250: transcend"

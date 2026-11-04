@@ -6,6 +6,9 @@ HandlePoisonBurnLeechSeed::
 	call HandleTrickRoomCounter ; same for trick room
 
 ; new, give a chance to Starter Pikachu to heal itself
+	ldh a, [hWhoseTurn]
+	and a
+	jr nz, .vanilla ; healing can happen only during our turn
 	callfar IsThisPartymonStarterPikachu ; edited, was the other version
 	jr nc, .vanilla ; no starter Pikachu
 	ld a, [wPikachuHappiness]
@@ -26,9 +29,9 @@ HandlePoisonBurnLeechSeed::
 	jr z, .vanilla ; not confused either, so back to normal stuff, could jump furher away but need to check too many things
 .hasConditionsToHeal
 	call BattleRandom2 ; edited for moving this into its own file
-	cp 25 percent
+	cp 33 percent
 	jr nc, .vanilla ; nothing happens
-; 25% chance to heal itself from all conditions
+; 33% chance to heal itself from all conditions
 	xor a
 	ld [wBattleMonStatus], a ; heal status
 	ld hl, wPlayerBattleStatus1

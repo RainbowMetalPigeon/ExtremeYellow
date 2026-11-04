@@ -4541,7 +4541,7 @@ CheckForDisobedience:
 	jp c, .useRandomMove
 	cp 80
 	jp c, .monDoesNothing
-	cp 15
+	cp 150
 	jp c, .monHitItself
 	jp .monNaps
 .neutralMood
