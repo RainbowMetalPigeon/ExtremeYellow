@@ -1031,7 +1031,7 @@ CreateListOfFoundTMs::
 .checkTM08
 
 	; TM08
-	CheckHideShow HS_SS_ANNE_1F_ROOMS_ITEM
+	CheckHideShowExtra HS_SS_ANNE_1F_ROOMS_ITEM
 	jr z, .checkTM09
 	ld a, TM_BODY_SLAM
 	ld [de], a

@@ -512,7 +512,7 @@ DEF SHOW EQU $15
 	const HS_DAYCARE_DAYCARE_ASSISTANT     ; new
 	const HS_SS_ANNE_1F_ROOMS_MON_1        ; new
 	const HS_SS_ANNE_1F_ROOMS_ITEM         ; edited
-	; total = 244/255
+	; total = 247/255
 
 ; --- start of the variables moved to the extra2 block ---
 
@@ -554,4 +554,4 @@ DEF SHOW EQU $15
 	const HS_CINNABAR_POKECENTER_MON_1
 	const HS_SAFFRON_POKECENTER_MON_1
 	const HS_ROCK_TUNNEL_POKECENTER_MON_1
-	; total = 35/48
+	; total = 36/48

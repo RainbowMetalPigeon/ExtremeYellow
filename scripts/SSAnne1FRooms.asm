@@ -204,7 +204,7 @@ PickUpItemText_TM_BODY_SLAM:
 	text_asm
 	ld a, HS_SS_ANNE_1F_ROOMS_ITEM
 	ld [wMissableObjectIndex], a
-	predef HideObject
+	predef HideObjectExtra
 	call DisableWaitingAfterTextDisplay
 	jp TextScriptEnd
 
