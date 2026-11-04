@@ -70,11 +70,6 @@ _TM34ExplanationText::
 	cont "it back double!"
 	done
 
-_TM34NoRoomText::
-	text "You don't have"
-	line "room for this!"
-	done
-
 _ReceivedBoulderBadgeText::
 	text "I took"
 	line "you for granted."

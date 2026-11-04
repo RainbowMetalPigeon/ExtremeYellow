@@ -256,10 +256,6 @@ TM29PreReceiveText_RP:
 	text_far _TM29PreReceiveText_RP
 	text_end
 
-TM29NoRoomText_RP:
-	text_far _BagFullText_RP
-	text_end
-
 ReceivedTM29Text_RP:
 	text_far _ReceivedTM29Text
 	sound_get_item_1

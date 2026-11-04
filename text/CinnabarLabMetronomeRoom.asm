@@ -13,8 +13,8 @@ _TM35PreReceiveText::
 	prompt
 
 _ReceivedTM35Text::
-	text "<PLAYER> received "
-	line "TM38 HYDRO PUMP!@"
+	text "<PLAYER> received"
+	line "TM35 HYDRO PUMP!@"
 	text_end
 
 _TM35ExplanationText::
