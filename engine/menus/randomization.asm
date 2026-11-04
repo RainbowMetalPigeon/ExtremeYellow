@@ -28,11 +28,20 @@ DisplayRandomizationMenu::
 	ld [wRandomMemoryAddressForTypeChartRandomization+1], a
 	call Random
 	ld [wRandomMemoryAddressForWildRandomization+1], a
+.loopRandom4
+	call Random
+	cp NUM_POKEMON_RANDOMIZABLE
+	jr nc, .loopRandom4
+	ld [wRandomizationWildEncounters_R2_Offset], a
 
 	; for debugging
-	ld a, 11
-	ld [wRandomMemoryAddressForWildRandomization], a
-	ld [wRandomMemoryAddressForWildRandomization+1], a
+;	ld a, 11
+;	ld [wRandomMemoryAddressForWildRandomization], a
+;	ld [wRandomMemoryAddressForWildRandomization+1], a
+;	ld a, 1
+;	ld [wRandomizationWildEncounters_R1_List], a
+;	ld a, 40
+;	ld [wRandomizationWildEncounters_R2_Offset], a
 
 	callfar RestoreTextSpeed
 	ret
@@ -72,7 +81,7 @@ RandomizationMenu_WildEncounters:
 	jr .nonePressed
 .pressedRight
 	ld a, c
-	cp $1
+	cp $2
 	jr c, .increase
 	ld c, $ff
 .increase
@@ -83,7 +92,7 @@ RandomizationMenu_WildEncounters:
 	ld a, c
 	and a
 	jr nz, .decrease
-	ld c, $2
+	ld c, $3
 .decrease
 	dec c
 	ld a, d
@@ -92,13 +101,13 @@ RandomizationMenu_WildEncounters:
 	ld [wRandomizationWildEncounters], a
 .nonePressed
 	ld b, $0
-	ld hl, RandomizationStringsPointerTable
+	ld hl, RandomizationStringsPointerTableWildEncounters
 	add hl, bc
 	add hl, bc
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 2
+	hlcoord 11, 2
 	call PlaceString
 	and a
 	ret
@@ -142,7 +151,7 @@ RandomizationMenu_TrainersTeam:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 4
+	hlcoord 14, 4
 	call PlaceString
 	and a
 	ret
@@ -230,7 +239,7 @@ RandomizationMenu_TypeChart:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 15, 6
+	hlcoord 13, 6
 	call PlaceString
 	and a
 	ret
@@ -493,12 +502,18 @@ InitRandomizationMenu:
 	ld [wRandomMemoryAddressForWildRandomization], a
 ; the loop is necessary if wRandomMemoryAddressForWildRandomization is indeed the MOST significant byte
 ; in which case we cannot go too high otherwise we go beyond the boundaries of the bank itself
-; let's repeate the same code for the type chart randomization
+; let's repeat the same code for the type chart randomization
 .loopRandom2
 	call Random
 	cp 32
 	jr nc, .loopRandom2
 	ld [wRandomMemoryAddressForTypeChartRandomization], a
+; and let's repeat the code for the mapping randomization: no more than 30-1 (number of lists)
+.loopRandom3
+	call Random
+	cp 30
+	jr nc, .loopRandom3
+	ld [wRandomizationWildEncounters_R1_List], a
 ; back to ordinary code
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
@@ -555,9 +570,9 @@ InitRandomizationMenu_Redo:
 	ret
 
 AllRandomizationText:
-	db   "WILD #MON:"
-	next "ENEMY TEAMS :"
-	next "TYPE CHART  :"
+	db   "WILD MON:"
+	next "ENEMY TEAMS:"
+	next "TYPE CHART:"
 	next "ITEMS:"
 	next "EVOLUTIONS:"
 	next "CHAOS MODE:@"
@@ -583,6 +598,18 @@ RandomizationStringsPointerTableChaosMode:
 	dw MinuteText
 	dw SecondText
 	dw FrameText
+
+RandomizationStringsPointerTableWildEncounters:
+	dw No3Text
+	dw ScrambleText
+	dw MappingText
+
+No3Text:
+	db "NO      @"
+ScrambleText:
+	db "SCRAMBLE@"
+MappingText:
+	db "MAPPING @"
 
 No2Text:
 	db "NO    @"

@@ -2502,8 +2502,11 @@ wHauntedPalletTownPaletteCounter:: db ; new, "out of place" but whatever, also k
 ;wRoute15Gate2FCurScript:: db ; new
 ;wRoute28CurScript:: db ; new
 ;wRoute27CurScript:: db ; new
-	ds 3 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts - 10 for wObtainedHiddenItemsFlagsSevii
+	ds 1 ; UNUSED bytes in "Main Data", was 78, -28 because of the new wAttackdexSeen + 5 from optimizing the scripts - 10 for wObtainedHiddenItemsFlagsSevii
 wGameProgressFlagsEnd::
+
+wRandomizationWildEncounters_R1_List:: db ; new
+wRandomizationWildEncounters_R2_Offset:: db ; new
 
 wCurrentSaveSlot:: db ; new, for multi save slots
 wEnemyEVsOption:: db ; new

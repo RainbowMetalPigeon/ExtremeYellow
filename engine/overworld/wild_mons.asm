@@ -39,44 +39,62 @@ LoadWildData_Core: ; new
 	ld [wGrassRate], a
 	and a
 	jr z, .NoGrassData ; if no grass data, skip to surfing data
+
 ; new, to handle wild encounter randomization
-	ld a, [wRandomizationWildEncounters] ; 0=NO, 1=YES
-	and a
-	jr z, .noRandomization
-; we do indeed randomize
+	ld a, [wRandomizationWildEncounters] ; 0=NO, 1=SCRAMBLE, 2=MAPPING
+	cp 1
+	jr nz, .noScrambleRandomization
+; we do scramble randomization
 	push hl
 	ld de, wGrassMons
 	call CustomRandomizedCopyData
 	SetEvent EVENT_RANDOM_WILD_BOTH_GRASS_AND_WATER ; new, for randomization
 	pop hl
 	jr .continueWithWaterEncounters
-.noRandomization
+.noScrambleRandomization
 ; BTV
 	push hl
 	ld de, wGrassMons ; otherwise, load grass data
 	ld bc, $1C ; = 28 = 14x2, edited, it was $14=20=10x2, needed to be increased by 8=4x2 as I modified the encounter maps and probabilities
 	call CopyData ; Copy bc bytes from hl to de.
 	pop hl
+	ld a, [wRandomizationWildEncounters] ; 0=NO, 1=SCRAMBLE, 2=MAPPING
+	and a
+	jr z, .continueWithWaterEncounters ; no randomization
+; we do mapping randomization
+	push hl
+	ld hl, wGrassMons
+	call RandomizeWildEntriesMapping
+	pop hl
+
 .continueWithWaterEncounters ; new label
 	ld bc, $1C ; new, it was $14, needed to be increased by 4 as I modified the encounter maps and probabilities
 	add hl, bc
+
 .NoGrassData
 	ld a, [hli]
 	ld [wWaterRate], a
 	and a
 	ret z        ; if no water data, we're done
+
 ; new, to handle wild encounter randomization
-	ld a, [wRandomizationWildEncounters] ; 0=NO, 1=YES
-	and a
-	jr z, .noRandomization2
-; we do indeed randomize
+	ld a, [wRandomizationWildEncounters] ; 0=NO, 1=SCRAMBLE, 2=MAPPING
+	cp 1
+	jr nz, .noScrambleRandomization2
+; we do scramble randomization
 	ld de, wWaterMons
 	jp CustomRandomizedCopyData
-.noRandomization2
+.noScrambleRandomization2
 ; back to vanilla
 	ld de, wWaterMons ; load surfing data
 	ld bc, $1C ; = 28 = 14x2, edited, it was $14=20=10x2, needed to be increased by 8=4x2 as I modified the encounter maps and probabilities
-	jp CopyData ; Copy bc bytes from hl to de.
+	call CopyData ; Copy bc bytes from hl to de.
+	ld a, [wRandomizationWildEncounters] ; 0=NO, 1=SCRAMBLE, 2=MAPPING
+	and a
+	ret z
+; we do mapping randomization
+	ld hl, wWaterMons
+	jp RandomizeWildEntriesMapping
 
 INCLUDE "data/wild/grass_water.asm"
 INCLUDE "data/wild/grass_water_sevii.asm" ; new, for sevii
@@ -262,3 +280,20 @@ CheckMapForMon:
 	jr nz, .loop
 	dec hl
 	ret
+
+; input: hl = start of section to map (wGrassMons or wWaterMons)
+RandomizeWildEntriesMapping:
+	ld e, 14 ; number of entries to map per map
+.loop
+	inc hl ; skip level, we don't care
+	ld a, [hl] ; a holds the mon
+	ld d, a
+	push hl
+	callfar ReplacePokemonWithRandom ; does not alter e
+	pop hl
+	ld a, d
+	ld [hl], a
+	dec e
+	ret z
+	inc hl
+	jr .loop

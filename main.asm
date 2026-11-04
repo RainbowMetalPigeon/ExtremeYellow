@@ -440,11 +440,16 @@ SECTION "bank1EExtra", ROMX ; new, just to host the animation tilesets
 INCLUDE "engine/battle/animationtilesets.asm" ; new
 
 
-SECTION "bank1F", ROMX ; new: contains stuff moved from bank1E
+SECTION "bank1F", ROMX ; new: contains (mostly) stuff moved from bank1E
 
 INCLUDE "gfx/fishing.asm"
 INCLUDE "engine/overworld/cut2.asm"
 INCLUDE "engine/overworld/dust_smoke.asm"
+
+
+SECTION "Randomization mapping", ROMX
+
+INCLUDE "engine/pokemon/randomization_mapping.asm" ; new
 
 
 SECTION "BG Map Attributes (Debug)", ROMX
