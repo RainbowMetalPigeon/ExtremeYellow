@@ -799,8 +799,8 @@ _ViridianBlackboardPoisonText::
 
 _ViridianBlackboardPrlzText::
 	text "Paralysis makes" ; edited
-	line "#MON miss"
-	cont "their moves 25%"
+	line "#MON skip"
+	cont "their turn 25%"
 	cont "of the time!"
 
 	para "It also reduces" ; new
