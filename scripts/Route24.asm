@@ -21,6 +21,7 @@ Route24_ScriptPointers:
 	dw Route24Script3
 	dw Route24Script4
 	dw Route24Script5 ; new, wait for pushing player down done
+	dw Route24Script6 ; new, to make the transition cooler
 
 Route24Script0:
 IF DEF(_DEBUG) ; new
@@ -92,6 +93,7 @@ Route24_TextPointers:
 	dw PickUpItemText_TM_REFLECT
 	dw PickUpItemText ; new, LINK_CABLE
 	dw Route24Text8
+	dw Route24Text_FirstQuest ; 11
 
 Route24_TextPointers_Rocket:
 	dw Route24Text1
@@ -104,6 +106,7 @@ Route24_TextPointers_Rocket:
 	dw PickUpItemText_TM_REFLECT
 	dw PickUpItemText
 	dw Route24Text8_RP
+	dw Route24Text_FirstQuest ; 11
 
 Route24TrainerHeaders:
 	def_trainers 2
@@ -169,10 +172,10 @@ Route24Text1: ; edited
 ; sure?
 	ld hl, Route24Text_WannaJoinOffer2 ; are you sure
 	call PrintText
-	call YesNoChoice
+	call NoYesChoice
 	ld a, [wCurrentMenuItem]
 	and a
-	jp nz, .notSureIfJoinOrNot
+	jp z, .notSureIfJoinOrNot
 ; sure we don't wanna join
 	ld hl, Route24Text_WannaJoinOffer3
 	call PrintText
@@ -201,22 +204,17 @@ Route24Text1: ; edited
 .printAndEnd
 	call PrintText
 	jp TextScriptEnd
-.weWannaJoin ; beginning of ROCKET PATH!
-	SetEvent EVENT_ROCKET_PATH
-	call DisablePikachuOverworldSpriteDrawing
-	xor a
-	ld [wPikachuHappiness], a
-	ld [wPikachuMood], a
+.weWannaJoin
+; sure?
+	ld hl, Route24Text_WannaJoinOffer2b ; are you sure, no way out
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, .notSureIfJoinOrNot
+; beginning of ROCKET PATH!
 	inc a ; a=1
 	ld [wMuseum1FCurScript], a ; doesn't check ticket
-	ld a, [wWalkBikeSurfState]
-	dec a
-	jr nz, .hideAndShowObjects
-	callfar ItemUseReloadOverworldData
-	xor a
-	ld [wWalkBikeSurfState], a ; change player state to walking
-	call PlayDefaultMusic ; play walking music
-.hideAndShowObjects
 	ld a, HS_OAKS_LAB_OAK_1
 	ld [wMissableObjectIndex], a
 	predef HideObject
@@ -250,8 +248,8 @@ Route24Text1: ; edited
 ; TBE: fade out, event music?
 	ld hl, Route24Text_GreatWelcome
 	call PrintText
-	ld hl, Route24Text_FirstQuest
-	call PrintText
+	ld a, 6
+	ld [wCurMapScript], a
 	jp TextScriptEnd
 .notSureIfJoinOrNot
 	ld hl, Route24Text_WannaJoinOfferTakeYourTime
@@ -292,6 +290,10 @@ Route24Text_WannaJoinOffer1:
 
 Route24Text_WannaJoinOffer2:
 	text_far _Route24Text_WannaJoinOffer2
+	text_end
+
+Route24Text_WannaJoinOffer2b: ; new
+	text_far _Route24Text_WannaJoinOffer2b
 	text_end
 
 Route24Text_WannaJoinOffer3:
@@ -558,6 +560,42 @@ Route24Script5:
 	and a
 	ret nz
 	call Delay3
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCurMapScript], a
+	ret
+
+Route24Script6:
+	call GBFadeOutToBlack
+
+	ld a, [wWalkBikeSurfState]
+	dec a
+	jr nz, .continue
+	callfar ItemUseReloadOverworldData
+	xor a
+	ld [wWalkBikeSurfState], a ; change player state to walking
+	call PlayDefaultMusic ; play walking music
+.continue
+
+	SetEvent EVENT_ROCKET_PATH
+	call DisablePikachuOverworldSpriteDrawing
+	xor a
+	ld [wPikachuHappiness], a
+	ld [wPikachuMood], a
+
+	call LoadPlayerSpriteGraphics
+	call UpdateSprites
+	call Delay3
+	call GBFadeInFromBlack
+
+	ld a, SFX_GET_ITEM_2
+	call PlaySound
+	call WaitForSoundToFinish
+
+	ld a, 11
+	ldh [hSpriteIndexOrTextID], a
+	call DisplayTextID
+; script
 	xor a
 	ld [wJoyIgnore], a
 	ld [wCurMapScript], a

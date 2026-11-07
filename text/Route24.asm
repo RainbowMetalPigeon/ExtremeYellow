@@ -39,6 +39,14 @@ _Route24Text_WannaJoinOffer2:: ; edited
 	text "Are you sure?"
 	done
 
+_Route24Text_WannaJoinOffer2b:: ; new
+	text "Are you sure?"
+	line "Once in TEAM"
+	cont "ROCKET, there's"
+	cont "no way back!"
+;	xxxx "123456789012345678"
+	done
+
 _Route24Text_WannaJoinOffer3:: ; edited
 	text "Come on, join us!"
 
@@ -70,7 +78,7 @@ _Route24Text_GreatWelcome:: ; new
 	cont "promotion for"
 	cont "such a recruit!"
 ;	xxxx "123456789012345678"
-	prompt
+	done
 
 _Route24Text_FirstQuest:: ; new
 	text "Now, the first"
