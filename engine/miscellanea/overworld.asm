@@ -1323,8 +1323,18 @@ StepCountCheck:: ; moved from home
 	ret
 
 AreWeSpeedingUp:: ; new, c flag if going fast
+; ignore the run toggle and behave "vanilla" if we are automoving
+	ld a, [wSimulatedJoypadStatesIndex]
+	and a
+	jr nz, .runNotToggled
+; ugly fix for Vermilion ferry bug
+	ld a, [wVermilionCityCurScript]
+	cp 3
+	jr z, .runNotToggled
+; not simulated inputs
 	CheckEvent EVENT_RUN_TOGGLE
 	jr nz, .runIsToggled
+.runNotToggled
 	ld a, [hJoyHeld]
 	and B_BUTTON
 	jr z, .noSpeedUp
