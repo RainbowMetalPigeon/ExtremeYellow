@@ -1,4 +1,4 @@
-WarpScriptToKanto:: ; testing
+WarpScriptToKanto::
 	ld a, VERMILION_DOCK
 	ld [wd72d], a
 	ld c, 20
@@ -12,14 +12,14 @@ WarpScriptToKanto:: ; testing
 	call GBFadeOutToBlack
 ;	ld a, SPRITE_FACING_UP
 ;	ld [wSpritePlayerStateData1FacingDirection], a
-	SetEvent EVENT_PERFORMING_SEVII_KANTO_SPECIAL_WARP ; testing
+	SetEvent EVENT_PERFORMING_SEVII_KANTO_SPECIAL_WARP
 	callfar SpecialWarpIn
 	ld c, 20
 	call DelayFrames
 	ResetEvent EVENT_IN_SEVII
-	SetEvent EVENT_MARK_TO_WALK_OUTSIDE_VERMILION_DOCK ; testing
-	ld a, $2 ; testing
-	ld [wVermilionCityCurScript], a ; testing
+	SetEvent EVENT_MARK_TO_WALK_OUTSIDE_VERMILION_DOCK
+	ld a, $2
+	ld [wVermilionCityCurScript], a
 	xor a
 	ld [wOriginallyInKantoOrSevii], a ; 0=Kanto, 1=Sevii
 	ld a, 0
