@@ -80,3 +80,10 @@ _PewterHouse2Text4::
 	para "...the hell is"
 	line "this gibberish?!"
 	done
+
+_PewterHouse2Text4_RP::
+	text "It's full of"
+	line "dumb scribbles."
+	cont "Tsk! Who cares!"
+;	xxxx "123456789012345678"
+	done

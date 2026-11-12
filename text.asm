@@ -246,7 +246,6 @@ INCLUDE "text/OchreResearchCenter1.asm"
 INCLUDE "text/PewterSpeechHouse.asm"
 INCLUDE "text/Route22.asm"
 INCLUDE "text/Route21.asm"
-INCLUDE "text/SafariZoneCenter.asm"
 
 
 SECTION "Text Extra 10", ROMX ; new, to accomodate all .asm text files that became too big and new ones
@@ -266,6 +265,7 @@ INCLUDE "text/FuchsiaMart.asm"
 INCLUDE "text/SaffronMart.asm"
 INCLUDE "text/FuchsiaGoodRodHouse.asm"
 INCLUDE "text/PewterGym.asm"
+INCLUDE "text/SafariZoneCenter.asm"
 
 
 SECTION "Text Extra 11", ROMX ; new, to accomodate all .asm text files that became too big and new ones

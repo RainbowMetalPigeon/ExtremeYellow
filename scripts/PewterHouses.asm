@@ -22,7 +22,7 @@ PewterHouses_TextPointers_Rocket:
 	dw GenericNPCText_RocketPath
 	; new
 	dw GenericNPCText_RocketPath
-	dw GenericNPCText_RocketPath
+	dw PewterHouse2Text4_RP
 	; Nidoran house
 	dw PewterHouse1Text1_RP
 	dw GenericNPCText_RocketPath
@@ -153,4 +153,8 @@ PewterHouse1Text1_RP:
 
 PewterHouse3Text1_RP:
 	text_far _PewterHouse3Text1_RP
+	text_end
+
+PewterHouse2Text4_RP:
+	text_far _PewterHouse2Text4_RP
 	text_end
