@@ -510,6 +510,7 @@ StartMenu_Item::
 	jr c, .cannotUseItemsHere
 ; BTV
 .canUseItems
+	callfar LoadStartMenuToggleTiles ; new, restore toggle banners possibly overwritten by town map / party menu
 	; store item bag pointer in wListPointer (for DisplayListMenuID)
 	ld hl, wListPointer
 	ld [hl], LOW(wNumBagItems)
