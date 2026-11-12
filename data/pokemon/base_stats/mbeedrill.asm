@@ -17,7 +17,7 @@
 	tmhm SWORDS_DANCE, TOXIC,        DOUBLE_EDGE,  HYPER_BEAM,   GIGA_DRAIN,   \
 	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         REST,         \
 	     X_SCISSOR,    SUBSTITUTE,   CUT,          FLASH,        MEGAHORN,     \
-	     GUNK_SHOT,    CURSE,        ROCK_SMASH    
+	     GUNK_SHOT,    CURSE,        ROCK_SMASH,   OUTRAGE    
 	; end
 
 	db BANK(MBeedrillPicFront)
