@@ -1324,13 +1324,10 @@ StepCountCheck:: ; moved from home
 
 AreWeSpeedingUp:: ; new, c flag if going fast
 ; ignore the run toggle and behave "vanilla" if we are automoving
-	ld a, [wSimulatedJoypadStatesIndex]
-	and a
+; (wd730 bit 7 stays set through the last simulated step, unlike wSimulatedJoypadStatesIndex)
+	ld a, [wd730]
+	bit 7, a
 	jr nz, .runNotToggled
-; ugly fix for Vermilion ferry bug
-	ld a, [wVermilionCityCurScript]
-	cp 3
-	jr z, .runNotToggled
 ; not simulated inputs
 	CheckEvent EVENT_RUN_TOGGLE
 	jr nz, .runIsToggled

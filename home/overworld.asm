@@ -1484,6 +1484,12 @@ LoadCurrentMapView::
 	ret
 
 AdvancePlayerSprite::
+; new: never advance past the end of a step; a mid-step speed change
+; (e.g. run toggle + hJoyHeld cleared in VBlank) could otherwise underflow
+; wWalkCounter to $FF and loop the player forever
+	ld a, [wWalkCounter]
+	and a
+	ret z
 	ld a, [wUpdateSpritesEnabled]
 	push af
 	ld a, $FF
