@@ -668,8 +668,8 @@ _AttackdexText_DiveEffect::
 
 	atpg "User cannot be hit"
 	next "while underwater,"
-	next "except by SURF x2"
-	next "and WHIRLPOOL"
+	next "except by SURF"
+	next "& WHIRLPOOL x2"
 	dex
 
 _AttackdexText_SolarBeamEffect::
@@ -684,9 +684,9 @@ _AttackdexText_FlyEffect::
 	next "attacks on 2nd."
 
 	atpg "User cannot be hit"
-	next "while flying up,"
-	next "except by BLIZZARD"
-	next "THUNDER HURRICANE"
+	next "except by THUNDER,"
+	next "HURRICANE, and"
+	next "GUST & TWISTER x2"
 	dex
 
 _AttackdexText_TwoToFiveAttacksEffect::

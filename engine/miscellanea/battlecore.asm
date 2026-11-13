@@ -835,7 +835,7 @@ BasePowerModifierMoves::
 
 	ld a, [bc] ; move ID
 	cp STOMP
-	jr nz, .checkEarthquake
+	jr nz, .checkInvulnerable
 ; it is STOMP; check if target is minimized
 	ld a, [hl]
 	and a
@@ -847,7 +847,7 @@ BasePowerModifierMoves::
 
 ; here we don't need bc nor hl anymore, we can overwrite them
 ; a still holds the used move ID
-.checkEarthquake
+.checkInvulnerable
 	push af ; save user move ID in a
 	; load bc and hl with invincibility and target used move, turn-conditional
 	ld bc, wEnemyBattleStatus1
@@ -865,27 +865,33 @@ BasePowerModifierMoves::
 ; if we're here, the target is in an invulnerable state, so let's check if we use the correct move
 	pop af ; restore user move ID in a
 	cp EARTHQUAKE
-	jr nz, .checkSurf
-; it is Earthquake, check if target is using Dig
+	jr z, .checkIfTargetDigging
+	cp SURF
+	jr z, .checkIfTargetDiving
+	cp WHIRLPOOL
+	jr z, .checkIfTargetDiving
+	cp GUST
+	jr z, .checkIfTargetFlying
+	cp TWISTER
+	ret nz
+	; fallthrough
+.checkIfTargetFlying
 	ld a, [hl]
-	cp DIG
+	cp FLY
 	jr z, .doubleBasePowerAndRet
 	ret
 
-.checkSurf
-	cp SURF
-	jr nz, .checkWhirlpool
-; it is Surf, check if target is using Dive
 .checkIfTargetDiving
 	ld a, [hl]
 	cp DIVE
 	jr z, .doubleBasePowerAndRet
 	ret
 
-.checkWhirlpool
-	cp WHIRLPOOL
-	ret nz
-	jr .checkIfTargetDiving
+.checkIfTargetDigging
+	ld a, [hl]
+	cp DIG
+	jr z, .doubleBasePowerAndRet
+	ret
 
 .popAndRet
 	pop af
