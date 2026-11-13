@@ -1487,10 +1487,13 @@ _SeviiThreeIslandHousesText2_RP_Before::
 	line "your organization"
 	cont "is..."
 
-	para "You won. Go, take"
-	line "my HM. I hope you"
-	cont "will make good"
-	cont "use of it in Hell."
+	para "You won. I'll open"
+	line "the secret room."
+
+	para "Go and take my HM."
+	line "I hope you'll make"
+	cont "good use of it"
+	cont "in Hell."
 ;	xxxx "123456789012345678"
 	done
 
