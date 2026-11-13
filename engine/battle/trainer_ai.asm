@@ -1754,18 +1754,29 @@ AIMoveChoiceModification3:
 	call ReadMove
 ; check if it's one of the selected moves
 	ld a, [wEnemyMoveNum]
+; check for minimized player
 	cp STOMP
 	jr z, .moveIsStomp
+; checks for flying player
 	cp THUNDER
-	jr z, .moveIsThunder
+	jr z, .moveCanHitFlyingMon
 	cp HURRICANE
-	jr z, .moveIsHurricane
+	jr z, .moveCanHitFlyingMon
+	cp GUST
+	jr z, .moveCanHitFlyingMon
+	cp TWISTER
+	jr z, .moveCanHitFlyingMon
+	cp THOUSANDARROWS
+	jr z, .moveCanHitFlyingMon
+; check for diving player
 	cp SURF
-	jr z, .moveIsSurf
+	jr z, .moveCanHitDivingMon
 	cp WHIRLPOOL
-	jr z, .moveIsWhirlpool
+	jr z, .moveCanHitDivingMon
+; check for digging player
 	cp EARTHQUAKE
-	jr z, .moveIsEarthquake
+	jr z, .moveCanHitDiggingMon
+; other checks
 	cp FLAIL
 	jr z, .moveIsFlail
 	ld a, [wEnemyMoveEffect]
@@ -1779,7 +1790,7 @@ AIMoveChoiceModification3:
 	and a
 	jp nz, .encourageByFour7
 	jp .nextMove7
-.moveIsThunder
+.moveCanHitFlyingMon
 	ld a, [wPlayerBattleStatus1]
 	bit INVULNERABLE, a ; fly/dig/dive
 	jp z, .nextMove7
@@ -1787,15 +1798,7 @@ AIMoveChoiceModification3:
 	cp FLY
 	jp z, .encourageByFive7
 	jp .nextMove7
-.moveIsHurricane
-	ld a, [wPlayerBattleStatus1]
-	bit INVULNERABLE, a ; fly/dig/dive
-	jp z, .nextMove7
-	ld a, [wPlayerMoveNum]
-	cp FLY
-	jp z, .encourageByFive7
-	jp .nextMove7
-.moveIsSurf
+.moveCanHitDivingMon
 	ld a, [wPlayerBattleStatus1]
 	bit INVULNERABLE, a ; fly/dig/dive
 	jp z, .nextMove7
@@ -1803,15 +1806,7 @@ AIMoveChoiceModification3:
 	cp DIVE
 	jp z, .encourageByFive7
 	jp .nextMove7
-.moveIsWhirlpool
-	ld a, [wPlayerBattleStatus1]
-	bit INVULNERABLE, a ; fly/dig/dive
-	jp z, .nextMove7
-	ld a, [wPlayerMoveNum]
-	cp DIVE
-	jp z, .encourageByFive7
-	jp .nextMove7
-.moveIsEarthquake
+.moveCanHitDiggingMon
 	ld a, [wPlayerBattleStatus1]
 	bit INVULNERABLE, a ; fly/dig/dive
 	jp z, .nextMove7

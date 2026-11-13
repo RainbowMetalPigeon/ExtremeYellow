@@ -955,7 +955,7 @@ ModifyMoveAccuracy:: ; c flag if accuracy is bypassed
 ; ===========================================================================
 
 CheckIfSkippingInvulnerability::
-; EARTHQUAKE, WHIRLPOOL, SURF, THUNDER, and HURRICANE
+; EARTHQUAKE; WHIRLPOOL, SURF; THUNDER, GUST, TWISTER, THOUSANDARROWS, HURRICANE
 	ld bc, wEnemyBattleStatus1
 	ld hl, wPlayerMoveNum
 	ld de, wEnemyMoveNum
@@ -982,6 +982,12 @@ CheckIfSkippingInvulnerability::
 	cp WHIRLPOOL
 	jr z, .checkDive
 	cp THUNDER
+	jr z, .checkFly
+	cp GUST
+	jr z, .checkFly
+	cp TWISTER
+	jr z, .checkFly
+	cp THOUSANDARROWS
 	jr z, .checkFly
 	cp HURRICANE
 	jr nz, .resetCarryFlagToNotSkipInvulnerability
