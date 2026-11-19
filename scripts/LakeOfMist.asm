@@ -46,6 +46,8 @@ LakeOfMist_TextPointers_Rocket:
 	; items
 	dw PickUpItemText
 	dw RockSmashText
+	; signs
+	dw LakeOfMistSignText1
 
 ; ---------------------------------------------------
 
