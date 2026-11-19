@@ -1926,10 +1926,11 @@ wSavedSpriteMapY:: db
 wSavedSpriteMapX:: db
 
 ;	ds 5 ; edited to go beyond 200 and more
+wEphemerealTempBuffer2ByteStorage:: ; new (shares address with label below)
 wEphemerealTempBuffer2ByteStorage2:: dw ; new
+
 wDelayFrameBank:: db ; new
 
-wEphemerealTempBuffer2ByteStorage:: ; new
 wIsTrainerBattle:: db  ; new, to go beyond 200
 wWasTrainerBattle:: db ; new, to go beyond 200
 
