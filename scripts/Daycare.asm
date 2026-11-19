@@ -646,15 +646,15 @@ DayCareImproveBadDVs:
 	ld b, a ; b has the original DV pair
 	and %00001111
 	ld c, a ; c holds the rightmost nybble
-	cp 9
+	cp 11
 	jr nc, .checkOtherHalf1
-	ld c, 9
+	ld c, 11
 .checkOtherHalf1
 	ld a, b
 	and %11110000
-	cp 9<<4 ; 9 shifted to the left by 4 positions
+	cp 11<<4 ; 11 shifted to the left by 4 positions
 	jr nc, .doneWithThisDVPair1
-	ld a, 9<<4
+	ld a, 11<<4
 .doneWithThisDVPair1
 	add c ; add the other nybble
 	ld [hl], a
@@ -664,15 +664,15 @@ DayCareImproveBadDVs:
 	ld b, a ; b has the original DV pair
 	and %00001111
 	ld c, a ; c holds the rightmost nybble
-	cp 9
+	cp 11
 	jr nc, .checkOtherHalf2
-	ld c, 9
+	ld c, 11
 .checkOtherHalf2
 	ld a, b
 	and %11110000
-	cp 9<<4 ; 9 shifted to the left by 4 positions
+	cp 11<<4 ; 11 shifted to the left by 4 positions
 	jr nc, .doneWithThisDVPair2
-	ld a, 9<<4
+	ld a, 11<<4
 .doneWithThisDVPair2
 	add c ; add the other nybble
 	ld [hl], a
