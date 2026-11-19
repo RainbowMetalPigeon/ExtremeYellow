@@ -22,7 +22,7 @@ SeviiSevenIslandGym2DiveCavern_ScriptPointers:
 SeviiSevenIslandGym2DiveCavernScript0:
 	ld a, [wIsInBattle]
 	cp $ff
-	jp nz, CheckFightingMapTrainers
+	ret nz ; "jp nz, CheckFightingMapTrainers" would be wrong because there are no trainers 
 ; we have been defeated
 	ld a, 2 ; SeviiSevenIslandGym2DiveCavernText2_PostBlackOut
 	ldh [hSpriteIndexOrTextID], a
