@@ -474,7 +474,7 @@ _SeviiSevenIslandGym2DiveAfterBattleText1::
 
 	para "(Nothing stops you"
 	line "from catching the"
-	cont "wild #MON here!)"
+	cont "wild #MON!)"
 ;	xxxx "123456789012345678"
 	done
 
@@ -512,9 +512,9 @@ _SeviiSevenIslandGym2DiveAfterBattleText3::
 	cont "does not change"
 	cont "between attempts."
 	cont "If you try again,"
-	cont "again, you'll"
-	cont "know what to pick"
-	cont "up and where.)"
+	cont "you'll know what"
+	cont "to pick up"
+	cont "and where.)"
 ;	xxxx "123456789012345678"
 	done
 
