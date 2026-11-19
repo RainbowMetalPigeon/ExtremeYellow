@@ -208,7 +208,7 @@ _Route25Text14::
 	cont "tough to get into"
 	cont "the city lately."
 
-	para "Cheery on the top,"
+	para "Cherry on the top,"
 	line "I heard that"
 	cont "climbing fans"
 	cont "gather somewhere"

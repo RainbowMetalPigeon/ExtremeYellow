@@ -182,7 +182,7 @@ _RandomizationInfoTextWildMons::
 	line "gets its own set"
 	cont "of encounters,"
 	cont "randomized"
-	cont "independently from"
+	cont "independently"
 	cont "from each other."
 ;	xxxx "123456789012345678"
 

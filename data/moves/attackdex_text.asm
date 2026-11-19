@@ -106,19 +106,19 @@ _AttackdexText_ParalyzeSideEffectCert::
 
 _AttackdexText_FlinchSideEffect1::
 	text "10% chance to"
-	next "FLICH the"
+	next "FLINCH the"
 	next "opponent"
 	dex
 
 _AttackdexText_FlinchSideEffect2::
 	text "20% chance to"
-	next "FLICH the"
+	next "FLINCH the"
 	next "opponent"
 	dex
 
 _AttackdexText_FlinchSideEffect3::
 	text "30% chance to"
-	next "FLICH the"
+	next "FLINCH the"
 	next "opponent"
 	dex
 
