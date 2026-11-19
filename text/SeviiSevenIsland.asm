@@ -490,9 +490,9 @@ _SeviiSevenIslandGym2DiveAfterBattleText2::
 
 	para "(You need to have"
 	line "every HM to reach"
-	cont "NANETTE. Only"
-	cont "ROCK SMASH is"
-	cont "optional.)"
+	cont "NANETTE, except"
+	cont "FLY, FLASH, and"
+	cont "ROCK SMASH.)"
 ;	xxxx "123456789012345678"
 	done
 
