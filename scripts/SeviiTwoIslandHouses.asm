@@ -266,7 +266,7 @@ SeviiTwoIslandHousesText3_RP: ; PULSE
 	ld hl, SeviiTwoIslandHousesText3_Refused_RP
 	jr .printAndEnd
 .learnMove
-	ld a, WEATHER_BALL
+	ld a, TERRAIN_PULSE
 	ld [wMoveNum], a
 	farcall Tutor
 	ld hl, SeviiTwoIslandHousesText3_Done_RP
