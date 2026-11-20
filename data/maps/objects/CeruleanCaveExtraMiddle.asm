@@ -38,7 +38,7 @@ CeruleanCaveExtraMiddle_Object:
 	warp_event  36, 32, CERULEAN_CAVE_EXTRA_MIDDLE, 11	; 25, room 3-2, south
 	warp_event  37, 32, CERULEAN_CAVE_EXTRA_MIDDLE, 12	; 26, room 3-2, south
 	warp_event  32, 36, CERULEAN_CAVE_EXTRA_MIDDLE, 21	; 27, room 2-3, east
-	warp_event  32, 37, CERULEAN_CAVE_EXTRA_MIDDLE, 23	; 28, room 2-3, east
+	warp_event  32, 37, CERULEAN_CAVE_EXTRA_MIDDLE, 22	; 28, room 2-3, east
 
 	def_bg_events
 
