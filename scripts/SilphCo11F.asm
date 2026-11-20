@@ -767,6 +767,8 @@ SilphCo11TextBadgeMachine:
 	call StoreHighestLevel
 	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
+	xor a
+	ld [wPartyAndBillsPCSavedMenuItem], a ; to move the cursor back to the top
 	ld a, [wUniQuizAnswer]
 	ld c, a
 	ld b, THU_FI_ZER
@@ -799,6 +801,8 @@ SilphCo11TextBadgeMachine:
 	call StoreHighestLevel
 	call CheckIfMonIsShinyOrDelta
 	call RemovePokemon
+	xor a
+	ld [wPartyAndBillsPCSavedMenuItem], a ; to move the cursor back to the top
 	ld a, [wUniQuizAnswer]
 	ld c, a
 	ld b, VENUSTOISE
@@ -916,7 +920,7 @@ SilphCo11Text2_RP:
 SilphCo11TextGiovanni_RP: ; TBE
 	text_asm
 	CheckEvent EVENT_RP_GAVE_MEWTWO_TO_GIOVANNI
-	jr nz, .startFight
+	jp nz, .startFight
 	CheckEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 	jp z, .notChampionYet
 ; we are champion; check if we have a Mewtwo or not
@@ -964,6 +968,8 @@ SilphCo11TextGiovanni_RP: ; TBE
 	ld [wRemoveMonFromBox], a
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call RemovePokemon
+	xor a
+	ld [wPartyAndBillsPCSavedMenuItem], a ; to move the cursor back to the top
 	ld hl, SilphCo11TextGiovanni_RP_YouDidItMyTeamIsComplete
 	call PrintText
 .startFight
@@ -1044,7 +1050,7 @@ SilphCo11TextGiovanni_RP: ; TBE
 
 	ld a, [wRPStealBallsForBadges]
 	cp %01111111
-	jr nz, .notAllBadges
+	jp nz, .notAllBadges
 
 ; we got all badges, now check for the birbs
 	ld hl, SilphCo11TextGiovanni_RP_BroughtAllBadges
@@ -1085,6 +1091,8 @@ SilphCo11TextGiovanni_RP: ; TBE
 	ld d, MOLTRES
 	callfar CheckIfOneGivenMonIsInPartyAndLoadIndex
 	call RemovePokemon
+	xor a
+	ld [wPartyAndBillsPCSavedMenuItem], a ; to move the cursor back to the top
 	ld hl, SilphCo11TextGiovanni_RP_PlayerGivesBirbs
 	call PrintText
 	SetEvent EVENT_RP_GAVE_BIRBS_TO_GIOVANNI

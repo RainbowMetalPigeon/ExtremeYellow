@@ -558,6 +558,7 @@ DayCareCheckAndTakeStrongMon:
 	ld [wRemoveMonFromBox], a
 	call RemovePokemon
 	xor a ; to ensure c flag is not set
+	ld [wPartyAndBillsPCSavedMenuItem], a ; to move the cursor back to the top
 	ret
 .setUpToEndAndPrint
 	scf

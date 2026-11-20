@@ -513,6 +513,8 @@ SeviiOneIslandHousesText9:
 	ld [wMonDataLocation], a ; not used
 	ld [wRemoveMonFromBox], a
 	call RemovePokemon
+	xor a
+	ld [wPartyAndBillsPCSavedMenuItem], a ; to move the cursor back to the top
 	ld hl, SeviiOneIslandHousesText9_CiaoSnorlax
 	call PrintText
 	SetEvent EVENT_SEVII_TRADED_SNORLAX_FOR_ONIGIRI_BOX
