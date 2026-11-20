@@ -48,6 +48,11 @@ MainMenu:
 	ld de, NewGameText
 	call PlaceString
 .next2
+; new
+	hlcoord 0, 17
+	ld de, VersionText
+	call PlaceString
+; BTV
 	ld hl, wd730
 	res 6, [hl]
 	call UpdateSprites
@@ -195,6 +200,9 @@ ContinueText:
 NewGameText:
 	db   "NEW GAME"
 	next "OPTION@"
+
+VersionText: ; new: to be updated on each release
+	db "V2.0 Beta6@"
 
 DisplayContinueGameInfo:
 	xor a
