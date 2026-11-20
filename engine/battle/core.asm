@@ -3255,37 +3255,25 @@ PrintMenuItem:
 	ld a, [wPlayerMoveEffect]
 	cp OHKO_EFFECT
 	jr z, .OHKOMove
-; special check for Gyro Ball
+; Gyro Ball and Flail have raw power 1 but a computed BP, so skip the "?" check for them
 	ld a, [wPlayerMoveNum]
 	cp GYRO_BALL
-	jr nz, .notGyroBall
-	push hl
-	callfar CalculateGyroBallBasePower ; BP is in d
-	pop hl
-	ld a, d
-	ld [wAnotherTemporaryStorageVariable], a
-	ld de, wAnotherTemporaryStorageVariable
-	hlcoord 1, 10
-	jr .printBP
-.notGyroBall
+	jr z, .computeBP
 	cp FLAIL
-	jr nz, .notFlail
-	push hl
-	callfar CalculateFlailBasePower ; BP is in d
-	pop hl
-	ld a, d
-	ld [wAnotherTemporaryStorageVariable], a
-	ld de, wAnotherTemporaryStorageVariable
-	hlcoord 1, 10
-	jr .printBP
-.notFlail
-; not even Flail
+	jr z, .computeBP
 	ld a, [wPlayerMovePower]
 	cp 1 ; this should cover all the SPECIAL_DAMAGE_EFFECT, AND COUNTER / MIRROR_COAT
 	jr z, .specialDamage
+.computeBP
+; print the same effective BP the damage calc will use (hWhoseTurn = 0 here)
+	ld a, [wPlayerMovePower]
+	ld d, a
+	callfar GetEffectiveBasePower ; BP is in d
+	ld a, d
+	ld [wAnotherTemporaryStorageVariable], a
+	ld de, wAnotherTemporaryStorageVariable
 	hlcoord 1, 10
-	ld de, wPlayerMovePower
-.printBP
+; print BP
 	lb bc, 1, 3
 	call PrintNumber ; prints the c-digit, b-byte value at de
 	jr .afterDamagePrinting
@@ -4760,24 +4748,9 @@ GetDamageVarsForPlayerAttack:
 	ld d, a ; d = move power
 	ret z ; return if move power is zero
 
-; new, to check for weathers and terrains
+; new: move-specific, weather/terrain, gyro ball and flail BP modifiers
 	push hl
-	callfar BasePowerModifierMoves
-	callfar BasePowerModifierWeatherTerrain_Player
-	pop hl
-
-; new, to handle gyro ball and flail
-	push hl
-	ld a, [wPlayerMoveNum]
-	cp GYRO_BALL
-	jr nz, .notGyroBall
-	callfar CalculateGyroBallBasePower
-	jr .notFlail
-.notGyroBall
-	cp FLAIL
-	jr nz, .notFlail
-	callfar CalculateFlailBasePower
-.notFlail
+	callfar GetEffectiveBasePower
 	pop hl
 ; back to vanilla
 
@@ -4991,24 +4964,9 @@ GetDamageVarsForEnemyAttack:
 	and a
 	ret z ; return if move power is zero
 
-; new, to check for weathers and terrains
+; new: move-specific, weather/terrain, gyro ball and flail BP modifiers
 	push hl
-	callfar BasePowerModifierMoves
-	callfar BasePowerModifierWeatherTerrain_Enemy
-	pop hl
-
-; new, to handle gyro ball and flail
-	push hl
-	ld a, [wEnemyMoveNum]
-	cp GYRO_BALL
-	jr nz, .notGyroBall
-	callfar CalculateGyroBallBasePower
-	jr .notFlail
-.notGyroBall
-	cp FLAIL
-	jr nz, .notFlail
-	callfar CalculateFlailBasePower
-.notFlail
+	callfar GetEffectiveBasePower
 	pop hl
 ; back to vanilla
 

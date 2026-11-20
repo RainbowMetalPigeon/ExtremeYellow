@@ -16,7 +16,7 @@ DebugTeam:
 	db MZYGARDE, 100
 	db MGENGAR, 100
 	db STARTER_PIKACHU, 100
-	db DITTO, 80
+;	db PORYGONZ, 80
 ;	db KABUTO, 100
 ;	db MEW, 100
 	db -1 ; end
@@ -92,14 +92,14 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 ; moves to other members
-;	ld a, STEALTH_ROCK
+;	ld a, EARTHQUAKE
 ;	ld hl, wPartyMon4Moves
 ;	ld [hli], a
-;	ld a, REST
+;	ld a, GRASSY_TERRAIN
 ;	ld [hli], a
-;	ld a, DOUBLE_TEAM
+;	ld a, STOMP
 ;	ld [hli], a
-;	ld a, MIMIC
+;	ld a, SOLARBEAM
 ;	ld [hl], a
 ;
 ;	ld a, PERISH_SONG

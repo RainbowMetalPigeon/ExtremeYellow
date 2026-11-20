@@ -821,6 +821,31 @@ HandleWeatherBallAndTerrainPulseAnimation::
 
 ; ===========================================================================
 
+; single source of current BP actually used in damage calc
+; used by both GetDamageVarsFor[Player/Enemy]Attack and the move-info printer (PrintMenuItem)
+; input:  d = raw move power (from the move struct), hWhoseTurn set
+; output: d = effective base power
+; clobbers: a, bc, e, hl
+GetEffectiveBasePower::
+	call BasePowerModifierMoves
+	ldh a, [hWhoseTurn]
+	and a
+	jr nz, .enemy
+	call BasePowerModifierWeatherTerrain_Player
+	ld a, [wPlayerMoveNum]
+	jr .gyroFlail
+.enemy
+	call BasePowerModifierWeatherTerrain_Enemy
+	ld a, [wEnemyMoveNum]
+.gyroFlail
+	cp GYRO_BALL
+	jp z, CalculateGyroBallBasePower
+	cp FLAIL
+	ret nz
+	jp CalculateFlailBasePower
+
+; ===========================================================================
+
 BasePowerModifierMoves::
 	ld bc, wPlayerMoveNum
 	ld hl, wEnemyMonMinimized
@@ -842,7 +867,7 @@ BasePowerModifierMoves::
 	ret z
 ; user uses STOMP and target is minimized
 .doubleBasePowerAndRet
-	rl d
+	sla d
 	ret
 
 ; here we don't need bc nor hl anymore, we can overwrite them
