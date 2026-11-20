@@ -3,14 +3,15 @@ DetermineIfWildMonIsDeltaSpecies::
 ;    jr .deltaSpeciesEncounter
 
     CheckEvent EVENT_IN_SEVII
-    jr z, .kanto
-; sevii
-    jr .notDeltaSpeciesEncounter
-
-.kanto
+    jr nz, .notDeltaSpeciesEncounter
+; kanto
     ld a, [wEnemyMonSpecies2]
     cp MEW
     jr z, .notDeltaSpeciesEncounter
+; can the species actually be delta? Relevant with randomization
+    ld d, a
+    callfar CheckIfMonHasDeltaSpecies
+    jr nc, .notDeltaSpeciesEncounter
 ; check Kanto maps: are we in the Secluded Atoll?
     ld a, [wCurMap]
     cp SECLUDED_ATOLL_NE
