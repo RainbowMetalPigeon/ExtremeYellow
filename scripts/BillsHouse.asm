@@ -437,61 +437,61 @@ BillsHouseText4_RP:
 	jr nz, .flareon
 ; let's give mons
 	lb bc, EEVEE, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .flareon
 	jp .done
 .flareon
 	lb bc, FLAREON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .vaporeon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_FLAREON
 	jp .done
 .vaporeon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_FLAREON
 	lb bc, VAPOREON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .jolteon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_VAPOREON
 	jp .done
 .jolteon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_VAPOREON
 	lb bc, JOLTEON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .espeon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_JOLTEON
 	jr .done
 .espeon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_JOLTEON
 	lb bc, ESPEON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .umbreon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_ESPEON
 	jr .done
 .umbreon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_ESPEON
 	lb bc, UMBREON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .leafeon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_UMBREON
 	jr .done
 .leafeon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_UMBREON
 	lb bc, LEAFEON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .glaceon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_LEAFEON
 	jr .done
 .glaceon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_LEAFEON
 	lb bc, GLACEON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .sylveon
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_GLACEON
 	jr .done
 .sylveon
 	ResetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_GLACEON
 	lb bc, SYLVEON, 15
-	call GivePokemon
+	call BillsHouseGiveStolenMon
 	jr c, .complete
 	SetEvent EVENT_RP_EEVOLUTIONS_STOLEN_FAILED_SYLVEON
 	jr .done
@@ -503,6 +503,10 @@ BillsHouseText4_RP:
 	call PrintText
 .done ; script handling
 	jp TextScriptEnd
+
+BillsHouseGiveStolenMon: ; new
+	SetEvent EVENT_RP_STEALING_BILLS_POKEMON
+	jp GivePokemon
 
 BillsHouseSnatchEverythingText:: ; new
 	text_far _BillsHouseSnatchEverythingText

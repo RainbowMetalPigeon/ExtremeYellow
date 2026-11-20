@@ -99,6 +99,9 @@ _GivePokemon::
 	scf
 	ret
 .boxFull
+	ResetEvent EVENT_RP_STEALING_POKEMON ; new, don't leak the flags to the next mon
+	ResetEvent EVENT_RP_STEALING_BILLS_POKEMON ; new
+	ResetEvent EVENT_GIVING_SOCRATES_MON ; new
 	ld hl, BoxIsFullText
 	call PrintText
 	and a

@@ -462,6 +462,7 @@ FightingDojoText_KarateMaster_RP_TheShame:
 FightingDojoText6_RP:
 ; Hitmonlee Poké Ball
 	text_asm
+	SetEvent EVENT_RP_STEALING_POKEMON ; new
 	ld b, HITMONLEE
 	ld c, 35 ; new, increased levels for the gift hitmons
 	call GivePokemon
@@ -477,6 +478,7 @@ FightingDojoText6_RP:
 FightingDojoText7_RP:
 ; Hitmonchan Poké Ball
 	text_asm
+	SetEvent EVENT_RP_STEALING_POKEMON ; new
 	ld b, HITMONCHAN
 	ld c, 35 ; new, increased levels for the gift hitmons
 	call GivePokemon
@@ -492,6 +494,7 @@ FightingDojoText7_RP:
 FightingDojoText8_RP:
 ; Hitmontop Poké Ball
 	text_asm
+	SetEvent EVENT_RP_STEALING_POKEMON ; new
 	ld b, HITMONTOP
 	ld c, 35 ; new, increased levels for the gift hitmons
 	call GivePokemon

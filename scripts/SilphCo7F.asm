@@ -614,6 +614,7 @@ SilphCo7Text1_RP:
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	SetEvent EVENT_RP_STEALING_POKEMON ; new
 	lb bc, PORYGON, 35
 	call GivePokemon
 	jp nc, TextScriptEnd

@@ -68,8 +68,18 @@ _AddPartyMon::
 	push hl
 	CheckEvent EVENT_RP_STEALING_POKEMON
 	pop hl
-	jr z, .checkOaksPikachu
+	jr z, .checkBillsMon
 	ld hl, LoserNameForRPStolenMon
+	jr .vanilla
+.checkBillsMon ; new, Bill's mons stolen in RP get OT BILL
+	CheckEvent EVENT_RP_STEALING_BILLS_POKEMON
+	jr z, .checkSocratesMon
+	ld hl, BillNameForRPStolenMon
+	jr .vanilla
+.checkSocratesMon ; new, Monji gets OT SOCRATE
+	CheckEvent EVENT_GIVING_SOCRATES_MON
+	jr z, .checkOaksPikachu
+	ld hl, SocrateNameForMonji
 	jr .vanilla
 .checkOaksPikachu
 ; new, to give STARTER_PIKACHU the OT of SAMUEL
@@ -274,11 +284,29 @@ _AddPartyMon::
 	push hl
 	CheckEvent EVENT_RP_STEALING_POKEMON
 	pop hl
-	jr z, .checkSamulesPikachuForID
+	jr z, .checkBillsMonForID
 	ld a, $29
 	ld [de], a
 	inc de
 	ld a, $2A
+	ld [de], a
+	jr .doneWithSpecialID
+.checkBillsMonForID ; new, Bill's mons stolen in RP get ID 00010
+	CheckEvent EVENT_RP_STEALING_BILLS_POKEMON
+	jr z, .checkSocratesMonForID
+	xor a
+	ld [de], a
+	inc de
+	ld a, 10
+	ld [de], a
+	jr .doneWithSpecialID
+.checkSocratesMonForID ; new, Monji gets ID 03991
+	CheckEvent EVENT_GIVING_SOCRATES_MON
+	jr z, .checkSamulesPikachuForID
+	ld a, HIGH(3991)
+	ld [de], a
+	inc de
+	ld a, LOW(3991)
 	ld [de], a
 	jr .doneWithSpecialID
 .checkSamulesPikachuForID
@@ -306,6 +334,8 @@ _AddPartyMon::
 ; new
 	push hl
 	ResetEvent EVENT_RP_STEALING_POKEMON
+	ResetEvent EVENT_RP_STEALING_BILLS_POKEMON
+	ResetEvent EVENT_GIVING_SOCRATES_MON
 	pop hl
 ; BTV
 	push de
@@ -648,7 +678,9 @@ _MoveMon::
 
 SamuelNameForPikachu: db "SAMUEL @" ; new, with a space to make it harder for players to emulate it
 
-LoserNameForRPStolenMon: db "LOSER @" ; new
+LoserNameForRPStolenMon: db "LOSER  @" ; new
+BillNameForRPStolenMon:  db "BILL   @" ; new
+SocrateNameForMonji:     db "SOCRATE@" ; new
 
 ; =======================================================================
 

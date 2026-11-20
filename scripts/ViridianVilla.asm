@@ -46,6 +46,7 @@ ViridianVilla_Text1:
 ; take Monji
 	ld hl, ViridianVilla_Text1_GotMonji
 	call PrintText
+	SetEvent EVENT_GIVING_SOCRATES_MON ; new
 	SetEvent EVENT_GIVING_GUARANTEED_SHINY_MON
 	SetEvent EVENT_SPECIAL_MONJI_RENAMING
 	ld c, 50
@@ -244,6 +245,7 @@ ViridianVilla_Text1_RP:
 ; take Monji
 	ld hl, ViridianVilla_Text1_GotMonji_RP
 	call PrintText
+	SetEvent EVENT_GIVING_SOCRATES_MON ; new
 	SetEvent EVENT_GIVING_GUARANTEED_SHINY_MON
 	SetEvent EVENT_SPECIAL_MONJI_RENAMING
 	ld c, 50

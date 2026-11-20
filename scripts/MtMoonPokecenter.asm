@@ -100,6 +100,7 @@ MtMoonPokecenterText8_RP:
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	SetEvent EVENT_RP_STEALING_POKEMON ; new
 	lb bc, MAGIKARP, 5
 	call GivePokemon
 	jp nc, TextScriptEnd

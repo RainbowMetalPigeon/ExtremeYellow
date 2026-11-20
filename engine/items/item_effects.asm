@@ -4127,6 +4127,22 @@ SendNewMonToBox:
 	jr nz, .loop2
 .skip
 	ld hl, wPlayerName
+; new for RP: stolen mons get OT LOSER
+	CheckEvent EVENT_RP_STEALING_POKEMON
+	jr z, .checkBillsMonOT
+	ld hl, LoserNameForRPStolenMon2
+	jr .gotOTName
+.checkBillsMonOT ; Bill's mons get OT BILL
+	CheckEvent EVENT_RP_STEALING_BILLS_POKEMON
+	jr z, .checkSocratesMonOT
+	ld hl, BillNameForRPStolenMon2
+	jr .gotOTName
+.checkSocratesMonOT ; Monji gets OT SOCRATE
+	CheckEvent EVENT_GIVING_SOCRATES_MON
+	jr z, .gotOTName
+	ld hl, SocrateNameForMonji2
+.gotOTName
+; BTV
 	ld de, wBoxMonOT
 	ld bc, NAME_LENGTH
 	call CopyData
@@ -4200,6 +4216,38 @@ SendNewMonToBox:
 	ld de, wBoxMon1
 	ld bc, wEnemyMonDVs - wEnemyMon
 	call CopyData
+; new for RP: stolen mons get ID 10538
+	CheckEvent EVENT_RP_STEALING_POKEMON
+	jr z, .checkBillsMonID
+	ld a, $29
+	ld [de], a
+	inc de
+	ld a, $2A
+	ld [de], a
+	inc de
+	jr .doneWithID
+.checkBillsMonID ; Bill's mons get ID 00010
+	CheckEvent EVENT_RP_STEALING_BILLS_POKEMON
+	jr z, .checkSocratesMonID
+	xor a
+	ld [de], a
+	inc de
+	ld a, 10
+	ld [de], a
+	inc de
+	jr .doneWithID
+.checkSocratesMonID ; Monji gets ID 03991
+	CheckEvent EVENT_GIVING_SOCRATES_MON
+	jr z, .playerID
+	ld a, HIGH(3991)
+	ld [de], a
+	inc de
+	ld a, LOW(3991)
+	ld [de], a
+	inc de
+	jr .doneWithID
+.playerID
+; BTV
 	ld hl, wPlayerID
 	ld a, [hli]
 	ld [de], a
@@ -4207,6 +4255,7 @@ SendNewMonToBox:
 	ld a, [hl]
 	ld [de], a
 	inc de
+.doneWithID ; new
 	push de
 	ld a, [wCurEnemyLVL]
 	ld d, a
@@ -4244,7 +4293,18 @@ SendNewMonToBox:
 	jr nz, .loop6
 	ld a, [wOpponentMonShiny] ; new, for the shiny
 	ld [wBoxMon1CatchRate], a
+; new for RP
+	push hl
+	ResetEvent EVENT_RP_STEALING_POKEMON
+	ResetEvent EVENT_RP_STEALING_BILLS_POKEMON
+	ResetEvent EVENT_GIVING_SOCRATES_MON
+	pop hl
+; BTV
 	ret
+
+LoserNameForRPStolenMon2: db "LOSER  @" ; new, copy of the one in add_mon (different bank)
+BillNameForRPStolenMon2:  db "BILL   @" ; new, copy of the one in add_mon (different bank)
+SocrateNameForMonji2:     db "SOCRATE@" ; new, copy of the one in add_mon (different bank)
 
 ; checks if the tile in front of the player is a shore or water tile
 ; used for surfing and fishing

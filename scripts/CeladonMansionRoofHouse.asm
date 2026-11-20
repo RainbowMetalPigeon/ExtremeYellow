@@ -17,6 +17,12 @@ CeladonMansion5Text1:
 
 CeladonMansion5Text2:
 	text_asm
+; new for RP: the Eevee is stolen
+	CheckEvent EVENT_ROCKET_PATH
+	jr z, .notRP
+	SetEvent EVENT_RP_STEALING_POKEMON
+.notRP
+; BTV
 	lb bc, EEVEE, 25
 	call GivePokemon
 	jr nc, .party_full

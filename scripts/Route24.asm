@@ -502,6 +502,7 @@ Route24Text8_RP: ; new for RP
 	call GetMonName
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	SetEvent EVENT_RP_STEALING_POKEMON ; new
 	lb bc, CHARMANDER, 15
 	call GivePokemon
 	jp nc, TextScriptEnd
