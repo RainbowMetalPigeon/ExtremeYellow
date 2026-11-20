@@ -4258,27 +4258,29 @@ IsNextTileShoreOrWater::
 	ld hl, DeepWaterTile ; new
 	ld a, [wCurMapTileset] ; edited
 	cp OVERWORLD ; new
-	jr z, .skipShoreTiles ; new
+	jr z, .gotTilesOfInterest ; new
 	cp OVERWORLD_SEVII ; new
-	jr z, .skipShoreTiles ; new
+	jr z, .gotTilesOfInterest ; new
 	ld hl, WaterTile
 	cp SHIP_PORT ; Vermilion Dock tileset
-	jr z, .skipShoreTiles ; if it's the Vermilion Dock tileset
+	jr z, .gotTilesOfInterest ; if it's the Vermilion Dock tileset
 	cp GYM ; eastern shore tile in Safari Zone
-	jr z, .skipShoreTiles
+	jr z, .gotTilesOfInterest
 	cp DOJO ; usual eastern shore tile
-	jr z, .skipShoreTiles
+	jr z, .gotTilesOfInterest
 	cp POKECENTER ; new
-	jr z, .skipShoreTiles
+	jr z, .gotTilesOfInterest
+	cp FACILITY ; new
+	jr z, .gotTilesOfInterest
 ; new
 	cp CAVERN
 	jr nz, .vanilla
 	ld hl, ShoreTilesCavern
-	jr .skipShoreTiles
+	jr .gotTilesOfInterest
 .vanilla
 ; BTV
 	ld hl, ShoreTiles
-.skipShoreTiles
+.gotTilesOfInterest
 	ld a, [wTileInFrontOfPlayer]
 	ld de, $1
 	call IsInArray
