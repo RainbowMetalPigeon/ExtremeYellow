@@ -72,7 +72,7 @@ TransformEffect_:
 ; species
 	ld a, [hl]
 	ld [de], a
-; type 1, type 2, catch rate, and moves
+; type 1, type 2, and moves (no more catch rate)
 	ld bc, $5
 	add hl, bc
 	inc de
@@ -80,9 +80,21 @@ TransformEffect_:
 	inc de
 	inc de
 	inc de
-	inc bc
-	inc bc
+; edited for Transform shiny/delta/start glitch
+; type 1, type 2
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+; skip catch rate aka shiny/delta/star-ness
+	inc hl
+	inc de
+; moves
+	ld bc, NUM_MOVES
 	call CopyData
+; BTV
 	ldh a, [hWhoseTurn]
 	and a
 	jr z, .next

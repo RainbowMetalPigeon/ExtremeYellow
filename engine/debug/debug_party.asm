@@ -16,7 +16,7 @@ DebugTeam:
 	db MZYGARDE, 100
 	db MGENGAR, 100
 	db STARTER_PIKACHU, 100
-;	db PORYGON, 100
+	db DITTO, 80
 ;	db KABUTO, 100
 ;	db MEW, 100
 	db -1 ; end
@@ -92,35 +92,35 @@ IF DEF(_DEBUG)
 	ld [hl], a
 
 ; moves to other members
-	ld a, THUNDER_WAVE
-	ld hl, wPartyMon4Moves
-	ld [hli], a
-	ld a, REST
-	ld [hli], a
-	ld a, DOUBLE_TEAM
-	ld [hli], a
-	ld a, MIMIC
-	ld [hl], a
-
-	ld a, PERISH_SONG
-	ld hl, wPartyMon5Moves
-	ld [hli], a
-	ld a, CURSE
-	ld [hli], a
-	ld a, TOXIC_SPIKES
-	ld [hli], a
-	ld a, CONFUSE_RAY
-	ld [hl], a
-
-	ld a, WHIRLWIND
-	ld hl, wPartyMon6Moves
-	ld [hli], a
-	ld a, ROOST
-	ld [hli], a
-	ld a, CONFUSE_RAY
-	ld [hli], a
-	ld a, METRONOME
-	ld [hl], a
+;	ld a, STEALTH_ROCK
+;	ld hl, wPartyMon4Moves
+;	ld [hli], a
+;	ld a, REST
+;	ld [hli], a
+;	ld a, DOUBLE_TEAM
+;	ld [hli], a
+;	ld a, MIMIC
+;	ld [hl], a
+;
+;	ld a, PERISH_SONG
+;	ld hl, wPartyMon5Moves
+;	ld [hli], a
+;	ld a, CURSE
+;	ld [hli], a
+;	ld a, TOXIC_SPIKES
+;	ld [hli], a
+;	ld a, CONFUSE_RAY
+;	ld [hl], a
+;
+;	ld a, WHIRLWIND
+;	ld hl, wPartyMon6Moves
+;	ld [hli], a
+;	ld a, ROOST
+;	ld [hli], a
+;	ld a, CONFUSE_RAY
+;	ld [hli], a
+;	ld a, METRONOME
+;	ld [hl], a
 
 	; Pikachu get transformed into Starter Pikachu
 	ld de, wPartyMon3OT
@@ -212,7 +212,7 @@ IF DEF(_DEBUG)
 	ld [hl], a ; hl = wPlayerStarter
 
 	; Select gender: 0 male, 1 female, 2 enby
-	ld a, 1
+	ld a, 2
 	ld [wPlayerGender], a
 
 	; Give max money.
@@ -333,7 +333,7 @@ IF DEF(_DEBUG)
 ;	SetEvent EVENT_SEVII_UNDERGROUND_BUTTON_PRESSED_SEVEN
 ;	callfar HideUndegroundGuard.hideGuards
 
-;	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
+	SetEvent EVENT_BEAT_LEAGUE_AT_LEAST_ONCE
 
 ;	SetEvent EVENT_BEAT_ALL_GYMS_REMATCH
 ;	SetEvent EVENT_BEAT_CHAMPION_FINAL_REMATCH
