@@ -341,6 +341,11 @@ INCLUDE "engine/events/saffron_guards.asm"
 ;INCLUDE "engine/events/starter_dex.asm"
 
 
+SECTION "Save Slot Menu", ROMX ; new, moved out of bank1 which is full
+
+INCLUDE "engine/menus/save_slot_menu.asm"
+
+
 SECTION "Traveler functions", ROMX ; new, testing
 
 INCLUDE "engine/miscellanea/traveler.asm"

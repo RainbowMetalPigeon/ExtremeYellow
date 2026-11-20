@@ -299,6 +299,7 @@ INCLUDE "text/MrPsychicsHouse.asm"
 INCLUDE "text/MrFujisHouse.asm"
 INCLUDE "text/Route25.asm"
 INCLUDE "text/CinnabarLabFossilRoom.asm"
+INCLUDE "data/text/text_save_slots.asm" ; new
 
 
 SECTION "Text Extra 14", ROMX ; new

@@ -326,54 +326,8 @@ CheckForPlayerNameInSRAM:
 ; new for multi save slots ===========
 
 MainMenu_ChooseSaveSlot::
-	call ClearScreen
-	call UpdateSprites
-	call Delay3
-
-	call LoadTextBoxTilePatterns
-	call LoadFontTilePatterns
-
-	hlcoord 2, 2
-	ld de, ChooseSaveSlotText
-	call PlaceString
-
-	hlcoord 5, 4
-	lb bc, 9, 8
-	call TextBoxBorder
-
-	hlcoord 7, 6
-	ld de, SaveSlotMenuText
-	call PlaceString
-
-	ld a, 3 ; Maximum number of items (-1)
-	ld [wMaxMenuItem], a
-	ld a, 6
-	ld [wTopMenuItemY], a
-	ld a, 6
-	ld [wTopMenuItemX], a
-	xor a
-	ld [wCurrentMenuItem], a
-	ld [wLastMenuItem], a
-	ld a, A_BUTTON | B_BUTTON
-	ld [wMenuWatchedKeys], a
-
-	call HandleMenuInput
-
-	bit BIT_B_BUTTON, a
-	jp nz, DisplayTitleScreen ; if so, go back to the title screen
-
-	ld a, [wCurrentMenuItem]
-	ld [wCurrentSaveSlot], a
-
+; the menu itself lives in engine/menus/save_slot_menu.asm (bank1 is full)
+	call InitOptions ; text speed for the START info text; MainMenu calls it again anyway
+	callfar MainMenu_ChooseSaveSlot_
+	jp c, DisplayTitleScreen ; B was pressed: go back to the title screen
 	jp MainMenu
-
-; ----------------------
-
-ChooseSaveSlotText:
-	db "CHOOSE SAVE SLOT:@"
-
-SaveSlotMenuText:
-	db   "SLOT 1"
-	next "SLOT 2"
-	next "SLOT 3"
-	next "SLOT 4@"
