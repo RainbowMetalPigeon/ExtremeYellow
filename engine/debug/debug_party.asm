@@ -462,7 +462,7 @@ DebugItemsList:
 	db MASTER_BALL, 11
 	db STEAL_BALL, 99
 	db MEGA_STONE_Y, 99
-;	db SLEEP_BAG, 1
+	db SLEEP_BAG, 1
 	db PERFECTER, 99
 	db GOLD_TEETH, 1
 	db FULL_RESTORE, 99
