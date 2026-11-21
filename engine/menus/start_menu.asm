@@ -59,23 +59,10 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	ld a, [wCurrentMenuItem]
 	ld [wBattleAndStartSavedMenuItem], a ; save current menu selection
 	ld a, b
+
 ; new for Right
 	bit BIT_D_RIGHT, a
 	jr z, .checkSelect
-	CheckEvent EVENT_CONSTAREPEL_TOGGLE
-	jr z, .setConstaRepelToggle
-	ResetEvent EVENT_CONSTAREPEL_TOGGLE
-	jr .concludeConstaRepelToggle
-.setConstaRepelToggle
-	SetEvent EVENT_CONSTAREPEL_TOGGLE
-.concludeConstaRepelToggle
-	callfar PrintToggleConstaRepelWindow
-	jr .loop
-.checkSelect
-	ld a, b
-; new for Select
-	and SELECT
-	jr z, .checkStartAB
 	CheckEvent EVENT_RUN_TOGGLE
 	jr z, .setRunToggle
 	ResetEvent EVENT_RUN_TOGGLE
@@ -84,7 +71,23 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	SetEvent EVENT_RUN_TOGGLE
 .concludeRunToggle
 	callfar PrintToggleRunWindow
+	jr .loop
+
+.checkSelect
+	ld a, b
+; new for Select
+	and SELECT
+	jr z, .checkStartAB
+	CheckEvent EVENT_CONSTAREPEL_TOGGLE
+	jr z, .setConstaRepelToggle
+	ResetEvent EVENT_CONSTAREPEL_TOGGLE
+	jr .concludeConstaRepelToggle
+.setConstaRepelToggle
+	SetEvent EVENT_CONSTAREPEL_TOGGLE
+.concludeConstaRepelToggle
+	callfar PrintToggleConstaRepelWindow
 	jp .loop
+
 .checkStartAB
 	ld a, b
 ; BTV

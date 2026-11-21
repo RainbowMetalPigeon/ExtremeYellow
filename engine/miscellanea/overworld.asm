@@ -982,11 +982,11 @@ Bar60MinsText: ; new
 
 PrintToggleRunWindow::
 ; border
-	hlcoord  0, 15
+	hlcoord  0, 12
 	lb bc, 1, 8 ; height, width
 	call TextBoxBorder
 ; print static string
-	hlcoord  1, 16
+	hlcoord  1, 13
 	ld de, ToggleRunText1
 	call PlaceString
 ; print dynamic string
@@ -995,10 +995,10 @@ PrintToggleRunWindow::
 	jr nz, .stringFound
 	ld de, ToggleRunOffText
 .stringFound
-	hlcoord  6, 16
+	hlcoord  6, 13
 	call PlaceString
 ; banner over the bottom border, tiles loaded by LoadStartMenuToggleTiles
-	hlcoord  2, 17
+	hlcoord  2, 14
 	ld de, ToggleRunBannerTiles
 	jp PlaceString
 
@@ -1006,7 +1006,7 @@ ToggleRunText1:
 	db "RUN: @"
 
 ToggleRunBannerTiles:
-	db $C0, $C1, $C2, $C3, $C4, $C5, "@"
+	db $C6, $C7, $C8, $C9, $D9, $DA, "@"
 
 ToggleRunOnText:
 	db "ON @"
@@ -1018,11 +1018,11 @@ ToggleRunOffText:
 
 PrintToggleConstaRepelWindow::
 ; border
-	hlcoord  0, 12
+	hlcoord  0, 15
 	lb bc, 1, 8 ; height, width
 	call TextBoxBorder
 ; print static string
-	hlcoord  1, 13
+	hlcoord  1, 16
 	ld de, ToggleConstaRepelText1
 	call PlaceString
 ; print dynamic string
@@ -1031,10 +1031,10 @@ PrintToggleConstaRepelWindow::
 	jr nz, .stringFound
 	ld de, ToggleRunOnText
 .stringFound
-	hlcoord  6, 13
+	hlcoord  6, 16
 	call PlaceString
 ; banner over the bottom border, tiles loaded by LoadStartMenuToggleTiles
-	hlcoord  2, 14
+	hlcoord  2, 17
 	ld de, ToggleConstaRepelBannerTiles
 	jp PlaceString
 
@@ -1042,7 +1042,7 @@ ToggleConstaRepelText1:
 	db "WILD:@"
 
 ToggleConstaRepelBannerTiles:
-	db $C6, $C7, $C8, $C9, $D9, $DA, "@"
+	db $C0, $C1, $C2, $C3, $C4, $C5, "@"
 
 ; ===========================================================
 
