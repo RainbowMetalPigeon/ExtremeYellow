@@ -8,6 +8,6 @@ SeviiSevenIslandGym2DiveCavern_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 15, 15, SPRITE_POKE_BALL, STAY, NONE, 6, MAX_REVIVE
+	object_event 15, 15, SPRITE_POKE_BALL, STAY, NONE, 1, MAX_REVIVE
 
 	def_warps_to SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN
