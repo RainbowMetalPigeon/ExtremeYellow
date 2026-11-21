@@ -14,6 +14,7 @@ HandleBagAndFlags_SSIG2:
     bit 5, [hl]
     res 5, [hl]
     ret z
+	ResetEvent EVENT_CONSTAREPEL_TOGGLE
 	SetEvent EVENT_BATTLE_CAN_BE_LOST
 	CheckAndResetEvent EVENT_SEVII_JUST_ENTERED_SEVEN_GYM
 	ret z

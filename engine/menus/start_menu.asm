@@ -54,12 +54,12 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	ld [wCurrentMenuItem], a
 	call EraseMenuCursor
 	jr .loop
-.buttonPressed ; A, B, or Start button pressed ; edited: or Select
+.buttonPressed ; A, B, or Start button pressed ; edited: or Select or Right
 ;	call PlaceUnfilledArrowMenuCursor ; why? edited away
 	ld a, [wCurrentMenuItem]
 	ld [wBattleAndStartSavedMenuItem], a ; save current menu selection
-	ld a, b
 
+	ld a, b
 ; new for Right
 	bit BIT_D_RIGHT, a
 	jr z, .checkSelect
@@ -74,6 +74,14 @@ RedisplayStartMenu_DoNotDrawStartMenu::
 	jr .loop
 
 .checkSelect
+	call AreWeInSeviiSevenShrine ; z flag if yes
+	jr nz, .normalSelectCheck
+; special Select check for Sevii Seven Shrine
+	ld a, b
+	and SELECT
+	jr z, .checkStartAB
+	jp .loop
+.normalSelectCheck
 	ld a, b
 ; new for Select
 	and SELECT
@@ -130,3 +138,20 @@ CloseStartMenu::
 	jr nz, CloseStartMenu
 	call LoadTextBoxTilePatterns
 	jp CloseTextDisplay
+
+AreWeInSeviiSevenShrine:: ; z flag if yes
+	CheckEvent EVENT_IN_SEVII
+	jr z, .kanto
+; sevii
+	ld a, [wCurMap]
+	cp SEVII_SEVEN_ISLAND_GYM_2
+	ret z
+	cp SEVII_SEVEN_ISLAND_GYM_2_DIVE
+	ret z
+	cp SEVII_SEVEN_ISLAND_GYM_2_DIVE_CAVERN
+	ret z
+	cp SEVII_SEVEN_ISLAND_GYM_3
+	ret
+.kanto
+	rla ; just to reset the z flag (nz)
+	ret

@@ -1034,6 +1034,9 @@ PrintToggleConstaRepelWindow::
 	hlcoord  6, 16
 	call PlaceString
 ; banner over the bottom border, tiles loaded by LoadStartMenuToggleTiles
+; avoid printing it if we can't toggle this
+	callfar AreWeInSeviiSevenShrine ; z flag if yes
+	ret z
 	hlcoord  2, 17
 	ld de, ToggleConstaRepelBannerTiles
 	jp PlaceString
