@@ -164,8 +164,10 @@ InGameTrade_DoTrade:
 	scf
 .tradeSucceeded
 	ld [wInGameTradeTextPointerTableIndex], a
+	push af ; to preserve the flag
 	xor a                     ; new, for the shiny
 	ld [wOpponentMonShiny], a ; new, for the shiny
+	pop af
 	ret
 
 InGameTrade_RestoreScreen:: ; testing double colon
