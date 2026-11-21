@@ -202,7 +202,7 @@ NewGameText:
 	next "OPTION@"
 
 VersionText: ; new: to be updated on each release
-	db "V2.0 Beta6@"
+	db "V2.0@"
 
 DisplayContinueGameInfo:
 	xor a
