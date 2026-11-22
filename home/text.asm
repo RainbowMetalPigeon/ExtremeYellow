@@ -232,6 +232,14 @@ Paragraph::
 	call ManualTextScroll
 	hlcoord 1, 13
 	lb bc, 4, 18
+; new: the less-tall text box has its top border on row 13, so don't clear it
+	ldh a, [hUILayoutFlags]
+	bit BIT_LESS_TALL_TEXT_BOX, a
+	jr z, .clear
+	hlcoord 1, 14
+	lb bc, 3, 18
+.clear
+; back to vanilla
 	call ClearScreenArea
 	ld c, 20
 	call DelayFrames
@@ -312,6 +320,15 @@ ScrollTextUpOneLine::
 	hlcoord 0, 14 ; top row of text
 	decoord 0, 13 ; empty line above text
 	ld b, SCREEN_WIDTH * 3
+; new: the less-tall text box has its top border on row 13,
+; so only move rows 15-16 up into rows 14-15
+	ldh a, [hUILayoutFlags]
+	bit BIT_LESS_TALL_TEXT_BOX, a
+	jr z, .copyText
+	hlcoord 0, 15
+	decoord 0, 14
+	ld b, SCREEN_WIDTH * 2
+; back to vanilla
 .copyText
 	ld a, [hli]
 	ld [de], a

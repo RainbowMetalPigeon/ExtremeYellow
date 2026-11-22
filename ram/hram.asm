@@ -400,6 +400,9 @@ hClearLetterPrintingDelayFlags:: db
 
 ; bit 0: draw HP fraction to the right of bar instead of below (for party menu)
 ; bit 1: menu is double spaced
+; bit 2: <NEXT> advances one row instead of two
+; bit 3: <PAGE>/<ATPG> act as <NEXT>
+; bit 4: less-tall text box (BIT_LESS_TALL_TEXT_BOX), new
 hUILayoutFlags:: db
 
 hFieldMoveMonMenuTopMenuItemX:: db

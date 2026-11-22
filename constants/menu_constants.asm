@@ -67,6 +67,10 @@ DEF CANCELLED_MENU    EQU 2 ; pressed B
 DEF CHOSE_FIRST_ITEM  EQU 1
 DEF CHOSE_SECOND_ITEM EQU 2
 
+; new: hUILayoutFlags bit for the less-tall text box (top border on row 13
+; instead of 12); makes Paragraph and ScrollTextUpOneLine leave row 13 alone
+DEF BIT_LESS_TALL_TEXT_BOX EQU 4
+
 ; move mon constants
 	const_def
 	const BOX_TO_PARTY     ; 0
