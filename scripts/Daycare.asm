@@ -499,11 +499,8 @@ DayCareText2:
 	jp TextScriptEnd
 
 DayCareCheckAndTakeStrongMon:
-; save the pointer
-	ld a, h
-	ld [wArrayForTemporaryStorage], a
-	ld a, l
-	ld [wArrayForTemporaryStorage+1], a
+; pre-save the pointer because InGameTrade_RestoreScreen overwrites wArrayForTemporaryStorage
+	push hl
 ; print the menu
 	call SaveScreenTilesToBuffer2
 	xor a ; NORMAL_PARTY_MENU
@@ -514,6 +511,13 @@ DayCareCheckAndTakeStrongMon:
 	push af
 	callfar InGameTrade_RestoreScreen ; this includes LoadScreenTilesFromBuffer2
 	pop af
+; save the pointer
+	pop hl
+	ld a, h
+	ld [wArrayForTemporaryStorage], a
+	ld a, l
+	ld [wArrayForTemporaryStorage+1], a
+; continue
 	ld hl, DayCareText2_ChoseToGiveNoMon
 	jr c, .setUpToEndAndPrint
 ; load the stats of the mon
@@ -552,7 +556,6 @@ DayCareCheckAndTakeStrongMon:
 	ld hl, DayCareText2_OnlyOneMon
 	jr z, .setUpToEndAndPrint
 ; remove the mon
-	ld a, [wWhichPokemon]
 	xor a
 	ld [wMonDataLocation], a ; not used
 	ld [wRemoveMonFromBox], a
