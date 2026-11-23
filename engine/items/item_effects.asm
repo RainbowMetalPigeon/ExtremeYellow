@@ -1418,6 +1418,11 @@ ItemUsePokedex:
 	predef_jump ShowPokedexMenu
 
 ItemUseEvoStone:
+; new
+	ld a, [wPartyCount]
+	and a
+	jp z, FailItemUsageBecauseEmptyParty
+; BTV
 	ld a, [wIsInBattle]
 	and a
 	jp nz, ItemUseNotTime
@@ -1547,7 +1552,7 @@ ItemUseVitamin:
 ItemUseMedicine:
 	ld a, [wPartyCount]
 	and a
-	jp z, Func_e4bf
+	jp z, FailItemUsageBecauseEmptyParty
 	ld a, [wWhichPokemon]
 	push af
 	ld a, [wcf91]
@@ -3689,7 +3694,7 @@ ItemUseNotYoursToUse:
 	ld hl, ItemUseNotYoursToUseText
 	jr ItemUseFailed
 
-Func_e4bf:
+FailItemUsageBecauseEmptyParty:
 	ld a, $2
 	ld [wActionResultOrTookBattleTurn], a
 	ld hl, DontHavePokemonText
